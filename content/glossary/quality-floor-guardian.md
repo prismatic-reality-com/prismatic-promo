@@ -34,7 +34,7 @@ image_alt = "Quality Floor Guardian - Prismatic Platform"
 
 ## Definition and Overview
 
-The Quality Floor Guardian is an autonomous monitoring system that continuously tracks the Prismatic Platform's quality score and prevents regression below defined thresholds. It operates as a sentinel process within the `prismatic_safety` application, consuming [Telemetry](/glossary/telemetry/) events from across all 115 umbrella applications and triggering progressively stronger interventions when quality metrics approach or breach defined floor levels. The Guardian embodies the principle that quality scores should only move upward -- any downward movement indicates a problem that requires immediate attention.
+The Quality Floor Guardian is an autonomous monitoring system that continuously tracks the Prismatic Platform's quality score and prevents regression below defined thresholds. It operates as a sentinel process within the `prismatic_safety` application, consuming [Telemetry](@/glossary/telemetry.md) events from across all 115 umbrella applications and triggering progressively stronger interventions when quality metrics approach or breach defined floor levels. The Guardian embodies the principle that quality scores should only move upward -- any downward movement indicates a problem that requires immediate attention.
 
 Traditional quality monitoring is reactive: teams discover quality degradation after it has already occurred, often during code review or CI pipeline execution. The Quality Floor Guardian inverts this model by proactively monitoring quality signals in real time, detecting degradation trends before they manifest as violations, and automatically triggering remediation actions. It operates at four enforcement levels, from passive monitoring at optimal quality through emergency commit blocking when quality degrades critically.
 
@@ -44,7 +44,7 @@ The current platform quality score is 100/100 with all 13 quality domains passin
 
 ## Historical Context
 
-The Quality Floor Guardian was conceived during Generation 12 of the platform's evolution, when a series of quality regressions exposed a fundamental gap in the quality assurance workflow. Individual quality checks ([Credo](/glossary/credo/), [Dialyzer](/glossary/dialyzer/), compilation warnings, test coverage) were enforced at commit time through pre-commit hooks, but there was no system watching the aggregate quality trajectory between commits. A developer could make several small changes, each passing individual quality checks, that collectively degraded the platform's overall quality posture.
+The Quality Floor Guardian was conceived during Generation 12 of the platform's evolution, when a series of quality regressions exposed a fundamental gap in the quality assurance workflow. Individual quality checks ([Credo](@/glossary/credo.md), [Dialyzer](@/glossary/dialyzer.md), compilation warnings, test coverage) were enforced at commit time through pre-commit hooks, but there was no system watching the aggregate quality trajectory between commits. A developer could make several small changes, each passing individual quality checks, that collectively degraded the platform's overall quality posture.
 
 The first version of the Guardian was a simple GenServer that polled quality metrics every 5 minutes and logged warnings when scores dropped. Over successive generations, it evolved into the four-level enforcement system with predictive capabilities, risk pattern detection, and automated healing integration. The addition of the SEADF (Self-Evolving Autonomous Defense Framework) healing trigger in Generation 15 enabled the Guardian to not just detect regressions but initiate automated remediation.
 
@@ -332,7 +332,7 @@ end
 
 ### Auto-Evolution Trigger
 
-When the quality score enters CRITICAL range, the Guardian automatically activates the [SEADF](/glossary/seadf/) healing subsystem:
+When the quality score enters CRITICAL range, the Guardian automatically activates the [SEADF](@/glossary/seadf.md) healing subsystem:
 
 ```elixir
 defmodule PrismaticSafety.AutoEvolutionTrigger do
@@ -384,16 +384,16 @@ The Guardian subscribes to multiple Telemetry event streams across the platform:
 | Event Path | Source | Purpose |
 |-----------|--------|---------|
 | `[:prismatic, :compilation, :warning]` | Mix compiler | Compilation warning detection |
-| `[:prismatic, :credo, :violation]` | [Credo](/glossary/credo/) analysis | Static analysis violation tracking |
-| `[:prismatic, :dialyzer, :error]` | [Dialyzer](/glossary/dialyzer/) | Type violation monitoring |
+| `[:prismatic, :credo, :violation]` | [Credo](@/glossary/credo.md) analysis | Static analysis violation tracking |
+| `[:prismatic, :dialyzer, :error]` | [Dialyzer](@/glossary/dialyzer.md) | Type violation monitoring |
 | `[:prismatic, :test, :failure]` | ExUnit | Test failure detection |
-| `[:prismatic, :quality_dna, :saved]` | [Quality DNA](/glossary/quality-dna/) | DNA update coordination |
+| `[:prismatic, :quality_dna, :saved]` | [Quality DNA](@/glossary/quality-dna.md) | DNA update coordination |
 | `[:prismatic, :session_lifecycle, :*]` | SessionLifecycle | Session boundary awareness |
 | `[:prismatic, :quality_floor, :level_change]` | Self | Level transition tracking |
 
 ### Supervision Tree Position
 
-The Guardian runs under the `prismatic_safety` [supervision tree](/glossary/supervision-tree/) with a `:permanent` restart strategy, ensuring it is always running:
+The Guardian runs under the `prismatic_safety` [supervision tree](@/glossary/supervision-tree.md) with a `:permanent` restart strategy, ensuring it is always running:
 
 ```
 PrismaticSafety.Supervisor (one_for_one)
@@ -405,7 +405,7 @@ PrismaticSafety.Supervisor (one_for_one)
     +-- PrismaticSafety.PredictiveMonitor (permanent)
 ```
 
-If the Guardian process crashes, the supervisor restarts it immediately. The Guardian re-initializes by reading the latest [Quality DNA](/glossary/quality-dna/) snapshot, ensuring continuity of monitoring state across restarts.
+If the Guardian process crashes, the supervisor restarts it immediately. The Guardian re-initializes by reading the latest [Quality DNA](@/glossary/quality-dna.md) snapshot, ensuring continuity of monitoring state across restarts.
 
 ### Emergency Response Protocol
 
@@ -413,7 +413,7 @@ When quality drops below 95%, the Guardian activates emergency protocols:
 
 1. **Immediate commit blocking**: Writes a `.quality-emergency` flag file that pre-commit hooks check before allowing any commit
 2. **L4 Supreme escalation**: Emits a high-priority Telemetry event triggering Supreme Commander notification
-3. **Full AutoEvolve mega cycle**: Runs the most comprehensive [evolution](/glossary/autoevolve/) and healing pipeline
+3. **Full AutoEvolve mega cycle**: Runs the most comprehensive [evolution](@/glossary/autoevolve.md) and healing pipeline
 4. **Incident logging**: Records the emergency event with full diagnostic context for post-mortem analysis
 
 ### Predictive Quality Monitoring
@@ -557,7 +557,7 @@ In Phase 7, the pre-commit hook checks for the `.quality-emergency` flag file. I
 
 - **Ignoring WARNING-level alerts**: The most common failure mode. WARNING means quality is between 98-99%, which seems acceptable but represents a trajectory toward failure if unchecked.
 
-- **Confusing Guardian monitoring with Quality Gates enforcement**: The Guardian monitors continuously; [Quality Gates](/glossary/quality-gates/) enforce at commit time. They complement each other but serve different functions.
+- **Confusing Guardian monitoring with Quality Gates enforcement**: The Guardian monitors continuously; [Quality Gates](@/glossary/quality-gates.md) enforce at commit time. They complement each other but serve different functions.
 
 - **Not updating risk pattern definitions**: The Guardian's risk patterns are static unless updated. New anti-patterns or vulnerability categories must be added as they are discovered.
 
@@ -565,23 +565,23 @@ In Phase 7, the pre-commit hook checks for the `.quality-emergency` flag file. I
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement pipeline monitored by the Guardian
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality state persistence
-- [Quality Debt](/glossary/quality-debt/) -- Tracked debt points monitored for regression
-- [Telemetry](/glossary/telemetry/) -- Event system powering Guardian real-time monitoring
-- [SEADF](/glossary/seadf/) -- Evolution framework triggered by Guardian alerts
-- [Self-Healing](/glossary/self-healing/) -- Automated remediation activated by the Guardian
-- [AutoHeal](/glossary/autoheal/) -- Healing subsystem invoked during CRITICAL/EMERGENCY levels
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP tree managing Guardian process lifecycle
-- [GenServer](/glossary/genserver/) -- OTP behaviour implementing the Guardian process
-- [Credo](/glossary/credo/) -- Static analysis tool whose violations the Guardian tracks
-- [Dialyzer](/glossary/dialyzer/) -- Type checker whose errors the Guardian monitors
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement pipeline monitored by the Guardian
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality state persistence
+- [Quality Debt](@/glossary/quality-debt.md) -- Tracked debt points monitored for regression
+- [Telemetry](@/glossary/telemetry.md) -- Event system powering Guardian real-time monitoring
+- [SEADF](@/glossary/seadf.md) -- Evolution framework triggered by Guardian alerts
+- [Self-Healing](@/glossary/self-healing.md) -- Automated remediation activated by the Guardian
+- [AutoHeal](@/glossary/autoheal.md) -- Healing subsystem invoked during CRITICAL/EMERGENCY levels
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP tree managing Guardian process lifecycle
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour implementing the Guardian process
+- [Credo](@/glossary/credo.md) -- Static analysis tool whose violations the Guardian tracks
+- [Dialyzer](@/glossary/dialyzer.md) -- Type checker whose errors the Guardian monitors
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory including prismatic_safety
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory including prismatic_safety
 
 ---
 
@@ -590,4 +590,4 @@ In Phase 7, the pre-commit hook checks for the `.quality-emergency` flag file. I
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,17 +24,17 @@ image_alt = "/perimeter - Prismatic Platform"
 
 ## Overview
 
-**/perimeter** is the primary production command in the **Perimeter** category of the Prismatic Platform, providing the central dashboard and command interface for External [Attack Surface](/glossary/attack-surface/) Management (EASM). This command serves as the entry point for all perimeter security operations, offering a unified view of an organization's internet-facing assets, their security posture, compliance status, and risk exposure across the entire external footprint.
+**/perimeter** is the primary production command in the **Perimeter** category of the Prismatic Platform, providing the central dashboard and command interface for External [Attack Surface](@/glossary/attack-surface.md) Management (EASM). This command serves as the entry point for all perimeter security operations, offering a unified view of an organization's internet-facing assets, their security posture, compliance status, and risk exposure across the entire external footprint.
 
-The Perimeter module represents one of the platform's most strategically significant capabilities, competing directly with commercial EASM vendors such as BitSight, SecurityScorecard, and Black Kite. By integrating EASM functionality within the broader Prismatic intelligence ecosystem, the `/perimeter` command delivers contextual security intelligence that standalone EASM products cannot match. Asset discoveries feed into [OSINT](/glossary/osint/) investigations, security ratings inform compliance assessments, and risk findings correlate with threat intelligence -- all within a single operational workflow.
+The Perimeter module represents one of the platform's most strategically significant capabilities, competing directly with commercial EASM vendors such as BitSight, SecurityScorecard, and Black Kite. By integrating EASM functionality within the broader Prismatic intelligence ecosystem, the `/perimeter` command delivers contextual security intelligence that standalone EASM products cannot match. Asset discoveries feed into [OSINT](@/glossary/osint.md) investigations, security ratings inform compliance assessments, and risk findings correlate with threat intelligence -- all within a single operational workflow.
 
-This command operates under the **L2+** authority level and is executed by the `perimeter-scanner` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The `/perimeter` command acts as the orchestration hub for all sub-commands in the Perimeter category, including [/perimeter-assets](/commands/perimeter-assets/), [/perimeter-compliance](/commands/perimeter-compliance/), and [/perimeter-easm](/commands/perimeter-easm/).
+This command operates under the **L2+** authority level and is executed by the `perimeter-scanner` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The `/perimeter` command acts as the orchestration hub for all sub-commands in the Perimeter category, including [/perimeter-assets](@/commands/perimeter-assets.md), [/perimeter-compliance](@/commands/perimeter-compliance.md), and [/perimeter-easm](@/commands/perimeter-easm.md).
 
-The dashboard presents key [metrics](/glossary/metrics/) at a glance: total discovered assets, overall security rating (A-F with numeric score 300-900), compliance posture against [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/), critical findings requiring immediate attention, and trend indicators showing security posture changes over time. This executive-level overview enables rapid situational awareness while providing drill-down paths to detailed analysis through the specialized sub-commands.
+The dashboard presents key [metrics](@/glossary/metrics.md) at a glance: total discovered assets, overall security rating (A-F with numeric score 300-900), compliance posture against [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md), critical findings requiring immediate attention, and trend indicators showing security posture changes over time. This executive-level overview enables rapid situational awareness while providing drill-down paths to detailed analysis through the specialized sub-commands.
 
 ## Architecture
 
-The Perimeter dashboard architecture is built on the [Prismatic Perimeter](/apps/prismatic-perimeter/) OTP application, which manages the full lifecycle of external attack surface monitoring through a supervision tree of specialized worker processes.
+The Perimeter dashboard architecture is built on the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) OTP application, which manages the full lifecycle of external attack surface monitoring through a supervision tree of specialized worker processes.
 
 ```
 /perimeter Command
@@ -158,17 +158,17 @@ The `/perimeter` command follows different execution paths depending on the oper
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Core Application | Full EASM engine and data layer |
-| [Prismatic Web](/apps/prismatic-web/) | Dashboard | LiveView page at `/perimeter` route |
-| [/perimeter-assets](/commands/perimeter-assets/) | Sub-command | Detailed asset management |
-| [/perimeter-compliance](/commands/perimeter-compliance/) | Sub-command | Regulatory compliance assessment |
-| [/perimeter-easm](/commands/perimeter-easm/) | Sub-command | Advanced EASM with security ratings |
-| [/investigate](/commands/investigate/) | Cross-domain | Feed discovered assets into OSINT |
-| [Prismatic Storage](/apps/prismatic-storage/) | Persistence | Asset history, findings, trends |
-| [Telemetry](/glossary/telemetry/) | Observability | Dashboard render times, scan metrics |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `perimeter-scanner` agent orchestration |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Core Application | Full EASM engine and data layer |
+| [Prismatic Web](@/apps/prismatic-web.md) | Dashboard | LiveView page at `/perimeter` route |
+| [/perimeter-assets](@/commands/perimeter-assets.md) | Sub-command | Detailed asset management |
+| [/perimeter-compliance](@/commands/perimeter-compliance.md) | Sub-command | Regulatory compliance assessment |
+| [/perimeter-easm](@/commands/perimeter-easm.md) | Sub-command | Advanced EASM with security ratings |
+| [/investigate](@/commands/investigate.md) | Cross-domain | Feed discovered assets into OSINT |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Persistence | Asset history, findings, trends |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Dashboard render times, scan metrics |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `perimeter-scanner` agent orchestration |
 
-The `/perimeter` command also serves as a navigation hub within the LiveView interface. The dashboard page includes links to all Perimeter sub-views: asset inventory (`/perimeter/assets`), compliance dashboard (`/perimeter/compliance`), and advanced EASM dashboard (`/perimeter/easm`). These routes are implemented as Phoenix LiveView pages within the [Prismatic Web](/apps/prismatic-web/) application.
+The `/perimeter` command also serves as a navigation hub within the LiveView interface. The dashboard page includes links to all Perimeter sub-views: asset inventory (`/perimeter/assets`), compliance dashboard (`/perimeter/compliance`), and advanced EASM dashboard (`/perimeter/easm`). These routes are implemented as Phoenix LiveView pages within the [Prismatic Web](@/apps/prismatic-web.md) application.
 
 ## Best Practices
 
@@ -178,7 +178,7 @@ The `/perimeter` command also serves as a navigation hub within the LiveView int
 
 **Use the Executive View for Stakeholder Communication**: The `--view executive` option renders a board-friendly summary with clear risk indicators, trend arrows, and plain-language descriptions. This view is designed for non-technical stakeholders who need to understand security posture without deep technical context.
 
-**Correlate with Intelligence**: The Perimeter module is most powerful when used in conjunction with the Intelligence commands. Discovered assets can be fed into [/investigate](/commands/investigate/) for deeper OSINT analysis, creating a comprehensive intelligence picture that no standalone EASM tool can match.
+**Correlate with Intelligence**: The Perimeter module is most powerful when used in conjunction with the Intelligence commands. Discovered assets can be fed into [/investigate](@/commands/investigate.md) for deeper OSINT analysis, creating a comprehensive intelligence picture that no standalone EASM tool can match.
 
 **Maintain Baseline Discipline**: Export a baseline report after each significant remediation effort. This creates an audit trail of security improvements and provides evidence for compliance assessments and management reporting.
 
@@ -231,19 +231,19 @@ curl https://prismatic-prod.fly.dev/api/v1/perimeter/security_rating?domain=exam
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Asset discovery must be thorough -- no known discovery technique is skipped. Security ratings are never inflated. Findings are reported without minimization.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every discovered asset is verified before inclusion in the inventory. Security ratings are derived from observed evidence, not assumptions. The [NABLA](/glossary/nabla-infinity/) framework's Signal Plurality axiom ensures that findings are corroborated across multiple data sources.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every discovered asset is verified before inclusion in the inventory. Security ratings are derived from observed evidence, not assumptions. The [NABLA](@/glossary/nabla-infinity.md) framework's Signal Plurality axiom ensures that findings are corroborated across multiple data sources.
 
 ## Related Commands
 
-- [/perimeter-assets](/commands/perimeter-assets/) - Asset inventory with domain, IP, certificate discovery
-- [/perimeter-compliance](/commands/perimeter-compliance/) - [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) compliance assessment with gap analysis
-- [/perimeter-easm](/commands/perimeter-easm/) - Advanced EASM dashboard with [security rating](/glossary/security-rating/)s (A-F)
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/perimeter-assets](@/commands/perimeter-assets.md) - Asset inventory with domain, IP, certificate discovery
+- [/perimeter-compliance](@/commands/perimeter-compliance.md) - [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) compliance assessment with gap analysis
+- [/perimeter-easm](@/commands/perimeter-easm.md) - Advanced EASM dashboard with [security rating](@/glossary/security-rating.md)s (A-F)
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -252,4 +252,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

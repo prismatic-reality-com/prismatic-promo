@@ -194,4 +194,4 @@ The pattern is simple: define your data as Elixir structures, load them into ETS
 
 ---
 
-*Explore the [Architecture Documentation](/architecture/) for more patterns or try the [Interactive Academy](/academy/) for hands-on exercises with ETS.*
+*Explore the [Architecture Documentation](@/architecture/_index.md) for more patterns or try the [Interactive Academy](@/academy/_index.md) for hands-on exercises with ETS.*

@@ -24,11 +24,11 @@ image_alt = "/monte-carlo - Prismatic Platform"
 
 ## Overview
 
-**/monte-carlo** is a production command in the **[Formal Verification](/glossary/formal-verification/)** category of the Prismatic Platform that executes Monte Carlo simulations for probabilistic analysis, risk assessment, and uncertainty quantification. Monte Carlo methods use repeated random sampling to obtain numerical results for problems that may be deterministic in principle but are too complex for analytical solutions. Within the Prismatic Platform, this command provides the probabilistic layer of the QEVE (Quantitative Evidence Verification Engine) framework, complementing [Lean4](/glossary/lean4/) formal proofs and [NABLA](/glossary/nabla-infinity/) epistemic validation.
+**/monte-carlo** is a production command in the **[Formal Verification](@/glossary/formal-verification.md)** category of the Prismatic Platform that executes Monte Carlo simulations for probabilistic analysis, risk assessment, and uncertainty quantification. Monte Carlo methods use repeated random sampling to obtain numerical results for problems that may be deterministic in principle but are too complex for analytical solutions. Within the Prismatic Platform, this command provides the probabilistic layer of the QEVE (Quantitative Evidence Verification Engine) framework, complementing [Lean4](@/glossary/lean4.md) formal proofs and [NABLA](@/glossary/nabla-infinity.md) epistemic validation.
 
-This command operates under the **L2+** authority level and is executed by the `monte-carlo-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level makes Monte Carlo simulations broadly accessible to platform operators while requiring elevated clearance for simulations that consume significant compute resources.
+This command operates under the **L2+** authority level and is executed by the `monte-carlo-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level makes Monte Carlo simulations broadly accessible to platform operators while requiring elevated clearance for simulations that consume significant compute resources.
 
-Monte Carlo simulation is fundamental to several critical platform functions. In M&A analysis through [/ma-analyze](/commands/ma-analyze/), Monte Carlo simulations model financial outcomes under uncertainty -- projecting revenue distributions, synergy realization probabilities, and deal NPV ranges. In the [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM system, simulations model attack probability distributions and vulnerability exploitation timelines. In the [NABLA](/glossary/nabla-infinity/) epistemic framework, simulations validate confidence calibration by testing whether stated confidence levels match observed outcome frequencies.
+Monte Carlo simulation is fundamental to several critical platform functions. In M&A analysis through [/ma-analyze](@/commands/ma-analyze.md), Monte Carlo simulations model financial outcomes under uncertainty -- projecting revenue distributions, synergy realization probabilities, and deal NPV ranges. In the [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) EASM system, simulations model attack probability distributions and vulnerability exploitation timelines. In the [NABLA](@/glossary/nabla-infinity.md) epistemic framework, simulations validate confidence calibration by testing whether stated confidence levels match observed outcome frequencies.
 
 The platform's Monte Carlo engine leverages Elixir's BEAM concurrency model to execute simulations with massive parallelism. Each simulation trial runs as a lightweight Elixir process, enabling millions of trials per second on modern hardware. The engine supports configurable distribution types (normal, log-normal, uniform, triangular, custom), correlation structures between variables, convergence detection, and variance reduction techniques including stratified sampling and antithetic variates.
 
@@ -189,15 +189,15 @@ The Monte Carlo engine is structured as a parallel simulation framework with con
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `monte-carlo-specialist` | Simulation orchestration |
-| [/ma-analyze](/commands/ma-analyze/) | Financial modeling | DCF valuations with uncertainty |
-| [Prismatic Perimeter](/glossary/prismatic-perimeter/) | Risk modeling | Attack probability simulations |
-| [NABLA Framework](/glossary/nabla-infinity/) | Confidence calibration | Epistemic validation simulations |
-| [/lean](/commands/lean/) | Formal proofs | QEVE framework integration |
-| [/formal-verify](/commands/formal-verify/) | Verification | Probabilistic property verification |
-| [Quality Gates](/glossary/quality-gates/) | Quality modeling | System reliability simulations |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Simulation performance tracking |
-| [/prolog](/commands/prolog/) | Logical reasoning | Model constraint validation |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `monte-carlo-specialist` | Simulation orchestration |
+| [/ma-analyze](@/commands/ma-analyze.md) | Financial modeling | DCF valuations with uncertainty |
+| [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) | Risk modeling | Attack probability simulations |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Confidence calibration | Epistemic validation simulations |
+| [/lean](@/commands/lean.md) | Formal proofs | QEVE framework integration |
+| [/formal-verify](@/commands/formal-verify.md) | Verification | Probabilistic property verification |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality modeling | System reliability simulations |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Simulation performance tracking |
+| [/prolog](@/commands/prolog.md) | Logical reasoning | Model constraint validation |
 
 ## Best Practices
 
@@ -278,19 +278,19 @@ Integrate Monte Carlo simulation with live data feeds.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Simulations run to completion or convergence. Partial results from interrupted simulations are not reported as valid. Statistical summaries include confidence intervals.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Monte Carlo provides quantitative evidence for uncertainty claims. Sensitivity analysis identifies which assumptions matter most. Convergence verification ensures that results are statistically stable.
 
 ## Related Commands
 
-- [/lean](/commands/lean/) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
-- [/prolog](/commands/prolog/) - Prolog-based logical reasoning and [inference](/glossary/inference/) operations
-- [/formal-verify](/commands/formal-verify/) - Formal verification of system properties and invariants
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/lean](@/commands/lean.md) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
+- [/prolog](@/commands/prolog.md) - Prolog-based logical reasoning and [inference](@/glossary/inference.md) operations
+- [/formal-verify](@/commands/formal-verify.md) - Formal verification of system properties and invariants
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -299,4 +299,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

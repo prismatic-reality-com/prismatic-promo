@@ -24,9 +24,9 @@ image_alt = "/quality-gates - Prismatic Platform"
 
 ## Overview
 
-**/quality-gates** is a production command in the **Quality** category of the Prismatic Platform. It enforces a comprehensive set of quality gate checkpoints that every code change must pass before being accepted into the codebase. The gates cover compilation warnings, [Credo](/glossary/credo/) static analysis, Dialyzer type checking, test execution, typespec coverage, memory safety patterns, and 13 total quality domains. The command operates at **BLOCKING** authority level, meaning it can halt commits, merge requests, and deployments when quality standards are not met.
+**/quality-gates** is a production command in the **Quality** category of the Prismatic Platform. It enforces a comprehensive set of quality gate checkpoints that every code change must pass before being accepted into the codebase. The gates cover compilation warnings, [Credo](@/glossary/credo.md) static analysis, Dialyzer type checking, test execution, typespec coverage, memory safety patterns, and 13 total quality domains. The command operates at **BLOCKING** authority level, meaning it can halt commits, merge requests, and deployments when quality standards are not met.
 
-This command is executed by the `quality-gate-enforcer` agent and represents the primary enforcement mechanism of the platform's quality infrastructure. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The BLOCKING authority level is the highest enforcement authority in the quality system, giving this command absolute veto power over any code change that fails to meet standards.
+This command is executed by the `quality-gate-enforcer` agent and represents the primary enforcement mechanism of the platform's quality infrastructure. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The BLOCKING authority level is the highest enforcement authority in the quality system, giving this command absolute veto power over any code change that fails to meet standards.
 
 The quality gate system evolved from early compilation checks into a comprehensive 13-domain quality enforcement framework. Each domain has specific metrics, thresholds, and detection rules. The platform currently maintains a 100/100 quality score with zero violations across all domains, a state achieved through systematic application of quality gates over hundreds of evolution cycles.
 
@@ -196,14 +196,14 @@ The fourth stage evaluates overall quality health:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/quality-unified](/commands/quality-unified/) | Peer | Unified quality interface delegates to gates |
-| [/quality-evolve](/commands/quality-evolve/) | Consumer | Evolution validated through gates |
-| [/quality-hbfs](/commands/quality-hbfs/) | Peer | HBFS prioritization informs gate focus |
-| [/quality-enforce](/commands/quality-enforce/) | Peer | Enforcement policies drive gate thresholds |
-| [/regression-check](/commands/regression-check/) | Component | Regression checks are a gate stage 2 component |
-| [Pre-commit Hook](/glossary/pre-commit-hooks/) | Caller | Git pre-commit invokes `--pre-commit` mode |
-| [CI/CD Pipeline](/glossary/gitlab-ci/) | Caller | GitLab CI invokes `--ci` mode |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Gate execution metrics and trends |
+| [/quality-unified](@/commands/quality-unified.md) | Peer | Unified quality interface delegates to gates |
+| [/quality-evolve](@/commands/quality-evolve.md) | Consumer | Evolution validated through gates |
+| [/quality-hbfs](@/commands/quality-hbfs.md) | Peer | HBFS prioritization informs gate focus |
+| [/quality-enforce](@/commands/quality-enforce.md) | Peer | Enforcement policies drive gate thresholds |
+| [/regression-check](@/commands/regression-check.md) | Component | Regression checks are a gate stage 2 component |
+| [Pre-commit Hook](@/glossary/pre-commit-hooks.md) | Caller | Git pre-commit invokes `--pre-commit` mode |
+| [CI/CD Pipeline](@/glossary/gitlab-ci.md) | Caller | GitLab CI invokes `--ci` mode |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Gate execution metrics and trends |
 
 ## Best Practices
 
@@ -277,21 +277,21 @@ Analyze quality gate results over time:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Gate failures are absolute: no code passes through a failed gate.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every gate verdict includes specific evidence for the pass/fail decision.
 
 ## Related Commands
 
-- [/quality-unified](/commands/quality-unified/) - Unified quality command with quick, full, pre-commit and CI modes
-- [/quality-evolve](/commands/quality-evolve/) - Quality-focused evolution targeting specific quality domains
-- [/quality-hbfs](/commands/quality-hbfs/) - Hottest-bug-first search for quality assessment prioritization
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/verify-patterns](/commands/verify-patterns/) - Pattern matching audit for file, module or entire codebase
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
+- [/quality-unified](@/commands/quality-unified.md) - Unified quality command with quick, full, pre-commit and CI modes
+- [/quality-evolve](@/commands/quality-evolve.md) - Quality-focused evolution targeting specific quality domains
+- [/quality-hbfs](@/commands/quality-hbfs.md) - Hottest-bug-first search for quality assessment prioritization
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/verify-patterns](@/commands/verify-patterns.md) - Pattern matching audit for file, module or entire codebase
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
 
 ---
 
@@ -300,4 +300,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

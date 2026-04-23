@@ -242,9 +242,9 @@ Stub detection is automated and non-bypassable:
 ## Cross-References
 
 - **Forbidden Patterns** - Scanner that detects and blocks stubs
-- [Quality Gates](/glossary/quality-gates/) - Enforcement system including stub detection
-- [Behaviour](/glossary/behaviour/) - Contract mechanism that stubs violate
-- [NO MERCY](/glossary/no-mercy/) - Doctrine requiring complete, production-ready code
+- [Quality Gates](@/glossary/quality-gates.md) - Enforcement system including stub detection
+- [Behaviour](@/glossary/behaviour.md) - Contract mechanism that stubs violate
+- [NO MERCY](@/glossary/no-mercy.md) - Doctrine requiring complete, production-ready code
 
 ---
 

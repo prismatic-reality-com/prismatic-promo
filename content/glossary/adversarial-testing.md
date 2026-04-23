@@ -369,24 +369,24 @@ Adversarial testing exercises train response teams, validate detection capabilit
 
 ## Related Concepts
 
-- [Penetration Testing](/glossary/penetration-testing/) - Focused technical security assessment that adversarial testing extends and encompasses
-- [Red Team](/glossary/red-team/) - Dedicated adversarial simulation team within the Color Team framework
-- [Blue Team](/glossary/blue-team/) - Defensive counterpart that validates and responds to adversarial findings
-- [Vulnerability](/glossary/vulnerability/) - The weaknesses and flaws that adversarial testing aims to discover
-- [OWASP](/glossary/owasp/) - Industry standard framework providing adversarial testing methodologies
-- [Attack Surface](/glossary/attack-surface/) - The total set of points where adversarial testing applies pressure
-- [Threat Assessment](/glossary/threat-assessment/) - Risk analysis that prioritizes adversarial testing targets
-- [Security Modeling](/glossary/security-modeling/) - Formal representation of security properties verified through adversarial testing
-- [Defensive Security](/glossary/defensive-security/) - The protective measures validated by adversarial testing results
-- [Adversarial Thinking](/glossary/adversarial-thinking/) - The cognitive framework underlying effective adversarial testing
+- [Penetration Testing](@/glossary/penetration-testing.md) - Focused technical security assessment that adversarial testing extends and encompasses
+- [Red Team](@/glossary/red-team.md) - Dedicated adversarial simulation team within the Color Team framework
+- [Blue Team](@/glossary/blue-team.md) - Defensive counterpart that validates and responds to adversarial findings
+- [Vulnerability](@/glossary/vulnerability.md) - The weaknesses and flaws that adversarial testing aims to discover
+- [OWASP](@/glossary/owasp.md) - Industry standard framework providing adversarial testing methodologies
+- [Attack Surface](@/glossary/attack-surface.md) - The total set of points where adversarial testing applies pressure
+- [Threat Assessment](@/glossary/threat-assessment.md) - Risk analysis that prioritizes adversarial testing targets
+- [Security Modeling](@/glossary/security-modeling.md) - Formal representation of security properties verified through adversarial testing
+- [Defensive Security](@/glossary/defensive-security.md) - The protective measures validated by adversarial testing results
+- [Adversarial Thinking](@/glossary/adversarial-thinking.md) - The cognitive framework underlying effective adversarial testing
 
 ## See Also
 
-- [Security Assessment](/glossary/security-assessment/) - Broader evaluation framework incorporating adversarial testing
-- [Security Audit](/glossary/audit-logging/) - Compliance-focused review complementing adversarial testing
-- [Adversarial Simulation](/glossary/adversarial-simulation/) - Automated execution of adversarial test scenarios
-- [Security Rating](/glossary/security-rating/) - Quantified output of adversarial assessment in Prismatic Perimeter
-- [Adversarial Architecture](/glossary/adversarial-architecture/) - System design principles informed by adversarial testing results
+- [Security Assessment](@/glossary/security-assessment.md) - Broader evaluation framework incorporating adversarial testing
+- [Security Audit](@/glossary/audit-logging.md) - Compliance-focused review complementing adversarial testing
+- [Adversarial Simulation](@/glossary/adversarial-simulation.md) - Automated execution of adversarial test scenarios
+- [Security Rating](@/glossary/security-rating.md) - Quantified output of adversarial assessment in Prismatic Perimeter
+- [Adversarial Architecture](@/glossary/adversarial-architecture.md) - System design principles informed by adversarial testing results
 
 ---
 
@@ -395,4 +395,4 @@ Adversarial testing exercises train response teams, validate detection capabilit
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

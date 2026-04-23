@@ -26,7 +26,7 @@ Color Teams implement epistemic security through adversarial-defensive synthesis
 
 The Color Team architecture is modeled on military red-team/blue-team exercises but extends the concept to cover the full spectrum of epistemic operations. Gray Team explores boundary conditions. Red Team simulates adversarial attacks. Blue Team defends and monitors. Purple Team synthesizes Red and Blue findings into closed-loop improvements. White Team provides formal constructive verification. Black Team models theoretical worst-case threats in maximum isolation. Together, these six teams create a continuous adversarial-defensive cycle that hardens the platform against both known and novel threats.
 
-The 20 agents across all six teams operate under strict AIAD specifications with tier-appropriate authority levels, mandatory safety protocols, and full [NABLA Axioms](/capabilities/nabla-axioms/) compliance. Every finding, every simulation, every proof is traceable through the platform's provenance system and passes through the [Trinity Gate](/capabilities/trinity-gate/) verification pipeline.
+The 20 agents across all six teams operate under strict AIAD specifications with tier-appropriate authority levels, mandatory safety protocols, and full [NABLA Axioms](@/capabilities/nabla-axioms.md) compliance. Every finding, every simulation, every proof is traceable through the platform's provenance system and passes through the [Trinity Gate](@/capabilities/trinity-gate.md) verification pipeline.
 
 ## Signal Flow Architecture
 
@@ -42,7 +42,7 @@ Gray (boundary seeds) --> Red (adversarial scenarios) --> Purple (synthesis)
                                                         White (proofs) +
 ```
 
-This signal flow is not sequential -- teams operate concurrently with asynchronous message passing. Gray findings may trigger immediate Red scenarios while previous Red findings are still being synthesized by Purple. The architecture leverages [Elixir](/technologies/elixir/)/OTP's concurrency model to maintain multiple overlapping security cycles simultaneously.
+This signal flow is not sequential -- teams operate concurrently with asynchronous message passing. Gray findings may trigger immediate Red scenarios while previous Red findings are still being synthesized by Purple. The architecture leverages [Elixir](@/technologies/elixir.md)/OTP's concurrency model to maintain multiple overlapping security cycles simultaneously.
 
 ## Gray Team -- Boundary Exploration
 
@@ -105,7 +105,7 @@ Red Team simulates epistemic attacks using five adversarial primitives. All exec
 
 **Agents**: 4 | **Classification**: L2-L3 | **Mode**: Continuous monitoring
 
-Blue Team maintains the platform's defensive posture through evidence synthesis, drift detection, and boundary monitoring. Blue agents produce structured evidence reports, not alerts. This distinction is critical: alerts are actionable only when contextually interpreted, while evidence reports provide the raw material for informed decision-making under the [NABLA Axioms](/capabilities/nabla-axioms/) framework.
+Blue Team maintains the platform's defensive posture through evidence synthesis, drift detection, and boundary monitoring. Blue agents produce structured evidence reports, not alerts. This distinction is critical: alerts are actionable only when contextually interpreted, while evidence reports provide the raw material for informed decision-making under the [NABLA Axioms](@/capabilities/nabla-axioms.md) framework.
 
 | Agent | Tier | Role | Key Capability |
 |-------|------|------|----------------|
@@ -197,7 +197,7 @@ False closure detection is a critical Purple Team function. If any of the four c
 
 **Agents**: 3 | **Classification**: L3-L4 | **Mode**: Formal verification
 
-White Team proves that systems hold through progressive verification methodology spanning five levels. White agents produce evidence artifacts, never modify targets. All output passes through the [Trinity Gate](/capabilities/trinity-gate/).
+White Team proves that systems hold through progressive verification methodology spanning five levels. White agents produce evidence artifacts, never modify targets. All output passes through the [Trinity Gate](@/capabilities/trinity-gate.md).
 
 | Agent | Tier | Role | Key Capability |
 |-------|------|------|----------------|
@@ -261,17 +261,17 @@ Black Team operates in maximum isolation to model worst-case adversarial optimiz
 
 ## Integration
 
-- Governed by [NABLA Axioms](/capabilities/nabla-axioms/) for all epistemic operations and belief formation
-- Verified through [Trinity Gate](/capabilities/trinity-gate/) for all White Team proof artifacts
-- Organized under [AIAD Standard](/capabilities/aiad-standard/) with full specification coverage for all 20 agents
-- Compliance enforced by [AIAD Compliance](/capabilities/aiad-compliance/) with tier-appropriate authority boundaries
-- Monitored by [Real-Time Monitoring](/capabilities/real-time-monitoring/) for team operation metrics
-- Tracked by [Telemetry Integration](/capabilities/telemetry-integration/) for cross-team signal flow performance
-- Blue Team drift detection triggers [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) cycles
-- Quality enforced by [NO MERCY](/capabilities/no-mercy/) zero-tolerance standards across all teams
-- Evidence standards enforced by [NO DOUBTS](/capabilities/no-doubts/) for all findings and assessments
-- Supports [Intelligence Synthesis](/capabilities/intelligence-synthesis/) security validation for OSINT pipelines
-- [Quality Gates](/capabilities/quality-gates/) integrated into Purple Team deployment gates
+- Governed by [NABLA Axioms](@/capabilities/nabla-axioms.md) for all epistemic operations and belief formation
+- Verified through [Trinity Gate](@/capabilities/trinity-gate.md) for all White Team proof artifacts
+- Organized under [AIAD Standard](@/capabilities/aiad-standard.md) with full specification coverage for all 20 agents
+- Compliance enforced by [AIAD Compliance](@/capabilities/aiad-compliance.md) with tier-appropriate authority boundaries
+- Monitored by [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) for team operation metrics
+- Tracked by [Telemetry Integration](@/capabilities/telemetry-integration.md) for cross-team signal flow performance
+- Blue Team drift detection triggers [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) cycles
+- Quality enforced by [NO MERCY](@/capabilities/no-mercy.md) zero-tolerance standards across all teams
+- Evidence standards enforced by [NO DOUBTS](@/capabilities/no-doubts.md) for all findings and assessments
+- Supports [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) security validation for OSINT pipelines
+- [Quality Gates](@/capabilities/quality-gates.md) integrated into Purple Team deployment gates
 
 ---
 
@@ -280,4 +280,4 @@ Black Team operates in maximum isolation to model worst-case adversarial optimiz
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

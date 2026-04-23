@@ -36,11 +36,11 @@ image_alt = "Security Audit - Prismatic Platform"
 
 ## Definition
 
-A **security audit** is a formal, systematic examination of an organization's security controls, policies, procedures, and technical implementations against a defined set of standards, regulations, or best practices. Unlike broader [security assessments](/glossary/security-assessment/) that evaluate overall posture, a security audit produces a definitive compliance determination -- pass or fail, compliant or non-compliant -- against specific, enumerated criteria.
+A **security audit** is a formal, systematic examination of an organization's security controls, policies, procedures, and technical implementations against a defined set of standards, regulations, or best practices. Unlike broader [security assessments](@/glossary/security-assessment.md) that evaluate overall posture, a security audit produces a definitive compliance determination -- pass or fail, compliant or non-compliant -- against specific, enumerated criteria.
 
-Security audits serve as the evidentiary foundation for trust. They answer the question: "Can we demonstrate, with verifiable evidence, that our security controls meet the requirements we are obligated to satisfy?" This evidence-based approach aligns directly with the Prismatic Platform's [NABLA infinity](/glossary/quality-evidence-truth/) epistemic framework, which demands provenance and plurality for all claims.
+Security audits serve as the evidentiary foundation for trust. They answer the question: "Can we demonstrate, with verifiable evidence, that our security controls meet the requirements we are obligated to satisfy?" This evidence-based approach aligns directly with the Prismatic Platform's [NABLA infinity](@/glossary/quality-evidence-truth.md) epistemic framework, which demands provenance and plurality for all claims.
 
-In the Prismatic Platform, security auditing is implemented as an automated, continuous process rather than a periodic manual exercise. The platform's [quality gates](/glossary/quality-gate/), [pre-commit hooks](/glossary/pre-commit-hooks/), [Color Team](/glossary/blue-team/) verification, and [audit logging](/glossary/audit-logging/) infrastructure collectively create an always-auditable system where compliance is enforced at every stage of the development and deployment lifecycle.
+In the Prismatic Platform, security auditing is implemented as an automated, continuous process rather than a periodic manual exercise. The platform's [quality gates](@/glossary/quality-gate.md), [pre-commit hooks](@/glossary/pre-commit-hooks.md), [Color Team](@/glossary/blue-team.md) verification, and [audit logging](@/glossary/audit-logging.md) infrastructure collectively create an always-auditable system where compliance is enforced at every stage of the development and deployment lifecycle.
 
 ## Overview
 
@@ -48,7 +48,7 @@ The discipline of security auditing has its roots in financial auditing -- the c
 
 Traditional security audits suffer from fundamental structural problems. They are periodic (typically annual), creating a compliance window where controls may degrade between audits. They are manual, relying on auditor sampling that can miss systematic failures. They are expensive, consuming significant organizational resources for preparation, execution, and remediation. And they produce point-in-time attestations that may not reflect the organization's actual security posture at the moment a stakeholder relies on them.
 
-The Prismatic Platform addresses these limitations through continuous, automated auditing that treats every code change, every deployment, and every configuration modification as an auditable event. The [no-mercy-no-doubts](/glossary/no-mercy-no-doubts/) doctrine eliminates the gap between "audit-ready" and "always compliant" by making compliance a blocking prerequisite for all system changes.
+The Prismatic Platform addresses these limitations through continuous, automated auditing that treats every code change, every deployment, and every configuration modification as an auditable event. The [no-mercy-no-doubts](@/glossary/no-mercy-no-doubts.md) doctrine eliminates the gap between "audit-ready" and "always compliant" by making compliance a blocking prerequisite for all system changes.
 
 ### Audit Types
 
@@ -69,11 +69,11 @@ Security audits evaluate controls organized into domains that map to recognized 
 
 **Access Control** -- Authentication, authorization, privilege management, and session control. Implemented through `PrismaticWeb.Plugs.APIAuth`, RBAC policies, and the authority level system that governs agent permissions.
 
-**Change Management** -- Configuration management, version control, deployment procedures, and rollback capabilities. Enforced through the 11-phase [pre-commit hook](/glossary/pre-commit-hooks/) pipeline, GitLab CI/CD gates, and the Fly.io deployment workflow.
+**Change Management** -- Configuration management, version control, deployment procedures, and rollback capabilities. Enforced through the 11-phase [pre-commit hook](@/glossary/pre-commit-hooks.md) pipeline, GitLab CI/CD gates, and the Fly.io deployment workflow.
 
-**Logging and Monitoring** -- Event recording, log integrity, alerting, and retention. Provided by the [audit logging](/glossary/audit-logging/) infrastructure, Telemetry events, and the Quality Floor Guardian.
+**Logging and Monitoring** -- Event recording, log integrity, alerting, and retention. Provided by the [audit logging](@/glossary/audit-logging.md) infrastructure, Telemetry events, and the Quality Floor Guardian.
 
-**Vulnerability Management** -- Scanning, patching, remediation tracking, and risk acceptance. Automated through [static analysis](/glossary/static-analysis/), dependency auditing, and the [EASM](/glossary/easm/) continuous monitoring pipeline.
+**Vulnerability Management** -- Scanning, patching, remediation tracking, and risk acceptance. Automated through [static analysis](@/glossary/static-analysis.md), dependency auditing, and the [EASM](@/glossary/easm.md) continuous monitoring pipeline.
 
 **Data Protection** -- Encryption at rest and in transit, data classification, retention policies, and privacy controls. Enforced through platform policies and the IP Leakage Prevention system.
 
@@ -292,7 +292,7 @@ This creates a system where every commit is an audited event, producing evidence
 
 ### Color Team Audit Verification
 
-The [Color Team](/glossary/adversarial-simulation/) security architecture provides an additional audit layer through structured adversarial-defensive verification. The Purple Team specifically functions as an audit synthesis layer, closing the loop between Red Team adversarial findings and Blue Team defensive evidence:
+The [Color Team](@/glossary/adversarial-simulation.md) security architecture provides an additional audit layer through structured adversarial-defensive verification. The Purple Team specifically functions as an audit synthesis layer, closing the loop between Red Team adversarial findings and Blue Team defensive evidence:
 
 - **Red Team** generates adversarial scenarios that test whether controls actually work under attack conditions
 - **Blue Team** produces defensive evidence demonstrating control effectiveness
@@ -319,13 +319,13 @@ The Prismatic approach uniquely integrates audit into the development workflow i
 
 2. **Map controls to multiple frameworks** -- A single automated control often satisfies requirements across ISO 27001, SOC 2, NIS2, and internal policies. Maintain explicit mappings to eliminate redundant audit work.
 
-3. **Enforce immutability** -- [Audit trails](/glossary/audit-trail/) must be immutable. If evidence can be modified after collection, the entire audit loses credibility. The platform's evidence store uses append-only patterns with integrity hashes.
+3. **Enforce immutability** -- [Audit trails](@/glossary/audit-trail.md) must be immutable. If evidence can be modified after collection, the entire audit loses credibility. The platform's evidence store uses append-only patterns with integrity hashes.
 
 4. **Audit the audit** -- Meta-auditing ensures that the audit process itself is functioning correctly. The Quality Floor Guardian monitors the health of quality gates and enforcement mechanisms, providing assurance that the continuous audit pipeline has not degraded.
 
 5. **Separate duties** -- Even in automated systems, maintain separation between those who write controls, those who verify controls, and those who can modify the audit infrastructure. The Color Team architecture enforces this separation by design.
 
-6. **Document exceptions formally** -- When a control cannot be implemented as specified, document the exception, the compensating control, and the risk acceptance decision. The [zero tolerance](/glossary/zero-tolerance/) doctrine permits no undocumented exceptions.
+6. **Document exceptions formally** -- When a control cannot be implemented as specified, document the exception, the compensating control, and the risk acceptance decision. The [zero tolerance](@/glossary/zero-tolerance.md) doctrine permits no undocumented exceptions.
 
 7. **Test audit completeness** -- Regularly verify that the automated audit pipeline covers all required controls. Coverage gaps are audit findings themselves.
 
@@ -333,11 +333,11 @@ The Prismatic approach uniquely integrates audit into the development workflow i
 
 ## Common Pitfalls
 
-1. **Audit theater** -- Performing visible audit activities without substantive verification. Having a checklist does not mean the checks are meaningful. The [no-mercy](/glossary/no-mercy/) doctrine specifically targets this pattern -- controls must demonstrably prevent violations, not merely document them.
+1. **Audit theater** -- Performing visible audit activities without substantive verification. Having a checklist does not mean the checks are meaningful. The [no-mercy](@/glossary/no-mercy.md) doctrine specifically targets this pattern -- controls must demonstrably prevent violations, not merely document them.
 
 2. **Evidence decay** -- Audit evidence that was valid at collection time may become misleading if the underlying system changes. Continuous auditing mitigates this, but the timestamp and context of each evidence artifact must be preserved.
 
-3. **Scope manipulation** -- Defining audit scope to exclude systems or processes that would reveal non-compliance. The platform's asset discovery and [EASM](/glossary/easm/) capabilities work against this by automatically identifying the full scope of assessable assets.
+3. **Scope manipulation** -- Defining audit scope to exclude systems or processes that would reveal non-compliance. The platform's asset discovery and [EASM](@/glossary/easm.md) capabilities work against this by automatically identifying the full scope of assessable assets.
 
 4. **Compliance fatigue** -- Organizations subject to multiple overlapping frameworks (ISO 27001, SOC 2, NIS2, GDPR) can experience burnout from redundant compliance activities. Framework mapping eliminates redundancy by proving once and attesting many times.
 
@@ -345,7 +345,7 @@ The Prismatic approach uniquely integrates audit into the development workflow i
 
 6. **Incomplete remediation tracking** -- Identifying audit findings without tracking them to verified closure creates a growing backlog of unresolved risks. The platform's QDP tracking system ensures that every finding is tracked, assigned, and resolved.
 
-7. **Ignoring audit trail integrity** -- If the [audit logging](/glossary/audit-logging/) system itself can be compromised or modified, all evidence it produces becomes unreliable. Audit infrastructure must be treated as critical security infrastructure.
+7. **Ignoring audit trail integrity** -- If the [audit logging](@/glossary/audit-logging.md) system itself can be compromised or modified, all evidence it produces becomes unreliable. Audit infrastructure must be treated as critical security infrastructure.
 
 ## Use Cases
 
@@ -359,7 +359,7 @@ A Czech critical infrastructure operator uses the compliance mapping module to d
 
 ### Development Security Audit
 
-A development team undergoes an internal security audit focused on secure coding practices. The platform provides evidence from [Credo](/glossary/credo/) analysis (code quality), [Dialyzer](/glossary/dialyzer/) (type safety), forbidden pattern detection (anti-pattern prevention), and test coverage metrics (verification completeness), demonstrating that development practices meet ISO 27001 Annex A.14.2 requirements.
+A development team undergoes an internal security audit focused on secure coding practices. The platform provides evidence from [Credo](@/glossary/credo.md) analysis (code quality), [Dialyzer](@/glossary/dialyzer.md) (type safety), forbidden pattern detection (anti-pattern prevention), and test coverage metrics (verification completeness), demonstrating that development practices meet ISO 27001 Annex A.14.2 requirements.
 
 ### Third-Party Vendor Audit
 
@@ -367,26 +367,26 @@ A client requests evidence of security controls as part of vendor due diligence.
 
 ### Post-Incident Audit
 
-Following a security incident, the forensic audit capability reconstructs the timeline of events using immutable [audit trail](/glossary/audit-trail/) records. The evidence chain traces from initial detection through investigation, containment, remediation, and verification, satisfying regulatory notification requirements.
+Following a security incident, the forensic audit capability reconstructs the timeline of events using immutable [audit trail](@/glossary/audit-trail.md) records. The evidence chain traces from initial detection through investigation, containment, remediation, and verification, satisfying regulatory notification requirements.
 
 ## Related Concepts
 
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of events that provides the evidentiary foundation for security audits
-- [Audit Logging](/glossary/audit-logging/) -- Technical implementation of event recording that feeds audit trail construction
-- [Compliance Framework](/glossary/compliance-framework/) -- Standards and regulations (ISO 27001, NIS2, SOC 2) that define audit criteria
-- [Security Assessment](/glossary/security-assessment/) -- Broader evaluation of security posture that encompasses but extends beyond formal auditing
-- [ISO 27001](/glossary/iso-27001/) -- Information security management system standard with comprehensive audit requirements
-- [SOC 2](/glossary/soc2/) -- Trust service criteria framework commonly used for SaaS provider audits
-- [Quality Gate](/glossary/quality-gate/) -- Enforcement checkpoints that implement automated audit controls in the development pipeline
-- [Pre-commit Hooks](/glossary/pre-commit-hooks/) -- Git hooks that execute audit checks before code changes are committed
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- Platform doctrine mandating zero tolerance for audit findings and compliance gaps
-- [Zero Tolerance](/glossary/zero-tolerance/) -- Principle of accepting no violations of audit criteria or quality standards
-- [Static Analysis](/glossary/static-analysis/) -- Code-level analysis that provides evidence for secure development audit controls
-- [Code Quality](/glossary/code-quality/) -- Quality metrics that serve as audit evidence for development practice controls
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of events that provides the evidentiary foundation for security audits
+- [Audit Logging](@/glossary/audit-logging.md) -- Technical implementation of event recording that feeds audit trail construction
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Standards and regulations (ISO 27001, NIS2, SOC 2) that define audit criteria
+- [Security Assessment](@/glossary/security-assessment.md) -- Broader evaluation of security posture that encompasses but extends beyond formal auditing
+- [ISO 27001](@/glossary/iso-27001.md) -- Information security management system standard with comprehensive audit requirements
+- [SOC 2](@/glossary/soc2.md) -- Trust service criteria framework commonly used for SaaS provider audits
+- [Quality Gate](@/glossary/quality-gate.md) -- Enforcement checkpoints that implement automated audit controls in the development pipeline
+- [Pre-commit Hooks](@/glossary/pre-commit-hooks.md) -- Git hooks that execute audit checks before code changes are committed
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- Platform doctrine mandating zero tolerance for audit findings and compliance gaps
+- [Zero Tolerance](@/glossary/zero-tolerance.md) -- Principle of accepting no violations of audit criteria or quality standards
+- [Static Analysis](@/glossary/static-analysis.md) -- Code-level analysis that provides evidence for secure development audit controls
+- [Code Quality](@/glossary/code-quality.md) -- Quality metrics that serve as audit evidence for development practice controls
 
 ## See Also
 
-- [Prismatic Perimeter EASM](/apps/prismatic-perimeter/) -- External audit and assessment capabilities
+- [Prismatic Perimeter EASM](@/apps/prismatic-perimeter.md) -- External audit and assessment capabilities
 - [Quality Gate Documentation](/architecture/quality-gates/) -- Automated audit control implementation
 - [Color Team Security Architecture](/architecture/color-teams/) -- Multi-perspective audit verification
 - [ISO/IEC 27001:2022](https://www.iso.org/isoiec-27001-information-security.html) -- Information security management standard
@@ -399,4 +399,4 @@ Following a security incident, the forensic audit capability reconstructs the ti
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -46,7 +46,7 @@ All synchronous operations accept an optional timeout parameter (default 5000ms)
 
 ### Process Model
 
-Each Agent runs as an independent BEAM process with its own heap, garbage collector, and mailbox. State mutations are serialized through the process mailbox, guaranteeing that concurrent access from multiple callers never produces race conditions. This serialization comes at a cost: if many processes read from the same Agent simultaneously, the mailbox becomes a bottleneck. For high-concurrency read scenarios, [ETS tables](/glossary/ets-table/) provide a superior alternative with lock-free concurrent reads.
+Each Agent runs as an independent BEAM process with its own heap, garbage collector, and mailbox. State mutations are serialized through the process mailbox, guaranteeing that concurrent access from multiple callers never produces race conditions. This serialization comes at a cost: if many processes read from the same Agent simultaneously, the mailbox becomes a bottleneck. For high-concurrency read scenarios, [ETS tables](@/glossary/ets-table.md) provide a superior alternative with lock-free concurrent reads.
 
 ### Anonymous Function Protocol
 
@@ -217,7 +217,7 @@ The platform follows a deliberate graduation pattern: new stateful components st
 Agent (simple state) --> GenServer (messages + state) --> GenStateMachine (FSM)
 ```
 
-This progression is documented in the [Elixir best practices policy](/glossary/elixir/) and enforced through code review.
+This progression is documented in the [Elixir best practices policy](@/glossary/elixir.md) and enforced through code review.
 
 ## Code Examples
 
@@ -309,21 +309,21 @@ end
 
 ## Related Concepts
 
-- [GenServer](/glossary/genserver/) -- Full-featured stateful process behaviour that Agent wraps
-- [ETS Table](/glossary/ets-table/) -- In-memory storage alternative for shared concurrent read access
-- [OTP](/glossary/otp/) -- Framework providing Agent and process supervision
-- [Process Isolation](/glossary/process-isolation/) -- BEAM model ensuring Agent state safety
-- [Supervision Tree](/glossary/supervision-tree/) -- Process hierarchy managing Agent lifecycles
-- [Elixir](/glossary/elixir/) -- The language providing the Agent module
-- [BEAM](/glossary/beam/) -- Virtual machine executing Agent processes
+- [GenServer](@/glossary/genserver.md) -- Full-featured stateful process behaviour that Agent wraps
+- [ETS Table](@/glossary/ets-table.md) -- In-memory storage alternative for shared concurrent read access
+- [OTP](@/glossary/otp.md) -- Framework providing Agent and process supervision
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM model ensuring Agent state safety
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Process hierarchy managing Agent lifecycles
+- [Elixir](@/glossary/elixir.md) -- The language providing the Agent module
+- [BEAM](@/glossary/beam.md) -- Virtual machine executing Agent processes
 
 ## Further Reading
 
 - [Elixir Agent Documentation](https://hexdocs.pm/elixir/Agent.html) -- Official API reference
 - [Elixir in Action](https://www.manning.com/books/elixir-in-action) -- Comprehensive coverage of process-based state management
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Umbrella applications using Agent modules
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications using Agent modules
 
 ---
 
@@ -332,4 +332,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

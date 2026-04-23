@@ -269,16 +269,16 @@ The platform persists quality state through multiple mechanisms to survive catas
 
 ## Related Concepts
 
-- [Incident Response](/glossary/incident-response/) - Immediate response procedures preceding disaster recovery activation
-- [Fault Tolerance](/glossary/fault-tolerance/) - Design property that reduces the frequency of disaster recovery activation
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) - Deployment strategy enabling instant environment rollback
-- [Self-Healing](/glossary/self-healing/) - Automated recovery for non-catastrophic degradation via SEADF
-- [PostgreSQL](/glossary/postgresql/) - Primary database with WAL-based point-in-time recovery
-- [Supervisor](/glossary/supervisor/) - OTP behaviour providing automatic process restart
-- [Let It Crash](/glossary/let-it-crash/) - Philosophy enabling rapid recovery through supervised restarts
-- [Quality DNA](/glossary/quality-dna/) - Cross-session state persistence surviving platform restarts
-- [Docker](/glossary/docker/) - Immutable container images enabling clean environment reconstruction
-- [Fly.io](/glossary/fly-io/) - Deployment platform providing multi-region failover infrastructure
+- [Incident Response](@/glossary/incident-response.md) - Immediate response procedures preceding disaster recovery activation
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - Design property that reduces the frequency of disaster recovery activation
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) - Deployment strategy enabling instant environment rollback
+- [Self-Healing](@/glossary/self-healing.md) - Automated recovery for non-catastrophic degradation via SEADF
+- [PostgreSQL](@/glossary/postgresql.md) - Primary database with WAL-based point-in-time recovery
+- [Supervisor](@/glossary/supervisor.md) - OTP behaviour providing automatic process restart
+- [Let It Crash](@/glossary/let-it-crash.md) - Philosophy enabling rapid recovery through supervised restarts
+- [Quality DNA](@/glossary/quality-dna.md) - Cross-session state persistence surviving platform restarts
+- [Docker](@/glossary/docker.md) - Immutable container images enabling clean environment reconstruction
+- [Fly.io](@/glossary/fly-io.md) - Deployment platform providing multi-region failover infrastructure
 
 ---
 
@@ -287,4 +287,4 @@ The platform persists quality state through multiple mechanisms to survive catas
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -32,11 +32,11 @@ The red-drift-inducer operates as an L4 Domain Authority specialist within the P
 
 Drift attacks exploit a fundamental vulnerability in threshold-based detection systems. If every individual change falls below the detection threshold, no single event triggers an alert -- yet the cumulative effect of hundreds or thousands of sub-threshold changes can produce dramatic shifts in system behavior. The red-drift-inducer models this class of attack by introducing carefully calibrated perturbations to evidence streams, confidence scores, and entity attributes over simulated time horizons, measuring the platform's ability to detect aggregate drift even when individual changes are imperceptible.
 
-Built on the [AIAD](/glossary/aiad/) standard and operating under the [red-commander](/agents/red-commander/)'s strategic direction, this agent executes all drift simulations within `PrismaticDark.Sandbox` using synthetic data exclusively. The [NABLA Infinity](/glossary/nabla-infinity/) framework's [time decay](/glossary/time-decay/) axiom is specifically targeted by drift attacks, testing whether the platform's temporal belief management correctly identifies and responds to gradual belief corruption.
+Built on the [AIAD](@/glossary/aiad.md) standard and operating under the [red-commander](@/agents/red-commander.md)'s strategic direction, this agent executes all drift simulations within `PrismaticDark.Sandbox` using synthetic data exclusively. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's [time decay](@/glossary/time-decay.md) axiom is specifically targeted by drift attacks, testing whether the platform's temporal belief management correctly identifies and responds to gradual belief corruption.
 
 ## Drift Attack Theory
 
-Epistemic drift attacks operate on the principle that human and automated systems are optimized to detect discrete events rather than gradual trends. A sudden change in a [risk score](/glossary/risk-score/) from 0.3 to 0.8 will trigger immediate investigation, but a drift from 0.3 to 0.8 over 180 days through daily increments of 0.003 may go entirely unnoticed. The red-drift-inducer formalizes this observation into a structured attack methodology.
+Epistemic drift attacks operate on the principle that human and automated systems are optimized to detect discrete events rather than gradual trends. A sudden change in a [risk score](@/glossary/risk-score.md) from 0.3 to 0.8 will trigger immediate investigation, but a drift from 0.3 to 0.8 over 180 days through daily increments of 0.003 may go entirely unnoticed. The red-drift-inducer formalizes this observation into a structured attack methodology.
 
 **Linear drift** introduces constant-rate changes to target parameters, testing whether the platform's trend detection algorithms identify steady-state drift. **Oscillatory drift** masks upward trends within apparent random noise, alternating between advancement and partial retreat to defeat simple trend detection. **Cascade drift** propagates initial drift through entity relationships, amplifying the effect through network effects as corrupted entities influence the assessment of related entities.
 
@@ -50,8 +50,8 @@ The agent also models **anchor drift**, where the baseline against which changes
 - **Cascade propagation analysis** -- Models how drift in one entity or evidence stream propagates through graph relationships to affect downstream analytical conclusions
 - **Temporal simulation** -- Compresses long-duration drift campaigns into accelerated simulations, evaluating months of gradual drift within minutes of simulation time
 - **Drift reversal testing** -- Tests whether the platform can detect and reverse established drift once it crosses detection thresholds, measuring recovery capability
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with campaign lifecycle management and automated outcome measurement
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for drift simulation monitoring and detection evasion tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with campaign lifecycle management and automated outcome measurement
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for drift simulation monitoring and detection evasion tracking
 
 ## Campaign Methodology
 
@@ -59,11 +59,11 @@ Drift campaigns follow a structured lifecycle under the red-commander's strategi
 
 The **execution phase** applies the drift campaign within the sandbox environment, introducing sub-threshold changes according to the designed schedule while monitoring the target system's detection responses. The **measurement phase** evaluates the campaign's impact on analytical conclusions, comparing drifted outputs against ground truth to quantify the degree of epistemic corruption achieved.
 
-The **reporting phase** produces structured findings for the [red-commander](/agents/red-commander/), documenting successful drift patterns, detection evasion techniques, and measured impact on analytical accuracy. These findings inform both defensive improvements and future drift campaign designs.
+The **reporting phase** produces structured findings for the [red-commander](@/agents/red-commander.md), documenting successful drift patterns, detection evasion techniques, and measured impact on analytical accuracy. These findings inform both defensive improvements and future drift campaign designs.
 
 ## Authority Level
 
-**L4** - Domain Authority - Specialized domain expertise in epistemic drift simulation, operating under the [red-commander](/agents/red-commander/)'s strategic direction with autonomy in drift technique design and execution within approved campaign parameters.
+**L4** - Domain Authority - Specialized domain expertise in epistemic drift simulation, operating under the [red-commander](@/agents/red-commander.md)'s strategic direction with autonomy in drift technique design and execution within approved campaign parameters.
 
 ## Command Interface
 
@@ -77,11 +77,11 @@ The **reporting phase** produces structured findings for the [red-commander](/ag
 
 | Agent | Relationship |
 |-------|-------------|
-| [red-commander](/agents/red-commander/) | Strategic direction and campaign approval authority |
-| [red-epistemic-attacker](/agents/red-epistemic-attacker/) | Combined operations where truth distortion and drift work in concert |
-| [red-scenario-generator](/agents/red-scenario-generator/) | Multi-technique scenarios that incorporate drift as a component |
-| [blue-drift-detector](/agents/blue-drift-detector/) | Drift campaigns directly test the Blue Team's drift detection capabilities |
-| [purple-coordinator](/agents/purple-coordinator/) | Drift findings feed into Purple Team synthesis for defensive improvement |
+| [red-commander](@/agents/red-commander.md) | Strategic direction and campaign approval authority |
+| [red-epistemic-attacker](@/agents/red-epistemic-attacker.md) | Combined operations where truth distortion and drift work in concert |
+| [red-scenario-generator](@/agents/red-scenario-generator.md) | Multi-technique scenarios that incorporate drift as a component |
+| [blue-drift-detector](@/agents/blue-drift-detector.md) | Drift campaigns directly test the Blue Team's drift detection capabilities |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Drift findings feed into Purple Team synthesis for defensive improvement |
 
 ## Detection Evasion Techniques
 
@@ -95,7 +95,7 @@ All drift simulations execute within `PrismaticDark.Sandbox` with synthetic data
 
 ## Enforcement
 
-Drift simulation findings comply with the [NO MERCY](/glossary/no-mercy/) doctrine: detection gaps are reported completely and accurately regardless of their implications for current defensive posture. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all drift findings are reproducible within the simulation environment. Findings must pass [Trinity Gate](/glossary/trinity-gate/) validation before entering the defensive improvement pipeline, ensuring that remediation efforts target genuine detection gaps rather than simulation artifacts.
+Drift simulation findings comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: detection gaps are reported completely and accurately regardless of their implications for current defensive posture. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all drift findings are reproducible within the simulation environment. Findings must pass [Trinity Gate](@/glossary/trinity-gate.md) validation before entering the defensive improvement pipeline, ensuring that remediation efforts target genuine detection gaps rather than simulation artifacts.
 
 ---
 
@@ -104,4 +104,4 @@ Drift simulation findings comply with the [NO MERCY](/glossary/no-mercy/) doctri
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

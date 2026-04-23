@@ -28,15 +28,15 @@ image_alt = "white-contract-validator - Prismatic Platform"
 
 ## Overview
 
-The white-contract-validator operates as an L4 Specialist authority within the Prismatic Platform's [White Team](/glossary/white-team/) verification domain, responsible for validating that system interfaces, module boundaries, and inter-component contracts function according to their specifications. As a core member of the [color-team](/glossary/color-teams/) security architecture, this agent belongs to the White Team -- the constructive verification team that proves systems hold through progressive verification methodology spanning levels L0 through L5.
+The white-contract-validator operates as an L4 Specialist authority within the Prismatic Platform's [White Team](@/glossary/white-team.md) verification domain, responsible for validating that system interfaces, module boundaries, and inter-component contracts function according to their specifications. As a core member of the [color-team](@/glossary/color-teams.md) security architecture, this agent belongs to the White Team -- the constructive verification team that proves systems hold through progressive verification methodology spanning levels L0 through L5.
 
-Built on the [AIAD](/glossary/aiad/) standard, the white-contract-validator produces evidence artifacts rather than modifying targets. All verification output passes through [Trinity Gate](/glossary/trinity-gate/) validation, ensuring structural, logical, and formal consistency. The agent applies [property-based testing](/glossary/property-based-testing/) to verify that contracts hold across the full input domain rather than just specific test cases, and leverages [Lean4](/glossary/lean4/) formal proofs for critical interface specifications where mathematical certainty is required.
+Built on the [AIAD](@/glossary/aiad.md) standard, the white-contract-validator produces evidence artifacts rather than modifying targets. All verification output passes through [Trinity Gate](@/glossary/trinity-gate.md) validation, ensuring structural, logical, and formal consistency. The agent applies [property-based testing](@/glossary/property-based-testing.md) to verify that contracts hold across the full input domain rather than just specific test cases, and leverages [Lean4](@/glossary/lean4.md) formal proofs for critical interface specifications where mathematical certainty is required.
 
-The platform's 90 [umbrella application](/glossary/umbrella-application/)s define hundreds of inter-module contracts through Elixir behaviours, protocols, and API specifications. The white-contract-validator ensures that every producer-consumer agreement is honored, that interface changes do not break dependent modules, and that the system's compositional guarantees are maintained across all module boundaries. Contract verification operates within the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, where verification results carry formal provenance and multi-signal confirmation.
+The platform's 90 [umbrella application](@/glossary/umbrella-application.md)s define hundreds of inter-module contracts through Elixir behaviours, protocols, and API specifications. The white-contract-validator ensures that every producer-consumer agreement is honored, that interface changes do not break dependent modules, and that the system's compositional guarantees are maintained across all module boundaries. Contract verification operates within the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, where verification results carry formal provenance and multi-signal confirmation.
 
 ## Architecture
 
-The white-contract-validator is built on a three-tier verification architecture that separates contract discovery, verification execution, and evidence artifact management into distinct [OTP](/glossary/otp/) processes.
+The white-contract-validator is built on a three-tier verification architecture that separates contract discovery, verification execution, and evidence artifact management into distinct [OTP](@/glossary/otp.md) processes.
 
 ```
 WhiteContractValidator.Supervisor
@@ -49,21 +49,21 @@ WhiteContractValidator.Supervisor
 +-- TrinityGate.Validator         (three-layer validation)
 ```
 
-The ContractDiscovery scanner automatically identifies contracts across the codebase by analyzing Elixir module attributes (`@callback`, `@behaviour`), protocol definitions (`defprotocol`), and API specifications (OpenApiSpex schemas). The verification workers execute contract checks for each category, generating structured evidence artifacts. The PropertyGenerator creates [property-based testing](/glossary/property-based-testing/) suites that explore the full input domain for each contract, going beyond example-based tests to provide probabilistic confidence. The ProofArtifact store maintains an immutable archive of all verification evidence, indexed by contract identifier and verification timestamp.
+The ContractDiscovery scanner automatically identifies contracts across the codebase by analyzing Elixir module attributes (`@callback`, `@behaviour`), protocol definitions (`defprotocol`), and API specifications (OpenApiSpex schemas). The verification workers execute contract checks for each category, generating structured evidence artifacts. The PropertyGenerator creates [property-based testing](@/glossary/property-based-testing.md) suites that explore the full input domain for each contract, going beyond example-based tests to provide probabilistic confidence. The ProofArtifact store maintains an immutable archive of all verification evidence, indexed by contract identifier and verification timestamp.
 
-Communication between the discovery layer and verification workers uses [GenServer](/glossary/genserver/) calls with configurable timeouts, ensuring that long-running verification tasks do not block discovery operations. The [Trinity Gate](/glossary/trinity-gate/) validator applies three-layer validation to every verification result before it is stored as an evidence artifact.
+Communication between the discovery layer and verification workers uses [GenServer](@/glossary/genserver.md) calls with configurable timeouts, ensuring that long-running verification tasks do not block discovery operations. The [Trinity Gate](@/glossary/trinity-gate.md) validator applies three-layer validation to every verification result before it is stored as an evidence artifact.
 
 ## Core Capabilities
 
 The white-contract-validator provides six primary capabilities that together form a comprehensive contract verification system.
 
-**Behaviour Contract Validation** tests that all modules implementing [Elixir](/glossary/elixir/) behaviours satisfy their `@callback` contracts, verifying return types, error handling patterns, and side-effect constraints through property-based test generation. The agent discovers all behaviour-implementing modules by scanning `@behaviour` attributes and generates verification suites that exercise each callback with randomized inputs drawn from the callback's typespec domain.
+**Behaviour Contract Validation** tests that all modules implementing [Elixir](@/glossary/elixir.md) behaviours satisfy their `@callback` contracts, verifying return types, error handling patterns, and side-effect constraints through property-based test generation. The agent discovers all behaviour-implementing modules by scanning `@behaviour` attributes and generates verification suites that exercise each callback with randomized inputs drawn from the callback's typespec domain.
 
-**Protocol Contract Testing** validates message exchange protocols between [OTP](/glossary/otp/) processes, ensuring that [GenServer](/glossary/genserver/) call/cast interfaces, [PubSub](/glossary/pubsub/) message formats, and event schemas conform to documented specifications. The agent captures process message traces and validates them against protocol specifications, detecting violations such as unexpected message types, missing required fields, or incorrect response formats.
+**Protocol Contract Testing** validates message exchange protocols between [OTP](@/glossary/otp.md) processes, ensuring that [GenServer](@/glossary/genserver.md) call/cast interfaces, [PubSub](@/glossary/pubsub.md) message formats, and event schemas conform to documented specifications. The agent captures process message traces and validates them against protocol specifications, detecting violations such as unexpected message types, missing required fields, or incorrect response formats.
 
-**API Contract Verification** tests HTTP endpoint contracts against [OpenAPI](/glossary/openapi/) specifications, validating request parsing, response serialization, error format compliance, and authentication boundary enforcement. The agent generates requests covering the full parameter space defined by the OpenAPI schema and validates that responses conform to the documented response schemas for each status code.
+**API Contract Verification** tests HTTP endpoint contracts against [OpenAPI](@/glossary/openapi.md) specifications, validating request parsing, response serialization, error format compliance, and authentication boundary enforcement. The agent generates requests covering the full parameter space defined by the OpenAPI schema and validates that responses conform to the documented response schemas for each status code.
 
-**Formal Proof Generation** produces [Lean4](/glossary/lean4/) proofs for critical interface invariants, establishing mathematical certainty for properties that property-based testing can only probabilistically verify. This capability is reserved for the most critical contracts where the cost of violation would be catastrophic.
+**Formal Proof Generation** produces [Lean4](@/glossary/lean4.md) proofs for critical interface invariants, establishing mathematical certainty for properties that property-based testing can only probabilistically verify. This capability is reserved for the most critical contracts where the cost of violation would be catastrophic.
 
 **Contract Drift Detection** identifies cases where implementation has diverged from specification. When a module's actual behavior no longer matches its declared contract (either because the implementation changed without updating the specification, or because the specification was updated without adjusting the implementation), the agent flags the drift for immediate remediation.
 
@@ -71,7 +71,7 @@ The white-contract-validator provides six primary capabilities that together for
 
 ## Implementation
 
-The core contract verification coordinator is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that manages verification lifecycle and evidence artifact production.
+The core contract verification coordinator is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that manages verification lifecycle and evidence artifact production.
 
 ```elixir
 defmodule Prismatic.Agents.WhiteContractValidator do
@@ -198,13 +198,13 @@ The `verify_all_contracts/0` function orchestrates verification across all three
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [white-verifier-commander](/agents/white-verifier-commander/) | Outbound | Reports verification results to White Team commander for composite proof construction |
-| [white-invariant-prover](/agents/white-invariant-prover/) | Bidirectional | Collaborates on formal verification of critical interface invariants |
-| [purple-coordinator](/agents/purple-coordinator/) | Outbound | Verification results feed [Purple Team](/glossary/purple-team/) synthesis for Red-Blue closure |
-| [code-quality-commander](/agents/code-quality-commander/) | Outbound | Contract compliance status contributes to platform quality score |
-| [Trinity Gate](/glossary/trinity-gate/) | Enforcement | All verification artifacts pass through three-layer validation |
-| [Prismatic API](/apps/prismatic-api/) | Target | OpenAPI endpoint contract verification target |
-| [AIAD Registry](/glossary/registry-otp/) | Inbound | Discovers agent interface contracts for verification |
+| [white-verifier-commander](@/agents/white-verifier-commander.md) | Outbound | Reports verification results to White Team commander for composite proof construction |
+| [white-invariant-prover](@/agents/white-invariant-prover.md) | Bidirectional | Collaborates on formal verification of critical interface invariants |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Outbound | Verification results feed [Purple Team](@/glossary/purple-team.md) synthesis for Red-Blue closure |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Outbound | Contract compliance status contributes to platform quality score |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Enforcement | All verification artifacts pass through three-layer validation |
+| [Prismatic API](@/apps/prismatic-api.md) | Target | OpenAPI endpoint contract verification target |
+| [AIAD Registry](@/glossary/registry-otp.md) | Inbound | Discovers agent interface contracts for verification |
 
 ## Operational Workflow
 
@@ -220,7 +220,7 @@ The verification workflow proceeds through six phases: (1) contract discovery an
 
 ## NABLA Compliance
 
-The white-contract-validator operates under strict [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance.
+The white-contract-validator operates under strict [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance.
 
 **Signal Plurality**: Every contract verification requires at least two independent signals. Behaviour contracts are verified through both property-based testing (probabilistic) and specific example tests (deterministic). API contracts are verified through both schema validation and runtime request-response testing.
 
@@ -230,7 +230,7 @@ The white-contract-validator operates under strict [NABLA Infinity](/glossary/na
 
 **Unknown Valid**: When verification is inconclusive (property-based testing reaches the iteration limit without finding a counterexample, but cannot prove universal satisfaction), the result is reported as `:partial` rather than either `:verified` or `:violated`. Uncertainty is explicitly represented.
 
-All verification results pass through [Trinity Gate](/glossary/trinity-gate/): structural consistency (the contract references valid modules and functions), logical consistency (the verification logic correctly evaluates the contract), and formal necessity (critical contracts have Lean4 proof obligations).
+All verification results pass through [Trinity Gate](@/glossary/trinity-gate.md): structural consistency (the contract references valid modules and functions), logical consistency (the verification logic correctly evaluates the contract), and formal necessity (critical contracts have Lean4 proof obligations).
 
 ## Configuration
 
@@ -270,14 +270,14 @@ The agent parallelizes verification across contract categories and uses incremen
 
 ## Related Resources
 
-- [White Team](/glossary/white-team/) -- Constructive verification team overview
-- [white-verifier-commander](/agents/white-verifier-commander/) -- White Team strategic commander
-- [white-invariant-prover](/agents/white-invariant-prover/) -- Formal invariant proof specialist
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation for verification artifacts
-- [Property-Based Testing](/glossary/property-based-testing/) -- Probabilistic contract verification methodology
-- [Lean4](/glossary/lean4/) -- Formal theorem prover for mathematical certainty
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing verification claims
-- [Color Teams](/glossary/color-teams/) -- Security operations team architecture
+- [White Team](@/glossary/white-team.md) -- Constructive verification team overview
+- [white-verifier-commander](@/agents/white-verifier-commander.md) -- White Team strategic commander
+- [white-invariant-prover](@/agents/white-invariant-prover.md) -- Formal invariant proof specialist
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation for verification artifacts
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Probabilistic contract verification methodology
+- [Lean4](@/glossary/lean4.md) -- Formal theorem prover for mathematical certainty
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing verification claims
+- [Color Teams](@/glossary/color-teams.md) -- Security operations team architecture
 
 ---
 
@@ -286,4 +286,4 @@ The agent parallelizes verification across contract categories and uses incremen
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

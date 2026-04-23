@@ -201,11 +201,11 @@ end
 
 ## Cross-References
 
-- [Semantic Linking](/glossary/semantic-linking/) - Engine that generates and maintains semantic links
-- [Prerequisite](/glossary/prerequisite/) - Specific semantic link type encoding learning dependencies
-- [Progress](/glossary/progress/) - Completion tracking using semantic link paths
-- [Provenance](/glossary/provenance/) - Origin tracing for automatically generated semantic links
-- [Self-Registration](/glossary/self-registration/) - Source of topic metadata used for automatic link generation
+- [Semantic Linking](@/glossary/semantic-linking.md) - Engine that generates and maintains semantic links
+- [Prerequisite](@/glossary/prerequisite.md) - Specific semantic link type encoding learning dependencies
+- [Progress](@/glossary/progress.md) - Completion tracking using semantic link paths
+- [Provenance](@/glossary/provenance.md) - Origin tracing for automatically generated semantic links
+- [Self-Registration](@/glossary/self-registration.md) - Source of topic metadata used for automatic link generation
 
 ---
 

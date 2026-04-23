@@ -28,7 +28,7 @@ The **/chatgpt-convert** command provides bidirectional format conversion betwee
 
 The practical significance of format interoperability cannot be understated in the context of the Prismatic Platform's multi-model architecture. The platform maintains active integrations with Claude (primary development), ChatGPT (analysis and consultation), Ollama (local cost-free inference), and OpenRouter (specialized model access). Each provider has evolved its own conventions for prompts, tool calling, and response structures. When a prompt engineered for Claude needs to be tested on ChatGPT, or when MCP tool definitions need to be exposed through ChatGPT's function calling interface, the **/chatgpt-convert** command handles the structural transformation while preserving semantic content. Beyond mechanical translation, the command applies format-specific optimizations -- restructuring XML-heavy Claude prompts into the markdown patterns that ChatGPT processes more efficiently, or converting ChatGPT's flat conversation format into Claude's richer role-based structure.
 
-The command is executed by the `chatgpt-prompt-engineer` agent within the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) framework. This agent specializes in prompt optimization and format translation across LLM providers, understanding the nuances of how different models interpret structural patterns. It supports five conversion actions -- prompt, tools, response, conversation, and schema -- with auto-detection of source format, optional optimization passes, and structure preservation modes. The command is part of the platform's 216-command slash command [registry](/glossary/registry-otp/) and integrates with [/chatgpt-bridge](/commands/chatgpt-bridge/), [/chatgpt-pack](/commands/chatgpt-pack/), and the unified [/llm](/commands/llm/) orchestrator.
+The command is executed by the `chatgpt-prompt-engineer` agent within the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) framework. This agent specializes in prompt optimization and format translation across LLM providers, understanding the nuances of how different models interpret structural patterns. It supports five conversion actions -- prompt, tools, response, conversation, and schema -- with auto-detection of source format, optional optimization passes, and structure preservation modes. The command is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md) and integrates with [/chatgpt-bridge](@/commands/chatgpt-bridge.md), [/chatgpt-pack](@/commands/chatgpt-pack.md), and the unified [/llm](@/commands/llm.md) orchestrator.
 
 ## Usage
 
@@ -196,20 +196,20 @@ Bulk conversion is supported through file input/output, enabling batch processin
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `chatgpt-prompt-engineer` agent |
-| [/chatgpt-bridge](/commands/chatgpt-bridge/) | Converted prompts and tools used in bridge operations |
-| [/chatgpt-analyze](/commands/chatgpt-analyze/) | Analysis outputs converted for cross-model consumption |
-| [/chatgpt-pack](/commands/chatgpt-pack/) | Archive content converted for target provider compatibility |
-| [/llm](/commands/llm/) | Unified LLM orchestration uses converter for provider switching |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `chatgpt-prompt-engineer` agent |
+| [/chatgpt-bridge](@/commands/chatgpt-bridge.md) | Converted prompts and tools used in bridge operations |
+| [/chatgpt-analyze](@/commands/chatgpt-analyze.md) | Analysis outputs converted for cross-model consumption |
+| [/chatgpt-pack](@/commands/chatgpt-pack.md) | Archive content converted for target provider compatibility |
+| [/llm](@/commands/llm.md) | Unified LLM orchestration uses converter for provider switching |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation |
-| [Telemetry](/glossary/telemetry/) | Conversion [metrics](/glossary/metrics/): token count changes, optimization ratios |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Conversion [metrics](@/glossary/metrics.md): token count changes, optimization ratios |
 | MCP Tool Registry | Source of Claude-format tool schemas for conversion |
 | OpenAI Function Registry | Target format for tool schema conversions |
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Conversions must be complete and accurate. No content is silently dropped during conversion. If a source feature has no equivalent in the target format, the conversion fails with an explicit `unsupported_feature` error rather than producing a degraded output. Token count changes are reported explicitly so users can assess the impact of conversion on context window utilization.
 - **NO DOUBTS**: Source format auto-detection is evidence-based, using structural analysis of the input content (XML tags for Claude, JSON message arrays for ChatGPT, etc.) rather than heuristic guessing. When auto-detection confidence is below threshold, the command requests explicit `--source` specification rather than proceeding with an uncertain assumption. Verbose mode provides a complete conversion report detailing every transformation applied.
@@ -226,15 +226,15 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Related Commands
 
-- [/llm](/commands/llm/) - Primary LLM operation management and orchestration
-- [/chatgpt-bridge](/commands/chatgpt-bridge/) - ChatGPT bridge operations for cross-LLM coordination
-- [/chatgpt-analyze](/commands/chatgpt-analyze/) - Launch ChatGPT ANALYZE conversation for deep code analysis
-- [/chatgpt-pack](/commands/chatgpt-pack/) - Context packing for ChatGPT collaboration and knowledge transfer
-- [/chatgpt-sync](/commands/chatgpt-sync/) - Synchronize context and progress between Claude and ChatGPT
-- [/local-llm](/commands/local-llm/) - Execute LLM requests using local providers with zero API cost
-- [/openrouter](/commands/openrouter/) - OpenRouter LLM provider operations and management
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/llm](@/commands/llm.md) - Primary LLM operation management and orchestration
+- [/chatgpt-bridge](@/commands/chatgpt-bridge.md) - ChatGPT bridge operations for cross-LLM coordination
+- [/chatgpt-analyze](@/commands/chatgpt-analyze.md) - Launch ChatGPT ANALYZE conversation for deep code analysis
+- [/chatgpt-pack](@/commands/chatgpt-pack.md) - Context packing for ChatGPT collaboration and knowledge transfer
+- [/chatgpt-sync](@/commands/chatgpt-sync.md) - Synchronize context and progress between Claude and ChatGPT
+- [/local-llm](@/commands/local-llm.md) - Execute LLM requests using local providers with zero API cost
+- [/openrouter](@/commands/openrouter.md) - OpenRouter LLM provider operations and management
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -243,4 +243,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

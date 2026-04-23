@@ -30,7 +30,7 @@ Understanding code in a system of this scale is a non-trivial challenge. The Pri
 
 The code-explainer agent powers this command, combining AST analysis, dependency graph traversal, and natural language generation to produce explanations that are both technically accurate and pedagogically effective. The agent understands Elixir idioms, OTP patterns, Phoenix conventions, and Prismatic-specific architectural patterns, enabling it to explain not just what code does but why it was structured that way.
 
-This command operates under the **L2+** authority level, making it accessible to any operational agent or developer. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. As a read-only command that does not modify code, it carries minimal risk and is designed for frequent use.
+This command operates under the **L2+** authority level, making it accessible to any operational agent or developer. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. As a read-only command that does not modify code, it carries minimal risk and is designed for frequent use.
 
 ## Architecture
 
@@ -138,13 +138,13 @@ The `/explain` command follows a structured 5-phase explanation pipeline:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Code-explainer agent performs analysis |
-| [Git Trees](/glossary/git-trees/) | Navigation | Codebase traversal for target resolution |
-| [Quality Gates](/glossary/quality-gates/) | Context | Quality profile of explained code |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Explanation request [metrics](/glossary/metrics/) |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Code-explainer agent performs analysis |
+| [Git Trees](@/glossary/git-trees.md) | Navigation | Codebase traversal for target resolution |
+| [Quality Gates](@/glossary/quality-gates.md) | Context | Quality profile of explained code |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Explanation request [metrics](@/glossary/metrics.md) |
 | AIAD Registry | Discovery | Command specification and agent binding |
 | Documentation Index | Enrichment | 11,308 docs for cross-reference |
-| [GARDEN](/glossary/garden/) | History | Legacy patterns for design rationale context |
+| [GARDEN](@/glossary/garden.md) | History | Legacy patterns for design rationale context |
 
 ## Best Practices
 
@@ -196,7 +196,7 @@ The `/explain` command integrates naturally with the development workflow. Befor
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Explanations must be complete and accurate. No hand-waving, no glossing over complex sections, no "this is straightforward" dismissals. Every aspect of the target code receives thorough analysis.
 - **NO DOUBTS**: Full investigation before explanation. The code-explainer agent traces all dependencies, identifies all patterns, and cross-references all documentation before producing an explanation. Incomplete understanding is acknowledged explicitly rather than papered over.
@@ -205,13 +205,13 @@ The `/explain` command embodies the NO DOUBTS principle by ensuring that develop
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/estimate](/commands/estimate/) - Task estimation with AI-powered complexity analysis
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/estimate](@/commands/estimate.md) - Task estimation with AI-powered complexity analysis
 
 ---
 
@@ -220,4 +220,4 @@ The `/explain` command embodies the NO DOUBTS principle by ensuring that develop
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

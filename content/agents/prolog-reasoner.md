@@ -28,9 +28,9 @@ image_alt = "prolog-reasoner - Prismatic Platform"
 
 ## Overview
 
-The prolog-reasoner operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's domain reasoning infrastructure, implementing Prolog-style deductive reasoning, constraint logic programming, and knowledge base querying for the [NABLA Infinity](/glossary/nabla-infinity/) Reasoning System. This agent provides rigorous logical [inference](/glossary/inference/) capabilities that underpin the platform's epistemic operations -- deriving new facts from existing knowledge through sound deductive rules, evaluating logical queries against the platform's accumulated knowledge base, and verifying that conclusions follow necessarily from their premises. The prolog-reasoner serves as the deductive backbone of the NABLA framework, ensuring that every belief, claim, and decision within the platform can be traced to a chain of logically valid inferences from established evidence.
+The prolog-reasoner operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's domain reasoning infrastructure, implementing Prolog-style deductive reasoning, constraint logic programming, and knowledge base querying for the [NABLA Infinity](@/glossary/nabla-infinity.md) Reasoning System. This agent provides rigorous logical [inference](@/glossary/inference.md) capabilities that underpin the platform's epistemic operations -- deriving new facts from existing knowledge through sound deductive rules, evaluating logical queries against the platform's accumulated knowledge base, and verifying that conclusions follow necessarily from their premises. The prolog-reasoner serves as the deductive backbone of the NABLA framework, ensuring that every belief, claim, and decision within the platform can be traced to a chain of logically valid inferences from established evidence.
 
-Built on a pure [Elixir](/glossary/elixir/) implementation of SLD (Selective Linear Definite clause) resolution, the agent executes Prolog-style queries against knowledge bases represented as collections of Horn clauses. The implementation exploits [OTP](/glossary/otp/) process isolation to evaluate multiple independent query branches concurrently, achieving significant speedup on problems with large search spaces. The [NO DOUBTS](/glossary/no-doubts/) principle is embodied directly in the reasoning engine: every derived conclusion carries its complete proof tree, enabling external verification of reasoning correctness.
+Built on a pure [Elixir](@/glossary/elixir.md) implementation of SLD (Selective Linear Definite clause) resolution, the agent executes Prolog-style queries against knowledge bases represented as collections of Horn clauses. The implementation exploits [OTP](@/glossary/otp.md) process isolation to evaluate multiple independent query branches concurrently, achieving significant speedup on problems with large search spaces. The [NO DOUBTS](@/glossary/no-doubts.md) principle is embodied directly in the reasoning engine: every derived conclusion carries its complete proof tree, enabling external verification of reasoning correctness.
 
 ## Deductive Reasoning Engine
 
@@ -56,7 +56,7 @@ The prolog-reasoner maintains structured knowledge bases organized by domain, ea
 
 ## NABLA Integration
 
-The prolog-reasoner serves as a core component of the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, implementing several of the seven non-negotiable axioms through logical reasoning.
+The prolog-reasoner serves as a core component of the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, implementing several of the seven non-negotiable axioms through logical reasoning.
 
 **Signal Plurality** is enforced by requiring multiple independent derivation paths for high-confidence conclusions. The reasoner tracks the number of independent proof trees for each derived conclusion and flags conclusions supported by only a single reasoning chain.
 
@@ -83,24 +83,24 @@ When the prolog-reasoner receives a query, it follows a structured processing pi
 
 | Agent | Relationship |
 |-------|-------------|
-| [prolog-constraint-agent](/agents/prolog-constraint-agent/) | Constraint logic programming for combined reasoning and constraint solving |
-| [prolog-planning-agent](/agents/prolog-planning-agent/) | Logical precondition and effect evaluation for planning operations |
-| [prolog-reasoning-agent](/agents/prolog-reasoning-agent/) | Complementary rule-based computation and knowledge management |
-| [white-invariant-prover](/agents/white-invariant-prover/) | Formal verification of reasoning soundness properties |
+| [prolog-constraint-agent](@/agents/prolog-constraint-agent.md) | Constraint logic programming for combined reasoning and constraint solving |
+| [prolog-planning-agent](@/agents/prolog-planning-agent.md) | Logical precondition and effect evaluation for planning operations |
+| [prolog-reasoning-agent](@/agents/prolog-reasoning-agent.md) | Complementary rule-based computation and knowledge management |
+| [white-invariant-prover](@/agents/white-invariant-prover.md) | Formal verification of reasoning soundness properties |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Reasoning performance [metrics](/glossary/metrics/) and query statistics |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent specification and knowledge base discovery |
-| [SEADF](/glossary/seadf/) Pipeline | Knowledge base evolution and quality assessment |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Reasoning performance [metrics](@/glossary/metrics.md) and query statistics |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent specification and knowledge base discovery |
+| [SEADF](@/glossary/seadf.md) Pipeline | Knowledge base evolution and quality assessment |
 | NABLA Reasoning System | Core epistemic inference engine integration |
 
 ## Enforcement
 
-All reasoning operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine -- conclusions without valid proof trees are rejected, knowledge base modifications that violate integrity constraints are blocked, and queries that exceed computational budgets are terminated with explicit incomplete-result annotations. The [Trinity Gate](/glossary/trinity-gate/) validates critical reasoning outputs through structural consistency (proof tree forms a valid derivation), logical consistency (all resolution steps are sound), and formal necessity (conclusions follow necessarily from premises under the given inference rules).
+All reasoning operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine -- conclusions without valid proof trees are rejected, knowledge base modifications that violate integrity constraints are blocked, and queries that exceed computational budgets are terminated with explicit incomplete-result annotations. The [Trinity Gate](@/glossary/trinity-gate.md) validates critical reasoning outputs through structural consistency (proof tree forms a valid derivation), logical consistency (all resolution steps are sound), and formal necessity (conclusions follow necessarily from premises under the given inference rules).
 
 ---
 
@@ -109,4 +109,4 @@ All reasoning operations comply with the [NO MERCY](/glossary/no-mercy/) doctrin
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

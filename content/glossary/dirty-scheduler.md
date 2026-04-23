@@ -162,15 +162,15 @@ end
 
 ## Related Terms
 
-- [BEAM](/glossary/beam/) -- Virtual machine providing the scheduler infrastructure
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing the scheduler infrastructure
 - **GC** -- Garbage collection interacts with scheduler availability
 - **Execution Time** -- Operation duration determining scheduler selection
 - **Heap** -- Per-process memory managed independently of scheduler type
 
 ## See Also
 
-- [Technologies](/technologies/) -- BEAM runtime configuration
-- [Architecture](/architecture/) -- Platform scheduler architecture
+- [Technologies](@/technologies/_index.md) -- BEAM runtime configuration
+- [Architecture](@/architecture/_index.md) -- Platform scheduler architecture
 
 ---
 
@@ -179,4 +179,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

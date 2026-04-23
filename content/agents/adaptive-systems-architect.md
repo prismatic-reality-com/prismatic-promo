@@ -273,9 +273,9 @@ AdaptiveSystemsArchitect (L1 Supreme)
 
 ## Related Agents and Systems
 
-- [Autonomous Evolution Commander](/agents/autonomous-evolution-commander/) - Complementary evolution capabilities
-- [Supreme Coordinator](/agents/supreme-coordinator/) - Platform-wide coordination
-- [Code Quality Commander](/agents/code-quality-commander/) - Quality assurance integration
+- [Autonomous Evolution Commander](@/agents/autonomous-evolution-commander.md) - Complementary evolution capabilities
+- [Supreme Coordinator](@/agents/supreme-coordinator.md) - Platform-wide coordination
+- [Code Quality Commander](@/agents/code-quality-commander.md) - Quality assurance integration
 
 ## Conclusion
 

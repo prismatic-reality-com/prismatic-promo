@@ -236,10 +236,10 @@ The OFAC SDN adapter is accessible through three interfaces: the OSINT toolbox U
 
 ## Cross-References
 
-- [Sanctions](/glossary/sanctions/) - Broader sanctions framework encompassing the SDN list
-- [PEP](/glossary/pep/) - Politically exposed persons cross-referenced with SDN entries
-- [PII](/glossary/pii/) - Personal data in SDN entries requiring appropriate handling
-- [Provenance](/glossary/provenance/) - Audit trail for SDN screening results
+- [Sanctions](@/glossary/sanctions.md) - Broader sanctions framework encompassing the SDN list
+- [PEP](@/glossary/pep.md) - Politically exposed persons cross-referenced with SDN entries
+- [PII](@/glossary/pii.md) - Personal data in SDN entries requiring appropriate handling
+- [Provenance](@/glossary/provenance.md) - Audit trail for SDN screening results
 - **Self-Registration** - Metaprogramming pattern registering the OFAC adapter
 
 ---

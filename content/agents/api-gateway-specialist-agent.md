@@ -28,9 +28,9 @@ image_alt = "API Gateway Specialist Agent - Prismatic Platform"
 
 ## Overview
 
-The [API Gateway](/glossary/api-gateway/) Specialist Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Primary domain of the Prismatic Platform. This agent designs and maintains gateway and facade patterns that manage API traffic routing, request transformation, and cross-cutting concerns such as authentication, [rate limiting](/glossary/rate-limiting/), and request logging. The gateway layer serves as the single entry point for all external API consumers, providing a unified interface to the platform's distributed service architecture.
+The [API Gateway](@/glossary/api-gateway.md) Specialist Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Primary domain of the Prismatic Platform. This agent designs and maintains gateway and facade patterns that manage API traffic routing, request transformation, and cross-cutting concerns such as authentication, [rate limiting](@/glossary/rate-limiting.md), and request logging. The gateway layer serves as the single entry point for all external API consumers, providing a unified interface to the platform's distributed service architecture.
 
-In the Prismatic ecosystem, the API gateway is not a simple reverse proxy. It implements intelligent request dispatch through the platform's auto-introspecting architecture, where [Prismatic API](/glossary/prismatic-api/) scans all facade modules at boot time and routes incoming requests to the appropriate module functions. The API Gateway Specialist ensures this dispatch mechanism handles edge cases including partial module availability, graceful degradation during deployments, and proper error propagation from backend services to API consumers.
+In the Prismatic ecosystem, the API gateway is not a simple reverse proxy. It implements intelligent request dispatch through the platform's auto-introspecting architecture, where [Prismatic API](@/glossary/prismatic-api.md) scans all facade modules at boot time and routes incoming requests to the appropriate module functions. The API Gateway Specialist ensures this dispatch mechanism handles edge cases including partial module availability, graceful degradation during deployments, and proper error propagation from backend services to API consumers.
 
 The gateway also serves as the platform's primary security boundary for API traffic. Authentication verification, authorization checks, rate limit enforcement, and request validation all execute at the gateway level before requests reach backend modules. This centralized security enforcement ensures consistent policy application across all API endpoints without requiring each backend module to implement its own security checks.
 
@@ -38,11 +38,11 @@ The gateway also serves as the platform's primary security boundary for API traf
 
 The API Gateway Specialist manages a layered gateway architecture that processes requests through a pipeline of middleware stages before dispatch to backend modules.
 
-**Request Pipeline.** Incoming requests pass through a configurable middleware pipeline implemented as [Plug](/glossary/plug/) chains in the [Phoenix](/glossary/phoenix/) router. The pipeline stages execute in order: CORS policy application, authentication verification, rate limit checking, request validation, request transformation, dispatch to backend module, response transformation, and response logging. Each stage can short-circuit the pipeline, returning an error response without invoking subsequent stages.
+**Request Pipeline.** Incoming requests pass through a configurable middleware pipeline implemented as [Plug](@/glossary/plug.md) chains in the [Phoenix](@/glossary/phoenix.md) router. The pipeline stages execute in order: CORS policy application, authentication verification, rate limit checking, request validation, request transformation, dispatch to backend module, response transformation, and response logging. Each stage can short-circuit the pipeline, returning an error response without invoking subsequent stages.
 
 **Facade Module Registry.** The gateway maintains an ETS-backed registry of available facade modules discovered through the auto-introspection scanner. Each registry entry maps a `{app, action}` tuple to the corresponding module and function. The registry is refreshed at boot time and can be hot-reloaded when new modules are deployed.
 
-**Circuit Breaker Layer.** Each backend module endpoint is wrapped in a [circuit breaker](/glossary/circuit-breaker/) that monitors response times and error rates. When a backend module's error rate exceeds the threshold, the circuit breaker opens, routing requests to a fallback handler that returns a cached response or a graceful degradation message. This prevents a failing backend from consuming gateway resources and degrading the experience for consumers of healthy endpoints.
+**Circuit Breaker Layer.** Each backend module endpoint is wrapped in a [circuit breaker](@/glossary/circuit-breaker.md) that monitors response times and error rates. When a backend module's error rate exceeds the threshold, the circuit breaker opens, routing requests to a fallback handler that returns a cached response or a graceful degradation message. This prevents a failing backend from consuming gateway resources and degrading the experience for consumers of healthy endpoints.
 
 ```elixir
 defmodule PrismaticAPI.Gateway do
@@ -87,7 +87,7 @@ end
 - **Request routing and dispatch** with pattern-based routing rules that map incoming API requests to appropriate backend modules, supporting both static configuration and auto-discovered endpoints
 - **Facade pattern implementation** that presents simplified, consumer-friendly interfaces over complex internal service architectures, hiding implementation details and inter-service dependencies
 - **Cross-cutting concern management** including authentication verification, rate limiting enforcement, request/response logging, and CORS policy application at the gateway level
-- **[Circuit breaker](/glossary/circuit-breaker/) and fallback routing** that detects backend service failures and automatically routes requests to fallback handlers or cached responses, maintaining API availability
+- **[Circuit breaker](@/glossary/circuit-breaker.md) and fallback routing** that detects backend service failures and automatically routes requests to fallback handlers or cached responses, maintaining API availability
 - **Request transformation pipelines** that normalize incoming requests, validate payload schemas, and transform responses to match consumer-expected formats across API versions
 - **Gateway health monitoring** with real-time metrics on request throughput, error rates, latency percentiles, and circuit breaker states for operational visibility
 
@@ -103,11 +103,11 @@ Rate limiting uses a sliding window algorithm backed by ETS counters, supporting
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [api-design-specialist-agent](/agents/api-design-specialist-agent/) | Design Authority | Receives API design specifications for gateway implementation |
-| [cloud-security-specialist](/agents/cloud-security-specialist/) | Security Partner | Coordinates gateway security policies and authentication flows |
-| [alert-management-specialist](/agents/alert-management-specialist/) | Health Monitor | Routes gateway health alerts including circuit breaker events |
-| [aiad-dashboard-commander](/agents/aiad-dashboard-commander/) | Visibility | Displays gateway metrics on monitoring dashboards |
-| [absolute-enforcement-commander-v6](/agents/absolute-enforcement-commander-v6/) | Quality Gate | Validates gateway configuration against quality standards |
+| [api-design-specialist-agent](@/agents/api-design-specialist-agent.md) | Design Authority | Receives API design specifications for gateway implementation |
+| [cloud-security-specialist](@/agents/cloud-security-specialist.md) | Security Partner | Coordinates gateway security policies and authentication flows |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Health Monitor | Routes gateway health alerts including circuit breaker events |
+| [aiad-dashboard-commander](@/agents/aiad-dashboard-commander.md) | Visibility | Displays gateway metrics on monitoring dashboards |
+| [absolute-enforcement-commander-v6](@/agents/absolute-enforcement-commander-v6.md) | Quality Gate | Validates gateway configuration against quality standards |
 
 ## Operational Workflow
 
@@ -158,12 +158,12 @@ The AIAD specification at `.aiad/agents/api-gateway-specialist-agent.agent.md` d
 
 ## Related Resources
 
-- [Prismatic API](/glossary/prismatic-api/) -- Auto-introspecting REST gateway application
-- [OpenAPI](/glossary/openapi/) -- API specification standard
-- [Architecture Overview](/architecture/) -- Platform architecture including API gateway layer
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard
-- [Applications](/apps/) -- Platform applications with gateway-managed API surfaces
-- [Technologies](/technologies/) -- Technology stack including Phoenix and Plug
+- [Prismatic API](@/glossary/prismatic-api.md) -- Auto-introspecting REST gateway application
+- [OpenAPI](@/glossary/openapi.md) -- API specification standard
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including API gateway layer
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard
+- [Applications](@/apps/_index.md) -- Platform applications with gateway-managed API surfaces
+- [Technologies](@/technologies/_index.md) -- Technology stack including Phoenix and Plug
 
 ---
 
@@ -172,4 +172,4 @@ The AIAD specification at `.aiad/agents/api-gateway-specialist-agent.agent.md` d
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

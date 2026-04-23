@@ -45,7 +45,7 @@ The key architectural insight of Telemetry is the separation between event emiss
 
 Telemetry events are dispatched synchronously in the emitting process, which means handlers execute in the context of the process that emitted the event. This design choice provides causal ordering (events from a single process are always in order) and simplicity (no message passing overhead), but requires that handlers execute quickly to avoid blocking the emitting process. Long-running event processing should dispatch to separate processes.
 
-Within the Prismatic Platform, Telemetry is the universal observability layer across all 115 umbrella applications. Every significant operation -- from agent lifecycle transitions to [quality gate](/glossary/quality-gates/) executions to security rating calculations -- emits Telemetry events. The [Quality Floor Guardian](/glossary/quality-floor-guardian/) monitors these events for anomaly detection, [SEADF](/glossary/seadf/) subsystems use them for ecosystem health metrics, and the platform's CI/CD pipeline tracks performance regression through Telemetry-based benchmarks.
+Within the Prismatic Platform, Telemetry is the universal observability layer across all 115 umbrella applications. Every significant operation -- from agent lifecycle transitions to [quality gate](@/glossary/quality-gates.md) executions to security rating calculations -- emits Telemetry events. The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) monitors these events for anomaly detection, [SEADF](@/glossary/seadf.md) subsystems use them for ecosystem health metrics, and the platform's CI/CD pipeline tracks performance regression through Telemetry-based benchmarks.
 
 ## Historical Context and Evolution
 
@@ -381,7 +381,7 @@ end
 | Handler registration | ETS insert | Constant time, concurrent-safe |
 | Event name matching | Exact match on atom list | O(1) ETS lookup |
 
-The performance profile of Telemetry makes it safe to instrument hot paths without measurable impact on application throughput. In the Prismatic Platform, even the most performance-critical paths -- such as [inference](/glossary/inference/) request routing and security rating calculations -- are fully instrumented with Telemetry events. The ~1-2 microsecond overhead per event is insignificant compared to the millisecond-scale operations being measured.
+The performance profile of Telemetry makes it safe to instrument hot paths without measurable impact on application throughput. In the Prismatic Platform, even the most performance-critical paths -- such as [inference](@/glossary/inference.md) request routing and security rating calculations -- are fully instrumented with Telemetry events. The ~1-2 microsecond overhead per event is insignificant compared to the millisecond-scale operations being measured.
 
 ## Telemetry Poller for Periodic Measurements
 
@@ -620,16 +620,16 @@ end
 
 ## Related Concepts
 
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Consumes Telemetry events for quality monitoring
-- [SEADF](/glossary/seadf/) -- Ecosystem monitoring powered by Telemetry data
-- [GenServer](/glossary/genserver/) -- Processes emitting and handling Telemetry events
-- [OTP](/glossary/otp/) -- Framework providing Telemetry integration
-- [PubSub](/glossary/pubsub/) -- Complementary broadcast mechanism for LiveView updates
-- [TimescaleDB](/glossary/timescaledb/) -- Time-series storage for Telemetry metric persistence
-- [Observability](/glossary/observability/) -- Broader monitoring discipline built on Telemetry
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement pipeline emitting Telemetry events at each stage
-- [Inference](/glossary/inference/) -- AI inference pipeline instrumented with Telemetry
-- [BEAM](/glossary/beam/) -- Virtual machine providing the process model that Telemetry leverages
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Consumes Telemetry events for quality monitoring
+- [SEADF](@/glossary/seadf.md) -- Ecosystem monitoring powered by Telemetry data
+- [GenServer](@/glossary/genserver.md) -- Processes emitting and handling Telemetry events
+- [OTP](@/glossary/otp.md) -- Framework providing Telemetry integration
+- [PubSub](@/glossary/pubsub.md) -- Complementary broadcast mechanism for LiveView updates
+- [TimescaleDB](@/glossary/timescaledb.md) -- Time-series storage for Telemetry metric persistence
+- [Observability](@/glossary/observability.md) -- Broader monitoring discipline built on Telemetry
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement pipeline emitting Telemetry events at each stage
+- [Inference](@/glossary/inference.md) -- AI inference pipeline instrumented with Telemetry
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing the process model that Telemetry leverages
 
 ## See Also
 
@@ -638,8 +638,8 @@ end
 - [prismatic_agents](../../../apps/prismatic_agents/README.md) -- Agent lifecycle telemetry events
 - [prismatic_web](../../../apps/prismatic_web/README.md) -- LiveView performance telemetry
 - [prismatic_api](../../../apps/prismatic_api/README.md) -- API dispatch latency telemetry
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Application directory with per-app Telemetry instrumentation
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Application directory with per-app Telemetry instrumentation
 
 ---
 
@@ -648,4 +648,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

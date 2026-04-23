@@ -32,7 +32,7 @@ CEDR (Centralni evidence dotaci z rozpoctu) is the Czech Central Register of Sub
 
 Since its inception in the early 2000s with significant modernization around 2010, CEDR has been the single source of truth for tracking how public funds flow from government programs through providing bodies to individual recipients. The register captures the complete lifecycle of subsidy disbursement: from initial program allocation through recipient selection, payment execution, project implementation, and eventual verification or return of unused funds. This comprehensive recording, mandated by law, makes CEDR an indispensable tool for public accountability, investigative analysis, and financial due diligence in the Czech context.
 
-For [OSINT](/glossary/osint/) analysts and investigators, CEDR reveals critical financial intelligence about entities operating in the Czech Republic. The register answers fundamental questions: Which companies and organizations receive public funding? How much do they receive, from which programs, and over what time periods? Are there patterns suggesting subsidy dependency, concentration of funds, or potential irregularities? This data is essential for detecting subsidy fraud, mapping government-dependent entities, assessing the financial sustainability of organizations, and performing comprehensive due diligence.
+For [OSINT](@/glossary/osint.md) analysts and investigators, CEDR reveals critical financial intelligence about entities operating in the Czech Republic. The register answers fundamental questions: Which companies and organizations receive public funding? How much do they receive, from which programs, and over what time periods? Are there patterns suggesting subsidy dependency, concentration of funds, or potential irregularities? This data is essential for detecting subsidy fraud, mapping government-dependent entities, assessing the financial sustainability of organizations, and performing comprehensive due diligence.
 
 The Czech legal framework mandates that all providers of public funds -- ministries, state agencies, regional authorities (kraje), municipalities, and other public bodies -- must register every subsidy disbursement in CEDR. This legal obligation, enforced through budgetary oversight mechanisms and audit by the Supreme Audit Office (NKU), ensures near-complete coverage of the Czech public funding landscape. The register currently contains records spanning over two decades, covering hundreds of billions of Czech crowns in disbursed funds across thousands of programs and hundreds of thousands of recipients.
 
@@ -77,7 +77,7 @@ CEDR operates within a well-defined legal context that governs public fund disbu
 
 ## Technical Architecture
 
-CEDR provides open data access through its portal at `https://cedropendata.mfcr.cz/` with a [REST API](/glossary/rest-api/) supporting queries against the full subsidy database. The system follows standard REST conventions with JSON and CSV response formats, and requires no authentication for public data access.
+CEDR provides open data access through its portal at `https://cedropendata.mfcr.cz/` with a [REST API](@/glossary/rest-api.md) supporting queries against the full subsidy database. The system follows standard REST conventions with JSON and CSV response formats, and requires no authentication for public data access.
 
 ### API Endpoints
 
@@ -200,11 +200,11 @@ end
 
 ### Financial Due Diligence
 
-CEDR is essential for due diligence on Czech entities, particularly in M&A transactions, investment decisions, and partnership assessments. The register reveals whether a target entity is heavily dependent on public subsidies, which programs fund its operations, and whether it has any history of subsidy misuse or forced returns. An entity deriving a substantial portion of its revenue from non-recurring government grants may present sustainability risks that must be factored into valuation. Cross-referencing CEDR data with financial statements from the [Justice.cz](/osint/justice-cz/) commercial register's collection of deposited accounts (sbirka listin) enables precise calculation of subsidy dependency ratios.
+CEDR is essential for due diligence on Czech entities, particularly in M&A transactions, investment decisions, and partnership assessments. The register reveals whether a target entity is heavily dependent on public subsidies, which programs fund its operations, and whether it has any history of subsidy misuse or forced returns. An entity deriving a substantial portion of its revenue from non-recurring government grants may present sustainability risks that must be factored into valuation. Cross-referencing CEDR data with financial statements from the [Justice.cz](@/osint/justice-cz.md) commercial register's collection of deposited accounts (sbirka listin) enables precise calculation of subsidy dependency ratios.
 
 ### Subsidy Fraud Detection
 
-Pattern analysis across CEDR data can reveal potential subsidy fraud indicators: entities receiving disproportionate funding relative to their declared size and activities, companies with suspiciously similar ownership structures receiving funds from the same programs, recipients that consistently fail to complete funded projects resulting in return obligations, and entities with patterns of receiving funds shortly before entering insolvency proceedings. Cross-referencing with [ARES](/osint/ares/) company data, [Insolvency Registry](/osint/insolvencni-rejstrik/) proceedings, and [Court Cases](/osint/court-cases/) strengthens fraud detection capabilities.
+Pattern analysis across CEDR data can reveal potential subsidy fraud indicators: entities receiving disproportionate funding relative to their declared size and activities, companies with suspiciously similar ownership structures receiving funds from the same programs, recipients that consistently fail to complete funded projects resulting in return obligations, and entities with patterns of receiving funds shortly before entering insolvency proceedings. Cross-referencing with [ARES](@/osint/ares.md) company data, [Insolvency Registry](@/osint/insolvencni-rejstrik.md) proceedings, and [Court Cases](@/osint/court-cases.md) strengthens fraud detection capabilities.
 
 ### EU Fund Flow Analysis
 
@@ -212,7 +212,7 @@ As an EU member state, the Czech Republic receives billions of euros in structur
 
 ### Public Accountability and Investigative Journalism
 
-CEDR's open data mandate enables investigative journalists and civil society organizations (such as [Hlidac statu](/osint/hlidac-statu/)) to scrutinize public fund distribution. The data supports analyses of political patronage patterns, geographic distribution fairness, industry concentration, and the relationship between subsidy recipients and political actors or decision-makers.
+CEDR's open data mandate enables investigative journalists and civil society organizations (such as [Hlidac statu](@/osint/hlidac-statu.md)) to scrutinize public fund distribution. The data supports analyses of political patronage patterns, geographic distribution fairness, industry concentration, and the relationship between subsidy recipients and political actors or decision-makers.
 
 ### Competitive Intelligence
 
@@ -224,7 +224,7 @@ Understanding which competitors receive public subsidies, from which programs, a
 
 **Limitations**: Data entry quality depends on the reporting practices of individual providing bodies, and some records may have incomplete project descriptions, delayed reporting, or inconsistent categorization. The register does not capture subsidies from private foundations, international organizations outside the EU framework, or bilateral government aid programs not channeled through the state budget. Financial amounts are denominated in Czech crowns (CZK), requiring currency conversion for international comparisons. Very small subsidies may have less detailed metadata.
 
-**Mitigation**: The Prismatic Platform cross-references CEDR data with [Hlidac statu](/osint/hlidac-statu/) analytics (which independently processes and enriches CEDR data), [ARES](/osint/ares/) company records for entity validation, and [Registr smluv](/osint/registr-smluv/) contract data for a complete picture of entity-state financial relationships.
+**Mitigation**: The Prismatic Platform cross-references CEDR data with [Hlidac statu](@/osint/hlidac-statu.md) analytics (which independently processes and enriches CEDR data), [ARES](@/osint/ares.md) company records for entity validation, and [Registr smluv](@/osint/registr-smluv.md) contract data for a complete picture of entity-state financial relationships.
 
 ## Platform Integration
 
@@ -260,12 +260,12 @@ Understanding which competitors receive public subsidies, from which programs, a
 
 ## Related Resources
 
-- [Registr smluv](/osint/registr-smluv/) - Czech Contract Registry for public spending correlation
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog aggregating and enriching subsidy analytics
-- [ARES](/osint/ares/) - Czech business registry for recipient entity identification and validation
-- [Verejne zakazky](/osint/verejne-zakazky/) - Public procurement portal for complete public spending view
-- [EU Sanctions](/osint/eu-sanctions/) - Sanctions screening for subsidy recipients
-- [Justice.cz](/osint/justice-cz/) - Commercial register for beneficial ownership and financial statements
+- [Registr smluv](@/osint/registr-smluv.md) - Czech Contract Registry for public spending correlation
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog aggregating and enriching subsidy analytics
+- [ARES](@/osint/ares.md) - Czech business registry for recipient entity identification and validation
+- [Verejne zakazky](@/osint/verejne-zakazky.md) - Public procurement portal for complete public spending view
+- [EU Sanctions](@/osint/eu-sanctions.md) - Sanctions screening for subsidy recipients
+- [Justice.cz](@/osint/justice-cz.md) - Commercial register for beneficial ownership and financial statements
 
 ---
 
@@ -274,4 +274,4 @@ Understanding which competitors receive public subsidies, from which programs, a
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

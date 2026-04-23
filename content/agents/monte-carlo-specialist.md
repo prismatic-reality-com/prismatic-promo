@@ -28,9 +28,9 @@ image_alt = "monte-carlo-specialist - Prismatic Platform"
 
 ## Overview
 
-The monte-carlo-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's statistical-computing domain, responsible for implementing high-performance Monte Carlo computation engines, managing random number generation infrastructure, and optimizing statistical sampling algorithms for platform-wide probabilistic analysis. While the monte-carlo-simulation-specialist focuses on designing and interpreting simulations, this agent specializes in the computational infrastructure that makes large-scale Monte Carlo methods efficient and reliable on the [BEAM](/glossary/beam/) virtual machine.
+The monte-carlo-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's statistical-computing domain, responsible for implementing high-performance Monte Carlo computation engines, managing random number generation infrastructure, and optimizing statistical sampling algorithms for platform-wide probabilistic analysis. While the monte-carlo-simulation-specialist focuses on designing and interpreting simulations, this agent specializes in the computational infrastructure that makes large-scale Monte Carlo methods efficient and reliable on the [BEAM](@/glossary/beam.md) virtual machine.
 
-Built on the [AIAD](/glossary/aiad/) standard and leveraging [OTP](/glossary/otp/) concurrency primitives, this agent architects parallel Monte Carlo computation that distributes trials across multiple [BEAM](/glossary/beam/) schedulers, implements [ETS](/glossary/ets/)-backed result aggregation for lock-free concurrent writes, and manages [backpressure](/glossary/backpressure/) when simulation workloads exceed available computational resources. The [NO MERCY](/glossary/no-mercy/) doctrine applies to computational correctness: no Monte Carlo implementation is deployed without verified random number quality and statistical test validation.
+Built on the [AIAD](@/glossary/aiad.md) standard and leveraging [OTP](@/glossary/otp.md) concurrency primitives, this agent architects parallel Monte Carlo computation that distributes trials across multiple [BEAM](@/glossary/beam.md) schedulers, implements [ETS](@/glossary/ets.md)-backed result aggregation for lock-free concurrent writes, and manages [backpressure](@/glossary/backpressure.md) when simulation workloads exceed available computational resources. The [NO MERCY](@/glossary/no-mercy.md) doctrine applies to computational correctness: no Monte Carlo implementation is deployed without verified random number quality and statistical test validation.
 
 ## Operational Domain
 
@@ -50,9 +50,9 @@ The statistical-computing domain covers the computational infrastructure for all
 - **High-performance parallel sampling** -- Distributes Monte Carlo trials across BEAM schedulers using Task.async_stream with configurable demand control, achieving near-linear scaling on multi-core hardware
 - **Statistical quality assurance** -- Validates random number generators against standard statistical test suites (spectral test, serial correlation, chi-square) before use in production simulations
 - **Streaming aggregation** -- Implements Welford's online algorithm for numerically stable computation of running mean, variance, and higher moments without storing individual samples
-- **[CASCADE](/glossary/cascade/) computation patterns** -- Cascading computation strategies that adapt sampling density based on intermediate results, concentrating computational effort on regions of parameter space with high information content
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed performance optimization and computational resource management
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing computation throughput, memory utilization, and numerical quality metrics
+- **[CASCADE](@/glossary/cascade.md) computation patterns** -- Cascading computation strategies that adapt sampling density based on intermediate results, concentrating computational effort on regions of parameter space with high information content
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed performance optimization and computational resource management
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing computation throughput, memory utilization, and numerical quality metrics
 
 ## Parallel Monte Carlo Engine
 
@@ -142,7 +142,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to manage statistical computing infrastructure and enforce computational quality standards.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to manage statistical computing infrastructure and enforce computational quality standards.
 
 ## Performance Benchmarks
 
@@ -165,10 +165,10 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [monte-carlo-simulation-specialist](/agents/monte-carlo-simulation-specialist/) | Provides computational engine for simulation model execution |
-| [performance-benchmarking-agent](/agents/performance-benchmarking-agent/) | Validates computation performance against established benchmarks |
-| [evolution-analyzer-specialist](/agents/evolution-analyzer-specialist/) | Supplies evolutionary fitness data for stochastic modeling |
-| [code-quality-commander](/agents/code-quality-commander/) | Enforces code quality on statistical computing implementations |
+| [monte-carlo-simulation-specialist](@/agents/monte-carlo-simulation-specialist.md) | Provides computational engine for simulation model execution |
+| [performance-benchmarking-agent](@/agents/performance-benchmarking-agent.md) | Validates computation performance against established benchmarks |
+| [evolution-analyzer-specialist](@/agents/evolution-analyzer-specialist.md) | Supplies evolutionary fitness data for stochastic modeling |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Enforces code quality on statistical computing implementations |
 
 ## Random Number Quality Assurance
 
@@ -189,7 +189,7 @@ The test suite runs automatically when a new PRNG algorithm is configured and pe
 
 ### Seeding Strategies
 
-For parallel Monte Carlo where multiple [BEAM](/glossary/beam/) schedulers execute trials concurrently, the specialist implements three seeding strategies to ensure statistical independence across parallel streams. The **independent** strategy generates cryptographically random seeds for each worker, providing strong independence guarantees. The **leap-frog** strategy interleaves a single long-period generator across workers by having each worker take every Nth sample, preserving the generator's period guarantee. The **block-split** strategy divides the generator's period into non-overlapping blocks assigned to each worker, ensuring zero overlap even for very long simulations.
+For parallel Monte Carlo where multiple [BEAM](@/glossary/beam.md) schedulers execute trials concurrently, the specialist implements three seeding strategies to ensure statistical independence across parallel streams. The **independent** strategy generates cryptographically random seeds for each worker, providing strong independence guarantees. The **leap-frog** strategy interleaves a single long-period generator across workers by having each worker take every Nth sample, preserving the generator's period guarantee. The **block-split** strategy divides the generator's period into non-overlapping blocks assigned to each worker, ensuring zero overlap even for very long simulations.
 
 ## Numerical Stability Techniques
 
@@ -197,11 +197,11 @@ Beyond the Welford algorithm for running statistics, the specialist implements s
 
 ## BEAM Scheduler Integration
 
-The parallel Monte Carlo engine is designed to work harmoniously with the [BEAM](/glossary/beam/) scheduler rather than fighting against it. Work is distributed in chunks sized to complete within a single scheduler time slice (typically 2,000 reductions), preventing Monte Carlo computation from starving other platform processes. The specialist monitors scheduler utilization and automatically reduces concurrency when system load indicates that other processes require scheduler time. This cooperative scheduling approach ensures that Monte Carlo workloads can run continuously as background computations without impacting the platform's interactive response times.
+The parallel Monte Carlo engine is designed to work harmoniously with the [BEAM](@/glossary/beam.md) scheduler rather than fighting against it. Work is distributed in chunks sized to complete within a single scheduler time slice (typically 2,000 reductions), preventing Monte Carlo computation from starving other platform processes. The specialist monitors scheduler utilization and automatically reduces concurrency when system load indicates that other processes require scheduler time. This cooperative scheduling approach ensures that Monte Carlo workloads can run continuously as background computations without impacting the platform's interactive response times.
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that all Monte Carlo implementations pass numerical accuracy validation before deployment. Random number generators must clear statistical quality test suites. The [NO DOUBTS](/glossary/no-doubts/) principle mandates reproducibility -- every simulation must be reproducible from its seed configuration. Floating-point accumulation must use numerically stable algorithms (Welford, Kahan) to prevent catastrophic cancellation in variance computations.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that all Monte Carlo implementations pass numerical accuracy validation before deployment. Random number generators must clear statistical quality test suites. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates reproducibility -- every simulation must be reproducible from its seed configuration. Floating-point accumulation must use numerically stable algorithms (Welford, Kahan) to prevent catastrophic cancellation in variance computations.
 
 ---
 
@@ -210,4 +210,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that all Monte Carlo imple
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

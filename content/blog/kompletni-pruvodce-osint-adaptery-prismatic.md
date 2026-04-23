@@ -393,7 +393,7 @@ curl -X POST http://localhost:4004/api/v1/osint/execute_tool \
 
 ## Vytvoreni vlastniho adapteru
 
-Platforma je rozsiritelna. Prectete si [Tvorba OSINT adapteru s Elixirem](/blog/building-osint-adapters-with-elixir/) pro podrobny navod, nebo vygenerujte adapter okamzite:
+Platforma je rozsiritelna. Prectete si [Tvorba OSINT adapteru s Elixirem](@/blog/building-osint-adapters-with-elixir.md) pro podrobny navod, nebo vygenerujte adapter okamzite:
 
 ```bash
 mix prismatic.gen.adapter --name muj_vlastni_zdroj --category global

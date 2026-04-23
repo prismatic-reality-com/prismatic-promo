@@ -24,7 +24,7 @@ image_alt = "/reload - Prismatic Platform"
 
 ## Overview
 
-**/reload** is a production command in the **Infrastructure** category of the Prismatic Platform that performs hot-reload operations on MCP servers, the [AIAD](/glossary/aiad/) [registry](/glossary/registry-otp/), and platform configuration without requiring a full system restart. This command leverages Elixir/OTP's native hot code loading capabilities to apply changes to running systems while maintaining active connections, preserving process state, and ensuring zero downtime during the reload cycle.
+**/reload** is a production command in the **Infrastructure** category of the Prismatic Platform that performs hot-reload operations on MCP servers, the [AIAD](@/glossary/aiad.md) [registry](@/glossary/registry-otp.md), and platform configuration without requiring a full system restart. This command leverages Elixir/OTP's native hot code loading capabilities to apply changes to running systems while maintaining active connections, preserving process state, and ensuring zero downtime during the reload cycle.
 
 Hot reloading is a critical operational capability in a platform that runs continuously and serves multiple concurrent users through LiveView connections. Traditional restart-based deployment disrupts all active sessions, loses in-memory state accumulated in ETS tables and GenServer processes, and requires re-establishing connections to external services like PostgreSQL, Redis, and Meilisearch. The `/reload` command eliminates these disruptions by applying changes surgically to only the modified components while the rest of the system continues operating normally.
 
@@ -133,7 +133,7 @@ The coordination layer ensures that reload operations across different targets a
 
 The reload command follows a carefully orchestrated execution flow designed to minimize disruption and maximize safety.
 
-**Step 1 - Change Detection**: The coordinator scans for changes since the last reload. For modules, this compares source file timestamps against loaded BEAM file timestamps. For MCP servers, this checks configuration file modifications. For the AIAD registry, this runs the same discovery process as [/registry-sync](/commands/registry-sync/).
+**Step 1 - Change Detection**: The coordinator scans for changes since the last reload. For modules, this compares source file timestamps against loaded BEAM file timestamps. For MCP servers, this checks configuration file modifications. For the AIAD registry, this runs the same discovery process as [/registry-sync](@/commands/registry-sync.md).
 
 **Step 2 - Dependency Analysis**: Modified modules are analyzed to determine their dependency graph. The coordinator computes the correct reload order using topological sort on the dependency DAG, ensuring that dependencies are reloaded before dependents.
 
@@ -153,14 +153,14 @@ The reload command follows a carefully orchestrated execution flow designed to m
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `aiad-hot-reload-coordinator` | Specialized in OTP hot code loading |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `aiad-hot-reload-coordinator` | Specialized in OTP hot code loading |
 | MCP Servers | Reload target | 14+ servers with tool registrations |
-| [AIAD](/glossary/aiad/) Registry | Reload target | Agent and command catalog refresh |
+| [AIAD](@/glossary/aiad.md) Registry | Reload target | Agent and command catalog refresh |
 | OTP Application | Module reload | Erlang hot code loading primitives |
-| [/registry-sync](/commands/registry-sync/) | Registry reload | Shares discovery logic with registry-sync |
-| [/connect](/commands/connect/) | MCP management | Connect manages MCP lifecycle; reload refreshes it |
-| [Telemetry](/glossary/telemetry/) | Event tracking | Reload operations emit detailed telemetry events |
-| [Quality Gates](/glossary/quality-gates/) | Post-reload validation | Quality gates verify reloaded code quality |
+| [/registry-sync](@/commands/registry-sync.md) | Registry reload | Shares discovery logic with registry-sync |
+| [/connect](@/commands/connect.md) | MCP management | Connect manages MCP lifecycle; reload refreshes it |
+| [Telemetry](@/glossary/telemetry.md) | Event tracking | Reload operations emit detailed telemetry events |
+| [Quality Gates](@/glossary/quality-gates.md) | Post-reload validation | Quality gates verify reloaded code quality |
 
 ## Best Practices
 
@@ -210,20 +210,20 @@ The `--staged` flag enables controlled rollout across applications in a specifie
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Reload operations either complete successfully with verified health checks or roll back completely. No partial reloads are left in place, and no health check degradation is tolerated.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The dependency analysis and change detection phases ensure complete understanding of the reload's impact before any changes are applied. Post-reload verification provides evidence that the reload succeeded.
 
 ## Related Commands
 
-- [/ollama](/commands/ollama/) - Local AI Ollama model management, installation and optimization
-- [/gardener](/commands/gardener/) - [GARDEN](/glossary/garden/) legacy knowledge repository management across 116 repos
-- [/garden-explore](/commands/garden-explore/) - Explore GARDEN repositories for patterns and knowledge
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
-- [/registry-sync](/commands/registry-sync/) - AIAD registry synchronization and indexing
+- [/ollama](@/commands/ollama.md) - Local AI Ollama model management, installation and optimization
+- [/gardener](@/commands/gardener.md) - [GARDEN](@/glossary/garden.md) legacy knowledge repository management across 116 repos
+- [/garden-explore](@/commands/garden-explore.md) - Explore GARDEN repositories for patterns and knowledge
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
+- [/registry-sync](@/commands/registry-sync.md) - AIAD registry synchronization and indexing
 
 ---
 
@@ -232,4 +232,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

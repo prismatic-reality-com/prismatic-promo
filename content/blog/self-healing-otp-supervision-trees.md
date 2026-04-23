@@ -165,4 +165,4 @@ The goal is not to prevent all failures -- it is to ensure that failures are con
 
 ---
 
-*Learn more about OTP patterns in the [Interactive Academy](/academy/) or explore the [Architecture Documentation](/architecture/) for supervision tree diagrams.*
+*Learn more about OTP patterns in the [Interactive Academy](@/academy/_index.md) or explore the [Architecture Documentation](@/architecture/_index.md) for supervision tree diagrams.*

@@ -24,9 +24,9 @@ image_alt = "/green-beret - Prismatic Platform"
 
 ## Overview
 
-**/green-beret** is a production command in the **Intelligence** category of the Prismatic Platform that provides unconventional intelligence gathering capabilities through adaptive investigation techniques, creative source combination, and non-standard analytical approaches. Named after the U.S. Army Special Forces known for unconventional warfare and foreign internal defense, this command specializes in intelligence problems that resist standard [OSINT](/glossary/osint/) methodologies and require creative, multi-vector investigation strategies.
+**/green-beret** is a production command in the **Intelligence** category of the Prismatic Platform that provides unconventional intelligence gathering capabilities through adaptive investigation techniques, creative source combination, and non-standard analytical approaches. Named after the U.S. Army Special Forces known for unconventional warfare and foreign internal defense, this command specializes in intelligence problems that resist standard [OSINT](@/glossary/osint.md) methodologies and require creative, multi-vector investigation strategies.
 
-This command operates under the **L3** authority level and is executed by the `green-beret-operator` agent, which is trained in adaptive intelligence tradecraft that goes beyond conventional open source intelligence patterns. While standard OSINT commands like [/investigate](/commands/investigate/) and [/google-hacking](/commands/google-hacking/) apply well-known techniques systematically, the green-beret operator adapts its approach in real-time based on what it discovers, pivoting between investigation vectors, cross-referencing unexpected data sources, and applying lateral thinking to connect seemingly unrelated intelligence fragments. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level and is executed by the `green-beret-operator` agent, which is trained in adaptive intelligence tradecraft that goes beyond conventional open source intelligence patterns. While standard OSINT commands like [/investigate](@/commands/investigate.md) and [/google-hacking](@/commands/google-hacking.md) apply well-known techniques systematically, the green-beret operator adapts its approach in real-time based on what it discovers, pivoting between investigation vectors, cross-referencing unexpected data sources, and applying lateral thinking to connect seemingly unrelated intelligence fragments. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 The command fills a critical gap in the intelligence pipeline. Standard intelligence gathering follows predictable patterns: query known databases, apply established dork patterns, check breach databases, enumerate public records. These methods are effective for common targets but fail when subjects have minimal digital footprints, use sophisticated operational security, or when the intelligence objective requires connecting dots across disparate domains. The green-beret operator excels precisely in these challenging scenarios, applying unconventional approaches such as infrastructure correlation, behavioral pattern analysis, temporal activity mapping, and indirect attribution through associated entities.
 
@@ -167,19 +167,19 @@ The Adaptive Strategy Engine is the core differentiator. Unlike fixed-pipeline i
 
 7. **Report Synthesis**: Generate a comprehensive intelligence assessment that includes findings, attribution chains, confidence scores, contradictions, and recommendations for further investigation. The report follows a structured format that integrates with the platform's intelligence pipeline.
 
-8. **Integration**: Feed findings back into the platform's intelligence ecosystem, updating [Prismatic Perimeter](/apps/prismatic-perimeter/) attack surface data and contributing to the [/investigate](/commands/investigate/) evidence chain.
+8. **Integration**: Feed findings back into the platform's intelligence ecosystem, updating [Prismatic Perimeter](@/apps/prismatic-perimeter.md) attack surface data and contributing to the [/investigate](@/commands/investigate.md) evidence chain.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by `green-beret-operator` agent at L3 authority |
-| [/investigate](/commands/investigate/) | Intelligence Pipeline | Provides unconventional supplements to standard investigations |
-| [/google-hacking](/commands/google-hacking/) | Source Data | Leverages dorking results as starting points for deeper analysis |
-| [/email-osint](/commands/email-osint/) | Cross-Reference | Correlates email intelligence with behavioral patterns |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Attack Surface | Discoveries feed into external attack surface assessments |
-| [/intel-export](/commands/intel-export/) | Export Pipeline | Assessment packaged for external LLM or human analysis |
-| [Telemetry](/glossary/telemetry/) | Metrics | Investigation duration, pivot count, finding quality tracked |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by `green-beret-operator` agent at L3 authority |
+| [/investigate](@/commands/investigate.md) | Intelligence Pipeline | Provides unconventional supplements to standard investigations |
+| [/google-hacking](@/commands/google-hacking.md) | Source Data | Leverages dorking results as starting points for deeper analysis |
+| [/email-osint](@/commands/email-osint.md) | Cross-Reference | Correlates email intelligence with behavioral patterns |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Attack Surface | Discoveries feed into external attack surface assessments |
+| [/intel-export](@/commands/intel-export.md) | Export Pipeline | Assessment packaged for external LLM or human analysis |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Investigation duration, pivot count, finding quality tracked |
 | NABLA Framework | Epistemics | Contradiction preservation and signal plurality enforced |
 
 ## Best Practices
@@ -236,7 +236,7 @@ The green-beret operator can provide intelligence products to the platform's col
 
 ## Doctrine Compliance
 
-All green-beret operations enforce the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine.
+All green-beret operations enforce the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine.
 
 - **NO MERCY**: Every investigation technique is executed completely before pivoting. Dead ends are confirmed through multiple verification attempts. The operator does not abandon leads prematurely.
 - **NO DOUBTS**: All findings include attribution chains with full provenance. Confidence scores are evidence-based, not estimated. Contradictions are preserved and reported per the NABLA Addiction Preservation doctrine. The operator explicitly states uncertainty when it exists rather than presenting unverified hypotheses as conclusions.
@@ -245,13 +245,13 @@ The command additionally enforces the NABLA axioms of Signal Plurality (minimum 
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/intel-export](/commands/intel-export/) - Generate comprehensive intelligence packages for external analysis
-- [/osint-engines](/commands/osint-engines/) - Multi-engine OSINT source coordination and parallel querying
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/intel-export](@/commands/intel-export.md) - Generate comprehensive intelligence packages for external analysis
+- [/osint-engines](@/commands/osint-engines.md) - Multi-engine OSINT source coordination and parallel querying
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -260,4 +260,4 @@ The command additionally enforces the NABLA axioms of Signal Plurality (minimum 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

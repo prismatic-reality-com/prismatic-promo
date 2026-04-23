@@ -26,9 +26,9 @@ image_alt = "/presales-case - Prismatic Platform"
 
 **/presales-case** is a production command in the **Presales** category of the Prismatic Platform that provides comprehensive case management capabilities for tracking, updating, and coordinating presales activities across the entire opportunity lifecycle. The command serves as the central coordination hub for all presales operations, maintaining a structured record of opportunity intelligence, technical assessments, pricing analyses, competitive research, and proposal status for each active presales engagement.
 
-The case management system implements a structured state machine that tracks opportunities through defined lifecycle stages: Lead, Qualified, Assessment, Proposal, Negotiation, Won, Lost, and Deferred. At each stage, the command enforces data completeness requirements and triggers appropriate downstream workflows. For example, transitioning from Qualified to Assessment automatically initiates a technical feasibility check via [/presales-assess](/commands/presales-assess/), and transitioning to Proposal verifies that pricing analysis has been completed via [/presales-price](/commands/presales-price/).
+The case management system implements a structured state machine that tracks opportunities through defined lifecycle stages: Lead, Qualified, Assessment, Proposal, Negotiation, Won, Lost, and Deferred. At each stage, the command enforces data completeness requirements and triggers appropriate downstream workflows. For example, transitioning from Qualified to Assessment automatically initiates a technical feasibility check via [/presales-assess](@/commands/presales-assess.md), and transitioning to Proposal verifies that pricing analysis has been completed via [/presales-price](@/commands/presales-price.md).
 
-This command operates under the **L2+** authority level and is executed by the `presales-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The presales coordinator agent manages cross-command orchestration, ensuring that all presales activities for a given opportunity are properly linked, sequenced, and tracked.
+This command operates under the **L2+** authority level and is executed by the `presales-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The presales coordinator agent manages cross-command orchestration, ensuring that all presales activities for a given opportunity are properly linked, sequenced, and tracked.
 
 The case management approach ensures that institutional knowledge about opportunities is preserved across sessions and team members. Every analysis, assessment, pricing decision, and competitive insight is stored as part of the case record, creating a comprehensive audit trail that supports decision-making, lessons-learned analysis, and win/loss reviews. This persistence is particularly valuable in long-cycle presales engagements where opportunities may span weeks or months.
 
@@ -169,15 +169,15 @@ The case management command operates differently depending on the action request
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/presales](/commands/presales/) | Parent Command | Top-level presales orchestration |
-| [/presales-analyze](/commands/presales-analyze/) | Data Source | Analysis results linked to cases |
-| [/presales-assess](/commands/presales-assess/) | Workflow Trigger | Auto-triggered at Assessment stage |
-| [/presales-price](/commands/presales-price/) | Workflow Trigger | Required before Proposal stage |
-| [/presales-propose](/commands/presales-propose/) | Workflow Trigger | Proposal generation from case data |
-| [/presales-research](/commands/presales-research/) | Data Enrichment | Competitive research linked to cases |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `presales-coordinator` agent |
-| [Prismatic Storage](/apps/prismatic-storage/) | Persistence | Case data, events, documents |
-| [Telemetry](/glossary/telemetry/) | Observability | Case lifecycle metrics |
+| [/presales](@/commands/presales.md) | Parent Command | Top-level presales orchestration |
+| [/presales-analyze](@/commands/presales-analyze.md) | Data Source | Analysis results linked to cases |
+| [/presales-assess](@/commands/presales-assess.md) | Workflow Trigger | Auto-triggered at Assessment stage |
+| [/presales-price](@/commands/presales-price.md) | Workflow Trigger | Required before Proposal stage |
+| [/presales-propose](@/commands/presales-propose.md) | Workflow Trigger | Proposal generation from case data |
+| [/presales-research](@/commands/presales-research.md) | Data Enrichment | Competitive research linked to cases |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `presales-coordinator` agent |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Persistence | Case data, events, documents |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Case lifecycle metrics |
 
 ## Best Practices
 
@@ -237,19 +237,19 @@ The case management command operates differently depending on the action request
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Stage transitions enforce strict prerequisites -- no shortcuts. Every case must have complete data before advancing. Win/loss reviews are mandatory for closed cases to capture lessons learned.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Case stage progression requires evidence of completed activities. Probability estimates must be justified by observable signals. The [NABLA](/glossary/nabla-infinity/) axiom of Provenance Mandatory ensures every case decision is traceable through the event log.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Case stage progression requires evidence of completed activities. Probability estimates must be justified by observable signals. The [NABLA](@/glossary/nabla-infinity.md) axiom of Provenance Mandatory ensures every case decision is traceable through the event log.
 
 ## Related Commands
 
-- [/presales](/commands/presales/) - Presales intelligence for company analysis and opportunity identification
-- [/presales-analyze](/commands/presales-analyze/) - Text, file and URL analysis for presales opportunity assessment
-- [/presales-assess](/commands/presales-assess/) - Technical assessment of opportunities and cases
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/presales](@/commands/presales.md) - Presales intelligence for company analysis and opportunity identification
+- [/presales-analyze](@/commands/presales-analyze.md) - Text, file and URL analysis for presales opportunity assessment
+- [/presales-assess](@/commands/presales-assess.md) - Technical assessment of opportunities and cases
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -258,4 +258,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

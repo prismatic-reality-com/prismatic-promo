@@ -24,11 +24,11 @@ image_alt = "/ma-report - Prismatic Platform"
 
 ## Overview
 
-**/ma-report** is a production command in the **M&A Operations** category of the Prismatic Platform that generates detailed, structured M&A analysis reports with visualizations, executive summaries, and actionable recommendations. While [/ma-analyze](/commands/ma-analyze/) performs the analytical work and stores results, the `/ma-report` command transforms those results into polished, stakeholder-ready documents suitable for board presentations, investment committee reviews, and deal team communications.
+**/ma-report** is a production command in the **M&A Operations** category of the Prismatic Platform that generates detailed, structured M&A analysis reports with visualizations, executive summaries, and actionable recommendations. While [/ma-analyze](@/commands/ma-analyze.md) performs the analytical work and stores results, the `/ma-report` command transforms those results into polished, stakeholder-ready documents suitable for board presentations, investment committee reviews, and deal team communications.
 
-This command operates under the **L2+** authority level and is executed by the `ma-report-generator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level allows broad access to report generation while ensuring that the underlying analysis data is appropriately protected.
+This command operates under the **L2+** authority level and is executed by the `ma-report-generator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level allows broad access to report generation while ensuring that the underlying analysis data is appropriately protected.
 
-Report generation in the Prismatic Platform produces documents that combine traditional M&A reporting with the platform's intelligence capabilities. A standard M&A report includes financial analysis tables and valuation summaries; a Prismatic M&A report additionally includes OSINT intelligence findings, digital infrastructure assessments, key personnel network maps, and [NABLA](/glossary/nabla-infinity/)-calibrated confidence scores for every major finding. This intelligence enrichment provides deal teams with context that traditional advisory reports lack.
+Report generation in the Prismatic Platform produces documents that combine traditional M&A reporting with the platform's intelligence capabilities. A standard M&A report includes financial analysis tables and valuation summaries; a Prismatic M&A report additionally includes OSINT intelligence findings, digital infrastructure assessments, key personnel network maps, and [NABLA](@/glossary/nabla-infinity.md)-calibrated confidence scores for every major finding. This intelligence enrichment provides deal teams with context that traditional advisory reports lack.
 
 The report generator supports multiple output formats (PDF, Markdown, HTML, JSON) and multiple report types (screening summary, full due diligence, executive briefing, financial detail, compliance report). Each report type follows a predefined template structure optimized for its intended audience, ensuring that executives receive concise summaries while analysts receive comprehensive detail.
 
@@ -161,16 +161,16 @@ The report generation system operates as a template-driven rendering pipeline wi
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `ma-report-generator` | Report rendering and formatting |
-| [/ma-analyze](/commands/ma-analyze/) | Analysis data | Primary data source for reports |
-| [/ma-create](/commands/ma-create/) | Deal context | Deal profile and target information |
-| [/ma-dashboard](/commands/ma-dashboard/) | Report links | Generated reports linked from dashboard |
-| [/ma-enforce](/commands/ma-enforce/) | Compliance data | Compliance status for compliance reports |
-| [/investigate](/commands/investigate/) | Intelligence data | OSINT findings for intelligence sections |
-| [/intel-export](/commands/intel-export/) | Intelligence packaging | Structured intelligence for report integration |
-| [NABLA Framework](/glossary/nabla-infinity/) | Confidence display | Confidence scores displayed in reports |
-| [Quality Gates](/glossary/quality-gates/) | Report quality | Report completeness validation |
-| [Telemetry](/glossary/telemetry/) | Generation [metrics](/glossary/metrics/) | Report generation time tracking |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `ma-report-generator` | Report rendering and formatting |
+| [/ma-analyze](@/commands/ma-analyze.md) | Analysis data | Primary data source for reports |
+| [/ma-create](@/commands/ma-create.md) | Deal context | Deal profile and target information |
+| [/ma-dashboard](@/commands/ma-dashboard.md) | Report links | Generated reports linked from dashboard |
+| [/ma-enforce](@/commands/ma-enforce.md) | Compliance data | Compliance status for compliance reports |
+| [/investigate](@/commands/investigate.md) | Intelligence data | OSINT findings for intelligence sections |
+| [/intel-export](@/commands/intel-export.md) | Intelligence packaging | Structured intelligence for report integration |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Confidence display | Confidence scores displayed in reports |
+| [Quality Gates](@/glossary/quality-gates.md) | Report quality | Report completeness validation |
+| [Telemetry](@/glossary/telemetry.md) | Generation [metrics](@/glossary/metrics.md) | Report generation time tracking |
 
 ## Best Practices
 
@@ -253,20 +253,20 @@ Generate presentation-ready outputs for stakeholder meetings.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Reports include all available data for requested sections or explicitly document why data is unavailable. No section is silently omitted.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every finding in the report includes provenance, confidence scoring, and data quality indicators. Reports are evidence documents, not opinion pieces.
 
 ## Related Commands
 
-- [/ma-create](/commands/ma-create/) - Create new M&A deal with target profiling and initial assessment
-- [/ma-analyze](/commands/ma-analyze/) - Comprehensive M&A analysis including financial, legal and operational review
-- [/ma-dashboard](/commands/ma-dashboard/) - M&A deal pipeline dashboard with real-time status tracking
-- [/ma-status](/commands/ma-status/) - M&A deal pipeline status overview and progress tracking
-- [/ma-enforce](/commands/ma-enforce/) - M&A enforcement actions for deal compliance and deadline tracking
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/intel-export](/commands/intel-export/) - Generate comprehensive intelligence packages for external LLM analysis
+- [/ma-create](@/commands/ma-create.md) - Create new M&A deal with target profiling and initial assessment
+- [/ma-analyze](@/commands/ma-analyze.md) - Comprehensive M&A analysis including financial, legal and operational review
+- [/ma-dashboard](@/commands/ma-dashboard.md) - M&A deal pipeline dashboard with real-time status tracking
+- [/ma-status](@/commands/ma-status.md) - M&A deal pipeline status overview and progress tracking
+- [/ma-enforce](@/commands/ma-enforce.md) - M&A enforcement actions for deal compliance and deadline tracking
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/intel-export](@/commands/intel-export.md) - Generate comprehensive intelligence packages for external LLM analysis
 
 ---
 
@@ -275,4 +275,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

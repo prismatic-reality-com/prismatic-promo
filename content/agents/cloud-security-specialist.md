@@ -28,9 +28,9 @@ image_alt = "cloud-security-specialist - Prismatic Platform"
 
 ## Executive Summary
 
-The Cloud Security Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Infrastructure domain of the Prismatic Platform. This agent is responsible for hardening the platform's cloud infrastructure across [Fly.io](/glossary/fly-io/) deployments, [Docker](/glossary/docker/) container configurations, and [PostgreSQL](/glossary/postgresql/) database security. Every cloud resource provisioned for the Prismatic Platform must meet security baselines that this agent defines, validates, and continuously monitors.
+The Cloud Security Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Infrastructure domain of the Prismatic Platform. This agent is responsible for hardening the platform's cloud infrastructure across [Fly.io](@/glossary/fly-io.md) deployments, [Docker](@/glossary/docker.md) container configurations, and [PostgreSQL](@/glossary/postgresql.md) database security. Every cloud resource provisioned for the Prismatic Platform must meet security baselines that this agent defines, validates, and continuously monitors.
 
-Cloud security in the Prismatic ecosystem extends beyond basic firewall rules. The platform processes [OSINT](/glossary/osint/) intelligence data, manages visitor tracking analytics through the HAWKEYE system, handles compliance assessments for [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) regulations, and exposes security rating services through Prismatic Perimeter. Each of these workloads has distinct security requirements: OSINT data requires strict access controls and audit logging, visitor data must comply with [GDPR](/glossary/gdpr/) privacy requirements, compliance assessments demand tamper-proof evidence chains, and security rating services must protect against manipulation. The Cloud Security Specialist ensures that infrastructure-level security controls support these application-level requirements without gaps.
+Cloud security in the Prismatic ecosystem extends beyond basic firewall rules. The platform processes [OSINT](@/glossary/osint.md) intelligence data, manages visitor tracking analytics through the HAWKEYE system, handles compliance assessments for [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) regulations, and exposes security rating services through Prismatic Perimeter. Each of these workloads has distinct security requirements: OSINT data requires strict access controls and audit logging, visitor data must comply with [GDPR](@/glossary/gdpr.md) privacy requirements, compliance assessments demand tamper-proof evidence chains, and security rating services must protect against manipulation. The Cloud Security Specialist ensures that infrastructure-level security controls support these application-level requirements without gaps.
 
 ## Architecture
 
@@ -82,9 +82,9 @@ The domain intersects with compliance requirements from multiple regulatory fram
 
 **Secret Management Enforcement** validates that API keys, database credentials, encryption keys, and other sensitive material are stored in secure vaults, never committed to source control, and rotated on schedule. The enforcement system scans repository history for accidentally committed secrets, monitors environment variable configurations for plaintext credential exposure, and verifies that secret rotation occurs within configured intervals.
 
-**Network Security Configuration** manages firewall rules, [TLS](/glossary/tls/) certificate provisioning, ingress policies, and internal service communication encryption across the Fly.io deployment topology. All external-facing endpoints require TLS 1.3 with strong cipher suites. Internal service-to-service communication uses mutual TLS. Network policies restrict database access to application processes only, blocking direct external connections.
+**Network Security Configuration** manages firewall rules, [TLS](@/glossary/tls.md) certificate provisioning, ingress policies, and internal service communication encryption across the Fly.io deployment topology. All external-facing endpoints require TLS 1.3 with strong cipher suites. Internal service-to-service communication uses mutual TLS. Network policies restrict database access to application processes only, blocking direct external connections.
 
-**Database Security Auditing** verifies PostgreSQL configurations including connection encryption, role-based access controls, query audit logging, and backup [encryption at rest](/glossary/encryption-at-rest/). The auditor checks that default roles are disabled, application-specific roles have minimal required privileges, and administrative access is restricted to named accounts with multi-factor authentication requirements.
+**Database Security Auditing** verifies PostgreSQL configurations including connection encryption, role-based access controls, query audit logging, and backup [encryption at rest](@/glossary/encryption-at-rest.md). The auditor checks that default roles are disabled, application-specific roles have minimal required privileges, and administrative access is restricted to named accounts with multi-factor authentication requirements.
 
 **Compliance-Aligned Security Controls** maps infrastructure security measures to NIS2 Directive, ZKB regulatory, and GDPR requirements, maintaining evidence for compliance audits. Each infrastructure control is tagged with the regulatory requirements it satisfies, and compliance reports are generated automatically showing control coverage and any gaps.
 
@@ -146,10 +146,10 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [compliance-auditing-specialist](/agents/compliance-auditing-specialist/) | Compliance Partner | Aligns cloud security controls with regulatory compliance requirements |
-| [aiad-deployment-engine](/agents/aiad-deployment-engine/) | Deployment Gate | Validates security configuration before deployment proceeds |
-| [alert-management-specialist](/agents/alert-management-specialist/) | Security Alerting | Routes security-related alerts through appropriate escalation channels |
-| [flyio-deployment-specialist](/agents/flyio-deployment-specialist/) | Infrastructure Partner | Coordinates Fly.io-specific security configurations |
+| [compliance-auditing-specialist](@/agents/compliance-auditing-specialist.md) | Compliance Partner | Aligns cloud security controls with regulatory compliance requirements |
+| [aiad-deployment-engine](@/agents/aiad-deployment-engine.md) | Deployment Gate | Validates security configuration before deployment proceeds |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Security Alerting | Routes security-related alerts through appropriate escalation channels |
+| [flyio-deployment-specialist](@/agents/flyio-deployment-specialist.md) | Infrastructure Partner | Coordinates Fly.io-specific security configurations |
 
 ## Operational Workflow
 
@@ -184,15 +184,15 @@ end
 
 ## Enforcement
 
-All cloud security operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Security configurations are non-negotiable baseline requirements, not optional hardening. Deployments with exposed secrets, unencrypted connections, or missing access controls are blocked without exception. Security audits run on continuous schedules, and any deviation from the approved security baseline triggers immediate remediation with full incident documentation.
+All cloud security operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Security configurations are non-negotiable baseline requirements, not optional hardening. Deployments with exposed secrets, unencrypted connections, or missing access controls are blocked without exception. Security audits run on continuous schedules, and any deviation from the approved security baseline triggers immediate remediation with full incident documentation.
 
 ## Related Resources
 
-- [compliance-auditing-specialist](/agents/compliance-auditing-specialist/) -- Regulatory compliance
-- [flyio-deployment-specialist](/agents/flyio-deployment-specialist/) -- Fly.io infrastructure
-- [alert-management-specialist](/agents/alert-management-specialist/) -- Alert management
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- External attack surface management
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [compliance-auditing-specialist](@/agents/compliance-auditing-specialist.md) -- Regulatory compliance
+- [flyio-deployment-specialist](@/agents/flyio-deployment-specialist.md) -- Fly.io infrastructure
+- [alert-management-specialist](@/agents/alert-management-specialist.md) -- Alert management
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- External attack surface management
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -201,4 +201,4 @@ All cloud security operations are governed by the [NO MERCY, NO DOUBTS](/glossar
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

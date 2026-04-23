@@ -35,7 +35,7 @@ The Transition Protocol is the formal mechanism governing the shift from the NAB
 
 The protocol addresses a fundamental tension in any intelligence or decision-making system: the exploration phase values doubt, contradiction preservation, and parallel hypothesis maintenance, while the execution phase demands certainty, singular commitment, and complete follow-through. These two modes are philosophically incompatible -- a system cannot simultaneously preserve contradictions and act decisively on a single conclusion. The Transition Protocol resolves this tension by defining an explicit, verifiable boundary between the two phases, ensuring that the shift occurs only when the evidence warrants it and never prematurely.
 
-At its core, the Transition Protocol requires three simultaneous conditions before any transition is authorized: the computed [confidence score](/glossary/confidence-scoring/) must meet or exceed the context-appropriate [confidence threshold](/glossary/confidence-threshold/), the [Trinity Gate](/glossary/trinity-gate/) must pass all verification layers (structural, logical, formal, and meta-integrity), and all seven [NABLA Infinity](/glossary/nabla-infinity/) axioms must be fully satisfied. If any single condition is not met, the system remains in exploration mode, and the transition is blocked.
+At its core, the Transition Protocol requires three simultaneous conditions before any transition is authorized: the computed [confidence score](@/glossary/confidence-scoring.md) must meet or exceed the context-appropriate [confidence threshold](@/glossary/confidence-threshold.md), the [Trinity Gate](@/glossary/trinity-gate.md) must pass all verification layers (structural, logical, formal, and meta-integrity), and all seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms must be fully satisfied. If any single condition is not met, the system remains in exploration mode, and the transition is blocked.
 
 ## Historical Context and Motivation
 
@@ -58,13 +58,13 @@ The first condition requires that the computed confidence score for the belief o
 | Exploratory Analysis | >= 0.60 | Research hypotheses, pattern exploration, preliminary findings |
 | Research Queries | >= 0.50 | Speculative analysis, early-stage investigation |
 
-The confidence score is computed by the [QEVE](/glossary/confidence-scoring/) pipeline, which integrates evidence strength, source independence, [signal plurality](/glossary/signal-plurality/), time decay, and contradiction indices into a single calibrated probability. The score is not a subjective estimate -- it is a mathematical function of the evidence graph, computed deterministically from the same inputs.
+The confidence score is computed by the [QEVE](@/glossary/confidence-scoring.md) pipeline, which integrates evidence strength, source independence, [signal plurality](@/glossary/signal-plurality.md), time decay, and contradiction indices into a single calibrated probability. The score is not a subjective estimate -- it is a mathematical function of the evidence graph, computed deterministically from the same inputs.
 
 Critically, the threshold is not just a number to beat. The confidence calculation itself enforces NABLA axioms: contradictions reduce confidence (they cannot be hidden to inflate the score), absence of expected evidence reduces confidence (missing signals cannot be ignored), and correlated sources are discounted (ten articles from the same press release do not multiply confidence by ten).
 
 ### Condition 2: Trinity Gate Passage
 
-The second condition requires successful passage through all layers of the [Trinity Gate](/glossary/trinity-gate/):
+The second condition requires successful passage through all layers of the [Trinity Gate](@/glossary/trinity-gate.md):
 
 1. **Structural Consistency**: The belief graph forms a valid DAG with no circular reasoning, orphaned nodes, or hidden contradictions
 2. **Logical Consistency**: All inference steps are sound, premises support conclusions, and no NABLA axiom is violated
@@ -128,7 +128,7 @@ The Transition Protocol is implemented as a finite state machine with four state
 
 The transition from EXPLORING to EVALUATING is triggered automatically when the confidence score crosses the threshold. The system does not wait for manual initiation -- threshold crossing triggers gate evaluation immediately. If the gate evaluation fails, the system returns to EXPLORING with a diagnostic report indicating which condition failed and what evidence would be needed to resolve it.
 
-The transition from EVALUATING to EXECUTING is irreversible within a single decision cycle. Once execution begins, the [No Mercy](/glossary/no-mercy/) doctrine requires complete follow-through. There is no mechanism to "un-transition" back to exploration mid-action. This irreversibility is by design -- it forces the gate evaluation to be thorough, because there is no safety net of "we can always go back."
+The transition from EVALUATING to EXECUTING is irreversible within a single decision cycle. Once execution begins, the [No Mercy](@/glossary/no-mercy.md) doctrine requires complete follow-through. There is no mechanism to "un-transition" back to exploration mid-action. This irreversibility is by design -- it forces the gate evaluation to be thorough, because there is no safety net of "we can always go back."
 
 ## Elixir Implementation
 
@@ -301,11 +301,11 @@ The Transition Protocol defines five anti-patterns that represent common violati
 
 ### NABLA Infinity Integration
 
-The Transition Protocol is the operational bridge between [NABLA Infinity](/glossary/nabla-infinity/) axioms and [NM/ND](/glossary/no-mercy-no-doubts/) doctrine. During exploration, NABLA governs all belief formation -- signals must be plural, contradictions preserved, provenance tracked, and uncertainty acknowledged. The Transition Protocol verifies that these axioms have been satisfied before authorizing the shift to execution mode.
+The Transition Protocol is the operational bridge between [NABLA Infinity](@/glossary/nabla-infinity.md) axioms and [NM/ND](@/glossary/no-mercy-no-doubts.md) doctrine. During exploration, NABLA governs all belief formation -- signals must be plural, contradictions preserved, provenance tracked, and uncertainty acknowledged. The Transition Protocol verifies that these axioms have been satisfied before authorizing the shift to execution mode.
 
 ### Trinity Gate Integration
 
-The [Trinity Gate](/glossary/trinity-gate/) serves as the verification mechanism within the Transition Protocol. When the confidence threshold is crossed, the protocol triggers gate evaluation. The gate's structural, logical, and formal checks provide the independent verification that the confidence score alone cannot guarantee. A high confidence score from a structurally incoherent belief graph is still blocked.
+The [Trinity Gate](@/glossary/trinity-gate.md) serves as the verification mechanism within the Transition Protocol. When the confidence threshold is crossed, the protocol triggers gate evaluation. The gate's structural, logical, and formal checks provide the independent verification that the confidence score alone cannot guarantee. A high confidence score from a structurally incoherent belief graph is still blocked.
 
 ### Agent Integration
 
@@ -313,7 +313,7 @@ All 530+ AIAD agents in the platform operate under the Transition Protocol. When
 
 ### Quality Gate Integration
 
-The Transition Protocol shares conceptual DNA with the platform's [quality gates](/glossary/quality-gate/). Both enforce the principle that no artifact (belief, code, decision) should proceed to the next phase without meeting explicit, verifiable criteria. The Transition Protocol is to epistemic decisions what quality gates are to software delivery -- a checkpoint that transforms subjective readiness into objective, measurable compliance.
+The Transition Protocol shares conceptual DNA with the platform's [quality gates](@/glossary/quality-gate.md). Both enforce the principle that no artifact (belief, code, decision) should proceed to the next phase without meeting explicit, verifiable criteria. The Transition Protocol is to epistemic decisions what quality gates are to software delivery -- a checkpoint that transforms subjective readiness into objective, measurable compliance.
 
 ## Telemetry and Observability
 
@@ -356,7 +356,7 @@ Consider a due diligence investigation into a Czech company suspected of sanctio
 
 **Gate Evaluation**: Structural check confirms the belief graph is a valid DAG with no circular reasoning. Logical check confirms all inference steps are sound and NABLA axioms are satisfied. Formal check constructs a Lean4 proof that the ownership chain is inconsistent with sanctions evasion given the evidence. Meta-integrity confirms gate independence.
 
-**Execution**: All three conditions are met. The investigation transitions to execution. The [No Mercy](/glossary/no-mercy/) doctrine requires a complete, definitive assessment: the company is cleared of sanctions evasion with full evidence documentation and audit trail.
+**Execution**: All three conditions are met. The investigation transitions to execution. The [No Mercy](@/glossary/no-mercy.md) doctrine requires a complete, definitive assessment: the company is cleared of sanctions evasion with full evidence documentation and audit trail.
 
 ## Comparison with Industry Approaches
 
@@ -372,25 +372,25 @@ Most decision-support systems use informal transition criteria -- an analyst dec
 
 ## Related Terms
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing the exploration phase
-- [Trinity Gate](/glossary/trinity-gate/) -- 4-layer verification mechanism within the transition
-- [Trinity Passage](/glossary/trinity-passage/) -- The act of successfully passing through Trinity Gate
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Context-dependent score requirements
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Calibrated probability computation
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) -- Execution doctrine activated after transition
-- [No Mercy](/glossary/no-mercy/) -- Execution-phase enforcement of complete delivery
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom requiring multiple independent signals
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- NABLA axiom preserving contradictory evidence
-- [Axiom Enforcement](/glossary/axiom-enforcement/) -- Runtime enforcement of NABLA axioms
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- 16-level pipeline where transition operates
-- [Formal Verification](/glossary/formal-verification/) -- Verification methodology powering Gate 3
-- [Tactical Execution](/glossary/tactical-execution/) -- Execution patterns after transition
-- [Quality Gate](/glossary/quality-gate/) -- Analogous concept in software delivery
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing the exploration phase
+- [Trinity Gate](@/glossary/trinity-gate.md) -- 4-layer verification mechanism within the transition
+- [Trinity Passage](@/glossary/trinity-passage.md) -- The act of successfully passing through Trinity Gate
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Context-dependent score requirements
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Calibrated probability computation
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) -- Execution doctrine activated after transition
+- [No Mercy](@/glossary/no-mercy.md) -- Execution-phase enforcement of complete delivery
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom requiring multiple independent signals
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- NABLA axiom preserving contradictory evidence
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) -- Runtime enforcement of NABLA axioms
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- 16-level pipeline where transition operates
+- [Formal Verification](@/glossary/formal-verification.md) -- Verification methodology powering Gate 3
+- [Tactical Execution](@/glossary/tactical-execution.md) -- Execution patterns after transition
+- [Quality Gate](@/glossary/quality-gate.md) -- Analogous concept in software delivery
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -400,4 +400,4 @@ Most decision-support systems use informal transition criteria -- an analyst dec
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

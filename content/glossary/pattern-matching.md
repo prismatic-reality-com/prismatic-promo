@@ -24,7 +24,7 @@ Pattern matching is a language feature that checks a value against a structural 
 
 Unlike equality checks or switch statements in imperative languages, pattern matching simultaneously performs three operations: it tests whether data conforms to an expected shape, it extracts components from the data by binding them to variables, and it selects the appropriate code path based on the match result. This unification of testing, extraction, and dispatch into a single syntactic construct makes Elixir code remarkably dense yet readable. A function with five clauses communicates five distinct cases and their handling in a format that is both machine-checkable and human-readable.
 
-Pattern matching interacts deeply with Elixir's other core features. [Immutability](/glossary/immutability/) guarantees that matched data will not change during or after the match. The [pipe operator](/glossary/pipe-operator/) chains functions that use pattern matching internally. [Behaviours](/glossary/behaviour/) define callback signatures that are implemented through multi-clause pattern-matched functions. [Ecto](/glossary/ecto/) queries use pattern matching for result destructuring. Pattern matching is not merely a feature of Elixir -- it is the idiom through which all Elixir code is organized.
+Pattern matching interacts deeply with Elixir's other core features. [Immutability](@/glossary/immutability.md) guarantees that matched data will not change during or after the match. The [pipe operator](@/glossary/pipe-operator.md) chains functions that use pattern matching internally. [Behaviours](@/glossary/behaviour.md) define callback signatures that are implemented through multi-clause pattern-matched functions. [Ecto](@/glossary/ecto.md) queries use pattern matching for result destructuring. Pattern matching is not merely a feature of Elixir -- it is the idiom through which all Elixir code is organized.
 
 ## The Match Operator
 
@@ -200,11 +200,11 @@ Pattern matching is pervasive throughout the Prismatic Platform's 6,652 source f
 - **GenServer Callbacks**: Multi-clause `handle_call/3`, `handle_cast/2`, and `handle_info/2` definitions dispatch on message shape. Agent GenServers use pattern matching to route commands to appropriate handlers.
 - **Result Convention**: The universal `{:ok, result}` / `{:error, reason}` convention relies on pattern matching for error handling. Every function boundary in the platform uses this pattern.
 - **Storage Adapters**: Storage protocol implementations use pattern matching on adapter configuration and query parameters to dispatch to the correct backend (ETS, Ecto, Meilisearch, KuzuDB).
-- **[AIAD](/glossary/agent/) Agent Dispatch**: Agent command routing uses pattern matching on agent specifications to direct commands to the correct handler module.
+- **[AIAD](@/glossary/agent.md) Agent Dispatch**: Agent command routing uses pattern matching on agent specifications to direct commands to the correct handler module.
 - **Quality Gate Logic**: The 13 quality domain checkers use multi-clause functions to classify violations by severity, type, and remediation strategy.
-- **[Ecto](/glossary/ecto/) Changeset Handling**: Schema validation and changeset processing use pattern matching to handle valid and invalid states.
+- **[Ecto](@/glossary/ecto.md) Changeset Handling**: Schema validation and changeset processing use pattern matching to handle valid and invalid states.
 - **Phoenix Controllers**: Request routing and parameter extraction rely on pattern matching in controller actions and plug pipelines.
-- **[Broadway](/glossary/broadway/) Message Processing**: Pipeline message handlers use pattern matching to dispatch on message type and content.
+- **[Broadway](@/glossary/broadway.md) Message Processing**: Pipeline message handlers use pattern matching to dispatch on message type and content.
 
 ## Pattern Matching vs. Alternatives
 
@@ -231,22 +231,22 @@ Pattern matching is pervasive throughout the Prismatic Platform's 6,652 source f
 
 ## Related Terms
 
-- [Pipe Operator](/glossary/pipe-operator/) - Composition operator complementing pattern-matched functions
-- [Pure Function](/glossary/pure-function/) - Multi-clause pure functions enabled by pattern matching
-- [Immutability](/glossary/immutability/) - Immutable data structures matched without defensive copying
-- [Behaviour](/glossary/behaviour/) - OTP callback contracts implemented via pattern-matched clauses
-- [Ecto](/glossary/ecto/) - Database library using pattern matching for query results and changesets
-- [Typespec](/glossary/typespec/) - Type specifications documenting pattern-matched function signatures
-- [Dialyzer](/glossary/dialyzer/) - Static analysis that verifies pattern match exhaustiveness
-- [GenStage](/glossary/genstage/) - Pipeline stages dispatching on message patterns
-- [Property-Based Testing](/glossary/property-based-testing/) - Testing that generates inputs for pattern-matched functions
-- [Formal Verification](/glossary/formal-verification/) - Verification of pattern match completeness and correctness
+- [Pipe Operator](@/glossary/pipe-operator.md) - Composition operator complementing pattern-matched functions
+- [Pure Function](@/glossary/pure-function.md) - Multi-clause pure functions enabled by pattern matching
+- [Immutability](@/glossary/immutability.md) - Immutable data structures matched without defensive copying
+- [Behaviour](@/glossary/behaviour.md) - OTP callback contracts implemented via pattern-matched clauses
+- [Ecto](@/glossary/ecto.md) - Database library using pattern matching for query results and changesets
+- [Typespec](@/glossary/typespec.md) - Type specifications documenting pattern-matched function signatures
+- [Dialyzer](@/glossary/dialyzer.md) - Static analysis that verifies pattern match exhaustiveness
+- [GenStage](@/glossary/genstage.md) - Pipeline stages dispatching on message patterns
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Testing that generates inputs for pattern-matched functions
+- [Formal Verification](@/glossary/formal-verification.md) - Verification of pattern match completeness and correctness
 
 ## See Also
 
-- [Technologies](/technologies/) - Elixir language features and idioms
-- [Architecture](/architecture/) - Pattern matching in platform design patterns
-- [Capabilities](/capabilities/) - Platform capabilities leveraging declarative dispatch
+- [Technologies](@/technologies/_index.md) - Elixir language features and idioms
+- [Architecture](@/architecture/_index.md) - Pattern matching in platform design patterns
+- [Capabilities](@/capabilities/_index.md) - Platform capabilities leveraging declarative dispatch
 
 ---
 
@@ -255,4 +255,4 @@ Pattern matching is pervasive throughout the Prismatic Platform's 6,652 source f
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

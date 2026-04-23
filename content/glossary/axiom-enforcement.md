@@ -38,7 +38,7 @@ image_alt = "Axiom Enforcement - Prismatic Platform"
 
 **Axiom Enforcement** is the programmatic mechanism that ensures non-negotiable epistemic principles are upheld at all times within a belief processing system, regardless of the authority level of the requesting entity. An axiom, in this context, is a foundational rule that the system treats as unconditionally true -- it cannot be overridden, deferred, or selectively applied. Enforcement is the automated process of validating every belief, claim, and decision against these axioms before the system accepts them as part of its knowledge base.
 
-In the [Prismatic Platform](/glossary/nabla-infinity/), axiom enforcement implements the seven non-negotiable axioms of the NABLA Infinity (Nabla) epistemic framework. Every piece of information that enters the platform's reasoning pipeline must pass through axiom validation at one of four enforcement levels (E1-E4), with hard axioms producing blocking rejections and soft axioms producing tracked warnings. No entity, regardless of tier, can bypass this enforcement.
+In the [Prismatic Platform](@/glossary/nabla-infinity.md), axiom enforcement implements the seven non-negotiable axioms of the NABLA Infinity (Nabla) epistemic framework. Every piece of information that enters the platform's reasoning pipeline must pass through axiom validation at one of four enforcement levels (E1-E4), with hard axioms producing blocking rejections and soft axioms producing tracked warnings. No entity, regardless of tier, can bypass this enforcement.
 
 ## Overview
 
@@ -52,13 +52,13 @@ The distinction between hard and soft enforcement is critical. Hard-enforced axi
 
 | # | Axiom | Enforcement | Description |
 |---|-------|-------------|-------------|
-| 1 | [Signal Plurality](/glossary/signal-plurality/) | **HARD** | Minimum 2 independent signals required for any belief |
-| 2 | [Contradiction Preservation](/glossary/contradiction-preservation/) | **HARD** | Both sides of contradictions must be preserved, never discarded |
+| 1 | [Signal Plurality](@/glossary/signal-plurality.md) | **HARD** | Minimum 2 independent signals required for any belief |
+| 2 | [Contradiction Preservation](@/glossary/contradiction-preservation.md) | **HARD** | Both sides of contradictions must be preserved, never discarded |
 | 3 | Absence Informative | SOFT | Missing signals are tracked as informative data points |
 | 4 | Time Decay | **HARD** | All beliefs must carry mandatory timestamps for freshness assessment |
 | 5 | Unknown Valid | **HARD** | "I don't know" is a legitimate and valued epistemic state |
 | 6 | Source Independence | SOFT | Independent sources receive higher weight than correlated ones |
-| 7 | [Provenance Mandatory](/glossary/provenance-mandatory/) | **HARD** | All beliefs must be traceable to their origin |
+| 7 | [Provenance Mandatory](@/glossary/provenance-mandatory.md) | **HARD** | All beliefs must be traceable to their origin |
 
 ## Technical Details
 
@@ -302,7 +302,7 @@ The enforcement system operates at four escalation levels, each with increasing 
 |-------|---------|----------|--------------------|---------------|
 | **E1** | Single soft axiom violation | Warning logged + correction request | Agent-level | Yes |
 | **E2** | Single hard axiom violation | BLOCK + rejection | System-level | No, requires fix |
-| **E3** | [Trinity Gate](/glossary/trinity-gate/) failure | HALT + review required | Supreme-level | No, requires review |
+| **E3** | [Trinity Gate](@/glossary/trinity-gate.md) failure | HALT + review required | Supreme-level | No, requires review |
 | **E4** | Multiple axiom violations | Investigation + full audit | Cosmic clearance | No, requires audit |
 
 ```elixir
@@ -339,7 +339,7 @@ end
 
 ### Integration with Trinity Gate
 
-Axiom enforcement is the first layer of the three-layer [Trinity Gate](/glossary/trinity-gate/) validation system. All three gates must pass for a claim to be established:
+Axiom enforcement is the first layer of the three-layer [Trinity Gate](@/glossary/trinity-gate.md) validation system. All three gates must pass for a claim to be established:
 
 ```elixir
 defmodule Prismatic.Epistemic.TrinityGate do
@@ -420,14 +420,14 @@ Axiom enforcement is integrated throughout the Prismatic Platform at multiple la
 
 Every NABLA epistemic pipeline operation passes through axiom enforcement. The enforcement is wired into the pipeline as non-removable middleware:
 
-- **Belief ingestion**: New beliefs validated before storage in the [belief graph](/glossary/belief-graph/)
-- **Confidence updates**: [Confidence scoring](/glossary/confidence-scoring/) changes validated for axiom compliance
-- **Claim establishment**: [Trinity Gate](/glossary/trinity-gate/) passage requires full axiom compliance
+- **Belief ingestion**: New beliefs validated before storage in the [belief graph](@/glossary/belief-graph.md)
+- **Confidence updates**: [Confidence scoring](@/glossary/confidence-scoring.md) changes validated for axiom compliance
+- **Claim establishment**: [Trinity Gate](@/glossary/trinity-gate.md) passage requires full axiom compliance
 - **Agent decisions**: Autonomous agents validate their reasoning against axioms before acting
 
 ### Quality Gate Integration
 
-Axiom enforcement connects to the platform's [quality gates](/glossary/quality-gates/) system. Quality gate checks include axiom compliance verification, ensuring that code quality and epistemic quality are jointly maintained.
+Axiom enforcement connects to the platform's [quality gates](@/glossary/quality-gates.md) system. Quality gate checks include axiom compliance verification, ensuring that code quality and epistemic quality are jointly maintained.
 
 ### Telemetry and Monitoring
 
@@ -464,7 +464,7 @@ Axiom enforcement in Prismatic is unique in combining non-bypassable runtime val
 
 **Distinguish hard and soft violations carefully.** Hard axioms (signal plurality, contradiction preservation, time decay, unknown valid, provenance mandatory) are genuinely non-negotiable. Soft axioms (absence informative, source independence) are important guidance but should not block operations. Getting this classification wrong in either direction harms the system.
 
-**Test axiom enforcement with adversarial inputs.** The [red team](/glossary/epistemic-attack/) should regularly attempt to construct beliefs that violate axioms in subtle ways. Enforcement that only catches obvious violations provides false security.
+**Test axiom enforcement with adversarial inputs.** The [red team](@/glossary/epistemic-attack.md) should regularly attempt to construct beliefs that violate axioms in subtle ways. Enforcement that only catches obvious violations provides false security.
 
 ## Common Pitfalls
 
@@ -486,39 +486,39 @@ When multiple OSINT sources provide conflicting information about an entity, axi
 
 ### Security Assessment
 
-The [Prismatic Perimeter](/glossary/easm/) security rating system uses axiom enforcement to ensure that security grades are based on multiple independent evidence sources, contradictory findings (e.g., a secure configuration alongside an exposed service) are preserved in the assessment, and every rating decision traces back to specific observed evidence.
+The [Prismatic Perimeter](@/glossary/easm.md) security rating system uses axiom enforcement to ensure that security grades are based on multiple independent evidence sources, contradictory findings (e.g., a secure configuration alongside an exposed service) are preserved in the assessment, and every rating decision traces back to specific observed evidence.
 
 ### Quality Gate Decisions
 
-When the [Quality Floor Guardian](/glossary/quality-floor-guardian/) decides whether to block a commit, axiom enforcement ensures the decision is based on multiple quality metrics (not just one), acknowledges uncertainty in metrics that could not be computed, and preserves the reasoning chain for audit.
+When the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) decides whether to block a commit, axiom enforcement ensures the decision is based on multiple quality metrics (not just one), acknowledges uncertainty in metrics that could not be computed, and preserves the reasoning chain for audit.
 
 ### Agent Decision Validation
 
-Before any [autonomous agent](/glossary/autonomous-agent/) acts on a decision, axiom enforcement validates that the decision reasoning meets epistemic standards -- preventing agents from acting on single-source information, suppressed contradictions, or untraceable conclusions.
+Before any [autonomous agent](@/glossary/autonomous-agent.md) acts on a decision, axiom enforcement validates that the decision reasoning meets epistemic standards -- preventing agents from acting on single-source information, suppressed contradictions, or untraceable conclusions.
 
 ## Related Concepts
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework defining the seven axioms
-- [NABLA Axioms](/glossary/nabla-axioms/) -- The individual axiom specifications
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom requiring multiple independent signals per belief
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Axiom requiring preservation of conflicting evidence
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom requiring traceable belief origins
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation gate that includes axiom enforcement
-- [Belief Graph](/glossary/belief-graph/) -- The DAG structure storing validated beliefs
-- [Enforcement Policy](/glossary/enforcement-policy/) -- Policy documents governing enforcement behaviour
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- System-level resilience of the belief system
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Context-dependent thresholds for claim establishment
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework defining the seven axioms
+- [NABLA Axioms](@/glossary/nabla-axioms.md) -- The individual axiom specifications
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom requiring multiple independent signals per belief
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Axiom requiring preservation of conflicting evidence
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom requiring traceable belief origins
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation gate that includes axiom enforcement
+- [Belief Graph](@/glossary/belief-graph.md) -- The DAG structure storing validated beliefs
+- [Enforcement Policy](@/glossary/enforcement-policy.md) -- Policy documents governing enforcement behaviour
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- System-level resilience of the belief system
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Context-dependent thresholds for claim establishment
 
 ## See Also
 
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- Processing pipeline where axiom enforcement executes
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- Reasoning framework built on axiom-enforced beliefs
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof techniques used in Gate 3
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Scoring system validated by axiom enforcement
-- [Quality Gates](/glossary/quality-gates/) -- Quality enforcement integrated with axiom validation
-- [Color Teams](/glossary/color-teams/) -- Adversarial testing of axiom enforcement resilience
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Umbrella applications using axiom enforcement
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- Processing pipeline where axiom enforcement executes
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- Reasoning framework built on axiom-enforced beliefs
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof techniques used in Gate 3
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Scoring system validated by axiom enforcement
+- [Quality Gates](@/glossary/quality-gates.md) -- Quality enforcement integrated with axiom validation
+- [Color Teams](@/glossary/color-teams.md) -- Adversarial testing of axiom enforcement resilience
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Umbrella applications using axiom enforcement
 
 ---
 
@@ -527,4 +527,4 @@ Before any [autonomous agent](/glossary/autonomous-agent/) acts on a decision, a
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

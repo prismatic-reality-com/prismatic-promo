@@ -218,11 +218,11 @@ The platform's health monitoring also relies on shared state. The `QualityFloorG
 
 ## Cross-References
 
-- [ETS](/glossary/ets/) - Primary shared state mechanism for read-heavy workloads
-- [GenServer](/glossary/genserver/) - OTP abstraction for serialized state management
-- [Concurrency](/glossary/concurrency/) - Broader context for multi-process coordination
+- [ETS](@/glossary/ets.md) - Primary shared state mechanism for read-heavy workloads
+- [GenServer](@/glossary/genserver.md) - OTP abstraction for serialized state management
+- [Concurrency](@/glossary/concurrency.md) - Broader context for multi-process coordination
 - **Process** - BEAM lightweight process that owns state
-- [Distributed Systems](/glossary/distributed-systems/) - Cross-node shared state challenges
+- [Distributed Systems](@/glossary/distributed-systems.md) - Cross-node shared state challenges
 
 ---
 

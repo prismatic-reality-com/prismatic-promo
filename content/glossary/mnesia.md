@@ -39,11 +39,11 @@ image_alt = "Mnesia - Prismatic Platform"
 
 ## Definition
 
-Mnesia is a distributed, soft real-time database management system built into the Erlang/OTP platform, designed for telecommunications applications requiring high availability, fault tolerance, and predictable response times. Unlike external database systems that communicate over network protocols, Mnesia runs inside the [BEAM](/glossary/beam/) virtual machine as a native [OTP](/glossary/otp/) application, storing Erlang and Elixir terms directly in memory without serialization overhead. It combines the speed of in-memory storage (via [ETS](/glossary/ets/) tables) with optional disk persistence (via DETS), ACID transactions across distributed nodes, transparent data replication, and schema evolution at runtime without downtime.
+Mnesia is a distributed, soft real-time database management system built into the Erlang/OTP platform, designed for telecommunications applications requiring high availability, fault tolerance, and predictable response times. Unlike external database systems that communicate over network protocols, Mnesia runs inside the [BEAM](@/glossary/beam.md) virtual machine as a native [OTP](@/glossary/otp.md) application, storing Erlang and Elixir terms directly in memory without serialization overhead. It combines the speed of in-memory storage (via [ETS](@/glossary/ets.md) tables) with optional disk persistence (via DETS), ACID transactions across distributed nodes, transparent data replication, and schema evolution at runtime without downtime.
 
 Mnesia was developed at Ericsson in the 1990s as part of the Open Telecom Platform, specifically to meet the requirements of telecommunications switching systems that demanded sub-millisecond data access, continuous availability (five-nines or better), and transparent failover across hardware boundaries. These requirements drove Mnesia's distinctive design: data lives in-process with zero serialization cost, replication is automatic and configurable per-table, transactions work across nodes using a two-phase commit protocol, and the schema can be modified while the system continues serving requests.
 
-The system occupies a unique position in the database landscape. It is neither a traditional relational database (it stores arbitrary Erlang terms, not SQL-structured rows) nor a simple key-value store (it supports secondary indexes, QLC queries, and multi-table transactions). It is a distributed, in-memory, term-storage database with optional persistence, native to the BEAM runtime. This makes it the natural choice for storing application state that must survive node restarts and replicate across [cluster](/glossary/cluster/) members without external infrastructure dependencies.
+The system occupies a unique position in the database landscape. It is neither a traditional relational database (it stores arbitrary Erlang terms, not SQL-structured rows) nor a simple key-value store (it supports secondary indexes, QLC queries, and multi-table transactions). It is a distributed, in-memory, term-storage database with optional persistence, native to the BEAM runtime. This makes it the natural choice for storing application state that must survive node restarts and replicate across [cluster](@/glossary/cluster.md) members without external infrastructure dependencies.
 
 ## Historical Context and Design Philosophy
 
@@ -53,7 +53,7 @@ The name "Mnesia" derives from the Greek word "mnesia" (memory), reflecting the 
 
 The design philosophy behind Mnesia reflects the Erlang ecosystem's broader priorities: availability over consistency in the face of network partitions, predictable latency over maximum throughput, and operational simplicity over feature richness. Mnesia deliberately does not attempt to compete with PostgreSQL or MySQL on query expressiveness, indexing sophistication, or storage efficiency. Instead, it excels in a specific niche: distributed state management within the BEAM ecosystem where zero-serialization access, automatic replication, and tight OTP integration outweigh the benefits of a full-featured external database.
 
-This philosophy aligns perfectly with the Prismatic Platform's storage architecture, where each storage backend serves a specific purpose. [PostgreSQL](/glossary/postgresql/) handles structured data with rich queries, [ETS](/glossary/ets/) provides local caching with maximum speed, Meilisearch powers full-text search, and Mnesia fills the gap for distributed state that must be accessible from any node in the [cluster](/glossary/cluster/) without external dependencies.
+This philosophy aligns perfectly with the Prismatic Platform's storage architecture, where each storage backend serves a specific purpose. [PostgreSQL](@/glossary/postgresql.md) handles structured data with rich queries, [ETS](@/glossary/ets.md) provides local caching with maximum speed, Meilisearch powers full-text search, and Mnesia fills the gap for distributed state that must be accessible from any node in the [cluster](@/glossary/cluster.md) without external dependencies.
 
 ## Overview
 
@@ -397,7 +397,7 @@ end
 
 ## CAP Theorem Position
 
-In terms of the [CAP theorem](/glossary/cap-theorem/), Mnesia is a CP system -- it prioritizes Consistency and Partition tolerance over Availability. During a network partition, Mnesia may become unavailable (refusing writes) rather than allowing inconsistent data across partitions. This is the appropriate trade-off for the types of state Mnesia manages in the Prismatic Platform: agent registrations, configuration, and coordination state where inconsistency would be more harmful than brief unavailability.
+In terms of the [CAP theorem](@/glossary/cap-theorem.md), Mnesia is a CP system -- it prioritizes Consistency and Partition tolerance over Availability. During a network partition, Mnesia may become unavailable (refusing writes) rather than allowing inconsistent data across partitions. This is the appropriate trade-off for the types of state Mnesia manages in the Prismatic Platform: agent registrations, configuration, and coordination state where inconsistency would be more harmful than brief unavailability.
 
 | Property | Mnesia Behavior |
 |----------|----------------|
@@ -407,7 +407,7 @@ In terms of the [CAP theorem](/glossary/cap-theorem/), Mnesia is a CP system -- 
 
 ## Comparison with Alternatives
 
-| Feature | Mnesia | [ETS](/glossary/ets/) | [PostgreSQL](/glossary/postgresql/) | Redis | Horde |
+| Feature | Mnesia | [ETS](@/glossary/ets.md) | [PostgreSQL](@/glossary/postgresql.md) | Redis | Horde |
 |---------|--------|-----|------------|-------|-------|
 | **Location** | In-BEAM | In-BEAM | External server | External server | In-BEAM (library) |
 | **Distribution** | Built-in (multi-node) | Local only | Separate replication | Redis Cluster | CRDT-based |
@@ -492,28 +492,28 @@ end
 
 - **Configuration Store**: Runtime-configurable platform settings that must be consistent across all cluster nodes, with `disc_copies` ensuring persistence across restarts.
 
-- **Cluster Coordination**: [PrismaticSupervisor](/glossary/supervisor/)'s Horde backend can leverage Mnesia for consensus state when stronger consistency guarantees are needed than CRDTs provide.
+- **Cluster Coordination**: [PrismaticSupervisor](@/glossary/supervisor.md)'s Horde backend can leverage Mnesia for consensus state when stronger consistency guarantees are needed than CRDTs provide.
 
-- **Event Buffer**: Temporary storage for events during processing pipeline stages, replicated across nodes for [fault tolerance](/glossary/fault-tolerance/) but not requiring external database durability.
+- **Event Buffer**: Temporary storage for events during processing pipeline stages, replicated across nodes for [fault tolerance](@/glossary/fault-tolerance.md) but not requiring external database durability.
 
 ## Related Concepts
 
-- [ETS](/glossary/ets/) -- In-memory storage that Mnesia extends with persistence and distribution
-- [OTP](/glossary/otp/) -- Runtime platform that includes Mnesia as a standard application
-- [BEAM](/glossary/beam/) -- Virtual machine hosting Mnesia processes natively
-- [Cluster](/glossary/cluster/) -- Multi-node deployment where Mnesia replicates data
-- [PostgreSQL](/glossary/postgresql/) -- External relational database complementing Mnesia
-- [Distributed System](/glossary/distributed-system/) -- Architecture pattern Mnesia supports natively
-- [GenServer](/glossary/genserver/) -- OTP pattern used alongside Mnesia for stateful processes
-- [CAP Theorem](/glossary/cap-theorem/) -- Theoretical framework for Mnesia's consistency/availability trade-offs
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Reliability property that Mnesia enables through replication
-- [Supervisor](/glossary/supervisor/) -- OTP patterns for managing Mnesia-dependent processes
+- [ETS](@/glossary/ets.md) -- In-memory storage that Mnesia extends with persistence and distribution
+- [OTP](@/glossary/otp.md) -- Runtime platform that includes Mnesia as a standard application
+- [BEAM](@/glossary/beam.md) -- Virtual machine hosting Mnesia processes natively
+- [Cluster](@/glossary/cluster.md) -- Multi-node deployment where Mnesia replicates data
+- [PostgreSQL](@/glossary/postgresql.md) -- External relational database complementing Mnesia
+- [Distributed System](@/glossary/distributed-system.md) -- Architecture pattern Mnesia supports natively
+- [GenServer](@/glossary/genserver.md) -- OTP pattern used alongside Mnesia for stateful processes
+- [CAP Theorem](@/glossary/cap-theorem.md) -- Theoretical framework for Mnesia's consistency/availability trade-offs
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Reliability property that Mnesia enables through replication
+- [Supervisor](@/glossary/supervisor.md) -- OTP patterns for managing Mnesia-dependent processes
 
 ## See Also
 
-- [Architecture](/architecture/) -- Distributed storage architecture
-- [Technologies](/technologies/) -- Database technology stack
-- [Capabilities](/capabilities/) -- Distributed data management capabilities
+- [Architecture](@/architecture/_index.md) -- Distributed storage architecture
+- [Technologies](@/technologies/_index.md) -- Database technology stack
+- [Capabilities](@/capabilities/_index.md) -- Distributed data management capabilities
 
 ---
 
@@ -522,4 +522,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

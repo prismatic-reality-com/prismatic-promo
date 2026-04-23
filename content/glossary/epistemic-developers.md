@@ -519,24 +519,24 @@ The Prismatic Platform is designed by and for epistemic developers, with epistem
 
 Epistemic development connects to the philosophical and technical foundations of the Prismatic Platform:
 
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) - The formal logical framework underlying epistemic development, covering belief revision, justification, and knowledge representation
-- [NABLA Infinity](/glossary/nabla-infinity/) - The platform's epistemic framework that codifies the seven axioms governing how knowledge is established, maintained, and verified
-- [Contradiction Preservation](/glossary/contradiction-preservation/) - The axiom requiring that contradictory evidence be preserved rather than discarded, a core discipline for epistemic developers
-- [Evidence](/glossary/evidence/) - The foundational currency of epistemic development, requiring multiple independent signals for any established belief
-- [Trinity Gate](/glossary/trinity-gate/) - The three-layer verification system (structural, logical, formal) that epistemic developers must satisfy for critical claims
-- [Formal Verification](/glossary/formal-verification/) - Mathematical proof techniques that provide the strongest form of evidence for software correctness
-- [Adversarial Thinking](/glossary/adversarial-thinking/) - The discipline of deliberately challenging assumptions and testing beliefs against adversarial scenarios
-- [Code as Hypothesis](/glossary/code-as-hypothesis/) - The principle that code represents testable hypotheses about the world rather than assumed truths
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) - The probabilistic framework for updating beliefs based on new evidence, underlying confidence level calculations
-- [Proves Before Claiming](/glossary/proves-before-claiming/) - The epistemic principle that claims must be supported by evidence before they are asserted as knowledge
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) - The formal logical framework underlying epistemic development, covering belief revision, justification, and knowledge representation
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - The platform's epistemic framework that codifies the seven axioms governing how knowledge is established, maintained, and verified
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) - The axiom requiring that contradictory evidence be preserved rather than discarded, a core discipline for epistemic developers
+- [Evidence](@/glossary/evidence.md) - The foundational currency of epistemic development, requiring multiple independent signals for any established belief
+- [Trinity Gate](@/glossary/trinity-gate.md) - The three-layer verification system (structural, logical, formal) that epistemic developers must satisfy for critical claims
+- [Formal Verification](@/glossary/formal-verification.md) - Mathematical proof techniques that provide the strongest form of evidence for software correctness
+- [Adversarial Thinking](@/glossary/adversarial-thinking.md) - The discipline of deliberately challenging assumptions and testing beliefs against adversarial scenarios
+- [Code as Hypothesis](@/glossary/code-as-hypothesis.md) - The principle that code represents testable hypotheses about the world rather than assumed truths
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) - The probabilistic framework for updating beliefs based on new evidence, underlying confidence level calculations
+- [Proves Before Claiming](@/glossary/proves-before-claiming.md) - The epistemic principle that claims must be supported by evidence before they are asserted as knowledge
 
 ## See Also
 
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) - The execution doctrine that transitions from epistemic exploration to decisive action once confidence thresholds are met
-- [Scientific Rigor](/glossary/scientific-rigor/) - The broader discipline of applying scientific methodology to software development
-- [Property-Based Testing](/glossary/property-based-testing/) - Testing methodology that generates evidence independent of developer assumptions
-- [Red Team](/glossary/red-team/) - Adversarial simulation that challenges the system's epistemic assumptions
-- [Purple Team](/glossary/purple-team/) - Synthesis and closure of epistemic gaps between adversarial and defensive perspectives
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) - The execution doctrine that transitions from epistemic exploration to decisive action once confidence thresholds are met
+- [Scientific Rigor](@/glossary/scientific-rigor.md) - The broader discipline of applying scientific methodology to software development
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Testing methodology that generates evidence independent of developer assumptions
+- [Red Team](@/glossary/red-team.md) - Adversarial simulation that challenges the system's epistemic assumptions
+- [Purple Team](@/glossary/purple-team.md) - Synthesis and closure of epistemic gaps between adversarial and defensive perspectives
 
 ---
 

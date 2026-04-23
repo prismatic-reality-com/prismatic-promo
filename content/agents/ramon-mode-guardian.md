@@ -30,9 +30,9 @@ image_alt = "ramon-mode-guardian - Prismatic Platform"
 
 The ramon-mode-guardian operates as an L4 Domain Authority within the Prismatic Platform's security-operations domain, serving as the dedicated guardian for the platform's defensive operational mode known as "Ramon Mode." This hardened security posture is activated during heightened threat conditions, security incidents, or when the platform processes sensitive intelligence operations requiring elevated security guarantees. The guardian manages the transition between normal operational mode and Ramon Mode, enforces the additional security constraints that Ramon Mode imposes, and monitors compliance throughout the elevated security period.
 
-Ramon Mode represents a defense-in-depth posture that tightens security controls beyond normal operational parameters. Under Ramon Mode, [RBAC](/glossary/rbac/) permissions are restricted to minimum necessary access, [attack surface](/glossary/attack-surface/) exposure is minimized by disabling non-essential services, audit logging is elevated to maximum verbosity, and all inter-agent communications require additional authentication verification. The guardian ensures these elevated controls are applied consistently and cannot be degraded while the mode is active.
+Ramon Mode represents a defense-in-depth posture that tightens security controls beyond normal operational parameters. Under Ramon Mode, [RBAC](@/glossary/rbac.md) permissions are restricted to minimum necessary access, [attack surface](@/glossary/attack-surface.md) exposure is minimized by disabling non-essential services, audit logging is elevated to maximum verbosity, and all inter-agent communications require additional authentication verification. The guardian ensures these elevated controls are applied consistently and cannot be degraded while the mode is active.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the platform's [color team](/glossary/color-teams/) security architecture, the ramon-mode-guardian operates under the [NO DOUBTS](/glossary/no-doubts/) principle: security mode transitions are evidence-based decisions backed by threat intelligence, and the guardian requires verifiable justification before either activating or deactivating Ramon Mode. The [Trinity Gate](/glossary/trinity-gate/) validates mode transition decisions for structural consistency, ensuring that all security control changes are applied atomically.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the platform's [color team](@/glossary/color-teams.md) security architecture, the ramon-mode-guardian operates under the [NO DOUBTS](@/glossary/no-doubts.md) principle: security mode transitions are evidence-based decisions backed by threat intelligence, and the guardian requires verifiable justification before either activating or deactivating Ramon Mode. The [Trinity Gate](@/glossary/trinity-gate.md) validates mode transition decisions for structural consistency, ensuring that all security control changes are applied atomically.
 
 ## Security Mode Architecture
 
@@ -49,12 +49,12 @@ The guardian manages a state machine that governs the platform's security postur
 ## Key Capabilities
 
 - **Security mode state management** -- Manages atomic transitions between normal, elevated, Ramon Mode, and lockdown security postures with full rollback capability
-- **RBAC restriction enforcement** -- Dynamically tightens [RBAC](/glossary/rbac/) permissions to minimum necessary access during elevated security postures, ensuring privilege reduction is applied consistently across all agents
-- **Attack surface minimization** -- Disables non-essential services, closes unnecessary network ports, and restricts API endpoints during heightened security modes, reducing the platform's [attack surface](/glossary/attack-surface/) exposure
+- **RBAC restriction enforcement** -- Dynamically tightens [RBAC](@/glossary/rbac.md) permissions to minimum necessary access during elevated security postures, ensuring privilege reduction is applied consistently across all agents
+- **Attack surface minimization** -- Disables non-essential services, closes unnecessary network ports, and restricts API endpoints during heightened security modes, reducing the platform's [attack surface](@/glossary/attack-surface.md) exposure
 - **Audit trail elevation** -- Increases logging verbosity and audit capture during security mode activations, ensuring complete forensic capability for post-incident analysis
-- **[NIS2](/glossary/nis2/)/[ZKB](/glossary/zkb/) compliance integration** -- Security mode transitions maintain compliance with NIS2 Directive and ZKB regulatory requirements for incident response procedures
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with threat-triggered automatic mode escalation
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for security mode state tracking and compliance monitoring
+- **[NIS2](@/glossary/nis2.md)/[ZKB](@/glossary/zkb.md) compliance integration** -- Security mode transitions maintain compliance with NIS2 Directive and ZKB regulatory requirements for incident response procedures
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with threat-triggered automatic mode escalation
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for security mode state tracking and compliance monitoring
 
 ## Mode Transition Matrix
 
@@ -142,14 +142,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [quality-bypass-enforcer-agent](/agents/quality-bypass-enforcer-agent/) | Security mode enforcement protected from bypass attempts |
-| [prismatic-supreme-commander](/agents/prismatic-supreme-commander/) | Lockdown mode transitions require supreme authority approval |
-| [quality-enforcement-commander](/agents/quality-enforcement-commander/) | Quality enforcement maintained during all security modes |
-| [route-testing-supreme](/agents/route-testing-supreme/) | Route availability verified after mode transitions |
+| [quality-bypass-enforcer-agent](@/agents/quality-bypass-enforcer-agent.md) | Security mode enforcement protected from bypass attempts |
+| [prismatic-supreme-commander](@/agents/prismatic-supreme-commander.md) | Lockdown mode transitions require supreme authority approval |
+| [quality-enforcement-commander](@/agents/quality-enforcement-commander.md) | Quality enforcement maintained during all security modes |
+| [route-testing-supreme](@/agents/route-testing-supreme.md) | Route availability verified after mode transitions |
 
 ## Enforcement
 
-Security mode transitions comply with the [NO MERCY](/glossary/no-mercy/) doctrine: once Ramon Mode is activated, all restrictions are applied atomically and without exception. No agent can operate outside the restrictions of the active security mode. The [NO DOUBTS](/glossary/no-doubts/) principle requires evidence-based justification for every mode transition. The [NABLA Infinity](/glossary/nabla-infinity/) framework ensures that threat signals from multiple independent sources are required before escalating to higher security modes, preventing single-source false alarm escalation. The [Trinity Gate](/glossary/trinity-gate/) validates mode transition integrity.
+Security mode transitions comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: once Ramon Mode is activated, all restrictions are applied atomically and without exception. No agent can operate outside the restrictions of the active security mode. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires evidence-based justification for every mode transition. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework ensures that threat signals from multiple independent sources are required before escalating to higher security modes, preventing single-source false alarm escalation. The [Trinity Gate](@/glossary/trinity-gate.md) validates mode transition integrity.
 
 ---
 
@@ -158,4 +158,4 @@ Security mode transitions comply with the [NO MERCY](/glossary/no-mercy/) doctri
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

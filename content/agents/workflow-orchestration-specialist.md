@@ -28,15 +28,15 @@ image_alt = "workflow-orchestration-specialist - Prismatic Platform"
 
 ## Overview
 
-The Workflow Orchestration Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's integration domain, responsible for coordinating complex multi-step workflows that span multiple systems, services, and agent domains. This agent designs, executes, and monitors workflows that require precise sequencing, conditional branching, error recovery, and distributed coordination across the platform's 90 [umbrella application](/glossary/umbrella-application/)s and 434 [AIAD](/glossary/aiad/) agents.
+The Workflow Orchestration Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's integration domain, responsible for coordinating complex multi-step workflows that span multiple systems, services, and agent domains. This agent designs, executes, and monitors workflows that require precise sequencing, conditional branching, error recovery, and distributed coordination across the platform's 90 [umbrella application](@/glossary/umbrella-application.md)s and 434 [AIAD](@/glossary/aiad.md) agents.
 
 The Prismatic Platform's autonomous operations frequently require workflows that combine intelligence gathering, analysis, verification, and reporting steps across multiple subsystems. A due diligence investigation, for example, requires orchestrating OSINT collection agents, entity resolution services, graph analysis pipelines, risk scoring engines, and report generation systems in a precise sequence with error handling at each stage. The Workflow Orchestration Specialist provides the coordination layer that enables these complex multi-step operations to execute reliably and repeatably.
 
-Built on [OTP](/glossary/otp/) supervision patterns and the [SEADF](/glossary/seadf/) framework, the agent implements workflow definitions as supervised process trees where each step is an isolated process that can fail and retry independently without affecting other workflow steps. All workflow execution complies with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework for provenance tracking and the [NO MERCY](/glossary/no-mercy/) doctrine's zero-tolerance policy for incomplete workflow execution.
+Built on [OTP](@/glossary/otp.md) supervision patterns and the [SEADF](@/glossary/seadf.md) framework, the agent implements workflow definitions as supervised process trees where each step is an isolated process that can fail and retry independently without affecting other workflow steps. All workflow execution complies with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework for provenance tracking and the [NO MERCY](@/glossary/no-mercy.md) doctrine's zero-tolerance policy for incomplete workflow execution.
 
 ## Architecture
 
-The Workflow Orchestration Specialist is built on a three-layer architecture that separates workflow definition, execution management, and monitoring into distinct [OTP](/glossary/otp/) process hierarchies.
+The Workflow Orchestration Specialist is built on a three-layer architecture that separates workflow definition, execution management, and monitoring into distinct [OTP](@/glossary/otp.md) process hierarchies.
 
 ```
 WorkflowOrchestration.Supervisor
@@ -52,7 +52,7 @@ WorkflowOrchestration.Supervisor
 
 The WorkflowRegistry maintains canonical workflow definitions: step sequences, dependency graphs, branching conditions, timeout configurations, and retry policies. Workflow definitions are versioned and immutable once published, ensuring that running workflow instances always use the definition they were started with.
 
-The ExecutionEngine uses a [Dynamic Supervisor](/glossary/dynamic-supervisor/) to spawn workflow instances on demand. Each instance gets its own supervision subtree with individual step workers and compensator processes. Steps communicate through the instance supervisor, and the execution engine tracks the overall workflow state machine. The Scheduler handles time-based workflow triggering with cron-style expressions. The MonitorDashboard provides real-time visibility into all running workflow instances, their current step, and any errors or retries in progress.
+The ExecutionEngine uses a [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) to spawn workflow instances on demand. Each instance gets its own supervision subtree with individual step workers and compensator processes. Steps communicate through the instance supervisor, and the execution engine tracks the overall workflow state machine. The Scheduler handles time-based workflow triggering with cron-style expressions. The MonitorDashboard provides real-time visibility into all running workflow instances, their current step, and any errors or retries in progress.
 
 ## Core Capabilities
 
@@ -60,7 +60,7 @@ The Workflow Orchestration Specialist provides six primary capabilities that tog
 
 **Declarative Workflow Definition** allows workflows to be specified as directed acyclic graphs of steps with dependency relationships, conditional branches, parallel execution groups, and timeout constraints. Workflow definitions are expressed in a declarative format that separates the "what" (step dependencies and conditions) from the "how" (step implementation). This separation enables workflow modifications without changing the underlying step implementations.
 
-**Distributed Step Execution** runs each workflow step as an isolated [OTP](/glossary/otp/) process under the workflow instance's supervision tree. Steps can execute sequentially (dependency-ordered), in parallel (independent steps), or conditionally (branching based on previous step results). Each step has configurable retry policies with exponential backoff, maximum attempt limits, and timeout constraints.
+**Distributed Step Execution** runs each workflow step as an isolated [OTP](@/glossary/otp.md) process under the workflow instance's supervision tree. Steps can execute sequentially (dependency-ordered), in parallel (independent steps), or conditionally (branching based on previous step results). Each step has configurable retry policies with exponential backoff, maximum attempt limits, and timeout constraints.
 
 **Saga-Pattern Compensation** implements the saga pattern for distributed transactions: when a workflow step fails after previous steps have made side effects, the orchestrator invokes compensation actions for all completed steps in reverse order. This ensures that failed workflows leave the system in a consistent state rather than in a partially completed state.
 
@@ -72,7 +72,7 @@ The Workflow Orchestration Specialist provides six primary capabilities that tog
 
 ## Implementation
 
-The core workflow execution engine is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that manages workflow instance lifecycle and step coordination.
+The core workflow execution engine is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that manages workflow instance lifecycle and step coordination.
 
 ```elixir
 defmodule Prismatic.Agents.WorkflowOrchestration do
@@ -223,13 +223,13 @@ The `execute_workflow/2` function creates a workflow instance from a registered 
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) Runtime | Bidirectional | Orchestrates agent tasks as workflow steps; receives agent completion events |
-| [SEADF](/glossary/seadf/) Pipeline | Bidirectional | Provides workflow execution for evolution pipeline stages |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Outbound | Reports workflow execution metrics for platform quality scoring |
-| [Prismatic Web](/glossary/prismatic-web/) | Outbound | Provides workflow status for LiveView monitoring dashboards |
-| [ETS](/glossary/ets/) Instance Store | Internal | In-memory workflow instance state with sub-millisecond access |
-| [PostgreSQL](/glossary/postgresql/) | Persistence | Durable workflow state for recovery after system restart |
-| [Prismatic Telemetry](/glossary/telemetry/) | Outbound | Publishes step-level and workflow-level execution events |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) Runtime | Bidirectional | Orchestrates agent tasks as workflow steps; receives agent completion events |
+| [SEADF](@/glossary/seadf.md) Pipeline | Bidirectional | Provides workflow execution for evolution pipeline stages |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Outbound | Reports workflow execution metrics for platform quality scoring |
+| [Prismatic Web](@/glossary/prismatic-web.md) | Outbound | Provides workflow status for LiveView monitoring dashboards |
+| [ETS](@/glossary/ets.md) Instance Store | Internal | In-memory workflow instance state with sub-millisecond access |
+| [PostgreSQL](@/glossary/postgresql.md) | Persistence | Durable workflow state for recovery after system restart |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Outbound | Publishes step-level and workflow-level execution events |
 
 ## Operational Workflow
 
@@ -247,7 +247,7 @@ The execution lifecycle follows six phases: (1) workflow definition loading and 
 
 ## NABLA Compliance
 
-The Workflow Orchestration Specialist operates under [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance for workflow execution claims.
+The Workflow Orchestration Specialist operates under [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance for workflow execution claims.
 
 **Signal Plurality**: Workflow completion claims require both step-level confirmation (each step reports its own completion status) and workflow-level verification (the orchestrator independently verifies that all required steps completed successfully).
 
@@ -295,14 +295,14 @@ The execution engine is optimized for throughput through parallel step execution
 
 ## Related Resources
 
-- [SEADF Framework](/glossary/seadf/) -- Autonomous evolution framework using workflow orchestration
-- [Prismatic Agents](/glossary/prismatic-agents/) -- Agent runtime providing step implementations
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- OTP pattern for workflow instance management
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern for step failure isolation
-- [NO MERCY Doctrine](/glossary/no-mercy/) -- Zero-tolerance for incomplete workflow execution
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing execution provenance
-- [AIAD Standard](/glossary/aiad/) -- Agent specification standard
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision pattern used for workflow isolation
+- [SEADF Framework](@/glossary/seadf.md) -- Autonomous evolution framework using workflow orchestration
+- [Prismatic Agents](@/glossary/prismatic-agents.md) -- Agent runtime providing step implementations
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- OTP pattern for workflow instance management
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern for step failure isolation
+- [NO MERCY Doctrine](@/glossary/no-mercy.md) -- Zero-tolerance for incomplete workflow execution
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing execution provenance
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification standard
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision pattern used for workflow isolation
 
 ---
 
@@ -311,4 +311,4 @@ The execution engine is optimized for throughput through parallel step execution
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

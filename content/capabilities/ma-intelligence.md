@@ -24,7 +24,7 @@ image_alt = "M&A Intelligence - Prismatic Platform"
 
 M&A Intelligence is the Prismatic Platform's capability for automating and enhancing the due diligence process in mergers, acquisitions, and corporate investment decisions. It combines automated corporate entity resolution across multiple registries, financial analysis from public and proprietary data sources, risk assessment through multi-layer verification, and intelligence synthesis from 121+ OSINT sources into a unified due diligence workflow. The platform transforms what is traditionally a manual, weeks-long process into a systematic, evidence-based assessment pipeline that produces verifiable, confidence-scored intelligence products.
 
-Corporate due diligence has historically suffered from three systemic weaknesses: incomplete source coverage, inconsistent assessment methodology, and inability to verify the provenance of findings. The Prismatic M&A Intelligence module addresses all three by applying the platform's [NABLA axiom](/capabilities/nabla-axioms/) framework to every stage of the due diligence process, ensuring that no finding is accepted without multi-source corroboration, no contradiction is discarded, and every conclusion carries a traceable evidence chain.
+Corporate due diligence has historically suffered from three systemic weaknesses: incomplete source coverage, inconsistent assessment methodology, and inability to verify the provenance of findings. The Prismatic M&A Intelligence module addresses all three by applying the platform's [NABLA axiom](@/capabilities/nabla-axioms.md) framework to every stage of the due diligence process, ensuring that no finding is accepted without multi-source corroboration, no contradiction is discarded, and every conclusion carries a traceable evidence chain.
 
 ## Due Diligence Automation
 
@@ -151,7 +151,7 @@ Risk assessment operates across five independent domains, each producing a domai
 
 ### Confidence-Scored Findings
 
-Every risk finding carries a confidence score computed according to the [NABLA axiom](/capabilities/nabla-axioms/) framework:
+Every risk finding carries a confidence score computed according to the [NABLA axiom](@/capabilities/nabla-axioms.md) framework:
 
 ```elixir
 # Risk assessment with confidence scores
@@ -176,7 +176,7 @@ Every risk finding carries a confidence score computed according to the [NABLA a
 # }
 ```
 
-Note the `contradictions` field: following the [Addiction Preservation](/glossary/contradiction-preservation/) doctrine, contradictory signals are preserved and surfaced rather than resolved through premature judgment.
+Note the `contradictions` field: following the [Addiction Preservation](@/glossary/contradiction-preservation.md) doctrine, contradictory signals are preserved and surfaced rather than resolved through premature judgment.
 
 ## Intelligence Synthesis for M&A
 
@@ -196,7 +196,7 @@ The final output of the M&A Intelligence pipeline is a comprehensive dossier tha
 
 ### Epistemic Rigor
 
-Every dossier section passes through [Trinity Gate](/capabilities/trinity-gate/) verification:
+Every dossier section passes through [Trinity Gate](@/capabilities/trinity-gate.md) verification:
 
 1. **Structural Consistency**: The evidence graph forms a valid DAG with no circular reasoning
 2. **Logical Consistency**: Conclusions follow from evidence without logical fallacies
@@ -207,15 +207,15 @@ Findings that fail Trinity Gate are flagged as unverified with explicit explanat
 
 ## Integration
 
-- Built on [Intelligence Synthesis](/capabilities/intelligence-synthesis/) multi-source fusion pipeline
-- All findings verified through [Trinity Gate](/capabilities/trinity-gate/) 4-layer validation
-- Governed by [NABLA Axioms](/capabilities/nabla-axioms/) epistemic framework
-- Enforces [NO DOUBTS](/capabilities/no-doubts/) evidence-based decision making
-- Quality enforced by [NO MERCY](/capabilities/no-mercy/) zero-tolerance standards
-- Agent operations tracked via [Telemetry Integration](/capabilities/telemetry-integration/)
-- EASM data from [External Attack Surface Management](/capabilities/easm/) feeds cybersecurity risk domain
-- Monitored through [Real-Time Monitoring](/capabilities/real-time-monitoring/) infrastructure
-- Supports [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) through adapter-based source integration
+- Built on [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) multi-source fusion pipeline
+- All findings verified through [Trinity Gate](@/capabilities/trinity-gate.md) 4-layer validation
+- Governed by [NABLA Axioms](@/capabilities/nabla-axioms.md) epistemic framework
+- Enforces [NO DOUBTS](@/capabilities/no-doubts.md) evidence-based decision making
+- Quality enforced by [NO MERCY](@/capabilities/no-mercy.md) zero-tolerance standards
+- Agent operations tracked via [Telemetry Integration](@/capabilities/telemetry-integration.md)
+- EASM data from [External Attack Surface Management](@/capabilities/easm.md) feeds cybersecurity risk domain
+- Monitored through [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) infrastructure
+- Supports [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) through adapter-based source integration
 
 ---
 
@@ -224,4 +224,4 @@ Findings that fail Trinity Gate are flagged as unverified with explicit explanat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

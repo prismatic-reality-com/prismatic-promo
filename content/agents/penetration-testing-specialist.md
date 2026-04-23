@@ -28,33 +28,33 @@ image_alt = "penetration-testing-specialist - Prismatic Platform"
 
 ## Overview
 
-The Penetration Testing Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's infrastructure domain, providing authorized security assessment through systematic vulnerability discovery and exploitation verification. This agent conducts ethical hacking operations against platform infrastructure, web applications, APIs, and network services to identify security weaknesses before they can be exploited by adversaries. All operations are conducted within strictly defined authorization boundaries and documented engagement rules.
+The Penetration Testing Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's infrastructure domain, providing authorized security assessment through systematic vulnerability discovery and exploitation verification. This agent conducts ethical hacking operations against platform infrastructure, web applications, APIs, and network services to identify security weaknesses before they can be exploited by adversaries. All operations are conducted within strictly defined authorization boundaries and documented engagement rules.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the platform's [OTP](/glossary/otp/)-based [supervision tree](/glossary/supervision-tree/) architecture, the agent executes security assessment campaigns as supervised processes with [circuit breaker](/glossary/circuit-breaker/) patterns preventing assessment activities from impacting production service availability. The [NO DOUBTS](/glossary/no-doubts/) principle governs all findings: no vulnerability is reported without a verified proof-of-concept demonstrating exploitability, and all risk ratings include quantified confidence levels based on testing depth and environmental factors.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the platform's [OTP](@/glossary/otp.md)-based [supervision tree](@/glossary/supervision-tree.md) architecture, the agent executes security assessment campaigns as supervised processes with [circuit breaker](@/glossary/circuit-breaker.md) patterns preventing assessment activities from impacting production service availability. The [NO DOUBTS](@/glossary/no-doubts.md) principle governs all findings: no vulnerability is reported without a verified proof-of-concept demonstrating exploitability, and all risk ratings include quantified confidence levels based on testing depth and environmental factors.
 
 ## Theoretical Foundations
 
 Penetration testing methodology follows a structured approach derived from industry frameworks including OWASP Testing Guide, PTES (Penetration Testing Execution Standard), and NIST SP 800-115 (Technical Guide to Information Security Testing and Assessment). The agent implements a five-phase testing methodology: reconnaissance, vulnerability identification, exploitation verification, post-exploitation analysis, and remediation guidance.
 
-The formal security model employed by the agent maps the platform's [attack surface](/glossary/attack-surface/) as a directed graph where nodes represent system components and edges represent potential attack vectors. Penetration testing campaigns systematically traverse this graph, testing each edge for exploitability while tracking the cumulative risk exposure of successful attack chains. This graph-based model enables the agent to identify multi-step attack scenarios that individual vulnerability scanners would miss.
+The formal security model employed by the agent maps the platform's [attack surface](@/glossary/attack-surface.md) as a directed graph where nodes represent system components and edges represent potential attack vectors. Penetration testing campaigns systematically traverse this graph, testing each edge for exploitability while tracking the cumulative risk exposure of successful attack chains. This graph-based model enables the agent to identify multi-step attack scenarios that individual vulnerability scanners would miss.
 
 Security findings are classified using CVSS v3.1 (Common Vulnerability Scoring System) for severity quantification, supplemented with platform-specific risk factors that account for the sensitivity of affected components and the availability of compensating controls. The agent maintains a vulnerability knowledge base that maps discovered weaknesses to CWE (Common Weakness Enumeration) categories for systematic classification.
 
 ## Operational Domain
 
-The infrastructure domain coverage for penetration testing spans the platform's entire technical stack: [Phoenix](/glossary/phoenix/) web application endpoints, [LiveView](/glossary/liveview/) WebSocket connections, REST API authentication and authorization mechanisms, [PostgreSQL](/glossary/postgresql/) database access controls, [ETS](/glossary/ets/) table access patterns, inter-process [message passing](/glossary/message-passing/) security, deployment infrastructure (Fly.io), and CI/CD pipeline integrity.
+The infrastructure domain coverage for penetration testing spans the platform's entire technical stack: [Phoenix](@/glossary/phoenix.md) web application endpoints, [LiveView](@/glossary/liveview.md) WebSocket connections, REST API authentication and authorization mechanisms, [PostgreSQL](@/glossary/postgresql.md) database access controls, [ETS](@/glossary/ets.md) table access patterns, inter-process [message passing](@/glossary/message-passing.md) security, deployment infrastructure (Fly.io), and CI/CD pipeline integrity.
 
 Testing environments are isolated from production through dedicated staging infrastructure that mirrors production configuration. The agent never performs destructive testing against production systems, using staging environments for exploitation verification and production systems only for non-invasive reconnaissance and configuration analysis.
 
 ## Key Capabilities
 
-- **Web application security testing** -- Assesses [Phoenix](/glossary/phoenix/) web applications for OWASP Top 10 vulnerabilities including injection, broken authentication, sensitive data exposure, XML external entities, broken access control, security misconfiguration, cross-site scripting, insecure deserialization, known vulnerable components, and insufficient logging
+- **Web application security testing** -- Assesses [Phoenix](@/glossary/phoenix.md) web applications for OWASP Top 10 vulnerabilities including injection, broken authentication, sensitive data exposure, XML external entities, broken access control, security misconfiguration, cross-site scripting, insecure deserialization, known vulnerable components, and insufficient logging
 
 - **API security assessment** -- Tests REST and WebSocket API endpoints for authentication bypass, authorization escalation, rate limit evasion, injection vulnerabilities, and improper input validation with focus on the platform's auto-introspecting API architecture
 
 - **Infrastructure security evaluation** -- Assesses network configuration, TLS implementations, container security (Docker), deployment platform configuration (Fly.io), and secrets management practices for configuration weaknesses
 
-- **[BEAM](/glossary/beam/) runtime security** -- Evaluates Erlang distribution protocol security, cookie-based authentication, remote code execution risks through node connections, and hot-code-reload security implications unique to the BEAM ecosystem
+- **[BEAM](@/glossary/beam.md) runtime security** -- Evaluates Erlang distribution protocol security, cookie-based authentication, remote code execution risks through node connections, and hot-code-reload security implications unique to the BEAM ecosystem
 
 - **Authentication and authorization testing** -- Verifies that authentication mechanisms resist credential stuffing, session hijacking, and token manipulation, and that authorization controls enforce proper access boundaries across all protected resources
 
@@ -91,10 +91,10 @@ Each penetration testing engagement follows a standardized methodology:
 
 | Agent | Relationship |
 |-------|-------------|
-| [osint-technical-security-specialist](/agents/osint-technical-security-specialist/) | OSINT reconnaissance provides initial attack surface intelligence |
-| [performance-monitoring-specialist](/agents/performance-monitoring-specialist/) | Monitors infrastructure during testing to detect unintended impacts |
-| [code-quality-commander](/agents/code-quality-commander/) | Security findings inform code quality assessment of affected components |
-| [prismatic-supreme-commander](/agents/prismatic-supreme-commander/) | Critical vulnerability escalation and strategic security response |
+| [osint-technical-security-specialist](@/agents/osint-technical-security-specialist.md) | OSINT reconnaissance provides initial attack surface intelligence |
+| [performance-monitoring-specialist](@/agents/performance-monitoring-specialist.md) | Monitors infrastructure during testing to detect unintended impacts |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Security findings inform code quality assessment of affected components |
+| [prismatic-supreme-commander](@/agents/prismatic-supreme-commander.md) | Critical vulnerability escalation and strategic security response |
 
 ## Safety Protocols
 
@@ -111,7 +111,7 @@ All penetration testing operations execute within strict safety boundaries:
 
 ## Enforcement
 
-Penetration testing findings are enforced under the [NO MERCY](/glossary/no-mercy/) doctrine: confirmed vulnerabilities with CVSS scores above 7.0 (High) trigger mandatory remediation timelines, and Critical (9.0+) vulnerabilities block deployment until resolved. All findings carry full reproduction evidence per [NO DOUBTS](/glossary/no-doubts/) requirements, enabling development teams to verify and remediate issues efficiently. Security assessment results are tracked through the platform's [telemetry](/glossary/telemetry/) system for trend analysis and organizational security maturity measurement.
+Penetration testing findings are enforced under the [NO MERCY](@/glossary/no-mercy.md) doctrine: confirmed vulnerabilities with CVSS scores above 7.0 (High) trigger mandatory remediation timelines, and Critical (9.0+) vulnerabilities block deployment until resolved. All findings carry full reproduction evidence per [NO DOUBTS](@/glossary/no-doubts.md) requirements, enabling development teams to verify and remediate issues efficiently. Security assessment results are tracked through the platform's [telemetry](@/glossary/telemetry.md) system for trend analysis and organizational security maturity measurement.
 
 ## Related Agents
 
@@ -124,4 +124,4 @@ Agents in the **infrastructure** domain collaborate with security-focused agents
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

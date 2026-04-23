@@ -21,7 +21,7 @@ image_alt = "Audit Trail - Prismatic Platform"
 
 ## Definition
 
-An audit trail in the Prismatic Platform is an immutable, append-only, cryptographically verifiable record of every epistemic event that occurs within the system. This includes signal ingestion, belief graph mutations, confidence score computations, contradiction detections, enforcement actions (E1 warnings through E4 audits), Trinity Gate evaluations, QEVE pipeline executions, and every administrative action that affects the platform's knowledge state. The audit trail is not a secondary logging concern but a first-class component of the epistemic infrastructure, designed to satisfy the [Provenance Mandatory](/glossary/provenance-mandatory/) axiom's requirement that every belief in the system be traceable back to its origins through an unbroken, verifiable chain of custody.
+An audit trail in the Prismatic Platform is an immutable, append-only, cryptographically verifiable record of every epistemic event that occurs within the system. This includes signal ingestion, belief graph mutations, confidence score computations, contradiction detections, enforcement actions (E1 warnings through E4 audits), Trinity Gate evaluations, QEVE pipeline executions, and every administrative action that affects the platform's knowledge state. The audit trail is not a secondary logging concern but a first-class component of the epistemic infrastructure, designed to satisfy the [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom's requirement that every belief in the system be traceable back to its origins through an unbroken, verifiable chain of custody.
 
 The audit trail serves three distinct functions that are often conflated but are architecturally separate in the Prismatic Platform:
 
@@ -93,11 +93,11 @@ Recorded when a new evidence signal enters the platform:
 | `raw_data_hash` | string | SHA-256 hash of the raw source data |
 | `processing_pipeline` | string | Version of the ingestion pipeline |
 
-Signal ingestion events form the foundation of the provenance chain. Every subsequent belief, hypothesis, and conclusion can be traced back through the audit trail to these initial ingestion events, satisfying the [Provenance Mandatory](/glossary/provenance-mandatory/) axiom.
+Signal ingestion events form the foundation of the provenance chain. Every subsequent belief, hypothesis, and conclusion can be traced back through the audit trail to these initial ingestion events, satisfying the [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom.
 
 ### Belief Graph Mutation Events
 
-Recorded when the [belief graph](/glossary/belief-graph/) is modified:
+Recorded when the [belief graph](@/glossary/belief-graph.md) is modified:
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -114,7 +114,7 @@ The `triggering_event` field creates an explicit causal chain between events. A 
 
 ### Confidence Score Events
 
-Recorded when a [confidence score](/glossary/confidence-scoring/) is computed:
+Recorded when a [confidence score](@/glossary/confidence-scoring.md) is computed:
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -152,7 +152,7 @@ Enforcement events are critical for compliance demonstration. They prove that th
 
 ### Trinity Gate Events
 
-Recorded when the [Trinity Gate](/glossary/trinity-gate/) evaluates a conclusion:
+Recorded when the [Trinity Gate](@/glossary/trinity-gate.md) evaluates a conclusion:
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -198,7 +198,7 @@ This process produces an exact replica of the platform's knowledge state at time
 
 Beyond reconstruction, the audit trail supports counterfactual analysis: "What would the conclusion have been if Signal X had not been ingested?" This is implemented by replaying the mutation log with specific events removed and observing the resulting state. Counterfactual analysis serves two purposes:
 
-1. **Dependency analysis**: Identifying which signals are load-bearing for specific conclusions (equivalent to signal robustness in the [epistemic robustness](/glossary/epistemic-robustness/) framework, but computed from historical data rather than Monte Carlo simulation)
+1. **Dependency analysis**: Identifying which signals are load-bearing for specific conclusions (equivalent to signal robustness in the [epistemic robustness](@/glossary/epistemic-robustness.md) framework, but computed from historical data rather than Monte Carlo simulation)
 
 2. **Bias investigation**: Testing whether a specific source systematically influenced conclusions by removing all events from that source and comparing the resulting conclusions against the historical conclusions
 
@@ -318,7 +318,7 @@ Every audit event is also published as a Telemetry event under the `[:prismatic,
 
 ## Relationship to Provenance
 
-The audit trail and the [Provenance Mandatory](/glossary/provenance-mandatory/) axiom are closely related but serve different functions:
+The audit trail and the [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom are closely related but serve different functions:
 
 **Provenance** answers: "Where did this belief come from?" It tracks the origin and transformation history of individual knowledge claims within the epistemic pipeline.
 
@@ -374,25 +374,25 @@ At the current platform scale (thousands of signals per day, hundreds of confide
 
 ## Related Terms
 
-- [QEVE](/glossary/qeve/) -- Verification engine whose pipeline executions are recorded in the audit trail
-- [Belief Graph](/glossary/belief-graph/) -- Data structure whose mutations are the primary source of audit events
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Scoring computations recorded with full derivation traces
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom whose traceability requirement the audit trail satisfies
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework whose axiom enforcement is recorded in the audit trail
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate whose evaluations are recorded as Trinity Gate events
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Axiom whose violations are enforcement events in the trail
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom whose compliance is verifiable through signal ingestion events
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- The 16-level pipeline whose operations the audit trail records
-- [Cherry Picking](/glossary/cherry-picking/) -- Anti-pattern detectable through audit trail analysis of evidence selection
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- Robustness measurements recorded in the audit trail
-- [Time Decay](/glossary/time-decay/) -- Decay parameter changes recorded as administrative events
-- [Entity Resolution](/glossary/entity-resolution/) -- Entity merge operations recorded as belief graph mutation events
-- [Formal Verification](/glossary/formal-verification/) -- Lean4 proof results recorded in Trinity Gate events
+- [QEVE](@/glossary/qeve.md) -- Verification engine whose pipeline executions are recorded in the audit trail
+- [Belief Graph](@/glossary/belief-graph.md) -- Data structure whose mutations are the primary source of audit events
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Scoring computations recorded with full derivation traces
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom whose traceability requirement the audit trail satisfies
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework whose axiom enforcement is recorded in the audit trail
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate whose evaluations are recorded as Trinity Gate events
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Axiom whose violations are enforcement events in the trail
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom whose compliance is verifiable through signal ingestion events
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- The 16-level pipeline whose operations the audit trail records
+- [Cherry Picking](@/glossary/cherry-picking.md) -- Anti-pattern detectable through audit trail analysis of evidence selection
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- Robustness measurements recorded in the audit trail
+- [Time Decay](@/glossary/time-decay.md) -- Decay parameter changes recorded as administrative events
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Entity merge operations recorded as belief graph mutation events
+- [Formal Verification](@/glossary/formal-verification.md) -- Lean4 proof results recorded in Trinity Gate events
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -401,4 +401,4 @@ At the current platform scale (thousands of signals per day, hundreds of confide
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

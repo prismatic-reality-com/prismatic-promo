@@ -23,11 +23,11 @@ image_alt = "Prismatic Crawler Core - Prismatic Platform"
 
 ## Overview
 
-Prismatic Crawler Core is the platform's web crawling engine, providing HTTP-based data collection with comprehensive [rate limiting](/glossary/rate-limiting/), robots.txt compliance, and structured content extraction. It manages prioritized crawl queues, handles authentication for protected resources, respects politeness policies, and extracts structured data from HTML pages using configurable CSS and XPath selectors.
+Prismatic Crawler Core is the platform's web crawling engine, providing HTTP-based data collection with comprehensive [rate limiting](@/glossary/rate-limiting.md), robots.txt compliance, and structured content extraction. It manages prioritized crawl queues, handles authentication for protected resources, respects politeness policies, and extracts structured data from HTML pages using configurable CSS and XPath selectors.
 
-The crawler serves as the foundational collection mechanism for several platform subsystems. [OSINT monitoring](/apps/prismatic-osint-monitoring/) uses it to periodically check web-accessible intelligence sources. The [Czech autocrawler](/apps/prismatic-czech-autocrawler/) leverages its extraction capabilities for [registry](/glossary/registry-otp/) data collection. [Prismatic Perimeter](/apps/prismatic-perimeter/) relies on it for web technology fingerprinting and content analysis during [attack surface](/glossary/attack-surface/) discovery.
+The crawler serves as the foundational collection mechanism for several platform subsystems. [OSINT monitoring](@/apps/prismatic-osint-monitoring.md) uses it to periodically check web-accessible intelligence sources. The [Czech autocrawler](@/apps/prismatic-czech-autocrawler.md) leverages its extraction capabilities for [registry](@/glossary/registry-otp.md) data collection. [Prismatic Perimeter](@/apps/prismatic-perimeter.md) relies on it for web technology fingerprinting and content analysis during [attack surface](@/glossary/attack-surface.md) discovery.
 
-Resilience is a core design principle. The crawler implements retry with exponential backoff, proxy rotation with health checking, [circuit breakers](/glossary/circuit-breaker/) for persistently failing domains, and a dead letter queue for pages that cannot be successfully fetched after all retry attempts. This ensures that transient failures do not prevent data collection while persistent failures are surfaced for operator attention. The architecture follows [OTP](/glossary/otp/) supervision patterns with a configurable fetcher pool, per-domain rate limiting enforced through token bucket counters stored in [ETS](/glossary/ets/), and content extraction through pluggable CSS, XPath, JSON-LD, and microdata parsers.
+Resilience is a core design principle. The crawler implements retry with exponential backoff, proxy rotation with health checking, [circuit breakers](@/glossary/circuit-breaker.md) for persistently failing domains, and a dead letter queue for pages that cannot be successfully fetched after all retry attempts. This ensures that transient failures do not prevent data collection while persistent failures are surfaced for operator attention. The architecture follows [OTP](@/glossary/otp.md) supervision patterns with a configurable fetcher pool, per-domain rate limiting enforced through token bucket counters stored in [ETS](@/glossary/ets.md), and content extraction through pluggable CSS, XPath, JSON-LD, and microdata parsers.
 
 ## Architecture
 
@@ -43,7 +43,7 @@ Seed URLs --> Queue Manager --> Fetcher Pool --> Parser --> Extractor --> Storag
           Dead Letter      Circuit Breaker  Schema Map
 ```
 
-The fetcher pool uses a configurable number of worker processes managed under a pool [supervisor](/glossary/supervisor/), with each worker handling one HTTP request at a time. Per-domain rate limiting is enforced through token bucket counters preventing any single crawl job from overwhelming target servers. The queue manager maintains separate per-domain queues with priority ordering, ensuring that high-priority pages are fetched before lower-priority discovery links.
+The fetcher pool uses a configurable number of worker processes managed under a pool [supervisor](@/glossary/supervisor.md), with each worker handling one HTTP request at a time. Per-domain rate limiting is enforced through token bucket counters preventing any single crawl job from overwhelming target servers. The queue manager maintains separate per-domain queues with priority ordering, ensuring that high-priority pages are fetched before lower-priority discovery links.
 
 ### Process Topology
 
@@ -79,7 +79,7 @@ Requests enter the QueueManager where they are deduplicated and assigned to per-
 | `PrismaticCrawlerCore.RateLimiter` | Per-domain token bucket rate limiting with ETS storage |
 | `PrismaticCrawlerCore.DeadLetterQueue` | Failed page tracking with retry metadata |
 
-The CrawlerBehaviour defines the interface that pluggable crawler implementations must satisfy. This enables specialized crawlers (such as the Czech registry crawlers in [Prismatic Crawler](/apps/prismatic-crawler/)) to reuse the core infrastructure while providing domain-specific fetch logic, authentication handling, and extraction rules.
+The CrawlerBehaviour defines the interface that pluggable crawler implementations must satisfy. This enables specialized crawlers (such as the Czech registry crawlers in [Prismatic Crawler](@/apps/prismatic-crawler.md)) to reuse the core infrastructure while providing domain-specific fetch logic, authentication handling, and extraction rules.
 
 ```elixir
 defmodule PrismaticCrawlerCore.CrawlerBehaviour do
@@ -169,13 +169,13 @@ Integration tests exercise the full crawl pipeline from seed URL through page fe
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic OSINT Monitoring](/apps/prismatic-osint-monitoring/) | Scheduled web checks for monitored entities |
-| [Prismatic Czech Autocrawler](/apps/prismatic-czech-autocrawler/) | Registry crawling built on Crawler Core primitives |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Web content analysis during attack surface discovery |
-| [Prismatic Storage](/apps/prismatic-storage/) | Extracted data persisted through the storage layer |
-| [Prismatic Browser](/apps/prismatic-browser/) | Headless browser for JavaScript-rendered pages |
-| [Prismatic Crawler](/apps/prismatic-crawler/) | Higher-level crawl orchestration and job management |
-| [Prismatic Resilience](/apps/prismatic-resilience/) | Circuit breaker patterns for failing target domains |
+| [Prismatic OSINT Monitoring](@/apps/prismatic-osint-monitoring.md) | Scheduled web checks for monitored entities |
+| [Prismatic Czech Autocrawler](@/apps/prismatic-czech-autocrawler.md) | Registry crawling built on Crawler Core primitives |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Web content analysis during attack surface discovery |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Extracted data persisted through the storage layer |
+| [Prismatic Browser](@/apps/prismatic-browser.md) | Headless browser for JavaScript-rendered pages |
+| [Prismatic Crawler](@/apps/prismatic-crawler.md) | Higher-level crawl orchestration and job management |
+| [Prismatic Resilience](@/apps/prismatic-resilience.md) | Circuit breaker patterns for failing target domains |
 
 ## NABLA Compliance
 
@@ -202,19 +202,19 @@ Integration tests exercise the full crawl pipeline from seed URL through page fe
 | Memory | 256 MB | 512 MB |
 | CPU | 2 cores | 4 cores |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :crawler_core, :fetch]`, `[:prismatic, :crawler_core, :extract]`, `[:prismatic, :crawler_core, :dead_letter]`, `[:prismatic, :crawler_core, :rate_limited]`. Metrics include pages per second, error rate, queue depth, and dead letter queue size.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :crawler_core, :fetch]`, `[:prismatic, :crawler_core, :extract]`, `[:prismatic, :crawler_core, :dead_letter]`, `[:prismatic, :crawler_core, :rate_limited]`. Metrics include pages per second, error rate, queue depth, and dead letter queue size.
 
 ## Related Resources
 
-- [Prismatic Browser](/apps/prismatic-browser/) -- Headless browser for JavaScript-rendered pages
-- [Prismatic Crawler](/apps/prismatic-crawler/) -- Higher-level crawl orchestration and job management
-- [Prismatic Compression](/apps/prismatic-compression/) -- Response decompression for crawled content
-- [Competitor Researcher](/agents/competitor-researcher/) -- Leverages crawler infrastructure for competitive intelligence collection
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Ensures crawler extractors follow consistent adapter patterns
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews crawler pipeline architecture for resilience and scalability
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Continuous monitoring of crawl job health and throughput metrics
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Automatic recovery from crawler failures via circuit breakers and retry
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Crawl performance metrics emitted through the telemetry pipeline
+- [Prismatic Browser](@/apps/prismatic-browser.md) -- Headless browser for JavaScript-rendered pages
+- [Prismatic Crawler](@/apps/prismatic-crawler.md) -- Higher-level crawl orchestration and job management
+- [Prismatic Compression](@/apps/prismatic-compression.md) -- Response decompression for crawled content
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Leverages crawler infrastructure for competitive intelligence collection
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Ensures crawler extractors follow consistent adapter patterns
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews crawler pipeline architecture for resilience and scalability
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Continuous monitoring of crawl job health and throughput metrics
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Automatic recovery from crawler failures via circuit breakers and retry
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Crawl performance metrics emitted through the telemetry pipeline
 
 ---
 
@@ -223,4 +223,4 @@ Integration tests exercise the full crawl pipeline from seed URL through page fe
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

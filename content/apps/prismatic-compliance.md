@@ -24,7 +24,7 @@ image_alt = "Prismatic Compliance - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Compliance provides automated compliance assessment against major European regulatory frameworks: the [NIS2](/glossary/nis2/) Directive (EU 2022/2555), [GDPR](/glossary/gdpr/) (EU 2016/679), and the Czech [ZKB](/glossary/zkb/) (Zakon o kyberneticke bezpecnosti, 264/2025 Sb.). The system evaluates organizations against 100+ regulatory controls across these frameworks, collecting evidence automatically from platform intelligence sources -- [OSINT](/glossary/osint/) scans, [security rating](/glossary/security-rating/)s, audit logs, and configuration assessments -- and generating compliance reports with gap analysis, remediation tracking, and deadline management. Compliance assessment results integrate directly into [Prismatic Perimeter](/apps/prismatic-perimeter/) security ratings, ensuring that compliance gaps influence security scores. The architecture separates framework definitions (control catalogs with requirement mappings), assessment engines (individual control evaluation with scoring), evidence collection (automated gathering from 15+ platform sources), and reporting (PDF, HTML, and JSON output with remediation recommendations).
+Prismatic Compliance provides automated compliance assessment against major European regulatory frameworks: the [NIS2](@/glossary/nis2.md) Directive (EU 2022/2555), [GDPR](@/glossary/gdpr.md) (EU 2016/679), and the Czech [ZKB](@/glossary/zkb.md) (Zakon o kyberneticke bezpecnosti, 264/2025 Sb.). The system evaluates organizations against 100+ regulatory controls across these frameworks, collecting evidence automatically from platform intelligence sources -- [OSINT](@/glossary/osint.md) scans, [security rating](@/glossary/security-rating.md)s, audit logs, and configuration assessments -- and generating compliance reports with gap analysis, remediation tracking, and deadline management. Compliance assessment results integrate directly into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security ratings, ensuring that compliance gaps influence security scores. The architecture separates framework definitions (control catalogs with requirement mappings), assessment engines (individual control evaluation with scoring), evidence collection (automated gathering from 15+ platform sources), and reporting (PDF, HTML, and JSON output with remediation recommendations).
 
 ## 1. Introduction
 
@@ -169,23 +169,23 @@ config :prismatic_compliance,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Security ratings for compliance evidence |
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | OSINT data for technical control evidence |
-| [Prismatic Auth](/apps/prismatic-auth/) | Audit log data for access control evidence |
-| [Prismatic Audit](/apps/prismatic-audit/) | [Audit trail](/glossary/audit-trail/) for compliance reporting |
-| [Prismatic Storage](/apps/prismatic-storage/) | Evidence and assessment persistence |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Security ratings for compliance evidence |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | OSINT data for technical control evidence |
+| [Prismatic Auth](@/apps/prismatic-auth.md) | Audit log data for access control evidence |
+| [Prismatic Audit](@/apps/prismatic-audit.md) | [Audit trail](@/glossary/audit-trail.md) for compliance reporting |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Evidence and assessment persistence |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Compliance results in security ratings |
-| [Prismatic CER](/apps/prismatic-cer/) | Evidence repository integration |
-| [Prismatic Web](/apps/prismatic-web/) | Compliance dashboard data |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Compliance results in security ratings |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Evidence repository integration |
+| [Prismatic Web](@/apps/prismatic-web.md) | Compliance dashboard data |
 
 ### 4.3 Inter-Process Communication
 
-Evidence collection runs as scheduled tasks. Assessment execution is parallelized via Task.[Supervisor](/glossary/supervisor/). Results are published via [PubSub](/glossary/pubsub/) for dashboard updates.
+Evidence collection runs as scheduled tasks. Assessment execution is parallelized via Task.[Supervisor](@/glossary/supervisor.md). Results are published via [PubSub](@/glossary/pubsub.md) for dashboard updates.
 
 ### 4.4 External Integrations
 
@@ -241,11 +241,11 @@ Compliance assessment requires `compliance_read` permission. Report generation r
 
 ### 8.1 Deployment
 
-Deploys as part of the umbrella [release](/glossary/release/). Framework definitions are bundled with the application.
+Deploys as part of the umbrella [release](@/glossary/release.md). Framework definitions are bundled with the application.
 
 ### 8.2 Monitoring
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :compliance, :assessed]`, `[:prismatic, :compliance, :evidence_collected]`, `[:prismatic, :compliance, :report_generated]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :compliance, :assessed]`, `[:prismatic, :compliance, :evidence_collected]`, `[:prismatic, :compliance, :report_generated]`.
 
 ### 8.3 Troubleshooting
 
@@ -254,31 +254,31 @@ Deploys as part of the umbrella [release](/glossary/release/). Framework definit
 | Low compliance scores | Insufficient evidence | Run evidence collection; check OSINT source health |
 | Unassessable controls | Missing evidence types | Enable additional evidence sources |
 | Report generation slow | Large evidence set | Increase report generation timeout |
-| Stale assessments | Collection not running | Verify Collector [GenServer](/glossary/genserver/) health |
+| Stale assessments | Collection not running | Verify Collector [GenServer](@/glossary/genserver.md) health |
 
 ## 9. Future Work
 
-Planned enhancements include [ISO 27001](/glossary/iso-27001/) framework support, automated regulatory change tracking with impact analysis, compliance benchmarking against industry peers, and integration with external GRC platforms.
+Planned enhancements include [ISO 27001](@/glossary/iso-27001.md) framework support, automated regulatory change tracking with impact analysis, compliance benchmarking against industry peers, and integration with external GRC platforms.
 
 ## References
 
 - [NIS2 Directive](https://eur-lex.europa.eu/eli/dir/2022/2555) -- EU cybersecurity directive
 - [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679) -- General Data Protection Regulation
 - [ZKB 264/2025 Sb.](https://www.zakonyprolidi.cz/cs/2025-264) -- Czech Cybersecurity Act
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- Security rating integration
-- [Prismatic CER](/apps/prismatic-cer/) -- Evidence repository
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- Security rating integration
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Evidence repository
 
 ## Related Agents
 
-- [CER Compliance Commander](/agents/cer-compliance-commander/) -- Commands compliance evidence collection and assessment workflows across NIS2, GDPR, and ZKB regulatory frameworks
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Enforces evidence quality, completeness, and provenance requirements for regulatory compliance assessments
-- [GitLab Security Specialist Agent](/agents/gitlab-security-specialist-agent/) -- Reviews compliance assessment implementation for security and accuracy of regulatory control mappings
+- [CER Compliance Commander](@/agents/cer-compliance-commander.md) -- Commands compliance evidence collection and assessment workflows across NIS2, GDPR, and ZKB regulatory frameworks
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Enforces evidence quality, completeness, and provenance requirements for regulatory compliance assessments
+- [GitLab Security Specialist Agent](@/agents/gitlab-security-specialist-agent.md) -- Reviews compliance assessment implementation for security and accuracy of regulatory control mappings
 
 ## Related Capabilities
 
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Signal plurality and provenance mandatory axioms ensure compliance assessments are backed by multiple independent evidence sources
-- [Trinity Gate](/capabilities/trinity-gate/) -- Three-layer verification ensures compliance conclusions pass structural, logical, and formal consistency checks
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Synthesizes evidence from 15+ platform sources into unified compliance posture assessments across frameworks
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Signal plurality and provenance mandatory axioms ensure compliance assessments are backed by multiple independent evidence sources
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Three-layer verification ensures compliance conclusions pass structural, logical, and formal consistency checks
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Synthesizes evidence from 15+ platform sources into unified compliance posture assessments across frameworks
 
 ---
 
@@ -287,4 +287,4 @@ Planned enhancements include [ISO 27001](/glossary/iso-27001/) framework support
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

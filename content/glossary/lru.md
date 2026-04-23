@@ -466,24 +466,24 @@ end
 
 ## Related Terms
 
-- [Memory](/glossary/memory/) -- system resource managed by LRU eviction policies
-- [ETS](/glossary/ets/) -- Erlang Term Storage, the primary backing store for BEAM LRU caches
-- [Named Table](/glossary/named-table/) -- ETS tables used as LRU cache backing stores with atom-based access
-- [Page Load](/glossary/page-load/) -- page performance improved by LRU caching of rendered content
-- [Process](/glossary/process/) -- BEAM processes that own and access LRU caches
-- [GenServer](/glossary/genserver/) -- OTP behavior used to manage cache state and coordinate evictions
-- [Telemetry](/glossary/telemetry/) -- instrumentation framework for monitoring cache health metrics
-- [TTL](/glossary/ttl/) -- time-to-live expiration complementing LRU eviction
+- [Memory](@/glossary/memory.md) -- system resource managed by LRU eviction policies
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage, the primary backing store for BEAM LRU caches
+- [Named Table](@/glossary/named-table.md) -- ETS tables used as LRU cache backing stores with atom-based access
+- [Page Load](@/glossary/page-load.md) -- page performance improved by LRU caching of rendered content
+- [Process](@/glossary/process.md) -- BEAM processes that own and access LRU caches
+- [GenServer](@/glossary/genserver.md) -- OTP behavior used to manage cache state and coordinate evictions
+- [Telemetry](@/glossary/telemetry.md) -- instrumentation framework for monitoring cache health metrics
+- [TTL](@/glossary/ttl.md) -- time-to-live expiration complementing LRU eviction
 - [Hot Path](/glossary/hot-path/) -- performance-critical code paths where LRU caching has highest impact
 - [Cachex](/glossary/cachex/) -- production-ready Elixir caching library with LRU support
 - [Working Set](/glossary/working-set/) -- the subset of data actively accessed, defining optimal cache size
-- [Memory Leak](/glossary/memory-leak/) -- unbounded caches without eviction that grow until OOM
+- [Memory Leak](@/glossary/memory-leak.md) -- unbounded caches without eviction that grow until OOM
 
 ## See Also
 
-- [Architecture](/architecture/) -- caching architecture patterns and multi-layer cache topology
-- [Capabilities](/capabilities/) -- performance optimization capabilities in the Prismatic Platform
-- [Performance Testing](/architecture/) -- benchmarking cache hit rates and latency under load
+- [Architecture](@/architecture/_index.md) -- caching architecture patterns and multi-layer cache topology
+- [Capabilities](@/capabilities/_index.md) -- performance optimization capabilities in the Prismatic Platform
+- [Performance Testing](@/architecture/_index.md) -- benchmarking cache hit rates and latency under load
 
 ---
 
@@ -492,4 +492,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

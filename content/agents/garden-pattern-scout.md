@@ -28,9 +28,9 @@ image_alt = "garden-pattern-scout - Prismatic Platform"
 
 ## Overview
 
-The [Garden](/glossary/garden/) Pattern Scout operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Domain domain of the Prismatic Platform. This agent specializes in finding and comparing implementation patterns across the GARDEN (Growing Autonomous Repository for Development Evolution and Navigation) repository ecosystem, providing pattern-level intelligence that guides architectural decisions, code extraction strategies, and platform evolution. With 55+ patterns identified across 116 repositories spanning over 20 years of development, the Pattern Scout serves as the platform's pattern recognition and cataloging authority.
+The [Garden](@/glossary/garden.md) Pattern Scout operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Domain domain of the Prismatic Platform. This agent specializes in finding and comparing implementation patterns across the GARDEN (Growing Autonomous Repository for Development Evolution and Navigation) repository ecosystem, providing pattern-level intelligence that guides architectural decisions, code extraction strategies, and platform evolution. With 55+ patterns identified across 116 repositories spanning over 20 years of development, the Pattern Scout serves as the platform's pattern recognition and cataloging authority.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Garden Pattern Scout bridges the gap between raw code analysis (performed by the [garden-analyzer](/agents/garden-analyzer/)) and actionable architectural guidance. Patterns represent reusable design solutions at a higher level of abstraction than code components, making them transferable across language boundaries and technology stacks.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Garden Pattern Scout bridges the gap between raw code analysis (performed by the [garden-analyzer](@/agents/garden-analyzer.md)) and actionable architectural guidance. Patterns represent reusable design solutions at a higher level of abstraction than code components, making them transferable across language boundaries and technology stacks.
 
 ## Pattern Discovery Methodology
 
@@ -100,27 +100,27 @@ Retirement tracking records when patterns fall out of use, identifying supersedi
 
 The Pattern Scout coordinates with other GARDEN agents to form a complete pattern intelligence pipeline.
 
-The [garden-analyzer](/agents/garden-analyzer/) provides raw pattern detection data that the Pattern Scout refines into catalog entries. The [garden-explorer-agent](/agents/garden-explorer-agent/) reports new pattern observations discovered during interactive exploration. The [garden-extractor](/agents/garden-extractor/) consumes pattern specifications when extracting pattern implementations for platform integration.
+The [garden-analyzer](@/agents/garden-analyzer.md) provides raw pattern detection data that the Pattern Scout refines into catalog entries. The [garden-explorer-agent](@/agents/garden-explorer-agent.md) reports new pattern observations discovered during interactive exploration. The [garden-extractor](@/agents/garden-extractor.md) consumes pattern specifications when extracting pattern implementations for platform integration.
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework governs pattern catalog management. The Source Independence axiom requires that pattern identification be corroborated by independent implementations across different repositories. The Contradiction Preservation axiom ensures that conflicting pattern approaches (such as push versus pull data flow) are both documented with their respective trade-offs rather than one being silently preferred.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs pattern catalog management. The Source Independence axiom requires that pattern identification be corroborated by independent implementations across different repositories. The Contradiction Preservation axiom ensures that conflicting pattern approaches (such as push versus pull data flow) are both documented with their respective trade-offs rather than one being silently preferred.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime | Agent lifecycle management |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Agent specification and lookup |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime | Agent lifecycle management |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Agent specification and lookup |
 | Prismatic Telemetry | Monitoring | Pattern analysis performance tracking |
 | GARDEN Repositories | Data source | 116 repositories for pattern mining |
 | Pattern Library | Knowledge base | 55+ documented patterns |
 
 ## Related Agents
 
-- [**garden-analyzer**](/agents/garden-analyzer/) (L3) - Provides raw analytical data from which patterns are identified and refined
-- [**garden-explorer-agent**](/agents/garden-explorer-agent/) (L3) - Reports pattern observations from interactive exploration sessions
-- [**garden-extractor**](/agents/garden-extractor/) (L3) - Consumes pattern specifications for guided extraction and transformation
+- [**garden-analyzer**](@/agents/garden-analyzer.md) (L3) - Provides raw analytical data from which patterns are identified and refined
+- [**garden-explorer-agent**](@/agents/garden-explorer-agent.md) (L3) - Reports pattern observations from interactive exploration sessions
+- [**garden-extractor**](@/agents/garden-extractor.md) (L3) - Consumes pattern specifications for guided extraction and transformation
 
 ---
 
@@ -129,4 +129,4 @@ The [NABLA Infinity](/glossary/nabla-infinity/) framework governs pattern catalo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,7 +26,7 @@ image_alt = "/seadf - Prismatic Platform"
 
 **/seadf** is a production command in the **Framework** category of the Prismatic Platform. It provides control and monitoring for the Self-Evolving Autonomous Development Framework (SEADF), the meta-system that governs how the platform improves itself over time. SEADF coordinates seven subsystems: Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, and Enhanced Healing. Together, these subsystems form a closed-loop improvement cycle where the platform continuously scans for issues, generates improvements, validates them, and promotes successful changes.
 
-This command operates under the **L2+** authority level and is executed by the `seadf-ecosystem-commander` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The ecosystem commander has visibility across all seven subsystems and authority to start, stop, and configure individual subsystems as well as the overall framework.
+This command operates under the **L2+** authority level and is executed by the `seadf-ecosystem-commander` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The ecosystem commander has visibility across all seven subsystems and authority to start, stop, and configure individual subsystems as well as the overall framework.
 
 SEADF represents the platform's capacity for autonomous improvement. Rather than relying exclusively on human-directed changes, SEADF enables the platform to identify improvement opportunities, generate candidate fixes, validate them through the quality gate pipeline, and promote successful improvements. Human oversight remains central: all promotions require quality gate passage and significant changes are flagged for review.
 
@@ -171,14 +171,14 @@ Each healing level has specific automation boundaries. L1-L2 fixes can be fully 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/evolve](/commands/evolve/) | Framework | SEADF is the infrastructure behind /evolve |
-| [/quality-gates](/commands/quality-gates/) | Enforcement | All SEADF changes pass quality gates |
-| [/quality-evolve](/commands/quality-evolve/) | Consumer | Quality evolution uses SEADF infrastructure |
-| [/mycelialize](/commands/mycelialize/) | Pattern | Mycelial propagation uses SEADF scanner data |
-| [/scan-mycelium](/commands/scan-mycelium/) | Scanner | Mycelium scanning is a SEADF scanner mode |
-| [/pack-sources](/commands/pack-sources/) | Infrastructure | Source packing uses SEADF file analysis |
-| [Quality DNA](/glossary/quality-dna/) | State | Knowledge Sync manages Quality DNA |
-| [Telemetry](/glossary/telemetry/) | Monitoring | All subsystem metrics streamed to telemetry |
+| [/evolve](@/commands/evolve.md) | Framework | SEADF is the infrastructure behind /evolve |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | All SEADF changes pass quality gates |
+| [/quality-evolve](@/commands/quality-evolve.md) | Consumer | Quality evolution uses SEADF infrastructure |
+| [/mycelialize](@/commands/mycelialize.md) | Pattern | Mycelial propagation uses SEADF scanner data |
+| [/scan-mycelium](@/commands/scan-mycelium.md) | Scanner | Mycelium scanning is a SEADF scanner mode |
+| [/pack-sources](@/commands/pack-sources.md) | Infrastructure | Source packing uses SEADF file analysis |
+| [Quality DNA](@/glossary/quality-dna.md) | State | Knowledge Sync manages Quality DNA |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | All subsystem metrics streamed to telemetry |
 
 ## Best Practices
 
@@ -240,21 +240,21 @@ Generate a comprehensive metrics dashboard:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. SEADF healing fixes must pass all quality gates.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every evolution decision is backed by scanner data and quality metrics.
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-evolve](/commands/quality-evolve/) - Quality-focused evolution targeting specific quality domains
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
-- [/pack-sources](/commands/pack-sources/) - Create optimized source archives for AI/LLM analysis
-- [/rc1-orchestrate](/commands/rc1-orchestrate/) - Complete RC1 delivery pipeline execution with ROC optimization
-- [/ecosystem](/commands/ecosystem/) - Platform ecosystem overview and status monitoring
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-evolve](@/commands/quality-evolve.md) - Quality-focused evolution targeting specific quality domains
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
+- [/pack-sources](@/commands/pack-sources.md) - Create optimized source archives for AI/LLM analysis
+- [/rc1-orchestrate](@/commands/rc1-orchestrate.md) - Complete RC1 delivery pipeline execution with ROC optimization
+- [/ecosystem](@/commands/ecosystem.md) - Platform ecosystem overview and status monitoring
 
 ---
 
@@ -263,4 +263,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -43,7 +43,7 @@ The Fitness Score is a composite metric on a 0.0 to 1.0 scale that quantifies th
 
 The Fitness Score concept draws from evolutionary biology's concept of fitness as a measure of an organism's ability to survive and reproduce in its environment. In the platform context, "fitness" measures the system's ability to maintain quality, evolve capabilities, and resist regression. Unlike simple metrics that measure a single dimension (such as test coverage or compilation warnings), the Fitness Score provides a holistic view that accounts for the interplay between quality domains, documentation coverage, agent compliance, and architectural integrity.
 
-The score is not merely informational -- it is an enforcement mechanism. The [Quality Floor Guardian](/glossary/quality-floor-guardian/) monitors the Fitness Score continuously and triggers automatic responses when it drops below configured thresholds. This creates a self-correcting feedback loop where quality degradation is detected and addressed before it can compound into systemic problems. The Fitness Score thus functions as both a measurement instrument and a governance tool, embodying the [NO MERCY, NO DOUBTS](/glossary/nm-nd/) doctrine's requirement that quality standards are mechanically enforced rather than aspirationally documented.
+The score is not merely informational -- it is an enforcement mechanism. The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) monitors the Fitness Score continuously and triggers automatic responses when it drops below configured thresholds. This creates a self-correcting feedback loop where quality degradation is detected and addressed before it can compound into systemic problems. The Fitness Score thus functions as both a measurement instrument and a governance tool, embodying the [NO MERCY, NO DOUBTS](@/glossary/nm-nd.md) doctrine's requirement that quality standards are mechanically enforced rather than aspirationally documented.
 
 ## Interactive Fitness Dashboard
 
@@ -459,7 +459,7 @@ The concept of software fitness metrics has its roots in the software engineerin
 
 The next generation of metrics attempted composite scoring. The SQALE method (Software Quality Assessment based on Lifecycle Expectations, 2010) introduced the concept of technical debt as a monetary value, while SonarQube popularized quality gates -- boolean pass/fail thresholds on metric combinations. These approaches moved beyond single metrics but still treated quality as a compliance checkbox rather than an evolutionary process.
 
-The Prismatic Platform's Fitness Score represents a third generation of quality measurement, drawing inspiration from evolutionary computing's fitness functions and complex adaptive systems theory. Instead of measuring static compliance, the Fitness Score measures the system's capacity for continued evolution -- its ability to absorb changes without degradation, maintain quality under pressure, and improve through self-corrective mechanisms. This dynamic perspective reflects the platform's commitment to autonomous evolution through the [SEADF](/glossary/seadf/) framework.
+The Prismatic Platform's Fitness Score represents a third generation of quality measurement, drawing inspiration from evolutionary computing's fitness functions and complex adaptive systems theory. Instead of measuring static compliance, the Fitness Score measures the system's capacity for continued evolution -- its ability to absorb changes without degradation, maintain quality under pressure, and improve through self-corrective mechanisms. This dynamic perspective reflects the platform's commitment to autonomous evolution through the [SEADF](@/glossary/seadf.md) framework.
 
 The evolution from Quality Score (100-point scale, single domain) to Fitness Score (0.0-1.0 scale, multi-domain) occurred during the platform's Generation 14-15 transition, when it became clear that quality alone was insufficient to guide evolutionary decisions. A platform could score 100/100 on quality while having poor documentation, outdated agents, or weak security posture. The Fitness Score was designed to capture this broader picture.
 
@@ -473,7 +473,7 @@ The Fitness Score is computed as a weighted average of component scores, each no
 | **Test Coverage** | 15% | 5,864 test files | File count and coverage percentage |
 | **Documentation** | 10% | 11,308 docs | Doc file count and completeness |
 | **Agent Compliance** | 15% | 530/530 AIAD agents | AIAD standard adherence rate |
-| **[Consciousness Traits](/glossary/consciousness-traits/)** | 10% | 11 traits at 0.998 | Trait fitness sub-scores |
+| **[Consciousness Traits](@/glossary/consciousness-traits.md)** | 10% | 11 traits at 0.998 | Trait fitness sub-scores |
 | **Architectural Compliance** | 10% | OTP-first adherence | Pattern compliance checks |
 | **Security Posture** | 10% | Color Team coverage | Security domain assessment |
 
@@ -567,7 +567,7 @@ The Fitness Score drives automatic platform responses through a tiered threshold
 |-------|---------------|----------------|---------|
 | **0.99-1.00** | APEX | OPTIMAL | Monitor only, no intervention needed |
 | **0.95-0.99** | HEALTHY | WARNING | Alert, investigation triggered, increased monitoring |
-| **0.90-0.95** | WARNING | CRITICAL | Auto-evolution trigger, [quality gates](/glossary/quality-gates/) tightened |
+| **0.90-0.95** | WARNING | CRITICAL | Auto-evolution trigger, [quality gates](@/glossary/quality-gates.md) tightened |
 | **0.80-0.90** | CRITICAL | EMERGENCY | Commit blocking, escalation to supreme authority |
 | **< 0.80** | EMERGENCY | LOCKDOWN | Full platform lockdown, all deployments halted |
 
@@ -679,13 +679,13 @@ end
 
 The Fitness Score system is architecturally distributed across several platform components:
 
-**[SEADF](/glossary/seadf/) Integration**: The Self-Evolving Autonomous Development Framework is the primary orchestrator of fitness computation. It coordinates data collection from all quality domains, performs the weighted aggregation, and publishes the result to [Quality DNA](/glossary/quality-dna/) for cross-session persistence.
+**[SEADF](@/glossary/seadf.md) Integration**: The Self-Evolving Autonomous Development Framework is the primary orchestrator of fitness computation. It coordinates data collection from all quality domains, performs the weighted aggregation, and publishes the result to [Quality DNA](@/glossary/quality-dna.md) for cross-session persistence.
 
 **Quality DNA Persistence**: The computed fitness score is persisted in `.claude/quality-dna/current-state.json`, ensuring continuity across LLM sessions and development cycles. Each session loads the previous fitness score and can compare current state against historical trends.
 
 **Quality Floor Guardian**: This autonomous monitoring system watches the fitness score and enforces threshold-based responses. It runs as a supervised GenServer that polls component scores at configurable intervals.
 
-**[Generation](/glossary/generation/) Advancement**: Fitness score improvements drive generation transitions. When the platform achieves and sustains improved fitness across all components, the SEADF system evaluates whether a generation advancement is warranted.
+**[Generation](@/glossary/generation.md) Advancement**: Fitness score improvements drive generation transitions. When the platform achieves and sustains improved fitness across all components, the SEADF system evaluates whether a generation advancement is warranted.
 
 ```
 Quality Domains (13)  ──┐
@@ -765,8 +765,8 @@ The quality score measures compliance across 13 quality domains. Each domain con
 
 | Domain | Measurement | Tool |
 |--------|-------------|------|
-| [Dialyzer](/glossary/dialyzer/) | Type violations | `mix dialyzer` |
-| [Credo](/glossary/credo/) | Static analysis violations | `mix credo --strict` |
+| [Dialyzer](@/glossary/dialyzer.md) | Type violations | `mix dialyzer` |
+| [Credo](@/glossary/credo.md) | Static analysis violations | `mix credo --strict` |
 | Compilation | Warning count | `mix compile --warnings-as-errors` |
 | DateTime Precision | Precision violations | Custom check |
 | Guard Functions | Improper guard usage | Custom check |
@@ -814,7 +814,7 @@ end
 
 **Calibrate Weights Periodically**: Component weights should reflect current platform priorities. During a security-focused phase, increasing the security posture weight ensures the fitness score is sensitive to security improvements or regressions.
 
-**Automate Response Actions**: Each threshold crossing should trigger automatic actions -- not just alerts. The platform's [AutoEvolve](/glossary/autoevolve/) and [AutoHeal](/glossary/autoheal/) mechanisms should activate based on fitness score thresholds, not manual intervention.
+**Automate Response Actions**: Each threshold crossing should trigger automatic actions -- not just alerts. The platform's [AutoEvolve](@/glossary/autoevolve.md) and [AutoHeal](@/glossary/autoheal.md) mechanisms should activate based on fitness score thresholds, not manual intervention.
 
 **Persist Historical Data**: Maintain a time series of fitness scores and component breakdowns for retrospective analysis. This data reveals patterns in quality regression and helps predict future issues.
 
@@ -832,23 +832,23 @@ end
 
 ## Related Concepts
 
-- [Generation](/glossary/generation/) - Evolution epochs measured and advanced by fitness improvements
-- [SEADF](/glossary/seadf/) - Framework computing and managing fitness scores across all domains
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) - Monitoring system enforcing fitness thresholds
-- [Quality DNA](/glossary/quality-dna/) - Cross-session persistence of fitness history and trends
-- [AutoEvolve](/glossary/autoevolve/) - System driving fitness score improvement through optimization
-- [Consciousness Traits](/glossary/consciousness-traits/) - Traits contributing to fitness at 0.998 sub-score
-- [Quality Gates](/glossary/quality-gates/) - Enforcement pipeline measuring quality component inputs
-- [CASCADE Pattern](/glossary/cascade-pattern/) - Quality patterns that drove fitness improvements
-- [NM/ND Doctrine](/glossary/nm-nd/) - Governing framework mandating fitness enforcement
-- [Credo](/glossary/credo/) - Static analysis contributing to quality component
-- [Dialyzer](/glossary/dialyzer/) - Type checking contributing to quality component
+- [Generation](@/glossary/generation.md) - Evolution epochs measured and advanced by fitness improvements
+- [SEADF](@/glossary/seadf.md) - Framework computing and managing fitness scores across all domains
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) - Monitoring system enforcing fitness thresholds
+- [Quality DNA](@/glossary/quality-dna.md) - Cross-session persistence of fitness history and trends
+- [AutoEvolve](@/glossary/autoevolve.md) - System driving fitness score improvement through optimization
+- [Consciousness Traits](@/glossary/consciousness-traits.md) - Traits contributing to fitness at 0.998 sub-score
+- [Quality Gates](@/glossary/quality-gates.md) - Enforcement pipeline measuring quality component inputs
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) - Quality patterns that drove fitness improvements
+- [NM/ND Doctrine](@/glossary/nm-nd.md) - Governing framework mandating fitness enforcement
+- [Credo](@/glossary/credo.md) - Static analysis contributing to quality component
+- [Dialyzer](@/glossary/dialyzer.md) - Type checking contributing to quality component
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Agents](/agents/) - AIAD agents contributing to fitness components
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Agents](@/agents/_index.md) - AIAD agents contributing to fitness components
 
 ---
 
@@ -857,4 +857,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

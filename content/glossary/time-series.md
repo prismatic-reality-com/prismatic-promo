@@ -180,9 +180,9 @@ The Quality DNA system tracks quality scores as time series across platform gene
 ## Cross-References
 
 - **Trend** - Directional pattern in time series data
-- [Telemetry](/glossary/telemetry/) - Event emission framework
-- [Monitoring](/glossary/monitoring/) - Operational observation systems
-- [TimescaleDB](/glossary/timescaledb/) - Time series database extension
+- [Telemetry](@/glossary/telemetry.md) - Event emission framework
+- [Monitoring](@/glossary/monitoring.md) - Operational observation systems
+- [TimescaleDB](@/glossary/timescaledb.md) - Time series database extension
 - **Z-Score** - Statistical measure for anomaly detection
 
 ---

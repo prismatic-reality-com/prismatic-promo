@@ -24,13 +24,13 @@ image_alt = "/evolve-quality-gates - Prismatic Platform"
 
 ## Overview
 
-**/evolve-quality-gates** is a production command in the **Evolution** category of the Prismatic Platform. It drives the evolution of quality gate specifications for compilation warnings, test coverage, and static analysis standards. While the standard [/quality-gates](/commands/quality-gates/) command enforces existing gate thresholds, `/evolve-quality-gates` evolves the thresholds themselves, progressively tightening quality standards as the platform matures.
+**/evolve-quality-gates** is a production command in the **Evolution** category of the Prismatic Platform. It drives the evolution of quality gate specifications for compilation warnings, test coverage, and static analysis standards. While the standard [/quality-gates](@/commands/quality-gates.md) command enforces existing gate thresholds, `/evolve-quality-gates` evolves the thresholds themselves, progressively tightening quality standards as the platform matures.
 
-Quality gates in the Prismatic Platform are not static checkpoints. They are living specifications that adapt to the platform's evolving capabilities. When the platform first established quality gates, the thresholds reflected the existing codebase state -- tolerating a certain number of warnings, a certain level of test coverage, and a certain number of [Credo](/glossary/credo/) violations. As the codebase improved through systematic quality debt elimination, the gates tightened correspondingly: from "fewer than 50 warnings" to "fewer than 10" to the current absolute standard of zero warnings, zero Credo violations, and zero [Dialyzer](/glossary/dialyzer/) errors.
+Quality gates in the Prismatic Platform are not static checkpoints. They are living specifications that adapt to the platform's evolving capabilities. When the platform first established quality gates, the thresholds reflected the existing codebase state -- tolerating a certain number of warnings, a certain level of test coverage, and a certain number of [Credo](@/glossary/credo.md) violations. As the codebase improved through systematic quality debt elimination, the gates tightened correspondingly: from "fewer than 50 warnings" to "fewer than 10" to the current absolute standard of zero warnings, zero Credo violations, and zero [Dialyzer](@/glossary/dialyzer.md) errors.
 
 The `/evolve-quality-gates` command automates this progressive tightening process. It analyzes current gate pass rates across all quality domains, identifies domains where the platform consistently exceeds the current threshold by a significant margin, and proposes tighter thresholds that maintain the challenging-but-achievable balance. Gates that are too easy become meaningless; gates that are too hard block legitimate development. The evolution system finds the optimal tension point.
 
-This command operates under the **L3** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -144,13 +144,13 @@ The `/evolve-quality-gates` command follows a structured 7-phase pipeline:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Quality Gates](/glossary/quality-gates/) | Target | Gate specifications that are evolved |
-| [Quality DNA](/glossary/quality-dna/) | Persistence | Gate threshold history and rollback data |
-| [Credo](/glossary/credo/) | Analysis | Credo gate thresholds and violation counts |
-| [Dialyzer](/glossary/dialyzer/) | Analysis | Dialyzer gate thresholds and type errors |
-| [Evolution Engine](/glossary/autoevolve/) | Framework | Meta-evolution of quality standards |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Evolution-orchestrator drives gate evolution |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Gate evolution [metrics](/glossary/metrics/) and pass rate tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Target | Gate specifications that are evolved |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | Gate threshold history and rollback data |
+| [Credo](@/glossary/credo.md) | Analysis | Credo gate thresholds and violation counts |
+| [Dialyzer](@/glossary/dialyzer.md) | Analysis | Dialyzer gate thresholds and type errors |
+| [Evolution Engine](@/glossary/autoevolve.md) | Framework | Meta-evolution of quality standards |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Evolution-orchestrator drives gate evolution |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Gate evolution [metrics](@/glossary/metrics.md) and pass rate tracking |
 | Pre-commit Hooks | Enforcement | Evolved gates enforced at commit time |
 | CI/CD Pipeline | Enforcement | Evolved gates enforced in CI/CD stages |
 
@@ -209,7 +209,7 @@ The gate evolution system is designed to run as a periodic background process, g
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Quality gates only evolve in one direction -- tighter. Relaxation of gates is treated as a regression and requires SUPREME authority approval with explicit justification. The system enforces a ratchet effect: once a threshold is tightened, it becomes the new floor.
 - **NO DOUBTS**: Gate evolution decisions are backed by comprehensive pass rate analysis and feasibility simulation. No threshold is tightened without statistical evidence that the platform can sustain the new standard.
@@ -218,14 +218,14 @@ Gate evolution is the mechanism by which the NO MERCY doctrine becomes progressi
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/evolve-enforced](/commands/evolve-enforced/) - Evolution with mandatory QDP reduction
-- [/evolve-mycelialize](/commands/evolve-mycelialize/) - Unified evolution-propagation cycles
-- [/evolve-patterns](/commands/evolve-patterns/) - Pattern evolution through meta-evolution analysis
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/evolve-enforced](@/commands/evolve-enforced.md) - Evolution with mandatory QDP reduction
+- [/evolve-mycelialize](@/commands/evolve-mycelialize.md) - Unified evolution-propagation cycles
+- [/evolve-patterns](@/commands/evolve-patterns.md) - Pattern evolution through meta-evolution analysis
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
 
 ---
 
@@ -234,4 +234,4 @@ Gate evolution is the mechanism by which the NO MERCY doctrine becomes progressi
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

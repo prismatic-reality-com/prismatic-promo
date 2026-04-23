@@ -23,11 +23,11 @@ image_alt = "Prismatic Storage KuzuDB - Prismatic Platform"
 
 ## Overview
 
-[Prismatic Storage](/glossary/prismatic-storage/) [KuzuDB](/glossary/kuzudb/) implements the storage adapter [protocol](/glossary/protocol/) using KuzuDB, an embedded graph database optimized for analytical graph queries. It stores entity relationships, ownership chains, communication networks, and infrastructure topology as native graph structures, enabling efficient traversal, [pattern matching](/glossary/pattern-matching/), and community detection queries that are impractical in relational databases.
+[Prismatic Storage](@/glossary/prismatic-storage.md) [KuzuDB](@/glossary/kuzudb.md) implements the storage adapter [protocol](@/glossary/protocol.md) using KuzuDB, an embedded graph database optimized for analytical graph queries. It stores entity relationships, ownership chains, communication networks, and infrastructure topology as native graph structures, enabling efficient traversal, [pattern matching](@/glossary/pattern-matching.md), and community detection queries that are impractical in relational databases.
 
-As an embedded database, KuzuDB runs within the [BEAM](/glossary/beam/) process without requiring an external server. This eliminates network latency for graph queries and simplifies deployment. The adapter manages the database lifecycle through [OTP](/glossary/otp/) supervision, handles schema evolution for node and edge types, and provides a Cypher query interface that intelligence analysts can use to express complex relationship traversals.
+As an embedded database, KuzuDB runs within the [BEAM](@/glossary/beam.md) process without requiring an external server. This eliminates network latency for graph queries and simplifies deployment. The adapter manages the database lifecycle through [OTP](@/glossary/otp.md) supervision, handles schema evolution for node and edge types, and provides a Cypher query interface that intelligence analysts can use to express complex relationship traversals.
 
-Graph storage is the natural complement to the platform's relational ([PostgreSQL](/apps/prismatic-storage-ecto/)) and search ([Meilisearch](/apps/prismatic-storage-meilisearch/)) layers. While PostgreSQL stores entity attributes and Meilisearch indexes text, KuzuDB captures the relationships between entities -- corporate ownership hierarchies, network infrastructure dependencies, communication patterns, and social connections.
+Graph storage is the natural complement to the platform's relational ([PostgreSQL](@/apps/prismatic-storage-ecto.md)) and search ([Meilisearch](@/apps/prismatic-storage-meilisearch.md)) layers. While PostgreSQL stores entity attributes and Meilisearch indexes text, KuzuDB captures the relationships between entities -- corporate ownership hierarchies, network infrastructure dependencies, communication patterns, and social connections.
 
 ## Architecture
 
@@ -53,11 +53,11 @@ Node      Edge
 Tables    Tables
 ```
 
-The Graph Manager [GenServer](/glossary/genserver/) owns the KuzuDB database connection and coordinates write operations. The Query Engine translates both structured API calls and raw Cypher queries into KuzuDB operations. The Schema Manager handles node and edge type definitions, property schemas, and index creation for frequently queried attributes.
+The Graph Manager [GenServer](@/glossary/genserver.md) owns the KuzuDB database connection and coordinates write operations. The Query Engine translates both structured API calls and raw Cypher queries into KuzuDB operations. The Schema Manager handles node and edge type definitions, property schemas, and index creation for frequently queried attributes.
 
 ## Adapter Pattern and PrismaticStorageCore.Behaviour
 
-The KuzuDB adapter implements the [Prismatic Storage Core](/apps/prismatic-storage-core/) contract with a trait set tailored for graph operations: Storable, Identifiable, Queryable, GraphTraversable, Batchable, and Streamable. The inclusion of the GraphTraversable trait distinguishes this adapter from all others in the platform and provides the foundation for relationship-centric intelligence analysis.
+The KuzuDB adapter implements the [Prismatic Storage Core](@/apps/prismatic-storage-core.md) contract with a trait set tailored for graph operations: Storable, Identifiable, Queryable, GraphTraversable, Batchable, and Streamable. The inclusion of the GraphTraversable trait distinguishes this adapter from all others in the platform and provides the foundation for relationship-centric intelligence analysis.
 
 The Storable trait implementation handles the unique challenge of mapping flat Elixir maps to KuzuDB's property graph model. Entity maps are stored as node properties, with the entity type determining the node label. The `to_storage/1` callback extracts the entity's type, key, and properties, mapping them to KuzuDB's node creation syntax. The `from_storage/2` callback reconstructs Elixir maps from KuzuDB query results, handling the translation between KuzuDB's type system (which includes graph-specific types like `NODE` and `REL`) and standard Elixir terms.
 
@@ -86,8 +86,8 @@ Contract testing through `PrismaticStorageCore.ContractTest` verifies standard C
 - Community detection for identifying entity clusters
 
 ### Integration
-- Automatic graph population from [OSINT data](/apps/prismatic-osint-core/) through adapter hooks
-- [Entity resolution](/glossary/entity-resolution/) with graph merge for deduplicating nodes from multiple sources
+- Automatic graph population from [OSINT data](@/apps/prismatic-osint-core.md) through adapter hooks
+- [Entity resolution](@/glossary/entity-resolution.md) with graph merge for deduplicating nodes from multiple sources
 - Temporal graph versioning for tracking relationship changes over time
 - Export to visualization tools (GraphML, DOT, JSON) for analyst consumption
 
@@ -166,7 +166,7 @@ mix test apps/prismatic_storage_kuzudb/test --cover
 
 ## Integration Points
 
-The graph store receives entity relationships from multiple platform sources. [Prismatic Tracking](/apps/prismatic-tracking/) feeds infrastructure topology changes as graph mutations. [Social media intelligence](/apps/prismatic-osint-social-media/) contributes social connection edges between person entities. [Prismatic Modalities](/apps/prismatic-modalities/) cross-modal entity resolution creates edges linking entities discovered across different intelligence modalities. The [Prismatic HAWKEYE](/apps/prismatic-hawkeye/) visitor intelligence system queries graph paths to assess whether visitor IP addresses are associated with known threat infrastructure.
+The graph store receives entity relationships from multiple platform sources. [Prismatic Tracking](@/apps/prismatic-tracking.md) feeds infrastructure topology changes as graph mutations. [Social media intelligence](@/apps/prismatic-osint-social-media.md) contributes social connection edges between person entities. [Prismatic Modalities](@/apps/prismatic-modalities.md) cross-modal entity resolution creates edges linking entities discovered across different intelligence modalities. The [Prismatic HAWKEYE](@/apps/prismatic-hawkeye.md) visitor intelligence system queries graph paths to assess whether visitor IP addresses are associated with known threat infrastructure.
 
 ## NABLA Compliance
 
@@ -184,22 +184,22 @@ Graph operations maintain full epistemic provenance through edge properties that
 
 ## Related Components
 
-- [Prismatic Storage Core](/apps/prismatic-storage-core/) -- Adapter protocol definition
-- [Prismatic Storage Ecto](/apps/prismatic-storage-ecto/) -- Relational entity attribute storage
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Intelligence source feeding graph population
-- [Prismatic Telemetry](/apps/prismatic-telemetry/) -- Graph query performance [metrics](/glossary/metrics/)
+- [Prismatic Storage Core](@/apps/prismatic-storage-core.md) -- Adapter protocol definition
+- [Prismatic Storage Ecto](@/apps/prismatic-storage-ecto.md) -- Relational entity attribute storage
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Intelligence source feeding graph population
+- [Prismatic Telemetry](@/apps/prismatic-telemetry.md) -- Graph query performance [metrics](@/glossary/metrics.md)
 
 ## Related Agents
 
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Ensures KuzuDB adapter conforms to the PrismaticStorageCore protocol contract
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews graph schema design and query optimization strategies
-- [Consolidation Architect](/agents/consolidation-architect/) -- Entity deduplication and graph merge operations for data consistency
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Ensures KuzuDB adapter conforms to the PrismaticStorageCore protocol contract
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews graph schema design and query optimization strategies
+- [Consolidation Architect](@/agents/consolidation-architect.md) -- Entity deduplication and graph merge operations for data consistency
 
 ## Related Capabilities
 
-- [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) -- Graph storage spans corporate, network, and social relationship domains
-- [Quality Gates](/capabilities/quality-gates/) -- Contract tests verify graph adapter protocol compliance and query correctness
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Graph traversal enables cross-domain entity relationship discovery
+- [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) -- Graph storage spans corporate, network, and social relationship domains
+- [Quality Gates](@/capabilities/quality-gates.md) -- Contract tests verify graph adapter protocol compliance and query correctness
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Graph traversal enables cross-domain entity relationship discovery
 
 ---
 
@@ -208,4 +208,4 @@ Graph operations maintain full epistemic provenance through edge properties that
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

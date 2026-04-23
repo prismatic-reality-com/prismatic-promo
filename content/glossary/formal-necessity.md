@@ -321,25 +321,25 @@ The Prismatic Platform's 530+ agent ecosystem requires formal guarantees about a
 
 Formal necessity is deeply connected to several other concepts in the Prismatic Platform ecosystem:
 
-- [Formal Proof](/glossary/formal-proof/) provides the mechanism for establishing formal necessity through rigorous mathematical derivation
-- [Formal Verification](/glossary/formal-verification/) is the broader discipline that encompasses formal necessity checking as one of its techniques
-- [Modal Logic](/glossary/modal-logic/) provides the theoretical foundation for reasoning about necessity and possibility
-- [Trinity Gate](/glossary/trinity-gate/) is the three-layer verification framework where formal necessity serves as the third and final gate
-- [Structural Consistency](/glossary/structural-consistency/) is the first Trinity Gate pillar, verifying graph-theoretic properties
-- [Logical Consistency](/glossary/logical-consistency/) is the second Trinity Gate pillar, verifying rule-based reasoning
-- [Lean4](/glossary/lean4/) is the theorem prover used for constructing formal necessity proofs
-- [Theorem Proving](/glossary/theorem-proving/) covers the algorithms and techniques used to establish formal proofs
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) provides the philosophical framework for reasoning about knowledge and belief
-- [Nabla Infinity](/glossary/nabla-infinity/) is the epistemic framework that mandates formal necessity for critical decisions
-- [Property-Based Testing](/glossary/property-based-testing/) offers a complementary approach to verifying universal properties through randomized exploration
+- [Formal Proof](@/glossary/formal-proof.md) provides the mechanism for establishing formal necessity through rigorous mathematical derivation
+- [Formal Verification](@/glossary/formal-verification.md) is the broader discipline that encompasses formal necessity checking as one of its techniques
+- [Modal Logic](@/glossary/modal-logic.md) provides the theoretical foundation for reasoning about necessity and possibility
+- [Trinity Gate](@/glossary/trinity-gate.md) is the three-layer verification framework where formal necessity serves as the third and final gate
+- [Structural Consistency](@/glossary/structural-consistency.md) is the first Trinity Gate pillar, verifying graph-theoretic properties
+- [Logical Consistency](@/glossary/logical-consistency.md) is the second Trinity Gate pillar, verifying rule-based reasoning
+- [Lean4](@/glossary/lean4.md) is the theorem prover used for constructing formal necessity proofs
+- [Theorem Proving](@/glossary/theorem-proving.md) covers the algorithms and techniques used to establish formal proofs
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) provides the philosophical framework for reasoning about knowledge and belief
+- [Nabla Infinity](@/glossary/nabla-infinity.md) is the epistemic framework that mandates formal necessity for critical decisions
+- [Property-Based Testing](@/glossary/property-based-testing.md) offers a complementary approach to verifying universal properties through randomized exploration
 
 ## See Also
 
-- [Trinity Gate documentation](/glossary/trinity-gate/) for the complete three-pillar verification framework
-- [NABLA Axioms](/glossary/nabla-axioms/) for the seven non-negotiable epistemic axioms that formal necessity supports
-- [Confidence Threshold](/glossary/confidence-threshold/) for the threshold system that determines when formal necessity verification is required
-- [Quality Gates](/glossary/quality-gates/) for the integration of formal necessity into the platform's quality assurance pipeline
-- [Contradiction Preservation](/glossary/contradiction-preservation/) for how the platform handles propositions that are contingent rather than necessary
+- [Trinity Gate documentation](@/glossary/trinity-gate.md) for the complete three-pillar verification framework
+- [NABLA Axioms](@/glossary/nabla-axioms.md) for the seven non-negotiable epistemic axioms that formal necessity supports
+- [Confidence Threshold](@/glossary/confidence-threshold.md) for the threshold system that determines when formal necessity verification is required
+- [Quality Gates](@/glossary/quality-gates.md) for the integration of formal necessity into the platform's quality assurance pipeline
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) for how the platform handles propositions that are contingent rather than necessary
 
 ---
 

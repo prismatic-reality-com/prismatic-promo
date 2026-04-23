@@ -24,9 +24,9 @@ image_alt = "/ma-status - Prismatic Platform"
 
 ## Overview
 
-**/ma-status** is a production command in the **M&A Operations** category of the Prismatic Platform that provides detailed pipeline status reporting, individual deal progress tracking, and operational health monitoring for the M&A operations suite. While [/ma-dashboard](/commands/ma-dashboard/) provides a visual, real-time interface optimized for interactive monitoring, the `/ma-status` command delivers structured, programmatic status output optimized for automation, scripting, and rapid command-line access.
+**/ma-status** is a production command in the **M&A Operations** category of the Prismatic Platform that provides detailed pipeline status reporting, individual deal progress tracking, and operational health monitoring for the M&A operations suite. While [/ma-dashboard](@/commands/ma-dashboard.md) provides a visual, real-time interface optimized for interactive monitoring, the `/ma-status` command delivers structured, programmatic status output optimized for automation, scripting, and rapid command-line access.
 
-This command operates under the **L2+** authority level and is executed by the `ma-status-tracker` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level provides broad read access to pipeline status while protecting sensitive deal details that require higher clearance.
+This command operates under the **L2+** authority level and is executed by the `ma-status-tracker` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level provides broad read access to pipeline status while protecting sensitive deal details that require higher clearance.
 
 The status tracker maintains a comprehensive view of every deal's position within its lifecycle, the progress of each analytical domain, the completeness of intelligence collection, the compliance posture against enforcement rules, and the overall health of the M&A pipeline. This information is derived from the deal registry, analysis engine, intelligence collection system, and enforcement monitor, aggregated into a unified status model that can be queried at multiple levels of detail.
 
@@ -168,15 +168,15 @@ The status tracking system aggregates state from multiple M&A subsystems and pre
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `ma-status-tracker` | State aggregation and query processing |
-| [/ma-create](/commands/ma-create/) | Deal source | New deals tracked from creation |
-| [/ma-analyze](/commands/ma-analyze/) | Analysis progress | Domain progress from analysis engine |
-| [/ma-dashboard](/commands/ma-dashboard/) | Visual complement | Status data feeds dashboard display |
-| [/ma-enforce](/commands/ma-enforce/) | Compliance status | Enforcement status included in deal view |
-| [/ma-report](/commands/ma-report/) | Report triggers | Status changes can trigger reports |
-| [/investigate](/commands/investigate/) | Intel status | Intelligence collection tracking |
-| [Quality Gates](/glossary/quality-gates/) | Quality status | Gate pass/fail status per deal |
-| [Telemetry](/glossary/telemetry/) | Activity data | Event history for deals |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `ma-status-tracker` | State aggregation and query processing |
+| [/ma-create](@/commands/ma-create.md) | Deal source | New deals tracked from creation |
+| [/ma-analyze](@/commands/ma-analyze.md) | Analysis progress | Domain progress from analysis engine |
+| [/ma-dashboard](@/commands/ma-dashboard.md) | Visual complement | Status data feeds dashboard display |
+| [/ma-enforce](@/commands/ma-enforce.md) | Compliance status | Enforcement status included in deal view |
+| [/ma-report](@/commands/ma-report.md) | Report triggers | Status changes can trigger reports |
+| [/investigate](@/commands/investigate.md) | Intel status | Intelligence collection tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality status | Gate pass/fail status per deal |
+| [Telemetry](@/glossary/telemetry.md) | Activity data | Event history for deals |
 
 ## Best Practices
 
@@ -266,20 +266,20 @@ done
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Status queries return complete, accurate data or explicitly report which data sources are unavailable. No silent data gaps are permitted.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. All status metrics are derived from verified data sources. Historical status is based on recorded state transitions, not reconstructions.
 
 ## Related Commands
 
-- [/ma-create](/commands/ma-create/) - Create new M&A deal with target profiling and initial assessment
-- [/ma-analyze](/commands/ma-analyze/) - Comprehensive M&A analysis including financial, legal and operational review
-- [/ma-report](/commands/ma-report/) - Generate detailed M&A analysis report with visualizations
-- [/ma-dashboard](/commands/ma-dashboard/) - M&A deal pipeline dashboard with real-time status tracking
-- [/ma-enforce](/commands/ma-enforce/) - M&A enforcement actions for deal compliance and deadline tracking
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
+- [/ma-create](@/commands/ma-create.md) - Create new M&A deal with target profiling and initial assessment
+- [/ma-analyze](@/commands/ma-analyze.md) - Comprehensive M&A analysis including financial, legal and operational review
+- [/ma-report](@/commands/ma-report.md) - Generate detailed M&A analysis report with visualizations
+- [/ma-dashboard](@/commands/ma-dashboard.md) - M&A deal pipeline dashboard with real-time status tracking
+- [/ma-enforce](@/commands/ma-enforce.md) - M&A enforcement actions for deal compliance and deadline tracking
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
 
 ---
 
@@ -288,4 +288,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

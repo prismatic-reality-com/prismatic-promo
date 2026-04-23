@@ -21,11 +21,11 @@ image_alt = "Prismatic IR PVM Web - Prismatic Platform"
 
 ## Overview
 
-Prismatic IR [PVM](/glossary/pvm/) Web provides the [LiveView](/glossary/liveview/) interface for the Investigation and Risk Process Virtual Machine, delivering interactive dashboards for case management, evidence review, and risk assessment visualization. Built with [Phoenix LiveView](/glossary/phoenix-liveview/) for real-time server-rendered updates, it enables investigators to manage complex due diligence cases, review multi-source evidence chains, and track risk assessment workflows without page reloads or client-side rendering frameworks.
+Prismatic IR [PVM](@/glossary/pvm.md) Web provides the [LiveView](@/glossary/liveview.md) interface for the Investigation and Risk Process Virtual Machine, delivering interactive dashboards for case management, evidence review, and risk assessment visualization. Built with [Phoenix LiveView](@/glossary/phoenix-liveview.md) for real-time server-rendered updates, it enables investigators to manage complex due diligence cases, review multi-source evidence chains, and track risk assessment workflows without page reloads or client-side rendering frameworks.
 
-The application serves as the presentation layer for the [Prismatic IR PVM](/apps/prismatic-ir-pvm/) core engine. While the core engine orchestrates investigation workflows, executes risk scoring models, and manages case state machines, the web layer renders those states into actionable visual interfaces. Every case transition, evidence attachment, and risk score update propagates in real time through [PubSub](/glossary/pubsub/) broadcasts over [WebSocket](/glossary/websocket/) connections, ensuring all connected investigators see synchronized case state without manual refreshing.
+The application serves as the presentation layer for the [Prismatic IR PVM](@/apps/prismatic-ir-pvm.md) core engine. While the core engine orchestrates investigation workflows, executes risk scoring models, and manages case state machines, the web layer renders those states into actionable visual interfaces. Every case transition, evidence attachment, and risk score update propagates in real time through [PubSub](@/glossary/pubsub.md) broadcasts over [WebSocket](@/glossary/websocket.md) connections, ensuring all connected investigators see synchronized case state without manual refreshing.
 
-The dashboard integrates with the platform's [RBAC](/glossary/rbac/) authorization system to enforce role-based access to investigation data. Analyst, reviewer, and manager roles see different dashboard views with appropriate data scope restrictions, ensuring that sensitive investigation materials are only visible to authorized personnel. All user interactions generate [audit trail](/glossary/audit-trail/) entries for regulatory compliance with [GDPR](/glossary/gdpr/) and internal governance requirements.
+The dashboard integrates with the platform's [RBAC](@/glossary/rbac.md) authorization system to enforce role-based access to investigation data. Analyst, reviewer, and manager roles see different dashboard views with appropriate data scope restrictions, ensuring that sensitive investigation materials are only visible to authorized personnel. All user interactions generate [audit trail](@/glossary/audit-trail.md) entries for regulatory compliance with [GDPR](@/glossary/gdpr.md) and internal governance requirements.
 
 ## Architecture
 
@@ -42,7 +42,7 @@ Prismatic Auth --[RBAC]--> Role-Based View Filtering
 Prismatic Web --[Components]--> Shared Layout + Navigation
 ```
 
-All view logic follows [pure function](/glossary/pure-function/) principles, computing display state from case data without side effects. User interactions dispatch events through LiveView handles, which delegate to the core engine's [GenServer](/glossary/genserver/) API for state transitions under [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/) management.
+All view logic follows [pure function](@/glossary/pure-function.md) principles, computing display state from case data without side effects. User interactions dispatch events through LiveView handles, which delegate to the core engine's [GenServer](@/glossary/genserver.md) API for state transitions under [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md) management.
 
 ## Key Modules
 
@@ -67,10 +67,10 @@ All view logic follows [pure function](/glossary/pure-function/) principles, com
 
 ### Evidence Viewer
 
-The evidence viewer provides a rich interface for reviewing multi-format evidence items collected during investigations. Each evidence item displays its source, collection timestamp, [confidence scoring](/glossary/confidence-scoring/), and chain of custody information.
+The evidence viewer provides a rich interface for reviewing multi-format evidence items collected during investigations. Each evidence item displays its source, collection timestamp, [confidence scoring](@/glossary/confidence-scoring.md), and chain of custody information.
 
 - Rich evidence review interface with document preview, annotation capabilities, and evidence chain visualization
-- Multi-format support for documents, images, structured data, and [OSINT](/glossary/osint/) intelligence reports
+- Multi-format support for documents, images, structured data, and [OSINT](@/glossary/osint.md) intelligence reports
 - Evidence provenance tracking showing source, collection timestamp, and confidence scoring for each item
 - Side-by-side comparison mode for evaluating conflicting evidence from different sources
 
@@ -105,14 +105,14 @@ end
 
 ### Risk Visualization
 - Dynamic risk heat maps displaying assessment results across entity portfolios with drill-down capability
-- Trend charts correlating [risk score](/glossary/risk-score/) evolution with investigation events and evidence milestones
+- Trend charts correlating [risk score](@/glossary/risk-score.md) evolution with investigation events and evidence milestones
 - Comparative risk views enabling side-by-side entity assessment for related-party investigations
 - Risk distribution histograms showing portfolio-level risk concentration patterns
 
 ### Workflow Console
 - Visual workflow status tracking with state machine diagrams, milestone indicators, and SLA countdown displays
 - One-click workflow actions for common transitions (approve, escalate, request information, close)
-- Configurable notification preferences for workflow events with [telemetry](/glossary/telemetry/) integration
+- Configurable notification preferences for workflow events with [telemetry](@/glossary/telemetry.md) integration
 - Workflow history audit showing every state transition with actor, timestamp, and justification
 
 ### Case Timeline Component
@@ -218,11 +218,11 @@ Integration tests exercise the full pipeline from IR PVM engine events through P
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic IR PVM](/apps/prismatic-ir-pvm/) | Core investigation engine providing case data and workflows |
-| [Prismatic Web](/apps/prismatic-web/) | Shared LiveView components, layout templates, and navigation |
-| [Prismatic Auth](/apps/prismatic-auth/) | Authentication and RBAC for investigation view access |
-| [Prismatic DD](/apps/prismatic-dd/) | Due diligence case data feeding investigation workflows |
-| [Prismatic API](/apps/prismatic-api/) | [REST API](/glossary/rest-api/) gateway exposing investigation data programmatically |
+| [Prismatic IR PVM](@/apps/prismatic-ir-pvm.md) | Core investigation engine providing case data and workflows |
+| [Prismatic Web](@/apps/prismatic-web.md) | Shared LiveView components, layout templates, and navigation |
+| [Prismatic Auth](@/apps/prismatic-auth.md) | Authentication and RBAC for investigation view access |
+| [Prismatic DD](@/apps/prismatic-dd.md) | Due diligence case data feeding investigation workflows |
+| [Prismatic API](@/apps/prismatic-api.md) | [REST API](@/glossary/rest-api.md) gateway exposing investigation data programmatically |
 
 ## Performance
 
@@ -235,17 +235,17 @@ Integration tests exercise the full pipeline from IR PVM engine events through P
 | Workflow transition | < 100ms | Including audit trail logging |
 | Timeline render | < 80ms | Up to 200 events with SLA markers |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :ir_pvm_web, :page_load]`, `[:prismatic, :ir_pvm_web, :case_viewed]`, `[:prismatic, :ir_pvm_web, :workflow_action]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :ir_pvm_web, :page_load]`, `[:prismatic, :ir_pvm_web, :case_viewed]`, `[:prismatic, :ir_pvm_web, :workflow_action]`.
 
 ## Related Resources
 
-- [Prismatic Hawkeye Web](/apps/prismatic-hawkeye-web/) -- Visitor intelligence dashboard following similar LiveView patterns
-- [Prismatic Storage](/apps/prismatic-storage/) -- Persistence layer for case data and evidence
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures evidence chain integrity and provenance
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Validates LiveView component architecture
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Foundation for live case state streaming
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source evidence fusion displayed through the viewer
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Dashboard performance observability
+- [Prismatic Hawkeye Web](@/apps/prismatic-hawkeye-web.md) -- Visitor intelligence dashboard following similar LiveView patterns
+- [Prismatic Storage](@/apps/prismatic-storage.md) -- Persistence layer for case data and evidence
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures evidence chain integrity and provenance
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Validates LiveView component architecture
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Foundation for live case state streaming
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source evidence fusion displayed through the viewer
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Dashboard performance observability
 
 ---
 
@@ -254,4 +254,4 @@ Integration tests exercise the full pipeline from IR PVM engine events through P
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

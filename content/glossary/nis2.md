@@ -40,7 +40,7 @@ NIS2 applies to two categories of entities: **essential entities** (large organi
 
 The directive is significant because it shifts cybersecurity from a voluntary best practice to a mandatory regulatory requirement with teeth. Non-compliance can result in administrative fines of up to 10 million EUR or 2% of global annual turnover for essential entities, and up to 7 million EUR or 1.4% of turnover for important entities. Management bodies can be held personally liable for cybersecurity failures, creating individual accountability that goes beyond organizational penalties. This personal liability provision has fundamentally changed how C-level executives approach cybersecurity governance.
 
-Within the Prismatic Platform, NIS2 compliance assessment is a core feature of [Prismatic Perimeter](/glossary/prismatic-perimeter/), the External Attack Surface Management application that evaluates organizations against NIS2 requirements and incorporates compliance posture into [Security Ratings](/glossary/security-rating/). The platform performs automated, evidence-based assessment against NIS2 Article 21 risk management measures and Article 23 incident reporting readiness.
+Within the Prismatic Platform, NIS2 compliance assessment is a core feature of [Prismatic Perimeter](@/glossary/prismatic-perimeter.md), the External Attack Surface Management application that evaluates organizations against NIS2 requirements and incorporates compliance posture into [Security Ratings](@/glossary/security-rating.md). The platform performs automated, evidence-based assessment against NIS2 Article 21 risk management measures and Article 23 incident reporting readiness.
 
 ## Scope and Entity Classification
 
@@ -262,7 +262,7 @@ end
 
 ## Compliance Dashboard and Usage
 
-The compliance dashboard at `/perimeter/compliance` provides detailed NIS2 assessment alongside [ZKB](/glossary/zkb/) (Czech cybersecurity regulation). The dashboard displays per-article compliance scores, identified gaps with severity ratings, and actionable recommendations for remediation. NIS2 compliance factors directly influence the A-F security grade and 300-900 numeric [security rating](/glossary/security-rating/).
+The compliance dashboard at `/perimeter/compliance` provides detailed NIS2 assessment alongside [ZKB](@/glossary/zkb.md) (Czech cybersecurity regulation). The dashboard displays per-article compliance scores, identified gaps with severity ratings, and actionable recommendations for remediation. NIS2 compliance factors directly influence the A-F security grade and 300-900 numeric [security rating](@/glossary/security-rating.md).
 
 ```elixir
 # Assess a domain against NIS2 requirements
@@ -303,18 +303,18 @@ NIS2 requires transposition into national law by each EU member state, and membe
 | **France** | Transposition (pending) | ANSSI certification programs | ANSSI |
 | **Netherlands** | Wbni amendment | Dutch DPA coordination for cross-cutting incidents | NCSC-NL |
 
-The [ZKB](/glossary/zkb/) (Czech Cybersecurity Act, 264/2025 Sb.) adds specific requirements not present in the directive itself, including mandatory Czech-language security documentation, NUKIB-specific audit requirements, and alignment with Czech critical infrastructure designations. The Prismatic Platform's dual-framework assessment capability handles NIS2 and ZKB simultaneously, identifying where requirements overlap and where they diverge.
+The [ZKB](@/glossary/zkb.md) (Czech Cybersecurity Act, 264/2025 Sb.) adds specific requirements not present in the directive itself, including mandatory Czech-language security documentation, NUKIB-specific audit requirements, and alignment with Czech critical infrastructure designations. The Prismatic Platform's dual-framework assessment capability handles NIS2 and ZKB simultaneously, identifying where requirements overlap and where they diverge.
 
 ## Integration Points
 
 NIS2 assessment integrates with multiple platform components to provide comprehensive compliance visibility:
 
-- **Asset Discovery**: [EASM](/glossary/easm/) discovery pipeline feeds domain, IP, certificate, and cloud resource data into the compliance engine
+- **Asset Discovery**: [EASM](@/glossary/easm.md) discovery pipeline feeds domain, IP, certificate, and cloud resource data into the compliance engine
 - **Security Ratings**: NIS2 compliance score contributes to the overall A-F security rating and 300-900 numeric score
-- **OSINT Sources**: [OSINT](/glossary/osint/) data enriches compliance evidence through certificate transparency logs, DNS records, and exposed service detection
-- **Incident Detection**: [HAWKEYE](/glossary/hawkeye/) visitor intelligence supports NIS2 Article 23 incident detection readiness
-- **Quality Framework**: The platform's [Quality Floor Guardian](/glossary/quality-floor-guardian/) pattern is applied to compliance monitoring, triggering alerts when compliance posture drifts below acceptable thresholds
-- **[NABLA Infinity](/glossary/nabla-infinity/)**: Evidence plurality requirements ensure compliance scores are backed by multiple independent evidence sources
+- **OSINT Sources**: [OSINT](@/glossary/osint.md) data enriches compliance evidence through certificate transparency logs, DNS records, and exposed service detection
+- **Incident Detection**: [HAWKEYE](@/glossary/hawkeye.md) visitor intelligence supports NIS2 Article 23 incident detection readiness
+- **Quality Framework**: The platform's [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) pattern is applied to compliance monitoring, triggering alerts when compliance posture drifts below acceptable thresholds
+- **[NABLA Infinity](@/glossary/nabla-infinity.md)**: Evidence plurality requirements ensure compliance scores are backed by multiple independent evidence sources
 
 ## Compliance Report Generation
 
@@ -355,13 +355,13 @@ end
 
 ## Best Practices
 
-1. **Evidence-Based Scoring**: All compliance scores must be backed by observable technical evidence. Never assign compliance grades based on self-reported questionnaires alone. The [NABLA Infinity](/glossary/nabla-infinity/) framework's signal plurality axiom applies directly -- compliance scores require multiple independent evidence sources.
+1. **Evidence-Based Scoring**: All compliance scores must be backed by observable technical evidence. Never assign compliance grades based on self-reported questionnaires alone. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's signal plurality axiom applies directly -- compliance scores require multiple independent evidence sources.
 
-2. **Continuous Assessment**: NIS2 compliance is not a point-in-time audit. Implement continuous monitoring through the [Quality Floor Guardian](/glossary/quality-floor-guardian/) pattern to detect compliance drift as external attack surfaces change. New subdomains appear, certificates expire, and configurations drift daily.
+2. **Continuous Assessment**: NIS2 compliance is not a point-in-time audit. Implement continuous monitoring through the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) pattern to detect compliance drift as external attack surfaces change. New subdomains appear, certificates expire, and configurations drift daily.
 
-3. **Dual-Framework Assessment**: When operating in Czech jurisdiction, always assess NIS2 alongside [ZKB](/glossary/zkb/) (264/2025 Sb.) since requirements overlap but are not identical. The Prismatic Perimeter compliance module supports simultaneous dual-framework evaluation.
+3. **Dual-Framework Assessment**: When operating in Czech jurisdiction, always assess NIS2 alongside [ZKB](@/glossary/zkb.md) (264/2025 Sb.) since requirements overlap but are not identical. The Prismatic Perimeter compliance module supports simultaneous dual-framework evaluation.
 
-4. **Supply Chain Depth**: NIS2 Article 21.2(d) requires supply chain security assessment. Extend [EASM](/glossary/easm/) discovery beyond the primary domain to include third-party services, CDN providers, and cloud infrastructure dependencies.
+4. **Supply Chain Depth**: NIS2 Article 21.2(d) requires supply chain security assessment. Extend [EASM](@/glossary/easm.md) discovery beyond the primary domain to include third-party services, CDN providers, and cloud infrastructure dependencies.
 
 5. **Incident Reporting Readiness**: Ensure the platform can generate Article 23 compliant early warnings within 24 hours. Pre-build reporting templates and automate evidence collection for incident notifications.
 
@@ -383,23 +383,23 @@ end
 
 ## Related Concepts
 
-- [ZKB](/glossary/zkb/) - Czech cybersecurity regulation (264/2025 Sb.) complementing NIS2 at national level
-- [EASM](/glossary/easm/) - External Attack Surface Management system performing NIS2 compliance assessment
-- [Security Rating](/glossary/security-rating/) - A-F grade incorporating NIS2 compliance posture
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) - Application implementing NIS2 compliance assessment
-- [Compliance Framework](/glossary/compliance-framework/) - General framework category that NIS2 belongs to
-- [GDPR](/glossary/gdpr/) - EU data protection regulation with similar enforcement model
-- [Sanctions Screening](/glossary/sanctions-screening/) - Related regulatory compliance capability
-- [HAWKEYE](/glossary/hawkeye/) - Visitor intelligence supporting NIS2 incident detection
-- [OWASP](/glossary/owasp/) - Security standards referenced in NIS2 implementation guidance
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework ensuring evidence-based compliance scoring
+- [ZKB](@/glossary/zkb.md) - Czech cybersecurity regulation (264/2025 Sb.) complementing NIS2 at national level
+- [EASM](@/glossary/easm.md) - External Attack Surface Management system performing NIS2 compliance assessment
+- [Security Rating](@/glossary/security-rating.md) - A-F grade incorporating NIS2 compliance posture
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) - Application implementing NIS2 compliance assessment
+- [Compliance Framework](@/glossary/compliance-framework.md) - General framework category that NIS2 belongs to
+- [GDPR](@/glossary/gdpr.md) - EU data protection regulation with similar enforcement model
+- [Sanctions Screening](@/glossary/sanctions-screening.md) - Related regulatory compliance capability
+- [HAWKEYE](@/glossary/hawkeye.md) - Visitor intelligence supporting NIS2 incident detection
+- [OWASP](@/glossary/owasp.md) - Security standards referenced in NIS2 implementation guidance
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework ensuring evidence-based compliance scoring
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Prismatic Perimeter App](/apps/prismatic-perimeter/) - EASM application documentation
-- [OSINT Capabilities](/capabilities/) - Intelligence capabilities powering compliance evidence
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Prismatic Perimeter App](@/apps/prismatic-perimeter.md) - EASM application documentation
+- [OSINT Capabilities](@/capabilities/_index.md) - Intelligence capabilities powering compliance evidence
 
 ---
 
@@ -408,4 +408,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

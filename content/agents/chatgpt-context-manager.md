@@ -28,7 +28,7 @@ image_alt = "chatgpt-context-manager - Prismatic Platform"
 
 ## Executive Summary
 
-The ChatGPT Context Manager operates as an L3 [strategic command](/glossary/strategic-command/) agent within the LLM Operations domain of the Prismatic Platform. This agent manages conversation context across ChatGPT interactions, optimizing context window utilization, maintaining conversation continuity, and ensuring that relevant platform knowledge is included in every AI interaction without exceeding token budget constraints. In a platform where AI interactions span code analysis, architectural review, intelligence synthesis, and compliance assessment, the quality of context directly determines the quality of AI-generated outputs.
+The ChatGPT Context Manager operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the LLM Operations domain of the Prismatic Platform. This agent manages conversation context across ChatGPT interactions, optimizing context window utilization, maintaining conversation continuity, and ensuring that relevant platform knowledge is included in every AI interaction without exceeding token budget constraints. In a platform where AI interactions span code analysis, architectural review, intelligence synthesis, and compliance assessment, the quality of context directly determines the quality of AI-generated outputs.
 
 Effective AI interactions depend fundamentally on context quality. A code analysis query requires different context than a strategic planning consultation: the former needs relevant source files, type specifications, and test coverage data, while the latter needs milestone status, competitive intelligence, and architecture decision records. The ChatGPT Context Manager maintains a dynamic context model that selects the most relevant information for each interaction type, compresses it to fit within model token limits, and preserves essential conversation history across multi-turn sessions without context window overflow.
 
@@ -72,9 +72,9 @@ The Selection Layer classifies incoming interaction requests by domain and task 
 
 The LLM Operations domain manages all technical aspects of large language model integration within the Prismatic Platform. The Context Manager specifically handles the semantic layer between raw platform data and AI model input. This is a critical boundary: too little context produces generic or incorrect AI outputs, while too much context exceeds token limits and increases costs without proportional quality gains.
 
-The domain operates across multiple LLM providers. While the primary integration targets OpenAI's ChatGPT models, the Context Manager also optimizes context for local [Ollama](/glossary/ollama/) models (which have significantly smaller context windows) and OpenRouter endpoints. Each provider has different token limits, pricing structures, and context sensitivity characteristics that the Context Manager accounts for when preparing context payloads.
+The domain operates across multiple LLM providers. While the primary integration targets OpenAI's ChatGPT models, the Context Manager also optimizes context for local [Ollama](@/glossary/ollama.md) models (which have significantly smaller context windows) and OpenRouter endpoints. Each provider has different token limits, pricing structures, and context sensitivity characteristics that the Context Manager accounts for when preparing context payloads.
 
-Context management intersects with nearly every operational domain in the platform. Code quality agents need source code context, intelligence agents need [OSINT](/glossary/osint/) data context, compliance agents need regulatory framework context, and evolution agents need fitness metric context. The Context Manager maintains specialized context assembly strategies for each domain, drawn from a registry of context templates that map domain-task combinations to optimal context compositions.
+Context management intersects with nearly every operational domain in the platform. Code quality agents need source code context, intelligence agents need [OSINT](@/glossary/osint.md) data context, compliance agents need regulatory framework context, and evolution agents need fitness metric context. The Context Manager maintains specialized context assembly strategies for each domain, drawn from a registry of context templates that map domain-task combinations to optimal context compositions.
 
 ## Core Capabilities
 
@@ -144,11 +144,11 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [chatgpt-bridge-commander](/agents/chatgpt-bridge-commander/) | Transport Layer | Provides API-level information about token limits, model capabilities, and pricing |
-| [chatgpt-prompt-engineer](/agents/chatgpt-prompt-engineer/) | Prompt Integration | Coordinates context inclusion with prompt template requirements and token allocation |
-| [context-preservation-specialist-agent](/agents/context-preservation-specialist-agent/) | Platform Context | Provides broader platform context data for enriching ChatGPT interactions |
-| [chatgpt-consultation-coordinator](/agents/chatgpt-consultation-coordinator/) | Consultation Context | Supplies context management for multi-turn consultation sessions |
-| [context-compression-enforcer-agent](/agents/context-compression-enforcer-agent/) | Compression Policy | Enforces compression standards on context data stored and transmitted |
+| [chatgpt-bridge-commander](@/agents/chatgpt-bridge-commander.md) | Transport Layer | Provides API-level information about token limits, model capabilities, and pricing |
+| [chatgpt-prompt-engineer](@/agents/chatgpt-prompt-engineer.md) | Prompt Integration | Coordinates context inclusion with prompt template requirements and token allocation |
+| [context-preservation-specialist-agent](@/agents/context-preservation-specialist-agent.md) | Platform Context | Provides broader platform context data for enriching ChatGPT interactions |
+| [chatgpt-consultation-coordinator](@/agents/chatgpt-consultation-coordinator.md) | Consultation Context | Supplies context management for multi-turn consultation sessions |
+| [context-compression-enforcer-agent](@/agents/context-compression-enforcer-agent.md) | Compression Policy | Enforces compression standards on context data stored and transmitted |
 
 ## Operational Workflow
 
@@ -183,15 +183,15 @@ end
 
 ## Enforcement
 
-Context management operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No ChatGPT interaction proceeds without optimized context selection. Context that exceeds token budgets is compressed rather than truncated, ensuring no critical information is silently dropped. The NABLA [Signal Plurality](/glossary/signal-plurality/) axiom requires context to include information from multiple relevant sources, preventing context bias in AI interactions.
+Context management operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No ChatGPT interaction proceeds without optimized context selection. Context that exceeds token budgets is compressed rather than truncated, ensuring no critical information is silently dropped. The NABLA [Signal Plurality](@/glossary/signal-plurality.md) axiom requires context to include information from multiple relevant sources, preventing context bias in AI interactions.
 
 ## Related Resources
 
-- [chatgpt-prompt-engineer](/agents/chatgpt-prompt-engineer/) -- Prompt template optimization
-- [context-preservation-specialist-agent](/agents/context-preservation-specialist-agent/) -- Session context management
-- [context-compression-enforcer-agent](/agents/context-compression-enforcer-agent/) -- Compression policy enforcement
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Monitoring infrastructure
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [chatgpt-prompt-engineer](@/agents/chatgpt-prompt-engineer.md) -- Prompt template optimization
+- [context-preservation-specialist-agent](@/agents/context-preservation-specialist-agent.md) -- Session context management
+- [context-compression-enforcer-agent](@/agents/context-compression-enforcer-agent.md) -- Compression policy enforcement
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Monitoring infrastructure
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -200,4 +200,4 @@ Context management operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-do
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

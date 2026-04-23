@@ -434,11 +434,11 @@ The mutation score gate ensures that test quality is maintained at the level req
 
 ## Cross-References
 
-- [Mutation Testing](/glossary/mutation-testing/) - The methodology producing mutation scores
-- [Mutant](/glossary/mutant/) - Individual code change contributing to the score
-- [Killed/Survived](/glossary/killedsurvived/) - Binary outcomes that determine the score
-- [Test Coverage](/glossary/test-coverage/) - Complementary but weaker quality metric
-- [Quality DNA](/glossary/quality-dna/) - Cross-session quality tracking including mutation scores
+- [Mutation Testing](@/glossary/mutation-testing.md) - The methodology producing mutation scores
+- [Mutant](@/glossary/mutant.md) - Individual code change contributing to the score
+- [Killed/Survived](@/glossary/killedsurvived.md) - Binary outcomes that determine the score
+- [Test Coverage](@/glossary/test-coverage.md) - Complementary but weaker quality metric
+- [Quality DNA](@/glossary/quality-dna.md) - Cross-session quality tracking including mutation scores
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

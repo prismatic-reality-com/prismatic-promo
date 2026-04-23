@@ -181,10 +181,10 @@ This pattern, replicated across 127 OSINT tools, 4 DD sources, and 4 Academy top
 
 ## Cross-References
 
-- [Behaviour](/glossary/behaviour/) - Contract system for module interfaces
-- [GenServer](/glossary/genserver/) - Stateful module pattern using OTP
-- [Protocol](/glossary/protocol/) - Data-type polymorphism mechanism
-- [Macro](/glossary/macro/) - Compile-time code generation in modules
+- [Behaviour](@/glossary/behaviour.md) - Contract system for module interfaces
+- [GenServer](@/glossary/genserver.md) - Stateful module pattern using OTP
+- [Protocol](@/glossary/protocol.md) - Data-type polymorphism mechanism
+- [Macro](@/glossary/macro.md) - Compile-time code generation in modules
 - **OTP Release** - Deployment packaging of compiled modules
 
 ---

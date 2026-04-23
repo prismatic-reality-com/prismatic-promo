@@ -64,9 +64,9 @@ The agent provides six primary capabilities that collectively enable rigorous me
 
 ## Technical Implementation
 
-The Merge Request Specialist is implemented as a [GenServer](/glossary/genserver/)-based [OTP](/glossary/otp/) application that maintains state for all active merge requests. The process subscribes to GitLab webhook events for merge request creation, update, approval, and merge, processing these events through a staged pipeline.
+The Merge Request Specialist is implemented as a [GenServer](@/glossary/genserver.md)-based [OTP](@/glossary/otp.md) application that maintains state for all active merge requests. The process subscribes to GitLab webhook events for merge request creation, update, approval, and merge, processing these events through a staged pipeline.
 
-Merge request state is cached in [ETS](/glossary/ets/) tables for rapid access by platform agents that need current merge request information. The cache includes computed metrics such as review duration, discussion thread count, and quality gate status that are derived from raw GitLab data but optimized for platform query patterns.
+Merge request state is cached in [ETS](@/glossary/ets.md) tables for rapid access by platform agents that need current merge request information. The cache includes computed metrics such as review duration, discussion thread count, and quality gate status that are derived from raw GitLab data but optimized for platform query patterns.
 
 Code ownership mappings are maintained in a dedicated ETS table that supports efficient path-based lookups. The ownership model is synchronized from CODEOWNERS file definitions in the repository, with real-time updates when CODEOWNERS changes are merged.
 
@@ -74,7 +74,7 @@ The diff analysis engine parses GitLab's diff format and applies heuristic risk 
 
 ## Quality Gate Integration
 
-The Specialist integrates directly with the platform's [quality gate](/glossary/quality-gates/) infrastructure, monitoring gate status for every active merge request.
+The Specialist integrates directly with the platform's [quality gate](@/glossary/quality-gates.md) infrastructure, monitoring gate status for every active merge request.
 
 | Quality Gate | Enforcement | Merge Impact |
 |-------------|-------------|--------------|
@@ -91,11 +91,11 @@ Gate status is aggregated into a unified merge readiness indicator displayed in 
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [gitlab-api-specialist-agent](/agents/gitlab-api-specialist-agent/) | Provides API access for merge request operations | Integration |
-| [gitlab-cicd-specialist-agent](/agents/gitlab-cicd-specialist-agent/) | Coordinates CI/CD pipeline execution for merge request validation | DevOps |
-| [gitlab-full-circle-coordinator](/agents/gitlab-full-circle-coordinator/) | Reports merge request lifecycle status for end-to-end tracking | Lifecycle |
-| [hbfs-quality-evolution](/agents/hbfs-quality-evolution/) | Receives quality evolution signals that adjust gate thresholds | Quality |
-| [gitlab-security-specialist-agent](/agents/gitlab-security-specialist-agent/) | Coordinates security scanning results integration into merge request checks | Security |
+| [gitlab-api-specialist-agent](@/agents/gitlab-api-specialist-agent.md) | Provides API access for merge request operations | Integration |
+| [gitlab-cicd-specialist-agent](@/agents/gitlab-cicd-specialist-agent.md) | Coordinates CI/CD pipeline execution for merge request validation | DevOps |
+| [gitlab-full-circle-coordinator](@/agents/gitlab-full-circle-coordinator.md) | Reports merge request lifecycle status for end-to-end tracking | Lifecycle |
+| [hbfs-quality-evolution](@/agents/hbfs-quality-evolution.md) | Receives quality evolution signals that adjust gate thresholds | Quality |
+| [gitlab-security-specialist-agent](@/agents/gitlab-security-specialist-agent.md) | Coordinates security scanning results integration into merge request checks | Security |
 
 ## Review Metrics
 
@@ -105,7 +105,7 @@ Review turnaround time (time from reviewer assignment to first review comment), 
 
 ## Enforcement
 
-The GitLab Merge Request Specialist Agent operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No merge request bypasses quality gates. Approval requirements are enforced at the system level with no manual override capability. Self-approval is prohibited. Code changes pushed after approval invalidate existing approvals. Review SLAs are actively monitored and enforced through escalation. Every merge decision is recorded with full provenance including gate results, reviewer feedback, and approval chain for audit compliance.
+The GitLab Merge Request Specialist Agent operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No merge request bypasses quality gates. Approval requirements are enforced at the system level with no manual override capability. Self-approval is prohibited. Code changes pushed after approval invalidate existing approvals. Review SLAs are actively monitored and enforced through escalation. Every merge decision is recorded with full provenance including gate results, reviewer feedback, and approval chain for audit compliance.
 
 ---
 
@@ -114,4 +114,4 @@ The GitLab Merge Request Specialist Agent operates under the [NO MERCY, NO DOUBT
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

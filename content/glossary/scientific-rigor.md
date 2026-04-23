@@ -31,7 +31,7 @@ image_alt = "Scientific Rigor - Prismatic Platform"
 
 **Scientific rigor** in software engineering is the disciplined application of the scientific method to the design, implementation, testing, and operation of software systems. It demands that engineering decisions be grounded in evidence rather than opinion, that claims about system behavior be falsifiable and verifiable, that experiments be reproducible, and that conclusions acknowledge uncertainty and limitations. Scientific rigor rejects dogma, appeals to authority, and untested assumptions in favor of systematic observation, controlled experimentation, and transparent reasoning.
 
-In the Prismatic Platform, scientific rigor is not an aspirational guideline but an enforced requirement. The [NABLA Infinity](/glossary/nabla-infinity/) framework codifies seven non-negotiable axioms that operationalize scientific rigor: signal plurality, contradiction preservation, absence as information, time decay, unknown as valid, source independence, and provenance tracking. The [Trinity Gate](/glossary/trinity-gate/) requires that every significant claim pass structural, logical, and formal verification before being accepted. Together, these mechanisms ensure that the platform's 530+ agents, 115 applications, and 2.8 million lines of code evolve based on evidence, not folklore.
+In the Prismatic Platform, scientific rigor is not an aspirational guideline but an enforced requirement. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework codifies seven non-negotiable axioms that operationalize scientific rigor: signal plurality, contradiction preservation, absence as information, time decay, unknown as valid, source independence, and provenance tracking. The [Trinity Gate](@/glossary/trinity-gate.md) requires that every significant claim pass structural, logical, and formal verification before being accepted. Together, these mechanisms ensure that the platform's 530+ agents, 115 applications, and 2.8 million lines of code evolve based on evidence, not folklore.
 
 ## Historical Foundations
 
@@ -185,15 +185,15 @@ end
 
 Claims that cannot be proven wrong are not scientifically useful. In the platform context, this means that every assertion about system behavior must come with a way to disprove it. "This function is fast" is not falsifiable; "This function processes 10,000 requests per second on standard hardware" is falsifiable through benchmarking.
 
-Peer review in the platform context is automated through [Credo](/glossary/credo/) static analysis, [Dialyzer](/glossary/dialyzer/) type checking, property-based testing, and the multi-phase pre-commit validation pipeline. These tools serve as automated "reviewers" that catch classes of errors systematically rather than relying on human attention.
+Peer review in the platform context is automated through [Credo](@/glossary/credo.md) static analysis, [Dialyzer](@/glossary/dialyzer.md) type checking, property-based testing, and the multi-phase pre-commit validation pipeline. These tools serve as automated "reviewers" that catch classes of errors systematically rather than relying on human attention.
 
 ## NABLA Axioms as Scientific Principles
 
-The seven [NABLA axioms](/glossary/nabla-axioms/) directly encode scientific principles into the platform's operation:
+The seven [NABLA axioms](@/glossary/nabla-axioms.md) directly encode scientific principles into the platform's operation:
 
 **Signal Plurality** maps to the scientific requirement for multiple independent observations. A single measurement is an anecdote; multiple measurements form data. The platform requires minimum two independent signals before establishing any belief.
 
-**Contradiction Preservation** reflects the scientific obligation to acknowledge anomalous results rather than discarding them. When two measurements disagree, both are preserved as data requiring explanation. The [Addiction Preservation](/glossary/evidence/) doctrine ensures that inconvenient evidence is never suppressed.
+**Contradiction Preservation** reflects the scientific obligation to acknowledge anomalous results rather than discarding them. When two measurements disagree, both are preserved as data requiring explanation. The [Addiction Preservation](@/glossary/evidence.md) doctrine ensures that inconvenient evidence is never suppressed.
 
 **Absence as Information** corresponds to the scientific principle that negative results are results. The absence of expected behavior is itself evidence that informs analysis, not merely a gap in knowledge.
 
@@ -217,13 +217,13 @@ The platform recognizes a structured hierarchy of evidence quality, from anecdot
 | L4 | Replicated | "Three independent teams reproduced the 15% improvement" | 0.8 |
 | L5 | Formal | "Proven correct via Dialyzer types and property-based tests" | 1.0 |
 
-The [Trinity Gate](/glossary/trinity-gate/) requires that critical decisions be supported by evidence at L3 or higher. The [quality gates](/glossary/quality-gates/) system enforces this requirement automatically, blocking changes that rely solely on L1 or L2 evidence for critical paths.
+The [Trinity Gate](@/glossary/trinity-gate.md) requires that critical decisions be supported by evidence at L3 or higher. The [quality gates](@/glossary/quality-gates.md) system enforces this requirement automatically, blocking changes that rely solely on L1 or L2 evidence for critical paths.
 
 ## Measurement and Metrics
 
 Scientific rigor demands valid measurement instruments. The platform's measurement systems are designed with explicit attention to measurement validity -- ensuring that what is measured actually reflects what is intended to be measured. Lines of code do not measure productivity. Test count does not measure quality. Code coverage does not guarantee correctness. The platform's quality measurement system uses composite metrics that resist Goodhart's Law (when a measure becomes a target, it ceases to be a good measure).
 
-The Quality DNA system tracks 13 quality domains, each measured through multiple independent indicators. No single metric determines quality; instead, the composite score reflects genuine system health through domain-specific analysis including [Dialyzer](/glossary/dialyzer/) verification, [Credo](/glossary/credo/) compliance, compilation cleanliness, and [typespec](/glossary/typespec/) coverage.
+The Quality DNA system tracks 13 quality domains, each measured through multiple independent indicators. No single metric determines quality; instead, the composite score reflects genuine system health through domain-specific analysis including [Dialyzer](@/glossary/dialyzer.md) verification, [Credo](@/glossary/credo.md) compliance, compilation cleanliness, and [typespec](@/glossary/typespec.md) coverage.
 
 ## Anti-Patterns: Pseudo-Scientific Engineering
 
@@ -231,13 +231,13 @@ Scientific rigor also means recognizing and rejecting pseudo-scientific practice
 
 **Cargo Cult Metrics**: Collecting metrics without understanding what they measure or how to act on them. The platform avoids this by tying every metric to a specific decision or action threshold.
 
-**Confirmation Bias in Testing**: Writing tests that confirm expected behavior without testing for failure modes. The platform's adversarial testing approach, including [Red Team](/glossary/red-team/) simulations, explicitly seeks disconfirming evidence.
+**Confirmation Bias in Testing**: Writing tests that confirm expected behavior without testing for failure modes. The platform's adversarial testing approach, including [Red Team](@/glossary/red-team.md) simulations, explicitly seeks disconfirming evidence.
 
 **Appeal to Authority**: Accepting a technical approach because an industry leader uses it, without evaluating it against the platform's specific requirements. NABLA's source independence axiom guards against this.
 
 **Survivorship Bias**: Drawing conclusions from successful systems without examining failures. The platform's audit trail and post-mortem processes capture both successes and failures as evidence.
 
-**HiPPO Effect**: Highest Paid Person's Opinion overriding evidence. The NO MERCY doctrine's [evidence-over-opinion](/glossary/evidence-over-opinion/) principle explicitly prevents this by requiring evidence for all claims regardless of who makes them.
+**HiPPO Effect**: Highest Paid Person's Opinion overriding evidence. The NO MERCY doctrine's [evidence-over-opinion](@/glossary/evidence-over-opinion.md) principle explicitly prevents this by requiring evidence for all claims regardless of who makes them.
 
 ## Continuous Improvement Through Scientific Process
 
@@ -249,21 +249,21 @@ Each evolution cycle produces a structured report documenting the hypothesis, me
 
 Scientific rigor is the foundation upon which the platform's quality culture is built. The Quality Floor Guardian monitors quality metrics with statistical process control techniques borrowed from manufacturing science. Quality thresholds are set based on empirical analysis of what levels correlate with production reliability, not arbitrary round numbers. The 100/100 quality score represents genuine achievement across 13 independently measured domains, not a single inflated metric.
 
-The [Quality DNA](/glossary/quality-dna/) system preserves cross-session quality context, ensuring that quality improvements are cumulative and that regressions are detected through comparison with historical baselines. This longitudinal tracking enables the platform to identify quality trends and intervene before problems become critical.
+The [Quality DNA](@/glossary/quality-dna.md) system preserves cross-session quality context, ensuring that quality improvements are cumulative and that regressions are detected through comparison with historical baselines. This longitudinal tracking enables the platform to identify quality trends and intervene before problems become critical.
 
 ## Related Concepts
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework encoding scientific axioms
-- [NABLA Axioms](/glossary/nabla-axioms/) -- Seven non-negotiable principles for evidence handling
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation for claim verification
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- Cultural principle prioritizing data over authority
-- [Evidence](/glossary/evidence/) -- Evidence handling and provenance tracking
-- [Quality Gates](/glossary/quality-gates/) -- Automated quality enforcement checkpoints
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality continuity system
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis for type-level verification
-- [Credo](/glossary/credo/) -- Code quality and consistency analysis
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- Knowledge and belief management framework
-- [Adversarial Testing](/glossary/adversarial-testing/) -- Testing that seeks disconfirming evidence
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework encoding scientific axioms
+- [NABLA Axioms](@/glossary/nabla-axioms.md) -- Seven non-negotiable principles for evidence handling
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation for claim verification
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- Cultural principle prioritizing data over authority
+- [Evidence](@/glossary/evidence.md) -- Evidence handling and provenance tracking
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated quality enforcement checkpoints
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality continuity system
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis for type-level verification
+- [Credo](@/glossary/credo.md) -- Code quality and consistency analysis
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- Knowledge and belief management framework
+- [Adversarial Testing](@/glossary/adversarial-testing.md) -- Testing that seeks disconfirming evidence
 
 ---
 

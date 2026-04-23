@@ -38,9 +38,9 @@ image_alt = "PubSub - Prismatic Platform"
 
 ## Definition
 
-PubSub (Publish-Subscribe) is a messaging pattern in which publishers emit messages to named topics without knowledge of who will receive them, and subscribers register interest in specific topics without knowledge of who produces messages on those topics. This fundamental decoupling---publishers and subscribers interact only through the topic namespace, never directly---is one of the most powerful architectural patterns for building scalable, maintainable [distributed systems](/glossary/distributed-system/). Adding new consumers requires no changes to publishers, and adding new producers requires no changes to consumers, enabling independent evolution of system components.
+PubSub (Publish-Subscribe) is a messaging pattern in which publishers emit messages to named topics without knowledge of who will receive them, and subscribers register interest in specific topics without knowledge of who produces messages on those topics. This fundamental decoupling---publishers and subscribers interact only through the topic namespace, never directly---is one of the most powerful architectural patterns for building scalable, maintainable [distributed systems](@/glossary/distributed-system.md). Adding new consumers requires no changes to publishers, and adding new producers requires no changes to consumers, enabling independent evolution of system components.
 
-Phoenix.PubSub is the Elixir ecosystem's production implementation of this pattern, designed specifically for the [BEAM](/glossary/beam/) virtual machine's concurrent process model. It provides both local (single-node) and distributed (multi-node) message delivery through pluggable adapter backends. On a single node, messages are delivered through direct Erlang process messaging with sub-millisecond latency. Across a [cluster](/glossary/cluster/) of connected nodes, messages are automatically propagated to all subscribers on all nodes, with the distribution mechanism abstracted behind the adapter interface. The default `Phoenix.PubSub.PG2` adapter uses Erlang's built-in process groups for zero-dependency distributed messaging, while the `Phoenix.PubSub.Redis` adapter uses [Redis](/glossary/redis/) Pub/Sub for environments where Erlang node clustering is not feasible.
+Phoenix.PubSub is the Elixir ecosystem's production implementation of this pattern, designed specifically for the [BEAM](@/glossary/beam.md) virtual machine's concurrent process model. It provides both local (single-node) and distributed (multi-node) message delivery through pluggable adapter backends. On a single node, messages are delivered through direct Erlang process messaging with sub-millisecond latency. Across a [cluster](@/glossary/cluster.md) of connected nodes, messages are automatically propagated to all subscribers on all nodes, with the distribution mechanism abstracted behind the adapter interface. The default `Phoenix.PubSub.PG2` adapter uses Erlang's built-in process groups for zero-dependency distributed messaging, while the `Phoenix.PubSub.Redis` adapter uses [Redis](@/glossary/redis.md) Pub/Sub for environments where Erlang node clustering is not feasible.
 
 The PubSub pattern differs from point-to-point messaging (where a message goes to exactly one recipient) and from request-response (where a sender waits for a reply). PubSub delivers each message to every subscriber on the topic---this fan-out characteristic makes it ideal for event notification, state synchronization, and broadcasting scenarios where multiple independent consumers need to react to the same event.
 
@@ -645,7 +645,7 @@ Phoenix.PubSub.direct_broadcast(PrismaticWeb.PubSub, node(), "user:42:inbox", pa
 
 ## Distributed PubSub Across Nodes
 
-In a multi-node [cluster](/glossary/cluster/), Phoenix.PubSub automatically propagates messages to subscribers on all connected nodes. The distribution mechanism depends on the adapter:
+In a multi-node [cluster](@/glossary/cluster.md), Phoenix.PubSub automatically propagates messages to subscribers on all connected nodes. The distribution mechanism depends on the adapter:
 
 ```
 Node A                    Node B                    Node C
@@ -670,11 +670,11 @@ Node A                    Node B                    Node C
 | **Redis** | Redis Pub/Sub channels | No Erlang clustering needed | Redis dependency, higher latency |
 | **Custom** | Any implementation | Flexible (Kafka, NATS, etc.) | Development effort |
 
-The PG2 adapter is preferred when Erlang nodes can form a cluster (connected via EPMD), as it provides the lowest latency and requires no external dependencies. The [Redis](/glossary/redis/) adapter is used in environments where Erlang clustering is not feasible (e.g., container orchestration without node discovery).
+The PG2 adapter is preferred when Erlang nodes can form a cluster (connected via EPMD), as it provides the lowest latency and requires no external dependencies. The [Redis](@/glossary/redis.md) adapter is used in environments where Erlang clustering is not feasible (e.g., container orchestration without node discovery).
 
 ## Integration with Phoenix Channels
 
-[Phoenix Channels](/glossary/channel/) are built directly on top of Phoenix.PubSub. When a Channel broadcasts a message, it publishes to a PubSub topic. When a client subscribes to a Channel, the Channel process subscribes to the corresponding PubSub topic:
+[Phoenix Channels](@/glossary/channel.md) are built directly on top of Phoenix.PubSub. When a Channel broadcasts a message, it publishes to a PubSub topic. When a client subscribes to a Channel, the Channel process subscribes to the corresponding PubSub topic:
 
 ```elixir
 # Channel broadcast (internally uses PubSub)
@@ -696,7 +696,7 @@ def handle_info(%{event: "rating_updated"} = msg, socket) do
 end
 ```
 
-This integration means that [LiveView](/glossary/liveview/) processes, [Channel](/glossary/channel/) processes, GenServers, and any other Elixir process can all participate in the same PubSub topic space, enabling seamless communication between different types of server-side components.
+This integration means that [LiveView](@/glossary/liveview.md) processes, [Channel](@/glossary/channel.md) processes, GenServers, and any other Elixir process can all participate in the same PubSub topic space, enabling seamless communication between different types of server-side components.
 
 ## Event-Driven Architecture Patterns
 
@@ -736,7 +736,7 @@ end
 
 **State Synchronization**: Multiple components maintain consistent views of shared state through PubSub event propagation.
 
-**CQRS Integration**: Command handlers publish domain events through PubSub, and query-side projections subscribe to build read-optimized views. This aligns with the platform's [event sourcing](/glossary/event-sourcing/) patterns.
+**CQRS Integration**: Command handlers publish domain events through PubSub, and query-side projections subscribe to build read-optimized views. This aligns with the platform's [event sourcing](@/glossary/event-sourcing.md) patterns.
 
 ## Performance Characteristics
 
@@ -758,7 +758,7 @@ Phoenix.PubSub is the primary inter-component communication mechanism in the Pri
 
 **Agent Coordination**: The 434 AIAD agents use PubSub for broadcasting state changes, coordination signals, and health status updates across the platform. Agent lifecycle events (start, stop, error, recovery) are published to agent-specific topics.
 
-**Telemetry Event Distribution**: The platform's [observability](/glossary/observability/) system publishes telemetry events through PubSub, enabling monitoring components to subscribe to performance metrics, error rates, and health indicators without polling.
+**Telemetry Event Distribution**: The platform's [observability](@/glossary/observability.md) system publishes telemetry events through PubSub, enabling monitoring components to subscribe to performance metrics, error rates, and health indicators without polling.
 
 **Cross-Module Integration**: PubSub enables loose coupling between umbrella applications. The Perimeter module publishes asset discovery events, the Compliance module subscribes and triggers compliance assessments, and the Dashboard module subscribes and updates visualizations---none of these modules have direct dependencies on each other.
 
@@ -781,24 +781,24 @@ Agent System  --> PubSub("agents:lifecycle") --> Health Monitor
 
 ## Related Terms
 
-- [Phoenix](/glossary/phoenix/) - Framework providing the PubSub implementation
-- [Channel](/glossary/channel/) - Real-time communication layer built on top of PubSub
-- [LiveView](/glossary/liveview/) - Server-rendered UI that subscribes to PubSub for real-time updates
-- [Message Passing](/glossary/message-passing/) - Lower-level Erlang process communication that PubSub builds upon
-- [Redis](/glossary/redis/) - Alternative PubSub distribution backend for non-clustered deployments
-- [Cluster](/glossary/cluster/) - Multi-node deployment with automatic PubSub distribution
-- [Distributed System](/glossary/distributed-system/) - Architecture pattern requiring decoupled inter-node communication
-- [WebSocket](/glossary/websocket/) - Transport delivering PubSub messages to browser clients
-- [Event Sourcing](/glossary/event-sourcing/) - Pattern using PubSub for domain event propagation
-- [GraphQL](/glossary/graphql/) - API layer using PubSub for subscription delivery via Absinthe
-- [Observability](/glossary/observability/) - Monitoring system consuming PubSub telemetry events
-- [Stream Processing](/glossary/stream-processing/) - Data processing pipelines fed by PubSub events
+- [Phoenix](@/glossary/phoenix.md) - Framework providing the PubSub implementation
+- [Channel](@/glossary/channel.md) - Real-time communication layer built on top of PubSub
+- [LiveView](@/glossary/liveview.md) - Server-rendered UI that subscribes to PubSub for real-time updates
+- [Message Passing](@/glossary/message-passing.md) - Lower-level Erlang process communication that PubSub builds upon
+- [Redis](@/glossary/redis.md) - Alternative PubSub distribution backend for non-clustered deployments
+- [Cluster](@/glossary/cluster.md) - Multi-node deployment with automatic PubSub distribution
+- [Distributed System](@/glossary/distributed-system.md) - Architecture pattern requiring decoupled inter-node communication
+- [WebSocket](@/glossary/websocket.md) - Transport delivering PubSub messages to browser clients
+- [Event Sourcing](@/glossary/event-sourcing.md) - Pattern using PubSub for domain event propagation
+- [GraphQL](@/glossary/graphql.md) - API layer using PubSub for subscription delivery via Absinthe
+- [Observability](@/glossary/observability.md) - Monitoring system consuming PubSub telemetry events
+- [Stream Processing](@/glossary/stream-processing.md) - Data processing pipelines fed by PubSub events
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform event-driven architecture and messaging patterns
-- [Technologies](/technologies/) - Communication technology stack
-- [Apps](/apps/) - Applications using PubSub for inter-component communication
+- [Architecture](@/architecture/_index.md) - Platform event-driven architecture and messaging patterns
+- [Technologies](@/technologies/_index.md) - Communication technology stack
+- [Apps](@/apps/_index.md) - Applications using PubSub for inter-component communication
 
 ---
 
@@ -807,4 +807,4 @@ Agent System  --> PubSub("agents:lifecycle") --> Health Monitor
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

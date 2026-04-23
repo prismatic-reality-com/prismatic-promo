@@ -24,7 +24,7 @@ image_alt = "Security Operations - Prismatic Platform"
 
 ## Definition
 
-Security Operations (SecOps) is the organizational function and technical infrastructure responsible for the continuous protection of an enterprise's information assets through real-time monitoring, threat detection, incident response, and vulnerability management. A Security Operations Center (SOC) serves as the nerve center of this function, staffed by [security analysts](/glossary/security-analyst/) who monitor security telemetry, investigate alerts, respond to incidents, and proactively hunt for threats. SecOps represents the operational instantiation of an organization's security strategy -- the point where security policies, threat models, and compliance requirements translate into daily defensive actions.
+Security Operations (SecOps) is the organizational function and technical infrastructure responsible for the continuous protection of an enterprise's information assets through real-time monitoring, threat detection, incident response, and vulnerability management. A Security Operations Center (SOC) serves as the nerve center of this function, staffed by [security analysts](@/glossary/security-analyst.md) who monitor security telemetry, investigate alerts, respond to incidents, and proactively hunt for threats. SecOps represents the operational instantiation of an organization's security strategy -- the point where security policies, threat models, and compliance requirements translate into daily defensive actions.
 
 The scope of security operations extends far beyond traditional network monitoring. Modern SecOps encompasses endpoint detection and response (EDR), cloud security posture management (CSPM), identity threat detection and response (ITDR), application security monitoring, supply chain security, and data loss prevention. The unifying theme is continuous visibility: SecOps aims to ensure that no significant security event goes undetected, uninvestigated, or unresolved. This requires integrating telemetry from dozens of sources, correlating signals across domains, and maintaining the human expertise needed to distinguish genuine threats from operational noise.
 
@@ -43,7 +43,7 @@ The modern SecOps function is built on several pillars:
 | **Prevention** | Proactive measures to reduce attack surface | Vulnerability management, hardening, patching |
 | **Intelligence** | External context for understanding threats | Threat feeds, OSINT, dark web monitoring |
 
-Within the Prismatic Platform, security operations is implemented through the [Color Teams](/glossary/color-teams/) framework, the [Perimeter](/glossary/attack-surface/) EASM system, 120+ [OSINT](/glossary/osint/) tools, and the automated [monitoring](/glossary/monitoring/) infrastructure that provides continuous visibility across the platform.
+Within the Prismatic Platform, security operations is implemented through the [Color Teams](@/glossary/color-teams.md) framework, the [Perimeter](@/glossary/attack-surface.md) EASM system, 120+ [OSINT](@/glossary/osint.md) tools, and the automated [monitoring](@/glossary/monitoring.md) infrastructure that provides continuous visibility across the platform.
 
 ## Technical Deep Dive
 
@@ -484,7 +484,7 @@ The Prismatic Platform implements security operations across multiple layers:
 
 ### Integration with Observability
 
-Security operations and [observability](/glossary/observability/) share the same telemetry infrastructure but serve different purposes:
+Security operations and [observability](@/glossary/observability.md) share the same telemetry infrastructure but serve different purposes:
 
 | Aspect | Observability | Security Operations |
 |--------|--------------|-------------------|
@@ -494,7 +494,7 @@ Security operations and [observability](/glossary/observability/) share the same
 | **Response** | Auto-scaling, circuit breaking | Containment, incident response |
 | **Retention** | Days to weeks | Months to years (compliance) |
 
-The Prismatic Platform unifies these through a shared [Telemetry](/glossary/telemetry/) infrastructure where the same events feed both operational dashboards and security analytics.
+The Prismatic Platform unifies these through a shared [Telemetry](@/glossary/telemetry.md) infrastructure where the same events feed both operational dashboards and security analytics.
 
 ### SecOps Metrics Dashboard
 
@@ -572,20 +572,20 @@ Security operations is evolving rapidly:
 - **Autonomous response**: AI-driven containment actions for high-confidence threats, reducing MTTR to seconds for certain attack types
 - **Threat-informed defense**: Using frameworks like MITRE ATT&CK to systematically map detection coverage and prioritize detection engineering
 
-The Prismatic Platform's security operations architecture -- combining [Color Team](/glossary/color-teams/) adversarial-defensive synthesis, automated [OSINT](/glossary/osint/) enrichment, [SIEM](/glossary/siem/) integration, and playbook-driven response -- provides a foundation that scales from startup SOC to enterprise security operations.
+The Prismatic Platform's security operations architecture -- combining [Color Team](@/glossary/color-teams.md) adversarial-defensive synthesis, automated [OSINT](@/glossary/osint.md) enrichment, [SIEM](@/glossary/siem.md) integration, and playbook-driven response -- provides a foundation that scales from startup SOC to enterprise security operations.
 
 ## Related Concepts
 
 Security operations connects to numerous platform concepts:
 
-- [Security Analyst](/glossary/security-analyst/) -- The human operators who staff security operations
-- [Security Modeling](/glossary/security-modeling/) -- The formal framework that informs detection engineering
-- [SIEM](/glossary/siem/) -- The core technology platform for security event management
-- [Incident Response](/glossary/incident-response/) -- The structured process for handling confirmed security events
-- [Threat Intelligence](/glossary/threat-intelligence/) -- External context that enriches security operations
-- [Monitoring](/glossary/monitoring/) -- The underlying telemetry infrastructure that feeds SecOps
-- [Observability](/glossary/observability/) -- The complementary practice of system health monitoring
-- [Zero Trust](/glossary/zero-trust/) -- The architecture paradigm that reshapes SecOps boundaries
+- [Security Analyst](@/glossary/security-analyst.md) -- The human operators who staff security operations
+- [Security Modeling](@/glossary/security-modeling.md) -- The formal framework that informs detection engineering
+- [SIEM](@/glossary/siem.md) -- The core technology platform for security event management
+- [Incident Response](@/glossary/incident-response.md) -- The structured process for handling confirmed security events
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- External context that enriches security operations
+- [Monitoring](@/glossary/monitoring.md) -- The underlying telemetry infrastructure that feeds SecOps
+- [Observability](@/glossary/observability.md) -- The complementary practice of system health monitoring
+- [Zero Trust](@/glossary/zero-trust.md) -- The architecture paradigm that reshapes SecOps boundaries
 
 ## Summary
 

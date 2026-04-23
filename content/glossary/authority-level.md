@@ -36,9 +36,9 @@ image_alt = "Authority Level - Prismatic Platform"
 
 ## Definition
 
-An authority level is a hierarchical classification within the [AIAD](/glossary/aiad/) agent framework that precisely determines the scope of operations an agent can perform, the resources it can access, and the decisions it can make autonomously. The Prismatic Platform defines five authority levels (L1 through L5), each with progressively broader capabilities, stricter accountability requirements, and more rigorous qualification criteria. Authority levels implement the principle of least privilege at the agent architecture level: every agent operates at the minimum authority required for its designated function.
+An authority level is a hierarchical classification within the [AIAD](@/glossary/aiad.md) agent framework that precisely determines the scope of operations an agent can perform, the resources it can access, and the decisions it can make autonomously. The Prismatic Platform defines five authority levels (L1 through L5), each with progressively broader capabilities, stricter accountability requirements, and more rigorous qualification criteria. Authority levels implement the principle of least privilege at the agent architecture level: every agent operates at the minimum authority required for its designated function.
 
-Authority levels are distinct from [agent tiers](/glossary/agent-tier/), which classify agents by functional role (specialist, coordinator, commander). An agent's tier describes *what* it does; its authority level describes *what it is permitted to do*. A tactical specialist (tier) might operate at L2 authority (level), while a strategic commander (tier) operates at L3.
+Authority levels are distinct from [agent tiers](@/glossary/agent-tier.md), which classify agents by functional role (specialist, coordinator, commander). An agent's tier describes *what* it does; its authority level describes *what it is permitted to do*. A tactical specialist (tier) might operate at L2 authority (level), while a strategic commander (tier) operates at L3.
 
 ## Overview
 
@@ -60,11 +60,11 @@ This hierarchy ensures that routine operations (L1-L2) proceed without bottlenec
 
 | Level | Name | Agent Count | Scope | Override Authority | Example Agents |
 |-------|------|-------------|-------|-------------------|----------------|
-| **L1** | [Operational Units](/glossary/l1-operational-units/) | ~300 | Single task execution | None | File analyzers, code formatters, test runners |
-| **L2** | [Tactical Specialists](/glossary/l2-tactical-specialists/) | ~120 | Multi-task coordination | Can override L1 | Security scanners, quality assessors, deployment agents |
-| **L3** | [Strategic Commanders](/glossary/l3-strategic-commanders/) | ~80 | Domain-wide strategy | Can override L1-L2 | Architecture commanders, security commanders |
+| **L1** | [Operational Units](@/glossary/l1-operational-units.md) | ~300 | Single task execution | None | File analyzers, code formatters, test runners |
+| **L2** | [Tactical Specialists](@/glossary/l2-tactical-specialists.md) | ~120 | Multi-task coordination | Can override L1 | Security scanners, quality assessors, deployment agents |
+| **L3** | [Strategic Commanders](@/glossary/l3-strategic-commanders.md) | ~80 | Domain-wide strategy | Can override L1-L2 | Architecture commanders, security commanders |
 | **L4** | Safety-Critical | ~25 | Platform-wide policy | Can override L1-L3 | Quality guardians, escalation guards, abstraction enforcers |
-| **L5** | [Supreme Authority](/glossary/l5-supreme-authority/) | ~5 | Unrestricted | Can override all | Archer Supreme, Supreme Coordinator |
+| **L5** | [Supreme Authority](@/glossary/l5-supreme-authority.md) | ~5 | Unrestricted | Can override all | Archer Supreme, Supreme Coordinator |
 
 ### Capability Matrix
 
@@ -313,11 +313,11 @@ agent-spec:
 
 ### Runtime Enforcement
 
-Every agent operation passes through the `AuthorityGuard` module before execution. This is not optional -- the guard is integrated into the agent execution pipeline via [OTP](/glossary/otp/) middleware.
+Every agent operation passes through the `AuthorityGuard` module before execution. This is not optional -- the guard is integrated into the agent execution pipeline via [OTP](@/glossary/otp.md) middleware.
 
 ### Audit Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine mandates that every authority violation triggers an immediate investigation. Repeated violations result in agent quarantine (temporary authority downgrade to L0, which permits no operations).
+The [NO MERCY](@/glossary/no-mercy.md) doctrine mandates that every authority violation triggers an immediate investigation. Repeated violations result in agent quarantine (temporary authority downgrade to L0, which permits no operations).
 
 ## Comparison with Alternatives
 
@@ -344,7 +344,7 @@ The L1-L5 system was chosen because it balances simplicity (only five levels to 
 
 5. **Test authority boundaries**: Write explicit tests that verify agents cannot perform operations above their authority level. These are regression tests for the governance model.
 
-6. **Separate authority from identity**: An agent's identity (who it is) is separate from its authority (what it can do). The [authentication](/glossary/authentication/) system establishes identity; the authority level system determines capabilities.
+6. **Separate authority from identity**: An agent's identity (who it is) is separate from its authority (what it can do). The [authentication](@/glossary/authentication.md) system establishes identity; the authority level system determines capabilities.
 
 ## Common Pitfalls
 
@@ -370,7 +370,7 @@ Red Team agents operate at L2 (Tactical), coordinating L1 attack simulation spec
 
 ### Escalation for Cross-Domain Investigation
 
-When a Blue Team drift detector (L2) identifies a pattern that requires reading data from multiple domains, it escalates to L3 temporarily through the [chain of command](/glossary/chain-of-command/). The Blue Commander (L3) approves a 5-minute escalation window with read-only scope.
+When a Blue Team drift detector (L2) identifies a pattern that requires reading data from multiple domains, it escalates to L3 temporarily through the [chain of command](@/glossary/chain-of-command.md). The Blue Commander (L3) approves a 5-minute escalation window with read-only scope.
 
 ### Emergency Platform Halt
 
@@ -378,18 +378,18 @@ Only L4 and L5 agents can trigger a platform-wide emergency halt. This prevents 
 
 ## Related Concepts
 
-- [Agent Tier](/glossary/agent-tier/) -- functional classification (specialist, coordinator, commander)
-- [AIAD](/glossary/aiad/) -- the agent framework that defines authority levels
-- [Authority Structure](/glossary/authority-structure/) -- the organizational hierarchy governing authority
-- [RBAC](/glossary/rbac/) -- role-based access control for human users
-- [Chain of Command](/glossary/chain-of-command/) -- escalation and reporting paths
-- [Decision-Making Hierarchy](/glossary/decision-making-hierarchy/) -- how decisions flow through authority levels
-- [L1 Operational Units](/glossary/l1-operational-units/) -- the foundational agent level
-- [L2 Tactical Specialists](/glossary/l2-tactical-specialists/) -- mid-level coordination agents
-- [L3 Strategic Commanders](/glossary/l3-strategic-commanders/) -- domain-wide strategy agents
-- [L5 Supreme Authority](/glossary/l5-supreme-authority/) -- unrestricted platform authority
-- [Authentication](/glossary/authentication/) -- identity verification prerequisite to authority checks
-- [Authorization](/glossary/authorization/) -- permission decisions informed by authority levels
+- [Agent Tier](@/glossary/agent-tier.md) -- functional classification (specialist, coordinator, commander)
+- [AIAD](@/glossary/aiad.md) -- the agent framework that defines authority levels
+- [Authority Structure](@/glossary/authority-structure.md) -- the organizational hierarchy governing authority
+- [RBAC](@/glossary/rbac.md) -- role-based access control for human users
+- [Chain of Command](@/glossary/chain-of-command.md) -- escalation and reporting paths
+- [Decision-Making Hierarchy](@/glossary/decision-making-hierarchy.md) -- how decisions flow through authority levels
+- [L1 Operational Units](@/glossary/l1-operational-units.md) -- the foundational agent level
+- [L2 Tactical Specialists](@/glossary/l2-tactical-specialists.md) -- mid-level coordination agents
+- [L3 Strategic Commanders](@/glossary/l3-strategic-commanders.md) -- domain-wide strategy agents
+- [L5 Supreme Authority](@/glossary/l5-supreme-authority.md) -- unrestricted platform authority
+- [Authentication](@/glossary/authentication.md) -- identity verification prerequisite to authority checks
+- [Authorization](@/glossary/authorization.md) -- permission decisions informed by authority levels
 
 ## See Also
 
@@ -405,4 +405,4 @@ Only L4 and L5 agents can trigger a platform-wide emergency halt. This prevents 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

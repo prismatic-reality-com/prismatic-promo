@@ -28,9 +28,9 @@ image_alt = "presales-intelligence-commander - Prismatic Platform"
 
 ## Overview
 
-The presales-intelligence-commander operates as an L1 Supreme Authority within the Prismatic Platform's large-predator domain, serving as the [supreme commander](/glossary/supreme-commander/) for presales intelligence operations and opportunity management. This agent orchestrates the strategic layer of business development by directing intelligence collection on target markets, analyzing competitive landscapes, qualifying opportunities through data-driven frameworks, and optimizing the presales pipeline for maximum conversion. Unlike the tactical presales-coordinator that executes individual engagements, the commander operates at the strategic level -- deciding which opportunities to pursue, how to position the platform, and where to allocate presales resources.
+The presales-intelligence-commander operates as an L1 Supreme Authority within the Prismatic Platform's large-predator domain, serving as the [supreme commander](@/glossary/supreme-commander.md) for presales intelligence operations and opportunity management. This agent orchestrates the strategic layer of business development by directing intelligence collection on target markets, analyzing competitive landscapes, qualifying opportunities through data-driven frameworks, and optimizing the presales pipeline for maximum conversion. Unlike the tactical presales-coordinator that executes individual engagements, the commander operates at the strategic level -- deciding which opportunities to pursue, how to position the platform, and where to allocate presales resources.
 
-Built on the [AIAD](/glossary/aiad/) standard and leveraging the platform's full [OSINT](/glossary/osint/) intelligence infrastructure, the commander conducts systematic intelligence gathering on prospects, competitors, and market dynamics. Through the [mycelial network](/glossary/mycelial-network/), strategic intelligence insights propagate to all agents involved in business development, ensuring coordinated pursuit of qualified opportunities. The [NABLA Infinity](/glossary/nabla-infinity/) framework ensures that market assessments and competitive claims are evidence-backed with quantified confidence.
+Built on the [AIAD](@/glossary/aiad.md) standard and leveraging the platform's full [OSINT](@/glossary/osint.md) intelligence infrastructure, the commander conducts systematic intelligence gathering on prospects, competitors, and market dynamics. Through the [mycelial network](@/glossary/mycelial-network.md), strategic intelligence insights propagate to all agents involved in business development, ensuring coordinated pursuit of qualified opportunities. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework ensures that market assessments and competitive claims are evidence-backed with quantified confidence.
 
 ## Operational Domain
 
@@ -51,8 +51,8 @@ The presales intelligence domain spans strategic market analysis, opportunity qu
 - **Opportunity qualification framework** -- Applies structured qualification methodologies (BANT, MEDDIC, SCOTSMAN) to score and prioritize opportunities based on budget, authority, need, timeline, and competitive position
 - **Competitive landscape mapping** -- Monitors competitor activities, product launches, pricing changes, and customer testimonials to maintain an up-to-date competitive intelligence database
 - **Stakeholder intelligence** -- Profiles key decision-makers and influencers within target organizations using OSINT techniques, identifying their priorities, pain points, and decision-making patterns
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed market scanning and opportunity detection cycles
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing pipeline velocity, conversion rates, and market intelligence freshness metrics
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed market scanning and opportunity detection cycles
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing pipeline velocity, conversion rates, and market intelligence freshness metrics
 
 ## Strategic Intelligence Engine
 
@@ -153,14 +153,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [presales-coordinator](/agents/presales-coordinator/) | Receives strategic direction and executes individual presales engagements |
-| [linkedin-intelligence-specialist](/agents/linkedin-intelligence-specialist/) | Provides stakeholder intelligence for prospect profiling |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Supplies prospect and market risk assessments |
-| [regulatory-intelligence-commander](/agents/regulatory-intelligence-commander/) | Informs on regulatory compliance requirements affecting prospects |
+| [presales-coordinator](@/agents/presales-coordinator.md) | Receives strategic direction and executes individual presales engagements |
+| [linkedin-intelligence-specialist](@/agents/linkedin-intelligence-specialist.md) | Provides stakeholder intelligence for prospect profiling |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Supplies prospect and market risk assessments |
+| [regulatory-intelligence-commander](@/agents/regulatory-intelligence-commander.md) | Informs on regulatory compliance requirements affecting prospects |
 
 ## Win/Loss Intelligence
 
-The commander maintains a structured win/loss analysis database that captures the factors contributing to each opportunity outcome. Pattern analysis across historical outcomes reveals which qualification criteria are most predictive of success, which competitive scenarios favor the platform, and which prospect profiles represent the highest conversion probability. These insights feed back into the qualification framework through the [SEADF](/glossary/seadf/) evolutionary pipeline, continuously improving opportunity scoring accuracy.
+The commander maintains a structured win/loss analysis database that captures the factors contributing to each opportunity outcome. Pattern analysis across historical outcomes reveals which qualification criteria are most predictive of success, which competitive scenarios favor the platform, and which prospect profiles represent the highest conversion probability. These insights feed back into the qualification framework through the [SEADF](@/glossary/seadf.md) evolutionary pipeline, continuously improving opportunity scoring accuracy.
 
 ## Competitive Intelligence Framework
 
@@ -168,7 +168,7 @@ The presales-intelligence-commander maintains a structured competitive intellige
 
 ### Competitor Monitoring
 
-The commander monitors competitor activities through a combination of [OSINT](/glossary/osint/) techniques: public product announcements and release notes, conference presentations and technical blog posts, customer testimonials and case study publications, job postings (indicating technology direction and capability gaps), patent filings (revealing R&D priorities), and analyst reports (providing third-party assessments). Monitoring is continuous, with intelligence summaries produced weekly and detailed competitive assessments updated monthly.
+The commander monitors competitor activities through a combination of [OSINT](@/glossary/osint.md) techniques: public product announcements and release notes, conference presentations and technical blog posts, customer testimonials and case study publications, job postings (indicating technology direction and capability gaps), patent filings (revealing R&D priorities), and analyst reports (providing third-party assessments). Monitoring is continuous, with intelligence summaries produced weekly and detailed competitive assessments updated monthly.
 
 ### Feature Comparison Matrix
 
@@ -190,7 +190,7 @@ The commander synthesizes market intelligence from multiple public sources to ma
 
 ## Enforcement
 
-All presales intelligence complies with the [NO MERCY](/glossary/no-mercy/) doctrine: market claims are backed by verifiable data, competitive assessments are evidence-based rather than aspirational, and pipeline forecasts use probability-weighted values rather than optimistic projections. The [NO DOUBTS](/glossary/no-doubts/) principle requires that opportunity qualification scores are traceable to specific evidence, and that win probability estimates carry explicit confidence intervals. [NABLA Infinity](/glossary/nabla-infinity/) provenance chains link all intelligence products to their source data.
+All presales intelligence complies with the [NO MERCY](@/glossary/no-mercy.md) doctrine: market claims are backed by verifiable data, competitive assessments are evidence-based rather than aspirational, and pipeline forecasts use probability-weighted values rather than optimistic projections. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that opportunity qualification scores are traceable to specific evidence, and that win probability estimates carry explicit confidence intervals. [NABLA Infinity](@/glossary/nabla-infinity.md) provenance chains link all intelligence products to their source data.
 
 ---
 
@@ -199,4 +199,4 @@ All presales intelligence complies with the [NO MERCY](/glossary/no-mercy/) doct
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

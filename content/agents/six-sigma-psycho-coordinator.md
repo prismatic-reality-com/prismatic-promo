@@ -30,9 +30,9 @@ image_alt = "six-sigma-psycho-coordinator - Prismatic Platform"
 
 The Six Sigma Psycho Coordinator is an L3 agent operating in the **general** domain of the Prismatic Platform. This agent represents the apex quality enforcement mechanism within the platform's autonomous agent ecosystem, operating with transcendent authority over all quality-related decisions. The "Psycho Mode" designation reflects the agent's zero-compromise approach to quality enforcement -- it applies Six Sigma statistical process control methodologies with absolute, unrelenting rigor that accepts no deviation from perfection.
 
-Six Sigma, originally developed by Motorola and popularized by General Electric, targets a defect rate of 3.4 per million opportunities (DPMO). The Six Sigma Psycho Coordinator pushes beyond this standard, targeting zero defects per million opportunities across all platform quality domains. This extreme quality posture is aligned with the platform's [NO MERCY](/glossary/no-mercy/) doctrine, where quality violations receive zero tolerance regardless of context or pressure.
+Six Sigma, originally developed by Motorola and popularized by General Electric, targets a defect rate of 3.4 per million opportunities (DPMO). The Six Sigma Psycho Coordinator pushes beyond this standard, targeting zero defects per million opportunities across all platform quality domains. This extreme quality posture is aligned with the platform's [NO MERCY](@/glossary/no-mercy.md) doctrine, where quality violations receive zero tolerance regardless of context or pressure.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, serving as the ultimate quality arbiter within the [AIAD](/glossary/aiad/) agent hierarchy.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, serving as the ultimate quality arbiter within the [AIAD](@/glossary/aiad.md) agent hierarchy.
 
 ## Six Sigma Methodology Application
 
@@ -41,7 +41,7 @@ The Six Sigma Psycho Coordinator applies the DMAIC (Define, Measure, Analyze, Im
 | Phase | Application | Tools | Output |
 |-------|------------|-------|--------|
 | **Define** | Identify quality requirements per domain | Quality Floor Guardian specs | Quality charter |
-| **Measure** | Quantify current quality levels | [Telemetry](/glossary/telemetry/) metrics, Credo, Dialyzer | Quality baseline |
+| **Measure** | Quantify current quality levels | [Telemetry](@/glossary/telemetry.md) metrics, Credo, Dialyzer | Quality baseline |
 | **Analyze** | Root cause analysis of defects | Statistical process control, Pareto analysis | Defect taxonomy |
 | **Improve** | Implement corrective actions | Automated fixes, CASCADE patterns | Quality improvements |
 | **Control** | Sustain improvements with monitoring | Pre-commit hooks, quality gates | Control charts |
@@ -68,7 +68,7 @@ The Six Sigma Psycho Coordinator monitors and enforces quality across all 13 qua
 
 ## Technical Implementation
 
-The Six Sigma Psycho Coordinator operates as a [GenServer](/glossary/genserver/) process that continuously monitors quality metrics and triggers enforcement actions when deviations are detected.
+The Six Sigma Psycho Coordinator operates as a [GenServer](@/glossary/genserver.md) process that continuously monitors quality metrics and triggers enforcement actions when deviations are detected.
 
 ```elixir
 defmodule PrismaticAgents.SixSigmaPsychoCoordinator do
@@ -248,10 +248,10 @@ end
 
 ## Integration Points
 
-- [**Quality Gates**](/capabilities/quality-gates/) -- Primary enforcement mechanism for pre-commit and CI/CD quality checks
-- [**Autonomous Self-Healing**](/capabilities/autonomous-self-healing/) -- Auto-correction of quality deviations
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Continuous quality metric collection and reporting
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Primary enforcement mechanism for pre-commit and CI/CD quality checks
+- [**Autonomous Self-Healing**](@/capabilities/autonomous-self-healing.md) -- Auto-correction of quality deviations
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Continuous quality metric collection and reporting
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
 
 ## AIAD Specification Compliance
 
@@ -260,20 +260,20 @@ end
 | Agent specification file | Compliant |
 | Behavioral rules | 20 rules defined |
 | Telemetry integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | MAXIMUM |
-| [SEADF](/glossary/seadf/) integration | Registered |
-| [Property-based testing](/glossary/property-based-testing/) | 65 properties verified |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | MAXIMUM |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
+| [Property-based testing](@/glossary/property-based-testing.md) | 65 properties verified |
 
 ## Related Agents
 
-- [**Societies Quality Feedback Coordinator**](/agents/societies-quality-feedback-coordinator/) -- Cross-domain quality feedback aggregation
-- [**Route Testing Specialist**](/agents/routetestingspecialist/) -- Route-specific quality enforcement
-- [**Type Annotation Analyst**](/agents/type-annotation-analyst/) -- Type system quality enforcement
-- [**Type Inference Debugger**](/agents/type-inference-debugger/) -- Dialyzer integration for type safety
+- [**Societies Quality Feedback Coordinator**](@/agents/societies-quality-feedback-coordinator.md) -- Cross-domain quality feedback aggregation
+- [**Route Testing Specialist**](@/agents/routetestingspecialist.md) -- Route-specific quality enforcement
+- [**Type Annotation Analyst**](@/agents/type-annotation-analyst.md) -- Type system quality enforcement
+- [**Type Inference Debugger**](@/agents/type-inference-debugger.md) -- Dialyzer integration for type safety
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with supreme authority over all quality enforcement decisions.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with supreme authority over all quality enforcement decisions.
 
 ---
 
@@ -282,4 +282,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

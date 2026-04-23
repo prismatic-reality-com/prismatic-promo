@@ -267,7 +267,7 @@ In practice, SRP in Elixir often manifests as separating data transformation (pu
 
 ### Open-Closed Principle (OCP)
 
-The Open-Closed Principle states that software entities should be open for extension but closed for modification. In Elixir, this principle is realized through [behaviours](/glossary/behaviour/) and [protocols](/glossary/protocol/) rather than class inheritance. Behaviours define callback contracts that modules can implement without modifying the defining module. Protocols define polymorphic dispatch based on data types, allowing new types to participate in existing abstractions without changing the protocol definition.
+The Open-Closed Principle states that software entities should be open for extension but closed for modification. In Elixir, this principle is realized through [behaviours](@/glossary/behaviour.md) and [protocols](@/glossary/protocol.md) rather than class inheritance. Behaviours define callback contracts that modules can implement without modifying the defining module. Protocols define polymorphic dispatch based on data types, allowing new types to participate in existing abstractions without changing the protocol definition.
 
 ```elixir
 defprotocol PrismaticStorage.Queryable do
@@ -292,7 +292,7 @@ end
 
 ### Liskov Substitution Principle (LSP)
 
-In Elixir, LSP manifests as the requirement that behaviour implementations must satisfy the contracts defined by their behaviour callbacks. If a function expects a module implementing the `GenServer` behaviour, any conforming module should be substitutable without breaking the caller. The platform's [adapter pattern](/glossary/adapter-pattern/) relies heavily on this principle -- storage adapters (ETS, Ecto, Meilisearch, KuzuDB) must be interchangeable.
+In Elixir, LSP manifests as the requirement that behaviour implementations must satisfy the contracts defined by their behaviour callbacks. If a function expects a module implementing the `GenServer` behaviour, any conforming module should be substitutable without breaking the caller. The platform's [adapter pattern](@/glossary/adapter-pattern.md) relies heavily on this principle -- storage adapters (ETS, Ecto, Meilisearch, KuzuDB) must be interchangeable.
 
 ### Interface Segregation Principle (ISP)
 
@@ -308,7 +308,7 @@ The Dependency Inversion Principle states that high-level modules should not dep
 
 The "let it crash" principle is perhaps the most distinctive design principle in the OTP tradition. Rather than writing defensive code that attempts to handle every possible error within a single process, OTP systems are designed so that processes can crash and be restarted by their supervisors. This produces simpler, more reliable code because each process handles only the cases it understands, delegating unexpected situations to the supervision system.
 
-The Prismatic Platform applies this principle rigorously. Processes are designed with minimal state that can be reconstructed from durable storage after a restart. [Supervision trees](/glossary/supervision-tree/) are designed to contain failures within appropriate boundaries, preventing cascading crashes while ensuring rapid recovery.
+The Prismatic Platform applies this principle rigorously. Processes are designed with minimal state that can be reconstructed from durable storage after a restart. [Supervision trees](@/glossary/supervision-tree.md) are designed to contain failures within appropriate boundaries, preventing cascading crashes while ensuring rapid recovery.
 
 ```elixir
 defmodule PrismaticPerimeter.Scanner.Worker do
@@ -374,7 +374,7 @@ The platform follows the "functional core, imperative shell" pattern. Business l
 
 ### Evidence Over Opinion in Architecture
 
-[Architectural decisions](/glossary/architectural-decision/) must be supported by evidence, not authority. When choosing between approaches, the platform requires benchmarks, property tests, or formal analysis rather than appeals to industry trends or personal preference. The [evidence-over-opinion](/glossary/evidence/) principle from the NABLA framework applies to design decisions with the same rigor as operational decisions.
+[Architectural decisions](@/glossary/architectural-decision.md) must be supported by evidence, not authority. When choosing between approaches, the platform requires benchmarks, property tests, or formal analysis rather than appeals to industry trends or personal preference. The [evidence-over-opinion](@/glossary/evidence.md) principle from the NABLA framework applies to design decisions with the same rigor as operational decisions.
 
 ### NO MERCY in Implementation
 
@@ -392,11 +392,11 @@ Design principles sometimes conflict, and mature engineering requires understand
 
 **DIP vs. Simplicity**: Dependency Inversion can introduce indirection that complicates understanding. The platform applies DIP only where substitutability is actually needed (storage backends, external service adapters), not for internal modules with stable implementations.
 
-**Functional Purity vs. OTP Pragmatism**: [GenServer](/glossary/genserver/) is inherently stateful. The resolution is that GenServer state management is treated as a controlled side effect at the system boundary, while the callbacks delegate to pure functions for business logic.
+**Functional Purity vs. OTP Pragmatism**: [GenServer](@/glossary/genserver.md) is inherently stateful. The resolution is that GenServer state management is treated as a controlled side effect at the system boundary, while the callbacks delegate to pure functions for business logic.
 
 ## Principle Verification
 
-The platform's [quality gates](/glossary/quality-gates/) include automated principle verification. Static analysis checks for naming violations, excessive module size, missing supervision tree documentation, and other principle adherence indicators. The [Credo](/glossary/credo/) configuration includes custom checks for platform-specific principles, and [Dialyzer](/glossary/dialyzer/) verifies that type contracts (an expression of LSP) are satisfied.
+The platform's [quality gates](@/glossary/quality-gates.md) include automated principle verification. Static analysis checks for naming violations, excessive module size, missing supervision tree documentation, and other principle adherence indicators. The [Credo](@/glossary/credo.md) configuration includes custom checks for platform-specific principles, and [Dialyzer](@/glossary/dialyzer.md) verifies that type contracts (an expression of LSP) are satisfied.
 
 ## Anti-Patterns
 
@@ -415,22 +415,22 @@ The platform explicitly identifies and blocks design anti-patterns:
 
 Design principles are not static. The platform's principles have evolved through 19 generations, with each generation refining the principle set based on empirical evidence of what produces better outcomes. The AutoEvolve system tracks principle compliance metrics over time, identifying which principles correlate most strongly with system reliability, developer productivity, and code maintainability.
 
-This evidence-based approach to design principles themselves -- applying [scientific rigor](/glossary/scientific-rigor/) to the question of which principles work best -- distinguishes the platform's approach from dogmatic adherence to any single design philosophy.
+This evidence-based approach to design principles themselves -- applying [scientific rigor](@/glossary/scientific-rigor.md) to the question of which principles work best -- distinguishes the platform's approach from dogmatic adherence to any single design philosophy.
 
 ## Related Concepts
 
-- [Architecture](/glossary/architecture/) -- System architecture informed by design principles
-- [Architectural Pattern](/glossary/architectural-pattern/) -- Recurring patterns derived from principles
-- [Architectural Decision](/glossary/architectural-decision/) -- Principle-guided decision making
-- [OTP](/glossary/otp/) -- Open Telecom Platform providing OTP-specific design principles
-- [OTP Behaviour](/glossary/otp-behaviour/) -- OTP behaviour patterns implementing design principles
-- [Supervision Tree](/glossary/supervision-tree/) -- Supervision-driven design in practice
-- [Behaviour](/glossary/behaviour/) -- Callback contracts enabling Open-Closed Principle
-- [Protocol](/glossary/protocol/) -- Polymorphic dispatch enabling Interface Segregation
-- [GenServer](/glossary/genserver/) -- Stateful process design implementing Process Per Entity
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Dependency Inversion through adapter abstraction
-- [Process Isolation](/glossary/process-isolation/) -- BEAM isolation enabling Let It Crash
-- [Quality Gates](/glossary/quality-gates/) -- Automated principle compliance verification
+- [Architecture](@/glossary/architecture.md) -- System architecture informed by design principles
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- Recurring patterns derived from principles
+- [Architectural Decision](@/glossary/architectural-decision.md) -- Principle-guided decision making
+- [OTP](@/glossary/otp.md) -- Open Telecom Platform providing OTP-specific design principles
+- [OTP Behaviour](@/glossary/otp-behaviour.md) -- OTP behaviour patterns implementing design principles
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Supervision-driven design in practice
+- [Behaviour](@/glossary/behaviour.md) -- Callback contracts enabling Open-Closed Principle
+- [Protocol](@/glossary/protocol.md) -- Polymorphic dispatch enabling Interface Segregation
+- [GenServer](@/glossary/genserver.md) -- Stateful process design implementing Process Per Entity
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Dependency Inversion through adapter abstraction
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM isolation enabling Let It Crash
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated principle compliance verification
 
 ---
 

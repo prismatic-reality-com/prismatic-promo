@@ -347,24 +347,24 @@ Developer communities provide mutual support that reduces the burden on core mai
 
 Developer community intersects with many aspects of the Prismatic Platform:
 
-- [Open Source](/glossary/open-source/) -- The licensing and distribution model that enables community participation and contribution
-- [Collaborative Development](/glossary/collaborative-development/) -- The technical practices (version control, code review, CI/CD) that support multi-contributor development
-- [Community Building](/glossary/community-building/) -- The deliberate strategies and practices for growing and nurturing a developer community
-- [Code Reviews](/glossary/code-reviews/) -- The peer review process that ensures contribution quality and transfers knowledge between community members
-- [Mentorship](/glossary/mentorship/) -- The structured guidance of less experienced contributors by more experienced ones
-- [Documentation](/glossary/documentation/) -- The written knowledge base that enables asynchronous community participation and self-service onboarding
-- [Ecosystem](/glossary/ecosystem/) -- The broader technical environment of packages, tools, and integrations that surrounds a platform
-- [Community Engagement](/glossary/community-engagement/) -- The active outreach and interaction strategies that sustain community participation
-- [Community Contributions](/glossary/community-contributions/) -- The specific artifacts (code, docs, tests, issues) that community members produce
-- [GHL License](/glossary/ghl-license/) -- The license that governs how the Prismatic Platform's open source code can be used and distributed
+- [Open Source](@/glossary/open-source.md) -- The licensing and distribution model that enables community participation and contribution
+- [Collaborative Development](@/glossary/collaborative-development.md) -- The technical practices (version control, code review, CI/CD) that support multi-contributor development
+- [Community Building](@/glossary/community-building.md) -- The deliberate strategies and practices for growing and nurturing a developer community
+- [Code Reviews](@/glossary/code-reviews.md) -- The peer review process that ensures contribution quality and transfers knowledge between community members
+- [Mentorship](@/glossary/mentorship.md) -- The structured guidance of less experienced contributors by more experienced ones
+- [Documentation](@/glossary/documentation.md) -- The written knowledge base that enables asynchronous community participation and self-service onboarding
+- [Ecosystem](@/glossary/ecosystem.md) -- The broader technical environment of packages, tools, and integrations that surrounds a platform
+- [Community Engagement](@/glossary/community-engagement.md) -- The active outreach and interaction strategies that sustain community participation
+- [Community Contributions](@/glossary/community-contributions.md) -- The specific artifacts (code, docs, tests, issues) that community members produce
+- [GHL License](@/glossary/ghl-license.md) -- The license that governs how the Prismatic Platform's open source code can be used and distributed
 
 ## See Also
 
-- [Community Over Corporation](/glossary/community-over-corporation/) -- The philosophical principle that community-driven development produces superior software
-- [Community Ownership](/glossary/community-ownership/) -- The governance model where the community collectively owns the project's direction
-- [Open Source Leadership](/glossary/open-source-leadership/) -- The skills and practices needed to lead an open source community effectively
-- [Developer Experience](/glossary/developer-experience/) -- The quality of the tools, documentation, and workflows that contributors interact with
-- [Conference Speaking](/glossary/conference-speaking/) -- A community engagement channel for sharing knowledge and attracting contributors
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- The philosophical principle that community-driven development produces superior software
+- [Community Ownership](@/glossary/community-ownership.md) -- The governance model where the community collectively owns the project's direction
+- [Open Source Leadership](@/glossary/open-source-leadership.md) -- The skills and practices needed to lead an open source community effectively
+- [Developer Experience](@/glossary/developer-experience.md) -- The quality of the tools, documentation, and workflows that contributors interact with
+- [Conference Speaking](@/glossary/conference-speaking.md) -- A community engagement channel for sharing knowledge and attracting contributors
 
 ---
 
@@ -373,4 +373,4 @@ Developer community intersects with many aspects of the Prismatic Platform:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

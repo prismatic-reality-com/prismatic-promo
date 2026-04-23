@@ -291,22 +291,22 @@ Prismatic implements a multi-gate architecture review process that architecture 
 
 ## Related Concepts
 
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Strategic design methodology that architecture consulting frequently employs for service decomposition and bounded context identification
-- [Bounded Context](/glossary/bounded-context/) -- Fundamental DDD concept used in architecture consulting to define service boundaries and team ownership
-- [Quality Gates](/glossary/quality-gates/) -- Automated enforcement mechanisms that operationalize architectural decisions into verifiable checks
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP pattern that serves as living architecture documentation in Erlang/Elixir systems
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Design pattern enabling technology-agnostic architecture through interface abstraction
-- [Distributed System](/glossary/distributed-system/) -- System topology that architecture consulting must address for scalability and reliability
-- [AIAD](/glossary/aiad/) -- Prismatic's agent-based governance framework that functions as executable architecture documentation
-- [Clean Run](/glossary/clean-run/) -- Zero-warning compilation standard that serves as an architectural fitness function
-- [EASM](/glossary/easm/) -- External attack surface management, a domain where architecture consulting informs security posture design
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory standards that architecture consulting must integrate into system design
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Strategic design methodology that architecture consulting frequently employs for service decomposition and bounded context identification
+- [Bounded Context](@/glossary/bounded-context.md) -- Fundamental DDD concept used in architecture consulting to define service boundaries and team ownership
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated enforcement mechanisms that operationalize architectural decisions into verifiable checks
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP pattern that serves as living architecture documentation in Erlang/Elixir systems
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Design pattern enabling technology-agnostic architecture through interface abstraction
+- [Distributed System](@/glossary/distributed-system.md) -- System topology that architecture consulting must address for scalability and reliability
+- [AIAD](@/glossary/aiad.md) -- Prismatic's agent-based governance framework that functions as executable architecture documentation
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning compilation standard that serves as an architectural fitness function
+- [EASM](@/glossary/easm.md) -- External attack surface management, a domain where architecture consulting informs security posture design
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory standards that architecture consulting must integrate into system design
 
 ## See Also
 
-- [Architecture section](/architecture/) -- Detailed documentation of Prismatic Platform's architectural decisions and patterns
+- [Architecture section](@/architecture/_index.md) -- Detailed documentation of Prismatic Platform's architectural decisions and patterns
 - [AIAD Standard](/.aiad/README.md) -- The agent-based governance framework that operationalizes architectural standards
-- [Quality Gates documentation](/glossary/quality-gates/) -- How Prismatic enforces architectural fitness functions
+- [Quality Gates documentation](@/glossary/quality-gates.md) -- How Prismatic enforces architectural fitness functions
 - ISO/IEC 42010:2022 -- International standard for architecture description of systems and software
 - SEI Architecture Tradeoff Analysis Method (ATAM) -- Carnegie Mellon's systematic architecture evaluation methodology
 - ThoughtWorks Technology Radar -- Quarterly publication tracking technology adoption recommendations
@@ -318,4 +318,4 @@ Prismatic implements a multi-gate architecture review process that architecture 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

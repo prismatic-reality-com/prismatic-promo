@@ -231,10 +231,10 @@ p95 = PrismaticMonitoring.SlidingMetrics.percentile(:page_load, 3_600_000, 95.0)
 
 ## Cross-References
 
-- [Rate Limiting](/glossary/rate-limiting/) - Primary use case for sliding window algorithms
-- [ETS](/glossary/ets/) - Storage backend for high-performance sliding windows
-- [SLA](/glossary/sla/) - Service agreements enforced via sliding window metrics
-- [Telemetry](/glossary/telemetry/) - Event system feeding sliding window metrics
+- [Rate Limiting](@/glossary/rate-limiting.md) - Primary use case for sliding window algorithms
+- [ETS](@/glossary/ets.md) - Storage backend for high-performance sliding windows
+- [SLA](@/glossary/sla.md) - Service agreements enforced via sliding window metrics
+- [Telemetry](@/glossary/telemetry.md) - Event system feeding sliding window metrics
 
 ---
 

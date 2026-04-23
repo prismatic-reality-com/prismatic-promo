@@ -36,7 +36,7 @@ image_alt = "Threat Assessment - Prismatic Platform"
 
 ## Definition
 
-**Threat Assessment** is the systematic process of identifying, analyzing, and evaluating potential threats to a system, organization, or asset -- quantifying their likelihood of occurrence, potential impact, and the effectiveness of existing mitigating controls. Unlike ad-hoc security reviews, threat assessment follows structured methodologies (STRIDE, DREAD, MITRE ATT&CK, NIST CSF) to produce repeatable, comparable risk evaluations. Within the Prismatic Platform, threat assessment operates at multiple levels: the [Black Team](/glossary/black-team/) produces theoretical threat models through pure epistemic simulation, the [Perimeter](/glossary/easm/) module calculates security ratings (A-F grades, 300-900 numeric scores) through evidence-based [risk scoring](/glossary/risk-score/), and the compliance engine evaluates organizational posture against NIS2 Directive and ZKB 264/2025 Sb. frameworks.
+**Threat Assessment** is the systematic process of identifying, analyzing, and evaluating potential threats to a system, organization, or asset -- quantifying their likelihood of occurrence, potential impact, and the effectiveness of existing mitigating controls. Unlike ad-hoc security reviews, threat assessment follows structured methodologies (STRIDE, DREAD, MITRE ATT&CK, NIST CSF) to produce repeatable, comparable risk evaluations. Within the Prismatic Platform, threat assessment operates at multiple levels: the [Black Team](@/glossary/black-team.md) produces theoretical threat models through pure epistemic simulation, the [Perimeter](@/glossary/easm.md) module calculates security ratings (A-F grades, 300-900 numeric scores) through evidence-based [risk scoring](@/glossary/risk-score.md), and the compliance engine evaluates organizational posture against NIS2 Directive and ZKB 264/2025 Sb. frameworks.
 
 ## Overview
 
@@ -46,7 +46,7 @@ Modern threat assessment in cybersecurity follows a four-phase model:
 
 1. **Threat Identification** -- Enumerating potential threat actors, attack vectors, and vulnerable assets. This includes both external threats (nation-state actors, criminal groups, hacktivists) and internal threats (insider risk, misconfigurations, supply chain compromises).
 
-2. **Likelihood Analysis** -- Estimating the probability that each identified threat will materialize, based on threat actor capability, motivation, opportunity, and historical data. In the Prismatic Platform, likelihood is computed through Monte Carlo [simulation](/glossary/simulation/) and calibrated against observed attack frequencies.
+2. **Likelihood Analysis** -- Estimating the probability that each identified threat will materialize, based on threat actor capability, motivation, opportunity, and historical data. In the Prismatic Platform, likelihood is computed through Monte Carlo [simulation](@/glossary/simulation.md) and calibrated against observed attack frequencies.
 
 3. **Impact Assessment** -- Quantifying the potential consequences of a successful attack across dimensions: financial, operational, reputational, legal/regulatory, and safety. Impact scoring uses weighted multi-criteria analysis with domain-specific weightings.
 
@@ -54,9 +54,9 @@ Modern threat assessment in cybersecurity follows a four-phase model:
 
 The Prismatic Platform's approach is distinctive in combining three layers of threat assessment:
 
-- **Theoretical Layer** ([Black Team](/glossary/black-team/)) -- Abstract threat models exploring worst-case adversarial optimization under maximum isolation. Produces conceptual models, never executable content.
-- **Practical Layer** ([Red Team](/glossary/red-team/) + [Blue Team](/glossary/blue-team/)) -- Active adversarial simulation and defensive posture assessment through the [Color Teams](/glossary/color-teams/) framework.
-- **Automated Layer** ([Perimeter](/glossary/easm/)) -- Continuous external attack surface monitoring with automated security rating calculation and compliance assessment.
+- **Theoretical Layer** ([Black Team](@/glossary/black-team.md)) -- Abstract threat models exploring worst-case adversarial optimization under maximum isolation. Produces conceptual models, never executable content.
+- **Practical Layer** ([Red Team](@/glossary/red-team.md) + [Blue Team](@/glossary/blue-team.md)) -- Active adversarial simulation and defensive posture assessment through the [Color Teams](@/glossary/color-teams.md) framework.
+- **Automated Layer** ([Perimeter](@/glossary/easm.md)) -- Continuous external attack surface monitoring with automated security rating calculation and compliance assessment.
 
 ## Technical Details
 
@@ -178,7 +178,7 @@ end
 
 ### Security Rating Engine
 
-The [Perimeter](/glossary/easm/) module's security rating engine produces A-F grades based on comprehensive threat assessment:
+The [Perimeter](@/glossary/easm.md) module's security rating engine produces A-F grades based on comprehensive threat assessment:
 
 ```elixir
 defmodule Prismatic.ThreatAssessment.SecurityRating do
@@ -472,7 +472,7 @@ end
 
 ### Black Team Theoretical Threat Modeling
 
-The [Black Team](/glossary/black-team/) operates under maximum isolation to produce abstract threat models:
+The [Black Team](@/glossary/black-team.md) operates under maximum isolation to produce abstract threat models:
 
 ```
                 ┌───────────────────────────────────┐
@@ -669,7 +669,7 @@ The Prismatic Platform's approach combines STRIDE categorization, DREAD scoring,
 
 3. **Quantify Where Possible** -- Move beyond qualitative labels (High/Medium/Low) to numeric scores with defined scales and calibration. The 300-900 scoring range in Prismatic enables statistical analysis, trend tracking, and meaningful comparisons across assessments.
 
-4. **Maintain Attack Taxonomy Currency** -- The threat landscape evolves continuously. The [Red Team](/glossary/red-team/)'s 329-entry attack [taxonomy](/glossary/taxonomy/) must be reviewed quarterly against new MITRE ATT&CK updates, emerging CVEs, and novel attack techniques.
+4. **Maintain Attack Taxonomy Currency** -- The threat landscape evolves continuously. The [Red Team](@/glossary/red-team.md)'s 329-entry attack [taxonomy](@/glossary/taxonomy.md) must be reviewed quarterly against new MITRE ATT&CK updates, emerging CVEs, and novel attack techniques.
 
 5. **Automate Repetitive Assessments** -- Manual threat assessment does not scale. Automate asset discovery, vulnerability scanning, and score calculation. Reserve human expertise for threat model review, risk prioritization, and strategic decision-making.
 
@@ -677,7 +677,7 @@ The Prismatic Platform's approach combines STRIDE categorization, DREAD scoring,
 
 7. **Document Assumptions** -- Every threat model contains assumptions about threat actor capabilities, system configurations, and environmental conditions. Document these explicitly so that assessments can be re-evaluated when assumptions change.
 
-8. **Integrate with [Telemetry](/glossary/telemetry/)** -- Emit telemetry events for every assessment action, enabling performance monitoring, audit trailing, and trend analysis across the threat assessment pipeline.
+8. **Integrate with [Telemetry](@/glossary/telemetry.md)** -- Emit telemetry events for every assessment action, enabling performance monitoring, audit trailing, and trend analysis across the threat assessment pipeline.
 
 ## Common Pitfalls
 
@@ -707,13 +707,13 @@ Letting compliance requirements drive the scope and depth of threat assessment r
 
 ### 7. Ignoring Epistemic Threats
 
-Traditional threat assessment focuses on technical vulnerabilities. The Prismatic Platform's [Black Team](/glossary/black-team/) extends threat assessment to epistemic threats -- attacks on the platform's reasoning, confidence calibration, and decision-making processes. Ignoring this dimension leaves the system vulnerable to manipulation that bypasses all technical controls.
+Traditional threat assessment focuses on technical vulnerabilities. The Prismatic Platform's [Black Team](@/glossary/black-team.md) extends threat assessment to epistemic threats -- attacks on the platform's reasoning, confidence calibration, and decision-making processes. Ignoring this dimension leaves the system vulnerable to manipulation that bypasses all technical controls.
 
 ## Use Cases
 
 ### External Attack Surface Management
 
-The [Perimeter](/glossary/easm/) module conducts continuous threat assessment of organizations' external attack surfaces. It discovers assets (domains, IPs, certificates, cloud resources), identifies threats against each asset, calculates domain-specific scores, and produces composite security ratings that enable executive decision-making and vendor risk management.
+The [Perimeter](@/glossary/easm.md) module conducts continuous threat assessment of organizations' external attack surfaces. It discovers assets (domains, IPs, certificates, cloud resources), identifies threats against each asset, calculates domain-specific scores, and produces composite security ratings that enable executive decision-making and vendor risk management.
 
 ### Vendor Risk Assessment
 
@@ -733,27 +733,27 @@ When a security incident occurs, the pre-computed threat model provides immediat
 
 ## Related Concepts
 
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Intelligence feeds providing context for threat identification and likelihood estimation
-- [Risk Score](/glossary/risk-score/) -- Quantified risk metrics produced by threat assessment calculations
-- [Security Assessment](/glossary/security-assessment/) -- Broader security evaluation encompassing threat assessment as a component
-- [Black Team](/glossary/black-team/) -- Theoretical threat modeling under maximum isolation conditions
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Technical vulnerability identification feeding into threat assessment
-- [Cyber Threat Intelligence](/glossary/cyber-threat-intelligence/) -- Intelligence discipline providing threat actor and TTP data
-- [EASM](/glossary/easm/) -- External attack surface management providing continuous threat monitoring
-- [Attack Surface](/glossary/attack-surface/) -- The target domain that threat assessment evaluates
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory frameworks driving compliance-oriented threat assessment
-- [Color Teams](/glossary/color-teams/) -- Adversarial-defensive security organization conducting practical threat assessment
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Intelligence feeds providing context for threat identification and likelihood estimation
+- [Risk Score](@/glossary/risk-score.md) -- Quantified risk metrics produced by threat assessment calculations
+- [Security Assessment](@/glossary/security-assessment.md) -- Broader security evaluation encompassing threat assessment as a component
+- [Black Team](@/glossary/black-team.md) -- Theoretical threat modeling under maximum isolation conditions
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Technical vulnerability identification feeding into threat assessment
+- [Cyber Threat Intelligence](@/glossary/cyber-threat-intelligence.md) -- Intelligence discipline providing threat actor and TTP data
+- [EASM](@/glossary/easm.md) -- External attack surface management providing continuous threat monitoring
+- [Attack Surface](@/glossary/attack-surface.md) -- The target domain that threat assessment evaluates
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory frameworks driving compliance-oriented threat assessment
+- [Color Teams](@/glossary/color-teams.md) -- Adversarial-defensive security organization conducting practical threat assessment
 
 ## See Also
 
-- [Red Team](/glossary/red-team/) -- Adversarial simulation validating threat model predictions
-- [Blue Team](/glossary/blue-team/) -- Defensive posture assessment responding to identified threats
-- [Purple Team](/glossary/purple-team/) -- Synthesis of Red/Blue findings into comprehensive threat picture
-- [Simulation](/glossary/simulation/) -- Monte Carlo and adversarial simulation supporting likelihood estimation
-- [Audit Trail](/glossary/audit-trail/) -- Immutable logging of threat assessment activities
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Confidence metrics qualifying threat assessment reliability
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof of security properties complementing threat assessment
-- [Taxonomy](/glossary/taxonomy/) -- Classification schemes organizing threats and attack techniques
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation validating threat model predictions
+- [Blue Team](@/glossary/blue-team.md) -- Defensive posture assessment responding to identified threats
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis of Red/Blue findings into comprehensive threat picture
+- [Simulation](@/glossary/simulation.md) -- Monte Carlo and adversarial simulation supporting likelihood estimation
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable logging of threat assessment activities
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Confidence metrics qualifying threat assessment reliability
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof of security properties complementing threat assessment
+- [Taxonomy](@/glossary/taxonomy.md) -- Classification schemes organizing threats and attack techniques
 
 ---
 
@@ -762,4 +762,4 @@ When a security incident occurs, the pre-computed threat model provides immediat
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

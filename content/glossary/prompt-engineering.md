@@ -56,7 +56,7 @@ The origins of prompt engineering trace back to the earliest experiments with tr
 
 The field accelerated rapidly with the introduction of instruction-tuned models (InstructGPT, 2022) and chat-aligned models (ChatGPT, 2022), which were specifically trained to follow natural language instructions. This shifted prompt engineering from a research curiosity to a production engineering discipline, as organizations began deploying LLM-powered systems that depended critically on prompt quality.
 
-The Prismatic Platform adopted prompt engineering as a first-class concern from its inception, recognizing that in a 530-agent ecosystem, the quality of agent prompts directly determines the quality of platform operations. The platform's prompt architecture -- structured CLAUDE.md hierarchies, agent specification templates, and [confidence threshold](/glossary/confidence-threshold/)-calibrated outputs -- represents a production-grade application of prompt engineering principles at scale.
+The Prismatic Platform adopted prompt engineering as a first-class concern from its inception, recognizing that in a 530-agent ecosystem, the quality of agent prompts directly determines the quality of platform operations. The platform's prompt architecture -- structured CLAUDE.md hierarchies, agent specification templates, and [confidence threshold](@/glossary/confidence-threshold.md)-calibrated outputs -- represents a production-grade application of prompt engineering principles at scale.
 
 ## Technical Deep Dive
 
@@ -105,7 +105,7 @@ Assistant Message (Response Shaping)
 
 ### AIAD Agent Prompt Architecture
 
-Each of the 530 AIAD [agents](/glossary/agent/) has a structured prompt template that defines its behavior:
+Each of the 530 AIAD [agents](@/glossary/agent.md) has a structured prompt template that defines its behavior:
 
 ```elixir
 defmodule PrismaticPrompt.AgentTemplate do
@@ -251,7 +251,7 @@ end
 
 ### Confidence-Calibrated Prompting
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework requires that AI outputs include calibrated confidence levels:
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework requires that AI outputs include calibrated confidence levels:
 
 ```elixir
 defmodule PrismaticPrompt.ConfidenceCalibration do
@@ -334,7 +334,7 @@ This hierarchy ensures that every LLM interaction within the platform operates u
 
 ### Ollama Integration
 
-Local model interaction through [Ollama](/glossary/ollama/) uses optimized prompts for reduced-parameter models:
+Local model interaction through [Ollama](@/glossary/ollama.md) uses optimized prompts for reduced-parameter models:
 
 ```elixir
 defmodule PrismaticPrompt.OllamaOptimizer do
@@ -369,7 +369,7 @@ end
 
 ## RAG-Enhanced Prompt Engineering
 
-The intersection of prompt engineering and [RAG](/glossary/rag/) (Retrieval-Augmented Generation) represents a particularly powerful combination within the Prismatic Platform. Rather than relying solely on static prompts, the platform dynamically augments agent prompts with retrieved context from the knowledge base -- documentation, session history, quality metrics, and OSINT intelligence data.
+The intersection of prompt engineering and [RAG](@/glossary/rag.md) (Retrieval-Augmented Generation) represents a particularly powerful combination within the Prismatic Platform. Rather than relying solely on static prompts, the platform dynamically augments agent prompts with retrieved context from the knowledge base -- documentation, session history, quality metrics, and OSINT intelligence data.
 
 RAG-enhanced prompts follow a specific structure that separates static instructions from dynamic context:
 
@@ -426,7 +426,7 @@ Prompt engineering permeates the entire Prismatic Platform, from the CLAUDE.md s
 
 ### Prompt Versioning
 
-Agent prompts are version-controlled as [AIAD](/glossary/aiad/) agent specification files (`.aiad/agents/*.agent.md`), ensuring that prompt changes are tracked, reviewed, and auditable through Git history. This enables prompt rollback when a new prompt version produces inferior results.
+Agent prompts are version-controlled as [AIAD](@/glossary/aiad.md) agent specification files (`.aiad/agents/*.agent.md`), ensuring that prompt changes are tracked, reviewed, and auditable through Git history. This enables prompt rollback when a new prompt version produces inferior results.
 
 ### Prompt Testing and Evaluation
 
@@ -434,12 +434,12 @@ The platform treats prompts as testable artifacts. Each agent prompt template ha
 
 ## Epistemic Considerations
 
-Prompt engineering intersects directly with the platform's [epistemic pipeline](/glossary/epistemic-pipeline/) through the NABLA Infinity framework. Every prompt that produces analytical conclusions must enforce epistemic discipline:
+Prompt engineering intersects directly with the platform's [epistemic pipeline](@/glossary/epistemic-pipeline.md) through the NABLA Infinity framework. Every prompt that produces analytical conclusions must enforce epistemic discipline:
 
 - **Signal Plurality**: Prompts must instruct models to seek multiple independent evidence sources
 - **Contradiction Preservation**: Prompts must require models to present contradicting evidence rather than suppressing it
 - **Provenance Tracking**: Prompts must require models to cite the source of every claim
-- **Confidence Calibration**: Prompts must enforce explicit confidence scores per the [Trinity Gate](/glossary/trinity-gate/) requirements
+- **Confidence Calibration**: Prompts must enforce explicit confidence scores per the [Trinity Gate](@/glossary/trinity-gate.md) requirements
 
 This epistemic layer transforms prompt engineering from a purely technical optimization into a knowledge quality assurance discipline.
 
@@ -469,33 +469,33 @@ This epistemic layer transforms prompt engineering from a purely technical optim
 
 **Over-engineering for simple tasks.** Not every interaction requires a complex prompt with role definitions, examples, and chain-of-thought instructions. Simple extraction, classification, or formatting tasks can use concise direct instructions. Match prompt complexity to task complexity.
 
-**Ignoring model-specific behavior.** Different models respond differently to the same prompt. [Ollama](/glossary/ollama/) local models with 7B parameters require more explicit prompts than cloud models with hundreds of billions of parameters. Always test prompts against the target model.
+**Ignoring model-specific behavior.** Different models respond differently to the same prompt. [Ollama](@/glossary/ollama.md) local models with 7B parameters require more explicit prompts than cloud models with hundreds of billions of parameters. Always test prompts against the target model.
 
 ## Security Considerations
 
 Prompt engineering carries security implications that are particularly relevant in the Prismatic Platform's security-critical context. Prompt injection attacks attempt to override system instructions by embedding adversarial instructions in user input. Prompt leaking attacks attempt to extract system prompts by asking the model to reveal its instructions.
 
-The platform mitigates these risks through several mechanisms: strict input sanitization before prompt construction, separation of system and user message channels, monitoring for prompt injection patterns, and the [Color Team](/glossary/color-teams/) Red Team's periodic adversarial testing of agent prompts.
+The platform mitigates these risks through several mechanisms: strict input sanitization before prompt construction, separation of system and user message channels, monitoring for prompt injection patterns, and the [Color Team](@/glossary/color-teams.md) Red Team's periodic adversarial testing of agent prompts.
 
 ## Related Concepts
 
-- [Ollama](/glossary/ollama/) -- Local AI runtime where prompt engineering drives model behavior
-- [AIAD](/glossary/aiad/) -- Agent framework using structured prompts for agent definitions
-- [Agent](/glossary/agent/) -- AI agents whose behavior is shaped by engineered prompts
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Quality gates enforced through prompt instructions
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework requiring evidence-based prompt design
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- 16-level processing pipeline informed by prompt structure
-- [RAG](/glossary/rag/) -- Retrieval-augmented generation enhancing prompts with dynamic context
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate requiring confidence-calibrated prompt outputs
-- [Color Teams](/glossary/color-teams/) -- Security teams testing prompt robustness against adversarial attacks
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement pipeline validating prompt-driven outputs
+- [Ollama](@/glossary/ollama.md) -- Local AI runtime where prompt engineering drives model behavior
+- [AIAD](@/glossary/aiad.md) -- Agent framework using structured prompts for agent definitions
+- [Agent](@/glossary/agent.md) -- AI agents whose behavior is shaped by engineered prompts
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Quality gates enforced through prompt instructions
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework requiring evidence-based prompt design
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- 16-level processing pipeline informed by prompt structure
+- [RAG](@/glossary/rag.md) -- Retrieval-augmented generation enhancing prompts with dynamic context
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate requiring confidence-calibrated prompt outputs
+- [Color Teams](@/glossary/color-teams.md) -- Security teams testing prompt robustness against adversarial attacks
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement pipeline validating prompt-driven outputs
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Agents](/agents/) -- AIAD agents with engineered prompt templates
-- [Technologies](/technologies/) -- Technology stack including AI components
-- [Capabilities](/capabilities/) -- AI-powered capabilities driven by prompt engineering
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Agents](@/agents/_index.md) -- AIAD agents with engineered prompt templates
+- [Technologies](@/technologies/_index.md) -- Technology stack including AI components
+- [Capabilities](@/capabilities/_index.md) -- AI-powered capabilities driven by prompt engineering
 
 ---
 
@@ -504,4 +504,4 @@ The platform mitigates these risks through several mechanisms: strict input sani
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

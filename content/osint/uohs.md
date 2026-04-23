@@ -30,7 +30,7 @@ image_alt = "UOHS - Prismatic Platform"
 
 UOHS (Urad pro ochranu hospodarske souteze -- the Office for the Protection of Competition) is the Czech national authority responsible for competition law enforcement, merger control, public procurement supervision, and state aid monitoring. Established in 1991, UOHS operates as an independent administrative authority with broad investigative and decision-making powers. The office publishes its administrative decisions, which contain detailed information about investigated companies, market analyses, penalties imposed, and remedies required. These decisions represent one of the richest sources of competitive intelligence available in the Czech Republic.
 
-For [OSINT](/glossary/osint/) analysts, UOHS decisions reveal competitive dynamics between companies, attempted mergers and acquisitions that may not be publicly announced otherwise, cartel behavior, abuse of market dominance, and irregularities in public procurement processes. The decisions often contain non-public business information disclosed during investigations, including market share data, pricing strategies, supply agreements, and internal company communications that were obtained through UOHS's investigative powers. This makes UOHS an intelligence source of exceptional depth for understanding Czech corporate competitive behavior.
+For [OSINT](@/glossary/osint.md) analysts, UOHS decisions reveal competitive dynamics between companies, attempted mergers and acquisitions that may not be publicly announced otherwise, cartel behavior, abuse of market dominance, and irregularities in public procurement processes. The decisions often contain non-public business information disclosed during investigations, including market share data, pricing strategies, supply agreements, and internal company communications that were obtained through UOHS's investigative powers. This makes UOHS an intelligence source of exceptional depth for understanding Czech corporate competitive behavior.
 
 UOHS exercises four primary competencies. First, competition law enforcement: investigating and sanctioning cartels, abuse of dominant position, and other anticompetitive agreements under Czech Act No. 143/2001 Sb. and EU competition law. Second, merger control: reviewing and approving or blocking mergers and acquisitions that meet notification thresholds. Third, public procurement supervision: reviewing challenged procurement procedures and sanctioning contracting authorities for procedural violations. Fourth, state aid monitoring: assessing the compatibility of state support measures with EU state aid rules.
 
@@ -219,7 +219,7 @@ UOHS cartel decisions reveal the mechanics of anticompetitive behavior in Czech 
 
 ### Public Procurement Integrity
 
-UOHS procurement review decisions identify specific irregularities in public procurement procedures: discriminatory qualification criteria, improper evaluation of bids, unjustified exclusion of bidders, and procedural violations by contracting authorities. Cross-referencing these decisions with [Verejne zakazky](/osint/verejne-zakazky/) procurement data reveals which agencies have problematic procurement practices.
+UOHS procurement review decisions identify specific irregularities in public procurement procedures: discriminatory qualification criteria, improper evaluation of bids, unjustified exclusion of bidders, and procedural violations by contracting authorities. Cross-referencing these decisions with [Verejne zakazky](@/osint/verejne-zakazky.md) procurement data reveals which agencies have problematic procurement practices.
 
 ### Merger and Acquisition Tracking
 
@@ -252,12 +252,12 @@ UOHS state aid decisions reveal which sectors and companies receive government s
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), UOHS serves as the primary regulatory intelligence source for Czech competition and procurement oversight.
+Within the [Prismatic Platform](@/apps/prismatic.md), UOHS serves as the primary regulatory intelligence source for Czech competition and procurement oversight.
 
 - **Entity Risk Scoring**: UOHS enforcement history feeds into entity risk profiles, with antitrust violations, procurement sanctions, and merger conditions contributing to regulatory risk scores.
 - **Competitive Intelligence**: UOHS market analyses from merger decisions are extracted and indexed, providing market share and competitive dynamics intelligence.
-- **Procurement Analytics**: UOHS procurement review decisions are cross-referenced with [Verejne zakazky](/osint/verejne-zakazky/) and [Hlidac statu](/osint/hlidac-statu/) data for comprehensive procurement integrity analysis.
-- **Cross-Registry Enrichment**: UOHS parties are matched against [ARES](/osint/ares/) company data and [Justice.cz](/osint/justice-cz/) ownership information for complete entity profiles.
+- **Procurement Analytics**: UOHS procurement review decisions are cross-referenced with [Verejne zakazky](@/osint/verejne-zakazky.md) and [Hlidac statu](@/osint/hlidac-statu.md) data for comprehensive procurement integrity analysis.
+- **Cross-Registry Enrichment**: UOHS parties are matched against [ARES](@/osint/ares.md) company data and [Justice.cz](@/osint/justice-cz.md) ownership information for complete entity profiles.
 - **Penalty Tracking**: The platform tracks cumulative UOHS penalties across related entities to assess group-level regulatory exposure.
 - **M&A Intelligence**: Merger notifications and decisions feed into the platform's corporate transaction tracking capabilities.
 
@@ -269,7 +269,7 @@ Within the [Prismatic Platform](/apps/prismatic/), UOHS serves as the primary re
 
 3. **Read the full market analysis**: Merger decisions contain detailed market definitions and competitive assessments that are unavailable elsewhere. Extract this intelligence systematically.
 
-4. **Cross-reference penalties with company size**: A penalty of CZK 10 million means different things for a small company versus a multinational. Assess penalty significance relative to company turnover from [ARES](/osint/ares/).
+4. **Cross-reference penalties with company size**: A penalty of CZK 10 million means different things for a small company versus a multinational. Assess penalty significance relative to company turnover from [ARES](@/osint/ares.md).
 
 5. **Track procurement patterns**: Repeated procurement review decisions against the same contracting authority may indicate systemic procurement governance issues.
 
@@ -279,12 +279,12 @@ Within the [Prismatic Platform](/apps/prismatic/), UOHS serves as the primary re
 
 ## Related Providers
 
-- [Verejne zakazky](/osint/verejne-zakazky/) - Public procurement portal reviewed by UOHS
-- [ARES](/osint/ares/) - Czech business registry for entity identification
-- [Justice.cz](/osint/justice-cz/) - Commercial Register for company structure and ownership
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog with procurement analytics
-- [Registr smluv](/osint/registr-smluv/) - Czech Contract Registry for post-procurement contracts
-- [CEDR](/osint/cedr/) - Central Register of Subsidies for state aid cross-reference
+- [Verejne zakazky](@/osint/verejne-zakazky.md) - Public procurement portal reviewed by UOHS
+- [ARES](@/osint/ares.md) - Czech business registry for entity identification
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register for company structure and ownership
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog with procurement analytics
+- [Registr smluv](@/osint/registr-smluv.md) - Czech Contract Registry for post-procurement contracts
+- [CEDR](@/osint/cedr.md) - Central Register of Subsidies for state aid cross-reference
 
 ---
 
@@ -293,4 +293,4 @@ Within the [Prismatic Platform](/apps/prismatic/), UOHS serves as the primary re
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "purple-regression-guard - Prismatic Platform"
 
 ## Overview
 
-The purple-regression-guard operates as an L4 Safety-Critical authority within the Prismatic Platform's epistemic-synthesis domain, providing continuous monitoring of closed adversarial findings to ensure that defensive fixes remain effective over time. This agent maintains regression traps -- automated verification mechanisms that continuously validate the effectiveness of previously applied defenses against reintroduction, degradation, or circumvention. Within the [color team](/glossary/color-teams/) security framework, the purple-regression-guard serves as the last line of defense against the insidious failure mode where resolved vulnerabilities silently reappear due to code refactoring, configuration changes, dependency updates, or architectural evolution.
+The purple-regression-guard operates as an L4 Safety-Critical authority within the Prismatic Platform's epistemic-synthesis domain, providing continuous monitoring of closed adversarial findings to ensure that defensive fixes remain effective over time. This agent maintains regression traps -- automated verification mechanisms that continuously validate the effectiveness of previously applied defenses against reintroduction, degradation, or circumvention. Within the [color team](@/glossary/color-teams.md) security framework, the purple-regression-guard serves as the last line of defense against the insidious failure mode where resolved vulnerabilities silently reappear due to code refactoring, configuration changes, dependency updates, or architectural evolution.
 
-The agent's safety-critical classification reflects its role as a deployment gate: no change to the platform codebase is authorized for production deployment if any regression trap associated with previously closed findings fails. This enforcement operates independently of the standard quality gate pipeline, providing a dedicated security-focused regression barrier that cannot be overridden by development velocity pressures. Under the [NABLA Infinity](/glossary/nabla-infinity/) framework, the regression guard embodies the time decay axiom by ensuring that closure confidence degrades appropriately over time -- a finding closed six months ago receives periodic re-verification to confirm that the defense remains effective against the current state of the platform.
+The agent's safety-critical classification reflects its role as a deployment gate: no change to the platform codebase is authorized for production deployment if any regression trap associated with previously closed findings fails. This enforcement operates independently of the standard quality gate pipeline, providing a dedicated security-focused regression barrier that cannot be overridden by development velocity pressures. Under the [NABLA Infinity](@/glossary/nabla-infinity.md) framework, the regression guard embodies the time decay axiom by ensuring that closure confidence degrades appropriately over time -- a finding closed six months ago receives periodic re-verification to confirm that the defense remains effective against the current state of the platform.
 
 ## Regression Trap Architecture
 
@@ -38,7 +38,7 @@ Regression traps are the primary mechanism through which the purple-regression-g
 
 **Trap Structure** consists of three components: a precondition check that verifies the relevant system components are in a testable state, a defense verification test that exercises the specific defensive mechanism against the original attack vector, and a post-condition validation that confirms the defense produced the expected result. Traps are designed to be independent of implementation details -- they test the defense's externally observable behavior rather than its internal structure, ensuring that refactoring does not trigger false positives.
 
-**Trap Generation** occurs at the time a finding is closed by the [purple-closure-analyst](/agents/purple-closure-analyst/). The regression guard creates traps from the closure evidence: the Red team's original attack procedure is translated into an automated test that attempts the attack, and the expected defense behavior (block, redirect, alarm, etc.) is encoded as the success criterion. [Property-based testing](/glossary/property-based-testing/) techniques generate trap variants that test the defense against mutations of the original attack, increasing coverage beyond the specific attack instance identified by the Red team.
+**Trap Generation** occurs at the time a finding is closed by the [purple-closure-analyst](@/agents/purple-closure-analyst.md). The regression guard creates traps from the closure evidence: the Red team's original attack procedure is translated into an automated test that attempts the attack, and the expected defense behavior (block, redirect, alarm, etc.) is encoded as the success criterion. [Property-based testing](@/glossary/property-based-testing.md) techniques generate trap variants that test the defense against mutations of the original attack, increasing coverage beyond the specific attack instance identified by the Red team.
 
 **Trap Execution** runs continuously through the platform's CI/CD pipeline and on a scheduled basis against the production environment. Pipeline execution ensures that no code change introduces a regression before deployment. Scheduled production execution catches regressions introduced through operational changes (configuration modifications, infrastructure updates) that bypass the code deployment pipeline.
 
@@ -62,7 +62,7 @@ The purple-regression-guard serves as a mandatory deployment gate -- a blocking 
 
 During the pre-deployment phase, all regression traps associated with previously closed findings are executed against the proposed deployment artifact. Any trap failure blocks the deployment and generates a regression alert that identifies the specific closed finding at risk, the trap that failed, and the code change most likely responsible for the regression.
 
-The gate is non-bypassable. Unlike some quality gates that can be overridden with sufficient authorization, the regression gate has no override mechanism. The [NO MERCY](/glossary/no-mercy/) doctrine prohibits deploying code that reintroduces previously resolved security findings, regardless of business urgency or time pressure. If a regression trap fails, the only path forward is fixing the regression and re-executing the trap.
+The gate is non-bypassable. Unlike some quality gates that can be overridden with sufficient authorization, the regression gate has no override mechanism. The [NO MERCY](@/glossary/no-mercy.md) doctrine prohibits deploying code that reintroduces previously resolved security findings, regardless of business urgency or time pressure. If a regression trap fails, the only path forward is fixing the regression and re-executing the trap.
 
 ## Time-Based Re-verification
 
@@ -83,24 +83,24 @@ Re-verification frequency is determined by finding severity and time since closu
 
 | Agent | Relationship |
 |-------|-------------|
-| [purple-coordinator](/agents/purple-coordinator/) | Regression metrics aggregation for epistemic posture assessment |
-| [purple-closure-analyst](/agents/purple-closure-analyst/) | Receives closure evidence for trap generation |
-| [purple-mapper](/agents/purple-mapper/) | Mapping context for understanding defense-finding relationships |
-| [production-deployment-specialist](/agents/production-deployment-specialist/) | Regression gate integration within the deployment pipeline |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Regression metrics aggregation for epistemic posture assessment |
+| [purple-closure-analyst](@/agents/purple-closure-analyst.md) | Receives closure evidence for trap generation |
+| [purple-mapper](@/agents/purple-mapper.md) | Mapping context for understanding defense-finding relationships |
+| [production-deployment-specialist](@/agents/production-deployment-specialist.md) | Regression gate integration within the deployment pipeline |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Trap execution [metrics](/glossary/metrics/) and regression detection events |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent specification and color team coordination |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Trap execution [metrics](@/glossary/metrics.md) and regression detection events |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent specification and color team coordination |
 | GitLab CI/CD Pipeline | Deployment gate integration for regression trap execution |
-| [Trinity Gate](/glossary/trinity-gate/) | Three-layer validation for regression assessment evidence |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Three-layer validation for regression assessment evidence |
 
 ## Enforcement
 
-Regression monitoring is enforced under the [NO MERCY](/glossary/no-mercy/) doctrine with absolute deployment blocking authority. No override mechanism exists for regression gate failures. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all regression determinations are based on measurable trap execution results, not on assumptions about code change safety. The [NABLA Infinity](/glossary/nabla-infinity/) time decay axiom drives periodic re-verification of closed findings, ensuring that closure confidence remains calibrated to the current state of the platform rather than reflecting historical assessments that may no longer be valid.
+Regression monitoring is enforced under the [NO MERCY](@/glossary/no-mercy.md) doctrine with absolute deployment blocking authority. No override mechanism exists for regression gate failures. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all regression determinations are based on measurable trap execution results, not on assumptions about code change safety. The [NABLA Infinity](@/glossary/nabla-infinity.md) time decay axiom drives periodic re-verification of closed findings, ensuring that closure confidence remains calibrated to the current state of the platform rather than reflecting historical assessments that may no longer be valid.
 
 ---
 
@@ -109,4 +109,4 @@ Regression monitoring is enforced under the [NO MERCY](/glossary/no-mercy/) doct
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

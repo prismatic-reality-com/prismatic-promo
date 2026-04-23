@@ -30,7 +30,7 @@ keywords = ["Entity", "Management", "System", "Comprehensive", "core", "Prismati
 
 ## Abstract
 
-The Entity Management System is the central data model of the Prismatic Platform's due diligence capability. It provides typed, versioned, auditable representations of all subjects under investigation -- persons, companies, domains, email addresses, phone numbers, IP addresses, cryptocurrency wallets, and documents. Every entity instance maintains a complete provenance trail recording how it was discovered, which [OSINT](/glossary/osint/) sources contributed data, the confidence level of each data point, and the temporal history of changes. This document describes the entity type system, the resolution algorithms that merge records across disparate sources into unified entity profiles, and the storage architecture that supports both full-text search and graph traversal across entity relationships.
+The Entity Management System is the central data model of the Prismatic Platform's due diligence capability. It provides typed, versioned, auditable representations of all subjects under investigation -- persons, companies, domains, email addresses, phone numbers, IP addresses, cryptocurrency wallets, and documents. Every entity instance maintains a complete provenance trail recording how it was discovered, which [OSINT](@/glossary/osint.md) sources contributed data, the confidence level of each data point, and the temporal history of changes. This document describes the entity type system, the resolution algorithms that merge records across disparate sources into unified entity profiles, and the storage architecture that supports both full-text search and graph traversal across entity relationships.
 
 ## Introduction
 
@@ -38,11 +38,11 @@ The Entity Management System is the central data model of the Prismatic Platform
 
 Due diligence investigations are fundamentally about entities and their relationships. An M&A analyst investigating a target company needs to understand not just the company itself, but its directors, shareholders, subsidiaries, contractors, domain registrations, email footprints, and financial connections. Each of these constitutes an entity that must be individually tracked, verified, and connected into the investigation's relationship graph.
 
-The Prismatic Platform treats entities as first-class objects with defined types, schemas, and lifecycle management. Unlike generic document-oriented approaches where entity data is scattered across unstructured notes and reports, the platform's Entity Management System enforces structured representations that enable programmatic analysis, cross-source validation through the [triple-check methodology](/dd/methodology/), and graph traversal through the [graph analysis engine](/dd/graph-analysis/).
+The Prismatic Platform treats entities as first-class objects with defined types, schemas, and lifecycle management. Unlike generic document-oriented approaches where entity data is scattered across unstructured notes and reports, the platform's Entity Management System enforces structured representations that enable programmatic analysis, cross-source validation through the [triple-check methodology](@/dd/methodology.md), and graph traversal through the [graph analysis engine](@/dd/graph-analysis.md).
 
 ### Design Principles
 
-The Entity Management System follows four design principles derived from the platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine:
+The Entity Management System follows four design principles derived from the platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine:
 
 1. **Type Safety**: Every entity has a defined type with a specific schema. There are no generic "entity" objects that could contain arbitrary unstructured data.
 2. **Immutable History**: Entity attributes are versioned, not overwritten. When a company's registered address changes, the previous address is preserved with full temporal metadata.
@@ -68,7 +68,7 @@ The platform supports eight primary entity types, each with a defined schema and
 
 ### Entity Schema Definition
 
-Each entity type is defined through an [Elixir](/glossary/elixir/) schema module that specifies required fields, optional fields, validation rules, and serialization formats. The schema system leverages [Ecto](/glossary/ecto/) changesets for validation and [typespecs](/glossary/typespec/) for compile-time type safety.
+Each entity type is defined through an [Elixir](@/glossary/elixir.md) schema module that specifies required fields, optional fields, validation rules, and serialization formats. The schema system leverages [Ecto](@/glossary/ecto.md) changesets for validation and [typespecs](@/glossary/typespec.md) for compile-time type safety.
 
 ```elixir
 defmodule PrismaticDD.Entity.Company do
@@ -107,11 +107,11 @@ Discovery --> Enrichment --> Validation --> Verified --> Monitoring
 
 1. **Discovery**: An entity is created either manually by an analyst or automatically through graph expansion from a related entity. At this stage, the entity may have minimal attributes (e.g., just a company name or ICO number).
 
-2. **Enrichment**: The platform's orchestration engine triggers parallel queries across all relevant [OSINT sources](/dd/osint-integration/), collecting data from registries, databases, and intelligence feeds. Source records are normalized and attached to the entity.
+2. **Enrichment**: The platform's orchestration engine triggers parallel queries across all relevant [OSINT sources](@/dd/osint-integration.md), collecting data from registries, databases, and intelligence feeds. Source records are normalized and attached to the entity.
 
-3. **Validation**: The [triple-check cross-validation methodology](/dd/methodology/) is applied to each attribute, computing confidence scores based on multi-source corroboration and temporal consistency.
+3. **Validation**: The [triple-check cross-validation methodology](@/dd/methodology.md) is applied to each attribute, computing confidence scores based on multi-source corroboration and temporal consistency.
 
-4. **Verified**: Attributes that pass validation are marked as verified with their confidence scores. The entity is now eligible for inclusion in due diligence reports and [risk assessments](/dd/risk-assessment/).
+4. **Verified**: Attributes that pass validation are marked as verified with their confidence scores. The entity is now eligible for inclusion in due diligence reports and [risk assessments](@/dd/risk-assessment.md).
 
 5. **Monitoring**: For ongoing investigations or post-deal monitoring, verified entities enter a monitoring state where the platform periodically re-queries sources and alerts analysts to material changes.
 
@@ -147,7 +147,7 @@ The platform's entity resolution engine uses a multi-stage approach:
 
 Records with a composite match score above 0.85 are automatically merged. Records scoring between 0.65 and 0.85 are flagged for analyst review. Records below 0.65 are treated as distinct entities.
 
-**Stage 3: Graph-Based Resolution**: After initial matching, the [graph analysis engine](/dd/graph-analysis/) examines relationship patterns to identify potential matches that attribute-level comparison missed. If two company records share three or more directors, the same registered address, and similar NACE codes, the graph engine flags them as probable matches even if their names differ significantly (e.g., after a corporate renaming event).
+**Stage 3: Graph-Based Resolution**: After initial matching, the [graph analysis engine](@/dd/graph-analysis.md) examines relationship patterns to identify potential matches that attribute-level comparison missed. If two company records share three or more directors, the same registered address, and similar NACE codes, the graph engine flags them as probable matches even if their names differ significantly (e.g., after a corporate renaming event).
 
 ### Czech-Specific Normalization
 
@@ -165,7 +165,7 @@ The Entity Management System uses a polyglot persistence architecture that lever
 
 ### PostgreSQL: Primary Entity Store
 
-[PostgreSQL](/glossary/postgresql/) serves as the system of record for all entity data. Each entity type maps to a dedicated table with appropriate indexing, constraints, and audit triggers. The platform uses [Ecto](/glossary/ecto/) for schema management and query construction, with migrations tracking every schema evolution.
+[PostgreSQL](@/glossary/postgresql.md) serves as the system of record for all entity data. Each entity type maps to a dedicated table with appropriate indexing, constraints, and audit triggers. The platform uses [Ecto](@/glossary/ecto.md) for schema management and query construction, with migrations tracking every schema evolution.
 
 Key PostgreSQL features leveraged:
 - **JSONB columns**: For flexible metadata and source-specific attributes that vary between records
@@ -175,19 +175,19 @@ Key PostgreSQL features leveraged:
 
 ### Meilisearch: Full-Text Search
 
-[Meilisearch](/glossary/meilisearch/) provides the primary search interface for entity discovery, supporting typo-tolerant, real-time search across entity names, addresses, and descriptions. The search index is updated asynchronously from PostgreSQL change events, ensuring near-real-time search availability without impacting write performance.
+[Meilisearch](@/glossary/meilisearch.md) provides the primary search interface for entity discovery, supporting typo-tolerant, real-time search across entity names, addresses, and descriptions. The search index is updated asynchronously from PostgreSQL change events, ensuring near-real-time search availability without impacting write performance.
 
 ### KuzuDB: Graph Relationships
 
-[KuzuDB](/glossary/kuzudb/) stores and traverses entity relationships -- ownership chains, director networks, address clusters, and inter-entity connections. The graph representation enables the relationship queries described in the [graph analysis](/dd/graph-analysis/) documentation, including multi-hop traversals that would be prohibitively expensive in relational SQL.
+[KuzuDB](@/glossary/kuzudb.md) stores and traverses entity relationships -- ownership chains, director networks, address clusters, and inter-entity connections. The graph representation enables the relationship queries described in the [graph analysis](@/dd/graph-analysis.md) documentation, including multi-hop traversals that would be prohibitively expensive in relational SQL.
 
 ### ETS: Real-Time Cache
 
-[ETS](/glossary/ets/) (Erlang Term Storage) provides in-memory caching for frequently accessed entity data, reducing database load during active investigation sessions where analysts repeatedly access the same entity profiles.
+[ETS](@/glossary/ets.md) (Erlang Term Storage) provides in-memory caching for frequently accessed entity data, reducing database load during active investigation sessions where analysts repeatedly access the same entity profiles.
 
 ## Audit Trail and Provenance
 
-Every modification to an entity record generates an immutable [audit trail](/glossary/audit-trail/) entry recording:
+Every modification to an entity record generates an immutable [audit trail](@/glossary/audit-trail.md) entry recording:
 
 | Field | Description |
 |-------|-------------|
@@ -201,7 +201,7 @@ Every modification to an entity record generates an immutable [audit trail](/glo
 | **Actor** | The system process or user who triggered the change |
 | **Investigation ID** | The case/investigation context |
 
-The audit trail satisfies the [Provenance Mandatory](/glossary/provenance-mandatory/) axiom from the NABLA framework, ensuring that every data point in the system can be traced to its origin. This is essential for regulatory compliance, where auditors may require evidence of how specific findings were derived.
+The audit trail satisfies the [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom from the NABLA framework, ensuring that every data point in the system can be traced to its origin. This is essential for regulatory compliance, where auditors may require evidence of how specific findings were derived.
 
 ## Entity Discovery Patterns
 
@@ -235,19 +235,19 @@ The Entity Management System is designed for the scale requirements of enterpris
 
 ## Conclusion
 
-The Entity Management System provides the structured, auditable, and type-safe data foundation that enables every other component of the Prismatic DD Intelligence platform -- from [cross-validation](/dd/methodology/) through [graph analysis](/dd/graph-analysis/) to [risk assessment](/dd/risk-assessment/). By treating entities as first-class objects with defined schemas, immutable history, and source attribution, the platform ensures that due diligence findings rest on a solid evidentiary base that satisfies both analytical and regulatory requirements.
+The Entity Management System provides the structured, auditable, and type-safe data foundation that enables every other component of the Prismatic DD Intelligence platform -- from [cross-validation](@/dd/methodology.md) through [graph analysis](@/dd/graph-analysis.md) to [risk assessment](@/dd/risk-assessment.md). By treating entities as first-class objects with defined schemas, immutable history, and source attribution, the platform ensures that due diligence findings rest on a solid evidentiary base that satisfies both analytical and regulatory requirements.
 
 ## References
 
-- [Triple-Check Methodology](/dd/methodology/)
-- [Graph Analysis Engine](/dd/graph-analysis/)
-- [Czech Registry Integration](/dd/czech-registries/)
-- [OSINT Integration Framework](/dd/osint-integration/)
-- [Entity Resolution](/glossary/entity-resolution/)
-- [PostgreSQL Storage](/glossary/postgresql/)
-- [KuzuDB Graph Engine](/glossary/kuzudb/)
-- [Meilisearch Search Engine](/glossary/meilisearch/)
-- [Audit Trail](/glossary/audit-trail/)
+- [Triple-Check Methodology](@/dd/methodology.md)
+- [Graph Analysis Engine](@/dd/graph-analysis.md)
+- [Czech Registry Integration](@/dd/czech-registries.md)
+- [OSINT Integration Framework](@/dd/osint-integration.md)
+- [Entity Resolution](@/glossary/entity-resolution.md)
+- [PostgreSQL Storage](@/glossary/postgresql.md)
+- [KuzuDB Graph Engine](@/glossary/kuzudb.md)
+- [Meilisearch Search Engine](@/glossary/meilisearch.md)
+- [Audit Trail](@/glossary/audit-trail.md)
 
 ---
 
@@ -256,4 +256,4 @@ The Entity Management System provides the structured, auditable, and type-safe d
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

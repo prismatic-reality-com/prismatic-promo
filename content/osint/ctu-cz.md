@@ -27,7 +27,7 @@ image_alt = "CTU / Czech Telecom Office - Prismatic Platform"
 
 The Czech Telecommunication Office (CTU -- Cesky telekomunikacni urad) is the national regulatory authority for electronic communications and postal services in the Czech Republic, established under Act No. 127/2005 Sb. (the Electronic Communications Act). Operating as an independent administrative body, CTU exercises regulatory oversight over all telecommunications operators, internet service providers, broadcasting distributors, and postal service providers operating within Czech territory. Its mandate encompasses market regulation, spectrum management, numbering administration, network access oversight, universal service obligations, and consumer protection.
 
-For [OSINT](/glossary/osint/) analysts and infrastructure intelligence practitioners, CTU data provides a comprehensive view of the Czech telecommunications landscape that is unavailable from any other source. The operator registry identifies every entity authorized to provide electronic communications services, including ISPs, mobile network operators, fixed-line providers, VoIP services, and broadcasting distributors. Spectrum allocation data reveals frequency holdings that directly correlate with network capacity, geographic coverage, and investment commitments. Numbering data enables phone number attribution to specific operators, essential for communications intelligence and fraud investigation.
+For [OSINT](@/glossary/osint.md) analysts and infrastructure intelligence practitioners, CTU data provides a comprehensive view of the Czech telecommunications landscape that is unavailable from any other source. The operator registry identifies every entity authorized to provide electronic communications services, including ISPs, mobile network operators, fixed-line providers, VoIP services, and broadcasting distributors. Spectrum allocation data reveals frequency holdings that directly correlate with network capacity, geographic coverage, and investment commitments. Numbering data enables phone number attribution to specific operators, essential for communications intelligence and fraud investigation.
 
 CTU also publishes detailed market analysis reports, including annual reports on the state of electronic communications, broadband coverage maps, mobile network quality measurements, and price benchmarking studies. These publications provide strategic intelligence about market structure, competitive dynamics, technology deployment timelines (5G rollout, fiber-to-the-home expansion), and regulatory trends that affect the entire Czech ICT ecosystem.
 
@@ -235,7 +235,7 @@ Companies operating in the Czech telecommunications market monitor CTU regulator
 
 CTU registry data is public information published under Czech law (Act No. 127/2005 Sb.). Access to operator registries, spectrum allocations, and market reports does not require authorization or consent.
 
-Phone number attribution data, while available for legitimate purposes, may intersect with privacy considerations when used to identify individuals associated with specific numbers. Analysts should ensure that number lookups are conducted for authorized purposes and that resulting intelligence is handled in accordance with [GDPR](/glossary/gdpr/) and Czech data protection law.
+Phone number attribution data, while available for legitimate purposes, may intersect with privacy considerations when used to identify individuals associated with specific numbers. Analysts should ensure that number lookups are conducted for authorized purposes and that resulting intelligence is handled in accordance with [GDPR](@/glossary/gdpr.md) and Czech data protection law.
 
 Coverage map data and spectrum allocation information is published for public transparency and may be freely used for analysis, research, and business planning purposes.
 
@@ -278,7 +278,7 @@ The platform provides automated phone number attribution using CTU numbering dat
 
 ### Infrastructure Mapping
 
-CTU operator data is combined with IP intelligence (IPInfo, Shodan) and DNS data (SecurityTrails, CIRCL passive DNS) to build comprehensive infrastructure maps of Czech telecommunications operators. These maps support attack surface assessment for [Prismatic Perimeter](/glossary/prismatic-perimeter/) evaluations of telecommunications companies.
+CTU operator data is combined with IP intelligence (IPInfo, Shodan) and DNS data (SecurityTrails, CIRCL passive DNS) to build comprehensive infrastructure maps of Czech telecommunications operators. These maps support attack surface assessment for [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) evaluations of telecommunications companies.
 
 ## Best Practices
 
@@ -294,12 +294,12 @@ CTU operator data is combined with IP intelligence (IPInfo, Shodan) and DNS data
 
 ## Related Providers
 
-- [ARES](/osint/ares/) - Business registry for telecom operator corporate data
-- [IPInfo](/osint/ipinfo/) - IP address intelligence for network attribution
-- [Shodan](/osint/shodan/) - Internet device and service discovery for infrastructure mapping
-- [Censys](/osint/censys/) - Certificate and host scanning for telecom infrastructure
-- [OpenCorporates](/osint/open-corporates/) - Global corporate data for international operator groups
-- [SecurityTrails](/osint/securitytrails/) - DNS intelligence for operator domain infrastructure
+- [ARES](@/osint/ares.md) - Business registry for telecom operator corporate data
+- [IPInfo](@/osint/ipinfo.md) - IP address intelligence for network attribution
+- [Shodan](@/osint/shodan.md) - Internet device and service discovery for infrastructure mapping
+- [Censys](@/osint/censys.md) - Certificate and host scanning for telecom infrastructure
+- [OpenCorporates](@/osint/open-corporates.md) - Global corporate data for international operator groups
+- [SecurityTrails](@/osint/securitytrails.md) - DNS intelligence for operator domain infrastructure
 
 ---
 
@@ -308,4 +308,4 @@ CTU operator data is combined with IP intelligence (IPInfo, Shodan) and DNS data
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

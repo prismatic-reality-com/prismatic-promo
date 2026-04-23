@@ -30,7 +30,7 @@ image_alt = "supreme-coordinator - Prismatic Platform"
 
 The Supreme Coordinator is an L1 apex-predator agent within the Prismatic Platform responsible for multi-domain coordination and strategic mission planning across the entire agent ecosystem. While the Supreme Commander holds ultimate authority, the Supreme Coordinator serves as the operational strategist that translates high-level strategic directives into coordinated multi-domain execution plans. This agent orchestrates evolutionary pressure and survival fitness assessments, ensuring that the platform's 430+ agents operate as a coherent system rather than a collection of independent actors.
 
-Operating within the [AIAD](/glossary/aiad/) framework at L1 authority, the Supreme Coordinator occupies the apex-predator ecological niche, a designation that reflects its ability to influence the behavior and resource allocation of agents across all domains. The agent enforces the [No Mercy, No Doubts](/glossary/no-mercy/) doctrine through systematic coordination that leaves no gaps in coverage and no ambiguity in mission assignments.
+Operating within the [AIAD](@/glossary/aiad.md) framework at L1 authority, the Supreme Coordinator occupies the apex-predator ecological niche, a designation that reflects its ability to influence the behavior and resource allocation of agents across all domains. The agent enforces the [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine through systematic coordination that leaves no gaps in coverage and no ambiguity in mission assignments.
 
 ## Theoretical Foundations
 
@@ -40,7 +40,7 @@ From organizational science, the concept of strategic alignment ensures that dom
 
 The ecological metaphor of apex predation informs the agent's resource governance approach. In biological ecosystems, apex predators regulate ecosystem dynamics through trophic cascades where top-down control influences population dynamics at every level. Similarly, the Supreme Coordinator's resource allocation decisions cascade through the agent hierarchy, influencing which domains receive expansion resources, which undergo consolidation, and which agent populations are adjusted to maintain ecosystem balance.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework provides epistemic governance for coordination decisions, requiring that cross-domain plans are supported by evidence from multiple independent sources and that contradictions between domain assessments are preserved and explicitly resolved rather than hidden through artificial consensus.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework provides epistemic governance for coordination decisions, requiring that cross-domain plans are supported by evidence from multiple independent sources and that contradictions between domain assessments are preserved and explicitly resolved rather than hidden through artificial consensus.
 
 ## Core Capabilities
 
@@ -56,19 +56,19 @@ The [NABLA Infinity](/glossary/nabla-infinity/) framework provides epistemic gov
 
 ## Architecture and Implementation
 
-The Supreme Coordinator is implemented as a stateful [OTP](/glossary/otp/) process on the [BEAM](/glossary/beam/) virtual machine, with dedicated supervision ensuring continuous availability. Its architecture reflects the dual requirements of strategic planning (long-running, computationally intensive) and operational coordination (low-latency, high-throughput).
+The Supreme Coordinator is implemented as a stateful [OTP](@/glossary/otp.md) process on the [BEAM](@/glossary/beam.md) virtual machine, with dedicated supervision ensuring continuous availability. Its architecture reflects the dual requirements of strategic planning (long-running, computationally intensive) and operational coordination (low-latency, high-throughput).
 
 | Component | Function | Implementation |
 |-----------|----------|---------------|
 | Mission Planner | Multi-domain plan construction | Constraint satisfaction solver |
-| Fitness Monitor | Ecosystem-wide fitness tracking | [ETS](/glossary/ets/)-backed metric aggregation |
+| Fitness Monitor | Ecosystem-wide fitness tracking | [ETS](@/glossary/ets.md)-backed metric aggregation |
 | Resource Allocator | Cross-domain resource optimization | Linear programming solver |
 | Communication Hub | Inter-domain message routing | GenServer with topic-based dispatch |
 | Intelligence Aggregator | Cross-domain pattern detection | Stream processing pipeline |
 
 The mission planning engine employs a constraint satisfaction approach where domain capabilities, resource availability, temporal dependencies, and strategic priorities define the constraint space. The solver produces feasible execution plans that satisfy all hard constraints while optimizing soft constraints such as resource efficiency and timeline compression.
 
-State management follows an event-sourced architecture where every coordination decision, resource allocation change, and mission status update is recorded as an immutable event. This provides a complete audit trail for post-hoc analysis and enables the [SEADF](/glossary/seadf/) framework to evaluate coordination effectiveness over time.
+State management follows an event-sourced architecture where every coordination decision, resource allocation change, and mission status update is recorded as an immutable event. This provides a complete audit trail for post-hoc analysis and enables the [SEADF](@/glossary/seadf.md) framework to evaluate coordination effectiveness over time.
 
 ## Coordination Protocols
 
@@ -95,17 +95,17 @@ Mission planning follows a structured methodology that balances thoroughness wit
 | Synchronization Design | Define cross-domain coordination points | Synchronization protocol specification |
 | Execution Authorization | Validate plan through Trinity Gate | Authorized execution plan |
 
-Every mission plan must pass [Trinity Gate](/glossary/trinity-gate/) verification before execution authorization. This verification confirms that the plan is structurally consistent (no circular dependencies or resource conflicts), logically sound (task sequences achieve stated objectives), and formally valid (critical path analysis confirms feasibility within time constraints).
+Every mission plan must pass [Trinity Gate](@/glossary/trinity-gate.md) verification before execution authorization. This verification confirms that the plan is structurally consistent (no circular dependencies or resource conflicts), logically sound (task sequences achieve stated objectives), and formally valid (critical path analysis confirms feasibility within time constraints).
 
 ## Integration Points
 
 | System | Coordination Role | Interaction Pattern |
 |--------|-------------------|-------------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent task assignment and monitoring | Command dispatch |
-| [Prismatic Telemetry](/glossary/telemetry/) | Operational metric collection | Continuous streaming |
-| [AIAD Registry](/glossary/registry-otp/) | Agent capability discovery | Query-based lookup |
-| [Trinity Gate](/glossary/trinity-gate/) | Plan and decision verification | Mandatory validation |
-| [SEADF](/glossary/seadf/) | Evolutionary fitness assessment | Bidirectional data flow |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent task assignment and monitoring | Command dispatch |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Operational metric collection | Continuous streaming |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent capability discovery | Query-based lookup |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Plan and decision verification | Mandatory validation |
+| [SEADF](@/glossary/seadf.md) | Evolutionary fitness assessment | Bidirectional data flow |
 | Supreme Commander | Strategic directive reception | Hierarchical command |
 
 ## Performance Metrics
@@ -126,7 +126,7 @@ The Supreme Coordinator operates continuously as a core platform service, provid
 
 ## Related Agents
 
-The Supreme Coordinator works under the strategic direction of the [supreme-commander](/agents/supreme-commander/), translating supreme-level directives into coordinated execution plans. It delegates tactical execution to the [tactical-command](/agents/tactical-command/) agent and leverages the [unified-orchestrator](/agents/unified-orchestrator/) for intelligent task routing within individual domains. The [trinity-integration-coordinator](/agents/trinity-integration-coordinator/) provides formal verification support for coordination decisions.
+The Supreme Coordinator works under the strategic direction of the [supreme-commander](@/agents/supreme-commander.md), translating supreme-level directives into coordinated execution plans. It delegates tactical execution to the [tactical-command](@/agents/tactical-command.md) agent and leverages the [unified-orchestrator](@/agents/unified-orchestrator.md) for intelligent task routing within individual domains. The [trinity-integration-coordinator](@/agents/trinity-integration-coordinator.md) provides formal verification support for coordination decisions.
 
 ---
 
@@ -135,4 +135,4 @@ The Supreme Coordinator works under the strategic direction of the [supreme-comm
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

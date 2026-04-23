@@ -25,7 +25,7 @@ image_alt = "MISP - Prismatic Platform"
 
 ## Overview
 
-MISP (Malware Information Sharing Platform) is the open-source standard for structured [threat intelligence](/glossary/threat-intelligence/) sharing. It enables organizations to share, store, and correlate Indicators of Compromise (IOCs) of targeted attacks, threat intelligence, financial fraud information, vulnerability information, and counter-terrorism data. MISP communities share millions of IOCs through interconnected instances.
+MISP (Malware Information Sharing Platform) is the open-source standard for structured [threat intelligence](@/glossary/threat-intelligence.md) sharing. It enables organizations to share, store, and correlate Indicators of Compromise (IOCs) of targeted attacks, threat intelligence, financial fraud information, vulnerability information, and counter-terrorism data. MISP communities share millions of IOCs through interconnected instances.
 
 Originally developed by CIRCL (Computer Incident Response Center Luxembourg) and now maintained by a global community of contributors, MISP has become the de facto standard for threat intelligence sharing across CERTs, ISACs, government agencies, and private sector security teams. The platform is used by organizations in over 100 countries and processes billions of threat intelligence data points annually.
 
@@ -288,14 +288,14 @@ Analyst teams use MISP to produce structured intelligence products from raw inci
 
 ## Integration with Prismatic Platform
 
-The [Prismatic Platform](/apps/prismatic/) maintains a dedicated MISP instance that serves as the central threat intelligence repository for the platform's security operations.
+The [Prismatic Platform](@/apps/prismatic.md) maintains a dedicated MISP instance that serves as the central threat intelligence repository for the platform's security operations.
 
 - **Automated Feed Ingestion**: The platform subscribes to 40+ open-source MISP feeds, automatically ingesting and correlating new IOCs as they are published.
-- **Bidirectional Sync**: Platform findings from [VirusTotal](/osint/virustotal/), [ThreatFox](/osint/threatfox/), and other threat intelligence sources are automatically published to MISP for sharing with trusted communities.
-- **Correlation Engine**: MISP's built-in correlation is extended with the platform's cross-source correlation capabilities, linking MISP events with [Shodan](/osint/shodan/) infrastructure data and [SecurityTrails](/osint/securitytrails/) DNS intelligence.
+- **Bidirectional Sync**: Platform findings from [VirusTotal](@/osint/virustotal.md), [ThreatFox](@/osint/threatfox.md), and other threat intelligence sources are automatically published to MISP for sharing with trusted communities.
+- **Correlation Engine**: MISP's built-in correlation is extended with the platform's cross-source correlation capabilities, linking MISP events with [Shodan](@/osint/shodan.md) infrastructure data and [SecurityTrails](@/osint/securitytrails.md) DNS intelligence.
 - **STIX/TAXII Export**: Platform intelligence is exported in STIX 2.1 format for consumption by partner organizations and downstream security tools.
 - **Alert Generation**: New MISP events matching monitored criteria trigger automated alerts and investigation workflows in the platform's incident response pipeline.
-- **Galaxy Integration**: MISP galaxy clusters for MITRE ATT&CK, threat actors, and malware families are mapped to the platform's [knowledge graph](/glossary/knowledge-graph/).
+- **Galaxy Integration**: MISP galaxy clusters for MITRE ATT&CK, threat actors, and malware families are mapped to the platform's [knowledge graph](@/glossary/knowledge-graph.md).
 
 ## Best Practices
 
@@ -317,13 +317,13 @@ The [Prismatic Platform](/apps/prismatic/) maintains a dedicated MISP instance t
 
 ## Related Providers
 
-- [AlienVault OTX](/osint/alienvault-otx/) - Open threat exchange
-- [ThreatFox](/osint/threatfox/) - IOC sharing by abuse.ch
-- [VirusTotal](/osint/virustotal/) - Multi-engine threat analysis
-- [CIRCL](/osint/circl-lu/) - Luxembourg CERT (MISP developer)
-- [MITRE ATT&CK](/osint/mitre-attack/) - TTP framework
-- [Pulsedive](/osint/pulsedive/) - Threat intelligence enrichment
-- [Shodan](/osint/shodan/) - Infrastructure intelligence for IOC context
+- [AlienVault OTX](@/osint/alienvault-otx.md) - Open threat exchange
+- [ThreatFox](@/osint/threatfox.md) - IOC sharing by abuse.ch
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine threat analysis
+- [CIRCL](@/osint/circl-lu.md) - Luxembourg CERT (MISP developer)
+- [MITRE ATT&CK](@/osint/mitre-attack.md) - TTP framework
+- [Pulsedive](@/osint/pulsedive.md) - Threat intelligence enrichment
+- [Shodan](@/osint/shodan.md) - Infrastructure intelligence for IOC context
 
 ---
 
@@ -332,4 +332,4 @@ The [Prismatic Platform](/apps/prismatic/) maintains a dedicated MISP instance t
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

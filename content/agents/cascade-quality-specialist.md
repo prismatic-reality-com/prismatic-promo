@@ -28,9 +28,9 @@ image_alt = "cascade-quality-specialist - Prismatic Platform"
 
 ## Overview
 
-The Cascade Quality Specialist is an L3 [strategic command](/glossary/strategic-command/) agent operating within the Quality domain of the Prismatic Platform. This agent systematically identifies and eliminates [CASCADE pattern](/glossary/cascade-pattern/)s -- recurring code quality anti-patterns that propagate across the codebase through copy-paste inheritance, template reuse, and developer habit formation. CASCADE stands for the systematic pattern types the specialist targets: Type Mismatch, Dead Code, Empty Check, Timer Replacement, and Nuclear Cache patterns.
+The Cascade Quality Specialist is an L3 [strategic command](@/glossary/strategic-command.md) agent operating within the Quality domain of the Prismatic Platform. This agent systematically identifies and eliminates [CASCADE pattern](@/glossary/cascade-pattern.md)s -- recurring code quality anti-patterns that propagate across the codebase through copy-paste inheritance, template reuse, and developer habit formation. CASCADE stands for the systematic pattern types the specialist targets: Type Mismatch, Dead Code, Empty Check, Timer Replacement, and Nuclear Cache patterns.
 
-CASCADE patterns are insidious because they appear individually minor but compound into significant [quality debt](/glossary/quality-debt/) when replicated across 90 umbrella applications containing over 6,600 Elixir source files. A single `length() > 0` anti-pattern (where `!= []` or pattern matching would be clearer and more efficient) might seem trivial, but when it appears in 200 locations across 40 applications, it represents both a maintenance burden and a systematic training signal that normalizes suboptimal code patterns for developers working in the codebase.
+CASCADE patterns are insidious because they appear individually minor but compound into significant [quality debt](@/glossary/quality-debt.md) when replicated across 90 umbrella applications containing over 6,600 Elixir source files. A single `length() > 0` anti-pattern (where `!= []` or pattern matching would be clearer and more efficient) might seem trivial, but when it appears in 200 locations across 40 applications, it represents both a maintenance burden and a systematic training signal that normalizes suboptimal code patterns for developers working in the codebase.
 
 The Cascade Quality Specialist has been instrumental in driving the platform's quality score to 100/100 (PERFECT) with zero quality debt remaining across all 13 quality domains. This was achieved through systematic detection, prioritized elimination, and preventive measures that ensure eliminated patterns do not recur.
 
@@ -116,16 +116,16 @@ The platform has achieved complete QDP elimination through 18 generations of sys
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to mandate pattern elimination, enforce pre-commit quality gates, and block commits that introduce CASCADE patterns.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to mandate pattern elimination, enforce pre-commit quality gates, and block commits that introduce CASCADE patterns.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [documentation-verifier](/agents/documentation-verifier/) | Documentation Quality | Coordinates code-comment consistency with pattern quality |
-| [hbfs-quality-evolution](/agents/hbfs-quality-evolution/) | Evolution Partner | Drives continuous quality evolution through HBFS framework |
-| [integration-testing-specialist](/agents/integration-testing-specialist/) | Test Coverage | Ensures eliminated patterns have regression test coverage |
-| [architecture-review-specialist](/agents/architecture-review-specialist/) | Structural Quality | Coordinates pattern quality with architectural quality standards |
+| [documentation-verifier](@/agents/documentation-verifier.md) | Documentation Quality | Coordinates code-comment consistency with pattern quality |
+| [hbfs-quality-evolution](@/agents/hbfs-quality-evolution.md) | Evolution Partner | Drives continuous quality evolution through HBFS framework |
+| [integration-testing-specialist](@/agents/integration-testing-specialist.md) | Test Coverage | Ensures eliminated patterns have regression test coverage |
+| [architecture-review-specialist](@/agents/architecture-review-specialist.md) | Structural Quality | Coordinates pattern quality with architectural quality standards |
 
 ## Performance Metrics
 
@@ -140,7 +140,7 @@ The platform has achieved complete QDP elimination through 18 generations of sys
 
 ## Enforcement
 
-The Cascade Quality Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. CASCADE patterns are not tolerated. New instances of eliminated patterns are blocked at the pre-commit hook with zero exceptions. Pattern elimination is verified through regression tests that prove the pattern cannot recur in the fixed location. Quality debt (QDP) must remain at zero -- any QDP increase triggers immediate remediation. The [Trinity Gate](/glossary/trinity-gate/) validates that pattern eliminations maintain structural consistency (removed code does not break dependencies), logical consistency (replacement code preserves original semantics), and formal correctness (type specifications and contracts remain valid after remediation). The platform's 100/100 quality score is treated as a floor, not a ceiling.
+The Cascade Quality Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. CASCADE patterns are not tolerated. New instances of eliminated patterns are blocked at the pre-commit hook with zero exceptions. Pattern elimination is verified through regression tests that prove the pattern cannot recur in the fixed location. Quality debt (QDP) must remain at zero -- any QDP increase triggers immediate remediation. The [Trinity Gate](@/glossary/trinity-gate.md) validates that pattern eliminations maintain structural consistency (removed code does not break dependencies), logical consistency (replacement code preserves original semantics), and formal correctness (type specifications and contracts remain valid after remediation). The platform's 100/100 quality score is treated as a floor, not a ceiling.
 
 ---
 
@@ -149,4 +149,4 @@ The Cascade Quality Specialist operates under the [NO MERCY, NO DOUBTS](/glossar
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -25,7 +25,7 @@ image_alt = "ERU / Czech Energy Regulator - Prismatic Platform"
 
 ## Overview
 
-The Energy Regulatory Office (ERU -- Energeticky regulacni urad) is the Czech national authority for energy market regulation, established by Act No. 458/2000 Sb. (the Energy Act). It maintains a public [registry](/glossary/registry-otp/) of all licensed energy operators in the Czech Republic including electricity generators, distributors, and traders as well as gas and heating companies. For [OSINT](/glossary/osint/) purposes, ERU data reveals the energy sector landscape, operator licenses, and regulatory compliance status.
+The Energy Regulatory Office (ERU -- Energeticky regulacni urad) is the Czech national authority for energy market regulation, established by Act No. 458/2000 Sb. (the Energy Act). It maintains a public [registry](@/glossary/registry-otp.md) of all licensed energy operators in the Czech Republic including electricity generators, distributors, and traders as well as gas and heating companies. For [OSINT](@/glossary/osint.md) purposes, ERU data reveals the energy sector landscape, operator licenses, and regulatory compliance status.
 
 ERU operates under the authority of Czech energy legislation and EU energy directives, making it the definitive source for energy sector intelligence in the Czech Republic. The office regulates electricity, gas, and heat supply markets, sets regulated prices for monopoly segments (distribution, transmission), and oversees consumer protection in energy markets. Its publicly available data covers approximately 1,500 licensed energy operators across all segments of the Czech energy market.
 
@@ -166,7 +166,7 @@ Before engaging with energy sector entities -- as investors, lenders, partners, 
 
 ### Subsidy and Grant Verification
 
-Czech energy companies, particularly renewable energy operators, receive substantial subsidies through feed-in tariffs and green certificates. Cross-referencing ERU license data with [SZIF](/osint/szif/) agricultural subsidies and [CEDR](/osint/cedr/) general subsidies reveals the total public funding received by energy entities and potential double-dipping across programs.
+Czech energy companies, particularly renewable energy operators, receive substantial subsidies through feed-in tariffs and green certificates. Cross-referencing ERU license data with [SZIF](@/osint/szif.md) agricultural subsidies and [CEDR](@/osint/cedr.md) general subsidies reveals the total public funding received by energy entities and potential double-dipping across programs.
 
 ### Critical Infrastructure Assessment
 
@@ -185,7 +185,7 @@ By mapping generation license types and installed capacities, analysts can asses
 | **PDF-heavy documents** | Price decisions and reports published as PDFs | PDF extraction pipeline with OCR fallback |
 | **Limited historical data online** | Older regulatory decisions may not be available | Request historical data through FOI (Act 106/1999 Sb.) |
 | **License scope text unstructured** | Free-text descriptions of licensed activities | NLP-based scope classification |
-| **No beneficial ownership** | ERU tracks license holders, not ultimate owners | Cross-reference with [Justice.cz](/osint/justice-cz/) for ownership chains |
+| **No beneficial ownership** | ERU tracks license holders, not ultimate owners | Cross-reference with [Justice.cz](@/osint/justice-cz.md) for ownership chains |
 
 ## Legal and Ethical Considerations
 
@@ -199,12 +199,12 @@ ERU data is publicly available under Czech law. The license registry is explicit
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), ERU data feeds into the Czech entity intelligence pipeline alongside [ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/), and financial registries.
+Within the [Prismatic Platform](@/apps/prismatic.md), ERU data feeds into the Czech entity intelligence pipeline alongside [ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md), and financial registries.
 
 - **Entity Enrichment**: Energy sector licenses are automatically linked to ARES company profiles, enriching business entities with their energy market activities.
 - **Regulatory Risk Scoring**: Enforcement actions and license conditions contribute to the entity risk score in the platform's compliance assessment module.
-- **Sector Mapping**: ERU data powers sector-level dashboards showing energy market structure, concentration, and trends within [Prismatic Perimeter](/apps/prismatic-perimeter/).
-- **Cross-Registry Correlation**: License holder ICOs are automatically cross-referenced with [Registr smluv](/osint/registr-smluv/) contracts, [CEDR](/osint/cedr/) subsidies, and [Verejne zakazky](/osint/verejne-zakazky/) procurement to build comprehensive financial profiles.
+- **Sector Mapping**: ERU data powers sector-level dashboards showing energy market structure, concentration, and trends within [Prismatic Perimeter](@/apps/prismatic-perimeter.md).
+- **Cross-Registry Correlation**: License holder ICOs are automatically cross-referenced with [Registr smluv](@/osint/registr-smluv.md) contracts, [CEDR](@/osint/cedr.md) subsidies, and [Verejne zakazky](@/osint/verejne-zakazky.md) procurement to build comprehensive financial profiles.
 
 ## Best Practices
 
@@ -222,13 +222,13 @@ Within the [Prismatic Platform](/apps/prismatic/), ERU data feeds into the Czech
 
 ## Related Providers
 
-- [ARES](/osint/ares/) - Business registry for operator identification
-- [Registr smluv](/osint/registr-smluv/) - Energy sector public contracts
-- [Verejne zakazky](/osint/verejne-zakazky/) - Energy procurement tenders
-- [CEDR](/osint/cedr/) - Subsidies for energy projects
-- [Hlidac statu](/osint/hlidac-statu/) - Watchdog analytics on energy sector
-- [SZIF](/osint/szif/) - Agricultural fund (bioenergy subsidies)
-- [Nahlizeni do KN](/osint/nahlizeni-kn/) - Property records for energy infrastructure sites
+- [ARES](@/osint/ares.md) - Business registry for operator identification
+- [Registr smluv](@/osint/registr-smluv.md) - Energy sector public contracts
+- [Verejne zakazky](@/osint/verejne-zakazky.md) - Energy procurement tenders
+- [CEDR](@/osint/cedr.md) - Subsidies for energy projects
+- [Hlidac statu](@/osint/hlidac-statu.md) - Watchdog analytics on energy sector
+- [SZIF](@/osint/szif.md) - Agricultural fund (bioenergy subsidies)
+- [Nahlizeni do KN](@/osint/nahlizeni-kn.md) - Property records for energy infrastructure sites
 
 ---
 
@@ -237,4 +237,4 @@ Within the [Prismatic Platform](/apps/prismatic/), ERU data feeds into the Czech
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -23,7 +23,7 @@ image_alt = "Prismatic Browser - Prismatic Platform"
 
 ## Overview
 
-Prismatic Browser provides headless browser automation capabilities for web content collection that requires JavaScript rendering, managing a supervised pool of Chromium instances for parallel page loading, screenshot capture, DOM extraction, and interaction automation. The system is essential for [OSINT](/glossary/osint/) collection from modern JavaScript-heavy web applications where HTTP-only crawling returns empty or incomplete content.
+Prismatic Browser provides headless browser automation capabilities for web content collection that requires JavaScript rendering, managing a supervised pool of Chromium instances for parallel page loading, screenshot capture, DOM extraction, and interaction automation. The system is essential for [OSINT](@/glossary/osint.md) collection from modern JavaScript-heavy web applications where HTTP-only crawling returns empty or incomplete content.
 
 Modern web applications render content dynamically through JavaScript execution. A standard HTTP client retrieving the HTML source of such applications receives only the application shell without rendered content. Government portals, financial services, and corporate websites increasingly use single-page application architectures that load data asynchronously after initial page load. OSINT collection from these sources requires a full browser environment that executes JavaScript, waits for content rendering, and then extracts the final DOM state.
 
@@ -138,13 +138,13 @@ Property-based tests use StreamData generators to produce random CSS selectors a
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Cache](/apps/prismatic-cache/) | Rendered content caching for repeated access |
-| [Prismatic Resilience](/apps/prismatic-resilience/) | [Circuit breaker](/glossary/circuit-breaker/) patterns for failing target sites |
-| [Prismatic Crawler](/apps/prismatic-crawler/) | JavaScript-rendered page collection integration |
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | OSINT source content extraction |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Target website analysis during attack surface discovery |
+| [Prismatic Cache](@/apps/prismatic-cache.md) | Rendered content caching for repeated access |
+| [Prismatic Resilience](@/apps/prismatic-resilience.md) | [Circuit breaker](@/glossary/circuit-breaker.md) patterns for failing target sites |
+| [Prismatic Crawler](@/apps/prismatic-crawler.md) | JavaScript-rendered page collection integration |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | OSINT source content extraction |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Target website analysis during attack surface discovery |
 
-External dependency: Chromium browser binary (headless mode) with Chrome DevTools [Protocol](/glossary/protocol/) for browser control. No cloud rendering services are used.
+External dependency: Chromium browser binary (headless mode) with Chrome DevTools [Protocol](@/glossary/protocol.md) for browser control. No cloud rendering services are used.
 
 ## NABLA Compliance
 
@@ -171,19 +171,19 @@ Malicious web pages could attempt to exploit browser vulnerabilities. Sandboxed 
 | Memory | 1 GB (2 instances) | 4 GB (10 instances) |
 | CPU | 2 cores | 4 cores |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :browser, :render]`, `[:prismatic, :browser, :instance_recycled]`, `[:prismatic, :browser, :pool_exhausted]`. Key [metrics](/glossary/metrics/) include render latency, pool utilization, and memory consumption per instance.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :browser, :render]`, `[:prismatic, :browser, :instance_recycled]`, `[:prismatic, :browser, :pool_exhausted]`. Key [metrics](@/glossary/metrics.md) include render latency, pool utilization, and memory consumption per instance.
 
 ## Related Resources
 
-- [Prismatic Crawler](/apps/prismatic-crawler/) -- HTTP-based crawling infrastructure
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Intelligence source layer
+- [Prismatic Crawler](@/apps/prismatic-crawler.md) -- HTTP-based crawling infrastructure
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Intelligence source layer
 - [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) -- Browser automation protocol
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Designs adapter interfaces for browser pool management and content extraction
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Configures alerting for pool exhaustion and instance health degradation
-- [Competitor Researcher](/agents/competitor-researcher/) -- Leverages browser automation for competitive intelligence collection
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Combines browser-rendered content with other OSINT sources
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Monitors browser pool utilization and render latency in real time
-- [Quality Gates](/capabilities/quality-gates/) -- Validates content extraction accuracy and pool management reliability
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Designs adapter interfaces for browser pool management and content extraction
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Configures alerting for pool exhaustion and instance health degradation
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Leverages browser automation for competitive intelligence collection
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Combines browser-rendered content with other OSINT sources
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Monitors browser pool utilization and render latency in real time
+- [Quality Gates](@/capabilities/quality-gates.md) -- Validates content extraction accuracy and pool management reliability
 
 ---
 
@@ -192,4 +192,4 @@ Malicious web pages could attempt to exploit browser vulnerabilities. Sandboxed 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

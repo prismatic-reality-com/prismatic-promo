@@ -18,7 +18,7 @@ see_also = ["dialyzer", "typespec", "success-typing", "static-analysis", "correc
 image_alt = "Dialyzer Specs and Success Typing"
 +++
 
-[Dialyzer](/glossary/dialyzer) confuses people because it is not what they expect. It is not a type checker like TypeScript. It does not reject your code unless it can *prove* it wrong. That is [success typing](/glossary/success-typing), and once you accept it, Dialyzer becomes an unusually high-signal tool — it reports bugs that nobody writes tests for.
+[Dialyzer](@/glossary/dialyzer.md) confuses people because it is not what they expect. It is not a type checker like TypeScript. It does not reject your code unless it can *prove* it wrong. That is [success typing](@/glossary/success-typing.md), and once you accept it, Dialyzer becomes an unusually high-signal tool — it reports bugs that nobody writes tests for.
 
 ## What Dialyzer actually catches
 
@@ -30,7 +30,7 @@ Three categories:
 
 These are bugs your tests usually do not cover because they require you to *think* about the input set. Dialyzer does the thinking.
 
-## The [typespec](/glossary/typespec) is the contract
+## The [typespec](@/glossary/typespec.md) is the contract
 
 ```elixir
 @spec search(query :: String.t(), opts :: keyword()) ::
@@ -59,6 +59,6 @@ Dialyzer is sometimes wrong — it has false negatives (bugs it will not catch) 
 ## Where to go next
 
 - **Academy**: [Development Workflow](/academy/learn/development-workflow) — where Dialyzer runs in the pipeline
-- **Glossary**: [Dialyzer](/glossary/dialyzer), [Typespec](/glossary/typespec), [Success Typing](/glossary/success-typing), [Static Analysis](/glossary/static-analysis), [Correctness](/glossary/correctness)
+- **Glossary**: [Dialyzer](@/glossary/dialyzer.md), [Typespec](@/glossary/typespec.md), [Success Typing](@/glossary/success-typing.md), [Static Analysis](@/glossary/static-analysis.md), [Correctness](/glossary/correctness)
 
 Not a type checker. A bug finder. Treat it as the second, run it every CI, and the bugs it finds are the ones you were going to miss.

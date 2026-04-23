@@ -35,7 +35,7 @@ image_alt = "Prismatic Perimeter - Prismatic Platform"
 
 ## Definition and Overview
 
-Prismatic Perimeter (`prismatic_perimeter`) is the platform's External Attack Surface Management (EASM) application, designed to compete with commercial solutions like BitSight, Black Kite, and SecurityScorecard. It performs automated discovery of an organization's external-facing digital assets -- domains, IP addresses, SSL/TLS certificates, cloud resources, exposed services, and API endpoints -- then assigns security ratings (A-F grades with numeric scores from 300-900), identifies vulnerabilities, and assesses compliance against regulatory frameworks including the NIS2 Directive (EU 2022/2555) and ZKB 264/2025 Sb. (Czech cybersecurity regulation). The MVP was completed in Milestone M46, providing a [LiveView](/glossary/liveview/) dashboard for real-time security posture monitoring.
+Prismatic Perimeter (`prismatic_perimeter`) is the platform's External Attack Surface Management (EASM) application, designed to compete with commercial solutions like BitSight, Black Kite, and SecurityScorecard. It performs automated discovery of an organization's external-facing digital assets -- domains, IP addresses, SSL/TLS certificates, cloud resources, exposed services, and API endpoints -- then assigns security ratings (A-F grades with numeric scores from 300-900), identifies vulnerabilities, and assesses compliance against regulatory frameworks including the NIS2 Directive (EU 2022/2555) and ZKB 264/2025 Sb. (Czech cybersecurity regulation). The MVP was completed in Milestone M46, providing a [LiveView](@/glossary/liveview.md) dashboard for real-time security posture monitoring.
 
 External Attack Surface Management addresses a critical gap in traditional security programs. Organizations know what assets they have deployed internally, but their external attack surface -- the collection of internet-facing resources visible to potential adversaries -- is often poorly understood. Shadow IT, forgotten subdomains, misconfigured cloud resources, expired certificates, and unpatched services create an attack surface that grows organically and invisibly. Prismatic Perimeter maps this surface through the same techniques that adversaries use for reconnaissance, providing defenders with the attacker's perspective of their organization.
 
@@ -53,13 +53,13 @@ Prismatic Perimeter enters a competitive market dominated by established vendors
 | **RiskRecon** | 0-10 | Passive | Limited | Per-company |
 | **Prismatic Perimeter** | 300-900 (A-F) | Multi-phase active | NIS2, ZKB | Open source |
 
-Prismatic Perimeter differentiates through several key capabilities: open-source transparency (no black-box scoring), EU regulatory focus (NIS2/ZKB compliance), evidence-based scoring (every rating backed by verifiable findings), and deep integration with the Prismatic Platform's [OSINT](/glossary/osint/) capabilities (120 intelligence tools). The open-source nature means organizations can audit the scoring methodology, understand exactly why they received a particular rating, and contribute improvements to the assessment engine.
+Prismatic Perimeter differentiates through several key capabilities: open-source transparency (no black-box scoring), EU regulatory focus (NIS2/ZKB compliance), evidence-based scoring (every rating backed by verifiable findings), and deep integration with the Prismatic Platform's [OSINT](@/glossary/osint.md) capabilities (120 intelligence tools). The open-source nature means organizations can audit the scoring methodology, understand exactly why they received a particular rating, and contribute improvements to the assessment engine.
 
 ## Technical Architecture
 
 ### Discovery Pipeline
 
-The discovery pipeline operates as a multi-phase process, implemented as a [GenStatem](/glossary/gen-statem/) state machine that progresses through sequential discovery stages. Each phase enriches the asset inventory with additional intelligence gathered from different sources.
+The discovery pipeline operates as a multi-phase process, implemented as a [GenStatem](@/glossary/gen-statem.md) state machine that progresses through sequential discovery stages. Each phase enriches the asset inventory with additional intelligence gathered from different sources.
 
 ```elixir
 defmodule PrismaticPerimeter.Discovery.Pipeline do
@@ -398,7 +398,7 @@ end
 
 ## LiveView Dashboard
 
-The Perimeter dashboard provides real-time security posture monitoring through [Phoenix](/glossary/phoenix/) [LiveView](/glossary/liveview/).
+The Perimeter dashboard provides real-time security posture monitoring through [Phoenix](@/glossary/phoenix.md) [LiveView](@/glossary/liveview.md).
 
 ```elixir
 defmodule PrismaticWeb.PerimeterDashboardLive do
@@ -541,23 +541,23 @@ Prismatic Perimeter emits comprehensive Telemetry events for operational monitor
 
 ## Related Concepts
 
-- [EASM](/glossary/easm/) - Security discipline that Prismatic Perimeter implements
-- [Security Rating](/glossary/security-rating/) - A-F grading system produced by the rating engine
-- [NIS2](/glossary/nis2/) - EU cybersecurity directive assessed by the compliance module
-- [ZKB](/glossary/zkb/) - Czech cybersecurity regulation assessed alongside NIS2
-- [Attack Surface](/glossary/attack-surface/) - External exposure area that Prismatic Perimeter maps
-- [OSINT](/glossary/osint/) - Intelligence discipline powering asset discovery
-- [GenStatem](/glossary/gen-statem/) - State machine modelling the discovery pipeline
-- [LiveView](/glossary/liveview/) - Real-time dashboard technology
-- [Phoenix](/glossary/phoenix/) - Web framework hosting the Perimeter dashboard
-- [Circuit Breaker](/glossary/circuit-breaker/) - Fault tolerance for external service dependencies
+- [EASM](@/glossary/easm.md) - Security discipline that Prismatic Perimeter implements
+- [Security Rating](@/glossary/security-rating.md) - A-F grading system produced by the rating engine
+- [NIS2](@/glossary/nis2.md) - EU cybersecurity directive assessed by the compliance module
+- [ZKB](@/glossary/zkb.md) - Czech cybersecurity regulation assessed alongside NIS2
+- [Attack Surface](@/glossary/attack-surface.md) - External exposure area that Prismatic Perimeter maps
+- [OSINT](@/glossary/osint.md) - Intelligence discipline powering asset discovery
+- [GenStatem](@/glossary/gen-statem.md) - State machine modelling the discovery pipeline
+- [LiveView](@/glossary/liveview.md) - Real-time dashboard technology
+- [Phoenix](@/glossary/phoenix.md) - Web framework hosting the Perimeter dashboard
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Fault tolerance for external service dependencies
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Apps](/apps/) - Umbrella applications including Prismatic Perimeter
-- [OSINT Tools](/osint/) - Intelligence tools powering discovery
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Apps](@/apps/_index.md) - Umbrella applications including Prismatic Perimeter
+- [OSINT Tools](@/osint/_index.md) - Intelligence tools powering discovery
 
 ---
 
@@ -566,4 +566,4 @@ Prismatic Perimeter emits comprehensive Telemetry events for operational monitor
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

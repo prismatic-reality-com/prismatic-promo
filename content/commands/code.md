@@ -28,7 +28,7 @@ image_alt = "/code - Prismatic Platform"
 
 The `/code` command transforms a natural language description of a feature, bug fix, or refactoring task into a complete, production-ready implementation with tests, documentation, and quality validation. Rather than generating code in isolation, the command orchestrates a team of specialist agents -- implementation leads, domain experts, QA reviewers, and testing specialists -- who collaborate through a six-phase pipeline from request analysis through deliverable presentation.
 
-This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent as the primary implementation lead, with dynamic agent discovery selecting additional specialists based on the coding request. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command enforces mandatory quality gates: no code is delivered without passing compilation, Credo analysis, Dialyzer type checking, and comprehensive test coverage.
+This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent as the primary implementation lead, with dynamic agent discovery selecting additional specialists based on the coding request. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command enforces mandatory quality gates: no code is delivered without passing compilation, Credo analysis, Dialyzer type checking, and comprehensive test coverage.
 
 The interactive validation phase ensures that implementations match developer intent before code generation begins. Users can continue with the proposed approach, refine requirements, adjust the implementation strategy, or proceed directly to generation -- maintaining developer control while leveraging the full power of multi-agent collaboration.
 
@@ -209,10 +209,10 @@ Every code generation must pass all five gates before delivery:
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Multi-agent collaboration | Dynamic team assembly |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Multi-agent collaboration | Dynamic team assembly |
 | AIAD Registry | Agent discovery | Registry-based specialist selection |
-| [Quality Gates](/glossary/quality-gates/) | Mandatory validation | All gates must pass |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Generation time, quality scores |
+| [Quality Gates](@/glossary/quality-gates.md) | Mandatory validation | All gates must pass |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Generation time, quality scores |
 | Git Integration | Pre-commit validation | `.githooks/pre-commit` enforcement |
 | CI/CD Pipeline | Post-generation validation | GitLab CI quality checks |
 
@@ -282,20 +282,20 @@ The `/code` command automatically refreshes its agent discovery index when the A
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every line of generated code must pass all five quality gates. No stubs, mocks, or placeholder implementations are delivered.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The requirement refinement phase ensures complete understanding before generation begins. Interactive validation confirms developer intent.
 
 ## Related Commands
 
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/debug-investigation](/commands/debug-investigation/) - Comprehensive debugging investigation
-- [/debug-types](/commands/debug-types/) - Troubleshoot Dialyzer type inference issues
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/debug-investigation](@/commands/debug-investigation.md) - Comprehensive debugging investigation
+- [/debug-types](@/commands/debug-types.md) - Troubleshoot Dialyzer type inference issues
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -304,4 +304,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -18,7 +18,7 @@ see_also = ["cqrs", "event-sourcing", "ecto", "pubsub", "due-diligence"]
 image_alt = "CQRS for DD Case State"
 +++
 
-A due diligence case has one canonical write path and twenty read shapes. The case dashboard wants a timeline. The graph view wants nodes and edges. The compliance export wants a flat row per entity. The analyst wants a redacted copy for a junior reviewer. Answering all of those from one `cases` table is the kind of decision that looks sensible until you hit 500k cases and the dashboard takes six seconds. [CQRS](/glossary/cqrs) separates the write model from the read models and the whole problem dissolves.
+A due diligence case has one canonical write path and twenty read shapes. The case dashboard wants a timeline. The graph view wants nodes and edges. The compliance export wants a flat row per entity. The analyst wants a redacted copy for a junior reviewer. Answering all of those from one `cases` table is the kind of decision that looks sensible until you hit 500k cases and the dashboard takes six seconds. [CQRS](@/glossary/cqrs.md) separates the write model from the read models and the whole problem dissolves.
 
 ## Write side: the command
 
@@ -43,7 +43,7 @@ The write path is narrow. It validates, it inserts, it emits an event. Notice wh
 
 ## Read side: projectors
 
-Each read shape has its own projector — a dedicated [GenServer](/glossary/genserver) that subscribes to events and updates its own denormalized table:
+Each read shape has its own projector — a dedicated [GenServer](@/glossary/genserver.md) that subscribes to events and updates its own denormalized table:
 
 ```elixir
 defmodule PrismaticDD.Projections.Timeline do
@@ -86,6 +86,6 @@ If Ecto + a few well-chosen indexes serves the dashboard, keep it simple.
 
 - **Academy**: [DD Investigation](/academy/learn/dd-investigation) — the case-state lifecycle
 - **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — where CQRS fits
-- **Glossary**: [CQRS](/glossary/cqrs), [Event Sourcing](/glossary/event-sourcing), [Ecto](/glossary/ecto), [PubSub](/glossary/pubsub), [Due Diligence](/glossary/due-diligence)
+- **Glossary**: [CQRS](@/glossary/cqrs.md), [Event Sourcing](@/glossary/event-sourcing.md), [Ecto](@/glossary/ecto.md), [PubSub](@/glossary/pubsub.md), [Due Diligence](@/glossary/due-diligence.md)
 
 One write model. Many read models. The dashboard stops being a bottleneck.

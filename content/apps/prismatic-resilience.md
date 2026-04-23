@@ -24,9 +24,9 @@ image_alt = "Prismatic Resilience - Prismatic Platform"
 
 ## Overview
 
-Prismatic Resilience provides the platform's [fault tolerance](/glossary/fault-tolerance/) and [chaos engineering](/glossary/chaos-engineering/) infrastructure. In a system integrating 121+ external [OSINT sources](/osint/), government registries, and third-party APIs, failures are not exceptional events -- they are guaranteed. Prismatic Resilience ensures the platform degrades gracefully, recovers automatically, and maintains service quality even when individual components fail. The application implements [circuit breaker](/glossary/circuit-breaker/)s, bulkhead isolation, retry strategies, fallback chains, and chaos engineering tools that proactively test the platform's failure handling under controlled conditions.
+Prismatic Resilience provides the platform's [fault tolerance](@/glossary/fault-tolerance.md) and [chaos engineering](@/glossary/chaos-engineering.md) infrastructure. In a system integrating 121+ external [OSINT sources](@/osint/_index.md), government registries, and third-party APIs, failures are not exceptional events -- they are guaranteed. Prismatic Resilience ensures the platform degrades gracefully, recovers automatically, and maintains service quality even when individual components fail. The application implements [circuit breaker](@/glossary/circuit-breaker.md)s, bulkhead isolation, retry strategies, fallback chains, and chaos engineering tools that proactively test the platform's failure handling under controlled conditions.
 
-The resilience architecture is built on [OTP](/glossary/otp/) supervision principles but extends them with application-level fault tolerance patterns specifically designed for external service dependencies. While OTP supervisors handle process crashes through restart strategies, Prismatic Resilience handles a different class of failures: network timeouts, rate limiting, service degradation, and cascading failures across distributed systems. Each external service dependency is wrapped in a circuit breaker that monitors failure rates, opens the circuit when a threshold is exceeded, and periodically tests recovery by allowing probe requests through in a half-open state.
+The resilience architecture is built on [OTP](@/glossary/otp.md) supervision principles but extends them with application-level fault tolerance patterns specifically designed for external service dependencies. While OTP supervisors handle process crashes through restart strategies, Prismatic Resilience handles a different class of failures: network timeouts, rate limiting, service degradation, and cascading failures across distributed systems. Each external service dependency is wrapped in a circuit breaker that monitors failure rates, opens the circuit when a threshold is exceeded, and periodically tests recovery by allowing probe requests through in a half-open state.
 
 The chaos engineering subsystem enables proactive fault discovery by injecting controlled failures -- latency, errors, and resource constraints -- into specific system components during test campaigns. This approach, inspired by Netflix's Chaos Monkey philosophy, ensures that the platform's resilience mechanisms are continuously validated against realistic failure scenarios rather than waiting for production incidents to expose weaknesses.
 
@@ -177,11 +177,11 @@ mix test apps/prismatic_resilience/test --cover
 
 ## Integration Points
 
-- **[Prismatic Safety](/apps/prismatic-safety/)** -- Quality floor recovery triggers resilience mechanisms
-- **[Prismatic Cache](/apps/prismatic-cache/)** -- Fallback data source when primary services are unavailable
-- **[Prismatic Telemetry](/apps/prismatic-telemetry/)** -- Resilience [metrics](/glossary/metrics/) emitted for latency and failure rate monitoring
-- **[Prismatic OSINT Core](/apps/prismatic-osint-core/)** -- External service fault tolerance for all OSINT source queries
-- **[Prismatic Claude](/apps/prismatic-claude/)** -- Session lifecycle circuit breakers protecting AI service calls
+- **[Prismatic Safety](@/apps/prismatic-safety.md)** -- Quality floor recovery triggers resilience mechanisms
+- **[Prismatic Cache](@/apps/prismatic-cache.md)** -- Fallback data source when primary services are unavailable
+- **[Prismatic Telemetry](@/apps/prismatic-telemetry.md)** -- Resilience [metrics](@/glossary/metrics.md) emitted for latency and failure rate monitoring
+- **[Prismatic OSINT Core](@/apps/prismatic-osint-core.md)** -- External service fault tolerance for all OSINT source queries
+- **[Prismatic Claude](@/apps/prismatic-claude.md)** -- Session lifecycle circuit breakers protecting AI service calls
 
 ## NABLA Compliance
 
@@ -201,9 +201,9 @@ Resilience decisions maintain epistemic integrity through provenance tracking. E
 
 ## Related Resources
 
-- [Prismatic Storage Redis](/apps/prismatic-storage-redis/) -- Distributed lock and cache infrastructure supporting resilience fallbacks
-- [Prismatic Visitor Intelligence](/apps/prismatic-visitor-intelligence/) -- Consumer of resilience patterns for OSINT enrichment queries
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- EASM discovery leveraging circuit breakers for external service calls
+- [Prismatic Storage Redis](@/apps/prismatic-storage-redis.md) -- Distributed lock and cache infrastructure supporting resilience fallbacks
+- [Prismatic Visitor Intelligence](@/apps/prismatic-visitor-intelligence.md) -- Consumer of resilience patterns for OSINT enrichment queries
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- EASM discovery leveraging circuit breakers for external service calls
 
 ---
 
@@ -212,4 +212,4 @@ Resilience decisions maintain epistemic integrity through provenance tracking. E
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

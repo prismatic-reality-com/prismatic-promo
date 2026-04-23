@@ -24,9 +24,9 @@ image_alt = "/mycelialize-formal - Prismatic Platform"
 
 ## Overview
 
-**/mycelialize-formal** is an experimental command in the **Evolution** category of the Prismatic Platform. It applies [Lean4](/glossary/lean4/) theorem proving and Prolog logical reasoning to the [mycelial network](/glossary/mycelial-network/) pattern propagation system, producing mathematically verified proofs that patterns propagate correctly, preserve invariants, and terminate within bounded resource envelopes. While the sibling [/mycelialize](/commands/mycelialize/) command handles high-throughput biological-inspired propagation and [/mycelialize-living](/commands/mycelialize-living/) manages self-evolving intelligence, `/mycelialize-formal` occupies the verification layer, ensuring that every pattern transformation is backed by constructive proof rather than empirical observation alone.
+**/mycelialize-formal** is an experimental command in the **Evolution** category of the Prismatic Platform. It applies [Lean4](@/glossary/lean4.md) theorem proving and Prolog logical reasoning to the [mycelial network](@/glossary/mycelial-network.md) pattern propagation system, producing mathematically verified proofs that patterns propagate correctly, preserve invariants, and terminate within bounded resource envelopes. While the sibling [/mycelialize](@/commands/mycelialize.md) command handles high-throughput biological-inspired propagation and [/mycelialize-living](@/commands/mycelialize-living.md) manages self-evolving intelligence, `/mycelialize-formal` occupies the verification layer, ensuring that every pattern transformation is backed by constructive proof rather than empirical observation alone.
 
-This command operates under the **COSMIC** authority level and is executed by the `mycelial-network-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The COSMIC authority level reflects the command's ability to influence cross-system behavior through verified pattern theorems that, once proven, become axioms within the platform's [Trinity Gate](/glossary/trinity-gate/) verification pipeline.
+This command operates under the **COSMIC** authority level and is executed by the `mycelial-network-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The COSMIC authority level reflects the command's ability to influence cross-system behavior through verified pattern theorems that, once proven, become axioms within the platform's [Trinity Gate](@/glossary/trinity-gate.md) verification pipeline.
 
 The formal verification approach bridges two complementary paradigms. Lean4 provides dependent type theory and a sophisticated tactic framework for constructive proofs about pattern structure, termination, and resource bounds. Prolog contributes backward-chaining inference for constraint satisfaction, rule validation, and logical consistency checking across the network topology. Together, they form a dual-verification system that catches classes of errors neither system would detect in isolation.
 
@@ -68,7 +68,7 @@ The `/mycelialize-formal` command is structured as a multi-phase verification pi
 
 ### Data Flow
 
-Pattern definitions enter the pipeline as Elixir structs, are serialized into Lean4 type definitions and Prolog facts, processed through their respective verification engines, and the resulting proofs are deserialized back into platform-native proof certificates. These certificates are then submitted to the [Trinity Gate](/glossary/trinity-gate/) for final acceptance into the platform's verified knowledge base.
+Pattern definitions enter the pipeline as Elixir structs, are serialized into Lean4 type definitions and Prolog facts, processed through their respective verification engines, and the resulting proofs are deserialized back into platform-native proof certificates. These certificates are then submitted to the [Trinity Gate](@/glossary/trinity-gate.md) for final acceptance into the platform's verified knowledge base.
 
 ## Usage
 
@@ -164,7 +164,7 @@ Complementary Prolog verification runs in parallel:
 
 ### Phase 5: Proof Aggregation and Trinity Submission
 
-Individual proofs from both engines are aggregated into composite verification certificates. These certificates include proof hashes, verification timestamps, engine versions, and dependency chains. The composite certificate is submitted to the [Trinity Gate](/glossary/trinity-gate/) for acceptance.
+Individual proofs from both engines are aggregated into composite verification certificates. These certificates include proof hashes, verification timestamps, engine versions, and dependency chains. The composite certificate is submitted to the [Trinity Gate](@/glossary/trinity-gate.md) for acceptance.
 
 ```
 Discovery → Dependency Sort → Lean4 Verify → Prolog Verify → Aggregate → Trinity Submit
@@ -178,15 +178,15 @@ Discovery → Dependency Sort → Lean4 Verify → Prolog Verify → Aggregate �
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/mycelialize](/commands/mycelialize/) | Upstream | Provides pattern definitions for verification |
-| [/mycelialize-living](/commands/mycelialize-living/) | Upstream | Supplies evolved patterns requiring re-verification |
-| [Trinity Gate](/glossary/trinity-gate/) | Downstream | Receives verified proof certificates |
-| [/trinity](/commands/trinity/) | Peer | Shares verification infrastructure |
-| [/lean](/commands/lean/) | Engine | Lean4 proof assistant execution |
-| [/prolog](/commands/prolog/) | Engine | Prolog inference engine execution |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Verified patterns pass quality gates automatically |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Proof timing, success rates, cache hit ratios |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Framework | Epistemic axiom compliance for proof provenance |
+| [/mycelialize](@/commands/mycelialize.md) | Upstream | Provides pattern definitions for verification |
+| [/mycelialize-living](@/commands/mycelialize-living.md) | Upstream | Supplies evolved patterns requiring re-verification |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Downstream | Receives verified proof certificates |
+| [/trinity](@/commands/trinity.md) | Peer | Shares verification infrastructure |
+| [/lean](@/commands/lean.md) | Engine | Lean4 proof assistant execution |
+| [/prolog](@/commands/prolog.md) | Engine | Prolog inference engine execution |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Verified patterns pass quality gates automatically |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Proof timing, success rates, cache hit ratios |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Framework | Epistemic axiom compliance for proof provenance |
 
 ## Best Practices
 
@@ -276,7 +276,7 @@ When verifying complex multi-pattern interactions, use the composition mode to b
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Unverifiable patterns are rejected, not silently skipped.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every verification claim is backed by a constructive proof.
@@ -285,16 +285,16 @@ The formal verification approach directly embodies the NO DOUBTS principle: clai
 
 ## Related Commands
 
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-living](/commands/mycelialize-living/) - Living self-evolving intelligence with introspection, AST manipulation and agent swarms
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/lean](/commands/lean/) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
-- [/prolog](/commands/prolog/) - Prolog-based logical reasoning and [inference](/glossary/inference/) operations
-- [/trinity](/commands/trinity/) - Trinity system status and rigidity score verification
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/formal-verify](/commands/formal-verify/) - Formal verification of system properties and invariants
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-living](@/commands/mycelialize-living.md) - Living self-evolving intelligence with introspection, AST manipulation and agent swarms
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/lean](@/commands/lean.md) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
+- [/prolog](@/commands/prolog.md) - Prolog-based logical reasoning and [inference](@/glossary/inference.md) operations
+- [/trinity](@/commands/trinity.md) - Trinity system status and rigidity score verification
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/formal-verify](@/commands/formal-verify.md) - Formal verification of system properties and invariants
 
 ---
 
@@ -303,4 +303,4 @@ The formal verification approach directly embodies the NO DOUBTS principle: clai
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

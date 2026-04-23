@@ -205,10 +205,10 @@ window.PrismaticCreative.refreshAllSketches()
 ## Related Resources
 
 - [p5.js Creative Reference](https://p5js.org/reference/)
-- [Data Visualization Platform](/developers/data-visualization/)
-- [Cross-Link Navigation](/developers/cross-link-navigation/)
-- [Architecture Overview](/architecture/)
-- [Academy Interactive Learning](/academy/)
+- [Data Visualization Platform](@/developers/data-visualization.md)
+- [Cross-Link Navigation](@/developers/cross-link-navigation.md)
+- [Architecture Overview](@/architecture/_index.md)
+- [Academy Interactive Learning](@/academy/_index.md)
 
 ---
 

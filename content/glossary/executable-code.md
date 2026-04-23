@@ -446,24 +446,24 @@ Authentication, authorization, and encryption modules undergo additional verific
 
 ## Related Concepts
 
-- [Compilation](/glossary/compilation/) -- The first transformation stage that converts source code into BEAM bytecode.
-- [BEAM VM](/glossary/beam-vm/) -- The virtual machine that executes compiled BEAM bytecode with preemptive scheduling and per-process isolation.
-- [Elixir](/glossary/elixir/) -- The primary programming language whose source code is compiled into executable BEAM bytecode.
-- [Static Analysis](/glossary/static-analysis/) -- Verification techniques (Dialyzer, Credo) applied to code before it is considered executable.
-- [Quality Gates](/glossary/quality-gates/) -- The multi-phase verification pipeline that code must pass to be considered executable.
-- [Code Quality](/glossary/code-quality/) -- The measurable properties that distinguish verified executable code from merely compilable code.
-- [AST](/glossary/ast/) -- The Abstract Syntax Tree representation used during compilation and macro expansion.
-- [Hot Code Reload](/glossary/hot-code-reload/) -- The BEAM capability that allows replacing executable code in a running system.
-- [Code Coverage](/glossary/code-coverage/) -- The metric tracking what percentage of executable code is exercised by the test suite.
-- [Code Generation](/glossary/code-generation/) -- Automated production of source code that must pass the same verification pipeline.
+- [Compilation](@/glossary/compilation.md) -- The first transformation stage that converts source code into BEAM bytecode.
+- [BEAM VM](@/glossary/beam-vm.md) -- The virtual machine that executes compiled BEAM bytecode with preemptive scheduling and per-process isolation.
+- [Elixir](@/glossary/elixir.md) -- The primary programming language whose source code is compiled into executable BEAM bytecode.
+- [Static Analysis](@/glossary/static-analysis.md) -- Verification techniques (Dialyzer, Credo) applied to code before it is considered executable.
+- [Quality Gates](@/glossary/quality-gates.md) -- The multi-phase verification pipeline that code must pass to be considered executable.
+- [Code Quality](@/glossary/code-quality.md) -- The measurable properties that distinguish verified executable code from merely compilable code.
+- [AST](@/glossary/ast.md) -- The Abstract Syntax Tree representation used during compilation and macro expansion.
+- [Hot Code Reload](@/glossary/hot-code-reload.md) -- The BEAM capability that allows replacing executable code in a running system.
+- [Code Coverage](@/glossary/code-coverage.md) -- The metric tracking what percentage of executable code is exercised by the test suite.
+- [Code Generation](@/glossary/code-generation.md) -- Automated production of source code that must pass the same verification pipeline.
 
 ## See Also
 
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- The git hooks that enforce the verification pipeline before code is committed.
-- [Dialyzer](/glossary/dialyzer/) -- The success typing analyzer that catches type errors in compiled BEAM code.
-- [Credo](/glossary/credo/) -- The static analysis tool that enforces code quality standards.
-- [Testing](/glossary/testing/) -- The dynamic verification layer that exercises executable code paths.
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- The policy requiring compilation with `--warnings-as-errors`.
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- The git hooks that enforce the verification pipeline before code is committed.
+- [Dialyzer](@/glossary/dialyzer.md) -- The success typing analyzer that catches type errors in compiled BEAM code.
+- [Credo](@/glossary/credo.md) -- The static analysis tool that enforces code quality standards.
+- [Testing](@/glossary/testing.md) -- The dynamic verification layer that exercises executable code paths.
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- The policy requiring compilation with `--warnings-as-errors`.
 
 ---
 
@@ -472,4 +472,4 @@ Authentication, authorization, and encryption modules undergo additional verific
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** -- Every line of code earns the right to execute through evidence-based verification.
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | Glossary Index
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | Glossary Index

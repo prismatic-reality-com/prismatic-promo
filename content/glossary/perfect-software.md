@@ -759,24 +759,24 @@ end
 
 The concept of perfect software connects with many other principles and practices in the Prismatic Platform:
 
-- [Quality Gates](/glossary/quality-gates/) -- the automated enforcement mechanism that makes perfection maintainable
-- [Zero Tolerance Quality](/glossary/zero-tolerance-quality/) -- the policy framework that prohibits any quality deviation
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- the specific enforcement of zero compilation warnings
-- [NO MERCY NO DOUBTS](/glossary/no-mercy-no-doubts/) -- the doctrine that mandates perfection as a non-negotiable standard
-- [Clean Run](/glossary/clean-run/) -- the requirement that all builds and tests complete without warnings or errors
-- [Quality Debt](/glossary/quality-debt/) -- the enemy of perfection, systematically eliminated to zero
-- [Technical Perfection](/glossary/technical-perfection/) -- the engineering dimension of the perfection ideal
-- [Code Quality](/glossary/code-quality/) -- the measurable properties that define software quality
-- [Perfection Over Profit](/glossary/perfection-over-profit/) -- the philosophical commitment that prioritizes quality above commercial pressure
-- [Perfect Systems](/glossary/perfect-systems/) -- the broader systems-level perspective on perfection
+- [Quality Gates](@/glossary/quality-gates.md) -- the automated enforcement mechanism that makes perfection maintainable
+- [Zero Tolerance Quality](@/glossary/zero-tolerance-quality.md) -- the policy framework that prohibits any quality deviation
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- the specific enforcement of zero compilation warnings
+- [NO MERCY NO DOUBTS](@/glossary/no-mercy-no-doubts.md) -- the doctrine that mandates perfection as a non-negotiable standard
+- [Clean Run](@/glossary/clean-run.md) -- the requirement that all builds and tests complete without warnings or errors
+- [Quality Debt](@/glossary/quality-debt.md) -- the enemy of perfection, systematically eliminated to zero
+- [Technical Perfection](@/glossary/technical-perfection.md) -- the engineering dimension of the perfection ideal
+- [Code Quality](@/glossary/code-quality.md) -- the measurable properties that define software quality
+- [Perfection Over Profit](@/glossary/perfection-over-profit.md) -- the philosophical commitment that prioritizes quality above commercial pressure
+- [Perfect Systems](@/glossary/perfect-systems.md) -- the broader systems-level perspective on perfection
 
 ## See Also
 
-- [Regression Testing](/glossary/regression-testing/) -- the testing discipline that prevents quality degradation
-- [Dialyzer](/glossary/dialyzer/) -- the Erlang/Elixir type-checking tool central to quality enforcement
-- [Credo](/glossary/credo/) -- the Elixir static analysis tool used in quality validation
-- [Quality DNA](/glossary/quality-dna/) -- the cross-session quality continuity mechanism
-- [AutoHeal](/glossary/autoheal/) -- the automated quality repair system
+- [Regression Testing](@/glossary/regression-testing.md) -- the testing discipline that prevents quality degradation
+- [Dialyzer](@/glossary/dialyzer.md) -- the Erlang/Elixir type-checking tool central to quality enforcement
+- [Credo](@/glossary/credo.md) -- the Elixir static analysis tool used in quality validation
+- [Quality DNA](@/glossary/quality-dna.md) -- the cross-session quality continuity mechanism
+- [AutoHeal](@/glossary/autoheal.md) -- the automated quality repair system
 
 ---
 

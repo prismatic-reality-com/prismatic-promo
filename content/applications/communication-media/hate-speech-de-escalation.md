@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-Hate speech de-escalation — An academic treatment of communication theory and media analytics within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **hate speech de-escalation** as implemented within the Prismatic Platform's communication theory and media analytics domain. We formalize the problem space through the lens of sentiment analysis and discourse analysis, propose a multi-agent architecture leveraging [OTP](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates natural language processing, network analysis of information spread, computational linguistics to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for communication theory and media analytics.
+Hate speech de-escalation — An academic treatment of communication theory and media analytics within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **hate speech de-escalation** as implemented within the Prismatic Platform's communication theory and media analytics domain. We formalize the problem space through the lens of sentiment analysis and discourse analysis, propose a multi-agent architecture leveraging [OTP](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates natural language processing, network analysis of information spread, computational linguistics to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for communication theory and media analytics.
 
 **Keywords:** Hate, speech, de-escalation, Prismatic-native, Communication, Media
 
@@ -115,7 +115,7 @@ The hate speech de-escalation system is implemented as a Prismatic-native applic
 
 ### 3.2 OTP Process Topology
 
-The system leverages [Elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [Elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule HateSpeechDeEscalation.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -216,7 +216,7 @@ The implementation leverages the Prismatic Platform's technology stack:
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
 | Runtime | Elixir 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
-| Web Layer | Phoenix [LiveView](/glossary/liveview/) | Real-time interactive dashboards |
+| Web Layer | Phoenix [LiveView](@/glossary/liveview.md) | Real-time interactive dashboards |
 | Storage | PostgreSQL + ETS | Persistent + in-memory storage |
 | Search | Meilisearch | Full-text search and indexing |
 | Styling | TailwindCSS + Flowbite | Consistent UI component library |
@@ -464,19 +464,19 @@ config :prismatic, HateSpeechDeEscalation,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [Toxic content de-escalation](/applications/content-moderation-manipulation/toxic-content-de-escalation/) — *Content Moderation Manipulation*
-- [Domestic violence de-escalation](/applications/crisis-intervention-negotiation/domestic-violence-de-escalation/) — *Crisis Intervention Negotiation*
-- [Crowd panic de-escalation](/applications/crisis-intervention-negotiation/crowd-panic-de-escalation/) — *Crisis Intervention Negotiation*
-- [Customer escalation de-escalator](/applications/business-organizational-training/customer-escalation-de-escalator/) — *Business Organizational Training*
+- [Toxic content de-escalation](@/applications/content-moderation-manipulation/toxic-content-de-escalation.md) — *Content Moderation Manipulation*
+- [Domestic violence de-escalation](@/applications/crisis-intervention-negotiation/domestic-violence-de-escalation.md) — *Crisis Intervention Negotiation*
+- [Crowd panic de-escalation](@/applications/crisis-intervention-negotiation/crowd-panic-de-escalation.md) — *Crisis Intervention Negotiation*
+- [Customer escalation de-escalator](@/applications/business-organizational-training/customer-escalation-de-escalator.md) — *Business Organizational Training*
 
 
 ## Further Reading
 
-- [Communication Media — All Applications](/applications/communication-media/)
-- [Content Moderation Manipulation](/applications/content-moderation-manipulation/)
-- [Psychology Psychiatry](/applications/psychology-psychiatry/)
-- [Education Adaptive Tutoring](/applications/education-adaptive-tutoring/)
-- [Prismatic Application Catalogue](/applications/)
+- [Communication Media — All Applications](@/applications/communication-media/_index.md)
+- [Content Moderation Manipulation](@/applications/content-moderation-manipulation/_index.md)
+- [Psychology Psychiatry](@/applications/psychology-psychiatry/_index.md)
+- [Education Adaptive Tutoring](@/applications/education-adaptive-tutoring/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

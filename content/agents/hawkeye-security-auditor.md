@@ -28,7 +28,7 @@ image_alt = "Hawkeye Security Auditor - Prismatic Platform"
 
 ## Overview
 
-The [Hawkeye](/glossary/hawkeye/) Security Auditor is an L3 strategic authority operating within the Security Specialist Strategic domain of the Prismatic Platform. This agent serves as the elite security auditor specifically dedicated to the Hawkeye Visitor Intelligence platform, performing comprehensive security assessments that evaluate the system's posture across application security, data protection, access control, and regulatory compliance dimensions. The auditor integrates [3NL](/glossary/three-nl/) synthesis for multi-level security analysis, [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework for evidence-based security claims, and continuous compliance monitoring against [NIS2](/glossary/nis2/), [ZKB](/glossary/zkb/), [GDPR](/glossary/gdpr/), and [ISO 27001](/glossary/iso-27001/) requirements.
+The [Hawkeye](@/glossary/hawkeye.md) Security Auditor is an L3 strategic authority operating within the Security Specialist Strategic domain of the Prismatic Platform. This agent serves as the elite security auditor specifically dedicated to the Hawkeye Visitor Intelligence platform, performing comprehensive security assessments that evaluate the system's posture across application security, data protection, access control, and regulatory compliance dimensions. The auditor integrates [3NL](@/glossary/three-nl.md) synthesis for multi-level security analysis, [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework for evidence-based security claims, and continuous compliance monitoring against [NIS2](@/glossary/nis2.md), [ZKB](@/glossary/zkb.md), [GDPR](@/glossary/gdpr.md), and [ISO 27001](@/glossary/iso-27001.md) requirements.
 
 The Hawkeye platform processes visitor intelligence data that includes behavioral analytics, geographic information, and technology fingerprinting. This data carries significant privacy implications and regulatory requirements that demand specialized security attention beyond the platform's general security infrastructure. The Security Auditor provides this specialized attention through continuous assessment cycles that evaluate not only technical security controls but also data handling practices, privacy safeguards, and compliance posture specific to visitor intelligence operations.
 
@@ -40,13 +40,13 @@ The auditor implements a comprehensive assessment framework structured around fo
 
 **Data Protection.** Evaluation of data handling practices including encryption at rest and in transit, data minimization compliance, retention policy enforcement, and anonymization effectiveness. Data protection assessment verifies that visitor data is processed in accordance with stated privacy policies and regulatory requirements, with particular attention to pseudonymization and aggregation techniques that reduce re-identification risk.
 
-**Access Control.** Verification of [RBAC](/glossary/rbac/) (Role-Based Access Control) implementation including principle of least privilege enforcement, authentication strength, session management, and privilege escalation prevention. Access control assessment covers both the Hawkeye application's user-facing authentication and the inter-service authentication between Hawkeye and other platform components.
+**Access Control.** Verification of [RBAC](@/glossary/rbac.md) (Role-Based Access Control) implementation including principle of least privilege enforcement, authentication strength, session management, and privilege escalation prevention. Access control assessment covers both the Hawkeye application's user-facing authentication and the inter-service authentication between Hawkeye and other platform components.
 
 **Compliance Posture.** Assessment of regulatory compliance across applicable frameworks. Compliance assessment produces evidence artifacts that can be presented during formal audits, reducing the effort required for compliance certification processes.
 
 ## 3NL Security Analysis
 
-The auditor applies the [3NL](/glossary/three-nl/) framework to security analysis, providing multi-level assessment that captures technical, logical, and contextual security dimensions.
+The auditor applies the [3NL](@/glossary/three-nl.md) framework to security analysis, providing multi-level assessment that captures technical, logical, and contextual security dimensions.
 
 **Neural Level.** Pattern-based analysis of security telemetry to identify anomalous behavior, emerging threat patterns, and security control degradation. The Neural level processes authentication logs, API access patterns, data access frequency, and error rates to detect security-relevant anomalies.
 
@@ -60,7 +60,7 @@ The Hawkeye Security Auditor provides six primary capabilities dedicated to Hawk
 
 **Continuous Security Assessment.** Rather than point-in-time audits, the Security Auditor performs continuous assessment that detects security posture changes in near real time. Continuous assessment detects configuration drift, newly introduced vulnerabilities, and compliance deviations as they occur rather than during periodic review cycles.
 
-**Vulnerability Correlation.** Correlating discovered vulnerabilities with [CVE](/glossary/cve/) databases, threat intelligence feeds, and known exploitation techniques to assess actual risk rather than theoretical severity. Correlation considers the Hawkeye platform's specific technology stack, deployment architecture, and data sensitivity to produce context-appropriate risk ratings.
+**Vulnerability Correlation.** Correlating discovered vulnerabilities with [CVE](@/glossary/cve.md) databases, threat intelligence feeds, and known exploitation techniques to assess actual risk rather than theoretical severity. Correlation considers the Hawkeye platform's specific technology stack, deployment architecture, and data sensitivity to produce context-appropriate risk ratings.
 
 **Privacy Impact Assessment.** Evaluating changes to visitor data collection, processing, or storage practices for privacy implications. Privacy impact assessments are triggered automatically when code changes affect data handling modules, ensuring that privacy considerations are addressed during development rather than discovered during compliance audits.
 
@@ -74,21 +74,21 @@ The Hawkeye Security Auditor provides six primary capabilities dedicated to Hawk
 
 The Security Auditor is implemented as an OTP application with dedicated processes for each assessment dimension. Assessment processes execute on configurable schedules with event-triggered reassessment when significant changes are detected (code deployments, configuration changes, access policy modifications).
 
-Security findings are stored in [PostgreSQL](/glossary/postgresql/) with [Ecto](/glossary/ecto/) schemas that model the full finding lifecycle from detection through triage, remediation, and verification. Finding data includes CVSS scores, exploitation context, compliance mapping, and remediation tracking.
+Security findings are stored in [PostgreSQL](@/glossary/postgresql.md) with [Ecto](@/glossary/ecto.md) schemas that model the full finding lifecycle from detection through triage, remediation, and verification. Finding data includes CVSS scores, exploitation context, compliance mapping, and remediation tracking.
 
-[Telemetry](/glossary/telemetry/) integration provides real-time security posture visibility through dedicated security dashboards. Metrics include current vulnerability count by severity, compliance adherence percentage by framework, mean time to remediation, and security control coverage.
+[Telemetry](@/glossary/telemetry.md) integration provides real-time security posture visibility through dedicated security dashboards. Metrics include current vulnerability count by severity, compliance adherence percentage by framework, mean time to remediation, and security control coverage.
 
-Integration with the [Prismatic Perimeter](/apps/prismatic-perimeter/) EASM (External [Attack Surface](/glossary/attack-surface/) Management) platform provides external perspective on Hawkeye's security posture, complementing the internal assessment with external attack surface analysis.
+Integration with the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) EASM (External [Attack Surface](@/glossary/attack-surface.md) Management) platform provides external perspective on Hawkeye's security posture, complementing the internal assessment with external attack surface analysis.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Provides external attack surface assessment complementing internal audit | EASM |
-| [Color Teams](/capabilities/color-teams/) | Coordinates adversarial-defensive security testing exercises | Security Testing |
-| [Prismatic Safety](/apps/prismatic-safety/) | Reports safety-critical findings to platform safety infrastructure | Safety |
-| [gitlab-security-specialist-agent](/agents/gitlab-security-specialist-agent/) | Coordinates CI/CD security scanning for Hawkeye code changes | DevSecOps |
-| [incident-response-specialist](/agents/incident-response-specialist/) | Provides security context during Hawkeye-related incident response | Incident Response |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Provides external attack surface assessment complementing internal audit | EASM |
+| [Color Teams](@/capabilities/color-teams.md) | Coordinates adversarial-defensive security testing exercises | Security Testing |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Reports safety-critical findings to platform safety infrastructure | Safety |
+| [gitlab-security-specialist-agent](@/agents/gitlab-security-specialist-agent.md) | Coordinates CI/CD security scanning for Hawkeye code changes | DevSecOps |
+| [incident-response-specialist](@/agents/incident-response-specialist.md) | Provides security context during Hawkeye-related incident response | Incident Response |
 
 ## Compliance Dashboard
 
@@ -103,7 +103,7 @@ The auditor maintains a compliance dashboard that provides real-time visibility 
 
 ## Enforcement
 
-The Hawkeye Security Auditor operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Security findings must be backed by verifiable evidence following [NABLA](/glossary/nabla-infinity/) epistemic standards. No Hawkeye deployment proceeds with unresolved critical or high-severity security findings. Compliance evidence is generated continuously, not manufactured for audits. Security claims pass [Trinity Gate](/glossary/trinity-gate/) validation requiring structural, logical, and formal verification. Privacy impact assessments are mandatory for all data handling changes, with no bypass authority.
+The Hawkeye Security Auditor operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Security findings must be backed by verifiable evidence following [NABLA](@/glossary/nabla-infinity.md) epistemic standards. No Hawkeye deployment proceeds with unresolved critical or high-severity security findings. Compliance evidence is generated continuously, not manufactured for audits. Security claims pass [Trinity Gate](@/glossary/trinity-gate.md) validation requiring structural, logical, and formal verification. Privacy impact assessments are mandatory for all data handling changes, with no bypass authority.
 
 ---
 
@@ -112,4 +112,4 @@ The Hawkeye Security Auditor operates under the [NO MERCY, NO DOUBTS](/glossary/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

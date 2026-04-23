@@ -184,11 +184,11 @@ The NABLA Infinity framework's Contradiction Preservation axiom directly influen
 
 ## Cross-References
 
-- [Color Teams](/glossary/color-teams/) - security operations framework containing closure process
-- [Contradiction Preservation](/glossary/contradiction-preservation/) - axiom preventing premature closure
+- [Color Teams](@/glossary/color-teams.md) - security operations framework containing closure process
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) - axiom preventing premature closure
 - **Confidence** - certainty level required for closure
-- [Adversarial Simulation](/glossary/adversarial-simulation/) - Red Team operations that generate findings
-- [Comprehensive Verification](/glossary/comprehensive-verification/) - White Team proof of defense
+- [Adversarial Simulation](@/glossary/adversarial-simulation.md) - Red Team operations that generate findings
+- [Comprehensive Verification](@/glossary/comprehensive-verification.md) - White Team proof of defense
 - **Livebooks**: `livebooks/domains/security_compliance/` - closure process walkthroughs
 - **Academy**: Advanced Threat Hunting (HUNTER framework) covers closure methodology
 

@@ -185,11 +185,11 @@ Production deployments on Fly.io configure pool sizes based on the VM size and P
 
 ## Cross-References
 
-- [Connection Pooling](/glossary/connection-pooling/) - related concept with pooling strategies
-- [Cache](/glossary/cache/) - complementary performance optimization
-- [Configuration](/glossary/configuration/) - pool configuration management
-- [Circuit Breaker](/glossary/circuit-breaker/) - failure protection for connections
-- [Concurrency](/glossary/concurrency/) - concurrent connection usage patterns
+- [Connection Pooling](@/glossary/connection-pooling.md) - related concept with pooling strategies
+- [Cache](@/glossary/cache.md) - complementary performance optimization
+- [Configuration](@/glossary/configuration.md) - pool configuration management
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - failure protection for connections
+- [Concurrency](@/glossary/concurrency.md) - concurrent connection usage patterns
 - **Livebooks**: `livebooks/domains/storage_data/` - pool performance benchmarking
 - **Academy**: Database optimization and connection management
 

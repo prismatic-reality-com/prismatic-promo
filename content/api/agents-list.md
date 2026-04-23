@@ -25,7 +25,7 @@ image_alt = "Agent Registry - Prismatic Platform"
 
 ## Overview
 
-The Agent Registry endpoint provides programmatic access to the complete catalog of [AIAD](/glossary/aiad/) (AI-Augmented Intelligence Design) agents deployed on the Prismatic Platform. The registry contains 434 agents organized across 14 operational domains, ranging from security analysis and quality enforcement to autonomous evolution and epistemic verification.
+The Agent Registry endpoint provides programmatic access to the complete catalog of [AIAD](@/glossary/aiad.md) (AI-Augmented Intelligence Design) agents deployed on the Prismatic Platform. The registry contains 434 agents organized across 14 operational domains, ranging from security analysis and quality enforcement to autonomous evolution and epistemic verification.
 
 Each agent entry includes its classification tier (L1 through L5), operational domain, capability description, activation status, and runtime metadata. The registry is the authoritative source of truth for agent inventory and is used by the platform's orchestration layer to route tasks to appropriate specialists.
 
@@ -286,7 +286,7 @@ for agent in data["agents"]:
 | 422 | `invalid_filter` | Invalid filter parameter value |
 | 429 | `rate_limited` | Request rate limit exceeded |
 
-See [Error Handling](/api/error-handling/) for the standard error response format.
+See [Error Handling](@/api/error-handling.md) for the standard error response format.
 
 ## Rate Limits
 
@@ -299,15 +299,15 @@ The agent registry is cached in ETS and serves responses in under 50ms.
 
 ## Related Endpoints
 
-- [Agent Status](/api/agents-status/) -- Real-time health and activity metrics for agents
-- [Endpoint Discovery](/api/endpoints/) -- Find all available agent-related endpoints
-- [Health Check](/api/health/) -- Check agent runtime health as part of system health
+- [Agent Status](@/api/agents-status.md) -- Real-time health and activity metrics for agents
+- [Endpoint Discovery](@/api/endpoints.md) -- Find all available agent-related endpoints
+- [Health Check](@/api/health.md) -- Check agent runtime health as part of system health
 
 ## Agent Architecture
 
-The agent registry reflects the [Color Teams](/glossary/color-teams/) organizational structure. Security agents are organized into six color teams (Gray, Red, Blue, Purple, White, Black) with strict information flow protocols. Non-security agents are organized by functional domain.
+The agent registry reflects the [Color Teams](@/glossary/color-teams.md) organizational structure. Security agents are organized into six color teams (Gray, Red, Blue, Purple, White, Black) with strict information flow protocols. Non-security agents are organized by functional domain.
 
-Each agent's operational constraints are enforced at the process level by the Elixir supervision tree. Sandbox-only agents run in isolated process groups with restricted capability sets. The [Quality DNA](/glossary/quality-dna/) system monitors agent performance metrics and triggers autonomous evolution when performance degrades below configured thresholds.
+Each agent's operational constraints are enforced at the process level by the Elixir supervision tree. Sandbox-only agents run in isolated process groups with restricted capability sets. The [Quality DNA](@/glossary/quality-dna.md) system monitors agent performance metrics and triggers autonomous evolution when performance degrades below configured thresholds.
 
 ---
 
@@ -316,4 +316,4 @@ Each agent's operational constraints are enforced at the process level by the El
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

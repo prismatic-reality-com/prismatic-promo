@@ -25,9 +25,9 @@ A Confidence Threshold, denoted by the Greek letter tau, is a numeric boundary v
 
 The concept of confidence thresholds addresses a fundamental tension in any intelligence-producing system: acting too early on insufficient evidence risks catastrophic error, while waiting too long for perfect evidence risks paralysis and missed opportunity. Tau values formalize this trade-off by establishing context-sensitive decision boundaries. A security-critical determination -- such as whether a domain is actively being used for phishing -- demands a substantially higher evidential bar than a speculative research query exploring whether two entities might share a beneficial owner.
 
-Within the Prismatic Platform, confidence thresholds are not advisory guidelines. They are structurally enforced constraints, integrated into the [epistemic pipeline](/glossary/epistemic-pipeline/) at 3NL Level 3 and validated through the [QEVE](/glossary/qeve/) verification engine. An [agent](/glossary/agent/) cannot transition to [NM/ND](/glossary/nm-nd/) execution mode until two independent conditions are satisfied: the computed confidence score meets or exceeds the applicable tau value, and the conclusion passes [Trinity Gate](/glossary/trinity-gate/) verification across all three layers. This dual-condition requirement ensures that high confidence alone -- which can arise from systematic bias or [cherry-picking](/glossary/cherry-picking/) -- is never sufficient to authorize action.
+Within the Prismatic Platform, confidence thresholds are not advisory guidelines. They are structurally enforced constraints, integrated into the [epistemic pipeline](@/glossary/epistemic-pipeline.md) at 3NL Level 3 and validated through the [QEVE](@/glossary/qeve.md) verification engine. An [agent](@/glossary/agent.md) cannot transition to [NM/ND](@/glossary/nm-nd.md) execution mode until two independent conditions are satisfied: the computed confidence score meets or exceeds the applicable tau value, and the conclusion passes [Trinity Gate](@/glossary/trinity-gate.md) verification across all three layers. This dual-condition requirement ensures that high confidence alone -- which can arise from systematic bias or [cherry-picking](@/glossary/cherry-picking.md) -- is never sufficient to authorize action.
 
-The platform currently manages over 434 agents and 89 applications, each of which operates under tau-governed decision boundaries. The thresholds are calibrated empirically against historical decision outcomes and are subject to periodic recalibration as the platform's [fitness score](/glossary/fitness-score/) evolves across [generations](/glossary/generation/).
+The platform currently manages over 434 agents and 89 applications, each of which operates under tau-governed decision boundaries. The thresholds are calibrated empirically against historical decision outcomes and are subject to periodic recalibration as the platform's [fitness score](@/glossary/fitness-score.md) evolves across [generations](@/glossary/generation.md).
 
 ## The Four Threshold Levels
 
@@ -37,20 +37,20 @@ The Prismatic Platform defines four canonical threshold levels, each correspondi
 
 The highest threshold level governs decisions where error carries severe, potentially irreversible consequences. At tau = 0.95, the platform requires near-certainty before permitting action. Contexts operating at this level include:
 
-- **Security assessments**: Classifying a domain, IP address, or certificate as malicious within [Prismatic Perimeter](/glossary/easm/) directly affects security ratings visible to compliance officers and auditors. A false positive at this level could damage a legitimate organization's reputation; a false negative could leave a genuine threat unaddressed.
-- **Production deployments**: Decisions to deploy code to production environments, particularly those affecting the platform's own [quality gates](/glossary/quality-gates/) or [quality DNA](/glossary/quality-dna/), operate at this threshold.
+- **Security assessments**: Classifying a domain, IP address, or certificate as malicious within [Prismatic Perimeter](@/glossary/easm.md) directly affects security ratings visible to compliance officers and auditors. A false positive at this level could damage a legitimate organization's reputation; a false negative could leave a genuine threat unaddressed.
+- **Production deployments**: Decisions to deploy code to production environments, particularly those affecting the platform's own [quality gates](@/glossary/quality-gates.md) or [quality DNA](@/glossary/quality-dna.md), operate at this threshold.
 - **Compliance determinations**: NIS2 and ZKB compliance assessments that will be presented as authoritative findings require the 0.95 bar, given their regulatory and legal implications.
-- **Entity resolution merges**: When the [entity resolution](/glossary/entity-resolution/) system proposes merging two identity records into a single entity, an incorrect merge is extremely difficult to reverse. The 0.95 threshold ensures that only well-supported merges proceed.
+- **Entity resolution merges**: When the [entity resolution](@/glossary/entity-resolution.md) system proposes merging two identity records into a single entity, an incorrect merge is extremely difficult to reverse. The 0.95 threshold ensures that only well-supported merges proceed.
 
-At this level, [Trinity Gate](/glossary/trinity-gate/) passage is mandatory. All three gates -- structural consistency, logical consistency, and formal necessity -- must pass before the confidence score is considered actionable.
+At this level, [Trinity Gate](@/glossary/trinity-gate.md) passage is mandatory. All three gates -- structural consistency, logical consistency, and formal necessity -- must pass before the confidence score is considered actionable.
 
 ### Standard Operations (tau = 0.80)
 
 The standard threshold governs routine operational decisions that are consequential but recoverable. Most day-to-day agent coordination, data processing pipelines, and quality enforcement actions operate at this level. Examples include:
 
 - **Agent task routing**: Decisions about which specialist agent should handle an incoming task based on capability matching and current load.
-- **Data enrichment acceptance**: Determining whether an enrichment result from an external provider (e.g., DNS records, WHOIS data, certificate transparency logs) is sufficiently reliable to incorporate into the platform's [knowledge graph](/glossary/knowledge-graph/).
-- **Quality enforcement**: Automated decisions by the [Quality Floor Guardian](/glossary/quality-floor-guardian/) regarding whether a code change meets quality standards.
+- **Data enrichment acceptance**: Determining whether an enrichment result from an external provider (e.g., DNS records, WHOIS data, certificate transparency logs) is sufficiently reliable to incorporate into the platform's [knowledge graph](@/glossary/knowledge-graph.md).
+- **Quality enforcement**: Automated decisions by the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) regarding whether a code change meets quality standards.
 - **Alert generation**: Producing alerts or notifications based on observed patterns in monitored assets.
 
 Trinity Gate passage remains mandatory at this level, though the verification may use abbreviated proof strategies (e.g., property-based testing rather than full Lean4 formal proofs) where appropriate.
@@ -71,7 +71,7 @@ The lowest threshold level applies to speculative analysis and early-stage inves
 
 - **Speculative correlation**: Exploring whether two apparently unrelated data points might share a common cause.
 - **Early-stage OSINT**: Initial sweeps across data sources before any filtering or validation has been applied.
-- **Brainstorming support**: Providing agents with a broad set of loosely supported hypotheses to consider during the [NABLA Infinity](/glossary/nabla-infinity/) exploration phase.
+- **Brainstorming support**: Providing agents with a broad set of loosely supported hypotheses to consider during the [NABLA Infinity](@/glossary/nabla-infinity.md) exploration phase.
 
 Trinity Gate passage is optional at this level. Findings produced at tau = 0.50 are explicitly labeled as speculative and carry no decisional authority until promoted to a higher threshold through additional evidence accumulation.
 
@@ -89,14 +89,14 @@ Where:
 
 - **w_i** is the weight assigned to signal s_i, reflecting its evidential strength (0 < w_i <= 1)
 - **r_i** is the reliability score of the source producing signal s_i (0 < r_i <= 1)
-- **d(t_i)** is the [time decay](/glossary/time-decay/) function applied to the signal's timestamp t_i, ensuring that older evidence contributes less to current confidence
+- **d(t_i)** is the [time decay](@/glossary/time-decay.md) function applied to the signal's timestamp t_i, ensuring that older evidence contributes less to current confidence
 - The product formulation ensures diminishing returns: each additional signal contributes less marginal confidence than the previous one, preventing artificial inflation from redundant sources
 
-The [QEVE](/glossary/qeve/) verification engine (Quantified Epistemic Verification Engine) provides the formal grounding for this computation. QEVE integrates three verification methodologies:
+The [QEVE](@/glossary/qeve.md) verification engine (Quantified Epistemic Verification Engine) provides the formal grounding for this computation. QEVE integrates three verification methodologies:
 
-1. **[Lean4](/glossary/lean4/) formal proofs**: For propositions amenable to formal treatment, QEVE generates and verifies Lean4 proofs that establish logical necessity.
-2. **[NABLA Infinity](/glossary/nabla-infinity/) axiom compliance**: Every confidence computation is checked against the seven NABLA axioms, particularly [Signal Plurality](/glossary/signal-plurality/) (minimum two independent sources) and [Provenance Mandatory](/glossary/provenance-mandatory/) (all evidence must be traceable to its origin).
-3. **[Monte Carlo verification](/glossary/monte-carlo-verification/)**: For complex multi-step reasoning chains, QEVE employs Monte Carlo sampling to estimate the probability that the conclusion holds under perturbation of input assumptions.
+1. **[Lean4](@/glossary/lean4.md) formal proofs**: For propositions amenable to formal treatment, QEVE generates and verifies Lean4 proofs that establish logical necessity.
+2. **[NABLA Infinity](@/glossary/nabla-infinity.md) axiom compliance**: Every confidence computation is checked against the seven NABLA axioms, particularly [Signal Plurality](@/glossary/signal-plurality.md) (minimum two independent sources) and [Provenance Mandatory](@/glossary/provenance-mandatory.md) (all evidence must be traceable to its origin).
+3. **[Monte Carlo verification](@/glossary/monte-carlo-verification.md)**: For complex multi-step reasoning chains, QEVE employs Monte Carlo sampling to estimate the probability that the conclusion holds under perturbation of input assumptions.
 
 The final confidence score is the minimum of C(P) and the QEVE verification score, ensuring that computational confidence cannot exceed the formal verification bound.
 
@@ -108,14 +108,14 @@ The calibration methodology involved:
 
 1. **Historical decision analysis**: Reviewing the outcomes of past platform decisions across security assessments, entity resolution merges, and compliance determinations to establish ground-truth accuracy rates at various confidence levels.
 2. **Cost-asymmetry modeling**: For each operational context, estimating the relative cost of false positives versus false negatives. In security-critical contexts, the cost of a false negative (missing a real threat) is typically much higher than a false positive, which is why the critical threshold is set at 0.95 rather than a lower value that would reduce false negatives at the cost of more false positives.
-3. **[Property-based testing](/glossary/property-based-testing/)**: Generating large volumes of synthetic scenarios with known ground truth and measuring decision accuracy at each threshold level.
-4. **Cross-generation validation**: Comparing threshold effectiveness across platform [generations](/glossary/generation/), from Generation 1 through the current Generation 18, to ensure that thresholds remain appropriate as the platform's agent population and data sources evolve.
+3. **[Property-based testing](@/glossary/property-based-testing.md)**: Generating large volumes of synthetic scenarios with known ground truth and measuring decision accuracy at each threshold level.
+4. **Cross-generation validation**: Comparing threshold effectiveness across platform [generations](@/glossary/generation.md), from Generation 1 through the current Generation 18, to ensure that thresholds remain appropriate as the platform's agent population and data sources evolve.
 
-The calibration is not static. The platform's [SEADF](/glossary/seadf/) framework includes a threshold recalibration subsystem that monitors decision outcomes and recommends adjustments when empirical accuracy diverges from expected performance. However, any proposed threshold change must itself pass Trinity Gate verification at the critical level (tau = 0.95), preventing hasty recalibration based on insufficient evidence.
+The calibration is not static. The platform's [SEADF](@/glossary/seadf.md) framework includes a threshold recalibration subsystem that monitors decision outcomes and recommends adjustments when empirical accuracy diverges from expected performance. However, any proposed threshold change must itself pass Trinity Gate verification at the critical level (tau = 0.95), preventing hasty recalibration based on insufficient evidence.
 
 ## Relationship to Trinity Gate
 
-The relationship between confidence thresholds and [Trinity Gate](/glossary/trinity-gate/) is one of complementary verification. They address different failure modes in epistemic reasoning:
+The relationship between confidence thresholds and [Trinity Gate](@/glossary/trinity-gate.md) is one of complementary verification. They address different failure modes in epistemic reasoning:
 
 - **Confidence thresholds** address the *quantity* of evidence: Is there enough supporting data to justify action?
 - **Trinity Gate** addresses the *quality* of reasoning: Is the conclusion structurally sound, logically consistent, and formally necessary?
@@ -128,26 +128,26 @@ The Prismatic Platform requires both. The transition condition from exploration 
 transition_authorized = (C(P) >= tau_context) AND trinity_gate_passed(P)
 ```
 
-At the critical level (tau = 0.95), all four Trinity Gate layers must pass: structural consistency (the [belief graph](/glossary/belief-graph/) forms a valid DAG), logical consistency (no contradictions in the inference chain), formal necessity (Lean4 proof or equivalent), and meta-integrity (the gate's own verification is sound). At the standard level (tau = 0.80), all four layers are still required but may use lighter-weight verification methods. At the exploratory and research levels, Trinity Gate passage becomes progressively optional.
+At the critical level (tau = 0.95), all four Trinity Gate layers must pass: structural consistency (the [belief graph](@/glossary/belief-graph.md) forms a valid DAG), logical consistency (no contradictions in the inference chain), formal necessity (Lean4 proof or equivalent), and meta-integrity (the gate's own verification is sound). At the standard level (tau = 0.80), all four layers are still required but may use lighter-weight verification methods. At the exploratory and research levels, Trinity Gate passage becomes progressively optional.
 
 ## The NABLA-to-NM/ND Transition Protocol
 
-Confidence thresholds serve as the quantitative trigger for the platform's most consequential state transition: the shift from [NABLA Infinity](/glossary/nabla-infinity/) epistemic exploration to [No Mercy, No Doubts](/glossary/nm-nd/) decisive execution.
+Confidence thresholds serve as the quantitative trigger for the platform's most consequential state transition: the shift from [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic exploration to [No Mercy, No Doubts](@/glossary/nm-nd.md) decisive execution.
 
 During the NABLA phase, agents operate in a mode characterized by:
 
 - Parallel hypothesis exploration, maintaining multiple competing explanations simultaneously
-- Active [contradiction preservation](/glossary/contradiction-preservation/), refusing to prematurely discard inconvenient evidence
+- Active [contradiction preservation](@/glossary/contradiction-preservation.md), refusing to prematurely discard inconvenient evidence
 - Uncertainty quantification, tracking what is known, what is unknown, and what is unknowable
-- [Signal plurality](/glossary/signal-plurality/) enforcement, requiring independent corroboration before any belief gains traction
+- [Signal plurality](@/glossary/signal-plurality.md) enforcement, requiring independent corroboration before any belief gains traction
 
 This exploratory mode continues until the confidence score for a specific proposition crosses the applicable tau threshold. At that moment, the transition protocol activates:
 
-1. **Threshold check**: The [confidence scoring](/glossary/confidence-scoring/) subsystem confirms that C(P) >= tau for the relevant context.
-2. **Trinity Gate submission**: The proposition P, along with its full evidence chain and provenance metadata, is submitted to the [Trinity Gate](/glossary/trinity-gate/) for independent verification.
+1. **Threshold check**: The [confidence scoring](@/glossary/confidence-scoring.md) subsystem confirms that C(P) >= tau for the relevant context.
+2. **Trinity Gate submission**: The proposition P, along with its full evidence chain and provenance metadata, is submitted to the [Trinity Gate](@/glossary/trinity-gate.md) for independent verification.
 3. **Gate passage**: If all required Trinity Gate layers pass, the transition is authorized.
-4. **NM/ND activation**: The platform enters [No Mercy](/glossary/no-mercy/) execution mode for this proposition: complete implementation, zero tolerance for incomplete delivery, full quality enforcement. Simultaneously, [No Doubts](/glossary/no-doubts/) applies: once the decision is made, it is executed with full commitment, no second-guessing, no hedging.
-5. **[Audit trail](/glossary/audit-trail/) recording**: The transition event, including the confidence score, Trinity Gate results, and decision rationale, is recorded in the immutable audit trail.
+4. **NM/ND activation**: The platform enters [No Mercy](@/glossary/no-mercy.md) execution mode for this proposition: complete implementation, zero tolerance for incomplete delivery, full quality enforcement. Simultaneously, [No Doubts](@/glossary/no-doubts.md) applies: once the decision is made, it is executed with full commitment, no second-guessing, no hedging.
+5. **[Audit trail](@/glossary/audit-trail.md) recording**: The transition event, including the confidence score, Trinity Gate results, and decision rationale, is recorded in the immutable audit trail.
 
 The transition is irreversible within a single decision cycle. Once NM/ND mode is activated for a proposition, the platform commits fully. If new contradictory evidence emerges after the transition, it is handled as a new epistemic cycle rather than a rollback of the current one.
 
@@ -157,13 +157,13 @@ While the four canonical threshold levels provide a universal framework, specifi
 
 ### External Attack Surface Management (EASM)
 
-[Prismatic Perimeter](/glossary/easm/) operates in a domain where the consequences of both false positives and false negatives are severe. A false positive security rating (incorrectly flagging a legitimate domain as compromised) can damage business relationships; a false negative (missing an actual compromise) can leave organizations exposed to active threats.
+[Prismatic Perimeter](@/glossary/easm.md) operates in a domain where the consequences of both false positives and false negatives are severe. A false positive security rating (incorrectly flagging a legitimate domain as compromised) can damage business relationships; a false negative (missing an actual compromise) can leave organizations exposed to active threats.
 
 Perimeter applies a domain adjustment of +0.02 to all threshold levels, yielding effective thresholds of 0.97 for critical security rating determinations, 0.82 for standard asset classification, 0.62 for exploratory surface discovery, and 0.52 for speculative threat correlation. This adjustment reflects the domain's high-stakes, high-visibility operating environment.
 
 ### Due Diligence and Entity Resolution
 
-When the [entity resolution](/glossary/entity-resolution/) system processes sanctions screening, beneficial ownership analysis, or adverse media checks, it applies a domain adjustment that varies by jurisdiction. Jurisdictions with strict data protection regulations (EU/GDPR contexts) receive a +0.03 adjustment, reflecting the elevated cost of incorrect entity merges in privacy-sensitive environments.
+When the [entity resolution](@/glossary/entity-resolution.md) system processes sanctions screening, beneficial ownership analysis, or adverse media checks, it applies a domain adjustment that varies by jurisdiction. Jurisdictions with strict data protection regulations (EU/GDPR contexts) receive a +0.03 adjustment, reflecting the elevated cost of incorrect entity merges in privacy-sensitive environments.
 
 ### OSINT Intelligence Gathering
 
@@ -181,7 +181,7 @@ When effective thresholds are set below the level appropriate for a given contex
 - **Incorrect entity merges** that are costly to reverse and may propagate errors through downstream systems.
 - **Compliance findings** that cannot withstand audit scrutiny, exposing the organization to regulatory risk.
 
-The platform mitigates premature execution through the Trinity Gate requirement. Even if a confidence score nominally exceeds a too-low threshold, the structural, logical, and formal verification layers provide independent checks that catch conclusions built on weak evidence. The [Purple Team](/glossary/purple-team/) specifically monitors for patterns of premature execution across the platform's decision history.
+The platform mitigates premature execution through the Trinity Gate requirement. Even if a confidence score nominally exceeds a too-low threshold, the structural, logical, and formal verification layers provide independent checks that catch conclusions built on weak evidence. The [Purple Team](@/glossary/purple-team.md) specifically monitors for patterns of premature execution across the platform's decision history.
 
 ### Analysis Paralysis (tau set too high)
 
@@ -189,17 +189,17 @@ When effective thresholds are set above the level appropriate for a given contex
 
 - **Missed threats** that were detectable but not acted upon because the confidence score fell marginally below an excessively high threshold.
 - **Operational bottlenecks** as decisions queue up waiting for evidence that may never become available, particularly in time-sensitive security contexts.
-- **Reduced [fitness score](/glossary/fitness-score/)** as the platform's overall effectiveness degrades due to systematic inaction.
+- **Reduced [fitness score](@/glossary/fitness-score.md)** as the platform's overall effectiveness degrades due to systematic inaction.
 
-The platform mitigates analysis paralysis through the [SEADF](/glossary/seadf/) monitoring subsystem, which tracks the ratio of propositions that reach near-threshold confidence but fail to cross it. A sustained increase in this ratio triggers an automatic review of whether the applicable threshold is appropriately calibrated. The [Gray Team](/glossary/gray-team/) also contributes by exploring boundary cases where thresholds may be producing suboptimal behavior.
+The platform mitigates analysis paralysis through the [SEADF](@/glossary/seadf.md) monitoring subsystem, which tracks the ratio of propositions that reach near-threshold confidence but fail to cross it. A sustained increase in this ratio triggers an automatic review of whether the applicable threshold is appropriately calibrated. The [Gray Team](@/glossary/gray-team.md) also contributes by exploring boundary cases where thresholds may be producing suboptimal behavior.
 
 ## Confidence vs Robustness vs Threshold
 
 Three related but distinct concepts govern the platform's epistemic quality, and conflating them is a common source of confusion.
 
-**[Confidence scoring](/glossary/confidence-scoring/)** is the process of computing C(P) for a given proposition. It produces a numeric value reflecting the weight and reliability of available evidence. Confidence is a *measurement* -- it tells you how much evidence supports a conclusion.
+**[Confidence scoring](@/glossary/confidence-scoring.md)** is the process of computing C(P) for a given proposition. It produces a numeric value reflecting the weight and reliability of available evidence. Confidence is a *measurement* -- it tells you how much evidence supports a conclusion.
 
-**[Epistemic robustness](/glossary/epistemic-robustness/)** measures how stable a conclusion is under perturbation. A conclusion with high confidence but low robustness would collapse if any single piece of evidence were removed or discredited. The platform measures robustness through leave-one-out analysis and Monte Carlo perturbation. Robustness is a *property* -- it tells you how resilient a conclusion is to challenge.
+**[Epistemic robustness](@/glossary/epistemic-robustness.md)** measures how stable a conclusion is under perturbation. A conclusion with high confidence but low robustness would collapse if any single piece of evidence were removed or discredited. The platform measures robustness through leave-one-out analysis and Monte Carlo perturbation. Robustness is a *property* -- it tells you how resilient a conclusion is to challenge.
 
 **Confidence threshold** (tau) is the decision boundary that determines when a confidence score is sufficient to authorize action. The threshold is a *policy* -- it tells you what level of evidence is required in a given context.
 
@@ -211,7 +211,7 @@ All three interact in the platform's decision-making: confidence scoring produce
 
 Consider Prismatic Perimeter assessing the security posture of a target domain. Multiple evidence sources contribute signals: DNS configuration analysis, certificate transparency logs, WHOIS registration history, port scan results, and web application fingerprinting. Each source produces a weighted, reliability-adjusted, time-decayed signal.
 
-After aggregation, the confidence in the proposition "this domain maintains adequate security controls" reaches C(P) = 0.91. The applicable threshold for security rating determinations is tau = 0.97 (critical level plus EASM domain adjustment). Since 0.91 < 0.97, the system does not yet issue a definitive rating. Instead, it flags the assessment as requiring additional evidence sources and continues the [NABLA Infinity](/glossary/nabla-infinity/) exploration phase. Only when additional signals raise C(P) above 0.97 -- and Trinity Gate confirms structural and logical consistency -- does the platform issue a final A-F security grade.
+After aggregation, the confidence in the proposition "this domain maintains adequate security controls" reaches C(P) = 0.91. The applicable threshold for security rating determinations is tau = 0.97 (critical level plus EASM domain adjustment). Since 0.91 < 0.97, the system does not yet issue a definitive rating. Instead, it flags the assessment as requiring additional evidence sources and continues the [NABLA Infinity](@/glossary/nabla-infinity.md) exploration phase. Only when additional signals raise C(P) above 0.97 -- and Trinity Gate confirms structural and logical consistency -- does the platform issue a final A-F security grade.
 
 ### Due Diligence Entity Resolution
 
@@ -219,49 +219,49 @@ An entity resolution pipeline processing Czech commercial registry data identifi
 
 ### OSINT Hypothesis Exploration
 
-During an investigation into potential infrastructure sharing between two threat actor groups, an OSINT analyst requests correlation analysis across domain registration patterns. Early signals from passive DNS data and hosting provider records produce a confidence of C(P) = 0.53. The applicable threshold for OSINT exploratory analysis is tau = 0.57 (exploratory level with the -0.03 OSINT domain adjustment). Since 0.53 < 0.57, the hypothesis is logged as a research lead but not promoted to the analytical pipeline. The [belief graph](/glossary/belief-graph/) records the hypothesis and its supporting evidence, enabling future signals to automatically update the confidence score as new data becomes available.
+During an investigation into potential infrastructure sharing between two threat actor groups, an OSINT analyst requests correlation analysis across domain registration patterns. Early signals from passive DNS data and hosting provider records produce a confidence of C(P) = 0.53. The applicable threshold for OSINT exploratory analysis is tau = 0.57 (exploratory level with the -0.03 OSINT domain adjustment). Since 0.53 < 0.57, the hypothesis is logged as a research lead but not promoted to the analytical pipeline. The [belief graph](@/glossary/belief-graph.md) records the hypothesis and its supporting evidence, enabling future signals to automatically update the confidence score as new data becomes available.
 
 ## Related Terms
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework defining the seven axioms that govern all belief formation and confidence computation
-- [Trinity Gate](/glossary/trinity-gate/) -- Four-layer verification gate that must pass alongside threshold achievement before any transition to execution
-- [NM/ND Doctrine](/glossary/nm-nd/) -- Execution mode entered when confidence exceeds threshold and Trinity Gate passes
-- [No Mercy](/glossary/no-mercy/) -- Zero-tolerance execution principle activated upon threshold-authorized transition
-- [No Doubts](/glossary/no-doubts/) -- Full-commitment decision principle activated upon threshold-authorized transition
-- [Confidence Scoring](/glossary/confidence-scoring/) -- The computational process that produces the numeric confidence value compared against thresholds
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom requiring minimum two independent signals before any belief is formed
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- NABLA axiom ensuring contradictory evidence is maintained rather than discarded
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- NABLA axiom requiring all evidence to be traceable to its origin
-- [Time Decay](/glossary/time-decay/) -- Temporal weighting function ensuring older evidence contributes less to current confidence
-- [Belief Graph](/glossary/belief-graph/) -- DAG structure representing the platform's current belief state and evidence relationships
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- Measure of conclusion stability under perturbation of supporting evidence
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- 16-level processing pipeline where confidence computation and threshold checking occur
-- [QEVE](/glossary/qeve/) -- Quantified Epistemic Verification Engine providing formal grounding for confidence computation
-- [Monte Carlo Verification](/glossary/monte-carlo-verification/) -- Statistical verification method used for complex multi-step reasoning chains
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof-based verification methodology integrated via Lean4
-- [Property-Based Testing](/glossary/property-based-testing/) -- Automated testing methodology used in threshold calibration
-- [Lean4](/glossary/lean4/) -- Theorem prover used for formal necessity verification in Trinity Gate
-- [Cherry-Picking](/glossary/cherry-picking/) -- Anti-pattern of selecting only supporting evidence, which thresholds alone cannot prevent
-- [Entity Resolution](/glossary/entity-resolution/) -- Identity merge system operating under strict confidence thresholds
-- [EASM](/glossary/easm/) -- External Attack Surface Management domain with elevated threshold adjustments
-- [Quality Gates](/glossary/quality-gates/) -- Code quality verification system operating at the standard threshold level
-- [Fitness Score](/glossary/fitness-score/) -- Platform-wide effectiveness metric influenced by threshold calibration quality
-- [Generation](/glossary/generation/) -- Platform evolution cycle across which thresholds are recalibrated
-- [SEADF](/glossary/seadf/) -- Framework providing threshold recalibration monitoring and recommendations
-- [Color Teams](/glossary/color-teams/) -- Adversarial-defensive team structure that validates threshold effectiveness
-- [Purple Team](/glossary/purple-team/) -- Synthesis team monitoring for premature execution patterns
-- [Gray Team](/glossary/gray-team/) -- Boundary exploration team investigating threshold edge cases
-- [White Team](/glossary/white-team/) -- Constructive verification team providing formal proofs for threshold-critical decisions
-- [Three-NL](/glossary/three-nl/) -- Integration framework at whose Level 3 confidence thresholds are enforced
-- [Agent](/glossary/agent/) -- Autonomous platform components that operate under tau-governed decision boundaries
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of all threshold transitions and decision events
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework defining the seven axioms that govern all belief formation and confidence computation
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Four-layer verification gate that must pass alongside threshold achievement before any transition to execution
+- [NM/ND Doctrine](@/glossary/nm-nd.md) -- Execution mode entered when confidence exceeds threshold and Trinity Gate passes
+- [No Mercy](@/glossary/no-mercy.md) -- Zero-tolerance execution principle activated upon threshold-authorized transition
+- [No Doubts](@/glossary/no-doubts.md) -- Full-commitment decision principle activated upon threshold-authorized transition
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- The computational process that produces the numeric confidence value compared against thresholds
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom requiring minimum two independent signals before any belief is formed
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- NABLA axiom ensuring contradictory evidence is maintained rather than discarded
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- NABLA axiom requiring all evidence to be traceable to its origin
+- [Time Decay](@/glossary/time-decay.md) -- Temporal weighting function ensuring older evidence contributes less to current confidence
+- [Belief Graph](@/glossary/belief-graph.md) -- DAG structure representing the platform's current belief state and evidence relationships
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- Measure of conclusion stability under perturbation of supporting evidence
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- 16-level processing pipeline where confidence computation and threshold checking occur
+- [QEVE](@/glossary/qeve.md) -- Quantified Epistemic Verification Engine providing formal grounding for confidence computation
+- [Monte Carlo Verification](@/glossary/monte-carlo-verification.md) -- Statistical verification method used for complex multi-step reasoning chains
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof-based verification methodology integrated via Lean4
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Automated testing methodology used in threshold calibration
+- [Lean4](@/glossary/lean4.md) -- Theorem prover used for formal necessity verification in Trinity Gate
+- [Cherry-Picking](@/glossary/cherry-picking.md) -- Anti-pattern of selecting only supporting evidence, which thresholds alone cannot prevent
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Identity merge system operating under strict confidence thresholds
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management domain with elevated threshold adjustments
+- [Quality Gates](@/glossary/quality-gates.md) -- Code quality verification system operating at the standard threshold level
+- [Fitness Score](@/glossary/fitness-score.md) -- Platform-wide effectiveness metric influenced by threshold calibration quality
+- [Generation](@/glossary/generation.md) -- Platform evolution cycle across which thresholds are recalibrated
+- [SEADF](@/glossary/seadf.md) -- Framework providing threshold recalibration monitoring and recommendations
+- [Color Teams](@/glossary/color-teams.md) -- Adversarial-defensive team structure that validates threshold effectiveness
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis team monitoring for premature execution patterns
+- [Gray Team](@/glossary/gray-team.md) -- Boundary exploration team investigating threshold edge cases
+- [White Team](@/glossary/white-team.md) -- Constructive verification team providing formal proofs for threshold-critical decisions
+- [Three-NL](@/glossary/three-nl.md) -- Integration framework at whose Level 3 confidence thresholds are enforced
+- [Agent](@/glossary/agent.md) -- Autonomous platform components that operate under tau-governed decision boundaries
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of all threshold transitions and decision events
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview including epistemic subsystem design
-- [Technologies](/technologies/) -- Technology stack supporting confidence computation and verification
-- [AIAD](/glossary/aiad/) -- Agent standard requiring threshold compliance in all agent specifications
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality continuity system calibrated against confidence thresholds
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview including epistemic subsystem design
+- [Technologies](@/technologies/_index.md) -- Technology stack supporting confidence computation and verification
+- [AIAD](@/glossary/aiad.md) -- Agent standard requiring threshold compliance in all agent specifications
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality continuity system calibrated against confidence thresholds
 
 ---
 
@@ -270,4 +270,4 @@ During an investigation into potential infrastructure sharing between two threat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

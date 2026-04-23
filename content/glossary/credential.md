@@ -33,9 +33,9 @@ image_alt = "Credential - Prismatic Platform"
 
 ## Definition
 
-A **credential** is a digital artifact that proves an entity's claimed identity and authorizes access to protected resources. Credentials serve as the foundational bridge between [authentication](/glossary/authentication/) (proving who you are) and [authorization](/glossary/authorization/) (determining what you can do). Without properly managed credentials, no security boundary can be trusted.
+A **credential** is a digital artifact that proves an entity's claimed identity and authorizes access to protected resources. Credentials serve as the foundational bridge between [authentication](@/glossary/authentication.md) (proving who you are) and [authorization](@/glossary/authorization.md) (determining what you can do). Without properly managed credentials, no security boundary can be trusted.
 
-In the context of the Prismatic Platform, credentials govern three critical domains: platform infrastructure access, user session management, and OSINT tool [authentication](/glossary/authentication/) for intelligence-gathering operations. The platform's [SEAL](/glossary/seal/) doctrine mandates that credentials never appear in source code, are never logged, and are always injected at runtime through environment variables or secret management systems.
+In the context of the Prismatic Platform, credentials govern three critical domains: platform infrastructure access, user session management, and OSINT tool [authentication](@/glossary/authentication.md) for intelligence-gathering operations. The platform's [SEAL](/glossary/seal/) doctrine mandates that credentials never appear in source code, are never logged, and are always injected at runtime through environment variables or secret management systems.
 
 ## Overview
 
@@ -45,15 +45,15 @@ Credentials exist in many forms, each with distinct security properties, lifecyc
 
 #### Passwords
 
-The oldest and most familiar credential type. A shared secret known only to the user and the verifying system. Passwords are stored as cryptographic hashes (bcrypt, argon2) -- never in plaintext. Their primary weakness is human behavior: users choose weak passwords, reuse them across services, and fall victim to phishing. Password-based [authentication](/glossary/authentication/) should always be combined with a second factor.
+The oldest and most familiar credential type. A shared secret known only to the user and the verifying system. Passwords are stored as cryptographic hashes (bcrypt, argon2) -- never in plaintext. Their primary weakness is human behavior: users choose weak passwords, reuse them across services, and fall victim to phishing. Password-based [authentication](@/glossary/authentication.md) should always be combined with a second factor.
 
 #### Tokens
 
-Short-lived digital artifacts issued after successful [authentication](/glossary/authentication/). [JWT](/glossary/jwt/) (JSON Web Tokens) are the most common form, carrying encoded claims about the bearer's identity and permissions. Tokens are self-contained -- the verifier needs only the signing key, not a database lookup. Session tokens, refresh tokens, and [OAuth](/glossary/oauth/) access tokens all fall in this category. Their short lifespan limits the damage window if compromised.
+Short-lived digital artifacts issued after successful [authentication](@/glossary/authentication.md). [JWT](@/glossary/jwt.md) (JSON Web Tokens) are the most common form, carrying encoded claims about the bearer's identity and permissions. Tokens are self-contained -- the verifier needs only the signing key, not a database lookup. Session tokens, refresh tokens, and [OAuth](@/glossary/oauth.md) access tokens all fall in this category. Their short lifespan limits the damage window if compromised.
 
 #### API Keys
 
-Static strings that identify and [authenticate](/glossary/authentication/) a calling application or service. Unlike tokens, API keys typically do not expire automatically and must be rotated manually or through automated rotation policies. They are the primary credential type for OSINT tool integrations in the Prismatic Platform -- services like Shodan, VirusTotal, and Hunter.io all require [API keys](/glossary/api-key/) for programmatic access.
+Static strings that identify and [authenticate](@/glossary/authentication.md) a calling application or service. Unlike tokens, API keys typically do not expire automatically and must be rotated manually or through automated rotation policies. They are the primary credential type for OSINT tool integrations in the Prismatic Platform -- services like Shodan, VirusTotal, and Hunter.io all require [API keys](/glossary/api-key/) for programmatic access.
 
 #### Certificates
 
@@ -61,11 +61,11 @@ Cryptographic documents that bind a public key to an identity, verified by a tru
 
 #### SSH Keys
 
-Asymmetric key pairs used for server access and Git operations. The private key never leaves the holder's machine; the public key is distributed to servers that should grant access. SSH keys provide strong [authentication](/glossary/authentication/) without transmitting secrets over the network. Key rotation and access revocation require removing the public key from authorized hosts.
+Asymmetric key pairs used for server access and Git operations. The private key never leaves the holder's machine; the public key is distributed to servers that should grant access. SSH keys provide strong [authentication](@/glossary/authentication.md) without transmitting secrets over the network. Key rotation and access revocation require removing the public key from authorized hosts.
 
 #### Erlang Distribution Cookies
 
-A platform-specific credential type. The Erlang runtime uses a shared cookie to [authenticate](/glossary/authentication/) nodes in a distributed cluster. All nodes sharing the same cookie can communicate freely. This cookie must be treated with the same care as any other [secret](/glossary/secret/) -- if leaked, an attacker can join the cluster and execute arbitrary code on any connected node.
+A platform-specific credential type. The Erlang runtime uses a shared cookie to [authenticate](@/glossary/authentication.md) nodes in a distributed cluster. All nodes sharing the same cookie can communicate freely. This cookie must be treated with the same care as any other [secret](/glossary/secret/) -- if leaked, an attacker can join the cluster and execute arbitrary code on any connected node.
 
 ### Credential Properties Comparison
 
@@ -270,7 +270,7 @@ sequenceDiagram
 
 ### OSINT API Credentials
 
-The Prismatic Platform integrates with 157+ OSINT tools, many requiring [API key](/glossary/api-key/) [authentication](/glossary/authentication/). Each tool's `requires_auth` configuration determines whether credentials are needed at runtime. Tools check for their specific credential and return structured errors when credentials are missing, rather than failing silently.
+The Prismatic Platform integrates with 157+ OSINT tools, many requiring [API key](/glossary/api-key/) [authentication](@/glossary/authentication.md). Each tool's `requires_auth` configuration determines whether credentials are needed at runtime. Tools check for their specific credential and return structured errors when credentials are missing, rather than failing silently.
 
 | Tool Category | Auth Method | Credential Type | Environment Variable |
 |--------------|-------------|----------------|---------------------|
@@ -284,13 +284,13 @@ The Prismatic Platform integrates with 157+ OSINT tools, many requiring [API key
 | **Censys** | API ID + Secret | Pair | `CENSYS_API_ID` / `CENSYS_API_SECRET` |
 | **SecurityTrails** | API Key | String | `SECURITYTRAILS_API_KEY` |
 
-The OSINT toolbox UI (`/hub/osint/tools`) displays [authentication](/glossary/authentication/) status per tool, showing which tools are configured and ready for use versus which require credential configuration.
+The OSINT toolbox UI (`/hub/osint/tools`) displays [authentication](@/glossary/authentication.md) status per tool, showing which tools are configured and ready for use versus which require credential configuration.
 
 ### SEAL Enforcement in Practice
 
 The platform enforces credential security through multiple layers:
 
-1. **Pre-commit hooks** (Phase 9: Security scan) -- grep-based detection of credential patterns in staged files. Commits containing strings that match API key, password, or [token](/glossary/token/) patterns are blocked.
+1. **Pre-commit hooks** (Phase 9: Security scan) -- grep-based detection of credential patterns in staged files. Commits containing strings that match API key, password, or [token](@/glossary/token.md) patterns are blocked.
 
 2. **`.gitignore` exclusions** -- Common credential file patterns (`.env`, `*.pem`, `*.key`, `credentials.json`) are excluded from version control.
 
@@ -305,12 +305,12 @@ The Perimeter External Attack Surface Management module assesses target organiza
 - Exposed admin interfaces with default credentials
 - [API keys](/glossary/api-key/) visible in client-side JavaScript
 - Leaked credentials in public code repositories
-- [Credential stuffing](/glossary/credential-stuffing/) vulnerability indicators
+- [Credential stuffing](@/glossary/credential-stuffing.md) vulnerability indicators
 - Certificate misconfigurations and expirations
 
 ### Color Team Credential Monitoring
 
-The Color Team's Blue Team `blue-auth-sentinel` agent monitors [authentication](/glossary/authentication/) events for credential abuse patterns: brute force attempts, [credential stuffing](/glossary/credential-stuffing/), [token](/glossary/token/) replay, and privilege escalation via compromised credentials. Detected patterns enter the Color Team pipeline for assessment and containment.
+The Color Team's Blue Team `blue-auth-sentinel` agent monitors [authentication](@/glossary/authentication.md) events for credential abuse patterns: brute force attempts, [credential stuffing](@/glossary/credential-stuffing.md), [token](@/glossary/token.md) replay, and privilege escalation via compromised credentials. Detected patterns enter the Color Team pipeline for assessment and containment.
 
 ## Code Examples
 
@@ -509,9 +509,9 @@ end
 ### Storage and Transmission
 
 - Store passwords only as salted cryptographic hashes (bcrypt with cost factor >= 12, or argon2id)
-- Transmit credentials only over [encrypted](/glossary/encryption/) channels (TLS 1.2+)
+- Transmit credentials only over [encrypted](@/glossary/encryption.md) channels (TLS 1.2+)
 - Store API keys in environment variables or dedicated [secret](/glossary/secret/) management systems, never in source code
-- Use short-lived [tokens](/glossary/token/) for session management; long-lived credentials for service-to-service [authentication](/glossary/authentication/) only when rotation is automated
+- Use short-lived [tokens](@/glossary/token.md) for session management; long-lived credentials for service-to-service [authentication](@/glossary/authentication.md) only when rotation is automated
 
 ### Rotation and Revocation
 
@@ -522,9 +522,9 @@ end
 
 ### Monitoring and Incident Response
 
-- Log all [authentication](/glossary/authentication/) attempts (successes and failures) with structured metadata
+- Log all [authentication](@/glossary/authentication.md) attempts (successes and failures) with structured metadata
 - Alert on anomalous credential usage (geographic anomalies, frequency spikes, scope violations)
-- Maintain a credential [injection](/glossary/injection/) response playbook: immediate revocation, scope assessment, forensic analysis
+- Maintain a credential [injection](@/glossary/injection.md) response playbook: immediate revocation, scope assessment, forensic analysis
 - Never include credential values in log output, error messages, or stack traces
 
 ## Common Mistakes
@@ -538,7 +538,7 @@ end
 | Storing passwords in plaintext | **Critical** | Direct credential theft from any data breach | Use bcrypt/argon2 hashing with unique salts |
 | Sharing credentials across environments | **High** | Staging compromise leads to production breach | Unique credentials per environment |
 | Using bare `rescue` in credential handling | **Medium** | Error details swallowed, debugging impossible | Catch specific exceptions (ZERO doctrine) |
-| No rate limiting on [authentication](/glossary/authentication/) endpoints | **High** | Brute force and [credential stuffing](/glossary/credential-stuffing/) attacks succeed | Implement exponential backoff and lockout |
+| No rate limiting on [authentication](@/glossary/authentication.md) endpoints | **High** | Brute force and [credential stuffing](@/glossary/credential-stuffing.md) attacks succeed | Implement exponential backoff and lockout |
 | Transmitting credentials over HTTP | **Critical** | Network sniffing captures credentials in transit | Enforce TLS for all credential transmission |
 | Committing `.env` files to version control | **Critical** | All environment [secrets](/glossary/secret/) exposed in repo | Add `.env` to `.gitignore`, use `.env.example` for templates |
 | Using the same API key for all OSINT tools | **Medium** | Single key compromise affects all tool integrations | Unique keys per service with minimal scope |
@@ -546,21 +546,21 @@ end
 
 ## Related Terms
 
-- [Authentication](/glossary/authentication/) -- the process of verifying identity using credentials
-- [Authorization](/glossary/authorization/) -- determining permitted actions after credential verification
+- [Authentication](@/glossary/authentication.md) -- the process of verifying identity using credentials
+- [Authorization](@/glossary/authorization.md) -- determining permitted actions after credential verification
 - [API Key](/glossary/api-key/) -- a specific credential type for programmatic service access
-- [JWT](/glossary/jwt/) -- JSON Web Token, a self-contained credential carrying encoded claims
-- [OAuth](/glossary/oauth/) -- delegated [authorization](/glossary/authorization/) framework using [token](/glossary/token/) credentials
+- [JWT](@/glossary/jwt.md) -- JSON Web Token, a self-contained credential carrying encoded claims
+- [OAuth](@/glossary/oauth.md) -- delegated [authorization](@/glossary/authorization.md) framework using [token](@/glossary/token.md) credentials
 - [Secret](/glossary/secret/) -- any sensitive value requiring protection, including credentials
-- [Encryption](/glossary/encryption/) -- cryptographic protection for credentials in storage and transit
-- [Injection](/glossary/injection/) -- attack vector that can expose or bypass credential checks
+- [Encryption](@/glossary/encryption.md) -- cryptographic protection for credentials in storage and transit
+- [Injection](@/glossary/injection.md) -- attack vector that can expose or bypass credential checks
 - [SEAL](/glossary/seal/) -- Security Enforcement Absolute Lock doctrine governing credential handling
-- [Credential Management](/glossary/credential-management/) -- lifecycle practices for credential security
-- [Credential Stuffing](/glossary/credential-stuffing/) -- automated attack using stolen credential databases
-- [Cipher Suite](/glossary/cipher-suite/) -- TLS configuration protecting credential transmission
+- [Credential Management](@/glossary/credential-management.md) -- lifecycle practices for credential security
+- [Credential Stuffing](@/glossary/credential-stuffing.md) -- automated attack using stolen credential databases
+- [Cipher Suite](@/glossary/cipher-suite.md) -- TLS configuration protecting credential transmission
 - [Certificate](/glossary/certificate/) -- cryptographic credential binding identity to public keys
-- [Token](/glossary/token/) -- short-lived credential issued after successful authentication
-- [Access Control](/glossary/access-control/) -- security framework enforcing credential-based permissions
+- [Token](@/glossary/token.md) -- short-lived credential issued after successful authentication
+- [Access Control](@/glossary/access-control.md) -- security framework enforcing credential-based permissions
 
 ## See Also
 
@@ -577,4 +577,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

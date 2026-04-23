@@ -33,17 +33,17 @@ image_alt = "Monte Carlo Verification - Prismatic Platform"
 
 ## Definition
 
-Monte Carlo Verification is the probabilistic robustness testing methodology employed in the final stage of the [QEVE](/glossary/qeve/) pipeline. It systematically subjects verified conclusions to thousands of randomized perturbation scenarios -- varying evidence weights, removing signals, injecting failures, and simulating source degradation -- to quantify how stable a conclusion remains under stress. The output is not a binary pass/fail but a continuous robustness distribution that reveals which evidence is load-bearing, which assumptions are fragile, and what percentage of plausible alternative scenarios preserve the original conclusion.
+Monte Carlo Verification is the probabilistic robustness testing methodology employed in the final stage of the [QEVE](@/glossary/qeve.md) pipeline. It systematically subjects verified conclusions to thousands of randomized perturbation scenarios -- varying evidence weights, removing signals, injecting failures, and simulating source degradation -- to quantify how stable a conclusion remains under stress. The output is not a binary pass/fail but a continuous robustness distribution that reveals which evidence is load-bearing, which assumptions are fragile, and what percentage of plausible alternative scenarios preserve the original conclusion.
 
 The method takes its name from the Monte Carlo casino in Monaco, following the convention established by Stanislaw Ulam and John von Neumann during the Manhattan Project in the 1940s. They recognized that deterministic computation of neutron diffusion was intractable but that repeated random sampling could converge on accurate estimates. The same principle applies to epistemic verification: deterministically enumerating all possible perturbations to a belief graph is combinatorially explosive, but random sampling from the perturbation space converges on reliable robustness estimates with quantifiable error bounds.
 
-Within the Prismatic Platform, Monte Carlo Verification occupies Stage 5 of the [QEVE](/glossary/qeve/) pipeline, executing after structural validation (Stage 2), logical consistency checking (Stage 3), and [Lean4](/glossary/lean4/) formal proof (Stage 4). This ordering is deliberate: Monte Carlo simulation is computationally expensive, and running it against structurally broken or logically inconsistent belief graphs would produce meaningless results. The prior stages act as filters, ensuring that only well-formed, logically sound, formally verified conclusions undergo robustness testing.
+Within the Prismatic Platform, Monte Carlo Verification occupies Stage 5 of the [QEVE](@/glossary/qeve.md) pipeline, executing after structural validation (Stage 2), logical consistency checking (Stage 3), and [Lean4](@/glossary/lean4.md) formal proof (Stage 4). This ordering is deliberate: Monte Carlo simulation is computationally expensive, and running it against structurally broken or logically inconsistent belief graphs would produce meaningless results. The prior stages act as filters, ensuring that only well-formed, logically sound, formally verified conclusions undergo robustness testing.
 
 ## Overview
 
 Monte Carlo methods are a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. In the verification domain, the technique transforms the question "is this conclusion robust?" into a statistical estimation problem: "what fraction of plausible perturbation scenarios preserve the conclusion?" By running thousands of independent trials, each applying a randomized combination of evidence modifications, the platform builds a statistical profile of conclusion stability that is far more informative than any single deterministic test.
 
-The approach is particularly well-suited to the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework because it naturally handles the uncertainty and plurality that NABLA axioms demand. Rather than claiming absolute certainty about a conclusion's robustness, Monte Carlo Verification produces a probability distribution with quantified error bounds -- an honest representation of what the evidence supports.
+The approach is particularly well-suited to the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework because it naturally handles the uncertainty and plurality that NABLA axioms demand. Rather than claiming absolute certainty about a conclusion's robustness, Monte Carlo Verification produces a probability distribution with quantified error bounds -- an honest representation of what the evidence supports.
 
 ## Mathematical Foundations
 
@@ -101,7 +101,7 @@ The perturbation follows a truncated normal distribution centered on the origina
 
 ### Signal Removal
 
-Individual signals and signal combinations are systematically removed from the [belief graph](/glossary/belief-graph/) to identify load-bearing evidence. A signal is load-bearing if its removal causes the conclusion's robustness to drop below the decision threshold. Signal removal analysis directly supports the [Signal Plurality](/glossary/signal-plurality/) axiom by identifying conclusions that effectively depend on a single critical signal despite nominally satisfying the two-signal minimum.
+Individual signals and signal combinations are systematically removed from the [belief graph](@/glossary/belief-graph.md) to identify load-bearing evidence. A signal is load-bearing if its removal causes the conclusion's robustness to drop below the decision threshold. Signal removal analysis directly supports the [Signal Plurality](@/glossary/signal-plurality.md) axiom by identifying conclusions that effectively depend on a single critical signal despite nominally satisfying the two-signal minimum.
 
 The engine tests:
 - **Single removal**: Each signal removed independently (n scenarios for n signals)
@@ -112,13 +112,13 @@ The engine tests:
 
 Entire source groups (as defined by the `independence_group` field in evidence data) are removed to simulate source compromise or unavailability. This tests whether the conclusion survives if an entire intelligence provider, database, or scanning infrastructure becomes unavailable.
 
-Source group failure is particularly relevant for [EASM](/glossary/easm/) assessments where multiple signals may originate from the same scanning infrastructure. If a security rating depends heavily on Censys data, source group failure analysis reveals this dependency explicitly.
+Source group failure is particularly relevant for [EASM](@/glossary/easm.md) assessments where multiple signals may originate from the same scanning infrastructure. If a security rating depends heavily on Censys data, source group failure analysis reveals this dependency explicitly.
 
 ### Temporal Shift
 
 Time decay parameters are perturbed to test sensitivity to evidence freshness assumptions. The engine accelerates and decelerates decay functions, simulating scenarios where evidence ages faster or slower than expected. This tests whether conclusions are robust to uncertainty in the decay model itself, not just uncertainty in the evidence.
 
-Temporal shift perturbation interacts directly with the [NABLA Infinity](/glossary/nabla-infinity/) Time Decay axiom, verifying that the axiom's enforcement produces stable results across a range of plausible decay parameterizations.
+Temporal shift perturbation interacts directly with the [NABLA Infinity](@/glossary/nabla-infinity.md) Time Decay axiom, verifying that the axiom's enforcement produces stable results across a range of plausible decay parameterizations.
 
 ### Combined Perturbation
 
@@ -126,7 +126,7 @@ The most aggressive stratum applies multiple perturbation types simultaneously: 
 
 ## Robustness Scoring
 
-The robustness score is the primary output of Monte Carlo Verification and feeds directly into the [confidence scoring](/glossary/confidence-scoring/) formula used throughout the platform.
+The robustness score is the primary output of Monte Carlo Verification and feeds directly into the [confidence scoring](@/glossary/confidence-scoring.md) formula used throughout the platform.
 
 ### Score Computation
 
@@ -150,7 +150,7 @@ robustness_score = 7200 / 10000 = 0.72
 | 0.25 - 0.49 | Fragile | Conclusion should not be acted upon without additional evidence |
 | 0.00 - 0.24 | Extremely fragile | Conclusion is likely an artifact of specific evidence configuration |
 
-The score feeds into the multiplicative [confidence scoring](/glossary/confidence-scoring/) formula:
+The score feeds into the multiplicative [confidence scoring](@/glossary/confidence-scoring.md) formula:
 
 ```
 final_confidence = belief_strength * robustness_score * (1 - contradiction_index)
@@ -171,11 +171,11 @@ This report enables analysts to understand not just whether a conclusion is robu
 
 ## Integration with Formal Verification
 
-Monte Carlo Verification and [Lean4](/glossary/lean4/) formal verification serve complementary roles in the [QEVE](/glossary/qeve/) pipeline. Formal verification answers: "Is this conclusion logically necessary?" Monte Carlo verification answers: "Is this conclusion practically stable?"
+Monte Carlo Verification and [Lean4](@/glossary/lean4.md) formal verification serve complementary roles in the [QEVE](@/glossary/qeve.md) pipeline. Formal verification answers: "Is this conclusion logically necessary?" Monte Carlo verification answers: "Is this conclusion practically stable?"
 
 A conclusion can be formally necessary yet practically fragile. Consider a theorem that is true given its axioms, where one axiom depends on a signal with weight 0.51. The formal proof is valid, but the Monte Carlo analysis reveals that a 2% weight perturbation would invalidate the axiom and collapse the proof. This interaction between formal and probabilistic verification is why both stages are required.
 
-The [Trinity Gate](/glossary/trinity-gate/) evaluates formal proofs from Stage 4 and robustness scores from Stage 5 independently. A conclusion must pass both: formally necessary AND practically robust. Neither alone is sufficient.
+The [Trinity Gate](@/glossary/trinity-gate.md) evaluates formal proofs from Stage 4 and robustness scores from Stage 5 independently. A conclusion must pass both: formally necessary AND practically robust. Neither alone is sufficient.
 
 ## Implementation Architecture
 
@@ -281,7 +281,7 @@ end
 
 ### Deterministic Reproducibility
 
-Despite using random perturbations, every Monte Carlo run is reproducible. The engine seeds its random number generator with a deterministic seed derived from the belief graph hash and a run identifier. This means that given the same belief graph and the same run configuration, the engine produces identical results. Reproducibility is essential for [audit trail](/glossary/audit-trail/) compliance and debugging.
+Despite using random perturbations, every Monte Carlo run is reproducible. The engine seeds its random number generator with a deterministic seed derived from the belief graph hash and a run identifier. This means that given the same belief graph and the same run configuration, the engine produces identical results. Reproducibility is essential for [audit trail](@/glossary/audit-trail.md) compliance and debugging.
 
 ### ETS-Backed Result Caching
 
@@ -297,13 +297,13 @@ Intermediate results are stored in ETS (Erlang Term Storage) tables for rapid ag
 | **Failure mode** | Missed edge case | Shrunk counterexample | Sensitivity report |
 | **Guarantees** | None beyond tested cases | Statistical for tested property | Probabilistic for robustness |
 
-[Property-based testing](/glossary/property-based-testing/) tests whether code properties hold across random inputs. Monte Carlo Verification tests whether epistemic conclusions hold across random evidence perturbations. The domains are orthogonal: one verifies software correctness, the other verifies reasoning stability.
+[Property-based testing](@/glossary/property-based-testing.md) tests whether code properties hold across random inputs. Monte Carlo Verification tests whether epistemic conclusions hold across random evidence perturbations. The domains are orthogonal: one verifies software correctness, the other verifies reasoning stability.
 
 ## Application in Due Diligence
 
 Monte Carlo Verification is particularly valuable in due diligence contexts where stakeholders need to understand not just what the risk assessment says but how sensitive it is to assumptions.
 
-Consider an acquisition due diligence assessment where [QEVE](/glossary/qeve/) produces a risk rating of "elevated" with confidence 0.87. The Monte Carlo sensitivity report reveals:
+Consider an acquisition due diligence assessment where [QEVE](@/glossary/qeve.md) produces a risk rating of "elevated" with confidence 0.87. The Monte Carlo sensitivity report reveals:
 
 - Removing the sanctions database signal drops robustness from 72% to 41%
 - The ownership structure signal has a critical threshold at weight 0.60 (current weight: 0.65)
@@ -319,7 +319,7 @@ This tells the acquisition team precisely where to focus additional investigatio
 
 3. **Record full perturbation parameters for each run**. The sensitivity report is only as good as the traceability of individual run results to their perturbation inputs. Store perturbation seeds and parameters alongside outcomes.
 
-4. **Validate the perturbation model against adversarial review**. The robustness score is only meaningful if the perturbation model reflects realistic threats. Periodically review perturbation distributions with the [Red Team](/glossary/red-team/) to ensure they match adversarial reality.
+4. **Validate the perturbation model against adversarial review**. The robustness score is only meaningful if the perturbation model reflects realistic threats. Periodically review perturbation distributions with the [Red Team](@/glossary/red-team.md) to ensure they match adversarial reality.
 
 5. **Combine with formal verification, never replace it**. Monte Carlo Verification and Lean4 formal proofs answer different questions. A conclusion that passes both has much stronger epistemic standing than one that passes either alone.
 
@@ -333,31 +333,31 @@ Monte Carlo Verification has known limitations that the platform addresses throu
 
 **Computational cost**: 10,000 runs per conclusion is expensive for real-time applications. The platform uses adaptive sampling -- starting with 1,000 runs and increasing only if the initial estimate has high variance -- to balance speed with precision.
 
-**Model dependency**: The robustness score depends on the perturbation model (which types of perturbation, what distributions, what bounds). If the perturbation model does not reflect realistic threats to the evidence, the robustness score may be misleadingly high. The [Red Team](/glossary/red-team/) periodically reviews and challenges the perturbation model to ensure it reflects adversarial reality.
+**Model dependency**: The robustness score depends on the perturbation model (which types of perturbation, what distributions, what bounds). If the perturbation model does not reflect realistic threats to the evidence, the robustness score may be misleadingly high. The [Red Team](@/glossary/red-team.md) periodically reviews and challenges the perturbation model to ensure it reflects adversarial reality.
 
 **Stationarity assumption**: The engine assumes that the underlying evidence distribution is stationary during the simulation run. If evidence is actively changing (e.g., during a live incident), the robustness score may not reflect the current evidence state. The platform addresses this by timestamping snapshots and re-running verification when evidence changes significantly.
 
 ## Related Terms
 
-- [QEVE](/glossary/qeve/) -- Verification engine where Monte Carlo Verification operates as Stage 5
-- [Lean4](/glossary/lean4/) -- Formal proof system complementing probabilistic robustness testing
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate consuming both formal proofs and robustness scores
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework whose axioms are stress-tested by perturbation
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Decision thresholds applied to Monte Carlo robustness-adjusted scores
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- The quality that Monte Carlo Verification quantifies
-- [Belief Graph](/glossary/belief-graph/) -- The data structure subjected to perturbation analysis
-- [Confidence Scoring](/glossary/confidence-scoring/) -- The formula incorporating robustness scores
-- [Property-Based Testing](/glossary/property-based-testing/) -- Complementary randomized testing for software correctness
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom whose effective enforcement Monte Carlo analysis validates
-- [White Team](/glossary/white-team/) -- Verification team that interprets and acts on robustness results
-- [Red Team](/glossary/red-team/) -- Adversarial team that challenges the perturbation model
-- [Audit Trail](/glossary/audit-trail/) -- Immutable logging of all Monte Carlo run parameters and results
+- [QEVE](@/glossary/qeve.md) -- Verification engine where Monte Carlo Verification operates as Stage 5
+- [Lean4](@/glossary/lean4.md) -- Formal proof system complementing probabilistic robustness testing
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate consuming both formal proofs and robustness scores
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework whose axioms are stress-tested by perturbation
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Decision thresholds applied to Monte Carlo robustness-adjusted scores
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- The quality that Monte Carlo Verification quantifies
+- [Belief Graph](@/glossary/belief-graph.md) -- The data structure subjected to perturbation analysis
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- The formula incorporating robustness scores
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Complementary randomized testing for software correctness
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom whose effective enforcement Monte Carlo analysis validates
+- [White Team](@/glossary/white-team.md) -- Verification team that interprets and acts on robustness results
+- [Red Team](@/glossary/red-team.md) -- Adversarial team that challenges the perturbation model
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable logging of all Monte Carlo run parameters and results
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Capabilities](/capabilities/) -- Platform verification capabilities
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Capabilities](@/capabilities/_index.md) -- Platform verification capabilities
 
 ---
 
@@ -366,4 +366,4 @@ Monte Carlo Verification has known limitations that the platform addresses throu
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

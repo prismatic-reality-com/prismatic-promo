@@ -26,11 +26,11 @@ image_alt = "/fork - Prismatic Platform"
 
 **/fork** is a production command in the **Stack Mode** category of the Prismatic Platform that branches a conversation from a specific frame, creating a new conversational timeline. This is a **DESTRUCTIVE** operation: all frames above the fork point are removed from the active stack, and the conversation continues from the forked frame as its new base. The original frames are not recoverable through normal stack operations once the fork is executed.
 
-The command operates under the **DESTRUCTIVE** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The DESTRUCTIVE classification means that `/fork` requires explicit confirmation before execution and is logged to the immutable audit trail for accountability.
+The command operates under the **DESTRUCTIVE** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The DESTRUCTIVE classification means that `/fork` requires explicit confirmation before execution and is logged to the immutable audit trail for accountability.
 
 Stack-based conversation mode is a foundational protocol in the Prismatic Platform that treats every Claude interaction as a sequence of immutable frames. Each frame captures user input, assistant output, key assumptions, and key decisions. The `/fork` command enables operators to explore alternative decision paths without losing the ability to reason about what was tried and why. When a conversation reaches a dead end or an incorrect assumption is discovered mid-session, `/fork` allows the operator to rewind to a known-good state and proceed with corrected context.
 
-This capability is particularly valuable in complex debugging sessions, architectural exploration, and multi-hypothesis investigations where the [NABLA](/glossary/nabla-infinity/) framework's signal plurality axiom demands that multiple approaches be considered before converging on a solution. By forking from an earlier frame, the operator preserves the epistemic integrity of each exploration branch.
+This capability is particularly valuable in complex debugging sessions, architectural exploration, and multi-hypothesis investigations where the [NABLA](@/glossary/nabla-infinity.md) framework's signal plurality axiom demands that multiple approaches be considered before converging on a solution. By forking from an earlier frame, the operator preserves the epistemic integrity of each exploration branch.
 
 ## Architecture
 
@@ -131,15 +131,15 @@ The GenServer maintains a list of frame IDs representing the active stack. When 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
 | Stack GenServer | Core | Direct GenServer call to `StackConversation.fork/2` |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Managed by `stack-conversation-manager` agent |
-| [NABLA Framework](/glossary/nabla-infinity/) | Epistemic | Fork metadata supports signal plurality and hypothesis tracking |
-| [Telemetry](/glossary/telemetry/) | Observability | Fork events tracked for session analysis |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Managed by `stack-conversation-manager` agent |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Epistemic | Fork metadata supports signal plurality and hypothesis tracking |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Fork events tracked for session analysis |
 | Session Context | Persistence | Fork operations are recorded in session context for cross-session continuity |
-| [Quality DNA](/glossary/quality-dna/) | Continuity | Fork decisions contribute to quality DNA evolution tracking |
+| [Quality DNA](@/glossary/quality-dna.md) | Continuity | Fork decisions contribute to quality DNA evolution tracking |
 
 ## Best Practices
 
-**Always create a checkpoint before exploratory work.** Use [/checkpoint](/commands/checkpoint/) to mark known-good states before venturing into risky territory. This makes fork operations more precise and reduces the risk of losing valuable context.
+**Always create a checkpoint before exploratory work.** Use [/checkpoint](@/commands/checkpoint.md) to mark known-good states before venturing into risky territory. This makes fork operations more precise and reduces the risk of losing valuable context.
 
 **Use hypothesis labels for NABLA compliance.** When forking to explore an alternative approach, label the fork with a clear hypothesis using `--hypothesis`. This supports the NABLA framework's requirement for traceable reasoning and makes it possible to evaluate which exploration path yielded the most productive results.
 
@@ -153,8 +153,8 @@ The GenServer maintains a list of frame IDs representing the active stack. When 
 
 | Error | Cause | Resolution |
 |-------|-------|------------|
-| `{:error, :frame_not_found}` | Target frame N does not exist in the active stack | Use [/stack](/commands/stack/) to view available frames |
-| `{:error, :fork_at_tip}` | Attempting to fork from the current tip (no frames to remove) | Fork from an earlier frame or use [/pop](/commands/pop/) instead |
+| `{:error, :frame_not_found}` | Target frame N does not exist in the active stack | Use [/stack](@/commands/stack.md) to view available frames |
+| `{:error, :fork_at_tip}` | Attempting to fork from the current tip (no frames to remove) | Fork from an earlier frame or use [/pop](@/commands/pop.md) instead |
 | `{:error, :confirmation_declined}` | Operator declined the confirmation prompt | Re-run with correct frame number or use `--dry-run` to preview |
 | `{:error, :archive_failed}` | Unable to write orphaned frames to disk | Check disk space and permissions on `.claude/stack-conversation/archives/` |
 | `{:error, :genserver_unavailable}` | Stack GenServer is not running | Ensure PrismaticClaude application is started |
@@ -211,7 +211,7 @@ PrismaticClaude.Telemetry.query(
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Fork operations are atomic -- they either complete fully or roll back entirely. No partial state corruption is permitted.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The confirmation prompt and `--dry-run` option ensure that operators understand the consequences before executing a destructive operation.
@@ -220,13 +220,13 @@ The DESTRUCTIVE authority classification is the highest enforcement level for st
 
 ## Related Commands
 
-- [/stack](/commands/stack/) - Display complete conversation stack with all frames
-- [/frame](/commands/frame/) - Inspect specific conversation frame by ID
-- [/pop](/commands/pop/) - Remove last N frames from conversation stack (DESTRUCTIVE)
-- [/checkpoint](/commands/checkpoint/) - Mark current frame with a named checkpoint for later reference
-- [/goto](/commands/goto/) - Restore conversation to a named checkpoint
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/stack](@/commands/stack.md) - Display complete conversation stack with all frames
+- [/frame](@/commands/frame.md) - Inspect specific conversation frame by ID
+- [/pop](@/commands/pop.md) - Remove last N frames from conversation stack (DESTRUCTIVE)
+- [/checkpoint](@/commands/checkpoint.md) - Mark current frame with a named checkpoint for later reference
+- [/goto](@/commands/goto.md) - Restore conversation to a named checkpoint
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -235,4 +235,4 @@ The DESTRUCTIVE authority classification is the highest enforcement level for st
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

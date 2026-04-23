@@ -23,15 +23,15 @@ image_alt = "Prismatic Labs - Prismatic Platform"
 
 ## Overview
 
-Prismatic Labs is the platform's experimentation sandbox within the Prismatic Platform [umbrella](/glossary/umbrella-application/) architecture. It houses prototype features, experimental algorithms, and research implementations that are being evaluated for promotion to production modules. The platform's [NO MERCY NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine enforces extremely high quality standards on production code, which is exactly right for deployed systems but can stifle exploration. Labs provides a controlled environment where new ideas can be tested, measured, and iterated upon without production-level constraints, while still maintaining safety isolation.
+Prismatic Labs is the platform's experimentation sandbox within the Prismatic Platform [umbrella](@/glossary/umbrella-application.md) architecture. It houses prototype features, experimental algorithms, and research implementations that are being evaluated for promotion to production modules. The platform's [NO MERCY NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine enforces extremely high quality standards on production code, which is exactly right for deployed systems but can stifle exploration. Labs provides a controlled environment where new ideas can be tested, measured, and iterated upon without production-level constraints, while still maintaining safety isolation.
 
-Labs manages experiments through a structured lifecycle: proposal, implementation, evaluation, and either promotion to a production module or retirement with documented learnings. Each experiment has defined success [metrics](/glossary/metrics/), a time budget, and resource limits. This prevents the common R&D failure mode where experiments run indefinitely without clear evaluation criteria. When an experiment succeeds, Labs provides a promotion pathway that includes writing production-quality code, adding comprehensive tests, and integrating with the platform's [quality gates](/glossary/quality-gates/) before the feature leaves the sandbox.
+Labs manages experiments through a structured lifecycle: proposal, implementation, evaluation, and either promotion to a production module or retirement with documented learnings. Each experiment has defined success [metrics](@/glossary/metrics.md), a time budget, and resource limits. This prevents the common R&D failure mode where experiments run indefinitely without clear evaluation criteria. When an experiment succeeds, Labs provides a promotion pathway that includes writing production-quality code, adding comprehensive tests, and integrating with the platform's [quality gates](@/glossary/quality-gates.md) before the feature leaves the sandbox.
 
-The module currently hosts active experiments in areas including novel graph algorithms for [entity resolution](/glossary/entity-resolution/), alternative risk scoring models, advanced NLP techniques for intelligence extraction, and new visualization approaches for [LiveView](/glossary/liveview/) dashboards. Each experiment runs in isolation with its own data and cannot access production databases.
+The module currently hosts active experiments in areas including novel graph algorithms for [entity resolution](@/glossary/entity-resolution.md), alternative risk scoring models, advanced NLP techniques for intelligence extraction, and new visualization approaches for [LiveView](@/glossary/liveview.md) dashboards. Each experiment runs in isolation with its own data and cannot access production databases.
 
 ## Architecture
 
-Labs is built on an [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/) designed for isolated, fault-tolerant experiment execution.
+Labs is built on an [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md) designed for isolated, fault-tolerant experiment execution.
 
 ```
 PrismaticLabs.Application
@@ -48,7 +48,7 @@ PrismaticLabs.Application
         └── Checklist enforcement: tests, docs, quality gates
 ```
 
-The **Experiment [Registry](/glossary/registry-otp/)** is a [GenServer](/glossary/genserver/) that tracks all experiments with their metadata, status, resource allocations, and metrics. The **Sandbox Runtime** provides isolated execution environments using separate [ETS](/glossary/ets/) tables and dedicated database schemas, with resource limits enforced via `Process.flag(:max_heap_size, ...)` and Task timeouts. The **Metrics Collector** aggregates performance and quality measurements per experiment using [Telemetry](/glossary/telemetry/), producing structured reports for evaluation decisions.
+The **Experiment [Registry](@/glossary/registry-otp.md)** is a [GenServer](@/glossary/genserver.md) that tracks all experiments with their metadata, status, resource allocations, and metrics. The **Sandbox Runtime** provides isolated execution environments using separate [ETS](@/glossary/ets.md) tables and dedicated database schemas, with resource limits enforced via `Process.flag(:max_heap_size, ...)` and Task timeouts. The **Metrics Collector** aggregates performance and quality measurements per experiment using [Telemetry](@/glossary/telemetry.md), producing structured reports for evaluation decisions.
 
 Experiments are tagged with categories (algorithm, model, visualization, integration) and maturity levels (prototype, candidate, promoted, retired) for filtering and reporting.
 
@@ -143,16 +143,16 @@ Testing covers experiment lifecycle management, sandbox isolation boundaries (ve
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic Storage](/apps/prismatic-storage/) | Sandboxed data access patterns for experiment data |
-| [Prismatic Deduction](/apps/prismatic-deduction/) | Target for promoted reasoning algorithm experiments |
-| [Prismatic Web](/apps/prismatic-web/) | Visualization experiments promoted to production dashboards |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Security scoring model experiments |
-| [Prismatic Credo](/apps/prismatic-credo/) | Experimental quality checks prototyped before platform-wide rollout |
-| [Prismatic Ollama](/apps/prismatic-ollama/) | AI model evaluation experiments with local inference |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Sandboxed data access patterns for experiment data |
+| [Prismatic Deduction](@/apps/prismatic-deduction.md) | Target for promoted reasoning algorithm experiments |
+| [Prismatic Web](@/apps/prismatic-web.md) | Visualization experiments promoted to production dashboards |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Security scoring model experiments |
+| [Prismatic Credo](@/apps/prismatic-credo.md) | Experimental quality checks prototyped before platform-wide rollout |
+| [Prismatic Ollama](@/apps/prismatic-ollama.md) | AI model evaluation experiments with local inference |
 
 ## NABLA Compliance
 
-Labs experiments are subject to relaxed [NABLA](/glossary/nabla-infinity/) requirements during the exploration phase, but full compliance is required for promotion.
+Labs experiments are subject to relaxed [NABLA](@/glossary/nabla-infinity.md) requirements during the exploration phase, but full compliance is required for promotion.
 
 | NABLA Axiom | Labs Enforcement | Promotion Requirement |
 |-------------|-----------------|----------------------|
@@ -177,14 +177,14 @@ The promotion pipeline verifies that experimental code meets full NABLA axiom co
 
 ## Related Resources
 
-- [Prismatic Deduction](/apps/prismatic-deduction/) -- Target for promoted reasoning algorithm experiments
-- [Prismatic Credo](/apps/prismatic-credo/) -- Experimental quality checks prototyped in Labs
-- [Prismatic Tidewave](/apps/prismatic-tidewave/) -- Code generation templates tested in Labs sandbox
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- Security scoring model experiments
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Orchestrates autonomous evolution cycles that promote successful experiments
-- [Cross-Pollination Specialist](/agents/cross-pollination-specialist/) -- Identifies cross-domain experiment opportunities and pattern transfers
-- [Quality Gates](/capabilities/quality-gates/) -- Enforces quality thresholds before experiments can be promoted to production
-- [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) -- Enables diverse experimental approaches across reasoning paradigms
+- [Prismatic Deduction](@/apps/prismatic-deduction.md) -- Target for promoted reasoning algorithm experiments
+- [Prismatic Credo](@/apps/prismatic-credo.md) -- Experimental quality checks prototyped in Labs
+- [Prismatic Tidewave](@/apps/prismatic-tidewave.md) -- Code generation templates tested in Labs sandbox
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- Security scoring model experiments
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Orchestrates autonomous evolution cycles that promote successful experiments
+- [Cross-Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Identifies cross-domain experiment opportunities and pattern transfers
+- [Quality Gates](@/capabilities/quality-gates.md) -- Enforces quality thresholds before experiments can be promoted to production
+- [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) -- Enables diverse experimental approaches across reasoning paradigms
 
 ---
 
@@ -193,4 +193,4 @@ The promotion pipeline verifies that experimental code meets full NABLA axiom co
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

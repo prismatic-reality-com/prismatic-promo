@@ -192,4 +192,4 @@ The Decision Engine transforms Prismatic from an intelligence collection platfor
 
 ---
 
-*Explore the [DD Dashboard](/hub/dd/decisions) or learn about the [Nabla Confidence Framework](/blog/nabla-infinity-epistemic-confidence/) for uncertainty quantification.*
+*Explore the [DD Dashboard](/hub/dd/decisions) or learn about the [Nabla Confidence Framework](@/blog/nabla-infinity-epistemic-confidence.md) for uncertainty quantification.*

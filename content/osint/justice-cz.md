@@ -25,13 +25,13 @@ image_alt = "Justice.cz - Prismatic Platform"
 
 ## Overview
 
-Justice.cz hosts the official Czech Commercial Register (Obchodni rejstrik), the authoritative legal record of all companies incorporated in the Czech Republic. Maintained by regional courts (krajske soudy) under the supervision of the Ministry of Justice, the Commercial Register is the definitive source for company existence, legal form, statutory bodies (directors, board members, supervisory board), shareholders, registered capital, and complete filing histories. Unlike [ARES](/osint/ares/), which aggregates data from multiple registers for convenience, Justice.cz provides direct access to the primary source data including full filing histories, court decisions, and the document collection (Sbirka listin).
+Justice.cz hosts the official Czech Commercial Register (Obchodni rejstrik), the authoritative legal record of all companies incorporated in the Czech Republic. Maintained by regional courts (krajske soudy) under the supervision of the Ministry of Justice, the Commercial Register is the definitive source for company existence, legal form, statutory bodies (directors, board members, supervisory board), shareholders, registered capital, and complete filing histories. Unlike [ARES](@/osint/ares.md), which aggregates data from multiple registers for convenience, Justice.cz provides direct access to the primary source data including full filing histories, court decisions, and the document collection (Sbirka listin).
 
 The Czech Commercial Register traces its origins to the Austro-Hungarian commercial code and has been modernized through multiple legislative iterations. The current legal framework is established by Act No. 304/2013 Coll. (Zakon o verejnych rejstricich pravnickych a fyzickych osob -- Act on Public Registers of Legal and Natural Persons), which replaced the earlier commercial register provisions of the Commercial Code. This act governs not only the Commercial Register but also the Foundations Register, Institute Register, Association Register, and Register of Unit Owners' Associations, all accessible through the Justice.cz portal.
 
 The register is organized by court jurisdiction (Prague, Brno, Ostrava, Ceske Budejovice, Hradec Kralove, Usti nad Labem, and Plzen), with each court maintaining records for companies registered in its territory. Each company entry is identified by a section letter (A for sole traders, B for joint-stock companies, C for limited liability companies, etc.) and an insert number, forming a unique reference within that court.
 
-For [OSINT](/glossary/osint/) practitioners, Justice.cz is the single most important Czech data source for corporate intelligence. It provides legally binding information that cannot be obtained with the same authority from any aggregator. The filing collection (Sbirka listin) is particularly valuable, containing annual financial statements, articles of association, shareholder meeting minutes, expert valuations, and transformation project documents that reveal corporate strategy, financial health, and governance decisions.
+For [OSINT](@/glossary/osint.md) practitioners, Justice.cz is the single most important Czech data source for corporate intelligence. It provides legally binding information that cannot be obtained with the same authority from any aggregator. The filing collection (Sbirka listin) is particularly valuable, containing annual financial statements, articles of association, shareholder meeting minutes, expert valuations, and transformation project documents that reveal corporate strategy, financial health, and governance decisions.
 
 ## Data Sources and Coverage
 
@@ -203,7 +203,7 @@ Justice.cz is the cornerstone of any Czech corporate due diligence process. Inve
 
 ### KYC/AML Compliance
 
-For Know Your Customer and Anti-Money Laundering compliance, Justice.cz provides essential data: ultimate beneficial owner identification through shareholder structures, Politically Exposed Person screening through statutory body records, cross-referencing with [EU Sanctions](/osint/eu-sanctions/) and [OFAC](/osint/ofac/) lists, and corporate structure analysis to detect layered ownership typical of money laundering schemes. Czech AML legislation (Act No. 253/2008 Coll.) requires obligated entities to verify client identity using official register data, making Justice.cz an authoritative source for compliance.
+For Know Your Customer and Anti-Money Laundering compliance, Justice.cz provides essential data: ultimate beneficial owner identification through shareholder structures, Politically Exposed Person screening through statutory body records, cross-referencing with [EU Sanctions](@/osint/eu-sanctions.md) and [OFAC](@/osint/ofac.md) lists, and corporate structure analysis to detect layered ownership typical of money laundering schemes. Czech AML legislation (Act No. 253/2008 Coll.) requires obligated entities to verify client identity using official register data, making Justice.cz an authoritative source for compliance.
 
 ### Corporate Intelligence and M&A Monitoring
 
@@ -298,14 +298,14 @@ end
 
 ## Related Resources
 
-- [ARES](/osint/ares/) -- Aggregated Czech business register providing faster lookups across multiple registers
-- [RZP](/osint/rzp/) -- Czech Trade Licensing Register for business activity verification
-- [Insolvencni Rejstrik](/osint/insolvencni-rejstrik/) -- Czech insolvency register with structured API
-- [Nespolehlivy Platce](/osint/nespolehlivy-platce/) -- Unreliable VAT payer list for financial risk signals
-- [EU Sanctions](/osint/eu-sanctions/) -- EU sanctions list for cross-referencing statutory body members
-- [OFAC](/osint/ofac/) -- US sanctions list for international compliance screening
-- [Registr smluv](/osint/registr-smluv/) -- Public contracts revealing business relationships with state entities
-- [Podnikatel.cz](/osint/podnikatel/) -- Business aggregator providing quick consolidated company views
+- [ARES](@/osint/ares.md) -- Aggregated Czech business register providing faster lookups across multiple registers
+- [RZP](@/osint/rzp.md) -- Czech Trade Licensing Register for business activity verification
+- [Insolvencni Rejstrik](@/osint/insolvencni-rejstrik.md) -- Czech insolvency register with structured API
+- [Nespolehlivy Platce](@/osint/nespolehlivy-platce.md) -- Unreliable VAT payer list for financial risk signals
+- [EU Sanctions](@/osint/eu-sanctions.md) -- EU sanctions list for cross-referencing statutory body members
+- [OFAC](@/osint/ofac.md) -- US sanctions list for international compliance screening
+- [Registr smluv](@/osint/registr-smluv.md) -- Public contracts revealing business relationships with state entities
+- [Podnikatel.cz](@/osint/podnikatel.md) -- Business aggregator providing quick consolidated company views
 
 ---
 
@@ -314,4 +314,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

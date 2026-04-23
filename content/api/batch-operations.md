@@ -31,7 +31,7 @@ Batch operations address two practical problems. First, they reduce HTTP overhea
 
 The batch system leverages Elixir's `Task.async_stream/3` to dispatch operations concurrently across available BEAM schedulers. Each operation in the batch is executed independently, so a failure in one operation does not affect the others. Results are returned in the same order as the input operations, with each result including its own success/error status.
 
-Batch operations are particularly valuable for [EASM](/glossary/easm/) workflows that need to rate or scan multiple domains, agent fleet management operations that target multiple agents, and monitoring integrations that need to check multiple endpoints simultaneously.
+Batch operations are particularly valuable for [EASM](@/glossary/easm.md) workflows that need to rate or scan multiple domains, agent fleet management operations that target multiple agents, and monitoring integrations that need to check multiple endpoints simultaneously.
 
 ## Endpoint
 
@@ -362,7 +362,7 @@ for result in batch["results"]:
 
 ### Operation-Level Errors
 
-Individual operations within a batch can return any error documented in [Error Handling](/api/error-handling/). These errors are contained within the operation's result object and do not affect the batch response status code (which is always 200 if the batch itself was valid).
+Individual operations within a batch can return any error documented in [Error Handling](@/api/error-handling.md). These errors are contained within the operation's result object and do not affect the batch response status code (which is always 200 if the batch itself was valid).
 
 ## Rate Limits
 
@@ -376,12 +376,12 @@ Note: Individual operations within a batch are still checked against their per-e
 
 ## Related Endpoints
 
-- [Generic Dispatch](/api/dispatch/) -- Single-operation dispatch (what batch operations call internally)
-- [Endpoint Discovery](/api/endpoints/) -- Find available paths for batch operations
-- [Rate Limiting](/api/rate-limiting/) -- Understand per-endpoint limits within batches
-- [Error Handling](/api/error-handling/) -- Error format for individual batch operation failures
-- [Attack Surface Discovery](/api/perimeter-discover/) -- Common batch target for multi-domain scanning
-- [Security Rating](/api/perimeter-rating/) -- Common batch target for multi-domain rating
+- [Generic Dispatch](@/api/dispatch.md) -- Single-operation dispatch (what batch operations call internally)
+- [Endpoint Discovery](@/api/endpoints.md) -- Find available paths for batch operations
+- [Rate Limiting](@/api/rate-limiting.md) -- Understand per-endpoint limits within batches
+- [Error Handling](@/api/error-handling.md) -- Error format for individual batch operation failures
+- [Attack Surface Discovery](@/api/perimeter-discover.md) -- Common batch target for multi-domain scanning
+- [Security Rating](@/api/perimeter-rating.md) -- Common batch target for multi-domain rating
 
 ## Performance Characteristics
 
@@ -389,7 +389,7 @@ Batch operations benefit from the BEAM VM's lightweight process model. Each oper
 
 The total batch execution time is approximately equal to the slowest individual operation plus a small overhead for result aggregation (typically under 5ms). A batch of 50 rating lookups that each take 200ms completes in approximately 205ms rather than 10,000ms.
 
-The [Trinity Gate](/glossary/trinity-gate/) validates that batch results maintain consistency: every operation in a batch produces the same result it would produce if called individually. No cross-operation interference is permitted, and the [No Mercy](/glossary/no-mercy/) doctrine ensures that partial batch failures are reported transparently rather than masked.
+The [Trinity Gate](@/glossary/trinity-gate.md) validates that batch results maintain consistency: every operation in a batch produces the same result it would produce if called individually. No cross-operation interference is permitted, and the [No Mercy](@/glossary/no-mercy.md) doctrine ensures that partial batch failures are reported transparently rather than masked.
 
 ---
 
@@ -398,4 +398,4 @@ The [Trinity Gate](/glossary/trinity-gate/) validates that batch results maintai
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,13 +24,13 @@ image_alt = "/registry-sync - Prismatic Platform"
 
 ## Overview
 
-**/registry-sync** is a production command in the **Framework** category of the Prismatic Platform that performs [AIAD](/glossary/aiad/) registry synchronization and indexing operations. The AIAD registry is the platform's central catalog of all agents, commands, pipelines, policies, and adapters. This command ensures that the registry accurately reflects the current state of all AIAD components across the codebase, resolving discrepancies between filesystem artifacts and the runtime registry.
+**/registry-sync** is a production command in the **Framework** category of the Prismatic Platform that performs [AIAD](@/glossary/aiad.md) registry synchronization and indexing operations. The AIAD registry is the platform's central catalog of all agents, commands, pipelines, policies, and adapters. This command ensures that the registry accurately reflects the current state of all AIAD components across the codebase, resolving discrepancies between filesystem artifacts and the runtime registry.
 
 In a platform with over 400 agents, 210 commands, and numerous pipelines and policies, the registry can drift from the actual filesystem state through several mechanisms: new components added without indexing, component files modified without registry updates, components removed without corresponding registry cleanup, or cross-references that become stale after rename operations. The `/registry-sync` command detects and resolves all of these drift scenarios through a comprehensive reconciliation process.
 
 The synchronization process operates bidirectionally. It scans the filesystem for AIAD component files (`.agent.md`, `.cmd.md`, `.pipeline.md`, `.policy.md`, `.adapter.md`) and compares them against the current registry state. New files trigger registry additions, missing files trigger registry removals, and modified files trigger registry updates. The indexing phase then rebuilds all cross-reference indexes, enabling fast lookup by name, category, authority level, status, and other metadata fields.
 
-This command operates under the **L2+** authority level and is executed by the `registry-sync-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the AIAD (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `registry-sync-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the AIAD (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -137,14 +137,14 @@ The registry synchronization follows a carefully ordered execution flow that ens
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `registry-sync-specialist` | Specialized in AIAD registry management |
-| [AIAD](/glossary/aiad/) Standard | Component specification | Defines the structure for all registered components |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `registry-sync-specialist` | Specialized in AIAD registry management |
+| [AIAD](@/glossary/aiad.md) Standard | Component specification | Defines the structure for all registered components |
 | `.aiad/bin/aiad index` | CLI equivalent | Shell script for registry indexing |
-| [AGENT_REGISTRY.md](/glossary/registry-otp/) | Documentation output | Human-readable agent catalog |
+| [AGENT_REGISTRY.md](@/glossary/registry-otp.md) | Documentation output | Human-readable agent catalog |
 | COMMAND_REGISTRY.md | Documentation output | Human-readable command catalog |
-| [/inject](/commands/inject/) | Component deployment | Inject deploys components; registry-sync indexes them |
-| [/seadf](/commands/seadf/) | Framework integration | SEADF triggers registry-sync during evolution cycles |
-| [Telemetry](/glossary/telemetry/) | Operation tracking | Sync operations emit telemetry events |
+| [/inject](@/commands/inject.md) | Component deployment | Inject deploys components; registry-sync indexes them |
+| [/seadf](@/commands/seadf.md) | Framework integration | SEADF triggers registry-sync during evolution cycles |
+| [Telemetry](@/glossary/telemetry.md) | Operation tracking | Sync operations emit telemetry events |
 
 ## Best Practices
 
@@ -201,19 +201,19 @@ The `--diff` mode is particularly useful during code review, showing exactly whi
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Registry synchronization processes every component file without exception. Parse errors are reported but do not prevent the rest of the synchronization from completing to ensure maximum registry accuracy.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The reconciliation phase performs exhaustive comparison between filesystem and registry state. Every change is documented with its source evidence, and the validation phase confirms the registry's internal consistency.
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/rc1-orchestrate](/commands/rc1-orchestrate/) - Complete RC1 delivery pipeline execution with ROC optimization
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/migrate](/commands/migrate/) - Safe migration planning with rollback strategies
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/rc1-orchestrate](@/commands/rc1-orchestrate.md) - Complete RC1 delivery pipeline execution with ROC optimization
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/migrate](@/commands/migrate.md) - Safe migration planning with rollback strategies
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
 
 ---
 
@@ -222,4 +222,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

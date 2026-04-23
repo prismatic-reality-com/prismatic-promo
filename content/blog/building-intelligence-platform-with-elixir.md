@@ -203,4 +203,4 @@ Elixir adds developer experience that makes these capabilities accessible: patte
 
 ---
 
-*Explore the [Architecture Documentation](/architecture/) for system design details or start with the [Developer Portal](/developers/) for contribution guidelines.*
+*Explore the [Architecture Documentation](@/architecture/_index.md) for system design details or start with the [Developer Portal](@/developers/_index.md) for contribution guidelines.*

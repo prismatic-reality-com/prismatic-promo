@@ -30,7 +30,7 @@ image_alt = "emergent-collaboration-detector - Prismatic Platform"
 
 The Emergent Collaboration Detector operates as an L3 strategic command agent within the Emergent Intelligence domain of the Prismatic Platform. This agent identifies spontaneous collaboration patterns between platform agents that were not explicitly programmed into their individual specifications. When agents begin coordinating their activities, sharing intermediate results, or partitioning work in ways that improve collective outcomes without explicit orchestration directives, the Emergent Collaboration Detector captures, classifies, and reports these patterns for potential codification into the platform's design.
 
-The platform's 430+ autonomous agents operate within defined domains and coordination relationships specified in their [AIAD](/glossary/aiad/) agent specifications. However, the [mycelial network](/glossary/mycelial-network/) communication substrate enables agents to exchange patterns and signals across domain boundaries in ways that can produce collaboration effects not anticipated by their designers. These emergent collaborations represent a form of collective intelligence: the system as a whole developing coordination capabilities that transcend individual agent programming.
+The platform's 430+ autonomous agents operate within defined domains and coordination relationships specified in their [AIAD](@/glossary/aiad.md) agent specifications. However, the [mycelial network](@/glossary/mycelial-network.md) communication substrate enables agents to exchange patterns and signals across domain boundaries in ways that can produce collaboration effects not anticipated by their designers. These emergent collaborations represent a form of collective intelligence: the system as a whole developing coordination capabilities that transcend individual agent programming.
 
 Emergent collaboration detection is distinct from simple interaction monitoring. Two agents exchanging messages through a defined API is expected behavior. Two agents independently adjusting their behavior in complementary ways -- one reducing output while the other increases processing capacity, without explicit coordination -- is emergent collaboration. The detector distinguishes between programmed coordination and genuine emergence by comparing observed interaction patterns against the coordination relationships defined in each agent's AIAD specification. Interactions that produce collaborative outcomes without being specified in any agent's coordination table are flagged as emergent.
 
@@ -91,30 +91,30 @@ Detected emergent collaborations are classified into categories that guide appro
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - The Emergent Collaboration Detector operates at the strategic command level with read-only observation access to cross-domain interaction data. It can recommend collaboration formalization but cannot modify agent specifications directly. Formalization recommendations are routed to the appropriate domain authorities for implementation.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - The Emergent Collaboration Detector operates at the strategic command level with read-only observation access to cross-domain interaction data. It can recommend collaboration formalization but cannot modify agent specifications directly. Formalization recommendations are routed to the appropriate domain authorities for implementation.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
 | Prismatic OSINT | Outcome measurement | Intelligence quality metrics for collaboration assessment |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Evidence persistence | Collaboration pattern storage with provenance |
-| [Mycelial Network](/glossary/mycelial-network/) | Observation target | Cross-domain message flow monitoring |
-| [AIAD](/glossary/aiad/) Registry | Specification reference | Agent coordination tables for emergence comparison |
-| [Telemetry](/glossary/telemetry/) | Metrics source | Agent behavioral metrics for complementarity detection |
-| [SEADF](/glossary/seadf/) | Evolution integration | Collaboration findings feed evolutionary improvement |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Evidence persistence | Collaboration pattern storage with provenance |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Observation target | Cross-domain message flow monitoring |
+| [AIAD](@/glossary/aiad.md) Registry | Specification reference | Agent coordination tables for emergence comparison |
+| [Telemetry](@/glossary/telemetry.md) | Metrics source | Agent behavioral metrics for complementarity detection |
+| [SEADF](@/glossary/seadf.md) | Evolution integration | Collaboration findings feed evolutionary improvement |
 
 ## Coordination
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [emergence-detector-specialist](/agents/emergence-detector-specialist/) | Parent domain | Shares detection data for broader emergence analysis |
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Evolution consumer | Collaboration findings inform evolutionary decisions |
-| [capability-emergence-detector](/agents/capability-emergence-detector/) | Capability focus | Distinguishes collaboration from capability emergence |
+| [emergence-detector-specialist](@/agents/emergence-detector-specialist.md) | Parent domain | Shares detection data for broader emergence analysis |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Evolution consumer | Collaboration findings inform evolutionary decisions |
+| [capability-emergence-detector](@/agents/capability-emergence-detector.md) | Capability focus | Distinguishes collaboration from capability emergence |
 
 ## Enforcement
 
-The Emergent Collaboration Detector operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Detected collaboration patterns must be supported by statistical evidence exceeding chance expectations. Classification requires evidence from multiple observation windows per NABLA [Signal Plurality](/glossary/signal-plurality/). Formalization recommendations include quantified performance impact estimates and explicit confidence intervals. No collaboration pattern is reported without provenance linking the detection to specific interaction data and behavioral measurements.
+The Emergent Collaboration Detector operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Detected collaboration patterns must be supported by statistical evidence exceeding chance expectations. Classification requires evidence from multiple observation windows per NABLA [Signal Plurality](@/glossary/signal-plurality.md). Formalization recommendations include quantified performance impact estimates and explicit confidence intervals. No collaboration pattern is reported without provenance linking the detection to specific interaction data and behavioral measurements.
 
 ---
 
@@ -123,4 +123,4 @@ The Emergent Collaboration Detector operates under [NO MERCY, NO DOUBTS](/glossa
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

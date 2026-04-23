@@ -38,7 +38,7 @@ An **Elixir Typespec** is a static type specification system that allows develop
 
 Typespecs use the `@type`, `@typep`, `@opaque`, and `@spec` attributes to define custom types and function signatures. When combined with Dialyzer, they enable detection of type inconsistencies, unreachable code, pattern matching errors, and other discrepancies without executing the program. This makes typespecs invaluable for large codebases where manual testing cannot cover all execution paths.
 
-In the [Prismatic Platform](/glossary/aiad/), typespecs are mandatory across all 115 umbrella applications, with over 3,000 `@spec` declarations ensuring type safety in critical systems like the Monte Carlo engine, OSINT adapters, and distributed storage layers. The platform maintains 100% Dialyzer compliance with zero violations, demonstrating how typespecs enable reliable operation of complex distributed systems.
+In the [Prismatic Platform](@/glossary/aiad.md), typespecs are mandatory across all 115 umbrella applications, with over 3,000 `@spec` declarations ensuring type safety in critical systems like the Monte Carlo engine, OSINT adapters, and distributed storage layers. The platform maintains 100% Dialyzer compliance with zero violations, demonstrating how typespecs enable reliable operation of complex distributed systems.
 
 ## Type System Fundamentals
 
@@ -475,19 +475,19 @@ All platform code maintains zero Dialyzer violations through rigorous CI enforce
 
 ## Related Concepts
 
-- [Elixir](/glossary/elixir/) - Programming language providing the typespec system
-- [Dialyzer](/glossary/dialyzer/) - Static analysis tool that processes typespecs
-- [Behaviour Pattern](/glossary/behaviour-pattern/) - OTP pattern often combined with typespec contracts
-- [Static Analysis](/glossary/static-analysis/) - Broader category including typespec checking
-- [Pattern Matching](/glossary/pattern-matching/) - Elixir feature verified by typespecs
+- [Elixir](@/glossary/elixir.md) - Programming language providing the typespec system
+- [Dialyzer](@/glossary/dialyzer.md) - Static analysis tool that processes typespecs
+- [Behaviour Pattern](@/glossary/behaviour-pattern.md) - OTP pattern often combined with typespec contracts
+- [Static Analysis](@/glossary/static-analysis.md) - Broader category including typespec checking
+- [Pattern Matching](@/glossary/pattern-matching.md) - Elixir feature verified by typespecs
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture leveraging typed interfaces
-- [Apps](/apps/) - Applications demonstrating enterprise typespec usage
-- [Prismatic Core](/apps/prismatic-core/) - Core engine with comprehensive type specifications
-- [Storage Layer](/apps/prismatic-storage-core/) - Multi-backend storage with type-safe adapters
-- [AIAD](/glossary/aiad/) - Agent system utilizing typed communication protocols
+- [Architecture](@/architecture/_index.md) - Platform architecture leveraging typed interfaces
+- [Apps](@/apps/_index.md) - Applications demonstrating enterprise typespec usage
+- [Prismatic Core](@/apps/prismatic-core.md) - Core engine with comprehensive type specifications
+- [Storage Layer](@/apps/prismatic-storage-core.md) - Multi-backend storage with type-safe adapters
+- [AIAD](@/glossary/aiad.md) - Agent system utilizing typed communication protocols
 
 ---
 
@@ -496,4 +496,4 @@ All platform code maintains zero Dialyzer violations through rigorous CI enforce
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

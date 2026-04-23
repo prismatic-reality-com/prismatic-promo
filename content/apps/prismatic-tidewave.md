@@ -23,11 +23,11 @@ image_alt = "Prismatic Tidewave - Prismatic Platform"
 
 ## Overview
 
-Prismatic Tidewave integrates the Tidewave library for AI-accelerated development workflows within the Prismatic Platform. By combining large language model capabilities with deep knowledge of the platform's architecture, Tidewave automates the most time-consuming aspects of application development: [REST API](/glossary/rest-api/) scaffolding, test suite generation, and iterative code review. Rather than generating generic boilerplate, Tidewave produces code that already conforms to the platform's [NO MERCY NO DOUBTS](/glossary/no-mercy-no-doubts/) quality standards, including proper `{:ok, _}` / `{:error, _}` return patterns, [supervision tree](/glossary/supervision-tree/) integration, and [typespec](/glossary/typespec/) annotations.
+Prismatic Tidewave integrates the Tidewave library for AI-accelerated development workflows within the Prismatic Platform. By combining large language model capabilities with deep knowledge of the platform's architecture, Tidewave automates the most time-consuming aspects of application development: [REST API](@/glossary/rest-api.md) scaffolding, test suite generation, and iterative code review. Rather than generating generic boilerplate, Tidewave produces code that already conforms to the platform's [NO MERCY NO DOUBTS](@/glossary/no-mercy-no-doubts.md) quality standards, including proper `{:ok, _}` / `{:error, _}` return patterns, [supervision tree](@/glossary/supervision-tree.md) integration, and [typespec](@/glossary/typespec.md) annotations.
 
-The module operates as an [OTP](/glossary/otp/) application with a pool of AI worker processes, each capable of analyzing [Elixir](/glossary/elixir/) AST, inspecting module documentation via `Code.fetch_docs/1`, and reading `@spec` annotations to understand function contracts. This introspection-first approach means Tidewave generates endpoints and tests that accurately reflect actual module behavior rather than relying on naming conventions alone. The [BEAM](/glossary/beam/) virtual machine's [hot code reload](/glossary/hot-code-reload/) capability enables Tidewave to regenerate and reload modules in a running development environment without restarting the application.
+The module operates as an [OTP](@/glossary/otp.md) application with a pool of AI worker processes, each capable of analyzing [Elixir](@/glossary/elixir.md) AST, inspecting module documentation via `Code.fetch_docs/1`, and reading `@spec` annotations to understand function contracts. This introspection-first approach means Tidewave generates endpoints and tests that accurately reflect actual module behavior rather than relying on naming conventions alone. The [BEAM](@/glossary/beam.md) virtual machine's [hot code reload](@/glossary/hot-code-reload.md) capability enables Tidewave to regenerate and reload modules in a running development environment without restarting the application.
 
-Tidewave is particularly valuable when onboarding new [umbrella application](/glossary/umbrella-application/)s into the platform. A single command can produce a complete REST API layer with [OpenAPI](/glossary/openapi/) documentation, a [property-based testing](/glossary/property-based-testing/) suite, and integration test scaffolding -- reducing what typically takes days to under an hour. This acceleration compounds across the platform's 90+ applications, where consistent patterns and [quality gates](/glossary/quality-gates/) must be maintained without manual enforcement bottlenecks.
+Tidewave is particularly valuable when onboarding new [umbrella application](@/glossary/umbrella-application.md)s into the platform. A single command can produce a complete REST API layer with [OpenAPI](@/glossary/openapi.md) documentation, a [property-based testing](@/glossary/property-based-testing.md) suite, and integration test scaffolding -- reducing what typically takes days to under an hour. This acceleration compounds across the platform's 90+ applications, where consistent patterns and [quality gates](@/glossary/quality-gates.md) must be maintained without manual enforcement bottlenecks.
 
 ## Architecture
 
@@ -40,7 +40,7 @@ Module Introspection -> Semantic Model -> Code Generation -> Validation -> Outpu
    Behaviour Detection  Dependency Map   Style Conform      Dialyzer     Notify
 ```
 
-Tidewave follows a pipeline architecture with three stages. The **Analyzer** stage introspects target modules using Elixir's reflection capabilities to build a semantic model of available functions, their arities, specs, and documentation. The **Generator** stage transforms this model into code artifacts using configurable templates and AI-assisted expansion. The **Validator** stage compiles generated code, runs [Credo](/glossary/credo/) checks, and executes the generated tests to ensure correctness before writing files to disk.
+Tidewave follows a pipeline architecture with three stages. The **Analyzer** stage introspects target modules using Elixir's reflection capabilities to build a semantic model of available functions, their arities, specs, and documentation. The **Generator** stage transforms this model into code artifacts using configurable templates and AI-assisted expansion. The **Validator** stage compiles generated code, runs [Credo](@/glossary/credo.md) checks, and executes the generated tests to ensure correctness before writing files to disk.
 
 ### Process Topology
 
@@ -58,7 +58,7 @@ PrismaticTidewave.Application (Supervisor, :one_for_one)
       Generation metrics and output tracking
 ```
 
-All three stages are supervised under a `DynamicSupervisor`, allowing concurrent generation across multiple target modules with automatic restart on failure. Each worker process is monitored by [Telemetry](/glossary/telemetry/) events that report generation times, validation pass rates, and output artifact counts for [observability](/glossary/observability/).
+All three stages are supervised under a `DynamicSupervisor`, allowing concurrent generation across multiple target modules with automatic restart on failure. Each worker process is monitored by [Telemetry](@/glossary/telemetry.md) events that report generation times, validation pass rates, and output artifact counts for [observability](@/glossary/observability.md).
 
 ## Introspection-First Design
 
@@ -90,28 +90,28 @@ The semantic model produced by the Analyzer is a structured representation of th
 ## Key Features
 
 ### API Generation
-- Automatic REST endpoint scaffolding from [Ecto](/glossary/ecto/) schemas and facade modules
+- Automatic REST endpoint scaffolding from [Ecto](@/glossary/ecto.md) schemas and facade modules
 - OpenAPI 3.0 specification generation with accurate type mappings from `@spec` annotations
-- Request validation and response serialization derived from [behaviour](/glossary/behaviour/) contracts
-- [Phoenix](/glossary/phoenix/) router integration with proper scope and pipeline configuration
+- Request validation and response serialization derived from [behaviour](@/glossary/behaviour.md) contracts
+- [Phoenix](@/glossary/phoenix.md) router integration with proper scope and pipeline configuration
 
 ### Test Automation
-- [Property-based testing](/glossary/property-based-testing/) generation using StreamData for exhaustive input coverage
-- Integration test scaffolding with database sandbox and [Phoenix LiveView](/glossary/phoenix-liveview/) endpoint setup
+- [Property-based testing](@/glossary/property-based-testing.md) generation using StreamData for exhaustive input coverage
+- Integration test scaffolding with database sandbox and [Phoenix LiveView](@/glossary/phoenix-liveview.md) endpoint setup
 - Edge case identification through boundary value analysis of type specs
 - Coverage gap detection by comparing generated tests against module function lists
 
 ### Development Workflow
-- AI-assisted code review with platform-specific [quality gates](/glossary/quality-gates/) awareness
-- Refactoring suggestions that preserve OTP supervision tree integrity and [process isolation](/glossary/process-isolation/)
+- AI-assisted code review with platform-specific [quality gates](@/glossary/quality-gates.md) awareness
+- Refactoring suggestions that preserve OTP supervision tree integrity and [process isolation](@/glossary/process-isolation.md)
 - Documentation generation from module source and `@moduledoc` attributes
-- Architecture recommendations based on existing [umbrella application](/glossary/umbrella-application/) patterns
+- Architecture recommendations based on existing [umbrella application](@/glossary/umbrella-application.md) patterns
 
 ### Quality Integration
-- Generated code automatically validated against [Dialyzer](/glossary/dialyzer/) type specifications
-- [Pattern matching](/glossary/pattern-matching/) completeness verification for generated function clauses
-- [AIAD](/glossary/aiad/) compliance checking for generated agent modules
-- Output artifacts tracked by [Quality DNA](/glossary/quality-dna/) for cross-session continuity
+- Generated code automatically validated against [Dialyzer](@/glossary/dialyzer.md) type specifications
+- [Pattern matching](@/glossary/pattern-matching.md) completeness verification for generated function clauses
+- [AIAD](@/glossary/aiad.md) compliance checking for generated agent modules
+- Output artifacts tracked by [Quality DNA](@/glossary/quality-dna.md) for cross-session continuity
 
 ## Generation Templates
 
@@ -198,12 +198,12 @@ mix test apps/prismatic_tidewave/test --cover
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Credo](/apps/prismatic-credo/) | Validates generated code against platform quality rules before writing output |
-| [Prismatic API](/apps/prismatic-api/) | Module introspection capabilities to understand existing endpoint patterns |
-| [Prismatic Safety](/apps/prismatic-safety/) | Quality Floor Guardian verifies generated code meets platform minimums |
-| [Prismatic Storage Core](/apps/prismatic-storage-core/) | Generated tests integrate with `PrismaticStorage.AdapterContractTest` |
-| [Prismatic Ollama](/apps/prismatic-ollama/) | Local AI model for code generation without cloud dependency |
-| [Prismatic Claude](/apps/prismatic-claude/) | Cloud AI fallback for complex generation tasks |
+| [Prismatic Credo](@/apps/prismatic-credo.md) | Validates generated code against platform quality rules before writing output |
+| [Prismatic API](@/apps/prismatic-api.md) | Module introspection capabilities to understand existing endpoint patterns |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Quality Floor Guardian verifies generated code meets platform minimums |
+| [Prismatic Storage Core](@/apps/prismatic-storage-core.md) | Generated tests integrate with `PrismaticStorage.AdapterContractTest` |
+| [Prismatic Ollama](@/apps/prismatic-ollama.md) | Local AI model for code generation without cloud dependency |
+| [Prismatic Claude](@/apps/prismatic-claude.md) | Cloud AI fallback for complex generation tasks |
 
 ## NABLA Compliance
 
@@ -227,22 +227,22 @@ Generated code carries provenance metadata in module attributes that trace each 
 
 ## Related Components
 
-- [Prismatic Credo](/apps/prismatic-credo/) -- Quality checks applied to generated code
-- [Prismatic Labs](/apps/prismatic-labs/) -- Experimental generation templates tested before promotion
-- [Prismatic API](/apps/prismatic-api/) -- Target for generated REST endpoints
-- [Prismatic Claude](/apps/prismatic-claude/) -- LLM integration for code generation and review
+- [Prismatic Credo](@/apps/prismatic-credo.md) -- Quality checks applied to generated code
+- [Prismatic Labs](@/apps/prismatic-labs.md) -- Experimental generation templates tested before promotion
+- [Prismatic API](@/apps/prismatic-api.md) -- Target for generated REST endpoints
+- [Prismatic Claude](@/apps/prismatic-claude.md) -- LLM integration for code generation and review
 
 ## Related Agents
 
-- [Elixir Architect](/agents/elixir-architect/) -- Validates that generated code follows OTP patterns and Elixir best practices
-- [API Design Specialist](/agents/api-design-specialist-agent/) -- Reviews generated API endpoints for REST design compliance
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Ensures generated scaffolding aligns with platform architecture decisions
+- [Elixir Architect](@/agents/elixir-architect.md) -- Validates that generated code follows OTP patterns and Elixir best practices
+- [API Design Specialist](@/agents/api-design-specialist-agent.md) -- Reviews generated API endpoints for REST design compliance
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Ensures generated scaffolding aligns with platform architecture decisions
 
 ## Related Capabilities
 
-- [Quality Gates](/capabilities/quality-gates/) -- Generated code must pass all quality gate checks before acceptance
-- [AIAD Standard](/capabilities/aiad-standard/) -- Generated agent modules conform to AIAD specification format
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Tidewave regeneration as part of automated quality repair cycles
+- [Quality Gates](@/capabilities/quality-gates.md) -- Generated code must pass all quality gate checks before acceptance
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Generated agent modules conform to AIAD specification format
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Tidewave regeneration as part of automated quality repair cycles
 
 ---
 
@@ -251,4 +251,4 @@ Generated code carries provenance metadata in module attributes that trace each 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

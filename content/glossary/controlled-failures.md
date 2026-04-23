@@ -545,23 +545,23 @@ OTP supervision and chaos engineering are complementary, not competing. OTP prov
 
 ## Related Concepts
 
-- [Chaos Engineering](/glossary/chaos-engineering/) -- the discipline of experimenting on systems to build confidence in resilience
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the system's ability to continue operating despite component failures
-- [Let It Crash](/glossary/let-it-crash/) -- the Erlang philosophy of allowing failures and recovering through supervision
-- [Circuit Breaker](/glossary/circuit-breaker/) -- a pattern that prevents cascading failures by short-circuiting failed operations
-- [Supervision Tree](/glossary/supervision-tree/) -- the hierarchical structure that manages process lifecycle and recovery
-- [Self-Healing](/glossary/self-healing/) -- automated mechanisms that detect and repair system faults
-- [Process Isolation](/glossary/process-isolation/) -- ensuring process failures do not propagate
-- [Backpressure](/glossary/backpressure/) -- flow control that prevents resource exhaustion under load
-- [Disaster Recovery](/glossary/disaster-recovery/) -- recovery from failures that exceed normal resilience capacity
-- [Reliability](/glossary/reliability/) -- the overall quality attribute that controlled failures testing ensures
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- the discipline of experimenting on systems to build confidence in resilience
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the system's ability to continue operating despite component failures
+- [Let It Crash](@/glossary/let-it-crash.md) -- the Erlang philosophy of allowing failures and recovering through supervision
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- a pattern that prevents cascading failures by short-circuiting failed operations
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the hierarchical structure that manages process lifecycle and recovery
+- [Self-Healing](@/glossary/self-healing.md) -- automated mechanisms that detect and repair system faults
+- [Process Isolation](@/glossary/process-isolation.md) -- ensuring process failures do not propagate
+- [Backpressure](@/glossary/backpressure.md) -- flow control that prevents resource exhaustion under load
+- [Disaster Recovery](@/glossary/disaster-recovery.md) -- recovery from failures that exceed normal resilience capacity
+- [Reliability](@/glossary/reliability.md) -- the overall quality attribute that controlled failures testing ensures
 
 ## See Also
 
-- [Bulkhead Pattern](/glossary/bulkhead-pattern/) -- isolating failure domains through resource partitioning
-- [Exponential Backoff](/glossary/exponential-backoff/) -- progressive retry delays for failed operations
-- [Component Failures](/glossary/component-failures/) -- the specific failure types that controlled failures address
-- [Incident Response](/glossary/incident-response/) -- operational procedures when controlled failures escalate
+- [Bulkhead Pattern](@/glossary/bulkhead-pattern.md) -- isolating failure domains through resource partitioning
+- [Exponential Backoff](@/glossary/exponential-backoff.md) -- progressive retry delays for failed operations
+- [Component Failures](@/glossary/component-failures.md) -- the specific failure types that controlled failures address
+- [Incident Response](@/glossary/incident-response.md) -- operational procedures when controlled failures escalate
 
 ---
 

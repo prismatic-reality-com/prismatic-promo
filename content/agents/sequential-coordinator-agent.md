@@ -28,9 +28,9 @@ image_alt = "Sequential Coordinator Agent - Prismatic Platform"
 
 ## Overview
 
-The Sequential Coordinator Agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's general domain, managing multi-phase deployment and execution pipelines that require strict sequential ordering. While many platform operations benefit from parallelism, certain workflows demand that phases execute in a precise, ordered sequence where each phase's successful completion is a prerequisite for the next. This agent ensures that source compilation, QA validation, performance benchmarking, and deployment stages execute in their required order with proper gate verification between each transition.
+The Sequential Coordinator Agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's general domain, managing multi-phase deployment and execution pipelines that require strict sequential ordering. While many platform operations benefit from parallelism, certain workflows demand that phases execute in a precise, ordered sequence where each phase's successful completion is a prerequisite for the next. This agent ensures that source compilation, QA validation, performance benchmarking, and deployment stages execute in their required order with proper gate verification between each transition.
 
-In an [OTP](/glossary/otp/)-based platform with 90 umbrella applications, the complexity of sequential coordination is substantial. A deployment pipeline that must compile all applications, run all test suites, verify performance benchmarks, and then deploy to staging before production requires careful orchestration to handle partial failures, timeout conditions, and rollback scenarios. The Sequential Coordinator Agent manages this complexity through a state-machine architecture implemented as a [GenServer](/glossary/genserver/) that tracks pipeline progress and enforces phase transition gates.
+In an [OTP](@/glossary/otp.md)-based platform with 90 umbrella applications, the complexity of sequential coordination is substantial. A deployment pipeline that must compile all applications, run all test suites, verify performance benchmarks, and then deploy to staging before production requires careful orchestration to handle partial failures, timeout conditions, and rollback scenarios. The Sequential Coordinator Agent manages this complexity through a state-machine architecture implemented as a [GenServer](@/glossary/genserver.md) that tracks pipeline progress and enforces phase transition gates.
 
 ## Operational Domain
 
@@ -41,11 +41,11 @@ The domain also covers recovery coordination when a sequential pipeline encounte
 ## Key Capabilities
 
 - **Phase transition management** -- Implements strict gate checking between sequential phases, verifying that each phase's exit criteria are met before the next phase begins. Exit criteria can include test pass rates, compilation success, performance benchmark thresholds, and quality scores
-- **Pipeline state tracking** -- Maintains a persistent state machine for each active pipeline execution, enabling recovery from process crashes without losing pipeline progress. State is persisted to [ETS](/glossary/ets/) with optional disk backup for long-running pipelines
+- **Pipeline state tracking** -- Maintains a persistent state machine for each active pipeline execution, enabling recovery from process crashes without losing pipeline progress. State is persisted to [ETS](@/glossary/ets.md) with optional disk backup for long-running pipelines
 - **Failure recovery orchestration** -- Implements configurable recovery strategies including automatic retry with exponential backoff, checkpoint-based rollback, and graceful pipeline abortion with cleanup. Recovery strategy selection is based on failure classification
 - **Dependency-aware scheduling** -- Understands inter-application dependencies within the umbrella and schedules compilation and testing in topological order to maximize efficiency while maintaining correctness
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-recovering pipeline management that handles infrastructure transients without human intervention
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing phase transition events and pipeline metrics under the `:prismatic, :sequential_coordinator` namespace
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-recovering pipeline management that handles infrastructure transients without human intervention
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing phase transition events and pipeline metrics under the `:prismatic, :sequential_coordinator` namespace
 
 ## Pipeline Architecture
 
@@ -88,7 +88,7 @@ The pipeline state machine tracks the current execution state and manages transi
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority for sequential pipeline management with the ability to coordinate across application boundaries and enforce phase gates that affect deployment progression.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority for sequential pipeline management with the ability to coordinate across application boundaries and enforce phase gates that affect deployment progression.
 
 ## Command Interface
 
@@ -104,10 +104,10 @@ The pipeline state machine tracks the current execution state and manages transi
 
 | Agent | Relationship |
 |-------|-------------|
-| [seadf-ecosystem-commander](/agents/seadf-ecosystem-commander/) | SEADF evolution cycles use sequential coordination for ordered execution |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality gate criteria defined by the quality commander |
-| [scripts-infrastructure-supreme](/agents/scripts-infrastructure-supreme/) | Infrastructure scripts provide the atomic operations within pipeline phases |
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Pipeline outcomes recorded in session context for continuity |
+| [seadf-ecosystem-commander](@/agents/seadf-ecosystem-commander.md) | SEADF evolution cycles use sequential coordination for ordered execution |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality gate criteria defined by the quality commander |
+| [scripts-infrastructure-supreme](@/agents/scripts-infrastructure-supreme.md) | Infrastructure scripts provide the atomic operations within pipeline phases |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Pipeline outcomes recorded in session context for continuity |
 
 ## Performance Characteristics
 
@@ -122,7 +122,7 @@ The Sequential Coordinator Agent is designed for minimal overhead in the coordin
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that sequential pipelines execute with complete fidelity to their specifications. No phase may be skipped, no gate may be bypassed, and no failure may be silently ignored. Every pipeline execution maintains a complete audit trail including phase durations, gate evaluations, failure details, and recovery actions. This audit trail satisfies [NABLA Infinity](/glossary/nabla-infinity/) provenance requirements and enables forensic analysis of pipeline behavior.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that sequential pipelines execute with complete fidelity to their specifications. No phase may be skipped, no gate may be bypassed, and no failure may be silently ignored. Every pipeline execution maintains a complete audit trail including phase durations, gate evaluations, failure details, and recovery actions. This audit trail satisfies [NABLA Infinity](@/glossary/nabla-infinity.md) provenance requirements and enables forensic analysis of pipeline behavior.
 
 ## Related Agents
 
@@ -135,4 +135,4 @@ Agents in the **general** domain collaborate with the Sequential Coordinator Age
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

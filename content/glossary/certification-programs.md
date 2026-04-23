@@ -57,7 +57,7 @@ Technical certifications validate proficiency with specific technologies, langua
 
 ### Security Certifications
 
-Security certifications are particularly relevant given Prismatic's [Perimeter EASM](/glossary/attack-surface/) capabilities and color-team security operations:
+Security certifications are particularly relevant given Prismatic's [Perimeter EASM](@/glossary/attack-surface.md) capabilities and color-team security operations:
 
 - **OSCP (Offensive Security Certified Professional)** -- Practical penetration testing certification requiring a 24-hour hands-on exam
 - **CEH (Certified Ethical Hacker)** -- EC-Council certification covering ethical hacking methodologies
@@ -328,7 +328,7 @@ The Prismatic Platform tracks certification status as part of its agent and oper
 
 ### Compliance Module Integration
 
-The Prismatic Perimeter's [compliance framework](/glossary/compliance-framework/) directly consumes certification data:
+The Prismatic Perimeter's [compliance framework](@/glossary/compliance-framework.md) directly consumes certification data:
 
 - **NIS2 compliance assessment** requires documented evidence of personnel certifications in security roles
 - **ZKB 264/2025 Sb.** (Czech cybersecurity directive) mandates specific competency requirements
@@ -336,7 +336,7 @@ The Prismatic Perimeter's [compliance framework](/glossary/compliance-framework/
 
 ### Learning Path Integration
 
-The [learning path](/glossary/learning-path/) system structures progression through certification levels:
+The [learning path](@/glossary/learning-path.md) system structures progression through certification levels:
 
 1. **Discovery** -- Explore platform concepts through glossary, documentation, and labs
 2. **Fundamentals** -- Complete foundational modules covering Elixir, OTP, and platform architecture
@@ -366,7 +366,7 @@ Formal industry certifications provide the broadest recognition but the highest 
 5. **Align with compliance requirements** -- Identify which certifications satisfy regulatory requirements (NIS2, ISO 27001 auditor qualifications) and prioritize those.
 6. **Support continuing education** -- Certification maintenance requires ongoing learning. Budget time and resources for CPE credits, conference attendance, and training.
 7. **Validate practical competency** -- Use certification as a starting point, not an endpoint. Supplement with code review, architecture review, and incident response exercises.
-8. **Document certification history** -- Maintain an [audit trail](/glossary/audit-trail/) of all certifications for compliance reporting and capability planning.
+8. **Document certification history** -- Maintain an [audit trail](@/glossary/audit-trail.md) of all certifications for compliance reporting and capability planning.
 
 ## Common Pitfalls
 
@@ -403,16 +403,16 @@ When evaluating third-party vendors or partners, certification status serves as 
 
 ## Related Concepts
 
-- [Elixir/OTP Training](/glossary/elixir-otp-training/) -- Technical training foundation for platform certifications
-- [Learning Path](/glossary/learning-path/) -- Structured progression through certification levels
-- [Learning Resource](/glossary/learning-resource/) -- Materials supporting certification preparation
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory frameworks requiring certified personnel
-- [Code Quality](/glossary/code-quality/) -- Quality standards validated through platform certification
-- [Audit Trail](/glossary/audit-trail/) -- Documentation of certification history and compliance
-- [Risk Assessment](/glossary/risk-assessment/) -- Certification gaps as risk factors
-- [Authentication](/glossary/authentication/) -- Identity verification complementary to certification
-- [Authorization](/glossary/authorization/) -- Access control informed by certification levels
-- [Performance Testing](/glossary/performance-testing/) -- Practical assessment methodology for certifications
+- [Elixir/OTP Training](@/glossary/elixir-otp-training.md) -- Technical training foundation for platform certifications
+- [Learning Path](@/glossary/learning-path.md) -- Structured progression through certification levels
+- [Learning Resource](@/glossary/learning-resource.md) -- Materials supporting certification preparation
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory frameworks requiring certified personnel
+- [Code Quality](@/glossary/code-quality.md) -- Quality standards validated through platform certification
+- [Audit Trail](@/glossary/audit-trail.md) -- Documentation of certification history and compliance
+- [Risk Assessment](@/glossary/risk-assessment.md) -- Certification gaps as risk factors
+- [Authentication](@/glossary/authentication.md) -- Identity verification complementary to certification
+- [Authorization](@/glossary/authorization.md) -- Access control informed by certification levels
+- [Performance Testing](@/glossary/performance-testing.md) -- Practical assessment methodology for certifications
 
 ## See Also
 
@@ -429,4 +429,4 @@ When evaluating third-party vendors or partners, certification status serves as 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

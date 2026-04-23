@@ -30,13 +30,13 @@ image_alt = "brutal-gitlab-enforcer - Prismatic Platform"
 
 The Brutal GitLab Enforcer operates as an L4 domain specialist within the Absolute Authority domain of the Prismatic Platform. This agent enforces zero-tolerance policy for untracked operations, ensuring that every development activity -- every commit, every session, every change -- is linked to a GitLab issue. No work happens without a ticket. No session starts without tracking. No commit lands without issue reference.
 
-In a platform with 430+ autonomous agents and 90 [umbrella application](/glossary/umbrella-application/)s, untracked work creates invisible technical debt, unmeasurable progress, and unauditable decisions. The Brutal GitLab Enforcer prevents this by monitoring all development activity for GitLab issue references and blocking operations that lack proper tracking. This is not a suggestion system -- it is an absolute enforcement mechanism that treats untracked work as a policy violation requiring immediate correction.
+In a platform with 430+ autonomous agents and 90 [umbrella application](@/glossary/umbrella-application.md)s, untracked work creates invisible technical debt, unmeasurable progress, and unauditable decisions. The Brutal GitLab Enforcer prevents this by monitoring all development activity for GitLab issue references and blocking operations that lack proper tracking. This is not a suggestion system -- it is an absolute enforcement mechanism that treats untracked work as a policy violation requiring immediate correction.
 
 The enforcer's design philosophy is deliberately aggressive. Development teams universally acknowledge that issue tracking is important, yet consistently fail to maintain discipline without enforcement. The Brutal GitLab Enforcer eliminates the gap between intention and action by making it technically impossible to produce work that is not tracked. This approach trades developer convenience for complete audit trail integrity, a trade-off that becomes increasingly valuable as the platform grows in complexity and regulatory exposure.
 
 ## Operational Domain
 
-The Absolute Authority domain operates with the highest enforcement severity across the platform. The Brutal GitLab Enforcer specifically targets the mandatory [session discipline](/glossary/session-discipline/) [protocol](/glossary/protocol/), verifying that development sessions create issues, reference them in commits, push changes continuously, and update issue status upon completion. This creates a complete [audit trail](/glossary/audit-trail/) for every line of code and every decision.
+The Absolute Authority domain operates with the highest enforcement severity across the platform. The Brutal GitLab Enforcer specifically targets the mandatory [session discipline](@/glossary/session-discipline.md) [protocol](@/glossary/protocol.md), verifying that development sessions create issues, reference them in commits, push changes continuously, and update issue status upon completion. This creates a complete [audit trail](@/glossary/audit-trail.md) for every line of code and every decision.
 
 The Absolute Authority domain is distinct from the Supreme domain in one critical respect: Absolute Authority agents have enforcement power that supersedes even Supreme domain operational directives. When tracking compliance conflicts with other operational priorities, tracking wins. Always.
 
@@ -52,7 +52,7 @@ The Absolute Authority domain is distinct from the Supreme domain in one critica
 
 - **Audit trail completeness** validating that the chain from session start through commits through pushes through issue updates forms a complete, unbroken record. Any break in the audit chain triggers investigation.
 
-- **Violation escalation** automatically escalating untracked operations through the [violation protocol](/glossary/violation-protocol/) from L1 warnings through L4 supreme review, with severity proportional to the tracking gap and the violator's history
+- **Violation escalation** automatically escalating untracked operations through the [violation protocol](@/glossary/violation-protocol.md) from L1 warnings through L4 supreme review, with severity proportional to the tracking gap and the violator's history
 
 ## Enforcement Architecture
 
@@ -107,10 +107,10 @@ The enforcer validates that tracked operations produce a complete audit trail li
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [gitlab-security-specialist-agent](/agents/gitlab-security-specialist-agent/) | Security Coordination | Ensures GitLab security configurations complement tracking enforcement |
-| [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) | Pipeline Enforcement | Coordinates CI/CD pipeline guardrails with issue tracking requirements |
-| [commit-orchestrator](/agents/commit-orchestrator/) | Commit Flow | Validates commit workflow compliance with tracking requirements |
-| [gitlab-mcp-orchestrator](/agents/gitlab-mcp-orchestrator/) | GitLab API | Coordinates issue existence verification through GitLab API |
+| [gitlab-security-specialist-agent](@/agents/gitlab-security-specialist-agent.md) | Security Coordination | Ensures GitLab security configurations complement tracking enforcement |
+| [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) | Pipeline Enforcement | Coordinates CI/CD pipeline guardrails with issue tracking requirements |
+| [commit-orchestrator](@/agents/commit-orchestrator.md) | Commit Flow | Validates commit workflow compliance with tracking requirements |
+| [gitlab-mcp-orchestrator](@/agents/gitlab-mcp-orchestrator.md) | GitLab API | Coordinates issue existence verification through GitLab API |
 
 ## Performance Metrics
 
@@ -125,7 +125,7 @@ The enforcer validates that tracked operations produce a complete audit trail li
 
 ## Enforcement
 
-The Brutal GitLab Enforcer IS the enforcement. [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine in its purest form. Untracked work is rejected. Bypassed hooks are treated as L4 violations requiring supreme review. Sessions without GitLab tickets are blocked from producing any output. The use of `--no-verify` is absolutely forbidden. There are no exceptions, no grace periods, no exemptions. The [Trinity Gate](/glossary/trinity-gate/) validates that tracking enforcement maintains structural consistency (all enforcement points active), logical consistency (violation classification follows defined rules), and formal correctness (audit trail completeness can be mechanically verified). The NABLA [Provenance Mandatory](/glossary/provenance-mandatory/) axiom is the philosophical foundation: every platform change must be traceable to its origin, rationale, and authorization.
+The Brutal GitLab Enforcer IS the enforcement. [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine in its purest form. Untracked work is rejected. Bypassed hooks are treated as L4 violations requiring supreme review. Sessions without GitLab tickets are blocked from producing any output. The use of `--no-verify` is absolutely forbidden. There are no exceptions, no grace periods, no exemptions. The [Trinity Gate](@/glossary/trinity-gate.md) validates that tracking enforcement maintains structural consistency (all enforcement points active), logical consistency (violation classification follows defined rules), and formal correctness (audit trail completeness can be mechanically verified). The NABLA [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom is the philosophical foundation: every platform change must be traceable to its origin, rationale, and authorization.
 
 ---
 
@@ -134,4 +134,4 @@ The Brutal GitLab Enforcer IS the enforcement. [NO MERCY, NO DOUBTS](/glossary/n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -581,24 +581,24 @@ Quality gates have dependencies: Dialyzer depends on compilation, tests depend o
 
 Graph theory connects to numerous aspects of the Prismatic Platform:
 
-- [Graph Database](/glossary/graph-database/) provides the persistent storage layer for graph-structured data, powered by KuzuDB
-- [Knowledge Graph](/glossary/knowledge-graph/) is the primary application of graph theory in the platform's intelligence domain
-- [Trinity Gate](/glossary/trinity-gate/) uses graph theory for its structural consistency verification channel
-- [Structural Consistency](/glossary/structural-consistency/) is the specific Trinity Gate check that validates belief graph DAG properties
-- [Belief Graph](/glossary/belief-graph/) is the directed acyclic graph structure that represents the platform's epistemic state
-- [Supervision Tree](/glossary/supervision-tree/) is the OTP construct that models process hierarchies as rooted trees
-- [Entity Graph](/glossary/entity-graph/) applies graph theory to model relationships between OSINT-discovered entities
-- [Formal Verification](/glossary/formal-verification/) uses graph-theoretic proofs for algorithmic correctness claims
-- [Circular Dependency](/glossary/circular-dependency/) is the graph-theoretic concept of a cycle in a dependency graph
-- [Dependency Injection](/glossary/dependency-injection/) decouples graph vertices to prevent unwanted edge formation
+- [Graph Database](@/glossary/graph-database.md) provides the persistent storage layer for graph-structured data, powered by KuzuDB
+- [Knowledge Graph](@/glossary/knowledge-graph.md) is the primary application of graph theory in the platform's intelligence domain
+- [Trinity Gate](@/glossary/trinity-gate.md) uses graph theory for its structural consistency verification channel
+- [Structural Consistency](@/glossary/structural-consistency.md) is the specific Trinity Gate check that validates belief graph DAG properties
+- [Belief Graph](@/glossary/belief-graph.md) is the directed acyclic graph structure that represents the platform's epistemic state
+- [Supervision Tree](@/glossary/supervision-tree.md) is the OTP construct that models process hierarchies as rooted trees
+- [Entity Graph](@/glossary/entity-graph.md) applies graph theory to model relationships between OSINT-discovered entities
+- [Formal Verification](@/glossary/formal-verification.md) uses graph-theoretic proofs for algorithmic correctness claims
+- [Circular Dependency](@/glossary/circular-dependency.md) is the graph-theoretic concept of a cycle in a dependency graph
+- [Dependency Injection](@/glossary/dependency-injection.md) decouples graph vertices to prevent unwanted edge formation
 
 ## See Also
 
-- [DAG (Directed Acyclic Graph)](/glossary/ast/) -- the specific graph structure used for dependency resolution and belief networks
-- [Formal Proof](/glossary/formal-proof/) -- mathematical proofs that often rely on graph-theoretic arguments
-- [Modal Logic](/glossary/modal-logic/) -- logical framework whose Kripke semantics are graph-based (possible worlds as vertices)
-- [Lean4](/glossary/lean4/) -- the theorem prover used for formal graph-theoretic proofs in the Trinity Gate
-- [Theorem Proving](/glossary/theorem-proving/) -- automated verification that leverages graph-theoretic structures
+- [DAG (Directed Acyclic Graph)](@/glossary/ast.md) -- the specific graph structure used for dependency resolution and belief networks
+- [Formal Proof](@/glossary/formal-proof.md) -- mathematical proofs that often rely on graph-theoretic arguments
+- [Modal Logic](@/glossary/modal-logic.md) -- logical framework whose Kripke semantics are graph-based (possible worlds as vertices)
+- [Lean4](@/glossary/lean4.md) -- the theorem prover used for formal graph-theoretic proofs in the Trinity Gate
+- [Theorem Proving](@/glossary/theorem-proving.md) -- automated verification that leverages graph-theoretic structures
 
 ---
 

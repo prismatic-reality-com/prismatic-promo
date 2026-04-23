@@ -23,7 +23,7 @@ image_alt = "Prismatic DD - Prismatic Platform"
 
 ## Abstract
 
-Prismatic DD is the entity-centric due diligence investigation platform within the Prismatic ecosystem. It provides a structured environment for creating, managing, and exploring investigable subjects -- persons, companies, domains, assets, and documents -- along with the directional relationships that connect them. The platform implements a graph-based data model with breadth-first traversal for multi-level relationship exploration, a case management system with full lifecycle tracking (draft through archived), and dual-layer persistence combining [ETS](/glossary/ets/) in-memory caching with file-backed JSON storage for durability without external database dependencies. The architecture is intentionally minimal: three supervised [GenServer](/glossary/genserver/) processes, zero external service requirements, and a clean facade API that exposes all operations through a single module. Five [Phoenix LiveView](/glossary/phoenix-liveview/) dashboards provide real-time interactive interfaces for case management, entity exploration, graph visualization, and investigation coordination. With 1,561 lines of production [Elixir](/glossary/elixir/) code, 16 relationship types, 5 entity categories, and comprehensive test coverage, Prismatic DD delivers the investigation infrastructure required for corporate due diligence, compliance screening, and intelligence analysis workflows.
+Prismatic DD is the entity-centric due diligence investigation platform within the Prismatic ecosystem. It provides a structured environment for creating, managing, and exploring investigable subjects -- persons, companies, domains, assets, and documents -- along with the directional relationships that connect them. The platform implements a graph-based data model with breadth-first traversal for multi-level relationship exploration, a case management system with full lifecycle tracking (draft through archived), and dual-layer persistence combining [ETS](@/glossary/ets.md) in-memory caching with file-backed JSON storage for durability without external database dependencies. The architecture is intentionally minimal: three supervised [GenServer](@/glossary/genserver.md) processes, zero external service requirements, and a clean facade API that exposes all operations through a single module. Five [Phoenix LiveView](@/glossary/phoenix-liveview.md) dashboards provide real-time interactive interfaces for case management, entity exploration, graph visualization, and investigation coordination. With 1,561 lines of production [Elixir](@/glossary/elixir.md) code, 16 relationship types, 5 entity categories, and comprehensive test coverage, Prismatic DD delivers the investigation infrastructure required for corporate due diligence, compliance screening, and intelligence analysis workflows.
 
 ## 1. Introduction
 
@@ -31,9 +31,9 @@ Prismatic DD is the entity-centric due diligence investigation platform within t
 
 Due diligence investigations require analysts to track complex webs of relationships between entities -- persons who direct companies, companies that own subsidiaries, investors who fund ventures, and the documents and domains that connect them. Traditional investigation tools either force analysts into flat spreadsheets that lose structural context, or require heavyweight database deployments that create operational friction for time-sensitive investigations.
 
-The core challenge is graph complexity. A single corporate investigation can involve dozens of entities connected by hundreds of relationships spanning ownership, directorship, shareholding, employment, investment, and family ties. Analysts need to traverse these relationship graphs at variable depth, scope investigations to specific cases, and attach analysis results and documents to individual entities -- all while maintaining a clear [audit trail](/glossary/audit-trail/) of what was investigated and when.
+The core challenge is graph complexity. A single corporate investigation can involve dozens of entities connected by hundreds of relationships spanning ownership, directorship, shareholding, employment, investment, and family ties. Analysts need to traverse these relationship graphs at variable depth, scope investigations to specific cases, and attach analysis results and documents to individual entities -- all while maintaining a clear [audit trail](@/glossary/audit-trail.md) of what was investigated and when.
 
-Commercial due diligence platforms address this with SaaS offerings that require network connectivity, data residency compromises, and per-seat licensing that scales poorly for organizations running frequent investigations. Prismatic DD takes a different approach: an embedded [OTP](/glossary/otp/) application that runs within the [BEAM](/glossary/beam/) runtime, stores data locally, and provides sub-millisecond graph traversal through ETS-backed caching.
+Commercial due diligence platforms address this with SaaS offerings that require network connectivity, data residency compromises, and per-seat licensing that scales poorly for organizations running frequent investigations. Prismatic DD takes a different approach: an embedded [OTP](@/glossary/otp.md) application that runs within the [BEAM](@/glossary/beam.md) runtime, stores data locally, and provides sub-millisecond graph traversal through ETS-backed caching.
 
 ### 1.2 Design Goals
 
@@ -46,7 +46,7 @@ Commercial due diligence platforms address this with SaaS offerings that require
 
 ### 1.3 Scope
 
-Prismatic DD covers entity management, relationship modeling, graph traversal, and case lifecycle tracking. [OSINT](/glossary/osint/) data collection is handled by upstream applications ([prismatic_osint_sources](/apps/prismatic-osint-sources/), [prismatic_hawkeye](/apps/prismatic-hawkeye/)) which feed investigation results into DD entities via the analysis API. [Sanctions screening](/glossary/sanctions-screening/), risk scoring algorithms, and compliance assessment are provided by the broader Prismatic platform -- DD provides the structural foundation on which these capabilities operate.
+Prismatic DD covers entity management, relationship modeling, graph traversal, and case lifecycle tracking. [OSINT](@/glossary/osint.md) data collection is handled by upstream applications ([prismatic_osint_sources](@/apps/prismatic-osint-sources.md), [prismatic_hawkeye](@/apps/prismatic-hawkeye.md)) which feed investigation results into DD entities via the analysis API. [Sanctions screening](@/glossary/sanctions-screening.md), risk scoring algorithms, and compliance assessment are provided by the broader Prismatic platform -- DD provides the structural foundation on which these capabilities operate.
 
 ## 2. Architecture
 
@@ -224,7 +224,7 @@ On GenServer startup, all JSON files are read from disk and loaded into ETS tabl
 
 ## 4. LiveView Integration
 
-Prismatic DD exposes five LiveView dashboards through the [Prismatic Web](/glossary/prismatic-web/) application, all accessible under the `/dd` route prefix:
+Prismatic DD exposes five LiveView dashboards through the [Prismatic Web](@/glossary/prismatic-web.md) application, all accessible under the `/dd` route prefix:
 
 ### 4.1 Route Map
 
@@ -321,17 +321,17 @@ All investigation data is stored locally on the filesystem -- no external API ca
 
 ### 7.3 Access Control
 
-DD inherits the platform's [RBAC](/glossary/rbac/) system through the Prismatic Web authentication layer. All LiveView routes under `/dd/*` require authenticated sessions. API-level access control is enforced through the platform's [plug](/glossary/plug/) pipeline.
+DD inherits the platform's [RBAC](@/glossary/rbac.md) system through the Prismatic Web authentication layer. All LiveView routes under `/dd/*` require authenticated sessions. API-level access control is enforced through the platform's [plug](@/glossary/plug.md) pipeline.
 
 ## 8. Operational Considerations
 
 ### 8.1 Deployment
 
-Prismatic DD deploys as part of the Prismatic [umbrella application](/glossary/umbrella-application/). No additional infrastructure is required -- the application uses only ETS (in-memory) and the local filesystem. The `priv/data/` directory must be writable and should be included in backup procedures.
+Prismatic DD deploys as part of the Prismatic [umbrella application](@/glossary/umbrella-application.md). No additional infrastructure is required -- the application uses only ETS (in-memory) and the local filesystem. The `priv/data/` directory must be writable and should be included in backup procedures.
 
 ### 8.2 Monitoring
 
-[Supervision tree](/glossary/supervision-tree/) health is monitored through standard OTP mechanisms. Each GenServer emits [telemetry](/glossary/telemetry/) events for CRUD operations, enabling dashboards to track entity creation rates, relationship density, and case lifecycle transitions.
+[Supervision tree](@/glossary/supervision-tree.md) health is monitored through standard OTP mechanisms. Each GenServer emits [telemetry](@/glossary/telemetry.md) events for CRUD operations, enabling dashboards to track entity creation rates, relationship density, and case lifecycle transitions.
 
 ### 8.3 Troubleshooting
 
@@ -340,39 +340,39 @@ Prismatic DD deploys as part of the Prismatic [umbrella application](/glossary/u
 | Empty entity list after restart | `priv/data/entities/` directory missing or unreadable | Verify directory permissions; check GenServer logs for file I/O errors |
 | Graph traversal returns empty | Entity has no relationships | Verify relationships exist with `PrismaticDd.relationships_for(entity_id)` |
 | Case entities not showing | Entities not added to case | Use `PrismaticDd.add_entity_to_case/2` to associate entities |
-| Slow search operations | Large entity count with full-text scan | Consider adding [Meilisearch](/glossary/meilisearch/) integration for text search offloading |
+| Slow search operations | Large entity count with full-text scan | Consider adding [Meilisearch](@/glossary/meilisearch.md) integration for text search offloading |
 
 ## 9. Future Work
 
-Planned enhancements include Meilisearch integration for full-text entity search across large datasets, graph visualization using D3.js force-directed layouts in the LiveView graph explorer, integration with the OSINT pipeline for automated entity enrichment, and timeline views showing investigation progress and entity modification history. The storage layer may be extended with optional [PostgreSQL](/glossary/postgresql/) backing for multi-node deployments requiring shared state.
+Planned enhancements include Meilisearch integration for full-text entity search across large datasets, graph visualization using D3.js force-directed layouts in the LiveView graph explorer, integration with the OSINT pipeline for automated entity enrichment, and timeline views showing investigation progress and entity modification history. The storage layer may be extended with optional [PostgreSQL](@/glossary/postgresql.md) backing for multi-node deployments requiring shared state.
 
 ## 10. References
 
 ### Related Applications
 
-- [Prismatic Web](/apps/prismatic-web/) -- LiveView dashboard host for DD interfaces
-- [Prismatic OSINT Sources](/apps/prismatic-osint-sources/) -- Intelligence sources feeding DD entity analysis
-- [Prismatic Hawkeye](/apps/prismatic-hawkeye/) -- Visitor intelligence complementing DD investigations
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- [EASM](/glossary/easm/) [security rating](/glossary/security-rating/)s using DD entity data
-- [Prismatic Agents](/apps/prismatic-agents/) -- Agent orchestration for automated investigation workflows
+- [Prismatic Web](@/apps/prismatic-web.md) -- LiveView dashboard host for DD interfaces
+- [Prismatic OSINT Sources](@/apps/prismatic-osint-sources.md) -- Intelligence sources feeding DD entity analysis
+- [Prismatic Hawkeye](@/apps/prismatic-hawkeye.md) -- Visitor intelligence complementing DD investigations
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- [EASM](@/glossary/easm.md) [security rating](@/glossary/security-rating.md)s using DD entity data
+- [Prismatic Agents](@/apps/prismatic-agents.md) -- Agent orchestration for automated investigation workflows
 
 ### Related Sections
 
-- [Architecture](/architecture/) -- Platform-wide architectural patterns
-- [OSINT Sources](/osint/) -- Intelligence source catalog
-- [Glossary](/glossary/) -- Platform terminology reference
+- [Architecture](@/architecture/_index.md) -- Platform-wide architectural patterns
+- [OSINT Sources](@/osint/_index.md) -- Intelligence source catalog
+- [Glossary](@/glossary/_index.md) -- Platform terminology reference
 
 ## Related Agents
 
-- [Competitor Researcher](/agents/competitor-researcher/) -- Leverages due diligence investigation capabilities for competitive intelligence gathering and corporate structure analysis
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures investigation entities carry proper provenance, analysis attribution, and evidence chain integrity
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Configures alerting for case lifecycle transitions, risk level escalations, and investigation deadline management
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Leverages due diligence investigation capabilities for competitive intelligence gathering and corporate structure analysis
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures investigation entities carry proper provenance, analysis attribution, and evidence chain integrity
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Configures alerting for case lifecycle transitions, risk level escalations, and investigation deadline management
 
 ## Related Capabilities
 
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Combines multi-source entity analysis from OSINT agents into comprehensive due diligence investigation profiles
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Enforces signal plurality and contradiction preservation for investigation findings across multiple intelligence sources
-- [Trinity Gate](/capabilities/trinity-gate/) -- Verifies structural and logical consistency of relationship graphs and entity attribution claims in investigations
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Combines multi-source entity analysis from OSINT agents into comprehensive due diligence investigation profiles
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Enforces signal plurality and contradiction preservation for investigation findings across multiple intelligence sources
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Verifies structural and logical consistency of relationship graphs and entity attribution claims in investigations
 
 ---
 
@@ -381,4 +381,4 @@ Planned enhancements include Meilisearch integration for full-text entity search
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

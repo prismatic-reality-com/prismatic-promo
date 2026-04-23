@@ -28,19 +28,19 @@ image_alt = "API Design Specialist Agent - Prismatic Platform"
 
 ## Overview
 
-The API Design Specialist Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Primary domain of the Prismatic Platform. This agent provides expert guidance on REST and [GraphQL](/glossary/graphql/) API architecture, endpoint design, versioning strategies, and documentation standards. Every public-facing API surface in the Prismatic ecosystem passes through this agent's review process to ensure consistency, discoverability, and long-term maintainability.
+The API Design Specialist Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Primary domain of the Prismatic Platform. This agent provides expert guidance on REST and [GraphQL](@/glossary/graphql.md) API architecture, endpoint design, versioning strategies, and documentation standards. Every public-facing API surface in the Prismatic ecosystem passes through this agent's review process to ensure consistency, discoverability, and long-term maintainability.
 
-API design in the Prismatic Platform is not merely about exposing functions over HTTP. The platform's auto-introspecting REST gateway at [Prismatic API](/glossary/prismatic-api/) automatically discovers facade modules and generates [OpenAPI](/glossary/openapi/) 3.0 specifications. The API Design Specialist ensures that the underlying module structures, function signatures, and [typespec](/glossary/typespec/) annotations are optimized for this auto-discovery process, producing clean and well-documented API surfaces without manual specification writing.
+API design in the Prismatic Platform is not merely about exposing functions over HTTP. The platform's auto-introspecting REST gateway at [Prismatic API](@/glossary/prismatic-api.md) automatically discovers facade modules and generates [OpenAPI](@/glossary/openapi.md) 3.0 specifications. The API Design Specialist ensures that the underlying module structures, function signatures, and [typespec](@/glossary/typespec.md) annotations are optimized for this auto-discovery process, producing clean and well-documented API surfaces without manual specification writing.
 
-The agent also governs API evolution -- the process by which endpoints are versioned, deprecated, and eventually retired. In a platform serving both external consumers and internal [LiveView](/glossary/liveview/) dashboards, breaking API changes can cascade through multiple consumer layers. The API Design Specialist enforces versioning discipline that provides backward compatibility guarantees while enabling the platform to evolve its API surface without accumulating legacy endpoint debt.
+The agent also governs API evolution -- the process by which endpoints are versioned, deprecated, and eventually retired. In a platform serving both external consumers and internal [LiveView](@/glossary/liveview.md) dashboards, breaking API changes can cascade through multiple consumer layers. The API Design Specialist enforces versioning discipline that provides backward compatibility guarantees while enabling the platform to evolve its API surface without accumulating legacy endpoint debt.
 
 ## Architecture
 
 The API Design Specialist's review architecture is organized around three validation layers that examine API surfaces at different levels of abstraction.
 
-**Contract Layer.** The outermost layer validates API contracts -- the formal agreements between the platform and its consumers. This includes endpoint paths, HTTP methods, request/response schemas, error codes, and pagination patterns. Contract validation uses [OpenApiSpex](/glossary/openapi/) to parse the auto-generated OpenAPI specification and check it against the platform's API design standards.
+**Contract Layer.** The outermost layer validates API contracts -- the formal agreements between the platform and its consumers. This includes endpoint paths, HTTP methods, request/response schemas, error codes, and pagination patterns. Contract validation uses [OpenApiSpex](@/glossary/openapi.md) to parse the auto-generated OpenAPI specification and check it against the platform's API design standards.
 
-**Implementation Layer.** The middle layer validates that [Elixir](/glossary/elixir/) module structures are optimized for the auto-introspection process. Function arities, typespec annotations, module documentation, and facade pattern implementation are checked against the requirements of the Prismatic API scanner. This layer ensures that the auto-generated API specification accurately reflects the intended API surface.
+**Implementation Layer.** The middle layer validates that [Elixir](@/glossary/elixir.md) module structures are optimized for the auto-introspection process. Function arities, typespec annotations, module documentation, and facade pattern implementation are checked against the requirements of the Prismatic API scanner. This layer ensures that the auto-generated API specification accurately reflects the intended API surface.
 
 **Evolution Layer.** The innermost layer tracks API versioning, deprecation timelines, and backward compatibility. When a function signature changes in a facade module, this layer assesses the impact on existing API consumers and generates migration guidance. Deprecated endpoints carry explicit sunset dates, and the evolution layer enforces that deprecated endpoints are actually removed after their sunset period.
 
@@ -88,7 +88,7 @@ end
 - **GraphQL schema design** with careful type system planning, resolver optimization, DataLoader integration for N+1 prevention, and field-level authorization controls
 - **API versioning strategy** implementing URL-based and header-based versioning with clear deprecation timelines, migration guides, and backward compatibility guarantees for existing consumers
 - **Auto-introspection optimization** ensuring Elixir module structures, function arities, and typespec annotations produce clean auto-generated API documentation through the Prismatic API scanner
-- **[Rate limiting](/glossary/rate-limiting/) and authentication design** defining per-endpoint rate limits, API key management patterns, and [RBAC](/glossary/rbac/) integration that balances security with usability
+- **[Rate limiting](@/glossary/rate-limiting.md) and authentication design** defining per-endpoint rate limits, API key management patterns, and [RBAC](@/glossary/rbac.md) integration that balances security with usability
 - **Contract testing frameworks** that verify API behavior against OpenAPI specifications, catching breaking changes before they reach production
 
 ## Implementation
@@ -103,11 +103,11 @@ Contract tests are generated automatically from the OpenAPI specification, creat
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [api-gateway-specialist-agent](/agents/api-gateway-specialist-agent/) | Gateway Partner | Coordinates API routing and facade patterns for gateway management |
-| [code-review-specialist-agent-v20](/agents/code-review-specialist-agent-v20/) | Quality Reviewer | Reviews API implementations for design standard compliance |
-| [absolute-enforcement-commander-v6](/agents/absolute-enforcement-commander-v6/) | Quality Gate | Integrates API design validation into quality gate pipeline |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Schema Validator | Validates OpenAPI specification schema correctness |
-| [aiad-dashboard-commander](/agents/aiad-dashboard-commander/) | Visibility | Displays API health metrics and deprecation timelines on dashboards |
+| [api-gateway-specialist-agent](@/agents/api-gateway-specialist-agent.md) | Gateway Partner | Coordinates API routing and facade patterns for gateway management |
+| [code-review-specialist-agent-v20](@/agents/code-review-specialist-agent-v20.md) | Quality Reviewer | Reviews API implementations for design standard compliance |
+| [absolute-enforcement-commander-v6](@/agents/absolute-enforcement-commander-v6.md) | Quality Gate | Integrates API design validation into quality gate pipeline |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Schema Validator | Validates OpenAPI specification schema correctness |
+| [aiad-dashboard-commander](@/agents/aiad-dashboard-commander.md) | Visibility | Displays API health metrics and deprecation timelines on dashboards |
 
 ## Operational Workflow
 
@@ -159,12 +159,12 @@ The AIAD specification at `.aiad/agents/api-design-specialist-agent.agent.md` de
 
 ## Related Resources
 
-- [Prismatic API](/glossary/prismatic-api/) -- Auto-introspecting REST gateway
-- [OpenAPI](/glossary/openapi/) -- API specification standard used by the platform
-- [Architecture Overview](/architecture/) -- Platform architecture including API layer
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard
-- [Applications](/apps/) -- Platform applications with API surfaces
-- [Technologies](/technologies/) -- Technology stack including API frameworks
+- [Prismatic API](@/glossary/prismatic-api.md) -- Auto-introspecting REST gateway
+- [OpenAPI](@/glossary/openapi.md) -- API specification standard used by the platform
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including API layer
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard
+- [Applications](@/apps/_index.md) -- Platform applications with API surfaces
+- [Technologies](@/technologies/_index.md) -- Technology stack including API frameworks
 
 ---
 
@@ -173,4 +173,4 @@ The AIAD specification at `.aiad/agents/api-design-specialist-agent.agent.md` de
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

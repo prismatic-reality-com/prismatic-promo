@@ -28,11 +28,11 @@ image_alt = "crawler-development-specialist - Prismatic Platform"
 
 ## Overview
 
-The Crawler Development Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Domain domain of the Prismatic Platform. This agent designs, implements, and maintains ethical web crawlers that form the data acquisition backbone of the platform's intelligence gathering infrastructure. Every crawler produced by this specialist adheres to strict politeness protocols, respects robots.txt directives, implements adaptive [rate limiting](/glossary/rate-limiting/), and operates within the legal and ethical boundaries defined by the platform's compliance framework.
+The Crawler Development Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Domain domain of the Prismatic Platform. This agent designs, implements, and maintains ethical web crawlers that form the data acquisition backbone of the platform's intelligence gathering infrastructure. Every crawler produced by this specialist adheres to strict politeness protocols, respects robots.txt directives, implements adaptive [rate limiting](@/glossary/rate-limiting.md), and operates within the legal and ethical boundaries defined by the platform's compliance framework.
 
-Web crawling at scale presents fundamental engineering challenges that go beyond simple HTTP request loops. Target websites employ varying anti-bot measures, rate limits, session management schemes, and dynamic content rendering. The Crawler Development Specialist addresses these challenges through a modular crawler architecture built on [OTP](/glossary/otp/) principles, where each crawler component runs as an isolated supervised process capable of independent failure and recovery. This design ensures that a single problematic target cannot destabilize the entire crawling infrastructure, and that crawler behavior can be adapted in real time through [hot code reload](/glossary/hot-code-reload/) without interrupting active crawl sessions.
+Web crawling at scale presents fundamental engineering challenges that go beyond simple HTTP request loops. Target websites employ varying anti-bot measures, rate limits, session management schemes, and dynamic content rendering. The Crawler Development Specialist addresses these challenges through a modular crawler architecture built on [OTP](@/glossary/otp.md) principles, where each crawler component runs as an isolated supervised process capable of independent failure and recovery. This design ensures that a single problematic target cannot destabilize the entire crawling infrastructure, and that crawler behavior can be adapted in real time through [hot code reload](@/glossary/hot-code-reload.md) without interrupting active crawl sessions.
 
-The specialist draws on the platform's [GARDEN](/glossary/garden/) legacy knowledge base, which contains over 20 years of accumulated crawling patterns from previous OSINT projects. These battle-tested patterns inform crawler design decisions around session management, pagination handling, JavaScript rendering strategies, and data extraction approaches that have proven reliable across thousands of target sites.
+The specialist draws on the platform's [GARDEN](@/glossary/garden.md) legacy knowledge base, which contains over 20 years of accumulated crawling patterns from previous OSINT projects. These battle-tested patterns inform crawler design decisions around session management, pagination handling, JavaScript rendering strategies, and data extraction approaches that have proven reliable across thousands of target sites.
 
 ## Architectural Foundation
 
@@ -90,7 +90,7 @@ Scheduling optimization distributes crawl operations across time to balance load
 
 ## Monitoring and Observability
 
-Comprehensive monitoring is essential for managing a fleet of crawlers operating against diverse targets. The specialist integrates with the platform's [telemetry](/glossary/telemetry/) infrastructure to provide real-time visibility into crawler operations.
+Comprehensive monitoring is essential for managing a fleet of crawlers operating against diverse targets. The specialist integrates with the platform's [telemetry](@/glossary/telemetry.md) infrastructure to provide real-time visibility into crawler operations.
 
 Key metrics tracked include requests per second per target, response time distributions, error rates by error type, extraction success rates, data volume ingested, and queue depths at each pipeline stage. These metrics feed into dashboards that provide operators with at-a-glance visibility into crawler fleet health and enable rapid identification of targets requiring attention.
 
@@ -100,7 +100,7 @@ Audit logging records every crawler operation with sufficient detail to reconstr
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to design crawler architectures, set crawling policies, and manage the crawler fleet across all intelligence domains.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to design crawler architectures, set crawling policies, and manage the crawler fleet across all intelligence domains.
 
 ## Integration
 
@@ -108,23 +108,23 @@ This agent integrates with the following platform components:
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Domain agent runtime management and crawler lifecycle |
-| AIAD [Registry](/glossary/registry-otp/) | Crawler specification, discovery, and configuration management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Domain agent runtime management and crawler lifecycle |
+| AIAD [Registry](@/glossary/registry-otp.md) | Crawler specification, discovery, and configuration management |
 | Prismatic Telemetry | Crawler performance metrics and operational monitoring |
-| [OSINT](/glossary/osint/) Pipeline | Downstream consumer of crawled and extracted data |
+| [OSINT](@/glossary/osint.md) Pipeline | Downstream consumer of crawled and extracted data |
 | GARDEN Pattern Library | Source of proven crawling patterns and extraction strategies |
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [czech-autocrawler-supreme](/agents/czech-autocrawler-supreme/) | Consumer | Uses crawler infrastructure for Czech registry data acquisition |
-| [osint-technical-security-specialist](/agents/osint-technical-security-specialist/) | Consumer | Receives crawled security-relevant data for technical analysis |
-| [data-migration-architect](/agents/data-migration-architect/) | Data Partner | Coordinates data format standards for crawler output compatibility |
+| [czech-autocrawler-supreme](@/agents/czech-autocrawler-supreme.md) | Consumer | Uses crawler infrastructure for Czech registry data acquisition |
+| [osint-technical-security-specialist](@/agents/osint-technical-security-specialist.md) | Consumer | Receives crawled security-relevant data for technical analysis |
+| [data-migration-architect](@/agents/data-migration-architect.md) | Data Partner | Coordinates data format standards for crawler output compatibility |
 
 ## Enforcement
 
-All crawler development operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No crawler is deployed without ethical compliance verification. Rate limiting is mandatory and cannot be disabled. Robots.txt compliance is enforced at the infrastructure level with no override capability. Every crawler must include comprehensive error handling and monitoring integration. Crawlers that fail extraction validation at rates above configurable thresholds are automatically suspended for investigation. Production crawler deployment requires passing the full quality gate suite including extraction accuracy tests, performance benchmarks, and ethical compliance verification.
+All crawler development operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No crawler is deployed without ethical compliance verification. Rate limiting is mandatory and cannot be disabled. Robots.txt compliance is enforced at the infrastructure level with no override capability. Every crawler must include comprehensive error handling and monitoring integration. Crawlers that fail extraction validation at rates above configurable thresholds are automatically suspended for investigation. Production crawler deployment requires passing the full quality gate suite including extraction accuracy tests, performance benchmarks, and ethical compliance verification.
 
 ---
 
@@ -133,4 +133,4 @@ All crawler development operates under the [NO MERCY, NO DOUBTS](/glossary/no-me
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

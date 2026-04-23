@@ -35,7 +35,7 @@ image_alt = "CASCADE - Prismatic Platform"
 
 ## Definition
 
-CASCADE is the Prismatic Platform's systematic quality pattern elimination methodology. It identifies recurring categories of quality debt across the entire codebase, classifies them into named pattern types, and eliminates them at scale through automated or semi-automated fix procedures with mandatory regression testing. The methodology achieved the elimination of 905 Quality Debt Points ([QDP](/glossary/qdp/)), bringing the platform from significant accumulated technical debt to a perfect 0 QDP score across all umbrella applications.
+CASCADE is the Prismatic Platform's systematic quality pattern elimination methodology. It identifies recurring categories of quality debt across the entire codebase, classifies them into named pattern types, and eliminates them at scale through automated or semi-automated fix procedures with mandatory regression testing. The methodology achieved the elimination of 905 Quality Debt Points ([QDP](@/glossary/qdp.md)), bringing the platform from significant accumulated technical debt to a perfect 0 QDP score across all umbrella applications.
 
 CASCADE operates on a fundamental insight: quality debt in large codebases is not randomly distributed. It clusters into identifiable patterns -- specific anti-patterns that developers repeat across modules, specific misconfigurations that propagate through copy-paste, specific performance traps that arise from common coding habits. By identifying these patterns and building targeted elimination procedures, CASCADE converts what would be thousands of individual fixes into a small number of pattern-level operations that propagate platform-wide.
 
@@ -47,7 +47,7 @@ The CASCADE methodology emerged from a critical inflection point in the Prismati
 
 Traditional code quality approaches -- manual code review, ad-hoc linting, periodic refactoring sprints -- proved insufficient at the scale of the Prismatic Platform. A codebase of approximately 2.8 million lines of code across 115 applications requires industrial-scale quality management. CASCADE was designed to provide exactly that: a methodology that treats quality debt as a classification problem, identifies pattern families, and applies batch fixes with verification.
 
-The genesis of CASCADE can be traced to the observation that [Dialyzer](/glossary/dialyzer/) violations, compiler warnings, and [Credo](/glossary/credo/) issues across the platform shared common root causes. Rather than fixing each violation individually, the team identified five distinct pattern families that accounted for the vast majority of all quality debt. This classification enabled the construction of targeted detection and remediation tooling.
+The genesis of CASCADE can be traced to the observation that [Dialyzer](@/glossary/dialyzer.md) violations, compiler warnings, and [Credo](@/glossary/credo.md) issues across the platform shared common root causes. Rather than fixing each violation individually, the team identified five distinct pattern families that accounted for the vast majority of all quality debt. This classification enabled the construction of targeted detection and remediation tooling.
 
 ```elixir
 defmodule Prismatic.Quality.CASCADE do
@@ -134,11 +134,11 @@ CASCADE identifies five distinct pattern types, each targeting a specific class 
 
 ### Pattern 1: Type Mismatch
 
-Type Mismatch patterns arise from inconsistencies between `@spec` type annotations and actual function signatures or return values. In Elixir, [typespecs](/glossary/typespec/) serve as documentation and enable static analysis through [Dialyzer](/glossary/dialyzer/), but they are not enforced at compile time. This creates an opportunity for specs to drift from implementation over time.
+Type Mismatch patterns arise from inconsistencies between `@spec` type annotations and actual function signatures or return values. In Elixir, [typespecs](@/glossary/typespec.md) serve as documentation and enable static analysis through [Dialyzer](@/glossary/dialyzer.md), but they are not enforced at compile time. This creates an opportunity for specs to drift from implementation over time.
 
 | Aspect | Detail |
 |--------|--------|
-| **Detection** | [Dialyzer](/glossary/dialyzer/) PLT analysis comparing spec annotations against inferred types |
+| **Detection** | [Dialyzer](@/glossary/dialyzer.md) PLT analysis comparing spec annotations against inferred types |
 | **Impact** | False positive/negative Dialyzer warnings, misleading documentation, runtime type confusion |
 | **Fix Procedure** | Align `@spec` with actual implementation; update return types; add missing specs |
 | **Regression Test** | Dialyzer zero-violation gate; spec-implementation consistency checks |
@@ -170,7 +170,7 @@ Dead Code patterns encompass unused functions, modules, imports, aliases, and un
 | **Fix Procedure** | Remove unused functions/modules/imports; eliminate unreachable branches |
 | **Regression Test** | Compilation with `--warnings-as-errors`; test coverage verification |
 
-Dead code is particularly insidious because it carries maintenance cost without providing value. Every line of dead code must be compiled, analyzed by [Dialyzer](/glossary/dialyzer/), considered during refactoring, and potentially confuses developers who encounter it. CASCADE's systematic elimination of dead code across 115 applications reduced compilation time and Dialyzer analysis overhead measurably.
+Dead code is particularly insidious because it carries maintenance cost without providing value. Every line of dead code must be compiled, analyzed by [Dialyzer](@/glossary/dialyzer.md), considered during refactoring, and potentially confuses developers who encounter it. CASCADE's systematic elimination of dead code across 115 applications reduced compilation time and Dialyzer analysis overhead measurably.
 
 ### Pattern 3: Empty Check
 
@@ -181,7 +181,7 @@ Empty Check patterns involve using `length(list) > 0` instead of `list != []` (o
 | **Detection** | AST analysis scanning for `length(x) > 0` patterns; O(1) pattern detection engine |
 | **Impact** | Performance degradation proportional to list size; O(n) where O(1) suffices |
 | **Fix Procedure** | Replace `length(list) > 0` with `list != []`; replace `length(list) == 0` with `list == []` |
-| **Regression Test** | [Property-based testing](/glossary/property-based-testing/) verifying equivalence across edge cases |
+| **Regression Test** | [Property-based testing](@/glossary/property-based-testing.md) verifying equivalence across edge cases |
 | **Speedup** | 90-250x on large lists |
 
 ```elixir
@@ -198,7 +198,7 @@ The 90-250x speedup figure was measured on real platform data with lists ranging
 
 ### Pattern 4: Timer Replacement
 
-Timer Replacement patterns involve using `Process.sleep/1` or `:timer.sleep/1` instead of proper OTP patterns like `Process.send_after/3`, `:timer.send_interval/2`, or [GenServer](/glossary/genserver/) timeout mechanisms. Sleep-based timing blocks the calling process, preventing it from handling other messages, and produces non-deterministic behavior in tests.
+Timer Replacement patterns involve using `Process.sleep/1` or `:timer.sleep/1` instead of proper OTP patterns like `Process.send_after/3`, `:timer.send_interval/2`, or [GenServer](@/glossary/genserver.md) timeout mechanisms. Sleep-based timing blocks the calling process, preventing it from handling other messages, and produces non-deterministic behavior in tests.
 
 | Aspect | Detail |
 |--------|--------|
@@ -232,11 +232,11 @@ defp schedule_work(interval) do
 end
 ```
 
-The OTP replacement pattern is idiomatic Elixir -- it allows the [GenServer](/glossary/genserver/) to continue handling messages between work cycles, integrates properly with [supervision trees](/glossary/supervisor/), and produces deterministic behavior in tests.
+The OTP replacement pattern is idiomatic Elixir -- it allows the [GenServer](@/glossary/genserver.md) to continue handling messages between work cycles, integrates properly with [supervision trees](@/glossary/supervisor.md), and produces deterministic behavior in tests.
 
 ### Pattern 5: Nuclear Cache
 
-Nuclear Cache patterns arise from stale compilation artifacts in the `_build` directory that cause phantom [Dialyzer](/glossary/dialyzer/) errors not corresponding to actual code issues. These phantom errors occur when BEAM files from previous compilations persist after source code changes, creating inconsistencies between the compiled artifacts and the current source.
+Nuclear Cache patterns arise from stale compilation artifacts in the `_build` directory that cause phantom [Dialyzer](@/glossary/dialyzer.md) errors not corresponding to actual code issues. These phantom errors occur when BEAM files from previous compilations persist after source code changes, creating inconsistencies between the compiled artifacts and the current source.
 
 | Aspect | Detail |
 |--------|--------|
@@ -252,7 +252,7 @@ mix compile --force
 mix dialyzer
 ```
 
-The Nuclear Cache pattern is unique among CASCADE patterns because it targets build system artifacts rather than source code. It was discovered when persistent Dialyzer violations could not be traced to any code issue and were resolved only by complete cache invalidation. The fix is now automated as part of the [AutoHeal](/glossary/autoheal/) cycle.
+The Nuclear Cache pattern is unique among CASCADE patterns because it targets build system artifacts rather than source code. It was discovered when persistent Dialyzer violations could not be traced to any code issue and were resolved only by complete cache invalidation. The fix is now automated as part of the [AutoHeal](@/glossary/autoheal.md) cycle.
 
 ## Detection Engine
 
@@ -266,7 +266,7 @@ CASCADE detection operates through an O(1) pattern detection engine built on AST
 | **Index Update** | Incremental on file change; full rebuild on demand |
 | **False Positive Rate** | Near zero due to AST-level analysis (not string matching) |
 
-The detection engine integrates with the [pre-commit hooks](/glossary/pre-commit-hooks/) and [quality gates](/glossary/quality-gates/), providing immediate feedback when a developer introduces a CASCADE anti-pattern. This prevents pattern re-introduction and maintains the 0 QDP state.
+The detection engine integrates with the [pre-commit hooks](@/glossary/pre-commit-hooks.md) and [quality gates](@/glossary/quality-gates.md), providing immediate feedback when a developer introduces a CASCADE anti-pattern. This prevents pattern re-introduction and maintains the 0 QDP state.
 
 ```elixir
 defmodule Prismatic.Quality.CASCADE.DetectionEngine do
@@ -356,7 +356,7 @@ end
 | **Timer Replacements** | N/A | 89 sleep calls replaced |
 | **Nuclear Cache Resolved** | N/A | 59 phantom errors eliminated |
 
-The elimination was not a one-time event. CASCADE established detection rules that prevent pattern recurrence, integrated with [AutoEvolve](/glossary/autoevolve/) for automatic detection during evolution cycles, and codified fix procedures that can be applied to new code as it is written. The result is a self-maintaining quality state where CASCADE patterns are caught before they accumulate into debt.
+The elimination was not a one-time event. CASCADE established detection rules that prevent pattern recurrence, integrated with [AutoEvolve](@/glossary/autoevolve.md) for automatic detection during evolution cycles, and codified fix procedures that can be applied to new code as it is written. The result is a self-maintaining quality state where CASCADE patterns are caught before they accumulate into debt.
 
 ## Regression Prevention Framework
 
@@ -401,14 +401,14 @@ end
 
 CASCADE integrates with the platform's broader quality infrastructure through multiple touchpoints:
 
-- **[Clean Run](/glossary/clean-run/)**: CASCADE pattern elimination is prerequisite for achieving Clean Run status (zero warnings, zero errors)
-- **[AutoEvolve](/glossary/autoevolve/)**: AutoEvolve applies CASCADE detection rules automatically during evolution scanning cycles
-- **[AutoHeal](/glossary/autoheal/)**: AutoHeal uses CASCADE fix procedures during self-repair cycles, particularly the Nuclear Cache fix
-- **[QDP](/glossary/qdp/)**: CASCADE is the primary mechanism through which Quality Debt Points are identified and eliminated
-- **[Quality Gates](/glossary/quality-gates/)**: Pre-commit hooks and CI/CD pipelines include CASCADE detection as blocking checks
+- **[Clean Run](@/glossary/clean-run.md)**: CASCADE pattern elimination is prerequisite for achieving Clean Run status (zero warnings, zero errors)
+- **[AutoEvolve](@/glossary/autoevolve.md)**: AutoEvolve applies CASCADE detection rules automatically during evolution scanning cycles
+- **[AutoHeal](@/glossary/autoheal.md)**: AutoHeal uses CASCADE fix procedures during self-repair cycles, particularly the Nuclear Cache fix
+- **[QDP](@/glossary/qdp.md)**: CASCADE is the primary mechanism through which Quality Debt Points are identified and eliminated
+- **[Quality Gates](@/glossary/quality-gates.md)**: Pre-commit hooks and CI/CD pipelines include CASCADE detection as blocking checks
 - **Quality Floor Guardian**: Continuous monitoring triggers CASCADE-based investigation when quality metrics drift
-- **[ExUnit](/glossary/exunit/)**: All CASCADE fixes require corresponding regression tests verified through ExUnit
-- **[Property-Based Testing](/glossary/property-based-testing/)**: Empty Check fixes are validated using property-based equivalence testing
+- **[ExUnit](@/glossary/exunit.md)**: All CASCADE fixes require corresponding regression tests verified through ExUnit
+- **[Property-Based Testing](@/glossary/property-based-testing.md)**: Empty Check fixes are validated using property-based equivalence testing
 
 ## Automation Pipeline
 
@@ -442,7 +442,7 @@ Quality Gate Verification
 Commit with Regression Report
 ```
 
-Each step in the pipeline is monitored through [telemetry](/glossary/telemetry/) events, providing visibility into CASCADE operations and enabling performance tracking of the elimination process itself.
+Each step in the pipeline is monitored through [telemetry](@/glossary/telemetry.md) events, providing visibility into CASCADE operations and enabling performance tracking of the elimination process itself.
 
 ## Performance Impact
 
@@ -465,7 +465,7 @@ CASCADE's impact extends beyond code quality to measurable performance improveme
 
 **Maintain the AST Index**: The O(1) detection engine requires an up-to-date index. Ensure incremental index updates are triggered on file changes through your editor or file watcher.
 
-**Verify Fix Equivalence with Property-Based Tests**: For patterns like Empty Check where the fix changes implementation but not behavior, use [property-based testing](/glossary/property-based-testing/) to verify that the fixed code produces identical results across a wide range of inputs.
+**Verify Fix Equivalence with Property-Based Tests**: For patterns like Empty Check where the fix changes implementation but not behavior, use [property-based testing](@/glossary/property-based-testing.md) to verify that the fixed code produces identical results across a wide range of inputs.
 
 **Document New Patterns**: If you discover a quality debt pattern that does not fit the existing five CASCADE categories, document it as a candidate for Pattern 6. The CASCADE methodology is extensible by design.
 
@@ -481,26 +481,26 @@ CASCADE's impact extends beyond code quality to measurable performance improveme
 
 ## Related Terms
 
-- [CASCADE Pattern](/glossary/cascade-pattern/) -- Detailed specification of individual CASCADE pattern types
-- [QDP](/glossary/qdp/) -- Quality Debt Points, the metric eliminated by CASCADE methodology
-- [Clean Run](/glossary/clean-run/) -- Zero-warning compilation standard enabled by CASCADE elimination
-- [AutoEvolve](/glossary/autoevolve/) -- Evolution system applying CASCADE detection automatically
-- [AutoHeal](/glossary/autoheal/) -- Self-repair system using CASCADE fix procedures
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis tool detecting Type Mismatch and reporting Nuclear Cache phantoms
-- [Typespec](/glossary/typespec/) -- Type annotations corrected by Type Mismatch pattern fixes
-- [Property-Based Testing](/glossary/property-based-testing/) -- Testing technique validating CASCADE fix equivalence
-- [Supervisor](/glossary/supervisor/) -- OTP behavior corrected by Timer Replacement pattern
-- [Code Coverage](/glossary/code-coverage/) -- Coverage improved by Dead Code pattern removal
-- [Self-Healing](/glossary/self-healing/) -- Platform capability using CASCADE for autonomous repair
-- [GenServer](/glossary/genserver/) -- OTP pattern used in Timer Replacement fixes
-- [ExUnit](/glossary/exunit/) -- Test framework verifying CASCADE regression tests
-- [Credo](/glossary/credo/) -- Static analysis tool complementing CASCADE detection
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) -- Detailed specification of individual CASCADE pattern types
+- [QDP](@/glossary/qdp.md) -- Quality Debt Points, the metric eliminated by CASCADE methodology
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning compilation standard enabled by CASCADE elimination
+- [AutoEvolve](@/glossary/autoevolve.md) -- Evolution system applying CASCADE detection automatically
+- [AutoHeal](@/glossary/autoheal.md) -- Self-repair system using CASCADE fix procedures
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis tool detecting Type Mismatch and reporting Nuclear Cache phantoms
+- [Typespec](@/glossary/typespec.md) -- Type annotations corrected by Type Mismatch pattern fixes
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Testing technique validating CASCADE fix equivalence
+- [Supervisor](@/glossary/supervisor.md) -- OTP behavior corrected by Timer Replacement pattern
+- [Code Coverage](@/glossary/code-coverage.md) -- Coverage improved by Dead Code pattern removal
+- [Self-Healing](@/glossary/self-healing.md) -- Platform capability using CASCADE for autonomous repair
+- [GenServer](@/glossary/genserver.md) -- OTP pattern used in Timer Replacement fixes
+- [ExUnit](@/glossary/exunit.md) -- Test framework verifying CASCADE regression tests
+- [Credo](@/glossary/credo.md) -- Static analysis tool complementing CASCADE detection
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Capabilities](/capabilities/) -- Platform quality and evolution capabilities
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Capabilities](@/capabilities/_index.md) -- Platform quality and evolution capabilities
 
 ---
 
@@ -509,4 +509,4 @@ CASCADE's impact extends beyond code quality to measurable performance improveme
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

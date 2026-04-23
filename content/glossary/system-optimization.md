@@ -409,19 +409,19 @@ The Prismatic Platform's optimization discipline requires that every optimizatio
 
 ## Related Terms
 
-- [Performance](/glossary/performance/) -- broader performance concepts and requirements
-- [Performance Testing](/glossary/performance-testing/) -- testing methodologies for performance validation
-- [Performance Tracking](/glossary/performance-tracking/) -- tracking performance metrics over time
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine targeted by optimization
-- [ETS Table](/glossary/ets-table/) -- the primary mechanism for O(1) data access
-- [ETS](/glossary/ets/) -- Erlang Term Storage fundamentals
-- [GenServer](/glossary/genserver/) -- process optimization for GenServer-based services
-- [Telemetry](/glossary/telemetry/) -- metrics collection for profiling and benchmarking
-- [Monitoring](/glossary/monitoring/) -- monitoring infrastructure supporting optimization
-- [Quality Gate](/glossary/quality-gate/) -- performance gates enforcing optimization standards
-- [Algorithmic Consistency](/glossary/algorithmic-consistency/) -- consistent algorithmic complexity across the platform
-- [Pipeline](/glossary/pipeline/) -- pipeline optimization patterns
-- [Data Pipeline](/glossary/data-pipeline/) -- data processing optimization
+- [Performance](@/glossary/performance.md) -- broader performance concepts and requirements
+- [Performance Testing](@/glossary/performance-testing.md) -- testing methodologies for performance validation
+- [Performance Tracking](@/glossary/performance-tracking.md) -- tracking performance metrics over time
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine targeted by optimization
+- [ETS Table](@/glossary/ets-table.md) -- the primary mechanism for O(1) data access
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage fundamentals
+- [GenServer](@/glossary/genserver.md) -- process optimization for GenServer-based services
+- [Telemetry](@/glossary/telemetry.md) -- metrics collection for profiling and benchmarking
+- [Monitoring](@/glossary/monitoring.md) -- monitoring infrastructure supporting optimization
+- [Quality Gate](@/glossary/quality-gate.md) -- performance gates enforcing optimization standards
+- [Algorithmic Consistency](@/glossary/algorithmic-consistency.md) -- consistent algorithmic complexity across the platform
+- [Pipeline](@/glossary/pipeline.md) -- pipeline optimization patterns
+- [Data Pipeline](@/glossary/data-pipeline.md) -- data processing optimization
 
 ## Further Reading
 
@@ -438,4 +438,4 @@ The Prismatic Platform's optimization discipline requires that every optimizatio
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

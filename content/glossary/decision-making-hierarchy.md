@@ -38,7 +38,7 @@ image_alt = "Decision Making Hierarchy - Prismatic Platform"
 
 A decision-making hierarchy is a structured framework of authority levels that determines which entities (human operators, software agents, or automated processes) are authorized to make which types of decisions, under what conditions, and with what oversight. It defines clear escalation paths for decisions that exceed an entity's authority, approval requirements for high-impact actions, and audit mechanisms to ensure accountability.
 
-In the Prismatic Platform, the decision-making hierarchy is implemented through the [AIAD](/glossary/aiad/) (AI-Assisted Development) standard's five-tier authority model (L1 through L5). Each of the platform's 530+ agents operates at a specific tier, with defined capabilities, constraints, and escalation obligations. This hierarchy ensures that routine operations execute autonomously at lower tiers while consequential decisions receive appropriate scrutiny at higher tiers, all governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine.
+In the Prismatic Platform, the decision-making hierarchy is implemented through the [AIAD](@/glossary/aiad.md) (AI-Assisted Development) standard's five-tier authority model (L1 through L5). Each of the platform's 530+ agents operates at a specific tier, with defined capabilities, constraints, and escalation obligations. This hierarchy ensures that routine operations execute autonomously at lower tiers while consequential decisions receive appropriate scrutiny at higher tiers, all governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine.
 
 ## Overview
 
@@ -46,9 +46,9 @@ Decision-making hierarchies solve a fundamental problem in complex multi-agent s
 
 In traditional organizations, decision-making hierarchies map to organizational charts: individual contributors handle routine decisions, managers handle team-level decisions, directors handle departmental decisions, and executives handle strategic decisions. The Prismatic Platform applies the same principle to its AI agent ecosystem, where hundreds of specialized agents must coordinate their actions without stepping on each other's authority or making decisions beyond their competence.
 
-The platform's hierarchy is distinctive in several ways. First, it is enforced programmatically, not just by policy. An L2 agent cannot execute an L4 action because the authorization system will reject it, not merely because a document says it should not. Second, the hierarchy integrates with the [Trinity Gate](/glossary/trinity-gate/) verification system, meaning that higher-tier decisions require not just authorization but epistemic validation. Third, escalation is automatic and audited: when an agent encounters a decision that exceeds its tier, it escalates to the appropriate authority without human intervention (except at L5, which requires human confirmation for destructive actions).
+The platform's hierarchy is distinctive in several ways. First, it is enforced programmatically, not just by policy. An L2 agent cannot execute an L4 action because the authorization system will reject it, not merely because a document says it should not. Second, the hierarchy integrates with the [Trinity Gate](@/glossary/trinity-gate.md) verification system, meaning that higher-tier decisions require not just authorization but epistemic validation. Third, escalation is automatic and audited: when an agent encounters a decision that exceeds its tier, it escalates to the appropriate authority without human intervention (except at L5, which requires human confirmation for destructive actions).
 
-The hierarchy is not static. Agents can be granted temporary authority elevation for specific tasks through scoped tokens, and the [Archer Supreme](/glossary/archer-supreme/) can dynamically reconfigure authority boundaries in crisis situations. But the default state enforces strict tier boundaries.
+The hierarchy is not static. Agents can be granted temporary authority elevation for specific tasks through scoped tokens, and the [Archer Supreme](@/glossary/archer-supreme.md) can dynamically reconfigure authority boundaries in crisis situations. But the default state enforces strict tier boundaries.
 
 ## Technical Details
 
@@ -60,9 +60,9 @@ The Prismatic Platform defines five authority tiers, each with increasing scope 
 
 **L2 -- Tactical (Supervised):** Approximately 25% of agents operate at L2. They can modify data within their domain, initiate workflows, and communicate with external APIs within rate-limited boundaries. L2 agents require pre-approved action templates and must log all state-changing operations for audit review. Examples include OSINT adapter agents, storage coordinators, and quality check executors.
 
-**L3 -- Strategic (Coordinating):** Approximately 10% of agents operate at L3. They can orchestrate multi-agent workflows, make cross-domain decisions, allocate resources, and escalate to L4/L5 when needed. L3 agents serve as team commanders within the [Color Teams](/glossary/color-teams/) framework and domain supervisors. They must justify decisions with evidence meeting [NABLA](/glossary/nabla-infinity/) axiom requirements.
+**L3 -- Strategic (Coordinating):** Approximately 10% of agents operate at L3. They can orchestrate multi-agent workflows, make cross-domain decisions, allocate resources, and escalate to L4/L5 when needed. L3 agents serve as team commanders within the [Color Teams](@/glossary/color-teams.md) framework and domain supervisors. They must justify decisions with evidence meeting [NABLA](@/glossary/nabla-infinity.md) axiom requirements.
 
-**L4 -- Critical (Safety-Gated):** A small number of agents (~4%) operate at L4. They can modify system-wide configurations, approve or reject deployments, and override lower-tier decisions. L4 actions require Trinity Gate passage and are subject to the full [NO MERCY](/glossary/no-mercy/) enforcement protocol. Examples include the quality floor guardian, security gate enforcers, and escalation guards.
+**L4 -- Critical (Safety-Gated):** A small number of agents (~4%) operate at L4. They can modify system-wide configurations, approve or reject deployments, and override lower-tier decisions. L4 actions require Trinity Gate passage and are subject to the full [NO MERCY](@/glossary/no-mercy.md) enforcement protocol. Examples include the quality floor guardian, security gate enforcers, and escalation guards.
 
 **L5 -- Supreme (Human-Confirmed):** The highest tier, reserved for the platform orchestrator (Archer Supreme) and requiring human confirmation for destructive or irreversible actions. L5 can override any lower-tier decision, reconfigure authority boundaries, and invoke emergency protocols. L5 actions are always audited and require full provenance documentation.
 
@@ -72,7 +72,7 @@ When an agent encounters a decision that exceeds its authority tier, the escalat
 
 1. The agent identifies the decision category and required authority level
 2. It packages the decision context (evidence, options, recommendation) into an escalation request
-3. The request is routed to the nearest appropriate authority in the [chain of command](/glossary/chain-of-command/)
+3. The request is routed to the nearest appropriate authority in the [chain of command](@/glossary/chain-of-command.md)
 4. The receiving authority evaluates, decides, and returns the result
 5. The original agent executes the decision under delegated authority
 6. The entire exchange is logged in the audit trail
@@ -363,7 +363,7 @@ Distributed consensus algorithms (Raft, Paxos) ensure agreement among peers. The
 
 ### Centralized (Single Orchestrator) vs. Distributed Hierarchy
 
-A single orchestrator avoids coordination complexity but creates a bottleneck and single point of failure. The Prismatic Platform's multi-tier hierarchy distributes authority so that 85% of decisions (L1-L2) execute without any coordination overhead, while only 15% require cross-tier communication. The [Archer Supreme](/glossary/archer-supreme/) serves as the ultimate authority but is invoked only for L5 decisions.
+A single orchestrator avoids coordination complexity but creates a bottleneck and single point of failure. The Prismatic Platform's multi-tier hierarchy distributes authority so that 85% of decisions (L1-L2) execute without any coordination overhead, while only 15% require cross-tier communication. The [Archer Supreme](@/glossary/archer-supreme.md) serves as the ultimate authority but is invoked only for L5 decisions.
 
 ## Best Practices
 
@@ -389,7 +389,7 @@ A single orchestrator avoids coordination complexity but creates a bottleneck an
 
 **Over-centralization at L5.** Routing too many decisions to L5 defeats the purpose of the hierarchy. If the Archer Supreme is making L3-level decisions, the hierarchy is misconfigured. Push authority down to the lowest appropriate tier.
 
-**Ignoring the evidence requirement.** Authority alone is not sufficient for decisions at L3+. The [NABLA](/glossary/nabla-infinity/) evidence requirements and [Trinity Gate](/glossary/trinity-gate/) passage exist to prevent authorized but poorly-informed decisions. Never bypass evidence requirements for expediency.
+**Ignoring the evidence requirement.** Authority alone is not sufficient for decisions at L3+. The [NABLA](@/glossary/nabla-infinity.md) evidence requirements and [Trinity Gate](@/glossary/trinity-gate.md) passage exist to prevent authorized but poorly-informed decisions. Never bypass evidence requirements for expediency.
 
 ## Use Cases
 
@@ -399,11 +399,11 @@ An L2 OSINT adapter agent can scan and collect intelligence from approved source
 
 ### Color Team Security Operations
 
-Within the [Color Teams](/glossary/color-teams/) framework, each team has a commander at L3 who coordinates specialists at L2. The [Blue Team](/glossary/blue-team/) commander can order defensive posture changes (L3), but decommissioning a service requires L4 approval from the security gate. Red Team simulations operate under strict L2 authority with automatic L4 escalation for any operation that could affect production systems.
+Within the [Color Teams](@/glossary/color-teams.md) framework, each team has a commander at L3 who coordinates specialists at L2. The [Blue Team](@/glossary/blue-team.md) commander can order defensive posture changes (L3), but decommissioning a service requires L4 approval from the security gate. Red Team simulations operate under strict L2 authority with automatic L4 escalation for any operation that could affect production systems.
 
 ### Emergency Response
 
-During a security incident, the [Archer Supreme](/glossary/archer-supreme/) at L5 can override the normal hierarchy to execute emergency protocols: isolating systems, revoking access, and deploying patches. These L5 actions require human confirmation (the platform operator) and generate comprehensive audit records for post-incident review.
+During a security incident, the [Archer Supreme](@/glossary/archer-supreme.md) at L5 can override the normal hierarchy to execute emergency protocols: isolating systems, revoking access, and deploying patches. These L5 actions require human confirmation (the platform operator) and generate comprehensive audit records for post-incident review.
 
 ### Quality Gate Enforcement
 
@@ -411,24 +411,24 @@ The Quality Floor Guardian operates at L4, with authority to block commits, reje
 
 ## Related Concepts
 
-- [Authority Level](/glossary/authority-level/) -- The specific L1-L5 classification assigned to each agent and operation
-- [Authority Structure](/glossary/authority-structure/) -- The organizational framework within which the hierarchy operates
-- [Chain of Command](/glossary/chain-of-command/) -- The directed escalation paths connecting agents across tiers
-- [Agent Tier](/glossary/agent-tier/) -- The capability classification system aligned with authority levels
-- [AIAD](/glossary/aiad/) -- The AI-Assisted Development standard that defines the authority model
-- [Archer Supreme](/glossary/archer-supreme/) -- The L5 Supreme authority orchestrator for the entire platform
-- [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) -- The doctrine enforced across all tiers of the hierarchy
-- [Trinity Gate](/glossary/trinity-gate/) -- The verification system required for L3+ decision validation
-- [L5 Supreme Authority](/glossary/l5-supreme-authority/) -- The highest authority tier requiring human confirmation
-- [Color Teams](/glossary/color-teams/) -- The security team structure that maps to the decision-making hierarchy
+- [Authority Level](@/glossary/authority-level.md) -- The specific L1-L5 classification assigned to each agent and operation
+- [Authority Structure](@/glossary/authority-structure.md) -- The organizational framework within which the hierarchy operates
+- [Chain of Command](@/glossary/chain-of-command.md) -- The directed escalation paths connecting agents across tiers
+- [Agent Tier](@/glossary/agent-tier.md) -- The capability classification system aligned with authority levels
+- [AIAD](@/glossary/aiad.md) -- The AI-Assisted Development standard that defines the authority model
+- [Archer Supreme](@/glossary/archer-supreme.md) -- The L5 Supreme authority orchestrator for the entire platform
+- [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) -- The doctrine enforced across all tiers of the hierarchy
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The verification system required for L3+ decision validation
+- [L5 Supreme Authority](@/glossary/l5-supreme-authority.md) -- The highest authority tier requiring human confirmation
+- [Color Teams](@/glossary/color-teams.md) -- The security team structure that maps to the decision-making hierarchy
 
 ## See Also
 
-- [Agent Registry](/glossary/agent-registry/) -- Where agent tier assignments are stored and queried
-- [Confidence Threshold](/glossary/confidence-threshold/) -- The evidence quality requirements at each tier
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework that governs evidence requirements for decisions
-- [Decisive Action](/glossary/decisive-action/) -- The NO DOUBTS principle of executing once the hierarchy has approved
-- [Audit Trail](/glossary/audit-trail/) -- The logging system that records all escalation and decision events
+- [Agent Registry](@/glossary/agent-registry.md) -- Where agent tier assignments are stored and queried
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- The evidence quality requirements at each tier
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework that governs evidence requirements for decisions
+- [Decisive Action](@/glossary/decisive-action.md) -- The NO DOUBTS principle of executing once the hierarchy has approved
+- [Audit Trail](@/glossary/audit-trail.md) -- The logging system that records all escalation and decision events
 
 ---
 
@@ -437,4 +437,4 @@ The Quality Floor Guardian operates at L4, with authority to block commits, reje
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

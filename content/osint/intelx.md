@@ -230,13 +230,13 @@ Monitoring for internal email addresses and proprietary terminology appearing in
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), IntelX serves as the primary dark web and breach intelligence source in the OSINT pipeline.
+Within the [Prismatic Platform](@/apps/prismatic.md), IntelX serves as the primary dark web and breach intelligence source in the OSINT pipeline.
 
 - **Automated Breach Monitoring**: Scheduled searches for monitored domains and email addresses with automated alerting when new exposure is detected.
 - **Phonebook Integration**: The phonebook API provides structured entity extraction that feeds directly into the platform's entity resolution engine.
-- **Cross-Source Correlation**: IntelX findings are automatically correlated with [Have I Been Pwned](/osint/haveibeenpwned/) breach records, [Hunter.io](/osint/hunter-io/) email intelligence, and [VirusTotal](/osint/virustotal/) threat data.
+- **Cross-Source Correlation**: IntelX findings are automatically correlated with [Have I Been Pwned](@/osint/haveibeenpwned.md) breach records, [Hunter.io](@/osint/hunter-io.md) email intelligence, and [VirusTotal](@/osint/virustotal.md) threat data.
 - **Content Archiving**: Retrieved content is stored in the platform's evidence repository with full provenance metadata for audit and compliance purposes.
-- **Risk Scoring**: Discovery of organizational data in IntelX automatically contributes to the entity risk score in [Prismatic Perimeter](/apps/prismatic-perimeter/).
+- **Risk Scoring**: Discovery of organizational data in IntelX automatically contributes to the entity risk score in [Prismatic Perimeter](@/apps/prismatic-perimeter.md).
 
 ## Best Practices
 
@@ -258,13 +258,13 @@ Within the [Prismatic Platform](/apps/prismatic/), IntelX serves as the primary 
 
 ## Related Providers
 
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach notification and credential check
-- [VirusTotal](/osint/virustotal/) - Malware and threat correlation
-- [Hunter.io](/osint/hunter-io/) - Email discovery and verification
-- [Shodan](/osint/shodan/) - Infrastructure intelligence
-- [Pulsedive](/osint/pulsedive/) - Threat intelligence enrichment
-- [ThreatFox](/osint/threatfox/) - Malware IOC sharing
-- [SecurityTrails](/osint/securitytrails/) - DNS and WHOIS intelligence
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach notification and credential check
+- [VirusTotal](@/osint/virustotal.md) - Malware and threat correlation
+- [Hunter.io](@/osint/hunter-io.md) - Email discovery and verification
+- [Shodan](@/osint/shodan.md) - Infrastructure intelligence
+- [Pulsedive](@/osint/pulsedive.md) - Threat intelligence enrichment
+- [ThreatFox](@/osint/threatfox.md) - Malware IOC sharing
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and WHOIS intelligence
 
 ---
 
@@ -273,4 +273,4 @@ Within the [Prismatic Platform](/apps/prismatic/), IntelX serves as the primary 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

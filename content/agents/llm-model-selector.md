@@ -28,9 +28,9 @@ image_alt = "llm-model-selector - Prismatic Platform"
 
 ## Overview
 
-The llm-model-selector is an L4 domain authority agent operating within the [AIAD](/glossary/aiad/)-enhanced domain of the Prismatic Platform. This agent makes intelligent model selection decisions for each LLM request, choosing the optimal model based on task complexity, quality requirements, cost constraints, latency targets, and provider availability. In a platform with access to multiple LLM providers and model tiers (Claude Opus, Claude Sonnet, GPT-4, local Ollama models), selecting the right model for each task is essential for balancing quality, cost, and performance.
+The llm-model-selector is an L4 domain authority agent operating within the [AIAD](@/glossary/aiad.md)-enhanced domain of the Prismatic Platform. This agent makes intelligent model selection decisions for each LLM request, choosing the optimal model based on task complexity, quality requirements, cost constraints, latency targets, and provider availability. In a platform with access to multiple LLM providers and model tiers (Claude Opus, Claude Sonnet, GPT-4, local Ollama models), selecting the right model for each task is essential for balancing quality, cost, and performance.
 
-Built on the [AIAD](/glossary/aiad/) standard, the llm-model-selector addresses the model selection problem through a multi-criteria decision framework. Using a large, expensive model for every request maximizes quality but incurs unnecessary cost for simple tasks that cheaper models handle equally well. Using the cheapest model for every request minimizes cost but produces unacceptable quality for complex reasoning, code generation, and analysis tasks. The model selector finds the optimal balance by classifying each request's complexity and matching it to the least expensive model that meets the task's quality requirements.
+Built on the [AIAD](@/glossary/aiad.md) standard, the llm-model-selector addresses the model selection problem through a multi-criteria decision framework. Using a large, expensive model for every request maximizes quality but incurs unnecessary cost for simple tasks that cheaper models handle equally well. Using the cheapest model for every request minimizes cost but produces unacceptable quality for complex reasoning, code generation, and analysis tasks. The model selector finds the optimal balance by classifying each request's complexity and matching it to the least expensive model that meets the task's quality requirements.
 
 ## Selection Architecture
 
@@ -40,7 +40,7 @@ Task classification analyzes the incoming LLM request to determine its complexit
 
 Model matching compares the task profile against the capability profiles of available models. Each model has a capability profile that records its performance characteristics across task types, measured through periodic benchmarking and continuous quality monitoring. The matching algorithm identifies all models that meet the task's minimum quality threshold, then selects the least expensive option from the qualifying set. When multiple models offer equivalent quality at similar costs, the matcher considers secondary criteria: latency (faster models preferred for interactive tasks), availability (models with current health issues deprioritized), and consistency (models with lower response variance preferred for production tasks).
 
-Selection validation checks the selected model against operational constraints. Budget checks verify that the projected cost of the request falls within the requesting agent's budget allocation (via the [llm-cost-manager](/agents/llm-cost-manager/)). Availability checks verify that the selected model's provider is currently healthy (via the [llm-fallback-coordinator](/agents/llm-fallback-coordinator/)). Rate limit checks verify that the selected provider has sufficient rate limit headroom for the request.
+Selection validation checks the selected model against operational constraints. Budget checks verify that the projected cost of the request falls within the requesting agent's budget allocation (via the [llm-cost-manager](@/agents/llm-cost-manager.md)). Availability checks verify that the selected model's provider is currently healthy (via the [llm-fallback-coordinator](@/agents/llm-fallback-coordinator.md)). Rate limit checks verify that the selected provider has sufficient rate limit headroom for the request.
 
 ## Key Capabilities
 
@@ -51,8 +51,8 @@ Selection validation checks the selected model against operational constraints. 
 - **Provider health integration** -- Considers real-time provider health data in model selection, avoiding models on unhealthy or rate-limited providers
 - **Selection caching** -- Caches selection decisions for repeated task patterns, reducing selection latency for common request types
 - **A/B testing support** -- Routes a configurable percentage of requests to alternative models for comparative quality measurement
-- **[GenServer](/glossary/genserver/)-based state management** -- Maintains capability profiles and selection state as [OTP](/glossary/otp/) GenServer state
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for selection decision tracking and model performance monitoring
+- **[GenServer](@/glossary/genserver.md)-based state management** -- Maintains capability profiles and selection state as [OTP](@/glossary/otp.md) GenServer state
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for selection decision tracking and model performance monitoring
 
 ## Model Capability Profiles
 
@@ -88,13 +88,13 @@ The model selector supports configurable selection strategies for different oper
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| [llm-generic-bridge](/agents/llm-generic-bridge/) | Capability matrix source for model matching |
-| [GenServer](/glossary/genserver/) | OTP-based capability profile and selection state management |
-| [Ecto](/glossary/ecto/) | Persistent storage for benchmark results and capability history |
-| Prismatic Telemetry | Selection decision [metrics](/glossary/metrics/) and model performance tracking |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of classification and matching algorithms |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| [llm-generic-bridge](@/agents/llm-generic-bridge.md) | Capability matrix source for model matching |
+| [GenServer](@/glossary/genserver.md) | OTP-based capability profile and selection state management |
+| [Ecto](@/glossary/ecto.md) | Persistent storage for benchmark results and capability history |
+| Prismatic Telemetry | Selection decision [metrics](@/glossary/metrics.md) and model performance tracking |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of classification and matching algorithms |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
 
 ## Command Interface
 
@@ -109,14 +109,14 @@ The model selector supports configurable selection strategies for different oper
 
 | Agent | Relationship |
 |-------|-------------|
-| [**llm-generic-bridge**](/agents/llm-generic-bridge/) (L4) | Provides capability matrices and provider connection status |
-| [**llm-cost-manager**](/agents/llm-cost-manager/) (L4) | Budget constraints inform model selection |
-| [**llm-fallback-coordinator**](/agents/llm-fallback-coordinator/) (L3) | Provider health data influences model availability assessment |
-| [**llm-performance-optimizer**](/agents/llm-performance-optimizer/) (L3) | Latency data informs model selection for time-sensitive tasks |
+| [**llm-generic-bridge**](@/agents/llm-generic-bridge.md) (L4) | Provides capability matrices and provider connection status |
+| [**llm-cost-manager**](@/agents/llm-cost-manager.md) (L4) | Budget constraints inform model selection |
+| [**llm-fallback-coordinator**](@/agents/llm-fallback-coordinator.md) (L3) | Provider health data influences model availability assessment |
+| [**llm-performance-optimizer**](@/agents/llm-performance-optimizer.md) (L3) | Latency data informs model selection for time-sensitive tasks |
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that model selection never produces requests to models that cannot meet the stated quality requirements. No cost optimization bypasses quality minimums. The [NO DOUBTS](/glossary/no-doubts/) principle requires that capability profiles are based on measured performance data, not assumed capabilities. Every profile claim is backed by benchmark or monitoring evidence.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that model selection never produces requests to models that cannot meet the stated quality requirements. No cost optimization bypasses quality minimums. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that capability profiles are based on measured performance data, not assumed capabilities. Every profile claim is backed by benchmark or monitoring evidence.
 
 ---
 
@@ -125,4 +125,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that model selection never
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

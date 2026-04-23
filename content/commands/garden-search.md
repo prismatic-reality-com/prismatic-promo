@@ -24,9 +24,9 @@ image_alt = "/garden-search - Prismatic Platform"
 
 ## Overview
 
-**/garden-search** is a production command in the **Infrastructure** category of the Prismatic Platform that performs fast, full-text pattern search across all [GARDEN](/glossary/garden/) (Growing Archive of Reusable Development and Engineering Nuggets) reference repositories. While [/garden-explore](/commands/garden-explore/) provides structured navigation of the GARDEN ecosystem, `/garden-search` is optimized for targeted discovery -- finding specific patterns, function signatures, module names, or code constructs across 116 repositories containing 3,050+ files in a single operation.
+**/garden-search** is a production command in the **Infrastructure** category of the Prismatic Platform that performs fast, full-text pattern search across all [GARDEN](@/glossary/garden.md) (Growing Archive of Reusable Development and Engineering Nuggets) reference repositories. While [/garden-explore](@/commands/garden-explore.md) provides structured navigation of the GARDEN ecosystem, `/garden-search` is optimized for targeted discovery -- finding specific patterns, function signatures, module names, or code constructs across 116 repositories containing 3,050+ files in a single operation.
 
-The command operates under the **L2+** authority level and is executed by the `garden-explorer` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The garden-explorer agent leverages ripgrep-based indexing for sub-second search performance across the entire GARDEN corpus, making it practical to search the full 20+ year archive as part of routine development workflows.
+The command operates under the **L2+** authority level and is executed by the `garden-explorer` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The garden-explorer agent leverages ripgrep-based indexing for sub-second search performance across the entire GARDEN corpus, making it practical to search the full 20+ year archive as part of routine development workflows.
 
 The distinction between `/garden-search` and standard code search tools (like `grep` or IDE search) is scope and context. Standard search operates within the active repository. `/garden-search` extends the search boundary to encompass the entire GARDEN ecosystem -- 116 repositories that may contain solutions to problems that have already been solved in previous projects. This cross-repository search capability transforms the GARDEN from a passive archive into an active knowledge base that surfaces relevant precedent at the moment it is needed.
 
@@ -161,14 +161,14 @@ The search index is maintained as an ETS table with the following schema:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Invoked by `garden-explorer` agent |
-| [GARDEN Ecosystem](/glossary/garden/) | Data Source | Searches across all 116 GARDEN repositories |
-| [/garden-explore](/commands/garden-explore/) | Complementary | Structured exploration complements text search |
-| [/garden-extract](/commands/garden-extract/) | Workflow | Search results identify extraction targets |
-| [/garden-sync](/commands/garden-sync/) | Prerequisite | Sync ensures search index covers latest content |
-| [/gardener](/commands/gardener/) | Parent | Gardener provides top-level GARDEN management |
-| [Telemetry](/glossary/telemetry/) | Metrics | Search queries and result counts tracked |
-| [Git Trees](/commands/git-trees/) | Performance | Uses git-tree enumeration for file discovery |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Invoked by `garden-explorer` agent |
+| [GARDEN Ecosystem](@/glossary/garden.md) | Data Source | Searches across all 116 GARDEN repositories |
+| [/garden-explore](@/commands/garden-explore.md) | Complementary | Structured exploration complements text search |
+| [/garden-extract](@/commands/garden-extract.md) | Workflow | Search results identify extraction targets |
+| [/garden-sync](@/commands/garden-sync.md) | Prerequisite | Sync ensures search index covers latest content |
+| [/gardener](@/commands/gardener.md) | Parent | Gardener provides top-level GARDEN management |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Search queries and result counts tracked |
+| [Git Trees](@/commands/git-trees.md) | Performance | Uses git-tree enumeration for file discovery |
 
 ## Best Practices
 
@@ -180,7 +180,7 @@ The search index is maintained as an ETS table with the following schema:
 
 **Use AND logic for precise multi-term searches.** The `--and` option narrows results to files containing all specified terms, which is more effective than manually intersecting multiple search results.
 
-**Pipe results to extraction for automated workflows.** Use `--format paths-only` to get a list of files that can be piped to other tools or used as input for [/garden-extract](/commands/garden-extract/).
+**Pipe results to extraction for automated workflows.** Use `--format paths-only` to get a list of files that can be piped to other tools or used as input for [/garden-extract](@/commands/garden-extract.md).
 
 ## Error Handling
 
@@ -188,7 +188,7 @@ The search index is maintained as an ETS table with the following schema:
 |-------|-------|------------|
 | `{:error, :invalid_regex}` | Search query contains invalid regex syntax | Fix the regex pattern or use `--exact` for literal search |
 | `{:error, :no_results}` | No matches found for the query | Broaden the search by removing filters or using a less specific pattern |
-| `{:error, :index_stale}` | GARDEN index is outdated | Run [/garden-sync](/commands/garden-sync/) to refresh the index |
+| `{:error, :index_stale}` | GARDEN index is outdated | Run [/garden-sync](@/commands/garden-sync.md) to refresh the index |
 | `{:error, :repo_not_found}` | Specified `--repo` does not exist | Check repository name spelling |
 | `{:error, :ripgrep_unavailable}` | ripgrep binary not found | Install ripgrep: `brew install ripgrep` or `cargo install ripgrep` |
 | `{:error, :submodule_missing}` | One or more GARDEN submodules not initialized | Run `git submodule update --init --recursive garden/` |
@@ -236,21 +236,21 @@ Use GARDEN search as a starting point for new feature development:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Search results are always complete within the specified scope -- no partial results are returned due to timeouts or errors.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Search results include sufficient context (tier, language, modification date, context lines) to make evidence-based decisions about extraction and integration.
 
-The command supports [NABLA](/glossary/nabla-infinity/) signal plurality by surfacing all matching implementations across the ecosystem, ensuring that decisions about pattern extraction are informed by the full range of available evidence rather than a single implementation.
+The command supports [NABLA](@/glossary/nabla-infinity.md) signal plurality by surfacing all matching implementations across the ecosystem, ensuring that decisions about pattern extraction are informed by the full range of available evidence rather than a single implementation.
 
 ## Related Commands
 
-- [/gardener](/commands/gardener/) - GARDEN legacy knowledge repository management across 116 repos
-- [/garden-explore](/commands/garden-explore/) - Explore GARDEN repositories for patterns and knowledge
-- [/garden-extract](/commands/garden-extract/) - Extract and integrate patterns from GARDEN repositories
-- [/garden-sync](/commands/garden-sync/) - Synchronize GARDEN submodules to latest remote commits
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/git-trees](/commands/git-trees/) - Git tree-based codebase exploration at ~100x speed improvement
+- [/gardener](@/commands/gardener.md) - GARDEN legacy knowledge repository management across 116 repos
+- [/garden-explore](@/commands/garden-explore.md) - Explore GARDEN repositories for patterns and knowledge
+- [/garden-extract](@/commands/garden-extract.md) - Extract and integrate patterns from GARDEN repositories
+- [/garden-sync](@/commands/garden-sync.md) - Synchronize GARDEN submodules to latest remote commits
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/git-trees](@/commands/git-trees.md) - Git tree-based codebase exploration at ~100x speed improvement
 
 ---
 
@@ -259,4 +259,4 @@ The command supports [NABLA](/glossary/nabla-infinity/) signal plurality by surf
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

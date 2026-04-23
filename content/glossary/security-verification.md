@@ -23,7 +23,7 @@ image_alt = "Security Verification - Prismatic Platform"
 
 ## Definition and Overview
 
-Security Verification is the systematic, evidence-based process of confirming that security controls, implementations, and architectural decisions actually deliver the protection they claim to provide. It goes beyond security testing (which discovers vulnerabilities) to prove, with quantifiable confidence, that security properties hold under specified conditions. In the Prismatic Platform, security verification is formalized through the [White Team](/glossary/white-team/) verification methodology and enforced by the [Trinity Gate](/glossary/trinity-gate/) validation framework, which requires all security claims to pass structural consistency, logical consistency, and formal necessity checks before being accepted.
+Security Verification is the systematic, evidence-based process of confirming that security controls, implementations, and architectural decisions actually deliver the protection they claim to provide. It goes beyond security testing (which discovers vulnerabilities) to prove, with quantifiable confidence, that security properties hold under specified conditions. In the Prismatic Platform, security verification is formalized through the [White Team](@/glossary/white-team.md) verification methodology and enforced by the [Trinity Gate](@/glossary/trinity-gate.md) validation framework, which requires all security claims to pass structural consistency, logical consistency, and formal necessity checks before being accepted.
 
 The distinction between security testing and security verification is fundamental. Testing demonstrates the presence of vulnerabilities; verification demonstrates the absence of specific vulnerability classes. A penetration test that finds no SQL injection vulnerabilities does not verify that the application is free from SQL injection -- it merely means the testers did not find any within the test scope and duration. True verification requires proving that the input validation and query construction patterns used throughout the codebase make SQL injection structurally impossible, regardless of test coverage.
 
@@ -407,7 +407,7 @@ end
 
 ### Quality Gates Integration
 
-Security verification is integrated into the platform's [Quality Gates](/glossary/quality-gates/) system. The `mix quality.gates` command includes security verification checks:
+Security verification is integrated into the platform's [Quality Gates](@/glossary/quality-gates.md) system. The `mix quality.gates` command includes security verification checks:
 
 | Gate | Verification Level | Blocking |
 |------|-------------------|----------|
@@ -420,7 +420,7 @@ Security verification is integrated into the platform's [Quality Gates](/glossar
 
 ### Regression Test Protocol
 
-The platform's mandatory [regression testing](/glossary/regression-testing/) protocol directly supports security verification. Every security bug fix must include:
+The platform's mandatory [regression testing](@/glossary/regression-testing.md) protocol directly supports security verification. Every security bug fix must include:
 
 1. A regression test that would have caught the vulnerability (L1 minimum)
 2. Verification that the test fails with the unfixed code (proving test validity)
@@ -485,24 +485,24 @@ Security verification directly supports compliance frameworks by providing audit
 
 ## Related Concepts
 
-- [Security Synthesis](/glossary/security-synthesis/) -- Combines verification results with other security signals
-- [Security](/glossary/security/) -- The overarching domain that verification supports
-- [Trinity Gate](/glossary/trinity-gate/) -- Multi-gate validation framework for security claims
-- [White Team](/glossary/white-team/) -- Team responsible for constructive verification
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof of system properties
-- [Property-Based Testing](/glossary/property-based-testing/) -- Randomized input testing for L3 verification
-- [Regression Testing](/glossary/regression-testing/) -- Ensuring fixes remain effective over time
-- [Adversarial Testing](/glossary/adversarial-testing/) -- Active attack simulation for L5 verification
-- [Quality Gates](/glossary/quality-gates/) -- Composite quality checks including security verification
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis providing type-level security verification
-- [Comprehensive Verification](/glossary/comprehensive-verification/) -- Broader verification beyond security
+- [Security Synthesis](@/glossary/security-synthesis.md) -- Combines verification results with other security signals
+- [Security](@/glossary/security.md) -- The overarching domain that verification supports
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Multi-gate validation framework for security claims
+- [White Team](@/glossary/white-team.md) -- Team responsible for constructive verification
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof of system properties
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Randomized input testing for L3 verification
+- [Regression Testing](@/glossary/regression-testing.md) -- Ensuring fixes remain effective over time
+- [Adversarial Testing](@/glossary/adversarial-testing.md) -- Active attack simulation for L5 verification
+- [Quality Gates](@/glossary/quality-gates.md) -- Composite quality checks including security verification
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis providing type-level security verification
+- [Comprehensive Verification](@/glossary/comprehensive-verification.md) -- Broader verification beyond security
 
 ## See Also
 
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- EASM module verified through this framework
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- CI integration for continuous verification
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Umbrella applications subject to security verification
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- EASM module verified through this framework
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- CI integration for continuous verification
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Umbrella applications subject to security verification
 
 ---
 
@@ -511,4 +511,4 @@ Security verification directly supports compliance frameworks by providing audit
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

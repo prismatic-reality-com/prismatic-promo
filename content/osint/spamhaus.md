@@ -29,7 +29,7 @@ Spamhaus is the world's most trusted provider of IP and domain reputation data, 
 
 Spamhaus operates a global network of threat researchers who identify and track malicious infrastructure using a combination of automated detection systems, spam trap networks, honeypots, and human intelligence. This multi-layered detection methodology produces highly reliable reputation data with industry-leading accuracy. The organization's reputation is built on decades of consistent, evidence-based threat identification that has earned the trust of the global Internet community.
 
-Within the Prismatic Platform, Spamhaus provides foundational threat reputation data for the [Prismatic Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/) engine and the [OSINT Core](/apps/prismatic-osint-core/) IP/domain assessment pipeline. Spamhaus blocklist status is a key input to IP and domain reputation scoring, with listings on Spamhaus blocklists serving as high-confidence indicators of malicious or compromised infrastructure.
+Within the Prismatic Platform, Spamhaus provides foundational threat reputation data for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md) engine and the [OSINT Core](@/apps/prismatic-osint-core.md) IP/domain assessment pipeline. Spamhaus blocklist status is a key input to IP and domain reputation scoring, with listings on Spamhaus blocklists serving as high-confidence indicators of malicious or compromised infrastructure.
 
 ## Data Sources and Coverage
 
@@ -144,13 +144,13 @@ end
 ### Network Security
 - Block hijacked IP ranges at network border using DROP lists for BGP-level protection
 - Identify botnet C2 infrastructure connected to organizational networks
-- Feed reputation into [Perimeter](/apps/prismatic-perimeter/) security ratings for external assessment
+- Feed reputation into [Perimeter](@/apps/prismatic-perimeter.md) security ratings for external assessment
 - Monitor organizational IP space for unexpected Spamhaus listings indicating compromise
 
 ### Threat Intelligence
-- Correlate with [AbuseIPDB](/osint/abuseipdb/) for comprehensive IP reputation from multiple sources
-- Cross-reference with [GreyNoise](/osint/greynoise/) to distinguish spam from legitimate scanning activity
-- Feed blocklist data into [AlienVault OTX](/osint/alienvault-otx/) threat pulses for community sharing
+- Correlate with [AbuseIPDB](@/osint/abuseipdb.md) for comprehensive IP reputation from multiple sources
+- Cross-reference with [GreyNoise](@/osint/greynoise.md) to distinguish spam from legitimate scanning activity
+- Feed blocklist data into [AlienVault OTX](@/osint/alienvault-otx.md) threat pulses for community sharing
 - Track IP and domain reputation changes over time for threat landscape analysis
 
 ## Data Quality
@@ -199,13 +199,13 @@ Spamhaus integration satisfies NABLA requirements through its evidence-based lis
 
 ## Related Resources
 
-- [AbuseIPDB](/osint/abuseipdb/) - Community-driven IP abuse reporting
-- [GreyNoise](/osint/greynoise/) - Internet noise and scanner classification
-- [PhishTank](/osint/phishtank/) - Community phishing URL verification
-- [Pulsedive](/osint/pulsedive/) - [Threat intelligence](/glossary/threat-intelligence/) aggregation with risk scoring
-- [ThreatFox](/osint/threatfox/) - Malware IOC sharing platform
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - IP/domain reputation in security ratings
+- [AbuseIPDB](@/osint/abuseipdb.md) - Community-driven IP abuse reporting
+- [GreyNoise](@/osint/greynoise.md) - Internet noise and scanner classification
+- [PhishTank](@/osint/phishtank.md) - Community phishing URL verification
+- [Pulsedive](@/osint/pulsedive.md) - [Threat intelligence](@/glossary/threat-intelligence.md) aggregation with risk scoring
+- [ThreatFox](@/osint/threatfox.md) - Malware IOC sharing platform
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - IP/domain reputation in security ratings
 
 ---
 
@@ -214,4 +214,4 @@ Spamhaus integration satisfies NABLA requirements through its evidence-based lis
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -37,9 +37,9 @@ SOC 2 (Service Organization Control Type 2) is an auditing framework developed b
 
 The distinction between Type 1 and Type 2 is critical. A SOC 2 Type 1 report evaluates whether controls are designed appropriately at a specific point in time -- a snapshot assessment. A SOC 2 Type 2 report evaluates whether those controls operated effectively over a sustained period, typically six to twelve months. Type 2 is significantly more rigorous because it requires evidence of consistent control operation rather than merely documenting that controls exist. Enterprises and regulated industries overwhelmingly require Type 2 reports from their service providers because design alone does not guarantee execution.
 
-SOC 2 has become the de facto trust standard for SaaS and cloud service providers in North America. For European markets, SOC 2 complements [ISO 27001](/glossary/iso-27001/) certification and [GDPR](/glossary/gdpr/) compliance. Organizations subject to [NIS2 Directive](/glossary/nis2/) obligations often find that SOC 2 controls map closely to NIS2 security requirements, creating synergies in compliance programs that address both frameworks simultaneously.
+SOC 2 has become the de facto trust standard for SaaS and cloud service providers in North America. For European markets, SOC 2 complements [ISO 27001](@/glossary/iso-27001.md) certification and [GDPR](@/glossary/gdpr.md) compliance. Organizations subject to [NIS2 Directive](@/glossary/nis2.md) obligations often find that SOC 2 controls map closely to NIS2 security requirements, creating synergies in compliance programs that address both frameworks simultaneously.
 
-The Prismatic Platform's architecture demonstrates strong alignment with SOC 2 trust service criteria through its quality gates, structured [telemetry](/glossary/telemetry/), [RBAC](/glossary/rbac/) authentication, comprehensive audit logging across all 115 umbrella applications, and the compliance assessment engine within Prismatic Perimeter that includes SOC 2 control mapping alongside NIS2 and [ZKB](/glossary/zkb/) frameworks.
+The Prismatic Platform's architecture demonstrates strong alignment with SOC 2 trust service criteria through its quality gates, structured [telemetry](@/glossary/telemetry.md), [RBAC](@/glossary/rbac.md) authentication, comprehensive audit logging across all 115 umbrella applications, and the compliance assessment engine within Prismatic Perimeter that includes SOC 2 control mapping alongside NIS2 and [ZKB](@/glossary/zkb.md) frameworks.
 
 ## Historical Context and Industry Adoption
 
@@ -55,11 +55,11 @@ SOC 2 evaluates controls across five distinct criteria, each addressing a differ
 
 | Criterion | Focus | Key Controls | Prismatic Alignment |
 |-----------|-------|-------------|-------------------|
-| **Security** (mandatory) | Protection against unauthorized access | Firewalls, encryption, access controls, MFA | [RBAC](/glossary/rbac/), JWT auth, structured logging, Sobelow |
-| **Availability** | System uptime and performance | SLAs, disaster recovery, capacity planning | Fly.io deployment, health checks, [OTP](/glossary/otp/) supervision trees |
+| **Security** (mandatory) | Protection against unauthorized access | Firewalls, encryption, access controls, MFA | [RBAC](@/glossary/rbac.md), JWT auth, structured logging, Sobelow |
+| **Availability** | System uptime and performance | SLAs, disaster recovery, capacity planning | Fly.io deployment, health checks, [OTP](@/glossary/otp.md) supervision trees |
 | **Processing Integrity** | Accurate and complete processing | Input validation, error handling, QA | Quality gates, zero-warning compilation, test coverage |
 | **Confidentiality** | Protection of sensitive information | Encryption, access restrictions, data classification | Encryption at rest, role-based access, data isolation |
-| **Privacy** | Personal information handling | Consent management, data retention, access rights | [GDPR](/glossary/gdpr/) alignment, data minimization, audit trails |
+| **Privacy** | Personal information handling | Consent management, data retention, access rights | [GDPR](@/glossary/gdpr.md) alignment, data minimization, audit trails |
 
 Security is the only mandatory criterion -- organizations select which additional criteria to include based on their service characteristics and customer requirements. Most technology companies include security and availability at minimum; organizations handling sensitive data add confidentiality and privacy.
 
@@ -191,7 +191,7 @@ end
 
 ## Audit Evidence Collection
 
-SOC 2 Type 2 requires continuous evidence collection over the audit window. The Prismatic Platform automates this through [telemetry](/glossary/telemetry/)-driven evidence capture:
+SOC 2 Type 2 requires continuous evidence collection over the audit window. The Prismatic Platform automates this through [telemetry](@/glossary/telemetry.md)-driven evidence capture:
 
 ```elixir
 defmodule PrismaticPerimeter.Compliance.SOC2.EvidenceCollector do
@@ -275,19 +275,19 @@ The platform's existing architecture provides substantial SOC 2 coverage through
 
 | SOC 2 Requirement | CC ID | Prismatic Implementation | Evidence Source |
 |-------------------|-------|------------------------|----------------|
-| Access Control | CC6.1 | [RBAC](/glossary/rbac/) with role definitions | `prismatic_web` auth plugs |
+| Access Control | CC6.1 | [RBAC](@/glossary/rbac.md) with role definitions | `prismatic_web` auth plugs |
 | Authentication | CC6.2 | JWT with token refresh | API authentication module |
 | Encryption | CC6.3 | TLS 1.3 + PostgreSQL encryption | Fly.io TLS, database config |
-| Monitoring | CC7.1 | [Telemetry](/glossary/telemetry/) across 115 apps | Telemetry event streams |
-| System Operations | CC7.2 | [OTP](/glossary/otp/) supervision trees + [self-healing](/glossary/self-healing/) | SEADF healing records |
-| Incident Response | CC7.3 | [Color Team](/glossary/color-teams/) security operations | [Purple Team](/glossary/purple-team/) closure records |
+| Monitoring | CC7.1 | [Telemetry](@/glossary/telemetry.md) across 115 apps | Telemetry event streams |
+| System Operations | CC7.2 | [OTP](@/glossary/otp.md) supervision trees + [self-healing](@/glossary/self-healing.md) | SEADF healing records |
+| Incident Response | CC7.3 | [Color Team](@/glossary/color-teams.md) security operations | [Purple Team](@/glossary/purple-team.md) closure records |
 | Change Management | CC8.1 | 11-phase pre-commit + quality gates | Git hooks, CI pipeline logs |
-| Risk Assessment | CC3.2 | [Security ratings](/glossary/security-rating/) + [EASM](/glossary/easm/) | Prismatic Perimeter assessments |
+| Risk Assessment | CC3.2 | [Security ratings](@/glossary/security-rating.md) + [EASM](@/glossary/easm.md) | Prismatic Perimeter assessments |
 | Vendor Management | CC9.2 | Dependency auditing | `mix deps.audit` results |
 
 ## Continuous Compliance Monitoring
 
-Rather than preparing for SOC 2 audits as periodic events, the platform implements continuous compliance monitoring through a dedicated [GenServer](/glossary/genserver/):
+Rather than preparing for SOC 2 audits as periodic events, the platform implements continuous compliance monitoring through a dedicated [GenServer](@/glossary/genserver.md):
 
 ```elixir
 defmodule PrismaticPerimeter.Compliance.ContinuousMonitor do
@@ -396,16 +396,16 @@ end
 | Framework | Origin | Focus | Mandatory Criteria | Audit Type | Prismatic Support |
 |-----------|--------|-------|-------------------|------------|-------------------|
 | **SOC 2** | AICPA (US) | Technology service providers | Security only | CPA firm attestation | Full assessment engine |
-| **[ISO 27001](/glossary/iso-27001/)** | ISO (International) | Information security management | All Annex A controls | Certification body audit | Control mapping |
-| **[NIS2](/glossary/nis2/)** | EU | Critical infrastructure cybersecurity | All requirements for in-scope | Regulatory enforcement | Compliance assessment |
-| **[GDPR](/glossary/gdpr/)** | EU | Personal data protection | All applicable articles | Supervisory authority | Privacy controls |
-| **[ZKB](/glossary/zkb/)** | Czech Republic | Cybersecurity regulation | All applicable measures | National authority | Compliance dashboard |
+| **[ISO 27001](@/glossary/iso-27001.md)** | ISO (International) | Information security management | All Annex A controls | Certification body audit | Control mapping |
+| **[NIS2](@/glossary/nis2.md)** | EU | Critical infrastructure cybersecurity | All requirements for in-scope | Regulatory enforcement | Compliance assessment |
+| **[GDPR](@/glossary/gdpr.md)** | EU | Personal data protection | All applicable articles | Supervisory authority | Privacy controls |
+| **[ZKB](@/glossary/zkb.md)** | Czech Republic | Cybersecurity regulation | All applicable measures | National authority | Compliance dashboard |
 | **PCI DSS** | PCI SSC | Payment card data | All applicable requirements | QSA assessment | Control mapping |
 | **HIPAA** | US HHS | Health information | All applicable standards | Self-assessment + audit | Not implemented |
 
 ## Dashboard Access
 
-The compliance dashboard at `/perimeter/compliance` provides real-time SOC 2 posture visualization alongside [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) assessments. The dashboard displays:
+The compliance dashboard at `/perimeter/compliance` provides real-time SOC 2 posture visualization alongside [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) assessments. The dashboard displays:
 
 - Overall compliance status per trust criterion (percentage score)
 - Individual control assessment status with drill-down
@@ -418,13 +418,13 @@ The compliance dashboard at `/perimeter/compliance` provides real-time SOC 2 pos
 
 1. **Implement controls before the audit window begins**. SOC 2 Type 2 requires controls to operate effectively throughout the entire audit period. Last-minute implementations are visible to auditors as gaps in the evidence timeline.
 
-2. **Automate evidence collection continuously**. Manual evidence gathering is error-prone and time-consuming. The Prismatic Platform's [telemetry](/glossary/telemetry/) system provides automated evidence collection for all technical controls.
+2. **Automate evidence collection continuously**. Manual evidence gathering is error-prone and time-consuming. The Prismatic Platform's [telemetry](@/glossary/telemetry.md) system provides automated evidence collection for all technical controls.
 
-3. **Map controls to multiple criteria**. A single control like [RBAC](/glossary/rbac/) addresses security, confidentiality, and privacy criteria simultaneously. Document these mappings to demonstrate comprehensive coverage efficiently.
+3. **Map controls to multiple criteria**. A single control like [RBAC](@/glossary/rbac.md) addresses security, confidentiality, and privacy criteria simultaneously. Document these mappings to demonstrate comprehensive coverage efficiently.
 
 4. **Monitor control effectiveness, not just existence**. A firewall rule that exists but is not enforced provides no security. Continuous monitoring verifies that controls are operating as designed.
 
-5. **Align SOC 2 with other compliance frameworks**. [NIS2](/glossary/nis2/), [ISO 27001](/glossary/iso-27001/), and SOC 2 share many requirements. Unified compliance programs reduce duplication and cost. The Prismatic Platform's compliance engine maps controls across all three frameworks.
+5. **Align SOC 2 with other compliance frameworks**. [NIS2](@/glossary/nis2.md), [ISO 27001](@/glossary/iso-27001.md), and SOC 2 share many requirements. Unified compliance programs reduce duplication and cost. The Prismatic Platform's compliance engine maps controls across all three frameworks.
 
 6. **Engage engineering early**. SOC 2 controls map directly to technical implementations. Compliance programs designed without engineering input produce controls that do not reflect actual system behavior.
 
@@ -442,22 +442,22 @@ The compliance dashboard at `/perimeter/compliance` provides real-time SOC 2 pos
 
 ## Related Concepts
 
-- [NIS2 Directive](/glossary/nis2/) - EU cybersecurity directive with overlapping requirements
-- [ISO 27001](/glossary/iso-27001/) - International security management standard
-- [GDPR](/glossary/gdpr/) - Privacy regulation addressing the privacy trust criterion
-- [RBAC](/glossary/rbac/) - Access control implementing security criteria
-- [Compliance Framework](/glossary/compliance-framework/) - Broader category of audit frameworks
-- [ZKB](/glossary/zkb/) - Czech cybersecurity regulation complementing SOC 2
-- [Security Rating](/glossary/security-rating/) - Quantified assessment incorporating compliance posture
-- [EASM](/glossary/easm/) - External attack surface management informing risk assessment
-- [Telemetry](/glossary/telemetry/) - Instrumentation providing automated evidence collection
-- [Color Teams](/glossary/color-teams/) - Security operations supporting incident response controls
+- [NIS2 Directive](@/glossary/nis2.md) - EU cybersecurity directive with overlapping requirements
+- [ISO 27001](@/glossary/iso-27001.md) - International security management standard
+- [GDPR](@/glossary/gdpr.md) - Privacy regulation addressing the privacy trust criterion
+- [RBAC](@/glossary/rbac.md) - Access control implementing security criteria
+- [Compliance Framework](@/glossary/compliance-framework.md) - Broader category of audit frameworks
+- [ZKB](@/glossary/zkb.md) - Czech cybersecurity regulation complementing SOC 2
+- [Security Rating](@/glossary/security-rating.md) - Quantified assessment incorporating compliance posture
+- [EASM](@/glossary/easm.md) - External attack surface management informing risk assessment
+- [Telemetry](@/glossary/telemetry.md) - Instrumentation providing automated evidence collection
+- [Color Teams](@/glossary/color-teams.md) - Security operations supporting incident response controls
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Apps](/apps/) - Application directory including Prismatic Perimeter
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Apps](@/apps/_index.md) - Application directory including Prismatic Perimeter
 
 ---
 
@@ -466,4 +466,4 @@ The compliance dashboard at `/perimeter/compliance` provides real-time SOC 2 pos
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

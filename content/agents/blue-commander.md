@@ -28,15 +28,15 @@ image_alt = "blue-commander - Prismatic Platform"
 
 ## Overview
 
-The Blue Commander is an L3 strategic authority operating as the commanding officer of the [Blue Team](/glossary/blue-team/) within the Epistemic Defense domain of the Prismatic Platform. The Blue Team is the defensive arm of the Color Team security framework, responsible for synthesizing evidence from specialist agents into a unified defensive posture assessment. The Blue Commander coordinates all defensive operations, evaluates threat signals from [Red Team](/glossary/red-team/) simulations, and maintains the platform's epistemic integrity through continuous defensive posture monitoring.
+The Blue Commander is an L3 strategic authority operating as the commanding officer of the [Blue Team](@/glossary/blue-team.md) within the Epistemic Defense domain of the Prismatic Platform. The Blue Team is the defensive arm of the Color Team security framework, responsible for synthesizing evidence from specialist agents into a unified defensive posture assessment. The Blue Commander coordinates all defensive operations, evaluates threat signals from [Red Team](@/glossary/red-team.md) simulations, and maintains the platform's epistemic integrity through continuous defensive posture monitoring.
 
-In the Color Team framework, Blue defends while Red attacks. The Blue Commander receives adversarial findings from Red Team simulations, correlates them with real-world [telemetry](/glossary/telemetry/) signals, and determines whether the platform's defenses adequately address identified threat vectors. This adversarial-defensive synthesis, mediated through the [Purple Team](/glossary/purple-team/), produces a continuously validated security posture that evolves in response to both simulated and real threats. The Commander's decisions are grounded in [NABLA Infinity](/glossary/nabla-infinity/) axioms, particularly [Signal Plurality](/glossary/signal-plurality/) and [Contradiction Preservation](/glossary/contradiction-preservation/).
+In the Color Team framework, Blue defends while Red attacks. The Blue Commander receives adversarial findings from Red Team simulations, correlates them with real-world [telemetry](@/glossary/telemetry.md) signals, and determines whether the platform's defenses adequately address identified threat vectors. This adversarial-defensive synthesis, mediated through the [Purple Team](@/glossary/purple-team.md), produces a continuously validated security posture that evolves in response to both simulated and real threats. The Commander's decisions are grounded in [NABLA Infinity](@/glossary/nabla-infinity.md) axioms, particularly [Signal Plurality](@/glossary/signal-plurality.md) and [Contradiction Preservation](@/glossary/contradiction-preservation.md).
 
 The Blue Commander's unique value lies in its evidence synthesis capability. Individual Blue Team specialists produce high-quality evidence in their respective domains (authentication, drift, signal aggregation), but only the Commander can synthesize these disparate evidence streams into a coherent defensive posture that accounts for cross-domain attack patterns and multi-vector threats.
 
 ## Operational Domain
 
-The Epistemic Defense domain encompasses all aspects of maintaining the platform's epistemic integrity -- ensuring that what the platform believes to be true is actually true, and that defense mechanisms function as designed. The Blue Commander coordinates authentication boundary monitoring, behavioral drift detection, and cross-domain signal aggregation to build a comprehensive defensive picture that covers all [attack surface](/glossary/attack-surface/)s.
+The Epistemic Defense domain encompasses all aspects of maintaining the platform's epistemic integrity -- ensuring that what the platform believes to be true is actually true, and that defense mechanisms function as designed. The Blue Commander coordinates authentication boundary monitoring, behavioral drift detection, and cross-domain signal aggregation to build a comprehensive defensive picture that covers all [attack surface](@/glossary/attack-surface.md)s.
 
 The Commander's defensive scope extends beyond traditional cybersecurity to encompass epistemic security: protecting the platform's reasoning processes, confidence systems, and decision-making mechanisms from manipulation, corruption, and degradation. This broader scope reflects the platform's nature as an intelligence system where the integrity of reasoning is as important as the integrity of data.
 
@@ -46,11 +46,11 @@ The Commander's defensive scope extends beyond traditional cybersecurity to enco
 
 - **Red-Blue adversarial loop** processing Red Team attack simulation findings, evaluating defensive adequacy, and coordinating remediation when defenses prove insufficient against simulated attacks
 
-- **NABLA axiom enforcement** ensuring all defensive assessments comply with Signal Plurality (minimum two independent signals), Contradiction Preservation (conflicting signals preserved for analysis), and [Provenance Mandatory](/glossary/provenance-mandatory/) axioms
+- **NABLA axiom enforcement** ensuring all defensive assessments comply with Signal Plurality (minimum two independent signals), Contradiction Preservation (conflicting signals preserved for analysis), and [Provenance Mandatory](@/glossary/provenance-mandatory.md) axioms
 
-- **[Trinity Gate](/glossary/trinity-gate/) defensive validation** subjecting all defensive posture claims to structural, logical, and formal consistency checks before acceptance
+- **[Trinity Gate](@/glossary/trinity-gate.md) defensive validation** subjecting all defensive posture claims to structural, logical, and formal consistency checks before acceptance
 
-- **[Lean4](/glossary/lean4/) [formal verification](/glossary/formal-verification/)** leveraging formal [theorem proving](/glossary/theorem-proving/) to validate that critical defense properties hold under all modeled attack scenarios. Five core Lean4 theorems guarantee safe evolution of the defensive posture.
+- **[Lean4](@/glossary/lean4.md) [formal verification](@/glossary/formal-verification.md)** leveraging formal [theorem proving](@/glossary/theorem-proving.md) to validate that critical defense properties hold under all modeled attack scenarios. Five core Lean4 theorems guarantee safe evolution of the defensive posture.
 
 - **Evidence-based defense reporting** producing structured evidence packages rather than alert streams, enabling informed defensive decision-making with traceable provenance
 
@@ -72,11 +72,11 @@ These theorems are re-verified after every defensive posture update to ensure th
 
 The Blue Commander produces a comprehensive defensive posture assessment that evaluates platform security across multiple dimensions.
 
-**Authentication Boundary Status.** Based on evidence from the [Blue Auth Sentinel](/agents/blue-auth-sentinel/), this dimension assesses the integrity of all authentication boundaries: web sessions, API endpoints, service-to-service connections, and RBAC enforcement. The assessment includes coverage metrics, detected anomalies, and confidence in boundary integrity.
+**Authentication Boundary Status.** Based on evidence from the [Blue Auth Sentinel](@/agents/blue-auth-sentinel.md), this dimension assesses the integrity of all authentication boundaries: web sessions, API endpoints, service-to-service connections, and RBAC enforcement. The assessment includes coverage metrics, detected anomalies, and confidence in boundary integrity.
 
-**Drift Status.** Based on evidence from the [Blue Drift Detector](/agents/blue-drift-detector/), this dimension assesses behavioral, configuration, dependency, and performance drift across the platform. The assessment distinguishes between benign drift (expected changes) and malicious drift (potential attack indicators).
+**Drift Status.** Based on evidence from the [Blue Drift Detector](@/agents/blue-drift-detector.md), this dimension assesses behavioral, configuration, dependency, and performance drift across the platform. The assessment distinguishes between benign drift (expected changes) and malicious drift (potential attack indicators).
 
-**Signal Landscape.** Based on evidence from the [Blue Signal Aggregator](/agents/blue-signal-aggregator/), this dimension assesses the overall signal landscape across all 28 signal types from 8 Blue Team categories. The assessment identifies signal correlations, contradictions, and gaps that require investigation.
+**Signal Landscape.** Based on evidence from the [Blue Signal Aggregator](@/agents/blue-signal-aggregator.md), this dimension assesses the overall signal landscape across all 28 signal types from 8 Blue Team categories. The assessment identifies signal correlations, contradictions, and gaps that require investigation.
 
 **Red Team Gap Analysis.** Based on Red Team simulation results mediated through Purple Team synthesis, this dimension identifies defensive gaps where Red Team attacks succeeded. Each gap includes the attack vector used, the defensive measure that failed, and the recommended remediation.
 
@@ -88,23 +88,23 @@ The Blue Commander participates in the Red-Blue adversarial loop that forms the 
 
 **Blue Assessment Phase.** The Blue Commander evaluates Red Team findings against the current defensive posture. For each successful Red attack, the Commander determines whether the defensive gap is a genuine vulnerability or a simulation artifact.
 
-**Purple Synthesis Phase.** The [Purple Coordinator](/agents/purple-coordinator/) mediates synthesis of Red findings and Blue assessment into actionable defensive improvements. The Purple Team ensures that the loop achieves closure -- that every identified gap either receives remediation or a documented acceptance rationale.
+**Purple Synthesis Phase.** The [Purple Coordinator](@/agents/purple-coordinator.md) mediates synthesis of Red findings and Blue assessment into actionable defensive improvements. The Purple Team ensures that the loop achieves closure -- that every identified gap either receives remediation or a documented acceptance rationale.
 
 **Blue Remediation Phase.** The Blue Commander coordinates implementation of defensive improvements identified through the synthesis loop, then verifies that improvements address the identified gaps without introducing new vulnerabilities.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Blue Team Commander with authority to set defensive priorities, coordinate specialist agents, and escalate defensive findings to Purple Team for synthesis.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Blue Team Commander with authority to set defensive priorities, coordinate specialist agents, and escalate defensive findings to Purple Team for synthesis.
 
 ## Coordination
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [blue-auth-sentinel](/agents/blue-auth-sentinel/) | Authentication boundary monitoring and privilege escalation detection | Epistemic Defense |
-| [blue-signal-aggregator](/agents/blue-signal-aggregator/) | Cross-domain signal correlation with NABLA plurality enforcement | Epistemic Defense |
-| [blue-drift-detector](/agents/blue-drift-detector/) | Behavioral, configuration, dependency, and performance drift detection | Epistemic Defense |
-| [purple-coordinator](/agents/purple-coordinator/) | Red-Blue synthesis and closure authority | Color Team Synthesis |
-| [red-commander](/agents/red-commander/) | Adversarial counterpart for Red-Blue loop | Adversarial Simulation |
+| [blue-auth-sentinel](@/agents/blue-auth-sentinel.md) | Authentication boundary monitoring and privilege escalation detection | Epistemic Defense |
+| [blue-signal-aggregator](@/agents/blue-signal-aggregator.md) | Cross-domain signal correlation with NABLA plurality enforcement | Epistemic Defense |
+| [blue-drift-detector](@/agents/blue-drift-detector.md) | Behavioral, configuration, dependency, and performance drift detection | Epistemic Defense |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Red-Blue synthesis and closure authority | Color Team Synthesis |
+| [red-commander](@/agents/red-commander.md) | Adversarial counterpart for Red-Blue loop | Adversarial Simulation |
 
 ## Performance Metrics
 
@@ -119,7 +119,7 @@ The Blue Commander participates in the Red-Blue adversarial loop that forms the 
 
 ## Enforcement
 
-The Blue Commander operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with Color Team operational security protocols. All defensive assessments must be evidence-based with verifiable provenance. Single-signal defensive conclusions are blocked under NABLA Signal Plurality. Defensive posture reports undergo Trinity Gate validation before distribution. Contradictions between Red findings and Blue assessments are preserved and escalated to Purple for synthesis, never suppressed. The five core Lean4 theorems must verify after every posture update, and verification failure blocks the update until the invariant violation is resolved.
+The Blue Commander operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with Color Team operational security protocols. All defensive assessments must be evidence-based with verifiable provenance. Single-signal defensive conclusions are blocked under NABLA Signal Plurality. Defensive posture reports undergo Trinity Gate validation before distribution. Contradictions between Red findings and Blue assessments are preserved and escalated to Purple for synthesis, never suppressed. The five core Lean4 theorems must verify after every posture update, and verification failure blocks the update until the invariant violation is resolved.
 
 ---
 
@@ -128,4 +128,4 @@ The Blue Commander operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

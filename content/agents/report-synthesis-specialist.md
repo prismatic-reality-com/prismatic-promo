@@ -28,19 +28,19 @@ image_alt = "report-synthesis-specialist - Prismatic Platform"
 
 ## Overview
 
-The report-synthesis-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's investigations domain, synthesizing actionable intelligence reports from Intermediate Result (IR) artifacts produced by the platform's diverse collection of intelligence-gathering agents. Raw intelligence data -- entity records, relationship graphs, risk scores, reputation signals, financial indicators -- has limited value in isolation. This agent transforms that raw data into structured, contextualized intelligence reports that support decision-making by presenting findings with explicit confidence levels, source attribution, and actionable recommendations.
+The report-synthesis-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's investigations domain, synthesizing actionable intelligence reports from Intermediate Result (IR) artifacts produced by the platform's diverse collection of intelligence-gathering agents. Raw intelligence data -- entity records, relationship graphs, risk scores, reputation signals, financial indicators -- has limited value in isolation. This agent transforms that raw data into structured, contextualized intelligence reports that support decision-making by presenting findings with explicit confidence levels, source attribution, and actionable recommendations.
 
 The synthesis process is not mere aggregation. It involves identifying patterns across disparate data sources, resolving contradictions between intelligence signals, establishing narrative coherence across temporal sequences of events, and producing confidence-weighted conclusions that account for information quality, source reliability, and analytical uncertainty. The specialist produces reports that an analyst or decision-maker can consume without needing to understand the underlying collection methodology or navigate raw data formats.
 
-Built on the [AIAD](/glossary/aiad/) standard and deeply integrated with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, the report-synthesis-specialist applies all seven axioms to the synthesis process. [Signal plurality](/glossary/signal-plurality/) requires that report conclusions draw from multiple independent sources. [Contradiction preservation](/glossary/contradiction-preservation/) ensures that conflicting intelligence signals are presented transparently rather than silently resolved. [Time decay](/glossary/time-decay/) applies temporal weighting to source data, ensuring that older intelligence receives appropriate discounting in current assessments.
+Built on the [AIAD](@/glossary/aiad.md) standard and deeply integrated with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, the report-synthesis-specialist applies all seven axioms to the synthesis process. [Signal plurality](@/glossary/signal-plurality.md) requires that report conclusions draw from multiple independent sources. [Contradiction preservation](@/glossary/contradiction-preservation.md) ensures that conflicting intelligence signals are presented transparently rather than silently resolved. [Time decay](@/glossary/time-decay.md) applies temporal weighting to source data, ensuring that older intelligence receives appropriate discounting in current assessments.
 
 ## Synthesis Pipeline Architecture
 
 The report synthesis pipeline operates through four structured phases that transform raw IR artifacts into polished intelligence products.
 
-**Collection aggregation** gathers all IR artifacts relevant to the report's subject from the platform's storage infrastructure. This includes entity records from [KuzuDB](/glossary/kuzudb/) graph storage, structured data from [PostgreSQL](/glossary/postgresql/) operational storage, risk scores from the risk assessment pipeline, and [OSINT](/glossary/osint/) collection results from intelligence-gathering agents. The aggregation phase applies relevance filtering to exclude artifacts that fall outside the report's scope while ensuring comprehensive coverage within scope.
+**Collection aggregation** gathers all IR artifacts relevant to the report's subject from the platform's storage infrastructure. This includes entity records from [KuzuDB](@/glossary/kuzudb.md) graph storage, structured data from [PostgreSQL](@/glossary/postgresql.md) operational storage, risk scores from the risk assessment pipeline, and [OSINT](@/glossary/osint.md) collection results from intelligence-gathering agents. The aggregation phase applies relevance filtering to exclude artifacts that fall outside the report's scope while ensuring comprehensive coverage within scope.
 
-**Cross-source analysis** examines the aggregated artifacts for patterns, correlations, and contradictions. [Entity resolution](/glossary/entity-resolution/) ensures that references to the same real-world entity across different sources are correctly identified and merged. Temporal analysis sequences events to establish causal narratives. Contradiction detection identifies cases where different sources provide conflicting information about the same fact.
+**Cross-source analysis** examines the aggregated artifacts for patterns, correlations, and contradictions. [Entity resolution](@/glossary/entity-resolution.md) ensures that references to the same real-world entity across different sources are correctly identified and merged. Temporal analysis sequences events to establish causal narratives. Contradiction detection identifies cases where different sources provide conflicting information about the same fact.
 
 **Confidence assessment** evaluates the strength of each finding based on source reliability, source independence, corroboration count, and temporal freshness. Findings supported by multiple independent, reliable, recent sources receive high confidence scores. Findings based on single sources, older data, or sources with known reliability issues receive lower confidence scores. The assessment is transparent -- every confidence score carries an explanation of the factors that determined it.
 
@@ -48,14 +48,14 @@ The report synthesis pipeline operates through four structured phases that trans
 
 ## Key Capabilities
 
-- **Multi-source intelligence synthesis** -- Aggregates and analyzes intelligence from [OSINT](/glossary/osint/) collectors, risk assessors, reputation monitors, and financial analysts into unified intelligence products
+- **Multi-source intelligence synthesis** -- Aggregates and analyzes intelligence from [OSINT](@/glossary/osint.md) collectors, risk assessors, reputation monitors, and financial analysts into unified intelligence products
 - **Contradiction-preserving reporting** -- Surfaces conflicting intelligence signals transparently with explicit notation of the conflict, source attribution for each position, and analytical assessment of relative credibility
 - **Confidence-scored findings** -- Every finding, conclusion, and recommendation carries explicit confidence scores with traceable factor explanations
 - **Temporal narrative construction** -- Sequences intelligence across time to establish event chronologies, identify inflection points, and detect trend changes
-- **[Entity resolution](/glossary/entity-resolution/) integration** -- Resolves entity references across multiple sources to produce unified entity profiles within reports
+- **[Entity resolution](@/glossary/entity-resolution.md) integration** -- Resolves entity references across multiple sources to produce unified entity profiles within reports
 - **Evidence chain management** -- Maintains complete provenance chains from raw source data through intermediate analysis to final report conclusions
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with triggered report generation when sufficient new intelligence accumulates
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for synthesis pipeline latency and report quality metric tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with triggered report generation when sufficient new intelligence accumulates
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for synthesis pipeline latency and report quality metric tracking
 
 ## Report Structure Template
 
@@ -127,7 +127,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to access intelligence artifacts from all collection agents, synthesize cross-domain findings, and publish intelligence reports.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to access intelligence artifacts from all collection agents, synthesize cross-domain findings, and publish intelligence reports.
 
 ## Command Interface
 
@@ -141,15 +141,15 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [risk-assessment-commander](/agents/risk-assessment-commander/) | Risk scores integrated into report risk assessment sections |
-| [reputation-risk-specialist](/agents/reputation-risk-specialist/) | Reputation signals synthesized into entity profiles |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Strategic context shapes report framing and recommendations |
-| [pricing-strategist](/agents/pricing-strategist/) | Pricing intelligence products included in commercial reports |
-| [primary-identity-verification-commander](/agents/primary-identity-verification-commander/) | Verified entity identities anchor report subject profiles |
+| [risk-assessment-commander](@/agents/risk-assessment-commander.md) | Risk scores integrated into report risk assessment sections |
+| [reputation-risk-specialist](@/agents/reputation-risk-specialist.md) | Reputation signals synthesized into entity profiles |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Strategic context shapes report framing and recommendations |
+| [pricing-strategist](@/agents/pricing-strategist.md) | Pricing intelligence products included in commercial reports |
+| [primary-identity-verification-commander](@/agents/primary-identity-verification-commander.md) | Verified entity identities anchor report subject profiles |
 
 ## Enforcement
 
-Report synthesis complies with the [NO MERCY](/glossary/no-mercy/) doctrine: no reports are published with incomplete source attribution, missing confidence scores, or suppressed contradictions. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that every claim in a report is traceable to specific evidence. The [Trinity Gate](/glossary/trinity-gate/) validates report structural consistency (all sections present), logical consistency (conclusions follow from evidence), and formal completeness (all required metadata present).
+Report synthesis complies with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no reports are published with incomplete source attribution, missing confidence scores, or suppressed contradictions. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that every claim in a report is traceable to specific evidence. The [Trinity Gate](@/glossary/trinity-gate.md) validates report structural consistency (all sections present), logical consistency (conclusions follow from evidence), and formal completeness (all required metadata present).
 
 ---
 
@@ -158,4 +158,4 @@ Report synthesis complies with the [NO MERCY](/glossary/no-mercy/) doctrine: no 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -48,7 +48,7 @@ The controller manages a fleet of MCP servers organized by priority tier.
 | github | P2 | 15 | GitHub repository operations | Long-running |
 | postgres | P2 | 6 | Database operations | Long-running |
 | memory | P3 | 4 | Persistent knowledge storage | Long-running |
-| [meilisearch](/glossary/meilisearch/) | P3 | 5 | Full-text search operations | Long-running |
+| [meilisearch](@/glossary/meilisearch.md) | P3 | 5 | Full-text search operations | Long-running |
 
 ```elixir
 defmodule PrismaticAgents.MCPServiceController do
@@ -184,29 +184,29 @@ The controller maintains a registry of all tools provided by MCP servers, enabli
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/). Multi-domain coordination with authority to manage all MCP server operations, restart failed servers, and modify server configurations within established policy bounds.
+**L3** - [Strategic Command](@/glossary/strategic-command.md). Multi-domain coordination with authority to manage all MCP server operations, restart failed servers, and modify server configurations within established policy bounds.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [mcp-coordination-specialist](/agents/mcp-coordination-specialist/) | MCP Operations | Assists with MCP-specific protocol handling and tool invocation |
-| [infrastructure-as-code-specialist](/agents/infrastructure-as-code-specialist/) | IaC Partner | Manages infrastructure definitions for MCP server deployments |
-| [health-monitoring-specialist](/agents/health-monitoring-specialist/) | Health Integration | Correlates MCP server health with platform-wide health metrics |
-| [alert-management-specialist](/agents/alert-management-specialist/) | Alerting | Routes MCP server failure alerts to appropriate channels |
+| [mcp-coordination-specialist](@/agents/mcp-coordination-specialist.md) | MCP Operations | Assists with MCP-specific protocol handling and tool invocation |
+| [infrastructure-as-code-specialist](@/agents/infrastructure-as-code-specialist.md) | IaC Partner | Manages infrastructure definitions for MCP server deployments |
+| [health-monitoring-specialist](@/agents/health-monitoring-specialist.md) | Health Integration | Correlates MCP server health with platform-wide health metrics |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Alerting | Routes MCP server failure alerts to appropriate channels |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [OTP](/glossary/otp/) [Supervision Tree](/glossary/supervision-tree/) | MCP servers managed under platform supervision hierarchy |
-| [Circuit Breaker](/glossary/circuit-breaker/) | Per-server circuit breakers for failure isolation |
-| [ETS](/glossary/ets/) | Tool registry and server state caching |
-| Platform [Telemetry](/glossary/telemetry/) | Server health metrics and tool invocation tracking |
+| [OTP](@/glossary/otp.md) [Supervision Tree](@/glossary/supervision-tree.md) | MCP servers managed under platform supervision hierarchy |
+| [Circuit Breaker](@/glossary/circuit-breaker.md) | Per-server circuit breakers for failure isolation |
+| [ETS](@/glossary/ets.md) | Tool registry and server state caching |
+| Platform [Telemetry](@/glossary/telemetry.md) | Server health metrics and tool invocation tracking |
 
 ## Enforcement
 
-The MCP Service Controller operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. P1 servers must maintain 99.9% uptime. Health check failures trigger immediate recovery action with no manual delay. Server configurations are version-controlled and reproducible. All server lifecycle events are recorded in the [audit trail](/glossary/audit-trail/) including startup parameters, health check results, failure details, and recovery actions. No MCP server modification proceeds without configuration review.
+The MCP Service Controller operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. P1 servers must maintain 99.9% uptime. Health check failures trigger immediate recovery action with no manual delay. Server configurations are version-controlled and reproducible. All server lifecycle events are recorded in the [audit trail](@/glossary/audit-trail.md) including startup parameters, health check results, failure details, and recovery actions. No MCP server modification proceeds without configuration review.
 
 ---
 
@@ -215,4 +215,4 @@ The MCP Service Controller operates under the [NO MERCY, NO DOUBTS](/glossary/no
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

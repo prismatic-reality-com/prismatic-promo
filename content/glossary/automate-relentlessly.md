@@ -557,23 +557,23 @@ Every development session is automatically tracked with GitLab issues, continuou
 
 ## Related Concepts
 
-- [Continuous Integration](/glossary/continuous-integration/) -- the practice of automatically building and testing code on every commit, a foundational element of automation
-- [CI/CD](/glossary/ci-cd/) -- the combined continuous integration and deployment pipeline that automates the path from code to production
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- automated gatekeepers that enforce quality standards before code enters the repository
-- [Quality Gate](/glossary/quality-gate/) -- automated checkpoints that block progression when quality standards are not met
-- [Self-Healing](/glossary/self-healing/) -- systems that automatically detect and repair their own failures, the highest form of operational automation
-- [AutoHeal](/glossary/autoheal/) -- the Prismatic Platform's autonomous quality healing subsystem
-- [AutoEvolve](/glossary/autoevolve/) -- the autonomous evolution system that identifies and implements platform improvements
-- [Mix Task](/glossary/mix-task/) -- the Elixir build tool task system used to implement composable automation commands
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the autonomous monitoring system that enforces minimum quality thresholds
-- [Clean Run](/glossary/clean-run/) -- the zero-warning, zero-error execution standard enforced by automated quality gates
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the practice of automatically building and testing code on every commit, a foundational element of automation
+- [CI/CD](@/glossary/ci-cd.md) -- the combined continuous integration and deployment pipeline that automates the path from code to production
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- automated gatekeepers that enforce quality standards before code enters the repository
+- [Quality Gate](@/glossary/quality-gate.md) -- automated checkpoints that block progression when quality standards are not met
+- [Self-Healing](@/glossary/self-healing.md) -- systems that automatically detect and repair their own failures, the highest form of operational automation
+- [AutoHeal](@/glossary/autoheal.md) -- the Prismatic Platform's autonomous quality healing subsystem
+- [AutoEvolve](@/glossary/autoevolve.md) -- the autonomous evolution system that identifies and implements platform improvements
+- [Mix Task](@/glossary/mix-task.md) -- the Elixir build tool task system used to implement composable automation commands
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the autonomous monitoring system that enforces minimum quality thresholds
+- [Clean Run](@/glossary/clean-run.md) -- the zero-warning, zero-error execution standard enforced by automated quality gates
 
 ## See Also
 
-- [GitLab CI](/glossary/gitlab-ci/) -- the CI/CD platform used for the Prismatic Platform's automated pipeline
-- [Testing](/glossary/testing/) -- the automated verification of code correctness that forms the foundation of quality automation
-- [Session Discipline](/glossary/session-discipline/) -- the mandatory protocol ensuring every development session follows automated workflows
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- the doctrine that demands complete, uncompromising execution enabled by automation
+- [GitLab CI](@/glossary/gitlab-ci.md) -- the CI/CD platform used for the Prismatic Platform's automated pipeline
+- [Testing](@/glossary/testing.md) -- the automated verification of code correctness that forms the foundation of quality automation
+- [Session Discipline](@/glossary/session-discipline.md) -- the mandatory protocol ensuring every development session follows automated workflows
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- the doctrine that demands complete, uncompromising execution enabled by automation
 
 ---
 

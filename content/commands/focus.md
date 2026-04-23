@@ -28,9 +28,9 @@ image_alt = "/focus - Prismatic Platform"
 
 The challenge of focus in complex systems is well-documented in software engineering literature. Conway's Law predicts that organizations produce systems mirroring their communication structures, but the inverse also holds: complex systems create communication overhead that diffuses focus across too many concerns. The `/focus` command counteracts this diffusion by establishing clear priority hierarchies, tracking active focus areas, and surfacing context switches that dilute strategic impact.
 
-The focus-coordinator agent manages focus state across the platform, maintaining a priority stack that reflects current strategic objectives, active milestones, and resource constraints. The agent integrates with GitLab milestone tracking, [SEADF](/glossary/seadf/) evolution priorities, and the [quality gates](/glossary/quality-gates/) enforcement system to ensure that focus decisions are informed by the platform's actual state rather than assumptions.
+The focus-coordinator agent manages focus state across the platform, maintaining a priority stack that reflects current strategic objectives, active milestones, and resource constraints. The agent integrates with GitLab milestone tracking, [SEADF](@/glossary/seadf.md) evolution priorities, and the [quality gates](@/glossary/quality-gates.md) enforcement system to ensure that focus decisions are informed by the platform's actual state rather than assumptions.
 
-This command operates under the **L3** authority level, reflecting its strategic governance role. Focus decisions affect resource allocation across the platform and can redirect agent priorities, making L3 authority appropriate for the scope of impact. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level, reflecting its strategic governance role. Focus decisions affect resource allocation across the platform and can redirect agent priorities, making L3 authority appropriate for the scope of impact. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -147,14 +147,14 @@ The `/focus` command follows a structured 5-phase focus management pipeline:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Alignment | Agent task priority adjustment based on focus |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Alignment | Agent task priority adjustment based on focus |
 | GitLab API | Milestones | Milestone alignment and progress tracking |
 | Stack Conversation | Session | Focus state integrated with conversation stack |
-| [SEADF](/glossary/seadf/) | Framework | Evolution priority alignment with focus |
-| [Quality Gates](/glossary/quality-gates/) | Context | Quality state influences focus priorities |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Focus change [metrics](/glossary/metrics/) and context switch tracking |
+| [SEADF](@/glossary/seadf.md) | Framework | Evolution priority alignment with focus |
+| [Quality Gates](@/glossary/quality-gates.md) | Context | Quality state influences focus priorities |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Focus change [metrics](@/glossary/metrics.md) and context switch tracking |
 | AIAD Registry | Discovery | Command specification and agent binding |
-| [Quality DNA](/glossary/quality-dna/) | Persistence | Focus state history across sessions |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | Focus state history across sessions |
 
 ## Best Practices
 
@@ -218,7 +218,7 @@ The focus management system integrates with the platform's stack-based conversat
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unfocused work. Every active work item must align with a declared focus priority. Work outside the declared focus is tracked as context switches with associated cost metrics. No drift goes unnoticed.
 - **NO DOUBTS**: Focus decisions are evidence-based. Priority rankings use quantified impact scores, milestone urgency analysis, and resource availability data. The system never guesses about priorities -- it evaluates them against objective criteria.
@@ -227,14 +227,14 @@ Strategic focus is the mechanism by which the NO MERCY doctrine's "Complete exec
 
 ## Related Commands
 
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/architect](/commands/architect/) - Architecture design and recommendation generation
-- [/migrate](/commands/migrate/) - Safe migration planning with rollback strategies
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/estimate](/commands/estimate/) - Task estimation with AI-powered complexity analysis
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/architect](@/commands/architect.md) - Architecture design and recommendation generation
+- [/migrate](@/commands/migrate.md) - Safe migration planning with rollback strategies
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/estimate](@/commands/estimate.md) - Task estimation with AI-powered complexity analysis
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle
 
 ---
 
@@ -243,4 +243,4 @@ Strategic focus is the mechanism by which the NO MERCY doctrine's "Complete exec
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

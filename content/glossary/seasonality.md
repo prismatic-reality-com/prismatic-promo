@@ -182,11 +182,11 @@ end
 
 ## Cross-References
 
-- [Percentile](/glossary/percentile/) - Statistical measure adjusted for seasonal baselines
-- [Scatter Plot](/glossary/scatter-plot/) - Visualization revealing seasonal patterns in time-based data
-- [Pivot Table](/glossary/pivot-table/) - Time-dimensioned pivots exposing seasonal aggregations
-- [Precision](/glossary/precision/) - Classification accuracy affected by seasonal input distribution shifts
-- [Profiling](/glossary/profiling/) - Performance measurement producing seasonally-varying metrics
+- [Percentile](@/glossary/percentile.md) - Statistical measure adjusted for seasonal baselines
+- [Scatter Plot](@/glossary/scatter-plot.md) - Visualization revealing seasonal patterns in time-based data
+- [Pivot Table](@/glossary/pivot-table.md) - Time-dimensioned pivots exposing seasonal aggregations
+- [Precision](@/glossary/precision.md) - Classification accuracy affected by seasonal input distribution shifts
+- [Profiling](@/glossary/profiling.md) - Performance measurement producing seasonally-varying metrics
 
 ---
 

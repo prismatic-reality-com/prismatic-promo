@@ -35,11 +35,11 @@ image_alt = "Encryption at Rest - Prismatic Platform"
 
 ## Definition
 
-Encryption at rest is the practice of protecting stored data by encrypting it before writing to persistent storage -- databases, file systems, backups, and archives. When properly implemented, even if an attacker gains physical access to storage media, database files, or backup tapes, they obtain only ciphertext that is computationally infeasible to decrypt without the corresponding encryption keys. This protection layer is distinct from and complementary to [TLS](/glossary/tls/) (encryption in transit), which protects data as it moves across networks.
+Encryption at rest is the practice of protecting stored data by encrypting it before writing to persistent storage -- databases, file systems, backups, and archives. When properly implemented, even if an attacker gains physical access to storage media, database files, or backup tapes, they obtain only ciphertext that is computationally infeasible to decrypt without the corresponding encryption keys. This protection layer is distinct from and complementary to [TLS](@/glossary/tls.md) (encryption in transit), which protects data as it moves across networks.
 
 Encryption at rest operates transparently to application logic in most implementations: the application reads and writes plaintext data, while the encryption and decryption operations occur at a layer below -- the database engine, file system driver, or application middleware. This transparency is critical for adoption because it means that existing business logic does not need modification to benefit from encryption protection. The application interacts with data in its natural form; the encryption layer handles the cryptographic operations invisibly.
 
-The practice is a fundamental security control required by virtually every modern compliance framework. GDPR mandates "appropriate technical measures" for personal data protection (Article 32), [NIS2](/glossary/nis2/) requires "encryption" as a cybersecurity risk-management measure (Article 21), [ISO 27001](/glossary/iso-27001/) specifies cryptographic controls (Annex A.10), and SOC 2 Trust Services Criteria require encryption for data at rest. For platforms handling sensitive intelligence data, encryption at rest is not optional -- it is a baseline requirement that forms part of the minimum security posture expected by regulators, customers, and security-conscious stakeholders.
+The practice is a fundamental security control required by virtually every modern compliance framework. GDPR mandates "appropriate technical measures" for personal data protection (Article 32), [NIS2](@/glossary/nis2.md) requires "encryption" as a cybersecurity risk-management measure (Article 21), [ISO 27001](@/glossary/iso-27001.md) specifies cryptographic controls (Annex A.10), and SOC 2 Trust Services Criteria require encryption for data at rest. For platforms handling sensitive intelligence data, encryption at rest is not optional -- it is a baseline requirement that forms part of the minimum security posture expected by regulators, customers, and security-conscious stakeholders.
 
 ## Encryption Algorithms
 
@@ -225,9 +225,9 @@ The Prismatic Platform implements encryption at rest across multiple data catego
 | **Configuration** | Low | Full disk encryption | Platform-provided | Platform-managed |
 | **Database backups** | Critical | Backup encryption | AES-256-GCM | Per-backup key |
 
-The platform uses [PostgreSQL](/glossary/postgresql/) as its primary data store, with Cloak.Ecto providing transparent field-level encryption. Encrypted fields use custom [Ecto](/glossary/ecto/) types that automatically encrypt on write and decrypt on read, making encryption invisible to business logic. Searchable encrypted fields use SHA-256 hashes stored alongside the ciphertext, enabling exact-match lookups without decryption.
+The platform uses [PostgreSQL](@/glossary/postgresql.md) as its primary data store, with Cloak.Ecto providing transparent field-level encryption. Encrypted fields use custom [Ecto](@/glossary/ecto.md) types that automatically encrypt on write and decrypt on read, making encryption invisible to business logic. Searchable encrypted fields use SHA-256 hashes stored alongside the ciphertext, enabling exact-match lookups without decryption.
 
-For the Prismatic Perimeter [EASM](/glossary/easm/) module, discovered asset data containing IP addresses, hostnames, and service banners is encrypted at the field level before storage. This protects sensitive reconnaissance data from unauthorized access, even by database administrators who have access to the underlying PostgreSQL instance.
+For the Prismatic Perimeter [EASM](@/glossary/easm.md) module, discovered asset data containing IP addresses, hostnames, and service banners is encrypted at the field level before storage. This protects sensitive reconnaissance data from unauthorized access, even by database administrators who have access to the underlying PostgreSQL instance.
 
 ```elixir
 defmodule Prismatic.Accounts.User do
@@ -318,9 +318,9 @@ Encryption at rest is mandated or strongly recommended by all major compliance f
 | Framework | Requirement | Article/Section | Enforcement |
 |-----------|-------------|-----------------|-------------|
 | **GDPR** | "Appropriate technical measures" including encryption | Article 32(1)(a) | Mandatory for personal data |
-| **[NIS2](/glossary/nis2/)** | "Policies on the use of cryptography and encryption" | Article 21(2)(h) | Mandatory for essential entities |
+| **[NIS2](@/glossary/nis2.md)** | "Policies on the use of cryptography and encryption" | Article 21(2)(h) | Mandatory for essential entities |
 | **ZKB 264/2025** | Data protection through cryptographic controls | Section 4.3 | Mandatory for Czech critical infrastructure |
-| **[ISO 27001](/glossary/iso-27001/)** | Cryptographic controls policy and key management | A.10.1.1, A.10.1.2 | Required for certification |
+| **[ISO 27001](@/glossary/iso-27001.md)** | Cryptographic controls policy and key management | A.10.1.1, A.10.1.2 | Required for certification |
 | **SOC 2** | Encryption of sensitive information at rest | CC6.1, CC6.7 | Required for Type II report |
 | **PCI DSS** | Encrypt stored cardholder data | Requirement 3 | Mandatory for payment data |
 
@@ -350,7 +350,7 @@ The Prismatic Perimeter EASM module assesses whether discovered assets implement
 
 **Test Encryption in Development**: Use the same encryption configuration in development and production. This catches integration issues early and ensures that development data patterns match production behavior.
 
-**Monitor Key Operations**: Log all key management operations (generation, rotation, destruction) in the [audit trail](/glossary/audit-trail/). Key management events are critical security signals that should trigger alerts if unexpected.
+**Monitor Key Operations**: Log all key management operations (generation, rotation, destruction) in the [audit trail](@/glossary/audit-trail.md). Key management events are critical security signals that should trigger alerts if unexpected.
 
 ## Common Pitfalls
 
@@ -364,23 +364,23 @@ The Prismatic Perimeter EASM module assesses whether discovered assets implement
 
 ## Related Terms
 
-- [TLS](/glossary/tls/) - Complementary encryption for data in transit
-- [PostgreSQL](/glossary/postgresql/) - Primary data store implementing column-level encryption
-- [RBAC](/glossary/rbac/) - Access control complementing encryption for defense in depth
-- [JWT](/glossary/jwt/) - Token storage requires encryption of signing keys at rest
-- [EASM](/glossary/easm/) - Assesses encryption at rest in compliance scoring
-- [API Gateway](/glossary/api-gateway/) - Protects encrypted data endpoints
-- [Plug](/glossary/plug/) - Middleware handling encryption context in request pipeline
-- [Observability](/glossary/observability/) - Monitoring encryption key rotation and failures
-- [Risk Score](/glossary/risk-score/) - Missing encryption at rest impacts risk calculations
-- [Ecto](/glossary/ecto/) - ORM integration through Cloak.Ecto for transparent encryption
-- [OWASP](/glossary/owasp/) - A02 Cryptographic Failures addressed by encryption at rest
+- [TLS](@/glossary/tls.md) - Complementary encryption for data in transit
+- [PostgreSQL](@/glossary/postgresql.md) - Primary data store implementing column-level encryption
+- [RBAC](@/glossary/rbac.md) - Access control complementing encryption for defense in depth
+- [JWT](@/glossary/jwt.md) - Token storage requires encryption of signing keys at rest
+- [EASM](@/glossary/easm.md) - Assesses encryption at rest in compliance scoring
+- [API Gateway](@/glossary/api-gateway.md) - Protects encrypted data endpoints
+- [Plug](@/glossary/plug.md) - Middleware handling encryption context in request pipeline
+- [Observability](@/glossary/observability.md) - Monitoring encryption key rotation and failures
+- [Risk Score](@/glossary/risk-score.md) - Missing encryption at rest impacts risk calculations
+- [Ecto](@/glossary/ecto.md) - ORM integration through Cloak.Ecto for transparent encryption
+- [OWASP](@/glossary/owasp.md) - A02 Cryptographic Failures addressed by encryption at rest
 
 ## See Also
 
-- [Architecture](/architecture/) - Storage security architecture
-- [Apps](/apps/) - Prismatic storage applications
-- [Technologies](/technologies/) - Cloak, ExCrypto, and cryptographic libraries
+- [Architecture](@/architecture/_index.md) - Storage security architecture
+- [Apps](@/apps/_index.md) - Prismatic storage applications
+- [Technologies](@/technologies/_index.md) - Cloak, ExCrypto, and cryptographic libraries
 
 ---
 
@@ -389,4 +389,4 @@ The Prismatic Perimeter EASM module assesses whether discovered assets implement
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

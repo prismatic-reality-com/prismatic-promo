@@ -35,7 +35,7 @@ OTP's development began at Ericsson's Computer Science Laboratory in the late 19
 
 The initial implementation was in Prolog before the team designed Erlang as a purpose-built language for concurrent, fault-tolerant systems. The first commercial OTP release shipped in 1998 as part of the AXD 301 ATM switch. Ericsson open-sourced Erlang/OTP in 1998, enabling its adoption beyond telecommunications.
 
-Key milestones in OTP's evolution include the introduction of the `gen_server` behaviour (early 1990s), the formalization of supervision trees (mid-1990s), the addition of distributed Erlang (late 1990s), and the creation of [Elixir](/glossary/elixir/) by Jose Valim in 2011, which brought modern language features and developer ergonomics to the [BEAM](/glossary/beam/) ecosystem while preserving full OTP compatibility. Today, OTP powers systems at WhatsApp (handling 2 million connections per server), Discord (handling millions of concurrent users), and the Prismatic Platform (managing 1,090 autonomous agents across 141 umbrella applications).
+Key milestones in OTP's evolution include the introduction of the `gen_server` behaviour (early 1990s), the formalization of supervision trees (mid-1990s), the addition of distributed Erlang (late 1990s), and the creation of [Elixir](@/glossary/elixir.md) by Jose Valim in 2011, which brought modern language features and developer ergonomics to the [BEAM](@/glossary/beam.md) ecosystem while preserving full OTP compatibility. Today, OTP powers systems at WhatsApp (handling 2 million connections per server), Discord (handling millions of concurrent users), and the Prismatic Platform (managing 1,090 autonomous agents across 141 umbrella applications).
 
 ## Technical Deep Dive
 
@@ -314,7 +314,7 @@ end
 
 ## ETS Integration Patterns
 
-[ETS](/glossary/ets-table/) (Erlang Term Storage) is an OTP component that provides in-memory key-value storage with constant-time lookups. ETS tables are owned by processes but can be read concurrently by any process on the same node. The most common OTP pattern combines a GenServer for write serialization with direct ETS reads for concurrent access:
+[ETS](@/glossary/ets-table.md) (Erlang Term Storage) is an OTP component that provides in-memory key-value storage with constant-time lookups. ETS tables are owned by processes but can be read concurrently by any process on the same node. The most common OTP pattern combines a GenServer for write serialization with direct ETS reads for concurrent access:
 
 ```elixir
 defmodule PrismaticCache.ETSStore do
@@ -480,21 +480,21 @@ OTP's advantage is the integration depth: processes, supervision, distribution, 
 
 ## Related Concepts
 
-- [GenServer](/glossary/genserver/) -- Core OTP behaviour for stateful server processes
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchical fault tolerance pattern
-- [ETS Table](/glossary/ets-table/) -- OTP in-memory storage for high-speed data access
-- [Behaviour](/glossary/behaviour/) -- Callback mechanism defining OTP abstractions
-- [BEAM](/glossary/beam/) -- Virtual machine providing process isolation and scheduling
-- [GenStatem](/glossary/gen-statem/) -- State machine behaviour for protocol modeling
-- [Elixir](/glossary/elixir/) -- The language built on top of OTP and BEAM
-- [Umbrella Application](/glossary/umbrella-application/) -- Multi-app project structure using OTP applications
-- [Telemetry](/glossary/telemetry/) -- Metrics and events for OTP process observability
+- [GenServer](@/glossary/genserver.md) -- Core OTP behaviour for stateful server processes
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchical fault tolerance pattern
+- [ETS Table](@/glossary/ets-table.md) -- OTP in-memory storage for high-speed data access
+- [Behaviour](@/glossary/behaviour.md) -- Callback mechanism defining OTP abstractions
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing process isolation and scheduling
+- [GenStatem](@/glossary/gen-statem.md) -- State machine behaviour for protocol modeling
+- [Elixir](@/glossary/elixir.md) -- The language built on top of OTP and BEAM
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Multi-app project structure using OTP applications
+- [Telemetry](@/glossary/telemetry.md) -- Metrics and events for OTP process observability
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- OTP applications in the Prismatic umbrella
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- OTP applications in the Prismatic umbrella
 
 ---
 
@@ -503,4 +503,4 @@ OTP's advantage is the integration depth: processes, supervision, distribution, 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

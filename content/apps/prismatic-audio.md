@@ -23,11 +23,11 @@ image_alt = "Prismatic Audio - Prismatic Platform"
 
 ## Overview
 
-Prismatic Audio provides audio intelligence capabilities for the Prismatic Platform, implementing speech-to-text transcription, speaker diarization, language detection, and acoustic analysis for intelligence extraction from audio content. The system processes audio collected from [OSINT](/glossary/osint/) sources -- podcasts, interviews, public recordings, and conference proceedings -- to extract named entities, identify speakers, detect language and sentiment, and produce timestamp-aligned transcripts suitable for further analysis by the [Prismatic 3NL](/apps/prismatic-3nl/) epistemic processing pipeline.
+Prismatic Audio provides audio intelligence capabilities for the Prismatic Platform, implementing speech-to-text transcription, speaker diarization, language detection, and acoustic analysis for intelligence extraction from audio content. The system processes audio collected from [OSINT](@/glossary/osint.md) sources -- podcasts, interviews, public recordings, and conference proceedings -- to extract named entities, identify speakers, detect language and sentiment, and produce timestamp-aligned transcripts suitable for further analysis by the [Prismatic 3NL](@/apps/prismatic-3nl.md) epistemic processing pipeline.
 
 Audio content represents a significant intelligence source that traditional text-based OSINT systems cannot process. Corporate earnings calls, public speeches, podcast interviews, and recorded proceedings contain information that may not appear in written form. Without audio processing capabilities, this intelligence remains inaccessible to automated analysis. Prismatic Audio bridges this gap by converting audio content into structured, searchable intelligence output with speaker attribution, temporal alignment, and entity extraction.
 
-The architecture separates audio processing into three stages: acoustic analysis (language detection, noise classification, manipulation detection), transcription (multi-language speech-to-text with speaker diarization), and intelligence extraction (entity extraction, topic identification, relationship detection from transcript text). Each stage is implemented as an independent supervised process under an [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/), enabling fault isolation between computationally intensive processing phases. A processing queue [GenServer](/glossary/genserver/) manages batch audio processing jobs, dispatching work to supervised tasks with configurable concurrency limits and timeout protection.
+The architecture separates audio processing into three stages: acoustic analysis (language detection, noise classification, manipulation detection), transcription (multi-language speech-to-text with speaker diarization), and intelligence extraction (entity extraction, topic identification, relationship detection from transcript text). Each stage is implemented as an independent supervised process under an [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md), enabling fault isolation between computationally intensive processing phases. A processing queue [GenServer](@/glossary/genserver.md) manages batch audio processing jobs, dispatching work to supervised tasks with configurable concurrency limits and timeout protection.
 
 The design goals center on six capabilities: multi-language transcription for Czech and English with technical term recognition, speaker diarization to identify who spoke when with speaker clustering across recordings, acoustic analysis for language detection and audio manipulation detection, intelligence extraction for named entity recognition and topic identification from transcripts, temporal alignment providing word-level timestamps for precise source reference, and pipeline integration structuring transcript output for direct consumption by downstream analysis modules.
 
@@ -75,7 +75,7 @@ Audio files enter through the facade, which queues them for processing. The acou
 | `PrismaticAudio.FormatHandler` | Audio format detection, conversion, and normalization |
 | `PrismaticAudio.ProcessingQueue` | GenServer managing batch job queue with priority ordering |
 
-Speaker diarization uses voice activity detection to identify speech regions, followed by speaker [embedding](/glossary/embedding/) extraction and clustering. Similar embeddings are grouped into speaker identities, and segments are labeled accordingly. Language detection analyzes acoustic features including pitch patterns and phoneme distributions against language models to determine the primary language of the audio content before transcription begins.
+Speaker diarization uses voice activity detection to identify speech regions, followed by speaker [embedding](@/glossary/embedding.md) extraction and clustering. Similar embeddings are grouped into speaker identities, and segments are labeled accordingly. Language detection analyzes acoustic features including pitch patterns and phoneme distributions against language models to determine the primary language of the audio content before transcription begins.
 
 The Transcript data structure captures the complete output of a processing run:
 
@@ -152,16 +152,16 @@ Audio processing requires test fixtures that are stored in the test support dire
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic 3NL](/apps/prismatic-3nl/) | Transcript text consumed by epistemic processing pipeline |
-| [Prismatic Storage](/apps/prismatic-storage/) | Audio file and transcript persistence through storage adapters |
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Audio source intelligence extraction for OSINT monitoring |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Processing metrics emission for observability |
+| [Prismatic 3NL](@/apps/prismatic-3nl.md) | Transcript text consumed by epistemic processing pipeline |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Audio file and transcript persistence through storage adapters |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Audio source intelligence extraction for OSINT monitoring |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Processing metrics emission for observability |
 
 Audio processing jobs are dispatched as supervised tasks. Job status is tracked in the ProcessingQueue GenServer. The Whisper model is deployed locally alongside the application -- no cloud transcription services are used, ensuring data sovereignty for sensitive intelligence audio content.
 
 ## NABLA Compliance
 
-Prismatic Audio enforces [NABLA](/glossary/nabla-infinity/) axiom compliance on all intelligence output produced from audio transcription.
+Prismatic Audio enforces [NABLA](@/glossary/nabla-infinity.md) axiom compliance on all intelligence output produced from audio transcription.
 
 | NABLA Axiom | Audio Enforcement | Implementation |
 |-------------|------------------|----------------|
@@ -182,26 +182,26 @@ All intelligence products derived from audio carry provenance metadata linking c
 | Speaker diarization | 1-3 minutes | Per hour of audio |
 | Intelligence extraction | 5-30s | Depends on transcript length |
 
-Audio processing is CPU-intensive and parallelizes across jobs via Task.[Supervisor](/glossary/supervisor/). GPU acceleration reduces transcription time by 5-10x when available.
+Audio processing is CPU-intensive and parallelizes across jobs via Task.[Supervisor](@/glossary/supervisor.md). GPU acceleration reduces transcription time by 5-10x when available.
 
 | Resource | Minimum | Recommended |
 |----------|---------|-------------|
 | Memory | 2 GB | 8 GB (with models loaded) |
 | CPU | 4 cores | 8 cores or GPU |
 
-[Telemetry](/glossary/telemetry/) events are emitted at `[:prismatic, :audio, :transcribe]`, `[:prismatic, :audio, :diarize]`, and `[:prismatic, :audio, :analyze]`. Key [metrics](/glossary/metrics/) include processing time per minute of audio, transcription accuracy estimates, queue depth, and GPU utilization when available.
+[Telemetry](@/glossary/telemetry.md) events are emitted at `[:prismatic, :audio, :transcribe]`, `[:prismatic, :audio, :diarize]`, and `[:prismatic, :audio, :analyze]`. Key [metrics](@/glossary/metrics.md) include processing time per minute of audio, transcription accuracy estimates, queue depth, and GPU utilization when available.
 
 ## Related Resources
 
-- [Prismatic 3NL](/apps/prismatic-3nl/) -- Text processing pipeline for transcript analysis
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Intelligence source layer providing audio content
+- [Prismatic 3NL](@/apps/prismatic-3nl.md) -- Text processing pipeline for transcript analysis
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Intelligence source layer providing audio content
 - [Whisper](https://github.com/openai/whisper) -- Speech recognition model used for transcription
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Designs adapter interfaces for audio format handling and transcription model integration
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Configures alerting for audio processing pipeline failures and quality degradation in transcription accuracy
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews the three-stage audio processing architecture for OTP compliance and supervision tree correctness
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Combines audio transcription output with multi-source intelligence for comprehensive entity analysis
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Tracks transcription latency, queue depth, and processing accuracy metrics across the audio pipeline
-- [Quality Gates](/capabilities/quality-gates/) -- Validates transcription accuracy against annotated ground truth and enforces pipeline reliability standards
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Designs adapter interfaces for audio format handling and transcription model integration
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Configures alerting for audio processing pipeline failures and quality degradation in transcription accuracy
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews the three-stage audio processing architecture for OTP compliance and supervision tree correctness
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Combines audio transcription output with multi-source intelligence for comprehensive entity analysis
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Tracks transcription latency, queue depth, and processing accuracy metrics across the audio pipeline
+- [Quality Gates](@/capabilities/quality-gates.md) -- Validates transcription accuracy against annotated ground truth and enforces pipeline reliability standards
 
 ---
 
@@ -210,4 +210,4 @@ Audio processing is CPU-intensive and parallelizes across jobs via Task.[Supervi
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

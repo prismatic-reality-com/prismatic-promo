@@ -46,7 +46,7 @@ API integration has evolved from simple remote procedure calls in the 1990s thro
 
 The significance of API integration in modern software architecture cannot be overstated. Organizations typically operate dozens to hundreds of internal services, each exposing APIs that other services consume. External integrations with third-party services (payment processors, identity providers, analytics platforms, OSINT data sources) add further complexity. A well-designed API integration strategy reduces coupling between services, enables independent deployment and scaling, supports polyglot architectures, and provides clear boundaries for testing and monitoring.
 
-Within the Prismatic Platform, API integration is a first-class concern. The platform's auto-introspecting [REST API](/glossary/rest-api/) discovers all public functions across facade modules at boot time, maps Elixir typespecs to [OpenAPI](/glossary/openapi/) schemas, and exposes them through a unified gateway. This approach eliminates the manual specification drift that plagues most API ecosystems and ensures that the API surface always reflects the actual codebase.
+Within the Prismatic Platform, API integration is a first-class concern. The platform's auto-introspecting [REST API](@/glossary/rest-api.md) discovers all public functions across facade modules at boot time, maps Elixir typespecs to [OpenAPI](@/glossary/openapi.md) schemas, and exposes them through a unified gateway. This approach eliminates the manual specification drift that plagues most API ecosystems and ensures that the API surface always reflects the actual codebase.
 
 ### Key Characteristics of API Integration
 
@@ -226,7 +226,7 @@ The Prismatic Platform implements API integration through its auto-introspecting
 
 ### Auto-Discovery Architecture
 
-At boot time, the API scanner traverses all modules matching the `Prismatic*` namespace, identifies public functions with documentation and typespecs, and registers them in an ETS-backed registry. The [OpenAPI](/glossary/openapi/) specification is generated automatically from Elixir `@spec` annotations:
+At boot time, the API scanner traverses all modules matching the `Prismatic*` namespace, identifies public functions with documentation and typespecs, and registers them in an ETS-backed registry. The [OpenAPI](@/glossary/openapi.md) specification is generated automatically from Elixir `@spec` annotations:
 
 ```elixir
 defmodule PrismaticAPI.Scanner do
@@ -367,13 +367,13 @@ Prismatic's approach of auto-introspecting REST with OpenApiSpex combines the un
 
 ## Best Practices
 
-1. **Design APIs contract-first**: Define the [OpenAPI](/glossary/openapi/) specification before writing implementation code. This ensures consumer needs drive the design rather than implementation convenience.
+1. **Design APIs contract-first**: Define the [OpenAPI](@/glossary/openapi.md) specification before writing implementation code. This ensures consumer needs drive the design rather than implementation convenience.
 
 2. **Version from day one**: Include version identifiers in API paths (`/api/v1/`) even for initial releases. Retrofitting versioning is significantly harder than including it from the start.
 
 3. **Use idempotency keys**: For non-idempotent operations (POST, PUT), accept an idempotency key header to allow safe retries without duplicate side effects.
 
-4. **Implement circuit breakers**: Wrap external API calls in [circuit breakers](/glossary/circuit-breaker/) to prevent cascading failures when downstream services are degraded.
+4. **Implement circuit breakers**: Wrap external API calls in [circuit breakers](@/glossary/circuit-breaker.md) to prevent cascading failures when downstream services are degraded.
 
 5. **Return structured errors**: Use consistent error response schemas with machine-readable error codes, human-readable messages, and correlation IDs for debugging.
 
@@ -401,9 +401,9 @@ Prismatic's approach of auto-introspecting REST with OpenApiSpex combines the un
 
 ## Use Cases
 
-**Platform Service Composition**: The Prismatic Platform's 115 umbrella apps communicate through internal API integrations, enabling features like the [OSINT toolbox](/glossary/api-gateway/) to orchestrate queries across 120+ data providers through a unified interface.
+**Platform Service Composition**: The Prismatic Platform's 115 umbrella apps communicate through internal API integrations, enabling features like the [OSINT toolbox](@/glossary/api-gateway.md) to orchestrate queries across 120+ data providers through a unified interface.
 
-**External Attack Surface Management**: The [Prismatic Perimeter](/glossary/attack-surface/) module integrates with external scanning APIs (DNS, certificate transparency, IP geolocation) to discover and assess an organization's attack surface, normalizing diverse API responses into a unified security rating model.
+**External Attack Surface Management**: The [Prismatic Perimeter](@/glossary/attack-surface.md) module integrates with external scanning APIs (DNS, certificate transparency, IP geolocation) to discover and assess an organization's attack surface, normalizing diverse API responses into a unified security rating model.
 
 **Developer Portal**: The auto-generated SwaggerUI at `/api/swaggerui` provides an interactive API explorer where developers can discover available endpoints, examine request/response schemas, and execute test calls without writing code.
 
@@ -413,15 +413,15 @@ Prismatic's approach of auto-introspecting REST with OpenApiSpex combines the un
 
 ## Related Concepts
 
-- [API Gateway](/glossary/api-gateway/) -- centralized entry point that routes, authenticates, and rate-limits API traffic
-- [OpenAPI](/glossary/openapi/) -- specification standard for describing RESTful API contracts
-- [REST API](/glossary/rest-api/) -- architectural style for building web APIs using HTTP semantics
-- [GraphQL](/glossary/graphql/) -- query language enabling clients to request precisely the data they need
-- [Endpoint](/glossary/endpoint/) -- a specific URL path that accepts requests and returns responses
-- [Circuit Breaker](/glossary/circuit-breaker/) -- resilience pattern that prevents cascading failures in API chains
-- [Authentication](/glossary/authentication/) -- verifying the identity of API consumers
-- [Adapter Pattern](/glossary/adapter-pattern/) -- structural pattern used to normalize diverse API interfaces
-- [Microservices](/glossary/microservices/) -- architectural style where API integration is the primary communication mechanism
+- [API Gateway](@/glossary/api-gateway.md) -- centralized entry point that routes, authenticates, and rate-limits API traffic
+- [OpenAPI](@/glossary/openapi.md) -- specification standard for describing RESTful API contracts
+- [REST API](@/glossary/rest-api.md) -- architectural style for building web APIs using HTTP semantics
+- [GraphQL](@/glossary/graphql.md) -- query language enabling clients to request precisely the data they need
+- [Endpoint](@/glossary/endpoint.md) -- a specific URL path that accepts requests and returns responses
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- resilience pattern that prevents cascading failures in API chains
+- [Authentication](@/glossary/authentication.md) -- verifying the identity of API consumers
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- structural pattern used to normalize diverse API interfaces
+- [Microservices](@/glossary/microservices.md) -- architectural style where API integration is the primary communication mechanism
 
 ## See Also
 
@@ -437,4 +437,4 @@ Prismatic's approach of auto-introspecting REST with OpenApiSpex combines the un
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

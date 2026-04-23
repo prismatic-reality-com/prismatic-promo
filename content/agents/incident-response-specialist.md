@@ -28,15 +28,15 @@ image_alt = "Incident Response Specialist - Prismatic Platform"
 
 ## Overview
 
-The [Incident Response](/glossary/incident-response/) Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent manages the complete incident lifecycle from detection through resolution to post-mortem analysis, ensuring that production incidents are handled with speed, precision, and thoroughness. When a service degradation, outage, or security event occurs, the Incident Response Specialist coordinates the response effort, assigns investigation tasks, and tracks resolution progress in real time.
+The [Incident Response](@/glossary/incident-response.md) Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent manages the complete incident lifecycle from detection through resolution to post-mortem analysis, ensuring that production incidents are handled with speed, precision, and thoroughness. When a service degradation, outage, or security event occurs, the Incident Response Specialist coordinates the response effort, assigns investigation tasks, and tracks resolution progress in real time.
 
-Production incidents in a 90-app [umbrella architecture](/glossary/umbrella-application/) require systematic coordination. A failure in one application can cascade through dependent services if not contained quickly. The Incident Response Specialist maintains runbooks for common failure scenarios, implements automated detection through health check monitoring, and coordinates human and agent responders to minimize mean time to resolution (MTTR). Every incident produces a blameless post-mortem that identifies root causes, documents timeline, and generates actionable improvement items to prevent recurrence.
+Production incidents in a 90-app [umbrella architecture](@/glossary/umbrella-application.md) require systematic coordination. A failure in one application can cascade through dependent services if not contained quickly. The Incident Response Specialist maintains runbooks for common failure scenarios, implements automated detection through health check monitoring, and coordinates human and agent responders to minimize mean time to resolution (MTTR). Every incident produces a blameless post-mortem that identifies root causes, documents timeline, and generates actionable improvement items to prevent recurrence.
 
 ## Incident Lifecycle Model
 
 The Specialist manages incidents through a structured lifecycle with defined phases, each with clear objectives and exit criteria.
 
-**Detection.** Incidents are detected through multiple channels: automated health check failures, error rate threshold breaches, latency anomaly detection, and manual reports. The detection phase correlates multiple signals to distinguish genuine incidents from transient noise, reducing false positive incident declarations that waste response resources. Detection uses the platform's [telemetry](/glossary/telemetry/) infrastructure to correlate signals across application boundaries, identifying cascading failures that may appear as independent issues in individual applications.
+**Detection.** Incidents are detected through multiple channels: automated health check failures, error rate threshold breaches, latency anomaly detection, and manual reports. The detection phase correlates multiple signals to distinguish genuine incidents from transient noise, reducing false positive incident declarations that waste response resources. Detection uses the platform's [telemetry](@/glossary/telemetry.md) infrastructure to correlate signals across application boundaries, identifying cascading failures that may appear as independent issues in individual applications.
 
 **Triage.** Confirmed incidents are triaged to determine severity, blast radius, and initial response requirements. Triage classifies incidents on a four-level severity scale: SEV-1 (total service outage), SEV-2 (significant feature degradation), SEV-3 (minor feature impact), and SEV-4 (cosmetic or non-user-facing issue). Triage also identifies the incident's likely blast radius -- which applications, services, and user populations are affected.
 
@@ -66,11 +66,11 @@ The Incident Response Specialist provides six primary capabilities for comprehen
 
 ## Technical Implementation
 
-The Incident Response Specialist is implemented as a supervised [OTP](/glossary/otp/) application that maintains incident state machines for all active incidents. Each incident is modeled as a state machine with defined phase transitions, timeout thresholds, and escalation triggers.
+The Incident Response Specialist is implemented as a supervised [OTP](@/glossary/otp.md) application that maintains incident state machines for all active incidents. Each incident is modeled as a state machine with defined phase transitions, timeout thresholds, and escalation triggers.
 
 Incident detection integrates with the platform's telemetry infrastructure through subscription to health check events, error rate measurements, and supervision tree restart notifications. Detection logic uses sliding window analysis with configurable window sizes and threshold levels per metric type.
 
-Incident state is maintained in [ETS](/glossary/ets/) tables for real-time access during active incidents and persisted to [PostgreSQL](/glossary/postgresql/) through [Ecto](/glossary/ecto/) for post-mortem analysis and trend detection. The database schema models the full incident lifecycle including timeline events, investigation findings, containment actions, and resolution steps.
+Incident state is maintained in [ETS](@/glossary/ets.md) tables for real-time access during active incidents and persisted to [PostgreSQL](@/glossary/postgresql.md) through [Ecto](@/glossary/ecto.md) for post-mortem analysis and trend detection. The database schema models the full incident lifecycle including timeline events, investigation findings, containment actions, and resolution steps.
 
 Communication during incidents uses structured message protocols that distribute status updates, investigation findings, and action requests to all involved agents. Communication is logged immutably to ensure accurate timeline reconstruction during post-mortem analysis.
 
@@ -78,11 +78,11 @@ Communication during incidents uses structured message protocols that distribute
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [alert-management-specialist](/agents/alert-management-specialist/) | Receives alert signals that trigger incident response activation | Infrastructure |
-| [deployment-rollback-specialist](/agents/deployment-rollback-specialist/) | Coordinates emergency rollbacks when incidents are deployment-related | Infrastructure |
-| [health-monitoring-specialist](/agents/health-monitoring-specialist/) | Provides continuous health [telemetry](/glossary/telemetry/) for incident detection and resolution verification | Infrastructure |
-| [infrastructure-as-code-specialist](/agents/infrastructure-as-code-specialist/) | Coordinates infrastructure-level changes during incident containment and resolution | Infrastructure |
-| [gitlab-cicd-specialist-agent](/agents/gitlab-cicd-specialist-agent/) | Coordinates emergency hotfix deployment pipelines during incident resolution | DevOps |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Receives alert signals that trigger incident response activation | Infrastructure |
+| [deployment-rollback-specialist](@/agents/deployment-rollback-specialist.md) | Coordinates emergency rollbacks when incidents are deployment-related | Infrastructure |
+| [health-monitoring-specialist](@/agents/health-monitoring-specialist.md) | Provides continuous health [telemetry](@/glossary/telemetry.md) for incident detection and resolution verification | Infrastructure |
+| [infrastructure-as-code-specialist](@/agents/infrastructure-as-code-specialist.md) | Coordinates infrastructure-level changes during incident containment and resolution | Infrastructure |
+| [gitlab-cicd-specialist-agent](@/agents/gitlab-cicd-specialist-agent.md) | Coordinates emergency hotfix deployment pipelines during incident resolution | DevOps |
 
 ## Incident Metrics
 
@@ -100,7 +100,7 @@ The Specialist tracks key metrics that measure incident management effectiveness
 
 ## Enforcement
 
-The Incident Response Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every production incident must produce a post-mortem within 48 hours. Every post-mortem must include at least one actionable improvement item with an assigned owner and deadline. No incident is closed without verified resolution and [regression test](/glossary/regression-test/) coverage. Recurring incidents without root cause remediation trigger L3 escalation. Post-mortem action items are tracked to completion with zero tolerance for overdue items.
+The Incident Response Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every production incident must produce a post-mortem within 48 hours. Every post-mortem must include at least one actionable improvement item with an assigned owner and deadline. No incident is closed without verified resolution and [regression test](@/glossary/regression-test.md) coverage. Recurring incidents without root cause remediation trigger L3 escalation. Post-mortem action items are tracked to completion with zero tolerance for overdue items.
 
 ---
 
@@ -109,4 +109,4 @@ The Incident Response Specialist operates under the [NO MERCY, NO DOUBTS](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

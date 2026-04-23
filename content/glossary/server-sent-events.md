@@ -20,7 +20,7 @@ image_alt = "Server-Sent Events - Prismatic Platform"
 
 ## Definition
 
-Server-Sent Events (SSE) is a W3C standardized web technology that enables servers to push real-time updates to clients over a persistent HTTP connection. Unlike [WebSockets](/glossary/websocket/), which establish a full-duplex bidirectional channel, SSE is unidirectional: data flows exclusively from server to client. The protocol is built on top of standard HTTP, using the `text/event-stream` content type and a simple text-based wire format, making it compatible with existing HTTP infrastructure including proxies, load balancers, CDNs, and firewalls without special configuration.
+Server-Sent Events (SSE) is a W3C standardized web technology that enables servers to push real-time updates to clients over a persistent HTTP connection. Unlike [WebSockets](@/glossary/websocket.md), which establish a full-duplex bidirectional channel, SSE is unidirectional: data flows exclusively from server to client. The protocol is built on top of standard HTTP, using the `text/event-stream` content type and a simple text-based wire format, making it compatible with existing HTTP infrastructure including proxies, load balancers, CDNs, and firewalls without special configuration.
 
 The SSE specification defines the `EventSource` browser API, which provides automatic reconnection with exponential backoff, event ID tracking for seamless resumption after disconnection, and named event types for multiplexing different data streams over a single connection. These built-in capabilities eliminate significant client-side complexity that developers would otherwise need to implement manually with WebSockets. The simplicity of the protocol -- it is essentially a long-lived HTTP response with a structured text body -- makes it remarkably robust and easy to debug, as standard HTTP tools (curl, browser developer tools, HTTP proxies) work without modification.
 
@@ -128,7 +128,7 @@ This built-in resumption mechanism is one of SSE's strongest advantages over raw
 
 ## SSE vs WebSocket Comparison
 
-The choice between SSE and [WebSockets](/glossary/websocket/) depends on the communication pattern, infrastructure constraints, and complexity budget.
+The choice between SSE and [WebSockets](@/glossary/websocket.md) depends on the communication pattern, infrastructure constraints, and complexity budget.
 
 | Dimension | Server-Sent Events | WebSocket |
 |-----------|-------------------|-----------|
@@ -176,7 +176,7 @@ For the Prismatic Platform, HTTP/2 support means that a single browser tab displ
 
 ## Phoenix SSE Implementation
 
-The Prismatic Platform implements SSE endpoints in the [Phoenix](/glossary/phoenix/) framework using Plug's chunked response mechanism.
+The Prismatic Platform implements SSE endpoints in the [Phoenix](@/glossary/phoenix.md) framework using Plug's chunked response mechanism.
 
 ```elixir
 defmodule PrismaticApi.SSEController do
@@ -231,11 +231,11 @@ defmodule PrismaticApi.SSEController do
 end
 ```
 
-This implementation leverages Phoenix's [PubSub](/glossary/pubsub/) system as the bridge between backend [stream processing](/glossary/stream-processing/) pipelines and SSE delivery. When a Broadway pipeline processes a security event, it publishes to a PubSub topic. The SSE controller, subscribed to that topic, receives the event and pushes it to the client as an SSE message.
+This implementation leverages Phoenix's [PubSub](@/glossary/pubsub.md) system as the bridge between backend [stream processing](@/glossary/stream-processing.md) pipelines and SSE delivery. When a Broadway pipeline processes a security event, it publishes to a PubSub topic. The SSE controller, subscribed to that topic, receives the event and pushes it to the client as an SSE message.
 
 ## Use Cases in Prismatic
 
-The Prismatic Platform uses SSE for several categories of real-time data delivery, primarily through the [Prismatic API](/glossary/rest-api/) for external consumers.
+The Prismatic Platform uses SSE for several categories of real-time data delivery, primarily through the [Prismatic API](@/glossary/rest-api.md) for external consumers.
 
 | Use Case | Event Type | Typical Frequency | Example Payload |
 |----------|------------|-------------------|-----------------|
@@ -246,11 +246,11 @@ The Prismatic Platform uses SSE for several categories of real-time data deliver
 | Quality telemetry | `quality-metric` | Every 30 seconds | `{"domain":"compilation","score":100}` |
 | Long-running operation status | `operation-status` | Per status change | `{"operation_id":"op-123","status":"analyzing"}` |
 
-SSE is preferred over WebSockets for API consumers because it integrates naturally with the [REST API](/glossary/rest-api/) paradigm: clients make a standard HTTP GET request and receive a streaming response. No protocol upgrade, no special client libraries, and standard HTTP authentication (Bearer tokens, cookies) works without modification.
+SSE is preferred over WebSockets for API consumers because it integrates naturally with the [REST API](@/glossary/rest-api.md) paradigm: clients make a standard HTTP GET request and receive a streaming response. No protocol upgrade, no special client libraries, and standard HTTP authentication (Bearer tokens, cookies) works without modification.
 
 ## SSE vs Phoenix LiveView
 
-Within the Prismatic Platform, [LiveView](/glossary/liveview/) and SSE serve different audiences and use cases.
+Within the Prismatic Platform, [LiveView](@/glossary/liveview.md) and SSE serve different audiences and use cases.
 
 | Aspect | LiveView | SSE |
 |--------|----------|-----|
@@ -280,22 +280,22 @@ The keepalive mechanism (comment lines sent at regular intervals) is particularl
 
 ## Related Terms
 
-- [WebSocket](/glossary/websocket/) - Bidirectional alternative for interactive communication patterns
-- [Channel](/glossary/channel/) - Phoenix Channel abstraction over WebSocket transport
-- [REST API](/glossary/rest-api/) - HTTP API pattern complemented by SSE for streaming responses
-- [Phoenix](/glossary/phoenix/) - Framework supporting both SSE and WebSocket transports
-- [LiveView](/glossary/liveview/) - Server-rendered real-time UI using WebSocket (complementary to SSE)
-- [PubSub](/glossary/pubsub/) - Internal message distribution feeding SSE streams from backend pipelines
-- [Stream Processing](/glossary/stream-processing/) - Backend pipeline producing events for SSE delivery
-- [Backpressure](/glossary/backpressure/) - Flow control relevant to SSE when clients consume slowly
-- [Load Balancing](/glossary/load-balancing/) - Infrastructure concern for distributing long-lived SSE connections
-- [Observability](/glossary/observability/) - Monitoring SSE connection health and event delivery metrics
+- [WebSocket](@/glossary/websocket.md) - Bidirectional alternative for interactive communication patterns
+- [Channel](@/glossary/channel.md) - Phoenix Channel abstraction over WebSocket transport
+- [REST API](@/glossary/rest-api.md) - HTTP API pattern complemented by SSE for streaming responses
+- [Phoenix](@/glossary/phoenix.md) - Framework supporting both SSE and WebSocket transports
+- [LiveView](@/glossary/liveview.md) - Server-rendered real-time UI using WebSocket (complementary to SSE)
+- [PubSub](@/glossary/pubsub.md) - Internal message distribution feeding SSE streams from backend pipelines
+- [Stream Processing](@/glossary/stream-processing.md) - Backend pipeline producing events for SSE delivery
+- [Backpressure](@/glossary/backpressure.md) - Flow control relevant to SSE when clients consume slowly
+- [Load Balancing](@/glossary/load-balancing.md) - Infrastructure concern for distributing long-lived SSE connections
+- [Observability](@/glossary/observability.md) - Monitoring SSE connection health and event delivery metrics
 
 ## See Also
 
-- [Technologies](/technologies/) - Communication protocol options and technology stack
-- [Architecture](/architecture/) - Real-time data delivery patterns in the platform architecture
-- [Apps](/apps/) - Applications implementing SSE endpoints for external consumers
+- [Technologies](@/technologies/_index.md) - Communication protocol options and technology stack
+- [Architecture](@/architecture/_index.md) - Real-time data delivery patterns in the platform architecture
+- [Apps](@/apps/_index.md) - Applications implementing SSE endpoints for external consumers
 
 ---
 
@@ -304,4 +304,4 @@ The keepalive mechanism (comment lines sent at regular intervals) is particularl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

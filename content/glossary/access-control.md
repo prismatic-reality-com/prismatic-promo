@@ -24,9 +24,9 @@ see_also = ["capabilities", "architecture", "agents"]
 
 ## Definition
 
-Access control is the set of mechanisms, policies, and technologies that determine which entities -- users, services, agents, or processes -- are permitted to interact with specific resources and in what manner. It operates as the enforcement layer between identity verification ([authentication](/glossary/authentication/)) and resource consumption, answering the question: "Now that we know who you are, what are you allowed to do?"
+Access control is the set of mechanisms, policies, and technologies that determine which entities -- users, services, agents, or processes -- are permitted to interact with specific resources and in what manner. It operates as the enforcement layer between identity verification ([authentication](@/glossary/authentication.md)) and resource consumption, answering the question: "Now that we know who you are, what are you allowed to do?"
 
-In the Prismatic Platform, access control operates at multiple layers: HTTP request authorization via [Plug](/glossary/plug/) pipelines, AIAD agent authority levels governing operational scope, LiveView socket-level permission checks, and inter-service access policies between the 115 umbrella applications.
+In the Prismatic Platform, access control operates at multiple layers: HTTP request authorization via [Plug](@/glossary/plug.md) pipelines, AIAD agent authority levels governing operational scope, LiveView socket-level permission checks, and inter-service access policies between the 115 umbrella applications.
 
 ## Technical Deep Dive
 
@@ -201,11 +201,11 @@ end
 
 ## Related Terms
 
-- [Authentication](/glossary/authentication/) -- identity verification preceding access control decisions
+- [Authentication](@/glossary/authentication.md) -- identity verification preceding access control decisions
 - **Credential** -- proof of identity used in access control flows
 - **Compliance** -- regulatory frameworks mandating access control policies
 - **Consent** -- data subject approval linked to access control decisions
-- [AIAD Agent](/glossary/aiad-agent/) -- autonomous agents governed by authority-level access control
+- [AIAD Agent](@/glossary/aiad-agent.md) -- autonomous agents governed by authority-level access control
 - **Containment** -- isolation mechanisms supporting access control boundaries
 - **Confidence Score** -- trust metrics informing adaptive access decisions
 - **Configuration** -- access control policy configuration management
@@ -223,4 +223,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

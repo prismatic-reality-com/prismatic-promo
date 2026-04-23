@@ -37,19 +37,19 @@ Idempotency is the property of an operation where executing it multiple times pr
 
 Idempotency is not merely a convenience property; in distributed systems it is a fundamental correctness requirement. Networks are unreliable, messages can be delivered more than once, clients cannot always distinguish between "the server never received my request" and "the server processed my request but I never received the response," and at-least-once delivery semantics mean that consumers may process the same event multiple times. Without idempotent operations, each of these failure modes can introduce data corruption that is difficult to detect and expensive to repair.
 
-The concept operates at multiple levels of abstraction. At the HTTP protocol level, RFC 9110 defines specific idempotency guarantees for standard methods. At the application level, idempotency must be designed into business logic through techniques like idempotency keys, conditional writes, and upsert operations. At the infrastructure level, message processing systems must implement deduplication or ensure that their handlers are idempotent by construction. In the Prismatic Platform, idempotency is enforced as a non-negotiable architectural principle across all 115 umbrella applications, from storage adapter operations to [agent](/glossary/agent/) task handlers and quality gate checks.
+The concept operates at multiple levels of abstraction. At the HTTP protocol level, RFC 9110 defines specific idempotency guarantees for standard methods. At the application level, idempotency must be designed into business logic through techniques like idempotency keys, conditional writes, and upsert operations. At the infrastructure level, message processing systems must implement deduplication or ensure that their handlers are idempotent by construction. In the Prismatic Platform, idempotency is enforced as a non-negotiable architectural principle across all 115 umbrella applications, from storage adapter operations to [agent](@/glossary/agent.md) task handlers and quality gate checks.
 
 ## Historical Context and Theoretical Foundations
 
-The term "idempotent" derives from Latin: *idem* (same) and *potens* (power) -- literally "same power." In abstract algebra, an idempotent element of a monoid satisfies `e * e = e`. The concept was first applied to computing by early database researchers who recognized that certain operations (like setting a value to a specific state, as opposed to incrementing it) were naturally safe to repeat. Roy Fielding's 2000 dissertation on REST formalized idempotency as a key property of HTTP methods, establishing the architectural foundation that modern [REST API](/glossary/rest-api/) design relies upon.
+The term "idempotent" derives from Latin: *idem* (same) and *potens* (power) -- literally "same power." In abstract algebra, an idempotent element of a monoid satisfies `e * e = e`. The concept was first applied to computing by early database researchers who recognized that certain operations (like setting a value to a specific state, as opposed to incrementing it) were naturally safe to repeat. Roy Fielding's 2000 dissertation on REST formalized idempotency as a key property of HTTP methods, establishing the architectural foundation that modern [REST API](@/glossary/rest-api.md) design relies upon.
 
 The importance of idempotency grew dramatically with the rise of distributed computing. Leslie Lamport's work on distributed consensus, the CAP theorem, and the FLP impossibility result all demonstrate that distributed systems cannot guarantee exactly-once message delivery in the general case. The pragmatic solution is at-least-once delivery combined with idempotent handlers -- a pattern that provides the correctness guarantees of exactly-once semantics without the impossibility constraints. Pat Helland's 2012 paper "Idempotence Is Not a Medical Condition" articulated this principle for enterprise systems, arguing that idempotency should be the default design assumption for all distributed operations.
 
-In the context of [OTP](/glossary/otp/) and the BEAM virtual machine, idempotency takes on additional significance because [GenServer](/glossary/genserver/) processes can crash and restart at any time, potentially re-executing in-flight operations. The "let it crash" philosophy only works safely when crashed operations can be retried without producing duplicate side effects.
+In the context of [OTP](@/glossary/otp.md) and the BEAM virtual machine, idempotency takes on additional significance because [GenServer](@/glossary/genserver.md) processes can crash and restart at any time, potentially re-executing in-flight operations. The "let it crash" philosophy only works safely when crashed operations can be retried without producing duplicate side effects.
 
 ## HTTP Method Idempotency
 
-The HTTP specification defines clear idempotency semantics for standard methods, which forms the basis for [REST API](/glossary/rest-api/) design:
+The HTTP specification defines clear idempotency semantics for standard methods, which forms the basis for [REST API](@/glossary/rest-api.md) design:
 
 | Method | Idempotent | Safe | Typical Use | Retry Safety |
 |--------|-----------|------|-------------|-------------|
@@ -63,7 +63,7 @@ The HTTP specification defines clear idempotency semantics for standard methods,
 
 *PATCH can be made idempotent through careful design (e.g., "set field X to value Y" rather than "increment field X").
 
-The distinction between idempotent and safe methods is subtle but important. Safe methods (GET, HEAD, OPTIONS) do not modify server state at all. Idempotent methods (PUT, DELETE) may modify state on the first invocation but produce the same state on subsequent invocations. POST is neither safe nor idempotent -- each invocation may create a new resource. The Prismatic Platform's [REST API](/glossary/rest-api/) gateway on port 4004 enforces these semantics, requiring idempotency keys for all POST operations that create resources.
+The distinction between idempotent and safe methods is subtle but important. Safe methods (GET, HEAD, OPTIONS) do not modify server state at all. Idempotent methods (PUT, DELETE) may modify state on the first invocation but produce the same state on subsequent invocations. POST is neither safe nor idempotent -- each invocation may create a new resource. The Prismatic Platform's [REST API](@/glossary/rest-api.md) gateway on port 4004 enforces these semantics, requiring idempotency keys for all POST operations that create resources.
 
 ## Implementation Strategies
 
@@ -180,7 +180,7 @@ end
 
 ### Event Processing Deduplication
 
-For [event sourcing](/glossary/event-sourcing/) systems, idempotent event handlers use event IDs to prevent duplicate processing:
+For [event sourcing](@/glossary/event-sourcing.md) systems, idempotent event handlers use event IDs to prevent duplicate processing:
 
 ```elixir
 defmodule PrismaticAgents.EventHandler do
@@ -219,23 +219,23 @@ end
 
 The Prismatic Platform enforces idempotency in all critical paths, treating it as a non-negotiable correctness requirement rather than an optimization. This principle is enforced across several architectural layers:
 
-- **Storage Adapter Operations**: All storage adapters ([ETS](/glossary/ets/), [Ecto](/glossary/ecto/), Meilisearch, KuzuDB) implement upsert semantics. Writing the same entity twice with the same identifier produces the same state as writing it once. The `PrismaticStorage.AdapterContractTest` behaviour validates idempotent write semantics for all adapter implementations.
+- **Storage Adapter Operations**: All storage adapters ([ETS](@/glossary/ets.md), [Ecto](@/glossary/ecto.md), Meilisearch, KuzuDB) implement upsert semantics. Writing the same entity twice with the same identifier produces the same state as writing it once. The `PrismaticStorage.AdapterContractTest` behaviour validates idempotent write semantics for all adapter implementations.
 
 - **Quality Gate Checks**: Running `mix quality.gates` multiple times produces the same verdict. The quality checking pipeline is referentially transparent -- it reads code, analyzes it, and produces a report without modifying the codebase. This idempotent property enables safe retry of quality checks during CI pipeline failures.
 
 - **Autoheal Cycles**: The SEADF healing framework is designed so that running `mix autoheal.cycle` multiple times converges to the same platform state. Each healing operation checks current state before acting, making repeated execution safe and convergent.
 
-- **API Endpoints**: The [REST API](/glossary/rest-api/) on port 4004 follows HTTP idempotency conventions. PUT operations are inherently idempotent. POST operations that create resources accept client-provided idempotency keys for safe retry.
+- **API Endpoints**: The [REST API](@/glossary/rest-api.md) on port 4004 follows HTTP idempotency conventions. PUT operations are inherently idempotent. POST operations that create resources accept client-provided idempotency keys for safe retry.
 
-- **Agent Execution**: [Agent](/glossary/agent/) task handlers are designed to be idempotent. Re-executing an agent's task with the same parameters produces the same result, enabling safe retry after process crashes within the OTP supervision tree.
+- **Agent Execution**: [Agent](@/glossary/agent.md) task handlers are designed to be idempotent. Re-executing an agent's task with the same parameters produces the same result, enabling safe retry after process crashes within the OTP supervision tree.
 
-- **[QDP](/glossary/qdp/) Elimination**: Quality debt elimination operations are idempotent -- applying the same fix to already-fixed code is a no-op. The 0 QDP state is maintained through idempotent correction operations.
+- **[QDP](@/glossary/qdp.md) Elimination**: Quality debt elimination operations are idempotent -- applying the same fix to already-fixed code is a no-op. The 0 QDP state is maintained through idempotent correction operations.
 
 - **Pre-commit Hooks**: The 11-phase pre-commit pipeline is idempotent -- running it multiple times on the same code produces the same pass/fail result without modifying the working tree.
 
 ## Idempotency in Distributed Elixir
 
-In a [clustered](/glossary/cluster/) BEAM deployment, idempotency is especially critical because network partitions between nodes can cause message duplication:
+In a [clustered](@/glossary/cluster.md) BEAM deployment, idempotency is especially critical because network partitions between nodes can cause message duplication:
 
 | Scenario | Without Idempotency | With Idempotency |
 |----------|---------------------|------------------|
@@ -246,18 +246,18 @@ In a [clustered](/glossary/cluster/) BEAM deployment, idempotency is especially 
 | **GenServer restart** | Lost in-flight operations | Operations retried safely by callers |
 | **Oban job retry** | Duplicate background work | Job handler checks completion state first |
 
-The BEAM's distributed process model introduces additional idempotency challenges. When a [GenServer](/glossary/genserver/) process on node A sends a message to a process on node B, and B crashes before acknowledging, A cannot know whether B processed the message. The only safe assumption is at-least-once delivery, which requires B's handler to be idempotent. The Prismatic Platform's `PrismaticSupervisor` ensures that all supervised processes handle restarts idempotently through the compositional supervision tree.
+The BEAM's distributed process model introduces additional idempotency challenges. When a [GenServer](@/glossary/genserver.md) process on node A sends a message to a process on node B, and B crashes before acknowledging, A cannot know whether B processed the message. The only safe assumption is at-least-once delivery, which requires B's handler to be idempotent. The Prismatic Platform's `PrismaticSupervisor` ensures that all supervised processes handle restarts idempotently through the compositional supervision tree.
 
 ## Idempotency vs. Related Concepts
 
 | Concept | Definition | Relationship to Idempotency |
 |---------|-----------|---------------------------|
-| **[Pure Function](/glossary/pure-function/)** | Same output for same input, no side effects | Pure functions are inherently idempotent for state |
+| **[Pure Function](@/glossary/pure-function.md)** | Same output for same input, no side effects | Pure functions are inherently idempotent for state |
 | **Determinism** | Same output for same input (may have side effects) | Necessary but not sufficient for idempotency |
-| **[Eventual Consistency](/glossary/eventual-consistency/)** | All replicas converge to same state | Relies on idempotent convergence operations |
+| **[Eventual Consistency](@/glossary/eventual-consistency.md)** | All replicas converge to same state | Relies on idempotent convergence operations |
 | **At-Least-Once Delivery** | Messages delivered one or more times | Requires idempotent handlers for correctness |
 | **Exactly-Once Semantics** | Messages processed exactly once | Achieved through idempotency + deduplication |
-| **[Immutability](/glossary/immutability/)** | Data cannot be changed after creation | Naturally supports idempotent append operations |
+| **[Immutability](@/glossary/immutability.md)** | Data cannot be changed after creation | Naturally supports idempotent append operations |
 | **Commutativity** | Order-independent operations | Idempotent + commutative = CRDT foundation |
 | **Convergence** | System approaches stable state | Idempotent operations ensure convergence |
 
@@ -332,7 +332,7 @@ end
 
 ## Database-Level Idempotency Patterns
 
-PostgreSQL provides several mechanisms for implementing idempotent operations at the database level, which the Prismatic Platform leverages through [Ecto](/glossary/ecto/):
+PostgreSQL provides several mechanisms for implementing idempotent operations at the database level, which the Prismatic Platform leverages through [Ecto](@/glossary/ecto.md):
 
 ```elixir
 defmodule PrismaticStorage.IdempotentQueries do
@@ -455,24 +455,24 @@ end
 
 ## Related Terms
 
-- [REST API](/glossary/rest-api/) - HTTP methods with defined idempotency semantics
-- [Event Sourcing](/glossary/event-sourcing/) - Event replay requires idempotent projection handlers
-- [Eventual Consistency](/glossary/eventual-consistency/) - Consistency model relying on idempotent convergence
-- [Fault Tolerance](/glossary/fault-tolerance/) - Idempotency enables safe recovery from failures
-- [CQRS](/glossary/cqrs/) - Command handlers benefit from idempotent design
-- [Pure Function](/glossary/pure-function/) - Pure functions are naturally idempotent for state
-- [Ecto](/glossary/ecto/) - Database library providing upsert and conflict resolution
-- [Immutability](/glossary/immutability/) - Immutable data supports idempotent append patterns
-- [Distributed System](/glossary/distributed-system/) - Environment where idempotency is essential
-- [Self-Healing](/glossary/self-healing/) - Healing operations must be idempotent for convergence
-- [GenServer](/glossary/genserver/) - OTP process model requiring idempotent restart handling
-- [OTP](/glossary/otp/) - Supervision framework depending on idempotent process initialization
+- [REST API](@/glossary/rest-api.md) - HTTP methods with defined idempotency semantics
+- [Event Sourcing](@/glossary/event-sourcing.md) - Event replay requires idempotent projection handlers
+- [Eventual Consistency](@/glossary/eventual-consistency.md) - Consistency model relying on idempotent convergence
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - Idempotency enables safe recovery from failures
+- [CQRS](@/glossary/cqrs.md) - Command handlers benefit from idempotent design
+- [Pure Function](@/glossary/pure-function.md) - Pure functions are naturally idempotent for state
+- [Ecto](@/glossary/ecto.md) - Database library providing upsert and conflict resolution
+- [Immutability](@/glossary/immutability.md) - Immutable data supports idempotent append patterns
+- [Distributed System](@/glossary/distributed-system.md) - Environment where idempotency is essential
+- [Self-Healing](@/glossary/self-healing.md) - Healing operations must be idempotent for convergence
+- [GenServer](@/glossary/genserver.md) - OTP process model requiring idempotent restart handling
+- [OTP](@/glossary/otp.md) - Supervision framework depending on idempotent process initialization
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform reliability and consistency patterns
-- [Technologies](/technologies/) - Implementation approaches for idempotent systems
-- [Capabilities](/capabilities/) - Idempotency in platform capability design
+- [Architecture](@/architecture/_index.md) - Platform reliability and consistency patterns
+- [Technologies](@/technologies/_index.md) - Implementation approaches for idempotent systems
+- [Capabilities](@/capabilities/_index.md) - Idempotency in platform capability design
 
 ---
 
@@ -481,4 +481,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

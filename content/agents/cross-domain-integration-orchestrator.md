@@ -28,7 +28,7 @@ image_alt = "cross-domain-integration-orchestrator - Prismatic Platform"
 
 ## Overview
 
-The Cross-Domain Integration Orchestrator operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Integration domain of the Prismatic Platform. This agent manages domain boundary integration with [mycelial network](/glossary/mycelial-network/) pattern propagation for cross-domain [intelligence fusion](/glossary/intelligence-fusion/). In a platform with 90 umbrella applications spanning intelligence, compliance, infrastructure, and quality domains, the ability to seamlessly move data and coordinate operations across domain boundaries is essential for producing unified intelligence products.
+The Cross-Domain Integration Orchestrator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Integration domain of the Prismatic Platform. This agent manages domain boundary integration with [mycelial network](@/glossary/mycelial-network.md) pattern propagation for cross-domain [intelligence fusion](@/glossary/intelligence-fusion.md). In a platform with 90 umbrella applications spanning intelligence, compliance, infrastructure, and quality domains, the ability to seamlessly move data and coordinate operations across domain boundaries is essential for producing unified intelligence products.
 
 Integration challenges in the Prismatic ecosystem are distinct from those in conventional enterprise systems. The platform combines real-time OSINT data ingestion, batch registry crawling, graph-based entity resolution, time-series security metrics, and interactive LiveView dashboards -- each with different data models, latency requirements, and consistency guarantees. The Cross-Domain Integration Orchestrator provides the connective tissue that enables these diverse subsystems to collaborate without tight coupling, using adapter patterns, event-driven messaging, and protocol-based contracts that isolate domain-specific concerns while enabling cross-domain data flow.
 
@@ -46,7 +46,7 @@ Protocol-based contracts define the integration surface for each domain. These c
 
 Cross-domain coordination uses an event-driven architecture where domains communicate through events rather than direct function calls. This decoupling ensures that a failure or slowdown in one domain does not cascade to others, and that new consumers can subscribe to existing event streams without modifying producers.
 
-The event system is built on [GenStage](/glossary/genstage/) and Broadway for high-throughput event processing with backpressure support. Producers emit events at their natural rate, and the GenStage backpressure mechanism ensures that slow consumers are not overwhelmed while fast consumers receive events without artificial throttling. The orchestrator manages producer-consumer topology, adding and removing subscriptions as domain requirements change.
+The event system is built on [GenStage](@/glossary/genstage.md) and Broadway for high-throughput event processing with backpressure support. Producers emit events at their natural rate, and the GenStage backpressure mechanism ensures that slow consumers are not overwhelmed while fast consumers receive events without artificial throttling. The orchestrator manages producer-consumer topology, adding and removing subscriptions as domain requirements change.
 
 Event routing uses topic-based subscription where consumers declare interest in specific event categories. The orchestrator maintains a routing table that maps event topics to subscriber lists, enabling multicast delivery where a single event can trigger processing in multiple consuming domains. Routing rules support both exact topic matching and wildcard patterns for broader subscription scopes.
 
@@ -90,20 +90,20 @@ Contract compliance monitoring verifies that all domains continue to comply with
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to define integration contracts, manage adapter configurations, and coordinate cross-domain data flows.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to define integration contracts, manage adapter configurations, and coordinate cross-domain data flows.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [adapter-pattern-specialist](/agents/adapter-pattern-specialist/) | Adapter Design | Designs integration adapters for external systems and APIs |
-| [anti-corruption-layer-specialist](/agents/anti-corruption-layer-specialist/) | Boundary Protection | Isolates legacy systems through anti-corruption layers |
-| [data-migration-architect](/agents/data-migration-architect/) | Data Movement | Coordinates large-scale data migration across domain boundaries |
-| [cross-domain-intelligence-coordinator](/agents/cross-domain-intelligence-coordinator/) | Intelligence Consumer | Consumes cross-domain data for intelligence fusion |
+| [adapter-pattern-specialist](@/agents/adapter-pattern-specialist.md) | Adapter Design | Designs integration adapters for external systems and APIs |
+| [anti-corruption-layer-specialist](@/agents/anti-corruption-layer-specialist.md) | Boundary Protection | Isolates legacy systems through anti-corruption layers |
+| [data-migration-architect](@/agents/data-migration-architect.md) | Data Movement | Coordinates large-scale data migration across domain boundaries |
+| [cross-domain-intelligence-coordinator](@/agents/cross-domain-intelligence-coordinator.md) | Intelligence Consumer | Consumes cross-domain data for intelligence fusion |
 
 ## Enforcement
 
-All integration operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No cross-domain data flow operates without a verified integration contract. Adapters must pass compliance testing before production deployment. Event delivery guarantees are enforced through monitoring with automatic alerting when delivery failures exceed configurable thresholds. Data consistency conflicts are surfaced immediately and must be resolved before affected data can be consumed downstream. Integration contract changes require backward compatibility verification across all affected domains before deployment.
+All integration operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No cross-domain data flow operates without a verified integration contract. Adapters must pass compliance testing before production deployment. Event delivery guarantees are enforced through monitoring with automatic alerting when delivery failures exceed configurable thresholds. Data consistency conflicts are surfaced immediately and must be resolved before affected data can be consumed downstream. Integration contract changes require backward compatibility verification across all affected domains before deployment.
 
 ---
 
@@ -112,4 +112,4 @@ All integration operations are governed by the [NO MERCY, NO DOUBTS](/glossary/n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

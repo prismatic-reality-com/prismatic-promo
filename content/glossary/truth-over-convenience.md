@@ -39,11 +39,11 @@ image_alt = "Truth Over Convenience - Prismatic Platform"
 
 ## Definition
 
-"Truth Over Convenience" is a foundational epistemic principle within the Prismatic Platform asserting that evidence must be preserved, reported, and acted upon accurately regardless of whether it supports convenient conclusions. The principle directly challenges the pervasive human and organizational tendency to smooth over inconvenient findings, rationalize away contradictions, and cherry-pick evidence that supports predetermined conclusions. It is not a guideline or a best practice -- it is a structural constraint enforced through [NABLA Infinity](/glossary/nabla-infinity/) axioms and the [Addiction Preservation](/glossary/addiction-recovery/) doctrine.
+"Truth Over Convenience" is a foundational epistemic principle within the Prismatic Platform asserting that evidence must be preserved, reported, and acted upon accurately regardless of whether it supports convenient conclusions. The principle directly challenges the pervasive human and organizational tendency to smooth over inconvenient findings, rationalize away contradictions, and cherry-pick evidence that supports predetermined conclusions. It is not a guideline or a best practice -- it is a structural constraint enforced through [NABLA Infinity](@/glossary/nabla-infinity.md) axioms and the [Addiction Preservation](@/glossary/addiction-recovery.md) doctrine.
 
 The principle operates on a simple but uncomfortable premise: reality is not a democracy, and evidence is not optional. When evidence contradicts a convenient narrative, the evidence wins. When a finding is inconvenient for stakeholders, the finding stands. When a contradiction exists between a comfortable assumption and an uncomfortable observation, the contradiction is preserved rather than resolved in favor of comfort.
 
-Within the Prismatic Platform, this principle is not merely philosophical -- it is architecturally enforced. The NABLA Infinity [Contradiction Preservation](/glossary/contradiction-preservation/) axiom (HARD enforcement, E2 BLOCK) forbids discarding contradictory evidence. The [Signal Plurality](/glossary/signal-plurality/) axiom prevents single-source beliefs that are easy to construct when cherry-picking evidence. The [Provenance Mandatory](/glossary/provenance-mandatory/) axiom ensures that every conclusion is traceable to its evidence, making post-hoc rationalization detectable. Together, these axioms create a system where convenience cannot override truth.
+Within the Prismatic Platform, this principle is not merely philosophical -- it is architecturally enforced. The NABLA Infinity [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom (HARD enforcement, E2 BLOCK) forbids discarding contradictory evidence. The [Signal Plurality](@/glossary/signal-plurality.md) axiom prevents single-source beliefs that are easy to construct when cherry-picking evidence. The [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom ensures that every conclusion is traceable to its evidence, making post-hoc rationalization detectable. Together, these axioms create a system where convenience cannot override truth.
 
 ## The Cost of Convenience
 
@@ -53,7 +53,7 @@ Convenience-driven evidence handling is the most common source of catastrophic f
 
 A bank performing due diligence on a potential client finds that three sources confirm the client's legitimate business operations, while one source flags suspicious beneficial ownership patterns. The convenient conclusion: "Three out of four sources say everything is fine." The bank proceeds with the relationship. Two years later, the client is exposed as a sanctions evasion vehicle, and the bank faces regulatory penalties.
 
-Truth Over Convenience response: The contradictory signal from the fourth source is preserved, annotated as a strong contradiction, and propagated through the investigation pipeline. The final assessment explicitly notes the unresolved contradiction and reduces the confidence score accordingly. The [Confidence Scoring](/glossary/confidence-scoring/) system computes a score that reflects the contradiction rather than averaging it away.
+Truth Over Convenience response: The contradictory signal from the fourth source is preserved, annotated as a strong contradiction, and propagated through the investigation pipeline. The final assessment explicitly notes the unresolved contradiction and reduces the confidence score accordingly. The [Confidence Scoring](@/glossary/confidence-scoring.md) system computes a score that reflects the contradiction rather than averaging it away.
 
 ### Case Study: Security Assessment
 
@@ -75,13 +75,13 @@ The platform identifies six specific patterns through which convenience override
 
 Selecting evidence that supports a desired conclusion while ignoring or downweighting contradictory evidence. An analyst investigating a company finds seven sources with positive information and two sources with concerning signals. The analyst emphasizes the seven positive sources and mentions the two concerning sources only in a footnote, creating an impression of overwhelming positive evidence.
 
-The [Signal Plurality](/glossary/signal-plurality/) and [Contradiction Preservation](/glossary/contradiction-preservation/) axioms prevent cherry picking at the structural level. All sources must be recorded, contradictions must be preserved, and the confidence computation weights all evidence rather than a selected subset. Enforcement level: E2 BLOCK.
+The [Signal Plurality](@/glossary/signal-plurality.md) and [Contradiction Preservation](@/glossary/contradiction-preservation.md) axioms prevent cherry picking at the structural level. All sources must be recorded, contradictions must be preserved, and the confidence computation weights all evidence rather than a selected subset. Enforcement level: E2 BLOCK.
 
 ### Trap 2: Rationalization
 
 Constructing plausible-sounding explanations for why inconvenient evidence should be discounted. A sanctions screening tool flags a potential match. An analyst reviews the match and reasons: "The name is common in this region, the address is a large commercial building, and the date of birth is off by one year -- this is clearly a false positive." Each rationalization may be individually plausible, but together they allow a potential match to be dismissed without rigorous investigation.
 
-[Provenance Mandatory](/glossary/provenance-mandatory/) requires that every dismissal of evidence is itself evidenced. "The name is common" must be supported by statistical data on name frequency. The rationalization chain is itself subject to validation. Enforcement level: E2 BLOCK.
+[Provenance Mandatory](@/glossary/provenance-mandatory.md) requires that every dismissal of evidence is itself evidenced. "The name is common" must be supported by statistical data on name frequency. The rationalization chain is itself subject to validation. Enforcement level: E2 BLOCK.
 
 ### Trap 3: Majority Rules Fallacy
 
@@ -99,7 +99,7 @@ The Time Decay axiom requires timestamps on all evidence and prohibits aggregati
 
 Narrowing the scope of an investigation to exclude areas where inconvenient evidence is likely to be found. A security assessment covers web applications and network infrastructure but excludes physical security and supply chain risk because "those are out of scope." The scope exclusion conveniently avoids the areas where the company has the most significant vulnerabilities.
 
-The meta-integrity layer of the [Trinity Gate](/glossary/trinity-gate/) includes a completeness check that verifies the investigation covered the full scope of the claim. Enforcement level: E3 HALT.
+The meta-integrity layer of the [Trinity Gate](@/glossary/trinity-gate.md) includes a completeness check that verifies the investigation covered the full scope of the claim. Enforcement level: E3 HALT.
 
 ### Trap 6: Precision Substitution
 
@@ -109,7 +109,7 @@ The Unknown Valid axiom requires that uncertainty be explicitly represented. Con
 
 ## Addiction Preservation: The Vigilance Analogy
 
-The "Truth Over Convenience" principle is operationalized through the [Addiction Preservation](/glossary/addiction-recovery/) doctrine, which draws a deliberate analogy between epistemic integrity and addiction recovery. Like an addict in recovery, an epistemic system must remain constantly vigilant against seemingly harmless impulses that lead to relapse:
+The "Truth Over Convenience" principle is operationalized through the [Addiction Preservation](@/glossary/addiction-recovery.md) doctrine, which draws a deliberate analogy between epistemic integrity and addiction recovery. Like an addict in recovery, an epistemic system must remain constantly vigilant against seemingly harmless impulses that lead to relapse:
 
 | Addiction Recovery | Epistemic Integrity |
 |-------------------|-------------------|
@@ -405,7 +405,7 @@ The Prismatic Platform addresses these organizational pressures through structur
 
 ## Truth Over Convenience in AI Systems
 
-The principle is particularly critical in AI-assisted systems, where convenience traps can be amplified by automation. Model confidence can masquerade as truth when AI models produce high-confidence outputs that are factually incorrect. Training data bias can reproduce and amplify convenience patterns from historical data. Automation at scale transforms a 1% error rate from 1 mistake per year into 100 mistakes per day. The NABLA [Provenance Mandatory](/glossary/provenance-mandatory/) axiom addresses accountability diffusion by ensuring that every decision is traceable to its evidence chain, regardless of whether a human or AI made the decision.
+The principle is particularly critical in AI-assisted systems, where convenience traps can be amplified by automation. Model confidence can masquerade as truth when AI models produce high-confidence outputs that are factually incorrect. Training data bias can reproduce and amplify convenience patterns from historical data. Automation at scale transforms a 1% error rate from 1 mistake per year into 100 mistakes per day. The NABLA [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom addresses accountability diffusion by ensuring that every decision is traceable to its evidence chain, regardless of whether a human or AI made the decision.
 
 ## Philosophical Foundation
 
@@ -415,20 +415,20 @@ Richard Feynman's cargo cult science lecture at Caltech in 1974 articulated the 
 
 ## Related Terms
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework enforcing evidence integrity
-- [Addiction Recovery](/glossary/addiction-recovery/) -- Addiction Preservation doctrine operationalizing truth vigilance
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- NABLA axiom forbidding evidence suppression
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- Complementary principle on expert opinions
-- [Cherry Pick Evidence](/glossary/cherry-pick-evidence/) -- Convenience Trap 1: selective evidence use
-- [Rationalize Evidence](/glossary/rationalize-evidence/) -- Convenience Trap 2: plausible dismissal
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom preventing single-source convenience
-- [Code as Truth](/glossary/code-as-truth/) -- Source code as authoritative truth reference
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) -- Execution doctrine requiring truth-based confidence
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Traceability preventing hidden rationalization
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Calibrated scoring reflecting contradictions
-- [Conflicting Signals](/glossary/conflicting-signals/) -- How contradictory evidence manifests in practice
-- [Trinity Gate](/glossary/trinity-gate/) -- Formal verification preventing false certainty
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- Trust through verifiable truth
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework enforcing evidence integrity
+- [Addiction Recovery](@/glossary/addiction-recovery.md) -- Addiction Preservation doctrine operationalizing truth vigilance
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- NABLA axiom forbidding evidence suppression
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- Complementary principle on expert opinions
+- [Cherry Pick Evidence](@/glossary/cherry-pick-evidence.md) -- Convenience Trap 1: selective evidence use
+- [Rationalize Evidence](@/glossary/rationalize-evidence.md) -- Convenience Trap 2: plausible dismissal
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom preventing single-source convenience
+- [Code as Truth](@/glossary/code-as-truth.md) -- Source code as authoritative truth reference
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) -- Execution doctrine requiring truth-based confidence
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Traceability preventing hidden rationalization
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Calibrated scoring reflecting contradictions
+- [Conflicting Signals](@/glossary/conflicting-signals.md) -- How contradictory evidence manifests in practice
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Formal verification preventing false certainty
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- Trust through verifiable truth
 
 ---
 
@@ -437,4 +437,4 @@ Richard Feynman's cargo cult science lecture at Caltech in 1974 articulated the 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

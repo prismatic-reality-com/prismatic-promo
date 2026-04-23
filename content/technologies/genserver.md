@@ -28,7 +28,7 @@ GenServer is the OTP behaviour that implements the stateful process pattern unde
 
 The Prismatic Platform has over 400 GenServer-based processes running concurrently, each supervised by an OTP Supervisor. GenServer's standardized callback interface (`init/1`, `handle_call/3`, `handle_cast/2`, `handle_info/2`) provides a consistent programming model that makes every stateful component in the platform structurally identical, simplifying debugging and maintenance. When a developer encounters any stateful module in the platform, they already know the interface: `init/1` sets up state, `handle_call/3` processes synchronous requests, `handle_cast/2` processes asynchronous messages, and `handle_info/2` handles everything else.
 
-GenServer's integration with OTP supervision means that when a process crashes (and the [BEAM](/technologies/beam/)'s "let it crash" philosophy encourages accepting crashes), the Supervisor automatically restarts it with clean state, ensuring system-wide resilience. This crash recovery is transparent to callers -- a GenServer that crashes and restarts appears to simply have a brief delay in responding, with no error propagation to the caller unless explicitly designed.
+GenServer's integration with OTP supervision means that when a process crashes (and the [BEAM](@/technologies/beam.md)'s "let it crash" philosophy encourages accepting crashes), the Supervisor automatically restarts it with clean state, ensuring system-wide resilience. This crash recovery is transparent to callers -- a GenServer that crashes and restarts appears to simply have a brief delay in responding, with no error propagation to the caller unless explicitly designed.
 
 ## Key Features
 
@@ -128,7 +128,7 @@ The GenServer behaviour defines six callbacks, all of which are used in the Pris
 
 ## Performance Characteristics
 
-GenServer processes on the [BEAM](/technologies/beam/) VM are extremely lightweight, enabling the platform to run hundreds concurrently without resource concerns.
+GenServer processes on the [BEAM](@/technologies/beam.md) VM are extremely lightweight, enabling the platform to run hundreds concurrently without resource concerns.
 
 | Metric | Value | Context |
 |--------|-------|---------|
@@ -166,7 +166,7 @@ The `hibernate_after` option is particularly important for the platform's agent 
 
 ## Best Practices
 
-The platform enforces strict GenServer usage patterns aligned with OTP conventions and the [NO MERCY](/capabilities/no-mercy/) quality doctrine.
+The platform enforces strict GenServer usage patterns aligned with OTP conventions and the [NO MERCY](@/capabilities/no-mercy.md) quality doctrine.
 
 - **Always define a client API** -- never call `GenServer.call/2` directly from outside the module; wrap all calls in descriptive public functions
 - **Use `@impl true`** on all callbacks -- this ensures the compiler catches missing or incorrect callback implementations
@@ -174,7 +174,7 @@ The platform enforces strict GenServer usage patterns aligned with OTP conventio
 - **Set `hibernate_after`** on all GenServer processes -- idle processes should not consume heap memory
 - **Handle `:DOWN` messages** in `handle_info/2` when monitoring other processes -- unhandled messages cause mailbox growth
 - **Use `handle_continue/2`** for expensive initialization -- return `{:ok, state, {:continue, :init}}` from `init/1` to avoid blocking the supervisor during startup
-- **Keep state minimal** -- store large datasets in [ETS](/technologies/ets/) and reference them from GenServer state by table name
+- **Keep state minimal** -- store large datasets in [ETS](@/technologies/ets.md) and reference them from GenServer state by table name
 - **Never block in callbacks** -- long-running operations should be delegated to `Task.async/1` to avoid blocking the GenServer mailbox
 
 ## Comparison with Alternatives
@@ -193,17 +193,17 @@ GenServer is the default choice for any stateful process in the Prismatic Platfo
 
 ## Related Technologies
 
-- [Erlang/OTP](/technologies/erlang-otp/) - The OTP framework that defines the GenServer behaviour
-- [BEAM](/technologies/beam/) - The virtual machine providing lightweight process execution
-- [ETS](/technologies/ets/) - In-memory storage frequently paired with GenServer processes as table owners
-- [Elixir](/technologies/elixir/) - The language providing the GenServer macro and module system
-- [Phoenix](/technologies/phoenix/) - Web framework built on GenServer-based channels and endpoints
+- [Erlang/OTP](@/technologies/erlang-otp.md) - The OTP framework that defines the GenServer behaviour
+- [BEAM](@/technologies/beam.md) - The virtual machine providing lightweight process execution
+- [ETS](@/technologies/ets.md) - In-memory storage frequently paired with GenServer processes as table owners
+- [Elixir](@/technologies/elixir.md) - The language providing the GenServer macro and module system
+- [Phoenix](@/technologies/phoenix.md) - Web framework built on GenServer-based channels and endpoints
 
 ## Related Apps
 
-- [prismatic_claude](/apps/prismatic-claude/) - StackConversation and SessionLifecycle GenServers
-- [prismatic_agents](/apps/prismatic-agents/) - Agent coordination and registry GenServers
-- [prismatic_safety](/apps/prismatic-safety/) - Quality Floor Guardian GenServer
+- [prismatic_claude](@/apps/prismatic-claude.md) - StackConversation and SessionLifecycle GenServers
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent coordination and registry GenServers
+- [prismatic_safety](@/apps/prismatic-safety.md) - Quality Floor Guardian GenServer
 - All 90 Prismatic Platform applications use GenServer extensively as the primary stateful process abstraction
 
 ---
@@ -213,4 +213,4 @@ GenServer is the default choice for any stateful process in the Prismatic Platfo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -148,4 +148,4 @@ Or use the compliance dashboard at `/capabilities/compliance/` for interactive g
 
 ---
 
-*Learn more at [Compliance Capabilities](/capabilities/compliance/) or explore [Security Ratings](/blog/security-ratings-easm-explained/) for the EASM methodology.*
+*Learn more at [Compliance Capabilities](@/capabilities/compliance.md) or explore [Security Ratings](@/blog/security-ratings-easm-explained.md) for the EASM methodology.*

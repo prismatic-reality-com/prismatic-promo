@@ -479,19 +479,19 @@ end
 
 ## Related Concepts
 
-- [Behaviour](/glossary/behaviour/) -- Module-level callback specifications complementing protocols
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Storage abstraction using both protocols and behaviours
-- [OTP](/glossary/otp/) -- Framework providing the runtime infrastructure for protocol dispatch
-- [Elixir](/glossary/elixir/) -- The language providing the protocol mechanism
-- [Umbrella Application](/glossary/umbrella-application/) -- Cross-app protocol definitions for shared contracts
-- [Prismatic Storage](/glossary/prismatic-storage/) -- Primary consumer of the Storable protocol
-- [SPARKLINE](/glossary/sparkline/) -- Contract system leveraging protocol-based type dispatch
+- [Behaviour](@/glossary/behaviour.md) -- Module-level callback specifications complementing protocols
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Storage abstraction using both protocols and behaviours
+- [OTP](@/glossary/otp.md) -- Framework providing the runtime infrastructure for protocol dispatch
+- [Elixir](@/glossary/elixir.md) -- The language providing the protocol mechanism
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Cross-app protocol definitions for shared contracts
+- [Prismatic Storage](@/glossary/prismatic-storage.md) -- Primary consumer of the Storable protocol
+- [SPARKLINE](@/glossary/sparkline.md) -- Contract system leveraging protocol-based type dispatch
 
 ## See Also
 
-- [Technologies](/technologies/) -- Technology stack details
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Umbrella applications implementing protocols across boundaries
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Umbrella applications implementing protocols across boundaries
 
 ---
 
@@ -500,4 +500,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

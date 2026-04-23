@@ -184,7 +184,7 @@ The mandatory context preservation in Phase 5 is non-negotiable. A mission is no
 
 The `/archer-supreme` command is reserved for scenarios where standard platform commands are insufficient to achieve the objective. This includes architectural overhauls spanning multiple applications, quality campaigns targeting the entire codebase, complex integrations requiring coordination across all platform domains, production emergencies requiring unlimited authority, and innovation initiatives that demand breakthrough approaches.
 
-Before invoking ARCHER SUPREME, operators should verify that the mission genuinely requires unlimited authority. Many objectives that initially seem impossible can be achieved through standard commands like [/orchestrate](/commands/orchestrate/) or [/code](/commands/code/). ARCHER SUPREME should be the last resort, not the first choice -- its power comes with the overhead of mandatory context management, multi-phase execution, and comprehensive documentation.
+Before invoking ARCHER SUPREME, operators should verify that the mission genuinely requires unlimited authority. Many objectives that initially seem impossible can be achieved through standard commands like [/orchestrate](@/commands/orchestrate.md) or [/code](@/commands/code.md). ARCHER SUPREME should be the last resort, not the first choice -- its power comes with the overhead of mandatory context management, multi-phase execution, and comprehensive documentation.
 
 The command integrates tightly with the platform's session context system. Previous ARCHER SUPREME mission archives provide valuable institutional knowledge for future missions. The pattern library built from past missions enables the `archer-supreme` agent to apply proven strategies to new challenges, improving mission success rates over time.
 
@@ -192,29 +192,29 @@ The command integrates tightly with the platform's session context system. Previ
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Coordinates ALL 400+ agents with unlimited authority |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Coordinates ALL 400+ agents with unlimited authority |
 | AIAD Registry | Full command and agent registry access |
-| [Quality Gates](/glossary/quality-gates/) | Quality gate enforcement on all mission outputs |
-| [Telemetry](/glossary/telemetry/) | Mission execution [metrics](/glossary/metrics/), phase timing, and success tracking |
-| [Session Context](/glossary/session-discipline/) | Mandatory context loading, saving, and archiving |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality gate enforcement on all mission outputs |
+| [Telemetry](@/glossary/telemetry.md) | Mission execution [metrics](@/glossary/metrics.md), phase timing, and success tracking |
+| [Session Context](@/glossary/session-discipline.md) | Mandatory context loading, saving, and archiving |
 | Mission Archive | `.claude/reports/ARCHER-SUPREME-MISSION-ARCHIVE/` for institutional knowledge |
-| [/emergency](/commands/emergency/) | Emergency response activation for crisis scenarios |
-| [/archer-supreme-dx](/commands/archer-supreme-dx/) | Development experience optimization |
-| [/orchestrate](/commands/orchestrate/) | Multi-agent orchestration (lower authority alternative) |
-| [Trinity Gate](/glossary/trinity-gate/) | Validation of mission outcomes through formal verification |
+| [/emergency](@/commands/emergency.md) | Emergency response activation for crisis scenarios |
+| [/archer-supreme-dx](@/commands/archer-supreme-dx.md) | Development experience optimization |
+| [/orchestrate](@/commands/orchestrate.md) | Multi-agent orchestration (lower authority alternative) |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Validation of mission outcomes through formal verification |
 
 ## Doctrine Compliance
 
-All ARCHER SUPREME operations are governed by the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine with elevated enforcement at SUPREME authority:
+All ARCHER SUPREME operations are governed by the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine with elevated enforcement at SUPREME authority:
 
 - **NO MERCY**: Missions are completed fully or not at all. There is no concept of partial success in ARCHER SUPREME operations. All five phases must execute to completion. Context preservation is mandatory and non-negotiable. Quality gates apply to every deliverable produced during the mission. Impossible is not an acceptable outcome -- the mission parameters include innovation authority specifically to enable breakthrough approaches when conventional methods are insufficient.
 - **NO DOUBTS**: Phase 0 context loading ensures full understanding of the current state before action. Phase 1 assessment classifies impossibility factors with evidence-based analysis. Phase 4 validation verifies success criteria against concrete evidence. All decisions made during the mission are documented with rationale. The mission archive ensures that future operators can reconstruct the full decision chain and understand why each choice was made.
 
-ARCHER SUPREME missions also enforce the [NABLA Infinity](/glossary/nabla-infinity/) Provenance Mandatory axiom at maximum strength: every claim, decision, and outcome produced during the mission must be traceable to specific evidence, analysis, or validated results. Unsubstantiated claims are never acceptable, regardless of the urgency of the mission.
+ARCHER SUPREME missions also enforce the [NABLA Infinity](@/glossary/nabla-infinity.md) Provenance Mandatory axiom at maximum strength: every claim, decision, and outcome produced during the mission must be traceable to specific evidence, analysis, or validated results. Unsubstantiated claims are never acceptable, regardless of the urgency of the mission.
 
 ## Best Practices
 
-1. **Exhaust standard commands first**: Before invoking ARCHER SUPREME, verify that the objective cannot be achieved through standard commands like [/orchestrate](/commands/orchestrate/), [/code](/commands/code/), or [/fix](/commands/fix/). ARCHER SUPREME is designed for genuinely impossible missions, not routine tasks.
+1. **Exhaust standard commands first**: Before invoking ARCHER SUPREME, verify that the objective cannot be achieved through standard commands like [/orchestrate](@/commands/orchestrate.md), [/code](@/commands/code.md), or [/fix](@/commands/fix.md). ARCHER SUPREME is designed for genuinely impossible missions, not routine tasks.
 
 2. **Define clear success criteria**: Provide specific, measurable success criteria in the mission description. Vague missions like "improve the platform" lack the precision needed for effective Phase 4 validation. Concrete missions like "achieve 100/100 quality score" enable definitive success verification.
 
@@ -228,13 +228,13 @@ ARCHER SUPREME missions also enforce the [NABLA Infinity](/glossary/nabla-infini
 
 ## Related Commands
 
-- [/emergency](/commands/emergency/) - Emergency response and crisis management activation
-- [/archer-supreme-dx](/commands/archer-supreme-dx/) - ARCHER SUPREME Developer Experience optimization
-- [/dark-ops](/commands/dark-ops/) - NABLA structural crisis detection and dark operations analysis
-- [/orchestrate](/commands/orchestrate/) - Multi-agent orchestration for complex operations
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/aiad-auto-evolution](/commands/aiad-auto-evolution/) - Self-evolving command specification with meta-evolution
+- [/emergency](@/commands/emergency.md) - Emergency response and crisis management activation
+- [/archer-supreme-dx](@/commands/archer-supreme-dx.md) - ARCHER SUPREME Developer Experience optimization
+- [/dark-ops](@/commands/dark-ops.md) - NABLA structural crisis detection and dark operations analysis
+- [/orchestrate](@/commands/orchestrate.md) - Multi-agent orchestration for complex operations
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/aiad-auto-evolution](@/commands/aiad-auto-evolution.md) - Self-evolving command specification with meta-evolution
 
 ---
 
@@ -243,4 +243,4 @@ ARCHER SUPREME missions also enforce the [NABLA Infinity](/glossary/nabla-infini
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -38,7 +38,7 @@ image_alt = "Digital Inequality - Prismatic Platform"
 
 Digital inequality refers to the systemic disparities in access to digital technologies, internet connectivity, digital literacy, and the ability to meaningfully participate in and benefit from the digital economy and society. Unlike the simpler concept of the "digital divide" -- which originally described binary access/no-access distinctions -- digital inequality encompasses a spectrum of disadvantages including quality of access (bandwidth, reliability, device capability), skills and literacy gaps, affordability barriers, linguistic and cultural exclusion, geographic disparities, and the compounding effects of proprietary vendor lock-in that concentrates technological capability in the hands of those who can afford commercial licenses.
 
-In the context of the Prismatic Platform, digital inequality is addressed directly through the platform's [open-source](/glossary/open-source/) commitment, the [GHL license](/glossary/community-over-corporation/), the [community-over-corporation](/glossary/community-over-corporation/) philosophy, and the deliberate decision to build enterprise-grade security intelligence, OSINT, and compliance tooling as freely available open-source software rather than proprietary SaaS products.
+In the context of the Prismatic Platform, digital inequality is addressed directly through the platform's [open-source](@/glossary/open-source.md) commitment, the [GHL license](@/glossary/community-over-corporation.md), the [community-over-corporation](@/glossary/community-over-corporation.md) philosophy, and the deliberate decision to build enterprise-grade security intelligence, OSINT, and compliance tooling as freely available open-source software rather than proprietary SaaS products.
 
 ## Overview
 
@@ -56,7 +56,7 @@ The technology industry itself contributes to digital inequality through several
 
 **Language and Cultural Barriers**: Most technology documentation, developer tools, and educational resources are available primarily in English, creating barriers for the roughly 80% of the world's population that does not speak English as a primary language.
 
-The open-source movement represents the most significant countervailing force against digital inequality in technology. By making source code freely available, open-source projects democratize access to technology capabilities that would otherwise be locked behind commercial licenses. The Prismatic Platform embodies this principle by providing enterprise-grade [security intelligence](/glossary/security/), [OSINT](/glossary/security-operations/) capabilities, [compliance tooling](/glossary/compliance-framework/), and [quality infrastructure](/glossary/quality-gates/) as open-source software.
+The open-source movement represents the most significant countervailing force against digital inequality in technology. By making source code freely available, open-source projects democratize access to technology capabilities that would otherwise be locked behind commercial licenses. The Prismatic Platform embodies this principle by providing enterprise-grade [security intelligence](@/glossary/security.md), [OSINT](@/glossary/security-operations.md) capabilities, [compliance tooling](@/glossary/compliance-framework.md), and [quality infrastructure](@/glossary/quality-gates.md) as open-source software.
 
 ## Technical Details
 
@@ -218,7 +218,7 @@ The Prismatic Platform's approach to digital inequality is not merely philosophi
 
 ### GHL License
 
-The platform is released under the GHL (GitHub License) open-source license, which ensures that all platform functionality remains freely available. Unlike "open core" models where critical features are reserved for commercial editions, the Prismatic Platform's GHL license covers the entire platform including security intelligence, [OSINT](/glossary/security-operations/) capabilities, [compliance tooling](/glossary/compliance-framework/), and enterprise-grade [quality infrastructure](/glossary/quality-gates/).
+The platform is released under the GHL (GitHub License) open-source license, which ensures that all platform functionality remains freely available. Unlike "open core" models where critical features are reserved for commercial editions, the Prismatic Platform's GHL license covers the entire platform including security intelligence, [OSINT](@/glossary/security-operations.md) capabilities, [compliance tooling](@/glossary/compliance-framework.md), and enterprise-grade [quality infrastructure](@/glossary/quality-gates.md).
 
 ### Enterprise Capabilities Without Enterprise Pricing
 
@@ -236,7 +236,7 @@ The platform is designed for self-hosting from day one. All dependencies (Postgr
 
 ### Community-Over-Corporation
 
-The platform's [community-over-corporation](/glossary/community-over-corporation/) philosophy prioritizes community benefit over corporate profit. Decisions about feature development, licensing, and platform direction are made with the explicit goal of maximizing access and minimizing barriers to adoption.
+The platform's [community-over-corporation](@/glossary/community-over-corporation.md) philosophy prioritizes community benefit over corporate profit. Decisions about feature development, licensing, and platform direction are made with the explicit goal of maximizing access and minimizing barriers to adoption.
 
 ## Comparison with Alternatives
 
@@ -264,7 +264,7 @@ The platform's [community-over-corporation](/glossary/community-over-corporation
 
 7. **Low System Requirements**: Optimize for performance on modest hardware. Not every user has access to high-end workstations or powerful cloud instances. The Prismatic Platform's use of BEAM VM provides excellent performance on commodity hardware.
 
-8. **Transparent Governance**: Maintain transparent decision-making processes for platform direction. [Community ownership](/glossary/community-ownership/) is undermined when governance is opaque or concentrated.
+8. **Transparent Governance**: Maintain transparent decision-making processes for platform direction. [Community ownership](@/glossary/community-ownership.md) is undermined when governance is opaque or concentrated.
 
 ## Common Pitfalls
 
@@ -276,7 +276,7 @@ The platform's [community-over-corporation](/glossary/community-over-corporation
 
 4. **Ignoring Non-Technical Barriers**: Focusing solely on code accessibility while ignoring economic (hosting costs), linguistic (English-only docs), cultural (Western-centric assumptions), and educational (assumed prerequisites) barriers.
 
-5. **Unsustainable Models**: Building open-source projects on volunteer labor alone without establishing [sustainable funding models](/glossary/sustainable-funding-models/). Burnout and abandonment of critical open-source projects creates new forms of digital inequality when dependent organizations lose maintained tooling.
+5. **Unsustainable Models**: Building open-source projects on volunteer labor alone without establishing [sustainable funding models](@/glossary/sustainable-funding-models.md). Burnout and abandonment of critical open-source projects creates new forms of digital inequality when dependent organizations lose maintained tooling.
 
 6. **Token Accessibility**: Adding accessibility features as afterthoughts (alt text, ARIA labels) without fundamentally designing for inclusive access from the architecture level.
 
@@ -286,7 +286,7 @@ The platform's [community-over-corporation](/glossary/community-over-corporation
 
 ### Democratizing Security Intelligence
 
-Small and medium enterprises, nonprofits, and educational institutions face the same cybersecurity threats as large enterprises but lack budgets for commercial security platforms. The Prismatic Platform's [Prismatic Perimeter](/glossary/prismatic-perimeter/) provides enterprise-grade [security ratings](/glossary/security-rating/), [attack surface management](/glossary/attack-surface/), and [compliance assessment](/glossary/compliance-framework/) at zero licensing cost.
+Small and medium enterprises, nonprofits, and educational institutions face the same cybersecurity threats as large enterprises but lack budgets for commercial security platforms. The Prismatic Platform's [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) provides enterprise-grade [security ratings](@/glossary/security-rating.md), [attack surface management](@/glossary/attack-surface.md), and [compliance assessment](@/glossary/compliance-framework.md) at zero licensing cost.
 
 ### Open OSINT Tooling
 
@@ -306,24 +306,24 @@ Small businesses subject to NIS2, ZKB, or similar regulations can assess and dem
 
 ## Related Concepts
 
-- [Open Source](/glossary/open-source/) -- Software development model where source code is freely available for use, modification, and distribution
-- [Community Building](/glossary/community-building/) -- The practice of developing engaged communities around shared interests and goals
-- [Community Over Corporation](/glossary/community-over-corporation/) -- Philosophy prioritizing community benefit over corporate profit in technology decisions
-- [Community Ownership](/glossary/community-ownership/) -- Governance model where the community collectively stewards technology direction
-- [Share Openly](/glossary/share-openly/) -- Principle of making knowledge, code, and research freely available
-- [Collaborative Development](/glossary/collaborative-development/) -- Development practices that enable distributed contribution
-- [Complete Transparency](/glossary/complete-transparency/) -- Principle of full visibility into platform decisions, code, and governance
-- [Sustainable Funding Models](/glossary/sustainable-funding-models/) -- Economic models that sustain open-source development without compromising access
-- [Developer Community](/glossary/developer-community/) -- The community of developers who build on and contribute to the platform
-- [Collective Progress](/glossary/collective-progress/) -- Advancement achieved through collaborative rather than competitive effort
+- [Open Source](@/glossary/open-source.md) -- Software development model where source code is freely available for use, modification, and distribution
+- [Community Building](@/glossary/community-building.md) -- The practice of developing engaged communities around shared interests and goals
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- Philosophy prioritizing community benefit over corporate profit in technology decisions
+- [Community Ownership](@/glossary/community-ownership.md) -- Governance model where the community collectively stewards technology direction
+- [Share Openly](@/glossary/share-openly.md) -- Principle of making knowledge, code, and research freely available
+- [Collaborative Development](@/glossary/collaborative-development.md) -- Development practices that enable distributed contribution
+- [Complete Transparency](@/glossary/complete-transparency.md) -- Principle of full visibility into platform decisions, code, and governance
+- [Sustainable Funding Models](@/glossary/sustainable-funding-models.md) -- Economic models that sustain open-source development without compromising access
+- [Developer Community](@/glossary/developer-community.md) -- The community of developers who build on and contribute to the platform
+- [Collective Progress](@/glossary/collective-progress.md) -- Advancement achieved through collaborative rather than competitive effort
 
 ## See Also
 
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- The relationship between openness and community trust
-- [Developer Portal](/glossary/developer-portal/) -- The platform's freely accessible developer documentation
-- [Compliance Framework](/glossary/compliance-framework/) -- Automated compliance assessment available to all users
-- [Quality Gates](/glossary/quality-gates/) -- Enterprise-grade quality infrastructure provided as open source
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- Free attack surface management competing with commercial vendors
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- The relationship between openness and community trust
+- [Developer Portal](@/glossary/developer-portal.md) -- The platform's freely accessible developer documentation
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Automated compliance assessment available to all users
+- [Quality Gates](@/glossary/quality-gates.md) -- Enterprise-grade quality infrastructure provided as open source
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- Free attack surface management competing with commercial vendors
 
 ---
 
@@ -332,4 +332,4 @@ Small businesses subject to NIS2, ZKB, or similar regulations can assess and dem
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

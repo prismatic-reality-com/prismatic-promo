@@ -28,15 +28,15 @@ image_alt = "autonomous-healing-commander - Prismatic Platform"
 
 ## Overview
 
-The Autonomous Healing Commander operates as an L3 [strategic command](/glossary/strategic-command/) authority within the Supreme domain of the Prismatic Platform. This agent provides comprehensive L1-L5 healing capabilities, orchestrating recovery operations that range from simple automated fixes through complex cross-domain disaster recovery scenarios. As the strategic authority for platform health, it coordinates with domain-specific healing agents, monitors recovery effectiveness, and ensures that the platform maintains its operational baseline even under adverse conditions.
+The Autonomous Healing Commander operates as an L3 [strategic command](@/glossary/strategic-command.md) authority within the Supreme domain of the Prismatic Platform. This agent provides comprehensive L1-L5 healing capabilities, orchestrating recovery operations that range from simple automated fixes through complex cross-domain disaster recovery scenarios. As the strategic authority for platform health, it coordinates with domain-specific healing agents, monitors recovery effectiveness, and ensures that the platform maintains its operational baseline even under adverse conditions.
 
-Self-healing is a foundational property of the Prismatic Platform's architecture. Built on the [BEAM](/glossary/beam/) virtual machine's "let it crash" philosophy, the platform already benefits from [OTP](/glossary/otp/) supervision trees that automatically restart failed processes. The Autonomous Healing Commander extends this capability far beyond process-level recovery, addressing application-level degradation, cross-domain failure propagation, data consistency issues, and architectural health erosion that OTP supervision alone cannot handle.
+Self-healing is a foundational property of the Prismatic Platform's architecture. Built on the [BEAM](@/glossary/beam.md) virtual machine's "let it crash" philosophy, the platform already benefits from [OTP](@/glossary/otp.md) supervision trees that automatically restart failed processes. The Autonomous Healing Commander extends this capability far beyond process-level recovery, addressing application-level degradation, cross-domain failure propagation, data consistency issues, and architectural health erosion that OTP supervision alone cannot handle.
 
 The commander's healing philosophy treats symptoms and root causes separately. While immediate symptoms are addressed quickly to restore service availability, root cause analysis runs in parallel to ensure that the same failure mode does not recur. This dual-track approach prevents the "healing loop" anti-pattern where a system repeatedly heals the same symptom without addressing the underlying issue.
 
 ## Operational Domain
 
-The Supreme domain grants the Autonomous Healing Commander authority across all platform subsystems, essential for coordinating healing operations that span multiple application domains. The commander interfaces with the [SEADF](/glossary/seadf/) Enhanced Healing subsystem as its primary operational framework and coordinates with the [mycelial network](/glossary/mycelial-network/) for cross-domain healing pattern propagation.
+The Supreme domain grants the Autonomous Healing Commander authority across all platform subsystems, essential for coordinating healing operations that span multiple application domains. The commander interfaces with the [SEADF](@/glossary/seadf.md) Enhanced Healing subsystem as its primary operational framework and coordinates with the [mycelial network](@/glossary/mycelial-network.md) for cross-domain healing pattern propagation.
 
 ## Five-Level Healing Capability Model
 
@@ -98,25 +98,25 @@ Beyond immediate healing, the commander operates a parallel root cause analysis 
 
 | Component | Relationship | Data Flow |
 |-----------|-------------|-----------|
-| [SEADF](/glossary/seadf/) | Enhanced Healing framework coordination | Bidirectional health signals and healing directives |
-| Prismatic Safety | [Quality Floor Guardian](/glossary/quality-floor-guardian/) integration | Health threshold monitoring and alert signals |
-| [Mycelial Network](/glossary/mycelial-network/) | Cross-domain healing pattern propagation | Proven healing patterns distributed across domains |
-| [Telemetry](/glossary/telemetry/) Infrastructure | Health signal collection | Process health, performance metrics, error rates |
-| [backup-restore-specialist](/agents/backup-restore-specialist/) | Recovery support | Backup restoration for Level 4-5 scenarios |
-| [autoheal-commander-agent](/agents/autoheal-commander-agent/) | Command interface | Operator-facing commands for healing monitoring and control |
+| [SEADF](@/glossary/seadf.md) | Enhanced Healing framework coordination | Bidirectional health signals and healing directives |
+| Prismatic Safety | [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) integration | Health threshold monitoring and alert signals |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Cross-domain healing pattern propagation | Proven healing patterns distributed across domains |
+| [Telemetry](@/glossary/telemetry.md) Infrastructure | Health signal collection | Process health, performance metrics, error rates |
+| [backup-restore-specialist](@/agents/backup-restore-specialist.md) | Recovery support | Backup restoration for Level 4-5 scenarios |
+| [autoheal-commander-agent](@/agents/autoheal-commander-agent.md) | Command interface | Operator-facing commands for healing monitoring and control |
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Supreme domain authority with cross-domain healing coordination capability and escalation authority for Levels 4-5.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Supreme domain authority with cross-domain healing coordination capability and escalation authority for Levels 4-5.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [darwinian-evolution-coordinator](/agents/darwinian-evolution-coordinator/) | Evolution Partner | Coordinates healing insights with evolutionary improvement cycles |
-| [ecosystem-biologist-coordinator](/agents/ecosystem-biologist-coordinator/) | Ecosystem Health | Shares platform health assessments for ecosystem-level analysis |
-| [GARDENER SUPREME](/agents/gardener-supreme/) | Knowledge Integration | Leverages GARDEN legacy patterns for healing strategy selection |
-| [autoheal-commander-agent](/agents/autoheal-commander-agent/) | Command Interface | Provides operator-facing healing commands and status reporting |
+| [darwinian-evolution-coordinator](@/agents/darwinian-evolution-coordinator.md) | Evolution Partner | Coordinates healing insights with evolutionary improvement cycles |
+| [ecosystem-biologist-coordinator](@/agents/ecosystem-biologist-coordinator.md) | Ecosystem Health | Shares platform health assessments for ecosystem-level analysis |
+| [GARDENER SUPREME](@/agents/gardener-supreme.md) | Knowledge Integration | Leverages GARDEN legacy patterns for healing strategy selection |
+| [autoheal-commander-agent](@/agents/autoheal-commander-agent.md) | Command Interface | Provides operator-facing healing commands and status reporting |
 
 ## Performance Metrics
 
@@ -132,7 +132,7 @@ Beyond immediate healing, the commander operates a parallel root cause analysis 
 
 ## Enforcement
 
-The Autonomous Healing Commander operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with enhanced urgency for health-critical operations. Platform health degradation is never acceptable, never deferred, and never ignored. Every healing intervention must produce verifiable health improvement. The [Trinity Gate](/glossary/trinity-gate/) validates healing procedures before execution to ensure they will not introduce additional instability. Root cause analysis is mandatory for all interventions above Level 1, and preventive actions are tracked to completion. [NABLA Infinity](/glossary/nabla-infinity/) [Signal Plurality](/glossary/signal-plurality/) requires that health assessments are based on multiple independent telemetry sources, preventing false positive healing interventions that waste resources and risk introducing instability.
+The Autonomous Healing Commander operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with enhanced urgency for health-critical operations. Platform health degradation is never acceptable, never deferred, and never ignored. Every healing intervention must produce verifiable health improvement. The [Trinity Gate](@/glossary/trinity-gate.md) validates healing procedures before execution to ensure they will not introduce additional instability. Root cause analysis is mandatory for all interventions above Level 1, and preventive actions are tracked to completion. [NABLA Infinity](@/glossary/nabla-infinity.md) [Signal Plurality](@/glossary/signal-plurality.md) requires that health assessments are based on multiple independent telemetry sources, preventing false positive healing interventions that waste resources and risk introducing instability.
 
 ---
 
@@ -141,4 +141,4 @@ The Autonomous Healing Commander operates under the [NO MERCY, NO DOUBTS](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

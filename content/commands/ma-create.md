@@ -26,9 +26,9 @@ image_alt = "/ma-create - Prismatic Platform"
 
 **/ma-create** is a production command in the **M&A Operations** category of the Prismatic Platform that initiates new Mergers and Acquisitions deals by creating deal records, executing initial target profiling, and triggering the first round of intelligence collection. This command is the entry point for all M&A activity within the platform -- every deal in the pipeline begins with a `/ma-create` invocation that establishes the target profile, sets deal parameters, and activates the intelligence collection machinery.
 
-This command operates under the **L4** authority level and is executed by the `ma-deal-commander` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L4 authority level is the highest operational authority in the platform, reflecting the strategic significance and resource commitment involved in initiating M&A deal pipelines. Only operators with supreme authority clearance can create new deals, ensuring that the platform's intelligence and analysis resources are deployed only for properly authorized acquisition activities.
+This command operates under the **L4** authority level and is executed by the `ma-deal-commander` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L4 authority level is the highest operational authority in the platform, reflecting the strategic significance and resource commitment involved in initiating M&A deal pipelines. Only operators with supreme authority clearance can create new deals, ensuring that the platform's intelligence and analysis resources are deployed only for properly authorized acquisition activities.
 
-Deal creation in the Prismatic Platform is not a passive record-keeping exercise. When a deal is created, the `ma-deal-commander` agent immediately initiates a cascade of preparatory operations: automated OSINT intelligence collection on the target through [/investigate](/commands/investigate/), key personnel identification through [/email-osint](/commands/email-osint/), digital infrastructure assessment through [/ghost-recon](/commands/ghost-recon/), and public record searches through [/google-hacking](/commands/google-hacking/). This proactive intelligence gathering ensures that by the time the first analyst reviews the deal, a substantial intelligence foundation has already been assembled.
+Deal creation in the Prismatic Platform is not a passive record-keeping exercise. When a deal is created, the `ma-deal-commander` agent immediately initiates a cascade of preparatory operations: automated OSINT intelligence collection on the target through [/investigate](@/commands/investigate.md), key personnel identification through [/email-osint](@/commands/email-osint.md), digital infrastructure assessment through [/ghost-recon](@/commands/ghost-recon.md), and public record searches through [/google-hacking](@/commands/google-hacking.md). This proactive intelligence gathering ensures that by the time the first analyst reviews the deal, a substantial intelligence foundation has already been assembled.
 
 ## Architecture
 
@@ -153,34 +153,34 @@ The deal creation system operates as a multi-phase initialization pipeline that 
 
 6. **Team Assignment**: The deal team is assembled. The `ma-deal-commander` agent is assigned as the primary coordinator. Additional specialist agents (financial, legal, operational, strategic, technical) are assigned based on deal complexity and type.
 
-7. **Intelligence Triggering**: If `--auto-intel` is enabled (default), the system automatically dispatches intelligence collection requests through [/investigate](/commands/investigate/) for the target entity, [/email-osint](/commands/email-osint/) for key personnel, and [/ghost-recon](/commands/ghost-recon/) for digital infrastructure. These operations run asynchronously and results feed into the deal record as they complete.
+7. **Intelligence Triggering**: If `--auto-intel` is enabled (default), the system automatically dispatches intelligence collection requests through [/investigate](@/commands/investigate.md) for the target entity, [/email-osint](@/commands/email-osint.md) for key personnel, and [/ghost-recon](@/commands/ghost-recon.md) for digital infrastructure. These operations run asynchronously and results feed into the deal record as they complete.
 
-8. **Timeline Initialization**: Deal milestones are established based on provided deadlines or default timelines. The screening phase, due diligence windows, and target close date are set. Automated reminders and escalation triggers are configured through [/ma-enforce](/commands/ma-enforce/).
+8. **Timeline Initialization**: Deal milestones are established based on provided deadlines or default timelines. The screening phase, due diligence windows, and target close date are set. Automated reminders and escalation triggers are configured through [/ma-enforce](@/commands/ma-enforce.md).
 
-9. **Notification**: Relevant stakeholders are notified of the new deal creation. The deal appears in the [/ma-dashboard](/commands/ma-dashboard/) pipeline view immediately.
+9. **Notification**: Relevant stakeholders are notified of the new deal creation. The deal appears in the [/ma-dashboard](@/commands/ma-dashboard.md) pipeline view immediately.
 
 ## Integration Points
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `ma-deal-commander` | L4 authority deal initiation |
-| [/ma-analyze](/commands/ma-analyze/) | Downstream analysis | Consumes deal context for analysis |
-| [/ma-report](/commands/ma-report/) | Report generation | Creates reports from deal data |
-| [/ma-dashboard](/commands/ma-dashboard/) | Pipeline visibility | New deals appear in dashboard |
-| [/ma-status](/commands/ma-status/) | Status tracking | Deal progress monitoring |
-| [/ma-enforce](/commands/ma-enforce/) | Compliance | Deadline and milestone enforcement |
-| [/investigate](/commands/investigate/) | OSINT intelligence | Automatic target investigation |
-| [/email-osint](/commands/email-osint/) | Personnel intel | Key personnel identification |
-| [/ghost-recon](/commands/ghost-recon/) | Infrastructure intel | Digital infrastructure assessment |
-| [/google-hacking](/commands/google-hacking/) | Search intel | Public information discovery |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Deal record completeness checks |
-| [Telemetry](/glossary/telemetry/) | [Metrics](/glossary/metrics/) | Deal creation tracking |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `ma-deal-commander` | L4 authority deal initiation |
+| [/ma-analyze](@/commands/ma-analyze.md) | Downstream analysis | Consumes deal context for analysis |
+| [/ma-report](@/commands/ma-report.md) | Report generation | Creates reports from deal data |
+| [/ma-dashboard](@/commands/ma-dashboard.md) | Pipeline visibility | New deals appear in dashboard |
+| [/ma-status](@/commands/ma-status.md) | Status tracking | Deal progress monitoring |
+| [/ma-enforce](@/commands/ma-enforce.md) | Compliance | Deadline and milestone enforcement |
+| [/investigate](@/commands/investigate.md) | OSINT intelligence | Automatic target investigation |
+| [/email-osint](@/commands/email-osint.md) | Personnel intel | Key personnel identification |
+| [/ghost-recon](@/commands/ghost-recon.md) | Infrastructure intel | Digital infrastructure assessment |
+| [/google-hacking](@/commands/google-hacking.md) | Search intel | Public information discovery |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Deal record completeness checks |
+| [Telemetry](@/glossary/telemetry.md) | [Metrics](@/glossary/metrics.md) | Deal creation tracking |
 
 ## Best Practices
 
 **Provide domain when available.** The domain is the single most valuable piece of targeting information for the intelligence collection system. WHOIS, DNS, certificate transparency, and web content analysis all key off the domain, and its presence dramatically increases the quality and speed of initial profiling.
 
-**Set realistic timelines.** Deal timelines drive enforcement actions through [/ma-enforce](/commands/ma-enforce/). Overly aggressive timelines generate unnecessary escalation noise, while overly generous timelines reduce pipeline velocity. Calibrate based on deal complexity and team capacity.
+**Set realistic timelines.** Deal timelines drive enforcement actions through [/ma-enforce](@/commands/ma-enforce.md). Overly aggressive timelines generate unnecessary escalation noise, while overly generous timelines reduce pipeline velocity. Calibrate based on deal complexity and team capacity.
 
 **Use templates for common deal types.** Templates (SaaS acquisition, asset purchase, IP acquisition) pre-configure analysis scopes, team assignments, and timeline defaults appropriate to each deal type, reducing setup time and ensuring consistent coverage.
 
@@ -253,21 +253,21 @@ Configure deal-specific intelligence collection parameters.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Deal creation either completes fully -- record created, team assigned, intelligence triggered -- or fails atomically with no partial state left in the pipeline.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Automatic intelligence collection begins immediately, ensuring that no deal proceeds to screening without an evidence base. Duplicate detection prevents resource waste on already-tracked targets.
 
 ## Related Commands
 
-- [/ma-analyze](/commands/ma-analyze/) - Comprehensive M&A analysis including financial, legal and operational review
-- [/ma-report](/commands/ma-report/) - Generate detailed M&A analysis report with visualizations
-- [/ma-dashboard](/commands/ma-dashboard/) - M&A deal pipeline dashboard with real-time status tracking
-- [/ma-status](/commands/ma-status/) - M&A deal pipeline status overview and progress tracking
-- [/ma-enforce](/commands/ma-enforce/) - M&A enforcement actions for deal compliance and deadline tracking
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/ma-analyze](@/commands/ma-analyze.md) - Comprehensive M&A analysis including financial, legal and operational review
+- [/ma-report](@/commands/ma-report.md) - Generate detailed M&A analysis report with visualizations
+- [/ma-dashboard](@/commands/ma-dashboard.md) - M&A deal pipeline dashboard with real-time status tracking
+- [/ma-status](@/commands/ma-status.md) - M&A deal pipeline status overview and progress tracking
+- [/ma-enforce](@/commands/ma-enforce.md) - M&A enforcement actions for deal compliance and deadline tracking
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -276,4 +276,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

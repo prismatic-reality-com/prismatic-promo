@@ -23,9 +23,9 @@ image_alt = "Prismatic Core - Prismatic Platform"
 
 ## Overview
 
-Prismatic Core is the foundational library of the Prismatic Platform -- the single dependency shared by all 141 umbrella applications. Far beyond a simple utilities package, it provides a comprehensive computational and coordination substrate: [Monte Carlo](/glossary/monte-carlo-verification/) simulation with 25 probability distributions, bifurcation analysis for detecting regime changes in complex systems, quantum-inspired optimization for combinatorial problems, bio-inspired mycelial coordination networks, zero-downtime evolution infrastructure, JWT/RBAC authentication, and epistemic reasoning primitives.
+Prismatic Core is the foundational library of the Prismatic Platform -- the single dependency shared by all 141 umbrella applications. Far beyond a simple utilities package, it provides a comprehensive computational and coordination substrate: [Monte Carlo](@/glossary/monte-carlo-verification.md) simulation with 25 probability distributions, bifurcation analysis for detecting regime changes in complex systems, quantum-inspired optimization for combinatorial problems, bio-inspired mycelial coordination networks, zero-downtime evolution infrastructure, JWT/RBAC authentication, and epistemic reasoning primitives.
 
-A platform comprising 115 [OTP](/glossary/otp/) applications requires a shared foundation of types, protocols, utilities, and computational engines. Without centralization, each application would define its own entity representations, error types, simulation engines, and coordination mechanisms -- leading to incompatible interfaces, duplicated implementations, and inconsistent behavior. Cross-application communication requires agreed-upon data structures, protocols, and shared computational infrastructure. Prismatic Core provides this foundation, ensuring all applications speak the same language for entities, errors, configuration, mathematical computation, and cross-domain coordination.
+A platform comprising 115 [OTP](@/glossary/otp.md) applications requires a shared foundation of types, protocols, utilities, and computational engines. Without centralization, each application would define its own entity representations, error types, simulation engines, and coordination mechanisms -- leading to incompatible interfaces, duplicated implementations, and inconsistent behavior. Cross-application communication requires agreed-upon data structures, protocols, and shared computational infrastructure. Prismatic Core provides this foundation, ensuring all applications speak the same language for entities, errors, configuration, mathematical computation, and cross-domain coordination.
 
 The library establishes the platform's type system through entity protocols for consistent data access, serialization protocols for storage adapter compatibility, validation protocols for data integrity, and comparison protocols for ordering. It provides platform-wide configuration management, structured error types following the `{:ok, result} | {:error, reason}` convention, cryptographic utilities (SHA-256, HMAC-SHA256, AES-256-GCM), string manipulation with Czech diacritics support, date/time handling with timezone awareness, deterministic UUID generation via SHA-256 hashing, and collection utilities.
 
@@ -58,7 +58,7 @@ Every Prismatic Application (141 apps)
   +-- Runtime (PubSub topics, safe atoms, feature flags, git trees)
 ```
 
-Applications import Core modules and call functions directly. [Protocol](/glossary/protocol/) dispatch is resolved at compile time for known types and at runtime for dynamic dispatch. The computational subsystems (Monte Carlo, Bifurcation, Quantum, Mycelial) are independently usable but designed to compose -- Monte Carlo feeds probability distributions into bifurcation analysis, quantum optimizer uses Monte Carlo for stochastic evaluation, and mycelial networks propagate signals between all subsystems.
+Applications import Core modules and call functions directly. [Protocol](@/glossary/protocol.md) dispatch is resolved at compile time for known types and at runtime for dynamic dispatch. The computational subsystems (Monte Carlo, Bifurcation, Quantum, Mycelial) are independently usable but designed to compose -- Monte Carlo feeds probability distributions into bifurcation analysis, quantum optimizer uses Monte Carlo for stochastic evaluation, and mycelial networks propagate signals between all subsystems.
 
 ## Monte Carlo Simulation Engine
 
@@ -76,7 +76,7 @@ The engine implements a comprehensive distribution library, each conforming to t
 
 ### Streaming Architecture
 
-The simulation pipeline uses [GenStage](/glossary/genstage/) for demand-driven backpressure management:
+The simulation pipeline uses [GenStage](@/glossary/genstage.md) for demand-driven backpressure management:
 
 ```
 Producer (sampling) --> Processor (simulation) --> Consumer (collection)
@@ -238,7 +238,7 @@ The mycelial network enables the platform to behave as an integrated organism ra
 
 ## Zero-Downtime Evolution
 
-Infrastructure for evolving the running system without downtime -- hot code upgrades, schema migrations, architecture transformations, and multi-level rollback capabilities. Essential for production deployment on [Fly.io](/glossary/fly-io/) where service interruption is unacceptable.
+Infrastructure for evolving the running system without downtime -- hot code upgrades, schema migrations, architecture transformations, and multi-level rollback capabilities. Essential for production deployment on [Fly.io](@/glossary/fly-io.md) where service interruption is unacceptable.
 
 ### Evolution Pipeline
 
@@ -364,7 +364,7 @@ defprotocol PrismaticCore.Entity do
 end
 ```
 
-Czech diacritics normalization provides bidirectional conversion between accented Czech characters and their ASCII equivalents, enabling fuzzy matching in [entity resolution](/glossary/entity-resolution/).
+Czech diacritics normalization provides bidirectional conversion between accented Czech characters and their ASCII equivalents, enabling fuzzy matching in [entity resolution](@/glossary/entity-resolution.md).
 
 ## Behaviours
 
@@ -388,7 +388,7 @@ Core behaviours define standard contracts for platform component implementations
 
 ## Schemas
 
-Domain-specific [Ecto](/glossary/ecto/) schemas organized by concern:
+Domain-specific [Ecto](@/glossary/ecto.md) schemas organized by concern:
 
 **LLM Domain**: Agent configurations (provider, model, system prompt), Memory types (short-term, long-term, vector, episodic), Prompt templates with variable interpolation
 
@@ -451,17 +451,17 @@ Minimal by design. Environment determines runtime behavior. Timezone defaults to
 | RBAC permission check | < 1 us | ETS lookup |
 | JWT verification | < 100 us | RS256 signature check |
 
-[Pure function](/glossary/pure-function/)s with no shared state for the utility layer. Infinitely concurrent. Computational subsystems (Monte Carlo, Bifurcation, Quantum) use supervised processes for resource management.
+[Pure function](@/glossary/pure-function.md)s with no shared state for the utility layer. Infinitely concurrent. Computational subsystems (Monte Carlo, Bifurcation, Quantum) use supervised processes for resource management.
 
 ## Testing
 
-Protocol implementation tests verify correct dispatch for all supported types. Error type tests verify [pattern matching](/glossary/pattern-matching/) and message formatting. Crypto tests verify hash computation against known test vectors. Cross-application integration tests verify that entities serialized by one application can be deserialized by another through shared protocols.
+Protocol implementation tests verify correct dispatch for all supported types. Error type tests verify [pattern matching](@/glossary/pattern-matching.md) and message formatting. Crypto tests verify hash computation against known test vectors. Cross-application integration tests verify that entities serialized by one application can be deserialized by another through shared protocols.
 
 Property-based tests use StreamData generators to produce random strings, dates, and entity data, verifying that serialization roundtrips preserve data integrity and that Czech normalization is idempotent. Monte Carlo distribution tests verify statistical moments against theoretical values. Bifurcation tests verify detection against known dynamical systems with analytically computed transition points.
 
 ## NABLA Compliance
 
-As the foundational library, Prismatic Core provides the building blocks that other modules use to implement [NABLA](/glossary/nabla-infinity/) compliance:
+As the foundational library, Prismatic Core provides the building blocks that other modules use to implement [NABLA](@/glossary/nabla-infinity.md) compliance:
 
 | NABLA Axiom | Core Contribution | Implementation |
 |-------------|------------------|----------------|
@@ -496,21 +496,21 @@ This pipeline replaces ad-hoc "pinata-style" threshold tuning with a principled,
 |-------------|-------------|
 | **Dependents** | All 115 Prismatic applications |
 | **Dependencies** | None (Elixir stdlib + OTP only) |
-| **[Prismatic Algorithms](/apps/prismatic-algorithms/)** | Nx-based implementations consuming Core's Monte Carlo engine |
-| **[Prismatic Monte Carlo](/apps/prismatic-monte-carlo/)** | Full-featured Monte Carlo app built on Core's simulation primitives |
-| **[Prismatic Nabla](/apps/prismatic-nabla/)** | Epistemic framework using Core's EpRun claims and mycelial signals |
-| **[Prismatic Perimeter](/apps/prismatic-perimeter/)** | Security ratings using Core's Monte Carlo for confidence intervals |
+| **[Prismatic Algorithms](@/apps/prismatic-algorithms.md)** | Nx-based implementations consuming Core's Monte Carlo engine |
+| **[Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md)** | Full-featured Monte Carlo app built on Core's simulation primitives |
+| **[Prismatic Nabla](@/apps/prismatic-nabla.md)** | Epistemic framework using Core's EpRun claims and mycelial signals |
+| **[Prismatic Perimeter](@/apps/prismatic-perimeter.md)** | Security ratings using Core's Monte Carlo for confidence intervals |
 
 ## Related Resources
 
 - [Elixir Protocols](https://hexdocs.pm/elixir/protocols.html) -- Protocol documentation
 - [Erlang crypto](https://www.erlang.org/doc/man/crypto.html) -- Cryptographic functions
-- [Prismatic Algorithms](/apps/prismatic-algorithms/) -- Nx-based calibration and drift detection algorithms
-- [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) -- Full Monte Carlo simulation application
-- [Elixir Architect](/agents/elixir-architect/) -- Ensures Core protocols follow OTP best practices
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews foundational abstraction design
-- [Trinity Gate](/capabilities/trinity-gate/) -- Monte Carlo provides probabilistic verification complement
-- [Quality Gates](/capabilities/quality-gates/) -- Core protocols verified through comprehensive contract tests
+- [Prismatic Algorithms](@/apps/prismatic-algorithms.md) -- Nx-based calibration and drift detection algorithms
+- [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) -- Full Monte Carlo simulation application
+- [Elixir Architect](@/agents/elixir-architect.md) -- Ensures Core protocols follow OTP best practices
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews foundational abstraction design
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Monte Carlo provides probabilistic verification complement
+- [Quality Gates](@/capabilities/quality-gates.md) -- Core protocols verified through comprehensive contract tests
 
 ---
 
@@ -519,4 +519,4 @@ This pipeline replaces ad-hoc "pinata-style" threshold tuning with a principled,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

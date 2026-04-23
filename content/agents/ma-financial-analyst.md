@@ -28,9 +28,9 @@ image_alt = "ma-financial-analyst - Prismatic Platform"
 
 ## Overview
 
-The ma-financial-analyst agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's primary domain, specializing in the automated extraction, normalization, and analysis of financial data from regulatory filings, corporate databases, and open-source intelligence channels to support mergers and acquisitions (M&A) due diligence operations. This agent transforms raw financial disclosures into structured analytical outputs that inform valuation models, risk assessments, and deal qualification decisions across the M&A pipeline.
+The ma-financial-analyst agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's primary domain, specializing in the automated extraction, normalization, and analysis of financial data from regulatory filings, corporate databases, and open-source intelligence channels to support mergers and acquisitions (M&A) due diligence operations. This agent transforms raw financial disclosures into structured analytical outputs that inform valuation models, risk assessments, and deal qualification decisions across the M&A pipeline.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine, the ma-financial-analyst applies rigorous validation to every extracted data point. No financial figure enters the analysis pipeline without source verification, cross-reference validation, and explicit confidence scoring. The agent leverages the platform's [OSINT](/glossary/osint/) capabilities to correlate publicly available financial indicators -- SEC filings, annual reports, credit ratings, market data feeds -- with proprietary intelligence to build comprehensive financial profiles of acquisition targets.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine, the ma-financial-analyst applies rigorous validation to every extracted data point. No financial figure enters the analysis pipeline without source verification, cross-reference validation, and explicit confidence scoring. The agent leverages the platform's [OSINT](@/glossary/osint.md) capabilities to correlate publicly available financial indicators -- SEC filings, annual reports, credit ratings, market data feeds -- with proprietary intelligence to build comprehensive financial profiles of acquisition targets.
 
 The financial analyst addresses one of the most time-intensive aspects of M&A due diligence: the manual extraction and reconciliation of financial data from heterogeneous sources. By automating this process with machine-readable extraction pipelines and multi-source cross-validation, the agent reduces financial due diligence timelines from weeks to hours while improving data accuracy through elimination of manual transcription errors.
 
@@ -58,7 +58,7 @@ Data Sources                    Extraction Layer              Analysis Layer
                                                             +------------------+
 ```
 
-The extraction layer handles document parsing across multiple formats (XBRL, HTML, PDF), data normalization for currency and accounting standard differences, and cross-source validation. The analysis layer computes financial ratios, identifies trends, and flags anomalies. All layers publish [telemetry](/glossary/telemetry/) events for pipeline monitoring.
+The extraction layer handles document parsing across multiple formats (XBRL, HTML, PDF), data normalization for currency and accounting standard differences, and cross-source validation. The analysis layer computes financial ratios, identifies trends, and flags anomalies. All layers publish [telemetry](@/glossary/telemetry.md) events for pipeline monitoring.
 
 ## Core Capabilities
 
@@ -78,7 +78,7 @@ The ma-financial-analyst provides comprehensive financial intelligence through s
 
 ## Implementation
 
-The financial analyst is implemented as an [OTP](/glossary/otp/) application within the Prismatic Platform's umbrella, using [GenServer](/glossary/genserver/) processes for concurrent extraction and analysis operations.
+The financial analyst is implemented as an [OTP](@/glossary/otp.md) application within the Prismatic Platform's umbrella, using [GenServer](@/glossary/genserver.md) processes for concurrent extraction and analysis operations.
 
 ```elixir
 defmodule Prismatic.MA.FinancialAnalyst do
@@ -150,14 +150,14 @@ The ma-financial-analyst integrates with multiple platform subsystems to provide
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [ma-enforcement-commander](/agents/ma-enforcement-commander/) | Provides financial compliance data for gate evaluation | Outbound |
-| [ma-risk-assessor](/agents/ma-risk-assessor/) | Financial risk indicators feed risk assessment models | Outbound |
-| [ma-market-analyst](/agents/ma-market-analyst/) | Shares financial benchmarking data for market comparisons | Bidirectional |
-| [ma-integration-planner](/agents/ma-integration-planner/) | Financial projections inform integration cost modeling | Outbound |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
-| Prismatic Telemetry | Extraction pipeline [metrics](/glossary/metrics/) and event tracking | Outbound |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery | Infrastructure |
-| [SEADF](/glossary/seadf/) | Self-healing for extraction pipeline failures | Bidirectional |
+| [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) | Provides financial compliance data for gate evaluation | Outbound |
+| [ma-risk-assessor](@/agents/ma-risk-assessor.md) | Financial risk indicators feed risk assessment models | Outbound |
+| [ma-market-analyst](@/agents/ma-market-analyst.md) | Shares financial benchmarking data for market comparisons | Bidirectional |
+| [ma-integration-planner](@/agents/ma-integration-planner.md) | Financial projections inform integration cost modeling | Outbound |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
+| Prismatic Telemetry | Extraction pipeline [metrics](@/glossary/metrics.md) and event tracking | Outbound |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Infrastructure |
+| [SEADF](@/glossary/seadf.md) | Self-healing for extraction pipeline failures | Bidirectional |
 
 ## Operational Workflow
 
@@ -175,7 +175,7 @@ The financial analyst follows a structured extraction and analysis workflow for 
 
 ## NABLA Compliance
 
-The ma-financial-analyst enforces full compliance with all seven [NABLA Infinity](/glossary/nabla-infinity/) axioms in its financial analysis operations.
+The ma-financial-analyst enforces full compliance with all seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms in its financial analysis operations.
 
 | Axiom | Financial Analysis Application |
 |-------|-------------------------------|
@@ -187,7 +187,7 @@ The ma-financial-analyst enforces full compliance with all seven [NABLA Infinity
 | Source Independence | Independent filing sources weighted higher than derivative data aggregators |
 | Provenance Mandatory | Every extracted figure carries full source attribution and extraction method |
 
-All financial conclusions must satisfy [Trinity Gate](/glossary/trinity-gate/) validation before entering the deal intelligence pipeline.
+All financial conclusions must satisfy [Trinity Gate](@/glossary/trinity-gate.md) validation before entering the deal intelligence pipeline.
 
 ## Configuration
 
@@ -225,14 +225,14 @@ config :prismatic_ma, Prismatic.MA.FinancialAnalyst,
 
 ## Related Resources
 
-- [ma-enforcement-commander](/agents/ma-enforcement-commander/) -- Consumes financial compliance data
-- [ma-risk-assessor](/agents/ma-risk-assessor/) -- Receives financial risk indicators
-- [ma-market-analyst](/agents/ma-market-analyst/) -- Market comparison benchmarking
-- [ma-integration-planner](/agents/ma-integration-planner/) -- Integration cost modeling from financial projections
-- [ma-tech-assessor](/agents/ma-tech-assessor/) -- Technology investment analysis correlation
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for evidence-based analysis
-- [SEADF](/glossary/seadf/) -- Self-healing for pipeline resilience
+- [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) -- Consumes financial compliance data
+- [ma-risk-assessor](@/agents/ma-risk-assessor.md) -- Receives financial risk indicators
+- [ma-market-analyst](@/agents/ma-market-analyst.md) -- Market comparison benchmarking
+- [ma-integration-planner](@/agents/ma-integration-planner.md) -- Integration cost modeling from financial projections
+- [ma-tech-assessor](@/agents/ma-tech-assessor.md) -- Technology investment analysis correlation
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for evidence-based analysis
+- [SEADF](@/glossary/seadf.md) -- Self-healing for pipeline resilience
 
 ---
 
@@ -241,4 +241,4 @@ config :prismatic_ma, Prismatic.MA.FinancialAnalyst,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

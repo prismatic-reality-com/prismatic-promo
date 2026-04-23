@@ -30,7 +30,7 @@ The **Prismatic Platform Hub** provides interactive dashboards, real-time analyt
 The hub features live on the **Prismatic Platform** (not this static documentation site):
 
 ### **🎯 Agent Registry**
-**[→ Agent Hub](/hub/agents)**
+**[→ Agent Hub](@/hub/agents.md)**
 Platform path: `/hub/agents`
 - 530+ AIAD agents with live status
 - Interactive filtering and search
@@ -38,7 +38,7 @@ Platform path: `/hub/agents`
 - Command execution tracking
 
 ### **🔍 OSINT Toolbox**
-**[→ OSINT Hub](/hub/osint)**
+**[→ OSINT Hub](@/hub/osint.md)**
 Platform path: `/hub/osint/toolbox`
 - 120+ OSINT adapters with live data
 - Multi-source intelligence gathering
@@ -73,11 +73,11 @@ Platform path: `/perimeter`
 
 For reference material and documentation, explore these sections on this site:
 
-- **[Agents Documentation](/agents/)** - Static agent specifications and guides
-- **[OSINT Reference](/osint/)** - OSINT methodology and source catalog
-- **[DD Methodology](/dd/)** - Due diligence process documentation
-- **[Technology Stack](/technologies/)** - Platform architecture details
-- **[Glossary](/glossary/)** - 1,840+ technical terms and definitions
+- **[Agents Documentation](@/agents/_index.md)** - Static agent specifications and guides
+- **[OSINT Reference](@/osint/_index.md)** - OSINT methodology and source catalog
+- **[DD Methodology](@/dd/_index.md)** - Due diligence process documentation
+- **[Technology Stack](@/technologies/_index.md)** - Platform architecture details
+- **[Glossary](@/glossary/_index.md)** - 1,840+ technical terms and definitions
 
 ## 🔄 Architecture Overview
 
@@ -103,4 +103,4 @@ Access the interactive platform through your configured endpoint:
 
 ---
 
-**Need help?** Check our **[FAQ](/faq/)** or contact **[support](mailto:korczis@gmail.com)**.
+**Need help?** Check our **[FAQ](@/faq/_index.md)** or contact **[support](mailto:korczis@gmail.com)**.

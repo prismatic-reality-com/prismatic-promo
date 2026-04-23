@@ -63,7 +63,7 @@ The Prismatic Platform employs a comprehensive catalog of architectural patterns
 
 ### Adapter Pattern
 
-The [Adapter Pattern](/glossary/adapter-pattern/) translates between incompatible interfaces, enabling components written against different contracts to work together. In the Prismatic Platform, this pattern is fundamental to the storage abstraction layer:
+The [Adapter Pattern](@/glossary/adapter-pattern.md) translates between incompatible interfaces, enabling components written against different contracts to work together. In the Prismatic Platform, this pattern is fundamental to the storage abstraction layer:
 
 ```elixir
 defmodule PrismaticStorageCore.Traits.Repository do
@@ -151,7 +151,7 @@ end
 
 ### Circuit Breaker Pattern
 
-The [Circuit Breaker](/glossary/circuit-breaker/) pattern prevents cascading failures by wrapping calls to external services in a state machine that trips open when failure rates exceed a threshold:
+The [Circuit Breaker](@/glossary/circuit-breaker.md) pattern prevents cascading failures by wrapping calls to external services in a state machine that trips open when failure rates exceed a threshold:
 
 ```elixir
 defmodule PrismaticResilience.CircuitBreaker do
@@ -270,7 +270,7 @@ end
 
 ### CQRS (Command Query Responsibility Segregation)
 
-[CQRS](/glossary/cqrs/) separates the read model from the write model, allowing each to be optimized independently:
+[CQRS](@/glossary/cqrs.md) separates the read model from the write model, allowing each to be optimized independently:
 
 | Aspect | Command Side (Write) | Query Side (Read) |
 |--------|---------------------|-------------------|
@@ -282,7 +282,7 @@ end
 
 ### Event Sourcing
 
-[Event Sourcing](/glossary/event-sourcing/) stores state as a sequence of events rather than as current state snapshots. Combined with CQRS, it provides a complete audit trail and enables temporal queries:
+[Event Sourcing](@/glossary/event-sourcing.md) stores state as a sequence of events rather than as current state snapshots. Combined with CQRS, it provides a complete audit trail and enables temporal queries:
 
 ```elixir
 defmodule PrismaticEventStore.Aggregate do
@@ -334,7 +334,7 @@ end
 
 ### Saga Pattern
 
-The [Saga Pattern](/glossary/saga-pattern/) manages distributed transactions by breaking them into a sequence of local transactions, each with a compensating action for rollback:
+The [Saga Pattern](@/glossary/saga-pattern.md) manages distributed transactions by breaking them into a sequence of local transactions, each with a compensating action for rollback:
 
 | Step | Forward Action | Compensating Action | Prismatic Example |
 |------|---------------|--------------------|--------------------|
@@ -345,7 +345,7 @@ The [Saga Pattern](/glossary/saga-pattern/) manages distributed transactions by 
 
 ### Bulkhead Pattern
 
-The [Bulkhead Pattern](/glossary/bulkhead-pattern/) isolates components so that failure in one does not cascade to others. In Elixir/OTP, this is naturally achieved through process isolation and supervision trees:
+The [Bulkhead Pattern](@/glossary/bulkhead-pattern.md) isolates components so that failure in one does not cascade to others. In Elixir/OTP, this is naturally achieved through process isolation and supervision trees:
 
 ```elixir
 defmodule PrismaticResilience.BulkheadSupervisor do
@@ -426,7 +426,7 @@ Architectural patterns differ from design patterns in scope (system vs. module),
 
 4. **Start simple, add patterns as needed**: Begin with the simplest architecture that meets current requirements. Add patterns when specific quality attribute needs emerge, not speculatively.
 
-5. **Document pattern application**: Record which patterns are used, where they are applied, and why they were chosen. This is essential for onboarding and maintenance. Use [architectural decisions](/glossary/architectural-decision/) for significant pattern selections.
+5. **Document pattern application**: Record which patterns are used, where they are applied, and why they were chosen. This is essential for onboarding and maintenance. Use [architectural decisions](@/glossary/architectural-decision.md) for significant pattern selections.
 
 6. **Test pattern implementations**: Each pattern has specific failure modes. Circuit breakers need tests for state transitions. Sagas need tests for compensation. Event sourcing needs tests for replay correctness.
 
@@ -434,7 +434,7 @@ Architectural patterns differ from design patterns in scope (system vs. module),
 
 ## Common Pitfalls
 
-1. **Pattern overuse**: Applying patterns everywhere "just in case." Every pattern adds complexity. The [CQRS](/glossary/cqrs/) pattern, for example, doubles the number of models and adds eventual consistency challenges. Apply it only where read/write asymmetry justifies the cost.
+1. **Pattern overuse**: Applying patterns everywhere "just in case." Every pattern adds complexity. The [CQRS](@/glossary/cqrs.md) pattern, for example, doubles the number of models and adds eventual consistency challenges. Apply it only where read/write asymmetry justifies the cost.
 
 2. **Cargo cult patterns**: Copying pattern implementations from other systems without understanding the underlying problem they solve. A circuit breaker is pointless if the downstream service has a 99.999% SLA and sub-millisecond latency.
 
@@ -450,7 +450,7 @@ Architectural patterns differ from design patterns in scope (system vs. module),
 
 **OSINT Provider Integration**: Each of the 120+ OSINT providers is wrapped in an adapter (normalizing diverse APIs), protected by a circuit breaker (handling provider outages), and isolated in a bulkhead (preventing cascade from one provider to another).
 
-**Security Rating Calculation**: The Prismatic Perimeter security rating pipeline uses [event sourcing](/glossary/event-sourcing/) to maintain a complete audit trail of all assessment data, enabling temporal queries ("what was this domain's rating last month?") and regulatory compliance.
+**Security Rating Calculation**: The Prismatic Perimeter security rating pipeline uses [event sourcing](@/glossary/event-sourcing.md) to maintain a complete audit trail of all assessment data, enabling temporal queries ("what was this domain's rating last month?") and regulatory compliance.
 
 **Platform Quality Gates**: The 13-layer quality gate pipeline applies the pipeline pattern, with each stage (compilation, Credo, Dialyzer, tests, etc.) processing independently and reporting results to a central aggregator.
 
@@ -458,15 +458,15 @@ Architectural patterns differ from design patterns in scope (system vs. module),
 
 ## Related Concepts
 
-- [Adapter Pattern](/glossary/adapter-pattern/) -- structural pattern for interface translation between incompatible components
-- [Circuit Breaker](/glossary/circuit-breaker/) -- resilience pattern preventing cascading failures from downstream services
-- [Saga Pattern](/glossary/saga-pattern/) -- distributed transaction management through compensating local transactions
-- [CQRS](/glossary/cqrs/) -- separation of read and write models for independent optimization
-- [Event Sourcing](/glossary/event-sourcing/) -- persistence of state as an append-only sequence of domain events
-- [Bulkhead Pattern](/glossary/bulkhead-pattern/) -- failure isolation through resource partitioning
-- [Software Architecture](/glossary/software-architecture/) -- the overarching discipline within which patterns are applied
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- methodology that informs pattern selection at bounded context level
-- [Architectural Decision](/glossary/architectural-decision/) -- formal recording of pattern selection rationale
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- structural pattern for interface translation between incompatible components
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- resilience pattern preventing cascading failures from downstream services
+- [Saga Pattern](@/glossary/saga-pattern.md) -- distributed transaction management through compensating local transactions
+- [CQRS](@/glossary/cqrs.md) -- separation of read and write models for independent optimization
+- [Event Sourcing](@/glossary/event-sourcing.md) -- persistence of state as an append-only sequence of domain events
+- [Bulkhead Pattern](@/glossary/bulkhead-pattern.md) -- failure isolation through resource partitioning
+- [Software Architecture](@/glossary/software-architecture.md) -- the overarching discipline within which patterns are applied
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- methodology that informs pattern selection at bounded context level
+- [Architectural Decision](@/glossary/architectural-decision.md) -- formal recording of pattern selection rationale
 
 ## See Also
 
@@ -482,4 +482,4 @@ Architectural patterns differ from design patterns in scope (system vs. module),
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

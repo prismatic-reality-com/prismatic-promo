@@ -477,29 +477,29 @@ Regulatory compliance frameworks implemented through community-owned projects be
 
 Community Ownership intersects with many foundational concepts in the Prismatic Platform ecosystem:
 
-- [Community Over Corporation](/glossary/community-over-corporation/) -- The philosophical principle that community governance should take precedence over corporate control in software development.
-- [Community-Owned Innovation](/glossary/community-owned-innovation/) -- How community ownership enables innovation that serves collective needs rather than corporate profit.
-- [Complete Transparency](/glossary/complete-transparency/) -- The operational visibility required for meaningful community ownership, since owners cannot govern what they cannot see.
-- [Collaborative Development](/glossary/collaborative-development/) -- The technical workflows that enable multiple community owners to contribute effectively.
-- [Share Openly](/glossary/share-openly/) -- The practice of making all project outputs available to the community, which is foundational to genuine ownership.
-- [Developer Community](/glossary/developer-community/) -- The human community in which ownership is vested and through which governance operates.
-- [Audit Trail](/glossary/audit-trail/) -- Immutable records of governance decisions that ensure ownership transparency and accountability.
-- [Community Building](/glossary/community-building/) -- Growing the pool of potential owners through outreach, mentoring, and contributor onboarding.
-- [Sustainable Funding Models](/glossary/sustainable-funding-models/) -- Financial mechanisms that sustain community-owned projects without introducing ownership distortion.
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- How community ownership of quality systems ensures standards serve the community rather than corporate metrics.
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- The philosophical principle that community governance should take precedence over corporate control in software development.
+- [Community-Owned Innovation](@/glossary/community-owned-innovation.md) -- How community ownership enables innovation that serves collective needs rather than corporate profit.
+- [Complete Transparency](@/glossary/complete-transparency.md) -- The operational visibility required for meaningful community ownership, since owners cannot govern what they cannot see.
+- [Collaborative Development](@/glossary/collaborative-development.md) -- The technical workflows that enable multiple community owners to contribute effectively.
+- [Share Openly](@/glossary/share-openly.md) -- The practice of making all project outputs available to the community, which is foundational to genuine ownership.
+- [Developer Community](@/glossary/developer-community.md) -- The human community in which ownership is vested and through which governance operates.
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable records of governance decisions that ensure ownership transparency and accountability.
+- [Community Building](@/glossary/community-building.md) -- Growing the pool of potential owners through outreach, mentoring, and contributor onboarding.
+- [Sustainable Funding Models](@/glossary/sustainable-funding-models.md) -- Financial mechanisms that sustain community-owned projects without introducing ownership distortion.
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- How community ownership of quality systems ensures standards serve the community rather than corporate metrics.
 
 ## See Also
 
-- [Community Contributions](/glossary/community-contributions/) -- The contributions through which community ownership is earned
-- [Community Engagement](/glossary/community-engagement/) -- Deepening ownership participation across the community
-- [Community Impact](/glossary/community-impact/) -- Measuring the outcomes of community ownership
-- [Cooperative Systems](/glossary/cooperative-systems/) -- Technical architectures aligned with community ownership principles
-- [Collective Progress](/glossary/collective-progress/) -- How community ownership drives sustained platform improvement
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- The trust foundation on which community ownership depends
+- [Community Contributions](@/glossary/community-contributions.md) -- The contributions through which community ownership is earned
+- [Community Engagement](@/glossary/community-engagement.md) -- Deepening ownership participation across the community
+- [Community Impact](@/glossary/community-impact.md) -- Measuring the outcomes of community ownership
+- [Cooperative Systems](@/glossary/cooperative-systems.md) -- Technical architectures aligned with community ownership principles
+- [Collective Progress](@/glossary/collective-progress.md) -- How community ownership drives sustained platform improvement
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- The trust foundation on which community ownership depends
 
 ---
 
-*Community Ownership is a structural pillar of the Prismatic Platform's governance model. To understand your ownership stake and governance rights, visit the [Developer Portal](/glossary/developer-portal/).*
+*Community Ownership is a structural pillar of the Prismatic Platform's governance model. To understand your ownership stake and governance rights, visit the [Developer Portal](@/glossary/developer-portal.md).*
 
 ---
 

@@ -220,10 +220,10 @@ The three sanctions OSINT adapters are self-registered and available at `/osint/
 
 ## Cross-References
 
-- [PEP](/glossary/pep/) - Politically exposed persons often cross-referenced with sanctions lists
+- [PEP](@/glossary/pep.md) - Politically exposed persons often cross-referenced with sanctions lists
 - **SDN List** - OFAC's primary sanctions list of designated individuals
-- [PII](/glossary/pii/) - Personal data processed during sanctions screening
-- [Provenance](/glossary/provenance/) - Audit trail requirements for sanctions screening results
+- [PII](@/glossary/pii.md) - Personal data processed during sanctions screening
+- [Provenance](@/glossary/provenance.md) - Audit trail requirements for sanctions screening results
 - **Self-Registration** - Pattern enabling automatic exposure of sanctions tools
 
 ---

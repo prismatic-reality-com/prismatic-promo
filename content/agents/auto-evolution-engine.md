@@ -30,25 +30,25 @@ image_alt = "auto-evolution-engine - Prismatic Platform"
 
 The Auto Evolution Engine operates as an L4 domain specialist within the Cosmic domain of the Prismatic Platform. This agent serves as the intelligent evolution engine that automatically detects and executes highest-leverage platform improvements without manual intervention. By continuously scanning the platform for optimization opportunities, quality gaps, and architectural improvements, it identifies the changes that deliver maximum impact per unit of effort.
 
-The platform's evolution from Generation 1 to Generation 18 with 0.999 apex fitness was driven in significant part by the Auto Evolution Engine's ability to identify non-obvious improvements. The engine maintains a prioritized improvement backlog ranked by expected fitness impact, implementation complexity, and risk profile. When conditions are favorable -- [quality gates](/glossary/quality-gates/) passing, no active deployments, sufficient test coverage -- the engine autonomously proposes and validates evolutionary improvements through the [SEADF](/glossary/seadf/) framework.
+The platform's evolution from Generation 1 to Generation 18 with 0.999 apex fitness was driven in significant part by the Auto Evolution Engine's ability to identify non-obvious improvements. The engine maintains a prioritized improvement backlog ranked by expected fitness impact, implementation complexity, and risk profile. When conditions are favorable -- [quality gates](@/glossary/quality-gates.md) passing, no active deployments, sufficient test coverage -- the engine autonomously proposes and validates evolutionary improvements through the [SEADF](@/glossary/seadf.md) framework.
 
 Unlike manual improvement planning, which suffers from recency bias and visibility limitations, the Auto Evolution Engine evaluates every platform subsystem with equal attention. Improvements in obscure utility modules receive the same analytical treatment as changes to high-visibility user-facing features. This uniform coverage ensures that evolutionary pressure acts across the entire codebase rather than concentrating on the most visible components.
 
 ## Operational Domain
 
-The Cosmic domain grants unrestricted access across all platform subsystems, enabling the Auto Evolution Engine to identify cross-cutting improvements that domain-specific agents would miss. The engine operates through the Self-Evolving Autonomous Development Framework ([SEADF](/glossary/seadf/)), interfacing with the genetic optimization engine for fitness evaluation and the [mycelial network](/glossary/mycelial-network/) for improvement propagation.
+The Cosmic domain grants unrestricted access across all platform subsystems, enabling the Auto Evolution Engine to identify cross-cutting improvements that domain-specific agents would miss. The engine operates through the Self-Evolving Autonomous Development Framework ([SEADF](@/glossary/seadf.md)), interfacing with the genetic optimization engine for fitness evaluation and the [mycelial network](@/glossary/mycelial-network.md) for improvement propagation.
 
 This domain placement is essential because the highest-leverage improvements often span multiple domains. A performance optimization in the storage layer may require corresponding changes in the web presentation layer. A quality improvement in test infrastructure may enable safety improvements across all application domains. The Cosmic domain authority enables the engine to propose and coordinate these cross-cutting improvements without requiring approval from each individual domain commander.
 
 ## Key Capabilities
 
-- **Opportunity detection** continuously scanning platform [telemetry](/glossary/telemetry/), quality [metrics](/glossary/metrics/), and code structure to identify highest-leverage improvement targets. The scanner operates across compilation metrics, test execution times, code complexity measures, and runtime performance telemetry.
+- **Opportunity detection** continuously scanning platform [telemetry](@/glossary/telemetry.md), quality [metrics](@/glossary/metrics.md), and code structure to identify highest-leverage improvement targets. The scanner operates across compilation metrics, test execution times, code complexity measures, and runtime performance telemetry.
 
 - **Impact-effort ranking** prioritizing detected opportunities by expected fitness improvement divided by implementation complexity and risk. Each opportunity receives a composite score that accounts for direct fitness impact, indirect benefits to dependent subsystems, and the probability of successful implementation.
 
 - **Autonomous improvement execution** proposing, validating, and applying improvements through automated pipelines when safety conditions are met. The execution pipeline includes pre-improvement baseline measurement, change application, post-improvement verification, and automatic rollback if verification fails.
 
-- **Cross-ecosystem [intelligence fusion](/glossary/intelligence-fusion/)** combining signals from quality, performance, security, and architecture domains to discover cross-cutting optimization opportunities that no single domain could identify in isolation.
+- **Cross-ecosystem [intelligence fusion](@/glossary/intelligence-fusion.md)** combining signals from quality, performance, security, and architecture domains to discover cross-cutting optimization opportunities that no single domain could identify in isolation.
 
 - **Multi-generational learning** tracking the outcomes of past improvements across platform generations to refine detection and prioritization heuristics. Improvements that produced larger-than-expected fitness gains receive higher weighting in future opportunity scoring.
 
@@ -84,7 +84,7 @@ Fitness is computed as a weighted composite normalized to the [0.0, 1.0] interva
 
 The Auto Evolution Engine implements multiple safety mechanisms that prevent autonomous changes from degrading platform stability.
 
-**Pre-execution validation.** Every improvement proposal passes through the [Trinity Gate](/glossary/trinity-gate/) before execution: structural consistency (the change does not introduce circular dependencies or break supervision trees), logical consistency (the change is logically compatible with existing behavior), and formal correctness (type specifications and contracts remain valid).
+**Pre-execution validation.** Every improvement proposal passes through the [Trinity Gate](@/glossary/trinity-gate.md) before execution: structural consistency (the change does not introduce circular dependencies or break supervision trees), logical consistency (the change is logically compatible with existing behavior), and formal correctness (type specifications and contracts remain valid).
 
 **Rollback capability.** Every autonomous change creates a reversion point. If post-execution verification detects any fitness regression, the change is automatically rolled back within seconds. The rollback mechanism is itself tested as part of the engine's self-verification protocol.
 
@@ -100,10 +100,10 @@ The Auto Evolution Engine implements multiple safety mechanisms that prevent aut
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Evolution Authority | Coordinates evolutionary campaigns and validates improvement proposals |
-| [autoevolve-commander-agent](/agents/autoevolve-commander-agent/) | Command Interface | Provides command-line interface for evolution status and control |
-| [autonomous-healing-commander](/agents/autonomous-healing-commander/) | Healing Integration | Coordinates [self-healing](/glossary/self-healing/) operations alongside evolutionary improvements |
-| [auto-ultimate-orchestrator](/agents/auto-ultimate-orchestrator/) | Strategic Evolution | Receives strategic direction for long-term evolutionary trajectory |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Evolution Authority | Coordinates evolutionary campaigns and validates improvement proposals |
+| [autoevolve-commander-agent](@/agents/autoevolve-commander-agent.md) | Command Interface | Provides command-line interface for evolution status and control |
+| [autonomous-healing-commander](@/agents/autonomous-healing-commander.md) | Healing Integration | Coordinates [self-healing](@/glossary/self-healing.md) operations alongside evolutionary improvements |
+| [auto-ultimate-orchestrator](@/agents/auto-ultimate-orchestrator.md) | Strategic Evolution | Receives strategic direction for long-term evolutionary trajectory |
 
 ## Performance Metrics
 
@@ -117,7 +117,7 @@ The Auto Evolution Engine implements multiple safety mechanisms that prevent aut
 
 ## Enforcement
 
-All autonomous evolution operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No improvement is deployed without verified fitness improvement through before/after measurement. Every evolutionary change must pass all quality gates, including zero-warning compilation and full test suite execution. The NABLA [Trinity Gate](/glossary/trinity-gate/) validates that proposed improvements maintain structural consistency, logical consistency, and formal correctness before application. Improvements that cannot demonstrate measurable fitness gain are rejected regardless of their theoretical merit.
+All autonomous evolution operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No improvement is deployed without verified fitness improvement through before/after measurement. Every evolutionary change must pass all quality gates, including zero-warning compilation and full test suite execution. The NABLA [Trinity Gate](@/glossary/trinity-gate.md) validates that proposed improvements maintain structural consistency, logical consistency, and formal correctness before application. Improvements that cannot demonstrate measurable fitness gain are rejected regardless of their theoretical merit.
 
 ---
 
@@ -126,4 +126,4 @@ All autonomous evolution operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

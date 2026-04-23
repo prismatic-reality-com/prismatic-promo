@@ -25,11 +25,11 @@ image_alt = "MITRE ATT&CK - Prismatic Platform"
 
 ## Overview
 
-MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) is the global standard framework for understanding adversary behavior in cybersecurity. Maintained by the MITRE Corporation, a federally funded research and development center, ATT&CK documents real-world observations of threat actor TTPs (Tactics, Techniques, and Procedures) organized into a comprehensive matrix covering the full attack lifecycle from initial reconnaissance through ultimate impact. Every serious security operation worldwide uses ATT&CK as the common language for [threat intelligence](/glossary/threat-intelligence/), detection engineering, and security assessment.
+MITRE ATT&CK (Adversarial Tactics, Techniques, and Common Knowledge) is the global standard framework for understanding adversary behavior in cybersecurity. Maintained by the MITRE Corporation, a federally funded research and development center, ATT&CK documents real-world observations of threat actor TTPs (Tactics, Techniques, and Procedures) organized into a comprehensive matrix covering the full attack lifecycle from initial reconnaissance through ultimate impact. Every serious security operation worldwide uses ATT&CK as the common language for [threat intelligence](@/glossary/threat-intelligence.md), detection engineering, and security assessment.
 
 The framework was first published in 2013 based on observations from MITRE's internal research into APT (Advanced Persistent Threat) group behavior. Since then, it has evolved into three distinct matrices -- Enterprise (covering Windows, macOS, Linux, cloud, network, and containers), Mobile (iOS and Android), and ICS (Industrial Control Systems) -- each documenting the specific techniques adversaries employ against these technology domains. The Enterprise matrix alone catalogs over 200 techniques and 400 sub-techniques, each backed by real-world evidence from threat intelligence reports and incident response investigations.
 
-For [OSINT](/glossary/osint/) practitioners and security teams, ATT&CK serves multiple critical functions: it provides a standardized vocabulary for discussing adversary behavior, enables systematic gap analysis of defensive capabilities, facilitates threat-informed defense prioritization, and supports structured threat intelligence production. The framework's emphasis on observable, evidence-based adversary behavior -- rather than theoretical attack possibilities -- makes it uniquely actionable for operational security teams.
+For [OSINT](@/glossary/osint.md) practitioners and security teams, ATT&CK serves multiple critical functions: it provides a standardized vocabulary for discussing adversary behavior, enables systematic gap analysis of defensive capabilities, facilitates threat-informed defense prioritization, and supports structured threat intelligence production. The framework's emphasis on observable, evidence-based adversary behavior -- rather than theoretical attack possibilities -- makes it uniquely actionable for operational security teams.
 
 ## Data Sources and Coverage
 
@@ -77,7 +77,7 @@ The classification engine uses a combination of keyword matching, behavioral pat
 
 ## API Integration
 
-Prismatic Platform uses ATT&CK as the canonical taxonomy for threat classification across all security modules. Perimeter findings, [OSINT](/glossary/osint/) intelligence, and detection events are automatically mapped to ATT&CK technique IDs.
+Prismatic Platform uses ATT&CK as the canonical taxonomy for threat classification across all security modules. Perimeter findings, [OSINT](@/glossary/osint.md) intelligence, and detection events are automatically mapped to ATT&CK technique IDs.
 
 ```elixir
 # Map finding to ATT&CK techniques
@@ -165,12 +165,12 @@ end
 ### Detection Engineering
 - Assess detection coverage against the ATT&CK matrix to identify blind spots
 - Prioritize detection rule development based on techniques used by relevant threat groups
-- Map [SIEM](/glossary/siem/) rules to techniques for systematic gap analysis
+- Map [SIEM](@/glossary/siem.md) rules to techniques for systematic gap analysis
 - Build detection-as-code aligned to ATT&CK IDs for structured detection management
 
 ### Security Assessment
-- [Red team](/glossary/red-team/) operation planning using ATT&CK techniques as the exercise framework
-- [Purple team](/glossary/purple-team/) exercises structured around specific technique testing and detection validation
+- [Red team](@/glossary/red-team.md) operation planning using ATT&CK techniques as the exercise framework
+- [Purple team](@/glossary/purple-team.md) exercises structured around specific technique testing and detection validation
 - Security posture assessment against techniques used by real-world adversaries targeting your sector
 - Risk-based prioritization of defensive investments based on coverage gap analysis
 
@@ -230,13 +230,13 @@ The ETS-backed local knowledge base ensures that ATT&CK lookups never introduce 
 
 ## Related Resources
 
-- [Exploit-DB](/osint/exploit-db/) - Exploit database mapped to CVEs and TTPs
-- [NVD](/osint/nvd/) - National Vulnerability Database for [CVE](/glossary/cve/) context
-- [VirusTotal](/osint/virustotal/) - Malware analysis with behavioral TTPs
-- [ThreatFox](/osint/threatfox/) - IOC sharing with ATT&CK mapping
-- [GreyNoise](/osint/greynoise/) - Scanner identification with technique context
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Threat-informed security ratings
+- [Exploit-DB](@/osint/exploit-db.md) - Exploit database mapped to CVEs and TTPs
+- [NVD](@/osint/nvd.md) - National Vulnerability Database for [CVE](@/glossary/cve.md) context
+- [VirusTotal](@/osint/virustotal.md) - Malware analysis with behavioral TTPs
+- [ThreatFox](@/osint/threatfox.md) - IOC sharing with ATT&CK mapping
+- [GreyNoise](@/osint/greynoise.md) - Scanner identification with technique context
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Threat-informed security ratings
 
 ---
 
@@ -245,4 +245,4 @@ The ETS-backed local knowledge base ensures that ATT&CK lookups never introduce 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

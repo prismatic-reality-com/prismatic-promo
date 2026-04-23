@@ -28,9 +28,9 @@ image_alt = "/presales-propose - Prismatic Platform"
 
 The proposal generation engine applies template-based document composition with intelligent content selection. Rather than generating generic proposals, the engine selects and customizes content sections based on the specific opportunity characteristics: industry vertical, solution scope, deployment model, compliance requirements, and competitive context. This targeted content selection ensures that every proposal speaks directly to the prospect's specific needs and concerns while maintaining consistent quality and branding standards.
 
-This command operates under the **L2+** authority level and is executed by the `proposal-writer` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The proposal writer agent combines technical writing capability with commercial awareness, producing documents that are both technically accurate and persuasively structured.
+This command operates under the **L2+** authority level and is executed by the `proposal-writer` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The proposal writer agent combines technical writing capability with commercial awareness, producing documents that are both technically accurate and persuasively structured.
 
-As the culmination of the presales pipeline, `/presales-propose` represents the point where all intelligence gathering, analysis, assessment, and pricing converge into a deliverable artifact. The quality of this output directly impacts win rates, making it one of the most business-critical commands in the presales category. The command enforces the platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine by refusing to generate proposals from incomplete data -- every required section must have adequate backing from upstream presales activities.
+As the culmination of the presales pipeline, `/presales-propose` represents the point where all intelligence gathering, analysis, assessment, and pricing converge into a deliverable artifact. The quality of this output directly impacts win rates, making it one of the most business-critical commands in the presales category. The command enforces the platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine by refusing to generate proposals from incomplete data -- every required section must have adequate backing from upstream presales activities.
 
 ## Architecture
 
@@ -155,14 +155,14 @@ The proposal generation follows a multi-phase composition pipeline.
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/presales-analyze](/commands/presales-analyze/) | Data Source | Opportunity analysis feeds executive summary |
-| [/presales-assess](/commands/presales-assess/) | Data Source | Technical assessment feeds solution section |
-| [/presales-price](/commands/presales-price/) | Data Source | Pricing recommendation feeds pricing section |
-| [/presales-research](/commands/presales-research/) | Data Source | Competitive analysis feeds differentiation |
-| [/presales-case](/commands/presales-case/) | Case Management | Proposal linked to case record |
-| [/presales](/commands/presales/) | Parent Command | Top-level presales orchestration |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `proposal-writer` agent |
-| [Telemetry](/glossary/telemetry/) | Observability | Proposal generation and revision metrics |
+| [/presales-analyze](@/commands/presales-analyze.md) | Data Source | Opportunity analysis feeds executive summary |
+| [/presales-assess](@/commands/presales-assess.md) | Data Source | Technical assessment feeds solution section |
+| [/presales-price](@/commands/presales-price.md) | Data Source | Pricing recommendation feeds pricing section |
+| [/presales-research](@/commands/presales-research.md) | Data Source | Competitive analysis feeds differentiation |
+| [/presales-case](@/commands/presales-case.md) | Case Management | Proposal linked to case record |
+| [/presales](@/commands/presales.md) | Parent Command | Top-level presales orchestration |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `proposal-writer` agent |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Proposal generation and revision metrics |
 
 ## Best Practices
 
@@ -216,19 +216,19 @@ The proposal generation follows a multi-phase composition pipeline.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Proposals are never generated from incomplete data -- missing upstream activities block generation with specific guidance on what to complete. Every section must meet minimum quality thresholds. Proposals with unresolved placeholders or inconsistencies are rejected.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every claim in the proposal is backed by data from upstream presales activities. Technical capabilities described in the proposal are verified against the AIAD capability registry. Pricing commitments match the approved pricing analysis. The [NABLA](/glossary/nabla-infinity/) framework ensures that proposal claims are traceable to evidence.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every claim in the proposal is backed by data from upstream presales activities. Technical capabilities described in the proposal are verified against the AIAD capability registry. Pricing commitments match the approved pricing analysis. The [NABLA](@/glossary/nabla-infinity.md) framework ensures that proposal claims are traceable to evidence.
 
 ## Related Commands
 
-- [/presales](/commands/presales/) - Presales intelligence for company analysis and opportunity identification
-- [/presales-analyze](/commands/presales-analyze/) - Text, file and URL analysis for presales opportunity assessment
-- [/presales-assess](/commands/presales-assess/) - Technical assessment of opportunities and cases
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/presales](@/commands/presales.md) - Presales intelligence for company analysis and opportunity identification
+- [/presales-analyze](@/commands/presales-analyze.md) - Text, file and URL analysis for presales opportunity assessment
+- [/presales-assess](@/commands/presales-assess.md) - Technical assessment of opportunities and cases
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -237,4 +237,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

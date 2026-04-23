@@ -42,7 +42,7 @@ In the intelligence community, analysis is the phase of the intelligence cycle w
 
 ## Overview
 
-Intelligence analysis operates within the broader [intelligence cycle](/glossary/osint/), which comprises planning and direction, collection, processing, analysis, and dissemination. Analysis is the phase where human judgment (or increasingly, automated reasoning systems) transforms processed data into intelligence products. The quality of analysis depends on the quality of collection, but excellent collection cannot compensate for poor analysis, and vice versa.
+Intelligence analysis operates within the broader [intelligence cycle](@/glossary/osint.md), which comprises planning and direction, collection, processing, analysis, and dissemination. Analysis is the phase where human judgment (or increasingly, automated reasoning systems) transforms processed data into intelligence products. The quality of analysis depends on the quality of collection, but excellent collection cannot compensate for poor analysis, and vice versa.
 
 ### The Analysis Spectrum
 
@@ -84,7 +84,7 @@ Each stage has specific technical requirements:
 
 **Enrichment** augments normalized records with contextual data: geolocation for IP addresses, industry classification for companies, historical behavior profiles for entities.
 
-**Correlation** identifies relationships between entities across sources. This is where [entity resolution](/glossary/entity-resolution/) is critical -- determining that "Acme Corp" in one source, "ACME Corporation s.r.o." in another, and a registrant email "admin@acme-corp.cz" in a third all refer to the same entity.
+**Correlation** identifies relationships between entities across sources. This is where [entity resolution](@/glossary/entity-resolution.md) is critical -- determining that "Acme Corp" in one source, "ACME Corporation s.r.o." in another, and a registrant email "admin@acme-corp.cz" in a third all refer to the same entity.
 
 **Confidence Calibration** assigns probability estimates to analytic judgments using a standardized vocabulary:
 
@@ -453,11 +453,11 @@ end
 
 ### Integration with OSINT Pipelines
 
-The analysis engine integrates directly with the platform's [OSINT](/glossary/osint/) collection infrastructure. When an OSINT pipeline completes collection for a target, the analysis engine is automatically invoked:
+The analysis engine integrates directly with the platform's [OSINT](@/glossary/osint.md) collection infrastructure. When an OSINT pipeline completes collection for a target, the analysis engine is automatically invoked:
 
-1. **Entity Resolution**: The [entity resolution](/glossary/entity-resolution/) engine consolidates collected records into a unified entity graph
-2. **Risk Scoring**: The [risk score](/glossary/risk-score/) module calculates composite risk based on multiple indicators
-3. **Threat Assessment**: The [threat assessment](/glossary/threat-assessment/) framework evaluates potential threats based on capability, intent, and opportunity
+1. **Entity Resolution**: The [entity resolution](@/glossary/entity-resolution.md) engine consolidates collected records into a unified entity graph
+2. **Risk Scoring**: The [risk score](@/glossary/risk-score.md) module calculates composite risk based on multiple indicators
+3. **Threat Assessment**: The [threat assessment](@/glossary/threat-assessment.md) framework evaluates potential threats based on capability, intent, and opportunity
 4. **Assessment Production**: Final intelligence products are generated with confidence ratings and analytic notes
 
 ## Comparison with Alternatives
@@ -478,10 +478,10 @@ Prismatic's advantage is architectural: by building intelligence analysis as OTP
 1. **Apply Structured Analytic Techniques**: Never rely on intuition alone. Use ACH, key assumptions checks, and red team analysis for every significant assessment
 2. **Calibrate Confidence**: Use standardized probability language. "Likely" means 55-80%, not "I think so"
 3. **Document Assumptions**: Every assessment rests on assumptions. Make them explicit so they can be challenged
-4. **Preserve Contradictions**: Following the [NABLA Infinity](/glossary/3nl/) framework, contradictory evidence must be preserved, not discarded
+4. **Preserve Contradictions**: Following the [NABLA Infinity](@/glossary/3nl.md) framework, contradictory evidence must be preserved, not discarded
 5. **Separate Collection from Analysis**: Analysts should not direct their own collection -- this introduces confirmation bias
 6. **Apply Temporal Decay**: Older evidence receives lower weight unless corroborated by recent collection
-7. **Use the Triple-Check Pattern**: Critical assessments must pass the [triple-check](/glossary/triple-check/) validation engine with three independent source corroboration
+7. **Use the Triple-Check Pattern**: Critical assessments must pass the [triple-check](@/glossary/triple-check.md) validation engine with three independent source corroboration
 8. **Version Assessments**: Intelligence is perishable. Assessments must be versioned and updated as new evidence arrives
 
 ## Common Pitfalls
@@ -499,41 +499,41 @@ Prismatic's advantage is architectural: by building intelligence analysis as OTP
 
 ### Corporate Due Diligence
 
-When conducting [due diligence](/glossary/due-diligence/) on a potential business partner, the analysis engine collects data from Czech business registries (ARES, Justice.cz), international company databases, sanctions lists, and open web sources. The ACH framework evaluates competing hypotheses about the entity's legitimacy, beneficial ownership structure, and risk profile. The output is a structured assessment with confidence ratings suitable for compliance documentation.
+When conducting [due diligence](@/glossary/due-diligence.md) on a potential business partner, the analysis engine collects data from Czech business registries (ARES, Justice.cz), international company databases, sanctions lists, and open web sources. The ACH framework evaluates competing hypotheses about the entity's legitimacy, beneficial ownership structure, and risk profile. The output is a structured assessment with confidence ratings suitable for compliance documentation.
 
 ### Cyber Threat Intelligence
 
-The platform's [cyber threat intelligence](/glossary/cyber-threat-intelligence/) capability uses intelligence analysis to assess threat actor campaigns. Indicators of compromise (IoCs) are collected from multiple sources, correlated through entity resolution, and analyzed to produce threat assessments with predicted timelines and recommended mitigations.
+The platform's [cyber threat intelligence](@/glossary/cyber-threat-intelligence.md) capability uses intelligence analysis to assess threat actor campaigns. Indicators of compromise (IoCs) are collected from multiple sources, correlated through entity resolution, and analyzed to produce threat assessments with predicted timelines and recommended mitigations.
 
 ### Attack Surface Monitoring
 
-Within the [EASM](/glossary/easm/) framework, intelligence analysis continuously evaluates the organization's external attack surface. Changes in DNS records, certificate issuance, and exposed services are analyzed to produce risk-scored assessments that drive security ratings through [Prismatic Perimeter](/glossary/prismatic-perimeter/).
+Within the [EASM](@/glossary/easm.md) framework, intelligence analysis continuously evaluates the organization's external attack surface. Changes in DNS records, certificate issuance, and exposed services are analyzed to produce risk-scored assessments that drive security ratings through [Prismatic Perimeter](@/glossary/prismatic-perimeter.md).
 
 ### Sanctions Compliance
 
-For [sanctions screening](/glossary/sanctions-screening/) and [AML](/glossary/aml/) compliance, the analysis engine evaluates matches against sanctions lists using fuzzy matching and contextual analysis to reduce false positives while maintaining compliance sensitivity.
+For [sanctions screening](@/glossary/sanctions-screening.md) and [AML](@/glossary/aml.md) compliance, the analysis engine evaluates matches against sanctions lists using fuzzy matching and contextual analysis to reduce false positives while maintaining compliance sensitivity.
 
 ## Related Concepts
 
-- [OSINT](/glossary/osint/) -- The discipline of collecting intelligence from publicly available sources, providing the raw material for analysis
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- The process of combining intelligence from multiple sources and disciplines into a unified picture
-- [Entity Resolution](/glossary/entity-resolution/) -- Determining that records from different sources refer to the same real-world entity
-- [Risk Score](/glossary/risk-score/) -- Quantified risk assessment produced by analysis pipelines
-- [Due Diligence](/glossary/due-diligence/) -- Investigative process that relies on intelligence analysis for assessment production
-- [Cyber Threat Intelligence](/glossary/cyber-threat-intelligence/) -- Specialized analysis focused on adversarial cyber operations
-- [Threat Assessment](/glossary/threat-assessment/) -- Evaluation of potential threats based on capability, intent, and opportunity
-- [Intelligence Platform](/glossary/intelligence-platform/) -- The comprehensive system within which analysis operates
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Graph-based knowledge representation that supports analytic reasoning
-- [Triple Check](/glossary/triple-check/) -- Three-source corroboration validation for critical assessments
+- [OSINT](@/glossary/osint.md) -- The discipline of collecting intelligence from publicly available sources, providing the raw material for analysis
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- The process of combining intelligence from multiple sources and disciplines into a unified picture
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Determining that records from different sources refer to the same real-world entity
+- [Risk Score](@/glossary/risk-score.md) -- Quantified risk assessment produced by analysis pipelines
+- [Due Diligence](@/glossary/due-diligence.md) -- Investigative process that relies on intelligence analysis for assessment production
+- [Cyber Threat Intelligence](@/glossary/cyber-threat-intelligence.md) -- Specialized analysis focused on adversarial cyber operations
+- [Threat Assessment](@/glossary/threat-assessment.md) -- Evaluation of potential threats based on capability, intent, and opportunity
+- [Intelligence Platform](@/glossary/intelligence-platform.md) -- The comprehensive system within which analysis operates
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Graph-based knowledge representation that supports analytic reasoning
+- [Triple Check](@/glossary/triple-check.md) -- Three-source corroboration validation for critical assessments
 
 ## See Also
 
-- [OSINT](/glossary/osint/) -- Collection discipline feeding the analysis pipeline
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Multi-source integration methodology
-- [Hawkeye](/glossary/hawkeye/) -- Visitor intelligence system using analysis techniques
-- [EASM](/glossary/easm/) -- External Attack Surface Management leveraging continuous analysis
-- [Risk Assessment](/glossary/risk-assessment/) -- Broader risk evaluation framework
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- Security ratings driven by intelligence analysis
+- [OSINT](@/glossary/osint.md) -- Collection discipline feeding the analysis pipeline
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Multi-source integration methodology
+- [Hawkeye](@/glossary/hawkeye.md) -- Visitor intelligence system using analysis techniques
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management leveraging continuous analysis
+- [Risk Assessment](@/glossary/risk-assessment.md) -- Broader risk evaluation framework
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- Security ratings driven by intelligence analysis
 
 ---
 
@@ -542,4 +542,4 @@ For [sanctions screening](/glossary/sanctions-screening/) and [AML](/glossary/am
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

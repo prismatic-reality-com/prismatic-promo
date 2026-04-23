@@ -36,8 +36,8 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Getting Started with Prismatic Platform](/academy/getting-started/)
-- Completed [Understanding NO MERCY, NO DOUBTS](/academy/quality-standards/)
+- Completed [Getting Started with Prismatic Platform](@/academy/getting-started.md)
+- Completed [Understanding NO MERCY, NO DOUBTS](@/academy/quality-standards.md)
 - Git installed with SSH access to the repository
 - GitLab account with project access
 
@@ -367,33 +367,33 @@ git config core.hooksPath .githooks
 ## See Also
 
 ### Related Applications
-- [prismatic_claude](/apps/prismatic-claude/) -- Session lifecycle and hook management
-- [prismatic_tooling](/apps/prismatic-tooling/) -- Git Trees and developer productivity tools
-- [prismatic_safety](/apps/prismatic-safety/) -- Quality gates and floor guardian
+- [prismatic_claude](@/apps/prismatic-claude.md) -- Session lifecycle and hook management
+- [prismatic_tooling](@/apps/prismatic-tooling.md) -- Git Trees and developer productivity tools
+- [prismatic_safety](@/apps/prismatic-safety.md) -- Quality gates and floor guardian
 
 ### Glossary
-- [Quality DNA](/glossary/quality-dna/) -- Persistent quality state tracked across development sessions
-- [Quality Gates](/glossary/quality-gates/) -- Automated gates that block non-compliant code
-- [Clean Run](/glossary/clean-run/) -- Zero warnings, zero debug logs
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Local quality enforcement before commits
-- [Session Discipline](/glossary/session-discipline/) -- Mandatory protocol for all development sessions
-- [CASCADE](/glossary/cascade/) -- Systematic defect category elimination
-- [Autoevolve](/glossary/autoevolve/) -- Autonomous platform evolution system
-- [Autoheal](/glossary/autoheal/) -- Self-healing infrastructure
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistent quality state tracked across development sessions
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated gates that block non-compliant code
+- [Clean Run](@/glossary/clean-run.md) -- Zero warnings, zero debug logs
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Local quality enforcement before commits
+- [Session Discipline](@/glossary/session-discipline.md) -- Mandatory protocol for all development sessions
+- [CASCADE](@/glossary/cascade.md) -- Systematic defect category elimination
+- [Autoevolve](@/glossary/autoevolve.md) -- Autonomous platform evolution system
+- [Autoheal](@/glossary/autoheal.md) -- Self-healing infrastructure
 
 ### Architecture
-- [Telemetry](/architecture/telemetry/) -- Session and quality telemetry events
+- [Telemetry](@/architecture/telemetry.md) -- Session and quality telemetry events
 
 ### Related Academy Topics
-- [Quality Standards](/academy/quality-standards/) -- What the quality gates enforce
-- [Self-Evolving Ecosystems](/academy/evolution-patterns/) -- How autoevolve and autoheal work
-- [The AIAD Standard](/academy/aiad-standard/) -- Specifications that CI validates
+- [Quality Standards](@/academy/quality-standards.md) -- What the quality gates enforce
+- [Self-Evolving Ecosystems](@/academy/evolution-patterns.md) -- How autoevolve and autoheal work
+- [The AIAD Standard](@/academy/aiad-standard.md) -- Specifications that CI validates
 
 ## Next Steps
 
-- [Building Your First Autonomous Agent](/academy/first-agent/) -- put the workflow into practice by building a real component
-- [Understanding NO MERCY, NO DOUBTS](/academy/quality-standards/) -- deeper understanding of what the quality gates enforce
-- [Building LiveView Dashboards](/academy/liveview-dashboards/) -- apply the workflow to frontend development
+- [Building Your First Autonomous Agent](@/academy/first-agent.md) -- put the workflow into practice by building a real component
+- [Understanding NO MERCY, NO DOUBTS](@/academy/quality-standards.md) -- deeper understanding of what the quality gates enforce
+- [Building LiveView Dashboards](@/academy/liveview-dashboards.md) -- apply the workflow to frontend development
 
 ---
 
@@ -402,4 +402,4 @@ git config core.hooksPath .githooks
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

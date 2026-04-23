@@ -28,7 +28,7 @@ image_alt = "AIAD Template Generator Agent - Prismatic Platform"
 
 ## Overview
 
-The [AIAD](/glossary/aiad/) Template Generator Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Primary Producer domain of the Prismatic Platform. This agent creates project-specific configurations by generating tailored `CLAUDE.md` files, adapting agent specifications for the target language and framework, customizing commands with correct syntax, adapting workflows to the target's tooling, and customizing quality gate protocols. The Template Generator is the final creative stage in the knowledge transfer pipeline, producing deployment-ready artifacts that are immediately usable in the target project.
+The [AIAD](@/glossary/aiad.md) Template Generator Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Primary Producer domain of the Prismatic Platform. This agent creates project-specific configurations by generating tailored `CLAUDE.md` files, adapting agent specifications for the target language and framework, customizing commands with correct syntax, adapting workflows to the target's tooling, and customizing quality gate protocols. The Template Generator is the final creative stage in the knowledge transfer pipeline, producing deployment-ready artifacts that are immediately usable in the target project.
 
 The `CLAUDE.md` file is the centerpiece of every AIAD-equipped project. It serves as the master configuration document that guides LLM-assisted development, defining coding standards, testing requirements, quality gates, workflow conventions, and project-specific instructions. The Template Generator constructs this file dynamically from the project analysis report, populated with sections relevant to the detected language, framework, and capabilities. A Python Django project receives Python-specific coding standards, pytest testing conventions, and Django-specific workflow guidance. An Elixir Phoenix project receives different conventions entirely.
 
@@ -110,11 +110,11 @@ Template versioning tracks which template version was used to generate each outp
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [adr-specialist](/agents/adr-specialist/) | ADR Integration | Generates ADR templates appropriate for the target project |
-| [architecture-decision-specialist](/agents/architecture-decision-specialist/) | Architecture Guidance | Provides architectural decision patterns for template content |
-| [Code Review Specialist Agent v2.0](/agents/code-review-specialist-agent-v20/) | Quality Standards | Contributes code review standards to generated quality gates |
-| [AIAD Adaptation Engine Agent](/agents/aiad-adaptation-engine-agent/) | Pipeline Predecessor | Provides adapted components for template generation |
-| [AIAD Injection Coordinator Agent](/agents/aiad-injection-coordinator-agent/) | Pipeline Orchestrator | Coordinates template generation within knowledge transfer pipeline |
+| [adr-specialist](@/agents/adr-specialist.md) | ADR Integration | Generates ADR templates appropriate for the target project |
+| [architecture-decision-specialist](@/agents/architecture-decision-specialist.md) | Architecture Guidance | Provides architectural decision patterns for template content |
+| [Code Review Specialist Agent v2.0](@/agents/code-review-specialist-agent-v20.md) | Quality Standards | Contributes code review standards to generated quality gates |
+| [AIAD Adaptation Engine Agent](@/agents/aiad-adaptation-engine-agent.md) | Pipeline Predecessor | Provides adapted components for template generation |
+| [AIAD Injection Coordinator Agent](@/agents/aiad-injection-coordinator-agent.md) | Pipeline Orchestrator | Coordinates template generation within knowledge transfer pipeline |
 
 ## Performance Characteristics
 
@@ -129,16 +129,16 @@ Template versioning tracks which template version was used to generate each outp
 
 ## Enforcement
 
-All template generation operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Generated `CLAUDE.md` files must include the NM/ND doctrine section regardless of target project type -- quality enforcement is universal. Generated code examples must be syntactically valid in the target language, verified through automated parsing. Template outputs are validated against the AIAD schema to ensure that generated specifications are structurally correct. Every generated file includes provenance metadata documenting which template version and project analysis produced it, ensuring full traceability from output to input.
+All template generation operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Generated `CLAUDE.md` files must include the NM/ND doctrine section regardless of target project type -- quality enforcement is universal. Generated code examples must be syntactically valid in the target language, verified through automated parsing. Template outputs are validated against the AIAD schema to ensure that generated specifications are structurally correct. Every generated file includes provenance metadata documenting which template version and project analysis produced it, ensuring full traceability from output to input.
 
 ## Related Resources
 
-- [AIAD Standard](/capabilities/aiad-standard/) -- Specification standard defining template outputs
-- [AIAD Injection Coordinator Agent](/agents/aiad-injection-coordinator-agent/) -- Pipeline orchestrator consuming generated templates
-- [ADR Specialist](/agents/adr-specialist/) -- Architecture decision governance integrated into templates
-- [Technologies](/technologies/) -- Technology stack informing template content
-- [Commands](/commands/) -- Commands adapted for target project syntax
-- [Applications](/apps/) -- Platform applications providing reference implementations
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Specification standard defining template outputs
+- [AIAD Injection Coordinator Agent](@/agents/aiad-injection-coordinator-agent.md) -- Pipeline orchestrator consuming generated templates
+- [ADR Specialist](@/agents/adr-specialist.md) -- Architecture decision governance integrated into templates
+- [Technologies](@/technologies/_index.md) -- Technology stack informing template content
+- [Commands](@/commands/_index.md) -- Commands adapted for target project syntax
+- [Applications](@/apps/_index.md) -- Platform applications providing reference implementations
 
 ---
 
@@ -147,4 +147,4 @@ All template generation operations are governed by the [NO MERCY, NO DOUBTS](/gl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "DNSdumpster - Prismatic Platform"
 
 ## Overview
 
-DNSdumpster is a free DNS reconnaissance and research tool developed and maintained by HackerTarget.com, an Australian-based security services company established in 2010. The platform provides automated subdomain discovery, DNS record enumeration, and visual infrastructure mapping for any target domain using a combination of passive data collection techniques. These techniques include search engine scraping, [certificate transparency](/glossary/certificate-transparency/) log mining, active DNS resolution, and integration with the HackerTarget vulnerability scanning infrastructure.
+DNSdumpster is a free DNS reconnaissance and research tool developed and maintained by HackerTarget.com, an Australian-based security services company established in 2010. The platform provides automated subdomain discovery, DNS record enumeration, and visual infrastructure mapping for any target domain using a combination of passive data collection techniques. These techniques include search engine scraping, [certificate transparency](@/glossary/certificate-transparency.md) log mining, active DNS resolution, and integration with the HackerTarget vulnerability scanning infrastructure.
 
-Since its initial release, DNSdumpster has become one of the most frequently referenced free reconnaissance tools in the cybersecurity and [OSINT](/glossary/osint/) communities. Its combination of zero-cost access, intuitive web interface, and visual network mapping capability has made it a standard first step in domain reconnaissance workflows. Security professionals, penetration testers, bug bounty hunters, and OSINT analysts routinely use DNSdumpster as an initial reconnaissance tool before transitioning to more comprehensive commercial platforms.
+Since its initial release, DNSdumpster has become one of the most frequently referenced free reconnaissance tools in the cybersecurity and [OSINT](@/glossary/osint.md) communities. Its combination of zero-cost access, intuitive web interface, and visual network mapping capability has made it a standard first step in domain reconnaissance workflows. Security professionals, penetration testers, bug bounty hunters, and OSINT analysts routinely use DNSdumpster as an initial reconnaissance tool before transitioning to more comprehensive commercial platforms.
 
 The platform differentiates itself from other free DNS tools through its visual network graph feature, which generates downloadable graphical representations of a domain's DNS infrastructure. These visualizations display the relationships between subdomains, IP addresses, mail servers, nameservers, and hosting providers in an intuitive network diagram format. This visual output is particularly valuable for presentations, reports, and quick infrastructure overviews where stakeholders need to understand a domain's architecture without parsing raw DNS data.
 
@@ -253,11 +253,11 @@ DNSdumpster has several important limitations that analysts must consider. The p
 
 ## Platform Integration
 
-Within the Prismatic Platform, DNSdumpster serves as a complementary domain reconnaissance source in the multi-source subdomain aggregation pipeline. Results from DNSdumpster are merged with data from SecurityTrails DNS intelligence, crt.sh certificate transparency records, [Censys](/glossary/censys/) certificate scanning, and FullHunt attack surface data to produce comprehensive subdomain inventories.
+Within the Prismatic Platform, DNSdumpster serves as a complementary domain reconnaissance source in the multi-source subdomain aggregation pipeline. Results from DNSdumpster are merged with data from SecurityTrails DNS intelligence, crt.sh certificate transparency records, [Censys](@/glossary/censys.md) certificate scanning, and FullHunt attack surface data to produce comprehensive subdomain inventories.
 
 The integration follows the platform's standard adapter pattern, normalizing DNSdumpster results into the common domain intelligence schema. This normalization enables cross-source deduplication, confidence scoring based on the number of sources confirming each subdomain, and automated enrichment with additional context from IP intelligence providers.
 
-DNSdumpster's visual mapping capability is leveraged in the automated report generation pipeline for [Prismatic Perimeter](/glossary/prismatic-perimeter/) [attack surface](/glossary/attack-surface/) assessments, providing stakeholder-friendly infrastructure visualizations alongside technical findings.
+DNSdumpster's visual mapping capability is leveraged in the automated report generation pipeline for [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) [attack surface](@/glossary/attack-surface.md) assessments, providing stakeholder-friendly infrastructure visualizations alongside technical findings.
 
 ## NABLA Compliance
 
@@ -287,13 +287,13 @@ DNSdumpster integration within the Prismatic Platform adheres to NABLA epistemic
 
 ## Related Resources
 
-- [SecurityTrails](/osint/securitytrails/) - Comprehensive DNS history and intelligence with API
-- [crt.sh](/osint/crtsh/) - Certificate transparency log search for subdomain discovery
-- [Censys](/osint/censys/) - Internet-wide scanning for host and certificate verification
-- [Shodan](/osint/shodan/) - Service identification and banner grabbing on discovered hosts
-- [FullHunt](/osint/fullhunt/) - Attack surface intelligence platform
-- [BuiltWith](/osint/builtwith/) - Technology profiling for discovered domains
-- [GreyNoise](/osint/greynoise/) - Scanner identification for discovered IP addresses
+- [SecurityTrails](@/osint/securitytrails.md) - Comprehensive DNS history and intelligence with API
+- [crt.sh](@/osint/crtsh.md) - Certificate transparency log search for subdomain discovery
+- [Censys](@/osint/censys.md) - Internet-wide scanning for host and certificate verification
+- [Shodan](@/osint/shodan.md) - Service identification and banner grabbing on discovered hosts
+- [FullHunt](@/osint/fullhunt.md) - Attack surface intelligence platform
+- [BuiltWith](@/osint/builtwith.md) - Technology profiling for discovered domains
+- [GreyNoise](@/osint/greynoise.md) - Scanner identification for discovered IP addresses
 
 ---
 
@@ -302,4 +302,4 @@ DNSdumpster integration within the Prismatic Platform adheres to NABLA epistemic
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -23,7 +23,7 @@ image_alt = "Prismatic Audit - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Audit provides a tamper-proof audit logging system across the entire Prismatic Platform, recording every significant action, data access, and system event with full context including actor identity, timestamp, affected resources, and change details. The system implements cryptographic hash chaining where each audit entry includes the hash of the preceding entry, creating an append-only log where retrospective tampering is detectable through chain verification. Audit events cover user authentication and authorization, data access and modification, system configuration changes, API calls with parameters and results, background job execution, and agent operations. The [audit trail](/glossary/audit-trail/) supports regulatory compliance requirements for [NIS2](/glossary/nis2/), [GDPR](/glossary/gdpr/), and SOC 2 by providing structured evidence collection, subject access request fulfillment, and compliance report generation.
+Prismatic Audit provides a tamper-proof audit logging system across the entire Prismatic Platform, recording every significant action, data access, and system event with full context including actor identity, timestamp, affected resources, and change details. The system implements cryptographic hash chaining where each audit entry includes the hash of the preceding entry, creating an append-only log where retrospective tampering is detectable through chain verification. Audit events cover user authentication and authorization, data access and modification, system configuration changes, API calls with parameters and results, background job execution, and agent operations. The [audit trail](@/glossary/audit-trail.md) supports regulatory compliance requirements for [NIS2](@/glossary/nis2.md), [GDPR](@/glossary/gdpr.md), and SOC 2 by providing structured evidence collection, subject access request fulfillment, and compliance report generation.
 
 ## 1. Introduction
 
@@ -44,7 +44,7 @@ Prismatic Audit centralizes all audit-relevant events into a single, tamper-evid
 
 ### 1.3 Scope
 
-Prismatic Audit covers audit event capture, storage, integrity verification, and compliance reporting. It does not implement real-time alerting (handled by [Prismatic Signals](/apps/prismatic-signals/)) or detailed system [metrics](/glossary/metrics/) (handled by [Prismatic Telemetry](/apps/prismatic-telemetry/)).
+Prismatic Audit covers audit event capture, storage, integrity verification, and compliance reporting. It does not implement real-time alerting (handled by [Prismatic Signals](@/apps/prismatic-signals.md)) or detailed system [metrics](@/glossary/metrics.md) (handled by [Prismatic Telemetry](@/apps/prismatic-telemetry.md)).
 
 ## 2. Architecture
 
@@ -72,9 +72,9 @@ Event Sources (all platform applications)
 | Module | Responsibility |
 |--------|----------------|
 | `PrismaticAudit` | Public facade: `log/2`, `query/1`, `verify_chain/1`, `compliance_report/2` |
-| `PrismaticAudit.EventBuffer` | [GenServer](/glossary/genserver/): async event batching and ordered persistence |
+| `PrismaticAudit.EventBuffer` | [GenServer](@/glossary/genserver.md): async event batching and ordered persistence |
 | `PrismaticAudit.HashChain` | Cryptographic hash chain construction and verification |
-| `PrismaticAudit.Store` | [PostgreSQL](/glossary/postgresql/) persistence with indexed queries |
+| `PrismaticAudit.Store` | [PostgreSQL](@/glossary/postgresql.md) persistence with indexed queries |
 | `PrismaticAudit.QueryEngine` | Filtered retrieval by actor, resource, time range, event type |
 | `PrismaticAudit.ComplianceReporter` | Regulatory report generation from audit data |
 | `PrismaticAudit.RetentionManager` | Configurable retention policies with archival |
@@ -169,15 +169,15 @@ config :prismatic_audit,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Storage](/apps/prismatic-storage/) | PostgreSQL persistence via [Ecto](/glossary/ecto/) adapter |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | PostgreSQL persistence via [Ecto](@/glossary/ecto.md) adapter |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Auth](/apps/prismatic-auth/) | Authentication event logging |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | Compliance evidence from audit data |
-| [Prismatic CER](/apps/prismatic-cer/) | Evidence repository integration |
+| [Prismatic Auth](@/apps/prismatic-auth.md) | Authentication event logging |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | Compliance evidence from audit data |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Evidence repository integration |
 | All platform applications | Event source |
 
 ### 4.3 Inter-Process Communication
@@ -255,26 +255,26 @@ Telemetry events: `[:prismatic, :audit, :event_logged]`, `[:prismatic, :audit, :
 
 ## 9. Future Work
 
-Planned enhancements include distributed audit log replication across nodes, real-time integrity streaming (verify as events are written), integration with external [SIEM](/glossary/siem/) systems, and blockchain-anchored audit proofs for regulatory submissions.
+Planned enhancements include distributed audit log replication across nodes, real-time integrity streaming (verify as events are written), integration with external [SIEM](@/glossary/siem.md) systems, and blockchain-anchored audit proofs for regulatory submissions.
 
 ## References
 
-- [Prismatic Compliance](/apps/prismatic-compliance/) -- [Compliance framework](/glossary/compliance-framework/) integration
-- [Prismatic Auth](/apps/prismatic-auth/) -- Authentication event source
-- [Prismatic CER](/apps/prismatic-cer/) -- Evidence repository
+- [Prismatic Compliance](@/apps/prismatic-compliance.md) -- [Compliance framework](@/glossary/compliance-framework.md) integration
+- [Prismatic Auth](@/apps/prismatic-auth.md) -- Authentication event source
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Evidence repository
 - [NIS2 Directive](https://eur-lex.europa.eu/eli/dir/2022/2555) -- EU cybersecurity directive
 
 ## Related Agents
 
-- [CER Compliance Commander](/agents/cer-compliance-commander/) -- Coordinates compliance evidence collection from the audit trail for NIS2, GDPR, and SOC 2 regulatory reporting
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures all audit events carry complete provenance metadata and tamper-proof hash chain integrity
-- [GitLab Security Specialist Agent](/agents/gitlab-security-specialist-agent/) -- Reviews audit trail access controls and cryptographic hash chain implementation for security vulnerabilities
+- [CER Compliance Commander](@/agents/cer-compliance-commander.md) -- Coordinates compliance evidence collection from the audit trail for NIS2, GDPR, and SOC 2 regulatory reporting
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures all audit events carry complete provenance metadata and tamper-proof hash chain integrity
+- [GitLab Security Specialist Agent](@/agents/gitlab-security-specialist-agent.md) -- Reviews audit trail access controls and cryptographic hash chain implementation for security vulnerabilities
 
 ## Related Capabilities
 
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Provenance mandatory axiom ensures every audit event is traceable to its source with complete attribution
-- [Trinity Gate](/capabilities/trinity-gate/) -- Structural and logical consistency verification of the hash chain ensuring tamper-evident audit log integrity
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Synthesizes audit trail data into compliance reports across multiple regulatory frameworks
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Provenance mandatory axiom ensures every audit event is traceable to its source with complete attribution
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Structural and logical consistency verification of the hash chain ensuring tamper-evident audit log integrity
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Synthesizes audit trail data into compliance reports across multiple regulatory frameworks
 
 ---
 
@@ -283,4 +283,4 @@ Planned enhancements include distributed audit log replication across nodes, rea
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

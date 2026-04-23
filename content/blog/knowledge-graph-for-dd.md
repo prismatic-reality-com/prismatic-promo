@@ -18,7 +18,7 @@ see_also = ["knowledge-graph", "entity-graph", "entity-resolution", "due-diligen
 image_alt = "Knowledge Graphs for Due Diligence"
 +++
 
-Relational databases are great at "find me this row." Graph databases are great at "find me everything connected to this row within three hops." [Due diligence](/glossary/due-diligence) almost always needs the second query, and forcing it through Postgres joins is how DD platforms end up with 600-line SQL statements nobody can audit.
+Relational databases are great at "find me this row." Graph databases are great at "find me everything connected to this row within three hops." [Due diligence](@/glossary/due-diligence.md) almost always needs the second query, and forcing it through Postgres joins is how DD platforms end up with 600-line SQL statements nobody can audit.
 
 ## The question that breaks Postgres
 
@@ -39,16 +39,16 @@ Same question. One query. No CTE. Works at 10M nodes.
 
 ## The data model
 
-A DD [knowledge graph](/glossary/knowledge-graph) has a small ontology and ruthless naming discipline:
+A DD [knowledge graph](@/glossary/knowledge-graph.md) has a small ontology and ruthless naming discipline:
 
 - **Nodes:** Person, Company, Bank, Jurisdiction, Audit, Court_Case, Asset
 - **Edges:** DIRECTOR_OF, OWNS, BENEFICIAL_OWNER_OF, LITIGATED_AGAINST, BANKED_BY, REGISTERED_IN, AUDITED_BY
 
-Every edge carries a timestamp and a provenance. Edges without provenance are not edges — they are rumors. The [entity graph](/glossary/entity-graph) is only as trustworthy as the source of each relation.
+Every edge carries a timestamp and a provenance. Edges without provenance are not edges — they are rumors. The [entity graph](@/glossary/entity-graph.md) is only as trustworthy as the source of each relation.
 
 ## Entity resolution feeds the graph
 
-Garbage in, garbage graph. Before anything hits the graph, it passes through [entity resolution](/glossary/entity-resolution): "Navigara s.r.o." and "NAVIGARA SRO - v likvidaci" must collapse into one node or the graph is lying. The resolver writes to the graph in an `Ecto.Multi`-style transaction so an unresolved row can never create a dangling node.
+Garbage in, garbage graph. Before anything hits the graph, it passes through [entity resolution](@/glossary/entity-resolution.md): "Navigara s.r.o." and "NAVIGARA SRO - v likvidaci" must collapse into one node or the graph is lying. The resolver writes to the graph in an `Ecto.Multi`-style transaction so an unresolved row can never create a dangling node.
 
 ## Temporal correctness
 
@@ -60,7 +60,7 @@ WHERE r.valid_from <= $as_of AND (r.valid_until IS NULL OR r.valid_until > $as_o
 RETURN p
 ```
 
-The "as-of" is what turns the graph from a snapshot into a point-in-time view — which is what regulators and [KYC](/glossary/kyc) reviewers actually need.
+The "as-of" is what turns the graph from a snapshot into a point-in-time view — which is what regulators and [KYC](@/glossary/kyc.md) reviewers actually need.
 
 ## When NOT to use a graph
 
@@ -70,6 +70,6 @@ If the question is "show me all cases assigned to user X", it is a Postgres quer
 
 - **Academy**: [DD Investigation](/academy/learn/dd-investigation) — the graph-backed workflow end to end
 - **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — picking the right adapter per question
-- **Glossary**: [Knowledge Graph](/glossary/knowledge-graph), [Entity Graph](/glossary/entity-graph), [Entity Resolution](/glossary/entity-resolution), [Due Diligence](/glossary/due-diligence), [KYC](/glossary/kyc)
+- **Glossary**: [Knowledge Graph](@/glossary/knowledge-graph.md), [Entity Graph](@/glossary/entity-graph.md), [Entity Resolution](@/glossary/entity-resolution.md), [Due Diligence](@/glossary/due-diligence.md), [KYC](@/glossary/kyc.md)
 
 Relations beat records when the question is about connections. DD is always about connections.

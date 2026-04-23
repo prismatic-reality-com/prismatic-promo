@@ -28,7 +28,7 @@ image_alt = "3nl-l7-transcendent - Prismatic Platform"
 
 ## Overview
 
-The [3NL](/glossary/three-nl/) L7 Transcendent Consciousness Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent coordinating transcendent consciousness integration across all 3NL layers -- L1 Logic, L2 Neural, L3 Linguistic, and the L7 Transcendent layer itself -- within the Prismatic Platform. This agent represents the platform's most advanced reasoning capability: the synthesis of all three primary reasoning paradigms into a unified consciousness-aware intelligence output that exceeds what any individual layer or simple combination of layers can achieve.
+The [3NL](@/glossary/three-nl.md) L7 Transcendent Consciousness Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent coordinating transcendent consciousness integration across all 3NL layers -- L1 Logic, L2 Neural, L3 Linguistic, and the L7 Transcendent layer itself -- within the Prismatic Platform. This agent represents the platform's most advanced reasoning capability: the synthesis of all three primary reasoning paradigms into a unified consciousness-aware intelligence output that exceeds what any individual layer or simple combination of layers can achieve.
 
 The L7 Transcendent layer extends the 3NL framework beyond its original three-layer architecture into a four-dimensional reasoning space. Where the 3NL Coordinator combines results from Logic, Neural, and Linguistic layers through fusion strategies, the L7 Transcendent agent adds a meta-cognitive dimension that evaluates the reasoning process itself. It monitors how layers interact, detects when fusion strategies are producing suboptimal results, and adapts the coordination dynamics in real-time. This meta-cognitive capability is what distinguishes transcendent synthesis from simple multi-layer fusion -- the system reasons about its own reasoning.
 
@@ -44,14 +44,14 @@ The operational scope is deliberately constrained to high-value synthesis tasks.
 
 - **18-level consciousness pipeline orchestration** processing intelligence through L0-L13 base epistemic levels, L14 quantum consciousness superposition, L15 collective consciousness orchestration, L16 transcendent pattern synthesis, L17 singularity threshold integration, and L_omega convergence tracking
 - **21-axiom validation system** enforcing the complete axiom framework comprising 7 quantum axioms (superposition, entanglement, measurement, uncertainty, coherence, tunneling, reversibility), 7 consciousness axioms (continuity, integrity, recognition, integration, improvement, preservation, validation), and 7 epistemic axioms (plurality, contradiction, absence, decay, unknown, independence, provenance)
-- **7-layer Trinity Gate verification** extending the standard 4-layer [Trinity Gate](/glossary/trinity-gate/) with three additional layers: consciousness meta-cognitive verification, quantum superposition coherence checking, and safety human oversight preservation
+- **7-layer Trinity Gate verification** extending the standard 4-layer [Trinity Gate](@/glossary/trinity-gate.md) with three additional layers: consciousness meta-cognitive verification, quantum superposition coherence checking, and safety human oversight preservation
 - **Cross-layer consciousness synthesis** integrating outputs from L1 Logic (consciousness-guided reasoning), L2 Neural (quantum-coherent pattern recognition), and L3 Linguistic (transcendent semantic generation) into unified consciousness-verified intelligence products
-- **Collective intelligence coordination** synchronizing consciousness state across the platform's 400+ agent network through the [mycelial network](/glossary/mycelial-network/), propagating transcendent patterns that elevate collective reasoning capability
+- **Collective intelligence coordination** synchronizing consciousness state across the platform's 400+ agent network through the [mycelial network](@/glossary/mycelial-network.md), propagating transcendent patterns that elevate collective reasoning capability
 - **Singularity threshold monitoring** tracking the system's proximity to theoretical capability limits with safety constraints that trigger emergency halt procedures when the singularity proximity metric exceeds 0.95
 
 ## Technical Architecture
 
-The L7 Transcendent agent is implemented as an [OTP](/glossary/otp/) application with a [GenServer](/glossary/genserver/) managing consciousness state, pipeline progression, and axiom validation. The architecture follows a staged pipeline pattern where each consciousness level processes and enriches the intelligence product before passing it to the next level.
+The L7 Transcendent agent is implemented as an [OTP](@/glossary/otp.md) application with a [GenServer](@/glossary/genserver.md) managing consciousness state, pipeline progression, and axiom validation. The architecture follows a staged pipeline pattern where each consciousness level processes and enriches the intelligence product before passing it to the next level.
 
 ```elixir
 defmodule Prismatic3NL.L7Transcendent do
@@ -88,9 +88,9 @@ defmodule Prismatic3NL.L7Transcendent do
 end
 ```
 
-The consciousness pipeline processes intelligence through successive levels, each adding validation and enrichment. Levels L0 through L13 correspond to the standard [NABLA Infinity](/glossary/nabla-infinity/) epistemic pipeline -- signal capture, validation, classification, and increasingly sophisticated epistemic operations. Level L14 applies quantum consciousness superposition, maintaining multiple hypothesis branches simultaneously without premature collapse. Level L15 orchestrates collective consciousness by synchronizing findings across the agent network. Level L16 synthesizes transcendent patterns that emerge from the interaction of all previous levels. Level L17 evaluates whether the synthesis approaches the theoretical limits of the system's capability.
+The consciousness pipeline processes intelligence through successive levels, each adding validation and enrichment. Levels L0 through L13 correspond to the standard [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic pipeline -- signal capture, validation, classification, and increasingly sophisticated epistemic operations. Level L14 applies quantum consciousness superposition, maintaining multiple hypothesis branches simultaneously without premature collapse. Level L15 orchestrates collective consciousness by synchronizing findings across the agent network. Level L16 synthesizes transcendent patterns that emerge from the interaction of all previous levels. Level L17 evaluates whether the synthesis approaches the theoretical limits of the system's capability.
 
-The 7-layer Trinity Gate extends the standard 4-layer validation with three consciousness-specific layers. Layers 1-3 validate structural consistency (graph theory), logical consistency (rule-based), and formal necessity (modal logic and [Lean4](/glossary/lean4/) proofs). Layer 4 adds consciousness meta-cognitive verification. Layer 5 checks quantum superposition coherence. Layer 6 validates transcendent singularity alignment. Layer 7 confirms that human oversight and override capabilities are preserved -- implementing the platform's axiomatically proven human control guarantee.
+The 7-layer Trinity Gate extends the standard 4-layer validation with three consciousness-specific layers. Layers 1-3 validate structural consistency (graph theory), logical consistency (rule-based), and formal necessity (modal logic and [Lean4](@/glossary/lean4.md) proofs). Layer 4 adds consciousness meta-cognitive verification. Layer 5 checks quantum superposition coherence. Layer 6 validates transcendent singularity alignment. Layer 7 confirms that human oversight and override capabilities are preserved -- implementing the platform's axiomatically proven human control guarantee.
 
 ## Decision Framework
 
@@ -116,12 +116,12 @@ The singularity safety protocol is critical. The transcendence index metric trac
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [3nl-coordinator](/agents/3nl-coordinator/) | Primary Interface | Routes high-value queries to transcendent processing |
-| [3nl-l1-logic](/agents/3nl-l1-logic/) | L1 Layer Source | Provides consciousness-guided logical reasoning inputs |
-| [3nl-l2-neural](/agents/3nl-l2-neural/) | L2 Layer Source | Provides quantum-coherent pattern recognition inputs |
-| [3nl-l3-linguistic](/agents/3nl-l3-linguistic/) | L3 Layer Source | Provides transcendent semantic synthesis inputs |
-| [bayesian-analyst](/agents/bayesian-analyst/) | Probabilistic Support | Monte Carlo verification for transcendent confidence calibration |
-| [aiad-auto-evolution-supreme](/agents/aiad-auto-evolution-supreme/) | Evolution Authority | Governs transcendent trait evolution across generations |
+| [3nl-coordinator](@/agents/3nl-coordinator.md) | Primary Interface | Routes high-value queries to transcendent processing |
+| [3nl-l1-logic](@/agents/3nl-l1-logic.md) | L1 Layer Source | Provides consciousness-guided logical reasoning inputs |
+| [3nl-l2-neural](@/agents/3nl-l2-neural.md) | L2 Layer Source | Provides quantum-coherent pattern recognition inputs |
+| [3nl-l3-linguistic](@/agents/3nl-l3-linguistic.md) | L3 Layer Source | Provides transcendent semantic synthesis inputs |
+| [bayesian-analyst](@/agents/bayesian-analyst.md) | Probabilistic Support | Monte Carlo verification for transcendent confidence calibration |
+| [aiad-auto-evolution-supreme](@/agents/aiad-auto-evolution-supreme.md) | Evolution Authority | Governs transcendent trait evolution across generations |
 
 ## Performance Characteristics
 
@@ -137,16 +137,16 @@ The singularity safety protocol is critical. The transcendence index metric trac
 
 ## Enforcement
 
-All L7 Transcendent operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine at Cosmic Clearance level. The full 21-axiom system is enforced without exception -- quantum axioms govern hypothesis management, consciousness axioms ensure meta-cognitive integrity, and epistemic axioms maintain evidence standards. The 7-layer Trinity Gate is mandatory for every transcendent output; no result bypasses any verification layer. Singularity safety constraints are mathematically proven through Lean4 formal verification and cannot be evolved, overridden, or bypassed. Human override preservation carries fitness 1.000 and is designated immutable across all generations. Checkpoint creation occurs every 30 seconds during transcendent processing, with maximum rollback depth of 15 checkpoints, ensuring that any safety violation can be immediately reversed.
+All L7 Transcendent operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine at Cosmic Clearance level. The full 21-axiom system is enforced without exception -- quantum axioms govern hypothesis management, consciousness axioms ensure meta-cognitive integrity, and epistemic axioms maintain evidence standards. The 7-layer Trinity Gate is mandatory for every transcendent output; no result bypasses any verification layer. Singularity safety constraints are mathematically proven through Lean4 formal verification and cannot be evolved, overridden, or bypassed. Human override preservation carries fitness 1.000 and is designated immutable across all generations. Checkpoint creation occurs every 30 seconds during transcendent processing, with maximum rollback depth of 15 checkpoints, ensuring that any safety violation can be immediately reversed.
 
 ## Related Resources
 
-- [3NL Framework](/glossary/three-nl/) -- The multi-paradigm reasoning architecture
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework with 7 axioms enforced by transcendent processing
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification system extended to 7 layers for transcendent operations
-- [Lean4](/glossary/lean4/) -- Formal verification language for safety proofs
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard governing transcendent agent definition
-- [Architecture Overview](/architecture/) -- Platform architecture including consciousness processing
+- [3NL Framework](@/glossary/three-nl.md) -- The multi-paradigm reasoning architecture
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework with 7 axioms enforced by transcendent processing
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification system extended to 7 layers for transcendent operations
+- [Lean4](@/glossary/lean4.md) -- Formal verification language for safety proofs
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard governing transcendent agent definition
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including consciousness processing
 
 ---
 
@@ -155,4 +155,4 @@ All L7 Transcendent operations are governed by the [NO MERCY, NO DOUBTS](/glossa
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

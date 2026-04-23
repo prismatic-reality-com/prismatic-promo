@@ -28,13 +28,13 @@ image_alt = "performance-optimization-conductor - Prismatic Platform"
 
 ## Overview
 
-The Performance Optimization Conductor operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's optimization domain, orchestrating system-wide performance improvement campaigns and bottleneck elimination across the platform's 90 umbrella applications. As the foundational performance optimization coordinator, this agent receives inputs from monitoring, profiling, and benchmarking agents, synthesizes them into prioritized optimization plans, and coordinates execution across the relevant domain specialists.
+The Performance Optimization Conductor operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's optimization domain, orchestrating system-wide performance improvement campaigns and bottleneck elimination across the platform's 90 umbrella applications. As the foundational performance optimization coordinator, this agent receives inputs from monitoring, profiling, and benchmarking agents, synthesizes them into prioritized optimization plans, and coordinates execution across the relevant domain specialists.
 
-The conductor operates under a "detect-diagnose-design-deliver-verify" workflow that ensures every optimization is driven by measured data rather than speculation. Built on the [AIAD](/glossary/aiad/) standard, the agent applies the [NO MERCY](/glossary/no-mercy/) doctrine to performance bottlenecks: identified performance issues are tracked until resolution, with no deferral or acceptance of known performance degradation. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all optimization decisions are backed by profiling data, benchmark measurements, and statistical analysis that justify the chosen approach.
+The conductor operates under a "detect-diagnose-design-deliver-verify" workflow that ensures every optimization is driven by measured data rather than speculation. Built on the [AIAD](@/glossary/aiad.md) standard, the agent applies the [NO MERCY](@/glossary/no-mercy.md) doctrine to performance bottlenecks: identified performance issues are tracked until resolution, with no deferral or acceptance of known performance degradation. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all optimization decisions are backed by profiling data, benchmark measurements, and statistical analysis that justify the chosen approach.
 
 ## Theoretical Foundations
 
-Performance optimization in a distributed [OTP](/glossary/otp/) system requires a systems thinking approach that considers the complex interactions between processes, schedulers, memory management, and I/O subsystems. Amdahl's Law provides the theoretical framework for prioritization: the conductor focuses optimization effort on the components that represent the largest fraction of total execution time, as these offer the greatest potential improvement to overall system performance.
+Performance optimization in a distributed [OTP](@/glossary/otp.md) system requires a systems thinking approach that considers the complex interactions between processes, schedulers, memory management, and I/O subsystems. Amdahl's Law provides the theoretical framework for prioritization: the conductor focuses optimization effort on the components that represent the largest fraction of total execution time, as these offer the greatest potential improvement to overall system performance.
 
 The conductor applies the Theory of Constraints (TOC) adapted for software systems. At any given time, system performance is limited by a single bottleneck (the constraint). Optimizing non-constraint components produces no measurable improvement in overall system performance. The conductor's primary task is identifying the current constraint, resolving it, and then identifying the next constraint in a continuous improvement cycle.
 
@@ -44,7 +44,7 @@ Queuing theory models are applied to understand the relationship between system 
 
 The optimization domain spans all performance-relevant aspects of the Prismatic Platform, from individual function-level micro-optimizations to system-wide architectural changes that affect performance characteristics globally. The conductor maintains a performance model of the entire platform that maps the critical path through each major workflow, identifies the current bottleneck for each workflow, and tracks the performance budget allocation across subsystems.
 
-Domain scope includes CPU optimization ([BEAM](/glossary/beam/) scheduler efficiency, algorithm complexity reduction), memory optimization (allocation patterns, garbage collection tuning, binary handling), I/O optimization (database query efficiency, network communication patterns, file system access), and concurrency optimization (process topology, message routing, [backpressure](/glossary/backpressure/) management).
+Domain scope includes CPU optimization ([BEAM](@/glossary/beam.md) scheduler efficiency, algorithm complexity reduction), memory optimization (allocation patterns, garbage collection tuning, binary handling), I/O optimization (database query efficiency, network communication patterns, file system access), and concurrency optimization (process topology, message routing, [backpressure](@/glossary/backpressure.md) management).
 
 ## Key Capabilities
 
@@ -52,7 +52,7 @@ Domain scope includes CPU optimization ([BEAM](/glossary/beam/) scheduler effici
 
 - **Optimization campaign orchestration** -- Coordinates multi-step optimization campaigns that span multiple subsystems, managing dependencies between optimization tasks and ensuring that changes are applied in an order that produces progressive measurable improvement
 
-- **[CASCADE](/glossary/cascade/) pattern elimination** -- Detects and orchestrates the elimination of classified performance anti-patterns, coordinating pattern fixes across all instances in the codebase through collaboration with the [pattern-propagator-specialist](/agents/pattern-propagator-specialist/)
+- **[CASCADE](@/glossary/cascade.md) pattern elimination** -- Detects and orchestrates the elimination of classified performance anti-patterns, coordinating pattern fixes across all instances in the codebase through collaboration with the [pattern-propagator-specialist](@/agents/pattern-propagator-specialist.md)
 
 - **Performance budget management** -- Allocates and enforces performance budgets across platform subsystems, ensuring that aggregate system performance meets service level objectives under projected load conditions
 
@@ -60,7 +60,7 @@ Domain scope includes CPU optimization ([BEAM](/glossary/beam/) scheduler effici
 
 - **Optimization impact forecasting** -- Uses performance models to predict the system-wide impact of proposed optimizations, enabling prioritization based on expected benefit rather than local improvement magnitude
 
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for publishing optimization campaign progress and performance improvement metrics
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for publishing optimization campaign progress and performance improvement metrics
 
 ## Authority Level
 
@@ -89,11 +89,11 @@ The conductor follows a structured optimization workflow:
 
 | Agent | Relationship |
 |-------|-------------|
-| [performance-monitoring-specialist](/agents/performance-monitoring-specialist/) | Monitoring data feeds bottleneck detection |
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Profiling provides root cause diagnosis for identified bottlenecks |
-| [Performance Benchmarking Agent](/agents/performance-benchmarking-agent/) | Benchmark data validates optimization outcomes |
-| [performance-optimization-conductor-enhanced](/agents/performance-optimization-conductor-enhanced/) | Enhanced variant adds autonomous optimization capabilities |
-| [pattern-propagator-specialist](/agents/pattern-propagator-specialist/) | Pattern fixes propagated across codebase after optimization |
+| [performance-monitoring-specialist](@/agents/performance-monitoring-specialist.md) | Monitoring data feeds bottleneck detection |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Profiling provides root cause diagnosis for identified bottlenecks |
+| [Performance Benchmarking Agent](@/agents/performance-benchmarking-agent.md) | Benchmark data validates optimization outcomes |
+| [performance-optimization-conductor-enhanced](@/agents/performance-optimization-conductor-enhanced.md) | Enhanced variant adds autonomous optimization capabilities |
+| [pattern-propagator-specialist](@/agents/pattern-propagator-specialist.md) | Pattern fixes propagated across codebase after optimization |
 
 ## Optimization Categories
 
@@ -108,7 +108,7 @@ The conductor follows a structured optimization workflow:
 
 ## Enforcement
 
-Performance optimization enforcement follows the [NO MERCY](/glossary/no-mercy/) doctrine: identified bottlenecks are tracked until elimination, and performance budget violations trigger mandatory optimization campaigns. The conductor maintains a performance debt register that tracks all known but unresolved performance issues, with escalation timelines that ensure issues are addressed within defined SLA windows. No optimization is declared complete without benchmark verification per [NO DOUBTS](/glossary/no-doubts/) requirements.
+Performance optimization enforcement follows the [NO MERCY](@/glossary/no-mercy.md) doctrine: identified bottlenecks are tracked until elimination, and performance budget violations trigger mandatory optimization campaigns. The conductor maintains a performance debt register that tracks all known but unresolved performance issues, with escalation timelines that ensure issues are addressed within defined SLA windows. No optimization is declared complete without benchmark verification per [NO DOUBTS](@/glossary/no-doubts.md) requirements.
 
 ## Related Agents
 
@@ -121,4 +121,4 @@ The Performance Optimization Conductor serves as the central coordination point 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

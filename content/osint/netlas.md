@@ -25,11 +25,11 @@ image_alt = "Netlas.io - Prismatic Platform"
 
 ## Overview
 
-Netlas.io is an internet intelligence search engine that indexes HTTP responses, DNS records, SSL certificates, [WHOIS](/glossary/whois/) data, and domain information. Unlike traditional IP scanners, Netlas focuses on response content, enabling searches within HTTP response bodies, headers, and web application content. This makes it particularly effective for finding specific web applications, exposed admin panels, and misconfigured services.
+Netlas.io is an internet intelligence search engine that indexes HTTP responses, DNS records, SSL certificates, [WHOIS](@/glossary/whois.md) data, and domain information. Unlike traditional IP scanners, Netlas focuses on response content, enabling searches within HTTP response bodies, headers, and web application content. This makes it particularly effective for finding specific web applications, exposed admin panels, and misconfigured services.
 
-What distinguishes Netlas from other internet scanning platforms like [Shodan](/osint/shodan/) or [Censys](/osint/censys/) is its emphasis on response-level search. While most scanning platforms index services by port, protocol, and banner, Netlas indexes the full HTTP response content -- including HTML bodies, HTTP headers, and server configurations. This enables queries like "find all servers returning a specific error message" or "find all instances of a particular web application framework" that would be impossible with banner-only search engines.
+What distinguishes Netlas from other internet scanning platforms like [Shodan](@/osint/shodan.md) or [Censys](@/osint/censys.md) is its emphasis on response-level search. While most scanning platforms index services by port, protocol, and banner, Netlas indexes the full HTTP response content -- including HTML bodies, HTTP headers, and server configurations. This enables queries like "find all servers returning a specific error message" or "find all instances of a particular web application framework" that would be impossible with banner-only search engines.
 
-Founded in 2021, Netlas has rapidly grown its index to cover hundreds of millions of internet-facing services across the IPv4 address space. The platform provides five distinct search indices (responses, DNS, certificates, WHOIS, and domains), each offering specialized query syntax and filtering capabilities. For [OSINT](/glossary/osint/) analysts and security researchers, this multi-index approach enables comprehensive attack surface analysis from a single platform.
+Founded in 2021, Netlas has rapidly grown its index to cover hundreds of millions of internet-facing services across the IPv4 address space. The platform provides five distinct search indices (responses, DNS, certificates, WHOIS, and domains), each offering specialized query syntax and filtering capabilities. For [OSINT](@/glossary/osint.md) analysts and security researchers, this multi-index approach enables comprehensive attack surface analysis from a single platform.
 
 Netlas also provides vulnerability detection capabilities, mapping discovered services to known CVEs based on detected software versions and configurations. This combines the discovery capabilities of an internet scanner with the assessment capabilities of a vulnerability scanner, reducing the gap between reconnaissance and risk assessment.
 
@@ -219,7 +219,7 @@ Netlas's response-level search enables discovery of specific web applications ac
 
 ### Attack Surface Analysis
 
-For [attack surface](/glossary/attack-surface/) management, Netlas provides comprehensive visibility into an organization's internet-facing assets. By combining response search, DNS enumeration, and certificate discovery, analysts build complete inventories of web-facing infrastructure including services that may not be linked to known domains.
+For [attack surface](@/glossary/attack-surface.md) management, Netlas provides comprehensive visibility into an organization's internet-facing assets. By combining response search, DNS enumeration, and certificate discovery, analysts build complete inventories of web-facing infrastructure including services that may not be linked to known domains.
 
 ### Certificate Intelligence
 
@@ -227,7 +227,7 @@ Netlas's certificate index enables discovery of related infrastructure through s
 
 ### Vulnerability Assessment
 
-By mapping detected software versions to known CVEs, Netlas provides passive [vulnerability assessment](/glossary/vulnerability-assessment/) without sending any traffic to the target. This enables security teams to assess their exposure to newly disclosed vulnerabilities across their entire internet-facing estate.
+By mapping detected software versions to known CVEs, Netlas provides passive [vulnerability assessment](@/glossary/vulnerability-assessment.md) without sending any traffic to the target. This enables security teams to assess their exposure to newly disclosed vulnerabilities across their entire internet-facing estate.
 
 ### Competitive and Market Intelligence
 
@@ -253,12 +253,12 @@ By searching for specific technologies, frameworks, or configurations, analysts 
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), Netlas serves as a supplementary internet intelligence source alongside [Shodan](/osint/shodan/) and [Censys](/osint/censys/).
+Within the [Prismatic Platform](@/apps/prismatic.md), Netlas serves as a supplementary internet intelligence source alongside [Shodan](@/osint/shodan.md) and [Censys](@/osint/censys.md).
 
 - **Response-Level Search**: Netlas's unique response body search capability fills gaps left by banner-only scanners, enabling discovery of applications by content.
 - **Certificate Correlation**: Certificate intelligence feeds into the platform's infrastructure mapping, linking related services through shared certificates.
-- **Cross-Scanner Validation**: Results are cross-referenced with Shodan, Censys, and [ONYPHE](/osint/onyphe/) for multi-source validation.
-- **Technology Tracking**: Detected technologies feed into [Prismatic Perimeter](/apps/prismatic-perimeter/) technology profiles for comprehensive attack surface management.
+- **Cross-Scanner Validation**: Results are cross-referenced with Shodan, Censys, and [ONYPHE](@/osint/onyphe.md) for multi-source validation.
+- **Technology Tracking**: Detected technologies feed into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) technology profiles for comprehensive attack surface management.
 - **Vulnerability Alerting**: CVE mappings trigger automated vulnerability alerts for monitored assets.
 
 ## Best Practices
@@ -277,12 +277,12 @@ Within the [Prismatic Platform](/apps/prismatic/), Netlas serves as a supplement
 
 ## Related Providers
 
-- [Shodan](/osint/shodan/) - Internet device search engine
-- [Censys](/osint/censys/) - Internet-wide scanning platform
-- [FullHunt](/osint/fullhunt/) - [Attack surface](/glossary/attack-surface/) platform
-- [ZoomEye](/osint/zoomeye/) - Cyberspace search engine
-- [ONYPHE](/osint/onyphe/) - French cyber defense search
-- [SecurityTrails](/osint/securitytrails/) - DNS and domain intelligence
+- [Shodan](@/osint/shodan.md) - Internet device search engine
+- [Censys](@/osint/censys.md) - Internet-wide scanning platform
+- [FullHunt](@/osint/fullhunt.md) - [Attack surface](@/glossary/attack-surface.md) platform
+- [ZoomEye](@/osint/zoomeye.md) - Cyberspace search engine
+- [ONYPHE](@/osint/onyphe.md) - French cyber defense search
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and domain intelligence
 
 ---
 
@@ -291,4 +291,4 @@ Within the [Prismatic Platform](/apps/prismatic/), Netlas serves as a supplement
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,7 +24,7 @@ image_alt = "Prismatic Perimeter - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Perimeter is an External [Attack Surface](/glossary/attack-surface/) Management ([EASM](/glossary/easm/)) platform that discovers, inventories, and continuously monitors an organization's internet-facing assets to compute evidence-based [security rating](/glossary/security-rating/)s on a 300-900 numeric scale with A-F letter grades. The system integrates data from over 121 [OSINT](/glossary/osint/) intelligence sources, applies multi-factor scoring algorithms grounded in the NABLA epistemic framework, and assesses compliance against the [NIS2](/glossary/nis2/) Directive (EU 2022/2555) and Czech [ZKB](/glossary/zkb/) (264/2025 Sb.) regulatory frameworks. Positioned competitively against BitSight, Black Kite, and SecurityScorecard, Prismatic Perimeter delivers its assessments through a real-time [Phoenix LiveView](/glossary/phoenix-liveview/) dashboard, a RESTful API, and structured compliance reports. The architecture follows a three-layer separation of concerns -- core business logic, web presentation, and intelligence collection -- enabling independent scaling and testing of each layer.
+Prismatic Perimeter is an External [Attack Surface](@/glossary/attack-surface.md) Management ([EASM](@/glossary/easm.md)) platform that discovers, inventories, and continuously monitors an organization's internet-facing assets to compute evidence-based [security rating](@/glossary/security-rating.md)s on a 300-900 numeric scale with A-F letter grades. The system integrates data from over 121 [OSINT](@/glossary/osint.md) intelligence sources, applies multi-factor scoring algorithms grounded in the NABLA epistemic framework, and assesses compliance against the [NIS2](@/glossary/nis2.md) Directive (EU 2022/2555) and Czech [ZKB](@/glossary/zkb.md) (264/2025 Sb.) regulatory frameworks. Positioned competitively against BitSight, Black Kite, and SecurityScorecard, Prismatic Perimeter delivers its assessments through a real-time [Phoenix LiveView](@/glossary/phoenix-liveview.md) dashboard, a RESTful API, and structured compliance reports. The architecture follows a three-layer separation of concerns -- core business logic, web presentation, and intelligence collection -- enabling independent scaling and testing of each layer.
 
 ## 1. Introduction
 
@@ -37,11 +37,11 @@ The European regulatory landscape compounds this challenge. The NIS2 Directive i
 ### 1.2 Design Goals
 
 1. **Comprehensive asset discovery** -- enumerate all internet-facing assets (domains, subdomains, IPs, certificates, cloud resources, services) using passive and active reconnaissance.
-2. **Evidence-based security ratings** -- compute scores from verifiable evidence rather than heuristic guesses, with full provenance tracing through [NABLA axioms](/capabilities/nabla-axioms/).
+2. **Evidence-based security ratings** -- compute scores from verifiable evidence rather than heuristic guesses, with full provenance tracing through [NABLA axioms](@/capabilities/nabla-axioms.md).
 3. **Regulatory compliance mapping** -- automatically assess NIS2 and ZKB compliance from external evidence, generating audit-ready reports.
-4. **[Real-time monitoring](/capabilities/real-time-monitoring/)** -- detect changes to the attack surface within hours through continuous OSINT source polling and change detection.
+4. **[Real-time monitoring](@/capabilities/real-time-monitoring.md)** -- detect changes to the attack surface within hours through continuous OSINT source polling and change detection.
 5. **Industry benchmarking** -- provide percentile rankings against industry peers for meaningful comparative assessment.
-6. **Separation of concerns** -- isolate scoring algorithms, web presentation, and data collection into independently deployable [OTP](/glossary/otp/) applications.
+6. **Separation of concerns** -- isolate scoring algorithms, web presentation, and data collection into independently deployable [OTP](@/glossary/otp.md) applications.
 
 ### 1.3 Scope
 
@@ -78,7 +78,7 @@ The Perimeter subsystem is decomposed into three OTP applications within the Pri
       +--------+--------+--------+--------+
 ```
 
-The facade module `PrismaticPerimeter` provides the public API, delegating to `PrismaticPerimeterCore` for computation and `PrismaticPerimeterWeb` for presentation. This separation allows the scoring engine to be invoked from the [REST API](/glossary/rest-api/), CLI, or agent system without loading web dependencies.
+The facade module `PrismaticPerimeter` provides the public API, delegating to `PrismaticPerimeterCore` for computation and `PrismaticPerimeterWeb` for presentation. This separation allows the scoring engine to be invoked from the [REST API](@/glossary/rest-api.md), CLI, or agent system without loading web dependencies.
 
 ### 2.2 Core Components
 
@@ -149,13 +149,13 @@ Entity (domain) --> AssetDiscovery.Scheduler
 **Security Score Computation**. The scoring algorithm evaluates 12 security dimensions, each producing a sub-score on a 0-100 scale. Sub-scores are weighted by risk significance and aggregated into a composite score mapped to the 300-900 range:
 
 - DNS security (DNSSEC, CAA records, SPF/DKIM/DMARC)
-- [TLS](/glossary/tls/) configuration ([protocol](/glossary/protocol/) version, cipher strength, certificate validity)
+- [TLS](@/glossary/tls.md) configuration ([protocol](@/glossary/protocol.md) version, cipher strength, certificate validity)
 - HTTP security headers (HSTS, CSP, X-Frame-Options)
 - Open port exposure (unnecessary services, high-risk ports)
 - Vulnerability presence (CVEs on detected services)
 - Email security (SPF, DKIM, DMARC alignment)
 - Web application security (known CMS vulnerabilities, WAF presence)
-- Patching cadence (time from [CVE](/glossary/cve/) disclosure to remediation)
+- Patching cadence (time from [CVE](@/glossary/cve.md) disclosure to remediation)
 - Information leakage (exposed admin panels, directory listings)
 - Cloud configuration (S3 bucket exposure, metadata services)
 - Reputation data (presence on blocklists, abuse reports)
@@ -249,31 +249,31 @@ config :prismatic_perimeter,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Source data for asset discovery and evidence collection |
-| [Prismatic OSINT Network](/apps/prismatic-osint-network/) | IP, DNS, and infrastructure intelligence |
-| [Prismatic Algorithms](/apps/prismatic-algorithms/) | Security score computation primitives |
-| [Prismatic Nabla](/apps/prismatic-nabla/) | Epistemic confidence in ratings and assessments |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | NIS2 and ZKB framework definitions |
-| [Prismatic Cache](/apps/prismatic-cache/) | OSINT query result caching (reduces API costs) |
-| [Prismatic Storage](/apps/prismatic-storage/) | Rating history and asset persistence |
-| [Prismatic Resilience](/apps/prismatic-resilience/) | [Circuit breaker](/glossary/circuit-breaker/)s for OSINT source failures |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Source data for asset discovery and evidence collection |
+| [Prismatic OSINT Network](@/apps/prismatic-osint-network.md) | IP, DNS, and infrastructure intelligence |
+| [Prismatic Algorithms](@/apps/prismatic-algorithms.md) | Security score computation primitives |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | Epistemic confidence in ratings and assessments |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | NIS2 and ZKB framework definitions |
+| [Prismatic Cache](@/apps/prismatic-cache.md) | OSINT query result caching (reduces API costs) |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Rating history and asset persistence |
+| [Prismatic Resilience](@/apps/prismatic-resilience.md) | [Circuit breaker](@/glossary/circuit-breaker.md)s for OSINT source failures |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Web](/apps/prismatic-web/) | Dashboard route hosting |
-| [Prismatic API](/apps/prismatic-api/) | REST endpoint exposure |
-| [Prismatic Presales](/apps/prismatic-presales/) | Demo environment data |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | Evidence from perimeter scans feeds compliance |
+| [Prismatic Web](@/apps/prismatic-web.md) | Dashboard route hosting |
+| [Prismatic API](@/apps/prismatic-api.md) | REST endpoint exposure |
+| [Prismatic Presales](@/apps/prismatic-presales.md) | Demo environment data |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | Evidence from perimeter scans feeds compliance |
 
 ### 4.3 Inter-Process Communication
 
-The Perimeter subsystem communicates with other applications via Phoenix [PubSub](/glossary/pubsub/) for event broadcasting, direct [GenServer](/glossary/genserver/) calls for synchronous queries, and [ETS](/glossary/ets/) for shared cached state. Discovery results are broadcast on the `"perimeter:discovery"` PubSub topic. Rating changes are broadcast on `"perimeter:rating_change"`.
+The Perimeter subsystem communicates with other applications via Phoenix [PubSub](@/glossary/pubsub.md) for event broadcasting, direct [GenServer](@/glossary/genserver.md) calls for synchronous queries, and [ETS](@/glossary/ets.md) for shared cached state. Discovery results are broadcast on the `"perimeter:discovery"` PubSub topic. Rating changes are broadcast on `"perimeter:rating_change"`.
 
 ### 4.4 External Integrations
 
-The system queries 121+ external OSINT sources through the [Prismatic OSINT Core](/apps/prismatic-osint-core/) adapter layer. Key external services include [Shodan](/glossary/shodan/) (host intelligence), [Censys](/glossary/censys/) (certificate and host data), crt.sh ([certificate transparency](/glossary/certificate-transparency/)), SecurityTrails (DNS history), VirusTotal (reputation), and AbuseIPDB (IP reputation). All external calls pass through [Prismatic Resilience](/apps/prismatic-resilience/) circuit breakers and [Prismatic Cache](/apps/prismatic-cache/) for [fault tolerance](/glossary/fault-tolerance/) and cost optimization.
+The system queries 121+ external OSINT sources through the [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) adapter layer. Key external services include [Shodan](@/glossary/shodan.md) (host intelligence), [Censys](@/glossary/censys.md) (certificate and host data), crt.sh ([certificate transparency](@/glossary/certificate-transparency.md)), SecurityTrails (DNS history), VirusTotal (reputation), and AbuseIPDB (IP reputation). All external calls pass through [Prismatic Resilience](@/apps/prismatic-resilience.md) circuit breakers and [Prismatic Cache](@/apps/prismatic-cache.md) for [fault tolerance](@/glossary/fault-tolerance.md) and cost optimization.
 
 ## 5. Performance
 
@@ -285,11 +285,11 @@ The system queries 121+ external OSINT sources through the [Prismatic OSINT Core
 | Security rating computation | 200-500ms | From cached evidence; excludes discovery |
 | Compliance assessment (NIS2 + ZKB) | 300-800ms | 80 combined controls evaluated |
 | Dashboard initial load | < 100ms | Server-rendered LiveView |
-| Dashboard live update | < 10ms | [WebSocket](/glossary/websocket/) push via PubSub |
+| Dashboard live update | < 10ms | [WebSocket](@/glossary/websocket.md) push via PubSub |
 
 ### 5.2 Scalability
 
-Discovery workloads scale horizontally through Task.[Supervisor](/glossary/supervisor/) fan-out. Each monitored entity runs an independent discovery pipeline, limited only by OSINT source rate limits and available process slots. The scoring engine is CPU-bound and scales vertically with additional cores. Dashboard connections scale through Phoenix PubSub, which supports millions of concurrent WebSocket connections.
+Discovery workloads scale horizontally through Task.[Supervisor](@/glossary/supervisor.md) fan-out. Each monitored entity runs an independent discovery pipeline, limited only by OSINT source rate limits and available process slots. The scoring engine is CPU-bound and scales vertically with additional cores. Dashboard connections scale through Phoenix PubSub, which supports millions of concurrent WebSocket connections.
 
 ### 5.3 Resource Requirements
 
@@ -318,41 +318,41 @@ StreamData generators produce random evidence sets to verify scoring algorithm i
 
 ### 7.1 Threat Model
 
-The primary threat is manipulation of external evidence to inflate or deflate security ratings. Mitigations include multi-source corroboration (NABLA [Signal Plurality](/glossary/signal-plurality/) axiom), temporal consistency checks, and anomaly detection on sudden score changes. Rating computation is deterministic from evidence, preventing operator manipulation.
+The primary threat is manipulation of external evidence to inflate or deflate security ratings. Mitigations include multi-source corroboration (NABLA [Signal Plurality](@/glossary/signal-plurality.md) axiom), temporal consistency checks, and anomaly detection on sudden score changes. Rating computation is deterministic from evidence, preventing operator manipulation.
 
 ### 7.2 Access Control
 
-Dashboard access requires authentication through [Prismatic Auth](/apps/prismatic-auth/) with the `perimeter_read` permission. Discovery operations require `perimeter_scan`. API access requires a valid API key with appropriate permissions. All access is logged to the [Prismatic Audit](/apps/prismatic-audit/) trail.
+Dashboard access requires authentication through [Prismatic Auth](@/apps/prismatic-auth.md) with the `perimeter_read` permission. Discovery operations require `perimeter_scan`. API access requires a valid API key with appropriate permissions. All access is logged to the [Prismatic Audit](@/apps/prismatic-audit.md) trail.
 
 ## 8. Operational Considerations
 
 ### 8.1 Deployment
 
-The Perimeter subsystem deploys as part of the Prismatic umbrella [release](/glossary/release/). The web dashboard is served on port 4003. Discovery scheduling begins automatically on application start. No manual configuration is required beyond OSINT API credentials.
+The Perimeter subsystem deploys as part of the Prismatic umbrella [release](@/glossary/release.md). The web dashboard is served on port 4003. Discovery scheduling begins automatically on application start. No manual configuration is required beyond OSINT API credentials.
 
 ### 8.2 Monitoring
 
-[Telemetry](/glossary/telemetry/) events are emitted for discovery operations (`[:prismatic, :perimeter, :discovery]`), rating computations (`[:prismatic, :perimeter, :rating]`), and compliance assessments (`[:prismatic, :perimeter, :compliance]`). Key [metrics](/glossary/metrics/) include discovery latency, source availability, score distribution, and compliance coverage.
+[Telemetry](@/glossary/telemetry.md) events are emitted for discovery operations (`[:prismatic, :perimeter, :discovery]`), rating computations (`[:prismatic, :perimeter, :rating]`), and compliance assessments (`[:prismatic, :perimeter, :compliance]`). Key [metrics](@/glossary/metrics.md) include discovery latency, source availability, score distribution, and compliance coverage.
 
 ### 8.3 Troubleshooting
 
 | Symptom | Likely Cause | Resolution |
 |---------|-------------|------------|
-| Discovery timeout | OSINT source [rate limiting](/glossary/rate-limiting/) | Check source rate limits; verify API keys |
+| Discovery timeout | OSINT source [rate limiting](@/glossary/rate-limiting.md) | Check source rate limits; verify API keys |
 | Low confidence scores | Insufficient evidence | Add more OSINT sources; check source health |
 | Stale ratings | Discovery scheduler stopped | Verify scheduler GenServer is running |
 | Dashboard not updating | PubSub disconnection | Check WebSocket connection; restart LiveView |
 
 ## 9. Future Work
 
-Planned enhancements include active scanning capabilities (with opt-in authorization), historical rating comparison across organizations, automated remediation recommendations with effort estimates, integration with vulnerability management platforms for patching feedback loops, and expansion of [compliance framework](/glossary/compliance-framework/)s to include [ISO 27001](/glossary/iso-27001/) and SOC 2.
+Planned enhancements include active scanning capabilities (with opt-in authorization), historical rating comparison across organizations, automated remediation recommendations with effort estimates, integration with vulnerability management platforms for patching feedback loops, and expansion of [compliance framework](@/glossary/compliance-framework.md)s to include [ISO 27001](@/glossary/iso-27001.md) and SOC 2.
 
 ## References
 
-- [Prismatic Perimeter Core](/apps/prismatic-perimeter-core/) -- Business logic module
-- [Prismatic Perimeter Web](/apps/prismatic-perimeter-web/) -- LiveView dashboard
-- [Prismatic Compliance](/apps/prismatic-compliance/) -- NIS2/ZKB framework definitions
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Intelligence source layer
+- [Prismatic Perimeter Core](@/apps/prismatic-perimeter-core.md) -- Business logic module
+- [Prismatic Perimeter Web](@/apps/prismatic-perimeter-web.md) -- LiveView dashboard
+- [Prismatic Compliance](@/apps/prismatic-compliance.md) -- NIS2/ZKB framework definitions
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Intelligence source layer
 - [NIS2 Directive (EU 2022/2555)](https://eur-lex.europa.eu/eli/dir/2022/2555) -- EU cybersecurity directive
 - [ZKB 264/2025 Sb.](https://www.nukib.cz/) -- Czech cybersecurity act
 - [BitSight](https://www.bitsight.com/) -- Competitive reference: security ratings
@@ -360,15 +360,15 @@ Planned enhancements include active scanning capabilities (with opt-in authoriza
 
 ## Related Agents
 
-- [CER Compliance Commander](/agents/cer-compliance-commander/) -- Drives NIS2 Directive and ZKB compliance assessment with article-level regulatory mapping
-- [Competitor Researcher](/agents/competitor-researcher/) -- Provides competitive positioning analysis against BitSight, Black Kite, and SecurityScorecard
-- [GitLab Security Specialist Agent](/agents/gitlab-security-specialist-agent/) -- Integrates security findings from CI/CD pipelines into attack surface monitoring
+- [CER Compliance Commander](@/agents/cer-compliance-commander.md) -- Drives NIS2 Directive and ZKB compliance assessment with article-level regulatory mapping
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Provides competitive positioning analysis against BitSight, Black Kite, and SecurityScorecard
+- [GitLab Security Specialist Agent](@/agents/gitlab-security-specialist-agent.md) -- Integrates security findings from CI/CD pipelines into attack surface monitoring
 
 ## Related Capabilities
 
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Continuous OSINT source polling with change detection for attack surface surveillance
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Evidence-based security ratings from 121+ OSINT sources with multi-factor scoring
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Ratings grounded in epistemic axioms with provenance tracing and confidence scoring
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Continuous OSINT source polling with change detection for attack surface surveillance
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Evidence-based security ratings from 121+ OSINT sources with multi-factor scoring
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Ratings grounded in epistemic axioms with provenance tracing and confidence scoring
 
 ---
 
@@ -377,4 +377,4 @@ Planned enhancements include active scanning capabilities (with opt-in authoriza
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

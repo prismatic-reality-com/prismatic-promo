@@ -36,11 +36,11 @@ image_alt = "QDP - Prismatic Platform"
 
 ## Definition
 
-QDP (Quality Debt Points) is the Prismatic Platform's quantitative metric for tracking code quality debt. Each quality violation -- a missing [typespec](/glossary/typespec/), an unsafe map access, a `length() > 0` anti-pattern, a missing `@impl` annotation, a compilation warning, a [Credo](/glossary/clean-run/) violation -- counts as one or more QDP depending on severity. The metric provides a single numeric score representing the total accumulated quality debt in the codebase, making quality debt visible, measurable, and actionable. Unlike vague qualitative assessments ("the code needs some cleanup"), QDP provides a precise, reproducible number that can be tracked over time, compared across sessions, and used as a gate condition for continuous integration pipelines.
+QDP (Quality Debt Points) is the Prismatic Platform's quantitative metric for tracking code quality debt. Each quality violation -- a missing [typespec](@/glossary/typespec.md), an unsafe map access, a `length() > 0` anti-pattern, a missing `@impl` annotation, a compilation warning, a [Credo](@/glossary/clean-run.md) violation -- counts as one or more QDP depending on severity. The metric provides a single numeric score representing the total accumulated quality debt in the codebase, making quality debt visible, measurable, and actionable. Unlike vague qualitative assessments ("the code needs some cleanup"), QDP provides a precise, reproducible number that can be tracked over time, compared across sessions, and used as a gate condition for continuous integration pipelines.
 
 QDP is modeled after financial technical debt: each violation represents a "loan" taken from code quality that must eventually be "repaid." Unlike financial debt, quality debt compounds silently and non-linearly -- a missing typespec today means a type error tomorrow, a missing `@impl` annotation means a callback regression next week, an unsafe map access means a production crash next month. The compounding nature means that 100 QDP is not merely twice as bad as 50 QDP; the interaction effects between violations create emergent failure modes that are worse than the sum of individual issues. A missing typespec on a function that uses unsafe map access creates a double-blind spot where neither static analysis nor runtime safety can protect against errors. QDP quantifies this accumulated risk as a single number, enabling data-driven quality management, trend analysis, and enforcement.
 
-The Prismatic Platform's current QDP count is **0**, representing complete elimination of all tracked quality debt categories across all 115 umbrella applications and approximately 2.8 million lines of code. This achievement was accomplished through the systematic application of [CASCADE](/glossary/cascade-pattern/) patterns, which eliminated 905 QDP in a structured, measurable campaign spanning four phases. The zero-QDP state is now enforced through pre-commit hooks, CI/CD gates, and the Quality Floor Guardian -- making it structurally impossible to introduce new quality debt without explicit acknowledgment and immediate remediation.
+The Prismatic Platform's current QDP count is **0**, representing complete elimination of all tracked quality debt categories across all 115 umbrella applications and approximately 2.8 million lines of code. This achievement was accomplished through the systematic application of [CASCADE](@/glossary/cascade-pattern.md) patterns, which eliminated 905 QDP in a structured, measurable campaign spanning four phases. The zero-QDP state is now enforced through pre-commit hooks, CI/CD gates, and the Quality Floor Guardian -- making it structurally impossible to introduce new quality debt without explicit acknowledgment and immediate remediation.
 
 ## QDP Scoring Methodology
 
@@ -53,7 +53,7 @@ Each quality domain contributes QDP according to violation severity and potentia
 | **Medium (P2)** | 2 QDP | Missing @impl annotation, Credo complexity violation, DateTime precision issue | Reduces maintainability or correctness |
 | **Low (P3)** | 1 QDP | Style violation, minor Credo issue, TODO without context, guard function missing | Reduces readability or creates minor risk |
 
-The scoring is additive within a domain but multiplicative across related domains. When a function has both a missing typespec (3 QDP) and unsafe map access (5 QDP), the effective debt is higher than 8 QDP because [Dialyzer](/glossary/dialyzer/) cannot protect the unsafe access without the typespec. This interaction effect is captured through the Quality Floor Guardian's composite scoring algorithm.
+The scoring is additive within a domain but multiplicative across related domains. When a function has both a missing typespec (3 QDP) and unsafe map access (5 QDP), the effective debt is higher than 8 QDP because [Dialyzer](@/glossary/dialyzer.md) cannot protect the unsafe access without the typespec. This interaction effect is captured through the Quality Floor Guardian's composite scoring algorithm.
 
 ## Quality Domains (All at 0 Violations)
 
@@ -61,7 +61,7 @@ The 13 quality domains tracked by QDP cover the complete spectrum of code qualit
 
 | Domain | What It Tracks | Detection Method | QDP Impact | Violations |
 |--------|----------------|-----------------|-----------|------------|
-| **[Dialyzer](/glossary/dialyzer/)** | Type system violations | Static analysis (Dialyzer PLT) | Critical/High | 0 |
+| **[Dialyzer](@/glossary/dialyzer.md)** | Type system violations | Static analysis (Dialyzer PLT) | Critical/High | 0 |
 | **Credo** | Code style and complexity | Credo analyzer (`--strict`) | Medium/Low | 0 |
 | **Compilation** | Compiler warnings | `--warnings-as-errors` | High | 0 |
 | **DateTime Precision** | Incorrect time handling | Pattern detection | Medium | 0 |
@@ -72,7 +72,7 @@ The 13 quality domains tracked by QDP cover the complete spectrum of code qualit
 | **Regression Prevention** | Missing regression tests | Test coverage analysis | High | 0 |
 | **Timing Patterns** | `Process.sleep` anti-patterns | AST pattern matching | Medium | 0 |
 | **TODO Management** | Outstanding TODOs/FIXMEs | Comment scanning | Low | 0 |
-| **[Typespec](/glossary/typespec/) Coverage** | Missing @spec annotations | Module introspection | High | 0 |
+| **[Typespec](@/glossary/typespec.md) Coverage** | Missing @spec annotations | Module introspection | High | 0 |
 | **Unsafe Map Access** | `map.key` instead of `Map.get` | AST pattern matching | Critical | 0 |
 
 ## The 905 QDP Elimination Campaign
@@ -109,8 +109,8 @@ QDP is enforced at multiple levels, creating a defense-in-depth strategy that ma
 | **CI/CD pipeline** | `mix quality.gates` in GitLab CI | Every merge request | Never |
 | **Quality Floor Guardian** | `prismatic_safety/quality_floor_guardian.ex` | Continuous monitoring | Never |
 | **Session protocols** | QDP quota per Claude session | Every development session | Never |
-| **[Autoheal](/glossary/autoheal/)** | `mix autoheal.cycle` | Automatic on regression detection | N/A (auto) |
-| **[Autoevolve](/glossary/autoevolve/)** | `mix autoevolve.mega` | Session end protocol | N/A (auto) |
+| **[Autoheal](@/glossary/autoheal.md)** | `mix autoheal.cycle` | Automatic on regression detection | N/A (auto) |
+| **[Autoevolve](@/glossary/autoevolve.md)** | `mix autoevolve.mega` | Session end protocol | N/A (auto) |
 
 ### Quality Gate Check Implementation
 
@@ -244,7 +244,7 @@ end
 
 ## QDP and the NO MERCY Doctrine
 
-QDP enforcement is a core expression of the [NO MERCY, NO DOUBTS](/glossary/clean-run/) doctrine. The doctrine demands zero tolerance for quality violations, and QDP provides the quantitative enforcement mechanism:
+QDP enforcement is a core expression of the [NO MERCY, NO DOUBTS](@/glossary/clean-run.md) doctrine. The doctrine demands zero tolerance for quality violations, and QDP provides the quantitative enforcement mechanism:
 
 | Doctrine Principle | QDP Expression |
 |-------------------|---------------|
@@ -352,23 +352,23 @@ QDP differs from these approaches in three fundamental ways. First, its enforcem
 
 ## Related Terms
 
-- [CASCADE](/glossary/cascade/) - Systematic methodology that eliminated 905 QDP
-- [Clean Run](/glossary/clean-run/) - Zero-warning compilation as a QDP enforcement mechanism
-- [Autoheal](/glossary/autoheal/) - Automatic healing triggered by QDP regression
-- [Autoevolve](/glossary/autoevolve/) - Platform evolution driven by QDP trend analysis
-- [Dialyzer](/glossary/dialyzer/) - Static analysis tool detecting type-level QDP violations
-- [Typespec](/glossary/typespec/) - Type specifications whose absence contributes to QDP
-- [Code Coverage](/glossary/code-coverage/) - Test coverage metrics contributing to QDP assessment
-- [Property-Based Testing](/glossary/property-based-testing/) - Testing approach that reduces QDP through exhaustive verification
-- [Metrics](/glossary/metrics/) - QDP as a quantitative metric in the observability stack
-- [Trinity Gate](/glossary/trinity-gate/) - Verification system ensuring quality claim integrity
-- [Observability](/glossary/observability/) - Infrastructure providing visibility into QDP trends
+- [CASCADE](@/glossary/cascade.md) - Systematic methodology that eliminated 905 QDP
+- [Clean Run](@/glossary/clean-run.md) - Zero-warning compilation as a QDP enforcement mechanism
+- [Autoheal](@/glossary/autoheal.md) - Automatic healing triggered by QDP regression
+- [Autoevolve](@/glossary/autoevolve.md) - Platform evolution driven by QDP trend analysis
+- [Dialyzer](@/glossary/dialyzer.md) - Static analysis tool detecting type-level QDP violations
+- [Typespec](@/glossary/typespec.md) - Type specifications whose absence contributes to QDP
+- [Code Coverage](@/glossary/code-coverage.md) - Test coverage metrics contributing to QDP assessment
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Testing approach that reduces QDP through exhaustive verification
+- [Metrics](@/glossary/metrics.md) - QDP as a quantitative metric in the observability stack
+- [Trinity Gate](@/glossary/trinity-gate.md) - Verification system ensuring quality claim integrity
+- [Observability](@/glossary/observability.md) - Infrastructure providing visibility into QDP trends
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform quality architecture and enforcement
-- [Capabilities](/capabilities/) - Quality management capabilities
-- [Technologies](/technologies/) - Static analysis and quality tooling
+- [Architecture](@/architecture/_index.md) - Platform quality architecture and enforcement
+- [Capabilities](@/capabilities/_index.md) - Quality management capabilities
+- [Technologies](@/technologies/_index.md) - Static analysis and quality tooling
 
 ---
 
@@ -377,4 +377,4 @@ QDP differs from these approaches in three fundamental ways. First, its enforcem
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

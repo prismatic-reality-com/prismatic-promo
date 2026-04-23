@@ -24,13 +24,13 @@ image_alt = "/garden-analyze - Prismatic Platform"
 
 ## Overview
 
-**/garden-analyze** is a production command in the **Infrastructure** category of the Prismatic Platform. It performs deep analysis of [GARDEN](/glossary/garden/) repositories with pattern detection and architecture assessment, extracting actionable knowledge from 20+ years of development history across 116 repositories. The command transforms legacy codebases into structured intelligence that informs current platform development.
+**/garden-analyze** is a production command in the **Infrastructure** category of the Prismatic Platform. It performs deep analysis of [GARDEN](@/glossary/garden.md) repositories with pattern detection and architecture assessment, extracting actionable knowledge from 20+ years of development history across 116 repositories. The command transforms legacy codebases into structured intelligence that informs current platform development.
 
 The GARDEN (Global Archive of Reusable Design and Engineering kNowledge) system represents a unique asset in the Prismatic Platform ecosystem. Spanning 22 active repositories with over 3,050 files and 55+ identified patterns, the GARDEN preserves institutional knowledge from projects covering OSINT, graph databases, web scraping, geocoding, AI, and distributed systems. The `/garden-analyze` command is the primary tool for extracting value from this archive, performing structural analysis, pattern detection, and architecture assessment that surfaces reusable knowledge.
 
-Legacy code analysis is fundamentally different from contemporary code analysis. The code in GARDEN repositories was written across different technology eras, using different conventions, targeting different runtime environments. The [garden-analyzer](/agents/garden-analyzer/) agent is specifically trained to handle this diversity, recognizing patterns across Elixir, JavaScript, TypeScript, Rust, Python, and Ruby codebases while normalizing findings into a common assessment framework that is meaningful for current platform development.
+Legacy code analysis is fundamentally different from contemporary code analysis. The code in GARDEN repositories was written across different technology eras, using different conventions, targeting different runtime environments. The [garden-analyzer](@/agents/garden-analyzer.md) agent is specifically trained to handle this diversity, recognizing patterns across Elixir, JavaScript, TypeScript, Rust, Python, and Ruby codebases while normalizing findings into a common assessment framework that is meaningful for current platform development.
 
-This command operates under the **L2+** authority level and is executed by the `garden-analyzer` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `garden-analyzer` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -56,7 +56,7 @@ GARDEN Repository --> Language Detector --> Structure Analyzer --> Pattern Detec
 
 **Pattern Detector**: Matches code structures against the platform's 55+ pattern library. The detector identifies patterns at multiple granularity levels: code-level patterns (error handling idioms, state machine structures), module-level patterns (repository pattern, service pattern, adapter pattern), and architecture-level patterns (hexagonal architecture, event-driven design, CQRS).
 
-**Knowledge Extractor**: Synthesizes detected patterns, structural analysis, and historical context into structured knowledge artifacts. These artifacts are formatted for integration into the platform's pattern library and can inform evolution strategies through the [/evolve-patterns](/commands/evolve-patterns/) command.
+**Knowledge Extractor**: Synthesizes detected patterns, structural analysis, and historical context into structured knowledge artifacts. These artifacts are formatted for integration into the platform's pattern library and can inform evolution strategies through the [/evolve-patterns](@/commands/evolve-patterns.md) command.
 
 ## Usage
 
@@ -158,13 +158,13 @@ The `/garden-analyze` command follows a structured 6-phase analysis pipeline:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [GARDEN](/glossary/garden/) | Data Source | 116 repositories, 3,050+ files of legacy knowledge |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Garden-analyzer agent performs deep analysis |
-| [Evolution Engine](/glossary/autoevolve/) | Consumer | Extracted patterns feed evolution strategies |
-| [/evolve-patterns](/commands/evolve-patterns/) | Integration | Discovered patterns enter platform pattern library |
-| [Mycelial Network](/glossary/mycelial-network/) | Distribution | Extracted patterns propagate via mycelial network |
-| [Quality DNA](/glossary/quality-dna/) | Persistence | Analysis results cached for cross-session access |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Analysis [metrics](/glossary/metrics/) and pattern detection rates |
+| [GARDEN](@/glossary/garden.md) | Data Source | 116 repositories, 3,050+ files of legacy knowledge |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Garden-analyzer agent performs deep analysis |
+| [Evolution Engine](@/glossary/autoevolve.md) | Consumer | Extracted patterns feed evolution strategies |
+| [/evolve-patterns](@/commands/evolve-patterns.md) | Integration | Discovered patterns enter platform pattern library |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Distribution | Extracted patterns propagate via mycelial network |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | Analysis results cached for cross-session access |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Analysis [metrics](@/glossary/metrics.md) and pattern detection rates |
 | AIAD Registry | Discovery | Command specification and agent binding |
 
 ## Best Practices
@@ -177,7 +177,7 @@ The `/garden-analyze` command follows a structured 6-phase analysis pipeline:
 
 **Set appropriate pattern matching thresholds**: The default 0.5 minimum score includes partial matches that may require interpretation. Use 0.7+ for high-confidence pattern extraction, 0.3-0.5 for exploratory analysis.
 
-**Extract patterns into the platform library**: Discovered patterns with high scores and broad applicability should be extracted (`--extract-patterns`) and fed into the [/evolve-patterns](/commands/evolve-patterns/) pipeline for formal integration into the platform's pattern library.
+**Extract patterns into the platform library**: Discovered patterns with high scores and broad applicability should be extracted (`--extract-patterns`) and fed into the [/evolve-patterns](@/commands/evolve-patterns.md) pipeline for formal integration into the platform's pattern library.
 
 ## Error Handling
 
@@ -228,23 +228,23 @@ The GARDEN represents 20+ years of accumulated engineering wisdom. The `/garden-
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Every GARDEN repository is subject to thorough analysis. No repository is too old, too messy, or too complex to analyze. Valuable patterns exist in the most unexpected places, and the analyzer exhaustively searches for them.
 - **NO DOUBTS**: Pattern detection is evidence-based with explicit confidence scores. The analyzer does not guess at pattern matches -- it computes structural similarity metrics and reports them transparently. Low-confidence matches are flagged, not hidden.
 
-The GARDEN analysis system embodies the [NABLA Infinity](/glossary/nabla-infinity/) principle of "absence informative" -- understanding what patterns are missing from a repository is as valuable as understanding what patterns are present. The analyzer tracks expected-but-absent patterns and reports them as potential improvement opportunities.
+The GARDEN analysis system embodies the [NABLA Infinity](@/glossary/nabla-infinity.md) principle of "absence informative" -- understanding what patterns are missing from a repository is as valuable as understanding what patterns are present. The analyzer tracks expected-but-absent patterns and reports them as potential improvement opportunities.
 
 ## Related Commands
 
-- [/gardener](/commands/gardener/) - GARDEN legacy knowledge repository management across 116 repos
-- [/garden-explore](/commands/garden-explore/) - Explore GARDEN repositories for patterns and knowledge
-- [/evolve-patterns](/commands/evolve-patterns/) - Pattern evolution through meta-evolution analysis
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec
-- [/ollama](/commands/ollama/) - Local AI Ollama model management, installation and optimization
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle
+- [/gardener](@/commands/gardener.md) - GARDEN legacy knowledge repository management across 116 repos
+- [/garden-explore](@/commands/garden-explore.md) - Explore GARDEN repositories for patterns and knowledge
+- [/evolve-patterns](@/commands/evolve-patterns.md) - Pattern evolution through meta-evolution analysis
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec
+- [/ollama](@/commands/ollama.md) - Local AI Ollama model management, installation and optimization
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle
 
 ---
 
@@ -253,4 +253,4 @@ The GARDEN analysis system embodies the [NABLA Infinity](/glossary/nabla-infinit
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

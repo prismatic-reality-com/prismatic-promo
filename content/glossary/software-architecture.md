@@ -36,7 +36,7 @@ image_alt = "Software Architecture - Prismatic Platform"
 
 ## Definition
 
-**Software Architecture** is the set of structures needed to reason about a software system -- comprising software elements, relations among them, and properties of both. It defines the fundamental organization of a system: its components, their responsibilities, the interfaces through which they communicate, and the principles and constraints governing their composition and evolution. Within the Prismatic Platform, software architecture manifests as a 115-application Elixir umbrella organized by domain boundaries, governed by the [3NL](/glossary/3nl/) epistemic framework, enforced through [adapter pattern](/glossary/adapter-pattern/) contracts and [behaviour](/glossary/behaviour/) specifications, and validated by 13 quality domains achieving a 100/100 quality score.
+**Software Architecture** is the set of structures needed to reason about a software system -- comprising software elements, relations among them, and properties of both. It defines the fundamental organization of a system: its components, their responsibilities, the interfaces through which they communicate, and the principles and constraints governing their composition and evolution. Within the Prismatic Platform, software architecture manifests as a 115-application Elixir umbrella organized by domain boundaries, governed by the [3NL](@/glossary/3nl.md) epistemic framework, enforced through [adapter pattern](@/glossary/adapter-pattern.md) contracts and [behaviour](@/glossary/behaviour.md) specifications, and validated by 13 quality domains achieving a 100/100 quality score.
 
 ## Overview
 
@@ -46,13 +46,13 @@ The Prismatic Platform's architecture reflects several key decisions that differ
 
 1. **Umbrella Monorepo** -- Rather than distributed microservices or a monolithic single-app design, Prismatic uses Elixir's umbrella project structure to achieve modular boundaries within a single repository. This provides compile-time dependency checking, shared tooling, and atomic refactoring while maintaining clear domain separation across 115 applications.
 
-2. **Behaviour-Driven Contracts** -- Every inter-module boundary is defined by an Elixir [behaviour](/glossary/behaviour/) (callback specification). This enforces interface contracts at compile time through Dialyzer and enables hot-swapping of implementations without breaking consumers.
+2. **Behaviour-Driven Contracts** -- Every inter-module boundary is defined by an Elixir [behaviour](@/glossary/behaviour.md) (callback specification). This enforces interface contracts at compile time through Dialyzer and enables hot-swapping of implementations without breaking consumers.
 
-3. **Domain-Driven Organization** -- Applications are grouped by business domain ([Domain-Driven Design](/glossary/domain-driven-design/)), not by technical layer. Storage, business logic, and presentation for a given domain live in related but separate umbrella apps (e.g., `prismatic_storage_core`, `prismatic_storage_ets`, `prismatic_storage_ecto`).
+3. **Domain-Driven Organization** -- Applications are grouped by business domain ([Domain-Driven Design](@/glossary/domain-driven-design.md)), not by technical layer. Storage, business logic, and presentation for a given domain live in related but separate umbrella apps (e.g., `prismatic_storage_core`, `prismatic_storage_ets`, `prismatic_storage_ecto`).
 
-4. **OTP Supervision Topology** -- The runtime architecture is defined by [supervision trees](/glossary/supervision/) that encode fault tolerance directly into the system structure. Process topology is documented before code is written, ensuring that every stateful component has explicit restart strategies and failure isolation.
+4. **OTP Supervision Topology** -- The runtime architecture is defined by [supervision trees](@/glossary/supervision.md) that encode fault tolerance directly into the system structure. Process topology is documented before code is written, ensuring that every stateful component has explicit restart strategies and failure isolation.
 
-5. **Epistemic Architecture (3NL)** -- Unique to Prismatic, the [3NL framework](/glossary/3nl/) layers epistemic guarantees (signal plurality, contradiction preservation, provenance tracking) onto the structural architecture, ensuring that the system's reasoning about itself is architecturally sound.
+5. **Epistemic Architecture (3NL)** -- Unique to Prismatic, the [3NL framework](@/glossary/3nl.md) layers epistemic guarantees (signal plurality, contradiction preservation, provenance tracking) onto the structural architecture, ensuring that the system's reasoning about itself is architecturally sound.
 
 ## Technical Details
 
@@ -232,7 +232,7 @@ The Prismatic Platform documents significant architectural decisions through a s
 
 ### The Adapter Pattern in Architecture
 
-The [adapter pattern](/glossary/adapter-pattern/) is the primary mechanism for architectural flexibility in Prismatic. Every external dependency, storage backend, and service integration is accessed through a [behaviour](/glossary/behaviour/) contract:
+The [adapter pattern](@/glossary/adapter-pattern.md) is the primary mechanism for architectural flexibility in Prismatic. Every external dependency, storage backend, and service integration is accessed through a [behaviour](@/glossary/behaviour.md) contract:
 
 ```elixir
 defmodule Prismatic.Architecture.AdapterRegistry do
@@ -350,7 +350,7 @@ The platform's 115 umbrella applications are organized into distinct architectur
 
 ### PrismaticSupervisor Composition
 
-The [PrismaticSupervisor](/glossary/supervision/) implements dependency-aware startup ordering across all 115 applications:
+The [PrismaticSupervisor](@/glossary/supervision.md) implements dependency-aware startup ordering across all 115 applications:
 
 ```elixir
 defmodule Prismatic.Architecture.StartupOrchestrator do
@@ -467,11 +467,11 @@ end
 | **Microservices** | Independent deployment, polyglot | Network overhead, operational complexity | Rejected -- BEAM provides enough isolation |
 | **Elixir Umbrella** | Compile-time safety, shared tooling, atomic deploys | Single runtime, shared release | Chosen -- optimal for BEAM ecosystem |
 | **Hexagonal (Ports & Adapters)** | Clean boundaries, testable | Boilerplate, indirection | Adopted -- via behaviour-based adapters |
-| **Event-Driven** | Loose coupling, async processing | Complexity, debugging difficulty | Partial -- [event sourcing](/glossary/event-sourcing/) in specific domains |
-| **Layered** | Clear separation, well-understood | Rigid, performance overhead | Partial -- [layered](/glossary/layered-architecture/) within domains |
+| **Event-Driven** | Loose coupling, async processing | Complexity, debugging difficulty | Partial -- [event sourcing](@/glossary/event-sourcing.md) in specific domains |
+| **Layered** | Clear separation, well-understood | Rigid, performance overhead | Partial -- [layered](@/glossary/layered-architecture.md) within domains |
 | **Service Mesh** | Observability, traffic control | Infrastructure complexity | Not needed -- BEAM provides native distribution |
 
-The key architectural insight of the Prismatic Platform is that the BEAM runtime already provides the isolation, fault tolerance, and distribution capabilities that microservices achieve through infrastructure. An Elixir umbrella with proper [behaviour](/glossary/behaviour/) contracts offers the modularity benefits of microservices with the simplicity and performance of a monolith.
+The key architectural insight of the Prismatic Platform is that the BEAM runtime already provides the isolation, fault tolerance, and distribution capabilities that microservices achieve through infrastructure. An Elixir umbrella with proper [behaviour](@/glossary/behaviour.md) contracts offers the modularity benefits of microservices with the simplicity and performance of a monolith.
 
 ## Best Practices
 
@@ -479,13 +479,13 @@ The key architectural insight of the Prismatic Platform is that the BEAM runtime
 
 1. **Document Decisions Before Code** -- Every significant architectural change must be captured in an ADR before implementation begins. This prevents architecture-by-accident and ensures that trade-offs are explicitly evaluated.
 
-2. **Enforce Boundaries at Compile Time** -- Use umbrella app dependencies and [behaviour](/glossary/behaviour/) specifications to make boundary violations compilation errors, not runtime surprises. If an app should not depend on another, the `mix.exs` dependency list must not include it.
+2. **Enforce Boundaries at Compile Time** -- Use umbrella app dependencies and [behaviour](@/glossary/behaviour.md) specifications to make boundary violations compilation errors, not runtime surprises. If an app should not depend on another, the `mix.exs` dependency list must not include it.
 
 3. **Domain-First Organization** -- Organize by business capability, not by technical layer. Place the storage, logic, and presentation for a domain in related but separate umbrella apps. This keeps related code close together and unrelated code far apart.
 
-4. **Supervision Topology as Architecture** -- The [supervision tree](/glossary/supervision/) IS the runtime architecture. Document it explicitly and review it as carefully as you review the code itself. Every stateful process must have a named place in the tree.
+4. **Supervision Topology as Architecture** -- The [supervision tree](@/glossary/supervision.md) IS the runtime architecture. Document it explicitly and review it as carefully as you review the code itself. Every stateful process must have a named place in the tree.
 
-5. **Behaviour Contracts for Every Boundary** -- Every inter-module interface must be defined by an Elixir behaviour with `@callback` declarations and `@spec` types. This enables [Dialyzer](/glossary/dialyzer/) to catch contract violations at compile time.
+5. **Behaviour Contracts for Every Boundary** -- Every inter-module interface must be defined by an Elixir behaviour with `@callback` declarations and `@spec` types. This enables [Dialyzer](@/glossary/dialyzer.md) to catch contract violations at compile time.
 
 6. **Incremental Evolution** -- Architecture evolves through small, validated steps. Never attempt a "big bang" rewrite. Extract new umbrella apps from existing code when domain boundaries become clear.
 
@@ -499,7 +499,7 @@ Umbrella apps that depend on each other in cycles create compilation deadlocks a
 
 ### 2. Leaky Abstractions
 
-When higher-level modules directly access lower-level implementation details (bypassing the adapter layer), the architecture degrades. Every access to a storage backend or external service must go through the defined [behaviour](/glossary/behaviour/) contract.
+When higher-level modules directly access lower-level implementation details (bypassing the adapter layer), the architecture degrades. Every access to a storage backend or external service must go through the defined [behaviour](@/glossary/behaviour.md) contract.
 
 ### 3. God Modules
 
@@ -529,7 +529,7 @@ The Prismatic Platform spans multiple domains (OSINT, security ratings, AI agent
 
 ### Hot-Swappable Backends
 
-The adapter architecture enables switching from [ETS](/glossary/ets/) storage in development to [Ecto](/glossary/ecto/)/PostgreSQL in production without changing business logic. This is achieved through [behaviour](/glossary/behaviour/) contracts and the AdapterRegistry.
+The adapter architecture enables switching from [ETS](@/glossary/ets.md) storage in development to [Ecto](@/glossary/ecto.md)/PostgreSQL in production without changing business logic. This is achieved through [behaviour](@/glossary/behaviour.md) contracts and the AdapterRegistry.
 
 ### Evolutionary Architecture
 
@@ -541,29 +541,29 @@ The 13 quality domains act as architectural fitness functions, continuously vali
 
 ## Related Concepts
 
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Strategic design approach organizing code by business domains
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Structural pattern enabling implementation flexibility behind stable interfaces
-- [3NL](/glossary/3nl/) -- Epistemic framework providing reasoning guarantees at the architectural level
-- [Enterprise Architecture](/glossary/enterprise-architecture/) -- Organization-wide architectural governance and alignment
-- [Layered Architecture](/glossary/layered-architecture/) -- Horizontal layering within domain verticals
-- [Microservices](/glossary/microservices/) -- Alternative decomposition strategy using network-separated services
-- [Bounded Context](/glossary/bounded-context/) -- DDD concept mapping to umbrella app boundaries
-- [Supervision](/glossary/supervision/) -- OTP supervision trees defining runtime process topology
-- [OTP](/glossary/otp/) -- The framework providing architectural primitives for fault-tolerant systems
-- [Behaviour](/glossary/behaviour/) -- Elixir mechanism for defining interface contracts between modules
-- [Architectural Pattern](/glossary/architectural-pattern/) -- Reusable solutions to common architectural challenges
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Architectural quality achieved through supervision and isolation
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Strategic design approach organizing code by business domains
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Structural pattern enabling implementation flexibility behind stable interfaces
+- [3NL](@/glossary/3nl.md) -- Epistemic framework providing reasoning guarantees at the architectural level
+- [Enterprise Architecture](@/glossary/enterprise-architecture.md) -- Organization-wide architectural governance and alignment
+- [Layered Architecture](@/glossary/layered-architecture.md) -- Horizontal layering within domain verticals
+- [Microservices](@/glossary/microservices.md) -- Alternative decomposition strategy using network-separated services
+- [Bounded Context](@/glossary/bounded-context.md) -- DDD concept mapping to umbrella app boundaries
+- [Supervision](@/glossary/supervision.md) -- OTP supervision trees defining runtime process topology
+- [OTP](@/glossary/otp.md) -- The framework providing architectural primitives for fault-tolerant systems
+- [Behaviour](@/glossary/behaviour.md) -- Elixir mechanism for defining interface contracts between modules
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- Reusable solutions to common architectural challenges
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Architectural quality achieved through supervision and isolation
 
 ## See Also
 
-- [Elixir](/glossary/elixir/) -- The programming language providing umbrella project capabilities
-- [Phoenix](/glossary/phoenix/) -- Web framework built on OTP architectural principles
-- [BEAM](/glossary/beam/) -- Virtual machine providing process isolation and distribution
-- [Distributed System](/glossary/distributed-system/) -- Architectural category for multi-node deployments
-- [Event Sourcing](/glossary/event-sourcing/) -- Architectural pattern for append-only event storage
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern within the architectural toolkit
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis tool validating architectural contracts
-- [Credo](/glossary/credo/) -- Code quality tool enforcing architectural conventions
+- [Elixir](@/glossary/elixir.md) -- The programming language providing umbrella project capabilities
+- [Phoenix](@/glossary/phoenix.md) -- Web framework built on OTP architectural principles
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing process isolation and distribution
+- [Distributed System](@/glossary/distributed-system.md) -- Architectural category for multi-node deployments
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Architectural pattern for append-only event storage
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern within the architectural toolkit
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis tool validating architectural contracts
+- [Credo](@/glossary/credo.md) -- Code quality tool enforcing architectural conventions
 
 ---
 
@@ -572,4 +572,4 @@ The 13 quality domains act as architectural fitness functions, continuously vali
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

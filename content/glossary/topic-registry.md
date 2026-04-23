@@ -231,9 +231,9 @@ The registry pattern, shared across OSINT (ToolRegistry), Academy (TopicRegistry
 
 ## Cross-References
 
-- [Tool](/glossary/tool/) - OSINT self-registering adapter using the same pattern
-- [ETS](/glossary/ets/) - In-memory storage backing the registry
-- [Metaprogramming](/glossary/metaprogramming/) - Compile-time code generation technique
+- [Tool](@/glossary/tool.md) - OSINT self-registering adapter using the same pattern
+- [ETS](@/glossary/ets.md) - In-memory storage backing the registry
+- [Metaprogramming](@/glossary/metaprogramming.md) - Compile-time code generation technique
 - **Academy** - Learning platform subsystem
 - **Track** - Learning path built from registered topics
 

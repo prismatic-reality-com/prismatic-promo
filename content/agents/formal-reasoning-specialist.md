@@ -28,9 +28,9 @@ image_alt = "formal-reasoning-specialist - Prismatic Platform"
 
 ## Overview
 
-The Formal Reasoning Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the General domain of the Prismatic Platform. This agent specializes in integrating formal reasoning systems -- specifically [Lean4](/glossary/lean4/) theorem proving and Prolog logic programming -- with the platform's epistemic framework to provide mathematical proof generation, logical verification, and formal validation of platform properties. The agent bridges the gap between informal software engineering practices and formal mathematical methods, enabling the platform to make provably correct claims about its behavior.
+The Formal Reasoning Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the General domain of the Prismatic Platform. This agent specializes in integrating formal reasoning systems -- specifically [Lean4](@/glossary/lean4.md) theorem proving and Prolog logic programming -- with the platform's epistemic framework to provide mathematical proof generation, logical verification, and formal validation of platform properties. The agent bridges the gap between informal software engineering practices and formal mathematical methods, enabling the platform to make provably correct claims about its behavior.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Formal Reasoning Specialist provides the mathematical foundation that underpins the [Trinity Gate](/glossary/trinity-gate/)'s Formal Necessity requirement. No claim can pass the Trinity Gate without demonstrating formal provability, and this agent produces the proofs that satisfy that requirement. It works in coordination with the [3NL](/glossary/three-nl/) framework agents, providing the formal logical layer that complements neural and linguistic reasoning.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Formal Reasoning Specialist provides the mathematical foundation that underpins the [Trinity Gate](@/glossary/trinity-gate.md)'s Formal Necessity requirement. No claim can pass the Trinity Gate without demonstrating formal provability, and this agent produces the proofs that satisfy that requirement. It works in coordination with the [3NL](@/glossary/three-nl.md) framework agents, providing the formal logical layer that complements neural and linguistic reasoning.
 
 ## Formal Methods in Platform Engineering
 
@@ -38,7 +38,7 @@ Formal methods apply mathematical techniques to software engineering problems, p
 
 The Formal Reasoning Specialist applies formal methods at several levels of abstraction. At the specification level, it expresses desired properties of platform components as mathematical propositions. At the verification level, it constructs proofs that implementations satisfy their specifications. At the validation level, it checks that specifications accurately capture intended behavior.
 
-The agent's formal reasoning capabilities address the challenge identified in the platform's epistemic framework: how to establish claims with mathematical certainty rather than merely high confidence. The [NABLA Infinity](/glossary/nabla-infinity/) framework recognizes that some claims require formal proof rather than empirical evidence, and the Formal Reasoning Specialist provides the machinery to produce those proofs.
+The agent's formal reasoning capabilities address the challenge identified in the platform's epistemic framework: how to establish claims with mathematical certainty rather than merely high confidence. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework recognizes that some claims require formal proof rather than empirical evidence, and the Formal Reasoning Specialist provides the machinery to produce those proofs.
 
 ## Lean4 Theorem Proving
 
@@ -60,13 +60,13 @@ Prolog's backtracking search strategy makes it particularly effective for explor
 
 ## Epistemic Framework Integration
 
-The Formal Reasoning Specialist is deeply integrated with the platform's epistemic framework, providing the formal reasoning layer that the [3NL](/glossary/three-nl/) framework requires for complete cognitive processing.
+The Formal Reasoning Specialist is deeply integrated with the platform's epistemic framework, providing the formal reasoning layer that the [3NL](@/glossary/three-nl.md) framework requires for complete cognitive processing.
 
 Within the 3NL framework, the agent implements the L1 Logic Layer, providing symbolic reasoning capabilities that complement the L2 Neural Layer's pattern recognition and the L3 Linguistic Layer's natural language understanding. The integration ensures that platform decisions benefit from all three reasoning modalities.
 
-The [Trinity Gate](/glossary/trinity-gate/) relies directly on the Formal Reasoning Specialist for its third gate: Formal Necessity. When a claim is submitted for Trinity Gate validation, the agent attempts to construct a formal proof of the claim. If a proof can be constructed, the claim passes the Formal Necessity gate. If a proof cannot be constructed but no counterexample can be found, the claim receives a qualified assessment indicating the limits of formal verification in that context.
+The [Trinity Gate](@/glossary/trinity-gate.md) relies directly on the Formal Reasoning Specialist for its third gate: Formal Necessity. When a claim is submitted for Trinity Gate validation, the agent attempts to construct a formal proof of the claim. If a proof can be constructed, the claim passes the Formal Necessity gate. If a proof cannot be constructed but no counterexample can be found, the claim receives a qualified assessment indicating the limits of formal verification in that context.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) axioms themselves can be formalized and verified using the agent's capabilities. The Signal Plurality axiom, for example, can be expressed as a formal property: no belief can be established with confidence above a threshold unless supported by evidence from at least two independent sources. The agent verifies that platform components enforce this axiom by constructing proofs of axiom compliance for each relevant module.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) axioms themselves can be formalized and verified using the agent's capabilities. The Signal Plurality axiom, for example, can be expressed as a formal property: no belief can be established with confidence above a threshold unless supported by evidence from at least two independent sources. The agent verifies that platform components enforce this axiom by constructing proofs of axiom compliance for each relevant module.
 
 ## Proof Maintenance and Evolution
 
@@ -92,8 +92,8 @@ The agent maintains clear documentation of what formal verification covers and w
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution | Agent lifecycle and scheduling |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Agent specification and lookup |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution | Agent lifecycle and scheduling |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Agent specification and lookup |
 | Prismatic Telemetry | Monitoring | Proof generation performance tracking |
 | 3NL Framework | Cognitive integration | L1 Logic Layer implementation |
 | Trinity Gate | Validation pipeline | Formal Necessity gate provider |
@@ -101,9 +101,9 @@ The agent maintains clear documentation of what formal verification covers and w
 
 ## Related Agents
 
-- [**3nl-coordinator**](/agents/3nl-coordinator/) (L3) - Strategic hub coordinating the three reasoning layers, consuming formal reasoning outputs for integrated decision-making
-- [**3nl-l1-logic**](/agents/3nl-l1-logic/) (L3) - L1 Logic Layer providing symbolic reasoning capabilities complementary to formal proof generation
-- [**3nl-l3-linguistic**](/agents/3nl-l3-linguistic/) (L3) - L3 Linguistic Layer translating between formal logical expressions and natural language representations
+- [**3nl-coordinator**](@/agents/3nl-coordinator.md) (L3) - Strategic hub coordinating the three reasoning layers, consuming formal reasoning outputs for integrated decision-making
+- [**3nl-l1-logic**](@/agents/3nl-l1-logic.md) (L3) - L1 Logic Layer providing symbolic reasoning capabilities complementary to formal proof generation
+- [**3nl-l3-linguistic**](@/agents/3nl-l3-linguistic.md) (L3) - L3 Linguistic Layer translating between formal logical expressions and natural language representations
 
 ---
 
@@ -112,4 +112,4 @@ The agent maintains clear documentation of what formal verification covers and w
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

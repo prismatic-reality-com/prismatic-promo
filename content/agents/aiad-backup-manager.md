@@ -28,15 +28,15 @@ image_alt = "aiad-backup-manager - Prismatic Platform"
 
 ## Overview
 
-The [AIAD](/glossary/aiad/) Backup Manager operates as an L4 domain specialist agent within the Infrastructure domain of the Prismatic Platform. This agent is responsible for maintaining versioned backups of all AIAD agent specifications, command definitions, pipeline configurations, and policy documents. In a platform with over 400 autonomous agents, the ability to restore any agent specification to a known-good state is a critical infrastructure capability that prevents configuration drift from causing cascading failures.
+The [AIAD](@/glossary/aiad.md) Backup Manager operates as an L4 domain specialist agent within the Infrastructure domain of the Prismatic Platform. This agent is responsible for maintaining versioned backups of all AIAD agent specifications, command definitions, pipeline configurations, and policy documents. In a platform with over 400 autonomous agents, the ability to restore any agent specification to a known-good state is a critical infrastructure capability that prevents configuration drift from causing cascading failures.
 
 The backup strategy extends beyond simple file copying. The AIAD Backup Manager maintains a versioned history of agent specifications with semantic diff tracking, enabling operators to understand exactly what changed between versions and why. When an agent specification update causes unexpected behavior, the backup manager provides instant rollback to any previous version with full provenance tracking of who made the change and which session context was active at the time.
 
-The disaster recovery dimension of this agent addresses a scenario unique to autonomous agent ecosystems: the possibility that an evolution cycle introduces a specification mutation that passes validation but causes operational degradation. Because the [AIAD Auto-Evolution Supreme](/agents/aiad-auto-evolution-supreme/) can modify agent specifications autonomously, the Backup Manager serves as the safety net that ensures any autonomous modification can be fully reversed. This creates a bounded-risk environment where evolution can operate with confidence, knowing that the backup layer provides guaranteed reversibility.
+The disaster recovery dimension of this agent addresses a scenario unique to autonomous agent ecosystems: the possibility that an evolution cycle introduces a specification mutation that passes validation but causes operational degradation. Because the [AIAD Auto-Evolution Supreme](@/agents/aiad-auto-evolution-supreme.md) can modify agent specifications autonomously, the Backup Manager serves as the safety net that ensures any autonomous modification can be fully reversed. This creates a bounded-risk environment where evolution can operate with confidence, knowing that the backup layer provides guaranteed reversibility.
 
 ## Operational Domain
 
-The Infrastructure domain encompasses all operational concerns for the Prismatic Platform including deployment, storage, monitoring, and [disaster recovery](/glossary/disaster-recovery/). The AIAD Backup Manager specifically focuses on the persistence and recoverability of the AIAD ecosystem's configuration layer, ensuring that the platform's agent intelligence can survive hardware failures, misconfigurations, and accidental deletions.
+The Infrastructure domain encompasses all operational concerns for the Prismatic Platform including deployment, storage, monitoring, and [disaster recovery](@/glossary/disaster-recovery.md). The AIAD Backup Manager specifically focuses on the persistence and recoverability of the AIAD ecosystem's configuration layer, ensuring that the platform's agent intelligence can survive hardware failures, misconfigurations, and accidental deletions.
 
 The operational scope covers three backup tiers: specification-level backups (individual `.agent.md`, `.cmd.md`, and `.policy.md` files), ecosystem-level snapshots (the complete `.aiad/` directory at a point in time), and cross-environment replication (synchronizing backup state between development, staging, and production).
 
@@ -51,7 +51,7 @@ The operational scope covers three backup tiers: specification-level backups (in
 
 ## Technical Architecture
 
-The Backup Manager is implemented as a [GenServer](/glossary/genserver/) process within the `prismatic_agents` [supervision tree](/glossary/supervision-tree/). It maintains an in-memory index of backup metadata in [ETS](/glossary/ets/) and stores backup artifacts on the filesystem with optional replication to external storage.
+The Backup Manager is implemented as a [GenServer](@/glossary/genserver.md) process within the `prismatic_agents` [supervision tree](@/glossary/supervision-tree.md). It maintains an in-memory index of backup metadata in [ETS](@/glossary/ets.md) and stores backup artifacts on the filesystem with optional replication to external storage.
 
 ```elixir
 defmodule PrismaticAgents.BackupManager do
@@ -108,11 +108,11 @@ The authority scope includes read access to all `.aiad/` specification files for
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [aiad-deployment-engine](/agents/aiad-deployment-engine/) | Deployment Partner | Triggers pre-deployment backups and validates rollback readiness |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Verification Partner | Verifies backup integrity and validates restored specifications |
-| [alert-management-specialist](/agents/alert-management-specialist/) | Alert Router | Receives backup failure notifications for escalation |
-| [aiad-auto-evolution-supreme](/agents/aiad-auto-evolution-supreme/) | Evolution Safety | Pre-evolution backups ensure reversibility of autonomous changes |
-| [aiad-hot-reload-coordinator](/agents/aiad-hot-reload-coordinator/) | Reload Safety | Pre-reload backups protect against hot code loading failures |
+| [aiad-deployment-engine](@/agents/aiad-deployment-engine.md) | Deployment Partner | Triggers pre-deployment backups and validates rollback readiness |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Verification Partner | Verifies backup integrity and validates restored specifications |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Alert Router | Receives backup failure notifications for escalation |
+| [aiad-auto-evolution-supreme](@/agents/aiad-auto-evolution-supreme.md) | Evolution Safety | Pre-evolution backups ensure reversibility of autonomous changes |
+| [aiad-hot-reload-coordinator](@/agents/aiad-hot-reload-coordinator.md) | Reload Safety | Pre-reload backups protect against hot code loading failures |
 
 ## Performance Characteristics
 
@@ -127,7 +127,7 @@ The authority scope includes read access to all `.aiad/` specification files for
 
 ## Enforcement
 
-All backup operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No deployment may proceed without a verified backup of the current state. Backup integrity checks run on a continuous schedule (every 4 hours) and any checksum mismatch triggers immediate investigation. Backup retention policies are enforced without exception -- 90-day minimum retention for standard backups, 180-day for pre-deployment snapshots. Backup storage capacity is monitored with proactive alerting at 80% utilization, well before space exhaustion can compromise recovery capability. Every backup and restoration operation is recorded in the immutable [audit trail](/glossary/audit-trail/) with complete provenance metadata.
+All backup operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No deployment may proceed without a verified backup of the current state. Backup integrity checks run on a continuous schedule (every 4 hours) and any checksum mismatch triggers immediate investigation. Backup retention policies are enforced without exception -- 90-day minimum retention for standard backups, 180-day for pre-deployment snapshots. Backup storage capacity is monitored with proactive alerting at 80% utilization, well before space exhaustion can compromise recovery capability. Every backup and restoration operation is recorded in the immutable [audit trail](@/glossary/audit-trail.md) with complete provenance metadata.
 
 ## Command Interface
 
@@ -141,12 +141,12 @@ All backup operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mer
 
 ## Related Resources
 
-- [AIAD Standard](/capabilities/aiad-standard/) -- Specification standard defining backed-up artifacts
-- [Disaster Recovery](/glossary/disaster-recovery/) -- Platform disaster recovery framework
-- [AIAD Deployment Engine](/agents/aiad-deployment-engine/) -- Deployment agent consuming pre-deployment backups
-- [Architecture Overview](/architecture/) -- Platform architecture including backup infrastructure
-- [Applications](/apps/) -- Platform applications with backup dependencies
-- [Technologies](/technologies/) -- Technology stack including storage infrastructure
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Specification standard defining backed-up artifacts
+- [Disaster Recovery](@/glossary/disaster-recovery.md) -- Platform disaster recovery framework
+- [AIAD Deployment Engine](@/agents/aiad-deployment-engine.md) -- Deployment agent consuming pre-deployment backups
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including backup infrastructure
+- [Applications](@/apps/_index.md) -- Platform applications with backup dependencies
+- [Technologies](@/technologies/_index.md) -- Technology stack including storage infrastructure
 
 ---
 
@@ -155,4 +155,4 @@ All backup operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mer
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

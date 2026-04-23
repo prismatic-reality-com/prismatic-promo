@@ -35,7 +35,7 @@ The Outbox Pattern is a distributed systems design pattern that ensures reliable
 
 The pattern was formalized in the context of microservice architectures where services need to communicate state changes reliably without coupling themselves to message broker availability. By treating the database as the single source of truth for both business state and pending events, the outbox pattern converts the distributed consistency problem into a local transaction, which databases solve with well-understood ACID guarantees. This conversion is the key insight: instead of solving a distributed coordination problem (which is provably difficult per the FLP impossibility result), the pattern reduces it to a local coordination problem (which databases solve routinely).
 
-The Outbox Pattern occupies a specific position in the reliability-complexity spectrum of distributed event publishing. It is more reliable than direct publish (which suffers from dual-write failures), simpler than two-phase commit (which requires a distributed coordinator), less infrastructure-heavy than Change Data Capture (which requires tools like Debezium), and more controllable than event sourcing (which requires replaying entire event streams). For systems built on [PostgreSQL](/glossary/postgresql/) with [Ecto](/glossary/ecto/), the pattern integrates naturally through `Ecto.Multi` transactions.
+The Outbox Pattern occupies a specific position in the reliability-complexity spectrum of distributed event publishing. It is more reliable than direct publish (which suffers from dual-write failures), simpler than two-phase commit (which requires a distributed coordinator), less infrastructure-heavy than Change Data Capture (which requires tools like Debezium), and more controllable than event sourcing (which requires replaying entire event streams). For systems built on [PostgreSQL](@/glossary/postgresql.md) with [Ecto](@/glossary/ecto.md), the pattern integrates naturally through `Ecto.Multi` transactions.
 
 ## Historical Context and Motivation
 
@@ -83,7 +83,7 @@ The schema design reflects several important considerations. The `id` field uses
 
 ### Transactional Write with Ecto.Multi
 
-The business operation and event creation execute within a single database transaction using [Ecto](/glossary/ecto/)'s `Multi` abstraction:
+The business operation and event creation execute within a single database transaction using [Ecto](@/glossary/ecto.md)'s `Multi` abstraction:
 
 ```elixir
 defmodule PrismaticPerimeter.AssetDiscovery do
@@ -151,7 +151,7 @@ The `Multi` abstraction is critical: it ensures that the asset record and the ou
 
 ### Outbox Publisher
 
-The publisher is implemented as a [GenServer](/glossary/genserver/) that polls the outbox table and forwards events to downstream consumers:
+The publisher is implemented as a [GenServer](@/glossary/genserver.md) that polls the outbox table and forwards events to downstream consumers:
 
 ```elixir
 defmodule PrismaticPerimeter.OutboxPublisher do
@@ -373,13 +373,13 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform leverages the Outbox Pattern through [Ecto](/glossary/ecto/) and [PostgreSQL](/glossary/postgresql/) for reliable cross-application event propagation across its [umbrella applications](/glossary/umbrella-application/). The pattern is central to several subsystems:
+The Prismatic Platform leverages the Outbox Pattern through [Ecto](@/glossary/ecto.md) and [PostgreSQL](@/glossary/postgresql.md) for reliable cross-application event propagation across its [umbrella applications](@/glossary/umbrella-application.md). The pattern is central to several subsystems:
 
-**Perimeter Asset Discovery**: When the EASM scanner discovers new assets, it writes both the asset record and a discovery event to the outbox within a single `Ecto.Multi` transaction. The outbox publisher distributes events via [PubSub](/glossary/pubsub/) to the security rating engine, compliance assessor, and vulnerability scanner.
+**Perimeter Asset Discovery**: When the EASM scanner discovers new assets, it writes both the asset record and a discovery event to the outbox within a single `Ecto.Multi` transaction. The outbox publisher distributes events via [PubSub](@/glossary/pubsub.md) to the security rating engine, compliance assessor, and vulnerability scanner.
 
-**Agent Coordination**: Agent state transitions (activation, deactivation, error recovery) are recorded as outbox events, ensuring that monitoring dashboards and the [Quality Floor Guardian](/glossary/quality-floor-guardian/) receive reliable notification of agent lifecycle changes.
+**Agent Coordination**: Agent state transitions (activation, deactivation, error recovery) are recorded as outbox events, ensuring that monitoring dashboards and the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) receive reliable notification of agent lifecycle changes.
 
-**Quality Gate Results**: Quality gate pass/fail results are written to the outbox, enabling the [Quality DNA](/glossary/quality-dna/) system to update cross-session state and the SEADF evolution framework to track quality trends.
+**Quality Gate Results**: Quality gate pass/fail results are written to the outbox, enabling the [Quality DNA](@/glossary/quality-dna.md) system to update cross-session state and the SEADF evolution framework to track quality trends.
 
 **Compliance Assessment**: When compliance checks complete for NIS2 or ZKB frameworks, results are published through the outbox to ensure that dashboard updates, alert generation, and report compilation all receive the assessment data reliably.
 
@@ -476,27 +476,27 @@ Effective outbox operation requires monitoring several key metrics:
 
 **Event-Driven Aggregation**: Systems that compute derived state (dashboards, reports, search indexes) from streams of events. The outbox guarantees that no source event is lost.
 
-**Cross-Boundary Notifications**: [Umbrella applications](/glossary/umbrella-application/) that need to notify other applications of state changes without introducing runtime coupling. The outbox + PubSub combination provides reliable notification while keeping applications independently testable.
+**Cross-Boundary Notifications**: [Umbrella applications](@/glossary/umbrella-application.md) that need to notify other applications of state changes without introducing runtime coupling. The outbox + PubSub combination provides reliable notification while keeping applications independently testable.
 
 **CQRS Write-Side Events**: Command-Query Responsibility Segregation architectures where the write side needs to publish events for the read side to consume. The outbox ensures every write-side command that commits also produces a corresponding event.
 
 ## Related Concepts
 
-- [Event Sourcing](/glossary/event-sourcing/) -- Event-centric architecture that the outbox pattern supports
-- [Ecto](/glossary/ecto/) -- Database toolkit managing outbox table transactions through Multi
-- [PostgreSQL](/glossary/postgresql/) -- Primary database hosting outbox tables with FOR UPDATE SKIP LOCKED
-- [Eventual Consistency](/glossary/eventual-consistency/) -- Consistency model achieved through outbox event propagation
-- [CQRS](/glossary/cqrs/) -- Command-query separation where outbox publishes command-side events
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Complementary pattern for publisher failure handling
-- [Idempotency](/glossary/idempotency/) -- Consumer property required for at-least-once delivery safety
-- [PubSub](/glossary/pubsub/) -- Distribution mechanism for outbox events within the platform
-- [GenServer](/glossary/genserver/) -- Process abstraction backing the outbox publisher
-- [Supervisor](/glossary/supervisor/) -- Fault tolerance for the publisher process
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Event-centric architecture that the outbox pattern supports
+- [Ecto](@/glossary/ecto.md) -- Database toolkit managing outbox table transactions through Multi
+- [PostgreSQL](@/glossary/postgresql.md) -- Primary database hosting outbox tables with FOR UPDATE SKIP LOCKED
+- [Eventual Consistency](@/glossary/eventual-consistency.md) -- Consistency model achieved through outbox event propagation
+- [CQRS](@/glossary/cqrs.md) -- Command-query separation where outbox publishes command-side events
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Complementary pattern for publisher failure handling
+- [Idempotency](@/glossary/idempotency.md) -- Consumer property required for at-least-once delivery safety
+- [PubSub](@/glossary/pubsub.md) -- Distribution mechanism for outbox events within the platform
+- [GenServer](@/glossary/genserver.md) -- Process abstraction backing the outbox publisher
+- [Supervisor](@/glossary/supervisor.md) -- Fault tolerance for the publisher process
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -505,4 +505,4 @@ Effective outbox operation requires monitoring several key metrics:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

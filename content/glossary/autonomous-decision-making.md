@@ -38,7 +38,7 @@ image_alt = "Autonomous Decision Making - Prismatic Platform"
 
 Autonomous Decision Making is the capacity of an AI system, agent, or software component to evaluate conditions, weigh alternatives, and commit to a course of action independently -- without requiring human approval for each individual decision. The critical distinction from simple automation is that autonomous decision making involves genuine evaluation under uncertainty: the system encounters situations it has not been explicitly programmed to handle and must reason about the appropriate response within defined authority boundaries.
 
-In the Prismatic Platform, autonomous decision making is not unbounded. Every agent operates within a defined authority scope determined by its [Agent Tier](/glossary/agent-tier/) and [Authority Level](/glossary/authority-level/). Decisions that exceed an agent's authority are escalated to higher-tier agents or flagged for human review. This bounded autonomy model ensures that the platform can operate at machine speed for routine decisions while maintaining human oversight for consequential ones.
+In the Prismatic Platform, autonomous decision making is not unbounded. Every agent operates within a defined authority scope determined by its [Agent Tier](@/glossary/agent-tier.md) and [Authority Level](@/glossary/authority-level.md). Decisions that exceed an agent's authority are escalated to higher-tier agents or flagged for human review. This bounded autonomy model ensures that the platform can operate at machine speed for routine decisions while maintaining human oversight for consequential ones.
 
 ## Overview
 
@@ -47,10 +47,10 @@ The concept of autonomous decision making in software systems has evolved signif
 The Prismatic Platform's approach to autonomous decision making rests on three pillars:
 
 1. **Authority Boundaries** -- Each agent has a formally defined scope of decisions it may make autonomously, determined by its tier level (L1 through L5).
-2. **Confidence Gating** -- Decisions proceed only when the agent's confidence in the correct outcome exceeds a context-dependent threshold, enforced through the [NABLA Infinity](/glossary/nabla-infinity/) framework.
+2. **Confidence Gating** -- Decisions proceed only when the agent's confidence in the correct outcome exceeds a context-dependent threshold, enforced through the [NABLA Infinity](@/glossary/nabla-infinity.md) framework.
 3. **Audit Provenance** -- Every autonomous decision is logged with full provenance: the inputs considered, the alternatives evaluated, the confidence score, and the authority level invoked.
 
-This architecture enables 530+ agents to operate concurrently, each making hundreds of decisions per session, while maintaining the epistemic rigor demanded by the [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine.
+This architecture enables 530+ agents to operate concurrently, each making hundreds of decisions per session, while maintaining the epistemic rigor demanded by the [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine.
 
 ## Technical Details
 
@@ -138,7 +138,7 @@ end
 
 ### Confidence Scoring Integration
 
-Autonomous decisions are gated by confidence scores derived from the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. The confidence score reflects the system's assessment of how likely a decision is to be correct, given available evidence:
+Autonomous decisions are gated by confidence scores derived from the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. The confidence score reflects the system's assessment of how likely a decision is to be correct, given available evidence:
 
 ```elixir
 defmodule Prismatic.Agents.ConfidenceScorer do
@@ -286,7 +286,7 @@ The Prismatic Platform's 530+ agents operate across five tiers, each with precis
 
 ### NABLA Integration
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework governs the epistemic quality of autonomous decisions through seven non-negotiable axioms:
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs the epistemic quality of autonomous decisions through seven non-negotiable axioms:
 
 | NABLA Axiom | Decision Impact |
 |-------------|----------------|
@@ -337,7 +337,7 @@ Report outcome to caller
 
 ### Autonomous vs. Automated Decision Making
 
-| Dimension | Autonomous Decision Making | [Automated Decision Making](/glossary/automated-decision-making/) |
+| Dimension | Autonomous Decision Making | [Automated Decision Making](@/glossary/automated-decision-making.md) |
 |-----------|--------------------------|--------------------------------|
 | **Flexibility** | Handles novel situations through reasoning | Follows predetermined rules for known situations |
 | **Uncertainty** | Operates under uncertainty with confidence scoring | Requires deterministic inputs |
@@ -412,11 +412,11 @@ Making autonomous decisions based on a single signal, violating the plurality re
 
 ### Security Assessment Decisions
 
-The [Blue Team](/glossary/agent-tier/) drift detection agents autonomously decide whether observed behavioral changes represent normal operation, benign drift, or potential security incidents. The blue-drift-detector evaluates signals from multiple sources (configuration changes, dependency updates, performance metrics) and autonomously classifies drift events without human intervention for routine cases.
+The [Blue Team](@/glossary/agent-tier.md) drift detection agents autonomously decide whether observed behavioral changes represent normal operation, benign drift, or potential security incidents. The blue-drift-detector evaluates signals from multiple sources (configuration changes, dependency updates, performance metrics) and autonomously classifies drift events without human intervention for routine cases.
 
 ### Quality Gate Enforcement
 
-The [Quality Floor Guardian](/glossary/quality-floor-guardian/) autonomously decides whether a commit should be blocked based on quality metrics. This decision considers current quality score, the nature of changes, regression risk, and historical patterns -- a genuine decision under uncertainty, not a simple threshold check.
+The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) autonomously decides whether a commit should be blocked based on quality metrics. This decision considers current quality score, the nature of changes, regression risk, and historical patterns -- a genuine decision under uncertainty, not a simple threshold check.
 
 ### Agent Orchestration
 
@@ -424,33 +424,33 @@ The `supreme-coordinator` autonomously decides which agents to activate for a gi
 
 ### Evolution Advancement
 
-The [AutoEvolve](/glossary/autoevolve/) system autonomously decides when the platform has accumulated sufficient improvements to warrant a generation advancement. This decision evaluates the composite fitness score, the nature and scope of improvements since the last generation, and the stability of the new state.
+The [AutoEvolve](@/glossary/autoevolve.md) system autonomously decides when the platform has accumulated sufficient improvements to warrant a generation advancement. This decision evaluates the composite fitness score, the nature and scope of improvements since the last generation, and the stability of the new state.
 
 ### Incident Response
 
-During autonomous operation, the [Self-Healing](/glossary/self-healing/) system autonomously decides the appropriate response to detected anomalies: ignore (false positive), monitor (uncertain), remediate (known pattern), or escalate (unknown pattern). Each response level requires progressively higher confidence.
+During autonomous operation, the [Self-Healing](@/glossary/self-healing.md) system autonomously decides the appropriate response to detected anomalies: ignore (false positive), monitor (uncertain), remediate (known pattern), or escalate (unknown pattern). Each response level requires progressively higher confidence.
 
 ## Related Concepts
 
-- [Automated Decision Making](/glossary/automated-decision-making/) -- Rule-based counterpart that follows predetermined logic without reasoning under uncertainty
-- [Authority Level](/glossary/authority-level/) -- Formal specification of what decisions an agent is authorized to make autonomously
-- [Agent Tier](/glossary/agent-tier/) -- Hierarchical tier system (L1-L5) that determines authority scope and escalation paths
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework enforcing signal plurality, contradiction preservation, and provenance in decisions
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- Processing pipeline that transforms raw signals into actionable confidence assessments
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-condition verification gate required for critical autonomous decisions
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Minimum confidence score required before a decision can proceed autonomously
-- [Autonomous Agent](/glossary/autonomous-agent/) -- Software entity that exercises autonomous decision making within its defined scope
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) -- Doctrine governing the transition from exploration to decisive autonomous execution
-- [Agent Registry](/glossary/agent-registry/) -- Central registry tracking all agents and their authority boundaries
-- [Quality Gate](/glossary/quality-gate/) -- Automated verification gates that agents decide against during operations
-- [Self-Healing](/glossary/self-healing/) -- Autonomous remediation system that makes incident response decisions
+- [Automated Decision Making](@/glossary/automated-decision-making.md) -- Rule-based counterpart that follows predetermined logic without reasoning under uncertainty
+- [Authority Level](@/glossary/authority-level.md) -- Formal specification of what decisions an agent is authorized to make autonomously
+- [Agent Tier](@/glossary/agent-tier.md) -- Hierarchical tier system (L1-L5) that determines authority scope and escalation paths
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework enforcing signal plurality, contradiction preservation, and provenance in decisions
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- Processing pipeline that transforms raw signals into actionable confidence assessments
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-condition verification gate required for critical autonomous decisions
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Minimum confidence score required before a decision can proceed autonomously
+- [Autonomous Agent](@/glossary/autonomous-agent.md) -- Software entity that exercises autonomous decision making within its defined scope
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) -- Doctrine governing the transition from exploration to decisive autonomous execution
+- [Agent Registry](@/glossary/agent-registry.md) -- Central registry tracking all agents and their authority boundaries
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated verification gates that agents decide against during operations
+- [Self-Healing](@/glossary/self-healing.md) -- Autonomous remediation system that makes incident response decisions
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture and agent hierarchy
-- [Agents](/agents/) -- Agent catalog with authority levels and decision scopes
-- [Capabilities](/capabilities/) -- Platform autonomous capabilities overview
-- [Technologies](/technologies/) -- Technical stack enabling autonomous operations
+- [Architecture](@/architecture/_index.md) -- Platform architecture and agent hierarchy
+- [Agents](@/agents/_index.md) -- Agent catalog with authority levels and decision scopes
+- [Capabilities](@/capabilities/_index.md) -- Platform autonomous capabilities overview
+- [Technologies](@/technologies/_index.md) -- Technical stack enabling autonomous operations
 
 ---
 
@@ -459,4 +459,4 @@ During autonomous operation, the [Self-Healing](/glossary/self-healing/) system 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

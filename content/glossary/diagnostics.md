@@ -490,26 +490,26 @@ end
 
 ## Related Terms
 
-- [Telemetry](/glossary/telemetry/) -- custom event metrics complementing built-in diagnostics
-- [GenServer](/glossary/genserver/) -- primary process type inspected through diagnostic tools
-- [Process](/glossary/process/) -- BEAM process model that diagnostics inspect
-- [Supervision Strategy](/glossary/supervision-strategy/) -- supervision trees visible through diagnostic tools
-- [Distributed Tracing](/glossary/distributed-tracing/) -- cross-node diagnostic correlation
-- [PubSub](/glossary/pubsub/) -- event delivery for diagnostic data broadcasting
-- [Introspection](/glossary/introspection/) -- runtime self-examination capability
-- [Benchmark](/glossary/benchmark/) -- performance measurement using diagnostic data
-- [Performance Testing](/glossary/performance-testing/) -- systematic performance validation
-- [P95](/glossary/p95/) -- latency percentiles derived from diagnostic data
-- [Scalability](/glossary/scalability/) -- system capacity measured through diagnostics
-- [Health Check](/glossary/health-check/) -- automated diagnostic verification for deployed systems
+- [Telemetry](@/glossary/telemetry.md) -- custom event metrics complementing built-in diagnostics
+- [GenServer](@/glossary/genserver.md) -- primary process type inspected through diagnostic tools
+- [Process](@/glossary/process.md) -- BEAM process model that diagnostics inspect
+- [Supervision Strategy](@/glossary/supervision-strategy.md) -- supervision trees visible through diagnostic tools
+- [Distributed Tracing](@/glossary/distributed-tracing.md) -- cross-node diagnostic correlation
+- [PubSub](@/glossary/pubsub.md) -- event delivery for diagnostic data broadcasting
+- [Introspection](@/glossary/introspection.md) -- runtime self-examination capability
+- [Benchmark](@/glossary/benchmark.md) -- performance measurement using diagnostic data
+- [Performance Testing](@/glossary/performance-testing.md) -- systematic performance validation
+- [P95](@/glossary/p95.md) -- latency percentiles derived from diagnostic data
+- [Scalability](@/glossary/scalability.md) -- system capacity measured through diagnostics
+- [Health Check](@/glossary/health-check.md) -- automated diagnostic verification for deployed systems
 
 ---
 
 ## See Also
 
-- [Technologies](/technologies/) -- BEAM diagnostic tooling profiles
-- [Architecture](/architecture/) -- platform observability architecture
-- [Capabilities](/capabilities/) -- monitoring and health dashboard capabilities
+- [Technologies](@/technologies/_index.md) -- BEAM diagnostic tooling profiles
+- [Architecture](@/architecture/_index.md) -- platform observability architecture
+- [Capabilities](@/capabilities/_index.md) -- monitoring and health dashboard capabilities
 - **Erlang Docs**: [:erlang.process_info/2](https://www.erlang.org/doc/man/erlang#process_info-2)
 - **Recon**: [ferd/recon](https://github.com/ferd/recon) -- production-safe BEAM diagnostics library
 - **Book**: "Erlang in Anger" by Fred Hebert -- production BEAM debugging guide
@@ -521,4 +521,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

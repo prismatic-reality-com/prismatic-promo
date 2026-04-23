@@ -28,9 +28,9 @@ image_alt = "core-quality-feedback-coordinator - Prismatic Platform"
 
 ## Overview
 
-The Core Quality Feedback Coordinator operates as an L3 strategic command agent within the General domain of the Prismatic Platform. This agent orchestrates the continuous quality feedback loop that ensures every code change, configuration update, and agent specification modification meets the platform's zero-tolerance quality standards. By aggregating feedback from compilation, [Credo](/glossary/credo/), [Dialyzer](/glossary/dialyzer/), test coverage, and runtime [telemetry](/glossary/telemetry/), the coordinator produces unified quality assessments that gate all deployments.
+The Core Quality Feedback Coordinator operates as an L3 strategic command agent within the General domain of the Prismatic Platform. This agent orchestrates the continuous quality feedback loop that ensures every code change, configuration update, and agent specification modification meets the platform's zero-tolerance quality standards. By aggregating feedback from compilation, [Credo](@/glossary/credo.md), [Dialyzer](@/glossary/dialyzer.md), test coverage, and runtime [telemetry](@/glossary/telemetry.md), the coordinator produces unified quality assessments that gate all deployments.
 
-In a platform with 90 [umbrella application](/glossary/umbrella-application/)s and over 6,600 Elixir source files, quality feedback must be fast, precise, and actionable. The Core Quality Feedback Coordinator collects quality signals from multiple static analysis tools, synthesizes them into a single quality score per change, and provides specific remediation guidance when violations are detected. This agent is the enforcement backbone that maintains the platform's 100/100 quality score across all 13 quality domains.
+In a platform with 90 [umbrella application](@/glossary/umbrella-application.md)s and over 6,600 Elixir source files, quality feedback must be fast, precise, and actionable. The Core Quality Feedback Coordinator collects quality signals from multiple static analysis tools, synthesizes them into a single quality score per change, and provides specific remediation guidance when violations are detected. This agent is the enforcement backbone that maintains the platform's 100/100 quality score across all 13 quality domains.
 
 ## Quality Feedback Pipeline
 
@@ -148,30 +148,30 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/). Multi-domain coordination and specialized operational command. The coordinator has authority to block merges, reject deployments, and escalate persistent quality violations to supreme-level agents.
+**L3** - [Strategic Command](@/glossary/strategic-command.md). Multi-domain coordination and specialized operational command. The coordinator has authority to block merges, reject deployments, and escalate persistent quality violations to supreme-level agents.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [cascade-quality-specialist](/agents/cascade-quality-specialist/) | CASCADE Partner | Provides CASCADE pattern detection and elimination for common quality issues |
-| [quality-enforcement-commander](/agents/quality-enforcement-commander/) | Enforcement Authority | Escalation path for persistent quality violations requiring enforcement action |
-| [hbfs-quality-evolution](/agents/hbfs-quality-evolution/) | Evolution Partner | Drives continuous quality improvement through evolutionary optimization |
-| [documentation-verifier](/agents/documentation-verifier/) | Documentation Check | Verifies code-comment consistency and documentation completeness |
+| [cascade-quality-specialist](@/agents/cascade-quality-specialist.md) | CASCADE Partner | Provides CASCADE pattern detection and elimination for common quality issues |
+| [quality-enforcement-commander](@/agents/quality-enforcement-commander.md) | Enforcement Authority | Escalation path for persistent quality violations requiring enforcement action |
+| [hbfs-quality-evolution](@/agents/hbfs-quality-evolution.md) | Evolution Partner | Drives continuous quality improvement through evolutionary optimization |
+| [documentation-verifier](@/agents/documentation-verifier.md) | Documentation Check | Verifies code-comment consistency and documentation completeness |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [Quality Gates](/glossary/quality-gates/) | Primary enforcement mechanism for quality standards |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Automated quality pipeline execution in merge requests |
+| [Quality Gates](@/glossary/quality-gates.md) | Primary enforcement mechanism for quality standards |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Automated quality pipeline execution in merge requests |
 | Quality DNA | Cross-session quality state persistence |
 | Platform Telemetry | Runtime quality metric collection and aggregation |
 | Pre-commit Hooks | Local quality enforcement before code reaches CI |
 
 ## Enforcement
 
-All quality feedback operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every quality domain must report zero violations for a change to proceed. There is no mechanism for bypassing quality gates, and no manual override exists at any authority level for quality violations. The coordinator maintains the platform's current perfect quality score of 100/100 across all domains through continuous, automated enforcement. Quality regressions trigger immediate investigation and remediation without exception.
+All quality feedback operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every quality domain must report zero violations for a change to proceed. There is no mechanism for bypassing quality gates, and no manual override exists at any authority level for quality violations. The coordinator maintains the platform's current perfect quality score of 100/100 across all domains through continuous, automated enforcement. Quality regressions trigger immediate investigation and remediation without exception.
 
 ---
 
@@ -180,4 +180,4 @@ All quality feedback operations are governed by the [NO MERCY, NO DOUBTS](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

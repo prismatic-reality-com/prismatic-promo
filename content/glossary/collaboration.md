@@ -155,11 +155,11 @@ The Quality DNA system enables cross-session collaboration by persisting quality
 
 ## Cross-References
 
-- [Collaborative Development](/glossary/collaborative-development/) - shared coding practices
-- [Community Building](/glossary/community-building/) - open source collaboration
-- [Agent Orchestration](/glossary/agent-orchestration/) - multi-agent coordination
-- [Collective Intelligence](/glossary/collective-intelligence/) - emergent group knowledge
-- [Color Teams](/glossary/color-teams/) - adversarial collaborative security
+- [Collaborative Development](@/glossary/collaborative-development.md) - shared coding practices
+- [Community Building](@/glossary/community-building.md) - open source collaboration
+- [Agent Orchestration](@/glossary/agent-orchestration.md) - multi-agent coordination
+- [Collective Intelligence](@/glossary/collective-intelligence.md) - emergent group knowledge
+- [Color Teams](@/glossary/color-teams.md) - adversarial collaborative security
 - **Livebooks**: `livebooks/domains/` - collaborative analysis sessions
 - **Academy**: Collaborative learning exercises
 

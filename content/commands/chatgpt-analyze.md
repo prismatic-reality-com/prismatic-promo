@@ -28,7 +28,7 @@ The **/chatgpt-analyze** command launches a specialized ChatGPT ANALYZE conversa
 
 Modern software platforms of significant scale -- and the Prismatic Platform with its 90 umbrella applications and 6,652 Elixir source files is firmly in this category -- benefit from multi-model analysis strategies. Different large language models exhibit different strengths in code comprehension: Claude excels at implementation and context-aware reasoning, while ChatGPT's ANALYZE mode brings particular strength in pattern recognition across large codebases and systematic metric generation. The **/chatgpt-analyze** command operationalizes this multi-model advantage by providing a structured interface for routing analysis tasks to ChatGPT with optimally prepared context, then optionally converting the results into an implementation package that Claude Code can execute directly.
 
-The command is executed by the `chatgpt-analyze` agent within the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) framework. It supports multiple analysis modes -- from quick pre-commit checks that complete in minutes to deep architectural audits that may run for an hour or more. The output can be formatted as markdown reports, structured JSON for automation pipelines, condensed summaries for rapid review, or Claude handoff packages that bridge the gap between ChatGPT's analysis and Claude's implementation capabilities. As part of the Prismatic Platform's 216-command slash command [registry](/glossary/registry-otp/), it integrates with the broader LLM Operations command family including [/chatgpt-bridge](/commands/chatgpt-bridge/), [/chatgpt-convert](/commands/chatgpt-convert/), and the unified [/llm](/commands/llm/) orchestrator.
+The command is executed by the `chatgpt-analyze` agent within the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) framework. It supports multiple analysis modes -- from quick pre-commit checks that complete in minutes to deep architectural audits that may run for an hour or more. The output can be formatted as markdown reports, structured JSON for automation pipelines, condensed summaries for rapid review, or Claude handoff packages that bridge the gap between ChatGPT's analysis and Claude's implementation capabilities. As part of the Prismatic Platform's 216-command slash command [registry](@/glossary/registry-otp.md), it integrates with the broader LLM Operations command family including [/chatgpt-bridge](@/commands/chatgpt-bridge.md), [/chatgpt-convert](@/commands/chatgpt-convert.md), and the unified [/llm](@/commands/llm.md) orchestrator.
 
 ## Usage
 
@@ -176,29 +176,29 @@ In the **architectural review workflow**, team leads use `deep` mode analysis on
 
 The **cross-model collaboration workflow** leverages the Claude handoff output format. ChatGPT analyzes a module and generates a structured findings report, which is then fed to Claude Code for implementation. This two-model pipeline combines ChatGPT's analytical breadth with Claude's implementation precision, resulting in higher-quality code improvements than either model achieves alone.
 
-The command can also integrate with [quality gates](/glossary/quality-gates/) by outputting analysis results in JSON format for automated quality dashboards and CI/CD pipeline integration.
+The command can also integrate with [quality gates](@/glossary/quality-gates.md) by outputting analysis results in JSON format for automated quality dashboards and CI/CD pipeline integration.
 
 ## Integration Points
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `chatgpt-analyze` agent |
-| [/chatgpt-bridge](/commands/chatgpt-bridge/) | Underlying ChatGPT API communication |
-| [/chatgpt-convert](/commands/chatgpt-convert/) | Format conversion for cross-model outputs |
-| [/chatgpt-pack](/commands/chatgpt-pack/) | Context archive preparation for analysis sessions |
-| [/llm](/commands/llm/) | Unified LLM operation management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `chatgpt-analyze` agent |
+| [/chatgpt-bridge](@/commands/chatgpt-bridge.md) | Underlying ChatGPT API communication |
+| [/chatgpt-convert](@/commands/chatgpt-convert.md) | Format conversion for cross-model outputs |
+| [/chatgpt-pack](@/commands/chatgpt-pack.md) | Context archive preparation for analysis sessions |
+| [/llm](@/commands/llm.md) | Unified LLM operation management |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Analysis results feed quality validation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Analysis results feed quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and event tracking |
 | ChatGPT ANALYZE Conversation | Purpose-configured analysis session template |
 | Claude Code | Handoff output enables implementation of analysis findings |
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Analysis sessions must complete with actionable findings or explicit declarations of what could not be analyzed and why. No vague recommendations, no unsubstantiated claims about code quality. Every finding includes specific file paths, line numbers, and concrete improvement suggestions. Token limit constraints are handled by explicit context truncation reporting rather than silent omission of files.
-- **NO DOUBTS**: Analysis findings are evidence-based. Pattern detections include specific code examples. Metric assessments include the measurement methodology. Architectural recommendations include rationale grounded in established software engineering principles. The [NABLA Infinity](/glossary/nabla-infinity/) framework applies to analysis confidence -- when ChatGPT's analysis contradicts Credo or Dialyzer findings, both perspectives are preserved rather than one being silently discarded.
+- **NO DOUBTS**: Analysis findings are evidence-based. Pattern detections include specific code examples. Metric assessments include the measurement methodology. Architectural recommendations include rationale grounded in established software engineering principles. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework applies to analysis confidence -- when ChatGPT's analysis contradicts Credo or Dialyzer findings, both perspectives are preserved rather than one being silently discarded.
 - **Regression Protection**: Analysis session configurations (system prompts, context preparation logic, output formatters) are version-controlled and include test suites that validate output structure against reference analyses.
 
 ## Best Practices
@@ -212,15 +212,15 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Related Commands
 
-- [/llm](/commands/llm/) - Primary LLM operation management and orchestration
-- [/chatgpt-bridge](/commands/chatgpt-bridge/) - ChatGPT bridge operations for cross-LLM coordination
-- [/chatgpt-convert](/commands/chatgpt-convert/) - Convert content between LLM-specific formats and prompts
-- [/chatgpt-pack](/commands/chatgpt-pack/) - Context packing for ChatGPT collaboration and knowledge transfer
-- [/local-llm](/commands/local-llm/) - Execute LLM requests using local providers with zero API cost
-- [/openrouter](/commands/openrouter/) - OpenRouter LLM provider operations and management
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/llm](@/commands/llm.md) - Primary LLM operation management and orchestration
+- [/chatgpt-bridge](@/commands/chatgpt-bridge.md) - ChatGPT bridge operations for cross-LLM coordination
+- [/chatgpt-convert](@/commands/chatgpt-convert.md) - Convert content between LLM-specific formats and prompts
+- [/chatgpt-pack](@/commands/chatgpt-pack.md) - Context packing for ChatGPT collaboration and knowledge transfer
+- [/local-llm](@/commands/local-llm.md) - Execute LLM requests using local providers with zero API cost
+- [/openrouter](@/commands/openrouter.md) - OpenRouter LLM provider operations and management
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -229,4 +229,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

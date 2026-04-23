@@ -488,18 +488,18 @@ end
 
 ## Related Terms
 
-- [Accuracy](/glossary/accuracy/) -- correctness benchmarks for data quality validation
-- [Assertion](/glossary/assertion/) -- programmatic verification of benchmark results
-- [Artifact](/glossary/artifact/) -- benchmark reports stored as evidence artifacts
-- [Behavioral Drift](/glossary/behavioral-drift/) -- performance drift detected via benchmark regression
-- [Compile-Time](/glossary/compile-time/) -- compilation benchmarks as quality gates
-- [ETS](/glossary/ets/) -- in-memory storage frequently benchmarked against GenServer
-- [GenServer](/glossary/genserver/) -- stateful processes benchmarked for latency
-- [P95](/glossary/p95/) -- 95th percentile used as primary benchmark threshold
-- [Performance Testing](/glossary/performance-testing/) -- comprehensive performance validation framework
-- [Process](/glossary/process/) -- BEAM processes as benchmark execution units
-- [Telemetry](/glossary/telemetry/) -- runtime metrics complementing benchmark baselines
-- [Virtual Machine](/glossary/virtual-machine/) -- BEAM VM characteristics affecting measurement
+- [Accuracy](@/glossary/accuracy.md) -- correctness benchmarks for data quality validation
+- [Assertion](@/glossary/assertion.md) -- programmatic verification of benchmark results
+- [Artifact](@/glossary/artifact.md) -- benchmark reports stored as evidence artifacts
+- [Behavioral Drift](@/glossary/behavioral-drift.md) -- performance drift detected via benchmark regression
+- [Compile-Time](@/glossary/compile-time.md) -- compilation benchmarks as quality gates
+- [ETS](@/glossary/ets.md) -- in-memory storage frequently benchmarked against GenServer
+- [GenServer](@/glossary/genserver.md) -- stateful processes benchmarked for latency
+- [P95](@/glossary/p95.md) -- 95th percentile used as primary benchmark threshold
+- [Performance Testing](@/glossary/performance-testing.md) -- comprehensive performance validation framework
+- [Process](@/glossary/process.md) -- BEAM processes as benchmark execution units
+- [Telemetry](@/glossary/telemetry.md) -- runtime metrics complementing benchmark baselines
+- [Virtual Machine](@/glossary/virtual-machine.md) -- BEAM VM characteristics affecting measurement
 
 ## See Also
 
@@ -515,4 +515,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

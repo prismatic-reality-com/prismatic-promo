@@ -28,9 +28,9 @@ image_alt = "Health Monitoring Specialist - Prismatic Platform"
 
 ## Overview
 
-The Health Monitoring Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent provides comprehensive system health monitoring with proactive alerting capabilities, continuously tracking the operational status of all platform components from [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/)s through database connections to external service dependencies. Its primary mission is to detect health degradation before it impacts users and trigger automated remediation or escalation responses.
+The Health Monitoring Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent provides comprehensive system health monitoring with proactive alerting capabilities, continuously tracking the operational status of all platform components from [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md)s through database connections to external service dependencies. Its primary mission is to detect health degradation before it impacts users and trigger automated remediation or escalation responses.
 
-In a [BEAM](/glossary/beam/)-based platform, health monitoring extends beyond simple uptime checks. The Health Monitoring Specialist tracks [GenServer](/glossary/genserver/) message queue depths, process memory consumption, [ETS](/glossary/ets/) table sizes, supervision tree restart frequencies, and inter-application communication latencies. These OTP-native health signals provide deep visibility into platform behavior that traditional HTTP health checks would miss, enabling detection of subtle degradation patterns that precede hard failures. The agent's multi-layer health assessment covers BEAM VM metrics, application-level indicators, database health, network connectivity, and external dependency availability, providing a comprehensive operational health picture.
+In a [BEAM](@/glossary/beam.md)-based platform, health monitoring extends beyond simple uptime checks. The Health Monitoring Specialist tracks [GenServer](@/glossary/genserver.md) message queue depths, process memory consumption, [ETS](@/glossary/ets.md) table sizes, supervision tree restart frequencies, and inter-application communication latencies. These OTP-native health signals provide deep visibility into platform behavior that traditional HTTP health checks would miss, enabling detection of subtle degradation patterns that precede hard failures. The agent's multi-layer health assessment covers BEAM VM metrics, application-level indicators, database health, network connectivity, and external dependency availability, providing a comprehensive operational health picture.
 
 ## Health Model Architecture
 
@@ -66,9 +66,9 @@ The Health Monitoring Specialist provides six primary capabilities for comprehen
 
 **Multi-Layer Health Assessment.** Evaluating health across BEAM VM, application, database, network, and external dependency layers for comprehensive situational awareness. Each layer's health assessment uses metrics appropriate to that layer's characteristics.
 
-**Automated Remediation Triggering.** Initiating [self-healing](/glossary/self-healing/) procedures such as process restarts, cache invalidation, connection pool recycling, or targeted garbage collection when specific health conditions are detected. Remediation actions are defined in runbooks that map health conditions to appropriate responses.
+**Automated Remediation Triggering.** Initiating [self-healing](@/glossary/self-healing.md) procedures such as process restarts, cache invalidation, connection pool recycling, or targeted garbage collection when specific health conditions are detected. Remediation actions are defined in runbooks that map health conditions to appropriate responses.
 
-**Health Dashboard Integration.** Providing real-time health data to [LiveView](/glossary/liveview/) dashboards for operational visibility and historical trend analysis. Dashboards display health status at all hierarchy levels with drill-down capability from platform health to individual component metrics.
+**Health Dashboard Integration.** Providing real-time health data to [LiveView](@/glossary/liveview.md) dashboards for operational visibility and historical trend analysis. Dashboards display health status at all hierarchy levels with drill-down capability from platform health to individual component metrics.
 
 **Capacity Planning Support.** Tracking resource utilization trends over time to inform infrastructure scaling decisions before capacity limits are reached. The Specialist generates capacity forecasts based on growth trends and seasonal patterns.
 
@@ -78,21 +78,21 @@ The Health Monitoring Specialist provides six primary capabilities for comprehen
 
 The Specialist is implemented as a supervised OTP application with dedicated monitoring processes for each health layer. Monitoring processes operate on configurable polling intervals with event-driven alerting for threshold breaches.
 
-Health data collection uses the platform's [telemetry](/glossary/telemetry/) infrastructure, subscribing to telemetry events emitted by monitored components. The Specialist aggregates telemetry data into health assessments using configurable evaluation functions that combine multiple metrics into health scores.
+Health data collection uses the platform's [telemetry](@/glossary/telemetry.md) infrastructure, subscribing to telemetry events emitted by monitored components. The Specialist aggregates telemetry data into health assessments using configurable evaluation functions that combine multiple metrics into health scores.
 
-Health state is maintained in ETS tables for rapid access by dashboard queries and alerting evaluations. Historical health data is persisted to [PostgreSQL](/glossary/postgresql/) through [Ecto](/glossary/ecto/) for trend analysis and capacity planning.
+Health state is maintained in ETS tables for rapid access by dashboard queries and alerting evaluations. Historical health data is persisted to [PostgreSQL](@/glossary/postgresql.md) through [Ecto](@/glossary/ecto.md) for trend analysis and capacity planning.
 
-The [circuit breaker](/glossary/circuit-breaker/) pattern protects the monitoring system itself from failures in monitored components. If a health check probe fails repeatedly, the circuit breaker opens, preventing the monitoring system from wasting resources on probes that consistently fail while logging the monitoring gap for investigation.
+The [circuit breaker](@/glossary/circuit-breaker.md) pattern protects the monitoring system itself from failures in monitored components. If a health check probe fails repeatedly, the circuit breaker opens, preventing the monitoring system from wasting resources on probes that consistently fail while logging the monitoring gap for investigation.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [alert-management-specialist](/agents/alert-management-specialist/) | Routes health alert signals for notification and escalation processing | Infrastructure |
-| [incident-response-specialist](/agents/incident-response-specialist/) | Provides health data during incident investigation and resolution verification | Infrastructure |
-| [deployment-health-monitor](/agents/deployment-health-monitor/) | Coordinates deployment-specific health monitoring during [release](/glossary/release/) windows | Infrastructure |
-| [infrastructure-as-code-specialist](/agents/infrastructure-as-code-specialist/) | Informs infrastructure scaling decisions based on capacity planning data | Infrastructure |
-| [gitlab-cicd-specialist-agent](/agents/gitlab-cicd-specialist-agent/) | Provides health gate status for deployment pipeline decisions | DevOps |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Routes health alert signals for notification and escalation processing | Infrastructure |
+| [incident-response-specialist](@/agents/incident-response-specialist.md) | Provides health data during incident investigation and resolution verification | Infrastructure |
+| [deployment-health-monitor](@/agents/deployment-health-monitor.md) | Coordinates deployment-specific health monitoring during [release](@/glossary/release.md) windows | Infrastructure |
+| [infrastructure-as-code-specialist](@/agents/infrastructure-as-code-specialist.md) | Informs infrastructure scaling decisions based on capacity planning data | Infrastructure |
+| [gitlab-cicd-specialist-agent](@/agents/gitlab-cicd-specialist-agent.md) | Provides health gate status for deployment pipeline decisions | DevOps |
 
 ## Alert Management
 
@@ -107,7 +107,7 @@ Health alerts are categorized by severity and routed through appropriate notific
 
 ## Enforcement
 
-The Health Monitoring Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Health claims must be backed by measurable [telemetry](/glossary/telemetry/) data from independent sources. No component is considered healthy without active verification. Monitoring gaps are treated as L2 violations requiring immediate coverage expansion. Health alert suppression without documented justification is forbidden. Automated remediation actions are logged with full context for post-incident review.
+The Health Monitoring Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Health claims must be backed by measurable [telemetry](@/glossary/telemetry.md) data from independent sources. No component is considered healthy without active verification. Monitoring gaps are treated as L2 violations requiring immediate coverage expansion. Health alert suppression without documented justification is forbidden. Automated remediation actions are logged with full context for post-incident review.
 
 ---
 
@@ -116,4 +116,4 @@ The Health Monitoring Specialist operates under the [NO MERCY, NO DOUBTS](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

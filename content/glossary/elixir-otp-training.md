@@ -467,24 +467,24 @@ The Prismatic Platform itself serves as an advanced OTP training ground, with ev
 
 Elixir OTP training connects to many fundamental concepts in the Prismatic Platform:
 
-- [Elixir](/glossary/elixir/) - The programming language built on the BEAM VM that provides the syntax and standard library for OTP-based development
-- [OTP](/glossary/otp/) - The Open Telecom Platform framework that provides the behaviours, principles, and libraries at the heart of this training
-- [GenServer](/glossary/genserver/) - The most fundamental OTP behaviour for building stateful server processes
-- [Supervision Tree](/glossary/supervision-tree/) - The hierarchical process structure that provides fault tolerance through automatic restart and isolation
-- [BEAM VM](/glossary/beam-vm/) - The virtual machine that executes Elixir and Erlang code, providing lightweight processes, garbage collection, and distribution
-- [Fault Tolerance](/glossary/fault-tolerance/) - The system property that OTP training fundamentally develops, enabling systems to continue operating despite component failures
-- [Concurrency](/glossary/concurrency/) - The ability to handle multiple operations simultaneously, which the BEAM's process model makes safe and efficient
-- [Erlang](/glossary/erlang/) - The language that originally created OTP, whose decades of production experience inform Elixir OTP training
-- [Phoenix](/glossary/phoenix/) - The web framework built on OTP patterns, demonstrating how OTP principles apply to web development
-- [Distributed System](/glossary/distributed-system/) - Advanced OTP training covers distributed Erlang for building systems that span multiple nodes
+- [Elixir](@/glossary/elixir.md) - The programming language built on the BEAM VM that provides the syntax and standard library for OTP-based development
+- [OTP](@/glossary/otp.md) - The Open Telecom Platform framework that provides the behaviours, principles, and libraries at the heart of this training
+- [GenServer](@/glossary/genserver.md) - The most fundamental OTP behaviour for building stateful server processes
+- [Supervision Tree](@/glossary/supervision-tree.md) - The hierarchical process structure that provides fault tolerance through automatic restart and isolation
+- [BEAM VM](@/glossary/beam-vm.md) - The virtual machine that executes Elixir and Erlang code, providing lightweight processes, garbage collection, and distribution
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - The system property that OTP training fundamentally develops, enabling systems to continue operating despite component failures
+- [Concurrency](@/glossary/concurrency.md) - The ability to handle multiple operations simultaneously, which the BEAM's process model makes safe and efficient
+- [Erlang](@/glossary/erlang.md) - The language that originally created OTP, whose decades of production experience inform Elixir OTP training
+- [Phoenix](@/glossary/phoenix.md) - The web framework built on OTP patterns, demonstrating how OTP principles apply to web development
+- [Distributed System](@/glossary/distributed-system.md) - Advanced OTP training covers distributed Erlang for building systems that span multiple nodes
 
 ## See Also
 
-- [Broadway](/glossary/broadway/) - Data processing library built on GenStage for high-throughput, concurrent pipelines
-- [GenStage](/glossary/genstage/) - The OTP behaviour for back-pressure aware producer-consumer pipelines
-- [ETS](/glossary/ets/) - Erlang Term Storage, an in-memory database that complements GenServer for high-performance state management
-- [Curriculum](/glossary/curriculum/) - Structured learning paths that organize OTP training into progressive levels
-- [Mentorship](/glossary/mentorship/) - One-on-one guidance for developers learning OTP patterns
+- [Broadway](@/glossary/broadway.md) - Data processing library built on GenStage for high-throughput, concurrent pipelines
+- [GenStage](@/glossary/genstage.md) - The OTP behaviour for back-pressure aware producer-consumer pipelines
+- [ETS](@/glossary/ets.md) - Erlang Term Storage, an in-memory database that complements GenServer for high-performance state management
+- [Curriculum](@/glossary/curriculum.md) - Structured learning paths that organize OTP training into progressive levels
+- [Mentorship](@/glossary/mentorship.md) - One-on-one guidance for developers learning OTP patterns
 
 ---
 

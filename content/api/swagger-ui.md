@@ -25,11 +25,11 @@ image_alt = "Interactive API Explorer - Prismatic Platform"
 
 ## Overview
 
-The Swagger UI endpoint serves an interactive web-based API explorer built on the industry-standard Swagger UI framework. It consumes the auto-generated [OpenAPI Specification](/api/openapi-spec/) and renders it as a browsable, testable interface where developers can explore endpoints, read documentation, construct requests, and execute them directly from the browser.
+The Swagger UI endpoint serves an interactive web-based API explorer built on the industry-standard Swagger UI framework. It consumes the auto-generated [OpenAPI Specification](@/api/openapi-spec.md) and renders it as a browsable, testable interface where developers can explore endpoints, read documentation, construct requests, and execute them directly from the browser.
 
 This is the primary tool for API exploration during development and integration. Every endpoint discovered by the platform scanner appears in the Swagger UI automatically, complete with parameter descriptions, request body schemas, response examples, and authentication requirements. Developers can authenticate once and then test any endpoint without switching between documentation and a separate HTTP client.
 
-The Swagger UI is served as a single-page application bundled with the Prismatic API application. It loads the [OpenAPI specification](/api/openapi-spec/) dynamically, ensuring that the explorer always reflects the current state of the API surface.
+The Swagger UI is served as a single-page application bundled with the Prismatic API application. It loads the [OpenAPI specification](@/api/openapi-spec.md) dynamically, ensuring that the explorer always reflects the current state of the API surface.
 
 ## Endpoint
 
@@ -74,7 +74,7 @@ Host: localhost:4004
 Accept: text/html
 ```
 
-For programmatic API interaction, use the [OpenAPI Specification](/api/openapi-spec/) endpoint directly rather than the Swagger UI.
+For programmatic API interaction, use the [OpenAPI Specification](@/api/openapi-spec.md) endpoint directly rather than the Swagger UI.
 
 ## Response
 
@@ -196,18 +196,18 @@ The Swagger UI endpoint itself does not produce application errors. If the API p
 | Per IP | 30 requests | 1 minute |
 | Burst | 5 requests | 1 second |
 
-Rate limits apply to page loads only. API calls executed through the Swagger UI are subject to their own per-endpoint rate limits as documented in [Rate Limiting](/api/rate-limiting/).
+Rate limits apply to page loads only. API calls executed through the Swagger UI are subject to their own per-endpoint rate limits as documented in [Rate Limiting](@/api/rate-limiting.md).
 
 ## Related Endpoints
 
-- [OpenAPI Specification](/api/openapi-spec/) -- The machine-readable spec that powers Swagger UI
-- [Endpoint Discovery](/api/endpoints/) -- Programmatic alternative to Swagger UI browsing
-- [Authentication](/api/authentication/) -- How to obtain tokens for Swagger UI authentication
-- [Health Check](/api/health/) -- Verify the API is running before opening Swagger UI
+- [OpenAPI Specification](@/api/openapi-spec.md) -- The machine-readable spec that powers Swagger UI
+- [Endpoint Discovery](@/api/endpoints.md) -- Programmatic alternative to Swagger UI browsing
+- [Authentication](@/api/authentication.md) -- How to obtain tokens for Swagger UI authentication
+- [Health Check](@/api/health.md) -- Verify the API is running before opening Swagger UI
 
 ## Customization
 
-The Swagger UI instance is configured through [OpenApiSpex](/glossary/openapi/), the Elixir library that handles specification generation and UI serving. Configuration options include:
+The Swagger UI instance is configured through [OpenApiSpex](@/glossary/openapi.md), the Elixir library that handles specification generation and UI serving. Configuration options include:
 
 | Option | Value | Description |
 |--------|-------|-------------|
@@ -230,7 +230,7 @@ The recommended workflow for API development with Swagger UI:
 5. Verify response schema matches the `@spec` return type
 6. Share the Swagger UI link with consumers for integration testing
 
-This workflow ensures that documentation, type safety, and testability are built into the development process from the start, embodying the [Quality DNA](/glossary/quality-dna/) principle of quality at creation rather than quality through inspection.
+This workflow ensures that documentation, type safety, and testability are built into the development process from the start, embodying the [Quality DNA](@/glossary/quality-dna.md) principle of quality at creation rather than quality through inspection.
 
 ---
 
@@ -239,4 +239,4 @@ This workflow ensures that documentation, type safety, and testability are built
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

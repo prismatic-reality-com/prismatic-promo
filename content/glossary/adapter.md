@@ -43,15 +43,15 @@ image_alt = "Adapter - Prismatic Platform"
 
 ## Overview
 
-An **Adapter** is a structural design pattern that provides a standardized interface between two incompatible interfaces, enabling components to collaborate without modifying their existing code. In the [Prismatic Platform](/glossary/application/), the Adapter pattern is elevated to an architectural principle: every external dependency, storage backend, and integration point is accessed through a well-defined adapter abstraction backed by Elixir [behaviours](/glossary/behaviour/) and [protocols](/glossary/protocol/). This enables hot-swappable backends, comprehensive testing through contract test suites, and seamless evolution of the platform's infrastructure without breaking application code.
+An **Adapter** is a structural design pattern that provides a standardized interface between two incompatible interfaces, enabling components to collaborate without modifying their existing code. In the [Prismatic Platform](@/glossary/application.md), the Adapter pattern is elevated to an architectural principle: every external dependency, storage backend, and integration point is accessed through a well-defined adapter abstraction backed by Elixir [behaviours](@/glossary/behaviour.md) and [protocols](@/glossary/protocol.md). This enables hot-swappable backends, comprehensive testing through contract test suites, and seamless evolution of the platform's infrastructure without breaking application code.
 
-The platform's architecture is fundamentally built on adapters. The `prismatic_storage_core` application defines abstract behaviours that describe what a storage backend must do, while concrete implementations in `prismatic_storage_ecto`, `prismatic_storage_ets`, `prismatic_storage_meilisearch`, and `prismatic_storage_kuzu` provide the how. This separation means that application code never directly depends on [PostgreSQL](/glossary/postgresql/), [ETS](/glossary/ets/), or any specific technology -- it depends only on the contract.
+The platform's architecture is fundamentally built on adapters. The `prismatic_storage_core` application defines abstract behaviours that describe what a storage backend must do, while concrete implementations in `prismatic_storage_ecto`, `prismatic_storage_ets`, `prismatic_storage_meilisearch`, and `prismatic_storage_kuzu` provide the how. This separation means that application code never directly depends on [PostgreSQL](@/glossary/postgresql.md), [ETS](@/glossary/ets.md), or any specific technology -- it depends only on the contract.
 
 ---
 
 ## Definition and Origins
 
-The Adapter pattern originates from the Gang of Four (GoF) design patterns, published in 1994, where it serves as a bridge between interfaces that cannot directly communicate. In object-oriented languages, adapters typically involve class inheritance or composition. In [Elixir](/glossary/elixir/) and the BEAM ecosystem, the Adapter pattern takes a more elegant form through behaviours (compile-time contracts) and protocols (runtime polymorphic dispatch).
+The Adapter pattern originates from the Gang of Four (GoF) design patterns, published in 1994, where it serves as a bridge between interfaces that cannot directly communicate. In object-oriented languages, adapters typically involve class inheritance or composition. In [Elixir](@/glossary/elixir.md) and the BEAM ecosystem, the Adapter pattern takes a more elegant form through behaviours (compile-time contracts) and protocols (runtime polymorphic dispatch).
 
 The pattern is also known as "Wrapper" in some contexts, and it is closely related to the Ports and Adapters (Hexagonal) architecture proposed by Alistair Cockburn. In hexagonal architecture, the application core defines "ports" (interfaces) and "adapters" translate between the application core and external systems (databases, APIs, UI).
 
@@ -60,9 +60,9 @@ This architectural decision has profound implications for the Prismatic Platform
 - **Backend portability**: Switching from ETS to PostgreSQL requires zero application code changes.
 - **Testing isolation**: Tests run against in-memory ETS adapters, eliminating database setup overhead.
 - **Gradual migration**: New storage backends can be introduced alongside existing ones, with traffic gradually shifted.
-- **Performance optimization**: Hot paths can use ETS adapters while cold paths use [Ecto](/glossary/ecto/), all through the same interface.
+- **Performance optimization**: Hot paths can use ETS adapters while cold paths use [Ecto](@/glossary/ecto.md), all through the same interface.
 
-The platform currently maintains adapters across multiple domains: storage (5 backends), search ([Meilisearch](/glossary/meilisearch/)), graph ([KuzuDB](/glossary/kuzudb/)), AI inference ([Ollama](/glossary/ollama/)), and external integrations (120+ OSINT providers).
+The platform currently maintains adapters across multiple domains: storage (5 backends), search ([Meilisearch](@/glossary/meilisearch.md)), graph ([KuzuDB](@/glossary/kuzudb.md)), AI inference ([Ollama](@/glossary/ollama.md)), and external integrations (120+ OSINT providers).
 
 ---
 
@@ -334,7 +334,7 @@ config :prismatic_storage_core,
 | Interface (Java/Go) | Language feature | Full | Instance-level | N/A |
 | Duck Typing (Python) | Convention | None | Full | N/A |
 | Strategy Pattern (OOP) | Manual | Varies | Instance-level | Conceptual basis |
-| [Dependency Injection](/glossary/dependency-injection/) | Framework | Framework-dependent | Full | Complementary |
+| [Dependency Injection](@/glossary/dependency-injection.md) | Framework | Framework-dependent | Full | Complementary |
 
 ### Behaviours vs Protocols
 
@@ -349,13 +349,13 @@ Behaviours and protocols serve complementary roles in the adapter architecture:
 
 1. **Define behaviours in the core application.** Never define adapter contracts in the implementing application. The contract lives in `prismatic_storage_core`, implementations live in `prismatic_storage_ecto`, etc.
 
-2. **Use @callback with full typespecs.** Every callback must have complete type specifications. This enables [Dialyzer](/glossary/dialyzer/) to verify implementations at compile time.
+2. **Use @callback with full typespecs.** Every callback must have complete type specifications. This enables [Dialyzer](@/glossary/dialyzer.md) to verify implementations at compile time.
 
 3. **Implement contract test suites.** Every adapter must pass the same test suite. Use `PrismaticStorageCore.AdapterContractTest` as a shared test macro.
 
 4. **Return tagged tuples consistently.** Every adapter function returns `{:ok, result}` or `{:error, reason}`. Never raise exceptions for expected failure modes.
 
-5. **Keep adapters stateless.** Adapters should not maintain internal state. State management belongs in the caller or in dedicated [GenServer](/glossary/genserver/) processes.
+5. **Keep adapters stateless.** Adapters should not maintain internal state. State management belongs in the caller or in dedicated [GenServer](@/glossary/genserver.md) processes.
 
 6. **Support capability queries.** Adapters should expose their capabilities (transactions, full-text search, graph queries) so the registry can route requests appropriately.
 
@@ -371,7 +371,7 @@ Behaviours and protocols serve complementary roles in the adapter architecture:
 
 2. **God adapter.** Creating a single massive behaviour with dozens of callbacks. Split into focused behaviours (CRUD, search, batch, transaction) and compose them.
 
-3. **Missing contract tests.** Assuming that if one adapter works, all adapters work. Each backend has different edge cases around null handling, encoding, [concurrency](/glossary/concurrency/), and error modes.
+3. **Missing contract tests.** Assuming that if one adapter works, all adapters work. Each backend has different edge cases around null handling, encoding, [concurrency](@/glossary/concurrency.md), and error modes.
 
 4. **Configuration coupling.** Hardcoding adapter modules instead of reading from configuration. This prevents runtime switching and complicates testing.
 
@@ -423,30 +423,30 @@ Each adapter documents its compliance characteristics (persistence guarantees, a
 
 | Technology | Relationship to Adapter Pattern |
 |---|---|
-| [Adapter Pattern](/glossary/adapter-pattern/) | The formal design pattern theory behind the Prismatic adapter architecture |
-| [Behaviour](/glossary/behaviour/) | Elixir's compile-time contract mechanism used to define adapter interfaces |
-| [Protocol](/glossary/protocol/) | Elixir's data-type polymorphism mechanism complementing behaviours |
-| [Composability](/glossary/composability/) | Building complex systems from small, interchangeable adapter components |
-| [Dependency Injection](/glossary/dependency-injection/) | Providing adapter implementations to consuming modules at runtime |
-| [Modularity](/glossary/modularity/) | Architectural property enabled by clean adapter boundaries |
-| [Storage Pattern](/glossary/storage-pattern/) | Data persistence patterns implemented through adapter abstraction |
-| [Ecto](/glossary/ecto/) | The primary database adapter for PostgreSQL interactions |
-| [ETS](/glossary/ets/) | The in-memory storage adapter for development, testing, and caching |
-| [Meilisearch](/glossary/meilisearch/) | The full-text search adapter providing indexed search capabilities |
+| [Adapter Pattern](@/glossary/adapter-pattern.md) | The formal design pattern theory behind the Prismatic adapter architecture |
+| [Behaviour](@/glossary/behaviour.md) | Elixir's compile-time contract mechanism used to define adapter interfaces |
+| [Protocol](@/glossary/protocol.md) | Elixir's data-type polymorphism mechanism complementing behaviours |
+| [Composability](@/glossary/composability.md) | Building complex systems from small, interchangeable adapter components |
+| [Dependency Injection](@/glossary/dependency-injection.md) | Providing adapter implementations to consuming modules at runtime |
+| [Modularity](@/glossary/modularity.md) | Architectural property enabled by clean adapter boundaries |
+| [Storage Pattern](@/glossary/storage-pattern.md) | Data persistence patterns implemented through adapter abstraction |
+| [Ecto](@/glossary/ecto.md) | The primary database adapter for PostgreSQL interactions |
+| [ETS](@/glossary/ets.md) | The in-memory storage adapter for development, testing, and caching |
+| [Meilisearch](@/glossary/meilisearch.md) | The full-text search adapter providing indexed search capabilities |
 
 ---
 
 ## See Also
 
-- [Layered Architecture](/glossary/layered-architecture/) -- Architectural style that formalizes the ports-and-adapters approach
-- [Microservices](/glossary/microservices/) -- Distributed architecture where adapters manage inter-service communication
-- [API Gateway](/glossary/api-gateway/) -- Gateway pattern using adapters to normalize external API access
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern often combined with adapters for fault-tolerant backend access
-- [KuzuDB](/glossary/kuzudb/) -- Graph database adapter for relationship-heavy data queries
+- [Layered Architecture](@/glossary/layered-architecture.md) -- Architectural style that formalizes the ports-and-adapters approach
+- [Microservices](@/glossary/microservices.md) -- Distributed architecture where adapters manage inter-service communication
+- [API Gateway](@/glossary/api-gateway.md) -- Gateway pattern using adapters to normalize external API access
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern often combined with adapters for fault-tolerant backend access
+- [KuzuDB](@/glossary/kuzudb.md) -- Graph database adapter for relationship-heavy data queries
 
 ---
 
 ## Connect & Contribute
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

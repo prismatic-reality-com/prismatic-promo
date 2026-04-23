@@ -392,24 +392,24 @@ end
 
 ## Related Concepts
 
-- [Elixir](/glossary/elixir/) - The programming language that Phoenix is written in and runs on
-- [LiveView](/glossary/liveview/) - Server-rendered reactive UI framework built into Phoenix
-- [Plug](/glossary/plug/) - Composable middleware specification underlying Phoenix's request pipeline
-- [Channel](/glossary/channel/) - Real-time bidirectional communication layer in Phoenix
-- [WebSocket](/glossary/websocket/) - Transport protocol used by Phoenix Channels and LiveView
-- [Endpoint](/glossary/endpoint/) - Phoenix Supervisor managing connection handling infrastructure
-- [Ecto](/glossary/ecto/) - Database wrapper and query generator commonly used with Phoenix
-- [BEAM](/glossary/beam/) - Virtual machine providing Phoenix's concurrency and fault tolerance
-- [OTP](/glossary/otp/) - Framework library providing supervision and process management
-- [PubSub](/glossary/pubsub/) - Distributed publish-subscribe system for Phoenix real-time features
+- [Elixir](@/glossary/elixir.md) - The programming language that Phoenix is written in and runs on
+- [LiveView](@/glossary/liveview.md) - Server-rendered reactive UI framework built into Phoenix
+- [Plug](@/glossary/plug.md) - Composable middleware specification underlying Phoenix's request pipeline
+- [Channel](@/glossary/channel.md) - Real-time bidirectional communication layer in Phoenix
+- [WebSocket](@/glossary/websocket.md) - Transport protocol used by Phoenix Channels and LiveView
+- [Endpoint](@/glossary/endpoint.md) - Phoenix Supervisor managing connection handling infrastructure
+- [Ecto](@/glossary/ecto.md) - Database wrapper and query generator commonly used with Phoenix
+- [BEAM](@/glossary/beam.md) - Virtual machine providing Phoenix's concurrency and fault tolerance
+- [OTP](@/glossary/otp.md) - Framework library providing supervision and process management
+- [PubSub](@/glossary/pubsub.md) - Distributed publish-subscribe system for Phoenix real-time features
 
 ## See Also
 
-- [Phoenix](/glossary/phoenix/) - General Phoenix ecosystem entry
-- [Phoenix LiveView](/glossary/phoenix-liveview/) - Detailed LiveView documentation
-- [REST API](/glossary/rest-api/) - REST API design patterns used with Phoenix
-- [Technologies](/technologies/) - Full technology stack overview
-- [Architecture](/architecture/) - Platform architecture documentation
+- [Phoenix](@/glossary/phoenix.md) - General Phoenix ecosystem entry
+- [Phoenix LiveView](@/glossary/phoenix-liveview.md) - Detailed LiveView documentation
+- [REST API](@/glossary/rest-api.md) - REST API design patterns used with Phoenix
+- [Technologies](@/technologies/_index.md) - Full technology stack overview
+- [Architecture](@/architecture/_index.md) - Platform architecture documentation
 
 ---
 
@@ -418,4 +418,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

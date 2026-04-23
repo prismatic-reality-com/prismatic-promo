@@ -29,9 +29,9 @@ AbuseIPDB is a globally recognized collaborative threat intelligence platform de
 
 The fundamental premise of AbuseIPDB is crowdsourced threat intelligence: when a system administrator observes an IP address engaging in brute-force attacks, port scanning, spam delivery, DDoS participation, or other abusive behavior, they submit a report categorizing the activity. These reports are aggregated to produce an Abuse Confidence Score ranging from 0 to 100 percent, representing the statistical likelihood that the IP address is engaged in malicious activity. This score incorporates the number of distinct reporters, the recency and frequency of reports, and the diversity of abuse categories observed.
 
-For [OSINT](/glossary/osint/) investigators and security analysts, AbuseIPDB serves as a first-line triage tool for IP address assessment. During incident response, network forensics, and [attack surface](/glossary/attack-surface/) analysis, the ability to rapidly determine whether an IP address has a documented history of abuse is invaluable. The platform's historical data retention and category-level granularity enable analysts to distinguish between opportunistic scanners, persistent attackers, compromised hosts participating in botnets, and known command-and-control infrastructure.
+For [OSINT](@/glossary/osint.md) investigators and security analysts, AbuseIPDB serves as a first-line triage tool for IP address assessment. During incident response, network forensics, and [attack surface](@/glossary/attack-surface.md) analysis, the ability to rapidly determine whether an IP address has a documented history of abuse is invaluable. The platform's historical data retention and category-level granularity enable analysts to distinguish between opportunistic scanners, persistent attackers, compromised hosts participating in botnets, and known command-and-control infrastructure.
 
-Within the Prismatic Platform, AbuseIPDB functions as a primary IP reputation source feeding into the [Prismatic Perimeter](/apps/prismatic-perimeter/) security rating engine and the HAWKEYE visitor intelligence system. It provides real-time threat assessment for IP addresses discovered during external attack surface mapping, visitor profiling, and network monitoring operations.
+Within the Prismatic Platform, AbuseIPDB functions as a primary IP reputation source feeding into the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security rating engine and the HAWKEYE visitor intelligence system. It provides real-time threat assessment for IP addresses discovered during external attack surface mapping, visitor profiling, and network monitoring operations.
 
 ## Data Sources and Coverage
 
@@ -172,7 +172,7 @@ AbuseIPDB is integral to external attack surface management workflows. During au
 
 ### Incident Response and Forensic Triage
 
-During security incidents, analysts must rapidly triage large volumes of IP addresses extracted from logs, network captures, and intrusion detection alerts. AbuseIPDB enables immediate classification of these IPs into categories: known malicious actors, opportunistic scanners, benign services, and previously unreported addresses. The category-level detail allows responders to prioritize investigation efforts and correlate observed behavior with community-reported patterns. Integration with [VirusTotal](/osint/virustotal/) and [GreyNoise](/osint/greynoise/) provides comprehensive threat context.
+During security incidents, analysts must rapidly triage large volumes of IP addresses extracted from logs, network captures, and intrusion detection alerts. AbuseIPDB enables immediate classification of these IPs into categories: known malicious actors, opportunistic scanners, benign services, and previously unreported addresses. The category-level detail allows responders to prioritize investigation efforts and correlate observed behavior with community-reported patterns. Integration with [VirusTotal](@/osint/virustotal.md) and [GreyNoise](@/osint/greynoise.md) provides comprehensive threat context.
 
 ### Dynamic Blocklist Generation
 
@@ -241,12 +241,12 @@ AbuseIPDB integration adheres to the NABLA infinity epistemic framework through 
 
 ## Related Resources
 
-- [Shodan](/osint/shodan/) - Internet-wide device scanning with port and banner data for service-level correlation
-- [VirusTotal](/osint/virustotal/) - Multi-engine malware and URL scanning for comprehensive threat context
-- [GreyNoise](/osint/greynoise/) - Internet noise analysis distinguishing benign scanners from targeted attacks
-- [Censys](/osint/censys/) - Internet-wide scanning with certificate intelligence for infrastructure mapping
-- [URLScan](/osint/urlscan/) - URL analysis with screenshot and DOM capture for web threat verification
-- [BinaryEdge](/osint/binaryedge/) - Supplementary internet scanning with data leak detection capabilities
+- [Shodan](@/osint/shodan.md) - Internet-wide device scanning with port and banner data for service-level correlation
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine malware and URL scanning for comprehensive threat context
+- [GreyNoise](@/osint/greynoise.md) - Internet noise analysis distinguishing benign scanners from targeted attacks
+- [Censys](@/osint/censys.md) - Internet-wide scanning with certificate intelligence for infrastructure mapping
+- [URLScan](@/osint/urlscan.md) - URL analysis with screenshot and DOM capture for web threat verification
+- [BinaryEdge](@/osint/binaryedge.md) - Supplementary internet scanning with data leak detection capabilities
 
 ---
 
@@ -255,4 +255,4 @@ AbuseIPDB integration adheres to the NABLA infinity epistemic framework through 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

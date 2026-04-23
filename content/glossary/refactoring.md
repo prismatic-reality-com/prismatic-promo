@@ -29,7 +29,7 @@ Refactoring is the disciplined practice of restructuring existing code without c
 
 Refactoring is not bug fixing (which changes behavior to correct errors), not feature development (which adds new behavior), and not optimization (which may change timing characteristics). Refactoring changes how the code is organized, not what it does. This distinction is critical because it means refactoring can be verified mechanically: if the test suite passes before and after the change, and the test suite has adequate coverage, the refactoring is correct.
 
-In the Prismatic Platform, refactoring is not an occasional cleanup activity but a continuous engineering discipline. The platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine treats code that "works but is poorly structured" as a quality violation equivalent to code that does not work at all. The [quality gates](/glossary/quality-gate/) enforce structural quality through [Credo](/glossary/credo/) analysis, [Dialyzer](/glossary/dialyzer/) type checking, and cyclomatic complexity thresholds.
+In the Prismatic Platform, refactoring is not an occasional cleanup activity but a continuous engineering discipline. The platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine treats code that "works but is poorly structured" as a quality violation equivalent to code that does not work at all. The [quality gates](@/glossary/quality-gate.md) enforce structural quality through [Credo](@/glossary/credo.md) analysis, [Dialyzer](@/glossary/dialyzer.md) type checking, and cyclomatic complexity thresholds.
 
 ## Why Refactoring Matters
 
@@ -42,14 +42,14 @@ The economics of refactoring follow a clear pattern:
 | **Immediate** | None (code works) | Developer time for restructuring |
 | **1 month** | Increased time to understand code | Amortized across all readers |
 | **6 months** | New features take 2-3x longer | Code remains easy to modify |
-| **1 year** | [Technical debt](/glossary/technical-debt/) compounds exponentially | Debt stays near zero |
+| **1 year** | [Technical debt](@/glossary/technical-debt.md) compounds exponentially | Debt stays near zero |
 | **2+ years** | Rewrite becomes cheaper than modification | Continuous evolution remains viable |
 
 The Prismatic Platform's 141 umbrella applications and approximately 2.8 million lines of code make refactoring essential for platform sustainability. Without continuous refactoring, the codebase would become unmaintainable within months.
 
 ## Refactoring Techniques in Elixir
 
-[Elixir](/glossary/elixir/) has unique refactoring patterns that differ from object-oriented languages. The absence of mutable state, the use of [pattern matching](/glossary/pattern-matching/), and the [pipe operator](/glossary/pipe-operator/) create refactoring opportunities that do not exist in imperative languages.
+[Elixir](@/glossary/elixir.md) has unique refactoring patterns that differ from object-oriented languages. The absence of mutable state, the use of [pattern matching](@/glossary/pattern-matching.md), and the [pipe operator](@/glossary/pipe-operator.md) create refactoring opportunities that do not exist in imperative languages.
 
 ### Extract Function
 
@@ -212,7 +212,7 @@ end
 
 ### Introduce Pipe Chain
 
-Replace nested function calls with the [pipe operator](/glossary/pipe-operator/) for readable data transformation:
+Replace nested function calls with the [pipe operator](@/glossary/pipe-operator.md) for readable data transformation:
 
 ```elixir
 # Before: nested calls (read inside-out)
@@ -238,7 +238,7 @@ end
 
 ### Extract Behaviour
 
-When multiple modules share a common interface, extract a [behaviour](/glossary/behaviour/) to formalize the contract:
+When multiple modules share a common interface, extract a [behaviour](@/glossary/behaviour.md) to formalize the contract:
 
 ```elixir
 # Before: implicit interface across multiple modules
@@ -282,7 +282,7 @@ end
 
 ### Replace Process Dictionary with GenServer State
 
-The process dictionary is a source of hidden state. Refactoring to explicit [GenServer](/glossary/genserver/) state makes the state visible and testable:
+The process dictionary is a source of hidden state. Refactoring to explicit [GenServer](@/glossary/genserver.md) state makes the state visible and testable:
 
 ```elixir
 # Before: hidden state in process dictionary
@@ -329,7 +329,7 @@ end
 
 ## Refactoring Safety Net: Testing
 
-Refactoring without tests is surgery without anesthesia: technically possible but irresponsible. The Prismatic Platform enforces comprehensive [test coverage](/glossary/test-coverage/) as a prerequisite for refactoring safety.
+Refactoring without tests is surgery without anesthesia: technically possible but irresponsible. The Prismatic Platform enforces comprehensive [test coverage](@/glossary/test-coverage.md) as a prerequisite for refactoring safety.
 
 The refactoring workflow:
 
@@ -378,7 +378,7 @@ end
 
 ## Automated Refactoring Detection
 
-The platform's [Credo](/glossary/credo/) analysis automatically detects code that needs refactoring:
+The platform's [Credo](@/glossary/credo.md) analysis automatically detects code that needs refactoring:
 
 | Credo Check | Refactoring Indicated | Threshold |
 |-------------|----------------------|-----------|
@@ -407,7 +407,7 @@ The Boy Scout Rule: "Leave the code better than you found it." Every interaction
 
 ## Refactoring and the Umbrella Architecture
 
-The Prismatic Platform's [umbrella application](/glossary/umbrella-application/) architecture creates specific refactoring patterns:
+The Prismatic Platform's [umbrella application](@/glossary/umbrella-application.md) architecture creates specific refactoring patterns:
 
 ### Move Function Between Applications
 
@@ -472,7 +472,7 @@ For large-scale refactoring, the Prismatic Platform uses the Strangler Fig patte
 
 ## Integration with CI/CD
 
-The platform's [continuous integration](/glossary/continuous-integration/) pipeline enforces refactoring quality:
+The platform's [continuous integration](@/glossary/continuous-integration.md) pipeline enforces refactoring quality:
 
 - `mix compile --warnings-as-errors --force` -- zero compilation warnings
 - `mix credo --strict` -- all Credo checks pass
@@ -485,21 +485,21 @@ A refactoring that introduces warnings, fails Credo checks, or reduces test cove
 
 ## Related Terms
 
-- [Technical Debt](/glossary/technical-debt/) -- The cost of not refactoring accumulated over time
-- [Code Quality](/glossary/code-quality/) -- The measurable outcome of consistent refactoring
-- [Static Analysis](/glossary/static-analysis/) -- Automated detection of refactoring opportunities
-- [Credo](/glossary/credo/) -- Elixir static analysis tool enforcing code quality
-- [Dialyzer](/glossary/dialyzer/) -- Type checker catching type-related refactoring errors
-- [Testing](/glossary/testing/) -- Safety net enabling confident refactoring
-- [Quality Gate](/glossary/quality-gate/) -- Automated enforcement of refactoring standards
-- [Clean Run](/glossary/clean-run/) -- Zero-warning compilation after refactoring
-- [Continuous Integration](/glossary/continuous-integration/) -- Pipeline verifying refactoring correctness
-- [Code Reviews](/glossary/code-reviews/) -- Human verification of refactoring decisions
+- [Technical Debt](@/glossary/technical-debt.md) -- The cost of not refactoring accumulated over time
+- [Code Quality](@/glossary/code-quality.md) -- The measurable outcome of consistent refactoring
+- [Static Analysis](@/glossary/static-analysis.md) -- Automated detection of refactoring opportunities
+- [Credo](@/glossary/credo.md) -- Elixir static analysis tool enforcing code quality
+- [Dialyzer](@/glossary/dialyzer.md) -- Type checker catching type-related refactoring errors
+- [Testing](@/glossary/testing.md) -- Safety net enabling confident refactoring
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated enforcement of refactoring standards
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning compilation after refactoring
+- [Continuous Integration](@/glossary/continuous-integration.md) -- Pipeline verifying refactoring correctness
+- [Code Reviews](@/glossary/code-reviews.md) -- Human verification of refactoring decisions
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture patterns
-- [Capabilities](/capabilities/) -- Quality assurance capabilities
+- [Architecture](@/architecture/_index.md) -- Platform architecture patterns
+- [Capabilities](@/capabilities/_index.md) -- Quality assurance capabilities
 - Glossary -- Complete glossary index
 
 ---
@@ -509,4 +509,4 @@ A refactoring that introduces warnings, fails Credo checks, or reduces test cove
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

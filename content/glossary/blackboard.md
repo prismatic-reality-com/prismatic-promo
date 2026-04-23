@@ -65,7 +65,7 @@ The canonical blackboard architecture consists of three interacting components, 
 
 Knowledge sources (KS) are independent specialist modules, each possessing expertise in a specific domain or analysis technique. A knowledge source monitors the blackboard for conditions that match its area of expertise, and when triggered, reads relevant data, performs its analysis, and writes results back to the blackboard. Knowledge sources do not communicate with each other directly.
 
-In the Prismatic Platform, the 434 [agents](/glossary/agent/) across 14 domains serve as knowledge sources. Each agent specializes in a particular capability -- OSINT data extraction, security rating calculation, epistemic verification, quality assessment -- and contributes its findings to the shared knowledge structure.
+In the Prismatic Platform, the 434 [agents](@/glossary/agent.md) across 14 domains serve as knowledge sources. Each agent specializes in a particular capability -- OSINT data extraction, security rating calculation, epistemic verification, quality assessment -- and contributes its findings to the shared knowledge structure.
 
 ### The Blackboard Data Structure
 
@@ -85,16 +85,16 @@ The control component determines which knowledge source to activate next, based 
 
 ## GARDEN Legacy and Modernization
 
-The [GARDEN](/glossary/garden/) legacy knowledge base (22 repositories, 3,050+ files, 55+ patterns, 20+ years) is the direct ancestor of Prismatic's blackboard implementation. The GARDEN ecosystem's Blackboard system, originating from the `prismatic-legacy` repository (1,302 files, Tier 4 archive), demonstrated several key principles that carry forward.
+The [GARDEN](@/glossary/garden.md) legacy knowledge base (22 repositories, 3,050+ files, 55+ patterns, 20+ years) is the direct ancestor of Prismatic's blackboard implementation. The GARDEN ecosystem's Blackboard system, originating from the `prismatic-legacy` repository (1,302 files, Tier 4 archive), demonstrated several key principles that carry forward.
 
 | GARDEN Pattern | Modern Prismatic Implementation |
 |----------------|-------------------------------|
-| Shared working memory (in-process) | [ETS](/glossary/ets/) tables with microsecond access |
-| Knowledge source registry | [Agent Registry](/glossary/agent-registry/) (434 agents) |
+| Shared working memory (in-process) | [ETS](@/glossary/ets.md) tables with microsecond access |
+| Knowledge source registry | [Agent Registry](@/glossary/agent-registry.md) (434 agents) |
 | Hierarchical blackboard levels | Multi-backend storage tiers (ETS, PostgreSQL, KuzuDB) |
 | Rule-based control | AIAD agent activation policies and priority scheduling |
 | Serialized knowledge | Structured Elixir terms with provenance metadata |
-| Single-process coordination | Distributed coordination via [PubSub](/glossary/pubsub/) and message passing |
+| Single-process coordination | Distributed coordination via [PubSub](@/glossary/pubsub.md) and message passing |
 
 The modernization effort preserved GARDEN's core insight -- that heterogeneous knowledge sources produce better analytical results when coordinated through shared state rather than point-to-point communication -- while replacing the implementation with OTP-native technologies capable of operating across distributed BEAM nodes.
 
@@ -106,15 +106,15 @@ The Prismatic Platform implements the blackboard pattern using a multi-backend s
 
 | Backend | Role in Blackboard | Access Pattern | Latency |
 |---------|-------------------|----------------|---------|
-| [ETS](/glossary/ets/) | Hot working memory | Key-value lookup, concurrent reads | Microseconds |
-| [PostgreSQL](/glossary/postgresql/) | Persistent fact store | Relational queries, transactions | Milliseconds |
-| [KuzuDB](/glossary/kuzudb/) | Relationship graph | Path queries, pattern matching | Milliseconds |
-| [Meilisearch](/glossary/meilisearch/) | Full-text search | Keyword and semantic search | Milliseconds |
-| [Redis](/glossary/redis/) | Cross-node shared state | Pub/sub, distributed counters | Sub-millisecond |
+| [ETS](@/glossary/ets.md) | Hot working memory | Key-value lookup, concurrent reads | Microseconds |
+| [PostgreSQL](@/glossary/postgresql.md) | Persistent fact store | Relational queries, transactions | Milliseconds |
+| [KuzuDB](@/glossary/kuzudb.md) | Relationship graph | Path queries, pattern matching | Milliseconds |
+| [Meilisearch](@/glossary/meilisearch.md) | Full-text search | Keyword and semantic search | Milliseconds |
+| [Redis](@/glossary/redis.md) | Cross-node shared state | Pub/sub, distributed counters | Sub-millisecond |
 
 ### Agent Interaction Model
 
-Agents interact with the blackboard through a standardized interface that enforces provenance tracking and [NABLA Infinity](/glossary/nabla-infinity/) axiom compliance.
+Agents interact with the blackboard through a standardized interface that enforces provenance tracking and [NABLA Infinity](@/glossary/nabla-infinity.md) axiom compliance.
 
 ```elixir
 # Agent contributing findings to the blackboard
@@ -147,7 +147,7 @@ end
 
 ### Color Team Signal Flow
 
-The [Color Teams](/glossary/color-teams/) (Gray, Red, Blue, Purple, White, Black) use the blackboard as their primary coordination mechanism, following the signal flow architecture.
+The [Color Teams](@/glossary/color-teams.md) (Gray, Red, Blue, Purple, White, Black) use the blackboard as their primary coordination mechanism, following the signal flow architecture.
 
 ```
 Gray Team writes  --> :boundary_seeds      (edge cases, specification gaps)
@@ -167,9 +167,9 @@ The blackboard pattern excels at problems that require multiple forms of experti
 
 **OSINT Intelligence Fusion**: Multiple data source agents (Shodan, Censys, GreyNoise, DNS, certificate transparency) independently contribute raw observations to the blackboard. Entity resolution agents identify connections between observations. Analysis agents synthesize findings into coherent intelligence assessments. No single agent orchestrates this process; the blackboard's state drives activation.
 
-**Security Rating Calculation**: The [EASM](/glossary/easm/) pipeline calculates security ratings (A-F, 300-900 score) by combining findings from diverse assessment agents. Vulnerability scanners, configuration analyzers, compliance checkers, and reputation services each contribute their assessments independently. The rating engine reads the accumulated evidence and computes a composite score.
+**Security Rating Calculation**: The [EASM](@/glossary/easm.md) pipeline calculates security ratings (A-F, 300-900 score) by combining findings from diverse assessment agents. Vulnerability scanners, configuration analyzers, compliance checkers, and reputation services each contribute their assessments independently. The rating engine reads the accumulated evidence and computes a composite score.
 
-**Epistemic Verification**: The [Trinity Gate](/glossary/trinity-gate/) verification process uses the blackboard to coordinate structural consistency checks, logical consistency validation, and formal proof construction. Each verification layer writes its results to the blackboard, and the gate controller reads the combined evidence to make accept/reject decisions.
+**Epistemic Verification**: The [Trinity Gate](@/glossary/trinity-gate.md) verification process uses the blackboard to coordinate structural consistency checks, logical consistency validation, and formal proof construction. Each verification layer writes its results to the blackboard, and the gate controller reads the combined evidence to make accept/reject decisions.
 
 ## Control Strategies
 
@@ -183,7 +183,7 @@ The Prismatic Platform implements several control strategies for blackboard agen
 | **Event-driven** | PubSub notifications trigger agent activation | Real-time monitoring |
 | **Meta-level** | Control agent reasons about which KS to activate | Complex multi-step analysis |
 
-The event-driven strategy, implemented via Phoenix [PubSub](/glossary/pubsub/), is the most common in practice. When an agent writes to the blackboard, a PubSub notification is broadcast to all subscribed agents, which then evaluate their trigger conditions and self-activate if appropriate. This eliminates polling overhead while maintaining the blackboard's decoupled architecture.
+The event-driven strategy, implemented via Phoenix [PubSub](@/glossary/pubsub.md), is the most common in practice. When an agent writes to the blackboard, a PubSub notification is broadcast to all subscribed agents, which then evaluate their trigger conditions and self-activate if appropriate. This eliminates polling overhead while maintaining the blackboard's decoupled architecture.
 
 ## Comparison with Alternative Coordination Patterns
 
@@ -191,11 +191,11 @@ The event-driven strategy, implemented via Phoenix [PubSub](/glossary/pubsub/), 
 |---------|----------|-------------|-------------|----------|
 | **Blackboard** | Low (shared state) | Persistent, inspectable | Moderate | Complex analytical tasks |
 | **Message passing** | Low (async messages) | Transient (mailbox) | High | Request-response, streaming |
-| [PubSub](/glossary/pubsub/) | Low (topic-based) | Transient (events) | High | Event notification |
+| [PubSub](@/glossary/pubsub.md) | Low (topic-based) | Transient (events) | High | Event notification |
 | **Orchestrator** | High (central control) | Centralized | Low | Sequential workflows |
 | **Choreography** | Moderate (protocol) | Distributed | Moderate | Multi-step transactions |
 
-The Prismatic Platform uses all of these patterns in combination, with the blackboard serving as the coordination backbone for complex analytical workflows and [message passing](/glossary/message-passing/) handling the high-throughput operational communication.
+The Prismatic Platform uses all of these patterns in combination, with the blackboard serving as the coordination backbone for complex analytical workflows and [message passing](@/glossary/message-passing.md) handling the high-throughput operational communication.
 
 ## Performance and Scalability
 
@@ -214,17 +214,17 @@ ETS provides the performance-critical hot path, with write-through replication t
 
 ## Related Terms
 
-- [Knowledge Graph](/glossary/knowledge-graph/) - Graph-structured knowledge representation complementing blackboard state
-- [Agent](/glossary/agent/) - Autonomous units serving as knowledge sources in the blackboard architecture
-- [Agent Registry](/glossary/agent-registry/) - Registry of 434 agents interacting via the blackboard
-- [Data Pipeline](/glossary/data-pipeline/) - Pipeline patterns feeding data into and consuming data from the blackboard
-- [GARDEN](/glossary/garden/) - Source of the blackboard pattern with 22 repos of legacy knowledge
-- [KuzuDB](/glossary/kuzudb/) - Graph storage backing relationship-rich blackboard queries
-- [ETS](/glossary/ets/) - In-memory storage for high-speed blackboard access
-- [PubSub](/glossary/pubsub/) - Event distribution for blackboard change notifications
-- [Color Teams](/glossary/color-teams/) - Security teams coordinating through blackboard signal flow
-- [Intelligence Fusion](/glossary/intelligence-fusion/) - Multi-source correlation leveraging blackboard data
-- [Mycelial Network](/glossary/mycelial-network/) - Knowledge propagation network complementing blackboard coordination
+- [Knowledge Graph](@/glossary/knowledge-graph.md) - Graph-structured knowledge representation complementing blackboard state
+- [Agent](@/glossary/agent.md) - Autonomous units serving as knowledge sources in the blackboard architecture
+- [Agent Registry](@/glossary/agent-registry.md) - Registry of 434 agents interacting via the blackboard
+- [Data Pipeline](@/glossary/data-pipeline.md) - Pipeline patterns feeding data into and consuming data from the blackboard
+- [GARDEN](@/glossary/garden.md) - Source of the blackboard pattern with 22 repos of legacy knowledge
+- [KuzuDB](@/glossary/kuzudb.md) - Graph storage backing relationship-rich blackboard queries
+- [ETS](@/glossary/ets.md) - In-memory storage for high-speed blackboard access
+- [PubSub](@/glossary/pubsub.md) - Event distribution for blackboard change notifications
+- [Color Teams](@/glossary/color-teams.md) - Security teams coordinating through blackboard signal flow
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) - Multi-source correlation leveraging blackboard data
+- [Mycelial Network](@/glossary/mycelial-network.md) - Knowledge propagation network complementing blackboard coordination
 
 ## See Also
 
@@ -232,8 +232,8 @@ ETS provides the performance-critical hot path, with write-through replication t
 - [prismatic_storage_kuzudb](../../../apps/prismatic_storage_kuzudb/README.md) -- Graph backend for relationship-rich knowledge
 - [prismatic_storage_ets](../../../apps/prismatic_storage_ets/README.md) -- In-memory backend for fast blackboard access
 - [prismatic_agents](../../../apps/prismatic_agents/README.md) -- Agent runtime reading/writing the blackboard
-- [Architecture](/architecture/) -- Platform architecture and multi-agent coordination patterns
-- [Agents](/agents/) -- Agent specifications and knowledge source definitions
+- [Architecture](@/architecture/_index.md) -- Platform architecture and multi-agent coordination patterns
+- [Agents](@/agents/_index.md) -- Agent specifications and knowledge source definitions
 
 ---
 
@@ -242,4 +242,4 @@ ETS provides the performance-critical hot path, with write-through replication t
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

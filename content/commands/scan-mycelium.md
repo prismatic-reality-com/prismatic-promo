@@ -24,11 +24,11 @@ image_alt = "/scan-mycelium - Prismatic Platform"
 
 ## Overview
 
-**/scan-mycelium** is a production command in the **Documentation** category of the Prismatic Platform. It performs comprehensive pattern scanning across both documentation and source code, identifying recurring structures, anti-patterns, improvement opportunities, and cross-cutting concerns that the [mycelial network](/glossary/mycelial-network/) can propagate. The scanner bridges the gap between code patterns and their documentation, ensuring that improvements discovered in one domain are visible to and actionable by the propagation system.
+**/scan-mycelium** is a production command in the **Documentation** category of the Prismatic Platform. It performs comprehensive pattern scanning across both documentation and source code, identifying recurring structures, anti-patterns, improvement opportunities, and cross-cutting concerns that the [mycelial network](@/glossary/mycelial-network.md) can propagate. The scanner bridges the gap between code patterns and their documentation, ensuring that improvements discovered in one domain are visible to and actionable by the propagation system.
 
-This command operates under the **L2+** authority level and is executed by the `mycelium-scanner` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The mycelium-scanner agent has read access to the entire codebase and documentation corpus, enabling it to identify patterns that span multiple applications and documentation sections.
+This command operates under the **L2+** authority level and is executed by the `mycelium-scanner` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The mycelium-scanner agent has read access to the entire codebase and documentation corpus, enabling it to identify patterns that span multiple applications and documentation sections.
 
-The scanning process is the discovery phase of the mycelial lifecycle. Before patterns can be propagated (via [/mycelialize](/commands/mycelialize/)), evolved (via [/mycelialize-living](/commands/mycelialize-living/)), or verified (via [/mycelialize-formal](/commands/mycelialize-formal/)), they must first be identified and catalogued. `/scan-mycelium` serves this critical role, feeding the mycelial network with fresh pattern discoveries.
+The scanning process is the discovery phase of the mycelial lifecycle. Before patterns can be propagated (via [/mycelialize](@/commands/mycelialize.md)), evolved (via [/mycelialize-living](@/commands/mycelialize-living.md)), or verified (via [/mycelialize-formal](@/commands/mycelialize-formal.md)), they must first be identified and catalogued. `/scan-mycelium` serves this critical role, feeding the mycelial network with fresh pattern discoveries.
 
 The biological metaphor behind the mycelial network is deliberate: just as fungal mycelium networks discover and transport nutrients through soil ecosystems, the platform's mycelial scanning discovers valuable patterns and routes them to the systems that can propagate and apply them. The scanner is the sensory apparatus of this network -- constantly probing the codebase for new patterns, changed patterns, and degraded patterns that require attention.
 
@@ -147,7 +147,7 @@ Discovered patterns are classified into three categories:
 
 - **Known Patterns**: Match existing entries in the pattern library with confidence scores. These patterns confirm that established architectural decisions are being followed (or violated, in the case of anti-patterns).
 - **Novel Patterns**: New structures appearing frequently enough to warrant cataloguing. These represent emerging conventions that may deserve formalization in the pattern library.
-- **Anti-Patterns**: Structures matching known problematic patterns. These are flagged for remediation through [/quality-evolve](/commands/quality-evolve/) or manual intervention.
+- **Anti-Patterns**: Structures matching known problematic patterns. These are flagged for remediation through [/quality-evolve](@/commands/quality-evolve.md) or manual intervention.
 
 ### Execution Phases
 
@@ -199,15 +199,15 @@ Discovered patterns are classified into three categories:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/mycelialize](/commands/mycelialize/) | Downstream | Discovered patterns feed into propagation |
-| [/mycelialize-living](/commands/mycelialize-living/) | Downstream | Novel patterns become evolution candidates |
-| [/mycelialize-formal](/commands/mycelialize-formal/) | Downstream | Critical patterns queued for formal verification |
-| [/propagate-pattern](/commands/propagate-pattern/) | Downstream | Positive patterns propagated across codebase |
-| [/quality-evolve](/commands/quality-evolve/) | Downstream | Anti-patterns trigger quality evolution cycles |
-| [/chronic](/commands/chronic/) | Peer | Documentation hygiene scan results feed into mycelium |
-| [Git Trees](/glossary/git-trees/) | Infrastructure | Fast file enumeration |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Scan metrics and pattern discovery rates |
-| [/pattern](/commands/pattern/) | Pattern library | Known patterns sourced from pattern library |
+| [/mycelialize](@/commands/mycelialize.md) | Downstream | Discovered patterns feed into propagation |
+| [/mycelialize-living](@/commands/mycelialize-living.md) | Downstream | Novel patterns become evolution candidates |
+| [/mycelialize-formal](@/commands/mycelialize-formal.md) | Downstream | Critical patterns queued for formal verification |
+| [/propagate-pattern](@/commands/propagate-pattern.md) | Downstream | Positive patterns propagated across codebase |
+| [/quality-evolve](@/commands/quality-evolve.md) | Downstream | Anti-patterns trigger quality evolution cycles |
+| [/chronic](@/commands/chronic.md) | Peer | Documentation hygiene scan results feed into mycelium |
+| [Git Trees](@/glossary/git-trees.md) | Infrastructure | Fast file enumeration |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Scan metrics and pattern discovery rates |
+| [/pattern](@/commands/pattern.md) | Pattern library | Known patterns sourced from pattern library |
 
 ## Workflow Integration
 
@@ -215,17 +215,17 @@ The /scan-mycelium command participates in the platform's continuous improvement
 
 1. **Post-Feature Scanning**: After major feature additions, scanning discovers new patterns introduced by the feature. Positive patterns are candidates for propagation; anti-patterns are candidates for remediation.
 
-2. **Pre-Evolution Preparation**: Before [/quality-evolve](/commands/quality-evolve/) cycles, anti-pattern scanning provides a fresh list of targets. This ensures evolution efforts address real, current problems rather than stale data.
+2. **Pre-Evolution Preparation**: Before [/quality-evolve](@/commands/quality-evolve.md) cycles, anti-pattern scanning provides a fresh list of targets. This ensures evolution efforts address real, current problems rather than stale data.
 
 3. **Documentation Maintenance**: Weekly cross-reference scans catch documentation drift before it accumulates. Code changes without corresponding documentation updates are a persistent quality issue that this scanning addresses systematically.
 
-4. **Pattern Library Growth**: Novel pattern discovery feeds the [/pattern](/commands/pattern/) library with new candidates. Patterns that appear consistently across the codebase may be formalized into the library after review.
+4. **Pattern Library Growth**: Novel pattern discovery feeds the [/pattern](@/commands/pattern.md) library with new candidates. Patterns that appear consistently across the codebase may be formalized into the library after review.
 
 5. **Quality Monitoring**: Trend analysis (`--trend-analysis`) tracks pattern frequency over time, revealing whether quality improvement efforts are having their intended effect.
 
 ## NABLA Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Anti-patterns are flagged without exception. No scan results are suppressed or minimized.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Patterns are reported with confidence scores and evidence locations. Every finding is traceable to specific files and line numbers.
@@ -257,14 +257,14 @@ The scanner leverages Git Trees for file enumeration and parallel workers for co
 
 ## Related Commands
 
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/chronic](/commands/chronic/) - Chronic documentation scan and technical hygiene maintenance
-- [/find-lowfruit](/commands/find-lowfruit/) - Identify low-hanging fruit improvements across codebase
-- [/propagate-pattern](/commands/propagate-pattern/) - Propagate successful patterns across the ecosystem
-- [/quality-evolve](/commands/quality-evolve/) - Quality-focused evolution targeting specific quality domains
-- [/optimize](/commands/optimize/) - Performance optimization with measurement validation
-- [/pattern](/commands/pattern/) - AI pattern lookup and pattern library access
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/chronic](@/commands/chronic.md) - Chronic documentation scan and technical hygiene maintenance
+- [/find-lowfruit](@/commands/find-lowfruit.md) - Identify low-hanging fruit improvements across codebase
+- [/propagate-pattern](@/commands/propagate-pattern.md) - Propagate successful patterns across the ecosystem
+- [/quality-evolve](@/commands/quality-evolve.md) - Quality-focused evolution targeting specific quality domains
+- [/optimize](@/commands/optimize.md) - Performance optimization with measurement validation
+- [/pattern](@/commands/pattern.md) - AI pattern lookup and pattern library access
 
 ---
 
@@ -273,4 +273,4 @@ The scanner leverages Git Trees for file enumeration and parallel workers for co
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -38,11 +38,11 @@ image_alt = "Data Protection - Prismatic Platform"
 
 Data protection is the comprehensive framework of legal obligations, organizational policies, and technical measures that govern how personal data is collected, processed, stored, transferred, and deleted. It encompasses both the regulatory requirements (GDPR, NIS2, national implementations) and the engineering controls (encryption, access control, audit logging) that ensure compliance. Data protection is not a feature to be added -- it is an architectural constraint that shapes every system design decision involving personal data.
 
-In the Prismatic Platform, data protection is implemented as a cross-cutting concern that operates across all 115 umbrella applications. Every data flow involving personal data passes through protection gates: [encryption at rest](/glossary/encryption-at-rest/) for stored data, [TLS](/glossary/tls/) for data in transit, purpose-based [data minimization](/glossary/data-minimization/) at collection, automated retention enforcement, and comprehensive [audit trails](/glossary/audit-trail/) for every access operation. The platform treats data protection violations with the same severity as security vulnerabilities under the [NO MERCY](/glossary/no-mercy/) doctrine.
+In the Prismatic Platform, data protection is implemented as a cross-cutting concern that operates across all 115 umbrella applications. Every data flow involving personal data passes through protection gates: [encryption at rest](@/glossary/encryption-at-rest.md) for stored data, [TLS](@/glossary/tls.md) for data in transit, purpose-based [data minimization](@/glossary/data-minimization.md) at collection, automated retention enforcement, and comprehensive [audit trails](@/glossary/audit-trail.md) for every access operation. The platform treats data protection violations with the same severity as security vulnerabilities under the [NO MERCY](@/glossary/no-mercy.md) doctrine.
 
 ## Overview
 
-Data protection exists at the intersection of law and engineering. The legal framework (primarily [GDPR](/glossary/gdpr/) in the EU context, supplemented by [NIS2](/glossary/nis2/) for cybersecurity and [ZKB](/glossary/zkb/) for Czech-specific requirements) defines what must be done. The engineering framework defines how it is done. Neither is sufficient alone: perfect encryption without legal compliance is still a violation, and perfect policies without technical enforcement are paper compliance.
+Data protection exists at the intersection of law and engineering. The legal framework (primarily [GDPR](@/glossary/gdpr.md) in the EU context, supplemented by [NIS2](@/glossary/nis2.md) for cybersecurity and [ZKB](@/glossary/zkb.md) for Czech-specific requirements) defines what must be done. The engineering framework defines how it is done. Neither is sufficient alone: perfect encryption without legal compliance is still a violation, and perfect policies without technical enforcement are paper compliance.
 
 The Prismatic Platform addresses data protection through seven pillars:
 
@@ -50,13 +50,13 @@ The Prismatic Platform addresses data protection through seven pillars:
 
 2. **Purpose Limitation**: Data collected for one purpose cannot be repurposed without re-evaluation. The platform's purpose-binding mechanism prevents purpose creep at the technical level.
 
-3. **Data Minimization**: Only the minimum necessary data is collected, as enforced by the `DataMinimizer` pipeline. See [Data Minimization](/glossary/data-minimization/) for detailed implementation.
+3. **Data Minimization**: Only the minimum necessary data is collected, as enforced by the `DataMinimizer` pipeline. See [Data Minimization](@/glossary/data-minimization.md) for detailed implementation.
 
 4. **Accuracy**: Personal data must be accurate and kept up to date. The platform provides mechanisms for data subjects to request corrections, processed through the `DataSubjectRequestProcessor`.
 
 5. **Storage Limitation**: Data is retained only as long as necessary for its declared purpose. Automated retention policies with provable enforcement ensure compliance.
 
-6. **Integrity and Confidentiality**: Technical measures protect data against unauthorized access, accidental loss, or destruction. [Encryption](/glossary/encryption/), access controls, and monitoring provide defense in depth.
+6. **Integrity and Confidentiality**: Technical measures protect data against unauthorized access, accidental loss, or destruction. [Encryption](@/glossary/encryption.md), access controls, and monitoring provide defense in depth.
 
 7. **Accountability**: The platform must demonstrate compliance, not merely claim it. Audit trails, processing records, and automated compliance reports provide the evidence base.
 
@@ -655,11 +655,11 @@ The Prismatic Platform's 120+ OSINT adapters query external data sources that fr
 
 ### Due Diligence with Data Subject Rights
 
-When performing [due diligence](/glossary/due-diligence/) on individuals (KYC, sanctions screening), the platform collects personal data under the `legal_obligation` basis. Even under this basis, data subjects retain access rights (Article 15). The `DataSubjectRequestProcessor` handles access requests by collecting all personal data associated with a subject ID across all storage backends and presenting it in a portable format.
+When performing [due diligence](@/glossary/due-diligence.md) on individuals (KYC, sanctions screening), the platform collects personal data under the `legal_obligation` basis. Even under this basis, data subjects retain access rights (Article 15). The `DataSubjectRequestProcessor` handles access requests by collecting all personal data associated with a subject ID across all storage backends and presenting it in a portable format.
 
 ### Security Monitoring with Privacy Balance
 
-[Security operations](/glossary/security-operations/) require processing IP addresses, user agents, and request patterns -- all personal data under GDPR. The platform processes this data under the `legitimate_interest` basis with a documented balancing test. Retention is limited to 90 days, and IP addresses are pseudonymized (last two octets masked) after 24 hours.
+[Security operations](@/glossary/security-operations.md) require processing IP addresses, user agents, and request patterns -- all personal data under GDPR. The platform processes this data under the `legitimate_interest` basis with a documented balancing test. Retention is limited to 90 days, and IP addresses are pseudonymized (last two octets masked) after 24 hours.
 
 ### Prismatic Perimeter EASM Compliance
 
@@ -667,18 +667,18 @@ External attack surface scanning discovers domain ownership, DNS records, and ce
 
 ## Related Concepts
 
-- [GDPR](/glossary/gdpr/) -- the primary regulatory framework for data protection in the EU
-- [Data Minimization](/glossary/data-minimization/) -- the principle of collecting only necessary data
-- [Encryption](/glossary/encryption/) -- cryptographic controls protecting data confidentiality
-- [Encryption at Rest](/glossary/encryption-at-rest/) -- protecting stored personal data
-- [Compliance Framework](/glossary/compliance-framework/) -- systematic approach to regulatory compliance
-- [Audit Trail](/glossary/audit-trail/) -- immutable record proving data protection compliance
-- [Security Operations](/glossary/security-operations/) -- monitoring and incident response for data breaches
-- [NIS2](/glossary/nis2/) -- EU cybersecurity directive complementing GDPR
-- [ZKB](/glossary/zkb/) -- Czech cybersecurity regulation with data protection provisions
-- [Credential Management](/glossary/credential-management/) -- protecting authentication secrets as sensitive data
-- [OSINT](/glossary/osint/) -- intelligence operations subject to data protection rules
-- [Due Diligence](/glossary/due-diligence/) -- KYC workflows with data protection obligations
+- [GDPR](@/glossary/gdpr.md) -- the primary regulatory framework for data protection in the EU
+- [Data Minimization](@/glossary/data-minimization.md) -- the principle of collecting only necessary data
+- [Encryption](@/glossary/encryption.md) -- cryptographic controls protecting data confidentiality
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) -- protecting stored personal data
+- [Compliance Framework](@/glossary/compliance-framework.md) -- systematic approach to regulatory compliance
+- [Audit Trail](@/glossary/audit-trail.md) -- immutable record proving data protection compliance
+- [Security Operations](@/glossary/security-operations.md) -- monitoring and incident response for data breaches
+- [NIS2](@/glossary/nis2.md) -- EU cybersecurity directive complementing GDPR
+- [ZKB](@/glossary/zkb.md) -- Czech cybersecurity regulation with data protection provisions
+- [Credential Management](@/glossary/credential-management.md) -- protecting authentication secrets as sensitive data
+- [OSINT](@/glossary/osint.md) -- intelligence operations subject to data protection rules
+- [Due Diligence](@/glossary/due-diligence.md) -- KYC workflows with data protection obligations
 
 ## See Also
 
@@ -695,4 +695,4 @@ External attack surface scanning discovers domain ownership, DNS records, and ce
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

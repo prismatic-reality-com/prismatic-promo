@@ -30,7 +30,7 @@ image_alt = "llm-zed-adapter - Prismatic Platform"
 
 The LLM Zed Adapter operates as an L4 domain specialist within the AIAD-Enhanced domain of the Prismatic Platform. This agent provides native integration between the Prismatic LLM infrastructure and the Zed code editor, enabling developers to access the platform's multi-provider LLM capabilities directly from their editing environment. The adapter translates Zed's extension API requests into Prismatic LLM pipeline calls, applying the same routing, quality validation, and cost optimization that governs all platform LLM operations.
 
-Modern development workflows increasingly integrate LLM assistance directly into code editors. The Zed editor provides a high-performance, extensible editing environment with native LLM support through its extension API. The LLM Zed Adapter bridges Zed's extension protocol with Prismatic's LLM routing infrastructure, giving developers access to [Ollama](/glossary/ollama/) local models, Claude, and OpenRouter through Zed's familiar inline assist, code generation, and chat interfaces. Every request through this adapter benefits from Prismatic's intelligent routing, cost tracking, and quality validation.
+Modern development workflows increasingly integrate LLM assistance directly into code editors. The Zed editor provides a high-performance, extensible editing environment with native LLM support through its extension API. The LLM Zed Adapter bridges Zed's extension protocol with Prismatic's LLM routing infrastructure, giving developers access to [Ollama](@/glossary/ollama.md) local models, Claude, and OpenRouter through Zed's familiar inline assist, code generation, and chat interfaces. Every request through this adapter benefits from Prismatic's intelligent routing, cost tracking, and quality validation.
 
 ## Integration Architecture
 
@@ -166,10 +166,10 @@ When the adapter detects that the active file is Elixir, it applies platform-spe
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [llm-routing-orchestrator-agent](/agents/llm-routing-orchestrator-agent/) | Routing Authority | Provides routing decisions for all Zed-originated LLM requests |
-| [llm-unified-orchestrator](/agents/llm-unified-orchestrator/) | Execution Layer | Executes LLM requests with quality validation |
-| [ollama-coordinator](/agents/ollama-coordinator/) | Local Provider | Preferred provider for low-latency editor operations |
-| [code-specialist](/agents/code-specialist/) | Code Quality | Provides code quality context for generation validation |
+| [llm-routing-orchestrator-agent](@/agents/llm-routing-orchestrator-agent.md) | Routing Authority | Provides routing decisions for all Zed-originated LLM requests |
+| [llm-unified-orchestrator](@/agents/llm-unified-orchestrator.md) | Execution Layer | Executes LLM requests with quality validation |
+| [ollama-coordinator](@/agents/ollama-coordinator.md) | Local Provider | Preferred provider for low-latency editor operations |
+| [code-specialist](@/agents/code-specialist.md) | Code Quality | Provides code quality context for generation validation |
 
 ## Integration
 
@@ -177,12 +177,12 @@ When the adapter detects that the active file is Elixir, it applies platform-spe
 |---|---|
 | Zed Extension API | Primary interface for editor integration |
 | Prismatic LLM Router | Request routing and provider selection |
-| [Ollama](/glossary/ollama/) | Preferred local provider for latency-sensitive operations |
-| Platform [Telemetry](/glossary/telemetry/) | Usage metrics, latency tracking, and quality monitoring |
+| [Ollama](@/glossary/ollama.md) | Preferred local provider for latency-sensitive operations |
+| Platform [Telemetry](@/glossary/telemetry.md) | Usage metrics, latency tracking, and quality monitoring |
 
 ## Enforcement
 
-The LLM Zed Adapter operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. All generated code must pass quality validation before being presented to the developer. Elixir code responses are validated against Credo and compilation requirements. Cost tracking is mandatory for every request, enabling accurate budget attribution. The adapter inherits all quality and security constraints from the platform's LLM infrastructure, ensuring that editor-originated requests receive the same governance as programmatic requests.
+The LLM Zed Adapter operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. All generated code must pass quality validation before being presented to the developer. Elixir code responses are validated against Credo and compilation requirements. Cost tracking is mandatory for every request, enabling accurate budget attribution. The adapter inherits all quality and security constraints from the platform's LLM infrastructure, ensuring that editor-originated requests receive the same governance as programmatic requests.
 
 ---
 
@@ -191,4 +191,4 @@ The LLM Zed Adapter operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

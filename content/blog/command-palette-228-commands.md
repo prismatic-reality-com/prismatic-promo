@@ -188,4 +188,4 @@ The command palette is a small feature with outsized impact. By making 228 comma
 
 ---
 
-*Try the command palette on any Prismatic page with Cmd+K or explore the [Developer Portal](/developers/) for the full command reference.*
+*Try the command palette on any Prismatic page with Cmd+K or explore the [Developer Portal](@/developers/_index.md) for the full command reference.*

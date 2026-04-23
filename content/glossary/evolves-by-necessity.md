@@ -387,24 +387,24 @@ The growth from initial agents to 530+ was necessity-driven. Each new agent was 
 
 ## Related Concepts
 
-- [Evolution](/glossary/evolution/) -- The broader evolutionary process within which Evolves By Necessity constrains which changes are accepted.
-- [AutoEvolve](/glossary/autoevolve/) -- The automation system that implements necessity-driven evolution at the technical level.
-- [Fitness Score](/glossary/fitness-score/) -- The metric used to measure whether an evolution actually improved the platform.
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- The doctrine that demands complete execution once a genuine need is identified.
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- The epistemic principle that underpins necessity assessment.
-- [Quality Gates](/glossary/quality-gates/) -- The enforcement mechanism that validates necessity-driven changes.
-- [Decisive Action](/glossary/decisive-action/) -- The execution principle applied after the Necessity Test passes.
-- [Disciplined Approach](/glossary/disciplined-approach/) -- The methodology that Evolves By Necessity represents in practice.
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework that provides evidence standards for necessity assessment.
-- [Continuous Evolution](/glossary/continuous-evolution/) -- The ongoing process shaped by the Evolves By Necessity constraint.
+- [Evolution](@/glossary/evolution.md) -- The broader evolutionary process within which Evolves By Necessity constrains which changes are accepted.
+- [AutoEvolve](@/glossary/autoevolve.md) -- The automation system that implements necessity-driven evolution at the technical level.
+- [Fitness Score](@/glossary/fitness-score.md) -- The metric used to measure whether an evolution actually improved the platform.
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- The doctrine that demands complete execution once a genuine need is identified.
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- The epistemic principle that underpins necessity assessment.
+- [Quality Gates](@/glossary/quality-gates.md) -- The enforcement mechanism that validates necessity-driven changes.
+- [Decisive Action](@/glossary/decisive-action.md) -- The execution principle applied after the Necessity Test passes.
+- [Disciplined Approach](@/glossary/disciplined-approach.md) -- The methodology that Evolves By Necessity represents in practice.
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework that provides evidence standards for necessity assessment.
+- [Continuous Evolution](@/glossary/continuous-evolution.md) -- The ongoing process shaped by the Evolves By Necessity constraint.
 
 ## See Also
 
-- [System Design Principle](/glossary/system-design-principle/) -- The category of architectural principles that includes Evolves By Necessity.
-- [Technical Debt](/glossary/technical-debt/) -- What accumulates when the platform evolves without necessity, adding complexity that provides no operational value.
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- The self-driving evolution system constrained by necessity assessment.
-- [Generation Evolution](/glossary/generation-evolution/) -- How generations advance through necessity-validated improvements.
-- [Platform Enhancements](/glossary/platform-enhancements/) -- Specific improvements that have passed the Necessity Test.
+- [System Design Principle](@/glossary/system-design-principle.md) -- The category of architectural principles that includes Evolves By Necessity.
+- [Technical Debt](@/glossary/technical-debt.md) -- What accumulates when the platform evolves without necessity, adding complexity that provides no operational value.
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- The self-driving evolution system constrained by necessity assessment.
+- [Generation Evolution](@/glossary/generation-evolution.md) -- How generations advance through necessity-validated improvements.
+- [Platform Enhancements](@/glossary/platform-enhancements.md) -- Specific improvements that have passed the Necessity Test.
 
 ---
 
@@ -413,4 +413,4 @@ The growth from initial agents to 530+ was necessity-driven. Each new agent was 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** -- Building necessity-driven systems that grow only when growth serves a purpose.
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | Glossary Index
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | Glossary Index

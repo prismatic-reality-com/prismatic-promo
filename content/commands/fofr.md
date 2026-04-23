@@ -28,9 +28,9 @@ image_alt = "/fofr - Prismatic Platform"
 
 The FoFR classification is a foundational concept in the platform's quality management philosophy. Rather than treating all code as equally needing attention, the `/fofr` command performs triage -- identifying which code is already fit for purpose, which needs targeted fixes, and which requires structural refactoring. This triage prevents wasted effort on code that is already good enough while ensuring that genuinely problematic code receives appropriate treatment.
 
-The [code-quality-commander](/agents/code-quality-commander/) agent executes this command, applying a multi-dimensional quality scoring model that evaluates code across the platform's 13 quality domains. The scoring model considers compilation cleanliness, type specification coverage, test coverage, cyclomatic complexity, cognitive complexity, Credo compliance, module coupling, and adherence to OTP best practices. The aggregate score determines the FoFR classification with clear threshold boundaries.
+The [code-quality-commander](@/agents/code-quality-commander.md) agent executes this command, applying a multi-dimensional quality scoring model that evaluates code across the platform's 13 quality domains. The scoring model considers compilation cleanliness, type specification coverage, test coverage, cyclomatic complexity, cognitive complexity, Credo compliance, module coupling, and adherence to OTP best practices. The aggregate score determines the FoFR classification with clear threshold boundaries.
 
-This command operates under the **L2+** authority level and is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -148,13 +148,13 @@ The `/fofr` command follows a structured 6-phase assessment pipeline:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Quality Gates](/glossary/quality-gates/) | Scoring | Quality gate results feed domain scores |
-| [Credo](/glossary/credo/) | Analysis | Static analysis for code quality domain |
-| [Dialyzer](/glossary/dialyzer/) | Analysis | Type analysis for type safety domain |
-| [Quality DNA](/glossary/quality-dna/) | History | Historical FoFR classifications and trends |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Code-quality-commander performs assessment |
-| [Telemetry](/glossary/telemetry/) | Monitoring | FoFR classification [metrics](/glossary/metrics/) |
-| [Evolution Engine](/glossary/autoevolve/) | Strategy | FoFR results guide evolution mutation targets |
+| [Quality Gates](@/glossary/quality-gates.md) | Scoring | Quality gate results feed domain scores |
+| [Credo](@/glossary/credo.md) | Analysis | Static analysis for code quality domain |
+| [Dialyzer](@/glossary/dialyzer.md) | Analysis | Type analysis for type safety domain |
+| [Quality DNA](@/glossary/quality-dna.md) | History | Historical FoFR classifications and trends |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Code-quality-commander performs assessment |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | FoFR classification [metrics](@/glossary/metrics.md) |
+| [Evolution Engine](@/glossary/autoevolve.md) | Strategy | FoFR results guide evolution mutation targets |
 | AIAD Registry | Discovery | Command specification and agent binding |
 
 ## Best Practices
@@ -165,9 +165,9 @@ The `/fofr` command follows a structured 6-phase assessment pipeline:
 
 **Monitor FoFR trends**: Regular trend analysis (`--trend`) reveals whether the platform is improving or degrading over time. A growing proportion of REFACTOR-classified code is an early warning of architectural decay.
 
-**Apply appropriate domain weights**: The default weight profile is balanced across all domains. For security-sensitive applications (like [Prismatic Perimeter](/apps/prismatic-perimeter/)), use `--weight-profile=security` to increase the influence of security-relevant quality domains.
+**Apply appropriate domain weights**: The default weight profile is balanced across all domains. For security-sensitive applications (like [Prismatic Perimeter](@/apps/prismatic-perimeter.md)), use `--weight-profile=security` to increase the influence of security-relevant quality domains.
 
-**Act on classifications consistently**: FIT means leave it alone (unless adding features). FIX means fix the specific violations (use [/fix](/commands/fix/)). REFACTOR means restructure (use [/refactor](/commands/refactor/)). Mixing these actions wastes effort.
+**Act on classifications consistently**: FIT means leave it alone (unless adding features). FIX means fix the specific violations (use [/fix](@/commands/fix.md)). REFACTOR means restructure (use [/refactor](@/commands/refactor.md)). Mixing these actions wastes effort.
 
 ## Error Handling
 
@@ -207,11 +207,11 @@ The `/fofr` command follows a structured 6-phase assessment pipeline:
 
 ### FoFR-Driven Evolution
 
-The FoFR classification system directly integrates with the [/evolve](/commands/evolve/) command. Evolution cycles use FoFR classifications to prioritize mutation targets: REFACTOR-classified modules receive the most evolutionary attention, followed by FIX modules, while FIT modules are largely left unchanged.
+The FoFR classification system directly integrates with the [/evolve](@/commands/evolve.md) command. Evolution cycles use FoFR classifications to prioritize mutation targets: REFACTOR-classified modules receive the most evolutionary attention, followed by FIX modules, while FIT modules are largely left unchanged.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unassessed code. Every module must have a current FoFR classification. REFACTOR-classified code is flagged for mandatory improvement. FIX-classified code must have its violations addressed within a defined timeframe.
 - **NO DOUBTS**: Classifications are evidence-based, computed from 13 quality domain measurements. No subjective assessment, no "looks fine to me." Every classification is backed by quantified metrics with transparent methodology.
@@ -220,14 +220,14 @@ The FoFR system operationalizes the NO MERCY doctrine's quality standards by mak
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
 
 ---
 
@@ -236,4 +236,4 @@ The FoFR system operationalizes the NO MERCY doctrine's quality standards by mak
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

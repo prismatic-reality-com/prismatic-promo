@@ -28,7 +28,7 @@ image_alt = "database-core-specialist - Prismatic Platform"
 
 ## Overview
 
-The Database Core Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent provides deep expertise in [PostgreSQL](/glossary/postgresql/) internals, query execution mechanics, storage engine behavior, and low-level performance tuning that goes beyond application-level query optimization. While the Database Performance Specialist focuses on query patterns and [Ecto](/glossary/ecto/) usage, the Core Specialist addresses the fundamental database engine configuration, vacuum behavior, WAL management, and memory allocation that determine the platform's data layer capacity.
+The Database Core Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent provides deep expertise in [PostgreSQL](@/glossary/postgresql.md) internals, query execution mechanics, storage engine behavior, and low-level performance tuning that goes beyond application-level query optimization. While the Database Performance Specialist focuses on query patterns and [Ecto](@/glossary/ecto.md) usage, the Core Specialist addresses the fundamental database engine configuration, vacuum behavior, WAL management, and memory allocation that determine the platform's data layer capacity.
 
 PostgreSQL's behavior at scale depends on dozens of configuration parameters that interact in complex ways. The Database Core Specialist manages these parameters -- shared_buffers, work_mem, effective_cache_size, checkpoint_completion_target, and autovacuum settings -- based on the platform's specific workload characteristics. It monitors WAL generation rates, dead tuple accumulation, table bloat, and index fragmentation to maintain database health at the engine level.
 
@@ -84,7 +84,7 @@ Buffer cache monitoring through pg_buffercache tracks cache hit rates and the di
 
 The specialist manages PostgreSQL extensions that extend the database's capabilities for platform-specific workloads.
 
-[TimescaleDB](/glossary/timescaledb/) configuration manages hypertable creation, chunk interval sizing, compression policies, and continuous aggregate definitions for time-series workloads. The specialist tunes TimescaleDB parameters for optimal ingestion throughput while maintaining query performance on historical data ranges.
+[TimescaleDB](@/glossary/timescaledb.md) configuration manages hypertable creation, chunk interval sizing, compression policies, and continuous aggregate definitions for time-series workloads. The specialist tunes TimescaleDB parameters for optimal ingestion throughput while maintaining query performance on historical data ranges.
 
 pg_stat_statements collects query execution statistics including call count, total execution time, mean execution time, and rows returned. The specialist uses pg_stat_statements as the primary source for query performance analysis, identifying the highest-impact optimization targets across all platform applications.
 
@@ -100,19 +100,19 @@ Recovery testing verifies backup integrity through periodic restoration tests in
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to modify PostgreSQL engine configuration, schedule maintenance operations, and mandate storage optimization across all database instances.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to modify PostgreSQL engine configuration, schedule maintenance operations, and mandate storage optimization across all database instances.
 
 ## Coordination
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [database-performance-specialist](/agents/database-performance-specialist/) | Receives application-level query patterns that inform engine tuning decisions | Infrastructure |
-| [database-architecture-specialist](/agents/database-architecture-specialist/) | Provides schema design context for storage engine optimization | Infrastructure |
-| [backup-restore-specialist](/agents/backup-restore-specialist/) | Coordinates WAL and backup configuration for consistent recovery capability | Infrastructure |
+| [database-performance-specialist](@/agents/database-performance-specialist.md) | Receives application-level query patterns that inform engine tuning decisions | Infrastructure |
+| [database-architecture-specialist](@/agents/database-architecture-specialist.md) | Provides schema design context for storage engine optimization | Infrastructure |
+| [backup-restore-specialist](@/agents/backup-restore-specialist.md) | Coordinates WAL and backup configuration for consistent recovery capability | Infrastructure |
 
 ## Enforcement
 
-The Database Core Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Engine configuration changes must be backed by workload analysis evidence and tested in staging before production application. Autovacuum must never be disabled without documented justification and an alternative maintenance plan. WAL configuration must balance performance with recovery requirements -- no configuration that risks data loss is acceptable regardless of performance benefit. Transaction ID wraparound monitoring is mandatory and non-bypassable. Storage engine health metrics must be continuously monitored with alerts configured for critical thresholds.
+The Database Core Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Engine configuration changes must be backed by workload analysis evidence and tested in staging before production application. Autovacuum must never be disabled without documented justification and an alternative maintenance plan. WAL configuration must balance performance with recovery requirements -- no configuration that risks data loss is acceptable regardless of performance benefit. Transaction ID wraparound monitoring is mandatory and non-bypassable. Storage engine health metrics must be continuously monitored with alerts configured for critical thresholds.
 
 ---
 
@@ -121,4 +121,4 @@ The Database Core Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

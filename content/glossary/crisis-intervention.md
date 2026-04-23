@@ -36,9 +36,9 @@ image_alt = "Crisis Intervention - Prismatic Platform"
 
 ## Definition
 
-Crisis intervention is the immediate, time-critical response protocol activated when a system experiences a failure severe enough to threaten platform stability, data integrity, or service availability. Unlike routine incident handling, crisis intervention operates under compressed timelines where every second of delay increases the blast radius. It encompasses the first minutes of response: detection, triage, containment, and initial stabilization -- the actions taken before the longer process of [crisis resolution](/glossary/crisis-resolution/) begins.
+Crisis intervention is the immediate, time-critical response protocol activated when a system experiences a failure severe enough to threaten platform stability, data integrity, or service availability. Unlike routine incident handling, crisis intervention operates under compressed timelines where every second of delay increases the blast radius. It encompasses the first minutes of response: detection, triage, containment, and initial stabilization -- the actions taken before the longer process of [crisis resolution](@/glossary/crisis-resolution.md) begins.
 
-In the Prismatic Platform, crisis intervention is formalized through the `/emergency` command, which activates [Archer Supreme](/glossary/archer-supreme/) crisis mode with L5 (Cosmic) authority. This grants the responding agent unrestricted access to all platform subsystems, bypasses normal approval workflows, and coordinates multi-agent response teams automatically. The protocol operates under the principle that in a genuine crisis, the cost of inaction always exceeds the cost of over-response.
+In the Prismatic Platform, crisis intervention is formalized through the `/emergency` command, which activates [Archer Supreme](@/glossary/archer-supreme.md) crisis mode with L5 (Cosmic) authority. This grants the responding agent unrestricted access to all platform subsystems, bypasses normal approval workflows, and coordinates multi-agent response teams automatically. The protocol operates under the principle that in a genuine crisis, the cost of inaction always exceeds the cost of over-response.
 
 ## Overview
 
@@ -46,17 +46,17 @@ Crisis intervention exists because distributed systems fail in unpredictable, ca
 
 The Prismatic Platform addresses this through a layered intervention architecture:
 
-1. **Automatic Detection**: The [Quality Floor Guardian](/glossary/quality-floor-guardian/) and health monitors continuously evaluate system health metrics. When metrics cross crisis thresholds (not just warning thresholds), automatic intervention begins.
+1. **Automatic Detection**: The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) and health monitors continuously evaluate system health metrics. When metrics cross crisis thresholds (not just warning thresholds), automatic intervention begins.
 
-2. **Severity Classification**: Not all failures are crises. The platform classifies incidents on a severity scale where only S1 (Critical) and S0 (Catastrophic) trigger crisis intervention protocols. S2-S4 incidents are handled through standard [incident response](/glossary/incident-response/).
+2. **Severity Classification**: Not all failures are crises. The platform classifies incidents on a severity scale where only S1 (Critical) and S0 (Catastrophic) trigger crisis intervention protocols. S2-S4 incidents are handled through standard [incident response](@/glossary/incident-response.md).
 
-3. **Authority Escalation**: Crisis intervention activates L5 (Cosmic) authority -- the highest level in the [AIAD](/glossary/aiad/) hierarchy. This bypasses the normal L1-L4 authority gates that govern routine operations, enabling the crisis coordinator to take any action necessary for stabilization.
+3. **Authority Escalation**: Crisis intervention activates L5 (Cosmic) authority -- the highest level in the [AIAD](@/glossary/aiad.md) hierarchy. This bypasses the normal L1-L4 authority gates that govern routine operations, enabling the crisis coordinator to take any action necessary for stabilization.
 
 4. **Coordinated Response**: The `/emergency` command does not just alert -- it orchestrates. It activates specific response agents, assigns containment tasks, opens communication channels, and begins logging a crisis timeline automatically.
 
 5. **Containment First**: The primary objective of crisis intervention is containment, not resolution. Stop the bleeding, isolate the affected subsystem, prevent cascade propagation. Resolution is a separate, methodical process that follows containment.
 
-The distinction between crisis intervention and normal operations is not just one of urgency -- it is a fundamentally different operational mode with different rules. Normal operations prioritize safety, review, and consensus. Crisis intervention prioritizes speed, authority concentration, and decisive action under the [NO MERCY](/glossary/no-mercy/) doctrine.
+The distinction between crisis intervention and normal operations is not just one of urgency -- it is a fundamentally different operational mode with different rules. Normal operations prioritize safety, review, and consensus. Crisis intervention prioritizes speed, authority concentration, and decisive action under the [NO MERCY](@/glossary/no-mercy.md) doctrine.
 
 ## Technical Details
 
@@ -490,7 +490,7 @@ end
 
 The `/emergency` command is the human-triggered entry point to crisis intervention. When invoked, it:
 
-1. Immediately activates [Archer Supreme](/glossary/archer-supreme/) in crisis mode
+1. Immediately activates [Archer Supreme](@/glossary/archer-supreme.md) in crisis mode
 2. Grants L5 (Cosmic) authority to the crisis coordinator
 3. Runs automated triage to classify severity
 4. Deploys containment agents based on severity classification
@@ -499,22 +499,22 @@ The `/emergency` command is the human-triggered entry point to crisis interventi
 
 ### Archer Supreme Crisis Mode
 
-[Archer Supreme](/glossary/archer-supreme/), normally the platform's supreme orchestration agent, enters a specialized crisis mode during intervention. In this mode, it:
+[Archer Supreme](@/glossary/archer-supreme.md), normally the platform's supreme orchestration agent, enters a specialized crisis mode during intervention. In this mode, it:
 
 - Suspends all non-critical background operations (autoevolve, autoheal scans)
 - Redirects all agent resources toward crisis containment
-- Assumes direct command of the affected subsystem's [supervisor](/glossary/supervisor/) tree
+- Assumes direct command of the affected subsystem's [supervisor](@/glossary/supervisor.md) tree
 - Operates with L5 authority, bypassing all standard approval gates
 
 ### Integration with OTP Supervision
 
-Crisis intervention leverages Erlang/OTP's [fault tolerance](/glossary/fault-tolerance/) primitives directly. The containment strategies map to OTP supervision actions:
+Crisis intervention leverages Erlang/OTP's [fault tolerance](@/glossary/fault-tolerance.md) primitives directly. The containment strategies map to OTP supervision actions:
 
 | Containment Strategy | OTP Mechanism |
 |---------------------|---------------|
 | Circuit Break | `Supervisor.terminate_child/2` + custom restart |
 | Service Isolation | `DynamicSupervisor.terminate_child/2` |
-| Traffic Shed | [Backpressure](/glossary/backpressure/) via GenStage demand reduction |
+| Traffic Shed | [Backpressure](@/glossary/backpressure.md) via GenStage demand reduction |
 | Connection Pool Drain | `DBConnection.disconnect_all/2` |
 | Feature Disable | Runtime configuration update via ETS |
 | Rollback Deploy | Fly.io machine replacement API |
@@ -538,7 +538,7 @@ Crisis intervention leverages Erlang/OTP's [fault tolerance](/glossary/fault-tol
 | **Kubernetes Self-Healing** | Fast (seconds) | Pod restart only | None | Low (limited scope) | N/A (Fly.io) |
 | **AWS Auto Recovery** | Medium | Instance-level | None | Low | N/A |
 | **Prismatic Crisis Intervention** | Fast (seconds) | Full orchestration | Multi-agent | Very Low | Primary method |
-| **Chaos Engineering (proactive)** | N/A (preventive) | Scenario-based | Pre-planned | Controlled | Via [chaos engineering](/glossary/chaos-engineering/) |
+| **Chaos Engineering (proactive)** | N/A (preventive) | Scenario-based | Pre-planned | Controlled | Via [chaos engineering](@/glossary/chaos-engineering.md) |
 
 The Prismatic approach differs fundamentally from most incident response systems: it is an active coordinator, not a passive notification system. While PagerDuty tells humans there is a problem, the Prismatic crisis intervention coordinator has already begun containment by the time the alert reaches a human.
 
@@ -548,7 +548,7 @@ The Prismatic approach differs fundamentally from most incident response systems
 
 2. **Pre-plan containment strategies**: Every service should have documented containment strategies before a crisis occurs. The worst time to design a containment strategy is during a crisis.
 
-3. **Practice regularly with chaos engineering**: [Chaos engineering](/glossary/chaos-engineering/) exercises validate that containment strategies work before they are needed in production.
+3. **Practice regularly with chaos engineering**: [Chaos engineering](@/glossary/chaos-engineering.md) exercises validate that containment strategies work before they are needed in production.
 
 4. **Automate escalation thresholds**: Human judgment about severity classification degrades under stress. Use automated thresholds based on objective metrics (error rates, latency percentiles, availability) rather than subjective assessment.
 
@@ -566,11 +566,11 @@ The Prismatic approach differs fundamentally from most incident response systems
 
 3. **Focusing on diagnosis during active cascade**: The natural engineering instinct is to understand the problem before acting. In a cascading failure, this instinct kills availability. Contain first, understand later.
 
-4. **No pre-established containment strategies**: Making up containment strategies during a crisis leads to mistakes. Every service should have at least a [circuit breaker](/glossary/circuit-breaker/) strategy and a traffic shedding strategy pre-configured.
+4. **No pre-established containment strategies**: Making up containment strategies during a crisis leads to mistakes. Every service should have at least a [circuit breaker](@/glossary/circuit-breaker.md) strategy and a traffic shedding strategy pre-configured.
 
 5. **Failing to revoke crisis authority**: Elevated authority granted during a crisis must be explicitly revoked when the crisis ends. Lingering L5 authority is a security vulnerability.
 
-6. **No post-incident review**: A crisis that is contained but not analyzed is a crisis that will recur. Every crisis intervention must be followed by a thorough [crisis resolution](/glossary/crisis-resolution/) process including root cause analysis.
+6. **No post-incident review**: A crisis that is contained but not analyzed is a crisis that will recur. Every crisis intervention must be followed by a thorough [crisis resolution](@/glossary/crisis-resolution.md) process including root cause analysis.
 
 7. **Alert fatigue masking real crises**: If the monitoring system generates constant low-severity alerts, operators learn to ignore them. Then when a genuine S0/S1 crisis occurs, the alert is lost in the noise. Maintain strict alert discipline.
 
@@ -582,30 +582,30 @@ A PostgreSQL connection pool exhaustion triggers timeout errors across multiple 
 
 ### Security Breach Response
 
-The [Blue Team](/glossary/blue-team/) drift detector identifies unauthorized access patterns. The crisis coordinator elevates to S0, immediately isolates the affected services, rotates all credentials in the blast radius, activates enhanced logging, and preserves forensic evidence for later analysis.
+The [Blue Team](@/glossary/blue-team.md) drift detector identifies unauthorized access patterns. The crisis coordinator elevates to S0, immediately isolates the affected services, rotates all credentials in the blast radius, activates enhanced logging, and preserves forensic evidence for later analysis.
 
 ### Deployment Rollback
 
-A new deployment causes a spike in error rates above the S1 threshold. The crisis coordinator automatically triggers a rollback to the previous known-good deployment on [Fly.io](/glossary/fly-io/), restoring service within 60 seconds. The failed deployment is quarantined for post-incident analysis.
+A new deployment causes a spike in error rates above the S1 threshold. The crisis coordinator automatically triggers a rollback to the previous known-good deployment on [Fly.io](@/glossary/fly-io.md), restoring service within 60 seconds. The failed deployment is quarantined for post-incident analysis.
 
 ### Memory Exhaustion
 
-BEAM VM memory consumption crosses the critical threshold. The crisis coordinator identifies the process tree responsible through `:erlang.memory/0` analysis, selectively terminates high-memory processes via the [supervisor](/glossary/supervisor/) tree, and activates [backpressure](/glossary/backpressure/) mechanisms to prevent recurrence while the team investigates the leak.
+BEAM VM memory consumption crosses the critical threshold. The crisis coordinator identifies the process tree responsible through `:erlang.memory/0` analysis, selectively terminates high-memory processes via the [supervisor](@/glossary/supervisor.md) tree, and activates [backpressure](@/glossary/backpressure.md) mechanisms to prevent recurrence while the team investigates the leak.
 
 ## Related Concepts
 
-- [Crisis Resolution](/glossary/crisis-resolution/) -- the complete end-to-end process that follows initial intervention
-- [Incident Response](/glossary/incident-response/) -- broader incident handling framework including non-crisis events
-- [Fault Tolerance](/glossary/fault-tolerance/) -- OTP primitives enabling graceful failure handling
-- [Self-Healing](/glossary/self-healing/) -- autonomous recovery mechanisms for non-crisis failures
-- [Disaster Recovery](/glossary/disaster-recovery/) -- full system restoration after catastrophic failure
-- [Archer Supreme](/glossary/archer-supreme/) -- the supreme orchestration agent activated in crisis mode
-- [Circuit Breaker](/glossary/circuit-breaker/) -- failure isolation pattern used in containment strategies
-- [Supervisor](/glossary/supervisor/) -- OTP supervision tree providing the foundation for crisis containment
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- runtime process management during crisis response
-- [Backpressure](/glossary/backpressure/) -- load management mechanism activated during traffic shedding
-- [Color Teams](/glossary/color-teams/) -- security teams that may initiate crisis intervention
-- [Audit Trail](/glossary/audit-trail/) -- immutable record of all crisis actions for post-incident review
+- [Crisis Resolution](@/glossary/crisis-resolution.md) -- the complete end-to-end process that follows initial intervention
+- [Incident Response](@/glossary/incident-response.md) -- broader incident handling framework including non-crisis events
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- OTP primitives enabling graceful failure handling
+- [Self-Healing](@/glossary/self-healing.md) -- autonomous recovery mechanisms for non-crisis failures
+- [Disaster Recovery](@/glossary/disaster-recovery.md) -- full system restoration after catastrophic failure
+- [Archer Supreme](@/glossary/archer-supreme.md) -- the supreme orchestration agent activated in crisis mode
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- failure isolation pattern used in containment strategies
+- [Supervisor](@/glossary/supervisor.md) -- OTP supervision tree providing the foundation for crisis containment
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- runtime process management during crisis response
+- [Backpressure](@/glossary/backpressure.md) -- load management mechanism activated during traffic shedding
+- [Color Teams](@/glossary/color-teams.md) -- security teams that may initiate crisis intervention
+- [Audit Trail](@/glossary/audit-trail.md) -- immutable record of all crisis actions for post-incident review
 
 ## See Also
 
@@ -622,4 +622,4 @@ BEAM VM memory consumption crosses the critical threshold. The crisis coordinato
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

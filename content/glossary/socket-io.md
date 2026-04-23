@@ -37,15 +37,15 @@ image_alt = "Socket.IO - Prismatic Platform"
 
 ## Definition
 
-Socket.IO is a JavaScript library that enables real-time, bidirectional, event-based communication between web clients and servers. Originally created by Guillermo Rauch in 2010 as a companion to the Express.js framework, Socket.IO abstracts over multiple transport mechanisms -- beginning with HTTP long-polling and upgrading to [WebSocket](/glossary/websocket/) when available -- providing reliable real-time connectivity even in environments where raw WebSocket connections are blocked by corporate proxies, firewalls, or load balancers that do not support the WebSocket upgrade handshake. The library implements its own protocol layer on top of Engine.IO (its transport abstraction) and adds features absent from the WebSocket specification: automatic reconnection with exponential backoff, packet buffering during disconnection, multiplexing through namespaces, room-based broadcasting, and acknowledgement callbacks for request-response patterns over the bidirectional channel.
+Socket.IO is a JavaScript library that enables real-time, bidirectional, event-based communication between web clients and servers. Originally created by Guillermo Rauch in 2010 as a companion to the Express.js framework, Socket.IO abstracts over multiple transport mechanisms -- beginning with HTTP long-polling and upgrading to [WebSocket](@/glossary/websocket.md) when available -- providing reliable real-time connectivity even in environments where raw WebSocket connections are blocked by corporate proxies, firewalls, or load balancers that do not support the WebSocket upgrade handshake. The library implements its own protocol layer on top of Engine.IO (its transport abstraction) and adds features absent from the WebSocket specification: automatic reconnection with exponential backoff, packet buffering during disconnection, multiplexing through namespaces, room-based broadcasting, and acknowledgement callbacks for request-response patterns over the bidirectional channel.
 
 Socket.IO operates on an event-driven model where both client and server can emit named events with arbitrary payloads, receiving acknowledgement callbacks for confirmation or response data. The server component runs on Node.js, while client libraries exist for JavaScript (browser and React Native), Swift (iOS), Java/Kotlin (Android), C++, Dart (Flutter), and Python. A critical architectural distinction that developers frequently misunderstand is that Socket.IO is not a WebSocket implementation -- it is a higher-level protocol that uses WebSocket as one of its transports. A plain WebSocket client cannot connect to a Socket.IO server without implementing the Engine.IO handshake, session ID management, and Socket.IO packet framing protocol. This distinction has practical consequences for interoperability and debugging.
 
-The library's adoption peaked in the 2013-2018 Node.js ecosystem before alternatives like [Phoenix Channels](/glossary/channel/), gRPC streaming, native WebSocket APIs with improved browser support, and Server-Sent Events reduced its dominance. However, Socket.IO remains widely deployed in production systems requiring broad browser compatibility, transport fallback guarantees, and the convenience of its room-based broadcasting model. As of 2026, Socket.IO v4.x continues active development with added support for WebTransport, connection state recovery, and improved TypeScript typing.
+The library's adoption peaked in the 2013-2018 Node.js ecosystem before alternatives like [Phoenix Channels](@/glossary/channel.md), gRPC streaming, native WebSocket APIs with improved browser support, and Server-Sent Events reduced its dominance. However, Socket.IO remains widely deployed in production systems requiring broad browser compatibility, transport fallback guarantees, and the convenience of its room-based broadcasting model. As of 2026, Socket.IO v4.x continues active development with added support for WebTransport, connection state recovery, and improved TypeScript typing.
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform does not use Socket.IO directly. Instead, it leverages [Phoenix Channels](/glossary/channel/), which provide equivalent real-time bidirectional communication with superior performance characteristics on the [BEAM](/glossary/beam/) virtual machine. Phoenix Channels handle each connection as an isolated BEAM process, enabling millions of concurrent connections without the single-threaded bottleneck inherent in Node.js Socket.IO servers. The platform's real-time dashboards, agent status feeds, quality monitoring updates, [OSINT](/glossary/osint/) scan progress, and [LiveView](/glossary/liveview/) interfaces all operate through Phoenix's native socket infrastructure configured at the [Endpoint](/glossary/endpoint/) level.
+The Prismatic Platform does not use Socket.IO directly. Instead, it leverages [Phoenix Channels](@/glossary/channel.md), which provide equivalent real-time bidirectional communication with superior performance characteristics on the [BEAM](@/glossary/beam.md) virtual machine. Phoenix Channels handle each connection as an isolated BEAM process, enabling millions of concurrent connections without the single-threaded bottleneck inherent in Node.js Socket.IO servers. The platform's real-time dashboards, agent status feeds, quality monitoring updates, [OSINT](@/glossary/osint.md) scan progress, and [LiveView](@/glossary/liveview.md) interfaces all operate through Phoenix's native socket infrastructure configured at the [Endpoint](@/glossary/endpoint.md) level.
 
 ```elixir
 defmodule PrismaticWeb.UserSocket do
@@ -82,7 +82,7 @@ defmodule PrismaticWeb.UserSocket do
 end
 ```
 
-Understanding Socket.IO remains relevant for the platform because many external systems and third-party integrations use Socket.IO for their real-time APIs. The Prismatic intelligence pipeline may need to consume Socket.IO event streams from monitored targets during [EASM](/glossary/easm/) reconnaissance, and the OSINT toolbox may encounter Socket.IO-based services during web application fingerprinting.
+Understanding Socket.IO remains relevant for the platform because many external systems and third-party integrations use Socket.IO for their real-time APIs. The Prismatic intelligence pipeline may need to consume Socket.IO event streams from monitored targets during [EASM](@/glossary/easm.md) reconnaissance, and the OSINT toolbox may encounter Socket.IO-based services during web application fingerprinting.
 
 ## Protocol Architecture
 
@@ -139,7 +139,7 @@ Client                              Server
 
 ## Comparison with Phoenix Channels
 
-For systems built on the [BEAM](/glossary/beam/), [Phoenix Channels](/glossary/channel/) provide a more natural and significantly more performant alternative to Socket.IO. The architectural differences stem from the fundamental concurrency model difference between Node.js and the BEAM:
+For systems built on the [BEAM](@/glossary/beam.md), [Phoenix Channels](@/glossary/channel.md) provide a more natural and significantly more performant alternative to Socket.IO. The architectural differences stem from the fundamental concurrency model difference between Node.js and the BEAM:
 
 | Feature | Socket.IO (Node.js) | Phoenix Channels (Elixir) |
 |---------|---------------------|--------------------------|
@@ -147,16 +147,16 @@ For systems built on the [BEAM](/glossary/beam/), [Phoenix Channels](/glossary/c
 | **Connection Limit** | ~10K per instance (practical) | ~2M per instance (demonstrated by Phoenix team) |
 | **Memory per Connection** | ~30KB (JS object + closure state) | ~2-3KB (BEAM process heap) |
 | **Transport** | Engine.IO (polling + WebSocket + WebTransport) | WebSocket with longpoll fallback |
-| **Broadcasting** | In-memory, Redis adapter, or PostgreSQL adapter | [PubSub](/glossary/pubsub/) with distributed node support |
+| **Broadcasting** | In-memory, Redis adapter, or PostgreSQL adapter | [PubSub](@/glossary/pubsub.md) with distributed node support |
 | **Fault Isolation** | One crash can affect entire event loop | Process crash isolated to single connection |
 | **State Management** | Server-side session maps (shared mutable) | Per-process GenServer state (isolated immutable) |
-| **Scaling** | Requires Redis/sticky sessions for multi-instance | Native BEAM distribution across [cluster](/glossary/cluster/) nodes |
+| **Scaling** | Requires Redis/sticky sessions for multi-instance | Native BEAM distribution across [cluster](@/glossary/cluster.md) nodes |
 | **Protocol** | Custom Engine.IO + Socket.IO framing | Phoenix Socket protocol (simpler, WebSocket-native) |
 | **Hot Code Reload** | Restart required | BEAM supports hot code loading |
 | **Backpressure** | Manual implementation | BEAM process mailbox provides natural backpressure |
-| **Supervision** | Process manager (PM2) | OTP [Supervisor](/glossary/supervisor/) trees |
+| **Supervision** | Process manager (PM2) | OTP [Supervisor](@/glossary/supervisor.md) trees |
 
-Phoenix Channels achieve higher connection density because each connection is a lightweight BEAM process (approximately 2KB initial heap) rather than a JavaScript object sharing the Node.js event loop. Broadcasting leverages [PubSub](/glossary/pubsub/) with optional distributed backends (`:pg2`, Phoenix.PubSub.PG2, Phoenix.PubSub.Redis), avoiding the Redis dependency that Socket.IO requires for multi-instance deployments. The BEAM's preemptive scheduler ensures that no single connection can monopolize CPU time, unlike Node.js where a compute-heavy event handler blocks all other connections until it yields.
+Phoenix Channels achieve higher connection density because each connection is a lightweight BEAM process (approximately 2KB initial heap) rather than a JavaScript object sharing the Node.js event loop. Broadcasting leverages [PubSub](@/glossary/pubsub.md) with optional distributed backends (`:pg2`, Phoenix.PubSub.PG2, Phoenix.PubSub.Redis), avoiding the Redis dependency that Socket.IO requires for multi-instance deployments. The BEAM's preemptive scheduler ensures that no single connection can monopolize CPU time, unlike Node.js where a compute-heavy event handler blocks all other connections until it yields.
 
 ## Core Features
 
@@ -278,9 +278,9 @@ Socket.IO connections require careful security configuration, particularly in in
 |---------|-------------------|-------------------|
 | **Authentication** | Middleware on connection handshake (`io.use()`) | `connect/3` callback in Socket module |
 | **Authorization** | Namespace middleware (`namespace.use()`) | `join/3` callback in Channel module |
-| **CORS** | `cors` option in server config | [Endpoint](/glossary/endpoint/) CORS [Plug](/glossary/plug/) configuration |
-| **Rate Limiting** | Custom middleware or `socket.io-ratelimit` | [Rate Limiting](/glossary/rate-limiting/) plugs or channel-level throttling |
-| **TLS** | Reverse proxy or Node.js `https` | [TLS](/glossary/tls/) at Endpoint or load balancer |
+| **CORS** | `cors` option in server config | [Endpoint](@/glossary/endpoint.md) CORS [Plug](@/glossary/plug.md) configuration |
+| **Rate Limiting** | Custom middleware or `socket.io-ratelimit` | [Rate Limiting](@/glossary/rate-limiting.md) plugs or channel-level throttling |
+| **TLS** | Reverse proxy or Node.js `https` | [TLS](@/glossary/tls.md) at Endpoint or load balancer |
 | **Input Validation** | Manual event payload validation | Pattern matching on `handle_in/3` |
 | **Room Authorization** | Server-side room join logic | `join/3` callback with authorization check |
 | **Event Injection** | Event name allowlisting | Pattern matching limits valid events |
@@ -322,23 +322,23 @@ Organizations migrating from Socket.IO to Phoenix Channels follow common pattern
 
 ## Related Terms
 
-- [WebSocket](/glossary/websocket/) - Transport protocol used by Socket.IO after upgrade
-- [Channel](/glossary/channel/) - Phoenix's native real-time communication abstraction
-- [PubSub](/glossary/pubsub/) - Distributed broadcasting mechanism used by Phoenix Channels
-- [LiveView](/glossary/liveview/) - Server-rendered real-time UI built on Phoenix sockets
-- [Endpoint](/glossary/endpoint/) - Phoenix entry point configuring socket connections
-- [Server-Sent Events](/glossary/server-sent-events/) - Alternative unidirectional real-time transport
-- [Phoenix](/glossary/phoenix/) - Framework providing Channel-based real-time communication
-- [Cluster](/glossary/cluster/) - BEAM distribution enabling multi-node Channel scaling
-- [Rate Limiting](/glossary/rate-limiting/) - Protection mechanism for real-time connections
-- [TLS](/glossary/tls/) - Transport encryption for socket connections
-- [BEAM](/glossary/beam/) - Virtual machine enabling per-connection process isolation
-- [Plug](/glossary/plug/) - Middleware used in socket endpoint configuration
+- [WebSocket](@/glossary/websocket.md) - Transport protocol used by Socket.IO after upgrade
+- [Channel](@/glossary/channel.md) - Phoenix's native real-time communication abstraction
+- [PubSub](@/glossary/pubsub.md) - Distributed broadcasting mechanism used by Phoenix Channels
+- [LiveView](@/glossary/liveview.md) - Server-rendered real-time UI built on Phoenix sockets
+- [Endpoint](@/glossary/endpoint.md) - Phoenix entry point configuring socket connections
+- [Server-Sent Events](@/glossary/server-sent-events.md) - Alternative unidirectional real-time transport
+- [Phoenix](@/glossary/phoenix.md) - Framework providing Channel-based real-time communication
+- [Cluster](@/glossary/cluster.md) - BEAM distribution enabling multi-node Channel scaling
+- [Rate Limiting](@/glossary/rate-limiting.md) - Protection mechanism for real-time connections
+- [TLS](@/glossary/tls.md) - Transport encryption for socket connections
+- [BEAM](@/glossary/beam.md) - Virtual machine enabling per-connection process isolation
+- [Plug](@/glossary/plug.md) - Middleware used in socket endpoint configuration
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform real-time communication architecture
-- [Technologies](/technologies/) - Full technology stack comparison
+- [Architecture](@/architecture/_index.md) - Platform real-time communication architecture
+- [Technologies](@/technologies/_index.md) - Full technology stack comparison
 
 ---
 
@@ -347,4 +347,4 @@ Organizations migrating from Socket.IO to Phoenix Channels follow common pattern
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

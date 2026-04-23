@@ -398,25 +398,25 @@ The AutoEvolve and AutoHeal systems continuously scan for quality improvement op
 
 Quality is the central organizing principle of the Prismatic Platform, connecting to virtually every other concept:
 
-- [Quality Gate](/glossary/quality-gate/) -- the enforcement mechanism that blocks non-compliant code from entering the codebase
-- [Quality Gates](/glossary/quality-gates/) -- the collection of all quality gates and their configuration across the platform
-- [Quality DNA](/glossary/quality-dna/) -- the persistence system that maintains quality state across development sessions
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the autonomous monitoring system that detects and responds to quality regressions
-- [Quality Assurance](/glossary/quality-assurance/) -- the broader discipline of ensuring software meets requirements, of which automated quality gates are one implementation
-- [Quality Debt](/glossary/quality-debt/) -- the accumulated cost of deferred quality improvements, tracked and eliminated systematically
-- [Quality Standard](/glossary/quality-standard/) -- the formal specification of what constitutes acceptable quality across the platform
-- [Quality Monitoring](/glossary/quality-monitoring/) -- continuous observation of quality metrics in development and production
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) -- the principle that quality claims must be backed by measurable evidence
-- [Quality Systems](/glossary/quality-systems/) -- the integrated ecosystem of quality measurement, enforcement, and improvement tools
+- [Quality Gate](@/glossary/quality-gate.md) -- the enforcement mechanism that blocks non-compliant code from entering the codebase
+- [Quality Gates](@/glossary/quality-gates.md) -- the collection of all quality gates and their configuration across the platform
+- [Quality DNA](@/glossary/quality-dna.md) -- the persistence system that maintains quality state across development sessions
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the autonomous monitoring system that detects and responds to quality regressions
+- [Quality Assurance](@/glossary/quality-assurance.md) -- the broader discipline of ensuring software meets requirements, of which automated quality gates are one implementation
+- [Quality Debt](@/glossary/quality-debt.md) -- the accumulated cost of deferred quality improvements, tracked and eliminated systematically
+- [Quality Standard](@/glossary/quality-standard.md) -- the formal specification of what constitutes acceptable quality across the platform
+- [Quality Monitoring](@/glossary/quality-monitoring.md) -- continuous observation of quality metrics in development and production
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) -- the principle that quality claims must be backed by measurable evidence
+- [Quality Systems](@/glossary/quality-systems.md) -- the integrated ecosystem of quality measurement, enforcement, and improvement tools
 
 ## See Also
 
-- [Static Analysis](/glossary/static-analysis/) -- the primary technique for automated quality measurement in the Prismatic Platform
-- [Dialyzer](/glossary/dialyzer/) -- the success typing analyzer that verifies type contract consistency across the Elixir codebase
-- [Credo](/glossary/credo/) -- the style and consistency analyzer that enforces code quality standards
-- [Continuous Integration](/glossary/continuous-integration/) -- the infrastructure that runs quality gates automatically on every code change
-- [Technical Debt](/glossary/technical-debt/) -- the broader category of deferred engineering work, of which quality debt is a critical subset
-- [Proves Before Claiming](/glossary/proves-before-claiming/) -- the epistemic principle that quality claims must be backed by evidence
+- [Static Analysis](@/glossary/static-analysis.md) -- the primary technique for automated quality measurement in the Prismatic Platform
+- [Dialyzer](@/glossary/dialyzer.md) -- the success typing analyzer that verifies type contract consistency across the Elixir codebase
+- [Credo](@/glossary/credo.md) -- the style and consistency analyzer that enforces code quality standards
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the infrastructure that runs quality gates automatically on every code change
+- [Technical Debt](@/glossary/technical-debt.md) -- the broader category of deferred engineering work, of which quality debt is a critical subset
+- [Proves Before Claiming](@/glossary/proves-before-claiming.md) -- the epistemic principle that quality claims must be backed by evidence
 
 ---
 

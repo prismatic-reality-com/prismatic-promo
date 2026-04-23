@@ -38,13 +38,13 @@ image_alt = "Architectural Insights - Prismatic Platform"
 
 **Architectural Insights** are deep, non-obvious understandings about system structure, component relationships, quality attribute trade-offs, and emergent behaviors that arise from systematic analysis, pattern recognition across systems, and reflective practice over time. Unlike surface-level observations (e.g., "the system uses microservices"), architectural insights reveal the why behind structural choices, the hidden couplings between ostensibly independent components, the latent risks in current designs, and the evolutionary pressures that will shape future architecture.
 
-An architectural insight can be formally characterized as a proposition `I = (Observation, Analysis, Implication, Confidence)` where `Observation` is a factual statement about system structure or behavior, `Analysis` is the reasoning process that connects the observation to deeper architectural significance, `Implication` describes the actionable consequences of the insight for system evolution, and `Confidence` quantifies the certainty level based on evidence quality and plurality. Insights with high confidence and significant implications become candidates for [architectural decisions](/glossary/architectural-decision/).
+An architectural insight can be formally characterized as a proposition `I = (Observation, Analysis, Implication, Confidence)` where `Observation` is a factual statement about system structure or behavior, `Analysis` is the reasoning process that connects the observation to deeper architectural significance, `Implication` describes the actionable consequences of the insight for system evolution, and `Confidence` quantifies the certainty level based on evidence quality and plurality. Insights with high confidence and significant implications become candidates for [architectural decisions](@/glossary/architectural-decision.md).
 
 ## Overview
 
-Architectural insights occupy a critical space between raw data (metrics, code analysis results, dependency graphs) and actionable decisions (ADRs, refactoring plans, migration strategies). They represent the synthesis step where disparate observations coalesce into understanding. A junior engineer might observe that "service A calls service B 1,000 times per minute"; an architect with deep insight recognizes that this coupling pattern indicates a missing abstraction, predicts that it will become a scalability bottleneck under projected load, and identifies the [bounded context](/glossary/bounded-context/) boundary that should exist between the two services.
+Architectural insights occupy a critical space between raw data (metrics, code analysis results, dependency graphs) and actionable decisions (ADRs, refactoring plans, migration strategies). They represent the synthesis step where disparate observations coalesce into understanding. A junior engineer might observe that "service A calls service B 1,000 times per minute"; an architect with deep insight recognizes that this coupling pattern indicates a missing abstraction, predicts that it will become a scalability bottleneck under projected load, and identifies the [bounded context](@/glossary/bounded-context.md) boundary that should exist between the two services.
 
-The generation of architectural insights is not a mechanical process -- it requires the synthesis of multiple knowledge sources: static code analysis, runtime behavior observation, team feedback, domain knowledge, historical patterns from similar systems, and theoretical frameworks. This is why [architectural thinking](/glossary/architectural-thinking/) is as much a cultivated skill as it is a formal discipline.
+The generation of architectural insights is not a mechanical process -- it requires the synthesis of multiple knowledge sources: static code analysis, runtime behavior observation, team feedback, domain knowledge, historical patterns from similar systems, and theoretical frameworks. This is why [architectural thinking](@/glossary/architectural-thinking.md) is as much a cultivated skill as it is a formal discipline.
 
 In the Prismatic Platform, architectural insights are captured and operationalized through several mechanisms: the Quality DNA system tracks cross-session quality trends, the SEADF framework monitors system evolution patterns, the NABLA Infinity epistemic framework ensures that insights are evidence-based with provenance tracking, and the session context system preserves insights across development sessions.
 
@@ -359,7 +359,7 @@ The Prismatic approach combines all of these sources through a unified insight e
 
 3. **Complexity fetishism**: Finding deep patterns where simple explanations suffice. Sometimes a module is large because the problem it solves is inherently complex, not because it needs refactoring.
 
-4. **Analysis paralysis**: Accumulating insights indefinitely without converting them to decisions. Insights without action are academic exercises. Set thresholds for when insights should trigger [architectural decisions](/glossary/architectural-decision/).
+4. **Analysis paralysis**: Accumulating insights indefinitely without converting them to decisions. Insights without action are academic exercises. Set thresholds for when insights should trigger [architectural decisions](@/glossary/architectural-decision.md).
 
 5. **Individual heroics**: Relying on a single architect's intuition rather than systematic analysis. Insights should be reproducible and evidence-based, not dependent on one person's pattern-matching ability.
 
@@ -379,14 +379,14 @@ The Prismatic approach combines all of these sources through a unified insight e
 
 ## Related Concepts
 
-- [Architectural Pattern](/glossary/architectural-pattern/) -- reusable solutions that insights often lead to applying
-- [Software Architecture](/glossary/software-architecture/) -- the discipline within which insights are generated and applied
-- [System Analysis](/glossary/system-analysis/) -- systematic investigation that produces raw observations for insight synthesis
-- [Architectural Thinking](/glossary/architectural-thinking/) -- the cognitive skill that enables insight generation
-- [Architectural Decision](/glossary/architectural-decision/) -- the actionable outcome when insights reach sufficient confidence
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- methodology providing vocabulary for structural insights
-- [System Design Principle](/glossary/system-design-principle/) -- principles that guide insight interpretation
-- [Bounded Context](/glossary/bounded-context/) -- DDD concept frequently surfaced by coupling insights
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- reusable solutions that insights often lead to applying
+- [Software Architecture](@/glossary/software-architecture.md) -- the discipline within which insights are generated and applied
+- [System Analysis](@/glossary/system-analysis.md) -- systematic investigation that produces raw observations for insight synthesis
+- [Architectural Thinking](@/glossary/architectural-thinking.md) -- the cognitive skill that enables insight generation
+- [Architectural Decision](@/glossary/architectural-decision.md) -- the actionable outcome when insights reach sufficient confidence
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- methodology providing vocabulary for structural insights
+- [System Design Principle](@/glossary/system-design-principle.md) -- principles that guide insight interpretation
+- [Bounded Context](@/glossary/bounded-context.md) -- DDD concept frequently surfaced by coupling insights
 
 ## See Also
 
@@ -402,4 +402,4 @@ The Prismatic approach combines all of these sources through a unified insight e
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -38,7 +38,7 @@ image_alt = "Erlang - Prismatic Platform"
 
 Erlang is a general-purpose, functional programming language and runtime system designed for building massively concurrent, distributed, and fault-tolerant soft real-time systems. Created by Joe Armstrong, Robert Virding, and Mike Williams at Ericsson's Computer Science Laboratory in 1986, Erlang was originally developed to solve the demanding requirements of telecommunications switching systems: systems that must handle millions of simultaneous connections, never go down, and be upgraded without interrupting service.
 
-Erlang runs on the [BEAM](/glossary/beam/) virtual machine (Bogdan/Bjorn's Erlang Abstract Machine), which provides lightweight processes, preemptive scheduling, garbage collection per process, and transparent distribution across nodes. The BEAM also hosts [Elixir](/glossary/elixir/), the language used by the Prismatic Platform, making Erlang both the intellectual ancestor and the runtime foundation of the entire platform.
+Erlang runs on the [BEAM](@/glossary/beam.md) virtual machine (Bogdan/Bjorn's Erlang Abstract Machine), which provides lightweight processes, preemptive scheduling, garbage collection per process, and transparent distribution across nodes. The BEAM also hosts [Elixir](@/glossary/elixir.md), the language used by the Prismatic Platform, making Erlang both the intellectual ancestor and the runtime foundation of the entire platform.
 
 ## Overview
 
@@ -46,13 +46,13 @@ Erlang's design emerged from a specific engineering problem: how do you build te
 
 The language is characterized by several distinctive features that set it apart from mainstream programming languages:
 
-**Lightweight Processes**: Erlang processes are not operating system threads. They are extremely lightweight (approximately 300 bytes of initial memory), scheduled by the BEAM VM, and a single BEAM instance can run millions of them simultaneously. This makes the [Actor Model](/glossary/actor-model/) practical at scale.
+**Lightweight Processes**: Erlang processes are not operating system threads. They are extremely lightweight (approximately 300 bytes of initial memory), scheduled by the BEAM VM, and a single BEAM instance can run millions of them simultaneously. This makes the [Actor Model](@/glossary/actor-model.md) practical at scale.
 
-**Message Passing**: Processes communicate exclusively through asynchronous [Message Passing](/glossary/message-passing/). There is no shared memory between processes. This eliminates entire classes of concurrency bugs (race conditions, deadlocks, data corruption) by construction rather than by convention.
+**Message Passing**: Processes communicate exclusively through asynchronous [Message Passing](@/glossary/message-passing.md). There is no shared memory between processes. This eliminates entire classes of concurrency bugs (race conditions, deadlocks, data corruption) by construction rather than by convention.
 
-**Let It Crash**: Rather than defensive programming with error handling at every level, Erlang embraces the [Let It Crash](/glossary/let-it-crash/) philosophy. Processes that encounter errors are allowed to fail. [Supervisor](/glossary/supervisor/) processes detect failures and restart failed processes in a known good state. This produces systems that self-heal from transient errors.
+**Let It Crash**: Rather than defensive programming with error handling at every level, Erlang embraces the [Let It Crash](@/glossary/let-it-crash.md) philosophy. Processes that encounter errors are allowed to fail. [Supervisor](@/glossary/supervisor.md) processes detect failures and restart failed processes in a known good state. This produces systems that self-heal from transient errors.
 
-**Hot Code Reload**: Erlang supports [Hot Code Reload](/glossary/hot-code-reload/) -- replacing code in a running system without stopping it. A BEAM node can run two versions of a module simultaneously, with existing processes using the old version and new requests using the new version. This enables zero-downtime deployments.
+**Hot Code Reload**: Erlang supports [Hot Code Reload](@/glossary/hot-code-reload.md) -- replacing code in a running system without stopping it. A BEAM node can run two versions of a module simultaneously, with existing processes using the old version and new requests using the new version. This enables zero-downtime deployments.
 
 **Immutable Data**: All data in Erlang is immutable. Once a variable is bound to a value, it cannot be changed (single assignment). This eliminates mutation-related bugs and makes reasoning about concurrent systems tractable.
 
@@ -104,7 +104,7 @@ The BEAM VM is the execution environment for both Erlang and Elixir. Its archite
 
 ### OTP Framework
 
-[OTP](/glossary/otp/) (Open Telecom Platform) is Erlang's standard library and framework for building robust applications. Despite the telecom-specific name, OTP is a general-purpose framework used by virtually all production Erlang and Elixir applications:
+[OTP](@/glossary/otp.md) (Open Telecom Platform) is Erlang's standard library and framework for building robust applications. Despite the telecom-specific name, OTP is a general-purpose framework used by virtually all production Erlang and Elixir applications:
 
 **GenServer**: The generic server behavior for implementing client-server processes. Handles synchronous calls, asynchronous casts, and info messages with standardized callback interfaces.
 
@@ -313,7 +313,7 @@ Akka implements the Actor Model on the JVM, inspired by Erlang. Key differences:
 
 2. **Use OTP behaviors, never raw processes.** Always use GenServer, Supervisor, gen_statem, or similar OTP behaviors rather than bare `spawn`. OTP behaviors provide standardized debugging, introspection, and hot code upgrade support that raw processes lack.
 
-3. **Keep process state small.** Each process has its own heap. A process with a large state causes large GC pauses for that process and consumes proportionally more memory. Offload large data to [ETS](/glossary/ets/) tables or external storage.
+3. **Keep process state small.** Each process has its own heap. A process with a large state causes large GC pauses for that process and consumes proportionally more memory. Offload large data to [ETS](@/glossary/ets.md) tables or external storage.
 
 4. **Let it crash -- but design your supervision strategy.** The let-it-crash philosophy does not mean ignoring errors. It means handling errors at the right level of abstraction. Individual processes crash and restart; supervisors define how crashes propagate and how recovery occurs.
 
@@ -351,7 +351,7 @@ Riak (distributed key-value store), CouchDB (document database), and portions of
 
 ### Prismatic Platform
 
-The Prismatic Platform runs on the BEAM through Elixir, directly inheriting Erlang's properties. The 115-app umbrella architecture maps to OTP applications with supervised process trees. The 530+ agents each run as supervised processes. [ETS](/glossary/ets/) provides in-memory storage for registries and caches. Distribution enables future clustering for horizontal scaling.
+The Prismatic Platform runs on the BEAM through Elixir, directly inheriting Erlang's properties. The 115-app umbrella architecture maps to OTP applications with supervised process trees. The 530+ agents each run as supervised processes. [ETS](@/glossary/ets.md) provides in-memory storage for registries and caches. Distribution enables future clustering for horizontal scaling.
 
 ### Financial Systems
 
@@ -370,27 +370,27 @@ Erlang's ideas have influenced numerous modern languages and frameworks:
 
 ## Related Concepts
 
-- [BEAM](/glossary/beam/) - The virtual machine that executes Erlang and Elixir bytecode
-- [Elixir](/glossary/elixir/) - Modern language running on the BEAM, used by Prismatic Platform
-- [OTP](/glossary/otp/) - Erlang's framework for building robust applications
-- [GenServer](/glossary/genserver/) - The generic server behavior central to OTP application design
-- [Fault Tolerance](/glossary/fault-tolerance/) - The ability to continue operating despite component failures
-- [Hot Code Reload](/glossary/hot-code-reload/) - Replacing code in a running system without downtime
-- [Distributed System](/glossary/distributed-system/) - Systems spanning multiple networked nodes
-- [Let It Crash](/glossary/let-it-crash/) - Erlang's error handling philosophy using supervised restarts
-- [Supervisor](/glossary/supervisor/) - OTP behavior for managing child process lifecycle
-- [Actor Model](/glossary/actor-model/) - The concurrency model that Erlang implements
-- [Message Passing](/glossary/message-passing/) - Inter-process communication via asynchronous messages
-- [Concurrency](/glossary/concurrency/) - Executing multiple computations simultaneously
+- [BEAM](@/glossary/beam.md) - The virtual machine that executes Erlang and Elixir bytecode
+- [Elixir](@/glossary/elixir.md) - Modern language running on the BEAM, used by Prismatic Platform
+- [OTP](@/glossary/otp.md) - Erlang's framework for building robust applications
+- [GenServer](@/glossary/genserver.md) - The generic server behavior central to OTP application design
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - The ability to continue operating despite component failures
+- [Hot Code Reload](@/glossary/hot-code-reload.md) - Replacing code in a running system without downtime
+- [Distributed System](@/glossary/distributed-system.md) - Systems spanning multiple networked nodes
+- [Let It Crash](@/glossary/let-it-crash.md) - Erlang's error handling philosophy using supervised restarts
+- [Supervisor](@/glossary/supervisor.md) - OTP behavior for managing child process lifecycle
+- [Actor Model](@/glossary/actor-model.md) - The concurrency model that Erlang implements
+- [Message Passing](@/glossary/message-passing.md) - Inter-process communication via asynchronous messages
+- [Concurrency](@/glossary/concurrency.md) - Executing multiple computations simultaneously
 
 ## See Also
 
-- [ETS](/glossary/ets/) - Erlang Term Storage for in-memory data
-- [Pattern Matching](/glossary/pattern-matching/) - First-class pattern matching in function heads and case expressions
-- [Supervision Tree](/glossary/supervision-tree/) - Hierarchical process management structure
-- [Immutability](/glossary/immutability/) - All data in Erlang is immutable by default
-- [Telemetry](/glossary/telemetry/) - Observability built on BEAM's introspection capabilities
-- [Phoenix](/glossary/phoenix/) - Web framework built on Elixir/BEAM
+- [ETS](@/glossary/ets.md) - Erlang Term Storage for in-memory data
+- [Pattern Matching](@/glossary/pattern-matching.md) - First-class pattern matching in function heads and case expressions
+- [Supervision Tree](@/glossary/supervision-tree.md) - Hierarchical process management structure
+- [Immutability](@/glossary/immutability.md) - All data in Erlang is immutable by default
+- [Telemetry](@/glossary/telemetry.md) - Observability built on BEAM's introspection capabilities
+- [Phoenix](@/glossary/phoenix.md) - Web framework built on Elixir/BEAM
 
 ---
 
@@ -399,4 +399,4 @@ Erlang's ideas have influenced numerous modern languages and frameworks:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

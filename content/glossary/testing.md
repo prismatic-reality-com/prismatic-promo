@@ -395,18 +395,18 @@ Testing effectiveness is measured through several metrics tracked in the Quality
 
 ## Cross-References
 
-- [ExUnit](/glossary/exunit/) -- Elixir's built-in testing framework used across all platform applications
-- [Property-Based Testing](/glossary/property-based-testing/) -- Generative testing with StreamData for invariant verification
-- [Test Coverage](/glossary/test-coverage/) -- Coverage metrics and enforcement thresholds
-- [Regression Testing](/glossary/regression-testing/) -- Mandatory regression test protocol (P0 ABSOLUTE)
-- [Quality Gates](/glossary/quality-gates/) -- Automated quality enforcement pipeline
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality metric tracking
-- [Credo](/glossary/credo/) -- Static analysis for Elixir code quality
-- [Dialyzer](/glossary/dialyzer/) -- Static type checking through success typing
-- [CI/CD](/glossary/ci-cd/) -- Continuous integration and deployment pipeline
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Controlled failure injection for resilience testing
-- [Static Analysis](/glossary/static-analysis/) -- Compile-time code verification
-- [Performance Testing](/glossary/performance-testing/) -- Benchee-based performance verification
+- [ExUnit](@/glossary/exunit.md) -- Elixir's built-in testing framework used across all platform applications
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Generative testing with StreamData for invariant verification
+- [Test Coverage](@/glossary/test-coverage.md) -- Coverage metrics and enforcement thresholds
+- [Regression Testing](@/glossary/regression-testing.md) -- Mandatory regression test protocol (P0 ABSOLUTE)
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated quality enforcement pipeline
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality metric tracking
+- [Credo](@/glossary/credo.md) -- Static analysis for Elixir code quality
+- [Dialyzer](@/glossary/dialyzer.md) -- Static type checking through success typing
+- [CI/CD](@/glossary/ci-cd.md) -- Continuous integration and deployment pipeline
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Controlled failure injection for resilience testing
+- [Static Analysis](@/glossary/static-analysis.md) -- Compile-time code verification
+- [Performance Testing](@/glossary/performance-testing.md) -- Benchee-based performance verification
 
 ---
 

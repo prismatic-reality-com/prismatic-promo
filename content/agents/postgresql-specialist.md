@@ -28,13 +28,13 @@ image_alt = "postgresql-specialist - Prismatic Platform"
 
 ## Overview
 
-The postgresql-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's infrastructure domain, providing deep expertise in [PostgreSQL](/glossary/postgresql/) administration, query optimization, schema design, and advanced features including extensions, partitioning, and replication. This agent ensures that the platform's primary relational data store operates at peak performance, with optimized query plans, proper indexing strategies, and efficient schema designs that support the platform's 90+ [umbrella applications](/glossary/umbrella-application/) through [Ecto](/glossary/ecto/) as the database interface layer.
+The postgresql-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's infrastructure domain, providing deep expertise in [PostgreSQL](@/glossary/postgresql.md) administration, query optimization, schema design, and advanced features including extensions, partitioning, and replication. This agent ensures that the platform's primary relational data store operates at peak performance, with optimized query plans, proper indexing strategies, and efficient schema designs that support the platform's 90+ [umbrella applications](@/glossary/umbrella-application.md) through [Ecto](@/glossary/ecto.md) as the database interface layer.
 
-Built on the [AIAD](/glossary/aiad/) standard, the PostgreSQL specialist monitors database performance continuously through [telemetry](/glossary/telemetry/) events, identifies slow queries through EXPLAIN ANALYZE integration, and recommends structural improvements based on workload analysis. The [NO MERCY](/glossary/no-mercy/) doctrine applies to database performance: no query exceeding 100ms for web-facing operations is acceptable, and no migration ships without rollback capability and data integrity verification.
+Built on the [AIAD](@/glossary/aiad.md) standard, the PostgreSQL specialist monitors database performance continuously through [telemetry](@/glossary/telemetry.md) events, identifies slow queries through EXPLAIN ANALYZE integration, and recommends structural improvements based on workload analysis. The [NO MERCY](@/glossary/no-mercy.md) doctrine applies to database performance: no query exceeding 100ms for web-facing operations is acceptable, and no migration ships without rollback capability and data integrity verification.
 
 ## Operational Domain
 
-The PostgreSQL infrastructure domain covers all aspects of relational database management within the platform. This includes schema design and migration management through [Ecto](/glossary/ecto/), query optimization through index strategy and query plan analysis, connection pool management, replication configuration, backup and recovery planning, and extension management (TimescaleDB for time-series data, PostGIS for geospatial, pgvector for embeddings).
+The PostgreSQL infrastructure domain covers all aspects of relational database management within the platform. This includes schema design and migration management through [Ecto](@/glossary/ecto.md), query optimization through index strategy and query plan analysis, connection pool management, replication configuration, backup and recovery planning, and extension management (TimescaleDB for time-series data, PostGIS for geospatial, pgvector for embeddings).
 
 | Database Concern | Scope | Performance Target |
 |-----------------|-------|-------------------|
@@ -51,8 +51,8 @@ The PostgreSQL infrastructure domain covers all aspects of relational database m
 - **Schema design review** -- Evaluates database schema designs for normalization correctness, appropriate data types, constraint completeness, and index coverage before migration deployment
 - **Connection pool tuning** -- Optimizes Ecto pool configurations (pool_size, queue_target, queue_interval) based on workload patterns and connection utilization metrics
 - **Partition strategy** -- Designs table partitioning schemes for large tables using range, list, or hash partitioning to maintain query performance at scale
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed performance monitoring and automatic slow query detection
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing query timing, pool utilization, and database health metrics
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed performance monitoring and automatic slow query detection
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing query timing, pool utilization, and database health metrics
 
 ## Query Optimization Framework
 
@@ -150,7 +150,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to define database standards, approve schema migrations, and enforce query performance targets across all applications.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to define database standards, approve schema migrations, and enforce query performance targets across all applications.
 
 ## Command Interface
 
@@ -164,10 +164,10 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [database-architecture-specialist](/agents/database-architecture-specialist/) | Collaborates on schema design and data modeling decisions |
-| [database-performance-specialist](/agents/database-performance-specialist/) | Shares query performance data and optimization strategies |
-| [database-migration-specialist](/agents/database-migration-specialist/) | Reviews migration safety and rollback procedures |
-| [code-quality-commander](/agents/code-quality-commander/) | Enforces database code quality including query patterns |
+| [database-architecture-specialist](@/agents/database-architecture-specialist.md) | Collaborates on schema design and data modeling decisions |
+| [database-performance-specialist](@/agents/database-performance-specialist.md) | Shares query performance data and optimization strategies |
+| [database-migration-specialist](@/agents/database-migration-specialist.md) | Reviews migration safety and rollback procedures |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Enforces database code quality including query patterns |
 
 ## Query Plan Analysis Methodology
 
@@ -191,7 +191,7 @@ After applying optimizations, the specialist captures a new execution plan and c
 
 ## Connection Pool Management
 
-The postgresql-specialist configures and monitors [Ecto](/glossary/ecto/) connection pool settings across all platform applications. Connection pool tuning involves balancing three concerns: sufficient pool size to handle concurrent database requests, appropriate checkout timeout to prevent request queuing, and pool overflow limits to handle burst traffic without exhausting PostgreSQL connection slots.
+The postgresql-specialist configures and monitors [Ecto](@/glossary/ecto.md) connection pool settings across all platform applications. Connection pool tuning involves balancing three concerns: sufficient pool size to handle concurrent database requests, appropriate checkout timeout to prevent request queuing, and pool overflow limits to handle burst traffic without exhausting PostgreSQL connection slots.
 
 The specialist monitors pool utilization metrics including checkout queue depth (requests waiting for a connection), checkout latency (time from request to connection delivery), and pool saturation (percentage of connections in active use). When checkout latency exceeds 5ms or queue depth exceeds 0 for sustained periods, the specialist evaluates whether pool size should be increased, whether slow queries should be optimized to reduce connection hold time, or whether read replicas should handle a portion of the query load.
 
@@ -201,7 +201,7 @@ For tables that grow beyond hundreds of millions of rows, the specialist designs
 
 ## Enforcement
 
-All database operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no query exceeding performance thresholds ships to production, migrations require rollback verification, and schema changes must pass data integrity checks. The [NO DOUBTS](/glossary/no-doubts/) principle requires that optimization recommendations are backed by EXPLAIN ANALYZE evidence. Index additions must demonstrate measurable query improvement through before/after benchmarking with [SEADF](/glossary/seadf/) performance tracking.
+All database operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no query exceeding performance thresholds ships to production, migrations require rollback verification, and schema changes must pass data integrity checks. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that optimization recommendations are backed by EXPLAIN ANALYZE evidence. Index additions must demonstrate measurable query improvement through before/after benchmarking with [SEADF](@/glossary/seadf.md) performance tracking.
 
 ---
 
@@ -210,4 +210,4 @@ All database operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

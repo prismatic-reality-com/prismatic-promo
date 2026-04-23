@@ -175,11 +175,11 @@ The API gateway (`prismatic_api`) uses the Command Registry as one of its endpoi
 
 ## Cross-References
 
-- [Command](/glossary/command/) - individual executable instruction
-- [Agent Registry](/glossary/agent-registry/) - companion registry for AIAD agents
-- [AIAD](/glossary/aiad/) - the standard defining command specifications
-- [Auto-Discovery](/glossary/auto-discovery/) - dynamic component detection pattern
-- [Agent Orchestration](/glossary/agent-orchestration/) - multi-agent command coordination
+- [Command](@/glossary/command.md) - individual executable instruction
+- [Agent Registry](@/glossary/agent-registry.md) - companion registry for AIAD agents
+- [AIAD](@/glossary/aiad.md) - the standard defining command specifications
+- [Auto-Discovery](@/glossary/auto-discovery.md) - dynamic component detection pattern
+- [Agent Orchestration](@/glossary/agent-orchestration.md) - multi-agent command coordination
 - **Livebooks**: `livebooks/domains/api_integration/` - command API exploration
 - **Academy**: Platform command system architecture
 

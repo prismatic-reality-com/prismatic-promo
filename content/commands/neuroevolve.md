@@ -28,13 +28,13 @@ image_alt = "/neuroevolve - Prismatic Platform"
 
 Neuroevolution represents the convergence of two powerful optimization paradigms: neural network learning and evolutionary computation. The `/neuroevolve` command operationalizes this convergence within the Prismatic ecosystem, applying topology-evolving algorithms inspired by NEAT (NeuroEvolution of Augmenting Topologies) and HyperNEAT to platform components including agent behavior networks, quality prediction models, and pattern recognition architectures.
 
-The command operates at the highest authority tier -- **COSMIC** -- reflecting its ability to modify fundamental platform behaviors through evolved network topologies. Each neuroevolution run produces a population of candidate solutions that compete, mutate, and recombine across generations. The fittest individuals are evaluated against the platform's [quality gates](/glossary/quality-gates/) and, upon passing the [Trinity Gate](/glossary/trinity-gate/) verification, are eligible for deployment into production systems.
+The command operates at the highest authority tier -- **COSMIC** -- reflecting its ability to modify fundamental platform behaviors through evolved network topologies. Each neuroevolution run produces a population of candidate solutions that compete, mutate, and recombine across generations. The fittest individuals are evaluated against the platform's [quality gates](@/glossary/quality-gates.md) and, upon passing the [Trinity Gate](@/glossary/trinity-gate.md) verification, are eligible for deployment into production systems.
 
-This command is executed by the `evolution-orchestrator` agent and is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. Its experimental status indicates active research-grade development with stable core functionality and evolving edge capabilities.
+This command is executed by the `evolution-orchestrator` agent and is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. Its experimental status indicates active research-grade development with stable core functionality and evolving edge capabilities.
 
 ## Architecture
 
-The `/neuroevolve` command is built on a distributed evolutionary computation framework that leverages Elixir's [OTP](/glossary/otp/) concurrency model for population-level parallelism.
+The `/neuroevolve` command is built on a distributed evolutionary computation framework that leverages Elixir's [OTP](@/glossary/otp.md) concurrency model for population-level parallelism.
 
 ### System Architecture
 
@@ -72,7 +72,7 @@ User Command --> Evolution Orchestrator
 | **Speciation Manager** | `PrismaticEvolution.Neuro.Speciation` | Compatibility-based species management |
 | **Migration Controller** | `PrismaticEvolution.Neuro.Migration` | Inter-island genome transfer |
 
-The island model distributes the population across independent [GenServer](/glossary/genserver/) processes, each evolving semi-independently. Periodic migration events transfer high-fitness genomes between islands, combining the exploration benefits of independent populations with the exploitation advantages of sharing successful topologies.
+The island model distributes the population across independent [GenServer](@/glossary/genserver.md) processes, each evolving semi-independently. Periodic migration events transfer high-fitness genomes between islands, combining the exploration benefits of independent populations with the exploitation advantages of sharing successful topologies.
 
 ## Usage
 
@@ -156,19 +156,19 @@ The neuroevolution process follows a generational loop with well-defined stages 
 
 **Phase 5 -- Migration** (periodic): At configurable intervals, top-performing genomes migrate between islands. The migration topology can be ring, fully-connected, or custom, controlling the rate of genetic mixing between subpopulations.
 
-**Phase 6 -- Convergence Check and Finalization**: Evolution terminates when the generation limit is reached, the convergence threshold is met, or a genome achieves the target fitness. The best genome undergoes [Trinity Gate](/glossary/trinity-gate/) validation before being marked as deployment-eligible.
+**Phase 6 -- Convergence Check and Finalization**: Evolution terminates when the generation limit is reached, the convergence threshold is met, or a genome achieves the target fitness. The best genome undergoes [Trinity Gate](@/glossary/trinity-gate.md) validation before being marked as deployment-eligible.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Managed by `evolution-orchestrator` agent |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Evolved solutions must pass all quality gates |
-| [Trinity Gate](/glossary/trinity-gate/) | Verification | Formal verification of evolved topologies |
-| [Telemetry](/glossary/telemetry/) | Observability | Generation [metrics](/glossary/metrics/), fitness trajectories, species counts |
-| [SEADF](/glossary/seadf/) | Framework | Integrates with Self-Evolving Autonomous Development Framework |
-| [Mycelial Network](/glossary/mycelial-network/) | Pattern propagation | Successful topologies propagated via mycelial channels |
-| [NABLA](/glossary/nabla-infinity/) | Epistemic validation | Confidence scoring on evolved solutions |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Managed by `evolution-orchestrator` agent |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Evolved solutions must pass all quality gates |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Verification | Formal verification of evolved topologies |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Generation [metrics](@/glossary/metrics.md), fitness trajectories, species counts |
+| [SEADF](@/glossary/seadf.md) | Framework | Integrates with Self-Evolving Autonomous Development Framework |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Pattern propagation | Successful topologies propagated via mycelial channels |
+| [NABLA](@/glossary/nabla-infinity.md) | Epistemic validation | Confidence scoring on evolved solutions |
 
 ## Best Practices
 
@@ -180,7 +180,7 @@ The neuroevolution process follows a generational loop with well-defined stages 
 
 **Checkpointing**: Always enable checkpointing for long evolution runs (>100 generations). The `--checkpoint-interval` parameter defaults to every 10 generations but should be reduced for expensive fitness evaluations.
 
-**Resource Management**: Each island runs as an independent [GenServer](/glossary/genserver/) process. Monitor memory usage for large populations with complex topologies. The platform's circuit breaker will terminate runaway evaluations that exceed memory bounds.
+**Resource Management**: Each island runs as an independent [GenServer](@/glossary/genserver.md) process. Monitor memory usage for large populations with complex topologies. The platform's circuit breaker will terminate runaway evaluations that exceed memory bounds.
 
 ## Error Handling
 
@@ -225,21 +225,21 @@ Run multiple populations that evolve against each other:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Evolved solutions that fail quality gates are rejected regardless of fitness score. No partial deployments. No unvalidated topologies in production.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every evolved genome carries full lineage tracing back to its initial random topology. Fitness improvements are statistically validated across multiple evaluations to prevent overfitting.
 
-The COSMIC authority level ensures that neuroevolved changes undergo the most rigorous review process, including [Trinity Gate](/glossary/trinity-gate/) formal verification, before any deployment consideration.
+The COSMIC authority level ensures that neuroevolved changes undergo the most rigorous review process, including [Trinity Gate](@/glossary/trinity-gate.md) formal verification, before any deployment consideration.
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -248,4 +248,4 @@ The COSMIC authority level ensures that neuroevolved changes undergo the most ri
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

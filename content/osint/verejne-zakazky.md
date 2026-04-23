@@ -30,7 +30,7 @@ image_alt = "Verejne zakazky - Prismatic Platform"
 
 Vestnik verejnych zakazek (VVZ -- Public Procurement Bulletin) is the official Czech public procurement portal operated by the Ministry for Regional Development under the legal framework of Act No. 134/2016 Sb. on Public Procurement. The portal serves as the mandatory publication venue for all public procurement notices required by Czech law and EU procurement directives, covering the complete lifecycle of public procurement from initial tender announcements through qualification requirements, bid submissions, evaluation decisions, contract awards, and post-award modifications.
 
-For [OSINT](/glossary/osint/) analysts, the Czech public procurement portal represents one of the most intelligence-rich open data sources in the Czech Republic. Unlike most business intelligence sources that provide static snapshots of company profiles, procurement data reveals dynamic competitive interactions: which companies compete against each other, how they price their offerings, who wins and who loses, and how government agencies make purchasing decisions. This behavioral intelligence is invaluable for competitive analysis, due diligence, corruption detection, and market mapping.
+For [OSINT](@/glossary/osint.md) analysts, the Czech public procurement portal represents one of the most intelligence-rich open data sources in the Czech Republic. Unlike most business intelligence sources that provide static snapshots of company profiles, procurement data reveals dynamic competitive interactions: which companies compete against each other, how they price their offerings, who wins and who loses, and how government agencies make purchasing decisions. This behavioral intelligence is invaluable for competitive analysis, due diligence, corruption detection, and market mapping.
 
 The portal publishes notices for all procurement procedures conducted by contracting authorities covered by the Public Procurement Act, including state agencies, municipalities, state-owned enterprises, and entities receiving public funding for specific projects. Above-threshold procurements are simultaneously published in the EU's Tenders Electronic Daily (TED) system, enabling cross-border procurement intelligence for above-threshold contracts. Below-threshold procurements are published only on the national portal, making it the exclusive source for a significant volume of Czech government purchasing activity.
 
@@ -247,7 +247,7 @@ Companies heavily dependent on a small number of government clients face concent
 
 Statistical analysis of procurement data can reveal indicators of potential procurement fraud or corruption, including unusually high win rates for specific companies with specific contracting authorities, pricing patterns suggesting bid coordination (nearly identical prices, systematic price rotation), disproportionate use of non-competitive procurement procedures, frequent contract modifications that significantly increase post-award values, and systematic exclusion of qualified bidders through discriminatory qualification criteria.
 
-The Prismatic Platform applies statistical anomaly detection to procurement data, flagging patterns that warrant further investigation. These flags are cross-referenced with [UOHS](/osint/uohs/) procurement review decisions and [Hlidac statu](/osint/hlidac-statu/) risk ratings for corroborating evidence.
+The Prismatic Platform applies statistical anomaly detection to procurement data, flagging patterns that warrant further investigation. These flags are cross-referenced with [UOHS](@/osint/uohs.md) procurement review decisions and [Hlidac statu](@/osint/hlidac-statu.md) risk ratings for corroborating evidence.
 
 ### Market Sizing and Demand Forecasting
 
@@ -315,19 +315,19 @@ end
 
 For effective procurement intelligence using the Czech VVZ portal, start analysis with CPV code segmentation to focus on relevant procurement categories rather than attempting to analyze the entire procurement landscape. Use ICO-based lookups for precise entity matching, as company names may vary across procurement notices.
 
-Cross-reference procurement data with [Registr smluv](/osint/registr-smluv/) to track the complete lifecycle from tender through contract execution, including any post-award modifications that may significantly change the economic terms. Combine with [Hlidac statu](/osint/hlidac-statu/) analytics for pre-computed risk assessments and political connection mapping of procurement participants.
+Cross-reference procurement data with [Registr smluv](@/osint/registr-smluv.md) to track the complete lifecycle from tender through contract execution, including any post-award modifications that may significantly change the economic terms. Combine with [Hlidac statu](@/osint/hlidac-statu.md) analytics for pre-computed risk assessments and political connection mapping of procurement participants.
 
 For procurement integrity analysis, establish statistical baselines before flagging anomalies. Win rates, price dispersion, and competitive intensity vary significantly across procurement categories and should be assessed relative to sector-specific norms rather than universal thresholds. Track anomaly indicators over time to distinguish persistent patterns from one-time occurrences.
 
 ## Related Sources
 
-- [Registr smluv](/osint/registr-smluv/) - Contracts resulting from procurement awards
-- [UOHS](/osint/uohs/) - Competition authority reviewing procurement irregularities
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog with procurement analytics and risk ratings
-- [ARES](/osint/ares/) - Czech business [registry](/glossary/registry-otp/) for bidder identification
-- [CEDR](/osint/cedr/) - Central Register of Subsidies for public funding context
-- [Justice.cz](/osint/justice-cz/) - Commercial Register for company ownership verification
-- [Databaze firem](/osint/databaze-firem/) - Business directory for supplementary company data
+- [Registr smluv](@/osint/registr-smluv.md) - Contracts resulting from procurement awards
+- [UOHS](@/osint/uohs.md) - Competition authority reviewing procurement irregularities
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog with procurement analytics and risk ratings
+- [ARES](@/osint/ares.md) - Czech business [registry](@/glossary/registry-otp.md) for bidder identification
+- [CEDR](@/osint/cedr.md) - Central Register of Subsidies for public funding context
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register for company ownership verification
+- [Databaze firem](@/osint/databaze-firem.md) - Business directory for supplementary company data
 
 ---
 
@@ -336,4 +336,4 @@ For procurement integrity analysis, establish statistical baselines before flagg
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

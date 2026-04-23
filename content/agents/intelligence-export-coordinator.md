@@ -151,29 +151,29 @@ end
 
 ## Authority Level
 
-**L2** - Tactical Operations. Domain-specific [tactical execution](/glossary/tactical-execution/) with cross-domain coordination capabilities. The Intelligence Export Coordinator can request intelligence from any analysis agent but requires L3 authorization for exports that cross security boundaries.
+**L2** - Tactical Operations. Domain-specific [tactical execution](@/glossary/tactical-execution.md) with cross-domain coordination capabilities. The Intelligence Export Coordinator can request intelligence from any analysis agent but requires L3 authorization for exports that cross security boundaries.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [report-synthesis-specialist](/agents/report-synthesis-specialist/) | Report Generation | Produces formatted reports from intelligence data |
-| [risk-assessment-commander](/agents/risk-assessment-commander/) | Risk Data | Provides risk assessment data for export inclusion |
-| [mendelian-genetics-coordinator](/agents/mendelian-genetics-coordinator/) | Pattern Data | Supplies evolved pattern data for export analysis |
-| [commit-coordinator](/agents/commit-coordinator/) | Version Control | Coordinates export of version-controlled intelligence snapshots |
+| [report-synthesis-specialist](@/agents/report-synthesis-specialist.md) | Report Generation | Produces formatted reports from intelligence data |
+| [risk-assessment-commander](@/agents/risk-assessment-commander.md) | Risk Data | Provides risk assessment data for export inclusion |
+| [mendelian-genetics-coordinator](@/agents/mendelian-genetics-coordinator.md) | Pattern Data | Supplies evolved pattern data for export analysis |
+| [commit-coordinator](@/agents/commit-coordinator.md) | Version Control | Coordinates export of version-controlled intelligence snapshots |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [NABLA Infinity](/glossary/nabla-infinity/) | Provenance tracking for exported intelligence |
-| [Ecto](/glossary/ecto/) | Database queries for intelligence record selection |
-| [SEADF](/glossary/seadf/) | Evolutionary fitness data for export analysis |
-| Platform [Telemetry](/glossary/telemetry/) | Export throughput and latency metrics |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Provenance tracking for exported intelligence |
+| [Ecto](@/glossary/ecto.md) | Database queries for intelligence record selection |
+| [SEADF](@/glossary/seadf.md) | Evolutionary fitness data for export analysis |
+| Platform [Telemetry](@/glossary/telemetry.md) | Export throughput and latency metrics |
 
 ## Enforcement
 
-The Intelligence Export Coordinator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No intelligence is exported without authorization verification. All exports undergo mandatory redaction appropriate to the target audience. Export output validation ensures no internal metadata leaks through formatting artifacts. Every export operation is recorded in an immutable [audit trail](/glossary/audit-trail/) with complete provenance. Failed validation at any stage blocks the export entirely with no partial delivery.
+The Intelligence Export Coordinator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No intelligence is exported without authorization verification. All exports undergo mandatory redaction appropriate to the target audience. Export output validation ensures no internal metadata leaks through formatting artifacts. Every export operation is recorded in an immutable [audit trail](@/glossary/audit-trail.md) with complete provenance. Failed validation at any stage blocks the export entirely with no partial delivery.
 
 ---
 
@@ -182,4 +182,4 @@ The Intelligence Export Coordinator operates under the [NO MERCY, NO DOUBTS](/gl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

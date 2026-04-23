@@ -23,11 +23,11 @@ image_alt = "Structural Consistency - Prismatic Platform"
 
 ## Definition and Overview
 
-Structural Consistency is the first of three verification gates within the [Trinity Gate](/glossary/trinity-gate/) mechanism. It validates that the belief network underlying a platform decision forms a valid directed acyclic graph (DAG) with no circular reasoning, no orphaned conclusions, and no topological contradictions. Structural consistency operates at the graph-theoretic level -- it examines the shape and connectivity of the reasoning structure without evaluating whether the individual inference steps are logically sound (that responsibility belongs to Gate 2, Logical Consistency).
+Structural Consistency is the first of three verification gates within the [Trinity Gate](@/glossary/trinity-gate.md) mechanism. It validates that the belief network underlying a platform decision forms a valid directed acyclic graph (DAG) with no circular reasoning, no orphaned conclusions, and no topological contradictions. Structural consistency operates at the graph-theoretic level -- it examines the shape and connectivity of the reasoning structure without evaluating whether the individual inference steps are logically sound (that responsibility belongs to Gate 2, Logical Consistency).
 
 The distinction between structural and logical consistency is fundamental to understanding why both are necessary. A structurally consistent belief graph can contain logically unsound inference steps -- the graph forms a valid DAG, but some of the edges represent flawed reasoning. Conversely, a structurally inconsistent graph (containing cycles) cannot be logically sound regardless of the quality of individual edges, because circular reasoning is inherently self-referential and unfalsifiable. Structural consistency is therefore a necessary but not sufficient condition for epistemic validity.
 
-Within the Prismatic Platform, structural consistency verification is the most frequently invoked gate and the most common point of failure. Approximately 40% of all [Trinity Gate](/glossary/trinity-gate/) rejections occur at the structural level, typically due to circular reasoning patterns (conclusion A supports B which supports C which supports A) or orphaned belief nodes (conclusions with no traceable evidence path). This high rejection rate is not a deficiency -- it reflects the gate's effectiveness at catching reasoning failures that would otherwise propagate undetected through the system.
+Within the Prismatic Platform, structural consistency verification is the most frequently invoked gate and the most common point of failure. Approximately 40% of all [Trinity Gate](@/glossary/trinity-gate.md) rejections occur at the structural level, typically due to circular reasoning patterns (conclusion A supports B which supports C which supports A) or orphaned belief nodes (conclusions with no traceable evidence path). This high rejection rate is not a deficiency -- it reflects the gate's effectiveness at catching reasoning failures that would otherwise propagate undetected through the system.
 
 The concept extends beyond epistemic verification into software architecture. Structural consistency of code (no circular dependencies between modules), of data models (no referential integrity violations), and of supervision trees (no circular supervisor dependencies) all apply the same principle: the underlying graph must be well-formed before the content it carries can be meaningful.
 
@@ -363,7 +363,7 @@ Input: Belief Graph
 
 ### Belief Graph Construction
 
-Before structural consistency can be verified, the belief graph must be constructed from the platform's epistemic state. The [NABLA Infinity](/glossary/nabla-infinity/) framework maintains belief graphs as first-class data structures:
+Before structural consistency can be verified, the belief graph must be constructed from the platform's epistemic state. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework maintains belief graphs as first-class data structures:
 
 ```elixir
 defmodule PrismaticNabla.BeliefGraph.Builder do
@@ -512,11 +512,11 @@ end
 
 ### Epistemic Verification
 
-Every platform decision that requires [Trinity Gate](/glossary/trinity-gate/) validation begins with structural consistency verification. The gate evaluates the belief graph underlying the decision and rejects any decision whose reasoning structure contains cycles, orphans, or ungrounded nodes.
+Every platform decision that requires [Trinity Gate](@/glossary/trinity-gate.md) validation begins with structural consistency verification. The gate evaluates the belief graph underlying the decision and rejects any decision whose reasoning structure contains cycles, orphans, or ungrounded nodes.
 
 ### Quality Gate Integration
 
-The [Quality Gate](/glossary/quality-gate/) system includes structural consistency checks for both code and architecture. The pre-commit hook verifies that no circular dependencies are introduced between umbrella applications, and the `mix quality.gates` task includes structural analysis of module dependency graphs.
+The [Quality Gate](@/glossary/quality-gate.md) system includes structural consistency checks for both code and architecture. The pre-commit hook verifies that no circular dependencies are introduced between umbrella applications, and the `mix quality.gates` task includes structural analysis of module dependency graphs.
 
 ### Agent Decision Validation
 
@@ -539,7 +539,7 @@ When AIAD agents produce recommendations, the recommendation's supporting eviden
 
 2. **Build belief graphs incrementally.** Rather than constructing the entire graph and then verifying, add nodes and edges incrementally with on-the-fly structural checks. This catches violations early and provides immediate feedback.
 
-3. **Annotate contradictions explicitly.** The structural consistency gate requires that contradictory evidence be explicitly marked. Hiding contradictions by silently discarding one side is a critical violation. The [Contradiction Preservation](/glossary/contradiction-preservation/) principle demands that both sides be preserved.
+3. **Annotate contradictions explicitly.** The structural consistency gate requires that contradictory evidence be explicitly marked. Hiding contradictions by silently discarding one side is a critical violation. The [Contradiction Preservation](@/glossary/contradiction-preservation.md) principle demands that both sides be preserved.
 
 4. **Monitor cycle detection metrics.** Track the frequency and patterns of circular reasoning detection across the platform. Recurring cycles in specific domains may indicate a systemic issue in how evidence is gathered or reasoning is structured in that domain.
 
@@ -557,23 +557,23 @@ When AIAD agents produce recommendations, the recommendation's supporting eviden
 
 ## Related Terms
 
-- [Trinity Gate](/glossary/trinity-gate/) -- Parent verification mechanism containing structural consistency as Gate 1
-- [Belief Graph](/glossary/belief-graph/) -- Data structure representing the reasoning network verified by this gate
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework whose axioms are enforced through structural analysis
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom requiring multiple evidence sources (affects graph topology)
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Axiom requiring explicit annotation of contradictory evidence
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom ensuring all beliefs are traceable through the graph
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Score thresholds that determine gate activation
-- [Property-Based Testing](/glossary/property-based-testing/) -- Testing methodology that validates structural invariants
-- [Static Analysis](/glossary/static-analysis/) -- Code analysis complementing epistemic structural verification
-- [Quality Gate](/glossary/quality-gate/) -- Platform verification gates incorporating structural checks
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Parent verification mechanism containing structural consistency as Gate 1
+- [Belief Graph](@/glossary/belief-graph.md) -- Data structure representing the reasoning network verified by this gate
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework whose axioms are enforced through structural analysis
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom requiring multiple evidence sources (affects graph topology)
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Axiom requiring explicit annotation of contradictory evidence
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom ensuring all beliefs are traceable through the graph
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Score thresholds that determine gate activation
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Testing methodology that validates structural invariants
+- [Static Analysis](@/glossary/static-analysis.md) -- Code analysis complementing epistemic structural verification
+- [Quality Gate](@/glossary/quality-gate.md) -- Platform verification gates incorporating structural checks
 
 ## See Also
 
-- [Formal Verification](/glossary/formal-verification/) -- Gate 3 complementing structural consistency
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- Full pipeline in which structural consistency operates
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Formal Verification](@/glossary/formal-verification.md) -- Gate 3 complementing structural consistency
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- Full pipeline in which structural consistency operates
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -583,4 +583,4 @@ When AIAD agents produce recommendations, the recommendation's supporting eviden
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

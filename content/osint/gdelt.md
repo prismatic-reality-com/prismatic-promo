@@ -27,9 +27,9 @@ image_alt = "GDELT Project - Prismatic Platform"
 
 The GDELT Project (Global Database of Events, Language, and Tone) is the largest, most comprehensive, and highest-resolution open dataset of global human society ever created. Updated every 15 minutes, GDELT monitors broadcast, print, and web news from virtually every country in over 100 languages, translating and processing each article to identify events, entities, themes, emotions, and relationships. The project is supported by Google Jigsaw and hosted on Google Cloud Platform, leveraging BigQuery for analytical access to the full dataset.
 
-GDELT maintains three primary datasets: the **Event Database** (structured records of who-did-what-to-whom events coded using the CAMEO taxonomy), the **Global [Knowledge Graph](/glossary/knowledge-graph/)** (people, organizations, locations, themes, emotions, and their interconnections), and the **Global Entity Graph** (entity-level analysis of news content with sentiment and context). Together, these datasets represent over a quarter-billion event records and billions of entity and theme references spanning decades of global media coverage.
+GDELT maintains three primary datasets: the **Event Database** (structured records of who-did-what-to-whom events coded using the CAMEO taxonomy), the **Global [Knowledge Graph](@/glossary/knowledge-graph.md)** (people, organizations, locations, themes, emotions, and their interconnections), and the **Global Entity Graph** (entity-level analysis of news content with sentiment and context). Together, these datasets represent over a quarter-billion event records and billions of entity and theme references spanning decades of global media coverage.
 
-For [OSINT](/glossary/osint/) practitioners, GDELT provides unmatched media intelligence at a global scale. It enables [real-time monitoring](/capabilities/real-time-monitoring/) of geopolitical events, tracking of entities across news coverage, sentiment analysis around organizations and individuals, and early warning of emerging crises. The platform's 15-minute update cycle means analysts can detect breaking events nearly as quickly as newsrooms. When combined with targeted source intelligence from [NewsAPI](/osint/newsapi/) and social media monitoring via [Social Searcher](/osint/social-searcher/), GDELT provides the broadest possible media intelligence coverage.
+For [OSINT](@/glossary/osint.md) practitioners, GDELT provides unmatched media intelligence at a global scale. It enables [real-time monitoring](@/capabilities/real-time-monitoring.md) of geopolitical events, tracking of entities across news coverage, sentiment analysis around organizations and individuals, and early warning of emerging crises. The platform's 15-minute update cycle means analysts can detect breaking events nearly as quickly as newsrooms. When combined with targeted source intelligence from [NewsAPI](@/osint/newsapi.md) and social media monitoring via [Social Searcher](@/osint/social-searcher.md), GDELT provides the broadest possible media intelligence coverage.
 
 The scale of GDELT is difficult to overstate: it processes hundreds of thousands of articles daily across virtually all countries, in all major languages, from news outlets ranging from global wire services to local newspapers. This breadth makes it uniquely suited for detecting weak signals that might appear only in regional media before escalating to international attention.
 
@@ -267,7 +267,7 @@ end
 
 | Method | Description | Best For |
 |--------|-------------|----------|
-| **GDELT DOC 2.0 API** | [REST API](/glossary/rest-api/) for article and event search | Quick searches, integration |
+| **GDELT DOC 2.0 API** | [REST API](@/glossary/rest-api.md) for article and event search | Quick searches, integration |
 | **Google BigQuery** | Full SQL access to all GDELT tables | Complex analysis, aggregation |
 | **Raw Data Files** | Updated every 15 minutes as downloadable CSVs | Offline analysis, data lake |
 | **GDELT Analysis Service** | Pre-built visualizations and dashboards | Quick visualization |
@@ -298,14 +298,14 @@ end
 ### Due Diligence Enhancement
 - Assess media reputation of companies during M&A review with adverse media screening
 - Identify adverse media coverage for KYC/AML compliance requirements
-- Cross-reference with [ARES](/osint/ares/) entity data for Czech companies
+- Cross-reference with [ARES](@/osint/ares.md) entity data for Czech companies
 - Verify claims against global media record for consistency
 
 ### Supply Chain Intelligence
 - Monitor media coverage of key suppliers across all operating geographies
 - Detect regional instability that may disrupt supply chains
 - Track regulatory changes and compliance events in supplier jurisdictions
-- Feed media risk signals into [NIS2](/glossary/nis2/) supply chain assessments
+- Feed media risk signals into [NIS2](@/glossary/nis2.md) supply chain assessments
 
 ### Market Intelligence
 - Track industry trends through theme and entity co-occurrence analysis
@@ -315,17 +315,17 @@ end
 
 ## Related Sources
 
-- [NewsAPI](/osint/newsapi/) - Targeted news article aggregation from 80K+ sources
-- [Social Searcher](/osint/social-searcher/) - Social media monitoring across platforms
-- [EU Sanctions](/osint/eu-sanctions/) - European sanctions for correlation with media signals
-- [OFAC](/osint/ofac/) - US sanctions for correlation with media intelligence
-- [Crunchbase](/osint/crunchbase/) - Company intelligence to enrich media findings
-- [UN Sanctions](/osint/un-sanctions/) - Global sanctions for adverse media correlation
+- [NewsAPI](@/osint/newsapi.md) - Targeted news article aggregation from 80K+ sources
+- [Social Searcher](@/osint/social-searcher.md) - Social media monitoring across platforms
+- [EU Sanctions](@/osint/eu-sanctions.md) - European sanctions for correlation with media signals
+- [OFAC](@/osint/ofac.md) - US sanctions for correlation with media intelligence
+- [Crunchbase](@/osint/crunchbase.md) - Company intelligence to enrich media findings
+- [UN Sanctions](@/osint/un-sanctions.md) - Global sanctions for adverse media correlation
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Media intelligence in [security rating](/glossary/security-rating/)s
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Media intelligence in [security rating](@/glossary/security-rating.md)s
 
 ---
 
@@ -334,4 +334,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

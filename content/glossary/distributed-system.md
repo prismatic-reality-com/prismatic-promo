@@ -35,9 +35,9 @@ image_alt = "Distributed System - Prismatic Platform"
 
 A distributed system is a collection of independent computing nodes that communicate through message passing to coordinate actions and share state, appearing to users as a single coherent system. Unlike monolithic architectures where all components share memory and a single failure domain, distributed systems spread computation across multiple physical or virtual machines connected by a network. This distribution introduces fundamental challenges -- partial failures, network partitions, clock skew, message reordering, and Byzantine faults -- that do not exist in single-node systems. The reward for managing this complexity is horizontal scalability, fault tolerance through redundancy, and geographic distribution that can place computation close to data sources or end users.
 
-The theoretical foundations of distributed systems rest on several impossibility results that constrain what any distributed system can achieve. The [CAP theorem](/glossary/cap-theorem/) proves that no distributed data store can simultaneously guarantee consistency, availability, and partition tolerance. The FLP impossibility result (Fischer, Lynch, Paterson, 1985) proves that no deterministic consensus protocol can guarantee termination in an asynchronous system where even a single process may crash. These results are not obstacles to be overcome but fundamental properties of networked computation that inform every design decision in a distributed platform.
+The theoretical foundations of distributed systems rest on several impossibility results that constrain what any distributed system can achieve. The [CAP theorem](@/glossary/cap-theorem.md) proves that no distributed data store can simultaneously guarantee consistency, availability, and partition tolerance. The FLP impossibility result (Fischer, Lynch, Paterson, 1985) proves that no deterministic consensus protocol can guarantee termination in an asynchronous system where even a single process may crash. These results are not obstacles to be overcome but fundamental properties of networked computation that inform every design decision in a distributed platform.
 
-The BEAM virtual machine, which underpins the Prismatic Platform's [Elixir](/glossary/elixir/) runtime, was designed from its inception for distributed computing. Erlang was created at Ericsson in the 1980s to build telephone switches requiring 99.999% uptime -- systems that are inherently distributed across multiple hardware units. This heritage means that distribution is not bolted onto the BEAM as an afterthought but woven into its process model, message passing semantics, and failure handling philosophy. The Prismatic Platform leverages this native distribution capability to deploy its 115 umbrella applications, 530 agents, and quality enforcement infrastructure across a multi-region cluster on [Fly.io](/glossary/fly-io/).
+The BEAM virtual machine, which underpins the Prismatic Platform's [Elixir](@/glossary/elixir.md) runtime, was designed from its inception for distributed computing. Erlang was created at Ericsson in the 1980s to build telephone switches requiring 99.999% uptime -- systems that are inherently distributed across multiple hardware units. This heritage means that distribution is not bolted onto the BEAM as an afterthought but woven into its process model, message passing semantics, and failure handling philosophy. The Prismatic Platform leverages this native distribution capability to deploy its 115 umbrella applications, 530 agents, and quality enforcement infrastructure across a multi-region cluster on [Fly.io](@/glossary/fly-io.md).
 
 ## BEAM Distribution Model
 
@@ -106,7 +106,7 @@ defmodule PrismaticCluster.Config do
 end
 ```
 
-The Prismatic Platform uses `libcluster` with DNS-based discovery for automatic cluster formation on [Fly.io](/glossary/fly-io/). Fly.io's WireGuard mesh network provides encrypted, low-latency connectivity between nodes across regions. When a new node starts, it queries the internal DNS record `prismatic.internal`, discovers existing nodes, and joins the cluster automatically. When a node fails, the remaining nodes detect the disconnection through BEAM's built-in heartbeat mechanism and redistribute work accordingly through Horde.
+The Prismatic Platform uses `libcluster` with DNS-based discovery for automatic cluster formation on [Fly.io](@/glossary/fly-io.md). Fly.io's WireGuard mesh network provides encrypted, low-latency connectivity between nodes across regions. When a new node starts, it queries the internal DNS record `prismatic.internal`, discovers existing nodes, and joins the cluster automatically. When a node fails, the remaining nodes detect the disconnection through BEAM's built-in heartbeat mechanism and redistribute work accordingly through Horde.
 
 ## Consistency Models
 
@@ -143,7 +143,7 @@ defmodule PrismaticStorage.ConsistencyPolicy do
 end
 ```
 
-[PostgreSQL](/glossary/postgresql/) provides strong consistency for authoritative data through serializable transactions. [Redis](/glossary/redis/) provides eventual consistency for cached data with configurable TTLs. ETS tables are node-local by default (strong consistency within a node) with optional cross-node replication through Horde ([eventual consistency](/glossary/eventual-consistency/) across nodes). Meilisearch provides eventual consistency for full-text search indices with near-real-time indexing latency.
+[PostgreSQL](@/glossary/postgresql.md) provides strong consistency for authoritative data through serializable transactions. [Redis](@/glossary/redis.md) provides eventual consistency for cached data with configurable TTLs. ETS tables are node-local by default (strong consistency within a node) with optional cross-node replication through Horde ([eventual consistency](@/glossary/eventual-consistency.md) across nodes). Meilisearch provides eventual consistency for full-text search indices with near-real-time indexing latency.
 
 ## Failure Modes and Handling
 
@@ -151,17 +151,17 @@ Distributed systems experience failure modes that are qualitatively different fr
 
 ### Partial Failure
 
-In a distributed system, some components can fail while others continue operating. A network partition might isolate node A from node B while both continue serving requests independently. The [let-it-crash](/glossary/let-it-crash/) philosophy, enforced through OTP [supervisors](/glossary/supervisor/), provides a principled approach: when a process fails, its supervisor restarts it with clean state rather than attempting complex error recovery. This approach scales naturally to distributed systems -- when a node fails, distributed supervisors (Horde) restart its processes on surviving nodes.
+In a distributed system, some components can fail while others continue operating. A network partition might isolate node A from node B while both continue serving requests independently. The [let-it-crash](@/glossary/let-it-crash.md) philosophy, enforced through OTP [supervisors](@/glossary/supervisor.md), provides a principled approach: when a process fails, its supervisor restarts it with clean state rather than attempting complex error recovery. This approach scales naturally to distributed systems -- when a node fails, distributed supervisors (Horde) restart its processes on surviving nodes.
 
 ### Network Partitions
 
-Network partitions -- where the [cluster](/glossary/cluster/) splits into two or more groups that cannot communicate -- are the defining challenge of distributed systems. The [CAP theorem](/glossary/cap-theorem/) proves that during a partition, the system must choose between consistency (rejecting requests that might produce inconsistent state) and availability (serving requests with potentially stale data).
+Network partitions -- where the [cluster](@/glossary/cluster.md) splits into two or more groups that cannot communicate -- are the defining challenge of distributed systems. The [CAP theorem](@/glossary/cap-theorem.md) proves that during a partition, the system must choose between consistency (rejecting requests that might produce inconsistent state) and availability (serving requests with potentially stale data).
 
 The Prismatic Platform handles partitions through a combination of strategies:
 
 - **PostgreSQL**: Uses primary-replica topology; during partition, only the primary accepts writes (CP behavior)
 - **ETS/Horde**: Each partition continues operating independently; state reconciles when partition heals (AP behavior)
-- **Application layer**: [Circuit breakers](/glossary/circuit-breaker/) detect partition-induced failures and provide graceful degradation
+- **Application layer**: [Circuit breakers](@/glossary/circuit-breaker.md) detect partition-induced failures and provide graceful degradation
 - **Phoenix.PubSub**: Local broadcasts continue within each partition; cross-partition messages buffer and replay on heal
 
 ### Split-Brain Resolution
@@ -201,7 +201,7 @@ end
 
 ## Prismatic Distributed Architecture
 
-The Prismatic Platform deploys across multiple [Fly.io](/glossary/fly-io/) regions, with each BEAM node running a full copy of the umbrella application including its own agent processes, ETS caches, and Phoenix endpoint.
+The Prismatic Platform deploys across multiple [Fly.io](@/glossary/fly-io.md) regions, with each BEAM node running a full copy of the umbrella application including its own agent processes, ETS caches, and Phoenix endpoint.
 
 ```
                     +-----------------------------------------+
@@ -227,7 +227,7 @@ The Prismatic Platform deploys across multiple [Fly.io](/glossary/fly-io/) regio
                     +-----------------------------------------+
 ```
 
-Horde distributes singleton processes (the Quality Floor Guardian, the SEADF evolution engine, the [PrismaticSupervisor](/glossary/supervisor/) coordinator) across the cluster, ensuring exactly one instance runs at any time. If the node hosting a singleton fails, Horde automatically restarts it on a surviving node within seconds. Process placement uses a consistent hashing strategy to minimize redistribution when nodes join or leave.
+Horde distributes singleton processes (the Quality Floor Guardian, the SEADF evolution engine, the [PrismaticSupervisor](@/glossary/supervisor.md) coordinator) across the cluster, ensuring exactly one instance runs at any time. If the node hosting a singleton fails, Horde automatically restarts it on a surviving node within seconds. Process placement uses a consistent hashing strategy to minimize redistribution when nodes join or leave.
 
 ## Distributed Process Management
 
@@ -306,13 +306,13 @@ The `:auto` membership option enables automatic cluster member discovery -- when
 
 ## Observability in Distributed Systems
 
-Distributed systems require specialized [observability](/glossary/observability/) tooling because no single node has a complete view of system behavior. The Prismatic Platform implements a comprehensive observability stack that correlates events across all cluster nodes.
+Distributed systems require specialized [observability](@/glossary/observability.md) tooling because no single node has a complete view of system behavior. The Prismatic Platform implements a comprehensive observability stack that correlates events across all cluster nodes.
 
 | Observability Layer | Implementation | Purpose |
 |--------------------|----------------|---------|
-| [Distributed Tracing](/glossary/distributed-tracing/) | OpenTelemetry spans across nodes | End-to-end request tracking |
-| [Structured Logging](/glossary/structured-logging/) | JSON logs with node/process metadata | Cross-node log correlation |
-| [Metrics](/glossary/metrics/) | Telemetry events aggregated centrally | Cluster-wide health monitoring |
+| [Distributed Tracing](@/glossary/distributed-tracing.md) | OpenTelemetry spans across nodes | End-to-end request tracking |
+| [Structured Logging](@/glossary/structured-logging.md) | JSON logs with node/process metadata | Cross-node log correlation |
+| [Metrics](@/glossary/metrics.md) | Telemetry events aggregated centrally | Cluster-wide health monitoring |
 | Node Monitoring | BEAM `:net_kernel` heartbeats | Partition and failure detection |
 | Process Distribution | Horde registry queries | Agent placement visualization |
 
@@ -375,7 +375,7 @@ defmodule PrismaticCluster.HealthMonitor do
 end
 ```
 
-The platform attaches distributed trace context to every cross-node message, enabling reconstruction of the full request path even when it spans multiple nodes and storage backends. The [Observer](/glossary/observer/) tool provides real-time visualization of process distribution across the cluster.
+The platform attaches distributed trace context to every cross-node message, enabling reconstruction of the full request path even when it spans multiple nodes and storage backends. The [Observer](@/glossary/observer.md) tool provides real-time visualization of process distribution across the cluster.
 
 ## Performance Considerations
 
@@ -389,11 +389,11 @@ Distributed systems introduce latency and complexity that require careful perfor
 | Coordination overhead | Avoid consensus where possible | CRDTs for counters, eventual consistency for caches |
 | Process placement | Co-locate related processes | Horde placement strategies, node affinity |
 
-The platform's [page load performance standard](/glossary/performance/) of under 250ms total load time applies across all cluster configurations. This requires that distributed operations -- cross-node agent lookups, distributed registry queries, and cross-region data replication -- complete within tight latency budgets that leave room for application-level processing.
+The platform's [page load performance standard](@/glossary/performance.md) of under 250ms total load time applies across all cluster configurations. This requires that distributed operations -- cross-node agent lookups, distributed registry queries, and cross-region data replication -- complete within tight latency budgets that leave room for application-level processing.
 
 ## Historical Context and Industry Evolution
 
-The field of distributed systems has evolved through several paradigm shifts. The 1970s saw foundational work on [message passing](/glossary/message-passing/) and [consensus](/glossary/consensus-algorithm/) (Lamport clocks, 1978). The 1980s introduced practical distributed databases (two-phase commit, Paxos). The 1990s brought Erlang and the BEAM, demonstrating that distribution could be a language-level primitive. The 2000s introduced large-scale web systems (Google's MapReduce, Amazon's Dynamo) that prioritized availability over consistency. The 2010s brought container orchestration ([Docker](/glossary/docker/), Kubernetes) as a platform-agnostic distribution layer.
+The field of distributed systems has evolved through several paradigm shifts. The 1970s saw foundational work on [message passing](@/glossary/message-passing.md) and [consensus](@/glossary/consensus-algorithm.md) (Lamport clocks, 1978). The 1980s introduced practical distributed databases (two-phase commit, Paxos). The 1990s brought Erlang and the BEAM, demonstrating that distribution could be a language-level primitive. The 2000s introduced large-scale web systems (Google's MapReduce, Amazon's Dynamo) that prioritized availability over consistency. The 2010s brought container orchestration ([Docker](@/glossary/docker.md), Kubernetes) as a platform-agnostic distribution layer.
 
 The BEAM ecosystem occupies a unique position in this evolution. While most distributed systems frameworks treat distribution as a deployment concern layered on top of single-node programming models, the BEAM treats distribution as a language-level primitive. This means that the Prismatic Platform's distributed architecture is not a separate system from its single-node architecture -- it is the same system, transparently scaled across multiple nodes. A process on node A sends a message to a process on node B using the same syntax and semantics as sending to a local process.
 
@@ -425,24 +425,24 @@ The BEAM ecosystem occupies a unique position in this evolution. While most dist
 
 ## Related Terms
 
-- [CAP Theorem](/glossary/cap-theorem/) -- Fundamental theorem constraining distributed system guarantees
-- [Eventual Consistency](/glossary/eventual-consistency/) -- Consistency model for distributed replicas converging over time
-- [Cluster](/glossary/cluster/) -- Connected group of BEAM nodes forming the distributed system
-- [Message Passing](/glossary/message-passing/) -- Communication primitive between distributed processes
-- [Consensus Algorithm](/glossary/consensus-algorithm/) -- Protocols for distributed agreement (Paxos, Raft)
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System's ability to continue operating despite component failures
-- [Supervisor](/glossary/supervisor/) -- OTP process monitoring and restart, extended to distributed by Horde
-- [Process Isolation](/glossary/process-isolation/) -- BEAM isolation guarantees that make distribution safe
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern for graceful degradation during partial failures
-- [Load Balancing](/glossary/load-balancing/) -- Request distribution across cluster nodes
-- [BEAM](/glossary/beam/) -- Virtual machine providing native distributed computing primitives
-- [Fly.io](/glossary/fly-io/) -- Deployment platform providing WireGuard mesh networking
+- [CAP Theorem](@/glossary/cap-theorem.md) -- Fundamental theorem constraining distributed system guarantees
+- [Eventual Consistency](@/glossary/eventual-consistency.md) -- Consistency model for distributed replicas converging over time
+- [Cluster](@/glossary/cluster.md) -- Connected group of BEAM nodes forming the distributed system
+- [Message Passing](@/glossary/message-passing.md) -- Communication primitive between distributed processes
+- [Consensus Algorithm](@/glossary/consensus-algorithm.md) -- Protocols for distributed agreement (Paxos, Raft)
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System's ability to continue operating despite component failures
+- [Supervisor](@/glossary/supervisor.md) -- OTP process monitoring and restart, extended to distributed by Horde
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM isolation guarantees that make distribution safe
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern for graceful degradation during partial failures
+- [Load Balancing](@/glossary/load-balancing.md) -- Request distribution across cluster nodes
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing native distributed computing primitives
+- [Fly.io](@/glossary/fly-io.md) -- Deployment platform providing WireGuard mesh networking
 
 ## See Also
 
-- [Architecture](/architecture/) -- Distributed platform architecture
-- [Technologies](/technologies/) -- BEAM distributed computing technology stack
-- [Apps](/apps/) -- 115 umbrella applications running across the distributed cluster
+- [Architecture](@/architecture/_index.md) -- Distributed platform architecture
+- [Technologies](@/technologies/_index.md) -- BEAM distributed computing technology stack
+- [Apps](@/apps/_index.md) -- 115 umbrella applications running across the distributed cluster
 
 ---
 
@@ -451,4 +451,4 @@ The BEAM ecosystem occupies a unique position in this evolution. While most dist
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

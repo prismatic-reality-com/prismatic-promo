@@ -462,20 +462,20 @@ The Prismatic Platform operates at L2 with L3 capabilities for specific componen
 
 ## Related Concepts
 
-- [Continuous Integration](/glossary/continuous-integration/) -- Validation pipeline triggered by Git commits in the GitOps workflow
-- [Continuous Deployment](/glossary/continuous-deployment/) -- Automated deployment driven by GitOps reconciliation
-- [GitLab CI/CD](/glossary/gitlab-ci/) -- CI/CD platform implementing push-based GitOps reconciliation
-- [Docker](/glossary/docker/) -- Container runtime producing immutable deployment artifacts
-- [Quality Gates](/glossary/quality-gates/) -- Automated enforcement ensuring only quality-verified code deploys
-- [Fly.io](/glossary/fly-io/) -- Deployment target managed through GitOps configuration
-- [Release](/glossary/release/) -- Elixir release packaging integrated into the GitOps deployment pipeline
-- [Infrastructure](/glossary/infrastructure/) -- Foundational systems managed through GitOps practices
+- [Continuous Integration](@/glossary/continuous-integration.md) -- Validation pipeline triggered by Git commits in the GitOps workflow
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- Automated deployment driven by GitOps reconciliation
+- [GitLab CI/CD](@/glossary/gitlab-ci.md) -- CI/CD platform implementing push-based GitOps reconciliation
+- [Docker](@/glossary/docker.md) -- Container runtime producing immutable deployment artifacts
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated enforcement ensuring only quality-verified code deploys
+- [Fly.io](@/glossary/fly-io.md) -- Deployment target managed through GitOps configuration
+- [Release](@/glossary/release.md) -- Elixir release packaging integrated into the GitOps deployment pipeline
+- [Infrastructure](@/glossary/infrastructure.md) -- Foundational systems managed through GitOps practices
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Infrastructure as code tooling
-- [Commands](/commands/) -- Platform commands including deployment operations
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Infrastructure as code tooling
+- [Commands](@/commands/_index.md) -- Platform commands including deployment operations
 
 ---
 
@@ -484,4 +484,4 @@ The Prismatic Platform operates at L2 with L3 capabilities for specific componen
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

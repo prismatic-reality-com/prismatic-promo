@@ -30,7 +30,7 @@ keywords = ["Due", "Diligence", "Workflow", "End-to-end", "Prismatic Platform", 
 
 ## Abstract
 
-The Prismatic Platform supports end-to-end M&A (Mergers and Acquisitions) due diligence through a structured, eight-phase workflow that guides analysts from initial target identification through comprehensive investigation to final deal assessment and post-closing monitoring. This document describes each workflow phase, the platform capabilities leveraged at each stage, the deal assessment methodology that translates investigation findings into go/no-go recommendations, and the continuous monitoring capability that extends due diligence beyond the transaction close. The M&A workflow integrates all platform subsystems -- [entity management](/dd/entity-management/), [OSINT collection](/dd/osint-integration/), [graph analysis](/dd/graph-analysis/), [cross-validation](/dd/methodology/), [risk assessment](/dd/risk-assessment/), [compliance mapping](/dd/compliance/), and [case management](/dd/case-management/) -- into a cohesive investigative process purpose-built for transaction support.
+The Prismatic Platform supports end-to-end M&A (Mergers and Acquisitions) due diligence through a structured, eight-phase workflow that guides analysts from initial target identification through comprehensive investigation to final deal assessment and post-closing monitoring. This document describes each workflow phase, the platform capabilities leveraged at each stage, the deal assessment methodology that translates investigation findings into go/no-go recommendations, and the continuous monitoring capability that extends due diligence beyond the transaction close. The M&A workflow integrates all platform subsystems -- [entity management](@/dd/entity-management.md), [OSINT collection](@/dd/osint-integration.md), [graph analysis](@/dd/graph-analysis.md), [cross-validation](@/dd/methodology.md), [risk assessment](@/dd/risk-assessment.md), [compliance mapping](@/dd/compliance.md), and [case management](@/dd/case-management.md) -- into a cohesive investigative process purpose-built for transaction support.
 
 ## Introduction
 
@@ -38,7 +38,7 @@ The Prismatic Platform supports end-to-end M&A (Mergers and Acquisitions) due di
 
 Mergers and acquisitions due diligence has traditionally been a labor-intensive process involving teams of lawyers, accountants, and analysts spending weeks or months in data rooms reviewing documents, interviewing management, and compiling reports. While certain aspects of due diligence -- legal document review, financial statement analysis, and management assessment -- inherently require human expertise, the open-source intelligence dimension of M&A due diligence is highly amenable to automation.
 
-The Prismatic Platform automates the OSINT-intensive aspects of M&A due diligence: entity verification through [registry integration](/dd/czech-registries/), ownership chain analysis through [graph traversal](/dd/graph-analysis/), [risk scoring](/dd/risk-assessment/) across seven dimensions, [sanctions and PEP screening](/dd/compliance/), and cross-validation of all findings through the [triple-check methodology](/dd/methodology/). This automation reduces the time required for comprehensive due diligence from weeks to days while improving the thoroughness and reproducibility of the investigation.
+The Prismatic Platform automates the OSINT-intensive aspects of M&A due diligence: entity verification through [registry integration](@/dd/czech-registries.md), ownership chain analysis through [graph traversal](@/dd/graph-analysis.md), [risk scoring](@/dd/risk-assessment.md) across seven dimensions, [sanctions and PEP screening](@/dd/compliance.md), and cross-validation of all findings through the [triple-check methodology](@/dd/methodology.md). This automation reduces the time required for comprehensive due diligence from weeks to days while improving the thoroughness and reproducibility of the investigation.
 
 ### Scope of Application
 
@@ -54,12 +54,12 @@ The M&A due diligence workflow is designed for:
 
 ### Phase 1: Target Identification and Scoping
 
-The workflow begins with the creation of a parent [case](/dd/case-management/) for the M&A engagement and the identification of primary target entities.
+The workflow begins with the creation of a parent [case](@/dd/case-management.md) for the M&A engagement and the identification of primary target entities.
 
 **Activities**:
 - Create parent M&A case with deal context (transaction type, timeline, regulatory jurisdiction)
 - Identify primary target entities (target company, known subsidiaries, key persons)
-- Define investigation scope: entity types to investigate, depth of ownership chain analysis, applicable [compliance frameworks](/dd/compliance/)
+- Define investigation scope: entity types to investigate, depth of ownership chain analysis, applicable [compliance frameworks](@/dd/compliance.md)
 - Establish timeline and deliverable schedule
 - Assign lead analyst and review team
 
@@ -70,25 +70,25 @@ The workflow begins with the creation of a parent [case](/dd/case-management/) f
 
 ### Phase 2: Automated Entity Enrichment
 
-Once seed entities are identified, the platform launches parallel enrichment across all relevant [OSINT sources](/dd/osint-integration/).
+Once seed entities are identified, the platform launches parallel enrichment across all relevant [OSINT sources](@/dd/osint-integration.md).
 
 **Activities**:
-- Query [30+ Czech registries](/dd/czech-registries/) for all target entities
+- Query [30+ Czech registries](@/dd/czech-registries.md) for all target entities
 - Query 84+ global intelligence sources for entity data
 - Collect company formation documents, statutory body records, financial filings
 - Perform initial sanctions and PEP screening
 - Collect cyber risk data (domain security, breach history, infrastructure exposure)
 
 **Platform Capabilities**:
-- Parallel OSINT collection via [Broadway pipeline](/glossary/broadway/)
-- Automated [entity resolution](/dd/entity-management/) across sources
+- Parallel OSINT collection via [Broadway pipeline](@/glossary/broadway.md)
+- Automated [entity resolution](@/dd/entity-management.md) across sources
 - Real-time enrichment progress tracking in LiveView dashboard
 
 **Typical Duration**: 1-4 hours for comprehensive enrichment of 10-50 entities
 
 ### Phase 3: Graph Expansion
 
-Starting from enriched seed entities, the [graph analysis engine](/dd/graph-analysis/) traverses relationship edges to discover related entities requiring investigation.
+Starting from enriched seed entities, the [graph analysis engine](@/dd/graph-analysis.md) traverses relationship edges to discover related entities requiring investigation.
 
 **Activities**:
 - Traverse ownership chains upward to identify beneficial owners
@@ -98,7 +98,7 @@ Starting from enriched seed entities, the [graph analysis engine](/dd/graph-anal
 - Identify shared service providers and key contractors
 
 **Platform Capabilities**:
-- Multi-hop [ownership chain traversal](/dd/graph-analysis/)
+- Multi-hop [ownership chain traversal](@/dd/graph-analysis.md)
 - Director network analysis with conflict-of-interest detection
 - Address clustering with property cross-reference
 - Automatic creation of child cases for material subsidiaries
@@ -107,7 +107,7 @@ Starting from enriched seed entities, the [graph analysis engine](/dd/graph-anal
 
 ### Phase 4: Cross-Validation
 
-All collected data passes through the [triple-check cross-validation methodology](/dd/methodology/) to establish confidence levels.
+All collected data passes through the [triple-check cross-validation methodology](@/dd/methodology.md) to establish confidence levels.
 
 **Activities**:
 - Source-level validation: authority classification, freshness weighting, format validation
@@ -119,7 +119,7 @@ All collected data passes through the [triple-check cross-validation methodology
 - Automated three-layer validation pipeline
 - Confidence scoring for every entity attribute
 - Contradiction alerts for analyst attention
-- [Trinity Gate](/glossary/trinity-gate/) verification for critical claims
+- [Trinity Gate](@/glossary/trinity-gate.md) verification for critical claims
 
 **Typical Outcome**: 85-95% of entity attributes verified to High Confidence or above; 5-15% flagged for analyst review
 
@@ -135,14 +135,14 @@ Human analysts review automated findings, investigate flagged contradictions, an
 - Add contextual notes to the investigation record
 
 **Platform Capabilities**:
-- Collaborative [case management](/dd/case-management/) with real-time updates
+- Collaborative [case management](@/dd/case-management.md) with real-time updates
 - Entity-level notes with threading and attachments
 - Manual entity creation for analyst-discovered entities
 - Targeted source queries for specific investigation leads
 
 ### Phase 6: Risk Assessment
 
-The [Risk Assessment Framework](/dd/risk-assessment/) computes dimensional risk scores and overall risk ratings for all primary entities.
+The [Risk Assessment Framework](@/dd/risk-assessment.md) computes dimensional risk scores and overall risk ratings for all primary entities.
 
 **Activities**:
 - Compute seven-dimensional risk scores (Financial, Legal, Ownership, Operational, Compliance, Reputational, Cyber)
@@ -153,13 +153,13 @@ The [Risk Assessment Framework](/dd/risk-assessment/) computes dimensional risk 
 
 **Platform Capabilities**:
 - Automated risk scoring across seven dimensions
-- Evidence-based scoring with [triple-check](/dd/methodology/) confidence integration
+- Evidence-based scoring with [triple-check](@/dd/methodology.md) confidence integration
 - Automatic grade overrides for critical findings (sanctions, insolvency)
 - Risk trend analysis when historical assessments are available
 
 ### Phase 7: Report Generation and Review
 
-The platform generates structured due diligence reports mapped to applicable [compliance frameworks](/dd/compliance/), which are then reviewed by senior analysts.
+The platform generates structured due diligence reports mapped to applicable [compliance frameworks](@/dd/compliance.md), which are then reviewed by senior analysts.
 
 **Activities**:
 - Generate executive summary for deal team leadership
@@ -210,11 +210,11 @@ The platform produces a structured deal assessment that combines the overall ris
 
 | Assessment Factor | Weight | Source |
 |------------------|--------|--------|
-| **Overall risk grade** | 0.35 | [Risk Assessment Framework](/dd/risk-assessment/) |
+| **Overall risk grade** | 0.35 | [Risk Assessment Framework](@/dd/risk-assessment.md) |
 | **Critical findings count** | 0.25 | Sanctions, insolvency, fraud indicators |
-| **Ownership transparency** | 0.15 | [Graph analysis](/dd/graph-analysis/) |
-| **Compliance readiness** | 0.15 | [Compliance mapping](/dd/compliance/) |
-| **Evidence confidence** | 0.10 | [Triple-check methodology](/dd/methodology/) average confidence |
+| **Ownership transparency** | 0.15 | [Graph analysis](@/dd/graph-analysis.md) |
+| **Compliance readiness** | 0.15 | [Compliance mapping](@/dd/compliance.md) |
+| **Evidence confidence** | 0.10 | [Triple-check methodology](@/dd/methodology.md) average confidence |
 
 ### Deal Recommendation Categories
 
@@ -244,7 +244,7 @@ Traditional M&A OSINT due diligence requires 2-6 weeks of analyst time. The Pris
 
 ### Depth
 
-The integration of [30+ Czech registries](/dd/czech-registries/) provides deeper entity verification than any comparable platform in the Central European market. Ownership chains are traced through [graph analysis](/dd/graph-analysis/) to the ultimate beneficial owner level, not merely to the first holding company layer.
+The integration of [30+ Czech registries](@/dd/czech-registries.md) provides deeper entity verification than any comparable platform in the Central European market. Ownership chains are traced through [graph analysis](@/dd/graph-analysis.md) to the ultimate beneficial owner level, not merely to the first holding company layer.
 
 ### Reproducibility
 
@@ -252,21 +252,21 @@ Every investigation follows the same structured workflow with the same validatio
 
 ### Audit Trail
 
-The complete [audit trail](/glossary/audit-trail/) maintained by the [case management system](/dd/case-management/) satisfies the documentation requirements of regulatory bodies, external auditors, and post-transaction dispute resolution. Every finding can be traced to its source with full provenance.
+The complete [audit trail](@/glossary/audit-trail.md) maintained by the [case management system](@/dd/case-management.md) satisfies the documentation requirements of regulatory bodies, external auditors, and post-transaction dispute resolution. Every finding can be traced to its source with full provenance.
 
 ## Industry Application Scenarios
 
 ### Private Equity Portfolio Screening
 
-Private equity firms conducting portfolio screening use the M&A workflow to rapidly assess multiple potential targets in parallel. The platform's hierarchical [case management](/dd/case-management/) enables a parent case for the screening exercise with child cases for each prospective target, providing side-by-side risk grade comparisons that accelerate portfolio selection decisions.
+Private equity firms conducting portfolio screening use the M&A workflow to rapidly assess multiple potential targets in parallel. The platform's hierarchical [case management](@/dd/case-management.md) enables a parent case for the screening exercise with child cases for each prospective target, providing side-by-side risk grade comparisons that accelerate portfolio selection decisions.
 
 ### Strategic Acquisition Due Diligence
 
-Corporate acquirers conducting strategic acquisitions leverage the full eight-phase workflow with extended scope, including technology assessment (domain security, infrastructure analysis), supplier network mapping (contract registry analysis combined with [graph expansion](/dd/graph-analysis/)), and regulatory compliance assessment across multiple frameworks. The platform's [compliance mapping](/dd/compliance/) is particularly valuable for cross-border acquisitions where targets must satisfy both Czech and EU-level regulatory requirements simultaneously.
+Corporate acquirers conducting strategic acquisitions leverage the full eight-phase workflow with extended scope, including technology assessment (domain security, infrastructure analysis), supplier network mapping (contract registry analysis combined with [graph expansion](@/dd/graph-analysis.md)), and regulatory compliance assessment across multiple frameworks. The platform's [compliance mapping](@/dd/compliance.md) is particularly valuable for cross-border acquisitions where targets must satisfy both Czech and EU-level regulatory requirements simultaneously.
 
 ### Financial Institution Counterparty Assessment
 
-Financial institutions use the platform's M&A workflow adapted for counterparty risk assessment, combining the [AML/KYC compliance](/dd/compliance/) requirements with the seven-dimensional [risk assessment](/dd/risk-assessment/). The continuous monitoring phase (Phase 8) is especially critical in this context, as regulatory requirements mandate ongoing counterparty surveillance rather than point-in-time assessment.
+Financial institutions use the platform's M&A workflow adapted for counterparty risk assessment, combining the [AML/KYC compliance](@/dd/compliance.md) requirements with the seven-dimensional [risk assessment](@/dd/risk-assessment.md). The continuous monitoring phase (Phase 8) is especially critical in this context, as regulatory requirements mandate ongoing counterparty surveillance rather than point-in-time assessment.
 
 ## Conclusion
 
@@ -274,16 +274,16 @@ The M&A due diligence workflow demonstrates the Prismatic Platform's ability to 
 
 ## References
 
-- [Entity Management System](/dd/entity-management/)
-- [OSINT Integration Framework](/dd/osint-integration/)
-- [Graph Analysis Engine](/dd/graph-analysis/)
-- [Triple-Check Methodology](/dd/methodology/)
-- [Risk Assessment Framework](/dd/risk-assessment/)
-- [Compliance Framework](/dd/compliance/)
-- [Case Management System](/dd/case-management/)
-- [Czech Registry Integration](/dd/czech-registries/)
-- [M&A Intelligence Capability](/capabilities/ma-intelligence/)
-- [Platform Architecture](/dd/platform-architecture/)
+- [Entity Management System](@/dd/entity-management.md)
+- [OSINT Integration Framework](@/dd/osint-integration.md)
+- [Graph Analysis Engine](@/dd/graph-analysis.md)
+- [Triple-Check Methodology](@/dd/methodology.md)
+- [Risk Assessment Framework](@/dd/risk-assessment.md)
+- [Compliance Framework](@/dd/compliance.md)
+- [Case Management System](@/dd/case-management.md)
+- [Czech Registry Integration](@/dd/czech-registries.md)
+- [M&A Intelligence Capability](@/capabilities/ma-intelligence.md)
+- [Platform Architecture](@/dd/platform-architecture.md)
 
 ---
 
@@ -292,4 +292,4 @@ The M&A due diligence workflow demonstrates the Prismatic Platform's ability to 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

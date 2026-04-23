@@ -24,9 +24,9 @@ image_alt = "Flowbite - Prismatic Platform"
 
 ## Overview
 
-Flowbite is the UI component library that provides pre-built, accessible components for the Prismatic Platform's interfaces. Built on [TailwindCSS](/technologies/tailwindcss/), Flowbite offers dropdowns, modals, navigation bars, tables, forms, and data display components that maintain visual consistency across the platform's extensive dashboard ecosystem. The library supplies over 50 production-ready components that have been tested for accessibility, responsiveness, and cross-browser compatibility, eliminating the need for custom CSS development across the platform's 90 applications.
+Flowbite is the UI component library that provides pre-built, accessible components for the Prismatic Platform's interfaces. Built on [TailwindCSS](@/technologies/tailwindcss.md), Flowbite offers dropdowns, modals, navigation bars, tables, forms, and data display components that maintain visual consistency across the platform's extensive dashboard ecosystem. The library supplies over 50 production-ready components that have been tested for accessibility, responsiveness, and cross-browser compatibility, eliminating the need for custom CSS development across the platform's 90 applications.
 
-The Prismatic Platform mandates Flowbite as the primary component library, ensuring that all UI elements follow a consistent interaction pattern and visual design language. This mandate is enforced at the code review level -- custom CSS and inline styles are forbidden in favor of Flowbite's utility-class-based components. Flowbite's JavaScript-powered components (dropdowns, modals, tooltips, collapse) work seamlessly with [Phoenix LiveView](/technologies/phoenix-liveview/)'s server-rendered approach, where the DOM is patched by the server while Flowbite handles client-side animation and positioning. This division of responsibility is a deliberate architectural decision: the server owns the data and DOM structure, while Flowbite handles presentation-layer behaviors like transitions, focus management, and positioning.
+The Prismatic Platform mandates Flowbite as the primary component library, ensuring that all UI elements follow a consistent interaction pattern and visual design language. This mandate is enforced at the code review level -- custom CSS and inline styles are forbidden in favor of Flowbite's utility-class-based components. Flowbite's JavaScript-powered components (dropdowns, modals, tooltips, collapse) work seamlessly with [Phoenix LiveView](@/technologies/phoenix-liveview.md)'s server-rendered approach, where the DOM is patched by the server while Flowbite handles client-side animation and positioning. This division of responsibility is a deliberate architectural decision: the server owns the data and DOM structure, while Flowbite handles presentation-layer behaviors like transitions, focus management, and positioning.
 
 Flowbite's dark mode support is critical for the platform, which defaults to a dark theme optimized for extended monitoring sessions typical in security operations centers. The platform forces dark mode via the `dark` class on the root `<html>` element, and all Flowbite components render in their dark variant automatically. This approach eliminates the conditional `dark:` prefix overhead that would otherwise be required on every utility class, since the dark context is always active.
 
@@ -43,7 +43,7 @@ Flowbite's dark mode support is critical for the platform, which defaults to a d
 
 ## Platform Integration
 
-Flowbite components are used throughout the platform's dashboards, including the [Perimeter EASM](/apps/prismatic-perimeter/) security dashboard, the [agent coordination](/apps/prismatic-agents/) console, and the visitor intelligence panels. Every interactive element visible to platform users is built from Flowbite primitives, ensuring consistency across the entire interface.
+Flowbite components are used throughout the platform's dashboards, including the [Perimeter EASM](@/apps/prismatic-perimeter.md) security dashboard, the [agent coordination](@/apps/prismatic-agents.md) console, and the visitor intelligence panels. Every interactive element visible to platform users is built from Flowbite primitives, ensuring consistency across the entire interface.
 
 ```html
 <!-- Flowbite data table in Prismatic agent dashboard -->
@@ -85,14 +85,14 @@ Flowbite's modal component is used for confirmation dialogs, agent detail views,
 
 ## Architecture
 
-Flowbite occupies the presentation layer in the Prismatic Platform's frontend architecture, sitting between [TailwindCSS](/technologies/tailwindcss/) (the utility framework) and [Phoenix LiveView](/technologies/phoenix-liveview/) (the server-rendered DOM). This layering creates a clean separation of concerns.
+Flowbite occupies the presentation layer in the Prismatic Platform's frontend architecture, sitting between [TailwindCSS](@/technologies/tailwindcss.md) (the utility framework) and [Phoenix LiveView](@/technologies/phoenix-liveview.md) (the server-rendered DOM). This layering creates a clean separation of concerns.
 
 | Layer | Technology | Responsibility |
 |-------|-----------|----------------|
-| Server DOM | [Phoenix LiveView](/technologies/phoenix-liveview/) | Data binding, DOM structure, event handling |
+| Server DOM | [Phoenix LiveView](@/technologies/phoenix-liveview.md) | Data binding, DOM structure, event handling |
 | UI Components | Flowbite | Pre-built component patterns, dark mode, layout |
-| Utility Framework | [TailwindCSS](/technologies/tailwindcss/) | Atomic utility classes, responsive design |
-| Client Reactivity | [Alpine.js](/technologies/alpinejs/) | Custom client-side state beyond Flowbite defaults |
+| Utility Framework | [TailwindCSS](@/technologies/tailwindcss.md) | Atomic utility classes, responsive design |
+| Client Reactivity | [Alpine.js](@/technologies/alpinejs.md) | Custom client-side state beyond Flowbite defaults |
 | JavaScript | Flowbite JS | Animations, positioning, focus trapping, transitions |
 
 The architectural constraint is important: Flowbite components must never assume control over the DOM structure that LiveView manages. LiveView patches the DOM from the server, and Flowbite must re-initialize its JavaScript behaviors after each patch. This is accomplished through Phoenix hooks that call `initFlowbite()` on the `updated` lifecycle callback.
@@ -127,7 +127,7 @@ Flowbite's performance impact on the Prismatic Platform is minimal due to its ut
 | First Contentful Paint impact | < 50ms | Measured against bare TailwindCSS baseline |
 | Cumulative Layout Shift | 0.0 | Components render at final size immediately |
 
-These measurements satisfy the platform's [quality gates](/capabilities/quality-gates/) requirement that all pages load under 250ms total, with server-side render time under 100ms.
+These measurements satisfy the platform's [quality gates](@/capabilities/quality-gates.md) requirement that all pages load under 250ms total, with server-side render time under 100ms.
 
 ## Configuration
 
@@ -164,13 +164,13 @@ let liveSocket = new LiveSocket("/live", Socket, {
 
 The platform enforces strict conventions around Flowbite usage to maintain consistency and prevent regressions across the 90-application umbrella.
 
-- **Always use Flowbite components** over custom implementations -- consistency is enforced platform-wide through code review and the [AIAD Standard](/capabilities/aiad-standard/)
+- **Always use Flowbite components** over custom implementations -- consistency is enforced platform-wide through code review and the [AIAD Standard](@/capabilities/aiad-standard.md)
 - **Never use inline styles** -- all styling must go through TailwindCSS utility classes and Flowbite patterns; violations are caught by pre-commit hooks
 - **Protect navigation dropdowns** -- ensure `phx-click` events on dropdown items do not conflict with Flowbite's toggle handlers; test dropdown interaction after every LiveView change
 - **Re-initialize after LiveView patches** -- Flowbite JavaScript needs re-initialization when LiveView replaces DOM elements; always attach the `FlowbiteInit` hook to containers with interactive Flowbite components
 - **Use dark variant classes directly** -- since Prismatic forces dark mode, prefer `dark:bg-gray-800` patterns consistently and never add light-mode-only styling
 - **Test keyboard navigation** -- all Flowbite components must remain keyboard-accessible in the platform context; verify Tab, Enter, and Escape key behaviors
-- **Avoid custom JavaScript** -- if a behavior exists in Flowbite, use it rather than implementing a custom [Alpine.js](/technologies/alpinejs/) solution
+- **Avoid custom JavaScript** -- if a behavior exists in Flowbite, use it rather than implementing a custom [Alpine.js](@/technologies/alpinejs.md) solution
 
 ## Comparison with Alternatives
 
@@ -189,16 +189,16 @@ Flowbite was selected for the Prismatic Platform because of its combination of s
 
 ## Related Technologies
 
-- [TailwindCSS](/technologies/tailwindcss/) - The underlying utility-first CSS framework that Flowbite extends with component patterns
-- [Alpine.js](/technologies/alpinejs/) - Client-side reactivity for custom interactions beyond Flowbite's built-in capabilities
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Server-side rendering that Flowbite components complement for dynamic interfaces
-- [Phoenix](/technologies/phoenix/) - The web framework providing the template and rendering infrastructure
+- [TailwindCSS](@/technologies/tailwindcss.md) - The underlying utility-first CSS framework that Flowbite extends with component patterns
+- [Alpine.js](@/technologies/alpinejs.md) - Client-side reactivity for custom interactions beyond Flowbite's built-in capabilities
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Server-side rendering that Flowbite components complement for dynamic interfaces
+- [Phoenix](@/technologies/phoenix.md) - The web framework providing the template and rendering infrastructure
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - All Flowbite-powered dashboard interfaces across the platform
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - EASM dashboard using Flowbite tables, badges, and modals for security data display
-- [prismatic_api](/apps/prismatic-api/) - Swagger UI interface styled with Flowbite conventions
+- [prismatic_web](@/apps/prismatic-web.md) - All Flowbite-powered dashboard interfaces across the platform
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - EASM dashboard using Flowbite tables, badges, and modals for security data display
+- [prismatic_api](@/apps/prismatic-api.md) - Swagger UI interface styled with Flowbite conventions
 
 ---
 
@@ -207,4 +207,4 @@ Flowbite was selected for the Prismatic Platform because of its combination of s
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,9 +24,9 @@ image_alt = "Redis - Prismatic Platform"
 
 ## Overview
 
-Redis serves as the Prismatic Platform's external caching layer and distributed data structure store. While [ETS](/technologies/ets/) handles in-process caching within a single node, Redis provides shared caching across multiple nodes, persistent session storage, rate limiting counters, and distributed locking -- capabilities essential for the platform's clustered deployment on [Fly.io](/technologies/flyio/) where multiple instances must share state.
+Redis serves as the Prismatic Platform's external caching layer and distributed data structure store. While [ETS](@/technologies/ets.md) handles in-process caching within a single node, Redis provides shared caching across multiple nodes, persistent session storage, rate limiting counters, and distributed locking -- capabilities essential for the platform's clustered deployment on [Fly.io](@/technologies/flyio.md) where multiple instances must share state.
 
-The Prismatic Platform uses Redis for API response caching (reducing [PostgreSQL](/technologies/postgresql/) load by 80%+), distributed rate limiting (ensuring fair API usage across all nodes), session storage for web authentication, and as a backing store for [Phoenix PubSub](/technologies/pubsub/) in multi-node deployments where Distributed Erlang is unavailable. Redis complements the platform's primary data stores by providing sub-millisecond access to frequently requested data without touching the database.
+The Prismatic Platform uses Redis for API response caching (reducing [PostgreSQL](@/technologies/postgresql.md) load by 80%+), distributed rate limiting (ensuring fair API usage across all nodes), session storage for web authentication, and as a backing store for [Phoenix PubSub](@/technologies/pubsub.md) in multi-node deployments where Distributed Erlang is unavailable. Redis complements the platform's primary data stores by providing sub-millisecond access to frequently requested data without touching the database.
 
 Redis's data structures -- strings, hashes, lists, sets, sorted sets, streams, and HyperLogLog -- provide purpose-built tools for each caching scenario. The platform uses sorted sets for security rating leaderboards, hashes for session data, strings with TTL for response caches, and HyperLogLog for unique visitor counting in the Hawkeye visitor intelligence module. Each data structure is chosen for its specific operational characteristics rather than using Redis as a generic key-value store.
 
@@ -135,7 +135,7 @@ end
 
 ## Architecture
 
-Redis occupies the caching and coordination layer between the application processes and the primary [PostgreSQL](/technologies/postgresql/) database.
+Redis occupies the caching and coordination layer between the application processes and the primary [PostgreSQL](@/technologies/postgresql.md) database.
 
 | Layer | Purpose | Data Structure |
 |-------|---------|----------------|
@@ -272,7 +272,7 @@ end
 
 - **Set TTLs on all cache keys** -- unbounded caches grow until they consume all available memory; every key should expire
 - **Use Lua scripts for atomic operations** -- rate limiting and conditional updates must be atomic to avoid race conditions across nodes
-- **Prefer [ETS](/technologies/ets/) for single-node caching** -- ETS has zero network overhead and is faster for local-only data that does not need cross-node sharing
+- **Prefer [ETS](@/technologies/ets.md) for single-node caching** -- ETS has zero network overhead and is faster for local-only data that does not need cross-node sharing
 - **Monitor memory usage** -- configure `maxmemory-policy allkeys-lru` in production to evict least-recently-used keys under memory pressure
 - **Use connection pooling** -- the Redix library pool prevents connection exhaustion under concurrent load from multiple application processes
 - **Avoid `KEYS` in production** -- the `KEYS` command scans all keys and blocks the Redis event loop; use `SCAN` for production key enumeration
@@ -295,17 +295,17 @@ Redis is used alongside ETS in the Prismatic Platform: ETS for hot-path, single-
 
 ## Related Technologies
 
-- [ETS](/technologies/ets/) - In-process memory cache for single-node operations without network overhead
-- [PostgreSQL](/technologies/postgresql/) - Persistent relational data store that Redis caches accelerate
-- [Phoenix PubSub](/technologies/pubsub/) - Distributed messaging with Redis adapter for non-Distributed-Erlang environments
-- [Docker](/technologies/docker/) - Redis container in the development stack
+- [ETS](@/technologies/ets.md) - In-process memory cache for single-node operations without network overhead
+- [PostgreSQL](@/technologies/postgresql.md) - Persistent relational data store that Redis caches accelerate
+- [Phoenix PubSub](@/technologies/pubsub.md) - Distributed messaging with Redis adapter for non-Distributed-Erlang environments
+- [Docker](@/technologies/docker.md) - Redis container in the development stack
 
 ## Related Apps
 
-- [prismatic_api](/apps/prismatic-api/) - API response caching and rate limiting
-- [prismatic_web](/apps/prismatic-web/) - Session storage and PubSub backing
-- [prismatic_storage_redis](/apps/prismatic-storage-redis/) - Redis storage adapter implementation
-- [prismatic_visitor_intelligence](/apps/prismatic-visitor-intelligence/) - HyperLogLog unique visitor counting
+- [prismatic_api](@/apps/prismatic-api.md) - API response caching and rate limiting
+- [prismatic_web](@/apps/prismatic-web.md) - Session storage and PubSub backing
+- [prismatic_storage_redis](@/apps/prismatic-storage-redis.md) - Redis storage adapter implementation
+- [prismatic_visitor_intelligence](@/apps/prismatic-visitor-intelligence.md) - HyperLogLog unique visitor counting
 
 ---
 
@@ -314,4 +314,4 @@ Redis is used alongside ETS in the Prismatic Platform: ETS for hot-path, single-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

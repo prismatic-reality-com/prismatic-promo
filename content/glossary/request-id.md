@@ -482,23 +482,23 @@ end
 
 ## Related Terms
 
-- [Trace](/glossary/trace/) -- the complete processing record identified by a request ID; spans form the trace tree
-- [Structured Log](/glossary/structured-log/) -- log format that includes request ID as a first-class searchable field
+- [Trace](@/glossary/trace.md) -- the complete processing record identified by a request ID; spans form the trace tree
+- [Structured Log](@/glossary/structured-log.md) -- log format that includes request ID as a first-class searchable field
 - [OpenTelemetry](/glossary/opentelemetry/) -- distributed tracing standard that builds on request ID concepts
 - [Correlation ID](/glossary/correlation-id/) -- synonym for request ID in message-driven architectures
 - [Span](/glossary/span/) -- individual unit of work within a trace, identified by span ID and linked to trace/request ID
 - [Logger Metadata](/glossary/logger-metadata/) -- the BEAM mechanism for attaching context to log entries within a process
-- [Plug](/glossary/plug/) -- the composable request processing pipeline where request IDs are generated
-- [PubSub](/glossary/pubsub/) -- publish-subscribe system requiring explicit request ID propagation
-- [Telemetry](/glossary/telemetry/) -- metrics and events system that can include request ID in measurements
-- [Status Code](/glossary/status-code/) -- the HTTP response code accompanying the request ID in the response
-- [Session](/glossary/session/) -- the user session context that may span multiple request IDs
+- [Plug](@/glossary/plug.md) -- the composable request processing pipeline where request IDs are generated
+- [PubSub](@/glossary/pubsub.md) -- publish-subscribe system requiring explicit request ID propagation
+- [Telemetry](@/glossary/telemetry.md) -- metrics and events system that can include request ID in measurements
+- [Status Code](@/glossary/status-code.md) -- the HTTP response code accompanying the request ID in the response
+- [Session](@/glossary/session.md) -- the user session context that may span multiple request IDs
 - [UUID](/glossary/uuid/) -- the identifier format used for request ID generation
 
 ## See Also
 
-- [API Gateway](/architecture/) -- where request IDs originate for REST API requests
-- [Observability](/capabilities/) -- the monitoring infrastructure that consumes request IDs
+- [API Gateway](@/architecture/_index.md) -- where request IDs originate for REST API requests
+- [Observability](@/capabilities/_index.md) -- the monitoring infrastructure that consumes request IDs
 - [Plug.RequestId documentation](https://hexdocs.pm/plug/Plug.RequestId.html) -- official Plug documentation
 - [OpenTelemetry for Erlang/Elixir](https://opentelemetry.io/docs/instrumentation/erlang/) -- OTel integration guide
 - [W3C Trace Context](https://www.w3.org/TR/trace-context/) -- standardized distributed tracing headers
@@ -510,4 +510,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

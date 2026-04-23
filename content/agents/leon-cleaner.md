@@ -30,7 +30,7 @@ image_alt = "leon-cleaner - Prismatic Platform"
 
 The leon-cleaner is an L4 tactical specialist agent operating within the Prismatic Platform's code maintenance domain. Named after the concept of a professional cleaner who leaves no trace, this agent specializes in surgical code cleanup operations -- removing dead code, eliminating technical debt, refactoring anti-patterns, and sanitizing codebases with the precision and thoroughness that leaves the codebase in measurably better condition than before intervention. Every cleanup operation is designed to be invisible in its execution (no behavioral changes to the system) while being clearly beneficial in its outcome (reduced complexity, improved maintainability, better performance).
 
-Built on the [AIAD](/glossary/aiad/) standard and operating under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, the leon-cleaner embodies the principle that code hygiene is not optional -- it is a continuous obligation. Technical debt accumulates through rushed implementations, evolving requirements, abandoned features, and incremental patches that address symptoms rather than root causes. Left unaddressed, this debt compounds into a maintenance burden that progressively degrades development velocity and system reliability. The leon-cleaner prevents this accumulation through systematic, evidence-based cleanup campaigns.
+Built on the [AIAD](@/glossary/aiad.md) standard and operating under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, the leon-cleaner embodies the principle that code hygiene is not optional -- it is a continuous obligation. Technical debt accumulates through rushed implementations, evolving requirements, abandoned features, and incremental patches that address symptoms rather than root causes. Left unaddressed, this debt compounds into a maintenance burden that progressively degrades development velocity and system reliability. The leon-cleaner prevents this accumulation through systematic, evidence-based cleanup campaigns.
 
 ## Cleanup Operation Categories
 
@@ -38,7 +38,7 @@ The leon-cleaner operates across several categories of code cleanup, each with s
 
 **Dead code elimination** identifies and removes code that is never executed. This includes unreachable branches (code after unconditional returns, impossible pattern matches), unused functions (functions with no callers in the current codebase), abandoned feature implementations (code behind permanently disabled feature flags), and obsolete test fixtures (test helpers and factories for removed features). Detection combines static analysis (call graph analysis, reachability analysis) with dynamic analysis (runtime coverage measurement) to minimize false positive identification of dead code.
 
-**Anti-pattern remediation** identifies code patterns that, while functional, violate the platform's coding standards or represent suboptimal implementations. Common anti-patterns include the [CASCADE](/glossary/cascade/) patterns (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache), unsafe map access patterns (`map.field` instead of `Map.get/2`), missing `@spec` annotations, `Process.sleep` usage in non-test code, and `length() > 0` checks that should be `Enum.any?/1` or pattern matches against `[_ | _]`.
+**Anti-pattern remediation** identifies code patterns that, while functional, violate the platform's coding standards or represent suboptimal implementations. Common anti-patterns include the [CASCADE](@/glossary/cascade.md) patterns (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache), unsafe map access patterns (`map.field` instead of `Map.get/2`), missing `@spec` annotations, `Process.sleep` usage in non-test code, and `length() > 0` checks that should be `Enum.any?/1` or pattern matches against `[_ | _]`.
 
 **Duplication reduction** identifies functionally equivalent code blocks that should be consolidated into shared abstractions. The agent distinguishes between incidental duplication (code that happens to look similar but serves different purposes) and essential duplication (code that is genuinely redundant and should be unified), using semantic analysis rather than purely syntactic comparison.
 
@@ -47,14 +47,14 @@ The leon-cleaner operates across several categories of code cleanup, each with s
 ## Key Capabilities
 
 - **Dead code detection and removal** -- Identifies unreachable code, unused functions, abandoned features, and obsolete test fixtures using combined static and dynamic analysis
-- **[CASCADE](/glossary/cascade/) pattern elimination** -- Detects and remediates all five CASCADE anti-pattern categories with automated fix application
+- **[CASCADE](@/glossary/cascade.md) pattern elimination** -- Detects and remediates all five CASCADE anti-pattern categories with automated fix application
 - **Code duplication analysis** -- Identifies semantically redundant code blocks and generates consolidation proposals with shared abstraction designs
 - **Complexity reduction** -- Decomposes complex functions and modules into smaller, focused components that improve readability and testability
 - **Safe refactoring** -- Applies behavior-preserving transformations with automated test validation to ensure zero behavioral regression
-- **[Quality debt](/glossary/quality-debt/) tracking** -- Maintains an inventory of identified cleanup opportunities with prioritization based on maintenance impact and remediation effort
+- **[Quality debt](@/glossary/quality-debt.md) tracking** -- Maintains an inventory of identified cleanup opportunities with prioritization based on maintenance impact and remediation effort
 - **Batch cleanup campaigns** -- Executes coordinated cleanup operations across multiple modules or applications with progress tracking and rollback capability
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous code quality scanning
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for cleanup impact measurement and quality trend tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous code quality scanning
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for cleanup impact measurement and quality trend tracking
 
 ## Cleanup Methodology
 
@@ -76,13 +76,13 @@ The leon-cleaner follows a rigorous methodology for every cleanup operation to e
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
 | Quality Gates | Cleanup verification through static analysis and compilation checks |
 | Prismatic Safety | Quality floor guardian integration for cleanup impact tracking |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Automated cleanup validation in CI/CD pipelines |
-| Prismatic Telemetry | Cleanup [metrics](/glossary/metrics/): lines removed, complexity reduced, debt eliminated |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of cleanup detection heuristics |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Automated cleanup validation in CI/CD pipelines |
+| Prismatic Telemetry | Cleanup [metrics](@/glossary/metrics.md): lines removed, complexity reduced, debt eliminated |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of cleanup detection heuristics |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
 
 ## Command Interface
 
@@ -98,10 +98,10 @@ The leon-cleaner follows a rigorous methodology for every cleanup operation to e
 
 | Agent | Relationship |
 |-------|-------------|
-| [**cascade-quality-specialist**](/agents/cascade-quality-specialist/) (L3) | Coordinates CASCADE pattern elimination campaigns across the platform |
-| [**hbfs-quality-evolution**](/agents/hbfs-quality-evolution/) (L3) | Drives quality evolution that generates cleanup targets for the leon-cleaner |
-| [**documentation-verifier**](/agents/documentation-verifier/) (L3) | Verifies that cleanup operations do not invalidate existing documentation |
-| [**ir-linter**](/agents/ir-linter/) (L3) | Provides quality analysis that identifies cleanup opportunities in IR workflows |
+| [**cascade-quality-specialist**](@/agents/cascade-quality-specialist.md) (L3) | Coordinates CASCADE pattern elimination campaigns across the platform |
+| [**hbfs-quality-evolution**](@/agents/hbfs-quality-evolution.md) (L3) | Drives quality evolution that generates cleanup targets for the leon-cleaner |
+| [**documentation-verifier**](@/agents/documentation-verifier.md) (L3) | Verifies that cleanup operations do not invalidate existing documentation |
+| [**ir-linter**](@/agents/ir-linter.md) (L3) | Provides quality analysis that identifies cleanup opportunities in IR workflows |
 
 ## Impact Measurement
 
@@ -109,7 +109,7 @@ The leon-cleaner tracks comprehensive impact metrics for every cleanup campaign.
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that identified cleanup opportunities are addressed, not deferred. The leon-cleaner tracks cleanup backlog size and escalates when the backlog exceeds configurable thresholds. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every cleanup operation is verified to be behavior-preserving -- no cleanup is applied without evidence that system behavior is unchanged.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that identified cleanup opportunities are addressed, not deferred. The leon-cleaner tracks cleanup backlog size and escalates when the backlog exceeds configurable thresholds. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every cleanup operation is verified to be behavior-preserving -- no cleanup is applied without evidence that system behavior is unchanged.
 
 ---
 
@@ -118,4 +118,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that identified cleanup op
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

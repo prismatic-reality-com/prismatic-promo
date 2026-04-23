@@ -24,7 +24,7 @@ image_alt = "ETS - Prismatic Platform"
 
 ## Overview
 
-ETS (Erlang Term Storage) is the high-performance in-memory data store built directly into the [BEAM](/technologies/beam/) virtual machine. The Prismatic Platform uses ETS extensively for caching, registries, real-time state management, and high-throughput data that does not require disk persistence. ETS tables provide O(1) lookups and can handle millions of reads per second without any external dependencies -- no network latency, no serialization overhead, and no separate process to manage. Data lives directly in the BEAM's memory space, accessible from any process.
+ETS (Erlang Term Storage) is the high-performance in-memory data store built directly into the [BEAM](@/technologies/beam.md) virtual machine. The Prismatic Platform uses ETS extensively for caching, registries, real-time state management, and high-throughput data that does not require disk persistence. ETS tables provide O(1) lookups and can handle millions of reads per second without any external dependencies -- no network latency, no serialization overhead, and no separate process to manage. Data lives directly in the BEAM's memory space, accessible from any process.
 
 The platform uses ETS for its agent registry (tracking 404+ agent states), API endpoint discovery cache, session data, rate limiter state, and real-time metrics aggregation. ETS's ability to be shared across processes (unlike process state in GenServers) makes it ideal for data that needs to be accessed by multiple agents or request handlers simultaneously without bottlenecking on a single process's mailbox. This is particularly important for hot-path operations like API endpoint resolution, where every request must look up routing information.
 
@@ -141,7 +141,7 @@ ETS occupies a specific niche in the platform's data storage hierarchy, providin
 | **In-Memory** | **ETS** | **Microseconds** | **None (table lifetime)** | **Registries, caches, rate limits** |
 | In-Memory (distributed) | Horde/Mnesia | Milliseconds | Optional (disk copies) | Cluster-wide state |
 | Search Index | Meilisearch | Milliseconds | Disk-backed | Full-text search |
-| Persistent | [PostgreSQL](/technologies/postgresql/) | Milliseconds | Full ACID | Business data, audit trails |
+| Persistent | [PostgreSQL](@/technologies/postgresql.md) | Milliseconds | Full ACID | Business data, audit trails |
 | Graph | KuzuDB | Milliseconds | Disk-backed | Relationship queries |
 
 ETS tables are owned by a process (typically a GenServer or Supervisor). If the owning process crashes, the table is destroyed. The platform mitigates this by using the `:heir` option to transfer table ownership to a supervisor on crash, or by using named tables owned by long-lived application supervisors that are guaranteed to outlive their data's usefulness.
@@ -222,18 +222,18 @@ ETS was chosen as the platform's primary in-memory store because it is built int
 
 ## Related Technologies
 
-- [BEAM VM](/technologies/beam/) - The runtime providing ETS as a built-in data structure
-- [Erlang/OTP](/technologies/erlang-otp/) - The platform providing ETS alongside other storage primitives (DETS, Mnesia)
-- [PostgreSQL](/technologies/postgresql/) - Persistent storage complement for data requiring ACID guarantees
-- [GenServer](/technologies/genserver/) - Process abstraction that often owns and manages ETS tables
-- [Elixir](/technologies/elixir/) - Language providing ergonomic access to ETS through `:ets` module
+- [BEAM VM](@/technologies/beam.md) - The runtime providing ETS as a built-in data structure
+- [Erlang/OTP](@/technologies/erlang-otp.md) - The platform providing ETS alongside other storage primitives (DETS, Mnesia)
+- [PostgreSQL](@/technologies/postgresql.md) - Persistent storage complement for data requiring ACID guarantees
+- [GenServer](@/technologies/genserver.md) - Process abstraction that often owns and manages ETS tables
+- [Elixir](@/technologies/elixir.md) - Language providing ergonomic access to ETS through `:ets` module
 
 ## Related Apps
 
-- [prismatic_storage_ets](/apps/prismatic-storage-ets/) - ETS adapter implementing the platform's storage behavior trait
-- [prismatic_api](/apps/prismatic-api/) - Endpoint registry cache for O(1) API route resolution
-- [prismatic_agents](/apps/prismatic-agents/) - Agent state registry tracking 404+ concurrent agent processes
-- [prismatic_web](/apps/prismatic-web/) - Session and rate limiting state for request handling
+- [prismatic_storage_ets](@/apps/prismatic-storage-ets.md) - ETS adapter implementing the platform's storage behavior trait
+- [prismatic_api](@/apps/prismatic-api.md) - Endpoint registry cache for O(1) API route resolution
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent state registry tracking 404+ concurrent agent processes
+- [prismatic_web](@/apps/prismatic-web.md) - Session and rate limiting state for request handling
 
 ---
 
@@ -242,4 +242,4 @@ ETS was chosen as the platform's primary in-memory store because it is built int
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

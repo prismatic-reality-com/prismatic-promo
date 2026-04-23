@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-Urban green planning agents — An academic treatment of ecological modeling and sustainability systems within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **urban green planning agents** as implemented within the Prismatic Platform's ecological modeling and sustainability systems domain. We formalize the problem space through the lens of carbon footprint and lifecycle assessment, propose a multi-agent architecture leveraging [OTP](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates systems dynamics modeling, agent-based ecological modeling, material flow analysis to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for ecological modeling and sustainability systems.
+Urban green planning agents — An academic treatment of ecological modeling and sustainability systems within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **urban green planning agents** as implemented within the Prismatic Platform's ecological modeling and sustainability systems domain. We formalize the problem space through the lens of carbon footprint and lifecycle assessment, propose a multi-agent architecture leveraging [OTP](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates systems dynamics modeling, agent-based ecological modeling, material flow analysis to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for ecological modeling and sustainability systems.
 
 **Keywords:** Urban, green, planning, agents, Prismatic-native, Sustainability
 
@@ -115,7 +115,7 @@ The urban green planning agents system is implemented as a Prismatic-native appl
 
 ### 3.2 OTP Process Topology
 
-The system leverages [Elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [Elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule UrbanGreenPlanningAgents.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -216,7 +216,7 @@ The implementation leverages the Prismatic Platform's technology stack:
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
 | Runtime | Elixir 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
-| Web Layer | Phoenix [LiveView](/glossary/liveview/) | Real-time interactive dashboards |
+| Web Layer | Phoenix [LiveView](@/glossary/liveview.md) | Real-time interactive dashboards |
 | Storage | PostgreSQL + ETS | Persistent + in-memory storage |
 | Search | Meilisearch | Full-text search and indexing |
 | Styling | TailwindCSS + Flowbite | Consistent UI component library |
@@ -464,19 +464,19 @@ config :prismatic, UrbanGreenPlanningAgents,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [Agent-based urban planning](/applications/multi-agent-societies/agent-based-urban-planning/) — *Multi Agent Societies*
-- [Case law analysis agents](/applications/legal-governance-systems/case-law-analysis-agents/) — *Legal Governance Systems*
-- [Compliance auditing agents](/applications/legal-governance-systems/compliance-auditing-agents/) — *Legal Governance Systems*
-- [Formal verification of agents](/applications/engineering-systems-design/formal-verification-of-agents/) — *Engineering Systems Design*
+- [Agent-based urban planning](@/applications/multi-agent-societies/agent-based-urban-planning.md) — *Multi Agent Societies*
+- [Case law analysis agents](@/applications/legal-governance-systems/case-law-analysis-agents.md) — *Legal Governance Systems*
+- [Compliance auditing agents](@/applications/legal-governance-systems/compliance-auditing-agents.md) — *Legal Governance Systems*
+- [Formal verification of agents](@/applications/engineering-systems-design/formal-verification-of-agents.md) — *Engineering Systems Design*
 
 
 ## Further Reading
 
-- [Sustainability Ecology — All Applications](/applications/sustainability-ecology/)
-- [Engineering Systems Design](/applications/engineering-systems-design/)
-- [Ethics Moral Philosophy](/applications/ethics-moral-philosophy/)
-- [Legal Governance Systems](/applications/legal-governance-systems/)
-- [Prismatic Application Catalogue](/applications/)
+- [Sustainability Ecology — All Applications](@/applications/sustainability-ecology/_index.md)
+- [Engineering Systems Design](@/applications/engineering-systems-design/_index.md)
+- [Ethics Moral Philosophy](@/applications/ethics-moral-philosophy/_index.md)
+- [Legal Governance Systems](@/applications/legal-governance-systems/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,7 +26,7 @@ image_alt = "/emergency - Prismatic Platform"
 
 **/emergency** is a production command in the **Crisis** category of the Prismatic Platform that activates the platform's emergency response and crisis management protocols. When invoked, this command elevates the operator's authority to SUPREME level, bypasses normal workflow gates, and activates all available crisis response agents to address an active emergency. This is the platform's highest-priority operational mode, designed for situations where normal operational procedures are insufficient and immediate, decisive action is required.
 
-This command operates under the **SUPREME** authority level and is executed by the `emergency-responder` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The SUPREME authority level grants unrestricted access to all platform resources and overrides all standard quality gates, rate limits, and approval workflows.
+This command operates under the **SUPREME** authority level and is executed by the `emergency-responder` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The SUPREME authority level grants unrestricted access to all platform resources and overrides all standard quality gates, rate limits, and approval workflows.
 
 Emergency situations in the Prismatic Platform context include production outages, security breaches, data integrity failures, cascading system failures, and critical performance degradation. The `/emergency` command provides a structured framework for responding to these events that is faster and more reliable than ad-hoc crisis management, while maintaining full audit trails for post-incident review.
 
@@ -140,14 +140,14 @@ The emergency response follows a structured incident management lifecycle based 
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Multi-agent coordination | All crisis-capable agents mobilized |
-| [/archer-supreme](/commands/archer-supreme/) | Supreme authority | Activated for SEV-1 and SEV-2 |
-| [Color Team](/glossary/color-teams/) | Security response | Blue/Red/Purple teams for security emergencies |
-| [Quality Gates](/glossary/quality-gates/) | Suspended during emergency | Restored upon resolution |
-| [Telemetry](/glossary/telemetry/) | Enhanced monitoring | Telemetry collection rate increased during emergency |
-| [/cicd-unified](/commands/cicd-unified/) | Deployment actions | Rollback and hotfix deployment |
-| [Session Lifecycle](/glossary/session-discipline/) | Audit trail | Full emergency timeline persisted |
-| [AIAD Registry](/glossary/aiad/) | Agent discovery | Crisis-capable agent identification |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Multi-agent coordination | All crisis-capable agents mobilized |
+| [/archer-supreme](@/commands/archer-supreme.md) | Supreme authority | Activated for SEV-1 and SEV-2 |
+| [Color Team](@/glossary/color-teams.md) | Security response | Blue/Red/Purple teams for security emergencies |
+| [Quality Gates](@/glossary/quality-gates.md) | Suspended during emergency | Restored upon resolution |
+| [Telemetry](@/glossary/telemetry.md) | Enhanced monitoring | Telemetry collection rate increased during emergency |
+| [/cicd-unified](@/commands/cicd-unified.md) | Deployment actions | Rollback and hotfix deployment |
+| [Session Lifecycle](@/glossary/session-discipline.md) | Audit trail | Full emergency timeline persisted |
+| [AIAD Registry](@/glossary/aiad.md) | Agent discovery | Crisis-capable agent identification |
 
 ## Best Practices
 
@@ -238,19 +238,19 @@ Automated notification to configured channels during emergency lifecycle.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Emergency response is total and immediate. All resources are mobilized without reservation.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Automated assessment provides evidence-based severity classification. Every action during the emergency is logged with rationale and outcome.
 
 ## Related Commands
 
-- [/archer-supreme](/commands/archer-supreme/) - Supreme authority activation for platform-wide operations
-- [/dark-ops](/commands/dark-ops/) - NABLA structural crisis detection and dark operations analysis
-- [/manipulation-detect](/commands/manipulation-detect/) - Detect manipulation attempts using epistemic analysis
-- [/manipulation-protect](/commands/manipulation-protect/) - Activate manipulation protection defenses
-- [/cicd-unified](/commands/cicd-unified/) - Unified CI/CD workflow actions for pipeline management
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/archer-supreme](@/commands/archer-supreme.md) - Supreme authority activation for platform-wide operations
+- [/dark-ops](@/commands/dark-ops.md) - NABLA structural crisis detection and dark operations analysis
+- [/manipulation-detect](@/commands/manipulation-detect.md) - Detect manipulation attempts using epistemic analysis
+- [/manipulation-protect](@/commands/manipulation-protect.md) - Activate manipulation protection defenses
+- [/cicd-unified](@/commands/cicd-unified.md) - Unified CI/CD workflow actions for pipeline management
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -259,4 +259,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

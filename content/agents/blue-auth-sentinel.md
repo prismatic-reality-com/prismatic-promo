@@ -28,17 +28,17 @@ image_alt = "blue-auth-sentinel - Prismatic Platform"
 
 ## Overview
 
-The Blue Auth Sentinel is an L2 tactical operations agent operating within the Epistemic Defense domain of the Prismatic Platform as a core member of the [Blue Team](/glossary/blue-team/). This agent focuses exclusively on authentication and access control evidence, monitoring all auth-related [telemetry](/glossary/telemetry/) from [Prismatic Perimeter](/glossary/prismatic-perimeter/), web interfaces, API endpoints, and internal service boundaries. It produces structured evidence about authentication boundary integrity that feeds into the Blue Team's unified defensive posture assessment.
+The Blue Auth Sentinel is an L2 tactical operations agent operating within the Epistemic Defense domain of the Prismatic Platform as a core member of the [Blue Team](@/glossary/blue-team.md). This agent focuses exclusively on authentication and access control evidence, monitoring all auth-related [telemetry](@/glossary/telemetry.md) from [Prismatic Perimeter](@/glossary/prismatic-perimeter.md), web interfaces, API endpoints, and internal service boundaries. It produces structured evidence about authentication boundary integrity that feeds into the Blue Team's unified defensive posture assessment.
 
 Authentication boundaries are the primary perimeter defense for any platform. A compromised authentication system does not just allow unauthorized access -- it undermines the trustworthiness of every operation performed under the compromised identity. The Blue Auth Sentinel treats authentication monitoring as an epistemic concern: it is not merely checking whether logins succeed or fail, but whether the platform's authentication beliefs (this session belongs to this user, this user has these permissions) remain accurate and trustworthy.
 
-The sentinel's evidence-based approach distinguishes it from traditional authentication monitoring systems. Rather than producing alert streams, the sentinel produces structured evidence packages that document authentication boundary observations with explicit confidence scores, temporal context, and source provenance. This evidence-grade output enables the [Blue Commander](/agents/blue-commander/) to make informed defensive decisions based on verified observations rather than noisy alert data.
+The sentinel's evidence-based approach distinguishes it from traditional authentication monitoring systems. Rather than producing alert streams, the sentinel produces structured evidence packages that document authentication boundary observations with explicit confidence scores, temporal context, and source provenance. This evidence-grade output enables the [Blue Commander](@/agents/blue-commander.md) to make informed defensive decisions based on verified observations rather than noisy alert data.
 
 ## Operational Domain
 
-The Epistemic Defense domain encompasses all aspects of maintaining the platform's epistemic integrity, with the Blue Auth Sentinel specifically responsible for authentication boundary evidence. The sentinel monitors authentication events across all platform interfaces: web session management, API token validation, internal service-to-service authentication, and [RBAC](/glossary/rbac/) (Role-Based Access Control) authorization decisions.
+The Epistemic Defense domain encompasses all aspects of maintaining the platform's epistemic integrity, with the Blue Auth Sentinel specifically responsible for authentication boundary evidence. The sentinel monitors authentication events across all platform interfaces: web session management, API token validation, internal service-to-service authentication, and [RBAC](@/glossary/rbac.md) (Role-Based Access Control) authorization decisions.
 
-The sentinel operates under the authority of the Blue Commander and coordinates with other Blue Team specialists -- the [Blue Signal Aggregator](/agents/blue-signal-aggregator/) for cross-domain signal correlation and the [Blue Drift Detector](/agents/blue-drift-detector/) for detecting gradual authentication pattern changes.
+The sentinel operates under the authority of the Blue Commander and coordinates with other Blue Team specialists -- the [Blue Signal Aggregator](@/agents/blue-signal-aggregator.md) for cross-domain signal correlation and the [Blue Drift Detector](@/agents/blue-drift-detector.md) for detecting gradual authentication pattern changes.
 
 ## Key Capabilities
 
@@ -52,7 +52,7 @@ The sentinel operates under the authority of the Blue Commander and coordinates 
 
 - **Authentication boundary evidence packaging** producing structured evidence packages for each observation that include the event data, temporal context, confidence score, source provenance, and cross-reference indicators, formatted for consumption by the Blue Signal Aggregator
 
-- **[Lean4](/glossary/lean4/) [formal verification](/glossary/formal-verification/)** of critical authentication properties, providing mathematical proof that specified authentication invariants hold under analyzed conditions
+- **[Lean4](@/glossary/lean4.md) [formal verification](@/glossary/formal-verification.md)** of critical authentication properties, providing mathematical proof that specified authentication invariants hold under analyzed conditions
 
 ## Authentication Monitoring Coverage
 
@@ -74,7 +74,7 @@ The sentinel produces structured evidence rather than raw alerts. Each evidence 
 
 **Temporal Context.** The event's position within the actor's authentication history, including recent activity patterns, session age, and time since last successful authentication.
 
-**Confidence Score.** A calibrated confidence score indicating how certain the sentinel is about the observation's significance. Scores incorporate the NABLA [Time Decay](/glossary/time-decay/) axiom (recent evidence weighted higher) and Source Independence (independently corroborated evidence scored higher).
+**Confidence Score.** A calibrated confidence score indicating how certain the sentinel is about the observation's significance. Scores incorporate the NABLA [Time Decay](@/glossary/time-decay.md) axiom (recent evidence weighted higher) and Source Independence (independently corroborated evidence scored higher).
 
 **Source Provenance.** The telemetry source that produced the event, enabling downstream consumers to evaluate source reliability and detect potential source compromise.
 
@@ -82,22 +82,22 @@ The sentinel produces structured evidence rather than raw alerts. Each evidence 
 
 ## Red Team Adversarial Relationship
 
-The Blue Auth Sentinel's detection capabilities are continuously tested by [Red Team](/glossary/red-team/) adversarial simulations. The [Red Epistemic Attacker](/agents/red-epistemic-attacker/) specifically targets authentication boundaries to test whether the sentinel's monitoring detects simulated attacks including credential stuffing, session hijacking, token forgery, and privilege escalation attempts.
+The Blue Auth Sentinel's detection capabilities are continuously tested by [Red Team](@/glossary/red-team.md) adversarial simulations. The [Red Epistemic Attacker](@/agents/red-epistemic-attacker.md) specifically targets authentication boundaries to test whether the sentinel's monitoring detects simulated attacks including credential stuffing, session hijacking, token forgery, and privilege escalation attempts.
 
 This adversarial testing ensures that the sentinel's detection thresholds are calibrated against realistic attack scenarios rather than theoretical models. Detection gaps identified during Red Team exercises are immediately addressed, creating a continuous improvement loop between offense simulation and defense refinement.
 
 ## Authority Level
 
-**L2** - Tactical Operations - Domain-specific [tactical execution](/glossary/tactical-execution/) with cross-domain coordination capabilities. The Blue Auth Sentinel operates under the authority of the [Blue Commander](/agents/blue-commander/) and coordinates findings with the broader Blue Team defensive posture.
+**L2** - Tactical Operations - Domain-specific [tactical execution](@/glossary/tactical-execution.md) with cross-domain coordination capabilities. The Blue Auth Sentinel operates under the authority of the [Blue Commander](@/agents/blue-commander.md) and coordinates findings with the broader Blue Team defensive posture.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [blue-commander](/agents/blue-commander/) | Reporting Authority | Reports authentication evidence for strategic defensive assessment |
-| [blue-signal-aggregator](/agents/blue-signal-aggregator/) | Signal Correlation | Feeds authentication evidence into cross-domain signal aggregation |
-| [blue-drift-detector](/agents/blue-drift-detector/) | Drift Analysis | Shares authentication pattern data for behavioral drift detection |
-| [red-epistemic-attacker](/agents/red-epistemic-attacker/) | Adversarial Testing | Detection capabilities tested by Red Team authentication attacks |
+| [blue-commander](@/agents/blue-commander.md) | Reporting Authority | Reports authentication evidence for strategic defensive assessment |
+| [blue-signal-aggregator](@/agents/blue-signal-aggregator.md) | Signal Correlation | Feeds authentication evidence into cross-domain signal aggregation |
+| [blue-drift-detector](@/agents/blue-drift-detector.md) | Drift Analysis | Shares authentication pattern data for behavioral drift detection |
+| [red-epistemic-attacker](@/agents/red-epistemic-attacker.md) | Adversarial Testing | Detection capabilities tested by Red Team authentication attacks |
 
 ## Performance Metrics
 
@@ -112,7 +112,7 @@ This adversarial testing ensures that the sentinel's detection thresholds are ca
 
 ## Enforcement
 
-The Blue Auth Sentinel operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with [Color Team](/glossary/color-teams/) operational security protocols. All authentication evidence must include verifiable provenance. Single-signal authentication conclusions are blocked under [NABLA Infinity](/glossary/nabla-infinity/) [Signal Plurality](/glossary/signal-plurality/). Authentication boundary observations undergo [Trinity Gate](/glossary/trinity-gate/) validation before distribution. Contradictions between authentication evidence and expected behavior are preserved and escalated to Blue Commander for strategic assessment, never suppressed. The sentinel maintains continuous monitoring coverage with zero gaps -- authentication boundary evidence is treated as mission-critical telemetry.
+The Blue Auth Sentinel operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with [Color Team](@/glossary/color-teams.md) operational security protocols. All authentication evidence must include verifiable provenance. Single-signal authentication conclusions are blocked under [NABLA Infinity](@/glossary/nabla-infinity.md) [Signal Plurality](@/glossary/signal-plurality.md). Authentication boundary observations undergo [Trinity Gate](@/glossary/trinity-gate.md) validation before distribution. Contradictions between authentication evidence and expected behavior are preserved and escalated to Blue Commander for strategic assessment, never suppressed. The sentinel maintains continuous monitoring coverage with zero gaps -- authentication boundary evidence is treated as mission-critical telemetry.
 
 ---
 
@@ -121,4 +121,4 @@ The Blue Auth Sentinel operates under the [NO MERCY, NO DOUBTS](/glossary/no-mer
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

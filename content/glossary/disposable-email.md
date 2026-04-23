@@ -528,25 +528,25 @@ end
 
 ## Related Terms
 
-- [DMARC](/glossary/dmarc/) -- Email authentication protocol that disposable services typically lack or misconfigure
-- [OSINT](/glossary/osint/) -- Intelligence methodology where disposable email detection serves as a critical entity verification signal
-- [SPF](/glossary/spf/) -- Sender Policy Framework for email authentication verification
+- [DMARC](@/glossary/dmarc.md) -- Email authentication protocol that disposable services typically lack or misconfigure
+- [OSINT](@/glossary/osint.md) -- Intelligence methodology where disposable email detection serves as a critical entity verification signal
+- [SPF](@/glossary/spf.md) -- Sender Policy Framework for email authentication verification
 - [DKIM](/glossary/dkim/) -- DomainKeys Identified Mail for cryptographic email validation
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Disposable emails as indicators of compromise in threat landscapes
-- [Data Quality](/glossary/data-quality/) -- Email validation as a fundamental data quality dimension
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Disposable emails as indicators of compromise in threat landscapes
+- [Data Quality](@/glossary/data-quality.md) -- Email validation as a fundamental data quality dimension
 - [Fraud Detection](/glossary/fraud-detection/) -- Disposable email usage as a fraud risk indicator
 - [Identity Verification](/glossary/identity-verification/) -- Email permanence as an identity verification factor
 - [Data Enrichment](/glossary/data-enrichment/) -- Email intelligence as a data enrichment source
-- [IOC](/glossary/ioc/) -- Disposable email domains as indicators of suspicious activity
+- [IOC](@/glossary/ioc.md) -- Disposable email domains as indicators of suspicious activity
 - [Email Header](/glossary/email-header/) -- Technical email metadata analysis for intelligence extraction
-- [EASM](/glossary/easm/) -- External attack surface monitoring including email infrastructure assessment
+- [EASM](@/glossary/easm.md) -- External attack surface monitoring including email infrastructure assessment
 
 ## See Also
 
-- [OSINT Tools](/osint/) -- Email intelligence collection tools in the Prismatic OSINT registry
-- [Capabilities](/capabilities/) -- Email analysis and entity verification capabilities
-- [Architecture](/architecture/) -- OSINT pipeline architecture and tool integration patterns
-- [Technologies](/technologies/) -- ETS, DNS resolution, and caching technologies used in detection
+- [OSINT Tools](@/osint/_index.md) -- Email intelligence collection tools in the Prismatic OSINT registry
+- [Capabilities](@/capabilities/_index.md) -- Email analysis and entity verification capabilities
+- [Architecture](@/architecture/_index.md) -- OSINT pipeline architecture and tool integration patterns
+- [Technologies](@/technologies/_index.md) -- ETS, DNS resolution, and caching technologies used in detection
 
 ---
 
@@ -555,4 +555,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

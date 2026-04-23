@@ -30,11 +30,11 @@ image_alt = "czech-media-intelligence-monitor - Prismatic Platform"
 
 The Czech Media Intelligence Monitor is an L3 strategic authority operating within the Czech domain of the Prismatic Platform. This agent conducts continuous monitoring and analysis of Czech-language media sources to extract intelligence relevant to investigations, compliance assessments, and due diligence operations. It processes content from Czech news outlets, online publications, social media platforms, and official government communications to identify signals related to entities, persons, and organizations under investigation.
 
-Media intelligence provides a critical supplement to structured [registry](/glossary/registry-otp/) data. While public registries (ARES, Justice.cz, ISIR) capture formal corporate events, Czech media coverage reveals informal signals: executive departures, regulatory investigations, financial difficulties, strategic partnerships, and reputation risks that may not yet appear in official records. The Czech Media Intelligence Monitor correlates media signals with registry data to build comprehensive intelligence pictures that capture both the formal and informal dimensions of entity behavior. This dual-perspective approach represents a fundamental advancement in open-source intelligence methodology, where the absence of media coverage about expected events can be as informative as the presence of unexpected coverage.
+Media intelligence provides a critical supplement to structured [registry](@/glossary/registry-otp.md) data. While public registries (ARES, Justice.cz, ISIR) capture formal corporate events, Czech media coverage reveals informal signals: executive departures, regulatory investigations, financial difficulties, strategic partnerships, and reputation risks that may not yet appear in official records. The Czech Media Intelligence Monitor correlates media signals with registry data to build comprehensive intelligence pictures that capture both the formal and informal dimensions of entity behavior. This dual-perspective approach represents a fundamental advancement in open-source intelligence methodology, where the absence of media coverage about expected events can be as informative as the presence of unexpected coverage.
 
 ## Architecture
 
-The Czech Media Intelligence Monitor is built on a multi-layered processing architecture that separates source acquisition, content extraction, linguistic analysis, entity resolution, and intelligence synthesis into distinct pipeline stages. Each stage operates as an independent [OTP](/glossary/otp/) process under supervision, enabling fault isolation and independent scaling based on processing demands.
+The Czech Media Intelligence Monitor is built on a multi-layered processing architecture that separates source acquisition, content extraction, linguistic analysis, entity resolution, and intelligence synthesis into distinct pipeline stages. Each stage operates as an independent [OTP](@/glossary/otp.md) process under supervision, enabling fault isolation and independent scaling based on processing demands.
 
 ```
 Media Sources          Processing Pipeline          Intelligence Output
@@ -55,7 +55,7 @@ Media Sources          Processing Pipeline          Intelligence Output
                      +-------------------+        +------------------+
 ```
 
-The architecture employs a [GenServer](/glossary/genserver/)-based scheduler that manages source polling intervals, respects rate limits imposed by media source APIs, and implements exponential backoff for transient failures. Content extraction adapters are implemented per-source to handle the diverse HTML structures and API formats of Czech media outlets, while the downstream NLP pipeline operates on a normalized content format independent of source specifics.
+The architecture employs a [GenServer](@/glossary/genserver.md)-based scheduler that manages source polling intervals, respects rate limits imposed by media source APIs, and implements exponential backoff for transient failures. Content extraction adapters are implemented per-source to handle the diverse HTML structures and API formats of Czech media outlets, while the downstream NLP pipeline operates on a normalized content format independent of source specifics.
 
 ## Core Capabilities
 
@@ -75,7 +75,7 @@ The Czech Media Intelligence Monitor provides six primary capabilities that toge
 
 ## Implementation
 
-The Czech Media Intelligence Monitor is implemented in [Elixir](/glossary/elixir/) following OTP design principles, with each processing stage managed as a supervised process for fault tolerance.
+The Czech Media Intelligence Monitor is implemented in [Elixir](@/glossary/elixir.md) following OTP design principles, with each processing stage managed as a supervised process for fault tolerance.
 
 ```elixir
 defmodule Prismatic.Czech.MediaIntelligence.Monitor do
@@ -138,8 +138,8 @@ The Czech Media Intelligence Monitor integrates with multiple platform subsystem
 | Czech Legal Intelligence Operative | Bidirectional | Shares media intelligence on legal proceedings; receives court case identifiers for targeted monitoring |
 | ARES Registry Adapter | Inbound | Retrieves current business registry data for media-registry correlation validation |
 | ISIR Insolvency Adapter | Inbound | Retrieves insolvency filing data for correlation with media reports of financial distress |
-| [KuzuDB](/glossary/kuzudb/) Graph Store | Outbound | Stores media-derived entity relationships in the knowledge graph for cross-domain analysis |
-| Platform [Telemetry](/glossary/telemetry/) | Outbound | Reports processing metrics, source availability, and pipeline health indicators |
+| [KuzuDB](@/glossary/kuzudb.md) Graph Store | Outbound | Stores media-derived entity relationships in the knowledge graph for cross-domain analysis |
+| Platform [Telemetry](@/glossary/telemetry.md) | Outbound | Reports processing metrics, source availability, and pipeline health indicators |
 
 ## Operational Workflow
 
@@ -157,7 +157,7 @@ The Czech Media Intelligence Monitor follows a structured operational workflow t
 
 ## NABLA Compliance
 
-The Czech Media Intelligence Monitor operates in strict compliance with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, ensuring that all media intelligence meets evidence-grade quality standards.
+The Czech Media Intelligence Monitor operates in strict compliance with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, ensuring that all media intelligence meets evidence-grade quality standards.
 
 | NABLA Axiom | Implementation |
 |---|---|
@@ -169,7 +169,7 @@ The Czech Media Intelligence Monitor operates in strict compliance with the [NAB
 | Source Independence | Source reliability scoring weights independent outlets higher than syndicated or wire-service derived content |
 | Provenance Mandatory | Every intelligence finding traces back to specific source URLs, publication dates, and extraction pipeline versions |
 
-All findings must pass the [Trinity Gate](/glossary/trinity-gate/) before being reported as established intelligence: structural consistency (the entity relationship graph is valid), logical consistency (findings do not contain internal contradictions), and formal necessity (claims are supported by verifiable evidence).
+All findings must pass the [Trinity Gate](@/glossary/trinity-gate.md) before being reported as established intelligence: structural consistency (the entity relationship graph is valid), logical consistency (findings do not contain internal contradictions), and formal necessity (claims are supported by verifiable evidence).
 
 ## Configuration
 
@@ -213,16 +213,16 @@ The Czech Media Intelligence Monitor is optimized for continuous processing with
 | Memory consumption per source | < 50 MB | 32 MB average |
 | Pipeline recovery time | < 30s after failure | 12s average |
 
-The system processes approximately 2,000 Czech-language articles daily from configured sources, extracting an average of 8,500 entity mentions and generating 150-300 actionable intelligence signals per day. Pipeline stages scale independently under [Dynamic Supervisor](/glossary/dynamic-supervisor/) management based on incoming content volume.
+The system processes approximately 2,000 Czech-language articles daily from configured sources, extracting an average of 8,500 entity mentions and generating 150-300 actionable intelligence signals per day. Pipeline stages scale independently under [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) management based on incoming content volume.
 
 ## Related Resources
 
-- [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) -- Business registry context for media signal interpretation
-- [czech-financial-forensics-expert](/agents/czech-financial-forensics-expert/) -- Financial forensics investigation from media-derived signals
-- [czech-legal-intelligence-operative](/agents/czech-legal-intelligence-operative/) -- Legal proceedings intelligence sharing
-- [NABLA Infinity Framework](/glossary/nabla-infinity/) -- Epistemic quality framework governing all intelligence output
-- [AIAD Standard](/glossary/aiad/) -- Agent specification and behavioral governance framework
-- [NO MERCY, NO DOUBTS Doctrine](/glossary/no-mercy-no-doubts/) -- Quality enforcement doctrine
+- [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) -- Business registry context for media signal interpretation
+- [czech-financial-forensics-expert](@/agents/czech-financial-forensics-expert.md) -- Financial forensics investigation from media-derived signals
+- [czech-legal-intelligence-operative](@/agents/czech-legal-intelligence-operative.md) -- Legal proceedings intelligence sharing
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md) -- Epistemic quality framework governing all intelligence output
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification and behavioral governance framework
+- [NO MERCY, NO DOUBTS Doctrine](@/glossary/no-mercy-no-doubts.md) -- Quality enforcement doctrine
 
 ---
 
@@ -231,4 +231,4 @@ The system processes approximately 2,000 Czech-language articles daily from conf
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

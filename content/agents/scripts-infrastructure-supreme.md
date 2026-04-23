@@ -28,9 +28,9 @@ image_alt = "scripts-infrastructure-supreme - Prismatic Platform"
 
 ## Overview
 
-The scripts-infrastructure-supreme operates as an L1 Supreme Authority within the Prismatic Platform's mycelial-propagation domain, governing all infrastructure scripting, build system automation, deployment pipelines, and operational tooling that forms the connective tissue of the platform's 90-application [umbrella architecture](/glossary/umbrella-application/). In a platform of this scale, infrastructure scripts are not mere convenience utilities -- they are load-bearing components that every developer session, CI/CD pipeline, and production deployment depends upon. This agent ensures that every script is production-grade, idempotent, well-documented, and subject to the same quality standards as application code.
+The scripts-infrastructure-supreme operates as an L1 Supreme Authority within the Prismatic Platform's mycelial-propagation domain, governing all infrastructure scripting, build system automation, deployment pipelines, and operational tooling that forms the connective tissue of the platform's 90-application [umbrella architecture](@/glossary/umbrella-application.md). In a platform of this scale, infrastructure scripts are not mere convenience utilities -- they are load-bearing components that every developer session, CI/CD pipeline, and production deployment depends upon. This agent ensures that every script is production-grade, idempotent, well-documented, and subject to the same quality standards as application code.
 
-Built on the [AIAD](/glossary/aiad/) standard and operating under the [NO MERCY](/glossary/no-mercy/) doctrine, the scripts-infrastructure-supreme treats infrastructure as code with absolute rigor. Shell scripts undergo static analysis, Mix tasks are tested and typespec'd, deployment automation includes rollback capabilities, and all tooling integrates with the platform's [telemetry](/glossary/telemetry/) infrastructure for observability. The agent's L1 authority reflects the critical nature of infrastructure -- a broken deployment script or misconfigured build tool can cascade across every application in the umbrella.
+Built on the [AIAD](@/glossary/aiad.md) standard and operating under the [NO MERCY](@/glossary/no-mercy.md) doctrine, the scripts-infrastructure-supreme treats infrastructure as code with absolute rigor. Shell scripts undergo static analysis, Mix tasks are tested and typespec'd, deployment automation includes rollback capabilities, and all tooling integrates with the platform's [telemetry](@/glossary/telemetry.md) infrastructure for observability. The agent's L1 authority reflects the critical nature of infrastructure -- a broken deployment script or misconfigured build tool can cascade across every application in the umbrella.
 
 ## Operational Domain
 
@@ -41,12 +41,12 @@ The domain also includes the platform's Git Trees infrastructure (`scripts/git-t
 ## Key Capabilities
 
 - **Shell script governance** -- Enforces consistent patterns across all shell scripts including proper error handling (`set -euo pipefail`), argument validation, help text generation, and exit code semantics. Every script in `scripts/` must be executable, self-documenting, and idempotent where applicable
-- **Mix task architecture** -- Designs and maintains the platform's extensive Mix task ecosystem, ensuring tasks follow [OTP](/glossary/otp/) conventions, accept consistent argument formats, provide `--help` output, and integrate with the quality gate pipeline
+- **Mix task architecture** -- Designs and maintains the platform's extensive Mix task ecosystem, ensuring tasks follow [OTP](@/glossary/otp.md) conventions, accept consistent argument formats, provide `--help` output, and integrate with the quality gate pipeline
 - **Git hook management** -- Maintains the multi-phase pre-commit hook system in `.githooks/` that enforces compilation warnings, Credo compliance, template validation, design consistency, and regression prevention before any commit reaches the repository
 - **Deployment automation** -- Governs Fly.io deployment scripts, Docker build configurations, and release tooling that takes applications from development through staging to production with zero-downtime guarantees
 - **Developer environment setup** -- Manages onboarding automation that configures shell environments, installs dependencies, sets up database connections, and validates that a developer's local environment matches production requirements
-- **[Autonomous self-healing](/capabilities/autonomous-self-healing/)** with automatic detection and repair of broken infrastructure components through the [SEADF](/glossary/seadf/) evolution framework
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing infrastructure health metrics under the `:prismatic, :infrastructure` namespace
+- **[Autonomous self-healing](@/capabilities/autonomous-self-healing.md)** with automatic detection and repair of broken infrastructure components through the [SEADF](@/glossary/seadf.md) evolution framework
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing infrastructure health metrics under the `:prismatic, :infrastructure` namespace
 
 ## Architecture and Design Principles
 
@@ -82,20 +82,20 @@ The scripts-infrastructure-supreme integrates with virtually every platform syst
 | System | Integration Point |
 |--------|------------------|
 | **Quality Gates** | Pre-commit hooks enforce all quality checks before code reaches the repository |
-| **[SEADF](/glossary/seadf/)** | Infrastructure evolution triggered by `mix autoevolve` pipeline integration |
-| **[Mycelial Network](/glossary/mycelial-network/)** | Script propagation follows mycelial pathways for cross-application distribution |
+| **[SEADF](@/glossary/seadf.md)** | Infrastructure evolution triggered by `mix autoevolve` pipeline integration |
+| **[Mycelial Network](@/glossary/mycelial-network.md)** | Script propagation follows mycelial pathways for cross-application distribution |
 | **CI/CD Pipeline** | All pipeline stages execute infrastructure scripts managed by this agent |
-| **[Telemetry](/glossary/telemetry/)** | Infrastructure metrics feed into platform-wide observability dashboards |
+| **[Telemetry](@/glossary/telemetry.md)** | Infrastructure metrics feed into platform-wide observability dashboards |
 | **Developer Experience** | Environment setup scripts reduce onboarding time from hours to minutes |
 
 ## Coordination
 
 | Agent | Relationship |
 |-------|-------------|
-| [seadf-ecosystem-commander](/agents/seadf-ecosystem-commander/) | Receives evolution directives that trigger infrastructure adaptation |
-| [code-quality-commander](/agents/code-quality-commander/) | Infrastructure scripts enforce quality gates defined by the quality commander |
-| [shell-setup-specialist](/agents/shell-setup-specialist/) | Delegates developer shell environment configuration to the setup specialist |
-| [source-archive-specialist](/agents/source-archive-specialist/) | Archive packaging scripts maintained under infrastructure governance |
+| [seadf-ecosystem-commander](@/agents/seadf-ecosystem-commander.md) | Receives evolution directives that trigger infrastructure adaptation |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Infrastructure scripts enforce quality gates defined by the quality commander |
+| [shell-setup-specialist](@/agents/shell-setup-specialist.md) | Delegates developer shell environment configuration to the setup specialist |
+| [source-archive-specialist](@/agents/source-archive-specialist.md) | Archive packaging scripts maintained under infrastructure governance |
 
 ## Quality Standards and Enforcement
 
@@ -110,11 +110,11 @@ All infrastructure scripts managed by this agent must meet rigorous quality stan
 | **Permissions** | Correct executable permissions (`chmod +x`) | Git hook validation |
 | **Shellcheck** | Zero warnings from shellcheck analysis | CI pipeline gate |
 
-The [NO MERCY](/glossary/no-mercy/) doctrine mandates that infrastructure failures are treated with the same severity as application bugs. A broken deployment script is a production-blocking defect, a missing Git hook is a quality regression vector, and an undocumented Mix task is a maintenance liability. No infrastructure component is permitted to exist outside the quality gate framework.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine mandates that infrastructure failures are treated with the same severity as application bugs. A broken deployment script is a production-blocking defect, a missing Git hook is a quality regression vector, and an undocumented Mix task is a maintenance liability. No infrastructure component is permitted to exist outside the quality gate framework.
 
 ## Evolutionary Adaptation
 
-Through [SEADF](/glossary/seadf/) integration, the scripts-infrastructure-supreme continuously evolves infrastructure tooling based on observed usage patterns, failure modes, and developer feedback. When a script consistently triggers errors in CI, the agent analyzes failure patterns and proposes hardening changes. When new applications are added to the umbrella, infrastructure templates are automatically propagated to ensure consistent tooling coverage. This evolutionary approach ensures that infrastructure keeps pace with the platform's growth trajectory from 90 applications toward its expansion roadmap.
+Through [SEADF](@/glossary/seadf.md) integration, the scripts-infrastructure-supreme continuously evolves infrastructure tooling based on observed usage patterns, failure modes, and developer feedback. When a script consistently triggers errors in CI, the agent analyzes failure patterns and proposes hardening changes. When new applications are added to the umbrella, infrastructure templates are automatically propagated to ensure consistent tooling coverage. This evolutionary approach ensures that infrastructure keeps pace with the platform's growth trajectory from 90 applications toward its expansion roadmap.
 
 ## Related Agents
 
@@ -127,4 +127,4 @@ Agents in the **mycelial-propagation** domain work together to maintain the conn
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -32,7 +32,7 @@ The Society Coordinator is an L3 agent operating in the **general** domain of th
 
 An epistemic society, in the context of the Prismatic Platform, is a dynamically formed group of agents that collaborate on shared knowledge domains, collectively maintain belief states, and jointly evolve their capabilities through structured feedback loops. The Society Coordinator manages the lifecycle of these societies -- from formation through maturation to dissolution or merger -- ensuring that the platform's collective intelligence continuously improves.
 
-The coordinator operates under the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, which mandates that all beliefs within a society are traceable, time-stamped, and supported by multiple independent signals. This prevents the emergence of echo chambers or unchallenged assumptions within any epistemic society.
+The coordinator operates under the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, which mandates that all beliefs within a society are traceable, time-stamped, and supported by multiple independent signals. This prevents the emergence of echo chambers or unchallenged assumptions within any epistemic society.
 
 ## Epistemic Society Architecture
 
@@ -152,11 +152,11 @@ The Society Coordinator implements a collective intelligence protocol that enabl
 
 | Protocol Step | Description | Mechanism |
 |--------------|-------------|-----------|
-| **Signal Collection** | Gather perspectives from all society members | [Telemetry](/glossary/telemetry/) aggregation |
-| **Diversity Check** | Ensure sufficient viewpoint diversity | [NABLA](/glossary/nabla-infinity/) plurality axiom |
+| **Signal Collection** | Gather perspectives from all society members | [Telemetry](@/glossary/telemetry.md) aggregation |
+| **Diversity Check** | Ensure sufficient viewpoint diversity | [NABLA](@/glossary/nabla-infinity.md) plurality axiom |
 | **Weighted Synthesis** | Combine signals with competence-based weighting | Bayesian aggregation |
 | **Contradiction Analysis** | Identify and preserve contradictory signals | Contradiction preservation axiom |
-| **Confidence Assessment** | Calculate collective confidence in conclusions | [Trinity Gate](/glossary/trinity-gate/) validation |
+| **Confidence Assessment** | Calculate collective confidence in conclusions | [Trinity Gate](@/glossary/trinity-gate.md) validation |
 | **Decision Emission** | Publish society-level decisions with provenance | Immutable audit trail |
 
 ## Repair Item Classification
@@ -254,10 +254,10 @@ Not every group of agents warrants a formal epistemic society. The Society Coord
 
 ## Integration Points
 
-- [**NABLA Axioms**](/capabilities/nabla-axioms/) -- Epistemic framework governing society beliefs
-- [**Autonomous Self-Healing**](/capabilities/autonomous-self-healing/) -- Society-level self-repair capabilities
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Society health monitoring
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- All societies operate within AIAD constraints
+- [**NABLA Axioms**](@/capabilities/nabla-axioms.md) -- Epistemic framework governing society beliefs
+- [**Autonomous Self-Healing**](@/capabilities/autonomous-self-healing.md) -- Society-level self-repair capabilities
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Society health monitoring
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- All societies operate within AIAD constraints
 
 ## AIAD Specification Compliance
 
@@ -266,14 +266,14 @@ Not every group of agents warrants a formal epistemic society. The Society Coord
 | Agent specification file | Compliant |
 | Behavioral rules | 16 rules defined |
 | Telemetry integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Related Agents
 
-- [**Societies Quality Feedback Coordinator**](/agents/societies-quality-feedback-coordinator/) -- Quality feedback across societies
-- [**Stack Mode Coordinator**](/agents/stack-mode-coordinator/) -- Stack-based conversation state management
-- [**Six Sigma Psycho Coordinator**](/agents/six-sigma-psycho-coordinator/) -- Quality enforcement within societies
+- [**Societies Quality Feedback Coordinator**](@/agents/societies-quality-feedback-coordinator.md) -- Quality feedback across societies
+- [**Stack Mode Coordinator**](@/agents/stack-mode-coordinator.md) -- Stack-based conversation state management
+- [**Six Sigma Psycho Coordinator**](@/agents/six-sigma-psycho-coordinator.md) -- Quality enforcement within societies
 
 ## Society Performance Benchmarks
 
@@ -289,7 +289,7 @@ The Society Coordinator evaluates each society against standardized performance 
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to create, modify, and dissolve epistemic societies and manage their collective intelligence protocols.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to create, modify, and dissolve epistemic societies and manage their collective intelligence protocols.
 
 ---
 
@@ -298,4 +298,4 @@ The Society Coordinator evaluates each society against standardized performance 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

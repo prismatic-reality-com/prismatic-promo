@@ -36,8 +36,8 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Getting Started with Prismatic Platform](/academy/getting-started/)
-- Completed [Development Workflow & CI/CD](/academy/development-workflow/)
+- Completed [Getting Started with Prismatic Platform](@/academy/getting-started.md)
+- Completed [Development Workflow & CI/CD](@/academy/development-workflow.md)
 - Basic HTML/CSS knowledge
 - Understanding of Phoenix routing (`router.ex`)
 
@@ -406,32 +406,32 @@ end
 ## See Also
 
 ### Related Applications
-- [prismatic_web](/apps/prismatic-web/) -- Main Phoenix LiveView application
-- [prismatic_perimeter_web](/apps/prismatic-perimeter-web/) -- EASM-specific dashboard components
-- [prismatic_hawkeye_web](/apps/prismatic-hawkeye-web/) -- Visitor intelligence dashboards
+- [prismatic_web](@/apps/prismatic-web.md) -- Main Phoenix LiveView application
+- [prismatic_perimeter_web](@/apps/prismatic-perimeter-web.md) -- EASM-specific dashboard components
+- [prismatic_hawkeye_web](@/apps/prismatic-hawkeye-web.md) -- Visitor intelligence dashboards
 
 ### Glossary
-- [Phoenix LiveView](/glossary/phoenix-liveview/) -- Real-time server-rendered UI framework
-- [TailwindCSS](/glossary/tailwindcss/) -- Utility-first CSS framework (mandatory)
-- [PubSub](/glossary/pubsub/) -- Broadcast communication for live updates
-- [EASM](/glossary/easm/) -- External Attack Surface Management dashboards
-- [Phoenix](/glossary/phoenix/) -- Elixir web framework
+- [Phoenix LiveView](@/glossary/phoenix-liveview.md) -- Real-time server-rendered UI framework
+- [TailwindCSS](@/glossary/tailwindcss.md) -- Utility-first CSS framework (mandatory)
+- [PubSub](@/glossary/pubsub.md) -- Broadcast communication for live updates
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management dashboards
+- [Phoenix](@/glossary/phoenix.md) -- Elixir web framework
 
 ### Architecture
-- [Phoenix LiveView](/architecture/phoenix-liveview/) -- LiveView architecture and patterns
-- [PubSub](/architecture/pubsub/) -- Real-time event distribution architecture
+- [Phoenix LiveView](@/architecture/phoenix-liveview.md) -- LiveView architecture and patterns
+- [PubSub](@/architecture/pubsub.md) -- Real-time event distribution architecture
 
 ### Related Academy Topics
-- [Building EASM Features](/academy/easm-development/) -- The Perimeter dashboard as production LiveView
-- [Storage Architecture](/academy/storage-patterns/) -- Data sources powering dashboard displays
-- [API Integration](/academy/api-integration/) -- REST API as alternative to LiveView
-- [DD Investigation Techniques](/academy/dd-investigation/) -- DD dashboard and case management
+- [Building EASM Features](@/academy/easm-development.md) -- The Perimeter dashboard as production LiveView
+- [Storage Architecture](@/academy/storage-patterns.md) -- Data sources powering dashboard displays
+- [API Integration](@/academy/api-integration.md) -- REST API as alternative to LiveView
+- [DD Investigation Techniques](@/academy/dd-investigation.md) -- DD dashboard and case management
 
 ## Next Steps
 
-- [Building EASM Features](/academy/easm-development/) -- the Perimeter dashboard is a production LiveView example
-- [Storage Architecture & Adapters](/academy/storage-patterns/) -- data sources for your dashboards
-- [API Integration Guide](/academy/api-integration/) -- REST API alternatives to LiveView
+- [Building EASM Features](@/academy/easm-development.md) -- the Perimeter dashboard is a production LiveView example
+- [Storage Architecture & Adapters](@/academy/storage-patterns.md) -- data sources for your dashboards
+- [API Integration Guide](@/academy/api-integration.md) -- REST API alternatives to LiveView
 
 ---
 
@@ -440,4 +440,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

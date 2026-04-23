@@ -28,7 +28,7 @@ image_alt = "GitLab CI/CD Specialist Agent - Prismatic Platform"
 
 ## Overview
 
-The [GitLab CI](/glossary/gitlab-ci/)/CD Specialist Agent is an L3 strategic authority operating within the DevOps, CI/CD, and [Quality Gates](/glossary/quality-gates/) domain of the Prismatic Platform. This agent provides comprehensive expertise in GitLab CI/CD pipeline design, optimization, quality gate enforcement, and deployment strategy implementation. As the platform's primary CI/CD architect, it manages the automated build, test, and deployment infrastructure that sustains a 90-application [umbrella architecture](/glossary/umbrella-application/) with over 5,500 test files and strict zero-warning compilation requirements.
+The [GitLab CI](@/glossary/gitlab-ci.md)/CD Specialist Agent is an L3 strategic authority operating within the DevOps, CI/CD, and [Quality Gates](@/glossary/quality-gates.md) domain of the Prismatic Platform. This agent provides comprehensive expertise in GitLab CI/CD pipeline design, optimization, quality gate enforcement, and deployment strategy implementation. As the platform's primary CI/CD architect, it manages the automated build, test, and deployment infrastructure that sustains a 90-application [umbrella architecture](@/glossary/umbrella-application.md) with over 5,500 test files and strict zero-warning compilation requirements.
 
 The Prismatic Platform's quality discipline demands that every code change passes through a multi-stage pipeline encompassing compilation with warnings-as-errors, static analysis through Credo and Dialyzer, comprehensive test execution, and deployment health verification. The CI/CD Specialist designs and maintains these pipeline definitions, optimizing execution time through intelligent caching, parallel job distribution, and selective test execution based on changed file analysis. The agent's work directly impacts developer productivity and release velocity, as pipeline execution time represents the primary feedback loop for code quality validation.
 
@@ -42,13 +42,13 @@ The CI/CD Specialist manages a layered pipeline architecture that balances thoro
 
 **Comprehensive Testing Layer.** The third stage executes the complete test suite across all 90 umbrella applications, including unit tests, integration tests, and property-based tests. Test execution is distributed across multiple parallel jobs using GitLab's parallel keyword, with test splitting based on historical execution time data to balance job duration. Coverage reports are generated and aggregated across all parallel jobs to produce a unified coverage metric.
 
-**Deployment Layer.** The final stage handles deployment to staging and production environments through [Fly.io](/glossary/fly-io/) deployment automation. Staging deployments are automatic for merge request branches, enabling preview environments for code review. Production deployments require explicit approval and execute canary deployment strategies with automated rollback triggers based on health check failures.
+**Deployment Layer.** The final stage handles deployment to staging and production environments through [Fly.io](@/glossary/fly-io.md) deployment automation. Staging deployments are automatic for merge request branches, enabling preview environments for code review. Production deployments require explicit approval and execute canary deployment strategies with automated rollback triggers based on health check failures.
 
 ## Core Capabilities
 
 The agent provides six primary capability domains that collectively enable robust CI/CD operations.
 
-**Pipeline Optimization.** Continuously analyzing pipeline execution metrics to identify bottlenecks and implement optimizations. The Specialist maintains a performance baseline for each pipeline stage and triggers optimization investigations when execution time exceeds target thresholds. Key optimization techniques include Docker layer caching for dependency installation, [ETS](/glossary/ets/)-based compilation artifact caching across pipeline runs, and selective stage execution based on change impact analysis.
+**Pipeline Optimization.** Continuously analyzing pipeline execution metrics to identify bottlenecks and implement optimizations. The Specialist maintains a performance baseline for each pipeline stage and triggers optimization investigations when execution time exceeds target thresholds. Key optimization techniques include Docker layer caching for dependency installation, [ETS](@/glossary/ets.md)-based compilation artifact caching across pipeline runs, and selective stage execution based on change impact analysis.
 
 **Dynamic Pipeline Generation.** Generating pipeline configurations programmatically based on the nature of code changes. When a commit affects only documentation, the pipeline skips compilation and test stages. When infrastructure configuration changes, the pipeline includes additional deployment verification stages. This dynamic approach prevents unnecessary work while ensuring that every change type receives appropriate validation.
 
@@ -87,11 +87,11 @@ Each quality gate produces structured artifacts that are parsed and displayed in
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [gitlab-api-specialist-agent](/agents/gitlab-api-specialist-agent/) | Provides API access for pipeline triggering and status monitoring | Integration |
-| [gitlab-security-specialist-agent](/agents/gitlab-security-specialist-agent/) | Coordinates security scanning stage configuration and vulnerability reporting | Security |
-| [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) | Enforces pipeline safety guardrails preventing dangerous configuration patterns | Enforcement |
-| [deployment-commander-agent](/agents/deployment-commander-agent/) | Receives deployment directives and coordinates deployment pipeline execution | Deployment |
-| [hbfs-quality-evolution](/agents/hbfs-quality-evolution/) | Integrates quality evolution metrics into pipeline gate thresholds | Quality |
+| [gitlab-api-specialist-agent](@/agents/gitlab-api-specialist-agent.md) | Provides API access for pipeline triggering and status monitoring | Integration |
+| [gitlab-security-specialist-agent](@/agents/gitlab-security-specialist-agent.md) | Coordinates security scanning stage configuration and vulnerability reporting | Security |
+| [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) | Enforces pipeline safety guardrails preventing dangerous configuration patterns | Enforcement |
+| [deployment-commander-agent](@/agents/deployment-commander-agent.md) | Receives deployment directives and coordinates deployment pipeline execution | Deployment |
+| [hbfs-quality-evolution](@/agents/hbfs-quality-evolution.md) | Integrates quality evolution metrics into pipeline gate thresholds | Quality |
 
 ## Performance Metrics
 
@@ -103,7 +103,7 @@ Pipeline reliability targets: success rate above 98% for non-code-related failur
 
 ## Enforcement
 
-The GitLab CI/CD Specialist Agent operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No code reaches production without passing all pipeline quality gates. Pipeline configurations are treated as production code and undergo the same review rigor as application code. Manual pipeline overrides that skip quality gates are forbidden. Pipeline execution history is retained for audit compliance and trend analysis. Every pipeline failure is investigated to determine whether it represents a legitimate code issue or a CI/CD infrastructure problem requiring remediation.
+The GitLab CI/CD Specialist Agent operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No code reaches production without passing all pipeline quality gates. Pipeline configurations are treated as production code and undergo the same review rigor as application code. Manual pipeline overrides that skip quality gates are forbidden. Pipeline execution history is retained for audit compliance and trend analysis. Every pipeline failure is investigated to determine whether it represents a legitimate code issue or a CI/CD infrastructure problem requiring remediation.
 
 ---
 
@@ -112,4 +112,4 @@ The GitLab CI/CD Specialist Agent operates under the [NO MERCY, NO DOUBTS](/glos
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

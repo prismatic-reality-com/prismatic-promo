@@ -163,11 +163,11 @@ The Perimeter compliance engine cross-tabulates compliance control status by reg
 
 ## Cross-References
 
-- [Correlation](/glossary/correlation/) - continuous variable relationship measure (complement to crosstab)
-- [Covariance](/glossary/covariance/) - continuous joint variability measure
-- [Chart](/glossary/chart/) - heatmap visualization of cross-tabulation results
-- [Analytics](/glossary/analytics/) - data analysis encompassing cross-tabulation
-- [Completeness](/glossary/completeness/) - data quality revealed by cross-tabulation gaps
+- [Correlation](@/glossary/correlation.md) - continuous variable relationship measure (complement to crosstab)
+- [Covariance](@/glossary/covariance.md) - continuous joint variability measure
+- [Chart](@/glossary/chart.md) - heatmap visualization of cross-tabulation results
+- [Analytics](@/glossary/analytics.md) - data analysis encompassing cross-tabulation
+- [Completeness](@/glossary/completeness.md) - data quality revealed by cross-tabulation gaps
 - **Livebooks**: `livebooks/domains/data_analysis/` - interactive cross-tabulation analysis
 - **Academy**: Statistical analysis methods and data exploration techniques
 

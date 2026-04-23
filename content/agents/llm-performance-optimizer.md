@@ -28,9 +28,9 @@ image_alt = "llm-performance-optimizer - Prismatic Platform"
 
 ## Overview
 
-The llm-performance-optimizer is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the [AIAD](/glossary/aiad/)-enhanced domain of the Prismatic Platform. This agent monitors, analyzes, and optimizes the performance of LLM operations across the platform, focusing on request latency, throughput capacity, resource utilization efficiency, and end-to-end response time from agent request to response delivery. In a platform where LLM interactions are a critical path dependency for hundreds of autonomous agents, LLM performance directly impacts overall platform responsiveness and operational capacity.
+The llm-performance-optimizer is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the [AIAD](@/glossary/aiad.md)-enhanced domain of the Prismatic Platform. This agent monitors, analyzes, and optimizes the performance of LLM operations across the platform, focusing on request latency, throughput capacity, resource utilization efficiency, and end-to-end response time from agent request to response delivery. In a platform where LLM interactions are a critical path dependency for hundreds of autonomous agents, LLM performance directly impacts overall platform responsiveness and operational capacity.
 
-Built on the [AIAD](/glossary/aiad/) standard, the llm-performance-optimizer addresses the performance engineering challenges specific to LLM-integrated systems. LLM performance characteristics differ fundamentally from traditional API services: response times are typically seconds rather than milliseconds, token generation is sequential (creating a strong correlation between response length and latency), and performance can vary significantly between requests depending on prompt complexity and model load. The optimizer accounts for these LLM-specific characteristics in its analysis and optimization recommendations.
+Built on the [AIAD](@/glossary/aiad.md) standard, the llm-performance-optimizer addresses the performance engineering challenges specific to LLM-integrated systems. LLM performance characteristics differ fundamentally from traditional API services: response times are typically seconds rather than milliseconds, token generation is sequential (creating a strong correlation between response length and latency), and performance can vary significantly between requests depending on prompt complexity and model load. The optimizer accounts for these LLM-specific characteristics in its analysis and optimization recommendations.
 
 ## Performance Monitoring Architecture
 
@@ -47,8 +47,8 @@ Each latency component is tracked independently, enabling the optimizer to ident
 - **Batching optimization** -- Identifies opportunities to batch independent LLM requests for reduced per-request overhead and improved throughput
 - **Cache hit rate monitoring** -- Tracks response caching effectiveness, identifying opportunities to expand caching for deterministic queries
 - **Regression detection** -- Identifies performance regressions in LLM operations through statistical comparison against historical baselines
-- **[GenServer](/glossary/genserver/)-based state management** -- Maintains performance baselines and monitoring state as [OTP](/glossary/otp/) GenServer state
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for real-time performance metric publication and dashboard support
+- **[GenServer](@/glossary/genserver.md)-based state management** -- Maintains performance baselines and monitoring state as [OTP](@/glossary/otp.md) GenServer state
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for real-time performance metric publication and dashboard support
 
 ## Optimization Strategies
 
@@ -72,18 +72,18 @@ For batch operations (where latency is less critical than throughput), the optim
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the optimizer to access performance data across all LLM interaction points, coordinate optimization strategies across providers, and publish performance recommendations to all LLM infrastructure agents.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the optimizer to access performance data across all LLM interaction points, coordinate optimization strategies across providers, and publish performance recommendations to all LLM infrastructure agents.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
 | LLM Client Library | Performance instrumentation points and configuration management |
-| [GenServer](/glossary/genserver/) | OTP-based performance state and baseline management |
+| [GenServer](@/glossary/genserver.md) | OTP-based performance state and baseline management |
 | Prismatic Telemetry | Performance metric collection, aggregation, and dashboard publication |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of optimization strategies |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of optimization strategies |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
 
 ## Command Interface
 
@@ -99,14 +99,14 @@ For batch operations (where latency is less critical than throughput), the optim
 
 | Agent | Relationship |
 |-------|-------------|
-| [**llm-model-selector**](/agents/llm-model-selector/) (L4) | Latency data informs model selection for time-sensitive tasks |
-| [**llm-fallback-coordinator**](/agents/llm-fallback-coordinator/) (L3) | Performance degradation triggers failover considerations |
-| [**llm-cost-manager**](/agents/llm-cost-manager/) (L4) | Performance-cost trade-offs inform optimization strategy selection |
-| [**llm-context-optimizer**](/agents/llm-context-optimizer/) (L4) | Context size directly impacts generation latency and token cost |
+| [**llm-model-selector**](@/agents/llm-model-selector.md) (L4) | Latency data informs model selection for time-sensitive tasks |
+| [**llm-fallback-coordinator**](@/agents/llm-fallback-coordinator.md) (L3) | Performance degradation triggers failover considerations |
+| [**llm-cost-manager**](@/agents/llm-cost-manager.md) (L4) | Performance-cost trade-offs inform optimization strategy selection |
+| [**llm-context-optimizer**](@/agents/llm-context-optimizer.md) (L4) | Context size directly impacts generation latency and token cost |
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that performance regressions are detected and addressed, not ignored. The optimizer alerts on sustained performance degradation and escalates when regressions persist beyond configurable thresholds. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all optimization recommendations are backed by measured performance data with statistical significance, not anecdotal observations or theoretical projections.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that performance regressions are detected and addressed, not ignored. The optimizer alerts on sustained performance degradation and escalates when regressions persist beyond configurable thresholds. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all optimization recommendations are backed by measured performance data with statistical significance, not anecdotal observations or theoretical projections.
 
 ---
 
@@ -115,4 +115,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that performance regressio
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -25,11 +25,11 @@ image_alt = "UN Sanctions List - Prismatic Platform"
 
 ## Overview
 
-The United Nations Security Council Consolidated Sanctions List contains all individuals, entities, and vessels subject to sanctions measures imposed by the UN Security Council. Unlike national sanctions programs (such as [OFAC](/osint/ofac/) or [EU Sanctions](/osint/eu-sanctions/)), UN sanctions are binding on all 193 UN member states under Chapter VII of the UN Charter, making this list the most universally applicable sanctions regime in existence.
+The United Nations Security Council Consolidated Sanctions List contains all individuals, entities, and vessels subject to sanctions measures imposed by the UN Security Council. Unlike national sanctions programs (such as [OFAC](@/osint/ofac.md) or [EU Sanctions](@/osint/eu-sanctions.md)), UN sanctions are binding on all 193 UN member states under Chapter VII of the UN Charter, making this list the most universally applicable sanctions regime in existence.
 
 The list consolidates designations from all active UN sanctions committees, including those targeting terrorism (ISIL/Al-Qaeda), nuclear proliferation (DPRK, Iran), and regional conflicts (Libya, South Sudan, Yemen, Somalia, Central African Republic, Mali, DRC). Each entry includes the designated individual or entity name, aliases, identifying information (dates of birth, passport numbers, national IDs), and a narrative summary explaining the reasons for designation.
 
-For compliance professionals, screening against the UN sanctions list is a fundamental requirement. While [OFAC](/osint/ofac/) and [EU Sanctions](/osint/eu-sanctions/) include their own extensions beyond UN designations, the UN list represents the baseline that all nations are legally required to enforce. The Prismatic platform integrates all three lists into a unified tri-jurisdiction screening pipeline that ensures comprehensive global sanctions compliance.
+For compliance professionals, screening against the UN sanctions list is a fundamental requirement. While [OFAC](@/osint/ofac.md) and [EU Sanctions](@/osint/eu-sanctions.md) include their own extensions beyond UN designations, the UN list represents the baseline that all nations are legally required to enforce. The Prismatic platform integrates all three lists into a unified tri-jurisdiction screening pipeline that ensures comprehensive global sanctions compliance.
 
 ## Data Coverage
 
@@ -59,7 +59,7 @@ For compliance professionals, screening against the UN sanctions list is a funda
 
 ## Integration with Prismatic
 
-The UN Sanctions List integrates with the Prismatic platform's tri-jurisdiction [sanctions screening](/glossary/sanctions-screening/) pipeline, complementing [OFAC](/osint/ofac/) and [EU Sanctions](/osint/eu-sanctions/) for comprehensive global coverage.
+The UN Sanctions List integrates with the Prismatic platform's tri-jurisdiction [sanctions screening](@/glossary/sanctions-screening.md) pipeline, complementing [OFAC](@/osint/ofac.md) and [EU Sanctions](@/osint/eu-sanctions.md) for comprehensive global coverage.
 
 ```elixir
 # Search by name
@@ -158,32 +158,32 @@ end
 - **XML Download**: Full consolidated list in structured XML
 - **Web Search**: Online search tool at scsanctions.un.org
 - **Notifications**: Email notifications for list changes
-- **API**: No official [REST API](/glossary/rest-api/); XML parsing required
+- **API**: No official [REST API](@/glossary/rest-api.md); XML parsing required
 
 ## Use Cases
 
 ### Global Sanctions Compliance
 - Baseline sanctions screening required by all 193 UN member states
-- Complement [OFAC](/osint/ofac/) and [EU Sanctions](/osint/eu-sanctions/) for full coverage
+- Complement [OFAC](@/osint/ofac.md) and [EU Sanctions](@/osint/eu-sanctions.md) for full coverage
 - Mandatory for international financial institutions and trade operations
 
 ### Counter-Terrorism Screening
 - Screen individuals and entities against the 1267/1989/2253 terrorism list
-- Cross-reference with [OFAC SDGT](/osint/ofac/) for comprehensive terrorism screening
+- Cross-reference with [OFAC SDGT](@/osint/ofac.md) for comprehensive terrorism screening
 - Monitor for new designations and de-listings
 
 ### Corporate Due Diligence
 - Screen business partners, suppliers, and customers against the UN list
-- Cross-reference with Czech registries ([ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/))
+- Cross-reference with Czech registries ([ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md))
 - Assess country-level sanctions risk for business operations
 
 ## Related Sources
 
-- [OFAC](/osint/ofac/) - US Treasury sanctions (extends beyond UN designations)
-- [EU Sanctions](/osint/eu-sanctions/) - European Union sanctions (implements UN + EU-specific)
-- [ARES](/osint/ares/) - Czech business register for entity identification
-- [Justice.cz](/osint/justice-cz/) - Czech Commercial Register for UBO verification
-- [Chainalysis](/osint/chainalysis/) - Cryptocurrency sanctions screening
+- [OFAC](@/osint/ofac.md) - US Treasury sanctions (extends beyond UN designations)
+- [EU Sanctions](@/osint/eu-sanctions.md) - European Union sanctions (implements UN + EU-specific)
+- [ARES](@/osint/ares.md) - Czech business register for entity identification
+- [Justice.cz](@/osint/justice-cz.md) - Czech Commercial Register for UBO verification
+- [Chainalysis](@/osint/chainalysis.md) - Cryptocurrency sanctions screening
 
 ## Fuzzy Name Matching
 
@@ -211,8 +211,8 @@ The combination of these algorithms with configurable confidence thresholds ensu
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Sanctions in security and compliance ratings
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Sanctions in security and compliance ratings
 
 ---
 
@@ -221,4 +221,4 @@ The combination of these algorithms with configurable confidence thresholds ensu
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

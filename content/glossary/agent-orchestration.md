@@ -531,24 +531,24 @@ NIS2 and ZKB compliance assessments require coordinating asset discovery, vulner
 
 ## Related Concepts
 
-- [Orchestration](/glossary/orchestration/) - The general concept of coordinating distributed components that agent orchestration specializes
-- [AIAD](/glossary/aiad/) - The AI Agent Definition standard that specifies agent interfaces and orchestration protocols
-- [Agent Registry](/glossary/agent-registry/) - The discovery and lookup service used by the orchestrator to find available agents
-- [Multi-Agent System](/glossary/multi-agent-system/) - The theoretical foundation for systems of coordinated autonomous agents
-- [Archer Supreme](/glossary/archer-supreme/) - The L1 strategic meta-orchestrator that coordinates cross-domain campaigns
-- [Agent Tier](/glossary/agent-tier/) - The hierarchical authority system that governs orchestration delegation
-- [Supervision Tree](/glossary/supervision-tree/) - The OTP fault tolerance mechanism underlying agent orchestration
-- [GenServer](/glossary/genserver/) - The Elixir/OTP abstraction implementing orchestrator and agent processes
-- [Agent](/glossary/agent/) - The autonomous software entity being orchestrated
-- [Agent Pool](/glossary/agent-pool/) - Dynamic pool of agent processes managed by the orchestration supervisor
+- [Orchestration](@/glossary/orchestration.md) - The general concept of coordinating distributed components that agent orchestration specializes
+- [AIAD](@/glossary/aiad.md) - The AI Agent Definition standard that specifies agent interfaces and orchestration protocols
+- [Agent Registry](@/glossary/agent-registry.md) - The discovery and lookup service used by the orchestrator to find available agents
+- [Multi-Agent System](@/glossary/multi-agent-system.md) - The theoretical foundation for systems of coordinated autonomous agents
+- [Archer Supreme](@/glossary/archer-supreme.md) - The L1 strategic meta-orchestrator that coordinates cross-domain campaigns
+- [Agent Tier](@/glossary/agent-tier.md) - The hierarchical authority system that governs orchestration delegation
+- [Supervision Tree](@/glossary/supervision-tree.md) - The OTP fault tolerance mechanism underlying agent orchestration
+- [GenServer](@/glossary/genserver.md) - The Elixir/OTP abstraction implementing orchestrator and agent processes
+- [Agent](@/glossary/agent.md) - The autonomous software entity being orchestrated
+- [Agent Pool](@/glossary/agent-pool.md) - Dynamic pool of agent processes managed by the orchestration supervisor
 
 ## See Also
 
-- [Broadway](/glossary/broadway/) - Data processing pipeline library with orchestration patterns
-- [Backpressure](/glossary/backpressure/) - Flow control mechanism essential for robust orchestration
-- [Circuit Breaker](/glossary/circuit-breaker/) - Fault tolerance pattern used in inter-agent communication
-- [Telemetry](/glossary/telemetry/) - Observability framework for monitoring orchestration performance
-- [ETS](/glossary/ets/) - In-memory storage used by the agent registry and orchestration state
+- [Broadway](@/glossary/broadway.md) - Data processing pipeline library with orchestration patterns
+- [Backpressure](@/glossary/backpressure.md) - Flow control mechanism essential for robust orchestration
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Fault tolerance pattern used in inter-agent communication
+- [Telemetry](@/glossary/telemetry.md) - Observability framework for monitoring orchestration performance
+- [ETS](@/glossary/ets.md) - In-memory storage used by the agent registry and orchestration state
 
 ---
 
@@ -557,4 +557,4 @@ NIS2 and ZKB compliance assessments require coordinating asset discovery, vulner
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

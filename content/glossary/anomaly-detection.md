@@ -212,18 +212,18 @@ end
 
 ## Related Terms
 
-- [Anomaly](/glossary/anomaly/) -- the detected deviation itself
-- [Alert](/glossary/alert/) -- notification generated upon anomaly detection
-- [Behavioral Drift](/glossary/behavioral-drift/) -- gradual anomalies detectable through trend analysis
-- [Accuracy](/glossary/accuracy/) -- detection correctness measurement
+- [Anomaly](@/glossary/anomaly.md) -- the detected deviation itself
+- [Alert](@/glossary/alert.md) -- notification generated upon anomaly detection
+- [Behavioral Drift](@/glossary/behavioral-drift.md) -- gradual anomalies detectable through trend analysis
+- [Accuracy](@/glossary/accuracy.md) -- detection correctness measurement
 - **Confidence Score** -- certainty of anomaly classification
 - **Correlation** -- relating anomalies across sources
 
 ## See Also
 
-- [Academy Security Livebook](/academy/) -- interactive anomaly detection exercises
+- [Academy Security Livebook](@/academy/_index.md) -- interactive anomaly detection exercises
 - [Perimeter EASM](/perimeter/) -- real-time attack surface anomaly monitoring
-- [Quality Gates](/glossary/quality-gates/) -- quality anomaly enforcement
+- [Quality Gates](@/glossary/quality-gates.md) -- quality anomaly enforcement
 
 ---
 
@@ -232,4 +232,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

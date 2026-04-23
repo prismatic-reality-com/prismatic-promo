@@ -213,8 +213,8 @@ PrismaticApi.MigrationGuide.generate("/api/v1/osint/search", "/api/v2/osint/sear
 
 ## Cross-References
 
-- [REST API](/glossary/rest-api/) - API architecture with versioned endpoints
-- [OpenAPI Spec](/glossary/openapi-spec/) - Documentation format tracking endpoint lifecycle
+- [REST API](@/glossary/rest-api.md) - API architecture with versioned endpoints
+- [OpenAPI Spec](@/glossary/openapi-spec.md) - Documentation format tracking endpoint lifecycle
 - **Versioning** - Strategy enabling parallel API versions
 - **Swagger** - Interactive documentation showing deprecation status
 

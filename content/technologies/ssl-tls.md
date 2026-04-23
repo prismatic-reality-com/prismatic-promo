@@ -24,9 +24,9 @@ image_alt = "SSL/TLS - Prismatic Platform"
 
 ## Overview
 
-SSL/TLS provides the transport layer encryption for all Prismatic Platform communications. Every HTTP connection, [WebSocket](/technologies/websockets/), database connection, and inter-node cluster communication is encrypted using TLS 1.3, ensuring data confidentiality and integrity across all network boundaries. In a security intelligence platform that processes sensitive vulnerability data, compliance assessments, and organizational risk profiles, transport encryption is not optional -- it is a foundational requirement for every data path.
+SSL/TLS provides the transport layer encryption for all Prismatic Platform communications. Every HTTP connection, [WebSocket](@/technologies/websockets.md), database connection, and inter-node cluster communication is encrypted using TLS 1.3, ensuring data confidentiality and integrity across all network boundaries. In a security intelligence platform that processes sensitive vulnerability data, compliance assessments, and organizational risk profiles, transport encryption is not optional -- it is a foundational requirement for every data path.
 
-The Prismatic Platform's TLS implementation leverages Erlang's built-in `:ssl` module, which provides native support for TLS 1.3 with modern cipher suites, certificate verification, and hostname checking. On [Fly.io](/technologies/flyio/), the platform benefits from automatic TLS certificate provisioning and renewal through Fly's built-in certificate management, eliminating manual certificate lifecycle operations. The `:ssl` module runs entirely within the [BEAM](/technologies/beam/) runtime, requiring no external libraries or system-level OpenSSL dependencies, which simplifies deployment and reduces the attack surface.
+The Prismatic Platform's TLS implementation leverages Erlang's built-in `:ssl` module, which provides native support for TLS 1.3 with modern cipher suites, certificate verification, and hostname checking. On [Fly.io](@/technologies/flyio.md), the platform benefits from automatic TLS certificate provisioning and renewal through Fly's built-in certificate management, eliminating manual certificate lifecycle operations. The `:ssl` module runs entirely within the [BEAM](@/technologies/beam.md) runtime, requiring no external libraries or system-level OpenSSL dependencies, which simplifies deployment and reduces the attack surface.
 
 The platform's EASM (External Attack Surface Management) module actively monitors TLS configurations of target domains, checking certificate validity, cipher suite strength, protocol versions, and certificate chain completeness as part of its security rating calculations. A domain with an expired certificate, weak cipher suite, or outdated protocol version receives a lower security grade, directly impacting its overall security posture assessment.
 
@@ -201,7 +201,7 @@ The Erlang `:ssl` module's native integration with the BEAM process model means 
 
 ## Configuration
 
-The [Phoenix](/technologies/phoenix/) endpoint TLS configuration and inter-node distribution encryption are both configured through standard [Elixir](/technologies/elixir/) config files.
+The [Phoenix](@/technologies/phoenix.md) endpoint TLS configuration and inter-node distribution encryption are both configured through standard [Elixir](@/technologies/elixir.md) config files.
 
 ```elixir
 # Phoenix endpoint TLS configuration (direct HTTPS)
@@ -253,7 +253,7 @@ config :kernel,
 - **Always verify peer certificates** -- set `verify: :verify_peer` on all outbound connections to prevent man-in-the-middle attacks
 - **Use `CAStore` for CA certificates** -- the Hex package bundles Mozilla's trusted CA list and stays current with Erlang releases automatically
 - **Monitor certificate expiry** -- the Perimeter scanner tracks internal certificate expiry dates alongside external targets, providing advance warning
-- **Enable HSTS** -- set `Strict-Transport-Security` headers via [Plug](/technologies/plug/) to prevent protocol downgrade attacks in browsers
+- **Enable HSTS** -- set `Strict-Transport-Security` headers via [Plug](@/technologies/plug.md) to prevent protocol downgrade attacks in browsers
 - **Rotate credentials regularly** -- mutual TLS client certificates should have short lifespans and be rotated automatically via deployment pipelines
 - **Disable weak protocols** -- explicitly set `versions: [:"tlsv1.3"]` to prevent fallback to TLS 1.1 or 1.0 which have known vulnerabilities
 - **Use hardware acceleration** -- ensure the deployment environment supports AES-NI instructions for efficient AEAD cipher operations
@@ -274,19 +274,19 @@ TLS 1.3 was chosen as the platform's primary security protocol because it provid
 
 ## Related Technologies
 
-- [JOSE](/technologies/jose/) - Application-layer JWT token security complementing transport-layer TLS
-- [Argon2](/technologies/argon2/) - Credential protection at rest, complementing TLS in transit
-- [Nginx](/technologies/nginx/) - TLS termination at the reverse proxy layer for non-Fly.io deployments
-- [Fly.io](/technologies/flyio/) - Automatic TLS certificate provisioning and renewal in production
-- [PostgreSQL](/technologies/postgresql/) - Database connections secured with TLS
-- [Redis](/technologies/redis/) - Cache connections secured with TLS in production
+- [JOSE](@/technologies/jose.md) - Application-layer JWT token security complementing transport-layer TLS
+- [Argon2](@/technologies/argon2.md) - Credential protection at rest, complementing TLS in transit
+- [Nginx](@/technologies/nginx.md) - TLS termination at the reverse proxy layer for non-Fly.io deployments
+- [Fly.io](@/technologies/flyio.md) - Automatic TLS certificate provisioning and renewal in production
+- [PostgreSQL](@/technologies/postgresql.md) - Database connections secured with TLS
+- [Redis](@/technologies/redis.md) - Cache connections secured with TLS in production
 
 ## Related Apps
 
 - All Prismatic Platform network communications use TLS
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - TLS assessment scanning for external domains as part of EASM
-- [prismatic_web](/apps/prismatic-web/) - HTTPS endpoint serving all dashboards and LiveView connections
-- [prismatic_api](/apps/prismatic-api/) - HTTPS-only API gateway on port 4004
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - TLS assessment scanning for external domains as part of EASM
+- [prismatic_web](@/apps/prismatic-web.md) - HTTPS endpoint serving all dashboards and LiveView connections
+- [prismatic_api](@/apps/prismatic-api.md) - HTTPS-only API gateway on port 4004
 
 ---
 
@@ -295,4 +295,4 @@ TLS 1.3 was chosen as the platform's primary security protocol because it provid
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

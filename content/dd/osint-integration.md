@@ -30,7 +30,7 @@ keywords = ["OSINT", "Source", "Integration", "Framework", "data sources", "Pris
 
 ## Abstract
 
-The Prismatic Platform integrates 122 [OSINT](/glossary/osint/) source adapters organized into seven intelligence categories, providing comprehensive data coverage for due diligence investigations across entity types, jurisdictions, and risk dimensions. Each adapter conforms to the `PrismaticOsintCore.Behaviours.Source` [behaviour](/glossary/behaviour/) contract, ensuring consistent error handling, rate limiting, credential management, and [telemetry](/glossary/telemetry/) across all sources. This document describes the integration architecture, the intelligence category taxonomy, the adapter behaviour contract, the parallel collection engine, and the normalization pipeline that transforms heterogeneous source data into the platform's unified [entity schema](/dd/entity-management/).
+The Prismatic Platform integrates 122 [OSINT](@/glossary/osint.md) source adapters organized into seven intelligence categories, providing comprehensive data coverage for due diligence investigations across entity types, jurisdictions, and risk dimensions. Each adapter conforms to the `PrismaticOsintCore.Behaviours.Source` [behaviour](@/glossary/behaviour.md) contract, ensuring consistent error handling, rate limiting, credential management, and [telemetry](@/glossary/telemetry.md) across all sources. This document describes the integration architecture, the intelligence category taxonomy, the adapter behaviour contract, the parallel collection engine, and the normalization pipeline that transforms heterogeneous source data into the platform's unified [entity schema](@/dd/entity-management.md).
 
 ## Introduction
 
@@ -38,7 +38,7 @@ The Prismatic Platform integrates 122 [OSINT](/glossary/osint/) source adapters 
 
 Due diligence investigations must balance breadth of source coverage against depth of data extraction. A platform that queries only Czech registries provides deep but narrow coverage, missing global connections, cyber risk indicators, and international sanctions matches. Conversely, a platform that queries hundreds of shallow sources produces noise without actionable intelligence.
 
-The Prismatic Platform resolves this trade-off through tiered source integration: deep, purpose-built adapters for [30+ Czech registries](/dd/czech-registries/) that extract structured data from specialized APIs, combined with 84+ global intelligence source adapters that provide breadth across infrastructure, threat, social, financial, and compliance domains. The [triple-check cross-validation methodology](/dd/methodology/) ensures that breadth does not come at the cost of accuracy by requiring multi-source corroboration before findings are accepted.
+The Prismatic Platform resolves this trade-off through tiered source integration: deep, purpose-built adapters for [30+ Czech registries](@/dd/czech-registries.md) that extract structured data from specialized APIs, combined with 84+ global intelligence source adapters that provide breadth across infrastructure, threat, social, financial, and compliance domains. The [triple-check cross-validation methodology](@/dd/methodology.md) ensures that breadth does not come at the cost of accuracy by requiring multi-source corroboration before findings are accepted.
 
 ### Architecture Overview
 
@@ -74,13 +74,13 @@ The 122 OSINT source adapters are organized into seven intelligence categories:
 
 | Category | Sources | Description | Key Adapters |
 |----------|---------|-------------|-------------|
-| **Czech Registries** | 30+ | Government and regulatory databases | [ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/), [ISIR](/osint/insolvencni-rejstrik/), [CUZK](/osint/cuzk/), [RZP](/osint/rzp/) |
-| **Infrastructure Recon** | 18 | Network and infrastructure intelligence | [Shodan](/osint/shodan/), [Censys](/osint/censys/), [SecurityTrails](/osint/securitytrails/), [crt.sh](/osint/crtsh/) |
-| **Threat Intelligence** | 15 | Vulnerability and malware data | [VirusTotal](/osint/virustotal/), [AlienVault OTX](/osint/alienvault-otx/), [AbuseIPDB](/osint/abuseipdb/), [GreyNoise](/osint/greynoise/) |
-| **Social Intelligence** | 12 | Social and professional network data | [FullContact](/osint/fullcontact/), LinkedIn, social monitoring |
-| **Email and Identity** | 10 | Email verification and identity data | [Hunter.io](/osint/hunter-io/), [HIBP](/osint/haveibeenpwned/), [EmailRep](/osint/emailrep/) |
-| **Financial Intelligence** | 14 | Corporate, financial, and blockchain data | [OpenCorporates](/osint/open-corporates/), [SEC EDGAR](/osint/sec-edgar/), [Chainalysis](/osint/chainalysis/), [Etherscan](/osint/etherscan/) |
-| **Compliance and Sanctions** | 8 | Sanctions lists and compliance databases | [OFAC](/osint/ofac/), [EU Sanctions](/osint/eu-sanctions/), [UN Sanctions](/osint/un-sanctions/), PEP databases |
+| **Czech Registries** | 30+ | Government and regulatory databases | [ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md), [ISIR](@/osint/insolvencni-rejstrik.md), [CUZK](@/osint/cuzk.md), [RZP](@/osint/rzp.md) |
+| **Infrastructure Recon** | 18 | Network and infrastructure intelligence | [Shodan](@/osint/shodan.md), [Censys](@/osint/censys.md), [SecurityTrails](@/osint/securitytrails.md), [crt.sh](@/osint/crtsh.md) |
+| **Threat Intelligence** | 15 | Vulnerability and malware data | [VirusTotal](@/osint/virustotal.md), [AlienVault OTX](@/osint/alienvault-otx.md), [AbuseIPDB](@/osint/abuseipdb.md), [GreyNoise](@/osint/greynoise.md) |
+| **Social Intelligence** | 12 | Social and professional network data | [FullContact](@/osint/fullcontact.md), LinkedIn, social monitoring |
+| **Email and Identity** | 10 | Email verification and identity data | [Hunter.io](@/osint/hunter-io.md), [HIBP](@/osint/haveibeenpwned.md), [EmailRep](@/osint/emailrep.md) |
+| **Financial Intelligence** | 14 | Corporate, financial, and blockchain data | [OpenCorporates](@/osint/open-corporates.md), [SEC EDGAR](@/osint/sec-edgar.md), [Chainalysis](@/osint/chainalysis.md), [Etherscan](@/osint/etherscan.md) |
+| **Compliance and Sanctions** | 8 | Sanctions lists and compliance databases | [OFAC](@/osint/ofac.md), [EU Sanctions](@/osint/eu-sanctions.md), [UN Sanctions](@/osint/un-sanctions.md), PEP databases |
 
 ### Category-Entity Type Mapping
 
@@ -148,7 +148,7 @@ The `Finding` struct captures both the normalized attribute value and the raw so
 
 ### Broadway-Based Pipeline
 
-The collection engine uses [Broadway](/glossary/broadway/) for concurrent, back-pressure-aware processing of OSINT queries. When an entity enters the enrichment phase, the source selection engine identifies all relevant sources and submits query tasks to the Broadway pipeline:
+The collection engine uses [Broadway](@/glossary/broadway.md) for concurrent, back-pressure-aware processing of OSINT queries. When an entity enters the enrichment phase, the source selection engine identifies all relevant sources and submits query tasks to the Broadway pipeline:
 
 ```
 Entity Enrichment Request
@@ -197,7 +197,7 @@ Failed queries after exhausting retries are recorded in the case log with the er
 
 ### Collection Metrics
 
-The platform tracks detailed collection metrics through [Telemetry](/glossary/telemetry/):
+The platform tracks detailed collection metrics through [Telemetry](@/glossary/telemetry.md):
 
 | Metric | Description | Alert Threshold |
 |--------|-------------|----------------|
@@ -228,10 +228,10 @@ Attribute values are normalized to canonical formats:
 - **Identifiers**: Format validation (ICO check digits, IBAN validation, etc.)
 
 **Stage 4: Confidence Assignment**
-Each normalized finding receives an initial confidence score based on the source's authority tier and data freshness, as described in the [triple-check methodology](/dd/methodology/).
+Each normalized finding receives an initial confidence score based on the source's authority tier and data freshness, as described in the [triple-check methodology](@/dd/methodology.md).
 
 **Stage 5: Entity Merge**
-Normalized findings are merged into existing entity profiles through the [entity resolution](/dd/entity-management/) algorithm, which determines whether new findings match existing entities or represent newly discovered entities.
+Normalized findings are merged into existing entity profiles through the [entity resolution](@/dd/entity-management.md) algorithm, which determines whether new findings match existing entities or represent newly discovered entities.
 
 ## Source Health Monitoring
 
@@ -283,19 +283,19 @@ The behaviour contract ensures that new adapters integrate seamlessly with the c
 
 ## Conclusion
 
-The OSINT Source Integration Framework provides the data foundation for the Prismatic Platform's due diligence capability. By integrating 122 source adapters across seven intelligence categories through a uniform behaviour contract, the platform achieves both breadth (global coverage across entity types and risk dimensions) and depth (purpose-built Czech registry integration) while maintaining the data quality standards required by the [triple-check cross-validation methodology](/dd/methodology/).
+The OSINT Source Integration Framework provides the data foundation for the Prismatic Platform's due diligence capability. By integrating 122 source adapters across seven intelligence categories through a uniform behaviour contract, the platform achieves both breadth (global coverage across entity types and risk dimensions) and depth (purpose-built Czech registry integration) while maintaining the data quality standards required by the [triple-check cross-validation methodology](@/dd/methodology.md).
 
 ## References
 
-- [Czech Registry Integration](/dd/czech-registries/)
-- [Triple-Check Methodology](/dd/methodology/)
-- [Entity Management System](/dd/entity-management/)
-- [Risk Assessment Framework](/dd/risk-assessment/)
-- [OSINT Glossary](/glossary/osint/)
-- [Broadway Pipeline](/glossary/broadway/)
-- [Telemetry System](/glossary/telemetry/)
-- [Adapter Pattern](/glossary/adapter-pattern/)
-- [Behaviour Contract](/glossary/behaviour/)
+- [Czech Registry Integration](@/dd/czech-registries.md)
+- [Triple-Check Methodology](@/dd/methodology.md)
+- [Entity Management System](@/dd/entity-management.md)
+- [Risk Assessment Framework](@/dd/risk-assessment.md)
+- [OSINT Glossary](@/glossary/osint.md)
+- [Broadway Pipeline](@/glossary/broadway.md)
+- [Telemetry System](@/glossary/telemetry.md)
+- [Adapter Pattern](@/glossary/adapter-pattern.md)
+- [Behaviour Contract](@/glossary/behaviour.md)
 
 ---
 
@@ -304,4 +304,4 @@ The OSINT Source Integration Framework provides the data foundation for the Pris
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -46,7 +46,7 @@ The economic argument for code quality is well established. Studies from IBM, Mi
 
 Code quality is not binary (good/bad) but multi-dimensional. Code can have excellent readability but poor performance, or strong type safety but missing documentation. A comprehensive quality system must measure all dimensions independently and provide aggregate scoring that weights dimensions according to their importance for the specific project.
 
-The philosophical foundation of code quality in the Prismatic Platform rests on two complementary principles: [Code as Truth](/glossary/code-as-truth/) (the code is the authoritative representation of system behavior) and [Code as Hypothesis](/glossary/code-as-hypothesis/) (every implementation is provisional until validated). Together, these principles mean that code must be both the definitive record and a rigorously tested proposition. Code quality is the measure of how well the code fulfills both roles.
+The philosophical foundation of code quality in the Prismatic Platform rests on two complementary principles: [Code as Truth](@/glossary/code-as-truth.md) (the code is the authoritative representation of system behavior) and [Code as Hypothesis](@/glossary/code-as-hypothesis.md) (every implementation is provisional until validated). Together, these principles mean that code must be both the definitive record and a rigorously tested proposition. Code quality is the measure of how well the code fulfills both roles.
 
 ## Technical Details
 
@@ -95,7 +95,7 @@ Each domain represents a specific class of defects that has been driven to zero 
 
 ### Static Analysis with Credo
 
-[Credo](/glossary/credo/) provides the foundation of code quality measurement through five check categories:
+[Credo](@/glossary/credo.md) provides the foundation of code quality measurement through five check categories:
 
 ```elixir
 defmodule Prismatic.Quality.CredoAnalysis do
@@ -174,7 +174,7 @@ end
 
 ### Type Safety with Dialyzer
 
-[Dialyzer](/glossary/dialyzer/) performs success typing analysis, catching type-level inconsistencies that unit tests typically miss:
+[Dialyzer](@/glossary/dialyzer.md) performs success typing analysis, catching type-level inconsistencies that unit tests typically miss:
 
 ```elixir
 defmodule Prismatic.Quality.DialyzerAnalysis do
@@ -623,27 +623,27 @@ As teams grow, quality consistency becomes harder to maintain through culture al
 
 ## Related Concepts
 
-- [Credo](/glossary/credo/) -- the primary static analysis tool for Elixir code quality
-- [Dialyzer](/glossary/dialyzer/) -- success typing analysis for type-level quality
-- [Static Analysis](/glossary/static-analysis/) -- the broader category of automated code examination
-- [Quality Gate](/glossary/quality-gate/) -- the enforcement mechanism for quality standards
-- [Clean Run](/glossary/clean-run/) -- the zero-warning compilation standard
-- [Code Coverage](/glossary/code-coverage/) -- metric measuring test completeness
-- [Code Reviews](/glossary/code-reviews/) -- human evaluation complementing automated quality checks
-- [Pre-commit Hooks](/glossary/pre-commit-hooks/) -- the enforcement point for quality validation
-- [Regression Testing](/glossary/regression-testing/) -- tests that prevent quality degradation
-- [Typespec](/glossary/typespec/) -- type annotations that enable Dialyzer analysis
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- the doctrine that demands zero quality violations
-- [Technical Debt](/glossary/technical-debt/) -- the accumulated cost of deferred quality work
+- [Credo](@/glossary/credo.md) -- the primary static analysis tool for Elixir code quality
+- [Dialyzer](@/glossary/dialyzer.md) -- success typing analysis for type-level quality
+- [Static Analysis](@/glossary/static-analysis.md) -- the broader category of automated code examination
+- [Quality Gate](@/glossary/quality-gate.md) -- the enforcement mechanism for quality standards
+- [Clean Run](@/glossary/clean-run.md) -- the zero-warning compilation standard
+- [Code Coverage](@/glossary/code-coverage.md) -- metric measuring test completeness
+- [Code Reviews](@/glossary/code-reviews.md) -- human evaluation complementing automated quality checks
+- [Pre-commit Hooks](@/glossary/pre-commit-hooks.md) -- the enforcement point for quality validation
+- [Regression Testing](@/glossary/regression-testing.md) -- tests that prevent quality degradation
+- [Typespec](@/glossary/typespec.md) -- type annotations that enable Dialyzer analysis
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- the doctrine that demands zero quality violations
+- [Technical Debt](@/glossary/technical-debt.md) -- the accumulated cost of deferred quality work
 
 ## See Also
 
-- [Code as Truth](/glossary/code-as-truth/) -- the code is the truth, so its quality determines truth readability
-- [Code as Hypothesis](/glossary/code-as-hypothesis/) -- quality determines how rigorously hypotheses are validated
-- [Code Change](/glossary/code-change/) -- the unit of work that quality gates evaluate
-- [Fitness Score](/glossary/fitness-score/) -- platform-level health metric derived from quality
-- [Autoevolve](/glossary/autoevolve/) -- autonomous quality improvement system
-- [Autoheal](/glossary/autoheal/) -- autonomous quality repair system
+- [Code as Truth](@/glossary/code-as-truth.md) -- the code is the truth, so its quality determines truth readability
+- [Code as Hypothesis](@/glossary/code-as-hypothesis.md) -- quality determines how rigorously hypotheses are validated
+- [Code Change](@/glossary/code-change.md) -- the unit of work that quality gates evaluate
+- [Fitness Score](@/glossary/fitness-score.md) -- platform-level health metric derived from quality
+- [Autoevolve](@/glossary/autoevolve.md) -- autonomous quality improvement system
+- [Autoheal](@/glossary/autoheal.md) -- autonomous quality repair system
 
 ---
 
@@ -652,4 +652,4 @@ As teams grow, quality consistency becomes harder to maintain through culture al
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

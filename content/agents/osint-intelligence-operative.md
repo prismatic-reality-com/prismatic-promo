@@ -28,9 +28,9 @@ image_alt = "osint-intelligence-operative - Prismatic Platform"
 
 ## Overview
 
-The osint-intelligence-operative operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's tactical domain, serving as the primary field agent for precision [OSINT](/glossary/osint/) intelligence operations. This agent conducts targeted intelligence collection missions that require coordinated use of multiple OSINT capabilities -- search engines, digital profiling, entity resolution, and source correlation -- to answer specific intelligence questions with actionable, evidence-backed findings. Where specialist agents focus on individual collection disciplines, the operative synthesizes across disciplines to produce complete intelligence products.
+The osint-intelligence-operative operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's tactical domain, serving as the primary field agent for precision [OSINT](@/glossary/osint.md) intelligence operations. This agent conducts targeted intelligence collection missions that require coordinated use of multiple OSINT capabilities -- search engines, digital profiling, entity resolution, and source correlation -- to answer specific intelligence questions with actionable, evidence-backed findings. Where specialist agents focus on individual collection disciplines, the operative synthesizes across disciplines to produce complete intelligence products.
 
-Built on the [AIAD](/glossary/aiad/) standard, the intelligence operative follows a structured intelligence cycle: requirements definition, collection planning, source exploitation, processing and analysis, production, and dissemination. The [NO MERCY](/glossary/no-mercy/) doctrine governs operational standards: every intelligence product must include sourcing, confidence assessment, and analytical limitations. The [NO DOUBTS](/glossary/no-doubts/) principle requires that operational findings are distinguished from analytical judgments.
+Built on the [AIAD](@/glossary/aiad.md) standard, the intelligence operative follows a structured intelligence cycle: requirements definition, collection planning, source exploitation, processing and analysis, production, and dissemination. The [NO MERCY](@/glossary/no-mercy.md) doctrine governs operational standards: every intelligence product must include sourcing, confidence assessment, and analytical limitations. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that operational findings are distinguished from analytical judgments.
 
 ## Operational Domain
 
@@ -51,8 +51,8 @@ The tactical OSINT domain covers the execution of intelligence operations that s
 - **Multi-source correlation** -- Synthesizes intelligence from diverse OSINT sources (search engines, social media, public records, domain data, code repositories) into coherent analytical narratives with source weighting
 - **Collection planning** -- Develops optimized collection strategies that identify the most productive sources for specific intelligence requirements, minimizing collection time while maximizing coverage
 - **Operational security** -- Maintains awareness of operational signatures that could reveal collection activities or investigation targets, implementing counter-detection measures in source exploitation
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed collection cycles that adapt based on emerging findings
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing operation metrics, source utilization, and intelligence production statistics
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed collection cycles that adapt based on emerging findings
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing operation metrics, source utilization, and intelligence production statistics
 
 ## Intelligence Operation Framework
 
@@ -129,7 +129,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to orchestrate multi-discipline OSINT operations and produce finished intelligence products.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to orchestrate multi-discipline OSINT operations and produce finished intelligence products.
 
 ## Command Interface
 
@@ -143,14 +143,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [osint-engines-specialist](/agents/osint-engines-specialist/) | Provides multi-engine search capability for collection operations |
-| [osint-digital-profile-specialist](/agents/osint-digital-profile-specialist/) | Supplies digital profiling capability for entity investigations |
-| [osint-legal-economic-risk-specialist](/agents/osint-legal-economic-risk-specialist/) | Provides legal and economic risk analysis for due diligence operations |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Receives intelligence products for strategic risk assessment |
+| [osint-engines-specialist](@/agents/osint-engines-specialist.md) | Provides multi-engine search capability for collection operations |
+| [osint-digital-profile-specialist](@/agents/osint-digital-profile-specialist.md) | Supplies digital profiling capability for entity investigations |
+| [osint-legal-economic-risk-specialist](@/agents/osint-legal-economic-risk-specialist.md) | Provides legal and economic risk analysis for due diligence operations |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Receives intelligence products for strategic risk assessment |
 
 ## SEADF Integration
 
-The intelligence operative operates within the [SEADF](/glossary/seadf/) evolutionary framework, where operational effectiveness metrics (collection success rates, analysis accuracy, product timeliness) feed back into evolutionary optimization. Successful operational patterns are propagated through the [mycelial network](/glossary/mycelial-network/) to improve collection strategies across the OSINT agent ecosystem.
+The intelligence operative operates within the [SEADF](@/glossary/seadf.md) evolutionary framework, where operational effectiveness metrics (collection success rates, analysis accuracy, product timeliness) feed back into evolutionary optimization. Successful operational patterns are propagated through the [mycelial network](@/glossary/mycelial-network.md) to improve collection strategies across the OSINT agent ecosystem.
 
 ## Intelligence Cycle Methodology
 
@@ -166,7 +166,7 @@ The collection plan identifies which sources will be exploited, in what order, a
 
 ### Source Exploitation
 
-Source exploitation involves querying identified sources using optimized techniques. The operative coordinates with specialist agents -- the [osint-engines-specialist](/agents/osint-engines-specialist/) for search engine queries, the [osint-digital-profile-specialist](/agents/osint-digital-profile-specialist/) for entity profiling, and the [municipal-court-specialist](/agents/municipal-court-specialist/) for legal record searches. Exploitation follows operational security protocols that prevent collection activities from alerting targets or compromising source access.
+Source exploitation involves querying identified sources using optimized techniques. The operative coordinates with specialist agents -- the [osint-engines-specialist](@/agents/osint-engines-specialist.md) for search engine queries, the [osint-digital-profile-specialist](@/agents/osint-digital-profile-specialist.md) for entity profiling, and the [municipal-court-specialist](@/agents/municipal-court-specialist.md) for legal record searches. Exploitation follows operational security protocols that prevent collection activities from alerting targets or compromising source access.
 
 ### Analysis and Production
 
@@ -180,7 +180,7 @@ The operative also maintains a "knowledge gap register" for each operation -- a 
 
 ## Enforcement
 
-All intelligence operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no intelligence product is published without complete sourcing and confidence assessments, analytical limitations are always stated explicitly, and the distinction between fact and analytical judgment is maintained throughout all products. The [NO DOUBTS](/glossary/no-doubts/) principle requires evidence-based assessments with [NABLA Infinity](/glossary/nabla-infinity/) provenance chains for every factual claim.
+All intelligence operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no intelligence product is published without complete sourcing and confidence assessments, analytical limitations are always stated explicitly, and the distinction between fact and analytical judgment is maintained throughout all products. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires evidence-based assessments with [NABLA Infinity](@/glossary/nabla-infinity.md) provenance chains for every factual claim.
 
 ---
 
@@ -189,4 +189,4 @@ All intelligence operations comply with the [NO MERCY](/glossary/no-mercy/) doct
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

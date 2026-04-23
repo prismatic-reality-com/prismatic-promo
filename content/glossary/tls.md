@@ -45,7 +45,7 @@ Transport Layer Security (TLS) is a cryptographic protocol that provides privacy
 
 TLS 1.3, ratified as RFC 8446 in August 2018, represents a significant evolution of the protocol. It eliminates support for insecure cipher suites, reduces the handshake from two round trips to one (and zero for resumed connections via 0-RTT), removes vulnerable features like renegotiation and compression, and mandates forward secrecy for all cipher suites. These improvements make TLS 1.3 both faster and more secure than its predecessors, and it is the recommended minimum version for modern deployments.
 
-In the context of security platforms performing External Attack Surface Management ([EASM](/glossary/easm/)), TLS configuration analysis is a critical assessment dimension. Weak TLS configurations -- outdated protocol versions, insecure cipher suites, expired certificates, missing certificate transparency logs -- are among the most common and most impactful vulnerabilities discovered during attack surface assessments. A platform's TLS posture directly affects its security rating and compliance standing.
+In the context of security platforms performing External Attack Surface Management ([EASM](@/glossary/easm.md)), TLS configuration analysis is a critical assessment dimension. Weak TLS configurations -- outdated protocol versions, insecure cipher suites, expired certificates, missing certificate transparency logs -- are among the most common and most impactful vulnerabilities discovered during attack surface assessments. A platform's TLS posture directly affects its security rating and compliance standing.
 
 ## Historical Evolution
 
@@ -226,7 +226,7 @@ Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
 ## Context in Prismatic
 
-The Prismatic Platform enforces TLS across all external communication paths. Production deployments on Fly.io terminate TLS at the edge with automatic certificate management via Let's Encrypt. The platform's [Phoenix](/glossary/phoenix/) endpoints are configured with `force_ssl: true`, redirecting all HTTP requests to HTTPS and setting HSTS headers with a two-year max-age.
+The Prismatic Platform enforces TLS across all external communication paths. Production deployments on Fly.io terminate TLS at the edge with automatic certificate management via Let's Encrypt. The platform's [Phoenix](@/glossary/phoenix.md) endpoints are configured with `force_ssl: true`, redirecting all HTTP requests to HTTPS and setting HSTS headers with a two-year max-age.
 
 ```elixir
 defmodule PrismaticWeb.Endpoint do
@@ -256,7 +256,7 @@ Internally, the platform uses TLS for inter-service communication when services 
 
 ## EASM TLS Assessment
 
-The Prismatic Perimeter [EASM](/glossary/easm/) module actively assesses TLS configurations of discovered [attack surface](/glossary/attack-surface/) assets, factoring certificate validity, protocol versions, cipher suite strength, and certificate transparency compliance into security ratings:
+The Prismatic Perimeter [EASM](@/glossary/easm.md) module actively assesses TLS configurations of discovered [attack surface](@/glossary/attack-surface.md) assets, factoring certificate validity, protocol versions, cipher suite strength, and certificate transparency compliance into security ratings:
 
 | Check | Weight | Finding Examples |
 |-------|--------|------------------|
@@ -327,7 +327,7 @@ Weak or expired TLS is flagged as a critical finding in compliance assessments f
 
 ## TLS in the Elixir/OTP Ecosystem
 
-The [BEAM](/glossary/beam/) virtual machine provides TLS support through the Erlang `:ssl` application, which wraps OpenSSL (or LibreSSL on some platforms). Phoenix applications configure TLS at the endpoint level, and the Erlang runtime handles all cryptographic operations:
+The [BEAM](@/glossary/beam.md) virtual machine provides TLS support through the Erlang `:ssl` application, which wraps OpenSSL (or LibreSSL on some platforms). Phoenix applications configure TLS at the endpoint level, and the Erlang runtime handles all cryptographic operations:
 
 ```elixir
 defmodule PrismaticCluster.DistributionTLS do
@@ -379,23 +379,23 @@ TLS findings directly impact the security ratings computed by Prismatic Perimete
 
 ## Related Terms
 
-- [Encryption at Rest](/glossary/encryption-at-rest/) - Complementary protection for stored data
-- [EASM](/glossary/easm/) - External attack surface management assessing TLS configurations
-- [Attack Surface](/glossary/attack-surface/) - TLS posture as a key component of exposed surface
-- [JWT](/glossary/jwt/) - Tokens that must be transported over TLS
-- [OAuth2](/glossary/oauth2/) - Authorization protocol requiring TLS for secure token exchange
-- [API Gateway](/glossary/api-gateway/) - TLS termination point for API traffic
-- [Shodan](/glossary/shodan/) - Discovers exposed services including TLS configurations
-- [Censys](/glossary/censys/) - Certificate transparency and TLS scanning platform
-- [Risk Score](/glossary/risk-score/) - TLS findings weighted in overall risk calculations
-- [Observability](/glossary/observability/) - Monitoring TLS certificate expiry and handshake errors
-- [Phoenix](/glossary/phoenix/) - Framework configuring TLS at the endpoint level
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) - Complementary protection for stored data
+- [EASM](@/glossary/easm.md) - External attack surface management assessing TLS configurations
+- [Attack Surface](@/glossary/attack-surface.md) - TLS posture as a key component of exposed surface
+- [JWT](@/glossary/jwt.md) - Tokens that must be transported over TLS
+- [OAuth2](@/glossary/oauth2.md) - Authorization protocol requiring TLS for secure token exchange
+- [API Gateway](@/glossary/api-gateway.md) - TLS termination point for API traffic
+- [Shodan](@/glossary/shodan.md) - Discovers exposed services including TLS configurations
+- [Censys](@/glossary/censys.md) - Certificate transparency and TLS scanning platform
+- [Risk Score](@/glossary/risk-score.md) - TLS findings weighted in overall risk calculations
+- [Observability](@/glossary/observability.md) - Monitoring TLS certificate expiry and handshake errors
+- [Phoenix](@/glossary/phoenix.md) - Framework configuring TLS at the endpoint level
 
 ## See Also
 
-- [Architecture](/architecture/) - Network security architecture
-- [Apps](/apps/) - Prismatic Web and API TLS configuration
-- [Technologies](/technologies/) - Erlang :ssl and Phoenix HTTPS
+- [Architecture](@/architecture/_index.md) - Network security architecture
+- [Apps](@/apps/_index.md) - Prismatic Web and API TLS configuration
+- [Technologies](@/technologies/_index.md) - Erlang :ssl and Phoenix HTTPS
 
 ---
 
@@ -404,4 +404,4 @@ TLS findings directly impact the security ratings computed by Prismatic Perimete
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

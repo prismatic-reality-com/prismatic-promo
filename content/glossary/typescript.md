@@ -37,7 +37,7 @@ image_alt = "TypeScript - Prismatic Platform"
 
 **TypeScript** is a statically typed programming language developed by Microsoft that extends JavaScript with optional type annotations, interfaces, generics, and advanced type-level programming capabilities. Every valid JavaScript program is also a valid TypeScript program -- TypeScript is a strict syntactic and semantic superset of JavaScript. The TypeScript compiler (`tsc`) performs type checking at compile time and then erases all type information, emitting standard JavaScript that runs in any JavaScript runtime (browsers, Node.js, Deno, Bun).
 
-Since its public release in 2012, TypeScript has become one of the most widely adopted programming languages in the world. The 2025 Stack Overflow Developer Survey ranked it among the top five most loved languages, and it powers the development tooling of major platforms including VS Code, Angular, Deno, and thousands of npm packages. In the [Prismatic Platform](/glossary/architecture/), TypeScript serves as the primary language for [SDK](/glossary/sdk/) development, Plugin Kit authoring, UI component libraries, MCP tool implementations, and [API](/glossary/api/) client generation -- complementing the platform's Elixir backend with a type-safe frontend and integration layer.
+Since its public release in 2012, TypeScript has become one of the most widely adopted programming languages in the world. The 2025 Stack Overflow Developer Survey ranked it among the top five most loved languages, and it powers the development tooling of major platforms including VS Code, Angular, Deno, and thousands of npm packages. In the [Prismatic Platform](@/glossary/architecture.md), TypeScript serves as the primary language for [SDK](@/glossary/sdk.md) development, Plugin Kit authoring, UI component libraries, MCP tool implementations, and [API](@/glossary/api.md) client generation -- complementing the platform's Elixir backend with a type-safe frontend and integration layer.
 
 ## Definition and Relationship to JavaScript
 
@@ -273,7 +273,7 @@ The DefinitelyTyped project (`@types/*` on npm) provides community-maintained de
 
 ### SDK Development
 
-The Prismatic Platform's TypeScript [SDK](/glossary/sdk/) provides type-safe access to all platform capabilities. The SDK is generated from the platform's OpenAPI specification, ensuring type definitions always match the actual API:
+The Prismatic Platform's TypeScript [SDK](@/glossary/sdk.md) provides type-safe access to all platform capabilities. The SDK is generated from the platform's OpenAPI specification, ensuring type definitions always match the actual API:
 
 ```typescript
 import { PrismaticClient } from '@prismatic/sdk';
@@ -355,7 +355,7 @@ const searchTool: Tool = {
 
 ### API Client Generation
 
-The Prismatic [API](/glossary/api/) gateway exposes an OpenAPI 3.0 specification. TypeScript clients are generated directly from this spec, guaranteeing type correctness:
+The Prismatic [API](@/glossary/api.md) gateway exposes an OpenAPI 3.0 specification. TypeScript clients are generated directly from this spec, guaranteeing type correctness:
 
 ```typescript
 // Auto-generated from OpenAPI spec -- do not edit manually
@@ -386,7 +386,7 @@ export async function perimeterDiscover(
 
 ## Comparison with Elixir's Type System
 
-The Prismatic Platform uses both TypeScript (frontend/SDK) and [Elixir](/glossary/elixir/) (backend). Their approaches to type safety differ fundamentally:
+The Prismatic Platform uses both TypeScript (frontend/SDK) and [Elixir](@/glossary/elixir.md) (backend). Their approaches to type safety differ fundamentally:
 
 | Aspect | TypeScript | Elixir |
 |--------|-----------|--------|
@@ -529,7 +529,7 @@ describe('PrismaticClient', () => {
 });
 ```
 
-[Testing](/glossary/testing/) TypeScript code benefits from the type system itself -- types serve as a form of documentation and contract that tests can verify.
+[Testing](@/glossary/testing.md) TypeScript code benefits from the type system itself -- types serve as a form of documentation and contract that tests can verify.
 
 ## Future Directions
 
@@ -543,16 +543,16 @@ TypeScript continues to evolve along several axes:
 
 ## See Also
 
-- [SDK](/glossary/sdk/) -- Prismatic Platform SDK built with TypeScript for type-safe API access
-- [API](/glossary/api/) -- REST API gateway from which TypeScript clients are generated
-- [Static Analysis](/glossary/static-analysis/) -- compile-time code analysis, a core TypeScript capability
-- [Testing](/glossary/testing/) -- test frameworks and strategies for TypeScript codebases
-- [Elixir](/glossary/elixir/) -- backend language complementing TypeScript in the Prismatic stack
-- [CI/CD](/glossary/ci-cd/) -- build pipelines that include TypeScript compilation and type checking
-- [Quality Gates](/glossary/quality-gates/) -- TypeScript strict mode as a quality enforcement mechanism
-- [Quality Assurance](/glossary/quality-assurance/) -- TypeScript's role in overall software quality strategy
-- [Adapter Pattern](/glossary/adapter-pattern/) -- pattern used in TypeScript SDK for multi-backend support
-- [Architecture](/glossary/architecture/) -- platform architecture where TypeScript serves the frontend layer
+- [SDK](@/glossary/sdk.md) -- Prismatic Platform SDK built with TypeScript for type-safe API access
+- [API](@/glossary/api.md) -- REST API gateway from which TypeScript clients are generated
+- [Static Analysis](@/glossary/static-analysis.md) -- compile-time code analysis, a core TypeScript capability
+- [Testing](@/glossary/testing.md) -- test frameworks and strategies for TypeScript codebases
+- [Elixir](@/glossary/elixir.md) -- backend language complementing TypeScript in the Prismatic stack
+- [CI/CD](@/glossary/ci-cd.md) -- build pipelines that include TypeScript compilation and type checking
+- [Quality Gates](@/glossary/quality-gates.md) -- TypeScript strict mode as a quality enforcement mechanism
+- [Quality Assurance](@/glossary/quality-assurance.md) -- TypeScript's role in overall software quality strategy
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- pattern used in TypeScript SDK for multi-backend support
+- [Architecture](@/glossary/architecture.md) -- platform architecture where TypeScript serves the frontend layer
 
 ---
 
@@ -561,4 +561,4 @@ TypeScript continues to evolve along several axes:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

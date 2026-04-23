@@ -22,15 +22,15 @@ image_alt = "Telemetry Integration - Prismatic Platform"
 
 ## Overview
 
-Telemetry Integration provides the foundational instrumentation layer for the entire Prismatic Platform. Every agent operation, system event, and quality metric is tracked through the [Elixir](/technologies/elixir/) `:telemetry` library with custom handlers and [ETS](/technologies/ets/)-backed aggregation. This is not bolted-on monitoring -- telemetry is woven into the platform's execution fabric, emitting structured events at every significant state transition across all 99 umbrella applications.
+Telemetry Integration provides the foundational instrumentation layer for the entire Prismatic Platform. Every agent operation, system event, and quality metric is tracked through the [Elixir](@/technologies/elixir.md) `:telemetry` library with custom handlers and [ETS](@/technologies/ets.md)-backed aggregation. This is not bolted-on monitoring -- telemetry is woven into the platform's execution fabric, emitting structured events at every significant state transition across all 99 umbrella applications.
 
-The Erlang `:telemetry` library provides the event emission and handler attachment mechanism. The Prismatic Platform extends this foundation with domain-specific event schemas, hierarchical handler chains, multi-backend aggregation, and [Phoenix LiveView](/technologies/phoenix-liveview/)-powered real-time visualization. The result is a telemetry system where adding observability to a new module requires a single `:telemetry.execute/3` call, with all downstream aggregation, storage, and visualization handled automatically.
+The Erlang `:telemetry` library provides the event emission and handler attachment mechanism. The Prismatic Platform extends this foundation with domain-specific event schemas, hierarchical handler chains, multi-backend aggregation, and [Phoenix LiveView](@/technologies/phoenix-liveview.md)-powered real-time visualization. The result is a telemetry system where adding observability to a new module requires a single `:telemetry.execute/3` call, with all downstream aggregation, storage, and visualization handled automatically.
 
-Telemetry Integration serves as the data backbone for [Real-Time Monitoring](/capabilities/real-time-monitoring/), [Autonomous Self-Healing](/capabilities/autonomous-self-healing/), and [Quality Gates](/capabilities/quality-gates/) -- providing the raw signal data that these systems consume, analyze, and act upon. Without telemetry, the platform would be flying blind; with it, every operation is observable, measurable, and traceable.
+Telemetry Integration serves as the data backbone for [Real-Time Monitoring](@/capabilities/real-time-monitoring.md), [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md), and [Quality Gates](@/capabilities/quality-gates.md) -- providing the raw signal data that these systems consume, analyze, and act upon. Without telemetry, the platform would be flying blind; with it, every operation is observable, measurable, and traceable.
 
 ## Erlang Telemetry Library Foundation
 
-The `:telemetry` library (maintained by the [BEAM](/technologies/beam/) community) provides a lightweight, composable instrumentation API. The Prismatic Platform uses it as the universal event bus for all observable operations.
+The `:telemetry` library (maintained by the [BEAM](@/technologies/beam.md) community) provides a lightweight, composable instrumentation API. The Prismatic Platform uses it as the universal event bus for all observable operations.
 
 ### Core Concepts
 
@@ -92,7 +92,7 @@ The platform organizes telemetry events in a hierarchical namespace that mirrors
 
 ## Handler Implementation
 
-Telemetry handlers are the bridge between raw event emission and actionable data. The Prismatic Platform implements domain-specific handlers that aggregate events into [ETS](/technologies/ets/) tables and broadcast updates to [Phoenix LiveView](/technologies/phoenix-liveview/) dashboards.
+Telemetry handlers are the bridge between raw event emission and actionable data. The Prismatic Platform implements domain-specific handlers that aggregate events into [ETS](@/technologies/ets.md) tables and broadcast updates to [Phoenix LiveView](@/technologies/phoenix-liveview.md) dashboards.
 
 ### Agent Operations Handler
 
@@ -195,9 +195,9 @@ Raw telemetry events are processed through a tiered storage architecture optimiz
 
 | Backend | Purpose | Retention | Query Pattern |
 |---------|---------|-----------|---------------|
-| **[ETS](/technologies/ets/)** | Real-time counters, gauges, recent events | Session lifetime | Current state, live dashboards |
-| **[PostgreSQL](/technologies/postgresql/)** | Historical metrics, time-series rollups | 90 days | Trend analysis, capacity planning |
-| **[Phoenix LiveView](/technologies/phoenix-liveview/)** | Dashboard visualization | Real-time | Human monitoring and investigation |
+| **[ETS](@/technologies/ets.md)** | Real-time counters, gauges, recent events | Session lifetime | Current state, live dashboards |
+| **[PostgreSQL](@/technologies/postgresql.md)** | Historical metrics, time-series rollups | 90 days | Trend analysis, capacity planning |
+| **[Phoenix LiveView](@/technologies/phoenix-liveview.md)** | Dashboard visualization | Real-time | Human monitoring and investigation |
 | **Structured Logs** | Full event trace with context | 30 days | Incident investigation, debugging |
 
 ### Time-Series Rollup Pipeline
@@ -354,16 +354,16 @@ end
 
 Telemetry Integration serves as the data backbone connecting all observability capabilities:
 
-- Powers [Real-Time Monitoring](/capabilities/real-time-monitoring/) with event-driven metric data
-- Feeds [Quality Gates](/capabilities/quality-gates/) with metrics for automated pass/fail decisions
-- Tracked by [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) for anomaly detection and response
-- Governed by [NO MERCY](/capabilities/no-mercy/) completeness requirements -- no uninstrumented public operations
-- Supports [AIAD Standard](/capabilities/aiad-standard/) through comprehensive agent operation tracking
-- Enables [Intelligence Synthesis](/capabilities/intelligence-synthesis/) pipeline performance monitoring
-- Feeds [Color Teams](/capabilities/color-teams/) Blue Team drift detection with behavioral baselines
-- Validated by [NO DOUBTS](/capabilities/no-doubts/) evidence requirements through measurable metrics
-- Visualized through [Phoenix LiveView](/technologies/phoenix-liveview/) dashboards with [TailwindCSS](/technologies/tailwindcss/) styling
-- Session events tracked per [Session Discipline](/capabilities/session-discipline/) protocol
+- Powers [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) with event-driven metric data
+- Feeds [Quality Gates](@/capabilities/quality-gates.md) with metrics for automated pass/fail decisions
+- Tracked by [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) for anomaly detection and response
+- Governed by [NO MERCY](@/capabilities/no-mercy.md) completeness requirements -- no uninstrumented public operations
+- Supports [AIAD Standard](@/capabilities/aiad-standard.md) through comprehensive agent operation tracking
+- Enables [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) pipeline performance monitoring
+- Feeds [Color Teams](@/capabilities/color-teams.md) Blue Team drift detection with behavioral baselines
+- Validated by [NO DOUBTS](@/capabilities/no-doubts.md) evidence requirements through measurable metrics
+- Visualized through [Phoenix LiveView](@/technologies/phoenix-liveview.md) dashboards with [TailwindCSS](@/technologies/tailwindcss.md) styling
+- Session events tracked per [Session Discipline](@/capabilities/session-discipline.md) protocol
 
 ## Commands
 
@@ -381,4 +381,4 @@ Telemetry Integration serves as the data backbone connecting all observability c
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,9 +24,9 @@ image_alt = "Mix - Prismatic Platform"
 
 ## Overview
 
-Mix is [Elixir](/technologies/elixir/)'s built-in build tool and the command-line interface through which all Prismatic Platform development operations are executed. It handles project compilation, dependency management, test execution, release building, and custom task execution -- serving as the unified entry point for the platform's entire development workflow. Every developer interaction with the platform starts with a `mix` command, making it the most frequently used tool in the development process.
+Mix is [Elixir](@/technologies/elixir.md)'s built-in build tool and the command-line interface through which all Prismatic Platform development operations are executed. It handles project compilation, dependency management, test execution, release building, and custom task execution -- serving as the unified entry point for the platform's entire development workflow. Every developer interaction with the platform starts with a `mix` command, making it the most frequently used tool in the development process.
 
-The Prismatic Platform extends Mix with dozens of custom tasks that power its quality enforcement, evolution, and operational systems: `mix quality.gates`, `mix autoheal.cycle`, `mix autoevolve.mega`, `mix git_trees`, `mix promo.enhance`, and many more. These custom tasks integrate deeply with the platform's [NO MERCY](/capabilities/no-mercy/) quality doctrine, blocking operations that would degrade code quality. The custom task library represents a significant investment in tooling -- each task enforces a specific aspect of the platform's quality standards.
+The Prismatic Platform extends Mix with dozens of custom tasks that power its quality enforcement, evolution, and operational systems: `mix quality.gates`, `mix autoheal.cycle`, `mix autoevolve.mega`, `mix git_trees`, `mix promo.enhance`, and many more. These custom tasks integrate deeply with the platform's [NO MERCY](@/capabilities/no-mercy.md) quality doctrine, blocking operations that would degrade code quality. The custom task library represents a significant investment in tooling -- each task enforces a specific aspect of the platform's quality standards.
 
 Mix's umbrella project support is essential for the platform's 90-application architecture, managing inter-application dependencies, coordinated compilation, and unified test execution across the entire umbrella. A single `mix test` command runs tests across all 90 applications, and `mix compile --warnings-as-errors` ensures zero compilation warnings across the entire codebase.
 
@@ -255,18 +255,18 @@ Mix is the natural and only build tool for Elixir projects. Its deep integration
 
 ## Related Technologies
 
-- [Elixir](/technologies/elixir/) - The language Mix is built for and ships with
-- [ExUnit](/technologies/exunit/) - Testing framework executed through Mix
-- [Dialyzer](/technologies/dialyzer/) - Static analysis run through Mix via dialyxir
-- [Credo](/technologies/credo/) - Code quality analysis invoked through Mix
-- [Ecto](/technologies/ecto/) - Database migrations managed through Mix tasks
-- [Phoenix](/technologies/phoenix/) - Web framework with Mix tasks for routes, generators, and server management
+- [Elixir](@/technologies/elixir.md) - The language Mix is built for and ships with
+- [ExUnit](@/technologies/exunit.md) - Testing framework executed through Mix
+- [Dialyzer](@/technologies/dialyzer.md) - Static analysis run through Mix via dialyxir
+- [Credo](@/technologies/credo.md) - Code quality analysis invoked through Mix
+- [Ecto](@/technologies/ecto.md) - Database migrations managed through Mix tasks
+- [Phoenix](@/technologies/phoenix.md) - Web framework with Mix tasks for routes, generators, and server management
 
 ## Related Apps
 
 - All 90 Prismatic Platform applications are built, tested, and managed with Mix
-- [prismatic_safety](/apps/prismatic-safety/) - Quality gate tasks implemented as Mix tasks
-- [prismatic_web](/apps/prismatic-web/) - Phoenix-specific Mix tasks for web development
+- [prismatic_safety](@/apps/prismatic-safety.md) - Quality gate tasks implemented as Mix tasks
+- [prismatic_web](@/apps/prismatic-web.md) - Phoenix-specific Mix tasks for web development
 
 ---
 
@@ -275,4 +275,4 @@ Mix is the natural and only build tool for Elixir projects. Its deep integration
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

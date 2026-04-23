@@ -24,7 +24,7 @@ image_alt = "Performance Testing - Prismatic Platform"
 
 ## Definition
 
-Performance Testing is a systematic engineering discipline within the Prismatic Platform that quantifies application behavior under controlled conditions to validate that latency, throughput, memory consumption, and resource utilization meet defined thresholds. Unlike functional testing, which verifies that software produces correct outputs, performance testing verifies that correct outputs are produced within acceptable time and resource constraints. In the Prismatic Platform, performance testing is not an optional late-stage activity -- it is an integral part of the quality gate pipeline, enforced through automated benchmarks, [telemetry](/glossary/telemetry/)-driven assertions, and hard page-load performance limits that block merges when violated.
+Performance Testing is a systematic engineering discipline within the Prismatic Platform that quantifies application behavior under controlled conditions to validate that latency, throughput, memory consumption, and resource utilization meet defined thresholds. Unlike functional testing, which verifies that software produces correct outputs, performance testing verifies that correct outputs are produced within acceptable time and resource constraints. In the Prismatic Platform, performance testing is not an optional late-stage activity -- it is an integral part of the quality gate pipeline, enforced through automated benchmarks, [telemetry](@/glossary/telemetry.md)-driven assertions, and hard page-load performance limits that block merges when violated.
 
 The platform enforces a P0-absolute performance standard: all pages must load under 250ms total, server-side rendering must complete under 100ms, LiveView mount must complete under 150ms, LiveView event handlers must complete under 50ms, and health checks must respond under 10ms. These are not aspirational targets but blocking merge criteria enforced by `mix performance.check` and CI pipeline gates. Violations at the 250-500ms level block merges; violations above 500ms trigger immediate rollback.
 
@@ -353,9 +353,9 @@ Alpine.data('fitnessProgressionChart', () => ({
 
 Performance testing as an engineering discipline evolved alongside the growth of web applications in the early 2000s. Tools like Apache JMeter (1998), Gatling (2012), and k6 (2017) established the practice of load testing as a pre-deployment activity. However, these tools treat performance testing as a separate phase -- something done before release rather than integrated into the daily development workflow.
 
-The Prismatic Platform's approach to performance testing reflects a generational shift in methodology. Rather than testing performance as a late-stage activity, performance validation is integrated at every stage: micro-benchmarks during development, regression checks during pre-commit, load tests during CI, and continuous monitoring in production. This multi-layer approach was formalized during Generation 10 of the platform's evolution, when the [AutoEvolve](/glossary/autoevolve/) system began including performance fitness as a dimension of its evolutionary scoring function.
+The Prismatic Platform's approach to performance testing reflects a generational shift in methodology. Rather than testing performance as a late-stage activity, performance validation is integrated at every stage: micro-benchmarks during development, regression checks during pre-commit, load tests during CI, and continuous monitoring in production. This multi-layer approach was formalized during Generation 10 of the platform's evolution, when the [AutoEvolve](@/glossary/autoevolve.md) system began including performance fitness as a dimension of its evolutionary scoring function.
 
-The BEAM virtual machine introduces unique performance testing considerations that do not apply to thread-pooled runtimes. BEAM's preemptive scheduler ensures that no single process can monopolize a scheduler thread for more than a fixed number of reductions (approximately 4000 function calls). This means that latency distribution in BEAM applications tends to have much tighter tail latencies than equivalent applications on the JVM or V8, because garbage collection pauses are per-process (microseconds) rather than global (milliseconds). Performance testing for [OTP](/glossary/otp/) applications must account for these characteristics, particularly the relationship between process count, scheduler count, and reduction budgets.
+The BEAM virtual machine introduces unique performance testing considerations that do not apply to thread-pooled runtimes. BEAM's preemptive scheduler ensures that no single process can monopolize a scheduler thread for more than a fixed number of reductions (approximately 4000 function calls). This means that latency distribution in BEAM applications tends to have much tighter tail latencies than equivalent applications on the JVM or V8, because garbage collection pauses are per-process (microseconds) rather than global (milliseconds). Performance testing for [OTP](@/glossary/otp.md) applications must account for these characteristics, particularly the relationship between process count, scheduler count, and reduction budgets.
 
 ## Overview
 
@@ -363,11 +363,11 @@ Performance testing in the Prismatic Platform spans four distinct methodologies,
 
 **Benchmark Testing** measures the execution time of individual functions and modules in isolation. The platform uses Benchee for micro-benchmarks, providing statistical analysis of execution times including mean, median, standard deviation, and percentile distributions. Benchmarks are run against baseline measurements to detect performance regressions before they reach production.
 
-**Load Testing** evaluates system behavior under expected concurrent usage patterns. For the Prismatic Platform's LiveView-heavy architecture, this means simulating hundreds of concurrent WebSocket connections, each generating events that trigger server-side re-renders. Load testing validates that the [BEAM VM](/glossary/beam-vm/) scheduler distribution and process architecture handle concurrent workloads within latency budgets.
+**Load Testing** evaluates system behavior under expected concurrent usage patterns. For the Prismatic Platform's LiveView-heavy architecture, this means simulating hundreds of concurrent WebSocket connections, each generating events that trigger server-side re-renders. Load testing validates that the [BEAM VM](@/glossary/beam-vm.md) scheduler distribution and process architecture handle concurrent workloads within latency budgets.
 
-**Stress Testing** pushes the system beyond expected load to identify breaking points and degradation patterns. This reveals how the OTP supervision tree responds to resource exhaustion, whether circuit breakers activate at appropriate thresholds, and how gracefully the system degrades under extreme conditions. The platform's [fault tolerance](/glossary/fault-tolerance/) design must ensure that stress conditions cause graceful degradation rather than cascading failures.
+**Stress Testing** pushes the system beyond expected load to identify breaking points and degradation patterns. This reveals how the OTP supervision tree responds to resource exhaustion, whether circuit breakers activate at appropriate thresholds, and how gracefully the system degrades under extreme conditions. The platform's [fault tolerance](@/glossary/fault-tolerance.md) design must ensure that stress conditions cause graceful degradation rather than cascading failures.
 
-**Endurance Testing** runs the system under sustained load for extended periods to detect memory leaks, ETS table growth, process accumulation, and other time-dependent degradation patterns. This is particularly important for long-running [GenServer](/glossary/genserver/) processes and ETS-backed caches that may accumulate state over time.
+**Endurance Testing** runs the system under sustained load for extended periods to detect memory leaks, ETS table growth, process accumulation, and other time-dependent degradation patterns. This is particularly important for long-running [GenServer](@/glossary/genserver.md) processes and ETS-backed caches that may accumulate state over time.
 
 ## Technical Details
 
@@ -543,7 +543,7 @@ end
 
 ### Telemetry-Driven Performance Monitoring
 
-The platform integrates performance testing with its [telemetry](/glossary/telemetry/) infrastructure to provide continuous production performance validation:
+The platform integrates performance testing with its [telemetry](@/glossary/telemetry.md) infrastructure to provide continuous production performance validation:
 
 ```elixir
 defmodule Prismatic.Performance.TelemetryCollector do
@@ -676,9 +676,9 @@ Performance testing in the Prismatic Platform is integrated at multiple stages o
 
 **CI Pipeline Phase**: The GitLab CI pipeline runs the full performance test suite, including load tests that simulate concurrent users. Performance violations cause pipeline failures, preventing merge requests with regressions from being merged.
 
-**Production Phase**: The [telemetry](/glossary/telemetry/) infrastructure continuously collects performance measurements from the production deployment. P95 latency exceeding 200ms triggers alerts. Sustained violations trigger automated investigation through the [AutoHeal](/glossary/autoheal/) system.
+**Production Phase**: The [telemetry](@/glossary/telemetry.md) infrastructure continuously collects performance measurements from the production deployment. P95 latency exceeding 200ms triggers alerts. Sustained violations trigger automated investigation through the [AutoHeal](@/glossary/autoheal.md) system.
 
-**Evolution Phase**: The [AutoEvolve](/glossary/autoevolve/) system includes performance optimization as one of its evolution dimensions. It identifies modules with degrading performance trends and generates optimization recommendations.
+**Evolution Phase**: The [AutoEvolve](@/glossary/autoevolve.md) system includes performance optimization as one of its evolution dimensions. It identifies modules with degrading performance trends and generates optimization recommendations.
 
 ## Comparison
 
@@ -694,7 +694,7 @@ The Prismatic approach combines micro-benchmarks (Benchee), macro-benchmarks (lo
 
 ## Best Practices
 
-**Benchmark the hot path first.** Not all code paths warrant benchmarks. Focus on request handling, database queries, ETS lookups, and LiveView render paths -- the code that executes on every user interaction. Use [telemetry](/glossary/telemetry/) data from production to identify which paths are actually hot.
+**Benchmark the hot path first.** Not all code paths warrant benchmarks. Focus on request handling, database queries, ETS lookups, and LiveView render paths -- the code that executes on every user interaction. Use [telemetry](@/glossary/telemetry.md) data from production to identify which paths are actually hot.
 
 **Store baselines in version control.** Benchmark baselines should be committed alongside the code they measure. This ensures that baseline comparisons are reproducible and that performance expectations evolve with the codebase.
 
@@ -730,7 +730,7 @@ The Prismatic approach combines micro-benchmarks (Benchee), macro-benchmarks (lo
 
 ## Telemetry Events Reference
 
-The performance testing infrastructure emits and consumes the following [telemetry](/glossary/telemetry/) events:
+The performance testing infrastructure emits and consumes the following [telemetry](@/glossary/telemetry.md) events:
 
 | Event | Measurements | Threshold | Gate Level |
 |-------|-------------|-----------|------------|
@@ -742,28 +742,28 @@ The performance testing infrastructure emits and consumes the following [telemet
 | `[:prismatic, :benchmark, :regression]` | `delta_pct` | 15% | BLOCKING |
 | `[:prismatic, :performance_test, :render]` | `duration_ms` | varies | BLOCKING |
 
-These events form the data backbone of the performance testing pipeline. During development, they feed into the benchmark comparison system. In CI, they feed into the merge gate evaluation. In production, they feed into the [Quality Floor Guardian](/glossary/quality-floor-guardian/) for continuous monitoring and alerting.
+These events form the data backbone of the performance testing pipeline. During development, they feed into the benchmark comparison system. In CI, they feed into the merge gate evaluation. In production, they feed into the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) for continuous monitoring and alerting.
 
 ## Related Concepts
 
-- [Performance Tracking](/glossary/performance-tracking/) -- Continuous production monitoring that complements pre-merge performance testing
-- [Performance](/glossary/performance/) -- The broader concept of application performance within the platform
-- [Testing](/glossary/testing/) -- The overarching testing discipline that includes performance testing as a specialized domain
-- [Telemetry](/glossary/telemetry/) -- The instrumentation infrastructure that provides performance measurement data
-- [Observability](/glossary/observability/) -- The system-wide visibility that includes performance metrics as a key signal
-- [Latency](/glossary/latency/) -- The primary metric validated by performance testing
-- [Throughput](/glossary/throughput/) -- The capacity metric validated under load testing conditions
-- [Quality Gates](/glossary/quality-gates/) -- The enforcement pipeline that includes performance checks as blocking gates
-- [Regression Testing](/glossary/regression-testing/) -- The regression prevention methodology applied to performance baselines
-- [Scalability](/glossary/scalability/) -- The system property validated through load and stress testing
+- [Performance Tracking](@/glossary/performance-tracking.md) -- Continuous production monitoring that complements pre-merge performance testing
+- [Performance](@/glossary/performance.md) -- The broader concept of application performance within the platform
+- [Testing](@/glossary/testing.md) -- The overarching testing discipline that includes performance testing as a specialized domain
+- [Telemetry](@/glossary/telemetry.md) -- The instrumentation infrastructure that provides performance measurement data
+- [Observability](@/glossary/observability.md) -- The system-wide visibility that includes performance metrics as a key signal
+- [Latency](@/glossary/latency.md) -- The primary metric validated by performance testing
+- [Throughput](@/glossary/throughput.md) -- The capacity metric validated under load testing conditions
+- [Quality Gates](@/glossary/quality-gates.md) -- The enforcement pipeline that includes performance checks as blocking gates
+- [Regression Testing](@/glossary/regression-testing.md) -- The regression prevention methodology applied to performance baselines
+- [Scalability](@/glossary/scalability.md) -- The system property validated through load and stress testing
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture designed for measurable, testable performance
-- [Platform Capabilities](/capabilities/) -- Performance enforcement as a core platform capability
-- [Applications](/apps/) -- 115 OTP applications with enforced performance budgets
-- [Technologies](/technologies/) -- BEAM VM, Benchee, Telemetry, and the performance testing stack
-- [Agent Registry](/agents/) -- Performance testing agents and automated optimization
+- [Architecture](@/architecture/_index.md) -- Platform architecture designed for measurable, testable performance
+- [Platform Capabilities](@/capabilities/_index.md) -- Performance enforcement as a core platform capability
+- [Applications](@/apps/_index.md) -- 115 OTP applications with enforced performance budgets
+- [Technologies](@/technologies/_index.md) -- BEAM VM, Benchee, Telemetry, and the performance testing stack
+- [Agent Registry](@/agents/_index.md) -- Performance testing agents and automated optimization
 
 ---
 
@@ -772,4 +772,4 @@ These events form the data backbone of the performance testing pipeline. During 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

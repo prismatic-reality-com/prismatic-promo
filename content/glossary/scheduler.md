@@ -170,11 +170,11 @@ end
 
 ## Cross-References
 
-- [Process](/glossary/process/) - BEAM execution units managed by the scheduler
-- [Run Queue](/glossary/run-queue/) - Per-scheduler queue of processes awaiting execution
-- [Runtime](/glossary/runtime/) - BEAM runtime environment configuring scheduler behavior
-- [Profiling](/glossary/profiling/) - Performance measurement revealing scheduler utilization
-- [Percentile](/glossary/percentile/) - Statistical measure for scheduler utilization distributions
+- [Process](@/glossary/process.md) - BEAM execution units managed by the scheduler
+- [Run Queue](@/glossary/run-queue.md) - Per-scheduler queue of processes awaiting execution
+- [Runtime](@/glossary/runtime.md) - BEAM runtime environment configuring scheduler behavior
+- [Profiling](@/glossary/profiling.md) - Performance measurement revealing scheduler utilization
+- [Percentile](@/glossary/percentile.md) - Statistical measure for scheduler utilization distributions
 
 ---
 

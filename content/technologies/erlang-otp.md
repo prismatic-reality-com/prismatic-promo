@@ -24,7 +24,7 @@ image_alt = "Erlang/OTP - Prismatic Platform"
 
 ## Overview
 
-Erlang/OTP (Open Telecom Platform) is the runtime foundation upon which the entire Prismatic Platform operates. Originally developed by Ericsson in 1986 for telecommunications systems, Erlang was designed from the ground up for concurrency, distribution, fault tolerance, and hot code upgrades -- properties that are essential for the Prismatic Platform's 24/7 intelligence operations. While [Elixir](/technologies/elixir/) is the language developers write in, it is Erlang/OTP that provides the battle-tested runtime guarantees that make the platform reliable.
+Erlang/OTP (Open Telecom Platform) is the runtime foundation upon which the entire Prismatic Platform operates. Originally developed by Ericsson in 1986 for telecommunications systems, Erlang was designed from the ground up for concurrency, distribution, fault tolerance, and hot code upgrades -- properties that are essential for the Prismatic Platform's 24/7 intelligence operations. While [Elixir](@/technologies/elixir.md) is the language developers write in, it is Erlang/OTP that provides the battle-tested runtime guarantees that make the platform reliable.
 
 OTP provides a set of libraries, design principles, and behaviours (GenServer, Supervisor, Application) that standardize how concurrent and distributed applications are structured. The Prismatic Platform uses OTP extensively -- every stateful component runs as a supervised process, every agent is a GenServer, and every subsystem is an OTP application with its own supervision tree. OTP's behaviours are not abstract design patterns but concrete, runtime-enforced contracts that ensure consistent process lifecycle management across the entire platform.
 
@@ -39,7 +39,7 @@ Erlang/OTP provides a comprehensive runtime system that combines a language-leve
 - **OTP Behaviours**: Standardized patterns (GenServer, Supervisor, GenStage, Agent) for common concurrency patterns with compile-time enforcement
 - **Hot Code Upgrades**: Update running systems without downtime, enabling zero-downtime deployments for critical services
 - **Distribution**: Built-in node clustering with transparent message passing between nodes for horizontal scaling
-- **[ETS](/technologies/ets/)/DETS**: High-performance in-memory and disk-based term storage built into the runtime
+- **[ETS](@/technologies/ets.md)/DETS**: High-performance in-memory and disk-based term storage built into the runtime
 - **Observer**: Built-in runtime introspection and monitoring tools for debugging production systems
 - **NIFs and Ports**: Safe integration with native code (C, Rust) through controlled interfaces
 
@@ -203,7 +203,7 @@ The Prismatic Platform enforces OTP best practices that leverage Erlang's unique
 - **Supervise everything** -- every stateful process must live under a supervisor; unsupervised processes are forbidden
 - **Use behaviours, not ad-hoc processes** -- GenServer, Supervisor, and other OTP behaviours provide tested, standardized implementations
 - **Embrace "let it crash"** -- handle expected errors, let unexpected errors crash the process and be restarted by the supervisor
-- **Keep process state minimal** -- processes should hold only the state they need; large datasets belong in [ETS](/technologies/ets/) or the database
+- **Keep process state minimal** -- processes should hold only the state they need; large datasets belong in [ETS](@/technologies/ets.md) or the database
 - **Use `@impl true` for all callbacks** -- compile-time verification that callback implementations match the behaviour specification
 - **Name processes via Registry** -- use Registry for dynamic process naming instead of atoms to avoid atom table exhaustion
 - **Set explicit timeouts** -- every GenServer.call should specify a timeout to prevent indefinite blocking
@@ -225,18 +225,18 @@ Erlang/OTP was chosen as the Prismatic Platform's runtime foundation because no 
 
 ## Related Technologies
 
-- [Elixir](/technologies/elixir/) - The modern language running on the Erlang VM with improved developer ergonomics
-- [BEAM VM](/technologies/beam/) - The virtual machine that Erlang/OTP provides for process execution
-- [GenServer](/technologies/genserver/) - OTP's generic server behaviour for stateful process implementation
-- [Supervisor](/technologies/supervisor/) - OTP's supervision behaviour for fault-tolerant process management
-- [ETS](/technologies/ets/) - Erlang's built-in in-memory term storage for high-speed data access
+- [Elixir](@/technologies/elixir.md) - The modern language running on the Erlang VM with improved developer ergonomics
+- [BEAM VM](@/technologies/beam.md) - The virtual machine that Erlang/OTP provides for process execution
+- [GenServer](@/technologies/genserver.md) - OTP's generic server behaviour for stateful process implementation
+- [Supervisor](@/technologies/supervisor.md) - OTP's supervision behaviour for fault-tolerant process management
+- [ETS](@/technologies/ets.md) - Erlang's built-in in-memory term storage for high-speed data access
 
 ## Related Apps
 
-- [prismatic_safety](/apps/prismatic-safety/) - Platform safety systems built on OTP supervision principles
-- [prismatic_agents](/apps/prismatic-agents/) - Agent runtime with OTP supervision, GenServer state, and Registry lookup
-- [prismatic_claude](/apps/prismatic-claude/) - Claude integration using GenServer state management and circuit breakers
-- [prismatic_web](/apps/prismatic-web/) - Phoenix web server built on OTP application structure
+- [prismatic_safety](@/apps/prismatic-safety.md) - Platform safety systems built on OTP supervision principles
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent runtime with OTP supervision, GenServer state, and Registry lookup
+- [prismatic_claude](@/apps/prismatic-claude.md) - Claude integration using GenServer state management and circuit breakers
+- [prismatic_web](@/apps/prismatic-web.md) - Phoenix web server built on OTP application structure
 
 ---
 
@@ -245,4 +245,4 @@ Erlang/OTP was chosen as the Prismatic Platform's runtime foundation because no 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

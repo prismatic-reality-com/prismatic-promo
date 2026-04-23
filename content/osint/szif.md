@@ -25,13 +25,13 @@ image_alt = "SZIF - Prismatic Platform"
 
 ## Overview
 
-SZIF (Statni zemedelsky intervencni fond) is the Czech State Agricultural Intervention Fund, the national paying agency responsible for distributing European Union Common Agricultural Policy (CAP) funds and Czech national agricultural subsidies. As the sole accredited paying agency for EU agricultural funds in the Czech Republic, SZIF processes and distributes billions of CZK annually in direct payments, rural development grants, market intervention measures, and specialized agricultural support programs. The fund publishes beneficiary data as required by EU transparency regulations (Regulation EU 2021/2116), making it a valuable [OSINT](/glossary/osint/) source for agricultural sector intelligence, subsidy fraud detection, and financial due diligence on agricultural entities.
+SZIF (Statni zemedelsky intervencni fond) is the Czech State Agricultural Intervention Fund, the national paying agency responsible for distributing European Union Common Agricultural Policy (CAP) funds and Czech national agricultural subsidies. As the sole accredited paying agency for EU agricultural funds in the Czech Republic, SZIF processes and distributes billions of CZK annually in direct payments, rural development grants, market intervention measures, and specialized agricultural support programs. The fund publishes beneficiary data as required by EU transparency regulations (Regulation EU 2021/2116), making it a valuable [OSINT](@/glossary/osint.md) source for agricultural sector intelligence, subsidy fraud detection, and financial due diligence on agricultural entities.
 
-For OSINT analysts investigating Czech agricultural companies, SZIF data reveals the financial dependency of agricultural entities on public subsidies, the distribution of EU funds across regions and sectors, and potential indicators of subsidy fraud or misuse. When cross-referenced with land registry data from [Nahlizeni do KN](/osint/nahlizeni-kn/) and company data from [ARES](/osint/ares/), SZIF payment records provide a comprehensive picture of agricultural business models and their reliance on public funding.
+For OSINT analysts investigating Czech agricultural companies, SZIF data reveals the financial dependency of agricultural entities on public subsidies, the distribution of EU funds across regions and sectors, and potential indicators of subsidy fraud or misuse. When cross-referenced with land registry data from [Nahlizeni do KN](@/osint/nahlizeni-kn.md) and company data from [ARES](@/osint/ares.md), SZIF payment records provide a comprehensive picture of agricultural business models and their reliance on public funding.
 
 SZIF administers two major EU funds: the European Agricultural Guarantee Fund (EAGF), which finances direct payments and market measures, and the European Agricultural Fund for Rural Development (EAFRD), which co-finances rural development programs. Together, these funds represent approximately CZK 40-50 billion annually in payments to Czech agricultural entities. The transparency requirement means that every payment above certain thresholds must be publicly disclosed with the recipient's name, municipality, payment amount, and program details.
 
-The fund's data is particularly valuable for investigating land concentration, agricultural holding structures, and the relationship between subsidy receipts and actual agricultural activity. Large agricultural conglomerates in the Czech Republic often structure their operations across multiple legal entities to optimize subsidy receipts, creating complex corporate structures that SZIF data helps map when combined with commercial register information from [Justice.cz](/osint/justice-cz/).
+The fund's data is particularly valuable for investigating land concentration, agricultural holding structures, and the relationship between subsidy receipts and actual agricultural activity. Large agricultural conglomerates in the Czech Republic often structure their operations across multiple legal entities to optimize subsidy receipts, creating complex corporate structures that SZIF data helps map when combined with commercial register information from [Justice.cz](@/osint/justice-cz.md).
 
 ## Data Sources and Coverage
 
@@ -230,11 +230,11 @@ Analysis of SZIF payment patterns can reveal potential fraud indicators includin
 
 ### Land Concentration Analysis
 
-The Czech Republic experienced significant land concentration after privatization, with large agricultural conglomerates controlling substantial portions of arable land. SZIF payment data, when cross-referenced with [Nahlizeni do KN](/osint/nahlizeni-kn/) land registry records, reveals the extent of land concentration and the subsidy flows to major agricultural holdings.
+The Czech Republic experienced significant land concentration after privatization, with large agricultural conglomerates controlling substantial portions of arable land. SZIF payment data, when cross-referenced with [Nahlizeni do KN](@/osint/nahlizeni-kn.md) land registry records, reveals the extent of land concentration and the subsidy flows to major agricultural holdings.
 
 ### Political Connection Investigation
 
-Large agricultural subsidies create potential for political influence and conflict of interest. Cross-referencing top SZIF recipients with company ownership data from [Justice.cz](/osint/justice-cz/) and political office databases reveals connections between agricultural subsidy recipients and political actors -- a pattern that has been the subject of significant public scrutiny in Czech politics.
+Large agricultural subsidies create potential for political influence and conflict of interest. Cross-referencing top SZIF recipients with company ownership data from [Justice.cz](@/osint/justice-cz.md) and political office databases reveals connections between agricultural subsidy recipients and political actors -- a pattern that has been the subject of significant public scrutiny in Czech politics.
 
 ### Market Analysis and Agricultural Intelligence
 
@@ -252,8 +252,8 @@ SZIF data enables tracking of Czech utilization rates for EU agricultural funds.
 | **Publication delay** | Payment data published quarterly or annually with delay | Use most recent available data; note publication date |
 | **Individual farmer privacy** | Natural person recipients may have limited detail published | Focus on legal entities (s.r.o., a.s.) with ICO |
 | **Program complexity** | Over 30 different measures with varying rules | Map measures to simplified categories for analysis |
-| **No land area data** | SZIF publishes payments but not the claimed land area | Cross-reference with [Nahlizeni do KN](/osint/nahlizeni-kn/) for land data |
-| **Corporate structures** | Related entities may not be obvious in SZIF data alone | Cross-reference with [Justice.cz](/osint/justice-cz/) for ownership networks |
+| **No land area data** | SZIF publishes payments but not the claimed land area | Cross-reference with [Nahlizeni do KN](@/osint/nahlizeni-kn.md) for land data |
+| **Corporate structures** | Related entities may not be obvious in SZIF data alone | Cross-reference with [Justice.cz](@/osint/justice-cz.md) for ownership networks |
 
 ## Legal and Ethical Considerations
 
@@ -267,11 +267,11 @@ SZIF data enables tracking of Czech utilization rates for EU agricultural funds.
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), SZIF serves as a specialized financial intelligence source for the Czech agricultural sector.
+Within the [Prismatic Platform](@/apps/prismatic.md), SZIF serves as a specialized financial intelligence source for the Czech agricultural sector.
 
-- **Entity Financial Profiles**: SZIF payment data is integrated into entity financial profiles alongside [CEDR](/osint/cedr/) subsidy data, [Registr smluv](/osint/registr-smluv/) contract data, and [Verejne zakazky](/osint/verejne-zakazky/) procurement records.
-- **Subsidy Network Analysis**: The platform maps subsidy flows across related entities using [Justice.cz](/osint/justice-cz/) ownership data, detecting potential structuring patterns.
-- **Land-Subsidy Correlation**: SZIF payments are cross-referenced with [Nahlizeni do KN](/osint/nahlizeni-kn/) land records to calculate subsidy-per-hectare ratios and identify anomalies.
+- **Entity Financial Profiles**: SZIF payment data is integrated into entity financial profiles alongside [CEDR](@/osint/cedr.md) subsidy data, [Registr smluv](@/osint/registr-smluv.md) contract data, and [Verejne zakazky](@/osint/verejne-zakazky.md) procurement records.
+- **Subsidy Network Analysis**: The platform maps subsidy flows across related entities using [Justice.cz](@/osint/justice-cz.md) ownership data, detecting potential structuring patterns.
+- **Land-Subsidy Correlation**: SZIF payments are cross-referenced with [Nahlizeni do KN](@/osint/nahlizeni-kn.md) land records to calculate subsidy-per-hectare ratios and identify anomalies.
 - **Risk Scoring**: Agricultural entity risk scores incorporate subsidy dependency ratios, compliance history, and network complexity from SZIF data.
 - **Regional Analytics**: Aggregate SZIF data feeds the platform's regional intelligence dashboards for agricultural sector analysis.
 
@@ -279,11 +279,11 @@ Within the [Prismatic Platform](/apps/prismatic/), SZIF serves as a specialized 
 
 1. **Always use ICO for matching**: Company names may vary across databases. Use the ICO (company identification number) for precise entity matching between SZIF and other registries.
 
-2. **Check related entities**: Large agricultural operations often span multiple legal entities. Use [Justice.cz](/osint/justice-cz/) to map corporate structures before analyzing aggregate subsidy receipts.
+2. **Check related entities**: Large agricultural operations often span multiple legal entities. Use [Justice.cz](@/osint/justice-cz.md) to map corporate structures before analyzing aggregate subsidy receipts.
 
 3. **Compare year-over-year**: Sudden changes in payment amounts may indicate land acquisition, program changes, compliance issues, or potential anomalies worth investigating.
 
-4. **Cross-reference with CEDR**: [CEDR](/osint/cedr/) (Central Register of Subsidies) provides a broader view of all public subsidies, not just agricultural ones. Combining SZIF and CEDR data reveals total public funding dependency.
+4. **Cross-reference with CEDR**: [CEDR](@/osint/cedr.md) (Central Register of Subsidies) provides a broader view of all public subsidies, not just agricultural ones. Combining SZIF and CEDR data reveals total public funding dependency.
 
 5. **Understand program rules**: Different subsidy programs have different eligibility criteria and payment mechanics. Familiarize yourself with basic CAP structure to interpret payment patterns correctly.
 
@@ -293,13 +293,13 @@ Within the [Prismatic Platform](/apps/prismatic/), SZIF serves as a specialized 
 
 ## Related Providers
 
-- [CEDR](/osint/cedr/) - Central Register of Subsidies (all sectors, not just agriculture)
-- [ARES](/osint/ares/) - Czech business registry for entity identification
-- [Nahlizeni do KN](/osint/nahlizeni-kn/) - Land registry for property and land area verification
-- [Justice.cz](/osint/justice-cz/) - Commercial Register for ownership structure
-- [Registr smluv](/osint/registr-smluv/) - Agricultural public contracts
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog with subsidy analytics
-- [Verejne zakazky](/osint/verejne-zakazky/) - Public procurement for agricultural tenders
+- [CEDR](@/osint/cedr.md) - Central Register of Subsidies (all sectors, not just agriculture)
+- [ARES](@/osint/ares.md) - Czech business registry for entity identification
+- [Nahlizeni do KN](@/osint/nahlizeni-kn.md) - Land registry for property and land area verification
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register for ownership structure
+- [Registr smluv](@/osint/registr-smluv.md) - Agricultural public contracts
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog with subsidy analytics
+- [Verejne zakazky](@/osint/verejne-zakazky.md) - Public procurement for agricultural tenders
 
 ---
 
@@ -308,4 +308,4 @@ Within the [Prismatic Platform](/apps/prismatic/), SZIF serves as a specialized 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

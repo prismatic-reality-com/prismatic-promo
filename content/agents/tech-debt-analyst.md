@@ -30,7 +30,7 @@ image_alt = "tech-debt-analyst - Prismatic Platform"
 
 The Tech Debt Analyst is an L2 tactical operations agent operating within the Prismatic Platform's primary-producer domain, specialized in the systematic assessment, quantification, and remediation planning of technical debt across the platform's 90+ application umbrella. Technical debt, the implicit cost of future rework caused by choosing expedient solutions over thorough implementations, represents one of the most significant long-term risks to software platform sustainability. This agent provides the analytical intelligence needed to identify, measure, prioritize, and plan the elimination of technical debt before it compounds into critical maintainability or reliability problems.
 
-The Prismatic Platform has achieved complete quality debt elimination (0 QDP), a state that required sustained systematic analysis of debt sources, prioritized remediation campaigns, and ongoing monitoring to prevent debt reaccumulation. The Tech Debt Analyst played a central role in this achievement and continues to operate as the primary early warning system for debt accumulation. Under the [AIAD](/glossary/aiad/) standard and [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, the agent treats technical debt as an unacceptable condition that demands immediate quantification and scheduled elimination.
+The Prismatic Platform has achieved complete quality debt elimination (0 QDP), a state that required sustained systematic analysis of debt sources, prioritized remediation campaigns, and ongoing monitoring to prevent debt reaccumulation. The Tech Debt Analyst played a central role in this achievement and continues to operate as the primary early warning system for debt accumulation. Under the [AIAD](@/glossary/aiad.md) standard and [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, the agent treats technical debt as an unacceptable condition that demands immediate quantification and scheduled elimination.
 
 ## Theoretical Foundations
 
@@ -42,7 +42,7 @@ The concept of the technical debt quadrant, introduced by Martin Fowler, disting
 
 From financial mathematics, the agent borrows concepts of compound interest and net present value to model how technical debt grows over time when left unaddressed. The "interest rate" of technical debt represents the ongoing cost of working around poor code, while the "principal" represents the one-time cost of proper remediation. These financial analogies enable cost-benefit analysis that supports remediation prioritization decisions.
 
-The [CASCADE](/glossary/cascade/) pattern library provides platform-specific debt pattern recognition. The five CASCADE categories (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) represent recurring debt patterns that the agent has been specifically trained to identify and classify.
+The [CASCADE](@/glossary/cascade.md) pattern library provides platform-specific debt pattern recognition. The five CASCADE categories (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) represent recurring debt patterns that the agent has been specifically trained to identify and classify.
 
 ## Core Capabilities
 
@@ -58,7 +58,7 @@ The [CASCADE](/glossary/cascade/) pattern library provides platform-specific deb
 
 ## Architecture and Implementation
 
-The Tech Debt Analyst is implemented as an [OTP](/glossary/otp/) process within the primary-producer domain, with a scan-analyze-report pipeline architecture.
+The Tech Debt Analyst is implemented as an [OTP](@/glossary/otp.md) process within the primary-producer domain, with a scan-analyze-report pipeline architecture.
 
 | Component | Function | Implementation |
 |-----------|----------|---------------|
@@ -84,27 +84,27 @@ The agent classifies technical debt along multiple dimensions that support prior
 | Remediation Cost | Days, Hours, Minutes | Effort estimation |
 | Blast Radius | Platform-wide, Domain, Application, Module | Dependency analysis |
 
-The platform's current [QDP](/glossary/qdp/) count of zero reflects complete elimination across all categories. The agent now operates primarily in prevention mode, detecting new debt introduction before it accumulates, rather than in remediation mode.
+The platform's current [QDP](@/glossary/qdp.md) count of zero reflects complete elimination across all categories. The agent now operates primarily in prevention mode, detecting new debt introduction before it accumulates, rather than in remediation mode.
 
 ## Integration with Quality Infrastructure
 
 The Tech Debt Analyst integrates deeply with the platform's quality infrastructure to both detect debt and prevent its reintroduction.
 
-The pre-commit quality protection hooks include debt checks that block commits introducing new debt patterns. The quality floor guardian monitors debt metrics continuously and escalates when debt indicators rise above their baseline values. The [SEADF](/glossary/seadf/) evolution framework uses debt analysis results to guide autonomous evolution toward debt-free configurations.
+The pre-commit quality protection hooks include debt checks that block commits introducing new debt patterns. The quality floor guardian monitors debt metrics continuously and escalates when debt indicators rise above their baseline values. The [SEADF](@/glossary/seadf.md) evolution framework uses debt analysis results to guide autonomous evolution toward debt-free configurations.
 
-The [mycelial network](/glossary/mycelial-network/) communication pattern enables the agent to share debt intelligence across the platform, allowing domain-specific agents to understand the debt implications of changes within their areas of responsibility.
+The [mycelial network](@/glossary/mycelial-network.md) communication pattern enables the agent to share debt intelligence across the platform, allowing domain-specific agents to understand the debt implications of changes within their areas of responsibility.
 
 ## Integration Points
 
 | System | Integration Purpose | Data Flow |
 |--------|-------------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent lifecycle and task dispatch | Bidirectional |
-| [Prismatic Telemetry](/glossary/telemetry/) | Debt metrics and detection events | Write |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification and discovery | Read |
-| [SEADF](/glossary/seadf/) | Quality evolution integration | Bidirectional |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent lifecycle and task dispatch | Bidirectional |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Debt metrics and detection events | Write |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Read |
+| [SEADF](@/glossary/seadf.md) | Quality evolution integration | Bidirectional |
 | Quality Floor Guardian | Debt threshold enforcement | Bidirectional |
 | Git Hooks | Pre-commit debt detection | Blocking gate |
-| [Trinity Gate](/glossary/trinity-gate/) | Debt assessment verification | Validation |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Debt assessment verification | Validation |
 
 ## Operational Metrics
 
@@ -112,7 +112,7 @@ The agent tracks metrics that quantify the platform's debt management effectiven
 
 ## Related Agents
 
-The Tech Debt Analyst works in close collaboration with the [technical-debt-reduction-specialist](/agents/technical-debt-reduction-specialist/), which executes the remediation plans produced by the analyst. The [system-architecture-specialist](/agents/system-architecture-specialist/) addresses architectural-level debt identified by the analyst. The [systematic-verifier](/agents/systematic-verifier/) validates that debt remediation does not introduce regressions.
+The Tech Debt Analyst works in close collaboration with the [technical-debt-reduction-specialist](@/agents/technical-debt-reduction-specialist.md), which executes the remediation plans produced by the analyst. The [system-architecture-specialist](@/agents/system-architecture-specialist.md) addresses architectural-level debt identified by the analyst. The [systematic-verifier](@/agents/systematic-verifier.md) validates that debt remediation does not introduce regressions.
 
 ---
 
@@ -121,4 +121,4 @@ The Tech Debt Analyst works in close collaboration with the [technical-debt-redu
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

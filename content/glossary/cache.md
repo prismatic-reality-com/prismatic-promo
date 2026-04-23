@@ -36,11 +36,11 @@ see_also = ["capabilities", "architecture", "agents"]
 
 A cache is a high-speed data storage layer positioned between a data consumer and a primary data source, storing copies of frequently or recently accessed data to reduce access latency and load on the underlying storage system. Caches exploit the **principle of temporal locality** -- data accessed once is likely to be accessed again soon -- and **spatial locality** -- data near recently accessed data is likely to be accessed next. The fundamental trade-off of caching is between **data freshness** (how current cached data is) and **performance** (how fast access is).
 
-In the Prismatic Platform, [ETS](/glossary/ets/) (Erlang Term Storage) serves as the foundational caching mechanism, but the platform extends far beyond simple key-value caching. The `PrismaticWeb.Cache.HierarchicalCache` module implements a 3-level tiered caching architecture (ETS -> [Cachex](/glossary/cachex/) -> external source) that provides sub-50ms response times across all platform domains: the OSINT ToolRegistry (157 tools), Academy TopicRegistry, DD SourceRegistry, glossary content rendering, and API endpoint routing.
+In the Prismatic Platform, [ETS](@/glossary/ets.md) (Erlang Term Storage) serves as the foundational caching mechanism, but the platform extends far beyond simple key-value caching. The `PrismaticWeb.Cache.HierarchicalCache` module implements a 3-level tiered caching architecture (ETS -> [Cachex](/glossary/cachex/) -> external source) that provides sub-50ms response times across all platform domains: the OSINT ToolRegistry (157 tools), Academy TopicRegistry, DD SourceRegistry, glossary content rendering, and API endpoint routing.
 
 ## Overview
 
-Caching is one of the most impactful performance optimizations available to any system. In the BEAM/OTP ecosystem, ETS tables provide a unique advantage: **concurrent reads without process serialization**. Unlike [GenServer](/glossary/genserver/)-held state, where every read must pass through the process mailbox, ETS allows any process to read directly from shared memory, yielding sub-microsecond access times.
+Caching is one of the most impactful performance optimizations available to any system. In the BEAM/OTP ecosystem, ETS tables provide a unique advantage: **concurrent reads without process serialization**. Unlike [GenServer](@/glossary/genserver.md)-held state, where every read must pass through the process mailbox, ETS allows any process to read directly from shared memory, yielding sub-microsecond access times.
 
 However, ETS alone is not sufficient for production-grade caching. Real systems need:
 
@@ -48,7 +48,7 @@ However, ETS alone is not sufficient for production-grade caching. Real systems 
 - **Memory bounds** -- unbounded caches exhaust available memory
 - **Distributed coordination** -- cached data must be coherent across nodes
 - **Fallback chains** -- cache misses must resolve transparently
-- **Observability** -- cache hit rates and latency must be measurable via [Telemetry](/glossary/telemetry/)
+- **Observability** -- cache hit rates and latency must be measurable via [Telemetry](@/glossary/telemetry.md)
 
 The Prismatic Platform addresses all of these concerns through its HierarchicalCache architecture, which combines ETS speed with [Cachex](/glossary/cachex/) flexibility and transparent external-source fallback.
 
@@ -60,14 +60,14 @@ The Prismatic Platform addresses all of these concerns through its HierarchicalC
 |----------|-------------|-------------|-----------------|
 | **Read-through** | Cache loads on miss, serves on hit | Eventual | OSINT tool configs, glossary terms |
 | **Write-through** | Write to cache and store simultaneously | Strong | Quality DNA state |
-| **Write-behind** | Write to cache, async flush to store | Eventual | [Telemetry](/glossary/telemetry/) metrics aggregation |
+| **Write-behind** | Write to cache, async flush to store | Eventual | [Telemetry](@/glossary/telemetry.md) metrics aggregation |
 | **Cache-aside** | Application manages cache explicitly | Application-managed | API responses, search results |
 | **Refresh-ahead** | Proactively refresh before expiry | Near-real-time | OSINT feed data, monitoring |
 | **Hierarchical** | Multi-level tiered caching with fallback | Configurable per level | HierarchicalCache (L1/L2/L3) |
 
 ### ETS Caching Fundamentals
 
-[ETS](/glossary/ets/) is the backbone of all caching in the Prismatic Platform. Key properties that make it ideal for caching:
+[ETS](@/glossary/ets.md) is the backbone of all caching in the Prismatic Platform. Key properties that make it ideal for caching:
 
 - **Concurrent reads**: Multiple processes read simultaneously without contention
 - **Process-independent lifetime**: Tables survive owning-process restarts when using `:heir` option
@@ -160,7 +160,7 @@ end
 
 ### HierarchicalCache: 3-Level Architecture
 
-The `PrismaticWeb.Cache.HierarchicalCache` is the platform's primary caching abstraction. It implements a 3-level tiered cache with automatic fallback, [telemetry](/glossary/telemetry/) instrumentation, and graceful degradation.
+The `PrismaticWeb.Cache.HierarchicalCache` is the platform's primary caching abstraction. It implements a 3-level tiered cache with automatic fallback, [telemetry](@/glossary/telemetry.md) instrumentation, and graceful degradation.
 
 ```mermaid
 flowchart TD
@@ -189,7 +189,7 @@ Direct ETS table lookups. No process serialization. Ideal for hot data that chan
 Shared cache with built-in TTL, statistics, and warming capabilities. Accessed via `PrismaticWeb.SEO.ContentCache`. Suitable for data shared across LiveView processes.
 
 **Level 3 -- External Source (tens of milliseconds)**:
-The original data source -- database queries, API calls, file reads, [Meilisearch](/glossary/meilisearch/) index lookups. Only reached on L1+L2 cache miss.
+The original data source -- database queries, API calls, file reads, [Meilisearch](@/glossary/meilisearch.md) index lookups. Only reached on L1+L2 cache miss.
 
 ```elixir
 defmodule PrismaticWeb.Cache.HierarchicalCache do
@@ -429,7 +429,7 @@ Time-to-Live (TTL) determines how long cached data remains valid before expirati
 | OSINT tool configs | 30 minutes | Tool metadata changes rarely, but should refresh within a session |
 | Glossary content | 1 hour | Content changes only via deployments |
 | API responses | 5-15 minutes | Balance freshness vs. backend load |
-| [Telemetry](/glossary/telemetry/) aggregations | 1-5 minutes | Near-real-time metrics required |
+| [Telemetry](@/glossary/telemetry.md) aggregations | 1-5 minutes | Near-real-time metrics required |
 | Session data | 24 hours | User sessions persist across browsing |
 | DD source configs | 30 minutes | Pipeline configurations update infrequently |
 | Failed lookups (negative) | 5 minutes | Prevent repeated failures from hammering the source |
@@ -441,7 +441,7 @@ Cache invalidation is famously one of the hardest problems in computer science. 
 | Strategy | Trigger | Complexity | Prismatic Usage |
 |----------|---------|------------|-----------------|
 | **TTL (Time-to-Live)** | Time-based expiration | Low | Default for all caches |
-| **Event-based via [PubSub](/glossary/pubsub/)** | Broadcast notification | Medium | DD pipeline updates, OSINT runs |
+| **Event-based via [PubSub](@/glossary/pubsub.md)** | Broadcast notification | Medium | DD pipeline updates, OSINT runs |
 | **Version-based** | Data version comparison | Medium | Glossary content with checksums |
 | **Manual / explicit** | Direct invalidation call | Low | Admin cache flush endpoints |
 | **None (immutable)** | Data never changes | Minimal | Compiled configuration, PLT |
@@ -529,7 +529,7 @@ The HierarchicalCache powers multiple critical subsystems across the platform:
 
 - **API Endpoint Registry**: Auto-discovered REST API endpoints are cached in ETS for request routing. The `/api/v1/` prefix router resolves endpoints from cache, avoiding repeated module introspection.
 
-- **[Meilisearch](/glossary/meilisearch/) Query Results**: Search results from [Meilisearch](/glossary/meilisearch/) are cached for 5-15 minutes to reduce load on the search engine for repeated or popular queries.
+- **[Meilisearch](@/glossary/meilisearch.md) Query Results**: Search results from [Meilisearch](@/glossary/meilisearch.md) are cached for 5-15 minutes to reduce load on the search engine for repeated or popular queries.
 
 - **Dialyzer PLT**: The Persistent Lookup Table is cached at `priv/plts/dialyzer.plt` -- a file-level cache that persists across compilation cycles.
 
@@ -722,11 +722,11 @@ end
 
 ## Best Practices
 
-1. **Use ETS for read-heavy workloads**: ETS concurrent reads bypass [GenServer](/glossary/genserver/) serialization, providing orders-of-magnitude better throughput. Always set `read_concurrency: true` on cache tables.
+1. **Use ETS for read-heavy workloads**: ETS concurrent reads bypass [GenServer](@/glossary/genserver.md) serialization, providing orders-of-magnitude better throughput. Always set `read_concurrency: true` on cache tables.
 
-2. **Always have an eviction strategy**: Unbounded caches consume unbounded [memory](/glossary/memory/). Implement TTL, LRU, or size-based eviction. The HierarchicalCache defaults to 10,000 entries in L1 with periodic cleanup.
+2. **Always have an eviction strategy**: Unbounded caches consume unbounded [memory](@/glossary/memory.md). Implement TTL, LRU, or size-based eviction. The HierarchicalCache defaults to 10,000 entries in L1 with periodic cleanup.
 
-3. **Monitor hit rates via [Telemetry](/glossary/telemetry/)**: A cache with low hit rates provides cost without benefit. Track `[:prismatic, :cache, :lookup]` events and alert when hit rates drop below 80%.
+3. **Monitor hit rates via [Telemetry](@/glossary/telemetry.md)**: A cache with low hit rates provides cost without benefit. Track `[:prismatic, :cache, :lookup]` events and alert when hit rates drop below 80%.
 
 4. **Handle cache misses gracefully**: Always implement fallback to the primary data source on cache miss. The HierarchicalCache's 3-level fallback ensures transparent resolution.
 
@@ -734,11 +734,11 @@ end
 
 6. **Prefer `get_or_compute` over manual check-then-set**: The HierarchicalCache's `get_or_compute/4` eliminates race conditions between cache check and population.
 
-7. **Use [PubSub](/glossary/pubsub/) for cross-process invalidation**: When data changes, broadcast invalidation events rather than relying solely on TTL expiration. This ensures all caches converge to fresh data quickly.
+7. **Use [PubSub](@/glossary/pubsub.md) for cross-process invalidation**: When data changes, broadcast invalidation events rather than relying solely on TTL expiration. This ensures all caches converge to fresh data quickly.
 
 8. **Warm caches on startup**: Use Cachex warmers or application boot hooks to pre-populate caches for data that will definitely be accessed (e.g., OSINT tool configs, glossary term index).
 
-9. **Instrument everything**: Emit [telemetry](/glossary/telemetry/) events for hits, misses, evictions, and errors. The `[:prismatic, :cache, :cleanup]` event tracks expired entry counts for capacity planning.
+9. **Instrument everything**: Emit [telemetry](@/glossary/telemetry.md) events for hits, misses, evictions, and errors. The `[:prismatic, :cache, :cleanup]` event tracks expired entry counts for capacity planning.
 
 10. **Size your caches based on working set**: Monitor which keys are actually accessed and size your L1/L2 limits to hold the hot working set. Over-sizing wastes memory; under-sizing causes excessive eviction.
 
@@ -759,21 +759,21 @@ end
 
 ## Related Terms
 
-- [ETS](/glossary/ets/) -- Erlang Term Storage, the foundation of L1 caching
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage, the foundation of L1 caching
 - [Cachex](/glossary/cachex/) -- Feature-rich Elixir caching library used for L2
-- [Meilisearch](/glossary/meilisearch/) -- Full-text search engine with cached query results
-- [GenServer](/glossary/genserver/) -- OTP server pattern managing cache lifecycle
-- [Telemetry](/glossary/telemetry/) -- Observability framework for cache metrics
-- [Cache Eviction](/glossary/cache-eviction/) -- Strategies for removing cached data
-- [PubSub](/glossary/pubsub/) -- Event broadcasting for cache invalidation
-- [Memory](/glossary/memory/) -- Memory management considerations for cache sizing
-- [Connection Pool](/glossary/connection-pool/) -- Pooled connections complementing cache
-- [Consistency](/glossary/consistency/) -- Cache coherence challenges in distributed systems
-- [Benchmark](/glossary/benchmark/) -- Cache performance measurement and validation
-- [Batch Processing](/glossary/batch-processing/) -- Batch cache population strategies
-- [Query](/glossary/query/) -- Database queries that benefit from caching
-- [Retention](/glossary/retention/) -- Data retention policies affecting cache lifetime
-- [Configuration](/glossary/configuration/) -- Cache configuration management
+- [Meilisearch](@/glossary/meilisearch.md) -- Full-text search engine with cached query results
+- [GenServer](@/glossary/genserver.md) -- OTP server pattern managing cache lifecycle
+- [Telemetry](@/glossary/telemetry.md) -- Observability framework for cache metrics
+- [Cache Eviction](@/glossary/cache-eviction.md) -- Strategies for removing cached data
+- [PubSub](@/glossary/pubsub.md) -- Event broadcasting for cache invalidation
+- [Memory](@/glossary/memory.md) -- Memory management considerations for cache sizing
+- [Connection Pool](@/glossary/connection-pool.md) -- Pooled connections complementing cache
+- [Consistency](@/glossary/consistency.md) -- Cache coherence challenges in distributed systems
+- [Benchmark](@/glossary/benchmark.md) -- Cache performance measurement and validation
+- [Batch Processing](@/glossary/batch-processing.md) -- Batch cache population strategies
+- [Query](@/glossary/query.md) -- Database queries that benefit from caching
+- [Retention](@/glossary/retention.md) -- Data retention policies affecting cache lifetime
+- [Configuration](@/glossary/configuration.md) -- Cache configuration management
 
 ## See Also
 
@@ -790,4 +790,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

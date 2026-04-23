@@ -430,24 +430,24 @@ Lightning talks and full presentations at local meetups, introducing the platfor
 
 ## Related Concepts
 
-- [Community Building](/glossary/community-building/) -- The broader strategy that conference speaking supports
-- [Mentorship](/glossary/mentorship/) -- One-on-one knowledge transfer complementing conference speaking
-- [Open Source Advocacy](/glossary/open-source-advocacy/) -- The philosophical foundation for public knowledge sharing
-- [Developer Community](/glossary/developer-community/) -- The audience and beneficiary of conference presentations
-- [Workshop Facilitation](/glossary/workshop-facilitation/) -- Hands-on interactive knowledge transfer at conferences
-- [Community Engagement](/glossary/community-engagement/) -- Building lasting connections through conference participation
-- [Open Source Leadership](/glossary/open-source-leadership/) -- Leading through visible expertise and contribution
-- [Community Impact](/glossary/community-impact/) -- Measuring the effect of knowledge sharing activities
-- [Learning Resource](/glossary/learning-resource/) -- Conference talks as persistent educational materials
-- [Documentation](/glossary/documentation/) -- Written counterpart to verbal knowledge transfer
+- [Community Building](@/glossary/community-building.md) -- The broader strategy that conference speaking supports
+- [Mentorship](@/glossary/mentorship.md) -- One-on-one knowledge transfer complementing conference speaking
+- [Open Source Advocacy](@/glossary/open-source-advocacy.md) -- The philosophical foundation for public knowledge sharing
+- [Developer Community](@/glossary/developer-community.md) -- The audience and beneficiary of conference presentations
+- [Workshop Facilitation](@/glossary/workshop-facilitation.md) -- Hands-on interactive knowledge transfer at conferences
+- [Community Engagement](@/glossary/community-engagement.md) -- Building lasting connections through conference participation
+- [Open Source Leadership](@/glossary/open-source-leadership.md) -- Leading through visible expertise and contribution
+- [Community Impact](@/glossary/community-impact.md) -- Measuring the effect of knowledge sharing activities
+- [Learning Resource](@/glossary/learning-resource.md) -- Conference talks as persistent educational materials
+- [Documentation](@/glossary/documentation.md) -- Written counterpart to verbal knowledge transfer
 
 ## See Also
 
-- [Community Over Corporation](/glossary/community-over-corporation/) -- The principle driving open knowledge sharing
-- [Knowledge Hoarding](/glossary/knowledge-hoarding/) -- The anti-pattern that conference speaking counteracts
-- [Community Contributions](/glossary/community-contributions/) -- How conference speaking drives project contributions
-- [Certification Programs](/glossary/certification-programs/) -- Formal knowledge validation complementing conferences
-- [Office Hours](/glossary/office-hours/) -- Interactive knowledge sharing in smaller settings
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- The principle driving open knowledge sharing
+- [Knowledge Hoarding](@/glossary/knowledge-hoarding.md) -- The anti-pattern that conference speaking counteracts
+- [Community Contributions](@/glossary/community-contributions.md) -- How conference speaking drives project contributions
+- [Certification Programs](@/glossary/certification-programs.md) -- Formal knowledge validation complementing conferences
+- [Office Hours](@/glossary/office-hours.md) -- Interactive knowledge sharing in smaller settings
 - Glossary Index -- Complete listing of all platform concepts
 
 ---
@@ -457,4 +457,4 @@ Lightning talks and full presentations at local meetups, introducing the platfor
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

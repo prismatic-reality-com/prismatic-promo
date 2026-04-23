@@ -356,16 +356,16 @@ The Prismatic Platform's approach combines OTP supervision with adaptive pattern
 
 Complex system designs connect to many foundational concepts in the Prismatic Platform:
 
-- [Architecture](/glossary/architecture/) -- the overarching structural decisions that shape complex system designs
-- [Distributed Systems](/glossary/distributed-systems/) -- the runtime environment where complex system behaviors manifest
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP's primary mechanism for structuring complexity and failure recovery
-- [Circuit Breaker](/glossary/circuit-breaker/) -- a pattern for containing failures at domain boundaries in complex systems
-- [Cascade Pattern](/glossary/cascade-pattern/) -- controlled propagation of effects through interconnected components
-- [Bulkhead Pattern](/glossary/bulkhead-pattern/) -- isolation pattern that prevents failure in one partition from affecting others
-- [Chaos Engineering](/glossary/chaos-engineering/) -- the discipline of experimenting on complex systems to build confidence in resilience
-- [CAP Theorem](/glossary/cap-theorem/) -- fundamental constraints on consistency, availability, and partition tolerance in distributed complex systems
-- [System Architecture](/glossary/system-architecture/) -- the structural organization that enables or constrains complex system behavior
-- [Backpressure](/glossary/backpressure/) -- flow control mechanism essential for stable complex system operation
+- [Architecture](@/glossary/architecture.md) -- the overarching structural decisions that shape complex system designs
+- [Distributed Systems](@/glossary/distributed-systems.md) -- the runtime environment where complex system behaviors manifest
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP's primary mechanism for structuring complexity and failure recovery
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- a pattern for containing failures at domain boundaries in complex systems
+- [Cascade Pattern](@/glossary/cascade-pattern.md) -- controlled propagation of effects through interconnected components
+- [Bulkhead Pattern](@/glossary/bulkhead-pattern.md) -- isolation pattern that prevents failure in one partition from affecting others
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- the discipline of experimenting on complex systems to build confidence in resilience
+- [CAP Theorem](@/glossary/cap-theorem.md) -- fundamental constraints on consistency, availability, and partition tolerance in distributed complex systems
+- [System Architecture](@/glossary/system-architecture.md) -- the structural organization that enables or constrains complex system behavior
+- [Backpressure](@/glossary/backpressure.md) -- flow control mechanism essential for stable complex system operation
 
 ## Historical Context
 
@@ -398,11 +398,11 @@ Complex systems cannot be understood through static analysis alone. They require
 ## See Also
 
 - Glossary Index -- complete listing of all platform terminology
-- [BEAM VM](/glossary/beam-vm/) -- the runtime that enables lightweight process-based complex system design
-- [Composability](/glossary/composability/) -- the property of building complex systems from simpler, reusable components
-- [Self-Healing](/glossary/self-healing/) -- autonomous recovery as an emergent property of well-designed complex systems
-- [OTP](/glossary/otp/) -- the framework providing core primitives for complex system construction
-- [GenServer](/glossary/genserver/) -- the process abstraction underlying complex system components
+- [BEAM VM](@/glossary/beam-vm.md) -- the runtime that enables lightweight process-based complex system design
+- [Composability](@/glossary/composability.md) -- the property of building complex systems from simpler, reusable components
+- [Self-Healing](@/glossary/self-healing.md) -- autonomous recovery as an emergent property of well-designed complex systems
+- [OTP](@/glossary/otp.md) -- the framework providing core primitives for complex system construction
+- [GenServer](@/glossary/genserver.md) -- the process abstraction underlying complex system components
 
 ---
 
@@ -411,4 +411,4 @@ Complex systems cannot be understood through static analysis alone. They require
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

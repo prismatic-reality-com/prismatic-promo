@@ -40,7 +40,7 @@ image_alt = "REST API - Prismatic Platform"
 
 REST (Representational State Transfer) is an architectural style for designing networked applications, originally described by Roy Fielding in his 2000 doctoral dissertation. A REST API (Application Programming Interface) is a web service that adheres to REST constraints, using HTTP as the transport protocol and standard HTTP methods (GET, POST, PUT, PATCH, DELETE) to perform operations on resources identified by URIs. REST APIs communicate primarily via JSON (or XML) representations and are designed to be stateless, cacheable, and uniformly interfaced.
 
-In the Prismatic Platform, REST API design takes on additional significance through the **Prismatic API** -- an auto-introspecting REST gateway that automatically discovers all public functions across all `Prismatic*` facade modules via Elixir introspection capabilities (`Code.fetch_docs/1`, `Code.Typespec.fetch_specs/1`, `Module.__info__/1`) and exposes them as a fully documented [OpenAPI](/glossary/openapi/) 3.0 REST API with zero manual configuration. This auto-introspection approach represents a novel contribution to REST API design: instead of manually defining routes and handlers, the API surface is derived directly from the codebase's type system and documentation.
+In the Prismatic Platform, REST API design takes on additional significance through the **Prismatic API** -- an auto-introspecting REST gateway that automatically discovers all public functions across all `Prismatic*` facade modules via Elixir introspection capabilities (`Code.fetch_docs/1`, `Code.Typespec.fetch_specs/1`, `Module.__info__/1`) and exposes them as a fully documented [OpenAPI](@/glossary/openapi.md) 3.0 REST API with zero manual configuration. This auto-introspection approach represents a novel contribution to REST API design: instead of manually defining routes and handlers, the API surface is derived directly from the codebase's type system and documentation.
 
 ## REST Constraints
 
@@ -85,7 +85,7 @@ The Prismatic API targets Level 2 with elements of Level 3, using proper HTTP me
 
 ## The Prismatic API Architecture
 
-The [Prismatic API](/glossary/prismatic-api/) is a standalone Phoenix application running on port 4004 that implements a novel auto-introspecting REST gateway. Instead of manually defining routes and controllers for each endpoint, the API scans all `Prismatic*` modules at boot time, discovers their public functions, maps their Elixir typespecs to OpenAPI JSON Schema, and exposes them through a single generic dispatch controller.
+The [Prismatic API](@/glossary/prismatic-api.md) is a standalone Phoenix application running on port 4004 that implements a novel auto-introspecting REST gateway. Instead of manually defining routes and controllers for each endpoint, the API scans all `Prismatic*` modules at boot time, discovers their public functions, maps their Elixir typespecs to OpenAPI JSON Schema, and exposes them through a single generic dispatch controller.
 
 ### Architecture Overview
 
@@ -513,11 +513,11 @@ REST API security in the Prismatic Platform follows defense-in-depth principles.
 
 ### Authentication
 
-The API inherits `PrismaticWeb.Plugs.APIAuth`, which supports API key [authentication](/glossary/authentication/) via the `Authorization` header and session-based authentication for browser-based clients accessing the SwaggerUI.
+The API inherits `PrismaticWeb.Plugs.APIAuth`, which supports API key [authentication](@/glossary/authentication.md) via the `Authorization` header and session-based authentication for browser-based clients accessing the SwaggerUI.
 
 ### Authorization
 
-Role-based access control (RBAC) restricts which endpoints each authenticated principal can access. The [authorization](/glossary/authorization/) layer checks permissions before dispatch, ensuring that the generic dispatch controller cannot be used to invoke privileged functions.
+Role-based access control (RBAC) restricts which endpoints each authenticated principal can access. The [authorization](@/glossary/authorization.md) layer checks permissions before dispatch, ensuring that the generic dispatch controller cannot be used to invoke privileged functions.
 
 ### Rate Limiting
 
@@ -577,18 +577,18 @@ REST API endpoints in the Prismatic Platform are tested at three levels:
 
 ## Related Concepts
 
-- [API](/glossary/api/) -- General API concepts and patterns
-- [API Gateway](/glossary/api-gateway/) -- Gateway patterns for API routing
-- [API Integration](/glossary/api-integration/) -- Connecting to external APIs
-- [Prismatic API](/glossary/prismatic-api/) -- The auto-introspecting REST gateway
-- [OpenAPI](/glossary/openapi/) -- API specification standard
-- [OpenAPI Spec](/glossary/openapi-spec/) -- Specification format details
-- [Phoenix Framework](/glossary/phoenix-framework/) -- Elixir web framework
-- [Phoenix](/glossary/phoenix/) -- Phoenix ecosystem overview
-- [Authentication](/glossary/authentication/) -- Identity verification
-- [Authorization](/glossary/authorization/) -- Access control
-- [Telemetry](/glossary/telemetry/) -- Observability infrastructure
-- [Elixir](/glossary/elixir/) -- Programming language foundation
+- [API](@/glossary/api.md) -- General API concepts and patterns
+- [API Gateway](@/glossary/api-gateway.md) -- Gateway patterns for API routing
+- [API Integration](@/glossary/api-integration.md) -- Connecting to external APIs
+- [Prismatic API](@/glossary/prismatic-api.md) -- The auto-introspecting REST gateway
+- [OpenAPI](@/glossary/openapi.md) -- API specification standard
+- [OpenAPI Spec](@/glossary/openapi-spec.md) -- Specification format details
+- [Phoenix Framework](@/glossary/phoenix-framework.md) -- Elixir web framework
+- [Phoenix](@/glossary/phoenix.md) -- Phoenix ecosystem overview
+- [Authentication](@/glossary/authentication.md) -- Identity verification
+- [Authorization](@/glossary/authorization.md) -- Access control
+- [Telemetry](@/glossary/telemetry.md) -- Observability infrastructure
+- [Elixir](@/glossary/elixir.md) -- Programming language foundation
 
 ---
 
@@ -597,4 +597,4 @@ REST API endpoints in the Prismatic Platform are tested at three levels:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

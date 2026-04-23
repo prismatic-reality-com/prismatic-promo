@@ -214,10 +214,10 @@ The Quality gates include property-based test execution as part of the CI pipeli
 
 ## Cross-References
 
-- [Contract](/glossary/contract/) - behavioral specifications tested by property-based testing
-- [Assertion](/glossary/assertion/) - verification primitive within property tests
-- [Code Coverage](/glossary/code-coverage/) - property tests improve edge case coverage
-- [Code Quality](/glossary/code-quality/) - counterexample discovery improves quality
+- [Contract](@/glossary/contract.md) - behavioral specifications tested by property-based testing
+- [Assertion](@/glossary/assertion.md) - verification primitive within property tests
+- [Code Coverage](@/glossary/code-coverage.md) - property tests improve edge case coverage
+- [Code Quality](@/glossary/code-quality.md) - counterexample discovery improves quality
 - **Livebooks**: `livebooks/domains/quality_testing/` - property-based testing labs
 - **Academy**: Advanced testing methodology and property-based testing
 

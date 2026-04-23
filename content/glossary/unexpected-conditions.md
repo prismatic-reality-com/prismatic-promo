@@ -27,7 +27,7 @@ image_alt = "Unexpected Conditions - Prismatic Platform"
 
 ## Definition and Overview
 
-Unexpected conditions are runtime situations that deviate from a program's intended execution path -- inputs that violate assumptions, resource failures, timing anomalies, data corruption, and environmental changes that the happy path does not anticipate. In the Prismatic Platform, unexpected conditions are not treated as exceptional events to be avoided but as inevitable realities that the system must handle gracefully through a layered strategy combining [pattern matching](/glossary/pattern-matching/), [supervision trees](/glossary/supervision-tree/), [process isolation](/glossary/process-isolation/), and the [let-it-crash](/glossary/let-it-crash/) philosophy.
+Unexpected conditions are runtime situations that deviate from a program's intended execution path -- inputs that violate assumptions, resource failures, timing anomalies, data corruption, and environmental changes that the happy path does not anticipate. In the Prismatic Platform, unexpected conditions are not treated as exceptional events to be avoided but as inevitable realities that the system must handle gracefully through a layered strategy combining [pattern matching](@/glossary/pattern-matching.md), [supervision trees](@/glossary/supervision-tree.md), [process isolation](@/glossary/process-isolation.md), and the [let-it-crash](@/glossary/let-it-crash.md) philosophy.
 
 The distinction between "expected errors" and "unexpected conditions" is fundamental to the Elixir/OTP approach. Expected errors (a user provides an invalid email, a database query returns no results) are part of the business domain and are handled through return values like `{:ok, result}` and `{:error, reason}`. Unexpected conditions (the database connection drops, a process receives a message it does not understand, memory allocation fails) are system-level failures that are handled through supervision and process restart. Conflating these two categories -- trying to handle system failures with business logic, or treating business errors as crashes -- is a foundational design error that the Prismatic Platform's architecture actively prevents.
 
@@ -35,7 +35,7 @@ The BEAM virtual machine's process model provides the foundation for unexpected 
 
 ## The Let-It-Crash Philosophy
 
-The [let-it-crash](/glossary/let-it-crash/) philosophy is widely misunderstood. It does not mean "do not handle errors." It means "do not write defensive code against conditions you cannot meaningfully recover from within the current process." Instead, let the process crash and have the supervision tree handle recovery.
+The [let-it-crash](@/glossary/let-it-crash.md) philosophy is widely misunderstood. It does not mean "do not handle errors." It means "do not write defensive code against conditions you cannot meaningfully recover from within the current process." Instead, let the process crash and have the supervision tree handle recovery.
 
 ### What Let-It-Crash Actually Means
 
@@ -130,7 +130,7 @@ end
 
 ## Defensive Programming with Pattern Matching
 
-[Pattern matching](/glossary/pattern-matching/) is Elixir's primary tool for defensive programming. Unlike runtime type checks or assertions, pattern matching validates data structure at the point of use, and failed matches produce clear crash messages that identify exactly which assumption was violated.
+[Pattern matching](@/glossary/pattern-matching.md) is Elixir's primary tool for defensive programming. Unlike runtime type checks or assertions, pattern matching validates data structure at the point of use, and failed matches produce clear crash messages that identify exactly which assumption was violated.
 
 ### Function Clause Guards
 
@@ -209,7 +209,7 @@ end
 
 ## Supervision Strategies for Failure Modes
 
-Different [supervision](/glossary/supervision-tree/) strategies correspond to different failure mode assumptions. The choice of strategy communicates which processes are independent and which share fate.
+Different [supervision](@/glossary/supervision-tree.md) strategies correspond to different failure mode assumptions. The choice of strategy communicates which processes are independent and which share fate.
 
 ### Strategy Selection Guide
 
@@ -270,7 +270,7 @@ The `max_restarts` and `max_seconds` parameters control how aggressively the sup
 
 ## Circuit Breaker Pattern
 
-The [circuit breaker](/glossary/circuit-breaker/) pattern prevents cascading failures when an external dependency fails. Instead of repeatedly attempting operations that will fail, the circuit breaker opens and returns an immediate error, giving the dependency time to recover.
+The [circuit breaker](@/glossary/circuit-breaker.md) pattern prevents cascading failures when an external dependency fails. Instead of repeatedly attempting operations that will fail, the circuit breaker opens and returns an immediate error, giving the dependency time to recover.
 
 ```elixir
 defmodule PrismaticPerimeter.CircuitBreaker do
@@ -386,11 +386,11 @@ These are bugs -- pattern match failures, function clause errors, type mismatche
 
 ### Category 4: Resource Exhaustion
 
-These are capacity failures -- memory exhaustion, file descriptor limits, connection pool depletion. They are detected through [telemetry](/glossary/telemetry/) and [health monitoring](/glossary/health-monitoring/) and addressed through scaling, throttling, or load shedding.
+These are capacity failures -- memory exhaustion, file descriptor limits, connection pool depletion. They are detected through [telemetry](@/glossary/telemetry.md) and [health monitoring](@/glossary/health-monitoring.md) and addressed through scaling, throttling, or load shedding.
 
 ## Telemetry for Unexpected Condition Detection
 
-[Telemetry](/glossary/telemetry/) is the primary mechanism for detecting unexpected conditions in production before they become user-visible failures:
+[Telemetry](@/glossary/telemetry.md) is the primary mechanism for detecting unexpected conditions in production before they become user-visible failures:
 
 ```elixir
 defmodule PrismaticTelemetry.ErrorTracker do
@@ -524,22 +524,22 @@ The `QualityFloorGuardian` monitors quality metrics and triggers automatic respo
 
 ## Related Concepts
 
-- [Let-It-Crash](/glossary/let-it-crash/) -- The OTP philosophy underlying unexpected condition handling
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System-level resilience through isolation and redundancy
-- [Error Handling](/glossary/error-handling/) -- Pattern-based error management in Elixir
-- [Supervision Tree](/glossary/supervision-tree/) -- Process monitoring and restart infrastructure
-- [Process Isolation](/glossary/process-isolation/) -- BEAM's per-process heap and failure containment
-- [Process Restart](/glossary/process-restart/) -- Clean state restoration after crashes
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern for preventing cascading dependency failures
-- [GenServer](/glossary/genserver/) -- OTP behaviour providing process state management
-- [Telemetry](/glossary/telemetry/) -- Metrics and events for detecting unexpected conditions
-- [Observability](/glossary/observability/) -- Production visibility into system behavior
+- [Let-It-Crash](@/glossary/let-it-crash.md) -- The OTP philosophy underlying unexpected condition handling
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System-level resilience through isolation and redundancy
+- [Error Handling](@/glossary/error-handling.md) -- Pattern-based error management in Elixir
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Process monitoring and restart infrastructure
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM's per-process heap and failure containment
+- [Process Restart](@/glossary/process-restart.md) -- Clean state restoration after crashes
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern for preventing cascading dependency failures
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour providing process state management
+- [Telemetry](@/glossary/telemetry.md) -- Metrics and events for detecting unexpected conditions
+- [Observability](@/glossary/observability.md) -- Production visibility into system behavior
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Umbrella applications implementing these patterns
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications implementing these patterns
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -549,4 +549,4 @@ The `QualityFloorGuardian` monitors quality metrics and triggers automatic respo
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

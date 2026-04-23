@@ -39,7 +39,7 @@ image_alt = "REST API - Prismatic Platform"
 
 REST (Representational State Transfer) is an architectural style for designing networked applications, defined by Roy Fielding in his 2000 doctoral dissertation. RESTful APIs use standard HTTP methods (GET, POST, PUT, PATCH, DELETE) to perform operations on resources identified by URLs, following a set of constraints that promote scalability, simplicity, and reliability. The six REST constraints are: client-server separation, statelessness (each request contains all information needed for processing), cacheability (responses declare whether they can be cached), layered system (intermediaries like load balancers and CDNs are transparent), uniform interface (standardized resource interaction), and optional code-on-demand (servers can extend client functionality with executable code).
 
-The statelessness constraint is particularly significant for distributed systems: because no server-side session state is maintained between requests, any server instance can handle any request, enabling horizontal scaling through [load balancing](/glossary/load-balancing/) without sticky sessions. Each request carries its own authentication token (typically a [JWT](/glossary/jwt/)), request context, and parameters. This makes REST APIs naturally suited to cloud deployments, microservice architectures, and edge computing where requests may be handled by different instances on successive calls.
+The statelessness constraint is particularly significant for distributed systems: because no server-side session state is maintained between requests, any server instance can handle any request, enabling horizontal scaling through [load balancing](@/glossary/load-balancing.md) without sticky sessions. Each request carries its own authentication token (typically a [JWT](@/glossary/jwt.md)), request context, and parameters. This makes REST APIs naturally suited to cloud deployments, microservice architectures, and edge computing where requests may be handled by different instances on successive calls.
 
 REST APIs follow conventions for resource naming (plural nouns for collections: `/api/v1/assets`, singular with ID for items: `/api/v1/assets/123`), HTTP status codes (200 for success, 201 for creation, 400 for client error, 404 for not found, 500 for server error), content negotiation (Accept and Content-Type headers), and hypermedia controls (HATEOAS -- links in responses that describe available actions). While few APIs implement full HATEOAS, the resource-oriented URL structure and standard method semantics have become the dominant pattern for web service interfaces.
 
@@ -53,9 +53,9 @@ The Richardson Maturity Model, proposed by Leonard Richardson, classifies REST A
 
 ## Context in Prismatic
 
-The Prismatic API (`prismatic_api` app, port 4004) is an auto-introspecting REST gateway that discovers all public functions across `Prismatic*` facade modules at boot time and exposes them as [OpenAPI](/glossary/openapi/) 3.0 documented endpoints. This approach eliminates manual route configuration -- when a new public function is added to any Prismatic facade module, it automatically becomes available as a REST endpoint after the next boot. The generic dispatch controller resolves `{app, action}` tuples to `module.function(args)` calls, using GET for 0-2 parameter queries and POST for commands with larger payloads.
+The Prismatic API (`prismatic_api` app, port 4004) is an auto-introspecting REST gateway that discovers all public functions across `Prismatic*` facade modules at boot time and exposes them as [OpenAPI](@/glossary/openapi.md) 3.0 documented endpoints. This approach eliminates manual route configuration -- when a new public function is added to any Prismatic facade module, it automatically becomes available as a REST endpoint after the next boot. The generic dispatch controller resolves `{app, action}` tuples to `module.function(args)` calls, using GET for 0-2 parameter queries and POST for commands with larger payloads.
 
-The API is built on [Phoenix](/glossary/phoenix/) with a dedicated [Endpoint](/glossary/endpoint/) on port 4004, separating API traffic from the [LiveView](/glossary/liveview/) dashboard on port 4000. Authentication uses [JWT](/glossary/jwt/) tokens validated through `PrismaticWeb.Plugs.APIAuth`, with [RBAC](/glossary/rbac/) (Role-Based Access Control) governing endpoint permissions. [Rate limiting](/glossary/rate-limiting/) protects against abuse, and all endpoints are documented through OpenApiSpex with SwaggerUI available at `/api/swaggerui`.
+The API is built on [Phoenix](@/glossary/phoenix.md) with a dedicated [Endpoint](@/glossary/endpoint.md) on port 4004, separating API traffic from the [LiveView](@/glossary/liveview.md) dashboard on port 4000. Authentication uses [JWT](@/glossary/jwt.md) tokens validated through `PrismaticWeb.Plugs.APIAuth`, with [RBAC](@/glossary/rbac.md) (Role-Based Access Control) governing endpoint permissions. [Rate limiting](@/glossary/rate-limiting.md) protects against abuse, and all endpoints are documented through OpenApiSpex with SwaggerUI available at `/api/swaggerui`.
 
 ## HTTP Methods and Resource Operations
 
@@ -73,7 +73,7 @@ REST maps CRUD operations to HTTP methods with standardized semantics:
 
 *PATCH can be made idempotent with conditional headers (If-Match).
 
-[Idempotency](/glossary/idempotency/) is critical for reliability -- idempotent operations can be safely retried on network failure without creating duplicate resources or applying changes twice. The Prismatic API enforces idempotency keys for POST requests to enable safe retries in distributed environments.
+[Idempotency](@/glossary/idempotency.md) is critical for reliability -- idempotent operations can be safely retried on network failure without creating duplicate resources or applying changes twice. The Prismatic API enforces idempotency keys for POST requests to enable safe retries in distributed environments.
 
 ## Prismatic Auto-Introspecting API Architecture
 
@@ -190,7 +190,7 @@ The URL path strategy was chosen because it provides the best developer experien
 
 ## OpenAPI Integration
 
-The Prismatic API generates a complete [OpenAPI](/glossary/openapi/) 3.0 specification from Elixir typespecs:
+The Prismatic API generates a complete [OpenAPI](@/glossary/openapi.md) 3.0 specification from Elixir typespecs:
 
 ```elixir
 defmodule PrismaticApi.TypeMapper do
@@ -243,10 +243,10 @@ REST API security in Prismatic uses a layered approach:
 
 | Layer | Mechanism | Implementation |
 |-------|-----------|---------------|
-| **Transport** | [TLS](/glossary/tls/) encryption | Fly.io edge TLS termination |
-| **Authentication** | [JWT](/glossary/jwt/) bearer tokens | `APIAuth` [Plug](/glossary/plug/) in endpoint pipeline |
-| **Authorization** | [RBAC](/glossary/rbac/) role checks | Per-endpoint permission verification |
-| **Rate Limiting** | Token bucket per client | [Rate Limiting](/glossary/rate-limiting/) plug |
+| **Transport** | [TLS](@/glossary/tls.md) encryption | Fly.io edge TLS termination |
+| **Authentication** | [JWT](@/glossary/jwt.md) bearer tokens | `APIAuth` [Plug](@/glossary/plug.md) in endpoint pipeline |
+| **Authorization** | [RBAC](@/glossary/rbac.md) role checks | Per-endpoint permission verification |
+| **Rate Limiting** | Token bucket per client | [Rate Limiting](@/glossary/rate-limiting.md) plug |
 | **Input Validation** | OpenApiSpex schema validation | Request body/params validation |
 | **CORS** | Cross-Origin Resource Sharing | Configurable allowed origins |
 
@@ -284,7 +284,7 @@ end
 
 ## REST vs. GraphQL
 
-The Prismatic Platform offers both REST and [GraphQL](/glossary/graphql/) interfaces:
+The Prismatic Platform offers both REST and [GraphQL](@/glossary/graphql.md) interfaces:
 
 | Feature | REST API | GraphQL |
 |---------|---------|---------|
@@ -294,8 +294,8 @@ The Prismatic Platform offers both REST and [GraphQL](/glossary/graphql/) interf
 | **Under-fetching** | Requires multiple requests | Single query for nested data |
 | **Caching** | HTTP cache headers, CDN-friendly | Application-level caching required |
 | **Versioning** | URL-based (`/v1/`, `/v2/`) | Schema evolution, deprecation |
-| **Documentation** | [OpenAPI](/glossary/openapi/) / Swagger | Introspection schema |
-| **Real-time** | Polling or [WebSocket](/glossary/websocket/) | Subscriptions |
+| **Documentation** | [OpenAPI](@/glossary/openapi.md) / Swagger | Introspection schema |
+| **Real-time** | Polling or [WebSocket](@/glossary/websocket.md) | Subscriptions |
 | **Prismatic Use** | Auto-introspecting generic dispatch | Complex intelligence queries |
 | **Learning Curve** | Low (HTTP fundamentals) | Medium (query language, schema design) |
 
@@ -379,23 +379,23 @@ REST APIs benefit from HTTP's built-in caching mechanisms:
 
 ## Related Terms
 
-- [OpenAPI](/glossary/openapi/) - Specification standard documenting REST APIs
-- [API Gateway](/glossary/api-gateway/) - Entry point routing and aggregating API requests
-- [Plug](/glossary/plug/) - Composable middleware for request processing
-- [Phoenix](/glossary/phoenix/) - Framework powering the REST API server
-- [JWT](/glossary/jwt/) - Token-based authentication for stateless API access
-- [RBAC](/glossary/rbac/) - Role-based access control for API endpoints
-- [Rate Limiting](/glossary/rate-limiting/) - Protection against API abuse
-- [GraphQL](/glossary/graphql/) - Alternative query language for flexible data fetching
-- [Endpoint](/glossary/endpoint/) - Phoenix entry point for API request handling
-- [Idempotency](/glossary/idempotency/) - Safe retry semantics for HTTP methods
-- [TLS](/glossary/tls/) - Transport layer encryption for API security
-- [WebSocket](/glossary/websocket/) - Bidirectional protocol for real-time API features
+- [OpenAPI](@/glossary/openapi.md) - Specification standard documenting REST APIs
+- [API Gateway](@/glossary/api-gateway.md) - Entry point routing and aggregating API requests
+- [Plug](@/glossary/plug.md) - Composable middleware for request processing
+- [Phoenix](@/glossary/phoenix.md) - Framework powering the REST API server
+- [JWT](@/glossary/jwt.md) - Token-based authentication for stateless API access
+- [RBAC](@/glossary/rbac.md) - Role-based access control for API endpoints
+- [Rate Limiting](@/glossary/rate-limiting.md) - Protection against API abuse
+- [GraphQL](@/glossary/graphql.md) - Alternative query language for flexible data fetching
+- [Endpoint](@/glossary/endpoint.md) - Phoenix entry point for API request handling
+- [Idempotency](@/glossary/idempotency.md) - Safe retry semantics for HTTP methods
+- [TLS](@/glossary/tls.md) - Transport layer encryption for API security
+- [WebSocket](@/glossary/websocket.md) - Bidirectional protocol for real-time API features
 
 ## See Also
 
-- [Architecture](/architecture/) -- API architecture design
-- [Applications](/apps/) -- Prismatic API application details
+- [Architecture](@/architecture/_index.md) -- API architecture design
+- [Applications](@/apps/_index.md) -- Prismatic API application details
 
 ---
 
@@ -404,4 +404,4 @@ REST APIs benefit from HTTP's built-in caching mechanisms:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

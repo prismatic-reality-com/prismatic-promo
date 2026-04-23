@@ -28,7 +28,7 @@ image_alt = "Adapter Pattern - Prismatic Platform"
 
 The Adapter Pattern is a structural design pattern that defines a uniform interface through which client code interacts with diverse backend implementations. By establishing a contract (the adapter interface) and implementing it for each backend, the pattern decouples application logic from infrastructure concerns: business code depends only on the abstract interface, never on a specific technology. Adapters can be swapped, composed, or layered without modifying the code that consumes them.
 
-In the classical Gang of Four formulation, the adapter pattern translates one interface into another that a client expects. In the Prismatic Platform's usage, the pattern goes further: it defines a canonical storage interface via Elixir [behaviours](/glossary/behaviour/) and implements it across seven distinct storage technologies, each optimized for different access patterns. This is not merely interface translation but a full abstraction layer that enables transparent multi-backend operations, layered caching, and contract-driven testing across all storage implementations.
+In the classical Gang of Four formulation, the adapter pattern translates one interface into another that a client expects. In the Prismatic Platform's usage, the pattern goes further: it defines a canonical storage interface via Elixir [behaviours](@/glossary/behaviour.md) and implements it across seven distinct storage technologies, each optimized for different access patterns. This is not merely interface translation but a full abstraction layer that enables transparent multi-backend operations, layered caching, and contract-driven testing across all storage implementations.
 
 The pattern's power in the Prismatic context stems from Elixir's compile-time behaviour verification. When a storage adapter claims to implement the `PrismaticStorage.Core` behaviour, Dialyzer verifies at compile time that all required callbacks are implemented with correct type signatures. This provides the same guarantees as interface implementation in statically typed languages while preserving Elixir's dynamic dispatch flexibility and pattern matching capabilities.
 
@@ -38,19 +38,19 @@ The Prismatic Platform's storage layer is organized as a set of umbrella applica
 
 | Application | Backend | Optimized For | Latency | Use Case |
 |-------------|---------|---------------|---------|----------|
-| `prismatic_storage_ets` | [ETS](/glossary/ets/) | Key-value, concurrent reads | Microseconds | Hot cache, working memory |
-| `prismatic_storage_ecto` | [PostgreSQL](/glossary/postgresql/) via Ecto | Relational queries, transactions | Milliseconds | Persistent storage, ACID |
+| `prismatic_storage_ets` | [ETS](@/glossary/ets.md) | Key-value, concurrent reads | Microseconds | Hot cache, working memory |
+| `prismatic_storage_ecto` | [PostgreSQL](@/glossary/postgresql.md) via Ecto | Relational queries, transactions | Milliseconds | Persistent storage, ACID |
 | `prismatic_storage_meilisearch` | Meilisearch | Full-text search | Milliseconds | Content discovery, search |
 | `prismatic_storage_kuzudb` | KuzuDB | Graph traversal, path queries | Milliseconds | Relationship graphs, ontology |
 | `prismatic_storage_duckdb` | DuckDB | Analytical OLAP, columnar | Milliseconds | Analytics, aggregation |
-| `prismatic_storage_redis` | [Redis](/glossary/redis/) | Pub/sub, distributed cache | Sub-millisecond | Cross-node state, caching |
+| `prismatic_storage_redis` | [Redis](@/glossary/redis.md) | Pub/sub, distributed cache | Sub-millisecond | Cross-node state, caching |
 | `prismatic_storage_file` | File system | Document storage | Milliseconds | Reports, exports, artifacts |
 
 Each adapter lives in its own umbrella application with independent dependencies, tests, and configuration. This isolation means that adding a new storage backend requires no changes to existing adapters or to application code that uses the abstract interface.
 
 ## Behaviour-Based Contracts
 
-The adapter pattern in Prismatic is built on Elixir [behaviours](/glossary/behaviour/), which provide compile-time contract enforcement through `@callback` declarations.
+The adapter pattern in Prismatic is built on Elixir [behaviours](@/glossary/behaviour.md), which provide compile-time contract enforcement through `@callback` declarations.
 
 ### Core Behaviour Definition
 
@@ -473,7 +473,7 @@ This approach means that when application code receives `{:error, :connection_fa
 |---------|-------------------|----------|-----------------|
 | **Adapter (Behaviour)** | Module-level callbacks | Backend abstraction | Storage adapters |
 | **Protocol** | Data type dispatch | Polymorphic data operations | Encoding, formatting |
-| [Plug](/glossary/plug/) | Request pipeline | HTTP middleware | Request processing |
+| [Plug](@/glossary/plug.md) | Request pipeline | HTTP middleware | Request processing |
 | **Strategy** | Runtime function selection | Algorithm selection | Scoring algorithms |
 | **Repository** | Domain-specific interface | Data access objects | Ecto Repos |
 
@@ -490,7 +490,7 @@ The adapter pattern makes adding a new storage backend a well-defined, low-risk 
 | 3 | Implement all `@callback` functions | Compiler warns on missing callbacks |
 | 4 | Add `use PrismaticStorage.AdapterContractTest` | Contract tests validate behavior |
 | 5 | Configure in `config/*.exs` | Runtime adapter selection works |
-| 6 | Add [connection pooling](/glossary/connection-pooling/) if needed | Pool supervised in app tree |
+| 6 | Add [connection pooling](@/glossary/connection-pooling.md) if needed | Pool supervised in app tree |
 | 7 | Document in adapter registry | Discoverable by other components |
 
 No existing adapters or application code need to be modified. The contract test suite guarantees that the new adapter satisfies the same behavioral contract as all existing adapters.
@@ -544,24 +544,24 @@ This migration tool works for any pair of adapters without knowledge of either b
 
 ## Related Terms
 
-- [Behaviour](/glossary/behaviour/) - Contract mechanism enforcing adapter compliance at compile time
-- [Typespec](/glossary/typespec/) - Type annotations used in `@callback` definitions for adapter contracts
-- [ETS](/glossary/ets/) - In-memory storage adapter for high-speed caching and working memory
-- [Ecto](/glossary/ecto/) - Database wrapper and query builder used by the PostgreSQL adapter
-- [KuzuDB](/glossary/kuzudb/) - Graph database adapter for relationship queries and ontology
-- [Connection Pooling](/glossary/connection-pooling/) - Resource management for database adapters requiring persistent connections
-- [Plug](/glossary/plug/) - Composable request processing pattern, conceptually similar to adapter composition
-- [Dialyzer](/glossary/dialyzer/) - Static analysis tool verifying adapter contract compliance
-- [Property-Based Testing](/glossary/property-based-testing/) - Testing methodology complementing contract tests
-- [Redis](/glossary/redis/) - Distributed cache adapter for cross-node state management
-- [PostgreSQL](/glossary/postgresql/) - Primary relational database backend
-- [Prismatic Storage](/glossary/prismatic-storage/) - The unified storage layer built on the adapter pattern
+- [Behaviour](@/glossary/behaviour.md) - Contract mechanism enforcing adapter compliance at compile time
+- [Typespec](@/glossary/typespec.md) - Type annotations used in `@callback` definitions for adapter contracts
+- [ETS](@/glossary/ets.md) - In-memory storage adapter for high-speed caching and working memory
+- [Ecto](@/glossary/ecto.md) - Database wrapper and query builder used by the PostgreSQL adapter
+- [KuzuDB](@/glossary/kuzudb.md) - Graph database adapter for relationship queries and ontology
+- [Connection Pooling](@/glossary/connection-pooling.md) - Resource management for database adapters requiring persistent connections
+- [Plug](@/glossary/plug.md) - Composable request processing pattern, conceptually similar to adapter composition
+- [Dialyzer](@/glossary/dialyzer.md) - Static analysis tool verifying adapter contract compliance
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Testing methodology complementing contract tests
+- [Redis](@/glossary/redis.md) - Distributed cache adapter for cross-node state management
+- [PostgreSQL](@/glossary/postgresql.md) - Primary relational database backend
+- [Prismatic Storage](@/glossary/prismatic-storage.md) - The unified storage layer built on the adapter pattern
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview and storage layer design
-- [Technologies](/technologies/) - Technology stack details for all storage backends
-- [Apps](/apps/) - Umbrella applications implementing storage adapters
+- [Architecture](@/architecture/_index.md) - Platform architecture overview and storage layer design
+- [Technologies](@/technologies/_index.md) - Technology stack details for all storage backends
+- [Apps](@/apps/_index.md) - Umbrella applications implementing storage adapters
 
 ---
 
@@ -570,4 +570,4 @@ This migration tool works for any pair of adapters without knowledge of either b
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

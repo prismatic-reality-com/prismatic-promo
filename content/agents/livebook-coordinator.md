@@ -28,9 +28,9 @@ image_alt = "livebook-coordinator - Prismatic Platform"
 
 ## Overview
 
-The livebook-coordinator is an L2 tactical operations agent operating within the Prismatic Platform's interactive development domain. This agent manages the lifecycle, configuration, and orchestration of Livebook notebooks -- the Elixir ecosystem's interactive computational notebook environment. Livebook provides a browser-based interface for writing and executing Elixir code in an interactive, cell-based format similar to Jupyter notebooks but deeply integrated with the [BEAM](/glossary/beam/) virtual machine and [OTP](/glossary/otp/) ecosystem. The coordinator ensures that Livebook instances are properly configured, connected to the platform's runtime, and available for data exploration, prototyping, documentation, and interactive analysis workflows.
+The livebook-coordinator is an L2 tactical operations agent operating within the Prismatic Platform's interactive development domain. This agent manages the lifecycle, configuration, and orchestration of Livebook notebooks -- the Elixir ecosystem's interactive computational notebook environment. Livebook provides a browser-based interface for writing and executing Elixir code in an interactive, cell-based format similar to Jupyter notebooks but deeply integrated with the [BEAM](@/glossary/beam.md) virtual machine and [OTP](@/glossary/otp.md) ecosystem. The coordinator ensures that Livebook instances are properly configured, connected to the platform's runtime, and available for data exploration, prototyping, documentation, and interactive analysis workflows.
 
-Built on the [AIAD](/glossary/aiad/) standard, the livebook-coordinator addresses the need for interactive development environments within a platform that is otherwise oriented toward automated, agent-driven operations. While autonomous agents handle the majority of platform operations, certain activities -- exploratory data analysis, prototype development, interactive debugging, and collaborative investigation -- benefit from the immediate feedback and visual output that Livebook provides. The coordinator bridges the gap between the platform's automated infrastructure and its human operators' need for interactive tooling.
+Built on the [AIAD](@/glossary/aiad.md) standard, the livebook-coordinator addresses the need for interactive development environments within a platform that is otherwise oriented toward automated, agent-driven operations. While autonomous agents handle the majority of platform operations, certain activities -- exploratory data analysis, prototype development, interactive debugging, and collaborative investigation -- benefit from the immediate feedback and visual output that Livebook provides. The coordinator bridges the gap between the platform's automated infrastructure and its human operators' need for interactive tooling.
 
 ## Livebook Integration Architecture
 
@@ -48,8 +48,8 @@ Runtime connection management handles the establishment and monitoring of connec
 - **Collaborative notebook sharing** -- Supports multi-user access to shared notebooks with appropriate access control and conflict resolution for concurrent editing
 - **Smart cell integration** -- Provides platform-specific Livebook Smart Cells that offer GUI-driven configuration for common platform operations (database queries, API calls, visualization generation)
 - **Notebook validation** -- Checks notebooks for security issues (credential exposure, unsafe system calls) and platform compliance before sharing or publishing
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with health monitoring and automatic recovery of Livebook instances
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for instance utilization metrics and notebook execution monitoring
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with health monitoring and automatic recovery of Livebook instances
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for instance utilization metrics and notebook execution monitoring
 
 ## Notebook Template Categories
 
@@ -59,7 +59,7 @@ The coordinator maintains notebook templates organized by analytical purpose, ea
 
 **Data quality notebooks** provide interactive tools for examining data quality across platform storage systems. Templates include cells for sampling data from PostgreSQL and ETS, computing quality metrics (completeness, consistency, accuracy, timeliness), and visualizing quality distributions. These notebooks support the platform's quality-first culture by making data quality assessment accessible and interactive.
 
-**Performance analysis notebooks** provide interactive profiling and benchmarking tools. Templates include cells for executing Benchee benchmarks, visualizing execution profiles, and comparing performance across configurations. These notebooks complement the automated profiling provided by the [ir-pvm-profiler](/agents/ir-pvm-profiler/) with interactive exploration capability.
+**Performance analysis notebooks** provide interactive profiling and benchmarking tools. Templates include cells for executing Benchee benchmarks, visualizing execution profiles, and comparing performance across configurations. These notebooks complement the automated profiling provided by the [ir-pvm-profiler](@/agents/ir-pvm-profiler.md) with interactive exploration capability.
 
 **Agent debugging notebooks** provide tools for inspecting agent state, tracing message flows, and testing agent behaviors in isolation. Templates include cells for querying agent process state, subscribing to telemetry events, and invoking agent functions with test inputs. These notebooks are invaluable for diagnosing complex agent interaction issues that are difficult to analyze through logs alone.
 
@@ -71,18 +71,18 @@ The coordinator enforces content security policies that prevent notebooks from b
 
 ## Authority Level
 
-**L2** - Tactical Operations - Domain-specific [tactical execution](/glossary/tactical-execution/) authority for managing Livebook instances, notebook resources, and runtime connections within the interactive development domain.
+**L2** - Tactical Operations - Domain-specific [tactical execution](@/glossary/tactical-execution.md) authority for managing Livebook instances, notebook resources, and runtime connections within the interactive development domain.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and instance lifecycle management |
-| [BEAM](/glossary/beam/) VM | Runtime node connection for attached-mode Livebook instances |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Data access for interactive exploration notebooks |
-| Prismatic Telemetry | Instance utilization [metrics](/glossary/metrics/) and notebook execution event tracking |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of notebook templates and Smart Cells |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and instance lifecycle management |
+| [BEAM](@/glossary/beam.md) VM | Runtime node connection for attached-mode Livebook instances |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Data access for interactive exploration notebooks |
+| Prismatic Telemetry | Instance utilization [metrics](@/glossary/metrics.md) and notebook execution event tracking |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of notebook templates and Smart Cells |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
 
 ## Command Interface
 
@@ -98,9 +98,9 @@ The coordinator enforces content security policies that prevent notebooks from b
 
 | Agent | Relationship |
 |-------|-------------|
-| [**investigate-coordinator**](/agents/investigate-coordinator/) (L3) | Investigation notebooks draw on investigation data and OSINT results |
-| [**ir-pvm-profiler**](/agents/ir-pvm-profiler/) (L3) | Performance analysis notebooks complement automated profiling capabilities |
-| [**llm-conversation-coordinator**](/agents/llm-conversation-coordinator/) (L3) | LLM-enhanced notebooks leverage conversation management for interactive AI workflows |
+| [**investigate-coordinator**](@/agents/investigate-coordinator.md) (L3) | Investigation notebooks draw on investigation data and OSINT results |
+| [**ir-pvm-profiler**](@/agents/ir-pvm-profiler.md) (L3) | Performance analysis notebooks complement automated profiling capabilities |
+| [**llm-conversation-coordinator**](@/agents/llm-conversation-coordinator.md) (L3) | LLM-enhanced notebooks leverage conversation management for interactive AI workflows |
 
 ## Operational Metrics
 
@@ -108,7 +108,7 @@ The coordinator tracks operational metrics including instance uptime, notebook e
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that all managed Livebook instances are properly secured and monitored. No instance operates without authentication. No notebook containing credentials enters version control. The [NO DOUBTS](/glossary/no-doubts/) principle requires that interactive analysis results produced through Livebook notebooks carry the same provenance and confidence scoring requirements as automated analysis -- the interactive nature of the tool does not exempt its outputs from epistemic rigor.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that all managed Livebook instances are properly secured and monitored. No instance operates without authentication. No notebook containing credentials enters version control. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that interactive analysis results produced through Livebook notebooks carry the same provenance and confidence scoring requirements as automated analysis -- the interactive nature of the tool does not exempt its outputs from epistemic rigor.
 
 ---
 
@@ -117,4 +117,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that all managed Livebook 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

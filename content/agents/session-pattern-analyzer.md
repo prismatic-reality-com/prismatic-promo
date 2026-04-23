@@ -28,9 +28,9 @@ image_alt = "session-pattern-analyzer - Prismatic Platform"
 
 ## Overview
 
-The session-pattern-analyzer operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's session-intelligence domain, responsible for identifying recurring patterns, systemic issues, and improvement opportunities across the platform's development session history. While individual sessions focus on specific tasks, the pattern analyzer examines the aggregate behavior across many sessions to reveal higher-order patterns that are invisible at the individual session level -- recurring bug categories, frequently modified file clusters, decision patterns, and productivity bottlenecks.
+The session-pattern-analyzer operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's session-intelligence domain, responsible for identifying recurring patterns, systemic issues, and improvement opportunities across the platform's development session history. While individual sessions focus on specific tasks, the pattern analyzer examines the aggregate behavior across many sessions to reveal higher-order patterns that are invisible at the individual session level -- recurring bug categories, frequently modified file clusters, decision patterns, and productivity bottlenecks.
 
-Built on the [AIAD](/glossary/aiad/) standard and applying [NABLA Infinity](/glossary/nabla-infinity/) epistemic rigor, the pattern analyzer treats session data as an intelligence source that, when properly analyzed, yields actionable insights for platform improvement. The agent applies techniques from pattern recognition, statistical analysis, and temporal sequence analysis to extract meaningful signals from the noise of daily development activities. The [Trinity Gate](/glossary/trinity-gate/) ensures that identified patterns are structurally consistent, logically coherent, and formally validated before being reported as findings.
+Built on the [AIAD](@/glossary/aiad.md) standard and applying [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic rigor, the pattern analyzer treats session data as an intelligence source that, when properly analyzed, yields actionable insights for platform improvement. The agent applies techniques from pattern recognition, statistical analysis, and temporal sequence analysis to extract meaningful signals from the noise of daily development activities. The [Trinity Gate](@/glossary/trinity-gate.md) ensures that identified patterns are structurally consistent, logically coherent, and formally validated before being reported as findings.
 
 ## Operational Domain
 
@@ -45,8 +45,8 @@ The domain extends to correlating session patterns with external factors such as
 - **Bug pattern classification** -- Categorizes bugs encountered across sessions to identify systemic root causes. When the same category of bug recurs despite individual fixes, the analyzer flags this as a systemic issue requiring architectural intervention
 - **Decision pattern tracking** -- Analyzes decision patterns across sessions to identify decision reversals, indecision cycles, and areas where decisions are frequently revisited, suggesting unclear requirements or insufficient analysis
 - **Productivity bottleneck identification** -- Identifies workflow patterns that consume disproportionate session time, flagging areas where tooling improvements, documentation, or architectural changes could improve development velocity
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with triggered analysis when new session data becomes available
-- **[SEADF](/glossary/seadf/) integration** for feeding pattern insights into evolutionary improvement cycles
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with triggered analysis when new session data becomes available
+- **[SEADF](@/glossary/seadf.md) integration** for feeding pattern insights into evolutionary improvement cycles
 
 ## Pattern Categories
 
@@ -76,7 +76,7 @@ The pattern analyzer employs several analytical techniques adapted for session d
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority for cross-session pattern analysis with the ability to access session data from any domain and produce findings that inform platform-wide improvement strategies.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority for cross-session pattern analysis with the ability to access session data from any domain and produce findings that inform platform-wide improvement strategies.
 
 ## Command Interface
 
@@ -92,11 +92,11 @@ The pattern analyzer employs several analytical techniques adapted for session d
 
 | Agent | Relationship |
 |-------|-------------|
-| [session-context-coordinator](/agents/session-context-coordinator/) | Provides coordinated context data for pattern analysis input |
-| [session-context-synthesizer](/agents/session-context-synthesizer/) | Synthesis and pattern analysis share analytical techniques |
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Debriefs provide the structured data that pattern analysis consumes |
-| [seadf-ecosystem-commander](/agents/seadf-ecosystem-commander/) | Pattern findings drive SEADF evolution priorities |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality patterns inform quality improvement strategies |
+| [session-context-coordinator](@/agents/session-context-coordinator.md) | Provides coordinated context data for pattern analysis input |
+| [session-context-synthesizer](@/agents/session-context-synthesizer.md) | Synthesis and pattern analysis share analytical techniques |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Debriefs provide the structured data that pattern analysis consumes |
+| [seadf-ecosystem-commander](@/agents/seadf-ecosystem-commander.md) | Pattern findings drive SEADF evolution priorities |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality patterns inform quality improvement strategies |
 
 ## Reporting and Visualization
 
@@ -112,7 +112,7 @@ Pattern analysis results are reported in formats suitable for both automated con
 
 ## Epistemic Rigor
 
-Pattern analysis is subject to the same epistemic standards as all platform intelligence. Identified patterns must satisfy [NABLA Infinity](/glossary/nabla-infinity/) axioms.
+Pattern analysis is subject to the same epistemic standards as all platform intelligence. Identified patterns must satisfy [NABLA Infinity](@/glossary/nabla-infinity.md) axioms.
 
 | Axiom | Application to Pattern Analysis |
 |-------|--------------------------------|
@@ -124,7 +124,7 @@ Pattern analysis is subject to the same epistemic standards as all platform inte
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that identified systemic patterns receive appropriate attention. Recurring bug patterns trigger mandatory architectural review. Quality drift patterns trigger SEADF healing cycles. Productivity sink patterns trigger tooling improvement proposals. No pattern finding may be dismissed without documented justification, and all pattern analysis maintains full provenance trails per [NABLA Infinity](/glossary/nabla-infinity/) requirements.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that identified systemic patterns receive appropriate attention. Recurring bug patterns trigger mandatory architectural review. Quality drift patterns trigger SEADF healing cycles. Productivity sink patterns trigger tooling improvement proposals. No pattern finding may be dismissed without documented justification, and all pattern analysis maintains full provenance trails per [NABLA Infinity](@/glossary/nabla-infinity.md) requirements.
 
 ## Related Agents
 
@@ -137,4 +137,4 @@ Agents in the **session-intelligence** domain collaborate with the session-patte
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

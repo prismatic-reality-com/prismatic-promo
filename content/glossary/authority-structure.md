@@ -36,9 +36,9 @@ image_alt = "Authority Structure - Prismatic Platform"
 
 ## Definition
 
-An authority structure is the organizational hierarchy that governs decision-making authority, override capabilities, escalation paths, and accountability chains within an agent ecosystem. In the Prismatic Platform, the authority structure defines how 530+ [AIAD](/glossary/aiad/) agents interact across five [authority levels](/glossary/authority-level/), six color teams, and sixteen functional domains. It answers questions that no individual agent can answer alone: Who decides when agents disagree? Who can override whom? Where does a blocked operation escalate to? Who is accountable when something fails?
+An authority structure is the organizational hierarchy that governs decision-making authority, override capabilities, escalation paths, and accountability chains within an agent ecosystem. In the Prismatic Platform, the authority structure defines how 530+ [AIAD](@/glossary/aiad.md) agents interact across five [authority levels](@/glossary/authority-level.md), six color teams, and sixteen functional domains. It answers questions that no individual agent can answer alone: Who decides when agents disagree? Who can override whom? Where does a blocked operation escalate to? Who is accountable when something fails?
 
-The authority structure is not merely an organizational chart -- it is an executable governance model implemented through OTP [supervision trees](/glossary/supervision-tree/), runtime authority checks, and telemetry-driven accountability. Every override, escalation, and delegation is enforced programmatically and logged immutably.
+The authority structure is not merely an organizational chart -- it is an executable governance model implemented through OTP [supervision trees](@/glossary/supervision-tree.md), runtime authority checks, and telemetry-driven accountability. Every override, escalation, and delegation is enforced programmatically and logged immutably.
 
 ## Overview
 
@@ -46,7 +46,7 @@ The Prismatic Platform's authority structure evolved out of necessity. With 530+
 
 The structure draws from three design traditions:
 
-1. **Military command hierarchies**: Clear [chain of command](/glossary/chain-of-command/) with defined override authority, escalation paths, and accountability at every level
+1. **Military command hierarchies**: Clear [chain of command](@/glossary/chain-of-command.md) with defined override authority, escalation paths, and accountability at every level
 2. **OTP supervision trees**: Erlang/OTP's proven model of hierarchical process supervision, where supervisors manage worker processes and restart strategies propagate up the tree
 3. **Organizational theory**: Span of control, domain decomposition, and the principle that authority must be commensurate with responsibility
 
@@ -58,7 +58,7 @@ The result is a hybrid structure that combines the determinism of military comma
 |-----------|-------------|-------------|
 | **Single Authority** | Every decision has exactly one authoritative agent | Compile-time domain registration |
 | **Clear Escalation** | Every blocked operation has a defined escalation path | Runtime escalation routing |
-| **Proportional Override** | Override authority requires strictly higher [authority level](/glossary/authority-level/) | Runtime authority checks |
+| **Proportional Override** | Override authority requires strictly higher [authority level](@/glossary/authority-level.md) | Runtime authority checks |
 | **Domain Isolation** | Agents cannot exercise authority outside their domain without escalation | Domain boundary enforcement |
 | **Accountability Tracing** | Every authority exercise is logged with agent ID, rationale, and outcome | Immutable audit trail |
 | **Deadlock Prevention** | No circular authority dependencies; the structure is a DAG | Static analysis at registration |
@@ -366,7 +366,7 @@ The `AuthorityStructure` GenServer maintains the current structure in ETS, updat
 
 ### Supervision Alignment
 
-The authority structure is deliberately aligned with the OTP [supervision tree](/glossary/supervision-tree/). Domain authority agents are supervisors of their subordinate agents. When an L3 commander restarts, its L1-L2 subordinates are managed according to the supervision strategy. This alignment means authority relationships are not just logical -- they are physically encoded in the process hierarchy.
+The authority structure is deliberately aligned with the OTP [supervision tree](@/glossary/supervision-tree.md). Domain authority agents are supervisors of their subordinate agents. When an L3 commander restarts, its L1-L2 subordinates are managed according to the supervision strategy. This alignment means authority relationships are not just logical -- they are physically encoded in the process hierarchy.
 
 ## Comparison with Alternatives
 
@@ -427,18 +427,18 @@ When a new agent is registered, the authority structure determines its placement
 
 ## Related Concepts
 
-- [Authority Level](/glossary/authority-level/) -- the L1-L5 classification that determines agent capabilities
-- [Chain of Command](/glossary/chain-of-command/) -- the reporting and escalation paths within the structure
-- [Agent Tier](/glossary/agent-tier/) -- functional classification complementing the authority hierarchy
-- [Decision-Making Hierarchy](/glossary/decision-making-hierarchy/) -- how decisions flow through the structure
-- [AIAD](/glossary/aiad/) -- the agent framework implementing the authority structure
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP pattern aligned with authority relationships
-- [L3 Strategic Commanders](/glossary/l3-strategic-commanders/) -- domain authority agents within the structure
-- [L5 Supreme Authority](/glossary/l5-supreme-authority/) -- the apex of the authority hierarchy
-- [NO MERCY](/glossary/no-mercy/) -- doctrine enforcing strict authority compliance
-- [Policy](/glossary/policy/) -- governance rules enforced through the authority structure
-- [RBAC](/glossary/rbac/) -- complementary access control for human users
-- [Authentication](/glossary/authentication/) -- identity verification prerequisite to authority checks
+- [Authority Level](@/glossary/authority-level.md) -- the L1-L5 classification that determines agent capabilities
+- [Chain of Command](@/glossary/chain-of-command.md) -- the reporting and escalation paths within the structure
+- [Agent Tier](@/glossary/agent-tier.md) -- functional classification complementing the authority hierarchy
+- [Decision-Making Hierarchy](@/glossary/decision-making-hierarchy.md) -- how decisions flow through the structure
+- [AIAD](@/glossary/aiad.md) -- the agent framework implementing the authority structure
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP pattern aligned with authority relationships
+- [L3 Strategic Commanders](@/glossary/l3-strategic-commanders.md) -- domain authority agents within the structure
+- [L5 Supreme Authority](@/glossary/l5-supreme-authority.md) -- the apex of the authority hierarchy
+- [NO MERCY](@/glossary/no-mercy.md) -- doctrine enforcing strict authority compliance
+- [Policy](@/glossary/policy.md) -- governance rules enforced through the authority structure
+- [RBAC](@/glossary/rbac.md) -- complementary access control for human users
+- [Authentication](@/glossary/authentication.md) -- identity verification prerequisite to authority checks
 
 ## See Also
 
@@ -454,4 +454,4 @@ When a new agent is registered, the authority structure determines its placement
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

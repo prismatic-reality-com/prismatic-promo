@@ -28,15 +28,15 @@ image_alt = "web-application-security-specialist - Prismatic Platform"
 
 ## Overview
 
-The Web Application Security Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's infrastructure domain, providing comprehensive [OWASP](/glossary/owasp/) Top 10 coverage and web security vulnerability expertise for the platform's Phoenix-based web applications. This agent performs continuous security assessment of HTTP endpoints, [LiveView](/glossary/liveview/) interfaces, API surfaces, authentication flows, and session management across all web-facing components.
+The Web Application Security Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's infrastructure domain, providing comprehensive [OWASP](@/glossary/owasp.md) Top 10 coverage and web security vulnerability expertise for the platform's Phoenix-based web applications. This agent performs continuous security assessment of HTTP endpoints, [LiveView](@/glossary/liveview.md) interfaces, API surfaces, authentication flows, and session management across all web-facing components.
 
 The Prismatic Platform exposes multiple web interfaces: the main LiveView dashboard on port 4000, the auto-introspecting REST API on port 4004, the Prismatic Perimeter EASM dashboard, and various administrative interfaces. Each interface presents a distinct attack surface with unique security characteristics. The Web Application Security Specialist maintains a comprehensive security model for each interface, continuously evaluating them against the OWASP Top 10 vulnerability categories and Phoenix-specific security concerns.
 
-Built on the [AIAD](/glossary/aiad/) standard, the agent integrates with the [vulnerability-scanning-specialist](/agents/vulnerability-scanning-specialist/) for platform-wide vulnerability correlation and the [Prismatic Perimeter](/apps/prismatic-perimeter/) for external attack surface assessment. The agent enforces the [NO MERCY](/glossary/no-mercy/) doctrine's zero-tolerance policy for web security violations and complies with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework for all security claims.
+Built on the [AIAD](@/glossary/aiad.md) standard, the agent integrates with the [vulnerability-scanning-specialist](@/agents/vulnerability-scanning-specialist.md) for platform-wide vulnerability correlation and the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) for external attack surface assessment. The agent enforces the [NO MERCY](@/glossary/no-mercy.md) doctrine's zero-tolerance policy for web security violations and complies with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework for all security claims.
 
 ## Architecture
 
-The Web Application Security Specialist is built on a domain-driven architecture that organizes security checks by OWASP category, with specialized scanners for each vulnerability class operating as supervised [OTP](/glossary/otp/) processes.
+The Web Application Security Specialist is built on a domain-driven architecture that organizes security checks by OWASP category, with specialized scanners for each vulnerability class operating as supervised [OTP](@/glossary/otp.md) processes.
 
 ```
 WebAppSecurity.Supervisor
@@ -51,7 +51,7 @@ WebAppSecurity.Supervisor
 +-- CSRFProtector.Worker          (cross-site request forgery)
 ```
 
-Each scanner operates independently under the [supervision tree](/glossary/supervision-tree/), enabling fine-grained restart strategies and failure isolation. The InjectionScanner uses AST analysis to detect SQL injection, command injection, and template injection patterns in [Elixir](/glossary/elixir/) source code. The AuthenticationAuditor examines Plug pipelines, Guardian configurations, and token validation logic. The AccessControlChecker verifies that authorization checks are present on all protected routes and that privilege escalation paths are blocked.
+Each scanner operates independently under the [supervision tree](@/glossary/supervision-tree.md), enabling fine-grained restart strategies and failure isolation. The InjectionScanner uses AST analysis to detect SQL injection, command injection, and template injection patterns in [Elixir](@/glossary/elixir.md) source code. The AuthenticationAuditor examines Plug pipelines, Guardian configurations, and token validation logic. The AccessControlChecker verifies that authorization checks are present on all protected routes and that privilege escalation paths are blocked.
 
 The architecture follows a collect-analyze-report pipeline: scanners collect evidence, the analysis engine correlates findings across scanners, and the report generator produces structured security assessments with remediation guidance.
 
@@ -73,7 +73,7 @@ The agent provides comprehensive web application security assessment across ten 
 
 ## Implementation
 
-The core security assessment coordinator is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that orchestrates scanning operations across all OWASP categories.
+The core security assessment coordinator is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that orchestrates scanning operations across all OWASP categories.
 
 ```elixir
 defmodule Prismatic.Agents.WebAppSecurity do
@@ -215,19 +215,19 @@ defmodule Prismatic.Agents.WebAppSecurity do
 end
 ```
 
-The security grade calculation maps finding severity distributions to letter grades (A through F), consistent with the [Prismatic Perimeter](/apps/prismatic-perimeter/) security rating system. Each scanner module produces structured findings with OWASP category references and specific remediation guidance.
+The security grade calculation maps finding severity distributions to letter grades (A through F), consistent with the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security rating system. Each scanner module produces structured findings with OWASP category references and specific remediation guidance.
 
 ## Integration Points
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [vulnerability-scanning-specialist](/agents/vulnerability-scanning-specialist/) | Bidirectional | Shares web vulnerability findings; receives dependency vulnerability data |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Outbound | Contributes web security posture to EASM security ratings |
-| [blue-commander](/agents/blue-commander/) | Outbound | Feeds web security evidence to Blue Team defensive posture assessment |
-| [red-epistemic-attacker](/agents/red-epistemic-attacker/) | Inbound | Receives adversarial scenario findings for web attack simulation validation |
-| [Prismatic Web](/glossary/prismatic-web/) | Target | Primary scanning target -- Phoenix LiveView application |
-| [Prismatic API](/apps/prismatic-api/) | Target | REST API endpoint security assessment target |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Outbound | Reports security quality metrics for platform scoring |
+| [vulnerability-scanning-specialist](@/agents/vulnerability-scanning-specialist.md) | Bidirectional | Shares web vulnerability findings; receives dependency vulnerability data |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Outbound | Contributes web security posture to EASM security ratings |
+| [blue-commander](@/agents/blue-commander.md) | Outbound | Feeds web security evidence to Blue Team defensive posture assessment |
+| [red-epistemic-attacker](@/agents/red-epistemic-attacker.md) | Inbound | Receives adversarial scenario findings for web attack simulation validation |
+| [Prismatic Web](@/glossary/prismatic-web.md) | Target | Primary scanning target -- Phoenix LiveView application |
+| [Prismatic API](@/apps/prismatic-api.md) | Target | REST API endpoint security assessment target |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Outbound | Reports security quality metrics for platform scoring |
 
 ## Operational Workflow
 
@@ -243,7 +243,7 @@ The assessment workflow proceeds through five phases: (1) endpoint discovery acr
 
 ## NABLA Compliance
 
-The Web Application Security Specialist operates under [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance for all security claims.
+The Web Application Security Specialist operates under [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance for all security claims.
 
 **Signal Plurality**: Every security finding requires confirmation from at least two signals. An injection vulnerability requires both AST pattern detection and contextual analysis confirming that user input reaches the vulnerable code path.
 
@@ -253,7 +253,7 @@ The Web Application Security Specialist operates under [NABLA Infinity](/glossar
 
 **Time Decay**: Security findings include discovery timestamps and are periodically re-validated. Findings from previous assessments that are no longer reproducible are marked as potentially remediated but retained for audit purposes.
 
-All security claims pass through [Trinity Gate](/glossary/trinity-gate/) validation before being classified as confirmed vulnerabilities.
+All security claims pass through [Trinity Gate](@/glossary/trinity-gate.md) validation before being classified as confirmed vulnerabilities.
 
 ## Configuration
 
@@ -291,18 +291,18 @@ config :prismatic_agents, Prismatic.Agents.WebAppSecurity,
 | Memory footprint | < 100 MB | 40-70 MB |
 | Finding lookup (ETS) | < 1 ms | 0.1-0.3 ms |
 
-The agent parallelizes scanning across OWASP categories, with each scanner operating as an independent OTP process. AST analysis results are cached in [ETS](/glossary/ets/) for incremental scanning, and endpoint discovery leverages Phoenix router introspection for rapid surface enumeration.
+The agent parallelizes scanning across OWASP categories, with each scanner operating as an independent OTP process. AST analysis results are cached in [ETS](@/glossary/ets.md) for incremental scanning, and endpoint discovery leverages Phoenix router introspection for rapid surface enumeration.
 
 ## Related Resources
 
-- [OWASP Top 10](/glossary/owasp/) -- Industry standard web application security risks
-- [vulnerability-scanning-specialist](/agents/vulnerability-scanning-specialist/) -- Platform-wide vulnerability detection agent
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- External Attack Surface Management system
-- [Blue Team](/glossary/blue-team/) -- Epistemic defense team consuming security intelligence
-- [Red Team](/glossary/red-team/) -- Adversarial simulation team testing web defenses
-- [NO MERCY Doctrine](/glossary/no-mercy/) -- Zero-tolerance enforcement for security violations
-- [LiveView](/glossary/liveview/) -- Phoenix real-time UI framework with specific security concerns
-- [AIAD Standard](/glossary/aiad/) -- Agent specification standard
+- [OWASP Top 10](@/glossary/owasp.md) -- Industry standard web application security risks
+- [vulnerability-scanning-specialist](@/agents/vulnerability-scanning-specialist.md) -- Platform-wide vulnerability detection agent
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- External Attack Surface Management system
+- [Blue Team](@/glossary/blue-team.md) -- Epistemic defense team consuming security intelligence
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation team testing web defenses
+- [NO MERCY Doctrine](@/glossary/no-mercy.md) -- Zero-tolerance enforcement for security violations
+- [LiveView](@/glossary/liveview.md) -- Phoenix real-time UI framework with specific security concerns
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification standard
 
 ---
 
@@ -311,4 +311,4 @@ The agent parallelizes scanning across OWASP categories, with each scanner opera
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -166,7 +166,7 @@ The platform tracks Dialyzer violations as a quality domain in the Quality DNA s
 
 - **Quality Floor** - Minimum quality threshold that Dialyzer PLT analysis protects
 - **Property Test** - Testing approach complementing static type analysis
-- [Placeholder](/glossary/placeholder/) - Forbidden pattern that Dialyzer's PLT-backed analysis helps detect
+- [Placeholder](@/glossary/placeholder.md) - Forbidden pattern that Dialyzer's PLT-backed analysis helps detect
 - **Process** - BEAM execution unit whose type signatures are stored in the PLT
 - **Runtime** - Execution phase where PLT-detected errors would manifest
 

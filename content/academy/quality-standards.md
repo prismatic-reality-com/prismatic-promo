@@ -29,14 +29,14 @@ NO MERCY, NO DOUBTS is the foundational quality doctrine governing every line of
 You will learn:
 
 - The two pillars of the doctrine: NO MERCY (execution quality) and NO DOUBTS (decision quality)
-- The 13 quality domains monitored by the [Quality Floor Guardian](/glossary/quality-dna/)
+- The 13 quality domains monitored by the [Quality Floor Guardian](@/glossary/quality-dna.md)
 - How pre-commit hooks, CI gates, and automated scanning enforce compliance
 - The violation protocol and how to recover from rejections
-- How the [CASCADE](/glossary/cascade/) pattern eliminates entire categories of defects
+- How the [CASCADE](@/glossary/cascade.md) pattern eliminates entire categories of defects
 
 ## Prerequisites
 
-- Completed [Getting Started with Prismatic Platform](/academy/getting-started/)
+- Completed [Getting Started with Prismatic Platform](@/academy/getting-started.md)
 - Basic understanding of Elixir compilation and testing
 - Access to the platform repository with Git hooks installed
 
@@ -71,7 +71,7 @@ The NO DOUBTS pillar governs how decisions are made:
 | Evidence-Based | Every claim is backed by tests, benchmarks, or verification |
 | Verified Results | No unvalidated claims, no unchecked outputs |
 
-This means you do not guess at solutions. You read the relevant code, understand the existing patterns, write your solution, and verify it with tests. The exploration phase uses [NABLA Infinity](/glossary/nabla-infinity/) principles; the execution phase uses NO MERCY enforcement.
+This means you do not guess at solutions. You read the relevant code, understand the existing patterns, write your solution, and verify it with tests. The exploration phase uses [NABLA Infinity](@/glossary/nabla-infinity.md) principles; the execution phase uses NO MERCY enforcement.
 
 ### The 13 Quality Domains
 
@@ -329,36 +329,36 @@ Pre-commit hooks live in `.githooks/pre-commit` and enforce quality in ordered p
 ## See Also
 
 ### Related Applications
-- [prismatic_safety](/apps/prismatic-safety/) -- Quality Floor Guardian and self-healing system
-- [prismatic_credo](/apps/prismatic-credo/) -- Custom Credo checks for platform-specific patterns
-- [prismatic_quality_intelligence](/apps/prismatic-quality-intelligence/) -- CASCADE pattern detection and quality trending
+- [prismatic_safety](@/apps/prismatic-safety.md) -- Quality Floor Guardian and self-healing system
+- [prismatic_credo](@/apps/prismatic-credo.md) -- Custom Credo checks for platform-specific patterns
+- [prismatic_quality_intelligence](@/apps/prismatic-quality-intelligence.md) -- CASCADE pattern detection and quality trending
 
 ### Glossary
-- [NO MERCY](/glossary/no-mercy/) -- Execution quality enforcement pillar
-- [NO DOUBTS](/glossary/no-doubts/) -- Decision quality enforcement pillar
-- [Quality DNA](/glossary/quality-dna/) -- Persistent quality metrics across sessions
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous quality monitoring agent
-- [Quality Gates](/glossary/quality-gates/) -- Automated compliance checks blocking non-compliant code
-- [CASCADE](/glossary/cascade/) -- Pattern for eliminating entire defect categories
-- [Clean Run](/glossary/clean-run/) -- Zero warnings, zero debug logs in production
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Compilation with --warnings-as-errors
-- [Regression Test](/glossary/regression-test/) -- Mandatory test for every bug fix
-- [Violation Protocol](/glossary/violation-protocol/) -- L1-L4 escalation for quality violations
+- [NO MERCY](@/glossary/no-mercy.md) -- Execution quality enforcement pillar
+- [NO DOUBTS](@/glossary/no-doubts.md) -- Decision quality enforcement pillar
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistent quality metrics across sessions
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous quality monitoring agent
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated compliance checks blocking non-compliant code
+- [CASCADE](@/glossary/cascade.md) -- Pattern for eliminating entire defect categories
+- [Clean Run](@/glossary/clean-run.md) -- Zero warnings, zero debug logs in production
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Compilation with --warnings-as-errors
+- [Regression Test](@/glossary/regression-test.md) -- Mandatory test for every bug fix
+- [Violation Protocol](@/glossary/violation-protocol.md) -- L1-L4 escalation for quality violations
 
 ### Architecture
-- [Telemetry](/architecture/telemetry/) -- Quality metrics emitted via telemetry events
+- [Telemetry](@/architecture/telemetry.md) -- Quality metrics emitted via telemetry events
 
 ### Related Academy Topics
-- [NABLA Infinity Axioms](/academy/nabla-infinity-guide/) -- Epistemic framework behind NO DOUBTS
-- [Development Workflow](/academy/development-workflow/) -- How quality gates integrate into CI/CD
-- [The AIAD Standard](/academy/aiad-standard/) -- Policy specifications for quality enforcement
-- [Self-Evolving Ecosystems](/academy/evolution-patterns/) -- How quality drives evolutionary fitness
+- [NABLA Infinity Axioms](@/academy/nabla-infinity-guide.md) -- Epistemic framework behind NO DOUBTS
+- [Development Workflow](@/academy/development-workflow.md) -- How quality gates integrate into CI/CD
+- [The AIAD Standard](@/academy/aiad-standard.md) -- Policy specifications for quality enforcement
+- [Self-Evolving Ecosystems](@/academy/evolution-patterns.md) -- How quality drives evolutionary fitness
 
 ## Next Steps
 
-- [Applying NABLA Infinity Axioms](/academy/nabla-infinity-guide/) -- understand the epistemic framework behind NO DOUBTS
-- [Development Workflow & CI/CD](/academy/development-workflow/) -- see how quality gates integrate into the full pipeline
-- [The AIAD Standard Explained](/academy/aiad-standard/) -- learn how policies enforce the doctrine across all components
+- [Applying NABLA Infinity Axioms](@/academy/nabla-infinity-guide.md) -- understand the epistemic framework behind NO DOUBTS
+- [Development Workflow & CI/CD](@/academy/development-workflow.md) -- see how quality gates integrate into the full pipeline
+- [The AIAD Standard Explained](@/academy/aiad-standard.md) -- learn how policies enforce the doctrine across all components
 
 ---
 
@@ -367,4 +367,4 @@ Pre-commit hooks live in `.githooks/pre-commit` and enforce quality in ordered p
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

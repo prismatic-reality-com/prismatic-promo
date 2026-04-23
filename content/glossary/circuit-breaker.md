@@ -22,7 +22,7 @@ image_alt = "Circuit Breaker - Prismatic Platform"
 
 The circuit breaker pattern is a stability mechanism borrowed from electrical engineering: when a downstream service or component begins failing repeatedly, the circuit breaker "opens" to stop sending requests, preventing cascading failures and allowing the failing component time to recover. After a configurable timeout, the breaker enters a "half-open" state, allowing a limited number of test requests through to determine if the service has recovered. If the test succeeds, the breaker "closes" and normal operation resumes. If the test fails, the breaker re-opens.
 
-The pattern addresses a specific class of failure that [supervisor](/glossary/supervisor/) restarts alone cannot handle: slow or degraded external dependencies. When an API endpoint responds with 30-second timeouts instead of crashing immediately, the calling process does not crash -- it blocks. Without a circuit breaker, the calling system accumulates blocked processes, exhausts its connection pool, and eventually becomes unresponsive itself. The failure cascades from the degraded dependency through every system that depends on it.
+The pattern addresses a specific class of failure that [supervisor](@/glossary/supervisor.md) restarts alone cannot handle: slow or degraded external dependencies. When an API endpoint responds with 30-second timeouts instead of crashing immediately, the calling process does not crash -- it blocks. Without a circuit breaker, the calling system accumulates blocked processes, exhausts its connection pool, and eventually becomes unresponsive itself. The failure cascades from the degraded dependency through every system that depends on it.
 
 Circuit breakers are the immune system's tourniquet: when a wound is bleeding, the first response is to stop the bleeding (open the circuit) rather than continuing to send blood (requests) to the damaged area. Once the wound heals (dependency recovers), blood flow is cautiously restored (half-open probing).
 
@@ -220,16 +220,16 @@ The Prismatic Platform uses circuit breakers at several critical boundaries:
 | Boundary | Breaker Config | Protected Resource | Failure Mode |
 |----------|---------------|-------------------|--------------|
 | **SessionLifecycle Hooks** | 3 failures / 60s recovery | Mix task execution during session | Flaky mix tasks blocking session operations |
-| **External OSINT APIs** | 5 failures / 120s recovery | [Shodan](/glossary/shodan/), [Censys](/glossary/censys/), [GreyNoise](/glossary/greynoise/) | API rate limiting, outages, timeout |
-| **Database Connections** | 3 failures / 30s recovery | [PostgreSQL](/glossary/postgresql/) connection pool | Connection pool exhaustion, replication lag |
-| **LLM Provider** | 3 failures / 60s recovery | [Ollama](/glossary/ollama/) local inference | Model loading, memory pressure, GPU contention |
-| **Redis Cache** | 5 failures / 15s recovery | [Redis](/glossary/redis/) cache layer | Network partition, memory limits |
+| **External OSINT APIs** | 5 failures / 120s recovery | [Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md), [GreyNoise](@/glossary/greynoise.md) | API rate limiting, outages, timeout |
+| **Database Connections** | 3 failures / 30s recovery | [PostgreSQL](@/glossary/postgresql.md) connection pool | Connection pool exhaustion, replication lag |
+| **LLM Provider** | 3 failures / 60s recovery | [Ollama](@/glossary/ollama.md) local inference | Model loading, memory pressure, GPU contention |
+| **Redis Cache** | 5 failures / 15s recovery | [Redis](@/glossary/redis.md) cache layer | Network partition, memory limits |
 
 The SessionLifecycle circuit breaker is the most prominent example in the codebase. It protects session operations from flaky mix tasks (like `mix autoheal.baseline` or `mix quality.gates.check`) that might time out or fail during compilation. When the breaker opens, session hooks are skipped entirely rather than blocking the session with repeated timeout failures.
 
 ## Telemetry Integration
 
-Every circuit breaker state transition emits telemetry events through Erlang's `:telemetry` library. This integration provides [observability](/glossary/observability/) into breaker behavior and enables automated responses.
+Every circuit breaker state transition emits telemetry events through Erlang's `:telemetry` library. This integration provides [observability](@/glossary/observability.md) into breaker behavior and enables automated responses.
 
 | Event | Emitted When | Metadata |
 |-------|-------------|----------|
@@ -238,11 +238,11 @@ Every circuit breaker state transition emits telemetry events through Erlang's `
 | `[:prismatic, :circuit_breaker, :reopened]` | Breaker transitions from half-open back to open | Breaker name, test failure reason |
 | `[:prismatic, :circuit_breaker, :rejected]` | Request rejected due to open circuit | Breaker name, time since opening |
 
-These telemetry events feed into the platform's [structured logging](/glossary/structured-logging/) and metrics systems. Dashboard panels track breaker state across all protected boundaries. Alerts trigger when breakers remain open for extended periods, indicating persistent dependency failures that may require human intervention.
+These telemetry events feed into the platform's [structured logging](@/glossary/structured-logging.md) and metrics systems. Dashboard panels track breaker state across all protected boundaries. Alerts trigger when breakers remain open for extended periods, indicating persistent dependency failures that may require human intervention.
 
 ## Relationship to Backpressure
 
-[Backpressure](/glossary/backpressure/) and circuit breakers are complementary resilience patterns that address different failure modes:
+[Backpressure](@/glossary/backpressure.md) and circuit breakers are complementary resilience patterns that address different failure modes:
 
 | Dimension | Circuit Breaker | Backpressure |
 |-----------|----------------|--------------|
@@ -252,34 +252,34 @@ These telemetry events feed into the platform's [structured logging](/glossary/s
 | **Scope** | External boundary protection | Internal pipeline flow control |
 | **Granularity** | All-or-nothing (requests pass or fail) | Graduated (demand adjusts continuously) |
 
-In practice, the two patterns often work together. A [data pipeline](/glossary/data-pipeline/) uses backpressure to regulate flow between internal stages and circuit breakers to protect against external dependency failures at the pipeline's edges.
+In practice, the two patterns often work together. A [data pipeline](@/glossary/data-pipeline.md) uses backpressure to regulate flow between internal stages and circuit breakers to protect against external dependency failures at the pipeline's edges.
 
 ## Relationship to Fault Tolerance
 
-Circuit breakers are one layer in the Prismatic Platform's multi-layered [fault tolerance](/glossary/fault-tolerance/) strategy:
+Circuit breakers are one layer in the Prismatic Platform's multi-layered [fault tolerance](@/glossary/fault-tolerance.md) strategy:
 
 - **Process isolation** prevents memory corruption across boundaries
 - **Supervisors** restart crashed processes with clean state
 - **Circuit breakers** prevent cascading failures from slow dependencies
-- **[Self-healing](/glossary/self-healing/)** diagnoses and corrects persistent issues
-- **[Backpressure](/glossary/backpressure/)** prevents resource exhaustion from load spikes
+- **[Self-healing](@/glossary/self-healing.md)** diagnoses and corrects persistent issues
+- **[Backpressure](@/glossary/backpressure.md)** prevents resource exhaustion from load spikes
 
 Each layer handles a different failure class. Circuit breakers specifically address the class of failures that supervisors cannot: dependencies that are not crashing (which would trigger a supervisor restart) but are degraded (responding slowly, returning errors, or timing out). Without circuit breakers, these "gray failures" can be more destructive than clean crashes because they consume resources without triggering recovery mechanisms.
 
 ## Related Terms
 
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property that circuit breakers help maintain
-- [Supervisor](/glossary/supervisor/) -- Complementary resilience pattern for process crashes
-- [Let It Crash](/glossary/let-it-crash/) -- Philosophy handling clean failures; circuit breakers handle gray failures
-- [Backpressure](/glossary/backpressure/) -- Complementary pattern for flow control under load
-- [Self-Healing](/glossary/self-healing/) -- Higher-level recovery that may be triggered by persistent open circuits
-- [OTP](/glossary/otp/) -- Framework providing the process model for circuit breaker implementation
-- [Observability](/glossary/observability/) -- Monitoring infrastructure tracking circuit breaker state
-- [Rate Limiting](/glossary/rate-limiting/) -- Related pattern controlling request volume proactively
-- [SEADF](/glossary/seadf/) -- Framework integrating circuit breakers into self-healing cycles
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Testing methodology that validates circuit breaker effectiveness
-- [Distributed System](/glossary/distributed-system/) -- Systems where circuit breakers protect network boundaries
-- [Structured Logging](/glossary/structured-logging/) -- Logging system recording circuit breaker events
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property that circuit breakers help maintain
+- [Supervisor](@/glossary/supervisor.md) -- Complementary resilience pattern for process crashes
+- [Let It Crash](@/glossary/let-it-crash.md) -- Philosophy handling clean failures; circuit breakers handle gray failures
+- [Backpressure](@/glossary/backpressure.md) -- Complementary pattern for flow control under load
+- [Self-Healing](@/glossary/self-healing.md) -- Higher-level recovery that may be triggered by persistent open circuits
+- [OTP](@/glossary/otp.md) -- Framework providing the process model for circuit breaker implementation
+- [Observability](@/glossary/observability.md) -- Monitoring infrastructure tracking circuit breaker state
+- [Rate Limiting](@/glossary/rate-limiting.md) -- Related pattern controlling request volume proactively
+- [SEADF](@/glossary/seadf.md) -- Framework integrating circuit breakers into self-healing cycles
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Testing methodology that validates circuit breaker effectiveness
+- [Distributed System](@/glossary/distributed-system.md) -- Systems where circuit breakers protect network boundaries
+- [Structured Logging](@/glossary/structured-logging.md) -- Logging system recording circuit breaker events
 
 ## See Also
 
@@ -287,8 +287,8 @@ Each layer handles a different failure class. Circuit breakers specifically addr
 - [prismatic_claude](../../../apps/prismatic_claude/README.md) -- Circuit breaker in SessionLifecycle GenServer
 - [prismatic_supervisor](../../../apps/prismatic_supervisor/README.md) -- Supervision with circuit breaker integration
 - [prismatic_crawler](../../../apps/prismatic_crawler/README.md) -- Web crawler with circuit breaker for target sites
-- [Architecture](/architecture/) -- Platform resilience architecture
-- [Capabilities](/capabilities/) -- Platform fault tolerance capabilities
+- [Architecture](@/architecture/_index.md) -- Platform resilience architecture
+- [Capabilities](@/capabilities/_index.md) -- Platform fault tolerance capabilities
 
 ---
 
@@ -297,4 +297,4 @@ Each layer handles a different failure class. Circuit breakers specifically addr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

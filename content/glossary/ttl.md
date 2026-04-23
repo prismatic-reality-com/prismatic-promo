@@ -240,10 +240,10 @@ end
 
 ## Cross-References
 
-- [Cache](/glossary/cache/) - Storage layer using TTL
-- [ETS](/glossary/ets/) - In-memory storage with TTL support
+- [Cache](@/glossary/cache.md) - Storage layer using TTL
+- [ETS](@/glossary/ets.md) - In-memory storage with TTL support
 - **Write-Through** - Cache write pattern
-- [Throttling](/glossary/throttling/) - Rate limiting using TTL windows
+- [Throttling](@/glossary/throttling.md) - Rate limiting using TTL windows
 - **Warmup** - Cache pre-population strategy
 
 ---

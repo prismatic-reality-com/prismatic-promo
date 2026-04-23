@@ -38,7 +38,7 @@ image_alt = "Autonomous Software Entities - Prismatic Platform"
 
 An **Autonomous Software Entity** (ASE) is a self-governing software component that operates independently within defined boundaries, makes decisions based on its internal state and external inputs, and coordinates with other entities through structured communication protocols. Unlike passive software modules that execute only when invoked, autonomous entities possess their own execution context, maintain persistent state, react to environmental changes, and pursue objectives without continuous external direction.
 
-In the [Prismatic Platform](/glossary/aiad/), autonomous software entities are the foundational unit of the AIAD (AI Agent Definition) standard. Each of the platform's 530+ agents is an autonomous entity with a defined tier level, capability set, operational boundaries, and coordination protocol. These entities range from L4 operational specialists that perform focused tasks to L1 supreme coordinators that orchestrate entire platform subsystems.
+In the [Prismatic Platform](@/glossary/aiad.md), autonomous software entities are the foundational unit of the AIAD (AI Agent Definition) standard. Each of the platform's 530+ agents is an autonomous entity with a defined tier level, capability set, operational boundaries, and coordination protocol. These entities range from L4 operational specialists that perform focused tasks to L1 supreme coordinators that orchestrate entire platform subsystems.
 
 ## Overview
 
@@ -46,7 +46,7 @@ The concept of autonomous software entities emerges from the intersection of mul
 
 The key distinction between an autonomous entity and a conventional service is the locus of control. A service responds to requests passively -- it does nothing unless asked. An autonomous entity actively monitors its environment, evaluates conditions against its objectives, and initiates actions when appropriate. This shift from reactive to proactive behaviour enables systems that adapt, self-heal, and evolve without constant human intervention.
 
-In the [BEAM VM](/glossary/beam/) execution model, autonomous entities map naturally to lightweight processes managed by [OTP](/glossary/otp/) supervision trees. Each entity is a [GenServer](/glossary/genserver/) process with its own heap, mailbox, and execution thread. The BEAM scheduler provides preemptive multitasking across all entities, and the supervision infrastructure provides automatic restart on failure. This alignment between the autonomous entity abstraction and the runtime execution model is what makes Elixir an exceptionally natural host for multi-agent systems.
+In the [BEAM VM](@/glossary/beam.md) execution model, autonomous entities map naturally to lightweight processes managed by [OTP](@/glossary/otp.md) supervision trees. Each entity is a [GenServer](@/glossary/genserver.md) process with its own heap, mailbox, and execution thread. The BEAM scheduler provides preemptive multitasking across all entities, and the supervision infrastructure provides automatic restart on failure. This alignment between the autonomous entity abstraction and the runtime execution model is what makes Elixir an exceptionally natural host for multi-agent systems.
 
 ### Core Properties of Autonomous Entities
 
@@ -306,7 +306,7 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform implements autonomous software entities through the [AIAD standard](/glossary/aiad/), where each of the 530+ agents is a formally defined autonomous entity. The implementation spans several layers:
+The Prismatic Platform implements autonomous software entities through the [AIAD standard](@/glossary/aiad.md), where each of the 530+ agents is a formally defined autonomous entity. The implementation spans several layers:
 
 ### AIAD Agent as Autonomous Entity
 
@@ -346,7 +346,7 @@ L4 Operational Entities
 
 ### Self-Healing Through Autonomy
 
-Autonomous entities in Prismatic implement self-healing patterns through the [supervision tree](/glossary/supervision-tree/) and [Quality Floor Guardian](/glossary/quality-floor-guardian/):
+Autonomous entities in Prismatic implement self-healing patterns through the [supervision tree](@/glossary/supervision-tree.md) and [Quality Floor Guardian](@/glossary/quality-floor-guardian.md):
 
 ```elixir
 defmodule Prismatic.Entity.SelfHealing do
@@ -432,7 +432,7 @@ The BEAM-based approach provides the best combination of fine-grained autonomy, 
 
 **Keep entity state minimal and recoverable.** An autonomous entity should be able to reconstruct its operational state from persistent storage after a restart. Design state as a cache of derived data rather than the authoritative source of truth.
 
-**Emit structured telemetry events for all decisions.** Every decision an entity makes should produce a [telemetry](/glossary/telemetry/) event with the input stimulus, the chosen action, and the boundary check result. This creates an audit trail essential for debugging and compliance.
+**Emit structured telemetry events for all decisions.** Every decision an entity makes should produce a [telemetry](@/glossary/telemetry.md) event with the input stimulus, the chosen action, and the boundary check result. This creates an audit trail essential for debugging and compliance.
 
 ## Common Pitfalls
 
@@ -440,9 +440,9 @@ The BEAM-based approach provides the best combination of fine-grained autonomy, 
 
 **Circular coordination dependencies.** When entity A waits for entity B which waits for entity A, the system deadlocks. Use asynchronous message patterns with timeouts, or introduce a coordinator entity that breaks the cycle. The BEAM's per-process mailbox model makes deadlocks visible through mailbox growth.
 
-**Ignoring boundary enforcement.** Defining boundaries in specifications but not enforcing them in code creates a false sense of safety. Every action an entity takes must pass through the boundary enforcer. In Prismatic, the [enforcement policy](/glossary/enforcement-policy/) is non-bypassable.
+**Ignoring boundary enforcement.** Defining boundaries in specifications but not enforcing them in code creates a false sense of safety. Every action an entity takes must pass through the boundary enforcer. In Prismatic, the [enforcement policy](@/glossary/enforcement-policy.md) is non-bypassable.
 
-**Stateful entities without persistence.** An entity that holds critical state only in its process heap loses that state on crash. Back critical state with [ETS](/glossary/ets/) tables or disk persistence so the entity can recover after supervisor-triggered restarts.
+**Stateful entities without persistence.** An entity that holds critical state only in its process heap loses that state on crash. Back critical state with [ETS](@/glossary/ets.md) tables or disk persistence so the entity can recover after supervisor-triggered restarts.
 
 **Over-communicating entities.** Entities that send messages to every other entity on every state change create an O(n^2) communication explosion. Use pub/sub patterns with topic-based filtering, or introduce aggregator entities that consolidate and fan out updates.
 
@@ -456,11 +456,11 @@ Each of Prismatic's 120 OSINT tool adapters operates as an autonomous entity tha
 
 ### Quality Floor Enforcement
 
-The [Quality Floor Guardian](/glossary/quality-floor-guardian/) is an autonomous entity that continuously monitors code quality metrics across all 115 umbrella applications. When quality drops below thresholds, it autonomously triggers corrective actions: blocking commits, escalating to human operators, or initiating auto-healing cycles.
+The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) is an autonomous entity that continuously monitors code quality metrics across all 115 umbrella applications. When quality drops below thresholds, it autonomously triggers corrective actions: blocking commits, escalating to human operators, or initiating auto-healing cycles.
 
 ### Color Team Security Operations
 
-The [color teams](/glossary/color-teams/) are organized as autonomous entity clusters. Red team entities generate adversarial scenarios, blue team entities produce defensive evidence, and purple team entities synthesize findings. Each entity operates independently within its domain while coordinating through structured protocols.
+The [color teams](@/glossary/color-teams.md) are organized as autonomous entity clusters. Red team entities generate adversarial scenarios, blue team entities produce defensive evidence, and purple team entities synthesize findings. Each entity operates independently within its domain while coordinating through structured protocols.
 
 ### Session Lifecycle Management
 
@@ -468,27 +468,27 @@ The SessionLifecycle entity manages the lifecycle of Claude Code sessions, auton
 
 ## Related Concepts
 
-- [Autonomous Agent](/glossary/autonomous-agent/) -- The individual agent abstraction underlying autonomous entities
-- [AIAD](/glossary/aiad/) -- The standard defining agent specifications, tiers, and protocols
-- [Multi-Agent System](/glossary/multi-agent-system/) -- Systems composed of multiple cooperating autonomous entities
-- [Self-Coordinating](/glossary/self-coordinating/) -- Coordination patterns where entities organize without central control
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Directed coordination of autonomous entities by higher-tier commanders
-- [GenServer](/glossary/genserver/) -- The OTP behaviour providing the execution substrate for entities
-- [Supervision Tree](/glossary/supervision-tree/) -- Fault tolerance infrastructure managing entity lifecycle
-- [Process Isolation](/glossary/process-isolation/) -- BEAM mechanism ensuring entity failure boundaries
-- [Agent Tier](/glossary/agent-tier/) -- Authority hierarchy governing entity capabilities
-- [Agent Registry](/glossary/agent-registry/) -- Discovery infrastructure for finding entities by capability
+- [Autonomous Agent](@/glossary/autonomous-agent.md) -- The individual agent abstraction underlying autonomous entities
+- [AIAD](@/glossary/aiad.md) -- The standard defining agent specifications, tiers, and protocols
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- Systems composed of multiple cooperating autonomous entities
+- [Self-Coordinating](@/glossary/self-coordinating.md) -- Coordination patterns where entities organize without central control
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Directed coordination of autonomous entities by higher-tier commanders
+- [GenServer](@/glossary/genserver.md) -- The OTP behaviour providing the execution substrate for entities
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Fault tolerance infrastructure managing entity lifecycle
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM mechanism ensuring entity failure boundaries
+- [Agent Tier](@/glossary/agent-tier.md) -- Authority hierarchy governing entity capabilities
+- [Agent Registry](@/glossary/agent-registry.md) -- Discovery infrastructure for finding entities by capability
 
 ## See Also
 
-- [Agent Pool](/glossary/agent-pool/) -- Pooling strategies for managing groups of autonomous entities
-- [Agent Module](/glossary/agent-module/) -- Module structure conventions for entity implementations
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- Pipeline architecture connecting autonomous entity outputs
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System-level resilience built from entity isolation
-- [Color Teams](/glossary/color-teams/) -- Security entities organized into adversarial-defensive teams
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous entity for quality enforcement
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Umbrella applications hosting autonomous entities
+- [Agent Pool](@/glossary/agent-pool.md) -- Pooling strategies for managing groups of autonomous entities
+- [Agent Module](@/glossary/agent-module.md) -- Module structure conventions for entity implementations
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- Pipeline architecture connecting autonomous entity outputs
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System-level resilience built from entity isolation
+- [Color Teams](@/glossary/color-teams.md) -- Security entities organized into adversarial-defensive teams
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous entity for quality enforcement
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Umbrella applications hosting autonomous entities
 
 ---
 
@@ -497,4 +497,4 @@ The SessionLifecycle entity manages the lifecycle of Claude Code sessions, auton
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,7 +24,7 @@ image_alt = "Prismatic API - Prismatic Platform"
 
 ## Abstract
 
-Prismatic API is an auto-introspecting REST gateway that discovers all public functions across Prismatic facade modules at boot time and exposes them as a fully documented [OpenAPI](/glossary/openapi/) 3.0 [REST API](/glossary/rest-api/) with zero manual configuration. The system leverages [Elixir](/glossary/elixir/)'s reflection capabilities -- `Code.fetch_docs/1`, `Code.Typespec.fetch_specs/1`, and `Module.__info__/1` -- to scan module exports, extract type specifications, and automatically generate OpenAPI JSON Schema definitions. A generic dispatch controller resolves `{app, action}` URL patterns to `module.function(args)` invocations, enabling any Prismatic facade function to be called via HTTP without writing per-endpoint controller code. The architecture separates concerns into a scanner subsystem (module discovery and type mapping), a [registry](/glossary/registry-otp/) ([ETS](/glossary/ets/)-cached endpoint catalog), and a dispatch layer (parameter validation and safe function application).
+Prismatic API is an auto-introspecting REST gateway that discovers all public functions across Prismatic facade modules at boot time and exposes them as a fully documented [OpenAPI](@/glossary/openapi.md) 3.0 [REST API](@/glossary/rest-api.md) with zero manual configuration. The system leverages [Elixir](@/glossary/elixir.md)'s reflection capabilities -- `Code.fetch_docs/1`, `Code.Typespec.fetch_specs/1`, and `Module.__info__/1` -- to scan module exports, extract type specifications, and automatically generate OpenAPI JSON Schema definitions. A generic dispatch controller resolves `{app, action}` URL patterns to `module.function(args)` invocations, enabling any Prismatic facade function to be called via HTTP without writing per-endpoint controller code. The architecture separates concerns into a scanner subsystem (module discovery and type mapping), a [registry](@/glossary/registry-otp.md) ([ETS](@/glossary/ets.md)-cached endpoint catalog), and a dispatch layer (parameter validation and safe function application).
 
 ## 1. Introduction
 
@@ -39,13 +39,13 @@ The auto-introspection approach eliminates this gap entirely. When a developer a
 1. **Zero-configuration endpoint generation** -- any public function on a `Prismatic*` facade module with a `@spec` becomes an API endpoint automatically.
 2. **Type-safe dispatch** -- Elixir type specifications are translated into OpenAPI JSON Schema for automatic request validation.
 3. **Full OpenAPI 3.0 compliance** -- complete specification generated at runtime, accessible at `/api/openapi`, with interactive SwaggerUI at `/api/swaggerui`.
-4. **Secure by default** -- all endpoints inherit platform authentication through `PrismaticWeb.Plugs.APIAuth` and [RBAC](/glossary/rbac/) permission checks.
+4. **Secure by default** -- all endpoints inherit platform authentication through `PrismaticWeb.Plugs.APIAuth` and [RBAC](@/glossary/rbac.md) permission checks.
 5. **Generic dispatch** -- a single controller handles all endpoints, routing `GET /api/v1/:app/:action` and `POST /api/v1/:app/:action` to the appropriate module function.
 6. **Performance** -- boot-time scanning with ETS caching ensures sub-millisecond endpoint resolution at request time.
 
 ### 1.3 Scope
 
-Prismatic API covers HTTP REST access to Prismatic facade modules. [GraphQL](/glossary/graphql/), gRPC, and [WebSocket](/glossary/websocket/) APIs are out of scope. The API does not expose internal modules, private functions, or functions without `@spec` annotations.
+Prismatic API covers HTTP REST access to Prismatic facade modules. [GraphQL](@/glossary/graphql.md), gRPC, and [WebSocket](@/glossary/websocket.md) APIs are out of scope. The API does not expose internal modules, private functions, or functions without `@spec` annotations.
 
 ## 2. Architecture
 
@@ -95,7 +95,7 @@ Documentation Pipeline:
 | `PrismaticApi.Scanner` | Boot-time discovery of `Prismatic*` facade modules and their public functions |
 | `PrismaticApi.TypeMapper` | Translation of Elixir `@spec` AST into OpenAPI JSON Schema types |
 | `PrismaticApi.Registry` | ETS-backed endpoint registry for O(1) lookup by `{app, action}` |
-| `PrismaticApi.DispatchController` | Generic [Phoenix](/glossary/phoenix/) controller that resolves and invokes target functions |
+| `PrismaticApi.DispatchController` | Generic [Phoenix](@/glossary/phoenix.md) controller that resolves and invokes target functions |
 | `PrismaticApi.SafeApply` | Sandboxed function invocation with timeout, error handling, and audit logging |
 | `PrismaticApi.ApiSpec` | Runtime OpenAPI 3.0 specification generation from registry data |
 | `PrismaticApi.HealthController` | Health check endpoint at `/api/v1/health` |
@@ -113,7 +113,7 @@ PrismaticApi.Application (Supervisor, :one_for_one)
       Telemetry event setup for API metrics
 ```
 
-The Registry [GenServer](/glossary/genserver/) performs a full module scan in its `init/1` callback. Subsequent requests read from the ETS table without GenServer involvement, providing lock-free concurrent access.
+The Registry [GenServer](@/glossary/genserver.md) performs a full module scan in its `init/1` callback. Subsequent requests read from the ETS table without GenServer involvement, providing lock-free concurrent access.
 
 ### 2.4 Data Flow
 
@@ -139,7 +139,7 @@ HTTP Request (POST /api/v1/perimeter/discover)
 
 **Module Discovery**. The scanner iterates over all loaded modules, filters those matching the `Prismatic*` naming convention, extracts public functions via `Module.__info__(:functions)`, fetches documentation via `Code.fetch_docs/1`, and retrieves type specifications via `Code.Typespec.fetch_specs/1`. Functions without specs are excluded from the API surface.
 
-**Type Mapping**. The TypeMapper translates Elixir [typespec](/glossary/typespec/) AST nodes into OpenAPI JSON Schema objects. Primitive types map directly (`String.t()` to `{type: "string"}`), while compound types are decomposed recursively. Map types generate `object` schemas, list types generate `array` schemas, and union types generate `oneOf` schemas.
+**Type Mapping**. The TypeMapper translates Elixir [typespec](@/glossary/typespec.md) AST nodes into OpenAPI JSON Schema objects. Primitive types map directly (`String.t()` to `{type: "string"}`), while compound types are decomposed recursively. Map types generate `object` schemas, list types generate `array` schemas, and union types generate `oneOf` schemas.
 
 **Dispatch Resolution**. The URL pattern `/api/v1/:app/:action` is resolved by normalizing the app name (e.g., `"perimeter"` to `PrismaticPerimeter`) and looking up the function atom in the ETS registry. Functions with 0-2 parameters accept GET requests; functions with more parameters require POST with a JSON body.
 
@@ -240,22 +240,22 @@ config :prismatic_api,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Auth](/apps/prismatic-auth/) | API key validation and RBAC permission enforcement |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Request [metrics](/glossary/metrics/) and latency tracking |
-| [Prismatic Cache](/apps/prismatic-cache/) | Response caching with ETag support |
+| [Prismatic Auth](@/apps/prismatic-auth.md) | API key validation and RBAC permission enforcement |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Request [metrics](@/glossary/metrics.md) and latency tracking |
+| [Prismatic Cache](@/apps/prismatic-cache.md) | Response caching with ETag support |
 | All `Prismatic*` facades | Target modules for auto-discovery and dispatch |
 
 ### 4.2 Dependents
 
-Any external client, CI/CD pipeline, or integration that needs programmatic access to Prismatic Platform capabilities uses the API as its entry point. The [Prismatic MCP](/apps/prismatic-mcp/) server also routes through the API for certain operations.
+Any external client, CI/CD pipeline, or integration that needs programmatic access to Prismatic Platform capabilities uses the API as its entry point. The [Prismatic MCP](@/apps/prismatic-mcp.md) server also routes through the API for certain operations.
 
 ### 4.3 Inter-Process Communication
 
-The API communicates with target modules through direct function calls via `SafeApply`. No [message passing](/glossary/message-passing/) or GenServer calls are involved in the dispatch path, minimizing latency. The Registry reads from a shared ETS table populated at boot time.
+The API communicates with target modules through direct function calls via `SafeApply`. No [message passing](@/glossary/message-passing.md) or GenServer calls are involved in the dispatch path, minimizing latency. The Registry reads from a shared ETS table populated at boot time.
 
 ### 4.4 External Integrations
 
-The API integrates with OpenApiSpex for specification generation and SwaggerUI for interactive documentation. External clients authenticate via API keys managed through [Prismatic Auth](/apps/prismatic-auth/).
+The API integrates with OpenApiSpex for specification generation and SwaggerUI for interactive documentation. External clients authenticate via API keys managed through [Prismatic Auth](@/apps/prismatic-auth.md).
 
 ## 5. Performance
 
@@ -299,7 +299,7 @@ StreamData generators produce random module names and function signatures to ver
 
 ### 7.1 Threat Model
 
-The primary threats are unauthorized access to platform functions and injection attacks through crafted parameters. Mitigations include mandatory authentication on all endpoints, type-validated parameters (rejecting malformed input before dispatch), function allowlisting (only `@spec`-annotated public functions on approved modules), and [rate limiting](/glossary/rate-limiting/) per API key.
+The primary threats are unauthorized access to platform functions and injection attacks through crafted parameters. Mitigations include mandatory authentication on all endpoints, type-validated parameters (rejecting malformed input before dispatch), function allowlisting (only `@spec`-annotated public functions on approved modules), and [rate limiting](@/glossary/rate-limiting.md) per API key.
 
 ### 7.2 Access Control
 
@@ -313,7 +313,7 @@ The API deploys as a standalone Phoenix application within the umbrella, listeni
 
 ### 8.2 Monitoring
 
-[Telemetry](/glossary/telemetry/) events are emitted for every API request (`[:prismatic, :api, :request]`), including dispatch target, parameters, response status, and latency. Prometheus metrics expose request counts, latency distributions, and error rates.
+[Telemetry](@/glossary/telemetry.md) events are emitted for every API request (`[:prismatic, :api, :request]`), including dispatch target, parameters, response status, and latency. Prometheus metrics expose request counts, latency distributions, and error rates.
 
 ### 8.3 Troubleshooting
 
@@ -332,21 +332,21 @@ Planned enhancements include GraphQL schema auto-generation from the same intros
 
 - [OpenAPI Specification 3.0](https://spec.openapis.org/oas/v3.0.3) -- API specification standard
 - [OpenApiSpex](https://hexdocs.pm/open_api_spex/) -- Elixir OpenAPI implementation
-- [Prismatic Auth](/apps/prismatic-auth/) -- Authentication and authorization
-- [Prismatic Telemetry](/apps/prismatic-telemetry/) -- [Observability](/glossary/observability/) infrastructure
-- [Prismatic Cache](/apps/prismatic-cache/) -- Response caching layer
+- [Prismatic Auth](@/apps/prismatic-auth.md) -- Authentication and authorization
+- [Prismatic Telemetry](@/apps/prismatic-telemetry.md) -- [Observability](@/glossary/observability.md) infrastructure
+- [Prismatic Cache](@/apps/prismatic-cache.md) -- Response caching layer
 
 ## Related Agents
 
-- [API Design Specialist Agent](/agents/api-design-specialist-agent/) -- Reviews API design patterns, endpoint naming conventions, and OpenAPI schema quality for the auto-introspecting gateway
-- [API Gateway Specialist Agent](/agents/api-gateway-specialist-agent/) -- Manages gateway concerns including rate limiting, authentication pipeline, and dispatch security
-- [Deployment Commander Agent](/agents/deployment-commander-agent/) -- Coordinates API deployment with boot-time scan verification and endpoint catalog validation
+- [API Design Specialist Agent](@/agents/api-design-specialist-agent.md) -- Reviews API design patterns, endpoint naming conventions, and OpenAPI schema quality for the auto-introspecting gateway
+- [API Gateway Specialist Agent](@/agents/api-gateway-specialist-agent.md) -- Manages gateway concerns including rate limiting, authentication pipeline, and dispatch security
+- [Deployment Commander Agent](@/agents/deployment-commander-agent.md) -- Coordinates API deployment with boot-time scan verification and endpoint catalog validation
 
 ## Related Capabilities
 
-- [Quality Gates](/capabilities/quality-gates/) -- Ensures all exposed functions carry proper type specifications and documentation required for auto-discovery
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Provides request-level observability with latency distributions, error rates, and dispatch metrics for every API endpoint
-- [AIAD Standard](/capabilities/aiad-standard/) -- Standardizes the interface between the API gateway and the 404 agent ecosystem for command dispatch
+- [Quality Gates](@/capabilities/quality-gates.md) -- Ensures all exposed functions carry proper type specifications and documentation required for auto-discovery
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Provides request-level observability with latency distributions, error rates, and dispatch metrics for every API endpoint
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Standardizes the interface between the API gateway and the 404 agent ecosystem for command dispatch
 
 ---
 
@@ -355,4 +355,4 @@ Planned enhancements include GraphQL schema auto-generation from the same intros
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

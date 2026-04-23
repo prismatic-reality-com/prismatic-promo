@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-Philosophical override testing — An academic treatment of consciousness studies and phenomenological computation within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **philosophical override testing** as implemented within the Prismatic Platform's consciousness studies and phenomenological computation domain. We formalize the problem space through the lens of integrated information theory and global workspace theory, propose a multi-agent architecture leveraging [OTP](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates information integration measurement (Phi), perturbational complexity index, neurophenomenology to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for consciousness studies and phenomenological computation.
+Philosophical override testing — An academic treatment of consciousness studies and phenomenological computation within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **philosophical override testing** as implemented within the Prismatic Platform's consciousness studies and phenomenological computation domain. We formalize the problem space through the lens of integrated information theory and global workspace theory, propose a multi-agent architecture leveraging [OTP](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates information integration measurement (Phi), perturbational complexity index, neurophenomenology to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for consciousness studies and phenomenological computation.
 
 **Keywords:** Philosophical, override, testing, Prismatic-native, Consciousness, Research
 
@@ -115,7 +115,7 @@ The philosophical override testing system is implemented as a Prismatic-native a
 
 ### 3.2 OTP Process Topology
 
-The system leverages [Elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [Elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule PhilosophicalOverrideTesting.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -216,7 +216,7 @@ The implementation leverages the Prismatic Platform's technology stack:
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
 | Runtime | Elixir 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
-| Web Layer | Phoenix [LiveView](/glossary/liveview/) | Real-time interactive dashboards |
+| Web Layer | Phoenix [LiveView](@/glossary/liveview.md) | Real-time interactive dashboards |
 | Storage | PostgreSQL + ETS | Persistent + in-memory storage |
 | Search | Meilisearch | Full-text search and indexing |
 | Styling | TailwindCSS + Flowbite | Consistent UI component library |
@@ -464,19 +464,19 @@ config :prismatic, PhilosophicalOverrideTesting,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [Philosophical override proofs](/applications/academic-research-epistemology/philosophical-override-proofs/) — *Academic Research Epistemology*
-- [Epistemic unit testing suite](/applications/cross-disciplinary-meta-simulation/epistemic-unit-testing-suite/) — *Cross Disciplinary Meta Simulation*
-- [Epistemic trauma resilience testing](/applications/psychology-psychiatry/epistemic-trauma-resilience-testing/) — *Psychology Psychiatry*
-- [Narrative coherence testing](/applications/psychology-psychiatry/narrative-coherence-testing/) — *Psychology Psychiatry*
+- [Philosophical override proofs](@/applications/academic-research-epistemology/philosophical-override-proofs.md) — *Academic Research Epistemology*
+- [Epistemic unit testing suite](@/applications/cross-disciplinary-meta-simulation/epistemic-unit-testing-suite.md) — *Cross Disciplinary Meta Simulation*
+- [Epistemic trauma resilience testing](@/applications/psychology-psychiatry/epistemic-trauma-resilience-testing.md) — *Psychology Psychiatry*
+- [Narrative coherence testing](@/applications/psychology-psychiatry/narrative-coherence-testing.md) — *Psychology Psychiatry*
 
 
 ## Further Reading
 
-- [Consciousness Research — All Applications](/applications/consciousness-research/)
-- [Philosophy Metaphysics](/applications/philosophy-metaphysics/)
-- [Neuroscience Neurobiology](/applications/neuroscience-neurobiology/)
-- [Psychology Psychiatry](/applications/psychology-psychiatry/)
-- [Prismatic Application Catalogue](/applications/)
+- [Consciousness Research — All Applications](@/applications/consciousness-research/_index.md)
+- [Philosophy Metaphysics](@/applications/philosophy-metaphysics/_index.md)
+- [Neuroscience Neurobiology](@/applications/neuroscience-neurobiology/_index.md)
+- [Psychology Psychiatry](@/applications/psychology-psychiatry/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

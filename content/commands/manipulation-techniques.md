@@ -26,9 +26,9 @@ image_alt = "/manipulation-techniques - Prismatic Platform"
 
 **/manipulation-techniques** is a production command in the **Defensive Security** category of the Prismatic Platform. It provides comprehensive access to the platform's manipulation technique taxonomy, a structured catalogue of known epistemic attack vectors alongside their corresponding counter-measures. In an era where AI systems face increasingly sophisticated adversarial inputs -- from prompt injection to subtle confidence manipulation -- this command serves as the primary reference interface for understanding and defending against such threats.
 
-The taxonomy maintained by this command draws from both academic research in adversarial machine learning and practical threat intelligence gathered through the platform's [Color-Team Security](/glossary/color-teams/) operations. Each technique entry includes a classification identifier, attack vector description, severity rating, detection signatures, and one or more validated counter-measures. The taxonomy currently covers five major attack primitives: truth distortion, confidence manipulation, signal poisoning, drift induction, and salience hijacking, with over 300 individual technique entries catalogued.
+The taxonomy maintained by this command draws from both academic research in adversarial machine learning and practical threat intelligence gathered through the platform's [Color-Team Security](@/glossary/color-teams.md) operations. Each technique entry includes a classification identifier, attack vector description, severity rating, detection signatures, and one or more validated counter-measures. The taxonomy currently covers five major attack primitives: truth distortion, confidence manipulation, signal poisoning, drift induction, and salience hijacking, with over 300 individual technique entries catalogued.
 
-This command operates under the **L2+** authority level and is executed by the `manipulation-detector` agent, a specialized defensive security agent that maintains continuous awareness of the threat landscape. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command integrates directly with the Blue Team epistemic defense infrastructure and provides structured output suitable for both human review and automated pipeline consumption.
+This command operates under the **L2+** authority level and is executed by the `manipulation-detector` agent, a specialized defensive security agent that maintains continuous awareness of the threat landscape. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command integrates directly with the Blue Team epistemic defense infrastructure and provides structured output suitable for both human review and automated pipeline consumption.
 
 Understanding the manipulation technique taxonomy is essential for any operator working with the platform's epistemic security subsystems. Whether configuring detection thresholds, analyzing post-incident reports, or designing new defensive postures, this command provides the foundational reference material that underpins all defensive security operations across the Prismatic Platform.
 
@@ -53,7 +53,7 @@ The **Taxonomy Registry** stores all technique entries in an ETS table for sub-m
 
 The **Technique Resolver** handles query parsing, filtering, and sorting. It supports compound queries across multiple taxonomy dimensions, enabling operators to find techniques by category, severity, attack primitive, or counter-measure type. The resolver implements efficient index-based lookups against the ETS store, ensuring that even full taxonomy scans complete within single-digit milliseconds.
 
-The **Output Formatter** renders results in the operator's preferred format. The default table format provides human-readable output with aligned columns, while the JSON format supports programmatic consumption by downstream automation, reporting pipelines, and the [Prismatic API](/apps/prismatic-api/) gateway.
+The **Output Formatter** renders results in the operator's preferred format. The default table format provides human-readable output with aligned columns, while the JSON format supports programmatic consumption by downstream automation, reporting pipelines, and the [Prismatic API](@/apps/prismatic-api.md) gateway.
 
 ## Usage
 
@@ -149,14 +149,14 @@ The command follows a structured execution pipeline that ensures consistent, aud
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by the `manipulation-detector` agent with full AIAD lifecycle |
-| [Blue Team](/glossary/color-teams/) | Defense Mapping | Counter-measures linked to active Blue Team defensive postures |
-| [Red Team](/glossary/color-teams/) | Threat Intelligence | Technique entries sourced from Red Team adversarial simulation findings |
-| [Purple Team](/glossary/color-teams/) | Closure Analysis | Techniques tracked through Red-Blue closure loop for gap identification |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic Framework | Technique classification follows NABLA axiom compliance requirements |
-| [Quality Gates](/glossary/quality-gates/) | Pre/Post Validation | Quality validation enforced before and after taxonomy operations |
-| [Telemetry](/glossary/telemetry/) | Observability | All command executions emit structured telemetry events |
-| [Prismatic API](/apps/prismatic-api/) | REST Exposure | Taxonomy available via `/api/v1/manipulation-techniques` endpoint |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by the `manipulation-detector` agent with full AIAD lifecycle |
+| [Blue Team](@/glossary/color-teams.md) | Defense Mapping | Counter-measures linked to active Blue Team defensive postures |
+| [Red Team](@/glossary/color-teams.md) | Threat Intelligence | Technique entries sourced from Red Team adversarial simulation findings |
+| [Purple Team](@/glossary/color-teams.md) | Closure Analysis | Techniques tracked through Red-Blue closure loop for gap identification |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic Framework | Technique classification follows NABLA axiom compliance requirements |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/Post Validation | Quality validation enforced before and after taxonomy operations |
+| [Telemetry](@/glossary/telemetry.md) | Observability | All command executions emit structured telemetry events |
+| [Prismatic API](@/apps/prismatic-api.md) | REST Exposure | Taxonomy available via `/api/v1/manipulation-techniques` endpoint |
 
 ## Best Practices
 
@@ -221,21 +221,21 @@ Integrate taxonomy queries into automated security pipelines:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete taxonomy entries. Every technique must have a complete schema including category, severity, attack vector, detection signatures, and counter-measures (or explicit acknowledgment of gaps). Incomplete entries are rejected at ingestion time.
 - **NO DOUBTS**: Full investigation of each technique before cataloguing. Evidence-based classification with provenance tracking ensures every taxonomy entry is traceable to its source -- whether Red Team simulation, academic research, or production incident analysis.
 
-The taxonomy itself embodies the [NABLA Infinity](/glossary/nabla-infinity/) principle of **Contradiction Preservation**: when multiple sources provide conflicting severity assessments for a technique, both assessments are preserved with their respective provenance rather than being collapsed into a single value.
+The taxonomy itself embodies the [NABLA Infinity](@/glossary/nabla-infinity.md) principle of **Contradiction Preservation**: when multiple sources provide conflicting severity assessments for a technique, both assessments are preserved with their respective provenance rather than being collapsed into a single value.
 
 ## Related Commands
 
-- [/manipulation-detect](/commands/manipulation-detect/) - Detect manipulation attempts using epistemic analysis
-- [/manipulation-protect](/commands/manipulation-protect/) - Activate manipulation protection defenses
-- [/manipulation-dashboard](/commands/manipulation-dashboard/) - Manipulation detection dashboard with threat indicators
-- [/emergency](/commands/emergency/) - Emergency response and crisis management activation
-- [/archer-supreme](/commands/archer-supreme/) - Supreme authority activation for platform-wide operations
-- [/dark-ops](/commands/dark-ops/) - NABLA structural crisis detection and dark operations analysis
+- [/manipulation-detect](@/commands/manipulation-detect.md) - Detect manipulation attempts using epistemic analysis
+- [/manipulation-protect](@/commands/manipulation-protect.md) - Activate manipulation protection defenses
+- [/manipulation-dashboard](@/commands/manipulation-dashboard.md) - Manipulation detection dashboard with threat indicators
+- [/emergency](@/commands/emergency.md) - Emergency response and crisis management activation
+- [/archer-supreme](@/commands/archer-supreme.md) - Supreme authority activation for platform-wide operations
+- [/dark-ops](@/commands/dark-ops.md) - NABLA structural crisis detection and dark operations analysis
 
 ---
 
@@ -244,4 +244,4 @@ The taxonomy itself embodies the [NABLA Infinity](/glossary/nabla-infinity/) pri
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "/presales-price - Prismatic Platform"
 
 The pricing engine integrates multiple pricing methodologies to generate well-rounded recommendations. Cost-plus pricing establishes the floor by aggregating implementation effort, infrastructure costs, and margin requirements. Value-based pricing determines the ceiling by quantifying the business value the solution delivers to the prospect. Competitive pricing calibrates the recommendation within market context by benchmarking against known competitor offerings. The final recommendation balances these inputs to maximize win probability while maintaining healthy margins.
 
-This command operates under the **L2+** authority level and is executed by the `pricing-strategist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The pricing strategist agent combines technical understanding with commercial acumen, drawing on the AIAD registry's knowledge of platform capabilities and effort requirements to produce pricing that is both technically grounded and commercially competitive.
+This command operates under the **L2+** authority level and is executed by the `pricing-strategist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The pricing strategist agent combines technical understanding with commercial acumen, drawing on the AIAD registry's knowledge of platform capabilities and effort requirements to produce pricing that is both technically grounded and commercially competitive.
 
-Within the presales pipeline, `/presales-price` typically follows [/presales-assess](/commands/presales-assess/), which provides the technical effort estimates that form the cost basis, and precedes [/presales-propose](/commands/presales-propose/), which incorporates the pricing recommendation into the formal proposal. The pricing output can also feed back into [/presales-case](/commands/presales-case/) to update the opportunity value and inform pipeline forecasting.
+Within the presales pipeline, `/presales-price` typically follows [/presales-assess](@/commands/presales-assess.md), which provides the technical effort estimates that form the cost basis, and precedes [/presales-propose](@/commands/presales-propose.md), which incorporates the pricing recommendation into the formal proposal. The pricing output can also feed back into [/presales-case](@/commands/presales-case.md) to update the opportunity value and inform pipeline forecasting.
 
 ## Architecture
 
@@ -162,18 +162,18 @@ The pricing analysis follows a structured calculation pipeline that builds from 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/presales-assess](/commands/presales-assess/) | Upstream | Effort estimates feed cost calculation |
-| [/presales-propose](/commands/presales-propose/) | Downstream | Pricing incorporated into proposals |
-| [/presales-case](/commands/presales-case/) | Case Management | Pricing linked to case, updates value |
-| [/presales-research](/commands/presales-research/) | Data Source | Competitive pricing intelligence |
-| [/presales](/commands/presales/) | Parent Command | Top-level presales orchestration |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `pricing-strategist` agent |
-| [Prismatic Storage](/apps/prismatic-storage/) | Persistence | Pricing history, competitive data |
-| [Telemetry](/glossary/telemetry/) | Observability | Pricing accuracy and win-rate correlation |
+| [/presales-assess](@/commands/presales-assess.md) | Upstream | Effort estimates feed cost calculation |
+| [/presales-propose](@/commands/presales-propose.md) | Downstream | Pricing incorporated into proposals |
+| [/presales-case](@/commands/presales-case.md) | Case Management | Pricing linked to case, updates value |
+| [/presales-research](@/commands/presales-research.md) | Data Source | Competitive pricing intelligence |
+| [/presales](@/commands/presales.md) | Parent Command | Top-level presales orchestration |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `pricing-strategist` agent |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Persistence | Pricing history, competitive data |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Pricing accuracy and win-rate correlation |
 
 ## Best Practices
 
-**Base Pricing on Assessment Data**: Always run [/presales-assess](/commands/presales-assess/) before pricing to ensure effort estimates reflect actual technical complexity. Ad-hoc pricing without technical grounding frequently results in underpricing or scope misalignment.
+**Base Pricing on Assessment Data**: Always run [/presales-assess](@/commands/presales-assess.md) before pricing to ensure effort estimates reflect actual technical complexity. Ad-hoc pricing without technical grounding frequently results in underpricing or scope misalignment.
 
 **Use Multiple Models**: Run `--compare-models` to see the opportunity from different pricing perspectives. Subscription models work well for ongoing services, while license models may be preferred by prospects with CapEx budgets. Having both options ready increases deal flexibility.
 
@@ -227,19 +227,19 @@ The pricing analysis follows a structured calculation pipeline that builds from 
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Pricing is never generated without adequate cost basis data. Margin floors are enforced without exception. All pricing scenarios are calculated with the same rigor regardless of deal urgency.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every pricing component is traceable to specific cost drivers or market data points. The [NABLA](/glossary/nabla-infinity/) axiom of Signal Plurality requires that pricing recommendations consider multiple methodological perspectives (cost-plus, value-based, competitive) rather than relying on a single approach.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every pricing component is traceable to specific cost drivers or market data points. The [NABLA](@/glossary/nabla-infinity.md) axiom of Signal Plurality requires that pricing recommendations consider multiple methodological perspectives (cost-plus, value-based, competitive) rather than relying on a single approach.
 
 ## Related Commands
 
-- [/presales](/commands/presales/) - Presales intelligence for company analysis and opportunity identification
-- [/presales-analyze](/commands/presales-analyze/) - Text, file and URL analysis for presales opportunity assessment
-- [/presales-assess](/commands/presales-assess/) - Technical assessment of opportunities and cases
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/presales](@/commands/presales.md) - Presales intelligence for company analysis and opportunity identification
+- [/presales-analyze](@/commands/presales-analyze.md) - Text, file and URL analysis for presales opportunity assessment
+- [/presales-assess](@/commands/presales-assess.md) - Technical assessment of opportunities and cases
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -248,4 +248,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

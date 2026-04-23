@@ -28,9 +28,9 @@ image_alt = "/session-compress - Prismatic Platform"
 
 The compression engine operates across multiple dimensions simultaneously. At the syntactic level, it removes redundant phrasing, normalizes formatting, and deduplicates repeated instructions. At the semantic level, it identifies the core intent behind each session frame, extracts key decisions and their rationale, and collapses multi-step reasoning chains into concise summaries. At the strategic level, it detects cross-session patterns -- recurring objectives, repeated code modifications to the same modules, and cyclical quality issues -- surfacing these as persistent themes rather than isolated events.
 
-This command operates under the **P0** authority level and is executed by the `session-compressor-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The P0 authority classification reflects the critical nature of session context management: without reliable compression, the platform's ability to maintain continuity across sessions degrades, directly impacting development velocity and decision quality.
+This command operates under the **P0** authority level and is executed by the `session-compressor-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The P0 authority classification reflects the critical nature of session context management: without reliable compression, the platform's ability to maintain continuity across sessions degrades, directly impacting development velocity and decision quality.
 
-The command integrates tightly with the [Stack-Based Conversation Mode](/glossary/session-discipline/) system, understanding frame boundaries, checkpoint markers, and fork points. Compression respects these structural elements, ensuring that compressed output maintains valid stack topology even after significant size reduction. A typical compression run achieves 60-80% size reduction while preserving 95%+ of actionable information content.
+The command integrates tightly with the [Stack-Based Conversation Mode](@/glossary/session-discipline.md) system, understanding frame boundaries, checkpoint markers, and fork points. Compression respects these structural elements, ensuring that compressed output maintains valid stack topology even after significant size reduction. A typical compression run achieves 60-80% size reduction while preserving 95%+ of actionable information content.
 
 ## Architecture
 
@@ -153,12 +153,12 @@ The command follows a deterministic execution sequence with validation gates at 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Stack Conversation](/glossary/session-discipline/) | Structural | Respects frame boundaries, checkpoints, and fork points during compression |
-| [Session Lifecycle](/apps/prismatic-claude/) | Trigger | Auto-triggered at session end as part of the `SessionLifecycle.trigger(:session_end)` hook |
-| [Quality DNA](/glossary/quality-dna/) | Preservation | Quality state snapshots are preserved at full fidelity regardless of compression level |
-| [GitLab Integration](/glossary/gitlab-ci/) | Metadata | Issue references and milestone associations are never compressed away |
-| [Telemetry](/glossary/telemetry/) | Observability | Emits `[:prismatic_claude, :session_compress, :start | :stop | :exception]` events |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Registered as `session-compress.cmd.md` in the command registry |
+| [Stack Conversation](@/glossary/session-discipline.md) | Structural | Respects frame boundaries, checkpoints, and fork points during compression |
+| [Session Lifecycle](@/apps/prismatic-claude.md) | Trigger | Auto-triggered at session end as part of the `SessionLifecycle.trigger(:session_end)` hook |
+| [Quality DNA](@/glossary/quality-dna.md) | Preservation | Quality state snapshots are preserved at full fidelity regardless of compression level |
+| [GitLab Integration](@/glossary/gitlab-ci.md) | Metadata | Issue references and milestone associations are never compressed away |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Emits `[:prismatic_claude, :session_compress, :start | :stop | :exception]` events |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Registered as `session-compress.cmd.md` in the command registry |
 
 ## Best Practices
 
@@ -230,21 +230,21 @@ PrismaticClaude.SessionLifecycle.register_hook(:session_end, %{
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Compression must be lossless for critical information. Quality gate results, architectural decisions, and security findings are never compressed away. If compression would result in information loss below the reconstruction validation threshold, the command aborts rather than producing inadequate output.
 - **NO DOUBTS**: Every compression operation is validated against a reconstruction rubric before the compressed output replaces the original. Evidence of successful compression (statistics, validation scores) is logged to telemetry. No unvalidated compression is ever committed.
 
-The command also respects the **[NABLA Infinity](/glossary/nabla-infinity/)** axioms, particularly Signal Plurality (preserving multiple perspectives from a session) and Provenance Mandatory (maintaining traceability from compressed output back to original session frames).
+The command also respects the **[NABLA Infinity](@/glossary/nabla-infinity.md)** axioms, particularly Signal Plurality (preserving multiple perspectives from a session) and Provenance Mandatory (maintaining traceability from compressed output back to original session frames).
 
 ## Related Commands
 
-- [/debrief](/commands/debrief/) - Comprehensive session debrief with platform state analysis and changelog detection
-- [/rebrief](/commands/rebrief/) - Retrospective analysis of development activity across multiple sessions
-- [/session-track](/commands/session-track/) - Session tracking actions for GitLab integration and progress monitoring
-- [/stack](/commands/stack/) - Display complete conversation stack with all frames
-- [/checkpoint](/commands/checkpoint/) - Mark current conversation frame with a named checkpoint
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/debrief](@/commands/debrief.md) - Comprehensive session debrief with platform state analysis and changelog detection
+- [/rebrief](@/commands/rebrief.md) - Retrospective analysis of development activity across multiple sessions
+- [/session-track](@/commands/session-track.md) - Session tracking actions for GitLab integration and progress monitoring
+- [/stack](@/commands/stack.md) - Display complete conversation stack with all frames
+- [/checkpoint](@/commands/checkpoint.md) - Mark current conversation frame with a named checkpoint
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -253,4 +253,4 @@ The command also respects the **[NABLA Infinity](/glossary/nabla-infinity/)** ax
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

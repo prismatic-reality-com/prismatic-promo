@@ -28,7 +28,7 @@ image_alt = "brainstorm-to-wiki-automator - Prismatic Platform"
 
 ## Overview
 
-The Brainstorm-to-Wiki Automator is an L4 domain specialist within the [AIAD](/glossary/aiad/) Knowledge Management domain of the Prismatic Platform. This agent automatically converts unstructured brainstorm sessions into structured GitLab wiki pages, preserving creative insights, implementation roadmaps, decision rationale, and technical specifications that would otherwise be lost when sessions end. It bridges the gap between creative exploration and documented knowledge, ensuring that the platform's institutional knowledge grows with every brainstorm session.
+The Brainstorm-to-Wiki Automator is an L4 domain specialist within the [AIAD](@/glossary/aiad.md) Knowledge Management domain of the Prismatic Platform. This agent automatically converts unstructured brainstorm sessions into structured GitLab wiki pages, preserving creative insights, implementation roadmaps, decision rationale, and technical specifications that would otherwise be lost when sessions end. It bridges the gap between creative exploration and documented knowledge, ensuring that the platform's institutional knowledge grows with every brainstorm session.
 
 Brainstorm sessions in software development generate enormous value -- architectural insights, feature ideas, risk assessments, and strategic decisions -- but this value is typically ephemeral, captured in meeting notes that are never structured, indexed, or connected to the broader knowledge base. The Brainstorm-to-Wiki Automator addresses this knowledge loss by automatically extracting structured information from session transcripts and converting it into well-organized wiki pages with proper categorization, cross-references, and metadata.
 
@@ -38,7 +38,7 @@ The agent's processing goes beyond simple transcription. It identifies the diffe
 
 The AIAD Knowledge Management domain is responsible for maintaining the platform's institutional knowledge base. The Brainstorm-to-Wiki Automator operates within this domain as a specialized content processing agent, transforming unstructured creative output into structured knowledge artifacts that integrate with the platform's wiki, issue tracking, and documentation systems.
 
-The agent connects to the [SEADF](/glossary/seadf/) Knowledge Sync subsystem, ensuring that wiki content produced by brainstorm processing is synchronized across the platform's knowledge infrastructure and discoverable through search and cross-reference systems.
+The agent connects to the [SEADF](@/glossary/seadf.md) Knowledge Sync subsystem, ensuring that wiki content produced by brainstorm processing is synchronized across the platform's knowledge infrastructure and discoverable through search and cross-reference systems.
 
 ## Key Capabilities
 
@@ -101,18 +101,18 @@ The automator applies quality checks to ensure that generated wiki pages meet pl
 |-----------|-------------|-----------|
 | GitLab Wiki | Publishing target | Generated wiki pages with metadata and cross-references |
 | GitLab Issues | Task output | Implementation tasks formatted as issue specifications |
-| [SEADF](/glossary/seadf/) | Knowledge Sync | Wiki content synchronized through knowledge infrastructure |
+| [SEADF](@/glossary/seadf.md) | Knowledge Sync | Wiki content synchronized through knowledge infrastructure |
 | AIAD Agent Registry | Cross-reference source | Agent specifications linked from brainstorm content |
 | Platform Glossary | Terminology alignment | Named entity recognition against glossary terms |
-| [Telemetry](/glossary/telemetry/) | Processing metrics | Session processing throughput, quality scores |
+| [Telemetry](@/glossary/telemetry.md) | Processing metrics | Session processing throughput, quality scores |
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [documentation-verifier](/agents/documentation-verifier/) | Quality Assurance | Verifies generated wiki content against documentation standards |
-| [gitlab-mcp-orchestrator](/agents/gitlab-mcp-orchestrator/) | GitLab Integration | Coordinates wiki page publishing and issue creation through MCP |
-| [autonomous-pattern-evolution-specialist](/agents/autonomous-pattern-evolution-specialist/) | Pattern Feed | Brainstorm patterns feed into the pattern evolution pipeline |
+| [documentation-verifier](@/agents/documentation-verifier.md) | Quality Assurance | Verifies generated wiki content against documentation standards |
+| [gitlab-mcp-orchestrator](@/agents/gitlab-mcp-orchestrator.md) | GitLab Integration | Coordinates wiki page publishing and issue creation through MCP |
+| [autonomous-pattern-evolution-specialist](@/agents/autonomous-pattern-evolution-specialist.md) | Pattern Feed | Brainstorm patterns feed into the pattern evolution pipeline |
 
 ## Performance Metrics
 
@@ -126,7 +126,7 @@ The automator applies quality checks to ensure that generated wiki pages meet pl
 
 ## Enforcement
 
-The Brainstorm-to-Wiki Automator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every brainstorm session that generates platform-relevant content must be processed. Generated wiki pages must meet documentation quality standards. Decisions without documented rationale are flagged as incomplete. Implementation tasks without acceptance criteria are rejected. The [Trinity Gate](/glossary/trinity-gate/) validates that generated documentation maintains structural consistency with the existing wiki structure, logical consistency between related content sections, and formal correctness of cross-references and metadata. The NABLA [Provenance Mandatory](/glossary/provenance-mandatory/) axiom requires that every piece of generated wiki content traces back to specific session content with timestamps and context.
+The Brainstorm-to-Wiki Automator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every brainstorm session that generates platform-relevant content must be processed. Generated wiki pages must meet documentation quality standards. Decisions without documented rationale are flagged as incomplete. Implementation tasks without acceptance criteria are rejected. The [Trinity Gate](@/glossary/trinity-gate.md) validates that generated documentation maintains structural consistency with the existing wiki structure, logical consistency between related content sections, and formal correctness of cross-references and metadata. The NABLA [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom requires that every piece of generated wiki content traces back to specific session content with timestamps and context.
 
 ---
 
@@ -135,4 +135,4 @@ The Brainstorm-to-Wiki Automator operates under the [NO MERCY, NO DOUBTS](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

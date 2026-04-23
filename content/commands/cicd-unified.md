@@ -24,9 +24,9 @@ image_alt = "/cicd-unified - Prismatic Platform"
 
 ## Overview
 
-**/cicd-unified** is a production command in the **DevOps** category of the Prismatic Platform that provides a single entry point for all continuous integration and continuous deployment workflow actions. Instead of managing separate commands for pipeline triggering, status monitoring, artifact retrieval, and deployment control, this command unifies the entire CI/CD lifecycle under one interface. It abstracts away the differences between [GitLab CI](/glossary/gitlab-ci/) pipeline syntax, deployment targets (Fly.io staging and production), and quality gate enforcement into a cohesive workflow.
+**/cicd-unified** is a production command in the **DevOps** category of the Prismatic Platform that provides a single entry point for all continuous integration and continuous deployment workflow actions. Instead of managing separate commands for pipeline triggering, status monitoring, artifact retrieval, and deployment control, this command unifies the entire CI/CD lifecycle under one interface. It abstracts away the differences between [GitLab CI](@/glossary/gitlab-ci.md) pipeline syntax, deployment targets (Fly.io staging and production), and quality gate enforcement into a cohesive workflow.
 
-This command operates under the **L2+** authority level and is executed by the `cicd-tooling-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The unified approach ensures that all CI/CD operations are subject to the same quality enforcement, telemetry tracking, and doctrine compliance as every other platform command.
+This command operates under the **L2+** authority level and is executed by the `cicd-tooling-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The unified approach ensures that all CI/CD operations are subject to the same quality enforcement, telemetry tracking, and doctrine compliance as every other platform command.
 
 The Prismatic Platform's CI/CD infrastructure manages a complex pipeline that must compile nearly 100 umbrella applications, run thousands of tests, enforce zero-warning compilation, execute Credo static analysis, verify Dialyzer type specifications, and deploy to multiple environments. The `/cicd-unified` command tames this complexity by providing intelligent defaults, automatic pipeline stage detection, and integration with the platform's quality gate system.
 
@@ -144,14 +144,14 @@ The execution flow varies by action, but all actions share a common preamble of 
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `cicd-tooling-specialist` | Agent manages pipeline lifecycle |
-| [GitLab CI](/glossary/gitlab-ci/) | Pipeline backend | REST API for trigger, status, logs, artifacts |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution validation | Local preflight and remote stage gates |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Pipeline duration, stage timing, deployment frequency |
-| [AIAD Registry](/glossary/aiad/) | Command specification | CI/CD command configuration |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `cicd-tooling-specialist` | Agent manages pipeline lifecycle |
+| [GitLab CI](@/glossary/gitlab-ci.md) | Pipeline backend | REST API for trigger, status, logs, artifacts |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution validation | Local preflight and remote stage gates |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Pipeline duration, stage timing, deployment frequency |
+| [AIAD Registry](@/glossary/aiad.md) | Command specification | CI/CD command configuration |
 | Fly.io | Deployment target | Staging and production hosting |
 | Docker | Image building | Multi-stage builds for production |
-| [/guardrails](/commands/guardrails/) | Deployment safety | Pre-deployment safety checks |
+| [/guardrails](@/commands/guardrails.md) | Deployment safety | Pre-deployment safety checks |
 
 ## Best Practices
 
@@ -232,19 +232,19 @@ The platform enforces strict GitLab CI YAML patterns. The command validates YAML
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every pipeline stage must pass before deployment is permitted. No bypass flags.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Pipeline results are fully auditable with complete logs and artifact preservation.
 
 ## Related Commands
 
-- [/guardrails](/commands/guardrails/) - CI/CD guardrails enforcement for deployment safety
-- [/gitlab-ci](/commands/gitlab-ci/) - [GitLab CI](/glossary/gitlab-ci/)/CD pipeline management and configuration
-- [/gitlab-api](/commands/gitlab-api/) - GitLab API operations for project and repository management
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/guardrails](@/commands/guardrails.md) - CI/CD guardrails enforcement for deployment safety
+- [/gitlab-ci](@/commands/gitlab-ci.md) - [GitLab CI](@/glossary/gitlab-ci.md)/CD pipeline management and configuration
+- [/gitlab-api](@/commands/gitlab-api.md) - GitLab API operations for project and repository management
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -253,4 +253,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

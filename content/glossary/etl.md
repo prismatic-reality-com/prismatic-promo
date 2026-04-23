@@ -37,7 +37,7 @@ ETL (Extract-Transform-Load) is a data integration pattern that moves data from 
 
 The ETL pattern has evolved significantly since its origins in mainframe batch processing. Classical ETL operates in overnight batch windows, processing accumulated data in bulk. Modern ETL encompasses streaming ETL (continuous micro-batch processing), ELT (load raw data first, transform in place using the destination's compute), and hybrid approaches that combine batch and streaming for different data freshness requirements. The choice between ETL and ELT often depends on where compute is cheapest and most capable: ETL is preferred when transformation logic is complex and benefits from application-level processing (as in Elixir's pattern matching and functional pipelines), while ELT is preferred when the destination system has powerful transformation capabilities (as in modern data warehouses with SQL-based transformation).
 
-For intelligence platforms like Prismatic, ETL is not merely a data engineering concern but a core capability. The quality and completeness of intelligence assessments depends directly on the fidelity of the extraction (capturing all relevant data from [OSINT](/glossary/osint/) sources), the correctness of transformation (normalizing heterogeneous data formats into unified representations), and the reliability of loading (ensuring no data loss or duplication in the destination stores). Errors at any stage propagate downstream, potentially leading to incorrect security ratings, missed vulnerabilities, or flawed compliance assessments in [Prismatic Perimeter](/glossary/prismatic-perimeter/).
+For intelligence platforms like Prismatic, ETL is not merely a data engineering concern but a core capability. The quality and completeness of intelligence assessments depends directly on the fidelity of the extraction (capturing all relevant data from [OSINT](@/glossary/osint.md) sources), the correctness of transformation (normalizing heterogeneous data formats into unified representations), and the reliability of loading (ensuring no data loss or duplication in the destination stores). Errors at any stage propagate downstream, potentially leading to incorrect security ratings, missed vulnerabilities, or flawed compliance assessments in [Prismatic Perimeter](@/glossary/prismatic-perimeter.md).
 
 ## Historical Context
 
@@ -45,7 +45,7 @@ The ETL pattern emerged in the 1970s alongside the first data warehousing initia
 
 The big data revolution of the 2010s challenged traditional ETL architectures. Hadoop ecosystem tools (Sqoop, Pig, Hive) enabled ETL at petabyte scale, but with higher latency. The rise of streaming platforms (Apache Kafka, Apache Flink) introduced the concept of streaming ETL, where data is processed continuously in near-real-time rather than in batch windows. Apache Spark unified batch and streaming ETL under a single programming model.
 
-In the Elixir ecosystem, ETL evolved along a different path. [GenStage](/glossary/genstage/) (2016) introduced demand-driven data exchange between producer and consumer processes, providing backpressure management without external infrastructure. [Broadway](/glossary/broadway/) (2019) built on GenStage to provide a high-level ETL pipeline framework with concurrent processing, automatic batching, and acknowledgment-based delivery guarantees. This BEAM-native approach to ETL leverages lightweight processes and supervision trees for fault tolerance without requiring external orchestration systems like Apache Airflow or Luigi.
+In the Elixir ecosystem, ETL evolved along a different path. [GenStage](@/glossary/genstage.md) (2016) introduced demand-driven data exchange between producer and consumer processes, providing backpressure management without external infrastructure. [Broadway](@/glossary/broadway.md) (2019) built on GenStage to provide a high-level ETL pipeline framework with concurrent processing, automatic batching, and acknowledgment-based delivery guarantees. This BEAM-native approach to ETL leverages lightweight processes and supervision trees for fault tolerance without requiring external orchestration systems like Apache Airflow or Luigi.
 
 ## ETL vs ELT
 
@@ -55,7 +55,7 @@ The distinction between ETL and ELT reflects different architectural philosophie
 |-----------|-----|-----|
 | **Transform location** | Application layer (before load) | Destination system (after load) |
 | **Data in destination** | Clean, structured, ready to query | Raw initially, transformed via SQL/scripts |
-| **Compute model** | Application processes ([BEAM](/glossary/beam/), JVM) | Destination engine ([PostgreSQL](/glossary/postgresql/), BigQuery) |
+| **Compute model** | Application processes ([BEAM](@/glossary/beam.md), JVM) | Destination engine ([PostgreSQL](@/glossary/postgresql.md), BigQuery) |
 | **Schema evolution** | Requires pipeline changes | Re-transform from raw data |
 | **Latency** | Higher (transform before load) | Lower initial load, deferred transform |
 | **Data lineage** | Clear (each stage documented) | Complex (multiple transformation layers) |
@@ -300,7 +300,7 @@ end
 
 ## Broadway-Based ETL Pipeline
 
-The Prismatic Platform implements its primary ETL pipelines using [Broadway](/glossary/broadway/), which provides concurrent processing, automatic batching, and [backpressure](/glossary/backpressure/) management built on the [BEAM](/glossary/beam/) process model.
+The Prismatic Platform implements its primary ETL pipelines using [Broadway](@/glossary/broadway.md), which provides concurrent processing, automatic batching, and [backpressure](@/glossary/backpressure.md) management built on the [BEAM](@/glossary/beam.md) process model.
 
 ```elixir
 defmodule PrismaticOsint.EtlPipeline do
@@ -379,7 +379,7 @@ ETL pipelines must handle errors at every stage without losing data or corruptin
 
 | Error Type | Stage | Handling Strategy |
 |-----------|-------|-------------------|
-| **Source unavailable** | Extract | Retry with backoff, [circuit breaker](/glossary/circuit-breaker/) after N failures |
+| **Source unavailable** | Extract | Retry with backoff, [circuit breaker](@/glossary/circuit-breaker.md) after N failures |
 | **Rate limit exceeded** | Extract | Back off, respect Retry-After header |
 | **Invalid data format** | Transform | Log, route to dead-letter queue, continue pipeline |
 | **Schema violation** | Transform | Reject record, emit validation error metric |
@@ -414,9 +414,9 @@ The Prismatic Platform's OSINT ETL architecture processes intelligence from 120+
 
 | Provider | Data Type | Volume | Extraction Method | Update Frequency |
 |----------|-----------|--------|-------------------|-----------------|
-| [Shodan](/glossary/shodan/) | Host intelligence | ~10K records/query | Paginated REST API | On-demand + scheduled |
-| [Censys](/glossary/censys/) | Internet-wide scan data | ~50K records/query | Paginated REST API | Weekly full, daily delta |
-| [GreyNoise](/glossary/greynoise/) | Internet noise/scanner data | ~5K records/query | REST API | Real-time + daily |
+| [Shodan](@/glossary/shodan.md) | Host intelligence | ~10K records/query | Paginated REST API | On-demand + scheduled |
+| [Censys](@/glossary/censys.md) | Internet-wide scan data | ~50K records/query | Paginated REST API | Weekly full, daily delta |
+| [GreyNoise](@/glossary/greynoise.md) | Internet noise/scanner data | ~5K records/query | REST API | Real-time + daily |
 | Certificate Transparency | TLS certificates | ~100K/day | Log streaming | Continuous |
 | Passive DNS | DNS resolution history | ~50K/day | Bulk file + API | Daily |
 
@@ -513,25 +513,25 @@ end
 
 ## Related Terms
 
-- [Data Pipeline](/glossary/data-pipeline/) - General pipeline pattern encompassing ETL workflows
-- [Stream Processing](/glossary/stream-processing/) - Real-time alternative to batch ETL
-- [Broadway](/glossary/broadway/) - Concurrent pipeline library implementing streaming ETL
-- [GenStage](/glossary/genstage/) - Demand-driven data exchange underlying Broadway
-- [Backpressure](/glossary/backpressure/) - Flow control preventing ETL pipeline overload
-- [PostgreSQL](/glossary/postgresql/) - Primary relational destination for ETL-loaded data
-- [Ecto](/glossary/ecto/) - Database wrapper used for ETL loading operations
-- [Adapter Pattern](/glossary/adapter-pattern/) - Storage abstraction enabling multi-destination loading
-- [Shodan](/glossary/shodan/) - OSINT extraction source for host intelligence
-- [Censys](/glossary/censys/) - OSINT extraction source for internet-wide scan data
-- [Meilisearch](/glossary/meilisearch/) - Search engine destination for ETL-loaded data
-- [BEAM](/glossary/beam/) - Runtime providing concurrent processing for ETL pipelines
+- [Data Pipeline](@/glossary/data-pipeline.md) - General pipeline pattern encompassing ETL workflows
+- [Stream Processing](@/glossary/stream-processing.md) - Real-time alternative to batch ETL
+- [Broadway](@/glossary/broadway.md) - Concurrent pipeline library implementing streaming ETL
+- [GenStage](@/glossary/genstage.md) - Demand-driven data exchange underlying Broadway
+- [Backpressure](@/glossary/backpressure.md) - Flow control preventing ETL pipeline overload
+- [PostgreSQL](@/glossary/postgresql.md) - Primary relational destination for ETL-loaded data
+- [Ecto](@/glossary/ecto.md) - Database wrapper used for ETL loading operations
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Storage abstraction enabling multi-destination loading
+- [Shodan](@/glossary/shodan.md) - OSINT extraction source for host intelligence
+- [Censys](@/glossary/censys.md) - OSINT extraction source for internet-wide scan data
+- [Meilisearch](@/glossary/meilisearch.md) - Search engine destination for ETL-loaded data
+- [BEAM](@/glossary/beam.md) - Runtime providing concurrent processing for ETL pipelines
 
 ## See Also
 
-- [Architecture](/architecture/) - Data integration architecture and pipeline topology
-- [Technologies](/technologies/) - ETL implementation stack and library ecosystem
-- [Apps](/apps/) - Applications implementing ETL pipelines for OSINT and security data
-- [OSINT Tools](/osint/) - Intelligence tools serving as ETL data sources
+- [Architecture](@/architecture/_index.md) - Data integration architecture and pipeline topology
+- [Technologies](@/technologies/_index.md) - ETL implementation stack and library ecosystem
+- [Apps](@/apps/_index.md) - Applications implementing ETL pipelines for OSINT and security data
+- [OSINT Tools](@/osint/_index.md) - Intelligence tools serving as ETL data sources
 
 ---
 
@@ -540,4 +540,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,13 +24,13 @@ image_alt = "/evolve-enforced - Prismatic Platform"
 
 ## Overview
 
-**/evolve-enforced** is a production command in the **Evolution** category of the Prismatic Platform. It implements evolution with mandatory [QDP](/glossary/qdp/) (Quality Debt Points) reduction, ensuring that every evolution cycle produces a measurable decrease in quality debt. Unlike the standard [/evolve](/commands/evolve/) command which allows evolution cycles to focus on capability expansion without debt reduction, `/evolve-enforced` operates under a hard constraint: the platform's quality debt score must decrease or the cycle is rejected.
+**/evolve-enforced** is a production command in the **Evolution** category of the Prismatic Platform. It implements evolution with mandatory [QDP](@/glossary/qdp.md) (Quality Debt Points) reduction, ensuring that every evolution cycle produces a measurable decrease in quality debt. Unlike the standard [/evolve](@/commands/evolve.md) command which allows evolution cycles to focus on capability expansion without debt reduction, `/evolve-enforced` operates under a hard constraint: the platform's quality debt score must decrease or the cycle is rejected.
 
 Quality debt in the Prismatic Platform is quantified through a comprehensive scoring system spanning 13 quality domains. Each domain contributes debt points based on specific violation types: compilation warnings, missing type specifications, unsafe map access patterns, untested code paths, and deprecated API usage. At its peak, the platform carried over 905 QDP across multiple domains. Through systematic application of `/evolve-enforced`, quality debt has been driven to zero -- a state of complete elimination that the command now actively protects.
 
 The P0 ABSOLUTE authority level reflects the criticality of this command. Quality debt elimination is not optional, not deferrable, and not subject to override by any agent below SUPREME authority. Every session that produces code changes is expected to maintain or improve the quality debt position. Regression -- any increase in QDP -- triggers an immediate L3 rejection with mandatory correction before the session can proceed.
 
-This command is executed by the `evolution-orchestrator` agent and is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command is executed by the `evolution-orchestrator` agent and is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -49,7 +49,7 @@ Session Start --> QDP Baseline Snapshot --> Evolution Cycle --> QDP Measurement
                                   (if QDP increased)
 ```
 
-**QDP Baseline Snapshot**: At the start of every enforced evolution cycle, the current quality debt score is captured from the [Quality DNA](/glossary/quality-dna/) persistence layer. This snapshot serves as the floor that the post-evolution score must not exceed.
+**QDP Baseline Snapshot**: At the start of every enforced evolution cycle, the current quality debt score is captured from the [Quality DNA](@/glossary/quality-dna.md) persistence layer. This snapshot serves as the floor that the post-evolution score must not exceed.
 
 **Evolution Cycle**: The standard 5-phase evolution pipeline executes: scanning, analysis, mutation, selection, and validation. Mutations include code quality improvements, pattern applications, test additions, and architectural refinements.
 
@@ -140,13 +140,13 @@ The `/evolve-enforced` command follows a strict 8-phase execution flow with embe
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Quality DNA](/glossary/quality-dna/) | Persistence | QDP score storage, baseline snapshots, history |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Pre/post evolution gate validation |
-| [Evolution Engine](/glossary/autoevolve/) | Pipeline | Standard 5-phase evolution cycle |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Evolution-orchestrator agent drives the cycle |
-| [Telemetry](/glossary/telemetry/) | Monitoring | QDP reduction [metrics](/glossary/metrics/) and enforcement events |
-| [Credo](/glossary/credo/) | Analysis | Static analysis for code quality violations |
-| [Dialyzer](/glossary/dialyzer/) | Analysis | Type analysis for spec violations |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | QDP score storage, baseline snapshots, history |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Pre/post evolution gate validation |
+| [Evolution Engine](@/glossary/autoevolve.md) | Pipeline | Standard 5-phase evolution cycle |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Evolution-orchestrator agent drives the cycle |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | QDP reduction [metrics](@/glossary/metrics.md) and enforcement events |
+| [Credo](@/glossary/credo.md) | Analysis | Static analysis for code quality violations |
+| [Dialyzer](@/glossary/dialyzer.md) | Analysis | Type analysis for spec violations |
 | Pre-commit Hooks | Enforcement | Commit-time QDP regression prevention |
 
 ## Best Practices
@@ -205,7 +205,7 @@ The enforced evolution system persists QDP state across sessions through Quality
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for quality debt regression. The P0 ABSOLUTE authority level means this enforcement cannot be bypassed, downgraded, or deferred. Quality debt increases are treated as platform health emergencies requiring immediate correction.
 - **NO DOUBTS**: Full investigation before declaring QDP reduction. Every claimed reduction is verified through independent measurement. Baseline and post-evolution scores are computed independently and compared deterministically.
@@ -214,14 +214,14 @@ The `/evolve-enforced` command is the operational embodiment of the NO MERCY doc
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/evolve-mycelialize](/commands/evolve-mycelialize/) - Unified evolution-propagation cycles
-- [/evolve-patterns](/commands/evolve-patterns/) - Pattern evolution through meta-evolution analysis
-- [/evolve-quality-gates](/commands/evolve-quality-gates/) - Quality gate evolution for warnings, tests and static analysis
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/evolve-mycelialize](@/commands/evolve-mycelialize.md) - Unified evolution-propagation cycles
+- [/evolve-patterns](@/commands/evolve-patterns.md) - Pattern evolution through meta-evolution analysis
+- [/evolve-quality-gates](@/commands/evolve-quality-gates.md) - Quality gate evolution for warnings, tests and static analysis
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -230,4 +230,4 @@ The `/evolve-enforced` command is the operational embodiment of the NO MERCY doc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

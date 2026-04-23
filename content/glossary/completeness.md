@@ -167,9 +167,9 @@ The Perimeter module factors data completeness into its security rating confiden
 ## Cross-References
 
 - **Consistency** - complementary data quality dimension
-- [Accuracy](/glossary/accuracy/) - correctness of populated values
+- [Accuracy](@/glossary/accuracy.md) - correctness of populated values
 - **Completion** - learning progress metric (distinct concept)
-- [Assessment](/glossary/assessment/) - evaluation process using completeness data
+- [Assessment](@/glossary/assessment.md) - evaluation process using completeness data
 - **Livebooks**: `livebooks/domains/data_analysis/` - data quality analysis
 - **Academy**: Data quality dimensions in analytical topics
 

@@ -23,11 +23,11 @@ image_alt = "Prismatic Storage DuckDB - Prismatic Platform"
 
 ## Overview
 
-[Prismatic Storage](/glossary/prismatic-storage/) [DuckDB](/glossary/duckdb/) implements the platform's storage adapter [protocol](/glossary/protocol/) using DuckDB, an embedded analytical database optimized for columnar storage and vectorized query execution. It serves analytical workloads such as log analysis, time-series aggregation, [OSINT](/glossary/osint/) data exploration, and large-scale security metric computation -- use cases where the columnar layout and parallel query engine deliver orders-of-magnitude performance improvements over row-oriented databases.
+[Prismatic Storage](@/glossary/prismatic-storage.md) [DuckDB](@/glossary/duckdb.md) implements the platform's storage adapter [protocol](@/glossary/protocol.md) using DuckDB, an embedded analytical database optimized for columnar storage and vectorized query execution. It serves analytical workloads such as log analysis, time-series aggregation, [OSINT](@/glossary/osint.md) data exploration, and large-scale security metric computation -- use cases where the columnar layout and parallel query engine deliver orders-of-magnitude performance improvements over row-oriented databases.
 
-DuckDB fills a specific niche in the platform's storage architecture. Datasets that are too large for in-memory [ETS](/glossary/ets/) processing but do not warrant the operational overhead of a dedicated [PostgreSQL](/glossary/postgresql/) instance can be served efficiently by DuckDB's embedded engine. The adapter supports zero-copy integration with Parquet and CSV files, enabling direct analytical queries over data exports from other platform components without requiring explicit import steps. The `duckdbex` library provides native NIF bindings to the DuckDB C library, with query execution managed through a supervised [OTP](/glossary/otp/) process pool.
+DuckDB fills a specific niche in the platform's storage architecture. Datasets that are too large for in-memory [ETS](@/glossary/ets.md) processing but do not warrant the operational overhead of a dedicated [PostgreSQL](@/glossary/postgresql.md) instance can be served efficiently by DuckDB's embedded engine. The adapter supports zero-copy integration with Parquet and CSV files, enabling direct analytical queries over data exports from other platform components without requiring explicit import steps. The `duckdbex` library provides native NIF bindings to the DuckDB C library, with query execution managed through a supervised [OTP](@/glossary/otp.md) process pool.
 
-The adapter implements the Storable, Identifiable, Queryable, and Streamable traits defined in [Prismatic Storage Core](/apps/prismatic-storage-core/), making it interchangeable with other storage backends through the platform's [adapter pattern](/glossary/adapter-pattern/). Applications can switch between ETS, [Ecto](/glossary/ecto/)/PostgreSQL, and DuckDB storage by changing a configuration value, without modifying business logic.
+The adapter implements the Storable, Identifiable, Queryable, and Streamable traits defined in [Prismatic Storage Core](@/apps/prismatic-storage-core.md), making it interchangeable with other storage backends through the platform's [adapter pattern](@/glossary/adapter-pattern.md). Applications can switch between ETS, [Ecto](@/glossary/ecto.md)/PostgreSQL, and DuckDB storage by changing a configuration value, without modifying business logic.
 
 ## Architecture
 
@@ -45,7 +45,7 @@ The adapter is implemented as an OTP application (`PrismaticStorage.DuckDB.Appli
 
 ## Adapter Pattern and PrismaticStorageCore.Behaviour
 
-The DuckDB adapter follows the contract-first design mandated by [Prismatic Storage Core](/apps/prismatic-storage-core/). At the module level, it declares `use PrismaticStorageCore.Adapter, traits: [Storable, Identifiable, Queryable, Streamable]`, which triggers compile-time verification that all required callbacks are implemented. This declaration serves as both documentation and enforcement -- Dialyzer catches missing callbacks during compilation rather than allowing runtime failures.
+The DuckDB adapter follows the contract-first design mandated by [Prismatic Storage Core](@/apps/prismatic-storage-core.md). At the module level, it declares `use PrismaticStorageCore.Adapter, traits: [Storable, Identifiable, Queryable, Streamable]`, which triggers compile-time verification that all required callbacks are implemented. This declaration serves as both documentation and enforcement -- Dialyzer catches missing callbacks during compilation rather than allowing runtime failures.
 
 The Storable trait implementation handles the translation between Elixir maps and DuckDB's columnar representation. Unlike row-oriented adapters where entities map naturally to individual records, the DuckDB adapter batches entities into column-oriented chunks for efficient insertion. The `to_storage/1` callback decomposes entity maps into column arrays, while `from_storage/2` reconstructs entities from columnar query results. This translation layer is invisible to application code, which continues to work with standard Elixir maps through the protocol interface.
 
@@ -86,11 +86,11 @@ config :prismatic_storage_duckdb, PrismaticStorage.DuckDB,
 
 ## External Data Integration
 
-One of DuckDB's most powerful features for the Prismatic Platform is its ability to query external files directly without importing them into the database. The `read_parquet()`, `read_csv()`, and `read_json()` functions enable zero-copy queries over data exports from other platform components. This means that OSINT collection results exported as Parquet files by the [Prismatic OSINT Core](/apps/prismatic-osint-core/) can be analyzed immediately without a separate ingestion step.
+One of DuckDB's most powerful features for the Prismatic Platform is its ability to query external files directly without importing them into the database. The `read_parquet()`, `read_csv()`, and `read_json()` functions enable zero-copy queries over data exports from other platform components. This means that OSINT collection results exported as Parquet files by the [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) can be analyzed immediately without a separate ingestion step.
 
 The Import module provides automatic schema detection for external files. When a Parquet file is first queried, DuckDB reads the file's embedded schema metadata and creates an appropriate virtual table. For CSV files without embedded schema, the Import module samples the first 10,000 rows to infer column types. This schema detection is cached in ETS for subsequent queries, avoiding repeated inference overhead.
 
-Export capabilities complete the analytical pipeline. After computing aggregations, trend analyses, or statistical summaries, results can be exported to Parquet with configurable compression (Snappy, Zstd, or LZ4). These exports integrate with the platform's reporting infrastructure, where [Prismatic Web](/apps/prismatic-web/) dashboards visualize analytical results and [Prismatic API](/apps/prismatic-api/) endpoints serve them as downloadable reports.
+Export capabilities complete the analytical pipeline. After computing aggregations, trend analyses, or statistical summaries, results can be exported to Parquet with configurable compression (Snappy, Zstd, or LZ4). These exports integrate with the platform's reporting infrastructure, where [Prismatic Web](@/apps/prismatic-web.md) dashboards visualize analytical results and [Prismatic API](@/apps/prismatic-api.md) endpoints serve them as downloadable reports.
 
 ## API Reference
 
@@ -142,10 +142,10 @@ mix test apps/prismatic_storage_duckdb/test --cover
 
 ## Integration Points
 
-- **[Prismatic Storage Core](/apps/prismatic-storage-core/)** -- Implements the core storage adapter behaviour and trait contracts
-- **[Prismatic Signals](/apps/prismatic-signals/)** -- Analytical queries over historical signal data
-- **[Prismatic OSINT Core](/apps/prismatic-osint-core/)** -- Large-scale OSINT data exploration and aggregation
-- **[Prismatic Monte Carlo](/apps/prismatic-monte-carlo/)** -- Simulation result storage and statistical analysis
+- **[Prismatic Storage Core](@/apps/prismatic-storage-core.md)** -- Implements the core storage adapter behaviour and trait contracts
+- **[Prismatic Signals](@/apps/prismatic-signals.md)** -- Analytical queries over historical signal data
+- **[Prismatic OSINT Core](@/apps/prismatic-osint-core.md)** -- Large-scale OSINT data exploration and aggregation
+- **[Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md)** -- Simulation result storage and statistical analysis
 
 ## NABLA Compliance
 
@@ -164,9 +164,9 @@ DuckDB operations carry full provenance metadata through telemetry events. Query
 
 ## Related Resources
 
-- [Prismatic Storage ETS](/apps/prismatic-storage-ets/) -- In-memory adapter for hot path data
-- [Prismatic Storage Ecto](/apps/prismatic-storage-ecto/) -- PostgreSQL adapter for transactional workloads
-- [Prismatic Storage](/apps/prismatic-storage/) -- Unified storage coordination layer
+- [Prismatic Storage ETS](@/apps/prismatic-storage-ets.md) -- In-memory adapter for hot path data
+- [Prismatic Storage Ecto](@/apps/prismatic-storage-ecto.md) -- PostgreSQL adapter for transactional workloads
+- [Prismatic Storage](@/apps/prismatic-storage.md) -- Unified storage coordination layer
 
 ---
 
@@ -175,4 +175,4 @@ DuckDB operations carry full provenance metadata through telemetry events. Query
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -38,9 +38,9 @@ image_alt = "Due Diligence - Prismatic Platform"
 
 Due diligence is the systematic investigation and evaluation of a business entity, individual, or asset conducted prior to entering into a transaction, partnership, investment, or engagement. The process aims to establish an evidence-based understanding of the target's financial health, legal standing, ownership structure, operational resilience, reputational profile, and regulatory compliance posture. Due diligence extends beyond traditional document review to encompass automated intelligence collection from open sources, entity resolution across fragmented datasets, graph-based relationship analysis, temporal pattern detection, sanctions and watchlist screening, and structured risk assessment against applicable regulatory frameworks.
 
-Due diligence encompasses several specialized variants: commercial due diligence (market position, competitive landscape, customer concentration), financial due diligence (revenue verification, liability assessment, working capital analysis), legal due diligence (litigation history, regulatory compliance, contractual obligations), technical due diligence (technology stack, IP portfolio, technical debt), and compliance due diligence ([KYC](/glossary/kyc/)/[AML](/glossary/aml/), [sanctions screening](/glossary/sanctions-screening/), PEP identification, [beneficial ownership](/glossary/beneficial-ownership/) verification). Modern due diligence platforms automate the data collection and cross-validation phases while preserving human judgment for interpretation and risk assessment.
+Due diligence encompasses several specialized variants: commercial due diligence (market position, competitive landscape, customer concentration), financial due diligence (revenue verification, liability assessment, working capital analysis), legal due diligence (litigation history, regulatory compliance, contractual obligations), technical due diligence (technology stack, IP portfolio, technical debt), and compliance due diligence ([KYC](@/glossary/kyc.md)/[AML](@/glossary/aml.md), [sanctions screening](@/glossary/sanctions-screening.md), PEP identification, [beneficial ownership](@/glossary/beneficial-ownership.md) verification). Modern due diligence platforms automate the data collection and cross-validation phases while preserving human judgment for interpretation and risk assessment.
 
-In the Prismatic Platform, due diligence is implemented as a comprehensive intelligence subsystem integrating 120+ [OSINT](/glossary/security-operations/) source adapters, 30+ Czech public registries, global sanctions databases, and a graph-based [entity resolution](/glossary/entity-resolution/) engine backed by KuzuDB.
+In the Prismatic Platform, due diligence is implemented as a comprehensive intelligence subsystem integrating 120+ [OSINT](@/glossary/security-operations.md) source adapters, 30+ Czech public registries, global sanctions databases, and a graph-based [entity resolution](@/glossary/entity-resolution.md) engine backed by KuzuDB.
 
 ## Overview
 
@@ -466,7 +466,7 @@ The Prismatic Platform implements due diligence as a comprehensive subsystem acc
 
 ### DD Intelligence Subsystem
 
-The `prismatic_dd` OTP application provides the core due diligence engine with case management, [entity resolution](/glossary/entity-resolution/), graph analysis via KuzuDB, and the [triple-check](/glossary/triple-check/) cross-validation engine built on the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework.
+The `prismatic_dd` OTP application provides the core due diligence engine with case management, [entity resolution](@/glossary/entity-resolution.md), graph analysis via KuzuDB, and the [triple-check](@/glossary/triple-check.md) cross-validation engine built on the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework.
 
 ### OSINT Source Integration
 
@@ -479,7 +479,7 @@ The platform integrates 120+ OSINT source adapters organized across categories:
 
 ### Risk Scoring Engine
 
-The [risk scoring](/glossary/risk-score/) engine produces letter grades (A-F) with numeric scores (300-900) mapped to NIS2 and [ZKB](/glossary/zkb/) compliance requirements. Scores are calibrated against industry benchmarks and include confidence intervals that reflect the completeness and consistency of available data.
+The [risk scoring](@/glossary/risk-score.md) engine produces letter grades (A-F) with numeric scores (300-900) mapped to NIS2 and [ZKB](@/glossary/zkb.md) compliance requirements. Scores are calibrated against industry benchmarks and include confidence intervals that reflect the completeness and consistency of available data.
 
 ### Web Interface
 
@@ -487,7 +487,7 @@ The DD subsystem is accessible at `/dd` in the web application, with investigati
 
 ### Triple-Check Validation
 
-Every due diligence finding undergoes [triple-check](/glossary/triple-check/) cross-validation, requiring corroboration from at least three independent sources before establishing a claim as verified. This methodology is grounded in the [NABLA Infinity](/glossary/nabla-infinity/) [signal plurality](/glossary/signal-plurality/) axiom.
+Every due diligence finding undergoes [triple-check](@/glossary/triple-check.md) cross-validation, requiring corroboration from at least three independent sources before establishing a claim as verified. This methodology is grounded in the [NABLA Infinity](@/glossary/nabla-infinity.md) [signal plurality](@/glossary/signal-plurality.md) axiom.
 
 ## Comparison with Alternatives
 
@@ -502,11 +502,11 @@ Every due diligence finding undergoes [triple-check](/glossary/triple-check/) cr
 
 ## Best Practices
 
-1. **Source Diversity**: Query multiple independent sources for every data point. Single-source findings are inherently unreliable. The [triple-check](/glossary/triple-check/) methodology requires three independent corroborating sources.
+1. **Source Diversity**: Query multiple independent sources for every data point. Single-source findings are inherently unreliable. The [triple-check](@/glossary/triple-check.md) methodology requires three independent corroborating sources.
 
 2. **Entity Resolution First**: Before analyzing data, resolve entity identities across sources. The same entity may appear under different names, identifiers, and transliterations. Failing to resolve entities leads to fragmented and incomplete assessments.
 
-3. **Ownership Chain Traversal**: Follow ownership chains to their ultimate [beneficial owners](/glossary/beneficial-ownership/). Complex corporate structures with shell companies, trusts, and nominee arrangements may be designed to obscure sanctioned or high-risk ownership.
+3. **Ownership Chain Traversal**: Follow ownership chains to their ultimate [beneficial owners](@/glossary/beneficial-ownership.md). Complex corporate structures with shell companies, trusts, and nominee arrangements may be designed to obscure sanctioned or high-risk ownership.
 
 4. **Temporal Analysis**: Examine not just current state but historical patterns. Directors who resigned shortly before enforcement actions, ownership changes coinciding with sanctions designations, and financial pattern shifts may indicate risk that snapshot analysis would miss.
 
@@ -516,7 +516,7 @@ Every due diligence finding undergoes [triple-check](/glossary/triple-check/) cr
 
 7. **Continuous Monitoring**: Due diligence is not a point-in-time exercise. Implement continuous monitoring for changes in sanctions lists, registry data, beneficial ownership, and adverse media for ongoing relationships.
 
-8. **Audit Trail**: Maintain an immutable [audit trail](/glossary/audit-trail/) of every query, source response, matching decision, and risk assessment. Regulators require demonstrable evidence of due diligence processes.
+8. **Audit Trail**: Maintain an immutable [audit trail](@/glossary/audit-trail.md) of every query, source response, matching decision, and risk assessment. Regulators require demonstrable evidence of due diligence processes.
 
 ## Common Pitfalls
 
@@ -540,19 +540,19 @@ Every due diligence finding undergoes [triple-check](/glossary/triple-check/) cr
 
 ### Pre-Investment Due Diligence
 
-Venture capital and private equity firms use the platform to investigate target companies before investment. The pipeline queries Czech registries for financial health, commercial register for corporate structure, [beneficial ownership](/glossary/beneficial-ownership/) registry for UBO identification, sanctions lists for compliance, and global OSINT sources for reputational intelligence.
+Venture capital and private equity firms use the platform to investigate target companies before investment. The pipeline queries Czech registries for financial health, commercial register for corporate structure, [beneficial ownership](@/glossary/beneficial-ownership.md) registry for UBO identification, sanctions lists for compliance, and global OSINT sources for reputational intelligence.
 
 ### KYC/AML Compliance
 
-Financial institutions and obliged entities use the platform to perform Customer Due Diligence (CDD) and Enhanced Due Diligence (EDD) as required by [AML](/glossary/aml/) regulations. The automated pipeline significantly reduces the time required for [KYC](/glossary/kyc/) onboarding while maintaining regulatory compliance.
+Financial institutions and obliged entities use the platform to perform Customer Due Diligence (CDD) and Enhanced Due Diligence (EDD) as required by [AML](@/glossary/aml.md) regulations. The automated pipeline significantly reduces the time required for [KYC](@/glossary/kyc.md) onboarding while maintaining regulatory compliance.
 
 ### Vendor Risk Assessment
 
-Organizations use the platform to assess the security and compliance posture of vendors and suppliers. The investigation combines [security rating](/glossary/security-rating/) assessment (via [Prismatic Perimeter](/glossary/prismatic-perimeter/)) with entity investigation for comprehensive vendor risk assessment.
+Organizations use the platform to assess the security and compliance posture of vendors and suppliers. The investigation combines [security rating](@/glossary/security-rating.md) assessment (via [Prismatic Perimeter](@/glossary/prismatic-perimeter.md)) with entity investigation for comprehensive vendor risk assessment.
 
 ### Merger and Acquisition Due Diligence
 
-M&A transactions require comprehensive investigation of target companies across financial, legal, technical, and compliance dimensions. The platform's multi-source intelligence collection and [entity resolution](/glossary/entity-resolution/) capabilities accelerate the data gathering phase from weeks to hours.
+M&A transactions require comprehensive investigation of target companies across financial, legal, technical, and compliance dimensions. The platform's multi-source intelligence collection and [entity resolution](@/glossary/entity-resolution.md) capabilities accelerate the data gathering phase from weeks to hours.
 
 ### Sanctions Compliance Monitoring
 
@@ -560,25 +560,25 @@ Organizations subject to sanctions regulations use the platform for continuous s
 
 ## Related Concepts
 
-- [KYC](/glossary/kyc/) -- Know Your Customer compliance requirements for identity verification
-- [AML](/glossary/aml/) -- Anti-Money Laundering regulatory framework and detection methodologies
-- [Sanctions Screening](/glossary/sanctions-screening/) -- Automated screening against sanctions and watchlists
-- [Beneficial Ownership](/glossary/beneficial-ownership/) -- Identification of ultimate beneficial owners behind corporate structures
-- [Entity Resolution](/glossary/entity-resolution/) -- Record linkage and identity consolidation across fragmented data sources
-- [Triple Check](/glossary/triple-check/) -- Three-source cross-validation methodology for establishing verified claims
-- [Risk Score](/glossary/risk-score/) -- Quantified risk assessment output with letter grades and numeric scores
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Graph structure storing entity relationships and ownership chains
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory compliance assessment and enforcement infrastructure
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework enforcing evidence plurality and provenance tracking
+- [KYC](@/glossary/kyc.md) -- Know Your Customer compliance requirements for identity verification
+- [AML](@/glossary/aml.md) -- Anti-Money Laundering regulatory framework and detection methodologies
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- Automated screening against sanctions and watchlists
+- [Beneficial Ownership](@/glossary/beneficial-ownership.md) -- Identification of ultimate beneficial owners behind corporate structures
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Record linkage and identity consolidation across fragmented data sources
+- [Triple Check](@/glossary/triple-check.md) -- Three-source cross-validation methodology for establishing verified claims
+- [Risk Score](@/glossary/risk-score.md) -- Quantified risk assessment output with letter grades and numeric scores
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Graph structure storing entity relationships and ownership chains
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory compliance assessment and enforcement infrastructure
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework enforcing evidence plurality and provenance tracking
 
 ## See Also
 
-- [Security Rating](/glossary/security-rating/) -- Quantified security posture assessment for vendor risk
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- External Attack Surface Management complementing DD investigations
-- [ZKB](/glossary/zkb/) -- Czech cybersecurity regulation relevant to compliance due diligence
-- [Audit Trail](/glossary/audit-trail/) -- Immutable logging of investigation steps for regulatory evidence
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Quantified confidence levels for investigation findings
-- [Security Assessment](/glossary/security-assessment/) -- Technical security evaluation of target entities
+- [Security Rating](@/glossary/security-rating.md) -- Quantified security posture assessment for vendor risk
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- External Attack Surface Management complementing DD investigations
+- [ZKB](@/glossary/zkb.md) -- Czech cybersecurity regulation relevant to compliance due diligence
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable logging of investigation steps for regulatory evidence
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Quantified confidence levels for investigation findings
+- [Security Assessment](@/glossary/security-assessment.md) -- Technical security evaluation of target entities
 
 ---
 
@@ -587,4 +587,4 @@ Organizations subject to sanctions regulations use the platform for continuous s
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

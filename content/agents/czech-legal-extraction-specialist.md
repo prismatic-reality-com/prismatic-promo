@@ -28,7 +28,7 @@ image_alt = "czech-legal-extraction-specialist - Prismatic Platform"
 
 ## Overview
 
-The Czech Legal Extraction Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the [OSINT](/glossary/osint/) domain of the Prismatic Platform. This agent extracts, parses, and analyzes legal documents from Czech court registries, insolvency databases, and judicial information systems. The specialist converts unstructured legal documents into structured intelligence products that support compliance screening, due diligence investigations, and risk assessment operations.
+The Czech Legal Extraction Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the [OSINT](@/glossary/osint.md) domain of the Prismatic Platform. This agent extracts, parses, and analyzes legal documents from Czech court registries, insolvency databases, and judicial information systems. The specialist converts unstructured legal documents into structured intelligence products that support compliance screening, due diligence investigations, and risk assessment operations.
 
 Czech legal documents present unique extraction challenges. Court decisions, insolvency filings, and corporate documents filed with registries are often in unstructured or semi-structured formats, use specialized Czech legal terminology, and follow document structures that vary by court, document type, and time period. The specialist implements document-type-specific extraction pipelines that understand the structure and semantics of each legal document category, enabling accurate data extraction even from complex multi-page court decisions.
 
@@ -56,7 +56,7 @@ Document classification identifies the document type, source court, and document
 
 Entity extraction identifies and extracts references to persons, organizations, addresses, monetary amounts, dates, and legal references (references to laws, regulations, and other court decisions). Czech legal documents use specific conventions for entity reference that the specialist encodes in its extraction rules: birth numbers (rodna cisla) for persons, ICO numbers for legal entities, and specific citation formats for legal references.
 
-Relationship extraction identifies relationships between extracted entities based on their roles in the legal document. Plaintiff-defendant relationships, creditor-debtor relationships, company-director relationships, and other role-based connections are extracted and stored in [KuzuDB](/glossary/kuzudb/) as graph edges.
+Relationship extraction identifies relationships between extracted entities based on their roles in the legal document. Plaintiff-defendant relationships, creditor-debtor relationships, company-director relationships, and other role-based connections are extracted and stored in [KuzuDB](@/glossary/kuzudb.md) as graph edges.
 
 Temporal extraction identifies and normalizes dates and time references in legal documents, including filing dates, decision dates, effective dates, and deadline dates. These temporal markers are critical for understanding the chronological progression of legal proceedings and for triggering time-sensitive alerts.
 
@@ -86,20 +86,20 @@ Legal document intelligence feeds provide structured data feeds from extracted l
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to direct Czech legal document extraction operations, set extraction priorities, and coordinate with downstream intelligence consumers.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to direct Czech legal document extraction operations, set extraction priorities, and coordinate with downstream intelligence consumers.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [czech-autocrawler-supreme](/agents/czech-autocrawler-supreme/) | Data Source | Provides raw legal documents from Czech registries and courts |
-| [czech-legal-intelligence-operative](/agents/czech-legal-intelligence-operative/) | Legal Analysis | Consumes extracted data for legal system navigation and analysis |
-| [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) | Entity Context | Provides entity context and receives legal intelligence for entity profiles |
-| [cross-domain-intelligence-coordinator](/agents/cross-domain-intelligence-coordinator/) | Intelligence Fusion | Integrates legal intelligence into cross-domain analysis |
+| [czech-autocrawler-supreme](@/agents/czech-autocrawler-supreme.md) | Data Source | Provides raw legal documents from Czech registries and courts |
+| [czech-legal-intelligence-operative](@/agents/czech-legal-intelligence-operative.md) | Legal Analysis | Consumes extracted data for legal system navigation and analysis |
+| [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) | Entity Context | Provides entity context and receives legal intelligence for entity profiles |
+| [cross-domain-intelligence-coordinator](@/agents/cross-domain-intelligence-coordinator.md) | Intelligence Fusion | Integrates legal intelligence into cross-domain analysis |
 
 ## Enforcement
 
-All legal extraction operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No extracted data is released without validation against the source document. Entity extraction must include confidence scores that reflect the extraction methodology's accuracy for each entity type. Legal reference resolution must be verified against the legal reference database. Extraction pipelines must include regression tests that verify continued accuracy when document formats change. Intelligence products derived from legal extraction must carry provenance metadata linking each data element to its source document and extraction method.
+All legal extraction operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No extracted data is released without validation against the source document. Entity extraction must include confidence scores that reflect the extraction methodology's accuracy for each entity type. Legal reference resolution must be verified against the legal reference database. Extraction pipelines must include regression tests that verify continued accuracy when document formats change. Intelligence products derived from legal extraction must carry provenance metadata linking each data element to its source document and extraction method.
 
 ---
 
@@ -108,4 +108,4 @@ All legal extraction operations are governed by the [NO MERCY, NO DOUBTS](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

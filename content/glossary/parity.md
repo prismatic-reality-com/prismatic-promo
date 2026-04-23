@@ -477,13 +477,13 @@ Environment parity is a continuous discipline rather than a one-time achievement
 
 ## Related Terms
 
-- [Docker](/glossary/docker/) -- Containerization providing OS-level parity across environments
-- [OTP Release](/glossary/otp-release/) -- Build artifact ensuring application-level parity
-- [Deployment](/glossary/deployment/) -- Process of moving releases across environments
-- [Configuration](/glossary/configuration/) -- Environment-specific settings management via runtime.exs
-- [CI/CD](/glossary/ci-cd/) -- Continuous integration pipeline validating parity
+- [Docker](@/glossary/docker.md) -- Containerization providing OS-level parity across environments
+- [OTP Release](@/glossary/otp-release.md) -- Build artifact ensuring application-level parity
+- [Deployment](@/glossary/deployment.md) -- Process of moving releases across environments
+- [Configuration](@/glossary/configuration.md) -- Environment-specific settings management via runtime.exs
+- [CI/CD](@/glossary/ci-cd.md) -- Continuous integration pipeline validating parity
 - [Infrastructure as Code](/glossary/infrastructure-as-code/) -- Declarative infrastructure ensuring environment consistency
-- [Feature Flag](/glossary/feature-flag/) -- Runtime-configurable behavior switches replacing environment conditionals
+- [Feature Flag](@/glossary/feature-flag.md) -- Runtime-configurable behavior switches replacing environment conditionals
 - [Mix.env](/glossary/mix-env/) -- Compile-time environment function, dangerous in runtime code
 - [Twelve-Factor App](/glossary/twelve-factor/) -- Methodology defining parity as Factor X
 - [Environment Variable](/glossary/environment-variable/) -- Primary mechanism for environment-specific configuration
@@ -492,8 +492,8 @@ Environment parity is a continuous discipline rather than a one-time achievement
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- Platform deployment and operations capabilities
-- [Architecture](/architecture/) -- Infrastructure architecture ensuring parity
+- [Capabilities](@/capabilities/_index.md) -- Platform deployment and operations capabilities
+- [Architecture](@/architecture/_index.md) -- Infrastructure architecture ensuring parity
 - **Twelve-Factor App** -- Methodology defining parity principles (Factor X)
 - **Fly.io Configuration** -- `fly.toml` defining production infrastructure
 - **docker-compose.yml** -- Development service configuration matching production
@@ -506,4 +506,4 @@ Environment parity is a continuous discipline rather than a one-time achievement
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -36,11 +36,11 @@ image_alt = "Scalability - Prismatic Platform"
 
 ## Definition
 
-Scalability is the property of a system that describes its ability to handle a growing amount of work by adding resources to the system without requiring fundamental changes to its architecture, algorithms, or application code. A scalable system maintains acceptable [performance](/glossary/performance/) characteristics (latency, throughput, resource utilization) as workload increases, whether that increase comes from more users, more data, more complex computations, or higher request rates.
+Scalability is the property of a system that describes its ability to handle a growing amount of work by adding resources to the system without requiring fundamental changes to its architecture, algorithms, or application code. A scalable system maintains acceptable [performance](@/glossary/performance.md) characteristics (latency, throughput, resource utilization) as workload increases, whether that increase comes from more users, more data, more complex computations, or higher request rates.
 
 Scalability is not binary -- it is a spectrum defined by the relationship between resources added and capacity gained. A perfectly scalable system exhibits linear scaling: doubling resources doubles capacity. In practice, coordination overhead, shared state, and Amdahl's Law introduce sublinear scaling factors that must be understood and minimized through architectural choices.
 
-In the Prismatic Platform, scalability is architected from the ground up through the [BEAM](/glossary/beam/) virtual machine's lightweight process model, [OTP](/glossary/otp/) supervision trees for fault-tolerant process management, Horde for distributed process coordination across [cluster](/glossary/cluster/) nodes, and [Fly.io](/glossary/fly-io/) for elastic infrastructure scaling. The platform's 115-app umbrella architecture is designed for independent scaling of individual subsystems based on their specific load profiles.
+In the Prismatic Platform, scalability is architected from the ground up through the [BEAM](@/glossary/beam.md) virtual machine's lightweight process model, [OTP](@/glossary/otp.md) supervision trees for fault-tolerant process management, Horde for distributed process coordination across [cluster](@/glossary/cluster.md) nodes, and [Fly.io](@/glossary/fly-io.md) for elastic infrastructure scaling. The platform's 115-app umbrella architecture is designed for independent scaling of individual subsystems based on their specific load profiles.
 
 ## Overview
 
@@ -60,7 +60,7 @@ The BEAM's distributed computing model, built into the runtime since its incepti
 
 ### Diagonal Scaling
 
-In practice, scalable systems combine vertical and horizontal scaling. The Prismatic Platform uses vertical scaling within each [Fly.io](/glossary/fly-io/) machine (multiple CPU cores, adequate memory) and horizontal scaling across machines (multi-region deployment, node clustering).
+In practice, scalable systems combine vertical and horizontal scaling. The Prismatic Platform uses vertical scaling within each [Fly.io](@/glossary/fly-io.md) machine (multiple CPU cores, adequate memory) and horizontal scaling across machines (multi-region deployment, node clustering).
 
 ### Scaling Dimensions Beyond Compute
 
@@ -68,8 +68,8 @@ Scalability extends beyond compute resources:
 
 | Dimension | Description | Prismatic Approach |
 |-----------|-------------|-------------------|
-| **Data Volume** | Growing dataset size | [PostgreSQL](/glossary/postgresql/) partitioning, [ETS](/glossary/ets/) sharding |
-| **Request Rate** | Increasing requests/second | BEAM process pools, [backpressure](/glossary/backpressure/) |
+| **Data Volume** | Growing dataset size | [PostgreSQL](@/glossary/postgresql.md) partitioning, [ETS](@/glossary/ets.md) sharding |
+| **Request Rate** | Increasing requests/second | BEAM process pools, [backpressure](@/glossary/backpressure.md) |
 | **Team Size** | More developers working concurrently | Umbrella app isolation, domain boundaries |
 | **Feature Complexity** | Growing codebase and feature set | Modular architecture, composable apps |
 | **Geographic Distribution** | Users across regions | Fly.io multi-region deployment |
@@ -97,7 +97,7 @@ For a system with 5% serial fraction:
 
 This demonstrates why minimizing serial fraction is critical for horizontal scaling. In BEAM systems, serial fractions arise from:
 
-- **Single-process bottlenecks**: A [GenServer](/glossary/genserver/) that all requests must pass through becomes a serial bottleneck. Solution: partition state across multiple processes (sharding).
+- **Single-process bottlenecks**: A [GenServer](@/glossary/genserver.md) that all requests must pass through becomes a serial bottleneck. Solution: partition state across multiple processes (sharding).
 - **Global locks**: Global registration or global locks serialize distributed operations. Solution: local-first design with eventual consistency.
 - **Ordered operations**: Operations that require strict global ordering cannot be parallelized. Solution: use causal ordering or vector clocks instead of total ordering where possible.
 
@@ -118,7 +118,7 @@ When beta > 0, the system exhibits retrograde behavior: adding more nodes actual
 
 ### CAP Theorem Implications
 
-The [CAP Theorem](/glossary/cap-theorem/) states that a distributed system can provide at most two of three guarantees: Consistency, Availability, and Partition Tolerance. Since network partitions are inevitable in distributed systems, the practical choice is between CP (consistent but potentially unavailable during partitions) and AP (available but potentially inconsistent during partitions).
+The [CAP Theorem](@/glossary/cap-theorem.md) states that a distributed system can provide at most two of three guarantees: Consistency, Availability, and Partition Tolerance. Since network partitions are inevitable in distributed systems, the practical choice is between CP (consistent but potentially unavailable during partitions) and AP (available but potentially inconsistent during partitions).
 
 The Prismatic Platform makes context-dependent CAP tradeoffs:
 
@@ -246,7 +246,7 @@ end
 
 ### Dynamic Process Pool Scaling
 
-The platform uses [DynamicSupervisor](/glossary/dynamic-supervisor/) for elastic process pool management that scales with demand:
+The platform uses [DynamicSupervisor](@/glossary/dynamic-supervisor.md) for elastic process pool management that scales with demand:
 
 ```elixir
 defmodule PrismaticScaling.ProcessPool do
@@ -420,7 +420,7 @@ end
 
 ### Backpressure for Load Management
 
-Scalable systems must handle overload gracefully. The platform implements [backpressure](/glossary/backpressure/) through [GenStage](/glossary/genstage/) and [Broadway](/glossary/broadway/) to prevent resource exhaustion under spike loads:
+Scalable systems must handle overload gracefully. The platform implements [backpressure](@/glossary/backpressure.md) through [GenStage](@/glossary/genstage.md) and [Broadway](@/glossary/broadway.md) to prevent resource exhaustion under spike loads:
 
 ```elixir
 defmodule PrismaticScaling.BackpressureGate do
@@ -545,7 +545,7 @@ end
 | Code deployment | Hot code reload, zero downtime | Rolling update, brief unavailability |
 | Complexity | Single runtime, built-in clustering | Multi-layer infrastructure stack |
 
-The BEAM provides finer-grained scaling within each node (per-process) while Kubernetes provides infrastructure-level scaling (per-pod). The Prismatic Platform uses both: BEAM for application-level scaling and [Fly.io](/glossary/fly-io/) (which uses Firecracker microVMs) for infrastructure-level scaling.
+The BEAM provides finer-grained scaling within each node (per-process) while Kubernetes provides infrastructure-level scaling (per-pod). The Prismatic Platform uses both: BEAM for application-level scaling and [Fly.io](@/glossary/fly-io.md) (which uses Firecracker microVMs) for infrastructure-level scaling.
 
 ### Horizontal vs Vertical: When Each Applies
 
@@ -575,11 +575,11 @@ Retrofitting horizontal scaling onto a system designed for single-node operation
 
 ### 2. Partition State for Parallelism
 
-A single [GenServer](/glossary/genserver/) handling all requests becomes a serial bottleneck. Partition state across multiple processes using consistent hashing, sharding by entity ID, or domain-based partitioning. The platform's umbrella architecture provides natural partitioning boundaries.
+A single [GenServer](@/glossary/genserver.md) handling all requests becomes a serial bottleneck. Partition state across multiple processes using consistent hashing, sharding by entity ID, or domain-based partitioning. The platform's umbrella architecture provides natural partitioning boundaries.
 
 ### 3. Implement Backpressure Before Scaling
 
-Before adding more capacity, ensure the system can handle overload gracefully. [Backpressure](/glossary/backpressure/) mechanisms prevent cascading failures that no amount of horizontal scaling can solve. A system that crashes under load will crash regardless of how many nodes it runs on.
+Before adding more capacity, ensure the system can handle overload gracefully. [Backpressure](@/glossary/backpressure.md) mechanisms prevent cascading failures that no amount of horizontal scaling can solve. A system that crashes under load will crash regardless of how many nodes it runs on.
 
 ### 4. Measure Scaling Efficiency
 
@@ -587,7 +587,7 @@ Track the relationship between resources added and capacity gained. If doubling 
 
 ### 5. Scale Database Access Independently
 
-Database connections do not scale linearly with application nodes. Use [connection pooling](/glossary/connection-pooling/), read replicas, and caching layers to prevent the database from becoming the scaling bottleneck.
+Database connections do not scale linearly with application nodes. Use [connection pooling](@/glossary/connection-pooling.md), read replicas, and caching layers to prevent the database from becoming the scaling bottleneck.
 
 ### 6. Test at Scale
 
@@ -601,7 +601,7 @@ Adding distributed system complexity (clustering, consensus, distributed state) 
 
 ### Ignoring Network Partitions
 
-Distributed systems will experience network partitions. Code that assumes reliable, low-latency communication between nodes will fail in production. Design for partition tolerance using the [CAP Theorem](/glossary/cap-theorem/) as a guide.
+Distributed systems will experience network partitions. Code that assumes reliable, low-latency communication between nodes will fail in production. Design for partition tolerance using the [CAP Theorem](@/glossary/cap-theorem.md) as a guide.
 
 ### Shared Database as Coordination Point
 
@@ -609,7 +609,7 @@ Using a shared database for inter-service coordination creates a scaling bottlen
 
 ### Scaling Without Observability
 
-Scaling a system you cannot observe is dangerous. Without [telemetry](/glossary/telemetry/), metrics, and distributed tracing, you cannot determine whether scaling is effective or identify bottlenecks. Implement [observability](/glossary/observability/) before scaling.
+Scaling a system you cannot observe is dangerous. Without [telemetry](@/glossary/telemetry.md), metrics, and distributed tracing, you cannot determine whether scaling is effective or identify bottlenecks. Implement [observability](@/glossary/observability.md) before scaling.
 
 ### Connection Explosion
 
@@ -623,15 +623,15 @@ Routing requests to specific nodes based on session state (sticky sessions) prev
 
 ### Multi-Region Deployment on Fly.io
 
-The Prismatic Platform deploys to [Fly.io](/glossary/fly-io/) with multi-region support. Fly.io's Firecracker microVMs provide fast startup times, and the BEAM's built-in clustering enables transparent process communication across regions. Requests are routed to the nearest region, with cross-region communication for data that requires global consistency.
+The Prismatic Platform deploys to [Fly.io](@/glossary/fly-io.md) with multi-region support. Fly.io's Firecracker microVMs provide fast startup times, and the BEAM's built-in clustering enables transparent process communication across regions. Requests are routed to the nearest region, with cross-region communication for data that requires global consistency.
 
 ### OSINT Data Processing Pipeline
 
-The [OSINT](/glossary/osint/) toolbox processes data from 120+ intelligence sources concurrently. [Broadway](/glossary/broadway/) provides backpressure-aware processing with configurable concurrency limits per source, automatically scaling processing rate based on source availability and downstream capacity.
+The [OSINT](@/glossary/osint.md) toolbox processes data from 120+ intelligence sources concurrently. [Broadway](@/glossary/broadway.md) provides backpressure-aware processing with configurable concurrency limits per source, automatically scaling processing rate based on source availability and downstream capacity.
 
 ### Agent Pool Management
 
-The platform's 530+ [AIAD](/glossary/aiad/) agents are managed through [DynamicSupervisor](/glossary/dynamic-supervisor/) pools that scale based on demand. During high-activity periods, additional agent instances are spawned. During quiet periods, idle agents are terminated to free resources.
+The platform's 530+ [AIAD](@/glossary/aiad.md) agents are managed through [DynamicSupervisor](@/glossary/dynamic-supervisor.md) pools that scale based on demand. During high-activity periods, additional agent instances are spawned. During quiet periods, idle agents are terminated to free resources.
 
 ### Quality Gate Parallel Execution
 
@@ -639,33 +639,33 @@ The quality gate pipeline executes independent checks in parallel using `Task.as
 
 ### LiveView Connection Scaling
 
-Each [LiveView](/glossary/liveview/) connection is a BEAM process. The BEAM can handle millions of concurrent processes on a single node, enabling hundreds of thousands of concurrent LiveView connections without architectural changes. When single-node capacity is exceeded, horizontal scaling through Fly.io machine scaling provides additional capacity.
+Each [LiveView](@/glossary/liveview.md) connection is a BEAM process. The BEAM can handle millions of concurrent processes on a single node, enabling hundreds of thousands of concurrent LiveView connections without architectural changes. When single-node capacity is exceeded, horizontal scaling through Fly.io machine scaling provides additional capacity.
 
 ## Related Concepts
 
-- [Performance](/glossary/performance/): The measurable characteristics that scalability must maintain as load grows
-- [Distributed System](/glossary/distributed-system/): Systems spanning multiple nodes that enable horizontal scaling
-- [Load Balancing](/glossary/load-balancing/): Distribution of work across resources for optimal utilization
-- [BEAM](/glossary/beam/): Virtual machine providing lightweight processes and native distribution
-- [Cluster](/glossary/cluster/): Group of connected BEAM nodes forming a distributed system
-- [Fault Tolerance](/glossary/fault-tolerance/): System resilience that must be maintained during scaling
-- [Backpressure](/glossary/backpressure/): Flow control preventing overload during scaling transitions
-- [Supervision Tree](/glossary/supervision-tree/): OTP process hierarchy enabling scalable fault recovery
-- [CAP Theorem](/glossary/cap-theorem/): Fundamental constraint on distributed system design
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/): OTP component for elastic process pool management
-- [Broadway](/glossary/broadway/): Concurrent data processing with built-in backpressure
-- [Fly.io](/glossary/fly-io/): Infrastructure platform for elastic deployment scaling
+- [Performance](@/glossary/performance.md): The measurable characteristics that scalability must maintain as load grows
+- [Distributed System](@/glossary/distributed-system.md): Systems spanning multiple nodes that enable horizontal scaling
+- [Load Balancing](@/glossary/load-balancing.md): Distribution of work across resources for optimal utilization
+- [BEAM](@/glossary/beam.md): Virtual machine providing lightweight processes and native distribution
+- [Cluster](@/glossary/cluster.md): Group of connected BEAM nodes forming a distributed system
+- [Fault Tolerance](@/glossary/fault-tolerance.md): System resilience that must be maintained during scaling
+- [Backpressure](@/glossary/backpressure.md): Flow control preventing overload during scaling transitions
+- [Supervision Tree](@/glossary/supervision-tree.md): OTP process hierarchy enabling scalable fault recovery
+- [CAP Theorem](@/glossary/cap-theorem.md): Fundamental constraint on distributed system design
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md): OTP component for elastic process pool management
+- [Broadway](@/glossary/broadway.md): Concurrent data processing with built-in backpressure
+- [Fly.io](@/glossary/fly-io.md): Infrastructure platform for elastic deployment scaling
 
 ## See Also
 
-- [Performance](/glossary/performance/) for P0 performance thresholds that scaling must maintain
-- [Distributed System](/glossary/distributed-system/) for multi-node architecture patterns
-- [BEAM](/glossary/beam/) for the runtime enabling Prismatic's scalability model
-- [Cluster](/glossary/cluster/) for BEAM node clustering configuration
-- [Connection Pooling](/glossary/connection-pooling/) for database scaling patterns
-- [GenStage](/glossary/genstage/) for producer-consumer scaling patterns
-- [Event Sourcing](/glossary/event-sourcing/) for scalable event-driven architectures
-- [Eventual Consistency](/glossary/eventual-consistency/) for distributed data scaling tradeoffs
+- [Performance](@/glossary/performance.md) for P0 performance thresholds that scaling must maintain
+- [Distributed System](@/glossary/distributed-system.md) for multi-node architecture patterns
+- [BEAM](@/glossary/beam.md) for the runtime enabling Prismatic's scalability model
+- [Cluster](@/glossary/cluster.md) for BEAM node clustering configuration
+- [Connection Pooling](@/glossary/connection-pooling.md) for database scaling patterns
+- [GenStage](@/glossary/genstage.md) for producer-consumer scaling patterns
+- [Event Sourcing](@/glossary/event-sourcing.md) for scalable event-driven architectures
+- [Eventual Consistency](@/glossary/eventual-consistency.md) for distributed data scaling tradeoffs
 
 ---
 
@@ -674,4 +674,4 @@ Each [LiveView](/glossary/liveview/) connection is a BEAM process. The BEAM can 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

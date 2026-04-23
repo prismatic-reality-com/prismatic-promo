@@ -28,7 +28,7 @@ image_alt = "AIAD Project Analyzer Agent - Prismatic Platform"
 
 ## Overview
 
-The [AIAD](/glossary/aiad/) Project Analyzer Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Primary domain of the Prismatic Platform. This agent performs comprehensive analysis of target projects to inform the knowledge transfer pipeline's component selection and adaptation decisions. By detecting the target project's primary language, framework, project structure, existing capabilities, and any prior AIAD installation, the analyzer produces a structured analysis report that serves as the foundation for all subsequent knowledge transfer decisions.
+The [AIAD](@/glossary/aiad.md) Project Analyzer Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Primary domain of the Prismatic Platform. This agent performs comprehensive analysis of target projects to inform the knowledge transfer pipeline's component selection and adaptation decisions. By detecting the target project's primary language, framework, project structure, existing capabilities, and any prior AIAD installation, the analyzer produces a structured analysis report that serves as the foundation for all subsequent knowledge transfer decisions.
 
 The analysis challenge is non-trivial. Modern software projects express their characteristics through diverse indicators: a `mix.exs` file signals Elixir, a `pyproject.toml` signals Python, a `Cargo.toml` signals Rust, but the presence of a `package.json` alongside a `mix.exs` in the platform's promo site indicates a polyglot project requiring nuanced analysis. The Project Analyzer uses a multi-signal detection heuristic that weights primary indicators (build system files) more heavily than secondary indicators (configuration files, directory structure) and produces confidence scores for each detected characteristic rather than making binary classifications.
 
@@ -102,11 +102,11 @@ When confidence falls below thresholds, the analyzer flags the dimension as unce
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [AIAD Injection Coordinator Agent](/agents/aiad-injection-coordinator-agent/) | Pipeline Orchestrator | Invokes analysis as the first pipeline stage |
-| [AIAD Intelligence Selector Agent](/agents/aiad-intelligence-selector-agent/) | Analysis Consumer | Consumes analysis report for component relevance scoring |
-| [AIAD Adaptation Engine Agent](/agents/aiad-adaptation-engine-agent/) | Analysis Consumer | Uses language/framework detection to guide adaptation rules |
-| [AIAD Template Generator Agent](/agents/aiad-template-generator-agent/) | Analysis Consumer | Uses project characteristics to generate tailored templates |
-| [agent-discovery-specialist](/agents/agent-discovery-specialist/) | Registry Source | Provides agent catalog for existing AIAD compatibility checks |
+| [AIAD Injection Coordinator Agent](@/agents/aiad-injection-coordinator-agent.md) | Pipeline Orchestrator | Invokes analysis as the first pipeline stage |
+| [AIAD Intelligence Selector Agent](@/agents/aiad-intelligence-selector-agent.md) | Analysis Consumer | Consumes analysis report for component relevance scoring |
+| [AIAD Adaptation Engine Agent](@/agents/aiad-adaptation-engine-agent.md) | Analysis Consumer | Uses language/framework detection to guide adaptation rules |
+| [AIAD Template Generator Agent](@/agents/aiad-template-generator-agent.md) | Analysis Consumer | Uses project characteristics to generate tailored templates |
+| [agent-discovery-specialist](@/agents/agent-discovery-specialist.md) | Registry Source | Provides agent catalog for existing AIAD compatibility checks |
 
 ## Performance Characteristics
 
@@ -121,16 +121,16 @@ When confidence falls below thresholds, the analyzer flags the dimension as unce
 
 ## Enforcement
 
-All analysis operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Analysis results must include confidence scores for every detection claim -- assertions without confidence quantification are rejected. The analyzer operates in strict read-only mode; any attempt to modify target project files is a violation. Detection heuristics are documented and versioned, ensuring reproducibility. When detection confidence falls below classification thresholds, the analyzer reports uncertainty explicitly rather than guessing. Every analysis produces a structured report that downstream agents can parse programmatically, ensuring that human-readable narrative never substitutes for machine-readable structured data.
+All analysis operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Analysis results must include confidence scores for every detection claim -- assertions without confidence quantification are rejected. The analyzer operates in strict read-only mode; any attempt to modify target project files is a violation. Detection heuristics are documented and versioned, ensuring reproducibility. When detection confidence falls below classification thresholds, the analyzer reports uncertainty explicitly rather than guessing. Every analysis produces a structured report that downstream agents can parse programmatically, ensuring that human-readable narrative never substitutes for machine-readable structured data.
 
 ## Related Resources
 
-- [AIAD Standard](/capabilities/aiad-standard/) -- Specification standard for analyzable AIAD components
-- [AIAD Injection Coordinator Agent](/agents/aiad-injection-coordinator-agent/) -- Pipeline orchestrator consuming analysis results
-- [Technologies](/technologies/) -- Platform technology stack informing detection heuristics
-- [Applications](/apps/) -- Platform applications providing reference project structures
-- [Commands](/commands/) -- Commands available for knowledge transfer operations
-- [Architecture Overview](/architecture/) -- Platform architecture patterns
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Specification standard for analyzable AIAD components
+- [AIAD Injection Coordinator Agent](@/agents/aiad-injection-coordinator-agent.md) -- Pipeline orchestrator consuming analysis results
+- [Technologies](@/technologies/_index.md) -- Platform technology stack informing detection heuristics
+- [Applications](@/apps/_index.md) -- Platform applications providing reference project structures
+- [Commands](@/commands/_index.md) -- Commands available for knowledge transfer operations
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture patterns
 
 ---
 
@@ -139,4 +139,4 @@ All analysis operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-m
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

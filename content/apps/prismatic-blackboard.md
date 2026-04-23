@@ -23,11 +23,11 @@ image_alt = "Prismatic Blackboard - Prismatic Platform"
 
 ## Overview
 
-Prismatic [Blackboard](/glossary/blackboard/) implements the blackboard architecture pattern for multi-agent collaborative problem solving within the Prismatic Platform. The system provides a shared knowledge space backed by [ETS](/glossary/ets/) where specialized agents post partial solutions, triggering other agents to contribute their expertise through a publish-subscribe notification mechanism. A controller component manages agent scheduling, quorum-based decision making, and convergence detection.
+Prismatic [Blackboard](@/glossary/blackboard.md) implements the blackboard architecture pattern for multi-agent collaborative problem solving within the Prismatic Platform. The system provides a shared knowledge space backed by [ETS](@/glossary/ets.md) where specialized agents post partial solutions, triggering other agents to contribute their expertise through a publish-subscribe notification mechanism. A controller component manages agent scheduling, quorum-based decision making, and convergence detection.
 
-Complex intelligence analysis tasks require integrating knowledge from multiple specialized domains. Assessing the security posture of an entity requires network intelligence (from [Shodan](/glossary/shodan/), [Censys](/glossary/censys/)), vulnerability data (from NVD, [CVE](/glossary/cve/) databases), reputation intelligence (from AbuseIPDB, [GreyNoise](/glossary/greynoise/)), business context (from ARES, Justice.cz), and compliance status (from regulatory frameworks). No single analysis module possesses all this knowledge. The blackboard architecture solves this by providing a shared workspace where partial solutions trigger further analysis, enabling emergent problem solving without rigid workflow definitions.
+Complex intelligence analysis tasks require integrating knowledge from multiple specialized domains. Assessing the security posture of an entity requires network intelligence (from [Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md)), vulnerability data (from NVD, [CVE](@/glossary/cve.md) databases), reputation intelligence (from AbuseIPDB, [GreyNoise](@/glossary/greynoise.md)), business context (from ARES, Justice.cz), and compliance status (from regulatory frameworks). No single analysis module possesses all this knowledge. The blackboard architecture solves this by providing a shared workspace where partial solutions trigger further analysis, enabling emergent problem solving without rigid workflow definitions.
 
-Knowledge entries are typed and schema-validated, with temporal versioning and provenance tracking integrated with the [Prismatic Nabla](/apps/prismatic-nabla/) epistemic framework. The architecture supports complex intelligence analysis tasks -- such as multi-source [entity resolution](/glossary/entity-resolution/), comprehensive threat assessment, and [security rating](/glossary/security-rating/) computation -- where no single agent possesses complete knowledge and the solution emerges from the collaboration of specialists. The design goals include ETS-backed high-performance shared knowledge space, trigger-based agent coordination activated by knowledge changes, configurable quorum requirements before conclusions are accepted, temporal versioning maintaining version history with timestamps, NABLA-compliant provenance tracking, and convergence detection declaring problems solved when knowledge stabilizes.
+Knowledge entries are typed and schema-validated, with temporal versioning and provenance tracking integrated with the [Prismatic Nabla](@/apps/prismatic-nabla.md) epistemic framework. The architecture supports complex intelligence analysis tasks -- such as multi-source [entity resolution](@/glossary/entity-resolution.md), comprehensive threat assessment, and [security rating](@/glossary/security-rating.md) computation -- where no single agent possesses complete knowledge and the solution emerges from the collaboration of specialists. The design goals include ETS-backed high-performance shared knowledge space, trigger-based agent coordination activated by knowledge changes, configurable quorum requirements before conclusions are accepted, temporal versioning maintaining version history with timestamps, NABLA-compliant provenance tracking, and convergence detection declaring problems solved when knowledge stabilizes.
 
 ## Architecture
 
@@ -74,7 +74,7 @@ An agent posts a knowledge entry to the blackboard. The KnowledgeStore validates
 | `PrismaticBlackboard` | Public facade: `post/2`, `query/2`, `subscribe/2`, `converged?/1` |
 | `PrismaticBlackboard.KnowledgeStore` | ETS-backed knowledge entry storage with versioning |
 | `PrismaticBlackboard.Controller` | Agent scheduling, quorum management, convergence detection |
-| `PrismaticBlackboard.Notifier` | [PubSub](/glossary/pubsub/)-based change notification to subscribed agents |
+| `PrismaticBlackboard.Notifier` | [PubSub](@/glossary/pubsub.md)-based change notification to subscribed agents |
 | `PrismaticBlackboard.ConflictResolver` | Resolution strategies for concurrent knowledge updates |
 | `PrismaticBlackboard.ProvenanceTracker` | NABLA-compliant contributor attribution and confidence |
 | `PrismaticBlackboard.Schema` | Knowledge entry type definitions and validation |
@@ -146,17 +146,17 @@ Property-based tests use StreamData generators to produce random knowledge entri
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Nabla](/apps/prismatic-nabla/) | Provenance and confidence tracking for all entries |
-| [Prismatic Agents](/apps/prismatic-agents/) | Agent activation and scheduling integration |
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Multi-source [intelligence fusion](/glossary/intelligence-fusion/) |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Multi-factor security rating computation |
-| [Prismatic Detection Engine](/apps/prismatic-detection-engine/) | Collaborative threat assessment |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | Provenance and confidence tracking for all entries |
+| [Prismatic Agents](@/apps/prismatic-agents.md) | Agent activation and scheduling integration |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Multi-source [intelligence fusion](@/glossary/intelligence-fusion.md) |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Multi-factor security rating computation |
+| [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) | Collaborative threat assessment |
 
-Knowledge updates are posted as GenServer calls. Change notifications are dispatched via Phoenix PubSub. Agent activation signals are sent through the [Prismatic Agents](/apps/prismatic-agents/) dispatcher. The blackboard operates entirely within the platform with no external service dependencies.
+Knowledge updates are posted as GenServer calls. Change notifications are dispatched via Phoenix PubSub. Agent activation signals are sent through the [Prismatic Agents](@/apps/prismatic-agents.md) dispatcher. The blackboard operates entirely within the platform with no external service dependencies.
 
 ## NABLA Compliance
 
-The blackboard architecture provides natural enforcement of several [NABLA](/glossary/nabla-infinity/) axioms through its multi-agent collaborative design.
+The blackboard architecture provides natural enforcement of several [NABLA](@/glossary/nabla-infinity.md) axioms through its multi-agent collaborative design.
 
 | NABLA Axiom | Blackboard Enforcement | Implementation |
 |-------------|----------------------|----------------|
@@ -184,20 +184,20 @@ ETS provides lock-free concurrent reads. The blackboard supports dozens of concu
 | Memory | 128 MB | 512 MB (with large knowledge sets) |
 | CPU | 2 cores | 4 cores |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :blackboard, :post]`, `[:prismatic, :blackboard, :converged]`, `[:prismatic, :blackboard, :quorum_reached]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :blackboard, :post]`, `[:prismatic, :blackboard, :converged]`, `[:prismatic, :blackboard, :quorum_reached]`.
 
 ## Related Resources
 
-- [Prismatic Agents](/apps/prismatic-agents/) -- Agent runtime and scheduling
-- [Prismatic Nabla](/apps/prismatic-nabla/) -- Epistemic confidence framework
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Intelligence fusion consumer
+- [Prismatic Agents](@/apps/prismatic-agents.md) -- Agent runtime and scheduling
+- [Prismatic Nabla](@/apps/prismatic-nabla.md) -- Epistemic confidence framework
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Intelligence fusion consumer
 - [Blackboard Pattern](https://en.wikipedia.org/wiki/Blackboard_(design_pattern)) -- Architecture pattern reference
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews the blackboard architecture for OTP compliance and convergence correctness
-- [Cross-Pollination Specialist](/agents/cross-pollination-specialist/) -- Identifies cross-domain knowledge sharing opportunities between specialized agents
-- [Elixir Architect](/agents/elixir-architect/) -- Ensures the ETS-backed knowledge store and PubSub notification system follow OTP best practices
-- [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) -- Enables agents from different domains to contribute partial solutions through the blackboard
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Combines partial knowledge contributions into comprehensive intelligence assessments
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Enforces signal plurality and provenance tracking for all knowledge entries
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews the blackboard architecture for OTP compliance and convergence correctness
+- [Cross-Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Identifies cross-domain knowledge sharing opportunities between specialized agents
+- [Elixir Architect](@/agents/elixir-architect.md) -- Ensures the ETS-backed knowledge store and PubSub notification system follow OTP best practices
+- [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) -- Enables agents from different domains to contribute partial solutions through the blackboard
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Combines partial knowledge contributions into comprehensive intelligence assessments
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Enforces signal plurality and provenance tracking for all knowledge entries
 
 ---
 
@@ -206,4 +206,4 @@ ETS provides lock-free concurrent reads. The blackboard supports dozens of concu
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

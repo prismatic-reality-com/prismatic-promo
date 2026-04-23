@@ -22,9 +22,9 @@ image_alt = "Gray Team - Prismatic Platform"
 
 ## Overview
 
-The Gray Team operates as the reconnaissance and boundary exploration arm of the Prismatic Platform's six-team color-team security architecture. Positioned at the frontier between defined and undefined system behavior, Gray Team systematically discovers specification gaps, edge cases, implicit assumptions, and affordance drift — surfacing ambiguity without resolving it. This raw intelligence feeds directly into [Red Team](/teams/red/) adversarial scenario development, [Blue Team](/teams/blue/) defensive gap awareness, and [Purple Team](/teams/purple/) synthesis operations.
+The Gray Team operates as the reconnaissance and boundary exploration arm of the Prismatic Platform's six-team color-team security architecture. Positioned at the frontier between defined and undefined system behavior, Gray Team systematically discovers specification gaps, edge cases, implicit assumptions, and affordance drift — surfacing ambiguity without resolving it. This raw intelligence feeds directly into [Red Team](@/teams/red.md) adversarial scenario development, [Blue Team](@/teams/blue.md) defensive gap awareness, and [Purple Team](@/teams/purple.md) synthesis operations.
 
-The Gray Team's operational philosophy is fundamentally different from the other color teams. While Red attacks, Blue defends, and Purple synthesizes, Gray explores. All Gray operations enforce zero state changes — pure observation and documentation with no writes, no modifications, and no resource allocations. This read-only constraint ensures that exploration never inadvertently introduces the vulnerabilities it seeks to discover. The distinction between Gray's boundary exploration and [Black Team](/teams/black/)'s theoretical threat modeling is enforced by the gray-escalation-guard agent, which has override authority to halt any Gray operation that approaches weaponization territory.
+The Gray Team's operational philosophy is fundamentally different from the other color teams. While Red attacks, Blue defends, and Purple synthesizes, Gray explores. All Gray operations enforce zero state changes — pure observation and documentation with no writes, no modifications, and no resource allocations. This read-only constraint ensures that exploration never inadvertently introduces the vulnerabilities it seeks to discover. The distinction between Gray's boundary exploration and [Black Team](@/teams/black.md)'s theoretical threat modeling is enforced by the gray-escalation-guard agent, which has override authority to halt any Gray operation that approaches weaponization territory.
 
 The theoretical foundation of Gray Team operations draws from boundary value analysis in software testing, specification gap analysis in formal methods, and affordance theory from human-computer interaction research. By treating system boundaries as first-class objects of investigation rather than assumed constraints, Gray Team provides the platform with continuous visibility into the frontier of its own behavior — the zone where assumptions meet reality and where most vulnerabilities originate.
 
@@ -42,7 +42,7 @@ The Gray Team mission is to systematically explore and document the boundaries o
 | **Provenance Trail** | Every finding traces to specific boundary observation | Immutable logging |
 | **Escalation Awareness** | Constant monitoring for drift toward Black Team territory | gray-escalation-guard |
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine governs Gray operations with particular emphasis: NO MERCY demands thoroughness in boundary exploration — no specification gap is left undocumented due to inconvenience or perceived low risk. NO DOUBTS requires that every finding is grounded in observable boundary behavior, not speculation about what might be problematic.
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine governs Gray operations with particular emphasis: NO MERCY demands thoroughness in boundary exploration — no specification gap is left undocumented due to inconvenience or perceived low risk. NO DOUBTS requires that every finding is grounded in observable boundary behavior, not speculation about what might be problematic.
 
 ## Team Composition
 
@@ -291,10 +291,10 @@ Gray Team operations embody several NABLA axioms that are central to boundary ex
 
 | Component | Direction | Content | Purpose |
 |-----------|-----------|---------|---------|
-| [Red Team](/teams/red/) | Gray → Red | Boundary findings, specification gaps | Adversarial scenario seeds |
-| [Blue Team](/teams/blue/) | Gray → Blue | Defensive gaps, unhandled edges | Defensive coverage improvement |
-| [Purple Team](/teams/purple/) | Gray → Purple | Boundary definitions, ambiguity reports | Synthesis and closure |
-| [White Team](/teams/white/) | Gray → White | Edge cases, formal spec candidates | Formal verification targets |
+| [Red Team](@/teams/red.md) | Gray → Red | Boundary findings, specification gaps | Adversarial scenario seeds |
+| [Blue Team](@/teams/blue.md) | Gray → Blue | Defensive gaps, unhandled edges | Defensive coverage improvement |
+| [Purple Team](@/teams/purple.md) | Gray → Purple | Boundary definitions, ambiguity reports | Synthesis and closure |
+| [White Team](@/teams/white.md) | Gray → White | Edge cases, formal spec candidates | Formal verification targets |
 | Platform Codebase | Gray ← Platform | Source code, docs, tests (read-only) | Exploration targets |
 
 ### Signal Flow
@@ -323,13 +323,13 @@ Platform Codebase (read-only)
 
 ## Related Resources
 
-- [Red Team](/teams/red/) — Consumes Gray findings for adversarial scenario development
-- [Blue Team](/teams/blue/) — Uses Gray findings for defensive gap awareness
-- [Purple Team](/teams/purple/) — Synthesizes Gray findings with Red/Blue outputs
-- [White Team](/teams/white/) — Formally verifies edge cases identified by Gray
-- [Black Team](/teams/black/) — Separated from Gray by escalation guard (no direct integration)
-- [Quality Gates](/capabilities/quality-gates/) — Quality enforcement informed by specification coverage
-- [Telemetry Integration](/capabilities/telemetry-integration/) — Observability infrastructure explored by Gray
+- [Red Team](@/teams/red.md) — Consumes Gray findings for adversarial scenario development
+- [Blue Team](@/teams/blue.md) — Uses Gray findings for defensive gap awareness
+- [Purple Team](@/teams/purple.md) — Synthesizes Gray findings with Red/Blue outputs
+- [White Team](@/teams/white.md) — Formally verifies edge cases identified by Gray
+- [Black Team](@/teams/black.md) — Separated from Gray by escalation guard (no direct integration)
+- [Quality Gates](@/capabilities/quality-gates.md) — Quality enforcement informed by specification coverage
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) — Observability infrastructure explored by Gray
 
 ---
 
@@ -338,4 +338,4 @@ Platform Codebase (read-only)
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

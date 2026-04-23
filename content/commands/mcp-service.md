@@ -28,7 +28,7 @@ image_alt = "/mcp-service - Prismatic Platform"
 
 Running the MCP server as a persistent service is essential for production and development environments where continuous availability is required. Without service management, the MCP server would need to be manually started at every system boot or session start, creating a gap in tool availability that could disrupt automated workflows, scheduled tasks, and background intelligence operations that depend on MCP connectivity.
 
-This command operates under the **L2+** authority level and is executed by the `mcp-service-controller` agent, a specialized infrastructure agent responsible for macOS service lifecycle operations. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command handles the full service lifecycle: installation (plist generation and loading), start/stop/restart operations, status monitoring, log access, and uninstallation (service unloading and plist removal).
+This command operates under the **L2+** authority level and is executed by the `mcp-service-controller` agent, a specialized infrastructure agent responsible for macOS service lifecycle operations. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command handles the full service lifecycle: installation (plist generation and loading), start/stop/restart operations, status monitoring, log access, and uninstallation (service unloading and plist removal).
 
 The service management approach provides several advantages over manual process management. The `launchd` integration ensures automatic restart on crash (with configurable restart throttling), proper signal handling for graceful shutdown, environment variable isolation, log redirection, and resource limit configuration. These properties are critical for maintaining the reliability expectations of a production MCP infrastructure serving 27 or more tools to the platform's 400+ agents.
 
@@ -160,12 +160,12 @@ The **Health Monitor** provides continuous liveness checking beyond `launchd`'s 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by the `mcp-service-controller` agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by the `mcp-service-controller` agent |
 | MCP Protocol | Core Protocol | Manages the persistent MCP server process |
-| [Prismatic MCP](/apps/prismatic-mcp/) | Target Server | The MCP server being managed as a service |
+| [Prismatic MCP](@/apps/prismatic-mcp.md) | Target Server | The MCP server being managed as a service |
 | macOS launchd | System Service | Native macOS service management integration |
-| [Telemetry](/glossary/telemetry/) | Observability | Service lifecycle events and health metrics |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Service health as quality gate pre-condition |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Service lifecycle events and health metrics |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Service health as quality gate pre-condition |
 | Session Lifecycle | Dependency | Session start can depend on MCP service availability |
 
 ## Best Practices
@@ -235,19 +235,19 @@ Connect MCP service health to platform-wide monitoring infrastructure:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for silently failed services. Every service management operation must produce a verified outcome -- the service is confirmed running and healthy, or the failure is fully diagnosed and reported. Partial success states (process running but unhealthy) are treated as failures requiring immediate attention.
 - **NO DOUBTS**: Full state verification before and after every operation. The command never assumes the service is in a particular state based on a previous operation's success; it always queries the actual system state through `launchctl` and application-level health probes.
 
 ## Related Commands
 
-- [/mcp](/commands/mcp/) - Complete Model Context Protocol operations and management
-- [/mcp-autoboot](/commands/mcp-autoboot/) - Start MCP infrastructure with full orchestration
-- [/ollama](/commands/ollama/) - Local AI Ollama model management, installation and optimization
-- [/gardener](/commands/gardener/) - [GARDEN](/glossary/garden/) legacy knowledge repository management across 116 repos
-- [/garden-explore](/commands/garden-explore/) - Explore GARDEN repositories for patterns and knowledge
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/mcp](@/commands/mcp.md) - Complete Model Context Protocol operations and management
+- [/mcp-autoboot](@/commands/mcp-autoboot.md) - Start MCP infrastructure with full orchestration
+- [/ollama](@/commands/ollama.md) - Local AI Ollama model management, installation and optimization
+- [/gardener](@/commands/gardener.md) - [GARDEN](@/glossary/garden.md) legacy knowledge repository management across 116 repos
+- [/garden-explore](@/commands/garden-explore.md) - Explore GARDEN repositories for patterns and knowledge
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -256,4 +256,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -30,7 +30,7 @@ A Specification in software engineering is a precise, unambiguous, and verifiabl
 
 The critical property of a specification is verifiability: a specification that cannot be checked against an implementation is merely documentation. Effective specifications enable automated verification through type checkers, contract validators, property-based test generators, and formal proof assistants. The tighter the specification, the narrower the space of valid implementations, reducing the opportunity for defects.
 
-Within the Prismatic Platform, specifications operate at every layer of the architecture. Elixir [typespecs](/glossary/typespec/) annotate every public function. [Behaviours](/glossary/behaviour/) define callback contracts for all pluggable components. [OpenAPI](/glossary/openapi/) schemas specify REST API interfaces. [Property-based tests](/glossary/property-based-testing/) express universal invariants. [Lean4 proofs](/glossary/lean4/) verify critical claims formally. Together, these specifications create a multi-layered verification system that makes defects mechanically detectable rather than relying on human inspection.
+Within the Prismatic Platform, specifications operate at every layer of the architecture. Elixir [typespecs](@/glossary/typespec.md) annotate every public function. [Behaviours](@/glossary/behaviour.md) define callback contracts for all pluggable components. [OpenAPI](@/glossary/openapi.md) schemas specify REST API interfaces. [Property-based tests](@/glossary/property-based-testing.md) express universal invariants. [Lean4 proofs](@/glossary/lean4.md) verify critical claims formally. Together, these specifications create a multi-layered verification system that makes defects mechanically detectable rather than relying on human inspection.
 
 ## Specification Hierarchy
 
@@ -44,19 +44,19 @@ The weakest form of specification is consistent naming. When a function named `f
 
 ### Level 2: Type Specifications
 
-Elixir's `@type` and `@spec` annotations provide machine-checkable specifications of function signatures. [Dialyzer](/glossary/static-analysis/) uses these to detect type violations at compile time without runtime overhead. The platform mandates typespecs on all public functions and maintains zero Dialyzer warnings.
+Elixir's `@type` and `@spec` annotations provide machine-checkable specifications of function signatures. [Dialyzer](@/glossary/static-analysis.md) uses these to detect type violations at compile time without runtime overhead. The platform mandates typespecs on all public functions and maintains zero Dialyzer warnings.
 
 ### Level 3: Behavioural Contracts
 
-[Behaviours](/glossary/behaviour/) define sets of callbacks that implementing modules must provide. The compiler verifies that all required callbacks are implemented with correct arities. This is a structural contract: it guarantees interface compatibility without verifying semantic correctness.
+[Behaviours](@/glossary/behaviour.md) define sets of callbacks that implementing modules must provide. The compiler verifies that all required callbacks are implemented with correct arities. This is a structural contract: it guarantees interface compatibility without verifying semantic correctness.
 
 ### Level 4: Property Specifications
 
-[Property-based testing](/glossary/property-based-testing/) specifications express universal invariants that must hold for all inputs within a domain. Properties like "encoding then decoding returns the original value" or "sorting is idempotent" are specifications that generators can verify across millions of random inputs.
+[Property-based testing](@/glossary/property-based-testing.md) specifications express universal invariants that must hold for all inputs within a domain. Properties like "encoding then decoding returns the original value" or "sorting is idempotent" are specifications that generators can verify across millions of random inputs.
 
 ### Level 5: Formal Specifications
 
-[Lean4](/glossary/lean4/) proofs and modal logic specifications provide mathematical certainty. The platform's [Trinity Gate](/glossary/trinity-gate/) requires formal necessity for critical claims, meaning some specifications must be proven, not merely tested.
+[Lean4](@/glossary/lean4.md) proofs and modal logic specifications provide mathematical certainty. The platform's [Trinity Gate](@/glossary/trinity-gate.md) requires formal necessity for critical claims, meaning some specifications must be proven, not merely tested.
 
 ## Specification-Driven Development
 
@@ -68,7 +68,7 @@ Specification-driven development inverts the traditional workflow. Instead of wr
 4. **Refactoring safety**: Implementations can change freely as long as specifications are satisfied
 5. **API-first design**: Interface specifications enable parallel development of consumers and producers
 
-The Prismatic Platform's API gateway exemplifies this: [OpenAPI specifications](/glossary/openapi-spec/) are derived automatically from Elixir typespecs, and the API implementation is validated against the specification at compile time through OpenApiSpex.
+The Prismatic Platform's API gateway exemplifies this: [OpenAPI specifications](@/glossary/openapi-spec.md) are derived automatically from Elixir typespecs, and the API implementation is validated against the specification at compile time through OpenApiSpex.
 
 ## Platform Implementation in Elixir
 
@@ -297,13 +297,13 @@ end
 
 ## Specification in API Design
 
-The Prismatic Platform's [REST API](/glossary/rest-api/) demonstrates specification-driven API design:
+The Prismatic Platform's [REST API](@/glossary/rest-api.md) demonstrates specification-driven API design:
 
 1. **Typespecs define function signatures**: `@spec discover(String.t()) :: {:ok, Surface.t()} | {:error, term()}`
 2. **OpenApiSpex maps specs to schemas**: The API scanner reads typespecs and generates OpenAPI 3.0 JSON schemas automatically
 3. **Request validation**: Incoming requests are validated against the specification before reaching business logic
 4. **Response validation**: In development, responses are validated against the specification to catch drift
-5. **Documentation generation**: [Swagger UI](/glossary/swagger-ui/) is generated from the specification, ensuring docs match reality
+5. **Documentation generation**: [Swagger UI](@/glossary/swagger-ui.md) is generated from the specification, ensuring docs match reality
 
 This chain means a single typespec change propagates automatically through validation, documentation, and client SDK generation.
 
@@ -467,7 +467,7 @@ Specifications that diverge from implementation are worse than no specifications
 
 1. **Compile-time enforcement**: Dialyzer catches typespec violations, the compiler catches missing behaviour callbacks
 2. **Runtime validation**: OpenApiSpex validates requests and responses against specifications
-3. **CI/CD gates**: [Quality gates](/glossary/quality-gates/) block merges with specification violations
+3. **CI/CD gates**: [Quality gates](@/glossary/quality-gates.md) block merges with specification violations
 4. **Auto-generation**: Where possible, specifications are derived from code (typespecs to OpenAPI) rather than maintained separately
 
 ## Common Specification Patterns
@@ -1074,14 +1074,14 @@ end
 
 ## Related Concepts
 
-- [Typespec](/glossary/typespec/) -- Elixir's type specification system for static analysis
-- [Behaviour](/glossary/behaviour/) -- Callback contract specifications for pluggable modules
-- [OpenAPI Spec](/glossary/openapi-spec/) -- REST API specification standard
-- [Property-Based Testing](/glossary/property-based-testing/) -- Testing specifications with generated inputs
-- [Quality Gate](/glossary/quality-gate/) -- Enforcement checkpoints for specification compliance
-- [Validation](/glossary/validation/) -- Runtime checking of data against specifications
-- [Schema](/glossary/schema/) -- Data structure specifications
-- [Trinity Gate](/glossary/trinity-gate/) -- Multi-layer verification requiring formal specifications
+- [Typespec](@/glossary/typespec.md) -- Elixir's type specification system for static analysis
+- [Behaviour](@/glossary/behaviour.md) -- Callback contract specifications for pluggable modules
+- [OpenAPI Spec](@/glossary/openapi-spec.md) -- REST API specification standard
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Testing specifications with generated inputs
+- [Quality Gate](@/glossary/quality-gate.md) -- Enforcement checkpoints for specification compliance
+- [Validation](@/glossary/validation.md) -- Runtime checking of data against specifications
+- [Schema](@/glossary/schema.md) -- Data structure specifications
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Multi-layer verification requiring formal specifications
 
 See the Glossary index for the complete taxonomy of platform concepts.
 
@@ -1092,4 +1092,4 @@ See the Glossary index for the complete taxonomy of platform concepts.
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

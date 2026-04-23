@@ -29,9 +29,9 @@ The formula at the heart of the confidence scoring system is:
 final_confidence = belief_strength * robustness_score * (1 - contradiction_index)
 ```
 
-This formula is computed at the final stage of the [QEVE](/glossary/qeve/) verification pipeline, after the [belief graph](/glossary/belief-graph/) has been constructed, structurally validated, logically checked, formally verified, and stress-tested through [Monte Carlo verification](/glossary/monte-carlo-verification/). The inputs are not raw data but processed, validated, axiom-compliant values. The output is a single scalar in the range [0.0, 1.0] that captures the platform's quantified trust in the conclusion.
+This formula is computed at the final stage of the [QEVE](@/glossary/qeve.md) verification pipeline, after the [belief graph](@/glossary/belief-graph.md) has been constructed, structurally validated, logically checked, formally verified, and stress-tested through [Monte Carlo verification](@/glossary/monte-carlo-verification.md). The inputs are not raw data but processed, validated, axiom-compliant values. The output is a single scalar in the range [0.0, 1.0] that captures the platform's quantified trust in the conclusion.
 
-The confidence score is consumed by two downstream systems: the [confidence threshold](/glossary/confidence-threshold/) comparator (which determines whether the score meets the minimum required for the decision context) and the [Trinity Gate](/glossary/trinity-gate/) (which uses the score as one input to its three-layer verification). A score below the applicable threshold results in the conclusion being flagged as insufficiently supported. A score above the threshold permits the conclusion to proceed to decision-makers, accompanied by the full scoring breakdown and audit trail.
+The confidence score is consumed by two downstream systems: the [confidence threshold](@/glossary/confidence-threshold.md) comparator (which determines whether the score meets the minimum required for the decision context) and the [Trinity Gate](@/glossary/trinity-gate.md) (which uses the score as one input to its three-layer verification). A score below the applicable threshold results in the conclusion being flagged as insufficiently supported. A score above the threshold permits the conclusion to proceed to decision-makers, accompanied by the full scoring breakdown and audit trail.
 
 ## The Case for Multiplicative Composition
 
@@ -77,11 +77,11 @@ The multiplicative formula has several desirable mathematical properties beyond 
 
 ### Definition
 
-Belief strength measures how strongly the available evidence supports the conclusion, independent of robustness or contradiction considerations. It is computed as the weighted sum of supporting evidence signals after [time decay](/glossary/time-decay/) application, normalized to the [0, 1] range.
+Belief strength measures how strongly the available evidence supports the conclusion, independent of robustness or contradiction considerations. It is computed as the weighted sum of supporting evidence signals after [time decay](@/glossary/time-decay.md) application, normalized to the [0, 1] range.
 
 ### Computation
 
-The belief strength for a hypothesis node H in the [belief graph](/glossary/belief-graph/) is computed through forward propagation from evidence nodes:
+The belief strength for a hypothesis node H in the [belief graph](@/glossary/belief-graph.md) is computed through forward propagation from evidence nodes:
 
 ```
 raw_strength(H) = sum(
@@ -96,25 +96,25 @@ The normalization function maps the raw sum to [0, 1] using a sigmoid function c
 
 ### Key Properties
 
-**Time decay integration**: Evidence weights are decayed based on age and the configured decay function (exponential, linear, or step). A signal collected 12 months ago with a 6-month exponential half-life contributes only 25% of its original weight. This implements the [NABLA Infinity](/glossary/nabla-infinity/) Time Decay axiom at the scoring level.
+**Time decay integration**: Evidence weights are decayed based on age and the configured decay function (exponential, linear, or step). A signal collected 12 months ago with a 6-month exponential half-life contributes only 25% of its original weight. This implements the [NABLA Infinity](@/glossary/nabla-infinity.md) Time Decay axiom at the scoring level.
 
 **Independence weighting**: Signals from the same `independence_group` (same source provider, same data feed) receive reduced weight because they are not genuinely independent. This implements the Source Independence axiom. Two signals from the same provider contribute less than two signals from independent providers, even if the individual signal weights are identical.
 
-**Plurality floor**: If a hypothesis does not meet the [Signal Plurality](/glossary/signal-plurality/) requirement (minimum two independent signals), belief strength is capped at 0.40 regardless of the actual evidence weight. This ensures that single-source conclusions cannot achieve high belief strength, even from a high-confidence source.
+**Plurality floor**: If a hypothesis does not meet the [Signal Plurality](@/glossary/signal-plurality.md) requirement (minimum two independent signals), belief strength is capped at 0.40 regardless of the actual evidence weight. This ensures that single-source conclusions cannot achieve high belief strength, even from a high-confidence source.
 
 ### Failure Modes
 
-Belief strength is the most intuitive of the three components but also the most susceptible to gaming. [Cherry picking](/glossary/cherry-picking/) specifically targets belief strength by selectively including strong supporting signals and excluding contradicting ones. The robustness and contradiction components serve as checks on belief strength: a cherry-picked conclusion will have high belief strength but low robustness and potentially missing contradictions.
+Belief strength is the most intuitive of the three components but also the most susceptible to gaming. [Cherry picking](@/glossary/cherry-picking.md) specifically targets belief strength by selectively including strong supporting signals and excluding contradicting ones. The robustness and contradiction components serve as checks on belief strength: a cherry-picked conclusion will have high belief strength but low robustness and potentially missing contradictions.
 
 ## Component 2: Robustness Score
 
 ### Definition
 
-The robustness score quantifies how stable the conclusion is under systematic perturbation of the underlying evidence. It is produced by the [Monte Carlo verification](/glossary/monte-carlo-verification/) stage of the [QEVE](/glossary/qeve/) pipeline, representing the fraction of 10,000 perturbation scenarios in which the conclusion survived.
+The robustness score quantifies how stable the conclusion is under systematic perturbation of the underlying evidence. It is produced by the [Monte Carlo verification](@/glossary/monte-carlo-verification.md) stage of the [QEVE](@/glossary/qeve.md) pipeline, representing the fraction of 10,000 perturbation scenarios in which the conclusion survived.
 
 ### Computation
 
-The [epistemic robustness](/glossary/epistemic-robustness/) entry describes the five-dimensional robustness model (signal, weight, source, temporal, and structural robustness). The composite robustness score used in the confidence formula is the weighted aggregation of these dimensions:
+The [epistemic robustness](@/glossary/epistemic-robustness.md) entry describes the five-dimensional robustness model (signal, weight, source, temporal, and structural robustness). The composite robustness score used in the confidence formula is the weighted aggregation of these dimensions:
 
 ```
 robustness_score = w_s * signal_robustness
@@ -147,13 +147,13 @@ The robustness score's primary value is not the number itself but the diagnostic
 - **Source dependencies**: Source groups whose loss would devastate the conclusion
 - **Temporal vulnerabilities**: Evidence near its decay threshold
 
-This diagnostic information is recorded in the [audit trail](/glossary/audit-trail/) and reported alongside the confidence score.
+This diagnostic information is recorded in the [audit trail](@/glossary/audit-trail.md) and reported alongside the confidence score.
 
 ## Component 3: Contradiction Index
 
 ### Definition
 
-The contradiction index measures the proportion of unresolved contradictory evidence affecting a hypothesis. It is computed from the [contradiction preservation](/glossary/contradiction-preservation/) data in the belief graph.
+The contradiction index measures the proportion of unresolved contradictory evidence affecting a hypothesis. It is computed from the [contradiction preservation](@/glossary/contradiction-preservation.md) data in the belief graph.
 
 ### Computation
 
@@ -256,7 +256,7 @@ Perfect confidence -- achievable only when all evidence is maximally strong, the
 
 ## Integration with Confidence Thresholds
 
-The confidence score is compared against context-specific [confidence thresholds](/glossary/confidence-threshold/) to determine actionability:
+The confidence score is compared against context-specific [confidence thresholds](@/glossary/confidence-threshold.md) to determine actionability:
 
 | Context | Required Threshold | Trinity Gate |
 |---------|-------------------|-------------|
@@ -265,11 +265,11 @@ The confidence score is compared against context-specific [confidence thresholds
 | Exploratory analysis | 0.60 | Recommended |
 | Research queries | 0.50 | Optional |
 
-A confidence score below the applicable threshold does not invalidate the conclusion -- it flags it as insufficiently supported for the decision context. The conclusion remains in the [belief graph](/glossary/belief-graph/) with its full scoring breakdown, available for further investigation, evidence gathering, or downgraded decision contexts.
+A confidence score below the applicable threshold does not invalidate the conclusion -- it flags it as insufficiently supported for the decision context. The conclusion remains in the [belief graph](@/glossary/belief-graph.md) with its full scoring breakdown, available for further investigation, evidence gathering, or downgraded decision contexts.
 
 ## Auditability and the Audit Trail
 
-Every confidence score computation is fully auditable through the [audit trail](/glossary/audit-trail/). The audit record includes:
+Every confidence score computation is fully auditable through the [audit trail](@/glossary/audit-trail.md). The audit record includes:
 
 | Field | Content |
 |-------|---------|
@@ -324,25 +324,25 @@ Fuzzy logic systems compute membership degrees in fuzzy sets, producing scores i
 
 ## Related Terms
 
-- [QEVE](/glossary/qeve/) -- Verification engine producing the inputs to the confidence scoring formula
-- [Belief Graph](/glossary/belief-graph/) -- Data structure from which belief strength, robustness, and contradictions are derived
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- The robustness component of the scoring formula
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Axiom governing the contradiction index component
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom enforcing minimum evidence diversity that affects belief strength
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing all components of the scoring system
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate consuming confidence scores for belief acceptance decisions
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Context-specific thresholds compared against confidence scores
-- [Monte Carlo Verification](/glossary/monte-carlo-verification/) -- Methodology producing the robustness score component
-- [Time Decay](/glossary/time-decay/) -- Temporal weighting mechanism affecting belief strength computation
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom ensuring all scoring inputs are traceable
-- [Cherry Picking](/glossary/cherry-picking/) -- Anti-pattern detectable through scoring signature (high belief strength, low robustness)
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of all confidence score computations and their derivations
-- [Formal Verification](/glossary/formal-verification/) -- Verification of scoring formula properties in Lean4
+- [QEVE](@/glossary/qeve.md) -- Verification engine producing the inputs to the confidence scoring formula
+- [Belief Graph](@/glossary/belief-graph.md) -- Data structure from which belief strength, robustness, and contradictions are derived
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- The robustness component of the scoring formula
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Axiom governing the contradiction index component
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom enforcing minimum evidence diversity that affects belief strength
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing all components of the scoring system
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate consuming confidence scores for belief acceptance decisions
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Context-specific thresholds compared against confidence scores
+- [Monte Carlo Verification](@/glossary/monte-carlo-verification.md) -- Methodology producing the robustness score component
+- [Time Decay](@/glossary/time-decay.md) -- Temporal weighting mechanism affecting belief strength computation
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom ensuring all scoring inputs are traceable
+- [Cherry Picking](@/glossary/cherry-picking.md) -- Anti-pattern detectable through scoring signature (high belief strength, low robustness)
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of all confidence score computations and their derivations
+- [Formal Verification](@/glossary/formal-verification.md) -- Verification of scoring formula properties in Lean4
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -351,4 +351,4 @@ Fuzzy logic systems compute membership degrees in fuzzy sets, producing scores i
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

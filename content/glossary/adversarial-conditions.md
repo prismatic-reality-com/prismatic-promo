@@ -69,7 +69,7 @@ The Prismatic Platform extends this model to epistemic operations. The **Epistem
 5. **Replay** outdated evidence as if it were current (time decay exploitation)
 6. **Correlate** independent-appearing sources to create false plurality (source laundering)
 
-Any epistemic property that holds under these assumptions holds under any realistic epistemic threat. The [NABLA Infinity](/glossary/nabla-infinity/) axioms are specifically designed to provide guarantees under this extended threat model.
+Any epistemic property that holds under these assumptions holds under any realistic epistemic threat. The [NABLA Infinity](@/glossary/nabla-infinity.md) axioms are specifically designed to provide guarantees under this extended threat model.
 
 ### Why Assume Adversarial by Default
 
@@ -355,7 +355,7 @@ end
 
 ### Perimeter Security Under Adversarial Conditions
 
-The [Prismatic Perimeter](/glossary/easm/) EASM system operates under the assumption that the entities being assessed may be actively manipulating their external attack surface to present a false security posture. This means:
+The [Prismatic Perimeter](@/glossary/easm.md) EASM system operates under the assumption that the entities being assessed may be actively manipulating their external attack surface to present a false security posture. This means:
 
 - DNS records may be deliberately misleading
 - SSL certificates may be technically valid but operationally deceptive
@@ -375,7 +375,7 @@ OSINT intelligence gathering from 120+ providers operates in an environment wher
 
 ### Agent Operations Under Adversarial Conditions
 
-AI agents forming beliefs through multi-step reasoning operate under the assumption that any input may be adversarially crafted. The [Addiction Recovery](/glossary/addiction-recovery/) principle provides continuous vigilance against rationalization patterns that adversarial conditions are specifically designed to trigger.
+AI agents forming beliefs through multi-step reasoning operate under the assumption that any input may be adversarially crafted. The [Addiction Recovery](@/glossary/addiction-recovery.md) principle provides continuous vigilance against rationalization patterns that adversarial conditions are specifically designed to trigger.
 
 ## Comparison with Alternatives
 
@@ -398,7 +398,7 @@ AI agents forming beliefs through multi-step reasoning operate under the assumpt
 
 4. **Design for Graceful Posture Escalation**: Transitioning from Monitor to Epistemic Defense should be smooth and automated, not a manual emergency procedure that introduces its own failure modes.
 
-5. **Test Adversarial Resilience Through Red Team Scenarios**: The [Red Team](/glossary/red-team/) specifically generates adversarial conditions to test defensive responses under controlled circumstances.
+5. **Test Adversarial Resilience Through Red Team Scenarios**: The [Red Team](@/glossary/red-team.md) specifically generates adversarial conditions to test defensive responses under controlled circumstances.
 
 6. **Never Trust Self-Reported Conditions**: An adversary controlling the environment can also manipulate condition assessments. Use independent, cross-validated indicators rather than single assessment sources.
 
@@ -436,25 +436,25 @@ NIS2 and ZKB compliance assessments must account for the possibility that assess
 
 ## Related Concepts
 
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Resilience against accidental failures, the benign subset of adversarial conditions
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Empirical testing of resilience through controlled disruption
-- [Red Team](/glossary/red-team/) -- Adversarial simulation team that creates controlled adversarial conditions for testing
-- [Blue Team](/glossary/blue-team/) -- Defensive team maintaining posture against adversarial conditions
-- [Adversarial Architecture](/glossary/adversarial-architecture/) -- Design methodology for systems that operate under adversarial conditions
-- [Adversarial Drift](/glossary/adversarial-drift/) -- Gradual condition degradation induced by adversarial manipulation
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern preventing cascading failures under adversarial load
-- [Bulkhead Pattern](/glossary/bulkhead-pattern/) -- Isolation pattern containing adversarial damage to subsystem boundaries
-- [Process Isolation](/glossary/process-isolation/) -- BEAM VM isolation providing containment under adversarial conditions
-- [Attack Surface](/glossary/attack-surface/) -- The interface exposed to adversarial conditions
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- System property measuring resilience to epistemic adversarial conditions
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework providing guarantees under adversarial conditions
-- [Defensive Posture](/glossary/defensive-posture/) -- The system's current defensive configuration adapted to assessed conditions
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Resilience against accidental failures, the benign subset of adversarial conditions
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Empirical testing of resilience through controlled disruption
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation team that creates controlled adversarial conditions for testing
+- [Blue Team](@/glossary/blue-team.md) -- Defensive team maintaining posture against adversarial conditions
+- [Adversarial Architecture](@/glossary/adversarial-architecture.md) -- Design methodology for systems that operate under adversarial conditions
+- [Adversarial Drift](@/glossary/adversarial-drift.md) -- Gradual condition degradation induced by adversarial manipulation
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern preventing cascading failures under adversarial load
+- [Bulkhead Pattern](@/glossary/bulkhead-pattern.md) -- Isolation pattern containing adversarial damage to subsystem boundaries
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM VM isolation providing containment under adversarial conditions
+- [Attack Surface](@/glossary/attack-surface.md) -- The interface exposed to adversarial conditions
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- System property measuring resilience to epistemic adversarial conditions
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework providing guarantees under adversarial conditions
+- [Defensive Posture](@/glossary/defensive-posture.md) -- The system's current defensive configuration adapted to assessed conditions
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Agents](/agents/) -- Full agent catalog including condition assessment agents
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Agents](@/agents/_index.md) -- Full agent catalog including condition assessment agents
 
 ---
 
@@ -463,4 +463,4 @@ NIS2 and ZKB compliance assessments must account for the possibility that assess
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

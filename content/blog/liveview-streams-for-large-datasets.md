@@ -18,7 +18,7 @@ see_also = ["liveview", "phoenix-liveview", "performance", "memory", "ui-compone
 image_alt = "LiveView Streams for Large Datasets"
 +++
 
-A naive LiveView page that renders 10,000 rows works — until the user scrolls, the server holds the full list in assigns, the DOM carries 10,000 nodes, and the process heap balloons to tens of megabytes. Multiply that by 200 connected clients and the BEAM is doing a lot of work to show a lot of data nobody is looking at. [LiveView](/glossary/liveview) streams are the fix.
+A naive LiveView page that renders 10,000 rows works — until the user scrolls, the server holds the full list in assigns, the DOM carries 10,000 nodes, and the process heap balloons to tens of megabytes. Multiply that by 200 connected clients and the BEAM is doing a lot of work to show a lot of data nobody is looking at. [LiveView](@/glossary/liveview.md) streams are the fix.
 
 ## The memory math
 
@@ -72,11 +72,11 @@ Streams are wrong when you need:
 - A total count that updates live (keep the count as a separate scalar assign).
 - Sort orders that change frequently (each sort needs a `reset: true` stream).
 
-For those cases, use pagination or a separate search index — [Meilisearch](/glossary/meilisearch) is the right tool for big filterable lists.
+For those cases, use pagination or a separate search index — [Meilisearch](@/glossary/meilisearch.md) is the right tool for big filterable lists.
 
 ## Where to go next
 
 - **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — streams in production dashboards
-- **Glossary**: [LiveView](/glossary/liveview), [Phoenix LiveView](/glossary/phoenix-liveview), [Performance](/glossary/performance), [Memory](/glossary/memory), [UI Components](/glossary/ui-components)
+- **Glossary**: [LiveView](@/glossary/liveview.md), [Phoenix LiveView](@/glossary/phoenix-liveview.md), [Performance](@/glossary/performance.md), [Memory](@/glossary/memory.md), [UI Components](@/glossary/ui-components.md)
 
 Streams are not faster. Streams are *cheaper*. At 200 connected clients that is the same thing.

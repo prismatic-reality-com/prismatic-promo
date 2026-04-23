@@ -21,7 +21,7 @@ image_alt = "Prismatic PRISC - Prismatic Platform"
 
 ## Overview
 
-Prismatic PRISC (Platform Runtime Integrity and Safety Controller) provides a comprehensive ethical governance, decision auditing, and state machine framework for the Prismatic Platform. Rather than operating as a traditional instruction set computer, PRISC implements the platform's safety-critical decision oversight infrastructure -- ensuring that all autonomous operations, agent decisions, and system state transitions are auditable, ethically validated, and reversible. In a platform that operates hundreds of autonomous [AIAD](/glossary/aiad/) agents making consequential decisions about intelligence collection, risk assessment, and entity profiling, a rigorous governance layer is not optional but foundational.
+Prismatic PRISC (Platform Runtime Integrity and Safety Controller) provides a comprehensive ethical governance, decision auditing, and state machine framework for the Prismatic Platform. Rather than operating as a traditional instruction set computer, PRISC implements the platform's safety-critical decision oversight infrastructure -- ensuring that all autonomous operations, agent decisions, and system state transitions are auditable, ethically validated, and reversible. In a platform that operates hundreds of autonomous [AIAD](@/glossary/aiad.md) agents making consequential decisions about intelligence collection, risk assessment, and entity profiling, a rigorous governance layer is not optional but foundational.
 
 The application implements three interconnected subsystems: the Decision Auditor that captures and logs every significant platform decision with full context and provenance; the Ethics Enforcer that validates decisions against configurable ethical boundaries before execution; and the State Machine framework that manages platform-wide state transitions through a formally specified finite automaton. Together, these subsystems ensure that the platform's autonomous capabilities remain transparent, accountable, and aligned with operator-defined ethical constraints.
 
@@ -87,7 +87,7 @@ The architecture follows a defense-in-depth approach to decision governance. Eve
 | Module | Purpose |
 |--------|---------|
 | `PrismaticPrisc` | Main API facade for decision submission and state queries |
-| `PrismaticPrisc.Application` | [OTP](/glossary/otp/) application entry point with supervision tree |
+| `PrismaticPrisc.Application` | [OTP](@/glossary/otp.md) application entry point with supervision tree |
 | `PrismaticPrisc.StateMachine` | Formal state machine managing platform-wide state transitions with history |
 | `PrismaticPrisc.Guardian.Council` | Multi-validator quorum-based decision approval framework |
 | `PrismaticPrisc.Audit.EventStore` | Immutable append-only event log for decision auditing with provenance |
@@ -107,7 +107,7 @@ The architecture follows a defense-in-depth approach to decision governance. Eve
 
 ## Ecto Schemas
 
-The application uses [Ecto](/glossary/ecto/) schemas for persistent storage of governance data in [PostgreSQL](/glossary/postgresql/).
+The application uses [Ecto](@/glossary/ecto.md) schemas for persistent storage of governance data in [PostgreSQL](@/glossary/postgresql.md).
 
 | Schema | Purpose | Key Fields |
 |--------|---------|-----------|
@@ -218,12 +218,12 @@ Testing covers Guardian Council quorum logic with various vote combinations, Eth
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic Agents](/apps/prismatic-agents/) | Agent decisions submitted through Guardian Council for ethical validation |
-| [Prismatic Core](/apps/prismatic-core/) | Shared types, protocols, and platform-wide governance interfaces |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Governance event telemetry for monitoring dashboard integration |
-| [Prismatic Safety](/apps/prismatic-safety/) | Quality Floor Guardian triggers PRISC state transitions on quality violations |
-| [Prismatic Override](/apps/prismatic-override/) | Emergency overrides recorded as audited state machine transitions |
-| [Prismatic CER](/apps/prismatic-cer/) | Audit trail events stored as compliance evidence for regulatory reporting |
+| [Prismatic Agents](@/apps/prismatic-agents.md) | Agent decisions submitted through Guardian Council for ethical validation |
+| [Prismatic Core](@/apps/prismatic-core.md) | Shared types, protocols, and platform-wide governance interfaces |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Governance event telemetry for monitoring dashboard integration |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Quality Floor Guardian triggers PRISC state transitions on quality violations |
+| [Prismatic Override](@/apps/prismatic-override.md) | Emergency overrides recorded as audited state machine transitions |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Audit trail events stored as compliance evidence for regulatory reporting |
 
 ## NABLA Compliance
 
@@ -249,12 +249,12 @@ Testing covers Guardian Council quorum logic with various vote combinations, Eth
 
 ## Related Resources
 
-- [Prismatic Safety](/apps/prismatic-safety/) -- Quality governance complementing ethical governance
-- [Prismatic Override](/apps/prismatic-override/) -- Emergency interventions audited through PRISC
-- [Prismatic CER](/apps/prismatic-cer/) -- Compliance evidence from governance audit trail
-- [Quality Gates](/capabilities/quality-gates/) -- Decision quality enforcement checkpoints
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent governance compliance with AIAD protocols
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Governance event observability and monitoring
+- [Prismatic Safety](@/apps/prismatic-safety.md) -- Quality governance complementing ethical governance
+- [Prismatic Override](@/apps/prismatic-override.md) -- Emergency interventions audited through PRISC
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Compliance evidence from governance audit trail
+- [Quality Gates](@/capabilities/quality-gates.md) -- Decision quality enforcement checkpoints
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent governance compliance with AIAD protocols
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Governance event observability and monitoring
 
 ---
 
@@ -263,4 +263,4 @@ Testing covers Guardian Council quorum logic with various vote combinations, Eth
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

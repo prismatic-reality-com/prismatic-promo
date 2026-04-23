@@ -200,11 +200,11 @@ The Perimeter dashboard at `/perimeter/compliance` provides a real-time view of 
 
 ## Cross-References
 
-- [CSIRT](/glossary/csirt/) -- Teams receiving and processing incident reports
-- [NIS2](/glossary/nis2/) -- EU directive mandating incident reporting
-- [Immutable Log](/glossary/immutable-log/) -- Audit trail recording report submissions
-- [Gap Analysis](/glossary/gap-analysis/) -- Assessing incident reporting readiness
-- [Event Log](/glossary/event-log/) -- Event data supporting incident reports
+- [CSIRT](@/glossary/csirt.md) -- Teams receiving and processing incident reports
+- [NIS2](@/glossary/nis2.md) -- EU directive mandating incident reporting
+- [Immutable Log](@/glossary/immutable-log.md) -- Audit trail recording report submissions
+- [Gap Analysis](@/glossary/gap-analysis.md) -- Assessing incident reporting readiness
+- [Event Log](@/glossary/event-log.md) -- Event data supporting incident reports
 - **Livebooks**: `security_compliance/` notebooks include incident reporting workflows
 - **Academy**: ComplianceAutomationFramework topic covers reporting automation
 
@@ -215,4 +215,4 @@ The Perimeter dashboard at `/perimeter/compliance` provides a real-time view of 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

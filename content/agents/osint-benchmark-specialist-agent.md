@@ -28,9 +28,9 @@ image_alt = "OSINT Benchmark Specialist Agent - Prismatic Platform"
 
 ## Overview
 
-The [OSINT](/glossary/osint/) Benchmark Specialist Agent operates as an L1 Supreme Authority within the Prismatic Platform's performance domain, providing authoritative benchmarking for all OSINT operations. This agent measures, validates, and certifies the performance characteristics of the platform's intelligence collection, analysis, and dissemination workflows. In a platform that processes intelligence from 250+ OSINT providers across diverse data types and collection methodologies, performance benchmarking is essential for identifying bottlenecks, validating optimization efforts, certifying operational readiness, and establishing baselines against which future performance is measured.
+The [OSINT](@/glossary/osint.md) Benchmark Specialist Agent operates as an L1 Supreme Authority within the Prismatic Platform's performance domain, providing authoritative benchmarking for all OSINT operations. This agent measures, validates, and certifies the performance characteristics of the platform's intelligence collection, analysis, and dissemination workflows. In a platform that processes intelligence from 250+ OSINT providers across diverse data types and collection methodologies, performance benchmarking is essential for identifying bottlenecks, validating optimization efforts, certifying operational readiness, and establishing baselines against which future performance is measured.
 
-Built on the [AIAD](/glossary/aiad/) standard with full [3NL](/glossary/three-nl/) integration (L1 Logic for deductive analysis of performance data, L2 Epistemic for confidence-qualified performance claims), the agent implements a comprehensive benchmarking framework that evaluates OSINT operations across three performance dimensions: throughput (how much intelligence can be processed per unit time), latency (how quickly individual intelligence items progress through the pipeline), and quality (whether performance optimization preserves intelligence accuracy and completeness). The [NO DOUBTS](/glossary/no-doubts/) principle is embedded in the benchmarking methodology: all performance claims include confidence intervals, sample sizes, and environmental context sufficient to evaluate their validity.
+Built on the [AIAD](@/glossary/aiad.md) standard with full [3NL](@/glossary/three-nl.md) integration (L1 Logic for deductive analysis of performance data, L2 Epistemic for confidence-qualified performance claims), the agent implements a comprehensive benchmarking framework that evaluates OSINT operations across three performance dimensions: throughput (how much intelligence can be processed per unit time), latency (how quickly individual intelligence items progress through the pipeline), and quality (whether performance optimization preserves intelligence accuracy and completeness). The [NO DOUBTS](@/glossary/no-doubts.md) principle is embedded in the benchmarking methodology: all performance claims include confidence intervals, sample sizes, and environmental context sufficient to evaluate their validity.
 
 ## Theoretical Foundations
 
@@ -52,11 +52,11 @@ Benchmarking operates on three temporal scales. **Micro-benchmarks** (millisecon
 - **Collection agent benchmarking** -- Evaluates individual OSINT collection agents for throughput, latency, error rate, and quality metrics, producing comparative performance profiles across the agent ecosystem
 - **Performance regression detection** -- Compares current benchmark results against historical baselines to detect performance regressions introduced by code changes, configuration updates, or environmental shifts
 - **Capacity planning analysis** -- Applies queuing theory models to benchmark data to project system capacity under various load scenarios, informing infrastructure scaling decisions
-- **[Backpressure](/glossary/backpressure/) validation** -- Verifies that pipeline backpressure mechanisms function correctly under overload conditions, ensuring that quality is maintained when throughput exceeds capacity
-- **[CASCADE](/glossary/cascade/) pattern performance** -- Benchmarks the performance of CASCADE propagation patterns used for cross-domain information distribution
+- **[Backpressure](@/glossary/backpressure.md) validation** -- Verifies that pipeline backpressure mechanisms function correctly under overload conditions, ensuring that quality is maintained when throughput exceeds capacity
+- **[CASCADE](@/glossary/cascade.md) pattern performance** -- Benchmarks the performance of CASCADE propagation patterns used for cross-domain information distribution
 - **Benchee integration** -- Leverages the Benchee Elixir benchmarking library for statistically rigorous micro-benchmarks with warmup, outlier detection, and comparison statistics
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with scheduled benchmark execution and automatic regression alerting
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing benchmark results including throughput measurements, latency distributions, capacity estimates, and regression indicators
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with scheduled benchmark execution and automatic regression alerting
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing benchmark results including throughput measurements, latency distributions, capacity estimates, and regression indicators
 
 ## Authority Level
 
@@ -66,7 +66,7 @@ Benchmarking operates on three temporal scales. **Micro-benchmarks** (millisecon
 
 The specialist follows a five-phase benchmarking protocol. The **preparation phase** configures the benchmark environment, including system isolation, workload setup, and measurement instrumentation. The **warmup phase** executes the benchmark workload for a configurable number of iterations to stabilize caches and JIT compilation before measurement begins. The **measurement phase** runs the benchmark workload for a statistically significant number of iterations, collecting timing, throughput, and quality measurements. The **analysis phase** processes raw measurements into summary statistics with bootstrapped confidence intervals, outlier detection, and regression comparison against baselines. The **reporting phase** produces structured benchmark reports with standardized formatting.
 
-Benchmarks are designed for reproducibility: every benchmark result includes sufficient environmental metadata (hardware, OS version, [BEAM](/glossary/beam/)/[OTP](/glossary/otp/) version, Elixir version, system load) to enable reproduction on compatible systems.
+Benchmarks are designed for reproducibility: every benchmark result includes sufficient environmental metadata (hardware, OS version, [BEAM](@/glossary/beam.md)/[OTP](@/glossary/otp.md) version, Elixir version, system load) to enable reproduction on compatible systems.
 
 ## Command Interface
 
@@ -81,10 +81,10 @@ Benchmarks are designed for reproducibility: every benchmark result includes suf
 
 | Agent | Relationship |
 |-------|-------------|
-| [performance-benchmarking-agent](/agents/performance-benchmarking-agent/) | Platform-wide benchmarking infrastructure shared for OSINT-specific measurements |
-| [osint-quality-feedback-coordinator](/agents/osint-quality-feedback-coordinator/) | Quality metrics are validated alongside performance to ensure optimization does not degrade quality |
-| [osint-engines-specialist](/agents/osint-engines-specialist/) | Search engine performance benchmarks inform engine selection and configuration |
-| [mycelial-evolution-specialist](/agents/mycelial-evolution-specialist/) | Performance benchmarks serve as fitness inputs for evolutionary optimization |
+| [performance-benchmarking-agent](@/agents/performance-benchmarking-agent.md) | Platform-wide benchmarking infrastructure shared for OSINT-specific measurements |
+| [osint-quality-feedback-coordinator](@/agents/osint-quality-feedback-coordinator.md) | Quality metrics are validated alongside performance to ensure optimization does not degrade quality |
+| [osint-engines-specialist](@/agents/osint-engines-specialist.md) | Search engine performance benchmarks inform engine selection and configuration |
+| [mycelial-evolution-specialist](@/agents/mycelial-evolution-specialist.md) | Performance benchmarks serve as fitness inputs for evolutionary optimization |
 
 ## Baseline Management
 
@@ -92,7 +92,7 @@ The specialist maintains performance baselines for all OSINT operations. Baselin
 
 ## Enforcement
 
-Benchmarking follows the [NO MERCY](/glossary/no-mercy/) doctrine: no performance regression is accepted without documented justification, all performance claims are backed by statistically valid measurements, and benchmark results are never manipulated to present favorable pictures. The [Trinity Gate](/glossary/trinity-gate/) validates that benchmark methodologies maintain structural, logical, and formal rigor.
+Benchmarking follows the [NO MERCY](@/glossary/no-mercy.md) doctrine: no performance regression is accepted without documented justification, all performance claims are backed by statistically valid measurements, and benchmark results are never manipulated to present favorable pictures. The [Trinity Gate](@/glossary/trinity-gate.md) validates that benchmark methodologies maintain structural, logical, and formal rigor.
 
 ---
 
@@ -101,4 +101,4 @@ Benchmarking follows the [NO MERCY](/glossary/no-mercy/) doctrine: no performanc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

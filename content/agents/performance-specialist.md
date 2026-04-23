@@ -28,9 +28,9 @@ image_alt = "performance-specialist - Prismatic Platform"
 
 ## Overview
 
-The Performance Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's development domain, providing hands-on performance optimization expertise through profiling, bottleneck identification, and systematic tuning of Elixir/[OTP](/glossary/otp/) applications. While other performance agents focus on monitoring, benchmarking, or optimization orchestration, the Performance Specialist is the implementation-level expert who actually writes and validates the optimized code, data structures, and architectural changes that resolve identified performance issues.
+The Performance Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's development domain, providing hands-on performance optimization expertise through profiling, bottleneck identification, and systematic tuning of Elixir/[OTP](@/glossary/otp.md) applications. While other performance agents focus on monitoring, benchmarking, or optimization orchestration, the Performance Specialist is the implementation-level expert who actually writes and validates the optimized code, data structures, and architectural changes that resolve identified performance issues.
 
-This agent possesses deep knowledge of the [BEAM](/glossary/beam/) runtime, [Phoenix](/glossary/phoenix/) framework, [Ecto](/glossary/ecto/) database interaction patterns, [LiveView](/glossary/liveview/) rendering pipeline, [ETS](/glossary/ets/) table optimization, and [GenServer](/glossary/genserver/) message processing patterns. Built on the [AIAD](/glossary/aiad/) standard, the agent combines theoretical knowledge of computational complexity with practical experience in Elixir-specific performance patterns, producing optimizations that are not only faster but also maintain the platform's code quality standards and architectural integrity.
+This agent possesses deep knowledge of the [BEAM](@/glossary/beam.md) runtime, [Phoenix](@/glossary/phoenix.md) framework, [Ecto](@/glossary/ecto.md) database interaction patterns, [LiveView](@/glossary/liveview.md) rendering pipeline, [ETS](@/glossary/ets.md) table optimization, and [GenServer](@/glossary/genserver.md) message processing patterns. Built on the [AIAD](@/glossary/aiad.md) standard, the agent combines theoretical knowledge of computational complexity with practical experience in Elixir-specific performance patterns, producing optimizations that are not only faster but also maintain the platform's code quality standards and architectural integrity.
 
 ## Theoretical Foundations
 
@@ -42,25 +42,25 @@ For BEAM-specific optimization, the specialist understands the interplay between
 
 ## Operational Domain
 
-The development domain for performance optimization encompasses all platform code that has measurable performance impact. This includes [Phoenix](/glossary/phoenix/) controller actions and plugs, [LiveView](/glossary/liveview/) mount callbacks and event handlers, [Ecto](/glossary/ecto/) queries and changesets, [GenServer](/glossary/genserver/) callbacks, [ETS](/glossary/ets/) table access patterns, inter-process communication in the [supervision tree](/glossary/supervision-tree/), and custom business logic modules.
+The development domain for performance optimization encompasses all platform code that has measurable performance impact. This includes [Phoenix](@/glossary/phoenix.md) controller actions and plugs, [LiveView](@/glossary/liveview.md) mount callbacks and event handlers, [Ecto](@/glossary/ecto.md) queries and changesets, [GenServer](@/glossary/genserver.md) callbacks, [ETS](@/glossary/ets.md) table access patterns, inter-process communication in the [supervision tree](@/glossary/supervision-tree.md), and custom business logic modules.
 
 The specialist maintains awareness of the platform's performance budget constraints: all pages must load under 250ms, server-side render under 100ms, LiveView mount under 150ms, and LiveView handle_event under 50ms. These budgets guide optimization prioritization, focusing effort on code paths that contribute most to budget-constrained operations.
 
 ## Key Capabilities
 
-- **Elixir-specific optimization patterns** -- Applies Elixir and BEAM-specific optimization techniques including binary pattern matching for efficient string processing, [ETS](/glossary/ets/) table design for concurrent access patterns, process mailbox management for throughput, and tail-call optimization for recursive algorithms
+- **Elixir-specific optimization patterns** -- Applies Elixir and BEAM-specific optimization techniques including binary pattern matching for efficient string processing, [ETS](@/glossary/ets.md) table design for concurrent access patterns, process mailbox management for throughput, and tail-call optimization for recursive algorithms
 
-- **[Ecto](/glossary/ecto/) query optimization** -- Optimizes database interaction patterns including N+1 query elimination through preloading, query plan analysis with EXPLAIN ANALYZE, index strategy design, and connection pool tuning for optimal throughput under varying load
+- **[Ecto](@/glossary/ecto.md) query optimization** -- Optimizes database interaction patterns including N+1 query elimination through preloading, query plan analysis with EXPLAIN ANALYZE, index strategy design, and connection pool tuning for optimal throughput under varying load
 
-- **[LiveView](/glossary/liveview/) rendering optimization** -- Improves LiveView performance through component decomposition (reducing diff sizes), assigns optimization (minimizing socket payload), and template precompilation strategies
+- **[LiveView](@/glossary/liveview.md) rendering optimization** -- Improves LiveView performance through component decomposition (reducing diff sizes), assigns optimization (minimizing socket payload), and template precompilation strategies
 
-- **[GenServer](/glossary/genserver/) performance tuning** -- Optimizes GenServer implementations for throughput by analyzing callback execution times, managing state size, implementing reply timeouts, and considering process topology changes to reduce serialization bottlenecks
+- **[GenServer](@/glossary/genserver.md) performance tuning** -- Optimizes GenServer implementations for throughput by analyzing callback execution times, managing state size, implementing reply timeouts, and considering process topology changes to reduce serialization bottlenecks
 
-- **Data structure selection** -- Selects optimal data structures for specific access patterns, including when to use lists versus maps versus [ETS](/glossary/ets/) tables versus persistent_term, based on access pattern analysis and measured performance characteristics
+- **Data structure selection** -- Selects optimal data structures for specific access patterns, including when to use lists versus maps versus [ETS](@/glossary/ets.md) tables versus persistent_term, based on access pattern analysis and measured performance characteristics
 
-- **[Hot code reload](/glossary/hot-code-reload/) optimization** -- Ensures that performance-optimized code can be hot-reloaded without disrupting running processes or losing cached state
+- **[Hot code reload](@/glossary/hot-code-reload.md) optimization** -- Ensures that performance-optimized code can be hot-reloaded without disrupting running processes or losing cached state
 
-- **Concurrent design patterns** -- Implements efficient concurrent processing using Task.async_stream, GenStage pipelines, and Flow for parallel data processing with proper [backpressure](/glossary/backpressure/) management
+- **Concurrent design patterns** -- Implements efficient concurrent processing using Task.async_stream, GenStage pipelines, and Flow for parallel data processing with proper [backpressure](@/glossary/backpressure.md) management
 
 ## Authority Level
 
@@ -92,11 +92,11 @@ The specialist maintains a curated library of proven optimization patterns speci
 
 | Agent | Relationship |
 |-------|-------------|
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Profiling identifies specific code locations for optimization |
-| [Performance Benchmarking Agent](/agents/performance-benchmarking-agent/) | Benchmarks validate optimization outcomes |
-| [performance-optimization-conductor](/agents/performance-optimization-conductor/) | Conductor prioritizes optimization targets for specialist implementation |
-| [phoenix-liveview-specialist](/agents/phoenix-liveview-specialist/) | Collaboration on LiveView-specific performance optimization |
-| [postgresql-specialist](/agents/postgresql-specialist/) | Database-level optimization collaboration for Ecto query tuning |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Profiling identifies specific code locations for optimization |
+| [Performance Benchmarking Agent](@/agents/performance-benchmarking-agent.md) | Benchmarks validate optimization outcomes |
+| [performance-optimization-conductor](@/agents/performance-optimization-conductor.md) | Conductor prioritizes optimization targets for specialist implementation |
+| [phoenix-liveview-specialist](@/agents/phoenix-liveview-specialist.md) | Collaboration on LiveView-specific performance optimization |
+| [postgresql-specialist](@/agents/postgresql-specialist.md) | Database-level optimization collaboration for Ecto query tuning |
 
 ## Implementation Standards
 
@@ -111,7 +111,7 @@ All performance optimizations produced by the specialist must meet the platform'
 
 ## Enforcement
 
-Performance optimization implementations follow the [NO MERCY](/glossary/no-mercy/) doctrine: optimized code must be production-ready from the moment of creation, with full test coverage and benchmark evidence. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every optimization includes before/after benchmark data demonstrating the improvement magnitude with statistical significance. Optimizations that cannot demonstrate measurable improvement are rejected.
+Performance optimization implementations follow the [NO MERCY](@/glossary/no-mercy.md) doctrine: optimized code must be production-ready from the moment of creation, with full test coverage and benchmark evidence. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every optimization includes before/after benchmark data demonstrating the improvement magnitude with statistical significance. Optimizations that cannot demonstrate measurable improvement are rejected.
 
 ## Related Agents
 
@@ -124,4 +124,4 @@ The Performance Specialist works as the implementation arm of the performance op
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -44,9 +44,9 @@ This principle is distinct from mere "data-driven decision making" in that it im
 
 The Evidence Over Opinion principle addresses a fundamental vulnerability in complex systems: the tendency for human cognitive biases, social dynamics, and authority structures to override empirical reality. In software engineering, this manifests as architecture decisions driven by resume-driven development, technology choices based on hype cycles, and quality assessments based on developer confidence rather than test results.
 
-The principle has deep roots in the philosophy of science. The empiricist tradition, from Francis Bacon through Karl Popper, established that knowledge claims must be falsifiable and grounded in observation. The [scientific rigor](/glossary/scientific-rigor/) tradition extends this further, requiring reproducibility, peer review, and transparent methodology.
+The principle has deep roots in the philosophy of science. The empiricist tradition, from Francis Bacon through Karl Popper, established that knowledge claims must be falsifiable and grounded in observation. The [scientific rigor](@/glossary/scientific-rigor.md) tradition extends this further, requiring reproducibility, peer review, and transparent methodology.
 
-Within the Prismatic Platform, Evidence Over Opinion is not merely a guideline -- it is an enforced axiom of the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. The [Provenance Mandatory](/glossary/provenance-mandatory/) axiom requires that every belief in the system be traceable to its source evidence. The [Trinity Gate](/glossary/trinity-gate/) validation pipeline refuses to accept claims that lack structural, logical, and formal backing. The [proves-before-claiming](/glossary/proves-before-claiming/) principle ensures that verification precedes assertion, never the reverse.
+Within the Prismatic Platform, Evidence Over Opinion is not merely a guideline -- it is an enforced axiom of the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. The [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom requires that every belief in the system be traceable to its source evidence. The [Trinity Gate](@/glossary/trinity-gate.md) validation pipeline refuses to accept claims that lack structural, logical, and formal backing. The [proves-before-claiming](@/glossary/proves-before-claiming.md) principle ensures that verification precedes assertion, never the reverse.
 
 ### Historical Context
 
@@ -290,7 +290,7 @@ Data-Driven Decision Making (DDDM) is a weaker principle that merely requires de
 | **Freshness** | Historical data acceptable | Evidence must be within validity window |
 | **Formal verification** | Optional | Required for critical claims (Trinity Gate) |
 
-DDDM is susceptible to [cherry-picking](/glossary/cherry-picking/) -- selecting data that supports a predetermined conclusion while ignoring contradicting data. Evidence Over Opinion explicitly prevents this through the [Contradiction Preservation](/glossary/contradiction-preservation/) axiom.
+DDDM is susceptible to [cherry-picking](@/glossary/cherry-picking.md) -- selecting data that supports a predetermined conclusion while ignoring contradicting data. Evidence Over Opinion explicitly prevents this through the [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom.
 
 ### Evidence Over Opinion vs. Consensus-Based Decision Making
 
@@ -320,9 +320,9 @@ Expert judgment occupies a middle ground. Experts bring valuable pattern recogni
 
 2. **Document decisions with evidence**: Architecture Decision Records (ADRs) must include the evidence that motivated the decision, not just the rationale. "We chose PostgreSQL because benchmarks showed 3x throughput for our workload" vs. "We chose PostgreSQL because it is a good database."
 
-3. **Use property-based testing for invariants**: When claiming an invariant holds, [property-based testing](/glossary/property-based-testing/) provides stronger evidence than example-based tests by exercising the property across thousands of random inputs.
+3. **Use property-based testing for invariants**: When claiming an invariant holds, [property-based testing](@/glossary/property-based-testing.md) provides stronger evidence than example-based tests by exercising the property across thousands of random inputs.
 
-4. **Instrument everything**: [Telemetry](/glossary/telemetry/) and [observability](/glossary/observability/) infrastructure provide continuous evidence about system behavior. Claims about performance, reliability, or correctness should be backed by production metrics.
+4. **Instrument everything**: [Telemetry](@/glossary/telemetry.md) and [observability](@/glossary/observability.md) infrastructure provide continuous evidence about system behavior. Claims about performance, reliability, or correctness should be backed by production metrics.
 
 5. **Preserve contradicting evidence**: When evidence contradicts a current belief, do not discard it. Store it, weight it, and let the aggregation system handle it. Suppressing contradictions is the single most dangerous anti-pattern.
 
@@ -334,7 +334,7 @@ Before accepting any claim, verify:
 - [ ] All evidence has documented provenance (source, method, timestamp)
 - [ ] Evidence is within its validity window (not stale)
 - [ ] Contradicting evidence has been acknowledged and weighted
-- [ ] The evidence chain passes the [Trinity Gate](/glossary/trinity-gate/) (for critical claims)
+- [ ] The evidence chain passes the [Trinity Gate](@/glossary/trinity-gate.md) (for critical claims)
 - [ ] No single source accounts for more than 60% of the total evidence weight
 
 ## Common Pitfalls
@@ -417,26 +417,26 @@ The pre-commit quality gates are a direct enforcement mechanism for Evidence Ove
 
 ## Related Concepts
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework that formalizes Evidence Over Opinion as a core axiom
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom requiring all evidence to have traceable origins
-- [Scientific Rigor](/glossary/scientific-rigor/) -- The broader methodological tradition underlying this principle
-- [Proves Before Claiming](/glossary/proves-before-claiming/) -- Principle that verification must precede assertion
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) -- Quality framework grounded in evidence-based truth
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Axiom preserving conflicting evidence rather than discarding it
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation gate requiring structural, logical, and formal consistency
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Quantitative measurement of belief strength based on evidence weight
-- [Belief Graph](/glossary/belief-graph/) -- Graph structure storing evidence-backed beliefs and their relationships
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- System resilience against epistemic attacks and misinformation
-- [Cherry Picking](/glossary/cherry-picking/) -- Anti-pattern explicitly prevented by this principle
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- Processing pipeline that enforces evidence requirements at each stage
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework that formalizes Evidence Over Opinion as a core axiom
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom requiring all evidence to have traceable origins
+- [Scientific Rigor](@/glossary/scientific-rigor.md) -- The broader methodological tradition underlying this principle
+- [Proves Before Claiming](@/glossary/proves-before-claiming.md) -- Principle that verification must precede assertion
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) -- Quality framework grounded in evidence-based truth
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Axiom preserving conflicting evidence rather than discarding it
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation gate requiring structural, logical, and formal consistency
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Quantitative measurement of belief strength based on evidence weight
+- [Belief Graph](@/glossary/belief-graph.md) -- Graph structure storing evidence-backed beliefs and their relationships
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- System resilience against epistemic attacks and misinformation
+- [Cherry Picking](@/glossary/cherry-picking.md) -- Anti-pattern explicitly prevented by this principle
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- Processing pipeline that enforces evidence requirements at each stage
 
 ## See Also
 
-- [NABLA Doctrine](/glossary/nabla-infinity/) -- Complete documentation of the epistemic framework
-- [Addiction Preservation](/glossary/contradiction-preservation/) -- Platform commitment to preserving inconvenient truths
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Threshold levels for evidence-based acceptance
-- [Architecture](/architecture/) -- Platform architecture grounded in evidence-based design
-- [Capabilities](/capabilities/) -- Platform capabilities enforcing epistemic integrity
+- [NABLA Doctrine](@/glossary/nabla-infinity.md) -- Complete documentation of the epistemic framework
+- [Addiction Preservation](@/glossary/contradiction-preservation.md) -- Platform commitment to preserving inconvenient truths
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Threshold levels for evidence-based acceptance
+- [Architecture](@/architecture/_index.md) -- Platform architecture grounded in evidence-based design
+- [Capabilities](@/capabilities/_index.md) -- Platform capabilities enforcing epistemic integrity
 
 ---
 
@@ -445,4 +445,4 @@ The pre-commit quality gates are a direct enforcement mechanism for Evidence Ove
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

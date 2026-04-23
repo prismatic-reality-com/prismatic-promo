@@ -57,7 +57,7 @@ The Prismatic Platform's approach to sustainable funding is built on the princip
 
 The platform operates on two parallel tracks:
 
-**Open Source Track**: Four packages published under permissive licenses, maintained with the same [quality standards](/glossary/quality-standard/) as the commercial platform (100/100 quality score, zero warnings, full [test coverage](/glossary/test-coverage/)). These packages provide genuine standalone value and are not crippled versions of commercial features.
+**Open Source Track**: Four packages published under permissive licenses, maintained with the same [quality standards](@/glossary/quality-standard.md) as the commercial platform (100/100 quality score, zero warnings, full [test coverage](@/glossary/test-coverage.md)). These packages provide genuine standalone value and are not crippled versions of commercial features.
 
 **Commercial Track**: The full platform with 115 applications, 530+ agents, advanced security operations (Color Teams, EASM, OSINT), and enterprise features. The commercial value proposition is built on integration, scale, and operational capabilities that go beyond what individual OSS packages provide.
 
@@ -186,7 +186,7 @@ Public funding through government programs (Sovereign Tech Fund, NLnet, EU NGI) 
 
 The most overlooked aspect of open source sustainability is the cost of maintenance. Creating new features attracts attention and funding; maintaining existing code does not. Yet maintenance -- security patches, dependency updates, bug fixes, documentation, compatibility testing -- consumes the majority of a mature project's development effort.
 
-The Prismatic Platform addresses this through automated maintenance systems. The [AutoEvolve](/glossary/autonomous-evolution/) system handles routine code evolution, the Quality Floor Guardian monitors for quality regression, and the [pre-commit pipeline](/glossary/pre-commit-hooks/) catches issues before they enter the codebase. These systems reduce the human maintenance burden, making sustainability more achievable with smaller teams.
+The Prismatic Platform addresses this through automated maintenance systems. The [AutoEvolve](@/glossary/autonomous-evolution.md) system handles routine code evolution, the Quality Floor Guardian monitors for quality regression, and the [pre-commit pipeline](@/glossary/pre-commit-hooks.md) catches issues before they enter the codebase. These systems reduce the human maintenance burden, making sustainability more achievable with smaller teams.
 
 ```elixir
 defmodule PrismaticEcosystem.MaintenanceCost do
@@ -235,7 +235,7 @@ end
 
 Sustainable funding is not just about individual projects -- it is about the entire dependency graph. A project may be well-funded, but if its critical dependencies are maintained by unpaid volunteers, the supply chain remains fragile. The xz utils incident demonstrated that even widely-used infrastructure can be maintained by a single, overwhelmed individual.
 
-The Prismatic Platform mitigates dependency risk through several mechanisms. Dependency health is monitored as part of the [quality gate](/glossary/quality-gates/) system. Critical dependencies are identified and their maintenance status tracked. Where possible, the platform contributes to the maintenance of its dependencies through bug reports, patches, and financial sponsorship.
+The Prismatic Platform mitigates dependency risk through several mechanisms. Dependency health is monitored as part of the [quality gate](@/glossary/quality-gates.md) system. Critical dependencies are identified and their maintenance status tracked. Where possible, the platform contributes to the maintenance of its dependencies through bug reports, patches, and financial sponsorship.
 
 The platform's quality measurement system extends to dependency evaluation:
 
@@ -261,7 +261,7 @@ Sustainability is not a binary state but a spectrum measured through multiple in
 
 **Community Indicators**: Active contributor count (30-day), new contributor onboarding rate, contributor retention rate, community satisfaction (measured through surveys and sentiment analysis), and ecosystem growth (dependent projects, integrations).
 
-**Technical Indicators**: Maintenance response time (security patches, bug fixes), dependency currency (how up-to-date dependencies are), [test coverage](/glossary/test-coverage/) trajectory, and documentation completeness.
+**Technical Indicators**: Maintenance response time (security patches, bug fixes), dependency currency (how up-to-date dependencies are), [test coverage](@/glossary/test-coverage.md) trajectory, and documentation completeness.
 
 **Risk Indicators**: Bus factor (minimum contributors whose departure would threaten the project), dependency health score, license compatibility across the dependency graph, and governance health (clear decision-making processes).
 
@@ -305,16 +305,16 @@ The European Union's Cyber Resilience Act (CRA) and similar legislation in other
 
 ## Related Concepts
 
-- [Open Source](/glossary/open-source/) -- Foundations of open source software development
-- [Open Source Strategy](/glossary/open-source-strategy/) -- Strategic approaches to open source engagement
-- [Open Source Advocacy](/glossary/open-source-advocacy/) -- Promoting open source adoption and contribution
-- [Open Source Leadership](/glossary/open-source-leadership/) -- Leading open source projects and communities
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- Quality standards for open source trust
-- [Quality Innovation](/glossary/quality-innovation/) -- Innovation in quality measurement systems
-- [Quality Gates](/glossary/quality-gates/) -- Automated quality enforcement for OSS and commercial code
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- Automated maintenance reducing sustainability burden
-- [Security](/glossary/security/) -- Security implications of underfunded dependencies
-- [Test Coverage](/glossary/test-coverage/) -- Coverage standards applied identically to OSS and commercial code
+- [Open Source](@/glossary/open-source.md) -- Foundations of open source software development
+- [Open Source Strategy](@/glossary/open-source-strategy.md) -- Strategic approaches to open source engagement
+- [Open Source Advocacy](@/glossary/open-source-advocacy.md) -- Promoting open source adoption and contribution
+- [Open Source Leadership](@/glossary/open-source-leadership.md) -- Leading open source projects and communities
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- Quality standards for open source trust
+- [Quality Innovation](@/glossary/quality-innovation.md) -- Innovation in quality measurement systems
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated quality enforcement for OSS and commercial code
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- Automated maintenance reducing sustainability burden
+- [Security](@/glossary/security.md) -- Security implications of underfunded dependencies
+- [Test Coverage](@/glossary/test-coverage.md) -- Coverage standards applied identically to OSS and commercial code
 
 ---
 
@@ -323,4 +323,4 @@ The European Union's Cyber Resilience Act (CRA) and similar legislation in other
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

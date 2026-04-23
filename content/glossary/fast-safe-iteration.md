@@ -372,24 +372,24 @@ Implementing fast safe iteration is as much a cultural shift as a technical one.
 
 Fast safe iteration connects to several foundational concepts in the Prismatic Platform:
 
-- [CI/CD](/glossary/ci-cd/) provides the automated pipeline infrastructure that enables fast safe iteration at scale
-- [Quality Gates](/glossary/quality-gates/) are the automated checkpoints that maintain safety during rapid iteration
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) implement the earliest and fastest layer of automated quality checking
-- [Regression Testing](/glossary/regression-testing/) ensures that fast iteration does not introduce regressions in existing functionality
-- [Automate Relentlessly](/glossary/automate-relentlessly/) is the philosophical principle that drives fast safe iteration's automation investment
-- [Continuous Integration](/glossary/continuous-integration/) validates every commit against the full test suite
-- [Test Coverage](/glossary/test-coverage/) measures the completeness of the safety net that enables fast iteration
-- [Code Quality](/glossary/code-quality/) defines the standards that automated checks enforce
-- [Autoheal](/glossary/autoheal/) extends fast safe iteration by automatically detecting and correcting quality degradation
-- [Autoevolve](/glossary/autoevolve/) uses fast safe iteration to autonomously improve the platform's quality infrastructure
+- [CI/CD](@/glossary/ci-cd.md) provides the automated pipeline infrastructure that enables fast safe iteration at scale
+- [Quality Gates](@/glossary/quality-gates.md) are the automated checkpoints that maintain safety during rapid iteration
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) implement the earliest and fastest layer of automated quality checking
+- [Regression Testing](@/glossary/regression-testing.md) ensures that fast iteration does not introduce regressions in existing functionality
+- [Automate Relentlessly](@/glossary/automate-relentlessly.md) is the philosophical principle that drives fast safe iteration's automation investment
+- [Continuous Integration](@/glossary/continuous-integration.md) validates every commit against the full test suite
+- [Test Coverage](@/glossary/test-coverage.md) measures the completeness of the safety net that enables fast iteration
+- [Code Quality](@/glossary/code-quality.md) defines the standards that automated checks enforce
+- [Autoheal](@/glossary/autoheal.md) extends fast safe iteration by automatically detecting and correcting quality degradation
+- [Autoevolve](@/glossary/autoevolve.md) uses fast safe iteration to autonomously improve the platform's quality infrastructure
 
 ## See Also
 
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- the enforcement doctrine that ensures quality standards are never compromised
-- [Quality DNA](/glossary/quality-dna/) -- the persistent quality state that maintains institutional memory across sessions
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the autonomous monitor that alerts when quality metrics drift
-- [Clean Run](/glossary/clean-run/) -- the zero-warning compilation standard that fast safe iteration enforces
-- [Disciplined Approach](/glossary/disciplined-approach/) -- the development philosophy that frames quality automation as enablement rather than restriction
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- the enforcement doctrine that ensures quality standards are never compromised
+- [Quality DNA](@/glossary/quality-dna.md) -- the persistent quality state that maintains institutional memory across sessions
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the autonomous monitor that alerts when quality metrics drift
+- [Clean Run](@/glossary/clean-run.md) -- the zero-warning compilation standard that fast safe iteration enforces
+- [Disciplined Approach](@/glossary/disciplined-approach.md) -- the development philosophy that frames quality automation as enablement rather than restriction
 
 ---
 

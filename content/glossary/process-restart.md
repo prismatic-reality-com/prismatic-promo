@@ -408,24 +408,24 @@ In the Prismatic Platform's polyglot storage layer, each storage adapter is supe
 
 Process restart is deeply embedded in the OTP ecosystem and connects to many related patterns:
 
-- [Supervisor](/glossary/supervisor/) -- the OTP behaviour that implements process restart logic, monitoring children and executing restart strategies
-- [Supervision Tree](/glossary/supervision-tree/) -- the hierarchical structure of supervisors that enables cascading failure recovery through the process restart mechanism
-- [Let It Crash](/glossary/let-it-crash/) -- the philosophical foundation of process restart, advocating for clean failure over defensive error handling
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the system property that process restart enables, allowing the platform to continue operating despite component failures
-- [GenServer](/glossary/genserver/) -- the most common OTP behaviour for implementing supervised processes that benefit from automatic restart
-- [Process Isolation](/glossary/process-isolation/) -- the BEAM guarantee that makes process restart safe by ensuring crashes cannot corrupt other processes
-- [Circuit Breaker](/glossary/circuit-breaker/) -- complementary pattern that prevents restart storms by breaking the connection to failing external dependencies
-- [Self-Healing](/glossary/self-healing/) -- the emergent system property that arises from combining process restart with supervision trees
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine whose lightweight process model makes sub-millisecond process restart practical
-- [OTP](/glossary/otp/) -- the framework that provides the supervision and restart infrastructure used throughout the Prismatic Platform
+- [Supervisor](@/glossary/supervisor.md) -- the OTP behaviour that implements process restart logic, monitoring children and executing restart strategies
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the hierarchical structure of supervisors that enables cascading failure recovery through the process restart mechanism
+- [Let It Crash](@/glossary/let-it-crash.md) -- the philosophical foundation of process restart, advocating for clean failure over defensive error handling
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the system property that process restart enables, allowing the platform to continue operating despite component failures
+- [GenServer](@/glossary/genserver.md) -- the most common OTP behaviour for implementing supervised processes that benefit from automatic restart
+- [Process Isolation](@/glossary/process-isolation.md) -- the BEAM guarantee that makes process restart safe by ensuring crashes cannot corrupt other processes
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- complementary pattern that prevents restart storms by breaking the connection to failing external dependencies
+- [Self-Healing](@/glossary/self-healing.md) -- the emergent system property that arises from combining process restart with supervision trees
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine whose lightweight process model makes sub-millisecond process restart practical
+- [OTP](@/glossary/otp.md) -- the framework that provides the supervision and restart infrastructure used throughout the Prismatic Platform
 
 ## See Also
 
-- [Backpressure](/glossary/backpressure/) -- flow control mechanism that complements restart by preventing processes from being overwhelmed
-- [Chaos Engineering](/glossary/chaos-engineering/) -- practice of deliberately inducing failures to verify that process restart behaves correctly under stress
-- [Bulkhead Pattern](/glossary/bulkhead-pattern/) -- isolation pattern that limits the blast radius of failures, working alongside process restart
-- [Telemetry](/glossary/telemetry/) -- observability framework for monitoring restart frequency and patterns
-- [Monitoring](/glossary/monitoring/) -- the broader system property that process restart contributes to
+- [Backpressure](@/glossary/backpressure.md) -- flow control mechanism that complements restart by preventing processes from being overwhelmed
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- practice of deliberately inducing failures to verify that process restart behaves correctly under stress
+- [Bulkhead Pattern](@/glossary/bulkhead-pattern.md) -- isolation pattern that limits the blast radius of failures, working alongside process restart
+- [Telemetry](@/glossary/telemetry.md) -- observability framework for monitoring restart frequency and patterns
+- [Monitoring](@/glossary/monitoring.md) -- the broader system property that process restart contributes to
 
 ---
 

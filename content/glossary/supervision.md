@@ -27,9 +27,9 @@ Supervision is the OTP design pattern of monitoring processes through hierarchic
 
 The fundamental insight behind supervision is that unanticipated failures are inevitable in production systems. No amount of defensive coding can prevent every possible error condition -- hardware failures, network partitions, memory corruption, and logic errors in rarely-exercised code paths will eventually cause process crashes. Rather than adding layers of error handling that increase complexity and often mask the underlying problem, supervision separates the concerns of "doing work" (worker processes) from "handling failure" (supervisor processes). Workers are kept simple -- they perform their function and crash if something goes wrong. Supervisors are kept focused -- they monitor workers, detect crashes, and restart failed processes according to configured strategies.
 
-Within the Prismatic Platform, supervision is a mandatory architectural requirement enforced through the platform's Elixir Best Practices policy. The mandate states: "Process for every stateful entity" and "Supervision tree documented before code." Every one of the platform's 115 umbrella applications defines its own [Supervision Tree](/glossary/supervision-tree/), and the meta-rule "If the same solution could be written identically in Node.js, it's WRONG" ensures that developers leverage OTP supervision rather than falling back to try-catch error handling patterns that would be at home in any runtime.
+Within the Prismatic Platform, supervision is a mandatory architectural requirement enforced through the platform's Elixir Best Practices policy. The mandate states: "Process for every stateful entity" and "Supervision tree documented before code." Every one of the platform's 115 umbrella applications defines its own [Supervision Tree](@/glossary/supervision-tree.md), and the meta-rule "If the same solution could be written identically in Node.js, it's WRONG" ensures that developers leverage OTP supervision rather than falling back to try-catch error handling patterns that would be at home in any runtime.
 
-The concept of supervision extends beyond individual process monitoring. The Prismatic Platform applies supervisory principles at multiple levels: process-level supervision through OTP supervisors, application-level supervision through the [PrismaticSupervisor](/glossary/supervisor/) with dependency-aware startup, quality-level supervision through the [Quality Floor Guardian](/glossary/quality-floor-guardian/), and strategic-level supervision through agent hierarchy monitoring. At each level, the pattern is the same: observe, detect failure, apply recovery strategy.
+The concept of supervision extends beyond individual process monitoring. The Prismatic Platform applies supervisory principles at multiple levels: process-level supervision through OTP supervisors, application-level supervision through the [PrismaticSupervisor](@/glossary/supervisor.md) with dependency-aware startup, quality-level supervision through the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md), and strategic-level supervision through agent hierarchy monitoring. At each level, the pattern is the same: observe, detect failure, apply recovery strategy.
 
 ## Technical Deep Dive
 
@@ -206,7 +206,7 @@ The three restart types define different failure recovery behaviors:
 
 ### Dynamic Supervision
 
-For processes that are created and destroyed at runtime, [Dynamic Supervisor](/glossary/dynamic-supervisor/) provides on-demand child management:
+For processes that are created and destroyed at runtime, [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) provides on-demand child management:
 
 ```elixir
 defmodule PrismaticPerimeter.ScanSupervisor do
@@ -552,23 +552,23 @@ Supervision does not replace error handling -- it complements it. Expected, reco
 
 ## Related Terms
 
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchical organization of supervisors and workers
-- [Supervisor](/glossary/supervisor/) -- OTP behaviour for monitoring child processes
-- [GenServer](/glossary/genserver/) -- Primary worker process behaviour managed by supervisors
-- [OTP](/glossary/otp/) -- Framework providing supervision behaviours and patterns
-- [BEAM](/glossary/beam/) -- Virtual machine enabling lightweight process supervision
-- [Process Isolation](/glossary/process-isolation/) -- BEAM isolation that makes supervision effective
-- [Self-Healing](/glossary/self-healing/) -- Platform-level recovery complementing OTP supervision
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property enabled by supervision
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- Runtime child management variant
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Complementary failure protection pattern
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchical organization of supervisors and workers
+- [Supervisor](@/glossary/supervisor.md) -- OTP behaviour for monitoring child processes
+- [GenServer](@/glossary/genserver.md) -- Primary worker process behaviour managed by supervisors
+- [OTP](@/glossary/otp.md) -- Framework providing supervision behaviours and patterns
+- [BEAM](@/glossary/beam.md) -- Virtual machine enabling lightweight process supervision
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM isolation that makes supervision effective
+- [Self-Healing](@/glossary/self-healing.md) -- Platform-level recovery complementing OTP supervision
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property enabled by supervision
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- Runtime child management variant
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Complementary failure protection pattern
 
 ## See Also
 
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Quality-level supervision in the platform
-- [Application](/glossary/application/) -- OTP application module defining supervision tree roots
-- [Telemetry](/glossary/telemetry/) -- Observability instrumentation for supervision events
-- [Architecture](/architecture/) -- Platform architecture overview
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Quality-level supervision in the platform
+- [Application](@/glossary/application.md) -- OTP application module defining supervision tree roots
+- [Telemetry](@/glossary/telemetry.md) -- Observability instrumentation for supervision events
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -578,4 +578,4 @@ Supervision does not replace error handling -- it complements it. Expected, reco
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

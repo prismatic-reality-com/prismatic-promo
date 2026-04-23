@@ -324,24 +324,24 @@ Prismatic eliminated 905 Quality Debt Points (QDP) across its codebase, reaching
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) -- Automated enforcement mechanisms that validate architectural properties at commit, push, and merge time
-- [Clean Run](/glossary/clean-run/) -- Zero-warning compilation standard that forms the foundation of architecture excellence
-- [Fitness Score](/glossary/fitness-score/) -- Numeric measure of evolutionary fitness used to track platform quality across generations
-- [Credo](/glossary/credo/) -- Elixir static analysis tool that enforces code consistency and identifies improvement opportunities
-- [Dialyzer](/glossary/dialyzer/) -- Erlang/Elixir type analysis tool that detects type violations and contract breaches
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality state persistence system that prevents regression between development sessions
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous monitoring system that detects and responds to quality degradation
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- Platform doctrine that mandates zero tolerance for quality violations
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP pattern that provides the structural backbone for reliable system architecture
-- [AutoEvolve](/glossary/autoevolve/) -- Autonomous evolution system that drives continuous platform improvement
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated enforcement mechanisms that validate architectural properties at commit, push, and merge time
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning compilation standard that forms the foundation of architecture excellence
+- [Fitness Score](@/glossary/fitness-score.md) -- Numeric measure of evolutionary fitness used to track platform quality across generations
+- [Credo](@/glossary/credo.md) -- Elixir static analysis tool that enforces code consistency and identifies improvement opportunities
+- [Dialyzer](@/glossary/dialyzer.md) -- Erlang/Elixir type analysis tool that detects type violations and contract breaches
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality state persistence system that prevents regression between development sessions
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous monitoring system that detects and responds to quality degradation
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- Platform doctrine that mandates zero tolerance for quality violations
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP pattern that provides the structural backbone for reliable system architecture
+- [AutoEvolve](@/glossary/autoevolve.md) -- Autonomous evolution system that drives continuous platform improvement
 
 ## See Also
 
-- [Architecture section](/architecture/) -- Detailed documentation of Prismatic Platform's architectural decisions
+- [Architecture section](@/architecture/_index.md) -- Detailed documentation of Prismatic Platform's architectural decisions
 - Building Evolutionary Architectures (Ford, Parsons, Kua) -- Foundational text on fitness functions and evolutionary architecture
 - Software Architecture in Practice (Bass, Clements, Kazman) -- Comprehensive treatment of quality attributes and architecture evaluation
 - ISO/IEC 25010:2023 -- Systems and software quality model defining quality characteristics
-- [Quality Gates documentation](/glossary/quality-gates/) -- Detailed specification of Prismatic's multi-gate quality enforcement
+- [Quality Gates documentation](@/glossary/quality-gates.md) -- Detailed specification of Prismatic's multi-gate quality enforcement
 
 ---
 
@@ -350,4 +350,4 @@ Prismatic eliminated 905 Quality Debt Points (QDP) across its codebase, reaching
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

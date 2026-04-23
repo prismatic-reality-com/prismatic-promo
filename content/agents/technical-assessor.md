@@ -30,7 +30,7 @@ image_alt = "technical-assessor - Prismatic Platform"
 
 The Technical Assessor is an L2 tactical operations agent operating within the Prismatic Platform's primary-producer domain, specialized in technical requirement assessment and solution architecture evaluation. This agent provides the analytical foundation for technology decisions by evaluating the fitness of proposed technologies, assessing integration feasibility within the existing platform architecture, and estimating implementation complexity for development planning.
 
-In a platform of over 90 applications built on the [BEAM](/glossary/beam/) virtual machine with [OTP](/glossary/otp/), every technology introduction carries implications for compilation dependencies, runtime behavior, operational complexity, and team expertise requirements. The Technical Assessor ensures that these implications are thoroughly analyzed before commitments are made. Operating under the [AIAD](/glossary/aiad/) standard and the [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, the agent requires evidence-based assessment with quantified confidence levels for every technical recommendation.
+In a platform of over 90 applications built on the [BEAM](@/glossary/beam.md) virtual machine with [OTP](@/glossary/otp.md), every technology introduction carries implications for compilation dependencies, runtime behavior, operational complexity, and team expertise requirements. The Technical Assessor ensures that these implications are thoroughly analyzed before commitments are made. Operating under the [AIAD](@/glossary/aiad.md) standard and the [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, the agent requires evidence-based assessment with quantified confidence levels for every technical recommendation.
 
 ## Theoretical Foundations
 
@@ -56,7 +56,7 @@ The evaluation incorporates concepts from the Gartner Hype Cycle, which models t
 
 ## Architecture and Implementation
 
-The Technical Assessor operates as an [OTP](/glossary/otp/) process within the primary-producer domain, implementing a structured assessment pipeline.
+The Technical Assessor operates as an [OTP](@/glossary/otp.md) process within the primary-producer domain, implementing a structured assessment pipeline.
 
 | Component | Function | Implementation |
 |-----------|----------|---------------|
@@ -101,18 +101,18 @@ The agent follows a structured assessment methodology that produces reproducible
 
 | System | Integration Purpose | Data Flow |
 |--------|-------------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent lifecycle and task dispatch | Bidirectional |
-| [Prismatic Telemetry](/glossary/telemetry/) | Assessment metrics and events | Write |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification and discovery | Read |
-| [SEADF](/glossary/seadf/) | Assessment quality tracking | Bidirectional |
-| [GARDEN](/glossary/garden/) | Historical assessment patterns and outcomes | Read/Write |
-| [Mycelial Network](/glossary/mycelial-network/) | Cross-domain assessment sharing | Bidirectional |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent lifecycle and task dispatch | Bidirectional |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Assessment metrics and events | Write |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Read |
+| [SEADF](@/glossary/seadf.md) | Assessment quality tracking | Bidirectional |
+| [GARDEN](@/glossary/garden.md) | Historical assessment patterns and outcomes | Read/Write |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Cross-domain assessment sharing | Bidirectional |
 
 ## Quality Assurance
 
 Assessment quality is validated through retrospective analysis that compares predictions against actual outcomes. Technologies that were assessed as high-fitness are tracked through implementation to verify that the assessment was accurate. Systematic prediction errors are identified and used to calibrate the assessment model, improving future accuracy.
 
-The [Trinity Gate](/glossary/trinity-gate/) verification system validates that assessments are structurally complete (all required evaluation dimensions addressed), logically consistent (scores align with evidence), and formally sound (comparative rankings are transitive and consistent).
+The [Trinity Gate](@/glossary/trinity-gate.md) verification system validates that assessments are structurally complete (all required evaluation dimensions addressed), logically consistent (scores align with evidence), and formally sound (comparative rankings are transitive and consistent).
 
 ## Operational Considerations
 
@@ -120,7 +120,7 @@ The Technical Assessor supports both proactive and reactive assessment modes. In
 
 ## Related Agents
 
-The Technical Assessor provides assessment intelligence to the [system-architecture-specialist](/agents/system-architecture-specialist/) for architectural decision-making. The [tech-debt-analyst](/agents/tech-debt-analyst/) uses technology assessments to evaluate debt remediation alternatives. The [supplier-risk-specialist](/agents/supplier-risk-specialist/) leverages technical assessments for evaluating supplier technology capabilities.
+The Technical Assessor provides assessment intelligence to the [system-architecture-specialist](@/agents/system-architecture-specialist.md) for architectural decision-making. The [tech-debt-analyst](@/agents/tech-debt-analyst.md) uses technology assessments to evaluate debt remediation alternatives. The [supplier-risk-specialist](@/agents/supplier-risk-specialist.md) leverages technical assessments for evaluating supplier technology capabilities.
 
 ---
 
@@ -129,4 +129,4 @@ The Technical Assessor provides assessment intelligence to the [system-architect
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

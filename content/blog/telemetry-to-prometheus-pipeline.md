@@ -18,7 +18,7 @@ see_also = ["telemetry", "metrics", "observability", "monitoring", "performance"
 image_alt = "Telemetry to Prometheus Pipeline"
 +++
 
-Most Elixir codebases reinvent this pipeline three or four times before converging on the right shape. Write it once correctly and you stop touching it for years. The pipeline is: [telemetry](/glossary/telemetry) events → `Telemetry.Metrics` definitions → Prometheus exporter → Grafana dashboards. Four stages. Each stage depends on exactly one thing from the previous stage. No coupling elsewhere.
+Most Elixir codebases reinvent this pipeline three or four times before converging on the right shape. Write it once correctly and you stop touching it for years. The pipeline is: [telemetry](@/glossary/telemetry.md) events → `Telemetry.Metrics` definitions → Prometheus exporter → Grafana dashboards. Four stages. Each stage depends on exactly one thing from the previous stage. No coupling elsewhere.
 
 ## Stage 1: The event contract
 
@@ -40,7 +40,7 @@ The list is the API. Everything downstream depends on *these names*. Refactor th
 
 ## Stage 2: Metric definitions
 
-`Telemetry.Metrics` translates events into typed [metrics](/glossary/metrics):
+`Telemetry.Metrics` translates events into typed [metrics](@/glossary/metrics.md):
 
 ```elixir
 defmodule PrismaticWeb.Telemetry do
@@ -96,6 +96,6 @@ Break that rule and you get drift: events that nobody consumes, dashboards that 
 ## Where to go next
 
 - **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — in-app dashboards from the same telemetry
-- **Glossary**: [Telemetry](/glossary/telemetry), [Metrics](/glossary/metrics), [Observability](/glossary/observability), [Monitoring](/glossary/monitoring), [Performance](/glossary/performance)
+- **Glossary**: [Telemetry](@/glossary/telemetry.md), [Metrics](@/glossary/metrics.md), [Observability](@/glossary/observability.md), [Monitoring](@/glossary/monitoring.md), [Performance](@/glossary/performance.md)
 
 Four stages. One contract. Write it once and move on.

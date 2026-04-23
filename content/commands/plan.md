@@ -24,13 +24,13 @@ image_alt = "/plan - Prismatic Platform"
 
 ## Overview
 
-**/plan** is a production command in the **Operations** category of the Prismatic Platform that provides strategic project planning capabilities with full [AIAD](/glossary/aiad/) ecosystem integration. This command transforms high-level objectives into structured, executable project plans that account for dependencies, resource constraints, quality requirements, and the platform's extensive agent and command ecosystem. It is the primary interface for translating strategic intent into tactical execution roadmaps.
+**/plan** is a production command in the **Operations** category of the Prismatic Platform that provides strategic project planning capabilities with full [AIAD](@/glossary/aiad.md) ecosystem integration. This command transforms high-level objectives into structured, executable project plans that account for dependencies, resource constraints, quality requirements, and the platform's extensive agent and command ecosystem. It is the primary interface for translating strategic intent into tactical execution roadmaps.
 
-The planning engine operates by decomposing objectives into work items, identifying dependencies between them, estimating effort based on historical platform data, and mapping work items to appropriate agents and commands for execution. The resulting plan is a directed acyclic graph (DAG) of tasks with clear sequencing, parallelization opportunities, and quality gate checkpoints. This structured approach ensures that complex multi-phase projects are executed with the discipline and completeness that the platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine demands.
+The planning engine operates by decomposing objectives into work items, identifying dependencies between them, estimating effort based on historical platform data, and mapping work items to appropriate agents and commands for execution. The resulting plan is a directed acyclic graph (DAG) of tasks with clear sequencing, parallelization opportunities, and quality gate checkpoints. This structured approach ensures that complex multi-phase projects are executed with the discipline and completeness that the platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine demands.
 
-This command operates under the **L2+** authority level and is executed by the `planner` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the AIAD (Autonomous Intelligence Agent Design) standard. The planner agent has read access to the full AIAD registry, enabling it to recommend specific agents and commands for each task in the generated plan.
+This command operates under the **L2+** authority level and is executed by the `planner` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the AIAD (Autonomous Intelligence Agent Design) standard. The planner agent has read access to the full AIAD registry, enabling it to recommend specific agents and commands for each task in the generated plan.
 
-Unlike ad-hoc task tracking, the `/plan` command produces plans that are deeply integrated with the platform's operational infrastructure. Each task in a generated plan can reference specific commands to execute, agents to coordinate with, quality gates to pass, and [telemetry](/glossary/telemetry/) events to emit. This integration means that plan execution is not merely a checklist but a coordinated workflow that leverages the full capabilities of the Prismatic Platform.
+Unlike ad-hoc task tracking, the `/plan` command produces plans that are deeply integrated with the platform's operational infrastructure. Each task in a generated plan can reference specific commands to execute, agents to coordinate with, quality gates to pass, and [telemetry](@/glossary/telemetry.md) events to emit. This integration means that plan execution is not merely a checklist but a coordinated workflow that leverages the full capabilities of the Prismatic Platform.
 
 ## Architecture
 
@@ -168,15 +168,15 @@ The planning pipeline executes through five distinct phases that transform an ob
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Task Assignment | Maps tasks to capable agents |
-| [AIAD Registry](/glossary/aiad/) | Capability Discovery | Queries available commands and agents |
-| [Quality Gates](/glossary/quality-gates/) | Checkpoint Insertion | Adds quality gates at phase boundaries |
-| [Telemetry](/glossary/telemetry/) | Plan Tracking | Emits plan lifecycle events |
-| [Prismatic Storage](/apps/prismatic-storage/) | Plan Persistence | Stores plans, progress, history |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Task Assignment | Maps tasks to capable agents |
+| [AIAD Registry](@/glossary/aiad.md) | Capability Discovery | Queries available commands and agents |
+| [Quality Gates](@/glossary/quality-gates.md) | Checkpoint Insertion | Adds quality gates at phase boundaries |
+| [Telemetry](@/glossary/telemetry.md) | Plan Tracking | Emits plan lifecycle events |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Plan Persistence | Stores plans, progress, history |
 | GitLab API | Issue Management | Creates/syncs issues and milestones |
-| [/code](/commands/code/) | Execution | Implementation tasks reference `/code` |
-| [/test](/commands/test/) | Execution | Testing tasks reference `/test` |
-| [/fix](/commands/fix/) | Execution | Bug fix tasks reference `/fix` |
+| [/code](@/commands/code.md) | Execution | Implementation tasks reference `/code` |
+| [/test](@/commands/test.md) | Execution | Testing tasks reference `/test` |
+| [/fix](@/commands/fix.md) | Execution | Bug fix tasks reference `/fix` |
 
 ## Best Practices
 
@@ -232,21 +232,21 @@ The planning pipeline executes through five distinct phases that transform an ob
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Generated plans always include quality gates, testing phases, and documentation tasks. Plans that would produce incomplete or untested deliverables are rejected by the planning engine.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Task effort estimates are based on historical data, not assumptions. Dependencies are verified against the actual codebase structure. Agent assignments are validated against the AIAD registry to ensure capability alignment.
 
-The planner agent operates under the [NABLA](/glossary/nabla-infinity/) framework, applying Signal Plurality to effort estimation (multiple estimation techniques are cross-validated) and Provenance Mandatory to dependency analysis (all dependencies are traceable to specific code and configuration relationships).
+The planner agent operates under the [NABLA](@/glossary/nabla-infinity.md) framework, applying Signal Plurality to effort estimation (multiple estimation techniques are cross-validated) and Provenance Mandatory to dependency analysis (all dependencies are traceable to specific code and configuration relationships).
 
 ## Related Commands
 
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -255,4 +255,4 @@ The planner agent operates under the [NABLA](/glossary/nabla-infinity/) framewor
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

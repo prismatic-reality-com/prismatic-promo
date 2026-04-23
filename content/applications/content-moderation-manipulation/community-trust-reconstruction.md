@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-Community trust reconstruction — An academic treatment of content safety and manipulation detection systems within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **community trust reconstruction** as implemented within the Prismatic Platform's content safety and manipulation detection systems domain. We formalize the problem space through the lens of adversarial content generation and deepfake detection, propose a multi-agent architecture leveraging [OTP](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates multi-modal classification, adversarial training, provenance tracking to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for content safety and manipulation detection systems.
+Community trust reconstruction — An academic treatment of content safety and manipulation detection systems within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **community trust reconstruction** as implemented within the Prismatic Platform's content safety and manipulation detection systems domain. We formalize the problem space through the lens of adversarial content generation and deepfake detection, propose a multi-agent architecture leveraging [OTP](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates multi-modal classification, adversarial training, provenance tracking to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for content safety and manipulation detection systems.
 
 **Keywords:** Community, trust, reconstruction, Prismatic-native, Content, Moderation
 
@@ -115,7 +115,7 @@ The community trust reconstruction system is implemented as a Prismatic-native a
 
 ### 3.2 OTP Process Topology
 
-The system leverages [Elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [Elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule CommunityTrustReconstruction.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -216,7 +216,7 @@ The implementation leverages the Prismatic Platform's technology stack:
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
 | Runtime | Elixir 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
-| Web Layer | Phoenix [LiveView](/glossary/liveview/) | Real-time interactive dashboards |
+| Web Layer | Phoenix [LiveView](@/glossary/liveview.md) | Real-time interactive dashboards |
 | Storage | PostgreSQL + ETS | Persistent + in-memory storage |
 | Search | Meilisearch | Full-text search and indexing |
 | Styling | TailwindCSS + Flowbite | Consistent UI component library |
@@ -464,19 +464,19 @@ config :prismatic, CommunityTrustReconstruction,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [Trust-based law evolution](/applications/legal-governance-systems/trust-based-law-evolution/) — *Legal Governance Systems*
-- [Zero-trust policy rehearsal](/applications/defense-security/zero-trust-policy-rehearsal/) — *Defense Security*
-- [Community moderation copilot](/applications/communication-media/community-moderation-copilot/) — *Communication Media*
-- [After-action review automation](/applications/defense-security/after-action-review-automation/) — *Defense Security*
+- [Trust-based law evolution](@/applications/legal-governance-systems/trust-based-law-evolution.md) — *Legal Governance Systems*
+- [Zero-trust policy rehearsal](@/applications/defense-security/zero-trust-policy-rehearsal.md) — *Defense Security*
+- [Community moderation copilot](@/applications/communication-media/community-moderation-copilot.md) — *Communication Media*
+- [After-action review automation](@/applications/defense-security/after-action-review-automation.md) — *Defense Security*
 
 
 ## Further Reading
 
-- [Content Moderation Manipulation — All Applications](/applications/content-moderation-manipulation/)
-- [Communication Media](/applications/communication-media/)
-- [Intelligence Counter Intelligence](/applications/intelligence-counter-intelligence/)
-- [Ethics Moral Philosophy](/applications/ethics-moral-philosophy/)
-- [Prismatic Application Catalogue](/applications/)
+- [Content Moderation Manipulation — All Applications](@/applications/content-moderation-manipulation/_index.md)
+- [Communication Media](@/applications/communication-media/_index.md)
+- [Intelligence Counter Intelligence](@/applications/intelligence-counter-intelligence/_index.md)
+- [Ethics Moral Philosophy](@/applications/ethics-moral-philosophy/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

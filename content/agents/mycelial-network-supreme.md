@@ -28,9 +28,9 @@ image_alt = "Mycelial Network Supreme - Prismatic Platform"
 
 ## Overview
 
-The Mycelial Network Supreme operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's mycelial domain, serving as the supreme manager of cross-domain pattern propagation networks. While other mycelial agents focus on specific aspects of network management -- healing, evolution, topology optimization -- the Network Supreme manages the intelligent distribution of patterns, knowledge, and operational intelligence across the platform's major operational domains: [OSINT](/glossary/osint/), [Nabla Infinity](/glossary/nabla-infinity/), CATCH, and Agent Societies. This cross-domain propagation capability ensures that insights generated in one domain rapidly reach agents in other domains where they can inform decisions and improve operations.
+The Mycelial Network Supreme operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's mycelial domain, serving as the supreme manager of cross-domain pattern propagation networks. While other mycelial agents focus on specific aspects of network management -- healing, evolution, topology optimization -- the Network Supreme manages the intelligent distribution of patterns, knowledge, and operational intelligence across the platform's major operational domains: [OSINT](@/glossary/osint.md), [Nabla Infinity](@/glossary/nabla-infinity.md), CATCH, and Agent Societies. This cross-domain propagation capability ensures that insights generated in one domain rapidly reach agents in other domains where they can inform decisions and improve operations.
 
-Built on the [AIAD](/glossary/aiad/) standard and implemented within the [SEADF](/glossary/seadf/) ecosystem framework, the Network Supreme manages propagation networks as adaptive systems that route patterns based on relevance, urgency, and consumer readiness. Rather than broadcasting all patterns to all domains, the agent applies intelligent routing that matches pattern characteristics to domain needs. A security vulnerability pattern discovered by OSINT agents is rapidly propagated to CATCH agents for threat assessment, while a quality improvement pattern identified in Agent Societies is routed to domains where similar quality challenges exist. The [NO DOUBTS](/glossary/no-doubts/) principle ensures that propagation decisions are evidence-based, with routing determined by measured pattern utility rather than assumed relevance.
+Built on the [AIAD](@/glossary/aiad.md) standard and implemented within the [SEADF](@/glossary/seadf.md) ecosystem framework, the Network Supreme manages propagation networks as adaptive systems that route patterns based on relevance, urgency, and consumer readiness. Rather than broadcasting all patterns to all domains, the agent applies intelligent routing that matches pattern characteristics to domain needs. A security vulnerability pattern discovered by OSINT agents is rapidly propagated to CATCH agents for threat assessment, while a quality improvement pattern identified in Agent Societies is routed to domains where similar quality challenges exist. The [NO DOUBTS](@/glossary/no-doubts.md) principle ensures that propagation decisions are evidence-based, with routing determined by measured pattern utility rather than assumed relevance.
 
 ## Theoretical Foundations
 
@@ -40,7 +40,7 @@ The routing algorithm applies content-based filtering principles, where each dom
 
 ## Operational Domain
 
-The mycelial domain encompasses all cross-domain pattern distribution activities within the platform. The Network Supreme maintains routing tables that map pattern types to target domains, with routing entries weighted by historical utility scores that reflect how productively each domain has consumed similar patterns in the past. These routing tables are stored in [ETS](/glossary/ets/) and updated continuously based on feedback from pattern consumers.
+The mycelial domain encompasses all cross-domain pattern distribution activities within the platform. The Network Supreme maintains routing tables that map pattern types to target domains, with routing entries weighted by historical utility scores that reflect how productively each domain has consumed similar patterns in the past. These routing tables are stored in [ETS](@/glossary/ets.md) and updated continuously based on feedback from pattern consumers.
 
 Four primary propagation channels are managed by the Network Supreme. The **OSINT channel** distributes intelligence patterns including threat indicators, entity profiles, and source reliability updates. The **Nabla channel** propagates epistemic patterns including belief updates, confidence adjustments, and axiom compliance findings. The **CATCH channel** distributes detection patterns including anomaly signatures, behavioral indicators, and threat classification updates. The **Societies channel** propagates organizational patterns including coordination improvements, authority adjustments, and team capability updates.
 
@@ -50,10 +50,10 @@ Four primary propagation channels are managed by the Network Supreme. The **OSIN
 - **Adaptive load balancing** -- Manages propagation traffic across domains using token-bucket rate limiting with adaptive bucket sizes, preventing information overload while maintaining propagation freshness guarantees
 - **Priority-based scheduling** -- Prioritizes pattern propagation based on urgency, domain criticality, and pattern freshness, ensuring that high-priority security patterns overtake lower-priority optimization patterns in the propagation queue
 - **Propagation feedback integration** -- Collects utility feedback from pattern consumers to continuously refine routing accuracy, strengthening routes that deliver high-utility patterns and weakening routes that produce low-value deliveries
-- **Cross-domain conflict detection** -- Identifies cases where patterns from different domains carry contradictory information and routes them through the [NABLA Infinity](/glossary/nabla-infinity/) framework for contradiction-preserving resolution rather than silent override
+- **Cross-domain conflict detection** -- Identifies cases where patterns from different domains carry contradictory information and routes them through the [NABLA Infinity](@/glossary/nabla-infinity.md) framework for contradiction-preserving resolution rather than silent override
 - **Propagation network visualization** -- Provides real-time visualization of active propagation flows including traffic volumes, routing paths, delivery latencies, and utility feedback scores
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed propagation management that adapts to domain activity levels and pattern generation rates
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing propagation metrics including delivery rates, routing accuracy, consumer utility scores, and cross-domain propagation latencies
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed propagation management that adapts to domain activity levels and pattern generation rates
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing propagation metrics including delivery rates, routing accuracy, consumer utility scores, and cross-domain propagation latencies
 
 ## Authority Level
 
@@ -61,7 +61,7 @@ Four primary propagation channels are managed by the Network Supreme. The **OSIN
 
 ## Propagation Architecture
 
-The Network Supreme implements a multi-tier propagation architecture. The **collection tier** receives patterns from all domain-specific agents through standardized pattern submission interfaces. Each pattern carries metadata including origin domain, pattern type, urgency level, freshness timestamp, and producer confidence score. The **routing tier** evaluates each pattern against routing tables and relevance profiles to determine target domains. The **delivery tier** manages actual propagation to target domains through [message passing](/glossary/message-passing/) channels with configurable quality-of-service guarantees.
+The Network Supreme implements a multi-tier propagation architecture. The **collection tier** receives patterns from all domain-specific agents through standardized pattern submission interfaces. Each pattern carries metadata including origin domain, pattern type, urgency level, freshness timestamp, and producer confidence score. The **routing tier** evaluates each pattern against routing tables and relevance profiles to determine target domains. The **delivery tier** manages actual propagation to target domains through [message passing](@/glossary/message-passing.md) channels with configurable quality-of-service guarantees.
 
 Propagation is asynchronous and non-blocking. Pattern submission returns immediately to the producing agent, while actual propagation proceeds through the pipeline at rates governed by load balancing policies. Critical-priority patterns bypass normal queuing and are delivered through dedicated fast-path channels with guaranteed sub-second propagation latency.
 
@@ -80,11 +80,11 @@ The architecture includes a feedback loop where pattern consumers report utility
 
 | Agent | Relationship |
 |-------|-------------|
-| [mycelial-network-coordinator](/agents/mycelial-network-coordinator/) | Reports to L1 coordinator for strategic direction and resource allocation |
-| [mycelial-propagation-engine](/agents/mycelial-propagation-engine/) | Delegates technical propagation execution and formal safety verification |
-| [osint-pattern-propagator](/agents/osint-pattern-propagator/) | Manages OSINT-specific pattern preparation and domain-specific routing refinement |
-| [nabla-quality-feedback-coordinator](/agents/nabla-quality-feedback-coordinator/) | Integrates Nabla quality signals into propagation routing decisions |
-| [mycelial-healer-specialist](/agents/mycelial-healer-specialist/) | Coordinates propagation channel repair when delivery failures are detected |
+| [mycelial-network-coordinator](@/agents/mycelial-network-coordinator.md) | Reports to L1 coordinator for strategic direction and resource allocation |
+| [mycelial-propagation-engine](@/agents/mycelial-propagation-engine.md) | Delegates technical propagation execution and formal safety verification |
+| [osint-pattern-propagator](@/agents/osint-pattern-propagator.md) | Manages OSINT-specific pattern preparation and domain-specific routing refinement |
+| [nabla-quality-feedback-coordinator](@/agents/nabla-quality-feedback-coordinator.md) | Integrates Nabla quality signals into propagation routing decisions |
+| [mycelial-healer-specialist](@/agents/mycelial-healer-specialist.md) | Coordinates propagation channel repair when delivery failures are detected |
 
 ## Adaptive Routing Optimization
 
@@ -92,7 +92,7 @@ Routing table optimization occurs continuously through a reinforcement learning-
 
 ## Enforcement
 
-The Network Supreme enforces the [NO MERCY](/glossary/no-mercy/) doctrine for propagation quality: no pattern is propagated without validated metadata, no routing decision is made without relevance scoring, and propagation failures trigger mandatory investigation and repair. The [NABLA Infinity](/glossary/nabla-infinity/) axioms govern information handling within propagation: contradictory patterns from different domains are preserved rather than resolved, and all propagated patterns carry complete provenance chains. The [Trinity Gate](/glossary/trinity-gate/) validates that propagation routing decisions maintain structural consistency with domain boundaries, logical consistency with pattern semantics, and formal consistency with information flow policies.
+The Network Supreme enforces the [NO MERCY](@/glossary/no-mercy.md) doctrine for propagation quality: no pattern is propagated without validated metadata, no routing decision is made without relevance scoring, and propagation failures trigger mandatory investigation and repair. The [NABLA Infinity](@/glossary/nabla-infinity.md) axioms govern information handling within propagation: contradictory patterns from different domains are preserved rather than resolved, and all propagated patterns carry complete provenance chains. The [Trinity Gate](@/glossary/trinity-gate.md) validates that propagation routing decisions maintain structural consistency with domain boundaries, logical consistency with pattern semantics, and formal consistency with information flow policies.
 
 ---
 
@@ -101,4 +101,4 @@ The Network Supreme enforces the [NO MERCY](/glossary/no-mercy/) doctrine for pr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

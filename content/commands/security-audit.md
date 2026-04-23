@@ -26,9 +26,9 @@ image_alt = "/security-audit - Prismatic Platform"
 
 **/security-audit** is a production command in the **Development** category of the Prismatic Platform. It performs comprehensive security audits across the entire umbrella application, scanning for vulnerabilities, misconfigurations, dependency risks, authentication weaknesses, and compliance gaps. The command orchestrates multiple security analysis engines -- static analysis, dependency auditing, configuration review, and runtime behavior assessment -- to produce a unified security posture report with actionable remediation guidance.
 
-This command operates under the **L3** authority level and is executed by the `security-audit-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the elevated privilege required: security audits need read access to configuration files, environment variable references, authentication modules, and cryptographic implementations that are normally restricted.
+This command operates under the **L3** authority level and is executed by the `security-audit-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the elevated privilege required: security audits need read access to configuration files, environment variable references, authentication modules, and cryptographic implementations that are normally restricted.
 
-In a platform with 90+ umbrella applications, 6,652 Elixir source files, and multiple external integrations (PostgreSQL, Redis, Meilisearch, KuzuDB, Ollama), the attack surface is substantial. `/security-audit` systematically examines this surface, applying OWASP Top 10 checks, Elixir-specific vulnerability patterns, Phoenix framework security best practices, and custom rules derived from the platform's operational history. The command integrates with the [Color Teams](/glossary/color-teams/) security infrastructure, feeding findings to the [Blue Team](/glossary/blue-team/) for defensive posture assessment and the [Red Team](/glossary/red-team/) for adversarial scenario generation.
+In a platform with 90+ umbrella applications, 6,652 Elixir source files, and multiple external integrations (PostgreSQL, Redis, Meilisearch, KuzuDB, Ollama), the attack surface is substantial. `/security-audit` systematically examines this surface, applying OWASP Top 10 checks, Elixir-specific vulnerability patterns, Phoenix framework security best practices, and custom rules derived from the platform's operational history. The command integrates with the [Color Teams](@/glossary/color-teams.md) security infrastructure, feeding findings to the [Blue Team](@/glossary/blue-team.md) for defensive posture assessment and the [Red Team](@/glossary/red-team.md) for adversarial scenario generation.
 
 ## Architecture
 
@@ -169,7 +169,7 @@ The security audit system operates as a multi-engine analysis pipeline that exam
 
 ### Phase 1: Scope Definition
 
-The orchestrator determines audit scope based on options. For full audits, all 90+ umbrella applications are enumerated. For targeted audits, the scope is restricted to specified applications, engines, or categories. File enumeration uses [Git Trees](/glossary/git-trees/) for performance.
+The orchestrator determines audit scope based on options. For full audits, all 90+ umbrella applications are enumerated. For targeted audits, the scope is restricted to specified applications, engines, or categories. File enumeration uses [Git Trees](@/glossary/git-trees.md) for performance.
 
 ### Phase 2: Static Analysis
 
@@ -195,14 +195,14 @@ All findings from individual engines are correlated to identify compound vulnera
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/color-team](/commands/color-team/) | Downstream | Findings feed Color Team security operations |
-| [/blue-team](/commands/blue-team/) | Consumer | Blue Team uses findings for defensive posture |
-| [/red-team](/commands/red-team/) | Consumer | Red Team uses findings for adversarial scenarios |
-| [/quality-gates](/commands/quality-gates/) | Enforcement | Security findings block quality gate passage |
-| [/route-test](/commands/route-test/) | Peer | Route testing complements security analysis |
-| [/verify-patterns](/commands/verify-patterns/) | Peer | Pattern verification includes security patterns |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Consumer | EASM uses internal security posture data |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Audit execution metrics and finding trends |
+| [/color-team](@/commands/color-team.md) | Downstream | Findings feed Color Team security operations |
+| [/blue-team](@/commands/blue-team.md) | Consumer | Blue Team uses findings for defensive posture |
+| [/red-team](@/commands/red-team.md) | Consumer | Red Team uses findings for adversarial scenarios |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | Security findings block quality gate passage |
+| [/route-test](@/commands/route-test.md) | Peer | Route testing complements security analysis |
+| [/verify-patterns](@/commands/verify-patterns.md) | Peer | Pattern verification includes security patterns |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Consumer | EASM uses internal security posture data |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Audit execution metrics and finding trends |
 
 ## Best Practices
 
@@ -274,21 +274,21 @@ For low-risk findings with known safe fixes, enable auto-remediation:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every vulnerability pattern is checked without exception, and critical findings block downstream operations.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every finding includes source location, evidence, confidence score, and traceable remediation steps.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/route-test](/commands/route-test/) - Route testing and HTTP endpoint verification
-- [/color-team](/commands/color-team/) - Color team status overview across all 6 teams
-- [/verify-patterns](/commands/verify-patterns/) - Pattern matching audit for file, module or entire codebase
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/route-test](@/commands/route-test.md) - Route testing and HTTP endpoint verification
+- [/color-team](@/commands/color-team.md) - Color team status overview across all 6 teams
+- [/verify-patterns](@/commands/verify-patterns.md) - Pattern matching audit for file, module or entire codebase
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -297,4 +297,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

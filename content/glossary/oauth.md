@@ -199,11 +199,11 @@ OAuth integration provides the security boundary between external consumers and 
 
 ## Cross-References
 
-- [Authentication](/glossary/authentication/) - Identity verification that OAuth builds upon
-- [Authorization](/glossary/authorization/) - Access control that OAuth enables
-- [JWT](/glossary/jwt/) - Token format often used with OAuth
-- [API](/glossary/api/) - Interface layer protected by OAuth
-- [OSINT](/glossary/osint/) - Tools using OAuth for external API access
+- [Authentication](@/glossary/authentication.md) - Identity verification that OAuth builds upon
+- [Authorization](@/glossary/authorization.md) - Access control that OAuth enables
+- [JWT](@/glossary/jwt.md) - Token format often used with OAuth
+- [API](@/glossary/api.md) - Interface layer protected by OAuth
+- [OSINT](@/glossary/osint.md) - Tools using OAuth for external API access
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

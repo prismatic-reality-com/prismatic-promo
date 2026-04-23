@@ -34,7 +34,7 @@ Quality monitoring is the continuous, automated process of observing, measuring,
 
 The Prismatic Platform's quality monitoring infrastructure is built on three pillars: **telemetry-driven instrumentation** (every quality-relevant event emits structured telemetry), **domain-specific monitors** (each of the 13 quality domains has its own specialized monitor with domain-appropriate thresholds), and **autonomous enforcement** (the Quality Floor Guardian agent acts on monitoring data without human intervention, escalating violations through a 4-level severity system).
 
-Quality monitoring is distinct from but complementary to [quality transparency](/glossary/quality-and-transparency/). While transparency ensures that quality data is visible and auditable, monitoring ensures that quality data is collected continuously and acted upon automatically. Together, they form the observability foundation of the platform's quality architecture.
+Quality monitoring is distinct from but complementary to [quality transparency](@/glossary/quality-and-transparency.md). While transparency ensures that quality data is visible and auditable, monitoring ensures that quality data is collected continuously and acted upon automatically. Together, they form the observability foundation of the platform's quality architecture.
 
 ## Historical Evolution
 
@@ -70,7 +70,7 @@ Each domain contributes independently to the platform quality score. A perfect s
 
 ## Quality Floor Guardian
 
-The [Quality Floor Guardian](/glossary/quality-floor-guardian/) is the centerpiece of the quality monitoring architecture. Implemented as an OTP GenServer, it continuously polls domain monitors, aggregates results, and triggers enforcement actions based on configurable thresholds.
+The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) is the centerpiece of the quality monitoring architecture. Implemented as an OTP GenServer, it continuously polls domain monitors, aggregates results, and triggers enforcement actions based on configurable thresholds.
 
 ```elixir
 defmodule PrismaticSafety.QualityFloorGuardian do
@@ -338,7 +338,7 @@ At the warning level, the Guardian emits structured alerts and triggers an inves
 
 ### Level 3: CRITICAL (95-98%)
 
-At the critical level, the Guardian activates the auto-evolution system. The [AutoHeal](/glossary/autoheal/) agent is invoked to attempt automatic remediation of quality violations. If auto-healing succeeds, the system returns to OPTIMAL. If it fails, the violation is escalated to EMERGENCY.
+At the critical level, the Guardian activates the auto-evolution system. The [AutoHeal](@/glossary/autoheal.md) agent is invoked to attempt automatic remediation of quality violations. If auto-healing succeeds, the system returns to OPTIMAL. If it fails, the violation is escalated to EMERGENCY.
 
 ### Level 4: EMERGENCY (below 95%)
 
@@ -359,7 +359,7 @@ This integration ensures that quality monitoring is not merely observational -- 
 
 ## Quality DNA Integration
 
-The [Quality DNA](/glossary/quality-dna/) system provides cross-session persistence for quality monitoring data. Each monitoring check updates the Quality DNA state file (`.claude/quality-dna/current-state.json`), ensuring that quality trends survive session boundaries. When a new session starts, the Quality Floor Guardian loads the previous session's quality state and detects any drift that occurred between sessions.
+The [Quality DNA](@/glossary/quality-dna.md) system provides cross-session persistence for quality monitoring data. Each monitoring check updates the Quality DNA state file (`.claude/quality-dna/current-state.json`), ensuring that quality trends survive session boundaries. When a new session starts, the Quality Floor Guardian loads the previous session's quality state and detects any drift that occurred between sessions.
 
 This integration is critical for detecting slow quality degradation that occurs across multiple sessions. A single session might see quality drop from 100% to 99% -- not alarming on its own. But Quality DNA reveals that the same domain has dropped 1% in each of the last 5 sessions, indicating a systemic problem that requires architectural intervention.
 
@@ -447,22 +447,22 @@ The 30-second check interval balances responsiveness with resource consumption. 
 
 ## Integration with AutoEvolve
 
-Quality monitoring data feeds directly into the [AutoEvolve](/glossary/autoevolve/) system, which uses trend data to identify opportunities for platform improvement. When monitoring detects that a quality domain has been at 100% for an extended period, AutoEvolve may tighten the threshold to push for even higher quality standards. Conversely, when a domain shows persistent difficulty reaching its threshold, AutoEvolve may recommend architectural changes to address the root cause.
+Quality monitoring data feeds directly into the [AutoEvolve](@/glossary/autoevolve.md) system, which uses trend data to identify opportunities for platform improvement. When monitoring detects that a quality domain has been at 100% for an extended period, AutoEvolve may tighten the threshold to push for even higher quality standards. Conversely, when a domain shows persistent difficulty reaching its threshold, AutoEvolve may recommend architectural changes to address the root cause.
 
 ## Related Concepts
 
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- Making quality metrics visible and auditable
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- The autonomous enforcement agent
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality state persistence
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement checkpoints in the pipeline
-- [Quality Debt](/glossary/quality-debt/) -- Accumulated quality violations
-- [Telemetry](/glossary/telemetry/) -- Event-based observability infrastructure
-- [AutoHeal](/glossary/autoheal/) -- Automatic remediation of quality violations
-- [AutoEvolve](/glossary/autoevolve/) -- Autonomous platform improvement
-- [Monitoring](/glossary/monitoring/) -- General observability patterns
-- [Health Monitoring](/glossary/health-monitoring/) -- System health observation
-- [Code Quality](/glossary/code-quality/) -- Source code health metrics
-- [Autonomous Quality](/glossary/autonomous-quality/) -- Self-governing quality systems
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- Making quality metrics visible and auditable
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- The autonomous enforcement agent
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality state persistence
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement checkpoints in the pipeline
+- [Quality Debt](@/glossary/quality-debt.md) -- Accumulated quality violations
+- [Telemetry](@/glossary/telemetry.md) -- Event-based observability infrastructure
+- [AutoHeal](@/glossary/autoheal.md) -- Automatic remediation of quality violations
+- [AutoEvolve](@/glossary/autoevolve.md) -- Autonomous platform improvement
+- [Monitoring](@/glossary/monitoring.md) -- General observability patterns
+- [Health Monitoring](@/glossary/health-monitoring.md) -- System health observation
+- [Code Quality](@/glossary/code-quality.md) -- Source code health metrics
+- [Autonomous Quality](@/glossary/autonomous-quality.md) -- Self-governing quality systems
 
 ---
 
@@ -471,4 +471,4 @@ Quality monitoring data feeds directly into the [AutoEvolve](/glossary/autoevolv
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

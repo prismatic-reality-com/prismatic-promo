@@ -28,13 +28,13 @@ image_alt = "primary-identity-verification-commander - Prismatic Platform"
 
 ## Overview
 
-The primary-identity-verification-commander operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's primary intelligence domain, serving as the central authority for entity id[entity resolution](/glossary/entity-resolution/) and verification operations. This agent orchestrates the process of confirming that a claimed identity corresponds to a real-world entity, cross-referencing multiple independent data sources to establish identity with quantified confidence. Identity verification is foundational to all downstream intelligence operations -- without confirmed identity, analysis built on assumed entity associations carries unacceptable epistemic risk.
+The primary-identity-verification-commander operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's primary intelligence domain, serving as the central authority for entity id[entity resolution](@/glossary/entity-resolution.md) and verification operations. This agent orchestrates the process of confirming that a claimed identity corresponds to a real-world entity, cross-referencing multiple independent data sources to establish identity with quantified confidence. Identity verification is foundational to all downstream intelligence operations -- without confirmed identity, analysis built on assumed entity associations carries unacceptable epistemic risk.
 
-Governed by the [AIAD](/glossary/aiad/) standard and the [NO DOUBTS](/glossary/no-doubts/) principle, this agent enforces strict multi-source identity corroboration. The [NABLA Infinity](/glossary/nabla-infinity/) [signal plurality](/glossary/signal-plurality/) axiom is applied at its most rigorous: identity claims require a minimum of three independent source verifications before reaching confirmed status. The agent maintains explicit confidence scores for every identity resolution, distinguishing between confirmed, probable, possible, and unverified identity states.
+Governed by the [AIAD](@/glossary/aiad.md) standard and the [NO DOUBTS](@/glossary/no-doubts.md) principle, this agent enforces strict multi-source identity corroboration. The [NABLA Infinity](@/glossary/nabla-infinity.md) [signal plurality](@/glossary/signal-plurality.md) axiom is applied at its most rigorous: identity claims require a minimum of three independent source verifications before reaching confirmed status. The agent maintains explicit confidence scores for every identity resolution, distinguishing between confirmed, probable, possible, and unverified identity states.
 
 ## Operational Domain
 
-The identity verification domain covers individual, organizational, and institutional entity verification across jurisdictions. The agent accesses public registries, commercial databases, social platform profiles, and domain registration records through the platform's [OSINT](/glossary/osint/) infrastructure. Entity resolution handles challenges including name variations, transliteration differences, organizational restructuring, and deliberate identity obfuscation. All verification results are stored in [KuzuDB](/glossary/kuzudb/) graph structures for relationship-aware identity queries.
+The identity verification domain covers individual, organizational, and institutional entity verification across jurisdictions. The agent accesses public registries, commercial databases, social platform profiles, and domain registration records through the platform's [OSINT](@/glossary/osint.md) infrastructure. Entity resolution handles challenges including name variations, transliteration differences, organizational restructuring, and deliberate identity obfuscation. All verification results are stored in [KuzuDB](@/glossary/kuzudb.md) graph structures for relationship-aware identity queries.
 
 ## Key Capabilities
 
@@ -42,8 +42,8 @@ The identity verification domain covers individual, organizational, and institut
 - **Entity resolution** -- Resolves ambiguous identity references by analyzing name variations, associated addresses, organizational affiliations, and temporal activity patterns to distinguish between distinct entities sharing similar identifiers
 - **Confidence-scored verification** -- Produces identity verification results with explicit four-tier confidence classifications (confirmed, probable, possible, unverified) backed by traceable evidence chains
 - **Identity change tracking** -- Monitors verified entities for identity-relevant changes including name changes, corporate restructuring, and merger events that affect established identity associations
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed verification workflows triggered by downstream intelligence requests
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for verification pipeline latency and confidence distribution monitoring
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed verification workflows triggered by downstream intelligence requests
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for verification pipeline latency and confidence distribution monitoring
 
 ## Authority Level
 
@@ -61,9 +61,9 @@ The identity verification domain covers individual, organizational, and institut
 
 | Agent | Relationship |
 |-------|-------------|
-| [linkedin-intelligence-specialist](/agents/linkedin-intelligence-specialist/) | Provides professional identity signals for corroboration |
-| [political-network-intelligence-specialist](/agents/political-network-intelligence-specialist/) | Consumes verified entity identities for network construction |
-| [risk-assessment-commander](/agents/risk-assessment-commander/) | Verified identities required before risk assessment initiation |
+| [linkedin-intelligence-specialist](@/agents/linkedin-intelligence-specialist.md) | Provides professional identity signals for corroboration |
+| [political-network-intelligence-specialist](@/agents/political-network-intelligence-specialist.md) | Consumes verified entity identities for network construction |
+| [risk-assessment-commander](@/agents/risk-assessment-commander.md) | Verified identities required before risk assessment initiation |
 
 ## Verification Pipeline Architecture
 
@@ -73,7 +73,7 @@ The identity verification pipeline implements a multi-stage process that progres
 
 **Stage 2: Multi-Source Collection** queries multiple independent data sources in parallel to gather corroborating evidence. For individual entities, sources include public registries, professional directories, social platform profiles, and domain registration records. For organizational entities, sources include company registries, tax databases, regulatory filings, and industry association memberships. Each source response is timestamped and tagged with source reliability classification.
 
-**Stage 3: Cross-Reference Analysis** compares evidence collected from independent sources, identifying consistent and inconsistent signals. Consistent signals across independent sources increase confidence. Inconsistent signals trigger further investigation rather than automatic rejection -- the [NABLA Infinity](/glossary/nabla-infinity/) contradiction preservation axiom ensures that conflicting evidence is preserved and analyzed rather than discarded.
+**Stage 3: Cross-Reference Analysis** compares evidence collected from independent sources, identifying consistent and inconsistent signals. Consistent signals across independent sources increase confidence. Inconsistent signals trigger further investigation rather than automatic rejection -- the [NABLA Infinity](@/glossary/nabla-infinity.md) contradiction preservation axiom ensures that conflicting evidence is preserved and analyzed rather than discarded.
 
 **Stage 4: Confidence Scoring** aggregates evidence into a quantified confidence classification using a weighted scoring model that accounts for source reliability, evidence recency, and cross-source consistency.
 
@@ -142,15 +142,15 @@ Identity verification faces several systematic challenges that the agent address
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Verification pipeline latency and confidence distribution [metrics](/glossary/metrics/) |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent specification and identity service discovery |
-| [KuzuDB](/glossary/kuzudb/) | Graph-based entity storage with relationship-aware queries |
-| [SEADF](/glossary/seadf/) Pipeline | Verification accuracy assessment within evolution workflows |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Verification pipeline latency and confidence distribution [metrics](@/glossary/metrics.md) |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent specification and identity service discovery |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph-based entity storage with relationship-aware queries |
+| [SEADF](@/glossary/seadf.md) Pipeline | Verification accuracy assessment within evolution workflows |
 
 ## Enforcement
 
-Identity verification follows the strictest [NO MERCY](/glossary/no-mercy/) enforcement. No downstream agent may consume identity data that has not reached at least "probable" confidence through multi-source corroboration. The agent enforces [Trinity Gate](/glossary/trinity-gate/) validation on all identity claims, and the [time decay](/glossary/time-decay/) axiom ensures that verification currency is maintained through periodic re-verification cycles. Confirmed entities are re-verified quarterly, probable entities monthly, and possible entities are subject to continuous verification attempts until they either reach probable confidence or are reclassified as unverifiable.
+Identity verification follows the strictest [NO MERCY](@/glossary/no-mercy.md) enforcement. No downstream agent may consume identity data that has not reached at least "probable" confidence through multi-source corroboration. The agent enforces [Trinity Gate](@/glossary/trinity-gate.md) validation on all identity claims, and the [time decay](@/glossary/time-decay.md) axiom ensures that verification currency is maintained through periodic re-verification cycles. Confirmed entities are re-verified quarterly, probable entities monthly, and possible entities are subject to continuous verification attempts until they either reach probable confidence or are reclassified as unverifiable.
 
 ---
 
@@ -159,4 +159,4 @@ Identity verification follows the strictest [NO MERCY](/glossary/no-mercy/) enfo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

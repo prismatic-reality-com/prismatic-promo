@@ -30,7 +30,7 @@ image_alt = "darwinian-evolution-coordinator - Prismatic Platform"
 
 The Darwinian Evolution Coordinator is an L3 strategic authority operating within the Supreme domain of the Prismatic Platform. This agent applies survival-of-the-fittest principles to platform evolution, implementing genetic algorithm-inspired selection, mutation, and fitness evaluation processes that drive continuous improvement across the entire agent ecosystem. Rather than relying on predetermined upgrade paths, the Darwinian Evolution Coordinator enables emergent optimization where the most effective patterns, configurations, and architectural decisions are identified through competitive evaluation and propagated across the platform.
 
-In a system with over 400 autonomous agents operating across 14 domains, manual optimization of every agent's configuration, behavioral parameters, and coordination patterns is infeasible. The Darwinian Evolution Coordinator addresses this by treating agent configurations as a population of solutions subject to evolutionary pressure. High-performing configurations are retained and propagated, underperforming configurations are either mutated to explore nearby solution spaces or eliminated in favor of better alternatives. This approach is formalized through the [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Development Framework) and integrated with the platform's quality measurement infrastructure to provide objective fitness evaluation.
+In a system with over 400 autonomous agents operating across 14 domains, manual optimization of every agent's configuration, behavioral parameters, and coordination patterns is infeasible. The Darwinian Evolution Coordinator addresses this by treating agent configurations as a population of solutions subject to evolutionary pressure. High-performing configurations are retained and propagated, underperforming configurations are either mutated to explore nearby solution spaces or eliminated in favor of better alternatives. This approach is formalized through the [SEADF](@/glossary/seadf.md) (Self-Evolving Autonomous Development Framework) and integrated with the platform's quality measurement infrastructure to provide objective fitness evaluation.
 
 ## Architecture
 
@@ -56,7 +56,7 @@ Fitness Evaluation          Evolutionary Engine         Population Management
 +------------------+      +-------------------+       +--------------------+
 ```
 
-The evolutionary engine operates on a generational cycle where each generation represents a complete evaluation period. Agent configurations that demonstrate superior fitness across multiple objectives (quality, performance, reliability, resource efficiency) are selected as parents for the next generation. The architecture ensures that evolutionary changes are always validated through the platform's [Trinity Gate](/glossary/trinity-gate/) before being applied to production, preventing evolutionary drift toward locally optimal but globally harmful configurations.
+The evolutionary engine operates on a generational cycle where each generation represents a complete evaluation period. Agent configurations that demonstrate superior fitness across multiple objectives (quality, performance, reliability, resource efficiency) are selected as parents for the next generation. The architecture ensures that evolutionary changes are always validated through the platform's [Trinity Gate](@/glossary/trinity-gate.md) before being applied to production, preventing evolutionary drift toward locally optimal but globally harmful configurations.
 
 ## Core Capabilities
 
@@ -134,11 +134,11 @@ end
 
 | Integration Target | Direction | Purpose |
 |---|---|---|
-| [SEADF](/glossary/seadf/) | Bidirectional | Self-evolving framework coordination; receives evolution triggers, reports evolution outcomes |
+| [SEADF](@/glossary/seadf.md) | Bidirectional | Self-evolving framework coordination; receives evolution triggers, reports evolution outcomes |
 | Quality Floor Guardian | Inbound | Provides quality metric baselines and regression detection for fitness evaluation |
-| [Mycelial Network](/glossary/mycelial-network/) | Outbound | Propagates successful evolutionary patterns across domain boundaries |
-| Platform [Telemetry](/glossary/telemetry/) | Inbound | Collects performance metrics for fitness evaluation across all agent instances |
-| [Trinity Gate](/glossary/trinity-gate/) | Outbound | Validates evolutionary changes before production application |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Outbound | Propagates successful evolutionary patterns across domain boundaries |
+| Platform [Telemetry](@/glossary/telemetry.md) | Inbound | Collects performance metrics for fitness evaluation across all agent instances |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Outbound | Validates evolutionary changes before production application |
 | Autonomous Healing Commander | Bidirectional | Coordinates evolution-driven healing where configuration optimization addresses recurring issues |
 | Ecosystem Biologist Coordinator | Bidirectional | Shares ecosystem health metrics that inform evolutionary fitness criteria |
 
@@ -213,12 +213,12 @@ config :prismatic_evolution, Prismatic.Evolution.DarwinianCoordinator,
 
 ## Related Resources
 
-- [autonomous-healing-commander](/agents/autonomous-healing-commander/) -- L1-L5 healing capabilities
-- [ecosystem-biologist-coordinator](/agents/ecosystem-biologist-coordinator/) -- Ecosystem health monitoring
-- [GARDENER SUPREME](/agents/gardener-supreme/) -- Garden submodule management
-- [SEADF Framework](/glossary/seadf/) -- Self-evolving development framework
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation gate
-- [Mycelial Network](/glossary/mycelial-network/) -- Cross-domain pattern propagation
+- [autonomous-healing-commander](@/agents/autonomous-healing-commander.md) -- L1-L5 healing capabilities
+- [ecosystem-biologist-coordinator](@/agents/ecosystem-biologist-coordinator.md) -- Ecosystem health monitoring
+- [GARDENER SUPREME](@/agents/gardener-supreme.md) -- Garden submodule management
+- [SEADF Framework](@/glossary/seadf.md) -- Self-evolving development framework
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation gate
+- [Mycelial Network](@/glossary/mycelial-network.md) -- Cross-domain pattern propagation
 
 ---
 
@@ -227,4 +227,4 @@ config :prismatic_evolution, Prismatic.Evolution.DarwinianCoordinator,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

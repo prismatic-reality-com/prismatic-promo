@@ -28,15 +28,15 @@ image_alt = "universal-pattern-synthesizer - Prismatic Platform"
 
 ## Overview
 
-The Universal Pattern Synthesizer operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's universal-intelligence domain, responsible for discovering, cataloging, and synthesizing recurring patterns across the entire platform codebase, agent ecosystem, and operational telemetry streams. Unlike specialized pattern detectors that focus on a single domain -- such as code quality anti-patterns or security vulnerability signatures -- this agent operates at the meta-level, identifying structural isomorphisms that transcend individual domains and revealing deep architectural regularities that inform platform evolution.
+The Universal Pattern Synthesizer operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's universal-intelligence domain, responsible for discovering, cataloging, and synthesizing recurring patterns across the entire platform codebase, agent ecosystem, and operational telemetry streams. Unlike specialized pattern detectors that focus on a single domain -- such as code quality anti-patterns or security vulnerability signatures -- this agent operates at the meta-level, identifying structural isomorphisms that transcend individual domains and revealing deep architectural regularities that inform platform evolution.
 
-The platform's 90 [umbrella application](/glossary/umbrella-application/)s, 434 [AIAD](/glossary/aiad/) agents, and 6,652 [Elixir](/glossary/elixir/) source files generate an enormous pattern space. The Universal Pattern Synthesizer applies graph-theoretic analysis, AST structural comparison, and behavioral trace correlation to compress this space into actionable pattern libraries. These synthesized patterns feed directly into the platform's autonomous evolution pipeline, enabling the [SEADF](/glossary/seadf/) framework to apply proven solutions to novel problems through structural analogy rather than brute-force discovery.
+The platform's 90 [umbrella application](@/glossary/umbrella-application.md)s, 434 [AIAD](@/glossary/aiad.md) agents, and 6,652 [Elixir](@/glossary/elixir.md) source files generate an enormous pattern space. The Universal Pattern Synthesizer applies graph-theoretic analysis, AST structural comparison, and behavioral trace correlation to compress this space into actionable pattern libraries. These synthesized patterns feed directly into the platform's autonomous evolution pipeline, enabling the [SEADF](@/glossary/seadf.md) framework to apply proven solutions to novel problems through structural analogy rather than brute-force discovery.
 
-The agent adheres to the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, maintaining formal provenance for every synthesized pattern and requiring multi-signal confirmation before elevating candidate patterns to the canonical pattern library. All pattern synthesis results pass through [Trinity Gate](/glossary/trinity-gate/) validation, ensuring structural consistency, logical soundness, and formal necessity before adoption.
+The agent adheres to the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, maintaining formal provenance for every synthesized pattern and requiring multi-signal confirmation before elevating candidate patterns to the canonical pattern library. All pattern synthesis results pass through [Trinity Gate](@/glossary/trinity-gate.md) validation, ensuring structural consistency, logical soundness, and formal necessity before adoption.
 
 ## Architecture
 
-The Universal Pattern Synthesizer is built on a multi-layer architecture that separates pattern discovery, abstraction, synthesis, and dissemination into distinct processing stages, each implemented as supervised [OTP](/glossary/otp/) processes within the platform's [supervision tree](/glossary/supervision-tree/).
+The Universal Pattern Synthesizer is built on a multi-layer architecture that separates pattern discovery, abstraction, synthesis, and dissemination into distinct processing stages, each implemented as supervised [OTP](@/glossary/otp.md) processes within the platform's [supervision tree](@/glossary/supervision-tree.md).
 
 ```
 PatternSynthesizer.Supervisor
@@ -47,9 +47,9 @@ PatternSynthesizer.Supervisor
 +-- PatternDissemination.Publisher (event broadcasting)
 ```
 
-The discovery layer performs continuous scanning of source code ASTs, [telemetry](/glossary/telemetry/) event streams, and agent behavioral logs to identify recurring structural motifs. The abstraction engine generalizes these concrete instances into parametric pattern templates by identifying variable components and invariant structural relationships. The synthesis combiner merges patterns from different domains that share isomorphic structure, creating universal patterns that apply across the entire platform. The pattern library stores validated patterns in [ETS](/glossary/ets/) with full provenance metadata, and the dissemination publisher broadcasts new pattern discoveries to subscribing agents and evolution pipelines.
+The discovery layer performs continuous scanning of source code ASTs, [telemetry](@/glossary/telemetry.md) event streams, and agent behavioral logs to identify recurring structural motifs. The abstraction engine generalizes these concrete instances into parametric pattern templates by identifying variable components and invariant structural relationships. The synthesis combiner merges patterns from different domains that share isomorphic structure, creating universal patterns that apply across the entire platform. The pattern library stores validated patterns in [ETS](@/glossary/ets.md) with full provenance metadata, and the dissemination publisher broadcasts new pattern discoveries to subscribing agents and evolution pipelines.
 
-Communication between layers uses [GenServer](/glossary/genserver/) calls for synchronous operations (pattern lookup, validation queries) and casts for asynchronous operations (discovery notifications, synthesis triggers). The architecture ensures that pattern discovery never blocks synthesis, and that the pattern library remains available even during intensive scanning operations.
+Communication between layers uses [GenServer](@/glossary/genserver.md) calls for synchronous operations (pattern lookup, validation queries) and casts for asynchronous operations (discovery notifications, synthesis triggers). The architecture ensures that pattern discovery never blocks synthesis, and that the pattern library remains available even during intensive scanning operations.
 
 ## Core Capabilities
 
@@ -57,9 +57,9 @@ The Universal Pattern Synthesizer provides five primary capabilities that togeth
 
 **Cross-Domain Pattern Discovery** identifies structural similarities across disparate domains. When a retry-with-backoff pattern appears in HTTP client code, database connection management, and agent communication protocols, the synthesizer recognizes the underlying isomorphism and abstracts it into a universal resilience pattern. This discovery operates on AST comparison using tree edit distance algorithms adapted for Elixir's macro-expanded syntax trees.
 
-**Behavioral Trace Correlation** analyzes runtime [telemetry](/glossary/telemetry/) events to discover temporal patterns that are invisible in static code analysis. Recurring sequences of agent activations, resource allocation patterns, and error recovery trajectories are captured as behavioral signatures that complement structural patterns found in source code.
+**Behavioral Trace Correlation** analyzes runtime [telemetry](@/glossary/telemetry.md) events to discover temporal patterns that are invisible in static code analysis. Recurring sequences of agent activations, resource allocation patterns, and error recovery trajectories are captured as behavioral signatures that complement structural patterns found in source code.
 
-**Pattern Composition and Decomposition** enables complex patterns to be understood as compositions of simpler ones, and conversely, allows monolithic patterns to be factored into reusable components. This bidirectional analysis supports the platform's compositional architecture philosophy and directly feeds the [SEADF](/glossary/seadf/) Cross-Domain Innovator subsystem.
+**Pattern Composition and Decomposition** enables complex patterns to be understood as compositions of simpler ones, and conversely, allows monolithic patterns to be factored into reusable components. This bidirectional analysis supports the platform's compositional architecture philosophy and directly feeds the [SEADF](@/glossary/seadf.md) Cross-Domain Innovator subsystem.
 
 **Pattern Quality Assessment** evaluates candidate patterns against multiple quality dimensions: generality (how many domains the pattern applies to), specificity (how precisely the pattern constrains implementation), stability (how resistant the pattern is to platform evolution), and utility (how frequently the pattern is instantiated). Only patterns exceeding quality thresholds are promoted to the canonical library.
 
@@ -67,7 +67,7 @@ The Universal Pattern Synthesizer provides five primary capabilities that togeth
 
 ## Implementation
 
-The core pattern synthesis engine is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that manages the lifecycle of pattern discovery, abstraction, and storage operations.
+The core pattern synthesis engine is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that manages the lifecycle of pattern discovery, abstraction, and storage operations.
 
 ```elixir
 defmodule Prismatic.Agents.UniversalPatternSynthesizer do
@@ -152,13 +152,13 @@ The Universal Pattern Synthesizer integrates with multiple platform subsystems t
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [SEADF](/glossary/seadf/) Cross-Domain Innovator | Bidirectional | Receives innovation candidates, provides pattern templates for cross-pollination |
-| [Prismatic Agents](/glossary/prismatic-agents/) Runtime | Inbound | Receives behavioral traces from all 434 agents for temporal pattern analysis |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Outbound | Provides pattern quality metrics for platform quality scoring |
-| [CASCADE](/glossary/cascade/) Pipeline | Outbound | Supplies anti-pattern signatures for automated elimination |
-| [AIAD Registry](/glossary/registry-otp/) | Bidirectional | Discovers agent specifications, publishes pattern metadata |
+| [SEADF](@/glossary/seadf.md) Cross-Domain Innovator | Bidirectional | Receives innovation candidates, provides pattern templates for cross-pollination |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) Runtime | Inbound | Receives behavioral traces from all 434 agents for temporal pattern analysis |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Outbound | Provides pattern quality metrics for platform quality scoring |
+| [CASCADE](@/glossary/cascade.md) Pipeline | Outbound | Supplies anti-pattern signatures for automated elimination |
+| [AIAD Registry](@/glossary/registry-otp.md) | Bidirectional | Discovers agent specifications, publishes pattern metadata |
 | Git Trees | Inbound | Uses `mix git_trees` for rapid codebase scanning and file discovery |
-| [ETS](/glossary/ets/) Pattern Store | Internal | Canonical pattern storage with sub-millisecond lookup |
+| [ETS](@/glossary/ets.md) Pattern Store | Internal | Canonical pattern storage with sub-millisecond lookup |
 
 The synthesizer publishes `:prismatic_pattern_synthesizer` telemetry events for every discovery cycle, pattern promotion, and quality assessment, enabling real-time monitoring of pattern intelligence health.
 
@@ -174,11 +174,11 @@ The Universal Pattern Synthesizer follows a five-phase operational cycle that ex
 
 **Phase 4 -- Quality Gate**: Synthesized patterns undergo quality assessment against four dimensions (generality, specificity, stability, utility). Patterns that pass all quality thresholds are promoted to the canonical library. Patterns that fail are retained as candidates for re-evaluation in future cycles.
 
-**Phase 5 -- Dissemination**: Newly promoted patterns are broadcast to subscribing agents and evolution pipelines. The [SEADF](/glossary/seadf/) framework consumes these patterns for autonomous evolution planning, while individual specialist agents use them to detect known patterns in their operational domains.
+**Phase 5 -- Dissemination**: Newly promoted patterns are broadcast to subscribing agents and evolution pipelines. The [SEADF](@/glossary/seadf.md) framework consumes these patterns for autonomous evolution planning, while individual specialist agents use them to detect known patterns in their operational domains.
 
 ## NABLA Compliance
 
-The Universal Pattern Synthesizer operates under strict [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance, ensuring that all pattern claims are epistemically rigorous.
+The Universal Pattern Synthesizer operates under strict [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance, ensuring that all pattern claims are epistemically rigorous.
 
 **Signal Plurality**: Every synthesized pattern requires evidence from at least two independent domains before promotion to the canonical library. Single-domain patterns remain as candidates until corroborating evidence emerges.
 
@@ -188,7 +188,7 @@ The Universal Pattern Synthesizer operates under strict [NABLA Infinity](/glossa
 
 **Time Decay**: Patterns that have not been instantiated in recent platform generations receive decreasing confidence scores. The synthesizer periodically re-validates aging patterns against the current codebase to ensure continued relevance.
 
-All pattern promotion decisions pass through [Trinity Gate](/glossary/trinity-gate/) validation: structural consistency (the pattern graph forms a valid DAG), logical consistency (pattern constraints do not contain contradictions), and formal necessity (critical patterns have Lean4 proof obligations).
+All pattern promotion decisions pass through [Trinity Gate](@/glossary/trinity-gate.md) validation: structural consistency (the pattern graph forms a valid DAG), logical consistency (pattern constraints do not contain contradictions), and formal necessity (critical patterns have Lean4 proof obligations).
 
 ## Configuration
 
@@ -236,13 +236,13 @@ The agent uses O(1) ETS lookups for pattern matching against known patterns, wit
 
 ## Related Resources
 
-- [SEADF Framework](/glossary/seadf/) -- The autonomous evolution framework that consumes synthesized patterns
-- [CASCADE Pipeline](/glossary/cascade/) -- Anti-pattern elimination infrastructure fed by pattern signatures
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing pattern claim validation
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation gate for pattern promotion
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Quality monitoring system consuming pattern metrics
-- [AIAD Standard](/glossary/aiad/) -- Agent specification standard governing synthesizer behavior
-- [Pattern Matching](/glossary/pattern-matching/) -- Canonical patterns for platform operations
+- [SEADF Framework](@/glossary/seadf.md) -- The autonomous evolution framework that consumes synthesized patterns
+- [CASCADE Pipeline](@/glossary/cascade.md) -- Anti-pattern elimination infrastructure fed by pattern signatures
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing pattern claim validation
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation gate for pattern promotion
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Quality monitoring system consuming pattern metrics
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification standard governing synthesizer behavior
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Canonical patterns for platform operations
 
 ---
 
@@ -251,4 +251,4 @@ The agent uses O(1) ETS lookups for pattern matching against known patterns, wit
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

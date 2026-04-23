@@ -28,9 +28,9 @@ image_alt = "chatgpt-consultation-coordinator - Prismatic Platform"
 
 ## Executive Summary
 
-The ChatGPT Consultation Coordinator operates as an L3 [strategic command](/glossary/strategic-command/) agent within the AI Consultation Workflows domain of the Prismatic Platform. This agent manages structured consultation workflows between platform agents and ChatGPT, ensuring that AI consultations follow defined protocols, produce actionable outcomes, and are properly integrated back into the platform's decision-making pipelines. Rather than treating each ChatGPT interaction as an isolated question-answer exchange, the Consultation Coordinator orchestrates multi-turn dialogues with progressive context building, structured output extraction, and evidence-grade validation of all results.
+The ChatGPT Consultation Coordinator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the AI Consultation Workflows domain of the Prismatic Platform. This agent manages structured consultation workflows between platform agents and ChatGPT, ensuring that AI consultations follow defined protocols, produce actionable outcomes, and are properly integrated back into the platform's decision-making pipelines. Rather than treating each ChatGPT interaction as an isolated question-answer exchange, the Consultation Coordinator orchestrates multi-turn dialogues with progressive context building, structured output extraction, and evidence-grade validation of all results.
 
-In a platform with 434 autonomous agents operating across domains as diverse as [OSINT](/glossary/osint/) intelligence, compliance automation, and code quality enforcement, the ability to conduct structured AI consultations is a critical operational capability. Complex problems -- architectural reviews, strategic planning exercises, risk assessments -- require consultation sessions that span multiple turns, accumulate context progressively, and extract outputs in formats that downstream agents can consume without manual transformation. The Consultation Coordinator manages this complexity through consultation templates, session lifecycle management, and output validation pipelines that ensure every consultation produces results meeting the platform's epistemic standards.
+In a platform with 434 autonomous agents operating across domains as diverse as [OSINT](@/glossary/osint.md) intelligence, compliance automation, and code quality enforcement, the ability to conduct structured AI consultations is a critical operational capability. Complex problems -- architectural reviews, strategic planning exercises, risk assessments -- require consultation sessions that span multiple turns, accumulate context progressively, and extract outputs in formats that downstream agents can consume without manual transformation. The Consultation Coordinator manages this complexity through consultation templates, session lifecycle management, and output validation pipelines that ensure every consultation produces results meeting the platform's epistemic standards.
 
 ## Architecture
 
@@ -145,11 +145,11 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [chatgpt-integration-commander](/agents/chatgpt-integration-commander/) | Integration Authority | Provides API access, manages connection lifecycle, and enforces rate limits for consultations |
-| [chatgpt-prompt-engineer](/agents/chatgpt-prompt-engineer/) | Prompt Design | Optimizes consultation prompts within templates for maximum output quality per token |
-| [chatgpt-archive-specialist](/agents/chatgpt-archive-specialist/) | Archive Management | Preserves complete consultation records for future reference and pattern extraction |
-| [chatgpt-context-manager](/agents/chatgpt-context-manager/) | Context Optimization | Manages context window utilization across multi-turn consultation sessions |
-| [chatgpt-workflow-orchestrator](/agents/chatgpt-workflow-orchestrator/) | Workflow Integration | Embeds consultations as steps within larger multi-step workflow sequences |
+| [chatgpt-integration-commander](@/agents/chatgpt-integration-commander.md) | Integration Authority | Provides API access, manages connection lifecycle, and enforces rate limits for consultations |
+| [chatgpt-prompt-engineer](@/agents/chatgpt-prompt-engineer.md) | Prompt Design | Optimizes consultation prompts within templates for maximum output quality per token |
+| [chatgpt-archive-specialist](@/agents/chatgpt-archive-specialist.md) | Archive Management | Preserves complete consultation records for future reference and pattern extraction |
+| [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) | Context Optimization | Manages context window utilization across multi-turn consultation sessions |
+| [chatgpt-workflow-orchestrator](@/agents/chatgpt-workflow-orchestrator.md) | Workflow Integration | Embeds consultations as steps within larger multi-step workflow sequences |
 
 ## Operational Workflow
 
@@ -186,15 +186,15 @@ end
 
 ## Enforcement
 
-All consultation operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No consultation result is accepted without validation against platform evidence standards. Consultations that produce ambiguous or contradictory outputs trigger NABLA [Contradiction Preservation](/glossary/contradiction-preservation/) protocols for further investigation. Template effectiveness is continuously measured, and underperforming templates are retired and replaced without exception.
+All consultation operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No consultation result is accepted without validation against platform evidence standards. Consultations that produce ambiguous or contradictory outputs trigger NABLA [Contradiction Preservation](@/glossary/contradiction-preservation.md) protocols for further investigation. Template effectiveness is continuously measured, and underperforming templates are retired and replaced without exception.
 
 ## Related Resources
 
-- [chatgpt-integration-commander](/agents/chatgpt-integration-commander/) -- API integration and failover management
-- [chatgpt-prompt-engineer](/agents/chatgpt-prompt-engineer/) -- Prompt optimization for consultation quality
-- [chatgpt-workflow-orchestrator](/agents/chatgpt-workflow-orchestrator/) -- Multi-step workflow execution
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-domain intelligence aggregation
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [chatgpt-integration-commander](@/agents/chatgpt-integration-commander.md) -- API integration and failover management
+- [chatgpt-prompt-engineer](@/agents/chatgpt-prompt-engineer.md) -- Prompt optimization for consultation quality
+- [chatgpt-workflow-orchestrator](@/agents/chatgpt-workflow-orchestrator.md) -- Multi-step workflow execution
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-domain intelligence aggregation
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -203,4 +203,4 @@ All consultation operations are governed by the [NO MERCY, NO DOUBTS](/glossary/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

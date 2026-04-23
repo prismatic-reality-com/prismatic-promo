@@ -276,14 +276,14 @@ Additional sources (sanctions, PEP, top firms, ARES sweep, ISIR, court parties) 
 
 ## References
 
-- [Platform Architecture](/dd/platform-architecture/) -- Full technical architecture of the DD subsystem
-- [Entity Management](/dd/entity-management/) -- Entity data model and operations
-- [Czech Registry Integration](/dd/czech-registries/) -- 30+ Czech registry adapters
-- [OSINT Integration](/dd/osint-integration/) -- 122 OSINT source framework
-- [OSINT Sources](/osint/) -- Complete source catalog
-- [Glossary: Elixir Macro](/glossary/elixir-macro/) -- Metaprogramming and compile-time code generation
-- [Glossary: GenServer](/glossary/genserver/) -- OTP process pattern
-- [Glossary: ETS](/glossary/ets/) -- Erlang Term Storage
+- [Platform Architecture](@/dd/platform-architecture.md) -- Full technical architecture of the DD subsystem
+- [Entity Management](@/dd/entity-management.md) -- Entity data model and operations
+- [Czech Registry Integration](@/dd/czech-registries.md) -- 30+ Czech registry adapters
+- [OSINT Integration](@/dd/osint-integration.md) -- 122 OSINT source framework
+- [OSINT Sources](@/osint/_index.md) -- Complete source catalog
+- [Glossary: Elixir Macro](@/glossary/elixir-macro.md) -- Metaprogramming and compile-time code generation
+- [Glossary: GenServer](@/glossary/genserver.md) -- OTP process pattern
+- [Glossary: ETS](@/glossary/ets.md) -- Erlang Term Storage
 
 ---
 
@@ -292,4 +292,4 @@ Additional sources (sanctions, PEP, top firms, ARES sweep, ISIR, court parties) 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

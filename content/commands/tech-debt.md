@@ -26,9 +26,9 @@ image_alt = "/tech-debt - Prismatic Platform"
 
 **/tech-debt** is a production command in the **Development** category of the Prismatic Platform. It performs comprehensive technical debt analysis across the umbrella codebase, identifying, classifying, prioritizing, and planning the elimination of accumulated technical debt. The command scans for 25+ categories of technical debt including code smells, architectural violations, missing tests, outdated dependencies, documentation gaps, performance bottlenecks, and deferred maintenance items. Each debt item is scored by impact, effort, and risk to produce actionable elimination plans.
 
-This command operates under the **L2+** authority level and is executed by the `debt-hunter` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The debt-hunter agent has read access to the entire codebase and integrates with quality metrics, test coverage data, and compilation diagnostics to provide evidence-based debt assessments.
+This command operates under the **L2+** authority level and is executed by the `debt-hunter` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The debt-hunter agent has read access to the entire codebase and integrates with quality metrics, test coverage data, and compilation diagnostics to provide evidence-based debt assessments.
 
-The Prismatic Platform maintains a current quality score of 100/100 with zero [quality debt](/glossary/quality-debt/) points (QDP), having eliminated all 905 QDP through systematic debt reduction campaigns. `/tech-debt` was the primary analytical tool driving this achievement, providing the intelligence that guided [/quality-enforce](/commands/quality-enforce/) and [/quality-evolve](/commands/quality-evolve/) operations. Even at zero QDP, the command remains essential for preventing debt accumulation and identifying emerging debt before it compounds.
+The Prismatic Platform maintains a current quality score of 100/100 with zero [quality debt](@/glossary/quality-debt.md) points (QDP), having eliminated all 905 QDP through systematic debt reduction campaigns. `/tech-debt` was the primary analytical tool driving this achievement, providing the intelligence that guided [/quality-enforce](@/commands/quality-enforce.md) and [/quality-evolve](@/commands/quality-evolve.md) operations. Even at zero QDP, the command remains essential for preventing debt accumulation and identifying emerging debt before it compounds.
 
 ## Architecture
 
@@ -199,14 +199,14 @@ Results are formatted for the requested output. Text format provides a readable 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/quality-enforce](/commands/quality-enforce/) | Consumer | Debt analysis drives enforcement priorities |
-| [/quality-evolve](/commands/quality-evolve/) | Consumer | Evolution targets debt items |
-| [/quality-gates](/commands/quality-gates/) | Enforcement | Debt thresholds enforce gate passage |
-| [/find-lowfruit](/commands/find-lowfruit/) | Peer | Low-hanging fruit identification |
-| [/refactor](/commands/refactor/) | Downstream | Refactoring eliminates structural debt |
-| [/regression-check](/commands/regression-check/) | Peer | Regression checks prevent debt reintroduction |
-| [Quality DNA](/glossary/quality-dna/) | State | Debt inventory persisted in quality DNA |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Debt metrics and trend data |
+| [/quality-enforce](@/commands/quality-enforce.md) | Consumer | Debt analysis drives enforcement priorities |
+| [/quality-evolve](@/commands/quality-evolve.md) | Consumer | Evolution targets debt items |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | Debt thresholds enforce gate passage |
+| [/find-lowfruit](@/commands/find-lowfruit.md) | Peer | Low-hanging fruit identification |
+| [/refactor](@/commands/refactor.md) | Downstream | Refactoring eliminates structural debt |
+| [/regression-check](@/commands/regression-check.md) | Peer | Regression checks prevent debt reintroduction |
+| [Quality DNA](@/glossary/quality-dna.md) | State | Debt inventory persisted in quality DNA |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Debt metrics and trend data |
 
 ## Best Practices
 
@@ -265,21 +265,21 @@ Analyze when specific debt items were introduced using git history:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Technical debt is identified and tracked without exception. No debt item is dismissed as "acceptable."
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every debt item includes source location, evidence, priority scoring rationale, and recommended elimination approach.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/quality-evolve](/commands/quality-evolve/) - Quality-focused evolution targeting specific quality domains
-- [/find-lowfruit](/commands/find-lowfruit/) - Identify low-hanging fruit improvements across codebase
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/quality-evolve](@/commands/quality-evolve.md) - Quality-focused evolution targeting specific quality domains
+- [/find-lowfruit](@/commands/find-lowfruit.md) - Identify low-hanging fruit improvements across codebase
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -288,4 +288,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

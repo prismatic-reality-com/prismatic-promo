@@ -181,16 +181,16 @@ end
 ## Related Terms
 
 - **Correlation** -- statistical relationships between aggregated variables
-- [Batch Processing](/glossary/batch-processing/) -- processing aggregation in bulk
-- [Accuracy](/glossary/accuracy/) -- quality measure of aggregated results
+- [Batch Processing](@/glossary/batch-processing.md) -- processing aggregation in bulk
+- [Accuracy](@/glossary/accuracy.md) -- quality measure of aggregated results
 - **Completeness** -- coverage measure of aggregated data
 - **Cross-tabulation** -- multi-dimensional aggregation analysis
 - **Chart** -- visualization of aggregated data
 
 ## See Also
 
-- [DD Pipeline Architecture](/glossary/pipeline/) -- entity aggregation pipeline
-- [OSINT Toolbox](/osint/) -- multi-source intelligence aggregation
+- [DD Pipeline Architecture](@/glossary/pipeline.md) -- entity aggregation pipeline
+- [OSINT Toolbox](@/osint/_index.md) -- multi-source intelligence aggregation
 
 ---
 
@@ -199,4 +199,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -38,13 +38,13 @@ image_alt = "Registry - Prismatic Platform"
 
 A **Registry** in the Elixir/OTP ecosystem is a process-based data structure that maps arbitrary keys to process identifiers (PIDs), enabling dynamic service discovery, name-based process lookup, and pub/sub communication patterns without relying on global mutable state. Unlike simple atom-based process naming (`Process.register/2`), which is limited to unique atom keys and a single process per name, the Elixir `Registry` module supports both unique and duplicate key modes, partitioning for concurrent access, and metadata attachment -- making it the backbone of dynamic process management in production systems.
 
-In the context of the [Prismatic Platform](/glossary/elixir/), registries serve as the nervous system connecting the platform's 530+ [AIAD agents](/glossary/aiad/), 120 [OSINT](/glossary/osint/) adapters, and hundreds of [supervision trees](/glossary/supervision-tree/) across 115 umbrella applications. Every dynamically spawned process that needs to be discoverable -- whether it is an agent runtime, a storage adapter, or a LiveView session handler -- registers itself through a registry, enabling the rest of the platform to locate and communicate with it by logical name rather than ephemeral PID.
+In the context of the [Prismatic Platform](@/glossary/elixir.md), registries serve as the nervous system connecting the platform's 530+ [AIAD agents](@/glossary/aiad.md), 120 [OSINT](@/glossary/osint.md) adapters, and hundreds of [supervision trees](@/glossary/supervision-tree.md) across 115 umbrella applications. Every dynamically spawned process that needs to be discoverable -- whether it is an agent runtime, a storage adapter, or a LiveView session handler -- registers itself through a registry, enabling the rest of the platform to locate and communicate with it by logical name rather than ephemeral PID.
 
 ## Overview
 
-The need for a registry arises from a fundamental tension in concurrent systems: processes are identified by PIDs, but PIDs are ephemeral. When a process crashes and its [supervisor](/glossary/supervision-tree/) restarts it, the new process receives a different PID. Any other process holding a reference to the old PID now has a dangling pointer. A registry solves this by providing a stable logical name that automatically updates when processes restart and re-register.
+The need for a registry arises from a fundamental tension in concurrent systems: processes are identified by PIDs, but PIDs are ephemeral. When a process crashes and its [supervisor](@/glossary/supervision-tree.md) restarts it, the new process receives a different PID. Any other process holding a reference to the old PID now has a dangling pointer. A registry solves this by providing a stable logical name that automatically updates when processes restart and re-register.
 
-Elixir's built-in `Registry` module, introduced in Elixir 1.4, provides a local (single-node) registry implemented on top of [ETS](/glossary/ets/) tables. For distributed systems spanning multiple nodes, libraries like Horde provide a distributed registry built on Conflict-free Replicated Data Types (CRDTs) that synchronize registrations across a [cluster](/glossary/cluster/).
+Elixir's built-in `Registry` module, introduced in Elixir 1.4, provides a local (single-node) registry implemented on top of [ETS](@/glossary/ets.md) tables. For distributed systems spanning multiple nodes, libraries like Horde provide a distributed registry built on Conflict-free Replicated Data Types (CRDTs) that synchronize registrations across a [cluster](@/glossary/cluster.md).
 
 ### Registry Modes
 
@@ -67,7 +67,7 @@ Elixir's built-in `Registry` module, introduced in Elixir 1.4, provides a local 
 
 ### Architecture
 
-The Elixir `Registry` is implemented as a supervision tree of [ETS](/glossary/ets/) tables. When you start a registry with `N` partitions, it creates `N` ETS tables, and keys are distributed across partitions using `:erlang.phash2/2`. This partitioning eliminates write contention -- concurrent registrations to different partitions proceed without blocking each other.
+The Elixir `Registry` is implemented as a supervision tree of [ETS](@/glossary/ets.md) tables. When you start a registry with `N` partitions, it creates `N` ETS tables, and keys are distributed across partitions using `:erlang.phash2/2`. This partitioning eliminates write contention -- concurrent registrations to different partitions proceed without blocking each other.
 
 ```
 +------------------------------------------------------+
@@ -148,7 +148,7 @@ end
 
 ### Via Tuples: The Registration Protocol
 
-The `{:via, Registry, {registry, key}}` tuple is the standard mechanism for integrating registries with [GenServer](/glossary/genserver/), [GenStateMachine](/glossary/state-machine/), and other OTP behaviours. When passed as the `:name` option to `GenServer.start_link/3`, the GenServer automatically registers itself in the specified registry under the given key, and unregisters when it terminates.
+The `{:via, Registry, {registry, key}}` tuple is the standard mechanism for integrating registries with [GenServer](@/glossary/genserver.md), [GenStateMachine](@/glossary/state-machine.md), and other OTP behaviours. When passed as the `:name` option to `GenServer.start_link/3`, the GenServer automatically registers itself in the specified registry under the given key, and unregisters when it terminates.
 
 ```elixir
 defmodule Prismatic.Registry.ViaDemo do
@@ -200,7 +200,7 @@ end
 
 ### Pub/Sub with Duplicate Registries
 
-When configured in `:duplicate` mode, a registry allows multiple processes to register under the same key, enabling efficient pub/sub patterns without external dependencies like [Redis](/glossary/redis/) or dedicated message brokers:
+When configured in `:duplicate` mode, a registry allows multiple processes to register under the same key, enabling efficient pub/sub patterns without external dependencies like [Redis](@/glossary/redis.md) or dedicated message brokers:
 
 ```elixir
 defmodule Prismatic.Registry.PubSub do
@@ -340,7 +340,7 @@ The Prismatic Platform uses registries at multiple levels of its architecture, f
 
 ### Agent Registry
 
-Every [AIAD agent](/glossary/aiad/) running in the platform registers itself in a dedicated agent registry. This enables the orchestration layer to discover agents by name, domain, or capability without maintaining a separate directory:
+Every [AIAD agent](@/glossary/aiad.md) running in the platform registers itself in a dedicated agent registry. This enables the orchestration layer to discover agents by name, domain, or capability without maintaining a separate directory:
 
 | Registry | Mode | Purpose | Typical Entry Count |
 |----------|------|---------|-------------------|
@@ -352,7 +352,7 @@ Every [AIAD agent](/glossary/aiad/) running in the platform registers itself in 
 
 ### Storage Adapter Discovery
 
-Each [storage adapter](/glossary/adapter/) (ETS, [Ecto](/glossary/ecto/)/[PostgreSQL](/glossary/postgresql/), [Meilisearch](/glossary/meilisearch/), KuzuDB) registers itself under a canonical name, allowing the storage routing layer to dynamically resolve the appropriate adapter for a given data type:
+Each [storage adapter](@/glossary/adapter.md) (ETS, [Ecto](@/glossary/ecto.md)/[PostgreSQL](@/glossary/postgresql.md), [Meilisearch](@/glossary/meilisearch.md), KuzuDB) registers itself under a canonical name, allowing the storage routing layer to dynamically resolve the appropriate adapter for a given data type:
 
 ```elixir
 defmodule Prismatic.Registry.StorageDiscovery do
@@ -386,11 +386,11 @@ end
 
 ### LiveView Session Tracking
 
-Each [LiveView](/glossary/liveview/) session registers in a registry keyed by user session ID, enabling the platform to track active dashboard users, send targeted real-time updates, and enforce session limits.
+Each [LiveView](@/glossary/liveview.md) session registers in a registry keyed by user session ID, enabling the platform to track active dashboard users, send targeted real-time updates, and enforce session limits.
 
 ## Distributed Registry Patterns
 
-For multi-node deployments on [Fly.io](/glossary/fly-io/), the platform uses Horde.Registry, which synchronizes registrations across nodes using CRDTs:
+For multi-node deployments on [Fly.io](@/glossary/fly-io.md), the platform uses Horde.Registry, which synchronizes registrations across nodes using CRDTs:
 
 ### CRDT-Based Convergence
 
@@ -434,7 +434,7 @@ The partitioned local registry achieves near-linear scaling with partition count
 
 **Use duplicate registries for pub/sub instead of GenServer-based broadcast.** `Registry.dispatch/3` iterates over subscribed processes in the registry's ETS table, which is faster than maintaining a subscriber list in a GenServer's state and sending messages from a single process.
 
-**Monitor registry size in production.** A growing registry without corresponding process cleanup indicates a resource leak. The platform's [telemetry](/glossary/telemetry/) integration tracks registry count metrics and alerts when thresholds are exceeded.
+**Monitor registry size in production.** A growing registry without corresponding process cleanup indicates a resource leak. The platform's [telemetry](@/glossary/telemetry.md) integration tracks registry count metrics and alerts when thresholds are exceeded.
 
 ## Common Pitfalls
 
@@ -452,19 +452,19 @@ The partitioned local registry achieves near-linear scaling with partition count
 
 ### Agent Orchestration
 
-The platform's 530+ [AIAD agents](/glossary/aiad/) register in `Prismatic.AgentRegistry` on startup. The orchestration layer uses registry lookups to route commands to specific agents by name, discover agents by domain capability, and broadcast coordination messages to agent groups via duplicate registry dispatch.
+The platform's 530+ [AIAD agents](@/glossary/aiad.md) register in `Prismatic.AgentRegistry` on startup. The orchestration layer uses registry lookups to route commands to specific agents by name, discover agents by domain capability, and broadcast coordination messages to agent groups via duplicate registry dispatch.
 
 ### OSINT Adapter Pool
 
-Each of the 120 [OSINT](/glossary/osint/) adapters registers under its provider name. When an intelligence query arrives, the routing layer looks up the appropriate adapter by provider key, checks its metadata for health status, and routes the request. If an adapter crashes, the supervisor restarts it and re-registration happens automatically.
+Each of the 120 [OSINT](@/glossary/osint.md) adapters registers under its provider name. When an intelligence query arrives, the routing layer looks up the appropriate adapter by provider key, checks its metadata for health status, and routes the request. If an adapter crashes, the supervisor restarts it and re-registration happens automatically.
 
 ### Quality Monitor Discovery
 
-The platform's [quality monitoring](/glossary/quality/) subsystem uses a dedicated registry to track active quality check processes. The [autoheal](/glossary/autoheal/) system queries this registry to discover which monitors are running, their current status, and when they last completed a check cycle.
+The platform's [quality monitoring](@/glossary/quality.md) subsystem uses a dedicated registry to track active quality check processes. The [autoheal](@/glossary/autoheal.md) system queries this registry to discover which monitors are running, their current status, and when they last completed a check cycle.
 
 ### Real-Time Dashboard Sessions
 
-[Phoenix LiveView](/glossary/phoenix/) sessions register by user ID, enabling targeted push of [telemetry](/glossary/telemetry/) data to specific dashboard views. When a quality metric changes, the platform dispatches an update only to LiveView processes subscribed to that metric's topic.
+[Phoenix LiveView](@/glossary/phoenix.md) sessions register by user ID, enabling targeted push of [telemetry](@/glossary/telemetry.md) data to specific dashboard views. When a quality metric changes, the platform dispatches an update only to LiveView processes subscribed to that metric's topic.
 
 ## Comparison with External Service Discovery
 
@@ -481,27 +481,27 @@ The Prismatic Platform's choice of Elixir-native registries eliminates external 
 
 ## Related Concepts
 
-- [Registry (OTP)](/glossary/registry-otp/) -- The OTP-specific registry patterns and :global module
-- [GenServer](/glossary/genserver/) -- Primary consumer of registry via tuples for named processes
-- [ETS](/glossary/ets/) -- Underlying storage mechanism for Registry partitions
-- [OTP](/glossary/otp/) -- Framework providing the behaviours that integrate with registries
-- [Process Isolation](/glossary/process-isolation/) -- Each registered process runs in its own isolation boundary
-- [Supervision Tree](/glossary/supervision-tree/) -- Provides restart guarantees for registered processes
-- [PubSub](/glossary/pubsub/) -- Communication pattern enabled by duplicate-mode registries
-- [Cluster](/glossary/cluster/) -- Multi-node deployments requiring distributed registries
-- [Adapter](/glossary/adapter/) -- Storage and OSINT adapters discovered through registry lookup
-- [Scalability](/glossary/scalability/) -- Registry partitioning enables concurrent scaling
+- [Registry (OTP)](@/glossary/registry-otp.md) -- The OTP-specific registry patterns and :global module
+- [GenServer](@/glossary/genserver.md) -- Primary consumer of registry via tuples for named processes
+- [ETS](@/glossary/ets.md) -- Underlying storage mechanism for Registry partitions
+- [OTP](@/glossary/otp.md) -- Framework providing the behaviours that integrate with registries
+- [Process Isolation](@/glossary/process-isolation.md) -- Each registered process runs in its own isolation boundary
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Provides restart guarantees for registered processes
+- [PubSub](@/glossary/pubsub.md) -- Communication pattern enabled by duplicate-mode registries
+- [Cluster](@/glossary/cluster.md) -- Multi-node deployments requiring distributed registries
+- [Adapter](@/glossary/adapter.md) -- Storage and OSINT adapters discovered through registry lookup
+- [Scalability](@/glossary/scalability.md) -- Registry partitioning enables concurrent scaling
 
 ## See Also
 
-- [AIAD](/glossary/aiad/) -- Agent framework using registries for agent discovery
-- [OSINT](/glossary/osint/) -- Intelligence tools registered as discoverable adapters
-- [Telemetry](/glossary/telemetry/) -- Metrics integration for registry monitoring
-- [Phoenix](/glossary/phoenix/) -- Web framework leveraging registries for channel/LiveView tracking
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Automatic cleanup on process death
-- [Ecto](/glossary/ecto/) -- Database adapters discovered through service registry
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- 115 umbrella applications using registries
+- [AIAD](@/glossary/aiad.md) -- Agent framework using registries for agent discovery
+- [OSINT](@/glossary/osint.md) -- Intelligence tools registered as discoverable adapters
+- [Telemetry](@/glossary/telemetry.md) -- Metrics integration for registry monitoring
+- [Phoenix](@/glossary/phoenix.md) -- Web framework leveraging registries for channel/LiveView tracking
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Automatic cleanup on process death
+- [Ecto](@/glossary/ecto.md) -- Database adapters discovered through service registry
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- 115 umbrella applications using registries
 
 ---
 
@@ -510,4 +510,4 @@ The Prismatic Platform's choice of Elixir-native registries eliminates external 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

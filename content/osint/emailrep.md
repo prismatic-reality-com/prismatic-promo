@@ -29,9 +29,9 @@ EmailRep (operated by Sublime Security) is a comprehensive email reputation inte
 
 Founded as an open intelligence project, EmailRep was designed to answer a deceptively simple question: "Is this email address trustworthy?" The answer, however, requires synthesizing dozens of signals: Does the email appear in known data breaches? Does it have associated social media profiles indicating a real person? Is the domain a known disposable email provider? Has the email been spotted on dark web forums? Is the email infrastructure properly configured with SPF, DKIM, and DMARC? Has it been reported for spam or phishing activity? EmailRep aggregates all of these signals into a single API response.
 
-The API returns not just a categorical reputation level (none, low, medium, high) but a detailed `details` object containing over 20 boolean and categorical fields. This granularity makes EmailRep valuable for multiple use cases: fraud prevention teams use the disposable email detection and reputation scoring; security operations centers use the phishing and malicious activity indicators; [OSINT](/glossary/osint/) investigators use the social profile discovery and breach correlation; and compliance teams use the overall reputation assessment for identity verification workflows.
+The API returns not just a categorical reputation level (none, low, medium, high) but a detailed `details` object containing over 20 boolean and categorical fields. This granularity makes EmailRep valuable for multiple use cases: fraud prevention teams use the disposable email detection and reputation scoring; security operations centers use the phishing and malicious activity indicators; [OSINT](@/glossary/osint.md) investigators use the social profile discovery and breach correlation; and compliance teams use the overall reputation assessment for identity verification workflows.
 
-Within the Prismatic Platform, EmailRep serves as the email reputation scoring engine, providing real-time risk signals to the [OSINT Core](/apps/prismatic-osint-core/) investigation pipeline, the [HAWKEYE](/apps/prismatic-hawkeye/) visitor intelligence system, and the [Email Intelligence Hub](/osint/email-intelligence/) aggregation layer.
+Within the Prismatic Platform, EmailRep serves as the email reputation scoring engine, providing real-time risk signals to the [OSINT Core](@/apps/prismatic-osint-core.md) investigation pipeline, the [HAWKEYE](@/apps/prismatic-hawkeye.md) visitor intelligence system, and the [Email Intelligence Hub](@/osint/email-intelligence.md) aggregation layer.
 
 ## Data Sources and Coverage
 
@@ -235,7 +235,7 @@ Compliance teams use EmailRep alongside other verification sources for know-your
 
 ## Platform Integration
 
-EmailRep feeds into the Prismatic email intelligence pipeline as the primary reputation scoring engine. It provides the reputation component for the [Email Intelligence Hub](/osint/email-intelligence/), contributes risk signals to the HAWKEYE visitor intelligence system, and supplies social profile pivot points for the OSINT investigation framework.
+EmailRep feeds into the Prismatic email intelligence pipeline as the primary reputation scoring engine. It provides the reputation component for the [Email Intelligence Hub](@/osint/email-intelligence.md), contributes risk signals to the HAWKEYE visitor intelligence system, and supplies social profile pivot points for the OSINT investigation framework.
 
 ## NABLA Compliance
 
@@ -263,12 +263,12 @@ EmailRep feeds into the Prismatic email intelligence pipeline as the primary rep
 
 ## Related Resources
 
-- [Hunter.io](/osint/hunter/) - Email discovery and verification complementing reputation data
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach exposure correlation for flagged emails
-- [FullContact](/osint/fullcontact/) - Person enrichment extending social profile discovery
-- [DeHashed](/osint/dehashed/) - Credential exposure details for breach-flagged emails
-- [IPQualityScore](/osint/ipqualityscore/) - Fraud scoring with email reputation integration
-- [Email Intelligence Hub](/osint/email-intelligence/) - Aggregation layer combining EmailRep with other sources
+- [Hunter.io](@/osint/hunter.md) - Email discovery and verification complementing reputation data
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach exposure correlation for flagged emails
+- [FullContact](@/osint/fullcontact.md) - Person enrichment extending social profile discovery
+- [DeHashed](@/osint/dehashed.md) - Credential exposure details for breach-flagged emails
+- [IPQualityScore](@/osint/ipqualityscore.md) - Fraud scoring with email reputation integration
+- [Email Intelligence Hub](@/osint/email-intelligence.md) - Aggregation layer combining EmailRep with other sources
 
 ---
 
@@ -277,4 +277,4 @@ EmailRep feeds into the Prismatic email intelligence pipeline as the primary rep
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

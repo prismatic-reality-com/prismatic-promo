@@ -25,11 +25,11 @@ image_alt = "OpenAPI 3.0 Specification - Prismatic Platform"
 
 ## Overview
 
-The OpenAPI Specification endpoint serves the complete, auto-generated [OpenAPI](/glossary/openapi/) 3.0 schema for the Prismatic API. This specification is not hand-written or manually maintained. It is generated at boot time by the same scanner that populates the [Endpoint Discovery](/api/endpoints/) registry, translating Elixir `@spec` type annotations into JSON Schema objects and `@doc` strings into operation descriptions.
+The OpenAPI Specification endpoint serves the complete, auto-generated [OpenAPI](@/glossary/openapi.md) 3.0 schema for the Prismatic API. This specification is not hand-written or manually maintained. It is generated at boot time by the same scanner that populates the [Endpoint Discovery](@/api/endpoints.md) registry, translating Elixir `@spec` type annotations into JSON Schema objects and `@doc` strings into operation descriptions.
 
-This approach eliminates the documentation drift problem that plagues most APIs. When a developer changes a function's type specification, the OpenAPI schema updates automatically on the next deployment. When a new function is added to a facade module, it appears in the specification without any additional effort. The [Trinity Gate](/glossary/trinity-gate/) verification ensures that every endpoint in the specification has valid type mappings and complete documentation.
+This approach eliminates the documentation drift problem that plagues most APIs. When a developer changes a function's type specification, the OpenAPI schema updates automatically on the next deployment. When a new function is added to a facade module, it appears in the specification without any additional effort. The [Trinity Gate](@/glossary/trinity-gate.md) verification ensures that every endpoint in the specification has valid type mappings and complete documentation.
 
-The specification is served as a JSON document conforming to the OpenAPI 3.0.3 standard. It can be consumed by code generators, testing tools, API gateways, and the built-in [Swagger UI](/api/swagger-ui/) explorer.
+The specification is served as a JSON document conforming to the OpenAPI 3.0.3 standard. It can be consumed by code generators, testing tools, API gateways, and the built-in [Swagger UI](@/api/swagger-ui.md) explorer.
 
 ## Endpoint
 
@@ -336,10 +336,10 @@ The specification is a static JSON document cached in memory. Rate limits exist 
 
 ## Related Endpoints
 
-- [Swagger UI](/api/swagger-ui/) -- Interactive browser consuming this specification
-- [Endpoint Discovery](/api/endpoints/) -- Programmatic endpoint listing from the same data source
-- [Generic Dispatch](/api/dispatch/) -- How specification paths map to runtime dispatch
-- [Health Check](/api/health/) -- Verify the API is running before fetching the spec
+- [Swagger UI](@/api/swagger-ui.md) -- Interactive browser consuming this specification
+- [Endpoint Discovery](@/api/endpoints.md) -- Programmatic endpoint listing from the same data source
+- [Generic Dispatch](@/api/dispatch.md) -- How specification paths map to runtime dispatch
+- [Health Check](@/api/health.md) -- Verify the API is running before fetching the spec
 
 ## Integration with Code Generators
 
@@ -362,7 +362,7 @@ openapi-generator generate \
 mix openapi.generate http://localhost:4004/api/openapi --output lib/prismatic_client
 ```
 
-The auto-generated specification ensures that client libraries are always in sync with the server implementation. The [Quality DNA](/glossary/quality-dna/) system validates specification completeness as part of the platform's continuous quality assessment.
+The auto-generated specification ensures that client libraries are always in sync with the server implementation. The [Quality DNA](@/glossary/quality-dna.md) system validates specification completeness as part of the platform's continuous quality assessment.
 
 ---
 
@@ -371,4 +371,4 @@ The auto-generated specification ensures that client libraries are always in syn
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

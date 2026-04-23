@@ -28,9 +28,9 @@ image_alt = "competitor-researcher - Prismatic Platform"
 
 ## Executive Summary
 
-The Competitor Researcher operates as an L2 tactical intelligence agent within the Apex Predator domain of the Prismatic Platform. This agent specializes in systematic competitive intelligence gathering, market landscape analysis, and strategic positioning assessment. By combining [OSINT](/glossary/osint/) methodologies with structured analytical frameworks, the Competitor Researcher delivers actionable intelligence that informs platform strategy and feature prioritization across all product domains.
+The Competitor Researcher operates as an L2 tactical intelligence agent within the Apex Predator domain of the Prismatic Platform. This agent specializes in systematic competitive intelligence gathering, market landscape analysis, and strategic positioning assessment. By combining [OSINT](@/glossary/osint.md) methodologies with structured analytical frameworks, the Competitor Researcher delivers actionable intelligence that informs platform strategy and feature prioritization across all product domains.
 
-Competitive intelligence in the Prismatic ecosystem extends beyond simple feature comparison. This agent employs multi-source evidence correlation, tracking competitor product announcements, technology stack choices, pricing models, hiring patterns, and public API surface changes. All findings are processed through the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, ensuring [signal plurality](/glossary/signal-plurality/) and provenance traceability before any competitive assessment reaches decision-makers. The agent's outputs directly influence strategic decisions including Prismatic Perimeter's market positioning against SecurityScorecard and BitSight, HAWKEYE's differentiation strategy, and the AI Drift monitoring product's feature roadmap.
+Competitive intelligence in the Prismatic ecosystem extends beyond simple feature comparison. This agent employs multi-source evidence correlation, tracking competitor product announcements, technology stack choices, pricing models, hiring patterns, and public API surface changes. All findings are processed through the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, ensuring [signal plurality](@/glossary/signal-plurality.md) and provenance traceability before any competitive assessment reaches decision-makers. The agent's outputs directly influence strategic decisions including Prismatic Perimeter's market positioning against SecurityScorecard and BitSight, HAWKEYE's differentiation strategy, and the AI Drift monitoring product's feature roadmap.
 
 ## Architecture
 
@@ -86,7 +86,7 @@ The competitive landscape for the Prismatic Platform spans multiple market segme
 
 **Trend Synthesis and Forecasting** identifies emerging patterns across the competitive landscape and predicts market direction shifts. By correlating signals from multiple competitors (similar technology investments, parallel feature announcements, convergent positioning changes), the forecaster identifies industry-wide trends before they become obvious.
 
-**[Entity Resolution](/glossary/entity-resolution/) for Competitive Entities** resolves different names, subsidiaries, and product rebrandings to maintain consistent competitor profiles over time. When competitors are acquired, merged, or rebranded, the entity resolution system maintains profile continuity.
+**[Entity Resolution](@/glossary/entity-resolution.md) for Competitive Entities** resolves different names, subsidiaries, and product rebrandings to maintain consistent competitor profiles over time. When competitors are acquired, merged, or rebranded, the entity resolution system maintains profile continuity.
 
 ## Implementation
 
@@ -139,8 +139,8 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [archer-supreme-dx-commander](/agents/archer-supreme-dx-commander/) | Strategic Consumer | Receives competitive intelligence for DX strategy decisions |
-| [supreme-coordinator](/agents/supreme-coordinator/) | Command Authority | Routes intelligence findings to strategic planning pipeline |
+| [archer-supreme-dx-commander](@/agents/archer-supreme-dx-commander.md) | Strategic Consumer | Receives competitive intelligence for DX strategy decisions |
+| [supreme-coordinator](@/agents/supreme-coordinator.md) | Command Authority | Routes intelligence findings to strategic planning pipeline |
 
 ## Operational Workflow
 
@@ -175,15 +175,15 @@ end
 
 ## Enforcement
 
-All competitive intelligence operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every competitive claim must be backed by verifiable evidence from independent sources. Single-source assertions are blocked. Intelligence reports undergo [Trinity Gate](/glossary/trinity-gate/) validation before distribution to ensure structural consistency, logical coherence, and formal necessity of all conclusions.
+All competitive intelligence operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every competitive claim must be backed by verifiable evidence from independent sources. Single-source assertions are blocked. Intelligence reports undergo [Trinity Gate](@/glossary/trinity-gate.md) validation before distribution to ensure structural consistency, logical coherence, and formal necessity of all conclusions.
 
 ## Related Resources
 
-- [archer-supreme-dx-commander](/agents/archer-supreme-dx-commander/) -- Strategic DX command
-- [supreme-coordinator](/agents/supreme-coordinator/) -- Platform coordination
-- [OSINT](/glossary/osint/) -- Open source intelligence methodology
-- [Entity Resolution](/glossary/entity-resolution/) -- Identity resolution
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [archer-supreme-dx-commander](@/agents/archer-supreme-dx-commander.md) -- Strategic DX command
+- [supreme-coordinator](@/agents/supreme-coordinator.md) -- Platform coordination
+- [OSINT](@/glossary/osint.md) -- Open source intelligence methodology
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Identity resolution
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -192,4 +192,4 @@ All competitive intelligence operations are governed by the [NO MERCY, NO DOUBTS
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

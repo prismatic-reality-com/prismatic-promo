@@ -395,16 +395,16 @@ For OSINT and due diligence operations, Prismatic provides structured assessment
 
 ## Related Concepts
 
-- [Compliance Framework](/glossary/compliance-framework/) -- Structured set of regulatory requirements that assessment criteria are derived from
-- [Quality Gates](/glossary/quality-gates/) -- Automated enforcement points where assessment results determine whether code proceeds through the pipeline
-- [Risk Score](/glossary/risk-score/) -- Quantitative measure of risk produced by risk assessment methodologies
-- [Due Diligence](/glossary/due-diligence/) -- Comprehensive assessment of entities for business, legal, and financial purposes
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Security-specific assessment focused on identifying exploitable weaknesses
-- [EASM](/glossary/easm/) -- External Attack Surface Management providing continuous security assessment from an outside-in perspective
-- [Security Rating](/glossary/security-rating/) -- Letter grade or numeric score summarizing an organization's security assessment results
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of assessment activities, findings, and remediation actions
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Quantifying the reliability and certainty of assessment findings
-- [Code Coverage](/glossary/code-coverage/) -- Metric used in quality assessment to measure test thoroughness
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Structured set of regulatory requirements that assessment criteria are derived from
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated enforcement points where assessment results determine whether code proceeds through the pipeline
+- [Risk Score](@/glossary/risk-score.md) -- Quantitative measure of risk produced by risk assessment methodologies
+- [Due Diligence](@/glossary/due-diligence.md) -- Comprehensive assessment of entities for business, legal, and financial purposes
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Security-specific assessment focused on identifying exploitable weaknesses
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management providing continuous security assessment from an outside-in perspective
+- [Security Rating](@/glossary/security-rating.md) -- Letter grade or numeric score summarizing an organization's security assessment results
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of assessment activities, findings, and remediation actions
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Quantifying the reliability and certainty of assessment findings
+- [Code Coverage](@/glossary/code-coverage.md) -- Metric used in quality assessment to measure test thoroughness
 
 ## See Also
 
@@ -421,4 +421,4 @@ For OSINT and due diligence operations, Prismatic provides structured assessment
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

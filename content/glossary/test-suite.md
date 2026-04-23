@@ -216,10 +216,10 @@ The test suite is run at every stage of development:
 
 ## Cross-References
 
-- [ExUnit](/glossary/exunit/) - Elixir testing framework powering the test suite
-- [Property-Based Testing](/glossary/property-based-testing/) - Testing method included in the suite
-- [Quality Gates](/glossary/quality-gates/) - Enforcement system that requires test suite passage
-- [CI/CD](/glossary/ci-cd/) - Pipeline running the test suite automatically
+- [ExUnit](@/glossary/exunit.md) - Elixir testing framework powering the test suite
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Testing method included in the suite
+- [Quality Gates](@/glossary/quality-gates.md) - Enforcement system that requires test suite passage
+- [CI/CD](@/glossary/ci-cd.md) - Pipeline running the test suite automatically
 
 ---
 

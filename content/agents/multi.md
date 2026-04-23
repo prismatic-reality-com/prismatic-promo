@@ -28,9 +28,9 @@ image_alt = "Multi - Prismatic Platform"
 
 ## Overview
 
-The Multi agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform, specializing in the formal verification of safe evolution through five core [Lean4](/glossary/lean4/) theorems. This agent ensures that every evolutionary mutation applied to the platform preserves essential invariants -- type safety, state consistency, termination guarantees, behavioral compatibility, and quality monotonicity. By maintaining machine-verified proofs of these properties, the Multi agent provides mathematical certainty that the platform's self-evolution never degrades established safety properties.
+The Multi agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform, specializing in the formal verification of safe evolution through five core [Lean4](@/glossary/lean4.md) theorems. This agent ensures that every evolutionary mutation applied to the platform preserves essential invariants -- type safety, state consistency, termination guarantees, behavioral compatibility, and quality monotonicity. By maintaining machine-verified proofs of these properties, the Multi agent provides mathematical certainty that the platform's self-evolution never degrades established safety properties.
 
-Built on the [AIAD](/glossary/aiad/) standard and deeply integrated with the [SEADF](/glossary/seadf/) evolutionary framework, the Multi agent operates at the intersection of formal methods and autonomous evolution. Each of the five core theorems is encoded as a Lean4 proof obligation that must be discharged before any evolutionary change is committed to the platform's genetic lineage. The [NABLA Infinity](/glossary/nabla-infinity/) framework provides the epistemic foundation, ensuring that formal verification results carry proper provenance chains.
+Built on the [AIAD](@/glossary/aiad.md) standard and deeply integrated with the [SEADF](@/glossary/seadf.md) evolutionary framework, the Multi agent operates at the intersection of formal methods and autonomous evolution. Each of the five core theorems is encoded as a Lean4 proof obligation that must be discharged before any evolutionary change is committed to the platform's genetic lineage. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework provides the epistemic foundation, ensuring that formal verification results carry proper provenance chains.
 
 ## Operational Domain
 
@@ -48,10 +48,10 @@ The formal verification domain spans all evolutionary mutations that affect plat
 
 - **Lean4 proof management** -- Maintains and extends the five core theorem proofs as the platform evolves, adapting proof structures to accommodate new evolutionary capabilities
 - **Proof obligation generation** -- Automatically generates Lean4 proof obligations from proposed evolutionary changes, identifying which theorems require re-verification
-- **[Property-based testing](/glossary/property-based-testing/) integration** -- Bridges formal Lean4 proofs with runtime property-based tests (StreamData) to provide both mathematical certainty and empirical validation
+- **[Property-based testing](@/glossary/property-based-testing.md) integration** -- Bridges formal Lean4 proofs with runtime property-based tests (StreamData) to provide both mathematical certainty and empirical validation
 - **Evolution gate enforcement** -- Acts as a mandatory gate in the evolution pipeline, blocking mutations that cannot satisfy all five theorem requirements
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed proof maintenance and theorem extension cycles
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing proof status, verification latency, and theorem coverage metrics
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed proof maintenance and theorem extension cycles
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing proof status, verification latency, and theorem coverage metrics
 
 ## Core Theorem Framework
 
@@ -136,7 +136,7 @@ The Multi agent implements a staged verification pipeline that combines static f
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to block evolutionary mutations that fail formal verification and mandate proof extensions for new platform capabilities.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to block evolutionary mutations that fail formal verification and mandate proof extensions for new platform capabilities.
 
 ## Command Interface
 
@@ -150,20 +150,20 @@ The Multi agent implements a staged verification pipeline that combines static f
 
 | Agent | Relationship |
 |-------|-------------|
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Provides evolution gate enforcement, blocking unverified mutations |
-| [evolution-analyzer-specialist](/agents/evolution-analyzer-specialist/) | Receives formal verification constraints for mutation analysis |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality monotonicity theorem aligned with quality gate metrics |
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Verification results captured in session debrief artifacts |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Provides evolution gate enforcement, blocking unverified mutations |
+| [evolution-analyzer-specialist](@/agents/evolution-analyzer-specialist.md) | Receives formal verification constraints for mutation analysis |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality monotonicity theorem aligned with quality gate metrics |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Verification results captured in session debrief artifacts |
 
 ## Core Theorems Deep Dive
 
 ### T1: Type Safety Preservation
 
-The type safety preservation theorem guarantees that evolutionary mutations do not introduce type errors. This theorem is encoded in [Lean4](/glossary/lean4/) as a proof that the type environment after mutation is a consistent extension of the type environment before mutation. In practical terms, this means that if a module M exports a function `f: A -> B` before mutation, the mutated version must export `f: A' -> B'` where `A'` is a supertype of `A` and `B'` is a subtype of `B` (covariant return, contravariant argument). This ensures that all existing callers of `f` remain type-safe after the mutation.
+The type safety preservation theorem guarantees that evolutionary mutations do not introduce type errors. This theorem is encoded in [Lean4](@/glossary/lean4.md) as a proof that the type environment after mutation is a consistent extension of the type environment before mutation. In practical terms, this means that if a module M exports a function `f: A -> B` before mutation, the mutated version must export `f: A' -> B'` where `A'` is a supertype of `A` and `B'` is a subtype of `B` (covariant return, contravariant argument). This ensures that all existing callers of `f` remain type-safe after the mutation.
 
 ### T2: State Consistency
 
-The state consistency theorem verifies that [GenServer](/glossary/genserver/) state machines remain valid after evolution. It ensures that the set of valid state transitions after mutation is a superset of the pre-mutation transition set -- meaning no previously valid state sequence becomes invalid. This theorem is verified through a combination of Lean4 proofs for the transition relation structure and [property-based testing](/glossary/property-based-testing/) for runtime validation of state machine invariants.
+The state consistency theorem verifies that [GenServer](@/glossary/genserver.md) state machines remain valid after evolution. It ensures that the set of valid state transitions after mutation is a superset of the pre-mutation transition set -- meaning no previously valid state sequence becomes invalid. This theorem is verified through a combination of Lean4 proofs for the transition relation structure and [property-based testing](@/glossary/property-based-testing.md) for runtime validation of state machine invariants.
 
 ### T3: Termination Guarantee
 
@@ -183,7 +183,7 @@ As the platform evolves, existing Lean4 proofs may require updates to accommodat
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that all five core theorems pass verification before any evolutionary mutation is committed. There are no exceptions and no bypasses -- a single theorem failure blocks the entire mutation. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that proof validity is mechanically verified by Lean4, not assumed through informal reasoning. The [Trinity Gate](/glossary/trinity-gate/) integrates formal verification results into its three-layer validation, with Lean4 proofs satisfying the formal necessity requirement.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that all five core theorems pass verification before any evolutionary mutation is committed. There are no exceptions and no bypasses -- a single theorem failure blocks the entire mutation. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that proof validity is mechanically verified by Lean4, not assumed through informal reasoning. The [Trinity Gate](@/glossary/trinity-gate.md) integrates formal verification results into its three-layer validation, with Lean4 proofs satisfying the formal necessity requirement.
 
 ---
 
@@ -192,4 +192,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that all five core theorem
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

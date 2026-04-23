@@ -640,24 +640,24 @@ end
 
 ## Related Terms
 
-- [Topic Registry](/glossary/topic-registry/) -- Self-registering system where quiz-containing topics are discovered
-- [Skill Matrix](/glossary/skill-matrix/) -- Competency mapping fed by quiz results across domains
+- [Topic Registry](@/glossary/topic-registry.md) -- Self-registering system where quiz-containing topics are discovered
+- [Skill Matrix](@/glossary/skill-matrix.md) -- Competency mapping fed by quiz results across domains
 - [Academy](/glossary/academy/) -- The learning platform containing quizzes and topic modules
-- [LiveView](/glossary/liveview/) -- Phoenix real-time UI framework rendering quiz interactions
-- [GenServer](/glossary/genserver/) -- OTP server managing quiz session state
-- [ETS](/glossary/ets/) -- In-memory storage for question banks and topic registry
-- [PubSub](/glossary/pubsub/) -- Event broadcasting for quiz completion notifications
+- [LiveView](@/glossary/liveview.md) -- Phoenix real-time UI framework rendering quiz interactions
+- [GenServer](@/glossary/genserver.md) -- OTP server managing quiz session state
+- [ETS](@/glossary/ets.md) -- In-memory storage for question banks and topic registry
+- [PubSub](@/glossary/pubsub.md) -- Event broadcasting for quiz completion notifications
 - [Progress Tracker](/glossary/progress-tracker/) -- Persistent learner progress management
 - [InterconnectionEngine](/glossary/interconnection-engine/) -- Cross-topic knowledge graph for synthesis quizzes
-- [Test Suite](/glossary/test-suite/) -- Automated testing analogous to learner assessment
-- [Session](/glossary/session/) -- The context in which quiz attempts are tracked
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Concept relationships informing cross-topic assessments
+- [Test Suite](@/glossary/test-suite.md) -- Automated testing analogous to learner assessment
+- [Session](@/glossary/session.md) -- The context in which quiz attempts are tracked
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Concept relationships informing cross-topic assessments
 
 ## See Also
 
-- [Prismatic Academy](/academy/) -- The learning platform containing quizzes
-- [Capabilities](/capabilities/) -- Skills developed through quiz-validated learning
-- [Architecture](/architecture/) -- OTP architecture supporting quiz session management
+- [Prismatic Academy](@/academy/_index.md) -- The learning platform containing quizzes
+- [Capabilities](@/capabilities/_index.md) -- Skills developed through quiz-validated learning
+- [Architecture](@/architecture/_index.md) -- OTP architecture supporting quiz session management
 - **ProgressTracker GenServer** -- Persistent progress tracking across quiz sessions
 - **InterconnectionEngine** -- Cross-domain knowledge mapping for synthesis assessments
 - **TACH Doctrine** -- Testing assurance principles applied to quiz question validation
@@ -669,4 +669,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

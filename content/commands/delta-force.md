@@ -24,11 +24,11 @@ image_alt = "/delta-force - Prismatic Platform"
 
 ## Overview
 
-The **/delta-force** command executes precision [OSINT](/glossary/osint/) (Open Source Intelligence) operations with surgical accuracy and zero collateral damage. While the broader `/investigate` command provides comprehensive multi-source intelligence gathering, Delta Force specializes in targeted, high-precision intelligence extraction against specific subjects -- individuals, companies, or entities -- where accuracy, evidence quality, and operational security take precedence over breadth of coverage.
+The **/delta-force** command executes precision [OSINT](@/glossary/osint.md) (Open Source Intelligence) operations with surgical accuracy and zero collateral damage. While the broader `/investigate` command provides comprehensive multi-source intelligence gathering, Delta Force specializes in targeted, high-precision intelligence extraction against specific subjects -- individuals, companies, or entities -- where accuracy, evidence quality, and operational security take precedence over breadth of coverage.
 
 The command draws its operational philosophy from precision intelligence doctrine: identify the target with absolute certainty, collect only relevant intelligence through verified sources, cross-reference all findings through multi-source validation, and deliver court-admissible evidence with 95%+ confidence thresholds. Every piece of intelligence produced by Delta Force carries a confidence score and source provenance chain, enabling operators to distinguish between verified facts, corroborated claims, and unconfirmed indicators.
 
-This command operates under the **L3** authority level and is executed by the `delta-force-operator` agent, with support from the `intel-osint-specialist` and `elixir-core-specialist` agents for multi-source coordination. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the sensitive nature of precision intelligence operations, which require demonstrated competence and authorization.
+This command operates under the **L3** authority level and is executed by the `delta-force-operator` agent, with support from the `intel-osint-specialist` and `elixir-core-specialist` agents for multi-source coordination. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the sensitive nature of precision intelligence operations, which require demonstrated competence and authorization.
 
 Delta Force operations are organized around five core capabilities: Executive Background Analysis (leadership profiling), Company Financial Forensics (financial intelligence), Legal Entity Deep Dive (ownership structure analysis), Regulatory Compliance Audit (compliance verification), and Risk Assessment Matrix (threat profile development). Each capability follows a structured execution protocol with defined phases, quality standards, and deliverable requirements.
 
@@ -214,12 +214,12 @@ PHASE 4: SURGICAL STRIKE REPORT GENERATION (15-30 min)
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Multi-agent coordination | delta-force-operator, intel-osint-specialist, elixir-core-specialist |
-| [AIAD](/glossary/aiad/) Registry | Command specification | Intelligence category, L3 authority |
-| [Quality Gates](/glossary/quality-gates/) | Evidence quality validation | Court-admissible evidence standards |
-| [Telemetry](/glossary/telemetry/) | Operation [metrics](/glossary/metrics/) | Collection time, source count, confidence scores |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Multi-agent coordination | delta-force-operator, intel-osint-specialist, elixir-core-specialist |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification | Intelligence category, L3 authority |
+| [Quality Gates](@/glossary/quality-gates.md) | Evidence quality validation | Court-admissible evidence standards |
+| [Telemetry](@/glossary/telemetry.md) | Operation [metrics](@/glossary/metrics.md) | Collection time, source count, confidence scores |
 | Czech Registries | Business intelligence | ARES, Justice.cz, CUZK integration |
-| [OSINT](/glossary/osint/) Pipeline | Intelligence integration | Feeds into and from broader OSINT ecosystem |
+| [OSINT](@/glossary/osint.md) Pipeline | Intelligence integration | Feeds into and from broader OSINT ecosystem |
 
 ### Integration with Universal Investigation
 
@@ -298,19 +298,19 @@ The `/investigate` command automatically applies precision protocols when surgic
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unverified intelligence. Every finding must meet court-admissible evidence standards. No approximations, no assumptions presented as facts, no intelligence gaps hidden in vague language.
 - **NO DOUBTS**: Full multi-source verification before any finding is reported. Confidence scoring on every data point. Source provenance tracking from collection through analysis to delivery. NABLA signal plurality enforced through independent source requirements.
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/ghost-recon](/commands/ghost-recon/) - Maximum stealth intelligence operations
-- [/osint-engines](/commands/osint-engines/) - Multi-engine OSINT source coordination and parallel querying
-- [/czech-autocrawler-supreme](/commands/czech-autocrawler-supreme/) - Czech Registry intelligence with 3NL processing
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/ghost-recon](@/commands/ghost-recon.md) - Maximum stealth intelligence operations
+- [/osint-engines](@/commands/osint-engines.md) - Multi-engine OSINT source coordination and parallel querying
+- [/czech-autocrawler-supreme](@/commands/czech-autocrawler-supreme.md) - Czech Registry intelligence with 3NL processing
 
 ---
 
@@ -319,4 +319,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

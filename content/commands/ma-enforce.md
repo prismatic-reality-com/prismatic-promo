@@ -24,13 +24,13 @@ image_alt = "/ma-enforce - Prismatic Platform"
 
 ## Overview
 
-**/ma-enforce** is a production command in the **M&A Operations** category of the Prismatic Platform that manages compliance enforcement, deadline tracking, and escalation actions across the M&A deal pipeline. While [/ma-analyze](/commands/ma-analyze/) performs the analytical work and [/ma-dashboard](/commands/ma-dashboard/) provides visibility, the `/ma-enforce` command ensures that deals progress according to their defined timelines, that compliance requirements are met at each lifecycle stage, and that violations trigger appropriate escalation actions.
+**/ma-enforce** is a production command in the **M&A Operations** category of the Prismatic Platform that manages compliance enforcement, deadline tracking, and escalation actions across the M&A deal pipeline. While [/ma-analyze](@/commands/ma-analyze.md) performs the analytical work and [/ma-dashboard](@/commands/ma-dashboard.md) provides visibility, the `/ma-enforce` command ensures that deals progress according to their defined timelines, that compliance requirements are met at each lifecycle stage, and that violations trigger appropriate escalation actions.
 
-This command operates under the **L3** authority level and is executed by the `ma-enforcement-commander` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level grants the enforcement commander sufficient authority to issue warnings, block state transitions, and escalate to L4 deal commanders when compliance violations are detected.
+This command operates under the **L3** authority level and is executed by the `ma-enforcement-commander` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level grants the enforcement commander sufficient authority to issue warnings, block state transitions, and escalate to L4 deal commanders when compliance violations are detected.
 
 M&A enforcement in the Prismatic Platform operates on the principle that unmonitored processes degrade. Every deal has a defined lifecycle with expected timelines, required deliverables at each stage, and mandatory quality checks before stage transitions. The `/ma-enforce` command continuously monitors these requirements and takes automated action when deviations are detected. This automated enforcement prevents the common M&A failure mode where deals stall in due diligence, deadlines slip unnoticed, and critical compliance requirements are overlooked.
 
-The enforcement engine integrates with the platform's [Quality Gates](/glossary/quality-gates/) system to validate that each deal stage transition meets defined quality criteria. A deal cannot move from SCREENING to ACTIVE without completed financial screening. A deal cannot enter NEGOTIATION without legal due diligence sign-off. These gates are configurable per deal type and can be customized through enforcement rule sets.
+The enforcement engine integrates with the platform's [Quality Gates](@/glossary/quality-gates.md) system to validate that each deal stage transition meets defined quality criteria. A deal cannot move from SCREENING to ACTIVE without completed financial screening. A deal cannot enter NEGOTIATION without legal due diligence sign-off. These gates are configurable per deal type and can be customized through enforcement rule sets.
 
 ## Architecture
 
@@ -153,21 +153,21 @@ The enforcement system operates as a continuous monitoring engine with rule-base
 
 7. **Continuous Monitoring**: The enforcement engine runs continuously on a configurable interval (default: every 15 minutes). Each scan evaluates all active deals against all applicable rules, detecting new violations and resolving previous violations that have been addressed.
 
-8. **Compliance Reporting**: Compliance status is aggregated and made available to [/ma-dashboard](/commands/ma-dashboard/) for real-time display. Periodic compliance reports can be generated for stakeholder review.
+8. **Compliance Reporting**: Compliance status is aggregated and made available to [/ma-dashboard](@/commands/ma-dashboard.md) for real-time display. Periodic compliance reports can be generated for stakeholder review.
 
 ## Integration Points
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `ma-enforcement-commander` | Rule evaluation and action dispatch |
-| [/ma-create](/commands/ma-create/) | Deal lifecycle | Enforcement begins at deal creation |
-| [/ma-analyze](/commands/ma-analyze/) | Quality triggers | Analysis completeness feeds enforcement |
-| [/ma-dashboard](/commands/ma-dashboard/) | Status display | Enforcement indicators shown in dashboard |
-| [/ma-status](/commands/ma-status/) | Status tracking | Enforcement status included in deal status |
-| [/ma-report](/commands/ma-report/) | Compliance reports | Enforcement data feeds compliance reporting |
-| [Quality Gates](/glossary/quality-gates/) | Gate enforcement | Quality criteria for stage transitions |
-| [Telemetry](/glossary/telemetry/) | Audit trail | All enforcement actions logged |
-| [NABLA Framework](/glossary/nabla-infinity/) | Confidence checks | Confidence threshold enforcement |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `ma-enforcement-commander` | Rule evaluation and action dispatch |
+| [/ma-create](@/commands/ma-create.md) | Deal lifecycle | Enforcement begins at deal creation |
+| [/ma-analyze](@/commands/ma-analyze.md) | Quality triggers | Analysis completeness feeds enforcement |
+| [/ma-dashboard](@/commands/ma-dashboard.md) | Status display | Enforcement indicators shown in dashboard |
+| [/ma-status](@/commands/ma-status.md) | Status tracking | Enforcement status included in deal status |
+| [/ma-report](@/commands/ma-report.md) | Compliance reports | Enforcement data feeds compliance reporting |
+| [Quality Gates](@/glossary/quality-gates.md) | Gate enforcement | Quality criteria for stage transitions |
+| [Telemetry](@/glossary/telemetry.md) | Audit trail | All enforcement actions logged |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Confidence checks | Confidence threshold enforcement |
 
 ## Best Practices
 
@@ -244,20 +244,20 @@ Analyze enforcement patterns across the deal portfolio.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Enforcement rules execute without exception. Blocks cannot be silently bypassed. Every override is logged with full audit trail. Compliance is not optional.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Enforcement decisions are based on quantifiable criteria, not subjective judgment. Rule conditions are explicit, measurable, and verifiable.
 
 ## Related Commands
 
-- [/ma-create](/commands/ma-create/) - Create new M&A deal with target profiling and initial assessment
-- [/ma-analyze](/commands/ma-analyze/) - Comprehensive M&A analysis including financial, legal and operational review
-- [/ma-report](/commands/ma-report/) - Generate detailed M&A analysis report with visualizations
-- [/ma-dashboard](/commands/ma-dashboard/) - M&A deal pipeline dashboard with real-time status tracking
-- [/ma-status](/commands/ma-status/) - M&A deal pipeline status overview and progress tracking
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/ma-create](@/commands/ma-create.md) - Create new M&A deal with target profiling and initial assessment
+- [/ma-analyze](@/commands/ma-analyze.md) - Comprehensive M&A analysis including financial, legal and operational review
+- [/ma-report](@/commands/ma-report.md) - Generate detailed M&A analysis report with visualizations
+- [/ma-dashboard](@/commands/ma-dashboard.md) - M&A deal pipeline dashboard with real-time status tracking
+- [/ma-status](@/commands/ma-status.md) - M&A deal pipeline status overview and progress tracking
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
 
 ---
 
@@ -266,4 +266,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

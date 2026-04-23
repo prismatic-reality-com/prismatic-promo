@@ -24,11 +24,11 @@ image_alt = "/prismatic-api-endpoints - Prismatic Platform"
 
 ## Overview
 
-**/prismatic-api-endpoints** is a production command in the **API** category of the Prismatic Platform that lists all auto-discovered API endpoints from the platform's facade modules. The command provides a comprehensive inventory of the REST API surface area that the [Prismatic API](/glossary/prismatic-api/) gateway exposes through its automatic introspection mechanism, enabling operators to understand which platform functions are accessible via HTTP, their expected parameters, return types, and documentation status.
+**/prismatic-api-endpoints** is a production command in the **API** category of the Prismatic Platform that lists all auto-discovered API endpoints from the platform's facade modules. The command provides a comprehensive inventory of the REST API surface area that the [Prismatic API](@/glossary/prismatic-api.md) gateway exposes through its automatic introspection mechanism, enabling operators to understand which platform functions are accessible via HTTP, their expected parameters, return types, and documentation status.
 
 The Prismatic API implements a unique auto-introspecting architecture that eliminates manual endpoint registration. At boot time, the API gateway scans all `Prismatic*` facade modules using Elixir introspection functions (`Code.fetch_docs/1`, `Code.Typespec.fetch_specs/1`, `Module.__info__/1`) to discover public functions, their type specifications, and documentation. These discoveries are cached in ETS and exposed as REST endpoints through a generic dispatch controller. The `/prismatic-api-endpoints` command provides visibility into this discovery process, showing exactly which functions have been discovered, their HTTP methods, parameter mappings, and OpenAPI schema status.
 
-This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command serves as a diagnostic and documentation tool for the API infrastructure, enabling operators to verify that expected endpoints are discoverable and correctly configured.
+This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command serves as a diagnostic and documentation tool for the API infrastructure, enabling operators to verify that expected endpoints are discoverable and correctly configured.
 
 Understanding the discovered endpoint inventory is essential for API consumers, integration developers, and platform operators. The endpoint list reveals the complete public API surface area, enabling developers to identify available functionality without reading source code. It also serves as a health check for the discovery mechanism itself -- if expected endpoints are missing, it indicates a problem with module loading, type specification, or the discovery scanner.
 
@@ -55,7 +55,7 @@ Boot-Time Discovery                ETS Registry               /prismatic-api-end
 
 The scanner applies a set of heuristics to determine the HTTP method for each discovered function. Functions with 0-2 parameters are mapped to GET requests (query string parameters). Functions with more than 2 parameters or those that perform state changes (detected by naming conventions like `create_`, `update_`, `delete_`) are mapped to POST requests. This automatic HTTP method assignment follows REST conventions while requiring zero manual configuration.
 
-The type specification mapper (`TypeMapper`) converts Elixir `@spec` AST nodes into [OpenAPI](/glossary/openapi/) 3.0 JSON Schema definitions. This enables automatic generation of request/response schemas for each endpoint, providing type-safe API documentation without manual schema authoring.
+The type specification mapper (`TypeMapper`) converts Elixir `@spec` AST nodes into [OpenAPI](@/glossary/openapi.md) 3.0 JSON Schema definitions. This enables automatic generation of request/response schemas for each endpoint, providing type-safe API documentation without manual schema authoring.
 
 ## Usage
 
@@ -153,14 +153,14 @@ The endpoint listing follows a straightforward query-and-format pipeline.
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic API](/apps/prismatic-api/) | Core Application | ETS endpoint registry source |
-| [/prismatic-api-status](/commands/prismatic-api-status/) | Complementary | API gateway health and configuration |
-| [/prismatic-api-rescan](/commands/prismatic-api-rescan/) | Complementary | Trigger endpoint re-discovery |
-| [/prismatic-api-spec](/commands/prismatic-api-spec/) | Complementary | Full OpenAPI specification |
-| [OpenAPI](/glossary/openapi/) | Standard | OpenAPI 3.0 schema generation |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `elixir-core-specialist` agent |
-| [Telemetry](/glossary/telemetry/) | Observability | Discovery metrics and endpoint counts |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Endpoint documentation coverage |
+| [Prismatic API](@/apps/prismatic-api.md) | Core Application | ETS endpoint registry source |
+| [/prismatic-api-status](@/commands/prismatic-api-status.md) | Complementary | API gateway health and configuration |
+| [/prismatic-api-rescan](@/commands/prismatic-api-rescan.md) | Complementary | Trigger endpoint re-discovery |
+| [/prismatic-api-spec](@/commands/prismatic-api-spec.md) | Complementary | Full OpenAPI specification |
+| [OpenAPI](@/glossary/openapi.md) | Standard | OpenAPI 3.0 schema generation |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `elixir-core-specialist` agent |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Discovery metrics and endpoint counts |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Endpoint documentation coverage |
 
 ## Best Practices
 
@@ -178,7 +178,7 @@ The endpoint listing follows a straightforward query-and-format pipeline.
 
 | Error Condition | Behavior | Recovery |
 |----------------|----------|----------|
-| ETS registry empty | Warning with scanner status | Run [/prismatic-api-rescan](/commands/prismatic-api-rescan/) |
+| ETS registry empty | Warning with scanner status | Run [/prismatic-api-rescan](@/commands/prismatic-api-rescan.md) |
 | App not found | Error with available apps | Verify app name in registry |
 | Health check failure | Error details per endpoint | Investigate failing endpoints |
 | No matching endpoints | Empty result with filter info | Adjust search/filter criteria |
@@ -226,19 +226,19 @@ done
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The endpoint listing must accurately reflect the complete discoverable API surface. Endpoints with missing documentation or type specifications are flagged, not hidden. Health check results are reported faithfully.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Endpoint metadata is derived directly from Elixir module introspection, not from manual configuration that could become stale. The [NABLA](/glossary/nabla-infinity/) axiom of Provenance Mandatory is satisfied: every endpoint entry is traceable to a specific module, function, and type specification in the codebase.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Endpoint metadata is derived directly from Elixir module introspection, not from manual configuration that could become stale. The [NABLA](@/glossary/nabla-infinity.md) axiom of Provenance Mandatory is satisfied: every endpoint entry is traceable to a specific module, function, and type specification in the codebase.
 
 ## Related Commands
 
-- [/prismatic-api-status](/commands/prismatic-api-status/) - [Prismatic API](/glossary/prismatic-api/) auto-introspecting REST gateway status
-- [/prismatic-api-rescan](/commands/prismatic-api-rescan/) - Trigger endpoint re-scan of all Prismatic facade modules
-- [/prismatic-api-spec](/commands/prismatic-api-spec/) - Generate and view [OpenAPI](/glossary/openapi/) 3.0 specification
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/prismatic-api-status](@/commands/prismatic-api-status.md) - [Prismatic API](@/glossary/prismatic-api.md) auto-introspecting REST gateway status
+- [/prismatic-api-rescan](@/commands/prismatic-api-rescan.md) - Trigger endpoint re-scan of all Prismatic facade modules
+- [/prismatic-api-spec](@/commands/prismatic-api-spec.md) - Generate and view [OpenAPI](@/glossary/openapi.md) 3.0 specification
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -247,4 +247,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

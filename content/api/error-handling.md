@@ -27,7 +27,7 @@ image_alt = "Error Handling & Response Codes - Prismatic Platform"
 
 The Prismatic API uses a consistent error response format across all endpoints. Every error response follows the same JSON structure, includes a machine-readable error code, a human-readable message, and optional detail fields that provide context for debugging. This consistency allows client libraries to implement a single error handling path regardless of which endpoint produced the error.
 
-The error handling philosophy follows the [No Mercy](/glossary/no-mercy/) doctrine: errors are never swallowed, never vague, and never misleading. Every error response provides enough information for the caller to understand what went wrong and how to fix it. Internal server errors include a request correlation ID that can be used to locate the corresponding server-side log entry for detailed diagnosis.
+The error handling philosophy follows the [No Mercy](@/glossary/no-mercy.md) doctrine: errors are never swallowed, never vague, and never misleading. Every error response provides enough information for the caller to understand what went wrong and how to fix it. Internal server errors include a request correlation ID that can be used to locate the corresponding server-side log entry for detailed diagnosis.
 
 Error responses are generated at multiple layers of the request pipeline: the authentication plug, the rate limiter, the dispatch controller, and the dispatched function itself. Each layer produces errors in the same format, so clients see a uniform interface regardless of where the error originated.
 
@@ -337,26 +337,26 @@ except PrismaticAPIError as e:
 
 | Symptom | Likely Cause | Resolution |
 |---------|-------------|------------|
-| All requests return 401 | Token expired or invalid | Generate a new token via [Authentication](/api/authentication/) |
+| All requests return 401 | Token expired or invalid | Generate a new token via [Authentication](@/api/authentication.md) |
 | Specific endpoint returns 403 | Token lacks required scope | Create a token with the appropriate scope |
 | POST returns 415 | Missing Content-Type header | Add `Content-Type: application/json` header |
 | POST returns 400 `invalid_json` | Malformed JSON body | Validate JSON syntax before sending |
 | Request returns 408 | Operation timeout | Use `passive_only` option or increase timeout |
-| Frequent 429 responses | Rate limit exceeded | Implement backoff (see [Rate Limiting](/api/rate-limiting/)) |
+| Frequent 429 responses | Rate limit exceeded | Implement backoff (see [Rate Limiting](@/api/rate-limiting.md)) |
 | 500 with `internal_error` | Server-side bug | Report the `request_id` to platform operators |
 
 ## Rate Limits
 
-Error responses are not rate-limited independently. However, repeated 401 errors from the same IP trigger the authentication rate limit (see [Authentication](/api/authentication/)).
+Error responses are not rate-limited independently. However, repeated 401 errors from the same IP trigger the authentication rate limit (see [Authentication](@/api/authentication.md)).
 
 ## Related Endpoints
 
-- [Authentication](/api/authentication/) -- Authentication error details and token management
-- [Rate Limiting](/api/rate-limiting/) -- Rate limit error details and backoff strategies
-- [Generic Dispatch](/api/dispatch/) -- Dispatch timeout and resolution errors
-- [Health Check](/api/health/) -- Verify the API is running when receiving connection errors
+- [Authentication](@/api/authentication.md) -- Authentication error details and token management
+- [Rate Limiting](@/api/rate-limiting.md) -- Rate limit error details and backoff strategies
+- [Generic Dispatch](@/api/dispatch.md) -- Dispatch timeout and resolution errors
+- [Health Check](@/api/health.md) -- Verify the API is running when receiving connection errors
 
-The error handling system is validated by the [Trinity Gate](/glossary/trinity-gate/) to ensure consistency: every error code maps to exactly one HTTP status, every error message is actionable, and no error path leaks internal implementation details. The [Quality DNA](/glossary/quality-dna/) system tracks error rates and patterns to identify systemic issues before they impact consumers.
+The error handling system is validated by the [Trinity Gate](@/glossary/trinity-gate.md) to ensure consistency: every error code maps to exactly one HTTP status, every error message is actionable, and no error path leaks internal implementation details. The [Quality DNA](@/glossary/quality-dna.md) system tracks error rates and patterns to identify systemic issues before they impact consumers.
 
 ---
 
@@ -365,4 +365,4 @@ The error handling system is validated by the [Trinity Gate](/glossary/trinity-g
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

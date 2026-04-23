@@ -25,13 +25,13 @@ image_alt = "SSLMate Cert Spotter - Prismatic Platform"
 
 ## Overview
 
-SSLMate Cert Spotter is a [Certificate Transparency](/glossary/certificate-transparency/) (CT) monitoring service that continuously watches all public CT logs for certificates issued for monitored domains. When a new certificate is detected, Cert Spotter sends real-time notifications, enabling security teams to immediately detect unauthorized certificate issuance, rogue CAs, or malicious activity targeting their domains.
+SSLMate Cert Spotter is a [Certificate Transparency](@/glossary/certificate-transparency.md) (CT) monitoring service that continuously watches all public CT logs for certificates issued for monitored domains. When a new certificate is detected, Cert Spotter sends real-time notifications, enabling security teams to immediately detect unauthorized certificate issuance, rogue CAs, or malicious activity targeting their domains.
 
 Certificate Transparency is a foundational Internet security mechanism established by RFC 6962 (and later RFC 9162 for CT v2). It requires Certificate Authorities to publicly log every certificate they issue to append-only, cryptographically verifiable logs. This creates an auditable record of all certificates in existence, eliminating the ability of CAs to secretly issue certificates -- a capability that has been exploited in high-profile incidents including the DigiNotar compromise and government-directed interception programs.
 
-Unlike search-oriented tools like [crt.sh](/osint/crtsh/) which primarily serve as CT log search engines, Cert Spotter focuses on proactive monitoring and alerting. It automatically detects and notifies about new certificates within minutes of issuance, making it essential for organizations that need to maintain strict certificate governance and detect potential man-in-the-middle attack preparations.
+Unlike search-oriented tools like [crt.sh](@/osint/crtsh.md) which primarily serve as CT log search engines, Cert Spotter focuses on proactive monitoring and alerting. It automatically detects and notifies about new certificates within minutes of issuance, making it essential for organizations that need to maintain strict certificate governance and detect potential man-in-the-middle attack preparations.
 
-Within the Prismatic Platform, SSLMate Cert Spotter provides real-time certificate monitoring for the [Prismatic Perimeter](/apps/prismatic-perimeter/) [EASM](/glossary/easm/) module, complementing [crt.sh](/osint/crtsh/) for certificate-based subdomain discovery with active monitoring capabilities that trigger automated responses.
+Within the Prismatic Platform, SSLMate Cert Spotter provides real-time certificate monitoring for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [EASM](@/glossary/easm.md) module, complementing [crt.sh](@/osint/crtsh.md) for certificate-based subdomain discovery with active monitoring capabilities that trigger automated responses.
 
 ## Data Coverage
 
@@ -281,8 +281,8 @@ API key required via `Authorization: Bearer` header. Free tier available with re
 
 ### Subdomain Discovery
 - Discover subdomains from certificate Subject Alternative Names passively
-- Complement [crt.sh](/osint/crtsh/) with [real-time monitoring](/capabilities/real-time-monitoring/) capability
-- Feed discovered subdomains into [Perimeter](/apps/prismatic-perimeter/) asset inventory
+- Complement [crt.sh](@/osint/crtsh.md) with [real-time monitoring](@/capabilities/real-time-monitoring.md) capability
+- Feed discovered subdomains into [Perimeter](@/apps/prismatic-perimeter.md) asset inventory
 - Identify internal hostnames exposed through certificate SANs
 
 ### Security Monitoring
@@ -292,24 +292,24 @@ API key required via `Authorization: Bearer` header. Free tier available with re
 - Identify shadow IT through certificates issued for unknown subdomains
 
 ### Compliance
-- [NIS2](/glossary/nis2/) certificate management documentation
+- [NIS2](@/glossary/nis2.md) certificate management documentation
 - PCI DSS certificate inventory requirements
 - SOC 2 certificate governance evidence
 - ISO 27001 cryptographic control monitoring
 
 ## Related Sources
 
-- [crt.sh](/osint/crtsh/) - Certificate Transparency log search engine
-- [Censys](/osint/censys/) - Internet scanning with certificate intelligence
-- [SecurityTrails](/osint/securitytrails/) - DNS and [WHOIS](/glossary/whois/) history for domain context
-- [Shodan](/osint/shodan/) - SSL/[TLS](/glossary/tls/) certificate analysis on discovered hosts
-- [DNSDumpster](/osint/dnsdumpster/) - DNS reconnaissance and mapping
-- [Spyse](/osint/spyse/) - Certificate search and domain intelligence
+- [crt.sh](@/osint/crtsh.md) - Certificate Transparency log search engine
+- [Censys](@/osint/censys.md) - Internet scanning with certificate intelligence
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and [WHOIS](@/glossary/whois.md) history for domain context
+- [Shodan](@/osint/shodan.md) - SSL/[TLS](@/glossary/tls.md) certificate analysis on discovered hosts
+- [DNSDumpster](@/osint/dnsdumpster.md) - DNS reconnaissance and mapping
+- [Spyse](@/osint/spyse.md) - Certificate search and domain intelligence
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Certificate governance in [EASM](/glossary/easm/)
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Certificate governance in [EASM](@/glossary/easm.md)
 
 ---
 
@@ -318,4 +318,4 @@ API key required via `Authorization: Bearer` header. Free tier available with re
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

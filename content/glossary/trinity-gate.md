@@ -30,7 +30,7 @@ The Trinity Gate is a 4-layer verification mechanism that every platform belief,
 
 The gate exists to solve a fundamental problem in AI-assisted reasoning: the gap between "the model thinks so" and "this is actually true." Statistical confidence alone is insufficient for high-stakes decisions. A system can be 95% confident in a conclusion that is structurally incoherent, logically contradictory, or formally unnecessary. Trinity Gate closes these gaps by requiring independent verification across three orthogonal dimensions before any belief transitions from hypothesis to accepted conclusion.
 
-Within the Prismatic Platform, Trinity Gate serves as the transition threshold between [NABLA Infinity](/glossary/nabla-infinity/) exploration and [NM/ND](/glossary/nm-nd/) execution. The platform maintains 629 trinity entities with 100% compliance.
+Within the Prismatic Platform, Trinity Gate serves as the transition threshold between [NABLA Infinity](@/glossary/nabla-infinity.md) exploration and [NM/ND](@/glossary/nm-nd.md) execution. The platform maintains 629 trinity entities with 100% compliance.
 
 ## The Three Gates
 
@@ -44,7 +44,7 @@ Structural consistency verification includes:
 
 - **DAG validity**: The belief graph must be acyclic. Circular reasoning (A supports B, B supports C, C supports A) is a structural failure regardless of how plausible each individual link appears
 - **Dependency integrity**: Every conclusion node must trace back to evidence nodes through valid edges. Disconnected conclusions (beliefs with no supporting evidence path) are flagged and rejected
-- **Contradiction topology**: When contradictory evidence exists, the graph must explicitly represent both sides with proper annotation rather than silently discarding one side. This enforces the [NABLA Infinity](/glossary/nabla-infinity/) Contradiction Preservation axiom at the structural level
+- **Contradiction topology**: When contradictory evidence exists, the graph must explicitly represent both sides with proper annotation rather than silently discarding one side. This enforces the [NABLA Infinity](@/glossary/nabla-infinity.md) Contradiction Preservation axiom at the structural level
 - **Inference path validation**: The knowledge topology must support the inference direction. Evidence flows upward to conclusions, not the reverse. Retroactive evidence generation (fitting evidence to a predetermined conclusion) creates detectable structural anomalies
 
 Structural consistency is the fastest gate to evaluate and the most common point of failure. Approximately 40% of Trinity Gate rejections occur at this stage, typically due to circular reasoning patterns or orphaned belief nodes.
@@ -53,20 +53,20 @@ Structural consistency is the fastest gate to evaluate and the most common point
 
 The second gate evaluates whether the inference rules applied within the structurally valid graph are sound:
 
-**Core requirement**: Conclusions must not contradict their premises, inference rules must be valid, and [NABLA Infinity](/glossary/nabla-infinity/) axioms must not be violated at any step.
+**Core requirement**: Conclusions must not contradict their premises, inference rules must be valid, and [NABLA Infinity](@/glossary/nabla-infinity.md) axioms must not be violated at any step.
 
 Logical consistency verification includes:
 
 - **Premise-conclusion alignment**: Every conclusion must follow from its stated premises through a valid inference rule. Conclusions that assert more than the premises support are flagged as overreach
 - **Rule soundness**: The inference rules themselves are validated. A rule that produces contradictory outputs from the same inputs is unsound regardless of whether it happens to produce a correct result in this instance
-- **Axiom compliance**: All seven NABLA axioms are checked at every inference step. [Signal Plurality](/glossary/signal-plurality/) violations (single-source beliefs), [Provenance Mandatory](/glossary/provenance-mandatory/) violations (untraceable claims), and other axiom breaches trigger immediate gate failure
+- **Axiom compliance**: All seven NABLA axioms are checked at every inference step. [Signal Plurality](@/glossary/signal-plurality.md) violations (single-source beliefs), [Provenance Mandatory](@/glossary/provenance-mandatory.md) violations (untraceable claims), and other axiom breaches trigger immediate gate failure
 - **Assumption tracking**: Every assumption introduced during inference is explicitly tracked. Hidden assumptions -- premises that are used but never stated -- are detected through dependency analysis and flagged as assumption leakage
 
 Logical consistency catches errors that structural analysis misses. A belief graph can be a perfectly valid DAG while containing logically unsound inference steps. This gate ensures the reasoning is correct, not just well-formed.
 
 ### Gate 3: Formal Necessity (Modal Logic + Lean4)
 
-The third gate is the most rigorous. It uses modal logic and [Lean4](/glossary/lean4/) formal proofs to determine whether the conclusion is not merely probable but **necessary**:
+The third gate is the most rigorous. It uses modal logic and [Lean4](@/glossary/lean4.md) formal proofs to determine whether the conclusion is not merely probable but **necessary**:
 
 **Core requirement**: The conclusion must be provably necessary given the evidence, not merely possible or probable.
 
@@ -161,7 +161,7 @@ end
 
 ## Confidence Thresholds
 
-Trinity Gate operates in conjunction with the [Confidence Threshold](/glossary/confidence-threshold/) system. The required confidence level and Trinity Gate strictness vary by context:
+Trinity Gate operates in conjunction with the [Confidence Threshold](@/glossary/confidence-threshold.md) system. The required confidence level and Trinity Gate strictness vary by context:
 
 | Context | Threshold (tau) | Trinity Gate | Rationale |
 |---------|---------|--------------|-----------|
@@ -170,11 +170,11 @@ Trinity Gate operates in conjunction with the [Confidence Threshold](/glossary/c
 | Exploratory Analysis | 0.60 | RECOMMENDED | Research, hypothesis generation, pattern exploration |
 | Research Queries | 0.50 | OPTIONAL | Speculative analysis, early-stage investigation |
 
-The threshold is the minimum confidence score from [QEVE](/glossary/qeve/) required to even attempt Trinity Gate validation. A hypothesis with confidence 0.70 in a critical decision context (threshold 0.95) is rejected before reaching the gate. This prevents wasting computational resources on formal proofs for conclusions that lack sufficient evidence.
+The threshold is the minimum confidence score from [QEVE](@/glossary/qeve.md) required to even attempt Trinity Gate validation. A hypothesis with confidence 0.70 in a critical decision context (threshold 0.95) is rejected before reaching the gate. This prevents wasting computational resources on formal proofs for conclusions that lack sufficient evidence.
 
 ## Integration with NM/ND Doctrine
 
-Trinity Gate is the bridge between exploration and execution in the [NM/ND](/glossary/nm-nd/) (No Mercy, No Doubts) doctrine:
+Trinity Gate is the bridge between exploration and execution in the [NM/ND](@/glossary/nm-nd.md) (No Mercy, No Doubts) doctrine:
 
 ```
 EXPLORATION PHASE (NABLA Infinity)
@@ -197,7 +197,7 @@ EXECUTION PHASE (No Mercy, No Doubts)
   - Full commitment to verified conclusion
 ```
 
-The transition is unidirectional and irreversible within a single decision cycle. Once Trinity Gate passes and execution begins, the [No Mercy](/glossary/no-mercy/) doctrine requires complete follow-through. There is no partial execution and no hedging. The rigor of the gate justifies the decisiveness of the action.
+The transition is unidirectional and irreversible within a single decision cycle. Once Trinity Gate passes and execution begins, the [No Mercy](@/glossary/no-mercy.md) doctrine requires complete follow-through. There is no partial execution and no hedging. The rigor of the gate justifies the decisiveness of the action.
 
 This integration prevents two failure modes:
 
@@ -306,27 +306,27 @@ Trinity Gate addresses a specific category of failure that conventional AI valid
 
 **Verification must verify itself.** Any verification system that does not check its own integrity is vulnerable to degradation. The meta-layer prevents Trinity Gate from becoming a formality -- a checkbox that always passes because no one checks whether the checkbox itself is working.
 
-The [Purple Team](/glossary/purple-team/) (Synthesis and Closure) serves as the organizational complement to Trinity Gate, ensuring that the Red-Blue adversarial-defensive loop reaches genuine closure rather than false resolution.
+The [Purple Team](@/glossary/purple-team.md) (Synthesis and Closure) serves as the organizational complement to Trinity Gate, ensuring that the Red-Blue adversarial-defensive loop reaches genuine closure rather than false resolution.
 
 ## Related Terms
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework whose axioms Trinity Gate enforces
-- [QEVE](/glossary/qeve/) -- Verification engine producing the inputs Trinity Gate evaluates
-- [Lean4](/glossary/lean4/) -- Theorem prover powering the Formal Necessity gate
-- [NM/ND Doctrine](/glossary/nm-nd/) -- Execution doctrine enabled by successful gate passage
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Score thresholds that determine gate strictness
-- [White Team](/glossary/white-team/) -- Constructive verification team producing formal proofs for gate evaluation
-- [Purple Team](/glossary/purple-team/) -- Synthesis team ensuring Red-Blue closure complements gate verification
-- [Signal Plurality](/glossary/signal-plurality/) -- Core axiom checked during logical consistency gate
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom ensuring traceability through all gate stages
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- The 16-level pipeline in which Trinity Gate operates
-- [3NL Framework](/glossary/three-nl/) -- Integration framework connecting Trinity Gate to AIAD agents
-- [Property-Based Testing](/glossary/property-based-testing/) -- Testing approach complementing formal verification
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework whose axioms Trinity Gate enforces
+- [QEVE](@/glossary/qeve.md) -- Verification engine producing the inputs Trinity Gate evaluates
+- [Lean4](@/glossary/lean4.md) -- Theorem prover powering the Formal Necessity gate
+- [NM/ND Doctrine](@/glossary/nm-nd.md) -- Execution doctrine enabled by successful gate passage
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Score thresholds that determine gate strictness
+- [White Team](@/glossary/white-team.md) -- Constructive verification team producing formal proofs for gate evaluation
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis team ensuring Red-Blue closure complements gate verification
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Core axiom checked during logical consistency gate
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom ensuring traceability through all gate stages
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- The 16-level pipeline in which Trinity Gate operates
+- [3NL Framework](@/glossary/three-nl.md) -- Integration framework connecting Trinity Gate to AIAD agents
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Testing approach complementing formal verification
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -335,4 +335,4 @@ The [Purple Team](/glossary/purple-team/) (Synthesis and Closure) serves as the 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

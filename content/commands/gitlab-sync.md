@@ -26,7 +26,7 @@ image_alt = "/gitlab-sync - Prismatic Platform"
 
 **/gitlab-sync** is a production command in the **GitLab** category of the Prismatic Platform that manages bidirectional synchronization between local development state and GitLab's issue tracking system. The command ensures that the platform's mandatory session discipline protocol is maintained by keeping GitLab issues, milestones, labels, and work item states in sync with the current development session's progress and objectives.
 
-This command operates under the **L2+** authority level and is executed by the `gitlab-issue-sync-specialist` agent, which specializes in issue lifecycle management, label taxonomy enforcement, milestone tracking, and work item state transitions. The agent maintains a local cache of GitLab state in ETS for fast access during development operations, reducing API calls while ensuring data freshness through configurable synchronization intervals. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `gitlab-issue-sync-specialist` agent, which specializes in issue lifecycle management, label taxonomy enforcement, milestone tracking, and work item state transitions. The agent maintains a local cache of GitLab state in ETS for fast access during development operations, reducing API calls while ensuring data freshness through configurable synchronization intervals. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 Issue synchronization is a critical component of the Prismatic Platform's development workflow because the mandatory session discipline protocol requires that all development work be tracked through GitLab issues. Without proper synchronization, developers risk creating commits without issue references, working on outdated issue states, or missing important updates from collaborators. The `/gitlab-sync` command eliminates these risks by providing real-time issue state awareness and automatic progress tracking.
 
@@ -173,20 +173,20 @@ The ETS-based local cache is the performance cornerstone of the synchronization 
 
 8. **Verification**: Re-fetch modified resources from GitLab to verify that state changes were applied successfully. Log any discrepancies for investigation.
 
-9. **Reporting**: Output synchronization summary showing counts of synced, created, updated, and conflicted items. Emit [telemetry](/glossary/telemetry/) events for sync metrics.
+9. **Reporting**: Output synchronization summary showing counts of synced, created, updated, and conflicted items. Emit [telemetry](@/glossary/telemetry.md) events for sync metrics.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by `gitlab-issue-sync-specialist` at L2+ authority |
-| [/gitlab-supreme-sync](/commands/gitlab-supreme-sync/) | Superset | Supreme sync extends this command with forensics and strategy |
-| [/gitlab-enforce](/commands/gitlab-enforce/) | Policy Checking | Enforces issue management policies during sync |
-| [Quality Gates](/glossary/quality-gates/) | Issue-Quality Linking | Links quality metrics to GitLab issue progress |
-| [Telemetry](/glossary/telemetry/) | Metrics | Reports sync latency, conflict rates, and throughput |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by `gitlab-issue-sync-specialist` at L2+ authority |
+| [/gitlab-supreme-sync](@/commands/gitlab-supreme-sync.md) | Superset | Supreme sync extends this command with forensics and strategy |
+| [/gitlab-enforce](@/commands/gitlab-enforce.md) | Policy Checking | Enforces issue management policies during sync |
+| [Quality Gates](@/glossary/quality-gates.md) | Issue-Quality Linking | Links quality metrics to GitLab issue progress |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Reports sync latency, conflict rates, and throughput |
 | Session Lifecycle | Mandatory Hook | Triggered at session start to ensure issue awareness |
 | ETS Cache | Local Storage | Maintains fast-access copy of GitLab state |
-| [/commit](/commands/commit/) | Issue References | Provides issue data for commit message issue linking |
+| [/commit](@/commands/commit.md) | Issue References | Provides issue data for commit message issue linking |
 
 ## Best Practices
 
@@ -247,21 +247,21 @@ When the platform's web server is running, the sync command can register a webho
 
 ## Doctrine Compliance
 
-All synchronization operations enforce the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine.
+All synchronization operations enforce the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine.
 
 - **NO MERCY**: The mandatory session discipline protocol requires GitLab issue tracking for all work. Sessions without proper issue synchronization are blocked. Synchronization operations complete fully or not at all -- partial sync states are not persisted.
 - **NO DOUBTS**: All synchronized data is verified against the GitLab API after application. Conflict resolution is explicit and audited. The command never silently overwrites data without detection and logging.
 
 ## Related Commands
 
-- [/gitlab-api](/commands/gitlab-api/) - GitLab API operations for project and repository management
-- [/gitlab-auto-sync](/commands/gitlab-auto-sync/) - Automatic GitLab integration for all AIAD workflows
-- [/gitlab-ci](/commands/gitlab-ci/) - [GitLab CI](/glossary/gitlab-ci/)/CD pipeline management and configuration
-- [/gitlab-enforce](/commands/gitlab-enforce/) - GitLab enforcement for compliance and workflow standards
-- [/gitlab-mr](/commands/gitlab-mr/) - GitLab merge request creation and management
-- [/gitlab-supreme-sync](/commands/gitlab-supreme-sync/) - Comprehensive GitLab synchronization with commit forensics
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/gitlab-api](@/commands/gitlab-api.md) - GitLab API operations for project and repository management
+- [/gitlab-auto-sync](@/commands/gitlab-auto-sync.md) - Automatic GitLab integration for all AIAD workflows
+- [/gitlab-ci](@/commands/gitlab-ci.md) - [GitLab CI](@/glossary/gitlab-ci.md)/CD pipeline management and configuration
+- [/gitlab-enforce](@/commands/gitlab-enforce.md) - GitLab enforcement for compliance and workflow standards
+- [/gitlab-mr](@/commands/gitlab-mr.md) - GitLab merge request creation and management
+- [/gitlab-supreme-sync](@/commands/gitlab-supreme-sync.md) - Comprehensive GitLab synchronization with commit forensics
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -270,4 +270,4 @@ All synchronization operations enforce the **[NO MERCY, NO DOUBTS](/glossary/no-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

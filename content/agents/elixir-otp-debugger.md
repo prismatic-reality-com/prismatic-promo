@@ -28,11 +28,11 @@ image_alt = "elixir-otp-debugger - Prismatic Platform"
 
 ## Overview
 
-The [Elixir](/glossary/elixir/)-[OTP](/glossary/otp/) Debugger operates as an L3 strategic command agent within the Debugging domain of the Prismatic Platform. This agent specializes in diagnosing issues that are unique to [BEAM](/glossary/beam/)-based distributed systems: process crashes within [supervision tree](/glossary/supervision-tree/)s, message queue backlogs, [GenServer](/glossary/genserver/) timeout cascades, [ETS](/glossary/ets/) table corruption, scheduler imbalances, and memory leaks in long-running processes. Standard debugging approaches designed for sequential, single-threaded programs are inadequate for OTP systems where hundreds of concurrent processes interact through asynchronous message passing -- the Elixir OTP Debugger brings BEAM-specific diagnostic techniques to every debugging engagement.
+The [Elixir](@/glossary/elixir.md)-[OTP](@/glossary/otp.md) Debugger operates as an L3 strategic command agent within the Debugging domain of the Prismatic Platform. This agent specializes in diagnosing issues that are unique to [BEAM](@/glossary/beam.md)-based distributed systems: process crashes within [supervision tree](@/glossary/supervision-tree.md)s, message queue backlogs, [GenServer](@/glossary/genserver.md) timeout cascades, [ETS](@/glossary/ets.md) table corruption, scheduler imbalances, and memory leaks in long-running processes. Standard debugging approaches designed for sequential, single-threaded programs are inadequate for OTP systems where hundreds of concurrent processes interact through asynchronous message passing -- the Elixir OTP Debugger brings BEAM-specific diagnostic techniques to every debugging engagement.
 
-This agent is part of the platform's 430-strong autonomous agent ecosystem, built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. It operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine: NO DOUBTS demands that every diagnosis is confirmed through evidence before a fix is applied (no speculative changes), and NO MERCY demands that every fix includes a regression test that would have caught the original issue.
+This agent is part of the platform's 430-strong autonomous agent ecosystem, built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. It operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine: NO DOUBTS demands that every diagnosis is confirmed through evidence before a fix is applied (no speculative changes), and NO MERCY demands that every fix includes a regression test that would have caught the original issue.
 
-Debugging in the Prismatic Platform -- with its 90 [umbrella application](/glossary/umbrella-application/)s, 430+ autonomous agents, and millions of inter-process messages per minute -- requires understanding of both the application logic and the BEAM runtime's behavior. A slowdown might be caused by application-level inefficiency, or it might be caused by a scheduler thread being monopolized by a reduction-heavy process. The Elixir OTP Debugger distinguishes between these categories and applies appropriate diagnostic techniques for each, leveraging [telemetry](/glossary/telemetry/) integration and the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework for evidence-based diagnosis.
+Debugging in the Prismatic Platform -- with its 90 [umbrella application](@/glossary/umbrella-application.md)s, 430+ autonomous agents, and millions of inter-process messages per minute -- requires understanding of both the application logic and the BEAM runtime's behavior. A slowdown might be caused by application-level inefficiency, or it might be caused by a scheduler thread being monopolized by a reduction-heavy process. The Elixir OTP Debugger distinguishes between these categories and applies appropriate diagnostic techniques for each, leveraging [telemetry](@/glossary/telemetry.md) integration and the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework for evidence-based diagnosis.
 
 ## Architecture
 
@@ -102,11 +102,11 @@ end
 
 - **Memory leak detection** -- Identifies processes and data structures that grow unboundedly over time, detecting growing process heaps, ETS table bloat, binary reference leaks, and atom table growth from dynamic atom creation.
 
-- **[Hot code reload](/glossary/hot-code-reload/) debugging** -- Diagnoses issues arising during code upgrades including state migration failures in code_change/3 callbacks, processes running old code after reload, and module purging conflicts.
+- **[Hot code reload](@/glossary/hot-code-reload.md) debugging** -- Diagnoses issues arising during code upgrades including state migration failures in code_change/3 callbacks, processes running old code after reload, and module purging conflicts.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - The Elixir OTP Debugger operates at the strategic command level with authority to instrument production processes for diagnostic purposes, mandate fixes for identified BEAM-level issues, and coordinate with architecture agents on systemic problems that require structural remediation.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - The Elixir OTP Debugger operates at the strategic command level with authority to instrument production processes for diagnostic purposes, mandate fixes for identified BEAM-level issues, and coordinate with architecture agents on systemic problems that require structural remediation.
 
 ## Command Interface
 
@@ -123,14 +123,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [elixir-architect](/agents/elixir-architect/) | Architectural review that prevents many bugs the debugger would otherwise need to diagnose |
-| [fix-specialist](/agents/fix-specialist/) | Implements fixes for diagnosed issues with full verification and regression testing |
-| [code-review-specialist-agent-v20](/agents/code-review-specialist-agent-v20/) | Code review that catches potential BEAM-level issues before deployment |
-| [elixir-core-specialist](/agents/elixir-core-specialist/) | OTP implementation guidance for complex debugging scenarios |
+| [elixir-architect](@/agents/elixir-architect.md) | Architectural review that prevents many bugs the debugger would otherwise need to diagnose |
+| [fix-specialist](@/agents/fix-specialist.md) | Implements fixes for diagnosed issues with full verification and regression testing |
+| [code-review-specialist-agent-v20](@/agents/code-review-specialist-agent-v20.md) | Code review that catches potential BEAM-level issues before deployment |
+| [elixir-core-specialist](@/agents/elixir-core-specialist.md) | OTP implementation guidance for complex debugging scenarios |
 
 ## Enforcement
 
-The Elixir OTP Debugger operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every diagnosis must be confirmed through evidence from multiple diagnostic sources -- no speculative fixes are permitted. Every fix must include a regression test that reproduces the original failure mode. Debugging artifacts (trace configurations, diagnostic processes, temporary instrumentation) must be completely removed after diagnosis is complete. The [Trinity Gate](/glossary/trinity-gate/) validation ensures structural consistency of diagnostic conclusions, and the [NABLA Infinity](/glossary/nabla-infinity/) Signal Plurality axiom requires multiple evidence sources before confirming any root cause. No debugging code reaches production through accidental commit.
+The Elixir OTP Debugger operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every diagnosis must be confirmed through evidence from multiple diagnostic sources -- no speculative fixes are permitted. Every fix must include a regression test that reproduces the original failure mode. Debugging artifacts (trace configurations, diagnostic processes, temporary instrumentation) must be completely removed after diagnosis is complete. The [Trinity Gate](@/glossary/trinity-gate.md) validation ensures structural consistency of diagnostic conclusions, and the [NABLA Infinity](@/glossary/nabla-infinity.md) Signal Plurality axiom requires multiple evidence sources before confirming any root cause. No debugging code reaches production through accidental commit.
 
 ---
 
@@ -139,4 +139,4 @@ The Elixir OTP Debugger operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

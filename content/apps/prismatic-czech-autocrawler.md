@@ -23,11 +23,11 @@ image_alt = "Prismatic Czech Autocrawler - Prismatic Platform"
 
 ## Overview
 
-Prismatic Czech Autocrawler automates data collection from Czech government registries and public data sources, handling the specific authentication patterns, anti-bot protections, and data formats used by Czech public administration portals. Built on [Elixir](/glossary/elixir/)'s concurrency model and [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/)s, the autocrawler maintains fresh copies of registry data for offline analysis, cross-referencing, and integration with the platform's [OSINT](/glossary/osint/) intelligence pipeline.
+Prismatic Czech Autocrawler automates data collection from Czech government registries and public data sources, handling the specific authentication patterns, anti-bot protections, and data formats used by Czech public administration portals. Built on [Elixir](@/glossary/elixir.md)'s concurrency model and [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md)s, the autocrawler maintains fresh copies of registry data for offline analysis, cross-referencing, and integration with the platform's [OSINT](@/glossary/osint.md) intelligence pipeline.
 
-The autocrawler implements intelligent incremental update detection, minimizing network traffic and registry load by tracking document hashes, modification timestamps, and registry-specific change indicators. When a Czech business registry entity changes its registered address, files new annual accounts, or undergoes ownership transfer, the autocrawler detects and captures the change within the configured polling interval. Historical version preservation ensures that all prior states of an entity's registry profile remain accessible for temporal analysis and [audit trail](/glossary/audit-trail/) compliance.
+The autocrawler implements intelligent incremental update detection, minimizing network traffic and registry load by tracking document hashes, modification timestamps, and registry-specific change indicators. When a Czech business registry entity changes its registered address, files new annual accounts, or undergoes ownership transfer, the autocrawler detects and captures the change within the configured polling interval. Historical version preservation ensures that all prior states of an entity's registry profile remain accessible for temporal analysis and [audit trail](@/glossary/audit-trail.md) compliance.
 
-Data quality validation runs on every imported record, checking ICO/DIC format correctness, cross-referencing entity identifiers across multiple registries, and flagging inconsistencies for human review. The autocrawler integrates with the [Prismatic OSINT Business](/apps/prismatic-osint-business-financial/) adapter layer for normalized entity profile construction and with the [knowledge graph](/glossary/knowledge-graph/) for [entity resolution](/glossary/entity-resolution/) across Czech and international sources.
+Data quality validation runs on every imported record, checking ICO/DIC format correctness, cross-referencing entity identifiers across multiple registries, and flagging inconsistencies for human review. The autocrawler integrates with the [Prismatic OSINT Business](@/apps/prismatic-osint-business-financial.md) adapter layer for normalized entity profile construction and with the [knowledge graph](@/glossary/knowledge-graph.md) for [entity resolution](@/glossary/entity-resolution.md) across Czech and international sources.
 
 ## Architecture
 
@@ -40,7 +40,7 @@ Scheduler --> Registry Adapter --> Response Parser --> Data Validator --> Storag
      +-----Change Detector --> Notification Pipeline --> History Store
 ```
 
-All parsing and validation logic follows [pure function](/glossary/pure-function/) principles. Network requests and storage writes occur only at supervision boundaries, with [rate limiting](/glossary/rate-limiting/) and [backpressure](/glossary/backpressure/) mechanisms preventing registry overload. Each registry adapter runs as an independently supervised process, ensuring that a failure in one registry's adapter cannot cascade to affect others.
+All parsing and validation logic follows [pure function](@/glossary/pure-function.md) principles. Network requests and storage writes occur only at supervision boundaries, with [rate limiting](@/glossary/rate-limiting.md) and [backpressure](@/glossary/backpressure.md) mechanisms preventing registry overload. Each registry adapter runs as an independently supervised process, ensuring that a failure in one registry's adapter cannot cascade to affect others.
 
 ## Key Modules
 
@@ -170,12 +170,12 @@ Integration tests exercise the full pipeline from registry fetch through parsing
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic OSINT Business](/apps/prismatic-osint-business-financial/) | Normalized entity profiles from crawled registry data |
-| [Prismatic OSINT Sources](/apps/prismatic-osint-sources/) | Registry adapters in unified OSINT source catalog |
-| [Prismatic Storage Ecto](/apps/prismatic-storage-ecto/) | [PostgreSQL](/glossary/postgresql/) persistence for crawled entity data |
-| [Prismatic Graph](/apps/prismatic-graph/) | Entity relationship mapping in the knowledge graph |
-| [Prismatic Crawler Core](/apps/prismatic-crawler-core/) | Shared crawler infrastructure and adapter definitions |
-| [Prismatic Meilisearch](/apps/prismatic-meilisearch/) | Full-text search indexing for crawled entities |
+| [Prismatic OSINT Business](@/apps/prismatic-osint-business-financial.md) | Normalized entity profiles from crawled registry data |
+| [Prismatic OSINT Sources](@/apps/prismatic-osint-sources.md) | Registry adapters in unified OSINT source catalog |
+| [Prismatic Storage Ecto](@/apps/prismatic-storage-ecto.md) | [PostgreSQL](@/glossary/postgresql.md) persistence for crawled entity data |
+| [Prismatic Graph](@/apps/prismatic-graph.md) | Entity relationship mapping in the knowledge graph |
+| [Prismatic Crawler Core](@/apps/prismatic-crawler-core.md) | Shared crawler infrastructure and adapter definitions |
+| [Prismatic Meilisearch](@/apps/prismatic-meilisearch.md) | Full-text search indexing for crawled entities |
 
 ## NABLA Compliance
 
@@ -198,19 +198,19 @@ Integration tests exercise the full pipeline from registry fetch through parsing
 | Full sync (Justice.cz) | 6-12 hours | ~800K filings with rate limiting |
 | Meilisearch indexing | < 5s per 1K entities | Batch insert with async confirmation |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :czech_autocrawler, :update]`, `[:prismatic, :czech_autocrawler, :entity_changed]`, `[:prismatic, :czech_autocrawler, :validation_error]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :czech_autocrawler, :update]`, `[:prismatic, :czech_autocrawler, :entity_changed]`, `[:prismatic, :czech_autocrawler, :validation_error]`.
 
 ## Related Resources
 
-- [Prismatic Crawler Core](/apps/prismatic-crawler-core/) -- Shared crawler infrastructure
-- [Prismatic OSINT Czech Legal](/apps/prismatic-osint-czech-legal/) -- Czech legal intelligence
-- [Prismatic DD](/apps/prismatic-dd/) -- Due diligence workflows consuming entity profiles
-- [Czech Autocrawler Supreme](/agents/czech-autocrawler-supreme/) -- Orchestrates crawling campaigns
-- [Czech Business Intelligence Specialist](/agents/czech-business-intelligence-specialist/) -- Analyzes crawled data
-- [Crawler Development Specialist](/agents/crawler-development-specialist/) -- Maintains registry adapters
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-registry evidence fusion
-- [Quality Gates](/capabilities/quality-gates/) -- Data quality validation on imported records
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Crawler health and data freshness monitoring
+- [Prismatic Crawler Core](@/apps/prismatic-crawler-core.md) -- Shared crawler infrastructure
+- [Prismatic OSINT Czech Legal](@/apps/prismatic-osint-czech-legal.md) -- Czech legal intelligence
+- [Prismatic DD](@/apps/prismatic-dd.md) -- Due diligence workflows consuming entity profiles
+- [Czech Autocrawler Supreme](@/agents/czech-autocrawler-supreme.md) -- Orchestrates crawling campaigns
+- [Czech Business Intelligence Specialist](@/agents/czech-business-intelligence-specialist.md) -- Analyzes crawled data
+- [Crawler Development Specialist](@/agents/crawler-development-specialist.md) -- Maintains registry adapters
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-registry evidence fusion
+- [Quality Gates](@/capabilities/quality-gates.md) -- Data quality validation on imported records
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Crawler health and data freshness monitoring
 
 ---
 
@@ -219,4 +219,4 @@ Integration tests exercise the full pipeline from registry fetch through parsing
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

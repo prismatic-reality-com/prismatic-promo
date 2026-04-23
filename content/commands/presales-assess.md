@@ -28,9 +28,9 @@ image_alt = "/presales-assess - Prismatic Platform"
 
 The technical assessment engine operates by mapping prospect requirements to platform capabilities, identifying gaps that would require custom development, estimating implementation effort based on complexity analysis, and evaluating technical risks that could impact delivery timelines or solution quality. The assessment considers the full spectrum of technical factors: infrastructure requirements, integration complexity, data migration challenges, performance constraints, security requirements, and compliance obligations.
 
-This command operates under the **L2+** authority level and is executed by the `technical-assessor` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The technical assessor agent has deep knowledge of the platform's architecture, capabilities, and limitations, enabling accurate feasibility analysis without requiring manual engineering review for initial assessments.
+This command operates under the **L2+** authority level and is executed by the `technical-assessor` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The technical assessor agent has deep knowledge of the platform's architecture, capabilities, and limitations, enabling accurate feasibility analysis without requiring manual engineering review for initial assessments.
 
-Within the presales workflow, `/presales-assess` typically follows [/presales-analyze](/commands/presales-analyze/), which extracts requirements from source documents, and precedes [/presales-price](/commands/presales-price/), which uses the technical assessment to estimate implementation costs. The assessment output serves as the technical foundation for the entire proposal, ensuring that commitments made in the proposal are technically achievable within the stated constraints.
+Within the presales workflow, `/presales-assess` typically follows [/presales-analyze](@/commands/presales-analyze.md), which extracts requirements from source documents, and precedes [/presales-price](@/commands/presales-price.md), which uses the technical assessment to estimate implementation costs. The assessment output serves as the technical foundation for the entire proposal, ensuring that commitments made in the proposal are technically achievable within the stated constraints.
 
 ## Architecture
 
@@ -157,18 +157,18 @@ The technical assessment follows a systematic evaluation process that builds und
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/presales-analyze](/commands/presales-analyze/) | Upstream | Receives analyzed requirements |
-| [/presales-price](/commands/presales-price/) | Downstream | Effort estimates feed pricing |
-| [/presales-propose](/commands/presales-propose/) | Downstream | Assessment feeds proposal technical section |
-| [/presales-case](/commands/presales-case/) | Case Management | Assessment linked to presales case |
-| [/presales](/commands/presales/) | Parent Command | Top-level presales orchestration |
-| [AIAD Registry](/glossary/aiad/) | Capability Database | Platform features and capabilities |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `technical-assessor` agent |
-| [Telemetry](/glossary/telemetry/) | Observability | Assessment quality and timing metrics |
+| [/presales-analyze](@/commands/presales-analyze.md) | Upstream | Receives analyzed requirements |
+| [/presales-price](@/commands/presales-price.md) | Downstream | Effort estimates feed pricing |
+| [/presales-propose](@/commands/presales-propose.md) | Downstream | Assessment feeds proposal technical section |
+| [/presales-case](@/commands/presales-case.md) | Case Management | Assessment linked to presales case |
+| [/presales](@/commands/presales.md) | Parent Command | Top-level presales orchestration |
+| [AIAD Registry](@/glossary/aiad.md) | Capability Database | Platform features and capabilities |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `technical-assessor` agent |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Assessment quality and timing metrics |
 
 ## Best Practices
 
-**Use Analysis Output as Input**: The most reliable assessments come from structured analysis output rather than free-text requirements. Run [/presales-analyze](/commands/presales-analyze/) first to produce structured input for the assessment.
+**Use Analysis Output as Input**: The most reliable assessments come from structured analysis output rather than free-text requirements. Run [/presales-analyze](@/commands/presales-analyze.md) first to produce structured input for the assessment.
 
 **Start with Quick Feasibility**: For initial opportunity screening, use `--quick` to get a rapid feasibility indication before investing time in detailed assessment. This prevents wasted effort on technically infeasible opportunities.
 
@@ -223,19 +223,19 @@ The technical assessment follows a systematic evaluation process that builds und
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every requirement must be assessed -- no requirements are skipped or deferred. Capability gaps are reported honestly without minimization. Risk registers include all identified risks, including those that might make the opportunity less attractive.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Feasibility determinations are based on verified platform capabilities, not assumptions. Effort estimates reference historical project data. The [NABLA](/glossary/nabla-infinity/) axiom of Unknown Valid is respected: when assessment cannot determine feasibility for a requirement, it is classified as "Unknown" rather than assumed feasible or infeasible.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Feasibility determinations are based on verified platform capabilities, not assumptions. Effort estimates reference historical project data. The [NABLA](@/glossary/nabla-infinity.md) axiom of Unknown Valid is respected: when assessment cannot determine feasibility for a requirement, it is classified as "Unknown" rather than assumed feasible or infeasible.
 
 ## Related Commands
 
-- [/presales](/commands/presales/) - Presales intelligence for company analysis and opportunity identification
-- [/presales-analyze](/commands/presales-analyze/) - Text, file and URL analysis for presales opportunity assessment
-- [/presales-case](/commands/presales-case/) - Presales case management for status tracking and updates
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/presales](@/commands/presales.md) - Presales intelligence for company analysis and opportunity identification
+- [/presales-analyze](@/commands/presales-analyze.md) - Text, file and URL analysis for presales opportunity assessment
+- [/presales-case](@/commands/presales-case.md) - Presales case management for status tracking and updates
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -244,4 +244,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

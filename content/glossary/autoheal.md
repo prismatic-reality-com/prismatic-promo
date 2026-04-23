@@ -20,11 +20,11 @@ image_alt = "AutoHeal - Prismatic Platform"
 
 ## Definition
 
-AutoHeal is the Prismatic Platform's autonomous self-repair mechanism that detects and resolves quality regressions, broken dependencies, configuration drift, and compilation failures without human intervention. It operates through a five-level intervention hierarchy -- from lightweight baseline establishment through targeted repair to full platform recovery -- applying progressively more aggressive corrective actions as the severity of the detected issue demands. AutoHeal embodies the platform's commitment to [self-healing](/glossary/self-healing/) capability: the principle that a system should not merely detect its own failures but actively repair them.
+AutoHeal is the Prismatic Platform's autonomous self-repair mechanism that detects and resolves quality regressions, broken dependencies, configuration drift, and compilation failures without human intervention. It operates through a five-level intervention hierarchy -- from lightweight baseline establishment through targeted repair to full platform recovery -- applying progressively more aggressive corrective actions as the severity of the detected issue demands. AutoHeal embodies the platform's commitment to [self-healing](@/glossary/self-healing.md) capability: the principle that a system should not merely detect its own failures but actively repair them.
 
-AutoHeal is conceptually distinct from [AutoEvolve](/glossary/autoevolve/), though the two systems work in close coordination. AutoHeal is reactive -- it responds to detected regressions and restores the platform to its known-good state. AutoEvolve is proactive -- it scans for optimization opportunities and advances the platform beyond its current state. Together they form the platform's autonomous quality maintenance system: AutoHeal prevents regression while AutoEvolve drives improvement.
+AutoHeal is conceptually distinct from [AutoEvolve](@/glossary/autoevolve.md), though the two systems work in close coordination. AutoHeal is reactive -- it responds to detected regressions and restores the platform to its known-good state. AutoEvolve is proactive -- it scans for optimization opportunities and advances the platform beyond its current state. Together they form the platform's autonomous quality maintenance system: AutoHeal prevents regression while AutoEvolve drives improvement.
 
-The system runs at session boundaries (mandatory invocation at session start and end per the Universal Autonomous Evolution Protocol) and on-demand when quality monitoring detects anomalies. Each repair action is validated through quality gates before acceptance, ensuring that fixes do not introduce new problems. A [circuit breaker](/glossary/circuit-breaker/) pattern prevents cascading failures from repeated repair attempts, auto-opening after three consecutive failures and auto-resetting after 60 seconds.
+The system runs at session boundaries (mandatory invocation at session start and end per the Universal Autonomous Evolution Protocol) and on-demand when quality monitoring detects anomalies. Each repair action is validated through quality gates before acceptance, ensuring that fixes do not introduce new problems. A [circuit breaker](@/glossary/circuit-breaker.md) pattern prevents cascading failures from repeated repair attempts, auto-opening after three consecutive failures and auto-resetting after 60 seconds.
 
 ## The Five Healing Levels
 
@@ -46,7 +46,7 @@ mix autoheal.baseline
 # 5. Store baseline in .claude/quality-dna/current-state.json
 ```
 
-The baseline is stored in the [Quality DNA](/glossary/quality-dna/) persistence system, enabling cross-session comparison. If the baseline at session start is worse than the baseline at the previous session's end, AutoHeal immediately escalates to Level 2 for targeted investigation.
+The baseline is stored in the [Quality DNA](@/glossary/quality-dna.md) persistence system, enabling cross-session comparison. If the baseline at session start is worse than the baseline at the previous session's end, AutoHeal immediately escalates to Level 2 for targeted investigation.
 
 ### Level 2: Targeted Repair
 
@@ -54,7 +54,7 @@ When a specific regression is detected -- a new compiler warning, a Dialyzer vio
 
 | Detection | Response |
 |-----------|----------|
-| New compiler warning | Identify source, apply [CASCADE](/glossary/cascade/) fix pattern |
+| New compiler warning | Identify source, apply [CASCADE](@/glossary/cascade.md) fix pattern |
 | Dialyzer violation | Check for Nuclear Cache; if phantom, apply cache fix; if real, identify type mismatch |
 | Failing test | Identify changed code, check for regression, restore if needed |
 | Credo violation | Apply automated formatting/refactoring fix |
@@ -63,7 +63,7 @@ Targeted repairs are the most common AutoHeal action. Most quality regressions a
 
 ### Level 3: Pattern-Based Healing
 
-When multiple related issues are detected, Level 3 recognizes them as instances of a known [CASCADE Pattern](/glossary/cascade-pattern/) and applies the pattern-level fix across all affected locations simultaneously.
+When multiple related issues are detected, Level 3 recognizes them as instances of a known [CASCADE Pattern](@/glossary/cascade-pattern.md) and applies the pattern-level fix across all affected locations simultaneously.
 
 ```elixir
 # Level 3: Pattern-based healing example
@@ -94,7 +94,7 @@ Cross-domain repair is particularly important in the Prismatic Platform's umbrel
 
 The most aggressive intervention level, triggered when the platform's quality score drops below the EMERGENCY threshold (<95%) or when lower-level repairs have failed repeatedly. Full platform recovery performs:
 
-1. Complete cache invalidation ([CASCADE](/glossary/cascade/) Nuclear Cache fix across all applications)
+1. Complete cache invalidation ([CASCADE](@/glossary/cascade.md) Nuclear Cache fix across all applications)
 2. Full platform recompilation with `--force`
 3. Complete Dialyzer PLT rebuild
 4. Full test suite execution
@@ -106,7 +106,7 @@ Level 5 is expensive in terms of time and computation, but it guarantees restora
 
 ## Circuit Breaker Protection
 
-AutoHeal incorporates a [circuit breaker](/glossary/circuit-breaker/) pattern to prevent cascading failures from repeated repair attempts. Without this protection, a persistent failure could trigger an infinite loop of repair attempts, each consuming resources and potentially worsening the situation.
+AutoHeal incorporates a [circuit breaker](@/glossary/circuit-breaker.md) pattern to prevent cascading failures from repeated repair attempts. Without this protection, a persistent failure could trigger an infinite loop of repair attempts, each consuming resources and potentially worsening the situation.
 
 ```elixir
 # Circuit breaker behavior in AutoHeal
@@ -172,7 +172,7 @@ AutoHeal operates as one of seven subsystems within the SEADF (Self-Evolving Aut
 | **Autonomous Reporter** | Status communication | Reports AutoHeal actions and outcomes |
 | **Enhanced Healing** | AutoHeal itself | 5-level intervention hierarchy |
 
-AutoHeal's repair history is persisted in [Quality DNA](/glossary/quality-dna/), enabling cross-session learning. If a specific repair action consistently resolves a specific type of regression, AutoHeal prioritizes that action for similar future regressions.
+AutoHeal's repair history is persisted in [Quality DNA](@/glossary/quality-dna.md), enabling cross-session learning. If a specific repair action consistently resolves a specific type of regression, AutoHeal prioritizes that action for similar future regressions.
 
 ## Repair Validation
 
@@ -211,28 +211,28 @@ AutoHeal emits structured telemetry events for every operation:
 )
 ```
 
-These events integrate with the platform's [observability](/glossary/observability/) and [metrics](/glossary/metrics/) systems, providing visibility into AutoHeal's operation and enabling historical analysis of repair patterns.
+These events integrate with the platform's [observability](@/glossary/observability.md) and [metrics](@/glossary/metrics.md) systems, providing visibility into AutoHeal's operation and enabling historical analysis of repair patterns.
 
 ## Related Terms
 
-- [AutoEvolve](/glossary/autoevolve/) -- Complementary proactive improvement system
-- [CASCADE](/glossary/cascade/) -- Quality pattern methodology providing AutoHeal's fix procedures
-- [CASCADE Pattern](/glossary/cascade-pattern/) -- Specific patterns applied during Level 3 healing
-- [Clean Run](/glossary/clean-run/) -- Zero-warning standard that AutoHeal maintains
-- [QDP](/glossary/qdp/) -- Quality metric that AutoHeal prevents from accumulating
-- [Self-Healing](/glossary/self-healing/) -- Architectural principle that AutoHeal implements
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern protecting AutoHeal from cascading failures
-- [Fault Tolerance](/glossary/fault-tolerance/) -- OTP principle underlying AutoHeal's design
-- [Let It Crash](/glossary/let-it-crash/) -- Erlang philosophy complementing AutoHeal's approach
-- [Supervisor](/glossary/supervisor/) -- OTP behavior managing AutoHeal's process lifecycle
-- [Dialyzer](/glossary/dialyzer/) -- Type analysis tool used in repair validation
-- [Mix](/glossary/mix/) -- Build tool executing AutoHeal commands
+- [AutoEvolve](@/glossary/autoevolve.md) -- Complementary proactive improvement system
+- [CASCADE](@/glossary/cascade.md) -- Quality pattern methodology providing AutoHeal's fix procedures
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) -- Specific patterns applied during Level 3 healing
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning standard that AutoHeal maintains
+- [QDP](@/glossary/qdp.md) -- Quality metric that AutoHeal prevents from accumulating
+- [Self-Healing](@/glossary/self-healing.md) -- Architectural principle that AutoHeal implements
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern protecting AutoHeal from cascading failures
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- OTP principle underlying AutoHeal's design
+- [Let It Crash](@/glossary/let-it-crash.md) -- Erlang philosophy complementing AutoHeal's approach
+- [Supervisor](@/glossary/supervisor.md) -- OTP behavior managing AutoHeal's process lifecycle
+- [Dialyzer](@/glossary/dialyzer.md) -- Type analysis tool used in repair validation
+- [Mix](@/glossary/mix.md) -- Build tool executing AutoHeal commands
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Capabilities](/capabilities/) -- Platform self-healing capabilities
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Capabilities](@/capabilities/_index.md) -- Platform self-healing capabilities
 
 ---
 
@@ -241,4 +241,4 @@ These events integrate with the platform's [observability](/glossary/observabili
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

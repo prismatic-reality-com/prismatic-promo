@@ -32,7 +32,7 @@ A **log level** is a categorical severity label attached to each log message tha
 
 Log levels serve two distinct purposes: during development, low-severity levels (debug, info) provide detailed execution traces for understanding behavior; in production, high-severity levels (warning, error, critical) surface only actionable conditions that require attention. The ability to adjust log levels at runtime -- without redeployment -- is a critical operational capability that enables detailed investigation during incidents without permanent verbosity.
 
-In the Prismatic Platform, log levels are a cornerstone of the OTEL (Observability [Telemetry](/glossary/telemetry/) Enforcement Layer) doctrine, which mandates appropriate logging in all [GenServer](/glossary/genserver/) handlers, controller actions, and rescue blocks.
+In the Prismatic Platform, log levels are a cornerstone of the OTEL (Observability [Telemetry](@/glossary/telemetry.md) Enforcement Layer) doctrine, which mandates appropriate logging in all [GenServer](@/glossary/genserver.md) handlers, controller actions, and rescue blocks.
 
 ## Core Concepts
 
@@ -400,22 +400,22 @@ end
 
 ## Related Terms
 
-- [Logging](/glossary/logging/) -- the broader practice of recording system events
-- [Telemetry](/glossary/telemetry/) -- metrics collection complementing log-based observability
-- [Structured Log](/glossary/structured-log/) -- machine-parseable log format
-- [Audit Logging](/glossary/audit-logging/) -- compliance-oriented event recording
-- [KPI](/glossary/kpi/) -- metrics derived from log analysis
-- [Observability](/glossary/observability/) -- the broader discipline encompassing logging
-- [Profiling](/glossary/profiling/) -- performance analysis complementing log-based debugging
-- [Monitoring](/glossary/monitoring/) -- system health tracking using log signals
-- [GenServer](/glossary/genserver/) -- OTP behaviour requiring OTEL logging compliance
+- [Logging](@/glossary/logging.md) -- the broader practice of recording system events
+- [Telemetry](@/glossary/telemetry.md) -- metrics collection complementing log-based observability
+- [Structured Log](@/glossary/structured-log.md) -- machine-parseable log format
+- [Audit Logging](@/glossary/audit-logging.md) -- compliance-oriented event recording
+- [KPI](@/glossary/kpi.md) -- metrics derived from log analysis
+- [Observability](@/glossary/observability.md) -- the broader discipline encompassing logging
+- [Profiling](@/glossary/profiling.md) -- performance analysis complementing log-based debugging
+- [Monitoring](@/glossary/monitoring.md) -- system health tracking using log signals
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour requiring OTEL logging compliance
 
 ## See Also
 
-- [Architecture](/architecture/) -- observability architecture
-- [Capabilities](/capabilities/) -- monitoring and logging capabilities
+- [Architecture](@/architecture/_index.md) -- observability architecture
+- [Capabilities](@/capabilities/_index.md) -- monitoring and logging capabilities
 - [Elixir Logger Documentation](https://hexdocs.pm/logger/)
-- [OTEL Doctrine](/architecture/) -- observability enforcement requirements
+- [OTEL Doctrine](@/architecture/_index.md) -- observability enforcement requirements
 
 ---
 
@@ -424,4 +424,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

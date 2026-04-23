@@ -519,24 +519,24 @@ The telemetry pipeline captures execution times for all OSINT tool runs, DD pipe
 
 ## Related Terms
 
-- [Latency](/glossary/latency/) -- End-to-end delay from request to response, of which execution time is one component
-- [Throughput](/glossary/throughput/) -- Operations completed per unit time, inversely related to execution time under load
-- [Telemetry](/glossary/telemetry/) -- BEAM metric collection framework used for execution time instrumentation
-- [Profiling](/glossary/profiling/) -- Detailed execution analysis to identify time-consuming code paths
+- [Latency](@/glossary/latency.md) -- End-to-end delay from request to response, of which execution time is one component
+- [Throughput](@/glossary/throughput.md) -- Operations completed per unit time, inversely related to execution time under load
+- [Telemetry](@/glossary/telemetry.md) -- BEAM metric collection framework used for execution time instrumentation
+- [Profiling](@/glossary/profiling.md) -- Detailed execution analysis to identify time-consuming code paths
 - [Benchee](/glossary/benchee/) -- Elixir micro-benchmarking library with statistical analysis
-- [GenServer](/glossary/genserver/) -- OTP server abstraction where call/cast timing is critical
-- [ETS](/glossary/ets/) -- Erlang Term Storage providing sub-microsecond lookups
+- [GenServer](@/glossary/genserver.md) -- OTP server abstraction where call/cast timing is critical
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage providing sub-microsecond lookups
 - [OTEL](/glossary/otel/) -- Observability enforcement doctrine requiring telemetry instrumentation
-- [Health Check](/glossary/health-check/) -- Service health verification with execution time budgets
-- [Scheduler](/glossary/scheduler/) -- BEAM scheduler that preempts processes based on reductions
+- [Health Check](@/glossary/health-check.md) -- Service health verification with execution time budgets
+- [Scheduler](@/glossary/scheduler.md) -- BEAM scheduler that preempts processes based on reductions
 - [Garbage Collection](/glossary/garbage-collection/) -- Per-process GC that causes execution time spikes
 - [Flame Graph](/glossary/flame-graph/) -- Visualization of call stack timing for bottleneck identification
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- Platform performance monitoring capabilities
-- [Architecture](/architecture/) -- Performance architecture and monitoring infrastructure
-- [OSINT Tools](/osint/) -- OSINT tool execution with per-adapter timing
+- [Capabilities](@/capabilities/_index.md) -- Platform performance monitoring capabilities
+- [Architecture](@/architecture/_index.md) -- Performance architecture and monitoring infrastructure
+- [OSINT Tools](@/osint/_index.md) -- OSINT tool execution with per-adapter timing
 - **Livebooks**: `performance_monitoring/` notebooks include profiling and timing analysis
 - **Academy**: Performance-related topics reference execution time standards
 - **PERF Doctrine**: Platform performance gates enforcing execution time budgets
@@ -549,4 +549,4 @@ The telemetry pipeline captures execution times for all OSINT tool runs, DD pipe
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

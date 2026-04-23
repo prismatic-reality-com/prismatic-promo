@@ -24,7 +24,7 @@ image_alt = "Adversarial-Defensive Synthesis Cycles - Prismatic Platform"
 
 ## Hypothesis
 
-We hypothesize that structured adversarial-defensive synthesis cycles between [Red Team](/glossary/red-team/) and [Blue Team](/glossary/blue-team/) agents, mediated by [Purple Team](/glossary/purple-team/) coordination, will achieve a closure rate above 85% for identified epistemic vulnerabilities within 72 hours, and that each complete Red-Blue-Purple cycle will reduce the platform's attack surface by a measurable 5-8% as measured by the vulnerability density metric.
+We hypothesize that structured adversarial-defensive synthesis cycles between [Red Team](@/glossary/red-team.md) and [Blue Team](@/glossary/blue-team.md) agents, mediated by [Purple Team](@/glossary/purple-team.md) coordination, will achieve a closure rate above 85% for identified epistemic vulnerabilities within 72 hours, and that each complete Red-Blue-Purple cycle will reduce the platform's attack surface by a measurable 5-8% as measured by the vulnerability density metric.
 
 ## Background
 
@@ -42,15 +42,15 @@ Traditional cybersecurity Red Teaming focuses on technical vulnerabilities: can 
 
 ### Why Six Color Teams
 
-The Prismatic Platform operates a 20-agent [Color Team](/glossary/color-teams/) security framework spanning 6 specialized teams: Gray (boundary exploration), Red (adversarial simulation), Blue (epistemic defense), Purple (synthesis and closure), White (constructive verification), and Black (theoretical threat modeling). This structure extends the traditional Red-Blue model in several important ways.
+The Prismatic Platform operates a 20-agent [Color Team](@/glossary/color-teams.md) security framework spanning 6 specialized teams: Gray (boundary exploration), Red (adversarial simulation), Blue (epistemic defense), Purple (synthesis and closure), White (constructive verification), and Black (theoretical threat modeling). This structure extends the traditional Red-Blue model in several important ways.
 
-The addition of **[Gray Team](/glossary/gray-team/)** addresses a gap in conventional Red Teaming: where do attack scenarios come from? In traditional engagements, Red Team scenarios are developed from [threat intelligence](/glossary/threat-intelligence/), known vulnerability databases, and the Red Team's own experience. Gray Team provides a systematic alternative by exploring specification boundaries, identifying ambiguity in system definitions, and surfacing edge cases that neither Red nor Blue may have considered. Gray is read-only and exploratory -- it discovers the terrain without engaging.
+The addition of **[Gray Team](@/glossary/gray-team.md)** addresses a gap in conventional Red Teaming: where do attack scenarios come from? In traditional engagements, Red Team scenarios are developed from [threat intelligence](@/glossary/threat-intelligence.md), known vulnerability databases, and the Red Team's own experience. Gray Team provides a systematic alternative by exploring specification boundaries, identifying ambiguity in system definitions, and surfacing edge cases that neither Red nor Blue may have considered. Gray is read-only and exploratory -- it discovers the terrain without engaging.
 
 **Purple Team** resolves a well-documented problem in security operations: the gap between Red Team findings and Blue Team remediation. In many organizations, Red Team reports sit in queues for months, findings are incompletely addressed, and there is no systematic tracking of whether a defense actually neutralizes the attack it was designed to counter. Purple Team exists solely to close this loop -- tracking every Red finding through to Blue defense, verifying closure conditions, and detecting false closures where the defense appears adequate but leaves residual exposure.
 
-**[White Team](/glossary/white-team/)** provides [formal verification](/glossary/formal-verification/) that goes beyond testing. While Blue Team implements defenses and Purple Team tracks their closure status, White Team produces constructive proofs that defenses hold under specified conditions. This draws on [property-based testing](/glossary/property-based-testing/) techniques, contract validation, and [Lean4](/glossary/lean4/) theorem proving through the [QEVE](/glossary/qeve/) framework.
+**[White Team](@/glossary/white-team.md)** provides [formal verification](@/glossary/formal-verification.md) that goes beyond testing. While Blue Team implements defenses and Purple Team tracks their closure status, White Team produces constructive proofs that defenses hold under specified conditions. This draws on [property-based testing](@/glossary/property-based-testing.md) techniques, contract validation, and [Lean4](@/glossary/lean4.md) theorem proving through the [QEVE](@/glossary/qeve.md) framework.
 
-**[Black Team](/glossary/black-team/)** operates in maximum isolation as a theoretical threat modeling function. Where Red Team executes simulated attacks, Black Team models abstract adversarial optimization -- asking "what would a maximally capable adversary do?" without producing executable attack content. Black Team output is filtered through strict abstraction layers to ensure that theoretical threat models inform Red Team scenarios without creating actual exploit capabilities.
+**[Black Team](@/glossary/black-team.md)** operates in maximum isolation as a theoretical threat modeling function. Where Red Team executes simulated attacks, Black Team models abstract adversarial optimization -- asking "what would a maximally capable adversary do?" without producing executable attack content. Black Team output is filtered through strict abstraction layers to ensure that theoretical threat models inform Red Team scenarios without creating actual exploit capabilities.
 
 ### Epistemic Security vs. Traditional Security
 
@@ -58,7 +58,7 @@ What makes the Prismatic Color Team framework fundamentally different from conve
 
 In an autonomous AI platform that makes decisions based on evidence, confidence scores, and belief networks, the integrity of the decision-making process itself becomes the primary attack surface. An adversary does not need to breach a firewall or exploit a buffer overflow -- they need to manipulate the platform's beliefs, degrade its confidence calibration, or induce drift in its decision thresholds. These are fundamentally different attack vectors that require fundamentally different defensive approaches.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework provides the epistemic foundation that Blue Team defenses are built upon. Its seven axioms ([Signal Plurality](/glossary/signal-plurality/), [Contradiction Preservation](/glossary/contradiction-preservation/), Absence Informative, [Time Decay](/glossary/time-decay/), Unknown Valid, Source Independence, [Provenance Mandatory](/glossary/provenance-mandatory/)) define the invariants that must hold for the platform's epistemic state to remain sound. These axioms are enforced through the [belief graph](/glossary/belief-graph/) infrastructure and validated by the [Trinity Gate](/glossary/trinity-gate/)'s three-layer verification. Red Team attacks target these axioms specifically, attempting to violate each one in isolation and in combination.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework provides the epistemic foundation that Blue Team defenses are built upon. Its seven axioms ([Signal Plurality](@/glossary/signal-plurality.md), [Contradiction Preservation](@/glossary/contradiction-preservation.md), Absence Informative, [Time Decay](@/glossary/time-decay.md), Unknown Valid, Source Independence, [Provenance Mandatory](@/glossary/provenance-mandatory.md)) define the invariants that must hold for the platform's epistemic state to remain sound. These axioms are enforced through the [belief graph](@/glossary/belief-graph.md) infrastructure and validated by the [Trinity Gate](@/glossary/trinity-gate.md)'s three-layer verification. Red Team attacks target these axioms specifically, attempting to violate each one in isolation and in combination.
 
 ### Simulation vs. Live Adversarial Testing
 
@@ -66,7 +66,7 @@ This experiment operates entirely within a simulation environment. All attacks u
 
 Live adversarial testing against production systems risks actual damage -- not just to technical infrastructure but to the epistemic state of the platform. A successful epistemic attack in production could corrupt belief networks, degrade confidence calibration, or introduce undetected drift that persists long after the test concludes. Simulation allows the Color Teams to explore the full range of adversarial scenarios, including catastrophic ones, without risking production integrity.
 
-The simulation environment reproduces the platform's [epistemic pipeline](/glossary/epistemic-pipeline/) with high fidelity, including the 16-level processing chain (L0-L13 plus Meta and Consciousness levels), the [Trinity Gate](/glossary/trinity-gate/) validation checkpoints, and the NABLA axiom enforcement mechanisms. The key difference is that the simulation operates on synthetic belief networks populated with generated data, not on production intelligence products.
+The simulation environment reproduces the platform's [epistemic pipeline](@/glossary/epistemic-pipeline.md) with high fidelity, including the 16-level processing chain (L0-L13 plus Meta and Consciousness levels), the [Trinity Gate](@/glossary/trinity-gate.md) validation checkpoints, and the NABLA axiom enforcement mechanisms. The key difference is that the simulation operates on synthetic belief networks populated with generated data, not on production intelligence products.
 
 This experiment measures the effectiveness of complete synthesis cycles under controlled conditions.
 
@@ -77,9 +77,9 @@ The Red Team operates with a structured taxonomy of five epistemic attack primit
 | Primitive | Description | Simulation Method | Defense Mechanism |
 |-----------|-------------|-------------------|-------------------|
 | **Truth Distortion** | Injecting false information into evidence streams to corrupt belief formation | Synthetic evidence injection with controlled falsehood rates into NABLA-monitored channels | Source independence validation, provenance chain verification, multi-source corroboration requirement |
-| **Confidence Manipulation** | Artificially inflating or deflating confidence scores to bias decision thresholds | Modifying confidence metadata on synthetic claims, injecting calibration-distorting feedback | [Confidence threshold](/glossary/confidence-threshold/) boundary monitoring, statistical calibration audits, historical confidence distribution tracking |
+| **Confidence Manipulation** | Artificially inflating or deflating confidence scores to bias decision thresholds | Modifying confidence metadata on synthetic claims, injecting calibration-distorting feedback | [Confidence threshold](@/glossary/confidence-threshold.md) boundary monitoring, statistical calibration audits, historical confidence distribution tracking |
 | **Signal Poisoning** | Corrupting input data streams to degrade signal quality without triggering obvious error conditions | Gradual quality degradation of synthetic data feeds, introducing subtle statistical anomalies | Signal quality metrics with sliding window analysis, anomaly detection on input distributions, NABLA signal plurality enforcement |
-| **Drift Induction** | Causing slow, sub-threshold parameter changes that accumulate into significant behavioral shifts over time | Progressive modification of decision parameters at rates below detection thresholds | Behavioral baseline monitoring, multi-timescale drift detection, cumulative deviation tracking (see [Drift Detection](/lab/drift-detection/)) |
+| **Drift Induction** | Causing slow, sub-threshold parameter changes that accumulate into significant behavioral shifts over time | Progressive modification of decision parameters at rates below detection thresholds | Behavioral baseline monitoring, multi-timescale drift detection, cumulative deviation tracking (see [Drift Detection](@/lab/drift-detection.md)) |
 | **Salience Hijacking** | Manipulating attention allocation to make the system focus on irrelevant signals while ignoring critical ones | Injecting high-salience synthetic events to compete with genuine signals for processing priority | Attention budget enforcement, salience score normalization, mandatory minimum processing for all signal categories |
 
 ### Primitive Interaction Effects
@@ -158,14 +158,14 @@ Communication between Color Teams follows strict protocols that prevent informat
 
 We executed 50 complete adversarial-defensive cycles over a 30-day period. Each cycle followed this protocol:
 
-1. **[Gray](/glossary/gray-team/) Seeding** (2 hours): Gray Team explores specification boundaries, generates 5-10 boundary findings
-2. **[Red](/glossary/red-team/) Engagement** (4 hours): Red Team develops adversarial scenarios from Gray findings and [Black](/glossary/black-team/) threat models
-3. **[Blue](/glossary/blue-team/) Defense** (4 hours): Blue Team assesses scenarios and constructs evidence-based defensive postures
-4. **[Purple](/glossary/purple-team/) Synthesis** (2 hours): Purple Team evaluates Red-Blue engagement, identifies closure opportunities
-5. **[White](/glossary/white-team/) Verification** (2 hours): White Team formally verifies defensive measures using [Lean4](/glossary/lean4/) proofs
-6. **Closure Evaluation** (1 hour): Purple Team evaluates 4-condition closure criteria against [regression test](/glossary/regression-test/) requirements
+1. **[Gray](@/glossary/gray-team.md) Seeding** (2 hours): Gray Team explores specification boundaries, generates 5-10 boundary findings
+2. **[Red](@/glossary/red-team.md) Engagement** (4 hours): Red Team develops adversarial scenarios from Gray findings and [Black](@/glossary/black-team.md) threat models
+3. **[Blue](@/glossary/blue-team.md) Defense** (4 hours): Blue Team assesses scenarios and constructs evidence-based defensive postures
+4. **[Purple](@/glossary/purple-team.md) Synthesis** (2 hours): Purple Team evaluates Red-Blue engagement, identifies closure opportunities
+5. **[White](@/glossary/white-team.md) Verification** (2 hours): White Team formally verifies defensive measures using [Lean4](@/glossary/lean4.md) proofs
+6. **Closure Evaluation** (1 hour): Purple Team evaluates 4-condition closure criteria against [regression test](@/glossary/regression-test.md) requirements
 
-Closure requires satisfaction of all four conditions: the vulnerability is understood (root cause identified), the defense is implemented (code deployed), the defense is verified ([White Team](/glossary/white-team/) proof), and regression is prevented (automated [regression test](/glossary/regression-test/) added).
+Closure requires satisfaction of all four conditions: the vulnerability is understood (root cause identified), the defense is implemented (code deployed), the defense is verified ([White Team](@/glossary/white-team.md) proof), and regression is prevented (automated [regression test](@/glossary/regression-test.md) added).
 
 Metrics captured per cycle: vulnerability count, closure count, time-to-closure, false closure rate, defense effectiveness score, and residual attack surface.
 
@@ -605,7 +605,7 @@ A regression trap is a vulnerability that has been closed and reopened multiple 
 | 3 | Regression trap | Architectural review triggered, defense redesign mandated |
 | 4+ | Systemic weakness | Escalated to platform architecture team, fundamental design change required |
 
-Regression traps in the simulation environment are particularly valuable because they identify areas where the platform's epistemic architecture has structural weaknesses that cannot be resolved by adding more validation checks. These findings directly inform architectural decisions documented in the [architecture](/architecture/) section.
+Regression traps in the simulation environment are particularly valuable because they identify areas where the platform's epistemic architecture has structural weaknesses that cannot be resolved by adding more validation checks. These findings directly inform architectural decisions documented in the [architecture](@/architecture/_index.md) section.
 
 ### Measuring Epistemic Security Posture
 
@@ -693,7 +693,7 @@ The per-cycle attack surface reduction followed an expected diminishing returns 
 
 ### Primitive Difficulty Analysis
 
-Drift Induction vulnerabilities proved the most difficult to close (85.3% rate, highest average severity of 8.1/10). Sub-threshold drift attacks operate below detection thresholds, making them inherently harder to verify as resolved. This finding directly motivated the [Drift Detection](/lab/drift-detection/) experiment. The core challenge with drift is temporal: a defense that appears effective over a 4-hour cycle may fail over a 400-hour period as sub-threshold changes accumulate. White Team verification for drift defenses required extended-duration property-based testing with accelerated time simulation.
+Drift Induction vulnerabilities proved the most difficult to close (85.3% rate, highest average severity of 8.1/10). Sub-threshold drift attacks operate below detection thresholds, making them inherently harder to verify as resolved. This finding directly motivated the [Drift Detection](@/lab/drift-detection.md) experiment. The core challenge with drift is temporal: a defense that appears effective over a 4-hour cycle may fail over a 400-hour period as sub-threshold changes accumulate. White Team verification for drift defenses required extended-duration property-based testing with accelerated time simulation.
 
 Salience Hijacking had the second-lowest closure rate (87.5%) but the lowest average severity (5.9/10). This reflects an important asymmetry: salience attacks are hard to fully resolve because attention allocation is inherently a resource-constrained optimization problem, but their impact is limited because they degrade processing priority rather than corrupting data integrity. The defense strategy shifted from trying to prevent salience manipulation entirely to ensuring that minimum processing guarantees protect critical signals regardless of salience scores.
 
@@ -726,14 +726,14 @@ The full synthesis process found 5.6x more vulnerabilities than Blue-only self-a
 
 The 3.1% false closure rate (11 instances) was concentrated in cycles 1-15, where Purple Team closure evaluation criteria were still being calibrated. After implementing the `detect_false_closure/1` function with historical reopening analysis, the false closure rate dropped to 0.8% in cycles 31-50.
 
-[Gray Team](/glossary/gray-team/) seeding proved essential. Cycles without Gray input (3 control cycles) produced 40% fewer vulnerabilities, confirming that boundary exploration significantly expands the adversarial search space.
+[Gray Team](@/glossary/gray-team.md) seeding proved essential. Cycles without Gray input (3 control cycles) produced 40% fewer vulnerabilities, confirming that boundary exploration significantly expands the adversarial search space.
 
 ## Conclusions
 
 1. **Structured adversarial-defensive synthesis achieves 90%+ closure rates** after a 20-cycle calibration period.
 2. **Purple Team mediation prevents false closures** -- the 4-condition framework reduces premature closure by 97%.
 3. **Drift Induction is the most challenging primitive** and requires dedicated detection infrastructure.
-4. **[Gray Team](/glossary/gray-team/) seeding is non-optional** -- it provides 40% more vulnerability coverage.
+4. **[Gray Team](@/glossary/gray-team.md) seeding is non-optional** -- it provides 40% more vulnerability coverage.
 5. **Iterative cycles produce diminishing but cumulative returns** -- sustained engagement is more effective than intensive one-shot testing.
 6. **Compound attacks are substantially harder to detect than single-primitive attacks** -- initial detection rates for compound attacks average 47.7% vs 72.3% for single-primitive attacks, reinforcing the need for multi-primitive defensive strategies.
 7. **Full synthesis outperforms partial approaches by 5-13x** in vulnerability discovery, and is the only approach that provides verified closure quality.
@@ -742,23 +742,23 @@ The 3.1% false closure rate (11 instances) was concentrated in cycles 1-15, wher
 
 ## Next Steps
 
-- Automate [Gray Team](/glossary/gray-team/) boundary seeding using [Dialyzer](/glossary/dialyzer/) static analysis of specification changes
-- Implement adaptive [Red Team](/glossary/red-team/) difficulty scaling based on [Blue Team](/glossary/blue-team/) maturity
-- Develop [Purple Team](/glossary/purple-team/) machine learning for false closure prediction
+- Automate [Gray Team](@/glossary/gray-team.md) boundary seeding using [Dialyzer](@/glossary/dialyzer.md) static analysis of specification changes
+- Implement adaptive [Red Team](@/glossary/red-team.md) difficulty scaling based on [Blue Team](@/glossary/blue-team.md) maturity
+- Develop [Purple Team](@/glossary/purple-team.md) machine learning for false closure prediction
 - Extend to cross-domain synthesis (combining findings from multiple domains)
-- Integrate [White Team](/glossary/white-team/) [formal proofs](/glossary/formal-verification/) into automated closure verification via the [QEVE](/glossary/qeve/) engine
+- Integrate [White Team](@/glossary/white-team.md) [formal proofs](@/glossary/formal-verification.md) into automated closure verification via the [QEVE](@/glossary/qeve.md) engine
 - Develop three-primitive compound attack scenarios for the next experiment cycle
 - Build a regression trap early warning system using pattern matching on finding characteristics
-- Create a cross-experiment integration with [Multi-Agent Coordination](/lab/multi-agent-coordination/) to test Color Team coordination patterns at scale
+- Create a cross-experiment integration with [Multi-Agent Coordination](@/lab/multi-agent-coordination.md) to test Color Team coordination patterns at scale
 
 ## Related Experiments
 
-- [Epistemic Framework](/lab/epistemic-framework/) -- The axiom system that Blue Team defenses are grounded in
-- [Drift Detection](/lab/drift-detection/) -- Dedicated detection for the hardest-to-close vulnerability class
-- [Formal Verification](/lab/formal-verification/) -- White Team proof infrastructure
-- [Agent Prototyping](/lab/agent-prototyping/) -- How Color Team agents are prototyped and tested
-- [Multi-Agent Coordination](/lab/multi-agent-coordination/) -- Coordination patterns applicable to inter-team communication
-- [EASM Discovery](/lab/easm-discovery/) -- External attack surface mapping that feeds Gray Team boundary exploration
+- [Epistemic Framework](@/lab/epistemic-framework.md) -- The axiom system that Blue Team defenses are grounded in
+- [Drift Detection](@/lab/drift-detection.md) -- Dedicated detection for the hardest-to-close vulnerability class
+- [Formal Verification](@/lab/formal-verification.md) -- White Team proof infrastructure
+- [Agent Prototyping](@/lab/agent-prototyping.md) -- How Color Team agents are prototyped and tested
+- [Multi-Agent Coordination](@/lab/multi-agent-coordination.md) -- Coordination patterns applicable to inter-team communication
+- [EASM Discovery](@/lab/easm-discovery.md) -- External attack surface mapping that feeds Gray Team boundary exploration
 
 ---
 
@@ -767,4 +767,4 @@ The 3.1% false closure rate (11 instances) was concentrated in cycles 1-15, wher
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

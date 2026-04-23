@@ -194,9 +194,9 @@ The platform maintains a current count of zero forbidden patterns across all 115
 
 ## Cross-References
 
-- [Quality Floor](/glossary/quality-floor/) - Minimum quality threshold that placeholder detection protects
-- [Property Test](/glossary/property-test/) - Testing approach that replaces placeholder test stubs
-- [PLT](/glossary/plt/) - Persistent Lookup Table used by Dialyzer to detect incomplete implementations
+- [Quality Floor](@/glossary/quality-floor.md) - Minimum quality threshold that placeholder detection protects
+- [Property Test](@/glossary/property-test.md) - Testing approach that replaces placeholder test stubs
+- [PLT](@/glossary/plt.md) - Persistent Lookup Table used by Dialyzer to detect incomplete implementations
 - **Semver** - Versioning standard governing how forbidden pattern changes are released
 - **Provenance** - Origin tracing for quality violation reports
 

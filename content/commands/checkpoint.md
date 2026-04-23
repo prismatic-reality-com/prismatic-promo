@@ -26,7 +26,7 @@ image_alt = "/checkpoint - Prismatic Platform"
 
 **/checkpoint** is a production command in the **Stack Mode** category of the Prismatic Platform that creates named restore points within the stack-based conversation model. Checkpoints provide persistent bookmarks in the conversation stack, enabling operators to return to known-good states after exploratory work, failed experiments, or branching investigations. This mechanism is fundamental to the platform's approach to non-destructive conversation management, where every interaction frame is immutable and context state is controlled through explicit stack operations.
 
-This command operates under the **Persistent** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The persistent authority level means checkpoint data survives session boundaries and is available across multiple interactions with the platform.
+This command operates under the **Persistent** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The persistent authority level means checkpoint data survives session boundaries and is available across multiple interactions with the platform.
 
 The stack-based conversation model treats every assistant response as an immutable frame pushed onto a conversation stack. Unlike traditional chat interfaces where context grows linearly and cannot be unwound, the stack model gives operators precise control over what context is active at any given moment. The `/checkpoint` command is the primary mechanism for marking frames that represent significant milestones, stable states, or decision points worth preserving.
 
@@ -47,7 +47,7 @@ Checkpoints are stored as named references to specific frame indices within the 
 
 ### Frame Immutability Contract
 
-A critical architectural property is that checkpoints reference immutable frames. When a checkpoint is created, the referenced frame can never be modified. This means restoring a checkpoint via [/goto](/commands/goto/) always returns to an identical state, regardless of what operations occurred between checkpoint creation and restoration.
+A critical architectural property is that checkpoints reference immutable frames. When a checkpoint is created, the referenced frame can never be modified. This means restoring a checkpoint via [/goto](@/commands/goto.md) always returns to an identical state, regardless of what operations occurred between checkpoint creation and restoration.
 
 ```
 Frame 0 (init) -> Frame 1 -> Frame 2 -> [CHECKPOINT: "stable"] -> Frame 3 -> Frame 4
@@ -160,21 +160,21 @@ Name Validation -> Frame Resolution -> Record Creation -> ETS Registration
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `stack-conversation-manager` | Agent manages all stack operations |
-| [StackConversation GenServer](/glossary/otp/) | Core state management | 1,128-line OTP implementation |
-| [/goto](/commands/goto/) | Checkpoint restoration | Restores stack to checkpointed frame |
-| [/stack](/commands/stack/) | Stack visualization | Displays checkpoints alongside frames |
-| [/pop](/commands/pop/) | Destructive stack operation | Checkpoints survive pop operations on later frames |
-| [/fork](/commands/fork/) | Branch creation | Checkpoints can serve as fork points |
-| [Session Lifecycle](/glossary/session-discipline/) | Cross-session persistence | Checkpoints persist via disk storage |
-| [AIAD Registry](/glossary/aiad/) | Command specification | Checkpoint command registered in AIAD |
-| [Telemetry](/glossary/telemetry/) | Event tracking | All checkpoint operations emit telemetry |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `stack-conversation-manager` | Agent manages all stack operations |
+| [StackConversation GenServer](@/glossary/otp.md) | Core state management | 1,128-line OTP implementation |
+| [/goto](@/commands/goto.md) | Checkpoint restoration | Restores stack to checkpointed frame |
+| [/stack](@/commands/stack.md) | Stack visualization | Displays checkpoints alongside frames |
+| [/pop](@/commands/pop.md) | Destructive stack operation | Checkpoints survive pop operations on later frames |
+| [/fork](@/commands/fork.md) | Branch creation | Checkpoints can serve as fork points |
+| [Session Lifecycle](@/glossary/session-discipline.md) | Cross-session persistence | Checkpoints persist via disk storage |
+| [AIAD Registry](@/glossary/aiad.md) | Command specification | Checkpoint command registered in AIAD |
+| [Telemetry](@/glossary/telemetry.md) | Event tracking | All checkpoint operations emit telemetry |
 
 ## Best Practices
 
 **Name checkpoints descriptively.** Use names that convey the state they represent, not just sequential numbers. Names like `pre-refactor`, `tests-passing`, or `feature-x-complete` are far more useful than `cp1`, `cp2`, `cp3` when reviewing checkpoint history weeks later.
 
-**Checkpoint before destructive operations.** Always create a checkpoint before running [/pop](/commands/pop/), [/fork](/commands/fork/), or any experimental work that might produce undesirable results. The cost of creating a checkpoint is negligible compared to the cost of losing a valuable conversation state.
+**Checkpoint before destructive operations.** Always create a checkpoint before running [/pop](@/commands/pop.md), [/fork](@/commands/fork.md), or any experimental work that might produce undesirable results. The cost of creating a checkpoint is negligible compared to the cost of losing a valuable conversation state.
 
 **Clean up stale checkpoints.** Periodically review and delete checkpoints that are no longer relevant. While checkpoints are lightweight, an accumulation of dozens of stale checkpoints makes the `--list` output noisy and reduces the utility of the checkpoint system.
 
@@ -254,20 +254,20 @@ Checkpoints can be exported for sharing between sessions or operators.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Checkpoint creation either succeeds atomically or fails entirely with no partial state.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Checkpoint restoration provides identical state every time due to frame immutability guarantees.
 
 ## Related Commands
 
-- [/stack](/commands/stack/) - Display complete conversation stack with all frames
-- [/frame](/commands/frame/) - Inspect specific conversation frame by ID
-- [/pop](/commands/pop/) - Remove last N frames from conversation stack (DESTRUCTIVE)
-- [/fork](/commands/fork/) - Branch conversation from a specific frame
-- [/goto](/commands/goto/) - Restore conversation to a named checkpoint
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/stack](@/commands/stack.md) - Display complete conversation stack with all frames
+- [/frame](@/commands/frame.md) - Inspect specific conversation frame by ID
+- [/pop](@/commands/pop.md) - Remove last N frames from conversation stack (DESTRUCTIVE)
+- [/fork](@/commands/fork.md) - Branch conversation from a specific frame
+- [/goto](@/commands/goto.md) - Restore conversation to a named checkpoint
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -276,4 +276,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

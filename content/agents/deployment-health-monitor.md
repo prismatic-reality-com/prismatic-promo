@@ -28,9 +28,9 @@ image_alt = "deployment-health-monitor - Prismatic Platform"
 
 ## Overview
 
-The Deployment Health Monitor is an L4 domain specialist operating within the Infrastructure domain of the Prismatic Platform. This agent provides real-time health validation during and immediately after deployment operations, monitoring a comprehensive set of health indicators to detect deployment-related issues before they impact users. When health [metrics](/glossary/metrics/) breach configurable thresholds during the deployment observation window, the monitor automatically triggers rollback procedures through the Deployment Rollback Specialist.
+The Deployment Health Monitor is an L4 domain specialist operating within the Infrastructure domain of the Prismatic Platform. This agent provides real-time health validation during and immediately after deployment operations, monitoring a comprehensive set of health indicators to detect deployment-related issues before they impact users. When health [metrics](@/glossary/metrics.md) breach configurable thresholds during the deployment observation window, the monitor automatically triggers rollback procedures through the Deployment Rollback Specialist.
 
-The observation window after a deployment is the most critical period for detecting issues that escaped testing. The Deployment Health Monitor tracks error rates, response latencies, database connection pool utilization, [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/) restart counts, and memory consumption patterns during this window. It compares these metrics against pre-deployment baselines to detect statistically significant deviations that indicate deployment-related regressions. The monitor's sensitivity is calibrated to detect real issues while avoiding false alarms from normal operational variance.
+The observation window after a deployment is the most critical period for detecting issues that escaped testing. The Deployment Health Monitor tracks error rates, response latencies, database connection pool utilization, [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md) restart counts, and memory consumption patterns during this window. It compares these metrics against pre-deployment baselines to detect statistically significant deviations that indicate deployment-related regressions. The monitor's sensitivity is calibrated to detect real issues while avoiding false alarms from normal operational variance.
 
 The monitor serves as the automated safety net that protects production service quality during the highest-risk period of every deployment. Without this continuous health validation, deployment issues that escaped testing would only be detected through user reports or manual monitoring, significantly extending the time to detection and the blast radius of deployment-related problems.
 
@@ -96,13 +96,13 @@ Historical pattern matching compares observed metric patterns against historical
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [deployment-commander-agent](/agents/deployment-commander-agent/) | Reports deployment health status and provides go/no-go recommendations | Deployment |
-| [deployment-rollback-specialist](/agents/deployment-rollback-specialist/) | Triggers rollback procedures when deployment health thresholds are breached | Infrastructure |
-| [health-monitoring-specialist](/agents/health-monitoring-specialist/) | Provides baseline health metrics for pre/post deployment comparison | Infrastructure |
+| [deployment-commander-agent](@/agents/deployment-commander-agent.md) | Reports deployment health status and provides go/no-go recommendations | Deployment |
+| [deployment-rollback-specialist](@/agents/deployment-rollback-specialist.md) | Triggers rollback procedures when deployment health thresholds are breached | Infrastructure |
+| [health-monitoring-specialist](@/agents/health-monitoring-specialist.md) | Provides baseline health metrics for pre/post deployment comparison | Infrastructure |
 
 ## Enforcement
 
-The Deployment Health Monitor operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every deployment must be monitored through its complete observation window. Monitoring cannot be bypassed or shortened for any reason. Automatic rollback triggers are non-overridable during the observation window. Health metric collection must be verified as operational before any deployment begins. Pre-deployment baseline capture is mandatory and must achieve minimum statistical significance before the deployment can proceed.
+The Deployment Health Monitor operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every deployment must be monitored through its complete observation window. Monitoring cannot be bypassed or shortened for any reason. Automatic rollback triggers are non-overridable during the observation window. Health metric collection must be verified as operational before any deployment begins. Pre-deployment baseline capture is mandatory and must achieve minimum statistical significance before the deployment can proceed.
 
 ---
 
@@ -111,4 +111,4 @@ The Deployment Health Monitor operates under the [NO MERCY, NO DOUBTS](/glossary
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

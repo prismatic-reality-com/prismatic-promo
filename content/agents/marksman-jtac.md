@@ -30,7 +30,7 @@ image_alt = "marksman-jtac - Prismatic Platform"
 
 The marksman-jtac agent operates as an L2 Tactical Operations authority within the Prismatic Platform's primary-producer domain, functioning as the precision targeting and Joint Terminal Attack Controller (JTAC) for coordinated multi-agent operations. Drawing from military JTAC doctrine adapted for software operations, this agent specializes in directing the precise application of platform resources to high-value targets -- whether those targets are critical bugs, performance bottlenecks, security vulnerabilities, or complex refactoring objectives that require coordinated multi-agent engagement.
 
-Built on the [AIAD](/glossary/aiad/) standard and operating within the [mycelial network](/glossary/mycelial-network/), the marksman-jtac serves as the tactical coordination layer between [strategic command](/glossary/strategic-command/) agents and specialist execution agents. The agent applies the [NO MERCY](/glossary/no-mercy/) doctrine to target engagement: once a target is designated and engagement authorized, operations proceed to complete resolution without half-measures. The [NO DOUBTS](/glossary/no-doubts/) principle governs target identification -- every target designation requires verified intelligence from at least two independent assessment sources.
+Built on the [AIAD](@/glossary/aiad.md) standard and operating within the [mycelial network](@/glossary/mycelial-network.md), the marksman-jtac serves as the tactical coordination layer between [strategic command](@/glossary/strategic-command.md) agents and specialist execution agents. The agent applies the [NO MERCY](@/glossary/no-mercy.md) doctrine to target engagement: once a target is designated and engagement authorized, operations proceed to complete resolution without half-measures. The [NO DOUBTS](@/glossary/no-doubts.md) principle governs target identification -- every target designation requires verified intelligence from at least two independent assessment sources.
 
 The marksman-jtac addresses a fundamental challenge in multi-agent systems: the coordination problem. When multiple specialist agents must work together to resolve a complex issue, the absence of a tactical coordinator leads to duplicated effort, conflicting actions, and incomplete resolution. The JTAC role ensures that specialist capabilities are applied in the right order, to the right targets, with the right timing -- maximizing impact while minimizing collateral disruption.
 
@@ -149,13 +149,13 @@ end
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [code-quality-commander](/agents/code-quality-commander/) | Receives target intelligence from quality scanning operations | Inbound |
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Sources performance bottleneck targets for precision engagement | Inbound |
-| [opportunity-analyzer](/agents/opportunity-analyzer/) | Identifies high-value improvement opportunities for targeting | Inbound |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Receives target intelligence from quality scanning operations | Inbound |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Sources performance bottleneck targets for precision engagement | Inbound |
+| [opportunity-analyzer](@/agents/opportunity-analyzer.md) | Identifies high-value improvement opportunities for targeting | Inbound |
 | Specialist execution agents | Directs tactical operations during active engagements | Outbound |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
-| Prismatic Telemetry | Engagement [metrics](/glossary/metrics/) and coordination efficiency tracking | Outbound |
-| [SEADF](/glossary/seadf/) | Self-healing integration for automated target identification | Bidirectional |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
+| Prismatic Telemetry | Engagement [metrics](@/glossary/metrics.md) and coordination efficiency tracking | Outbound |
+| [SEADF](@/glossary/seadf.md) | Self-healing integration for automated target identification | Bidirectional |
 
 ## Operational Workflow
 
@@ -208,14 +208,14 @@ config :prismatic_tactical, Prismatic.Tactical.MarksmanJTAC,
 
 ## Related Resources
 
-- [code-quality-commander](/agents/code-quality-commander/) -- Quality target intelligence provider
-- [performance-profiling-agent](/agents/performance-profiling-agent/) -- Performance bottleneck targets
-- [opportunity-analyzer](/agents/opportunity-analyzer/) -- Improvement opportunity identification
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NO MERCY, NO DOUBTS Doctrine](/glossary/no-mercy/) -- Engagement doctrine
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for target intelligence
-- [Mycelial Network](/glossary/mycelial-network/) -- Inter-agent coordination infrastructure
-- [SEADF](/glossary/seadf/) -- Self-healing target identification
+- [code-quality-commander](@/agents/code-quality-commander.md) -- Quality target intelligence provider
+- [performance-profiling-agent](@/agents/performance-profiling-agent.md) -- Performance bottleneck targets
+- [opportunity-analyzer](@/agents/opportunity-analyzer.md) -- Improvement opportunity identification
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NO MERCY, NO DOUBTS Doctrine](@/glossary/no-mercy.md) -- Engagement doctrine
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for target intelligence
+- [Mycelial Network](@/glossary/mycelial-network.md) -- Inter-agent coordination infrastructure
+- [SEADF](@/glossary/seadf.md) -- Self-healing target identification
 
 ---
 
@@ -224,4 +224,4 @@ config :prismatic_tactical, Prismatic.Tactical.MarksmanJTAC,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -138,4 +138,4 @@ Entity resolution transforms raw intelligence from multiple sources into verifie
 
 ---
 
-*Explore the [OSINT Capabilities](/osint/) or try the [Interactive Labs](/lab/) for hands-on entity resolution exercises.*
+*Explore the [OSINT Capabilities](@/osint/_index.md) or try the [Interactive Labs](@/lab/_index.md) for hands-on entity resolution exercises.*

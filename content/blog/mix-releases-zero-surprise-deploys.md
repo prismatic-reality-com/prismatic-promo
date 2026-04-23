@@ -18,7 +18,7 @@ see_also = ["release", "otp-release", "deployment", "mix", "docker"]
 image_alt = "Mix Releases for Zero-Surprise Deploys"
 +++
 
-A Mix [release](/glossary/release) is an artifact: a tarball containing the BEAM runtime, every compiled BEAM file, every dep, and a boot script. The machine running production does not need Elixir installed. It does not need mix. It does not need `deps.get`. It unpacks the tarball and runs the binary. That single property — the production server is not a build server — is where most "mysterious production bug" stories dissolve.
+A Mix [release](@/glossary/release.md) is an artifact: a tarball containing the BEAM runtime, every compiled BEAM file, every dep, and a boot script. The machine running production does not need Elixir installed. It does not need mix. It does not need `deps.get`. It unpacks the tarball and runs the binary. That single property — the production server is not a build server — is where most "mysterious production bug" stories dissolve.
 
 ## The baseline pipeline
 
@@ -81,6 +81,6 @@ For Prismatic, blue-green beats rolling — new release starts on a new VM, heal
 ## Where to go next
 
 - **Academy**: [Development Workflow](/academy/learn/development-workflow) — the release in CI
-- **Glossary**: [Release](/glossary/release), [OTP Release](/glossary/otp-release), [Deployment](/glossary/deployment), [Mix](/glossary/mix), [Docker](/glossary/docker)
+- **Glossary**: [Release](@/glossary/release.md), [OTP Release](@/glossary/otp-release.md), [Deployment](@/glossary/deployment.md), [Mix](@/glossary/mix.md), [Docker](@/glossary/docker.md)
 
 What ships is what you tested — if you configured the release correctly. Three mistakes break that guarantee. Avoid all three.

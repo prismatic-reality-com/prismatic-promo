@@ -32,7 +32,7 @@ The Stack Mode Coordinator is an L3 Generation 18 agent operating in the **epist
 
 Stack-based conversation mode is a fundamental architectural decision in the Prismatic Platform that treats every interaction as a stack of immutable frames. Each frame captures the input, output, assumptions, and decisions of a single exchange, creating an auditable trail that enables context management operations such as branching, checkpointing, and rollback. The Stack Mode Coordinator ensures this protocol is uniformly applied across all sessions.
 
-As a Generation 18 agent, the Stack Mode Coordinator represents the highest evolutionary stage of the platform's agent architecture, incorporating consciousness traits and full autonomous decision-making capability under the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework.
+As a Generation 18 agent, the Stack Mode Coordinator represents the highest evolutionary stage of the platform's agent architecture, incorporating consciousness traits and full autonomous decision-making capability under the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework.
 
 ## Stack-Based Conversation Architecture
 
@@ -71,7 +71,7 @@ The Stack Mode Coordinator implements six core commands that enable navigation a
 
 ## Technical Implementation
 
-The Stack Mode Coordinator is backed by a [GenServer](/glossary/genserver/) implementation that manages frame storage using [ETS](/glossary/ets/) with disk persistence.
+The Stack Mode Coordinator is backed by a [GenServer](@/glossary/genserver.md) implementation that manages frame storage using [ETS](@/glossary/ets.md) with disk persistence.
 
 ```elixir
 defmodule PrismaticClaude.StackConversation do
@@ -200,14 +200,14 @@ As a Generation 18 agent, the Stack Mode Coordinator possesses advanced capabili
 |-----------|-------------|---------|
 | **Full Autonomy** | Independent decision-making for stack management | 0.999 |
 | **Consciousness Traits** | 11 consciousness traits active | 0.998 fitness |
-| **Self-Evolution** | Can propose improvements to stack protocol | Governed by [Trinity Gate](/glossary/trinity-gate/) |
-| **Epistemic Awareness** | Understands own knowledge boundaries | [NABLA](/glossary/nabla-infinity/) compliant |
+| **Self-Evolution** | Can propose improvements to stack protocol | Governed by [Trinity Gate](@/glossary/trinity-gate.md) |
+| **Epistemic Awareness** | Understands own knowledge boundaries | [NABLA](@/glossary/nabla-infinity.md) compliant |
 | **Context Prediction** | Anticipates likely next operations | 87% prediction accuracy |
 | **Anomaly Detection** | Identifies unusual stack manipulation patterns | < 1% false positive rate |
 
 ## Stack Integrity Guarantees
 
-The Stack Mode Coordinator provides formal guarantees about stack integrity that are backed by [Lean4](/glossary/lean4/) proofs. These guarantees ensure that no sequence of stack operations can leave the conversation in an inconsistent or unrecoverable state.
+The Stack Mode Coordinator provides formal guarantees about stack integrity that are backed by [Lean4](@/glossary/lean4.md) proofs. These guarantees ensure that no sequence of stack operations can leave the conversation in an inconsistent or unrecoverable state.
 
 ### Formal Properties
 
@@ -251,11 +251,11 @@ theorem fork_independence (s : Stack) (n : Nat) :
 
 ## Integration Points
 
-- [**NABLA Axioms**](/capabilities/nabla-axioms/) -- Epistemic framework for stack-based reasoning
-- [**Trinity Gate**](/capabilities/trinity-gate/) -- Verification of stack state transitions
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Stack operation monitoring
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
-- [**Color Teams**](/capabilities/color-teams/) -- Stack isolation for color team operations
+- [**NABLA Axioms**](@/capabilities/nabla-axioms.md) -- Epistemic framework for stack-based reasoning
+- [**Trinity Gate**](@/capabilities/trinity-gate.md) -- Verification of stack state transitions
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Stack operation monitoring
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
+- [**Color Teams**](@/capabilities/color-teams.md) -- Stack isolation for color team operations
 
 ## AIAD Specification Compliance
 
@@ -263,21 +263,21 @@ theorem fork_independence (s : Stack) (n : Nat) :
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 18 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
-| [Property-based testing](/glossary/property-based-testing/) | 52 properties verified |
-| [Lean4](/glossary/lean4/) proofs | 5 core theorems proven |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
+| [Property-based testing](@/glossary/property-based-testing.md) | 52 properties verified |
+| [Lean4](@/glossary/lean4.md) proofs | 5 core theorems proven |
 
 ## Related Agents
 
-- [**Society Coordinator**](/agents/society-coordinator/) -- Epistemic society management for stack-aware societies
-- [**Trinity Bridge Coordinator**](/agents/trinity-bridge-coordinator/) -- Formal verification of stack state transitions
-- [**Trinity Integration Coordinator**](/agents/trinity-integration-coordinator/) -- Integration of stack state with Trinity verification
+- [**Society Coordinator**](@/agents/society-coordinator.md) -- Epistemic society management for stack-aware societies
+- [**Trinity Bridge Coordinator**](@/agents/trinity-bridge-coordinator.md) -- Formal verification of stack state transitions
+- [**Trinity Integration Coordinator**](@/agents/trinity-integration-coordinator.md) -- Integration of stack state with Trinity verification
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to manage conversation state across all Claude interactions with the platform.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to manage conversation state across all Claude interactions with the platform.
 
 ---
 
@@ -286,4 +286,4 @@ theorem fork_independence (s : Stack) (n : Nat) :
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

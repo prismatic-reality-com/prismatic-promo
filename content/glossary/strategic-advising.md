@@ -27,7 +27,7 @@ Strategic Advising is a structured methodology for providing expert guidance at 
 
 The discipline draws from multiple fields: enterprise architecture frameworks (TOGAF, Zachman), decision theory, organizational design, and technology portfolio management. A strategic advisor does not simply answer the question "what technology should we use?" but rather addresses the deeper questions: "what capabilities do we need to build, what constraints do we operate under, and what architectural decisions will give us the most optionality as our understanding evolves?"
 
-Within the Prismatic Platform, strategic advising is formalized as an agent capability. The [Archer Supreme](/glossary/archer-supreme/) agent embodies the platform's strategic advising function, operating at the highest authority level to provide cross-domain analysis, milestone prioritization, and architectural direction. Strategic advising is not a passive activity -- in the NM/ND framework, once a strategic recommendation passes the [Trinity Gate](/glossary/trinity-gate/) verification, it becomes a binding execution directive. Advice that survives rigorous epistemic validation is not optional guidance; it is the determined course of action.
+Within the Prismatic Platform, strategic advising is formalized as an agent capability. The [Archer Supreme](@/glossary/archer-supreme.md) agent embodies the platform's strategic advising function, operating at the highest authority level to provide cross-domain analysis, milestone prioritization, and architectural direction. Strategic advising is not a passive activity -- in the NM/ND framework, once a strategic recommendation passes the [Trinity Gate](@/glossary/trinity-gate.md) verification, it becomes a binding execution directive. Advice that survives rigorous epistemic validation is not optional guidance; it is the determined course of action.
 
 The practical application spans multiple scales: from advising on individual architectural decisions (should this subsystem use GenServer or Agent?), through organizational decisions (how should the umbrella application be partitioned?), to strategic decisions (what market positioning maximizes platform value?). At each scale, the same principles apply: gather evidence from multiple independent sources, preserve contradictions rather than resolving them prematurely, verify conclusions through structural and logical analysis, and execute decisively once confidence thresholds are met.
 
@@ -35,15 +35,15 @@ The practical application spans multiple scales: from advising on individual arc
 
 ### Evidence-Based Decision Making
 
-Strategic advising within the Prismatic Platform rejects opinion-driven decision making. Every recommendation must be traceable to evidence through the [Provenance Mandatory](/glossary/provenance-mandatory/) axiom. This means that when an advisor recommends a particular architectural direction, the recommendation includes explicit references to the evidence that supports it, the reasoning chain from evidence to conclusion, and the confidence level assigned to the recommendation.
+Strategic advising within the Prismatic Platform rejects opinion-driven decision making. Every recommendation must be traceable to evidence through the [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom. This means that when an advisor recommends a particular architectural direction, the recommendation includes explicit references to the evidence that supports it, the reasoning chain from evidence to conclusion, and the confidence level assigned to the recommendation.
 
-The [Signal Plurality](/glossary/signal-plurality/) axiom further requires that no strategic recommendation rests on a single data source. A recommendation to adopt a particular technology must be supported by at minimum two independent signals -- perhaps performance benchmarks from the platform's own testing combined with adoption data from the broader ecosystem. Single-source recommendations are blocked by the epistemic framework regardless of how authoritative the single source appears.
+The [Signal Plurality](@/glossary/signal-plurality.md) axiom further requires that no strategic recommendation rests on a single data source. A recommendation to adopt a particular technology must be supported by at minimum two independent signals -- perhaps performance benchmarks from the platform's own testing combined with adoption data from the broader ecosystem. Single-source recommendations are blocked by the epistemic framework regardless of how authoritative the single source appears.
 
 ### Contradiction Preservation
 
 One of the most counterintuitive aspects of strategic advising in the Prismatic framework is the requirement to preserve contradictory signals rather than resolving them. When evidence points in two directions simultaneously -- for example, when performance data favors one architecture while maintainability data favors another -- the advisor must present both directions with their supporting evidence rather than collapsing the contradiction into a single "balanced" recommendation.
 
-This principle, drawn from the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, produces better strategic outcomes because premature resolution of contradictions often means discarding the weaker signal. But "weaker" at the current moment does not mean "wrong." The weaker signal may represent an emerging trend that will dominate in six months. Preserving both signals allows the organization to monitor for changes that would shift the balance.
+This principle, drawn from the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, produces better strategic outcomes because premature resolution of contradictions often means discarding the weaker signal. But "weaker" at the current moment does not mean "wrong." The weaker signal may represent an emerging trend that will dominate in six months. Preserving both signals allows the organization to monitor for changes that would shift the balance.
 
 ### Optionality Over Optimization
 
@@ -211,7 +211,7 @@ end
 
 ### Phase 4: Validation and Commitment
 
-Recommendations that meet the confidence threshold proceed to [Trinity Gate](/glossary/trinity-gate/) validation. For strategic decisions with long-term impact (reversibility: :low), all three gates are mandatory. For tactical recommendations (reversibility: :high), structural and logical gates suffice.
+Recommendations that meet the confidence threshold proceed to [Trinity Gate](@/glossary/trinity-gate.md) validation. For strategic decisions with long-term impact (reversibility: :low), all three gates are mandatory. For tactical recommendations (reversibility: :high), structural and logical gates suffice.
 
 Once validated, the NM/ND doctrine takes effect. Validated strategic advice becomes a binding commitment -- the "No Mercy" principle demands complete execution without hedging, and the "No Doubts" principle means the validation process has already resolved uncertainty. Teams do not re-litigate validated strategic decisions during implementation.
 
@@ -239,7 +239,7 @@ Archer Supreme (L1 - Strategic)
             +-- Feedback collection
 ```
 
-Each level has distinct advisory responsibilities. The [Archer Supreme](/glossary/archer-supreme/) agent handles platform-wide strategic direction. The [Supreme Commander](/glossary/supreme-commander/) coordinates across domains. [Strategic Command](/glossary/strategic-command/) translates strategy into milestones and resource plans. [Tactical Execution](/glossary/tactical-execution/) provides implementation-level guidance.
+Each level has distinct advisory responsibilities. The [Archer Supreme](@/glossary/archer-supreme.md) agent handles platform-wide strategic direction. The [Supreme Commander](@/glossary/supreme-commander.md) coordinates across domains. [Strategic Command](@/glossary/strategic-command.md) translates strategy into milestones and resource plans. [Tactical Execution](@/glossary/tactical-execution.md) provides implementation-level guidance.
 
 ### Advisory Session GenServer
 
@@ -374,7 +374,7 @@ The Prismatic Platform uses strategic advising for its own architectural evoluti
 
 ### Technology Due Diligence
 
-Strategic advising extends to technology due diligence for the platform's competitive intelligence capabilities ([Prismatic Perimeter](/glossary/prismatic-perimeter/)):
+Strategic advising extends to technology due diligence for the platform's competitive intelligence capabilities ([Prismatic Perimeter](@/glossary/prismatic-perimeter.md)):
 
 ```elixir
 # Evaluate a technology choice for the Perimeter scanning subsystem
@@ -403,7 +403,7 @@ Strategic advising extends to technology due diligence for the platform's compet
 
 ### Milestone Prioritization
 
-The [Archer Supreme](/glossary/archer-supreme/) agent uses strategic advising to prioritize platform milestones. The 20 GitLab milestones are continuously evaluated against current signals, and priority adjustments are recommended when the landscape shifts. The advisory framework ensures that priority changes are evidence-based rather than reactive to the most recent complaint or the loudest voice.
+The [Archer Supreme](@/glossary/archer-supreme.md) agent uses strategic advising to prioritize platform milestones. The 20 GitLab milestones are continuously evaluated against current signals, and priority adjustments are recommended when the landscape shifts. The advisory framework ensures that priority changes are evidence-based rather than reactive to the most recent complaint or the loudest voice.
 
 ## Advisory Anti-Patterns
 
@@ -444,23 +444,23 @@ Strategic advising in complex systems faces several recurring failure modes:
 
 ## Related Terms
 
-- [Archer Supreme](/glossary/archer-supreme/) -- Platform's highest-level strategic advisory agent
-- [Strategic Supreme](/glossary/strategic-supreme/) -- Supreme-level strategic decision-making authority
-- [Strategic Command](/glossary/strategic-command/) -- Operational translation of strategic direction into milestone plans
-- [Supreme Commander](/glossary/supreme-commander/) -- Cross-domain coordination agent supporting advisory function
-- [Authority Level](/glossary/authority-level/) -- Hierarchical authority governing advisory scope and binding power
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification mechanism validating strategic recommendations
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Score thresholds that determine recommendation readiness
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework underlying evidence-based advisory methodology
-- [Quality Gate](/glossary/quality-gate/) -- Automated verification gates complementing advisory process
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Multi-agent coordination enabling cross-domain advisory analysis
+- [Archer Supreme](@/glossary/archer-supreme.md) -- Platform's highest-level strategic advisory agent
+- [Strategic Supreme](@/glossary/strategic-supreme.md) -- Supreme-level strategic decision-making authority
+- [Strategic Command](@/glossary/strategic-command.md) -- Operational translation of strategic direction into milestone plans
+- [Supreme Commander](@/glossary/supreme-commander.md) -- Cross-domain coordination agent supporting advisory function
+- [Authority Level](@/glossary/authority-level.md) -- Hierarchical authority governing advisory scope and binding power
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification mechanism validating strategic recommendations
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Score thresholds that determine recommendation readiness
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework underlying evidence-based advisory methodology
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated verification gates complementing advisory process
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Multi-agent coordination enabling cross-domain advisory analysis
 
 ## See Also
 
-- [Tactical Execution](/glossary/tactical-execution/) -- Implementation-level guidance following strategic direction
-- [NM/ND Doctrine](/glossary/nm-nd/) -- Execution framework activated by validated strategic recommendations
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Agents](/agents/) -- Agent directory including advisory agents
+- [Tactical Execution](@/glossary/tactical-execution.md) -- Implementation-level guidance following strategic direction
+- [NM/ND Doctrine](@/glossary/nm-nd.md) -- Execution framework activated by validated strategic recommendations
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Agents](@/agents/_index.md) -- Agent directory including advisory agents
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -470,4 +470,4 @@ Strategic advising in complex systems faces several recurring failure modes:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

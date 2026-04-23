@@ -27,7 +27,7 @@ image_alt = "DataBreaches.net - Prismatic Platform"
 
 DataBreaches.net is one of the longest-running and most respected independent sources covering data breaches and data security incidents worldwide. Operated by privacy advocate and security researcher Dissent Doe (a pseudonymous journalist), the site has been tracking and reporting on data breaches since 2009, establishing itself as a critical early warning system and historical archive for the information security community. Unlike vendor-driven threat intelligence feeds, DataBreaches.net provides independent, investigative journalism on breach incidents, often uncovering details and publishing reports that mainstream media and even the breached organizations themselves have not yet disclosed.
 
-For [OSINT](/glossary/osint/) analysts, DataBreaches.net serves multiple intelligence functions. It acts as a near-real-time breach notification source that frequently reports incidents before official disclosures, provides detailed investigative analysis that goes beyond press releases and regulatory filings, maintains a historical archive enabling longitudinal analysis of breach trends, and tracks threat actor claims with independent verification efforts that help separate genuine breaches from fabricated claims.
+For [OSINT](@/glossary/osint.md) analysts, DataBreaches.net serves multiple intelligence functions. It acts as a near-real-time breach notification source that frequently reports incidents before official disclosures, provides detailed investigative analysis that goes beyond press releases and regulatory filings, maintains a historical archive enabling longitudinal analysis of breach trends, and tracks threat actor claims with independent verification efforts that help separate genuine breaches from fabricated claims.
 
 The site's coverage is particularly strong in the healthcare sector (HIPAA-regulated entities in the United States), educational institutions, government agencies, and small-to-medium businesses that typically receive less attention from commercial threat intelligence providers. This focus on underreported breach categories makes it a valuable complement to commercial breach databases and vendor threat intelligence feeds.
 
@@ -39,7 +39,7 @@ DataBreaches.net draws intelligence from a diverse array of sources, making it a
 
 | Source Category | Examples | Intelligence Value |
 |-----------------|---------|-------------------|
-| **Regulatory Filings** | HHS breach portal, state AG notifications, [GDPR](/glossary/gdpr/) enforcement actions | Official confirmation and scope data |
+| **Regulatory Filings** | HHS breach portal, state AG notifications, [GDPR](@/glossary/gdpr.md) enforcement actions | Official confirmation and scope data |
 | **Dark Web Monitoring** | Ransomware leak sites, hacker forums, paste sites | Early warning, threat actor attribution |
 | **Direct Investigation** | Independent research, source interviews, document analysis | Unique intelligence not available elsewhere |
 | **Public Disclosures** | Company press releases, SEC filings, news reports | Confirmation and context |
@@ -207,7 +207,7 @@ correlation = %{
 
 ### Threat Intelligence and Early Warning
 
-DataBreaches.net frequently publishes breach reports before official disclosures by the breached organizations. This early warning capability is critical for organizations that need to assess supply chain exposure, monitor third-party risk, or respond to incidents affecting their data held by external parties. By integrating DataBreaches.net monitoring into the [threat intelligence](/glossary/threat-intelligence/) pipeline, the Prismatic Platform can generate alerts when supply chain partners, service providers, or industry peers experience data breaches.
+DataBreaches.net frequently publishes breach reports before official disclosures by the breached organizations. This early warning capability is critical for organizations that need to assess supply chain exposure, monitor third-party risk, or respond to incidents affecting their data held by external parties. By integrating DataBreaches.net monitoring into the [threat intelligence](@/glossary/threat-intelligence.md) pipeline, the Prismatic Platform can generate alerts when supply chain partners, service providers, or industry peers experience data breaches.
 
 The site's independent verification of threat actor claims adds significant value over raw dark web monitoring. When a ransomware group claims to have breached an organization, DataBreaches.net often investigates the claim's legitimacy, providing analysts with validated intelligence rather than unverified threat actor assertions.
 
@@ -250,7 +250,7 @@ Threat actor attribution information is handled with appropriate confidence leve
 
 ## Platform Integration
 
-DataBreaches.net feeds into the Prismatic Platform's threat intelligence correlation engine, contributing breach awareness signals that are cross-referenced with vulnerability data from [NVD](/osint/nvd/), credential exposure from [Have I Been Pwned](/osint/haveibeenpwned/) and [DeHashed](/osint/dehashed/), threat indicators from [ThreatFox](/osint/threatfox/), and attack surface data from the [Prismatic Perimeter](/apps/prismatic-perimeter/) EASM module.
+DataBreaches.net feeds into the Prismatic Platform's threat intelligence correlation engine, contributing breach awareness signals that are cross-referenced with vulnerability data from [NVD](@/osint/nvd.md), credential exposure from [Have I Been Pwned](@/osint/haveibeenpwned.md) and [DeHashed](@/osint/dehashed.md), threat indicators from [ThreatFox](@/osint/threatfox.md), and attack surface data from the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) EASM module.
 
 ```elixir
 defmodule Prismatic.Pipeline.BreachIntelligence do
@@ -281,19 +281,19 @@ end
 
 Effective use of DataBreaches.net in OSINT operations requires understanding its strengths and appropriate role in a multi-source intelligence framework. Treat it as a high-quality early warning and investigative source rather than a comprehensive breach database. Establish automated RSS monitoring with entity and keyword matching to catch relevant reports promptly. Always cross-reference breach claims reported on the site with official disclosures and regulatory filings for confirmation.
 
-When using DataBreaches.net for threat actor tracking, maintain temporal context for attributions that may evolve as investigations progress. Build threat actor profiles incrementally, updating confidence levels as additional reporting confirms or contradicts initial claims. Integrate findings with [MITRE ATT&CK](/osint/mitre-attack/) TTP mapping for structured threat actor characterization.
+When using DataBreaches.net for threat actor tracking, maintain temporal context for attributions that may evolve as investigations progress. Build threat actor profiles incrementally, updating confidence levels as additional reporting confirms or contradicts initial claims. Integrate findings with [MITRE ATT&CK](@/osint/mitre-attack.md) TTP mapping for structured threat actor characterization.
 
 For supply chain risk monitoring, maintain a watchlist of critical third parties and configure automated alerts through the Prismatic Platform's monitoring framework. Historical breach patterns of supply chain partners should inform vendor risk assessments and contract security requirements.
 
 ## Related Sources
 
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Technical breach data and credential exposure checking
-- [DeHashed](/osint/dehashed/) - Breach data search engine for credential intelligence
-- [Intelligence X](/osint/intelx/) - Dark web breach data indexing and historical content
-- [NVD](/osint/nvd/) - Vulnerability data for understanding breach root causes
-- [MITRE ATT&CK](/osint/mitre-attack/) - TTP framework for threat actor characterization
-- [ThreatFox](/osint/threatfox/) - IOC sharing for malware and C2 infrastructure
-- [VirusTotal](/osint/virustotal/) - Multi-engine malware analysis for breach-related samples
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Technical breach data and credential exposure checking
+- [DeHashed](@/osint/dehashed.md) - Breach data search engine for credential intelligence
+- [Intelligence X](@/osint/intelx.md) - Dark web breach data indexing and historical content
+- [NVD](@/osint/nvd.md) - Vulnerability data for understanding breach root causes
+- [MITRE ATT&CK](@/osint/mitre-attack.md) - TTP framework for threat actor characterization
+- [ThreatFox](@/osint/threatfox.md) - IOC sharing for malware and C2 infrastructure
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine malware analysis for breach-related samples
 
 ---
 
@@ -302,4 +302,4 @@ For supply chain risk monitoring, maintain a watchlist of critical third parties
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

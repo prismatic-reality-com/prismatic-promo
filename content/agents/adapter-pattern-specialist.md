@@ -28,30 +28,30 @@ image_alt = "adapter-pattern-specialist - Prismatic Platform"
 
 ## Overview
 
-The [Adapter Pattern](/glossary/adapter-pattern/) Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Integration domain of the Prismatic Platform. This agent is responsible for designing, implementing, and maintaining adapter layers that connect the platform's internal systems to external APIs, third-party services, and legacy infrastructure. Every adapter follows the hexagonal architecture principle: business logic remains isolated from transport concerns, and external system details never leak into core domain models.
+The [Adapter Pattern](@/glossary/adapter-pattern.md) Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Integration domain of the Prismatic Platform. This agent is responsible for designing, implementing, and maintaining adapter layers that connect the platform's internal systems to external APIs, third-party services, and legacy infrastructure. Every adapter follows the hexagonal architecture principle: business logic remains isolated from transport concerns, and external system details never leak into core domain models.
 
-In a platform with 90 [umbrella application](/glossary/umbrella-application/)s and hundreds of external integration points, adapter consistency is not optional. The Adapter Pattern Specialist enforces standardized contract interfaces across all integration boundaries, ensuring that [protocol](/glossary/protocol/) buffers, REST clients, webhook receivers, and message queue consumers all conform to the same behavioral contract patterns. This includes proper error handling with `{:ok, _}` / `{:error, _}` tuples, [circuit breaker](/glossary/circuit-breaker/) integration, and retry semantics defined at the adapter boundary.
+In a platform with 90 [umbrella application](@/glossary/umbrella-application.md)s and hundreds of external integration points, adapter consistency is not optional. The Adapter Pattern Specialist enforces standardized contract interfaces across all integration boundaries, ensuring that [protocol](@/glossary/protocol.md) buffers, REST clients, webhook receivers, and message queue consumers all conform to the same behavioral contract patterns. This includes proper error handling with `{:ok, _}` / `{:error, _}` tuples, [circuit breaker](@/glossary/circuit-breaker.md) integration, and retry semantics defined at the adapter boundary.
 
 The hexagonal architecture (also known as ports and adapters) is not merely a design preference within the Prismatic Platform -- it is an enforced architectural constraint. The distinction between a "port" (an interface that the domain exposes or consumes) and an "adapter" (a concrete implementation that connects a port to an external system) must be maintained in every integration. This enforcement ensures that the platform's core intelligence processing remains independent of any specific external provider, enabling zero-downtime provider switches, comprehensive testing without live dependencies, and clean separation of domain evolution from infrastructure evolution.
 
 ## Operational Domain
 
-The Integration domain governs all boundary-crossing communication within the Prismatic ecosystem. This includes inbound data ingestion from [OSINT](/glossary/osint/) providers, outbound API calls to cloud services, event-driven synchronization between umbrella applications, and protocol translation for legacy system interoperability. The Adapter Pattern Specialist serves as the primary architect for these boundaries.
+The Integration domain governs all boundary-crossing communication within the Prismatic ecosystem. This includes inbound data ingestion from [OSINT](@/glossary/osint.md) providers, outbound API calls to cloud services, event-driven synchronization between umbrella applications, and protocol translation for legacy system interoperability. The Adapter Pattern Specialist serves as the primary architect for these boundaries.
 
 The scope of integration management extends across transport protocols (HTTP, WebSocket, gRPC, AMQP), data formats (JSON, XML, Protocol Buffers, CSV), authentication mechanisms (OAuth 2.0, API keys, mutual TLS), and communication patterns (synchronous request-response, asynchronous event-driven, streaming). Each dimension introduces failure modes that the adapter layer must handle transparently to domain consumers.
 
 ## Key Capabilities
 
 - **Hexagonal adapter design** with strict port-and-adapter separation that prevents external system concerns from contaminating domain logic, enabling swap-in replacement of any external dependency without modifying business logic
-- **Contract-first interface specification** using [Elixir](/glossary/elixir/) [behaviours](/glossary/behaviour/) and typespecs to define adapter contracts before implementation, ensuring compile-time verification of all integration points and enabling mock-based testing
-- **Circuit breaker integration** with automatic fallback strategies, [connection pooling](/glossary/connection-pooling/), and [backpressure](/glossary/backpressure/) management for resilient external system communication, preventing cascading failures from propagating into core domain logic
-- **Protocol translation layers** that normalize data formats across REST, [GraphQL](/glossary/graphql/), gRPC, and message queue protocols into consistent internal representations with explicit schema versioning
+- **Contract-first interface specification** using [Elixir](@/glossary/elixir.md) [behaviours](@/glossary/behaviour.md) and typespecs to define adapter contracts before implementation, ensuring compile-time verification of all integration points and enabling mock-based testing
+- **Circuit breaker integration** with automatic fallback strategies, [connection pooling](@/glossary/connection-pooling.md), and [backpressure](@/glossary/backpressure.md) management for resilient external system communication, preventing cascading failures from propagating into core domain logic
+- **Protocol translation layers** that normalize data formats across REST, [GraphQL](@/glossary/graphql.md), gRPC, and message queue protocols into consistent internal representations with explicit schema versioning
 - **Adapter testing frameworks** providing mock adapters, contract test suites, and integration test harnesses that validate adapter behavior without requiring live external systems
 - **Connection lifecycle management** handling connection pooling, keepalive strategies, automatic reconnection, and graceful degradation when external systems become unavailable
 
 ## Technical Architecture
 
-The Adapter Pattern Specialist enforces a layered architecture where every external integration follows the same structural pattern. At the core is the [behaviour](/glossary/behaviour/) definition that establishes the contract. Concrete adapters implement this behaviour for specific external systems.
+The Adapter Pattern Specialist enforces a layered architecture where every external integration follows the same structural pattern. At the core is the [behaviour](@/glossary/behaviour.md) definition that establishes the contract. Concrete adapters implement this behaviour for specific external systems.
 
 ```elixir
 defmodule PrismaticStorageCore.Adapter do
@@ -92,7 +92,7 @@ end
 
 Every adapter module must implement the full behaviour contract. The `@impl true` annotation is mandatory -- it enables the Elixir compiler to verify at compile time that all required callbacks are implemented. Missing implementations produce compilation errors, not runtime failures. This compile-time guarantee is a direct enforcement of the NO MERCY doctrine: incomplete adapters cannot exist in the codebase.
 
-Circuit breaker integration wraps every adapter call through a middleware layer that tracks failure rates and trips the breaker when the error threshold is exceeded. The [circuit breaker](/glossary/circuit-breaker/) pattern uses three states: closed (normal operation), open (all calls fail immediately), and half-open (limited calls allowed to test recovery). State transitions are managed through a dedicated [GenServer](/glossary/genserver/) per adapter, with configurable failure thresholds and recovery windows.
+Circuit breaker integration wraps every adapter call through a middleware layer that tracks failure rates and trips the breaker when the error threshold is exceeded. The [circuit breaker](@/glossary/circuit-breaker.md) pattern uses three states: closed (normal operation), open (all calls fail immediately), and half-open (limited calls allowed to test recovery). State transitions are managed through a dedicated [GenServer](@/glossary/genserver.md) per adapter, with configurable failure thresholds and recovery windows.
 
 Connection pooling for HTTP-based adapters uses a pool supervisor that maintains a configurable number of persistent connections per external endpoint. Pool exhaustion triggers backpressure signals to consuming processes rather than spawning unbounded connections, preventing resource exhaustion under load spikes.
 
@@ -120,11 +120,11 @@ The authority scope includes defining the canonical adapter contract patterns, m
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [anti-corruption-layer-specialist](/agents/anti-corruption-layer-specialist/) | Peer Specialist | Coordinates legacy system isolation patterns with adapter boundaries |
-| [cross-domain-integration-orchestrator](/agents/cross-domain-integration-orchestrator/) | Strategic Partner | Routes cross-domain integration requests through proper adapter channels |
-| [data-migration-architect](/agents/data-migration-architect/) | Data Consumer | Provides adapter interfaces for migration [data pipeline](/glossary/data-pipeline/)s |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Contract Validator | Validates adapter behaviour compliance and contract completeness |
-| [alert-management-specialist](/agents/alert-management-specialist/) | Failure Router | Receives circuit breaker trip notifications for operator alerting |
+| [anti-corruption-layer-specialist](@/agents/anti-corruption-layer-specialist.md) | Peer Specialist | Coordinates legacy system isolation patterns with adapter boundaries |
+| [cross-domain-integration-orchestrator](@/agents/cross-domain-integration-orchestrator.md) | Strategic Partner | Routes cross-domain integration requests through proper adapter channels |
+| [data-migration-architect](@/agents/data-migration-architect.md) | Data Consumer | Provides adapter interfaces for migration [data pipeline](@/glossary/data-pipeline.md)s |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Contract Validator | Validates adapter behaviour compliance and contract completeness |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Failure Router | Receives circuit breaker trip notifications for operator alerting |
 
 ## Performance Characteristics
 
@@ -139,16 +139,16 @@ The authority scope includes defining the canonical adapter contract patterns, m
 
 ## Enforcement
 
-All adapter implementations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every adapter must pass contract verification tests, maintain zero compilation warnings, and include comprehensive typespecs. Adapters without proper error handling tuples or missing circuit breaker integration are rejected at the quality gate. No adapter ships without evidence that it handles all failure modes documented in the integration contract. The `@impl true` annotation is mandatory on every callback implementation -- adapters lacking this annotation fail [Credo](/glossary/credo/) strict checks. Direct external system calls bypassing the adapter layer are detected by static analysis and blocked as L2 violations.
+All adapter implementations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every adapter must pass contract verification tests, maintain zero compilation warnings, and include comprehensive typespecs. Adapters without proper error handling tuples or missing circuit breaker integration are rejected at the quality gate. No adapter ships without evidence that it handles all failure modes documented in the integration contract. The `@impl true` annotation is mandatory on every callback implementation -- adapters lacking this annotation fail [Credo](@/glossary/credo.md) strict checks. Direct external system calls bypassing the adapter layer are detected by static analysis and blocked as L2 violations.
 
 ## Related Resources
 
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Glossary entry for the hexagonal architecture pattern
-- [Anti-Corruption Layer](/agents/anti-corruption-layer-specialist/) -- Complementary pattern for legacy system isolation
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard including adapter components
-- [Architecture Overview](/architecture/) -- Platform architecture patterns
-- [Technologies](/technologies/) -- Platform technology stack
-- [Applications](/apps/) -- 90+ applications using adapter patterns
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Glossary entry for the hexagonal architecture pattern
+- [Anti-Corruption Layer](@/agents/anti-corruption-layer-specialist.md) -- Complementary pattern for legacy system isolation
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard including adapter components
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture patterns
+- [Technologies](@/technologies/_index.md) -- Platform technology stack
+- [Applications](@/apps/_index.md) -- 90+ applications using adapter patterns
 
 ---
 
@@ -157,4 +157,4 @@ All adapter implementations are governed by the [NO MERCY, NO DOUBTS](/glossary/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

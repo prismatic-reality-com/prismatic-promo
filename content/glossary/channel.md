@@ -20,9 +20,9 @@ image_alt = "Channel - Prismatic Platform"
 
 ## Definition
 
-A Phoenix Channel is a high-level abstraction for real-time, bidirectional communication between server and connected clients, built on top of [WebSocket](/glossary/websocket/) transport with automatic fallback to HTTP long-polling. Channels organize communication into named topics (such as `"security:alerts"` or `"assets:discovery"`), where clients join topics of interest and exchange messages with the server and other clients through a structured event-based protocol. Each channel connection is backed by an Erlang process, inheriting [OTP](/glossary/beam/) fault tolerance, state management, and supervision capabilities that make Phoenix Channels uniquely robust compared to WebSocket implementations in other ecosystems.
+A Phoenix Channel is a high-level abstraction for real-time, bidirectional communication between server and connected clients, built on top of [WebSocket](@/glossary/websocket.md) transport with automatic fallback to HTTP long-polling. Channels organize communication into named topics (such as `"security:alerts"` or `"assets:discovery"`), where clients join topics of interest and exchange messages with the server and other clients through a structured event-based protocol. Each channel connection is backed by an Erlang process, inheriting [OTP](@/glossary/beam.md) fault tolerance, state management, and supervision capabilities that make Phoenix Channels uniquely robust compared to WebSocket implementations in other ecosystems.
 
-The Channel abstraction solves several problems that raw WebSocket implementations leave to the developer: topic-based message routing (multiplexing multiple logical connections over a single WebSocket), presence tracking (knowing which users are connected and what metadata they carry), authorization (controlling who can join which topics), and distributed broadcasting (propagating messages across multiple server nodes in a [cluster](/glossary/cluster/)). By delegating these concerns to the framework, developers can focus on application logic---what events to handle and what data to push---rather than connection management infrastructure.
+The Channel abstraction solves several problems that raw WebSocket implementations leave to the developer: topic-based message routing (multiplexing multiple logical connections over a single WebSocket), presence tracking (knowing which users are connected and what metadata they carry), authorization (controlling who can join which topics), and distributed broadcasting (propagating messages across multiple server nodes in a [cluster](@/glossary/cluster.md)). By delegating these concerns to the framework, developers can focus on application logic---what events to handle and what data to push---rather than connection management infrastructure.
 
 Phoenix Channels follow a request-response-push hybrid model. Clients can push events to the server (`handle_in`), the server can push events to specific clients, and the server can broadcast events to all clients subscribed to a topic. This three-way communication model supports patterns ranging from simple notification broadcasting (server pushes security alerts to all subscribers) to interactive request-response exchanges (client requests asset details, server responds with data) to collaborative state synchronization (multiple clients editing shared state with conflict resolution).
 
@@ -111,7 +111,7 @@ Channels use a topic string to route messages. Topics follow a `"resource:identi
 | `"resource:lobby"` | `"assets:lobby"` | General channel for a resource type |
 | `"resource:subtopic:id"` | `"compliance:nis2:example_com"` | Nested topic hierarchy |
 
-Broadcasting to a topic delivers the message to all clients subscribed to that topic, regardless of which server node they are connected to (distributed via [PubSub](/glossary/pubsub/)):
+Broadcasting to a topic delivers the message to all clients subscribed to that topic, regardless of which server node they are connected to (distributed via [PubSub](@/glossary/pubsub.md)):
 
 ```elixir
 # Broadcasting patterns
@@ -131,7 +131,7 @@ push(socket, "scan_complete", %{status: "success", findings: 42})
 
 ## Presence Tracking
 
-Phoenix Presence provides distributed, conflict-free tracking of connected users and their metadata. Built on CRDTs (Conflict-free Replicated Data Types), Presence automatically synchronizes state across [cluster](/glossary/cluster/) nodes without a central coordinator:
+Phoenix Presence provides distributed, conflict-free tracking of connected users and their metadata. Built on CRDTs (Conflict-free Replicated Data Types), Presence automatically synchronizes state across [cluster](@/glossary/cluster.md) nodes without a central coordinator:
 
 ```elixir
 defmodule PrismaticWeb.Presence do
@@ -225,13 +225,13 @@ This process-per-channel architecture provides:
 
 Phoenix Channels power the real-time features across the Prismatic Platform's web dashboards, providing the communication layer between server-side intelligence processing and browser-based visualization.
 
-**Security Event Streams**: Security alerts, vulnerability discoveries, and threat intelligence updates are broadcast through channels to all connected [LiveView](/glossary/liveview/) dashboard clients. The Perimeter EASM dashboard at `/perimeter` subscribes to security channels for real-time rating updates.
+**Security Event Streams**: Security alerts, vulnerability discoveries, and threat intelligence updates are broadcast through channels to all connected [LiveView](@/glossary/liveview.md) dashboard clients. The Perimeter EASM dashboard at `/perimeter` subscribes to security channels for real-time rating updates.
 
 **Asset Discovery Progress**: When asset discovery scans run for a domain, progress updates (assets found, scan phases completed, errors encountered) are pushed through asset channels, enabling real-time progress visualization without polling.
 
 **Quality Metric Updates**: Quality score changes, QDP elimination progress, and autoheal results are broadcast through quality channels, keeping the platform monitoring dashboard current.
 
-**Distributed Architecture**: The platform's multi-node [cluster](/glossary/cluster/) deployment uses [PubSub](/glossary/pubsub/)-backed channels to synchronize real-time state across nodes. A security event detected on one node is broadcast to all connected clients across all nodes through PubSub's distributed message propagation.
+**Distributed Architecture**: The platform's multi-node [cluster](@/glossary/cluster.md) deployment uses [PubSub](@/glossary/pubsub.md)-backed channels to synchronize real-time state across nodes. A security event detected on one node is broadcast to all connected clients across all nodes through PubSub's distributed message propagation.
 
 **Client-Side Integration**:
 
@@ -280,22 +280,22 @@ channel.join()
 
 ## Related Concepts
 
-- [Phoenix](/glossary/phoenix/) - Framework providing the Channel implementation and transport layer
-- [PubSub](/glossary/pubsub/) - Message routing backbone that distributes channel broadcasts across nodes
-- [WebSocket](/glossary/websocket/) - Transport protocol underlying channel connections
-- [LiveView](/glossary/liveview/) - Server-rendered UI that uses channel-like connections for real-time updates
-- [Message Passing](/glossary/message-passing/) - Erlang/OTP primitive that channels are built upon
-- [Supervisor](/glossary/supervisor/) - OTP behavior managing channel process lifecycle
-- [Cluster](/glossary/cluster/) - Multi-node deployment with distributed channel broadcasting
-- [GraphQL](/glossary/graphql/) - API layer that can deliver subscriptions through channels
-- [Distributed System](/glossary/distributed-system/) - Architecture pattern requiring distributed real-time communication
-- [Process Isolation](/glossary/process-isolation/) - BEAM feature ensuring channel crash containment
+- [Phoenix](@/glossary/phoenix.md) - Framework providing the Channel implementation and transport layer
+- [PubSub](@/glossary/pubsub.md) - Message routing backbone that distributes channel broadcasts across nodes
+- [WebSocket](@/glossary/websocket.md) - Transport protocol underlying channel connections
+- [LiveView](@/glossary/liveview.md) - Server-rendered UI that uses channel-like connections for real-time updates
+- [Message Passing](@/glossary/message-passing.md) - Erlang/OTP primitive that channels are built upon
+- [Supervisor](@/glossary/supervisor.md) - OTP behavior managing channel process lifecycle
+- [Cluster](@/glossary/cluster.md) - Multi-node deployment with distributed channel broadcasting
+- [GraphQL](@/glossary/graphql.md) - API layer that can deliver subscriptions through channels
+- [Distributed System](@/glossary/distributed-system.md) - Architecture pattern requiring distributed real-time communication
+- [Process Isolation](@/glossary/process-isolation.md) - BEAM feature ensuring channel crash containment
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform real-time communication architecture
-- [Technologies](/technologies/) - Communication technology stack
-- [Apps](/apps/) - Applications using Phoenix Channels for real-time features
+- [Architecture](@/architecture/_index.md) - Platform real-time communication architecture
+- [Technologies](@/technologies/_index.md) - Communication technology stack
+- [Apps](@/apps/_index.md) - Applications using Phoenix Channels for real-time features
 
 ---
 
@@ -304,4 +304,4 @@ channel.join()
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

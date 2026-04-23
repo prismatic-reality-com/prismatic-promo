@@ -20,11 +20,11 @@ image_alt = "Process Isolation - Prismatic Platform"
 
 ## Definition
 
-Process isolation is a fundamental architectural property of the [BEAM](/glossary/beam/) virtual machine that guarantees each lightweight process operates within its own memory heap, maintains its own garbage collector, and defines its own failure boundary. Unlike operating system threads that share memory space and can corrupt each other's state through data races, BEAM processes are hermetically sealed units of computation. A crash, memory leak, out-of-memory condition, or infinite loop in one process cannot corrupt the state, interfere with the execution, or destabilize the operation of any other process running on the same virtual machine.
+Process isolation is a fundamental architectural property of the [BEAM](@/glossary/beam.md) virtual machine that guarantees each lightweight process operates within its own memory heap, maintains its own garbage collector, and defines its own failure boundary. Unlike operating system threads that share memory space and can corrupt each other's state through data races, BEAM processes are hermetically sealed units of computation. A crash, memory leak, out-of-memory condition, or infinite loop in one process cannot corrupt the state, interfere with the execution, or destabilize the operation of any other process running on the same virtual machine.
 
 This isolation model is achieved through a combination of per-process heap allocation, copy-on-send message semantics, and the absence of shared mutable state between processes. When Process A sends a message to Process B, the data is deep-copied from A's heap into B's heap. There are no pointers shared between processes, no locks to coordinate, and no possibility of one process reading another's memory directly. This design was originally motivated by the telecommunications industry's requirement for systems that could tolerate hardware failures in individual components without losing calls across the entire switch, and it remains the technical foundation that makes Erlang/OTP systems among the most fault-tolerant software architectures in existence.
 
-The philosophical consequence of process isolation is profound: it makes failure a first-class, manageable event rather than a catastrophic system-wide condition. Because one process crashing cannot damage another, the system can safely terminate a misbehaving process and restart it with a clean state -- the core mechanism behind the [let-it-crash](/glossary/let-it-crash/) philosophy and the [supervisor](/glossary/supervisor/) pattern.
+The philosophical consequence of process isolation is profound: it makes failure a first-class, manageable event rather than a catastrophic system-wide condition. Because one process crashing cannot damage another, the system can safely terminate a misbehaving process and restart it with a clean state -- the core mechanism behind the [let-it-crash](@/glossary/let-it-crash.md) philosophy and the [supervisor](@/glossary/supervisor.md) pattern.
 
 ## How Process Isolation Works
 
@@ -51,7 +51,7 @@ The per-process heap architecture means that BEAM processes can be garbage-colle
 
 The most consequential property of process isolation is failure containment. When a process encounters an unrecoverable error -- a pattern match failure, an arithmetic overflow, a timeout -- it terminates. The BEAM reclaims all of the terminated process's memory, closes any ports it owned, and sends exit signals to linked processes. Critically, no other process's heap is corrupted, no shared state is left in an inconsistent condition, and the rest of the system continues operating without interruption.
 
-This behavior enables the construction of supervision trees where a [supervisor](/glossary/supervisor/) process monitors its children and restarts them upon failure. The supervisor itself is isolated from its children -- if a child crashes, the supervisor's state remains intact and its restart logic executes cleanly:
+This behavior enables the construction of supervision trees where a [supervisor](@/glossary/supervisor.md) process monitors its children and restarts them upon failure. The supervisor itself is isolated from its children -- if a child crashes, the supervisor's state remains intact and its restart logic executes cleanly:
 
 ```elixir
 # A supervisor that can safely restart children because isolation
@@ -77,7 +77,7 @@ end
 
 ## Copy Semantics and Message Passing
 
-Data exchange between isolated processes occurs exclusively through [message passing](/glossary/message-passing/), which enforces copy semantics. This design choice has several important implications for system architecture.
+Data exchange between isolated processes occurs exclusively through [message passing](@/glossary/message-passing.md), which enforces copy semantics. This design choice has several important implications for system architecture.
 
 ```elixir
 # Data is COPIED from sender to receiver -- no shared references
@@ -111,15 +111,15 @@ end
 
 ## Context in Prismatic
 
-Process isolation enables the Prismatic Platform's agent architecture to run 400+ autonomous [agents](/glossary/agent/) concurrently without fear of cascading failures. Each agent runtime is a BEAM process with its own heap -- if an agent encounters an unrecoverable error during OSINT data processing, security scanning, or quality analysis, its supervisor restarts it while all other agents continue operating uninterrupted.
+Process isolation enables the Prismatic Platform's agent architecture to run 400+ autonomous [agents](@/glossary/agent.md) concurrently without fear of cascading failures. Each agent runtime is a BEAM process with its own heap -- if an agent encounters an unrecoverable error during OSINT data processing, security scanning, or quality analysis, its supervisor restarts it while all other agents continue operating uninterrupted.
 
 The platform leverages process isolation at multiple architectural layers:
 
 - **Agent Execution**: Each of the 434 AIAD agents runs as an isolated process. An agent performing expensive computation or encountering malformed input data cannot affect other agents.
 - **Storage Adapters**: ETS, Ecto, Meilisearch, and KuzuDB adapters each operate in isolated processes. A database timeout in one adapter does not block or crash another.
-- **LiveView Sessions**: Each user's [LiveView](/glossary/liveview/) connection is an isolated process. One user's session crash does not affect other users.
+- **LiveView Sessions**: Each user's [LiveView](@/glossary/liveview.md) connection is an isolated process. One user's session crash does not affect other users.
 - **Quality Gates**: Quality gate checks run in isolated processes, ensuring that a Dialyzer analysis timeout does not block Credo or compilation checks.
-- **Broadway Pipelines**: [Broadway](/glossary/broadway/) data processing stages run in isolated processes, enabling backpressure and failure recovery at the individual message level.
+- **Broadway Pipelines**: [Broadway](@/glossary/broadway.md) data processing stages run in isolated processes, enabling backpressure and failure recovery at the individual message level.
 
 ## Comparison with Other Isolation Models
 
@@ -155,7 +155,7 @@ Even with strong process isolation, certain patterns can undermine system stabil
 
 | Anti-Pattern | Problem | Mitigation |
 |-------------|---------|-----------|
-| **Mailbox Overflow** | Sending faster than receiving fills receiver's mailbox | Implement [backpressure](/glossary/backpressure/); monitor mailbox size |
+| **Mailbox Overflow** | Sending faster than receiving fills receiver's mailbox | Implement [backpressure](@/glossary/backpressure.md); monitor mailbox size |
 | **Large Message Copies** | Sending multi-MB structures between processes | Use ETS for shared read access; pass references |
 | **Process Dictionary Abuse** | Treating process dictionary as global state | Use GenServer state or ETS instead |
 | **Too Few Processes** | Putting everything in one process defeats isolation | Follow "one process per concurrent activity" |
@@ -163,22 +163,22 @@ Even with strong process isolation, certain patterns can undermine system stabil
 
 ## Related Terms
 
-- [BEAM](/glossary/beam/) - Virtual machine providing the process isolation runtime
-- [Fault Tolerance](/glossary/fault-tolerance/) - System property enabled by process isolation
-- [Let It Crash](/glossary/let-it-crash/) - Design philosophy that depends on isolation guarantees
-- [Supervisor](/glossary/supervisor/) - OTP behavior for restarting isolated processes after failure
-- [Message Passing](/glossary/message-passing/) - Communication mechanism between isolated processes
-- [Immutability](/glossary/immutability/) - Data property that reinforces isolation semantics
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) - Runtime process management leveraging isolation
-- [Circuit Breaker](/glossary/circuit-breaker/) - Pattern complementing isolation with failure detection
-- [Cluster](/glossary/cluster/) - Isolation extends transparently across distributed nodes
-- [Broadway](/glossary/broadway/) - Data pipeline leveraging per-stage process isolation
+- [BEAM](@/glossary/beam.md) - Virtual machine providing the process isolation runtime
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - System property enabled by process isolation
+- [Let It Crash](@/glossary/let-it-crash.md) - Design philosophy that depends on isolation guarantees
+- [Supervisor](@/glossary/supervisor.md) - OTP behavior for restarting isolated processes after failure
+- [Message Passing](@/glossary/message-passing.md) - Communication mechanism between isolated processes
+- [Immutability](@/glossary/immutability.md) - Data property that reinforces isolation semantics
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) - Runtime process management leveraging isolation
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Pattern complementing isolation with failure detection
+- [Cluster](@/glossary/cluster.md) - Isolation extends transparently across distributed nodes
+- [Broadway](@/glossary/broadway.md) - Data pipeline leveraging per-stage process isolation
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture built on process isolation
-- [Agents](/agents/) - Agent system leveraging per-process isolation
-- [Technologies](/technologies/) - BEAM runtime and OTP framework
+- [Architecture](@/architecture/_index.md) - Platform architecture built on process isolation
+- [Agents](@/agents/_index.md) - Agent system leveraging per-process isolation
+- [Technologies](@/technologies/_index.md) - BEAM runtime and OTP framework
 
 ---
 
@@ -187,4 +187,4 @@ Even with strong process isolation, certain patterns can undermine system stabil
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

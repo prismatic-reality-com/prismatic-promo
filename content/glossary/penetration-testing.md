@@ -33,11 +33,11 @@ image_alt = "Penetration Testing - Prismatic Platform"
 
 ## Definition
 
-Penetration testing (pen testing) is an authorized, simulated cyberattack against a system, network, or application to evaluate its security defenses by actively attempting to exploit vulnerabilities. Unlike [vulnerability assessment](/glossary/vulnerability-assessment/), which identifies and catalogs weaknesses without exploitation, penetration testing validates whether identified vulnerabilities are actually exploitable and measures the real-world impact of a successful breach. Pen tests follow structured methodologies encompassing reconnaissance, scanning, exploitation, post-exploitation, and reporting, and require explicit written authorization from the system owner before execution.
+Penetration testing (pen testing) is an authorized, simulated cyberattack against a system, network, or application to evaluate its security defenses by actively attempting to exploit vulnerabilities. Unlike [vulnerability assessment](@/glossary/vulnerability-assessment.md), which identifies and catalogs weaknesses without exploitation, penetration testing validates whether identified vulnerabilities are actually exploitable and measures the real-world impact of a successful breach. Pen tests follow structured methodologies encompassing reconnaissance, scanning, exploitation, post-exploitation, and reporting, and require explicit written authorization from the system owner before execution.
 
-The discipline originated in military and government contexts during the 1960s and 1970s when "tiger teams" were formed to test the physical and electronic security of defense installations. James P. Anderson's 1972 report for the US Air Force is widely considered the first formal articulation of computer penetration testing methodology. Today, penetration testing is a cornerstone of enterprise security programs, required by compliance frameworks including [PCI DSS](/glossary/compliance-framework/), [SOC 2](/glossary/soc2/), and [ISO 27001](/glossary/iso-27001/), and recommended by NIST, [OWASP](/glossary/owasp/), and national cybersecurity agencies worldwide.
+The discipline originated in military and government contexts during the 1960s and 1970s when "tiger teams" were formed to test the physical and electronic security of defense installations. James P. Anderson's 1972 report for the US Air Force is widely considered the first formal articulation of computer penetration testing methodology. Today, penetration testing is a cornerstone of enterprise security programs, required by compliance frameworks including [PCI DSS](@/glossary/compliance-framework.md), [SOC 2](@/glossary/soc2.md), and [ISO 27001](@/glossary/iso-27001.md), and recommended by NIST, [OWASP](@/glossary/owasp.md), and national cybersecurity agencies worldwide.
 
-The Prismatic Platform integrates penetration testing capabilities through its Color-Team security architecture, where the [Red Team](/glossary/red-team/) conducts adversarial simulations and the [Purple Team](/glossary/purple-team/) synthesizes offensive findings with defensive intelligence. Additionally, Prismatic Perimeter's [EASM](/glossary/easm/) functionality incorporates automated external security probing that applies penetration testing principles to discovered attack surface assets.
+The Prismatic Platform integrates penetration testing capabilities through its Color-Team security architecture, where the [Red Team](@/glossary/red-team.md) conducts adversarial simulations and the [Purple Team](@/glossary/purple-team.md) synthesizes offensive findings with defensive intelligence. Additionally, Prismatic Perimeter's [EASM](@/glossary/easm.md) functionality incorporates automated external security probing that applies penetration testing principles to discovered attack surface assets.
 
 ## Overview and Industry Context
 
@@ -171,7 +171,7 @@ end
 
 ## Implementation in the Prismatic Platform
 
-The Prismatic Platform's penetration testing capability operates through the Color-Team security architecture, with the [Red Team](/glossary/red-team/) serving as the primary offensive testing unit:
+The Prismatic Platform's penetration testing capability operates through the Color-Team security architecture, with the [Red Team](@/glossary/red-team.md) serving as the primary offensive testing unit:
 
 ### Red Team Agents
 
@@ -190,7 +190,7 @@ All penetration testing operations execute in `PrismaticDark.Sandbox` with stric
 
 ### Purple Team Integration
 
-Penetration test findings flow from Red Team to [Purple Team](/glossary/purple-team/) for synthesis with [Blue Team](/glossary/blue-team/) defensive intelligence. Purple Team evaluates findings against a 4-condition closure protocol, ensuring that identified vulnerabilities are not prematurely dismissed. The closure protocol requires: (1) exploit confirmed, (2) defense validated, (3) regression test added, (4) monitoring deployed.
+Penetration test findings flow from Red Team to [Purple Team](@/glossary/purple-team.md) for synthesis with [Blue Team](@/glossary/blue-team.md) defensive intelligence. Purple Team evaluates findings against a 4-condition closure protocol, ensuring that identified vulnerabilities are not prematurely dismissed. The closure protocol requires: (1) exploit confirmed, (2) defense validated, (3) regression test added, (4) monitoring deployed.
 
 ### Perimeter EASM Probing
 
@@ -344,7 +344,7 @@ The OWASP Top 10 provides the standard taxonomy for web application penetration 
 
 | Category | Testing Approach | Prismatic Defense |
 |----------|-----------------|-------------------|
-| Injection (SQL, NoSQL, OS) | Parameter manipulation, payload injection | Parameterized queries via [Ecto](/glossary/ecto/), input validation |
+| Injection (SQL, NoSQL, OS) | Parameter manipulation, payload injection | Parameterized queries via [Ecto](@/glossary/ecto.md), input validation |
 | Broken Authentication | Credential stuffing, session manipulation | JWT with rotation, RBAC enforcement |
 | Sensitive Data Exposure | Traffic interception, storage inspection | TLS 1.3, encryption at rest, data classification |
 | XML External Entities | Payload injection in XML parsers | Disabled by default in Erlang XML parsers |
@@ -353,11 +353,11 @@ The OWASP Top 10 provides the standard taxonomy for web application penetration 
 | Cross-Site Scripting (XSS) | Payload injection in rendered output | HEEx auto-escaping, Content Security Policy |
 | Insecure Deserialization | Crafted serialized objects | No `:erlang.binary_to_term/1` on untrusted input |
 | Known Vulnerabilities | Dependency scanning, version enumeration | `mix deps.audit`, automated dependency updates |
-| Insufficient Logging | Log review, detection gap analysis | Comprehensive [telemetry](/glossary/telemetry/) across all apps |
+| Insufficient Logging | Log review, detection gap analysis | Comprehensive [telemetry](@/glossary/telemetry.md) across all apps |
 
 ## Use Cases
 
-**Compliance Validation**: Meeting [PCI DSS](/glossary/compliance-framework/), [SOC 2](/glossary/soc2/), or [ISO 27001](/glossary/iso-27001/) requirements for periodic penetration testing of internet-facing systems and internal network segments.
+**Compliance Validation**: Meeting [PCI DSS](@/glossary/compliance-framework.md), [SOC 2](@/glossary/soc2.md), or [ISO 27001](@/glossary/iso-27001.md) requirements for periodic penetration testing of internet-facing systems and internal network segments.
 
 **Pre-Release Security**: Testing new application features, API endpoints, or infrastructure changes before production deployment to identify exploitable vulnerabilities early in the development lifecycle.
 
@@ -371,22 +371,22 @@ The OWASP Top 10 provides the standard taxonomy for web application penetration 
 
 ## Related Concepts
 
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) - Discovery phase preceding exploitation testing
-- [Red Team](/glossary/red-team/) - Adversarial simulation agents conducting pen test scenarios
-- [Purple Team](/glossary/purple-team/) - Synthesis hub integrating pen test findings with defenses
-- [Blue Team](/glossary/blue-team/) - Defensive team whose controls are validated by pen testing
-- [Cyber Threat Intelligence](/glossary/cyber-threat-intelligence/) - Intelligence informing test scenarios
-- [Color Teams](/glossary/color-teams/) - Six-team security operations framework
-- [OWASP](/glossary/owasp/) - Testing methodology standards for web application pen testing
-- [EASM](/glossary/easm/) - External attack surface discovery informing pen test scope
-- [SOC 2](/glossary/soc2/) - Compliance framework requiring periodic penetration testing
-- [Security Rating](/glossary/security-rating/) - Quantified security posture incorporating pen test results
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) - Discovery phase preceding exploitation testing
+- [Red Team](@/glossary/red-team.md) - Adversarial simulation agents conducting pen test scenarios
+- [Purple Team](@/glossary/purple-team.md) - Synthesis hub integrating pen test findings with defenses
+- [Blue Team](@/glossary/blue-team.md) - Defensive team whose controls are validated by pen testing
+- [Cyber Threat Intelligence](@/glossary/cyber-threat-intelligence.md) - Intelligence informing test scenarios
+- [Color Teams](@/glossary/color-teams.md) - Six-team security operations framework
+- [OWASP](@/glossary/owasp.md) - Testing methodology standards for web application pen testing
+- [EASM](@/glossary/easm.md) - External attack surface discovery informing pen test scope
+- [SOC 2](@/glossary/soc2.md) - Compliance framework requiring periodic penetration testing
+- [Security Rating](@/glossary/security-rating.md) - Quantified security posture incorporating pen test results
 
 ## See Also
 
-- [Architecture](/architecture/) - Security testing architecture
-- [Technologies](/technologies/) - Security tooling stack
-- [Capabilities](/capabilities/) - Platform security capabilities
+- [Architecture](@/architecture/_index.md) - Security testing architecture
+- [Technologies](@/technologies/_index.md) - Security tooling stack
+- [Capabilities](@/capabilities/_index.md) - Platform security capabilities
 
 ---
 
@@ -395,4 +395,4 @@ The OWASP Top 10 provides the standard taxonomy for web application penetration 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

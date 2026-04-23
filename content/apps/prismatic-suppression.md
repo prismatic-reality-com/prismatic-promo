@@ -23,7 +23,7 @@ image_alt = "Prismatic Suppression - Prismatic Platform"
 
 ## Overview
 
-Prismatic Suppression manages alert fatigue by providing intelligent noise reduction, false positive management, and alert suppression capabilities. In a platform that continuously monitors [attack surface](/glossary/attack-surface/)s, analyzes influence operations, scans communications for manipulation, and processes IoT sensor data, the raw volume of findings can overwhelm even experienced analysts. Without intelligent filtering, critical findings drown in a sea of expected, benign, or duplicate alerts. Suppression ensures that analyst attention is directed to findings that actually matter.
+Prismatic Suppression manages alert fatigue by providing intelligent noise reduction, false positive management, and alert suppression capabilities. In a platform that continuously monitors [attack surface](@/glossary/attack-surface.md)s, analyzes influence operations, scans communications for manipulation, and processes IoT sensor data, the raw volume of findings can overwhelm even experienced analysts. Without intelligent filtering, critical findings drown in a sea of expected, benign, or duplicate alerts. Suppression ensures that analyst attention is directed to findings that actually matter.
 
 The module learns from analyst feedback to automatically tune detection sensitivity and filter out known benign patterns. When an analyst marks a finding as a false positive, Suppression records the decision with context and generates a candidate suppression rule. After enough consistent feedback on similar findings, the rule is automatically promoted from candidate to active, reducing future noise without manual rule authoring. This feedback loop means the platform becomes more precise over time as analysts interact with it.
 
@@ -52,9 +52,9 @@ Candidate  Active
 Rules      Rules
 ```
 
-Suppression is implemented as a [GenServer](/glossary/genserver/) maintaining a rule set in [ETS](/glossary/ets/) for fast [pattern matching](/glossary/pattern-matching/) on every incoming finding. The **Rule Engine** evaluates findings against active suppression rules using pattern matching on finding attributes (source, type, entity, severity). The **Feedback Processor** collects analyst decisions, identifies patterns in false positive reports, and generates candidate rules. The **Maintenance Scheduler** manages time-windowed suppression rules that automatically activate and deactivate based on scheduled maintenance events.
+Suppression is implemented as a [GenServer](@/glossary/genserver.md) maintaining a rule set in [ETS](@/glossary/ets.md) for fast [pattern matching](@/glossary/pattern-matching.md) on every incoming finding. The **Rule Engine** evaluates findings against active suppression rules using pattern matching on finding attributes (source, type, entity, severity). The **Feedback Processor** collects analyst decisions, identifies patterns in false positive reports, and generates candidate rules. The **Maintenance Scheduler** manages time-windowed suppression rules that automatically activate and deactivate based on scheduled maintenance events.
 
-All suppression decisions are logged to [PostgreSQL](/glossary/postgresql/) for auditability, and [Telemetry](/glossary/telemetry/) events track suppression rates, false positive rates, and analyst feedback [metrics](/glossary/metrics/).
+All suppression decisions are logged to [PostgreSQL](@/glossary/postgresql.md) for auditability, and [Telemetry](@/glossary/telemetry.md) events track suppression rates, false positive rates, and analyst feedback [metrics](@/glossary/metrics.md).
 
 ## Rule Engine Design
 
@@ -149,7 +149,7 @@ mix test apps/prismatic_suppression/test --cover
 
 ## Integration Points
 
-Suppression sits in the finding delivery path for every detection module. [Prismatic Perimeter](/apps/prismatic-perimeter/) routes [EASM](/glossary/easm/) findings through Suppression before dashboard display. [Prismatic Influence](/apps/prismatic-influence/) and [Prismatic Manipulation](/apps/prismatic-manipulation/) filter alerts through Suppression to prevent analyst fatigue. [Prismatic Embodiment](/apps/prismatic-embodiment/) sensor alerts pass through Suppression's noise reduction before triggering responses via [Prismatic Override](/apps/prismatic-override/).
+Suppression sits in the finding delivery path for every detection module. [Prismatic Perimeter](@/apps/prismatic-perimeter.md) routes [EASM](@/glossary/easm.md) findings through Suppression before dashboard display. [Prismatic Influence](@/apps/prismatic-influence.md) and [Prismatic Manipulation](@/apps/prismatic-manipulation.md) filter alerts through Suppression to prevent analyst fatigue. [Prismatic Embodiment](@/apps/prismatic-embodiment.md) sensor alerts pass through Suppression's noise reduction before triggering responses via [Prismatic Override](@/apps/prismatic-override.md).
 
 ## NABLA Compliance
 
@@ -167,22 +167,22 @@ Suppression decisions are fully auditable, with every suppressed finding logged 
 
 ## Related Components
 
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- EASM findings filtered through suppression rules
-- [Prismatic Override](/apps/prismatic-override/) -- Emergency suppression during [incident response](/glossary/incident-response/)
-- [Prismatic Influence](/apps/prismatic-influence/) -- Influence campaign alerts filtered for noise reduction
-- [Prismatic CER](/apps/prismatic-cer/) -- Suppression audit logs stored for compliance review
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- EASM findings filtered through suppression rules
+- [Prismatic Override](@/apps/prismatic-override.md) -- Emergency suppression during [incident response](@/glossary/incident-response.md)
+- [Prismatic Influence](@/apps/prismatic-influence.md) -- Influence campaign alerts filtered for noise reduction
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Suppression audit logs stored for compliance review
 
 ## Related Agents
 
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Manages alert lifecycle and noise reduction strategies
-- [Evolution Analyzer Specialist](/agents/evolution-analyzer-specialist/) -- Analyzes suppression rule effectiveness and recommends tuning
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures suppression decisions are backed by documented rationale
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Manages alert lifecycle and noise reduction strategies
+- [Evolution Analyzer Specialist](@/agents/evolution-analyzer-specialist.md) -- Analyzes suppression rule effectiveness and recommends tuning
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures suppression decisions are backed by documented rationale
 
 ## Related Capabilities
 
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Continuous signal-to-noise ratio monitoring across all detection modules
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-source alert correlation for intelligent deduplication
-- [Quality Gates](/capabilities/quality-gates/) -- Validates suppression rules do not inadvertently mask genuine threats
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Continuous signal-to-noise ratio monitoring across all detection modules
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-source alert correlation for intelligent deduplication
+- [Quality Gates](@/capabilities/quality-gates.md) -- Validates suppression rules do not inadvertently mask genuine threats
 
 ---
 
@@ -191,4 +191,4 @@ Suppression decisions are fully auditable, with every suppressed finding logged 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

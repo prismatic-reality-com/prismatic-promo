@@ -38,7 +38,7 @@ A vector database is a specialized storage system optimized for indexing and que
 
 Traditional keyword-based search engines match exact terms: a query for "SQL injection" finds documents containing those exact words. Vector search operates on meaning: a query about "database input sanitization flaws" would find documents about SQL injection even without the exact term, because the embeddings of semantically related concepts are geometrically close. This semantic matching is particularly valuable for OSINT intelligence synthesis, where the same vulnerability, threat actor, or infrastructure pattern may be described using vastly different terminology across sources.
 
-The Prismatic Platform integrates vector capabilities through two complementary systems. Meilisearch provides hybrid search combining keyword matching (BM25) with semantic vector similarity, enabling searches that benefit from both exact term matching and semantic understanding. [PostgreSQL](/glossary/postgresql/) with the pgvector extension provides vector storage and similarity search within the relational database, enabling combined relational-and-vector queries. The [Ollama](/glossary/ollama/) integration generates embeddings locally using models like qwen3-coder, enabling privacy-preserving semantic search without sending data to external APIs.
+The Prismatic Platform integrates vector capabilities through two complementary systems. Meilisearch provides hybrid search combining keyword matching (BM25) with semantic vector similarity, enabling searches that benefit from both exact term matching and semantic understanding. [PostgreSQL](@/glossary/postgresql.md) with the pgvector extension provides vector storage and similarity search within the relational database, enabling combined relational-and-vector queries. The [Ollama](@/glossary/ollama.md) integration generates embeddings locally using models like qwen3-coder, enabling privacy-preserving semantic search without sending data to external APIs.
 
 Vector databases have become a foundational infrastructure component in the age of large language models. As organizations deploy LLM-powered assistants, chatbots, and analysis tools, vector databases serve as the "long-term memory" that grounds LLM responses in factual, domain-specific knowledge. This pattern, known as retrieval-augmented generation (RAG), retrieves semantically relevant documents from a vector database and includes them in the LLM's context window, dramatically reducing hallucination and improving response accuracy for domain-specific queries.
 
@@ -73,7 +73,7 @@ The training process uses contrastive learning: the model is shown pairs of simi
 | `qwen3-coder` (embedding mode) | 1,024 | ~100ms | Code and technical content |
 | `mxbai-embed-large` | 1,024 | ~80ms | High-quality multilingual |
 
-All embedding generation runs locally through [Ollama](/glossary/ollama/), ensuring that sensitive OSINT data, security assessments, and agent specifications never leave the platform's infrastructure.
+All embedding generation runs locally through [Ollama](@/glossary/ollama.md), ensuring that sensitive OSINT data, security assessments, and agent specifications never leave the platform's infrastructure.
 
 ### Embedding Generation Pipeline
 
@@ -136,7 +136,7 @@ Vector databases support multiple distance/similarity metrics for comparing embe
 | **Dot product** | A.B = sum(ai*bi) | Fastest; assumes normalized vectors | Pre-normalized embeddings |
 | **Manhattan distance** | L1(A,B) = sum(\|ai-bi\|) | Robust to outlier dimensions | Sparse feature vectors |
 
-The Prismatic Platform uses cosine similarity as its default metric because most text embedding models are trained to optimize cosine similarity between semantically related texts. For specialized use cases (e.g., comparing embedding magnitudes for [confidence scoring](/glossary/confidence-scoring/)), Euclidean distance is available.
+The Prismatic Platform uses cosine similarity as its default metric because most text embedding models are trained to optimize cosine similarity between semantically related texts. For specialized use cases (e.g., comparing embedding magnitudes for [confidence scoring](@/glossary/confidence-scoring.md)), Euclidean distance is available.
 
 Cosine similarity has an important mathematical property for information retrieval: it measures the angle between two vectors, ignoring their magnitudes. This means that a short document and a long document about the same topic will have similar cosine similarity scores, even though the longer document's embedding might have a larger magnitude. This magnitude invariance makes cosine similarity robust for comparing documents of varying lengths, which is common in OSINT intelligence corpora where sources range from brief social media posts to lengthy technical reports.
 
@@ -320,7 +320,7 @@ Vector search enables analysts to find relevant intelligence using natural langu
 
 ### Agent Specification Similarity
 
-With 530+ [agents](/glossary/agent/) in the platform, vector search enables finding agents with similar capabilities:
+With 530+ [agents](@/glossary/agent.md) in the platform, vector search enables finding agents with similar capabilities:
 
 ```elixir
 defmodule PrismaticSearch.AgentSimilarity do
@@ -346,7 +346,7 @@ end
 
 ### Semantic Deduplication
 
-Vector similarity detects near-duplicate content that keyword matching misses, supporting [entity resolution](/glossary/entity-resolution/):
+Vector similarity detects near-duplicate content that keyword matching misses, supporting [entity resolution](@/glossary/entity-resolution.md):
 
 ```elixir
 defmodule PrismaticSearch.Deduplication do
@@ -431,7 +431,7 @@ This three-component architecture provides flexibility that no single vector dat
 
 ## Comparison with Knowledge Graphs
 
-Vector databases and [knowledge graphs](/glossary/knowledge-graph/) serve complementary roles in the Prismatic Platform's intelligence infrastructure:
+Vector databases and [knowledge graphs](@/glossary/knowledge-graph.md) serve complementary roles in the Prismatic Platform's intelligence infrastructure:
 
 | Dimension | Vector Database | Knowledge Graph |
 |-----------|----------------|-----------------|
@@ -443,28 +443,28 @@ Vector databases and [knowledge graphs](/glossary/knowledge-graph/) serve comple
 | **Update cost** | Re-embed changed documents | Add/modify edges and nodes |
 | **Explainability** | Low (black-box similarity scores) | High (explicit relationship paths) |
 
-The Prismatic Platform uses both: vector search for finding semantically relevant intelligence, and knowledge graphs for mapping structural relationships between entities. The [intelligence fusion](/glossary/intelligence-fusion/) engine combines outputs from both systems, using vector similarity to identify candidate relationships and knowledge graph traversal to validate and contextualize them.
+The Prismatic Platform uses both: vector search for finding semantically relevant intelligence, and knowledge graphs for mapping structural relationships between entities. The [intelligence fusion](@/glossary/intelligence-fusion.md) engine combines outputs from both systems, using vector similarity to identify candidate relationships and knowledge graph traversal to validate and contextualize them.
 
 ## Related Terms
 
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Complementary structured knowledge representation using explicit relationships
-- [Ontology](/glossary/ontology/) -- Formal entity type definitions that guide vector embedding strategies
-- [Ollama](/glossary/ollama/) -- Local AI runtime generating vector embeddings for privacy-preserving search
-- [PostgreSQL](/glossary/postgresql/) -- Relational database with pgvector extension for combined SQL and vector queries
-- [Entity Resolution](/glossary/entity-resolution/) -- Deduplication enhanced by vector similarity detection
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Similarity scores used as confidence signals in entity matching
-- [Agent](/glossary/agent/) -- AIAD agents whose specifications are vector-indexed for similarity search
-- [Shodan](/glossary/shodan/) -- OSINT source whose intelligence is vector-indexed for semantic search
-- [Censys](/glossary/censys/) -- OSINT source feeding the vector-searchable intelligence corpus
-- [Attack Surface](/glossary/attack-surface/) -- Security domain whose intelligence benefits from semantic search
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Multi-source correlation consuming vector similarity signals
-- [Meilisearch](/glossary/meilisearch/) -- Primary hybrid search engine with built-in vector capabilities
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Complementary structured knowledge representation using explicit relationships
+- [Ontology](@/glossary/ontology.md) -- Formal entity type definitions that guide vector embedding strategies
+- [Ollama](@/glossary/ollama.md) -- Local AI runtime generating vector embeddings for privacy-preserving search
+- [PostgreSQL](@/glossary/postgresql.md) -- Relational database with pgvector extension for combined SQL and vector queries
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Deduplication enhanced by vector similarity detection
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Similarity scores used as confidence signals in entity matching
+- [Agent](@/glossary/agent.md) -- AIAD agents whose specifications are vector-indexed for similarity search
+- [Shodan](@/glossary/shodan.md) -- OSINT source whose intelligence is vector-indexed for semantic search
+- [Censys](@/glossary/censys.md) -- OSINT source feeding the vector-searchable intelligence corpus
+- [Attack Surface](@/glossary/attack-surface.md) -- Security domain whose intelligence benefits from semantic search
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Multi-source correlation consuming vector similarity signals
+- [Meilisearch](@/glossary/meilisearch.md) -- Primary hybrid search engine with built-in vector capabilities
 
 ## See Also
 
-- [Technologies](/technologies/) -- Storage technology stack including vector capabilities
-- [Architecture](/architecture/) -- Search and retrieval architecture design
-- [Capabilities](/capabilities/) -- Platform search and intelligence capabilities
+- [Technologies](@/technologies/_index.md) -- Storage technology stack including vector capabilities
+- [Architecture](@/architecture/_index.md) -- Search and retrieval architecture design
+- [Capabilities](@/capabilities/_index.md) -- Platform search and intelligence capabilities
 
 ---
 
@@ -473,4 +473,4 @@ The Prismatic Platform uses both: vector search for finding semantically relevan
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

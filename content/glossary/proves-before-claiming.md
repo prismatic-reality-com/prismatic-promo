@@ -393,23 +393,23 @@ When the platform claims "530 AIAD agents," that number comes from an automated 
 
 The "proves before claiming" principle connects deeply to the Prismatic Platform's epistemic and quality infrastructure:
 
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- the broader epistemic principle that evidence supersedes belief, of which "proves before claiming" is the operational enforcement
-- [Trinity Gate](/glossary/trinity-gate/) -- the three-layer verification system that requires structural, logical, and formal proof before critical claims are accepted
-- [Formal Verification](/glossary/formal-verification/) -- the strongest form of evidence, providing mathematical proof of program properties
-- [Quality Gate](/glossary/quality-gate/) -- automated checkpoints that verify quality claims are backed by evidence before code can progress
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) -- the principle that quality is defined by evidence, not by declaration or estimation
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- the NABLA axiom requiring all beliefs to be traceable to their origin evidence
-- [Axiom Enforcement](/glossary/axiom-enforcement/) -- the mechanism that enforces non-negotiable epistemic rules including evidence requirements
-- [Verification](/glossary/verification/) -- the general practice of confirming that implementations satisfy their specifications
-- [Property-Based Testing](/glossary/property-based-testing/) -- an evidence generation mechanism that explores input spaces automatically rather than relying on manually chosen examples
-- [Continuous Validation](/glossary/continuous-validation/) -- the practice of continuously regenerating evidence to ensure claims remain valid as the system evolves
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- the broader epistemic principle that evidence supersedes belief, of which "proves before claiming" is the operational enforcement
+- [Trinity Gate](@/glossary/trinity-gate.md) -- the three-layer verification system that requires structural, logical, and formal proof before critical claims are accepted
+- [Formal Verification](@/glossary/formal-verification.md) -- the strongest form of evidence, providing mathematical proof of program properties
+- [Quality Gate](@/glossary/quality-gate.md) -- automated checkpoints that verify quality claims are backed by evidence before code can progress
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) -- the principle that quality is defined by evidence, not by declaration or estimation
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- the NABLA axiom requiring all beliefs to be traceable to their origin evidence
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) -- the mechanism that enforces non-negotiable epistemic rules including evidence requirements
+- [Verification](@/glossary/verification.md) -- the general practice of confirming that implementations satisfy their specifications
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- an evidence generation mechanism that explores input spaces automatically rather than relying on manually chosen examples
+- [Continuous Validation](@/glossary/continuous-validation.md) -- the practice of continuously regenerating evidence to ensure claims remain valid as the system evolves
 
 ## See Also
 
-- [Quality DNA](/glossary/quality-dna/) -- the persistence mechanism that carries evidence and quality state across development sessions
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the autonomous system that monitors evidence quality and triggers alerts when claims become unsupported
-- [Regression Testing](/glossary/regression-testing/) -- evidence that previously proven claims remain true after system changes
-- [Dialyzer](/glossary/dialyzer/) -- type-level evidence generation through success typing analysis
+- [Quality DNA](@/glossary/quality-dna.md) -- the persistence mechanism that carries evidence and quality state across development sessions
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the autonomous system that monitors evidence quality and triggers alerts when claims become unsupported
+- [Regression Testing](@/glossary/regression-testing.md) -- evidence that previously proven claims remain true after system changes
+- [Dialyzer](@/glossary/dialyzer.md) -- type-level evidence generation through success typing analysis
 
 ---
 

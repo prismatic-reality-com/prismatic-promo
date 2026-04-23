@@ -668,24 +668,24 @@ end
 
 ## Related Terms
 
-- [WAL](/glossary/wal/) -- the Write-Ahead Log that streaming replication transmits
-- [RPO](/glossary/rpo/) -- Recovery Point Objective that replication strategy determines
-- [RTO](/glossary/rto/) -- Recovery Time Objective affected by failover mechanisms
-- [Rollback](/glossary/rollback/) -- reverting to a known good state when replication diverges
-- [Storage Adapter](/glossary/storage-adapter/) -- abstraction layer that encapsulates replication details
+- [WAL](@/glossary/wal.md) -- the Write-Ahead Log that streaming replication transmits
+- [RPO](@/glossary/rpo.md) -- Recovery Point Objective that replication strategy determines
+- [RTO](@/glossary/rto.md) -- Recovery Time Objective affected by failover mechanisms
+- [Rollback](@/glossary/rollback.md) -- reverting to a known good state when replication diverges
+- [Storage Adapter](@/glossary/storage-adapter.md) -- abstraction layer that encapsulates replication details
 - [Failover](/glossary/failover/) -- automatic switching from primary to standby
 - [High Availability](/glossary/high-availability/) -- system design goal that replication enables
 - [Consensus](/glossary/consensus/) -- distributed agreement protocol for multi-primary systems
-- [ETS](/glossary/ets/) -- Erlang Term Storage with node-local scope
-- [Mnesia](/glossary/mnesia/) -- BEAM's built-in distributed database
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage with node-local scope
+- [Mnesia](@/glossary/mnesia.md) -- BEAM's built-in distributed database
 - [Horde](/glossary/horde/) -- CRDT-based distributed process registry
-- [Retention](/glossary/retention/) -- policies governing how long replicated data is kept
+- [Retention](@/glossary/retention.md) -- policies governing how long replicated data is kept
 
 ## See Also
 
 - [PostgreSQL Replication Documentation](https://www.postgresql.org/docs/current/high-availability.html) -- official PostgreSQL HA guide
-- [Platform Architecture](/architecture/) -- overall infrastructure and replication design
-- [Capabilities](/capabilities/) -- replication-dependent platform capabilities
+- [Platform Architecture](@/architecture/_index.md) -- overall infrastructure and replication design
+- [Capabilities](@/capabilities/_index.md) -- replication-dependent platform capabilities
 - [Fly.io PostgreSQL](https://fly.io/docs/postgres/) -- managed PostgreSQL replication on Fly.io
 
 ---
@@ -695,4 +695,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

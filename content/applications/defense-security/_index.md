@@ -57,17 +57,17 @@ tags = ["applications", "defense--security", "prismatic", "research-frameworks"]
 
 ## Abstract
 
-This document provides a comprehensive overview of the Prismatic Platform's defense and security research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](/glossary/multi-agent-systems/), [epistemic verification](/glossary/epistemic-validation/), and adversarial reasoning to problems in defense strategy, cybersecurity operations, crisis management, and security policy analysis. The domain spans five primary research areas: cyber defense and threat response, physical security and crisis management, adversarial simulation and red teaming, strategic and deterrence modeling, and civil-military coordination.
+This document provides a comprehensive overview of the Prismatic Platform's defense and security research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](@/glossary/multi-agent-systems.md), [epistemic verification](@/glossary/epistemic-validation.md), and adversarial reasoning to problems in defense strategy, cybersecurity operations, crisis management, and security policy analysis. The domain spans five primary research areas: cyber defense and threat response, physical security and crisis management, adversarial simulation and red teaming, strategic and deterrence modeling, and civil-military coordination.
 
-Each framework leverages the platform's [agent orchestration](/glossary/agent-orchestration/) infrastructure, [signal plurality](/glossary/signal-plurality/) axioms, and Color-Team security architecture to model the complexity, adversarial dynamics, and time-critical decision-making inherent in defense and security environments.
+Each framework leverages the platform's [agent orchestration](@/glossary/agent-orchestration.md) infrastructure, [signal plurality](@/glossary/signal-plurality.md) axioms, and Color-Team security architecture to model the complexity, adversarial dynamics, and time-critical decision-making inherent in defense and security environments.
 
 ## Introduction
 
 ### Context and Motivation
 
-Defense and security environments demand computational frameworks that operate under conditions of adversarial opposition, incomplete information, and extreme time pressure. Unlike domains where the environment is neutral or cooperative, security operations must account for intelligent adversaries who actively seek to deceive, degrade, and deny information. This adversarial dynamic makes defense one of the most natural application areas for [multi-agent](/glossary/multi-agent-system/) modeling, where the interaction between attacking and defending agents produces emergent strategic dynamics.
+Defense and security environments demand computational frameworks that operate under conditions of adversarial opposition, incomplete information, and extreme time pressure. Unlike domains where the environment is neutral or cooperative, security operations must account for intelligent adversaries who actively seek to deceive, degrade, and deny information. This adversarial dynamic makes defense one of the most natural application areas for [multi-agent](@/glossary/multi-agent-system.md) modeling, where the interaction between attacking and defending agents produces emergent strategic dynamics.
 
-The Prismatic Platform's defense and security domain was conceived as a research laboratory leveraging the platform's Color-Team architecture -- 20 agents across 6 specialized teams (Gray, Red, Blue, Purple, White, Black) -- to study defensive security, [threat intelligence](/glossary/threat-intelligence/), and crisis response methodology. The platform's emphasis on epistemic rigor through [NABLA axioms](/glossary/nabla-axioms/) ensures that security assessments preserve uncertainty and track provenance rather than producing overconfident conclusions.
+The Prismatic Platform's defense and security domain was conceived as a research laboratory leveraging the platform's Color-Team architecture -- 20 agents across 6 specialized teams (Gray, Red, Blue, Purple, White, Black) -- to study defensive security, [threat intelligence](@/glossary/threat-intelligence.md), and crisis response methodology. The platform's emphasis on epistemic rigor through [NABLA axioms](@/glossary/nabla-axioms.md) ensures that security assessments preserve uncertainty and track provenance rather than producing overconfident conclusions.
 
 ### Problem Definition
 
@@ -87,12 +87,12 @@ Defense and security research faces several interconnected theoretical challenge
 
 | Platform Component | Defense Application | Research Purpose |
 |-------------------|----------------------|------------------|
-| **[Blackboard](/glossary/blackboard/) Coordination** | Threat fusion center modeling | Study multi-source threat intelligence integration |
+| **[Blackboard](@/glossary/blackboard.md) Coordination** | Threat fusion center modeling | Study multi-source threat intelligence integration |
 | **Color-Team Architecture** | Red/Blue adversarial simulation | Study offensive-defensive dynamics |
-| **[Zero Trust](/glossary/zero-trust/)** | Security architecture modeling | Study never-trust-always-verify patterns |
-| **[Incident Response](/glossary/incident-response/)** | Crisis coordination simulation | Study response team coordination under pressure |
-| **[Trinity Gate](/glossary/trinity-gate/) Validation** | Decision verification | Study formal properties of security decisions |
-| **[Risk Assessment](/glossary/risk-assessment/)** | Threat risk evaluation | Multi-dimensional threat scoring |
+| **[Zero Trust](@/glossary/zero-trust.md)** | Security architecture modeling | Study never-trust-always-verify patterns |
+| **[Incident Response](@/glossary/incident-response.md)** | Crisis coordination simulation | Study response team coordination under pressure |
+| **[Trinity Gate](@/glossary/trinity-gate.md) Validation** | Decision verification | Study formal properties of security decisions |
+| **[Risk Assessment](@/glossary/risk-assessment.md)** | Threat risk evaluation | Multi-dimensional threat scoring |
 
 ## Research Domain Taxonomy
 
@@ -102,13 +102,13 @@ Research into cybersecurity operations, kill-chain analysis, and automated defen
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Cyber defense kill-chain replay](/applications/defense-security/cyber-defense-kill-chain-replay/) | Attack lifecycle reconstruction and analysis | Lockheed Martin kill-chain model formalization |
-| [CTI misinformation triage](/applications/defense-security/cti-misinformation-triage/) | Cyber threat intelligence quality assessment | CTI quality scoring with epistemic uncertainty |
-| [Zero-trust policy rehearsal](/applications/defense-security/zero-trust-policy-rehearsal/) | [Zero-trust](/glossary/zero-trust/) architecture validation | Policy simulation under adversarial conditions |
-| [Signal intelligence summarizer](/applications/defense-security/signal-intelligence-summarizer/) | SIGINT processing and summarization | Information extraction from signals data |
-| [Threat fusion center assistant](/applications/defense-security/threat-fusion-center-assistant/) | Multi-source threat intelligence fusion | [Intelligence fusion](/glossary/intelligence-fusion/) methodology |
+| [Cyber defense kill-chain replay](@/applications/defense-security/cyber-defense-kill-chain-replay.md) | Attack lifecycle reconstruction and analysis | Lockheed Martin kill-chain model formalization |
+| [CTI misinformation triage](@/applications/defense-security/cti-misinformation-triage.md) | Cyber threat intelligence quality assessment | CTI quality scoring with epistemic uncertainty |
+| [Zero-trust policy rehearsal](@/applications/defense-security/zero-trust-policy-rehearsal.md) | [Zero-trust](@/glossary/zero-trust.md) architecture validation | Policy simulation under adversarial conditions |
+| [Signal intelligence summarizer](@/applications/defense-security/signal-intelligence-summarizer.md) | SIGINT processing and summarization | Information extraction from signals data |
+| [Threat fusion center assistant](@/applications/defense-security/threat-fusion-center-assistant.md) | Multi-source threat intelligence fusion | [Intelligence fusion](@/glossary/intelligence-fusion.md) methodology |
 
-The cyber defense kill-chain replay framework applies the platform's event replay infrastructure to enable deterministic reconstruction of cyber attack sequences. Each framework preserves complete [provenance](/glossary/provenance-mandatory/) chains, supporting forensic analysis of simulated attack timelines.
+The cyber defense kill-chain replay framework applies the platform's event replay infrastructure to enable deterministic reconstruction of cyber attack sequences. Each framework preserves complete [provenance](@/glossary/provenance-mandatory.md) chains, supporting forensic analysis of simulated attack timelines.
 
 ### Domain 2: Physical Security and Crisis Management (5 frameworks)
 
@@ -116,11 +116,11 @@ Theoretical models for studying crisis response coordination, disaster managemen
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Disaster response coordination](/applications/defense-security/disaster-response-coordination/) | Multi-agency disaster response modeling | Incident command system formalization |
-| [Crowd security de-escalation](/applications/defense-security/crowd-security-de-escalation/) | Crowd dynamics and de-escalation modeling | Agent-based crowd behavior simulation |
-| [Critical infrastructure resilience](/applications/defense-security/critical-infrastructure-resilience/) | Infrastructure dependency analysis | Network resilience and cascading failure theory |
-| [Supply chain interdiction modeling](/applications/defense-security/supply-chain-interdiction-modeling/) | Supply chain vulnerability analysis | Graph-based supply chain disruption modeling |
-| [After-action review automation](/applications/defense-security/after-action-review-automation/) | Post-incident analysis methodology | Structured analytical review formalization |
+| [Disaster response coordination](@/applications/defense-security/disaster-response-coordination.md) | Multi-agency disaster response modeling | Incident command system formalization |
+| [Crowd security de-escalation](@/applications/defense-security/crowd-security-de-escalation.md) | Crowd dynamics and de-escalation modeling | Agent-based crowd behavior simulation |
+| [Critical infrastructure resilience](@/applications/defense-security/critical-infrastructure-resilience.md) | Infrastructure dependency analysis | Network resilience and cascading failure theory |
+| [Supply chain interdiction modeling](@/applications/defense-security/supply-chain-interdiction-modeling.md) | Supply chain vulnerability analysis | Graph-based supply chain disruption modeling |
+| [After-action review automation](@/applications/defense-security/after-action-review-automation.md) | Post-incident analysis methodology | Structured analytical review formalization |
 
 ### Domain 3: Adversarial Simulation and Red Teaming (5 frameworks)
 
@@ -128,13 +128,13 @@ Frameworks for studying offensive-defensive dynamics through adversarial simulat
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Red-team social engineering lab](/applications/defense-security/red-team-social-engineering-lab/) | Social engineering attack simulation | Social influence theory and persuasion modeling |
-| [Blue/Red adversarial ToM duel](/applications/defense-security/bluered-adversarial-tom-duel/) | Theory of Mind in adversarial contexts | Recursive belief modeling |
-| [Information operations simulator](/applications/defense-security/information-operations-simulator/) | Information warfare campaign modeling | IO doctrine formalization |
-| [Insider threat detection](/applications/defense-security/insider-threat-detection/) | Internal threat indicator analysis | Behavioral anomaly detection |
-| [Operational deception sandbox](/applications/defense-security/operational-deception-sandbox/) | Military deception planning and analysis | Denial and deception theory |
+| [Red-team social engineering lab](@/applications/defense-security/red-team-social-engineering-lab.md) | Social engineering attack simulation | Social influence theory and persuasion modeling |
+| [Blue/Red adversarial ToM duel](@/applications/defense-security/bluered-adversarial-tom-duel.md) | Theory of Mind in adversarial contexts | Recursive belief modeling |
+| [Information operations simulator](@/applications/defense-security/information-operations-simulator.md) | Information warfare campaign modeling | IO doctrine formalization |
+| [Insider threat detection](@/applications/defense-security/insider-threat-detection.md) | Internal threat indicator analysis | Behavioral anomaly detection |
+| [Operational deception sandbox](@/applications/defense-security/operational-deception-sandbox.md) | Military deception planning and analysis | Denial and deception theory |
 
-The Blue/Red adversarial ToM duel framework is particularly notable for modeling recursive Theory of Mind -- where the Blue team must reason about what the Red team believes the Blue team will do, and vice versa. This recursive reasoning structure maps naturally to the platform's [epistemic pipeline](/glossary/epistemic-pipeline/) architecture.
+The Blue/Red adversarial ToM duel framework is particularly notable for modeling recursive Theory of Mind -- where the Blue team must reason about what the Red team believes the Blue team will do, and vice versa. This recursive reasoning structure maps naturally to the platform's [epistemic pipeline](@/glossary/epistemic-pipeline.md) architecture.
 
 ### Domain 4: Strategic and Deterrence Modeling (5 frameworks)
 
@@ -142,11 +142,11 @@ Research into strategic stability, deterrence theory, and rules of engagement fo
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Deterrence stability modeling](/applications/defense-security/deterrence-stability-modeling/) | Strategic stability analysis | Game-theoretic deterrence models |
-| [Rules of engagement ethics](/applications/defense-security/rules-of-engagement-ethics/) | ROE ethical constraint formalization | Just war theory and proportionality |
-| [Drone swarm coordination ethics](/applications/defense-security/drone-swarm-coordination-ethics/) | Autonomous systems ethical constraints | Autonomous weapons ethics frameworks |
-| [Counter-radicalization narratives](/applications/defense-security/counter-radicalization-narratives/) | Counter-narrative effectiveness modeling | Narrative persuasion theory |
-| [Insurgency & COIN simulations](/applications/defense-security/insurgency-coin-simulations/) | Counterinsurgency dynamics modeling | Population-centric COIN theory |
+| [Deterrence stability modeling](@/applications/defense-security/deterrence-stability-modeling.md) | Strategic stability analysis | Game-theoretic deterrence models |
+| [Rules of engagement ethics](@/applications/defense-security/rules-of-engagement-ethics.md) | ROE ethical constraint formalization | Just war theory and proportionality |
+| [Drone swarm coordination ethics](@/applications/defense-security/drone-swarm-coordination-ethics.md) | Autonomous systems ethical constraints | Autonomous weapons ethics frameworks |
+| [Counter-radicalization narratives](@/applications/defense-security/counter-radicalization-narratives.md) | Counter-narrative effectiveness modeling | Narrative persuasion theory |
+| [Insurgency & COIN simulations](@/applications/defense-security/insurgency-coin-simulations.md) | Counterinsurgency dynamics modeling | Population-centric COIN theory |
 
 ### Domain 5: Civil-Military Coordination (5 frameworks)
 
@@ -154,11 +154,11 @@ Frameworks for studying civil-military interaction, cultural awareness, and peac
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Peacekeeping negotiation trainer](/applications/defense-security/peacekeeping-negotiation-trainer/) | Multi-party peace negotiation modeling | Multi-party negotiation theory |
-| [Border negotiation scenarios](/applications/defense-security/border-negotiation-scenarios/) | Territorial dispute modeling | International law and boundary theory |
-| [Human terrain cultural mapping](/applications/defense-security/human-terrain-cultural-mapping/) | Cultural terrain analysis modeling | Cross-cultural communication theory |
-| [Host-nation liaison training](/applications/defense-security/host-nation-liaison-training/) | Partner nation coordination modeling | Alliance management theory |
-| [Civil-military crisis mediation](/applications/defense-security/civil-military-crisis-mediation/) | Civil-military cooperation modeling | CIMIC doctrine formalization |
+| [Peacekeeping negotiation trainer](@/applications/defense-security/peacekeeping-negotiation-trainer.md) | Multi-party peace negotiation modeling | Multi-party negotiation theory |
+| [Border negotiation scenarios](@/applications/defense-security/border-negotiation-scenarios.md) | Territorial dispute modeling | International law and boundary theory |
+| [Human terrain cultural mapping](@/applications/defense-security/human-terrain-cultural-mapping.md) | Cultural terrain analysis modeling | Cross-cultural communication theory |
+| [Host-nation liaison training](@/applications/defense-security/host-nation-liaison-training.md) | Partner nation coordination modeling | Alliance management theory |
+| [Civil-military crisis mediation](@/applications/defense-security/civil-military-crisis-mediation.md) | Civil-military cooperation modeling | CIMIC doctrine formalization |
 
 ## Theoretical Foundations
 
@@ -166,55 +166,55 @@ Frameworks for studying civil-military interaction, cultural awareness, and peac
 
 | NABLA Axiom | Security Interpretation | Research Application |
 |-------------|--------------------------|---------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple independent indicators required before threat assessment | Models defense-in-depth intelligence requirements |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Contradictory threat indicators preserved as analytically significant | Prevents premature threat dismissal |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple independent indicators required before threat assessment | Models defense-in-depth intelligence requirements |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Contradictory threat indicators preserved as analytically significant | Prevents premature threat dismissal |
 | **Absence Informative** | Missing expected adversary activity carries analytical weight | Models adversary operational silence |
-| **[Time Decay](/glossary/time-decay/)** | Threat intelligence value decays as situations evolve | Models indicator freshness requirements |
+| **[Time Decay](@/glossary/time-decay.md)** | Threat intelligence value decays as situations evolve | Models indicator freshness requirements |
 | **Unknown Valid** | Acknowledging intelligence gaps as legitimate state | Prevents false security assessments |
 | **Source Independence** | Independent sensors weighted higher than correlated detections | Models sensor diversity requirements |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | All threat assessments traceable to source indicators | Supports forensic analysis and after-action review |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | All threat assessments traceable to source indicators | Supports forensic analysis and after-action review |
 
 ## Contents
 
 ### Cyber Defense and Threat Response
 
-- [Cyber defense kill-chain replay](/applications/defense-security/cyber-defense-kill-chain-replay/) -- Attack lifecycle reconstruction and analysis
-- [CTI misinformation triage](/applications/defense-security/cti-misinformation-triage/) -- Threat intelligence quality assessment
-- [Zero-trust policy rehearsal](/applications/defense-security/zero-trust-policy-rehearsal/) -- Zero-trust architecture validation
-- [Signal intelligence summarizer](/applications/defense-security/signal-intelligence-summarizer/) -- SIGINT processing and summarization
-- [Threat fusion center assistant](/applications/defense-security/threat-fusion-center-assistant/) -- Multi-source threat intelligence fusion
+- [Cyber defense kill-chain replay](@/applications/defense-security/cyber-defense-kill-chain-replay.md) -- Attack lifecycle reconstruction and analysis
+- [CTI misinformation triage](@/applications/defense-security/cti-misinformation-triage.md) -- Threat intelligence quality assessment
+- [Zero-trust policy rehearsal](@/applications/defense-security/zero-trust-policy-rehearsal.md) -- Zero-trust architecture validation
+- [Signal intelligence summarizer](@/applications/defense-security/signal-intelligence-summarizer.md) -- SIGINT processing and summarization
+- [Threat fusion center assistant](@/applications/defense-security/threat-fusion-center-assistant.md) -- Multi-source threat intelligence fusion
 
 ### Physical Security and Crisis Management
 
-- [Disaster response coordination](/applications/defense-security/disaster-response-coordination/) -- Multi-agency disaster response modeling
-- [Crowd security de-escalation](/applications/defense-security/crowd-security-de-escalation/) -- Crowd dynamics and de-escalation
-- [Critical infrastructure resilience](/applications/defense-security/critical-infrastructure-resilience/) -- Infrastructure dependency analysis
-- [Supply chain interdiction modeling](/applications/defense-security/supply-chain-interdiction-modeling/) -- Supply chain vulnerability analysis
-- [After-action review automation](/applications/defense-security/after-action-review-automation/) -- Post-incident analysis methodology
+- [Disaster response coordination](@/applications/defense-security/disaster-response-coordination.md) -- Multi-agency disaster response modeling
+- [Crowd security de-escalation](@/applications/defense-security/crowd-security-de-escalation.md) -- Crowd dynamics and de-escalation
+- [Critical infrastructure resilience](@/applications/defense-security/critical-infrastructure-resilience.md) -- Infrastructure dependency analysis
+- [Supply chain interdiction modeling](@/applications/defense-security/supply-chain-interdiction-modeling.md) -- Supply chain vulnerability analysis
+- [After-action review automation](@/applications/defense-security/after-action-review-automation.md) -- Post-incident analysis methodology
 
 ### Adversarial Simulation and Red Teaming
 
-- [Red-team social engineering lab](/applications/defense-security/red-team-social-engineering-lab/) -- Social engineering simulation
-- [Blue/Red adversarial ToM duel](/applications/defense-security/bluered-adversarial-tom-duel/) -- Theory of Mind adversarial modeling
-- [Information operations simulator](/applications/defense-security/information-operations-simulator/) -- Information warfare modeling
-- [Insider threat detection](/applications/defense-security/insider-threat-detection/) -- Internal threat indicator analysis
-- [Operational deception sandbox](/applications/defense-security/operational-deception-sandbox/) -- Military deception analysis
+- [Red-team social engineering lab](@/applications/defense-security/red-team-social-engineering-lab.md) -- Social engineering simulation
+- [Blue/Red adversarial ToM duel](@/applications/defense-security/bluered-adversarial-tom-duel.md) -- Theory of Mind adversarial modeling
+- [Information operations simulator](@/applications/defense-security/information-operations-simulator.md) -- Information warfare modeling
+- [Insider threat detection](@/applications/defense-security/insider-threat-detection.md) -- Internal threat indicator analysis
+- [Operational deception sandbox](@/applications/defense-security/operational-deception-sandbox.md) -- Military deception analysis
 
 ### Strategic and Deterrence Modeling
 
-- [Deterrence stability modeling](/applications/defense-security/deterrence-stability-modeling/) -- Strategic stability analysis
-- [Rules of engagement ethics](/applications/defense-security/rules-of-engagement-ethics/) -- ROE ethical constraint formalization
-- [Drone swarm coordination ethics](/applications/defense-security/drone-swarm-coordination-ethics/) -- Autonomous systems ethics
-- [Counter-radicalization narratives](/applications/defense-security/counter-radicalization-narratives/) -- Counter-narrative effectiveness
-- [Insurgency & COIN simulations](/applications/defense-security/insurgency-coin-simulations/) -- Counterinsurgency dynamics
+- [Deterrence stability modeling](@/applications/defense-security/deterrence-stability-modeling.md) -- Strategic stability analysis
+- [Rules of engagement ethics](@/applications/defense-security/rules-of-engagement-ethics.md) -- ROE ethical constraint formalization
+- [Drone swarm coordination ethics](@/applications/defense-security/drone-swarm-coordination-ethics.md) -- Autonomous systems ethics
+- [Counter-radicalization narratives](@/applications/defense-security/counter-radicalization-narratives.md) -- Counter-narrative effectiveness
+- [Insurgency & COIN simulations](@/applications/defense-security/insurgency-coin-simulations.md) -- Counterinsurgency dynamics
 
 ### Civil-Military Coordination
 
-- [Peacekeeping negotiation trainer](/applications/defense-security/peacekeeping-negotiation-trainer/) -- Multi-party peace negotiation
-- [Border negotiation scenarios](/applications/defense-security/border-negotiation-scenarios/) -- Territorial dispute modeling
-- [Human terrain cultural mapping](/applications/defense-security/human-terrain-cultural-mapping/) -- Cultural terrain analysis
-- [Host-nation liaison training](/applications/defense-security/host-nation-liaison-training/) -- Partner nation coordination
-- [Civil-military crisis mediation](/applications/defense-security/civil-military-crisis-mediation/) -- Civil-military cooperation
+- [Peacekeeping negotiation trainer](@/applications/defense-security/peacekeeping-negotiation-trainer.md) -- Multi-party peace negotiation
+- [Border negotiation scenarios](@/applications/defense-security/border-negotiation-scenarios.md) -- Territorial dispute modeling
+- [Human terrain cultural mapping](@/applications/defense-security/human-terrain-cultural-mapping.md) -- Cultural terrain analysis
+- [Host-nation liaison training](@/applications/defense-security/host-nation-liaison-training.md) -- Partner nation coordination
+- [Civil-military crisis mediation](@/applications/defense-security/civil-military-crisis-mediation.md) -- Civil-military cooperation
 
 ## Future Research Directions
 
@@ -228,13 +228,13 @@ Frameworks for studying civil-military interaction, cultural awareness, and peac
 
 ### Internal Documentation
 
-- [Platform Capabilities](/capabilities/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Zero Trust](/glossary/zero-trust/)
-- [Incident Response](/glossary/incident-response/)
-- [Threat Intelligence](/glossary/threat-intelligence/)
-- [Risk Assessment](/glossary/risk-assessment/)
+- [Platform Capabilities](@/capabilities/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Zero Trust](@/glossary/zero-trust.md)
+- [Incident Response](@/glossary/incident-response.md)
+- [Threat Intelligence](@/glossary/threat-intelligence.md)
+- [Risk Assessment](@/glossary/risk-assessment.md)
 
 ### External Standards and Literature
 
@@ -254,4 +254,4 @@ Frameworks for studying civil-military interaction, cultural awareness, and peac
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

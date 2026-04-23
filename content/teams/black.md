@@ -23,11 +23,11 @@ image_alt = "Black Team - Prismatic Platform"
 
 ## Overview
 
-The Black Team represents the most isolated and theoretically oriented component of the Prismatic Platform's six-team color-team security architecture. Operating under MAXIMUM isolation constraints, the Black Team conducts pure epistemic simulation of worst-case adversarial optimization scenarios, producing abstract threat models that inform defensive strategy across the entire platform. Unlike the [Red Team](/teams/red/), which executes controlled adversarial simulations, Black Team operates exclusively in the domain of theoretical analysis — modeling what a maximally capable adversary could achieve without ever producing actionable attack capabilities.
+The Black Team represents the most isolated and theoretically oriented component of the Prismatic Platform's six-team color-team security architecture. Operating under MAXIMUM isolation constraints, the Black Team conducts pure epistemic simulation of worst-case adversarial optimization scenarios, producing abstract threat models that inform defensive strategy across the entire platform. Unlike the [Red Team](@/teams/red.md), which executes controlled adversarial simulations, Black Team operates exclusively in the domain of theoretical analysis — modeling what a maximally capable adversary could achieve without ever producing actionable attack capabilities.
 
 The philosophical foundation of the Black Team draws from adversarial game theory, formal threat modeling methodologies (STRIDE, PASTA, Attack Trees), and epistemic risk assessment frameworks. By maintaining absolute separation between theoretical analysis and practical implementation, the Black Team provides the platform with a unique capability: understanding the theoretical upper bound of adversarial capability without introducing weaponization risk. Every output from the Black Team passes through a rigorous four-level abstraction filter operated by the Abstraction Enforcer agent, ensuring that no executable content, specific exploit details, or actionable attack instructions ever leave the Black Team boundary.
 
-Within the broader color-team architecture, Black Team occupies a singular position. It receives no direct input from external systems, maintains no persistent state, and communicates exclusively through filtered channels to [Purple Team](/teams/purple/) for synthesis. This design reflects a fundamental principle: the value of worst-case analysis depends on its theoretical purity, and any contamination with implementation details would compromise both its analytical value and the platform's security posture.
+Within the broader color-team architecture, Black Team occupies a singular position. It receives no direct input from external systems, maintains no persistent state, and communicates exclusively through filtered channels to [Purple Team](@/teams/purple.md) for synthesis. This design reflects a fundamental principle: the value of worst-case analysis depends on its theoretical purity, and any contamination with implementation details would compromise both its analytical value and the platform's security posture.
 
 ## Mission and Doctrine
 
@@ -39,11 +39,11 @@ The Black Team's mission is to model adversarial optimization at the theoretical
 |-----------|-------------|-------------|
 | **Theoretical Purity** | All analysis remains abstract — no implementation details | L4 Abstraction Filter |
 | **Maximum Isolation** | Zero network access, zero persistent state, zero external tools | Hardware-enforced sandbox |
-| **Epistemic Honesty** | Model actual worst-case scenarios, not comfortable approximations | [NABLA Axiom 5](/glossary/nabla-infinity/) (Unknown Valid) |
+| **Epistemic Honesty** | Model actual worst-case scenarios, not comfortable approximations | [NABLA Axiom 5](@/glossary/nabla-infinity.md) (Unknown Valid) |
 | **Defensive Intent** | All analysis serves defensive resource allocation | Purple Team review |
 | **Provenance Tracking** | Complete audit trail of all analytical steps | Immutable logging |
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine applies to Black Team operations with particular emphasis on the NO DOUBTS dimension: every threat model must be thoroughly investigated, every assumption documented, and every conclusion traceable to its analytical foundation. The NO MERCY dimension manifests in the uncompromising enforcement of isolation protocols — any deviation triggers immediate session termination.
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine applies to Black Team operations with particular emphasis on the NO DOUBTS dimension: every threat model must be thoroughly investigated, every assumption documented, and every conclusion traceable to its analytical foundation. The NO MERCY dimension manifests in the uncompromising enforcement of isolation protocols — any deviation triggers immediate session termination.
 
 ### Doctrinal Alignment with NABLA Infinity
 
@@ -115,7 +115,7 @@ Every analytical output passes through four progressive abstraction levels befor
 
 ## Technical Architecture
 
-The Black Team's technical architecture prioritizes isolation above all other concerns. The implementation uses [Elixir](/technologies/elixir/)/OTP sandbox patterns with hardware-enforced boundaries.
+The Black Team's technical architecture prioritizes isolation above all other concerns. The implementation uses [Elixir](@/technologies/elixir.md)/OTP sandbox patterns with hardware-enforced boundaries.
 
 ### Sandbox Implementation
 
@@ -274,7 +274,7 @@ Any attempt to bypass isolation triggers an immediate four-step escalation:
 
 ## NABLA Compliance
 
-Black Team operations demonstrate compliance with all seven [NABLA Infinity](/glossary/nabla-infinity/) axioms, with particular emphasis on the axioms most relevant to theoretical threat modeling.
+Black Team operations demonstrate compliance with all seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms, with particular emphasis on the axioms most relevant to theoretical threat modeling.
 
 | Axiom | Black Team Application | Compliance Level |
 |-------|----------------------|-----------------|
@@ -288,7 +288,7 @@ Black Team operations demonstrate compliance with all seven [NABLA Infinity](/gl
 
 ### Trinity Gate Passage
 
-All Black Team outputs must pass the [Trinity Gate](/glossary/trinity-gate/) before reaching Purple Team:
+All Black Team outputs must pass the [Trinity Gate](@/glossary/trinity-gate.md) before reaching Purple Team:
 
 1. **Structural Consistency** — Threat model DAG must be acyclic and well-formed
 2. **Logical Consistency** — No contradictory impact assessments within a single model
@@ -312,16 +312,16 @@ The Black Team's integration with the broader platform is intentionally minimal,
 
 | Component | Direction | Content | Channel |
 |-----------|-----------|---------|---------|
-| [Purple Team](/teams/purple/) | Black → Purple | Abstract threat models only | Filtered output channel |
+| [Purple Team](@/teams/purple.md) | Black → Purple | Abstract threat models only | Filtered output channel |
 | Architecture | Black → Arch | Strategic defense priorities | Via Purple synthesis |
 | Audit System | Black → Audit | Complete operation logging | Immutable log stream |
-| Session Manager | Bidirectional | Session lifecycle events | [Telemetry](/capabilities/telemetry-integration/) |
+| Session Manager | Bidirectional | Session lifecycle events | [Telemetry](@/capabilities/telemetry-integration.md) |
 
 ### What Black Team Does NOT Integrate With
 
 | System | Reason |
 |--------|--------|
-| [Red Team](/teams/red/) direct | Prevents theoretical-to-practical pipeline |
+| [Red Team](@/teams/red.md) direct | Prevents theoretical-to-practical pipeline |
 | Production systems | Maximum isolation requirement |
 | External APIs | Zero network access |
 | Persistent storage | Ephemeral state only |
@@ -341,13 +341,13 @@ The Black Team's integration with the broader platform is intentionally minimal,
 
 ## Related Resources
 
-- [Red Team](/teams/red/) — Adversarial simulation (practical counterpart to Black's theoretical analysis)
-- [Purple Team](/teams/purple/) — Synthesis hub that receives and integrates Black Team outputs
-- [Blue Team](/teams/blue/) — Defensive operations informed by Black Team threat models
-- [Gray Team](/teams/gray/) — Boundary exploration that may surface inputs for Black analysis
-- [White Team](/teams/white/) — Formal verification of defensive measures against Black models
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) — Platform healing informed by threat awareness
-- [Quality Gates](/capabilities/quality-gates/) — Quality enforcement aligned with security posture
+- [Red Team](@/teams/red.md) — Adversarial simulation (practical counterpart to Black's theoretical analysis)
+- [Purple Team](@/teams/purple.md) — Synthesis hub that receives and integrates Black Team outputs
+- [Blue Team](@/teams/blue.md) — Defensive operations informed by Black Team threat models
+- [Gray Team](@/teams/gray.md) — Boundary exploration that may surface inputs for Black analysis
+- [White Team](@/teams/white.md) — Formal verification of defensive measures against Black models
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) — Platform healing informed by threat awareness
+- [Quality Gates](@/capabilities/quality-gates.md) — Quality enforcement aligned with security posture
 
 ---
 
@@ -356,4 +356,4 @@ The Black Team's integration with the broader platform is intentionally minimal,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

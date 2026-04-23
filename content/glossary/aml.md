@@ -411,14 +411,14 @@ Politically Exposed Persons (PEP) identification combines structured data from p
 
 ## Related Concepts
 
-- [KYC](/glossary/kyc/) - Know Your Customer requirements forming the identity verification foundation of AML compliance
-- [Sanctions Screening](/glossary/sanctions-screening/) - Automated checking against designated person and entity lists as a core AML control
-- [Due Diligence](/glossary/due-diligence/) - Comprehensive investigation framework that operationalizes AML obligations for entity risk assessment
-- [Beneficial Ownership](/glossary/beneficial-ownership/) - Identification of ultimate beneficial owners to detect layered laundering structures
-- [Entity Resolution](/glossary/entity-resolution/) - Cross-source identity consolidation that enables comprehensive AML screening across jurisdictions
-- [Risk Score](/glossary/risk-score/) - Quantified risk assessment producing numeric scores that drive AML decision-making
-- [Compliance Framework](/glossary/compliance-framework/) - Regulatory structures (FATF, AMLD, ZKB) that define AML obligations
-- [PEP Screening](/glossary/pep-screening/) - Identification of politically exposed persons requiring enhanced due diligence under AML regulations
+- [KYC](@/glossary/kyc.md) - Know Your Customer requirements forming the identity verification foundation of AML compliance
+- [Sanctions Screening](@/glossary/sanctions-screening.md) - Automated checking against designated person and entity lists as a core AML control
+- [Due Diligence](@/glossary/due-diligence.md) - Comprehensive investigation framework that operationalizes AML obligations for entity risk assessment
+- [Beneficial Ownership](@/glossary/beneficial-ownership.md) - Identification of ultimate beneficial owners to detect layered laundering structures
+- [Entity Resolution](@/glossary/entity-resolution.md) - Cross-source identity consolidation that enables comprehensive AML screening across jurisdictions
+- [Risk Score](@/glossary/risk-score.md) - Quantified risk assessment producing numeric scores that drive AML decision-making
+- [Compliance Framework](@/glossary/compliance-framework.md) - Regulatory structures (FATF, AMLD, ZKB) that define AML obligations
+- [PEP Screening](@/glossary/pep-screening.md) - Identification of politically exposed persons requiring enhanced due diligence under AML regulations
 
 ## See Also
 
@@ -434,4 +434,4 @@ Politically Exposed Persons (PEP) identification combines structured data from p
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

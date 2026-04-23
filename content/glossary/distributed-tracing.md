@@ -37,9 +37,9 @@ image_alt = "Distributed Tracing - Prismatic Platform"
 
 ## Definition
 
-Distributed tracing is an [observability](/glossary/observability/) technique that tracks the flow of a single request as it traverses multiple services, processes, and components in a distributed system. Each discrete operation along the request path is recorded as a **span** -- a named, timed unit of work with metadata. Spans are linked by a shared **trace ID** and organized into parent-child relationships that form a complete request tree (or directed acyclic graph). This tree reveals the full anatomy of a request: which services were called, in what order, how long each operation took, where failures occurred, and how parallelism was exploited.
+Distributed tracing is an [observability](@/glossary/observability.md) technique that tracks the flow of a single request as it traverses multiple services, processes, and components in a distributed system. Each discrete operation along the request path is recorded as a **span** -- a named, timed unit of work with metadata. Spans are linked by a shared **trace ID** and organized into parent-child relationships that form a complete request tree (or directed acyclic graph). This tree reveals the full anatomy of a request: which services were called, in what order, how long each operation took, where failures occurred, and how parallelism was exploited.
 
-Without distributed tracing, debugging issues in systems with many concurrent processes is extremely difficult. A single user request to the Prismatic Platform might involve DNS resolution, asset discovery across multiple data sources, security rating calculation, compliance assessment, database persistence, and real-time dashboard updates -- all happening across different OTP processes and potentially different [cluster](/glossary/cluster/) nodes. Traditional logging captures events at individual points but cannot reconstruct the causal chain connecting them. Distributed tracing solves this by threading a trace context through the entire request lifecycle.
+Without distributed tracing, debugging issues in systems with many concurrent processes is extremely difficult. A single user request to the Prismatic Platform might involve DNS resolution, asset discovery across multiple data sources, security rating calculation, compliance assessment, database persistence, and real-time dashboard updates -- all happening across different OTP processes and potentially different [cluster](@/glossary/cluster.md) nodes. Traditional logging captures events at individual points but cannot reconstruct the causal chain connecting them. Distributed tracing solves this by threading a trace context through the entire request lifecycle.
 
 The dominant industry standard for distributed tracing is OpenTelemetry, which defines a vendor-neutral API for creating and propagating trace context. In the Elixir ecosystem, the `:telemetry` library provides the instrumentation foundation, with OpenTelemetry libraries building the full distributed tracing story on top of it. The combination of BEAM's lightweight process model and Telemetry's span API makes Elixir an exceptionally well-suited platform for fine-grained distributed tracing with minimal performance overhead.
 
@@ -218,7 +218,7 @@ Well-chosen span attributes transform traces from opaque timing records into ric
 
 ## Context Propagation
 
-Trace context must be propagated across process boundaries for end-to-end visibility. In BEAM systems, this means propagating through message passing, task spawning, and [GenServer](/glossary/genserver/) calls:
+Trace context must be propagated across process boundaries for end-to-end visibility. In BEAM systems, this means propagating through message passing, task spawning, and [GenServer](@/glossary/genserver.md) calls:
 
 ```elixir
 defmodule TracedTaskRunner do
@@ -284,7 +284,7 @@ Context propagation across process boundaries is the single most important imple
 
 ## Cross-Node Context Propagation
 
-In [clustered](/glossary/cluster/) BEAM deployments, trace context must propagate across network boundaries when processes on different nodes communicate:
+In [clustered](@/glossary/cluster.md) BEAM deployments, trace context must propagate across network boundaries when processes on different nodes communicate:
 
 ```elixir
 defmodule CrossNodeTracer do
@@ -321,20 +321,20 @@ end
 
 The Prismatic Platform implements distributed tracing through Elixir telemetry spans, providing end-to-end visibility across its 115 umbrella applications:
 
-- **Agent Execution Traces**: Each [agent](/glossary/agent/) execution emits telemetry spans under `[:prismatic_agents, :execute, ...]`. Spans include agent name, tier, task type, and duration, enabling per-agent performance analysis.
-- **Storage Adapter Traces**: Every storage operation ([Ecto](/glossary/ecto/), ETS, Meilisearch, KuzuDB) emits span events with query details and timing, revealing storage layer performance characteristics.
+- **Agent Execution Traces**: Each [agent](@/glossary/agent.md) execution emits telemetry spans under `[:prismatic_agents, :execute, ...]`. Spans include agent name, tier, task type, and duration, enabling per-agent performance analysis.
+- **Storage Adapter Traces**: Every storage operation ([Ecto](@/glossary/ecto.md), ETS, Meilisearch, KuzuDB) emits span events with query details and timing, revealing storage layer performance characteristics.
 - **Quality Gate Traces**: Quality checks emit spans for each domain check (Dialyzer, Credo, compilation, typespecs), enabling identification of slow quality gates.
-- **API Request Traces**: The [REST API](/glossary/rest-api/) dispatches requests through a traced pipeline: authentication, endpoint resolution, parameter validation, function dispatch, and response formatting each produce spans.
+- **API Request Traces**: The [REST API](@/glossary/rest-api.md) dispatches requests through a traced pipeline: authentication, endpoint resolution, parameter validation, function dispatch, and response formatting each produce spans.
 - **SessionLifecycle Hooks**: The SessionLifecycle GenServer propagates session context through hook chains, enabling end-to-end trace reconstruction from API request through agent execution to storage write.
-- **[Broadway](/glossary/broadway/) Pipeline Traces**: Data pipeline processing emits spans for each stage (producer, processor, batcher), revealing pipeline throughput and bottleneck locations.
-- **Cross-Node Traces**: In [clustered](/glossary/cluster/) deployments, trace context propagates through distributed Erlang messages, maintaining end-to-end visibility across nodes.
-- **[LiveView](/glossary/liveview/) Interaction Traces**: User interactions on LiveView dashboards emit spans for mount, handle_event, and handle_info callbacks, revealing UI responsiveness characteristics.
+- **[Broadway](@/glossary/broadway.md) Pipeline Traces**: Data pipeline processing emits spans for each stage (producer, processor, batcher), revealing pipeline throughput and bottleneck locations.
+- **Cross-Node Traces**: In [clustered](@/glossary/cluster.md) deployments, trace context propagates through distributed Erlang messages, maintaining end-to-end visibility across nodes.
+- **[LiveView](@/glossary/liveview.md) Interaction Traces**: User interactions on LiveView dashboards emit spans for mount, handle_event, and handle_info callbacks, revealing UI responsiveness characteristics.
 
 ## Tracing vs. Logging vs. Metrics
 
 The three pillars of observability serve complementary purposes:
 
-| Aspect | Distributed Tracing | [Structured Logging](/glossary/structured-logging/) | [Metrics](/glossary/metrics/) |
+| Aspect | Distributed Tracing | [Structured Logging](@/glossary/structured-logging.md) | [Metrics](@/glossary/metrics.md) |
 |--------|-------------------|-------------------|---------|
 | **Granularity** | Per-request path | Per-event | Aggregated over time |
 | **Cardinality** | High (unique trace per request) | High (event per occurrence) | Low (predefined metric names) |
@@ -431,23 +431,23 @@ This visualization immediately reveals sequential vs. parallel execution, critic
 
 ## Related Concepts
 
-- [Observability](/glossary/observability/) - Tracing is one of the three observability pillars
-- [Structured Logging](/glossary/structured-logging/) - Logs enriched with trace IDs for correlation
-- [Metrics](/glossary/metrics/) - Complementary numeric measurements for aggregate analysis
-- [Distributed System](/glossary/distributed-system/) - Systems where tracing provides cross-node visibility
-- [Cluster](/glossary/cluster/) - BEAM clusters where trace context propagates across nodes
-- [Broadway](/glossary/broadway/) - Data pipelines with per-stage span instrumentation
-- [Ecto](/glossary/ecto/) - Database queries with traced execution spans
-- [REST API](/glossary/rest-api/) - API layer where traces originate from incoming requests
-- [Process Isolation](/glossary/process-isolation/) - Process boundaries requiring explicit context propagation
-- [Telemetry](/glossary/telemetry/) - Event emission library underlying all Elixir tracing
-- [PubSub](/glossary/pubsub/) - Event distribution requiring trace context propagation
+- [Observability](@/glossary/observability.md) - Tracing is one of the three observability pillars
+- [Structured Logging](@/glossary/structured-logging.md) - Logs enriched with trace IDs for correlation
+- [Metrics](@/glossary/metrics.md) - Complementary numeric measurements for aggregate analysis
+- [Distributed System](@/glossary/distributed-system.md) - Systems where tracing provides cross-node visibility
+- [Cluster](@/glossary/cluster.md) - BEAM clusters where trace context propagates across nodes
+- [Broadway](@/glossary/broadway.md) - Data pipelines with per-stage span instrumentation
+- [Ecto](@/glossary/ecto.md) - Database queries with traced execution spans
+- [REST API](@/glossary/rest-api.md) - API layer where traces originate from incoming requests
+- [Process Isolation](@/glossary/process-isolation.md) - Process boundaries requiring explicit context propagation
+- [Telemetry](@/glossary/telemetry.md) - Event emission library underlying all Elixir tracing
+- [PubSub](@/glossary/pubsub.md) - Event distribution requiring trace context propagation
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform tracing and observability architecture
-- [Technologies](/technologies/) - Telemetry library and OpenTelemetry integration
-- [Capabilities](/capabilities/) - Diagnostic and debugging capabilities
+- [Architecture](@/architecture/_index.md) - Platform tracing and observability architecture
+- [Technologies](@/technologies/_index.md) - Telemetry library and OpenTelemetry integration
+- [Capabilities](@/capabilities/_index.md) - Diagnostic and debugging capabilities
 
 ---
 
@@ -456,4 +456,4 @@ This visualization immediately reveals sequential vs. parallel execution, critic
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

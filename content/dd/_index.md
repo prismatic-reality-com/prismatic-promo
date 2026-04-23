@@ -72,11 +72,11 @@ The platform integrates intelligence from global and Czech sources, applies trip
 
 ### Quick Navigation
 
-- **[OSINT Sources](/osint/)** - 122 intelligence sources powering DD investigations
-- **[Academy](/academy/)** - Learn DD investigation techniques step by step
-- **[Lab](/lab/)** - Experiment with OSINT pipelines and graph analysis
-- **[API Reference](/api/)** - Programmatic access to DD and OSINT endpoints
-- **[Agents](/agents/)** - 434 autonomous agents driving investigations
+- **[OSINT Sources](@/osint/_index.md)** - 122 intelligence sources powering DD investigations
+- **[Academy](@/academy/_index.md)** - Learn DD investigation techniques step by step
+- **[Lab](@/lab/_index.md)** - Experiment with OSINT pipelines and graph analysis
+- **[API Reference](@/api/_index.md)** - Programmatic access to DD and OSINT endpoints
+- **[Agents](@/agents/_index.md)** - 434 autonomous agents driving investigations
 
 ### Explore Platform
 
@@ -101,9 +101,9 @@ The platform integrates intelligence from global and Czech sources, applies trip
 
 ### Want to Know More?
 
-Dive deeper into the Prismatic Platform -- explore our [architecture](/architecture/), [agent ecosystem](/agents/), and [epistemic framework](/capabilities/) that powers intelligent due diligence at scale.
+Dive deeper into the Prismatic Platform -- explore our [architecture](@/architecture/_index.md), [agent ecosystem](@/agents/_index.md), and [epistemic framework](@/capabilities/_index.md) that powers intelligent due diligence at scale.
 
-**About Prismatic**: [Agent Ecosystem (434)](/agents/) • [Architecture Overview](/architecture/) • [Platform Capabilities](/capabilities/)
+**About Prismatic**: [Agent Ecosystem (434)](@/agents/_index.md) • [Architecture Overview](@/architecture/_index.md) • [Platform Capabilities](@/capabilities/_index.md)
 
 ---
 
@@ -283,17 +283,17 @@ The platform's compliance-aware design ensures that DD reports satisfy the requi
 
 ## Related Resources
 
-- [OSINT Intelligence Sources](/osint/) -- The 122 OSINT adapters powering DD collection
-- [Academy: DD Investigation Techniques](/academy/dd-investigation/) -- Structured learning path for DD platform mastery
-- [Glossary: Due Diligence](/glossary/due-diligence/) -- Formal definition and cross-references
-- [Glossary: Entity Resolution](/glossary/entity-resolution/) -- Record linkage methodology
-- [Glossary: KYC](/glossary/kyc/) -- Know Your Customer compliance
-- [Glossary: AML](/glossary/aml/) -- Anti-Money Laundering regulatory framework
-- [Glossary: Triple-Check](/glossary/triple-check/) -- Cross-validation methodology
-- [Glossary: Beneficial Ownership](/glossary/beneficial-ownership/) -- UBO identification
-- [Glossary: Sanctions Screening](/glossary/sanctions-screening/) -- Regulatory list checking
-- [Lab: OSINT Pipeline](/lab/osint-pipeline/) -- OSINT pipeline experimentation
-- [Building EASM Features](/academy/easm-development/) -- Related security assessment development
+- [OSINT Intelligence Sources](@/osint/_index.md) -- The 122 OSINT adapters powering DD collection
+- [Academy: DD Investigation Techniques](@/academy/dd-investigation.md) -- Structured learning path for DD platform mastery
+- [Glossary: Due Diligence](@/glossary/due-diligence.md) -- Formal definition and cross-references
+- [Glossary: Entity Resolution](@/glossary/entity-resolution.md) -- Record linkage methodology
+- [Glossary: KYC](@/glossary/kyc.md) -- Know Your Customer compliance
+- [Glossary: AML](@/glossary/aml.md) -- Anti-Money Laundering regulatory framework
+- [Glossary: Triple-Check](@/glossary/triple-check.md) -- Cross-validation methodology
+- [Glossary: Beneficial Ownership](@/glossary/beneficial-ownership.md) -- UBO identification
+- [Glossary: Sanctions Screening](@/glossary/sanctions-screening.md) -- Regulatory list checking
+- [Lab: OSINT Pipeline](@/lab/osint-pipeline.md) -- OSINT pipeline experimentation
+- [Building EASM Features](@/academy/easm-development.md) -- Related security assessment development
 
 ---
 
@@ -302,4 +302,4 @@ The platform's compliance-aware design ensures that DD reports satisfy the requi
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

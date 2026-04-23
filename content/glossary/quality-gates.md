@@ -347,15 +347,15 @@ mix quality.enforce_standard --fix --json
 
 ## Related Concepts
 
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous monitoring of gate results
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- First enforcement point invoking gates
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Compilation gate requiring zero warnings
-- [Regression Test](/glossary/regression-test/) -- Testing gate requiring bug fix coverage
-- [Quality Debt](/glossary/quality-debt/) -- Debt points detected and blocked by gates
-- [Quality DNA](/glossary/quality-dna/) -- Historical gate result tracking
-- [Credo](/glossary/credo/) -- Static analysis tool powering the Credo gate
-- [Dialyzer](/glossary/dialyzer/) -- Type checker powering the Dialyzer gate
-- [Session Discipline](/glossary/session-discipline/) -- Protocol mandating gate compliance
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous monitoring of gate results
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- First enforcement point invoking gates
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Compilation gate requiring zero warnings
+- [Regression Test](@/glossary/regression-test.md) -- Testing gate requiring bug fix coverage
+- [Quality Debt](@/glossary/quality-debt.md) -- Debt points detected and blocked by gates
+- [Quality DNA](@/glossary/quality-dna.md) -- Historical gate result tracking
+- [Credo](@/glossary/credo.md) -- Static analysis tool powering the Credo gate
+- [Dialyzer](@/glossary/dialyzer.md) -- Type checker powering the Dialyzer gate
+- [Session Discipline](@/glossary/session-discipline.md) -- Protocol mandating gate compliance
 
 ## See Also
 
@@ -364,8 +364,8 @@ mix quality.enforce_standard --fix --json
 - [prismatic_quality_intelligence](../../../apps/prismatic_quality_intelligence/README.md) -- Quality intelligence and trend analysis
 - [prismatic_tooling](../../../apps/prismatic_tooling/README.md) -- Developer tooling for quality automation
 - [prismatic](../../../apps/prismatic/README.md) -- Mix tasks: quality.gates, quality.enforce_standard
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Commands](/commands/) -- Quality-related command catalog
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Commands](@/commands/_index.md) -- Quality-related command catalog
 
 ---
 
@@ -374,4 +374,4 @@ mix quality.enforce_standard --fix --json
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

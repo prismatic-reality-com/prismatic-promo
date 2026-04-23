@@ -28,7 +28,7 @@ image_alt = "blue-drift-detector - Prismatic Platform"
 
 ## Overview
 
-The Blue Drift Detector is an L2 tactical operations agent within the Epistemic Defense domain of the Prismatic Platform. This agent continuously monitors system state across all 90 [umbrella application](/glossary/umbrella-application/)s for sub-threshold deviations that may indicate epistemic degradation, configuration tampering, or gradual quality erosion. As a core member of the [Blue Team](/glossary/blue-team/), it provides drift detection evidence that feeds into the team's unified defensive posture assessment.
+The Blue Drift Detector is an L2 tactical operations agent within the Epistemic Defense domain of the Prismatic Platform. This agent continuously monitors system state across all 90 [umbrella application](@/glossary/umbrella-application.md)s for sub-threshold deviations that may indicate epistemic degradation, configuration tampering, or gradual quality erosion. As a core member of the [Blue Team](@/glossary/blue-team.md), it provides drift detection evidence that feeds into the team's unified defensive posture assessment.
 
 Drift is the silent adversary of system integrity. Unlike acute failures that trigger immediate alerts, drift operates below detection thresholds -- small, incremental changes that individually seem benign but collectively degrade system behavior, security posture, or quality standards. The Blue Drift Detector is specifically designed to detect these sub-threshold changes by maintaining statistical models of expected system behavior and flagging deviations that exceed configurable sensitivity thresholds.
 
@@ -38,11 +38,11 @@ The agent addresses four distinct drift categories: behavioral drift (changes in
 
 The Blue Drift Detector's architecture separates signal collection, statistical analysis, and evidence production into distinct processing stages, enabling independent evolution and testing of each concern.
 
-**Signal Collection Layer.** The detector subscribes to [telemetry](/glossary/telemetry/) events across the platform using namespace patterns that capture behavioral metrics, configuration state, dependency status, and performance measurements. Signals are ingested into a time-series buffer backed by [ETS](/glossary/ets/) tables with configurable retention windows per signal type. The collection layer normalizes signal formats across different platform subsystems into a uniform internal representation.
+**Signal Collection Layer.** The detector subscribes to [telemetry](@/glossary/telemetry.md) events across the platform using namespace patterns that capture behavioral metrics, configuration state, dependency status, and performance measurements. Signals are ingested into a time-series buffer backed by [ETS](@/glossary/ets.md) tables with configurable retention windows per signal type. The collection layer normalizes signal formats across different platform subsystems into a uniform internal representation.
 
 **Statistical Analysis Layer.** The analysis layer applies statistical process control (SPC) methods to detect drift in collected signals. Two primary algorithms operate in parallel: CUSUM (Cumulative Sum) control charts for detecting sustained shifts in signal means, and EWMA (Exponentially Weighted Moving Average) for detecting both sudden and gradual changes with configurable sensitivity. Both algorithms maintain per-signal baseline models computed from historical data, with baselines updated periodically to accommodate legitimate system evolution.
 
-**Evidence Production Layer.** When the analysis layer detects drift exceeding configured thresholds, the evidence production layer generates structured evidence packages formatted for consumption by the [Blue Signal Aggregator](/agents/blue-signal-aggregator/) and [Blue Commander](/agents/blue-commander/). Each evidence package includes the drift signal, its statistical significance, temporal context, source provenance, and confidence score.
+**Evidence Production Layer.** When the analysis layer detects drift exceeding configured thresholds, the evidence production layer generates structured evidence packages formatted for consumption by the [Blue Signal Aggregator](@/agents/blue-signal-aggregator.md) and [Blue Commander](@/agents/blue-commander.md). Each evidence package includes the drift signal, its statistical significance, temporal context, source provenance, and confidence score.
 
 ```elixir
 defmodule PrismaticAgents.BlueDriftDetector do
@@ -105,7 +105,7 @@ Configuration changes that match approved change records are classified as legit
 
 Dependency drift analysis monitors the platform's dependency graph for version changes, deprecated package usage, security vulnerability introductions, and license compliance shifts. This extends to both direct dependencies (Hex packages, npm modules) and transitive dependency trees, providing early warning of supply chain risks.
 
-The detector correlates dependency changes with the [AIAD Agent Automated](/agents/aiad-agent-automated/) dependency scanner's vulnerability database, flagging dependency version changes that introduce known CVEs as high-severity drift events.
+The detector correlates dependency changes with the [AIAD Agent Automated](@/agents/aiad-agent-automated.md) dependency scanner's vulnerability database, flagging dependency version changes that introduce known CVEs as high-severity drift events.
 
 ### Performance Drift
 
@@ -115,7 +115,7 @@ Performance baselines incorporate temporal patterns: weekday versus weekend traf
 
 ## Detection Methodology
 
-The Blue Drift Detector employs a multi-layered detection methodology grounded in [NABLA Infinity](/glossary/nabla-infinity/) axioms.
+The Blue Drift Detector employs a multi-layered detection methodology grounded in [NABLA Infinity](@/glossary/nabla-infinity.md) axioms.
 
 | Method | Application | Sensitivity |
 |--------|-------------|-------------|
@@ -126,7 +126,7 @@ The Blue Drift Detector employs a multi-layered detection methodology grounded i
 | Time-Series Anomaly Detection | All categories | Adaptive baseline with temporal patterns |
 | Cross-Domain Signal Correlation | Multi-category drift events | NABLA plurality enforcement |
 
-All detected drift signals are tagged with timestamps (enforcing the [Time Decay](/glossary/time-decay/) axiom), source provenance (enforcing the [Provenance Mandatory](/glossary/provenance-mandatory/) axiom), and confidence levels (supporting the Unknown Valid axiom when detection certainty is below threshold).
+All detected drift signals are tagged with timestamps (enforcing the [Time Decay](@/glossary/time-decay.md) axiom), source provenance (enforcing the [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom), and confidence levels (supporting the Unknown Valid axiom when detection certainty is below threshold).
 
 ## Core Capabilities
 
@@ -138,7 +138,7 @@ All detected drift signals are tagged with timestamps (enforcing the [Time Decay
 
 - **Temporally-aware performance baseline management** maintaining performance baselines that account for daily, weekly, and seasonal traffic patterns, enabling accurate drift detection that distinguishes genuine regression from normal load variation
 
-- **Cross-category drift correlation** forwarding drift evidence to the [Blue Signal Aggregator](/agents/blue-signal-aggregator/) for cross-domain correlation, enabling detection of coordinated drift patterns that span multiple categories
+- **Cross-category drift correlation** forwarding drift evidence to the [Blue Signal Aggregator](@/agents/blue-signal-aggregator.md) for cross-domain correlation, enabling detection of coordinated drift patterns that span multiple categories
 
 - **Automated drift evidence packaging** producing structured evidence packages with statistical significance metrics, temporal context, and source provenance formatted for the Blue Team's evidence-based defensive assessment pipeline
 
@@ -148,17 +148,17 @@ The Blue Drift Detector participates in the Color Team signal flow architecture 
 
 1. **Detection**: Continuous monitoring produces raw drift signals across all four categories using parallel CUSUM and EWMA algorithms
 2. **Scoring**: Each signal is scored for confidence, severity, and cross-category correlation potential based on statistical significance and temporal context
-3. **Aggregation**: Scored signals are forwarded to the [Blue Signal Aggregator](/agents/blue-signal-aggregator/) for cross-domain correlation with signals from other Blue Team specialists
-4. **Synthesis**: Correlated drift evidence flows to [Purple Team](/agents/purple-coordinator/) for Red-Blue synthesis, enabling closure of the adversarial-defensive loop
+3. **Aggregation**: Scored signals are forwarded to the [Blue Signal Aggregator](@/agents/blue-signal-aggregator.md) for cross-domain correlation with signals from other Blue Team specialists
+4. **Synthesis**: Correlated drift evidence flows to [Purple Team](@/agents/purple-coordinator.md) for Red-Blue synthesis, enabling closure of the adversarial-defensive loop
 5. **Defense**: Validated drift findings inform the Blue Team defensive posture assessment and may trigger targeted defensive hardening
 
 ## Authority Level
 
-**L2** - Tactical Operations - Domain-specific tactical execution with cross-domain coordination capabilities. The Blue Drift Detector operates under the authority of the [Blue Commander](/agents/blue-commander/) (L3) and coordinates findings with the broader Blue Team defensive posture.
+**L2** - Tactical Operations - Domain-specific tactical execution with cross-domain coordination capabilities. The Blue Drift Detector operates under the authority of the [Blue Commander](@/agents/blue-commander.md) (L3) and coordinates findings with the broader Blue Team defensive posture.
 
 ## Red Team Adversarial Relationship
 
-The Blue Drift Detector specifically defends against [Red Drift Inducer](/agents/red-drift-inducer/) adversarial scenarios. The Red Team's drift induction simulations directly test the detector's sensitivity thresholds and response times, targeting each of the four drift categories with sub-threshold attack patterns designed to evade detection. This adversarial testing continuously calibrates the detector's sensitivity, ensuring robust drift detection under realistic attack conditions.
+The Blue Drift Detector specifically defends against [Red Drift Inducer](@/agents/red-drift-inducer.md) adversarial scenarios. The Red Team's drift induction simulations directly test the detector's sensitivity thresholds and response times, targeting each of the four drift categories with sub-threshold attack patterns designed to evade detection. This adversarial testing continuously calibrates the detector's sensitivity, ensuring robust drift detection under realistic attack conditions.
 
 Detection gaps identified during Red Team exercises are tracked as mandatory remediation items. Each gap triggers a review of the affected detection algorithm's threshold settings and potentially leads to algorithm refinement or additional detection methods.
 
@@ -166,21 +166,21 @@ Detection gaps identified during Red Team exercises are tracked as mandatory rem
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [blue-commander](/agents/blue-commander/) | Reporting Authority | Reports drift evidence for strategic defensive assessment |
-| [blue-signal-aggregator](/agents/blue-signal-aggregator/) | Signal Correlation | Feeds drift detection evidence into cross-domain signal aggregation |
-| [blue-auth-sentinel](/agents/blue-auth-sentinel/) | Complementary Detection | Shares authentication context that may explain behavioral drift patterns |
-| [red-drift-inducer](/agents/red-drift-inducer/) | Adversarial Testing | Detection capabilities tested by Red Team drift induction attacks |
-| [purple-coordinator](/agents/purple-coordinator/) | Synthesis Consumer | Drift evidence flows to Purple for Red-Blue loop synthesis |
+| [blue-commander](@/agents/blue-commander.md) | Reporting Authority | Reports drift evidence for strategic defensive assessment |
+| [blue-signal-aggregator](@/agents/blue-signal-aggregator.md) | Signal Correlation | Feeds drift detection evidence into cross-domain signal aggregation |
+| [blue-auth-sentinel](@/agents/blue-auth-sentinel.md) | Complementary Detection | Shares authentication context that may explain behavioral drift patterns |
+| [red-drift-inducer](@/agents/red-drift-inducer.md) | Adversarial Testing | Detection capabilities tested by Red Team drift induction attacks |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Synthesis Consumer | Drift evidence flows to Purple for Red-Blue loop synthesis |
 
 ## Integration Points
 
 | Component | Relationship | Data Flow |
 |-----------|-------------|-----------|
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic framework | Axiom enforcement on all drift conclusions |
-| [Trinity Gate](/glossary/trinity-gate/) | Formal verification | Three-layer validation of drift claims before distribution |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Quality monitoring | Quality metric drift feeds into quality enforcement |
-| [Lean4](/glossary/lean4/) | Formal methods | Drift invariant verification through formal theorem proving |
-| Platform [Telemetry](/glossary/telemetry/) | Primary data source | All four drift categories sourced from telemetry streams |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic framework | Axiom enforcement on all drift conclusions |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Formal verification | Three-layer validation of drift claims before distribution |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Quality monitoring | Quality metric drift feeds into quality enforcement |
+| [Lean4](@/glossary/lean4.md) | Formal methods | Drift invariant verification through formal theorem proving |
+| Platform [Telemetry](@/glossary/telemetry.md) | Primary data source | All four drift categories sourced from telemetry streams |
 
 ## Performance
 
@@ -195,16 +195,16 @@ Detection gaps identified during Red Team exercises are tracked as mandatory rem
 
 ## Enforcement
 
-The Blue Drift Detector operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with Color Team operational security protocols. All drift detections must be evidence-based with verifiable provenance. Single-signal drift conclusions are blocked under [NABLA Infinity](/glossary/nabla-infinity/) [Signal Plurality](/glossary/signal-plurality/) -- drift claims require corroboration from either multiple detection methods (CUSUM and EWMA agreement) or multiple observation windows before escalation. Drift detection reports undergo [Trinity Gate](/glossary/trinity-gate/) validation before distribution to ensure structural consistency (detection algorithm correctly applied), logical consistency (drift conclusion follows from statistical evidence), and formal correctness (statistical methods produce valid results). Contradictions between expected and observed drift patterns are preserved and escalated to Purple for synthesis, never suppressed.
+The Blue Drift Detector operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with Color Team operational security protocols. All drift detections must be evidence-based with verifiable provenance. Single-signal drift conclusions are blocked under [NABLA Infinity](@/glossary/nabla-infinity.md) [Signal Plurality](@/glossary/signal-plurality.md) -- drift claims require corroboration from either multiple detection methods (CUSUM and EWMA agreement) or multiple observation windows before escalation. Drift detection reports undergo [Trinity Gate](@/glossary/trinity-gate.md) validation before distribution to ensure structural consistency (detection algorithm correctly applied), logical consistency (drift conclusion follows from statistical evidence), and formal correctness (statistical methods produce valid results). Contradictions between expected and observed drift patterns are preserved and escalated to Purple for synthesis, never suppressed.
 
 ## Related Resources
 
-- [Blue Commander](/agents/blue-commander/) -- Strategic commander orchestrating Blue Team defensive posture
-- [Blue Auth Sentinel](/agents/blue-auth-sentinel/) -- Authentication boundary monitoring specialist
-- [Blue Signal Aggregator](/agents/blue-signal-aggregator/) -- Cross-domain signal correlation engine
-- [Red Drift Inducer](/agents/red-drift-inducer/) -- Adversarial drift simulation for detection testing
-- [Color Teams](/teams/) -- Security team framework including Blue Team operations
-- [Architecture Overview](/architecture/) -- Platform architecture including defensive monitoring
+- [Blue Commander](@/agents/blue-commander.md) -- Strategic commander orchestrating Blue Team defensive posture
+- [Blue Auth Sentinel](@/agents/blue-auth-sentinel.md) -- Authentication boundary monitoring specialist
+- [Blue Signal Aggregator](@/agents/blue-signal-aggregator.md) -- Cross-domain signal correlation engine
+- [Red Drift Inducer](@/agents/red-drift-inducer.md) -- Adversarial drift simulation for detection testing
+- [Color Teams](@/teams/_index.md) -- Security team framework including Blue Team operations
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including defensive monitoring
 
 ---
 
@@ -213,4 +213,4 @@ The Blue Drift Detector operates under the [NO MERCY, NO DOUBTS](/glossary/no-me
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

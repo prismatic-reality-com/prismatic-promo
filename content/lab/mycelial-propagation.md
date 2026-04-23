@@ -32,7 +32,7 @@ The Prismatic Platform's 90 umbrella applications share architectural patterns b
 
 The mycelial network concept draws inspiration from biological mycelium: underground fungal networks that connect trees in a forest, enabling nutrient transfer between organisms. In the Prismatic context, the mycelial network connects umbrella applications, enabling pattern transfer between codebases.
 
-The [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Development Framework) provides the evolution infrastructure. The [CASCADE](/glossary/cascade/) pattern system identifies transferable patterns. The [Quality DNA](/glossary/quality-dna/) system validates that propagated patterns maintain quality standards. Together, these subsystems form the propagation pipeline.
+The [SEADF](@/glossary/seadf.md) (Self-Evolving Autonomous Development Framework) provides the evolution infrastructure. The [CASCADE](@/glossary/cascade.md) pattern system identifies transferable patterns. The [Quality DNA](@/glossary/quality-dna.md) system validates that propagated patterns maintain quality standards. Together, these subsystems form the propagation pipeline.
 
 The key challenge is adaptation. A pattern that works in `prismatic_agents` (where GenServers manage agent state) may not directly apply to `prismatic_storage_ets` (where GenServers manage storage adapters). The mycelial network must understand the semantic context of the source pattern, identify structurally similar contexts in target applications, and adapt the pattern to fit the target context while preserving its behavioral intent.
 
@@ -40,15 +40,15 @@ The key challenge is adaptation. A pattern that works in `prismatic_agents` (whe
 
 The experiment ran for 45 days, tracking 120 pattern propagation attempts across the 90 umbrella applications.
 
-**Phase 1: Pattern Discovery (Ongoing)** -- The [CASCADE](/glossary/cascade/) pattern detectors continuously identify beneficial patterns. For this experiment, we focused on 5 pattern categories: Error Handling Improvement, Performance Optimization, Type Safety Enhancement, Concurrency Pattern, and Test Coverage Pattern.
+**Phase 1: Pattern Discovery (Ongoing)** -- The [CASCADE](@/glossary/cascade.md) pattern detectors continuously identify beneficial patterns. For this experiment, we focused on 5 pattern categories: Error Handling Improvement, Performance Optimization, Type Safety Enhancement, Concurrency Pattern, and Test Coverage Pattern.
 
 **Phase 2: Propagation Candidate Selection** -- For each discovered pattern, the mycelial network identifies target applications that contain structurally similar code that could benefit from the pattern. Selection uses AST similarity analysis with a minimum similarity threshold of 0.7.
 
 **Phase 3: Pattern Adaptation** -- The pattern is adapted to the target application's context. This involves renaming modules/functions, adjusting type signatures, and modifying behavioral details while preserving the pattern's core logic.
 
-**Phase 4: Validation** -- The adapted pattern is validated through compilation, test execution, [Credo](/technologies/credo/) analysis, and [Dialyzer](/technologies/dialyzer/) checking.
+**Phase 4: Validation** -- The adapted pattern is validated through compilation, test execution, [Credo](@/technologies/credo.md) analysis, and [Dialyzer](@/technologies/dialyzer.md) checking.
 
-**Phase 5: Quality Verification** -- The [Quality DNA](/glossary/quality-dna/) system verifies that the pattern does not reduce the target application's quality score.
+**Phase 5: Quality Verification** -- The [Quality DNA](@/glossary/quality-dna.md) system verifies that the pattern does not reduce the target application's quality score.
 
 ## Setup
 
@@ -247,16 +247,16 @@ The propagation network topology reveals that `prismatic_agents` is the most con
 
 - Develop context-aware concurrency pattern adaptation using supervision tree analysis
 - Implement pattern versioning to track evolved patterns across propagation generations
-- Build propagation network visualization using [KuzuDB](/technologies/kuzudb/) graph traversal
-- Extend to cross-repository propagation using the [GARDEN](/glossary/garden/) legacy codebases
+- Build propagation network visualization using [KuzuDB](@/technologies/kuzudb.md) graph traversal
+- Extend to cross-repository propagation using the [GARDEN](@/glossary/garden.md) legacy codebases
 - Implement rollback mechanisms for propagated patterns that cause downstream issues
 
 ## Related Experiments
 
-- [Quality Evolution](/lab/quality-evolution/) -- Quality metrics that validate propagated patterns
-- [Multi-Agent Coordination](/lab/multi-agent-coordination/) -- Agent coordination patterns as propagation targets
-- [Architecture Validation](/lab/architecture-validation/) -- Supervision patterns as a propagation category
-- [Drift Detection](/lab/drift-detection/) -- Detecting unintended drift from propagated patterns
+- [Quality Evolution](@/lab/quality-evolution.md) -- Quality metrics that validate propagated patterns
+- [Multi-Agent Coordination](@/lab/multi-agent-coordination.md) -- Agent coordination patterns as propagation targets
+- [Architecture Validation](@/lab/architecture-validation.md) -- Supervision patterns as a propagation category
+- [Drift Detection](@/lab/drift-detection.md) -- Detecting unintended drift from propagated patterns
 
 ---
 
@@ -265,4 +265,4 @@ The propagation network topology reveals that `prismatic_agents` is the most con
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

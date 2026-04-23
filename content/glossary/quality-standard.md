@@ -495,22 +495,22 @@ mix quality.enforce_standard --app prismatic_new_app
 
 ## Related Concepts
 
-- [Quality Monitoring](/glossary/quality-monitoring/) -- Continuous observation that verifies standard compliance
-- [Quality Gates](/glossary/quality-gates/) -- Pipeline checkpoints enforcing the standard
-- [Quality DNA](/glossary/quality-dna/) -- Persistent state tracking standard compliance history
-- [Quality Systems](/glossary/quality-systems/) -- The broader architecture containing standards
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous guardian enforcing floor compliance
-- [Credo](/glossary/credo/) -- Static analysis tool required by the standard
-- [Dialyzer](/glossary/dialyzer/) -- Type checking tool required by the standard
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- Philosophy underlying the standard
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Compilation policy enforced by the standard
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory compliance complementing technical standards
+- [Quality Monitoring](@/glossary/quality-monitoring.md) -- Continuous observation that verifies standard compliance
+- [Quality Gates](@/glossary/quality-gates.md) -- Pipeline checkpoints enforcing the standard
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistent state tracking standard compliance history
+- [Quality Systems](@/glossary/quality-systems.md) -- The broader architecture containing standards
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous guardian enforcing floor compliance
+- [Credo](@/glossary/credo.md) -- Static analysis tool required by the standard
+- [Dialyzer](@/glossary/dialyzer.md) -- Type checking tool required by the standard
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- Philosophy underlying the standard
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Compilation policy enforced by the standard
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory compliance complementing technical standards
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory with compliance scores
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory with compliance scores
 
 ---
 
@@ -519,4 +519,4 @@ mix quality.enforce_standard --app prismatic_new_app
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

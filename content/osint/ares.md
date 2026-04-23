@@ -29,7 +29,7 @@ ARES (Administrativni registr ekonomickych subjektu -- Administrative Register o
 
 The system was launched in 2004 and underwent a major modernization in 2022, transitioning from legacy XML-based SOAP services to a modern REST API with JSON responses. The new ARES API (ares.gov.cz/ekonomicke-subjekty-v-be/rest) provides structured access to company identification data, statutory bodies, registered addresses, business activities, and cross-references to source registries. This modernization significantly improved data quality, response times, and integration capabilities.
 
-For [OSINT](/glossary/osint/) analysts and compliance professionals, ARES is the essential starting point for any investigation involving Czech entities. It provides the canonical ICO (Identifikacni cislo osoby -- company identification number) and DIC (Danove identifikacni cislo -- tax identification number) that serve as primary keys across all Czech public registries. A single ARES query returns aggregated information from the Commercial Register (obchodni rejstrik), Trade Licensing Register (zivnostensky rejstrik), Statistical Register (RES), VAT payer registry (DPH), and other source systems, eliminating the need to query each registry independently for basic entity verification.
+For [OSINT](@/glossary/osint.md) analysts and compliance professionals, ARES is the essential starting point for any investigation involving Czech entities. It provides the canonical ICO (Identifikacni cislo osoby -- company identification number) and DIC (Danove identifikacni cislo -- tax identification number) that serve as primary keys across all Czech public registries. A single ARES query returns aggregated information from the Commercial Register (obchodni rejstrik), Trade Licensing Register (zivnostensky rejstrik), Statistical Register (RES), VAT payer registry (DPH), and other source systems, eliminating the need to query each registry independently for basic entity verification.
 
 ARES data is updated in near-real-time as source registries propagate changes, though synchronization delays of up to 24 hours can occur for certain data types. The system processes millions of queries daily from government agencies, financial institutions, legal firms, and compliance departments conducting KYC (Know Your Customer) and AML (Anti-Money Laundering) verification.
 
@@ -243,7 +243,7 @@ Researchers and market analysts use ARES's CZ-NACE classifications and size cate
 
 ARES data is public information under Czech law (Act No. 111/2009 Sb., on basic registers). All information available through ARES is considered public and its use does not require consent from data subjects. However, users should be aware of several legal considerations.
 
-The processing of personal data obtained from ARES (names, addresses of statutory representatives) must comply with [GDPR](/glossary/gdpr/) requirements. While the data is publicly available, its aggregation, profiling, or use for purposes incompatible with the original collection purpose may trigger GDPR obligations, including the requirement to establish a lawful basis for processing under Article 6.
+The processing of personal data obtained from ARES (names, addresses of statutory representatives) must comply with [GDPR](@/glossary/gdpr.md) requirements. While the data is publicly available, its aggregation, profiling, or use for purposes incompatible with the original collection purpose may trigger GDPR obligations, including the requirement to establish a lawful basis for processing under Article 6.
 
 Automated bulk collection from ARES should respect the recommended rate limits and terms of service. The Czech Ministry of Finance provides bulk data exports through the open data portal (data.gov.cz) for analytical use cases that would otherwise require excessive API queries.
 
@@ -304,14 +304,14 @@ The platform's compliance pipeline automatically queries ARES as part of multi-s
 
 ## Related Providers
 
-- [Justice.cz](/osint/justice-cz/) - Commercial Register with detailed filings and beneficial ownership
-- [RZP](/osint/rzp/) - Trade Licensing Register with activity details
-- [Insolvencni rejstrik](/osint/insolvencni-rejstrik/) - Czech insolvency proceedings
-- [VR.cz](/osint/vr-cz/) - Czech Business Registry with beneficial owners
-- [DPH](/osint/dph/) - VAT payer registry for tax compliance verification
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog with risk analytics
-- [CUZK](/osint/cuzk/) - Cadastral office for property ownership
-- [EU Sanctions](/osint/eu-sanctions/) - EU sanctions list for entity screening
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register with detailed filings and beneficial ownership
+- [RZP](@/osint/rzp.md) - Trade Licensing Register with activity details
+- [Insolvencni rejstrik](@/osint/insolvencni-rejstrik.md) - Czech insolvency proceedings
+- [VR.cz](@/osint/vr-cz.md) - Czech Business Registry with beneficial owners
+- [DPH](@/osint/dph.md) - VAT payer registry for tax compliance verification
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog with risk analytics
+- [CUZK](@/osint/cuzk.md) - Cadastral office for property ownership
+- [EU Sanctions](@/osint/eu-sanctions.md) - EU sanctions list for entity screening
 
 ---
 
@@ -320,4 +320,4 @@ The platform's compliance pipeline automatically queries ARES as part of multi-s
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

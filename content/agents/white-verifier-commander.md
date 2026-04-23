@@ -28,15 +28,15 @@ image_alt = "white-verifier-commander - Prismatic Platform"
 
 ## Overview
 
-The white-verifier-commander operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's [White Team](/glossary/white-team/) verification domain, serving as the commanding officer responsible for orchestrating verification campaigns, constructing composite proofs from specialist findings, and ensuring that all proof artifacts pass through [Trinity Gate](/glossary/trinity-gate/) validation before acceptance into the platform's verification corpus.
+The white-verifier-commander operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's [White Team](@/glossary/white-team.md) verification domain, serving as the commanding officer responsible for orchestrating verification campaigns, constructing composite proofs from specialist findings, and ensuring that all proof artifacts pass through [Trinity Gate](@/glossary/trinity-gate.md) validation before acceptance into the platform's verification corpus.
 
-As the strategic commander of the White Team -- the constructive verification team within the [color-team](/glossary/color-teams/) security architecture -- this agent coordinates the activities of two L4 specialists: the [white-contract-validator](/agents/white-contract-validator/) for interface contract verification and the [white-invariant-prover](/agents/white-invariant-prover/) for formal invariant proof construction. The commander synthesizes their individual verification results into composite proofs that demonstrate system-wide properties, composing contract compliance evidence with invariant proofs to establish comprehensive safety guarantees.
+As the strategic commander of the White Team -- the constructive verification team within the [color-team](@/glossary/color-teams.md) security architecture -- this agent coordinates the activities of two L4 specialists: the [white-contract-validator](@/agents/white-contract-validator.md) for interface contract verification and the [white-invariant-prover](@/agents/white-invariant-prover.md) for formal invariant proof construction. The commander synthesizes their individual verification results into composite proofs that demonstrate system-wide properties, composing contract compliance evidence with invariant proofs to establish comprehensive safety guarantees.
 
-Built on the [AIAD](/glossary/aiad/) standard, the white-verifier-commander produces completed proof artifacts -- structured evidence packages that have passed all three layers of Trinity Gate validation (structural consistency, logical consistency, and formal necessity). These artifacts serve as the authoritative verification record for the platform, consumed by the [purple-coordinator](/agents/purple-coordinator/) for Red-Blue closure assessment and by the [SEADF](/glossary/seadf/) evolution pipeline for safe evolution planning. All activities comply with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework and the [NO DOUBTS](/glossary/no-doubts/) doctrine's requirement for evidence-based decision making.
+Built on the [AIAD](@/glossary/aiad.md) standard, the white-verifier-commander produces completed proof artifacts -- structured evidence packages that have passed all three layers of Trinity Gate validation (structural consistency, logical consistency, and formal necessity). These artifacts serve as the authoritative verification record for the platform, consumed by the [purple-coordinator](@/agents/purple-coordinator.md) for Red-Blue closure assessment and by the [SEADF](@/glossary/seadf.md) evolution pipeline for safe evolution planning. All activities comply with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework and the [NO DOUBTS](@/glossary/no-doubts.md) doctrine's requirement for evidence-based decision making.
 
 ## Architecture
 
-The white-verifier-commander is built on a campaign-oriented architecture that separates verification planning, execution coordination, proof composition, and artifact management into distinct [OTP](/glossary/otp/) processes.
+The white-verifier-commander is built on a campaign-oriented architecture that separates verification planning, execution coordination, proof composition, and artifact management into distinct [OTP](@/glossary/otp.md) processes.
 
 ```
 WhiteVerifierCommander.Supervisor
@@ -48,9 +48,9 @@ WhiteVerifierCommander.Supervisor
 +-- CampaignReporter.Server        (verification status reporting)
 ```
 
-The CampaignPlanner determines which system components require verification, assigns priority based on change frequency and criticality, and generates verification task lists for the specialists. The ExecutionCoordinator distributes tasks to the [white-contract-validator](/agents/white-contract-validator/) and [white-invariant-prover](/agents/white-invariant-prover/), monitors their progress, and handles task failure with retry strategies. The ProofComposer takes individual verification results from both specialists and constructs composite proofs that demonstrate properties spanning multiple components -- for example, proving that a data flow from ingestion through processing to storage maintains consistency invariants at every interface boundary.
+The CampaignPlanner determines which system components require verification, assigns priority based on change frequency and criticality, and generates verification task lists for the specialists. The ExecutionCoordinator distributes tasks to the [white-contract-validator](@/agents/white-contract-validator.md) and [white-invariant-prover](@/agents/white-invariant-prover.md), monitors their progress, and handles task failure with retry strategies. The ProofComposer takes individual verification results from both specialists and constructs composite proofs that demonstrate properties spanning multiple components -- for example, proving that a data flow from ingestion through processing to storage maintains consistency invariants at every interface boundary.
 
-The TrinityGateValidator applies all three validation layers to every proof artifact before acceptance: structural consistency verifies that the proof's dependency graph forms a valid DAG, logical consistency verifies that proof steps follow from their premises, and formal necessity verifies that critical claims have machine-checked [Lean4](/glossary/lean4/) proofs. The ArtifactManager stores validated proof artifacts with immutable provenance chains.
+The TrinityGateValidator applies all three validation layers to every proof artifact before acceptance: structural consistency verifies that the proof's dependency graph forms a valid DAG, logical consistency verifies that proof steps follow from their premises, and formal necessity verifies that critical claims have machine-checked [Lean4](@/glossary/lean4.md) proofs. The ArtifactManager stores validated proof artifacts with immutable provenance chains.
 
 ## Core Capabilities
 
@@ -62,13 +62,13 @@ The white-verifier-commander provides five primary capabilities that together en
 
 **Composite Proof Construction** synthesizes individual verification results from both specialists into higher-order proofs that demonstrate system-wide properties. A composite proof might combine: (a) contract verification showing that module A's output matches module B's expected input format, (b) invariant proof showing that module A's output always satisfies certain bounds, and (c) contract verification showing that module B preserves those bounds through processing. The composed result proves end-to-end data integrity across the A-to-B pipeline.
 
-**Trinity Gate Management** serves as the final authority for [Trinity Gate](/glossary/trinity-gate/) validation of proof artifacts. The commander ensures that all three validation layers are applied to every artifact, manages the validation pipeline, and handles artifacts that fail one or more validation layers (routing them back to the appropriate specialist for correction).
+**Trinity Gate Management** serves as the final authority for [Trinity Gate](@/glossary/trinity-gate.md) validation of proof artifacts. The commander ensures that all three validation layers are applied to every artifact, manages the validation pipeline, and handles artifacts that fail one or more validation layers (routing them back to the appropriate specialist for correction).
 
-**Verification Posture Reporting** produces comprehensive verification status reports consumed by the [purple-coordinator](/agents/purple-coordinator/), the [SEADF](/glossary/seadf/) evolution pipeline, and platform monitoring dashboards. Reports include: verification coverage metrics, proof currency (how recently each component was verified), open verification gaps, and composite proof status.
+**Verification Posture Reporting** produces comprehensive verification status reports consumed by the [purple-coordinator](@/agents/purple-coordinator.md), the [SEADF](@/glossary/seadf.md) evolution pipeline, and platform monitoring dashboards. Reports include: verification coverage metrics, proof currency (how recently each component was verified), open verification gaps, and composite proof status.
 
 ## Implementation
 
-The core commander is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that manages campaign lifecycle, specialist coordination, and proof composition.
+The core commander is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that manages campaign lifecycle, specialist coordination, and proof composition.
 
 ```elixir
 defmodule Prismatic.Agents.WhiteVerifierCommander do
@@ -227,13 +227,13 @@ The `launch_campaign/0` function orchestrates the full verification campaign lif
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [white-contract-validator](/agents/white-contract-validator/) | Outbound | Distributes contract verification tasks; receives verification results |
-| [white-invariant-prover](/agents/white-invariant-prover/) | Outbound | Distributes invariant proof tasks; receives proof results |
-| [verification-integrity-commander](/agents/verification-integrity-commander/) | Bidirectional | Coordinates on core theorem maintenance; shares proof artifacts |
-| [purple-coordinator](/agents/purple-coordinator/) | Outbound | Delivers verification posture data for Red-Blue closure assessment |
-| [Trinity Gate](/glossary/trinity-gate/) | Enforcement | All proof artifacts pass three-layer validation before acceptance |
-| [SEADF](/glossary/seadf/) Evolution Pipeline | Outbound | Verification posture informs evolution safety decisions |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Outbound | Reports verification coverage metrics for platform quality scoring |
+| [white-contract-validator](@/agents/white-contract-validator.md) | Outbound | Distributes contract verification tasks; receives verification results |
+| [white-invariant-prover](@/agents/white-invariant-prover.md) | Outbound | Distributes invariant proof tasks; receives proof results |
+| [verification-integrity-commander](@/agents/verification-integrity-commander.md) | Bidirectional | Coordinates on core theorem maintenance; shares proof artifacts |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Outbound | Delivers verification posture data for Red-Blue closure assessment |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Enforcement | All proof artifacts pass three-layer validation before acceptance |
+| [SEADF](@/glossary/seadf.md) Evolution Pipeline | Outbound | Verification posture informs evolution safety decisions |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Outbound | Reports verification coverage metrics for platform quality scoring |
 
 ## Operational Workflow
 
@@ -249,7 +249,7 @@ The full campaign workflow proceeds through six phases: (1) campaign planning an
 
 ## NABLA Compliance
 
-The white-verifier-commander operates under strict [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance.
+The white-verifier-commander operates under strict [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance.
 
 **Signal Plurality**: Composite proofs require evidence from both specialists (contract validation and invariant proof). A system-wide property claim must be supported by both interface contract compliance and invariant preservation -- two independent verification methodologies providing converging evidence.
 
@@ -259,7 +259,7 @@ The white-verifier-commander operates under strict [NABLA Infinity](/glossary/na
 
 **Time Decay**: Campaign results include completion timestamps and verification currency tracking. The CampaignPlanner prioritizes re-verification of components whose proofs are oldest, ensuring that the verification corpus remains current with platform evolution.
 
-All proof artifacts pass through [Trinity Gate](/glossary/trinity-gate/): structural consistency (composite proof dependencies form valid DAGs), logical consistency (composition steps follow from constituent proofs), and formal necessity (critical composite claims have Lean4 formalization).
+All proof artifacts pass through [Trinity Gate](@/glossary/trinity-gate.md): structural consistency (composite proof dependencies form valid DAGs), logical consistency (composition steps follow from constituent proofs), and formal necessity (critical composite claims have Lean4 formalization).
 
 ## Configuration
 
@@ -298,14 +298,14 @@ Campaign performance is optimized through prioritized task ordering (high-impact
 
 ## Related Resources
 
-- [White Team](/glossary/white-team/) -- Constructive verification team overview
-- [white-contract-validator](/agents/white-contract-validator/) -- L4 contract verification specialist
-- [white-invariant-prover](/agents/white-invariant-prover/) -- L4 formal invariant proof specialist
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation for proof artifacts
-- [Purple Team](/glossary/purple-team/) -- Synthesis team consuming verification posture data
-- [SEADF Framework](/glossary/seadf/) -- Autonomous evolution framework using verification status
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing verification claims
-- [Color Teams](/glossary/color-teams/) -- Security operations team architecture
+- [White Team](@/glossary/white-team.md) -- Constructive verification team overview
+- [white-contract-validator](@/agents/white-contract-validator.md) -- L4 contract verification specialist
+- [white-invariant-prover](@/agents/white-invariant-prover.md) -- L4 formal invariant proof specialist
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation for proof artifacts
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis team consuming verification posture data
+- [SEADF Framework](@/glossary/seadf.md) -- Autonomous evolution framework using verification status
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing verification claims
+- [Color Teams](@/glossary/color-teams.md) -- Security operations team architecture
 
 ---
 
@@ -314,4 +314,4 @@ Campaign performance is optimized through prioritized task ordering (high-impact
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -504,24 +504,24 @@ Content agents analyze documentation quality, identify gaps, generate enhancemen
 
 ## Related Concepts
 
-- [Agent](/glossary/agent/) - The general software agent concept that AI agents extend with artificial intelligence capabilities
-- [AIAD](/glossary/aiad/) - The AI Agent Definition standard governing all agent specifications in the platform
-- [Autonomous Agent](/glossary/autonomous-agent/) - Agents with maximum independence in decision-making and action
-- [LLM](/glossary/llm/) - Large language models that power modern AI agent reasoning capabilities
-- [Agent Tier](/glossary/agent-tier/) - The five-level authority hierarchy organizing agent permissions and autonomy
-- [Agent Orchestration](/glossary/agent-orchestration/) - Coordination of multiple AI agents for complex collaborative tasks
-- [Multi-Agent System](/glossary/multi-agent-system/) - Theoretical framework for systems of interacting autonomous agents
-- [GenServer](/glossary/genserver/) - The OTP behaviour that implements agent processes in Elixir
-- [Agent Registry](/glossary/agent-registry/) - Discovery and lookup service for finding available agents
-- [Agent Pool](/glossary/agent-pool/) - Dynamic pool of agent processes for load-balanced task execution
+- [Agent](@/glossary/agent.md) - The general software agent concept that AI agents extend with artificial intelligence capabilities
+- [AIAD](@/glossary/aiad.md) - The AI Agent Definition standard governing all agent specifications in the platform
+- [Autonomous Agent](@/glossary/autonomous-agent.md) - Agents with maximum independence in decision-making and action
+- [LLM](@/glossary/llm.md) - Large language models that power modern AI agent reasoning capabilities
+- [Agent Tier](@/glossary/agent-tier.md) - The five-level authority hierarchy organizing agent permissions and autonomy
+- [Agent Orchestration](@/glossary/agent-orchestration.md) - Coordination of multiple AI agents for complex collaborative tasks
+- [Multi-Agent System](@/glossary/multi-agent-system.md) - Theoretical framework for systems of interacting autonomous agents
+- [GenServer](@/glossary/genserver.md) - The OTP behaviour that implements agent processes in Elixir
+- [Agent Registry](@/glossary/agent-registry.md) - Discovery and lookup service for finding available agents
+- [Agent Pool](@/glossary/agent-pool.md) - Dynamic pool of agent processes for load-balanced task execution
 
 ## See Also
 
-- [Archer Supreme](/glossary/archer-supreme/) - The platform's L1 strategic meta-orchestrator agent
-- [Red Team](/glossary/red-team/) - Adversarial AI agents simulating security attacks
-- [Blue Team](/glossary/blue-team/) - Defensive AI agents maintaining security posture
-- [Ollama](/glossary/ollama/) - Local AI model serving for agent inference
-- [AI Inference](/glossary/ai-inference/) - The process by which AI agents generate outputs from model predictions
+- [Archer Supreme](@/glossary/archer-supreme.md) - The platform's L1 strategic meta-orchestrator agent
+- [Red Team](@/glossary/red-team.md) - Adversarial AI agents simulating security attacks
+- [Blue Team](@/glossary/blue-team.md) - Defensive AI agents maintaining security posture
+- [Ollama](@/glossary/ollama.md) - Local AI model serving for agent inference
+- [AI Inference](@/glossary/ai-inference.md) - The process by which AI agents generate outputs from model predictions
 
 ---
 
@@ -530,4 +530,4 @@ Content agents analyze documentation quality, identify gaps, generate enhancemen
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

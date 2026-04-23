@@ -42,17 +42,17 @@ In software systems, workflows formalize business processes, data processing pip
 
 ## Overview
 
-The concept of workflow automation has evolved significantly from its origins in business process management (BPM) systems of the 1990s. Modern workflow engines operate at multiple levels of abstraction: infrastructure workflows (CI/CD pipelines, deployment automation), data workflows (ETL/ELT pipelines, stream processing), business workflows (approval chains, order fulfillment), and AI/ML workflows (training pipelines, inference chains, [agent orchestration](/glossary/agent-orchestration/)).
+The concept of workflow automation has evolved significantly from its origins in business process management (BPM) systems of the 1990s. Modern workflow engines operate at multiple levels of abstraction: infrastructure workflows (CI/CD pipelines, deployment automation), data workflows (ETL/ELT pipelines, stream processing), business workflows (approval chains, order fulfillment), and AI/ML workflows (training pipelines, inference chains, [agent orchestration](@/glossary/agent-orchestration.md)).
 
 In the Prismatic Platform, workflows are a first-class architectural concept implemented through several interconnected systems:
 
-- **[AIAD](/glossary/aiad/) Pipelines**: Multi-step agent workflows that compose commands and actions into complex operations
+- **[AIAD](@/glossary/aiad.md) Pipelines**: Multi-step agent workflows that compose commands and actions into complex operations
 - **Quality Gate Workflows**: Automated quality assurance chains that validate code changes before merge
-- **[Autoevolve](/glossary/autoevolve/) Cycles**: Self-improvement workflows that scan, analyze, and apply platform enhancements
-- **[Autoheal](/glossary/autoheal/) Workflows**: Automated remediation workflows that detect and fix quality regressions
+- **[Autoevolve](@/glossary/autoevolve.md) Cycles**: Self-improvement workflows that scan, analyze, and apply platform enhancements
+- **[Autoheal](@/glossary/autoheal.md) Workflows**: Automated remediation workflows that detect and fix quality regressions
 - **Session Lifecycle Workflows**: Structured start/execute/end flows for Claude sessions
 - **CI/CD Pipelines**: GitLab CI workflows for building, testing, and deploying the platform
-- **[Data Pipelines](/glossary/data-pipeline/)**: Processing workflows for OSINT data, compliance assessment, and security scanning
+- **[Data Pipelines](@/glossary/data-pipeline.md)**: Processing workflows for OSINT data, compliance assessment, and security scanning
 
 ### Workflow Characteristics
 
@@ -63,7 +63,7 @@ In the Prismatic Platform, workflows are a first-class architectural concept imp
 | **Recoverable** | Failures can be retried or rolled back | Retry policies, compensation steps |
 | **Composable** | Workflows can include sub-workflows | Nested pipeline execution |
 | **Measurable** | Duration and outcomes are tracked | Telemetry metrics, performance monitoring |
-| **Auditable** | Every step is logged | Immutable [audit trail](/glossary/audit-trail/) |
+| **Auditable** | Every step is logged | Immutable [audit trail](@/glossary/audit-trail.md) |
 
 ## Technical Details
 
@@ -525,13 +525,13 @@ end
 | Workflow | Trigger | Steps | Frequency |
 |----------|---------|-------|-----------|
 | **Quality Gates** | Pre-commit hook | Compile, Credo, Dialyzer, Tests, Forbidden Patterns | Every commit |
-| **[Autoevolve](/glossary/autoevolve/)** | Session end, manual | Scan, Analyze, Generate, Apply, Verify | Every session |
-| **[Autoheal](/glossary/autoheal/)** | Quality regression | Detect, Diagnose, Fix, Verify, Report | On quality drop |
+| **[Autoevolve](@/glossary/autoevolve.md)** | Session end, manual | Scan, Analyze, Generate, Apply, Verify | Every session |
+| **[Autoheal](@/glossary/autoheal.md)** | Quality regression | Detect, Diagnose, Fix, Verify, Report | On quality drop |
 | **CI/CD Pipeline** | Git push | Build, Test, Analyze, Deploy | Every push |
 | **EASM Scan** | Scheduled, on-demand | Discover, Scan, Assess, Rate, Report | Daily/weekly |
-| **Compliance Assessment** | On-demand | Collect, Assess NIS2, Assess [ZKB](/glossary/zkb/), Compare, Report | On request |
+| **Compliance Assessment** | On-demand | Collect, Assess NIS2, Assess [ZKB](@/glossary/zkb.md), Compare, Report | On request |
 | **Session Lifecycle** | Session start/end | Load context, Execute hooks, Save context | Every session |
-| **Agent [Orchestration](/glossary/orchestration/)** | [Command](/glossary/command/) invocation | Parse, Route, Execute, Aggregate, Report | Per command |
+| **Agent [Orchestration](@/glossary/orchestration.md)** | [Command](@/glossary/command.md) invocation | Parse, Route, Execute, Aggregate, Report | Per command |
 
 ### Workflow Observability
 
@@ -589,7 +589,7 @@ end
 | Approach | Complexity | Recoverability | Observability | Prismatic Usage |
 |----------|-----------|---------------|---------------|-----------------|
 | **GenServer Workflow** | Medium | Manual retry/compensate | Telemetry events | Quality gates, session lifecycle |
-| **Broadway/GenStage** | High | Built-in [backpressure](/glossary/backpressure/) | Metrics + dashboard | Data processing pipelines |
+| **Broadway/GenStage** | High | Built-in [backpressure](@/glossary/backpressure.md) | Metrics + dashboard | Data processing pipelines |
 | **Oban** | Medium | Built-in retry, scheduling | Web UI, telemetry | Background job workflows |
 | **Task.async_stream** | Low | Basic timeout | Manual instrumentation | Parallel scan steps |
 | **Shell Scripts** | Low | Exit codes only | stdout/stderr | CI/CD helper scripts |
@@ -636,7 +636,7 @@ The Prismatic Platform uses its own lightweight workflow engine rather than an e
 
 - **Ignoring partial completion**: When a multi-step workflow fails midway, ignoring the completed steps can lead to inconsistent state. Implement either compensation (undo completed steps) or checkpoint-resume (restart from failure point).
 
-- **Synchronous bottlenecks**: Running all steps sequentially when some are independent wastes time. Identify independent steps and execute them in parallel using `Task.async_stream` with [backpressure](/glossary/backpressure/) control.
+- **Synchronous bottlenecks**: Running all steps sequentially when some are independent wastes time. Identify independent steps and execute them in parallel using `Task.async_stream` with [backpressure](@/glossary/backpressure.md) control.
 
 - **Hard-coded configuration**: Embedding timeouts, retry counts, and concurrency limits in step definitions reduces flexibility. Use configuration that can be tuned per environment (development, staging, production).
 
@@ -644,36 +644,36 @@ The Prismatic Platform uses its own lightweight workflow engine rather than an e
 
 **Quality Assurance Pipeline**: The pre-commit quality workflow executes six sequential validation steps (compilation, Credo, Dialyzer, tests, forbidden patterns, coverage) on every commit. Any failure blocks the commit, enforcing the platform's zero-defect quality standard.
 
-**EASM Scanning Workflow**: The [EASM](/glossary/easm/) scanning workflow discovers external assets, performs [vulnerability](/glossary/vulnerability/) scanning, assesses compliance against [NIS2](/glossary/nis2/)/[ZKB](/glossary/zkb/) frameworks, calculates [security ratings](/glossary/security-rating/), and generates reports. Steps execute in a defined sequence with parallel sub-steps for scanning multiple assets simultaneously.
+**EASM Scanning Workflow**: The [EASM](@/glossary/easm.md) scanning workflow discovers external assets, performs [vulnerability](@/glossary/vulnerability.md) scanning, assesses compliance against [NIS2](@/glossary/nis2.md)/[ZKB](@/glossary/zkb.md) frameworks, calculates [security ratings](@/glossary/security-rating.md), and generates reports. Steps execute in a defined sequence with parallel sub-steps for scanning multiple assets simultaneously.
 
 **Platform Evolution Cycle**: The autoevolve workflow scans the codebase for improvement opportunities, analyzes findings against platform quality standards, generates code changes, applies them, verifies through quality gates, and reports results. This workflow runs at every session end as part of the Universal Autonomous Evolution Protocol.
 
 **CI/CD Deployment Pipeline**: The GitLab CI pipeline workflow builds the application, runs the full test suite, performs static analysis, checks for security vulnerabilities in dependencies, and deploys to staging/production. Each stage depends on the successful completion of previous stages.
 
-**Agent [Orchestration](/glossary/orchestration/)**: When a user invokes a complex [AIAD](/glossary/aiad/) [command](/glossary/command/) like `/orchestrate`, the orchestrator workflow decomposes the request into sub-tasks, routes them to specialist agents, collects results, aggregates findings, and presents a unified response.
+**Agent [Orchestration](@/glossary/orchestration.md)**: When a user invokes a complex [AIAD](@/glossary/aiad.md) [command](@/glossary/command.md) like `/orchestrate`, the orchestrator workflow decomposes the request into sub-tasks, routes them to specialist agents, collects results, aggregates findings, and presents a unified response.
 
 ## Related Concepts
 
-- [Orchestration](/glossary/orchestration/) -- Coordination of multiple workflows and services
-- [Data Pipeline](/glossary/data-pipeline/) -- Specialized workflow for data processing
-- [Continuous Integration](/glossary/continuous-integration/) -- CI/CD workflow automation
-- [AIAD](/glossary/aiad/) -- Agent framework defining workflow pipelines
-- [Command](/glossary/command/) -- Single executable unit within a workflow
-- [Quality Gate](/glossary/quality-gate/) -- Validation checkpoints in quality workflows
-- [Autoevolve](/glossary/autoevolve/) -- Self-improvement workflow system
-- [Autoheal](/glossary/autoheal/) -- Automated remediation workflow
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Multi-agent workflow coordination
-- [Backpressure](/glossary/backpressure/) -- Flow control in workflow pipelines
-- [Actor Model](/glossary/actor-model/) -- Concurrency foundation for workflow execution
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of workflow execution
+- [Orchestration](@/glossary/orchestration.md) -- Coordination of multiple workflows and services
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Specialized workflow for data processing
+- [Continuous Integration](@/glossary/continuous-integration.md) -- CI/CD workflow automation
+- [AIAD](@/glossary/aiad.md) -- Agent framework defining workflow pipelines
+- [Command](@/glossary/command.md) -- Single executable unit within a workflow
+- [Quality Gate](@/glossary/quality-gate.md) -- Validation checkpoints in quality workflows
+- [Autoevolve](@/glossary/autoevolve.md) -- Self-improvement workflow system
+- [Autoheal](@/glossary/autoheal.md) -- Automated remediation workflow
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Multi-agent workflow coordination
+- [Backpressure](@/glossary/backpressure.md) -- Flow control in workflow pipelines
+- [Actor Model](@/glossary/actor-model.md) -- Concurrency foundation for workflow execution
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of workflow execution
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application ecosystem
-- [Agents](/agents/) -- Agent directory executing workflows
-- [Commands](/commands/) -- Command catalog composing workflows
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application ecosystem
+- [Agents](@/agents/_index.md) -- Agent directory executing workflows
+- [Commands](@/commands/_index.md) -- Command catalog composing workflows
 
 ---
 
@@ -682,4 +682,4 @@ The Prismatic Platform uses its own lightweight workflow engine rather than an e
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

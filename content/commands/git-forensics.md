@@ -26,7 +26,7 @@ image_alt = "/git-forensics - Prismatic Platform"
 
 **/git-forensics** is a production command in the **Intelligence** category of the Prismatic Platform that performs cynical, evidence-based analysis of git repository histories to distinguish genuine progress from mere activity, substantive changes from cosmetic churn, and real collaboration from performative workflow compliance. Where standard git analytics tools produce flattering dashboards of commit counts and contribution graphs, git forensics applies skeptical analysis to reveal what actually happened in a codebase's history.
 
-This command operates under the **L2+** authority level and is executed by the `git-forensics-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The forensics approach treats git history as an evidence corpus subject to the same rigorous analysis standards that the [NABLA](/glossary/nabla-infinity/) framework applies to all epistemic claims.
+This command operates under the **L2+** authority level and is executed by the `git-forensics-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The forensics approach treats git history as an evidence corpus subject to the same rigorous analysis standards that the [NABLA](@/glossary/nabla-infinity.md) framework applies to all epistemic claims.
 
 Git forensics serves multiple purposes within the Prismatic ecosystem. During M&A due diligence, it assesses the true health and development velocity of target codebases. During security investigations, it detects suspicious patterns such as credential commits, unauthorized changes, or systematic backdoor insertion. During development process improvement, it identifies workflow friction, knowledge silos, and quality regression patterns.
 
@@ -62,7 +62,7 @@ Git Repository -> History Extraction -> Statistical Analysis -> Pattern Detectio
 
 ### Forensic Evidence Model
 
-Every forensic finding is structured as an evidence-backed claim with provenance, following the platform's [NABLA](/glossary/nabla-infinity/) epistemic framework.
+Every forensic finding is structured as an evidence-backed claim with provenance, following the platform's [NABLA](@/glossary/nabla-infinity.md) epistemic framework.
 
 ```elixir
 %ForensicFinding{
@@ -131,7 +131,7 @@ Every forensic finding is structured as an evidence-backed claim with provenance
 
 ## Execution Flow
 
-1. **Repository Access**: The forensics specialist connects to the target git repository, verifying access and determining the scope of available history. For large repositories, [Git Trees](/commands/git-trees/) infrastructure provides optimized access.
+1. **Repository Access**: The forensics specialist connects to the target git repository, verifying access and determining the scope of available history. For large repositories, [Git Trees](@/commands/git-trees.md) infrastructure provides optimized access.
 
 2. **History Extraction**: Commit logs, diff statistics, author metadata, branch history, and tag information are extracted in a single pass through the repository history.
 
@@ -151,14 +151,14 @@ Every forensic finding is structured as an evidence-backed claim with provenance
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `git-forensics-specialist` | Specialized forensics analysis agent |
-| [Git Trees](/commands/git-trees/) | Optimized data extraction | ~100x faster repository access |
-| [/dx-brutalist-analysis](/commands/dx-brutalist-analysis/) | Complementary DX analysis | Developer experience insights |
-| [/investigate](/commands/investigate/) | Parent investigation suite | Forensics as investigation component |
-| [NABLA Framework](/glossary/nabla-infinity/) | Evidence model | All findings follow epistemic standards |
-| [Quality Gates](/glossary/quality-gates/) | Quality trajectory | Historical quality metric correlation |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Analysis performance tracking |
-| [M&A Operations](/commands/ma-analyze/) | Due diligence input | Codebase health assessment for deals |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `git-forensics-specialist` | Specialized forensics analysis agent |
+| [Git Trees](@/commands/git-trees.md) | Optimized data extraction | ~100x faster repository access |
+| [/dx-brutalist-analysis](@/commands/dx-brutalist-analysis.md) | Complementary DX analysis | Developer experience insights |
+| [/investigate](@/commands/investigate.md) | Parent investigation suite | Forensics as investigation component |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Evidence model | All findings follow epistemic standards |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality trajectory | Historical quality metric correlation |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Analysis performance tracking |
+| [M&A Operations](@/commands/ma-analyze.md) | Due diligence input | Codebase health assessment for deals |
 
 ## Best Practices
 
@@ -168,7 +168,7 @@ Every forensic finding is structured as an evidence-backed claim with provenance
 
 **Use for process improvement, not blame.** The cynical analysis style is designed to cut through comfortable narratives about development health, not to target individuals. Focus forensic findings on systemic improvements.
 
-**Combine with DX analysis.** [/dx-brutalist-analysis](/commands/dx-brutalist-analysis/) focuses on developer experience patterns, while git forensics focuses on evidence of what actually happened. Together they provide a complete picture of development health.
+**Combine with DX analysis.** [/dx-brutalist-analysis](@/commands/dx-brutalist-analysis.md) focuses on developer experience patterns, while git forensics focuses on evidence of what actually happened. Together they provide a complete picture of development health.
 
 **Verify security findings immediately.** Any security-relevant finding (credential commits, suspicious force pushes, unexplained binary additions) should be investigated and remediated immediately, regardless of confidence score.
 
@@ -228,19 +228,19 @@ Build a comprehensive timeline of significant events in a repository's history.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for comfortable illusions about codebase health. The forensic analysis reports exactly what the evidence shows, without diplomatic softening.
-- **NO DOUBTS**: Full investigation before conclusions. Every finding is backed by specific evidence with confidence scoring and source provenance per [NABLA](/glossary/nabla-infinity/) standards.
+- **NO DOUBTS**: Full investigation before conclusions. Every finding is backed by specific evidence with confidence scoring and source provenance per [NABLA](@/glossary/nabla-infinity.md) standards.
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/dx-brutalist-analysis](/commands/dx-brutalist-analysis/) - Developer experience brutalist analysis of git history
-- [/git-trees](/commands/git-trees/) - Git tree-based codebase exploration at ~100x speed improvement
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/ma-analyze](/commands/ma-analyze/) - Comprehensive M&A analysis including financial, legal and operational review
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/dx-brutalist-analysis](@/commands/dx-brutalist-analysis.md) - Developer experience brutalist analysis of git history
+- [/git-trees](@/commands/git-trees.md) - Git tree-based codebase exploration at ~100x speed improvement
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/ma-analyze](@/commands/ma-analyze.md) - Comprehensive M&A analysis including financial, legal and operational review
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -249,4 +249,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

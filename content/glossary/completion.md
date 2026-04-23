@@ -161,11 +161,11 @@ Completion analytics feed into the Academy's curriculum improvement process. Top
 
 ## Cross-References
 
-- [Competency](/glossary/competency/) - skill proficiency built through completion
-- [Certification](/glossary/certification/) - credential requiring topic completion
-- [Completeness](/glossary/completeness/) - data quality dimension (distinct concept)
-- [Curriculum](/glossary/curriculum/) - structured content that completion tracks
-- [Assessment](/glossary/assessment/) - evaluation following completion
+- [Competency](@/glossary/competency.md) - skill proficiency built through completion
+- [Certification](@/glossary/certification.md) - credential requiring topic completion
+- [Completeness](@/glossary/completeness.md) - data quality dimension (distinct concept)
+- [Curriculum](@/glossary/curriculum.md) - structured content that completion tracks
+- [Assessment](@/glossary/assessment.md) - evaluation following completion
 - **Livebooks**: `livebooks/domains/academy_learning/` - interactive progress tracking
 - **Academy**: ProgressTracker GenServer manages all completion state
 

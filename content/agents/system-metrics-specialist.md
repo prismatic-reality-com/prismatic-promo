@@ -28,9 +28,9 @@ image_alt = "system-metrics-specialist - Prismatic Platform"
 
 ## Overview
 
-The System Metrics Specialist is an L3 strategic command agent operating within the Prismatic Platform's infrastructure domain, serving as the primary authority for system resource monitoring, capacity planning, and performance observability. In a platform comprising over 90 applications running on the [BEAM](/glossary/beam/) virtual machine, comprehensive metrics collection and analysis is essential for maintaining operational health, predicting capacity requirements, and detecting performance anomalies before they impact system reliability.
+The System Metrics Specialist is an L3 strategic command agent operating within the Prismatic Platform's infrastructure domain, serving as the primary authority for system resource monitoring, capacity planning, and performance observability. In a platform comprising over 90 applications running on the [BEAM](@/glossary/beam.md) virtual machine, comprehensive metrics collection and analysis is essential for maintaining operational health, predicting capacity requirements, and detecting performance anomalies before they impact system reliability.
 
-This agent aggregates telemetry data from every layer of the platform stack, from BEAM scheduler utilization and [ETS](/glossary/ets/) memory consumption to [PostgreSQL](/glossary/postgresql/) query performance and network throughput. It transforms raw metrics into actionable intelligence that guides operational decisions, capacity planning, and performance optimization efforts. Operating under the [AIAD](/glossary/aiad/) standard and the [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, the agent maintains zero tolerance for unmonitored system components and undetected performance degradation.
+This agent aggregates telemetry data from every layer of the platform stack, from BEAM scheduler utilization and [ETS](@/glossary/ets.md) memory consumption to [PostgreSQL](@/glossary/postgresql.md) query performance and network throughput. It transforms raw metrics into actionable intelligence that guides operational decisions, capacity planning, and performance optimization efforts. Operating under the [AIAD](@/glossary/aiad.md) standard and the [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, the agent maintains zero tolerance for unmonitored system components and undetected performance degradation.
 
 ## Theoretical Foundations
 
@@ -42,7 +42,7 @@ The USE (Utilization, Saturation, Errors) methodology, developed by Brendan Greg
 
 The RED (Rate, Errors, Duration) methodology complements USE by focusing on service-level metrics rather than resource-level metrics. For every service, the agent tracks request rate, error rate, and request duration distribution, providing a user-centric view of system performance.
 
-The [BEAM](/glossary/beam/) virtual machine introduces platform-specific observability requirements. The agent monitors BEAM-specific metrics including scheduler utilization across all available schedulers, process count and message queue depths, [ETS](/glossary/ets/) table memory consumption, garbage collection frequency and duration, and atom table utilization. These BEAM-specific metrics reveal performance characteristics that are invisible to generic system monitoring tools.
+The [BEAM](@/glossary/beam.md) virtual machine introduces platform-specific observability requirements. The agent monitors BEAM-specific metrics including scheduler utilization across all available schedulers, process count and message queue depths, [ETS](@/glossary/ets.md) table memory consumption, garbage collection frequency and duration, and atom table utilization. These BEAM-specific metrics reveal performance characteristics that are invisible to generic system monitoring tools.
 
 ## Core Capabilities
 
@@ -58,7 +58,7 @@ The [BEAM](/glossary/beam/) virtual machine introduces platform-specific observa
 
 ## Architecture and Implementation
 
-The System Metrics Specialist is implemented as a supervised [OTP](/glossary/otp/) process with a pipeline architecture optimized for high-throughput metric processing.
+The System Metrics Specialist is implemented as a supervised [OTP](@/glossary/otp.md) process with a pipeline architecture optimized for high-throughput metric processing.
 
 | Component | Function | Implementation |
 |-----------|----------|---------------|
@@ -69,7 +69,7 @@ The System Metrics Specialist is implemented as a supervised [OTP](/glossary/otp
 | Health Calculator | Synthesize composite health scores | Weighted multi-metric scoring |
 | Alert Manager | Route anomaly notifications to appropriate handlers | Priority-based dispatch |
 
-The metric collection pipeline implements backpressure mechanisms that prevent metric ingestion from consuming excessive system resources during metric storms. A [circuit breaker](/glossary/circuit-breaker/) pattern protects the agent from cascading failures if downstream metric storage becomes unavailable.
+The metric collection pipeline implements backpressure mechanisms that prevent metric ingestion from consuming excessive system resources during metric storms. A [circuit breaker](@/glossary/circuit-breaker.md) pattern protects the agent from cascading failures if downstream metric storage becomes unavailable.
 
 ETS tables serve as the primary storage for recent metric data, providing microsecond-level read access for real-time queries. Historical metric data is periodically flushed to PostgreSQL for long-term retention and trend analysis. This tiered storage approach balances real-time query performance with historical data availability.
 
@@ -80,7 +80,7 @@ The agent monitors metrics organized into hierarchical categories that cover the
 | Category | Key Metrics | Source |
 |----------|------------|--------|
 | BEAM Runtime | Scheduler utilization, process count, memory allocation | :erlang.statistics/1 |
-| OTP Processes | [GenServer](/glossary/genserver/) message queue depth, call latency, crash rate | Telemetry events |
+| OTP Processes | [GenServer](@/glossary/genserver.md) message queue depth, call latency, crash rate | Telemetry events |
 | ETS Tables | Memory per table, read/write rates, table count | :ets.info/1 |
 | Database | Query duration, connection pool utilization, lock contention | Ecto telemetry |
 | HTTP | Request rate, response latency distribution, error rate | Phoenix telemetry |
@@ -104,12 +104,12 @@ The agent's capacity planning methodology combines statistical forecasting with 
 
 | System | Integration Purpose | Data Flow |
 |--------|-------------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent lifecycle and performance monitoring | Bidirectional |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent lifecycle and performance monitoring | Bidirectional |
 | Prismatic Telemetry | Primary metric data source | Inbound streaming |
-| [PostgreSQL](/glossary/postgresql/) | Historical metric storage | Write (flush) |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification and discovery | Read |
-| [SEADF](/glossary/seadf/) | Platform health assessment integration | Bidirectional |
-| [Dynamic Supervisor](/glossary/dynamic-supervisor/) | Monitoring worker management | Process lifecycle |
+| [PostgreSQL](@/glossary/postgresql.md) | Historical metric storage | Write (flush) |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Read |
+| [SEADF](@/glossary/seadf.md) | Platform health assessment integration | Bidirectional |
+| [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) | Monitoring worker management | Process lifecycle |
 
 ## Quality Assurance
 
@@ -119,7 +119,7 @@ The agent's capacity forecasts are validated retrospectively by comparing predic
 
 ## Related Agents
 
-The System Metrics Specialist provides observability data that supports multiple other agents. The [system-architecture-specialist](/agents/system-architecture-specialist/) uses architectural health metrics for design decisions. The [tech-debt-analyst](/agents/tech-debt-analyst/) correlates performance metrics with technical debt indicators. The [test-specialist](/agents/test-specialist/) uses performance baselines for regression detection in test suites.
+The System Metrics Specialist provides observability data that supports multiple other agents. The [system-architecture-specialist](@/agents/system-architecture-specialist.md) uses architectural health metrics for design decisions. The [tech-debt-analyst](@/agents/tech-debt-analyst.md) correlates performance metrics with technical debt indicators. The [test-specialist](@/agents/test-specialist.md) uses performance baselines for regression detection in test suites.
 
 ---
 
@@ -128,4 +128,4 @@ The System Metrics Specialist provides observability data that supports multiple
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

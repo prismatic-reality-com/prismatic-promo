@@ -151,4 +151,4 @@ The Academy demonstrates a pattern that applies beyond education: self-registeri
 
 ---
 
-*Start learning at [Academy](/academy/) or browse the [Glossary](/glossary/) for quick reference on platform concepts.*
+*Start learning at [Academy](@/academy/_index.md) or browse the [Glossary](@/glossary/_index.md) for quick reference on platform concepts.*

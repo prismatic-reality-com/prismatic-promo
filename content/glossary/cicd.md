@@ -176,11 +176,11 @@ Deployment to Fly.io uses a two-stage approach: staging deployment happens on ev
 
 ## Cross-References
 
-- [Compilation](/glossary/compilation/) - build phase in CI pipeline
-- [Code Quality](/glossary/code-quality/) - quality gates enforced by CI
-- [Containerization](/glossary/containerization/) - Docker builds in deployment
-- [Continuous Integration](/glossary/continuous-integration/) - CI component detail
-- [Continuous Deployment](/glossary/continuous-deployment/) - CD component detail
+- [Compilation](@/glossary/compilation.md) - build phase in CI pipeline
+- [Code Quality](@/glossary/code-quality.md) - quality gates enforced by CI
+- [Containerization](@/glossary/containerization.md) - Docker builds in deployment
+- [Continuous Integration](@/glossary/continuous-integration.md) - CI component detail
+- [Continuous Deployment](@/glossary/continuous-deployment.md) - CD component detail
 - **Livebooks**: `livebooks/domains/quality_testing/` - CI quality gate experimentation
 - **Academy**: DevOps security pipeline topics
 

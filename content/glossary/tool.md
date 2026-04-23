@@ -192,10 +192,10 @@ This single module definition automatically creates a UI page at `/osint/toolbox
 
 ## Cross-References
 
-- [OSINT](/glossary/osint/) - Open Source Intelligence methodology
-- [Adapter](/glossary/adapter/) - Interface implementation pattern
-- [Topic Registry](/glossary/topic-registry/) - Academy's analogous self-registering system
-- [MCP](/glossary/mcp/) - Model Context Protocol
+- [OSINT](@/glossary/osint.md) - Open Source Intelligence methodology
+- [Adapter](@/glossary/adapter.md) - Interface implementation pattern
+- [Topic Registry](@/glossary/topic-registry.md) - Academy's analogous self-registering system
+- [MCP](@/glossary/mcp.md) - Model Context Protocol
 - **Provider** - External data source interface
 
 ---

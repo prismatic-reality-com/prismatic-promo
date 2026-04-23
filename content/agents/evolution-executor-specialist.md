@@ -28,7 +28,7 @@ image_alt = "evolution-executor-specialist - Prismatic Platform"
 
 ## Overview
 
-The Evolution Executor Specialist operates as an L3 strategic command agent within the Ecosystem domain of the Prismatic Platform. This agent serves as the automated execution engine for ecosystem evolutionary improvements, translating evolutionary plans into concrete code modifications, configuration changes, and pattern applications across the platform's 90 [umbrella application](/glossary/umbrella-application/)s. While the Evolution Orchestrator Supreme designs evolutionary strategies and the Evolution Analyzer evaluates ecosystem health, the Executor performs the actual mutations -- the hands that implement what the brain decides.
+The Evolution Executor Specialist operates as an L3 strategic command agent within the Ecosystem domain of the Prismatic Platform. This agent serves as the automated execution engine for ecosystem evolutionary improvements, translating evolutionary plans into concrete code modifications, configuration changes, and pattern applications across the platform's 90 [umbrella application](@/glossary/umbrella-application.md)s. While the Evolution Orchestrator Supreme designs evolutionary strategies and the Evolution Analyzer evaluates ecosystem health, the Executor performs the actual mutations -- the hands that implement what the brain decides.
 
 Execution of evolutionary changes in a production platform requires extraordinary discipline. Every mutation must be atomic (complete or rolled back entirely), verified (all quality gates pass after application), and documented (full audit trail of what changed, why, and what the measured impact was). The Evolution Executor implements this discipline through a structured execution pipeline that transforms approved evolutionary plans into verified, committed code changes.
 
@@ -50,7 +50,7 @@ The Evolution Executor Specialist provides six core execution capabilities for e
 
 **Fitness measurement** quantifies the impact of each mutation on ecosystem fitness by comparing pre-mutation and post-mutation metrics across all fitness dimensions. The executor captures baseline metrics before mutation, applies the change, re-measures, and computes the fitness delta. Only mutations that produce non-negative fitness changes (per the Lean4 Quality Monotonicity theorem) are accepted. Negative-impact mutations are rolled back with full documentation of what was attempted and why it failed.
 
-**Pattern application** implements specific quality patterns ([CASCADE](/glossary/cascade-pattern/) patterns including Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) across the codebase. Each pattern has a defined detection rule and transformation template that the executor applies mechanically. Pattern application is the most common evolutionary operation, responsible for the systematic elimination of quality debt that brought the platform from hundreds of QDP to the current 0.
+**Pattern application** implements specific quality patterns ([CASCADE](@/glossary/cascade-pattern.md) patterns including Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) across the codebase. Each pattern has a defined detection rule and transformation template that the executor applies mechanically. Pattern application is the most common evolutionary operation, responsible for the systematic elimination of quality debt that brought the platform from hundreds of QDP to the current 0.
 
 **Rollback execution** provides immediate reversion capability for mutations that fail verification or produce negative fitness impact. The executor maintains the pre-mutation state (git branch, configuration snapshot) until verification and fitness measurement are complete, enabling zero-data-loss rollback at any point in the execution pipeline. Rollback is automatic -- it requires no human intervention and completes within seconds.
 
@@ -103,37 +103,37 @@ The executor implements formal safety guarantees derived from Lean4 theorems.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - The Evolution Executor operates at the strategic command level with authority to apply code changes, execute quality verification, and commit or rollback mutations. It cannot approve its own execution plans -- plans must come from the evolution orchestration layer.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - The Evolution Executor operates at the strategic command level with authority to apply code changes, execute quality verification, and commit or rollback mutations. It cannot approve its own execution plans -- plans must come from the evolution orchestration layer.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Plan source | Provides approved evolutionary plans for execution |
-| [evolution-analyzer-specialist](/agents/evolution-analyzer-specialist/) | Fitness data | Provides baseline fitness data for impact measurement |
-| [elixir-core-specialist](/agents/elixir-core-specialist/) | Implementation guidance | OTP implementation patterns for complex mutations |
-| [cascade-quality-specialist](/agents/cascade-quality-specialist/) | Pattern definitions | CASCADE pattern detection rules and transformations |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Plan source | Provides approved evolutionary plans for execution |
+| [evolution-analyzer-specialist](@/agents/evolution-analyzer-specialist.md) | Fitness data | Provides baseline fitness data for impact measurement |
+| [elixir-core-specialist](@/agents/elixir-core-specialist.md) | Implementation guidance | OTP implementation patterns for complex mutations |
+| [cascade-quality-specialist](@/agents/cascade-quality-specialist.md) | Pattern definitions | CASCADE pattern detection rules and transformations |
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime management | Agent process updates during evolution |
-| [AIAD](/glossary/aiad/) Registry | Spec updates | Agent specification modifications |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime management | Agent process updates during evolution |
+| [AIAD](@/glossary/aiad.md) Registry | Spec updates | Agent specification modifications |
 | Git | Version control | Branch management for atomic mutations |
-| [Quality Gates](/glossary/quality-gates/) | Verification | Independent quality verification after mutation |
-| [Telemetry](/glossary/telemetry/) | Metrics | Pre/post mutation fitness measurement |
-| [SEADF](/glossary/seadf/) | Integration | Execution results feed back into SEADF cycles |
+| [Quality Gates](@/glossary/quality-gates.md) | Verification | Independent quality verification after mutation |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Pre/post mutation fitness measurement |
+| [SEADF](@/glossary/seadf.md) | Integration | Execution results feed back into SEADF cycles |
 
 ## Enforcement
 
-The Evolution Executor operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No mutation bypasses the quality verification pipeline. No mutation with negative fitness impact is accepted. No mutation exceeds its declared scope. Every execution produces a complete audit trail. Rollback is automatic and immediate when verification fails. The executor never modifies its own execution logic or quality gate configuration during an evolutionary cycle.
+The Evolution Executor operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No mutation bypasses the quality verification pipeline. No mutation with negative fitness impact is accepted. No mutation exceeds its declared scope. Every execution produces a complete audit trail. Rollback is automatic and immediate when verification fails. The executor never modifies its own execution logic or quality gate configuration during an evolutionary cycle.
 
 ## Related Agents
 
-- [**evolution-orchestrator-supreme**](/agents/evolution-orchestrator-supreme/) (L3) - Evolutionary strategy and plan approval
-- [**evolution-analyzer-specialist**](/agents/evolution-analyzer-specialist/) (L3) - Ecosystem health assessment for fitness baseline
-- [**cascade-quality-specialist**](/agents/cascade-quality-specialist/) (L3) - CASCADE pattern definitions for quality evolution
+- [**evolution-orchestrator-supreme**](@/agents/evolution-orchestrator-supreme.md) (L3) - Evolutionary strategy and plan approval
+- [**evolution-analyzer-specialist**](@/agents/evolution-analyzer-specialist.md) (L3) - Ecosystem health assessment for fitness baseline
+- [**cascade-quality-specialist**](@/agents/cascade-quality-specialist.md) (L3) - CASCADE pattern definitions for quality evolution
 
 ---
 
@@ -142,4 +142,4 @@ The Evolution Executor operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

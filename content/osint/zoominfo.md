@@ -27,9 +27,9 @@ image_alt = "ZoomInfo - Prismatic Platform"
 
 ZoomInfo is the largest B2B contact and company intelligence platform, maintaining profiles on over 100 million business professionals and 14 million companies worldwide. The platform combines data from web crawling, email parsing partnerships, public filings, social media, and contributor networks to build comprehensive organizational profiles that include employee directories, technology stacks, org charts, and real-time buying intent signals.
 
-For [OSINT](/glossary/osint/) practitioners, ZoomInfo provides a depth of organizational intelligence that is unavailable from public registries or standard search engines. The platform reveals internal organizational structures, identifies key decision-makers with verified contact information, and tracks personnel movements between companies. When combined with [Crunchbase](/osint/crunchbase/) financial data and Czech [registry](/glossary/registry-otp/) information from [ARES](/osint/ares/), ZoomInfo completes the organizational intelligence picture with human capital data.
+For [OSINT](@/glossary/osint.md) practitioners, ZoomInfo provides a depth of organizational intelligence that is unavailable from public registries or standard search engines. The platform reveals internal organizational structures, identifies key decision-makers with verified contact information, and tracks personnel movements between companies. When combined with [Crunchbase](@/osint/crunchbase.md) financial data and Czech [registry](@/glossary/registry-otp.md) information from [ARES](@/osint/ares.md), ZoomInfo completes the organizational intelligence picture with human capital data.
 
-ZoomInfo's technology profiling capability (TechStack) identifies the software, platforms, and infrastructure that companies use, which is valuable for both competitive intelligence and security assessment. Knowing that a target organization runs specific software versions can inform [vulnerability assessment](/glossary/vulnerability-assessment/)s conducted through [Shodan](/osint/shodan/) or [Censys](/osint/censys/).
+ZoomInfo's technology profiling capability (TechStack) identifies the software, platforms, and infrastructure that companies use, which is valuable for both competitive intelligence and security assessment. Knowing that a target organization runs specific software versions can inform [vulnerability assessment](@/glossary/vulnerability-assessment.md)s conducted through [Shodan](@/osint/shodan.md) or [Censys](@/osint/censys.md).
 
 ## Data Coverage
 
@@ -86,7 +86,7 @@ ZoomInfo's TechStack module detects software usage across multiple categories:
 
 ## Integration with Prismatic
 
-ZoomInfo integrates with the Prismatic platform as an organizational intelligence enrichment source, complementing entity data from Czech registries and financial intelligence from [Crunchbase](/osint/crunchbase/).
+ZoomInfo integrates with the Prismatic platform as an organizational intelligence enrichment source, complementing entity data from Czech registries and financial intelligence from [Crunchbase](@/osint/crunchbase.md).
 
 ```elixir
 # Search for a company
@@ -171,7 +171,7 @@ end
 
 ### Security Posture Inference
 
-ZoomInfo technology data enables security posture inference for the [Prismatic Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/) engine:
+ZoomInfo technology data enables security posture inference for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md) engine:
 
 ```elixir
 defmodule PrismaticPerimeter.Assessment.TechStackRisk do
@@ -225,13 +225,13 @@ OAuth 2.0 authentication required. Enterprise contracts include dedicated API cr
 ### Technology Intelligence
 - Discover what software and platforms a company uses
 - Identify potential security vulnerabilities based on known technology stack
-- Cross-reference with [Shodan](/osint/shodan/) and [Censys](/osint/censys/) for exposed services
+- Cross-reference with [Shodan](@/osint/shodan.md) and [Censys](@/osint/censys.md) for exposed services
 - Track technology adoption trends across industries
 
 ### Corporate Due Diligence
 - Verify company size, revenue, and operational claims
 - Map subsidiary and parent company relationships
-- Cross-reference with [ARES](/osint/ares/) and [VR.cz](/osint/vr-cz/) for Czech entities
+- Cross-reference with [ARES](@/osint/ares.md) and [VR.cz](@/osint/vr-cz.md) for Czech entities
 - Validate management team claims against verified contact data
 
 ### Competitive Intelligence
@@ -242,17 +242,17 @@ OAuth 2.0 authentication required. Enterprise contracts include dedicated API cr
 
 ## Related Sources
 
-- [Crunchbase](/osint/crunchbase/) - Startup funding and investor intelligence
-- [ARES](/osint/ares/) - Czech business register for entity verification
-- [Justice.cz](/osint/justice-cz/) - Czech Commercial Register for corporate filings
-- [Shodan](/osint/shodan/) - Infrastructure scanning to validate technology profiles
-- [LinkedIn Sales Navigator](/osint/linkedin-sales/) - Professional network intelligence
-- [FullContact](/osint/fullcontact/) - Person enrichment for contact verification
+- [Crunchbase](@/osint/crunchbase.md) - Startup funding and investor intelligence
+- [ARES](@/osint/ares.md) - Czech business register for entity verification
+- [Justice.cz](@/osint/justice-cz.md) - Czech Commercial Register for corporate filings
+- [Shodan](@/osint/shodan.md) - Infrastructure scanning to validate technology profiles
+- [LinkedIn Sales Navigator](@/osint/linkedin-sales.md) - Professional network intelligence
+- [FullContact](@/osint/fullcontact.md) - Person enrichment for contact verification
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Corporate entity risk assessment
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Corporate entity risk assessment
 
 ---
 
@@ -261,4 +261,4 @@ OAuth 2.0 authentication required. Enterprise contracts include dedicated API cr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -21,9 +21,9 @@ image_alt = "Prismatic Lean4 - Prismatic Platform"
 
 ## Overview
 
-Prismatic [Lean4](/glossary/lean4/) is the verification component of the Prismatic Platform's [umbrella](/glossary/umbrella-application/) architecture. It implements the Lean4 formal proof engine specifically designed for [Trinity Gate](/glossary/trinity-gate/) verification, providing mathematical guarantees of structural, logical, and modal consistency for platform decisions. It bridges [Elixir](/glossary/elixir/) with [formal verification](/glossary/formal-verification/) systems, enabling mathematical proofs of system properties through [theorem prover](/glossary/theorem-proving/) integration and formal specification languages.
+Prismatic [Lean4](@/glossary/lean4.md) is the verification component of the Prismatic Platform's [umbrella](@/glossary/umbrella-application.md) architecture. It implements the Lean4 formal proof engine specifically designed for [Trinity Gate](@/glossary/trinity-gate.md) verification, providing mathematical guarantees of structural, logical, and modal consistency for platform decisions. It bridges [Elixir](@/glossary/elixir.md) with [formal verification](@/glossary/formal-verification.md) systems, enabling mathematical proofs of system properties through [theorem prover](@/glossary/theorem-proving.md) integration and formal specification languages.
 
-Where other platform components provide probabilistic confidence through statistical methods and heuristic analysis, Prismatic Lean4 provides mathematical certainty. When the [Trinity Gate](/capabilities/trinity-gate/) requires formal necessity verification (Layer 3), Lean4 proofs supply the definitive answer -- a property either holds or it does not, with machine-checked proof either way.
+Where other platform components provide probabilistic confidence through statistical methods and heuristic analysis, Prismatic Lean4 provides mathematical certainty. When the [Trinity Gate](@/capabilities/trinity-gate.md) requires formal necessity verification (Layer 3), Lean4 proofs supply the definitive answer -- a property either holds or it does not, with machine-checked proof either way.
 
 ## Architecture
 
@@ -68,10 +68,10 @@ Verification Request --> Specification --> Proof Obligation --> Lean4 Engine -->
 
 | Proof Category | Platform Use | Lean4 Mechanism | Example |
 |---------------|-------------|-----------------|---------|
-| **Type Safety** | [Typespec](/glossary/typespec/) correctness beyond [Dialyzer](/glossary/dialyzer/) | Dependent types | Function returns correct type for all inputs |
-| **Invariant Preservation** | State machine correctness | Inductive proofs | [GenServer](/glossary/behaviour/) state always satisfies invariant after any message |
-| **Protocol Compliance** | [Adapter](/glossary/adapter-pattern/) contract verification | Interface proofs | Storage adapter implements all required callbacks correctly |
-| **Logical Consistency** | [NABLA axiom](/capabilities/nabla-axioms/) compliance | Modal logic proofs | Belief updates preserve axiom constraints |
+| **Type Safety** | [Typespec](@/glossary/typespec.md) correctness beyond [Dialyzer](@/glossary/dialyzer.md) | Dependent types | Function returns correct type for all inputs |
+| **Invariant Preservation** | State machine correctness | Inductive proofs | [GenServer](@/glossary/behaviour.md) state always satisfies invariant after any message |
+| **Protocol Compliance** | [Adapter](@/glossary/adapter-pattern.md) contract verification | Interface proofs | Storage adapter implements all required callbacks correctly |
+| **Logical Consistency** | [NABLA axiom](@/capabilities/nabla-axioms.md) compliance | Modal logic proofs | Belief updates preserve axiom constraints |
 | **Termination** | Algorithm completion guarantee | Well-founded recursion | Graph traversal terminates on all finite inputs |
 
 ## Key Modules
@@ -110,7 +110,7 @@ config :prismatic_lean4,
 
 ### QEVE Integration
 
-The [Quantitative Epistemic Verification Engine](/glossary/qeve/) (QEVE) combines Lean4 formal proofs with Monte Carlo simulation and [NABLA](/glossary/nabla-infinity/) epistemic analysis:
+The [Quantitative Epistemic Verification Engine](@/glossary/qeve.md) (QEVE) combines Lean4 formal proofs with Monte Carlo simulation and [NABLA](@/glossary/nabla-infinity.md) epistemic analysis:
 
 ```elixir
 # Combined QEVE verification
@@ -180,10 +180,10 @@ Testing validates specification generation, proof caching with source-hash inval
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic Nabla](/apps/prismatic-nabla/) | Trinity Gate formal verification requirements and axiom proofs |
-| [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) | QEVE probabilistic verification complementing formal proofs |
-| [Prismatic Core](/apps/prismatic-core/) | System property specifications for formal verification targets |
-| [Prismatic Deduction](/apps/prismatic-deduction/) | Deduction chain verification and logical reasoning validation |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | Trinity Gate formal verification requirements and axiom proofs |
+| [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) | QEVE probabilistic verification complementing formal proofs |
+| [Prismatic Core](@/apps/prismatic-core.md) | System property specifications for formal verification targets |
+| [Prismatic Deduction](@/apps/prismatic-deduction.md) | Deduction chain verification and logical reasoning validation |
 
 ## NABLA Compliance
 
@@ -220,14 +220,14 @@ All seven NABLA axioms have corresponding Lean4 theorems. The proofs verify that
 
 ## Related Resources
 
-- [Prismatic Nabla](/apps/prismatic-nabla/) -- NABLA Infinity epistemic framework
-- [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) -- Probabilistic verification engine
-- [Prismatic Deduction](/apps/prismatic-deduction/) -- Logical deduction framework
-- [Prismatic Lean](/apps/prismatic-lean/) -- Higher-level formal verification bridge
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures formal proofs are correctly applied
-- [Trinity Gate](/capabilities/trinity-gate/) -- Lean4 implements Layer 3 (Formal Necessity)
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Formal proofs of axiom preservation
-- [Quality Gates](/capabilities/quality-gates/) -- Proof verification in quality gate pipeline
+- [Prismatic Nabla](@/apps/prismatic-nabla.md) -- NABLA Infinity epistemic framework
+- [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) -- Probabilistic verification engine
+- [Prismatic Deduction](@/apps/prismatic-deduction.md) -- Logical deduction framework
+- [Prismatic Lean](@/apps/prismatic-lean.md) -- Higher-level formal verification bridge
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures formal proofs are correctly applied
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Lean4 implements Layer 3 (Formal Necessity)
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Formal proofs of axiom preservation
+- [Quality Gates](@/capabilities/quality-gates.md) -- Proof verification in quality gate pipeline
 
 ---
 
@@ -236,4 +236,4 @@ All seven NABLA axioms have corresponding Lean4 theorems. The proofs verify that
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

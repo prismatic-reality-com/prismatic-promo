@@ -36,9 +36,9 @@ image_alt = "Relational Database - Prismatic Platform"
 
 ## Definition
 
-A **Relational Database** is a data management system that stores information in structured tables (relations), where each table consists of rows (tuples) and columns (attributes) defined by a schema. The relational model, first formalized by E.F. Codd in 1970, provides a mathematical foundation for data organization based on set theory and first-order predicate logic. Relational databases enforce data integrity through constraints (primary keys, foreign keys, unique constraints, check constraints), support [ACID transactions](/glossary/acid-transactions/) for reliable concurrent data modification, and provide a declarative query language (SQL) that allows users to express what data they want rather than how to retrieve it.
+A **Relational Database** is a data management system that stores information in structured tables (relations), where each table consists of rows (tuples) and columns (attributes) defined by a schema. The relational model, first formalized by E.F. Codd in 1970, provides a mathematical foundation for data organization based on set theory and first-order predicate logic. Relational databases enforce data integrity through constraints (primary keys, foreign keys, unique constraints, check constraints), support [ACID transactions](@/glossary/acid-transactions.md) for reliable concurrent data modification, and provide a declarative query language (SQL) that allows users to express what data they want rather than how to retrieve it.
 
-In the [Prismatic Platform](/glossary/elixir/), [PostgreSQL](/glossary/postgresql/) serves as the primary relational database, accessed through the [Ecto](/glossary/ecto/) library. Every persistent entity -- from agent configurations and OSINT scan results to quality metrics and session state -- is stored in PostgreSQL tables with rigorous schema definitions, enforced referential integrity, and comprehensive indexing. The platform's 115 umbrella applications share a PostgreSQL cluster through Ecto's repository pattern, with each application's data isolated by schema namespace.
+In the [Prismatic Platform](@/glossary/elixir.md), [PostgreSQL](@/glossary/postgresql.md) serves as the primary relational database, accessed through the [Ecto](@/glossary/ecto.md) library. Every persistent entity -- from agent configurations and OSINT scan results to quality metrics and session state -- is stored in PostgreSQL tables with rigorous schema definitions, enforced referential integrity, and comprehensive indexing. The platform's 115 umbrella applications share a PostgreSQL cluster through Ecto's repository pattern, with each application's data isolated by schema namespace.
 
 ## Overview
 
@@ -74,7 +74,7 @@ The Prismatic Platform chose PostgreSQL as its primary data store for specific t
 
 ### Schema Design with Ecto
 
-[Ecto](/glossary/ecto/) schemas map Elixir structs to relational tables, providing compile-time type checking and runtime validation:
+[Ecto](@/glossary/ecto.md) schemas map Elixir structs to relational tables, providing compile-time type checking and runtime validation:
 
 ```elixir
 defmodule Prismatic.Schema.Agent do
@@ -172,7 +172,7 @@ end
 
 ### ACID Transactions with Ecto.Multi
 
-For operations that must modify multiple tables atomically, [ACID transactions](/glossary/acid-transactions/) ensure all changes succeed or none do. Ecto.Multi provides a composable transaction builder:
+For operations that must modify multiple tables atomically, [ACID transactions](@/glossary/acid-transactions.md) ensure all changes succeed or none do. Ecto.Multi provides a composable transaction builder:
 
 ```elixir
 defmodule Prismatic.RelationalDB.TransactionDemo do
@@ -334,7 +334,7 @@ The platform uses a single PostgreSQL cluster with logical separation:
 
 ### Connection Pooling
 
-Each [Ecto](/glossary/ecto/) Repo maintains a connection pool using DBConnection, preventing connection exhaustion under concurrent load:
+Each [Ecto](@/glossary/ecto.md) Repo maintains a connection pool using DBConnection, preventing connection exhaustion under concurrent load:
 
 | Environment | Pool Size | Queue Target | Queue Interval | Timeout |
 |-------------|-----------|--------------|----------------|---------|
@@ -363,13 +363,13 @@ Each [Ecto](/glossary/ecto/) Repo maintains a connection pool using DBConnection
 | **Consistency** | Strong | Configurable | Strong (single-key) | Strong | Eventually consistent |
 | **Query Language** | SQL (declarative) | MQL (imperative) | Commands | Cypher | REST/SDK |
 | **Scale Pattern** | Vertical + read replicas | Horizontal sharding | Horizontal sharding | Vertical | Horizontal |
-| **Prismatic Role** | Primary persistence | Not used | [Cache/sessions](/glossary/redis/) | Graph analysis | [Full-text search](/glossary/meilisearch/) |
+| **Prismatic Role** | Primary persistence | Not used | [Cache/sessions](@/glossary/redis.md) | Graph analysis | [Full-text search](@/glossary/meilisearch.md) |
 
-The platform uses PostgreSQL as the system of record and delegates specialized workloads to purpose-built stores: [Redis](/glossary/redis/) for ephemeral caching, [Meilisearch](/glossary/meilisearch/) for full-text search, and KuzuDB for graph analytics.
+The platform uses PostgreSQL as the system of record and delegates specialized workloads to purpose-built stores: [Redis](@/glossary/redis.md) for ephemeral caching, [Meilisearch](@/glossary/meilisearch.md) for full-text search, and KuzuDB for graph analytics.
 
 ## Best Practices
 
-**Design schemas in Third Normal Form, denormalize only with evidence.** Start with properly normalized tables. When [performance](/glossary/performance/) monitoring shows a query bottleneck, create a materialized view or denormalized table with clear documentation of the trade-off.
+**Design schemas in Third Normal Form, denormalize only with evidence.** Start with properly normalized tables. When [performance](@/glossary/performance.md) monitoring shows a query bottleneck, create a materialized view or denormalized table with clear documentation of the trade-off.
 
 **Use Ecto changesets for all data modifications.** Never bypass Ecto's validation layer for direct SQL inserts. Changesets provide type coercion, constraint validation, and a consistent error format that the platform's error handling relies on.
 
@@ -391,49 +391,49 @@ The platform uses PostgreSQL as the system of record and delegates specialized w
 
 **Long-running transactions holding locks.** A transaction that runs for minutes (bulk imports, complex reports) holds row locks that block other writes. Use batch processing with smaller transactions, or read-only replicas for reporting queries.
 
-**Ignoring connection pool exhaustion.** When all pool connections are checked out, new queries queue and eventually timeout. Monitor pool utilization via [telemetry](/glossary/telemetry/) and scale pool size to match concurrent query demand.
+**Ignoring connection pool exhaustion.** When all pool connections are checked out, new queries queue and eventually timeout. Monitor pool utilization via [telemetry](@/glossary/telemetry.md) and scale pool size to match concurrent query demand.
 
 ## Use Cases
 
 ### OSINT Intelligence Storage
 
-All [OSINT](/glossary/osint/) scan results are stored in normalized PostgreSQL tables. Entity data (companies, domains, IP addresses) lives in entity tables, with scan results in separate tables linked by foreign keys. This normalization enables cross-scan analysis: querying all historical scans for a given entity, comparing results over time, and detecting changes.
+All [OSINT](@/glossary/osint.md) scan results are stored in normalized PostgreSQL tables. Entity data (companies, domains, IP addresses) lives in entity tables, with scan results in separate tables linked by foreign keys. This normalization enables cross-scan analysis: querying all historical scans for a given entity, comparing results over time, and detecting changes.
 
 ### Agent Configuration Persistence
 
-Each of the 530+ [AIAD agents](/glossary/aiad/) has its configuration stored relationally. Agent metadata, capability declarations, execution history, and performance metrics occupy separate tables with foreign key relationships. This enables complex queries like "find all agents in the security domain with execution success rates above 95%."
+Each of the 530+ [AIAD agents](@/glossary/aiad.md) has its configuration stored relationally. Agent metadata, capability declarations, execution history, and performance metrics occupy separate tables with foreign key relationships. This enables complex queries like "find all agents in the security domain with execution success rates above 95%."
 
 ### Quality Metrics Tracking
 
-The platform's [quality monitoring](/glossary/quality/) subsystem writes metrics to PostgreSQL with timestamps, enabling time-series analysis of code quality trends. Queries aggregate quality scores by domain, identify regression patterns, and feed the [autoevolve](/glossary/autoevolve/) system's decision engine.
+The platform's [quality monitoring](@/glossary/quality.md) subsystem writes metrics to PostgreSQL with timestamps, enabling time-series analysis of code quality trends. Queries aggregate quality scores by domain, identify regression patterns, and feed the [autoevolve](@/glossary/autoevolve.md) system's decision engine.
 
 ### Compliance Audit Trail
 
-For [NIS2](/glossary/nis2/) and [GDPR](/glossary/gdpr/) compliance, every data access and modification is logged to audit tables. The relational model's referential integrity ensures audit entries always link to valid entities, and SQL's temporal query capabilities enable compliance reports over arbitrary time ranges.
+For [NIS2](@/glossary/nis2.md) and [GDPR](@/glossary/gdpr.md) compliance, every data access and modification is logged to audit tables. The relational model's referential integrity ensures audit entries always link to valid entities, and SQL's temporal query capabilities enable compliance reports over arbitrary time ranges.
 
 ## Related Concepts
 
-- [PostgreSQL](/glossary/postgresql/) -- The specific relational database used by the Prismatic Platform
-- [Ecto](/glossary/ecto/) -- Elixir database library providing the interface to PostgreSQL
-- [ACID Transactions](/glossary/acid-transactions/) -- Guarantees that make relational writes reliable
-- [Data Pipeline](/glossary/data-pipeline/) -- Data flows that originate from or terminate in relational storage
-- [Scalability](/glossary/scalability/) -- Scaling strategies for relational databases under load
-- [Performance](/glossary/performance/) -- Query optimization and indexing strategies
-- [Monitoring](/glossary/monitoring/) -- Database health and query performance tracking
-- [Telemetry](/glossary/telemetry/) -- Ecto telemetry events for connection pool and query metrics
-- [Security](/glossary/security/) -- Database access control and encryption at rest
-- [Encryption](/glossary/encryption/) -- Column-level and disk-level encryption for sensitive data
+- [PostgreSQL](@/glossary/postgresql.md) -- The specific relational database used by the Prismatic Platform
+- [Ecto](@/glossary/ecto.md) -- Elixir database library providing the interface to PostgreSQL
+- [ACID Transactions](@/glossary/acid-transactions.md) -- Guarantees that make relational writes reliable
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Data flows that originate from or terminate in relational storage
+- [Scalability](@/glossary/scalability.md) -- Scaling strategies for relational databases under load
+- [Performance](@/glossary/performance.md) -- Query optimization and indexing strategies
+- [Monitoring](@/glossary/monitoring.md) -- Database health and query performance tracking
+- [Telemetry](@/glossary/telemetry.md) -- Ecto telemetry events for connection pool and query metrics
+- [Security](@/glossary/security.md) -- Database access control and encryption at rest
+- [Encryption](@/glossary/encryption.md) -- Column-level and disk-level encryption for sensitive data
 
 ## See Also
 
-- [Redis](/glossary/redis/) -- Complementary key-value store for caching
-- [Meilisearch](/glossary/meilisearch/) -- Full-text search engine alongside relational storage
-- [ETS](/glossary/ets/) -- In-memory storage for data that does not need persistence
-- [Regression Testing](/glossary/regression-testing/) -- Testing migrations and schema changes
-- [CI/CD](/glossary/ci-cd/) -- Automated migration execution in deployment pipeline
-- [Observability](/glossary/observability/) -- Database metrics in platform observability stack
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- 115 umbrella applications using relational storage
+- [Redis](@/glossary/redis.md) -- Complementary key-value store for caching
+- [Meilisearch](@/glossary/meilisearch.md) -- Full-text search engine alongside relational storage
+- [ETS](@/glossary/ets.md) -- In-memory storage for data that does not need persistence
+- [Regression Testing](@/glossary/regression-testing.md) -- Testing migrations and schema changes
+- [CI/CD](@/glossary/ci-cd.md) -- Automated migration execution in deployment pipeline
+- [Observability](@/glossary/observability.md) -- Database metrics in platform observability stack
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- 115 umbrella applications using relational storage
 
 ---
 
@@ -442,4 +442,4 @@ For [NIS2](/glossary/nis2/) and [GDPR](/glossary/gdpr/) compliance, every data a
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

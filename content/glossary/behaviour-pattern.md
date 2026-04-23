@@ -36,11 +36,11 @@ image_alt = "Behaviour Pattern - Prismatic Platform"
 
 ## Definition
 
-A **Behaviour Pattern** is a contract mechanism in [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/) where a module defines a set of callback function specifications (`@callback` declarations with typespecs) that implementing modules must satisfy. When a module declares `@behaviour SomeBehaviour`, the Elixir compiler verifies at compile time that the module implements all required callbacks with correct arities. This provides a form of structural typing that enables polymorphism, dependency injection, and runtime module swapping without sacrificing compile-time safety.
+A **Behaviour Pattern** is a contract mechanism in [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md) where a module defines a set of callback function specifications (`@callback` declarations with typespecs) that implementing modules must satisfy. When a module declares `@behaviour SomeBehaviour`, the Elixir compiler verifies at compile time that the module implements all required callbacks with correct arities. This provides a form of structural typing that enables polymorphism, dependency injection, and runtime module swapping without sacrificing compile-time safety.
 
-The behaviour pattern is distinct from [protocols](/glossary/protocol/) in Elixir, which dispatch based on data type. Behaviours dispatch based on module identity -- you choose which implementation module to use, and all implementations share the same function signatures. This makes behaviours ideal for infrastructure contracts (storage adapters, authentication strategies, communication transports) where the choice of implementation is a configuration decision, not a data-driven dispatch.
+The behaviour pattern is distinct from [protocols](@/glossary/protocol.md) in Elixir, which dispatch based on data type. Behaviours dispatch based on module identity -- you choose which implementation module to use, and all implementations share the same function signatures. This makes behaviours ideal for infrastructure contracts (storage adapters, authentication strategies, communication transports) where the choice of implementation is a configuration decision, not a data-driven dispatch.
 
-In the [Prismatic Platform](/glossary/aiad/), the behaviour pattern is the primary mechanism for defining contracts between umbrella applications. Storage adapters, agent definitions, protocol engines, quality checkers, and OSINT tool adapters all use behaviours to specify their contracts, enabling clean separation between interface and implementation across 115 umbrella applications.
+In the [Prismatic Platform](@/glossary/aiad.md), the behaviour pattern is the primary mechanism for defining contracts between umbrella applications. Storage adapters, agent definitions, protocol engines, quality checkers, and OSINT tool adapters all use behaviours to specify their contracts, enabling clean separation between interface and implementation across 115 umbrella applications.
 
 ## Overview
 
@@ -48,7 +48,7 @@ The behaviour pattern in Elixir has its roots in Erlang's OTP design principles,
 
 Understanding the behaviour pattern requires grasping three key ideas:
 
-1. **Separation of generic and specific logic.** The behaviour module contains the generic infrastructure (process management, message routing, error handling), while the implementing module contains only the domain-specific callbacks. [GenServer](/glossary/genserver/) is the canonical example: it handles process lifecycle and message dispatch; the implementing module handles business logic in `handle_call/3`, `handle_cast/2`, etc.
+1. **Separation of generic and specific logic.** The behaviour module contains the generic infrastructure (process management, message routing, error handling), while the implementing module contains only the domain-specific callbacks. [GenServer](@/glossary/genserver.md) is the canonical example: it handles process lifecycle and message dispatch; the implementing module handles business logic in `handle_call/3`, `handle_cast/2`, etc.
 
 2. **Compile-time contract verification.** When a module declares `@behaviour MyBehaviour`, the compiler checks that all required `@callback` functions are implemented. Missing callbacks produce compilation warnings (or errors with `--warnings-as-errors`). This catches interface violations before runtime.
 
@@ -462,7 +462,7 @@ The behaviour pattern is pervasive across the Prismatic Platform's 115 umbrella 
 
 ### PrismaticSupervisor Backend Pattern
 
-The [PrismaticSupervisor](/glossary/supervision/) uses behaviours to abstract the process registry backend, enabling ETS in development and Horde in production:
+The [PrismaticSupervisor](@/glossary/supervision.md) uses behaviours to abstract the process registry backend, enabling ETS in development and Horde in production:
 
 ```elixir
 defmodule PrismaticSupervisor.Registry.Behaviour do
@@ -497,7 +497,7 @@ Behaviours are the correct choice when the implementation is selected by configu
 
 **Always use `@impl` annotations on callback implementations.** The `@impl Behaviour` annotation serves two purposes: it documents which behaviour a function implements, and it triggers a compiler warning if the function does not match any callback in the declared behaviour. This catches typos and arity mismatches at compile time.
 
-**Define typespecs on all callbacks.** The `@callback` declaration should include complete typespecs. This enables [Dialyzer](/glossary/dialyzer/) to verify that implementations return the correct types and that callers handle all possible return values.
+**Define typespecs on all callbacks.** The `@callback` declaration should include complete typespecs. This enables [Dialyzer](@/glossary/dialyzer.md) to verify that implementations return the correct types and that callers handle all possible return values.
 
 **Use `@optional_callbacks` for genuinely optional functionality.** Not every implementation needs every callback. Mark callbacks as optional when a reasonable default exists. The behaviour module can provide a `__using__` macro that supplies default implementations for optional callbacks.
 
@@ -525,7 +525,7 @@ Behaviours are the correct choice when the implementation is selected by configu
 
 ### Storage Adapter Abstraction
 
-The platform's storage layer uses behaviours to abstract over ETS, [Ecto](/glossary/ecto/), Meilisearch, and KuzuDB. Application code calls `Prismatic.Storage.get/2` without knowing which backend is active. In development, ETS provides zero-configuration speed; in production, Ecto provides PostgreSQL durability.
+The platform's storage layer uses behaviours to abstract over ETS, [Ecto](@/glossary/ecto.md), Meilisearch, and KuzuDB. Application code calls `Prismatic.Storage.get/2` without knowing which backend is active. In development, ETS provides zero-configuration speed; in production, Ecto provides PostgreSQL durability.
 
 ### Agent Definition Contracts
 
@@ -541,27 +541,27 @@ Quality checks in the platform implement the `Quality.Check` behaviour, which de
 
 ## Related Concepts
 
-- [Behaviour](/glossary/behaviour/) -- The foundational OTP concept underlying the pattern
-- [Protocol](/glossary/protocol/) -- Data-type-driven dispatch complementing module-driven behaviours
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Design pattern commonly implemented via behaviours
-- [GenServer](/glossary/genserver/) -- The most widely used OTP behaviour
-- [OTP Behaviour](/glossary/otp-behaviour/) -- Standard OTP behaviours (gen_server, supervisor, etc.)
-- [Dependency Injection](/glossary/dependency-injection/) -- Pattern enabled by behaviour-based module swapping
-- [Supervision Tree](/glossary/supervision-tree/) -- Supervisor behaviour defining restart contracts
-- [Gen Statem](/glossary/gen-statem/) -- State machine behaviour for explicit state transitions
-- [Elixir](/glossary/elixir/) -- Language providing the `@behaviour` and `@callback` syntax
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis tool that verifies behaviour implementations
+- [Behaviour](@/glossary/behaviour.md) -- The foundational OTP concept underlying the pattern
+- [Protocol](@/glossary/protocol.md) -- Data-type-driven dispatch complementing module-driven behaviours
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Design pattern commonly implemented via behaviours
+- [GenServer](@/glossary/genserver.md) -- The most widely used OTP behaviour
+- [OTP Behaviour](@/glossary/otp-behaviour.md) -- Standard OTP behaviours (gen_server, supervisor, etc.)
+- [Dependency Injection](@/glossary/dependency-injection.md) -- Pattern enabled by behaviour-based module swapping
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Supervisor behaviour defining restart contracts
+- [Gen Statem](@/glossary/gen-statem.md) -- State machine behaviour for explicit state transitions
+- [Elixir](@/glossary/elixir.md) -- Language providing the `@behaviour` and `@callback` syntax
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis tool that verifies behaviour implementations
 
 ## See Also
 
-- [OTP](/glossary/otp/) -- Framework providing standard behaviours
-- [ETS](/glossary/ets/) -- Common backend for behaviour implementations
-- [Credo](/glossary/credo/) -- Static analysis checking behaviour usage patterns
-- [Process Isolation](/glossary/process-isolation/) -- Process model that behaviours abstract over
-- [Registry OTP](/glossary/registry-otp/) -- OTP registry using behaviour-based backends
-- [AIAD](/glossary/aiad/) -- Agent standard built on behaviour contracts
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- 115 umbrella applications using behaviour patterns
+- [OTP](@/glossary/otp.md) -- Framework providing standard behaviours
+- [ETS](@/glossary/ets.md) -- Common backend for behaviour implementations
+- [Credo](@/glossary/credo.md) -- Static analysis checking behaviour usage patterns
+- [Process Isolation](@/glossary/process-isolation.md) -- Process model that behaviours abstract over
+- [Registry OTP](@/glossary/registry-otp.md) -- OTP registry using behaviour-based backends
+- [AIAD](@/glossary/aiad.md) -- Agent standard built on behaviour contracts
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- 115 umbrella applications using behaviour patterns
 
 ---
 
@@ -570,4 +570,4 @@ Quality checks in the platform implement the `Quality.Check` behaviour, which de
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

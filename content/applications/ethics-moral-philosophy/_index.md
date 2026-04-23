@@ -52,9 +52,9 @@ tags = ["applications", "ethics--moral-philosophy", "prismatic", "research-frame
 
 ## Abstract
 
-This document provides a comprehensive overview of the Prismatic Platform's ethics and moral philosophy research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](/glossary/multi-agent-systems/), [epistemic verification](/glossary/epistemic-validation/), and [formal verification](/glossary/formal-verification/) to problems in computational ethics, value alignment, and moral reasoning. The domain spans five primary research areas: foundational ethical theory simulation, AI ethics and alignment, justice and fairness analysis, applied ethics in professional contexts, and rights and dignity frameworks.
+This document provides a comprehensive overview of the Prismatic Platform's ethics and moral philosophy research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](@/glossary/multi-agent-systems.md), [epistemic verification](@/glossary/epistemic-validation.md), and [formal verification](@/glossary/formal-verification.md) to problems in computational ethics, value alignment, and moral reasoning. The domain spans five primary research areas: foundational ethical theory simulation, AI ethics and alignment, justice and fairness analysis, applied ethics in professional contexts, and rights and dignity frameworks.
 
-Each framework leverages the platform's [agent orchestration](/glossary/agent-orchestration/) infrastructure, [contradiction preservation](/glossary/contradiction-preservation/) axiom, and formal reasoning capabilities to model the inherent tensions and trade-offs characteristic of ethical reasoning. Moral philosophy is uniquely suited to the platform's epistemic approach -- ethical dilemmas are defined by the presence of genuine contradictions between competing moral principles, and the platform's commitment to preserving rather than resolving contradictions maps directly to the philosophical recognition that some ethical tensions cannot be dissolved but must be navigated.
+Each framework leverages the platform's [agent orchestration](@/glossary/agent-orchestration.md) infrastructure, [contradiction preservation](@/glossary/contradiction-preservation.md) axiom, and formal reasoning capabilities to model the inherent tensions and trade-offs characteristic of ethical reasoning. Moral philosophy is uniquely suited to the platform's epistemic approach -- ethical dilemmas are defined by the presence of genuine contradictions between competing moral principles, and the platform's commitment to preserving rather than resolving contradictions maps directly to the philosophical recognition that some ethical tensions cannot be dissolved but must be navigated.
 
 ## Introduction
 
@@ -62,7 +62,7 @@ Each framework leverages the platform's [agent orchestration](/glossary/agent-or
 
 Ethics and moral philosophy represent the foundational domain for studying value-laden reasoning under genuine uncertainty. Unlike empirical domains where more data can resolve disputes, ethical questions involve irreducible tensions between competing principles -- autonomy versus beneficence, individual rights versus collective welfare, justice versus mercy. These tensions make ethics a natural fit for computational frameworks that preserve contradiction and track the provenance of moral reasoning.
 
-The Prismatic Platform's ethics domain was conceived to study how [multi-agent architectures](/glossary/multi-agent-system/) can model moral deliberation, where agents representing different ethical frameworks (deontological, consequentialist, virtue-based, care-based) engage in structured argumentation. The platform's [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework ensures that the full complexity of ethical reasoning is preserved rather than flattened into simplistic utility calculations.
+The Prismatic Platform's ethics domain was conceived to study how [multi-agent architectures](@/glossary/multi-agent-system.md) can model moral deliberation, where agents representing different ethical frameworks (deontological, consequentialist, virtue-based, care-based) engage in structured argumentation. The platform's [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework ensures that the full complexity of ethical reasoning is preserved rather than flattened into simplistic utility calculations.
 
 ### Problem Definition
 
@@ -80,12 +80,12 @@ The Prismatic Platform's ethics domain was conceived to study how [multi-agent a
 
 | Platform Component | Ethics Application | Research Purpose |
 |-------------------|----------------------|------------------|
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Moral dilemma modeling | Preserve genuine ethical tensions rather than forcing resolution |
-| **[Formal Verification](/glossary/formal-verification/)** | Ethical argument analysis | Study logical properties of moral arguments |
-| **[Agent Orchestration](/glossary/agent-orchestration/)** | Multi-framework deliberation | Simulate agents with different ethical frameworks |
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multi-perspective moral assessment | Require multiple ethical perspectives before judgments |
-| **[NABLA Infinity](/glossary/nabla-infinity/) Axioms** | Epistemic humility in ethics | Model uncertainty about moral conclusions |
-| **[Compliance Framework](/glossary/compliance-framework/)** | Regulatory ethics modeling | Study ethical compliance requirements |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Moral dilemma modeling | Preserve genuine ethical tensions rather than forcing resolution |
+| **[Formal Verification](@/glossary/formal-verification.md)** | Ethical argument analysis | Study logical properties of moral arguments |
+| **[Agent Orchestration](@/glossary/agent-orchestration.md)** | Multi-framework deliberation | Simulate agents with different ethical frameworks |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multi-perspective moral assessment | Require multiple ethical perspectives before judgments |
+| **[NABLA Infinity](@/glossary/nabla-infinity.md) Axioms** | Epistemic humility in ethics | Model uncertainty about moral conclusions |
+| **[Compliance Framework](@/glossary/compliance-framework.md)** | Regulatory ethics modeling | Study ethical compliance requirements |
 
 ## Research Domain Taxonomy
 
@@ -95,11 +95,11 @@ Research into computational modeling of classical ethical theories and their int
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Trolley variants & extensions](/applications/ethics-moral-philosophy/trolley-variants-extensions/) | Classic moral dilemma analysis | Thomson's trolley problem and variants |
-| [Virtue conflict reconciliation](/applications/ethics-moral-philosophy/virtue-conflict-reconciliation/) | Competing virtue resolution modeling | Aristotelian virtue ethics |
-| [Autonomy vs beneficence tradeoffs](/applications/ethics-moral-philosophy/autonomy-vs-beneficence-tradeoffs/) | Principlist conflict analysis | Beauchamp & Childress principlism |
-| [Loyalty vs justice dilemmas](/applications/ethics-moral-philosophy/loyalty-vs-justice-dilemmas/) | Loyalty-justice tension modeling | Relational ethics and impartiality theory |
-| [Moral injury therapy scenarios](/applications/ethics-moral-philosophy/moral-injury-therapy-scenarios/) | Moral injury impact modeling | Moral injury theory (Shay, Litz) |
+| [Trolley variants & extensions](@/applications/ethics-moral-philosophy/trolley-variants-extensions.md) | Classic moral dilemma analysis | Thomson's trolley problem and variants |
+| [Virtue conflict reconciliation](@/applications/ethics-moral-philosophy/virtue-conflict-reconciliation.md) | Competing virtue resolution modeling | Aristotelian virtue ethics |
+| [Autonomy vs beneficence tradeoffs](@/applications/ethics-moral-philosophy/autonomy-vs-beneficence-tradeoffs.md) | Principlist conflict analysis | Beauchamp & Childress principlism |
+| [Loyalty vs justice dilemmas](@/applications/ethics-moral-philosophy/loyalty-vs-justice-dilemmas.md) | Loyalty-justice tension modeling | Relational ethics and impartiality theory |
+| [Moral injury therapy scenarios](@/applications/ethics-moral-philosophy/moral-injury-therapy-scenarios.md) | Moral injury impact modeling | Moral injury theory (Shay, Litz) |
 
 ### Domain 2: AI Ethics and Alignment (5 frameworks)
 
@@ -107,13 +107,13 @@ Theoretical models for studying AI-specific ethical questions including alignmen
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [AI alignment thought experiments](/applications/ethics-moral-philosophy/ai-alignment-thought-experiments/) | Value alignment scenario analysis | AI safety and alignment theory |
-| [Digital personhood evaluator](/applications/ethics-moral-philosophy/digital-personhood-evaluator/) | Machine moral status assessment | Philosophy of mind and personhood criteria |
-| [AI rights debate workshop](/applications/ethics-moral-philosophy/ai-rights-debate-workshop/) | AI rights argumentation analysis | Legal and moral rights theory |
-| [Dual-use technology governance](/applications/ethics-moral-philosophy/dual-use-technology-governance/) | Dual-use research ethics | Responsible innovation frameworks |
-| [Deception ethics boundary tests](/applications/ethics-moral-philosophy/deception-ethics-boundary-tests/) | AI deception permissibility analysis | Ethics of deception theory |
+| [AI alignment thought experiments](@/applications/ethics-moral-philosophy/ai-alignment-thought-experiments.md) | Value alignment scenario analysis | AI safety and alignment theory |
+| [Digital personhood evaluator](@/applications/ethics-moral-philosophy/digital-personhood-evaluator.md) | Machine moral status assessment | Philosophy of mind and personhood criteria |
+| [AI rights debate workshop](@/applications/ethics-moral-philosophy/ai-rights-debate-workshop.md) | AI rights argumentation analysis | Legal and moral rights theory |
+| [Dual-use technology governance](@/applications/ethics-moral-philosophy/dual-use-technology-governance.md) | Dual-use research ethics | Responsible innovation frameworks |
+| [Deception ethics boundary tests](@/applications/ethics-moral-philosophy/deception-ethics-boundary-tests.md) | AI deception permissibility analysis | Ethics of deception theory |
 
-The AI alignment framework applies the platform's [contradiction preservation](/glossary/contradiction-preservation/) axiom to study how value alignment problems fundamentally involve tensions between multiple stakeholder values that cannot always be simultaneously satisfied. Rather than seeking a single "aligned" objective function, the framework studies how competing values interact and which trade-offs different alignment approaches implicitly encode.
+The AI alignment framework applies the platform's [contradiction preservation](@/glossary/contradiction-preservation.md) axiom to study how value alignment problems fundamentally involve tensions between multiple stakeholder values that cannot always be simultaneously satisfied. Rather than seeking a single "aligned" objective function, the framework studies how competing values interact and which trade-offs different alignment approaches implicitly encode.
 
 ### Domain 3: Justice and Fairness Analysis (5 frameworks)
 
@@ -121,11 +121,11 @@ Frameworks for studying distributive justice, fairness metrics, and equity in au
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Bias & fairness audit engine](/applications/ethics-moral-philosophy/bias-fairness-audit-engine/) | Algorithmic fairness analysis | Fairness metrics and impossibility theorems |
-| [Medical triage fairness models](/applications/ethics-moral-philosophy/medical-triage-fairness-models/) | Healthcare resource allocation ethics | Distributive justice in healthcare |
-| [Intergenerational equity models](/applications/ethics-moral-philosophy/intergenerational-equity-models/) | Cross-generational fairness modeling | Rawlsian veil of ignorance and sustainability |
-| [Environmental justice simulator](/applications/ethics-moral-philosophy/environmental-justice-simulator/) | Environmental burden distribution | Environmental justice theory |
-| [Restorative justice negotiation](/applications/ethics-moral-philosophy/restorative-justice-negotiation/) | Restorative vs. retributive justice modeling | Restorative justice theory |
+| [Bias & fairness audit engine](@/applications/ethics-moral-philosophy/bias-fairness-audit-engine.md) | Algorithmic fairness analysis | Fairness metrics and impossibility theorems |
+| [Medical triage fairness models](@/applications/ethics-moral-philosophy/medical-triage-fairness-models.md) | Healthcare resource allocation ethics | Distributive justice in healthcare |
+| [Intergenerational equity models](@/applications/ethics-moral-philosophy/intergenerational-equity-models.md) | Cross-generational fairness modeling | Rawlsian veil of ignorance and sustainability |
+| [Environmental justice simulator](@/applications/ethics-moral-philosophy/environmental-justice-simulator.md) | Environmental burden distribution | Environmental justice theory |
+| [Restorative justice negotiation](@/applications/ethics-moral-philosophy/restorative-justice-negotiation.md) | Restorative vs. retributive justice modeling | Restorative justice theory |
 
 ### Domain 4: Applied Professional Ethics (5 frameworks)
 
@@ -133,11 +133,11 @@ Research into ethical reasoning in professional and organizational contexts.
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Corporate ethics stress tests](/applications/ethics-moral-philosophy/corporate-ethics-stress-tests/) | Organizational ethical resilience | Business ethics and corporate governance |
-| [Whistleblower protection simulator](/applications/ethics-moral-philosophy/whistleblower-protection-simulator/) | Whistleblowing decision modeling | Whistleblower ethics and protection theory |
-| [Just war doctrine evaluator](/applications/ethics-moral-philosophy/just-war-doctrine-evaluator/) | Just war criteria formal analysis | Just war theory (jus ad bellum, jus in bello) |
-| [Consent integrity checker](/applications/ethics-moral-philosophy/consent-integrity-checker/) | Informed consent validity analysis | Consent theory and autonomy |
-| [Data privacy value analysis](/applications/ethics-moral-philosophy/data-privacy-value-analysis/) | Privacy as value analysis | Information ethics and privacy theory |
+| [Corporate ethics stress tests](@/applications/ethics-moral-philosophy/corporate-ethics-stress-tests.md) | Organizational ethical resilience | Business ethics and corporate governance |
+| [Whistleblower protection simulator](@/applications/ethics-moral-philosophy/whistleblower-protection-simulator.md) | Whistleblowing decision modeling | Whistleblower ethics and protection theory |
+| [Just war doctrine evaluator](@/applications/ethics-moral-philosophy/just-war-doctrine-evaluator.md) | Just war criteria formal analysis | Just war theory (jus ad bellum, jus in bello) |
+| [Consent integrity checker](@/applications/ethics-moral-philosophy/consent-integrity-checker.md) | Informed consent validity analysis | Consent theory and autonomy |
+| [Data privacy value analysis](@/applications/ethics-moral-philosophy/data-privacy-value-analysis.md) | Privacy as value analysis | Information ethics and privacy theory |
 
 ### Domain 5: Rights, Dignity, and Responsibility (5 frameworks)
 
@@ -145,11 +145,11 @@ Frameworks for studying rights theory, dignity concepts, and collective responsi
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Human dignity resonance scorer](/applications/ethics-moral-philosophy/human-dignity-resonance-scorer/) | Dignity impact assessment modeling | Kantian dignity theory |
-| [Collective responsibility mapping](/applications/ethics-moral-philosophy/collective-responsibility-mapping/) | Collective action responsibility attribution | Collective responsibility theory |
-| [Animal welfare moral calculus](/applications/ethics-moral-philosophy/animal-welfare-moral-calculus/) | Non-human moral status modeling | Animal rights and welfare theory |
-| [Surveillance proportionality auditor](/applications/ethics-moral-philosophy/surveillance-proportionality-auditor/) | Surveillance ethics proportionality | Proportionality principle in rights theory |
-| [Harm reduction policy sandbox](/applications/ethics-moral-philosophy/harm-reduction-policy-sandbox/) | Harm reduction ethics modeling | Pragmatic harm reduction theory |
+| [Human dignity resonance scorer](@/applications/ethics-moral-philosophy/human-dignity-resonance-scorer.md) | Dignity impact assessment modeling | Kantian dignity theory |
+| [Collective responsibility mapping](@/applications/ethics-moral-philosophy/collective-responsibility-mapping.md) | Collective action responsibility attribution | Collective responsibility theory |
+| [Animal welfare moral calculus](@/applications/ethics-moral-philosophy/animal-welfare-moral-calculus.md) | Non-human moral status modeling | Animal rights and welfare theory |
+| [Surveillance proportionality auditor](@/applications/ethics-moral-philosophy/surveillance-proportionality-auditor.md) | Surveillance ethics proportionality | Proportionality principle in rights theory |
+| [Harm reduction policy sandbox](@/applications/ethics-moral-philosophy/harm-reduction-policy-sandbox.md) | Harm reduction ethics modeling | Pragmatic harm reduction theory |
 
 ## Theoretical Foundations
 
@@ -157,55 +157,55 @@ Frameworks for studying rights theory, dignity concepts, and collective responsi
 
 | NABLA Axiom | Ethical Interpretation | Research Application |
 |-------------|--------------------------|---------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple ethical frameworks required before moral assessment | Models moral pluralism requirement |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Genuine moral dilemmas preserved -- not all ethical tensions are resolvable | Core axiom for moral philosophy modeling |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple ethical frameworks required before moral assessment | Models moral pluralism requirement |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Genuine moral dilemmas preserved -- not all ethical tensions are resolvable | Core axiom for moral philosophy modeling |
 | **Absence Informative** | Unexamined moral implications carry ethical weight | Models obligation to consider unstated consequences |
-| **[Time Decay](/glossary/time-decay/)** | Ethical assessments may evolve as moral understanding develops | Models moral progress and evolving standards |
+| **[Time Decay](@/glossary/time-decay.md)** | Ethical assessments may evolve as moral understanding develops | Models moral progress and evolving standards |
 | **Unknown Valid** | Moral uncertainty as legitimate philosophical state | Supports moral epistemology research |
 | **Source Independence** | Independent ethical analyses weighted higher than derivative opinions | Models independent moral reasoning requirement |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | All moral conclusions traceable to principles and reasoning | Supports ethical transparency and accountability |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | All moral conclusions traceable to principles and reasoning | Supports ethical transparency and accountability |
 
 ## Contents
 
 ### Foundational Ethical Theory
 
-- [Trolley variants & extensions](/applications/ethics-moral-philosophy/trolley-variants-extensions/) -- Classic moral dilemma computational analysis
-- [Virtue conflict reconciliation](/applications/ethics-moral-philosophy/virtue-conflict-reconciliation/) -- Competing virtue resolution modeling
-- [Autonomy vs beneficence tradeoffs](/applications/ethics-moral-philosophy/autonomy-vs-beneficence-tradeoffs/) -- Principlist conflict analysis
-- [Loyalty vs justice dilemmas](/applications/ethics-moral-philosophy/loyalty-vs-justice-dilemmas/) -- Loyalty-justice tension modeling
-- [Moral injury therapy scenarios](/applications/ethics-moral-philosophy/moral-injury-therapy-scenarios/) -- Moral injury impact modeling
+- [Trolley variants & extensions](@/applications/ethics-moral-philosophy/trolley-variants-extensions.md) -- Classic moral dilemma computational analysis
+- [Virtue conflict reconciliation](@/applications/ethics-moral-philosophy/virtue-conflict-reconciliation.md) -- Competing virtue resolution modeling
+- [Autonomy vs beneficence tradeoffs](@/applications/ethics-moral-philosophy/autonomy-vs-beneficence-tradeoffs.md) -- Principlist conflict analysis
+- [Loyalty vs justice dilemmas](@/applications/ethics-moral-philosophy/loyalty-vs-justice-dilemmas.md) -- Loyalty-justice tension modeling
+- [Moral injury therapy scenarios](@/applications/ethics-moral-philosophy/moral-injury-therapy-scenarios.md) -- Moral injury impact modeling
 
 ### AI Ethics and Alignment
 
-- [AI alignment thought experiments](/applications/ethics-moral-philosophy/ai-alignment-thought-experiments/) -- Value alignment scenario analysis
-- [Digital personhood evaluator](/applications/ethics-moral-philosophy/digital-personhood-evaluator/) -- Machine moral status assessment
-- [AI rights debate workshop](/applications/ethics-moral-philosophy/ai-rights-debate-workshop/) -- AI rights argumentation
-- [Dual-use technology governance](/applications/ethics-moral-philosophy/dual-use-technology-governance/) -- Dual-use research ethics
-- [Deception ethics boundary tests](/applications/ethics-moral-philosophy/deception-ethics-boundary-tests/) -- AI deception permissibility
+- [AI alignment thought experiments](@/applications/ethics-moral-philosophy/ai-alignment-thought-experiments.md) -- Value alignment scenario analysis
+- [Digital personhood evaluator](@/applications/ethics-moral-philosophy/digital-personhood-evaluator.md) -- Machine moral status assessment
+- [AI rights debate workshop](@/applications/ethics-moral-philosophy/ai-rights-debate-workshop.md) -- AI rights argumentation
+- [Dual-use technology governance](@/applications/ethics-moral-philosophy/dual-use-technology-governance.md) -- Dual-use research ethics
+- [Deception ethics boundary tests](@/applications/ethics-moral-philosophy/deception-ethics-boundary-tests.md) -- AI deception permissibility
 
 ### Justice and Fairness
 
-- [Bias & fairness audit engine](/applications/ethics-moral-philosophy/bias-fairness-audit-engine/) -- Algorithmic fairness analysis
-- [Medical triage fairness models](/applications/ethics-moral-philosophy/medical-triage-fairness-models/) -- Healthcare allocation ethics
-- [Intergenerational equity models](/applications/ethics-moral-philosophy/intergenerational-equity-models/) -- Cross-generational fairness
-- [Environmental justice simulator](/applications/ethics-moral-philosophy/environmental-justice-simulator/) -- Environmental burden distribution
-- [Restorative justice negotiation](/applications/ethics-moral-philosophy/restorative-justice-negotiation/) -- Restorative vs. retributive justice
+- [Bias & fairness audit engine](@/applications/ethics-moral-philosophy/bias-fairness-audit-engine.md) -- Algorithmic fairness analysis
+- [Medical triage fairness models](@/applications/ethics-moral-philosophy/medical-triage-fairness-models.md) -- Healthcare allocation ethics
+- [Intergenerational equity models](@/applications/ethics-moral-philosophy/intergenerational-equity-models.md) -- Cross-generational fairness
+- [Environmental justice simulator](@/applications/ethics-moral-philosophy/environmental-justice-simulator.md) -- Environmental burden distribution
+- [Restorative justice negotiation](@/applications/ethics-moral-philosophy/restorative-justice-negotiation.md) -- Restorative vs. retributive justice
 
 ### Applied Professional Ethics
 
-- [Corporate ethics stress tests](/applications/ethics-moral-philosophy/corporate-ethics-stress-tests/) -- Organizational ethical resilience
-- [Whistleblower protection simulator](/applications/ethics-moral-philosophy/whistleblower-protection-simulator/) -- Whistleblowing decision modeling
-- [Just war doctrine evaluator](/applications/ethics-moral-philosophy/just-war-doctrine-evaluator/) -- Just war criteria analysis
-- [Consent integrity checker](/applications/ethics-moral-philosophy/consent-integrity-checker/) -- Informed consent validation
-- [Data privacy value analysis](/applications/ethics-moral-philosophy/data-privacy-value-analysis/) -- Privacy value assessment
+- [Corporate ethics stress tests](@/applications/ethics-moral-philosophy/corporate-ethics-stress-tests.md) -- Organizational ethical resilience
+- [Whistleblower protection simulator](@/applications/ethics-moral-philosophy/whistleblower-protection-simulator.md) -- Whistleblowing decision modeling
+- [Just war doctrine evaluator](@/applications/ethics-moral-philosophy/just-war-doctrine-evaluator.md) -- Just war criteria analysis
+- [Consent integrity checker](@/applications/ethics-moral-philosophy/consent-integrity-checker.md) -- Informed consent validation
+- [Data privacy value analysis](@/applications/ethics-moral-philosophy/data-privacy-value-analysis.md) -- Privacy value assessment
 
 ### Rights, Dignity, and Responsibility
 
-- [Human dignity resonance scorer](/applications/ethics-moral-philosophy/human-dignity-resonance-scorer/) -- Dignity impact assessment
-- [Collective responsibility mapping](/applications/ethics-moral-philosophy/collective-responsibility-mapping/) -- Collective action responsibility
-- [Animal welfare moral calculus](/applications/ethics-moral-philosophy/animal-welfare-moral-calculus/) -- Non-human moral status
-- [Surveillance proportionality auditor](/applications/ethics-moral-philosophy/surveillance-proportionality-auditor/) -- Surveillance ethics
-- [Harm reduction policy sandbox](/applications/ethics-moral-philosophy/harm-reduction-policy-sandbox/) -- Harm reduction ethics
+- [Human dignity resonance scorer](@/applications/ethics-moral-philosophy/human-dignity-resonance-scorer.md) -- Dignity impact assessment
+- [Collective responsibility mapping](@/applications/ethics-moral-philosophy/collective-responsibility-mapping.md) -- Collective action responsibility
+- [Animal welfare moral calculus](@/applications/ethics-moral-philosophy/animal-welfare-moral-calculus.md) -- Non-human moral status
+- [Surveillance proportionality auditor](@/applications/ethics-moral-philosophy/surveillance-proportionality-auditor.md) -- Surveillance ethics
+- [Harm reduction policy sandbox](@/applications/ethics-moral-philosophy/harm-reduction-policy-sandbox.md) -- Harm reduction ethics
 
 ## Future Research Directions
 
@@ -219,12 +219,12 @@ Frameworks for studying rights theory, dignity concepts, and collective responsi
 
 ### Internal Documentation
 
-- [Platform Capabilities](/capabilities/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Formal Verification](/glossary/formal-verification/)
-- [Contradiction Preservation](/glossary/contradiction-preservation/)
-- [Compliance Framework](/glossary/compliance-framework/)
+- [Platform Capabilities](@/capabilities/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Formal Verification](@/glossary/formal-verification.md)
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md)
+- [Compliance Framework](@/glossary/compliance-framework.md)
 
 ### External Standards and Literature
 
@@ -244,4 +244,4 @@ Frameworks for studying rights theory, dignity concepts, and collective responsi
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

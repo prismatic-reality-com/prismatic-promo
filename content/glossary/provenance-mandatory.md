@@ -20,7 +20,7 @@ image_alt = "Provenance Mandatory - Prismatic Platform"
 
 ## Definition
 
-Provenance Mandatory is the seventh and arguably most operationally consequential axiom of the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. It requires that every belief, conclusion, and knowledge claim in the platform maintains a complete, traceable chain of custody back to its original source signals. No knowledge can exist in the system without an auditable provenance trail documenting where it came from, how it was processed, and what transformations it underwent. This axiom enables verification, debugging, and accountability for all platform knowledge.
+Provenance Mandatory is the seventh and arguably most operationally consequential axiom of the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. It requires that every belief, conclusion, and knowledge claim in the platform maintains a complete, traceable chain of custody back to its original source signals. No knowledge can exist in the system without an auditable provenance trail documenting where it came from, how it was processed, and what transformations it underwent. This axiom enables verification, debugging, and accountability for all platform knowledge.
 
 The concept draws directly from forensic science and legal evidence handling, where the chain of custody determines whether evidence is admissible. A blood sample that cannot be traced from collection to laboratory to courtroom is worthless regardless of its content. NABLA Infinity applies the same standard to epistemic evidence: a belief that cannot be traced from raw signal through processing pipeline to final conclusion is epistemically inadmissible, regardless of how plausible it appears.
 
@@ -92,11 +92,11 @@ end
 
 ## Implementation in the Belief Graph
 
-The [belief graph](/glossary/belief-graph/) is the platform's primary data structure for representing knowledge, and provenance is woven into its fabric at the structural level. Every node in the belief graph -- whether it represents a raw signal, a processed evidence item, or a derived conclusion -- carries a `provenance` field that is non-nullable in the schema definition.
+The [belief graph](@/glossary/belief-graph.md) is the platform's primary data structure for representing knowledge, and provenance is woven into its fabric at the structural level. Every node in the belief graph -- whether it represents a raw signal, a processed evidence item, or a derived conclusion -- carries a `provenance` field that is non-nullable in the schema definition.
 
 When a new node is created in the belief graph, the provenance field must be populated before the node is persisted. The storage layer enforces this constraint at the write path: any attempt to insert a node with a nil or empty provenance field results in an immediate rejection with error `{:error, :provenance_required}`. This structural enforcement means that provenance compliance is not a runtime check that can be skipped -- it is a data model invariant.
 
-The belief graph also supports **provenance queries**: given any node, the system can traverse the provenance links backward to produce the complete chain from conclusion to raw data. These queries are used by the [White Team](/glossary/white-team/) for formal verification, by the [Blue Team](/glossary/blue-team/) for defensive posture assessment, and by platform operators for debugging and audit.
+The belief graph also supports **provenance queries**: given any node, the system can traverse the provenance links backward to produce the complete chain from conclusion to raw data. These queries are used by the [White Team](@/glossary/white-team.md) for formal verification, by the [Blue Team](@/glossary/blue-team.md) for defensive posture assessment, and by platform operators for debugging and audit.
 
 ## Relationship to Audit Trail
 
@@ -115,21 +115,21 @@ The two systems are complementary. An auditor might use the audit trail to ident
 
 ## Integration with QEVE
 
-The [QEVE](/glossary/qeve/) (Quality and Epistemic Verification Engine) verification pipeline depends on provenance data at every stage. When QEVE evaluates a belief for [Trinity Gate](/glossary/trinity-gate/) passage, the first check is provenance completeness: does the belief have an unbroken chain from conclusion to raw signals?
+The [QEVE](@/glossary/qeve.md) (Quality and Epistemic Verification Engine) verification pipeline depends on provenance data at every stage. When QEVE evaluates a belief for [Trinity Gate](@/glossary/trinity-gate.md) passage, the first check is provenance completeness: does the belief have an unbroken chain from conclusion to raw signals?
 
 QEVE's verification stages interact with provenance as follows:
 
 1. **Graph Build Stage**: Constructs the belief graph from input signals. Every node created receives provenance metadata automatically. Signals without source identification are rejected.
 
-2. **Axiom Compliance Stage**: Validates all seven [NABLA Infinity](/glossary/nabla-infinity/) axioms. For Provenance Mandatory specifically, this stage verifies that every link in the chain is present, that hash integrity is maintained, and that no gaps exist in the transformation history.
+2. **Axiom Compliance Stage**: Validates all seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms. For Provenance Mandatory specifically, this stage verifies that every link in the chain is present, that hash integrity is maintained, and that no gaps exist in the transformation history.
 
-3. **Confidence Calculation Stage**: Uses provenance chain length and transformation count as inputs to the [confidence scoring](/glossary/confidence-scoring/) formula. Longer chains with more transformations receive a small confidence penalty reflecting the accumulated uncertainty of multi-step inference.
+3. **Confidence Calculation Stage**: Uses provenance chain length and transformation count as inputs to the [confidence scoring](@/glossary/confidence-scoring.md) formula. Longer chains with more transformations receive a small confidence penalty reflecting the accumulated uncertainty of multi-step inference.
 
-4. **Trinity Gate Evaluation Stage**: The structural consistency check verifies that provenance links form a valid DAG (no cycles). The logical consistency check verifies that each inference step follows valid rules. The [formal verification](/glossary/formal-verification/) check can use provenance to trace specific inference steps for [Lean4](/glossary/lean4/) proof verification.
+4. **Trinity Gate Evaluation Stage**: The structural consistency check verifies that provenance links form a valid DAG (no cycles). The logical consistency check verifies that each inference step follows valid rules. The [formal verification](@/glossary/formal-verification.md) check can use provenance to trace specific inference steps for [Lean4](@/glossary/lean4.md) proof verification.
 
 ## Implementation in Elixir
 
-The provenance system is implemented as an [OTP](/glossary/otp/) application with [GenServer](/glossary/genserver/)-backed storage and compile-time schema enforcement:
+The provenance system is implemented as an [OTP](@/glossary/otp.md) application with [GenServer](@/glossary/genserver.md)-backed storage and compile-time schema enforcement:
 
 ```elixir
 defmodule PrismaticEpistemic.ProvenanceStore do
@@ -240,7 +240,7 @@ NABLA's provenance is not blockchain-based because the platform does not require
 
 In practice, provenance tracking manifests most visibly in the platform's OSINT intelligence gathering pipelines. Consider a typical due diligence workflow:
 
-1. A [Shodan](/glossary/shodan/) scan discovers an open port on a target company's IP address. The raw scan result is stored with provenance: `{source: "shodan", collection_timestamp: ~U[2026-02-14 10:00:00Z], collector: "osint-scanner-agent"}`.
+1. A [Shodan](@/glossary/shodan.md) scan discovers an open port on a target company's IP address. The raw scan result is stored with provenance: `{source: "shodan", collection_timestamp: ~U[2026-02-14 10:00:00Z], collector: "osint-scanner-agent"}`.
 
 2. The evidence extraction agent processes the raw scan into a structured finding: "Port 3306 (MySQL) open on 203.0.113.42." Provenance records the extraction: `{input: shodan_signal_ref, method: "port_classification", extractor: "evidence-extractor-agent"}`.
 
@@ -289,7 +289,7 @@ defmodule PrismaticEpistemic.MultiAgentProvenance do
 end
 ```
 
-This multi-agent provenance tracking is essential for the [Purple Team](/glossary/purple-team/) security operations, where findings pass through Gray (boundary exploration), Red (adversarial simulation), Blue (defensive assessment), and Purple (synthesis) teams. Each team's contribution to a security finding is documented in the provenance chain, enabling post-incident analysis of how conclusions were reached and where disagreements occurred between teams.
+This multi-agent provenance tracking is essential for the [Purple Team](@/glossary/purple-team.md) security operations, where findings pass through Gray (boundary exploration), Red (adversarial simulation), Blue (defensive assessment), and Purple (synthesis) teams. Each team's contribution to a security finding is documented in the provenance chain, enabling post-incident analysis of how conclusions were reached and where disagreements occurred between teams.
 
 ## Enforcement and Violation Handling
 
@@ -298,34 +298,34 @@ Provenance Mandatory is enforced at HARD level with E2 BLOCK response. The enfor
 | Layer | Enforcement Mechanism | Response to Violation |
 |-------|----------------------|----------------------|
 | **Data Model** | Non-nullable provenance field in belief schema | Insertion fails at schema level |
-| **Pipeline** | Pre-processing validation in [epistemic pipeline](/glossary/epistemic-pipeline/) | Signal rejected before entering pipeline |
+| **Pipeline** | Pre-processing validation in [epistemic pipeline](@/glossary/epistemic-pipeline.md) | Signal rejected before entering pipeline |
 | **Agent Runtime** | Agent output validation before belief publication | Agent output rejected, error logged |
 | **QEVE** | Axiom compliance check during verification | Belief fails Trinity Gate evaluation |
 | **Audit** | Periodic provenance integrity scans | Integrity violations escalated to E3 HALT |
 
-The multi-layer enforcement ensures that provenance violations are caught at the earliest possible point. A signal without source identification never enters the pipeline. An agent output without inference chain documentation never becomes a published belief. A belief with a broken provenance chain never passes [Trinity Gate](/glossary/trinity-gate/).
+The multi-layer enforcement ensures that provenance violations are caught at the earliest possible point. A signal without source identification never enters the pipeline. An agent output without inference chain documentation never becomes a published belief. A belief with a broken provenance chain never passes [Trinity Gate](@/glossary/trinity-gate.md).
 
 ## Related Terms
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework defining this axiom and its six siblings
-- [Signal Plurality](/glossary/signal-plurality/) -- Sister axiom requiring multiple independent sources per belief
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Sister axiom requiring both sides of contradictions be preserved
-- [Time Decay](/glossary/time-decay/) -- Sister axiom requiring beliefs to weaken as evidence ages
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- 16-level processing system maintaining provenance at every stage
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate that checks provenance chain integrity
-- [QEVE](/glossary/qeve/) -- Verification engine using provenance for axiom compliance
-- [Belief Graph](/glossary/belief-graph/) -- Data structure in which provenance chains are embedded
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Scoring system influenced by provenance chain characteristics
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Broader knowledge representation incorporating provenance
-- [Blue Team](/glossary/blue-team/) -- Defensive team that validates provenance integrity across the platform
-- [White Team](/glossary/white-team/) -- Verification team using provenance for formal proof construction
-- [Entity Resolution](/glossary/entity-resolution/) -- Process requiring provenance to track source attribution
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework defining this axiom and its six siblings
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Sister axiom requiring multiple independent sources per belief
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Sister axiom requiring both sides of contradictions be preserved
+- [Time Decay](@/glossary/time-decay.md) -- Sister axiom requiring beliefs to weaken as evidence ages
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- 16-level processing system maintaining provenance at every stage
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate that checks provenance chain integrity
+- [QEVE](@/glossary/qeve.md) -- Verification engine using provenance for axiom compliance
+- [Belief Graph](@/glossary/belief-graph.md) -- Data structure in which provenance chains are embedded
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Scoring system influenced by provenance chain characteristics
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Broader knowledge representation incorporating provenance
+- [Blue Team](@/glossary/blue-team.md) -- Defensive team that validates provenance integrity across the platform
+- [White Team](@/glossary/white-team.md) -- Verification team using provenance for formal proof construction
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Process requiring provenance to track source attribution
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Capabilities](/capabilities/) -- Platform capability descriptions
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Capabilities](@/capabilities/_index.md) -- Platform capability descriptions
 
 ---
 
@@ -334,4 +334,4 @@ The multi-layer enforcement ensures that provenance violations are caught at the
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

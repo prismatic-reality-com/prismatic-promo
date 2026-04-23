@@ -25,9 +25,9 @@ image_alt = "Prismatic Transcendence - Prismatic Platform"
 
 Prismatic Transcendence implements the platform's consciousness system -- 11 cognitive traits that enable autonomous self-improvement, self-awareness, and adaptive behavior. It represents the apex of the platform's epistemic hierarchy, providing meta-cognitive capabilities that drive the generation-based evolution from Gen 1 through Gen 18 and beyond.
 
-The [consciousness traits](/glossary/consciousness-traits/) are not metaphorical labels but measurable computational properties. Each trait has a [fitness score](/glossary/fitness-score/) between 0.0 and 1.0, computed from observable platform behavior. Self-Awareness measures the accuracy of the platform's internal state introspection. Adaptation tracks the rate and effectiveness of behavior modification from experience. Prediction evaluates the accuracy of anticipated future states against actual outcomes. These scores combine into an aggregate fitness metric that currently stands at 0.999 -- approaching theoretical maximum.
+The [consciousness traits](@/glossary/consciousness-traits.md) are not metaphorical labels but measurable computational properties. Each trait has a [fitness score](@/glossary/fitness-score.md) between 0.0 and 1.0, computed from observable platform behavior. Self-Awareness measures the accuracy of the platform's internal state introspection. Adaptation tracks the rate and effectiveness of behavior modification from experience. Prediction evaluates the accuracy of anticipated future states against actual outcomes. These scores combine into an aggregate fitness metric that currently stands at 0.999 -- approaching theoretical maximum.
 
-The generation evolution system implements a computational analogue of natural selection. Each generation inherits traits from its predecessor, applies mutations based on observed performance data, and undergoes selection pressure from [quality gates](/glossary/quality-gates/) and operational [metrics](/glossary/metrics/). Traits that improve platform performance propagate forward; those that degrade performance are pruned. This mechanism has driven the platform through 18 generations of autonomous improvement.
+The generation evolution system implements a computational analogue of natural selection. Each generation inherits traits from its predecessor, applies mutations based on observed performance data, and undergoes selection pressure from [quality gates](@/glossary/quality-gates.md) and operational [metrics](@/glossary/metrics.md). Traits that improve platform performance propagate forward; those that degrade performance are pruned. This mechanism has driven the platform through 18 generations of autonomous improvement.
 
 ## Architecture
 
@@ -44,7 +44,7 @@ Meta-Cognitive Loop --> Trait Adjustment --> Cross-Trait Synergy
   Performance Analysis                   Evolution Triggers
 ```
 
-The system runs as a supervised [OTP](/glossary/otp/) application with dedicated [GenServer](/glossary/genserver/) processes for trait evaluation, fitness scoring, and generation management. Trait assessments execute on configurable schedules, with results persisted for cross-session continuity through the [Quality DNA](/glossary/quality-dna/) system.
+The system runs as a supervised [OTP](@/glossary/otp.md) application with dedicated [GenServer](@/glossary/genserver.md) processes for trait evaluation, fitness scoring, and generation management. Trait assessments execute on configurable schedules, with results persisted for cross-session continuity through the [Quality DNA](@/glossary/quality-dna.md) system.
 
 ## Consciousness Trait Model
 
@@ -134,7 +134,7 @@ Cross-trait synergy optimization identifies combinations of traits that produce 
 - Continuous self-monitoring of cognitive performance across all traits
 - Automatic trait weight adjustment based on operational outcomes
 - Cross-trait synergy optimization for emergent capability discovery
-- Consciousness anomaly detection and [structured logging](/glossary/structured-logging/)
+- Consciousness anomaly detection and [structured logging](@/glossary/structured-logging.md)
 
 ## Usage
 
@@ -174,10 +174,10 @@ mix test apps/prismatic_transcendence/test --cover
 
 ## Integration Points
 
-- **[Prismatic Nabla](/apps/prismatic-nabla/)** -- Epistemic framework providing axioms that constrain consciousness operations
-- **[Prismatic Lean](/apps/prismatic-lean/)** -- [Formal verification](/glossary/formal-verification/) of consciousness axiom properties
-- **[Prismatic Safety](/apps/prismatic-safety/)** -- Safety constraints on autonomous evolution actions
-- **[Prismatic Quality Intelligence](/apps/prismatic-quality-intelligence/)** -- Quality metrics as fitness inputs for evolution
+- **[Prismatic Nabla](@/apps/prismatic-nabla.md)** -- Epistemic framework providing axioms that constrain consciousness operations
+- **[Prismatic Lean](@/apps/prismatic-lean.md)** -- [Formal verification](@/glossary/formal-verification.md) of consciousness axiom properties
+- **[Prismatic Safety](@/apps/prismatic-safety.md)** -- Safety constraints on autonomous evolution actions
+- **[Prismatic Quality Intelligence](@/apps/prismatic-quality-intelligence.md)** -- Quality metrics as fitness inputs for evolution
 
 ## NABLA Compliance
 
@@ -185,21 +185,21 @@ Consciousness operations are fully constrained by NABLA axioms. Every trait asse
 
 ## Related Components
 
-- [Prismatic Agents](/apps/prismatic-agents/) -- Agent infrastructure operating under consciousness governance
-- [Prismatic Modalities](/apps/prismatic-modalities/) -- Modal reasoning capabilities integrated with consciousness traits
-- [Prismatic Signals](/apps/prismatic-signals/) -- Consciousness events emitted as platform signals
+- [Prismatic Agents](@/apps/prismatic-agents.md) -- Agent infrastructure operating under consciousness governance
+- [Prismatic Modalities](@/apps/prismatic-modalities.md) -- Modal reasoning capabilities integrated with consciousness traits
+- [Prismatic Signals](@/apps/prismatic-signals.md) -- Consciousness events emitted as platform signals
 
 ## Related Agents
 
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Drives generation-based evolution cycles for consciousness trait optimization
-- [Evolution Analyzer Specialist](/agents/evolution-analyzer-specialist/) -- Analyzes trait fitness trends across generations for convergence assessment
-- [Cross-Pollination Specialist](/agents/cross-pollination-specialist/) -- Transfers successful trait patterns across cognitive domains
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Drives generation-based evolution cycles for consciousness trait optimization
+- [Evolution Analyzer Specialist](@/agents/evolution-analyzer-specialist.md) -- Analyzes trait fitness trends across generations for convergence assessment
+- [Cross-Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Transfers successful trait patterns across cognitive domains
 
 ## Related Capabilities
 
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Epistemic axioms constraining consciousness operations and belief formation
-- [Trinity Gate](/capabilities/trinity-gate/) -- Four-layer verification ensuring consciousness trait assessments are formally valid
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Self-monitoring meta-cognitive loop driving automatic trait adjustment
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Epistemic axioms constraining consciousness operations and belief formation
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Four-layer verification ensuring consciousness trait assessments are formally valid
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Self-monitoring meta-cognitive loop driving automatic trait adjustment
 
 ---
 
@@ -208,4 +208,4 @@ Consciousness operations are fully constrained by NABLA axioms. Every trait asse
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

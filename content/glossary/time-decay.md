@@ -21,11 +21,11 @@ image_alt = "Time Decay - Prismatic Platform"
 
 ## Definition
 
-Time Decay is the fourth of seven [NABLA Infinity](/glossary/nabla-infinity/) axioms and one of five carrying HARD enforcement (E2 BLOCK on violation). It mandates two non-negotiable requirements: every evidence signal and every derived belief must carry a mandatory timestamp recording when the evidence was collected or the belief was formed, and the weight of every signal must decrease over time according to a configurable decay function. Evidence without timestamps is rejected. Evidence with timestamps but without decay applied is rejected. There is no exception, no override, and no emergency bypass.
+Time Decay is the fourth of seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms and one of five carrying HARD enforcement (E2 BLOCK on violation). It mandates two non-negotiable requirements: every evidence signal and every derived belief must carry a mandatory timestamp recording when the evidence was collected or the belief was formed, and the weight of every signal must decrease over time according to a configurable decay function. Evidence without timestamps is rejected. Evidence with timestamps but without decay applied is rejected. There is no exception, no override, and no emergency bypass.
 
 The axiom addresses a specific and pervasive failure mode in intelligence and due diligence systems: the treatment of historical evidence as though it were current. A sanctions database entry from three years ago, a financial report from last quarter, and a real-time security scan from this morning all contribute to an assessment, but they carry fundamentally different levels of reliability. The sanctions entry may reflect a situation that has been resolved. The financial report may be outdated by a market shift. Only the real-time scan reflects the current state of affairs. Time Decay forces the platform to recognize these differences structurally, not through ad hoc analyst judgment.
 
-Within the Prismatic Platform, Time Decay operates at the [belief graph](/glossary/belief-graph/) level. Every edge in the graph carries a decay function and a half-life, and edge weights are recomputed continuously as time passes. A signal that was weighted 0.85 at collection may decay to 0.42 after one half-life, 0.21 after two half-lives, and 0.11 after three. The decay is automatic, continuous, and auditable -- it does not require analyst intervention, cannot be selectively disabled, and produces a complete temporal record in the [audit trail](/glossary/audit-trail/).
+Within the Prismatic Platform, Time Decay operates at the [belief graph](@/glossary/belief-graph.md) level. Every edge in the graph carries a decay function and a half-life, and edge weights are recomputed continuously as time passes. A signal that was weighted 0.85 at collection may decay to 0.42 after one half-life, 0.21 after two half-lives, and 0.11 after three. The decay is automatic, continuous, and auditable -- it does not require analyst intervention, cannot be selectively disabled, and produces a complete temporal record in the [audit trail](@/glossary/audit-trail.md).
 
 ## Temporal Epistemology
 
@@ -148,7 +148,7 @@ The half-life parameter is domain-specific and calibrated through empirical anal
 
 ### Dynamic Half-Life Adjustment
 
-The platform can adjust half-lives dynamically based on domain volatility. If a particular sector is experiencing rapid regulatory change (e.g., new sanctions regimes, emergency legislation), the half-life for regulatory signals in that sector can be shortened to reflect the increased rate of change. This adjustment is logged in the [audit trail](/glossary/audit-trail/) with full justification.
+The platform can adjust half-lives dynamically based on domain volatility. If a particular sector is experiencing rapid regulatory change (e.g., new sanctions regimes, emergency legislation), the half-life for regulatory signals in that sector can be shortened to reflect the increased rate of change. This adjustment is logged in the [audit trail](@/glossary/audit-trail.md) with full justification.
 
 ## DateTime Precision
 
@@ -156,13 +156,13 @@ The NABLA Time Decay axiom requires microsecond-precision timestamps using the `
 
 1. **Ordering guarantee**: Two signals collected milliseconds apart can be correctly ordered
 2. **Decay precision**: Decay calculations do not lose precision due to timestamp rounding
-3. **Audit accuracy**: The [audit trail](/glossary/audit-trail/) can reconstruct the exact temporal sequence of signal processing
+3. **Audit accuracy**: The [audit trail](@/glossary/audit-trail.md) can reconstruct the exact temporal sequence of signal processing
 
 The platform enforces `DateTime` usage at compile time through Elixir typespecs and Dialyzer analysis. Any module that handles timestamps with `NaiveDateTime` (lacking timezone information) triggers a quality gate failure.
 
 ## Interaction with Confidence Scoring
 
-Time Decay affects [confidence scoring](/glossary/confidence-scoring/) through two mechanisms:
+Time Decay affects [confidence scoring](@/glossary/confidence-scoring.md) through two mechanisms:
 
 ### Direct Weight Reduction
 
@@ -179,15 +179,15 @@ As signals decay, belief_strength decreases, reducing final confidence. This is 
 
 ### Indirect Plurality Impact
 
-If a hypothesis is supported by three signals and two decay below the minimum weight threshold, the hypothesis may fall below the [Signal Plurality](/glossary/signal-plurality/) requirement (minimum two independent signals above threshold). This triggers a secondary confidence reduction or, in extreme cases, a plurality violation that blocks the assessment entirely.
+If a hypothesis is supported by three signals and two decay below the minimum weight threshold, the hypothesis may fall below the [Signal Plurality](@/glossary/signal-plurality.md) requirement (minimum two independent signals above threshold). This triggers a secondary confidence reduction or, in extreme cases, a plurality violation that blocks the assessment entirely.
 
 The interaction between time decay and plurality creates a "freshness pressure" on the platform: assessments naturally degrade over time and eventually require refreshment with new evidence. This is by design -- it prevents the platform from maintaining high confidence in conclusions that have not been recently validated.
 
 ## Interaction with Monte Carlo Verification
 
-The [Monte Carlo verification](/glossary/monte-carlo-verification/) stage includes temporal perturbation as one of its five perturbation categories. Temporal perturbation accelerates or decelerates decay functions by varying the half-life parameter, testing how sensitive the conclusion is to the specific decay calibration.
+The [Monte Carlo verification](@/glossary/monte-carlo-verification.md) stage includes temporal perturbation as one of its five perturbation categories. Temporal perturbation accelerates or decelerates decay functions by varying the half-life parameter, testing how sensitive the conclusion is to the specific decay calibration.
 
-A conclusion with high temporal [robustness](/glossary/epistemic-robustness/) survives a 50% acceleration of decay (half-lives shortened by half). A conclusion with low temporal robustness collapses under modest decay acceleration, indicating that it depends on borderline-fresh evidence that is near its effective expiration.
+A conclusion with high temporal [robustness](@/glossary/epistemic-robustness.md) survives a 50% acceleration of decay (half-lives shortened by half). A conclusion with low temporal robustness collapses under modest decay acceleration, indicating that it depends on borderline-fresh evidence that is near its effective expiration.
 
 The sensitivity report from Monte Carlo verification identifies specific signals whose decay status is critical: signals that are currently above the weight threshold but would fall below it with modest decay acceleration. These signals represent the temporal attack surface of the conclusion -- the evidence that will become insufficient soonest if not refreshed.
 
@@ -219,27 +219,27 @@ Epistemic time decay is conceptually similar to TTL but operates on a continuous
 
 Time Decay introduces a unique category of contradiction: temporal contradictions, where evidence from different time periods produces opposing conclusions. Signal A (from 6 months ago) says "Firm X is compliant" while Signal B (from yesterday) says "Firm X failed compliance audit."
 
-Temporal contradictions are handled through the [Contradiction Preservation](/glossary/contradiction-preservation/) axiom: both signals are preserved, but the time decay mechanism automatically reduces the weight of Signal A relative to Signal B. Over time, the temporal contradiction may "resolve" naturally as Signal A decays below the weight threshold, leaving Signal B as the dominant signal. However, the contradiction is never artificially resolved -- it persists in the belief graph as a historical record even after one side has decayed to negligible weight.
+Temporal contradictions are handled through the [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom: both signals are preserved, but the time decay mechanism automatically reduces the weight of Signal A relative to Signal B. Over time, the temporal contradiction may "resolve" naturally as Signal A decays below the weight threshold, leaving Signal B as the dominant signal. However, the contradiction is never artificially resolved -- it persists in the belief graph as a historical record even after one side has decayed to negligible weight.
 
 ## Related Terms
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Parent epistemic framework defining this axiom
-- [Belief Graph](/glossary/belief-graph/) -- Data structure where decay functions are applied to edge weights
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom interacting with decay through freshness pressure
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Decision thresholds applied to time-decayed confidence scores
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom requiring traceable timestamps for all evidence
-- [QEVE](/glossary/qeve/) -- Verification pipeline applying decay in Stage 1 (Graph Build)
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- Temporal dimension of robustness measurement
-- [Monte Carlo Verification](/glossary/monte-carlo-verification/) -- Temporal perturbation testing decay sensitivity
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Formula incorporating decayed evidence weights
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Axiom governing temporal contradictions
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of all decay calculations and adjustments
-- [EASM](/glossary/easm/) -- Security domain with aggressive decay rates for scan-based evidence
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Parent epistemic framework defining this axiom
+- [Belief Graph](@/glossary/belief-graph.md) -- Data structure where decay functions are applied to edge weights
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom interacting with decay through freshness pressure
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Decision thresholds applied to time-decayed confidence scores
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom requiring traceable timestamps for all evidence
+- [QEVE](@/glossary/qeve.md) -- Verification pipeline applying decay in Stage 1 (Graph Build)
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- Temporal dimension of robustness measurement
+- [Monte Carlo Verification](@/glossary/monte-carlo-verification.md) -- Temporal perturbation testing decay sensitivity
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Formula incorporating decayed evidence weights
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Axiom governing temporal contradictions
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of all decay calculations and adjustments
+- [EASM](@/glossary/easm.md) -- Security domain with aggressive decay rates for scan-based evidence
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -248,4 +248,4 @@ Temporal contradictions are handled through the [Contradiction Preservation](/gl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

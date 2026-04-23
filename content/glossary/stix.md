@@ -254,8 +254,8 @@ bundle = PrismaticThreatIntel.Stix.IndicatorBuilder.build_bundle(indicators)
 
 - **TAXII** - Transport protocol for exchanging STIX data
 - **Threat Feed** - Real-time intelligence stream often using STIX format
-- [OSINT](/glossary/osint/) - Intelligence source producing data convertible to STIX
-- [Signal](/glossary/signal/) - Platform-native evidence format derived from STIX objects
+- [OSINT](@/glossary/osint.md) - Intelligence source producing data convertible to STIX
+- [Signal](@/glossary/signal.md) - Platform-native evidence format derived from STIX objects
 
 ---
 

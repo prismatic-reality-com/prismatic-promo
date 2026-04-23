@@ -46,7 +46,7 @@ Code as Truth resolves this divergence by establishing a clear hierarchy: the co
 
 This principle has profound implications for how teams organize their work. If the code is truth, then reading code is a primary research skill, not a fallback when documentation is missing. If the code is truth, then keeping documentation synchronized with code is an ongoing engineering challenge, not an administrative task. If the code is truth, then code quality directly determines how readable and understandable the truth is -- poorly written code is an obscured truth, not just an aesthetic deficiency.
 
-The principle also intersects with [Code as Hypothesis](/glossary/code-as-hypothesis/) in an important way: the code is the truth about what the system does, but that truth is provisional. The system may be doing the wrong thing. The code tells you what *is*; testing, review, and production observation tell you whether what *is* matches what *should be*.
+The principle also intersects with [Code as Hypothesis](@/glossary/code-as-hypothesis.md) in an important way: the code is the truth about what the system does, but that truth is provisional. The system may be doing the wrong thing. The code tells you what *is*; testing, review, and production observation tell you whether what *is* matches what *should be*.
 
 ## Technical Details
 
@@ -182,7 +182,7 @@ In this example, the code IS the documentation. The typespecs define the contrac
 
 ### Typespecs as Truth
 
-[Typespecs](/glossary/typespec/) in Elixir serve as machine-verifiable documentation that cannot drift from the implementation because [Dialyzer](/glossary/dialyzer/) validates them:
+[Typespecs](@/glossary/typespec.md) in Elixir serve as machine-verifiable documentation that cannot drift from the implementation because [Dialyzer](@/glossary/dialyzer.md) validates them:
 
 ```elixir
 # The typespec IS the API contract -- not a comment, not a wiki page
@@ -220,7 +220,7 @@ git blame apps/prismatic_perimeter/lib/prismatic_perimeter/security_rating.ex
 
 The Prismatic Platform implements Code as Truth through several architectural decisions that eliminate documentation-code divergence:
 
-**Auto-Introspecting API**: The [Prismatic API](/glossary/api/) gateway does not maintain a separate API specification. Instead, it scans all `Prismatic*` facade modules at boot time, extracts their public functions, maps their typespecs to OpenAPI schemas, and generates the API documentation automatically. The documentation IS the code.
+**Auto-Introspecting API**: The [Prismatic API](@/glossary/api.md) gateway does not maintain a separate API specification. Instead, it scans all `Prismatic*` facade modules at boot time, extracts their public functions, maps their typespecs to OpenAPI schemas, and generates the API documentation automatically. The documentation IS the code.
 
 **CLAUDE.md as Executable Instructions**: The platform's development protocols are encoded in `CLAUDE.md` files that Claude Code reads and follows. These are not aspirational guidelines -- they are executed instructions that directly govern behavior. When the `CLAUDE.md` says "run `mix quality.gates` before committing," that is what happens.
 
@@ -297,7 +297,7 @@ end
 
 ### Comment Accuracy Through Static Analysis
 
-[Credo](/glossary/credo/) checks verify that documentation aligns with code. Missing `@moduledoc`, undocumented public functions, and mismatched documentation are flagged as violations. This keeps the documentation layer of the code honest:
+[Credo](@/glossary/credo.md) checks verify that documentation aligns with code. Missing `@moduledoc`, undocumented public functions, and mismatched documentation are flagged as violations. This keeps the documentation layer of the code honest:
 
 ```elixir
 # Credo enforces documentation presence
@@ -455,26 +455,26 @@ When documentation has drifted to the point of uselessness, code archeology -- r
 
 ## Related Concepts
 
-- [Code Quality](/glossary/code-quality/) -- determines how readable and navigable the truth is
-- [Documentation](/glossary/documentation/) -- supplementary artifacts that provide context around the code truth
-- [Specification](/glossary/specification/) -- a description of intended behavior that may drift from the code truth
-- [Code as Hypothesis](/glossary/code-as-hypothesis/) -- complementary principle: the code truth is provisional
-- [Typespec](/glossary/typespec/) -- machine-verifiable documentation embedded in the code
-- [Credo](/glossary/credo/) -- enforces that the code truth is well-structured and readable
-- [Static Analysis](/glossary/static-analysis/) -- automated verification of code properties
-- [Refactoring](/glossary/refactoring/) -- improving how the truth is expressed without changing its meaning
-- [Clean Run](/glossary/clean-run/) -- the standard that the code truth compiles without warnings
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- doctrine that the truth must be fully verified
-- [Technical Debt](/glossary/technical-debt/) -- the cost of truth that has become difficult to read or modify
-- [Formal Verification](/glossary/formal-verification/) -- mathematical proof of properties the truth must hold
+- [Code Quality](@/glossary/code-quality.md) -- determines how readable and navigable the truth is
+- [Documentation](@/glossary/documentation.md) -- supplementary artifacts that provide context around the code truth
+- [Specification](@/glossary/specification.md) -- a description of intended behavior that may drift from the code truth
+- [Code as Hypothesis](@/glossary/code-as-hypothesis.md) -- complementary principle: the code truth is provisional
+- [Typespec](@/glossary/typespec.md) -- machine-verifiable documentation embedded in the code
+- [Credo](@/glossary/credo.md) -- enforces that the code truth is well-structured and readable
+- [Static Analysis](@/glossary/static-analysis.md) -- automated verification of code properties
+- [Refactoring](@/glossary/refactoring.md) -- improving how the truth is expressed without changing its meaning
+- [Clean Run](@/glossary/clean-run.md) -- the standard that the code truth compiles without warnings
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- doctrine that the truth must be fully verified
+- [Technical Debt](@/glossary/technical-debt.md) -- the cost of truth that has become difficult to read or modify
+- [Formal Verification](@/glossary/formal-verification.md) -- mathematical proof of properties the truth must hold
 
 ## See Also
 
-- [Dialyzer](/glossary/dialyzer/) -- validates typespecs against the code truth through success typing
-- [Quality Gate](/glossary/quality-gate/) -- automated verification that the truth meets standards
-- [Pre-commit Hooks](/glossary/pre-commit-hooks/) -- enforcement that the truth is validated before recording
-- [Development Workflow](/glossary/development-workflow/) -- the process through which truth is authored and verified
-- [AIAD](/glossary/aiad/) -- the standard that structures truth about agent capabilities
+- [Dialyzer](@/glossary/dialyzer.md) -- validates typespecs against the code truth through success typing
+- [Quality Gate](@/glossary/quality-gate.md) -- automated verification that the truth meets standards
+- [Pre-commit Hooks](@/glossary/pre-commit-hooks.md) -- enforcement that the truth is validated before recording
+- [Development Workflow](@/glossary/development-workflow.md) -- the process through which truth is authored and verified
+- [AIAD](@/glossary/aiad.md) -- the standard that structures truth about agent capabilities
 
 ---
 
@@ -483,4 +483,4 @@ When documentation has drifted to the point of uselessness, code archeology -- r
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

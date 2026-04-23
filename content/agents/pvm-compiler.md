@@ -28,21 +28,21 @@ image_alt = "pvm-compiler - Prismatic Platform"
 
 ## Overview
 
-The [pvm](/glossary/pvm/)-compiler operates as an L4 Domain Authority within the Prismatic Platform's compilation domain, providing high-performance compilation of intermediate representation (IR) workflows into optimized PVM bytecode for execution on the Prismatic Virtual Machine. This agent transforms declarative workflow specifications -- agent orchestration plans, pipeline definitions, and multi-step operational sequences -- into efficient executable representations that the [pvm-executor](/agents/pvm-executor/) can dispatch with minimal runtime overhead. The compiler applies multi-level optimization passes that eliminate redundant operations, reorder instructions for optimal resource utilization, and generate specialized code paths for common execution patterns.
+The [pvm](@/glossary/pvm.md)-compiler operates as an L4 Domain Authority within the Prismatic Platform's compilation domain, providing high-performance compilation of intermediate representation (IR) workflows into optimized PVM bytecode for execution on the Prismatic Virtual Machine. This agent transforms declarative workflow specifications -- agent orchestration plans, pipeline definitions, and multi-step operational sequences -- into efficient executable representations that the [pvm-executor](@/agents/pvm-executor.md) can dispatch with minimal runtime overhead. The compiler applies multi-level optimization passes that eliminate redundant operations, reorder instructions for optimal resource utilization, and generate specialized code paths for common execution patterns.
 
-The PVM compiler serves a critical role in the platform's performance architecture: the quality of compiled bytecode directly affects the execution speed of every agent workflow, quality gate evaluation, and pipeline operation. Built on the [BEAM](/glossary/beam/) virtual machine using [OTP](/glossary/otp/) process isolation, the compiler runs as a dedicated [GenServer](/glossary/genserver/) process that accepts compilation requests, applies the optimization pipeline, and produces verified bytecode artifacts. Compiled artifacts are cached in [ETS](/glossary/ets/) tables with invalidation triggered by source workflow modifications, achieving sub-millisecond dispatch for previously compiled workflows while maintaining correctness guarantees through cache coherence protocols.
+The PVM compiler serves a critical role in the platform's performance architecture: the quality of compiled bytecode directly affects the execution speed of every agent workflow, quality gate evaluation, and pipeline operation. Built on the [BEAM](@/glossary/beam.md) virtual machine using [OTP](@/glossary/otp.md) process isolation, the compiler runs as a dedicated [GenServer](@/glossary/genserver.md) process that accepts compilation requests, applies the optimization pipeline, and produces verified bytecode artifacts. Compiled artifacts are cached in [ETS](@/glossary/ets.md) tables with invalidation triggered by source workflow modifications, achieving sub-millisecond dispatch for previously compiled workflows while maintaining correctness guarantees through cache coherence protocols.
 
 ## Compilation Pipeline Architecture
 
 The compiler implements a multi-phase compilation pipeline that progressively transforms high-level workflow specifications into optimized executable bytecode.
 
-**Phase 1: Parsing and Validation** ingests workflow specifications in the platform's declarative format and validates them against the PVM instruction set specification. Syntactic validation ensures structural correctness, while semantic validation verifies that all referenced agents, capabilities, and resources exist in the [AIAD](/glossary/aiad/) registry. Invalid workflows are rejected with precise error diagnostics identifying the specific validation failure.
+**Phase 1: Parsing and Validation** ingests workflow specifications in the platform's declarative format and validates them against the PVM instruction set specification. Syntactic validation ensures structural correctness, while semantic validation verifies that all referenced agents, capabilities, and resources exist in the [AIAD](@/glossary/aiad.md) registry. Invalid workflows are rejected with precise error diagnostics identifying the specific validation failure.
 
 **Phase 2: IR Generation** translates validated workflow specifications into the compiler's intermediate representation -- a directed acyclic graph (DAG) of typed operations connected by data flow edges. Each IR node represents a single computational step (agent invocation, data transformation, conditional branch, resource acquisition) annotated with type information, resource requirements, and estimated execution cost. The IR serves as the common representation for all subsequent optimization passes.
 
 **Phase 3: Optimization** applies a configurable sequence of optimization passes to the IR graph. Each pass transforms the graph to improve execution efficiency while preserving semantic equivalence with the original specification. The optimization pipeline is itself configurable, with different optimization levels for development (minimal optimization, fast compilation) and production (aggressive optimization, slower compilation).
 
-**Phase 4: Code Generation** translates the optimized IR into PVM bytecode -- the binary instruction format executed by the PVM executor. Code generation produces compact bytecode with embedded metadata for debugging, profiling, and [hot code reload](/glossary/hot-code-reload/) support.
+**Phase 4: Code Generation** translates the optimized IR into PVM bytecode -- the binary instruction format executed by the PVM executor. Code generation produces compact bytecode with embedded metadata for debugging, profiling, and [hot code reload](@/glossary/hot-code-reload.md) support.
 
 **Phase 5: Verification** validates the compiled bytecode against the original specification through symbolic execution, confirming that the compiled code produces identical outputs for all valid inputs. This final verification step catches any correctness bugs introduced by optimization passes.
 
@@ -72,7 +72,7 @@ Bytecode artifacts include embedded symbol tables mapping instruction addresses 
 
 ## Cache Architecture
 
-Compiled bytecode is cached in [ETS](/glossary/ets/) tables indexed by workflow specification hash, enabling sub-millisecond lookup for previously compiled workflows. The cache implements a coherence protocol that invalidates entries when source specifications change, agent capabilities are modified, or platform configuration affects compilation output.
+Compiled bytecode is cached in [ETS](@/glossary/ets.md) tables indexed by workflow specification hash, enabling sub-millisecond lookup for previously compiled workflows. The cache implements a coherence protocol that invalidates entries when source specifications change, agent capabilities are modified, or platform configuration affects compilation output.
 
 Cache warming runs during platform startup, pre-compiling frequently-used workflows to eliminate first-execution compilation latency. The cache also supports incremental compilation: when a workflow specification changes, only the affected IR subgraph is recompiled and merged with the cached bytecode for unchanged portions.
 
@@ -89,24 +89,24 @@ Cache warming runs during platform startup, pre-compiling frequently-used workfl
 
 | Agent | Relationship |
 |-------|-------------|
-| [pvm-executor](/agents/pvm-executor/) | Consumes compiled bytecode for workflow execution |
-| [pvm-adaptive-scheduler](/agents/pvm-adaptive-scheduler/) | Compilation task scheduling and resource allocation |
-| [pvm-tracer](/agents/pvm-tracer/) | Provides execution profiling data for optimization guidance |
-| [quality-gates-specialist](/agents/quality-gates-specialist/) | Compilation quality verification within quality gate pipeline |
+| [pvm-executor](@/agents/pvm-executor.md) | Consumes compiled bytecode for workflow execution |
+| [pvm-adaptive-scheduler](@/agents/pvm-adaptive-scheduler.md) | Compilation task scheduling and resource allocation |
+| [pvm-tracer](@/agents/pvm-tracer.md) | Provides execution profiling data for optimization guidance |
+| [quality-gates-specialist](@/agents/quality-gates-specialist.md) | Compilation quality verification within quality gate pipeline |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Compilation performance [metrics](/glossary/metrics/) and cache statistics |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent capability lookup for compilation validation |
-| [ETS](/glossary/ets/) Cache | Compiled bytecode storage with coherence management |
-| [SEADF](/glossary/seadf/) Pipeline | Evolution workflow compilation and optimization |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Compilation performance [metrics](@/glossary/metrics.md) and cache statistics |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent capability lookup for compilation validation |
+| [ETS](@/glossary/ets.md) Cache | Compiled bytecode storage with coherence management |
+| [SEADF](@/glossary/seadf.md) Pipeline | Evolution workflow compilation and optimization |
 
 ## Enforcement
 
-Compilation operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine -- bytecode that fails verification against the source specification is rejected, and optimization passes that introduce correctness bugs are immediately disabled and flagged for investigation. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every compiled artifact includes verification evidence demonstrating semantic equivalence with its source specification. The [Trinity Gate](/glossary/trinity-gate/) validates compilation outputs through structural consistency (bytecode instruction sequence is well-formed), logical consistency (data flow types match across instruction boundaries), and formal necessity (compiled behavior matches specification for all valid inputs).
+Compilation operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine -- bytecode that fails verification against the source specification is rejected, and optimization passes that introduce correctness bugs are immediately disabled and flagged for investigation. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every compiled artifact includes verification evidence demonstrating semantic equivalence with its source specification. The [Trinity Gate](@/glossary/trinity-gate.md) validates compilation outputs through structural consistency (bytecode instruction sequence is well-formed), logical consistency (data flow types match across instruction boundaries), and formal necessity (compiled behavior matches specification for all valid inputs).
 
 ---
 
@@ -115,4 +115,4 @@ Compilation operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

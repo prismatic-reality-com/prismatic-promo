@@ -28,11 +28,11 @@ image_alt = "replication-specialist - Prismatic Platform"
 
 ## Overview
 
-The replication-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's infrastructure domain, serving as the expert agent for database replication setup, configuration, monitoring, and management across the platform's [PostgreSQL](/glossary/postgresql/) infrastructure. In a platform processing intelligence data across multiple storage backends, replication is not merely a backup mechanism -- it provides read scaling, geographic distribution, disaster recovery, and zero-downtime maintenance capabilities essential for production reliability.
+The replication-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's infrastructure domain, serving as the expert agent for database replication setup, configuration, monitoring, and management across the platform's [PostgreSQL](@/glossary/postgresql.md) infrastructure. In a platform processing intelligence data across multiple storage backends, replication is not merely a backup mechanism -- it provides read scaling, geographic distribution, disaster recovery, and zero-downtime maintenance capabilities essential for production reliability.
 
-The replication-specialist manages PostgreSQL streaming replication, logical replication for selective data distribution, and [ETS](/glossary/ets/) table replication for in-memory state synchronization across distributed [BEAM](/glossary/beam/) nodes. Each replication topology serves different operational requirements: streaming replication provides byte-level consistency for disaster recovery, logical replication enables selective data distribution to analytical systems, and ETS replication ensures in-memory cache coherence across cluster nodes.
+The replication-specialist manages PostgreSQL streaming replication, logical replication for selective data distribution, and [ETS](@/glossary/ets.md) table replication for in-memory state synchronization across distributed [BEAM](@/glossary/beam.md) nodes. Each replication topology serves different operational requirements: streaming replication provides byte-level consistency for disaster recovery, logical replication enables selective data distribution to analytical systems, and ETS replication ensures in-memory cache coherence across cluster nodes.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, the replication-specialist enforces strict data consistency guarantees. Replication lag monitoring is continuous, and the agent ensures that no client reads stale data without explicit acknowledgment of eventual consistency semantics. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that replication health claims are backed by measurable metrics, not assumed from configuration correctness.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, the replication-specialist enforces strict data consistency guarantees. Replication lag monitoring is continuous, and the agent ensures that no client reads stale data without explicit acknowledgment of eventual consistency semantics. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that replication health claims are backed by measurable metrics, not assumed from configuration correctness.
 
 ## Replication Architecture
 
@@ -42,18 +42,18 @@ The platform's replication infrastructure operates at three levels, each serving
 
 **PostgreSQL logical replication** enables selective table-level replication from the primary database to subscriber databases. This supports scenarios including analytical database synchronization, cross-region data distribution, and major version upgrade testing. Logical replication operates through WAL decoding and publication/subscription mechanisms, allowing the specialist to configure precisely which tables and operations (INSERT, UPDATE, DELETE) are replicated.
 
-**ETS table replication** synchronizes in-memory state across distributed BEAM nodes. The platform uses ETS extensively for caching (API catalog, agent registry, quality state), and the replication-specialist ensures cache coherence when multiple nodes serve the same data. ETS replication uses the platform's [GenServer](/glossary/genserver/)-based synchronization protocol with conflict resolution strategies appropriate to each cache type.
+**ETS table replication** synchronizes in-memory state across distributed BEAM nodes. The platform uses ETS extensively for caching (API catalog, agent registry, quality state), and the replication-specialist ensures cache coherence when multiple nodes serve the same data. ETS replication uses the platform's [GenServer](@/glossary/genserver.md)-based synchronization protocol with conflict resolution strategies appropriate to each cache type.
 
 ## Key Capabilities
 
 - **Streaming replication management** -- Configures and monitors PostgreSQL streaming replication including WAL shipping, standby promotion, and automatic failover with bounded data loss guarantees
 - **Logical replication orchestration** -- Manages publication/subscription configurations for selective table replication, supporting analytical synchronization and cross-region distribution
-- **ETS cache coherence** -- Implements distributed [ETS](/glossary/ets/) table synchronization across BEAM cluster nodes with configurable conflict resolution strategies
+- **ETS cache coherence** -- Implements distributed [ETS](@/glossary/ets.md) table synchronization across BEAM cluster nodes with configurable conflict resolution strategies
 - **Replication lag monitoring** -- Provides real-time replication lag measurement across all replication streams with configurable alerting thresholds
 - **Failover automation** -- Orchestrates automatic failover from primary to standby with connection draining, standby promotion, and application connection reconfiguration
-- **[Circuit breaker](/glossary/circuit-breaker/) integration** -- Applies circuit breaker patterns to replication streams, preventing cascading failures when replication targets become unavailable
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous replication health monitoring and automatic recovery
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for replication lag, throughput, and health metric tracking
+- **[Circuit breaker](@/glossary/circuit-breaker.md) integration** -- Applies circuit breaker patterns to replication streams, preventing cascading failures when replication targets become unavailable
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous replication health monitoring and automatic recovery
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for replication lag, throughput, and health metric tracking
 
 ## Replication Topology
 
@@ -126,7 +126,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to configure replication topologies, execute failover procedures, and manage cross-node data synchronization.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to configure replication topologies, execute failover procedures, and manage cross-node data synchronization.
 
 ## Command Interface
 
@@ -141,14 +141,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [prismatic-supreme-commander](/agents/prismatic-supreme-commander/) | Failover decisions escalated for supreme approval |
-| [quality-enforcement-commander](/agents/quality-enforcement-commander/) | Replication health is a quality metric |
-| [prismatic-api-introspector](/agents/prismatic-api-introspector/) | API catalog ETS replication across cluster nodes |
-| [route-testing-supreme](/agents/route-testing-supreme/) | Route testing verifies failover does not break endpoints |
+| [prismatic-supreme-commander](@/agents/prismatic-supreme-commander.md) | Failover decisions escalated for supreme approval |
+| [quality-enforcement-commander](@/agents/quality-enforcement-commander.md) | Replication health is a quality metric |
+| [prismatic-api-introspector](@/agents/prismatic-api-introspector.md) | API catalog ETS replication across cluster nodes |
+| [route-testing-supreme](@/agents/route-testing-supreme.md) | Route testing verifies failover does not break endpoints |
 
 ## Enforcement
 
-Replication management operates under the [NO MERCY](/glossary/no-mercy/) doctrine: replication lag exceeding critical thresholds triggers immediate automated response, and no deployment is permitted when replication health is degraded. The [NO DOUBTS](/glossary/no-doubts/) principle requires that replication status claims are backed by actual lag measurements, not configuration assumptions. The [Trinity Gate](/glossary/trinity-gate/) validates replication topology configurations for structural consistency before application.
+Replication management operates under the [NO MERCY](@/glossary/no-mercy.md) doctrine: replication lag exceeding critical thresholds triggers immediate automated response, and no deployment is permitted when replication health is degraded. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that replication status claims are backed by actual lag measurements, not configuration assumptions. The [Trinity Gate](@/glossary/trinity-gate.md) validates replication topology configurations for structural consistency before application.
 
 ---
 
@@ -157,4 +157,4 @@ Replication management operates under the [NO MERCY](/glossary/no-mercy/) doctri
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

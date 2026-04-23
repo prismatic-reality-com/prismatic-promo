@@ -28,7 +28,7 @@ image_alt = "debug-investigation-specialist - Prismatic Platform"
 
 ## Overview
 
-The Debug Investigation Specialist operates as an L2 [tactical operations](/glossary/tactical-execution/) agent within the Primary Producer domain of the Prismatic Platform. This agent provides systematic debugging methodology and complex issue investigation capabilities, specializing in root cause analysis for issues that span multiple applications, involve concurrency problems, or manifest in the [BEAM](/glossary/beam/)/[OTP](/glossary/otp/) runtime in ways that require deep understanding of process scheduling, message passing, and supervision tree behavior.
+The Debug Investigation Specialist operates as an L2 [tactical operations](@/glossary/tactical-execution.md) agent within the Primary Producer domain of the Prismatic Platform. This agent provides systematic debugging methodology and complex issue investigation capabilities, specializing in root cause analysis for issues that span multiple applications, involve concurrency problems, or manifest in the [BEAM](@/glossary/beam.md)/[OTP](@/glossary/otp.md) runtime in ways that require deep understanding of process scheduling, message passing, and supervision tree behavior.
 
 Debugging in a 90-app umbrella architecture presents challenges that do not exist in simpler systems. Issues may originate in one application but manifest in another through indirect dependencies. Concurrency bugs in OTP processes may only appear under specific timing conditions. Memory leaks in long-running GenServers may accumulate over days before causing observable symptoms. The Debug Investigation Specialist addresses these challenges through a structured investigation methodology that systematically narrows the search space, gathering evidence at each step to guide the investigation toward the root cause.
 
@@ -72,7 +72,7 @@ Supervision tree investigation examines crash and restart patterns in OTP superv
 
 Production debugging requires techniques that provide diagnostic information without degrading service performance or risking data integrity.
 
-Non-intrusive observation uses [telemetry](/glossary/telemetry/) events, structured logging, and metrics to gather diagnostic data from production systems without attaching debuggers or adding breakpoints. The specialist designs telemetry instrumentation that provides sufficient diagnostic detail for common issue categories while maintaining acceptable performance overhead.
+Non-intrusive observation uses [telemetry](@/glossary/telemetry.md) events, structured logging, and metrics to gather diagnostic data from production systems without attaching debuggers or adding breakpoints. The specialist designs telemetry instrumentation that provides sufficient diagnostic detail for common issue categories while maintaining acceptable performance overhead.
 
 Sampling-based diagnostics collect detailed information from a statistically representative subset of operations rather than all operations. This approach provides sufficient evidence for investigation while keeping the overhead proportional to the sampling rate rather than the operation volume.
 
@@ -90,19 +90,19 @@ Monitoring enhancement adds or refines monitoring that would detect early sympto
 
 ## Authority Level
 
-**L2** - [Tactical Operations](/glossary/tactical-execution/) - Domain-specific tactical execution with cross-domain coordination capabilities for complex debugging investigations that span multiple applications.
+**L2** - [Tactical Operations](@/glossary/tactical-execution.md) - Domain-specific tactical execution with cross-domain coordination capabilities for complex debugging investigations that span multiple applications.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [code-specialist](/agents/code-specialist/) | Code Partner | Implements fixes identified through debugging investigation |
-| [database-performance-specialist](/agents/database-performance-specialist/) | Database Partner | Assists with database-related performance investigation |
-| [deployment-health-monitor](/agents/deployment-health-monitor/) | Monitoring Partner | Provides health metrics that may correlate with investigated issues |
+| [code-specialist](@/agents/code-specialist.md) | Code Partner | Implements fixes identified through debugging investigation |
+| [database-performance-specialist](@/agents/database-performance-specialist.md) | Database Partner | Assists with database-related performance investigation |
+| [deployment-health-monitor](@/agents/deployment-health-monitor.md) | Monitoring Partner | Provides health metrics that may correlate with investigated issues |
 
 ## Enforcement
 
-All debugging operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every root cause claim must be backed by reproduction evidence. Every fix must include a regression test that verifies the root cause has been eliminated. Production debugging operations must follow established safety protocols that prevent diagnostic activities from causing additional harm. Post-mortem analysis is mandatory for all significant production incidents. Hypotheses are never presented as conclusions without supporting evidence.
+All debugging operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every root cause claim must be backed by reproduction evidence. Every fix must include a regression test that verifies the root cause has been eliminated. Production debugging operations must follow established safety protocols that prevent diagnostic activities from causing additional harm. Post-mortem analysis is mandatory for all significant production incidents. Hypotheses are never presented as conclusions without supporting evidence.
 
 ---
 
@@ -111,4 +111,4 @@ All debugging operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

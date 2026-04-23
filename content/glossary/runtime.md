@@ -208,10 +208,10 @@ end
 
 ## Cross-References
 
-- [Process](/glossary/process/) - BEAM execution units managed by the runtime scheduler
+- [Process](@/glossary/process.md) - BEAM execution units managed by the runtime scheduler
 - **Scheduler** - Runtime component managing process execution
-- [Run Queue](/glossary/run-queue/) - Runtime queue depth indicating system load
-- [Profiling](/glossary/profiling/) - Runtime performance measurement techniques
+- [Run Queue](@/glossary/run-queue.md) - Runtime queue depth indicating system load
+- [Profiling](@/glossary/profiling.md) - Runtime performance measurement techniques
 - **Secrets** - Sensitive values loaded at runtime from environment variables
 
 ---

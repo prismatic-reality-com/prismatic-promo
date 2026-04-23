@@ -28,9 +28,9 @@ image_alt = "garden-analyzer - Prismatic Platform"
 
 ## Overview
 
-The [Garden](/glossary/garden/) Analyzer operates as an L3 [strategic command](/glossary/strategic-command/) agent within the General domain of the Prismatic Platform. This agent performs deep analysis of garden repositories -- the platform's collection of 116 legacy and reference repositories spanning over 20 years of development history -- to detect reusable patterns, assess architectural approaches, and evaluate knowledge transfer opportunities. The Garden Analyzer transforms raw repository contents into structured analytical intelligence that guides the platform's evolutionary development.
+The [Garden](@/glossary/garden.md) Analyzer operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the General domain of the Prismatic Platform. This agent performs deep analysis of garden repositories -- the platform's collection of 116 legacy and reference repositories spanning over 20 years of development history -- to detect reusable patterns, assess architectural approaches, and evaluate knowledge transfer opportunities. The Garden Analyzer transforms raw repository contents into structured analytical intelligence that guides the platform's evolutionary development.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Garden Analyzer provides the analytical foundation for the entire GARDEN (Growing Autonomous Repository for Development Evolution and Navigation) subsystem. While the [garden-explorer-agent](/agents/garden-explorer-agent/) navigates repository structures and the [garden-extractor](/agents/garden-extractor/) pulls specific components for integration, the Garden Analyzer produces the comprehensive assessments that determine which repositories, patterns, and code components merit attention.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Garden Analyzer provides the analytical foundation for the entire GARDEN (Growing Autonomous Repository for Development Evolution and Navigation) subsystem. While the [garden-explorer-agent](@/agents/garden-explorer-agent.md) navigates repository structures and the [garden-extractor](@/agents/garden-extractor.md) pulls specific components for integration, the Garden Analyzer produces the comprehensive assessments that determine which repositories, patterns, and code components merit attention.
 
 ## Repository Analysis Methodology
 
@@ -48,9 +48,9 @@ The Pattern Detection Engine represents the Garden Analyzer's most sophisticated
 
 Structural patterns describe how code is organized at the file, module, and project levels. Common structural patterns discovered across garden repositories include hub-and-spoke module organization, layered architecture with strict dependency direction, plugin-based extension mechanisms, and configuration-driven behavior selection.
 
-Behavioral patterns describe how code operates at runtime. These include event-driven processing pipelines, retry-with-backoff error recovery, circuit breaker patterns for external service integration, and producer-consumer data flow architectures. Behavioral patterns from garden repositories often map directly to [OTP](/glossary/otp/) patterns in the current platform, enabling translation from imperative implementations to functional equivalents.
+Behavioral patterns describe how code operates at runtime. These include event-driven processing pipelines, retry-with-backoff error recovery, circuit breaker patterns for external service integration, and producer-consumer data flow architectures. Behavioral patterns from garden repositories often map directly to [OTP](@/glossary/otp.md) patterns in the current platform, enabling translation from imperative implementations to functional equivalents.
 
-Data patterns describe how information is structured, stored, and accessed. Entity representation patterns, relationship modeling approaches, temporal data handling conventions, and schema evolution strategies all fall into this category. Data patterns from the garden's JavaScript, Python, and Rust repositories inform the platform's [Ecto](/glossary/ecto/) schema design and query optimization strategies.
+Data patterns describe how information is structured, stored, and accessed. Entity representation patterns, relationship modeling approaches, temporal data handling conventions, and schema evolution strategies all fall into this category. Data patterns from the garden's JavaScript, Python, and Rust repositories inform the platform's [Ecto](@/glossary/ecto.md) schema design and query optimization strategies.
 
 | Pattern Category | Repositories Analyzed | Patterns Identified | Direct Applicability |
 |-----------------|----------------------|--------------------|--------------------|
@@ -83,18 +83,18 @@ Dependency analysis maps the dependency relationships between garden repositorie
 
 The Garden Analyzer feeds its analytical outputs to other GARDEN agents through structured intelligence products.
 
-Repository assessments provide comprehensive evaluations consumed by the [gardener-supreme](/agents/gardener-supreme/) for strategic prioritization decisions. Pattern catalogs are consumed by the [garden-pattern-scout](/agents/garden-pattern-scout/) for targeted pattern matching against current platform needs. Extraction recommendations guide the [garden-extractor](/agents/garden-extractor/) in selecting specific components for integration, including adaptation requirements and quality prerequisites.
+Repository assessments provide comprehensive evaluations consumed by the [gardener-supreme](@/agents/gardener-supreme.md) for strategic prioritization decisions. Pattern catalogs are consumed by the [garden-pattern-scout](@/agents/garden-pattern-scout.md) for targeted pattern matching against current platform needs. Extraction recommendations guide the [garden-extractor](@/agents/garden-extractor.md) in selecting specific components for integration, including adaptation requirements and quality prerequisites.
 
 | Consumer Agent | Intelligence Product | Update Frequency |
 |---------------|---------------------|-----------------|
-| [gardener-supreme](/agents/gardener-supreme/) | Repository priority assessments | On repository changes |
-| [garden-pattern-scout](/agents/garden-pattern-scout/) | Pattern catalogs with metadata | Weekly refresh |
-| [garden-extractor](/agents/garden-extractor/) | Extraction recommendations | On demand |
-| [garden-cultivator](/agents/garden-cultivator/) | Health and maintenance reports | Daily |
+| [gardener-supreme](@/agents/gardener-supreme.md) | Repository priority assessments | On repository changes |
+| [garden-pattern-scout](@/agents/garden-pattern-scout.md) | Pattern catalogs with metadata | Weekly refresh |
+| [garden-extractor](@/agents/garden-extractor.md) | Extraction recommendations | On demand |
+| [garden-cultivator](@/agents/garden-cultivator.md) | Health and maintenance reports | Daily |
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework governs the Garden Analyzer's analytical practices. The Contradiction Preservation axiom is particularly relevant when different repositories implement conflicting approaches to the same problem. The analyzer preserves both approaches and documents the trade-offs rather than prematurely selecting a winner.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs the Garden Analyzer's analytical practices. The Contradiction Preservation axiom is particularly relevant when different repositories implement conflicting approaches to the same problem. The analyzer preserves both approaches and documents the trade-offs rather than prematurely selecting a winner.
 
 The Provenance Mandatory axiom requires that all analytical conclusions trace back to specific repository evidence. Pattern claims must cite the repositories where the pattern appears, assessment scores must document the metrics that produced them, and recommendations must reference the analysis that supports them.
 
@@ -102,17 +102,17 @@ The Provenance Mandatory axiom requires that all analytical conclusions trace ba
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution | Agent lifecycle and scheduling |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Agent specification and indexing |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution | Agent lifecycle and scheduling |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Agent specification and indexing |
 | Prismatic Telemetry | Monitoring | Analysis performance metrics |
 | GARDEN Repositories | Data source | 116 legacy repositories for analysis |
-| [3NL](/glossary/three-nl/) Framework | Cognitive | Multi-layer reasoning for code understanding |
+| [3NL](@/glossary/three-nl.md) Framework | Cognitive | Multi-layer reasoning for code understanding |
 
 ## Related Agents
 
-- [**garden-explorer-agent**](/agents/garden-explorer-agent/) (L3) - Navigates repository structures providing the raw exploration data that the analyzer processes
-- [**garden-extractor**](/agents/garden-extractor/) (L3) - Extracts specific components based on the analyzer's recommendations
-- [**garden-pattern-scout**](/agents/garden-pattern-scout/) (L3) - Scouts for specific patterns using the analyzer's pattern catalogs as a reference
+- [**garden-explorer-agent**](@/agents/garden-explorer-agent.md) (L3) - Navigates repository structures providing the raw exploration data that the analyzer processes
+- [**garden-extractor**](@/agents/garden-extractor.md) (L3) - Extracts specific components based on the analyzer's recommendations
+- [**garden-pattern-scout**](@/agents/garden-pattern-scout.md) (L3) - Scouts for specific patterns using the analyzer's pattern catalogs as a reference
 
 ---
 
@@ -121,4 +121,4 @@ The Provenance Mandatory axiom requires that all analytical conclusions trace ba
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

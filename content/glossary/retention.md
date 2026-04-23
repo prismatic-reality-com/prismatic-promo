@@ -436,25 +436,25 @@ end
 
 ## Related Terms
 
-- [TTL](/glossary/ttl/) -- time-to-live attribute that implements per-record retention
-- [Vacuum](/glossary/vacuum/) -- PostgreSQL maintenance that reclaims space after retention cleanup
-- [Storage Adapter](/glossary/storage-adapter/) -- abstraction layer that encapsulates backend-specific retention logic
-- [GDPR](/glossary/gdpr/) -- EU regulation driving data minimization and right-to-deletion requirements
-- [NIS2](/glossary/nis2/) -- EU directive requiring long-term audit trail retention for critical infrastructure
-- [Compliance](/glossary/compliance/) -- regulatory framework that dictates retention durations
-- [ETS](/glossary/ets/) -- in-memory tables requiring TTL-based retention for cache entries
-- [TimescaleDB](/glossary/timescaledb/) -- time-series extension with built-in chunk-based retention policies
+- [TTL](@/glossary/ttl.md) -- time-to-live attribute that implements per-record retention
+- [Vacuum](@/glossary/vacuum.md) -- PostgreSQL maintenance that reclaims space after retention cleanup
+- [Storage Adapter](@/glossary/storage-adapter.md) -- abstraction layer that encapsulates backend-specific retention logic
+- [GDPR](@/glossary/gdpr.md) -- EU regulation driving data minimization and right-to-deletion requirements
+- [NIS2](@/glossary/nis2.md) -- EU directive requiring long-term audit trail retention for critical infrastructure
+- [Compliance](@/glossary/compliance.md) -- regulatory framework that dictates retention durations
+- [ETS](@/glossary/ets.md) -- in-memory tables requiring TTL-based retention for cache entries
+- [TimescaleDB](@/glossary/timescaledb.md) -- time-series extension with built-in chunk-based retention policies
 - [Archival](/glossary/archival/) -- cold storage transfer before retention-based deletion
 - [Data Lifecycle](/glossary/data-lifecycle/) -- broader concept of data creation through deletion
-- [Audit Trail](/glossary/audit-trail/) -- immutable records with longest retention requirements
-- [Replication](/glossary/replication/) -- data duplication that must respect retention across all replicas
+- [Audit Trail](@/glossary/audit-trail.md) -- immutable records with longest retention requirements
+- [Replication](@/glossary/replication.md) -- data duplication that must respect retention across all replicas
 
 ## See Also
 
-- [Compliance](/capabilities/) -- retention requirements from GDPR, NIS2, ZKB
-- [Data Architecture](/architecture/) -- storage lifecycle management across backends
-- [DD Pipeline](/dd/) -- complex retention policies for entity and fetch data
-- [OSINT Toolbox](/osint/) -- execution history retention with per-tool overrides
+- [Compliance](@/capabilities/_index.md) -- retention requirements from GDPR, NIS2, ZKB
+- [Data Architecture](@/architecture/_index.md) -- storage lifecycle management across backends
+- [DD Pipeline](@/dd/_index.md) -- complex retention policies for entity and fetch data
+- [OSINT Toolbox](@/osint/_index.md) -- execution history retention with per-tool overrides
 - [Security](/security/) -- audit trail retention for compliance
 
 ---
@@ -464,4 +464,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

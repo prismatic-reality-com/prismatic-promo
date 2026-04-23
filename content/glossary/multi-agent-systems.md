@@ -442,23 +442,23 @@ The AutoHeal system uses multiple monitoring agents that observe different aspec
 
 ## Related Concepts
 
-- [Agent](/glossary/agent/) -- Individual autonomous entity that serves as the building block of multi-agent systems
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Coordination patterns for managing multi-agent workflows
-- [Autonomous Agent](/glossary/autonomous-agent/) -- Self-governing agent capable of independent decision-making
-- [Actor Model](/glossary/actor-model/) -- Computational model of concurrent message-passing processes underlying MAS
-- [Message Passing](/glossary/message-passing/) -- Communication mechanism enabling inter-agent interaction
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP fault tolerance structure managing agent process lifecycles
-- [Distributed System](/glossary/distributed-system/) -- Computing paradigm for agents operating across multiple nodes
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property ensuring continued operation despite agent failures
-- [GenServer](/glossary/genserver/) -- OTP behaviour providing the process infrastructure for individual agents
-- [AIAD](/glossary/aiad/) -- The Prismatic Platform's agent framework defining standards for 530+ agents
+- [Agent](@/glossary/agent.md) -- Individual autonomous entity that serves as the building block of multi-agent systems
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Coordination patterns for managing multi-agent workflows
+- [Autonomous Agent](@/glossary/autonomous-agent.md) -- Self-governing agent capable of independent decision-making
+- [Actor Model](@/glossary/actor-model.md) -- Computational model of concurrent message-passing processes underlying MAS
+- [Message Passing](@/glossary/message-passing.md) -- Communication mechanism enabling inter-agent interaction
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP fault tolerance structure managing agent process lifecycles
+- [Distributed System](@/glossary/distributed-system.md) -- Computing paradigm for agents operating across multiple nodes
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property ensuring continued operation despite agent failures
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour providing the process infrastructure for individual agents
+- [AIAD](@/glossary/aiad.md) -- The Prismatic Platform's agent framework defining standards for 530+ agents
 
 ## See Also
 
-- [Prismatic Agents](/glossary/prismatic-agents/) -- Runtime infrastructure for the platform's multi-agent system
-- [Color Teams](/glossary/color-teams/) -- Security-focused multi-agent coordination across 6 color-coded teams
-- [Architecture](/architecture/) -- Platform architecture with multi-agent system as core design principle
-- [Agent Registry](/glossary/agent-registry/) -- Discovery and metadata system for the 530+ agent population
+- [Prismatic Agents](@/glossary/prismatic-agents.md) -- Runtime infrastructure for the platform's multi-agent system
+- [Color Teams](@/glossary/color-teams.md) -- Security-focused multi-agent coordination across 6 color-coded teams
+- [Architecture](@/architecture/_index.md) -- Platform architecture with multi-agent system as core design principle
+- [Agent Registry](@/glossary/agent-registry.md) -- Discovery and metadata system for the 530+ agent population
 
 ---
 
@@ -467,4 +467,4 @@ The AutoHeal system uses multiple monitoring agents that observe different aspec
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

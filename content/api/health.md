@@ -29,7 +29,7 @@ The Health Check endpoint provides comprehensive system status information for t
 
 The health check follows the Health Check Response Format for HTTP APIs pattern, returning structured JSON that differentiates between overall system health and individual component status. Each component reports its own state independently, allowing operators to identify degraded subsystems without losing visibility into what remains functional.
 
-This endpoint is one of only two unauthenticated routes in the entire API surface (the other being the [OpenAPI specification](/api/openapi-spec/)). This design decision ensures that external monitoring systems can probe platform health without requiring credential management.
+This endpoint is one of only two unauthenticated routes in the entire API surface (the other being the [OpenAPI specification](@/api/openapi-spec.md)). This design decision ensures that external monitoring systems can probe platform health without requiring credential management.
 
 ## Endpoint
 
@@ -46,7 +46,7 @@ Returns the current health status of the Prismatic Platform, including individua
 
 No authentication required. This endpoint is publicly accessible to support integration with load balancers, health monitoring systems, and container orchestration platforms (Kubernetes liveness/readiness probes, Fly.io health checks).
 
-While unauthenticated, the endpoint is rate-limited to prevent abuse. See the [Rate Limiting](/api/rate-limiting/) page for details.
+While unauthenticated, the endpoint is rate-limited to prevent abuse. See the [Rate Limiting](@/api/rate-limiting.md) page for details.
 
 ## Request
 
@@ -251,7 +251,7 @@ else:
 | Status Code | Condition | Description |
 |-------------|-----------|-------------|
 | 200 | System healthy or degraded | Health report returned successfully |
-| 429 | Rate limit exceeded | Too many health check requests (see [Rate Limiting](/api/rate-limiting/)) |
+| 429 | Rate limit exceeded | Too many health check requests (see [Rate Limiting](@/api/rate-limiting.md)) |
 | 503 | System unhealthy | One or more critical components have failed |
 
 The health endpoint itself does not return 500 errors. If the API process is running, it will always return either 200 or 503. If the API process is down entirely, the TCP connection will be refused at the network level.
@@ -268,10 +268,10 @@ Health check rate limits are more generous than standard API endpoints to accomm
 
 ## Related Endpoints
 
-- [Endpoint Discovery](/api/endpoints/) -- List all available API endpoints
-- [OpenAPI Specification](/api/openapi-spec/) -- Full API schema including health check schema
-- [Error Handling](/api/error-handling/) -- Standard error response format
-- [Rate Limiting](/api/rate-limiting/) -- Rate limit policies and headers
+- [Endpoint Discovery](@/api/endpoints.md) -- List all available API endpoints
+- [OpenAPI Specification](@/api/openapi-spec.md) -- Full API schema including health check schema
+- [Error Handling](@/api/error-handling.md) -- Standard error response format
+- [Rate Limiting](@/api/rate-limiting.md) -- Rate limit policies and headers
 
 ## Integration Patterns
 
@@ -306,7 +306,7 @@ readinessProbe:
   path = "/api/v1/health"
 ```
 
-The health endpoint is the foundation of the platform's observability story. It feeds into the [Quality DNA](/glossary/quality-dna/) system and provides the baseline metrics that the [AIAD](/glossary/aiad/) agent framework uses to assess platform stability.
+The health endpoint is the foundation of the platform's observability story. It feeds into the [Quality DNA](@/glossary/quality-dna.md) system and provides the baseline metrics that the [AIAD](@/glossary/aiad.md) agent framework uses to assess platform stability.
 
 ---
 
@@ -315,4 +315,4 @@ The health endpoint is the foundation of the platform's observability story. It 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

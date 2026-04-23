@@ -575,24 +575,24 @@ Semantic search across the platform's knowledge base uses embedding models to co
 
 ## Related Concepts
 
-- [LLM](/glossary/llm/) - Large language models that are the primary target of modern AI inference optimization
-- [Ollama](/glossary/ollama/) - Local AI model serving platform used as the primary inference backend
-- [Embedding](/glossary/embedding/) - Vector representations generated through embedding model inference
-- [Fine-Tuning](/glossary/fine-tuning/) - Model customization that precedes inference deployment
-- [AI Model](/glossary/ai-model/) - The trained artifact that inference executes
-- [AI Agent](/glossary/ai-agent/) - Autonomous entities that consume inference outputs for decision making
-- [Artificial Intelligence](/glossary/artificial-intelligence/) - The broader field encompassing inference as a core capability
-- [GenServer](/glossary/genserver/) - OTP process abstraction used to implement inference servers
-- [Telemetry](/glossary/telemetry/) - Observability framework monitoring inference performance
-- [Circuit Breaker](/glossary/circuit-breaker/) - Fault tolerance pattern protecting inference provider connections
+- [LLM](@/glossary/llm.md) - Large language models that are the primary target of modern AI inference optimization
+- [Ollama](@/glossary/ollama.md) - Local AI model serving platform used as the primary inference backend
+- [Embedding](@/glossary/embedding.md) - Vector representations generated through embedding model inference
+- [Fine-Tuning](@/glossary/fine-tuning.md) - Model customization that precedes inference deployment
+- [AI Model](@/glossary/ai-model.md) - The trained artifact that inference executes
+- [AI Agent](@/glossary/ai-agent.md) - Autonomous entities that consume inference outputs for decision making
+- [Artificial Intelligence](@/glossary/artificial-intelligence.md) - The broader field encompassing inference as a core capability
+- [GenServer](@/glossary/genserver.md) - OTP process abstraction used to implement inference servers
+- [Telemetry](@/glossary/telemetry.md) - Observability framework monitoring inference performance
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Fault tolerance pattern protecting inference provider connections
 
 ## See Also
 
-- [Backpressure](/glossary/backpressure/) - Flow control essential for managing inference request queues
-- [ETS](/glossary/ets/) - In-memory storage used for inference result caching
-- [Phoenix LiveView](/glossary/phoenix-liveview/) - Real-time UI framework displaying inference results
-- [Agent Orchestration](/glossary/agent-orchestration/) - Coordination layer that routes inference requests across agents
-- [Security Rating](/glossary/security-rating/) - Perimeter output partially derived from inference-based analysis
+- [Backpressure](@/glossary/backpressure.md) - Flow control essential for managing inference request queues
+- [ETS](@/glossary/ets.md) - In-memory storage used for inference result caching
+- [Phoenix LiveView](@/glossary/phoenix-liveview.md) - Real-time UI framework displaying inference results
+- [Agent Orchestration](@/glossary/agent-orchestration.md) - Coordination layer that routes inference requests across agents
+- [Security Rating](@/glossary/security-rating.md) - Perimeter output partially derived from inference-based analysis
 
 ---
 
@@ -601,4 +601,4 @@ Semantic search across the platform's knowledge base uses embedding models to co
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

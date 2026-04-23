@@ -28,9 +28,9 @@ image_alt = "Navy SEAL Specialist - Prismatic Platform"
 
 ## Overview
 
-The Navy SEAL Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's intelligence domain, providing specialized capabilities for deep and dark web intelligence operations. Named after the elite military special operations forces known for operating in the most demanding environments, this agent specializes in navigating the hidden layers of the internet -- Tor hidden services, I2P networks, Freenet nodes, and other overlay networks -- to collect [OSINT](/glossary/osint/) intelligence that is inaccessible through conventional surface web collection methods. This capability is essential for comprehensive threat intelligence, brand protection monitoring, and due diligence investigations where relevant information exists outside the indexed web.
+The Navy SEAL Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's intelligence domain, providing specialized capabilities for deep and dark web intelligence operations. Named after the elite military special operations forces known for operating in the most demanding environments, this agent specializes in navigating the hidden layers of the internet -- Tor hidden services, I2P networks, Freenet nodes, and other overlay networks -- to collect [OSINT](@/glossary/osint.md) intelligence that is inaccessible through conventional surface web collection methods. This capability is essential for comprehensive threat intelligence, brand protection monitoring, and due diligence investigations where relevant information exists outside the indexed web.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the platform's intelligence infrastructure, the specialist implements advanced navigation techniques for anonymous networks while maintaining strict operational security. All operations are conducted within the bounds of authorized intelligence collection: no active exploitation, no unauthorized access, and no interference with discovered services. The [NO DOUBTS](/glossary/no-doubts/) principle governs all intelligence assessments: information collected from deep/dark web sources undergoes rigorous validation through the [NABLA Infinity](/glossary/nabla-infinity/) framework, with source reliability adjustments that account for the inherently lower trust levels of anonymous network intelligence.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the platform's intelligence infrastructure, the specialist implements advanced navigation techniques for anonymous networks while maintaining strict operational security. All operations are conducted within the bounds of authorized intelligence collection: no active exploitation, no unauthorized access, and no interference with discovered services. The [NO DOUBTS](@/glossary/no-doubts.md) principle governs all intelligence assessments: information collected from deep/dark web sources undergoes rigorous validation through the [NABLA Infinity](@/glossary/nabla-infinity.md) framework, with source reliability adjustments that account for the inherently lower trust levels of anonymous network intelligence.
 
 ## Theoretical Foundations
 
@@ -38,13 +38,13 @@ Deep and dark web intelligence collection draws from network anonymization theor
 
 The specialist applies intelligence collection disciplines adapted from traditional signals intelligence (SIGINT) and human intelligence (HUMINT) frameworks to the digital domain. Collection operations follow the intelligence cycle: requirements definition, collection planning, source identification, data acquisition, processing, analysis, and dissemination. Source credibility assessment in anonymous environments applies modified versions of the Admiralty Code (source reliability x information credibility matrix), adjusted for the unique characteristics of anonymous network intelligence where source identity is intentionally obscured.
 
-[Entity resolution](/glossary/entity-resolution/) in dark web contexts presents unique challenges: entities frequently use multiple identities, pseudonyms change over time, and traditional identification attributes (real names, addresses, corporate registrations) are deliberately hidden. The specialist applies behavioral fingerprinting, linguistic analysis, temporal pattern matching, and cryptocurrency transaction correlation to link entities across identities and platforms.
+[Entity resolution](@/glossary/entity-resolution.md) in dark web contexts presents unique challenges: entities frequently use multiple identities, pseudonyms change over time, and traditional identification attributes (real names, addresses, corporate registrations) are deliberately hidden. The specialist applies behavioral fingerprinting, linguistic analysis, temporal pattern matching, and cryptocurrency transaction correlation to link entities across identities and platforms.
 
 ## Operational Domain
 
 The intelligence domain for this specialist covers all deep and dark web collection activities within the platform's authorized scope. Operations include monitoring dark web marketplaces for brand abuse and intellectual property theft, tracking threat actor communications in forums and chat channels, identifying leaked credentials and data breaches, and collecting indicators of compromise (IOCs) from underground sources. All collection activities operate under strict authorization controls and comply with applicable legal frameworks.
 
-The specialist maintains a continuously-updated map of relevant dark web services, including Tor hidden service directories, I2P sites, paste sites, forums, and marketplaces. Service availability is tracked through periodic probing, with discovered services catalogued in the platform's [KuzuDB](/glossary/kuzudb/) graph database for relationship analysis. [PostgreSQL](/glossary/postgresql/) stores structured intelligence artifacts including entity profiles, IOCs, and collection metadata.
+The specialist maintains a continuously-updated map of relevant dark web services, including Tor hidden service directories, I2P sites, paste sites, forums, and marketplaces. Service availability is tracked through periodic probing, with discovered services catalogued in the platform's [KuzuDB](@/glossary/kuzudb.md) graph database for relationship analysis. [PostgreSQL](@/glossary/postgresql.md) stores structured intelligence artifacts including entity profiles, IOCs, and collection metadata.
 
 ## Key Capabilities
 
@@ -54,8 +54,8 @@ The specialist maintains a continuously-updated map of relevant dark web service
 - **Credential leak monitoring** -- Tracks dark web markets and paste sites for leaked credentials, data breaches, and exposed corporate information relevant to protected organizations
 - **Threat actor profiling** -- Builds comprehensive profiles of threat actors operating in dark web environments, tracking their capabilities, motivations, affiliations, and historical activities
 - **Indicator of compromise extraction** -- Identifies and extracts IOCs (IP addresses, domains, hashes, patterns) from dark web sources, enriching threat intelligence feeds with underground-sourced indicators
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed collection cycles that adapt to dark web service availability and intelligence requirement priorities
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing collection metrics including source coverage, collection success rates, entity resolution confidence, and intelligence freshness
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed collection cycles that adapt to dark web service availability and intelligence requirement priorities
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing collection metrics including source coverage, collection success rates, entity resolution confidence, and intelligence freshness
 
 ## Authority Level
 
@@ -80,19 +80,19 @@ The OPSEC framework defines four operational modes with increasing security leve
 
 | Agent | Relationship |
 |-------|-------------|
-| [osint-intelligence-operative](/agents/osint-intelligence-operative/) | Coordinates deep/dark web intelligence with surface web OSINT for comprehensive analysis |
-| [osint-engines-specialist](/agents/osint-engines-specialist/) | Dark web IOCs are cross-referenced with surface web search engine intelligence |
-| [osint-digital-profile-specialist](/agents/osint-digital-profile-specialist/) | Dark web identity fragments contribute to comprehensive digital profile construction |
-| [network-security-specialist](/agents/network-security-specialist/) | Dark web-sourced threat intelligence informs network security posture |
-| [osint-legal-economic-risk-specialist](/agents/osint-legal-economic-risk-specialist/) | Dark web findings contribute to legal and economic risk assessments |
+| [osint-intelligence-operative](@/agents/osint-intelligence-operative.md) | Coordinates deep/dark web intelligence with surface web OSINT for comprehensive analysis |
+| [osint-engines-specialist](@/agents/osint-engines-specialist.md) | Dark web IOCs are cross-referenced with surface web search engine intelligence |
+| [osint-digital-profile-specialist](@/agents/osint-digital-profile-specialist.md) | Dark web identity fragments contribute to comprehensive digital profile construction |
+| [network-security-specialist](@/agents/network-security-specialist.md) | Dark web-sourced threat intelligence informs network security posture |
+| [osint-legal-economic-risk-specialist](@/agents/osint-legal-economic-risk-specialist.md) | Dark web findings contribute to legal and economic risk assessments |
 
 ## Intelligence Validation
 
-Intelligence collected from dark web sources undergoes enhanced validation through the [NABLA Infinity](/glossary/nabla-infinity/) framework. Source reliability is initially rated lower than surface web sources due to the inherent anonymity and deception risks in dark web environments. Reliability scores are upgraded as dark web intelligence is corroborated by independent sources (surface web OSINT, commercial threat feeds, or other dark web sources). The [Trinity Gate](/glossary/trinity-gate/) validates that dark web intelligence assessments maintain structural consistency with the platform's entity graph, logical consistency with known threat landscapes, and formal consistency with intelligence reporting standards.
+Intelligence collected from dark web sources undergoes enhanced validation through the [NABLA Infinity](@/glossary/nabla-infinity.md) framework. Source reliability is initially rated lower than surface web sources due to the inherent anonymity and deception risks in dark web environments. Reliability scores are upgraded as dark web intelligence is corroborated by independent sources (surface web OSINT, commercial threat feeds, or other dark web sources). The [Trinity Gate](@/glossary/trinity-gate.md) validates that dark web intelligence assessments maintain structural consistency with the platform's entity graph, logical consistency with known threat landscapes, and formal consistency with intelligence reporting standards.
 
 ## Enforcement
 
-Operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no intelligence artifact is published without source assessment, no entity profile is released without confidence scoring, and no threat assessment is disseminated without validation against the NABLA axiom framework. All collection activities carry complete provenance chains per the provenance mandatory axiom, and all intelligence outputs include explicit confidence levels per the unknown valid axiom.
+Operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no intelligence artifact is published without source assessment, no entity profile is released without confidence scoring, and no threat assessment is disseminated without validation against the NABLA axiom framework. All collection activities carry complete provenance chains per the provenance mandatory axiom, and all intelligence outputs include explicit confidence levels per the unknown valid axiom.
 
 ---
 
@@ -101,4 +101,4 @@ Operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no intellig
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

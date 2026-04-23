@@ -37,7 +37,7 @@ image_alt = "Workshop Facilitation - Prismatic Platform"
 
 ## Definition
 
-**Workshop Facilitation** is the practice of designing, organizing, and leading structured collaborative learning sessions where participants acquire practical skills through guided exercises, discussion, and hands-on experimentation. In the context of software engineering, workshop facilitation bridges the gap between documentation (which is passive and self-paced) and pair programming (which is ad-hoc and unstructured) by providing a curated learning experience with clear objectives, progressive difficulty, and measurable outcomes. Within the Prismatic Platform ecosystem, workshop facilitation is a core capability for onboarding engineers to the 115-application umbrella architecture, teaching OTP design patterns and [supervision tree](/glossary/supervision-tree/) construction, introducing the [AIAD](/glossary/aiad/) agent development framework, instilling the [zero-compromise quality](/glossary/zero-compromise-quality/) methodology, and training teams in formal [verification](/glossary/verification/) and [testing](/glossary/testing/) techniques. The platform's workshop infrastructure includes exercise generators, skill tracking, progress assessment, and curriculum management tooling.
+**Workshop Facilitation** is the practice of designing, organizing, and leading structured collaborative learning sessions where participants acquire practical skills through guided exercises, discussion, and hands-on experimentation. In the context of software engineering, workshop facilitation bridges the gap between documentation (which is passive and self-paced) and pair programming (which is ad-hoc and unstructured) by providing a curated learning experience with clear objectives, progressive difficulty, and measurable outcomes. Within the Prismatic Platform ecosystem, workshop facilitation is a core capability for onboarding engineers to the 115-application umbrella architecture, teaching OTP design patterns and [supervision tree](@/glossary/supervision-tree.md) construction, introducing the [AIAD](@/glossary/aiad.md) agent development framework, instilling the [zero-compromise quality](@/glossary/zero-compromise-quality.md) methodology, and training teams in formal [verification](@/glossary/verification.md) and [testing](@/glossary/testing.md) techniques. The platform's workshop infrastructure includes exercise generators, skill tracking, progress assessment, and curriculum management tooling.
 
 ## Overview
 
@@ -59,7 +59,7 @@ In software engineering specifically, workshops address challenges that other kn
 | **Conferences/Talks** | Broad reach, expert access | Passive, no hands-on practice |
 | **Workshops** | Structured, hands-on, measurable | Requires facilitator skill, time-intensive |
 
-The Prismatic Platform's workshop program was developed to address a specific scaling challenge: as the platform grew from 30 to 115 umbrella applications and from 100 to 530 [agents](/glossary/agent/), the knowledge required to work effectively within the ecosystem grew faster than documentation could keep pace. Workshops provide a structured, repeatable way to transfer this knowledge while building shared understanding across teams.
+The Prismatic Platform's workshop program was developed to address a specific scaling challenge: as the platform grew from 30 to 115 umbrella applications and from 100 to 530 [agents](@/glossary/agent.md), the knowledge required to work effectively within the ecosystem grew faster than documentation could keep pace. Workshops provide a structured, repeatable way to transfer this knowledge while building shared understanding across teams.
 
 ## Workshop Design Principles
 
@@ -262,11 +262,11 @@ Exercises progress from spawning raw processes, through GenServer implementation
 
 ### Workshop 2: AIAD Agent Development (Half Day)
 
-**Target Audience**: Engineers building new [agents](/glossary/agent/) for the AIAD framework.
+**Target Audience**: Engineers building new [agents](@/glossary/agent.md) for the AIAD framework.
 **Prerequisites**: OTP Fundamentals workshop or equivalent experience.
 **Learning Outcomes**: Create AIAD-compliant agents, implement agent specifications, register agents, and integrate with the orchestration pipeline.
 
-Participants build a complete agent from scratch, following the agent specification format, implementing required callbacks, and testing their agent within the platform's [agent orchestration](/glossary/agent-orchestration/) framework.
+Participants build a complete agent from scratch, following the agent specification format, implementing required callbacks, and testing their agent within the platform's [agent orchestration](@/glossary/agent-orchestration.md) framework.
 
 ### Workshop 3: Quality-First Development (Half Day)
 
@@ -274,15 +274,15 @@ Participants build a complete agent from scratch, following the agent specificat
 **Prerequisites**: Basic Elixir, familiarity with ExUnit.
 **Learning Outcomes**: Write property-based tests, use Dialyzer effectively, achieve zero-warning compilation, and pass all quality gates.
 
-This workshop focuses on the platform's [zero-compromise quality](/glossary/zero-compromise-quality/) methodology. Exercises include writing StreamData generators, fixing Dialyzer warnings, adding typespecs to existing code, and navigating the quality gate pipeline.
+This workshop focuses on the platform's [zero-compromise quality](@/glossary/zero-compromise-quality.md) methodology. Exercises include writing StreamData generators, fixing Dialyzer warnings, adding typespecs to existing code, and navigating the quality gate pipeline.
 
 ### Workshop 4: Formal Verification with Lean4 (Full Day)
 
 **Target Audience**: Engineers working on safety-critical platform components.
 **Prerequisites**: Solid understanding of logic, type theory basics, Workshop 1 and 3.
-**Learning Outcomes**: Write basic Lean4 proofs, prove simple invariants, understand the [Trinity Gate](/glossary/trinity-gate/) verification model.
+**Learning Outcomes**: Write basic Lean4 proofs, prove simple invariants, understand the [Trinity Gate](@/glossary/trinity-gate.md) verification model.
 
-This advanced workshop introduces formal [verification](/glossary/verification/) concepts through hands-on Lean4 exercises. Participants prove properties of sorting algorithms, then progress to proving invariants about simplified platform components.
+This advanced workshop introduces formal [verification](@/glossary/verification.md) concepts through hands-on Lean4 exercises. Participants prove properties of sorting algorithms, then progress to proving invariants about simplified platform components.
 
 ### Workshop 5: Platform Onboarding (Two Days)
 
@@ -323,7 +323,7 @@ Research in cognitive science shows that knowledge retention drops precipitously
 
 1. **Spaced Repetition** -- Key concepts from workshops reappear in code review comments, CI pipeline messages, and documentation over the following weeks.
 
-2. **Reference Materials** -- Every workshop produces a participant handbook with exercise solutions, concept summaries, and links to relevant platform [documentation](/glossary/documentation/).
+2. **Reference Materials** -- Every workshop produces a participant handbook with exercise solutions, concept summaries, and links to relevant platform [documentation](@/glossary/documentation.md).
 
 3. **Follow-Up Exercises** -- Weekly optional exercises are posted for 4 weeks after each workshop, each requiring 15-30 minutes and reinforcing core concepts.
 
@@ -331,16 +331,16 @@ Research in cognitive science shows that knowledge retention drops precipitously
 
 ## Cross-References
 
-- [Architecture Consulting](/glossary/architecture-consulting/) -- Strategic guidance that workshops operationalize at the team level
-- [Testing](/glossary/testing/) -- Core skill taught in quality-focused workshops
-- [Verification](/glossary/verification/) -- Advanced topic covered in formal verification workshops
-- [Supervision Tree](/glossary/supervision-tree/) -- Key OTP concept taught in fundamentals workshops
-- [AIAD](/glossary/aiad/) -- The agent framework taught in agent development workshops
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- The quality philosophy instilled through workshops
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Advanced agent management patterns covered in workshops
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification standard introduced in formal methods workshops
-- [Technical Perfection](/glossary/technical-perfection/) -- The aspiration that workshops help teams approach
-- [Technical Vocabulary](/glossary/technical-vocabulary/) -- Shared terminology established through workshop participation
+- [Architecture Consulting](@/glossary/architecture-consulting.md) -- Strategic guidance that workshops operationalize at the team level
+- [Testing](@/glossary/testing.md) -- Core skill taught in quality-focused workshops
+- [Verification](@/glossary/verification.md) -- Advanced topic covered in formal verification workshops
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Key OTP concept taught in fundamentals workshops
+- [AIAD](@/glossary/aiad.md) -- The agent framework taught in agent development workshops
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- The quality philosophy instilled through workshops
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Advanced agent management patterns covered in workshops
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification standard introduced in formal methods workshops
+- [Technical Perfection](@/glossary/technical-perfection.md) -- The aspiration that workshops help teams approach
+- [Technical Vocabulary](@/glossary/technical-vocabulary.md) -- Shared terminology established through workshop participation
 
 ## Best Practices
 

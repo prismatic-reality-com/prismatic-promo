@@ -75,7 +75,7 @@ HIBP tracks a comprehensive taxonomy of data types that appear in breaches:
 
 ## Integration with Prismatic
 
-HIBP integrates with the Prismatic platform for automated breach exposure monitoring, compliance assessments, and [security rating](/glossary/security-rating/) calculations.
+HIBP integrates with the Prismatic platform for automated breach exposure monitoring, compliance assessments, and [security rating](@/glossary/security-rating.md) calculations.
 
 ```elixir
 # Check if an email appears in any breach
@@ -110,7 +110,7 @@ HIBP integrates with the Prismatic platform for automated breach exposure monito
 
 ### Compliance and Due Diligence Pipeline
 
-HIBP data feeds directly into the [Prismatic Perimeter](/apps/prismatic-perimeter/) module for security posture assessment.
+HIBP data feeds directly into the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) module for security posture assessment.
 
 ```elixir
 defmodule PrismaticPerimeter.Assessment.BreachExposure do
@@ -203,14 +203,14 @@ The breach search API requires a paid API key. The Pwned Passwords API (k-anonym
 ## Use Cases
 
 ### Security Posture Assessment
-- Measure organizational breach exposure for [security ratings](/apps/prismatic-perimeter/)
+- Measure organizational breach exposure for [security ratings](@/apps/prismatic-perimeter.md)
 - Track breach exposure trends over time
 - Compare exposure against industry benchmarks
 - Feed breach data into composite risk scores
 
 ### Compliance
-- [GDPR](/glossary/gdpr/) breach notification requirement support
-- [NIS2](/glossary/nis2/) security measure validation
+- [GDPR](@/glossary/gdpr.md) breach notification requirement support
+- [NIS2](@/glossary/nis2.md) security measure validation
 - SOC 2 credential management evidence
 - PCI DSS password security validation using Pwned Passwords
 
@@ -228,17 +228,17 @@ The breach search API requires a paid API key. The Pwned Passwords API (k-anonym
 
 ## Related Sources
 
-- [DeHashed](/osint/dehashed/) - Credential-specific breach search
-- [Intelligence X](/osint/intelligencex/) - Dark web and leak archive search
-- [VirusTotal](/osint/virustotal/) - Malware and URL scanning for breach vector analysis
-- [Shodan](/osint/shodan/) - Identify exposed services that may lead to breaches
-- [URLScan](/osint/urlscan/) - Detect phishing pages targeting breached users
-- [Hunter.io](/osint/hunter/) - Email discovery for breach exposure scope
+- [DeHashed](@/osint/dehashed.md) - Credential-specific breach search
+- [Intelligence X](@/osint/intelligencex.md) - Dark web and leak archive search
+- [VirusTotal](@/osint/virustotal.md) - Malware and URL scanning for breach vector analysis
+- [Shodan](@/osint/shodan.md) - Identify exposed services that may lead to breaches
+- [URLScan](@/osint/urlscan.md) - Detect phishing pages targeting breached users
+- [Hunter.io](@/osint/hunter.md) - Email discovery for breach exposure scope
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Breach data in [EASM](/glossary/easm/) security ratings
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Breach data in [EASM](@/glossary/easm.md) security ratings
 
 ---
 
@@ -247,4 +247,4 @@ The breach search API requires a paid API key. The Pwned Passwords API (k-anonym
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

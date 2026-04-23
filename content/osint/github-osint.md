@@ -25,7 +25,7 @@ image_alt = "GitHub OSINT - Prismatic Platform"
 
 ## Overview
 
-GitHub is the world's largest source code hosting platform, with over 100 million repositories, 400 million contributions per year, and tens of millions of active developers. For [OSINT](/glossary/osint/) analysts, GitHub represents one of the richest publicly accessible intelligence sources available, offering insights that span from technical vulnerability discovery to organizational structure mapping and individual developer profiling. The platform's open-by-default nature means that vast quantities of sensitive information -- including credentials, configuration files, internal documentation, and infrastructure details -- are inadvertently exposed through public repositories.
+GitHub is the world's largest source code hosting platform, with over 100 million repositories, 400 million contributions per year, and tens of millions of active developers. For [OSINT](@/glossary/osint.md) analysts, GitHub represents one of the richest publicly accessible intelligence sources available, offering insights that span from technical vulnerability discovery to organizational structure mapping and individual developer profiling. The platform's open-by-default nature means that vast quantities of sensitive information -- including credentials, configuration files, internal documentation, and infrastructure details -- are inadvertently exposed through public repositories.
 
 GitHub OSINT encompasses a broad spectrum of intelligence collection activities. At the most immediately actionable level, it involves scanning for leaked secrets such as API keys, database credentials, authentication tokens, and private cryptographic keys that have been accidentally committed to public repositories. Beyond secret detection, GitHub intelligence includes technology stack identification through dependency analysis, organizational structure mapping through membership and contribution patterns, developer profiling through commit history and social connections, and supply chain analysis through dependency graph examination.
 
@@ -358,19 +358,19 @@ Effective GitHub OSINT requires a systematic approach that balances thoroughness
 
 Monitor not just organization repositories but also personal repositories of known employees, as developers frequently commit work-related code to personal accounts. Gists represent another often-overlooked source of leaked credentials and sensitive configuration snippets.
 
-Implement continuous monitoring rather than point-in-time scans. The Prismatic Platform's scheduled collection framework enables automated periodic scanning with alerting on new findings. Cross-reference GitHub intelligence with [DeHashed](/osint/dehashed/) for credential exposure correlation and [FullHunt](/osint/fullhunt/) for infrastructure exposure that matches discovered configuration details.
+Implement continuous monitoring rather than point-in-time scans. The Prismatic Platform's scheduled collection framework enables automated periodic scanning with alerting on new findings. Cross-reference GitHub intelligence with [DeHashed](@/osint/dehashed.md) for credential exposure correlation and [FullHunt](@/osint/fullhunt.md) for infrastructure exposure that matches discovered configuration details.
 
 For organizations conducting defensive GitHub OSINT on their own presence, consider implementing pre-commit hooks, GitHub secret scanning (available for public and enterprise repositories), and developer training on secure coding practices to reduce the volume of inadvertent secret exposure.
 
 ## Related Sources
 
-- [Intelligence X](/osint/intelx/) - Code leak search engine with historical content
-- [DeHashed](/osint/dehashed/) - Credential breach data for cross-referencing exposed emails
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach notification for discovered email addresses
-- [Hunter.io](/osint/hunter-io/) - Email discovery for employee identification
-- [SpiderFoot](/osint/spiderfoot/) - Automated OSINT with GitHub integration modules
-- [FullHunt](/osint/fullhunt/) - Attack surface correlation with discovered infrastructure
-- [VirusTotal](/osint/virustotal/) - Malware analysis for suspicious code findings
+- [Intelligence X](@/osint/intelx.md) - Code leak search engine with historical content
+- [DeHashed](@/osint/dehashed.md) - Credential breach data for cross-referencing exposed emails
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach notification for discovered email addresses
+- [Hunter.io](@/osint/hunter-io.md) - Email discovery for employee identification
+- [SpiderFoot](@/osint/spiderfoot.md) - Automated OSINT with GitHub integration modules
+- [FullHunt](@/osint/fullhunt.md) - Attack surface correlation with discovered infrastructure
+- [VirusTotal](@/osint/virustotal.md) - Malware analysis for suspicious code findings
 
 ---
 
@@ -379,4 +379,4 @@ For organizations conducting defensive GitHub OSINT on their own presence, consi
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

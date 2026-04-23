@@ -28,9 +28,9 @@ image_alt = "ghost-recon-specialist - Prismatic Platform"
 
 ## Overview
 
-The Ghost Recon Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Intelligence domain of the Prismatic Platform. This agent provides stealth intelligence collection with maximum operational security and attribution obfuscation, enabling the platform to conduct sensitive investigations where collection activities must remain undetectable. The Ghost Recon Specialist represents the platform's most security-conscious intelligence collection capability, prioritizing operational security above collection speed while maintaining evidence-grade analytical standards.
+The Ghost Recon Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Intelligence domain of the Prismatic Platform. This agent provides stealth intelligence collection with maximum operational security and attribution obfuscation, enabling the platform to conduct sensitive investigations where collection activities must remain undetectable. The Ghost Recon Specialist represents the platform's most security-conscious intelligence collection capability, prioritizing operational security above collection speed while maintaining evidence-grade analytical standards.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Ghost Recon Specialist occupies the high-security end of the intelligence collection spectrum. While the [falcon-strike-specialist](/agents/falcon-strike-specialist/) prioritizes speed and the [delta-force-specialist](/agents/delta-force-specialist/) emphasizes precision targeting, the Ghost Recon Specialist adds a critical dimension: the ability to collect intelligence without revealing that collection has occurred. This capability is essential for investigations where alerting the target to investigative interest would compromise the investigation's integrity or safety.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Ghost Recon Specialist occupies the high-security end of the intelligence collection spectrum. While the [falcon-strike-specialist](@/agents/falcon-strike-specialist.md) prioritizes speed and the [delta-force-specialist](@/agents/delta-force-specialist.md) emphasizes precision targeting, the Ghost Recon Specialist adds a critical dimension: the ability to collect intelligence without revealing that collection has occurred. This capability is essential for investigations where alerting the target to investigative interest would compromise the investigation's integrity or safety.
 
 ## Operational Security Architecture
 
@@ -46,11 +46,11 @@ Data compartmentalization limits the exposure of sensitive collection activities
 
 ## Stealth Collection Methodology
 
-The Ghost Recon Specialist's collection methodology prioritizes undetectable intelligence gathering across the platform's available [OSINT](/glossary/osint/) data sources.
+The Ghost Recon Specialist's collection methodology prioritizes undetectable intelligence gathering across the platform's available [OSINT](@/glossary/osint.md) data sources.
 
 Passive collection favors data sources that can be queried without generating target-observable signals. Public registries, archived web content, cached search results, and aggregate databases all provide intelligence without alerting targets. Passive collection forms the foundation of every Ghost Recon investigation, establishing baseline awareness before any active collection is considered.
 
-Indirect collection approaches target information through related entities rather than direct queries about the primary target. Investigating a company through its suppliers, customers, and business partners reveals information about the target without generating queries directly referencing it. Indirect collection leverages the platform's [entity resolution](/glossary/entity-resolution/) capabilities to reconstruct target profiles from information gathered about associated entities.
+Indirect collection approaches target information through related entities rather than direct queries about the primary target. Investigating a company through its suppliers, customers, and business partners reveals information about the target without generating queries directly referencing it. Indirect collection leverages the platform's [entity resolution](@/glossary/entity-resolution.md) capabilities to reconstruct target profiles from information gathered about associated entities.
 
 Controlled active collection executes direct queries about the target only when passive and indirect collection have been exhausted and specific intelligence gaps remain. Active queries are minimized in volume, distributed over time, and constructed to appear innocuous. Each active query undergoes a risk assessment before execution, evaluating the detection probability against the intelligence value.
 
@@ -79,11 +79,11 @@ Incomplete data analysis acknowledges that stealth collection inevitably produce
 
 Source protection in reporting sanitizes analytical products to prevent revelation of collection methods. Intelligence reports describe findings without specifying which sources or collection techniques produced each data point. When source specificity is essential for consumer confidence, protected descriptions ("open source registry records" rather than identifying the specific registry) preserve collection security.
 
-Evidence chain management maintains full provenance within the classified analysis workspace while producing sanitized provenance for external consumers. This dual-layer approach satisfies the [NABLA Infinity](/glossary/nabla-infinity/) Provenance Mandatory axiom internally while protecting collection methods externally.
+Evidence chain management maintains full provenance within the classified analysis workspace while producing sanitized provenance for external consumers. This dual-layer approach satisfies the [NABLA Infinity](@/glossary/nabla-infinity.md) Provenance Mandatory axiom internally while protecting collection methods externally.
 
 ## Graph Intelligence
 
-The Ghost Recon Specialist leverages [KuzuDB](/glossary/kuzudb/) graph analysis for stealth-compatible network mapping. Graph analysis is particularly effective under stealth constraints because it generates intelligence from relationship structures rather than requiring deep collection on individual entities.
+The Ghost Recon Specialist leverages [KuzuDB](@/glossary/kuzudb.md) graph analysis for stealth-compatible network mapping. Graph analysis is particularly effective under stealth constraints because it generates intelligence from relationship structures rather than requiring deep collection on individual entities.
 
 Relationship inference identifies connections between entities based on publicly available association signals -- shared addresses, common directors, temporal coincidences, and financial patterns. These inferences build network maps without requiring direct queries about individual relationships.
 
@@ -91,25 +91,25 @@ Pattern matching against known threat network typologies identifies structural s
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework's axioms apply with particular nuance to stealth intelligence operations. The Unknown Valid axiom is especially relevant: the agent frequently operates with incomplete information and must honestly assess what it does and does not know. The Contradiction Preservation axiom maintains competing hypotheses when evidence is insufficient for resolution.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's axioms apply with particular nuance to stealth intelligence operations. The Unknown Valid axiom is especially relevant: the agent frequently operates with incomplete information and must honestly assess what it does and does not know. The Contradiction Preservation axiom maintains competing hypotheses when evidence is insufficient for resolution.
 
-The [Trinity Gate](/glossary/trinity-gate/) validation ensures that intelligence products derived from stealth collection meet the same analytical standards as products from unrestricted collection. The security constraints on collection do not relax the quality requirements on analysis.
+The [Trinity Gate](@/glossary/trinity-gate.md) validation ensures that intelligence products derived from stealth collection meet the same analytical standards as products from unrestricted collection. The security constraints on collection do not relax the quality requirements on analysis.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
 | Prismatic OSINT | Data collection | Stealth-configured intelligence provider access |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Compartmented persistence | Isolated evidence storage with access controls |
-| [KuzuDB](/glossary/kuzudb/) | Graph analysis | Stealth-compatible network mapping |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Compartmented persistence | Isolated evidence storage with access controls |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph analysis | Stealth-compatible network mapping |
 | Report Synthesis | Sanitized output | Security-aware intelligence report generation |
 | Telemetry | Restricted monitoring | Collection security status without operational exposure |
 
 ## Related Agents
 
-- [**delta-force-specialist**](/agents/delta-force-specialist/) (L3) - Precision targeting for focused collection on specific high-value objectives
-- [**falcon-strike-specialist**](/agents/falcon-strike-specialist/) (L3) - Rapid deployment intelligence providing initial awareness for stealth follow-up
-- [**email-intelligence-specialist**](/agents/email-intelligence-specialist/) (L3) - Digital profiling capabilities supporting indirect collection through email-based investigation
+- [**delta-force-specialist**](@/agents/delta-force-specialist.md) (L3) - Precision targeting for focused collection on specific high-value objectives
+- [**falcon-strike-specialist**](@/agents/falcon-strike-specialist.md) (L3) - Rapid deployment intelligence providing initial awareness for stealth follow-up
+- [**email-intelligence-specialist**](@/agents/email-intelligence-specialist.md) (L3) - Digital profiling capabilities supporting indirect collection through email-based investigation
 
 ---
 
@@ -118,4 +118,4 @@ The [Trinity Gate](/glossary/trinity-gate/) validation ensures that intelligence
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

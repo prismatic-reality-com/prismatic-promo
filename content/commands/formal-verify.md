@@ -24,11 +24,11 @@ image_alt = "/formal-verify - Prismatic Platform"
 
 ## Overview
 
-**/formal-verify** is a production command in the **[Formal Verification](/glossary/formal-verification/)** category of the Prismatic Platform that provides mathematically rigorous verification of system properties and invariants. Unlike testing, which can only demonstrate the presence of bugs, formal verification proves their absence for all possible inputs within a specified domain. This command bridges the gap between empirical software testing and mathematical proof, ensuring that critical system properties hold unconditionally.
+**/formal-verify** is a production command in the **[Formal Verification](@/glossary/formal-verification.md)** category of the Prismatic Platform that provides mathematically rigorous verification of system properties and invariants. Unlike testing, which can only demonstrate the presence of bugs, formal verification proves their absence for all possible inputs within a specified domain. This command bridges the gap between empirical software testing and mathematical proof, ensuring that critical system properties hold unconditionally.
 
-The command operates under the **L3** authority level and is executed by the `formal-verification-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the command's ability to make definitive claims about system correctness -- claims that carry weight in the platform's [Trinity Gate](/glossary/trinity-gate/) evaluation and [NABLA](/glossary/nabla-infinity/) epistemic framework.
+The command operates under the **L3** authority level and is executed by the `formal-verification-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the command's ability to make definitive claims about system correctness -- claims that carry weight in the platform's [Trinity Gate](@/glossary/trinity-gate.md) evaluation and [NABLA](@/glossary/nabla-infinity.md) epistemic framework.
 
-Formal verification is a cornerstone of the QEVE (Quantum Epistemic Verification Engine) subsystem, which combines [Lean4](/glossary/lean4/) theorem proving, NABLA axiom verification, and Monte Carlo simulation to produce multi-layered confidence assessments. The `/formal-verify` command provides direct access to this verification infrastructure, enabling operators to prove properties ranging from type safety and termination guarantees to protocol correctness and invariant preservation across system state transitions.
+Formal verification is a cornerstone of the QEVE (Quantum Epistemic Verification Engine) subsystem, which combines [Lean4](@/glossary/lean4.md) theorem proving, NABLA axiom verification, and Monte Carlo simulation to produce multi-layered confidence assessments. The `/formal-verify` command provides direct access to this verification infrastructure, enabling operators to prove properties ranging from type safety and termination guarantees to protocol correctness and invariant preservation across system state transitions.
 
 The platform currently maintains 629 Trinity Gate entities, each of which has passed the three-gate verification process: structural consistency (graph theory), logical consistency (rule-based), and formal necessity (modal logic + Lean4). The `/formal-verify` command is the primary tool for establishing and maintaining these formal guarantees.
 
@@ -157,14 +157,14 @@ Properties are classified into categories that determine which verification engi
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Trinity Gate](/glossary/trinity-gate/) | Core | Formal necessity gate requires proof from this command |
-| [NABLA Framework](/glossary/nabla-infinity/) | Epistemic | Verification results feed into NABLA confidence calculations |
-| [QEVE](/glossary/qeve/) | Engine | Part of the Quantum Epistemic Verification Engine |
-| [Lean4](/glossary/lean4/) | Prover | Lean4 theorem prover for mathematical proofs |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Formal verification can be required as a quality gate |
-| [White Team](/glossary/white-team/) | Security | White Team verification campaigns use this command |
-| [Telemetry](/glossary/telemetry/) | Metrics | Verification results tracked as telemetry events |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Invoked by `formal-verification-specialist` agent |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Core | Formal necessity gate requires proof from this command |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Epistemic | Verification results feed into NABLA confidence calculations |
+| [QEVE](@/glossary/qeve.md) | Engine | Part of the Quantum Epistemic Verification Engine |
+| [Lean4](@/glossary/lean4.md) | Prover | Lean4 theorem prover for mathematical proofs |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Formal verification can be required as a quality gate |
+| [White Team](@/glossary/white-team.md) | Security | White Team verification campaigns use this command |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Verification results tracked as telemetry events |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Invoked by `formal-verification-specialist` agent |
 
 ## Best Practices
 
@@ -237,22 +237,22 @@ Verify complex system properties by composing simpler verified properties:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Failed verifications are treated as blocking issues that must be resolved before proceeding.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Formal verification is the ultimate expression of NO DOUBTS -- mathematical proof eliminates doubt entirely.
 
-The command is a direct implementation of the [NABLA](/glossary/nabla-infinity/) framework's seventh axiom (Provenance Mandatory): all verification results include complete provenance chains showing exactly how the conclusion was reached, which engines were used, and what evidence supports the claim.
+The command is a direct implementation of the [NABLA](@/glossary/nabla-infinity.md) framework's seventh axiom (Provenance Mandatory): all verification results include complete provenance chains showing exactly how the conclusion was reached, which engines were used, and what evidence supports the claim.
 
 ## Related Commands
 
-- [/lean](/commands/lean/) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
-- [/prolog](/commands/prolog/) - Prolog-based logical reasoning and [inference](/glossary/inference/) operations
-- [/monte-carlo](/commands/monte-carlo/) - Monte Carlo simulation for probabilistic analysis and risk assessment
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
+- [/lean](@/commands/lean.md) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
+- [/prolog](@/commands/prolog.md) - Prolog-based logical reasoning and [inference](@/glossary/inference.md) operations
+- [/monte-carlo](@/commands/monte-carlo.md) - Monte Carlo simulation for probabilistic analysis and risk assessment
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
 
 ---
 
@@ -261,4 +261,4 @@ The command is a direct implementation of the [NABLA](/glossary/nabla-infinity/)
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

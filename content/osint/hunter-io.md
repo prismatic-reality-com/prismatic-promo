@@ -28,7 +28,7 @@ image_alt = "Hunter.io - Prismatic Platform"
 
 ## Overview
 
-Hunter.io is a leading email intelligence platform that discovers and verifies professional email addresses associated with companies and domains. It crawls billions of web pages, indexes email addresses found in public sources, and identifies the email naming patterns used by organizations. Hunter.io is widely used in sales, recruiting, and [OSINT](/glossary/osint/) investigations to find contact information for specific individuals at target organizations.
+Hunter.io is a leading email intelligence platform that discovers and verifies professional email addresses associated with companies and domains. It crawls billions of web pages, indexes email addresses found in public sources, and identifies the email naming patterns used by organizations. Hunter.io is widely used in sales, recruiting, and [OSINT](@/glossary/osint.md) investigations to find contact information for specific individuals at target organizations.
 
 For OSINT analysts, Hunter.io provides a fast path to identifying individuals within an organization, mapping organizational communication patterns, and verifying the deliverability of discovered email addresses before using them in social engineering assessments or contact attempts. The platform processes over 300 million professional email addresses and serves as an essential component in any reconnaissance toolkit focused on human intelligence targets.
 
@@ -52,7 +52,7 @@ The platform re-crawls sources regularly to maintain freshness, but analysts sho
 
 ## API Integration
 
-Hunter.io provides a well-documented [REST API](/glossary/rest-api/) at `https://api.hunter.io/v2/` with JSON responses. Authentication is via API key passed as a query parameter.
+Hunter.io provides a well-documented [REST API](@/glossary/rest-api.md) at `https://api.hunter.io/v2/` with JSON responses. Authentication is via API key passed as a query parameter.
 
 ### API Endpoints
 
@@ -171,7 +171,7 @@ Email naming patterns reveal organizational structure. When combined with depart
 
 ### Breach Correlation
 
-Discovered emails can be cross-referenced with breach databases like [Have I Been Pwned](/osint/haveibeenpwned/) to assess an organization's exposure. Employees with breached credentials represent potential initial access vectors that should be flagged during security assessments.
+Discovered emails can be cross-referenced with breach databases like [Have I Been Pwned](@/osint/haveibeenpwned.md) to assess an organization's exposure. Employees with breached credentials represent potential initial access vectors that should be flagged during security assessments.
 
 ### Supply Chain Intelligence
 
@@ -207,14 +207,14 @@ Hunter.io collects data exclusively from publicly accessible sources, which gene
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), Hunter.io serves as the primary email intelligence provider in the OSINT pipeline. The `PrismaticOsint.HunterIo` adapter handles authentication, rate limiting, caching, and result normalization.
+Within the [Prismatic Platform](@/apps/prismatic.md), Hunter.io serves as the primary email intelligence provider in the OSINT pipeline. The `PrismaticOsint.HunterIo` adapter handles authentication, rate limiting, caching, and result normalization.
 
 Key integration features include:
 
 - **Quota Management**: The adapter tracks API credit consumption across concurrent investigations and implements fair-share allocation to prevent any single investigation from exhausting monthly quotas.
 - **Result Caching**: Verified email results are cached with configurable TTL (default 7 days) to minimize redundant API calls and preserve rate limits for new queries.
-- **Cross-Source Enrichment**: Discovered emails are automatically enriched through Have I Been Pwned breach checks, [Pulsedive](/osint/pulsedive/) threat intelligence lookups, and social media profile correlation.
-- **Entity Graph Integration**: Email addresses, associated persons, and organizations are modeled as entities in the platform's [knowledge graph](/glossary/knowledge-graph/), enabling relationship discovery across investigations.
+- **Cross-Source Enrichment**: Discovered emails are automatically enriched through Have I Been Pwned breach checks, [Pulsedive](@/osint/pulsedive.md) threat intelligence lookups, and social media profile correlation.
+- **Entity Graph Integration**: Email addresses, associated persons, and organizations are modeled as entities in the platform's [knowledge graph](@/glossary/knowledge-graph.md), enabling relationship discovery across investigations.
 - **Batch Processing**: The adapter supports bulk operations for large-scale domain surveys, managing rate limits and retries transparently.
 
 ## Best Practices
@@ -237,13 +237,13 @@ Key integration features include:
 
 ## Related Providers
 
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Check discovered emails against breach databases
-- [SecurityTrails](/osint/securitytrails/) - DNS data for domain intelligence
-- [BuiltWith](/osint/builtwith/) - Technology profiling for target domains
-- [Shodan](/osint/shodan/) - Infrastructure intelligence for target organizations
-- [DNSdumpster](/osint/dnsdumpster/) - DNS reconnaissance for domain mapping
-- [Pulsedive](/osint/pulsedive/) - Threat intelligence enrichment for discovered indicators
-- [Intelligence X](/osint/intelx/) - Dark web and leak search for email exposure
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Check discovered emails against breach databases
+- [SecurityTrails](@/osint/securitytrails.md) - DNS data for domain intelligence
+- [BuiltWith](@/osint/builtwith.md) - Technology profiling for target domains
+- [Shodan](@/osint/shodan.md) - Infrastructure intelligence for target organizations
+- [DNSdumpster](@/osint/dnsdumpster.md) - DNS reconnaissance for domain mapping
+- [Pulsedive](@/osint/pulsedive.md) - Threat intelligence enrichment for discovered indicators
+- [Intelligence X](@/osint/intelx.md) - Dark web and leak search for email exposure
 
 ---
 
@@ -252,4 +252,4 @@ Key integration features include:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

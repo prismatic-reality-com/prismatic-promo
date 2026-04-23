@@ -24,15 +24,15 @@ image_alt = "Phoenix LiveView - Prismatic Platform"
 
 ## Overview
 
-[Phoenix](/glossary/phoenix/) [LiveView](/glossary/liveview/) represents a fundamental departure from the dominant single-page application paradigm that has governed web development since the mid-2010s. Rather than shipping a JavaScript runtime to the browser and managing client-side state through frameworks like React, Vue, or Angular, LiveView keeps all application state on the server inside lightweight [BEAM](/glossary/beam/) processes, communicating with the browser exclusively through a persistent [WebSocket](/glossary/websocket/) connection that transmits minimal DOM diffs.
+[Phoenix](@/glossary/phoenix.md) [LiveView](@/glossary/liveview.md) represents a fundamental departure from the dominant single-page application paradigm that has governed web development since the mid-2010s. Rather than shipping a JavaScript runtime to the browser and managing client-side state through frameworks like React, Vue, or Angular, LiveView keeps all application state on the server inside lightweight [BEAM](@/glossary/beam.md) processes, communicating with the browser exclusively through a persistent [WebSocket](@/glossary/websocket.md) connection that transmits minimal DOM diffs.
 
-This architectural decision was not made arbitrarily. The Prismatic Platform manages hundreds of concurrent real-time dashboards -- from [Perimeter security monitoring](/apps/prismatic-perimeter/) to [agent coordination](/apps/prismatic-agents/) -- where the traditional SPA approach would impose three compounding costs: a large JavaScript bundle for each dashboard variant, a complex client-side state synchronization layer, and an API surface that duplicates server-side business logic. LiveView eliminates all three by treating the browser as a thin rendering target rather than an application host.
+This architectural decision was not made arbitrarily. The Prismatic Platform manages hundreds of concurrent real-time dashboards -- from [Perimeter security monitoring](@/apps/prismatic-perimeter.md) to [agent coordination](@/apps/prismatic-agents.md) -- where the traditional SPA approach would impose three compounding costs: a large JavaScript bundle for each dashboard variant, a complex client-side state synchronization layer, and an API surface that duplicates server-side business logic. LiveView eliminates all three by treating the browser as a thin rendering target rather than an application host.
 
-The result is a system where adding a new real-time dashboard requires writing only server-side [Elixir](/glossary/elixir/) code, with no API endpoints to design, no JavaScript components to build, and no state synchronization bugs to chase. Every dashboard in the Prismatic Platform -- across [security perimeter monitoring](/apps/prismatic-perimeter-web/), deal pipeline tracking, and [agent orchestration](/apps/prismatic-agents/) -- is built entirely with LiveView.
+The result is a system where adding a new real-time dashboard requires writing only server-side [Elixir](@/glossary/elixir.md) code, with no API endpoints to design, no JavaScript components to build, and no state synchronization bugs to chase. Every dashboard in the Prismatic Platform -- across [security perimeter monitoring](@/apps/prismatic-perimeter-web.md), deal pipeline tracking, and [agent orchestration](@/apps/prismatic-agents.md) -- is built entirely with LiveView.
 
 ## Architecture and Request Lifecycle
 
-The LiveView lifecycle begins with a standard HTTP request that renders an initial HTML page. This page contains a small JavaScript client (~30KB) that immediately establishes a WebSocket connection back to the server. Once connected, a dedicated [BEAM](/glossary/beam/) process is spawned for that user session, and all subsequent interaction flows through this persistent connection.
+The LiveView lifecycle begins with a standard HTTP request that renders an initial HTML page. This page contains a small JavaScript client (~30KB) that immediately establishes a WebSocket connection back to the server. Once connected, a dedicated [BEAM](@/glossary/beam.md) process is spawned for that user session, and all subsequent interaction flows through this persistent connection.
 
 ```
 Browser                              Server (BEAM VM)
@@ -59,7 +59,7 @@ Browser                              Server (BEAM VM)
   │<── DOM patch (server push) ─────────┤
 ```
 
-This architecture means every LiveView instance is a [GenServer](/glossary/genserver/) process with its own isolated heap, its own garbage collection cycle, and its own failure boundary. When one user's session crashes, no other session is affected. The [BEAM's preemptive scheduler](/glossary/beam/) ensures fair CPU distribution across all connected sessions, preventing any single user from monopolizing server resources.
+This architecture means every LiveView instance is a [GenServer](@/glossary/genserver.md) process with its own isolated heap, its own garbage collection cycle, and its own failure boundary. When one user's session crashes, no other session is affected. The [BEAM's preemptive scheduler](@/glossary/beam.md) ensures fair CPU distribution across all connected sessions, preventing any single user from monopolizing server resources.
 
 ### Why Not a Traditional SPA?
 
@@ -69,13 +69,13 @@ The decision to use LiveView over a React/Vue SPA involved evaluating several ar
 |-----------|-----------------|----------|-------------------|
 | Initial bundle size | 200-500KB JS | ~30KB JS | LiveView: smaller payload |
 | State management | Client-side (Redux/Pinia) | Server-side (process) | LiveView: single source of truth |
-| API surface | REST/[GraphQL](/glossary/graphql/) endpoints required | None (direct data access) | LiveView: less code duplication |
-| Real-time updates | WebSocket + client reconciliation | Built-in via [PubSub](/glossary/pubsub/) | LiveView: native integration |
+| API surface | REST/[GraphQL](@/glossary/graphql.md) endpoints required | None (direct data access) | LiveView: less code duplication |
+| Real-time updates | WebSocket + client reconciliation | Built-in via [PubSub](@/glossary/pubsub.md) | LiveView: native integration |
 | SEO | Requires SSR setup | Server-rendered by default | LiveView: zero configuration |
 | Offline support | Possible with service workers | Requires connection | SPA: advantage for offline |
 | Latency sensitivity | Client-side instant | Network round-trip | SPA: advantage for <50ms interactions |
 
-For the Prismatic Platform, the tradeoffs favor LiveView decisively. Our dashboards require persistent real-time data streams ([security rating](/glossary/security-rating/)s, asset discovery, agent status) where server-side state is authoritative. The rare cases where sub-50ms client interaction matters (drag-and-drop, complex form validation) are handled through LiveView's JavaScript hooks mechanism, which allows targeted JavaScript for specific interactions without abandoning the server-rendered model.
+For the Prismatic Platform, the tradeoffs favor LiveView decisively. Our dashboards require persistent real-time data streams ([security rating](@/glossary/security-rating.md)s, asset discovery, agent status) where server-side state is authoritative. The rare cases where sub-50ms client interaction matters (drag-and-drop, complex form validation) are handled through LiveView's JavaScript hooks mechanism, which allows targeted JavaScript for specific interactions without abandoning the server-rendered model.
 
 ## Server-Side State Management
 
@@ -155,7 +155,7 @@ defmodule PrismaticWeb.PerimeterLive do
 end
 ```
 
-This pattern demonstrates a key architectural principle: the LiveView process is the single source of truth for the UI. The `handle_info/2` callback receives domain events from [PubSub](/architecture/pubsub/), while `handle_event/3` handles user interactions. Both funnel through the same sequential process mailbox, making race conditions between user actions and server events structurally impossible.
+This pattern demonstrates a key architectural principle: the LiveView process is the single source of truth for the UI. The `handle_info/2` callback receives domain events from [PubSub](@/architecture/pubsub.md), while `handle_event/3` handles user interactions. Both funnel through the same sequential process mailbox, making race conditions between user actions and server events structurally impossible.
 
 ## Component Architecture
 
@@ -212,7 +212,7 @@ end
 
 ### Function Components (Stateless)
 
-Function components are [pure function](/glossary/pure-function/)s that receive assigns and return HEEx templates. They are evaluated inline within the parent LiveView's render cycle, adding zero process overhead:
+Function components are [pure function](@/glossary/pure-function.md)s that receive assigns and return HEEx templates. They are evaluated inline within the parent LiveView's render cycle, adding zero process overhead:
 
 ```elixir
 defmodule PrismaticWeb.Components.UI do
@@ -255,7 +255,7 @@ The guideline for choosing between the two is straightforward: use function comp
 
 ## PubSub Integration for Real-Time Updates
 
-The integration between LiveView and [Phoenix PubSub](/architecture/pubsub/) is where the architecture truly distinguishes itself from traditional approaches. Because each LiveView is a BEAM process, it can subscribe to PubSub topics directly in its `mount/3` callback and receive messages through `handle_info/2` -- the same mechanism used for all inter-process communication in [OTP](/glossary/otp/).
+The integration between LiveView and [Phoenix PubSub](@/architecture/pubsub.md) is where the architecture truly distinguishes itself from traditional approaches. Because each LiveView is a BEAM process, it can subscribe to PubSub topics directly in its `mount/3` callback and receive messages through `handle_info/2` -- the same mechanism used for all inter-process communication in [OTP](@/glossary/otp.md).
 
 ```elixir
 defmodule PrismaticWeb.AgentDashboardLive do
@@ -295,21 +295,21 @@ defmodule PrismaticWeb.AgentDashboardLive do
 end
 ```
 
-This pattern requires no additional API layer, no polling mechanism, and no client-side event bus. The domain event (`agent_started`) flows from the originating process through [PubSub](/glossary/pubsub/) directly into the LiveView process, which re-renders and sends a DOM diff to the browser. The entire path from domain event to screen update typically completes in under 10 milliseconds.
+This pattern requires no additional API layer, no polling mechanism, and no client-side event bus. The domain event (`agent_started`) flows from the originating process through [PubSub](@/glossary/pubsub.md) directly into the LiveView process, which re-renders and sends a DOM diff to the browser. The entire path from domain event to screen update typically completes in under 10 milliseconds.
 
 ## Performance Characteristics
 
 ### BEAM VM Advantages for UI Serving
 
-The [BEAM virtual machine](/glossary/beam/) provides several properties that make it exceptionally suited for serving many concurrent LiveView connections:
+The [BEAM virtual machine](@/glossary/beam.md) provides several properties that make it exceptionally suited for serving many concurrent LiveView connections:
 
 | Property | Mechanism | Impact on LiveView |
 |----------|-----------|-------------------|
-| [Process isolation](/glossary/process-isolation/) | Separate heap per process | One user's crash never affects others |
+| [Process isolation](@/glossary/process-isolation.md) | Separate heap per process | One user's crash never affects others |
 | Preemptive scheduling | Reduction counting | No single user can starve others |
 | Per-process GC | Generational, per-heap | No global GC pauses across all sessions |
 | Lightweight processes | ~2KB initial memory | 100,000+ concurrent sessions per node |
-| [Hot code reload](/glossary/hot-code-reload/)ing | Module versioning | Zero-downtime dashboard updates |
+| [Hot code reload](@/glossary/hot-code-reload.md)ing | Module versioning | Zero-downtime dashboard updates |
 
 ### Measured Performance
 
@@ -318,7 +318,7 @@ Benchmarks from the Prismatic Platform production environment (single node, 8-co
 | Metric | Value | Methodology |
 |--------|-------|-------------|
 | Mount time (cold) | 2-5ms | `:telemetry` measurement of mount/3 |
-| Mount time (warm, cached data) | <1ms | Data pre-loaded in [ETS](/glossary/ets/) |
+| Mount time (warm, cached data) | <1ms | Data pre-loaded in [ETS](@/glossary/ets.md) |
 | DOM diff generation | 50-200us | Template diffing engine |
 | WebSocket frame size (typical) | 200-800 bytes | Compressed diff payload |
 | Concurrent connections (single node) | 50,000+ | Load tested with Tsung |
@@ -346,7 +346,7 @@ Connection overhead reduction: ~100%
 
 ## Telemetry and Observability
 
-Every LiveView lifecycle event emits [telemetry](/architecture/telemetry/) events that integrate with the platform's [observability](/glossary/observability/) infrastructure:
+Every LiveView lifecycle event emits [telemetry](@/architecture/telemetry.md) events that integrate with the platform's [observability](@/glossary/observability.md) infrastructure:
 
 ```elixir
 defmodule PrismaticWeb.LiveViewTelemetry do
@@ -385,7 +385,7 @@ defmodule PrismaticWeb.LiveViewTelemetry do
 end
 ```
 
-This [telemetry](/glossary/telemetry/) data feeds into the platform's [quality gates](/capabilities/quality-gates/) and [real-time monitoring](/capabilities/real-time-monitoring/) systems, enabling automatic detection of performance regressions in dashboard rendering.
+This [telemetry](@/glossary/telemetry.md) data feeds into the platform's [quality gates](@/capabilities/quality-gates.md) and [real-time monitoring](@/capabilities/real-time-monitoring.md) systems, enabling automatic detection of performance regressions in dashboard rendering.
 
 ## Testing LiveView
 
@@ -448,14 +448,14 @@ LiveView connections are stateful -- each user has an associated server process 
 
 1. **Sticky sessions** via load balancer configuration ensure WebSocket reconnections route to the same node
 2. **Graceful draining** during deploys allows existing connections to complete before node shutdown
-3. **PubSub clustering** via [distributed Erlang](/glossary/cluster/) ensures events reach LiveView processes regardless of which node they run on
+3. **PubSub clustering** via [distributed Erlang](@/glossary/cluster.md) ensures events reach LiveView processes regardless of which node they run on
 4. **Connection limits** per node prevent memory exhaustion (configured at 60,000 connections based on benchmarking)
 
-The [supervision tree](/architecture/supervision-trees/) for the web application ensures that crashed LiveView processes are automatically restarted, providing the user with a seamless reconnection experience through LiveView's built-in reconnection logic.
+The [supervision tree](@/architecture/supervision-trees.md) for the web application ensures that crashed LiveView processes are automatically restarted, providing the user with a seamless reconnection experience through LiveView's built-in reconnection logic.
 
 ## Summary
 
-Phoenix LiveView is not merely a convenience for avoiding JavaScript -- it is an architectural decision that aligns the UI layer with the same process-oriented, fault-tolerant model that governs the rest of the Prismatic Platform. Every dashboard is a supervised process. Every user interaction is a message. Every real-time update flows through the same [PubSub](/architecture/pubsub/) infrastructure that coordinates [agents](/apps/prismatic-agents/) and [storage adapters](/architecture/storage-adapters/). This uniformity reduces cognitive overhead, eliminates entire categories of bugs (client-server state drift, race conditions between user actions and server events), and enables the platform to serve real-time dashboards at scale with a remarkably small codebase.
+Phoenix LiveView is not merely a convenience for avoiding JavaScript -- it is an architectural decision that aligns the UI layer with the same process-oriented, fault-tolerant model that governs the rest of the Prismatic Platform. Every dashboard is a supervised process. Every user interaction is a message. Every real-time update flows through the same [PubSub](@/architecture/pubsub.md) infrastructure that coordinates [agents](@/apps/prismatic-agents.md) and [storage adapters](@/architecture/storage-adapters.md). This uniformity reduces cognitive overhead, eliminates entire categories of bugs (client-server state drift, race conditions between user actions and server events), and enables the platform to serve real-time dashboards at scale with a remarkably small codebase.
 
 ---
 
@@ -464,4 +464,4 @@ Phoenix LiveView is not merely a convenience for avoiding JavaScript -- it is an
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

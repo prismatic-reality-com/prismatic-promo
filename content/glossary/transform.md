@@ -199,11 +199,11 @@ The composable pipeline pattern ensures that transforms remain testable and main
 
 ## Cross-References
 
-- [Pipeline](/glossary/pipeline/) - Multi-stage data processing flow
-- [ETL](/glossary/etl/) - Extract-Transform-Load pattern
+- [Pipeline](@/glossary/pipeline.md) - Multi-stage data processing flow
+- [ETL](@/glossary/etl.md) - Extract-Transform-Load pattern
 - **Normalization** - Data standardization process
-- [Adapter](/glossary/adapter/) - Source-specific interface
-- [Traversal](/glossary/traversal/) - Graph navigation using transformed data
+- [Adapter](@/glossary/adapter.md) - Source-specific interface
+- [Traversal](@/glossary/traversal.md) - Graph navigation using transformed data
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

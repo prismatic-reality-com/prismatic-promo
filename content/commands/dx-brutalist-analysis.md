@@ -26,9 +26,9 @@ image_alt = "/dx-brutalist-analysis - Prismatic Platform"
 
 **/dx-brutalist-analysis** is a production command in the **Framework** category of the Prismatic Platform that performs unflinching, data-driven analysis of developer experience through git history forensics and workflow pattern detection. The term "brutalist" is deliberate: this command strips away vanity metrics and comfortable narratives to reveal the raw truth about how development actually happens versus how teams believe it happens. It distinguishes genuine progress from mere activity, productive patterns from habitual waste, and real velocity from the illusion of movement.
 
-This command operates under the **L2+** authority level and is executed by the `dx-brutalist-analyst` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The brutalist philosophy extends to the output format: results are presented without softening language or diplomatic hedging. If the data shows that 40% of commits are formatting-only changes that could be automated, the analysis says exactly that.
+This command operates under the **L2+** authority level and is executed by the `dx-brutalist-analyst` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The brutalist philosophy extends to the output format: results are presented without softening language or diplomatic hedging. If the data shows that 40% of commits are formatting-only changes that could be automated, the analysis says exactly that.
 
-Developer experience analysis is a critical feedback loop for platform evolution. The Prismatic Platform's [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Development Framework) uses DX analysis data to identify workflow friction points, tooling gaps, and process inefficiencies that become targets for autonomous improvement. The brutalist analysis provides the ground truth that feeds the evolution engine.
+Developer experience analysis is a critical feedback loop for platform evolution. The Prismatic Platform's [SEADF](@/glossary/seadf.md) (Self-Evolving Autonomous Development Framework) uses DX analysis data to identify workflow friction points, tooling gaps, and process inefficiencies that become targets for autonomous improvement. The brutalist analysis provides the ground truth that feeds the evolution engine.
 
 ## Architecture
 
@@ -36,7 +36,7 @@ The analysis engine operates in three phases: data extraction from git history, 
 
 ### Data Extraction Layer
 
-The extraction layer uses `git log`, `git diff-tree`, and `git shortlog` commands (via the platform's optimized [Git Trees](/commands/git-trees/) infrastructure) to build a comprehensive activity dataset without touching the working directory.
+The extraction layer uses `git log`, `git diff-tree`, and `git shortlog` commands (via the platform's optimized [Git Trees](@/commands/git-trees.md) infrastructure) to build a comprehensive activity dataset without touching the working directory.
 
 | Data Source | Extraction Method | Metrics |
 |------------|-------------------|---------|
@@ -121,7 +121,7 @@ The engine maintains a catalog of known developer experience anti-patterns, each
 
 1. **Repository Validation**: Verify the current directory is a valid git repository with sufficient history for meaningful analysis. A minimum of 50 commits is recommended.
 
-2. **Data Extraction**: Execute git commands to extract commit history, diff statistics, branch data, and file change patterns within the specified time window. Uses [Git Trees](/commands/git-trees/) for optimal performance.
+2. **Data Extraction**: Execute git commands to extract commit history, diff statistics, branch data, and file change patterns within the specified time window. Uses [Git Trees](@/commands/git-trees.md) for optimal performance.
 
 3. **Statistical Aggregation**: Compute time-series metrics including commit frequency distribution, change size distribution, file hotspot scores, and author activity patterns.
 
@@ -137,13 +137,13 @@ The engine maintains a catalog of known developer experience anti-patterns, each
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `dx-brutalist-analyst` | Specialized agent for DX analysis |
-| [Git Trees](/commands/git-trees/) | Data extraction | ~100x faster than raw git commands |
-| [SEADF](/glossary/seadf/) | Evolution feedback | Analysis data feeds autonomous improvement |
-| [Quality Gates](/glossary/quality-gates/) | Quality correlation | Correlates DX patterns with quality outcomes |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Analysis duration and coverage tracking |
-| [AIAD Registry](/glossary/aiad/) | Command specification | Analysis command configuration |
-| [/git-forensics](/commands/git-forensics/) | Complementary analysis | Deeper forensic investigation capability |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `dx-brutalist-analyst` | Specialized agent for DX analysis |
+| [Git Trees](@/commands/git-trees.md) | Data extraction | ~100x faster than raw git commands |
+| [SEADF](@/glossary/seadf.md) | Evolution feedback | Analysis data feeds autonomous improvement |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality correlation | Correlates DX patterns with quality outcomes |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Analysis duration and coverage tracking |
+| [AIAD Registry](@/glossary/aiad.md) | Command specification | Analysis command configuration |
+| [/git-forensics](@/commands/git-forensics.md) | Complementary analysis | Deeper forensic investigation capability |
 
 ## Best Practices
 
@@ -155,7 +155,7 @@ The engine maintains a catalog of known developer experience anti-patterns, each
 
 **Validate anti-pattern detections.** The detection heuristics produce false positives. A high commit frequency might reflect genuine rapid iteration rather than "commit theater." Always verify flagged patterns against the actual commit content before acting on them.
 
-**Feed results to SEADF.** The analysis output is designed to integrate with the [SEADF](/glossary/seadf/) evolution engine. Use the JSON format to automatically feed DX insights into the autonomous improvement pipeline.
+**Feed results to SEADF.** The analysis output is designed to integrate with the [SEADF](@/glossary/seadf.md) evolution engine. Use the JSON format to automatically feed DX insights into the autonomous improvement pipeline.
 
 ## Error Handling
 
@@ -206,20 +206,20 @@ The JSON output format is designed for direct consumption by the SEADF evolution
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for comfortable illusions. The analysis reports exactly what the data shows without diplomatic softening or hedging.
 - **NO DOUBTS**: Full investigation before conclusions. Every insight is backed by specific data points and statistical evidence.
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/git-forensics](/commands/git-forensics/) - Cynical git history analysis distinguishing signal from noise
-- [/git-trees](/commands/git-trees/) - Git tree-based codebase exploration at ~100x speed improvement
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
-- [/rc1-orchestrate](/commands/rc1-orchestrate/) - Complete RC1 delivery pipeline execution with ROC optimization
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/git-forensics](@/commands/git-forensics.md) - Cynical git history analysis distinguishing signal from noise
+- [/git-trees](@/commands/git-trees.md) - Git tree-based codebase exploration at ~100x speed improvement
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
+- [/rc1-orchestrate](@/commands/rc1-orchestrate.md) - Complete RC1 delivery pipeline execution with ROC optimization
 
 ---
 
@@ -228,4 +228,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

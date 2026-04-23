@@ -28,11 +28,11 @@ image_alt = "devops-deployment-specialist - Prismatic Platform"
 
 ## Overview
 
-The DevOps Deployment Specialist operates as an L2 tactical authority within the Primary Producer domain of the Prismatic Platform. This agent manages the complete deployment lifecycle for the platform's services, encompassing build pipeline orchestration, container image management, infrastructure provisioning, release coordination, and post-deployment validation. In a platform comprising 90 [umbrella application](/glossary/umbrella-application/)s deployed across [Fly.io](/glossary/fly-io/) edge infrastructure, deployment operations require meticulous coordination to ensure zero-downtime releases, configuration consistency, and immediate rollback capability.
+The DevOps Deployment Specialist operates as an L2 tactical authority within the Primary Producer domain of the Prismatic Platform. This agent manages the complete deployment lifecycle for the platform's services, encompassing build pipeline orchestration, container image management, infrastructure provisioning, release coordination, and post-deployment validation. In a platform comprising 90 [umbrella application](@/glossary/umbrella-application.md)s deployed across [Fly.io](@/glossary/fly-io.md) edge infrastructure, deployment operations require meticulous coordination to ensure zero-downtime releases, configuration consistency, and immediate rollback capability.
 
-The agent operates within the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard and follows the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. In deployment operations, NO MERCY means that every deployment either succeeds completely or rolls back entirely -- partial deployments are never tolerated. NO DOUBTS means that every deployment decision is backed by evidence: health checks pass, database migrations complete, configuration validation succeeds, and smoke tests confirm operational readiness before traffic is routed to new instances.
+The agent operates within the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard and follows the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. In deployment operations, NO MERCY means that every deployment either succeeds completely or rolls back entirely -- partial deployments are never tolerated. NO DOUBTS means that every deployment decision is backed by evidence: health checks pass, database migrations complete, configuration validation succeeds, and smoke tests confirm operational readiness before traffic is routed to new instances.
 
-The Prismatic Platform runs on [Elixir](/glossary/elixir/) releases compiled into [Docker](/glossary/docker/) container images, deployed to Fly.io's global edge network. The deployment pipeline transforms source code through compilation, asset bundling, container image building, registry pushing, infrastructure provisioning, migration execution, and instance startup. Each stage has explicit success criteria and failure handling. The DevOps Deployment Specialist automates and orchestrates this entire pipeline while maintaining the safety guarantees required for production operations.
+The Prismatic Platform runs on [Elixir](@/glossary/elixir.md) releases compiled into [Docker](@/glossary/docker.md) container images, deployed to Fly.io's global edge network. The deployment pipeline transforms source code through compilation, asset bundling, container image building, registry pushing, infrastructure provisioning, migration execution, and instance startup. Each stage has explicit success criteria and failure handling. The DevOps Deployment Specialist automates and orchestrates this entire pipeline while maintaining the safety guarantees required for production operations.
 
 ## Operational Domain
 
@@ -44,7 +44,7 @@ The agent manages deployments across multiple environments: development (local D
 
 The DevOps Deployment Specialist provides six core capability areas that together cover the complete deployment lifecycle.
 
-**Build pipeline orchestration** manages the multi-stage build process from source compilation through container image creation. The agent coordinates [Elixir](/glossary/elixir/) release compilation with `mix release`, TailwindCSS asset compilation, static asset digesting, and multi-stage Docker builds that produce minimal production images. Build stages execute in dependency order with explicit success validation at each stage boundary.
+**Build pipeline orchestration** manages the multi-stage build process from source compilation through container image creation. The agent coordinates [Elixir](@/glossary/elixir.md) release compilation with `mix release`, TailwindCSS asset compilation, static asset digesting, and multi-stage Docker builds that produce minimal production images. Build stages execute in dependency order with explicit success validation at each stage boundary.
 
 **Container image management** handles Docker image building, tagging, scanning, and registry operations. Images follow multi-stage build patterns that separate compilation dependencies from runtime requirements, producing production images that contain only the compiled release and its runtime dependencies. Image scanning detects known vulnerabilities before any image reaches the deployment pipeline.
 
@@ -72,7 +72,7 @@ Source Code --> Compilation --> Asset Build --> Docker Build --> Image Push
         --step 1       --rolling          all endpoints     zero-downtime
 ```
 
-Each stage reports its outcome through [telemetry](/glossary/telemetry/) events under the `[:prismatic_deploy, :pipeline, *]` namespace. Failed stages halt the pipeline and trigger the appropriate recovery action: build failures abort, migration failures roll back the migration, deployment failures revert to the previous release.
+Each stage reports its outcome through [telemetry](@/glossary/telemetry.md) events under the `[:prismatic_deploy, :pipeline, *]` namespace. Failed stages halt the pipeline and trigger the appropriate recovery action: build failures abort, migration failures roll back the migration, deployment failures revert to the previous release.
 
 ## Configuration Management
 
@@ -99,12 +99,12 @@ The DevOps Deployment Specialist integrates with both platform infrastructure an
 | Component | Relationship | Mechanism |
 |-----------|-------------|-----------|
 | Prismatic Core | Central coordination | Receives deployment directives and reports outcomes |
-| [Prismatic Web](/glossary/prismatic-web/) | Dashboard integration | Deployment status displayed in [LiveView](/glossary/liveview/) admin panels |
+| [Prismatic Web](@/glossary/prismatic-web.md) | Dashboard integration | Deployment status displayed in [LiveView](@/glossary/liveview.md) admin panels |
 | AIAD Commands | Command dispatch | `/deploy`, `/rollback`, `/release` command handling |
 | GitLab CI/CD | Pipeline integration | Triggered by CI pipeline stages for automated deployment |
-| [Fly.io](/glossary/fly-io/) | Infrastructure provider | Machine management, scaling, and network configuration |
+| [Fly.io](@/glossary/fly-io.md) | Infrastructure provider | Machine management, scaling, and network configuration |
 | Docker Registry | Image storage | Container image versioning and distribution |
-| [PostgreSQL](/glossary/postgresql/) | Migration management | [Ecto](/glossary/ecto/) migration execution and rollback |
+| [PostgreSQL](@/glossary/postgresql.md) | Migration management | [Ecto](@/glossary/ecto.md) migration execution and rollback |
 
 ## Monitoring and Observability
 
@@ -132,9 +132,9 @@ The DevOps Deployment Specialist operates under strict NO MERCY enforcement. Dep
 
 ## Related Agents
 
-- [**docker-build-specialist**](/agents/docker-build-specialist/) (L3) - Container image optimization and multi-stage build expertise
-- [**aiad-deployment-engine**](/agents/aiad-deployment-engine/) (L4) - Core deployment engine with formal verification
-- [**infrastructure-specialist**](/agents/archer-supreme/) (L3) - Infrastructure provisioning and capacity planning
+- [**docker-build-specialist**](@/agents/docker-build-specialist.md) (L3) - Container image optimization and multi-stage build expertise
+- [**aiad-deployment-engine**](@/agents/aiad-deployment-engine.md) (L4) - Core deployment engine with formal verification
+- [**infrastructure-specialist**](@/agents/archer-supreme.md) (L3) - Infrastructure provisioning and capacity planning
 
 ---
 
@@ -143,4 +143,4 @@ The DevOps Deployment Specialist operates under strict NO MERCY enforcement. Dep
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

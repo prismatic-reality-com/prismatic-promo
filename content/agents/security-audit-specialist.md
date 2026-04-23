@@ -28,25 +28,25 @@ image_alt = "security-audit-specialist - Prismatic Platform"
 
 ## Overview
 
-The security-audit-specialist operates as an L3 Strategic Command authority within the Prismatic Platform's development domain, responsible for conducting comprehensive security audits that encompass vulnerability analysis, [OWASP](/glossary/owasp/) Top 10 compliance verification, dependency security assessment, and actionable remediation guidance across the entire 90-application umbrella. In a platform that handles intelligence data, implements OSINT operations, and manages external attack surface assessments, the security posture must be exemplary -- the platform cannot credibly assess others' security while harboring its own vulnerabilities.
+The security-audit-specialist operates as an L3 Strategic Command authority within the Prismatic Platform's development domain, responsible for conducting comprehensive security audits that encompass vulnerability analysis, [OWASP](@/glossary/owasp.md) Top 10 compliance verification, dependency security assessment, and actionable remediation guidance across the entire 90-application umbrella. In a platform that handles intelligence data, implements OSINT operations, and manages external attack surface assessments, the security posture must be exemplary -- the platform cannot credibly assess others' security while harboring its own vulnerabilities.
 
-Built on the [AIAD](/glossary/aiad/) standard, this agent applies systematic security analysis methodologies adapted for the [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/) ecosystem. While OWASP guidelines were developed primarily for web applications, many security principles require reinterpretation for [BEAM](/glossary/beam/) virtual machine applications where process isolation, message passing, and immutable data structures provide inherent security properties that differ from traditional web stacks. The agent understands these distinctions and calibrates its audit methodology accordingly.
+Built on the [AIAD](@/glossary/aiad.md) standard, this agent applies systematic security analysis methodologies adapted for the [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md) ecosystem. While OWASP guidelines were developed primarily for web applications, many security principles require reinterpretation for [BEAM](@/glossary/beam.md) virtual machine applications where process isolation, message passing, and immutable data structures provide inherent security properties that differ from traditional web stacks. The agent understands these distinctions and calibrates its audit methodology accordingly.
 
 ## Operational Domain
 
-The development domain for security auditing encompasses the complete application codebase, third-party dependencies (Hex packages), configuration files, deployment manifests, and runtime behavior of all platform applications. The agent performs both static analysis (examining code without execution) and behavioral analysis (assessing how applications handle adversarial inputs during operation). The domain extends to [Phoenix](/glossary/phoenix/) web endpoints, [LiveView](/glossary/liveview/) socket connections, API authentication mechanisms, database query construction, file upload handling, and cross-origin resource sharing configurations.
+The development domain for security auditing encompasses the complete application codebase, third-party dependencies (Hex packages), configuration files, deployment manifests, and runtime behavior of all platform applications. The agent performs both static analysis (examining code without execution) and behavioral analysis (assessing how applications handle adversarial inputs during operation). The domain extends to [Phoenix](@/glossary/phoenix.md) web endpoints, [LiveView](@/glossary/liveview.md) socket connections, API authentication mechanisms, database query construction, file upload handling, and cross-origin resource sharing configurations.
 
-The scope also includes the platform's own security tools -- [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM capabilities, Color-Team simulation infrastructure, and intelligence gathering components -- which must themselves be audited to prevent the security assessment tools from becoming attack vectors.
+The scope also includes the platform's own security tools -- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) EASM capabilities, Color-Team simulation infrastructure, and intelligence gathering components -- which must themselves be audited to prevent the security assessment tools from becoming attack vectors.
 
 ## Key Capabilities
 
 - **OWASP Top 10 compliance assessment** -- Evaluates each application against the current OWASP Top 10 categories, including injection, broken authentication, sensitive data exposure, XML external entities, broken access control, security misconfiguration, cross-site scripting, insecure deserialization, vulnerable components, and insufficient logging
 - **Dependency vulnerability scanning** -- Analyzes all Hex package dependencies for known CVEs and security advisories, prioritizing vulnerabilities by exploitability and impact within the platform's specific usage context
-- **[Ecto](/glossary/ecto/) query injection analysis** -- Verifies that all database interactions use parameterized queries through Ecto's query DSL rather than string interpolation, preventing SQL injection in [PostgreSQL](/glossary/postgresql/) operations
+- **[Ecto](@/glossary/ecto.md) query injection analysis** -- Verifies that all database interactions use parameterized queries through Ecto's query DSL rather than string interpolation, preventing SQL injection in [PostgreSQL](@/glossary/postgresql.md) operations
 - **Authentication and authorization review** -- Audits the platform's authentication mechanisms, session management, RBAC (Role-Based Access Control) enforcement, and API key validation across all entry points
-- **[LiveView](/glossary/liveview/) security assessment** -- Evaluates LiveView-specific security concerns including socket authentication, event handler input validation, and server-side state management
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous security monitoring that detects newly introduced vulnerabilities
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing security audit metrics under the `:prismatic, :security_audit` namespace
+- **[LiveView](@/glossary/liveview.md) security assessment** -- Evaluates LiveView-specific security concerns including socket authentication, event handler input validation, and server-side state management
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous security monitoring that detects newly introduced vulnerabilities
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing security audit metrics under the `:prismatic, :security_audit` namespace
 
 ## Audit Methodology
 
@@ -63,7 +63,7 @@ The security audit process follows a structured methodology that ensures compreh
 
 ## BEAM-Specific Security Considerations
 
-The [BEAM](/glossary/beam/) virtual machine provides several inherent security properties that the audit methodology accounts for.
+The [BEAM](@/glossary/beam.md) virtual machine provides several inherent security properties that the audit methodology accounts for.
 
 | BEAM Property | Security Implication | Audit Focus |
 |---------------|---------------------|-------------|
@@ -71,11 +71,11 @@ The [BEAM](/glossary/beam/) virtual machine provides several inherent security p
 | **Immutable data** | Data cannot be modified after creation | Verify no unsafe use of `:ets` or ports that bypass immutability |
 | **Pattern matching** | Input validation through structural matching | Verify exhaustive pattern coverage in security-critical paths |
 | **Supervision trees** | Automatic process restart after crashes | Verify crash recovery doesn't skip security checks on restart |
-| **[Hot code reload](/glossary/hot-code-reload/)** | Live code updates without downtime | Verify code loading security, prevent unauthorized module injection |
+| **[Hot code reload](@/glossary/hot-code-reload.md)** | Live code updates without downtime | Verify code loading security, prevent unauthorized module injection |
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority for security auditing across all development activities. The agent can mandate security fixes that block release progression and can escalate critical vulnerabilities to L1 Supreme Authority for emergency response.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority for security auditing across all development activities. The agent can mandate security fixes that block release progression and can escalate critical vulnerabilities to L1 Supreme Authority for emergency response.
 
 ## Command Interface
 
@@ -91,10 +91,10 @@ The [BEAM](/glossary/beam/) virtual machine provides several inherent security p
 
 | Agent | Relationship |
 |-------|-------------|
-| [security-operations-specialist](/agents/security-operations-specialist/) | Audit findings feed into operational security monitoring and incident response |
-| [secrets-management-specialist](/agents/secrets-management-specialist/) | Audits verify that secret management practices meet security requirements |
-| [code-quality-commander](/agents/code-quality-commander/) | Security quality metrics integrated into overall quality scoring |
-| [blue-commander](/agents/blue-commander/) | Audit findings inform Blue Team defensive posture assessments |
+| [security-operations-specialist](@/agents/security-operations-specialist.md) | Audit findings feed into operational security monitoring and incident response |
+| [secrets-management-specialist](@/agents/secrets-management-specialist.md) | Audits verify that secret management practices meet security requirements |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Security quality metrics integrated into overall quality scoring |
+| [blue-commander](@/agents/blue-commander.md) | Audit findings inform Blue Team defensive posture assessments |
 
 ## Vulnerability Classification
 
@@ -118,11 +118,11 @@ The security audit specialist evaluates platform compliance against multiple reg
 | **NIS2 Directive** | European Union | Critical infrastructure cybersecurity |
 | **ZKB 264/2025** | Czech Republic | National cybersecurity obligations |
 | **GDPR** | European Union | Data protection and privacy |
-| **[ISO 27001](/glossary/iso-27001/)** | International | Information Security Management System |
+| **[ISO 27001](@/glossary/iso-27001.md)** | International | Information Security Management System |
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that all identified security vulnerabilities are remediated according to their severity timelines. No critical or high-severity vulnerability may persist past its response deadline. Security audit findings are tracked with full provenance per [NABLA Infinity](/glossary/nabla-infinity/) requirements, ensuring that every vulnerability has a documented discovery path, assessment rationale, and remediation verification record.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that all identified security vulnerabilities are remediated according to their severity timelines. No critical or high-severity vulnerability may persist past its response deadline. Security audit findings are tracked with full provenance per [NABLA Infinity](@/glossary/nabla-infinity.md) requirements, ensuring that every vulnerability has a documented discovery path, assessment rationale, and remediation verification record.
 
 ## Related Agents
 
@@ -135,4 +135,4 @@ Agents in the **development** domain collaborate with the security-audit-special
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

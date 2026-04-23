@@ -25,11 +25,11 @@ image_alt = "CIRCL - Prismatic Platform"
 
 ## Overview
 
-CIRCL (Computer [Incident Response](/glossary/incident-response/) Center Luxembourg) is a government-driven initiative operated by SMILE GIE (Security Made In Luxembourg) that provides a comprehensive suite of open-source intelligence services widely used by the global security community. Founded in 2008, CIRCL has evolved from a national CERT focused on Luxembourg into a major contributor to the international threat intelligence ecosystem, developing and maintaining critical open-source security tools used by thousands of organizations worldwide.
+CIRCL (Computer [Incident Response](@/glossary/incident-response.md) Center Luxembourg) is a government-driven initiative operated by SMILE GIE (Security Made In Luxembourg) that provides a comprehensive suite of open-source intelligence services widely used by the global security community. Founded in 2008, CIRCL has evolved from a national CERT focused on Luxembourg into a major contributor to the international threat intelligence ecosystem, developing and maintaining critical open-source security tools used by thousands of organizations worldwide.
 
 CIRCL's infrastructure encompasses several interconnected services that form a powerful intelligence collection and analysis platform. The passive DNS database contains billions of historical DNS resolution records collected from strategically placed sensors, providing analysts with the ability to trace domain-to-IP relationships over time -- an essential capability for infrastructure attribution and threat hunting. The passive SSL database similarly captures SSL/TLS certificate observations, enabling identification of certificate reuse across threat actor infrastructure, detection of certificate changes that may indicate compromise, and historical analysis of encryption deployment patterns.
 
-Perhaps CIRCL's most significant contribution to the security community is MISP (Malware Information Sharing Platform and Threat Sharing), an open-source [threat intelligence](/glossary/threat-intelligence/) platform that has become the de facto standard for structured threat intelligence sharing among organizations. MISP enables security teams to create, share, and consume threat intelligence events containing indicators of compromise (IOCs), threat actor profiles, vulnerability information, and tactical information in standardized formats (STIX, OpenIOC, MISP native format). Over 6,000 organizations worldwide operate MISP instances, forming a federated intelligence sharing network that dramatically amplifies each participant's detection capabilities.
+Perhaps CIRCL's most significant contribution to the security community is MISP (Malware Information Sharing Platform and Threat Sharing), an open-source [threat intelligence](@/glossary/threat-intelligence.md) platform that has become the de facto standard for structured threat intelligence sharing among organizations. MISP enables security teams to create, share, and consume threat intelligence events containing indicators of compromise (IOCs), threat actor profiles, vulnerability information, and tactical information in standardized formats (STIX, OpenIOC, MISP native format). Over 6,000 organizations worldwide operate MISP instances, forming a federated intelligence sharing network that dramatically amplifies each participant's detection capabilities.
 
 CIRCL also operates specialized services including the hashlookup service for rapid malware identification, BGP Ranking for autonomous system reputation assessment, and the CVE search service for vulnerability intelligence. These services are available through well-documented APIs with generous access policies for the security research community, making CIRCL an essential resource for any organization building a multi-source threat intelligence capability.
 
@@ -283,7 +283,7 @@ MISP enables organizations to create, share, and consume structured threat intel
 
 CIRCL services are provided for legitimate security research, incident response, and threat intelligence purposes. Users must comply with CIRCL's acceptable use policies, which prohibit using the services for unauthorized access, harassment, or any illegal purpose.
 
-Passive DNS and passive SSL data are collected from network traffic observations and do not contain personally identifiable information. However, domain ownership and certificate subject information may relate to individuals, and processing this data may trigger [GDPR](/glossary/gdpr/) obligations in European jurisdictions.
+Passive DNS and passive SSL data are collected from network traffic observations and do not contain personally identifiable information. However, domain ownership and certificate subject information may relate to individuals, and processing this data may trigger [GDPR](@/glossary/gdpr.md) obligations in European jurisdictions.
 
 MISP data sharing operates under the Traffic Light Protocol (TLP) and MISP distribution levels. Users must respect sharing restrictions and not redistribute intelligence beyond its intended audience. Violations of sharing agreements can result in community exclusion and loss of access to shared intelligence.
 
@@ -343,13 +343,13 @@ During file analysis workflows, the platform queries CIRCL's hashlookup service 
 
 ## Related Providers
 
-- [VirusTotal](/osint/virustotal/) - Multi-engine threat analysis with malware identification
-- [AlienVault OTX](/osint/alienvault-otx/) - Open threat exchange with community IOC sharing
-- [ThreatFox](/osint/threatfox/) - IOC sharing platform by abuse.ch
-- [SecurityTrails](/osint/securitytrails/) - Commercial DNS history and intelligence
-- [crt.sh](/osint/crtsh/) - [Certificate transparency](/glossary/certificate-transparency/) log search
-- [Shodan](/osint/shodan/) - Internet-connected device and service discovery
-- [DomainTools](/osint/domaintools/) - Premium WHOIS and domain intelligence
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine threat analysis with malware identification
+- [AlienVault OTX](@/osint/alienvault-otx.md) - Open threat exchange with community IOC sharing
+- [ThreatFox](@/osint/threatfox.md) - IOC sharing platform by abuse.ch
+- [SecurityTrails](@/osint/securitytrails.md) - Commercial DNS history and intelligence
+- [crt.sh](@/osint/crtsh.md) - [Certificate transparency](@/glossary/certificate-transparency.md) log search
+- [Shodan](@/osint/shodan.md) - Internet-connected device and service discovery
+- [DomainTools](@/osint/domaintools.md) - Premium WHOIS and domain intelligence
 
 ---
 
@@ -358,4 +358,4 @@ During file analysis workflows, the platform queries CIRCL's hashlookup service 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,7 +28,7 @@ image_alt = "/coordinate - Prismatic Platform"
 
 The command implements three coordination patterns: Sequential + Parallel (the most common, used for problems with both dependent and independent verification phases), Pure Parallel (for independent verification tasks that can run simultaneously), and Pure Sequential (for strictly dependent operations where each step builds on previous results). The coordination engine manages the full lifecycle from problem analysis through result aggregation, with MCP blackboard integration enabling real-time inter-agent communication.
 
-This command operates under the **L3** authority level and is executed by the `multi-agent-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command was developed from the successful pattern of the Operation Type Inference Fix, where coordinated multi-agent execution resolved complex type system and pattern matching bugs that no single agent could address independently.
+This command operates under the **L3** authority level and is executed by the `multi-agent-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command was developed from the successful pattern of the Operation Type Inference Fix, where coordinated multi-agent execution resolved complex type system and pattern matching bugs that no single agent could address independently.
 
 The coordination approach delivers 30-50% time savings through parallelization of independent work phases, while maintaining strict sequential ordering where dependencies exist. Every coordinated operation produces a comprehensive audit trail documenting each agent's contribution, timing, and results. The multi-agent coordination paradigm reflects a fundamental insight in the platform's design philosophy: complex problems are best solved by assembling purpose-built specialist teams rather than relying on generalist capabilities.
 
@@ -234,14 +234,14 @@ For security-critical operations, the pure sequential pattern ensures that each 
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Multi-agent coordination | Squad-based team management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Multi-agent coordination | Squad-based team management |
 | AIAD Registry | Agent discovery | Specialist selection from registry |
-| [Quality Gates](/glossary/quality-gates/) | Post-coordination validation | All squads pass gates |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Coordination event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Post-coordination validation | All squads pass gates |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Coordination event tracking |
 | MCP Blackboard | Inter-agent communication | Real-time status and data sharing |
 | Session Context | Result persistence | Reports saved to `.claude/reports/` |
-| [Trinity Gate](/glossary/trinity-gate/) | Result validation | Coordinated outputs pass Trinity verification |
-| [/analyze](/commands/analyze/) | Pre-coordination analysis | Problem space mapping before agent selection |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Result validation | Coordinated outputs pass Trinity verification |
+| [/analyze](@/commands/analyze.md) | Pre-coordination analysis | Problem space mapping before agent selection |
 
 ## Workflow Integration
 
@@ -249,14 +249,14 @@ The /coordinate command serves as the escalation path when single-agent operatio
 
 Within the broader platform workflow, coordination integrates at several points:
 
-1. **Bug Fix Escalation**: When [/fix](/commands/fix/) encounters a multi-domain bug, it recommends escalation to `/coordinate` with a pre-analyzed problem description.
+1. **Bug Fix Escalation**: When [/fix](@/commands/fix.md) encounters a multi-domain bug, it recommends escalation to `/coordinate` with a pre-analyzed problem description.
 2. **Architecture Migration**: Complex refactoring operations that touch multiple applications are naturally suited to coordinated execution, with specialists for each affected domain.
 3. **Quality Campaigns**: Platform-wide quality improvement campaigns use `/coordinate` to parallelize domain-specific quality evolution across independent applications.
 4. **Release Validation**: Pre-release validation coordinates multiple verification specialists to audit different aspects of the release simultaneously.
 
 ## NABLA Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: All agents must complete successfully, all quality gates must pass, and zero regressions are tolerated. Partial success is treated as failure. The coordination engine does not accept "good enough" results from any squad.
 - **NO DOUBTS**: Full investigation by multiple independent agents before conclusions. The multi-squad approach ensures that no single perspective dominates decision-making. Contradictions between squad findings trigger additional investigation rather than being silently resolved.
@@ -286,14 +286,14 @@ The coordination overhead (problem analysis + agent selection + result aggregati
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/rc1-orchestrate](/commands/rc1-orchestrate/) - Complete RC1 delivery pipeline execution with ROC optimization
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/debug-investigation](/commands/debug-investigation/) - Comprehensive debugging investigation
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/archer-supreme](/commands/archer-supreme/) - Supreme strategic coordination with multi-domain analysis
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/rc1-orchestrate](@/commands/rc1-orchestrate.md) - Complete RC1 delivery pipeline execution with ROC optimization
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/debug-investigation](@/commands/debug-investigation.md) - Comprehensive debugging investigation
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/archer-supreme](@/commands/archer-supreme.md) - Supreme strategic coordination with multi-domain analysis
 
 ---
 
@@ -302,4 +302,4 @@ The coordination overhead (problem analysis + agent selection + result aggregati
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

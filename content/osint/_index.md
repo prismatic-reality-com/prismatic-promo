@@ -30,11 +30,11 @@ date_modified = "2026-02-23"
 
 ## Abstract
 
-The Prismatic Platform integrates 127 self-registering Open Source Intelligence ([OSINT](/glossary/osint/)) providers through a revolutionary metaprogramming architecture where each tool automatically registers its own UI, API endpoints, and execution logic via compile-time hooks. Organized across seven distinct intelligence categories -- Czech Registries, Global Infrastructure, [Threat Intelligence](/glossary/threat-intelligence/), Social Intelligence, Email Intelligence, Domain Intelligence, and Financial Intelligence -- these sources provide investigators, compliance officers, and [security analysts](/glossary/security-analyst/) with comprehensive situational awareness from a single programmatic interface.
+The Prismatic Platform integrates 127 self-registering Open Source Intelligence ([OSINT](@/glossary/osint.md)) providers through a revolutionary metaprogramming architecture where each tool automatically registers its own UI, API endpoints, and execution logic via compile-time hooks. Organized across seven distinct intelligence categories -- Czech Registries, Global Infrastructure, [Threat Intelligence](@/glossary/threat-intelligence.md), Social Intelligence, Email Intelligence, Domain Intelligence, and Financial Intelligence -- these sources provide investigators, compliance officers, and [security analysts](@/glossary/security-analyst.md) with comprehensive situational awareness from a single programmatic interface.
 
-Each source is implemented as a standardized [adapter](/glossary/adapter-pattern/) conforming to the `PrismaticOsintCore.Behaviours.Source` [behaviour](/glossary/behaviour-pattern/), ensuring consistent [error handling](/glossary/error-handling/), [rate limiting](/glossary/rate-limiting/), [health monitoring](/glossary/health-monitoring/), and [telemetry](/glossary/telemetry/) across all providers. Intelligence findings from disparate sources are normalized into typed `Finding` structs with [confidence scores](/glossary/confidence-scoring/) ranging from 0.0 to 1.0, enabling downstream epistemic analysis through the [NABLA Infinity](/glossary/nabla-infinity/) framework and its [Trinity Gate](/glossary/trinity-gate/) verification pipeline.
+Each source is implemented as a standardized [adapter](@/glossary/adapter-pattern.md) conforming to the `PrismaticOsintCore.Behaviours.Source` [behaviour](@/glossary/behaviour-pattern.md), ensuring consistent [error handling](@/glossary/error-handling.md), [rate limiting](@/glossary/rate-limiting.md), [health monitoring](@/glossary/health-monitoring.md), and [telemetry](@/glossary/telemetry.md) across all providers. Intelligence findings from disparate sources are normalized into typed `Finding` structs with [confidence scores](@/glossary/confidence-scoring.md) ranging from 0.0 to 1.0, enabling downstream epistemic analysis through the [NABLA Infinity](@/glossary/nabla-infinity.md) framework and its [Trinity Gate](@/glossary/trinity-gate.md) verification pipeline.
 
-This document presents the technical [architecture](/glossary/software-architecture/), catalogues all seven intelligence categories with their constituent sources, describes the [rate limiting](/glossary/rate-limiting/) and [credential management](/glossary/credential-management/) infrastructure, and outlines the epistemic verification framework that transforms raw [OSINT](/glossary/osint/) data into evidence-grade intelligence suitable for [due diligence](/glossary/due-diligence/), [threat assessment](/glossary/threat-assessment/), and regulatory [compliance](/glossary/compliance-framework/) workflows.
+This document presents the technical [architecture](@/glossary/software-architecture.md), catalogues all seven intelligence categories with their constituent sources, describes the [rate limiting](@/glossary/rate-limiting.md) and [credential management](@/glossary/credential-management.md) infrastructure, and outlines the epistemic verification framework that transforms raw [OSINT](@/glossary/osint.md) data into evidence-grade intelligence suitable for [due diligence](@/glossary/due-diligence.md), [threat assessment](@/glossary/threat-assessment.md), and regulatory [compliance](@/glossary/compliance-framework.md) workflows.
 
 ## Introduction
 
@@ -52,7 +52,7 @@ All intelligence gathering conducted through the Prismatic Platform operates exc
 - **Voluntarily published information** on social media platforms and professional networks
 - **Regulatory filings** required by law to be publicly accessible
 
-The platform enforces [GDPR](/glossary/gdpr/) [compliance](/glossary/compliance-framework/) at the infrastructure level, with [data minimization](/glossary/data-minimization/) principles applied to all collection operations, configurable retention policies, and full [audit trails](/glossary/audit-logging/) documenting the [provenance](/glossary/data-provenance/) of every finding.
+The platform enforces [GDPR](@/glossary/gdpr.md) [compliance](@/glossary/compliance-framework.md) at the infrastructure level, with [data minimization](@/glossary/data-minimization.md) principles applied to all collection operations, configurable retention policies, and full [audit trails](@/glossary/audit-logging.md) documenting the [provenance](@/glossary/data-provenance.md) of every finding.
 
 ## Self-Registering Tool System
 
@@ -60,7 +60,7 @@ The revolutionary architecture powering Prismatic's 127 OSINT sources eliminates
 
 ### Metaprogramming Architecture
 
-Each OSINT adapter uses the `PrismaticOsintCore.Tool` [behaviour](/glossary/behaviour-pattern/) with a simple `register_tool/1` macro that captures comprehensive tool metadata:
+Each OSINT adapter uses the `PrismaticOsintCore.Tool` [behaviour](@/glossary/behaviour-pattern.md) with a simple `register_tool/1` macro that captures comprehensive tool metadata:
 
 ```elixir
 defmodule MyOSINTAdapter do
@@ -89,22 +89,22 @@ end
 
 ### Compile-Time Registration
 
-The system leverages Elixir's `@after_compile` hooks combined with `:beam_lib.chunks/2` introspection to extract tool configurations from compiled bytecode and automatically register them in a high-performance [ETS](/glossary/ets/) registry during application startup.
+The system leverages Elixir's `@after_compile` hooks combined with `:beam_lib.chunks/2` introspection to extract tool configurations from compiled bytecode and automatically register them in a high-performance [ETS](@/glossary/ets.md) registry during application startup.
 
 This approach provides **sub-millisecond tool lookup** while ensuring **zero runtime overhead** for the registration system itself—all metaprogramming costs are paid at compile time, not during intelligence operations.
 
 ### Automatic UI Generation
 
-Every registered tool automatically gains a fully functional [LiveView](/glossary/phoenix-liveview/) interface at `/osint/tools/{slug}` with:
+Every registered tool automatically gains a fully functional [LiveView](@/glossary/phoenix-liveview.md) interface at `/osint/tools/{slug}` with:
 
 - **Dynamic Forms**: Input fields generated from the tool's `input_fields` configuration
-- **Real-time Execution**: [PubSub](/glossary/phoenix-pubsub/) streaming of execution progress
+- **Real-time Execution**: [PubSub](@/glossary/phoenix-pubsub.md) streaming of execution progress
 - **Run History**: PostgreSQL-backed audit trail of all tool executions
 - **Result Visualization**: Structured display of intelligence findings with confidence scores
 
 ### REST API Auto-Exposure
 
-All registered tools are automatically exposed through the [PrismaticAPI](/glossary/prismatic-api/) gateway at `/api/v1/osint/*` endpoints, with full [OpenAPI 3.0](/glossary/openapi/) documentation generated from the tool configurations and Elixir typespecs.
+All registered tools are automatically exposed through the [PrismaticAPI](@/glossary/prismatic-api.md) gateway at `/api/v1/osint/*` endpoints, with full [OpenAPI 3.0](@/glossary/openapi.md) documentation generated from the tool configurations and Elixir typespecs.
 
 ### Dual-Layer Storage
 
@@ -113,7 +113,7 @@ The system maintains two complementary storage layers:
 - **ETS Hot Path**: Sub-millisecond tool metadata access for UI rendering and API dispatch
 - **PostgreSQL Persistence**: Complete audit trail of all tool executions with full result history
 
-This architecture provides the performance characteristics of an in-memory database with the durability guarantees required for [compliance](/glossary/compliance-framework/) and forensic analysis.
+This architecture provides the performance characteristics of an in-memory database with the durability guarantees required for [compliance](@/glossary/compliance-framework.md) and forensic analysis.
 
 ## Source Architecture
 
@@ -121,7 +121,7 @@ The Prismatic OSINT architecture is organized into two complementary OTP applica
 
 ### The Adapter Pattern
 
-Every [OSINT](/glossary/osint/) source in the Prismatic Platform implements one of two core [behaviours](/glossary/behaviour-pattern/). The `Source` [behaviour](/glossary/behaviour-pattern/) provides a query-oriented interface suitable for search-and-retrieve operations, while the `Provider` [behaviour](/glossary/behaviour-pattern/) supports stateful investigation workflows where findings are accumulated over the course of an orchestrated inquiry.
+Every [OSINT](@/glossary/osint.md) source in the Prismatic Platform implements one of two core [behaviours](@/glossary/behaviour-pattern.md). The `Source` [behaviour](@/glossary/behaviour-pattern.md) provides a query-oriented interface suitable for search-and-retrieve operations, while the `Provider` [behaviour](@/glossary/behaviour-pattern.md) supports stateful investigation workflows where findings are accumulated over the course of an orchestrated inquiry.
 
 The `Source` behaviour defines four mandatory callbacks:
 
@@ -184,7 +184,7 @@ end
 
 ### Response Normalization
 
-All source [adapters](/glossary/adapter-pattern/) transform their provider-specific response formats into a standardized result structure containing the originating source identifier, a human-readable title, the raw data payload, a [confidence score](/glossary/confidence-scoring/), a UTC timestamp, and arbitrary [metadata](/glossary/metadata-management/). This normalization enables downstream consumers -- whether [LiveView](/glossary/liveview/) dashboards, investigation orchestrators, or epistemic evaluation pipelines -- to process results from any source without knowledge of the underlying provider.
+All source [adapters](@/glossary/adapter-pattern.md) transform their provider-specific response formats into a standardized result structure containing the originating source identifier, a human-readable title, the raw data payload, a [confidence score](@/glossary/confidence-scoring.md), a UTC timestamp, and arbitrary [metadata](@/glossary/metadata-management.md). This normalization enables downstream consumers -- whether [LiveView](@/glossary/liveview.md) dashboards, investigation orchestrators, or epistemic evaluation pipelines -- to process results from any source without knowledge of the underlying provider.
 
 ```elixir
 %{
@@ -411,7 +411,7 @@ OSINT findings are consumed by the platform's 400+ AIAD agents, which apply doma
 
 ## Confidence and Verification
 
-Raw [OSINT](/glossary/osint/) data varies dramatically in reliability. A record from an official government registry (ARES, Justice.cz) carries near-certain accuracy for the data it contains, while a social media mention or an unverified breach database entry may be speculative or fraudulent. The Prismatic Platform addresses this through a layered [confidence](/glossary/confidence-scoring/) and [verification](/glossary/verification/) framework rooted in the [NABLA Infinity](/glossary/nabla-infinity/) epistemic doctrine.
+Raw [OSINT](@/glossary/osint.md) data varies dramatically in reliability. A record from an official government registry (ARES, Justice.cz) carries near-certain accuracy for the data it contains, while a social media mention or an unverified breach database entry may be speculative or fraudulent. The Prismatic Platform addresses this through a layered [confidence](@/glossary/confidence-scoring.md) and [verification](@/glossary/verification.md) framework rooted in the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic doctrine.
 
 ### Confidence Scoring
 
@@ -427,15 +427,15 @@ Every finding produced by an OSINT adapter carries a confidence score between 0.
 
 ### Multi-Source Corroboration
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework enforces a **[Signal Plurality](/glossary/signal-plurality/)** axiom: no belief should rest on a single source. When multiple independent sources corroborate a finding, the composite [confidence](/glossary/confidence-scoring/) increases according to a [Bayesian](/glossary/bayesian-reasoning/) update model. Conversely, contradictions between sources trigger the **[Contradiction Preservation](/glossary/contradiction-preservation/)** axiom, which requires both signals to be preserved rather than discarded, and may escalate the finding for human review.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework enforces a **[Signal Plurality](@/glossary/signal-plurality.md)** axiom: no belief should rest on a single source. When multiple independent sources corroborate a finding, the composite [confidence](@/glossary/confidence-scoring.md) increases according to a [Bayesian](@/glossary/bayesian-reasoning.md) update model. Conversely, contradictions between sources trigger the **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** axiom, which requires both signals to be preserved rather than discarded, and may escalate the finding for human review.
 
 ### Trinity Gate Verification
 
-Critical findings pass through the [Trinity Gate](/glossary/trinity-gate/) -- a three-layer [verification](/glossary/verification/) pipeline that evaluates hypotheses from structural, logical, and formal perspectives:
+Critical findings pass through the [Trinity Gate](@/glossary/trinity-gate.md) -- a three-layer [verification](@/glossary/verification.md) pipeline that evaluates hypotheses from structural, logical, and formal perspectives:
 
-1. **[Kuzu](/glossary/kuzu-db/) Layer** (Structural) -- Validates that the finding is consistent with the known [entity graph](/glossary/entity-graph/). A company claimed to be headquartered in Prague should have Czech registry entries.
-2. **[Prolog](/glossary/prolog/) Layer** (Logical) -- Applies [rule-based inference](/glossary/rule-based-reasoning/) to detect logical inconsistencies. A company cannot simultaneously be dissolved in one registry and active in another without explanation.
-3. **[Lean](/glossary/lean4/) Layer** (Formal) -- Provides mathematical proof [verification](/glossary/formal-verification/) for high-stakes assessments where formal guarantees are required.
+1. **[Kuzu](@/glossary/kuzu-db.md) Layer** (Structural) -- Validates that the finding is consistent with the known [entity graph](@/glossary/entity-graph.md). A company claimed to be headquartered in Prague should have Czech registry entries.
+2. **[Prolog](@/glossary/prolog.md) Layer** (Logical) -- Applies [rule-based inference](@/glossary/rule-based-reasoning.md) to detect logical inconsistencies. A company cannot simultaneously be dissolved in one registry and active in another without explanation.
+3. **[Lean](@/glossary/lean4.md) Layer** (Formal) -- Provides mathematical proof [verification](@/glossary/formal-verification.md) for high-stakes assessments where formal guarantees are required.
 
 The Trinity Gate never "approves" a finding. It can only **hold** (retain for further investigation), **drop** (falsified), or **escalate** (requires human judgment). This conservative design prevents false certainty from propagating through the intelligence pipeline.
 
@@ -445,13 +445,13 @@ Operating 121+ external sources at scale requires sophisticated rate limiting to
 
 ### Rate Limiter Architecture
 
-The `PrismaticOsintCore.RateLimiter` is a production-grade [GenServer](/glossary/genserver/) implementing [token bucket](/glossary/token-bucket/) [rate limiting](/glossary/rate-limiting/) with the following capabilities:
+The `PrismaticOsintCore.RateLimiter` is a production-grade [GenServer](@/glossary/genserver.md) implementing [token bucket](@/glossary/token-bucket.md) [rate limiting](@/glossary/rate-limiting.md) with the following capabilities:
 
-- **Per-source configuration** -- Each source has independently configurable limits (requests per window), burst allowances, and [backoff](/glossary/exponential-backoff/) parameters
-- **[Exponential backoff](/glossary/exponential-backoff/) with jitter** -- Failed or rate-limited requests trigger exponential delays with random jitter to prevent thundering herd scenarios
-- **[Circuit breaker](/glossary/circuit-breaker/) integration** -- Sources that consistently fail are temporarily removed from the query pool, with automatic recovery testing
-- **Broadway/GenStage backpressure** -- High-throughput pipelines automatically slow down when downstream sources approach their [rate limits](/glossary/rate-limiting/)
-- **[Telemetry](/glossary/telemetry/) emission** -- Every rate limit event emits [telemetry](/glossary/telemetry/) for real-time monitoring dashboards
+- **Per-source configuration** -- Each source has independently configurable limits (requests per window), burst allowances, and [backoff](@/glossary/exponential-backoff.md) parameters
+- **[Exponential backoff](@/glossary/exponential-backoff.md) with jitter** -- Failed or rate-limited requests trigger exponential delays with random jitter to prevent thundering herd scenarios
+- **[Circuit breaker](@/glossary/circuit-breaker.md) integration** -- Sources that consistently fail are temporarily removed from the query pool, with automatic recovery testing
+- **Broadway/GenStage backpressure** -- High-throughput pipelines automatically slow down when downstream sources approach their [rate limits](@/glossary/rate-limiting.md)
+- **[Telemetry](@/glossary/telemetry.md) emission** -- Every rate limit event emits [telemetry](@/glossary/telemetry.md) for real-time monitoring dashboards
 
 ```elixir
 # Per-source rate limit configuration examples
@@ -501,16 +501,16 @@ The Prismatic OSINT infrastructure is benchmarked across 419 test scenarios span
 
 ### GDPR Compliance
 
-The platform implements [data protection](/glossary/data-protection/) by design and by default, in accordance with EU General Data Protection Regulation ([GDPR](/glossary/gdpr/)) requirements:
+The platform implements [data protection](@/glossary/data-protection.md) by design and by default, in accordance with EU General Data Protection Regulation ([GDPR](@/glossary/gdpr.md)) requirements:
 
-- **[Data minimization](/glossary/data-minimization/)**: [Adapters](/glossary/adapter-pattern/) collect only the fields required for the investigation type. Source responses are filtered before storage, discarding irrelevant personal data.
-- **Purpose limitation**: Collected data is tagged with the investigation identifier and purpose code. Data cannot be repurposed without explicit [authorization](/glossary/authorization/).
-- **Storage limitation**: Configurable retention policies automatically purge [OSINT](/glossary/osint/) findings after their defined TTL (default: 90 days for standard investigations, 7 years for regulatory [compliance](/glossary/compliance-framework/) records).
+- **[Data minimization](@/glossary/data-minimization.md)**: [Adapters](@/glossary/adapter-pattern.md) collect only the fields required for the investigation type. Source responses are filtered before storage, discarding irrelevant personal data.
+- **Purpose limitation**: Collected data is tagged with the investigation identifier and purpose code. Data cannot be repurposed without explicit [authorization](@/glossary/authorization.md).
+- **Storage limitation**: Configurable retention policies automatically purge [OSINT](@/glossary/osint.md) findings after their defined TTL (default: 90 days for standard investigations, 7 years for regulatory [compliance](@/glossary/compliance-framework.md) records).
 - **Right of access and erasure**: The platform supports data subject access requests and deletion requests, with cascading removal across all storage backends (PostgreSQL, ETS, Meilisearch).
 
 ### Audit Trail
 
-Every [OSINT](/glossary/osint/) query generates an immutable [audit record](/glossary/audit-logging/) containing: the requesting user or [agent](/glossary/agent/) identity, the queried source, the input parameters, the response status, and the timestamp. These [audit records](/glossary/audit-logging/) are stored separately from investigation data and are retained for the legally required period (typically 5 years for financial investigations).
+Every [OSINT](@/glossary/osint.md) query generates an immutable [audit record](@/glossary/audit-logging.md) containing: the requesting user or [agent](@/glossary/agent.md) identity, the queried source, the input parameters, the response status, and the timestamp. These [audit records](@/glossary/audit-logging.md) are stored separately from investigation data and are retained for the legally required period (typically 5 years for financial investigations).
 
 ```elixir
 # Audit event emitted for every source query
@@ -530,9 +530,9 @@ Every [OSINT](/glossary/osint/) query generates an immutable [audit record](/glo
 
 ### Security Hardening
 
-- **[Credential isolation](/glossary/credential-management/)**: API keys are stored in environment variables and loaded at runtime. No credentials exist in source control, configuration files, or ETS tables.
-- **[TLS](/glossary/tls/) enforcement**: All external API calls use HTTPS with certificate verification enabled. Downgrade attacks are rejected at the HTTP client level.
-- **[Input sanitization](/glossary/input-sanitization/)**: All user-provided query parameters are sanitized before being passed to external APIs to prevent [injection attacks](/glossary/injection-vulnerability/) against third-party services.
+- **[Credential isolation](@/glossary/credential-management.md)**: API keys are stored in environment variables and loaded at runtime. No credentials exist in source control, configuration files, or ETS tables.
+- **[TLS](@/glossary/tls.md) enforcement**: All external API calls use HTTPS with certificate verification enabled. Downgrade attacks are rejected at the HTTP client level.
+- **[Input sanitization](@/glossary/input-sanitization.md)**: All user-provided query parameters are sanitized before being passed to external APIs to prevent [injection attacks](@/glossary/injection-vulnerability.md) against third-party services.
 - **Output filtering**: Source responses are scanned for sensitive data patterns (credit card numbers, social security numbers) and flagged for review before inclusion in investigation reports.
 
 ## Conclusion and Future Expansion
@@ -559,4 +559,4 @@ The intelligence landscape evolves continuously as new data sources emerge, exis
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

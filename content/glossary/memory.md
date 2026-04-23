@@ -679,23 +679,23 @@ end
 
 ## Related Terms
 
-- [Memory Leak](/glossary/memory-leak/) -- gradual memory growth from retained references that are never freed
-- [Memory Profiling](/glossary/memory-profiling/) -- techniques and tools for analyzing BEAM memory usage
-- [Process](/glossary/process/) -- BEAM lightweight processes with per-process heaps
-- [ETS](/glossary/ets/) -- Erlang Term Storage providing shared in-memory tables
-- [Named Table](/glossary/named-table/) -- ETS tables consuming shared memory outside process heaps
-- [Message Queue](/glossary/message-queue/) -- process mailboxes that consume heap memory
+- [Memory Leak](@/glossary/memory-leak.md) -- gradual memory growth from retained references that are never freed
+- [Memory Profiling](@/glossary/memory-profiling.md) -- techniques and tools for analyzing BEAM memory usage
+- [Process](@/glossary/process.md) -- BEAM lightweight processes with per-process heaps
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage providing shared in-memory tables
+- [Named Table](@/glossary/named-table.md) -- ETS tables consuming shared memory outside process heaps
+- [Message Queue](@/glossary/message-queue.md) -- process mailboxes that consume heap memory
 - [Garbage Collection](/glossary/garbage-collection/) -- the per-process GC mechanism
-- [Binary](/glossary/binary/) -- BEAM binary data type with reference-counted large binaries
+- [Binary](@/glossary/binary.md) -- BEAM binary data type with reference-counted large binaries
 - [Atom](/glossary/atom/) -- immutable, never-GCed identifiers in the global atom table
-- [Scheduler](/glossary/scheduler/) -- BEAM scheduler that triggers GC via reduction counting
-- [Reductions](/glossary/reductions/) -- work unit measure that gates GC triggering
-- [LRU](/glossary/lru/) -- cache eviction strategy for bounding memory usage
+- [Scheduler](@/glossary/scheduler.md) -- BEAM scheduler that triggers GC via reduction counting
+- [Reductions](@/glossary/reductions.md) -- work unit measure that gates GC triggering
+- [LRU](@/glossary/lru.md) -- cache eviction strategy for bounding memory usage
 
 ## See Also
 
-- [Architecture](/architecture/) -- BEAM runtime architecture and platform design
-- [Capabilities](/capabilities/) -- memory management and monitoring capabilities
+- [Architecture](@/architecture/_index.md) -- BEAM runtime architecture and platform design
+- [Capabilities](@/capabilities/_index.md) -- memory management and monitoring capabilities
 - [Performance Testing](/performance-testing/) -- memory benchmarking and profiling methodology
 - [Erlang Efficiency Guide: Memory](https://www.erlang.org/doc/efficiency_guide/memory) -- official BEAM memory documentation
 
@@ -706,4 +706,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

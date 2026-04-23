@@ -28,9 +28,9 @@ image_alt = "cost-optimization-specialist - Prismatic Platform"
 
 ## Overview
 
-The Cost Optimization Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Optimization domain of the Prismatic Platform. This agent systematically identifies and executes infrastructure cost reduction opportunities while maintaining or improving service quality. By analyzing resource utilization patterns, compute spend allocation, and operational overhead [metrics](/glossary/metrics/), the specialist produces actionable optimization plans with quantified savings projections.
+The Cost Optimization Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Optimization domain of the Prismatic Platform. This agent systematically identifies and executes infrastructure cost reduction opportunities while maintaining or improving service quality. By analyzing resource utilization patterns, compute spend allocation, and operational overhead [metrics](@/glossary/metrics.md), the specialist produces actionable optimization plans with quantified savings projections.
 
-Infrastructure costs in a platform running 90 [umbrella application](/glossary/umbrella-application/)s with continuous CI/CD pipelines, multiple database systems ([PostgreSQL](/glossary/postgresql/), [ETS](/glossary/ets/), [Redis](/glossary/redis/), [Meilisearch](/glossary/meilisearch/), [KuzuDB](/glossary/kuzudb/)), and edge computing deployments ([Fly.io](/glossary/fly-io/)) require constant optimization. The Cost Optimization Specialist monitors resource consumption [telemetry](/glossary/telemetry/), identifies underutilized resources, detects over-provisioned services, and recommends right-sizing adjustments. Every optimization recommendation includes a risk assessment and rollback plan.
+Infrastructure costs in a platform running 90 [umbrella application](@/glossary/umbrella-application.md)s with continuous CI/CD pipelines, multiple database systems ([PostgreSQL](@/glossary/postgresql.md), [ETS](@/glossary/ets.md), [Redis](@/glossary/redis.md), [Meilisearch](@/glossary/meilisearch.md), [KuzuDB](@/glossary/kuzudb.md)), and edge computing deployments ([Fly.io](@/glossary/fly-io.md)) require constant optimization. The Cost Optimization Specialist monitors resource consumption [telemetry](@/glossary/telemetry.md), identifies underutilized resources, detects over-provisioned services, and recommends right-sizing adjustments. Every optimization recommendation includes a risk assessment and rollback plan.
 
 ## Operational Domain
 
@@ -108,7 +108,7 @@ LLM integrations represent a significant and growing cost center. The specialist
 | Provider | Optimization Strategy | Expected Savings | Implementation |
 |---|---|---|---|
 | Claude API | Prompt compression, response caching | 15-30% | Prompt template optimization |
-| [Ollama](/glossary/ollama/) (Local) | Model selection per task complexity | 40-60% vs cloud | Route simple tasks to local models |
+| [Ollama](@/glossary/ollama.md) (Local) | Model selection per task complexity | 40-60% vs cloud | Route simple tasks to local models |
 | OpenRouter | Provider arbitrage, model routing | 20-35% | Intelligent provider selection |
 
 ```elixir
@@ -167,14 +167,14 @@ The specialist analyzes CI/CD pipeline execution to identify waste and optimizat
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [flyio-deployment-specialist](/agents/flyio-deployment-specialist/) | Infrastructure Partner | Coordinates Fly.io resource optimization and scaling policies |
-| [database-performance-specialist](/agents/database-performance-specialist/) | Database Costs | Aligns database performance optimization with cost reduction goals |
-| [ollama-coordinator](/agents/ollama-coordinator/) | Local LLM | Manages local Ollama model deployment for cost-effective AI operations |
-| [cicd-coordinator-agent](/agents/cicd-coordinator-agent/) | Pipeline Efficiency | Coordinates CI/CD pipeline optimization for build cost reduction |
+| [flyio-deployment-specialist](@/agents/flyio-deployment-specialist.md) | Infrastructure Partner | Coordinates Fly.io resource optimization and scaling policies |
+| [database-performance-specialist](@/agents/database-performance-specialist.md) | Database Costs | Aligns database performance optimization with cost reduction goals |
+| [ollama-coordinator](@/agents/ollama-coordinator.md) | Local LLM | Manages local Ollama model deployment for cost-effective AI operations |
+| [cicd-coordinator-agent](@/agents/cicd-coordinator-agent.md) | Pipeline Efficiency | Coordinates CI/CD pipeline optimization for build cost reduction |
 
 ## Enforcement
 
-Cost optimization operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No optimization is proposed without quantified savings projections backed by telemetry data. No optimization is deployed without verified rollback capability. Cost reductions that degrade performance below established thresholds are rejected. The NABLA Evidence axioms require all savings claims to be measured, not estimated. Post-implementation verification confirms that projected savings materialize within the expected timeframe.
+Cost optimization operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No optimization is proposed without quantified savings projections backed by telemetry data. No optimization is deployed without verified rollback capability. Cost reductions that degrade performance below established thresholds are rejected. The NABLA Evidence axioms require all savings claims to be measured, not estimated. Post-implementation verification confirms that projected savings materialize within the expected timeframe.
 
 ---
 
@@ -183,4 +183,4 @@ Cost optimization operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

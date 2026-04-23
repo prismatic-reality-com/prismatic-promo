@@ -28,9 +28,9 @@ image_alt = "IPinfo - Prismatic Platform"
 
 ## Overview
 
-IPinfo is a leading IP address intelligence provider that serves over 40 billion API requests monthly. It provides accurate geolocation, ASN (Autonomous System Number) information, company attribution, hosted domain reverse lookups, and privacy detection (VPN, proxy, Tor, relay). IPinfo maintains its own proprietary [data pipeline](/glossary/data-pipeline/) combining multiple sources including regional internet registries (RIRs), BGP data, and active network probing.
+IPinfo is a leading IP address intelligence provider that serves over 40 billion API requests monthly. It provides accurate geolocation, ASN (Autonomous System Number) information, company attribution, hosted domain reverse lookups, and privacy detection (VPN, proxy, Tor, relay). IPinfo maintains its own proprietary [data pipeline](@/glossary/data-pipeline.md) combining multiple sources including regional internet registries (RIRs), BGP data, and active network probing.
 
-For [OSINT](/glossary/osint/) investigations, IPinfo provides essential context for any IP-based analysis. It answers fundamental questions about where an IP is located, who owns it, what organization uses it, whether it is a hosting provider or end-user network, and whether it is associated with privacy or anonymization services.
+For [OSINT](@/glossary/osint.md) investigations, IPinfo provides essential context for any IP-based analysis. It answers fundamental questions about where an IP is located, who owns it, what organization uses it, whether it is a hosting provider or end-user network, and whether it is associated with privacy or anonymization services.
 
 IPinfo differentiates itself from competitors through its data accuracy methodology. Rather than relying solely on WHOIS and RIR databases, IPinfo performs active network measurements and maintains partnerships with ISPs to verify geolocation data. This results in significantly higher accuracy, particularly for mobile networks and cloud infrastructure where traditional geolocation databases often produce incorrect results.
 
@@ -168,7 +168,7 @@ end
 
 ### Geographic Risk Assessment
 
-IPinfo geolocation data feeds into the [Prismatic Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/) engine for geographic risk assessment:
+IPinfo geolocation data feeds into the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md) engine for geographic risk assessment:
 
 | Risk Factor | Assessment | Weight |
 |------------|-----------|--------|
@@ -213,10 +213,10 @@ API token via query parameter (`?token=`) or `Authorization: Bearer` header. Fre
 - Attributing IP addresses to specific organizations and ISPs
 - Discovering all domains hosted on suspicious servers
 - Mapping threat actor infrastructure across ASNs
-- Correlating with [GreyNoise](/osint/greynoise/) for comprehensive IP context
+- Correlating with [GreyNoise](@/osint/greynoise.md) for comprehensive IP context
 
 ### Visitor Intelligence
-- Real-time IP enrichment for the [HAWKEYE](/apps/prismatic-hawkeye/) visitor intelligence system
+- Real-time IP enrichment for the [HAWKEYE](@/apps/prismatic-hawkeye.md) visitor intelligence system
 - Geographic access control and anomaly detection
 - VPN/proxy detection for fraud prevention workflows
 - Carrier detection for mobile traffic analysis
@@ -225,23 +225,23 @@ API token via query parameter (`?token=`) or `Authorization: Bearer` header. Fre
 - Map organizational IP space and ASN assignments
 - Identify hosting relationships and shared infrastructure
 - Discover unexpected IP presence in sanctioned jurisdictions
-- Feed geographic intelligence into [Prismatic Perimeter](/apps/prismatic-perimeter/) ratings
+- Feed geographic intelligence into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) ratings
 
 ## Related Sources
 
-- [Shodan](/osint/shodan/) - Service discovery on IP addresses
-- [AbuseIPDB](/osint/abuseipdb/) - IP abuse reporting and reputation
-- [GreyNoise](/osint/greynoise/) - Scanner identification for IP addresses
-- [BinaryEdge](/osint/binaryedge/) - Internet scanning intelligence
-- [Censys](/osint/censys/) - Certificate and service data for IPs
-- [MaxMind](/osint/maxmind/) - Alternative GeoIP and fraud detection
-- [IPQualityScore](/osint/ipqualityscore/) - Fraud scoring and proxy detection
+- [Shodan](@/osint/shodan.md) - Service discovery on IP addresses
+- [AbuseIPDB](@/osint/abuseipdb.md) - IP abuse reporting and reputation
+- [GreyNoise](@/osint/greynoise.md) - Scanner identification for IP addresses
+- [BinaryEdge](@/osint/binaryedge.md) - Internet scanning intelligence
+- [Censys](@/osint/censys.md) - Certificate and service data for IPs
+- [MaxMind](@/osint/maxmind.md) - Alternative GeoIP and fraud detection
+- [IPQualityScore](@/osint/ipqualityscore.md) - Fraud scoring and proxy detection
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - IP intelligence in [EASM](/glossary/easm/) ratings
-- [HAWKEYE](/apps/prismatic-hawkeye/) - Visitor intelligence with IP enrichment
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - IP intelligence in [EASM](@/glossary/easm.md) ratings
+- [HAWKEYE](@/apps/prismatic-hawkeye.md) - Visitor intelligence with IP enrichment
 
 ---
 
@@ -250,4 +250,4 @@ API token via query parameter (`?token=`) or `Authorization: Bearer` header. Fre
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

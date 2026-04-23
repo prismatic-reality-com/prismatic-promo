@@ -28,7 +28,7 @@ We hypothesize that restructuring the Prismatic Platform's supervision trees fro
 
 ## Background
 
-The Prismatic Platform runs 90 umbrella applications under [OTP](/technologies/erlang-otp/) supervision. The original architecture followed a straightforward pattern: each application defines a top-level [Supervisor](/technologies/supervisor/) with `:one_for_one` strategy, starting children in dependency order. This simplicity served the platform well through the first 40 applications, but scaling beyond that introduced three systemic problems.
+The Prismatic Platform runs 90 umbrella applications under [OTP](@/technologies/erlang-otp.md) supervision. The original architecture followed a straightforward pattern: each application defines a top-level [Supervisor](@/technologies/supervisor.md) with `:one_for_one` strategy, starting children in dependency order. This simplicity served the platform well through the first 40 applications, but scaling beyond that introduced three systemic problems.
 
 First, cascading failures. When a storage backend process crashes, it can trigger restart storms in dependent processes across multiple applications. With `:one_for_one`, each process restarts independently, potentially reconnecting to backends that are still recovering. This creates thundering herd effects that can take 30-60 seconds to stabilize.
 
@@ -36,7 +36,7 @@ Second, cold-start time. Sequential process startup across 90 applications takes
 
 Third, resource isolation. A misbehaving process in one domain (such as an agent consuming excessive memory) can affect processes in unrelated domains because they share the same supervision boundary.
 
-The `prismatic_supervisor` application was built to address these issues through compositional supervision with dependency-aware startup, domain partitioning, and pluggable registry backends ([ETS](/technologies/ets/) for development, Horde for production clustering).
+The `prismatic_supervisor` application was built to address these issues through compositional supervision with dependency-aware startup, domain partitioning, and pluggable registry backends ([ETS](@/technologies/ets.md) for development, Horde for production clustering).
 
 ## Methodology
 
@@ -203,16 +203,16 @@ Memory pressure recovery in Topology D benefited from the health monitoring comp
 
 - Evaluate Horde-based distributed supervision for multi-node deployments
 - Implement adaptive restart rate limiting based on failure frequency patterns
-- Add chaos engineering scenarios using the [Color Team](/glossary/color-teams/) framework
+- Add chaos engineering scenarios using the [Color Team](@/glossary/color-teams.md) framework
 - Benchmark supervision tree performance under sustained 100K process counts
-- Integrate with [SEADF](/glossary/seadf/) for autonomous topology evolution
+- Integrate with [SEADF](@/glossary/seadf.md) for autonomous topology evolution
 
 ## Related Experiments
 
-- [Agent Prototyping](/lab/agent-prototyping/) -- Agents operate under these supervision trees
-- [Multi-Agent Coordination](/lab/multi-agent-coordination/) -- Coordination patterns affected by topology
-- [Pipeline Experimentation](/lab/pipeline-experimentation/) -- Pipeline stages supervised by domain partitions
-- [Quality Evolution](/lab/quality-evolution/) -- Quality monitoring interacts with supervision health
+- [Agent Prototyping](@/lab/agent-prototyping.md) -- Agents operate under these supervision trees
+- [Multi-Agent Coordination](@/lab/multi-agent-coordination.md) -- Coordination patterns affected by topology
+- [Pipeline Experimentation](@/lab/pipeline-experimentation.md) -- Pipeline stages supervised by domain partitions
+- [Quality Evolution](@/lab/quality-evolution.md) -- Quality monitoring interacts with supervision health
 
 ---
 
@@ -221,4 +221,4 @@ Memory pressure recovery in Topology D benefited from the health monitoring comp
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,11 +26,11 @@ image_alt = "/guardrails - Prismatic Platform"
 
 **/guardrails** is a production command in the **DevOps** category of the Prismatic Platform that enforces deployment safety through a comprehensive system of CI/CD guardrails, preventing dangerous or non-compliant changes from reaching production environments. The command implements multiple layers of protection including compilation verification, test coverage enforcement, quality gate validation, performance threshold checking, security scanning, and deployment approval workflows.
 
-This command operates under the **L3** authority level and is executed by the `cicd-guardrails-enforcer` agent, which has the authority to block deployments, reject merge requests, and halt pipeline execution when guardrail violations are detected. The L3 authority level is the minimum required for deployment-blocking operations, reflecting the critical nature of guardrail enforcement in protecting production stability. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level and is executed by the `cicd-guardrails-enforcer` agent, which has the authority to block deployments, reject merge requests, and halt pipeline execution when guardrail violations are detected. The L3 authority level is the minimum required for deployment-blocking operations, reflecting the critical nature of guardrail enforcement in protecting production stability. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 The guardrails system goes far beyond simple CI/CD pipeline checks. It implements the platform's defense-in-depth deployment strategy where multiple independent safety checks must all pass before code can progress through the deployment pipeline. Each guardrail is independently evaluated, so a failure in one area (for example, compilation warnings) cannot be compensated by success in another area (for example, test coverage). This ensures that production code meets every quality dimension simultaneously, not just a weighted aggregate.
 
-The platform's guardrails are particularly stringent. Zero compilation warnings are required (`--warnings-as-errors`), all Credo checks must pass (`--strict` mode), test coverage must meet threshold requirements, page load times must remain under 250ms, server-side renders must complete within 100ms, and no known security vulnerabilities can be present in dependencies. These are non-negotiable requirements enforced through the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine.
+The platform's guardrails are particularly stringent. Zero compilation warnings are required (`--warnings-as-errors`), all Credo checks must pass (`--strict` mode), test coverage must meet threshold requirements, page load times must remain under 250ms, server-side renders must complete within 100ms, and no known security vulnerabilities can be present in dependencies. These are non-negotiable requirements enforced through the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine.
 
 ## Architecture
 
@@ -171,19 +171,19 @@ Each guardrail operates independently with its own pass/fail criteria. The Compi
 
 6. **Gate Decision**: Based on the aggregate assessment and the operation mode (`--check-only` vs. active gating), either report results or actively block/permit the deployment. Blocked deployments remain blocked until all violations are resolved.
 
-7. **Telemetry Reporting**: Emit [telemetry](/glossary/telemetry/) events for guardrail results, including individual guardrail pass/fail status, violation counts, and gate decisions. This data feeds into trend analysis for guardrail effectiveness monitoring.
+7. **Telemetry Reporting**: Emit [telemetry](@/glossary/telemetry.md) events for guardrail results, including individual guardrail pass/fail status, violation counts, and gate decisions. This data feeds into trend analysis for guardrail effectiveness monitoring.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by `cicd-guardrails-enforcer` at L3 authority |
-| [Quality Gates](/glossary/quality-gates/) | Bidirectional | Quality gates are a subset of the guardrails system |
-| [/gitlab-ci](/commands/gitlab-ci/) | Pipeline Integration | Guardrails execute as pipeline stages in CI/CD |
-| [/gitlab-enforce](/commands/gitlab-enforce/) | Policy Enforcement | Guardrail results feed into enforcement decisions |
-| [/cicd-unified](/commands/cicd-unified/) | Unified Pipeline | Guardrails integrate with unified CI/CD workflow |
-| [Telemetry](/glossary/telemetry/) | Metrics | Guardrail results, violation rates, and gate decisions tracked |
-| [Prismatic Web](/apps/prismatic-web/) | Dashboard | Guardrail status displayed in deployment dashboard |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by `cicd-guardrails-enforcer` at L3 authority |
+| [Quality Gates](@/glossary/quality-gates.md) | Bidirectional | Quality gates are a subset of the guardrails system |
+| [/gitlab-ci](@/commands/gitlab-ci.md) | Pipeline Integration | Guardrails execute as pipeline stages in CI/CD |
+| [/gitlab-enforce](@/commands/gitlab-enforce.md) | Policy Enforcement | Guardrail results feed into enforcement decisions |
+| [/cicd-unified](@/commands/cicd-unified.md) | Unified Pipeline | Guardrails integrate with unified CI/CD workflow |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Guardrail results, violation rates, and gate decisions tracked |
+| [Prismatic Web](@/apps/prismatic-web.md) | Dashboard | Guardrail status displayed in deployment dashboard |
 | Pre-commit Hooks | Local Enforcement | Quick guardrails run as pre-commit checks locally |
 | Fly.io | Deployment Target | Gate decisions control deployment to Fly.io instances |
 
@@ -257,7 +257,7 @@ end
 
 ## Doctrine Compliance
 
-All guardrail operations enforce the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine.
+All guardrail operations enforce the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine.
 
 - **NO MERCY**: Every guardrail must pass independently. There is no aggregate scoring that could allow a failure in one area to be compensated by excellence in another. Zero tolerance means zero tolerance -- one compilation warning blocks the entire deployment.
 - **NO DOUBTS**: Guardrail results are deterministic and reproducible. The same code produces the same guardrail results regardless of when or where the check is executed. All results include specific violation details and remediation guidance so developers can act with confidence.
@@ -266,14 +266,14 @@ The command enforces the platform's Page Load Performance Standard (P0 - ABSOLUT
 
 ## Related Commands
 
-- [/cicd-unified](/commands/cicd-unified/) - Unified CI/CD workflow actions for pipeline management
-- [/gitlab-ci](/commands/gitlab-ci/) - [GitLab CI](/glossary/gitlab-ci/)/CD pipeline management and configuration
-- [/gitlab-enforce](/commands/gitlab-enforce/) - GitLab enforcement for compliance and workflow standards
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation
-- [/hygiene](/commands/hygiene/) - Ultra-fast dependency-free static analysis for code hygiene
-- [/health](/commands/health/) - System health check with component-level status reporting
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/cicd-unified](@/commands/cicd-unified.md) - Unified CI/CD workflow actions for pipeline management
+- [/gitlab-ci](@/commands/gitlab-ci.md) - [GitLab CI](@/glossary/gitlab-ci.md)/CD pipeline management and configuration
+- [/gitlab-enforce](@/commands/gitlab-enforce.md) - GitLab enforcement for compliance and workflow standards
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation
+- [/hygiene](@/commands/hygiene.md) - Ultra-fast dependency-free static analysis for code hygiene
+- [/health](@/commands/health.md) - System health check with component-level status reporting
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -282,4 +282,4 @@ The command enforces the platform's Page Load Performance Standard (P0 - ABSOLUT
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

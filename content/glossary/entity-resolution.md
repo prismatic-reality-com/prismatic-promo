@@ -45,9 +45,9 @@ Entity resolution sits at the intersection of data engineering, information theo
 
 ## Context in Prismatic
 
-The Prismatic Platform performs entity resolution through dedicated L2 resolver agents that consolidate intelligence records across OSINT sources. Social media profiles, corporate registry records, domain registrations, certificate transparency logs, and financial data are linked to master entity records using multi-signal correlation validated against [NABLA Infinity](/glossary/nabla-infinity/) axioms. The [Signal Plurality](/glossary/signal-plurality/) axiom requires that entity links be supported by at least two independent signals, and the [Provenance Mandatory](/glossary/provenance-mandatory/) axiom ensures that every link is traceable to its evidence sources.
+The Prismatic Platform performs entity resolution through dedicated L2 resolver agents that consolidate intelligence records across OSINT sources. Social media profiles, corporate registry records, domain registrations, certificate transparency logs, and financial data are linked to master entity records using multi-signal correlation validated against [NABLA Infinity](@/glossary/nabla-infinity.md) axioms. The [Signal Plurality](@/glossary/signal-plurality.md) axiom requires that entity links be supported by at least two independent signals, and the [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom ensures that every link is traceable to its evidence sources.
 
-Resolution [confidence scores](/glossary/confidence-scoring/) must exceed the standard operations threshold (tau = 0.80) before entity links are established in the [Knowledge Graph](/glossary/knowledge-graph/). Links below the threshold are preserved as candidate associations for analyst review rather than being discarded -- consistent with the [contradiction preservation](/glossary/contradiction-preservation/) principle. The [Trinity Gate](/glossary/trinity-gate/) validates resolution assertions through structural consistency (the entity graph remains a valid DAG), logical consistency (attribute values do not contradict), and formal verification.
+Resolution [confidence scores](@/glossary/confidence-scoring.md) must exceed the standard operations threshold (tau = 0.80) before entity links are established in the [Knowledge Graph](@/glossary/knowledge-graph.md). Links below the threshold are preserved as candidate associations for analyst review rather than being discarded -- consistent with the [contradiction preservation](@/glossary/contradiction-preservation.md) principle. The [Trinity Gate](@/glossary/trinity-gate.md) validates resolution assertions through structural consistency (the entity graph remains a valid DAG), logical consistency (attribute values do not contradict), and formal verification.
 
 ## Entity Resolution Pipeline
 
@@ -322,7 +322,7 @@ end
 
 ### Graph-Based Matching
 
-Graph-based resolution analyzes relationship patterns in the [Knowledge Graph](/glossary/knowledge-graph/):
+Graph-based resolution analyzes relationship patterns in the [Knowledge Graph](@/glossary/knowledge-graph.md):
 
 ```elixir
 defmodule PrismaticResolution.GraphMatcher do
@@ -444,7 +444,7 @@ Entity resolution confidence must be calibrated so that stated confidence matche
 | **0.40-0.60** | Uncertain association | Preserve as candidate, do not merge |
 | **0.00-0.40** | Likely distinct entities | No link created |
 
-All confidence scores are subject to [NABLA Infinity](/glossary/nabla-infinity/) axiom compliance:
+All confidence scores are subject to [NABLA Infinity](@/glossary/nabla-infinity.md) axiom compliance:
 - **Signal Plurality**: Link must be supported by 2+ independent signals
 - **Provenance Mandatory**: Every contributing match factor must be traceable
 - **Time Decay**: Confidence decreases as source data ages
@@ -461,9 +461,9 @@ Entity resolution across OSINT sources presents unique challenges due to source 
 | **Business Registry** | Legal name, tax ID, address | High | Jurisdiction-specific |
 | **Social Media** | Username, display name, bio | Variable | Platform-specific |
 | **DNS Records** | Domain, IP, nameservers | High | All public domains |
-| **[Shodan](/glossary/shodan/)** | IP, ports, banners, hostnames | High | Internet-facing services |
-| **[Censys](/glossary/censys/)** | Certificates, hosts, protocols | High | Internet-wide scanning |
-| **[GreyNoise](/glossary/greynoise/)** | IP, classification, tags | High | Internet noise sources |
+| **[Shodan](@/glossary/shodan.md)** | IP, ports, banners, hostnames | High | Internet-facing services |
+| **[Censys](@/glossary/censys.md)** | Certificates, hosts, protocols | High | Internet-wide scanning |
+| **[GreyNoise](@/glossary/greynoise.md)** | IP, classification, tags | High | Internet noise sources |
 | **Czech Registries** | ICO, legal name, officers, address | Very High | Czech Republic |
 | **Sanctions Lists** | Name, aliases, identifiers | High | EU, US, UN coverage |
 
@@ -490,7 +490,7 @@ Entity resolution at scale requires careful performance optimization:
 | Medium | 100,000 | 5 billion | 500,000 | < 1 minute |
 | Large | 10,000,000 | 50 trillion | 50,000,000 | < 1 hour |
 
-The Prismatic Platform uses [Broadway](/glossary/broadway/) for [stream processing](/glossary/stream-processing/) of resolution pipelines, enabling real-time resolution of incoming intelligence as it arrives rather than batch-processing accumulated records.
+The Prismatic Platform uses [Broadway](@/glossary/broadway.md) for [stream processing](@/glossary/stream-processing.md) of resolution pipelines, enabling real-time resolution of incoming intelligence as it arrives rather than batch-processing accumulated records.
 
 ```elixir
 defmodule PrismaticResolution.StreamResolver do
@@ -536,23 +536,23 @@ end
 
 ## Related Terms
 
-- [Knowledge Graph](/glossary/knowledge-graph/) - Graph structure storing resolved entity relationships
-- [Ontology](/glossary/ontology/) - Schema defining entity types and relationship categories
-- [Data Pipeline](/glossary/data-pipeline/) - Infrastructure for processing resolution workflows
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework governing resolution confidence
-- [Trinity Gate](/glossary/trinity-gate/) - Verification of resolution assertions
-- [Confidence Scoring](/glossary/confidence-scoring/) - Calibrated match confidence assignment
-- [Signal Plurality](/glossary/signal-plurality/) - Minimum evidence requirement for entity links
-- [Provenance Mandatory](/glossary/provenance-mandatory/) - Traceability requirement for all resolution evidence
-- [Stream Processing](/glossary/stream-processing/) - Real-time resolution pipeline execution
-- [Shodan](/glossary/shodan/) - OSINT source providing infrastructure intelligence for resolution
-- [Censys](/glossary/censys/) - Certificate and host data for entity correlation
-- [Broadway](/glossary/broadway/) - Stream processing framework for resolution pipelines
+- [Knowledge Graph](@/glossary/knowledge-graph.md) - Graph structure storing resolved entity relationships
+- [Ontology](@/glossary/ontology.md) - Schema defining entity types and relationship categories
+- [Data Pipeline](@/glossary/data-pipeline.md) - Infrastructure for processing resolution workflows
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework governing resolution confidence
+- [Trinity Gate](@/glossary/trinity-gate.md) - Verification of resolution assertions
+- [Confidence Scoring](@/glossary/confidence-scoring.md) - Calibrated match confidence assignment
+- [Signal Plurality](@/glossary/signal-plurality.md) - Minimum evidence requirement for entity links
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) - Traceability requirement for all resolution evidence
+- [Stream Processing](@/glossary/stream-processing.md) - Real-time resolution pipeline execution
+- [Shodan](@/glossary/shodan.md) - OSINT source providing infrastructure intelligence for resolution
+- [Censys](@/glossary/censys.md) - Certificate and host data for entity correlation
+- [Broadway](@/glossary/broadway.md) - Stream processing framework for resolution pipelines
 
 ## See Also
 
-- [Agents](/agents/) - Entity resolution agents in the AIAD ecosystem
-- [Architecture](/architecture/) - Intelligence processing architecture
+- [Agents](@/agents/_index.md) - Entity resolution agents in the AIAD ecosystem
+- [Architecture](@/architecture/_index.md) - Intelligence processing architecture
 
 ---
 
@@ -561,4 +561,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

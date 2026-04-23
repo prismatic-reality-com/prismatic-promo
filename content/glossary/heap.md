@@ -183,11 +183,11 @@ The platform's Health Monitor integrates heap analysis to detect processes that 
 
 ## Cross-References
 
-- [GC](/glossary/gc/) -- Garbage collection operating on the heap
-- [ETS Memory](/glossary/ets-memory/) -- Off-heap memory management
-- [Process Isolation](/glossary/process-isolation/) -- Heap isolation between processes
-- [BEAM](/glossary/beam/) -- Virtual machine managing process heaps
-- [Actor Model](/glossary/actor-model/) -- Per-process state on individual heaps
+- [GC](@/glossary/gc.md) -- Garbage collection operating on the heap
+- [ETS Memory](@/glossary/ets-memory.md) -- Off-heap memory management
+- [Process Isolation](@/glossary/process-isolation.md) -- Heap isolation between processes
+- [BEAM](@/glossary/beam.md) -- Virtual machine managing process heaps
+- [Actor Model](@/glossary/actor-model.md) -- Per-process state on individual heaps
 - **Livebooks**: `performance_monitoring/` notebooks include heap profiling
 - **Academy**: BEAM internals topics cover heap architecture
 
@@ -198,4 +198,4 @@ The platform's Health Monitor integrates heap analysis to detect processes that 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

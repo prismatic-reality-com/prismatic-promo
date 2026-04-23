@@ -28,9 +28,9 @@ image_alt = "llm-generic-bridge - Prismatic Platform"
 
 ## Overview
 
-The llm-generic-bridge is an L4 domain authority agent operating within the [AIAD](/glossary/aiad/)-enhanced domain of the Prismatic Platform. This agent provides a universal abstraction layer that enables the platform to interact with any LLM provider through a unified, vendor-neutral interface. By abstracting away provider-specific API differences, authentication mechanisms, request formats, response structures, and capability variations, the bridge enables the platform to support multiple LLM backends (Anthropic Claude, OpenAI GPT, local Ollama models, and future providers) without requiring changes to the hundreds of agents and components that consume LLM capabilities.
+The llm-generic-bridge is an L4 domain authority agent operating within the [AIAD](@/glossary/aiad.md)-enhanced domain of the Prismatic Platform. This agent provides a universal abstraction layer that enables the platform to interact with any LLM provider through a unified, vendor-neutral interface. By abstracting away provider-specific API differences, authentication mechanisms, request formats, response structures, and capability variations, the bridge enables the platform to support multiple LLM backends (Anthropic Claude, OpenAI GPT, local Ollama models, and future providers) without requiring changes to the hundreds of agents and components that consume LLM capabilities.
 
-Built on the [AIAD](/glossary/aiad/) standard, the llm-generic-bridge embodies the adapter pattern at the LLM integration level. Just as the platform's storage layer uses adapter behaviors to abstract over PostgreSQL, ETS, and Meilisearch, the LLM bridge uses adapter behaviors to abstract over Claude, GPT, Ollama, and any future LLM provider. This abstraction is essential for provider independence -- the platform can switch providers, add new providers, or operate with multiple providers simultaneously without modifying consumer code.
+Built on the [AIAD](@/glossary/aiad.md) standard, the llm-generic-bridge embodies the adapter pattern at the LLM integration level. Just as the platform's storage layer uses adapter behaviors to abstract over PostgreSQL, ETS, and Meilisearch, the LLM bridge uses adapter behaviors to abstract over Claude, GPT, Ollama, and any future LLM provider. This abstraction is essential for provider independence -- the platform can switch providers, add new providers, or operate with multiple providers simultaneously without modifying consumer code.
 
 ## Bridge Architecture
 
@@ -38,7 +38,7 @@ The bridge architecture implements a layered abstraction with three levels: the 
 
 The protocol layer handles the mechanics of communicating with LLM provider APIs. Each provider has a protocol adapter that manages authentication (API keys, OAuth tokens, local connections), request formatting (converting the platform's canonical request format to the provider's API format), response parsing (converting the provider's response format to the platform's canonical response format), error handling (translating provider-specific error codes to platform error types), and connection management (HTTP client configuration, connection pooling, timeout handling). The protocol layer is the only component that contains provider-specific code.
 
-The capability layer maps the platform's abstract LLM capabilities (text generation, code generation, analysis, classification, summarization, structured output) to provider-specific features. Different providers support these capabilities with varying quality levels and through different API parameters. The capability layer maintains a capability matrix that records which providers support which capabilities and at what quality levels, enabling the [llm-model-selector](/agents/llm-model-selector/) to make informed routing decisions.
+The capability layer maps the platform's abstract LLM capabilities (text generation, code generation, analysis, classification, summarization, structured output) to provider-specific features. Different providers support these capabilities with varying quality levels and through different API parameters. The capability layer maintains a capability matrix that records which providers support which capabilities and at what quality levels, enabling the [llm-model-selector](@/agents/llm-model-selector.md) to make informed routing decisions.
 
 The semantic layer ensures that the meaning of requests and responses is preserved across provider translations. This includes handling differences in system prompt conventions, instruction formatting, output formatting expectations, and conversation history representation between providers. The semantic layer ensures that a request that produces a specific behavior with one provider produces equivalent behavior with another, even when the providers' APIs differ significantly in their conventions.
 
@@ -51,8 +51,8 @@ The semantic layer ensures that the meaning of requests and responses is preserv
 - **Streaming support** -- Provides unified streaming response handling that abstracts over provider-specific streaming protocols (Server-Sent Events, WebSocket, chunked HTTP)
 - **Provider registration** -- Supports dynamic registration of new LLM providers through adapter module implementation, enabling platform extension without core modifications
 - **Connection pooling** -- Manages HTTP connection pools for each provider, optimizing connection reuse and preventing resource exhaustion
-- **[GenServer](/glossary/genserver/)-based state management** -- Maintains provider configuration and connection state as OTP GenServer state
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for per-provider latency, throughput, and error rate metrics
+- **[GenServer](@/glossary/genserver.md)-based state management** -- Maintains provider configuration and connection state as OTP GenServer state
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for per-provider latency, throughput, and error rate metrics
 
 ## Provider Adapter Interface
 
@@ -78,13 +78,13 @@ Error responses are normalized to `{:error, reason, context}` where `reason` is 
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
 | Anthropic API | Claude model provider protocol adapter |
 | OpenAI API | GPT model provider protocol adapter |
 | Ollama | Local model provider protocol adapter |
-| [GenServer](/glossary/genserver/) | OTP-based provider state and connection pool management |
-| Prismatic Telemetry | Per-provider performance [metrics](/glossary/metrics/) and error rate tracking |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and provider adapter discovery |
+| [GenServer](@/glossary/genserver.md) | OTP-based provider state and connection pool management |
+| Prismatic Telemetry | Per-provider performance [metrics](@/glossary/metrics.md) and error rate tracking |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and provider adapter discovery |
 
 ## Command Interface
 
@@ -99,15 +99,15 @@ Error responses are normalized to `{:error, reason, context}` where `reason` is 
 
 | Agent | Relationship |
 |-------|-------------|
-| [**llm-model-selector**](/agents/llm-model-selector/) (L4) | Consults capability matrix for model selection decisions |
-| [**llm-fallback-coordinator**](/agents/llm-fallback-coordinator/) (L3) | Bridge abstraction enables transparent failover between providers |
-| [**llm-cost-manager**](/agents/llm-cost-manager/) (L4) | Normalized metadata enables consistent cost tracking across providers |
-| [**llm-performance-optimizer**](/agents/llm-performance-optimizer/) (L3) | Normalized metrics enable cross-provider performance comparison |
-| [**llm-client-pattern-specialist**](/agents/llm-client-pattern-specialist/) (L3) | Enforces correct usage of the bridge's canonical response format |
+| [**llm-model-selector**](@/agents/llm-model-selector.md) (L4) | Consults capability matrix for model selection decisions |
+| [**llm-fallback-coordinator**](@/agents/llm-fallback-coordinator.md) (L3) | Bridge abstraction enables transparent failover between providers |
+| [**llm-cost-manager**](@/agents/llm-cost-manager.md) (L4) | Normalized metadata enables consistent cost tracking across providers |
+| [**llm-performance-optimizer**](@/agents/llm-performance-optimizer.md) (L3) | Normalized metrics enable cross-provider performance comparison |
+| [**llm-client-pattern-specialist**](@/agents/llm-client-pattern-specialist.md) (L3) | Enforces correct usage of the bridge's canonical response format |
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that all provider adapters maintain the canonical response contract without exception. No provider-specific response format leaks through the bridge to consumers. The [NO DOUBTS](/glossary/no-doubts/) principle requires that the capability matrix accurately reflects each provider's actual capabilities, verified through periodic testing rather than assumed from documentation.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that all provider adapters maintain the canonical response contract without exception. No provider-specific response format leaks through the bridge to consumers. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that the capability matrix accurately reflects each provider's actual capabilities, verified through periodic testing rather than assumed from documentation.
 
 ---
 
@@ -116,4 +116,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that all provider adapters
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

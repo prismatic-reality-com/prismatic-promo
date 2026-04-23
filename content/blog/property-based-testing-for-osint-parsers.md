@@ -18,7 +18,7 @@ see_also = ["property-based-testing", "testing", "unit-testing", "shrinking", "e
 image_alt = "Property-Based Testing for OSINT Parsers"
 +++
 
-A [unit test](/glossary/unit-testing) proves the parser works on Example A. Example-based tests are great at capturing regressions — you fix a bug, write the test, it never comes back. What they are bad at is finding the bugs you never thought of. That is the job of [property-based testing](/glossary/property-based-testing), and for an adapter that ingests scraped HTML from the open internet, it is not optional.
+A [unit test](@/glossary/unit-testing.md) proves the parser works on Example A. Example-based tests are great at capturing regressions — you fix a bug, write the test, it never comes back. What they are bad at is finding the bugs you never thought of. That is the job of [property-based testing](@/glossary/property-based-testing.md), and for an adapter that ingests scraped HTML from the open internet, it is not optional.
 
 ## The failure mode
 
@@ -71,7 +71,7 @@ def unicode_name_generator do
 end
 ```
 
-Unicode strings find encoding bugs. Empty lists find "must have at least one" assumptions. Nested structures find recursion bugs. Every weakness in your assumptions becomes a failing property — with a minimal counterexample courtesy of [shrinking](/glossary/shrinking).
+Unicode strings find encoding bugs. Empty lists find "must have at least one" assumptions. Nested structures find recursion bugs. Every weakness in your assumptions becomes a failing property — with a minimal counterexample courtesy of [shrinking](@/glossary/shrinking.md).
 
 ## Shrinking is the killer feature
 
@@ -86,6 +86,6 @@ The example tests are for regressions. The property tests are for the bugs that 
 ## Where to go next
 
 - **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — parsers live close to storage
-- **Glossary**: [Property-Based Testing](/glossary/property-based-testing), [Testing](/glossary/testing), [Unit Testing](/glossary/unit-testing), [Shrinking](/glossary/shrinking), [ExUnit](/glossary/exunit)
+- **Glossary**: [Property-Based Testing](@/glossary/property-based-testing.md), [Testing](@/glossary/testing.md), [Unit Testing](@/glossary/unit-testing.md), [Shrinking](@/glossary/shrinking.md), [ExUnit](@/glossary/exunit.md)
 
 Example tests find yesterday's bugs. Properties find tomorrow's.

@@ -24,11 +24,11 @@ image_alt = "Supervisor - Prismatic Platform"
 
 ## Overview
 
-The Supervisor behaviour is the fault-tolerance mechanism that ensures the Prismatic Platform's 404+ agents and services keep running even when individual components fail. Supervisors monitor child processes and automatically restart them according to configurable strategies when crashes occur, implementing the [BEAM VM](/technologies/beam/)'s "let it crash" philosophy where processes are designed to fail fast and recover through supervision rather than defensive error handling.
+The Supervisor behaviour is the fault-tolerance mechanism that ensures the Prismatic Platform's 404+ agents and services keep running even when individual components fail. Supervisors monitor child processes and automatically restart them according to configurable strategies when crashes occur, implementing the [BEAM VM](@/technologies/beam.md)'s "let it crash" philosophy where processes are designed to fail fast and recover through supervision rather than defensive error handling.
 
-The Prismatic Platform's supervision tree is hierarchical -- top-level supervisors manage application-level supervisors, which in turn manage domain-specific supervisors, which finally supervise individual [GenServer](/technologies/genserver/) processes. This tree structure isolates failures: a crash in one agent does not propagate to unrelated agents, and the supervision strategy determines whether siblings are restarted as well. The platform's `PrismaticSupervisor` application provides dependency-aware startup ordering and domain-based supervision grouping, ensuring that storage adapters start before the applications that depend on them.
+The Prismatic Platform's supervision tree is hierarchical -- top-level supervisors manage application-level supervisors, which in turn manage domain-specific supervisors, which finally supervise individual [GenServer](@/technologies/genserver.md) processes. This tree structure isolates failures: a crash in one agent does not propagate to unrelated agents, and the supervision strategy determines whether siblings are restarted as well. The platform's `PrismaticSupervisor` application provides dependency-aware startup ordering and domain-based supervision grouping, ensuring that storage adapters start before the applications that depend on them.
 
-DynamicSupervisor extends this pattern for the platform's agent system, where agents are started and stopped dynamically based on operational needs. Each agent runs under its own supervision with automatic restart on failure, and the `PrismaticAgents.AgentSupervisor` tracks all active agents through an [ETS](/technologies/ets/)-backed registry. This architecture means the platform can add, remove, and recover agents at runtime without affecting the rest of the system.
+DynamicSupervisor extends this pattern for the platform's agent system, where agents are started and stopped dynamically based on operational needs. Each agent runs under its own supervision with automatic restart on failure, and the `PrismaticAgents.AgentSupervisor` tracks all active agents through an [ETS](@/technologies/ets.md)-backed registry. This architecture means the platform can add, remove, and recover agents at runtime without affecting the rest of the system.
 
 ## Key Features
 
@@ -223,22 +223,22 @@ DynamicSupervisor.init(
 | State recovery | GenServer init | Pod restart | Service restart | Container restart |
 | In-process fault isolation | Yes (process boundaries) | No (container boundary) | No (process boundary) | No (container boundary) |
 
-OTP Supervisors provide process-level fault isolation within a single BEAM node, complementing container-level orchestration tools like Kubernetes. The Prismatic Platform uses both: OTP Supervisors for intra-node process management and [Docker](/technologies/docker/)/Fly.io for inter-node deployment orchestration.
+OTP Supervisors provide process-level fault isolation within a single BEAM node, complementing container-level orchestration tools like Kubernetes. The Prismatic Platform uses both: OTP Supervisors for intra-node process management and [Docker](@/technologies/docker.md)/Fly.io for inter-node deployment orchestration.
 
 The platform's PartitionSupervisor usage in high-throughput paths, such as the telemetry event processing pipeline, distributes work across multiple supervisor partitions to eliminate single-process bottlenecks while maintaining the fault isolation guarantees of standard supervision.
 
 ## Related Technologies
 
-- [GenServer](/technologies/genserver/) - The primary supervised process implementation for stateful workers
-- [Erlang/OTP](/technologies/erlang-otp/) - The supervision framework and OTP design principles that underpin the pattern
-- [BEAM VM](/technologies/beam/) - Process lifecycle management and the "let it crash" philosophy
-- [ETS](/technologies/ets/) - Registry storage for tracking supervised processes by name
+- [GenServer](@/technologies/genserver.md) - The primary supervised process implementation for stateful workers
+- [Erlang/OTP](@/technologies/erlang-otp.md) - The supervision framework and OTP design principles that underpin the pattern
+- [BEAM VM](@/technologies/beam.md) - Process lifecycle management and the "let it crash" philosophy
+- [ETS](@/technologies/ets.md) - Registry storage for tracking supervised processes by name
 
 ## Related Apps
 
 - All 90 Prismatic Platform applications use Supervisor trees
-- [prismatic_web](/apps/prismatic-web/) - Web application supervision with endpoint and PubSub children
-- [prismatic_agents](/apps/prismatic-agents/) - DynamicSupervisor-managed agent lifecycle for 404+ agents
+- [prismatic_web](@/apps/prismatic-web.md) - Web application supervision with endpoint and PubSub children
+- [prismatic_agents](@/apps/prismatic-agents.md) - DynamicSupervisor-managed agent lifecycle for 404+ agents
 
 ---
 
@@ -247,4 +247,4 @@ The platform's PartitionSupervisor usage in high-throughput paths, such as the t
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

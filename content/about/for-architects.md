@@ -28,11 +28,11 @@ When an architect designs a system, the output is not just APIs and data models.
 
 Prismatic preserves the decision graph. Every claim has provenance. Every trade-off is recorded with its supporting evidence and counter-evidence. Contradictions are not resolved prematurely -- they are tracked as first-class epistemic entities with timestamps, confidence levels, and source attribution.
 
-This is not metadata bolted onto a code repository. It is the foundation of the platform's [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, enforced by 7 non-negotiable axioms and validated through the 4-layer [Trinity Gate](/glossary/trinity-gate/).
+This is not metadata bolted onto a code repository. It is the foundation of the platform's [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, enforced by 7 non-negotiable axioms and validated through the 4-layer [Trinity Gate](@/glossary/trinity-gate.md).
 
 ## The 16-Level Epistemic Pipeline
 
-Prismatic processes information through a 16-level [epistemic pipeline](/glossary/epistemic-pipeline/) that mirrors how rigorous reasoning actually works -- from raw signal ingestion to consciousness-level synthesis:
+Prismatic processes information through a 16-level [epistemic pipeline](@/glossary/epistemic-pipeline.md) that mirrors how rigorous reasoning actually works -- from raw signal ingestion to consciousness-level synthesis:
 
 | Level | Name | Function |
 |-------|------|----------|
@@ -98,7 +98,7 @@ For architects, this rule translates to concrete design constraints:
 
 ## Formal Verification Layer (QEVE)
 
-The [QEVE](/glossary/qeve/) (Quantified Epistemic Verification Engine) is where Prismatic diverges most sharply from traditional platforms. It combines three verification methodologies:
+The [QEVE](@/glossary/qeve.md) (Quantified Epistemic Verification Engine) is where Prismatic diverges most sharply from traditional platforms. It combines three verification methodologies:
 
 ### Lean4 Formal Proofs
 
@@ -106,7 +106,7 @@ Lean4 is a theorem prover and programming language. In Prismatic, it is used to 
 
 ### NABLA Epistemic Axioms
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework enforces 7 axioms at the DNA level:
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework enforces 7 axioms at the DNA level:
 
 1. **Signal Plurality**: No belief based on a single signal. Minimum 2 independent sources required.
 2. **Contradiction Preservation**: When signals disagree, both are preserved. Premature resolution is forbidden.
@@ -146,7 +146,7 @@ The dependency graph (which app depends on which) is computed from the actual co
 
 Performance baselines are recorded for key operations. The system detects gradual degradation before it becomes critical. O(1) pattern detection (90-250x speedup over previous approaches) enables real-time performance monitoring without overhead.
 
-The [Blue Team's](/glossary/blue-team/) drift detector agent specifically monitors all four dimensions, producing structured evidence (not alerts) that feeds into the epistemic pipeline at L0.
+The [Blue Team's](@/glossary/blue-team.md) drift detector agent specifically monitors all four dimensions, producing structured evidence (not alerts) that feeds into the epistemic pipeline at L0.
 
 ## Confidence Thresholds and Decision Points
 
@@ -215,11 +215,11 @@ If you are evaluating Prismatic as an architect, here are the architectural guar
 
 ## Next Steps
 
-- [For Developers](/about/for-developers/) -- The concrete developer experience with quality gates and regression enforcement
-- [For Security & Risk](/about/for-security/) -- The Color Team architecture and EASM capabilities
-- [QEVE Deep Dive](/about/qeve-deep-dive/) -- Detailed technical architecture of the verification engine
-- [Platform Architecture](/architecture/) -- Full architectural documentation
-- [Glossary: NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework in detail
+- [For Developers](@/about/for-developers.md) -- The concrete developer experience with quality gates and regression enforcement
+- [For Security & Risk](@/about/for-security.md) -- The Color Team architecture and EASM capabilities
+- [QEVE Deep Dive](@/about/qeve-deep-dive.md) -- Detailed technical architecture of the verification engine
+- [Platform Architecture](@/architecture/_index.md) -- Full architectural documentation
+- [Glossary: NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework in detail
 
 ---
 
@@ -228,4 +228,4 @@ If you are evaluating Prismatic as an architect, here are the architectural guar
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -23,24 +23,24 @@ image_alt = "Prismatic Annihilation - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Annihilation is the platform's automated technical debt elimination engine, designed to identify, categorize, and automatically fix quality issues across all 90 [OTP](/glossary/otp/) applications. The system implements O(1) pattern detection (achieving 90-250x speedup over naive scanning) for anti-patterns, dead code, missing type specifications, and coding standard violations. Five [CASCADE pattern](/glossary/cascade-pattern/) families drive the elimination process: Type Mismatch detection and correction, Dead Code discovery and removal, Empty Check optimization (`length() > 0` to `!= []`), Timer Replacement (`Process.sleep` to timer-based alternatives), and Nuclear Cache clearing for persistent build issues. The auto-fix engine performs safe code transformations with mandatory test verification, batch processing across the entire codebase, and rollback capability for failed transformations. The system operates in concert with [Prismatic Safety](/apps/prismatic-safety/), which detects quality degradation and triggers Annihilation's remediation cycles.
+Prismatic Annihilation is the platform's automated technical debt elimination engine, designed to identify, categorize, and automatically fix quality issues across all 90 [OTP](@/glossary/otp.md) applications. The system implements O(1) pattern detection (achieving 90-250x speedup over naive scanning) for anti-patterns, dead code, missing type specifications, and coding standard violations. Five [CASCADE pattern](@/glossary/cascade-pattern.md) families drive the elimination process: Type Mismatch detection and correction, Dead Code discovery and removal, Empty Check optimization (`length() > 0` to `!= []`), Timer Replacement (`Process.sleep` to timer-based alternatives), and Nuclear Cache clearing for persistent build issues. The auto-fix engine performs safe code transformations with mandatory test verification, batch processing across the entire codebase, and rollback capability for failed transformations. The system operates in concert with [Prismatic Safety](@/apps/prismatic-safety.md), which detects quality degradation and triggers Annihilation's remediation cycles.
 
 ## 1. Introduction
 
 ### 1.1 Problem Statement
 
-A codebase of 6,652 [Elixir](/glossary/elixir/) source files across 90 applications accumulates technical debt through diverse mechanisms: deprecated API usage, suboptimal patterns that were acceptable at introduction time, missing type specifications on functions added under time pressure, and dead code left behind by refactoring. Manual debt elimination does not scale. Periodic cleanup sprints address visible issues but miss systemic patterns that require AST-level analysis to detect.
+A codebase of 6,652 [Elixir](@/glossary/elixir.md) source files across 90 applications accumulates technical debt through diverse mechanisms: deprecated API usage, suboptimal patterns that were acceptable at introduction time, missing type specifications on functions added under time pressure, and dead code left behind by refactoring. Manual debt elimination does not scale. Periodic cleanup sprints address visible issues but miss systemic patterns that require AST-level analysis to detect.
 
 Prismatic Annihilation automates the entire debt lifecycle: detection through AST analysis, categorization by severity and pattern type, automated fix generation, test verification, and rollback on failure.
 
 ### 1.2 Design Goals
 
-1. **O(1) pattern detection** -- indexed AST analysis enables constant-time [pattern matching](/glossary/pattern-matching/) regardless of codebase size.
+1. **O(1) pattern detection** -- indexed AST analysis enables constant-time [pattern matching](@/glossary/pattern-matching.md) regardless of codebase size.
 2. **Safe auto-fix** -- every automated code transformation is verified by running the affected module's test suite before and after the change.
 3. **CASCADE patterns** -- five pattern families that address the most impactful debt categories.
 4. **Batch processing** -- fix entire categories of debt across all applications in a single operation.
 5. **Rollback safety** -- failed transformations are automatically reverted, leaving the codebase unchanged.
-6. **Integration with Safety** -- receives evolution triggers from [Prismatic Safety](/apps/prismatic-safety/) for automatic remediation.
+6. **Integration with Safety** -- receives evolution triggers from [Prismatic Safety](@/apps/prismatic-safety.md) for automatic remediation.
 
 ### 1.3 Scope
 
@@ -162,14 +162,14 @@ config :prismatic_annihilation,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Core](/apps/prismatic-core/) | Base utilities for AST manipulation |
+| [Prismatic Core](@/apps/prismatic-core.md) | Base utilities for AST manipulation |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Safety](/apps/prismatic-safety/) | Triggers evolution through Annihilation |
-| [Prismatic Claude](/apps/prismatic-claude/) | Session lifecycle integration |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Triggers evolution through Annihilation |
+| [Prismatic Claude](@/apps/prismatic-claude.md) | Session lifecycle integration |
 
 ### 4.3 Inter-Process Communication
 
@@ -177,7 +177,7 @@ Evolution triggers from Safety arrive as function calls to the Annihilation faca
 
 ### 4.4 External Integrations
 
-[Mix](/glossary/mix/) build system for test execution and compilation verification. Git for file change tracking and rollback support.
+[Mix](@/glossary/mix.md) build system for test execution and compilation verification. Git for file change tracking and rollback support.
 
 ## 5. Performance
 
@@ -223,17 +223,17 @@ Automated code modification carries the risk of introducing bugs. The mandatory 
 
 ### 7.2 Access Control
 
-Annihilation operations require system-level access. The auto-fix engine cannot be triggered remotely; it operates only through local [mix task](/glossary/mix-task/)s or Safety evolution triggers.
+Annihilation operations require system-level access. The auto-fix engine cannot be triggered remotely; it operates only through local [mix task](@/glossary/mix-task.md)s or Safety evolution triggers.
 
 ## 8. Operational Considerations
 
 ### 8.1 Deployment
 
-Deploys as part of the umbrella [release](/glossary/release/). The AST index is rebuilt on first scan after deployment.
+Deploys as part of the umbrella [release](@/glossary/release.md). The AST index is rebuilt on first scan after deployment.
 
 ### 8.2 Monitoring
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :annihilation, :scan_complete]`, `[:prismatic, :annihilation, :fix_applied]`, `[:prismatic, :annihilation, :fix_rolled_back]`. Key [metrics](/glossary/metrics/) include debt items found, items fixed, and rollback frequency.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :annihilation, :scan_complete]`, `[:prismatic, :annihilation, :fix_applied]`, `[:prismatic, :annihilation, :fix_rolled_back]`. Key [metrics](@/glossary/metrics.md) include debt items found, items fixed, and rollback frequency.
 
 ### 8.3 Troubleshooting
 
@@ -245,25 +245,25 @@ Deploys as part of the umbrella [release](/glossary/release/). The AST index is 
 
 ## 9. Future Work
 
-Planned enhancements include machine learning-based pattern discovery from historical debt data, cross-module refactoring for architectural debt, integration with [GitLab CI](/glossary/gitlab-ci/) for automated debt elimination in pipelines, and developer-facing debt dashboard with fix suggestions.
+Planned enhancements include machine learning-based pattern discovery from historical debt data, cross-module refactoring for architectural debt, integration with [GitLab CI](@/glossary/gitlab-ci.md) for automated debt elimination in pipelines, and developer-facing debt dashboard with fix suggestions.
 
 ## References
 
-- [Prismatic Safety](/apps/prismatic-safety/) -- Quality monitoring and evolution triggers
-- [Prismatic Credo](/apps/prismatic-credo/) -- Static analysis integration
-- [Prismatic Claude](/apps/prismatic-claude/) -- Session lifecycle for auto-evolution
+- [Prismatic Safety](@/apps/prismatic-safety.md) -- Quality monitoring and evolution triggers
+- [Prismatic Credo](@/apps/prismatic-credo.md) -- Static analysis integration
+- [Prismatic Claude](@/apps/prismatic-claude.md) -- Session lifecycle for auto-evolution
 
 ## Related Agents
 
-- [CI/CD Guardrails Enforcer](/agents/cicd-guardrails-enforcer/) -- Enforces quality gates in the CI/CD pipeline that trigger Annihilation scans and block merges with technical debt
-- [Evolution Analyzer Specialist](/agents/evolution-analyzer-specialist/) -- Analyzes CASCADE pattern effectiveness and recommends new debt elimination strategies
-- [Deployment Commander Agent](/agents/deployment-commander-agent/) -- Coordinates deployment workflows that include pre-deployment debt scans and post-deployment quality verification
+- [CI/CD Guardrails Enforcer](@/agents/cicd-guardrails-enforcer.md) -- Enforces quality gates in the CI/CD pipeline that trigger Annihilation scans and block merges with technical debt
+- [Evolution Analyzer Specialist](@/agents/evolution-analyzer-specialist.md) -- Analyzes CASCADE pattern effectiveness and recommends new debt elimination strategies
+- [Deployment Commander Agent](@/agents/deployment-commander-agent.md) -- Coordinates deployment workflows that include pre-deployment debt scans and post-deployment quality verification
 
 ## Related Capabilities
 
-- [Quality Gates](/capabilities/quality-gates/) -- Enforces zero-warning compilation, Credo compliance, and test coverage requirements that Annihilation maintains
-- [Regression Tests](/capabilities/regression-tests/) -- Mandatory regression test protocol ensuring every auto-fix is validated by test verification before commit
-- [Color Teams](/capabilities/color-teams/) -- White Team verification validates that automated code transformations maintain system invariants
+- [Quality Gates](@/capabilities/quality-gates.md) -- Enforces zero-warning compilation, Credo compliance, and test coverage requirements that Annihilation maintains
+- [Regression Tests](@/capabilities/regression-tests.md) -- Mandatory regression test protocol ensuring every auto-fix is validated by test verification before commit
+- [Color Teams](@/capabilities/color-teams.md) -- White Team verification validates that automated code transformations maintain system invariants
 
 ---
 
@@ -272,4 +272,4 @@ Planned enhancements include machine learning-based pattern discovery from histo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

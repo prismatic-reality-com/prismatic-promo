@@ -30,9 +30,9 @@ image_alt = "prismatic-supreme-commander - Prismatic Platform"
 
 The prismatic-supreme-commander operates as the L1 Supreme Authority within the Prismatic Platform's innovation-apex-predator domain, serving as the platform-wide strategic and tactical command authority. This is the ultimate apex predator agent, specializing in impossible complexity resolution and breakthrough innovation through evolutionary algorithms, cross-domain synthesis, and autonomous architectural decision-making. When conventional agents encounter problems beyond their domain expertise or complexity ceiling, the supreme commander assumes direct control and applies unbounded problem-solving capabilities.
 
-As the highest authority in the platform's agent hierarchy, this agent can override any lower-authority agent's decisions, reallocate resources across domains, initiate platform-wide refactoring campaigns, and make architectural decisions that affect the entire 90-application umbrella. This authority comes with proportional responsibility: every supreme-level decision must be backed by evidence sufficient to pass [Trinity Gate](/glossary/trinity-gate/) validation, and all actions are subject to full audit trail recording.
+As the highest authority in the platform's agent hierarchy, this agent can override any lower-authority agent's decisions, reallocate resources across domains, initiate platform-wide refactoring campaigns, and make architectural decisions that affect the entire 90-application umbrella. This authority comes with proportional responsibility: every supreme-level decision must be backed by evidence sufficient to pass [Trinity Gate](@/glossary/trinity-gate.md) validation, and all actions are subject to full audit trail recording.
 
-Built on the [AIAD](/glossary/aiad/) standard and embodying the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine at its most rigorous enforcement level, the supreme commander represents the platform's capacity for decisive, evidence-based action when confronted with challenges that exceed the capabilities of specialist agents. The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework operates at full depth within this agent, applying all seven axioms and the complete [Trinity Gate](/glossary/trinity-gate/) validation protocol to every strategic decision.
+Built on the [AIAD](@/glossary/aiad.md) standard and embodying the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine at its most rigorous enforcement level, the supreme commander represents the platform's capacity for decisive, evidence-based action when confronted with challenges that exceed the capabilities of specialist agents. The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework operates at full depth within this agent, applying all seven axioms and the complete [Trinity Gate](@/glossary/trinity-gate.md) validation protocol to every strategic decision.
 
 ## Strategic Command Architecture
 
@@ -44,18 +44,18 @@ The **operational layer** coordinates multi-agent campaigns that span multiple d
 
 The **tactical layer** provides direct intervention capability for crisis situations. When critical bugs threaten production stability, when quality regressions breach the quality floor, or when architectural constraints prevent progress, the tactical layer assumes direct execution authority, bypassing normal delegation chains to resolve the issue with maximum speed.
 
-The **evolutionary layer** drives the platform's autonomous improvement through [SEADF](/glossary/seadf/) integration, triggering self-evolution cycles, managing [CASCADE](/glossary/cascade/) pattern elimination campaigns, and evaluating the fitness of proposed architectural mutations against the platform's quality genome.
+The **evolutionary layer** drives the platform's autonomous improvement through [SEADF](@/glossary/seadf.md) integration, triggering self-evolution cycles, managing [CASCADE](@/glossary/cascade.md) pattern elimination campaigns, and evaluating the fitness of proposed architectural mutations against the platform's quality genome.
 
 ## Key Capabilities
 
 - **Platform-wide architectural authority** -- Makes binding architectural decisions that affect the entire umbrella application, including technology selection, pattern adoption, and cross-application interface design
 - **Crisis resolution** -- Assumes direct control during production incidents, quality emergencies, and architectural deadlocks, applying unbounded problem-solving capabilities with full override authority
 - **Multi-domain orchestration** -- Coordinates complex initiatives spanning multiple specialist agents and application domains, managing dependencies, resource allocation, and milestone tracking
-- **Evolutionary strategy** -- Drives the platform's autonomous self-improvement through [SEADF](/glossary/seadf/) integration, evaluating and directing [CASCADE](/glossary/cascade/) elimination, quality improvement, and capability expansion campaigns
+- **Evolutionary strategy** -- Drives the platform's autonomous self-improvement through [SEADF](@/glossary/seadf.md) integration, evaluating and directing [CASCADE](@/glossary/cascade.md) elimination, quality improvement, and capability expansion campaigns
 - **Innovation synthesis** -- Combines patterns, techniques, and insights from across the platform's diverse domains to produce novel solutions to previously unsolvable problems
-- **[Backpressure](/glossary/backpressure/) management** -- Controls platform-wide resource allocation through [GenStage](/glossary/genstage/)-based demand management, preventing overload cascades across the [mycelial network](/glossary/mycelial-network/)
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with full platform self-healing authority
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for platform-wide health monitoring and strategic metric tracking
+- **[Backpressure](@/glossary/backpressure.md) management** -- Controls platform-wide resource allocation through [GenStage](@/glossary/genstage.md)-based demand management, preventing overload cascades across the [mycelial network](@/glossary/mycelial-network.md)
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with full platform self-healing authority
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for platform-wide health monitoring and strategic metric tracking
 
 ## Command Authority Hierarchy
 
@@ -151,14 +151,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [quality-enforcement-commander](/agents/quality-enforcement-commander/) | Quality enforcement under supreme strategic direction |
-| [quality-intelligence-commander](/agents/quality-intelligence-commander/) | Quality intelligence feeds strategic decision-making |
-| [prismatic-api-introspector](/agents/prismatic-api-introspector/) | API surface management under infrastructure oversight |
-| [route-testing-supreme](/agents/route-testing-supreme/) | Route testing verification for platform-wide deployments |
+| [quality-enforcement-commander](@/agents/quality-enforcement-commander.md) | Quality enforcement under supreme strategic direction |
+| [quality-intelligence-commander](@/agents/quality-intelligence-commander.md) | Quality intelligence feeds strategic decision-making |
+| [prismatic-api-introspector](@/agents/prismatic-api-introspector.md) | API surface management under infrastructure oversight |
+| [route-testing-supreme](@/agents/route-testing-supreme.md) | Route testing verification for platform-wide deployments |
 
 ## Enforcement
 
-The supreme commander operates under the strictest possible [NO MERCY](/glossary/no-mercy/) enforcement: supreme-level decisions must demonstrably improve platform fitness, and every action carries full accountability through immutable audit trails. The [NO DOUBTS](/glossary/no-doubts/) principle is absolute at this level -- no strategic decision proceeds without sufficient evidence confidence. The [Trinity Gate](/glossary/trinity-gate/) validates all supreme decisions for structural consistency, logical soundness, and formal necessity. The [NABLA Infinity](/glossary/nabla-infinity/) framework applies all seven axioms at maximum rigor, ensuring that supreme authority is exercised with epistemic integrity.
+The supreme commander operates under the strictest possible [NO MERCY](@/glossary/no-mercy.md) enforcement: supreme-level decisions must demonstrably improve platform fitness, and every action carries full accountability through immutable audit trails. The [NO DOUBTS](@/glossary/no-doubts.md) principle is absolute at this level -- no strategic decision proceeds without sufficient evidence confidence. The [Trinity Gate](@/glossary/trinity-gate.md) validates all supreme decisions for structural consistency, logical soundness, and formal necessity. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework applies all seven axioms at maximum rigor, ensuring that supreme authority is exercised with epistemic integrity.
 
 ---
 
@@ -167,4 +167,4 @@ The supreme commander operates under the strictest possible [NO MERCY](/glossary
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

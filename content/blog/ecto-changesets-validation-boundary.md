@@ -18,13 +18,13 @@ see_also = ["ecto", "changeset", "validation", "input-sanitization", "invariant"
 image_alt = "Ecto Changesets as Validation Boundary"
 +++
 
-Validation is the worst kind of duplicated code. Once you have it in the controller *and* the context *and* the view *and* the test fixture, a single schema change means four places to update, three of which you'll miss. [Ecto](/glossary/ecto) [changesets](/glossary/changeset) solve this by giving you one boundary: input trusted if the changeset is valid, rejected otherwise, nowhere else allowed to check.
+Validation is the worst kind of duplicated code. Once you have it in the controller *and* the context *and* the view *and* the test fixture, a single schema change means four places to update, three of which you'll miss. [Ecto](@/glossary/ecto.md) [changesets](/glossary/changeset) solve this by giving you one boundary: input trusted if the changeset is valid, rejected otherwise, nowhere else allowed to check.
 
 ## The rule
 
 > Every write path goes through a changeset. Every changeset is the *only* place that checks the input.
 
-Break that rule and [validation](/glossary/validation) drifts. Enforce it and the context becomes a thin layer over `changeset/2`.
+Break that rule and [validation](@/glossary/validation.md) drifts. Enforce it and the context becomes a thin layer over `changeset/2`.
 
 ## The shape
 
@@ -53,7 +53,7 @@ defmodule PrismaticDD.Entity do
 end
 ```
 
-The [invariant](/glossary/invariant) "every entity has a valid ICO for its country" is encoded in the changeset, not in a helper function, not in a service layer, not in the view. A caller that wants a different rule writes a different changeset — `strict_changeset/2` for imports, `public_changeset/2` for web forms — but each of those is still the sole authority for its path.
+The [invariant](@/glossary/invariant.md) "every entity has a valid ICO for its country" is encoded in the changeset, not in a helper function, not in a service layer, not in the view. A caller that wants a different rule writes a different changeset — `strict_changeset/2` for imports, `public_changeset/2` for web forms — but each of those is still the sole authority for its path.
 
 ## Cast at the boundary, not inside
 
@@ -75,7 +75,7 @@ end
 
 Normalization that happens outside the changeset is normalization that other callers can skip. Put it inside and every caller gets it for free.
 
-## [Input sanitization](/glossary/input-sanitization) is not validation
+## [Input sanitization](@/glossary/input-sanitization.md) is not validation
 
 Sanitization (stripping dangerous HTML, trimming whitespace, normalizing unicode) happens BEFORE validation — but still inside the changeset, via a `prepare_changes` hook. It is not a separate step some callers can forget.
 
@@ -86,6 +86,6 @@ When two call sites have genuinely different rules. Public web form vs admin imp
 ## Where to go next
 
 - **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — changesets in context modules
-- **Glossary**: [Ecto](/glossary/ecto), [Changeset](/glossary/changeset), [Validation](/glossary/validation), [Input Sanitization](/glossary/input-sanitization), [Invariant](/glossary/invariant)
+- **Glossary**: [Ecto](@/glossary/ecto.md), [Changeset](/glossary/changeset), [Validation](@/glossary/validation.md), [Input Sanitization](@/glossary/input-sanitization.md), [Invariant](@/glossary/invariant.md)
 
 One boundary. One authority. Delete the duplicated checks and stop worrying about drift.

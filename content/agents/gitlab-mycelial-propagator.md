@@ -30,7 +30,7 @@ image_alt = "GitLab Mycelial Propagator - Prismatic Platform"
 
 The GitLab Mycelial Propagator is an L3 strategic authority operating within the Cross-Domain and Knowledge Propagation domain of the Prismatic Platform. Inspired by the biological mycelial networks that enable nutrient and information transfer across forest ecosystems, this agent propagates successful operational patterns, quality improvements, and strategic insights discovered in GitLab operations across the entire platform agent ecosystem. When a quality improvement is identified in one domain's GitLab workflow, the Mycelial Propagator evaluates its applicability to other domains and facilitates adaptation and adoption, creating a self-improving system where individual discoveries benefit the collective.
 
-The [mycelial network](/glossary/mycelial-network/) metaphor captures a fundamental design principle of the Prismatic Platform: knowledge should flow freely across domain boundaries, with successful patterns propagating organically to wherever they can provide value. The GitLab Mycelial Propagator specifically focuses on GitLab-originated knowledge -- pipeline optimization patterns, merge request workflow improvements, issue management conventions, and integration best practices -- ensuring that improvements discovered through operational experience in one team or domain are not siloed but instead become part of the platform's collective intelligence.
+The [mycelial network](@/glossary/mycelial-network.md) metaphor captures a fundamental design principle of the Prismatic Platform: knowledge should flow freely across domain boundaries, with successful patterns propagating organically to wherever they can provide value. The GitLab Mycelial Propagator specifically focuses on GitLab-originated knowledge -- pipeline optimization patterns, merge request workflow improvements, issue management conventions, and integration best practices -- ensuring that improvements discovered through operational experience in one team or domain are not siloed but instead become part of the platform's collective intelligence.
 
 ## Mycelial Network Architecture
 
@@ -72,25 +72,25 @@ The Mycelial Propagator provides six primary capabilities that enable effective 
 
 ## Technical Implementation
 
-The Mycelial Propagator is implemented as a supervised [OTP](/glossary/otp/) application with [GenServer](/glossary/genserver/) processes managing the propagation network, pattern catalog, and effectiveness tracking system.
+The Mycelial Propagator is implemented as a supervised [OTP](@/glossary/otp.md) application with [GenServer](@/glossary/genserver.md) processes managing the propagation network, pattern catalog, and effectiveness tracking system.
 
-The propagation network maintains hyphal connections through supervised GenServer processes, one per connected domain agent. Each connection process monitors the domain's GitLab metrics stream and maintains bidirectional state about pattern adoption and effectiveness. Connection failures are handled through the [supervision tree](/glossary/supervision-tree/) with automatic reconnection.
+The propagation network maintains hyphal connections through supervised GenServer processes, one per connected domain agent. Each connection process monitors the domain's GitLab metrics stream and maintains bidirectional state about pattern adoption and effectiveness. Connection failures are handled through the [supervision tree](@/glossary/supervision-tree.md) with automatic reconnection.
 
-Pattern storage uses [ETS](/glossary/ets/) tables for the active pattern catalog (frequently queried during propagation decisions) and [Ecto](/glossary/ecto/)-backed [PostgreSQL](/glossary/postgresql/) storage for historical pattern data, adoption records, and effectiveness measurements. The dual storage model optimizes for both read-heavy operational queries and write-heavy audit data.
+Pattern storage uses [ETS](@/glossary/ets.md) tables for the active pattern catalog (frequently queried during propagation decisions) and [Ecto](@/glossary/ecto.md)-backed [PostgreSQL](@/glossary/postgresql.md) storage for historical pattern data, adoption records, and effectiveness measurements. The dual storage model optimizes for both read-heavy operational queries and write-heavy audit data.
 
-The [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Development Framework) integration enables the Propagator to leverage the platform's evolutionary optimization capabilities. Patterns are treated as genetic material that undergoes selection pressure based on effectiveness measurements, with successful patterns receiving higher propagation priority and unsuccessful patterns being deprecated.
+The [SEADF](@/glossary/seadf.md) (Self-Evolving Autonomous Development Framework) integration enables the Propagator to leverage the platform's evolutionary optimization capabilities. Patterns are treated as genetic material that undergoes selection pressure based on effectiveness measurements, with successful patterns receiving higher propagation priority and unsuccessful patterns being deprecated.
 
-[Telemetry](/glossary/telemetry/) integration provides real-time visibility into propagation network health, pattern adoption rates, effectiveness measurements, and knowledge base growth. These metrics feed dashboards that enable strategic oversight of cross-domain knowledge flow.
+[Telemetry](@/glossary/telemetry.md) integration provides real-time visibility into propagation network health, pattern adoption rates, effectiveness measurements, and knowledge base growth. These metrics feed dashboards that enable strategic oversight of cross-domain knowledge flow.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [aiad-dashboard-commander](/agents/aiad-dashboard-commander/) | Provides pattern visualization and adoption monitoring through dashboard interface | Monitoring |
-| [aiad-hot-reload-coordinator](/agents/aiad-hot-reload-coordinator/) | Enables [hot deployment](/glossary/hot-code-reload/) of pattern updates without system downtime | Operations |
-| [gitlab-strategic-coordinator](/agents/gitlab-strategic-coordinator/) | Receives strategic priorities that influence pattern propagation scheduling | Strategic |
-| [gitlab-auto-sync-orchestrator](/agents/gitlab-auto-sync-orchestrator/) | Synchronizes pattern adoption state across GitLab and platform representations | Synchronization |
-| [autonomous-pattern-evolution-specialist](/agents/autonomous-pattern-evolution-specialist/) | Collaborates on pattern evolution and genetic optimization | Evolution |
+| [aiad-dashboard-commander](@/agents/aiad-dashboard-commander.md) | Provides pattern visualization and adoption monitoring through dashboard interface | Monitoring |
+| [aiad-hot-reload-coordinator](@/agents/aiad-hot-reload-coordinator.md) | Enables [hot deployment](@/glossary/hot-code-reload.md) of pattern updates without system downtime | Operations |
+| [gitlab-strategic-coordinator](@/agents/gitlab-strategic-coordinator.md) | Receives strategic priorities that influence pattern propagation scheduling | Strategic |
+| [gitlab-auto-sync-orchestrator](@/agents/gitlab-auto-sync-orchestrator.md) | Synchronizes pattern adoption state across GitLab and platform representations | Synchronization |
+| [autonomous-pattern-evolution-specialist](@/agents/autonomous-pattern-evolution-specialist.md) | Collaborates on pattern evolution and genetic optimization | Evolution |
 
 ## Propagation Metrics
 
@@ -104,7 +104,7 @@ The [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Development Framework) i
 
 ## Enforcement
 
-The GitLab Mycelial Propagator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Pattern propagation must be backed by measurable effectiveness evidence, not anecdotal improvement claims. Patterns that fail to demonstrate statistically significant improvement are deprecated rather than propagated. Adoption rollouts include mandatory monitoring periods with automatic rollback if metrics degrade. Every propagation decision carries full provenance including discovery context, evaluation results, adaptation rationale, and effectiveness measurements.
+The GitLab Mycelial Propagator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Pattern propagation must be backed by measurable effectiveness evidence, not anecdotal improvement claims. Patterns that fail to demonstrate statistically significant improvement are deprecated rather than propagated. Adoption rollouts include mandatory monitoring periods with automatic rollback if metrics degrade. Every propagation decision carries full provenance including discovery context, evaluation results, adaptation rationale, and effectiveness measurements.
 
 ---
 
@@ -113,4 +113,4 @@ The GitLab Mycelial Propagator operates under the [NO MERCY, NO DOUBTS](/glossar
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

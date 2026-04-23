@@ -28,9 +28,9 @@ image_alt = "database-migration-specialist - Prismatic Platform"
 
 ## Overview
 
-The Database Migration Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent manages safe database schema evolution through zero-downtime migration strategies, ensuring that [PostgreSQL](/glossary/postgresql/) schema changes can be applied to production databases without service interruption, data loss, or application errors. In a continuously deployed platform, database migrations are among the highest-risk operations, and this specialist ensures they are executed with surgical precision.
+The Database Migration Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent manages safe database schema evolution through zero-downtime migration strategies, ensuring that [PostgreSQL](@/glossary/postgresql.md) schema changes can be applied to production databases without service interruption, data loss, or application errors. In a continuously deployed platform, database migrations are among the highest-risk operations, and this specialist ensures they are executed with surgical precision.
 
-Schema evolution in a 90-app [umbrella application](/glossary/umbrella-application/) architecture requires particular care because multiple applications may share database tables or depend on specific schema structures. The Database Migration Specialist evaluates every migration for backward compatibility, ensuring that the migration can be applied while the current application version is running and that the subsequent application version works correctly with both the pre-migration and post-migration schema. This two-version compatibility requirement is the foundation of zero-downtime migration.
+Schema evolution in a 90-app [umbrella application](@/glossary/umbrella-application.md) architecture requires particular care because multiple applications may share database tables or depend on specific schema structures. The Database Migration Specialist evaluates every migration for backward compatibility, ensuring that the migration can be applied while the current application version is running and that the subsequent application version works correctly with both the pre-migration and post-migration schema. This two-version compatibility requirement is the foundation of zero-downtime migration.
 
 The specialist serves as the gatekeeper for all production schema changes, combining automated safety analysis with expert review to prevent the migration failures that could cause production outages, data corruption, or extended maintenance windows.
 
@@ -62,7 +62,7 @@ Data integrity validation ensures that the migration preserves data integrity th
 
 In the umbrella architecture, migrations may affect multiple applications that share database resources.
 
-Dependency analysis identifies all applications that access the tables affected by a proposed migration. This analysis uses the platform's data access audit logs and [Ecto](/glossary/ecto/) schema definitions to build a comprehensive dependency map. Migrations that affect shared tables require coordination across all dependent applications.
+Dependency analysis identifies all applications that access the tables affected by a proposed migration. This analysis uses the platform's data access audit logs and [Ecto](@/glossary/ecto.md) schema definitions to build a comprehensive dependency map. Migrations that affect shared tables require coordination across all dependent applications.
 
 Migration ordering resolves sequencing conflicts when multiple applications have pending migrations that affect shared resources. The specialist establishes a migration execution order that respects dependencies and ensures that each migration step leaves the database in a consistent state usable by all dependent applications.
 
@@ -100,19 +100,19 @@ Migration history tracking maintains a complete record of all migrations applied
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to approve or reject database migrations, mandate safety modifications, and sequence cross-application schema changes.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to approve or reject database migrations, mandate safety modifications, and sequence cross-application schema changes.
 
 ## Coordination
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [database-architecture-specialist](/agents/database-architecture-specialist/) | Reviews schema design decisions that inform migration requirements | Infrastructure |
-| [database-performance-specialist](/agents/database-performance-specialist/) | Assesses performance impact of proposed migrations on query patterns | Infrastructure |
-| [deployment-commander-agent](/agents/deployment-commander-agent/) | Coordinates migration execution timing within deployment windows | Deployment |
+| [database-architecture-specialist](@/agents/database-architecture-specialist.md) | Reviews schema design decisions that inform migration requirements | Infrastructure |
+| [database-performance-specialist](@/agents/database-performance-specialist.md) | Assesses performance impact of proposed migrations on query patterns | Infrastructure |
+| [deployment-commander-agent](@/agents/deployment-commander-agent.md) | Coordinates migration execution timing within deployment windows | Deployment |
 
 ## Enforcement
 
-The Database Migration Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No migration reaches production without safety review and staging validation. Migrations that acquire exclusive locks on large tables are rejected and must be redesigned for concurrency safety. Every migration must have a tested rollback path. Migration execution in production is monitored in real time with automatic rollback if execution time exceeds projections by more than 2x. Cross-application migrations require documented impact assessment and explicit acknowledgment from all affected application teams.
+The Database Migration Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No migration reaches production without safety review and staging validation. Migrations that acquire exclusive locks on large tables are rejected and must be redesigned for concurrency safety. Every migration must have a tested rollback path. Migration execution in production is monitored in real time with automatic rollback if execution time exceeds projections by more than 2x. Cross-application migrations require documented impact assessment and explicit acknowledgment from all affected application teams.
 
 ---
 
@@ -121,4 +121,4 @@ The Database Migration Specialist operates under the [NO MERCY, NO DOUBTS](/glos
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

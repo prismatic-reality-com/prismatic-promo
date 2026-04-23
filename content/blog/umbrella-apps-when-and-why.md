@@ -18,11 +18,11 @@ see_also = ["umbrella", "umbrella-application", "otp-application", "modularity",
 image_alt = "Umbrella Apps: When and Why"
 +++
 
-"94 umbrella apps" sounds like a warning. It is actually a discipline. An [umbrella](/glossary/umbrella) is not microservices. It is a modular monolith where the boundaries the team cares about are enforced by the compiler, the supervisor tree, and the dependency graph — not by willpower. Get the split right and you get most of the benefits of services with none of the operational pain.
+"94 umbrella apps" sounds like a warning. It is actually a discipline. An [umbrella](@/glossary/umbrella.md) is not microservices. It is a modular monolith where the boundaries the team cares about are enforced by the compiler, the supervisor tree, and the dependency graph — not by willpower. Get the split right and you get most of the benefits of services with none of the operational pain.
 
 ## What an app gives you that a module doesn't
 
-A plain module gives you a namespace and a file. An [OTP application](/glossary/otp-application) gives you four things a module cannot:
+A plain module gives you a namespace and a file. An [OTP application](@/glossary/otp-application.md) gives you four things a module cannot:
 
 1. **An independent supervision tree.** Crashes are scoped to the app, not the whole system.
 2. **An explicit dependency graph.** `mix xref graph --format dot --source apps/foo/lib` shows exactly who depends on foo.
@@ -35,7 +35,7 @@ The fourth one is the sleeper. Being able to delete a subsystem cleanly is the s
 
 Split a module into its own app when at least two of these are true:
 
-- It has its own supervision tree (one or more long-lived [GenServers](/glossary/genserver)).
+- It has its own supervision tree (one or more long-lived [GenServers](@/glossary/genserver.md)).
 - It has its own config surface (env vars, runtime tunables, connection strings).
 - It owns a storage concern that others consume via an API, not via shared tables.
 - It could, in principle, be deleted without changing the rest of the system.
@@ -60,6 +60,6 @@ Pick an app. Ask: if the product killed this feature tomorrow, could I delete th
 
 - **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — supervision and app lifecycles
 - **Academy**: [Development Workflow](/academy/learn/development-workflow) — how umbrella work is structured day-to-day
-- **Glossary**: [Umbrella](/glossary/umbrella), [Umbrella Application](/glossary/umbrella-application), [OTP Application](/glossary/otp-application), [Modularity](/glossary/modularity), [Mix](/glossary/mix)
+- **Glossary**: [Umbrella](@/glossary/umbrella.md), [Umbrella Application](@/glossary/umbrella-application.md), [OTP Application](@/glossary/otp-application.md), [Modularity](@/glossary/modularity.md), [Mix](@/glossary/mix.md)
 
 94 apps is not the goal. Being able to add or delete the 95th without fear — that is the goal.

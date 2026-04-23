@@ -42,7 +42,7 @@ DuckDB occupies a unique position in the database landscape: it provides the ana
 
 ## OLTP vs OLAP: Fundamental Architecture Differences
 
-The relational database market has historically been divided between OLTP (Online Transaction Processing) systems optimized for high-concurrency point reads and writes, and OLAP systems optimized for complex analytical queries over large datasets. OLTP databases like [PostgreSQL](/glossary/postgresql/) store data row-by-row, which is efficient for reading or writing entire records but inefficient for aggregations that touch only a few columns across millions of rows. OLAP databases like DuckDB store data column-by-column, which is highly efficient for analytical aggregations but less suited for single-record operations.
+The relational database market has historically been divided between OLTP (Online Transaction Processing) systems optimized for high-concurrency point reads and writes, and OLAP systems optimized for complex analytical queries over large datasets. OLTP databases like [PostgreSQL](@/glossary/postgresql.md) store data row-by-row, which is efficient for reading or writing entire records but inefficient for aggregations that touch only a few columns across millions of rows. OLAP databases like DuckDB store data column-by-column, which is highly efficient for analytical aggregations but less suited for single-record operations.
 
 | Characteristic | OLTP (PostgreSQL) | OLAP (DuckDB) |
 |---------------|-------------------|---------------|
@@ -144,7 +144,7 @@ GROUP BY domain;
 
 ## Implementation in Prismatic Platform
 
-Within the Prismatic Platform, DuckDB is integrated through the storage [adapter pattern](/glossary/adapter-pattern/) via `prismatic_storage_duckdb` for analytical workloads that exceed PostgreSQL's OLTP-optimized performance profile:
+Within the Prismatic Platform, DuckDB is integrated through the storage [adapter pattern](@/glossary/adapter-pattern.md) via `prismatic_storage_duckdb` for analytical workloads that exceed PostgreSQL's OLTP-optimized performance profile:
 
 ```elixir
 defmodule PrismaticStorage.DuckDB.Adapter do
@@ -244,12 +244,12 @@ end
 | OSINT correlation | Cross-source joins on large intelligence datasets | Parallel hash joins on multi-million row datasets |
 | Agent analytics | Aggregating execution metrics for 530 agents | In-memory analytical queries without DB round-trip |
 | Export analytics | Parquet/CSV export of analysis results | Native format support without serialization overhead |
-| Ad-hoc exploration | Interactive SQL on collected [EASM](/glossary/easm/) data | Zero-setup analytical environment |
+| Ad-hoc exploration | Interactive SQL on collected [EASM](@/glossary/easm.md) data | Zero-setup analytical environment |
 | Quality metrics | Historical quality score trends across 115 apps | Columnar scans across time-series data |
 
 ## Integration with Broadway Pipelines
 
-DuckDB integrates with the platform's [Broadway](/glossary/broadway/) data processing pipelines for batch analytical ingestion:
+DuckDB integrates with the platform's [Broadway](@/glossary/broadway.md) data processing pipelines for batch analytical ingestion:
 
 ```elixir
 defmodule PrismaticAnalytics.DuckDBSink do
@@ -283,7 +283,7 @@ end
 
 ## Memory Management and Resource Control
 
-When DuckDB runs embedded within a [BEAM](/glossary/beam/) application, resource management requires careful configuration to prevent DuckDB from competing with Erlang processes for memory:
+When DuckDB runs embedded within a [BEAM](@/glossary/beam.md) application, resource management requires careful configuration to prevent DuckDB from competing with Erlang processes for memory:
 
 ```elixir
 defmodule PrismaticStorage.DuckDB.Config do
@@ -352,7 +352,7 @@ Typical performance comparisons between DuckDB and PostgreSQL for analytical wor
 
 3. **Configure Memory Limits**: DuckDB will use all available memory by default. In an embedded context alongside BEAM processes, configure explicit memory limits to prevent resource contention: `SET memory_limit = '2GB'`.
 
-4. **Use In-Memory for Ephemeral Analytics**: For queries over data that exists in PostgreSQL or [ETS](/glossary/ets/), load into DuckDB in-memory tables rather than persisting to DuckDB storage. This avoids data synchronization complexity.
+4. **Use In-Memory for Ephemeral Analytics**: For queries over data that exists in PostgreSQL or [ETS](@/glossary/ets.md), load into DuckDB in-memory tables rather than persisting to DuckDB storage. This avoids data synchronization complexity.
 
 5. **Batch Ingestion for Performance**: When loading data into DuckDB, use bulk operations (COPY, INSERT...SELECT) rather than single-row inserts. DuckDB's columnar storage is optimized for batch writes.
 
@@ -362,21 +362,21 @@ Typical performance comparisons between DuckDB and PostgreSQL for analytical wor
 
 ## Related Concepts
 
-- [Adapter Pattern](/glossary/adapter-pattern/) - Unified storage interface including DuckDB as the OLAP adapter
-- [ETS](/glossary/ets/) - Complementary in-memory storage for caching and fast key-value access
-- [KuzuDB](/glossary/kuzudb/) - Graph database complementing DuckDB for relationship queries
-- [PostgreSQL](/glossary/postgresql/) - Primary relational OLTP database that DuckDB supplements for analytics
-- [Meilisearch](/glossary/meilisearch/) - Full-text search engine complementing DuckDB's analytical capabilities
-- [EASM](/glossary/easm/) - Domain generating analytical workloads processed by DuckDB
-- [Broadway](/glossary/broadway/) - Data pipeline feeding analytical data into DuckDB
-- [Connection Pooling](/glossary/connection-pooling/) - Resource management pattern for database connections
-- [BEAM](/glossary/beam/) - Virtual machine hosting the embedded DuckDB instances
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Unified storage interface including DuckDB as the OLAP adapter
+- [ETS](@/glossary/ets.md) - Complementary in-memory storage for caching and fast key-value access
+- [KuzuDB](@/glossary/kuzudb.md) - Graph database complementing DuckDB for relationship queries
+- [PostgreSQL](@/glossary/postgresql.md) - Primary relational OLTP database that DuckDB supplements for analytics
+- [Meilisearch](@/glossary/meilisearch.md) - Full-text search engine complementing DuckDB's analytical capabilities
+- [EASM](@/glossary/easm.md) - Domain generating analytical workloads processed by DuckDB
+- [Broadway](@/glossary/broadway.md) - Data pipeline feeding analytical data into DuckDB
+- [Connection Pooling](@/glossary/connection-pooling.md) - Resource management pattern for database connections
+- [BEAM](@/glossary/beam.md) - Virtual machine hosting the embedded DuckDB instances
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform multi-store architecture
-- [Technologies](/technologies/) -- Storage technology stack
-- [Capabilities](/capabilities/) -- Analytical capabilities powered by DuckDB
+- [Architecture](@/architecture/_index.md) -- Platform multi-store architecture
+- [Technologies](@/technologies/_index.md) -- Storage technology stack
+- [Capabilities](@/capabilities/_index.md) -- Analytical capabilities powered by DuckDB
 
 ---
 
@@ -385,4 +385,4 @@ Typical performance comparisons between DuckDB and PostgreSQL for analytical wor
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

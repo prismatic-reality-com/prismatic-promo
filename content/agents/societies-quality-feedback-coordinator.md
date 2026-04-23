@@ -32,7 +32,7 @@ The Societies Quality Feedback Coordinator is an L3 agent operating in the **gen
 
 The concept of "epistemic societies" in the Prismatic Platform refers to the self-organizing groups of agents that collaborate within and across domains to maintain and improve the collective intelligence of the system. Quality feedback is the connective tissue of these societies -- without it, domains become isolated silos where quality improvements in one area never benefit others. The Societies Quality Feedback Coordinator prevents this fragmentation by maintaining a bidirectional flow of quality intelligence across all domain boundaries.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, enforcing the [NO MERCY](/glossary/no-mercy/) doctrine's zero-tolerance quality standards through cross-domain feedback synthesis.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, enforcing the [NO MERCY](@/glossary/no-mercy.md) doctrine's zero-tolerance quality standards through cross-domain feedback synthesis.
 
 ## Quality Feedback Architecture
 
@@ -260,10 +260,10 @@ The coordinator classifies incoming quality signals into a structured taxonomy t
 
 ## Integration Points
 
-- [**Quality Gates**](/capabilities/quality-gates/) -- Feeds into platform-wide quality gate decisions
-- [**Autonomous Self-Healing**](/capabilities/autonomous-self-healing/) -- Triggers auto-healing when cross-domain patterns detected
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Subscribes to all domain telemetry streams
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Feeds into platform-wide quality gate decisions
+- [**Autonomous Self-Healing**](@/capabilities/autonomous-self-healing.md) -- Triggers auto-healing when cross-domain patterns detected
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Subscribes to all domain telemetry streams
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
 
 ## AIAD Specification Compliance
 
@@ -271,19 +271,19 @@ The coordinator classifies incoming quality signals into a structured taxonomy t
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 14 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Related Agents
 
-- [**Six Sigma Psycho Coordinator**](/agents/six-sigma-psycho-coordinator/) -- Apex quality enforcement agent
-- [**Society Coordinator**](/agents/society-coordinator/) -- Epistemic society management
-- [**Trinity Bridge Coordinator**](/agents/trinity-bridge-coordinator/) -- Formal verification quality feedback
+- [**Six Sigma Psycho Coordinator**](@/agents/six-sigma-psycho-coordinator.md) -- Apex quality enforcement agent
+- [**Society Coordinator**](@/agents/society-coordinator.md) -- Epistemic society management
+- [**Trinity Bridge Coordinator**](@/agents/trinity-bridge-coordinator.md) -- Formal verification quality feedback
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to issue quality directives across all platform domains.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to issue quality directives across all platform domains.
 
 ---
 
@@ -292,4 +292,4 @@ The coordinator classifies incoming quality signals into a structured taxonomy t
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

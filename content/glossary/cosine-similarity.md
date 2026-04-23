@@ -127,11 +127,11 @@ These thresholds vary significantly based on the embedding model, domain vocabul
 
 ## Usage in Prismatic Platform
 
-The Prismatic Platform uses cosine similarity as the primary semantic comparison metric across multiple subsystems, from [OSINT](/glossary/osint/) entity resolution to intelligent agent routing.
+The Prismatic Platform uses cosine similarity as the primary semantic comparison metric across multiple subsystems, from [OSINT](@/glossary/osint.md) entity resolution to intelligent agent routing.
 
 ### Meilisearch Vector Search
 
-The [Meilisearch](/glossary/meilisearch/) integration uses cosine similarity for semantic ranking of search results alongside traditional keyword matching:
+The [Meilisearch](@/glossary/meilisearch.md) integration uses cosine similarity for semantic ranking of search results alongside traditional keyword matching:
 
 ```elixir
 defmodule PrismaticSearch.VectorQuery do
@@ -287,19 +287,19 @@ end
 
 ## Related Concepts
 
-- [Meilisearch](/glossary/meilisearch/) -- Search engine applying cosine similarity for semantic ranking
-- [Entity Resolution](/glossary/entity-resolution/) -- Identity matching using cosine similarity between embeddings
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Graph enrichment driven by cosine similarity between node vectors
-- [Ollama](/glossary/ollama/) -- AI runtime producing embeddings compared via cosine similarity
-- [OSINT](/glossary/osint/) -- Intelligence discipline using cosine similarity for entity correlation
-- [Vector Database](/glossary/vector-database/) -- Storage system using cosine similarity for nearest-neighbor search
-- [Prompt Engineering](/glossary/prompt-engineering/) -- Techniques for optimizing embedding quality through input design
+- [Meilisearch](@/glossary/meilisearch.md) -- Search engine applying cosine similarity for semantic ranking
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Identity matching using cosine similarity between embeddings
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Graph enrichment driven by cosine similarity between node vectors
+- [Ollama](@/glossary/ollama.md) -- AI runtime producing embeddings compared via cosine similarity
+- [OSINT](@/glossary/osint.md) -- Intelligence discipline using cosine similarity for entity correlation
+- [Vector Database](@/glossary/vector-database.md) -- Storage system using cosine similarity for nearest-neighbor search
+- [Prompt Engineering](@/glossary/prompt-engineering.md) -- Techniques for optimizing embedding quality through input design
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview including vector search infrastructure
-- [Technologies](/technologies/) -- Technology stack details for embedding and search systems
-- [Apps](/apps/) -- Applications leveraging cosine similarity for intelligence
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview including vector search infrastructure
+- [Technologies](@/technologies/_index.md) -- Technology stack details for embedding and search systems
+- [Apps](@/apps/_index.md) -- Applications leveraging cosine similarity for intelligence
 
 ---
 
@@ -308,4 +308,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

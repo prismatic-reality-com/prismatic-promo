@@ -24,18 +24,18 @@ image_alt = "Elixir - Prismatic Platform"
 
 ## Overview
 
-Elixir is the primary programming language of the Prismatic Platform. It is a dynamic, functional language designed for building scalable and maintainable applications. Created by Jose Valim in 2012, Elixir leverages the Erlang VM ([BEAM](/technologies/beam/)), known for running low-latency, distributed, and fault-tolerant systems. Elixir combines the operational maturity of a 30+ year old telecommunications runtime with modern language design, developer ergonomics, and a vibrant ecosystem of libraries and tools.
+Elixir is the primary programming language of the Prismatic Platform. It is a dynamic, functional language designed for building scalable and maintainable applications. Created by Jose Valim in 2012, Elixir leverages the Erlang VM ([BEAM](@/technologies/beam.md)), known for running low-latency, distributed, and fault-tolerant systems. Elixir combines the operational maturity of a 30+ year old telecommunications runtime with modern language design, developer ergonomics, and a vibrant ecosystem of libraries and tools.
 
-The Prismatic Platform is built entirely in Elixir, comprising over 6,652 `.ex` files across 90 umbrella applications. Elixir's pattern matching, immutable data structures, and actor-based concurrency model make it ideal for the platform's requirements: real-time intelligence processing, autonomous agent orchestration, and high-reliability operations. Every one of the 404+ platform agents runs as a supervised Elixir process, benefiting from the [BEAM](/technologies/beam/)'s lightweight process model and per-process garbage collection for predictable, low-latency performance.
+The Prismatic Platform is built entirely in Elixir, comprising over 6,652 `.ex` files across 90 umbrella applications. Elixir's pattern matching, immutable data structures, and actor-based concurrency model make it ideal for the platform's requirements: real-time intelligence processing, autonomous agent orchestration, and high-reliability operations. Every one of the 404+ platform agents runs as a supervised Elixir process, benefiting from the [BEAM](@/technologies/beam.md)'s lightweight process model and per-process garbage collection for predictable, low-latency performance.
 
-Elixir's metaprogramming capabilities through macros, its robust standard library, and the comprehensive Mix build tool provide the foundation for the platform's sophisticated build pipeline, code generation, and quality enforcement systems. The language's "batteries included" approach -- with built-in support for testing ([ExUnit](/technologies/exunit/)), documentation (ExDoc), and static analysis ([Dialyzer](/technologies/dialyzer/) via specs) -- means the platform's quality infrastructure is built on first-class language features rather than third-party bolted-on tools.
+Elixir's metaprogramming capabilities through macros, its robust standard library, and the comprehensive Mix build tool provide the foundation for the platform's sophisticated build pipeline, code generation, and quality enforcement systems. The language's "batteries included" approach -- with built-in support for testing ([ExUnit](@/technologies/exunit.md)), documentation (ExDoc), and static analysis ([Dialyzer](@/technologies/dialyzer.md) via specs) -- means the platform's quality infrastructure is built on first-class language features rather than third-party bolted-on tools.
 
 ## Key Features
 
 Elixir provides a comprehensive set of language features that make it uniquely suited for building concurrent, fault-tolerant, and maintainable systems at scale.
 
 - **Functional Programming**: First-class functions, pattern matching, immutability, and the pipe operator for clean data transformations
-- **Concurrency**: Lightweight processes (actors) with message passing, enabling millions of concurrent operations on the [BEAM](/technologies/beam/)
+- **Concurrency**: Lightweight processes (actors) with message passing, enabling millions of concurrent operations on the [BEAM](@/technologies/beam.md)
 - **Fault Tolerance**: "Let it crash" philosophy with supervision trees for self-healing systems that recover automatically from failures
 - **Metaprogramming**: Hygienic macros for compile-time code generation, DSL creation, and boilerplate elimination
 - **Pattern Matching**: Destructuring and matching across function heads, case statements, and with blocks for expressive control flow
@@ -190,11 +190,11 @@ end
 The Prismatic Platform enforces Elixir coding standards that go beyond language conventions to ensure platform-wide consistency and quality.
 
 - **Use `with` blocks for composable error handling** -- chain operations that may fail, with clear error propagation
-- **Add `@spec` to every public function** -- enables [Dialyzer](/technologies/dialyzer/) type analysis and serves as living documentation
+- **Add `@spec` to every public function** -- enables [Dialyzer](@/technologies/dialyzer.md) type analysis and serves as living documentation
 - **Follow the `{:ok, result} | {:error, reason}` convention** -- consistent return types across all platform modules
 - **Use supervision trees for all stateful processes** -- every GenServer must have a supervisor for fault tolerance
 - **Prefer pipe operator for data transformations** -- `data |> step_1() |> step_2()` is clearer than nested function calls
-- **Never use mutable state outside processes** -- all shared state lives in GenServers, [ETS](/technologies/ets/), or the database
+- **Never use mutable state outside processes** -- all shared state lives in GenServers, [ETS](@/technologies/ets.md), or the database
 - **Compile with `--warnings-as-errors`** -- zero warnings policy enforced across all 90 applications
 - **The Meta-Rule**: If the same solution could be written identically in Node.js, it is WRONG -- leverage Elixir's unique strengths
 
@@ -215,21 +215,21 @@ Elixir was chosen as the platform's primary language after evaluating alternativ
 
 ## Related Technologies
 
-- [Erlang/OTP](/technologies/erlang-otp/) - The runtime system powering Elixir with OTP behaviours and supervision
-- [BEAM VM](/technologies/beam/) - The virtual machine executing Elixir bytecode with preemptive scheduling
-- [Phoenix Framework](/technologies/phoenix/) - The web framework built on Elixir for HTTP and real-time interfaces
-- [Ecto](/technologies/ecto/) - The data mapping and query library for database interactions
-- [ExUnit](/technologies/exunit/) - The built-in testing framework for comprehensive test coverage
-- [Credo](/technologies/credo/) - Code quality analysis for enforcing style and design standards
-- [Dialyzer](/technologies/dialyzer/) - Static type analysis for finding guaranteed bugs
+- [Erlang/OTP](@/technologies/erlang-otp.md) - The runtime system powering Elixir with OTP behaviours and supervision
+- [BEAM VM](@/technologies/beam.md) - The virtual machine executing Elixir bytecode with preemptive scheduling
+- [Phoenix Framework](@/technologies/phoenix.md) - The web framework built on Elixir for HTTP and real-time interfaces
+- [Ecto](@/technologies/ecto.md) - The data mapping and query library for database interactions
+- [ExUnit](@/technologies/exunit.md) - The built-in testing framework for comprehensive test coverage
+- [Credo](@/technologies/credo.md) - Code quality analysis for enforcing style and design standards
+- [Dialyzer](@/technologies/dialyzer.md) - Static type analysis for finding guaranteed bugs
 
 ## Related Apps
 
-- [prismatic](/apps/prismatic/) - Main platform coordination, the root umbrella application
-- [prismatic_agents](/apps/prismatic-agents/) - Agent runtime system with 404+ supervised Elixir processes
-- [prismatic_web](/apps/prismatic-web/) - Phoenix web interface with LiveView dashboards
-- [prismatic_api](/apps/prismatic-api/) - Auto-introspecting REST API gateway
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - EASM security scanning and rating engine
+- [prismatic](@/apps/prismatic.md) - Main platform coordination, the root umbrella application
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent runtime system with 404+ supervised Elixir processes
+- [prismatic_web](@/apps/prismatic-web.md) - Phoenix web interface with LiveView dashboards
+- [prismatic_api](@/apps/prismatic-api.md) - Auto-introspecting REST API gateway
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - EASM security scanning and rating engine
 
 ---
 
@@ -238,4 +238,4 @@ Elixir was chosen as the platform's primary language after evaluating alternativ
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

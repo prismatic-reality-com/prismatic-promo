@@ -30,7 +30,7 @@ keywords = ["Compliance", "Framework", "Integration", "Mapping", "NIS2", "Direct
 
 ## Abstract
 
-The Prismatic Platform's Compliance Framework Integration maps due diligence investigation findings to the specific requirements of four major regulatory frameworks relevant to the Central European market: the [NIS2 Directive](/glossary/nis2/) (EU 2022/2555) for cybersecurity supply chain risk management, the [ZKB 264/2025 Sb.](/glossary/zkb/) Czech cybersecurity implementation, AML/KYC (Anti-Money Laundering / Know Your Customer) directives for financial sector compliance, and GDPR data protection assessments for investigated entities. Rather than producing generic due diligence reports that require manual mapping to regulatory requirements, the platform generates compliance-structured outputs that directly satisfy regulatory obligations, reducing the gap between investigation and compliance demonstration.
+The Prismatic Platform's Compliance Framework Integration maps due diligence investigation findings to the specific requirements of four major regulatory frameworks relevant to the Central European market: the [NIS2 Directive](@/glossary/nis2.md) (EU 2022/2555) for cybersecurity supply chain risk management, the [ZKB 264/2025 Sb.](@/glossary/zkb.md) Czech cybersecurity implementation, AML/KYC (Anti-Money Laundering / Know Your Customer) directives for financial sector compliance, and GDPR data protection assessments for investigated entities. Rather than producing generic due diligence reports that require manual mapping to regulatory requirements, the platform generates compliance-structured outputs that directly satisfy regulatory obligations, reducing the gap between investigation and compliance demonstration.
 
 ## Introduction
 
@@ -38,7 +38,7 @@ The Prismatic Platform's Compliance Framework Integration maps due diligence inv
 
 Due diligence and regulatory compliance are increasingly intertwined. The NIS2 Directive requires organizations to conduct supply chain risk assessments, including due diligence on critical suppliers. Anti-money laundering regulations mandate customer due diligence (CDD) and enhanced due diligence (EDD) procedures. The Czech ZKB implementation adds national-level requirements for entity verification and cybersecurity assessment. In each case, the substantive investigation is fundamentally the same -- verifying entity identity, assessing risk, and documenting findings -- but the reporting format, terminology, and required evidence differ across frameworks.
 
-The Prismatic Platform addresses this by treating compliance mapping as a presentation layer over the underlying investigation data rather than a separate investigative process. The same entity data, [risk assessments](/dd/risk-assessment/), and [cross-validated findings](/dd/methodology/) are mapped to multiple compliance frameworks simultaneously, ensuring consistency while satisfying the specific requirements of each framework.
+The Prismatic Platform addresses this by treating compliance mapping as a presentation layer over the underlying investigation data rather than a separate investigative process. The same entity data, [risk assessments](@/dd/risk-assessment.md), and [cross-validated findings](@/dd/methodology.md) are mapped to multiple compliance frameworks simultaneously, ensuring consistency while satisfying the specific requirements of each framework.
 
 ### Supported Frameworks
 
@@ -63,12 +63,12 @@ The platform maps investigation findings to NIS2 requirements as follows:
 
 | NIS2 Requirement | Article | Platform Component | Evidence Source |
 |-----------------|---------|-------------------|----------------|
-| Supply chain risk assessment | Art. 21(2)(d) | [Risk Assessment](/dd/risk-assessment/) | All 7 dimensions, especially Cyber and Operational |
-| Supplier identity verification | Art. 21(2)(d) | [Entity Management](/dd/entity-management/) | Registry verification, [triple-check](/dd/methodology/) |
-| Cybersecurity posture assessment | Art. 21(2)(a) | Cyber risk dimension | [Shodan](/osint/shodan/), [Censys](/osint/censys/), [HIBP](/osint/haveibeenpwned/) |
+| Supply chain risk assessment | Art. 21(2)(d) | [Risk Assessment](@/dd/risk-assessment.md) | All 7 dimensions, especially Cyber and Operational |
+| Supplier identity verification | Art. 21(2)(d) | [Entity Management](@/dd/entity-management.md) | Registry verification, [triple-check](@/dd/methodology.md) |
+| Cybersecurity posture assessment | Art. 21(2)(a) | Cyber risk dimension | [Shodan](@/osint/shodan.md), [Censys](@/osint/censys.md), [HIBP](@/osint/haveibeenpwned.md) |
 | Business continuity assessment | Art. 21(2)(c) | Operational risk dimension | Financial data, operational indicators |
 | Incident history review | Art. 21(2)(b) | Cyber risk dimension, Legal dimension | Breach databases, regulatory records |
-| Governance assessment | Art. 21(2)(a) | Ownership risk dimension | [Graph analysis](/dd/graph-analysis/), registry data |
+| Governance assessment | Art. 21(2)(a) | Ownership risk dimension | [Graph analysis](@/dd/graph-analysis.md), registry data |
 
 ### NIS2 Report Structure
 
@@ -86,7 +86,7 @@ The platform generates NIS2-compliant assessment reports with the following stru
 
 ### NIS2 Scoring Integration
 
-The platform's [security rating](/glossary/security-rating/) system produces A-F grades that directly map to NIS2 supply chain risk categories:
+The platform's [security rating](@/glossary/security-rating.md) system produces A-F grades that directly map to NIS2 supply chain risk categories:
 
 | Platform Grade | NIS2 Risk Category | Required Action |
 |---------------|-------------------|----------------|
@@ -103,12 +103,12 @@ Zakon o kyberneticke bezpecnosti (ZKB) 264/2025 Sb. is the Czech Republic's nati
 
 ### ZKB-Specific Requirements
 
-The ZKB adds Czech-specific requirements that the platform addresses through its deep [Czech registry integration](/dd/czech-registries/):
+The ZKB adds Czech-specific requirements that the platform addresses through its deep [Czech registry integration](@/dd/czech-registries.md):
 
 | ZKB Requirement | Section | Platform Component |
 |-----------------|---------|-------------------|
-| Entity verification through Czech registries | Sec. 4 | [ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/) verification |
-| Beneficial ownership disclosure | Sec. 7 | [Graph analysis](/dd/graph-analysis/) UBO determination |
+| Entity verification through Czech registries | Sec. 4 | [ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md) verification |
+| Beneficial ownership disclosure | Sec. 7 | [Graph analysis](@/dd/graph-analysis.md) UBO determination |
 | Critical infrastructure supplier assessment | Sec. 12 | Full risk assessment (7 dimensions) |
 | Czech-language reporting | Sec. 15 | Localized report generation |
 | NUKIB notification readiness | Sec. 18 | Incident history and response capability assessment |
@@ -118,14 +118,14 @@ The ZKB adds Czech-specific requirements that the platform addresses through its
 
 ZKB compliance benefits from the platform's ability to verify entity identity across multiple Czech registries simultaneously. A ZKB-compliant entity verification includes:
 
-1. **ICO verification** through [ARES](/osint/ares/) with cross-check against [Justice.cz](/osint/justice-cz/)
-2. **Trade license verification** through [RZP](/osint/rzp/) confirming authorized business activities
-3. **Insolvency screening** through [ISIR](/osint/insolvencni-rejstrik/) confirming financial stability
+1. **ICO verification** through [ARES](@/osint/ares.md) with cross-check against [Justice.cz](@/osint/justice-cz.md)
+2. **Trade license verification** through [RZP](@/osint/rzp.md) confirming authorized business activities
+3. **Insolvency screening** through [ISIR](@/osint/insolvencni-rejstrik.md) confirming financial stability
 4. **VAT compliance check** through DPH registry (nespolehlivy platce screening)
 5. **Sanctions screening** against EU Consolidated, OFAC SDN, and UN Security Council lists
-6. **Beneficial ownership determination** through [graph analysis](/dd/graph-analysis/) of ownership chains
+6. **Beneficial ownership determination** through [graph analysis](@/dd/graph-analysis.md) of ownership chains
 
-This multi-registry verification satisfies ZKB's entity verification requirements with evidence-grade confidence through the [triple-check methodology](/dd/methodology/).
+This multi-registry verification satisfies ZKB's entity verification requirements with evidence-grade confidence through the [triple-check methodology](@/dd/methodology.md).
 
 ## AML/KYC Compliance
 
@@ -135,8 +135,8 @@ The EU's Anti-Money Laundering Directives (currently 6AMLD, with AMLR entering f
 
 | CDD Requirement | AMLD Article | Platform Component |
 |----------------|-------------|-------------------|
-| Customer identification | Art. 13(1)(a) | Entity verification through [registries](/dd/czech-registries/) |
-| Beneficial ownership identification | Art. 13(1)(b) | [Graph analysis](/dd/graph-analysis/) UBO determination |
+| Customer identification | Art. 13(1)(a) | Entity verification through [registries](@/dd/czech-registries.md) |
+| Beneficial ownership identification | Art. 13(1)(b) | [Graph analysis](@/dd/graph-analysis.md) UBO determination |
 | Purpose of business relationship | Art. 13(1)(c) | NACE code analysis, contract history |
 | Ongoing monitoring | Art. 13(1)(d) | Continuous monitoring capability |
 | PEP screening | Art. 20-23 | Automated PEP database screening |
@@ -173,19 +173,19 @@ While the platform's primary focus is entity due diligence rather than data prot
 
 | Assessment Area | Data Sources | Risk Indicators |
 |----------------|-------------|-----------------|
-| **Breach history** | [HIBP](/osint/haveibeenpwned/), breach databases | Known data breaches involving the entity |
+| **Breach history** | [HIBP](@/osint/haveibeenpwned.md), breach databases | Known data breaches involving the entity |
 | **Cookie/tracking compliance** | Website analysis | Non-compliant cookie banners, tracking without consent |
 | **Privacy policy** | Website analysis | Missing or non-compliant privacy policy |
 | **Data protection officer** | Registry data, website | DPO appointment for entities requiring one |
 | **Cross-border transfers** | Infrastructure analysis | Data processing in non-adequate jurisdictions |
 
-This assessment is particularly relevant for [M&A due diligence](/dd/ma-due-diligence/), where GDPR non-compliance in a target entity can represent significant post-acquisition liability.
+This assessment is particularly relevant for [M&A due diligence](@/dd/ma-due-diligence.md), where GDPR non-compliance in a target entity can represent significant post-acquisition liability.
 
 ## Compliance Report Generation
 
 ### Multi-Framework Reports
 
-The platform's [case management system](/dd/case-management/) generates compliance-mapped reports that simultaneously address multiple regulatory frameworks. A single investigation can produce:
+The platform's [case management system](@/dd/case-management.md) generates compliance-mapped reports that simultaneously address multiple regulatory frameworks. A single investigation can produce:
 
 - **NIS2 Supply Chain Assessment Report**: Structured for submission to national cybersecurity authorities
 - **ZKB Entity Verification Report**: Formatted per Czech regulatory requirements with Czech-language support
@@ -227,16 +227,16 @@ The Compliance Framework Integration transforms due diligence investigation outp
 
 ## References
 
-- [NIS2 Directive](/glossary/nis2/)
-- [ZKB Czech Cybersecurity Law](/glossary/zkb/)
-- [Risk Assessment Framework](/dd/risk-assessment/)
-- [Triple-Check Methodology](/dd/methodology/)
-- [Czech Registry Integration](/dd/czech-registries/)
-- [Graph Analysis Engine](/dd/graph-analysis/)
-- [Case Management System](/dd/case-management/)
-- [M&A Due Diligence](/dd/ma-due-diligence/)
-- [Compliance Capability](/capabilities/compliance/)
-- [Sanctions Screening](/glossary/sanctions-screening/)
+- [NIS2 Directive](@/glossary/nis2.md)
+- [ZKB Czech Cybersecurity Law](@/glossary/zkb.md)
+- [Risk Assessment Framework](@/dd/risk-assessment.md)
+- [Triple-Check Methodology](@/dd/methodology.md)
+- [Czech Registry Integration](@/dd/czech-registries.md)
+- [Graph Analysis Engine](@/dd/graph-analysis.md)
+- [Case Management System](@/dd/case-management.md)
+- [M&A Due Diligence](@/dd/ma-due-diligence.md)
+- [Compliance Capability](@/capabilities/compliance.md)
+- [Sanctions Screening](@/glossary/sanctions-screening.md)
 
 ---
 
@@ -245,4 +245,4 @@ The Compliance Framework Integration transforms due diligence investigation outp
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

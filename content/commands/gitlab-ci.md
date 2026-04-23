@@ -26,9 +26,9 @@ image_alt = "/gitlab-ci - Prismatic Platform"
 
 **/gitlab-ci** is a production command in the **GitLab** category of the Prismatic Platform that provides comprehensive GitLab CI/CD pipeline management, configuration generation, and real-time monitoring capabilities. The command serves as the primary interface for all continuous integration and continuous delivery operations within the platform's development lifecycle, covering pipeline creation, stage management, job configuration, artifact handling, and deployment orchestration across staging and production environments.
 
-The command is executed by the `gitlab-ci-specialist` agent operating at the **L2+** authority level, which grants it permissions to read pipeline state, trigger manual jobs, modify configuration files, and interact with the GitLab API for pipeline operations. As part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard, the command integrates directly with the platform's quality infrastructure to enforce zero-warning compilation, test coverage requirements, and deployment safety checks before any code reaches production.
+The command is executed by the `gitlab-ci-specialist` agent operating at the **L2+** authority level, which grants it permissions to read pipeline state, trigger manual jobs, modify configuration files, and interact with the GitLab API for pipeline operations. As part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard, the command integrates directly with the platform's quality infrastructure to enforce zero-warning compilation, test coverage requirements, and deployment safety checks before any code reaches production.
 
-Pipeline management within the Prismatic Platform is not a simple wrapper around GitLab's built-in CI/CD features. The `/gitlab-ci` command adds an intelligent layer that understands the platform's umbrella architecture with its 89+ applications, manages cross-application dependency ordering for builds, enforces the platform's strict quality gates at every pipeline stage, and provides real-time feedback to developers about pipeline status through the [telemetry](/glossary/telemetry/) subsystem. The command also handles the platform's unique requirement of maintaining a 10-level YAML nesting limit in all generated configuration, automatically extracting complex logic into shell scripts when necessary.
+Pipeline management within the Prismatic Platform is not a simple wrapper around GitLab's built-in CI/CD features. The `/gitlab-ci` command adds an intelligent layer that understands the platform's umbrella architecture with its 89+ applications, manages cross-application dependency ordering for builds, enforces the platform's strict quality gates at every pipeline stage, and provides real-time feedback to developers about pipeline status through the [telemetry](@/glossary/telemetry.md) subsystem. The command also handles the platform's unique requirement of maintaining a 10-level YAML nesting limit in all generated configuration, automatically extracting complex logic into shell scripts when necessary.
 
 The command supports both interactive and automated modes. In interactive mode, developers use it to inspect pipeline status, trigger specific jobs, retry failed stages, and review artifact outputs. In automated mode, it integrates with session lifecycle hooks to ensure that every commit pushed to GitLab triggers the appropriate pipeline configuration and that quality gates are enforced before merges are permitted.
 
@@ -161,19 +161,19 @@ The command follows a structured execution flow that ensures quality compliance 
 
 6. **Validation**: Post-execution validation ensures that generated configurations are syntactically correct, within nesting limits, and compliant with platform YAML patterns. For pipeline triggers, verify the pipeline was created successfully.
 
-7. **Reporting**: Emit [telemetry](/glossary/telemetry/) events for the operation. Report results to the user with relevant status information. Log the operation in the session context.
+7. **Reporting**: Emit [telemetry](@/glossary/telemetry.md) events for the operation. Report results to the user with relevant status information. Log the operation in the session context.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by `gitlab-ci-specialist` agent with L2+ authority |
-| [Quality Gates](/glossary/quality-gates/) | Pre/Post Validation | Enforces compilation, test, and Credo checks before pipeline operations |
-| [Telemetry](/glossary/telemetry/) | Event Emission | Reports pipeline metrics, job durations, and failure rates |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by `gitlab-ci-specialist` agent with L2+ authority |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/Post Validation | Enforces compilation, test, and Credo checks before pipeline operations |
+| [Telemetry](@/glossary/telemetry.md) | Event Emission | Reports pipeline metrics, job durations, and failure rates |
 | GitLab API | External Service | Communicates with GitLab for pipeline CRUD operations |
-| [Prismatic Web](/apps/prismatic-web/) | Dashboard Display | Pipeline status displayed in LiveView monitoring dashboards |
+| [Prismatic Web](@/apps/prismatic-web.md) | Dashboard Display | Pipeline status displayed in LiveView monitoring dashboards |
 | Session Lifecycle | Automation Hook | Triggered automatically during session start and end phases |
-| [SEADF](/glossary/seadf/) | Evolution Integration | Pipeline data feeds into autonomous evolution metrics |
+| [SEADF](@/glossary/seadf.md) | Evolution Integration | Pipeline data feeds into autonomous evolution metrics |
 
 ## Best Practices
 
@@ -198,7 +198,7 @@ The command follows a structured execution flow that ensures quality compliance 
 | `Quality gate blocked` | Pre-pipeline quality check failed | Fix compilation warnings or test failures before triggering |
 | `Pipeline timeout` | Job exceeded maximum duration | Increase timeout in job configuration or optimize the operation |
 
-When errors occur during pipeline operations, the command provides structured error output with specific remediation steps. All errors are logged to the [telemetry](/glossary/telemetry/) subsystem for trend analysis and proactive issue detection.
+When errors occur during pipeline operations, the command provides structured error output with specific remediation steps. All errors are logged to the [telemetry](@/glossary/telemetry.md) subsystem for trend analysis and proactive issue detection.
 
 ## Advanced Usage
 
@@ -234,7 +234,7 @@ When errors occur during pipeline operations, the command provides structured er
 
 ## Doctrine Compliance
 
-All pipeline operations enforce the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine.
+All pipeline operations enforce the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine.
 
 - **NO MERCY**: Pipelines that produce compilation warnings, test failures, or Credo violations are automatically blocked. No pipeline is permitted to deploy code that does not pass all quality gates. Every generated configuration includes mandatory quality stages.
 - **NO DOUBTS**: Pipeline status is always verified through the GitLab API before reporting results. Configuration is validated against the platform's YAML standards before being written to disk. All operations produce evidence-based results with full traceability.
@@ -243,15 +243,15 @@ The command enforces the platform's Mandatory Session Discipline Protocol by ens
 
 ## Related Commands
 
-- [/gitlab-api](/commands/gitlab-api/) - GitLab API operations for project and repository management
-- [/gitlab-auto-sync](/commands/gitlab-auto-sync/) - Automatic GitLab integration for all AIAD workflows
-- [/gitlab-enforce](/commands/gitlab-enforce/) - GitLab enforcement for compliance and workflow standards
-- [/gitlab-mr](/commands/gitlab-mr/) - GitLab merge request creation and management
-- [/gitlab-sync](/commands/gitlab-sync/) - GitLab issue synchronization and tracking operations
-- [/gitlab-supreme-sync](/commands/gitlab-supreme-sync/) - Comprehensive GitLab synchronization with commit forensics
-- [/guardrails](/commands/guardrails/) - CI/CD guardrails enforcement for deployment safety
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/gitlab-api](@/commands/gitlab-api.md) - GitLab API operations for project and repository management
+- [/gitlab-auto-sync](@/commands/gitlab-auto-sync.md) - Automatic GitLab integration for all AIAD workflows
+- [/gitlab-enforce](@/commands/gitlab-enforce.md) - GitLab enforcement for compliance and workflow standards
+- [/gitlab-mr](@/commands/gitlab-mr.md) - GitLab merge request creation and management
+- [/gitlab-sync](@/commands/gitlab-sync.md) - GitLab issue synchronization and tracking operations
+- [/gitlab-supreme-sync](@/commands/gitlab-supreme-sync.md) - Comprehensive GitLab synchronization with commit forensics
+- [/guardrails](@/commands/guardrails.md) - CI/CD guardrails enforcement for deployment safety
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -260,4 +260,4 @@ The command enforces the platform's Mandatory Session Discipline Protocol by ens
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

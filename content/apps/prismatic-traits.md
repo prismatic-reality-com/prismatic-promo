@@ -23,11 +23,11 @@ image_alt = "Prismatic Traits - Prismatic Platform"
 
 ## Overview
 
-Prismatic Traits implements a comprehensive behavioral trait system built on [Elixir](/glossary/elixir/) [behaviours](/glossary/behaviour/) and [protocols](/glossary/protocol/). Rather than storing static attributes about entities, Traits computes dynamic behavioral fingerprints from observed data across multiple intelligence dimensions. Each entity receives scores along axes such as security posture, compliance responsiveness, risk appetite, and operational maturity, producing a multi-dimensional vector that enables comparison, clustering, and anomaly detection at scale.
+Prismatic Traits implements a comprehensive behavioral trait system built on [Elixir](@/glossary/elixir.md) [behaviours](@/glossary/behaviour.md) and [protocols](@/glossary/protocol.md). Rather than storing static attributes about entities, Traits computes dynamic behavioral fingerprints from observed data across multiple intelligence dimensions. Each entity receives scores along axes such as security posture, compliance responsiveness, risk appetite, and operational maturity, producing a multi-dimensional vector that enables comparison, clustering, and anomaly detection at scale.
 
-The trait computation pipeline ingests evidence from across the platform -- [OSINT](/glossary/osint/) collections, security scans, compliance assessments, and historical observations -- and distills them into normalized trait scores with confidence weights. Traits evolve over time as new evidence arrives, with temporal decay ensuring that recent observations carry more weight than historical data. This evidence-based approach aligns with the platform's [NABLA epistemic framework](/glossary/nabla-infinity/), where every trait score maintains full provenance traceability.
+The trait computation pipeline ingests evidence from across the platform -- [OSINT](@/glossary/osint.md) collections, security scans, compliance assessments, and historical observations -- and distills them into normalized trait scores with confidence weights. Traits evolve over time as new evidence arrives, with temporal decay ensuring that recent observations carry more weight than historical data. This evidence-based approach aligns with the platform's [NABLA epistemic framework](@/glossary/nabla-infinity.md), where every trait score maintains full provenance traceability.
 
-The system serves as the foundation for entity intelligence throughout the Prismatic Platform. Downstream consumers such as [Prismatic Detection Engine](/apps/prismatic-detection-engine/) use trait vectors to establish behavioral baselines, while [Prismatic Perimeter Core](/apps/prismatic-perimeter-core/) leverages trait scores as inputs to [security rating](/glossary/security-rating/) algorithms.
+The system serves as the foundation for entity intelligence throughout the Prismatic Platform. Downstream consumers such as [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) use trait vectors to establish behavioral baselines, while [Prismatic Perimeter Core](@/apps/prismatic-perimeter-core.md) leverages trait scores as inputs to [security rating](@/glossary/security-rating.md) algorithms.
 
 ## Architecture
 
@@ -39,7 +39,7 @@ Evidence Sources --> Trait Computation Pipeline --> Trait Store (ETS/Ecto)
   Compliance Data    Temporal Decay             Clustering Engine
 ```
 
-The architecture follows [OTP](/glossary/otp/) principles with dedicated [GenServer](/glossary/genserver/) processes managing trait computation queues and an [ETS](/glossary/ets/)-backed cache for high-throughput trait lookups. The computation pipeline uses [GenStage](/glossary/genstage/) for [backpressure](/glossary/backpressure/)-aware processing of large evidence batches.
+The architecture follows [OTP](@/glossary/otp.md) principles with dedicated [GenServer](@/glossary/genserver.md) processes managing trait computation queues and an [ETS](@/glossary/ets.md)-backed cache for high-throughput trait lookups. The computation pipeline uses [GenStage](@/glossary/genstage.md) for [backpressure](@/glossary/backpressure.md)-aware processing of large evidence batches.
 
 ## Trait Computation Pipeline
 
@@ -61,7 +61,7 @@ The trait computation pipeline transforms raw evidence from diverse platform sou
 - Multi-dimensional entity profiling across 12+ trait axes
 - Evidence-based trait scoring with confidence weights
 - Temporal trait evolution tracking with configurable decay rates
-- Confidence-weighted trait assignment following [NABLA axioms](/capabilities/nabla-axioms/)
+- Confidence-weighted trait assignment following [NABLA axioms](@/capabilities/nabla-axioms.md)
 
 ### Trait Catalog
 
@@ -134,10 +134,10 @@ mix test apps/prismatic_traits/test --cover
 
 ## Integration Points
 
-- **[Prismatic Detection Engine](/apps/prismatic-detection-engine/)** -- Trait vectors establish behavioral baselines for anomaly detection
-- **[Prismatic Perimeter Core](/apps/prismatic-perimeter-core/)** -- Trait scores feed into security rating computation
-- **[Prismatic Signals](/apps/prismatic-signals/)** -- Trait changes emit signals for down[stream processing](/glossary/stream-processing/)
-- **[Prismatic Storage Core](/apps/prismatic-storage-core/)** -- Trait data persisted through the unified storage adapter protocol
+- **[Prismatic Detection Engine](@/apps/prismatic-detection-engine.md)** -- Trait vectors establish behavioral baselines for anomaly detection
+- **[Prismatic Perimeter Core](@/apps/prismatic-perimeter-core.md)** -- Trait scores feed into security rating computation
+- **[Prismatic Signals](@/apps/prismatic-signals.md)** -- Trait changes emit signals for down[stream processing](@/glossary/stream-processing.md)
+- **[Prismatic Storage Core](@/apps/prismatic-storage-core.md)** -- Trait data persisted through the unified storage adapter protocol
 
 ## NABLA Compliance
 
@@ -155,21 +155,21 @@ Every trait score maintains full provenance traceability through the evidence ch
 
 ## Related Components
 
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Primary evidence source for trait computation
-- [Prismatic Algorithms](/apps/prismatic-algorithms/) -- Mathematical foundations for similarity and clustering
-- [Prismatic Quality Intelligence](/apps/prismatic-quality-intelligence/) -- Applies similar trait-based profiling to code quality
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Primary evidence source for trait computation
+- [Prismatic Algorithms](@/apps/prismatic-algorithms.md) -- Mathematical foundations for similarity and clustering
+- [Prismatic Quality Intelligence](@/apps/prismatic-quality-intelligence.md) -- Applies similar trait-based profiling to code quality
 
 ## Related Agents
 
-- [Evolution Analyzer Specialist](/agents/evolution-analyzer-specialist/) -- Analyzes trait evolution patterns over time to identify behavioral drift and trend shifts
-- [Cross-Pollination Specialist](/agents/cross-pollination-specialist/) -- Transfers trait computation techniques across security, compliance, and operational intelligence domains
-- [Elixir Architect](/agents/elixir-architect/) -- Designs the OTP process topology for GenStage-based trait computation pipelines and ETS-backed caching
+- [Evolution Analyzer Specialist](@/agents/evolution-analyzer-specialist.md) -- Analyzes trait evolution patterns over time to identify behavioral drift and trend shifts
+- [Cross-Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Transfers trait computation techniques across security, compliance, and operational intelligence domains
+- [Elixir Architect](@/agents/elixir-architect.md) -- Designs the OTP process topology for GenStage-based trait computation pipelines and ETS-backed caching
 
 ## Related Capabilities
 
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Every trait score maintains full provenance traceability with confidence weights per epistemic axioms
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-dimensional evidence fusion from OSINT, scans, and compliance data into normalized trait vectors
-- [Quality Gates](/capabilities/quality-gates/) -- Trait computation validation ensuring scores are bounded, confidence-weighted, and temporally decayed
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Every trait score maintains full provenance traceability with confidence weights per epistemic axioms
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-dimensional evidence fusion from OSINT, scans, and compliance data into normalized trait vectors
+- [Quality Gates](@/capabilities/quality-gates.md) -- Trait computation validation ensuring scores are bounded, confidence-weighted, and temporally decayed
 
 ---
 
@@ -178,4 +178,4 @@ Every trait score maintains full provenance traceability through the evidence ch
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

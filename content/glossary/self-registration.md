@@ -209,11 +209,11 @@ The same pattern applies to Academy topics and DD sources, with different behavi
 
 ## Cross-References
 
-- [Process](/glossary/process/) - GenServer processes backing the ETS registries
-- [Semantic Link](/glossary/semantic-link/) - Knowledge graph connections created from registered metadata
-- [Semantic Linking](/glossary/semantic-linking/) - Interconnection engine using registered topic data
-- [Property Test](/glossary/property-test/) - Testing approach validating registration invariants
-- [Quality Floor](/glossary/quality-floor/) - Quality standards enforced on all registered modules
+- [Process](@/glossary/process.md) - GenServer processes backing the ETS registries
+- [Semantic Link](@/glossary/semantic-link.md) - Knowledge graph connections created from registered metadata
+- [Semantic Linking](@/glossary/semantic-linking.md) - Interconnection engine using registered topic data
+- [Property Test](@/glossary/property-test.md) - Testing approach validating registration invariants
+- [Quality Floor](@/glossary/quality-floor.md) - Quality standards enforced on all registered modules
 
 ---
 

@@ -35,15 +35,15 @@ image_alt = "Stream Processing - Prismatic Platform"
 
 Stream processing is a data processing paradigm in which records are processed continuously and incrementally as they arrive, rather than being accumulated into finite batches for periodic processing. A stream processing system ingests an unbounded sequence of events, applies transformations, aggregations, or analyses to each event (or small groups of events), and produces results with minimal latency. The fundamental distinction from batch processing is temporal: batch systems process data at rest, while stream systems process data in motion.
 
-Stream processing systems must address several challenges that do not arise in batch processing. Events may arrive out of order due to network delays or distributed clock skew, requiring windowing strategies and watermark mechanisms to determine when a time-based aggregation is complete. Processing must handle failures gracefully without losing or duplicating events, demanding exactly-once or at-least-once delivery guarantees. And throughput must be managed dynamically through [backpressure](/glossary/backpressure/) mechanisms that slow producers when consumers cannot keep pace, preventing memory exhaustion and cascading failures.
+Stream processing systems must address several challenges that do not arise in batch processing. Events may arrive out of order due to network delays or distributed clock skew, requiring windowing strategies and watermark mechanisms to determine when a time-based aggregation is complete. Processing must handle failures gracefully without losing or duplicating events, demanding exactly-once or at-least-once delivery guarantees. And throughput must be managed dynamically through [backpressure](@/glossary/backpressure.md) mechanisms that slow producers when consumers cannot keep pace, preventing memory exhaustion and cascading failures.
 
-The [BEAM](/glossary/beam/) virtual machine and the Elixir ecosystem provide a uniquely strong foundation for stream processing. The lightweight process model (millions of concurrent processes with microsecond scheduling), built-in distribution, and fault-tolerant supervision trees address many stream processing challenges at the runtime level. Libraries like [GenStage](/glossary/genstage/) and [Broadway](/glossary/broadway/) build on this foundation to provide demand-driven, backpressure-aware stream processing with production-grade reliability.
+The [BEAM](@/glossary/beam.md) virtual machine and the Elixir ecosystem provide a uniquely strong foundation for stream processing. The lightweight process model (millions of concurrent processes with microsecond scheduling), built-in distribution, and fault-tolerant supervision trees address many stream processing challenges at the runtime level. Libraries like [GenStage](@/glossary/genstage.md) and [Broadway](@/glossary/broadway.md) build on this foundation to provide demand-driven, backpressure-aware stream processing with production-grade reliability.
 
 ## Historical Context and Evolution
 
 Stream processing has evolved through several generations, each addressing limitations of its predecessors. The first generation, represented by systems like Apache Storm (2011), provided low-latency processing but with limited exactly-once guarantees and complex fault recovery. The second generation, exemplified by Apache Spark Streaming (2013), used micro-batching to achieve better fault tolerance at the cost of higher latency. The third generation, led by Apache Flink (2014) and Apache Kafka Streams (2016), achieved true event-at-a-time processing with strong consistency guarantees and sophisticated windowing.
 
-The Elixir ecosystem takes a different approach entirely. Rather than building monolithic stream processing frameworks, it provides composable building blocks that leverage the BEAM's native concurrency model. GenStage (2016) provides the foundational demand-driven data exchange protocol. Broadway (2019) adds production concerns like batching, graceful shutdown, and telemetry on top of GenStage. Flow (2016) provides parallel data processing for bounded datasets. These tools compose naturally with OTP supervision, [GenServer](/glossary/genserver/) state management, and Phoenix [PubSub](/glossary/pubsub/) for real-time UI updates. The result is an integrated streaming architecture that lives within the application rather than requiring a separate cluster.
+The Elixir ecosystem takes a different approach entirely. Rather than building monolithic stream processing frameworks, it provides composable building blocks that leverage the BEAM's native concurrency model. GenStage (2016) provides the foundational demand-driven data exchange protocol. Broadway (2019) adds production concerns like batching, graceful shutdown, and telemetry on top of GenStage. Flow (2016) provides parallel data processing for bounded datasets. These tools compose naturally with OTP supervision, [GenServer](@/glossary/genserver.md) state management, and Phoenix [PubSub](@/glossary/pubsub.md) for real-time UI updates. The result is an integrated streaming architecture that lives within the application rather than requiring a separate cluster.
 
 ## Batch vs Stream Processing
 
@@ -180,7 +180,7 @@ The Elixir ecosystem's approach to stream processing is built on two complementa
 
 ### GenStage
 
-[GenStage](/glossary/genstage/) is the foundational library implementing demand-driven data exchange between Elixir processes. It defines three process roles:
+[GenStage](@/glossary/genstage.md) is the foundational library implementing demand-driven data exchange between Elixir processes. It defines three process roles:
 
 ```elixir
 defmodule PrismaticOsint.Producer do
@@ -240,11 +240,11 @@ defmodule PrismaticOsint.StorageConsumer do
 end
 ```
 
-The demand-driven model means consumers request events from upstream producers, creating natural [backpressure](/glossary/backpressure/): if a consumer is slow, it requests fewer events, which propagates upstream to slow the producer. No events are buffered beyond what consumers have explicitly requested.
+The demand-driven model means consumers request events from upstream producers, creating natural [backpressure](@/glossary/backpressure.md): if a consumer is slow, it requests fewer events, which propagates upstream to slow the producer. No events are buffered beyond what consumers have explicitly requested.
 
 ### Broadway
 
-[Broadway](/glossary/broadway/) builds on GenStage to provide a higher-level abstraction for production stream processing pipelines:
+[Broadway](@/glossary/broadway.md) builds on GenStage to provide a higher-level abstraction for production stream processing pipelines:
 
 ```elixir
 defmodule PrismaticOsint.SecurityFeedPipeline do
@@ -300,7 +300,7 @@ defmodule PrismaticOsint.SecurityFeedPipeline do
 end
 ```
 
-Broadway adds automatic batching, graceful shutdown, [telemetry](/glossary/telemetry/) integration, and rate limiting on top of GenStage's demand-driven foundation.
+Broadway adds automatic batching, graceful shutdown, [telemetry](@/glossary/telemetry.md) integration, and rate limiting on top of GenStage's demand-driven foundation.
 
 ## OSINT Data Streams in Prismatic
 
@@ -314,11 +314,11 @@ The Prismatic Platform processes several categories of real-time data streams us
 | DNS changes | Passive DNS feeds | ~50K/day | Anomaly detection | Alert pipeline |
 | Quality telemetry | Platform instrumentation | Continuous | Aggregation, trending | ETS, dashboards |
 
-Each stream is implemented as a supervised Broadway pipeline with independent concurrency settings, failure handling, and [backpressure](/glossary/backpressure/) configuration. The OTP [supervision tree](/glossary/supervision-tree/) ensures that a failure in one stream pipeline does not affect others thanks to [process isolation](/glossary/process-isolation/).
+Each stream is implemented as a supervised Broadway pipeline with independent concurrency settings, failure handling, and [backpressure](@/glossary/backpressure.md) configuration. The OTP [supervision tree](@/glossary/supervision-tree.md) ensures that a failure in one stream pipeline does not affect others thanks to [process isolation](@/glossary/process-isolation.md).
 
 ## LiveView Real-Time Integration
 
-Stream processing results feed directly into Phoenix [LiveView](/glossary/liveview/) dashboards through [PubSub](/glossary/pubsub/) broadcasts. When a Broadway pipeline processes a security event, it publishes the result to a PubSub topic. LiveView processes subscribed to that topic receive the update and push it to the browser over WebSocket, achieving end-to-end latency from event ingestion to UI update measured in milliseconds.
+Stream processing results feed directly into Phoenix [LiveView](@/glossary/liveview.md) dashboards through [PubSub](@/glossary/pubsub.md) broadcasts. When a Broadway pipeline processes a security event, it publishes the result to a PubSub topic. LiveView processes subscribed to that topic receive the update and push it to the browser over WebSocket, achieving end-to-end latency from event ingestion to UI update measured in milliseconds.
 
 ```elixir
 defmodule PrismaticWeb.PerimeterDashboardLive do
@@ -391,7 +391,7 @@ end
 
 ## Monitoring and Observability
 
-Stream processing pipelines require comprehensive [observability](/glossary/observability/) to detect processing delays, backpressure buildup, and throughput degradation.
+Stream processing pipelines require comprehensive [observability](@/glossary/observability.md) to detect processing delays, backpressure buildup, and throughput degradation.
 
 | Metric | Description | Alert Threshold |
 |--------|-------------|-----------------|
@@ -403,7 +403,7 @@ Stream processing pipelines require comprehensive [observability](/glossary/obse
 | Consumer utilization | Percentage of time consumers are busy | > 90% sustained |
 | Dead letter rate | Messages routed to DLQ per minute | > 10/minute |
 
-Broadway integrates with [Telemetry](/glossary/telemetry/), emitting events at each pipeline stage that the platform's observability infrastructure collects, aggregates, and visualizes.
+Broadway integrates with [Telemetry](@/glossary/telemetry.md), emitting events at each pipeline stage that the platform's observability infrastructure collects, aggregates, and visualizes.
 
 ```elixir
 defmodule PrismaticTelemetry.PipelineMetrics do
@@ -455,28 +455,28 @@ Tuning Broadway pipelines involves balancing concurrency, batch size, and demand
 | **Apache Spark Streaming** | Scala/Java | Micro-batch sizing | RDD lineage replay | Standalone cluster |
 | **Akka Streams** | Scala | Reactive Streams | Actor supervision | Embedded in application |
 
-Broadway's key advantage is integration with the OTP ecosystem: pipelines are supervised processes that restart on failure, communicate via message passing, and compose naturally with [GenServers](/glossary/genserver/), [ETS](/glossary/ets-table/) caches, and Phoenix LiveView. This eliminates the operational complexity of maintaining a separate stream processing cluster.
+Broadway's key advantage is integration with the OTP ecosystem: pipelines are supervised processes that restart on failure, communicate via message passing, and compose naturally with [GenServers](@/glossary/genserver.md), [ETS](@/glossary/ets-table.md) caches, and Phoenix LiveView. This eliminates the operational complexity of maintaining a separate stream processing cluster.
 
 ## Related Terms
 
-- [Data Pipeline](/glossary/data-pipeline/) -- General pipeline pattern including both batch and stream processing
-- [Broadway](/glossary/broadway/) -- Elixir library for concurrent stream processing with batching and backpressure
-- [GenStage](/glossary/genstage/) -- Demand-driven data exchange powering stream pipelines
-- [Backpressure](/glossary/backpressure/) -- Flow control preventing stream processing overload
-- [ETL](/glossary/etl/) -- Extract-Transform-Load pattern, often implemented as streaming pipeline
-- [Event Sourcing](/glossary/event-sourcing/) -- Event-based state management complementing stream processing
-- [LiveView](/glossary/liveview/) -- Real-time UI consuming processed stream data
-- [PubSub](/glossary/pubsub/) -- Internal message distribution bridging pipelines and consumers
-- [Telemetry](/glossary/telemetry/) -- Observability infrastructure for pipeline health monitoring
-- [Observability](/glossary/observability/) -- Monitoring infrastructure for stream pipeline health
-- [GenServer](/glossary/genserver/) -- Process model underlying GenStage producers and consumers
-- [Process Isolation](/glossary/process-isolation/) -- BEAM property enabling independent pipeline stage failures
+- [Data Pipeline](@/glossary/data-pipeline.md) -- General pipeline pattern including both batch and stream processing
+- [Broadway](@/glossary/broadway.md) -- Elixir library for concurrent stream processing with batching and backpressure
+- [GenStage](@/glossary/genstage.md) -- Demand-driven data exchange powering stream pipelines
+- [Backpressure](@/glossary/backpressure.md) -- Flow control preventing stream processing overload
+- [ETL](@/glossary/etl.md) -- Extract-Transform-Load pattern, often implemented as streaming pipeline
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Event-based state management complementing stream processing
+- [LiveView](@/glossary/liveview.md) -- Real-time UI consuming processed stream data
+- [PubSub](@/glossary/pubsub.md) -- Internal message distribution bridging pipelines and consumers
+- [Telemetry](@/glossary/telemetry.md) -- Observability infrastructure for pipeline health monitoring
+- [Observability](@/glossary/observability.md) -- Monitoring infrastructure for stream pipeline health
+- [GenServer](@/glossary/genserver.md) -- Process model underlying GenStage producers and consumers
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM property enabling independent pipeline stage failures
 
 ## See Also
 
-- [Architecture](/architecture/) -- Streaming architecture patterns and pipeline topology
-- [Technologies](/technologies/) -- Stream processing stack and library ecosystem
-- [Apps](/apps/) -- Prismatic applications implementing stream processing pipelines
+- [Architecture](@/architecture/_index.md) -- Streaming architecture patterns and pipeline topology
+- [Technologies](@/technologies/_index.md) -- Stream processing stack and library ecosystem
+- [Apps](@/apps/_index.md) -- Prismatic applications implementing stream processing pipelines
 
 ---
 
@@ -485,4 +485,4 @@ Broadway's key advantage is integration with the OTP ecosystem: pipelines are su
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

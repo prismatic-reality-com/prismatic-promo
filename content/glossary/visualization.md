@@ -229,11 +229,11 @@ The promo site features 25 premium Chart.js interactive teasers across 626 appli
 
 ## Cross-References
 
-- [VegaLite](/glossary/vegalite/) - Declarative visualization grammar
-- [Livebook](/glossary/livebook/) - Interactive notebook platform
-- [Dashboard](/glossary/dashboard/) - Operational monitoring interface
-- [Trend](/glossary/trend/) - Pattern revealed through visualization
-- [Time Series](/glossary/time-series/) - Data commonly visualized
+- [VegaLite](@/glossary/vegalite.md) - Declarative visualization grammar
+- [Livebook](@/glossary/livebook.md) - Interactive notebook platform
+- [Dashboard](@/glossary/dashboard.md) - Operational monitoring interface
+- [Trend](@/glossary/trend.md) - Pattern revealed through visualization
+- [Time Series](@/glossary/time-series.md) - Data commonly visualized
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

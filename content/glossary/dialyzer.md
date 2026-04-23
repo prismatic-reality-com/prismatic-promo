@@ -397,20 +397,20 @@ end
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement pipeline including Dialyzer as a mandatory check
-- [Credo](/glossary/credo/) -- Complementary static analysis tool for style and pattern checking
-- [Behaviour](/glossary/behaviour/) -- Callback contracts whose compliance Dialyzer verifies
-- [Typespec](/glossary/typespec/) -- Type annotations that Dialyzer validates against actual code
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Related compilation standard mandating zero violations
-- [Clean Run](/glossary/clean-run/) -- Overall quality standard that Dialyzer contributes to
-- [Continuous Integration](/glossary/continuous-integration/) -- CI pipeline running Dialyzer in the analyze stage
-- [OTP](/glossary/otp/) -- Framework whose behaviours Dialyzer validates
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement pipeline including Dialyzer as a mandatory check
+- [Credo](@/glossary/credo.md) -- Complementary static analysis tool for style and pattern checking
+- [Behaviour](@/glossary/behaviour.md) -- Callback contracts whose compliance Dialyzer verifies
+- [Typespec](@/glossary/typespec.md) -- Type annotations that Dialyzer validates against actual code
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Related compilation standard mandating zero violations
+- [Clean Run](@/glossary/clean-run.md) -- Overall quality standard that Dialyzer contributes to
+- [Continuous Integration](@/glossary/continuous-integration.md) -- CI pipeline running Dialyzer in the analyze stage
+- [OTP](@/glossary/otp.md) -- Framework whose behaviours Dialyzer validates
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Umbrella applications analyzed by Dialyzer
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications analyzed by Dialyzer
 
 ---
 
@@ -419,4 +419,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "backup-restore-specialist - Prismatic Platform"
 
 ## Overview
 
-The Backup Restore Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent manages comprehensive backup strategies and [disaster recovery](/glossary/disaster-recovery/) procedures for all platform data stores, ensuring that the system can recover from data loss, corruption, or catastrophic failure with minimal downtime and zero data loss within defined recovery point objectives (RPO). The specialist designs, implements, tests, and maintains backup pipelines that protect [PostgreSQL](/glossary/postgresql/) databases, [ETS](/glossary/ets/) state snapshots, configuration files, and [AIAD](/glossary/aiad/) agent specifications.
+The Backup Restore Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent manages comprehensive backup strategies and [disaster recovery](@/glossary/disaster-recovery.md) procedures for all platform data stores, ensuring that the system can recover from data loss, corruption, or catastrophic failure with minimal downtime and zero data loss within defined recovery point objectives (RPO). The specialist designs, implements, tests, and maintains backup pipelines that protect [PostgreSQL](@/glossary/postgresql.md) databases, [ETS](@/glossary/ets.md) state snapshots, configuration files, and [AIAD](@/glossary/aiad.md) agent specifications.
 
-Backup and disaster recovery are insurance against the worst-case scenario. The Backup Restore Specialist ensures that this insurance is always valid by scheduling regular backup verification, executing periodic recovery drills, and maintaining documented runbooks for every recovery scenario. In an intelligence platform handling compliance records and security assessments, the ability to demonstrate verified backup integrity is itself a compliance requirement under [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) frameworks.
+Backup and disaster recovery are insurance against the worst-case scenario. The Backup Restore Specialist ensures that this insurance is always valid by scheduling regular backup verification, executing periodic recovery drills, and maintaining documented runbooks for every recovery scenario. In an intelligence platform handling compliance records and security assessments, the ability to demonstrate verified backup integrity is itself a compliance requirement under [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) frameworks.
 
 A backup that has never been tested is not a backup -- it is a hope, and hope is not a strategy. This principle drives the specialist's verification-first approach where every backup is tested through automated restore-and-validate cycles before being considered valid.
 
@@ -101,16 +101,16 @@ The specialist conducts scheduled recovery drills that exercise the full restore
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to mandate backup policies, schedule recovery drills, and halt operations if backup integrity is compromised.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to mandate backup policies, schedule recovery drills, and halt operations if backup integrity is compromised.
 
 ## Coordination
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [aiad-backup-manager](/agents/aiad-backup-manager/) | Coordinates AIAD specification backup operations specifically | Infrastructure |
-| [data-integrity-specialist](/agents/data-integrity-specialist/) | Validates data integrity during backup creation and restore verification | Infrastructure |
-| [database-core-specialist](/agents/database-core-specialist/) | Provides database-level expertise for PostgreSQL backup optimization | Infrastructure |
-| [autonomous-healing-commander](/agents/autonomous-healing-commander/) | Coordinates backup restoration during Level 4-5 healing scenarios | Supreme |
+| [aiad-backup-manager](@/agents/aiad-backup-manager.md) | Coordinates AIAD specification backup operations specifically | Infrastructure |
+| [data-integrity-specialist](@/agents/data-integrity-specialist.md) | Validates data integrity during backup creation and restore verification | Infrastructure |
+| [database-core-specialist](@/agents/database-core-specialist.md) | Provides database-level expertise for PostgreSQL backup optimization | Infrastructure |
+| [autonomous-healing-commander](@/agents/autonomous-healing-commander.md) | Coordinates backup restoration during Level 4-5 healing scenarios | Supreme |
 
 ## Performance Metrics
 
@@ -125,7 +125,7 @@ The specialist conducts scheduled recovery drills that exercise the full restore
 
 ## Enforcement
 
-The Backup Restore Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Backup schedules are non-negotiable and must execute without gaps. Every backup must be integrity-verified before being considered valid. Recovery drills are mandatory and their results are documented as compliance evidence. A backup that has never been tested is not a backup. Failed backup verifications trigger immediate investigation and remediation. Recovery drill failures are treated as production incidents requiring root cause analysis and corrective action. The [NABLA Infinity](/glossary/nabla-infinity/) [Provenance Mandatory](/glossary/provenance-mandatory/) axiom requires complete audit trails for all backup operations, ensuring full traceability from backup creation through verification through restoration.
+The Backup Restore Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Backup schedules are non-negotiable and must execute without gaps. Every backup must be integrity-verified before being considered valid. Recovery drills are mandatory and their results are documented as compliance evidence. A backup that has never been tested is not a backup. Failed backup verifications trigger immediate investigation and remediation. Recovery drill failures are treated as production incidents requiring root cause analysis and corrective action. The [NABLA Infinity](@/glossary/nabla-infinity.md) [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom requires complete audit trails for all backup operations, ensuring full traceability from backup creation through verification through restoration.
 
 ---
 
@@ -134,4 +134,4 @@ The Backup Restore Specialist operates under the [NO MERCY, NO DOUBTS](/glossary
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

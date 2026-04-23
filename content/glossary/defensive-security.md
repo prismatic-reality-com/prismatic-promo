@@ -38,7 +38,7 @@ image_alt = "Defensive Security - Prismatic Platform"
 
 Defensive security is the discipline within cybersecurity focused on protecting systems, networks, applications, and data from unauthorized access, exploitation, and disruption. Unlike offensive security, which seeks to identify vulnerabilities by simulating attacks, defensive security establishes the controls, monitoring capabilities, response procedures, and architectural safeguards that prevent, detect, contain, and recover from security incidents. Defensive security encompasses a broad spectrum of activities including network perimeter defense, endpoint protection, access control management, security information and event management (SIEM), intrusion detection and prevention systems (IDS/IPS), vulnerability management, patch orchestration, incident response planning, digital forensics, and security awareness training.
 
-In the context of the Prismatic Platform, defensive security is operationalized through the [Blue Team](/glossary/blue-team/) operations within the [Color Teams](/glossary/color-teams/) framework, the [Prismatic Perimeter](/glossary/prismatic-perimeter/) External Attack Surface Management system, and the platform's comprehensive [audit logging](/glossary/audit-logging/) and [telemetry](/glossary/telemetry/) infrastructure.
+In the context of the Prismatic Platform, defensive security is operationalized through the [Blue Team](@/glossary/blue-team.md) operations within the [Color Teams](@/glossary/color-teams.md) framework, the [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) External Attack Surface Management system, and the platform's comprehensive [audit logging](@/glossary/audit-logging.md) and [telemetry](@/glossary/telemetry.md) infrastructure.
 
 ## Overview
 
@@ -46,9 +46,9 @@ Defensive security operates on the principle that no system is impenetrable, and
 
 The NIST Cybersecurity Framework organizes defensive security into five core functions: Identify (asset management, risk assessment), Protect (access control, data security, training), Detect (continuous monitoring, anomaly detection), Respond (incident response planning, communications, mitigation), and Recover (recovery planning, improvements, communications). Each function maps to specific technical controls and organizational processes that together form a comprehensive defensive posture.
 
-Defensive security professionals -- often organized into Security Operations Centers (SOCs) or [Blue Teams](/glossary/blue-team/) -- maintain continuous vigilance over organizational assets. They analyze log data from hundreds of sources, correlate security events across network segments, investigate alerts for true positives, conduct forensic analysis of compromised systems, and continuously improve detection rules based on emerging threat intelligence.
+Defensive security professionals -- often organized into Security Operations Centers (SOCs) or [Blue Teams](@/glossary/blue-team.md) -- maintain continuous vigilance over organizational assets. They analyze log data from hundreds of sources, correlate security events across network segments, investigate alerts for true positives, conduct forensic analysis of compromised systems, and continuously improve detection rules based on emerging threat intelligence.
 
-The relationship between defensive and offensive security is symbiotic. [Red Team](/glossary/red-team/) operations expose weaknesses that Blue Team operations must address, while [Purple Team](/glossary/purple-team/) exercises ensure that offensive findings translate into concrete defensive improvements. This adversarial-cooperative dynamic is fundamental to mature security programs and is deeply embedded in the Prismatic Platform's [color team](/glossary/color-teams/) architecture.
+The relationship between defensive and offensive security is symbiotic. [Red Team](@/glossary/red-team.md) operations expose weaknesses that Blue Team operations must address, while [Purple Team](@/glossary/purple-team.md) exercises ensure that offensive findings translate into concrete defensive improvements. This adversarial-cooperative dynamic is fundamental to mature security programs and is deeply embedded in the Prismatic Platform's [color team](@/glossary/color-teams.md) architecture.
 
 ## Technical Details
 
@@ -62,7 +62,7 @@ Defensive security implements multiple layers of protection, each providing inde
 
 **Data Layer**: Encryption at rest and in transit, data loss prevention (DLP), access control lists, database activity monitoring, and data classification. Data-layer defenses ensure that even after system compromise, sensitive data remains protected.
 
-**Identity Layer**: Multi-factor authentication (MFA), role-based access control ([RBAC](/glossary/rbac/)), privileged access management (PAM), identity governance, and zero-trust verification. Identity-layer defenses enforce the principle of least privilege across all system interactions.
+**Identity Layer**: Multi-factor authentication (MFA), role-based access control ([RBAC](@/glossary/rbac.md)), privileged access management (PAM), identity governance, and zero-trust verification. Identity-layer defenses enforce the principle of least privilege across all system interactions.
 
 **Endpoint Layer**: Endpoint detection and response (EDR), host-based intrusion detection, application whitelisting, and device compliance verification.
 
@@ -241,33 +241,33 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform implements defensive security across multiple layers, deeply integrated with the platform's [color team](/glossary/color-teams/) architecture and epistemic security model.
+The Prismatic Platform implements defensive security across multiple layers, deeply integrated with the platform's [color team](@/glossary/color-teams.md) architecture and epistemic security model.
 
 ### Blue Team Operations
 
-The platform's [Blue Team](/glossary/blue-team/) consists of four specialized agents that provide continuous defensive operations:
+The platform's [Blue Team](@/glossary/blue-team.md) consists of four specialized agents that provide continuous defensive operations:
 
-- **blue-commander** (L3 Strategic): Synthesizes evidence from specialists into a unified [defensive posture](/glossary/defensive-posture/) assessment
-- **blue-auth-sentinel** (L2 Operational): Monitors authentication boundaries and detects [privilege escalation](/glossary/privilege-escalation/) attempts
+- **blue-commander** (L3 Strategic): Synthesizes evidence from specialists into a unified [defensive posture](@/glossary/defensive-posture.md) assessment
+- **blue-auth-sentinel** (L2 Operational): Monitors authentication boundaries and detects [privilege escalation](@/glossary/privilege-escalation.md) attempts
 - **blue-drift-detector** (L2 Operational): Detects behavioral, configuration, dependency, and performance drift
 - **blue-signal-aggregator** (L2 Operational): Cross-domain signal correlation with NABLA plurality enforcement
 
 ### Prismatic Perimeter EASM
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) application implements External [Attack Surface](/glossary/attack-surface/) Management, providing continuous defensive visibility into an organization's external-facing assets:
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) application implements External [Attack Surface](@/glossary/attack-surface.md) Management, providing continuous defensive visibility into an organization's external-facing assets:
 
 - **Asset Discovery**: Automated enumeration of domains, IP addresses, certificates, cloud resources, and services
 - **Security Ratings**: A-F grades with numeric scores (300-900) based on evidence-based risk assessment
-- **Compliance Mapping**: Automated assessment against NIS2 Directive (EU 2022/2555) and [ZKB](/glossary/zkb/) 264/2025 Sb. (Czech)
-- **Vulnerability Tracking**: Continuous monitoring for newly disclosed [CVEs](/glossary/cve/) affecting discovered assets
+- **Compliance Mapping**: Automated assessment against NIS2 Directive (EU 2022/2555) and [ZKB](@/glossary/zkb.md) 264/2025 Sb. (Czech)
+- **Vulnerability Tracking**: Continuous monitoring for newly disclosed [CVEs](@/glossary/cve.md) affecting discovered assets
 
 ### Audit and Telemetry Infrastructure
 
-The platform's [audit logging](/glossary/audit-logging/) system provides immutable, tamper-evident logging of all security-relevant events. Combined with the [telemetry](/glossary/telemetry/) system, this creates a comprehensive observability layer that supports both real-time defensive operations and forensic investigation.
+The platform's [audit logging](@/glossary/audit-logging.md) system provides immutable, tamper-evident logging of all security-relevant events. Combined with the [telemetry](@/glossary/telemetry.md) system, this creates a comprehensive observability layer that supports both real-time defensive operations and forensic investigation.
 
 ### Pre-Commit Security Gates
 
-The platform enforces an 11-phase [pre-commit hook](/glossary/pre-commit-hooks/) system that serves as a defensive gate against insecure code reaching production. This includes [static analysis](/glossary/static-analysis/), forbidden pattern detection, credential scanning, and [quality gate](/glossary/quality-gates/) enforcement.
+The platform enforces an 11-phase [pre-commit hook](@/glossary/pre-commit-hooks.md) system that serves as a defensive gate against insecure code reaching production. This includes [static analysis](@/glossary/static-analysis.md), forbidden pattern detection, credential scanning, and [quality gate](@/glossary/quality-gates.md) enforcement.
 
 ## Comparison with Alternatives
 
@@ -282,19 +282,19 @@ The platform enforces an 11-phase [pre-commit hook](/glossary/pre-commit-hooks/)
 
 ## Best Practices
 
-1. **Defense in Depth**: Never rely on a single security control. Layer multiple independent defenses so that failure of any single layer does not result in compromise. The Prismatic Platform enforces this through its multi-layer [quality gate](/glossary/quality-gates/) system and [Trinity Gate](/glossary/trinity-gate/) verification.
+1. **Defense in Depth**: Never rely on a single security control. Layer multiple independent defenses so that failure of any single layer does not result in compromise. The Prismatic Platform enforces this through its multi-layer [quality gate](@/glossary/quality-gates.md) system and [Trinity Gate](@/glossary/trinity-gate.md) verification.
 
 2. **Assume Breach**: Design defensive architectures that assume an attacker has already gained initial access. Focus on detection, containment, and minimizing blast radius rather than attempting to build impenetrable perimeters.
 
-3. **Continuous Monitoring**: Implement real-time monitoring of all security-relevant events. The Prismatic Platform's [telemetry](/glossary/telemetry/) infrastructure provides continuous visibility across all 115 umbrella applications.
+3. **Continuous Monitoring**: Implement real-time monitoring of all security-relevant events. The Prismatic Platform's [telemetry](@/glossary/telemetry.md) infrastructure provides continuous visibility across all 115 umbrella applications.
 
 4. **Automate Response**: Define and automate incident response playbooks for common attack scenarios. Manual-only response introduces unacceptable delays during active incidents.
 
-5. **Red-Blue Integration**: Ensure that defensive operations receive continuous input from offensive testing. The [Purple Team](/glossary/purple-team/) synthesis loop ensures that [Red Team](/glossary/red-team/) findings translate into Blue Team defensive improvements.
+5. **Red-Blue Integration**: Ensure that defensive operations receive continuous input from offensive testing. The [Purple Team](@/glossary/purple-team.md) synthesis loop ensures that [Red Team](@/glossary/red-team.md) findings translate into Blue Team defensive improvements.
 
 6. **Least Privilege Enforcement**: Apply the principle of least privilege across all access control decisions. Every identity should have only the minimum permissions required for its function.
 
-7. **Evidence-Based Posture Assessment**: Measure defensive effectiveness through objective metrics, not subjective assessments. The Prismatic Platform's [security rating](/glossary/security-rating/) system provides quantified defensive posture scores.
+7. **Evidence-Based Posture Assessment**: Measure defensive effectiveness through objective metrics, not subjective assessments. The Prismatic Platform's [security rating](@/glossary/security-rating.md) system provides quantified defensive posture scores.
 
 8. **Patch Management Discipline**: Maintain aggressive patching cadences for all components. Unpatched vulnerabilities are the most commonly exploited attack vector in real-world breaches.
 
@@ -310,7 +310,7 @@ The platform enforces an 11-phase [pre-commit hook](/glossary/pre-commit-hooks/)
 
 5. **Neglecting Insider Threats**: Focusing exclusively on external threat actors while ignoring the risk posed by malicious or compromised insiders. Insider threats bypass many traditional defensive controls.
 
-6. **Security as Afterthought**: Treating security as a bolt-on addition rather than an architectural concern. The Prismatic Platform addresses this by integrating security into every phase of the development lifecycle through its [pre-commit hooks](/glossary/pre-commit-hooks/) and [quality gates](/glossary/quality-gates/).
+6. **Security as Afterthought**: Treating security as a bolt-on addition rather than an architectural concern. The Prismatic Platform addresses this by integrating security into every phase of the development lifecycle through its [pre-commit hooks](@/glossary/pre-commit-hooks.md) and [quality gates](@/glossary/quality-gates.md).
 
 7. **Insufficient Incident Response Planning**: Failing to develop, test, and maintain incident response plans before they are needed. When a breach occurs, the absence of rehearsed procedures leads to chaotic, ineffective response.
 
@@ -320,47 +320,47 @@ The platform enforces an 11-phase [pre-commit hook](/glossary/pre-commit-hooks/)
 
 ### External Attack Surface Management
 
-Organizations use defensive security to continuously discover and monitor their external-facing assets -- domains, IP addresses, web applications, APIs, cloud resources, and certificates. The [Prismatic Perimeter](/glossary/prismatic-perimeter/) automates this process, providing real-time visibility into the attack surface and generating security ratings that quantify defensive posture.
+Organizations use defensive security to continuously discover and monitor their external-facing assets -- domains, IP addresses, web applications, APIs, cloud resources, and certificates. The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) automates this process, providing real-time visibility into the attack surface and generating security ratings that quantify defensive posture.
 
 ### Regulatory Compliance
 
-Defensive security controls map directly to regulatory requirements across frameworks including NIS2, SOC 2, ISO 27001, and the Czech [ZKB](/glossary/zkb/) cybersecurity decree. The Prismatic Platform's [compliance framework](/glossary/compliance-framework/) automates compliance assessment against these standards.
+Defensive security controls map directly to regulatory requirements across frameworks including NIS2, SOC 2, ISO 27001, and the Czech [ZKB](@/glossary/zkb.md) cybersecurity decree. The Prismatic Platform's [compliance framework](@/glossary/compliance-framework.md) automates compliance assessment against these standards.
 
 ### Security Operations Center
 
-Organizations operate SOCs that provide 24/7 monitoring, detection, and response capabilities. The Prismatic Platform's [Blue Team](/glossary/blue-team/) agents automate many SOC analyst tasks -- event correlation, alert triage, threat intelligence enrichment, and initial response -- while preserving human judgment for complex decisions.
+Organizations operate SOCs that provide 24/7 monitoring, detection, and response capabilities. The Prismatic Platform's [Blue Team](@/glossary/blue-team.md) agents automate many SOC analyst tasks -- event correlation, alert triage, threat intelligence enrichment, and initial response -- while preserving human judgment for complex decisions.
 
 ### Supply Chain Security
 
-Defensive security extends to monitoring and verifying the security posture of third-party dependencies, vendors, and partners. The platform's dependency analysis capabilities and [security assessment](/glossary/security-assessment/) tools support continuous supply chain risk management.
+Defensive security extends to monitoring and verifying the security posture of third-party dependencies, vendors, and partners. The platform's dependency analysis capabilities and [security assessment](@/glossary/security-assessment.md) tools support continuous supply chain risk management.
 
 ### Incident Response and Forensics
 
-When security incidents occur, defensive security teams execute structured response procedures -- containment, eradication, recovery, and lessons learned. The platform's immutable [audit trail](/glossary/audit-trail/) and comprehensive logging provide the forensic evidence needed for post-incident investigation.
+When security incidents occur, defensive security teams execute structured response procedures -- containment, eradication, recovery, and lessons learned. The platform's immutable [audit trail](@/glossary/audit-trail.md) and comprehensive logging provide the forensic evidence needed for post-incident investigation.
 
 ## Related Concepts
 
-- [Blue Team](/glossary/blue-team/) -- The defensive team within the color team framework responsible for epistemic defense, signal aggregation, and drift detection
-- [Red Team](/glossary/red-team/) -- The adversarial team that simulates attacks to test and improve defensive capabilities
-- [Purple Team](/glossary/purple-team/) -- The synthesis team that closes the loop between Red Team findings and Blue Team defenses
-- [Security Operations](/glossary/security-operations/) -- The organizational function responsible for day-to-day security monitoring and response
-- [Defensive Posture](/glossary/defensive-posture/) -- The overall state of an organization's defensive security readiness
-- [Attack Surface](/glossary/attack-surface/) -- The total set of points where an attacker could attempt to enter or extract data
-- [Security Assessment](/glossary/security-assessment/) -- Systematic evaluation of an organization's security controls and posture
-- [SIEM](/glossary/siem/) -- Security Information and Event Management platform for log aggregation and correlation
-- [Audit Logging](/glossary/audit-logging/) -- Immutable recording of security-relevant events for monitoring and forensics
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Structured information about current and emerging threats that informs defensive operations
-- [Zero Trust](/glossary/zero-trust/) -- Security model that eliminates implicit trust and requires continuous verification
-- [Security Rating](/glossary/security-rating/) -- Quantified assessment of an organization's security posture
+- [Blue Team](@/glossary/blue-team.md) -- The defensive team within the color team framework responsible for epistemic defense, signal aggregation, and drift detection
+- [Red Team](@/glossary/red-team.md) -- The adversarial team that simulates attacks to test and improve defensive capabilities
+- [Purple Team](@/glossary/purple-team.md) -- The synthesis team that closes the loop between Red Team findings and Blue Team defenses
+- [Security Operations](@/glossary/security-operations.md) -- The organizational function responsible for day-to-day security monitoring and response
+- [Defensive Posture](@/glossary/defensive-posture.md) -- The overall state of an organization's defensive security readiness
+- [Attack Surface](@/glossary/attack-surface.md) -- The total set of points where an attacker could attempt to enter or extract data
+- [Security Assessment](@/glossary/security-assessment.md) -- Systematic evaluation of an organization's security controls and posture
+- [SIEM](@/glossary/siem.md) -- Security Information and Event Management platform for log aggregation and correlation
+- [Audit Logging](@/glossary/audit-logging.md) -- Immutable recording of security-relevant events for monitoring and forensics
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Structured information about current and emerging threats that informs defensive operations
+- [Zero Trust](@/glossary/zero-trust.md) -- Security model that eliminates implicit trust and requires continuous verification
+- [Security Rating](@/glossary/security-rating.md) -- Quantified assessment of an organization's security posture
 
 ## See Also
 
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- External Attack Surface Management with security ratings
-- [Color Teams](/glossary/color-teams/) -- The multi-team security operations framework
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory compliance assessment and enforcement
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Automated security gates in the development workflow
-- [Quality Gates](/glossary/quality-gates/) -- Multi-phase quality and security enforcement
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification ensuring structural, logical, and formal consistency
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- External Attack Surface Management with security ratings
+- [Color Teams](@/glossary/color-teams.md) -- The multi-team security operations framework
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory compliance assessment and enforcement
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Automated security gates in the development workflow
+- [Quality Gates](@/glossary/quality-gates.md) -- Multi-phase quality and security enforcement
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification ensuring structural, logical, and formal consistency
 
 ---
 
@@ -369,4 +369,4 @@ When security incidents occur, defensive security teams execute structured respo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

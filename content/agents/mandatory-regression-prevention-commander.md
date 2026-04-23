@@ -28,9 +28,9 @@ image_alt = "Mandatory Regression Prevention Commander - Prismatic Platform"
 
 ## Overview
 
-The Mandatory Regression Prevention Commander operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's cosmic-clearance domain, serving as the supreme enforcement agent for the platform's absolute regression prevention protocol. This agent ensures that every bug fix, code change, and system modification is accompanied by regression tests that would have detected the original defect, verified through a rigorous validation cycle that proves both the test's sensitivity (fails on broken code) and specificity (passes on fixed code). No code change that addresses a defect may enter the platform's codebase without passing through this agent's enforcement gates.
+The Mandatory Regression Prevention Commander operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's cosmic-clearance domain, serving as the supreme enforcement agent for the platform's absolute regression prevention protocol. This agent ensures that every bug fix, code change, and system modification is accompanied by regression tests that would have detected the original defect, verified through a rigorous validation cycle that proves both the test's sensitivity (fails on broken code) and specificity (passes on fixed code). No code change that addresses a defect may enter the platform's codebase without passing through this agent's enforcement gates.
 
-Built on the [AIAD](/glossary/aiad/) standard and operating at cosmic-clearance authority within the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine, this commander represents the platform's highest enforcement priority for quality assurance. The regression prevention protocol is classified as P0 -- ABSOLUTE, meaning it cannot be bypassed, overridden, or deferred under any circumstances. Every violation triggers immediate enforcement action, and the agent maintains an immutable audit trail of every regression test validation cycle through the platform's [telemetry](/glossary/telemetry/) infrastructure.
+Built on the [AIAD](@/glossary/aiad.md) standard and operating at cosmic-clearance authority within the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine, this commander represents the platform's highest enforcement priority for quality assurance. The regression prevention protocol is classified as P0 -- ABSOLUTE, meaning it cannot be bypassed, overridden, or deferred under any circumstances. Every violation triggers immediate enforcement action, and the agent maintains an immutable audit trail of every regression test validation cycle through the platform's [telemetry](@/glossary/telemetry.md) infrastructure.
 
 The philosophical foundation of mandatory regression prevention rests on a simple observation: a bug that has occurred once reveals a gap in the platform's test coverage that, if left unaddressed, will inevitably produce recurrence. By mandating regression tests for every fix, the platform transforms each defect into a permanent improvement in its defensive test infrastructure, ensuring that the same class of failure can never recur undetected.
 
@@ -54,7 +54,7 @@ Bug Report                  Enforcement Cycle                     Outcome
                                                              +-------------+
 ```
 
-The enforcement cycle is atomic -- it cannot be partially completed. If any phase fails, the entire cycle resets. The commander maintains state for each active enforcement cycle through a [GenServer](/glossary/genserver/) process, with cycle state persisted to prevent loss across process restarts.
+The enforcement cycle is atomic -- it cannot be partially completed. If any phase fails, the entire cycle resets. The commander maintains state for each active enforcement cycle through a [GenServer](@/glossary/genserver.md) process, with cycle state persisted to prevent loss across process restarts.
 
 ## Core Capabilities
 
@@ -74,7 +74,7 @@ The Mandatory Regression Prevention Commander provides comprehensive regression 
 
 ## Implementation
 
-The enforcement commander is implemented as a [GenServer](/glossary/genserver/) process within the platform's [OTP](/glossary/otp/) supervision hierarchy.
+The enforcement commander is implemented as a [GenServer](@/glossary/genserver.md) process within the platform's [OTP](@/glossary/otp.md) supervision hierarchy.
 
 ```elixir
 defmodule Prismatic.Quality.RegressionPreventionCommander do
@@ -131,11 +131,11 @@ end
 |-------------------|-------------|-----------|
 | Pre-commit Hooks | Blocking gate for commits addressing bug reports | Enforcement |
 | CI/CD Pipeline | Secondary enforcement gate in continuous integration | Enforcement |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality gate coordination for test coverage | Bidirectional |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
-| Prismatic Telemetry | Enforcement cycle [metrics](/glossary/metrics/) and audit events | Outbound |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery | Infrastructure |
-| [SEADF](/glossary/seadf/) | Quality guardian integration and self-healing triggers | Bidirectional |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality gate coordination for test coverage | Bidirectional |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
+| Prismatic Telemetry | Enforcement cycle [metrics](@/glossary/metrics.md) and audit events | Outbound |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Infrastructure |
+| [SEADF](@/glossary/seadf.md) | Quality guardian integration and self-healing triggers | Bidirectional |
 | Quality DNA | Regression test patterns feed quality DNA evolution | Outbound |
 
 ## Operational Workflow
@@ -197,14 +197,14 @@ config :prismatic_quality, Prismatic.Quality.RegressionPreventionCommander,
 
 ## Related Resources
 
-- [code-quality-commander](/agents/code-quality-commander/) -- Quality gate coordination
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NO MERCY, NO DOUBTS Doctrine](/glossary/no-mercy/) -- Enforcement doctrine (zero tolerance)
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for evidence-based enforcement
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation for quality decisions
-- [SEADF](/glossary/seadf/) -- Quality guardian integration
-- [BEAM](/glossary/beam/) -- Runtime environment for enforcement processes
-- [OTP](/glossary/otp/) -- Supervision hierarchy for fault-tolerant enforcement
+- [code-quality-commander](@/agents/code-quality-commander.md) -- Quality gate coordination
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NO MERCY, NO DOUBTS Doctrine](@/glossary/no-mercy.md) -- Enforcement doctrine (zero tolerance)
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for evidence-based enforcement
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation for quality decisions
+- [SEADF](@/glossary/seadf.md) -- Quality guardian integration
+- [BEAM](@/glossary/beam.md) -- Runtime environment for enforcement processes
+- [OTP](@/glossary/otp.md) -- Supervision hierarchy for fault-tolerant enforcement
 
 ---
 
@@ -213,4 +213,4 @@ config :prismatic_quality, Prismatic.Quality.RegressionPreventionCommander,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -31,7 +31,7 @@ The platform was created by Johannes Gilger and has become one of the most widel
 
 URLScan's community-driven approach creates a growing database of scanned URLs that serves as a collective intelligence resource. Public scans are searchable by other users, enabling threat hunters to discover patterns across phishing campaigns, track malware distribution infrastructure, and identify brand impersonation at scale. The platform's search API supports complex queries that combine domain, IP, server, title, and content attributes.
 
-Within the Prismatic Platform, URLScan serves as a key component in the threat analysis pipeline, particularly for phishing detection and web threat assessment within the [HAWKEYE](/apps/prismatic-hawkeye/) visitor intelligence system and the [Prismatic Perimeter](/apps/prismatic-perimeter/) [EASM](/glossary/easm/) module.
+Within the Prismatic Platform, URLScan serves as a key component in the threat analysis pipeline, particularly for phishing detection and web threat assessment within the [HAWKEYE](@/apps/prismatic-hawkeye.md) visitor intelligence system and the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [EASM](@/glossary/easm.md) module.
 
 ## Data Coverage
 
@@ -40,7 +40,7 @@ Within the Prismatic Platform, URLScan serves as a key component in the threat a
 | **Screenshots** | Full-page visual capture of the rendered page |
 | **DOM** | Complete Document Object Model after JavaScript execution |
 | **HTTP Transactions** | All requests/responses including headers and cookies |
-| **Certificates** | [TLS](/glossary/tls/) certificate chain analysis |
+| **Certificates** | [TLS](@/glossary/tls.md) certificate chain analysis |
 | **Technologies** | CMS, frameworks, analytics, CDNs detected |
 | **Links** | All extracted URLs, forms, and redirects |
 | **IPs & ASNs** | Server infrastructure intelligence |
@@ -134,7 +134,7 @@ URLScan integrates with the Prismatic platform for automated URL analysis, phish
 
 ### Phishing Detection Pipeline
 
-The phishing detection pipeline combines URLScan visual analysis with cross-source intelligence from [VirusTotal](/osint/virustotal/) and [PhishTank](/osint/phishtank/) for comprehensive threat assessment.
+The phishing detection pipeline combines URLScan visual analysis with cross-source intelligence from [VirusTotal](@/osint/virustotal.md) and [PhishTank](@/osint/phishtank.md) for comprehensive threat assessment.
 
 ```elixir
 defmodule PrismaticPerimeter.Detection.PhishingAnalyzer do
@@ -309,8 +309,8 @@ API key required for scan submission and advanced search. Browsing public result
 ### Security Operations
 - Automate URL triage in email security pipelines with API-based scanning
 - Enrich security alerts with visual context (screenshots) and technical evidence
-- Cross-reference with [VirusTotal](/osint/virustotal/) for comprehensive multi-engine verdicts
-- Feed scan verdicts into [SIEM](/glossary/siem/) systems for correlated alerting
+- Cross-reference with [VirusTotal](@/osint/virustotal.md) for comprehensive multi-engine verdicts
+- Feed scan verdicts into [SIEM](@/glossary/siem.md) systems for correlated alerting
 - Build blocklists from confirmed malicious scan results
 
 ### Incident Response
@@ -322,26 +322,26 @@ API key required for scan submission and advanced search. Browsing public result
 
 ### Compliance and Risk Assessment
 - Verify that organizational domains are not being impersonated in phishing campaigns
-- Document web-based threats for [NIS2](/glossary/nis2/) incident reporting requirements
+- Document web-based threats for [NIS2](@/glossary/nis2.md) incident reporting requirements
 - Assess the threat landscape for supply chain domains
-- Feed URL analysis data into [Prismatic Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/)s
+- Feed URL analysis data into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md)s
 
 ## Related Sources
 
-- [VirusTotal](/osint/virustotal/) - Multi-engine file and URL scanning
-- [AbuseIPDB](/osint/abuseipdb/) - IP reputation for servers hosting malicious content
-- [Shodan](/osint/shodan/) - Infrastructure analysis of suspicious hosts
-- [crt.sh](/osint/crtsh/) - [Certificate transparency](/glossary/certificate-transparency/) for newly registered domains
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach data linked to phishing campaigns
-- [URLhaus](/osint/urlhaus/) - Malware distribution URL database
-- [PhishTank](/osint/phishtank/) - Community phishing URL verification
-- [IPQualityScore](/osint/ipqualityscore/) - URL phishing and malware detection
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine file and URL scanning
+- [AbuseIPDB](@/osint/abuseipdb.md) - IP reputation for servers hosting malicious content
+- [Shodan](@/osint/shodan.md) - Infrastructure analysis of suspicious hosts
+- [crt.sh](@/osint/crtsh.md) - [Certificate transparency](@/glossary/certificate-transparency.md) for newly registered domains
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach data linked to phishing campaigns
+- [URLhaus](@/osint/urlhaus.md) - Malware distribution URL database
+- [PhishTank](@/osint/phishtank.md) - Community phishing URL verification
+- [IPQualityScore](@/osint/ipqualityscore.md) - URL phishing and malware detection
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - URL analysis in [EASM](/glossary/easm/) threat assessment
-- [HAWKEYE](/apps/prismatic-hawkeye/) - Phishing detection in visitor intelligence
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - URL analysis in [EASM](@/glossary/easm.md) threat assessment
+- [HAWKEYE](@/apps/prismatic-hawkeye.md) - Phishing detection in visitor intelligence
 
 ---
 
@@ -350,4 +350,4 @@ API key required for scan submission and advanced search. Browsing public result
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

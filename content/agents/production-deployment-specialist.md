@@ -28,23 +28,23 @@ image_alt = "production-deployment-specialist - Prismatic Platform"
 
 ## Overview
 
-The production-deployment-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's deployment domain, orchestrating the complete lifecycle of production releases from build artifact preparation through canary validation and full traffic cutover. This agent manages the intricate coordination required to deploy changes across a distributed [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/) umbrella application comprising over 90 applications, ensuring that every release maintains the platform's 100/100 quality score and zero-downtime operational requirements. Its deployment authority extends from staging environment verification through production rollout, with autonomous rollback capability when health metrics deviate from established baselines.
+The production-deployment-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's deployment domain, orchestrating the complete lifecycle of production releases from build artifact preparation through canary validation and full traffic cutover. This agent manages the intricate coordination required to deploy changes across a distributed [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md) umbrella application comprising over 90 applications, ensuring that every release maintains the platform's 100/100 quality score and zero-downtime operational requirements. Its deployment authority extends from staging environment verification through production rollout, with autonomous rollback capability when health metrics deviate from established baselines.
 
-The agent's foundational guarantee rests on five core [Lean4](/glossary/lean4/) theorems that formally verify the safety properties of every deployment operation. These theorems establish mathematical proofs for state preservation during hot code upgrades, data migration consistency, supervision tree stability across version boundaries, configuration compatibility verification, and rollback completeness. By grounding deployment safety in formal verification rather than empirical testing alone, the production-deployment-specialist achieves a level of deployment confidence that exceeds traditional CI/CD pipeline approaches. Every deployment decision is traceable to specific theorem satisfaction, aligning with the [NABLA Infinity](/glossary/nabla-infinity/) provenance axiom.
+The agent's foundational guarantee rests on five core [Lean4](@/glossary/lean4.md) theorems that formally verify the safety properties of every deployment operation. These theorems establish mathematical proofs for state preservation during hot code upgrades, data migration consistency, supervision tree stability across version boundaries, configuration compatibility verification, and rollback completeness. By grounding deployment safety in formal verification rather than empirical testing alone, the production-deployment-specialist achieves a level of deployment confidence that exceeds traditional CI/CD pipeline approaches. Every deployment decision is traceable to specific theorem satisfaction, aligning with the [NABLA Infinity](@/glossary/nabla-infinity.md) provenance axiom.
 
 ## Formal Safety Theorems
 
 The five core Lean4 theorems provide mathematical guarantees for production deployment safety. Each theorem addresses a specific class of deployment failure that, historically, has caused production incidents in distributed systems.
 
-**Theorem 1: State Preservation** -- Formally proves that all [GenServer](/glossary/genserver/) state is preserved across hot code upgrades. The proof establishes that for any running process with state S under module version V1, the upgrade to V2 produces a state S' that is semantically equivalent through the defined code_change callback. This theorem prevents the most common class of deployment failures: state corruption during live upgrades on the [BEAM](/glossary/beam/) virtual machine.
+**Theorem 1: State Preservation** -- Formally proves that all [GenServer](@/glossary/genserver.md) state is preserved across hot code upgrades. The proof establishes that for any running process with state S under module version V1, the upgrade to V2 produces a state S' that is semantically equivalent through the defined code_change callback. This theorem prevents the most common class of deployment failures: state corruption during live upgrades on the [BEAM](@/glossary/beam.md) virtual machine.
 
-**Theorem 2: Migration Consistency** -- Guarantees that database migrations are idempotent and reversible. For any migration M applied to schema S, the proof establishes that applying M twice yields the same result as applying it once, and that the reverse migration M' restores S exactly. This protects [PostgreSQL](/glossary/postgresql/) schema integrity during deployment and rollback sequences.
+**Theorem 2: Migration Consistency** -- Guarantees that database migrations are idempotent and reversible. For any migration M applied to schema S, the proof establishes that applying M twice yields the same result as applying it once, and that the reverse migration M' restores S exactly. This protects [PostgreSQL](@/glossary/postgresql.md) schema integrity during deployment and rollback sequences.
 
-**Theorem 3: Supervision Stability** -- Proves that [supervision tree](/glossary/supervision-tree/) topology remains valid across version transitions. The theorem establishes that child specifications, restart strategies, and shutdown sequences maintain their safety properties when modules are upgraded. This prevents cascading supervisor failures during deployment.
+**Theorem 3: Supervision Stability** -- Proves that [supervision tree](@/glossary/supervision-tree.md) topology remains valid across version transitions. The theorem establishes that child specifications, restart strategies, and shutdown sequences maintain their safety properties when modules are upgraded. This prevents cascading supervisor failures during deployment.
 
 **Theorem 4: Configuration Compatibility** -- Verifies that runtime configuration changes between versions are backward-compatible. The proof establishes that any configuration accepted by version V2 produces valid behavior when fallback to V1 occurs. This eliminates configuration-driven rollback failures.
 
-**Theorem 5: Rollback Completeness** -- Formally proves that any deployment can be fully reversed to restore the previous operational state. The proof covers code, configuration, database schema, and [ETS](/glossary/ets/) table state, establishing that rollback is always a total function with no partial failure modes.
+**Theorem 5: Rollback Completeness** -- Formally proves that any deployment can be fully reversed to restore the previous operational state. The proof covers code, configuration, database schema, and [ETS](@/glossary/ets.md) table state, establishing that rollback is always a total function with no partial failure modes.
 
 ## Deployment Pipeline Architecture
 
@@ -60,9 +60,9 @@ The **Staging Deployment** stage deploys the verified artifact to the staging en
 
 ## Hot Code Upgrade Management
 
-Operating on the [BEAM](/glossary/beam/) virtual machine, the production-deployment-specialist leverages Erlang's native hot code upgrade capabilities for zero-downtime deployments. The agent generates and validates `appup` and `relup` files that define the precise sequence of module upgrades, state transformations, and supervision tree modifications required for live code replacement.
+Operating on the [BEAM](@/glossary/beam.md) virtual machine, the production-deployment-specialist leverages Erlang's native hot code upgrade capabilities for zero-downtime deployments. The agent generates and validates `appup` and `relup` files that define the precise sequence of module upgrades, state transformations, and supervision tree modifications required for live code replacement.
 
-For each module being upgraded, the agent verifies that a valid `code_change/3` callback exists and that it satisfies Theorem 1 (State Preservation). [Dynamic supervisors](/glossary/dynamic-supervisor/) receive special handling -- the agent ensures that dynamically spawned children are compatible with both the old and new module versions during the transition window when both versions coexist in memory. [Circuit breaker](/glossary/circuit-breaker/) patterns protect against transient failures during the upgrade window.
+For each module being upgraded, the agent verifies that a valid `code_change/3` callback exists and that it satisfies Theorem 1 (State Preservation). [Dynamic supervisors](@/glossary/dynamic-supervisor.md) receive special handling -- the agent ensures that dynamically spawned children are compatible with both the old and new module versions during the transition window when both versions coexist in memory. [Circuit breaker](@/glossary/circuit-breaker.md) patterns protect against transient failures during the upgrade window.
 
 ## Rollback Automation
 
@@ -74,9 +74,9 @@ The system distinguishes between fast rollback (code-only changes that can be re
 
 ## Health Monitoring Integration
 
-The production-deployment-specialist maintains continuous integration with the platform's [telemetry](/glossary/telemetry/) infrastructure throughout all deployment phases. Key health indicators monitored during deployment include application error rates, response latency distributions, memory consumption patterns, message queue depths across GenServer processes, database connection pool utilization, and supervision tree restart frequencies.
+The production-deployment-specialist maintains continuous integration with the platform's [telemetry](@/glossary/telemetry.md) infrastructure throughout all deployment phases. Key health indicators monitored during deployment include application error rates, response latency distributions, memory consumption patterns, message queue depths across GenServer processes, database connection pool utilization, and supervision tree restart frequencies.
 
-Health baselines are established from the pre-deployment steady state and updated continuously during canary observation. The agent applies statistical significance testing to metric deviations, distinguishing genuine regressions from normal variance. This evidence-based approach aligns with the [NO DOUBTS](/glossary/no-doubts/) principle -- deployment decisions are driven by measured data rather than assumptions about deployment success.
+Health baselines are established from the pre-deployment steady state and updated continuously during canary observation. The agent applies statistical significance testing to metric deviations, distinguishing genuine regressions from normal variance. This evidence-based approach aligns with the [NO DOUBTS](@/glossary/no-doubts.md) principle -- deployment decisions are driven by measured data rather than assumptions about deployment success.
 
 ## Command Interface
 
@@ -92,24 +92,24 @@ Health baselines are established from the pre-deployment steady state and update
 
 | Agent | Relationship |
 |-------|-------------|
-| [quality-gates-specialist](/agents/quality-gates-specialist/) | Pre-deployment quality verification and gate enforcement |
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Post-deployment performance regression detection |
-| [blue-drift-detector](/agents/blue-drift-detector/) | Configuration and behavioral drift monitoring during rollout |
-| [pvm-executor](/agents/pvm-executor/) | Runtime execution environment preparation for deployment targets |
+| [quality-gates-specialist](@/agents/quality-gates-specialist.md) | Pre-deployment quality verification and gate enforcement |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Post-deployment performance regression detection |
+| [blue-drift-detector](@/agents/blue-drift-detector.md) | Configuration and behavioral drift monitoring during rollout |
+| [pvm-executor](@/agents/pvm-executor.md) | Runtime execution environment preparation for deployment targets |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Deployment health [metrics](/glossary/metrics/) and canary monitoring |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent specification, version tracking, and deployment coordination |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Deployment health [metrics](@/glossary/metrics.md) and canary monitoring |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent specification, version tracking, and deployment coordination |
 | Fly.io Infrastructure | Target deployment platform with rolling update orchestration |
 | GitLab CI/CD | Build artifact production and pipeline gate integration |
 
 ## Enforcement
 
-All deployment operations are governed by the [NO MERCY](/glossary/no-mercy/) doctrine with zero tolerance for incomplete or unverified deployments. Every release must satisfy all five Lean4 safety theorems, pass the complete quality gate battery, and demonstrate acceptable health metrics during canary observation before receiving authorization for full rollout. The [Trinity Gate](/glossary/trinity-gate/) validates deployment safety claims through structural consistency (deployment graph validity), logical consistency (theorem satisfaction), and formal necessity (Lean4 proof verification). Rollback capability is verified before every forward deployment -- no deployment proceeds without a proven path to safe reversal.
+All deployment operations are governed by the [NO MERCY](@/glossary/no-mercy.md) doctrine with zero tolerance for incomplete or unverified deployments. Every release must satisfy all five Lean4 safety theorems, pass the complete quality gate battery, and demonstrate acceptable health metrics during canary observation before receiving authorization for full rollout. The [Trinity Gate](@/glossary/trinity-gate.md) validates deployment safety claims through structural consistency (deployment graph validity), logical consistency (theorem satisfaction), and formal necessity (Lean4 proof verification). Rollback capability is verified before every forward deployment -- no deployment proceeds without a proven path to safe reversal.
 
 ---
 
@@ -118,4 +118,4 @@ All deployment operations are governed by the [NO MERCY](/glossary/no-mercy/) do
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

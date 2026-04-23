@@ -28,9 +28,9 @@ image_alt = "/perimeter-assets - Prismatic Platform"
 
 Asset discovery operates through multiple complementary techniques: DNS enumeration (forward and reverse), certificate transparency log analysis, WHOIS correlation, web crawling with link extraction, cloud resource fingerprinting, and port scanning. These discovery methods are orchestrated in parallel to build a comprehensive inventory that represents the organization's true external attack surface -- including assets that the organization may not be aware of (shadow IT, forgotten subdomains, expired certificates still resolving).
 
-This command operates under the **L2+** authority level and is executed by the `perimeter-scanner` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The perimeter scanner agent specializes in network reconnaissance and asset classification, leveraging the platform's OSINT capabilities for comprehensive external surface mapping.
+This command operates under the **L2+** authority level and is executed by the `perimeter-scanner` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The perimeter scanner agent specializes in network reconnaissance and asset classification, leveraging the platform's OSINT capabilities for comprehensive external surface mapping.
 
-The asset inventory produced by this command feeds into the security rating engine ([/perimeter](/commands/perimeter/)), compliance assessment framework ([/perimeter-compliance](/commands/perimeter-compliance/)), and the advanced EASM dashboard ([/perimeter-easm](/commands/perimeter-easm/)). Each discovered asset is assigned a risk score based on its configuration, exposure level, and known vulnerability status. The inventory represents the ground truth of an organization's external exposure -- the foundation upon which all subsequent security assessment and compliance checking is built.
+The asset inventory produced by this command feeds into the security rating engine ([/perimeter](@/commands/perimeter.md)), compliance assessment framework ([/perimeter-compliance](@/commands/perimeter-compliance.md)), and the advanced EASM dashboard ([/perimeter-easm](@/commands/perimeter-easm.md)). Each discovered asset is assigned a risk score based on its configuration, exposure level, and known vulnerability status. The inventory represents the ground truth of an organization's external exposure -- the foundation upon which all subsequent security assessment and compliance checking is built.
 
 ## Syntax and Usage
 
@@ -192,12 +192,12 @@ The risk assessment module evaluates each asset against a comprehensive set of r
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `perimeter-scanner` | Network reconnaissance expertise |
-| [/perimeter](/commands/perimeter/) | Parent command | Security rating dashboard |
-| [/perimeter-compliance](/commands/perimeter-compliance/) | Compliance assessment | Asset data feeds compliance checks |
-| [/perimeter-easm](/commands/perimeter-easm/) | Advanced dashboard | Full EASM visualization |
-| [/investigate](/commands/investigate/) | OSINT enrichment | Deep investigation of discovered assets |
-| [Telemetry](/glossary/telemetry/) | Discovery metrics | Scan timing, asset counts, coverage |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `perimeter-scanner` | Network reconnaissance expertise |
+| [/perimeter](@/commands/perimeter.md) | Parent command | Security rating dashboard |
+| [/perimeter-compliance](@/commands/perimeter-compliance.md) | Compliance assessment | Asset data feeds compliance checks |
+| [/perimeter-easm](@/commands/perimeter-easm.md) | Advanced dashboard | Full EASM visualization |
+| [/investigate](@/commands/investigate.md) | OSINT enrichment | Deep investigation of discovered assets |
+| [Telemetry](@/glossary/telemetry.md) | Discovery metrics | Scan timing, asset counts, coverage |
 | PostgreSQL | Persistent storage | Asset inventory database |
 | ETS | Runtime cache | Fast asset lookup and correlation |
 
@@ -211,15 +211,15 @@ The `/perimeter-assets` command is the entry point for the Prismatic Perimeter E
 
 3. **Risk Assessment**: Assess risk scores for all discovered assets to prioritize remediation efforts. High-risk assets (expired certificates, misconfigured services, exposed cloud resources) are flagged for immediate attention.
 
-4. **Compliance Checking**: Feed the asset inventory into [/perimeter-compliance](/commands/perimeter-compliance/) for NIS2 and ZKB compliance assessment. The compliance framework evaluates each asset against regulatory requirements.
+4. **Compliance Checking**: Feed the asset inventory into [/perimeter-compliance](@/commands/perimeter-compliance.md) for NIS2 and ZKB compliance assessment. The compliance framework evaluates each asset against regulatory requirements.
 
 5. **Continuous Monitoring**: Establish ongoing monitoring with configurable intervals to detect changes in the attack surface. New assets, disappeared assets, and risk score changes trigger alerts.
 
-6. **Incident Investigation**: When suspicious assets are discovered, use [/investigate](/commands/investigate/) for deep OSINT enrichment to determine whether the asset is legitimate or represents a security concern.
+6. **Incident Investigation**: When suspicious assets are discovered, use [/investigate](@/commands/investigate.md) for deep OSINT enrichment to determine whether the asset is legitimate or represents a security concern.
 
 ## NABLA Compliance
 
-Asset discovery adheres to [NABLA](/glossary/nabla-infinity/) epistemic axioms rigorously:
+Asset discovery adheres to [NABLA](@/glossary/nabla-infinity.md) epistemic axioms rigorously:
 
 | Axiom | Enforcement |
 |-------|-------------|
@@ -249,12 +249,12 @@ Discovery performance depends on the target domain's complexity (number of subdo
 
 ## Related Commands
 
-- [/perimeter](/commands/perimeter/) - External [attack surface](/glossary/attack-surface/) management dashboard and overview
-- [/perimeter-compliance](/commands/perimeter-compliance/) - [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) compliance assessment with gap analysis
-- [/perimeter-easm](/commands/perimeter-easm/) - Advanced EASM dashboard with [security rating](/glossary/security-rating/)s (A-F)
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/perimeter](@/commands/perimeter.md) - External [attack surface](@/glossary/attack-surface.md) management dashboard and overview
+- [/perimeter-compliance](@/commands/perimeter-compliance.md) - [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) compliance assessment with gap analysis
+- [/perimeter-easm](@/commands/perimeter-easm.md) - Advanced EASM dashboard with [security rating](@/glossary/security-rating.md)s (A-F)
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -263,4 +263,4 @@ Discovery performance depends on the target domain's complexity (number of subdo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -25,11 +25,11 @@ image_alt = "RiskIQ / Microsoft Defender TI - Prismatic Platform"
 
 ## Overview
 
-RiskIQ, now integrated into Microsoft Defender Threat Intelligence (MDTI), provides internet-scale data collection and [threat intelligence](/glossary/threat-intelligence/) capabilities. The platform continuously maps the internet through passive DNS collection, web crawling, SSL certificate monitoring, and host pair analysis. It maintains one of the largest passive DNS databases globally, with billions of DNS resolution records dating back over a decade, making it an indispensable resource for infrastructure investigation, threat actor tracking, and [attack surface](/glossary/attack-surface/) management.
+RiskIQ, now integrated into Microsoft Defender Threat Intelligence (MDTI), provides internet-scale data collection and [threat intelligence](@/glossary/threat-intelligence.md) capabilities. The platform continuously maps the internet through passive DNS collection, web crawling, SSL certificate monitoring, and host pair analysis. It maintains one of the largest passive DNS databases globally, with billions of DNS resolution records dating back over a decade, making it an indispensable resource for infrastructure investigation, threat actor tracking, and [attack surface](@/glossary/attack-surface.md) management.
 
 The platform's acquisition by Microsoft in 2021 integrated RiskIQ's internet intelligence into the broader Microsoft security ecosystem, enhancing it with Microsoft's global telemetry from Defender, Azure, and Office 365. However, the core RiskIQ datasets -- passive DNS, host pairs, web components, trackers, and cookies -- remain the foundation of the service. These datasets enable analysts to trace the complete lifecycle of internet infrastructure: from initial domain registration through DNS resolution, hosting, content deployment, and eventual decommissioning.
 
-For [OSINT](/glossary/osint/) investigators, RiskIQ's unique value lies in its relational data model. Rather than presenting isolated data points, the platform maps relationships between internet entities: which domains resolve to which IPs, which sites embed resources from which other sites, which analytics codes connect otherwise unrelated domains, and how these relationships change over time. This relational approach enables powerful pivot-based investigations where a single indicator can lead to the discovery of entire threat actor infrastructure networks.
+For [OSINT](@/glossary/osint.md) investigators, RiskIQ's unique value lies in its relational data model. Rather than presenting isolated data points, the platform maps relationships between internet entities: which domains resolve to which IPs, which sites embed resources from which other sites, which analytics codes connect otherwise unrelated domains, and how these relationships change over time. This relational approach enables powerful pivot-based investigations where a single indicator can lead to the discovery of entire threat actor infrastructure networks.
 
 RiskIQ's web crawling infrastructure renders pages with a full browser engine, capturing not just static HTML but also JavaScript-loaded content, embedded resources, redirects, and dynamic elements. This browser-based crawling captures the actual user experience, revealing relationships that static crawlers miss -- such as JavaScript-based redirects to malicious sites, dynamically loaded tracking pixels, and iframe-embedded content from third-party domains.
 
@@ -42,7 +42,7 @@ RiskIQ's data collection infrastructure operates continuously across the entire 
 | **Passive DNS** | Historical DNS resolution records (A, AAAA, CNAME, NS, MX, SOA) | Billions of records, 10+ years |
 | **Host Pairs** | Parent-child relationships between hosts (redirects, iframes, scripts) | Billions of pairs |
 | **SSL Certificates** | Certificate issuance history, chain analysis, SAN extraction | Hundreds of millions |
-| **[WHOIS](/glossary/whois/) History** | Current and historical domain registration data | Hundreds of millions |
+| **[WHOIS](@/glossary/whois.md) History** | Current and historical domain registration data | Hundreds of millions |
 | **Web Components** | Technology detection (CMS, frameworks, CDNs, analytics) | Millions of sites |
 | **Trackers** | Analytics IDs, ad network codes, and pixel identifiers | Millions of trackers |
 | **Cookies** | Cookie names and values linking related infrastructure | Millions of cookies |
@@ -268,7 +268,7 @@ Host pair data reveals the complete chain of redirections and resource loading t
 |------------|--------|------------|
 | **Microsoft integration changes** | Original RiskIQ API migrating to MDTI platform | Monitor Microsoft documentation for API migration timeline |
 | **Cost** | Enterprise pricing limits access for independent researchers | Use community tier for basic lookups; combine with free alternatives |
-| **Passive DNS coverage** | Coverage depends on sensor deployment; not all DNS observed | Supplement with [SecurityTrails](/osint/securitytrails/) and [PassiveDNS](/osint/passivedns/) |
+| **Passive DNS coverage** | Coverage depends on sensor deployment; not all DNS observed | Supplement with [SecurityTrails](@/osint/securitytrails.md) and [PassiveDNS](@/osint/passivedns.md) |
 | **Web crawl latency** | Pages may not be crawled at the exact time of interest | Use historical data for investigation; active scanning for real-time needs |
 | **Tracker attribution limits** | Same analytics ID does not always prove same operator | Validate tracker connections with additional evidence (WHOIS, hosting patterns) |
 | **GDPR WHOIS limitations** | European domain WHOIS increasingly redacted | Use historical data from before GDPR; combine with reverse WHOIS techniques |
@@ -285,13 +285,13 @@ Host pair data reveals the complete chain of redirections and resource loading t
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), RiskIQ serves as the deep internet intelligence layer for infrastructure investigation and attack surface management.
+Within the [Prismatic Platform](@/apps/prismatic.md), RiskIQ serves as the deep internet intelligence layer for infrastructure investigation and attack surface management.
 
-- **Perimeter EASM**: RiskIQ provides comprehensive infrastructure discovery for [Prismatic Perimeter](/apps/prismatic-perimeter/), mapping the complete attack surface through DNS, certificates, web crawling, and host pair analysis.
+- **Perimeter EASM**: RiskIQ provides comprehensive infrastructure discovery for [Prismatic Perimeter](@/apps/prismatic-perimeter.md), mapping the complete attack surface through DNS, certificates, web crawling, and host pair analysis.
 - **Threat Intelligence Pipeline**: IOC enrichment through multi-pivot investigation expands single indicators into complete infrastructure maps, feeding the platform's threat actor tracking capabilities.
 - **Brand Protection**: Web component and tracker-based monitoring detects brand impersonation, phishing campaigns, and counterfeit infrastructure targeting monitored organizations.
-- **Infrastructure Graphing**: RiskIQ's relational data feeds into the platform's [knowledge graph](/glossary/knowledge-graph/), enabling visual exploration of infrastructure relationships across domains, IPs, certificates, and web resources.
-- **Cross-Source Validation**: RiskIQ findings are correlated with [SecurityTrails](/osint/securitytrails/), [Censys](/osint/censys/), [crt.sh](/osint/crtsh/), and [Shodan](/osint/shodan/) for multi-source validation of infrastructure intelligence.
+- **Infrastructure Graphing**: RiskIQ's relational data feeds into the platform's [knowledge graph](@/glossary/knowledge-graph.md), enabling visual exploration of infrastructure relationships across domains, IPs, certificates, and web resources.
+- **Cross-Source Validation**: RiskIQ findings are correlated with [SecurityTrails](@/osint/securitytrails.md), [Censys](@/osint/censys.md), [crt.sh](@/osint/crtsh.md), and [Shodan](@/osint/shodan.md) for multi-source validation of infrastructure intelligence.
 
 ## Best Practices
 
@@ -307,17 +307,17 @@ Within the [Prismatic Platform](/apps/prismatic/), RiskIQ serves as the deep int
 
 6. **Use temporal filtering**: Scope queries to relevant investigation time periods to reduce noise from historical infrastructure that may no longer be relevant.
 
-7. **Validate with active scanning**: RiskIQ provides historical and passive data. Verify current infrastructure state with active tools like [Shodan](/osint/shodan/) or [Censys](/osint/censys/) before taking action.
+7. **Validate with active scanning**: RiskIQ provides historical and passive data. Verify current infrastructure state with active tools like [Shodan](@/osint/shodan.md) or [Censys](@/osint/censys.md) before taking action.
 
 ## Related Providers
 
-- [SecurityTrails](/osint/securitytrails/) - DNS and domain intelligence
-- [WhoisXML API](/osint/whoisxml/) - WHOIS and DNS intelligence platform
-- [Censys](/osint/censys/) - Internet-wide scanning and certificate data
-- [Shodan](/osint/shodan/) - Internet device and service discovery
-- [crt.sh](/osint/crtsh/) - Certificate transparency logs
-- [PassiveDNS](/osint/passivedns/) - Historical DNS resolution databases
-- [BuiltWith](/osint/builtwith/) - Technology profiling complementing RiskIQ components
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and domain intelligence
+- [WhoisXML API](@/osint/whoisxml.md) - WHOIS and DNS intelligence platform
+- [Censys](@/osint/censys.md) - Internet-wide scanning and certificate data
+- [Shodan](@/osint/shodan.md) - Internet device and service discovery
+- [crt.sh](@/osint/crtsh.md) - Certificate transparency logs
+- [PassiveDNS](@/osint/passivedns.md) - Historical DNS resolution databases
+- [BuiltWith](@/osint/builtwith.md) - Technology profiling complementing RiskIQ components
 
 ---
 
@@ -326,4 +326,4 @@ Within the [Prismatic Platform](/apps/prismatic/), RiskIQ serves as the deep int
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -38,7 +38,7 @@ image_alt = "Defensive Posture - Prismatic Platform"
 
 Defensive posture is the comprehensive, evidence-based assessment of a system's readiness to detect, resist, and recover from adversarial threats. It encompasses the current state of authentication boundaries, the integrity of configurations, the effectiveness of monitoring, the speed of incident response, and the overall resilience of the defense stack. Unlike a static security checklist, defensive posture is a dynamic, continuously evaluated measurement that reflects the system's actual defensive capability at any given moment.
 
-In the Prismatic Platform, defensive posture is assessed by the [Blue Team](/glossary/blue-team/) through multi-domain evidence synthesis grounded in the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. The Blue Team does not produce alerts or opinions; it produces structured evidence about the system's defensive state, evaluated against the platform's seven NABLA axioms. This evidence feeds into the [Purple Team](/glossary/color-teams/)'s synthesis process, where defensive posture is compared against adversarial findings from the [Red Team](/glossary/color-teams/) to identify gaps.
+In the Prismatic Platform, defensive posture is assessed by the [Blue Team](@/glossary/blue-team.md) through multi-domain evidence synthesis grounded in the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. The Blue Team does not produce alerts or opinions; it produces structured evidence about the system's defensive state, evaluated against the platform's seven NABLA axioms. This evidence feeds into the [Purple Team](@/glossary/color-teams.md)'s synthesis process, where defensive posture is compared against adversarial findings from the [Red Team](@/glossary/color-teams.md) to identify gaps.
 
 ## Overview
 
@@ -46,9 +46,9 @@ Every system has a defensive posture, whether it is consciously assessed or not.
 
 The concept originates from military doctrine, where "defensive posture" describes a unit's preparation for enemy attack: positions fortified, fields of fire established, reserves positioned, communications tested. Translating this to cybersecurity, defensive posture encompasses network segmentation, access control configuration, vulnerability patch status, logging completeness, incident response readiness, and backup integrity.
 
-The Prismatic Platform's approach to defensive posture is distinguished by its epistemic rigor. Traditional security tools generate alerts based on signature matching or threshold violations. The Blue Team instead produces evidence that passes through the NABLA axiom framework: evidence must come from multiple independent sources ([Signal Plurality](/glossary/signal-plurality/)), contradictory signals must be preserved ([Contradiction Preservation](/glossary/contradiction-preservation/)), and all evidence must have traceable provenance ([Provenance Mandatory](/glossary/provenance-mandatory/)). This approach eliminates false confidence and produces a posture assessment that genuinely reflects reality.
+The Prismatic Platform's approach to defensive posture is distinguished by its epistemic rigor. Traditional security tools generate alerts based on signature matching or threshold violations. The Blue Team instead produces evidence that passes through the NABLA axiom framework: evidence must come from multiple independent sources ([Signal Plurality](@/glossary/signal-plurality.md)), contradictory signals must be preserved ([Contradiction Preservation](@/glossary/contradiction-preservation.md)), and all evidence must have traceable provenance ([Provenance Mandatory](@/glossary/provenance-mandatory.md)). This approach eliminates false confidence and produces a posture assessment that genuinely reflects reality.
 
-The defensive posture assessment integrates with the broader [Color Teams](/glossary/color-teams/) framework. The Red Team probes for weaknesses through simulated attacks. The Blue Team assesses the defense against those probes. The Purple Team synthesizes both perspectives into a unified understanding of the system's security state. The White Team verifies that defenses formally satisfy their specifications. This adversarial-defensive loop continuously refines the posture assessment.
+The defensive posture assessment integrates with the broader [Color Teams](@/glossary/color-teams.md) framework. The Red Team probes for weaknesses through simulated attacks. The Blue Team assesses the defense against those probes. The Purple Team synthesizes both perspectives into a unified understanding of the system's security state. The White Team verifies that defenses formally satisfy their specifications. This adversarial-defensive loop continuously refines the posture assessment.
 
 ## Technical Details
 
@@ -84,7 +84,7 @@ Each dimension receives a score from 0.0 to 1.0 based on evidence evaluation. Th
 | Network Segmentation | 0.10 | +0.05 during lateral movement |
 | Data Protection | 0.10 | +0.05 during data breach scenarios |
 
-The posture score maps to a qualitative grade consistent with the platform's [Security Rating](/glossary/security-rating/) system: A (0.90-1.00), B (0.80-0.89), C (0.70-0.79), D (0.60-0.69), F (below 0.60).
+The posture score maps to a qualitative grade consistent with the platform's [Security Rating](@/glossary/security-rating.md) system: A (0.90-1.00), B (0.80-0.89), C (0.70-0.79), D (0.60-0.69), F (below 0.60).
 
 ### Drift Detection
 
@@ -458,21 +458,21 @@ The NIST Cybersecurity Framework (CSF) defines five functions: Identify, Protect
 
 ### SecurityScorecard/BitSight vs. Prismatic Security Rating
 
-Commercial rating platforms like SecurityScorecard and BitSight assess external-facing security signals. The Prismatic Platform's [Prismatic Perimeter](/glossary/easm/) provides similar external assessment, but defensive posture also incorporates internal signals that external scanners cannot observe: internal configuration state, authentication patterns, and response readiness.
+Commercial rating platforms like SecurityScorecard and BitSight assess external-facing security signals. The Prismatic Platform's [Prismatic Perimeter](@/glossary/easm.md) provides similar external assessment, but defensive posture also incorporates internal signals that external scanners cannot observe: internal configuration state, authentication patterns, and response readiness.
 
 ## Best Practices
 
 **Assess continuously, not periodically.** Defensive posture changes constantly. Monthly or quarterly assessments miss the daily degradation that accumulates between assessments. The platform evaluates posture every five minutes with sub-second evidence ingestion from Blue Team agents.
 
-**Require evidence from multiple independent sources.** A single monitoring tool saying "everything is fine" is insufficient. The NABLA [Signal Plurality](/glossary/signal-plurality/) axiom requires confirmation from at least two independent sources before updating posture scores. This prevents single-source blindness.
+**Require evidence from multiple independent sources.** A single monitoring tool saying "everything is fine" is insufficient. The NABLA [Signal Plurality](@/glossary/signal-plurality.md) axiom requires confirmation from at least two independent sources before updating posture scores. This prevents single-source blindness.
 
-**Preserve contradictory signals.** If the auth sentinel reports strong authentication while the drift detector reports credential reuse patterns, both signals must be preserved and investigated. The [Contradiction Preservation](/glossary/contradiction-preservation/) axiom prevents the posture system from smoothing over inconvenient contradictions.
+**Preserve contradictory signals.** If the auth sentinel reports strong authentication while the drift detector reports credential reuse patterns, both signals must be preserved and investigated. The [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom prevents the posture system from smoothing over inconvenient contradictions.
 
 **Weight dimensions dynamically.** During an active ransomware campaign targeting your industry, vulnerability exposure should be weighted higher than normal. During a supply chain attack wave, configuration integrity becomes more critical. Dynamic weighting ensures the posture assessment reflects the current threat landscape.
 
 **Track posture trends, not just current state.** A posture score of B today is concerning if it was A last week, but encouraging if it was D last month. Trend analysis reveals whether security investments are producing results and whether posture is degrading faster than it is improving.
 
-**Integrate with the Red-Blue loop.** Defensive posture assessment is most valuable when it incorporates Red Team findings. A dimension might score well against Blue Team monitoring but poorly when the Red Team's adversarial simulations expose blind spots. The [Purple Team](/glossary/color-teams/) synthesis ensures both perspectives inform the posture.
+**Integrate with the Red-Blue loop.** Defensive posture assessment is most valuable when it incorporates Red Team findings. A dimension might score well against Blue Team monitoring but poorly when the Red Team's adversarial simulations expose blind spots. The [Purple Team](@/glossary/color-teams.md) synthesis ensures both perspectives inform the posture.
 
 ## Common Pitfalls
 
@@ -494,7 +494,7 @@ The Blue Team commander aggregates evidence from three specialists: the auth sen
 
 ### Security Rating for External Parties
 
-The [Prismatic Perimeter](/glossary/easm/) module generates [Security Ratings](/glossary/security-rating/) for external organizations. These ratings are derived from observable defensive posture indicators: DNS configuration, certificate management, email security headers, and vulnerability exposure. The posture model converts these external signals into the same seven-dimension framework used for internal assessment.
+The [Prismatic Perimeter](@/glossary/easm.md) module generates [Security Ratings](@/glossary/security-rating.md) for external organizations. These ratings are derived from observable defensive posture indicators: DNS configuration, certificate management, email security headers, and vulnerability exposure. The posture model converts these external signals into the same seven-dimension framework used for internal assessment.
 
 ### NIS2 and ZKB Compliance Reporting
 
@@ -510,24 +510,24 @@ Before any production deployment, the platform checks the current defensive post
 
 ## Related Concepts
 
-- [Blue Team](/glossary/blue-team/) -- The four-agent team responsible for assessing and maintaining defensive posture
-- [Defensive Security](/glossary/defensive-security/) -- The broader discipline of protecting systems from adversarial threats
-- [Security Assessment](/glossary/security-assessment/) -- The process of evaluating security controls and their effectiveness
-- [Color Teams](/glossary/color-teams/) -- The six-team security framework within which posture assessment operates
-- [Threat Assessment](/glossary/threat-assessment/) -- The evaluation of threats that the defensive posture must counter
-- [Security Rating](/glossary/security-rating/) -- The A-F grade derived from posture assessment for external reporting
-- [EASM](/glossary/easm/) -- External Attack Surface Management that contributes external posture signals
-- [Attack Surface](/glossary/attack-surface/) -- The total exposure area that defensive posture must protect
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory frameworks that require demonstrable defensive posture
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- The quality of evidence backing posture assessments
+- [Blue Team](@/glossary/blue-team.md) -- The four-agent team responsible for assessing and maintaining defensive posture
+- [Defensive Security](@/glossary/defensive-security.md) -- The broader discipline of protecting systems from adversarial threats
+- [Security Assessment](@/glossary/security-assessment.md) -- The process of evaluating security controls and their effectiveness
+- [Color Teams](@/glossary/color-teams.md) -- The six-team security framework within which posture assessment operates
+- [Threat Assessment](@/glossary/threat-assessment.md) -- The evaluation of threats that the defensive posture must counter
+- [Security Rating](@/glossary/security-rating.md) -- The A-F grade derived from posture assessment for external reporting
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management that contributes external posture signals
+- [Attack Surface](@/glossary/attack-surface.md) -- The total exposure area that defensive posture must protect
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory frameworks that require demonstrable defensive posture
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- The quality of evidence backing posture assessments
 
 ## See Also
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework governing evidence quality in posture assessment
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- NABLA axiom critical for honest posture assessment
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom requiring multiple evidence sources for posture dimensions
-- [Data Provenance](/glossary/data-provenance/) -- Traceability of evidence feeding into posture assessments
-- [Audit Trail](/glossary/audit-trail/) -- Record of all posture assessment events for compliance and forensics
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework governing evidence quality in posture assessment
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- NABLA axiom critical for honest posture assessment
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom requiring multiple evidence sources for posture dimensions
+- [Data Provenance](@/glossary/data-provenance.md) -- Traceability of evidence feeding into posture assessments
+- [Audit Trail](@/glossary/audit-trail.md) -- Record of all posture assessment events for compliance and forensics
 
 ---
 
@@ -536,4 +536,4 @@ Before any production deployment, the platform checks the current defensive post
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

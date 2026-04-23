@@ -28,7 +28,7 @@ image_alt = "emergence-detector-specialist - Prismatic Platform"
 
 ## Overview
 
-The Emergence Detector Specialist is an L3 strategic authority operating within the Emergence Detection domain of the Prismatic Platform. This agent specializes in identifying emergent patterns -- behaviors that arise from the collective interaction of many agents but are not present in any individual agent's behavior. Through advanced pattern recognition and swarm intelligence analysis, it monitors the [mycelial network](/glossary/mycelial-network/) for signals of emergent capability, emergent risk, and emergent optimization opportunities that would be invisible to single-agent observation.
+The Emergence Detector Specialist is an L3 strategic authority operating within the Emergence Detection domain of the Prismatic Platform. This agent specializes in identifying emergent patterns -- behaviors that arise from the collective interaction of many agents but are not present in any individual agent's behavior. Through advanced pattern recognition and swarm intelligence analysis, it monitors the [mycelial network](@/glossary/mycelial-network.md) for signals of emergent capability, emergent risk, and emergent optimization opportunities that would be invisible to single-agent observation.
 
 In complex adaptive systems like the Prismatic Platform's 430-agent ecosystem, emergence is both an opportunity and a risk. Positive emergence produces unexpected capabilities -- agents collectively solving problems none could solve individually, or performance improvements arising from interaction patterns rather than individual optimization. Negative emergence produces unexpected failures -- cascading behaviors that no single agent intended, feedback loops that amplify errors, or collective resource consumption patterns that exhaust system capacity. The Emergence Detector monitors for both, providing early warning when collective agent behavior deviates from expected patterns and identifying beneficial emergent capabilities that should be preserved and amplified.
 
@@ -99,30 +99,30 @@ The detector monitors specific quantitative indicators that signal emergent phen
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to issue emergence alerts, trigger protective measures for harmful emergence, and recommend preservation of beneficial emergent capabilities. The Emergence Detector has read-only access to all domain metrics and message flow data, supporting its meta-level observation role without granting modification authority.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to issue emergence alerts, trigger protective measures for harmful emergence, and recommend preservation of beneficial emergent capabilities. The Emergence Detector has read-only access to all domain metrics and message flow data, supporting its meta-level observation role without granting modification authority.
 
 ## Coordination
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [capability-emergence-detector](/agents/capability-emergence-detector/) | Collaborates on capability-specific emergence detection with focused analysis | Evolution |
-| [ecosystem-biologist-coordinator](/agents/ecosystem-biologist-coordinator/) | Provides biological modeling context for emergence pattern interpretation | Evolution |
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Receives emergence findings for incorporation into evolutionary strategy | Evolution |
-| [emergent-collaboration-detector](/agents/emergent-collaboration-detector/) | Shares detection data for collaboration-specific emergence patterns | Emergent Intelligence |
+| [capability-emergence-detector](@/agents/capability-emergence-detector.md) | Collaborates on capability-specific emergence detection with focused analysis | Evolution |
+| [ecosystem-biologist-coordinator](@/agents/ecosystem-biologist-coordinator.md) | Provides biological modeling context for emergence pattern interpretation | Evolution |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Receives emergence findings for incorporation into evolutionary strategy | Evolution |
+| [emergent-collaboration-detector](@/agents/emergent-collaboration-detector.md) | Shares detection data for collaboration-specific emergence patterns | Emergent Intelligence |
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Mycelial Network](/glossary/mycelial-network/) | Observation target | Pattern propagation monitoring across domains |
-| Prismatic [Telemetry](/glossary/telemetry/) | Data source | Aggregate metrics for statistical analysis |
-| [SEADF](/glossary/seadf/) | Integration | Emergence findings feed into ecosystem evolution |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Observation target | Pattern propagation monitoring across domains |
+| Prismatic [Telemetry](@/glossary/telemetry.md) | Data source | Aggregate metrics for statistical analysis |
+| [SEADF](@/glossary/seadf.md) | Integration | Emergence findings feed into ecosystem evolution |
 | Quality Floor Guardian | Alert integration | Emergent quality degradation detection |
-| [AIAD](/glossary/aiad/) Registry | Agent catalog | Agent population metadata for swarm analysis |
+| [AIAD](@/glossary/aiad.md) Registry | Agent catalog | Agent population metadata for swarm analysis |
 
 ## Enforcement
 
-The Emergence Detector Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Emergent patterns are classified and reported without suppression, whether they indicate positive capability or negative risk. Detection findings require evidence from multiple observation points per NABLA [Signal Plurality](/glossary/signal-plurality/). Harmful emergence triggers immediate containment protocols. Beneficial emergence is documented with full provenance for reproducibility analysis. No emergence report is issued without quantified confidence scores and explicit uncertainty bounds.
+The Emergence Detector Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Emergent patterns are classified and reported without suppression, whether they indicate positive capability or negative risk. Detection findings require evidence from multiple observation points per NABLA [Signal Plurality](@/glossary/signal-plurality.md). Harmful emergence triggers immediate containment protocols. Beneficial emergence is documented with full provenance for reproducibility analysis. No emergence report is issued without quantified confidence scores and explicit uncertainty bounds.
 
 ---
 
@@ -131,4 +131,4 @@ The Emergence Detector Specialist operates under the [NO MERCY, NO DOUBTS](/glos
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -37,7 +37,7 @@ image_alt = "Neural Network - Prismatic Platform"
 
 A **neural network** is a computational model loosely inspired by the structure and function of biological nervous systems. It consists of interconnected processing units called neurons (or nodes) organized into layers that learn to transform input data into meaningful outputs through iterative training. Neural networks underpin virtually every major advance in modern artificial intelligence -- from image recognition and speech synthesis to the large language models that power conversational AI systems like Claude.
 
-Within the [Prismatic Platform](/glossary/application/), neural networks serve as the computational backbone for [autonomous agents](/glossary/autonomous-agent/), [OSINT](/glossary/cyber-threat-intelligence/) analysis pipelines, anomaly detection, natural language processing, and [embedding](/glossary/embedding/)-based semantic search. The platform integrates local model inference through [Ollama](/glossary/ollama/) and cloud-based inference through Anthropic's Claude, making neural network capabilities available at every layer of the 115-app umbrella architecture.
+Within the [Prismatic Platform](@/glossary/application.md), neural networks serve as the computational backbone for [autonomous agents](@/glossary/autonomous-agent.md), [OSINT](@/glossary/cyber-threat-intelligence.md) analysis pipelines, anomaly detection, natural language processing, and [embedding](@/glossary/embedding.md)-based semantic search. The platform integrates local model inference through [Ollama](@/glossary/ollama.md) and cloud-based inference through Anthropic's Claude, making neural network capabilities available at every layer of the 115-app umbrella architecture.
 
 ## Definition and Biological Inspiration
 
@@ -183,7 +183,7 @@ Neural network training follows a systematic cycle that repeats over the entire 
 
 Large language models (LLMs) are Transformer-based neural networks trained on massive text corpora to predict the next token in a sequence. Through this simple objective, LLMs develop emergent capabilities in reasoning, code generation, summarization, and multi-step problem solving.
 
-Modern [LLMs](/glossary/llm/) like Claude, GPT-4, and LLaMA share common architectural elements:
+Modern [LLMs](@/glossary/llm.md) like Claude, GPT-4, and LLaMA share common architectural elements:
 
 - **Decoder-only Transformer**: Uses causal (left-to-right) attention masking so each token can only attend to previous tokens
 - **Tokenization**: Text is split into subword tokens (BPE, SentencePiece, or similar) that balance vocabulary size with representation granularity
@@ -195,11 +195,11 @@ The self-attention mechanism is what makes LLMs powerful: each token dynamically
 
 ## Prismatic Platform AI Integration
 
-The Prismatic Platform integrates neural network capabilities at multiple levels, combining local and cloud inference to power its 530+ [AIAD agents](/glossary/aiad/).
+The Prismatic Platform integrates neural network capabilities at multiple levels, combining local and cloud inference to power its 530+ [AIAD agents](@/glossary/aiad.md).
 
 ### Ollama Local Model Integration
 
-[Ollama](/glossary/ollama/) provides local neural network inference without external API dependencies:
+[Ollama](@/glossary/ollama.md) provides local neural network inference without external API dependencies:
 
 - **qwen3-coder** (7B parameters): Code generation and analysis, less than 3 second response time
 - **gpt-oss:20b** (20B parameters): General reasoning tasks, less than 5 second response time
@@ -214,13 +214,13 @@ Anthropic's Claude serves as the primary cloud inference backbone, powering the 
 - Multi-step reasoning across complex security analysis workflows
 - Code generation and review for the Elixir/Phoenix stack
 - Natural language processing for OSINT report generation
-- [Confidence scoring](/glossary/confidence-scoring/) integrated with the Trinity Gate validation system
+- [Confidence scoring](@/glossary/confidence-scoring.md) integrated with the Trinity Gate validation system
 
 ### Agent Neural Architecture
 
 The 530 AIAD agents use neural network outputs for:
 
-- **Epistemic reasoning**: [Belief graph](/glossary/belief-graph/) construction and validation through the NABLA framework
+- **Epistemic reasoning**: [Belief graph](@/glossary/belief-graph.md) construction and validation through the NABLA framework
 - **Anomaly detection**: Identifying security threats in OSINT data streams
 - **Pattern recognition**: Correlating signals across multiple data sources
 - **Natural language generation**: Producing structured reports and analysis
@@ -310,7 +310,7 @@ Neural networks are increasingly central to open-source intelligence and cyberse
 - **Entity Resolution**: Neural embedding models link entities across disparate OSINT sources by learning semantic similarity in entity attributes
 - **Dark Web Monitoring**: NLP models trained on underground forum data detect emerging threats, credential leaks, and zero-day exploit discussions
 
-The Prismatic Platform's [EASM](/glossary/easm/) module leverages neural network-based analysis for security rating computation, processing diverse signal types including certificate transparency logs, DNS configurations, and exposed service fingerprints.
+The Prismatic Platform's [EASM](@/glossary/easm.md) module leverages neural network-based analysis for security rating computation, processing diverse signal types including certificate transparency logs, DNS configurations, and exposed service fingerprints.
 
 ## Best Practices
 
@@ -339,7 +339,7 @@ The Prismatic Platform's [EASM](/glossary/easm/) module leverages neural network
 - **Bumblebee**: Pre-trained Transformer model integration for Elixir, supporting text classification, generation, embeddings, and image analysis
 - **Livebook**: Interactive notebook environment for Elixir, ideal for neural network experimentation and visualization with Nx/Axon
 - **ONNX Runtime**: Cross-platform model inference engine supporting models exported from PyTorch, TensorFlow, and other frameworks
-- **OpenTelemetry**: Observability framework for tracking neural network inference [latency](/glossary/latency/), [throughput](/glossary/throughput/), and error rates in production
+- **OpenTelemetry**: Observability framework for tracking neural network inference [latency](@/glossary/latency.md), [throughput](@/glossary/throughput.md), and error rates in production
 
 ## Ethical Considerations
 
@@ -347,9 +347,9 @@ Neural networks raise significant ethical concerns that practitioners must addre
 
 - **Bias amplification**: Models trained on biased data reproduce and amplify those biases. Systematic bias auditing and diverse training data are essential.
 - **Explainability**: Deep neural networks are largely "black boxes." Techniques like attention visualization, SHAP values, and gradient-based attribution provide partial interpretability but remain incomplete.
-- **Hallucination**: LLMs generate plausible but incorrect content. The Prismatic Platform addresses this through the Trinity Gate validation system and [confidence thresholds](/glossary/confidence-threshold/) that require multi-source verification.
+- **Hallucination**: LLMs generate plausible but incorrect content. The Prismatic Platform addresses this through the Trinity Gate validation system and [confidence thresholds](@/glossary/confidence-threshold.md) that require multi-source verification.
 - **Environmental impact**: Training large models consumes substantial energy. Local inference through Ollama with quantized models reduces ongoing operational impact.
-- **Dual use**: Neural network capabilities in threat detection can also be repurposed for surveillance or offensive operations. The Prismatic Platform enforces strict ethical guidelines through its [color team](/glossary/color-teams/) safety protocols.
+- **Dual use**: Neural network capabilities in threat detection can also be repurposed for surveillance or offensive operations. The Prismatic Platform enforces strict ethical guidelines through its [color team](@/glossary/color-teams.md) safety protocols.
 - **Data privacy**: Training data may contain personally identifiable information. Differential privacy, federated learning, and careful data curation help mitigate privacy risks.
 
 ## Future Directions
@@ -365,13 +365,13 @@ The neural network landscape continues to evolve rapidly:
 
 ## See Also
 
-- [Machine Learning](/glossary/machine-learning/) -- the broader field encompassing neural networks and other learning algorithms
-- [Large Language Model (LLM)](/glossary/llm/) -- Transformer-based neural networks trained on text corpora
-- [Ollama](/glossary/ollama/) -- local model inference runtime used by the Prismatic Platform
-- [Autonomous Agent](/glossary/autonomous-agent/) -- AI agents powered by neural network reasoning
-- [Embedding](/glossary/embedding/) -- dense vector representations produced by neural networks
-- [Fine-Tuning](/glossary/fine-tuning/) -- adapting pre-trained neural networks to specific tasks
-- [Confidence Scoring](/glossary/confidence-scoring/) -- quantifying neural network output reliability
-- [Belief Graph](/glossary/belief-graph/) -- epistemic structures built from neural network outputs
-- [Cosine Similarity](/glossary/cosine-similarity/) -- metric for comparing neural network embeddings
-- [EASM](/glossary/easm/) -- external attack surface management leveraging neural network analysis
+- [Machine Learning](@/glossary/machine-learning.md) -- the broader field encompassing neural networks and other learning algorithms
+- [Large Language Model (LLM)](@/glossary/llm.md) -- Transformer-based neural networks trained on text corpora
+- [Ollama](@/glossary/ollama.md) -- local model inference runtime used by the Prismatic Platform
+- [Autonomous Agent](@/glossary/autonomous-agent.md) -- AI agents powered by neural network reasoning
+- [Embedding](@/glossary/embedding.md) -- dense vector representations produced by neural networks
+- [Fine-Tuning](@/glossary/fine-tuning.md) -- adapting pre-trained neural networks to specific tasks
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- quantifying neural network output reliability
+- [Belief Graph](@/glossary/belief-graph.md) -- epistemic structures built from neural network outputs
+- [Cosine Similarity](@/glossary/cosine-similarity.md) -- metric for comparing neural network embeddings
+- [EASM](@/glossary/easm.md) -- external attack surface management leveraging neural network analysis

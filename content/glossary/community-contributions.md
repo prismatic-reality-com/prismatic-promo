@@ -42,7 +42,7 @@ Each contribution passes through a validation pipeline that ensures it meets the
 
 ## Overview
 
-Community contributions are the atomic building blocks of [collective progress](/glossary/collective-progress/). Without a steady stream of high-quality contributions, platforms stagnate. With an overwhelming volume of low-quality contributions, maintainers burn out. The art of managing community contributions lies in building systems that maximize contribution quality while minimizing the friction that discourages participation.
+Community contributions are the atomic building blocks of [collective progress](@/glossary/collective-progress.md). Without a steady stream of high-quality contributions, platforms stagnate. With an overwhelming volume of low-quality contributions, maintainers burn out. The art of managing community contributions lies in building systems that maximize contribution quality while minimizing the friction that discourages participation.
 
 ### Contribution Taxonomy
 
@@ -413,23 +413,23 @@ Contributors working on different operating systems, architectures, or deploymen
 
 Community contributions connect to several foundational concepts in the Prismatic Platform ecosystem:
 
-- [Collective Progress](/glossary/collective-progress/) -- The emergent advancement that results from aggregating community contributions over time. Contributions are the inputs; collective progress is the output.
-- [Community Engagement](/glossary/community-engagement/) -- The participation patterns that drive contribution volume and quality. Engagement precedes and enables contributions.
-- [Code Quality](/glossary/code-quality/) -- The standard that contributions must meet before integration. Quality enforcement is the gatekeeper of the contribution pipeline.
-- [Code Reviews](/glossary/code-reviews/) -- The human review phase of the contribution lifecycle where architectural coherence and strategic alignment are assessed.
-- [Continuous Integration](/glossary/continuous-integration/) -- The automated infrastructure that validates contributions against the full test suite and quality standard.
-- [Quality Gates](/glossary/quality-gates/) -- The specific checkpoints that contributions must pass during validation, implementing the quality ratchet pattern.
-- [Open Source](/glossary/open-source/) -- The licensing model that legally enables community contributions by granting modification and distribution rights.
-- [Collaborative Development](/glossary/collaborative-development/) -- The broader practice of multiple developers working on a shared codebase, of which community contributions are the primary mechanism.
-- [Regression Testing](/glossary/regression-testing/) -- The mandatory testing practice that ensures contributions do not break existing functionality.
-- [Developer Community](/glossary/developer-community/) -- The group of individuals whose collective contributions drive platform evolution.
+- [Collective Progress](@/glossary/collective-progress.md) -- The emergent advancement that results from aggregating community contributions over time. Contributions are the inputs; collective progress is the output.
+- [Community Engagement](@/glossary/community-engagement.md) -- The participation patterns that drive contribution volume and quality. Engagement precedes and enables contributions.
+- [Code Quality](@/glossary/code-quality.md) -- The standard that contributions must meet before integration. Quality enforcement is the gatekeeper of the contribution pipeline.
+- [Code Reviews](@/glossary/code-reviews.md) -- The human review phase of the contribution lifecycle where architectural coherence and strategic alignment are assessed.
+- [Continuous Integration](@/glossary/continuous-integration.md) -- The automated infrastructure that validates contributions against the full test suite and quality standard.
+- [Quality Gates](@/glossary/quality-gates.md) -- The specific checkpoints that contributions must pass during validation, implementing the quality ratchet pattern.
+- [Open Source](@/glossary/open-source.md) -- The licensing model that legally enables community contributions by granting modification and distribution rights.
+- [Collaborative Development](@/glossary/collaborative-development.md) -- The broader practice of multiple developers working on a shared codebase, of which community contributions are the primary mechanism.
+- [Regression Testing](@/glossary/regression-testing.md) -- The mandatory testing practice that ensures contributions do not break existing functionality.
+- [Developer Community](@/glossary/developer-community.md) -- The group of individuals whose collective contributions drive platform evolution.
 
 ## See Also
 
-- [Community Impact](/glossary/community-impact/) -- The measurable effects that accumulated community contributions have on the broader ecosystem.
-- [Community Interaction](/glossary/community-interaction/) -- The communication patterns between contributors, reviewers, and maintainers that shape contribution quality.
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- The automated validation infrastructure that enforces quality standards on every contribution.
-- [Development Workflow](/glossary/development-workflow/) -- The end-to-end process from issue identification through contribution integration.
+- [Community Impact](@/glossary/community-impact.md) -- The measurable effects that accumulated community contributions have on the broader ecosystem.
+- [Community Interaction](@/glossary/community-interaction.md) -- The communication patterns between contributors, reviewers, and maintainers that shape contribution quality.
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- The automated validation infrastructure that enforces quality standards on every contribution.
+- [Development Workflow](@/glossary/development-workflow.md) -- The end-to-end process from issue identification through contribution integration.
 
 ---
 
@@ -438,4 +438,4 @@ Community contributions connect to several foundational concepts in the Prismati
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -48,7 +48,7 @@ The per-task timeout. A slow adapter must not pause the whole stream. 5 seconds 
 
 ## Knob 3: on_timeout
 
-This is the flag everyone forgets. The default is `:exit`, which means a timeout propagates as an exception into the caller. That is almost always wrong. `:kill_task` converts the timeout into a clean `{:exit, :timeout}` in the result stream, and the caller decides what to do. The [fault tolerance](/glossary/fault-tolerance) you actually want is opt-in.
+This is the flag everyone forgets. The default is `:exit`, which means a timeout propagates as an exception into the caller. That is almost always wrong. `:kill_task` converts the timeout into a clean `{:exit, :timeout}` in the result stream, and the caller decides what to do. The [fault tolerance](@/glossary/fault-tolerance.md) you actually want is opt-in.
 
 ## Gotcha 1: ordered vs unordered
 
@@ -65,6 +65,6 @@ This is the flag everyone forgets. The default is `:exit`, which means a timeout
 ## Where to go next
 
 - **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — Task and supervision primitives
-- **Glossary**: [Task Module](/glossary/task-module), [Concurrency](/glossary/concurrency), [Fault Tolerance](/glossary/fault-tolerance), [Backpressure](/glossary/backpressure), [OSINT](/glossary/osint)
+- **Glossary**: [Task Module](@/glossary/task-module.md), [Concurrency](@/glossary/concurrency.md), [Fault Tolerance](@/glossary/fault-tolerance.md), [Backpressure](@/glossary/backpressure.md), [OSINT](@/glossary/osint.md)
 
 Five seconds. Ten concurrent. Kill on timeout. Unordered. That is 90% of the concurrency you ever needed.

@@ -38,7 +38,7 @@ image_alt = "Distributed Systems - Prismatic Platform"
 
 Distributed systems are computing architectures where components residing on networked computers communicate and coordinate their actions exclusively through message passing to achieve common goals. Unlike monolithic systems where all components share memory and a single failure domain, distributed systems span multiple nodes that may fail independently, experience network partitions, and observe inconsistent views of global state. The fundamental challenge of distributed systems -- articulated by Leslie Lamport -- is that "a distributed system is one in which the failure of a computer you didn't even know existed can render your own computer unusable."
 
-In the context of the Prismatic Platform, distributed systems capabilities are inherited from the [BEAM VM](/glossary/beam-vm/) (Bogdan/Bjorn's Erlang Abstract Machine), which was purpose-built for distributed, fault-tolerant, soft real-time systems. The platform leverages BEAM's native distribution protocol for inter-node communication, [Horde](/glossary/cluster/) for distributed process registries and supervisors, and OTP's [supervision trees](/glossary/supervision-tree/) for hierarchical fault isolation and recovery.
+In the context of the Prismatic Platform, distributed systems capabilities are inherited from the [BEAM VM](@/glossary/beam-vm.md) (Bogdan/Bjorn's Erlang Abstract Machine), which was purpose-built for distributed, fault-tolerant, soft real-time systems. The platform leverages BEAM's native distribution protocol for inter-node communication, [Horde](@/glossary/cluster.md) for distributed process registries and supervisors, and OTP's [supervision trees](@/glossary/supervision-tree.md) for hierarchical fault isolation and recovery.
 
 ## Overview
 
@@ -46,9 +46,9 @@ Distributed systems have evolved from an academic curiosity to the dominant arch
 
 The theoretical foundations of distributed systems are built on several impossibility results and trade-off theorems:
 
-**CAP Theorem** (Brewer, 2000): A distributed data store cannot simultaneously provide more than two of three guarantees: Consistency (every read receives the most recent write), Availability (every request receives a response), and [Partition Tolerance](/glossary/cap-theorem/) (the system continues to operate despite network partitions). Since network partitions are inevitable in real systems, the practical choice is between CP (consistent but sometimes unavailable) and AP (available but sometimes inconsistent).
+**CAP Theorem** (Brewer, 2000): A distributed data store cannot simultaneously provide more than two of three guarantees: Consistency (every read receives the most recent write), Availability (every request receives a response), and [Partition Tolerance](@/glossary/cap-theorem.md) (the system continues to operate despite network partitions). Since network partitions are inevitable in real systems, the practical choice is between CP (consistent but sometimes unavailable) and AP (available but sometimes inconsistent).
 
-**FLP Impossibility** (Fischer, Lynch, Paterson, 1985): In an asynchronous distributed system where at least one process may crash, no deterministic [consensus algorithm](/glossary/consensus-algorithm/) can guarantee agreement in bounded time. This foundational result shapes all practical consensus protocols, which must make trade-offs around timing assumptions.
+**FLP Impossibility** (Fischer, Lynch, Paterson, 1985): In an asynchronous distributed system where at least one process may crash, no deterministic [consensus algorithm](@/glossary/consensus-algorithm.md) can guarantee agreement in bounded time. This foundational result shapes all practical consensus protocols, which must make trade-offs around timing assumptions.
 
 **Two Generals Problem**: Two parties communicating over an unreliable channel cannot achieve coordinated action with certainty. This implies that perfect coordination in distributed systems is impossible and all practical systems must tolerate some degree of uncertainty.
 
@@ -435,11 +435,11 @@ The Prismatic Platform leverages distributed systems principles across its archi
 
 ### Multi-Node Deployment
 
-The platform is deployed across multiple nodes on [Fly.io](/glossary/production-environment/), with BEAM's native distribution protocol connecting instances. The deployment configuration in `fly.toml` specifies cluster formation parameters, and `libcluster` handles automatic node discovery using Fly.io's DNS-based service discovery.
+The platform is deployed across multiple nodes on [Fly.io](@/glossary/production-environment.md), with BEAM's native distribution protocol connecting instances. The deployment configuration in `fly.toml` specifies cluster formation parameters, and `libcluster` handles automatic node discovery using Fly.io's DNS-based service discovery.
 
 ### Distributed Agent Registry
 
-The platform's 530 [AIAD agents](/glossary/agent/) are distributed across cluster nodes using Horde. Agent processes are automatically migrated to surviving nodes when a node fails, ensuring continuous availability of all agent capabilities. The `PrismaticAgents.DistributedRegistry` provides cluster-wide agent lookup by ID, tier, or domain.
+The platform's 530 [AIAD agents](@/glossary/agent.md) are distributed across cluster nodes using Horde. Agent processes are automatically migrated to surviving nodes when a node fails, ensuring continuous availability of all agent capabilities. The `PrismaticAgents.DistributedRegistry` provides cluster-wide agent lookup by ID, tier, or domain.
 
 ### Distributed State with CRDTs
 
@@ -447,11 +447,11 @@ For state that must be shared across nodes without coordination overhead, the pl
 
 ### PrismaticSupervisor
 
-The [PrismaticSupervisor](/glossary/supervisor/) application implements dependency-aware startup with pluggable backends. In development, it uses ETS for local process registration. In production, it switches to Horde for distributed registration, enabling cluster-wide [supervision tree](/glossary/supervision-tree/) management.
+The [PrismaticSupervisor](@/glossary/supervisor.md) application implements dependency-aware startup with pluggable backends. In development, it uses ETS for local process registration. In production, it switches to Horde for distributed registration, enabling cluster-wide [supervision tree](@/glossary/supervision-tree.md) management.
 
 ### Telemetry Aggregation
 
-The platform's [telemetry](/glossary/telemetry/) system aggregates metrics across all cluster nodes, providing a unified view of platform health regardless of which node is handling a particular request or process.
+The platform's [telemetry](@/glossary/telemetry.md) system aggregates metrics across all cluster nodes, providing a unified view of platform health regardless of which node is handling a particular request or process.
 
 ## Comparison with Alternatives
 
@@ -469,15 +469,15 @@ The platform's [telemetry](/glossary/telemetry/) system aggregates metrics acros
 
 2. **Prefer Message Passing**: Communicate between distributed components through explicit message passing rather than shared state. This makes communication boundaries visible, testable, and resilient to partial failures.
 
-3. **Use Supervision Trees**: Structure distributed applications as hierarchies of [supervisors](/glossary/supervision-tree/) that define restart strategies for their children. This provides automatic recovery from process failures without manual intervention.
+3. **Use Supervision Trees**: Structure distributed applications as hierarchies of [supervisors](@/glossary/supervision-tree.md) that define restart strategies for their children. This provides automatic recovery from process failures without manual intervention.
 
-4. **Implement Idempotent Operations**: In distributed systems, messages may be delivered more than once. Design operations to produce the same result regardless of how many times they are applied. This is critical for [retry patterns](/glossary/retry-pattern/) and at-least-once delivery guarantees.
+4. **Implement Idempotent Operations**: In distributed systems, messages may be delivered more than once. Design operations to produce the same result regardless of how many times they are applied. This is critical for [retry patterns](@/glossary/retry-pattern.md) and at-least-once delivery guarantees.
 
-5. **Choose Consistency Models Deliberately**: Understand the [CAP theorem](/glossary/cap-theorem/) trade-offs and choose consistency models appropriate to each use case. Strong consistency for financial transactions, [eventual consistency](/glossary/eventual-consistency/) for counters and metrics.
+5. **Choose Consistency Models Deliberately**: Understand the [CAP theorem](@/glossary/cap-theorem.md) trade-offs and choose consistency models appropriate to each use case. Strong consistency for financial transactions, [eventual consistency](@/glossary/eventual-consistency.md) for counters and metrics.
 
-6. **Monitor Cluster Health**: Implement comprehensive monitoring for node connectivity, message queue depths, process counts, and replication lag. The Prismatic Platform's distributed [telemetry](/glossary/telemetry/) aggregation provides this visibility.
+6. **Monitor Cluster Health**: Implement comprehensive monitoring for node connectivity, message queue depths, process counts, and replication lag. The Prismatic Platform's distributed [telemetry](@/glossary/telemetry.md) aggregation provides this visibility.
 
-7. **Test Failure Scenarios**: Use [chaos engineering](/glossary/chaos-engineering/) techniques to verify that the system behaves correctly under node failures, network partitions, and clock skew. Jepsen-style testing validates distributed correctness properties.
+7. **Test Failure Scenarios**: Use [chaos engineering](@/glossary/chaos-engineering.md) techniques to verify that the system behaves correctly under node failures, network partitions, and clock skew. Jepsen-style testing validates distributed correctness properties.
 
 8. **Minimize Coordination**: Every coordination point (locks, consensus rounds, two-phase commits) is a potential bottleneck and failure point. Use CRDTs, event sourcing, and local-first processing to minimize the need for cross-node coordination.
 
@@ -491,7 +491,7 @@ The platform's [telemetry](/glossary/telemetry/) system aggregates metrics acros
 
 4. **Clock Assumptions**: Assuming synchronized clocks across nodes. Real distributed systems experience clock skew, clock drift, and NTP synchronization failures. Use logical clocks (vector clocks, Lamport timestamps) or CRDTs instead of relying on wall-clock time for ordering.
 
-5. **Unbounded Message Queues**: Sending messages to distributed processes faster than they can process them. Without [backpressure](/glossary/backpressure/) mechanisms, message queues grow unbounded, consuming memory and eventually crashing processes.
+5. **Unbounded Message Queues**: Sending messages to distributed processes faster than they can process them. Without [backpressure](@/glossary/backpressure.md) mechanisms, message queues grow unbounded, consuming memory and eventually crashing processes.
 
 6. **Ignoring Split-Brain**: Failing to implement split-brain resolution strategies. When a cluster partitions, both sides may elect leaders and accept writes, leading to conflicting state that is difficult or impossible to reconcile.
 
@@ -521,25 +521,25 @@ In multi-tenant deployments, each tenant's processes can be distributed across n
 
 ## Related Concepts
 
-- [BEAM VM](/glossary/beam-vm/) -- The virtual machine that provides native distributed systems capabilities for the platform
-- [Cluster](/glossary/cluster/) -- A group of connected BEAM nodes forming a distributed system
-- [CAP Theorem](/glossary/cap-theorem/) -- The fundamental trade-off theorem governing distributed data stores
-- [Eventual Consistency](/glossary/eventual-consistency/) -- Consistency model where replicas converge over time without coordination
-- [Consensus Algorithm](/glossary/consensus-algorithm/) -- Protocols for achieving agreement among distributed nodes
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchical fault isolation and recovery structure in OTP
-- [Process Isolation](/glossary/process-isolation/) -- BEAM's per-process memory isolation enabling fault containment
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern for preventing cascading failures in distributed systems
-- [Backpressure](/glossary/backpressure/) -- Flow control mechanism preventing unbounded message queue growth
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Practice of testing distributed systems under failure conditions
+- [BEAM VM](@/glossary/beam-vm.md) -- The virtual machine that provides native distributed systems capabilities for the platform
+- [Cluster](@/glossary/cluster.md) -- A group of connected BEAM nodes forming a distributed system
+- [CAP Theorem](@/glossary/cap-theorem.md) -- The fundamental trade-off theorem governing distributed data stores
+- [Eventual Consistency](@/glossary/eventual-consistency.md) -- Consistency model where replicas converge over time without coordination
+- [Consensus Algorithm](@/glossary/consensus-algorithm.md) -- Protocols for achieving agreement among distributed nodes
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchical fault isolation and recovery structure in OTP
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM's per-process memory isolation enabling fault containment
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern for preventing cascading failures in distributed systems
+- [Backpressure](@/glossary/backpressure.md) -- Flow control mechanism preventing unbounded message queue growth
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Practice of testing distributed systems under failure conditions
 
 ## See Also
 
-- [Distributed System](/glossary/distributed-system/) -- Related singular form entry
-- [Concurrency](/glossary/concurrency/) -- Concurrent programming within a single node
-- [Actor Model](/glossary/actor-model/) -- The computational model underlying BEAM processes
-- [Saga Pattern](/glossary/saga-pattern/) -- Distributed transaction management across services
-- [CQRS](/glossary/cqrs/) -- Command Query Responsibility Segregation for distributed data
-- [Distributed Tracing](/glossary/distributed-tracing/) -- Observability for requests spanning multiple nodes
+- [Distributed System](@/glossary/distributed-system.md) -- Related singular form entry
+- [Concurrency](@/glossary/concurrency.md) -- Concurrent programming within a single node
+- [Actor Model](@/glossary/actor-model.md) -- The computational model underlying BEAM processes
+- [Saga Pattern](@/glossary/saga-pattern.md) -- Distributed transaction management across services
+- [CQRS](@/glossary/cqrs.md) -- Command Query Responsibility Segregation for distributed data
+- [Distributed Tracing](@/glossary/distributed-tracing.md) -- Observability for requests spanning multiple nodes
 
 ---
 
@@ -548,4 +548,4 @@ In multi-tenant deployments, each tenant's processes can be distributed across n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

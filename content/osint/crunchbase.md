@@ -32,7 +32,7 @@ Crunchbase is the leading platform for business and startup intelligence, tracki
 
 The platform provides the most comprehensive publicly available view of the startup and technology investment ecosystem, tracking the complete lifecycle of companies from incorporation through seed funding, growth rounds, acquisitions, IPOs, and closures. Each company profile aggregates data from multiple sources: direct submissions from company representatives, contributions from the investor community, automated news monitoring, SEC filings analysis, press release parsing, and partnership data from venture capital limited partner networks.
 
-For [OSINT](/glossary/osint/) analysts, Crunchbase reveals the financial backing, leadership networks, acquisition histories, and competitive positioning of technology companies and startups. This intelligence supports multiple analytical objectives. Corporate due diligence benefits from understanding a company's funding trajectory and investor quality. Competitive intelligence leverages funding data and hiring patterns to assess strategic direction. Investigative analysis uses personnel records and board connections to map influence networks. And market intelligence teams use Crunchbase to identify emerging companies, track sector investment trends, and assess market dynamics.
+For [OSINT](@/glossary/osint.md) analysts, Crunchbase reveals the financial backing, leadership networks, acquisition histories, and competitive positioning of technology companies and startups. This intelligence supports multiple analytical objectives. Corporate due diligence benefits from understanding a company's funding trajectory and investor quality. Competitive intelligence leverages funding data and hiring patterns to assess strategic direction. Investigative analysis uses personnel records and board connections to map influence networks. And market intelligence teams use Crunchbase to identify emerging companies, track sector investment trends, and assess market dynamics.
 
 Crunchbase data is particularly valuable for understanding the power dynamics within technology ecosystems. Investor-company relationships reveal influence networks: a venture capital firm's portfolio companies may share board members, strategic partnerships, and competitive interests that are not obvious from public corporate filings alone. Similarly, tracking personnel movement between companies reveals talent flows and knowledge transfer patterns that inform competitive and strategic analysis.
 
@@ -297,7 +297,7 @@ Crunchbase data is compiled from publicly available sources and direct contribut
 
 When using Crunchbase data for investigative purposes, analysts should be aware that company profiles contain self-reported information that may be optimistic or incomplete. Funding amounts, employee counts, and revenue ranges should be treated as approximate indicators rather than verified facts unless cross-referenced with regulatory filings.
 
-Personnel data from Crunchbase includes professional information (name, title, organizational affiliations) that constitutes personal data under [GDPR](/glossary/gdpr/). Automated processing of this data for profiling purposes requires a lawful basis and may trigger data subject rights obligations.
+Personnel data from Crunchbase includes professional information (name, title, organizational affiliations) that constitutes personal data under [GDPR](@/glossary/gdpr.md). Automated processing of this data for profiling purposes requires a lawful basis and may trigger data subject rights obligations.
 
 Organizations using Crunchbase data for commercial intelligence should ensure compliance with the platform's API terms of service, which restrict certain uses including competitive product development and bulk data redistribution.
 
@@ -357,13 +357,13 @@ The platform constructs investment network graphs from Crunchbase data, revealin
 
 ## Related Providers
 
-- [OpenCorporates](/osint/open-corporates/) - Global company registry data with legal entity details
-- [SEC EDGAR](/osint/sec-edgar/) - US corporate filings and financial statements
-- [Companies House](/osint/companies-house/) - UK company registry with financial statements
-- [ARES](/osint/ares/) - Czech business registry for legal entity verification
-- [Hunter.io](/osint/hunter-io/) - Email discovery for Crunchbase contact outreach
+- [OpenCorporates](@/osint/open-corporates.md) - Global company registry data with legal entity details
+- [SEC EDGAR](@/osint/sec-edgar.md) - US corporate filings and financial statements
+- [Companies House](@/osint/companies-house.md) - UK company registry with financial statements
+- [ARES](@/osint/ares.md) - Czech business registry for legal entity verification
+- [Hunter.io](@/osint/hunter-io.md) - Email discovery for Crunchbase contact outreach
 - LinkedIn - Professional network for personnel verification
-- [Hlidac statu](/osint/hlidac-statu/) - Czech government watchdog for public contract intelligence
+- [Hlidac statu](@/osint/hlidac-statu.md) - Czech government watchdog for public contract intelligence
 
 ---
 
@@ -372,4 +372,4 @@ The platform constructs investment network graphs from Crunchbase data, revealin
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

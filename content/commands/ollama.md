@@ -30,7 +30,7 @@ The Prismatic Platform integrates with [Ollama](https://ollama.ai) as a first-cl
 
 Local model execution provides several strategic advantages beyond cost elimination. Response latency is bounded by local hardware rather than network conditions. Sensitive code and prompts never leave the development machine. Model availability is guaranteed regardless of external service status. The `/ollama` command manages these benefits through intelligent model selection, resource optimization, and automatic fallback to cloud providers when local model quality falls below acceptable thresholds.
 
-This command operates under the **L2+** authority level and is executed by the `ollama-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command's medium usage frequency reflects its role as a management interface -- typically invoked for configuration and monitoring rather than per-request operations.
+This command operates under the **L2+** authority level and is executed by the `ollama-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command's medium usage frequency reflects its role as a management interface -- typically invoked for configuration and monitoring rather than per-request operations.
 
 ## Architecture
 
@@ -183,10 +183,10 @@ The `/ollama` command interfaces with the Ollama runtime through a multi-layered
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Managed by `ollama-coordinator` agent |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Registered command with AIAD metadata |
-| [Quality Gates](/glossary/quality-gates/) | Quality assessment | Output quality validation against benchmarks |
-| [Telemetry](/glossary/telemetry/) | Observability | Model performance [metrics](/glossary/metrics/) and usage stats |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Managed by `ollama-coordinator` agent |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Registered command with AIAD metadata |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality assessment | Output quality validation against benchmarks |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Model performance [metrics](@/glossary/metrics.md) and usage stats |
 | LLM Router | Routing | Local models as routing targets in multi-provider setup |
 | Claude Code | Fallback | Cloud AI fallback when local quality insufficient |
 | Environment Config | Configuration | `ANTHROPIC_AUTH_TOKEN`, `ANTHROPIC_BASE_URL` env vars |
@@ -256,19 +256,19 @@ Automatically determine optimal configuration for current hardware:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Model installations must complete fully or not at all. Configuration changes must be validated before acceptance. Quality assessments must meet minimum thresholds or trigger fallback.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Performance benchmarks provide quantitative evidence for model selection decisions. Quality thresholds are based on measured output quality, not assumptions. Fallback decisions are data-driven.
 
 ## Related Commands
 
-- [/local-llm](/commands/local-llm/) - Execute LLM requests using local providers with zero API cost
-- [/llm](/commands/llm/) - Primary LLM operation management and orchestration
-- [/openrouter](/commands/openrouter/) - OpenRouter LLM provider operations and management
-- [/chatgpt-bridge](/commands/chatgpt-bridge/) - ChatGPT bridge operations for cross-LLM coordination
-- [/gardener](/commands/gardener/) - [GARDEN](/glossary/garden/) legacy knowledge repository management across 116 repos
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/local-llm](@/commands/local-llm.md) - Execute LLM requests using local providers with zero API cost
+- [/llm](@/commands/llm.md) - Primary LLM operation management and orchestration
+- [/openrouter](@/commands/openrouter.md) - OpenRouter LLM provider operations and management
+- [/chatgpt-bridge](@/commands/chatgpt-bridge.md) - ChatGPT bridge operations for cross-LLM coordination
+- [/gardener](@/commands/gardener.md) - [GARDEN](@/glossary/garden.md) legacy knowledge repository management across 116 repos
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -277,4 +277,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,11 +26,11 @@ image_alt = "/presales - Prismatic Platform"
 
 **/presales** is the top-level production command in the **Presales** category of the Prismatic Platform, serving as the orchestration hub for all presales intelligence operations. The command provides company analysis, opportunity identification, and strategic presales coordination through a unified interface that delegates to specialized sub-commands for detailed analysis, technical assessment, pricing, competitive research, proposal generation, and case management.
 
-The presales intelligence system transforms raw business information into structured, actionable intelligence that accelerates the sales cycle and improves win rates. By integrating [OSINT](/glossary/osint/) capabilities from the platform's intelligence domain with business analysis tools from the presales domain, the command provides a uniquely comprehensive view of prospects that goes far beyond what traditional CRM systems or sales intelligence tools offer. Company analysis includes not just firmographic data but also technical infrastructure assessment, security posture evaluation, regulatory compliance status, and competitive positioning.
+The presales intelligence system transforms raw business information into structured, actionable intelligence that accelerates the sales cycle and improves win rates. By integrating [OSINT](@/glossary/osint.md) capabilities from the platform's intelligence domain with business analysis tools from the presales domain, the command provides a uniquely comprehensive view of prospects that goes far beyond what traditional CRM systems or sales intelligence tools offer. Company analysis includes not just firmographic data but also technical infrastructure assessment, security posture evaluation, regulatory compliance status, and competitive positioning.
 
-This command operates under the **L2+** authority level and is executed by the `presales-intelligence-commander` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. As a commander-level agent, the presales intelligence commander has the authority to orchestrate multiple sub-agents and sub-commands, coordinating the full presales pipeline from initial opportunity identification through proposal delivery.
+This command operates under the **L2+** authority level and is executed by the `presales-intelligence-commander` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. As a commander-level agent, the presales intelligence commander has the authority to orchestrate multiple sub-agents and sub-commands, coordinating the full presales pipeline from initial opportunity identification through proposal delivery.
 
-The command family follows a structured workflow: `/presales` for initial intelligence gathering and opportunity identification, [/presales-analyze](/commands/presales-analyze/) for document and content analysis, [/presales-assess](/commands/presales-assess/) for technical feasibility evaluation, [/presales-price](/commands/presales-price/) for pricing strategy, [/presales-research](/commands/presales-research/) for competitive intelligence, [/presales-case](/commands/presales-case/) for lifecycle management, and [/presales-propose](/commands/presales-propose/) for proposal generation. The `/presales` command can orchestrate this entire pipeline or be used independently for company intelligence.
+The command family follows a structured workflow: `/presales` for initial intelligence gathering and opportunity identification, [/presales-analyze](@/commands/presales-analyze.md) for document and content analysis, [/presales-assess](@/commands/presales-assess.md) for technical feasibility evaluation, [/presales-price](@/commands/presales-price.md) for pricing strategy, [/presales-research](@/commands/presales-research.md) for competitive intelligence, [/presales-case](@/commands/presales-case.md) for lifecycle management, and [/presales-propose](@/commands/presales-propose.md) for proposal generation. The `/presales` command can orchestrate this entire pipeline or be used independently for company intelligence.
 
 ## Architecture
 
@@ -158,18 +158,18 @@ The presales command follows different execution paths based on the selected ope
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/presales-analyze](/commands/presales-analyze/) | Sub-command | Document and content analysis |
-| [/presales-assess](/commands/presales-assess/) | Sub-command | Technical feasibility assessment |
-| [/presales-price](/commands/presales-price/) | Sub-command | Pricing strategy analysis |
-| [/presales-research](/commands/presales-research/) | Sub-command | Competitive intelligence |
-| [/presales-case](/commands/presales-case/) | Sub-command | Case lifecycle management |
-| [/presales-propose](/commands/presales-propose/) | Sub-command | Proposal generation |
-| [/investigate](/commands/investigate/) | Cross-domain | OSINT intelligence feeds |
-| [/person-investigate](/commands/person-investigate/) | Cross-domain | Decision-maker intelligence |
-| [/perimeter](/commands/perimeter/) | Cross-domain | Prospect security posture data |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `presales-intelligence-commander` agent |
-| [Prismatic Storage](/apps/prismatic-storage/) | Persistence | Company profiles, cases, intelligence |
-| [Telemetry](/glossary/telemetry/) | Observability | Pipeline metrics, conversion tracking |
+| [/presales-analyze](@/commands/presales-analyze.md) | Sub-command | Document and content analysis |
+| [/presales-assess](@/commands/presales-assess.md) | Sub-command | Technical feasibility assessment |
+| [/presales-price](@/commands/presales-price.md) | Sub-command | Pricing strategy analysis |
+| [/presales-research](@/commands/presales-research.md) | Sub-command | Competitive intelligence |
+| [/presales-case](@/commands/presales-case.md) | Sub-command | Case lifecycle management |
+| [/presales-propose](@/commands/presales-propose.md) | Sub-command | Proposal generation |
+| [/investigate](@/commands/investigate.md) | Cross-domain | OSINT intelligence feeds |
+| [/person-investigate](@/commands/person-investigate.md) | Cross-domain | Decision-maker intelligence |
+| [/perimeter](@/commands/perimeter.md) | Cross-domain | Prospect security posture data |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `presales-intelligence-commander` agent |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Persistence | Company profiles, cases, intelligence |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Pipeline metrics, conversion tracking |
 
 ## Best Practices
 
@@ -177,7 +177,7 @@ The presales command follows different execution paths based on the selected ope
 
 **Use ICP Scoring for Prioritization**: Configure your ideal customer profile and use `--score --icp` to objectively prioritize opportunities. This data-driven approach prevents the common mistake of pursuing attractive but poorly-fitting opportunities.
 
-**Leverage Cross-Domain Intelligence**: The presales command's integration with OSINT and Perimeter capabilities provides unique intelligence. A prospect's security posture (from [/perimeter](/commands/perimeter/)) or decision-maker profile (from [/person-investigate](/commands/person-investigate/)) can be decisive competitive advantages.
+**Leverage Cross-Domain Intelligence**: The presales command's integration with OSINT and Perimeter capabilities provides unique intelligence. A prospect's security posture (from [/perimeter](@/commands/perimeter.md)) or decision-maker profile (from [/person-investigate](@/commands/person-investigate.md)) can be decisive competitive advantages.
 
 **Automate the Pipeline for Standard Deals**: For opportunities that fit standard engagement patterns, use `--pipeline --auto` to automate the full presales workflow. This reduces cycle time and ensures no steps are skipped.
 
@@ -217,19 +217,19 @@ The presales command follows different execution paths based on the selected ope
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Company profiles include all available intelligence dimensions. Pipeline stages enforce strict quality gates. No opportunity is forwarded to proposal without complete technical and commercial analysis.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Company intelligence is sourced from verified public data with full provenance tracking. Opportunity scores are derived from objective criteria, not subjective assessment. The [NABLA](/glossary/nabla-infinity/) framework ensures that business intelligence claims are supported by multiple independent sources and that contradictory signals (e.g., strong financials vs. negative employee reviews) are both preserved in the analysis.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Company intelligence is sourced from verified public data with full provenance tracking. Opportunity scores are derived from objective criteria, not subjective assessment. The [NABLA](@/glossary/nabla-infinity.md) framework ensures that business intelligence claims are supported by multiple independent sources and that contradictory signals (e.g., strong financials vs. negative employee reviews) are both preserved in the analysis.
 
 ## Related Commands
 
-- [/presales-analyze](/commands/presales-analyze/) - Text, file and URL analysis for presales opportunity assessment
-- [/presales-assess](/commands/presales-assess/) - Technical assessment of opportunities and cases
-- [/presales-case](/commands/presales-case/) - Presales case management for status tracking and updates
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/presales-analyze](@/commands/presales-analyze.md) - Text, file and URL analysis for presales opportunity assessment
+- [/presales-assess](@/commands/presales-assess.md) - Technical assessment of opportunities and cases
+- [/presales-case](@/commands/presales-case.md) - Presales case management for status tracking and updates
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -238,4 +238,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -36,9 +36,9 @@ image_alt = "Domain-Driven Design - Prismatic Platform"
 
 Domain-Driven Design (DDD) is a software design methodology, articulated by Eric Evans in his 2003 book of the same name, that places the core business domain at the center of architectural decisions. It emphasizes a ubiquitous language shared between developers and domain experts, strategic decomposition into bounded contexts, and tactical patterns like aggregates, entities, value objects, and domain events to model complex business logic faithfully. DDD is not a technology or a framework -- it is a way of thinking about software that prioritizes understanding the problem domain before choosing implementation strategies.
 
-The methodology operates at two levels. Strategic DDD addresses the large-scale structure: how to decompose a complex domain into manageable [bounded contexts](/glossary/bounded-context/), how those contexts communicate, and where to invest modeling effort. Tactical DDD provides patterns for implementing domain logic within a bounded context: aggregates enforce transactional consistency boundaries, entities carry identity through state changes, value objects represent measurements or descriptions without identity, and domain events capture significant occurrences. The strategic level determines system architecture; the tactical level determines code structure within each component.
+The methodology operates at two levels. Strategic DDD addresses the large-scale structure: how to decompose a complex domain into manageable [bounded contexts](@/glossary/bounded-context.md), how those contexts communicate, and where to invest modeling effort. Tactical DDD provides patterns for implementing domain logic within a bounded context: aggregates enforce transactional consistency boundaries, entities carry identity through state changes, value objects represent measurements or descriptions without identity, and domain events capture significant occurrences. The strategic level determines system architecture; the tactical level determines code structure within each component.
 
-The Prismatic Platform's umbrella architecture directly reflects DDD principles. Each of the 115+ Elixir apps represents a bounded context with explicit boundaries: `prismatic_perimeter` owns the EASM domain, `prismatic_safety` owns quality enforcement, `prismatic_agents` owns the agent lifecycle, and `prismatic_storage_core` provides the shared kernel of traits and contracts. Cross-context communication uses well-defined protocols and [behaviours](/glossary/behaviour/) rather than shared mutable state, enforcing aggregate boundaries at the OTP process level. This alignment between DDD concepts and Elixir/OTP constructs is not coincidental -- both traditions prioritize explicit boundaries, message-based communication, and isolated state.
+The Prismatic Platform's umbrella architecture directly reflects DDD principles. Each of the 115+ Elixir apps represents a bounded context with explicit boundaries: `prismatic_perimeter` owns the EASM domain, `prismatic_safety` owns quality enforcement, `prismatic_agents` owns the agent lifecycle, and `prismatic_storage_core` provides the shared kernel of traits and contracts. Cross-context communication uses well-defined protocols and [behaviours](@/glossary/behaviour.md) rather than shared mutable state, enforcing aggregate boundaries at the OTP process level. This alignment between DDD concepts and Elixir/OTP constructs is not coincidental -- both traditions prioritize explicit boundaries, message-based communication, and isolated state.
 
 ## Historical Context and Evolution
 
@@ -52,7 +52,7 @@ The evolution from monolithic to distributed architectures has made DDD's strate
 
 ### Bounded Contexts
 
-The [bounded context](/glossary/bounded-context/) is the primary strategic pattern in DDD. It defines an explicit boundary within which a domain model is internally consistent. Different bounded contexts may use the same terminology with different meanings -- "asset" in `prismatic_perimeter` means an external attack surface element, while in `prismatic_storage_core` it means a storable entity.
+The [bounded context](@/glossary/bounded-context.md) is the primary strategic pattern in DDD. It defines an explicit boundary within which a domain model is internally consistent. Different bounded contexts may use the same terminology with different meanings -- "asset" in `prismatic_perimeter` means an external attack surface element, while in `prismatic_storage_core` it means a storable entity.
 
 | Prismatic App | Bounded Context | Core Domain Concept |
 |--------------|-----------------|---------------------|
@@ -75,10 +75,10 @@ Context mapping describes how bounded contexts relate to each other. DDD defines
 | **Shared Kernel** | Common code shared between contexts | `prismatic_storage_core` traits shared by all storage adapters |
 | **Customer-Supplier** | Upstream context serves downstream | `prismatic_perimeter` supplies data to `prismatic_web` |
 | **Anti-Corruption Layer** | Translation layer protecting context integrity | Storage adapters translating between domain and persistence models |
-| **Published Language** | Documented interface contract | [OpenAPI](/glossary/openapi/) spec for `prismatic_api` |
+| **Published Language** | Documented interface contract | [OpenAPI](@/glossary/openapi.md) spec for `prismatic_api` |
 | **Separate Ways** | Contexts with no integration | Independent utility apps |
 | **Conformist** | Downstream adopts upstream model | External OSINT provider response schemas |
-| **Open Host Service** | Context exposes a protocol for integration | [REST API](/glossary/rest-api/) gateway for external consumers |
+| **Open Host Service** | Context exposes a protocol for integration | [REST API](@/glossary/rest-api.md) gateway for external consumers |
 | **Partnership** | Two contexts coordinate development | `prismatic_web` and `prismatic_api` sharing authentication |
 
 ### Ubiquitous Language
@@ -92,7 +92,7 @@ Ubiquitous language is the shared vocabulary between developers and domain exper
 - **Glossary**: This glossary itself codifies the platform's ubiquitous language
 - **Type names**: `@type security_grade :: :A | :B | :C | :D | :F`, not `@type grade :: integer()`
 
-The ubiquitous language is not just a naming convention -- it is a design constraint. When the language used in code diverges from the language used by domain experts, it signals a modeling problem. The Prismatic Platform maintains language alignment through code review, naming standards enforced by [Credo](/glossary/credo/), and the AIAD agent specification format that requires domain-specific terminology.
+The ubiquitous language is not just a naming convention -- it is a design constraint. When the language used in code diverges from the language used by domain experts, it signals a modeling problem. The Prismatic Platform maintains language alignment through code review, naming standards enforced by [Credo](@/glossary/credo.md), and the AIAD agent specification format that requires domain-specific terminology.
 
 ## Tactical Patterns
 
@@ -155,7 +155,7 @@ defmodule PrismaticPerimeter.Domain.AttackSurface do
 end
 ```
 
-In OTP, aggregates map naturally to [GenServer](/glossary/genserver/) processes. Each aggregate instance has its own process with isolated state, enforcing the consistency boundary through the process mailbox -- only one message is processed at a time, providing serialized access without explicit locking. This is the defining insight of DDD on the BEAM: the aggregate pattern and the process model are isomorphic.
+In OTP, aggregates map naturally to [GenServer](@/glossary/genserver.md) processes. Each aggregate instance has its own process with isolated state, enforcing the consistency boundary through the process mailbox -- only one message is processed at a time, providing serialized access without explicit locking. This is the defining insight of DDD on the BEAM: the aggregate pattern and the process model are isomorphic.
 
 ### Entities and Value Objects
 
@@ -211,7 +211,7 @@ Domain events represent significant occurrences within a bounded context. They a
 | `SessionStarted` | `prismatic_claude` | `prismatic_safety` (baseline trigger) |
 | `ComplianceAssessed` | `prismatic_perimeter` | `prismatic_web`, reporting engine |
 
-Domain events flow between contexts through the platform's [PubSub](/glossary/pubsub/) system, maintaining the decoupling that DDD requires between bounded contexts.
+Domain events flow between contexts through the platform's [PubSub](@/glossary/pubsub.md) system, maintaining the decoupling that DDD requires between bounded contexts.
 
 ### Domain Services
 
@@ -239,7 +239,7 @@ end
 
 ### Repositories
 
-The repository pattern provides an abstraction over data persistence, allowing the domain model to remain ignorant of storage details. In the Prismatic Platform, [Ecto](/glossary/ecto/) serves as the repository implementation for relational data:
+The repository pattern provides an abstraction over data persistence, allowing the domain model to remain ignorant of storage details. In the Prismatic Platform, [Ecto](@/glossary/ecto.md) serves as the repository implementation for relational data:
 
 ```elixir
 defmodule PrismaticPerimeter.Repository.AssetRepository do
@@ -270,11 +270,11 @@ The alignment between DDD concepts and Elixir/OTP constructs is remarkably tight
 |-------------|---------------------|-------------|
 | Bounded Context | Umbrella app | Explicit dependency boundaries, separate compilation |
 | Aggregate | GenServer process | Serialized state access, isolated failure domain |
-| Entity | Struct with ID | [Pattern matching](/glossary/pattern-matching/), immutable updates via `%{struct \| field: value}` |
+| Entity | Struct with ID | [Pattern matching](@/glossary/pattern-matching.md), immutable updates via `%{struct \| field: value}` |
 | Value Object | Struct without ID | Structural equality, immutability by default |
-| Domain Event | [Message passing](/glossary/message-passing/) / PubSub | Asynchronous, location-transparent communication |
-| Repository | [Ecto](/glossary/ecto/) Repo | Query/persistence abstraction, changesets for validation |
-| Anti-Corruption Layer | Protocol / Behaviour | Explicit interface contracts, [adapter pattern](/glossary/adapter-pattern/) |
+| Domain Event | [Message passing](@/glossary/message-passing.md) / PubSub | Asynchronous, location-transparent communication |
+| Repository | [Ecto](@/glossary/ecto.md) Repo | Query/persistence abstraction, changesets for validation |
+| Anti-Corruption Layer | Protocol / Behaviour | Explicit interface contracts, [adapter pattern](@/glossary/adapter-pattern.md) |
 | Ubiquitous Language | Module naming | `PrismaticPerimeter.SecurityRating` reads as domain language |
 | Domain Service | Module with pure functions | Stateless operations across aggregates |
 | Factory | Constructor functions | `new/1`, `build/2` functions on domain structs |
@@ -283,7 +283,7 @@ This alignment means DDD patterns in Elixir are not forced abstractions but natu
 
 ## Hexagonal Architecture Integration
 
-DDD is frequently combined with hexagonal (ports and adapters) architecture, where the domain model sits at the center and external concerns (databases, APIs, UI) connect through ports (interfaces) and adapters (implementations). The [adapter pattern](/glossary/adapter-pattern/) in the Prismatic Platform implements this directly:
+DDD is frequently combined with hexagonal (ports and adapters) architecture, where the domain model sits at the center and external concerns (databases, APIs, UI) connect through ports (interfaces) and adapters (implementations). The [adapter pattern](@/glossary/adapter-pattern.md) in the Prismatic Platform implements this directly:
 
 ```
 +----------------------------------------------------------+
@@ -303,11 +303,11 @@ DDD is frequently combined with hexagonal (ports and adapters) architecture, whe
 +----------------------------------------------------------+
 ```
 
-The hexagonal architecture ensures that the domain model has no dependencies on infrastructure concerns. Storage adapters implement a [behaviour](/glossary/behaviour/) contract defined by the domain, not the other way around. This inversion of dependencies is what allows the Prismatic Platform to swap storage backends (ETS for development, Ecto for production, Meilisearch for search) without modifying any domain code.
+The hexagonal architecture ensures that the domain model has no dependencies on infrastructure concerns. Storage adapters implement a [behaviour](@/glossary/behaviour.md) contract defined by the domain, not the other way around. This inversion of dependencies is what allows the Prismatic Platform to swap storage backends (ETS for development, Ecto for production, Meilisearch for search) without modifying any domain code.
 
 ## CQRS and Event Sourcing Synergies
 
-DDD is frequently paired with [CQRS](/glossary/cqrs/) (Command Query Responsibility Segregation) and [Event Sourcing](/glossary/event-sourcing/). CQRS separates the write model (commands that change state) from the read model (queries that return data), allowing each to be optimized independently. Event sourcing persists the sequence of domain events rather than current state, providing a complete audit trail and enabling temporal queries.
+DDD is frequently paired with [CQRS](@/glossary/cqrs.md) (Command Query Responsibility Segregation) and [Event Sourcing](@/glossary/event-sourcing.md). CQRS separates the write model (commands that change state) from the read model (queries that return data), allowing each to be optimized independently. Event sourcing persists the sequence of domain events rather than current state, providing a complete audit trail and enabling temporal queries.
 
 In the Prismatic Platform, the event-driven architecture between bounded contexts naturally supports CQRS patterns: commands are processed within a bounded context's aggregate, while read models are built by consuming domain events in downstream contexts. The `prismatic_web` LiveView dashboard consumes events from `prismatic_perimeter` to build real-time read models for the UI, without the UI needing to understand the write model's internal structure.
 
@@ -352,27 +352,27 @@ defmodule PrismaticPerimeter.Domain.AttackSurfaceTest do
 end
 ```
 
-[Property-based testing](/glossary/property-based-testing/) is particularly valuable for DDD implementations, as it can verify aggregate invariants across thousands of random state transitions.
+[Property-based testing](@/glossary/property-based-testing.md) is particularly valuable for DDD implementations, as it can verify aggregate invariants across thousands of random state transitions.
 
 ## Related Terms
 
-- [Bounded Context](/glossary/bounded-context/) -- Primary decomposition unit in DDD, implemented as umbrella apps
-- [CQRS](/glossary/cqrs/) -- Pattern frequently used within DDD architectures for read/write separation
-- [Event Sourcing](/glossary/event-sourcing/) -- Persistence pattern aligned with domain events
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Hexagonal architecture implementation for storage and external services
-- [Message Passing](/glossary/message-passing/) -- Cross-context communication mechanism implementing domain events
-- [PubSub](/glossary/pubsub/) -- Event distribution system for cross-context integration
-- [Behaviour](/glossary/behaviour/) -- Callback-based contracts defining port interfaces
-- [Ecto](/glossary/ecto/) -- Repository pattern implementation for persistence
-- [Agent](/glossary/agent/) -- AIAD agents modeled using DDD principles within their bounded contexts
-- [Pattern Matching](/glossary/pattern-matching/) -- Elixir feature enabling expressive domain logic
-- [Process Isolation](/glossary/process-isolation/) -- BEAM property providing natural aggregate isolation
-- [GenServer](/glossary/genserver/) -- OTP behaviour providing aggregate process semantics
+- [Bounded Context](@/glossary/bounded-context.md) -- Primary decomposition unit in DDD, implemented as umbrella apps
+- [CQRS](@/glossary/cqrs.md) -- Pattern frequently used within DDD architectures for read/write separation
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Persistence pattern aligned with domain events
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Hexagonal architecture implementation for storage and external services
+- [Message Passing](@/glossary/message-passing.md) -- Cross-context communication mechanism implementing domain events
+- [PubSub](@/glossary/pubsub.md) -- Event distribution system for cross-context integration
+- [Behaviour](@/glossary/behaviour.md) -- Callback-based contracts defining port interfaces
+- [Ecto](@/glossary/ecto.md) -- Repository pattern implementation for persistence
+- [Agent](@/glossary/agent.md) -- AIAD agents modeled using DDD principles within their bounded contexts
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Elixir feature enabling expressive domain logic
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM property providing natural aggregate isolation
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour providing aggregate process semantics
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform domain architecture and strategic design decisions
-- [Apps](/apps/) -- Bounded context implementations across the umbrella
+- [Architecture](@/architecture/_index.md) -- Platform domain architecture and strategic design decisions
+- [Apps](@/apps/_index.md) -- Bounded context implementations across the umbrella
 
 ---
 
@@ -381,4 +381,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

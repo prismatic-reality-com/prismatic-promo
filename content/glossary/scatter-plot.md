@@ -172,11 +172,11 @@ end
 
 ## Cross-References
 
-- [Percentile](/glossary/percentile/) - Statistical distribution visualized alongside scatter plots
-- [Precision](/glossary/precision/) - ML metric plotted in precision-recall scatter plots
-- [Pivot Table](/glossary/pivot-table/) - Aggregated summary complementing scatter plot detail
+- [Percentile](@/glossary/percentile.md) - Statistical distribution visualized alongside scatter plots
+- [Precision](@/glossary/precision.md) - ML metric plotted in precision-recall scatter plots
+- [Pivot Table](@/glossary/pivot-table.md) - Aggregated summary complementing scatter plot detail
 - **Seasonality** - Temporal patterns visible in time-based scatter plots
-- [Profiling](/glossary/profiling/) - Performance data visualized as latency scatter plots
+- [Profiling](@/glossary/profiling.md) - Performance data visualized as latency scatter plots
 
 ---
 

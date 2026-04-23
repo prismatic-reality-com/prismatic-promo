@@ -379,24 +379,24 @@ The platform's knowledge graph contains entities and relationships that need tex
 
 Full text search connects to numerous infrastructure and data concepts in the Prismatic Platform:
 
-- [Meilisearch](/glossary/meilisearch/) is the primary full text search engine used by the platform
-- [PostgreSQL](/glossary/postgresql/) provides built-in full text search capabilities for SQL-integrated queries
-- [Database](/glossary/database/) covers the broader data storage context where full text search operates
-- [ETS](/glossary/ets/) provides in-memory caching for search results and frequently accessed indexes
-- [API](/glossary/api/) is the interface through which search capabilities are exposed to clients
-- [Performance](/glossary/performance/) is critical for search, where sub-50ms response times are the target
-- [Latency](/glossary/latency/) is the primary metric for search quality from a user experience perspective
-- [Caching](/glossary/caching/) is used to accelerate frequent search queries and reduce load on the search engine
-- [Embedding](/glossary/embedding/) enables semantic search that complements keyword-based full text search
-- [Knowledge Graph](/glossary/knowledge-graph/) provides the structured data that complements full text search
+- [Meilisearch](@/glossary/meilisearch.md) is the primary full text search engine used by the platform
+- [PostgreSQL](@/glossary/postgresql.md) provides built-in full text search capabilities for SQL-integrated queries
+- [Database](@/glossary/database.md) covers the broader data storage context where full text search operates
+- [ETS](@/glossary/ets.md) provides in-memory caching for search results and frequently accessed indexes
+- [API](@/glossary/api.md) is the interface through which search capabilities are exposed to clients
+- [Performance](@/glossary/performance.md) is critical for search, where sub-50ms response times are the target
+- [Latency](@/glossary/latency.md) is the primary metric for search quality from a user experience perspective
+- [Caching](@/glossary/caching.md) is used to accelerate frequent search queries and reduce load on the search engine
+- [Embedding](@/glossary/embedding.md) enables semantic search that complements keyword-based full text search
+- [Knowledge Graph](@/glossary/knowledge-graph.md) provides the structured data that complements full text search
 
 ## See Also
 
-- [OSINT](/glossary/osint/) for the intelligence domain where full text search is heavily used
-- [Agent Registry](/glossary/agent-registry/) for the agent discovery use case powered by full text search
-- [Stream Processing](/glossary/stream-processing/) for the event-driven architecture that feeds real-time index updates
-- [Telemetry](/glossary/telemetry/) for monitoring search quality and performance metrics
-- [Vector Database](/glossary/vector-database/) for the complementary semantic search technology
+- [OSINT](@/glossary/osint.md) for the intelligence domain where full text search is heavily used
+- [Agent Registry](@/glossary/agent-registry.md) for the agent discovery use case powered by full text search
+- [Stream Processing](@/glossary/stream-processing.md) for the event-driven architecture that feeds real-time index updates
+- [Telemetry](@/glossary/telemetry.md) for monitoring search quality and performance metrics
+- [Vector Database](@/glossary/vector-database.md) for the complementary semantic search technology
 
 ---
 

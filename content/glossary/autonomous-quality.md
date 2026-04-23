@@ -38,7 +38,7 @@ image_alt = "Autonomous Quality - Prismatic Platform"
 
 Autonomous Quality is the capability of a software system to maintain, enforce, and improve its own quality standards without human intervention. This goes beyond automated testing (which verifies properties defined by humans) to encompass the full quality lifecycle: defining quality metrics, monitoring them continuously, preventing degradation, detecting and eliminating quality debt, and ratcheting quality floors upward as the system improves.
 
-In the Prismatic Platform, autonomous quality is the mechanism that achieved and maintains a perfect 100/100 quality score across 13 quality domains with zero Quality Debt Points (QDP). The platform does not rely on human quality engineers to maintain this standard; instead, the [Quality Floor Guardian](/glossary/quality-floor-guardian/) monitors quality metrics continuously, [quality gates](/glossary/quality-gate/) block commits that would degrade quality, the [AutoEvolve](/glossary/autoevolve/) system identifies and applies quality improvements, and [Quality DNA](/glossary/quality-dna/) persists quality state across sessions to prevent cross-session regression.
+In the Prismatic Platform, autonomous quality is the mechanism that achieved and maintains a perfect 100/100 quality score across 13 quality domains with zero Quality Debt Points (QDP). The platform does not rely on human quality engineers to maintain this standard; instead, the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) monitors quality metrics continuously, [quality gates](@/glossary/quality-gate.md) block commits that would degrade quality, the [AutoEvolve](@/glossary/autoevolve.md) system identifies and applies quality improvements, and [Quality DNA](@/glossary/quality-dna.md) persists quality state across sessions to prevent cross-session regression.
 
 ## Overview
 
@@ -388,7 +388,7 @@ end
 
 ### Quality DNA Persistence
 
-[Quality DNA](/glossary/quality-dna/) ensures quality state persists across sessions:
+[Quality DNA](@/glossary/quality-dna.md) ensures quality state persists across sessions:
 
 ```json
 {
@@ -549,7 +549,7 @@ Focusing quality enforcement on one domain (e.g., test coverage) while ignoring 
 
 ### Quality Regression Between Sessions
 
-Quality degrading because session boundaries reset quality awareness. Prevention: [Quality DNA](/glossary/quality-dna/) persists quality state across sessions, and the session start protocol loads and validates the latest state.
+Quality degrading because session boundaries reset quality awareness. Prevention: [Quality DNA](@/glossary/quality-dna.md) persists quality state across sessions, and the session start protocol loads and validates the latest state.
 
 ### Pre-Commit Bypass
 
@@ -567,11 +567,11 @@ The `--warnings-as-errors` flag ensures that compiler warnings (often harbingers
 
 ### Type Safety Enforcement
 
-[Dialyzer](/glossary/dialyzer/) type analysis runs as Phase 2 of the pre-commit pipeline. Any type specification violation blocks the commit. Combined with the typespec coverage domain (Phase 11), this ensures that all public functions have `@spec` annotations and that all annotations are correct.
+[Dialyzer](@/glossary/dialyzer.md) type analysis runs as Phase 2 of the pre-commit pipeline. Any type specification violation blocks the commit. Combined with the typespec coverage domain (Phase 11), this ensures that all public functions have `@spec` annotations and that all annotations are correct.
 
 ### Pattern Compliance
 
-The [CASCADE](/glossary/cascade-pattern/) pattern methodology codifies five known quality anti-patterns. Autonomous quality detects these patterns in new code and either blocks the commit or applies automatic fixes, depending on the pattern complexity.
+The [CASCADE](@/glossary/cascade-pattern.md) pattern methodology codifies five known quality anti-patterns. Autonomous quality detects these patterns in new code and either blocks the commit or applies automatic fixes, depending on the pattern complexity.
 
 ### Cross-Session Quality Continuity
 
@@ -579,25 +579,25 @@ Quality DNA enables a developer to end a session with quality score 100/100 and 
 
 ## Related Concepts
 
-- [Quality Gate](/glossary/quality-gate/) -- Individual verification gates that compose the autonomous quality pipeline
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- GenServer implementing the quality floor ratchet mechanism
-- [Quality DNA](/glossary/quality-dna/) -- Persistence system enabling cross-session quality continuity
-- [Automated Self-Improvement](/glossary/automated-self-improvement/) -- Broader concept encompassing quality improvement as a key dimension
-- [Zero-Compromise Quality](/glossary/zero-compromise-quality/) -- Doctrine principle mandating no quality exceptions
-- [Clean Run](/glossary/clean-run/) -- Zero-warning compilation standard enforced by autonomous quality
-- [QDP](/glossary/qdp/) -- Quality Debt Points metric tracked and eliminated by autonomous quality
-- [CASCADE Pattern](/glossary/cascade-pattern/) -- Known anti-patterns detected by autonomous quality scanning
-- [AutoEvolve](/glossary/autoevolve/) -- Evolution system that applies quality improvements autonomously
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) -- Doctrine enforcing zero tolerance for quality violations
-- [Dialyzer](/glossary/dialyzer/) -- Type analysis tool integrated into the autonomous quality pipeline
-- [Credo](/glossary/credo/) -- Style and pattern analysis tool integrated into the autonomous quality pipeline
+- [Quality Gate](@/glossary/quality-gate.md) -- Individual verification gates that compose the autonomous quality pipeline
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- GenServer implementing the quality floor ratchet mechanism
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistence system enabling cross-session quality continuity
+- [Automated Self-Improvement](@/glossary/automated-self-improvement.md) -- Broader concept encompassing quality improvement as a key dimension
+- [Zero-Compromise Quality](@/glossary/zero-compromise-quality.md) -- Doctrine principle mandating no quality exceptions
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning compilation standard enforced by autonomous quality
+- [QDP](@/glossary/qdp.md) -- Quality Debt Points metric tracked and eliminated by autonomous quality
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) -- Known anti-patterns detected by autonomous quality scanning
+- [AutoEvolve](@/glossary/autoevolve.md) -- Evolution system that applies quality improvements autonomously
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) -- Doctrine enforcing zero tolerance for quality violations
+- [Dialyzer](@/glossary/dialyzer.md) -- Type analysis tool integrated into the autonomous quality pipeline
+- [Credo](@/glossary/credo.md) -- Style and pattern analysis tool integrated into the autonomous quality pipeline
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture supporting autonomous quality
-- [Capabilities](/capabilities/) -- Quality capabilities within the platform
-- [Technologies](/technologies/) -- Quality tooling and technologies
-- [Commands](/commands/) -- Quality-related mix tasks and commands
+- [Architecture](@/architecture/_index.md) -- Platform architecture supporting autonomous quality
+- [Capabilities](@/capabilities/_index.md) -- Quality capabilities within the platform
+- [Technologies](@/technologies/_index.md) -- Quality tooling and technologies
+- [Commands](@/commands/_index.md) -- Quality-related mix tasks and commands
 
 ---
 
@@ -606,4 +606,4 @@ Quality DNA enables a developer to end a session with quality score 100/100 and 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

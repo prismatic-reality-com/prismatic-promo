@@ -215,10 +215,10 @@ The platform enforces index usage through the performance policy: queries that t
 
 ## Cross-References
 
-- [Full-Text Index](/glossary/full-text-index/) -- GIN indexes for text search
-- [Execution Time](/glossary/execution-time/) -- Query timing improved by indexes
-- [ACID Transactions](/glossary/acid-transactions/) -- Transactional index maintenance
-- [Hit Rate](/glossary/hit-rate/) -- Index cache hit rate in shared buffers
+- [Full-Text Index](@/glossary/full-text-index.md) -- GIN indexes for text search
+- [Execution Time](@/glossary/execution-time.md) -- Query timing improved by indexes
+- [ACID Transactions](@/glossary/acid-transactions.md) -- Transactional index maintenance
+- [Hit Rate](@/glossary/hit-rate.md) -- Index cache hit rate in shared buffers
 - **Livebooks**: `storage_data/` notebooks demonstrate query optimization with indexes
 - **Academy**: Topics on database optimization cover index design
 
@@ -229,4 +229,4 @@ The platform enforces index usage through the performance policy: queries that t
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

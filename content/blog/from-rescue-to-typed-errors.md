@@ -18,7 +18,7 @@ see_also = ["error-handling", "zero-tolerance", "exunit", "observability", "stru
 image_alt = "From Bare Rescue to Typed Errors"
 +++
 
-A `rescue _ -> :error` is the programming equivalent of closing your eyes during a car crash. The exception happens; the context that would have told you *what* happened is discarded; all you know is "something." When Prismatic audited the codebase under the [zero-tolerance](/glossary/zero-tolerance) doctrine, it found 6,000+ bare rescues. Every single one was a place where a future outage would be harder to diagnose than it needed to be.
+A `rescue _ -> :error` is the programming equivalent of closing your eyes during a car crash. The exception happens; the context that would have told you *what* happened is discarded; all you know is "something." When Prismatic audited the codebase under the [zero-tolerance](@/glossary/zero-tolerance.md) doctrine, it found 6,000+ bare rescues. Every single one was a place where a future outage would be harder to diagnose than it needed to be.
 
 ## What is wrong with a bare rescue
 
@@ -61,7 +61,7 @@ Two improvements, both important:
 
 ## Let it crash — for real this time
 
-The Elixir slogan is "let it crash." A bare rescue is the opposite of that philosophy. It catches the crash, hides it, and makes the [supervisor](/glossary/supervisor) think everything is fine. Removing the rescue — so the adapter genuinely crashes and the supervisor genuinely restarts it — is usually the right move.
+The Elixir slogan is "let it crash." A bare rescue is the opposite of that philosophy. It catches the crash, hides it, and makes the [supervisor](@/glossary/supervisor.md) think everything is fine. Removing the rescue — so the adapter genuinely crashes and the supervisor genuinely restarts it — is usually the right move.
 
 The rule: only rescue what you can *do something about*. Otherwise let the process die and the supervisor recover.
 
@@ -80,6 +80,6 @@ Without the regression test, the next refactor reintroduces a bare rescue becaus
 ## Where to go next
 
 - **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — supervisors and crash recovery
-- **Glossary**: [Error Handling](/glossary/error-handling), [Zero Tolerance](/glossary/zero-tolerance), [ExUnit](/glossary/exunit), [Observability](/glossary/observability), [Structured Logging](/glossary/structured-logging)
+- **Glossary**: [Error Handling](@/glossary/error-handling.md), [Zero Tolerance](@/glossary/zero-tolerance.md), [ExUnit](@/glossary/exunit.md), [Observability](@/glossary/observability.md), [Structured Logging](@/glossary/structured-logging.md)
 
 6,000 silent failures caught nothing and explained nothing. Typed errors catch the right things and explain the rest. Pick the second one.

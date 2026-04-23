@@ -28,7 +28,7 @@ Plug is the middleware specification that underpins all HTTP processing in the P
 
 The elegance of Plug lies in its simplicity: a plug is any module that implements `init/1` and `call/2`, where `call/2` receives a `%Plug.Conn{}` struct and returns a (possibly modified) `%Plug.Conn{}`. This uniform interface means that authentication, logging, compression, CORS headers, and content negotiation are all implemented as interchangeable pipeline stages that can be composed in any order. The `%Plug.Conn{}` struct itself is immutable -- each transformation returns a new struct, making the request processing pipeline a pure data transformation pipeline.
 
-The Prismatic API gateway uses custom Plug modules extensively for its auto-introspecting REST API, where plugs handle endpoint discovery, parameter validation via [OpenAPI](/technologies/openapi/) schemas, and response formatting in a uniform pipeline. The main web application uses a separate set of plugs for browser sessions, CSRF protection, and user authentication. Both applications share common plugs for telemetry instrumentation and health checking.
+The Prismatic API gateway uses custom Plug modules extensively for its auto-introspecting REST API, where plugs handle endpoint discovery, parameter validation via [OpenAPI](@/technologies/openapi.md) schemas, and response formatting in a uniform pipeline. The main web application uses a separate set of plugs for browser sessions, CSRF protection, and user authentication. Both applications share common plugs for telemetry instrumentation and health checking.
 
 ## Key Features
 
@@ -88,7 +88,7 @@ defmodule PrismaticWeb.Plugs.APIAuth do
 end
 ```
 
-The rate limiter plug uses [Redis](/technologies/redis/) for distributed rate limiting across cluster nodes, ensuring fair API usage regardless of which node handles the request:
+The rate limiter plug uses [Redis](@/technologies/redis.md) for distributed rate limiting across cluster nodes, ensuring fair API usage regardless of which node handles the request:
 
 ```elixir
 defmodule PrismaticWeb.Plugs.RateLimiter do
@@ -128,7 +128,7 @@ end
 
 ## Architecture
 
-Plug sits at the core of the [Phoenix](/technologies/phoenix/) request lifecycle, processing every request through a defined sequence of transformations.
+Plug sits at the core of the [Phoenix](@/technologies/phoenix.md) request lifecycle, processing every request through a defined sequence of transformations.
 
 | Phase | Component | Purpose |
 |-------|-----------|---------|
@@ -171,7 +171,7 @@ The immutability guarantee means that each plug receives a fresh copy of the con
 
 ## Compile-Time Initialization
 
-The compile-time initialization provided by `init/1` is a particularly significant advantage in production. Because [Phoenix](/technologies/phoenix/) calls `init/1` at compile time and passes the result to every `call/2` invocation, expensive operations like regex compilation, configuration validation, and default value resolution happen once during application startup rather than on every request.
+The compile-time initialization provided by `init/1` is a particularly significant advantage in production. Because [Phoenix](@/technologies/phoenix.md) calls `init/1` at compile time and passes the result to every `call/2` invocation, expensive operations like regex compilation, configuration validation, and default value resolution happen once during application startup rather than on every request.
 
 ```elixir
 defmodule PrismaticWeb.Plugs.CorsPolicy do
@@ -302,18 +302,18 @@ Plug's immutable `%Plug.Conn{}` struct provides stronger guarantees than mutable
 
 ## Related Technologies
 
-- [Phoenix Framework](/technologies/phoenix/) - Built on top of Plug for routing, controllers, and endpoints
-- [JOSE](/technologies/jose/) - JWT token handling used in authentication plugs
-- [OpenAPI](/technologies/openapi/) - API specification validation through `OpenApiSpex.Plug.CastAndValidate`
-- [Redis](/technologies/redis/) - Backing store for distributed rate limiting in the rate limiter plug
-- [Elixir](/technologies/elixir/) - The language Plug is implemented in
-- [BEAM VM](/technologies/beam/) - Process model that handles each connection independently
+- [Phoenix Framework](@/technologies/phoenix.md) - Built on top of Plug for routing, controllers, and endpoints
+- [JOSE](@/technologies/jose.md) - JWT token handling used in authentication plugs
+- [OpenAPI](@/technologies/openapi.md) - API specification validation through `OpenApiSpex.Plug.CastAndValidate`
+- [Redis](@/technologies/redis.md) - Backing store for distributed rate limiting in the rate limiter plug
+- [Elixir](@/technologies/elixir.md) - The language Plug is implemented in
+- [BEAM VM](@/technologies/beam.md) - Process model that handles each connection independently
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - Browser-facing plug pipelines for sessions, CSRF, and authentication
-- [prismatic_api](/apps/prismatic-api/) - API plug pipelines for authentication, rate limiting, and OpenAPI validation
-- [prismatic_auth](/apps/prismatic-auth/) - Authentication modules consumed by plug middleware
+- [prismatic_web](@/apps/prismatic-web.md) - Browser-facing plug pipelines for sessions, CSRF, and authentication
+- [prismatic_api](@/apps/prismatic-api.md) - API plug pipelines for authentication, rate limiting, and OpenAPI validation
+- [prismatic_auth](@/apps/prismatic-auth.md) - Authentication modules consumed by plug middleware
 
 ---
 
@@ -322,4 +322,4 @@ Plug's immutable `%Plug.Conn{}` struct provides stronger guarantees than mutable
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

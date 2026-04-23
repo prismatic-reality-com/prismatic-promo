@@ -30,7 +30,7 @@ image_alt = "Hlidac statu - Prismatic Platform"
 
 Hlidac statu (Watchdog of the State) is the most comprehensive Czech civic-tech platform for monitoring government transparency, public spending accountability, and political-business connections. Founded by Michal Blaha, the platform represents one of the most sophisticated open-data analytics initiatives in Central Europe, aggregating data from dozens of Czech public registries and applying advanced analytics to expose patterns in public spending, political connections, potential corruption, and government accountability failures.
 
-For [OSINT](/glossary/osint/) analysts, Hlidac statu is an indispensable source for Czech entity intelligence. It provides pre-computed relationship graphs linking companies to politicians, risk ratings for government suppliers, and cross-referenced datasets that would otherwise require manual aggregation from multiple Czech registries. The platform processes millions of contracts, subsidies, procurement records, and media references into actionable intelligence products that significantly accelerate due diligence, anti-corruption investigation, and competitive intelligence operations focused on Czech entities.
+For [OSINT](@/glossary/osint.md) analysts, Hlidac statu is an indispensable source for Czech entity intelligence. It provides pre-computed relationship graphs linking companies to politicians, risk ratings for government suppliers, and cross-referenced datasets that would otherwise require manual aggregation from multiple Czech registries. The platform processes millions of contracts, subsidies, procurement records, and media references into actionable intelligence products that significantly accelerate due diligence, anti-corruption investigation, and competitive intelligence operations focused on Czech entities.
 
 The platform's significance extends beyond pure data aggregation. Hlidac statu applies proprietary analytics algorithms that compute risk ratings for companies doing business with the state, detect statistical anomalies in procurement patterns, map networks of political influence and business relationships, and identify patterns suggestive of corruption or conflicts of interest. These analytics transform raw registry data into intelligence-ready assessments that save analysts substantial time and effort.
 
@@ -66,7 +66,7 @@ Hlidac statu aggregates data from an extensive network of Czech government regis
 
 ## API Integration
 
-Hlidac statu provides a [REST API](/glossary/rest-api/) at `https://www.hlidacstatu.cz/api/v2/` with comprehensive access to contracts, companies, persons, datasets, and full-text search. A free API key is obtained through registration on the website.
+Hlidac statu provides a [REST API](@/glossary/rest-api.md) at `https://www.hlidacstatu.cz/api/v2/` with comprehensive access to contracts, companies, persons, datasets, and full-text search. A free API key is obtained through registration on the website.
 
 ```elixir
 defmodule Prismatic.Osint.HlidacStatu do
@@ -266,7 +266,7 @@ enriched = %{
 
 ### Due Diligence on Government Suppliers
 
-The primary OSINT use case for Hlidac statu is conducting due diligence on companies that receive public funds or compete for government contracts. The platform's [risk score](/glossary/risk-score/) provides an immediate screening indicator, while the detailed analytics enable deeper investigation into contract patterns, pricing anomalies, political connections, and subsidy dependencies that may indicate elevated risk.
+The primary OSINT use case for Hlidac statu is conducting due diligence on companies that receive public funds or compete for government contracts. The platform's [risk score](@/glossary/risk-score.md) provides an immediate screening indicator, while the detailed analytics enable deeper investigation into contract patterns, pricing anomalies, political connections, and subsidy dependencies that may indicate elevated risk.
 
 For compliance teams, Hlidac statu data supports anti-corruption assessments required under Czech law and EU directives. The political connection mapping is particularly valuable for identifying potential conflicts of interest that would not be visible through standard registry searches.
 
@@ -339,7 +339,7 @@ end
 
 ## Best Practices
 
-When using Hlidac statu for Czech entity intelligence, treat the risk rating as a screening indicator rather than a definitive assessment. High-risk ratings warrant deeper investigation but do not themselves prove wrongdoing, while low-risk ratings do not guarantee absence of issues. Always cross-reference Hlidac statu analytics with authoritative data from [ARES](/osint/ares/) for entity verification, [Justice.cz](/osint/justice-cz/) for ownership structure, and [Registr smluv](/osint/registr-smluv/) for raw contract data.
+When using Hlidac statu for Czech entity intelligence, treat the risk rating as a screening indicator rather than a definitive assessment. High-risk ratings warrant deeper investigation but do not themselves prove wrongdoing, while low-risk ratings do not guarantee absence of issues. Always cross-reference Hlidac statu analytics with authoritative data from [ARES](@/osint/ares.md) for entity verification, [Justice.cz](@/osint/justice-cz.md) for ownership structure, and [Registr smluv](@/osint/registr-smluv.md) for raw contract data.
 
 Political connection data should be assessed for materiality. The platform may flag connections through shared board memberships, family relationships, or other linkages that may or may not be relevant to the specific investigation. Human judgment is essential for determining whether flagged connections represent genuine risk factors.
 
@@ -347,13 +347,13 @@ For continuous monitoring, configure the Prismatic Platform to periodically refr
 
 ## Related Sources
 
-- [Registr smluv](/osint/registr-smluv/) - Raw contract data that Hlidac statu analyzes and enriches
-- [ARES](/osint/ares/) - Czech business [registry](/glossary/registry-otp/) for authoritative entity identification
-- [CEDR](/osint/cedr/) - Central Register of Subsidies for public funding data
-- [Verejne zakazky](/osint/verejne-zakazky/) - Public procurement portal for tender and award data
-- [Justice.cz](/osint/justice-cz/) - Commercial Register with ownership and beneficial owner data
-- [UOHS](/osint/uohs/) - Competition authority decisions for regulatory intelligence
-- [Databaze firem](/osint/databaze-firem/) - Business directory for supplementary contact data
+- [Registr smluv](@/osint/registr-smluv.md) - Raw contract data that Hlidac statu analyzes and enriches
+- [ARES](@/osint/ares.md) - Czech business [registry](@/glossary/registry-otp.md) for authoritative entity identification
+- [CEDR](@/osint/cedr.md) - Central Register of Subsidies for public funding data
+- [Verejne zakazky](@/osint/verejne-zakazky.md) - Public procurement portal for tender and award data
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register with ownership and beneficial owner data
+- [UOHS](@/osint/uohs.md) - Competition authority decisions for regulatory intelligence
+- [Databaze firem](@/osint/databaze-firem.md) - Business directory for supplementary contact data
 
 ---
 
@@ -362,4 +362,4 @@ For continuous monitoring, configure the Prismatic Platform to periodically refr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

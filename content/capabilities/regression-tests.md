@@ -26,7 +26,7 @@ The Mandatory Regression Test Protocol ensures that every bug fixed on the Prism
 
 Regression testing addresses one of the most persistent and costly failure modes in software engineering: the reintroduction of previously fixed bugs. Studies consistently show that 15-25% of bug fixes in complex systems inadvertently reintroduce bugs that were fixed earlier. In a platform with 2.8 million lines of code across 99 umbrella applications, even a small regression rate compounds into significant quality degradation over time. The Mandatory Regression Test Protocol eliminates this failure mode entirely.
 
-The protocol integrates with the [NO MERCY](/capabilities/no-mercy/) doctrine's zero-tolerance standards and is enforced through [Quality Gates](/capabilities/quality-gates/) pre-commit hooks that reject any bug fix commit lacking the required regression test. Combined with [Telemetry Integration](/capabilities/telemetry-integration/) for tracking regression test execution and [Real-Time Monitoring](/capabilities/real-time-monitoring/) for alerting on test failures, the protocol creates a comprehensive defense against regression.
+The protocol integrates with the [NO MERCY](@/capabilities/no-mercy.md) doctrine's zero-tolerance standards and is enforced through [Quality Gates](@/capabilities/quality-gates.md) pre-commit hooks that reject any bug fix commit lacking the required regression test. Combined with [Telemetry Integration](@/capabilities/telemetry-integration.md) for tracking regression test execution and [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) for alerting on test failures, the protocol creates a comprehensive defense against regression.
 
 ## Protocol Requirements
 
@@ -34,7 +34,7 @@ The Mandatory Regression Test Protocol follows a strict five-phase sequence that
 
 ### Phase 1: Root Cause Investigation
 
-Before writing any fix code, the developer must identify the bug's root cause with sufficient precision to design a targeted regression test. This aligns with the [NO DOUBTS](/capabilities/no-doubts/) doctrine's requirement for full investigation before action.
+Before writing any fix code, the developer must identify the bug's root cause with sufficient precision to design a targeted regression test. This aligns with the [NO DOUBTS](@/capabilities/no-doubts.md) doctrine's requirement for full investigation before action.
 
 | Investigation Step | Deliverable | Verification |
 |-------------------|-------------|--------------|
@@ -135,8 +135,8 @@ Apply the fix and verify that the regression test now passes, along with the ent
 | Apply the code fix | Fix addresses root cause | Targets actual failure mechanism |
 | Run regression test | Test PASSES | Proves fix resolves the bug |
 | Run full test suite | All tests PASS | Ensures no side effects |
-| Run [Dialyzer](/technologies/dialyzer/) | Zero type errors | Verifies type safety preserved |
-| Run [Credo](/technologies/credo/) strict | Zero issues | Verifies code quality maintained |
+| Run [Dialyzer](@/technologies/dialyzer.md) | Zero type errors | Verifies type safety preserved |
+| Run [Credo](@/technologies/credo.md) strict | Zero issues | Verifies code quality maintained |
 
 ### Phase 5: Regression Report
 
@@ -305,16 +305,16 @@ The regression test protocol produces measurable improvements in platform stabil
 
 The Mandatory Regression Test Protocol integrates with the broader platform quality infrastructure:
 
-- **[NO MERCY](/capabilities/no-mercy/)**: Regression protocol is a core enforcement mechanism of the zero-tolerance doctrine
-- **[NO DOUBTS](/capabilities/no-doubts/)**: Root cause investigation aligns with the full investigation pillar
-- **[Quality Gates](/capabilities/quality-gates/)**: Regression test presence verified as a gate requirement
-- **[Trinity Gate](/capabilities/trinity-gate/)**: Complex regressions may require formal verification through Trinity
-- **[Session Discipline](/capabilities/session-discipline/)**: Regression tests committed and pushed as part of session flow
-- **[Telemetry Integration](/capabilities/telemetry-integration/)**: Regression test execution tracked via telemetry events
-- **[Real-Time Monitoring](/capabilities/real-time-monitoring/)**: Regression test failures trigger immediate alerts
-- **[Autonomous Self-Healing](/capabilities/autonomous-self-healing/)**: Regression detection can trigger auto-healing cycles
-- **[AIAD Standard](/capabilities/aiad-standard/)**: Agent-related bug fixes follow the same regression protocol
-- **[Color Teams](/capabilities/color-teams/)**: Red Team identifies potential regression vectors for proactive testing
+- **[NO MERCY](@/capabilities/no-mercy.md)**: Regression protocol is a core enforcement mechanism of the zero-tolerance doctrine
+- **[NO DOUBTS](@/capabilities/no-doubts.md)**: Root cause investigation aligns with the full investigation pillar
+- **[Quality Gates](@/capabilities/quality-gates.md)**: Regression test presence verified as a gate requirement
+- **[Trinity Gate](@/capabilities/trinity-gate.md)**: Complex regressions may require formal verification through Trinity
+- **[Session Discipline](@/capabilities/session-discipline.md)**: Regression tests committed and pushed as part of session flow
+- **[Telemetry Integration](@/capabilities/telemetry-integration.md)**: Regression test execution tracked via telemetry events
+- **[Real-Time Monitoring](@/capabilities/real-time-monitoring.md)**: Regression test failures trigger immediate alerts
+- **[Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md)**: Regression detection can trigger auto-healing cycles
+- **[AIAD Standard](@/capabilities/aiad-standard.md)**: Agent-related bug fixes follow the same regression protocol
+- **[Color Teams](@/capabilities/color-teams.md)**: Red Team identifies potential regression vectors for proactive testing
 
 ## Commands
 
@@ -333,4 +333,4 @@ The Mandatory Regression Test Protocol integrates with the broader platform qual
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

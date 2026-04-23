@@ -166,11 +166,11 @@ Machine-readable API specifications enable automated tooling for documentation g
 | **AsyncAPI** | Event-driven API specification | YAML/JSON | Code generators, documentation |
 | **JSON Schema** | Data structure validation | JSON | Validators across all languages |
 
-[OpenAPI](/glossary/openapi/) has become the industry standard for REST APIs, and for good reason: it provides a single source of truth from which documentation, client SDKs, server stubs, validation middleware, and test suites can be generated. The Prismatic Platform uses OpenApiSpex to generate OpenAPI specifications directly from Elixir typespecs, eliminating the need for manual specification authoring.
+[OpenAPI](@/glossary/openapi.md) has become the industry standard for REST APIs, and for good reason: it provides a single source of truth from which documentation, client SDKs, server stubs, validation middleware, and test suites can be generated. The Prismatic Platform uses OpenApiSpex to generate OpenAPI specifications directly from Elixir typespecs, eliminating the need for manual specification authoring.
 
 ## API Security
 
-API security is a critical concern because APIs expose system functionality to potentially untrusted callers. A comprehensive API security strategy addresses [authentication](/glossary/authentication/), [authorization](/glossary/authorization/), transport security, input validation, and abuse prevention.
+API security is a critical concern because APIs expose system functionality to potentially untrusted callers. A comprehensive API security strategy addresses [authentication](@/glossary/authentication.md), [authorization](@/glossary/authorization.md), transport security, input validation, and abuse prevention.
 
 ```elixir
 defmodule Prismatic.API.Security do
@@ -388,7 +388,7 @@ Scanner → Registry (ETS) → DispatchController → safe_apply(Module, :functi
 1. **Boot-time Scanning**: Discovers all public functions across `Prismatic*` facade modules
 2. **Type Mapping**: Automatically converts Elixir `@spec` AST to OpenAPI JSON Schema
 3. **Generic Dispatch**: Single controller resolves `{app, action}` to `module.function(args)`
-4. **OpenApiSpex**: Full [OpenAPI](/glossary/openapi/) 3.0 specification with interactive [SwaggerUI](/glossary/swagger-ui/)
+4. **OpenApiSpex**: Full [OpenAPI](@/glossary/openapi.md) 3.0 specification with interactive [SwaggerUI](@/glossary/swagger-ui.md)
 
 ### Key API Endpoints
 
@@ -443,13 +443,13 @@ API performance directly impacts user experience and system costs. Key performan
 | **Connection Pooling** | HTTP/2, keep-alive | Reduces connection overhead |
 | **Rate Limiting** | Token bucket algorithm | Prevents abuse and ensures fairness |
 
-The Prismatic Platform enforces strict performance standards: all API endpoints must respond within 100ms server-side render time, with total page load under 250ms. These constraints are enforced through CI/CD gates and production [telemetry](/glossary/telemetry/) alerts.
+The Prismatic Platform enforces strict performance standards: all API endpoints must respond within 100ms server-side render time, with total page load under 250ms. These constraints are enforced through CI/CD gates and production [telemetry](@/glossary/telemetry.md) alerts.
 
 ## API Governance and Documentation
 
 API governance ensures consistency, discoverability, and quality across all APIs in an organization. The Prismatic Platform's approach to API governance is unique because it eliminates most governance overhead through auto-introspection: since APIs are generated from code, there is no separate specification to keep in sync, and documentation is always accurate.
 
-For external-facing APIs, additional governance concerns include deprecation policies, changelog management, and developer experience. Good [documentation](/glossary/documentation/) is essential for API adoption, and the Prismatic Platform generates interactive SwaggerUI documentation automatically from code.
+For external-facing APIs, additional governance concerns include deprecation policies, changelog management, and developer experience. Good [documentation](@/glossary/documentation.md) is essential for API adoption, and the Prismatic Platform generates interactive SwaggerUI documentation automatically from code.
 
 ## Historical Context
 
@@ -468,15 +468,15 @@ For external-facing APIs, additional governance concerns include deprecation pol
 
 ## Related Concepts
 
-- [OpenAPI](/glossary/openapi/) -- Specification standard for REST APIs
-- [Phoenix](/glossary/phoenix/) -- Web framework powering Prismatic APIs
-- [GraphQL](/glossary/graphql/) -- Query language for APIs
-- [Authentication](/glossary/authentication/) -- Identity verification for API access
-- [Authorization](/glossary/authorization/) -- Permission verification for API operations
-- [API Gateway](/glossary/api-gateway/) -- Centralized API management
-- [Telemetry](/glossary/telemetry/) -- API performance monitoring
-- [Documentation](/glossary/documentation/) -- API documentation practices
-- [Validation](/glossary/validation/) -- Input validation for API requests
+- [OpenAPI](@/glossary/openapi.md) -- Specification standard for REST APIs
+- [Phoenix](@/glossary/phoenix.md) -- Web framework powering Prismatic APIs
+- [GraphQL](@/glossary/graphql.md) -- Query language for APIs
+- [Authentication](@/glossary/authentication.md) -- Identity verification for API access
+- [Authorization](@/glossary/authorization.md) -- Permission verification for API operations
+- [API Gateway](@/glossary/api-gateway.md) -- Centralized API management
+- [Telemetry](@/glossary/telemetry.md) -- API performance monitoring
+- [Documentation](@/glossary/documentation.md) -- API documentation practices
+- [Validation](@/glossary/validation.md) -- Input validation for API requests
 
 ---
 
@@ -485,4 +485,4 @@ For external-facing APIs, additional governance concerns include deprecation pol
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

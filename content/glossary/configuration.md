@@ -164,10 +164,10 @@ The Quality DNA system persists configuration state across sessions in `.claude/
 
 ## Cross-References
 
-- [Configuration Drift](/glossary/configuration-drift/) - environment state divergence
-- [Compile-Time](/glossary/compile-time/) - build phase configuration evaluation
-- [Containerization](/glossary/containerization/) - container configuration management
-- [Connection Pool](/glossary/connection-pool/) - pool configuration settings
+- [Configuration Drift](@/glossary/configuration-drift.md) - environment state divergence
+- [Compile-Time](@/glossary/compile-time.md) - build phase configuration evaluation
+- [Containerization](@/glossary/containerization.md) - container configuration management
+- [Connection Pool](@/glossary/connection-pool.md) - pool configuration settings
 - **Consistency** - configuration consistency across environments
 - **Livebooks**: `livebooks/domains/platform_administration/` - configuration management
 - **Academy**: Platform configuration and deployment topics

@@ -23,15 +23,15 @@ image_alt = "Prismatic Ollama - Prismatic Platform"
 
 ## Overview
 
-Prismatic [Ollama](/glossary/ollama/) provides the platform's local AI [inference](/glossary/inference/) capability through integration with Ollama. It enables sovereign, on-premise language model usage without sending data to external cloud providers. The module manages model lifecycle, request routing, response processing, and quality gate enforcement for AI-generated outputs.
+Prismatic [Ollama](@/glossary/ollama.md) provides the platform's local AI [inference](@/glossary/inference.md) capability through integration with Ollama. It enables sovereign, on-premise language model usage without sending data to external cloud providers. The module manages model lifecycle, request routing, response processing, and quality gate enforcement for AI-generated outputs.
 
-Data sovereignty is a fundamental requirement for intelligence platforms handling sensitive [OSINT](/glossary/osint/), legal, and financial data. Prismatic Ollama ensures that no query or context data leaves the organization's infrastructure during AI-assisted analysis. Combined with the platform's [NABLA](/glossary/nabla-infinity/) epistemic framework, it provides AI capabilities where outputs are treated as signals requiring the same [confidence scoring](/glossary/confidence-scoring/), [provenance tracking](/glossary/provenance-mandatory/), and multi-source validation as any other intelligence source.
+Data sovereignty is a fundamental requirement for intelligence platforms handling sensitive [OSINT](@/glossary/osint.md), legal, and financial data. Prismatic Ollama ensures that no query or context data leaves the organization's infrastructure during AI-assisted analysis. Combined with the platform's [NABLA](@/glossary/nabla-infinity.md) epistemic framework, it provides AI capabilities where outputs are treated as signals requiring the same [confidence scoring](@/glossary/confidence-scoring.md), [provenance tracking](@/glossary/provenance-mandatory.md), and multi-source validation as any other intelligence source.
 
 ## Model Management
 
 ### Coordinator Agent
 
-The Ollama Coordinator Agent ([AIAD](/glossary/aiad/)-compliant) manages the full model lifecycle:
+The Ollama Coordinator Agent ([AIAD](@/glossary/aiad.md)-compliant) manages the full model lifecycle:
 
 ```
 Model Discovery --> Health Check --> Load/Unload --> Request Routing --> Quality Gate
@@ -46,7 +46,7 @@ Model Discovery --> Health Check --> Load/Unload --> Request Routing --> Quality
 | **Health Monitoring** | Periodic latency and accuracy testing | Every 60s |
 | **Memory Management** | Load/unload models based on memory pressure | Threshold-based |
 | **Version Tracking** | Track model versions, trigger re-evaluation on update | On model pull |
-| **Failover** | Automatic cloud fallback when local models unavailable | [Circuit breaker](/glossary/circuit-breaker/) |
+| **Failover** | Automatic cloud fallback when local models unavailable | [Circuit breaker](@/glossary/circuit-breaker.md) |
 
 ### Model Registry
 
@@ -161,13 +161,13 @@ AI-generated outputs are treated as untrusted signals requiring validation:
 | **Schema Compliance** | Output matches expected structure | Retry with stricter prompt |
 | **Factual Grounding** | Claims reference verifiable data | Flag as ungrounded |
 | **Code Compilation** | Generated code compiles without errors | Retry with error context |
-| **[Credo](/glossary/credo/) Compliance** | Generated code passes Credo strict | Auto-fix or retry |
+| **[Credo](@/glossary/credo.md) Compliance** | Generated code passes Credo strict | Auto-fix or retry |
 | **Confidence Scoring** | AI self-reported confidence meets threshold | Route to larger model or cloud |
-| **[NABLA](/glossary/nabla-infinity/) Integration** | Output treated as signal, not truth | [Signal Plurality](/glossary/signal-plurality/) requirement |
+| **[NABLA](@/glossary/nabla-infinity.md) Integration** | Output treated as signal, not truth | [Signal Plurality](@/glossary/signal-plurality.md) requirement |
 
 ### NABLA Epistemic Integration
 
-AI outputs are integrated into the [belief graph](/glossary/belief-graph/) as signals with explicit provenance:
+AI outputs are integrated into the [belief graph](@/glossary/belief-graph.md) as signals with explicit provenance:
 
 ```elixir
 # AI output registered as NABLA signal
@@ -189,7 +189,7 @@ signal = %{
 
 | Metric | Target | Current | Measurement |
 |--------|--------|---------|-------------|
-| **Response Time (7B)** | < 3s | 2.1s avg | [Telemetry](/glossary/telemetry/) p50 |
+| **Response Time (7B)** | < 3s | 2.1s avg | [Telemetry](@/glossary/telemetry.md) p50 |
 | **Response Time (20B)** | < 5s | 4.2s avg | Telemetry p50 |
 | **Memory Usage** | < 8GB per 7B model | 7.2GB | `:erlang.memory/0` |
 | **Uptime** | > 99% | 99.7% | Health check monitoring |
@@ -211,38 +211,38 @@ Request --> Prompt Template --> Model Selector --> Ollama API --> Response Parse
 | **HTTP Client** | Finch with connection pooling and streaming |
 | **Templates** | ETS-cached prompt templates with hot reload |
 | **Quality Gates** | Configurable validation pipeline per task type |
-| **[Circuit Breaker](/glossary/circuit-breaker/)** | Auto-opens after 3 failures, resets after 60s |
+| **[Circuit Breaker](@/glossary/circuit-breaker.md)** | Auto-opens after 3 failures, resets after 60s |
 | **Telemetry** | Full event coverage for inference, quality, routing |
 
 ## Integration Points
 
 | Integrates With | Purpose |
 |----------------|---------|
-| **[Prismatic MCP](/apps/prismatic-mcp/)** | MCP tools use Ollama for local AI operations |
-| **[Prismatic Agents](/apps/prismatic-agents/)** | Agent AI capabilities backed by local inference |
-| **[Prismatic Nabla](/apps/prismatic-nabla/)** | AI outputs as [NABLA](/glossary/nabla-infinity/)-managed signals |
-| **[Prismatic Claude](/apps/prismatic-claude/)** | Cloud fallback through Claude integration |
-| **[Prismatic Quality Intelligence](/apps/prismatic-quality-intelligence/)** | AI-assisted quality analysis |
+| **[Prismatic MCP](@/apps/prismatic-mcp.md)** | MCP tools use Ollama for local AI operations |
+| **[Prismatic Agents](@/apps/prismatic-agents.md)** | Agent AI capabilities backed by local inference |
+| **[Prismatic Nabla](@/apps/prismatic-nabla.md)** | AI outputs as [NABLA](@/glossary/nabla-infinity.md)-managed signals |
+| **[Prismatic Claude](@/apps/prismatic-claude.md)** | Cloud fallback through Claude integration |
+| **[Prismatic Quality Intelligence](@/apps/prismatic-quality-intelligence.md)** | AI-assisted quality analysis |
 
 ## Related Components
 
-- [Prismatic MCP](/apps/prismatic-mcp/) - Model Context [Protocol](/glossary/protocol/) server
-- [Prismatic Claude](/apps/prismatic-claude/) - Claude AI integration (cloud)
-- [Prismatic Agents](/apps/prismatic-agents/) - Agent runtime with AI capabilities
-- [Prismatic Web](/apps/prismatic-web/) - [LiveView](/glossary/liveview/) dashboards
-- [Prismatic API](/apps/prismatic-api/) - REST [API gateway](/glossary/api-gateway/)
+- [Prismatic MCP](@/apps/prismatic-mcp.md) - Model Context [Protocol](@/glossary/protocol.md) server
+- [Prismatic Claude](@/apps/prismatic-claude.md) - Claude AI integration (cloud)
+- [Prismatic Agents](@/apps/prismatic-agents.md) - Agent runtime with AI capabilities
+- [Prismatic Web](@/apps/prismatic-web.md) - [LiveView](@/glossary/liveview.md) dashboards
+- [Prismatic API](@/apps/prismatic-api.md) - REST [API gateway](@/glossary/api-gateway.md)
 
 ## Related Agents
 
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Drives model selection and quality gate evolution for AI inference
-- [Cross-Pollination Specialist](/agents/cross-pollination-specialist/) -- Transfers AI capabilities across code generation, analysis, and extraction domains
-- [ChatGPT Analyze](/agents/chatgpt-analyze/) -- AI-assisted analysis patterns adapted for local Ollama inference
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Drives model selection and quality gate evolution for AI inference
+- [Cross-Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Transfers AI capabilities across code generation, analysis, and extraction domains
+- [ChatGPT Analyze](@/agents/chatgpt-analyze.md) -- AI-assisted analysis patterns adapted for local Ollama inference
 
 ## Related Capabilities
 
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- AI outputs treated as signals with provenance tracking and confidence scoring
-- [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) -- Multiple model capabilities (code, analysis, extraction) unified in single pipeline
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Automatic cloud fallback when local models are unavailable or fail quality gates
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- AI outputs treated as signals with provenance tracking and confidence scoring
+- [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) -- Multiple model capabilities (code, analysis, extraction) unified in single pipeline
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Automatic cloud fallback when local models are unavailable or fail quality gates
 
 ---
 
@@ -251,4 +251,4 @@ Request --> Prompt Template --> Model Selector --> Ollama API --> Response Parse
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

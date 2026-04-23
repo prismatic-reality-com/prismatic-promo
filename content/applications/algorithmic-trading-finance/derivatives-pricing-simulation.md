@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-Derivatives pricing simulation — An academic treatment of quantitative finance and algorithmic trading systems within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **derivatives pricing simulation** as implemented within the Prismatic Platform's quantitative finance and algorithmic trading systems domain. We formalize the problem space through the lens of alpha generation and market microstructure, propose a multi-agent architecture leveraging [otp](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates mean-variance optimization, reinforcement learning for portfolio management, statistical arbitrage to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for quantitative finance and algorithmic trading systems.
+Derivatives pricing simulation — An academic treatment of quantitative finance and algorithmic trading systems within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **derivatives pricing simulation** as implemented within the Prismatic Platform's quantitative finance and algorithmic trading systems domain. We formalize the problem space through the lens of alpha generation and market microstructure, propose a multi-agent architecture leveraging [otp](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates mean-variance optimization, reinforcement learning for portfolio management, statistical arbitrage to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for quantitative finance and algorithmic trading systems.
 
 **Keywords:** Derivatives, pricing, simulation, Prismatic-native, Algorithmic, Trading
 
@@ -113,9 +113,9 @@ The derivatives pricing simulation system is implemented as a Prismatic-native a
 └─────────────────────────────────────────────────┘
 ```
 
-### 3.2 [OTP](/glossary/otp/) Process Topology
+### 3.2 [OTP](@/glossary/otp.md) Process Topology
 
-The system leverages [elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule DerivativesPricingSimulation.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ets](/glossary/ets/)-backed [genserver](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ets](@/glossary/ets.md)-backed [genserver](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -215,9 +215,9 @@ The implementation leverages the Prismatic Platform's technology stack:
 
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
-| Runtime | [Elixir](/glossary/elixir/) 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
-| Web Layer | Phoenix [liveview](/glossary/liveview/) | Real-time interactive dashboards |
-| Storage | PostgreSQL + [ETS](/glossary/ets/) | Persistent + in-memory storage |
+| Runtime | [Elixir](@/glossary/elixir.md) 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
+| Web Layer | Phoenix [liveview](@/glossary/liveview.md) | Real-time interactive dashboards |
+| Storage | PostgreSQL + [ETS](@/glossary/ets.md) | Persistent + in-memory storage |
 | Search | Meilisearch | Full-text search and indexing |
 | Styling | TailwindCSS + Flowbite | Consistent UI component library |
 | Graphs | KuzuDB | Relationship and network analysis |
@@ -263,7 +263,7 @@ defmodule Prismatic.Applications.DerivativesPricingSimulation do
 end
 ```
 
-### 5.3 [LiveView](/glossary/liveview/) Dashboard
+### 5.3 [LiveView](@/glossary/liveview.md) Dashboard
 
 The system includes a real-time LiveView dashboard providing:
 
@@ -464,19 +464,19 @@ config :prismatic, DerivativesPricingSimulation,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [Pricing strategy sandbox](/applications/business-organizational-training/pricing-strategy-sandbox/) — *Business Organizational Training*
-- [AI alignment thought experiments](/applications/ethics-moral-philosophy/ai-alignment-thought-experiments/) — *Ethics Moral Philosophy*
-- [Bias & fairness audit engine](/applications/ethics-moral-philosophy/bias-fairness-audit-engine/) — *Ethics Moral Philosophy*
-- [Ethical voting system simulation](/applications/multi-agent-societies/ethical-voting-system-simulation/) — *Multi Agent Societies*
+- [Pricing strategy sandbox](@/applications/business-organizational-training/pricing-strategy-sandbox.md) — *Business Organizational Training*
+- [AI alignment thought experiments](@/applications/ethics-moral-philosophy/ai-alignment-thought-experiments.md) — *Ethics Moral Philosophy*
+- [Bias & fairness audit engine](@/applications/ethics-moral-philosophy/bias-fairness-audit-engine.md) — *Ethics Moral Philosophy*
+- [Ethical voting system simulation](@/applications/multi-agent-societies/ethical-voting-system-simulation.md) — *Multi Agent Societies*
 
 
 ## Further Reading
 
-- [Algorithmic Trading Finance — All Applications](/applications/algorithmic-trading-finance/)
-- [Business Organizational Training](/applications/business-organizational-training/)
-- [Legal Governance Systems](/applications/legal-governance-systems/)
-- [Ethics Moral Philosophy](/applications/ethics-moral-philosophy/)
-- [Prismatic Application Catalogue](/applications/)
+- [Algorithmic Trading Finance — All Applications](@/applications/algorithmic-trading-finance/_index.md)
+- [Business Organizational Training](@/applications/business-organizational-training/_index.md)
+- [Legal Governance Systems](@/applications/legal-governance-systems/_index.md)
+- [Ethics Moral Philosophy](@/applications/ethics-moral-philosophy/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

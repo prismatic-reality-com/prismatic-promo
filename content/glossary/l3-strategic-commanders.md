@@ -36,7 +36,7 @@ image_alt = "L3 Strategic Commanders - Prismatic Platform"
 
 ## Definition
 
-L3 Strategic Commanders are mid-upper tier agents in the AIAD (AI-Augmented Intelligence Design) hierarchy, possessing multi-domain coordination authority that enables them to orchestrate agents across domain boundaries. Unlike [L1 Operational Units](/glossary/l1-operational-units/) (single-domain, read-only) and [L2 Tactical Specialists](/glossary/l2-tactical-specialists/) (single-domain, write access), L3 agents operate across multiple domains simultaneously, coordinating complex workflows that require data from multiple sources, analysis from multiple specialists, and actions across multiple subsystems.
+L3 Strategic Commanders are mid-upper tier agents in the AIAD (AI-Augmented Intelligence Design) hierarchy, possessing multi-domain coordination authority that enables them to orchestrate agents across domain boundaries. Unlike [L1 Operational Units](@/glossary/l1-operational-units.md) (single-domain, read-only) and [L2 Tactical Specialists](@/glossary/l2-tactical-specialists.md) (single-domain, write access), L3 agents operate across multiple domains simultaneously, coordinating complex workflows that require data from multiple sources, analysis from multiple specialists, and actions across multiple subsystems.
 
 L3 Strategic Commanders are the first tier in the AIAD hierarchy with authority to delegate work to agents in other domains, escalate issues to higher authority levels, and make decisions that affect multiple subsystems. They are team commanders, campaign coordinators, and cross-functional orchestrators. In the Prismatic Platform's Color-Team security architecture, every team commander (red-commander, blue-commander, purple-coordinator) is an L3 agent.
 
@@ -74,7 +74,7 @@ The three capabilities unique to L3 -- coordinate, delegate, and escalate -- def
 
 - **Coordinate**: Direct agents across domain boundaries. An L3 intelligence commander can coordinate DNS collection (OSINT domain), entity resolution (analysis domain), and risk scoring (compliance domain) into a unified investigation
 - **Delegate**: Assign specific tasks to L1 and L2 agents. Delegation includes task definition, timeout specification, and result handling
-- **Escalate**: Raise issues that exceed L3 authority to L4 Domain Authority or L5 Supreme Authority. Escalation follows the [chain of command](/glossary/chain-of-command/) protocol
+- **Escalate**: Raise issues that exceed L3 authority to L4 Domain Authority or L5 Supreme Authority. Escalation follows the [chain of command](@/glossary/chain-of-command.md) protocol
 
 ### Color-Team L3 Commanders
 
@@ -636,9 +636,9 @@ The Prismatic Platform deploys approximately 80 L3 Strategic Commanders across i
 |--------|--------------|-----------------|
 | **Color-Team Security** | 6 | Team command (Red, Blue, Purple, White, Gray, Black) |
 | **OSINT Operations** | 15 | Multi-source investigation campaigns |
-| **Intelligence Analysis** | 12 | Cross-domain [intelligence analysis](/glossary/intelligence-analysis/) |
-| **Compliance** | 10 | [KYC](/glossary/kyc/)/[AML](/glossary/aml/) workflow coordination |
-| **EASM** | 8 | [Attack surface](/glossary/attack-surface/) discovery campaigns |
+| **Intelligence Analysis** | 12 | Cross-domain [intelligence analysis](@/glossary/intelligence-analysis.md) |
+| **Compliance** | 10 | [KYC](@/glossary/kyc.md)/[AML](@/glossary/aml.md) workflow coordination |
+| **EASM** | 8 | [Attack surface](@/glossary/attack-surface.md) discovery campaigns |
 | **Quality Assurance** | 8 | Cross-app quality gate enforcement |
 | **Platform Operations** | 7 | Infrastructure coordination |
 | **Evolution** | 6 | Autoevolution campaign management |
@@ -651,7 +651,7 @@ An L3 OSINT Commander executing a corporate due diligence campaign:
 
 1. **Phase 1 (Collection)**: Delegates to 8 L1 collectors (ARES, Justice.cz, WHOIS, DNS, CT logs, ISIR, Sanctions, Web)
 2. **Phase 2 (Processing)**: Delegates to 3 L2 specialists (entity resolution, data enrichment, format normalization)
-3. **Phase 3 (Analysis)**: Delegates to 2 L2 analysts ([risk scoring](/glossary/risk-score/), [threat assessment](/glossary/threat-assessment/))
+3. **Phase 3 (Analysis)**: Delegates to 2 L2 analysts ([risk scoring](@/glossary/risk-score.md), [threat assessment](@/glossary/threat-assessment.md))
 4. **Phase 4 (Synthesis)**: L3 Commander synthesizes results into unified investigation report
 5. **Phase 5 (Dissemination)**: Delegates to L1 notifiers for report delivery
 
@@ -711,7 +711,7 @@ AIAD L3's advantage: typed domain boundaries, structural authority enforcement, 
 
 ### Multi-Source OSINT Investigation
 
-An L3 OSINT Commander coordinates a comprehensive investigation of a target entity by delegating DNS collection, WHOIS lookup, certificate transparency monitoring, business registry queries, and sanctions screening to specialized [L1 Operational Units](/glossary/l1-operational-units/), then synthesizing results into a unified intelligence product.
+An L3 OSINT Commander coordinates a comprehensive investigation of a target entity by delegating DNS collection, WHOIS lookup, certificate transparency monitoring, business registry queries, and sanctions screening to specialized [L1 Operational Units](@/glossary/l1-operational-units.md), then synthesizing results into a unified intelligence product.
 
 ### Color-Team Security Exercise
 
@@ -719,7 +719,7 @@ The Purple L3 Coordinator orchestrates a complete Red-Blue loop: directing the R
 
 ### Cross-Domain Compliance Workflow
 
-A Compliance L3 Commander coordinates [KYC](/glossary/kyc/) verification across OSINT collection (L1 registry queries), entity resolution (L2 identity matching), risk scoring (L2 assessment), and sanctions screening (L1 list checking) to produce a unified compliance decision.
+A Compliance L3 Commander coordinates [KYC](@/glossary/kyc.md) verification across OSINT collection (L1 registry queries), entity resolution (L2 identity matching), risk scoring (L2 assessment), and sanctions screening (L1 list checking) to produce a unified compliance decision.
 
 ### Platform Evolution Campaign
 
@@ -727,25 +727,25 @@ An Evolution L3 Commander coordinates autoevolution scans across multiple umbrel
 
 ## Related Concepts
 
-- [Agent Tier](/glossary/agent-tier/) -- The hierarchical classification system defining L1 through L5
-- [Authority Level](/glossary/authority-level/) -- Access and permission framework governing agent capabilities
-- [L1 Operational Units](/glossary/l1-operational-units/) -- The agents L3 commanders most frequently delegate to
-- [L2 Tactical Specialists](/glossary/l2-tactical-specialists/) -- Domain specialists providing deep analysis under L3 coordination
-- [L5 Supreme Authority](/glossary/l5-supreme-authority/) -- Platform-wide governance tier that L3 escalates to
-- [AIAD](/glossary/aiad/) -- The AI-Augmented Intelligence Design framework defining the hierarchy
-- [Chain of Command](/glossary/chain-of-command/) -- The authority flow from L5 through L1
-- [Strategic Command](/glossary/strategic-command/) -- Command patterns that L3 agents implement
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision architecture for commander fault tolerance
-- [GenServer](/glossary/genserver/) -- The OTP behaviour underlying commander implementations
+- [Agent Tier](@/glossary/agent-tier.md) -- The hierarchical classification system defining L1 through L5
+- [Authority Level](@/glossary/authority-level.md) -- Access and permission framework governing agent capabilities
+- [L1 Operational Units](@/glossary/l1-operational-units.md) -- The agents L3 commanders most frequently delegate to
+- [L2 Tactical Specialists](@/glossary/l2-tactical-specialists.md) -- Domain specialists providing deep analysis under L3 coordination
+- [L5 Supreme Authority](@/glossary/l5-supreme-authority.md) -- Platform-wide governance tier that L3 escalates to
+- [AIAD](@/glossary/aiad.md) -- The AI-Augmented Intelligence Design framework defining the hierarchy
+- [Chain of Command](@/glossary/chain-of-command.md) -- The authority flow from L5 through L1
+- [Strategic Command](@/glossary/strategic-command.md) -- Command patterns that L3 agents implement
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision architecture for commander fault tolerance
+- [GenServer](@/glossary/genserver.md) -- The OTP behaviour underlying commander implementations
 
 ## See Also
 
-- [AIAD](/glossary/aiad/) -- Framework specification
-- [Agent Tier](/glossary/agent-tier/) -- Hierarchy overview
-- [L1 Operational Units](/glossary/l1-operational-units/) -- Operational tier
-- [L2 Tactical Specialists](/glossary/l2-tactical-specialists/) -- Tactical tier
-- [L5 Supreme Authority](/glossary/l5-supreme-authority/) -- Supreme tier
-- [Intelligence Analysis](/glossary/intelligence-analysis/) -- Key L3 coordination domain
+- [AIAD](@/glossary/aiad.md) -- Framework specification
+- [Agent Tier](@/glossary/agent-tier.md) -- Hierarchy overview
+- [L1 Operational Units](@/glossary/l1-operational-units.md) -- Operational tier
+- [L2 Tactical Specialists](@/glossary/l2-tactical-specialists.md) -- Tactical tier
+- [L5 Supreme Authority](@/glossary/l5-supreme-authority.md) -- Supreme tier
+- [Intelligence Analysis](@/glossary/intelligence-analysis.md) -- Key L3 coordination domain
 
 ---
 
@@ -754,4 +754,4 @@ An Evolution L3 Commander coordinates autoevolution scans across multiple umbrel
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

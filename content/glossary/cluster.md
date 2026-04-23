@@ -20,9 +20,9 @@ image_alt = "Cluster - Prismatic Platform"
 
 ## Definition
 
-A cluster in the Erlang/Elixir context is a group of connected [BEAM](/glossary/beam/) virtual machine nodes that can transparently communicate via [message passing](/glossary/message-passing/). Distributed Erlang provides location-transparent process communication -- a process on Node A can send messages to a process on Node B using exactly the same syntax as local messaging (`send(pid, message)`). The receiving process cannot distinguish whether the message came from a local or remote process. This transparency enables horizontal scaling, fault tolerance through geographic distribution, and shared state via distributed ETS, CRDTs, or libraries like Horde.
+A cluster in the Erlang/Elixir context is a group of connected [BEAM](@/glossary/beam.md) virtual machine nodes that can transparently communicate via [message passing](@/glossary/message-passing.md). Distributed Erlang provides location-transparent process communication -- a process on Node A can send messages to a process on Node B using exactly the same syntax as local messaging (`send(pid, message)`). The receiving process cannot distinguish whether the message came from a local or remote process. This transparency enables horizontal scaling, fault tolerance through geographic distribution, and shared state via distributed ETS, CRDTs, or libraries like Horde.
 
-Unlike microservice architectures where services communicate through HTTP, gRPC, or message queues, Erlang clusters communicate through the native Erlang distribution protocol -- a persistent TCP connection between nodes that carries Erlang terms directly. This eliminates serialization overhead for inter-node communication and allows the full spectrum of OTP patterns (GenServer calls, supervisor trees, monitors, links) to work transparently across node boundaries. A [supervisor](/glossary/supervisor/) on one node can monitor a process on another node; a GenServer call from Node A to a process on Node B looks identical to a local call.
+Unlike microservice architectures where services communicate through HTTP, gRPC, or message queues, Erlang clusters communicate through the native Erlang distribution protocol -- a persistent TCP connection between nodes that carries Erlang terms directly. This eliminates serialization overhead for inter-node communication and allows the full spectrum of OTP patterns (GenServer calls, supervisor trees, monitors, links) to work transparently across node boundaries. A [supervisor](@/glossary/supervisor.md) on one node can monitor a process on another node; a GenServer call from Node A to a process on Node B looks identical to a local call.
 
 Node discovery can be manual (configuring node names directly), DNS-based (resolving a DNS record to a list of node addresses), or use libraries like `libcluster` for automatic topology management. In cloud environments, `libcluster` provides strategies for Kubernetes, Fly.io, EC2, and other platforms that automatically discover peer nodes and form clusters without manual configuration.
 
@@ -123,7 +123,7 @@ config :libcluster,
 
 ### Distributed PubSub
 
-[Phoenix.PubSub](/glossary/pubsub/) automatically propagates messages across cluster nodes:
+[Phoenix.PubSub](@/glossary/pubsub.md) automatically propagates messages across cluster nodes:
 
 ```elixir
 # Broadcasting on Node A -- all subscribers on ALL nodes receive the message
@@ -266,15 +266,15 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform is designed for clustered deployment on [Fly.io](/glossary/fly-io/), with the following distributed capabilities:
+The Prismatic Platform is designed for clustered deployment on [Fly.io](@/glossary/fly-io.md), with the following distributed capabilities:
 
 - **Automatic Node Discovery**: `libcluster` with Fly.io DNS strategy discovers peer nodes automatically. New instances join the cluster within seconds of starting.
-- **Distributed PubSub**: [Phoenix.PubSub](/glossary/pubsub/) messages propagate across all cluster nodes automatically. Security alerts, quality events, and agent status updates are visible platform-wide.
-- **[LiveView](/glossary/liveview/) Session Recovery**: LiveView connections can survive node restarts through session recovery mechanisms. Users experience brief reconnections rather than lost state.
-- **Agent Workload Distribution**: [Agent](/glossary/agent/) processes can be distributed across cluster members using Horde, enabling horizontal scaling of agent execution capacity.
+- **Distributed PubSub**: [Phoenix.PubSub](@/glossary/pubsub.md) messages propagate across all cluster nodes automatically. Security alerts, quality events, and agent status updates are visible platform-wide.
+- **[LiveView](@/glossary/liveview.md) Session Recovery**: LiveView connections can survive node restarts through session recovery mechanisms. Users experience brief reconnections rather than lost state.
+- **Agent Workload Distribution**: [Agent](@/glossary/agent.md) processes can be distributed across cluster members using Horde, enabling horizontal scaling of agent execution capacity.
 - **PrismaticSupervisor**: The `prismatic_supervisor` app provides pluggable backends -- ETS for single-node development and Horde for multi-node production clusters.
 - **Distributed ETS**: Certain read-heavy data (agent specifications, quality rules) can be replicated across nodes using distributed ETS for local-speed access.
-- **[Consensus](/glossary/consensus-algorithm/) for Coordination**: Cluster-wide operations (quality gate enforcement, agent scheduling) use consensus mechanisms to ensure consistent decision-making across nodes.
+- **[Consensus](@/glossary/consensus-algorithm.md) for Coordination**: Cluster-wide operations (quality gate enforcement, agent scheduling) use consensus mechanisms to ensure consistent decision-making across nodes.
 
 ## Cluster Sizing Considerations
 
@@ -773,22 +773,22 @@ end
 
 ## Related Concepts
 
-- [BEAM](/glossary/beam/) - Virtual machine enabling distributed clustering
-- [Distributed System](/glossary/distributed-system/) - General distributed systems theory and challenges
-- [Fly.io](/glossary/fly-io/) - Deployment platform hosting the production cluster
-- [Process Isolation](/glossary/process-isolation/) - Per-process fault boundaries extend across cluster
-- [PubSub](/glossary/pubsub/) - Messaging system that spans cluster nodes automatically
-- [Consensus Algorithm](/glossary/consensus-algorithm/) - Agreement protocols for cluster-wide decisions
-- [CAP Theorem](/glossary/cap-theorem/) - Fundamental constraint on distributed system properties
-- [Eventual Consistency](/glossary/eventual-consistency/) - Consistency model for distributed data
-- [Load Balancing](/glossary/load-balancing/) - Distributing requests across cluster nodes
-- [Docker](/glossary/docker/) - Container platform for consistent node deployment
+- [BEAM](@/glossary/beam.md) - Virtual machine enabling distributed clustering
+- [Distributed System](@/glossary/distributed-system.md) - General distributed systems theory and challenges
+- [Fly.io](@/glossary/fly-io.md) - Deployment platform hosting the production cluster
+- [Process Isolation](@/glossary/process-isolation.md) - Per-process fault boundaries extend across cluster
+- [PubSub](@/glossary/pubsub.md) - Messaging system that spans cluster nodes automatically
+- [Consensus Algorithm](@/glossary/consensus-algorithm.md) - Agreement protocols for cluster-wide decisions
+- [CAP Theorem](@/glossary/cap-theorem.md) - Fundamental constraint on distributed system properties
+- [Eventual Consistency](@/glossary/eventual-consistency.md) - Consistency model for distributed data
+- [Load Balancing](@/glossary/load-balancing.md) - Distributing requests across cluster nodes
+- [Docker](@/glossary/docker.md) - Container platform for consistent node deployment
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform distributed architecture
-- [Technologies](/technologies/) - Distributed Erlang and clustering technology
-- [Capabilities](/capabilities/) - Horizontal scaling and fault tolerance capabilities
+- [Architecture](@/architecture/_index.md) - Platform distributed architecture
+- [Technologies](@/technologies/_index.md) - Distributed Erlang and clustering technology
+- [Capabilities](@/capabilities/_index.md) - Horizontal scaling and fault tolerance capabilities
 
 ---
 
@@ -797,4 +797,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

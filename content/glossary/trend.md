@@ -220,10 +220,10 @@ end
 
 ## Cross-References
 
-- [Time Series](/glossary/time-series/) - Temporal data underlying trends
+- [Time Series](@/glossary/time-series.md) - Temporal data underlying trends
 - **Z-Score** - Statistical measure for anomaly detection
-- [Monitoring](/glossary/monitoring/) - Observation systems generating trend data
-- [Variance](/glossary/variance/) - Statistical dispersion in trend analysis
+- [Monitoring](@/glossary/monitoring.md) - Observation systems generating trend data
+- [Variance](@/glossary/variance.md) - Statistical dispersion in trend analysis
 - **Visualization** - Graphical trend representation
 
 ---

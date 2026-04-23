@@ -28,7 +28,7 @@ image_alt = "local-llm-coordinator - Prismatic Platform"
 
 ## Overview
 
-The Local LLM Coordinator operates as an L3 strategic command agent within the LLM domain of the Prismatic Platform. This agent manages the lifecycle, configuration, and optimization of locally-deployed LLM models running through [Ollama](/glossary/ollama/), providing privacy-preserving, zero-latency AI inference capabilities without external API dependencies. The coordinator handles model selection, memory management, health monitoring, and performance optimization for the platform's local AI infrastructure.
+The Local LLM Coordinator operates as an L3 strategic command agent within the LLM domain of the Prismatic Platform. This agent manages the lifecycle, configuration, and optimization of locally-deployed LLM models running through [Ollama](@/glossary/ollama.md), providing privacy-preserving, zero-latency AI inference capabilities without external API dependencies. The coordinator handles model selection, memory management, health monitoring, and performance optimization for the platform's local AI infrastructure.
 
 Local LLM deployment addresses three critical requirements: data privacy (sensitive code and intelligence data never leaves the local machine), cost reduction (eliminating per-token API charges for routine operations), and latency (sub-second responses for interactive development workflows). The Local LLM Coordinator ensures that locally-deployed models deliver consistent quality by managing model configurations, monitoring inference quality, and automatically falling back to cloud providers when local models cannot meet quality thresholds for complex tasks.
 
@@ -172,29 +172,29 @@ The coordinator manages Ollama server configuration for optimal performance.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/). Multi-domain coordination for local LLM operations. The coordinator manages all Ollama model operations and reports health status to the routing orchestrator.
+**L3** - [Strategic Command](@/glossary/strategic-command.md). Multi-domain coordination for local LLM operations. The coordinator manages all Ollama model operations and reports health status to the routing orchestrator.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [ollama-coordinator](/agents/ollama-coordinator/) | Infrastructure Partner | Manages Ollama server process and system-level configuration |
-| [llm-routing-orchestrator-agent](/agents/llm-routing-orchestrator-agent/) | Routing Authority | Reports local model availability for routing decisions |
-| [llm-model-selector](/agents/llm-model-selector/) | Model Selection | Assists with model selection for specific task types |
-| [cost-optimization-specialist](/agents/cost-optimization-specialist/) | Cost Tracking | Reports local inference as cost-free alternative to cloud |
+| [ollama-coordinator](@/agents/ollama-coordinator.md) | Infrastructure Partner | Manages Ollama server process and system-level configuration |
+| [llm-routing-orchestrator-agent](@/agents/llm-routing-orchestrator-agent.md) | Routing Authority | Reports local model availability for routing decisions |
+| [llm-model-selector](@/agents/llm-model-selector.md) | Model Selection | Assists with model selection for specific task types |
+| [cost-optimization-specialist](@/agents/cost-optimization-specialist.md) | Cost Tracking | Reports local inference as cost-free alternative to cloud |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [Ollama](/glossary/ollama/) | Primary local inference runtime |
-| [Circuit Breaker](/glossary/circuit-breaker/) | Health management for local model availability |
-| Platform [Telemetry](/glossary/telemetry/) | Model performance metrics and health status |
-| [SEADF](/glossary/seadf/) | Evolutionary optimization of model configurations |
+| [Ollama](@/glossary/ollama.md) | Primary local inference runtime |
+| [Circuit Breaker](@/glossary/circuit-breaker.md) | Health management for local model availability |
+| Platform [Telemetry](@/glossary/telemetry.md) | Model performance metrics and health status |
+| [SEADF](@/glossary/seadf.md) | Evolutionary optimization of model configurations |
 
 ## Enforcement
 
-The Local LLM Coordinator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. All model health checks must pass before models are marked as available for routing. Quality monitoring triggers automatic cloud fallback when local model quality degrades below thresholds. Memory management prevents out-of-memory conditions through proactive eviction. Model configurations are version-controlled and reproducible. Performance metrics are continuously collected and analyzed for optimization opportunities.
+The Local LLM Coordinator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. All model health checks must pass before models are marked as available for routing. Quality monitoring triggers automatic cloud fallback when local model quality degrades below thresholds. Memory management prevents out-of-memory conditions through proactive eviction. Model configurations are version-controlled and reproducible. Performance metrics are continuously collected and analyzed for optimization opportunities.
 
 ---
 
@@ -203,4 +203,4 @@ The Local LLM Coordinator operates under the [NO MERCY, NO DOUBTS](/glossary/no-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

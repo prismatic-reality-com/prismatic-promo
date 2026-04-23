@@ -472,24 +472,24 @@ The developer portal's comprehensive API documentation, including request/respon
 
 The developer portal connects to numerous concepts across the Prismatic Platform:
 
-- [API](/glossary/api/) -- The programmatic interfaces that the developer portal documents and makes accessible
-- [REST API](/glossary/rest-api/) -- The architectural style used by the Prismatic Platform's HTTP API endpoints
-- [OpenAPI](/glossary/openapi/) -- The specification standard that powers the portal's auto-generated documentation
-- [Swagger UI](/glossary/swagger-ui/) -- The interactive API exploration tool embedded in the developer portal
-- [SDK](/glossary/sdk/) -- The language-specific client libraries generated from the OpenAPI specification and distributed through the portal
-- [Documentation](/glossary/documentation/) -- The broader documentation strategy of which the developer portal is the external-facing component
-- [Authentication](/glossary/authentication/) -- The credential management and verification system exposed through the portal
-- [API Gateway](/glossary/api-gateway/) -- The infrastructure layer that routes portal API requests to the correct backend services
-- [Developer Experience](/glossary/developer-experience/) -- The overall quality of the developer's interaction with the platform, of which the portal is the primary touchpoint
-- [Prismatic API](/glossary/prismatic-api/) -- The auto-introspecting REST gateway that powers the developer portal's backend
+- [API](@/glossary/api.md) -- The programmatic interfaces that the developer portal documents and makes accessible
+- [REST API](@/glossary/rest-api.md) -- The architectural style used by the Prismatic Platform's HTTP API endpoints
+- [OpenAPI](@/glossary/openapi.md) -- The specification standard that powers the portal's auto-generated documentation
+- [Swagger UI](@/glossary/swagger-ui.md) -- The interactive API exploration tool embedded in the developer portal
+- [SDK](@/glossary/sdk.md) -- The language-specific client libraries generated from the OpenAPI specification and distributed through the portal
+- [Documentation](@/glossary/documentation.md) -- The broader documentation strategy of which the developer portal is the external-facing component
+- [Authentication](@/glossary/authentication.md) -- The credential management and verification system exposed through the portal
+- [API Gateway](@/glossary/api-gateway.md) -- The infrastructure layer that routes portal API requests to the correct backend services
+- [Developer Experience](@/glossary/developer-experience.md) -- The overall quality of the developer's interaction with the platform, of which the portal is the primary touchpoint
+- [Prismatic API](@/glossary/prismatic-api.md) -- The auto-introspecting REST gateway that powers the developer portal's backend
 
 ## See Also
 
-- [OpenAPI Spec](/glossary/openapi-spec/) -- Technical details of the OpenAPI 3.0 specification used by the portal
-- [Rate Limiting](/glossary/rate-limiting/) -- How API usage limits are enforced and communicated through the portal
-- [Endpoint](/glossary/endpoint/) -- The individual API operations discoverable through the portal
-- [Introspection](/glossary/introspection/) -- The metaprogramming technique that enables automatic API documentation
-- [Prismatic Web](/glossary/prismatic-web/) -- The LiveView application that hosts the developer portal's interactive features
+- [OpenAPI Spec](@/glossary/openapi-spec.md) -- Technical details of the OpenAPI 3.0 specification used by the portal
+- [Rate Limiting](@/glossary/rate-limiting.md) -- How API usage limits are enforced and communicated through the portal
+- [Endpoint](@/glossary/endpoint.md) -- The individual API operations discoverable through the portal
+- [Introspection](@/glossary/introspection.md) -- The metaprogramming technique that enables automatic API documentation
+- [Prismatic Web](@/glossary/prismatic-web.md) -- The LiveView application that hosts the developer portal's interactive features
 
 ---
 
@@ -498,4 +498,4 @@ The developer portal connects to numerous concepts across the Prismatic Platform
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

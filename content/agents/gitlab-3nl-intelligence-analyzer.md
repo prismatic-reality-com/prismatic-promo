@@ -28,15 +28,15 @@ image_alt = "GitLab 3NL Intelligence Analyzer - Prismatic Platform"
 
 ## Overview
 
-The GitLab [3NL](/glossary/three-nl/) Intelligence Analyzer operates as an L3 strategic command agent within the Prismatic Platform's autonomous ecosystem. This agent applies the Three-level Neurosymbolic Logic framework to GitLab project data, extracting strategic intelligence about development patterns, workflow efficiency, team dynamics, and project health. By combining the 3NL framework's three reasoning modalities -- logical, neural, and linguistic -- the agent produces multi-dimensional assessments that transcend simple metrics to deliver genuine strategic insight from operational data managed through the [AIAD](/glossary/aiad/) standard.
+The GitLab [3NL](@/glossary/three-nl.md) Intelligence Analyzer operates as an L3 strategic command agent within the Prismatic Platform's autonomous ecosystem. This agent applies the Three-level Neurosymbolic Logic framework to GitLab project data, extracting strategic intelligence about development patterns, workflow efficiency, team dynamics, and project health. By combining the 3NL framework's three reasoning modalities -- logical, neural, and linguistic -- the agent produces multi-dimensional assessments that transcend simple metrics to deliver genuine strategic insight from operational data managed through the [AIAD](@/glossary/aiad.md) standard.
 
-Within the platform's 434-agent ecosystem, the GitLab 3NL Intelligence Analyzer bridges the gap between project management tooling and strategic intelligence. While GitLab provides raw project data (issues, merge requests, pipelines, milestones), this agent transforms that data into intelligence products that inform development strategy, resource allocation, and quality management decisions. The analyzer integrates with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, ensuring all assessments meet signal plurality requirements and preserve contradictory evidence rather than smoothing it over.
+Within the platform's 434-agent ecosystem, the GitLab 3NL Intelligence Analyzer bridges the gap between project management tooling and strategic intelligence. While GitLab provides raw project data (issues, merge requests, pipelines, milestones), this agent transforms that data into intelligence products that inform development strategy, resource allocation, and quality management decisions. The analyzer integrates with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, ensuring all assessments meet signal plurality requirements and preserve contradictory evidence rather than smoothing it over.
 
 The agent's outputs feed directly into milestone risk assessments, resource allocation decisions, and workflow optimization initiatives. Every intelligence product carries full provenance, enabling downstream consumers to trace any assessment back to the specific GitLab data points and reasoning modalities that produced it.
 
 ## Architecture
 
-The GitLab 3NL Intelligence Analyzer is implemented as a supervised [OTP](/glossary/otp/) application with dedicated [GenServer](/glossary/genserver/) processes managing each of the three reasoning layers independently within the platform's [supervision tree](/glossary/supervision-tree/).
+The GitLab 3NL Intelligence Analyzer is implemented as a supervised [OTP](@/glossary/otp.md) application with dedicated [GenServer](@/glossary/genserver.md) processes managing each of the three reasoning layers independently within the platform's [supervision tree](@/glossary/supervision-tree.md).
 
 ```elixir
 defmodule PrismaticAgents.GitLab3NLAnalyzer do
@@ -112,15 +112,15 @@ The L1 Logic Layer applies rule-based reasoning to identify patterns and derive 
 
 | Agent | Relationship |
 |-------|-------------|
-| [3nl-coordinator](/agents/3nl-coordinator/) | Provides 3NL framework coordination, consuming GitLab intelligence for strategic reasoning |
-| [3nl-l1-logic](/agents/3nl-l1-logic/) | Supplies logic layer rule-based reasoning used for GitLab constraint analysis |
-| [3nl-l3-linguistic](/agents/3nl-l3-linguistic/) | Provides NLP capabilities for issue description and comment analysis |
-| [gitlab-strategic-coordinator](/agents/gitlab-strategic-coordinator/) | Consumes synthesized intelligence for strategic milestone planning |
-| [gitlab-full-circle-coordinator](/agents/gitlab-full-circle-coordinator/) | Receives intelligence supporting end-to-end lifecycle decision-making |
+| [3nl-coordinator](@/agents/3nl-coordinator.md) | Provides 3NL framework coordination, consuming GitLab intelligence for strategic reasoning |
+| [3nl-l1-logic](@/agents/3nl-l1-logic.md) | Supplies logic layer rule-based reasoning used for GitLab constraint analysis |
+| [3nl-l3-linguistic](@/agents/3nl-l3-linguistic.md) | Provides NLP capabilities for issue description and comment analysis |
+| [gitlab-strategic-coordinator](@/agents/gitlab-strategic-coordinator.md) | Consumes synthesized intelligence for strategic milestone planning |
+| [gitlab-full-circle-coordinator](@/agents/gitlab-full-circle-coordinator.md) | Receives intelligence supporting end-to-end lifecycle decision-making |
 
 ## Enforcement
 
-The GitLab 3NL Intelligence Analyzer operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with strict epistemic rigor. The [NABLA Infinity](/glossary/nabla-infinity/) framework governs all assessments: the Signal Plurality axiom requires that strategic assessments draw on multiple data dimensions rather than relying on any single indicator. The Contradiction Preservation axiom maintains competing interpretations when GitLab data is ambiguous -- a declining issue completion rate might indicate reduced velocity or might indicate that remaining issues are more complex. Assessments are evidence-based, complete, and uncompromising. If data indicates a milestone is at risk, the assessment states this clearly. All intelligence products pass [Trinity Gate](/glossary/trinity-gate/) validation for structural, logical, and formal consistency before publication.
+The GitLab 3NL Intelligence Analyzer operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with strict epistemic rigor. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs all assessments: the Signal Plurality axiom requires that strategic assessments draw on multiple data dimensions rather than relying on any single indicator. The Contradiction Preservation axiom maintains competing interpretations when GitLab data is ambiguous -- a declining issue completion rate might indicate reduced velocity or might indicate that remaining issues are more complex. Assessments are evidence-based, complete, and uncompromising. If data indicates a milestone is at risk, the assessment states this clearly. All intelligence products pass [Trinity Gate](@/glossary/trinity-gate.md) validation for structural, logical, and formal consistency before publication.
 
 ---
 
@@ -129,4 +129,4 @@ The GitLab 3NL Intelligence Analyzer operates under the [NO MERCY, NO DOUBTS](/g
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

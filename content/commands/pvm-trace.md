@@ -24,11 +24,11 @@ image_alt = "/pvm-trace - Prismatic Platform"
 
 ## Overview
 
-**/pvm-trace** is a production command in the **PVM** category of the Prismatic Platform that provides real-time execution tracing and debugging capabilities for [PVM](/glossary/pvm/) (Prismatic Virtual Machine) programs. The command attaches to a running PVM program or replays a recorded execution, providing instruction-level visibility into program behavior including register state, stack frames, heap allocations, I/O operations, and control flow decisions.
+**/pvm-trace** is a production command in the **PVM** category of the Prismatic Platform that provides real-time execution tracing and debugging capabilities for [PVM](@/glossary/pvm.md) (Prismatic Virtual Machine) programs. The command attaches to a running PVM program or replays a recorded execution, providing instruction-level visibility into program behavior including register state, stack frames, heap allocations, I/O operations, and control flow decisions.
 
-Tracing is essential for understanding the runtime behavior of compiled PVM programs, particularly when debugging failures, diagnosing performance bottlenecks, or verifying that a program behaves according to its specification. The tracer operates at the bytecode instruction level but maps each instruction back to its source IR line through the debug information embedded by the [/pvm-compile](/commands/pvm-compile/) command, enabling developers to reason about program behavior in terms of the original high-level description.
+Tracing is essential for understanding the runtime behavior of compiled PVM programs, particularly when debugging failures, diagnosing performance bottlenecks, or verifying that a program behaves according to its specification. The tracer operates at the bytecode instruction level but maps each instruction back to its source IR line through the debug information embedded by the [/pvm-compile](@/commands/pvm-compile.md) command, enabling developers to reason about program behavior in terms of the original high-level description.
 
-This command operates under the **L2+** authority level and is executed by the `pvm-executor` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The tracer is designed to have minimal performance impact on the traced program, using asynchronous event collection and buffered output to avoid introducing timing artifacts that would alter program behavior.
+This command operates under the **L2+** authority level and is executed by the `pvm-executor` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The tracer is designed to have minimal performance impact on the traced program, using asynchronous event collection and buffered output to avoid introducing timing artifacts that would alter program behavior.
 
 The command supports multiple tracing modes: full trace (every instruction), conditional trace (only when predicates match), breakpoint-based (pause at specific locations), and statistical (sampling-based performance profiling). These modes can be combined to focus tracing on specific areas of interest while maintaining manageable output volumes for programs that execute millions of instructions.
 
@@ -189,12 +189,12 @@ The tracing system sits alongside the PVM runtime, observing execution without m
 
 | System | Integration | Purpose |
 |--------|-------------|---------|
-| [/pvm-compile](/commands/pvm-compile/) | Debug info enables source mapping | Source correlation |
-| [/pvm-execute](/commands/pvm-execute/) | Traces programs started by executor | Runtime attachment |
-| [Telemetry](/glossary/telemetry/) | Trace statistics as telemetry events | Observability |
-| [Quality Gates](/glossary/quality-gates/) | Trace analysis for performance validation | Performance gates |
-| [Formal Verification](/glossary/formal-verification/) | Execution traces as verification evidence | Proof artifacts |
-| [NABLA](/glossary/nabla-infinity/) | Provenance tracking via execution traces | Epistemics |
+| [/pvm-compile](@/commands/pvm-compile.md) | Debug info enables source mapping | Source correlation |
+| [/pvm-execute](@/commands/pvm-execute.md) | Traces programs started by executor | Runtime attachment |
+| [Telemetry](@/glossary/telemetry.md) | Trace statistics as telemetry events | Observability |
+| [Quality Gates](@/glossary/quality-gates.md) | Trace analysis for performance validation | Performance gates |
+| [Formal Verification](@/glossary/formal-verification.md) | Execution traces as verification evidence | Proof artifacts |
+| [NABLA](@/glossary/nabla-infinity.md) | Provenance tracking via execution traces | Epistemics |
 
 ## Best Practices
 
@@ -259,21 +259,21 @@ diff <(jq '.events[]' /tmp/trace_v1.json) <(jq '.events[]' /tmp/trace_v2.json)
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The tracer captures all events within its configured scope -- no events are silently dropped. Buffer overflow is reported as an error, not handled by silent discard.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Execution traces provide complete, verifiable evidence of program behavior. Every traced instruction includes its full context (registers, stack depth, heap usage) for unambiguous interpretation.
 
-The tracing system directly supports the [NABLA](/glossary/nabla-infinity/) Provenance Mandatory axiom by providing an auditable chain of execution steps that trace any output value back to its input sources and computation path.
+The tracing system directly supports the [NABLA](@/glossary/nabla-infinity.md) Provenance Mandatory axiom by providing an auditable chain of execution steps that trace any output value back to its input sources and computation path.
 
 ## Related Commands
 
-- [/pvm-compile](/commands/pvm-compile/) - Compile validated IR to optimized PVM bytecode
-- [/pvm-execute](/commands/pvm-execute/) - Execute compiled PVM programs with [fault tolerance](/glossary/fault-tolerance/) and [real-time monitoring](/capabilities/real-time-monitoring/)
-- [/ir-generate](/commands/ir-generate/) - Generate Information Retrieval workflows from natural language descriptions
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/doc](/commands/doc/) - Technical documentation and API reference generation
+- [/pvm-compile](@/commands/pvm-compile.md) - Compile validated IR to optimized PVM bytecode
+- [/pvm-execute](@/commands/pvm-execute.md) - Execute compiled PVM programs with [fault tolerance](@/glossary/fault-tolerance.md) and [real-time monitoring](@/capabilities/real-time-monitoring.md)
+- [/ir-generate](@/commands/ir-generate.md) - Generate Information Retrieval workflows from natural language descriptions
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/doc](@/commands/doc.md) - Technical documentation and API reference generation
 
 ---
 
@@ -282,4 +282,4 @@ The tracing system directly supports the [NABLA](/glossary/nabla-infinity/) Prov
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

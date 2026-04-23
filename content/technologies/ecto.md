@@ -24,9 +24,9 @@ image_alt = "Ecto - Prismatic Platform"
 
 ## Overview
 
-Ecto is the data mapping and query library used throughout the Prismatic Platform for all database interactions. It provides a unified interface for defining schemas, composing queries, validating data through changesets, and managing database migrations. Ecto's design philosophy of explicit over implicit aligns perfectly with the platform's [NO MERCY](/capabilities/no-mercy/) quality standards -- every database operation is type-checked, every data mutation flows through validated changesets, and every query is composable and inspectable.
+Ecto is the data mapping and query library used throughout the Prismatic Platform for all database interactions. It provides a unified interface for defining schemas, composing queries, validating data through changesets, and managing database migrations. Ecto's design philosophy of explicit over implicit aligns perfectly with the platform's [NO MERCY](@/capabilities/no-mercy.md) quality standards -- every database operation is type-checked, every data mutation flows through validated changesets, and every query is composable and inspectable.
 
-The Prismatic Platform uses Ecto primarily with [PostgreSQL](/technologies/postgresql/) for persistent storage, but its adapter pattern also supports interactions with other data stores. Ecto's composable query syntax enables the platform to build complex intelligence queries that can be dynamically assembled based on user filters, agent parameters, and automated analysis requirements. The query composition model means that common query patterns (filtering by domain, pagination, sorting) are defined once as composable functions and reused across all modules.
+The Prismatic Platform uses Ecto primarily with [PostgreSQL](@/technologies/postgresql.md) for persistent storage, but its adapter pattern also supports interactions with other data stores. Ecto's composable query syntax enables the platform to build complex intelligence queries that can be dynamically assembled based on user filters, agent parameters, and automated analysis requirements. The query composition model means that common query patterns (filtering by domain, pagination, sorting) are defined once as composable functions and reused across all modules.
 
 Ecto's changeset system provides a powerful data validation pipeline that ensures all data entering the platform's databases meets strict type and business rule requirements. Changesets are the sole entry point for data modification, creating an auditable pipeline where validation rules, constraint checks, and data transformations are defined declaratively and applied consistently. This is a critical quality gate in the platform's zero-defect approach -- malformed data is rejected at the changeset boundary before it can reach the database.
 
@@ -36,7 +36,7 @@ Ecto provides a comprehensive data layer that covers schema definition, data val
 
 - **Schemas**: Declarative data structure definitions with type specifications that map directly to database tables
 - **Changesets**: Composable data validation and transformation pipelines that enforce business rules before persistence
-- **Query Composition**: SQL generation through composable [Elixir](/technologies/elixir/) expressions with compile-time validation
+- **Query Composition**: SQL generation through composable [Elixir](@/technologies/elixir.md) expressions with compile-time validation
 - **Migrations**: Version-controlled database schema changes with forward and rollback support
 - **Multi-Tenancy**: Built-in prefix support for schema-based multi-tenancy without code duplication
 - **Preloading**: Explicit association loading to prevent N+1 queries through declarative preload specifications
@@ -147,9 +147,9 @@ Ecto serves as the data access layer in the platform's layered architecture, med
 | Data Access | Ecto schemas + queries | Schema definition, query composition, validation |
 | Adapter | Ecto.Adapters.Postgres | PostgreSQL protocol translation |
 | Connection | DBConnection pool | Connection pooling and transaction management |
-| Storage | [PostgreSQL](/technologies/postgresql/) | Physical data storage |
+| Storage | [PostgreSQL](@/technologies/postgresql.md) | Physical data storage |
 
-The platform defines a storage behavior trait in `prismatic_storage_core` that Ecto implements through `prismatic_storage_ecto`, enabling other storage backends ([ETS](/technologies/ets/), Meilisearch, KuzuDB) to provide the same interface for different data stores.
+The platform defines a storage behavior trait in `prismatic_storage_core` that Ecto implements through `prismatic_storage_ecto`, enabling other storage backends ([ETS](@/technologies/ets.md), Meilisearch, KuzuDB) to provide the same interface for different data stores.
 
 ## Performance Characteristics
 
@@ -202,10 +202,10 @@ The platform enforces Ecto conventions that maximize data integrity, query perfo
 - **Use `utc_datetime_usec` for all timestamps** -- microsecond precision with explicit UTC timezone prevents time-related bugs
 - **Compose queries with named functions** -- build reusable query functions instead of inline query fragments for consistency and testability
 - **Preload associations explicitly** -- never rely on lazy loading; use `Repo.preload/2` or query-level preloads to prevent N+1 queries
-- **Define `@type t` for all schemas** -- enables [Dialyzer](/technologies/dialyzer/) to verify schema usage across the codebase
+- **Define `@type t` for all schemas** -- enables [Dialyzer](@/technologies/dialyzer.md) to verify schema usage across the codebase
 - **Use database constraints** -- add unique constraints, foreign key constraints, and check constraints at the database level, not just in changesets
 - **Write reversible migrations** -- every migration must have a working `down` function for rollback capability
-- **Test changesets independently** -- validate that changesets correctly reject invalid data using [ExUnit](/technologies/exunit/) assertions
+- **Test changesets independently** -- validate that changesets correctly reject invalid data using [ExUnit](@/technologies/exunit.md) assertions
 
 ## Comparison
 
@@ -223,18 +223,18 @@ Ecto was chosen for its explicit, composable design that aligns with the Prismat
 
 ## Related Technologies
 
-- [PostgreSQL](/technologies/postgresql/) - Primary database backend powering Ecto's SQL generation
-- [Phoenix Framework](/technologies/phoenix/) - Web framework that Ecto integrates with for form handling and parameter casting
-- [Elixir](/technologies/elixir/) - Language providing the pattern matching and pipe operator that make Ecto's API ergonomic
-- [Dialyzer](/technologies/dialyzer/) - Type analysis that verifies Ecto schema and query type correctness
-- [ExUnit](/technologies/exunit/) - Testing framework with Ecto SQL Sandbox for concurrent test isolation
+- [PostgreSQL](@/technologies/postgresql.md) - Primary database backend powering Ecto's SQL generation
+- [Phoenix Framework](@/technologies/phoenix.md) - Web framework that Ecto integrates with for form handling and parameter casting
+- [Elixir](@/technologies/elixir.md) - Language providing the pattern matching and pipe operator that make Ecto's API ergonomic
+- [Dialyzer](@/technologies/dialyzer.md) - Type analysis that verifies Ecto schema and query type correctness
+- [ExUnit](@/technologies/exunit.md) - Testing framework with Ecto SQL Sandbox for concurrent test isolation
 
 ## Related Apps
 
-- [prismatic_storage_core](/apps/prismatic-storage-core/) - Storage traits and protocols that Ecto implements
-- [prismatic_storage_ecto](/apps/prismatic-storage-ecto/) - Ecto adapter implementation conforming to platform storage behaviors
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security asset schemas and compliance query composition
-- [prismatic_web](/apps/prismatic-web/) - LiveView form integration with Ecto changesets for real-time validation
+- [prismatic_storage_core](@/apps/prismatic-storage-core.md) - Storage traits and protocols that Ecto implements
+- [prismatic_storage_ecto](@/apps/prismatic-storage-ecto.md) - Ecto adapter implementation conforming to platform storage behaviors
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security asset schemas and compliance query composition
+- [prismatic_web](@/apps/prismatic-web.md) - LiveView form integration with Ecto changesets for real-time validation
 
 ---
 
@@ -243,4 +243,4 @@ Ecto was chosen for its explicit, composable design that aligns with the Prismat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

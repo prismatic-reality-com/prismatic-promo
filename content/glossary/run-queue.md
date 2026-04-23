@@ -206,10 +206,10 @@ end
 ## Cross-References
 
 - **Scheduler** - BEAM scheduler that maintains and drains run queues
-- [Process](/glossary/process/) - BEAM processes that populate run queues
-- [Runtime](/glossary/runtime/) - BEAM runtime configuration affecting run queue behavior
-- [Profiling](/glossary/profiling/) - Performance measurement revealing run queue contention
-- [Percentile](/glossary/percentile/) - Statistical measure for run queue depth distributions
+- [Process](@/glossary/process.md) - BEAM processes that populate run queues
+- [Runtime](@/glossary/runtime.md) - BEAM runtime configuration affecting run queue behavior
+- [Profiling](@/glossary/profiling.md) - Performance measurement revealing run queue contention
+- [Percentile](@/glossary/percentile.md) - Statistical measure for run queue depth distributions
 
 ---
 

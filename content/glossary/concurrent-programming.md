@@ -36,7 +36,7 @@ Concurrent programming is a paradigm where multiple computations execute during 
 
 The distinction between concurrency and parallelism is fundamental and often confused. **Concurrency** is about dealing with many things at once -- it is a structural property of the program that describes how independent activities are organized. **Parallelism** is about doing many things at once -- it is a runtime property of execution that describes how work is distributed across hardware. A concurrent program may run on a single core (using time-slicing) or across many cores (using true parallelism). Rob Pike's formulation captures this distinction precisely: "Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once."
 
-The [BEAM](/glossary/beam/) virtual machine excels at both: its preemptive scheduler manages millions of lightweight processes across all available CPU cores, providing both structural concurrency (the ability to model independent concerns as separate processes) and true parallelism (those processes executing on multiple cores simultaneously). This combination makes the BEAM uniquely suitable for systems that must handle many simultaneous activities with consistent latency guarantees.
+The [BEAM](@/glossary/beam.md) virtual machine excels at both: its preemptive scheduler manages millions of lightweight processes across all available CPU cores, providing both structural concurrency (the ability to model independent concerns as separate processes) and true parallelism (those processes executing on multiple cores simultaneously). This combination makes the BEAM uniquely suitable for systems that must handle many simultaneous activities with consistent latency guarantees.
 
 Concurrent programming introduces challenges absent in sequential code: race conditions (outcomes depending on timing), deadlocks (circular waiting for resources), livelocks (processes continuously changing state without progress), starvation (some processes never receiving resources), and priority inversion (high-priority work blocked by low-priority work). Different concurrency models address these challenges in fundamentally different ways, and the choice of model has profound implications for system correctness, performance, and maintainability.
 
@@ -59,7 +59,7 @@ The oldest and most widely used concurrency model gives threads access to shared
 
 ### Actor Model
 
-The [actor model](/glossary/actor-model/) eliminates shared state entirely. Each actor maintains private state and communicates exclusively through asynchronous [message passing](/glossary/message-passing/). This model is inherently free from races, deadlocks, and lock contention because there are no locks. The BEAM virtual machine provides the most mature implementation, with lightweight processes, preemptive scheduling, and built-in distribution.
+The [actor model](@/glossary/actor-model.md) eliminates shared state entirely. Each actor maintains private state and communicates exclusively through asynchronous [message passing](@/glossary/message-passing.md). This model is inherently free from races, deadlocks, and lock contention because there are no locks. The BEAM virtual machine provides the most mature implementation, with lightweight processes, preemptive scheduling, and built-in distribution.
 
 ### CSP (Communicating Sequential Processes)
 
@@ -230,7 +230,7 @@ end
 
 ### Pipeline Processing with GenStage
 
-[GenStage](/glossary/genstage/) provides [backpressure](/glossary/backpressure/)-aware pipeline processing where each stage communicates demand upstream, preventing fast producers from overwhelming slow consumers.
+[GenStage](@/glossary/genstage.md) provides [backpressure](@/glossary/backpressure.md)-aware pipeline processing where each stage communicates demand upstream, preventing fast producers from overwhelming slow consumers.
 
 ```elixir
 defmodule Prismatic.Concurrency.Pipeline do
@@ -316,7 +316,7 @@ end
 
 ### Supervision Trees
 
-Hierarchical process management ensures fault tolerance through the [supervision tree](/glossary/supervision-tree/) pattern:
+Hierarchical process management ensures fault tolerance through the [supervision tree](@/glossary/supervision-tree.md) pattern:
 
 ```
 Application
@@ -492,7 +492,7 @@ The platform's quality gate system demonstrates practical concurrent programming
 |------|-----------|
 | **1965** | Dijkstra introduces the concept of concurrent programming and the semaphore |
 | **1971** | Dijkstra publishes "Hierarchical Ordering of Sequential Processes" |
-| **1973** | Hewitt proposes the [actor model](/glossary/actor-model/) |
+| **1973** | Hewitt proposes the [actor model](@/glossary/actor-model.md) |
 | **1974** | Lamport introduces the "happened before" relation for distributed systems |
 | **1978** | Hoare publishes CSP (Communicating Sequential Processes) |
 | **1986** | Erlang development begins at Ericsson with actor-based concurrency |
@@ -505,16 +505,16 @@ The platform's quality gate system demonstrates practical concurrent programming
 
 ## Related Concepts
 
-- [Actor Model](/glossary/actor-model/) -- Concurrency model used by BEAM
-- [BEAM](/glossary/beam/) -- Virtual machine with built-in concurrency
-- [Process Isolation](/glossary/process-isolation/) -- BEAM process independence
-- [Message Passing](/glossary/message-passing/) -- Inter-process communication
-- [GenStage](/glossary/genstage/) -- Back-pressure aware pipelines
-- [GenServer](/glossary/genserver/) -- Generic server behavior for concurrent state
-- [OTP](/glossary/otp/) -- Framework for concurrent applications
-- [Supervision Tree](/glossary/supervision-tree/) -- Fault tolerance for concurrent processes
-- [Backpressure](/glossary/backpressure/) -- Flow control in concurrent systems
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Resilience in concurrent systems
+- [Actor Model](@/glossary/actor-model.md) -- Concurrency model used by BEAM
+- [BEAM](@/glossary/beam.md) -- Virtual machine with built-in concurrency
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM process independence
+- [Message Passing](@/glossary/message-passing.md) -- Inter-process communication
+- [GenStage](@/glossary/genstage.md) -- Back-pressure aware pipelines
+- [GenServer](@/glossary/genserver.md) -- Generic server behavior for concurrent state
+- [OTP](@/glossary/otp.md) -- Framework for concurrent applications
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Fault tolerance for concurrent processes
+- [Backpressure](@/glossary/backpressure.md) -- Flow control in concurrent systems
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Resilience in concurrent systems
 
 ---
 
@@ -523,4 +523,4 @@ The platform's quality gate system demonstrates practical concurrent programming
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

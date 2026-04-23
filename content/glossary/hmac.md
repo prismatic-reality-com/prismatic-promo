@@ -332,25 +332,25 @@ HMAC cannot provide non-repudiation -- since both parties share the same key, ei
 
 HMAC connects to many security and authentication concepts in the Prismatic Platform:
 
-- [Authentication](/glossary/authentication/) is the broader discipline that HMAC supports as a verification mechanism
-- [Encryption](/glossary/encryption/) protects data confidentiality, complementing HMAC's integrity and authentication guarantees
-- [JWT](/glossary/jwt/) frequently uses HMAC-SHA256 as its signing algorithm for token-based authentication
-- [OAuth2](/glossary/oauth2/) authorization framework that may use HMAC for token signing
-- [API Gateway](/glossary/api-gateway/) is the entry point where HMAC verification is typically enforced
-- [Zero Trust](/glossary/zero-trust/) security model where every request must be authenticated, often via HMAC
-- [TLS](/glossary/tls/) provides transport-layer security that complements HMAC's application-layer message authentication
-- [Credential Management](/glossary/credential-management/) governs the secure storage and rotation of HMAC keys
-- [REST API](/glossary/rest-api/) is the primary interface where HMAC authentication is applied in Prismatic
-- [Security](/glossary/security/) is the overarching domain that HMAC serves as a cryptographic primitive
+- [Authentication](@/glossary/authentication.md) is the broader discipline that HMAC supports as a verification mechanism
+- [Encryption](@/glossary/encryption.md) protects data confidentiality, complementing HMAC's integrity and authentication guarantees
+- [JWT](@/glossary/jwt.md) frequently uses HMAC-SHA256 as its signing algorithm for token-based authentication
+- [OAuth2](@/glossary/oauth2.md) authorization framework that may use HMAC for token signing
+- [API Gateway](@/glossary/api-gateway.md) is the entry point where HMAC verification is typically enforced
+- [Zero Trust](@/glossary/zero-trust.md) security model where every request must be authenticated, often via HMAC
+- [TLS](@/glossary/tls.md) provides transport-layer security that complements HMAC's application-layer message authentication
+- [Credential Management](@/glossary/credential-management.md) governs the secure storage and rotation of HMAC keys
+- [REST API](@/glossary/rest-api.md) is the primary interface where HMAC authentication is applied in Prismatic
+- [Security](@/glossary/security.md) is the overarching domain that HMAC serves as a cryptographic primitive
 
 ## See Also
 
-- [Input Sanitization](/glossary/input-sanitization/) -- complementary defense against injection attacks
-- [Rate Limiting](/glossary/rate-limiting/) -- protects HMAC-authenticated endpoints from abuse
-- [Audit Logging](/glossary/audit-logging/) -- records HMAC verification events for compliance
-- [Authorization](/glossary/authorization/) -- determines what an HMAC-authenticated client can access
-- [Constant Time](/glossary/constant-time/) -- timing-safe operations critical for HMAC comparison
-- [Encryption at Rest](/glossary/encryption-at-rest/) -- secures stored HMAC keys
+- [Input Sanitization](@/glossary/input-sanitization.md) -- complementary defense against injection attacks
+- [Rate Limiting](@/glossary/rate-limiting.md) -- protects HMAC-authenticated endpoints from abuse
+- [Audit Logging](@/glossary/audit-logging.md) -- records HMAC verification events for compliance
+- [Authorization](@/glossary/authorization.md) -- determines what an HMAC-authenticated client can access
+- [Constant Time](@/glossary/constant-time.md) -- timing-safe operations critical for HMAC comparison
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) -- secures stored HMAC keys
 
 ---
 

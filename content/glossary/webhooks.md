@@ -37,7 +37,7 @@ image_alt = "Webhooks - Prismatic Platform"
 
 ## Definition
 
-**Webhooks** are user-defined HTTP callbacks that enable event-driven communication between systems through push-based notification delivery. When a specific event occurs in a source system (e.g., a new commit is pushed, a payment is processed, a security alert triggers), the source system sends an HTTP POST request containing event data to a pre-configured URL on the receiving system. This inverts the traditional request-response pattern: instead of the consumer polling the producer for updates, the producer pushes updates to the consumer as they happen. Within the Prismatic Platform, webhooks serve as a primary integration mechanism for connecting the 115 umbrella [applications](/glossary/application/) with external systems, propagating [telemetry](/glossary/telemetry/) events to monitoring services, delivering security alerts from the [Perimeter](/glossary/attack-surface/) module, and enabling real-time synchronization with GitLab, GitHub, and third-party services. The platform's webhook infrastructure implements HMAC signature verification, exponential backoff retry with jitter, idempotent delivery guarantees, and dead letter queue management for undeliverable payloads.
+**Webhooks** are user-defined HTTP callbacks that enable event-driven communication between systems through push-based notification delivery. When a specific event occurs in a source system (e.g., a new commit is pushed, a payment is processed, a security alert triggers), the source system sends an HTTP POST request containing event data to a pre-configured URL on the receiving system. This inverts the traditional request-response pattern: instead of the consumer polling the producer for updates, the producer pushes updates to the consumer as they happen. Within the Prismatic Platform, webhooks serve as a primary integration mechanism for connecting the 115 umbrella [applications](@/glossary/application.md) with external systems, propagating [telemetry](@/glossary/telemetry.md) events to monitoring services, delivering security alerts from the [Perimeter](@/glossary/attack-surface.md) module, and enabling real-time synchronization with GitLab, GitHub, and third-party services. The platform's webhook infrastructure implements HMAC signature verification, exponential backoff retry with jitter, idempotent delivery guarantees, and dead letter queue management for undeliverable payloads.
 
 ## Overview
 
@@ -54,7 +54,7 @@ Webhooks occupy a specific position in the spectrum of integration patterns:
 | **WebSocket** | Bidirectional | Very Low | High | Persistent (two-way) |
 | **Message Queue** | Push/Pull | Configurable | High | Broker-mediated |
 
-Webhooks strike a balance between simplicity and real-time capability. They require no persistent connections (unlike [WebSocket](/glossary/websocket/)), no message broker infrastructure (unlike AMQP/Kafka), and no continuous resource expenditure (unlike polling). However, they introduce challenges around reliability (what happens when the receiver is down?), security (how do you verify the payload is authentic?), and ordering (how do you handle out-of-order delivery?).
+Webhooks strike a balance between simplicity and real-time capability. They require no persistent connections (unlike [WebSocket](@/glossary/websocket.md)), no message broker infrastructure (unlike AMQP/Kafka), and no continuous resource expenditure (unlike polling). However, they introduce challenges around reliability (what happens when the receiver is down?), security (how do you verify the payload is authentic?), and ordering (how do you handle out-of-order delivery?).
 
 The modern webhook ecosystem has converged on several best practices:
 
@@ -499,7 +499,7 @@ Webhook security is a critical concern because webhooks involve accepting inboun
 
 3. **Payload Tampering** -- An attacker modifies a webhook payload in transit. Mitigated by HMAC signature verification (any modification invalidates the signature).
 
-4. **Denial of Service** -- An attacker sends many large payloads to overwhelm the receiver. Mitigated by payload size limits, rate limiting, and [backpressure](/glossary/backpressure/) mechanisms.
+4. **Denial of Service** -- An attacker sends many large payloads to overwhelm the receiver. Mitigated by payload size limits, rate limiting, and [backpressure](@/glossary/backpressure.md) mechanisms.
 
 5. **Information Disclosure** -- Webhook payloads may contain sensitive data transmitted over the network. Mitigated by using HTTPS exclusively and minimizing sensitive data in payloads (send event identifiers rather than full records).
 
@@ -513,7 +513,7 @@ Polling requires the consumer to repeatedly query the producer for changes. This
 
 ### Webhooks vs. WebSockets
 
-[WebSocket](/glossary/websocket/) provides persistent bidirectional communication. It excels for real-time interactive applications (chat, live updates) but requires maintaining open connections and managing connection state. Webhooks are stateless and work well for system-to-system integration where real-time latency is acceptable and bidirectional communication is not needed.
+[WebSocket](@/glossary/websocket.md) provides persistent bidirectional communication. It excels for real-time interactive applications (chat, live updates) but requires maintaining open connections and managing connection state. Webhooks are stateless and work well for system-to-system integration where real-time latency is acceptable and bidirectional communication is not needed.
 
 ### Webhooks vs. Message Queues
 
@@ -524,23 +524,23 @@ Message queues (RabbitMQ, Kafka, SQS) provide guaranteed delivery, ordering, and
 The Prismatic Platform uses webhooks extensively:
 
 - **GitLab/GitHub Integration** -- Receiving push events, merge request updates, and CI/CD pipeline notifications
-- **Security Alerts** -- Delivering [Perimeter](/glossary/attack-surface/) findings to external security information and event management (SIEM) systems
-- **Monitoring** -- Pushing [telemetry](/glossary/telemetry/) events to external observability platforms
-- **Agent Notifications** -- Cross-system event propagation when AIAD [agents](/glossary/agent/) complete tasks
+- **Security Alerts** -- Delivering [Perimeter](@/glossary/attack-surface.md) findings to external security information and event management (SIEM) systems
+- **Monitoring** -- Pushing [telemetry](@/glossary/telemetry.md) events to external observability platforms
+- **Agent Notifications** -- Cross-system event propagation when AIAD [agents](@/glossary/agent.md) complete tasks
 - **Compliance Reporting** -- Automated delivery of compliance assessment results to stakeholder systems
 
 ## Cross-References
 
-- [API Integration](/glossary/api-integration/) -- The broader context of system-to-system communication that webhooks enable
-- [API Gateway](/glossary/api-gateway/) -- The entry point that routes inbound webhooks to appropriate handlers
-- [API](/glossary/api/) -- The foundational HTTP interface that webhooks build upon
-- [WebSocket](/glossary/websocket/) -- The persistent bidirectional alternative to webhooks for real-time communication
-- [Authentication](/glossary/authentication/) -- HMAC signature verification as a form of message authentication
-- [Telemetry](/glossary/telemetry/) -- Event data that may be delivered via webhooks to external systems
-- [Backpressure](/glossary/backpressure/) -- Flow control mechanisms for managing webhook delivery rates
-- [Stream Processing](/glossary/stream-processing/) -- Processing webhook event streams at scale
-- [Structured Logging](/glossary/structured-logging/) -- Logging webhook delivery attempts for observability
-- [Audit Trail](/glossary/audit-trail/) -- Recording webhook deliveries for compliance and debugging
+- [API Integration](@/glossary/api-integration.md) -- The broader context of system-to-system communication that webhooks enable
+- [API Gateway](@/glossary/api-gateway.md) -- The entry point that routes inbound webhooks to appropriate handlers
+- [API](@/glossary/api.md) -- The foundational HTTP interface that webhooks build upon
+- [WebSocket](@/glossary/websocket.md) -- The persistent bidirectional alternative to webhooks for real-time communication
+- [Authentication](@/glossary/authentication.md) -- HMAC signature verification as a form of message authentication
+- [Telemetry](@/glossary/telemetry.md) -- Event data that may be delivered via webhooks to external systems
+- [Backpressure](@/glossary/backpressure.md) -- Flow control mechanisms for managing webhook delivery rates
+- [Stream Processing](@/glossary/stream-processing.md) -- Processing webhook event streams at scale
+- [Structured Logging](@/glossary/structured-logging.md) -- Logging webhook delivery attempts for observability
+- [Audit Trail](@/glossary/audit-trail.md) -- Recording webhook deliveries for compliance and debugging
 
 ## Best Practices
 
@@ -581,4 +581,4 @@ The Prismatic Platform uses webhooks extensively:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

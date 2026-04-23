@@ -18,11 +18,11 @@ see_also = ["fault-tolerance", "retry", "rate-limiting", "telemetry", "observabi
 image_alt = "Circuit Breakers for Flaky OSINT Sources"
 +++
 
-A polite scraper hits a flaky source and waits 30 seconds for a TCP timeout. It does this 100 times an hour. That is *50 minutes of wall-clock time per hour spent waiting on one dead source*. Meanwhile every other adapter is healthy and the dashboard looks fine. The fix is a circuit breaker, and in Elixir it is about 80 lines of [GenServer](/glossary/genserver) wrapped around a few counters.
+A polite scraper hits a flaky source and waits 30 seconds for a TCP timeout. It does this 100 times an hour. That is *50 minutes of wall-clock time per hour spent waiting on one dead source*. Meanwhile every other adapter is healthy and the dashboard looks fine. The fix is a circuit breaker, and in Elixir it is about 80 lines of [GenServer](@/glossary/genserver.md) wrapped around a few counters.
 
 ## The three states
 
-A circuit breaker is a tiny [state machine](/glossary/state-machine):
+A circuit breaker is a tiny [state machine](@/glossary/state-machine.md):
 
 - **closed** — traffic flows, failures are counted.
 - **open** — traffic is rejected immediately with `{:error, :circuit_open}`.
@@ -77,7 +77,7 @@ That is it. The adapter does not know about the breaker's internal state. The pi
 
 ## Telemetry is non-negotiable
 
-Every state transition emits [telemetry](/glossary/telemetry):
+Every state transition emits [telemetry](@/glossary/telemetry.md):
 
 ```elixir
 :telemetry.execute([:osint, :breaker, :open], %{count: 1}, %{adapter: name})
@@ -85,11 +85,11 @@ Every state transition emits [telemetry](/glossary/telemetry):
 :telemetry.execute([:osint, :breaker, :closed], %{count: 1}, %{adapter: name})
 ```
 
-A breaker that opens and never closes is a source that died. A breaker that flaps is a source with intermittent issues (and possibly a wrong cool-down). Without [observability](/glossary/observability) you cannot tell which is which.
+A breaker that opens and never closes is a source that died. A breaker that flaps is a source with intermittent issues (and possibly a wrong cool-down). Without [observability](@/glossary/observability.md) you cannot tell which is which.
 
 ## Where to go next
 
 - **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — the GenServer under the breaker
-- **Glossary**: [Fault Tolerance](/glossary/fault-tolerance), [Retry](/glossary/retry), [Rate Limiting](/glossary/rate-limiting), [Telemetry](/glossary/telemetry), [Observability](/glossary/observability)
+- **Glossary**: [Fault Tolerance](@/glossary/fault-tolerance.md), [Retry](@/glossary/retry.md), [Rate Limiting](@/glossary/rate-limiting.md), [Telemetry](@/glossary/telemetry.md), [Observability](@/glossary/observability.md)
 
 Fail fast. Recover quietly. Let the healthy sources do the work.

@@ -28,9 +28,9 @@ image_alt = "Garden Explorer Agent - Prismatic Platform"
 
 ## Overview
 
-The [Garden](/glossary/garden/) Explorer Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Specialist domain of the Prismatic Platform. This agent provides intelligent exploration of external reference projects stored within the GARDEN (Growing Autonomous Repository for Development Evolution and Navigation) ecosystem, enabling contextual navigation, discovery, and interactive investigation of the platform's 116 legacy and reference repositories spanning over 20 years of development history.
+The [Garden](@/glossary/garden.md) Explorer Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Specialist domain of the Prismatic Platform. This agent provides intelligent exploration of external reference projects stored within the GARDEN (Growing Autonomous Repository for Development Evolution and Navigation) ecosystem, enabling contextual navigation, discovery, and interactive investigation of the platform's 116 legacy and reference repositories spanning over 20 years of development history.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Garden Explorer Agent serves as the primary interface between platform operators and the vast GARDEN repository collection. Where the [garden-analyzer](/agents/garden-analyzer/) performs automated analytical assessment and the [garden-cultivator](/agents/garden-cultivator/) maintains repository health, the Explorer Agent provides interactive, context-aware navigation that responds to specific investigative questions and exploration needs.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Garden Explorer Agent serves as the primary interface between platform operators and the vast GARDEN repository collection. Where the [garden-analyzer](@/agents/garden-analyzer.md) performs automated analytical assessment and the [garden-cultivator](@/agents/garden-cultivator.md) maintains repository health, the Explorer Agent provides interactive, context-aware navigation that responds to specific investigative questions and exploration needs.
 
 ## Exploration Methodology
 
@@ -38,7 +38,7 @@ The Garden Explorer Agent employs an exploration methodology designed for effici
 
 Broad-spectrum scanning provides an initial survey of repository contents, identifying programming languages, framework usage, module structures, and documentation availability. This survey establishes the landscape within which detailed exploration occurs.
 
-Context-guided navigation allows exploration to follow conceptual threads rather than file system paths. When investigating "how entity resolution is implemented across the garden," the agent traverses relevant code across multiple repositories rather than requiring repository-by-repository manual search. This capability leverages the [garden-analyzer](/agents/garden-analyzer/)'s cross-repository indexes to locate relevant code efficiently.
+Context-guided navigation allows exploration to follow conceptual threads rather than file system paths. When investigating "how entity resolution is implemented across the garden," the agent traverses relevant code across multiple repositories rather than requiring repository-by-repository manual search. This capability leverages the [garden-analyzer](@/agents/garden-analyzer.md)'s cross-repository indexes to locate relevant code efficiently.
 
 Depth-adaptive exploration automatically adjusts investigation depth based on the relevance and quality of discovered content. High-relevance modules receive detailed examination including function-level analysis, test inspection, and dependency tracing. Low-relevance modules receive summary assessment with pointers for later investigation if needed.
 
@@ -76,7 +76,7 @@ The Explorer Agent provides contextual understanding of discovered code, not jus
 
 Function-level documentation synthesizes documentation for undocumented functions based on their implementation, parameters, return values, and usage patterns within the repository. This capability is particularly valuable for legacy code where original documentation may be incomplete or absent.
 
-Pattern recognition identifies which established patterns (from the [garden-pattern-scout](/agents/garden-pattern-scout/)'s catalog) are implemented in discovered code, providing immediate context about the code's design approach. Recognition annotations appear alongside code content, linking specific implementations to their abstract pattern descriptions.
+Pattern recognition identifies which established patterns (from the [garden-pattern-scout](@/agents/garden-pattern-scout.md)'s catalog) are implemented in discovered code, providing immediate context about the code's design approach. Recognition annotations appear alongside code content, linking specific implementations to their abstract pattern descriptions.
 
 Quality assessment provides inline quality indicators for discovered code, noting test coverage, type annotation completeness, error handling robustness, and dependency health. These indicators help users quickly assess whether discovered code is suitable for direct reuse or requires significant adaptation.
 
@@ -94,31 +94,31 @@ Gap identification discovers functionality present in the current platform that 
 
 The Explorer Agent coordinates with other GARDEN agents to provide a complete exploration and extraction workflow.
 
-Exploration results feed the [garden-analyzer](/agents/garden-analyzer/) with specific code locations and patterns discovered during interactive investigation. The analyzer uses these inputs to trigger deeper automated analysis of areas flagged as interesting during exploration.
+Exploration results feed the [garden-analyzer](@/agents/garden-analyzer.md) with specific code locations and patterns discovered during interactive investigation. The analyzer uses these inputs to trigger deeper automated analysis of areas flagged as interesting during exploration.
 
-Extraction referrals pass discovered components to the [garden-extractor](/agents/garden-extractor/) with contextual information about the component's purpose, quality, and adaptation requirements. The extractor uses this context to plan appropriate extraction and transformation strategies.
+Extraction referrals pass discovered components to the [garden-extractor](@/agents/garden-extractor.md) with contextual information about the component's purpose, quality, and adaptation requirements. The extractor uses this context to plan appropriate extraction and transformation strategies.
 
-Pattern reports contribute new pattern observations to the [garden-pattern-scout](/agents/garden-pattern-scout/), expanding the pattern catalog based on patterns discovered during exploratory investigation that may not have been detected by automated scanning.
+Pattern reports contribute new pattern observations to the [garden-pattern-scout](@/agents/garden-pattern-scout.md), expanding the pattern catalog based on patterns discovered during exploratory investigation that may not have been detected by automated scanning.
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework governs the Explorer Agent's presentation of discovered information. The Source Independence axiom requires that when multiple repositories implement the same concept, the agent presents them as independent evidence sources rather than redundant references. The Unknown Valid axiom permits the agent to report "I don't know" when exploration reaches the boundaries of available repository content.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs the Explorer Agent's presentation of discovered information. The Source Independence axiom requires that when multiple repositories implement the same concept, the agent presents them as independent evidence sources rather than redundant references. The Unknown Valid axiom permits the agent to report "I don't know" when exploration reaches the boundaries of available repository content.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution | Agent lifecycle and scheduling |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Agent specification and indexing |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution | Agent lifecycle and scheduling |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Agent specification and indexing |
 | Prismatic Telemetry | Monitoring | Exploration performance metrics |
 | GARDEN Repositories | Data source | 116 repositories for exploration |
 | GARDEN Indexes | Search infrastructure | Pre-built indexes for efficient lookup |
 
 ## Related Agents
 
-- [**garden-analyzer**](/agents/garden-analyzer/) (L3) - Receives exploration findings for deeper automated analysis
-- [**garden-extractor**](/agents/garden-extractor/) (L3) - Receives extraction referrals with contextual recommendations
-- [**garden-pattern-scout**](/agents/garden-pattern-scout/) (L3) - Receives new pattern observations from exploration discoveries
+- [**garden-analyzer**](@/agents/garden-analyzer.md) (L3) - Receives exploration findings for deeper automated analysis
+- [**garden-extractor**](@/agents/garden-extractor.md) (L3) - Receives extraction referrals with contextual recommendations
+- [**garden-pattern-scout**](@/agents/garden-pattern-scout.md) (L3) - Receives new pattern observations from exploration discoveries
 
 ---
 
@@ -127,4 +127,4 @@ The [NABLA Infinity](/glossary/nabla-infinity/) framework governs the Explorer A
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

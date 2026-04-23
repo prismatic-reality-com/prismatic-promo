@@ -24,9 +24,9 @@ image_alt = "asdf - Prismatic Platform"
 
 ## Overview
 
-asdf is the version manager that ensures consistent runtime versions across all Prismatic Platform development environments. It manages [Elixir](/technologies/elixir/), [Erlang/OTP](/technologies/erlang-otp/), Node.js, and other tool versions through a single interface, using a `.tool-versions` file that is committed to the repository to guarantee all developers and CI systems use identical versions. In a platform with 90 umbrella applications and complex native dependencies, runtime version consistency is not optional -- it is a prerequisite for reproducible builds.
+asdf is the version manager that ensures consistent runtime versions across all Prismatic Platform development environments. It manages [Elixir](@/technologies/elixir.md), [Erlang/OTP](@/technologies/erlang-otp.md), Node.js, and other tool versions through a single interface, using a `.tool-versions` file that is committed to the repository to guarantee all developers and CI systems use identical versions. In a platform with 90 umbrella applications and complex native dependencies, runtime version consistency is not optional -- it is a prerequisite for reproducible builds.
 
-The Prismatic Platform's `.tool-versions` file specifies exact versions for Elixir (1.19+), Erlang (27+), and Node.js (used for [TailwindCSS](/technologies/tailwindcss/) asset compilation and the promo site build tooling). When a developer clones the repository and runs `asdf install`, they get exactly the same runtime versions as every other developer and the CI/CD pipeline, eliminating the "works on my machine" problem entirely. This determinism is critical for a platform that enforces zero compilation warnings and zero [Dialyzer](/technologies/dialyzer/) violations -- even minor version differences can introduce spurious warnings or behavioral changes.
+The Prismatic Platform's `.tool-versions` file specifies exact versions for Elixir (1.19+), Erlang (27+), and Node.js (used for [TailwindCSS](@/technologies/tailwindcss.md) asset compilation and the promo site build tooling). When a developer clones the repository and runs `asdf install`, they get exactly the same runtime versions as every other developer and the CI/CD pipeline, eliminating the "works on my machine" problem entirely. This determinism is critical for a platform that enforces zero compilation warnings and zero [Dialyzer](@/technologies/dialyzer.md) violations -- even minor version differences can introduce spurious warnings or behavioral changes.
 
 asdf's plugin system supports hundreds of tools and runtimes, making it a universal version manager that replaces tool-specific managers like nvm, rbenv, and kerl with a single, consistent interface. For the Prismatic Platform, this means one tool manages both the Erlang VM compilation and the Node.js version for frontend tooling, with consistent shim-based version switching that activates automatically when entering the project directory. The platform's onboarding process relies on asdf to reduce new developer setup from hours of manual version matching to a single `asdf install` command.
 
@@ -35,7 +35,7 @@ asdf's plugin system supports hundreds of tools and runtimes, making it a univer
 asdf provides a unified version management experience that scales from individual developer machines to CI/CD infrastructure.
 
 - **Multi-Runtime**: Single tool for Elixir, Erlang, Node.js, Rust, and 500+ community plugins covering virtually any toolchain
-- **Project-Local Versions**: `.tool-versions` file for per-project version pinning, committed to [Git](/technologies/git/) for team-wide consistency
+- **Project-Local Versions**: `.tool-versions` file for per-project version pinning, committed to [Git](@/technologies/git.md) for team-wide consistency
 - **Plugin System**: Extensible with community-maintained plugins for virtually any runtime or tool, with standardized lifecycle hooks
 - **Shims**: Transparent version switching based on the current directory -- no manual `source` or `use` commands needed
 - **Legacy Support**: Reads `.nvmrc`, `.ruby-version`, and similar files for compatibility with other tools and mixed-toolchain projects
@@ -45,7 +45,7 @@ asdf provides a unified version management experience that scales from individua
 
 | Runtime | Plugin | Platform Version | Purpose |
 |---------|--------|-----------------|---------|
-| Erlang | asdf-erlang | 27.0 | [BEAM](/technologies/beam/) virtual machine |
+| Erlang | asdf-erlang | 27.0 | [BEAM](@/technologies/beam.md) virtual machine |
 | Elixir | asdf-elixir | 1.19.0-otp-27 | Primary programming language |
 | Node.js | asdf-nodejs | 20.11.0 | TailwindCSS compilation, Zola tooling |
 
@@ -161,7 +161,7 @@ The platform enforces strict version management practices to prevent environment
 - **Pin exact versions** -- use `1.19.0-otp-27` not `1.19` to prevent subtle behavior differences across environments
 - **Update versions in a dedicated commit** -- runtime version changes can have wide-ranging effects; isolate them from feature work
 - **Set `KERL_BUILD_DOCS=yes`** -- ensures `h` and `i` helpers work in IEx for Erlang modules, improving developer productivity
-- **Use `asdf reshim`** after installing new global packages -- [Elixir](/technologies/elixir/) escripts and mix archives need their shims regenerated
+- **Use `asdf reshim`** after installing new global packages -- [Elixir](@/technologies/elixir.md) escripts and mix archives need their shims regenerated
 - **Test after version upgrades** -- run the full `mix test` suite after any Elixir or Erlang version bump to catch compatibility issues
 - **Document build prerequisites** -- Erlang compilation requires system libraries (OpenSSL, ncurses); document these in the setup guide
 - **Use `legacy_version_file = yes`** -- allows asdf to read `.nvmrc` files for Node.js compatibility with tools that generate them
@@ -179,21 +179,21 @@ asdf was chosen over runtime-specific version managers for its unified interface
 | Plugin ecosystem | Community-maintained | N/A | N/A | N/A |
 | Team consistency | One file, all runtimes | Multiple files | Manual coordination | Manual coordination |
 
-The alternative approach of using [Docker](/technologies/docker/) for development environment consistency was evaluated but rejected for day-to-day development due to the compilation speed penalty and IEx debugging limitations inside containers. Docker remains the platform's deployment packaging tool, while asdf handles the development environment. This separation of concerns ensures developers get native compilation performance and full debugging capabilities while Docker provides production-grade reproducibility for deployment artifacts.
+The alternative approach of using [Docker](@/technologies/docker.md) for development environment consistency was evaluated but rejected for day-to-day development due to the compilation speed penalty and IEx debugging limitations inside containers. Docker remains the platform's deployment packaging tool, while asdf handles the development environment. This separation of concerns ensures developers get native compilation performance and full debugging capabilities while Docker provides production-grade reproducibility for deployment artifacts.
 
 ## Related Technologies
 
-- [Elixir](/technologies/elixir/) - Primary language runtime managed by the asdf-elixir plugin
-- [Erlang/OTP](/technologies/erlang-otp/) - VM runtime managed by the asdf-erlang plugin, compiled from source
-- [Git](/technologies/git/) - `.tool-versions` versioned in the repository for team-wide consistency
-- [Docker](/technologies/docker/) - Docker images pin runtime versions independently of asdf for production deployments
-- [TailwindCSS](/technologies/tailwindcss/) - Requires the Node.js runtime managed by asdf-nodejs
+- [Elixir](@/technologies/elixir.md) - Primary language runtime managed by the asdf-elixir plugin
+- [Erlang/OTP](@/technologies/erlang-otp.md) - VM runtime managed by the asdf-erlang plugin, compiled from source
+- [Git](@/technologies/git.md) - `.tool-versions` versioned in the repository for team-wide consistency
+- [Docker](@/technologies/docker.md) - Docker images pin runtime versions independently of asdf for production deployments
+- [TailwindCSS](@/technologies/tailwindcss.md) - Requires the Node.js runtime managed by asdf-nodejs
 
 ## Related Apps
 
 - All Prismatic Platform development uses asdf-managed runtimes for consistent builds
-- [prismatic_web](/apps/prismatic-web/) - Requires Node.js (via asdf) for TailwindCSS and asset compilation
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Benefits from exact Erlang/OTP version pinning for NIF compatibility
+- [prismatic_web](@/apps/prismatic-web.md) - Requires Node.js (via asdf) for TailwindCSS and asset compilation
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Benefits from exact Erlang/OTP version pinning for NIF compatibility
 
 ---
 
@@ -202,4 +202,4 @@ The alternative approach of using [Docker](/technologies/docker/) for developmen
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

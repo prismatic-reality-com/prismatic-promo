@@ -207,10 +207,10 @@ PrismaticApi.StatusMapper.respond(conn, PrismaticPerimeter.discover("example.com
 
 ## Cross-References
 
-- [REST API](/glossary/rest-api/) - API architecture relying on correct status codes
-- [Plug](/glossary/plug/) - HTTP middleware managing status code responses
-- [Phoenix](/glossary/phoenix/) - Web framework handling status code rendering
-- [Error Handling](/glossary/error-handling/) - Strategy for mapping errors to status codes
+- [REST API](@/glossary/rest-api.md) - API architecture relying on correct status codes
+- [Plug](@/glossary/plug.md) - HTTP middleware managing status code responses
+- [Phoenix](@/glossary/phoenix.md) - Web framework handling status code rendering
+- [Error Handling](@/glossary/error-handling.md) - Strategy for mapping errors to status codes
 
 ---
 

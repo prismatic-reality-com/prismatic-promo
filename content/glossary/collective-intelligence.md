@@ -38,7 +38,7 @@ image_alt = "Collective Intelligence - Prismatic Platform"
 
 Collective Intelligence is the shared or group intelligence that emerges from the collaboration, collective efforts, and competition of multiple participants -- whether human, artificial, or hybrid -- without centralized direction or explicit coordination protocols. It is the phenomenon where the aggregation of many independent decisions, observations, or contributions produces outcomes that are more accurate, robust, or creative than those of any individual participant, including the most expert among them.
 
-The defining characteristic that distinguishes collective intelligence from [Collaborative Intelligence](/glossary/collaborative-intelligence/) is its emergent, non-directed nature. In collective intelligence systems, there is no central coordinator, no assigned roles, and no structured synthesis protocol. Instead, intelligence emerges from the statistical properties of independent contributions aggregated through simple mechanisms -- voting, averaging, market pricing, or evolutionary selection.
+The defining characteristic that distinguishes collective intelligence from [Collaborative Intelligence](@/glossary/collaborative-intelligence.md) is its emergent, non-directed nature. In collective intelligence systems, there is no central coordinator, no assigned roles, and no structured synthesis protocol. Instead, intelligence emerges from the statistical properties of independent contributions aggregated through simple mechanisms -- voting, averaging, market pricing, or evolutionary selection.
 
 ## Overview
 
@@ -408,7 +408,7 @@ end
 
 ### Agent Pool Collective Intelligence
 
-Prismatic's 530+ [agents](/glossary/agent/) form a collective intelligence system where individual agent outputs are aggregated through multiple mechanisms. Each agent operates independently within its domain, producing findings that are collectively more comprehensive than any single agent could achieve:
+Prismatic's 530+ [agents](@/glossary/agent.md) form a collective intelligence system where individual agent outputs are aggregated through multiple mechanisms. Each agent operates independently within its domain, producing findings that are collectively more comprehensive than any single agent could achieve:
 
 - **Domain Agents**: Specialized agents in security, quality, architecture, and OSINT domains operate independently on their respective inputs
 - **Quality Floor Guardian**: Aggregates quality signals from all 13 quality domains, producing a collective quality score that no individual check could generate
@@ -480,7 +480,7 @@ end
 
 ### NABLA Signal Plurality
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework's Signal Plurality axiom is a direct formalization of the conditions required for effective collective intelligence. By requiring minimum two independent signals for any belief, the framework ensures that the platform's collective intelligence system maintains the diversity and independence that make aggregation valuable.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's Signal Plurality axiom is a direct formalization of the conditions required for effective collective intelligence. By requiring minimum two independent signals for any belief, the framework ensures that the platform's collective intelligence system maintains the diversity and independence that make aggregation valuable.
 
 ## Comparison with Alternatives
 
@@ -560,22 +560,22 @@ IoT and monitoring systems aggregate readings from many independent sensors to p
 
 ## Related Concepts
 
-- [Collaborative Intelligence](/glossary/collaborative-intelligence/) -- directed, protocol-driven intelligence from structured agent coordination
-- [Multi-Agent System](/glossary/multi-agent-system/) -- the computational substrate enabling collective intelligence implementations
-- [Agent Orchestration](/glossary/agent-orchestration/) -- coordination infrastructure that can enable both collective and collaborative patterns
-- [Autonomous Agent](/glossary/autonomous-agent/) -- independent agents whose collective behavior produces emergent intelligence
-- [Signal Plurality](/glossary/signal-plurality/) -- the NABLA axiom formalizing the independence requirement for valid collective intelligence
-- [Adversarial Architecture](/glossary/adversarial-architecture/) -- architectural patterns that maintain diversity and prevent groupthink
-- [NABLA Infinity](/glossary/nabla-infinity/) -- the epistemic framework ensuring collective intelligence respects evidence plurality
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- an aggregation mechanism producing collective quality intelligence from 13 domains
+- [Collaborative Intelligence](@/glossary/collaborative-intelligence.md) -- directed, protocol-driven intelligence from structured agent coordination
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- the computational substrate enabling collective intelligence implementations
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- coordination infrastructure that can enable both collective and collaborative patterns
+- [Autonomous Agent](@/glossary/autonomous-agent.md) -- independent agents whose collective behavior produces emergent intelligence
+- [Signal Plurality](@/glossary/signal-plurality.md) -- the NABLA axiom formalizing the independence requirement for valid collective intelligence
+- [Adversarial Architecture](@/glossary/adversarial-architecture.md) -- architectural patterns that maintain diversity and prevent groupthink
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- the epistemic framework ensuring collective intelligence respects evidence plurality
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- an aggregation mechanism producing collective quality intelligence from 13 domains
 
 ## See Also
 
 - Glossary Index -- complete listing of all platform terminology
-- [Agent](/glossary/agent/) -- the fundamental unit participating in collective intelligence systems
-- [Agent Pool](/glossary/agent-pool/) -- managed collections of agents forming collective intelligence groups
-- [Distributed Systems](/glossary/distributed-systems/) -- the infrastructure enabling geographically distributed collective intelligence
-- [ETS](/glossary/ets/) -- Erlang Term Storage used as stigmergic medium in Prismatic
+- [Agent](@/glossary/agent.md) -- the fundamental unit participating in collective intelligence systems
+- [Agent Pool](@/glossary/agent-pool.md) -- managed collections of agents forming collective intelligence groups
+- [Distributed Systems](@/glossary/distributed-systems.md) -- the infrastructure enabling geographically distributed collective intelligence
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage used as stigmergic medium in Prismatic
 
 ---
 
@@ -584,4 +584,4 @@ IoT and monitoring systems aggregate readings from many independent sensors to p
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

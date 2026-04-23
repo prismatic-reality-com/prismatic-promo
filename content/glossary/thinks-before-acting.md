@@ -40,7 +40,7 @@ image_alt = "Thinks Before Acting - Prismatic Platform"
 
 "Thinks Before Acting" is a foundational agent design principle in the Prismatic Platform that mandates a structured deliberation phase before any autonomous agent commits to execution. Rather than reacting immediately to inputs, agents must first explore the problem space, gather evidence from multiple independent sources, evaluate confidence against calibrated thresholds, verify claims through the Trinity Gate, and only then -- when confidence reaches the required threshold and all axioms are satisfied -- transition to decisive, committed action under the NO MERCY doctrine.
 
-This principle bridges two complementary frameworks: [NABLA Infinity](/glossary/nabla-infinity/) (which governs the exploration phase, mapping uncertainty and preserving contradictions) and [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) (which governs the execution phase, demanding complete delivery without compromise). The transition between these phases is not gradual -- it is a discrete state change triggered by meeting specific, measurable criteria. An agent in the exploration phase operates with maximum intellectual humility, acknowledging uncertainty and actively seeking contradictory evidence. An agent in the execution phase operates with maximum confidence and commitment, delivering completely or not at all.
+This principle bridges two complementary frameworks: [NABLA Infinity](@/glossary/nabla-infinity.md) (which governs the exploration phase, mapping uncertainty and preserving contradictions) and [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) (which governs the execution phase, demanding complete delivery without compromise). The transition between these phases is not gradual -- it is a discrete state change triggered by meeting specific, measurable criteria. An agent in the exploration phase operates with maximum intellectual humility, acknowledging uncertainty and actively seeking contradictory evidence. An agent in the execution phase operates with maximum confidence and commitment, delivering completely or not at all.
 
 In a platform of 530+ agents spanning intelligence analysis, security assessment, quality enforcement, and code generation, the "Thinks Before Acting" principle ensures that every autonomous decision is grounded in verified evidence rather than reactive impulse. It is the architectural answer to the question: how do you build autonomous systems that are both careful and decisive?
 
@@ -50,7 +50,7 @@ The tension between deliberation and action is ancient. Aristotle's concept of p
 
 In artificial intelligence, this tension manifests as the exploration-exploitation tradeoff, formalized in multi-armed bandit problems and reinforcement learning. An agent that always explores never commits and never achieves. An agent that always exploits never discovers and eventually stagnates. The optimal strategy balances both, and the "Thinks Before Acting" principle provides the Prismatic Platform's answer to this fundamental tradeoff.
 
-Herbert Simon's concept of bounded rationality (1955) provides another foundation. Real agents cannot evaluate all possible actions -- they must satisfice, finding solutions that are good enough given their computational constraints. The Prismatic Platform's [confidence thresholds](/glossary/confidence-threshold/) formalize this satisficing: an agent does not need to be 100% certain, but it must reach the threshold appropriate for the decision's criticality (0.95 for critical decisions, 0.80 for standard operations, 0.60 for exploratory analysis).
+Herbert Simon's concept of bounded rationality (1955) provides another foundation. Real agents cannot evaluate all possible actions -- they must satisfice, finding solutions that are good enough given their computational constraints. The Prismatic Platform's [confidence thresholds](@/glossary/confidence-threshold.md) formalize this satisficing: an agent does not need to be 100% certain, but it must reach the threshold appropriate for the decision's criticality (0.95 for critical decisions, 0.80 for standard operations, 0.60 for exploratory analysis).
 
 Daniel Kahneman's System 1/System 2 framework from behavioral economics also informs this principle. System 1 (fast, intuitive, error-prone) corresponds to reactive agent behavior. System 2 (slow, deliberate, accurate) corresponds to the deliberative phase. The Prismatic Platform's agents are designed to always engage System 2 before committing -- there is no "fast path" that bypasses deliberation for important decisions.
 
@@ -58,7 +58,7 @@ The OODA loop (Observe, Orient, Decide, Act) from military decision theory provi
 
 ## The Exploration-Execution Transition
 
-The transition from exploration to execution is the critical moment in deliberative agent behavior. It is governed by a formal protocol that requires three conditions to be simultaneously satisfied: confidence must meet or exceed the context-appropriate threshold, all seven NABLA axioms must be in compliance, and the claim must pass through the [Trinity Gate](/glossary/trinity-gate/) (structural consistency, logical consistency, and formal necessity).
+The transition from exploration to execution is the critical moment in deliberative agent behavior. It is governed by a formal protocol that requires three conditions to be simultaneously satisfied: confidence must meet or exceed the context-appropriate threshold, all seven NABLA axioms must be in compliance, and the claim must pass through the [Trinity Gate](@/glossary/trinity-gate.md) (structural consistency, logical consistency, and formal necessity).
 
 ```elixir
 defmodule Prismatic.Agent.DeliberativeProtocol do
@@ -256,7 +256,7 @@ end
 
 ## NABLA Axioms in the Deliberation Phase
 
-During the exploration phase, all seven [NABLA axioms](/glossary/nabla-axioms/) are actively enforced. Signal Plurality requires at least two independent signals before forming any belief -- an agent cannot act on a single source of information for standard or critical decisions. Contradiction Preservation mandates that when signals disagree, both perspectives are maintained rather than prematurely resolving the conflict. Absence Informative treats missing information as data -- if expected signals are absent, that absence itself informs the analysis.
+During the exploration phase, all seven [NABLA axioms](@/glossary/nabla-axioms.md) are actively enforced. Signal Plurality requires at least two independent signals before forming any belief -- an agent cannot act on a single source of information for standard or critical decisions. Contradiction Preservation mandates that when signals disagree, both perspectives are maintained rather than prematurely resolving the conflict. Absence Informative treats missing information as data -- if expected signals are absent, that absence itself informs the analysis.
 
 Time Decay ensures that older signals are appropriately discounted -- a security assessment from six months ago carries less weight than one from today. Unknown Valid legitimizes "I don't know" as a valid epistemic state -- an agent that does not have sufficient information to decide should explicitly acknowledge this rather than guessing. Source Independence weights independent sources more heavily than correlated ones -- three reports from the same data feed count as one signal, not three. Provenance Mandatory requires that every belief be traceable to its origin -- no conclusions without clear evidence chains.
 
@@ -411,7 +411,7 @@ end
 
 The "Thinks Before Acting" principle exists specifically to prevent several dangerous anti-patterns in autonomous agent systems. The most common is premature action -- committing to a course of action before sufficient evidence has been gathered. This manifests as acting on single-source information, resolving contradictions by discarding the less convenient signal, treating correlation as causation without verification, and defaulting to the first plausible hypothesis rather than exploring alternatives.
 
-Another anti-pattern is false certainty -- expressing high confidence without adequate evidence. This is particularly dangerous in security contexts, where a false "all clear" assessment can be worse than no assessment at all. The NABLA axioms specifically guard against this: Provenance Mandatory requires traceable evidence chains, [Signal Plurality](/glossary/signal-plurality/) requires multiple independent confirmations, and Unknown Valid legitimizes honest uncertainty.
+Another anti-pattern is false certainty -- expressing high confidence without adequate evidence. This is particularly dangerous in security contexts, where a false "all clear" assessment can be worse than no assessment at all. The NABLA axioms specifically guard against this: Provenance Mandatory requires traceable evidence chains, [Signal Plurality](@/glossary/signal-plurality.md) requires multiple independent confirmations, and Unknown Valid legitimizes honest uncertainty.
 
 A third anti-pattern is analysis paralysis -- the failure to ever transition from exploration to execution. While the "Thinks Before Acting" principle emphasizes deliberation, it explicitly does not endorse indefinite deliberation. The confidence thresholds provide clear, measurable criteria for when deliberation should end and action should begin. An agent that meets all three transition conditions (confidence threshold, axiom compliance, Trinity Gate passage) and fails to transition is in violation of the NO MERCY doctrine.
 
@@ -432,9 +432,9 @@ This tiered implementation ensures that the principle scales appropriately. A si
 
 ## Integration with Addiction Preservation
 
-The "Thinks Before Acting" principle is deeply integrated with the [Addiction Preservation](/glossary/addiction-recovery/) doctrine. Addiction Preservation is the platform's commitment to preserving contradictory signals, maintaining evidence plurality, and refusing to "smooth over" inconvenient truths. During the deliberation phase, agents are required to actively practice addiction preservation -- seeking out and maintaining contradictions rather than prematurely resolving them.
+The "Thinks Before Acting" principle is deeply integrated with the [Addiction Preservation](@/glossary/addiction-recovery.md) doctrine. Addiction Preservation is the platform's commitment to preserving contradictory signals, maintaining evidence plurality, and refusing to "smooth over" inconvenient truths. During the deliberation phase, agents are required to actively practice addiction preservation -- seeking out and maintaining contradictions rather than prematurely resolving them.
 
-This integration means that the exploration phase is not merely a passive waiting period. It is an active, disciplined process of evidence gathering, contradiction identification, and uncertainty mapping. The agent does not wait for confidence to accumulate passively; it actively works to build the evidence base while simultaneously stress-testing that evidence against [conflicting signals](/glossary/conflicting-signals/).
+This integration means that the exploration phase is not merely a passive waiting period. It is an active, disciplined process of evidence gathering, contradiction identification, and uncertainty mapping. The agent does not wait for confidence to accumulate passively; it actively works to build the evidence base while simultaneously stress-testing that evidence against [conflicting signals](@/glossary/conflicting-signals.md).
 
 The addiction metaphor is deliberate: just as a person in recovery must maintain constant vigilance against the temptation to rationalize, an agent must maintain constant vigilance against the temptation to resolve contradictions prematurely. The exploration phase is the period of maximum epistemic vulnerability, where the natural tendency is to grasp at the first plausible conclusion. The "Thinks Before Acting" discipline prevents this.
 
@@ -492,7 +492,7 @@ end
 
 ## Color-Team Applications
 
-The [Color Teams](/glossary/color-teams/) security architecture provides one of the clearest demonstrations of the "Thinks Before Acting" principle in practice. The Gray Team explores boundary conditions and specification gaps without acting on them. The Red Team formulates adversarial hypotheses and evaluates them against evidence before generating attack scenarios. The Blue Team aggregates defensive signals from multiple independent sensors before issuing defensive posture assessments. The Purple Team synthesizes Red and Blue findings through a formal closure process before declaring any security issue resolved.
+The [Color Teams](@/glossary/color-teams.md) security architecture provides one of the clearest demonstrations of the "Thinks Before Acting" principle in practice. The Gray Team explores boundary conditions and specification gaps without acting on them. The Red Team formulates adversarial hypotheses and evaluates them against evidence before generating attack scenarios. The Blue Team aggregates defensive signals from multiple independent sensors before issuing defensive posture assessments. The Purple Team synthesizes Red and Blue findings through a formal closure process before declaring any security issue resolved.
 
 In every case, the team must complete its exploration phase -- gathering sufficient evidence, preserving contradictions, evaluating axiom compliance -- before transitioning to its execution phase. A Red Team agent that launches an adversarial scenario without first achieving confidence threshold would violate the protocol. A Blue Team agent that issues an "all clear" without Signal Plurality would be equally in violation.
 
@@ -510,19 +510,19 @@ The effectiveness of the "Thinks Before Acting" principle is measured through se
 
 ## Cross-References
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing the exploration phase
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Calibrated decision criteria for phase transitions
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-condition verification gate for claim establishment
-- [Decisive Action](/glossary/decisive-action/) -- Execution phase behavior under NO MERCY doctrine
-- [Autonomous Agent](/glossary/autonomous-agent/) -- Self-directed agents implementing deliberative protocols
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Maintaining conflicting evidence during exploration
-- [Signal Plurality](/glossary/signal-plurality/) -- Requiring multiple independent sources for belief formation
-- [Belief Graph](/glossary/belief-graph/) -- Structured representation of agent knowledge and confidence
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- Probabilistic updating of beliefs as evidence accumulates
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- Execution doctrine activated after successful transition
-- [Axiom Enforcement](/glossary/axiom-enforcement/) -- Runtime verification of NABLA axiom compliance
-- [Mapping Uncertainty](/glossary/mapping-uncertainty/) -- Systematic exploration of the unknown during deliberation
-- [Conflicting Signals](/glossary/conflicting-signals/) -- How contradictory evidence is handled during deliberation
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing the exploration phase
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Calibrated decision criteria for phase transitions
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-condition verification gate for claim establishment
+- [Decisive Action](@/glossary/decisive-action.md) -- Execution phase behavior under NO MERCY doctrine
+- [Autonomous Agent](@/glossary/autonomous-agent.md) -- Self-directed agents implementing deliberative protocols
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Maintaining conflicting evidence during exploration
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Requiring multiple independent sources for belief formation
+- [Belief Graph](@/glossary/belief-graph.md) -- Structured representation of agent knowledge and confidence
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- Probabilistic updating of beliefs as evidence accumulates
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- Execution doctrine activated after successful transition
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) -- Runtime verification of NABLA axiom compliance
+- [Mapping Uncertainty](@/glossary/mapping-uncertainty.md) -- Systematic exploration of the unknown during deliberation
+- [Conflicting Signals](@/glossary/conflicting-signals.md) -- How contradictory evidence is handled during deliberation
 
 ---
 
@@ -531,4 +531,4 @@ The effectiveness of the "Thinks Before Acting" principle is measured through se
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

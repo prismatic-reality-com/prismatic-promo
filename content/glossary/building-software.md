@@ -357,16 +357,16 @@ Large engineering organizations benefit from umbrella architecture's enforcement
 
 ## Related Concepts
 
-- [Software Architecture](/glossary/software-architecture/) -- Structural foundation for building software
-- [Development Workflow](/glossary/development-workflow/) -- Process patterns for collaborative building
-- [Continuous Integration](/glossary/continuous-integration/) -- Automated build and test pipeline
-- [Code Quality](/glossary/code-quality/) -- Measurable properties of well-built software
-- [Elixir](/glossary/elixir/) -- Primary implementation language for the platform
-- [Architectural Pattern](/glossary/architectural-pattern/) -- Reusable structural solutions
-- [Performance](/glossary/performance/) -- Runtime characteristics of built systems
-- [Code Reviews](/glossary/code-reviews/) -- Human verification layer in the build process
-- [Continuous Deployment](/glossary/continuous-deployment/) -- Automated release pipeline
-- [Autonomous Quality](/glossary/autonomous-quality/) -- Self-improving quality enforcement
+- [Software Architecture](@/glossary/software-architecture.md) -- Structural foundation for building software
+- [Development Workflow](@/glossary/development-workflow.md) -- Process patterns for collaborative building
+- [Continuous Integration](@/glossary/continuous-integration.md) -- Automated build and test pipeline
+- [Code Quality](@/glossary/code-quality.md) -- Measurable properties of well-built software
+- [Elixir](@/glossary/elixir.md) -- Primary implementation language for the platform
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- Reusable structural solutions
+- [Performance](@/glossary/performance.md) -- Runtime characteristics of built systems
+- [Code Reviews](@/glossary/code-reviews.md) -- Human verification layer in the build process
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- Automated release pipeline
+- [Autonomous Quality](@/glossary/autonomous-quality.md) -- Self-improving quality enforcement
 
 ## See Also
 
@@ -382,4 +382,4 @@ Large engineering organizations benefit from umbrella architecture's enforcement
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

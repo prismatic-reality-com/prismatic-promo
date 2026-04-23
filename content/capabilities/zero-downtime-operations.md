@@ -623,10 +623,10 @@ ZeroDowntimeOperations.configure(%{
 
 ## Related Capabilities
 
-- [Self-Adaptive Systems](/capabilities/self-adaptive-systems/) - Autonomous system adaptation
-- [Hot Code Loading](/capabilities/zero-downtime-operations/) - Runtime code updates
-- [Live Migration](/capabilities/zero-downtime-operations/) - Service and data migration
-- [Service Continuity](/capabilities/zero-downtime-operations/) - Continuous service delivery
+- [Self-Adaptive Systems](@/capabilities/self-adaptive-systems.md) - Autonomous system adaptation
+- [Hot Code Loading](@/capabilities/zero-downtime-operations.md) - Runtime code updates
+- [Live Migration](@/capabilities/zero-downtime-operations.md) - Service and data migration
+- [Service Continuity](@/capabilities/zero-downtime-operations.md) - Continuous service delivery
 
 ## Conclusion
 

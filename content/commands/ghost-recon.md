@@ -26,7 +26,7 @@ image_alt = "/ghost-recon - Prismatic Platform"
 
 **/ghost-recon** is a production command in the **Intelligence** category of the Prismatic Platform that performs passive, zero-footprint intelligence gathering against specified targets. Unlike active reconnaissance that probes target systems directly, ghost reconnaissance collects intelligence exclusively from third-party sources, cached data, and passive observation channels. The target never receives a single packet, request, or query from the investigation, making the reconnaissance completely undetectable.
 
-This command operates under the **L3** authority level and is executed by the `ghost-recon-operator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the sensitivity of intelligence operations and ensures that only authorized operators can invoke passive reconnaissance capabilities.
+This command operates under the **L3** authority level and is executed by the `ghost-recon-operator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the sensitivity of intelligence operations and ensures that only authorized operators can invoke passive reconnaissance capabilities.
 
 Zero-footprint intelligence gathering is essential in scenarios where the target must not be alerted to the investigation. This includes competitive intelligence, pre-engagement reconnaissance for authorized penetration testing, threat actor research, and due diligence investigations where premature disclosure could compromise the assessment. The ghost reconnaissance approach guarantees that no fingerprint is left on the target's access logs, intrusion detection systems, or monitoring infrastructure.
 
@@ -147,14 +147,14 @@ The zero-footprint guarantee is enforced through several architectural safeguard
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `ghost-recon-operator` | Specialized passive collection agent |
-| [/investigate](/commands/investigate/) | Parent investigation suite | Ghost recon is one collection mode |
-| [/email-osint](/commands/email-osint/) | Email-centric variant | Complementary email-focused collection |
-| [/intel-export](/commands/intel-export/) | Report packaging | Exports findings for external analysis |
-| [NABLA Framework](/glossary/nabla-infinity/) | Epistemic validation | Source plurality enforced |
-| [Quality Gates](/glossary/quality-gates/) | Intelligence quality | Confidence scoring and validation |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Source response times and coverage |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Attack surface context | EASM data enriches ghost recon findings |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `ghost-recon-operator` | Specialized passive collection agent |
+| [/investigate](@/commands/investigate.md) | Parent investigation suite | Ghost recon is one collection mode |
+| [/email-osint](@/commands/email-osint.md) | Email-centric variant | Complementary email-focused collection |
+| [/intel-export](@/commands/intel-export.md) | Report packaging | Exports findings for external analysis |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Epistemic validation | Source plurality enforced |
+| [Quality Gates](@/glossary/quality-gates.md) | Intelligence quality | Confidence scoring and validation |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Source response times and coverage |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Attack surface context | EASM data enriches ghost recon findings |
 
 ## Best Practices
 
@@ -166,7 +166,7 @@ The zero-footprint guarantee is enforced through several architectural safeguard
 
 **Use temporal analysis.** Changes in infrastructure over time often reveal more than a point-in-time snapshot. Historical DNS changes can indicate infrastructure migrations, certificate rotations can reveal organizational structure, and web archive changes can show feature deployments.
 
-**Combine with EASM.** Ghost recon findings feed naturally into the [Prismatic Perimeter](/apps/prismatic-perimeter/) External Attack Surface Management system, providing the passive foundation for ongoing security monitoring.
+**Combine with EASM.** Ghost recon findings feed naturally into the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) External Attack Surface Management system, providing the passive foundation for ongoing security monitoring.
 
 **Document your authorization.** Even passive reconnaissance should be conducted under proper authorization. While zero-footprint collection does not touch the target, organizational policies and legal frameworks may still govern intelligence collection activities.
 
@@ -232,19 +232,19 @@ Feed ghost recon findings directly into the Prismatic Perimeter for ongoing moni
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. All available passive sources are queried; the investigation is thorough and complete within the zero-footprint constraint.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every finding includes source attribution, confidence scoring, and temporal context per [NABLA](/glossary/nabla-infinity/) axioms.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every finding includes source attribution, confidence scoring, and temporal context per [NABLA](@/glossary/nabla-infinity.md) axioms.
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/intel-export](/commands/intel-export/) - Generate comprehensive intelligence packages for external LLM analysis
-- [/git-forensics](/commands/git-forensics/) - Cynical git history analysis distinguishing signal from noise
-- [/perimeter](/commands/perimeter/) - External Attack Surface Management dashboard
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/intel-export](@/commands/intel-export.md) - Generate comprehensive intelligence packages for external LLM analysis
+- [/git-forensics](@/commands/git-forensics.md) - Cynical git history analysis distinguishing signal from noise
+- [/perimeter](@/commands/perimeter.md) - External Attack Surface Management dashboard
 
 ---
 
@@ -253,4 +253,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

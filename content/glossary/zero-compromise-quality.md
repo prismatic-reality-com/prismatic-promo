@@ -37,7 +37,7 @@ image_alt = "Zero Compromise Quality - Prismatic Platform"
 
 ## Definition
 
-**Zero Compromise Quality** is the foundational engineering philosophy that demands every line of code be production-ready from the moment it is written -- not eventually, not after a stabilization phase, not in a future sprint, but immediately. It is the categorical rejection of the notion that quality can be deferred, that "temporary" shortcuts are acceptable, or that technical debt can be managed. Within the Prismatic Platform, zero-compromise quality is the operationalization of the NO MERCY doctrine: zero tolerance for stubs, mocks in production code, placeholders, incomplete implementations, TODO/FIXME markers, compilation warnings, Credo violations, Dialyzer type errors, or untested code. This philosophy is enforced through 13 quality domains (all currently at perfect scores), an 11-phase pre-commit hook pipeline, mandatory [regression testing](/glossary/regression-testing/) for every bug fix, the Quality Floor Guardian monitoring system, and complete elimination of all Quality Debt Points (QDP) across 115 umbrella applications. The platform's quality score stands at 100/100 -- not as a target achieved once, but as a floor maintained continuously.
+**Zero Compromise Quality** is the foundational engineering philosophy that demands every line of code be production-ready from the moment it is written -- not eventually, not after a stabilization phase, not in a future sprint, but immediately. It is the categorical rejection of the notion that quality can be deferred, that "temporary" shortcuts are acceptable, or that technical debt can be managed. Within the Prismatic Platform, zero-compromise quality is the operationalization of the NO MERCY doctrine: zero tolerance for stubs, mocks in production code, placeholders, incomplete implementations, TODO/FIXME markers, compilation warnings, Credo violations, Dialyzer type errors, or untested code. This philosophy is enforced through 13 quality domains (all currently at perfect scores), an 11-phase pre-commit hook pipeline, mandatory [regression testing](@/glossary/regression-testing.md) for every bug fix, the Quality Floor Guardian monitoring system, and complete elimination of all Quality Debt Points (QDP) across 115 umbrella applications. The platform's quality score stands at 100/100 -- not as a target achieved once, but as a floor maintained continuously.
 
 ## Overview
 
@@ -421,22 +421,22 @@ QDP categories include:
 - **Unsafe Map Access** -- 2 QDP per direct map access without pattern match
 - **Missing @impl** -- 1 QDP per missing annotation
 
-The QDP elimination process is continuous: the [autoheal](/glossary/autoheal/) system detects new QDP on every commit, and the [autoevolve](/glossary/autoevolve/) system generates fixes automatically.
+The QDP elimination process is continuous: the [autoheal](@/glossary/autoheal.md) system detects new QDP on every commit, and the [autoevolve](@/glossary/autoevolve.md) system generates fixes automatically.
 
 ## Cross-References
 
-- [Zero Tolerance Quality](/glossary/zero-tolerance-quality/) -- The enforcement aspect of zero-compromise quality
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Specific policy requiring zero compilation warnings
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- The minimum acceptable quality level (100/100)
-- [Technical Debt](/glossary/technical-debt/) -- What zero-compromise quality prevents
-- [Test Coverage](/glossary/test-coverage/) -- Metric for verification completeness
-- [Verification](/glossary/verification/) -- The process that confirms quality standards are met
-- [Testing](/glossary/testing/) -- The primary mechanism for quality assurance
-- [Regression Testing](/glossary/regression-testing/) -- Mandatory protocol for every bug fix
-- [Autoheal](/glossary/autoheal/) -- Autonomous system that detects and fixes quality issues
-- [Autoevolve](/glossary/autoevolve/) -- Autonomous system that evolves quality standards
-- [Autonomous Quality](/glossary/autonomous-quality/) -- Self-maintaining quality through automation
-- [Violation Protocol](/glossary/violation-protocol/) -- The escalation process for quality violations
+- [Zero Tolerance Quality](@/glossary/zero-tolerance-quality.md) -- The enforcement aspect of zero-compromise quality
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Specific policy requiring zero compilation warnings
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- The minimum acceptable quality level (100/100)
+- [Technical Debt](@/glossary/technical-debt.md) -- What zero-compromise quality prevents
+- [Test Coverage](@/glossary/test-coverage.md) -- Metric for verification completeness
+- [Verification](@/glossary/verification.md) -- The process that confirms quality standards are met
+- [Testing](@/glossary/testing.md) -- The primary mechanism for quality assurance
+- [Regression Testing](@/glossary/regression-testing.md) -- Mandatory protocol for every bug fix
+- [Autoheal](@/glossary/autoheal.md) -- Autonomous system that detects and fixes quality issues
+- [Autoevolve](@/glossary/autoevolve.md) -- Autonomous system that evolves quality standards
+- [Autonomous Quality](@/glossary/autonomous-quality.md) -- Self-maintaining quality through automation
+- [Violation Protocol](@/glossary/violation-protocol.md) -- The escalation process for quality violations
 
 ## Best Practices
 
@@ -458,7 +458,7 @@ The QDP elimination process is continuous: the [autoheal](/glossary/autoheal/) s
 - **Ratcheting down.** Gradually accepting "small" violations that accumulate into systemic quality decay. The first accepted warning leads to the hundredth.
 - **Blaming the tools.** When quality tools flag issues, the instinct to suppress the warning rather than fix the code indicates a cultural problem.
 - **Quality as punishment.** When quality enforcement is perceived as punitive rather than protective, developers route around it. Build a culture where quality gates are valued as safety nets.
-- **Perfection paralysis.** Zero-compromise quality means production-ready, not perfect. Code can be clean, tested, and well-typed while still being improved in the future through [autoevolve](/glossary/autoevolve/).
+- **Perfection paralysis.** Zero-compromise quality means production-ready, not perfect. Code can be clean, tested, and well-typed while still being improved in the future through [autoevolve](@/glossary/autoevolve.md).
 
 ## Further Reading
 

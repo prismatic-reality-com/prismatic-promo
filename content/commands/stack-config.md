@@ -26,9 +26,9 @@ image_alt = "/stack-config - Prismatic Platform"
 
 **/stack-config** is a production command in the **Stack Mode** category of the Prismatic Platform that provides advanced Stack Mode configuration and customization commands. The Stack-Based Conversation Mode is a foundational protocol governing how all Claude sessions interact with the platform, and the `/stack-config` command serves as the administrative interface for tailoring stack behavior to specific operational requirements.
 
-The Stack-Based Conversation Mode maintains an immutable sequence of frames, where each frame records the user input, assistant output, key assumptions, and key decisions for a single interaction turn. While the core stack operations ([/stack](/commands/stack/), [/frame](/commands/frame/), [/pop](/commands/pop/), [/fork](/commands/fork/)) are fixed by protocol, the configuration layer allows operators to adjust stack persistence behavior, frame metadata requirements, checkpoint policies, and integration settings without modifying the core protocol.
+The Stack-Based Conversation Mode maintains an immutable sequence of frames, where each frame records the user input, assistant output, key assumptions, and key decisions for a single interaction turn. While the core stack operations ([/stack](@/commands/stack.md), [/frame](@/commands/frame.md), [/pop](@/commands/pop.md), [/fork](@/commands/fork.md)) are fixed by protocol, the configuration layer allows operators to adjust stack persistence behavior, frame metadata requirements, checkpoint policies, and integration settings without modifying the core protocol.
 
-This command operates under the **L2+** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority ensures that stack configuration changes require operational-level privileges, preventing accidental misconfiguration that could affect session continuity.
+This command operates under the **L2+** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority ensures that stack configuration changes require operational-level privileges, preventing accidental misconfiguration that could affect session continuity.
 
 The configuration system is backed by the `PrismaticClaude.StackConversation` GenServer, an OTP-compliant implementation with ETS-backed frame storage and disk persistence. Configuration changes take effect immediately for the current session and can optionally be persisted to disk for cross-session consistency. The system stores its state in `.claude/stack-conversation/` within the project root.
 
@@ -169,12 +169,12 @@ The stack configuration system operates as a configuration layer above the core 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [StackConversation GenServer](/apps/prismatic-claude/) | Configuration Target | Receives config changes and adjusts behavior |
-| [/stack](/commands/stack/) | Behavioral Impact | Stack display respects configured summary lengths and compression |
-| [/frame](/commands/frame/) | Behavioral Impact | Frame inspection reflects configured metadata requirements |
-| [/checkpoint](/commands/checkpoint/) | Behavioral Impact | Auto-checkpoint behavior controlled by config |
-| [Session Lifecycle](/apps/prismatic-claude/) | Hook | Config can be auto-loaded at session start |
-| [Telemetry](/glossary/telemetry/) | Observability | Configuration changes emitted as telemetry events |
+| [StackConversation GenServer](@/apps/prismatic-claude.md) | Configuration Target | Receives config changes and adjusts behavior |
+| [/stack](@/commands/stack.md) | Behavioral Impact | Stack display respects configured summary lengths and compression |
+| [/frame](@/commands/frame.md) | Behavioral Impact | Frame inspection reflects configured metadata requirements |
+| [/checkpoint](@/commands/checkpoint.md) | Behavioral Impact | Auto-checkpoint behavior controlled by config |
+| [Session Lifecycle](@/apps/prismatic-claude.md) | Hook | Config can be auto-loaded at session start |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Configuration changes emitted as telemetry events |
 
 ## Best Practices
 
@@ -243,7 +243,7 @@ config = PrismaticClaude.StackConversation.get_config()
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Stack configuration changes are validated before application. Invalid configurations are rejected, not silently degraded. Configuration profiles must be complete -- partial profiles that could leave the system in an inconsistent state are rejected.
 - **NO DOUBTS**: Configuration state is always queryable through `show` and `get`. The current active configuration is deterministic -- it comes from the explicit configuration registry, not from ambient or implicit sources. Every configuration change is logged to telemetry, providing an audit trail.
@@ -252,13 +252,13 @@ The Stack-Based Conversation Mode is a P0 ABSOLUTE enforcement protocol. Configu
 
 ## Related Commands
 
-- [/stack](/commands/stack/) - Display complete conversation stack with all frames
-- [/frame](/commands/frame/) - Inspect specific conversation frame by ID
-- [/pop](/commands/pop/) - Remove last N frames from conversation stack (DESTRUCTIVE)
-- [/fork](/commands/fork/) - Branch conversation from specific frame (DESTRUCTIVE)
-- [/checkpoint](/commands/checkpoint/) - Mark current conversation frame with a named checkpoint
-- [/stack-mode](/commands/stack-mode/) - Stack-based conversation mode control for frame management and branching
-- [/stack-utils](/commands/stack-utils/) - Advanced Stack Mode utility commands for maintenance and debugging
+- [/stack](@/commands/stack.md) - Display complete conversation stack with all frames
+- [/frame](@/commands/frame.md) - Inspect specific conversation frame by ID
+- [/pop](@/commands/pop.md) - Remove last N frames from conversation stack (DESTRUCTIVE)
+- [/fork](@/commands/fork.md) - Branch conversation from specific frame (DESTRUCTIVE)
+- [/checkpoint](@/commands/checkpoint.md) - Mark current conversation frame with a named checkpoint
+- [/stack-mode](@/commands/stack-mode.md) - Stack-based conversation mode control for frame management and branching
+- [/stack-utils](@/commands/stack-utils.md) - Advanced Stack Mode utility commands for maintenance and debugging
 
 ---
 
@@ -267,4 +267,4 @@ The Stack-Based Conversation Mode is a P0 ABSOLUTE enforcement protocol. Configu
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

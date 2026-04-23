@@ -221,11 +221,11 @@ This write-through pattern ensures that every OSINT tool execution is safely per
 
 ## Cross-References
 
-- [Cache](/glossary/cache/) - Storage layer implementing strategies
-- [ETS](/glossary/ets/) - In-memory cache storage
-- [TTL](/glossary/ttl/) - Cache expiry mechanism
-- [Write Concurrency](/glossary/write-concurrency/) - ETS parallel write support
-- [Vacuum](/glossary/vacuum/) - PostgreSQL cleanup from write operations
+- [Cache](@/glossary/cache.md) - Storage layer implementing strategies
+- [ETS](@/glossary/ets.md) - In-memory cache storage
+- [TTL](@/glossary/ttl.md) - Cache expiry mechanism
+- [Write Concurrency](@/glossary/write-concurrency.md) - ETS parallel write support
+- [Vacuum](@/glossary/vacuum.md) - PostgreSQL cleanup from write operations
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

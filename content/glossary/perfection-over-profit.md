@@ -375,24 +375,24 @@ The Prismatic Platform's 19-generation, multi-year evolution demonstrates that "
 
 The "perfection over profit" doctrine connects with the full spectrum of quality and philosophical concepts in the Prismatic Platform:
 
-- [NO MERCY NO DOUBTS](/glossary/no-mercy-no-doubts/) -- the enforcement doctrine that operationalizes perfection over profit
-- [Perfect Software](/glossary/perfect-software/) -- the component-level quality standard this doctrine demands
-- [Perfect Systems](/glossary/perfect-systems/) -- the system-level architectural standard this doctrine demands
-- [Zero Tolerance Quality](/glossary/zero-tolerance-quality/) -- the policy framework implementing zero-deviation quality standards
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- the complementary principle rejecting quality trade-offs
-- [Open Source Superiority](/glossary/open-source-superiority/) -- the claim that open source produces superior quality through transparency and public scrutiny
-- [Community Over Corporation](/glossary/community-over-corporation/) -- the organizational principle prioritizing community benefit over corporate profit
-- [Quality](/glossary/quality/) -- the foundational concept that perfection over profit elevates to absolute priority
-- [Technical Debt](/glossary/technical-debt/) -- the anti-pattern that perfection over profit categorically prohibits
-- [Doctrine](/glossary/doctrine/) -- the codification mechanism for operational principles including perfection over profit
+- [NO MERCY NO DOUBTS](@/glossary/no-mercy-no-doubts.md) -- the enforcement doctrine that operationalizes perfection over profit
+- [Perfect Software](@/glossary/perfect-software.md) -- the component-level quality standard this doctrine demands
+- [Perfect Systems](@/glossary/perfect-systems.md) -- the system-level architectural standard this doctrine demands
+- [Zero Tolerance Quality](@/glossary/zero-tolerance-quality.md) -- the policy framework implementing zero-deviation quality standards
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- the complementary principle rejecting quality trade-offs
+- [Open Source Superiority](@/glossary/open-source-superiority.md) -- the claim that open source produces superior quality through transparency and public scrutiny
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- the organizational principle prioritizing community benefit over corporate profit
+- [Quality](@/glossary/quality.md) -- the foundational concept that perfection over profit elevates to absolute priority
+- [Technical Debt](@/glossary/technical-debt.md) -- the anti-pattern that perfection over profit categorically prohibits
+- [Doctrine](@/glossary/doctrine.md) -- the codification mechanism for operational principles including perfection over profit
 
 ## See Also
 
-- [Quality Gates](/glossary/quality-gates/) -- the automated enforcement mechanism for the doctrine
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the monitoring system ensuring quality never drops below perfection
-- [GHL License](/glossary/ghl-license/) -- the open source license enabling public quality verification
-- [Technical Perfection](/glossary/technical-perfection/) -- the engineering dimension of the perfection ideal
-- [Perfection Unacceptable](/glossary/perfection-unacceptable/) -- the companion concept that perfection is the minimum standard, not a stretch goal
+- [Quality Gates](@/glossary/quality-gates.md) -- the automated enforcement mechanism for the doctrine
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the monitoring system ensuring quality never drops below perfection
+- [GHL License](@/glossary/ghl-license.md) -- the open source license enabling public quality verification
+- [Technical Perfection](@/glossary/technical-perfection.md) -- the engineering dimension of the perfection ideal
+- [Perfection Unacceptable](@/glossary/perfection-unacceptable.md) -- the companion concept that perfection is the minimum standard, not a stretch goal
 
 ---
 

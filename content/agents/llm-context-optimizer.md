@@ -28,9 +28,9 @@ image_alt = "llm-context-optimizer - Prismatic Platform"
 
 ## Overview
 
-The llm-context-optimizer is an L4 domain authority agent operating within the [AIAD](/glossary/aiad/)-enhanced domain of the Prismatic Platform. This agent specializes in optimizing the content and structure of context windows for large language model interactions, ensuring that the limited token budget available in each LLM request is allocated to the most relevant and impactful information. Context window management is a critical concern in LLM-integrated platforms because the quality of LLM responses depends directly on the relevance and completeness of the context provided, while token costs scale linearly with context size.
+The llm-context-optimizer is an L4 domain authority agent operating within the [AIAD](@/glossary/aiad.md)-enhanced domain of the Prismatic Platform. This agent specializes in optimizing the content and structure of context windows for large language model interactions, ensuring that the limited token budget available in each LLM request is allocated to the most relevant and impactful information. Context window management is a critical concern in LLM-integrated platforms because the quality of LLM responses depends directly on the relevance and completeness of the context provided, while token costs scale linearly with context size.
 
-Built on the [AIAD](/glossary/aiad/) standard, the llm-context-optimizer addresses the fundamental tension in LLM context management: providing enough context for high-quality responses while minimizing token consumption for cost efficiency. This agent applies information-theoretic principles to quantify the relevance of potential context elements, priority-based allocation to distribute tokens across context sections, and compression techniques to represent essential information in fewer tokens without losing critical semantic content.
+Built on the [AIAD](@/glossary/aiad.md) standard, the llm-context-optimizer addresses the fundamental tension in LLM context management: providing enough context for high-quality responses while minimizing token consumption for cost efficiency. This agent applies information-theoretic principles to quantify the relevance of potential context elements, priority-based allocation to distribute tokens across context sections, and compression techniques to represent essential information in fewer tokens without losing critical semantic content.
 
 ## Context Optimization Architecture
 
@@ -52,9 +52,9 @@ The compression stage applies token-efficient representations to allocated conte
 - **Context compression** -- Applies summarization, reference linking, and format optimization to represent essential information in fewer tokens
 - **Model-aware optimization** -- Adjusts optimization strategies for different LLM models with varying context window sizes, token pricing, and attention pattern characteristics
 - **A/B testing of context strategies** -- Supports controlled experiments comparing alternative context compositions, measuring response quality differences
-- **[GenServer](/glossary/genserver/)-based state management** -- Maintains optimization state including historical relevance scores and compression effectiveness metrics
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous optimization of context strategies based on response quality feedback
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for token utilization efficiency and context quality metrics
+- **[GenServer](@/glossary/genserver.md)-based state management** -- Maintains optimization state including historical relevance scores and compression effectiveness metrics
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous optimization of context strategies based on response quality feedback
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for token utilization efficiency and context quality metrics
 
 ## Optimization Strategies by Task Type
 
@@ -82,12 +82,12 @@ Token pricing differences also influence optimization. For expensive models (Cla
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
 | LLM Client Library | Context injection point for optimized context packages |
-| [GenServer](/glossary/genserver/) | OTP-based optimization state management |
-| Prismatic Telemetry | Token utilization [metrics](/glossary/metrics/) and context quality tracking |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of optimization strategies |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery |
+| [GenServer](@/glossary/genserver.md) | OTP-based optimization state management |
+| Prismatic Telemetry | Token utilization [metrics](@/glossary/metrics.md) and context quality tracking |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of optimization strategies |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
 
 ## Command Interface
 
@@ -102,14 +102,14 @@ Token pricing differences also influence optimization. For expensive models (Cla
 
 | Agent | Relationship |
 |-------|-------------|
-| [**llm-prompt-engineer**](/agents/llm-prompt-engineer/) (L3) | Provides optimized prompts that the context optimizer wraps with relevant context |
-| [**llm-model-selector**](/agents/llm-model-selector/) (L4) | Model selection determines context window size and optimization parameters |
-| [**llm-cost-manager**](/agents/llm-cost-manager/) (L4) | Cost constraints influence context compression aggressiveness |
-| [**llm-aide-coordinator**](/agents/llm-aide-coordinator/) (L3) | Context packages for external AI platforms require specialized optimization |
+| [**llm-prompt-engineer**](@/agents/llm-prompt-engineer.md) (L3) | Provides optimized prompts that the context optimizer wraps with relevant context |
+| [**llm-model-selector**](@/agents/llm-model-selector.md) (L4) | Model selection determines context window size and optimization parameters |
+| [**llm-cost-manager**](@/agents/llm-cost-manager.md) (L4) | Cost constraints influence context compression aggressiveness |
+| [**llm-aide-coordinator**](@/agents/llm-aide-coordinator.md) (L3) | Context packages for external AI platforms require specialized optimization |
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that context optimization never omits critical constraints (quality standards, security requirements, naming conventions) regardless of token budget pressure. The [NO DOUBTS](/glossary/no-doubts/) principle requires that the optimizer tracks the relationship between context composition and response quality, providing evidence-based justification for optimization decisions rather than applying heuristics without validation. All optimization decisions pass through the [Trinity Gate](/glossary/trinity-gate/) validation framework, and the [NABLA Infinity](/glossary/nabla-infinity/) framework ensures that context relevance scoring maintains signal plurality and provenance traceability.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that context optimization never omits critical constraints (quality standards, security requirements, naming conventions) regardless of token budget pressure. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that the optimizer tracks the relationship between context composition and response quality, providing evidence-based justification for optimization decisions rather than applying heuristics without validation. All optimization decisions pass through the [Trinity Gate](@/glossary/trinity-gate.md) validation framework, and the [NABLA Infinity](@/glossary/nabla-infinity.md) framework ensures that context relevance scoring maintains signal plurality and provenance traceability.
 
 ---
 
@@ -118,4 +118,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that context optimization 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

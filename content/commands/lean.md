@@ -24,13 +24,13 @@ image_alt = "/lean - Prismatic Platform"
 
 ## Overview
 
-**/lean** is a production command in the **[Formal Verification](/glossary/formal-verification/)** category of the Prismatic Platform that enables execution of Lean 4 code and theorem proving through the dedicated `lean-specialist` agent. Lean 4 is a functional programming language and interactive theorem prover that serves as the formal backbone of the platform's [QEVE](/glossary/qeve/) (Quantitative Epistemic Verification Engine) framework, providing machine-checkable proofs of system properties, invariants, and correctness guarantees.
+**/lean** is a production command in the **[Formal Verification](@/glossary/formal-verification.md)** category of the Prismatic Platform that enables execution of Lean 4 code and theorem proving through the dedicated `lean-specialist` agent. Lean 4 is a functional programming language and interactive theorem prover that serves as the formal backbone of the platform's [QEVE](@/glossary/qeve.md) (Quantitative Epistemic Verification Engine) framework, providing machine-checkable proofs of system properties, invariants, and correctness guarantees.
 
 Formal verification is a cornerstone of the Prismatic Platform's epistemic integrity. While traditional testing can demonstrate the presence of specific behaviors, formal verification proves the absence of entire classes of bugs. The `/lean` command makes this capability accessible through a simple command interface, allowing developers and agents to write Lean 4 specifications, prove theorems about platform components, and verify that implementations satisfy their formal specifications.
 
-This command operates under the **L2+** authority level and is executed by the `lean-specialist` agent, which possesses expertise in dependent type theory, tactic-based proof development, and the Mathlib library. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The lean-specialist agent can translate between Elixir specifications and Lean 4 formalizations, bridging the gap between the platform's implementation language and its verification language.
+This command operates under the **L2+** authority level and is executed by the `lean-specialist` agent, which possesses expertise in dependent type theory, tactic-based proof development, and the Mathlib library. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The lean-specialist agent can translate between Elixir specifications and Lean 4 formalizations, bridging the gap between the platform's implementation language and its verification language.
 
-Within the platform's [Trinity Gate](/glossary/trinity-gate/) framework, the `/lean` command directly supports the third gate -- Formal Necessity -- by providing machine-checkable proofs that claims are not merely consistent but formally necessary. This elevates epistemic claims from the level of empirical evidence to mathematical certainty.
+Within the platform's [Trinity Gate](@/glossary/trinity-gate.md) framework, the `/lean` command directly supports the third gate -- Formal Necessity -- by providing machine-checkable proofs that claims are not merely consistent but formally necessary. This elevates epistemic claims from the level of empirical evidence to mathematical certainty.
 
 ## Architecture
 
@@ -163,14 +163,14 @@ The **Lean Source Manager** handles both file-based and inline Lean 4 code. The 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Executed by the `lean-specialist` agent |
-| [QEVE](/glossary/qeve/) | Evidence Storage | Verified proofs stored as epistemic evidence |
-| [Trinity Gate](/glossary/trinity-gate/) | Formal Necessity | Lean proofs satisfy the third gate requirement |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic Framework | Proofs provide maximum confidence (1.0) evidence |
-| [Monte Carlo](/commands/monte-carlo/) | Hybrid Verification | Combined probabilistic and formal verification |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Proof requirements enforced at quality gates |
-| [Telemetry](/glossary/telemetry/) | Observability | Proof metrics tracked (time, complexity, success rate) |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command registered via AIAD standard |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Executed by the `lean-specialist` agent |
+| [QEVE](@/glossary/qeve.md) | Evidence Storage | Verified proofs stored as epistemic evidence |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Formal Necessity | Lean proofs satisfy the third gate requirement |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic Framework | Proofs provide maximum confidence (1.0) evidence |
+| [Monte Carlo](@/commands/monte-carlo.md) | Hybrid Verification | Combined probabilistic and formal verification |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Proof requirements enforced at quality gates |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Proof metrics tracked (time, complexity, success rate) |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command registered via AIAD standard |
 
 ## Best Practices
 
@@ -197,21 +197,21 @@ The **Lean Source Manager** handles both file-based and inline Lean 4 code. The 
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Proofs must be complete and kernel-verified -- partial proofs and sorry-based stubs are rejected. Every formal claim must be fully proven.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The Lean kernel provides the highest level of evidence: machine-checked mathematical proof. No formal claim is accepted without passing through the kernel verifier.
 
-The `/lean` command is the cornerstone of the platform's [NABLA Infinity](/glossary/nabla-infinity/) Provenance Mandatory axiom, ensuring that formal claims are traceable to machine-checkable proofs rather than informal arguments or empirical testing alone.
+The `/lean` command is the cornerstone of the platform's [NABLA Infinity](@/glossary/nabla-infinity.md) Provenance Mandatory axiom, ensuring that formal claims are traceable to machine-checkable proofs rather than informal arguments or empirical testing alone.
 
 ## Related Commands
 
-- [/formal-verify](/commands/formal-verify/) - Formal verification of system properties and invariants
-- [/prolog](/commands/prolog/) - Prolog-based logical reasoning and [inference](/glossary/inference/) operations
-- [/monte-carlo](/commands/monte-carlo/) - Monte Carlo simulation for probabilistic analysis and risk assessment
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/formal-verify](@/commands/formal-verify.md) - Formal verification of system properties and invariants
+- [/prolog](@/commands/prolog.md) - Prolog-based logical reasoning and [inference](@/glossary/inference.md) operations
+- [/monte-carlo](@/commands/monte-carlo.md) - Monte Carlo simulation for probabilistic analysis and risk assessment
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -220,4 +220,4 @@ The `/lean` command is the cornerstone of the platform's [NABLA Infinity](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

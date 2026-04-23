@@ -24,11 +24,11 @@ image_alt = "Local AI (Ollama) - Prismatic Platform"
 
 ## Overview
 
-Prismatic Platform integrates with [Ollama](https://ollama.ai) for local, air-gapped large language model [inference](/glossary/inference/). This architectural decision addresses a fundamental tension in AI-powered security platforms: the most powerful LLM capabilities require sending data to external APIs, but security-sensitive intelligence operations cannot tolerate data leaving the controlled environment. Ollama resolves this by running quantized open-source models locally, providing AI-powered analysis without any external network dependency.
+Prismatic Platform integrates with [Ollama](https://ollama.ai) for local, air-gapped large language model [inference](@/glossary/inference.md). This architectural decision addresses a fundamental tension in AI-powered security platforms: the most powerful LLM capabilities require sending data to external APIs, but security-sensitive intelligence operations cannot tolerate data leaving the controlled environment. Ollama resolves this by running quantized open-source models locally, providing AI-powered analysis without any external network dependency.
 
-The integration is not a simple HTTP client wrapper. It is a full [OTP](/glossary/otp/)-supervised subsystem with [connection pooling](/glossary/connection-pooling/), model routing, health monitoring, automatic cloud fallback, and deep integration with the platform's [telemetry infrastructure](/architecture/telemetry/). The Ollama Coordinator Agent manages model lifecycle, routes requests to appropriate models based on task type, and monitors inference latency to ensure SLA compliance.
+The integration is not a simple HTTP client wrapper. It is a full [OTP](@/glossary/otp.md)-supervised subsystem with [connection pooling](@/glossary/connection-pooling.md), model routing, health monitoring, automatic cloud fallback, and deep integration with the platform's [telemetry infrastructure](@/architecture/telemetry.md). The Ollama Coordinator Agent manages model lifecycle, routes requests to appropriate models based on task type, and monitors inference latency to ensure SLA compliance.
 
-This architecture supports the platform's broader commitment to data sovereignty -- particularly important for [Perimeter EASM](/apps/prismatic-perimeter/) operations involving sensitive corporate intelligence, [Czech registry data](/apps/prismatic-czech-autocrawler/) processing, and any workflow where the [NABLA framework](/architecture/nabla-framework/) classifies the input signals as confidential.
+This architecture supports the platform's broader commitment to data sovereignty -- particularly important for [Perimeter EASM](@/apps/prismatic-perimeter.md) operations involving sensitive corporate intelligence, [Czech registry data](@/apps/prismatic-czech-autocrawler.md) processing, and any workflow where the [NABLA framework](@/architecture/nabla-framework.md) classifies the input signals as confidential.
 
 ## Architectural Design and Model Selection
 
@@ -44,7 +44,7 @@ Several local inference solutions were evaluated before settling on Ollama:
 | **LocalAI** | OpenAI-compatible API, broad model support | Less mature, fewer models, slower updates | Rejected -- ecosystem smaller |
 | **text-generation-inference** | HuggingFace ecosystem, optimized serving | Complex setup, GPU-focused | Rejected -- developer experience poor |
 
-Ollama was selected because it provides the best balance of developer experience (single binary, automatic model downloading, simple [REST API](/glossary/rest-api/)) and operational reliability ([process isolation](/glossary/process-isolation/) per model, automatic memory management, graceful degradation under load).
+Ollama was selected because it provides the best balance of developer experience (single binary, automatic model downloading, simple [REST API](@/glossary/rest-api.md)) and operational reliability ([process isolation](@/glossary/process-isolation.md) per model, automatic memory management, graceful degradation under load).
 
 ### Supported Models and Task Routing
 
@@ -239,7 +239,7 @@ end
 
 ## Core Inference API
 
-The primary inference interface provides both simple generation and structured chat completions. All calls go through the connection pool and model router, with automatic [telemetry](/glossary/telemetry/) emission.
+The primary inference interface provides both simple generation and structured chat completions. All calls go through the connection pool and model router, with automatic [telemetry](@/glossary/telemetry.md) emission.
 
 ```elixir
 defmodule Prismatic.AI.Ollama do
@@ -296,7 +296,7 @@ end
 
 ### Security-Sensitive Code Analysis
 
-For [Perimeter EASM](/apps/prismatic-perimeter/) operations, code snippets discovered during [attack surface](/glossary/attack-surface/) scanning must be analyzed without sending potentially sensitive intellectual property to external APIs.
+For [Perimeter EASM](@/apps/prismatic-perimeter.md) operations, code snippets discovered during [attack surface](@/glossary/attack-surface.md) scanning must be analyzed without sending potentially sensitive intellectual property to external APIs.
 
 ```elixir
 defmodule PrismaticPerimeter.CodeAnalyzer do
@@ -324,7 +324,7 @@ end
 
 ### Entity Extraction from Intelligence Documents
 
-Processing [OSINT](/glossary/osint/) documents requires extracting structured entities (companies, people, dates, relationships) without exposing the document content to cloud services.
+Processing [OSINT](@/glossary/osint.md) documents requires extracting structured entities (companies, people, dates, relationships) without exposing the document content to cloud services.
 
 ```elixir
 defmodule PrismaticIntelligence.EntityExtractor do
@@ -349,7 +349,7 @@ end
 
 ### Graph Query Generation
 
-The [KuzuDB graph database](/architecture/postgresql-kuzudb/) uses Cypher query language. Natural language to Cypher translation runs locally to avoid exposing the graph schema to external services.
+The [KuzuDB graph database](@/architecture/postgresql-kuzudb.md) uses Cypher query language. Natural language to Cypher translation runs locally to avoid exposing the graph schema to external services.
 
 ```elixir
 defmodule PrismaticGraph.QueryGenerator do
@@ -376,7 +376,7 @@ end
 
 ## Cloud Fallback and Circuit Breaker
 
-The platform implements a graceful degradation strategy: when Ollama is unavailable (server down, model not loaded, resource exhaustion), requests automatically fall back to cloud APIs. This fallback is governed by a [circuit breaker](/glossary/circuit-breaker/) pattern that prevents cascade failures.
+The platform implements a graceful degradation strategy: when Ollama is unavailable (server down, model not loaded, resource exhaustion), requests automatically fall back to cloud APIs. This fallback is governed by a [circuit breaker](@/glossary/circuit-breaker.md) pattern that prevents cascade failures.
 
 ```elixir
 defmodule Prismatic.AI.FallbackRouter do
@@ -497,7 +497,7 @@ end
 | **Model quality** | Good (7B-20B quantized) | Excellent (100B+ FP16) | Best of both via fallback |
 | **Cost** | Hardware only (one-time) | Per-token pricing (ongoing) | Optimized -- local first |
 | **Availability** | Depends on local hardware | 99.9% SLA | 99.99% with fallback |
-| **Customization** | Full ([fine-tuning](/glossary/fine-tuning/), LoRA) | Limited (API parameters) | Full local + cloud baseline |
+| **Customization** | Full ([fine-tuning](@/glossary/fine-tuning.md), LoRA) | Limited (API parameters) | Full local + cloud baseline |
 | **Compliance** | Easy (data stays local) | Complex (DPA required) | Simplified -- default local |
 
 The hybrid approach is the key architectural insight. Pure local inference sacrifices quality; pure cloud inference sacrifices privacy. By combining both with intelligent routing, the platform achieves the best of both worlds: sensitive operations stay local with acceptable quality, while non-sensitive operations can leverage superior cloud models when local resources are constrained.
@@ -506,20 +506,20 @@ The hybrid approach is the key architectural insight. Pure local inference sacri
 
 The Ollama subsystem integrates with several platform components:
 
-- **[Agent system](/apps/prismatic-agents/)**: Agents use the inference API for reasoning, classification, and generation tasks. The Ollama Coordinator Agent manages the model lifecycle.
-- **[Meilisearch](/architecture/meilisearch/)**: Search result enrichment uses local AI for semantic reranking without exposing search queries to external services.
-- **[NABLA framework](/architecture/nabla-framework/)**: Confidence scores from local inference are tagged with source provenance (`source_family: :local_llm`) for proper independence weighting.
-- **[Telemetry](/architecture/telemetry/)**: All inference requests emit telemetry events (`[:prismatic, :ollama, :request]`) with duration, model, and outcome metadata.
-- **[Supervision trees](/architecture/supervision-trees/)**: The Ollama subsystem runs under its own [supervisor](/glossary/supervisor/) within the platform's [OTP supervision hierarchy](/glossary/supervision-tree/).
+- **[Agent system](@/apps/prismatic-agents.md)**: Agents use the inference API for reasoning, classification, and generation tasks. The Ollama Coordinator Agent manages the model lifecycle.
+- **[Meilisearch](@/architecture/meilisearch.md)**: Search result enrichment uses local AI for semantic reranking without exposing search queries to external services.
+- **[NABLA framework](@/architecture/nabla-framework.md)**: Confidence scores from local inference are tagged with source provenance (`source_family: :local_llm`) for proper independence weighting.
+- **[Telemetry](@/architecture/telemetry.md)**: All inference requests emit telemetry events (`[:prismatic, :ollama, :request]`) with duration, model, and outcome metadata.
+- **[Supervision trees](@/architecture/supervision-trees.md)**: The Ollama subsystem runs under its own [supervisor](@/glossary/supervisor.md) within the platform's [OTP supervision hierarchy](@/glossary/supervision-tree.md).
 
 ## Security Considerations
 
 Running LLMs locally introduces its own security surface. The platform addresses these through several mechanisms:
 
-- **Process isolation**: Ollama runs as a separate OS process, not embedded in the [BEAM](/glossary/beam/) VM. A model crash cannot corrupt platform state.
+- **Process isolation**: Ollama runs as a separate OS process, not embedded in the [BEAM](@/glossary/beam.md) VM. A model crash cannot corrupt platform state.
 - **Network binding**: Ollama binds to `localhost:11434` only. No external network access is permitted in production deployments.
 - **Input sanitization**: All prompts pass through a sanitization layer that strips potential prompt injection patterns before reaching the model.
-- **Output validation**: Model outputs are parsed and validated before being used in platform decisions. Raw LLM output never directly influences security-critical paths without passing through the [NABLA framework's](/architecture/nabla-framework/) confidence assessment.
+- **Output validation**: Model outputs are parsed and validated before being used in platform decisions. Raw LLM output never directly influences security-critical paths without passing through the [NABLA framework's](@/architecture/nabla-framework.md) confidence assessment.
 - **Resource limits**: Per-request timeouts and memory limits prevent a single inference from consuming all available resources.
 
 ## Commands and Operations
@@ -533,7 +533,7 @@ Running LLMs locally introduces its own security surface. The platform addresses
 | `/ollama test` | Run inference benchmark across all loaded models | Performance validation |
 | `/ollama optimize` | Optimize model loading order and memory allocation | Resource optimization |
 
-These commands integrate with the platform's [AIAD command framework](/capabilities/aiad-standard/), ensuring consistent invocation patterns and telemetry tracking across all operational interfaces.
+These commands integrate with the platform's [AIAD command framework](@/capabilities/aiad-standard.md), ensuring consistent invocation patterns and telemetry tracking across all operational interfaces.
 
 ---
 
@@ -542,4 +542,4 @@ These commands integrate with the platform's [AIAD command framework](/capabilit
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

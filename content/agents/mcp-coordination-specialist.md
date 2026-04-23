@@ -30,7 +30,7 @@ image_alt = "mcp-coordination-specialist - Prismatic Platform"
 
 The mcp-coordination-specialist agent operates as an L2 Tactical Operations authority within the Prismatic Platform's primary-producer domain, serving as the specialized coordinator for Model Context Protocol (MCP) server management and multi-server coordination. The MCP ecosystem within the Prismatic Platform comprises 14+ servers providing diverse tooling capabilities -- from filesystem access and database queries to GitHub integration and memory management. This agent ensures that MCP servers operate reliably, respond within acceptable latency bounds, and coordinate effectively when multiple servers must contribute to complex operations.
 
-Built on the [AIAD](/glossary/aiad/) standard and operating within the [mycelial network](/glossary/mycelial-network/), the mcp-coordination-specialist applies the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine to MCP operations management. Server availability is non-negotiable -- degraded MCP services directly impair the platform's agent capabilities. The agent monitors server health, manages server lifecycle operations (start, stop, restart, configure), orchestrates multi-server tool invocations, and provides failover coordination when primary servers become unavailable.
+Built on the [AIAD](@/glossary/aiad.md) standard and operating within the [mycelial network](@/glossary/mycelial-network.md), the mcp-coordination-specialist applies the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine to MCP operations management. Server availability is non-negotiable -- degraded MCP services directly impair the platform's agent capabilities. The agent monitors server health, manages server lifecycle operations (start, stop, restart, configure), orchestrates multi-server tool invocations, and provides failover coordination when primary servers become unavailable.
 
 The MCP coordination challenge is particularly important in the Prismatic Platform because the 434-agent ecosystem depends on MCP server tools for external interactions. A single MCP server failure can cascade through agent dependencies, degrading capabilities across multiple operational domains. The coordination specialist prevents these cascading failures through proactive health monitoring, automatic failover, and coordinated recovery procedures.
 
@@ -62,7 +62,7 @@ The coordinator maintains a real-time health map of all MCP servers, with each s
 
 The mcp-coordination-specialist provides comprehensive MCP ecosystem management through several specialized capability domains.
 
-**Server Health Monitoring** continuously monitors all MCP servers through heartbeat checks, response latency measurements, error rate tracking, and resource utilization monitoring. Health status is maintained in an [ETS](/glossary/ets/)-backed registry that provides sub-millisecond lookup for routing decisions. Degraded servers trigger automatic investigation; unresponsive servers trigger failover procedures.
+**Server Health Monitoring** continuously monitors all MCP servers through heartbeat checks, response latency measurements, error rate tracking, and resource utilization monitoring. Health status is maintained in an [ETS](@/glossary/ets.md)-backed registry that provides sub-millisecond lookup for routing decisions. Degraded servers trigger automatic investigation; unresponsive servers trigger failover procedures.
 
 **Lifecycle Management** controls the complete lifecycle of MCP servers including startup sequencing (respecting inter-server dependencies), graceful shutdown (draining active requests before termination), restart with configuration updates, and hot reconfiguration (applying configuration changes without restart where supported).
 
@@ -152,11 +152,11 @@ end
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [mcp-service-controller](/agents/mcp-service-controller/) | Infrastructure-level service control and deployment | Bidirectional |
-| [Prismatic Agents](/glossary/prismatic-agents/) | All agents consume MCP tools through this coordinator | Service |
-| Prismatic Telemetry | Server health [metrics](/glossary/metrics/) and dispatch latency tracking | Outbound |
-| AIAD [Registry](/glossary/registry-otp/) | Agent and server specification discovery | Infrastructure |
-| [SEADF](/glossary/seadf/) | Self-healing triggers for MCP server failures | Bidirectional |
+| [mcp-service-controller](@/agents/mcp-service-controller.md) | Infrastructure-level service control and deployment | Bidirectional |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | All agents consume MCP tools through this coordinator | Service |
+| Prismatic Telemetry | Server health [metrics](@/glossary/metrics.md) and dispatch latency tracking | Outbound |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent and server specification discovery | Infrastructure |
+| [SEADF](@/glossary/seadf.md) | Self-healing triggers for MCP server failures | Bidirectional |
 
 ## Operational Workflow
 
@@ -213,12 +213,12 @@ config :prismatic_mcp, Prismatic.MCP.CoordinationSpecialist,
 
 ## Related Resources
 
-- [mcp-service-controller](/agents/mcp-service-controller/) -- Infrastructure-level MCP management
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [Mycelial Network](/glossary/mycelial-network/) -- Inter-agent communication infrastructure
-- [OTP](/glossary/otp/) -- Supervision hierarchy for server processes
-- [SEADF](/glossary/seadf/) -- Self-healing for server recovery
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for health monitoring
+- [mcp-service-controller](@/agents/mcp-service-controller.md) -- Infrastructure-level MCP management
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [Mycelial Network](@/glossary/mycelial-network.md) -- Inter-agent communication infrastructure
+- [OTP](@/glossary/otp.md) -- Supervision hierarchy for server processes
+- [SEADF](@/glossary/seadf.md) -- Self-healing for server recovery
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for health monitoring
 
 ---
 
@@ -227,4 +227,4 @@ config :prismatic_mcp, Prismatic.MCP.CoordinationSpecialist,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

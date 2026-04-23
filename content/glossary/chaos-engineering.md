@@ -36,9 +36,9 @@ image_alt = "Chaos Engineering - Prismatic Platform"
 
 Chaos engineering is the discipline of experimenting on a distributed system to build confidence in its ability to withstand turbulent, unexpected conditions in production. Pioneered by Netflix with their Chaos Monkey tool in 2011 and formalized as a discipline through the "Principles of Chaos Engineering" manifesto, the practice applies the scientific method to system resilience: form a hypothesis about steady-state behavior, introduce a controlled perturbation (process crash, network partition, resource exhaustion, clock skew), observe the system's response, and validate or refute the hypothesis. The goal is not to break things randomly but to uncover systemic weaknesses before they manifest as production incidents.
 
-The fundamental insight of chaos engineering is that complex [distributed systems](/glossary/distributed-system/) exhibit emergent failure modes that cannot be predicted through code review, unit testing, or architectural analysis alone. A system may handle individual component failures gracefully but collapse when three unrelated failures occur simultaneously. Chaos engineering systematically explores these combinatorial failure spaces, converting unknown unknowns into known quantities with documented mitigations.
+The fundamental insight of chaos engineering is that complex [distributed systems](@/glossary/distributed-system.md) exhibit emergent failure modes that cannot be predicted through code review, unit testing, or architectural analysis alone. A system may handle individual component failures gracefully but collapse when three unrelated failures occur simultaneously. Chaos engineering systematically explores these combinatorial failure spaces, converting unknown unknowns into known quantities with documented mitigations.
 
-Chaos engineering differs from traditional failure testing in scope and philosophy. Failure testing verifies that a specific component handles a specific failure correctly (e.g., "does the [circuit breaker](/glossary/circuit-breaker/) trip when the database is unavailable?"). Chaos engineering asks broader questions about system behavior (e.g., "does the system maintain acceptable latency and correctness when 30% of database connections fail intermittently?"). The practice operates in production or production-like environments because staging environments cannot reproduce the full complexity of production traffic patterns, data distributions, and timing relationships.
+Chaos engineering differs from traditional failure testing in scope and philosophy. Failure testing verifies that a specific component handles a specific failure correctly (e.g., "does the [circuit breaker](@/glossary/circuit-breaker.md) trip when the database is unavailable?"). Chaos engineering asks broader questions about system behavior (e.g., "does the system maintain acceptable latency and correctness when 30% of database connections fail intermittently?"). The practice operates in production or production-like environments because staging environments cannot reproduce the full complexity of production traffic patterns, data distributions, and timing relationships.
 
 ## Historical Context
 
@@ -50,7 +50,7 @@ The formalization of chaos engineering as a discipline came with the publication
 
 The rise of container orchestration (Kubernetes) and service mesh architectures (Istio, Linkerd) provided new failure surfaces and new injection mechanisms. Tools like Litmus (2018), Chaos Mesh (2019), and Gremlin (2016, commercial) made chaos experiments accessible without building custom tooling. The integration of chaos experiments into CI/CD pipelines ("continuous chaos") represented the maturity of the practice from manual experimentation to automated resilience validation.
 
-For [BEAM](/glossary/beam/)-based systems like the Prismatic Platform, chaos engineering has a distinctive character. The BEAM's process model -- where millions of isolated processes communicate through message passing and are supervised by fault-tolerant hierarchies -- provides a natural boundary for failure injection. Killing a BEAM process is safe by design, unlike killing a thread in a shared-memory runtime. This makes the BEAM an ideal target for fine-grained chaos experiments.
+For [BEAM](@/glossary/beam.md)-based systems like the Prismatic Platform, chaos engineering has a distinctive character. The BEAM's process model -- where millions of isolated processes communicate through message passing and are supervised by fault-tolerant hierarchies -- provides a natural boundary for failure injection. Killing a BEAM process is safe by design, unlike killing a thread in a shared-memory runtime. This makes the BEAM an ideal target for fine-grained chaos experiments.
 
 ## Principles of Chaos Engineering
 
@@ -72,12 +72,12 @@ Chaos engineering covers multiple failure domains, each targeting different resi
 
 | Category | Injection Method | Tests | BEAM/OTP Mitigation |
 |----------|-----------------|-------|---------------------|
-| **Process Failure** | `Process.exit(pid, :kill)` | [Supervision](/glossary/supervisor/) restart | Supervisor restart strategies |
+| **Process Failure** | `Process.exit(pid, :kill)` | [Supervision](@/glossary/supervisor.md) restart | Supervisor restart strategies |
 | **Network Partition** | Block inter-node traffic | Distributed consensus | `net_kernel` partition handling |
 | **Resource Exhaustion** | Spawn millions of processes | Scheduler fairness | BEAM scheduler with reductions |
 | **Memory Pressure** | Large ETS table allocation | GC and process isolation | Per-process garbage collection |
 | **Clock Skew** | Adjust system clock | Time-dependent logic | Monotonic time APIs |
-| **Dependency Failure** | Block external service | Circuit breaker activation | [Circuit Breaker](/glossary/circuit-breaker/) pattern |
+| **Dependency Failure** | Block external service | Circuit breaker activation | [Circuit Breaker](@/glossary/circuit-breaker.md) pattern |
 | **Data Corruption** | Invalid ETS entries | Data validation | Input validation at boundaries |
 | **Latency Injection** | Add artificial delays | Timeout handling | GenServer timeout configuration |
 
@@ -282,14 +282,14 @@ The Prismatic Platform extends chaos engineering beyond infrastructure into the 
 
 | Epistemic Failure | Injection Method | Validates |
 |-------------------|-----------------|-----------|
-| **Signal Poisoning** | Inject false intelligence signals | [Signal Plurality](/glossary/signal-plurality/) axiom |
-| **Confidence Manipulation** | Artificially inflate/deflate confidence | [Confidence Threshold](/glossary/confidence-threshold/) enforcement |
-| **Drift Induction** | Gradually shift baseline values | [Blue Team](/glossary/blue-team/) drift detection |
-| **Contradiction Injection** | Insert contradictory intelligence | [Contradiction Preservation](/glossary/contradiction-preservation/) |
+| **Signal Poisoning** | Inject false intelligence signals | [Signal Plurality](@/glossary/signal-plurality.md) axiom |
+| **Confidence Manipulation** | Artificially inflate/deflate confidence | [Confidence Threshold](@/glossary/confidence-threshold.md) enforcement |
+| **Drift Induction** | Gradually shift baseline values | [Blue Team](@/glossary/blue-team.md) drift detection |
+| **Contradiction Injection** | Insert contradictory intelligence | [Contradiction Preservation](@/glossary/contradiction-preservation.md) |
 | **Source Compromise** | Simulate compromised OSINT source | Provenance Mandatory axiom |
-| **Salience Hijacking** | Amplify irrelevant signals | [Trinity Gate](/glossary/trinity-gate/) filtering |
+| **Salience Hijacking** | Amplify irrelevant signals | [Trinity Gate](@/glossary/trinity-gate.md) filtering |
 
-This is the domain of the [Color Teams](/glossary/color-teams/) -- [Red Team](/glossary/red-team/) designs and executes epistemic attacks, Blue Team maintains defensive posture, and Purple Team synthesizes findings into improved resilience. Epistemic chaos engineering is unique to platforms that make decisions based on uncertain, multi-source intelligence -- a domain where the [NABLA Infinity](/glossary/nabla-infinity/) framework provides the formal axioms that chaos experiments validate.
+This is the domain of the [Color Teams](@/glossary/color-teams.md) -- [Red Team](@/glossary/red-team.md) designs and executes epistemic attacks, Blue Team maintains defensive posture, and Purple Team synthesizes findings into improved resilience. Epistemic chaos engineering is unique to platforms that make decisions based on uncertain, multi-source intelligence -- a domain where the [NABLA Infinity](@/glossary/nabla-infinity.md) framework provides the formal axioms that chaos experiments validate.
 
 ```elixir
 defmodule PrismaticChaos.EpistemicChaos do
@@ -330,7 +330,7 @@ end
 
 ## Observability During Chaos
 
-Effective chaos experiments require comprehensive [observability](/glossary/observability/) to distinguish expected degradation from systemic failure:
+Effective chaos experiments require comprehensive [observability](@/glossary/observability.md) to distinguish expected degradation from systemic failure:
 
 | Observable | Tool | Threshold |
 |-----------|------|-----------|
@@ -341,7 +341,7 @@ Effective chaos experiments require comprehensive [observability](/glossary/obse
 | **Supervision tree health** | Observer / LiveDashboard | All supervisors running |
 | **ETS table integrity** | Health checks | All tables accessible |
 | **Quality score** | Quality Floor Guardian | No drop below 95/100 |
-| **[Fitness Score](/glossary/fitness-score/)** | SEADF Aggregator | No drop below 0.95 |
+| **[Fitness Score](@/glossary/fitness-score.md)** | SEADF Aggregator | No drop below 0.95 |
 
 ## Chaos Maturity Model
 
@@ -357,7 +357,7 @@ Organizations adopt chaos engineering through progressive maturity levels:
 
 ## Integration with Property-Based Testing
 
-[Property-based testing](/glossary/property-based-testing/) and chaos engineering are complementary approaches to resilience validation:
+[Property-based testing](@/glossary/property-based-testing.md) and chaos engineering are complementary approaches to resilience validation:
 
 | Aspect | Property-Based Testing | Chaos Engineering |
 |--------|----------------------|-------------------|
@@ -386,7 +386,7 @@ Together, property-based tests verify that individual components maintain their 
 
 ## Use Cases
 
-- **Supervision Tree Validation**: Verifying that OTP [supervisors](/glossary/supervisor/) restart crashed processes within acceptable time bounds across all 115 umbrella applications
+- **Supervision Tree Validation**: Verifying that OTP [supervisors](@/glossary/supervisor.md) restart crashed processes within acceptable time bounds across all 115 umbrella applications
 - **Circuit Breaker Testing**: Confirming that circuit breakers trip at configured failure thresholds and recover correctly during half-open states
 - **Network Partition Simulation**: Testing cluster behavior when nodes lose connectivity, verifying PubSub message delivery and Horde process redistribution
 - **Epistemic Chaos**: Red Team injection of false intelligence signals, confidence manipulation, and drift induction to validate NABLA axiom enforcement
@@ -396,24 +396,24 @@ Together, property-based tests verify that individual components maintain their 
 
 ## Related Concepts
 
-- [Circuit Breaker](/glossary/circuit-breaker/) - Fault tolerance pattern validated by chaos testing
-- [Supervisor](/glossary/supervisor/) - OTP process hierarchy tested under chaos conditions
-- [Fault Tolerance](/glossary/fault-tolerance/) - System property that chaos engineering validates
-- [Let-It-Crash](/glossary/let-it-crash/) - OTP philosophy enabling controlled process failure
-- [Self-Healing](/glossary/self-healing/) - Autonomous recovery validated by chaos experiments
-- [Property-Based Testing](/glossary/property-based-testing/) - Complementary testing at function level
-- [Color Teams](/glossary/color-teams/) - Red Team applies adversarial chaos to epistemic systems
-- [Distributed System](/glossary/distributed-system/) - Primary target of chaos engineering
-- [Observability](/glossary/observability/) - Monitoring essential during chaos experiments
-- [BEAM](/glossary/beam/) - VM whose process model enables fine-grained chaos injection
-- [Fitness Score](/glossary/fitness-score/) - Quality metric monitored during chaos experiments
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework validated by epistemic chaos
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Fault tolerance pattern validated by chaos testing
+- [Supervisor](@/glossary/supervisor.md) - OTP process hierarchy tested under chaos conditions
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - System property that chaos engineering validates
+- [Let-It-Crash](@/glossary/let-it-crash.md) - OTP philosophy enabling controlled process failure
+- [Self-Healing](@/glossary/self-healing.md) - Autonomous recovery validated by chaos experiments
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Complementary testing at function level
+- [Color Teams](@/glossary/color-teams.md) - Red Team applies adversarial chaos to epistemic systems
+- [Distributed System](@/glossary/distributed-system.md) - Primary target of chaos engineering
+- [Observability](@/glossary/observability.md) - Monitoring essential during chaos experiments
+- [BEAM](@/glossary/beam.md) - VM whose process model enables fine-grained chaos injection
+- [Fitness Score](@/glossary/fitness-score.md) - Quality metric monitored during chaos experiments
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework validated by epistemic chaos
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform resilience architecture
-- [Technologies](/technologies/) - Fault tolerance technology stack
-- [Capabilities](/capabilities/) - Resilience and chaos engineering capabilities
+- [Architecture](@/architecture/_index.md) - Platform resilience architecture
+- [Technologies](@/technologies/_index.md) - Fault tolerance technology stack
+- [Capabilities](@/capabilities/_index.md) - Resilience and chaos engineering capabilities
 
 ---
 
@@ -422,4 +422,4 @@ Together, property-based tests verify that individual components maintain their 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -34,13 +34,13 @@ image_alt = "Compile-Time - Prismatic Platform"
 
 ## Definition
 
-Compile-time refers to the phase of the software build process during which source code is transformed into executable artifacts -- bytecode, machine code, or intermediate representations. In statically-typed languages, compile-time is where type checking occurs; in dynamically-typed languages with [macro](/glossary/macro/) systems (like [Elixir](/glossary/elixir/)), compile-time is where macro expansion, code generation, and module attribute evaluation happen. The distinction between compile-time and runtime is fundamental to understanding where validation, optimization, and configuration occur in a system.
+Compile-time refers to the phase of the software build process during which source code is transformed into executable artifacts -- bytecode, machine code, or intermediate representations. In statically-typed languages, compile-time is where type checking occurs; in dynamically-typed languages with [macro](@/glossary/macro.md) systems (like [Elixir](@/glossary/elixir.md)), compile-time is where macro expansion, code generation, and module attribute evaluation happen. The distinction between compile-time and runtime is fundamental to understanding where validation, optimization, and configuration occur in a system.
 
-Compile-time represents a unique opportunity: any validation, computation, or code generation performed during compilation incurs zero runtime cost. A value computed at compile-time is embedded directly in the [BEAM](/glossary/beam/) bytecode as a literal. An error caught at compile-time is caught before any user encounters it. The Prismatic Platform exploits this opportunity aggressively -- compile-time serves as the first quality gate, the self-registration mechanism, and the foundation for API auto-discovery.
+Compile-time represents a unique opportunity: any validation, computation, or code generation performed during compilation incurs zero runtime cost. A value computed at compile-time is embedded directly in the [BEAM](@/glossary/beam.md) bytecode as a literal. An error caught at compile-time is caught before any user encounters it. The Prismatic Platform exploits this opportunity aggressively -- compile-time serves as the first quality gate, the self-registration mechanism, and the foundation for API auto-discovery.
 
 ## Overview
 
-Elixir's compile-time capabilities are exceptionally powerful due to its macro system, inherited from Lisp traditions. Elixir [macros](/glossary/macro/) operate on the [AST](/glossary/ast/) (Abstract Syntax Tree) at compile-time, enabling code generation, DSL creation, and compile-time validation patterns that would require runtime reflection in most other languages. The `@after_compile` callback is particularly significant -- it allows modules to execute code immediately after compilation, enabling self-registration patterns that form the backbone of the Prismatic Platform's dynamic capabilities.
+Elixir's compile-time capabilities are exceptionally powerful due to its macro system, inherited from Lisp traditions. Elixir [macros](@/glossary/macro.md) operate on the [AST](@/glossary/ast.md) (Abstract Syntax Tree) at compile-time, enabling code generation, DSL creation, and compile-time validation patterns that would require runtime reflection in most other languages. The `@after_compile` callback is particularly significant -- it allows modules to execute code immediately after compilation, enabling self-registration patterns that form the backbone of the Prismatic Platform's dynamic capabilities.
 
 ### Compile-Time vs. Runtime Spectrum
 
@@ -147,7 +147,7 @@ Each `.beam` file contains multiple "chunks" of data:
 | `Attr` | Module attributes | `:beam_lib.chunks/2` |
 | `Dbgi` | Debug info (AST) | Dialyzer, debugger |
 
-The platform's API auto-discovery reads `Docs`, `Type`, and `Attr` chunks from compiled BEAM files to build the [OpenAPI](/glossary/openapi-spec/) specification without requiring any manual endpoint configuration.
+The platform's API auto-discovery reads `Docs`, `Type`, and `Attr` chunks from compiled BEAM files to build the [OpenAPI](@/glossary/openapi-spec.md) specification without requiring any manual endpoint configuration.
 
 ### Self-Registration via @after_compile
 
@@ -346,7 +346,7 @@ The Prismatic Platform uses compile-time as its first line of defense:
 |------|------|------|-------------|
 | Zero warnings | `mix compile` | `--warnings-as-errors` | BLOCKING |
 | Type specs | Dialyzer | `--halt-exit-status` | BLOCKING |
-| Style | [Credo](/glossary/credo/) | `--strict` | BLOCKING |
+| Style | [Credo](@/glossary/credo.md) | `--strict` | BLOCKING |
 | Format | `mix format` | `--check-formatted` | BLOCKING |
 | Forbidden patterns | Custom | `mix quality.forbidden_patterns` | BLOCKING |
 | Module docs | Credo | `Credo.Check.Readability.ModuleDoc` | WARNING |
@@ -372,7 +372,7 @@ Without this flag, these issues become runtime surprises. With it, they block th
 
 ### Dialyzer Type Analysis
 
-[Dialyzer](/glossary/dialyzer/) (Discrepancy Analyzer for Erlang/Elixir) performs compile-time type analysis using success typing. It reads `@spec` annotations from compiled BEAM files and identifies type inconsistencies:
+[Dialyzer](@/glossary/dialyzer.md) (Discrepancy Analyzer for Erlang/Elixir) performs compile-time type analysis using success typing. It reads `@spec` annotations from compiled BEAM files and identifies type inconsistencies:
 
 ```elixir
 # Dialyzer catches this at compile-time:
@@ -388,7 +388,7 @@ end
 
 ### Compilation Pipeline in the Prismatic Platform
 
-The platform's compilation is a multi-stage process orchestrated by [Mix](/glossary/mix/):
+The platform's compilation is a multi-stage process orchestrated by [Mix](@/glossary/mix.md):
 
 ```mermaid
 flowchart TD
@@ -453,7 +453,7 @@ mix compile --warnings-as-errors --force
 
 ### API Auto-Discovery
 
-The API [gateway](/glossary/gateway/) (`prismatic_api`) leverages compile-time information for its auto-introspection capabilities. At boot time, it scans compiled BEAM files:
+The API [gateway](@/glossary/gateway.md) (`prismatic_api`) leverages compile-time information for its auto-introspection capabilities. At boot time, it scans compiled BEAM files:
 
 ```elixir
 # Reading compile-time metadata at runtime
@@ -483,7 +483,7 @@ end
 
 ### Academy Topic Registration
 
-The Academy's [metaprogramming](/glossary/metaprogramming/) system uses compile-time topic registration:
+The Academy's [metaprogramming](@/glossary/metaprogramming.md) system uses compile-time topic registration:
 
 ```elixir
 defmodule PrismaticAcademy.Topic do
@@ -532,25 +532,25 @@ end
 
 ## Related Terms
 
-- [Compilation](/glossary/compilation/) -- the full build process that encompasses compile-time
-- [AST](/glossary/ast/) -- abstract syntax tree manipulated at compile-time by macros
-- [Macro](/glossary/macro/) -- code that generates code during compilation
-- [Metaprogramming](/glossary/metaprogramming/) -- programming techniques that operate at compile-time
-- [BEAM](/glossary/beam/) -- virtual machine that executes compiled bytecode
-- [Mix](/glossary/mix/) -- build tool that orchestrates the compilation pipeline
-- [Dialyzer](/glossary/dialyzer/) -- compile-time type analysis tool
-- [Credo](/glossary/credo/) -- compile-time static analysis for code quality
+- [Compilation](@/glossary/compilation.md) -- the full build process that encompasses compile-time
+- [AST](@/glossary/ast.md) -- abstract syntax tree manipulated at compile-time by macros
+- [Macro](@/glossary/macro.md) -- code that generates code during compilation
+- [Metaprogramming](@/glossary/metaprogramming.md) -- programming techniques that operate at compile-time
+- [BEAM](@/glossary/beam.md) -- virtual machine that executes compiled bytecode
+- [Mix](@/glossary/mix.md) -- build tool that orchestrates the compilation pipeline
+- [Dialyzer](@/glossary/dialyzer.md) -- compile-time type analysis tool
+- [Credo](@/glossary/credo.md) -- compile-time static analysis for code quality
 - [Module Attribute](/glossary/module-attribute/) -- compile-time metadata stored in BEAM chunks
-- [Behaviour](/glossary/behaviour/) -- compile-time callback specifications
-- [Protocol](/glossary/protocol/) -- compile-time polymorphic dispatch definitions
-- [Elixir](/glossary/elixir/) -- the language with powerful compile-time capabilities
-- [Code Quality](/glossary/code-quality/) -- quality enforcement that starts at compile-time
-- [Configuration](/glossary/configuration/) -- settings that can be validated at compile-time
+- [Behaviour](@/glossary/behaviour.md) -- compile-time callback specifications
+- [Protocol](@/glossary/protocol.md) -- compile-time polymorphic dispatch definitions
+- [Elixir](@/glossary/elixir.md) -- the language with powerful compile-time capabilities
+- [Code Quality](@/glossary/code-quality.md) -- quality enforcement that starts at compile-time
+- [Configuration](@/glossary/configuration.md) -- settings that can be validated at compile-time
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform architecture leveraging compile-time patterns
-- [Capabilities](/capabilities/) -- capabilities enabled by compile-time code generation
+- [Architecture](@/architecture/_index.md) -- platform architecture leveraging compile-time patterns
+- [Capabilities](@/capabilities/_index.md) -- capabilities enabled by compile-time code generation
 - [Quality Gates](/quality/) -- quality enforcement starting at compilation
 
 ---
@@ -560,4 +560,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

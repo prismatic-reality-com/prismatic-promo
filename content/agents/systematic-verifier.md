@@ -30,7 +30,7 @@ image_alt = "systematic-verifier - Prismatic Platform"
 
 The Systematic Verifier is an L3 strategic command agent operating within the Prismatic Platform's quality domain, providing platform-wide impact analysis, a three-stage verification protocol, regression detection, and comprehensive audit reporting. Genetically enhanced through the platform's evolutionary process, this agent represents one of the most sophisticated verification capabilities in the ecosystem, capable of assessing the ripple effects of changes across 90+ applications and 430+ agents with deterministic thoroughness.
 
-In a platform where zero quality defects is the standard (current [QDP](/glossary/qdp/) count: 0), the Systematic Verifier serves as the primary guardian against quality regression. Every code change, configuration update, and evolutionary modification passes through this agent's verification pipeline before reaching production. Operating under the [AIAD](/glossary/aiad/) standard and the [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, the agent treats any verification shortcut or incomplete analysis as a categorical violation that blocks the change pipeline.
+In a platform where zero quality defects is the standard (current [QDP](@/glossary/qdp.md) count: 0), the Systematic Verifier serves as the primary guardian against quality regression. Every code change, configuration update, and evolutionary modification passes through this agent's verification pipeline before reaching production. Operating under the [AIAD](@/glossary/aiad.md) standard and the [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, the agent treats any verification shortcut or incomplete analysis as a categorical violation that blocks the change pipeline.
 
 ## Theoretical Foundations
 
@@ -38,9 +38,9 @@ Systematic verification draws from formal methods, software testing theory, and 
 
 Impact analysis theory, developed in the software maintenance research community, provides the framework for understanding how changes propagate through complex systems. The agent implements dependence analysis at multiple granularity levels: module-level dependencies (which applications are affected), function-level dependencies (which call chains are impacted), and data-level dependencies (which data flows are modified). This multi-granularity analysis ensures that verification effort is focused on the areas most likely to be affected by a given change.
 
-The [CASCADE](/glossary/cascade/) pattern library captures verified solutions for recurring quality defect patterns. The Systematic Verifier maintains expertise in all CASCADE pattern categories (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) and applies targeted verification for each pattern type when changes touch areas with historical susceptibility.
+The [CASCADE](@/glossary/cascade.md) pattern library captures verified solutions for recurring quality defect patterns. The Systematic Verifier maintains expertise in all CASCADE pattern categories (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) and applies targeted verification for each pattern type when changes touch areas with historical susceptibility.
 
-The [Trinity Gate](/glossary/trinity-gate/) verification system provides the formal framework for the agent's three-stage protocol, mapping directly to structural consistency, logical consistency, and formal necessity checks.
+The [Trinity Gate](@/glossary/trinity-gate.md) verification system provides the formal framework for the agent's three-stage protocol, mapping directly to structural consistency, logical consistency, and formal necessity checks.
 
 ## Core Capabilities
 
@@ -50,17 +50,17 @@ The [Trinity Gate](/glossary/trinity-gate/) verification system provides the for
 
 Stage 1 (Static Analysis) applies compile-time checks, Dialyzer type analysis, Credo style enforcement, and custom static analysis rules to detect defects that can be identified without execution. This stage catches type mismatches, unreachable code, missing implementations, and specification violations.
 
-Stage 2 (Dynamic Testing) executes relevant test suites with coverage tracking, targeting both the changed code and all code identified as impacted by the change analysis. This stage includes unit tests, integration tests, and [property-based tests](/glossary/property-based-testing/) that verify behavioral invariants across randomized input spaces.
+Stage 2 (Dynamic Testing) executes relevant test suites with coverage tracking, targeting both the changed code and all code identified as impacted by the change analysis. This stage includes unit tests, integration tests, and [property-based tests](@/glossary/property-based-testing.md) that verify behavioral invariants across randomized input spaces.
 
 Stage 3 (Audit Verification) conducts a comprehensive audit of the verification results, checking for coverage gaps, untested edge cases, and quality metric regressions. This stage produces the final verification report that determines whether the change is approved for production.
 
 **Regression Detection** continuously monitors quality metrics across the platform, detecting when changes cause previously passing quality checks to fail. The regression detection system maintains a baseline of all quality indicators and flags any degradation, regardless of how minor, for immediate investigation.
 
-**Comprehensive Audit Reporting** generates detailed reports that document the verification process, results, and decision rationale for every verified change. These reports serve as audit artifacts for quality compliance and as learning data for the [SEADF](/glossary/seadf/) evolution framework.
+**Comprehensive Audit Reporting** generates detailed reports that document the verification process, results, and decision rationale for every verified change. These reports serve as audit artifacts for quality compliance and as learning data for the [SEADF](@/glossary/seadf.md) evolution framework.
 
 ## Architecture and Implementation
 
-The Systematic Verifier operates as a supervised [OTP](/glossary/otp/) process with a pipeline architecture that implements the three-stage verification protocol.
+The Systematic Verifier operates as a supervised [OTP](@/glossary/otp.md) process with a pipeline architecture that implements the three-stage verification protocol.
 
 | Component | Function | Implementation |
 |-----------|----------|---------------|
@@ -107,12 +107,12 @@ The quality floor guardian integration ensures that no change can decrease any m
 
 | System | Integration Purpose | Data Flow |
 |--------|-------------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent verification and lifecycle | Bidirectional |
-| [Trinity Gate](/glossary/trinity-gate/) | Formal verification framework | Mandatory passage |
-| [SEADF](/glossary/seadf/) | Evolution verification and quality tracking | Bidirectional |
-| [Prismatic Telemetry](/glossary/telemetry/) | Verification metrics and events | Write |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification verification | Read |
-| [Ecto](/glossary/ecto/) | Database migration verification | Schema validation |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent verification and lifecycle | Bidirectional |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Formal verification framework | Mandatory passage |
+| [SEADF](@/glossary/seadf.md) | Evolution verification and quality tracking | Bidirectional |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Verification metrics and events | Write |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification verification | Read |
+| [Ecto](@/glossary/ecto.md) | Database migration verification | Schema validation |
 | Git Hooks | Pre-commit verification pipeline | Blocking gate |
 
 ## Operational Deployment
@@ -123,7 +123,7 @@ The agent's verification pipeline is integrated into the platform's git hook inf
 
 ## Related Agents
 
-The Systematic Verifier works closely with the [technical-debt-reduction-specialist](/agents/technical-debt-reduction-specialist/) to ensure that debt elimination does not introduce regressions. The [test-generator-agent](/agents/test-generator-agent/) produces tests that the verifier executes, and the [type-inference-debugger](/agents/type-inference-debugger/) resolves type-level issues identified during Stage 1 verification. The [swarm-evolution-coordinator-agent](/agents/swarm-evolution-coordinator-agent/) depends on the verifier to validate evolutionary changes.
+The Systematic Verifier works closely with the [technical-debt-reduction-specialist](@/agents/technical-debt-reduction-specialist.md) to ensure that debt elimination does not introduce regressions. The [test-generator-agent](@/agents/test-generator-agent.md) produces tests that the verifier executes, and the [type-inference-debugger](@/agents/type-inference-debugger.md) resolves type-level issues identified during Stage 1 verification. The [swarm-evolution-coordinator-agent](@/agents/swarm-evolution-coordinator-agent.md) depends on the verifier to validate evolutionary changes.
 
 ---
 
@@ -132,4 +132,4 @@ The Systematic Verifier works closely with the [technical-debt-reduction-special
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

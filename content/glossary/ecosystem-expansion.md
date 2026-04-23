@@ -38,7 +38,7 @@ image_alt = "Ecosystem Expansion - Prismatic Platform"
 
 **Ecosystem expansion** is the strategic, deliberate growth of a software platform's surrounding ecosystem -- encompassing open-source packages, developer tools, integration SDKs, documentation portals, community infrastructure, and third-party extensions -- designed to increase the platform's reach, utility, and defensibility beyond its core codebase. Unlike organic growth, ecosystem expansion is an intentional architectural strategy where the platform's internal capabilities are selectively extracted, packaged, and published as independent, reusable components that benefit both the platform and the broader developer community.
 
-In the [Prismatic Platform](/glossary/application/), ecosystem expansion reached maturity with [Generation 19](/glossary/generation/), which introduced four open-source packages (SDK, Plugin Kit, Security, UI), a developer portal, and dual-track positioning -- the strategic separation of the platform's open-source community layer from its proprietary intelligence layer. This generation represents the platform's transition from an internally focused monolith to a hub-and-spoke architecture where external developers can build on, extend, and contribute back to the platform's capabilities.
+In the [Prismatic Platform](@/glossary/application.md), ecosystem expansion reached maturity with [Generation 19](@/glossary/generation.md), which introduced four open-source packages (SDK, Plugin Kit, Security, UI), a developer portal, and dual-track positioning -- the strategic separation of the platform's open-source community layer from its proprietary intelligence layer. This generation represents the platform's transition from an internally focused monolith to a hub-and-spoke architecture where external developers can build on, extend, and contribute back to the platform's capabilities.
 
 ## Overview
 
@@ -52,7 +52,7 @@ The expansion strategy involves three primary dimensions:
 
 3. **Community Architecture**: Designing the governance, contribution, and feedback mechanisms that allow external developers to participate in the platform's evolution. This includes open-source licensing, contribution guidelines, issue management, and the dual-track strategy that separates community-appropriate components from proprietary ones.
 
-The Prismatic Platform's approach to ecosystem expansion is distinctive in that it treats expansion as an evolutionary event (a [generation](/glossary/generation/) milestone) rather than a marketing decision. Gen 19 was architecturally motivated: the platform's 0.9995 [fitness score](/glossary/fitness-score/) indicated internal optimization had reached diminishing returns, making external expansion the highest-value growth vector.
+The Prismatic Platform's approach to ecosystem expansion is distinctive in that it treats expansion as an evolutionary event (a [generation](@/glossary/generation.md) milestone) rather than a marketing decision. Gen 19 was architecturally motivated: the platform's 0.9995 [fitness score](@/glossary/fitness-score.md) indicated internal optimization had reached diminishing returns, making external expansion the highest-value growth vector.
 
 ## Technical Details
 
@@ -62,7 +62,7 @@ The dual-track positioning strategy separates the platform into two complementar
 
 **Open Track** (Community): Packages, SDKs, documentation, and tools that are released under open-source licenses. These components are designed for broad utility and follow established community standards (Hex package conventions, semantic versioning, comprehensive documentation).
 
-**Proprietary Track** (Intelligence): Core platform capabilities like [OSINT](/glossary/due-diligence/) engines, [EASM](/glossary/easm/) scoring algorithms, [agent](/glossary/agent/) orchestration, and epistemic frameworks that provide competitive differentiation. These remain within the private platform codebase.
+**Proprietary Track** (Intelligence): Core platform capabilities like [OSINT](@/glossary/due-diligence.md) engines, [EASM](@/glossary/easm.md) scoring algorithms, [agent](@/glossary/agent.md) orchestration, and epistemic frameworks that provide competitive differentiation. These remain within the private platform codebase.
 
 ```
 Prismatic Platform (Proprietary Track)
@@ -398,7 +398,7 @@ end
 
 ### Evolution Integration
 
-Ecosystem expansion is integrated with the platform's [autoevolve](/glossary/autoevolve/) system. Each generation's fitness score includes ecosystem health metrics, ensuring that expansion quality is tracked alongside internal platform quality:
+Ecosystem expansion is integrated with the platform's [autoevolve](@/glossary/autoevolve.md) system. Each generation's fitness score includes ecosystem health metrics, ensuring that expansion quality is tracked alongside internal platform quality:
 
 ```elixir
 defmodule PrismaticEcosystem.FitnessContributor do
@@ -512,15 +512,15 @@ The Prismatic SDK package enables external applications to interact with the pla
 
 ### Plugin Development Kit
 
-The Plugin Kit enables third-party developers to build extensions that add new capabilities to the platform -- custom [OSINT adapters](/glossary/due-diligence/), specialized analysis modules, or domain-specific dashboards. This multiplies the platform's capability surface without proportional internal development cost.
+The Plugin Kit enables third-party developers to build extensions that add new capabilities to the platform -- custom [OSINT adapters](@/glossary/due-diligence.md), specialized analysis modules, or domain-specific dashboards. This multiplies the platform's capability surface without proportional internal development cost.
 
 ### Security Utilities
 
-The Security package extracts common security primitives (input validation, output encoding, [cryptographic operations](/glossary/encryption-at-rest/)) into a standalone library that benefits any Elixir application, not just the Prismatic Platform. This positions the platform as a security thought leader in the Elixir ecosystem.
+The Security package extracts common security primitives (input validation, output encoding, [cryptographic operations](@/glossary/encryption-at-rest.md)) into a standalone library that benefits any Elixir application, not just the Prismatic Platform. This positions the platform as a security thought leader in the Elixir ecosystem.
 
 ### UI Component Library
 
-The UI package provides pre-built, accessible, and themed components for building dashboards and administrative interfaces. By extracting the platform's [Flowbite](/glossary/flowbite/)-based component library, external developers get production-tested UI primitives that maintain visual consistency with the platform.
+The UI package provides pre-built, accessible, and themed components for building dashboards and administrative interfaces. By extracting the platform's [Flowbite](@/glossary/flowbite.md)-based component library, external developers get production-tested UI primitives that maintain visual consistency with the platform.
 
 ### Developer Portal
 
@@ -528,24 +528,24 @@ The developer portal serves as the central hub for ecosystem documentation, API 
 
 ## Related Concepts
 
-- [Generation](/glossary/generation/) -- platform evolution milestones; Gen 19 introduced ecosystem expansion as a strategic capability
-- [Autoevolve](/glossary/autoevolve/) -- the autonomous evolution system that tracks ecosystem health as a fitness dimension
-- [Fitness Score](/glossary/fitness-score/) -- quantitative measure of platform health that incorporates ecosystem metrics
-- [Application](/glossary/application/) -- the umbrella app architecture from which ecosystem packages are extracted
-- [API Gateway](/glossary/api-gateway/) -- the programmatic interface layer that ecosystem packages consume
-- [Quality Gate](/glossary/clean-run/) -- automated checks that every ecosystem release must pass before publication
-- [Continuous Integration](/glossary/continuous-integration/) -- the CI/CD infrastructure that automates ecosystem release pipelines
-- [AIAD](/glossary/aiad/) -- the agent framework that orchestrates ecosystem expansion activities
-- [Garden](/glossary/garden/) -- legacy knowledge repository that provides patterns and prior art for ecosystem design
-- [Flowbite](/glossary/flowbite/) -- the UI framework whose components are extracted into the ecosystem UI package
+- [Generation](@/glossary/generation.md) -- platform evolution milestones; Gen 19 introduced ecosystem expansion as a strategic capability
+- [Autoevolve](@/glossary/autoevolve.md) -- the autonomous evolution system that tracks ecosystem health as a fitness dimension
+- [Fitness Score](@/glossary/fitness-score.md) -- quantitative measure of platform health that incorporates ecosystem metrics
+- [Application](@/glossary/application.md) -- the umbrella app architecture from which ecosystem packages are extracted
+- [API Gateway](@/glossary/api-gateway.md) -- the programmatic interface layer that ecosystem packages consume
+- [Quality Gate](@/glossary/clean-run.md) -- automated checks that every ecosystem release must pass before publication
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the CI/CD infrastructure that automates ecosystem release pipelines
+- [AIAD](@/glossary/aiad.md) -- the agent framework that orchestrates ecosystem expansion activities
+- [Garden](@/glossary/garden.md) -- legacy knowledge repository that provides patterns and prior art for ecosystem design
+- [Flowbite](@/glossary/flowbite.md) -- the UI framework whose components are extracted into the ecosystem UI package
 
 ## See Also
 
-- [Docker](/glossary/docker/) -- containerization technology used to ensure consistent ecosystem package environments
-- [GitLab CI](/glossary/gitlab-ci/) -- the CI/CD platform that automates ecosystem release pipelines
-- [Credo](/glossary/credo/) -- static analysis tool applied to all ecosystem packages before release
-- [Dialyzer](/glossary/dialyzer/) -- type-checking tool that ensures ecosystem packages have correct typespecs
-- [Elixir](/glossary/elixir/) -- the programming language in which all ecosystem packages are written
+- [Docker](@/glossary/docker.md) -- containerization technology used to ensure consistent ecosystem package environments
+- [GitLab CI](@/glossary/gitlab-ci.md) -- the CI/CD platform that automates ecosystem release pipelines
+- [Credo](@/glossary/credo.md) -- static analysis tool applied to all ecosystem packages before release
+- [Dialyzer](@/glossary/dialyzer.md) -- type-checking tool that ensures ecosystem packages have correct typespecs
+- [Elixir](@/glossary/elixir.md) -- the programming language in which all ecosystem packages are written
 
 ---
 
@@ -554,4 +554,4 @@ The developer portal serves as the central hub for ecosystem documentation, API 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

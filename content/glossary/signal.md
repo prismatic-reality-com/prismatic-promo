@@ -257,11 +257,11 @@ The Blue Team's signal aggregator specifically implements the NABLA plurality re
 
 ## Cross-References
 
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework governing signal handling
-- [Trinity Gate](/glossary/trinity-gate/) - Three-layer validation that signals must pass
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework governing signal handling
+- [Trinity Gate](@/glossary/trinity-gate.md) - Three-layer validation that signals must pass
 - **Addiction Preservation** - Doctrine requiring contradiction preservation in signals
 - **Confidence** - Numerical measure of signal reliability
-- [OSINT](/glossary/osint/) - Intelligence discipline producing signals from open sources
+- [OSINT](@/glossary/osint.md) - Intelligence discipline producing signals from open sources
 
 ---
 

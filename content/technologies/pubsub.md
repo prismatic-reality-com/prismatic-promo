@@ -24,21 +24,21 @@ image_alt = "Phoenix PubSub - Prismatic Platform"
 
 ## Overview
 
-Phoenix PubSub is the distributed messaging system that connects all real-time components of the Prismatic Platform. It enables processes to subscribe to topics and receive messages when events occur, providing the communication backbone for [Phoenix LiveView](/technologies/phoenix-liveview/) updates, agent notifications, security alerts, and cross-application event propagation across the 90-application umbrella architecture.
+Phoenix PubSub is the distributed messaging system that connects all real-time components of the Prismatic Platform. It enables processes to subscribe to topics and receive messages when events occur, providing the communication backbone for [Phoenix LiveView](@/technologies/phoenix-liveview.md) updates, agent notifications, security alerts, and cross-application event propagation across the 90-application umbrella architecture.
 
-The Prismatic Platform uses PubSub for real-time dashboard updates (security rating changes, new vulnerability discoveries), agent coordination (task distribution, status broadcasting), system-wide event notification (deployment events, quality gate results), and search index synchronization (keeping [Meilisearch](/technologies/meilisearch/) current when data changes). PubSub's distributed nature means events published on one cluster node are automatically delivered to subscribers on all nodes, which is essential for the platform's multi-node deployment on [Fly.io](/technologies/flyio/). Without PubSub, each node would operate in isolation, and users connected to different nodes would see inconsistent dashboard state.
+The Prismatic Platform uses PubSub for real-time dashboard updates (security rating changes, new vulnerability discoveries), agent coordination (task distribution, status broadcasting), system-wide event notification (deployment events, quality gate results), and search index synchronization (keeping [Meilisearch](@/technologies/meilisearch.md) current when data changes). PubSub's distributed nature means events published on one cluster node are automatically delivered to subscribers on all nodes, which is essential for the platform's multi-node deployment on [Fly.io](@/technologies/flyio.md). Without PubSub, each node would operate in isolation, and users connected to different nodes would see inconsistent dashboard state.
 
-PubSub supports multiple adapters -- the platform uses the PG2 adapter for distributed [Erlang/OTP](/technologies/erlang-otp/) clusters on Fly.io and the [Redis](/technologies/redis/) adapter as an alternative for environments without Distributed Erlang. The adapter is selected at configuration time, and the publishing/subscribing API remains identical regardless of the backend, enabling transparent migration between adapter strategies without code changes.
+PubSub supports multiple adapters -- the platform uses the PG2 adapter for distributed [Erlang/OTP](@/technologies/erlang-otp.md) clusters on Fly.io and the [Redis](@/technologies/redis.md) adapter as an alternative for environments without Distributed Erlang. The adapter is selected at configuration time, and the publishing/subscribing API remains identical regardless of the backend, enabling transparent migration between adapter strategies without code changes.
 
 ## Key Features
 
 - **Topic-Based Routing**: Hierarchical topic strings with pattern-based subscription for fine-grained event filtering, enabling subscribers to receive only the events they care about
 - **Distributed by Default**: Automatic message propagation across all connected cluster nodes using the PG2 process group adapter
-- **Process Integration**: Any [Elixir](/technologies/elixir/)/Erlang process can subscribe -- [GenServer](/technologies/genserver/)s, Tasks, LiveView processes, and custom agents all participate equally
+- **Process Integration**: Any [Elixir](@/technologies/elixir.md)/Erlang process can subscribe -- [GenServer](@/technologies/genserver.md)s, Tasks, LiveView processes, and custom agents all participate equally
 - **Multiple Adapters**: PG2 (default for Distributed Erlang), Redis (for non-EPMD environments), and custom adapters for specialized requirements
 - **Broadcast**: One-to-many message delivery from a single publish call to all subscribers on all nodes with no fan-out overhead on the publisher
 - **Direct Send**: Targeted message delivery to specific subscribers when broadcast is too broad for the use case
-- **Zero Configuration**: Works out of the box with PG2 in a clustered [BEAM](/technologies/beam/) deployment without external infrastructure dependencies
+- **Zero Configuration**: Works out of the box with PG2 in a clustered [BEAM](@/technologies/beam.md) deployment without external infrastructure dependencies
 - **Lightweight**: No persistent message storage, no delivery guarantees beyond process liveness -- designed for real-time notification, not durable messaging
 
 ## Platform Integration
@@ -232,19 +232,19 @@ PubSub also serves as the decoupling layer between umbrella applications, allowi
 
 ## Related Technologies
 
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Primary consumer of PubSub events for real-time UI updates
-- [WebSockets](/technologies/websockets/) - Browser-side transport for PubSub-driven updates via LiveView
-- [Redis](/technologies/redis/) - Alternative PubSub adapter for non-Distributed-Erlang environments
-- [GenServer](/technologies/genserver/) - Process subscribers that react to PubSub events for background processing
-- [Phoenix Framework](/technologies/phoenix/) - The web framework that provides the PubSub infrastructure
-- [BEAM VM](/technologies/beam/) - Process model enabling lightweight subscriber processes
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Primary consumer of PubSub events for real-time UI updates
+- [WebSockets](@/technologies/websockets.md) - Browser-side transport for PubSub-driven updates via LiveView
+- [Redis](@/technologies/redis.md) - Alternative PubSub adapter for non-Distributed-Erlang environments
+- [GenServer](@/technologies/genserver.md) - Process subscribers that react to PubSub events for background processing
+- [Phoenix Framework](@/technologies/phoenix.md) - The web framework that provides the PubSub infrastructure
+- [BEAM VM](@/technologies/beam.md) - Process model enabling lightweight subscriber processes
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - PubSub event hub and LiveView subscriber host
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security event publisher for rating and finding changes
-- [prismatic_agents](/apps/prismatic-agents/) - Agent status broadcasting and coordination via PubSub
-- [prismatic_storage_meilisearch](/apps/prismatic-storage-meilisearch/) - Search index synchronization through PubSub events
+- [prismatic_web](@/apps/prismatic-web.md) - PubSub event hub and LiveView subscriber host
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security event publisher for rating and finding changes
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent status broadcasting and coordination via PubSub
+- [prismatic_storage_meilisearch](@/apps/prismatic-storage-meilisearch.md) - Search index synchronization through PubSub events
 
 ---
 
@@ -253,4 +253,4 @@ PubSub also serves as the decoupling layer between umbrella applications, allowi
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

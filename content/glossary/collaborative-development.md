@@ -319,7 +319,7 @@ This enforcement ensures that no contribution -- regardless of author -- bypasse
 
 ### AIAD Agent Collaboration
 
-The platform's 530+ [AIAD](/glossary/aiad/) agents represent a form of automated collaborative development where specialized agents review, validate, and enhance each other's outputs. The [Color Teams](/glossary/color-teams/) architecture embodies this principle through adversarial-cooperative review cycles.
+The platform's 530+ [AIAD](@/glossary/aiad.md) agents represent a form of automated collaborative development where specialized agents review, validate, and enhance each other's outputs. The [Color Teams](@/glossary/color-teams.md) architecture embodies this principle through adversarial-cooperative review cycles.
 
 ## Comparison with Alternatives
 
@@ -408,7 +408,7 @@ Financial and healthcare software requires audit trails and peer verification. C
 
 ### Security-Critical Systems
 
-Systems where defects have severe consequences benefit from the multiple-eyes principle of collaborative development. Prismatic's [pre-commit hooks](/glossary/pre-commit-hooks/) and [quality gates](/glossary/quality-gates/) enforce this principle automatically.
+Systems where defects have severe consequences benefit from the multiple-eyes principle of collaborative development. Prismatic's [pre-commit hooks](@/glossary/pre-commit-hooks.md) and [quality gates](@/glossary/quality-gates.md) enforce this principle automatically.
 
 ### Distributed Team Coordination
 
@@ -418,24 +418,24 @@ Remote and distributed teams rely on asynchronous collaborative development prac
 
 Collaborative development intersects with many foundational concepts in the Prismatic Platform ecosystem:
 
-- [Code Reviews](/glossary/code-reviews/) -- the primary technical practice enabling collaborative quality assurance
-- [Open Source](/glossary/open-source/) -- the licensing and governance model that enables community collaboration
-- [Community Building](/glossary/community-building/) -- the social infrastructure supporting contributor engagement
-- [Development Workflow](/glossary/development-workflow/) -- the process framework organizing collaborative contributions
-- [Continuous Integration](/glossary/continuous-integration/) -- the automation backbone ensuring collaborative changes integrate cleanly
-- [Quality Gates](/glossary/quality-gates/) -- automated checkpoints enforcing standards across all contributions
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- local enforcement of collaborative quality standards
-- [GitOps](/glossary/gitops/) -- infrastructure management through collaborative Git workflows
-- [AIAD](/glossary/aiad/) -- the agent standard that structures automated collaborative processes
-- [Collaborative Intelligence](/glossary/collaborative-intelligence/) -- the intelligence amplification that emerges from systematic collaboration
+- [Code Reviews](@/glossary/code-reviews.md) -- the primary technical practice enabling collaborative quality assurance
+- [Open Source](@/glossary/open-source.md) -- the licensing and governance model that enables community collaboration
+- [Community Building](@/glossary/community-building.md) -- the social infrastructure supporting contributor engagement
+- [Development Workflow](@/glossary/development-workflow.md) -- the process framework organizing collaborative contributions
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the automation backbone ensuring collaborative changes integrate cleanly
+- [Quality Gates](@/glossary/quality-gates.md) -- automated checkpoints enforcing standards across all contributions
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- local enforcement of collaborative quality standards
+- [GitOps](@/glossary/gitops.md) -- infrastructure management through collaborative Git workflows
+- [AIAD](@/glossary/aiad.md) -- the agent standard that structures automated collaborative processes
+- [Collaborative Intelligence](@/glossary/collaborative-intelligence.md) -- the intelligence amplification that emerges from systematic collaboration
 
 ## See Also
 
 - Glossary Index -- complete listing of all platform terminology
-- [Agent Registry](/glossary/agent-registry/) -- the registry managing collaborative agent coordination
-- [Quality DNA](/glossary/quality-dna/) -- cross-session quality continuity for collaborative workflows
-- [Regression Testing](/glossary/regression-testing/) -- automated verification preventing collaborative regressions
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision as a model for collaborative process management
+- [Agent Registry](@/glossary/agent-registry.md) -- the registry managing collaborative agent coordination
+- [Quality DNA](@/glossary/quality-dna.md) -- cross-session quality continuity for collaborative workflows
+- [Regression Testing](@/glossary/regression-testing.md) -- automated verification preventing collaborative regressions
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision as a model for collaborative process management
 
 ---
 
@@ -444,4 +444,4 @@ Collaborative development intersects with many foundational concepts in the Pris
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

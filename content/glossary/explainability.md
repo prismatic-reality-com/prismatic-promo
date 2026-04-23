@@ -339,25 +339,25 @@ end
 
 Explainability connects deeply with several other concepts in the Prismatic Platform ecosystem:
 
-- [Observability](/glossary/observability/) provides the raw telemetry data that explainability transforms into human-understandable narratives
-- [Audit Trail](/glossary/audit-trail/) captures the sequential record of decisions that explainability interprets and contextualizes
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) articulates the philosophical foundation for why explainability matters
-- [NABLA Infinity](/glossary/nabla-infinity/) enforces provenance tracking and signal plurality that make platform-wide explainability possible
-- [Trinity Gate](/glossary/trinity-gate/) produces three-dimensional explanations through structural, logical, and formal consistency checks
-- [Bias Detection](/glossary/bias-detection/) relies on explainability to surface and diagnose systematic biases in decision-making
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) uses explainability as its primary mechanism for communicating uncertainty and reasoning chains
-- [Compliance Framework](/glossary/compliance-framework/) requires explainability for regulatory adherence under GDPR, NIS2, and ZKB
-- [Quality Gates](/glossary/quality-gates/) produce structured explanations when accepting or rejecting code changes
-- [Telemetry](/glossary/telemetry/) provides the instrumentation layer that captures the raw data for explanation generation
+- [Observability](@/glossary/observability.md) provides the raw telemetry data that explainability transforms into human-understandable narratives
+- [Audit Trail](@/glossary/audit-trail.md) captures the sequential record of decisions that explainability interprets and contextualizes
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) articulates the philosophical foundation for why explainability matters
+- [NABLA Infinity](@/glossary/nabla-infinity.md) enforces provenance tracking and signal plurality that make platform-wide explainability possible
+- [Trinity Gate](@/glossary/trinity-gate.md) produces three-dimensional explanations through structural, logical, and formal consistency checks
+- [Bias Detection](@/glossary/bias-detection.md) relies on explainability to surface and diagnose systematic biases in decision-making
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) uses explainability as its primary mechanism for communicating uncertainty and reasoning chains
+- [Compliance Framework](@/glossary/compliance-framework.md) requires explainability for regulatory adherence under GDPR, NIS2, and ZKB
+- [Quality Gates](@/glossary/quality-gates.md) produce structured explanations when accepting or rejecting code changes
+- [Telemetry](@/glossary/telemetry.md) provides the instrumentation layer that captures the raw data for explanation generation
 
 ## See Also
 
-- [Artificial Intelligence](/glossary/artificial-intelligence/) -- the domain where explainability is most critically needed
-- [Machine Learning](/glossary/machine-learning/) -- ML model interpretability as a subset of explainability
-- [Structured Logging](/glossary/structured-logging/) -- the data capture mechanism that supports explainability
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- the epistemic principle that demands explainable evidence chains
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- the NABLA axiom requiring all beliefs to be traceable
+- [Artificial Intelligence](@/glossary/artificial-intelligence.md) -- the domain where explainability is most critically needed
+- [Machine Learning](@/glossary/machine-learning.md) -- ML model interpretability as a subset of explainability
+- [Structured Logging](@/glossary/structured-logging.md) -- the data capture mechanism that supports explainability
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- the epistemic principle that demands explainable evidence chains
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- the NABLA axiom requiring all beliefs to be traceable
 
 ---
 
-**Connect & Contribute**: Explainability is a living concept that evolves with the platform. Visit the [Prismatic Platform repository](https://github.com/korczis/prismatic-platform) to explore the implementation, review the [NABLA Infinity doctrine](/glossary/nabla-infinity/) for the epistemic foundations, or connect with the community through [GitHub Discussions](https://github.com/korczis/prismatic-platform/discussions). Created by [Tomas Korcak (korczis)](https://github.com/korczis).
+**Connect & Contribute**: Explainability is a living concept that evolves with the platform. Visit the [Prismatic Platform repository](https://github.com/korczis/prismatic-platform) to explore the implementation, review the [NABLA Infinity doctrine](@/glossary/nabla-infinity.md) for the epistemic foundations, or connect with the community through [GitHub Discussions](https://github.com/korczis/prismatic-platform/discussions). Created by [Tomas Korcak (korczis)](https://github.com/korczis).

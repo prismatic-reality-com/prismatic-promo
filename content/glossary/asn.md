@@ -173,16 +173,16 @@ end
 
 ## Related Terms
 
-- [Advisory](/glossary/advisory/) -- security advisories affecting specific ASN ranges
+- [Advisory](@/glossary/advisory.md) -- security advisories affecting specific ASN ranges
 - **Correlation** -- relating ASN data across intelligence sources
-- [Anomaly Detection](/glossary/anomaly-detection/) -- detecting anomalous BGP announcements
+- [Anomaly Detection](@/glossary/anomaly-detection.md) -- detecting anomalous BGP announcements
 - **Containment** -- network-level containment by ASN
 
 ## See Also
 
 - [RIPE NCC ASN Database](https://www.ripe.net/manage-ips-and-asns/) -- European RIR
 - [Team Cymru IP-to-ASN](https://team-cymru.com/community-services/ip-asn-mapping/) -- global mapping service
-- [OSINT Toolbox](/osint/) -- platform intelligence gathering tools
+- [OSINT Toolbox](@/osint/_index.md) -- platform intelligence gathering tools
 
 ---
 
@@ -191,4 +191,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

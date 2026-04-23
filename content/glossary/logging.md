@@ -534,26 +534,26 @@ end
 
 ## Related Terms
 
-- [Log Level](/glossary/log-level/) -- severity classification controlling which messages pass through filtering
-- [Audit Logging](/glossary/audit-logging/) -- specialized immutable logging for security and compliance events
-- [Telemetry](/glossary/telemetry/) -- complementary metrics and event system for structured measurements
-- [Profiling](/glossary/profiling/) -- performance analysis technique that complements diagnostic logging
-- [KPI](/glossary/kpi/) -- key performance indicators that may be derived from log analysis and aggregation
-- [Monitoring](/glossary/monitoring/) -- operational practice that consumes log data for alerting and dashboards
+- [Log Level](@/glossary/log-level.md) -- severity classification controlling which messages pass through filtering
+- [Audit Logging](@/glossary/audit-logging.md) -- specialized immutable logging for security and compliance events
+- [Telemetry](@/glossary/telemetry.md) -- complementary metrics and event system for structured measurements
+- [Profiling](@/glossary/profiling.md) -- performance analysis technique that complements diagnostic logging
+- [KPI](@/glossary/kpi.md) -- key performance indicators that may be derived from log analysis and aggregation
+- [Monitoring](@/glossary/monitoring.md) -- operational practice that consumes log data for alerting and dashboards
 - [Tracing](/glossary/tracing/) -- request-scoped observability that complements event-based logging
-- [Remediation](/glossary/remediation/) -- security issue resolution process that relies on audit logging evidence
-- [Incident Response](/glossary/incident-response/) -- operational procedure where logs provide primary forensic evidence
-- [Compliance](/glossary/compliance/) -- regulatory frameworks that mandate specific logging and retention requirements
-- [Observability](/glossary/observability/) -- the broader discipline encompassing logs, metrics, and traces
-- [Response Distribution](/glossary/response-distribution/) -- performance analysis that uses duration metadata from log entries
+- [Remediation](@/glossary/remediation.md) -- security issue resolution process that relies on audit logging evidence
+- [Incident Response](@/glossary/incident-response.md) -- operational procedure where logs provide primary forensic evidence
+- [Compliance](@/glossary/compliance.md) -- regulatory frameworks that mandate specific logging and retention requirements
+- [Observability](@/glossary/observability.md) -- the broader discipline encompassing logs, metrics, and traces
+- [Response Distribution](@/glossary/response-distribution.md) -- performance analysis that uses duration metadata from log entries
 
 ## See Also
 
 - [Elixir Logger Documentation](https://hexdocs.pm/logger/Logger.html) -- official Elixir Logger API reference
 - [Erlang :logger Module](https://www.erlang.org/doc/man/logger.html) -- underlying OTP logging framework
-- [Architecture](/architecture/) -- observability architecture and telemetry infrastructure
-- [OTEL Doctrine Pillar](/architecture/) -- observability enforcement requirements
-- [Capabilities](/capabilities/) -- monitoring and logging capabilities overview
+- [Architecture](@/architecture/_index.md) -- observability architecture and telemetry infrastructure
+- [OTEL Doctrine Pillar](@/architecture/_index.md) -- observability enforcement requirements
+- [Capabilities](@/capabilities/_index.md) -- monitoring and logging capabilities overview
 
 ---
 
@@ -562,4 +562,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

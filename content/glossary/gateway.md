@@ -40,15 +40,15 @@ image_alt = "Gateway - Prismatic Platform"
 
 ## Definition
 
-An API gateway is a server that acts as the single entry point for a group of backend services, providing a unified interface for external clients while handling cross-cutting concerns such as [authentication](/glossary/authentication/), authorization, rate limiting, request routing, load balancing, protocol translation, and response caching. The gateway pattern decouples client-facing [API](/glossary/api/) design from internal service architecture, enabling backend services to evolve independently while maintaining a stable external API contract.
+An API gateway is a server that acts as the single entry point for a group of backend services, providing a unified interface for external clients while handling cross-cutting concerns such as [authentication](@/glossary/authentication.md), authorization, rate limiting, request routing, load balancing, protocol translation, and response caching. The gateway pattern decouples client-facing [API](@/glossary/api.md) design from internal service architecture, enabling backend services to evolve independently while maintaining a stable external API contract.
 
 API gateways solve several architectural challenges that emerge as applications grow beyond monolithic designs. Without a gateway, each client must know the addresses and APIs of individual backend services, authenticate separately with each service, and handle cross-cutting concerns like retry logic and circuit breaking independently. A gateway centralizes these responsibilities, reducing client complexity and providing a single point for security enforcement, monitoring, and traffic management.
 
 ## Overview
 
-The pattern has roots in the facade design pattern from object-oriented programming and the [integration](/glossary/integration/) layer pattern from enterprise application architecture. Modern API gateways range from simple reverse proxies with authentication (Nginx, Caddy) to full-featured API management platforms (Kong, AWS API Gateway, Apigee) with developer portals, analytics, and lifecycle management.
+The pattern has roots in the facade design pattern from object-oriented programming and the [integration](@/glossary/integration.md) layer pattern from enterprise application architecture. Modern API gateways range from simple reverse proxies with authentication (Nginx, Caddy) to full-featured API management platforms (Kong, AWS API Gateway, Apigee) with developer portals, analytics, and lifecycle management.
 
-The Prismatic Platform implements a distinctive gateway through the `prismatic_api` application, which auto-discovers backend functions and exposes them through a unified [OpenAPI](/glossary/openapi-spec/)-documented [REST](/glossary/rest/) interface. This auto-introspection approach eliminates the common maintenance burden of keeping route configurations synchronized with backend service APIs.
+The Prismatic Platform implements a distinctive gateway through the `prismatic_api` application, which auto-discovers backend functions and exposes them through a unified [OpenAPI](@/glossary/openapi-spec.md)-documented [REST](@/glossary/rest.md) interface. This auto-introspection approach eliminates the common maintenance burden of keeping route configurations synchronized with backend service APIs.
 
 ### Gateway Evolution
 
@@ -60,7 +60,7 @@ The Prismatic Platform implements a distinctive gateway through the `prismatic_a
 | **Gen 4** | Service mesh | Istio, Linkerd | High operational complexity |
 | **Prismatic** | Auto-introspecting gateway | PrismaticAPI | Zero manual route management |
 
-The Prismatic Platform's approach is unique in Generation 4+: rather than requiring manual route configuration or service mesh infrastructure, the gateway scans all `Prismatic*` facade modules at boot time, discovers their public functions, maps [Elixir](/glossary/elixir/) type specifications to OpenAPI schemas, and exposes every function as a REST [endpoint](/glossary/endpoint/). This creates a self-documenting, self-configuring API surface.
+The Prismatic Platform's approach is unique in Generation 4+: rather than requiring manual route configuration or service mesh infrastructure, the gateway scans all `Prismatic*` facade modules at boot time, discovers their public functions, maps [Elixir](@/glossary/elixir.md) type specifications to OpenAPI schemas, and exposes every function as a REST [endpoint](@/glossary/endpoint.md). This creates a self-documenting, self-configuring API surface.
 
 ## Technical Deep Dive
 
@@ -69,14 +69,14 @@ The Prismatic Platform's approach is unique in Generation 4+: rather than requir
 | Responsibility | Description | Prismatic Implementation |
 |---------------|-------------|--------------------------|
 | **Request Routing** | Direct requests to appropriate backend | URL pattern matching → module/function dispatch |
-| **Authentication** | Verify client identity | [Plug](/glossary/plug/) pipeline, Bearer tokens, API keys |
+| **Authentication** | Verify client identity | [Plug](@/glossary/plug.md) pipeline, Bearer tokens, API keys |
 | **Authorization** | Enforce access control policies | RBAC via Casbin, scope validation |
-| **Rate Limiting** | Prevent abuse, enforce quotas | Token bucket per-client in [ETS](/glossary/ets/) |
-| **Protocol Translation** | Convert between formats | [JSON](/glossary/json/) ↔ Elixir terms, auto-coercion |
+| **Rate Limiting** | Prevent abuse, enforce quotas | Token bucket per-client in [ETS](@/glossary/ets.md) |
+| **Protocol Translation** | Convert between formats | [JSON](@/glossary/json.md) ↔ Elixir terms, auto-coercion |
 | **Request Validation** | Verify request structure | OpenApiSpex schema validation |
 | **Response Transformation** | Normalize response format | Consistent envelope structure |
 | **Caching** | Cache frequent responses | ETS cache with TTL |
-| **Monitoring** | Track latency, errors, throughput | [Telemetry](/glossary/telemetry/) events per-endpoint |
+| **Monitoring** | Track latency, errors, throughput | [Telemetry](@/glossary/telemetry.md) events per-endpoint |
 | **Circuit Breaking** | Prevent cascade failures | Per-backend circuit breaker state |
 | **Documentation** | Generate API docs | OpenAPI 3.0 + SwaggerUI |
 
@@ -136,7 +136,7 @@ Handles cross-cutting concerns (auth, logging, rate limiting) while passing requ
 
 #### 4. Translation Gateway
 
-Converts between protocols and data formats. For example, exposing a [GenServer](/glossary/genserver/)-based backend as a REST API, or translating between JSON and internal Elixir terms.
+Converts between protocols and data formats. For example, exposing a [GenServer](@/glossary/genserver.md)-based backend as a REST API, or translating between JSON and internal Elixir terms.
 
 ### Gateway vs Reverse Proxy vs Service Mesh
 
@@ -154,7 +154,7 @@ Converts between protocols and data formats. For example, exposing a [GenServer]
 
 ### Plug Pipeline Architecture
 
-The Prismatic Platform's gateway architecture is built on [Phoenix](/glossary/phoenix/)'s Plug pipeline model. Each cross-cutting concern is implemented as an independent plug:
+The Prismatic Platform's gateway architecture is built on [Phoenix](@/glossary/phoenix.md)'s Plug pipeline model. Each cross-cutting concern is implemented as an independent plug:
 
 ```elixir
 defmodule PrismaticApi.Router do
@@ -259,7 +259,7 @@ The most distinctive feature of the Prismatic gateway is its auto-discovery syst
 1. **Scans modules**: Finds all modules matching `Prismatic*` that export public functions
 2. **Extracts specs**: Reads `@spec` annotations to determine parameter types and return types
 3. **Maps to OpenAPI**: Converts Elixir typespecs to JSON Schema / OpenAPI 3.0 types
-4. **Registers endpoints**: Creates route entries in the [ETS](/glossary/ets/) registry
+4. **Registers endpoints**: Creates route entries in the [ETS](@/glossary/ets.md) registry
 5. **Generates docs**: Builds OpenAPI 3.0 specification from discovered metadata
 
 ```elixir
@@ -436,10 +436,10 @@ Every gateway adds latency overhead. The Prismatic Platform allocates the gatewa
 | **Total overhead** | 10ms | ~4ms |
 
 The BEAM's efficiency for this workload stems from:
-- [ETS](/glossary/ets/) for O(1) rate limit and auth lookups
-- [Plug](/glossary/plug/) pipeline compiled to efficient function chains
+- [ETS](@/glossary/ets.md) for O(1) rate limit and auth lookups
+- [Plug](@/glossary/plug.md) pipeline compiled to efficient function chains
 - Zero-copy binary handling for JSON payloads
-- Lightweight [processes](/glossary/process/) for concurrent request handling
+- Lightweight [processes](@/glossary/process.md) for concurrent request handling
 
 ### Caching Strategy
 
@@ -551,26 +551,26 @@ config :prismatic_api, PrismaticApi.Gateway,
 
 ## Related Terms
 
-- [API](/glossary/api/) -- application programming interface that the gateway exposes
-- [REST](/glossary/rest/) -- architectural style used by the gateway's external interface
-- [Endpoint](/glossary/endpoint/) -- specific URLs that the gateway routes to backends
-- [Authentication](/glossary/authentication/) -- identity verification handled at the gateway
-- [Rate Limiting](/glossary/rate-limiting/) -- traffic management at the gateway level
-- [OpenAPI Spec](/glossary/openapi-spec/) -- API documentation standard used by the gateway
-- [Plug](/glossary/plug/) -- Phoenix's composable middleware used to build the pipeline
-- [Telemetry](/glossary/telemetry/) -- observability instrumentation for gateway metrics
-- [Integration](/glossary/integration/) -- the broader pattern of connecting systems
-- [Circuit Breaker](/glossary/circuit-breaker/) -- resilience pattern for backend failures
+- [API](@/glossary/api.md) -- application programming interface that the gateway exposes
+- [REST](@/glossary/rest.md) -- architectural style used by the gateway's external interface
+- [Endpoint](@/glossary/endpoint.md) -- specific URLs that the gateway routes to backends
+- [Authentication](@/glossary/authentication.md) -- identity verification handled at the gateway
+- [Rate Limiting](@/glossary/rate-limiting.md) -- traffic management at the gateway level
+- [OpenAPI Spec](@/glossary/openapi-spec.md) -- API documentation standard used by the gateway
+- [Plug](@/glossary/plug.md) -- Phoenix's composable middleware used to build the pipeline
+- [Telemetry](@/glossary/telemetry.md) -- observability instrumentation for gateway metrics
+- [Integration](@/glossary/integration.md) -- the broader pattern of connecting systems
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- resilience pattern for backend failures
 - [Middleware](/glossary/middleware/) -- composable request/response processing layers
-- [Pipeline](/glossary/pipeline/) -- sequential processing model underlying the plug chain
-- [JSON](/glossary/json/) -- primary data format for gateway communication
-- [ETS](/glossary/ets/) -- in-memory storage for rate limits and auth cache
+- [Pipeline](@/glossary/pipeline.md) -- sequential processing model underlying the plug chain
+- [JSON](@/glossary/json.md) -- primary data format for gateway communication
+- [ETS](@/glossary/ets.md) -- in-memory storage for rate limits and auth cache
 - [Reverse Proxy](/glossary/reverse-proxy/) -- simpler network-level routing alternative
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform architecture including gateway position
-- [Capabilities](/capabilities/) -- platform capabilities exposed through the gateway
+- [Architecture](@/architecture/_index.md) -- platform architecture including gateway position
+- [Capabilities](@/capabilities/_index.md) -- platform capabilities exposed through the gateway
 - [API Documentation](/api/swaggerui) -- interactive SwaggerUI for the gateway
 - [OSINT Toolbox](/osint/toolbox/) -- 157 tools accessible via gateway API
 
@@ -581,4 +581,4 @@ config :prismatic_api, PrismaticApi.Gateway,
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

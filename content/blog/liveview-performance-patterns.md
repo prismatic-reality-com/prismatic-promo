@@ -222,4 +222,4 @@ High-performance LiveView dashboards are achievable with disciplined patterns: d
 
 ---
 
-*Try the [Interactive Academy](/academy/) for hands-on LiveView exercises or explore the [Developer Portal](/developers/) for the complete component library.*
+*Try the [Interactive Academy](@/academy/_index.md) for hands-on LiveView exercises or explore the [Developer Portal](@/developers/_index.md) for the complete component library.*

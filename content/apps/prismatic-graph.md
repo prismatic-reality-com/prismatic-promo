@@ -24,11 +24,11 @@ image_alt = "Prismatic Graph - Prismatic Platform"
 
 ## Overview
 
-Prismatic Graph provides the graph database integration layer built on [KuzuDB](/glossary/kuzudb/), an embedded graph database optimized for analytical workloads. It enables relationship-centric queries across the platform's entity data, powering the [knowledge graph](/glossary/knowledge-graph/), entity relationship mapping, and graph-based intelligence analysis.
+Prismatic Graph provides the graph database integration layer built on [KuzuDB](@/glossary/kuzudb.md), an embedded graph database optimized for analytical workloads. It enables relationship-centric queries across the platform's entity data, powering the [knowledge graph](@/glossary/knowledge-graph.md), entity relationship mapping, and graph-based intelligence analysis.
 
-Graph databases excel where relational databases struggle: traversing deep relationship chains, finding shortest paths between entities, detecting communities, and uncovering hidden connections. For an intelligence platform like Prismatic, graph queries are essential for connecting the dots across [OSINT sources](/osint/), company registries, and [threat intelligence](/glossary/threat-intelligence/). The choice of KuzuDB as the embedded graph engine provides sub-100ms query performance for multi-hop traversals without the operational overhead of a standalone graph database server.
+Graph databases excel where relational databases struggle: traversing deep relationship chains, finding shortest paths between entities, detecting communities, and uncovering hidden connections. For an intelligence platform like Prismatic, graph queries are essential for connecting the dots across [OSINT sources](@/osint/_index.md), company registries, and [threat intelligence](@/glossary/threat-intelligence.md). The choice of KuzuDB as the embedded graph engine provides sub-100ms query performance for multi-hop traversals without the operational overhead of a standalone graph database server.
 
-The module serves as the backbone of the platform's [entity resolution](/glossary/entity-resolution/) pipeline, maintaining a unified graph of entities -- companies, persons, domains, IP addresses, certificates -- connected by typed, directional relationships. When a new entity is discovered through any OSINT source, it is linked into the graph with edges representing ownership, directorship, hosting, DNS resolution, and other relationship types. This interconnected view enables analysts to discover non-obvious connections that would be invisible in tabular data.
+The module serves as the backbone of the platform's [entity resolution](@/glossary/entity-resolution.md) pipeline, maintaining a unified graph of entities -- companies, persons, domains, IP addresses, certificates -- connected by typed, directional relationships. When a new entity is discovered through any OSINT source, it is linked into the graph with edges representing ownership, directorship, hosting, DNS resolution, and other relationship types. This interconnected view enables analysts to discover non-obvious connections that would be invisible in tabular data.
 
 ## Architecture
 
@@ -144,7 +144,7 @@ end
 
 ## Graph Analytics
 
-Graph analytics algorithms operate on the full graph to compute structural properties that reveal patterns invisible to direct queries. These algorithms run as background tasks under [OTP](/glossary/otp/) supervision, with results cached in [ETS](/glossary/ets/) for fast lookup.
+Graph analytics algorithms operate on the full graph to compute structural properties that reveal patterns invisible to direct queries. These algorithms run as background tasks under [OTP](@/glossary/otp.md) supervision, with results cached in [ETS](@/glossary/ets.md) for fast lookup.
 
 ```elixir
 # Calculate centrality (most connected entities)
@@ -206,7 +206,7 @@ The KuzuDB adapter manages a connection pool to ensure efficient resource utiliz
 
 ## OSINT Intelligence Graph
 
-Data from [ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/), [Shodan](/osint/shodan/), [Censys](/osint/censys/), and other [OSINT sources](/osint/) flows into the graph, creating a unified intelligence knowledge base.
+Data from [ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md), [Shodan](@/osint/shodan.md), [Censys](@/osint/censys.md), and other [OSINT sources](@/osint/_index.md) flows into the graph, creating a unified intelligence knowledge base.
 
 ```elixir
 # Ingest company data from Czech registries
@@ -242,11 +242,11 @@ Integration tests exercise the full pipeline from OSINT data ingestion through g
 
 | Application | Relationship |
 |-------------|-------------|
-| [Prismatic Storage](/apps/prismatic-storage/) | KuzuDB adapter via Graphable trait |
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Entity data ingestion from OSINT sources |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | [Attack surface](/glossary/attack-surface/) relationship mapping |
-| [Prismatic Web](/apps/prismatic-web/) | Graph visualization in LiveView dashboards |
-| [Prismatic Czech Autocrawler](/apps/prismatic-czech-autocrawler/) | Czech registry entity relationship data |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | KuzuDB adapter via Graphable trait |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Entity data ingestion from OSINT sources |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | [Attack surface](@/glossary/attack-surface.md) relationship mapping |
+| [Prismatic Web](@/apps/prismatic-web.md) | Graph visualization in LiveView dashboards |
+| [Prismatic Czech Autocrawler](@/apps/prismatic-czech-autocrawler.md) | Czech registry entity relationship data |
 
 ## Performance
 
@@ -260,18 +260,18 @@ Integration tests exercise the full pipeline from OSINT data ingestion through g
 | Total edges | 500K+ | All relationship types |
 | Schema migration | < 30s | Backward-compatible changes |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :graph, :query_executed]`, `[:prismatic, :graph, :entity_ingested]`, `[:prismatic, :graph, :analytics_computed]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :graph, :query_executed]`, `[:prismatic, :graph, :entity_ingested]`, `[:prismatic, :graph, :analytics_computed]`.
 
 ## Related Resources
 
-- [Prismatic Storage Core](/apps/prismatic-storage-core/) -- Storage adapter trait system
-- [Prismatic Storage KuzuDB](/apps/prismatic-storage-kuzudb/) -- Graph storage adapter implementation
-- [Consolidation Architect](/agents/consolidation-architect/) -- Entity deduplication and graph merge operations
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews graph schema design and query optimization
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Ensures KuzuDB integration follows storage adapter patterns
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Graph traversal enables cross-domain entity relationship discovery
-- [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) -- Graph spans corporate, infrastructure, and social domains
-- [Quality Gates](/capabilities/quality-gates/) -- Graph schema and query correctness verified through contract testing
+- [Prismatic Storage Core](@/apps/prismatic-storage-core.md) -- Storage adapter trait system
+- [Prismatic Storage KuzuDB](@/apps/prismatic-storage-kuzudb.md) -- Graph storage adapter implementation
+- [Consolidation Architect](@/agents/consolidation-architect.md) -- Entity deduplication and graph merge operations
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews graph schema design and query optimization
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Ensures KuzuDB integration follows storage adapter patterns
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Graph traversal enables cross-domain entity relationship discovery
+- [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) -- Graph spans corporate, infrastructure, and social domains
+- [Quality Gates](@/capabilities/quality-gates.md) -- Graph schema and query correctness verified through contract testing
 
 ---
 
@@ -280,4 +280,4 @@ Integration tests exercise the full pipeline from OSINT data ingestion through g
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

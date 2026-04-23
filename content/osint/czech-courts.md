@@ -27,7 +27,7 @@ image_alt = "Czech Courts Portal - Prismatic Platform"
 
 The Czech Courts Portal (rozhodnuti.justice.cz) provides public access to court decisions from the entire Czech judicial system, encompassing district courts (okresni soudy), regional courts (krajske soudy), high courts (vrchni soudy), the Supreme Court (Nejvyssi soud), and the Supreme Administrative Court (Nejvyssi spravni soud). The portal contains hundreds of thousands of anonymized court decisions spanning civil, criminal, commercial, administrative, and constitutional law matters, representing one of the most comprehensive judicial transparency initiatives in Central Europe.
 
-The portal was established as part of the Czech Republic's broader open government and judicial transparency reforms. Under Act No. 106/1999 Sb. (Freedom of Information Act) and subsequent Ministry of Justice directives, Czech courts are required to publish selected decisions in anonymized form. The anonymization process replaces natural person names with pseudonyms while preserving legal entity names (company names, ICO numbers), geographic references, and the complete legal reasoning of the court. This design choice is particularly valuable for [OSINT](/glossary/osint/) analysts investigating corporate entities, as company names and identification numbers remain fully searchable and identifiable in published decisions.
+The portal was established as part of the Czech Republic's broader open government and judicial transparency reforms. Under Act No. 106/1999 Sb. (Freedom of Information Act) and subsequent Ministry of Justice directives, Czech courts are required to publish selected decisions in anonymized form. The anonymization process replaces natural person names with pseudonyms while preserving legal entity names (company names, ICO numbers), geographic references, and the complete legal reasoning of the court. This design choice is particularly valuable for [OSINT](@/glossary/osint.md) analysts investigating corporate entities, as company names and identification numbers remain fully searchable and identifiable in published decisions.
 
 For OSINT analysts and investigative researchers, the Czech Courts Portal provides intelligence that is unavailable from any other source. Litigation history reveals disputes between entities, regulatory enforcement patterns, corporate governance conflicts, fraud and insolvency proceedings, intellectual property disputes, and contract enforcement actions. The full text of judicial decisions provides narrative context, factual findings, and legal reasoning that goes far beyond the structured data available in commercial registries.
 
@@ -244,7 +244,7 @@ Legal professionals use the portal for comprehensive precedent research, identif
 
 Published court decisions are public information under Czech law. Their use for research, analysis, and journalism is permitted without restriction. However, several considerations apply.
 
-The anonymization of natural persons in published decisions is a deliberate privacy protection measure. Attempting to re-identify anonymized individuals through correlation with other data sources may violate [GDPR](/glossary/gdpr/) principles and Czech data protection law, even if technically possible.
+The anonymization of natural persons in published decisions is a deliberate privacy protection measure. Attempting to re-identify anonymized individuals through correlation with other data sources may violate [GDPR](@/glossary/gdpr.md) principles and Czech data protection law, even if technically possible.
 
 Court decisions should be interpreted with appropriate legal expertise. Non-lawyers may misinterpret legal terminology, procedural context, or the significance of specific decision outcomes. OSINT analysts should consult legal professionals when drawing conclusions from judicial decisions.
 
@@ -308,13 +308,13 @@ The platform monitors new court decisions in key regulatory areas (financial ser
 
 ## Related Providers
 
-- [Justice.cz](/osint/justice-cz/) - Czech Commercial Register for corporate entity details
-- [Insolvencni rejstrik](/osint/insolvencni-rejstrik/) - Insolvency proceedings register
-- [UOHS](/osint/uohs/) - Competition authority decisions and enforcement actions
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog with legal analytics
-- [ARES](/osint/ares/) - Business entity identification for litigation search
-- [CUZK](/osint/cuzk/) - Property records for asset tracing in judgment enforcement
-- [CNB](/osint/cnb/) - Financial supervisory decisions for regulated entities
+- [Justice.cz](@/osint/justice-cz.md) - Czech Commercial Register for corporate entity details
+- [Insolvencni rejstrik](@/osint/insolvencni-rejstrik.md) - Insolvency proceedings register
+- [UOHS](@/osint/uohs.md) - Competition authority decisions and enforcement actions
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog with legal analytics
+- [ARES](@/osint/ares.md) - Business entity identification for litigation search
+- [CUZK](@/osint/cuzk.md) - Property records for asset tracing in judgment enforcement
+- [CNB](@/osint/cnb.md) - Financial supervisory decisions for regulated entities
 
 ---
 
@@ -323,4 +323,4 @@ The platform monitors new court decisions in key regulatory areas (financial ser
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

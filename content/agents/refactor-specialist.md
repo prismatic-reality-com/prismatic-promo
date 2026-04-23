@@ -28,11 +28,11 @@ image_alt = "refactor-specialist - Prismatic Platform"
 
 ## Overview
 
-The refactor-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's development domain, executing safe code refactoring operations with comprehensive regression prevention, quality improvement verification, and maintainability enhancement. This agent applies genetic patterns for type safety and formal verification to ensure that refactoring transformations preserve program semantics while improving code structure, readability, and performance characteristics.
+The refactor-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's development domain, executing safe code refactoring operations with comprehensive regression prevention, quality improvement verification, and maintainability enhancement. This agent applies genetic patterns for type safety and formal verification to ensure that refactoring transformations preserve program semantics while improving code structure, readability, and performance characteristics.
 
-In the Prismatic Platform's Elixir/[OTP](/glossary/otp/) codebase, refactoring carries specific challenges and opportunities not found in conventional imperative codebases. Process-based concurrency means that refactoring a module's interface can affect message-passing contracts between processes. [Supervision tree](/glossary/supervision-tree/) restructuring changes fault-tolerance characteristics. Protocol and behaviour modifications affect polymorphic dispatch across the entire umbrella. The refactor-specialist understands these Elixir-specific concerns and applies refactoring techniques that account for the BEAM runtime's unique characteristics.
+In the Prismatic Platform's Elixir/[OTP](@/glossary/otp.md) codebase, refactoring carries specific challenges and opportunities not found in conventional imperative codebases. Process-based concurrency means that refactoring a module's interface can affect message-passing contracts between processes. [Supervision tree](@/glossary/supervision-tree.md) restructuring changes fault-tolerance characteristics. Protocol and behaviour modifications affect polymorphic dispatch across the entire umbrella. The refactor-specialist understands these Elixir-specific concerns and applies refactoring techniques that account for the BEAM runtime's unique characteristics.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, every refactoring operation follows a strict protocol: analyze the current state, identify the specific improvement target, implement the transformation, verify that all tests pass, confirm that quality metrics improve, and validate that no regressions were introduced. The agent's genetic pattern approach treats refactoring as controlled mutation of the codebase genome, where each mutation must be verified to increase fitness.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, every refactoring operation follows a strict protocol: analyze the current state, identify the specific improvement target, implement the transformation, verify that all tests pass, confirm that quality metrics improve, and validate that no regressions were introduced. The agent's genetic pattern approach treats refactoring as controlled mutation of the codebase genome, where each mutation must be verified to increase fitness.
 
 ## Refactoring Safety Model
 
@@ -40,9 +40,9 @@ The refactor-specialist's safety model is built on the principle that refactorin
 
 **Test-based specification** captures current behavior through existing test suites. If test coverage is insufficient for the refactoring target, the agent generates additional characterization tests that document current behavior before making changes. These characterization tests serve as behavior-preservation guards throughout the refactoring process.
 
-**Type-based specification** leverages [Dialyzer](/glossary/dialyzer/) typespecs and success typing analysis to verify that refactored code maintains type compatibility with all callers. The agent ensures that every public function carries an `@spec` annotation before refactoring begins, enabling Dialyzer to verify type preservation across the transformation.
+**Type-based specification** leverages [Dialyzer](@/glossary/dialyzer.md) typespecs and success typing analysis to verify that refactored code maintains type compatibility with all callers. The agent ensures that every public function carries an `@spec` annotation before refactoring begins, enabling Dialyzer to verify type preservation across the transformation.
 
-**Contract-based specification** uses [BEAM](/glossary/beam/) behaviours and protocol definitions to capture interface contracts. When refactoring code that implements behaviours or protocols, the agent verifies that the refactored implementation satisfies all contract requirements, catching interface violations that tests might miss.
+**Contract-based specification** uses [BEAM](@/glossary/beam.md) behaviours and protocol definitions to capture interface contracts. When refactoring code that implements behaviours or protocols, the agent verifies that the refactored implementation satisfies all contract requirements, catching interface violations that tests might miss.
 
 ## Key Capabilities
 
@@ -50,10 +50,10 @@ The refactor-specialist's safety model is built on the principle that refactorin
 - **Regression prevention** -- Generates characterization tests for insufficient coverage areas, ensuring that refactoring changes are fully guarded against behavioral regressions
 - **Quality metric improvement** -- Targets specific quality metrics (Credo scores, Dialyzer compliance, complexity reduction, test coverage) with measurable improvement verification
 - **Genetic pattern application** -- Treats refactoring as controlled codebase mutation, applying fitness-evaluated transformations that must demonstrably improve the code's overall quality genome
-- **[Hot code reload](/glossary/hot-code-reload/) safety** -- Ensures that refactored modules maintain hot-code-reload compatibility, preserving the platform's ability to update running systems without downtime
+- **[Hot code reload](@/glossary/hot-code-reload.md) safety** -- Ensures that refactored modules maintain hot-code-reload compatibility, preserving the platform's ability to update running systems without downtime
 - **Cross-module impact analysis** -- Traces the impact of interface changes across module boundaries, identifying all callers and dependents affected by a refactoring transformation
 - **Incremental transformation** -- Breaks complex refactorings into atomic steps, each independently verifiable, enabling rollback to any intermediate state if issues are detected
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with quality-driven refactoring opportunity identification and self-directed execution
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with quality-driven refactoring opportunity identification and self-directed execution
 
 ## Elixir-Specific Refactoring Techniques
 
@@ -61,11 +61,11 @@ The agent maintains specialized techniques for Elixir/OTP refactoring that accou
 
 **Process boundary refactoring** restructures the boundaries between processes, potentially merging processes with unnecessary separation or splitting monolithic processes into focused single-responsibility processes. This technique requires careful analysis of message-passing patterns, state ownership, and fault-isolation requirements.
 
-**[Ecto](/glossary/ecto/) query optimization** refactors database interaction code to use composable query patterns, eliminating N+1 queries, consolidating redundant database calls, and applying preload strategies that match actual access patterns. **[Phoenix](/glossary/phoenix/)/[LiveView](/glossary/liveview/) component extraction** identifies reusable UI patterns within LiveView modules and extracts them into composable function components or live components.
+**[Ecto](@/glossary/ecto.md) query optimization** refactors database interaction code to use composable query patterns, eliminating N+1 queries, consolidating redundant database calls, and applying preload strategies that match actual access patterns. **[Phoenix](@/glossary/phoenix.md)/[LiveView](@/glossary/liveview.md) component extraction** identifies reusable UI patterns within LiveView modules and extracts them into composable function components or live components.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to execute refactoring operations across the platform's codebase, generate characterization tests, and verify quality improvements.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to execute refactoring operations across the platform's codebase, generate characterization tests, and verify quality improvements.
 
 ## Command Interface
 
@@ -79,14 +79,14 @@ The agent maintains specialized techniques for Elixir/OTP refactoring that accou
 
 | Agent | Relationship |
 |-------|-------------|
-| [refactor-specialist-coordinator](/agents/refactor-specialist-coordinator/) | Receives coordinated refactoring tasks and reports completion with quality metrics |
-| [refactoring-coordinator-agent](/agents/refactoring-coordinator-agent/) | Formal verification of refactoring safety through Lean4 theorem proving |
-| [quality-assurance-commander](/agents/archer-supreme/) | Quality metrics validate refactoring outcomes against improvement targets |
-| [recursive-optimizer](/agents/recursive-optimizer/) | Execution trace analysis identifies performance-impacting refactoring opportunities |
+| [refactor-specialist-coordinator](@/agents/refactor-specialist-coordinator.md) | Receives coordinated refactoring tasks and reports completion with quality metrics |
+| [refactoring-coordinator-agent](@/agents/refactoring-coordinator-agent.md) | Formal verification of refactoring safety through Lean4 theorem proving |
+| [quality-assurance-commander](@/agents/archer-supreme.md) | Quality metrics validate refactoring outcomes against improvement targets |
+| [recursive-optimizer](@/agents/recursive-optimizer.md) | Execution trace analysis identifies performance-impacting refactoring opportunities |
 
 ## Enforcement
 
-Refactoring operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: every transformation must demonstrably improve at least one quality metric while degrading none. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that improvement claims are verified through quantitative measurement. Refactored code must pass the complete quality gate pipeline: zero compilation warnings, Dialyzer compliance, Credo strict mode, and full test suite passage. The [Trinity Gate](/glossary/trinity-gate/) validates that refactoring changes maintain structural consistency across the affected codebase.
+Refactoring operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: every transformation must demonstrably improve at least one quality metric while degrading none. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that improvement claims are verified through quantitative measurement. Refactored code must pass the complete quality gate pipeline: zero compilation warnings, Dialyzer compliance, Credo strict mode, and full test suite passage. The [Trinity Gate](@/glossary/trinity-gate.md) validates that refactoring changes maintain structural consistency across the affected codebase.
 
 ---
 
@@ -95,4 +95,4 @@ Refactoring operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

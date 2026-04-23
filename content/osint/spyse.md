@@ -29,7 +29,7 @@ Spyse is an Internet assets search engine designed for cybersecurity professiona
 
 The relational approach transforms individual data points into an interconnected intelligence graph. When an analyst queries a domain, Spyse does not merely return DNS records; it reveals the IP addresses those records resolve to, the other domains hosted on those IPs, the SSL certificates covering those domains, the autonomous systems announcing those IP blocks, and the technologies running on those servers. This web of relationships is what separates Spyse from simple lookup tools and positions it as an infrastructure intelligence platform.
 
-For [OSINT](/glossary/osint/) and [attack surface](/glossary/attack-surface/) analysis, Spyse provides the foundational infrastructure layer that informs vulnerability assessment, competitive intelligence, and threat investigation workflows. When combined with active scanning data from [Shodan](/osint/shodan/) and [Censys](/osint/censys/), Spyse's passive intelligence creates a comprehensive view of any organization's Internet-facing infrastructure without generating detectable traffic against the target.
+For [OSINT](@/glossary/osint.md) and [attack surface](@/glossary/attack-surface.md) analysis, Spyse provides the foundational infrastructure layer that informs vulnerability assessment, competitive intelligence, and threat investigation workflows. When combined with active scanning data from [Shodan](@/osint/shodan.md) and [Censys](@/osint/censys.md), Spyse's passive intelligence creates a comprehensive view of any organization's Internet-facing infrastructure without generating detectable traffic against the target.
 
 ## Data Coverage
 
@@ -40,7 +40,7 @@ For [OSINT](/glossary/osint/) and [attack surface](/glossary/attack-surface/) an
 | **IP Addresses** | Geolocation, ports, services, hosting provider |
 | **SSL Certificates** | Issuance, expiry, SANs, chain analysis |
 | **DNS Records** | A, AAAA, MX, NS, TXT, SOA, CNAME history |
-| **[WHOIS](/glossary/whois/)** | Registration, registrar, dates, contact data |
+| **[WHOIS](@/glossary/whois.md)** | Registration, registrar, dates, contact data |
 | **Autonomous Systems** | ASN lookup, prefix lists, peering |
 | **Technologies** | Web frameworks, CMS, CDN, analytics detection |
 | **CVEs** | Vulnerability mapping based on detected software |
@@ -86,7 +86,7 @@ Enrichment Layer:
 
 ## Integration with Prismatic
 
-Spyse serves as a comprehensive Internet intelligence source within the Prismatic platform, particularly for the [Prismatic Perimeter](/apps/prismatic-perimeter/) [attack surface](/glossary/attack-surface/) discovery and the [OSINT Core](/apps/prismatic-osint-core/) enrichment pipeline.
+Spyse serves as a comprehensive Internet intelligence source within the Prismatic platform, particularly for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [attack surface](@/glossary/attack-surface.md) discovery and the [OSINT Core](@/apps/prismatic-osint-core.md) enrichment pipeline.
 
 ```elixir
 # Get comprehensive domain intelligence
@@ -250,7 +250,7 @@ API token required for all API access. Free tier available with registration. Th
 ## Use Cases
 
 ### Attack Surface Discovery
-- Map complete domain infrastructure for [Perimeter](/apps/prismatic-perimeter/) assessments
+- Map complete domain infrastructure for [Perimeter](@/apps/prismatic-perimeter.md) assessments
 - Discover shadow domains and forgotten subdomains through certificate and DNS correlation
 - Identify shared hosting relationships that may create cross-domain risk
 - Enumerate all SSL certificates to find previously unknown assets
@@ -278,35 +278,35 @@ API token required for all API access. Free tier available with registration. Th
 
 ## Platform Status Note
 
-Spyse was acquired by CrowdStrike in 2021 and integrated into the CrowdStrike Falcon platform. While the standalone Spyse API is no longer available for new registrations, the Prismatic adapter maintains compatibility with cached data and redirects queries to alternative sources ([Censys](/osint/censys/), [Shodan](/osint/shodan/), [SecurityTrails](/osint/securitytrails/)) when live Spyse data is unavailable. The adapter implements a transparent fallback mechanism:
+Spyse was acquired by CrowdStrike in 2021 and integrated into the CrowdStrike Falcon platform. While the standalone Spyse API is no longer available for new registrations, the Prismatic adapter maintains compatibility with cached data and redirects queries to alternative sources ([Censys](@/osint/censys.md), [Shodan](@/osint/shodan.md), [SecurityTrails](@/osint/securitytrails.md)) when live Spyse data is unavailable. The adapter implements a transparent fallback mechanism:
 
 | Data Type | Primary Source | Fallback Source |
 |-----------|---------------|----------------|
-| **Domain Intelligence** | Spyse cache | [Censys](/osint/censys/) + [SecurityTrails](/osint/securitytrails/) |
-| **Subdomains** | Spyse cache | [crt.sh](/osint/crtsh/) + [SecurityTrails](/osint/securitytrails/) |
-| **IP Intelligence** | Spyse cache | [Shodan](/osint/shodan/) + [IPinfo](/osint/ipinfo/) |
-| **Certificates** | Spyse cache | [crt.sh](/osint/crtsh/) + [Censys](/osint/censys/) |
-| **DNS History** | Spyse cache | [SecurityTrails](/osint/securitytrails/) |
-| **Technology** | Spyse cache | [BuiltWith](/osint/builtwith/) |
+| **Domain Intelligence** | Spyse cache | [Censys](@/osint/censys.md) + [SecurityTrails](@/osint/securitytrails.md) |
+| **Subdomains** | Spyse cache | [crt.sh](@/osint/crtsh.md) + [SecurityTrails](@/osint/securitytrails.md) |
+| **IP Intelligence** | Spyse cache | [Shodan](@/osint/shodan.md) + [IPinfo](@/osint/ipinfo.md) |
+| **Certificates** | Spyse cache | [crt.sh](@/osint/crtsh.md) + [Censys](@/osint/censys.md) |
+| **DNS History** | Spyse cache | [SecurityTrails](@/osint/securitytrails.md) |
+| **Technology** | Spyse cache | [BuiltWith](@/osint/builtwith.md) |
 
 This fallback architecture ensures that Prismatic users receive consistent intelligence regardless of Spyse's availability status, demonstrating the platform's resilience through multi-source adapter design.
 
 ## Related Sources
 
-- [Censys](/osint/censys/) - Internet-wide scanning with certificate intelligence
-- [Shodan](/osint/shodan/) - Device and service discovery
-- [crt.sh](/osint/crtsh/) - [Certificate Transparency](/glossary/certificate-transparency/) log search
-- [VirusTotal](/osint/virustotal/) - Domain reputation and [threat intelligence](/glossary/threat-intelligence/)
-- [ARES](/osint/ares/) - Czech business [registry](/glossary/registry-otp/) for entity correlation
-- [SecurityTrails](/osint/securitytrails/) - DNS and WHOIS history
-- [ViewDNS](/osint/viewdns/) - DNS intelligence and reverse lookups
-- [IPinfo](/osint/ipinfo/) - IP geolocation and ASN intelligence
-- [BuiltWith](/osint/builtwith/) - Technology profiling and detection
+- [Censys](@/osint/censys.md) - Internet-wide scanning with certificate intelligence
+- [Shodan](@/osint/shodan.md) - Device and service discovery
+- [crt.sh](@/osint/crtsh.md) - [Certificate Transparency](@/glossary/certificate-transparency.md) log search
+- [VirusTotal](@/osint/virustotal.md) - Domain reputation and [threat intelligence](@/glossary/threat-intelligence.md)
+- [ARES](@/osint/ares.md) - Czech business [registry](@/glossary/registry-otp.md) for entity correlation
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and WHOIS history
+- [ViewDNS](@/osint/viewdns.md) - DNS intelligence and reverse lookups
+- [IPinfo](@/osint/ipinfo.md) - IP geolocation and ASN intelligence
+- [BuiltWith](@/osint/builtwith.md) - Technology profiling and detection
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Infrastructure data in [EASM](/glossary/easm/) ratings
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Infrastructure data in [EASM](@/glossary/easm.md) ratings
 
 ---
 
@@ -315,4 +315,4 @@ This fallback architecture ensures that Prismatic users receive consistent intel
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -225,11 +225,11 @@ Pearson correlation transforms raw metric data into actionable capacity planning
 
 ## Cross-References
 
-- [IQR](/glossary/iqr/) - Dispersion measure used alongside correlation analysis
-- [Outlier](/glossary/outlier/) - Extreme values that distort Pearson correlation
-- [P95](/glossary/p95/) - Performance metric commonly correlated with resource usage
-- [Moving Average](/glossary/moving-average/) - Smoothing that can improve correlation stability
-- [Telemetry](/glossary/telemetry/) - Data source for correlation analysis inputs
+- [IQR](@/glossary/iqr.md) - Dispersion measure used alongside correlation analysis
+- [Outlier](@/glossary/outlier.md) - Extreme values that distort Pearson correlation
+- [P95](@/glossary/p95.md) - Performance metric commonly correlated with resource usage
+- [Moving Average](@/glossary/moving-average.md) - Smoothing that can improve correlation stability
+- [Telemetry](@/glossary/telemetry.md) - Data source for correlation analysis inputs
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

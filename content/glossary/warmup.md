@@ -206,11 +206,11 @@ The ReadinessProbe GenServer tracks whether warmup is complete, and the health c
 
 ## Cross-References
 
-- [Cache](/glossary/cache/) - Storage layer requiring warmup
-- [TTL](/glossary/ttl/) - Cache lifetime management
-- [Time to First Byte](/glossary/time-to-first-byte/) - Performance affected by warmup
-- [Uptime](/glossary/uptime/) - Availability during warmup transitions
-- [ETS](/glossary/ets/) - In-memory storage populated during warmup
+- [Cache](@/glossary/cache.md) - Storage layer requiring warmup
+- [TTL](@/glossary/ttl.md) - Cache lifetime management
+- [Time to First Byte](@/glossary/time-to-first-byte.md) - Performance affected by warmup
+- [Uptime](@/glossary/uptime.md) - Availability during warmup transitions
+- [ETS](@/glossary/ets.md) - In-memory storage populated during warmup
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

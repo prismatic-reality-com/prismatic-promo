@@ -21,7 +21,7 @@ image_alt = "AI Drift - Prismatic Platform"
 
 ## Abstract
 
-AI Drift provides continuous monitoring and detection of AI decision drift within the Prismatic Platform, identifying when machine learning models begin producing outputs that deviate from their expected behavioral baselines. The engine leverages [Elixir](/glossary/elixir/)'s concurrency model and [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/)s to deliver robust, [fault-tolerant](/glossary/fault-tolerance/) drift detection pipelines that operate continuously without downtime. Built as `app_ai_drift` within the umbrella architecture, the application implements a complete AI governance framework (HRAiME-compliant) with 20+ modules, 9 database tables, and 3,120 lines of test code. Each monitored model runs in its own isolated [process](/glossary/process-isolation/), ensuring that a failure in one detection pipeline cannot cascade to others.
+AI Drift provides continuous monitoring and detection of AI decision drift within the Prismatic Platform, identifying when machine learning models begin producing outputs that deviate from their expected behavioral baselines. The engine leverages [Elixir](@/glossary/elixir.md)'s concurrency model and [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md)s to deliver robust, [fault-tolerant](@/glossary/fault-tolerance.md) drift detection pipelines that operate continuously without downtime. Built as `app_ai_drift` within the umbrella architecture, the application implements a complete AI governance framework (HRAiME-compliant) with 20+ modules, 9 database tables, and 3,120 lines of test code. Each monitored model runs in its own isolated [process](@/glossary/process-isolation.md), ensuring that a failure in one detection pipeline cannot cascade to others.
 
 ## 1. Introduction
 
@@ -37,12 +37,12 @@ AI Drift addresses this by providing continuous statistical monitoring of model 
 2. **Process-per-model isolation** -- each monitored model runs in a supervised process preventing cascading failures.
 3. **HRAiME governance compliance** -- intent classification, risk accumulation, narrative generation, and stakeholder-specific alert routing.
 4. **Multi-tenant security** -- full tenant isolation with encrypted data separation and RBAC access control.
-5. **NABLA epistemic integration** -- all findings carry confidence scores with provenance chains validated by the [Trinity Gate](/glossary/trinity-gate/).
+5. **NABLA epistemic integration** -- all findings carry confidence scores with provenance chains validated by the [Trinity Gate](@/glossary/trinity-gate.md).
 6. **Real-time and batch** -- both streaming event ingestion and historical batch analysis capabilities.
 
 ### 1.3 Scope
 
-AI Drift covers drift detection, risk scoring, and governance reporting. It does not implement the ML models themselves (which are external) or the visualization dashboard (handled by [AI Drift Web](/apps/ai-drift-web/)). The REST API layer is pending Phase 4 integration.
+AI Drift covers drift detection, risk scoring, and governance reporting. It does not implement the ML models themselves (which are external) or the visualization dashboard (handled by [AI Drift Web](@/apps/ai-drift-web.md)). The REST API layer is pending Phase 4 integration.
 
 ## 2. Architecture
 
@@ -182,17 +182,17 @@ config :app_ai_drift,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Kernel](/apps/prismatic-kernel/) | Core runtime services and process supervision |
-| [Prismatic Core](/apps/prismatic-core/) | Shared protocols, types, and utilities |
-| [Prismatic Storage Core](/apps/prismatic-storage-core/) | Storage abstraction behaviors |
-| [Prismatic Storage Ecto](/apps/prismatic-storage-ecto/) | PostgreSQL persistence for drift data |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Performance metrics and distributed tracing |
+| [Prismatic Kernel](@/apps/prismatic-kernel.md) | Core runtime services and process supervision |
+| [Prismatic Core](@/apps/prismatic-core.md) | Shared protocols, types, and utilities |
+| [Prismatic Storage Core](@/apps/prismatic-storage-core.md) | Storage abstraction behaviors |
+| [Prismatic Storage Ecto](@/apps/prismatic-storage-ecto.md) | PostgreSQL persistence for drift data |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Performance metrics and distributed tracing |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [AI Drift Web](/apps/ai-drift-web/) | LiveView dashboard for drift visualization |
+| [AI Drift Web](@/apps/ai-drift-web.md) | LiveView dashboard for drift visualization |
 
 ### 4.3 External Dependencies
 
@@ -236,7 +236,7 @@ StreamData generators produce random event sequences, baseline distributions, an
 
 ## 7. NABLA Compliance
 
-Every drift assessment is annotated with confidence scores derived from the platform's [NABLA epistemic framework](/glossary/nabla-infinity/). The signal plurality axiom is enforced by requiring multiple statistical tests to agree before a drift finding is reported. The provenance axiom is satisfied through complete derivation chains linking every finding to its source events and algorithms. The Trinity Gate validation ensures structural, logical, and formal consistency of all reported findings.
+Every drift assessment is annotated with confidence scores derived from the platform's [NABLA epistemic framework](@/glossary/nabla-infinity.md). The signal plurality axiom is enforced by requiring multiple statistical tests to agree before a drift finding is reported. The provenance axiom is satisfied through complete derivation chains linking every finding to its source events and algorithms. The Trinity Gate validation ensures structural, logical, and formal consistency of all reported findings.
 
 ## 8. Governance Framework (HRAiME Compliant)
 
@@ -281,20 +281,20 @@ Phase 4 integration pending: REST API endpoints, webhook HTTP dispatch, dashboar
 
 ## References
 
-- [AI Drift Web](/apps/ai-drift-web/) -- LiveView dashboard for drift visualization
-- [Prismatic Nabla](/apps/prismatic-nabla/) -- Epistemic confidence framework
-- [Prismatic Detection Engine](/apps/prismatic-detection-engine/) -- Complementary pattern detection
+- [AI Drift Web](@/apps/ai-drift-web.md) -- LiveView dashboard for drift visualization
+- [Prismatic Nabla](@/apps/prismatic-nabla.md) -- Epistemic confidence framework
+- [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) -- Complementary pattern detection
 
 ## Related Agents
 
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Drift alert lifecycle coordination and escalation
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Autonomous model evolution in response to detected drift
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Drift alert lifecycle coordination and escalation
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Autonomous model evolution in response to detected drift
 
 ## Related Capabilities
 
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Continuous drift surveillance infrastructure
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Epistemic confidence scoring for drift assessments
-- [Quality Gates](/capabilities/quality-gates/) -- Drift thresholds as quality enforcement checkpoints
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Continuous drift surveillance infrastructure
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Epistemic confidence scoring for drift assessments
+- [Quality Gates](@/capabilities/quality-gates.md) -- Drift thresholds as quality enforcement checkpoints
 
 ---
 
@@ -303,4 +303,4 @@ Phase 4 integration pending: REST API endpoints, webhook HTTP dispatch, dashboar
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

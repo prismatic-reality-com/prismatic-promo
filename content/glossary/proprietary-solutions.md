@@ -366,23 +366,23 @@ The Prismatic Perimeter EASM module was built rather than purchased specifically
 
 Proprietary solutions intersect with numerous strategic and technical concepts within the Prismatic Platform:
 
-- [Open Source](/glossary/open-source/) -- the primary alternative to proprietary solutions, offering transparency, community governance, and freedom from vendor dependency
-- [Open-Source Strategy](/glossary/open-source-strategy/) -- the deliberate strategic framework for selecting, contributing to, and building on open-source foundations
-- [Open-Source Superiority](/glossary/open-source-superiority/) -- the argument that open-source solutions are structurally superior for core infrastructure due to transparency and community
-- [Technical Debt](/glossary/technical-debt/) -- proprietary dependencies create a specific form of technical debt: vendor debt, which compounds as switching costs increase
-- [Architecture](/glossary/architecture/) -- architectural decisions about proprietary vs. open-source foundations have the longest-lasting and most far-reaching consequences
-- [Scalability](/glossary/scalability/) -- proprietary licensing models that charge per-core, per-user, or per-transaction create economic scaling barriers absent in open-source
-- [Modularity](/glossary/modularity/) -- modular architectures with well-defined interfaces enable replacement of proprietary components without system-wide disruption
-- [Security](/glossary/security/) -- proprietary solutions require trusting the vendor's security claims without independent verification capability
-- [Compliance Framework](/glossary/compliance-framework/) -- regulatory compliance requirements may either mandate proprietary solutions or favor open-source auditable code
-- [Risk Assessment](/glossary/risk-assessment/) -- vendor dependency is a risk category that must be assessed and managed alongside technical and operational risks
+- [Open Source](@/glossary/open-source.md) -- the primary alternative to proprietary solutions, offering transparency, community governance, and freedom from vendor dependency
+- [Open-Source Strategy](@/glossary/open-source-strategy.md) -- the deliberate strategic framework for selecting, contributing to, and building on open-source foundations
+- [Open-Source Superiority](@/glossary/open-source-superiority.md) -- the argument that open-source solutions are structurally superior for core infrastructure due to transparency and community
+- [Technical Debt](@/glossary/technical-debt.md) -- proprietary dependencies create a specific form of technical debt: vendor debt, which compounds as switching costs increase
+- [Architecture](@/glossary/architecture.md) -- architectural decisions about proprietary vs. open-source foundations have the longest-lasting and most far-reaching consequences
+- [Scalability](@/glossary/scalability.md) -- proprietary licensing models that charge per-core, per-user, or per-transaction create economic scaling barriers absent in open-source
+- [Modularity](@/glossary/modularity.md) -- modular architectures with well-defined interfaces enable replacement of proprietary components without system-wide disruption
+- [Security](@/glossary/security.md) -- proprietary solutions require trusting the vendor's security claims without independent verification capability
+- [Compliance Framework](@/glossary/compliance-framework.md) -- regulatory compliance requirements may either mandate proprietary solutions or favor open-source auditable code
+- [Risk Assessment](@/glossary/risk-assessment.md) -- vendor dependency is a risk category that must be assessed and managed alongside technical and operational risks
 
 ## See Also
 
-- [Open-Source Leadership](/glossary/open-source-leadership/) -- the platform's approach to contributing back to the open-source ecosystem
-- [Open-Source Advocacy](/glossary/open-source-advocacy/) -- promoting open-source adoption within organizations and communities
-- [Adapter Pattern](/glossary/adapter-pattern/) -- the primary architectural mechanism for isolating proprietary dependencies behind stable interfaces
-- [Integration Testing](/glossary/integration-testing/) -- critical for validating that adapter-based integrations with proprietary systems behave correctly
+- [Open-Source Leadership](@/glossary/open-source-leadership.md) -- the platform's approach to contributing back to the open-source ecosystem
+- [Open-Source Advocacy](@/glossary/open-source-advocacy.md) -- promoting open-source adoption within organizations and communities
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- the primary architectural mechanism for isolating proprietary dependencies behind stable interfaces
+- [Integration Testing](@/glossary/integration-testing.md) -- critical for validating that adapter-based integrations with proprietary systems behave correctly
 
 ---
 

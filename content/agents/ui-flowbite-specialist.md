@@ -28,11 +28,11 @@ image_alt = "ui-flowbite-specialist - Prismatic Platform"
 
 ## Overview
 
-The UI Flowbite Specialist is an L3 agent operating in the **development** domain of the Prismatic Platform. This agent specializes in UI/UX enhancement using [Flowbite](/glossary/flowbite/) components and [TailwindCSS](/glossary/tailwindcss/) with strict design system adherence. Every user interface element in the Prismatic Platform must be built using TailwindCSS utility classes and Flowbite component patterns -- inline styles and custom CSS are forbidden. The UI Flowbite Specialist enforces this mandate while ensuring that the platform's [LiveView](/glossary/liveview/) dashboards, administrative interfaces, and monitoring pages maintain a consistent, professional, and accessible design language.
+The UI Flowbite Specialist is an L3 agent operating in the **development** domain of the Prismatic Platform. This agent specializes in UI/UX enhancement using [Flowbite](@/glossary/flowbite.md) components and [TailwindCSS](@/glossary/tailwindcss.md) with strict design system adherence. Every user interface element in the Prismatic Platform must be built using TailwindCSS utility classes and Flowbite component patterns -- inline styles and custom CSS are forbidden. The UI Flowbite Specialist enforces this mandate while ensuring that the platform's [LiveView](@/glossary/liveview.md) dashboards, administrative interfaces, and monitoring pages maintain a consistent, professional, and accessible design language.
 
 The platform's TailwindCSS-first policy is not merely an aesthetic preference but an architectural decision that enables consistent theming, efficient CSS bundle sizes, and maintainable component libraries. By centralizing all styling decisions in utility classes and pre-built Flowbite components, the platform eliminates the CSS specificity conflicts, dead CSS accumulation, and design inconsistencies that plague projects with ad-hoc styling approaches.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, operating under [AIAD](/glossary/aiad/) standard compliance and enforcing the design system through automated validation.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, operating under [AIAD](@/glossary/aiad.md) standard compliance and enforcing the design system through automated validation.
 
 ## Design System Rules
 
@@ -50,7 +50,7 @@ The UI Flowbite Specialist enforces a strict set of design system rules that gov
 
 ## Component Library
 
-The UI Flowbite Specialist maintains a curated component library built on Flowbite patterns, adapted for the platform's [Phoenix](/glossary/phoenix/) LiveView architecture.
+The UI Flowbite Specialist maintains a curated component library built on Flowbite patterns, adapted for the platform's [Phoenix](@/glossary/phoenix.md) LiveView architecture.
 
 | Component Category | Components | Flowbite Base | LiveView Integration |
 |-------------------|------------|---------------|---------------------|
@@ -175,7 +175,7 @@ module.exports = {
 
 ## LiveView Component Patterns
 
-The UI Flowbite Specialist defines standard patterns for integrating Flowbite components with [Phoenix LiveView](/glossary/liveview/).
+The UI Flowbite Specialist defines standard patterns for integrating Flowbite components with [Phoenix LiveView](@/glossary/liveview.md).
 
 | Pattern | Use Case | Implementation |
 |---------|----------|----------------|
@@ -274,10 +274,10 @@ The platform enforces mandatory dark mode support for all components. The UI Flo
 
 ## Integration Points
 
-- [**Quality Gates**](/capabilities/quality-gates/) -- Design compliance gates deployments
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Design audit metrics
-- [**Real-time Monitoring**](/capabilities/real-time-monitoring/) -- Dashboard UI performance
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Design compliance gates deployments
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Design audit metrics
+- [**Real-time Monitoring**](@/capabilities/real-time-monitoring.md) -- Dashboard UI performance
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
 
 ## AIAD Specification Compliance
 
@@ -285,15 +285,15 @@ The platform enforces mandatory dark mode support for all components. The UI Flo
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 12 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Related Agents
 
-- [**Shell Setup Specialist**](/agents/shell-setup-specialist/) -- Frontend build tooling configuration
-- [**Scalability Architect**](/agents/scalability-architect/) -- Frontend performance at scale
-- [**Strangler Pattern Specialist**](/agents/strangler-pattern-specialist/) -- UI migration from legacy templates
+- [**Shell Setup Specialist**](@/agents/shell-setup-specialist.md) -- Frontend build tooling configuration
+- [**Scalability Architect**](@/agents/scalability-architect.md) -- Frontend performance at scale
+- [**Strangler Pattern Specialist**](@/agents/strangler-pattern-specialist.md) -- UI migration from legacy templates
 
 ## Accessibility Enforcement
 
@@ -310,7 +310,7 @@ The UI Flowbite Specialist enforces WCAG 2.1 AA accessibility compliance as a bl
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to enforce the TailwindCSS-first design system and reject non-compliant UI changes.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to enforce the TailwindCSS-first design system and reject non-compliant UI changes.
 
 ---
 
@@ -319,4 +319,4 @@ The UI Flowbite Specialist enforces WCAG 2.1 AA accessibility compliance as a bl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

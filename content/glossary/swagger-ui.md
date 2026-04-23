@@ -32,7 +32,7 @@ Swagger UI is an open-source, browser-based interface that dynamically renders O
 
 At its core, Swagger UI parses a JSON or YAML OpenAPI document and generates a fully navigable HTML/JavaScript application. Each endpoint is rendered with its HTTP method, path, parameters, request body schema, response codes, and example payloads. The "Try it out" feature transforms documentation into a live testing tool, enabling developers to construct requests, submit them against a running API server, and inspect the raw HTTP responses -- all within the browser. This feedback loop drastically reduces the time required to understand and integrate with an API.
 
-In the context of the [Prismatic Platform](/glossary/prismatic-api/), Swagger UI serves as the primary human interface for the auto-introspecting REST API gateway, automatically generated from Elixir typespecs and module documentation without any manual specification authoring.
+In the context of the [Prismatic Platform](@/glossary/prismatic-api.md), Swagger UI serves as the primary human interface for the auto-introspecting REST API gateway, automatically generated from Elixir typespecs and module documentation without any manual specification authoring.
 
 ## Historical Context and Evolution
 
@@ -60,7 +60,7 @@ Swagger UI's architecture comprises several interconnected systems that transfor
 
 ## Platform Integration in Prismatic
 
-The [Prismatic API](/glossary/prismatic-api/) gateway implements automatic Swagger UI generation as a core architectural feature. Rather than maintaining a separate OpenAPI specification document, the platform derives the entire API surface from Elixir code:
+The [Prismatic API](@/glossary/prismatic-api.md) gateway implements automatic Swagger UI generation as a core architectural feature. Rather than maintaining a separate OpenAPI specification document, the platform derives the entire API surface from Elixir code:
 
 ```elixir
 defmodule PrismaticApi.Spec do
@@ -124,7 +124,7 @@ This approach ensures that Swagger UI always reflects the current state of the c
 
 ## OpenAPI Specification Integration
 
-Swagger UI's power derives from the richness of the [OpenAPI Specification](/glossary/openapi/) it renders. Understanding the specification structure is essential for producing high-quality interactive documentation:
+Swagger UI's power derives from the richness of the [OpenAPI Specification](@/glossary/openapi.md) it renders. Understanding the specification structure is essential for producing high-quality interactive documentation:
 
 ```elixir
 defmodule PrismaticApi.Schemas.SecurityRating do
@@ -183,7 +183,7 @@ Swagger UI renders this schema as a collapsible model with field-level documenta
 
 ## Authentication and Security Schemes
 
-Swagger UI supports multiple [authentication](/glossary/authentication/) mechanisms, each rendered with appropriate UI controls. The Prismatic Platform configures security schemes that match its production authentication flow:
+Swagger UI supports multiple [authentication](@/glossary/authentication.md) mechanisms, each rendered with appropriate UI controls. The Prismatic Platform configures security schemes that match its production authentication flow:
 
 ```elixir
 defmodule PrismaticApi.SecuritySchemes do
@@ -271,7 +271,7 @@ Key configuration options include `doc_expansion` (controls initial collapse sta
 
 ## Testing and Validation with Swagger UI
 
-Beyond documentation, Swagger UI serves as a powerful [validation](/glossary/validation/) and testing tool. The platform leverages this capability in multiple ways:
+Beyond documentation, Swagger UI serves as a powerful [validation](@/glossary/validation.md) and testing tool. The platform leverages this capability in multiple ways:
 
 ```elixir
 defmodule PrismaticApi.ContractTest do
@@ -336,7 +336,7 @@ Swagger UI's client-side rendering performance depends on specification size. La
 
 ## Developer Experience and Onboarding
 
-Swagger UI fundamentally transforms the [developer experience](/glossary/developer-experience/) for API consumers. The interactive nature of the documentation reduces the traditional API integration workflow from "read docs, write code, debug, repeat" to "explore, try, integrate":
+Swagger UI fundamentally transforms the [developer experience](@/glossary/developer-experience.md) for API consumers. The interactive nature of the documentation reduces the traditional API integration workflow from "read docs, write code, debug, repeat" to "explore, try, integrate":
 
 **Discovery**: Developers browse available endpoints organized by tags, using the search/filter functionality to find relevant operations. Each endpoint's summary and description provide context without requiring external documentation.
 
@@ -344,7 +344,7 @@ Swagger UI fundamentally transforms the [developer experience](/glossary/develop
 
 **Experimentation**: The "Try it out" feature allows developers to construct and execute requests interactively. They can modify parameters, inspect responses, and iterate rapidly -- all without leaving the browser or writing any code.
 
-**Integration**: Once the developer understands the API behavior through experimentation, the curl command displayed with each request provides a starting point for implementation. Combined with [SDK](/glossary/sdk/) generation from the same OpenAPI spec, the path from exploration to production integration is seamless.
+**Integration**: Once the developer understands the API behavior through experimentation, the curl command displayed with each request provides a starting point for implementation. Combined with [SDK](@/glossary/sdk.md) generation from the same OpenAPI spec, the path from exploration to production integration is seamless.
 
 ## Comparison with Alternatives
 
@@ -368,11 +368,11 @@ Exposing Swagger UI in production requires careful security consideration. The i
 
 **Authentication Gating**: The Swagger UI endpoint itself can be protected behind authentication, ensuring only authorized developers access the documentation.
 
-**CORS Configuration**: The API must be configured to accept requests from the Swagger UI origin. Overly permissive CORS policies can introduce [security](/glossary/security/) vulnerabilities.
+**CORS Configuration**: The API must be configured to accept requests from the Swagger UI origin. Overly permissive CORS policies can introduce [security](@/glossary/security.md) vulnerabilities.
 
 **Sensitive Data Masking**: Example values in the specification should not contain real credentials, tokens, or personally identifiable information. The Prismatic Platform uses synthetic example data throughout its specification.
 
-**Rate Limiting**: Interactive testing can generate significant request volume. The platform's [rate limiting](/glossary/rate-limiting/) infrastructure applies equally to Swagger UI requests and programmatic API calls.
+**Rate Limiting**: Interactive testing can generate significant request volume. The platform's [rate limiting](@/glossary/rate-limiting.md) infrastructure applies equally to Swagger UI requests and programmatic API calls.
 
 ## Best Practices for OpenAPI Specifications
 
@@ -390,7 +390,7 @@ Creating specifications that render well in Swagger UI requires attention to sev
 
 ## Integration with CI/CD Pipelines
 
-The OpenAPI specification that feeds Swagger UI can be integrated into [CI/CD](/glossary/ci-cd/) pipelines for automated validation:
+The OpenAPI specification that feeds Swagger UI can be integrated into [CI/CD](@/glossary/ci-cd.md) pipelines for automated validation:
 
 ```elixir
 defmodule Mix.Tasks.Api.ValidateSpec do
@@ -463,13 +463,13 @@ end
 
 Swagger UI exists within a rich ecosystem of complementary tools:
 
-**OpenAPI Generator**: Produces client SDKs, server stubs, and documentation from the same specification that feeds Swagger UI. The Prismatic [Developer Portal](/glossary/developer-portal/) uses this to offer language-specific SDKs.
+**OpenAPI Generator**: Produces client SDKs, server stubs, and documentation from the same specification that feeds Swagger UI. The Prismatic [Developer Portal](@/glossary/developer-portal.md) uses this to offer language-specific SDKs.
 
 **Swagger Editor**: A browser-based specification editor with real-time Swagger UI preview. Useful during API design phases before implementation begins.
 
 **Swagger Inspector**: A testing tool that records API interactions and generates OpenAPI specifications from observed traffic. Useful for documenting legacy APIs that lack formal specifications.
 
-**OpenApiSpex (Elixir)**: The native Elixir library that bridges [Phoenix Framework](/glossary/phoenix-framework/) and the OpenAPI ecosystem. It provides schema definition macros, request validation plugs, and Swagger UI serving -- all within the OTP application lifecycle.
+**OpenApiSpex (Elixir)**: The native Elixir library that bridges [Phoenix Framework](@/glossary/phoenix-framework.md) and the OpenAPI ecosystem. It provides schema definition macros, request validation plugs, and Swagger UI serving -- all within the OTP application lifecycle.
 
 ## Future Directions
 
@@ -477,7 +477,7 @@ The Swagger UI ecosystem continues evolving alongside the OpenAPI Specification:
 
 **OpenAPI 3.1 Support**: Full alignment with JSON Schema 2020-12, enabling richer schema definitions including `if/then/else`, `prefixItems`, and improved `$ref` handling.
 
-**Async API Integration**: As event-driven architectures grow, tools like AsyncAPI provide Swagger UI-like experiences for [WebSocket](/glossary/websocket/), message queue, and server-sent event APIs.
+**Async API Integration**: As event-driven architectures grow, tools like AsyncAPI provide Swagger UI-like experiences for [WebSocket](@/glossary/websocket.md), message queue, and server-sent event APIs.
 
 **AI-Assisted Documentation**: Large language models are being integrated into API documentation workflows, generating descriptions, examples, and usage guides from code analysis.
 
@@ -485,16 +485,16 @@ The Swagger UI ecosystem continues evolving alongside the OpenAPI Specification:
 
 ## Related Concepts
 
-- [OpenAPI Specification](/glossary/openapi/) -- the machine-readable format Swagger UI renders
-- [REST API](/glossary/rest-api/) -- the architectural style documented by Swagger UI
-- [API Gateway](/glossary/api-gateway/) -- infrastructure that hosts Swagger UI alongside API routing
-- [JSON Schema](/glossary/json-schema/) -- the type system underlying OpenAPI schemas
-- [Authentication](/glossary/authentication/) -- security schemes configured in Swagger UI
-- [Validation](/glossary/validation/) -- request/response validation powered by the same spec
-- [SDK](/glossary/sdk/) -- client libraries generated from the documented specification
-- [Developer Portal](/glossary/developer-portal/) -- the broader developer experience context
-- [Phoenix Framework](/glossary/phoenix-framework/) -- the Elixir web framework hosting Swagger UI
-- [CI/CD](/glossary/ci-cd/) -- pipelines that validate specification integrity
+- [OpenAPI Specification](@/glossary/openapi.md) -- the machine-readable format Swagger UI renders
+- [REST API](@/glossary/rest-api.md) -- the architectural style documented by Swagger UI
+- [API Gateway](@/glossary/api-gateway.md) -- infrastructure that hosts Swagger UI alongside API routing
+- [JSON Schema](@/glossary/json-schema.md) -- the type system underlying OpenAPI schemas
+- [Authentication](@/glossary/authentication.md) -- security schemes configured in Swagger UI
+- [Validation](@/glossary/validation.md) -- request/response validation powered by the same spec
+- [SDK](@/glossary/sdk.md) -- client libraries generated from the documented specification
+- [Developer Portal](@/glossary/developer-portal.md) -- the broader developer experience context
+- [Phoenix Framework](@/glossary/phoenix-framework.md) -- the Elixir web framework hosting Swagger UI
+- [CI/CD](@/glossary/ci-cd.md) -- pipelines that validate specification integrity
 
 ---
 
@@ -503,4 +503,4 @@ The Swagger UI ecosystem continues evolving alongside the OpenAPI Specification:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

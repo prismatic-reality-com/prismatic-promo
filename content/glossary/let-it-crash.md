@@ -20,7 +20,7 @@ image_alt = "Let It Crash - Prismatic Platform"
 
 ## Definition
 
-"Let it crash" is the core design philosophy of the OTP framework and the defining characteristic of fault-tolerant Erlang/Elixir systems. The principle states that processes should be allowed -- and expected -- to fail when they encounter unexpected conditions, rather than defensively handling every possible error inline. Failed processes are restarted by their [supervisors](/glossary/supervisor/) with clean initial state, eliminating corrupted state and simplifying error handling. Recovery logic is centralized in the supervision hierarchy rather than scattered throughout business logic.
+"Let it crash" is the core design philosophy of the OTP framework and the defining characteristic of fault-tolerant Erlang/Elixir systems. The principle states that processes should be allowed -- and expected -- to fail when they encounter unexpected conditions, rather than defensively handling every possible error inline. Failed processes are restarted by their [supervisors](@/glossary/supervisor.md) with clean initial state, eliminating corrupted state and simplifying error handling. Recovery logic is centralized in the supervision hierarchy rather than scattered throughout business logic.
 
 This approach is counterintuitive to developers trained in defensive programming traditions where unhandled exceptions represent bugs. In OTP systems, the opposite is true: a process crash is not a bug but a recovery mechanism. The "bug" would be silently swallowing an error and continuing with corrupted state, which in traditional systems produces subtle, hard-to-diagnose failures that can persist for hours or days before manifesting.
 
@@ -146,7 +146,7 @@ The `restart` option in child specifications provides fine-grained control:
 
 ## Process Isolation Enabling Crashes
 
-The let-it-crash philosophy is only viable because the [BEAM](/glossary/beam/) VM provides strong [process isolation](/glossary/process-isolation/). In a language with shared memory (Java, Python, C++), allowing a component to crash risks corrupting shared state. In the BEAM, a crashed process takes only its own heap with it. No other process is affected.
+The let-it-crash philosophy is only viable because the [BEAM](@/glossary/beam.md) VM provides strong [process isolation](@/glossary/process-isolation.md). In a language with shared memory (Java, Python, C++), allowing a component to crash risks corrupting shared state. In the BEAM, a crashed process takes only its own heap with it. No other process is affected.
 
 This isolation extends to:
 
@@ -161,23 +161,23 @@ Without these guarantees, the let-it-crash philosophy would be reckless. With th
 
 The Prismatic Platform applies let-it-crash throughout its 90+ umbrella applications:
 
-**Agent Execution**: When an [agent](/glossary/agent/) encounters unexpected data during an OSINT scan -- malformed JSON from an external API, an unexpected HTTP status code, a parsing error in HTML content -- the agent process crashes. Its supervisor restarts it with clean state. The scan can be retried automatically. No other agents are affected.
+**Agent Execution**: When an [agent](@/glossary/agent.md) encounters unexpected data during an OSINT scan -- malformed JSON from an external API, an unexpected HTTP status code, a parsing error in HTML content -- the agent process crashes. Its supervisor restarts it with clean state. The scan can be retried automatically. No other agents are affected.
 
 **Storage Operations**: When a database query returns an unexpected result format (perhaps due to a schema migration in progress), the storage process crashes rather than attempting to interpret malformed data. The supervisor restarts the process, which reconnects with a fresh connection and retries.
 
-**Pipeline Processing**: When a data pipeline stage receives input that does not match its expected format, the stage crashes. The pipeline supervisor restarts it. [Backpressure](/glossary/backpressure/) mechanisms in [GenStage](/glossary/genstage/) ensure that the crash does not cause data loss -- unprocessed events remain in the upstream buffer and are re-delivered to the restarted process.
+**Pipeline Processing**: When a data pipeline stage receives input that does not match its expected format, the stage crashes. The pipeline supervisor restarts it. [Backpressure](@/glossary/backpressure.md) mechanisms in [GenStage](@/glossary/genstage.md) ensure that the crash does not cause data loss -- unprocessed events remain in the upstream buffer and are re-delivered to the restarted process.
 
 **Quality Enforcement**: When a quality gate encounters a file it cannot analyze (corrupted AST, encoding error, excessive nesting), the analysis process crashes. The quality supervisor restarts it and continues with the remaining files. The failed file is logged for manual investigation.
 
 ## Relationship to Fault Tolerance and Self-Healing
 
-Let-it-crash, [fault tolerance](/glossary/fault-tolerance/), and [self-healing](/glossary/self-healing/) form a hierarchy of resilience mechanisms in the Prismatic Platform:
+Let-it-crash, [fault tolerance](@/glossary/fault-tolerance.md), and [self-healing](@/glossary/self-healing.md) form a hierarchy of resilience mechanisms in the Prismatic Platform:
 
 | Level | Mechanism | Scope | Response Time | Complexity |
 |-------|-----------|-------|---------------|------------|
 | **L0** | Let-it-crash | Single process | Microseconds | None (automatic) |
 | **L1** | Supervisor restart | Process tree branch | Milliseconds | Minimal (configured) |
-| **L2** | [Circuit breaker](/glossary/circuit-breaker/) | External boundary | Seconds | Low (state machine) |
+| **L2** | [Circuit breaker](@/glossary/circuit-breaker.md) | External boundary | Seconds | Low (state machine) |
 | **L3** | Self-healing | Application | Seconds-minutes | Medium (diagnostic) |
 | **L4** | Platform healing | Cross-application | Minutes | High (coordinated) |
 
@@ -185,24 +185,24 @@ Let-it-crash is the foundation -- the fastest, simplest, and most reliable form 
 
 ## Related Terms
 
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property enabled by the let-it-crash philosophy
-- [Supervisor](/glossary/supervisor/) -- OTP behavior implementing crash recovery strategies
-- [Process Isolation](/glossary/process-isolation/) -- Memory isolation that makes safe crashing possible
-- [OTP](/glossary/otp/) -- Framework providing supervision infrastructure
-- [BEAM](/glossary/beam/) -- Virtual machine guaranteeing process isolation
-- [Self-Healing](/glossary/self-healing/) -- Platform-level recovery extending beyond simple restarts
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern handling slow failures that do not cause crashes
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- Runtime process management with crash recovery
-- [Agent](/glossary/agent/) -- Autonomous entities designed to crash and restart cleanly
-- [Backpressure](/glossary/backpressure/) -- Flow control preventing data loss during process restarts
-- [GenServer](/glossary/genserver/) -- Common process type designed for supervised crash recovery
-- [Immutability](/glossary/immutability/) -- Data property ensuring crash restarts begin with clean state
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property enabled by the let-it-crash philosophy
+- [Supervisor](@/glossary/supervisor.md) -- OTP behavior implementing crash recovery strategies
+- [Process Isolation](@/glossary/process-isolation.md) -- Memory isolation that makes safe crashing possible
+- [OTP](@/glossary/otp.md) -- Framework providing supervision infrastructure
+- [BEAM](@/glossary/beam.md) -- Virtual machine guaranteeing process isolation
+- [Self-Healing](@/glossary/self-healing.md) -- Platform-level recovery extending beyond simple restarts
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern handling slow failures that do not cause crashes
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- Runtime process management with crash recovery
+- [Agent](@/glossary/agent.md) -- Autonomous entities designed to crash and restart cleanly
+- [Backpressure](@/glossary/backpressure.md) -- Flow control preventing data loss during process restarts
+- [GenServer](@/glossary/genserver.md) -- Common process type designed for supervised crash recovery
+- [Immutability](@/glossary/immutability.md) -- Data property ensuring crash restarts begin with clean state
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform resilience design
-- [Technologies](/technologies/) -- Elixir/OTP implementation details
-- [Capabilities](/capabilities/) -- Platform fault tolerance capabilities
+- [Architecture](@/architecture/_index.md) -- Platform resilience design
+- [Technologies](@/technologies/_index.md) -- Elixir/OTP implementation details
+- [Capabilities](@/capabilities/_index.md) -- Platform fault tolerance capabilities
 
 ---
 
@@ -211,4 +211,4 @@ Let-it-crash is the foundation -- the fastest, simplest, and most reliable form 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

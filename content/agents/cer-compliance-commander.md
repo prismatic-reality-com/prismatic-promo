@@ -28,9 +28,9 @@ image_alt = "cer-compliance-commander - Prismatic Platform"
 
 ## Overview
 
-The CER Compliance Commander operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Compliance domain of the Prismatic Platform. This agent serves as the strategic authority for Czech Critical Entity Resilience (CER) compliance operations, enabling organizations to meet the requirements of the EU [NIS2](/glossary/nis2/) Directive (2022/2555), Czech [ZKB](/glossary/zkb/) 264/2025 Sb., [GDPR](/glossary/gdpr/), and related regulatory frameworks governing critical infrastructure protection. In a regulatory landscape where the intersection of European Union directives and Czech national implementation creates layered compliance obligations, this agent provides automated assessment, gap analysis, and evidence management that reduces the operational burden of maintaining continuous compliance.
+The CER Compliance Commander operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Compliance domain of the Prismatic Platform. This agent serves as the strategic authority for Czech Critical Entity Resilience (CER) compliance operations, enabling organizations to meet the requirements of the EU [NIS2](@/glossary/nis2.md) Directive (2022/2555), Czech [ZKB](@/glossary/zkb.md) 264/2025 Sb., [GDPR](@/glossary/gdpr.md), and related regulatory frameworks governing critical infrastructure protection. In a regulatory landscape where the intersection of European Union directives and Czech national implementation creates layered compliance obligations, this agent provides automated assessment, gap analysis, and evidence management that reduces the operational burden of maintaining continuous compliance.
 
-Compliance in the Czech regulatory context presents unique challenges that generic compliance tools fail to address. The CER Compliance Commander maintains current knowledge of the Czech transposition of EU directives, understanding the specific technical controls required by ZKB 264/2025 Sb. that go beyond the general NIS2 framework. It maps abstract directive requirements to concrete, verifiable technical controls, coordinates screening operations through the Czech registry system, and produces audit-ready documentation that satisfies both Czech National Cyber and Information Security Agency (NUKIB) requirements and broader European regulatory expectations. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+Compliance in the Czech regulatory context presents unique challenges that generic compliance tools fail to address. The CER Compliance Commander maintains current knowledge of the Czech transposition of EU directives, understanding the specific technical controls required by ZKB 264/2025 Sb. that go beyond the general NIS2 framework. It maps abstract directive requirements to concrete, verifiable technical controls, coordinates screening operations through the Czech registry system, and produces audit-ready documentation that satisfies both Czech National Cyber and Information Security Agency (NUKIB) requirements and broader European regulatory expectations. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -46,7 +46,7 @@ The CER Compliance Commander implements a layered compliance processing architec
 
 - **Multi-framework compliance assessment** performing automated gap analysis across NIS2, ZKB, CER, and GDPR requirements simultaneously, producing unified compliance reports that highlight cross-framework dependencies and shared controls
 - **Automated audit preparation** collecting, organizing, and validating evidence artifacts with cryptographic integrity verification, producing audit packages that satisfy regulatory auditor expectations for completeness, traceability, and tamper resistance
-- **Employee and supplier screening** coordinating background verification through Czech [registry](/glossary/registry-otp/) integration with configurable risk scoring thresholds, maintaining screening history with full audit trails
+- **Employee and supplier screening** coordinating background verification through Czech [registry](@/glossary/registry-otp.md) integration with configurable risk scoring thresholds, maintaining screening history with full audit trails
 - **Regulatory change tracking** monitoring legislative updates in both Czech and EU jurisdictions through official publication feeds, analyzing change impact against current compliance posture, and proactively identifying new obligations before enforcement deadlines
 - **Risk scoring and prioritization** quantifying compliance gaps by severity, regulatory penalty exposure, and operational impact, enabling evidence-based allocation of remediation resources to the highest-risk gaps
 - **Evidence chain management** maintaining cryptographically verifiable provenance for all compliance evidence from collection through audit presentation, ensuring chain-of-custody integrity that withstands regulatory scrutiny
@@ -54,7 +54,7 @@ The CER Compliance Commander implements a layered compliance processing architec
 
 ## Implementation
 
-The compliance assessment engine is implemented using [Ecto](/glossary/ecto/) schemas for persistent compliance state and GenServer processes for real-time assessment coordination.
+The compliance assessment engine is implemented using [Ecto](@/glossary/ecto.md) schemas for persistent compliance state and GenServer processes for real-time assessment coordination.
 
 ```elixir
 defmodule Prismatic.Compliance.CER.Commander do
@@ -126,13 +126,13 @@ The CER Compliance Commander coordinates with multiple platform agents and exter
 
 | Component | Integration Type | Function |
 |-----------|-----------------|----------|
-| [cer-screening-specialist](/agents/cer-screening-specialist/) | Domain Specialist | Executes specialized CER screening workflows including employee background checks against Czech registry systems |
-| [employee-screening-specialist](/agents/employee-screening-specialist/) | Screening Operations | Performs detailed employee background verification with configurable risk scoring and audit trail maintenance |
-| [supplier-vetting-specialist](/agents/supplier-vetting-specialist/) | Supply Chain Assessment | Conducts supplier due diligence and risk assessment for CER compliance, evaluating supply chain resilience |
-| [compliance-auditing-specialist](/agents/compliance-auditing-specialist/) | Audit Coordination | Manages audit lifecycle from planning through execution to findings resolution and follow-up |
+| [cer-screening-specialist](@/agents/cer-screening-specialist.md) | Domain Specialist | Executes specialized CER screening workflows including employee background checks against Czech registry systems |
+| [employee-screening-specialist](@/agents/employee-screening-specialist.md) | Screening Operations | Performs detailed employee background verification with configurable risk scoring and audit trail maintenance |
+| [supplier-vetting-specialist](@/agents/supplier-vetting-specialist.md) | Supply Chain Assessment | Conducts supplier due diligence and risk assessment for CER compliance, evaluating supply chain resilience |
+| [compliance-auditing-specialist](@/agents/compliance-auditing-specialist.md) | Audit Coordination | Manages audit lifecycle from planning through execution to findings resolution and follow-up |
 | Czech Business Registry | External Data Source | Provides company registration data, ownership structures, and financial indicators for screening operations |
 | NUKIB Guidelines | Regulatory Reference | Supplies Czech-specific technical control requirements and implementation guidance |
-| [Prismatic Perimeter](/glossary/prismatic-perimeter/) | Security Assessment | Provides [attack surface](/glossary/attack-surface/) data that feeds into NIS2 security control assessments |
+| [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) | Security Assessment | Provides [attack surface](@/glossary/attack-surface.md) data that feeds into NIS2 security control assessments |
 
 ## Operational Workflow
 
@@ -163,7 +163,7 @@ Compliance operations require the highest epistemic rigor, making NABLA Infinity
 | **Source Independence** | Control effectiveness assessments combine automated technical verification with manual audit observations, weighting independent sources higher |
 | **Unknown Valid** | Requirements where compliance status cannot be determined are explicitly marked as unknown rather than assumed compliant, triggering focused assessment |
 
-All compliance conclusions pass [Trinity Gate](/glossary/trinity-gate/) validation ensuring structural consistency of evidence, logical consistency of conclusions, and [formal verification](/glossary/formal-verification/) of critical controls.
+All compliance conclusions pass [Trinity Gate](@/glossary/trinity-gate.md) validation ensuring structural consistency of evidence, logical consistency of conclusions, and [formal verification](@/glossary/formal-verification.md) of critical controls.
 
 ## Configuration
 
@@ -198,12 +198,12 @@ config :prismatic_compliance, Prismatic.Compliance.CER.Commander,
 
 ## Related Resources
 
-- [**cer-screening-specialist**](/agents/cer-screening-specialist/) (L3) -- Specialized CER screening workflows and evidence collection
-- [**employee-screening-specialist**](/agents/employee-screening-specialist/) -- Employee background verification against Czech registries
-- [**supplier-vetting-specialist**](/agents/supplier-vetting-specialist/) -- Supplier due diligence and supply chain risk assessment
-- [**compliance-auditing-specialist**](/agents/compliance-auditing-specialist/) -- Audit lifecycle management and findings resolution
-- [NIS2 Directive](/glossary/nis2/) -- EU Network and Information Security Directive 2022/2555
-- [ZKB](/glossary/zkb/) -- Czech Cybersecurity Act implementation measure 264/2025 Sb.
+- [**cer-screening-specialist**](@/agents/cer-screening-specialist.md) (L3) -- Specialized CER screening workflows and evidence collection
+- [**employee-screening-specialist**](@/agents/employee-screening-specialist.md) -- Employee background verification against Czech registries
+- [**supplier-vetting-specialist**](@/agents/supplier-vetting-specialist.md) -- Supplier due diligence and supply chain risk assessment
+- [**compliance-auditing-specialist**](@/agents/compliance-auditing-specialist.md) -- Audit lifecycle management and findings resolution
+- [NIS2 Directive](@/glossary/nis2.md) -- EU Network and Information Security Directive 2022/2555
+- [ZKB](@/glossary/zkb.md) -- Czech Cybersecurity Act implementation measure 264/2025 Sb.
 
 ---
 
@@ -212,4 +212,4 @@ config :prismatic_compliance, Prismatic.Compliance.CER.Commander,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

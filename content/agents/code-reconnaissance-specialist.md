@@ -28,7 +28,7 @@ image_alt = "code-reconnaissance-specialist - Prismatic Platform"
 
 ## Executive Summary
 
-The Code Reconnaissance Specialist operates as an L2 tactical operations agent within the Primary domain of the Prismatic Platform. This agent specializes in codebase reconnaissance, dependency analysis, and architecture mapping across the platform's 90-application [umbrella architecture](/glossary/umbrella-application/). In a codebase exceeding 2.8 million lines of code with 6,652 Elixir source files, understanding the structural landscape is a prerequisite for every other code-related operation: quality enforcement, consolidation, refactoring, and evolution all depend on accurate, current intelligence about the codebase's structure, dependencies, and patterns.
+The Code Reconnaissance Specialist operates as an L2 tactical operations agent within the Primary domain of the Prismatic Platform. This agent specializes in codebase reconnaissance, dependency analysis, and architecture mapping across the platform's 90-application [umbrella architecture](@/glossary/umbrella-application.md). In a codebase exceeding 2.8 million lines of code with 6,652 Elixir source files, understanding the structural landscape is a prerequisite for every other code-related operation: quality enforcement, consolidation, refactoring, and evolution all depend on accurate, current intelligence about the codebase's structure, dependencies, and patterns.
 
 The reconnaissance function operates through the platform's optimized Git Trees infrastructure (`mix git_trees` and `./scripts/git-trees.sh`), which provides approximately 100x faster codebase exploration compared to filesystem traversal. This performance advantage enables the specialist to maintain near-real-time awareness of codebase structure changes, dependency shifts, and pattern evolution without the latency that would make continuous reconnaissance impractical.
 
@@ -145,10 +145,10 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [code-quality-commander](/agents/code-quality-commander/) | Intelligence Consumer | Receives codebase structure data for quality assessment targeting |
-| [code-consolidation-specialist-agent](/agents/code-consolidation-specialist-agent/) | Intelligence Consumer | Receives duplication and pattern data for consolidation planning |
-| [code-specialist](/agents/code-specialist/) | Implementation Partner | Provides structural context for code generation decisions |
-| [code-review-specialist-agent-v20](/agents/code-review-specialist-agent-v20/) | Review Context | Supplies architectural context for code review assessments |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Intelligence Consumer | Receives codebase structure data for quality assessment targeting |
+| [code-consolidation-specialist-agent](@/agents/code-consolidation-specialist-agent.md) | Intelligence Consumer | Receives duplication and pattern data for consolidation planning |
+| [code-specialist](@/agents/code-specialist.md) | Implementation Partner | Provides structural context for code generation decisions |
+| [code-review-specialist-agent-v20](@/agents/code-review-specialist-agent-v20.md) | Review Context | Supplies architectural context for code review assessments |
 
 ## Operational Workflow
 
@@ -183,15 +183,15 @@ end
 
 ## Enforcement
 
-Code reconnaissance operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. All structural claims are evidence-based, derived from actual codebase analysis rather than assumptions. Dependency graph accuracy is verified through compilation validation. Pattern recognition results undergo false-positive filtering before dissemination.
+Code reconnaissance operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. All structural claims are evidence-based, derived from actual codebase analysis rather than assumptions. Dependency graph accuracy is verified through compilation validation. Pattern recognition results undergo false-positive filtering before dissemination.
 
 ## Related Resources
 
-- [code-quality-commander](/agents/code-quality-commander/) -- Quality enforcement
-- [code-consolidation-specialist-agent](/agents/code-consolidation-specialist-agent/) -- Code consolidation
-- [code-specialist](/agents/code-specialist/) -- Code generation
-- [SEADF](/glossary/seadf/) -- Ecosystem evolution
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [code-quality-commander](@/agents/code-quality-commander.md) -- Quality enforcement
+- [code-consolidation-specialist-agent](@/agents/code-consolidation-specialist-agent.md) -- Code consolidation
+- [code-specialist](@/agents/code-specialist.md) -- Code generation
+- [SEADF](@/glossary/seadf.md) -- Ecosystem evolution
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -200,4 +200,4 @@ Code reconnaissance operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-d
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

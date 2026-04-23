@@ -37,9 +37,9 @@ Docker is a container platform that packages applications and their dependencies
 
 Docker images are built from Dockerfiles -- declarative recipes that specify the base operating system, installed dependencies, compiled application code, and runtime configuration. Images use a layered filesystem (Union FS) where each instruction in the Dockerfile creates a new layer that is cached independently. This layer caching is the key to fast incremental builds: when a layer's inputs have not changed, Docker reuses the cached version rather than rebuilding it.
 
-For the Prismatic Platform, Docker serves as the critical bridge between development and production. The same [BEAM](/glossary/beam/) [release](/glossary/release/) that runs on a developer's machine runs identically inside a Docker container deployed to [Fly.io](/glossary/fly-io/). This eliminates the "works on my machine" class of deployment bugs and ensures that the CI/CD pipeline tests exactly the same artifact that will run in production.
+For the Prismatic Platform, Docker serves as the critical bridge between development and production. The same [BEAM](@/glossary/beam.md) [release](@/glossary/release.md) that runs on a developer's machine runs identically inside a Docker container deployed to [Fly.io](@/glossary/fly-io.md). This eliminates the "works on my machine" class of deployment bugs and ensures that the CI/CD pipeline tests exactly the same artifact that will run in production.
 
-Docker is the sole deployment artifact format for the entire platform. Every release is packaged into a Docker image, tested in CI, and deployed to Fly.io. The production image contains the compiled OTP release (Erlang runtime + all 115 applications), compiled static assets ([TailwindCSS](/glossary/tailwindcss/), JavaScript), runtime configuration via environment variables, health check endpoints for container orchestration, and a non-root user for security.
+Docker is the sole deployment artifact format for the entire platform. Every release is packaged into a Docker image, tested in CI, and deployed to Fly.io. The production image contains the compiled OTP release (Erlang runtime + all 115 applications), compiled static assets ([TailwindCSS](@/glossary/tailwindcss.md), JavaScript), runtime configuration via environment variables, health check endpoints for container orchestration, and a non-root user for security.
 
 ## Historical Context
 
@@ -178,7 +178,7 @@ The Prismatic Platform's Docker images follow security best practices aligned wi
 | **Minimal base image** | `debian:trixie-slim` | Reduces attack surface by eliminating unnecessary packages |
 | **No build tools in runtime** | Multi-stage build | Build tools (gcc, make, git) not present in production image |
 | **Read-only filesystem** | `--read-only` flag at deploy | Prevents runtime filesystem modification |
-| **No secrets in image** | Environment variables via [Fly.io](/glossary/fly-io/) | Secrets injected at runtime, never baked into layers |
+| **No secrets in image** | Environment variables via [Fly.io](@/glossary/fly-io.md) | Secrets injected at runtime, never baked into layers |
 | **Health checks** | `HEALTHCHECK` instruction | Enables orchestrator to detect unhealthy containers |
 | **.dockerignore** | Excludes `.git`, `_build`, `node_modules`, `.env` | Prevents sensitive or unnecessary files from entering build context |
 | **Pinned base images** | Specific version tags | Prevents supply chain attacks through image tag mutation |
@@ -248,11 +248,11 @@ volumes:
   pgdata:
 ```
 
-This Compose configuration starts [PostgreSQL](/glossary/postgresql/) (with [TimescaleDB](/glossary/timescaledb/)), [Redis](/glossary/redis/), Meilisearch, and KuzuDB as containerized services. Health checks ensure the Elixir application only starts after its dependencies are ready, preventing connection errors during startup.
+This Compose configuration starts [PostgreSQL](@/glossary/postgresql.md) (with [TimescaleDB](@/glossary/timescaledb.md)), [Redis](@/glossary/redis.md), Meilisearch, and KuzuDB as containerized services. Health checks ensure the Elixir application only starts after its dependencies are ready, preventing connection errors during startup.
 
 ## CI/CD Integration
 
-The [GitLab CI](/glossary/gitlab-ci/) pipeline uses Docker for building, testing, and deploying the platform:
+The [GitLab CI](@/glossary/gitlab-ci.md) pipeline uses Docker for building, testing, and deploying the platform:
 
 | Stage | Docker Usage | Duration |
 |-------|-------------|----------|
@@ -350,7 +350,7 @@ end
 
 **Order Layers by Change Frequency**: Place rarely-changed layers (dependency manifests) before frequently-changed layers (application code) to maximize Docker layer cache hits.
 
-**Run as Non-Root**: Create a dedicated user for the application process. Never run [BEAM](/glossary/beam/) releases as root inside containers.
+**Run as Non-Root**: Create a dedicated user for the application process. Never run [BEAM](@/glossary/beam.md) releases as root inside containers.
 
 **Use BuildKit Cache Mounts**: Cache Hex packages, npm modules, and compiled dependencies across builds using BuildKit mount features to reduce incremental build times from minutes to seconds.
 
@@ -379,23 +379,23 @@ end
 
 ## Related Concepts
 
-- [Release](/glossary/release/) -- OTP release packaged inside Docker containers
-- [Fly.io](/glossary/fly-io/) -- Deployment platform running Docker containers as Firecracker VMs
-- [Cluster](/glossary/cluster/) -- Multiple Docker containers forming Erlang distribution cluster
-- [BEAM](/glossary/beam/) -- Virtual machine running inside Docker containers
-- [Mix](/glossary/mix/) -- Build tool producing releases packaged into Docker images
-- [PostgreSQL](/glossary/postgresql/) -- Database running as Docker Compose service in development
-- [Redis](/glossary/redis/) -- Cache layer running as Docker Compose service
-- [TailwindCSS](/glossary/tailwindcss/) -- CSS framework compiled during Docker image build
-- [Phoenix](/glossary/phoenix/) -- Web framework deployed via Docker containers
-- [GitLab CI](/glossary/gitlab-ci/) -- CI/CD pipeline building and deploying Docker images
-- [Observability](/glossary/observability/) -- Container health monitoring and logging
+- [Release](@/glossary/release.md) -- OTP release packaged inside Docker containers
+- [Fly.io](@/glossary/fly-io.md) -- Deployment platform running Docker containers as Firecracker VMs
+- [Cluster](@/glossary/cluster.md) -- Multiple Docker containers forming Erlang distribution cluster
+- [BEAM](@/glossary/beam.md) -- Virtual machine running inside Docker containers
+- [Mix](@/glossary/mix.md) -- Build tool producing releases packaged into Docker images
+- [PostgreSQL](@/glossary/postgresql.md) -- Database running as Docker Compose service in development
+- [Redis](@/glossary/redis.md) -- Cache layer running as Docker Compose service
+- [TailwindCSS](@/glossary/tailwindcss.md) -- CSS framework compiled during Docker image build
+- [Phoenix](@/glossary/phoenix.md) -- Web framework deployed via Docker containers
+- [GitLab CI](@/glossary/gitlab-ci.md) -- CI/CD pipeline building and deploying Docker images
+- [Observability](@/glossary/observability.md) -- Container health monitoring and logging
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture
-- [Technologies](/technologies/) -- Technology stack
-- [Distributed System](/glossary/distributed-system/) -- Multi-container distributed deployment
+- [Architecture](@/architecture/_index.md) -- Platform architecture
+- [Technologies](@/technologies/_index.md) -- Technology stack
+- [Distributed System](@/glossary/distributed-system.md) -- Multi-container distributed deployment
 
 ---
 
@@ -404,4 +404,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -419,24 +419,24 @@ The Prismatic Platform maintains an explicit inventory of the concepts it embodi
 
 Concepts connect to many foundational elements in the Prismatic Platform:
 
-- [Architecture](/glossary/architecture/) -- the discipline of organizing concepts into coherent system structures
-- [Conceptual Framework](/glossary/conceptual-framework/) -- a structured collection of related concepts that supports reasoning about a domain
-- [Architectural Pattern](/glossary/architectural-pattern/) -- reusable solutions to recurring design problems, expressed as concept compositions
-- [System Design Principle](/glossary/system-design-principle/) -- guidelines derived from concepts that direct design decisions
-- [Composability](/glossary/composability/) -- the concept of building complex systems from simpler, combinable parts
-- [Protocol](/glossary/protocol/) -- Elixir mechanism for expressing polymorphic concepts across types
-- [Behaviour](/glossary/behaviour/) -- Elixir mechanism for expressing module-level conceptual contracts
-- [Determinism](/glossary/determinism/) -- the concept that identical inputs always produce identical outputs
-- [Pure Function](/glossary/pure-function/) -- a function embodying the concepts of determinism and side-effect freedom
-- [Comprehension](/glossary/comprehension/) -- the cognitive process of understanding and internalizing concepts
+- [Architecture](@/glossary/architecture.md) -- the discipline of organizing concepts into coherent system structures
+- [Conceptual Framework](@/glossary/conceptual-framework.md) -- a structured collection of related concepts that supports reasoning about a domain
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- reusable solutions to recurring design problems, expressed as concept compositions
+- [System Design Principle](@/glossary/system-design-principle.md) -- guidelines derived from concepts that direct design decisions
+- [Composability](@/glossary/composability.md) -- the concept of building complex systems from simpler, combinable parts
+- [Protocol](@/glossary/protocol.md) -- Elixir mechanism for expressing polymorphic concepts across types
+- [Behaviour](@/glossary/behaviour.md) -- Elixir mechanism for expressing module-level conceptual contracts
+- [Determinism](@/glossary/determinism.md) -- the concept that identical inputs always produce identical outputs
+- [Pure Function](@/glossary/pure-function.md) -- a function embodying the concepts of determinism and side-effect freedom
+- [Comprehension](@/glossary/comprehension.md) -- the cognitive process of understanding and internalizing concepts
 - **Abstraction** -- the process of extracting common features from specific instances to form a concept
 
 ## See Also
 
 - Glossary Index -- complete listing of all platform terminology
-- [Software Architecture](/glossary/software-architecture/) -- the structural realization of architectural concepts
-- [Doctrine](/glossary/doctrine/) -- the platform's operational concepts codified as non-negotiable principles
-- [AIAD](/glossary/aiad/) -- the agent standard that operationalizes platform concepts as executable definitions
+- [Software Architecture](@/glossary/software-architecture.md) -- the structural realization of architectural concepts
+- [Doctrine](@/glossary/doctrine.md) -- the platform's operational concepts codified as non-negotiable principles
+- [AIAD](@/glossary/aiad.md) -- the agent standard that operationalizes platform concepts as executable definitions
 
 ---
 
@@ -445,4 +445,4 @@ Concepts connect to many foundational elements in the Prismatic Platform:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

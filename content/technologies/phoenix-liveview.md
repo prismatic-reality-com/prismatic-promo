@@ -24,11 +24,11 @@ image_alt = "Phoenix LiveView - Prismatic Platform"
 
 ## Overview
 
-Phoenix LiveView is the real-time UI technology that powers all Prismatic Platform dashboards. It enables rich, interactive user experiences by maintaining a persistent [WebSocket](/technologies/websockets/) connection between the server and browser, rendering HTML on the server and efficiently patching the DOM with minimal data transfer. This architecture eliminates the need for a separate JavaScript frontend framework while delivering performance characteristics that match or exceed traditional single-page applications for the platform's use cases.
+Phoenix LiveView is the real-time UI technology that powers all Prismatic Platform dashboards. It enables rich, interactive user experiences by maintaining a persistent [WebSocket](@/technologies/websockets.md) connection between the server and browser, rendering HTML on the server and efficiently patching the DOM with minimal data transfer. This architecture eliminates the need for a separate JavaScript frontend framework while delivering performance characteristics that match or exceed traditional single-page applications for the platform's use cases.
 
-The Prismatic Platform uses LiveView extensively for its security monitoring dashboards, agent status displays, EASM (External Attack Surface Management) interfaces, and compliance assessment tools. Every interactive view in the platform -- from the Perimeter dashboard showing real-time security ratings to the agent constellation display tracking 404+ agents -- is implemented as a LiveView. The server-side rendering approach means that complex business logic (security calculations, compliance scoring, agent coordination) stays in [Elixir](/technologies/elixir/) where it benefits from the [BEAM](/technologies/beam/)'s concurrency model, rather than being duplicated in JavaScript.
+The Prismatic Platform uses LiveView extensively for its security monitoring dashboards, agent status displays, EASM (External Attack Surface Management) interfaces, and compliance assessment tools. Every interactive view in the platform -- from the Perimeter dashboard showing real-time security ratings to the agent constellation display tracking 404+ agents -- is implemented as a LiveView. The server-side rendering approach means that complex business logic (security calculations, compliance scoring, agent coordination) stays in [Elixir](@/technologies/elixir.md) where it benefits from the [BEAM](@/technologies/beam.md)'s concurrency model, rather than being duplicated in JavaScript.
 
-LiveView's integration with [Phoenix PubSub](/technologies/pubsub/) enables multi-user real-time collaboration features where changes made by one user are instantly visible to all connected users. This is critical for the platform's team-based security operations, where multiple analysts may be examining the same attack surface simultaneously and need to see discoveries as they happen.
+LiveView's integration with [Phoenix PubSub](@/technologies/pubsub.md) enables multi-user real-time collaboration features where changes made by one user are instantly visible to all connected users. This is critical for the platform's team-based security operations, where multiple analysts may be examining the same attack surface simultaneously and need to see discoveries as they happen.
 
 ## Key Features
 
@@ -38,7 +38,7 @@ LiveView's integration with [Phoenix PubSub](/technologies/pubsub/) enables mult
 - **Function Components**: Stateless components for reusable UI elements with compile-time slot validation and HEEx template syntax
 - **Live Components**: Stateful components with their own lifecycle for encapsulating complex interactive widgets
 - **Uploads**: Built-in file upload handling with progress tracking, drag-and-drop support, and server-side validation
-- **JS Hooks**: Client-side JavaScript interop for third-party libraries like [Three.js](/technologies/threejs/) and [Chart.js](/technologies/chartjs/)
+- **JS Hooks**: Client-side JavaScript interop for third-party libraries like [Three.js](@/technologies/threejs.md) and [Chart.js](@/technologies/chartjs.md)
 - **Live Navigation**: SPA-like navigation with `live_patch` and `live_redirect` maintaining the WebSocket connection across page transitions
 
 ## Platform Integration
@@ -122,15 +122,15 @@ LiveView sits at the intersection of several platform technologies, serving as t
 | Layer | Technology | Role in LiveView Stack |
 |-------|-----------|----------------------|
 | **Browser** | JavaScript client (phoenix_live_view.js) | DOM patching, event capture, WebSocket management |
-| **Transport** | [WebSockets](/technologies/websockets/) | Persistent bidirectional connection |
+| **Transport** | [WebSockets](@/technologies/websockets.md) | Persistent bidirectional connection |
 | **Server Process** | LiveView GenServer | State management, event handling, template rendering |
-| **Messaging** | [Phoenix PubSub](/technologies/pubsub/) | Cross-process real-time event delivery |
-| **Styling** | [TailwindCSS](/technologies/tailwindcss/) + [Flowbite](/technologies/flowbite/) | Utility-first CSS with component library |
-| **Interactivity** | [Alpine.js](/technologies/alpinejs/) | Client-side state for dropdowns, modals, toggles |
-| **3D Visualization** | [Three.js](/technologies/threejs/) | WebGL scenes managed via JS Hooks |
-| **Data** | [Ecto](/technologies/ecto/) + [PostgreSQL](/technologies/postgresql/) | Persistent data queries and mutations |
+| **Messaging** | [Phoenix PubSub](@/technologies/pubsub.md) | Cross-process real-time event delivery |
+| **Styling** | [TailwindCSS](@/technologies/tailwindcss.md) + [Flowbite](@/technologies/flowbite.md) | Utility-first CSS with component library |
+| **Interactivity** | [Alpine.js](@/technologies/alpinejs.md) | Client-side state for dropdowns, modals, toggles |
+| **3D Visualization** | [Three.js](@/technologies/threejs.md) | WebGL scenes managed via JS Hooks |
+| **Data** | [Ecto](@/technologies/ecto.md) + [PostgreSQL](@/technologies/postgresql.md) | Persistent data queries and mutations |
 
-Each LiveView process consumes approximately 40-60KB of memory on the [BEAM](/technologies/beam/), meaning the platform can support thousands of concurrent dashboard sessions on a single node.
+Each LiveView process consumes approximately 40-60KB of memory on the [BEAM](@/technologies/beam.md), meaning the platform can support thousands of concurrent dashboard sessions on a single node.
 
 ## Lifecycle and State Management
 
@@ -268,19 +268,19 @@ The Prismatic Platform chose LiveView because it eliminates the operational comp
 
 ## Related Technologies
 
-- [Phoenix Framework](/technologies/phoenix/) - The base web framework providing routing, endpoints, and channels
-- [Phoenix PubSub](/technologies/pubsub/) - Real-time messaging backbone for cross-process event delivery
-- [WebSockets](/technologies/websockets/) - Transport protocol for persistent bidirectional communication
-- [Alpine.js](/technologies/alpinejs/) - Client-side interactivity complement for dropdowns, modals, and toggles
-- [TailwindCSS](/technologies/tailwindcss/) - UI styling framework used exclusively in all LiveView templates
-- [Flowbite](/technologies/flowbite/) - Component library providing pre-built UI patterns
-- [ETS](/technologies/ets/) - In-memory storage frequently accessed from LiveView processes
+- [Phoenix Framework](@/technologies/phoenix.md) - The base web framework providing routing, endpoints, and channels
+- [Phoenix PubSub](@/technologies/pubsub.md) - Real-time messaging backbone for cross-process event delivery
+- [WebSockets](@/technologies/websockets.md) - Transport protocol for persistent bidirectional communication
+- [Alpine.js](@/technologies/alpinejs.md) - Client-side interactivity complement for dropdowns, modals, and toggles
+- [TailwindCSS](@/technologies/tailwindcss.md) - UI styling framework used exclusively in all LiveView templates
+- [Flowbite](@/technologies/flowbite.md) - Component library providing pre-built UI patterns
+- [ETS](@/technologies/ets.md) - In-memory storage frequently accessed from LiveView processes
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - All LiveView dashboards and interactive interfaces
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - EASM LiveView interfaces for security monitoring
-- [prismatic_agents](/apps/prismatic-agents/) - Agent status dashboards with real-time updates
+- [prismatic_web](@/apps/prismatic-web.md) - All LiveView dashboards and interactive interfaces
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - EASM LiveView interfaces for security monitoring
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent status dashboards with real-time updates
 
 ---
 
@@ -289,4 +289,4 @@ The Prismatic Platform chose LiveView because it eliminates the operational comp
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

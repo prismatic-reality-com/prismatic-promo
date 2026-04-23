@@ -37,13 +37,13 @@ ProjectDiscovery maintains the nuclei-templates repository on GitHub, which serv
 
 | Template Category | Count | Description | Examples |
 |------------------|-------|-------------|----------|
-| **[CVE](/glossary/cve/) Detection** | 2,000+ | Checks for known vulnerabilities by CVE ID | CVE-2024-3400, CVE-2023-44487, Log4Shell |
+| **[CVE](@/glossary/cve.md) Detection** | 2,000+ | Checks for known vulnerabilities by CVE ID | CVE-2024-3400, CVE-2023-44487, Log4Shell |
 | **Misconfiguration** | 1,000+ | Default configs, debug modes, info disclosure | Debug endpoints, directory listings, .env exposure |
 | **Exposure** | 800+ | Admin panels, sensitive files, dashboards | phpMyAdmin, Kibana, Grafana, Jenkins |
 | **Default Login** | 400+ | Default credential verification | Admin/admin, root/root, vendor defaults |
 | **Technology Detection** | 500+ | Framework, CMS, and server identification | WordPress, Drupal, Apache, nginx versions |
 | **DNS** | 200+ | Zone transfer, subdomain takeover, DNS hijack | CNAME takeover, NS delegation issues |
-| **Network** | 300+ | [Protocol](/glossary/protocol/)-level vulnerability checks | SSH, FTP, SMTP, SMB, RDP weaknesses |
+| **Network** | 300+ | [Protocol](@/glossary/protocol.md)-level vulnerability checks | SSH, FTP, SMTP, SMB, RDP weaknesses |
 | **Headless** | 100+ | Browser-based checks requiring JS execution | XSS detection, DOM-based vulnerabilities |
 | **Code** | 150+ | Static analysis patterns | Hardcoded secrets, insecure configurations |
 | **Workflows** | 50+ | Multi-step detection sequences | Chained vulnerability verification |
@@ -238,7 +238,7 @@ Nuclei provides rapid scanning of web applications against thousands of known CV
 
 ### Attack Surface Reduction
 
-By scanning for exposed admin panels, default credentials, and misconfigured services, nuclei helps organizations identify and remediate low-hanging security issues. These findings often represent the path of least resistance for attackers and should be addressed as part of [attack surface](/glossary/attack-surface/) hardening programs.
+By scanning for exposed admin panels, default credentials, and misconfigured services, nuclei helps organizations identify and remediate low-hanging security issues. These findings often represent the path of least resistance for attackers and should be addressed as part of [attack surface](@/glossary/attack-surface.md) hardening programs.
 
 ### CI/CD Security Integration
 
@@ -246,7 +246,7 @@ Nuclei's command-line interface and SARIF output format enable integration into 
 
 ### Compliance Checking
 
-Templates for security header verification, SSL/[TLS](/glossary/tls/) configuration, and exposed sensitive files support compliance assessments against standards like PCI DSS, HIPAA, and NIST. Custom templates can encode organization-specific compliance requirements.
+Templates for security header verification, SSL/[TLS](@/glossary/tls.md) configuration, and exposed sensitive files support compliance assessments against standards like PCI DSS, HIPAA, and NIST. Custom templates can encode organization-specific compliance requirements.
 
 ### Bug Bounty Research
 
@@ -275,13 +275,13 @@ Security researchers use nuclei as a first-pass scanner against bug bounty targe
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), Nuclei serves as the primary active vulnerability assessment engine for [Prismatic Perimeter](/apps/prismatic-perimeter/) EASM operations.
+Within the [Prismatic Platform](@/apps/prismatic.md), Nuclei serves as the primary active vulnerability assessment engine for [Prismatic Perimeter](@/apps/prismatic-perimeter.md) EASM operations.
 
-- **Automated Assessment**: Discovered assets from [Shodan](/osint/shodan/), [Censys](/osint/censys/), and [SecurityTrails](/osint/securitytrails/) are automatically queued for nuclei scanning to identify actionable vulnerabilities.
+- **Automated Assessment**: Discovered assets from [Shodan](@/osint/shodan.md), [Censys](@/osint/censys.md), and [SecurityTrails](@/osint/securitytrails.md) are automatically queued for nuclei scanning to identify actionable vulnerabilities.
 - **Template Management**: The platform maintains a curated template library combining community templates with organization-specific checks, updated daily from the nuclei-templates repository.
-- **Finding Correlation**: Nuclei findings are correlated with passive vulnerability intelligence from [NVD](/osint/nvd/) and [OSV.dev](/osint/osv-dev/) to provide comprehensive vulnerability context.
+- **Finding Correlation**: Nuclei findings are correlated with passive vulnerability intelligence from [NVD](@/osint/nvd.md) and [OSV.dev](@/osint/osv-dev.md) to provide comprehensive vulnerability context.
 - **Risk Scoring**: Vulnerability findings contribute to the security rating (A-F grade) in Prismatic Perimeter, weighted by CVSS score and exploitability.
-- **Compliance Mapping**: Findings are mapped to compliance frameworks ([NIS2](/glossary/nis2/), ZKB, OWASP) for automated compliance reporting.
+- **Compliance Mapping**: Findings are mapped to compliance frameworks ([NIS2](@/glossary/nis2.md), ZKB, OWASP) for automated compliance reporting.
 
 ## Best Practices
 
@@ -303,13 +303,13 @@ Within the [Prismatic Platform](/apps/prismatic/), Nuclei serves as the primary 
 
 ## Related Providers
 
-- [NVD](/osint/nvd/) - National Vulnerability Database for CVE details
-- [Exploit-DB](/osint/exploit-db/) - Exploit database with proof-of-concepts
-- [Shodan](/osint/shodan/) - Pre-scanned internet asset data
-- [MITRE ATT&CK](/osint/mitre-attack/) - TTP mapping for findings
-- [FullHunt](/osint/fullhunt/) - Attack surface discovery platform
-- [OSV.dev](/osint/osv-dev/) - Open source vulnerability database
-- [Netlas](/osint/netlas/) - Internet intelligence for target discovery
+- [NVD](@/osint/nvd.md) - National Vulnerability Database for CVE details
+- [Exploit-DB](@/osint/exploit-db.md) - Exploit database with proof-of-concepts
+- [Shodan](@/osint/shodan.md) - Pre-scanned internet asset data
+- [MITRE ATT&CK](@/osint/mitre-attack.md) - TTP mapping for findings
+- [FullHunt](@/osint/fullhunt.md) - Attack surface discovery platform
+- [OSV.dev](@/osint/osv-dev.md) - Open source vulnerability database
+- [Netlas](@/osint/netlas.md) - Internet intelligence for target discovery
 
 ---
 
@@ -318,4 +318,4 @@ Within the [Prismatic Platform](/apps/prismatic/), Nuclei serves as the primary 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

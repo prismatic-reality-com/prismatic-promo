@@ -207,7 +207,7 @@ The adaptation metrics are derived from systematic testing across the platform.
 
 ## Agent Tier Integration
 
-Cross-domain flexibility capabilities vary by [AIAD tier](/capabilities/aiad-standard/), reflecting the principle that higher-authority agents need broader operational scope.
+Cross-domain flexibility capabilities vary by [AIAD tier](@/capabilities/aiad-standard.md), reflecting the principle that higher-authority agents need broader operational scope.
 
 | Agent Tier | Home Domain | Cross-Domain Capability | Adaptation Authority |
 |-----------|------------|------------------------|---------------------|
@@ -256,19 +256,19 @@ config :prismatic_agents, PrismaticAgents.DomainRegistry,
 
 Cross-Domain Operational Flexibility connects to the broader platform ecosystem.
 
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) leverages cross-domain access for multi-source analysis
-- [AIAD Standard](/capabilities/aiad-standard/) defines tier-specific cross-domain authority levels
-- [AIAD Compliance](/capabilities/aiad-compliance/) validates domain adaptation contracts
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) tracks adaptation performance across domains
-- [Telemetry Integration](/capabilities/telemetry-integration/) captures domain transition metrics
-- [Quality Gates](/capabilities/quality-gates/) enforce domain-specific quality thresholds
-- [NABLA Axioms](/capabilities/nabla-axioms/) govern epistemic operations in all domains
-- [Trinity Gate](/capabilities/trinity-gate/) validates cross-domain conclusions
-- [NO MERCY](/capabilities/no-mercy/) zero-tolerance applies regardless of operational domain
-- [NO DOUBTS](/capabilities/no-doubts/) evidence standards maintained through domain transitions
-- [Color Teams](/capabilities/color-teams/) operate across domain boundaries for security assessment
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) cross-domain pattern application for L5 healing
-- [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) provides domain-appropriate analytical methods
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) leverages cross-domain access for multi-source analysis
+- [AIAD Standard](@/capabilities/aiad-standard.md) defines tier-specific cross-domain authority levels
+- [AIAD Compliance](@/capabilities/aiad-compliance.md) validates domain adaptation contracts
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) tracks adaptation performance across domains
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) captures domain transition metrics
+- [Quality Gates](@/capabilities/quality-gates.md) enforce domain-specific quality thresholds
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) govern epistemic operations in all domains
+- [Trinity Gate](@/capabilities/trinity-gate.md) validates cross-domain conclusions
+- [NO MERCY](@/capabilities/no-mercy.md) zero-tolerance applies regardless of operational domain
+- [NO DOUBTS](@/capabilities/no-doubts.md) evidence standards maintained through domain transitions
+- [Color Teams](@/capabilities/color-teams.md) operate across domain boundaries for security assessment
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) cross-domain pattern application for L5 healing
+- [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) provides domain-appropriate analytical methods
 
 ---
 
@@ -277,4 +277,4 @@ Cross-Domain Operational Flexibility connects to the broader platform ecosystem.
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,11 +24,11 @@ image_alt = "/mcp - Prismatic Platform"
 
 ## Overview
 
-**/mcp** is a production command in the **Infrastructure** category of the Prismatic Platform. It provides complete Model Context [Protocol](/glossary/protocol/) operations and management, serving as the unified control interface for all MCP-related activities across the platform. The Model Context Protocol is the standard communication layer that enables AI agents to interact with external tools, data sources, and services through a structured, capability-negotiated interface.
+**/mcp** is a production command in the **Infrastructure** category of the Prismatic Platform. It provides complete Model Context [Protocol](@/glossary/protocol.md) operations and management, serving as the unified control interface for all MCP-related activities across the platform. The Model Context Protocol is the standard communication layer that enables AI agents to interact with external tools, data sources, and services through a structured, capability-negotiated interface.
 
 The Prismatic Platform's MCP infrastructure encompasses 14 or more MCP servers, collectively providing over 100 tools spanning file system operations, version control, database queries, semantic search, memory management, and platform-specific capabilities. The `/mcp` command provides a single point of control for this entire infrastructure: server management, connection monitoring, tool discovery, capability enumeration, performance analysis, and configuration management.
 
-This command operates under the **L2+** authority level and is executed by the `mcp-evolution-coordinator` agent, the platform's primary MCP lifecycle manager. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The medium usage frequency reflects its role as both a routine operational tool (status checks, connection management) and an occasional administrative tool (configuration changes, server management).
+This command operates under the **L2+** authority level and is executed by the `mcp-evolution-coordinator` agent, the platform's primary MCP lifecycle manager. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The medium usage frequency reflects its role as both a routine operational tool (status checks, connection management) and an occasional administrative tool (configuration changes, server management).
 
 The command's design follows the principle of progressive disclosure: simple subcommands for common operations (status, connect, disconnect) and more detailed subcommands for administrative tasks (configure, diagnose, benchmark). This layered interface ensures that routine operations remain quick and accessible while advanced functionality is available when needed.
 
@@ -190,13 +190,13 @@ The **Performance Tracker** records latency, throughput, and error rates for eve
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by the `mcp-evolution-coordinator` agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by the `mcp-evolution-coordinator` agent |
 | MCP Protocol | Core Protocol | Central management interface for all MCP operations |
-| [Prismatic MCP](/apps/prismatic-mcp/) | Primary Server | Platform's primary MCP server with 27+ native tools |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post validation | Quality checks on configuration and operational state |
-| [Telemetry](/glossary/telemetry/) | Observability | All operations emit structured telemetry events |
-| [Prismatic API](/apps/prismatic-api/) | REST Exposure | MCP status and tool information available via REST API |
-| [Session Lifecycle](/glossary/session-discipline/) | Auto-integration | MCP status verified during session initialization |
+| [Prismatic MCP](@/apps/prismatic-mcp.md) | Primary Server | Platform's primary MCP server with 27+ native tools |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post validation | Quality checks on configuration and operational state |
+| [Telemetry](@/glossary/telemetry.md) | Observability | All operations emit structured telemetry events |
+| [Prismatic API](@/apps/prismatic-api.md) | REST Exposure | MCP status and tool information available via REST API |
+| [Session Lifecycle](@/glossary/session-discipline.md) | Auto-integration | MCP status verified during session initialization |
 
 ## Best Practices
 
@@ -261,19 +261,19 @@ Execute operations across multiple servers efficiently:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unreported failures. Every MCP operation must produce a clear success or failure outcome with actionable details. Connection drops, tool invocation failures, and configuration errors are all surfaced immediately with diagnostic context.
 - **NO DOUBTS**: Full state verification for all lifecycle operations. The command never assumes operational success based on the absence of errors -- it actively verifies post-operation state through health probes and state queries. Performance metrics provide evidence-based assessment of system health.
 
 ## Related Commands
 
-- [/mcp-autoboot](/commands/mcp-autoboot/) - Start MCP infrastructure with full orchestration
-- [/mcp-service](/commands/mcp-service/) - Manage Prismatic MCP server as macOS service for persistent operation
-- [/ollama](/commands/ollama/) - Local AI Ollama model management, installation and optimization
-- [/gardener](/commands/gardener/) - [GARDEN](/glossary/garden/) legacy knowledge repository management across 116 repos
-- [/garden-explore](/commands/garden-explore/) - Explore GARDEN repositories for patterns and knowledge
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/mcp-autoboot](@/commands/mcp-autoboot.md) - Start MCP infrastructure with full orchestration
+- [/mcp-service](@/commands/mcp-service.md) - Manage Prismatic MCP server as macOS service for persistent operation
+- [/ollama](@/commands/ollama.md) - Local AI Ollama model management, installation and optimization
+- [/gardener](@/commands/gardener.md) - [GARDEN](@/glossary/garden.md) legacy knowledge repository management across 116 repos
+- [/garden-explore](@/commands/garden-explore.md) - Explore GARDEN repositories for patterns and knowledge
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -282,4 +282,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

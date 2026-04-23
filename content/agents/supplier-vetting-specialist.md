@@ -30,15 +30,15 @@ image_alt = "supplier-vetting-specialist - Prismatic Platform"
 
 The Supplier Vetting Specialist is an L3 strategic command agent operating within the Prismatic Platform's compliance domain, designed for deep-dive due diligence investigations of suppliers, vendors, and third-party service providers. While initial supplier risk assessments identify entities requiring further scrutiny, the Supplier Vetting Specialist conducts the thorough investigative analysis needed to make definitive accept, reject, or conditional-approval decisions about supplier relationships.
 
-This agent integrates formal verification methodologies with evidence-based compliance analysis, leveraging [Lean4](/glossary/lean4/) theorem proving to ensure that vetting conclusions are logically sound and that the evidence chains supporting those conclusions are structurally valid. Operating within the [AIAD](/glossary/aiad/) standard framework, the agent enforces the [No Mercy, No Doubts](/glossary/no-mercy/) doctrine through its uncompromising approach to evidence quality and analytical completeness.
+This agent integrates formal verification methodologies with evidence-based compliance analysis, leveraging [Lean4](@/glossary/lean4.md) theorem proving to ensure that vetting conclusions are logically sound and that the evidence chains supporting those conclusions are structurally valid. Operating within the [AIAD](@/glossary/aiad.md) standard framework, the agent enforces the [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine through its uncompromising approach to evidence quality and analytical completeness.
 
 ## Theoretical Foundations
 
 Supplier vetting represents a specialized application of investigative due diligence, drawing from forensic accounting, corporate intelligence, and regulatory compliance disciplines. The academic literature on third-party risk management identifies information asymmetry as the fundamental challenge in supplier evaluation. Suppliers possess private information about their own risks, capabilities, and practices that may not be voluntarily disclosed to prospective business partners.
 
-The agent addresses this asymmetry through systematic open-source intelligence ([OSINT](/glossary/osint/)) collection, public record analysis, and structured analytical frameworks that surface hidden risk indicators. The theoretical basis combines adverse selection models from contract theory with signal detection theory from statistical decision-making, creating an analytical framework that optimizes the trade-off between false positives (rejecting acceptable suppliers) and false negatives (approving risky suppliers).
+The agent addresses this asymmetry through systematic open-source intelligence ([OSINT](@/glossary/osint.md)) collection, public record analysis, and structured analytical frameworks that surface hidden risk indicators. The theoretical basis combines adverse selection models from contract theory with signal detection theory from statistical decision-making, creating an analytical framework that optimizes the trade-off between false positives (rejecting acceptable suppliers) and false negatives (approving risky suppliers).
 
-The formal verification component draws from constructive mathematics and dependent type theory, where [Lean4](/glossary/lean4/) proofs validate the logical consistency of vetting conclusions. Five core theorems govern the agent's evolutionary safety, ensuring that modifications to vetting criteria or scoring algorithms preserve the correctness properties established during initial verification.
+The formal verification component draws from constructive mathematics and dependent type theory, where [Lean4](@/glossary/lean4.md) proofs validate the logical consistency of vetting conclusions. Five core theorems govern the agent's evolutionary safety, ensuring that modifications to vetting criteria or scoring algorithms preserve the correctness properties established during initial verification.
 
 ## Core Capabilities
 
@@ -48,7 +48,7 @@ The Supplier Vetting Specialist delivers comprehensive investigative capabilitie
 
 **Financial Forensics** goes beyond surface-level financial health assessment to examine the quality and consistency of financial reporting. The agent detects anomalies in revenue recognition patterns, unusual related-party transactions, aggressive accounting practices, and discrepancies between reported figures and external validation sources. For entities required to file audited accounts, the agent evaluates audit opinions and auditor continuity as indicators of financial reporting integrity.
 
-**Compliance Verification** assesses the supplier's adherence to applicable regulatory frameworks through structured evidence collection. For European suppliers, this includes [NIS2](/glossary/nis2/) cybersecurity compliance assessment, GDPR data protection practices, and industry-specific regulatory requirements. For Czech entities, the agent applies [ZKB](/glossary/zkb/) compliance criteria and cross-references against Czech regulatory enforcement databases.
+**Compliance Verification** assesses the supplier's adherence to applicable regulatory frameworks through structured evidence collection. For European suppliers, this includes [NIS2](@/glossary/nis2.md) cybersecurity compliance assessment, GDPR data protection practices, and industry-specific regulatory requirements. For Czech entities, the agent applies [ZKB](@/glossary/zkb.md) compliance criteria and cross-references against Czech regulatory enforcement databases.
 
 **Supply Chain Depth Analysis** traces the supplier's own supply chain dependencies to identify concentration risks, single points of failure, and potential sanctions exposure through sub-tier relationships. This recursive analysis ensures that risks hidden in lower supply chain tiers are surfaced during the vetting process.
 
@@ -56,7 +56,7 @@ The Supplier Vetting Specialist delivers comprehensive investigative capabilitie
 
 ## Architecture and Implementation
 
-The agent operates as an [OTP](/glossary/otp/)-supervised process within the Prismatic compliance subsystem, implementing a multi-phase investigation pipeline with configurable depth levels.
+The agent operates as an [OTP](@/glossary/otp.md)-supervised process within the Prismatic compliance subsystem, implementing a multi-phase investigation pipeline with configurable depth levels.
 
 | Phase | Investigation Depth | Typical Duration |
 |-------|-------------------|------------------|
@@ -66,17 +66,17 @@ The agent operates as an [OTP](/glossary/otp/)-supervised process within the Pri
 | Phase 4: Compliance Assessment | Verify regulatory adherence across frameworks | Hours |
 | Phase 5: Deep Investigation | Conduct forensic-level analysis of flagged areas | Days |
 
-Each phase produces structured findings that are validated through the [Trinity Gate](/glossary/trinity-gate/) verification system before advancing to subsequent phases. This staged approach allows early termination of investigations where disqualifying findings emerge in initial phases, optimizing resource allocation across the investigation portfolio.
+Each phase produces structured findings that are validated through the [Trinity Gate](@/glossary/trinity-gate.md) verification system before advancing to subsequent phases. This staged approach allows early termination of investigations where disqualifying findings emerge in initial phases, optimizing resource allocation across the investigation portfolio.
 
 The agent's state machine tracks each investigation through well-defined lifecycle stages: initiated, evidence-collection, analysis, peer-review, conclusion, and archived. State transitions emit telemetry events that enable real-time monitoring of investigation progress and pipeline throughput.
 
 ## Formal Verification Framework
 
-The integration of [Lean4](/glossary/lean4/) formal verification distinguishes the Supplier Vetting Specialist from conventional due diligence tools. Five core theorems govern the agent's reasoning:
+The integration of [Lean4](@/glossary/lean4.md) formal verification distinguishes the Supplier Vetting Specialist from conventional due diligence tools. Five core theorems govern the agent's reasoning:
 
 **Theorem 1 (Evidence Sufficiency)**: A vetting conclusion requires a minimum evidence threshold proportional to the risk level of the decision. This theorem prevents premature conclusions based on insufficient investigation.
 
-**Theorem 2 (Contradiction Preservation)**: Contradictory evidence must be explicitly preserved and resolved rather than silently discarded. This enforces the [NABLA Infinity](/glossary/nabla-infinity/) addiction preservation principle within the vetting context.
+**Theorem 2 (Contradiction Preservation)**: Contradictory evidence must be explicitly preserved and resolved rather than silently discarded. This enforces the [NABLA Infinity](@/glossary/nabla-infinity.md) addiction preservation principle within the vetting context.
 
 **Theorem 3 (Conclusion Monotonicity)**: Additional evidence can only strengthen or maintain the confidence level of a conclusion, never arbitrarily weaken it without explicit contradiction detection. This ensures stability in the reasoning process.
 
@@ -104,14 +104,14 @@ The decision framework maps composite scores to actionable recommendations: appr
 
 | System | Integration Purpose | Data Flow |
 |--------|-------------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent lifecycle and task orchestration | Bidirectional |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification and discovery | Read |
-| [GARDEN](/glossary/garden/) Knowledge Base | Historical vetting patterns and outcomes | Read/Write |
-| [Prismatic Telemetry](/glossary/telemetry/) | Performance metrics and investigation tracking | Write |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent lifecycle and task orchestration | Bidirectional |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Read |
+| [GARDEN](@/glossary/garden.md) Knowledge Base | Historical vetting patterns and outcomes | Read/Write |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Performance metrics and investigation tracking | Write |
 | Czech Business Registry | Corporate registration data | Read |
 | Insolvency Register | Insolvency proceeding status | Read |
 | Court Records Databases | Litigation history aggregation | Read |
-| [SEADF](/glossary/seadf/) | Autonomous evolution and self-improvement | Bidirectional |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution and self-improvement | Bidirectional |
 
 The agent publishes comprehensive telemetry covering investigation initiation, phase transitions, evidence acquisition events, and conclusion delivery. These metrics support operational oversight and enable the SEADF framework to identify optimization opportunities in the investigation pipeline.
 
@@ -127,7 +127,7 @@ Anti-money laundering customer due diligence (CDD) and enhanced due diligence (E
 
 Every vetting conclusion undergoes multi-layer validation. The Trinity Gate verification system checks structural consistency of the evidence graph, logical consistency of the reasoning chain, and formal necessity of the conclusion given the available evidence. Peer review protocols require that high-risk rejection or approval decisions are independently validated by a second analytical pathway before finalization.
 
-The agent maintains calibration metrics that compare predicted risk levels against observed outcomes for previously vetted suppliers, enabling continuous refinement of scoring models and decision thresholds. [Property-based testing](/glossary/property-based-testing/) validates that the scoring engine behaves consistently across the full space of possible input combinations.
+The agent maintains calibration metrics that compare predicted risk levels against observed outcomes for previously vetted suppliers, enabling continuous refinement of scoring models and decision thresholds. [Property-based testing](@/glossary/property-based-testing.md) validates that the scoring engine behaves consistently across the full space of possible input combinations.
 
 ## Operational Considerations
 
@@ -135,7 +135,7 @@ Investigation depth and resource allocation are calibrated to the risk level of 
 
 ## Related Agents
 
-The Supplier Vetting Specialist works in close coordination with the [supplier-risk-specialist](/agents/supplier-risk-specialist/), which provides initial risk screening that identifies candidates for deep vetting. The [supreme-court-specialist](/agents/supreme-court-specialist/) contributes legal proceeding analysis for Czech jurisdiction cases. Agents in the [OSINT](/glossary/osint/) domain provide specialized data collection capabilities that feed into the vetting evidence corpus.
+The Supplier Vetting Specialist works in close coordination with the [supplier-risk-specialist](@/agents/supplier-risk-specialist.md), which provides initial risk screening that identifies candidates for deep vetting. The [supreme-court-specialist](@/agents/supreme-court-specialist.md) contributes legal proceeding analysis for Czech jurisdiction cases. Agents in the [OSINT](@/glossary/osint.md) domain provide specialized data collection capabilities that feed into the vetting evidence corpus.
 
 ---
 
@@ -144,4 +144,4 @@ The Supplier Vetting Specialist works in close coordination with the [supplier-r
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

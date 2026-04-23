@@ -215,10 +215,10 @@ PrismaticAI.OllamaClient.generate("gpt-oss:20b", prompt, temperature: 0.6)
 
 ## Cross-References
 
-- [LLM](/glossary/llm/) - Language model consuming temperature parameter
-- [System Prompt](/glossary/system-prompt/) - Instruction context complementing temperature
-- [Agent](/glossary/agent/) - Specialized entity with configured temperature
-- [AIAD](/glossary/aiad/) - Agent standard defining temperature defaults
+- [LLM](@/glossary/llm.md) - Language model consuming temperature parameter
+- [System Prompt](@/glossary/system-prompt.md) - Instruction context complementing temperature
+- [Agent](@/glossary/agent.md) - Specialized entity with configured temperature
+- [AIAD](@/glossary/aiad.md) - Agent standard defining temperature defaults
 
 ---
 

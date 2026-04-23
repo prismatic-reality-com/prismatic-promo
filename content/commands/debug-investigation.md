@@ -28,7 +28,7 @@ image_alt = "/debug-investigation - Prismatic Platform"
 
 When developers encounter complex bugs -- GenServer timeouts, memory leaks, intermittent test failures, compilation warnings from deep dependency chains -- the natural tendency is to jump to the most obvious explanation and start fixing. The `/debug-investigation` command resists this impulse by enforcing a systematic approach: first reproduce consistently, then isolate to the minimal failing case, form multiple hypotheses ranked by probability, test each hypothesis against evidence, and only then implement a fix with mandatory regression tests.
 
-This command operates under the **L2+** authority level and is executed by the `debug-investigation-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command supports three investigation depths (quick, standard, deep) and optional auto-fix capability that implements the identified solution with regression test generation.
+This command operates under the **L2+** authority level and is executed by the `debug-investigation-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command supports three investigation depths (quick, standard, deep) and optional auto-fix capability that implements the identified solution with regression test generation.
 
 The investigation output follows a standardized report format that documents the complete diagnostic journey from initial symptom through root cause to resolution. This report serves as both documentation for the current fix and a knowledge base entry for future similar issues.
 
@@ -227,10 +227,10 @@ PREVENTION:
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `debug-investigation-specialist` | Primary investigation agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `debug-investigation-specialist` | Primary investigation agent |
 | AIAD Registry | Command specification and discovery | Standard AIAD interface |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation | Fix verification gates |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) | Investigation event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation | Fix verification gates |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) | Investigation event tracking |
 | Git Integration | `git blame`, `git log` for change history | Recent change analysis |
 | Test Framework | ExUnit test generation | Regression test creation |
 | Mandatory Regression Protocol | P0 enforcement | Every fix must have regression tests |
@@ -293,19 +293,19 @@ Each investigation report contributes to the platform's debugging knowledge base
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Every bug fix must include regression tests. No fix is delivered without verification that the regression test fails before the fix and passes after. The Mandatory Regression Test Protocol is non-bypassable.
 - **NO DOUBTS**: Full investigation through systematic hypothesis testing before action. Root causes are confirmed through evidence, not assumed through intuition.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/debug-types](/commands/debug-types/) - Troubleshoot [Dialyzer](/glossary/dialyzer/) type inference issues
-- [/coordinate](/commands/coordinate/) - Orchestrate complex multi-agent operations
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/debug-types](@/commands/debug-types.md) - Troubleshoot [Dialyzer](@/glossary/dialyzer.md) type inference issues
+- [/coordinate](@/commands/coordinate.md) - Orchestrate complex multi-agent operations
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
 
 ---
 
@@ -314,4 +314,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

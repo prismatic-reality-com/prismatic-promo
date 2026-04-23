@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-SaaS churn prediction & triage — An academic treatment of organizational learning and corporate training systems within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **saas churn prediction & triage** as implemented within the Prismatic Platform's organizational learning and corporate training systems domain. We formalize the problem space through the lens of competency modeling and Kirkpatrick evaluation model, propose a multi-agent architecture leveraging [OTP](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates instructional design frameworks (ADDIE, SAM), competency gap analysis, learning experience design to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for organizational learning and corporate training systems.
+SaaS churn prediction & triage — An academic treatment of organizational learning and corporate training systems within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **saas churn prediction & triage** as implemented within the Prismatic Platform's organizational learning and corporate training systems domain. We formalize the problem space through the lens of competency modeling and Kirkpatrick evaluation model, propose a multi-agent architecture leveraging [OTP](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates instructional design frameworks (ADDIE, SAM), competency gap analysis, learning experience design to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for organizational learning and corporate training systems.
 
 **Keywords:** SaaS, churn, prediction, triage, Prismatic-native, Business
 
@@ -115,7 +115,7 @@ The saas churn prediction & triage system is implemented as a Prismatic-native a
 
 ### 3.2 OTP Process Topology
 
-The system leverages [Elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [Elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule SaasChurnPredictionTriage.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -216,7 +216,7 @@ The implementation leverages the Prismatic Platform's technology stack:
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
 | Runtime | Elixir 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
-| Web Layer | Phoenix [LiveView](/glossary/liveview/) | Real-time interactive dashboards |
+| Web Layer | Phoenix [LiveView](@/glossary/liveview.md) | Real-time interactive dashboards |
 | Storage | PostgreSQL + ETS | Persistent + in-memory storage |
 | Search | Meilisearch | Full-text search and indexing |
 | Styling | TailwindCSS + Flowbite | Consistent UI component library |
@@ -464,19 +464,19 @@ config :prismatic, SaasChurnPredictionTriage,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [Agent-based prediction markets](/applications/algorithmic-trading-finance/agent-based-prediction-markets/) — *Algorithmic Trading Finance*
-- [Podcast conversational coach](/applications/communication-media/podcast-conversational-coach/) — *Communication Media*
-- [Public statement contradiction check](/applications/communication-media/public-statement-contradiction-check/) — *Communication Media*
-- [Autonomous financial societies](/applications/algorithmic-trading-finance/autonomous-financial-societies/) — *Algorithmic Trading Finance*
+- [Agent-based prediction markets](@/applications/algorithmic-trading-finance/agent-based-prediction-markets.md) — *Algorithmic Trading Finance*
+- [Podcast conversational coach](@/applications/communication-media/podcast-conversational-coach.md) — *Communication Media*
+- [Public statement contradiction check](@/applications/communication-media/public-statement-contradiction-check.md) — *Communication Media*
+- [Autonomous financial societies](@/applications/algorithmic-trading-finance/autonomous-financial-societies.md) — *Algorithmic Trading Finance*
 
 
 ## Further Reading
 
-- [Business Organizational Training — All Applications](/applications/business-organizational-training/)
-- [Algorithmic Trading Finance](/applications/algorithmic-trading-finance/)
-- [Legal Governance Systems](/applications/legal-governance-systems/)
-- [Crisis Intervention Negotiation](/applications/crisis-intervention-negotiation/)
-- [Prismatic Application Catalogue](/applications/)
+- [Business Organizational Training — All Applications](@/applications/business-organizational-training/_index.md)
+- [Algorithmic Trading Finance](@/applications/algorithmic-trading-finance/_index.md)
+- [Legal Governance Systems](@/applications/legal-governance-systems/_index.md)
+- [Crisis Intervention Negotiation](@/applications/crisis-intervention-negotiation/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

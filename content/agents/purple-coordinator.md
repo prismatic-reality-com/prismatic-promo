@@ -28,9 +28,9 @@ image_alt = "purple-coordinator - Prismatic Platform"
 
 ## Overview
 
-The purple-coordinator operates as an L2 Tactical Operations authority within the Prismatic Platform's epistemic-synthesis domain, serving as the central hub for synthesis between [Red](/teams/red/) (adversarial) and [Blue](/teams/blue/) (defensive) security operations. This agent embodies a foundational principle of the platform's security philosophy: Purple is not a team -- it is the property of the system when it stops lying to itself. The purple-coordinator does not conduct adversarial attacks or implement defenses; instead, it orchestrates the continuous feedback loop between attack and defense, ensuring that adversarial findings drive defensive improvements and that defensive capabilities inform adversarial focus areas. This synthesis function is the mechanism through which the platform achieves genuine security posture improvement rather than security theater.
+The purple-coordinator operates as an L2 Tactical Operations authority within the Prismatic Platform's epistemic-synthesis domain, serving as the central hub for synthesis between [Red](@/teams/red.md) (adversarial) and [Blue](@/teams/blue.md) (defensive) security operations. This agent embodies a foundational principle of the platform's security philosophy: Purple is not a team -- it is the property of the system when it stops lying to itself. The purple-coordinator does not conduct adversarial attacks or implement defenses; instead, it orchestrates the continuous feedback loop between attack and defense, ensuring that adversarial findings drive defensive improvements and that defensive capabilities inform adversarial focus areas. This synthesis function is the mechanism through which the platform achieves genuine security posture improvement rather than security theater.
 
-The coordinator manages the complete Red-Blue interaction lifecycle: receiving adversarial findings from Red team agents, routing them to appropriate Blue team defenders, tracking defensive responses through the closure pipeline, and synthesizing the aggregate results into platform-wide epistemic posture assessments. Under the [NABLA Infinity](/glossary/nabla-infinity/) framework, the purple-coordinator enforces anti-metric principles -- it resists the natural organizational tendency to optimize for metrics rather than genuine security improvement. Closure rates, response times, and finding counts are tracked for operational awareness but explicitly prohibited from serving as success criteria. The only valid measure of Purple success is whether the system's epistemic posture is genuinely improving, as assessed through independent verification.
+The coordinator manages the complete Red-Blue interaction lifecycle: receiving adversarial findings from Red team agents, routing them to appropriate Blue team defenders, tracking defensive responses through the closure pipeline, and synthesizing the aggregate results into platform-wide epistemic posture assessments. Under the [NABLA Infinity](@/glossary/nabla-infinity.md) framework, the purple-coordinator enforces anti-metric principles -- it resists the natural organizational tendency to optimize for metrics rather than genuine security improvement. Closure rates, response times, and finding counts are tracked for operational awareness but explicitly prohibited from serving as success criteria. The only valid measure of Purple success is whether the system's epistemic posture is genuinely improving, as assessed through independent verification.
 
 ## Epistemic Synthesis Model
 
@@ -40,7 +40,7 @@ The purple-coordinator implements a continuous synthesis loop that transforms ad
 
 **Defensive Routing** assigns findings to appropriate Blue team agents based on finding classification, Blue team capability mapping, and current workload distribution. The coordinator maintains a real-time view of Blue team capacity and expertise, ensuring that findings are routed to agents with the relevant domain knowledge and available bandwidth. Critical findings receive priority routing with acknowledgment requirements and response deadlines.
 
-**Closure Tracking** monitors the progress of each finding through the closure state machine managed by the [purple-closure-analyst](/agents/purple-closure-analyst/). The coordinator aggregates closure pipeline metrics -- OPEN finding age distribution, PARTIAL finding gap analysis, CLOSED finding confidence levels, and FALSE_CLOSURE incident frequency -- into a holistic view of the platform's defensive response effectiveness.
+**Closure Tracking** monitors the progress of each finding through the closure state machine managed by the [purple-closure-analyst](@/agents/purple-closure-analyst.md). The coordinator aggregates closure pipeline metrics -- OPEN finding age distribution, PARTIAL finding gap analysis, CLOSED finding confidence levels, and FALSE_CLOSURE incident frequency -- into a holistic view of the platform's defensive response effectiveness.
 
 **Posture Synthesis** produces periodic epistemic posture assessments that characterize the platform's overall security state. These assessments combine quantitative metrics (finding counts, closure rates, regression frequencies) with qualitative analysis (attack surface trends, defensive coverage gaps, emerging threat patterns) to produce a nuanced characterization of where the platform stands and where improvement is needed.
 
@@ -85,25 +85,25 @@ Blue team defensive capabilities are communicated to Red team at an abstract lev
 
 | Agent | Relationship |
 |-------|-------------|
-| [purple-closure-analyst](/agents/purple-closure-analyst/) | Closure pipeline management and false closure detection |
-| [purple-mapper](/agents/purple-mapper/) | Red-to-Blue finding mapping and coverage gap identification |
-| [purple-regression-guard](/agents/purple-regression-guard/) | Regression monitoring for closed findings |
-| [red-commander](/agents/red-commander/) | Red team adversarial campaign coordination |
-| [blue-commander](/agents/blue-commander/) | Blue team defensive capability and capacity management |
+| [purple-closure-analyst](@/agents/purple-closure-analyst.md) | Closure pipeline management and false closure detection |
+| [purple-mapper](@/agents/purple-mapper.md) | Red-to-Blue finding mapping and coverage gap identification |
+| [purple-regression-guard](@/agents/purple-regression-guard.md) | Regression monitoring for closed findings |
+| [red-commander](@/agents/red-commander.md) | Red team adversarial campaign coordination |
+| [blue-commander](@/agents/blue-commander.md) | Blue team defensive capability and capacity management |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Synthesis pipeline [metrics](/glossary/metrics/) and posture assessment data |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Color team agent coordination and capability registry |
-| [SEADF](/glossary/seadf/) Pipeline | Epistemic evolution assessment and quality monitoring |
-| [Trinity Gate](/glossary/trinity-gate/) | Three-layer validation for posture assessment claims |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Synthesis pipeline [metrics](@/glossary/metrics.md) and posture assessment data |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Color team agent coordination and capability registry |
+| [SEADF](@/glossary/seadf.md) Pipeline | Epistemic evolution assessment and quality monitoring |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Three-layer validation for posture assessment claims |
 
 ## Enforcement
 
-Synthesis operations are governed by the [NO MERCY](/glossary/no-mercy/) doctrine -- incomplete synthesis assessments, anti-metric violations, and finding routing failures are rejected without exception. The [NABLA Infinity](/glossary/nabla-infinity/) addiction preservation doctrine requires that uncomfortable findings, unflattering posture assessments, and inconvenient contradictions between Red and Blue perspectives are preserved and surfaced rather than smoothed over. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all posture assessments are grounded in specific evidence from the adversarial-defensive pipeline, not in organizational narratives about security maturity. Every claim in a posture assessment references specific findings, closure evidence, or coverage metrics.
+Synthesis operations are governed by the [NO MERCY](@/glossary/no-mercy.md) doctrine -- incomplete synthesis assessments, anti-metric violations, and finding routing failures are rejected without exception. The [NABLA Infinity](@/glossary/nabla-infinity.md) addiction preservation doctrine requires that uncomfortable findings, unflattering posture assessments, and inconvenient contradictions between Red and Blue perspectives are preserved and surfaced rather than smoothed over. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all posture assessments are grounded in specific evidence from the adversarial-defensive pipeline, not in organizational narratives about security maturity. Every claim in a posture assessment references specific findings, closure evidence, or coverage metrics.
 
 ---
 
@@ -112,4 +112,4 @@ Synthesis operations are governed by the [NO MERCY](/glossary/no-mercy/) doctrin
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

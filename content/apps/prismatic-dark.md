@@ -24,13 +24,13 @@ image_alt = "Prismatic Dark - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Dark is the platform's security simulation framework, providing sandboxed environments for six color team operations with 20 specialized agents across adversarial simulation, defensive assessment, synthesis and closure, boundary exploration, constructive verification, and theoretical threat modeling. The framework enforces absolute isolation: no network access, no real data, no production state modification. Every operation executes within a `PrismaticDark.Sandbox` that validates isolation constraints before permitting execution. The [Red Team](/glossary/red-team/) operates with five epistemic attack primitives (truth distortion, confidence manipulation, signal poisoning, drift induction, salience hijacking) against synthetic datasets. The [Blue Team](/glossary/blue-team/) assesses defensive posture through evidence synthesis grounded in [NABLA axioms](/capabilities/nabla-axioms/). The [Purple Team](/glossary/purple-team/) manages Red-Blue loop closure with sole authority for closure state transitions. The [White Team](/glossary/white-team/) provides constructive verification through progressive formal proofs. The [Gray Team](/glossary/gray-team/) explores specification boundaries. The [Black Team](/glossary/black-team/) -- operating under maximum isolation -- produces abstract threat models that never include executable content.
+Prismatic Dark is the platform's security simulation framework, providing sandboxed environments for six color team operations with 20 specialized agents across adversarial simulation, defensive assessment, synthesis and closure, boundary exploration, constructive verification, and theoretical threat modeling. The framework enforces absolute isolation: no network access, no real data, no production state modification. Every operation executes within a `PrismaticDark.Sandbox` that validates isolation constraints before permitting execution. The [Red Team](@/glossary/red-team.md) operates with five epistemic attack primitives (truth distortion, confidence manipulation, signal poisoning, drift induction, salience hijacking) against synthetic datasets. The [Blue Team](@/glossary/blue-team.md) assesses defensive posture through evidence synthesis grounded in [NABLA axioms](@/capabilities/nabla-axioms.md). The [Purple Team](@/glossary/purple-team.md) manages Red-Blue loop closure with sole authority for closure state transitions. The [White Team](@/glossary/white-team.md) provides constructive verification through progressive formal proofs. The [Gray Team](@/glossary/gray-team.md) explores specification boundaries. The [Black Team](@/glossary/black-team.md) -- operating under maximum isolation -- produces abstract threat models that never include executable content.
 
 ## 1. Introduction
 
 ### 1.1 Problem Statement
 
-Security assessment requires understanding both attack vectors and defensive capabilities. Traditional [penetration testing](/glossary/penetration-testing/) focuses on specific vulnerabilities but misses epistemic [attack surface](/glossary/attack-surface/)s: how can an adversary manipulate the confidence, accuracy, or completeness of intelligence data? Without a structured framework for adversarial simulation and defensive assessment, security posture evaluation remains incomplete.
+Security assessment requires understanding both attack vectors and defensive capabilities. Traditional [penetration testing](@/glossary/penetration-testing.md) focuses on specific vulnerabilities but misses epistemic [attack surface](@/glossary/attack-surface.md)s: how can an adversary manipulate the confidence, accuracy, or completeness of intelligence data? Without a structured framework for adversarial simulation and defensive assessment, security posture evaluation remains incomplete.
 
 Prismatic Dark provides this framework through six specialized teams that collaboratively explore, attack, defend, and verify the platform's security posture -- all within strictly isolated sandboxes using synthetic data.
 
@@ -45,7 +45,7 @@ Prismatic Dark provides this framework through six specialized teams that collab
 
 ### 1.3 Scope
 
-Prismatic Dark provides the simulation framework and safety infrastructure. Individual team agent logic resides in [Prismatic Agents](/apps/prismatic-agents/). The framework is authorized for CTF challenges, defensive security research, and authorized penetration testing only.
+Prismatic Dark provides the simulation framework and safety infrastructure. Individual team agent logic resides in [Prismatic Agents](@/apps/prismatic-agents.md). The framework is authorized for CTF challenges, defensive security research, and authorized penetration testing only.
 
 ## 2. Architecture
 
@@ -185,21 +185,21 @@ config :prismatic_dark,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Agents](/apps/prismatic-agents/) | 20 color team agent definitions |
-| [Prismatic Safety](/apps/prismatic-safety/) | Ethics check enforcement |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Operation audit logging |
-| [Prismatic Nabla](/apps/prismatic-nabla/) | Epistemic axiom compliance |
+| [Prismatic Agents](@/apps/prismatic-agents.md) | 20 color team agent definitions |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Ethics check enforcement |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Operation audit logging |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | Epistemic axiom compliance |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Detection Engine](/apps/prismatic-detection-engine/) | Attack pattern feed |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Defensive posture integration |
+| [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) | Attack pattern feed |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Defensive posture integration |
 
 ### 4.3 Inter-Process Communication
 
-Team operations execute as supervised tasks within the sandbox. Signal flow between teams uses in-memory data passing (no [PubSub](/glossary/pubsub/) for isolation). Audit events are logged synchronously.
+Team operations execute as supervised tasks within the sandbox. Signal flow between teams uses in-memory data passing (no [PubSub](@/glossary/pubsub.md) for isolation). Audit events are logged synchronously.
 
 ### 4.4 External Integrations
 
@@ -237,7 +237,7 @@ Sandbox tests verify isolation enforcement (network blocking, data guard, time l
 
 ### 6.2 Integration Tests
 
-Full team exercise tests run multi-team scenarios from Gray exploration through Purple closure, verifying the complete signal flow and safety [protocol](/glossary/protocol/) enforcement.
+Full team exercise tests run multi-team scenarios from Gray exploration through Purple closure, verifying the complete signal flow and safety [protocol](@/glossary/protocol.md) enforcement.
 
 ### 6.3 Property-Based Testing
 
@@ -251,13 +251,13 @@ The primary threat is sandbox escape -- operations accessing real data or networ
 
 ### 7.2 Access Control
 
-Color team operations require explicit authorization. L5 (Supreme) agent authority required for Red and Black team activation. All operations logged to immutable [audit trail](/glossary/audit-trail/).
+Color team operations require explicit authorization. L5 (Supreme) agent authority required for Red and Black team activation. All operations logged to immutable [audit trail](@/glossary/audit-trail.md).
 
 ## 8. Operational Considerations
 
 ### 8.1 Deployment
 
-Deploys as part of the umbrella [release](/glossary/release/). Synthetic datasets are bundled. No external services required.
+Deploys as part of the umbrella [release](@/glossary/release.md). Synthetic datasets are bundled. No external services required.
 
 ### 8.2 Monitoring
 
@@ -278,22 +278,22 @@ Planned enhancements include automated Red-Blue exercise scheduling, historical 
 
 ## References
 
-- [Prismatic Agents](/apps/prismatic-agents/) -- Color team agent definitions
-- [Prismatic Safety](/apps/prismatic-safety/) -- Ethics enforcement
-- [Prismatic Nabla](/apps/prismatic-nabla/) -- Epistemic axiom framework
+- [Prismatic Agents](@/apps/prismatic-agents.md) -- Color team agent definitions
+- [Prismatic Safety](@/apps/prismatic-safety.md) -- Ethics enforcement
+- [Prismatic Nabla](@/apps/prismatic-nabla.md) -- Epistemic axiom framework
 - [MITRE ATT&CK](https://attack.mitre.org/) -- Attack technique taxonomy reference
 
 ## Related Agents
 
-- [GitLab Security Specialist Agent](/agents/gitlab-security-specialist-agent/) -- Reviews sandbox isolation enforcement and safety protocol implementation for security assurance
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Drives evolution of color team capabilities through autonomous scenario generation and effectiveness analysis
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Configures alerting for sandbox isolation breach attempts, ethics violations, and operational anomalies
+- [GitLab Security Specialist Agent](@/agents/gitlab-security-specialist-agent.md) -- Reviews sandbox isolation enforcement and safety protocol implementation for security assurance
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Drives evolution of color team capabilities through autonomous scenario generation and effectiveness analysis
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Configures alerting for sandbox isolation breach attempts, ethics violations, and operational anomalies
 
 ## Related Capabilities
 
-- [Color Teams](/capabilities/color-teams/) -- The six-team adversarial-defensive framework that Prismatic Dark implements with 20 specialized agents
-- [Quality Gates](/capabilities/quality-gates/) -- Enforces sandbox isolation verification, ethics check compliance, and audit logging completeness for all operations
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Enables automatic recovery from sandbox failures and ethics check violations through circuit breaker patterns
+- [Color Teams](@/capabilities/color-teams.md) -- The six-team adversarial-defensive framework that Prismatic Dark implements with 20 specialized agents
+- [Quality Gates](@/capabilities/quality-gates.md) -- Enforces sandbox isolation verification, ethics check compliance, and audit logging completeness for all operations
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Enables automatic recovery from sandbox failures and ethics check violations through circuit breaker patterns
 
 ---
 
@@ -302,4 +302,4 @@ Planned enhancements include automated Red-Blue exercise scheduling, historical 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

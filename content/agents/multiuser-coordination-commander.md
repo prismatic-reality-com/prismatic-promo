@@ -28,9 +28,9 @@ image_alt = "multiuser-coordination-commander - Prismatic Platform"
 
 ## Overview
 
-The multiuser-coordination-commander operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's coordination domain, serving as the [supreme commander](/glossary/supreme-commander/) for multiuser session coordination across multiple AI providers. This agent ensures that when multiple users or AI sessions operate concurrently against the same codebase, their operations remain conflict-free, consistent, and parallel-safe. It achieves this through the MCP [Blackboard](/glossary/blackboard/) pattern for shared state management and the [mycelial network](/glossary/mycelial-network/) for cross-session communication.
+The multiuser-coordination-commander operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's coordination domain, serving as the [supreme commander](@/glossary/supreme-commander.md) for multiuser session coordination across multiple AI providers. This agent ensures that when multiple users or AI sessions operate concurrently against the same codebase, their operations remain conflict-free, consistent, and parallel-safe. It achieves this through the MCP [Blackboard](@/glossary/blackboard.md) pattern for shared state management and the [mycelial network](@/glossary/mycelial-network.md) for cross-session communication.
 
-Built on [OTP](/glossary/otp/) [supervision trees](/glossary/supervision-tree/) and [dynamic supervisors](/glossary/dynamic-supervisor/), every user session runs within its own supervised process group, with the coordination commander managing session lifecycle, resource allocation, and conflict resolution. The [AIAD](/glossary/aiad/) standard governs all coordination protocols, and the [NO MERCY](/glossary/no-mercy/) doctrine ensures that conflicting operations are never silently merged -- conflicts are detected, surfaced, and resolved explicitly.
+Built on [OTP](@/glossary/otp.md) [supervision trees](@/glossary/supervision-tree.md) and [dynamic supervisors](@/glossary/dynamic-supervisor.md), every user session runs within its own supervised process group, with the coordination commander managing session lifecycle, resource allocation, and conflict resolution. The [AIAD](@/glossary/aiad.md) standard governs all coordination protocols, and the [NO MERCY](@/glossary/no-mercy.md) doctrine ensures that conflicting operations are never silently merged -- conflicts are detected, surfaced, and resolved explicitly.
 
 ## Operational Domain
 
@@ -49,10 +49,10 @@ The coordination domain covers all scenarios where multiple agents, users, or AI
 
 - **Session lifecycle management** -- Manages the complete lifecycle of concurrent user sessions from initialization through active operation to graceful termination, including session state persistence and recovery
 - **Conflict detection and resolution** -- Monitors resource access patterns across sessions to detect potential conflicts before they occur, implementing both optimistic (version checking) and pessimistic (advisory locking) conflict prevention strategies
-- **[Blackboard](/glossary/blackboard/) coordination** -- Maintains the MCP Blackboard as a shared knowledge space where sessions publish discoveries, claim resources, and coordinate activities through structured message protocols
-- **[Mycelial network](/glossary/mycelial-network/) session propagation** -- Broadcasts session state changes and coordination signals through the mycelial network, enabling real-time awareness of other sessions' activities
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-healing session recovery when sessions fail or disconnect unexpectedly
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing session count, conflict rates, coordination latency, and resource utilization metrics
+- **[Blackboard](@/glossary/blackboard.md) coordination** -- Maintains the MCP Blackboard as a shared knowledge space where sessions publish discoveries, claim resources, and coordinate activities through structured message protocols
+- **[Mycelial network](@/glossary/mycelial-network.md) session propagation** -- Broadcasts session state changes and coordination signals through the mycelial network, enabling real-time awareness of other sessions' activities
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-healing session recovery when sessions fail or disconnect unexpectedly
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing session count, conflict rates, coordination latency, and resource utilization metrics
 
 ## Session Coordination Architecture
 
@@ -135,7 +135,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with supreme authority over session lifecycle, resource allocation, and conflict resolution across all concurrent platform operations.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with supreme authority over session lifecycle, resource allocation, and conflict resolution across all concurrent platform operations.
 
 ## Session Coordination Metrics
 
@@ -160,14 +160,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Captures coordination events and session outcomes for debrief |
-| [code-quality-commander](/agents/code-quality-commander/) | Ensures concurrent code modifications maintain quality standards |
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Coordinates evolutionary operations across concurrent sessions |
-| [service-mesh-specialist](/agents/service-mesh-specialist/) | Routes inter-session communication through the service mesh |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Captures coordination events and session outcomes for debrief |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Ensures concurrent code modifications maintain quality standards |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Coordinates evolutionary operations across concurrent sessions |
+| [service-mesh-specialist](@/agents/service-mesh-specialist.md) | Routes inter-session communication through the service mesh |
 
 ## Blackboard Protocol
 
-The MCP Blackboard serves as the central coordination substrate. Sessions publish structured messages to topic channels, subscribe to relevant resource notifications, and query the shared state for coordination decisions. The blackboard implements eventual consistency with vector clock ordering, ensuring that all sessions converge on the same view of shared state even under concurrent updates. Messages carry [NABLA Infinity](/glossary/nabla-infinity/) provenance chains, enabling audit trail reconstruction for conflict resolution analysis.
+The MCP Blackboard serves as the central coordination substrate. Sessions publish structured messages to topic channels, subscribe to relevant resource notifications, and query the shared state for coordination decisions. The blackboard implements eventual consistency with vector clock ordering, ensuring that all sessions converge on the same view of shared state even under concurrent updates. Messages carry [NABLA Infinity](@/glossary/nabla-infinity.md) provenance chains, enabling audit trail reconstruction for conflict resolution analysis.
 
 ## Session Isolation Model
 
@@ -175,7 +175,7 @@ The multiuser-coordination-commander implements a multi-layered isolation model 
 
 ### Process-Level Isolation
 
-Each user session runs within its own [DynamicSupervisor](/glossary/dynamic-supervisor/)-managed process group. This provides hard isolation at the [BEAM](/glossary/beam/) process level: a crash in one session's processes cannot propagate to another session. Session processes are monitored, and unexpected termination triggers automatic cleanup of the session's resource claims, preventing resource leaks that could block other sessions.
+Each user session runs within its own [DynamicSupervisor](@/glossary/dynamic-supervisor.md)-managed process group. This provides hard isolation at the [BEAM](@/glossary/beam.md) process level: a crash in one session's processes cannot propagate to another session. Session processes are monitored, and unexpected termination triggers automatic cleanup of the session's resource claims, preventing resource leaks that could block other sessions.
 
 ### File-Level Coordination
 
@@ -191,11 +191,11 @@ While file and database access is isolated, knowledge sharing is explicitly enco
 
 ## Distributed Coordination
 
-When the platform operates across multiple [BEAM](/glossary/beam/) nodes, the coordination commander extends its protocols to handle distributed session management. Resource claims are replicated across nodes using a distributed lock service built on [OTP](/glossary/otp/) distributed Erlang primitives. The blackboard synchronizes across nodes through Phoenix.PubSub's distributed adapter, ensuring that all nodes maintain a consistent view of active sessions and their resource claims. Network partition handling follows a conservative approach: during a partition, sessions on each side of the partition can continue operating on resources they have already claimed, but new claims that conflict with sessions on the other partition are rejected until connectivity is restored.
+When the platform operates across multiple [BEAM](@/glossary/beam.md) nodes, the coordination commander extends its protocols to handle distributed session management. Resource claims are replicated across nodes using a distributed lock service built on [OTP](@/glossary/otp.md) distributed Erlang primitives. The blackboard synchronizes across nodes through Phoenix.PubSub's distributed adapter, ensuring that all nodes maintain a consistent view of active sessions and their resource claims. Network partition handling follows a conservative approach: during a partition, sessions on each side of the partition can continue operating on resources they have already claimed, but new claims that conflict with sessions on the other partition are rejected until connectivity is restored.
 
 ## Enforcement
 
-All multiuser coordination operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: conflicting writes are never silently merged, resource claims are atomic and consistent, and session failures trigger complete resource release to prevent deadlocks. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all conflict resolution decisions are deterministic and auditable, with full provenance chains linking resource claims to session identities and timestamps.
+All multiuser coordination operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: conflicting writes are never silently merged, resource claims are atomic and consistent, and session failures trigger complete resource release to prevent deadlocks. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all conflict resolution decisions are deterministic and auditable, with full provenance chains linking resource claims to session identities and timestamps.
 
 ---
 
@@ -204,4 +204,4 @@ All multiuser coordination operations comply with the [NO MERCY](/glossary/no-me
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

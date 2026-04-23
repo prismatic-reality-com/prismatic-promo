@@ -28,9 +28,9 @@ image_alt = "manipulation-detection - Prismatic Platform"
 
 ## Overview
 
-The manipulation-detection agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's safety domain, responsible for real-time identification of active information manipulation campaigns. Unlike the research and forensics agents that study manipulation historically, this agent functions as the live detection layer -- continuously monitoring content streams, communication patterns, and behavioral signals to identify manipulation operations as they unfold. Early detection is critical to limiting the impact of narrative distortion, confidence manipulation, and coordinated inauthentic behavior.
+The manipulation-detection agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's safety domain, responsible for real-time identification of active information manipulation campaigns. Unlike the research and forensics agents that study manipulation historically, this agent functions as the live detection layer -- continuously monitoring content streams, communication patterns, and behavioral signals to identify manipulation operations as they unfold. Early detection is critical to limiting the impact of narrative distortion, confidence manipulation, and coordinated inauthentic behavior.
 
-Governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine and built on the [AIAD](/glossary/aiad/) standard, the detection agent applies the [NABLA Infinity](/glossary/nabla-infinity/) framework's [signal plurality](/glossary/signal-plurality/) axiom to minimize false positives. Every detection alert requires corroboration from at least two independent signal sources before escalation. The agent publishes detection events through the platform's [telemetry](/glossary/telemetry/) infrastructure, enabling immediate response coordination across the [color-team](/glossary/color-teams/) security architecture.
+Governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine and built on the [AIAD](@/glossary/aiad.md) standard, the detection agent applies the [NABLA Infinity](@/glossary/nabla-infinity.md) framework's [signal plurality](@/glossary/signal-plurality.md) axiom to minimize false positives. Every detection alert requires corroboration from at least two independent signal sources before escalation. The agent publishes detection events through the platform's [telemetry](@/glossary/telemetry.md) infrastructure, enabling immediate response coordination across the [color-team](@/glossary/color-teams.md) security architecture.
 
 The manipulation detection domain addresses a growing threat to information integrity across digital and traditional media channels. As manipulation techniques become more sophisticated -- leveraging AI-generated content, coordinated bot networks, and multi-platform amplification strategies -- automated detection becomes essential for maintaining epistemic defenses. This agent provides the real-time layer that bridges the gap between research knowledge of manipulation techniques and operational defensive response.
 
@@ -138,12 +138,12 @@ end
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [manipulation-research](/agents/manipulation-research/) | Consumes technique taxonomy for detection rule generation | Inbound |
-| [manipulation-forensics](/agents/manipulation-forensics/) | Escalates confirmed detections for forensic investigation | Outbound |
-| [manipulation-detector](/agents/manipulation-detector/) | Complementary detection coverage (WHITE variant mode) | Bidirectional |
-| [blue-drift-detector](/agents/red-drift-inducer/) | Shares behavioral drift signals for cross-domain correlation | Bidirectional |
-| [red-scenario-generator](/agents/red-scenario-generator/) | Receives adversarial scenarios for detection model stress testing | Inbound |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
+| [manipulation-research](@/agents/manipulation-research.md) | Consumes technique taxonomy for detection rule generation | Inbound |
+| [manipulation-forensics](@/agents/manipulation-forensics.md) | Escalates confirmed detections for forensic investigation | Outbound |
+| [manipulation-detector](@/agents/manipulation-detector.md) | Complementary detection coverage (WHITE variant mode) | Bidirectional |
+| [blue-drift-detector](@/agents/red-drift-inducer.md) | Shares behavioral drift signals for cross-domain correlation | Bidirectional |
+| [red-scenario-generator](@/agents/red-scenario-generator.md) | Receives adversarial scenarios for detection model stress testing | Inbound |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
 | Prismatic Telemetry | Detection event publishing and monitoring dashboard feeds | Outbound |
 
 ## Operational Workflow
@@ -172,7 +172,7 @@ end
 | Source Independence | Independent detection stages provide non-correlated validation signals |
 | Provenance Mandatory | Every detection alert carries full signal chain documentation |
 
-Detection outputs are held to [Trinity Gate](/glossary/trinity-gate/) validation standards. False-positive rates are tracked and must remain below defined thresholds.
+Detection outputs are held to [Trinity Gate](@/glossary/trinity-gate.md) validation standards. False-positive rates are tracked and must remain below defined thresholds.
 
 ## Configuration
 
@@ -200,14 +200,14 @@ config :prismatic_safety, Prismatic.Safety.ManipulationDetection,
 
 ## Related Resources
 
-- [manipulation-research](/agents/manipulation-research/) -- Technique taxonomy provider
-- [manipulation-forensics](/agents/manipulation-forensics/) -- Post-detection investigation
-- [manipulation-detector](/agents/manipulation-detector/) -- Complementary detection (WHITE mode)
-- [blue-commander](/agents/blue-commander/) -- Defensive posture integration
-- [red-scenario-generator](/agents/red-scenario-generator/) -- Adversarial testing
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for detection rigor
-- [Color Teams](/glossary/color-teams/) -- Security operations architecture
+- [manipulation-research](@/agents/manipulation-research.md) -- Technique taxonomy provider
+- [manipulation-forensics](@/agents/manipulation-forensics.md) -- Post-detection investigation
+- [manipulation-detector](@/agents/manipulation-detector.md) -- Complementary detection (WHITE mode)
+- [blue-commander](@/agents/blue-commander.md) -- Defensive posture integration
+- [red-scenario-generator](@/agents/red-scenario-generator.md) -- Adversarial testing
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for detection rigor
+- [Color Teams](@/glossary/color-teams.md) -- Security operations architecture
 
 ---
 
@@ -216,4 +216,4 @@ config :prismatic_safety, Prismatic.Safety.ManipulationDetection,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -546,18 +546,18 @@ For the Prismatic Platform, future DNS-related developments include deeper integ
 
 ## See Also
 
-- [DNS Enumeration](/glossary/dns-enumeration/) -- the systematic process of discovering DNS records for intelligence gathering, a core capability of the Prismatic Perimeter EASM module
-- [Attack Surface](/glossary/attack-surface/) -- DNS records expose the external-facing components of an organization's infrastructure, making DNS a primary vector for attack surface discovery
-- [EASM](/glossary/easm/) -- External Attack Surface Management relies heavily on DNS intelligence to map and monitor an organization's internet-facing assets
-- [Certificate Transparency](/glossary/certificate-transparency/) -- CT logs complement DNS enumeration by revealing certificates issued for domains and subdomains
-- [TLS](/glossary/tls/) -- Transport Layer Security depends on DNS for certificate validation, CAA enforcement, and secure connection establishment
-- [Security Rating](/glossary/security-rating/) -- DNS configuration quality (DNSSEC, CAA, SPF/DKIM) contributes directly to an organization's security rating score
-- [OSINT](/glossary/osint/) -- DNS data is a foundational open-source intelligence source for security investigations and due diligence
-- [Monitoring](/glossary/monitoring/) -- DNS resolution timing and query patterns are essential infrastructure health metrics
-- [Distributed System](/glossary/distributed-system/) -- DNS-based service discovery enables distributed Elixir clusters to form and maintain connectivity
-- [WHOIS](/glossary/whois/) -- domain registration data from WHOIS complements DNS records to provide ownership and administrative context
-- [Shodan](/glossary/shodan/) -- correlating DNS records with Shodan's internet-wide scanning data reveals services running on discovered IP addresses
-- [Fly.io](/glossary/fly-io/) -- the platform's production hosting environment that uses DNS for Anycast routing and cluster formation
+- [DNS Enumeration](@/glossary/dns-enumeration.md) -- the systematic process of discovering DNS records for intelligence gathering, a core capability of the Prismatic Perimeter EASM module
+- [Attack Surface](@/glossary/attack-surface.md) -- DNS records expose the external-facing components of an organization's infrastructure, making DNS a primary vector for attack surface discovery
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management relies heavily on DNS intelligence to map and monitor an organization's internet-facing assets
+- [Certificate Transparency](@/glossary/certificate-transparency.md) -- CT logs complement DNS enumeration by revealing certificates issued for domains and subdomains
+- [TLS](@/glossary/tls.md) -- Transport Layer Security depends on DNS for certificate validation, CAA enforcement, and secure connection establishment
+- [Security Rating](@/glossary/security-rating.md) -- DNS configuration quality (DNSSEC, CAA, SPF/DKIM) contributes directly to an organization's security rating score
+- [OSINT](@/glossary/osint.md) -- DNS data is a foundational open-source intelligence source for security investigations and due diligence
+- [Monitoring](@/glossary/monitoring.md) -- DNS resolution timing and query patterns are essential infrastructure health metrics
+- [Distributed System](@/glossary/distributed-system.md) -- DNS-based service discovery enables distributed Elixir clusters to form and maintain connectivity
+- [WHOIS](@/glossary/whois.md) -- domain registration data from WHOIS complements DNS records to provide ownership and administrative context
+- [Shodan](@/glossary/shodan.md) -- correlating DNS records with Shodan's internet-wide scanning data reveals services running on discovered IP addresses
+- [Fly.io](@/glossary/fly-io.md) -- the platform's production hosting environment that uses DNS for Anycast routing and cluster formation
 
 ---
 

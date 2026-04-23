@@ -24,7 +24,7 @@ image_alt = "External Attack Surface Mapping - Prismatic Platform"
 
 ## Hypothesis
 
-We hypothesize that the Prismatic Perimeter [EASM](/glossary/easm/) discovery engine can identify 90%+ of an organization's externally visible assets within 60 minutes using passive techniques (no active scanning), that combining 5+ independent discovery methods improves asset completeness by 35% over any single method, and that the A-F security rating system correlates with actual incident likelihood at r > 0.75.
+We hypothesize that the Prismatic Perimeter [EASM](@/glossary/easm.md) discovery engine can identify 90%+ of an organization's externally visible assets within 60 minutes using passive techniques (no active scanning), that combining 5+ independent discovery methods improves asset completeness by 35% over any single method, and that the A-F security rating system correlates with actual incident likelihood at r > 0.75.
 
 ## Background
 
@@ -36,7 +36,7 @@ The Prismatic Perimeter discovery engine uses six independent discovery methods:
 
 The security rating system assigns A-F grades based on evidence collected across 8 risk categories: Patching Cadence, Network Security, DNS Health, Application Security, Endpoint Security, IP Reputation, Email Security, and Web Application Security. Ratings are calculated using a 300-900 numeric score that maps to letter grades.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) Signal Plurality axiom is particularly relevant here: every security rating must be supported by evidence from at least 2 independent sources, and contradictory evidence must be preserved rather than averaged away.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) Signal Plurality axiom is particularly relevant here: every security rating must be supported by evidence from at least 2 independent sources, and contradictory evidence must be preserved rather than averaged away.
 
 ## Methodology
 
@@ -252,7 +252,7 @@ The security rating correlation of r = 0.81 exceeds the 0.75 target, validating 
 
 The 60-minute target was met for organizations with up to 5,000 assets but exceeded by 14% for the 5,000-10,000 range. The bottleneck is Certificate Transparency log analysis, which must query multiple CT log aggregators for large certificate footprints. Parallel query optimization could bring this within the target.
 
-The [NABLA](/glossary/nabla-infinity/) Signal Plurality requirement (minimum 2 evidence sources per rating category) was satisfied for 94.3% of assessments. The 5.7% failure rate was concentrated in Email Security for organizations with non-standard email configurations.
+The [NABLA](@/glossary/nabla-infinity.md) Signal Plurality requirement (minimum 2 evidence sources per rating category) was satisfied for 94.3% of assessments. The 5.7% failure rate was concentrated in Email Security for organizations with non-standard email configurations.
 
 ## Conclusions
 
@@ -268,15 +268,15 @@ The [NABLA](/glossary/nabla-infinity/) Signal Plurality requirement (minimum 2 e
 - Optimize Certificate Transparency queries for 10,000+ asset organizations
 - Add historical asset tracking to detect newly appearing and disappearing assets
 - Build comparative industry benchmarking using aggregate rating data
-- Integrate discovery results with [Color Team](/glossary/color-teams/) for automated attack path analysis
+- Integrate discovery results with [Color Team](@/glossary/color-teams.md) for automated attack path analysis
 - Develop NIS2 and ZKB compliance assessment modules using discovery data
 
 ## Related Experiments
 
-- [OSINT Pipeline](/lab/osint-pipeline/) -- OSINT providers that feed discovery methods
-- [Color Team Simulation](/lab/color-team-simulation/) -- Adversarial testing of discovered attack surfaces
-- [Drift Detection](/lab/drift-detection/) -- Detecting attack surface drift over time
-- [Storage Benchmarks](/lab/storage-benchmarks/) -- Storage requirements for asset inventories
+- [OSINT Pipeline](@/lab/osint-pipeline.md) -- OSINT providers that feed discovery methods
+- [Color Team Simulation](@/lab/color-team-simulation.md) -- Adversarial testing of discovered attack surfaces
+- [Drift Detection](@/lab/drift-detection.md) -- Detecting attack surface drift over time
+- [Storage Benchmarks](@/lab/storage-benchmarks.md) -- Storage requirements for asset inventories
 
 ---
 
@@ -285,4 +285,4 @@ The [NABLA](/glossary/nabla-infinity/) Signal Plurality requirement (minimum 2 e
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

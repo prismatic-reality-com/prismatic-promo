@@ -28,9 +28,9 @@ image_alt = "/estimate - Prismatic Platform"
 
 Traditional software estimation suffers from systematic bias -- developers consistently underestimate complexity, particularly for tasks that involve cross-cutting concerns, unfamiliar subsystems, or cascading dependency changes. The `/estimate` command addresses this by combining static analysis of the codebase with historical data from previous similar changes, producing calibrated estimates with explicit confidence intervals.
 
-The [estimator](/agents/estimator/) agent powers this command, applying multiple estimation methodologies simultaneously: function point analysis for scope quantification, dependency impact analysis for ripple-effect estimation, historical analogy matching for calibration against past deliveries, and complexity scoring based on cyclomatic and cognitive complexity metrics. The results are synthesized into a unified estimate with transparent methodology attribution.
+The [estimator](@/agents/estimator.md) agent powers this command, applying multiple estimation methodologies simultaneously: function point analysis for scope quantification, dependency impact analysis for ripple-effect estimation, historical analogy matching for calibration against past deliveries, and complexity scoring based on cyclomatic and cognitive complexity metrics. The results are synthesized into a unified estimate with transparent methodology attribution.
 
-This command operates under the **L2+** authority level and is executed by the `estimator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level means any operational agent or higher can invoke estimation, making it accessible across the development workflow.
+This command operates under the **L2+** authority level and is executed by the `estimator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level means any operational agent or higher can invoke estimation, making it accessible across the development workflow.
 
 ## Architecture
 
@@ -121,7 +121,7 @@ The `/estimate` command follows a structured 5-phase estimation pipeline:
 
 1. **Task Decomposition**: The input task description is decomposed into atomic work units. For module-targeted estimates, the decomposition follows the module's public API surface. For issue-based estimates, the decomposition extracts actionable requirements from the issue description.
 
-2. **Static Analysis**: Each work unit is analyzed against the current codebase. The analyzer identifies which files would likely need modification, computes their complexity metrics, and maps their dependency relationships. This phase leverages [git trees](/glossary/git-trees/) for efficient codebase traversal.
+2. **Static Analysis**: Each work unit is analyzed against the current codebase. The analyzer identifies which files would likely need modification, computes their complexity metrics, and maps their dependency relationships. This phase leverages [git trees](@/glossary/git-trees.md) for efficient codebase traversal.
 
 3. **Impact Assessment**: The dependency mapper computes the blast radius -- how many modules, tests, and configurations would be affected by the proposed changes. Cross-application dependencies in the umbrella structure receive particular attention.
 
@@ -133,17 +133,17 @@ The `/estimate` command follows a structured 5-phase estimation pipeline:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Estimator agent performs multi-model analysis |
-| [Git Trees](/glossary/git-trees/) | Data Source | Codebase structure and file analysis |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Estimator agent performs multi-model analysis |
+| [Git Trees](@/glossary/git-trees.md) | Data Source | Codebase structure and file analysis |
 | GitLab API | Data Source | Issue descriptions, milestone metadata, historical velocity |
-| [Quality Gates](/glossary/quality-gates/) | Calibration | Quality requirements inflate estimates for high-coverage areas |
-| [Telemetry](/glossary/telemetry/) | Tracking | Estimation accuracy [metrics](/glossary/metrics/) and calibration data |
+| [Quality Gates](@/glossary/quality-gates.md) | Calibration | Quality requirements inflate estimates for high-coverage areas |
+| [Telemetry](@/glossary/telemetry.md) | Tracking | Estimation accuracy [metrics](@/glossary/metrics.md) and calibration data |
 | AIAD Registry | Discovery | Command specification and agent binding |
-| [SEADF](/glossary/seadf/) | Evolution | Estimation models evolve based on accuracy feedback |
+| [SEADF](@/glossary/seadf.md) | Evolution | Estimation models evolve based on accuracy feedback |
 
 ## Best Practices
 
-**Always include dependency impact for cross-cutting changes**: Changes that touch core libraries like [prismatic_storage_core](/apps/prismatic-storage-core/) or [prismatic](/apps/prismatic/) have non-obvious ripple effects. Use `--include-deps` to capture these.
+**Always include dependency impact for cross-cutting changes**: Changes that touch core libraries like [prismatic_storage_core](@/apps/prismatic-storage-core.md) or [prismatic](@/apps/prismatic.md) have non-obvious ripple effects. Use `--include-deps` to capture these.
 
 **Use P80 confidence for planning, P95 for commitments**: The P50 estimate represents the optimistic scenario. Use P80 for sprint planning and P95 when making external delivery commitments.
 
@@ -188,27 +188,27 @@ The `/estimate` command follows a structured 5-phase estimation pipeline:
 
 ### Integration with Evolution
 
-The estimation system participates in the platform's [evolution](/commands/evolve/) cycle. Estimation models are treated as evolvable artifacts -- accuracy feedback from completed tasks is used to automatically tune model weights and calibration factors across generations.
+The estimation system participates in the platform's [evolution](@/commands/evolve.md) cycle. Estimation models are treated as evolvable artifacts -- accuracy feedback from completed tasks is used to automatically tune model weights and calibration factors across generations.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unsupported estimates. Every estimate must be backed by analysis artifacts -- complexity scores, dependency maps, historical analogies. No hand-waving, no gut-feel numbers.
 - **NO DOUBTS**: Full investigation before estimation. The estimator agent exhaustively analyzes the relevant codebase areas, dependency relationships, and historical patterns before producing an estimate. Confidence intervals are mandatory.
 
-The evidence-based approach to estimation directly embodies the [NABLA Infinity](/glossary/nabla-infinity/) axioms: signal plurality (multiple estimation methods), provenance mandatory (methodology attribution), and unknown valid (explicit confidence intervals acknowledging uncertainty).
+The evidence-based approach to estimation directly embodies the [NABLA Infinity](@/glossary/nabla-infinity.md) axioms: signal plurality (multiple estimation methods), provenance mandatory (methodology attribution), and unknown valid (explicit confidence intervals acknowledging uncertainty).
 
 ## Related Commands
 
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/focus](/commands/focus/) - Strategic focus management and priority coordination
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/focus](@/commands/focus.md) - Strategic focus management and priority coordination
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
 
 ---
 
@@ -217,4 +217,4 @@ The evidence-based approach to estimation directly embodies the [NABLA Infinity]
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

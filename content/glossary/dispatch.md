@@ -158,15 +158,15 @@ end
 
 ## Related Terms
 
-- [GenServer](/glossary/genserver/) -- OTP behaviour with message dispatch through pattern-matched callbacks
-- [Plug](/glossary/plug/) -- HTTP request dispatch through composable pipelines
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour with message dispatch through pattern-matched callbacks
+- [Plug](@/glossary/plug.md) -- HTTP request dispatch through composable pipelines
 - **Event** -- Domain events routed through dispatch mechanisms
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Module-level dispatch for backend selection
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Module-level dispatch for backend selection
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform dispatch architecture
-- [Apps](/apps/) -- Applications using dispatch patterns
+- [Architecture](@/architecture/_index.md) -- Platform dispatch architecture
+- [Apps](@/apps/_index.md) -- Applications using dispatch patterns
 
 ---
 
@@ -175,4 +175,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

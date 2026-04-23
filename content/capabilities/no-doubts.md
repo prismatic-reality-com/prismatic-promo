@@ -22,11 +22,11 @@ image_alt = "NO DOUBTS - Prismatic Platform"
 
 ## Overview
 
-NO DOUBTS is the epistemic foundation of the Prismatic Platform doctrine. Where [NO MERCY](/capabilities/no-mercy/) governs enforcement and quality thresholds, NO DOUBTS governs the epistemology of decision-making itself. It demands complete understanding before action and unwavering commitment during execution. Every change to the platform's 2.8 million lines of code, every agent operation across 400+ agents, and every architectural decision must pass through the NO DOUBTS framework before execution begins.
+NO DOUBTS is the epistemic foundation of the Prismatic Platform doctrine. Where [NO MERCY](@/capabilities/no-mercy.md) governs enforcement and quality thresholds, NO DOUBTS governs the epistemology of decision-making itself. It demands complete understanding before action and unwavering commitment during execution. Every change to the platform's 2.8 million lines of code, every agent operation across 400+ agents, and every architectural decision must pass through the NO DOUBTS framework before execution begins.
 
 The doctrine emerges from a fundamental observation in software engineering: the overwhelming majority of bugs, regressions, and architectural failures originate not from lack of skill but from premature action. A developer edits a file without reading its full context. An architect proposes a solution without understanding existing patterns. A deployment proceeds without verifying staging results. NO DOUBTS eliminates these failure modes by mandating investigation before action and verification after execution, creating a closed loop of evidence-based engineering.
 
-NO DOUBTS integrates tightly with the [NABLA Axioms](/capabilities/nabla-axioms/) epistemic framework, sharing its commitment to signal plurality, provenance tracking, and the legitimacy of uncertainty. Together with [NO MERCY](/capabilities/no-mercy/), it forms the complete platform doctrine: NO DOUBTS determines what to do; NO MERCY ensures it gets done completely.
+NO DOUBTS integrates tightly with the [NABLA Axioms](@/capabilities/nabla-axioms.md) epistemic framework, sharing its commitment to signal plurality, provenance tracking, and the legitimacy of uncertainty. Together with [NO MERCY](@/capabilities/no-mercy.md), it forms the complete platform doctrine: NO DOUBTS determines what to do; NO MERCY ensures it gets done completely.
 
 ## The Four Pillars
 
@@ -42,7 +42,7 @@ Every decision must be preceded by complete information gathering. This is not a
 | Understand context before changes | Making changes based on file names alone |
 | Check existing patterns and conventions | Reinventing solutions that already exist |
 | Verify assumptions with tests and evidence | "This should work" without verification |
-| Use [Git Trees](/technologies/git/) for codebase exploration | Manual directory traversal |
+| Use [Git Trees](@/technologies/git.md) for codebase exploration | Manual directory traversal |
 | Review related modules and dependencies | Editing in isolation without context |
 
 The investigation protocol follows a structured sequence that ensures completeness:
@@ -170,7 +170,7 @@ end
 
 ### Pillar 3: Evidence-Backed Claims Only
 
-Every assertion about the platform must be supported by verifiable evidence. Claims about performance, correctness, security, or behavior require corresponding proof artifacts: passing tests, benchmark results, [Dialyzer](/technologies/dialyzer/) analysis, or [code coverage](/glossary/code-coverage/) reports.
+Every assertion about the platform must be supported by verifiable evidence. Claims about performance, correctness, security, or behavior require corresponding proof artifacts: passing tests, benchmark results, [Dialyzer](@/technologies/dialyzer.md) analysis, or [code coverage](@/glossary/code-coverage.md) reports.
 
 | Valid Evidence | Invalid Evidence |
 |----------------|------------------|
@@ -178,7 +178,7 @@ Every assertion about the platform must be supported by verifiable evidence. Cla
 | Benchee benchmark results with statistics | "It should be faster" |
 | Dialyzer type analysis with zero warnings | "The types look right" |
 | Code coverage report showing 100% | "I think I covered everything" |
-| [Credo](/technologies/credo/) strict-mode clean run | "The code style is fine" |
+| [Credo](@/technologies/credo.md) strict-mode clean run | "The code style is fine" |
 | Property-based test with 1000+ iterations | "Edge cases are handled" |
 
 ```elixir
@@ -247,7 +247,7 @@ mix quality.gates
 
 ## Confidence Thresholds and the Trinity Gate
 
-NO DOUBTS defines explicit confidence thresholds that determine when investigation transitions to execution. These thresholds integrate with the [Trinity Gate](/capabilities/trinity-gate/) validation system to create a formal framework for decision authorization.
+NO DOUBTS defines explicit confidence thresholds that determine when investigation transitions to execution. These thresholds integrate with the [Trinity Gate](@/capabilities/trinity-gate.md) validation system to create a formal framework for decision authorization.
 
 | Context | Required Confidence (tau) | Trinity Gate | Transition |
 |---------|--------------------------|--------------|------------|
@@ -272,7 +272,7 @@ This transition protocol ensures that the platform never acts on insufficient ev
 
 ## NABLA Axiom Integration
 
-NO DOUBTS aligns directly with the [NABLA Axioms](/capabilities/nabla-axioms/) epistemic framework. Each NO DOUBTS pillar maps to one or more NABLA axioms, creating a unified epistemic system:
+NO DOUBTS aligns directly with the [NABLA Axioms](@/capabilities/nabla-axioms.md) epistemic framework. Each NO DOUBTS pillar maps to one or more NABLA axioms, creating a unified epistemic system:
 
 | NO DOUBTS Pillar | NABLA Axiom | Enforcement |
 |------------------|-------------|-------------|
@@ -403,15 +403,15 @@ The NO DOUBTS doctrine, far from slowing development, demonstrably accelerates i
 
 NO DOUBTS integrates with every major platform subsystem to ensure epistemic integrity across all operations:
 
-- **[NABLA Axioms](/capabilities/nabla-axioms/)**: Shared epistemic framework with signal plurality, provenance, and contradiction preservation
-- **[Trinity Gate](/capabilities/trinity-gate/)**: Three-layer verification required before execution authorization
-- **[NO MERCY](/capabilities/no-mercy/)**: Complementary doctrine - NO DOUBTS decides what to do, NO MERCY ensures completion
-- **[Quality Gates](/capabilities/quality-gates/)**: Evidence requirements enforced at every commit checkpoint
-- **[AIAD Standard](/capabilities/aiad-standard/)**: Agent investigation protocols mandated across all 400+ agents
-- **[Regression Tests](/capabilities/regression-tests/)**: Verification pillar enforced through mandatory test protocols
-- **[Session Discipline](/capabilities/session-discipline/)**: Context loading ensures investigation builds on prior knowledge
-- **[Telemetry Integration](/capabilities/telemetry-integration/)**: Evidence collection through structured event tracking
-- **[Color Teams](/capabilities/color-teams/)**: Red Team adversarial testing validates claims through independent challenge
+- **[NABLA Axioms](@/capabilities/nabla-axioms.md)**: Shared epistemic framework with signal plurality, provenance, and contradiction preservation
+- **[Trinity Gate](@/capabilities/trinity-gate.md)**: Three-layer verification required before execution authorization
+- **[NO MERCY](@/capabilities/no-mercy.md)**: Complementary doctrine - NO DOUBTS decides what to do, NO MERCY ensures completion
+- **[Quality Gates](@/capabilities/quality-gates.md)**: Evidence requirements enforced at every commit checkpoint
+- **[AIAD Standard](@/capabilities/aiad-standard.md)**: Agent investigation protocols mandated across all 400+ agents
+- **[Regression Tests](@/capabilities/regression-tests.md)**: Verification pillar enforced through mandatory test protocols
+- **[Session Discipline](@/capabilities/session-discipline.md)**: Context loading ensures investigation builds on prior knowledge
+- **[Telemetry Integration](@/capabilities/telemetry-integration.md)**: Evidence collection through structured event tracking
+- **[Color Teams](@/capabilities/color-teams.md)**: Red Team adversarial testing validates claims through independent challenge
 
 ## Commands
 
@@ -430,4 +430,4 @@ NO DOUBTS integrates with every major platform subsystem to ensure epistemic int
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

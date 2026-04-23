@@ -28,7 +28,7 @@ image_alt = "/setup-shell - Prismatic Platform"
 
 The command addresses a fundamental challenge in complex Elixir/OTP umbrella projects: ensuring that every developer and every CI/CD runner has an identical, reproducible environment. Without standardized shell configuration, subtle differences in PATH ordering, Erlang/OTP versions, environment variable settings, or tool availability can produce hard-to-diagnose build failures and behavioral inconsistencies across development machines.
 
-This command operates under the **L2+** authority level and is executed by the `shell-setup-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level ensures that only developers with operational privileges can modify the shell environment, preventing accidental misconfiguration by less experienced team members.
+This command operates under the **L2+** authority level and is executed by the `shell-setup-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level ensures that only developers with operational privileges can modify the shell environment, preventing accidental misconfiguration by less experienced team members.
 
 The setup process is idempotent by design. Running `/setup-shell` on an already-configured environment detects existing configurations, skips redundant steps, and only applies updates where the current state diverges from the expected configuration. This makes it safe to run repeatedly -- for example, after upgrading Elixir versions, adding new platform dependencies, or onboarding to a new machine.
 
@@ -166,11 +166,11 @@ The shell setup system uses a layered configuration architecture that separates 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
 | asdf Version Manager | Runtime | Manages Elixir, Erlang/OTP, and Node.js versions |
-| [Mix Build Tool](/glossary/mix/) | Tooling | Configures Mix environment, Hex, and Rebar |
-| [Git Hooks](/glossary/quality-gates/) | Enforcement | Sets up `.githooks/` directory and pre-commit quality gates |
-| [GitLab CI/CD](/glossary/gitlab-ci/) | CI | `--ci` mode provides CI-compatible configuration |
-| [TailwindCSS](/glossary/tailwindcss/) | Frontend | Installs Node.js dependencies for CSS compilation |
-| [Telemetry](/glossary/telemetry/) | Observability | Emits setup progress events for monitoring |
+| [Mix Build Tool](@/glossary/mix.md) | Tooling | Configures Mix environment, Hex, and Rebar |
+| [Git Hooks](@/glossary/quality-gates.md) | Enforcement | Sets up `.githooks/` directory and pre-commit quality gates |
+| [GitLab CI/CD](@/glossary/gitlab-ci.md) | CI | `--ci` mode provides CI-compatible configuration |
+| [TailwindCSS](@/glossary/tailwindcss.md) | Frontend | Installs Node.js dependencies for CSS compilation |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Emits setup progress events for monitoring |
 
 ## Best Practices
 
@@ -233,19 +233,19 @@ docker exec -it prismatic-dev /setup-shell --verify
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: The setup process validates every component after installation. A partially configured environment is treated as a failure -- either the setup completes fully or it reports exactly what failed and what manual steps are required. No silent failures, no "it might work" outcomes.
 - **NO DOUBTS**: The `--verify` flag provides evidence-based confirmation that the environment is correctly configured. Every verification check produces a pass/fail result with version details, enabling confident assessment of environment readiness before attempting development work.
 
 ## Related Commands
 
-- [/ollama](/commands/ollama/) - Local AI Ollama model management, installation and optimization
-- [/gardener](/commands/gardener/) - [GARDEN](/glossary/garden/) legacy knowledge repository management across 116 repos
-- [/garden-explore](/commands/garden-explore/) - Explore GARDEN repositories for patterns and knowledge
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/ollama](@/commands/ollama.md) - Local AI Ollama model management, installation and optimization
+- [/gardener](@/commands/gardener.md) - [GARDEN](@/glossary/garden.md) legacy knowledge repository management across 116 repos
+- [/garden-explore](@/commands/garden-explore.md) - Explore GARDEN repositories for patterns and knowledge
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -254,4 +254,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

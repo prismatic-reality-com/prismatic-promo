@@ -24,9 +24,9 @@ image_alt = "Prismatic Storage Meilisearch - Prismatic Platform"
 
 ## Overview
 
-[Prismatic Storage](/glossary/prismatic-storage/) [Meilisearch](/glossary/meilisearch/) provides a full-text search adapter for the Prismatic Platform, enabling fast, typo-tolerant querying across all indexed platform data. Built on the PrismaticStorageCore behavior system, it integrates seamlessly with the unified storage layer while exposing Meilisearch-specific capabilities such as faceted search, custom ranking rules, and filterable attributes.
+[Prismatic Storage](@/glossary/prismatic-storage.md) [Meilisearch](@/glossary/meilisearch.md) provides a full-text search adapter for the Prismatic Platform, enabling fast, typo-tolerant querying across all indexed platform data. Built on the PrismaticStorageCore behavior system, it integrates seamlessly with the unified storage layer while exposing Meilisearch-specific capabilities such as faceted search, custom ranking rules, and filterable attributes.
 
-Meilisearch excels at search scenarios where user-facing typo tolerance and sub-50ms response times are critical. Within the platform, it powers the search functionality across [web dashboards](/apps/prismatic-web/), the agent and command registries, [OSINT](/glossary/osint/) source documentation, and [glossary](/glossary/) term discovery. Unlike the relational queries handled by [PostgreSQL](/apps/prismatic-storage-ecto/), Meilisearch focuses on relevance-ranked, human-friendly search over document collections.
+Meilisearch excels at search scenarios where user-facing typo tolerance and sub-50ms response times are critical. Within the platform, it powers the search functionality across [web dashboards](@/apps/prismatic-web.md), the agent and command registries, [OSINT](@/glossary/osint.md) source documentation, and [glossary](@/glossary/_index.md) term discovery. Unlike the relational queries handled by [PostgreSQL](@/apps/prismatic-storage-ecto.md), Meilisearch focuses on relevance-ranked, human-friendly search over document collections.
 
 The adapter handles index management, document synchronization, and query translation, ensuring that indexed data stays consistent with the platform's authoritative storage layers.
 
@@ -53,11 +53,11 @@ Index    Source   Docs
          Index    Index
 ```
 
-The Index Manager is a [GenServer](/glossary/genserver/) that owns the lifecycle of all Meilisearch indexes -- creating them on boot, configuring ranking rules and filterable attributes, and dispatching document synchronization tasks when source data changes. The Query Builder translates platform query structures into Meilisearch API calls with proper filter syntax and pagination.
+The Index Manager is a [GenServer](@/glossary/genserver.md) that owns the lifecycle of all Meilisearch indexes -- creating them on boot, configuring ranking rules and filterable attributes, and dispatching document synchronization tasks when source data changes. The Query Builder translates platform query structures into Meilisearch API calls with proper filter syntax and pagination.
 
 ## Adapter Pattern and PrismaticStorageCore.Behaviour
 
-The Meilisearch adapter implements the [Prismatic Storage Core](/apps/prismatic-storage-core/) contract with a trait set tailored for search workloads: Storable, Identifiable, Queryable, Searchable, and Batchable. The Searchable trait is the adapter's defining capability, providing callbacks for full-text search with relevance scoring, faceted aggregation, and configurable ranking rules that no other adapter in the platform supports.
+The Meilisearch adapter implements the [Prismatic Storage Core](@/apps/prismatic-storage-core.md) contract with a trait set tailored for search workloads: Storable, Identifiable, Queryable, Searchable, and Batchable. The Searchable trait is the adapter's defining capability, providing callbacks for full-text search with relevance scoring, faceted aggregation, and configurable ranking rules that no other adapter in the platform supports.
 
 The Storable trait implementation serializes Elixir maps to JSON documents for Meilisearch indexing. Unlike the ETS adapter where terms are stored natively, Meilisearch requires JSON serialization for all indexed documents. The `to_storage/1` callback handles this serialization, including special handling for Elixir-specific types (atoms are converted to strings, DateTime values are formatted as ISO 8601, and nested maps are flattened to Meilisearch's preferred document structure). The `from_storage/2` callback reverses this process, reconstructing Elixir maps from Meilisearch JSON responses.
 
@@ -159,11 +159,11 @@ mix test apps/prismatic_storage_meilisearch/test --cover
 
 ## Integration Points
 
-- Implements `PrismaticStorageCore` adapter [behaviour](/glossary/behaviour/) for [protocol](/glossary/protocol/) compliance
+- Implements `PrismaticStorageCore` adapter [behaviour](@/glossary/behaviour.md) for [protocol](@/glossary/protocol.md) compliance
 - Indexes agent definitions, OSINT sources, and platform documentation
-- Powers search in [Prismatic Web](/apps/prismatic-web/) dashboards
-- Used by [Prismatic API](/apps/prismatic-api/) for endpoint discovery
-- Indexes extracted text from [Prismatic Modalities](/apps/prismatic-modalities/) OCR and transcription
+- Powers search in [Prismatic Web](@/apps/prismatic-web.md) dashboards
+- Used by [Prismatic API](@/apps/prismatic-api.md) for endpoint discovery
+- Indexes extracted text from [Prismatic Modalities](@/apps/prismatic-modalities.md) OCR and transcription
 
 ## NABLA Compliance
 
@@ -181,26 +181,26 @@ Search operations carry provenance metadata linking each search result back to i
 
 ## Related Components
 
-- [Prismatic Storage Core](/apps/prismatic-storage-core/) -- Adapter protocol definition
-- [Prismatic Storage Ecto](/apps/prismatic-storage-ecto/) -- Source of truth for indexed data
-- [Prismatic Web](/apps/prismatic-web/) -- Dashboard search UI consumer
-- [Prismatic API](/apps/prismatic-api/) -- Endpoint discovery search
+- [Prismatic Storage Core](@/apps/prismatic-storage-core.md) -- Adapter protocol definition
+- [Prismatic Storage Ecto](@/apps/prismatic-storage-ecto.md) -- Source of truth for indexed data
+- [Prismatic Web](@/apps/prismatic-web.md) -- Dashboard search UI consumer
+- [Prismatic API](@/apps/prismatic-api.md) -- Endpoint discovery search
 
 ## Doctrine Compliance
 
-All storage operations follow [NO MERCY](/capabilities/no-mercy/) quality standards with full test coverage and zero-tolerance for data inconsistency.
+All storage operations follow [NO MERCY](@/capabilities/no-mercy.md) quality standards with full test coverage and zero-tolerance for data inconsistency.
 
 ## Related Agents
 
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Ensures Meilisearch adapter conforms to the PrismaticStorageCore protocol contract
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews index configuration, ranking rules, and synchronization strategies
-- [Consolidation Architect](/agents/consolidation-architect/) -- Data deduplication across search indexes for consistent search results
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Ensures Meilisearch adapter conforms to the PrismaticStorageCore protocol contract
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews index configuration, ranking rules, and synchronization strategies
+- [Consolidation Architect](@/agents/consolidation-architect.md) -- Data deduplication across search indexes for consistent search results
 
 ## Related Capabilities
 
-- [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) -- Meilisearch powers search across agents, OSINT sources, and platform documentation
-- [Quality Gates](/capabilities/quality-gates/) -- Contract tests verify adapter protocol compliance and search result accuracy
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Search latency and index health metrics emitted for performance monitoring
+- [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) -- Meilisearch powers search across agents, OSINT sources, and platform documentation
+- [Quality Gates](@/capabilities/quality-gates.md) -- Contract tests verify adapter protocol compliance and search result accuracy
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Search latency and index health metrics emitted for performance monitoring
 
 ---
 
@@ -209,4 +209,4 @@ All storage operations follow [NO MERCY](/capabilities/no-mercy/) quality standa
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -27,7 +27,7 @@ image_alt = "MaxMind GeoIP - Prismatic Platform"
 
 MaxMind provides the industry-standard GeoIP databases for IP address geolocation, ASN identification, and anonymous network detection. The GeoIP2 databases map IP addresses to geographic locations, ISPs, organizations, and connection types. The minFraud service provides real-time fraud risk scoring. MaxMind data is used across the platform for enriching IP-based intelligence with location and network context.
 
-Founded in 2002, MaxMind has built the most widely deployed IP intelligence databases in the industry. The GeoIP2 product line is used by hundreds of thousands of organizations for content personalization, advertising targeting, digital rights management, fraud prevention, and security analytics. For [OSINT](/glossary/osint/) analysts and cybersecurity professionals, MaxMind provides the foundational geolocation layer that transforms raw IP addresses into geographic and organizational intelligence.
+Founded in 2002, MaxMind has built the most widely deployed IP intelligence databases in the industry. The GeoIP2 product line is used by hundreds of thousands of organizations for content personalization, advertising targeting, digital rights management, fraud prevention, and security analytics. For [OSINT](@/glossary/osint.md) analysts and cybersecurity professionals, MaxMind provides the foundational geolocation layer that transforms raw IP addresses into geographic and organizational intelligence.
 
 MaxMind offers two deployment models: downloadable databases that are updated weekly (GeoIP2) or biweekly (GeoLite2), and a web service API for real-time lookups. The downloadable database model is particularly valuable for high-volume OSINT operations because it eliminates per-query API costs and latency, enabling millions of IP lookups per second on local infrastructure.
 
@@ -233,13 +233,13 @@ By correlating ASN data with geolocation, analysts map the physical topology of 
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), MaxMind provides the geolocation enrichment layer used by virtually all IP-based intelligence modules.
+Within the [Prismatic Platform](@/apps/prismatic.md), MaxMind provides the geolocation enrichment layer used by virtually all IP-based intelligence modules.
 
 - **Local MMDB Deployment**: The platform maintains local copies of GeoIP2 databases (updated weekly via automated download) for zero-latency, unlimited-volume IP lookups.
 - **Automatic Enrichment**: Every IP address ingested by the platform is automatically enriched with geolocation, ASN, and anonymous network detection.
-- **Geographic Dashboards**: MaxMind data powers geographic visualizations in [Prismatic Perimeter](/apps/prismatic-perimeter/) showing attack surface distribution by country and region.
-- **Anonymous Network Flagging**: VPN, proxy, and Tor detection feeds into the platform's [risk scoring](/glossary/risk-score/) system, with anonymous sources receiving elevated risk scores.
-- **Cross-Source Validation**: MaxMind geolocation is cross-referenced with [IPInfo](/osint/ipinfo/) and [ONYPHE](/osint/onyphe/) data for confidence calibration.
+- **Geographic Dashboards**: MaxMind data powers geographic visualizations in [Prismatic Perimeter](@/apps/prismatic-perimeter.md) showing attack surface distribution by country and region.
+- **Anonymous Network Flagging**: VPN, proxy, and Tor detection feeds into the platform's [risk scoring](@/glossary/risk-score.md) system, with anonymous sources receiving elevated risk scores.
+- **Cross-Source Validation**: MaxMind geolocation is cross-referenced with [IPInfo](@/osint/ipinfo.md) and [ONYPHE](@/osint/onyphe.md) data for confidence calibration.
 
 ## Best Practices
 
@@ -259,12 +259,12 @@ Within the [Prismatic Platform](/apps/prismatic/), MaxMind provides the geolocat
 
 ## Related Providers
 
-- [IPInfo](/osint/ipinfo/) - IP geolocation and ASN data
-- [Shodan](/osint/shodan/) - IP-level service discovery
-- [AbuseIPDB](/osint/abuseipdb/) - IP reputation and abuse reports
-- [GreyNoise](/osint/greynoise/) - Scanner identification
-- [ONYPHE](/osint/onyphe/) - French cyber defense search engine
-- [Censys](/osint/censys/) - Internet-wide scanning and host intelligence
+- [IPInfo](@/osint/ipinfo.md) - IP geolocation and ASN data
+- [Shodan](@/osint/shodan.md) - IP-level service discovery
+- [AbuseIPDB](@/osint/abuseipdb.md) - IP reputation and abuse reports
+- [GreyNoise](@/osint/greynoise.md) - Scanner identification
+- [ONYPHE](@/osint/onyphe.md) - French cyber defense search engine
+- [Censys](@/osint/censys.md) - Internet-wide scanning and host intelligence
 
 ---
 
@@ -273,4 +273,4 @@ Within the [Prismatic Platform](/apps/prismatic/), MaxMind provides the geolocat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

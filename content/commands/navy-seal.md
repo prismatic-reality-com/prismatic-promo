@@ -24,17 +24,17 @@ image_alt = "/navy-seal - Prismatic Platform"
 
 ## Overview
 
-**/navy-seal** is a production command in the **Intelligence** category of the Prismatic Platform. It performs deep-dive investigation with multi-source [intelligence fusion](/glossary/intelligence-fusion/), combining advanced [OSINT](/glossary/osint/) techniques with tactical precision to deliver comprehensive intelligence products on high-value targets.
+**/navy-seal** is a production command in the **Intelligence** category of the Prismatic Platform. It performs deep-dive investigation with multi-source [intelligence fusion](@/glossary/intelligence-fusion.md), combining advanced [OSINT](@/glossary/osint.md) techniques with tactical precision to deliver comprehensive intelligence products on high-value targets.
 
-Unlike lighter-weight reconnaissance commands, `/navy-seal` operates at the deepest investigation tier within the Prismatic intelligence hierarchy. The command marshals multiple intelligence collection disciplines -- open source intelligence, domain intelligence, infrastructure analysis, and social graph mapping -- into a unified analytical product. Each investigation thread runs concurrently through the platform's [OTP](/glossary/otp/)-based supervision tree, ensuring fault tolerance even when individual collection sources fail or timeout.
+Unlike lighter-weight reconnaissance commands, `/navy-seal` operates at the deepest investigation tier within the Prismatic intelligence hierarchy. The command marshals multiple intelligence collection disciplines -- open source intelligence, domain intelligence, infrastructure analysis, and social graph mapping -- into a unified analytical product. Each investigation thread runs concurrently through the platform's [OTP](@/glossary/otp.md)-based supervision tree, ensuring fault tolerance even when individual collection sources fail or timeout.
 
-The command derives its name from its operational philosophy: methodical preparation, decisive execution, and comprehensive post-operation analysis. Every `/navy-seal` invocation follows a structured intelligence cycle that begins with target enumeration, progresses through multi-source collection, applies correlation analysis to eliminate noise, and produces a finalized intelligence assessment with confidence ratings aligned to the [NABLA](/glossary/nabla-infinity/) epistemic framework.
+The command derives its name from its operational philosophy: methodical preparation, decisive execution, and comprehensive post-operation analysis. Every `/navy-seal` invocation follows a structured intelligence cycle that begins with target enumeration, progresses through multi-source collection, applies correlation analysis to eliminate noise, and produces a finalized intelligence assessment with confidence ratings aligned to the [NABLA](@/glossary/nabla-infinity.md) epistemic framework.
 
-This command operates under the **L3** authority level and is executed by the `navy-seal-operator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the command's access to sensitive intelligence sources and its ability to initiate cross-domain correlation operations that may touch multiple external services.
+This command operates under the **L3** authority level and is executed by the `navy-seal-operator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the command's access to sensitive intelligence sources and its ability to initiate cross-domain correlation operations that may touch multiple external services.
 
 ## Architecture
 
-The `/navy-seal` command implements a multi-layered intelligence collection architecture built on Elixir's concurrency primitives and the platform's [GenServer](/glossary/genserver/) infrastructure.
+The `/navy-seal` command implements a multi-layered intelligence collection architecture built on Elixir's concurrency primitives and the platform's [GenServer](@/glossary/genserver.md) infrastructure.
 
 ### Collection Pipeline
 
@@ -66,7 +66,7 @@ Target Input --> Target Validator --> Collection Orchestrator
 | **Confidence Scorer** | `PrismaticIntelligence.NavySeal.ConfidenceScorer` | NABLA-compliant confidence assessment |
 | **Report Generator** | `PrismaticIntelligence.NavySeal.Reporter` | Structured intelligence product output |
 
-The architecture leverages [Task.async_stream/3](/glossary/task-module/) for parallel source querying with configurable concurrency limits, ensuring that no single slow source blocks the overall investigation. Each source adapter implements the `PrismaticIntelligence.Source` behaviour, providing a consistent interface for data collection, normalization, and error handling.
+The architecture leverages [Task.async_stream/3](@/glossary/task-module.md) for parallel source querying with configurable concurrency limits, ensuring that no single slow source blocks the overall investigation. Each source adapter implements the `PrismaticIntelligence.Source` behaviour, providing a consistent interface for data collection, normalization, and error handling.
 
 ## Usage
 
@@ -138,11 +138,11 @@ The `/navy-seal` command follows a structured six-phase execution model that mir
 
 **Phase 2 -- Source Selection** (5-10s): Based on the target type and specified focus areas, the Collection Orchestrator selects the optimal set of intelligence sources. Source health is verified before inclusion, and sources with recent failures are deprioritized. The selection algorithm considers source coverage, latency characteristics, and data freshness requirements.
 
-**Phase 3 -- Parallel Collection** (10-120s): All selected sources are queried concurrently using supervised [Task](/glossary/task-module/) processes. Each source adapter handles its own rate limiting, authentication, and response parsing. Failed queries are retried up to three times with exponential backoff before being marked as unavailable.
+**Phase 3 -- Parallel Collection** (10-120s): All selected sources are queried concurrently using supervised [Task](@/glossary/task-module.md) processes. Each source adapter handles its own rate limiting, authentication, and response parsing. Failed queries are retried up to three times with exponential backoff before being marked as unavailable.
 
 **Phase 4 -- Correlation Analysis** (120-180s): Raw findings from all sources are fed into the Correlation Engine, which identifies connections, contradictions, and patterns across the dataset. Entity resolution merges duplicate references to the same infrastructure components, organizations, or individuals.
 
-**Phase 5 -- Confidence Scoring** (180-200s): Each finding and correlation receives a confidence score based on source reliability, corroboration count, data freshness, and internal consistency. Scores follow the [NABLA](/glossary/nabla-infinity/) Signal Plurality axiom, requiring at minimum two independent sources for high-confidence assessments.
+**Phase 5 -- Confidence Scoring** (180-200s): Each finding and correlation receives a confidence score based on source reliability, corroboration count, data freshness, and internal consistency. Scores follow the [NABLA](@/glossary/nabla-infinity.md) Signal Plurality axiom, requiring at minimum two independent sources for high-confidence assessments.
 
 **Phase 6 -- Report Generation** (200-240s): The finalized intelligence product is assembled with executive summary, detailed findings organized by category, confidence assessments, and recommended follow-up actions.
 
@@ -150,14 +150,14 @@ The `/navy-seal` command follows a structured six-phase execution model that mir
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Managed by `navy-seal-operator` agent with L3 authority |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Data flow | Feeds asset discovery data to perimeter monitoring |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Registered command with full AIAD metadata |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Pre/post execution quality checks on output |
-| [Telemetry](/glossary/telemetry/) | Observability | Execution [metrics](/glossary/metrics/), source latency, correlation statistics |
-| [ETS Storage](/glossary/ets/) | Caching | Investigation results cached for cross-session access |
-| [KuzuDB](/glossary/kuzudb/) | Graph storage | Entity relationships stored in knowledge graph |
-| [Meilisearch](/glossary/meilisearch/) | Search index | Findings indexed for full-text search |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Managed by `navy-seal-operator` agent with L3 authority |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Data flow | Feeds asset discovery data to perimeter monitoring |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Registered command with full AIAD metadata |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Pre/post execution quality checks on output |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Execution [metrics](@/glossary/metrics.md), source latency, correlation statistics |
+| [ETS Storage](@/glossary/ets.md) | Caching | Investigation results cached for cross-session access |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph storage | Entity relationships stored in knowledge graph |
+| [Meilisearch](@/glossary/meilisearch.md) | Search index | Findings indexed for full-text search |
 
 ## Best Practices
 
@@ -184,7 +184,7 @@ The command implements comprehensive error handling at every stage of the intell
 | Correlation overflow | Batch processing with memory-bounded windows | Slightly longer execution time |
 | All sources failed | Error report with diagnostic information | No results, actionable error message |
 
-All errors emit structured [telemetry](/glossary/telemetry/) events under the `[:prismatic, :intelligence, :navy_seal, :error]` event path, enabling automated monitoring and alerting through the platform's observability infrastructure.
+All errors emit structured [telemetry](@/glossary/telemetry.md) events under the `[:prismatic, :intelligence, :navy_seal, :error]` event path, enabling automated monitoring and alerting through the platform's observability infrastructure.
 
 ## Advanced Usage
 
@@ -226,22 +226,22 @@ For large-scale intelligence collection across multiple targets:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every intelligence source must return data or explicitly report failure. No silent omissions. No partial reports without clear status indicators for each collection phase.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. All findings carry confidence scores. Contradictory evidence is preserved per the [Addiction Preservation](/glossary/contradiction-preservation/) principle. No finding is presented without traceable provenance to its source.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. All findings carry confidence scores. Contradictory evidence is preserved per the [Addiction Preservation](@/glossary/contradiction-preservation.md) principle. No finding is presented without traceable provenance to its source.
 
-The command additionally enforces [NABLA](/glossary/nabla-infinity/) axioms at the correlation layer: Signal Plurality (minimum two sources for high-confidence claims), Contradiction Preservation (conflicting findings are both reported), and Provenance Mandatory (every data point traces to its origin).
+The command additionally enforces [NABLA](@/glossary/nabla-infinity.md) axioms at the correlation layer: Signal Plurality (minimum two sources for high-confidence claims), Contradiction Preservation (conflicting findings are both reported), and Provenance Mandatory (every data point traces to its origin).
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/ghost-recon](/commands/ghost-recon/) - Passive reconnaissance with zero-footprint collection
-- [/delta-force](/commands/delta-force/) - Rapid tactical intelligence for time-critical targets
-- [/osint-engines](/commands/osint-engines/) - Multi-engine OSINT source coordination and parallel querying
-- [/perimeter](/commands/perimeter/) - External [attack surface](/glossary/attack-surface/) management dashboard and overview
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/ghost-recon](@/commands/ghost-recon.md) - Passive reconnaissance with zero-footprint collection
+- [/delta-force](@/commands/delta-force.md) - Rapid tactical intelligence for time-critical targets
+- [/osint-engines](@/commands/osint-engines.md) - Multi-engine OSINT source coordination and parallel querying
+- [/perimeter](@/commands/perimeter.md) - External [attack surface](@/glossary/attack-surface.md) management dashboard and overview
 
 ---
 
@@ -250,4 +250,4 @@ The command additionally enforces [NABLA](/glossary/nabla-infinity/) axioms at t
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

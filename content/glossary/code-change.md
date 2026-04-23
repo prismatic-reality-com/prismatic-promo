@@ -44,7 +44,7 @@ Code changes are the fundamental unit of software evolution. Every feature, bug 
 
 In modern software engineering, code changes flow through a pipeline that transforms an idea into a verified, recorded modification. This pipeline typically includes local development, automated testing, static analysis, peer review, integration testing, and deployment. Each stage applies different validation criteria, and the change must satisfy all of them before acceptance.
 
-The distinction between a casual edit and a disciplined code change lies in the surrounding process. A casual edit modifies a file. A disciplined code change is an atomic, tested, reviewed, and traceable modification with a clear purpose, a defined scope, and evidence that it does not break existing functionality. The Prismatic Platform enforces the disciplined model through an 11-phase pre-commit hook system, mandatory [quality gates](/glossary/quality-gate/), [regression testing](/glossary/regression-testing/) requirements, and the [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) doctrine that permits zero exceptions.
+The distinction between a casual edit and a disciplined code change lies in the surrounding process. A casual edit modifies a file. A disciplined code change is an atomic, tested, reviewed, and traceable modification with a clear purpose, a defined scope, and evidence that it does not break existing functionality. The Prismatic Platform enforces the disciplined model through an 11-phase pre-commit hook system, mandatory [quality gates](@/glossary/quality-gate.md), [regression testing](@/glossary/regression-testing.md) requirements, and the [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine that permits zero exceptions.
 
 The cost of undisciplined code changes compounds over time. A change that skips testing may introduce a bug that takes hours to diagnose. A change that skips review may introduce an architectural violation that takes weeks to untangle. A change that skips quality gates may introduce a security vulnerability that takes months to discover. The validation pipeline exists to catch these problems at the lowest possible cost -- before they reach production.
 
@@ -276,7 +276,7 @@ git commit -m "test(perimeter): add regression test for NIS2 weight edge case"
 
 ### Session Discipline Protocol
 
-Every code change originates within a [Claude Code](/glossary/claude-code/) session governed by the Session Discipline Protocol:
+Every code change originates within a [Claude Code](@/glossary/claude-code.md) session governed by the Session Discipline Protocol:
 
 ```yaml
 # MANDATORY for every session that produces code changes
@@ -379,7 +379,7 @@ end
 
 ### Autoevolve Integration
 
-Code changes trigger the platform's autonomous evolution system. After a commit passes all gates, the [autoevolve](/glossary/autoevolve/) scanner examines whether the change reveals improvement opportunities:
+Code changes trigger the platform's autonomous evolution system. After a commit passes all gates, the [autoevolve](@/glossary/autoevolve.md) scanner examines whether the change reveals improvement opportunities:
 
 ```bash
 # Post-commit hook triggers evolution scan
@@ -521,27 +521,27 @@ Dependency version changes are code changes with potentially wide impact. They r
 
 ## Related Concepts
 
-- [Continuous Integration](/glossary/continuous-integration/) -- the system that validates code changes after they enter the repository
-- [Pre-commit Hooks](/glossary/pre-commit-hooks/) -- the validation pipeline that code changes must pass before committing
-- [Quality Gate](/glossary/quality-gate/) -- the specific checks each code change must satisfy
-- [Regression Testing](/glossary/regression-testing/) -- tests that prevent fixed bugs from recurring in future changes
-- [Code Reviews](/glossary/code-reviews/) -- human evaluation of code changes for correctness and quality
-- [Refactoring](/glossary/refactoring/) -- a specific type of code change that improves structure without changing behavior
-- [Code Quality](/glossary/code-quality/) -- the standard that code changes must meet
-- [Clean Run](/glossary/clean-run/) -- the zero-warning compilation standard for all changes
-- [Technical Debt](/glossary/technical-debt/) -- the cost of accepting low-quality code changes
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- the doctrine that forbids quality compromises in changes
-- [Git Trees](/glossary/git-trees/) -- optimized tool for analyzing changes across the codebase
-- [Autoevolve](/glossary/autoevolve/) -- autonomous evolution triggered by code changes
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the system that validates code changes after they enter the repository
+- [Pre-commit Hooks](@/glossary/pre-commit-hooks.md) -- the validation pipeline that code changes must pass before committing
+- [Quality Gate](@/glossary/quality-gate.md) -- the specific checks each code change must satisfy
+- [Regression Testing](@/glossary/regression-testing.md) -- tests that prevent fixed bugs from recurring in future changes
+- [Code Reviews](@/glossary/code-reviews.md) -- human evaluation of code changes for correctness and quality
+- [Refactoring](@/glossary/refactoring.md) -- a specific type of code change that improves structure without changing behavior
+- [Code Quality](@/glossary/code-quality.md) -- the standard that code changes must meet
+- [Clean Run](@/glossary/clean-run.md) -- the zero-warning compilation standard for all changes
+- [Technical Debt](@/glossary/technical-debt.md) -- the cost of accepting low-quality code changes
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- the doctrine that forbids quality compromises in changes
+- [Git Trees](@/glossary/git-trees.md) -- optimized tool for analyzing changes across the codebase
+- [Autoevolve](@/glossary/autoevolve.md) -- autonomous evolution triggered by code changes
 
 ## See Also
 
-- [Static Analysis](/glossary/static-analysis/) -- automated code change analysis without execution
-- [Credo](/glossary/credo/) -- static analysis tool that validates code change quality
-- [Dialyzer](/glossary/dialyzer/) -- type checking applied to code changes
-- [Session Discipline](/glossary/session-discipline/) -- the protocol governing sessions that produce code changes
-- [Code Coverage](/glossary/code-coverage/) -- metric ensuring code changes are adequately tested
-- [Fitness Score](/glossary/fitness-score/) -- platform health metric affected by code change quality
+- [Static Analysis](@/glossary/static-analysis.md) -- automated code change analysis without execution
+- [Credo](@/glossary/credo.md) -- static analysis tool that validates code change quality
+- [Dialyzer](@/glossary/dialyzer.md) -- type checking applied to code changes
+- [Session Discipline](@/glossary/session-discipline.md) -- the protocol governing sessions that produce code changes
+- [Code Coverage](@/glossary/code-coverage.md) -- metric ensuring code changes are adequately tested
+- [Fitness Score](@/glossary/fitness-score.md) -- platform health metric affected by code change quality
 
 ---
 
@@ -550,4 +550,4 @@ Dependency version changes are code changes with potentially wide impact. They r
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,11 +28,11 @@ image_alt = "type-inference-debugger - Prismatic Platform"
 
 ## Overview
 
-The Type Inference Debugger is an L3 Genetically Enhanced agent operating in the **quality** domain of the Prismatic Platform. This agent specializes in diagnosing and resolving [Dialyzer](/glossary/dialyzer/) type [inference](/glossary/inference/) issues, detecting conflicting typespecs, identifying vague type declarations, and optimizing type system usage across the platform's Elixir codebase. The "Genetically Enhanced" designation indicates that this agent has undergone evolutionary optimization through the platform's genetic algorithm-based agent improvement pipeline, resulting in superior diagnostic capabilities compared to standard agents.
+The Type Inference Debugger is an L3 Genetically Enhanced agent operating in the **quality** domain of the Prismatic Platform. This agent specializes in diagnosing and resolving [Dialyzer](@/glossary/dialyzer.md) type [inference](@/glossary/inference.md) issues, detecting conflicting typespecs, identifying vague type declarations, and optimizing type system usage across the platform's Elixir codebase. The "Genetically Enhanced" designation indicates that this agent has undergone evolutionary optimization through the platform's genetic algorithm-based agent improvement pipeline, resulting in superior diagnostic capabilities compared to standard agents.
 
 Dialyzer type inference issues are among the most challenging defect categories in Elixir development. Unlike compiler errors that point to a specific line, Dialyzer warnings often arise from complex type inference chains where the actual root cause is several function calls removed from the reported location. The Type Inference Debugger specializes in tracing these inference chains to their root causes, generating precise fix recommendations that resolve the underlying type conflict rather than merely suppressing the warning.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, maintaining the platform's zero-Dialyzer-violation standard under the [NO MERCY](/glossary/no-mercy/) doctrine.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, maintaining the platform's zero-Dialyzer-violation standard under the [NO MERCY](@/glossary/no-mercy.md) doctrine.
 
 ## Diagnostic Capabilities
 
@@ -234,10 +234,10 @@ Through its genetically enhanced pattern recognition capabilities, the Type Infe
 
 ## Integration Points
 
-- [**Quality Gates**](/capabilities/quality-gates/) -- Dialyzer zero-warning enforcement
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Type analysis metrics
-- [**Autonomous Self-Healing**](/capabilities/autonomous-self-healing/) -- Auto-fix Dialyzer warnings
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Dialyzer zero-warning enforcement
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Type analysis metrics
+- [**Autonomous Self-Healing**](@/capabilities/autonomous-self-healing.md) -- Auto-fix Dialyzer warnings
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
 
 ## AIAD Specification Compliance
 
@@ -245,20 +245,20 @@ Through its genetically enhanced pattern recognition capabilities, the Type Infe
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 14 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
-| [Property-based testing](/glossary/property-based-testing/) | 42 properties verified |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
+| [Property-based testing](@/glossary/property-based-testing.md) | 42 properties verified |
 
 ## Related Agents
 
-- [**Type Annotation Analyst**](/agents/type-annotation-analyst/) -- Typespec completeness and quality analysis
-- [**Route Testing Specialist**](/agents/routetestingspecialist/) -- Route handler type verification
-- [**Six Sigma Psycho Coordinator**](/agents/six-sigma-psycho-coordinator/) -- Quality enforcement for type safety
+- [**Type Annotation Analyst**](@/agents/type-annotation-analyst.md) -- Typespec completeness and quality analysis
+- [**Route Testing Specialist**](@/agents/routetestingspecialist.md) -- Route handler type verification
+- [**Six Sigma Psycho Coordinator**](@/agents/six-sigma-psycho-coordinator.md) -- Quality enforcement for type safety
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to diagnose and resolve Dialyzer type inference issues across the entire platform.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to diagnose and resolve Dialyzer type inference issues across the entire platform.
 
 ---
 
@@ -267,4 +267,4 @@ Through its genetically enhanced pattern recognition capabilities, the Type Infe
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

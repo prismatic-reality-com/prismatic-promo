@@ -44,7 +44,7 @@ The Code as Hypothesis philosophy emerges from recognizing a fundamental problem
 
 This philosophy has deep roots in the scientific method and epistemology. Karl Popper's falsifiability criterion states that a hypothesis has scientific value only if it can be disproven. Applied to software, this means code has engineering value only if it can be tested for failure. Code that cannot fail tests is either trivial or insufficiently tested. The most valuable tests are those that could realistically fail -- they probe the boundaries of the hypothesis rather than confirming the obvious.
 
-The practical consequences are significant. When code is a hypothesis, writing the test first (Test-Driven Development) becomes natural rather than dogmatic -- you define what would prove the hypothesis before constructing it. [Property-based testing](/glossary/property-based-testing/) becomes essential because it explores the hypothesis space more thoroughly than hand-crafted examples. [Regression testing](/glossary/regression-testing/) becomes mandatory because every production bug is a falsification that demands a new experimental guard. And [formal verification](/glossary/formal-verification/) becomes the gold standard because it provides mathematical proof rather than probabilistic evidence.
+The practical consequences are significant. When code is a hypothesis, writing the test first (Test-Driven Development) becomes natural rather than dogmatic -- you define what would prove the hypothesis before constructing it. [Property-based testing](@/glossary/property-based-testing.md) becomes essential because it explores the hypothesis space more thoroughly than hand-crafted examples. [Regression testing](@/glossary/regression-testing.md) becomes mandatory because every production bug is a falsification that demands a new experimental guard. And [formal verification](@/glossary/formal-verification.md) becomes the gold standard because it provides mathematical proof rather than probabilistic evidence.
 
 The philosophy also changes how developers relate to their code psychologically. If code is a hypothesis, having it invalidated (a failing test, a production bug, a code review critique) is not a personal failure -- it is the scientific process working correctly. This reduces ego attachment to implementations and creates a culture where discovering flaws is celebrated rather than hidden.
 
@@ -140,7 +140,7 @@ The hypothesis model identifies specific patterns where code hypotheses are comm
 
 ### Integration with NABLA Infinity
 
-The Code as Hypothesis philosophy aligns directly with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. NABLA's seven axioms enforce the same intellectual discipline that the hypothesis model requires:
+The Code as Hypothesis philosophy aligns directly with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. NABLA's seven axioms enforce the same intellectual discipline that the hypothesis model requires:
 
 ```
 Signal Plurality    -> Multiple test types validate the same hypothesis
@@ -152,7 +152,7 @@ Source Independence -> Tests from different authors increase confidence
 Provenance Mandatory -> Every claim about correctness must trace to a test
 ```
 
-The [Trinity Gate](/glossary/trinity-gate/) provides the ultimate validation mechanism: structural consistency (the code forms a valid dependency graph), logical consistency (the code follows sound logical rules), and formal necessity (the code's properties are provable in Lean4).
+The [Trinity Gate](@/glossary/trinity-gate.md) provides the ultimate validation mechanism: structural consistency (the code forms a valid dependency graph), logical consistency (the code follows sound logical rules), and formal necessity (the code's properties are provable in Lean4).
 
 ### Test as Experiment Design
 
@@ -212,7 +212,7 @@ end
 
 ### Doctrine-Level Enforcement
 
-The Prismatic Platform elevates Code as Hypothesis from philosophy to enforced doctrine through the [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) system. The "No Doubts" component directly implements hypothesis validation:
+The Prismatic Platform elevates Code as Hypothesis from philosophy to enforced doctrine through the [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) system. The "No Doubts" component directly implements hypothesis validation:
 
 - **Full Investigation**: Understand the problem completely before formulating the code hypothesis
 - **Evidence-Based**: Every claim about code correctness must be backed by tests, benchmarks, or verification
@@ -259,13 +259,13 @@ end
 
 ### Quality Gate as Experiment Battery
 
-The platform's [quality gate](/glossary/quality-gate/) system runs a comprehensive battery of experiments against every code hypothesis:
+The platform's [quality gate](@/glossary/quality-gate.md) system runs a comprehensive battery of experiments against every code hypothesis:
 
 | Gate | Experiment Type | What It Tests |
 |------|----------------|---------------|
 | Compilation (--warnings-as-errors) | Structural validity | Code parses and type-checks |
-| [Credo](/glossary/credo/) --strict | Pattern analysis | No anti-patterns or style violations |
-| [Dialyzer](/glossary/dialyzer/) | Type analysis | Type contracts are consistent |
+| [Credo](@/glossary/credo.md) --strict | Pattern analysis | No anti-patterns or style violations |
+| [Dialyzer](@/glossary/dialyzer.md) | Type analysis | Type contracts are consistent |
 | ExUnit | Behavioral validation | Specified behaviors hold |
 | StreamData | Property exploration | Properties hold across input space |
 | Code Coverage | Hypothesis completeness | All code paths are tested |
@@ -273,7 +273,7 @@ The platform's [quality gate](/glossary/quality-gate/) system runs a comprehensi
 
 ### 11-Phase Pre-Commit Validation
 
-The [pre-commit hooks](/glossary/pre-commit-hooks/) system implements hypothesis validation as a gate before any code enters the repository:
+The [pre-commit hooks](@/glossary/pre-commit-hooks.md) system implements hypothesis validation as a gate before any code enters the repository:
 
 ```
 Phase 1:  Compilation check (--warnings-as-errors)
@@ -331,7 +331,7 @@ end
 
 ### Use Property-Based Testing for Invariants
 
-[Property-based testing](/glossary/property-based-testing/) generates hundreds or thousands of random inputs, exploring the hypothesis space far more thoroughly than hand-written examples:
+[Property-based testing](@/glossary/property-based-testing.md) generates hundreds or thousands of random inputs, exploring the hypothesis space far more thoroughly than hand-written examples:
 
 ```elixir
 property "encoding then decoding is identity" do
@@ -410,26 +410,26 @@ By classifying code into confidence levels (speculative through battle-tested), 
 
 ## Related Concepts
 
-- [Property-Based Testing](/glossary/property-based-testing/) -- the most powerful experimental technique for validating code hypotheses
-- [Scientific Rigor](/glossary/scientific-rigor/) -- the epistemological foundation of the hypothesis model
-- [Code Quality](/glossary/code-quality/) -- measurable characteristics that hypothesis validation improves
-- [Regression Testing](/glossary/regression-testing/) -- tests created when a hypothesis is falsified by a production bug
-- [Formal Verification](/glossary/formal-verification/) -- mathematical proof that a code hypothesis holds for all inputs
-- [Code as Truth](/glossary/code-as-truth/) -- complementary principle: the code is the truth, but truth is provisional
-- [Trinity Gate](/glossary/trinity-gate/) -- three-layer verification that a hypothesis is sound
-- [NABLA Infinity](/glossary/nabla-infinity/) -- epistemic framework whose axioms align with hypothesis validation
-- [Code Coverage](/glossary/code-coverage/) -- metric measuring how thoroughly the hypothesis space is explored
-- [ExUnit](/glossary/exunit/) -- the primary experimental apparatus for Elixir code hypotheses
-- [Clean Run](/glossary/clean-run/) -- the zero-warning standard that code hypotheses must meet
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- the doctrine that enforces hypothesis validation without exception
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- the most powerful experimental technique for validating code hypotheses
+- [Scientific Rigor](@/glossary/scientific-rigor.md) -- the epistemological foundation of the hypothesis model
+- [Code Quality](@/glossary/code-quality.md) -- measurable characteristics that hypothesis validation improves
+- [Regression Testing](@/glossary/regression-testing.md) -- tests created when a hypothesis is falsified by a production bug
+- [Formal Verification](@/glossary/formal-verification.md) -- mathematical proof that a code hypothesis holds for all inputs
+- [Code as Truth](@/glossary/code-as-truth.md) -- complementary principle: the code is the truth, but truth is provisional
+- [Trinity Gate](@/glossary/trinity-gate.md) -- three-layer verification that a hypothesis is sound
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- epistemic framework whose axioms align with hypothesis validation
+- [Code Coverage](@/glossary/code-coverage.md) -- metric measuring how thoroughly the hypothesis space is explored
+- [ExUnit](@/glossary/exunit.md) -- the primary experimental apparatus for Elixir code hypotheses
+- [Clean Run](@/glossary/clean-run.md) -- the zero-warning standard that code hypotheses must meet
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- the doctrine that enforces hypothesis validation without exception
 
 ## See Also
 
-- [Credo](/glossary/credo/) -- static analysis that validates structural properties of code hypotheses
-- [Dialyzer](/glossary/dialyzer/) -- type-level validation of code hypotheses through success typing
-- [Fitness Score](/glossary/fitness-score/) -- quantitative measure of platform hypothesis confidence
-- [Autoevolve](/glossary/autoevolve/) -- autonomous system that reformulates platform hypotheses
-- [Quality Gate](/glossary/quality-gate/) -- the experiment battery that every hypothesis must pass
+- [Credo](@/glossary/credo.md) -- static analysis that validates structural properties of code hypotheses
+- [Dialyzer](@/glossary/dialyzer.md) -- type-level validation of code hypotheses through success typing
+- [Fitness Score](@/glossary/fitness-score.md) -- quantitative measure of platform hypothesis confidence
+- [Autoevolve](@/glossary/autoevolve.md) -- autonomous system that reformulates platform hypotheses
+- [Quality Gate](@/glossary/quality-gate.md) -- the experiment battery that every hypothesis must pass
 
 ---
 
@@ -438,4 +438,4 @@ By classifying code into confidence levels (speculative through battle-tested), 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

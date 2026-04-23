@@ -65,4 +65,4 @@ Access the platform through your configured endpoint for:
 
 ---
 
-**Alternative Access**: This dashboard is also available through **[Analytics Hub](/hub/analytics)**
+**Alternative Access**: This dashboard is also available through **[Analytics Hub](@/hub/analytics.md)**

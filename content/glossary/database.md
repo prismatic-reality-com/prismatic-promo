@@ -38,7 +38,7 @@ image_alt = "Database - Prismatic Platform"
 
 A database is an organized collection of structured, semi-structured, or unstructured data stored and accessed electronically through a database management system (DBMS). Databases provide mechanisms for defining data schemas, inserting and updating records, querying data efficiently, maintaining consistency under concurrent access, and recovering from failures. They are the foundational persistence layer of virtually every software system.
 
-The Prismatic Platform employs a polyglot persistence strategy, using six distinct database technologies, each selected for specific workload characteristics: [PostgreSQL](/glossary/postgresql/) for relational data and ACID transactions, [ETS](/glossary/ets/) for in-memory caching and real-time state, [Meilisearch](/glossary/meilisearch/) for full-text search, [KuzuDB](/glossary/kuzudb/) for graph queries, [Redis](/glossary/redis/) for distributed caching and pub/sub, and [DuckDB](/glossary/duckdb/) for analytical queries. This approach ensures that each data access pattern is served by the technology best suited to it.
+The Prismatic Platform employs a polyglot persistence strategy, using six distinct database technologies, each selected for specific workload characteristics: [PostgreSQL](@/glossary/postgresql.md) for relational data and ACID transactions, [ETS](@/glossary/ets.md) for in-memory caching and real-time state, [Meilisearch](@/glossary/meilisearch.md) for full-text search, [KuzuDB](@/glossary/kuzudb.md) for graph queries, [Redis](@/glossary/redis.md) for distributed caching and pub/sub, and [DuckDB](@/glossary/duckdb.md) for analytical queries. This approach ensures that each data access pattern is served by the technology best suited to it.
 
 ## Overview
 
@@ -46,9 +46,9 @@ The history of databases spans from flat files and hierarchical models in the 19
 
 The Prismatic Platform's 115-application umbrella architecture generates diverse data access patterns that no single database technology can optimally serve. Relational queries require PostgreSQL's query planner and ACID guarantees. Agent state requires ETS's microsecond-latency in-memory access. OSINT search requires Meilisearch's typo-tolerant full-text indexing. Entity relationship analysis requires KuzuDB's graph traversal. Session caching requires Redis's distributed key-value store. And analytical queries over historical data require DuckDB's columnar storage.
 
-This polyglot approach is not complexity for complexity's sake. Each database was chosen through evidence-based evaluation against specific performance, consistency, and operational requirements. The platform's [Ecto](/glossary/ecto/) layer and custom storage adapters abstract the differences, providing a unified interface for application code while leveraging each engine's strengths.
+This polyglot approach is not complexity for complexity's sake. Each database was chosen through evidence-based evaluation against specific performance, consistency, and operational requirements. The platform's [Ecto](@/glossary/ecto.md) layer and custom storage adapters abstract the differences, providing a unified interface for application code while leveraging each engine's strengths.
 
-Understanding databases is fundamental because every other platform capability -- from OSINT intelligence gathering to [security assessments](/glossary/security-assessment/) to [belief graph](/glossary/belief-graph/) construction -- ultimately depends on reliable, performant data persistence.
+Understanding databases is fundamental because every other platform capability -- from OSINT intelligence gathering to [security assessments](@/glossary/security-assessment.md) to [belief graph](@/glossary/belief-graph.md) construction -- ultimately depends on reliable, performant data persistence.
 
 ## Technical Details
 
@@ -313,7 +313,7 @@ PostgreSQL is the Prismatic Platform's choice for relational storage. Compared t
 
 ### ETS vs. Redis for Caching
 
-Both ETS and [Redis](/glossary/redis/) serve as caching layers, but their characteristics differ fundamentally. ETS is in-process, zero-serialization, sub-microsecond, and limited to a single BEAM node. Redis is networked, requires serialization, has microsecond-to-millisecond latency, but provides distributed access and persistence options. The platform uses ETS for node-local hot caching and Redis for shared state across a cluster.
+Both ETS and [Redis](@/glossary/redis.md) serve as caching layers, but their characteristics differ fundamentally. ETS is in-process, zero-serialization, sub-microsecond, and limited to a single BEAM node. Redis is networked, requires serialization, has microsecond-to-millisecond latency, but provides distributed access and persistence options. The platform uses ETS for node-local hot caching and Redis for shared state across a cluster.
 
 ### Meilisearch vs. Elasticsearch
 
@@ -321,7 +321,7 @@ Meilisearch was chosen over Elasticsearch for its dramatically simpler operation
 
 ### KuzuDB vs. Neo4j
 
-[KuzuDB](/glossary/kuzudb/) is an embedded graph database, while Neo4j is a client-server graph database. KuzuDB was chosen for its embeddability (no separate server process), high performance on relationship-heavy queries, and Elixir-friendly integration via NIFs. Neo4j would require a separate infrastructure component and network communication overhead that KuzuDB avoids.
+[KuzuDB](@/glossary/kuzudb.md) is an embedded graph database, while Neo4j is a client-server graph database. KuzuDB was chosen for its embeddability (no separate server process), high performance on relationship-heavy queries, and Elixir-friendly integration via NIFs. Neo4j would require a separate infrastructure component and network communication overhead that KuzuDB avoids.
 
 ## Best Practices
 
@@ -329,7 +329,7 @@ Meilisearch was chosen over Elasticsearch for its dramatically simpler operation
 
 **Use Ecto for all PostgreSQL access.** Never write raw SQL queries scattered through application code. Ecto's changesets provide validation, its query DSL is composable and type-safe, and its migration system ensures reproducible schema evolution. Raw SQL is acceptable only in hand-optimized performance-critical queries, encapsulated in dedicated modules.
 
-**Implement connection pooling.** Database connections are expensive resources. The platform uses [connection pooling](/glossary/connection-pooling/) (via DBConnection) for PostgreSQL and HTTP connection pools for Meilisearch. Monitor pool utilization and adjust sizes based on actual load patterns, not guesses.
+**Implement connection pooling.** Database connections are expensive resources. The platform uses [connection pooling](@/glossary/connection-pooling.md) (via DBConnection) for PostgreSQL and HTTP connection pools for Meilisearch. Monitor pool utilization and adjust sizes based on actual load patterns, not guesses.
 
 **Monitor query performance.** Enable PostgreSQL's `pg_stat_statements` extension and monitor slow queries. Use `EXPLAIN ANALYZE` for query optimization. Set up alerts for queries exceeding latency budgets. The platform's telemetry system tracks query latencies across all backends.
 
@@ -375,26 +375,26 @@ Entity relationships discovered during EASM scanning -- domains pointing to IPs,
 
 ## Related Concepts
 
-- [PostgreSQL](/glossary/postgresql/) -- The primary relational database for durable ACID storage across the platform
-- [ETS](/glossary/ets/) -- BEAM-native in-memory storage for sub-microsecond agent state and caching
-- [Meilisearch](/glossary/meilisearch/) -- Typo-tolerant full-text search engine for OSINT and documentation search
-- [KuzuDB](/glossary/kuzudb/) -- Embedded graph database for entity relationship and attack surface analysis
-- [Redis](/glossary/redis/) -- Distributed cache and pub/sub for cross-node state sharing
-- [DuckDB](/glossary/duckdb/) -- Columnar analytics database for historical analysis and reporting
-- [Ecto](/glossary/ecto/) -- Elixir database toolkit providing schemas, changesets, queries, and migrations
-- [Relational Database](/glossary/relational-database/) -- The foundational database model used by PostgreSQL
-- [Connection Pooling](/glossary/connection-pooling/) -- Resource management pattern critical for database performance
-- [CAP Theorem](/glossary/cap-theorem/) -- The fundamental tradeoff governing distributed database design
-- [Event Sourcing](/glossary/event-sourcing/) -- Alternative persistence pattern storing events rather than current state
-- [Data Pipeline](/glossary/data-pipeline/) -- The data flow infrastructure that feeds all database backends
+- [PostgreSQL](@/glossary/postgresql.md) -- The primary relational database for durable ACID storage across the platform
+- [ETS](@/glossary/ets.md) -- BEAM-native in-memory storage for sub-microsecond agent state and caching
+- [Meilisearch](@/glossary/meilisearch.md) -- Typo-tolerant full-text search engine for OSINT and documentation search
+- [KuzuDB](@/glossary/kuzudb.md) -- Embedded graph database for entity relationship and attack surface analysis
+- [Redis](@/glossary/redis.md) -- Distributed cache and pub/sub for cross-node state sharing
+- [DuckDB](@/glossary/duckdb.md) -- Columnar analytics database for historical analysis and reporting
+- [Ecto](@/glossary/ecto.md) -- Elixir database toolkit providing schemas, changesets, queries, and migrations
+- [Relational Database](@/glossary/relational-database.md) -- The foundational database model used by PostgreSQL
+- [Connection Pooling](@/glossary/connection-pooling.md) -- Resource management pattern critical for database performance
+- [CAP Theorem](@/glossary/cap-theorem.md) -- The fundamental tradeoff governing distributed database design
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Alternative persistence pattern storing events rather than current state
+- [Data Pipeline](@/glossary/data-pipeline.md) -- The data flow infrastructure that feeds all database backends
 
 ## See Also
 
-- [ETS Table](/glossary/ets-table/) -- Detailed coverage of ETS table types and configuration
-- [Distributed System](/glossary/distributed-system/) -- The architectural context in which polyglot persistence operates
-- [Eventual Consistency](/glossary/eventual-consistency/) -- The consistency model used by ETS, Meilisearch, and Redis caches
-- [Data Provenance](/glossary/data-provenance/) -- Provenance tracking that spans all database backends
-- [Adapter Pattern](/glossary/adapter-pattern/) -- The pattern used to abstract differences between storage backends
+- [ETS Table](@/glossary/ets-table.md) -- Detailed coverage of ETS table types and configuration
+- [Distributed System](@/glossary/distributed-system.md) -- The architectural context in which polyglot persistence operates
+- [Eventual Consistency](@/glossary/eventual-consistency.md) -- The consistency model used by ETS, Meilisearch, and Redis caches
+- [Data Provenance](@/glossary/data-provenance.md) -- Provenance tracking that spans all database backends
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- The pattern used to abstract differences between storage backends
 
 ---
 
@@ -403,4 +403,4 @@ Entity relationships discovered during EASM scanning -- domains pointing to IPs,
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

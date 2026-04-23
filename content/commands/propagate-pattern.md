@@ -28,9 +28,9 @@ image_alt = "/propagate-pattern - Prismatic Platform"
 
 Pattern propagation is a core mechanism of the platform's self-evolving architecture. When a developer solves a problem well in one umbrella application, that solution should not remain isolated. The propagate-pattern command analyzes the structural signature of the pattern, identifies candidate locations across the 90+ umbrella applications where the same problem exists (or could exist), generates transformation plans, and optionally applies the changes with full regression test coverage.
 
-This command operates under the **L2+** authority level and is executed by the `pattern-propagator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The pattern propagation system processes patterns at rates exceeding 500,000 patterns per second using the platform's optimized mycelial network, making ecosystem-wide consistency checks and transformations practical even at the platform's current scale of 6,600+ Elixir source files.
+This command operates under the **L2+** authority level and is executed by the `pattern-propagator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The pattern propagation system processes patterns at rates exceeding 500,000 patterns per second using the platform's optimized mycelial network, making ecosystem-wide consistency checks and transformations practical even at the platform's current scale of 6,600+ Elixir source files.
 
-The command draws on the [GARDEN](/glossary/garden/) legacy knowledge base of 55+ proven patterns accumulated over 20+ years of development, combining historical pattern wisdom with real-time codebase analysis to ensure that propagated patterns are not merely syntactically correct but architecturally sound.
+The command draws on the [GARDEN](@/glossary/garden.md) legacy knowledge base of 55+ proven patterns accumulated over 20+ years of development, combining historical pattern wisdom with real-time codebase analysis to ensure that propagated patterns are not merely syntactically correct but architecturally sound.
 
 ## Architecture
 
@@ -171,13 +171,13 @@ Pattern Source
 
 | System | Integration | Purpose |
 |--------|-------------|---------|
-| [Mycelium](/glossary/mycelial-network/) | Pattern detection and propagation engine | Core infrastructure |
-| [GARDEN](/glossary/garden/) | 55+ proven patterns from 20+ years | Pattern library |
-| [Quality Gates](/glossary/quality-gates/) | Post-propagation quality validation | Regression prevention |
-| [SEADF](/glossary/seadf/) | Autonomous pattern evolution tracking | Evolution tracking |
-| [Git Trees](/glossary/git-trees/) | Fast codebase scanning for candidates | File discovery |
-| [Credo](/glossary/credo/) | Style consistency verification | Code quality |
-| [Telemetry](/glossary/telemetry/) | Propagation event tracking and metrics | Observability |
+| [Mycelium](@/glossary/mycelial-network.md) | Pattern detection and propagation engine | Core infrastructure |
+| [GARDEN](@/glossary/garden.md) | 55+ proven patterns from 20+ years | Pattern library |
+| [Quality Gates](@/glossary/quality-gates.md) | Post-propagation quality validation | Regression prevention |
+| [SEADF](@/glossary/seadf.md) | Autonomous pattern evolution tracking | Evolution tracking |
+| [Git Trees](@/glossary/git-trees.md) | Fast codebase scanning for candidates | File discovery |
+| [Credo](@/glossary/credo.md) | Style consistency verification | Code quality |
+| [Telemetry](@/glossary/telemetry.md) | Propagation event tracking and metrics | Observability |
 
 ## Best Practices
 
@@ -239,22 +239,22 @@ PrismaticMycelium.PatternLibrary.register(pattern)
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every propagated pattern must pass compilation and regression tests. No partial propagations are committed -- either all transformations in a scope succeed or all are rolled back.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Pattern applicability is determined by structural analysis with quantified confidence scores, not heuristic guessing. Each transformation plan is fully specified before any code is modified.
 
-Pattern propagation enforces the [NABLA](/glossary/nabla-infinity/) Source Independence axiom by requiring that patterns prove their value independently across multiple applications before being promoted to the pattern library.
+Pattern propagation enforces the [NABLA](@/glossary/nabla-infinity.md) Source Independence axiom by requiring that patterns prove their value independently across multiple applications before being promoted to the pattern library.
 
 ## Related Commands
 
-- [/chronic](/commands/chronic/) - Chronic documentation scan and technical hygiene maintenance
-- [/find-lowfruit](/commands/find-lowfruit/) - Identify low-hanging fruit improvements across codebase
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/optimize](/commands/optimize/) - Performance optimization with measurement validation
+- [/chronic](@/commands/chronic.md) - Chronic documentation scan and technical hygiene maintenance
+- [/find-lowfruit](@/commands/find-lowfruit.md) - Identify low-hanging fruit improvements across codebase
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/optimize](@/commands/optimize.md) - Performance optimization with measurement validation
 
 ---
 
@@ -263,4 +263,4 @@ Pattern propagation enforces the [NABLA](/glossary/nabla-infinity/) Source Indep
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

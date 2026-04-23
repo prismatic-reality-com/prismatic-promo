@@ -217,11 +217,11 @@ When 127 OSINT tools are being executed concurrently across multiple LiveView se
 
 ## Cross-References
 
-- [ETS](/glossary/ets/) - In-memory storage system
-- [Concurrency](/glossary/concurrency/) - Parallel execution patterns
-- [GenServer](/glossary/genserver/) - Process managing ETS tables
-- [Throttling](/glossary/throttling/) - Rate limiting using concurrent ETS
-- [Write-Through](/glossary/write-through/) - Cache write pattern
+- [ETS](@/glossary/ets.md) - In-memory storage system
+- [Concurrency](@/glossary/concurrency.md) - Parallel execution patterns
+- [GenServer](@/glossary/genserver.md) - Process managing ETS tables
+- [Throttling](@/glossary/throttling.md) - Rate limiting using concurrent ETS
+- [Write-Through](@/glossary/write-through.md) - Cache write pattern
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

@@ -24,11 +24,11 @@ image_alt = "Prismatic Claude - Prismatic Platform"
 
 ## Overview
 
-Prismatic Claude provides the deep integration layer between the Prismatic Platform and Anthropic's Claude AI models, implementing stack-based conversation management, session lifecycle hooks, and the infrastructure for AI-assisted development, quality enforcement, and autonomous platform evolution. The StackConversation [GenServer](/glossary/genserver/) implements a frame-based conversation model where every interaction is tracked as an immutable frame on a stack, supporting operations including checkpoint creation, conversation forking, frame popping, and checkpoint restoration.
+Prismatic Claude provides the deep integration layer between the Prismatic Platform and Anthropic's Claude AI models, implementing stack-based conversation management, session lifecycle hooks, and the infrastructure for AI-assisted development, quality enforcement, and autonomous platform evolution. The StackConversation [GenServer](@/glossary/genserver.md) implements a frame-based conversation model where every interaction is tracked as an immutable frame on a stack, supporting operations including checkpoint creation, conversation forking, frame popping, and checkpoint restoration.
 
-AI-assisted development requires structured conversation management that preserves context across interactions, enforces quality gates at session boundaries, and enables exploration of alternative approaches through conversation branching. Without structured conversation tracking, context is lost between sessions, quality checks are skipped, and the relationship between AI interactions and code changes becomes untraceable. Prismatic Claude solves this by providing an [OTP](/glossary/otp/)-compliant infrastructure for conversation state management, session lifecycle automation, and [quality DNA](/glossary/quality-dna/) persistence across sessions.
+AI-assisted development requires structured conversation management that preserves context across interactions, enforces quality gates at session boundaries, and enables exploration of alternative approaches through conversation branching. Without structured conversation tracking, context is lost between sessions, quality checks are skipped, and the relationship between AI interactions and code changes becomes untraceable. Prismatic Claude solves this by providing an [OTP](@/glossary/otp.md)-compliant infrastructure for conversation state management, session lifecycle automation, and [quality DNA](@/glossary/quality-dna.md) persistence across sessions.
 
-The SessionLifecycle GenServer manages hooks that execute at four session boundaries (session_start, pre_command, post_command, session_end), ensuring [quality gates](/glossary/quality-gates/), evolution triggers, and context preservation happen automatically. A [circuit breaker](/glossary/circuit-breaker/) pattern protects against cascading failures from flaky [mix task](/glossary/mix-task/)s, auto-opening after three consecutive failures and auto-resetting after 60 seconds. The application manages bidirectional communication between human operators and the 404+ agent ecosystem through [Prismatic Agents](/apps/prismatic-agents/).
+The SessionLifecycle GenServer manages hooks that execute at four session boundaries (session_start, pre_command, post_command, session_end), ensuring [quality gates](@/glossary/quality-gates.md), evolution triggers, and context preservation happen automatically. A [circuit breaker](@/glossary/circuit-breaker.md) pattern protects against cascading failures from flaky [mix task](@/glossary/mix-task.md)s, auto-opening after three consecutive failures and auto-resetting after 60 seconds. The application manages bidirectional communication between human operators and the 404+ agent ecosystem through [Prismatic Agents](@/apps/prismatic-agents.md).
 
 ## Architecture
 
@@ -67,7 +67,7 @@ PrismaticClaude.Application (Supervisor, :one_for_one)
       Event handler registration
 ```
 
-User input triggers frame creation in StackConversation. The frame records input summary, assumptions, and decisions. SessionLifecycle executes registered hooks for the current phase. Hooks run mix tasks in isolated processes with timeout protection. The circuit breaker prevents cascading failures. After agent dispatch and response generation, the frame is completed with output summary and persisted to [ETS](/glossary/ets/) and disk.
+User input triggers frame creation in StackConversation. The frame records input summary, assumptions, and decisions. SessionLifecycle executes registered hooks for the current phase. Hooks run mix tasks in isolated processes with timeout protection. The circuit breaker prevents cascading failures. After agent dispatch and response generation, the frame is completed with output summary and persisted to [ETS](@/glossary/ets.md) and disk.
 
 ## Key Modules
 
@@ -77,9 +77,9 @@ User input triggers frame creation in StackConversation. The frame records input
 | `PrismaticClaude.SessionLifecycle` | GenServer: hook execution at session boundaries with circuit breaker |
 | `PrismaticClaude.SessionHooks` | Default hook implementations for quality gates and evolution triggers |
 | `PrismaticClaude.QualityDna` | Cross-session quality state persistence in JSON format |
-| `PrismaticClaude.Telemetry` | [Telemetry](/glossary/telemetry/) event setup for conversation and session [metrics](/glossary/metrics/) |
+| `PrismaticClaude.Telemetry` | [Telemetry](@/glossary/telemetry.md) event setup for conversation and session [metrics](@/glossary/metrics.md) |
 
-Frame [immutability](/glossary/immutability/) is a core design principle. Once a frame is created and completed, it cannot be modified. The `pop` operation removes frames from the stack but does not alter them. The `fork` operation creates a new branch starting from a specified frame, preserving the original stack.
+Frame [immutability](@/glossary/immutability.md) is a core design principle. Once a frame is created and completed, it cannot be modified. The `pop` operation removes frames from the stack but does not alter them. The `fork` operation creates a new branch starting from a specified frame, preserving the original stack.
 
 The circuit breaker tracks consecutive failures per hook. After three failures, the circuit opens, bypassing the hook for 60 seconds. After the reset timeout, the circuit enters half-open state, allowing one test execution. Success closes the circuit; failure reopens it.
 
@@ -166,14 +166,14 @@ Property-based tests use StreamData generators to produce random frame sequences
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Agents](/apps/prismatic-agents/) | Agent dispatch and execution for 404+ agents |
-| [Prismatic Safety](/apps/prismatic-safety/) | Quality gates and floor guardian enforcement |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Event emission and metrics collection |
-| [Prismatic Storage](/apps/prismatic-storage/) | Stack and session persistence through storage adapters |
-| [Prismatic Web](/apps/prismatic-web/) | Development workflow dashboard integration |
-| [Prismatic Annihilation](/apps/prismatic-annihilation/) | Auto-evolution trigger integration |
+| [Prismatic Agents](@/apps/prismatic-agents.md) | Agent dispatch and execution for 404+ agents |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Quality gates and floor guardian enforcement |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Event emission and metrics collection |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Stack and session persistence through storage adapters |
+| [Prismatic Web](@/apps/prismatic-web.md) | Development workflow dashboard integration |
+| [Prismatic Annihilation](@/apps/prismatic-annihilation.md) | Auto-evolution trigger integration |
 
-External integrations include Anthropic Claude API for AI model interaction, [Ollama](/glossary/ollama/) for local AI model execution, and the Mix build system for quality gate tasks.
+External integrations include Anthropic Claude API for AI model interaction, [Ollama](@/glossary/ollama.md) for local AI model execution, and the Mix build system for quality gate tasks.
 
 ## NABLA Compliance
 
@@ -204,16 +204,16 @@ Telemetry events: `[:prismatic_claude, :stack_conversation, :frame_created]`, `[
 
 ## Related Resources
 
-- [Prismatic Agents](/apps/prismatic-agents/) -- Agent runtime
-- [Prismatic Safety](/apps/prismatic-safety/) -- Quality enforcement
+- [Prismatic Agents](@/apps/prismatic-agents.md) -- Agent runtime
+- [Prismatic Safety](@/apps/prismatic-safety.md) -- Quality enforcement
 - [Anthropic Claude](https://claude.ai/) -- AI model provider
 - [Ollama](https://ollama.ai/) -- Local AI model runtime
-- [ChatGPT Analyze](/agents/chatgpt-analyze/) -- Multi-model intelligence workflows
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Autonomous platform evolution through session lifecycle hooks
-- [DX Brutalist Analyst](/agents/dx-brutalist-analyst/) -- Developer experience evaluation of the Claude integration layer
-- [AIAD Standard](/capabilities/aiad-standard/) -- Interface between Claude AI sessions and the agent ecosystem
-- [Session Discipline](/capabilities/session-discipline/) -- Mandatory session lifecycle requirements enforcement
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Epistemic framework for AI-generated claims
+- [ChatGPT Analyze](@/agents/chatgpt-analyze.md) -- Multi-model intelligence workflows
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Autonomous platform evolution through session lifecycle hooks
+- [DX Brutalist Analyst](@/agents/dx-brutalist-analyst.md) -- Developer experience evaluation of the Claude integration layer
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Interface between Claude AI sessions and the agent ecosystem
+- [Session Discipline](@/capabilities/session-discipline.md) -- Mandatory session lifecycle requirements enforcement
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Epistemic framework for AI-generated claims
 
 ---
 
@@ -222,4 +222,4 @@ Telemetry events: `[:prismatic_claude, :stack_conversation, :frame_created]`, `[
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

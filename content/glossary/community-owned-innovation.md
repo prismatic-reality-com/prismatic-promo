@@ -399,28 +399,28 @@ The glossary (300+ terms), AIAD documentation, architectural decision records, a
 
 Community-Owned Innovation connects to a network of related ideas within the Prismatic Platform:
 
-- [Community Ownership](/glossary/community-ownership/) -- The governance structures and legal frameworks that formalize community control over collectively produced innovations.
-- [Community Over Corporation](/glossary/community-over-corporation/) -- The philosophical foundation that positions community benefit above corporate interest in innovation decisions.
-- [Collective Intelligence](/glossary/collective-intelligence/) -- The emergent problem-solving capability that arises when diverse contributors collaborate on innovation challenges.
-- [Collaborative Development](/glossary/collaborative-development/) -- The technical practices and workflows that enable effective multi-contributor innovation.
-- [Complete Transparency](/glossary/complete-transparency/) -- The operational visibility that enables meaningful community participation in innovation governance.
-- [Share Openly](/glossary/share-openly/) -- The practice of publishing innovation outputs freely as a prerequisite for community ownership.
-- [Developer Community](/glossary/developer-community/) -- The human network of contributors from which community-owned innovations emerge.
-- [Community Contributions](/glossary/community-contributions/) -- The specific mechanisms through which community members contribute to the innovation commons.
-- [Quality Innovation](/glossary/quality-innovation/) -- Innovation directed at improving quality measurement, enforcement, and assurance systems.
-- [Continuous Evolution](/glossary/continuous-evolution/) -- The ongoing process of platform improvement that community-owned innovation drives.
+- [Community Ownership](@/glossary/community-ownership.md) -- The governance structures and legal frameworks that formalize community control over collectively produced innovations.
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- The philosophical foundation that positions community benefit above corporate interest in innovation decisions.
+- [Collective Intelligence](@/glossary/collective-intelligence.md) -- The emergent problem-solving capability that arises when diverse contributors collaborate on innovation challenges.
+- [Collaborative Development](@/glossary/collaborative-development.md) -- The technical practices and workflows that enable effective multi-contributor innovation.
+- [Complete Transparency](@/glossary/complete-transparency.md) -- The operational visibility that enables meaningful community participation in innovation governance.
+- [Share Openly](@/glossary/share-openly.md) -- The practice of publishing innovation outputs freely as a prerequisite for community ownership.
+- [Developer Community](@/glossary/developer-community.md) -- The human network of contributors from which community-owned innovations emerge.
+- [Community Contributions](@/glossary/community-contributions.md) -- The specific mechanisms through which community members contribute to the innovation commons.
+- [Quality Innovation](@/glossary/quality-innovation.md) -- Innovation directed at improving quality measurement, enforcement, and assurance systems.
+- [Continuous Evolution](@/glossary/continuous-evolution.md) -- The ongoing process of platform improvement that community-owned innovation drives.
 
 ## See Also
 
-- [Community Building](/glossary/community-building/) -- Growing the contributor base for sustained innovation
-- [Community Engagement](/glossary/community-engagement/) -- Deepening community participation in innovation processes
-- [Sustainable Funding Models](/glossary/sustainable-funding-models/) -- Financing community innovation without corporate capture
-- [Cooperative Systems](/glossary/cooperative-systems/) -- Technical architectures that support collaborative innovation
-- [Collective Progress](/glossary/collective-progress/) -- Measuring the impact of community-owned innovation over time
+- [Community Building](@/glossary/community-building.md) -- Growing the contributor base for sustained innovation
+- [Community Engagement](@/glossary/community-engagement.md) -- Deepening community participation in innovation processes
+- [Sustainable Funding Models](@/glossary/sustainable-funding-models.md) -- Financing community innovation without corporate capture
+- [Cooperative Systems](@/glossary/cooperative-systems.md) -- Technical architectures that support collaborative innovation
+- [Collective Progress](@/glossary/collective-progress.md) -- Measuring the impact of community-owned innovation over time
 
 ---
 
-*Community-Owned Innovation is a core principle of the Prismatic Platform's development model. Explore the [Developer Portal](/glossary/developer-portal/) to learn how you can contribute to the innovation commons.*
+*Community-Owned Innovation is a core principle of the Prismatic Platform's development model. Explore the [Developer Portal](@/glossary/developer-portal.md) to learn how you can contribute to the innovation commons.*
 
 ---
 

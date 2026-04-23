@@ -28,11 +28,11 @@ image_alt = "red-epistemic-attacker - Prismatic Platform"
 
 ## Overview
 
-The red-epistemic-attacker operates as an L4 Domain Authority specialist within the Prismatic Platform's adversarial-epistemics domain, simulating truth distortion and source poisoning attacks against the platform's epistemic systems. This agent measures the impact of fabricated evidence, corrupted source material, and manipulated data streams on the platform's analytical conclusions, testing whether the [NABLA Infinity](/glossary/nabla-infinity/) axioms and [Trinity Gate](/glossary/trinity-gate/) validation effectively protect against adversarial information injection.
+The red-epistemic-attacker operates as an L4 Domain Authority specialist within the Prismatic Platform's adversarial-epistemics domain, simulating truth distortion and source poisoning attacks against the platform's epistemic systems. This agent measures the impact of fabricated evidence, corrupted source material, and manipulated data streams on the platform's analytical conclusions, testing whether the [NABLA Infinity](@/glossary/nabla-infinity.md) axioms and [Trinity Gate](@/glossary/trinity-gate.md) validation effectively protect against adversarial information injection.
 
-Truth distortion and source poisoning represent two of the five fundamental epistemic attack primitives coordinated by the [red-commander](/agents/red-commander/). Truth distortion introduces wholly fabricated information into evidence streams, while source poisoning corrupts legitimate sources to produce subtly altered data. Both attack types target the integrity of the evidence foundation upon which all analytical conclusions rest. If false information can enter the platform's analytical pipeline undetected, every downstream conclusion built on that evidence becomes unreliable.
+Truth distortion and source poisoning represent two of the five fundamental epistemic attack primitives coordinated by the [red-commander](@/agents/red-commander.md). Truth distortion introduces wholly fabricated information into evidence streams, while source poisoning corrupts legitimate sources to produce subtly altered data. Both attack types target the integrity of the evidence foundation upon which all analytical conclusions rest. If false information can enter the platform's analytical pipeline undetected, every downstream conclusion built on that evidence becomes unreliable.
 
-Built on the [AIAD](/glossary/aiad/) standard, all operations execute within `PrismaticDark.Sandbox` using synthetic data exclusively. The agent never accesses production data or production analytical systems. Ethics checks run at 10-15 second intervals to ensure operational safety boundaries are maintained throughout attack simulations.
+Built on the [AIAD](@/glossary/aiad.md) standard, all operations execute within `PrismaticDark.Sandbox` using synthetic data exclusively. The agent never accesses production data or production analytical systems. Ethics checks run at 10-15 second intervals to ensure operational safety boundaries are maintained throughout attack simulations.
 
 ## Attack Vector Taxonomy
 
@@ -51,11 +51,11 @@ The red-epistemic-attacker maintains a structured taxonomy of truth distortion a
 - **Truth distortion simulation** -- Designs and executes fabrication, modification, and contextual manipulation attacks against synthetic evidence streams, measuring detection rates and analytical impact
 - **Source poisoning campaigns** -- Corrupts simulated source feeds with calibrated alterations, testing the platform's ability to detect compromised sources through behavioral analysis and cross-source validation
 - **Impact measurement** -- Quantifies the downstream impact of successful attacks on analytical conclusions, measuring how far false information propagates through the analytical pipeline before detection
-- **Detection gap identification** -- Maps the specific detection mechanisms that fail to catch each attack variant, producing targeted improvement recommendations for the [Blue Team](/teams/blue/)
+- **Detection gap identification** -- Maps the specific detection mechanisms that fail to catch each attack variant, producing targeted improvement recommendations for the [Blue Team](@/teams/blue.md)
 - **Attack complexity scaling** -- Adjusts attack sophistication from simple injection to elaborate multi-layer fabrication, characterizing the relationship between attack investment and defensive capability
-- **Cross-source correlation testing** -- Tests whether the platform's [signal plurality](/glossary/signal-plurality/) enforcement effectively catches fabricated information that lacks independent corroboration
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed attack campaign cycles and automated outcome measurement
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for attack simulation monitoring and detection rate tracking
+- **Cross-source correlation testing** -- Tests whether the platform's [signal plurality](@/glossary/signal-plurality.md) enforcement effectively catches fabricated information that lacks independent corroboration
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed attack campaign cycles and automated outcome measurement
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for attack simulation monitoring and detection rate tracking
 
 ## Attack Execution Methodology
 
@@ -67,7 +67,7 @@ For each attack variant, the agent produces a **detection profile** that maps wh
 
 ## Authority Level
 
-**L4** - Domain Authority - Specialized domain expertise in truth distortion and source poisoning simulation, operating under the [red-commander](/agents/red-commander/)'s strategic direction with autonomy in attack technique selection and execution within approved campaign parameters.
+**L4** - Domain Authority - Specialized domain expertise in truth distortion and source poisoning simulation, operating under the [red-commander](@/agents/red-commander.md)'s strategic direction with autonomy in attack technique selection and execution within approved campaign parameters.
 
 ## Command Interface
 
@@ -81,15 +81,15 @@ For each attack variant, the agent produces a **detection profile** that maps wh
 
 | Agent | Relationship |
 |-------|-------------|
-| [red-commander](/agents/red-commander/) | Strategic direction, campaign approval, and resource allocation |
-| [red-drift-inducer](/agents/red-drift-inducer/) | Combined operations where truth distortion precedes or accompanies drift campaigns |
-| [red-scenario-generator](/agents/red-scenario-generator/) | Multi-technique scenarios that incorporate truth distortion components |
-| [blue-auth-sentinel](/agents/blue-auth-sentinel/) | Source authentication attacks directly test Blue Team authentication defenses |
-| [blue-signal-aggregator](/agents/blue-signal-aggregator/) | Signal poisoning attacks test the aggregator's cross-source validation capabilities |
+| [red-commander](@/agents/red-commander.md) | Strategic direction, campaign approval, and resource allocation |
+| [red-drift-inducer](@/agents/red-drift-inducer.md) | Combined operations where truth distortion precedes or accompanies drift campaigns |
+| [red-scenario-generator](@/agents/red-scenario-generator.md) | Multi-technique scenarios that incorporate truth distortion components |
+| [blue-auth-sentinel](@/agents/blue-auth-sentinel.md) | Source authentication attacks directly test Blue Team authentication defenses |
+| [blue-signal-aggregator](@/agents/blue-signal-aggregator.md) | Signal poisoning attacks test the aggregator's cross-source validation capabilities |
 
 ## NABLA Infinity Targeting
 
-The red-epistemic-attacker specifically targets the [NABLA Infinity](/glossary/nabla-infinity/) axioms that are designed to prevent the very attacks it simulates. [Signal plurality](/glossary/signal-plurality/) is tested by fabricating multiple apparently independent sources that actually share a common adversarial origin. Source independence is tested by creating fabricated corroboration that mimics independent confirmation. [Provenance mandatory](/glossary/provenance-mandatory/) is tested by constructing fabricated provenance chains that pass automated validation.
+The red-epistemic-attacker specifically targets the [NABLA Infinity](@/glossary/nabla-infinity.md) axioms that are designed to prevent the very attacks it simulates. [Signal plurality](@/glossary/signal-plurality.md) is tested by fabricating multiple apparently independent sources that actually share a common adversarial origin. Source independence is tested by creating fabricated corroboration that mimics independent confirmation. [Provenance mandatory](@/glossary/provenance-mandatory.md) is tested by constructing fabricated provenance chains that pass automated validation.
 
 Each axiom-targeting attack is documented with its success or failure against the specific defensive mechanism, creating a detailed map of the platform's epistemic resilience that guides continuous defensive improvement.
 
@@ -99,7 +99,7 @@ All attack simulations execute within `PrismaticDark.Sandbox` with complete netw
 
 ## Enforcement
 
-Attack findings comply with the [NO MERCY](/glossary/no-mercy/) doctrine: defensive weaknesses are reported comprehensively regardless of their implications. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that all findings are reproducible within the simulation environment. [Trinity Gate](/glossary/trinity-gate/) validates findings before they enter the defensive improvement pipeline.
+Attack findings comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: defensive weaknesses are reported comprehensively regardless of their implications. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that all findings are reproducible within the simulation environment. [Trinity Gate](@/glossary/trinity-gate.md) validates findings before they enter the defensive improvement pipeline.
 
 ---
 
@@ -108,4 +108,4 @@ Attack findings comply with the [NO MERCY](/glossary/no-mercy/) doctrine: defens
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

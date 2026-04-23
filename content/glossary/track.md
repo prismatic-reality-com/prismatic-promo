@@ -233,11 +233,11 @@ end
 
 ## Cross-References
 
-- [Topic Registry](/glossary/topic-registry/) - Catalog backing track topic references
+- [Topic Registry](@/glossary/topic-registry.md) - Catalog backing track topic references
 - **Academy** - Learning platform subsystem
-- [Tracking](/glossary/tracking/) - Progress monitoring system
-- [Learning Path](/glossary/learning-path/) - Alternative term for track
-- [Tool](/glossary/tool/) - OSINT tools that inform track recommendations
+- [Tracking](@/glossary/tracking.md) - Progress monitoring system
+- [Learning Path](@/glossary/learning-path.md) - Alternative term for track
+- [Tool](@/glossary/tool.md) - OSINT tools that inform track recommendations
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

@@ -51,12 +51,12 @@ The Prismatic Platform's strategy has evolved through 19 generations, each with 
 
 | Generation Range | Strategic Theme | Key Outcome |
 |-----------------|-----------------|-------------|
-| Gen 1-3 | Foundation | Core [OTP](/glossary/otp/) architecture, initial umbrella structure |
-| Gen 4-6 | Stabilization | [Quality gates](/glossary/quality-gates/), testing framework, CI/CD |
+| Gen 1-3 | Foundation | Core [OTP](@/glossary/otp.md) architecture, initial umbrella structure |
+| Gen 4-6 | Stabilization | [Quality gates](@/glossary/quality-gates.md), testing framework, CI/CD |
 | Gen 7-9 | Quality Obsession | Zero-warning policy, 100/100 quality score |
 | Gen 10-12 | Intelligence | OSINT integration, 250+ providers, adapter architecture |
-| Gen 13-15 | Epistemic Rigor | [NABLA Infinity](/glossary/nabla-infinity/), [Trinity Gate](/glossary/trinity-gate/), [NM/ND doctrine](/glossary/no-mercy-no-doubts/) |
-| Gen 16-17 | Autonomous Evolution | [AutoEvolve](/glossary/autoevolve/), [CASCADE patterns](/glossary/cascade-pattern/), self-healing |
+| Gen 13-15 | Epistemic Rigor | [NABLA Infinity](@/glossary/nabla-infinity.md), [Trinity Gate](@/glossary/trinity-gate.md), [NM/ND doctrine](@/glossary/no-mercy-no-doubts.md) |
+| Gen 16-17 | Autonomous Evolution | [AutoEvolve](@/glossary/autoevolve.md), [CASCADE patterns](@/glossary/cascade-pattern.md), self-healing |
 | Gen 18 | Ecosystem Preparation | Agent explosion (0 to 530), AIAD standard |
 | Gen 19 | Ecosystem Expansion | 4 OSS packages, developer portal, dual-track |
 
@@ -340,13 +340,13 @@ Platform strategy must account for risks that can undermine even well-executed p
 | Risk Category | Specific Risk | Mitigation Strategy |
 |--------------|---------------|---------------------|
 | **Technology** | BEAM/Elixir ecosystem decline | OSS contributions, dual-track (internal + community) |
-| **Quality** | Regression under growth pressure | Automated enforcement (pre-commit hooks, [quality gates](/glossary/quality-gates/)) |
-| **Complexity** | 115-app umbrella becomes unmanageable | Strict boundaries, [umbrella](/glossary/umbrella-application/) modularity, dependency analysis |
+| **Quality** | Regression under growth pressure | Automated enforcement (pre-commit hooks, [quality gates](@/glossary/quality-gates.md)) |
+| **Complexity** | 115-app umbrella becomes unmanageable | Strict boundaries, [umbrella](@/glossary/umbrella-application.md) modularity, dependency analysis |
 | **Talent** | Small Elixir talent pool | Documentation, automation, agent-assisted development |
 | **Market** | EASM market consolidation | Differentiation through depth (530 agents, 120 OSINT tools) |
-| **Technical Debt** | Accumulated shortcuts under pressure | [NM/ND doctrine](/glossary/no-mercy-no-doubts/) (zero tolerance for debt) |
+| **Technical Debt** | Accumulated shortcuts under pressure | [NM/ND doctrine](@/glossary/no-mercy-no-doubts.md) (zero tolerance for debt) |
 
-The most significant strategic risk for the Prismatic Platform is complexity growth. As the umbrella expands from 115 to potentially 150+ applications, the interaction surface between applications grows quadratically. The mitigation strategy combines strict interface boundaries (each app has a well-defined public API), automated dependency analysis (detecting circular dependencies and unwanted coupling), and the [Mycelial Network](/glossary/mycelial-network/) for propagating quality patterns across the expanding codebase.
+The most significant strategic risk for the Prismatic Platform is complexity growth. As the umbrella expands from 115 to potentially 150+ applications, the interaction surface between applications grows quadratically. The mitigation strategy combines strict interface boundaries (each app has a well-defined public API), automated dependency analysis (detecting circular dependencies and unwanted coupling), and the [Mycelial Network](@/glossary/mycelial-network.md) for propagating quality patterns across the expanding codebase.
 
 ## Common Pitfalls
 
@@ -376,23 +376,23 @@ The most significant strategic risk for the Prismatic Platform is complexity gro
 
 ## Related Concepts
 
-- [Architecture](/glossary/architecture/) - The structural embodiment of platform strategy
-- [Evolution](/glossary/evolution/) - How the platform changes over time according to strategy
-- [Generation Evolution](/glossary/generation-evolution/) - Generational model for tracking strategic progress
-- [Fitness Score](/glossary/fitness-score/) - Quantitative measure of strategic health
-- [AutoEvolve](/glossary/autoevolve/) - Autonomous evolution engine executing strategic improvements
-- [Quality Gate](/glossary/quality-gate/) - Automated checkpoints enforcing strategic quality standards
-- [Modularity](/glossary/modularity/) - Architectural property enabling strategic flexibility
-- [Scalability](/glossary/scalability/) - Platform's ability to grow according to strategic plan
-- [Infrastructure](/glossary/infrastructure/) - Foundational systems supporting strategic capabilities
-- [Continuous Evolution](/glossary/continuous-evolution/) - Philosophy of ongoing strategic improvement
+- [Architecture](@/glossary/architecture.md) - The structural embodiment of platform strategy
+- [Evolution](@/glossary/evolution.md) - How the platform changes over time according to strategy
+- [Generation Evolution](@/glossary/generation-evolution.md) - Generational model for tracking strategic progress
+- [Fitness Score](@/glossary/fitness-score.md) - Quantitative measure of strategic health
+- [AutoEvolve](@/glossary/autoevolve.md) - Autonomous evolution engine executing strategic improvements
+- [Quality Gate](@/glossary/quality-gate.md) - Automated checkpoints enforcing strategic quality standards
+- [Modularity](@/glossary/modularity.md) - Architectural property enabling strategic flexibility
+- [Scalability](@/glossary/scalability.md) - Platform's ability to grow according to strategic plan
+- [Infrastructure](@/glossary/infrastructure.md) - Foundational systems supporting strategic capabilities
+- [Continuous Evolution](@/glossary/continuous-evolution.md) - Philosophy of ongoing strategic improvement
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture implementing the strategy
-- [Capabilities](/capabilities/) - Capabilities delivered through strategic execution
+- [Architecture](@/architecture/_index.md) - Platform architecture implementing the strategy
+- [Capabilities](@/capabilities/_index.md) - Capabilities delivered through strategic execution
 - Glossary Index - Complete glossary of platform concepts
-- [Technologies](/technologies/) - Technology stack chosen through strategic analysis
+- [Technologies](@/technologies/_index.md) - Technology stack chosen through strategic analysis
 
 ---
 
@@ -401,4 +401,4 @@ The most significant strategic risk for the Prismatic Platform is complexity gro
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

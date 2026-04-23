@@ -29,7 +29,7 @@ image_alt = "Verification Gate - Prismatic Platform"
 
 A verification gate is an automated checkpoint that code must pass before it can advance to the next stage of the development pipeline. In the Prismatic Platform, verification gates form a multi-layered defense system spanning local development (pre-commit hooks), continuous integration (CI/CD pipelines), and production deployment (release gates). Each gate verifies a specific aspect of code quality -- compilation correctness, test passage, static analysis compliance, formatting consistency, security scanning, and performance benchmarks -- and blocks advancement when verification fails.
 
-The platform operates 11 verification phases in its pre-commit hook alone, executing in sequence from fastest to slowest. This ordering is deliberate: cheap checks run first (formatting, compilation warnings) so that expensive checks (full test suite, [Dialyzer](/glossary/dialyzer/) analysis) only run against code that has already passed basic validation. The total pre-commit verification time for a typical change is 30-60 seconds, with early failures detected in under 5 seconds.
+The platform operates 11 verification phases in its pre-commit hook alone, executing in sequence from fastest to slowest. This ordering is deliberate: cheap checks run first (formatting, compilation warnings) so that expensive checks (full test suite, [Dialyzer](@/glossary/dialyzer.md) analysis) only run against code that has already passed basic validation. The total pre-commit verification time for a typical change is 30-60 seconds, with early failures detected in under 5 seconds.
 
 Verification gates are not advisory. They are blocking. A gate failure means the commit is rejected, the push is refused, or the deployment is halted. There is no `--no-verify` bypass. The NO MERCY doctrine applies to verification with the same absoluteness it applies to code quality: if the code does not pass verification, it does not advance. The rationale is simple: every verification bypass that reaches production becomes a production incident. The cost of fixing a bypass-induced incident is always higher than the cost of fixing the code before commit.
 
@@ -329,7 +329,7 @@ end
 
 ## Credo Verification
 
-[Credo](/glossary/credo/) provides style and consistency checks beyond compilation. The platform runs Credo in strict mode, which enables all checks including design-level suggestions.
+[Credo](@/glossary/credo.md) provides style and consistency checks beyond compilation. The platform runs Credo in strict mode, which enables all checks including design-level suggestions.
 
 ### Credo Check Categories
 
@@ -400,7 +400,7 @@ end
 
 ## Dialyzer Verification
 
-[Dialyzer](/glossary/dialyzer/) performs static type analysis using success typing. It detects type mismatches, unreachable code, and contract violations that the compiler cannot catch.
+[Dialyzer](@/glossary/dialyzer.md) performs static type analysis using success typing. It detects type mismatches, unreachable code, and contract violations that the compiler cannot catch.
 
 ### What Dialyzer Catches
 
@@ -484,7 +484,7 @@ end
 
 ## Quality DNA Integration
 
-The [Quality DNA](/glossary/quality-dna/) system provides cross-session continuity for verification gates. Each verification run updates the Quality DNA state, which tracks quality metrics over time and detects regression trends.
+The [Quality DNA](@/glossary/quality-dna.md) system provides cross-session continuity for verification gates. Each verification run updates the Quality DNA state, which tracks quality metrics over time and detects regression trends.
 
 ### Quality DNA State
 
@@ -508,7 +508,7 @@ The [Quality DNA](/glossary/quality-dna/) system provides cross-session continui
 
 ### Quality Floor Guardian
 
-The [Quality Floor Guardian](/glossary/quality-floor-guardian/) monitors quality metrics autonomously and triggers escalating responses when degradation is detected:
+The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) monitors quality metrics autonomously and triggers escalating responses when degradation is detected:
 
 | Quality Level | Response | Action |
 |--------------|----------|--------|
@@ -578,24 +578,24 @@ The following are explicitly forbidden by platform policy:
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) -- The quality gate system that verification gates implement
-- [Pre-commit Hooks](/glossary/pre-commit-hooks/) -- Git hooks executing verification phases
-- [Credo](/glossary/credo/) -- Elixir code quality analysis tool
-- [Dialyzer](/glossary/dialyzer/) -- Static type analysis for Elixir
-- [Compilation](/glossary/compilation/) -- Elixir compilation with warnings-as-errors
-- [Testing](/glossary/testing/) -- Test execution as a verification phase
-- [Test Coverage](/glossary/test-coverage/) -- Coverage thresholds enforced by gates
-- [CI/CD](/glossary/ci-cd/) -- Pipeline gates beyond local pre-commit
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality tracking
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous quality monitoring
-- [Regression Testing](/glossary/regression-testing/) -- Mandatory regression tests for bug fixes
-- [Static Analysis](/glossary/static-analysis/) -- Analysis tools integrated into verification gates
+- [Quality Gates](@/glossary/quality-gates.md) -- The quality gate system that verification gates implement
+- [Pre-commit Hooks](@/glossary/pre-commit-hooks.md) -- Git hooks executing verification phases
+- [Credo](@/glossary/credo.md) -- Elixir code quality analysis tool
+- [Dialyzer](@/glossary/dialyzer.md) -- Static type analysis for Elixir
+- [Compilation](@/glossary/compilation.md) -- Elixir compilation with warnings-as-errors
+- [Testing](@/glossary/testing.md) -- Test execution as a verification phase
+- [Test Coverage](@/glossary/test-coverage.md) -- Coverage thresholds enforced by gates
+- [CI/CD](@/glossary/ci-cd.md) -- Pipeline gates beyond local pre-commit
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality tracking
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous quality monitoring
+- [Regression Testing](@/glossary/regression-testing.md) -- Mandatory regression tests for bug fixes
+- [Static Analysis](@/glossary/static-analysis.md) -- Analysis tools integrated into verification gates
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Umbrella applications subject to verification gates
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications subject to verification gates
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -605,4 +605,4 @@ The following are explicitly forbidden by platform policy:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

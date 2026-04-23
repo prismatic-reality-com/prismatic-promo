@@ -35,9 +35,9 @@ image_alt = "Software Industry Transformation - Prismatic Platform"
 
 ## Definition
 
-Software Industry Transformation describes the fundamental, multi-dimensional restructuring of how software is built, distributed, monetized, and maintained across the global technology ecosystem. This transformation is driven by the convergence of five forces: the dominance of [open source](/glossary/open-source/) as the default development and distribution model, the integration of AI agents as development collaborators, the elevation of quality from aspiration to mechanical enforcement, the shift from product-centric to platform-centric architectures, and the emergence of community-owned governance models that challenge corporate monopolies.
+Software Industry Transformation describes the fundamental, multi-dimensional restructuring of how software is built, distributed, monetized, and maintained across the global technology ecosystem. This transformation is driven by the convergence of five forces: the dominance of [open source](@/glossary/open-source.md) as the default development and distribution model, the integration of AI agents as development collaborators, the elevation of quality from aspiration to mechanical enforcement, the shift from product-centric to platform-centric architectures, and the emergence of community-owned governance models that challenge corporate monopolies.
 
-Unlike incremental industry evolution (new frameworks, new languages, new cloud providers), transformation implies structural change in the industry's economic, organizational, and technical foundations. Companies that built competitive advantages on proprietary code, developer lock-in, or accumulated [technical debt](/glossary/technical-debt/) find those advantages eroding as open platforms demonstrate superior quality, velocity, and adaptability.
+Unlike incremental industry evolution (new frameworks, new languages, new cloud providers), transformation implies structural change in the industry's economic, organizational, and technical foundations. Companies that built competitive advantages on proprietary code, developer lock-in, or accumulated [technical debt](@/glossary/technical-debt.md) find those advantages eroding as open platforms demonstrate superior quality, velocity, and adaptability.
 
 The Prismatic Platform embodies this transformation. Built as an open-source, AI-augmented, quality-obsessed platform with 530+ autonomous agents, it demonstrates that a single engineering effort can achieve what previously required large corporate teams -- not by working harder, but by working fundamentally differently.
 
@@ -57,7 +57,7 @@ AWS, Google Cloud, and Azure re-centralized control through infrastructure owner
 
 ### The AI-Augmented Transformation (2020s-2030s)
 
-The current transformation dissolves boundaries that defined previous eras. AI agents blur the line between tool and developer. [Autonomous platforms](/glossary/autonomous-platforms/) blur the line between product and organization. [Community-owned innovation](/glossary/community-owned-innovation/) blurs the line between producer and consumer. The industry is not merely adopting new technology; it is restructuring its fundamental operating model.
+The current transformation dissolves boundaries that defined previous eras. AI agents blur the line between tool and developer. [Autonomous platforms](@/glossary/autonomous-platforms.md) blur the line between product and organization. [Community-owned innovation](@/glossary/community-owned-innovation.md) blurs the line between producer and consumer. The industry is not merely adopting new technology; it is restructuring its fundamental operating model.
 
 ## Five Pillars of Transformation
 
@@ -66,27 +66,27 @@ The current transformation dissolves boundaries that defined previous eras. AI a
 The transformation's first pillar is the normalization of open source as the expected, not exceptional, approach to software development. This goes beyond code availability:
 
 - **Open development**: Public roadmaps, transparent decision-making, community governance
-- **Open standards**: Interoperability through shared specifications ([OpenAPI](/glossary/openapi/), GraphQL, protobuf)
-- **Open data**: Training data for [AI models](/glossary/ai-model/), benchmarks, and evaluation frameworks
+- **Open standards**: Interoperability through shared specifications ([OpenAPI](@/glossary/openapi.md), GraphQL, protobuf)
+- **Open data**: Training data for [AI models](@/glossary/ai-model.md), benchmarks, and evaluation frameworks
 - **Open knowledge**: Documentation, tutorials, and architectural decisions shared publicly
 
-The Prismatic Platform publishes its [architecture](/glossary/architecture/), agent specifications, quality policies, and development methodology as open-source artifacts, enabling others to adopt and adapt its approaches.
+The Prismatic Platform publishes its [architecture](@/glossary/architecture.md), agent specifications, quality policies, and development methodology as open-source artifacts, enabling others to adopt and adapt its approaches.
 
 ### 2. AI as Development Collaborator
 
-The second pillar transforms the development workforce itself. [AI agents](/glossary/ai-agent/) participate in code review, test generation, architectural analysis, security auditing, and documentation. This is not automation of repetitive tasks -- it is augmentation of cognitive work.
+The second pillar transforms the development workforce itself. [AI agents](@/glossary/ai-agent.md) participate in code review, test generation, architectural analysis, security auditing, and documentation. This is not automation of repetitive tasks -- it is augmentation of cognitive work.
 
-The platform's [AIAD standard](/glossary/aiad/) formalizes this collaboration, defining agent specifications, command interfaces, pipeline architectures, and accountability structures. With 530+ agents operating across 16 domains, the platform demonstrates that AI collaboration scales when properly structured.
+The platform's [AIAD standard](@/glossary/aiad.md) formalizes this collaboration, defining agent specifications, command interfaces, pipeline architectures, and accountability structures. With 530+ agents operating across 16 domains, the platform demonstrates that AI collaboration scales when properly structured.
 
 ### 3. Quality as Competitive Advantage
 
-The third pillar inverts the traditional quality-speed tradeoff. In the transformed industry, quality is not a cost but a competitive advantage. Systems with zero [technical debt](/glossary/technical-debt/), comprehensive test coverage, and formal verification evolve faster than systems burdened by accumulated shortcuts.
+The third pillar inverts the traditional quality-speed tradeoff. In the transformed industry, quality is not a cost but a competitive advantage. Systems with zero [technical debt](@/glossary/technical-debt.md), comprehensive test coverage, and formal verification evolve faster than systems burdened by accumulated shortcuts.
 
-The Prismatic Platform's 100/100 [quality score](/glossary/quality/), 13/13 quality domains, and zero-warning compilation policy demonstrate this principle. The platform's velocity increased as quality improved -- each generation of evolution was faster than the previous because the codebase was cleaner.
+The Prismatic Platform's 100/100 [quality score](@/glossary/quality.md), 13/13 quality domains, and zero-warning compilation policy demonstrate this principle. The platform's velocity increased as quality improved -- each generation of evolution was faster than the previous because the codebase was cleaner.
 
 ### 4. Platform-Centric Architecture
 
-The fourth pillar replaces application-centric thinking with platform-centric thinking. Rather than building individual applications, organizations build platforms that generate applications. The platform provides shared infrastructure ([storage patterns](/glossary/storage-pattern/), [authentication](/glossary/authentication/), [observability](/glossary/observability/)), and specific applications emerge as configurations or extensions of the platform.
+The fourth pillar replaces application-centric thinking with platform-centric thinking. Rather than building individual applications, organizations build platforms that generate applications. The platform provides shared infrastructure ([storage patterns](@/glossary/storage-pattern.md), [authentication](@/glossary/authentication.md), [observability](@/glossary/observability.md)), and specific applications emerge as configurations or extensions of the platform.
 
 The Prismatic Platform's 115-app umbrella architecture exemplifies this approach. New capabilities (EASM, OSINT, API gateway) are added as applications that leverage shared platform infrastructure rather than standalone systems that duplicate functionality.
 
@@ -94,7 +94,7 @@ The Prismatic Platform's 115-app umbrella architecture exemplifies this approach
 
 The fifth pillar transforms organizational structures. Traditional software companies are hierarchical, with decisions flowing from executives to engineers. Transformed organizations operate as communities with transparent governance, merit-based authority, and distributed decision-making.
 
-[Community-owned innovation](/glossary/community-owned-innovation/) ensures that the people who build the software also shape its direction. This eliminates the principal-agent problem that plagues corporate software development, where managers optimize for different metrics than engineers.
+[Community-owned innovation](@/glossary/community-owned-innovation.md) ensures that the people who build the software also shape its direction. This eliminates the principal-agent problem that plagues corporate software development, where managers optimize for different metrics than engineers.
 
 ## Platform Implementation in Elixir
 
@@ -420,7 +420,7 @@ end
 The transformation reshapes every role in software engineering:
 
 - **Developers** evolve from code writers to system architects and AI directors
-- **QA Engineers** evolve from manual testers to [quality gate](/glossary/quality-gate/) designers and verification specialists
+- **QA Engineers** evolve from manual testers to [quality gate](@/glossary/quality-gate.md) designers and verification specialists
 - **DevOps Engineers** evolve from pipeline builders to platform engineers
 - **Engineering Managers** evolve from task allocators to system cultivators
 - **CTOs** evolve from technology selectors to ecosystem strategists
@@ -431,7 +431,7 @@ Hierarchical engineering organizations flatten as AI agents handle coordination 
 
 ### Economic Model Shifts
 
-The transformation changes software economics fundamentally. The marginal cost of quality approaches zero when AI agents enforce it automatically. The marginal cost of documentation approaches zero when specifications generate it. The marginal cost of testing approaches zero when [property-based testing](/glossary/property-based-testing/) and AI generate comprehensive test suites.
+The transformation changes software economics fundamentally. The marginal cost of quality approaches zero when AI agents enforce it automatically. The marginal cost of documentation approaches zero when specifications generate it. The marginal cost of testing approaches zero when [property-based testing](@/glossary/property-based-testing.md) and AI generate comprehensive test suites.
 
 Organizations that embrace these shifts achieve exponentially better economics than those clinging to traditional models. The cost-quality curve inverts: higher quality becomes cheaper, not more expensive.
 
@@ -480,16 +480,16 @@ The next decade will likely see the emergence of fully autonomous development en
 
 ## Related Concepts
 
-- [Open Source](/glossary/open-source/) -- The development and distribution model driving transformation
-- [Paradigm Shift](/glossary/paradigm-shift/) -- Fundamental changes in problem-solving approaches
-- [Quality Innovation](/glossary/quality-innovation/) -- Innovation enabled by uncompromising quality
-- [Technical Debt](/glossary/technical-debt/) -- The accumulated cost of quality shortcuts that transformation eliminates
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- Self-improving systems that accelerate transformation
-- [Platform Strategy](/glossary/platform-strategy/) -- Strategic approach to building platforms over products
-- [Community Building](/glossary/community-building/) -- Creating contributor ecosystems around platforms
-- [AI Agent](/glossary/ai-agent/) -- Autonomous software entities that participate in the transformed industry
-- [AIAD](/glossary/aiad/) -- Standard for AI agent collaboration driving transformation
-- [Quality Gates](/glossary/quality-gates/) -- Mechanical quality enforcement enabling transformation velocity
+- [Open Source](@/glossary/open-source.md) -- The development and distribution model driving transformation
+- [Paradigm Shift](@/glossary/paradigm-shift.md) -- Fundamental changes in problem-solving approaches
+- [Quality Innovation](@/glossary/quality-innovation.md) -- Innovation enabled by uncompromising quality
+- [Technical Debt](@/glossary/technical-debt.md) -- The accumulated cost of quality shortcuts that transformation eliminates
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- Self-improving systems that accelerate transformation
+- [Platform Strategy](@/glossary/platform-strategy.md) -- Strategic approach to building platforms over products
+- [Community Building](@/glossary/community-building.md) -- Creating contributor ecosystems around platforms
+- [AI Agent](@/glossary/ai-agent.md) -- Autonomous software entities that participate in the transformed industry
+- [AIAD](@/glossary/aiad.md) -- Standard for AI agent collaboration driving transformation
+- [Quality Gates](@/glossary/quality-gates.md) -- Mechanical quality enforcement enabling transformation velocity
 
 See the Glossary index for the complete taxonomy of platform concepts.
 
@@ -500,4 +500,4 @@ See the Glossary index for the complete taxonomy of platform concepts.
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

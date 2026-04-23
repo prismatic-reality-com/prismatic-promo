@@ -28,7 +28,7 @@ The **/dark-ops** command activates structural crisis detection and analysis for
 
 The distinction between optimizable problems and structural singularities is critical. An optimizable problem (symbolized as nabla-f) has local causes, predictable impact, and responds to normal management interventions. A structural singularity (symbolized as nabla-infinity) has systemic causes, chaotic response patterns, and actively resists conventional fixes. Dark Ops mode activates when the system detects that a problem falls into the second category, deploying specialized analytical tools drawn from graph theory, topology analysis, and contradiction mapping.
 
-This command operates under the **SUPREME** authority level and is executed by the `dark-ops-analyst` agent, supported by a response team that includes the `structural-analyst`, `graph-analyst`, and `contradiction-detector` agents. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. All Dark Ops operations are audited and subject to ethical review, ensuring that structural analysis serves constructive purposes.
+This command operates under the **SUPREME** authority level and is executed by the `dark-ops-analyst` agent, supported by a response team that includes the `structural-analyst`, `graph-analyst`, and `contradiction-detector` agents. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. All Dark Ops operations are audited and subject to ethical review, ensuring that structural analysis serves constructive purposes.
 
 The NABLA pipeline processes input through up to 14 levels of analysis, from raw signal processing (L0) through pattern recognition (L11) to philosophical override checks (L12) and recursive convergence (L-infinity). This depth of analysis enables the command to detect contradictions, paradoxes, and structural tensions that are invisible to surface-level inspection, providing actionable intervention strategies that address root causes rather than symptoms.
 
@@ -218,11 +218,11 @@ paradox_cycles = Enum.filter(cycles, &contains_contradiction?/1)
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Multi-agent response team | structural-analyst, graph-analyst, contradiction-detector |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Multi-agent response team | structural-analyst, graph-analyst, contradiction-detector |
 | NABLA Pipeline | Core processing engine | 14-level epistemic processing pipeline |
-| [AIAD](/glossary/aiad/) Registry | Command specification | Crisis-detection category |
-| [Quality Gates](/glossary/quality-gates/) | 4-gate quality validation | Activation, Analysis, Intervention Safety, Documentation |
-| [Telemetry](/glossary/telemetry/) | Event tracking and [metrics](/glossary/metrics/) | All operations emit telemetry events |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification | Crisis-detection category |
+| [Quality Gates](@/glossary/quality-gates.md) | 4-gate quality validation | Activation, Analysis, Intervention Safety, Documentation |
+| [Telemetry](@/glossary/telemetry.md) | Event tracking and [metrics](@/glossary/metrics.md) | All operations emit telemetry events |
 | Ethics Validator | Mandatory ethical review | Every intervention passes ethical boundary check |
 | Audit System | Immutable audit trail | All Dark Ops operations recorded |
 
@@ -356,7 +356,7 @@ PrismaticAudit.record(%{
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for surface-level crisis analysis. When structural singularities are detected, they must be fully mapped and documented. No partial analyses. No intervention recommendations without consequence modeling.
 - **NO DOUBTS**: Full evidence gathering before classification. Attractor class determination requires multiple independent signals. Contradiction graphs must be complete. NABLA axiom of contradiction preservation enforced -- both sides of every paradox preserved, never discarded.
@@ -365,11 +365,11 @@ Dark Ops directly implements the NABLA axiom of **Contradiction Preservation** -
 
 ## Related Commands
 
-- [/emergency](/commands/emergency/) - Emergency response and crisis management activation
-- [/archer-supreme](/commands/archer-supreme/) - Supreme authority activation for platform-wide operations
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/emergency](@/commands/emergency.md) - Emergency response and crisis management activation
+- [/archer-supreme](@/commands/archer-supreme.md) - Supreme authority activation for platform-wide operations
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -378,4 +378,4 @@ Dark Ops directly implements the NABLA axiom of **Contradiction Preservation** -
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

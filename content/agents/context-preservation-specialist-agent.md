@@ -28,13 +28,13 @@ image_alt = "Context Preservation Specialist Agent - Prismatic Platform"
 
 ## Overview
 
-The Context Preservation Specialist Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent responsible for complete session restoration and continuity management across the Prismatic Platform. This agent ensures that critical context -- decisions made, files modified, quality states, and strategic directions -- survives session boundaries without information loss. In a platform where autonomous agents operate across extended development cycles, context preservation is the foundation that prevents repeated work and maintains strategic coherence.
+The Context Preservation Specialist Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent responsible for complete session restoration and continuity management across the Prismatic Platform. This agent ensures that critical context -- decisions made, files modified, quality states, and strategic directions -- survives session boundaries without information loss. In a platform where autonomous agents operate across extended development cycles, context preservation is the foundation that prevents repeated work and maintains strategic coherence.
 
 Session context in the Prismatic ecosystem includes more than simple file change logs. The Context Preservation Specialist captures decision rationale, quality gate states, evolutionary progress markers, and inter-agent coordination states. This comprehensive context snapshot enables any subsequent session to resume exactly where the previous one ended, with full awareness of what was accomplished, what was decided, and what remains to be done.
 
 ## Operational Domain
 
-Context preservation operates at the intersection of session management and knowledge persistence. The agent interfaces with the `.claude/session-context/` directory structure, Quality DNA state files, and [AIAD](/glossary/aiad/) registry snapshots to build complete session representations. It also manages the stack-based conversation mode, ensuring that frame [immutability](/glossary/immutability/) and checkpoint semantics are properly maintained across session boundaries.
+Context preservation operates at the intersection of session management and knowledge persistence. The agent interfaces with the `.claude/session-context/` directory structure, Quality DNA state files, and [AIAD](@/glossary/aiad.md) registry snapshots to build complete session representations. It also manages the stack-based conversation mode, ensuring that frame [immutability](@/glossary/immutability.md) and checkpoint semantics are properly maintained across session boundaries.
 
 ## Context Architecture
 
@@ -108,11 +108,11 @@ end
 
 ## Key Capabilities
 
-- **Session state serialization** capturing the complete state of an active session including modified files, decision records, quality [metrics](/glossary/metrics/), and agent coordination state
+- **Session state serialization** capturing the complete state of an active session including modified files, decision records, quality [metrics](@/glossary/metrics.md), and agent coordination state
 - **Context restoration** rebuilding session awareness from saved context files, enabling seamless continuation of multi-session development campaigns
 - **Quality DNA continuity** preserving and restoring quality state information across sessions to prevent quality regression between development cycles
 - **Decision provenance tracking** maintaining traceable records of why specific technical decisions were made, preventing future sessions from revisiting settled questions
-- **Stack frame management** supporting the stack-based conversation [protocol](/glossary/protocol/) by preserving frame state, checkpoints, and branch points across session boundaries
+- **Stack frame management** supporting the stack-based conversation [protocol](@/glossary/protocol.md) by preserving frame state, checkpoints, and branch points across session boundaries
 - **Automatic context summarization** compressing verbose session logs into concise 200-300 word summaries that capture the essential state for rapid session startup
 
 ## Context Restoration Pipeline
@@ -151,11 +151,11 @@ end
 
 | Component | Relationship |
 |---|---|
-| Stack Conversation [GenServer](/glossary/genserver/) | Frame state persistence and restoration |
+| Stack Conversation [GenServer](@/glossary/genserver.md) | Frame state persistence and restoration |
 | Quality DNA System | Quality score continuity across sessions |
 | AIAD Registry | Agent specification state snapshots |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Issue tracking state synchronization |
-| Platform [Telemetry](/glossary/telemetry/) | Session duration and restoration metrics |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Issue tracking state synchronization |
+| Platform [Telemetry](@/glossary/telemetry.md) | Session duration and restoration metrics |
 
 ## Authority Level
 
@@ -165,14 +165,14 @@ end
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [context-compression-enforcer-agent](/agents/context-compression-enforcer-agent/) | Compression Partner | Compresses context data for efficient storage while preserving essential information |
-| [chatgpt-context-manager](/agents/chatgpt-context-manager/) | External Context | Manages context for ChatGPT integration sessions |
-| [session-context-coordinator](/agents/session-context-coordinator/) | Session Partner | Coordinates session context across multiple parallel sessions |
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Debrief Generation | Produces session summaries for rapid context restoration |
+| [context-compression-enforcer-agent](@/agents/context-compression-enforcer-agent.md) | Compression Partner | Compresses context data for efficient storage while preserving essential information |
+| [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) | External Context | Manages context for ChatGPT integration sessions |
+| [session-context-coordinator](@/agents/session-context-coordinator.md) | Session Partner | Coordinates session context across multiple parallel sessions |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Debrief Generation | Produces session summaries for rapid context restoration |
 
 ## Enforcement
 
-Context preservation operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No session is permitted to end without a context save operation. Incomplete context saves that omit critical state information are treated as L2 violations. The NABLA [Provenance Mandatory](/glossary/provenance-mandatory/) axiom requires all preserved context to include traceable provenance, ensuring that restored sessions can verify the origin and reliability of every piece of preserved state. Context files that fail integrity verification during restoration are flagged and the session starts with explicit acknowledgment of the gap.
+Context preservation operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No session is permitted to end without a context save operation. Incomplete context saves that omit critical state information are treated as L2 violations. The NABLA [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom requires all preserved context to include traceable provenance, ensuring that restored sessions can verify the origin and reliability of every piece of preserved state. Context files that fail integrity verification during restoration are flagged and the session starts with explicit acknowledgment of the gap.
 
 ---
 
@@ -181,4 +181,4 @@ Context preservation operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

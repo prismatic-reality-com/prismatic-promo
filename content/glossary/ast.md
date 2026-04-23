@@ -450,23 +450,23 @@ When architectural changes require modifying patterns across hundreds of modules
 
 The following concepts are closely related to Abstract Syntax Trees within the Prismatic Platform ecosystem:
 
-- [Compilation](/glossary/compilation/) -- the process that transforms ASTs into executable bytecode for the BEAM virtual machine
-- [Static Analysis](/glossary/static-analysis/) -- automated examination of source code ASTs without execution to find bugs and enforce standards
-- [Credo](/glossary/credo/) -- the Elixir static analysis tool that uses AST traversal for its checks, including custom Prismatic Platform rules
-- [Dialyzer](/glossary/dialyzer/) -- the success typing analyzer that operates on compiled BEAM bytecode derived from ASTs
-- [Pattern Matching](/glossary/pattern-matching/) -- the fundamental mechanism used to destructure and analyze AST nodes during traversal
-- [Code Generation](/glossary/code-generation/) -- the process of programmatically constructing ASTs and converting them to source code
-- [Introspection](/glossary/introspection/) -- runtime examination of module metadata originally encoded in AST annotations
-- [Elixir](/glossary/elixir/) -- the programming language whose homoiconic design makes AST manipulation a first-class feature
-- [Typespec](/glossary/typespec/) -- type specifications stored as AST annotations that enable static type analysis
-- [Macro](/glossary/macro/) -- compile-time functions that receive and return ASTs, enabling metaprogramming
+- [Compilation](@/glossary/compilation.md) -- the process that transforms ASTs into executable bytecode for the BEAM virtual machine
+- [Static Analysis](@/glossary/static-analysis.md) -- automated examination of source code ASTs without execution to find bugs and enforce standards
+- [Credo](@/glossary/credo.md) -- the Elixir static analysis tool that uses AST traversal for its checks, including custom Prismatic Platform rules
+- [Dialyzer](@/glossary/dialyzer.md) -- the success typing analyzer that operates on compiled BEAM bytecode derived from ASTs
+- [Pattern Matching](@/glossary/pattern-matching.md) -- the fundamental mechanism used to destructure and analyze AST nodes during traversal
+- [Code Generation](@/glossary/code-generation.md) -- the process of programmatically constructing ASTs and converting them to source code
+- [Introspection](@/glossary/introspection.md) -- runtime examination of module metadata originally encoded in AST annotations
+- [Elixir](@/glossary/elixir.md) -- the programming language whose homoiconic design makes AST manipulation a first-class feature
+- [Typespec](@/glossary/typespec.md) -- type specifications stored as AST annotations that enable static type analysis
+- [Macro](@/glossary/macro.md) -- compile-time functions that receive and return ASTs, enabling metaprogramming
 
 ## See Also
 
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine that executes code compiled from Elixir ASTs
-- [Quality Gate](/glossary/quality-gate/) -- enforcement checkpoints that use AST analysis to verify code standards
-- [Functional Programming Language](/glossary/functional-programming-language/) -- the programming paradigm that shapes Elixir's AST design
-- [Mix Task](/glossary/mix-task/) -- build tool tasks that often operate on ASTs for code analysis
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine that executes code compiled from Elixir ASTs
+- [Quality Gate](@/glossary/quality-gate.md) -- enforcement checkpoints that use AST analysis to verify code standards
+- [Functional Programming Language](@/glossary/functional-programming-language.md) -- the programming paradigm that shapes Elixir's AST design
+- [Mix Task](@/glossary/mix-task.md) -- build tool tasks that often operate on ASTs for code analysis
 
 ---
 

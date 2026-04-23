@@ -409,25 +409,25 @@ The Prismatic Platform's unified adapter architecture eliminates the need for to
 
 Intelligence tools operate within a broader ecosystem of intelligence and security concepts:
 
-- [OSINT](/glossary/osint/) -- open source intelligence, the primary methodology for collecting publicly available information using intelligence tools
-- [Threat Intelligence](/glossary/threat-intelligence/) -- intelligence focused on understanding and mitigating cyber threats
-- [Cyber Threat Intelligence](/glossary/cyber-threat-intelligence/) -- technical intelligence about threat actors, TTPs, and indicators of compromise
-- [Security](/glossary/security/) -- the overarching discipline within which intelligence tools operate
-- [Shodan](/glossary/shodan/) -- a network intelligence tool that scans the internet for connected devices and services
-- [Censys](/glossary/censys/) -- an internet-wide scanning platform for discovering and monitoring internet assets
-- [GreyNoise](/glossary/greynoise/) -- a tool that analyzes internet background noise to identify benign versus malicious scanning
-- [WHOIS](/glossary/whois/) -- the protocol and databases for querying domain and IP registration information
-- [DNS Enumeration](/glossary/dns-enumeration/) -- techniques for discovering subdomains and DNS records
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- systematic evaluation of security weaknesses using intelligence tools
+- [OSINT](@/glossary/osint.md) -- open source intelligence, the primary methodology for collecting publicly available information using intelligence tools
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- intelligence focused on understanding and mitigating cyber threats
+- [Cyber Threat Intelligence](@/glossary/cyber-threat-intelligence.md) -- technical intelligence about threat actors, TTPs, and indicators of compromise
+- [Security](@/glossary/security.md) -- the overarching discipline within which intelligence tools operate
+- [Shodan](@/glossary/shodan.md) -- a network intelligence tool that scans the internet for connected devices and services
+- [Censys](@/glossary/censys.md) -- an internet-wide scanning platform for discovering and monitoring internet assets
+- [GreyNoise](@/glossary/greynoise.md) -- a tool that analyzes internet background noise to identify benign versus malicious scanning
+- [WHOIS](@/glossary/whois.md) -- the protocol and databases for querying domain and IP registration information
+- [DNS Enumeration](@/glossary/dns-enumeration.md) -- techniques for discovering subdomains and DNS records
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- systematic evaluation of security weaknesses using intelligence tools
 
 ## See Also
 
-- [Intelligence](/glossary/intelligence/) -- the broader concept of intelligence as structured knowledge for decision-making
-- [Intelligence Analysis](/glossary/intelligence-analysis/) -- the process of transforming raw data into actionable intelligence
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- combining intelligence from multiple tools and sources for comprehensive understanding
-- [Intelligence Platform](/glossary/intelligence-platform/) -- integrated systems that host and orchestrate intelligence tool ecosystems
-- [Due Diligence](/glossary/due-diligence/) -- a primary use case for intelligence tools in business and compliance contexts
-- [EASM](/glossary/easm/) -- external attack surface management, a security discipline powered by intelligence tools
+- [Intelligence](@/glossary/intelligence.md) -- the broader concept of intelligence as structured knowledge for decision-making
+- [Intelligence Analysis](@/glossary/intelligence-analysis.md) -- the process of transforming raw data into actionable intelligence
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- combining intelligence from multiple tools and sources for comprehensive understanding
+- [Intelligence Platform](@/glossary/intelligence-platform.md) -- integrated systems that host and orchestrate intelligence tool ecosystems
+- [Due Diligence](@/glossary/due-diligence.md) -- a primary use case for intelligence tools in business and compliance contexts
+- [EASM](@/glossary/easm.md) -- external attack surface management, a security discipline powered by intelligence tools
 
 ---
 

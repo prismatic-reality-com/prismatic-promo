@@ -72,11 +72,11 @@ The platform's agent ecosystem enables specialized deep expertise while maintain
 
 ### Quick Navigation
 
-- **[AIAD Standard](/capabilities/aiad-standard/)** - AI Agent Definition specification and compliance framework
-- **[Agent Commands](/commands/)** - 217 operational commands powered by agent coordination
-- **[Platform Architecture](/architecture/)** - System design enabling multi-agent coordination
-- **[Applications Catalog](/applications/)** - 625 applications leveraging agent intelligence
-- **[Developer Portal](/developers/)** - Tools for building and integrating with agents
+- **[AIAD Standard](@/capabilities/aiad-standard.md)** - AI Agent Definition specification and compliance framework
+- **[Agent Commands](@/commands/_index.md)** - 217 operational commands powered by agent coordination
+- **[Platform Architecture](@/architecture/_index.md)** - System design enabling multi-agent coordination
+- **[Applications Catalog](@/applications/_index.md)** - 625 applications leveraging agent intelligence
+- **[Developer Portal](@/developers/_index.md)** - Tools for building and integrating with agents
 
 ### Explore Platform
 
@@ -90,7 +90,7 @@ The platform's agent ecosystem enables specialized deep expertise while maintain
 
 ### Want to Know More?
 
-Dive deeper into the [AIAD standard](/capabilities/aiad-standard/) that governs agent behavior, explore the operational domains below, or review the authority framework that enables coordinated autonomous action.
+Dive deeper into the [AIAD standard](@/capabilities/aiad-standard.md) that governs agent behavior, explore the operational domains below, or review the authority framework that enables coordinated autonomous action.
 
 **About Agents**: Authority Hierarchy • AIAD Standard • Domain Organization (see sections below)
 
@@ -185,9 +185,9 @@ Agents communicate through four primary patterns:
 
 The three L1 apex agents hold platform-wide authority:
 
-- **[ARCHER SUPREME](/agents/archer-supreme/)**: Impossible mission execution, crisis intervention, cross-domain orchestration
-- **[Supreme Coordinator](/agents/supreme-coordinator/)**: Strategic planning, resource allocation, priority arbitration
-- **[Supreme Commander](/agents/supreme-commander/)**: Emergency response, platform-level decisions, doctrine enforcement
+- **[ARCHER SUPREME](@/agents/archer-supreme.md)**: Impossible mission execution, crisis intervention, cross-domain orchestration
+- **[Supreme Coordinator](@/agents/supreme-coordinator.md)**: Strategic planning, resource allocation, priority arbitration
+- **[Supreme Commander](@/agents/supreme-commander.md)**: Emergency response, platform-level decisions, doctrine enforcement
 
 These agents can override standard authority boundaries when platform integrity or mission success requires unified command.
 
@@ -200,23 +200,23 @@ Each operational domain has designated L2 commanders responsible for:
 - Interfacing with other domain commanders
 - Escalating cross-domain conflicts to L1
 
-Examples: [Blue Commander](/agents/blue-commander/), [Quality Commander](/agents/code-quality-commander/), [CER Compliance Commander](/agents/cer-compliance-commander/).
+Examples: [Blue Commander](@/agents/blue-commander.md), [Quality Commander](@/agents/code-quality-commander.md), [CER Compliance Commander](@/agents/cer-compliance-commander.md).
 
 ### 3.3 Specialist Agents
 
 L3-L4 specialists provide deep expertise in narrow domains:
 
-- **Analysis Specialists**: [Bayesian Analyst](/agents/bayesian-analyst/), [Corporate Governance Analyst](/agents/corporate-governance-analyst/)
-- **Technical Specialists**: [Elixir Architect](/agents/elixir-architect/), [Database Specialist](/agents/database-specialist/)
-- **Investigation Specialists**: [Czech Registry Investigator](/agents/czech-registry-person-investigator/), [Email Intelligence Specialist](/agents/email-intelligence-specialist/)
+- **Analysis Specialists**: [Bayesian Analyst](@/agents/bayesian-analyst.md), [Corporate Governance Analyst](@/agents/corporate-governance-analyst.md)
+- **Technical Specialists**: [Elixir Architect](@/agents/elixir-architect.md), [Database Specialist](@/agents/database-specialist.md)
+- **Investigation Specialists**: [Czech Registry Investigator](@/agents/czech-registry-person-investigator.md), [Email Intelligence Specialist](@/agents/email-intelligence-specialist.md)
 
 ### 3.4 Tactical Operatives
 
 L4-L5 operatives execute atomic tasks:
 
 - **Execution Agents**: Focused task agents for rapid, atomic operations
-- **Collection Agents**: [Crawler Development Specialist](/agents/crawler-development-specialist/), [Data Sync Specialist](/agents/data-sync-specialist/)
-- **Monitoring Agents**: [Deployment Health Monitor](/agents/deployment-health-monitor/), [Ecosystem Biologist Coordinator](/agents/ecosystem-biologist-coordinator/)
+- **Collection Agents**: [Crawler Development Specialist](@/agents/crawler-development-specialist.md), [Data Sync Specialist](@/agents/data-sync-specialist.md)
+- **Monitoring Agents**: [Deployment Health Monitor](@/agents/deployment-health-monitor.md), [Ecosystem Biologist Coordinator](@/agents/ecosystem-biologist-coordinator.md)
 
 ## 4. Epistemic Framework Integration
 
@@ -319,11 +319,11 @@ All 1090 agents are listed alphabetically in the main agent listing below.
 
 ## 9. Related Documentation
 
-- [Commands](/commands/) - CLI commands that invoke agents
-- [Applications](/apps/) - Umbrella apps hosting agent runtime
-- [Architecture](/architecture/) - Technical infrastructure
-- [AIAD Standard](/glossary/aiad/) - Agent specification format
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework
+- [Commands](@/commands/_index.md) - CLI commands that invoke agents
+- [Applications](@/apps/_index.md) - Umbrella apps hosting agent runtime
+- [Architecture](@/architecture/_index.md) - Technical infrastructure
+- [AIAD Standard](@/glossary/aiad.md) - Agent specification format
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework
 
 ## 10. Conclusion
 
@@ -342,4 +342,4 @@ Browse the agent listings below to explore individual specifications, or use the
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -276,14 +276,14 @@ In the Prismatic Perimeter EASM module, AI models assist with interpreting secur
 
 ## Related Concepts
 
-- [LLM](/glossary/llm/) - Large Language Models are the most prominent category of AI models in modern platforms, specializing in text understanding and generation
-- [Ollama](/glossary/ollama/) - Local model serving infrastructure that enables privacy-preserving AI inference without cloud dependencies
-- [Fine-Tuning](/glossary/fine-tuning/) - The process of adapting a pre-trained AI model to specific tasks or domains through additional training
-- [Embedding](/glossary/embedding/) - Dense vector representations produced by AI models that capture semantic meaning for similarity search and clustering
-- [AI Inference](/glossary/ai-inference/) - The runtime execution of a trained AI model to produce predictions or generations from new inputs
-- [Prompt Engineering](/glossary/prompt-engineering/) - The discipline of crafting effective inputs to maximize AI model output quality and reliability
-- [Neural Network](/glossary/neural-network/) - The underlying computational architecture that powers most modern AI models
-- [Machine Learning](/glossary/machine-learning/) - The broader field encompassing the training and application of AI models across diverse problem domains
+- [LLM](@/glossary/llm.md) - Large Language Models are the most prominent category of AI models in modern platforms, specializing in text understanding and generation
+- [Ollama](@/glossary/ollama.md) - Local model serving infrastructure that enables privacy-preserving AI inference without cloud dependencies
+- [Fine-Tuning](@/glossary/fine-tuning.md) - The process of adapting a pre-trained AI model to specific tasks or domains through additional training
+- [Embedding](@/glossary/embedding.md) - Dense vector representations produced by AI models that capture semantic meaning for similarity search and clustering
+- [AI Inference](@/glossary/ai-inference.md) - The runtime execution of a trained AI model to produce predictions or generations from new inputs
+- [Prompt Engineering](@/glossary/prompt-engineering.md) - The discipline of crafting effective inputs to maximize AI model output quality and reliability
+- [Neural Network](@/glossary/neural-network.md) - The underlying computational architecture that powers most modern AI models
+- [Machine Learning](@/glossary/machine-learning.md) - The broader field encompassing the training and application of AI models across diverse problem domains
 
 ## See Also
 
@@ -299,4 +299,4 @@ In the Prismatic Perimeter EASM module, AI models assist with interpreting secur
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

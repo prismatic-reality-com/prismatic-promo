@@ -23,11 +23,11 @@ image_alt = "Prismatic OSINT Social Media - Prismatic Platform"
 
 ## Overview
 
-Prismatic [OSINT](/glossary/osint/) Social Media provides adapters for social media intelligence collection and analysis across major platforms. The module supports profile discovery from identifiers (email, username, phone), content monitoring with real-time keyword alerting, sentiment analysis on public posts, and network mapping of connections and follower relationships. Social media intelligence occupies a unique position in the intelligence landscape because it captures both structured metadata (profile attributes, connection graphs, activity timestamps) and unstructured content (posts, comments, opinions) that reveal behavioral patterns invisible to purely technical intelligence sources.
+Prismatic [OSINT](@/glossary/osint.md) Social Media provides adapters for social media intelligence collection and analysis across major platforms. The module supports profile discovery from identifiers (email, username, phone), content monitoring with real-time keyword alerting, sentiment analysis on public posts, and network mapping of connections and follower relationships. Social media intelligence occupies a unique position in the intelligence landscape because it captures both structured metadata (profile attributes, connection graphs, activity timestamps) and unstructured content (posts, comments, opinions) that reveal behavioral patterns invisible to purely technical intelligence sources.
 
-All collection respects platform terms of service, rate limits, and applicable privacy regulations including [GDPR](/glossary/gdpr/). The module operates exclusively on publicly accessible data and implements configurable data minimization policies to collect only what is necessary for the intelligence objective. Source attribution is maintained throughout the pipeline so that every piece of intelligence can be traced back to its origin for [provenance verification](/glossary/provenance-mandatory/). The [NABLA](/glossary/nabla-infinity/) framework's source independence axiom is enforced by weighting intelligence from multiple independent platforms higher than conclusions drawn from a single platform, reducing the risk of manipulation through platform-specific disinformation campaigns.
+All collection respects platform terms of service, rate limits, and applicable privacy regulations including [GDPR](@/glossary/gdpr.md). The module operates exclusively on publicly accessible data and implements configurable data minimization policies to collect only what is necessary for the intelligence objective. Source attribution is maintained throughout the pipeline so that every piece of intelligence can be traced back to its origin for [provenance verification](@/glossary/provenance-mandatory.md). The [NABLA](@/glossary/nabla-infinity.md) framework's source independence axiom is enforced by weighting intelligence from multiple independent platforms higher than conclusions drawn from a single platform, reducing the risk of manipulation through platform-specific disinformation campaigns.
 
-The social media adapters integrate with the broader OSINT pipeline through the [Prismatic OSINT Core](/apps/prismatic-osint-core/) adapter [protocol](/glossary/protocol/), enabling social media signals to be correlated with technical intelligence from sources like [Shodan](/glossary/shodan/), [Censys](/glossary/censys/), and DNS records. When a social media profile mentions a server IP that also appears in infrastructure scans, the cross-domain correlation strengthens the intelligence picture with evidence from fundamentally independent source categories.
+The social media adapters integrate with the broader OSINT pipeline through the [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) adapter [protocol](@/glossary/protocol.md), enabling social media signals to be correlated with technical intelligence from sources like [Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md), and DNS records. When a social media profile mentions a server IP that also appears in infrastructure scans, the cross-domain correlation strengthens the intelligence picture with evidence from fundamentally independent source categories.
 
 ## Architecture
 
@@ -91,20 +91,20 @@ Resolver  Analyzer  Mapper
   Intelligence Output
 ```
 
-Each social platform has a dedicated adapter that handles authentication, [rate limiting](/glossary/rate-limiting/), pagination, and response normalization. The Platform Router dispatches queries to the appropriate adapters based on the requested platforms and query type. Results pass through a normalization layer that produces uniform data structures regardless of source platform. All adapters implement the platform's OSINT provider [protocol](/glossary/protocol/) for consistent error handling, retry behavior, and credential management.
+Each social platform has a dedicated adapter that handles authentication, [rate limiting](@/glossary/rate-limiting.md), pagination, and response normalization. The Platform Router dispatches queries to the appropriate adapters based on the requested platforms and query type. Results pass through a normalization layer that produces uniform data structures regardless of source platform. All adapters implement the platform's OSINT provider [protocol](@/glossary/protocol.md) for consistent error handling, retry behavior, and credential management.
 
 ## Key Modules
 
 | Module | Purpose |
 |--------|---------|
 | `PrismaticOsintSocialMedia` | Main API facade for social media intelligence operations |
-| `PrismaticOsintSocialMedia.Application` | [OTP](/glossary/otp/) application entry point with supervision tree |
+| `PrismaticOsintSocialMedia.Application` | [OTP](@/glossary/otp.md) application entry point with supervision tree |
 
 ## Key Features
 
 ### Profile Intelligence
 
-Profile discovery begins with a single identifier -- an email address, username, or phone number -- and systematically searches across configured platforms to build a unified cross-platform identity profile. Each platform adapter extracts available metadata (display name, bio, location, creation date, follower counts, activity frequency) and normalizes it to a common schema. The Profile Resolver then correlates results across platforms using deterministic matching (shared identifiers) and probabilistic matching (name similarity, shared connections, temporal activity patterns) to produce a consolidated entity profile with [confidence scoring](/glossary/confidence-scoring/).
+Profile discovery begins with a single identifier -- an email address, username, or phone number -- and systematically searches across configured platforms to build a unified cross-platform identity profile. Each platform adapter extracts available metadata (display name, bio, location, creation date, follower counts, activity frequency) and normalizes it to a common schema. The Profile Resolver then correlates results across platforms using deterministic matching (shared identifiers) and probabilistic matching (name similarity, shared connections, temporal activity patterns) to produce a consolidated entity profile with [confidence scoring](@/glossary/confidence-scoring.md).
 
 - Cross-platform profile discovery from email addresses, usernames, or phone numbers
 - Profile metadata extraction and normalization to a unified schema
@@ -131,7 +131,7 @@ Continuous monitoring tracks entity mentions, brand references, and keyword appe
 
 ### Network Mapping
 
-Network mapping constructs social relationship graphs by traversing follower and following lists, extracting interaction patterns (mentions, replies, retweets), and computing relationship strength scores based on interaction frequency and reciprocity. The resulting graphs are stored in [KuzuDB](/apps/prismatic-storage-kuzudb/) as social relationship edges that complement corporate ownership and infrastructure topology from other intelligence domains.
+Network mapping constructs social relationship graphs by traversing follower and following lists, extracting interaction patterns (mentions, replies, retweets), and computing relationship strength scores based on interaction frequency and reciprocity. The resulting graphs are stored in [KuzuDB](@/apps/prismatic-storage-kuzudb.md) as social relationship edges that complement corporate ownership and infrastructure topology from other intelligence domains.
 
 ## Configuration
 
@@ -221,12 +221,12 @@ Testing covers platform adapter authentication and rate limit compliance, profil
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Adapter protocol and source registry integration |
-| [Prismatic Tracking](/apps/prismatic-tracking/) | Continuous entity monitoring with social media activity correlation |
-| [Prismatic Storage KuzuDB](/apps/prismatic-storage-kuzudb/) | Social network graph storage as relationship edges |
-| [Prismatic Storage Meilisearch](/apps/prismatic-storage-meilisearch/) | Full-text search across historical social media intelligence |
-| [Prismatic Modalities](/apps/prismatic-modalities/) | Verbal and cognitive modality analysis from social media content |
-| [Prismatic Manipulation](/apps/prismatic-manipulation/) | Social engineering detection using social media behavioral baselines |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Adapter protocol and source registry integration |
+| [Prismatic Tracking](@/apps/prismatic-tracking.md) | Continuous entity monitoring with social media activity correlation |
+| [Prismatic Storage KuzuDB](@/apps/prismatic-storage-kuzudb.md) | Social network graph storage as relationship edges |
+| [Prismatic Storage Meilisearch](@/apps/prismatic-storage-meilisearch.md) | Full-text search across historical social media intelligence |
+| [Prismatic Modalities](@/apps/prismatic-modalities.md) | Verbal and cognitive modality analysis from social media content |
+| [Prismatic Manipulation](@/apps/prismatic-manipulation.md) | Social engineering detection using social media behavioral baselines |
 
 ## NABLA Compliance
 
@@ -251,12 +251,12 @@ Testing covers platform adapter authentication and rate limit compliance, profil
 
 ## Related Resources
 
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Adapter protocol and source registry
-- [Prismatic Modalities](/apps/prismatic-modalities/) -- Multi-modal intelligence fusion from social content
-- [Prismatic Storage KuzuDB](/apps/prismatic-storage-kuzudb/) -- Social network graph storage
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-platform social intelligence fusion
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Continuous social media monitoring
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Source independence weighting for multi-platform intelligence
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Adapter protocol and source registry
+- [Prismatic Modalities](@/apps/prismatic-modalities.md) -- Multi-modal intelligence fusion from social content
+- [Prismatic Storage KuzuDB](@/apps/prismatic-storage-kuzudb.md) -- Social network graph storage
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-platform social intelligence fusion
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Continuous social media monitoring
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Source independence weighting for multi-platform intelligence
 
 ---
 
@@ -265,4 +265,4 @@ Testing covers platform adapter authentication and rate limit compliance, profil
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

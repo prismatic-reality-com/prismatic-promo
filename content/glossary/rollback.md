@@ -439,25 +439,25 @@ end
 
 ## Related Terms
 
-- [Schema Migration](/glossary/schema-migration/) -- the mechanism through which database rollbacks are implemented
-- [WAL](/glossary/wal/) -- the write-ahead log that enables transaction-level rollback and point-in-time recovery
-- [RPO](/glossary/rpo/) -- recovery point objective that rollback timing determines; how much data can be lost
-- [RTO](/glossary/rto/) -- recovery time objective that rollback speed directly affects
-- [Release](/glossary/release/) -- OTP releases that package application code for deployment and rollback
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) -- deployment strategy enabling instant rollback via traffic switching
-- [Ecto](/glossary/ecto/) -- the database wrapper providing migration and transaction rollback primitives
+- [Schema Migration](@/glossary/schema-migration.md) -- the mechanism through which database rollbacks are implemented
+- [WAL](@/glossary/wal.md) -- the write-ahead log that enables transaction-level rollback and point-in-time recovery
+- [RPO](@/glossary/rpo.md) -- recovery point objective that rollback timing determines; how much data can be lost
+- [RTO](@/glossary/rto.md) -- recovery time objective that rollback speed directly affects
+- [Release](@/glossary/release.md) -- OTP releases that package application code for deployment and rollback
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) -- deployment strategy enabling instant rollback via traffic switching
+- [Ecto](@/glossary/ecto.md) -- the database wrapper providing migration and transaction rollback primitives
 - [Transaction](/glossary/transaction/) -- atomic database operations with automatic rollback on failure
 - [Idempotent](/glossary/idempotent/) -- operations safe to retry after rollback without side effects
-- [Replication](/glossary/replication/) -- database replication enabling failover as an alternative to rollback
-- [Supervision Tree](/glossary/supervision-tree/) -- BEAM's process-level automatic recovery mechanism
-- [Hot Code Upgrade](/glossary/hot-code-upgrade/) -- BEAM's in-place code replacement as an alternative to deployment rollback
+- [Replication](@/glossary/replication.md) -- database replication enabling failover as an alternative to rollback
+- [Supervision Tree](@/glossary/supervision-tree.md) -- BEAM's process-level automatic recovery mechanism
+- [Hot Code Upgrade](@/glossary/hot-code-upgrade.md) -- BEAM's in-place code replacement as an alternative to deployment rollback
 
 ## See Also
 
-- [Deployment Pipeline](/architecture/) -- CI/CD rollback procedures and artifact retention
-- [Database Migrations](/capabilities/) -- migration rollback patterns and testing strategies
+- [Deployment Pipeline](@/architecture/_index.md) -- CI/CD rollback procedures and artifact retention
+- [Database Migrations](@/capabilities/_index.md) -- migration rollback patterns and testing strategies
 - [NWB Doctrine](/glossary/nwb/) -- the permanent solution doctrine and its interaction with rollback
-- [Disaster Recovery](/architecture/) -- comprehensive recovery planning including PITR
+- [Disaster Recovery](@/architecture/_index.md) -- comprehensive recovery planning including PITR
 - [Fly.io Deployment](https://fly.io/docs/apps/deploy/) -- platform-specific rollback commands
 - [Ecto.Multi documentation](https://hexdocs.pm/ecto/Ecto.Multi.html) -- coordinated transaction management
 
@@ -468,4 +468,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

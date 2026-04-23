@@ -28,9 +28,9 @@ image_alt = "chatgpt-workflow-orchestrator - Prismatic Platform"
 
 ## Executive Summary
 
-The ChatGPT Workflow Orchestrator operates as an L3 [strategic command](/glossary/strategic-command/) agent within the AI Workflow Orchestration domain of the Prismatic Platform. This agent coordinates complex multi-step workflows that involve ChatGPT interactions, managing task sequencing, dependency resolution, and parallel processing to execute AI-augmented operations efficiently. It serves as the workflow execution engine for all ChatGPT-based automation within the platform, transforming sequences of AI interactions into reliable, fault-tolerant operational pipelines.
+The ChatGPT Workflow Orchestrator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the AI Workflow Orchestration domain of the Prismatic Platform. This agent coordinates complex multi-step workflows that involve ChatGPT interactions, managing task sequencing, dependency resolution, and parallel processing to execute AI-augmented operations efficiently. It serves as the workflow execution engine for all ChatGPT-based automation within the platform, transforming sequences of AI interactions into reliable, fault-tolerant operational pipelines.
 
-Many platform operations require orchestrated sequences of AI interactions: analyze code, then generate tests, then review the generated tests, then produce documentation. These multi-step sequences involve inter-step data flow, error recovery, conditional branching, and partial completion handling that simple sequential API calls cannot manage. The ChatGPT Workflow Orchestrator implements these capabilities through [GenServer](/glossary/genserver/)-based workflow state management and [DynamicSupervisor](/glossary/dynamic-supervisor/)-based step execution, providing fault-tolerant workflow processing that survives individual step failures without losing completed work.
+Many platform operations require orchestrated sequences of AI interactions: analyze code, then generate tests, then review the generated tests, then produce documentation. These multi-step sequences involve inter-step data flow, error recovery, conditional branching, and partial completion handling that simple sequential API calls cannot manage. The ChatGPT Workflow Orchestrator implements these capabilities through [GenServer](@/glossary/genserver.md)-based workflow state management and [DynamicSupervisor](@/glossary/dynamic-supervisor.md)-based step execution, providing fault-tolerant workflow processing that survives individual step failures without losing completed work.
 
 ## Architecture
 
@@ -70,7 +70,7 @@ The Definition Layer parses workflow templates into directed acyclic graphs (DAG
 
 ## Operational Domain
 
-The AI Workflow Orchestration domain manages the execution of structured, multi-step operations that leverage external AI capabilities. The Workflow Orchestrator specifically handles workflow definition, step sequencing, parallel execution where dependencies allow, and result aggregation. It integrates with the [SEADF](/glossary/seadf/) framework for ecosystem-level workflow coordination and the [mycelial network](/glossary/mycelial-network/) for cross-domain workflow communication.
+The AI Workflow Orchestration domain manages the execution of structured, multi-step operations that leverage external AI capabilities. The Workflow Orchestrator specifically handles workflow definition, step sequencing, parallel execution where dependencies allow, and result aggregation. It integrates with the [SEADF](@/glossary/seadf.md) framework for ecosystem-level workflow coordination and the [mycelial network](@/glossary/mycelial-network.md) for cross-domain workflow communication.
 
 Workflows in this domain range from simple two-step sequences (analyze then summarize) to complex multi-branch pipelines with conditional logic, parallel fan-out, synchronization barriers, and error recovery paths. The orchestrator treats each workflow execution as a stateful process with checkpointing, enabling long-running workflows to survive transient failures without restarting from the beginning.
 
@@ -160,10 +160,10 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [chatgpt-integration-commander](/agents/chatgpt-integration-commander/) | API Management | Provides ChatGPT API access with [rate limiting](/glossary/rate-limiting/) and [circuit breaker](/glossary/circuit-breaker/) protection |
-| [chatgpt-consultation-coordinator](/agents/chatgpt-consultation-coordinator/) | Consultation Steps | Executes individual consultation steps within larger workflow sequences |
-| [chatgpt-project-manager](/agents/chatgpt-project-manager/) | Project Context | Provides project planning context that informs workflow execution priorities |
-| [chatgpt-context-manager](/agents/chatgpt-context-manager/) | Context Management | Manages context window allocation across multi-step workflow sequences |
+| [chatgpt-integration-commander](@/agents/chatgpt-integration-commander.md) | API Management | Provides ChatGPT API access with [rate limiting](@/glossary/rate-limiting.md) and [circuit breaker](@/glossary/circuit-breaker.md) protection |
+| [chatgpt-consultation-coordinator](@/agents/chatgpt-consultation-coordinator.md) | Consultation Steps | Executes individual consultation steps within larger workflow sequences |
+| [chatgpt-project-manager](@/agents/chatgpt-project-manager.md) | Project Context | Provides project planning context that informs workflow execution priorities |
+| [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) | Context Management | Manages context window allocation across multi-step workflow sequences |
 
 ## Operational Workflow
 
@@ -190,7 +190,7 @@ end
 
 ## NABLA Compliance
 
-**Provenance Mandatory**: Every workflow output carries a complete provenance chain through all contributing steps, including step execution timestamps, model versions used, token consumption, retry counts, and quality scores. The [Provenance Mandatory](/glossary/provenance-mandatory/) axiom is especially critical in multi-step workflows where results may aggregate contributions from multiple AI interactions.
+**Provenance Mandatory**: Every workflow output carries a complete provenance chain through all contributing steps, including step execution timestamps, model versions used, token consumption, retry counts, and quality scores. The [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom is especially critical in multi-step workflows where results may aggregate contributions from multiple AI interactions.
 
 **Signal Plurality**: Workflow result quality is assessed through multiple independent signals: step-level quality scores, inter-step consistency checks, and aggregated output coherence evaluation. Multi-signal assessment prevents single-step quality issues from being masked by the aggregation process.
 
@@ -198,15 +198,15 @@ end
 
 ## Enforcement
 
-Workflow orchestration operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No workflow is considered complete until all steps produce validated outputs. Partially completed workflows are not silently accepted -- they are either retried or explicitly flagged as incomplete with documented failure reasons. The NABLA Provenance Mandatory axiom requires every workflow output to carry a complete provenance chain through all contributing steps.
+Workflow orchestration operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No workflow is considered complete until all steps produce validated outputs. Partially completed workflows are not silently accepted -- they are either retried or explicitly flagged as incomplete with documented failure reasons. The NABLA Provenance Mandatory axiom requires every workflow output to carry a complete provenance chain through all contributing steps.
 
 ## Related Resources
 
-- [chatgpt-integration-commander](/agents/chatgpt-integration-commander/) -- API integration and circuit breaker management
-- [chatgpt-consultation-coordinator](/agents/chatgpt-consultation-coordinator/) -- Structured consultation sessions
-- [chatgpt-context-manager](/agents/chatgpt-context-manager/) -- Context window management
-- [SEADF](/glossary/seadf/) -- Ecosystem evolution framework
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [chatgpt-integration-commander](@/agents/chatgpt-integration-commander.md) -- API integration and circuit breaker management
+- [chatgpt-consultation-coordinator](@/agents/chatgpt-consultation-coordinator.md) -- Structured consultation sessions
+- [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) -- Context window management
+- [SEADF](@/glossary/seadf.md) -- Ecosystem evolution framework
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -215,4 +215,4 @@ Workflow orchestration operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

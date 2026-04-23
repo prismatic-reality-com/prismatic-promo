@@ -28,7 +28,7 @@ image_alt = "czech-legal-intelligence-operative - Prismatic Platform"
 
 ## Overview
 
-The Czech Legal Intelligence Operative operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Czech domain of the Prismatic Platform. This agent provides expert navigation of the Czech court hierarchy and legal system structure, enabling comprehensive legal risk assessment, judicial proceeding monitoring, regulatory compliance evaluation, and legal intelligence gathering for entities operating within Czech jurisdiction.
+The Czech Legal Intelligence Operative operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Czech domain of the Prismatic Platform. This agent provides expert navigation of the Czech court hierarchy and legal system structure, enabling comprehensive legal risk assessment, judicial proceeding monitoring, regulatory compliance evaluation, and legal intelligence gathering for entities operating within Czech jurisdiction.
 
 The Czech legal system has a specific structure and set of conventions that significantly affect how legal intelligence is gathered and interpreted. The operative encodes deep knowledge of the Czech court system hierarchy, procedural rules, legal entity regulations, and regulatory framework, enabling intelligence assessments that accurately reflect the legal realities of the Czech jurisdiction. This domain expertise is essential because legal intelligence gathered without jurisdictional context can be misleading -- a court decision's significance depends entirely on which court issued it, what procedural stage it represents, and what appeal options remain available.
 
@@ -82,7 +82,7 @@ Compliance requirement mapping creates entity-specific maps of applicable regula
 
 ## NIS2 and ZKB Compliance Context
 
-The operative provides specialized legal intelligence regarding the implementation of the European Union's [NIS2](/glossary/nis2/) Directive (EU 2022/2555) through Czech implementing legislation and the [ZKB](/glossary/zkb/) (Act No. 264/2025 on cybersecurity).
+The operative provides specialized legal intelligence regarding the implementation of the European Union's [NIS2](@/glossary/nis2.md) Directive (EU 2022/2555) through Czech implementing legislation and the [ZKB](@/glossary/zkb.md) (Act No. 264/2025 on cybersecurity).
 
 The ZKB establishes Czech-specific cybersecurity obligations that apply to entities classified as essential or important based on their sector and size. The operative maintains the classification criteria and evaluates whether tracked entities fall within the ZKB's scope, enabling accurate compliance risk assessment for cybersecurity obligations.
 
@@ -94,20 +94,20 @@ The operative produces legal intelligence products including legal risk profiles
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to direct Czech legal intelligence operations, set monitoring priorities, and provide legal context to cross-domain intelligence assessments.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to direct Czech legal intelligence operations, set monitoring priorities, and provide legal context to cross-domain intelligence assessments.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) | Entity Context | Receives entity profiles and provides legal risk context |
-| [czech-financial-forensics-expert](/agents/czech-financial-forensics-expert/) | Financial Context | Correlates financial indicators with legal proceeding data |
-| [czech-legal-extraction-specialist](/agents/czech-legal-extraction-specialist/) | Data Source | Receives extracted legal document data for analysis |
-| [constitutional-court-specialist](/agents/constitutional-court-specialist/) | Constitutional Analysis | Provides constitutional law context for significant legal assessments |
+| [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) | Entity Context | Receives entity profiles and provides legal risk context |
+| [czech-financial-forensics-expert](@/agents/czech-financial-forensics-expert.md) | Financial Context | Correlates financial indicators with legal proceeding data |
+| [czech-legal-extraction-specialist](@/agents/czech-legal-extraction-specialist.md) | Data Source | Receives extracted legal document data for analysis |
+| [constitutional-court-specialist](@/agents/constitutional-court-specialist.md) | Constitutional Analysis | Provides constitutional law context for significant legal assessments |
 
 ## Enforcement
 
-All legal intelligence operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Legal risk assessments must document the evidence basis for each risk indicator. Proceeding monitoring must maintain currency guarantees appropriate to the proceeding's significance. Regulatory compliance assessments must reference specific legal provisions and their applicability criteria. Intelligence products that inform compliance decisions must pass [Trinity Gate](/glossary/trinity-gate/) validation. The NABLA Contradiction Preservation axiom ensures that conflicting legal assessments are preserved and presented with their respective evidence rather than prematurely resolved.
+All legal intelligence operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Legal risk assessments must document the evidence basis for each risk indicator. Proceeding monitoring must maintain currency guarantees appropriate to the proceeding's significance. Regulatory compliance assessments must reference specific legal provisions and their applicability criteria. Intelligence products that inform compliance decisions must pass [Trinity Gate](@/glossary/trinity-gate.md) validation. The NABLA Contradiction Preservation axiom ensures that conflicting legal assessments are preserved and presented with their respective evidence rather than prematurely resolved.
 
 ---
 
@@ -116,4 +116,4 @@ All legal intelligence operations are governed by the [NO MERCY, NO DOUBTS](/glo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

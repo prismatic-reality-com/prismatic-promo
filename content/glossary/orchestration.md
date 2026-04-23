@@ -36,15 +36,15 @@ image_alt = "Orchestration - Prismatic Platform"
 
 ## Definition
 
-Orchestration is the coordinated management and execution of multiple processes, agents, or services to accomplish a complex goal that no single component could achieve independently. An orchestrator decomposes high-level objectives into subtasks, assigns them to appropriate agents or services, manages dependencies between tasks, handles failures and retries, and synthesizes results into a unified outcome. In the Prismatic Platform, orchestration operates at multiple levels: the `/orchestrate` command provides 10x efficiency gains for complex operations, the [AIAD](/glossary/aiad/) hierarchy coordinates 530+ agents across 5 tiers, and multi-agent [pipelines](/glossary/pipeline/) execute structured sequences of agent actions with fault tolerance and backpressure management.
+Orchestration is the coordinated management and execution of multiple processes, agents, or services to accomplish a complex goal that no single component could achieve independently. An orchestrator decomposes high-level objectives into subtasks, assigns them to appropriate agents or services, manages dependencies between tasks, handles failures and retries, and synthesizes results into a unified outcome. In the Prismatic Platform, orchestration operates at multiple levels: the `/orchestrate` command provides 10x efficiency gains for complex operations, the [AIAD](@/glossary/aiad.md) hierarchy coordinates 530+ agents across 5 tiers, and multi-agent [pipelines](@/glossary/pipeline.md) execute structured sequences of agent actions with fault tolerance and backpressure management.
 
 ## Overview
 
 Orchestration is the difference between having many capable agents and having an effective system. A platform with 530+ agents that cannot coordinate them is like an orchestra with 530+ musicians and no conductor -- each musician may be excellent individually, but the collective output is noise rather than music. The orchestrator provides the score, sets the tempo, cues entries, and ensures that the final performance is greater than the sum of its parts.
 
-The Prismatic Platform's approach to orchestration is deeply rooted in [Erlang/OTP](/glossary/otp/) principles. Rather than adopting external orchestration frameworks (Kubernetes operators, Apache Airflow, Temporal), the platform builds orchestration natively on OTP's [supervision trees](/glossary/supervision-tree/), [GenServer](/glossary/genserver/) state machines, and [Task](/glossary/task-module/) concurrency primitives. This means orchestration benefits from the same fault tolerance, hot code reloading, and process isolation that makes the BEAM VM uniquely suited for concurrent systems.
+The Prismatic Platform's approach to orchestration is deeply rooted in [Erlang/OTP](@/glossary/otp.md) principles. Rather than adopting external orchestration frameworks (Kubernetes operators, Apache Airflow, Temporal), the platform builds orchestration natively on OTP's [supervision trees](@/glossary/supervision-tree.md), [GenServer](@/glossary/genserver.md) state machines, and [Task](@/glossary/task-module.md) concurrency primitives. This means orchestration benefits from the same fault tolerance, hot code reloading, and process isolation that makes the BEAM VM uniquely suited for concurrent systems.
 
-The orchestration architecture follows a hierarchical pattern mirroring military command structures. The [Archer Supreme](/glossary/archer-supreme/) operates at L5 (Supreme Authority), strategic commanders at L3, tactical specialists at L2, and operational units at L1. Each level orchestrates the level below it, creating a fractal coordination structure where complex operations cascade through the hierarchy until they reach agents capable of executing concrete actions.
+The orchestration architecture follows a hierarchical pattern mirroring military command structures. The [Archer Supreme](@/glossary/archer-supreme.md) operates at L5 (Supreme Authority), strategic commanders at L3, tactical specialists at L2, and operational units at L1. Each level orchestrates the level below it, creating a fractal coordination structure where complex operations cascade through the hierarchy until they reach agents capable of executing concrete actions.
 
 This hierarchical approach avoids the two failure modes of flat orchestration: bottleneck orchestrators (single point of failure processing all coordination) and peer-to-peer chaos (agents negotiating directly with unpredictable emergent behavior). Instead, the hierarchy provides structured delegation, clear authority boundaries, and predictable escalation paths.
 
@@ -64,11 +64,11 @@ Orchestration in distributed systems follows several well-established patterns, 
 
 ### The AIAD Tier System
 
-The [AIAD](/glossary/aiad/) hierarchy defines five tiers of agent authority, each with specific orchestration responsibilities:
+The [AIAD](@/glossary/aiad.md) hierarchy defines five tiers of agent authority, each with specific orchestration responsibilities:
 
 | Tier | Level | Role | Orchestration Scope |
 |------|-------|------|-------------------|
-| **L5** | Supreme | [Archer Supreme](/glossary/archer-supreme/) | Platform-wide strategic orchestration |
+| **L5** | Supreme | [Archer Supreme](@/glossary/archer-supreme.md) | Platform-wide strategic orchestration |
 | **L4** | Safety-Critical | Guards and Enforcers | Safety-scoped orchestration with override authority |
 | **L3** | Strategic | Commanders (per domain) | Domain-level coordination of L2 specialists |
 | **L2** | Tactical | Specialists | Task execution with limited sub-orchestration |
@@ -622,7 +622,7 @@ Every dispatched task must have a timeout. Without timeouts, a single stuck agen
 
 ### 4. Emit Telemetry at Every State Transition
 
-Orchestration is opaque without observability. Emit [Telemetry](/glossary/telemetry/) events when objectives start, tasks dispatch, results arrive, and pipelines complete. This enables [monitoring](/glossary/monitoring/) dashboards to show orchestration progress in real time.
+Orchestration is opaque without observability. Emit [Telemetry](@/glossary/telemetry.md) events when objectives start, tasks dispatch, results arrive, and pipelines complete. This enables [monitoring](@/glossary/monitoring.md) dashboards to show orchestration progress in real time.
 
 ### 5. Separate Orchestration Logic from Business Logic
 
@@ -640,7 +640,7 @@ An orchestrator that accumulates too much responsibility -- task execution, resu
 
 ### 2. Ignoring Backpressure
 
-Dispatching 500 tasks simultaneously to a system that can handle 50 concurrently causes resource exhaustion. The Prismatic orchestrator enforces `max_concurrent` limits and queues tasks beyond this threshold, providing natural [backpressure](/glossary/backpressure/).
+Dispatching 500 tasks simultaneously to a system that can handle 50 concurrently causes resource exhaustion. The Prismatic orchestrator enforces `max_concurrent` limits and queues tasks beyond this threshold, providing natural [backpressure](@/glossary/backpressure.md).
 
 ### 3. Synchronous Orchestration
 
@@ -652,11 +652,11 @@ When a multi-step orchestration fails partway through, the completed steps may n
 
 ### 5. Circular Task Dependencies
 
-If task A depends on task B and task B depends on task A, the orchestrator deadlocks. Dependency validation must detect and reject circular dependencies before dispatching any tasks -- the same principle enforced by the platform's `DependencyResolver` for [umbrella applications](/glossary/umbrella-application/).
+If task A depends on task B and task B depends on task A, the orchestrator deadlocks. Dependency validation must detect and reject circular dependencies before dispatching any tasks -- the same principle enforced by the platform's `DependencyResolver` for [umbrella applications](@/glossary/umbrella-application.md).
 
 ### 6. Insufficient Observability
 
-Orchestration without [monitoring](/glossary/monitoring/) is flying blind. When a 50-step pipeline stalls, operators need to know which step, which agent, and what error. Every state transition in the orchestration must emit observable events.
+Orchestration without [monitoring](@/glossary/monitoring.md) is flying blind. When a 50-step pipeline stalls, operators need to know which step, which agent, and what error. Every state transition in the orchestration must emit observable events.
 
 ## Use Cases
 
@@ -666,11 +666,11 @@ The platform's primary orchestration interface is the `/orchestrate` command, wh
 
 ### 2. OSINT Intelligence Gathering
 
-When querying a target across 120 OSINT sources, orchestration manages the parallel dispatch of queries, rate limiting per source, result aggregation, contradiction detection (via [NABLA axioms](/glossary/nabla-axioms/)), and final intelligence report generation.
+When querying a target across 120 OSINT sources, orchestration manages the parallel dispatch of queries, rate limiting per source, result aggregation, contradiction detection (via [NABLA axioms](@/glossary/nabla-axioms.md)), and final intelligence report generation.
 
 ### 3. Security Assessment Pipeline
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) security assessment orchestrates DNS enumeration, port scanning, certificate analysis, vulnerability checking, and compliance evaluation as a structured pipeline where each step's output feeds the next.
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) security assessment orchestrates DNS enumeration, port scanning, certificate analysis, vulnerability checking, and compliance evaluation as a structured pipeline where each step's output feeds the next.
 
 ### 4. Quality Gate Execution
 
@@ -678,28 +678,28 @@ The `mix quality.gates` command orchestrates 13 quality domain checks in paralle
 
 ### 5. Color Team Security Exercises
 
-[Color team](/glossary/color-teams/) operations orchestrate coordinated activities across Red (attack simulation), Blue (defense), Purple (synthesis), Gray (boundary exploration), White (verification), and Black (threat modeling) teams, with the Purple coordinator synthesizing findings from all teams.
+[Color team](@/glossary/color-teams.md) operations orchestrate coordinated activities across Red (attack simulation), Blue (defense), Purple (synthesis), Gray (boundary exploration), White (verification), and Black (threat modeling) teams, with the Purple coordinator synthesizing findings from all teams.
 
 ## Related Concepts
 
-- [Agent Orchestration](/glossary/agent-orchestration/) -- specific application of orchestration to multi-agent systems
-- [Multi-Agent System](/glossary/multi-agent-system/) -- the agent ecosystem that orchestration coordinates
-- [Workflow](/glossary/workflow/) -- structured sequences of actions that orchestration executes
-- [AIAD](/glossary/aiad/) -- the agent specification standard defining orchestration hierarchy
-- [Archer Supreme](/glossary/archer-supreme/) -- the L5 supreme authority orchestrating platform-wide operations
-- [Pipeline](/glossary/pipeline/) -- linear sequence of data transformations managed by orchestration
-- [Agent Tier](/glossary/agent-tier/) -- the hierarchical authority levels governing orchestration scope
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP's fault tolerance mechanism underlying orchestration
-- [GenServer](/glossary/genserver/) -- the process abstraction implementing orchestrator state management
-- [Backpressure](/glossary/backpressure/) -- flow control mechanism preventing orchestration overload
-- [Command](/glossary/command/) -- the invocation interface through which orchestration is triggered
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- specific application of orchestration to multi-agent systems
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- the agent ecosystem that orchestration coordinates
+- [Workflow](@/glossary/workflow.md) -- structured sequences of actions that orchestration executes
+- [AIAD](@/glossary/aiad.md) -- the agent specification standard defining orchestration hierarchy
+- [Archer Supreme](@/glossary/archer-supreme.md) -- the L5 supreme authority orchestrating platform-wide operations
+- [Pipeline](@/glossary/pipeline.md) -- linear sequence of data transformations managed by orchestration
+- [Agent Tier](@/glossary/agent-tier.md) -- the hierarchical authority levels governing orchestration scope
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP's fault tolerance mechanism underlying orchestration
+- [GenServer](@/glossary/genserver.md) -- the process abstraction implementing orchestrator state management
+- [Backpressure](@/glossary/backpressure.md) -- flow control mechanism preventing orchestration overload
+- [Command](@/glossary/command.md) -- the invocation interface through which orchestration is triggered
 
 ## See Also
 
-- [Strategic Command](/glossary/strategic-command/) -- the decision-making layer that initiates orchestration
-- [Concurrent Programming](/glossary/concurrent-programming/) -- the execution model enabling parallel task dispatch
-- [Fault Tolerance](/glossary/fault-tolerance/) -- how orchestration handles failures gracefully
-- [Circuit Breaker](/glossary/circuit-breaker/) -- protection mechanism preventing cascade failures in orchestration
+- [Strategic Command](@/glossary/strategic-command.md) -- the decision-making layer that initiates orchestration
+- [Concurrent Programming](@/glossary/concurrent-programming.md) -- the execution model enabling parallel task dispatch
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- how orchestration handles failures gracefully
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- protection mechanism preventing cascade failures in orchestration
 
 ---
 
@@ -708,4 +708,4 @@ The `mix quality.gates` command orchestrates 13 quality domain checks in paralle
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -310,23 +310,23 @@ Access control policies, firewall rules, and compliance requirements can be expr
 
 Logic programming and Prolog connect to numerous concepts within the Prismatic Platform ecosystem:
 
-- [Inference](/glossary/inference/) -- the fundamental mechanism by which Prolog derives new knowledge from existing facts and rules, central to the platform's reasoning capabilities
-- [Knowledge Representation](/glossary/knowledge-representation/) -- Prolog's primary strength lies in representing structured knowledge as facts and rules, a pattern used throughout the platform's knowledge systems
-- [Logical Reasoning](/glossary/logical-reasoning/) -- Prolog embodies logical reasoning as computation, providing the theoretical foundation for the platform's epistemic validation
-- [Logical Consistency](/glossary/logical-consistency/) -- Prolog programs must maintain logical consistency to produce sound results, directly paralleling the Trinity Gate's consistency requirements
-- [Pattern Matching](/glossary/pattern-matching/) -- Prolog's unification generalizes Elixir's pattern matching, and both serve as primary mechanisms for data destructuring and control flow
-- [Formal Verification](/glossary/formal-verification/) -- Prolog's proof search mechanism is closely related to the automated reasoning used in formal verification systems including Lean4
-- [Belief Graph](/glossary/belief-graph/) -- the platform's belief tracking system uses graph structures and inference patterns inspired by Prolog's knowledge base architecture
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- Prolog provides a computational model for epistemic reasoning, enabling agents to reason about what is known, unknown, and derivable
-- [Axiom Enforcement](/glossary/axiom-enforcement/) -- the NABLA framework's axiom system mirrors Prolog's fact assertion mechanism, where axioms serve as non-negotiable ground truths
-- [Knowledge Graph](/glossary/knowledge-graph/) -- modern knowledge graph systems descend from Prolog's fact-and-rule databases, using similar query and inference patterns
+- [Inference](@/glossary/inference.md) -- the fundamental mechanism by which Prolog derives new knowledge from existing facts and rules, central to the platform's reasoning capabilities
+- [Knowledge Representation](@/glossary/knowledge-representation.md) -- Prolog's primary strength lies in representing structured knowledge as facts and rules, a pattern used throughout the platform's knowledge systems
+- [Logical Reasoning](@/glossary/logical-reasoning.md) -- Prolog embodies logical reasoning as computation, providing the theoretical foundation for the platform's epistemic validation
+- [Logical Consistency](@/glossary/logical-consistency.md) -- Prolog programs must maintain logical consistency to produce sound results, directly paralleling the Trinity Gate's consistency requirements
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Prolog's unification generalizes Elixir's pattern matching, and both serve as primary mechanisms for data destructuring and control flow
+- [Formal Verification](@/glossary/formal-verification.md) -- Prolog's proof search mechanism is closely related to the automated reasoning used in formal verification systems including Lean4
+- [Belief Graph](@/glossary/belief-graph.md) -- the platform's belief tracking system uses graph structures and inference patterns inspired by Prolog's knowledge base architecture
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- Prolog provides a computational model for epistemic reasoning, enabling agents to reason about what is known, unknown, and derivable
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) -- the NABLA framework's axiom system mirrors Prolog's fact assertion mechanism, where axioms serve as non-negotiable ground truths
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- modern knowledge graph systems descend from Prolog's fact-and-rule databases, using similar query and inference patterns
 
 ## See Also
 
-- [Elixir](/glossary/elixir/) -- the platform's primary language, whose pattern matching and guard clauses echo Prolog's unification
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine underlying Elixir, which shares Prolog's origins in symbolic computation research
-- [Property-Based Testing](/glossary/property-based-testing/) -- uses Prolog-inspired search over input spaces to find counterexamples
-- [Trinity Gate](/glossary/trinity-gate/) -- the platform's three-layer verification system that applies logical consistency checking inspired by resolution-based reasoning
+- [Elixir](@/glossary/elixir.md) -- the platform's primary language, whose pattern matching and guard clauses echo Prolog's unification
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine underlying Elixir, which shares Prolog's origins in symbolic computation research
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- uses Prolog-inspired search over input spaces to find counterexamples
+- [Trinity Gate](@/glossary/trinity-gate.md) -- the platform's three-layer verification system that applies logical consistency checking inspired by resolution-based reasoning
 
 ---
 

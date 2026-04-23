@@ -28,9 +28,9 @@ image_alt = "prolog-constraint-agent - Prismatic Platform"
 
 ## Overview
 
-The prolog-constraint-agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's primary domain, providing constraint satisfaction problem (CSP) solving capabilities through Prolog-based constraint propagation and systematic search algorithms. This agent translates complex configuration, scheduling, resource allocation, and dependency resolution problems into constraint satisfaction formulations, then applies arc consistency, bound propagation, and intelligent backtracking to find solutions that satisfy all specified constraints simultaneously. Within the platform's autonomous agent ecosystem, the prolog-constraint-agent serves as the primary solver for problems where multiple interrelated constraints must be satisfied -- scenarios that arise frequently in agent orchestration, pipeline scheduling, and resource management.
+The prolog-constraint-agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's primary domain, providing constraint satisfaction problem (CSP) solving capabilities through Prolog-based constraint propagation and systematic search algorithms. This agent translates complex configuration, scheduling, resource allocation, and dependency resolution problems into constraint satisfaction formulations, then applies arc consistency, bound propagation, and intelligent backtracking to find solutions that satisfy all specified constraints simultaneously. Within the platform's autonomous agent ecosystem, the prolog-constraint-agent serves as the primary solver for problems where multiple interrelated constraints must be satisfied -- scenarios that arise frequently in agent orchestration, pipeline scheduling, and resource management.
 
-The agent is built on a pure [Elixir](/glossary/elixir/) implementation of core Prolog constraint logic programming (CLP) concepts, adapted for the [BEAM](/glossary/beam/) virtual machine's concurrency model. Rather than embedding a full Prolog interpreter, the agent implements the essential constraint propagation algorithms -- AC-3 for arc consistency, bounds propagation for finite domain constraints, and constructive disjunction for choice points -- as native Elixir functions that leverage [OTP](/glossary/otp/) process isolation for parallel constraint evaluation. This approach achieves the logical expressiveness of constraint logic programming while maintaining the fault tolerance and distribution capabilities of the BEAM platform.
+The agent is built on a pure [Elixir](@/glossary/elixir.md) implementation of core Prolog constraint logic programming (CLP) concepts, adapted for the [BEAM](@/glossary/beam.md) virtual machine's concurrency model. Rather than embedding a full Prolog interpreter, the agent implements the essential constraint propagation algorithms -- AC-3 for arc consistency, bounds propagation for finite domain constraints, and constructive disjunction for choice points -- as native Elixir functions that leverage [OTP](@/glossary/otp.md) process isolation for parallel constraint evaluation. This approach achieves the logical expressiveness of constraint logic programming while maintaining the fault tolerance and distribution capabilities of the BEAM platform.
 
 ## Constraint Satisfaction Fundamentals
 
@@ -81,24 +81,24 @@ For multi-objective optimization, the agent computes Pareto-optimal solution set
 
 | Agent | Relationship |
 |-------|-------------|
-| [prolog-planning-agent](/agents/prolog-planning-agent/) | Constraint-based planning problem decomposition and solving |
-| [prolog-reasoning-agent](/agents/prolog-reasoning-agent/) | Logical rule formulation for constraint generation |
-| [pvm-adaptive-scheduler](/agents/pvm-adaptive-scheduler/) | Scheduling constraints for PVM execution resource allocation |
-| [dependency-optimization-specialist](/agents/dependency-optimization-specialist/) | Version compatibility constraint formulation and resolution |
+| [prolog-planning-agent](@/agents/prolog-planning-agent.md) | Constraint-based planning problem decomposition and solving |
+| [prolog-reasoning-agent](@/agents/prolog-reasoning-agent.md) | Logical rule formulation for constraint generation |
+| [pvm-adaptive-scheduler](@/agents/pvm-adaptive-scheduler.md) | Scheduling constraints for PVM execution resource allocation |
+| [dependency-optimization-specialist](@/agents/dependency-optimization-specialist.md) | Version compatibility constraint formulation and resolution |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Constraint solving performance [metrics](/glossary/metrics/) and propagation statistics |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent specification and discovery |
-| [SEADF](/glossary/seadf/) Pipeline | Constraint validation gates within evolution workflows |
-| [Mycelial Network](/glossary/mycelial-network/) | Distributed constraint propagation across agent boundaries |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Constraint solving performance [metrics](@/glossary/metrics.md) and propagation statistics |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
+| [SEADF](@/glossary/seadf.md) Pipeline | Constraint validation gates within evolution workflows |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Distributed constraint propagation across agent boundaries |
 
 ## Enforcement
 
-All constraint solutions are validated under the [NO MERCY](/glossary/no-mercy/) doctrine -- incomplete solutions and constraint violations are rejected without exception. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every solution includes a proof of feasibility: the complete constraint evaluation trace demonstrating that each constraint is satisfied by the proposed assignment. Solutions produced for critical platform operations (agent scheduling, deployment configuration) pass through the [Trinity Gate](/glossary/trinity-gate/) for formal verification before operational application.
+All constraint solutions are validated under the [NO MERCY](@/glossary/no-mercy.md) doctrine -- incomplete solutions and constraint violations are rejected without exception. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every solution includes a proof of feasibility: the complete constraint evaluation trace demonstrating that each constraint is satisfied by the proposed assignment. Solutions produced for critical platform operations (agent scheduling, deployment configuration) pass through the [Trinity Gate](@/glossary/trinity-gate.md) for formal verification before operational application.
 
 ---
 
@@ -107,4 +107,4 @@ All constraint solutions are validated under the [NO MERCY](/glossary/no-mercy/)
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

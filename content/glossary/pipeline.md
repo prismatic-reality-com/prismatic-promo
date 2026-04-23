@@ -37,13 +37,13 @@ image_alt = "Pipeline - Prismatic Platform"
 
 A **pipeline** is one of the most pervasive abstractions in software engineering: a sequence of processing stages connected end-to-end, where the output of one stage becomes the input of the next. Pipelines appear everywhere -- from Unix shell commands piped together with `|`, to CI/CD build chains, to real-time data streaming architectures processing millions of events per second. The pipeline metaphor draws directly from manufacturing assembly lines, where raw materials flow through specialized stations, each adding value, until a finished product emerges at the end.
 
-In the [Prismatic Platform](/glossary/architecture/), pipelines are not merely a convenience pattern but a foundational architectural principle. The platform employs pipelines at every level: 16-level epistemic reasoning pipelines that process beliefs through [quality gates](/glossary/quality-gates/), SEADF evolution pipelines that drive autonomous improvement, 11-phase pre-commit pipelines that enforce code quality, and [Broadway](/glossary/broadway/)-based concurrent data pipelines that process OSINT intelligence feeds. Understanding pipelines -- their patterns, failure modes, and composition strategies -- is essential to working effectively with the platform.
+In the [Prismatic Platform](@/glossary/architecture.md), pipelines are not merely a convenience pattern but a foundational architectural principle. The platform employs pipelines at every level: 16-level epistemic reasoning pipelines that process beliefs through [quality gates](@/glossary/quality-gates.md), SEADF evolution pipelines that drive autonomous improvement, 11-phase pre-commit pipelines that enforce code quality, and [Broadway](@/glossary/broadway.md)-based concurrent data pipelines that process OSINT intelligence feeds. Understanding pipelines -- their patterns, failure modes, and composition strategies -- is essential to working effectively with the platform.
 
 ## Definition and the Pipeline Metaphor
 
 A pipeline, in its most general form, is a chain of processing elements arranged so that the output of each element feeds directly into the input of the next. The term originates from plumbing: physical pipes that carry fluid from one location to another. In computing, the metaphor was first applied to CPU instruction pipelines in the 1960s and later popularized by Doug McIlroy's Unix pipes in the 1970s.
 
-Three properties distinguish a pipeline from a general [workflow](/glossary/workflow/):
+Three properties distinguish a pipeline from a general [workflow](@/glossary/workflow.md):
 
 1. **Sequential ordering** -- stages execute in a defined order, each depending on its predecessor's output.
 2. **Data transformation** -- each stage receives data, transforms it, and passes the result forward.
@@ -71,7 +71,7 @@ Every pipeline consists of **stages** (also called steps, phases, or operators).
 
 ### Data Flow and Backpressure
 
-Data flows through a pipeline from **source** (producer) to **sink** (consumer). In synchronous pipelines, each stage blocks until its successor accepts the output. In asynchronous pipelines, stages may buffer data. **Backpressure** is the mechanism by which a slow consumer signals upstream stages to reduce their production rate, preventing memory exhaustion. [GenStage](/glossary/genstage/) in the [Elixir](/glossary/elixir/) ecosystem provides first-class backpressure support through demand-driven processing.
+Data flows through a pipeline from **source** (producer) to **sink** (consumer). In synchronous pipelines, each stage blocks until its successor accepts the output. In asynchronous pipelines, stages may buffer data. **Backpressure** is the mechanism by which a slow consumer signals upstream stages to reduce their production rate, preventing memory exhaustion. [GenStage](@/glossary/genstage.md) in the [Elixir](@/glossary/elixir.md) ecosystem provides first-class backpressure support through demand-driven processing.
 
 ### Fan-Out and Fan-In
 
@@ -85,15 +85,15 @@ Production pipelines must handle failures gracefully. **Idempotent** stages can 
 
 ### Data Pipelines
 
-[Data pipelines](/glossary/data-pipeline/) move and transform data between systems. They range from simple batch jobs (nightly CSV imports) to real-time [stream processing](/glossary/stream-processing/) architectures handling millions of events per second. Key concerns include schema evolution, data quality validation, and exactly-once delivery guarantees.
+[Data pipelines](@/glossary/data-pipeline.md) move and transform data between systems. They range from simple batch jobs (nightly CSV imports) to real-time [stream processing](@/glossary/stream-processing.md) architectures handling millions of events per second. Key concerns include schema evolution, data quality validation, and exactly-once delivery guarantees.
 
 ### ETL/ELT Pipelines
 
-[ETL](/glossary/etl/) (Extract-Transform-Load) pipelines are the classic data warehousing pattern: extract from source systems, transform into the target schema, then load into the warehouse. Modern architectures increasingly prefer **ELT** (Extract-Load-Transform), loading raw data first and transforming in the warehouse using SQL, leveraging the warehouse's compute power.
+[ETL](@/glossary/etl.md) (Extract-Transform-Load) pipelines are the classic data warehousing pattern: extract from source systems, transform into the target schema, then load into the warehouse. Modern architectures increasingly prefer **ELT** (Extract-Load-Transform), loading raw data first and transforming in the warehouse using SQL, leveraging the warehouse's compute power.
 
 ### CI/CD Pipelines
 
-[CI/CD](/glossary/ci-cd/) pipelines automate the software delivery process: build, test, analyze, package, deploy. Each stage acts as a quality gate -- if tests fail, the pipeline halts. The Prismatic Platform implements an 11-phase pre-commit pipeline that enforces compilation warnings, Credo analysis, forbidden pattern detection, template validation, and design consistency before any code reaches the repository.
+[CI/CD](@/glossary/ci-cd.md) pipelines automate the software delivery process: build, test, analyze, package, deploy. Each stage acts as a quality gate -- if tests fail, the pipeline halts. The Prismatic Platform implements an 11-phase pre-commit pipeline that enforces compilation warnings, Credo analysis, forbidden pattern detection, template validation, and design consistency before any code reaches the repository.
 
 ### ML Pipelines
 
@@ -127,7 +127,7 @@ Several well-established patterns govern pipeline architecture:
 
 Without backpressure, a fast producer can overwhelm a slow consumer, causing unbounded memory growth. Backpressure strategies include:
 
-- **Demand-driven** (pull-based): Consumers request a specific number of items. [GenStage](/glossary/genstage/) uses this approach -- consumers send demand upstream, and producers only emit items when demand exists.
+- **Demand-driven** (pull-based): Consumers request a specific number of items. [GenStage](@/glossary/genstage.md) uses this approach -- consumers send demand upstream, and producers only emit items when demand exists.
 - **Rate limiting**: Producers emit at a fixed maximum rate regardless of consumer capacity.
 - **Buffering with overflow**: Intermediate buffers absorb bursts, with overflow policies (drop oldest, drop newest, block producer) when buffers fill.
 - **Credit-based flow control**: Consumers issue "credits" to producers. Each emitted item consumes a credit. When credits are exhausted, the producer pauses.
@@ -155,7 +155,7 @@ The Scanner-Evolve-Analyze-Defend-Fix pipeline drives autonomous platform improv
 
 ### 11-Phase Pre-Commit Pipeline
 
-The platform's pre-commit hook implements an 11-phase [quality gate](/glossary/quality-gate/) pipeline:
+The platform's pre-commit hook implements an 11-phase [quality gate](@/glossary/quality-gate.md) pipeline:
 
 1. Compilation with `--warnings-as-errors`
 2. Credo strict analysis
@@ -246,7 +246,7 @@ end
 
 ### GenStage Producer-Consumer Pipeline
 
-[GenStage](/glossary/genstage/) provides demand-driven pipeline stages with automatic backpressure:
+[GenStage](@/glossary/genstage.md) provides demand-driven pipeline stages with automatic backpressure:
 
 ```elixir
 defmodule PrismaticOSINT.Pipeline.Producer do
@@ -333,7 +333,7 @@ end
 
 ### Broadway Concurrent Data Pipeline
 
-[Broadway](/glossary/broadway/) builds on GenStage to provide production-ready concurrent pipelines with batching, fault tolerance, and graceful shutdown:
+[Broadway](@/glossary/broadway.md) builds on GenStage to provide production-ready concurrent pipelines with batching, fault tolerance, and graceful shutdown:
 
 ```elixir
 defmodule PrismaticOSINT.Broadway.CertificateIngester do
@@ -419,7 +419,7 @@ Robust error handling distinguishes production pipelines from prototypes. Key st
 
 **Retry with exponential backoff**: Transient failures (network timeouts, temporary unavailability) resolve themselves. Retry with increasing delays (1s, 2s, 4s, 8s) and a maximum retry count prevents both premature failure and infinite loops.
 
-**[Circuit breakers](/glossary/circuit-breaker/)**: When a downstream system is consistently failing, a circuit breaker "opens" to stop sending requests, allowing the system to recover. After a cooldown period, the circuit breaker "half-opens" to test recovery before fully resuming traffic.
+**[Circuit breakers](@/glossary/circuit-breaker.md)**: When a downstream system is consistently failing, a circuit breaker "opens" to stop sending requests, allowing the system to recover. After a cooldown period, the circuit breaker "half-opens" to test recovery before fully resuming traffic.
 
 **Dead letter queues**: Records that fail after all retries are routed to a dedicated queue for manual inspection. This prevents a single bad record from blocking pipeline progress while preserving the record for later analysis.
 
@@ -464,19 +464,19 @@ Pipeline architectures continue to evolve in several directions:
 
 ## See Also
 
-- [Data Pipeline](/glossary/data-pipeline/) -- specialized pipelines for moving and transforming data between systems
-- [CI/CD](/glossary/ci-cd/) -- continuous integration and delivery pipelines for software deployment
-- [ETL](/glossary/etl/) -- Extract-Transform-Load pipelines for data warehousing
-- [Elixir](/glossary/elixir/) -- functional language with first-class pipeline support via the |> operator
-- [GenStage](/glossary/genstage/) -- Elixir library for demand-driven pipeline stages
-- [Broadway](/glossary/broadway/) -- production-ready concurrent data pipelines in Elixir
-- [Quality Gates](/glossary/quality-gates/) -- pipeline checkpoints that enforce quality thresholds
-- [Workflow](/glossary/workflow/) -- broader execution patterns that may include pipeline stages
-- [Stream Processing](/glossary/stream-processing/) -- real-time data processing architectures
-- [Circuit Breaker](/glossary/circuit-breaker/) -- fault tolerance pattern critical for pipeline resilience
-- [Actor Model](/glossary/actor-model/) -- concurrency model underlying Elixir's pipeline implementations
-- [Static Analysis](/glossary/static-analysis/) -- automated code analysis often integrated into CI/CD pipelines
-- [Adapter Pattern](/glossary/adapter-pattern/) -- pattern for normalizing different data sources into pipeline-compatible formats
+- [Data Pipeline](@/glossary/data-pipeline.md) -- specialized pipelines for moving and transforming data between systems
+- [CI/CD](@/glossary/ci-cd.md) -- continuous integration and delivery pipelines for software deployment
+- [ETL](@/glossary/etl.md) -- Extract-Transform-Load pipelines for data warehousing
+- [Elixir](@/glossary/elixir.md) -- functional language with first-class pipeline support via the |> operator
+- [GenStage](@/glossary/genstage.md) -- Elixir library for demand-driven pipeline stages
+- [Broadway](@/glossary/broadway.md) -- production-ready concurrent data pipelines in Elixir
+- [Quality Gates](@/glossary/quality-gates.md) -- pipeline checkpoints that enforce quality thresholds
+- [Workflow](@/glossary/workflow.md) -- broader execution patterns that may include pipeline stages
+- [Stream Processing](@/glossary/stream-processing.md) -- real-time data processing architectures
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- fault tolerance pattern critical for pipeline resilience
+- [Actor Model](@/glossary/actor-model.md) -- concurrency model underlying Elixir's pipeline implementations
+- [Static Analysis](@/glossary/static-analysis.md) -- automated code analysis often integrated into CI/CD pipelines
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- pattern for normalizing different data sources into pipeline-compatible formats
 
 ---
 
@@ -485,4 +485,4 @@ Pipeline architectures continue to evolve in several directions:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

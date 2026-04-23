@@ -41,9 +41,9 @@ The Sidecar Pattern is a software architecture pattern where an auxiliary proces
 
 The term "sidecar" originates from the motorcycle sidecar -- an attached compartment that travels alongside the motorcycle, sharing its journey without modifying the motorcycle itself. In software, this metaphor captures the essential property: the sidecar enhances the primary application's capabilities without the primary application needing awareness of the sidecar's existence. The sidecar can be developed, deployed, and updated independently, provided it maintains its interface contract with the primary application.
 
-In container orchestration systems like Kubernetes, sidecars run as secondary containers within the same pod, sharing network and storage volumes. In the BEAM virtual machine ecosystem, the pattern maps naturally to co-supervised processes within OTP [supervision trees](/glossary/supervision-tree/) -- a more elegant implementation than container-based sidecars because BEAM processes communicate through message passing with microsecond latency rather than through network protocols with millisecond overhead.
+In container orchestration systems like Kubernetes, sidecars run as secondary containers within the same pod, sharing network and storage volumes. In the BEAM virtual machine ecosystem, the pattern maps naturally to co-supervised processes within OTP [supervision trees](@/glossary/supervision-tree.md) -- a more elegant implementation than container-based sidecars because BEAM processes communicate through message passing with microsecond latency rather than through network protocols with millisecond overhead.
 
-The Prismatic Platform implements the Sidecar Pattern at multiple levels: OTP supervision trees for in-process sidecars, Docker Compose for service-level sidecars, and conceptual sidecar relationships between umbrella applications that provide cross-cutting functionality to the broader platform. The pattern is particularly prevalent in the platform's quality monitoring infrastructure, where the [Quality Floor Guardian](/glossary/quality-floor-guardian/) operates as a platform-wide sidecar that observes and enforces quality standards without interfering with business logic execution.
+The Prismatic Platform implements the Sidecar Pattern at multiple levels: OTP supervision trees for in-process sidecars, Docker Compose for service-level sidecars, and conceptual sidecar relationships between umbrella applications that provide cross-cutting functionality to the broader platform. The pattern is particularly prevalent in the platform's quality monitoring infrastructure, where the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) operates as a platform-wide sidecar that observes and enforces quality standards without interfering with business logic execution.
 
 ## Historical Context and Motivation
 
@@ -97,7 +97,7 @@ The `:rest_for_one` strategy is particularly well-suited for sidecar patterns: i
 
 ### Health Check Sidecar
 
-A common sidecar implementation provides health checking for the primary process. The health check sidecar periodically queries the primary process and reports its status through [telemetry](/glossary/telemetry/) events, enabling external monitoring systems to detect degradation before it becomes visible to users:
+A common sidecar implementation provides health checking for the primary process. The health check sidecar periodically queries the primary process and reports its status through [telemetry](@/glossary/telemetry.md) events, enabling external monitoring systems to detect degradation before it becomes visible to users:
 
 ```elixir
 defmodule MyApp.HealthCheckSidecar do
@@ -384,7 +384,7 @@ The Prismatic Platform uses sidecars at three architectural levels:
 
 ### Quality Floor Guardian as Platform Sidecar
 
-The [Quality Floor Guardian](/glossary/quality-floor-guardian/) is the most significant sidecar in the Prismatic Platform. It operates as a platform-wide sidecar that monitors quality metrics across all umbrella applications:
+The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) is the most significant sidecar in the Prismatic Platform. It operates as a platform-wide sidecar that monitors quality metrics across all umbrella applications:
 
 ```elixir
 defmodule PrismaticSafety.Application do
@@ -428,7 +428,7 @@ An important architectural distinction is when to use a sidecar versus a library
 | Resource usage | Own memory allocation | Shares caller's memory |
 | Concurrency | Runs concurrently with primary | Blocks primary during execution |
 | Deployment | Can be updated independently | Updated with primary |
-| Observability | Separately monitorable in [Observer](/glossary/observer/) | Invisible as separate entity |
+| Observability | Separately monitorable in [Observer](@/glossary/observer.md) | Invisible as separate entity |
 | Use when | Cross-cutting concern needs own lifecycle | Utility function without state |
 
 The general rule is: if the auxiliary functionality needs its own state, its own lifecycle, or its own failure domain, use a sidecar process. If it is a stateless transformation or utility, use a library module. In the Prismatic Platform, health checking, telemetry reporting, and configuration watching are sidecars because they maintain state and operate on their own schedules. JSON encoding, string manipulation, and data validation are libraries because they are stateless transformations.
@@ -445,7 +445,7 @@ Sidecars communicate with their primary processes through several patterns, each
 | **Registry Lookup** | Sidecar -> Primary | Loose (name-based) | Sidecar discovers primary via Registry |
 | **Process Monitor** | Sidecar -> Primary | Medium (lifecycle awareness) | Sidecar monitors primary's liveness |
 
-The lowest-coupling approach uses [telemetry](/glossary/telemetry/) events: the primary process emits telemetry events as part of its normal operation, and the sidecar attaches handlers to observe those events. The primary process does not know or care that a sidecar is listening. This is the preferred pattern in the Prismatic Platform for observability sidecars.
+The lowest-coupling approach uses [telemetry](@/glossary/telemetry.md) events: the primary process emits telemetry events as part of its normal operation, and the sidecar attaches handlers to observe those events. The primary process does not know or care that a sidecar is listening. This is the preferred pattern in the Prismatic Platform for observability sidecars.
 
 ## Usage in Prismatic Platform
 
@@ -601,21 +601,21 @@ For the Prismatic Platform with hundreds of sidecars, the BEAM-native approach s
 
 ## Related Concepts
 
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP hierarchy naturally modeling sidecar relationships
-- [Docker](/glossary/docker/) -- Container runtime where sidecars run as secondary containers
-- [Telemetry](/glossary/telemetry/) -- Metrics collection often implemented as a sidecar
-- [Process Isolation](/glossary/process-isolation/) -- BEAM isolation ensuring sidecar fault containment
-- [Observability](/glossary/observability/) -- Cross-cutting concern commonly delegated to sidecars
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Platform-wide quality monitoring sidecar
-- [GenServer](/glossary/genserver/) -- Process behaviour underlying sidecar implementations
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern protecting sidecars from cascade failures
-- [Observer](/glossary/observer/) -- Tool for inspecting sidecar process state at runtime
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP hierarchy naturally modeling sidecar relationships
+- [Docker](@/glossary/docker.md) -- Container runtime where sidecars run as secondary containers
+- [Telemetry](@/glossary/telemetry.md) -- Metrics collection often implemented as a sidecar
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM isolation ensuring sidecar fault containment
+- [Observability](@/glossary/observability.md) -- Cross-cutting concern commonly delegated to sidecars
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Platform-wide quality monitoring sidecar
+- [GenServer](@/glossary/genserver.md) -- Process behaviour underlying sidecar implementations
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern protecting sidecars from cascade failures
+- [Observer](@/glossary/observer.md) -- Tool for inspecting sidecar process state at runtime
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory
 
 ---
 
@@ -624,4 +624,4 @@ For the Prismatic Platform with hundreds of sidecars, the BEAM-native approach s
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

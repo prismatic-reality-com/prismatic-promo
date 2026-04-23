@@ -28,11 +28,11 @@ image_alt = "doc-specialist - Prismatic Platform"
 
 ## Overview
 
-The Doc Specialist operates as an L3 strategic command agent within the Development domain of the Prismatic Platform. This agent handles all documentation generation, maintenance, and quality enforcement across the platform's codebase of over 6,600 [Elixir](/glossary/elixir/) source files and 11,300 documentation files. Documentation in the Prismatic Platform is not optional supplementary material -- it is a mandatory quality artifact subject to the same [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) enforcement as production code. Every public function requires `@doc` and `@spec` annotations, every module requires `@moduledoc`, and every application requires a `CLAUDE.md` guide.
+The Doc Specialist operates as an L3 strategic command agent within the Development domain of the Prismatic Platform. This agent handles all documentation generation, maintenance, and quality enforcement across the platform's codebase of over 6,600 [Elixir](@/glossary/elixir.md) source files and 11,300 documentation files. Documentation in the Prismatic Platform is not optional supplementary material -- it is a mandatory quality artifact subject to the same [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) enforcement as production code. Every public function requires `@doc` and `@spec` annotations, every module requires `@moduledoc`, and every application requires a `CLAUDE.md` guide.
 
-The [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard mandates comprehensive documentation at every level of the platform architecture. The Doc Specialist enforces these requirements while also generating documentation content that meets academic quality standards. Generated documentation is not boilerplate -- it explains the "why" behind design decisions, describes the behavioral contracts of modules and functions, and provides usage examples that demonstrate correct integration patterns.
+The [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard mandates comprehensive documentation at every level of the platform architecture. The Doc Specialist enforces these requirements while also generating documentation content that meets academic quality standards. Generated documentation is not boilerplate -- it explains the "why" behind design decisions, describes the behavioral contracts of modules and functions, and provides usage examples that demonstrate correct integration patterns.
 
-In a platform with 90 [umbrella application](/glossary/umbrella-application/)s and 430+ autonomous agents, documentation serves as the primary knowledge transfer mechanism between components. Agents that need to interact with a module rely on its documentation to understand its interface contracts, error handling behavior, and configuration requirements. Poor documentation creates integration failures. The Doc Specialist prevents this by maintaining documentation quality as aggressively as the platform maintains code quality.
+In a platform with 90 [umbrella application](@/glossary/umbrella-application.md)s and 430+ autonomous agents, documentation serves as the primary knowledge transfer mechanism between components. Agents that need to interact with a module rely on its documentation to understand its interface contracts, error handling behavior, and configuration requirements. Poor documentation creates integration failures. The Doc Specialist prevents this by maintaining documentation quality as aggressively as the platform maintains code quality.
 
 ## Operational Domain
 
@@ -44,9 +44,9 @@ Documentation in the platform exists at five levels: inline comments (explaining
 
 The Doc Specialist provides six core documentation capabilities spanning generation, validation, and maintenance.
 
-**Module documentation generation** produces comprehensive `@moduledoc` content for [Elixir](/glossary/elixir/) modules, describing the module's purpose, its role within the application, its dependencies, its public interface, and its behavioral contracts. Generated module docs include usage examples that demonstrate correct integration patterns and common pitfalls to avoid.
+**Module documentation generation** produces comprehensive `@moduledoc` content for [Elixir](@/glossary/elixir.md) modules, describing the module's purpose, its role within the application, its dependencies, its public interface, and its behavioral contracts. Generated module docs include usage examples that demonstrate correct integration patterns and common pitfalls to avoid.
 
-**Function documentation generation** creates `@doc` content for public functions, including parameter descriptions, return value specifications, error conditions, and usage examples. Function docs explicitly describe side effects, process message requirements for [GenServer](/glossary/genserver/) functions, and [Ecto](/glossary/ecto/) changeset behavior for database-related functions.
+**Function documentation generation** creates `@doc` content for public functions, including parameter descriptions, return value specifications, error conditions, and usage examples. Function docs explicitly describe side effects, process message requirements for [GenServer](@/glossary/genserver.md) functions, and [Ecto](@/glossary/ecto.md) changeset behavior for database-related functions.
 
 **Type specification enforcement** validates that every public function has a corresponding `@spec` annotation and that the specification accurately describes the function's type signature. The agent generates type specifications when they are missing and flags specifications that are too broad (overly permissive) or inconsistent with the actual implementation.
 
@@ -103,11 +103,11 @@ The Doc Specialist produces documentation in multiple formats to serve different
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Phoenix](/glossary/phoenix/) Framework | Documentation target | Web application and [LiveView](/glossary/liveview/) component documentation |
-| [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/) | Language platform | ExDoc integration for API documentation generation |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Documentation completeness as a blocking quality gate |
+| [Phoenix](@/glossary/phoenix.md) Framework | Documentation target | Web application and [LiveView](@/glossary/liveview.md) component documentation |
+| [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md) | Language platform | ExDoc integration for API documentation generation |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Documentation completeness as a blocking quality gate |
 | ExDoc | Documentation tool | HTML documentation generation from annotations |
-| [Credo](/glossary/credo/) | Static analysis | Missing documentation detection through static analysis rules |
+| [Credo](@/glossary/credo.md) | Static analysis | Missing documentation detection through static analysis rules |
 | Git Trees | File discovery | Rapid identification of files needing documentation updates |
 
 ## Documentation Maintenance
@@ -118,13 +118,13 @@ Documentation is treated as versioned content that must remain synchronized with
 
 ## Enforcement
 
-The Doc Specialist enforces [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine for documentation quality. Undocumented public functions block compilation through Credo's strict mode. Missing `@moduledoc` annotations trigger quality gate failures. CLAUDE.md files that fall below quality thresholds are flagged for enhancement. Documentation that contradicts the implementation is treated as a defect with the same severity as a failing test -- it must be corrected before the code merges.
+The Doc Specialist enforces [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine for documentation quality. Undocumented public functions block compilation through Credo's strict mode. Missing `@moduledoc` annotations trigger quality gate failures. CLAUDE.md files that fall below quality thresholds are flagged for enhancement. Documentation that contradicts the implementation is treated as a defect with the same severity as a failing test -- it must be corrected before the code merges.
 
 ## Related Agents
 
-- [**code-specialist**](/agents/code-specialist/) (L3) - Intelligent code generation with documentation as a mandatory output
-- [**database-specialist**](/agents/database-specialist/) (L3) - [PostgreSQL](/glossary/postgresql/) expertise with schema documentation requirements
-- [**explain-specialist**](/agents/explain-specialist/) (L3) - Code explanation that complements generated documentation
+- [**code-specialist**](@/agents/code-specialist.md) (L3) - Intelligent code generation with documentation as a mandatory output
+- [**database-specialist**](@/agents/database-specialist.md) (L3) - [PostgreSQL](@/glossary/postgresql.md) expertise with schema documentation requirements
+- [**explain-specialist**](@/agents/explain-specialist.md) (L3) - Code explanation that complements generated documentation
 
 ---
 
@@ -133,4 +133,4 @@ The Doc Specialist enforces [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

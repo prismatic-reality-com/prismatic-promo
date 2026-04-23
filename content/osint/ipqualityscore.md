@@ -27,17 +27,17 @@ image_alt = "IPQualityScore - Prismatic Platform"
 
 IPQualityScore (IPQS) is a comprehensive fraud prevention and threat detection platform that provides real-time risk scoring for IP addresses, email addresses, phone numbers, and URLs. IPQS processes over 3 billion API requests monthly, analyzing signals from proxy/VPN detection, behavioral analysis, device fingerprinting, and machine learning models to produce a 0-100 fraud score that represents the likelihood of malicious or fraudulent activity.
 
-What makes IPQS particularly valuable for [OSINT](/glossary/osint/) is its multi-dimensional approach: rather than just scoring IPs, it provides a unified fraud assessment across email, phone, device, and network layers. This allows investigators to build a comprehensive risk profile from any starting identifier. The platform maintains a proprietary threat intelligence network that tracks over 1 billion malicious indicators, updated continuously from honeypots, partner feeds, and user-reported abuse data.
+What makes IPQS particularly valuable for [OSINT](@/glossary/osint.md) is its multi-dimensional approach: rather than just scoring IPs, it provides a unified fraud assessment across email, phone, device, and network layers. This allows investigators to build a comprehensive risk profile from any starting identifier. The platform maintains a proprietary threat intelligence network that tracks over 1 billion malicious indicators, updated continuously from honeypots, partner feeds, and user-reported abuse data.
 
 IPQS distinguishes between different types of anonymization services with high precision. While basic VPN detection is available from many providers, IPQS identifies specific VPN services, differentiates between commercial VPNs and residential proxies, detects Tor exit nodes in real-time, and identifies sophisticated evasion techniques like residential proxy networks that route traffic through compromised consumer devices.
 
-Within the Prismatic Platform, IPQualityScore provides fraud scoring and validation capabilities for the [HAWKEYE](/apps/prismatic-hawkeye/) visitor intelligence system and feeds risk signals into the [Prismatic Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/) engine.
+Within the Prismatic Platform, IPQualityScore provides fraud scoring and validation capabilities for the [HAWKEYE](@/apps/prismatic-hawkeye.md) visitor intelligence system and feeds risk signals into the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md) engine.
 
 ## Data Coverage
 
 | Data Type | Description |
 |-----------|-------------|
-| **IP Fraud Score** | 0-100 [risk score](/glossary/risk-score/) based on behavioral and network analysis |
+| **IP Fraud Score** | 0-100 [risk score](@/glossary/risk-score.md) based on behavioral and network analysis |
 | **Proxy Detection** | VPN, proxy, Tor, residential proxy identification |
 | **Bot Detection** | Automated traffic and crawler identification |
 | **Email Validation** | Deliverability, disposable detection, fraud scoring |
@@ -76,7 +76,7 @@ IPQS provides granular detection that goes beyond simple VPN/proxy binary flags:
 
 ## Integration with Prismatic
 
-IPQualityScore feeds fraud intelligence into the Prismatic Platform, complementing [IPinfo](/osint/ipinfo/) geolocation and [AbuseIPDB](/osint/abuseipdb/) reputation data.
+IPQualityScore feeds fraud intelligence into the Prismatic Platform, complementing [IPinfo](@/osint/ipinfo.md) geolocation and [AbuseIPDB](@/osint/abuseipdb.md) reputation data.
 
 ```elixir
 # Score an IP address
@@ -193,7 +193,7 @@ end
 
 ### Real-Time Visitor Scoring
 
-For the [HAWKEYE](/apps/prismatic-hawkeye/) visitor intelligence system, IPQS provides sub-100ms IP scoring that enables real-time access control decisions:
+For the [HAWKEYE](@/apps/prismatic-hawkeye.md) visitor intelligence system, IPQS provides sub-100ms IP scoring that enables real-time access control decisions:
 
 ```elixir
 defmodule PrismaticHawkeye.RealTime.VisitorGate do
@@ -277,7 +277,7 @@ API key passed as URL parameter (`key=`). Free tier available with registration.
 ## Use Cases
 
 ### Fraud Prevention
-- Score visitor IPs in real-time for the [HAWKEYE](/apps/prismatic-hawkeye/) system
+- Score visitor IPs in real-time for the [HAWKEYE](@/apps/prismatic-hawkeye.md) system
 - Validate email addresses during registration workflows to block disposable addresses
 - Detect VPN/proxy usage for access control policies and risk assessment
 - Score transactions combining IP, email, and phone risk signals
@@ -285,42 +285,42 @@ API key passed as URL parameter (`key=`). Free tier available with registration.
 ### Phishing Detection
 - Scan suspicious URLs for phishing indicators with domain age and reputation analysis
 - Validate email sender reputation in security workflows
-- Cross-reference with [PhishTank](/osint/phishtank/) for community verification
+- Cross-reference with [PhishTank](@/osint/phishtank.md) for community verification
 - Feed URL risk scores into email gateway filtering decisions
 
 ### Identity Verification
 - Multi-factor validation (IP + email + phone) for KYC workflows
 - Detect disposable emails and virtual phone numbers used in synthetic identity fraud
-- Correlate with [EmailRep](/osint/emailrep/) for email reputation context
+- Correlate with [EmailRep](@/osint/emailrep.md) for email reputation context
 - Verify phone number validity and carrier information for contact verification
 
 ### Account Security
 - Detect credential stuffing attacks through IP fraud scoring patterns
 - Identify account takeover attempts from anomalous IP locations or anonymization
 - Monitor login attempts for suspicious patterns using abuse velocity metrics
-- Cross-reference with [Have I Been Pwned](/osint/haveibeenpwned/) for credential exposure
+- Cross-reference with [Have I Been Pwned](@/osint/haveibeenpwned.md) for credential exposure
 
 ### Supply Chain Risk
 - Validate vendor contact information authenticity during onboarding
 - Score IP addresses used in business communications for fraud indicators
 - Verify email domain legitimacy for new business relationships
-- Feed risk data into [NIS2](/glossary/nis2/) supply chain compliance assessments
+- Feed risk data into [NIS2](@/glossary/nis2.md) supply chain compliance assessments
 
 ## Related Sources
 
-- [IPinfo](/osint/ipinfo/) - IP geolocation and ASN intelligence
-- [AbuseIPDB](/osint/abuseipdb/) - Community IP abuse reporting
-- [EmailRep](/osint/emailrep/) - Email reputation scoring
-- [GreyNoise](/osint/greynoise/) - Internet scanner identification
-- [PhishTank](/osint/phishtank/) - Community phishing URL verification
-- [MaxMind](/osint/maxmind/) - GeoIP and fraud detection databases
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Credential exposure checks
+- [IPinfo](@/osint/ipinfo.md) - IP geolocation and ASN intelligence
+- [AbuseIPDB](@/osint/abuseipdb.md) - Community IP abuse reporting
+- [EmailRep](@/osint/emailrep.md) - Email reputation scoring
+- [GreyNoise](@/osint/greynoise.md) - Internet scanner identification
+- [PhishTank](@/osint/phishtank.md) - Community phishing URL verification
+- [MaxMind](@/osint/maxmind.md) - GeoIP and fraud detection databases
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Credential exposure checks
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Fraud scoring in [EASM](/glossary/easm/) ratings
-- [HAWKEYE](/apps/prismatic-hawkeye/) - Visitor intelligence with fraud detection
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Fraud scoring in [EASM](@/glossary/easm.md) ratings
+- [HAWKEYE](@/apps/prismatic-hawkeye.md) - Visitor intelligence with fraud detection
 
 ---
 
@@ -329,4 +329,4 @@ API key passed as URL parameter (`key=`). Free tier available with registration.
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

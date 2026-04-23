@@ -38,7 +38,7 @@ image_alt = "Autonomous Platforms - Prismatic Platform"
 
 An Autonomous Platform is a software platform that manages its own operational lifecycle -- monitoring, healing, evolving, and optimizing itself -- without requiring continuous human intervention. Unlike platforms that merely host autonomous agents, an autonomous platform is itself autonomous: it manages its own quality, repairs its own failures, evolves its own capabilities, and makes architectural decisions within defined governance boundaries.
 
-The Prismatic Platform is a production exemplar of an autonomous platform, integrating 530+ [autonomous agents](/glossary/autonomous-agent/), the [AutoEvolve](/glossary/autoevolve/) self-improvement system, [AutoHeal](/glossary/autoheal/) self-repair, the [Quality Floor Guardian](/glossary/quality-floor-guardian/) quality assurance system, and [Health Monitoring](/glossary/health-monitoring/) -- all coordinated through a hierarchical authority structure governed by the [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine. The platform has progressed through 19 evolutionary generations to achieve a fitness score of 0.9995, demonstrating that autonomous platform operation is not theoretical but demonstrably achievable.
+The Prismatic Platform is a production exemplar of an autonomous platform, integrating 530+ [autonomous agents](@/glossary/autonomous-agent.md), the [AutoEvolve](@/glossary/autoevolve.md) self-improvement system, [AutoHeal](@/glossary/autoheal.md) self-repair, the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) quality assurance system, and [Health Monitoring](@/glossary/health-monitoring.md) -- all coordinated through a hierarchical authority structure governed by the [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine. The platform has progressed through 19 evolutionary generations to achieve a fitness score of 0.9995, demonstrating that autonomous platform operation is not theoretical but demonstrably achievable.
 
 ## Overview
 
@@ -419,25 +419,25 @@ The platform coordinates 530+ agents across 16 domains without a human dispatche
 
 ## Related Concepts
 
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- Self-improvement capability that drives platform advancement through generations
-- [Autonomous Agent](/glossary/autonomous-agent/) -- Individual autonomous entities that compose the platform's distributed workforce
-- [Self-Healing](/glossary/self-healing/) -- Automated fault detection and recovery capability
-- [Intelligent Platforms](/glossary/intelligent-platforms/) -- Broader category of platforms with embedded intelligence
-- [Autonomous Operation](/glossary/autonomous-operation/) -- Sustained operation without human intervention
-- [Autonomous Quality](/glossary/autonomous-quality/) -- Self-managed quality assurance without human QA
-- [Autonomous Decision Making](/glossary/autonomous-decision-making/) -- Decision capability enabling platform-level autonomy
-- [AutoEvolve](/glossary/autoevolve/) -- Concrete evolution system powering platform self-improvement
-- [AutoHeal](/glossary/autoheal/) -- Concrete self-healing system preventing regression
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Quality monitoring ensuring autonomous quality maintenance
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) -- Governance doctrine for autonomous platform operations
-- [Trinity Gate](/glossary/trinity-gate/) -- Epistemic verification system for autonomous critical decisions
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- Self-improvement capability that drives platform advancement through generations
+- [Autonomous Agent](@/glossary/autonomous-agent.md) -- Individual autonomous entities that compose the platform's distributed workforce
+- [Self-Healing](@/glossary/self-healing.md) -- Automated fault detection and recovery capability
+- [Intelligent Platforms](@/glossary/intelligent-platforms.md) -- Broader category of platforms with embedded intelligence
+- [Autonomous Operation](@/glossary/autonomous-operation.md) -- Sustained operation without human intervention
+- [Autonomous Quality](@/glossary/autonomous-quality.md) -- Self-managed quality assurance without human QA
+- [Autonomous Decision Making](@/glossary/autonomous-decision-making.md) -- Decision capability enabling platform-level autonomy
+- [AutoEvolve](@/glossary/autoevolve.md) -- Concrete evolution system powering platform self-improvement
+- [AutoHeal](@/glossary/autoheal.md) -- Concrete self-healing system preventing regression
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Quality monitoring ensuring autonomous quality maintenance
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) -- Governance doctrine for autonomous platform operations
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Epistemic verification system for autonomous critical decisions
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture demonstrating autonomous design
-- [Capabilities](/capabilities/) -- Full catalog of autonomous platform capabilities
-- [Technologies](/technologies/) -- Technology stack enabling platform autonomy
-- [Agents](/agents/) -- Agent ecosystem operating within the autonomous platform
+- [Architecture](@/architecture/_index.md) -- Platform architecture demonstrating autonomous design
+- [Capabilities](@/capabilities/_index.md) -- Full catalog of autonomous platform capabilities
+- [Technologies](@/technologies/_index.md) -- Technology stack enabling platform autonomy
+- [Agents](@/agents/_index.md) -- Agent ecosystem operating within the autonomous platform
 
 ---
 
@@ -446,4 +446,4 @@ The platform coordinates 530+ agents across 16 domains without a human dispatche
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

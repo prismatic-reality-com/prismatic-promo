@@ -37,7 +37,7 @@ see_also = ["capabilities", "architecture", "api"]
 
 ## Definition
 
-JavaScript Object Notation (JSON) is a lightweight, text-based data interchange format that uses human-readable text to represent structured data as key-value pairs and ordered lists. Originally derived from JavaScript object literal syntax (ECMA-262, 3rd Edition, 1999), JSON has become language-independent and is now formalized in two overlapping standards: RFC 8259 (published by the IETF) and ECMA-404 (published by Ecma International). Its simplicity, ubiquity, and native support in virtually every programming language make it the dominant format for web [APIs](/glossary/api/), configuration files, and data exchange between [distributed systems](/glossary/distribution/).
+JavaScript Object Notation (JSON) is a lightweight, text-based data interchange format that uses human-readable text to represent structured data as key-value pairs and ordered lists. Originally derived from JavaScript object literal syntax (ECMA-262, 3rd Edition, 1999), JSON has become language-independent and is now formalized in two overlapping standards: RFC 8259 (published by the IETF) and ECMA-404 (published by Ecma International). Its simplicity, ubiquity, and native support in virtually every programming language make it the dominant format for web [APIs](@/glossary/api.md), configuration files, and data exchange between [distributed systems](@/glossary/distribution.md).
 
 JSON supports six data types: strings, numbers, booleans, null, objects (unordered key-value maps), and arrays (ordered sequences). This minimal type system covers the vast majority of real-world data exchange needs while remaining trivially parseable by machines and readable by humans. The format's success stems from hitting a sweet spot between expressiveness and simplicity -- complex enough to represent most structured data, simple enough that a complete parser can be written in a few hundred lines of code.
 
@@ -45,7 +45,7 @@ JSON supports six data types: strings, numbers, booleans, null, objects (unorder
 
 JSON emerged in the early 2000s as a simpler alternative to XML for data interchange in web applications. Douglas Crockford popularized the format, recognizing that JavaScript's object literal notation was already a practical [serialization](/glossary/serialization/) format that could serve as a lightweight wire protocol. Where XML required verbose opening and closing tags, schemas, namespaces, and processing instructions, JSON needed only braces, brackets, colons, and commas. This minimalism made JSON payloads smaller, faster to parse, and easier for developers to read and write by hand.
 
-The format's adoption accelerated with the rise of AJAX (Asynchronous JavaScript and XML -- which, ironically, increasingly used JSON instead of XML) and RESTful web services. By the mid-2010s, JSON had effectively replaced XML as the default data format for web APIs. Today, JSON is used not only for API communication but also for configuration files (package.json, tsconfig.json), database document storage (MongoDB, CouchDB, PostgreSQL [JSONB](/glossary/postgresql/)), log formatting (structured logging), and inter-process communication in [microservice architectures](/glossary/microservices/).
+The format's adoption accelerated with the rise of AJAX (Asynchronous JavaScript and XML -- which, ironically, increasingly used JSON instead of XML) and RESTful web services. By the mid-2010s, JSON had effectively replaced XML as the default data format for web APIs. Today, JSON is used not only for API communication but also for configuration files (package.json, tsconfig.json), database document storage (MongoDB, CouchDB, PostgreSQL [JSONB](@/glossary/postgresql.md)), log formatting (structured logging), and inter-process communication in [microservice architectures](@/glossary/microservices.md).
 
 | Aspect | JSON | XML | YAML | MessagePack |
 |--------|------|-----|------|-------------|
@@ -93,14 +93,14 @@ Key syntax rules that differentiate JSON from JavaScript object literals:
 
 ### Parsing and Encoding in the BEAM Ecosystem
 
-JSON parsing in the BEAM ecosystem relies on libraries like [Jason](https://hex.pm/packages/jason) (pure Elixir, fast) and Poison (legacy). Jason uses binary pattern matching and IO lists for exceptional encoding performance -- typically 2-5x faster than equivalent libraries in other runtimes. The BEAM's immutable binary handling means JSON strings are never copied unnecessarily during parsing, and large JSON documents can be streamed through [processes](/glossary/process/) without memory pressure.
+JSON parsing in the BEAM ecosystem relies on libraries like [Jason](https://hex.pm/packages/jason) (pure Elixir, fast) and Poison (legacy). Jason uses binary pattern matching and IO lists for exceptional encoding performance -- typically 2-5x faster than equivalent libraries in other runtimes. The BEAM's immutable binary handling means JSON strings are never copied unnecessarily during parsing, and large JSON documents can be streamed through [processes](@/glossary/process.md) without memory pressure.
 
 Jason achieves its performance through several techniques specific to the BEAM:
 
 - **Binary pattern matching**: Parsing uses `<<byte, rest::binary>>` patterns that the BEAM optimizes into efficient C-level operations
 - **IO lists for encoding**: Instead of concatenating strings (which copies bytes), Jason builds IO lists -- nested lists of binaries and integers that the BEAM's I/O subsystem flattens lazily at write time
 - **NIF acceleration**: Optional NIF (Native Implemented Function) acceleration for hot paths
-- **Protocol-based encoding**: The `Jason.Encoder` [protocol](/glossary/protocol/) enables custom type encoding without modifying the library
+- **Protocol-based encoding**: The `Jason.Encoder` [protocol](@/glossary/protocol.md) enables custom type encoding without modifying the library
 
 ```elixir
 # Jason encoding benchmark (typical results on modern hardware)
@@ -115,7 +115,7 @@ Jason achieves its performance through several techniques specific to the BEAM:
 
 ### Security Considerations
 
-Key considerations in production JSON handling include: [schema](/glossary/json-schema/) validation (ensuring documents conform to expected structure), encoding of special types (dates, decimals, atoms), handling of large documents (streaming vs. full-load), and security (preventing atom exhaustion from untrusted input). In [Elixir](/glossary/elixir/), `Jason.decode/2` with the `keys: :atoms!` option safely converts keys to existing atoms only, preventing atom table exhaustion attacks from untrusted JSON input.
+Key considerations in production JSON handling include: [schema](@/glossary/json-schema.md) validation (ensuring documents conform to expected structure), encoding of special types (dates, decimals, atoms), handling of large documents (streaming vs. full-load), and security (preventing atom exhaustion from untrusted input). In [Elixir](@/glossary/elixir.md), `Jason.decode/2` with the `keys: :atoms!` option safely converts keys to existing atoms only, preventing atom table exhaustion attacks from untrusted JSON input.
 
 Atom table exhaustion is a particularly insidious attack vector in BEAM languages. The atom table has a fixed maximum size (default 1,048,576 atoms) and atoms are never garbage collected. An attacker who can submit arbitrary JSON with novel key names and have those keys converted to atoms via `String.to_atom/1` can crash the entire BEAM VM. This is why the ZERO doctrine mandates `String.to_existing_atom/1` and `keys: :atoms!` for all untrusted input.
 
@@ -136,10 +136,10 @@ JSON has well-known limitations: no native date/time type, no distinction betwee
 
 | Limitation | Alternative | Use Case |
 |-----------|-------------|----------|
-| No binary data | MessagePack, [Protocol Buffers](/glossary/protocol/) | File transfers, media |
+| No binary data | MessagePack, [Protocol Buffers](@/glossary/protocol.md) | File transfers, media |
 | No comments | YAML, JSONC | Configuration files |
 | No streaming | JSON Lines (NDJSON) | Log ingestion, event streams |
-| No schema | [JSON Schema](/glossary/json-schema/) | API validation |
+| No schema | [JSON Schema](@/glossary/json-schema.md) | API validation |
 | Large payloads | CBOR, Protocol Buffers | High-throughput services |
 | No date type | ISO 8601 strings (convention) | Time-series data |
 
@@ -151,7 +151,7 @@ JSON pervades every layer of the Prismatic Platform, serving as the primary data
 
 ### REST API Layer
 
-The [OpenApiSpex](https://hex.pm/packages/open_api_spex)-based REST API (`prismatic_api`, port 4004) uses JSON exclusively for request and response bodies. All [endpoints](/glossary/endpoint/) follow a consistent envelope pattern:
+The [OpenApiSpex](https://hex.pm/packages/open_api_spex)-based REST API (`prismatic_api`, port 4004) uses JSON exclusively for request and response bodies. All [endpoints](@/glossary/endpoint.md) follow a consistent envelope pattern:
 
 ```json
 {
@@ -171,7 +171,7 @@ The [OpenApiSpex](https://hex.pm/packages/open_api_spex)-based REST API (`prisma
 
 ### OSINT Tool Results
 
-All 157 OSINT tools return structured JSON results, stored as JSONB columns in [PostgreSQL](/glossary/postgresql/) for efficient querying and indexing. The standardized result format enables cross-tool correlation and [pipeline](/glossary/pipeline/) processing:
+All 157 OSINT tools return structured JSON results, stored as JSONB columns in [PostgreSQL](@/glossary/postgresql.md) for efficient querying and indexing. The standardized result format enables cross-tool correlation and [pipeline](@/glossary/pipeline.md) processing:
 
 ```json
 {
@@ -196,7 +196,7 @@ All 157 OSINT tools return structured JSON results, stored as JSONB columns in [
 
 ### DD Pipeline Entity Attributes
 
-The DD (Due Diligence) [pipeline](/glossary/pipeline/) stores entity attributes as JSONB, enabling flexible schema evolution without [migrations](/glossary/schema-migration/). Entity attributes can vary by entity type (person, company, domain) while sharing a common storage mechanism.
+The DD (Due Diligence) [pipeline](@/glossary/pipeline.md) stores entity attributes as JSONB, enabling flexible schema evolution without [migrations](@/glossary/schema-migration.md). Entity attributes can vary by entity type (person, company, domain) while sharing a common storage mechanism.
 
 ### Quality DNA State Files
 
@@ -422,7 +422,7 @@ end
 
 ### Encoding and Decoding
 
-Use Jason (not Poison) for all new Elixir JSON encoding and decoding -- Jason is faster, actively maintained, and implements the `Jason.Encoder` [protocol](/glossary/protocol/) for custom type encoding. Always use `keys: :atoms!` (not `keys: :atoms`) when decoding untrusted input to prevent atom table exhaustion. For maximum safety with external data, prefer string keys entirely and convert to atoms only through an explicit allowlist.
+Use Jason (not Poison) for all new Elixir JSON encoding and decoding -- Jason is faster, actively maintained, and implements the `Jason.Encoder` [protocol](@/glossary/protocol.md) for custom type encoding. Always use `keys: :atoms!` (not `keys: :atoms`) when decoding untrusted input to prevent atom table exhaustion. For maximum safety with external data, prefer string keys entirely and convert to atoms only through an explicit allowlist.
 
 ### Database Storage
 
@@ -430,7 +430,7 @@ Store flexible, schema-less data as PostgreSQL JSONB rather than serialized JSON
 
 ### API Design
 
-Define `Jason.Encoder` implementations for all custom structs that appear in API responses. When encoding large datasets, use `Jason.encode_to_iodata/1` to avoid unnecessary binary concatenation. Validate JSON structure with [JSON Schema](/glossary/json-schema/) before processing untrusted documents from external OSINT sources.
+Define `Jason.Encoder` implementations for all custom structs that appear in API responses. When encoding large datasets, use `Jason.encode_to_iodata/1` to avoid unnecessary binary concatenation. Validate JSON structure with [JSON Schema](@/glossary/json-schema.md) before processing untrusted documents from external OSINT sources.
 
 ### Performance
 
@@ -439,7 +439,7 @@ For high-throughput scenarios, consider these optimizations:
 1. **IO lists over strings**: Use `Jason.encode_to_iodata/1` -- the BEAM can write IO lists directly to sockets without materializing the full binary
 2. **Streaming for large payloads**: Use JSON Lines (NDJSON) for datasets that don't fit comfortably in memory
 3. **Selective decoding**: For large documents where you only need specific fields, consider streaming JSON parsers or PostgreSQL JSONB extraction at the query level
-4. **Caching**: Cache frequently-accessed JSON encodings in [ETS](/glossary/ets/) to avoid redundant encoding work
+4. **Caching**: Cache frequently-accessed JSON encodings in [ETS](@/glossary/ets.md) to avoid redundant encoding work
 
 ### Common Pitfalls
 
@@ -474,7 +474,7 @@ JSON's success catalyzed the development of an ecosystem of supporting standards
 
 ### Supporting Standards
 
-- **[JSON Schema](/glossary/json-schema/)**: Vocabulary for annotating and validating JSON documents -- used in [OpenAPI specs](/glossary/openapi-spec/) for API validation
+- **[JSON Schema](@/glossary/json-schema.md)**: Vocabulary for annotating and validating JSON documents -- used in [OpenAPI specs](@/glossary/openapi-spec.md) for API validation
 - **JSON Pointer** (RFC 6901): String syntax for identifying specific values within a JSON document
 - **JSON Patch** (RFC 6902): Format for describing changes to a JSON document
 - **JSON-LD**: Method of encoding Linked Data using JSON -- used in SEO structured data
@@ -482,26 +482,26 @@ JSON's success catalyzed the development of an ecosystem of supporting standards
 
 ## Related Terms
 
-- [JSON Schema](/glossary/json-schema/) -- vocabulary for annotating and validating JSON documents
-- [API](/glossary/api/) -- application programming interfaces that use JSON as their primary format
-- [REST](/glossary/rest/) -- architectural style where JSON is the dominant representation format
-- [Pipeline](/glossary/pipeline/) -- data processing pipelines that transform JSON between stages
-- [Endpoint](/glossary/endpoint/) -- specific API URLs that accept and return JSON
+- [JSON Schema](@/glossary/json-schema.md) -- vocabulary for annotating and validating JSON documents
+- [API](@/glossary/api.md) -- application programming interfaces that use JSON as their primary format
+- [REST](@/glossary/rest.md) -- architectural style where JSON is the dominant representation format
+- [Pipeline](@/glossary/pipeline.md) -- data processing pipelines that transform JSON between stages
+- [Endpoint](@/glossary/endpoint.md) -- specific API URLs that accept and return JSON
 - [Serialization](/glossary/serialization/) -- the general process of converting data to transmittable formats
-- [Protocol](/glossary/protocol/) -- Elixir protocols, including Jason.Encoder for custom encoding
-- [ETS](/glossary/ets/) -- in-memory storage often used to cache decoded JSON
-- [PostgreSQL](/glossary/postgresql/) -- database with native JSONB support for JSON storage
-- [Meilisearch](/glossary/meilisearch/) -- full-text search engine that indexes JSON documents
-- [OpenAPI Spec](/glossary/openapi-spec/) -- API specification format built on JSON Schema
-- [GraphQL](/glossary/graphql/) -- query language that uses JSON for response payloads
-- [Ecto](/glossary/ecto/) -- database wrapper with JSONB fragment support
+- [Protocol](@/glossary/protocol.md) -- Elixir protocols, including Jason.Encoder for custom encoding
+- [ETS](@/glossary/ets.md) -- in-memory storage often used to cache decoded JSON
+- [PostgreSQL](@/glossary/postgresql.md) -- database with native JSONB support for JSON storage
+- [Meilisearch](@/glossary/meilisearch.md) -- full-text search engine that indexes JSON documents
+- [OpenAPI Spec](@/glossary/openapi-spec.md) -- API specification format built on JSON Schema
+- [GraphQL](@/glossary/graphql.md) -- query language that uses JSON for response payloads
+- [Ecto](@/glossary/ecto.md) -- database wrapper with JSONB fragment support
 - [Data Modeling](/glossary/data-modeling/) -- design of data structures that JSON represents
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform architecture using JSON throughout
-- [Capabilities](/capabilities/) -- platform capabilities built on JSON interchange
-- [API Documentation](/api/) -- REST API specification using JSON
+- [Architecture](@/architecture/_index.md) -- platform architecture using JSON throughout
+- [Capabilities](@/capabilities/_index.md) -- platform capabilities built on JSON interchange
+- [API Documentation](@/api/_index.md) -- REST API specification using JSON
 - [OSINT Toolbox](/osint/toolbox/) -- 157 tools returning structured JSON results
 - [DD Pipeline](/hub/dd/pipeline/) -- entity processing with JSONB storage
 
@@ -512,4 +512,4 @@ JSON's success catalyzed the development of an ecosystem of supporting standards
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

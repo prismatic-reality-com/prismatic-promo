@@ -31,7 +31,7 @@ Rate limits operate at multiple levels: per IP address (for unauthenticated endp
 
 The system communicates rate limit status through standard HTTP headers on every response, allowing clients to implement proactive throttling rather than reactive retry loops. When a limit is exceeded, the API returns a 429 status with a `Retry-After` header indicating when the client may retry.
 
-Rate limit configuration is per-endpoint and can be discovered through the [Endpoint Discovery](/api/endpoints/) API. Resource-intensive endpoints like [Attack Surface Discovery](/api/perimeter-discover/) have stricter limits than lightweight read operations like the [Health Check](/api/health/).
+Rate limit configuration is per-endpoint and can be discovered through the [Endpoint Discovery](@/api/endpoints.md) API. Resource-intensive endpoints like [Attack Surface Discovery](@/api/perimeter-discover.md) have stricter limits than lightweight read operations like the [Health Check](@/api/health.md).
 
 ## Rate Limit Headers
 
@@ -294,7 +294,7 @@ rating = client.get("/api/v1/perimeter/rating", params={"domain": "example.com"}
 }
 ```
 
-See [Error Handling](/api/error-handling/) for the complete error taxonomy.
+See [Error Handling](@/api/error-handling.md) for the complete error taxonomy.
 
 ## Rate Limits
 
@@ -302,17 +302,17 @@ This page documents rate limits for all endpoints. Each endpoint's individual do
 
 ## Related Endpoints
 
-- [Health Check](/api/health/) -- Rate limits for the health endpoint
-- [Attack Surface Discovery](/api/perimeter-discover/) -- Restricted rate limits for discovery
-- [Authentication](/api/authentication/) -- Rate limits for auth endpoints
-- [Error Handling](/api/error-handling/) -- 429 error response format
-- [Batch Operations](/api/batch-operations/) -- Reduce rate limit consumption through batching
+- [Health Check](@/api/health.md) -- Rate limits for the health endpoint
+- [Attack Surface Discovery](@/api/perimeter-discover.md) -- Restricted rate limits for discovery
+- [Authentication](@/api/authentication.md) -- Rate limits for auth endpoints
+- [Error Handling](@/api/error-handling.md) -- 429 error response format
+- [Batch Operations](@/api/batch-operations.md) -- Reduce rate limit consumption through batching
 
 ## Implementation Notes
 
 The rate limiter is implemented as an ETS-backed GenServer that maintains per-key token buckets. The design prioritizes low latency (sub-microsecond bucket lookups) and correctness under concurrent access. The ETS table uses `:public` access with `:write_concurrency` enabled, allowing parallel rate limit checks without GenServer bottlenecks.
 
-Rate limit configuration is loaded from the [Endpoint Discovery](/api/endpoints/) registry, ensuring that limits stay synchronized with endpoint definitions. The [Quality DNA](/glossary/quality-dna/) system monitors rate limit hit rates to identify clients that consistently exceed limits, which may indicate misconfiguration or abuse.
+Rate limit configuration is loaded from the [Endpoint Discovery](@/api/endpoints.md) registry, ensuring that limits stay synchronized with endpoint definitions. The [Quality DNA](@/glossary/quality-dna.md) system monitors rate limit hit rates to identify clients that consistently exceed limits, which may indicate misconfiguration or abuse.
 
 ---
 
@@ -321,4 +321,4 @@ Rate limit configuration is loaded from the [Endpoint Discovery](/api/endpoints/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -30,7 +30,7 @@ image_alt = "test-specialist - Prismatic Platform"
 
 The Test Specialist is an L3 strategic command agent operating within the Prismatic Platform's development domain, serving as the comprehensive testing authority for the entire platform ecosystem. This agent provides intelligent test generation, coverage analysis, type-safe test verification, pattern validation, and quality assurance across all 90+ applications and their associated test suites. With over 5,500 test files in the platform, the Test Specialist ensures that testing practices remain consistent, comprehensive, and aligned with the platform's zero-defect quality standard.
 
-Testing in the [BEAM](/glossary/beam/)/[OTP](/glossary/otp/) ecosystem presents unique challenges and opportunities. The actor model, message-passing concurrency, [supervision trees](/glossary/supervision-tree/), and [hot code reloading](/glossary/hot-code-reload/) require testing approaches that go beyond conventional unit and integration testing. The Test Specialist maintains expertise in all these areas, ensuring that tests validate not just functional correctness but also OTP behavioral contracts, concurrency safety, and fault tolerance properties. Under the [AIAD](/glossary/aiad/) standard and [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, every test must be deterministic, meaningful, and production-quality.
+Testing in the [BEAM](@/glossary/beam.md)/[OTP](@/glossary/otp.md) ecosystem presents unique challenges and opportunities. The actor model, message-passing concurrency, [supervision trees](@/glossary/supervision-tree.md), and [hot code reloading](@/glossary/hot-code-reload.md) require testing approaches that go beyond conventional unit and integration testing. The Test Specialist maintains expertise in all these areas, ensuring that tests validate not just functional correctness but also OTP behavioral contracts, concurrency safety, and fault tolerance properties. Under the [AIAD](@/glossary/aiad.md) standard and [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, every test must be deterministic, meaningful, and production-quality.
 
 ## Theoretical Foundations
 
@@ -48,17 +48,17 @@ For OTP-specific testing, the agent draws from research on testing concurrent sy
 
 **Coverage Analysis and Gap Detection** continuously monitors test coverage across the platform, identifying modules, functions, and code paths that lack adequate test coverage. The agent distinguishes between meaningful coverage gaps (untested business logic) and acceptable gaps (generated code, boilerplate), focusing remediation efforts where they provide the most quality benefit.
 
-**OTP-Aware Testing** verifies that [GenServer](/glossary/genserver/) modules, Supervisors, and other OTP components behave correctly under all lifecycle scenarios. This includes testing initialization, normal operation, error handling, shutdown, and supervision tree restart behavior. The agent generates tests that exercise OTP-specific behaviors such as timeout handling, info message processing, and state recovery after process restart.
+**OTP-Aware Testing** verifies that [GenServer](@/glossary/genserver.md) modules, Supervisors, and other OTP components behave correctly under all lifecycle scenarios. This includes testing initialization, normal operation, error handling, shutdown, and supervision tree restart behavior. The agent generates tests that exercise OTP-specific behaviors such as timeout handling, info message processing, and state recovery after process restart.
 
-**[Phoenix](/glossary/phoenix/) and [LiveView](/glossary/liveview/) Testing** provides specialized testing support for the platform's web-facing components. This includes controller tests, channel tests, LiveView mount and event handling tests, and end-to-end browser tests using Wallaby or similar tools. The agent ensures that web component tests maintain the platform's performance standard of sub-250ms page loads.
+**[Phoenix](@/glossary/phoenix.md) and [LiveView](@/glossary/liveview.md) Testing** provides specialized testing support for the platform's web-facing components. This includes controller tests, channel tests, LiveView mount and event handling tests, and end-to-end browser tests using Wallaby or similar tools. The agent ensures that web component tests maintain the platform's performance standard of sub-250ms page loads.
 
-**[Ecto](/glossary/ecto/) Data Layer Testing** verifies database interactions including schema validations, changeset logic, query correctness, and migration safety. The agent ensures that data layer tests use sandboxed database connections for isolation and that migration tests verify both forward and rollback paths.
+**[Ecto](@/glossary/ecto.md) Data Layer Testing** verifies database interactions including schema validations, changeset logic, query correctness, and migration safety. The agent ensures that data layer tests use sandboxed database connections for isolation and that migration tests verify both forward and rollback paths.
 
 **Pattern Verification** validates that test code itself follows established patterns and best practices. The agent detects testing anti-patterns such as tests that depend on execution order, tests that share mutable state, tests that use excessive mocking, and tests with unclear or misleading names.
 
 ## Architecture and Implementation
 
-The Test Specialist operates as a supervised [OTP](/glossary/otp/) process within the development domain, maintaining a comprehensive model of the platform's testing landscape.
+The Test Specialist operates as a supervised [OTP](@/glossary/otp.md) process within the development domain, maintaining a comprehensive model of the platform's testing landscape.
 
 | Component | Function | Implementation |
 |-----------|----------|---------------|
@@ -103,17 +103,17 @@ Flaky tests, those that produce non-deterministic results, are treated as critic
 
 | System | Integration Purpose | Data Flow |
 |--------|-------------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent lifecycle and task dispatch | Bidirectional |
-| [Prismatic Telemetry](/glossary/telemetry/) | Test execution metrics and events | Write |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification and discovery | Read |
-| [SEADF](/glossary/seadf/) | Testing effectiveness evolution | Bidirectional |
-| [ETS](/glossary/ets/) | Coverage data caching | Read/Write |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent lifecycle and task dispatch | Bidirectional |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Test execution metrics and events | Write |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Read |
+| [SEADF](@/glossary/seadf.md) | Testing effectiveness evolution | Bidirectional |
+| [ETS](@/glossary/ets.md) | Coverage data caching | Read/Write |
 | Git Hooks | Pre-commit test execution | Blocking gate |
 | ExUnit | Test framework integration | Bidirectional |
 
 ## Related Agents
 
-The Test Specialist works closely with the [test-generator-agent](/agents/test-generator-agent/), which produces automated tests that the specialist validates and integrates. The [systematic-verifier](/agents/systematic-verifier/) executes the test suites as part of its verification protocol. The [type-inference-debugger](/agents/type-inference-debugger/) contributes type-level insights that improve test generation targeting.
+The Test Specialist works closely with the [test-generator-agent](@/agents/test-generator-agent.md), which produces automated tests that the specialist validates and integrates. The [systematic-verifier](@/agents/systematic-verifier.md) executes the test suites as part of its verification protocol. The [type-inference-debugger](@/agents/type-inference-debugger.md) contributes type-level insights that improve test generation targeting.
 
 ---
 
@@ -122,4 +122,4 @@ The Test Specialist works closely with the [test-generator-agent](/agents/test-g
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

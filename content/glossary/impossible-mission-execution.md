@@ -372,24 +372,24 @@ IME is also distinct from conservative risk avoidance. Risk avoidance would decl
 
 Impossible Mission Execution connects to the platform's philosophical and operational foundations:
 
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) is the doctrine that governs execution once confidence gates are passed
-- [Decisive Action](/glossary/decisive-action/) describes the execution mode within IME's execution phase
-- [Archer Supreme](/glossary/archer-supreme/) is the agent that orchestrates impossible missions at the highest authority level
-- [NABLA Infinity](/glossary/nabla-infinity/) provides the epistemic framework for the exploration phase
-- [Trinity Gate](/glossary/trinity-gate/) is the formal verification mechanism gating the exploration-to-execution transition
-- [Autonomous Evolution](/glossary/autonomous-evolution/) is the mechanism through which the platform iterates across generations
-- [Fitness Score](/glossary/fitness-score/) provides quantitative measurement of mission progress and success
-- [Tactical Execution](/glossary/tactical-execution/) describes the operational level at which sub-missions are executed
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) is the quality standard that IME enforces on all deliverables
-- [Strategic Supreme](/glossary/strategic-supreme/) provides strategic-level coordination for complex impossible missions
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) is the doctrine that governs execution once confidence gates are passed
+- [Decisive Action](@/glossary/decisive-action.md) describes the execution mode within IME's execution phase
+- [Archer Supreme](@/glossary/archer-supreme.md) is the agent that orchestrates impossible missions at the highest authority level
+- [NABLA Infinity](@/glossary/nabla-infinity.md) provides the epistemic framework for the exploration phase
+- [Trinity Gate](@/glossary/trinity-gate.md) is the formal verification mechanism gating the exploration-to-execution transition
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) is the mechanism through which the platform iterates across generations
+- [Fitness Score](@/glossary/fitness-score.md) provides quantitative measurement of mission progress and success
+- [Tactical Execution](@/glossary/tactical-execution.md) describes the operational level at which sub-missions are executed
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) is the quality standard that IME enforces on all deliverables
+- [Strategic Supreme](@/glossary/strategic-supreme.md) provides strategic-level coordination for complex impossible missions
 
 ## See Also
 
-- [Autoevolve](/glossary/autoevolve/) -- the autonomous evolution system that applies IME principles to platform improvement
-- [Generation Evolution](/glossary/generation-evolution/) -- the multi-generation journey that represents ongoing impossible mission execution
-- [Quality Gates](/glossary/quality-gates/) -- the verification checkpoints within mission execution
-- [Color Teams](/glossary/color-teams/) -- the adversarial-defensive teams that validate mission completeness
-- [Chaos Engineering](/glossary/chaos-engineering/) -- the practice of testing mission resilience through controlled failures
+- [Autoevolve](@/glossary/autoevolve.md) -- the autonomous evolution system that applies IME principles to platform improvement
+- [Generation Evolution](@/glossary/generation-evolution.md) -- the multi-generation journey that represents ongoing impossible mission execution
+- [Quality Gates](@/glossary/quality-gates.md) -- the verification checkpoints within mission execution
+- [Color Teams](@/glossary/color-teams.md) -- the adversarial-defensive teams that validate mission completeness
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- the practice of testing mission resilience through controlled failures
 
 ---
 

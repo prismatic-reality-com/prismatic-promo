@@ -28,9 +28,9 @@ image_alt = "Storage Pattern - Prismatic Platform"
 
 A Storage Pattern is an architectural abstraction that decouples business logic from persistence mechanisms by defining a uniform interface (adapter contract) through which data is stored, retrieved, updated, deleted, and queried. The pattern enables a system to use multiple storage backends simultaneously -- each optimized for different access patterns -- while presenting a consistent API to application code. Business logic interacts with the storage contract, never with specific backends, allowing backends to be swapped, composed, or evolved independently.
 
-The storage pattern is distinct from simpler abstractions like the Repository pattern (which typically wraps a single database) or the DAO pattern (which maps objects to tables). The storage pattern explicitly supports [polyglot persistence](/glossary/polyglot-persistence/): using the right storage engine for each data access pattern. A single entity might exist simultaneously in ETS for fast reads, [PostgreSQL](/glossary/postgresql/) for durable writes, [Meilisearch](/glossary/meilisearch/) for search, and [KuzuDB](/glossary/kuzudb/) for graph traversal.
+The storage pattern is distinct from simpler abstractions like the Repository pattern (which typically wraps a single database) or the DAO pattern (which maps objects to tables). The storage pattern explicitly supports [polyglot persistence](@/glossary/polyglot-persistence.md): using the right storage engine for each data access pattern. A single entity might exist simultaneously in ETS for fast reads, [PostgreSQL](@/glossary/postgresql.md) for durable writes, [Meilisearch](@/glossary/meilisearch.md) for search, and [KuzuDB](@/glossary/kuzudb.md) for graph traversal.
 
-Within the Prismatic Platform, the storage pattern is implemented through the `prismatic_storage_core` application, which defines the adapter [behaviour](/glossary/behaviour/), and four backend applications (`prismatic_storage_ets`, `prismatic_storage_ecto`, `prismatic_storage_meilisearch`, `prismatic_storage_kuzu`) that provide [specialized variants](/glossary/specialized-variants/) of the contract.
+Within the Prismatic Platform, the storage pattern is implemented through the `prismatic_storage_core` application, which defines the adapter [behaviour](@/glossary/behaviour.md), and four backend applications (`prismatic_storage_ets`, `prismatic_storage_ecto`, `prismatic_storage_meilisearch`, `prismatic_storage_kuzu`) that provide [specialized variants](@/glossary/specialized-variants.md) of the contract.
 
 ## Architectural Motivation
 
@@ -605,14 +605,14 @@ end
 
 ## Related Concepts
 
-- [Adapter Pattern](/glossary/adapter-pattern/) -- The structural pattern underlying storage adapters
-- [Polyglot Persistence](/glossary/polyglot-persistence/) -- Using multiple storage engines strategically
-- [ACID Transactions](/glossary/acid-transactions/) -- Consistency guarantees for relational backends
-- [Caching](/glossary/caching/) -- In-memory storage for performance optimization
-- [Key-Value Store](/glossary/key-value-store/) -- Simple storage pattern used by ETS backend
-- [Schema](/glossary/schema/) -- Data structure definitions for storage
-- [Specialized Variants](/glossary/specialized-variants/) -- Storage backends as domain-specific variants
-- [PostgreSQL](/glossary/postgresql/) -- Primary relational storage backend
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- The structural pattern underlying storage adapters
+- [Polyglot Persistence](@/glossary/polyglot-persistence.md) -- Using multiple storage engines strategically
+- [ACID Transactions](@/glossary/acid-transactions.md) -- Consistency guarantees for relational backends
+- [Caching](@/glossary/caching.md) -- In-memory storage for performance optimization
+- [Key-Value Store](@/glossary/key-value-store.md) -- Simple storage pattern used by ETS backend
+- [Schema](@/glossary/schema.md) -- Data structure definitions for storage
+- [Specialized Variants](@/glossary/specialized-variants.md) -- Storage backends as domain-specific variants
+- [PostgreSQL](@/glossary/postgresql.md) -- Primary relational storage backend
 
 See the Glossary index for the complete taxonomy of platform concepts.
 
@@ -623,4 +623,4 @@ See the Glossary index for the complete taxonomy of platform concepts.
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

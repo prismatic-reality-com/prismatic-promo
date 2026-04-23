@@ -28,9 +28,9 @@ image_alt = "genetic-operations-controller - Prismatic Platform"
 
 ## Overview
 
-The Genetic Operations Controller operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Genetic Optimization and Agent Evolution domain of the Prismatic Platform. This agent serves as the supreme controller of genetic operations for agent configuration optimization, providing intelligent mutation, crossover, selection, and fitness evaluation to continuously evolve platform performance. By applying genetic algorithm principles to the platform's 434-agent ecosystem, the Genetic Operations Controller drives the evolutionary optimization that has advanced the platform from Generation 1 to Generation 18 with a fitness score of 0.999.
+The Genetic Operations Controller operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Genetic Optimization and Agent Evolution domain of the Prismatic Platform. This agent serves as the supreme controller of genetic operations for agent configuration optimization, providing intelligent mutation, crossover, selection, and fitness evaluation to continuously evolve platform performance. By applying genetic algorithm principles to the platform's 434-agent ecosystem, the Genetic Operations Controller drives the evolutionary optimization that has advanced the platform from Generation 1 to Generation 18 with a fitness score of 0.999.
 
-Within the platform's autonomous agent ecosystem built on the [AIAD](/glossary/aiad/) standard, the Genetic Operations Controller occupies a meta-level position: rather than performing application-level tasks, it optimizes the configurations of the agents that perform those tasks. This meta-optimization enables the platform to continuously improve its operational characteristics without requiring manual tuning of hundreds of individual agent configurations.
+Within the platform's autonomous agent ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Genetic Operations Controller occupies a meta-level position: rather than performing application-level tasks, it optimizes the configurations of the agents that perform those tasks. This meta-optimization enables the platform to continuously improve its operational characteristics without requiring manual tuning of hundreds of individual agent configurations.
 
 ## Genetic Algorithm Framework
 
@@ -83,33 +83,33 @@ Convergence monitoring detects when the population's diversity is decreasing tow
 
 ## SEADF and Mycelial Network Integration
 
-The Genetic Operations Controller integrates with the [SEADF](/glossary/seadf/) framework to ensure that evolutionary optimization aligns with the platform's broader self-evolving development capabilities.
+The Genetic Operations Controller integrates with the [SEADF](@/glossary/seadf.md) framework to ensure that evolutionary optimization aligns with the platform's broader self-evolving development capabilities.
 
-The [Mycelial Network](/glossary/mycelial-network/) enables cross-domain propagation of successful configurations. When a mutation in one agent's configuration proves beneficial, the mycelial network propagates the underlying principle to related agents in other domains. This cross-pollination accelerates evolution across the entire ecosystem by sharing discovered improvements rather than requiring each agent to rediscover them independently.
+The [Mycelial Network](@/glossary/mycelial-network.md) enables cross-domain propagation of successful configurations. When a mutation in one agent's configuration proves beneficial, the mycelial network propagates the underlying principle to related agents in other domains. This cross-pollination accelerates evolution across the entire ecosystem by sharing discovered improvements rather than requiring each agent to rediscover them independently.
 
-The [GenStage](/glossary/genstage/) pipeline infrastructure manages [backpressure](/glossary/backpressure/) during fitness evaluation, ensuring that evaluation workloads do not overwhelm the platform's computational resources. Large population evaluations are distributed across available resources with backpressure mechanisms preventing resource exhaustion.
+The [GenStage](@/glossary/genstage.md) pipeline infrastructure manages [backpressure](@/glossary/backpressure.md) during fitness evaluation, ensuring that evaluation workloads do not overwhelm the platform's computational resources. Large population evaluations are distributed across available resources with backpressure mechanisms preventing resource exhaustion.
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework governs evolutionary decision-making. The Signal Plurality axiom requires that fitness evaluations draw on multiple performance dimensions rather than optimizing a single metric. The Time Decay axiom ensures that fitness assessments are refreshed periodically, preventing optimization against stale conditions.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs evolutionary decision-making. The Signal Plurality axiom requires that fitness evaluations draw on multiple performance dimensions rather than optimizing a single metric. The Time Decay axiom ensures that fitness assessments are refreshed periodically, preventing optimization against stale conditions.
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine applies to evolutionary operations: no configuration is deployed without verified fitness improvement. No evolutionary change that degrades quality is permitted regardless of performance gains.
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine applies to evolutionary operations: no configuration is deployed without verified fitness improvement. No evolutionary change that degrades quality is permitted regardless of performance gains.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [SEADF](/glossary/seadf/) | Evolution framework | Self-evolving development coordination |
-| [Mycelial Network](/glossary/mycelial-network/) | Cross-domain | Configuration pattern propagation |
+| [SEADF](@/glossary/seadf.md) | Evolution framework | Self-evolving development coordination |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Cross-domain | Configuration pattern propagation |
 | Genetic Engine | Core algorithm | Mutation, crossover, selection execution |
 | Prismatic Telemetry | Monitoring | Fitness metrics and evolutionary tracking |
-| [GenStage](/glossary/genstage/) | Pipeline | Backpressure-managed fitness evaluation |
+| [GenStage](@/glossary/genstage.md) | Pipeline | Backpressure-managed fitness evaluation |
 
 ## Related Agents
 
-- [**genetic-spec-propagator**](/agents/genetic-spec-propagator/) (L3) - Propagates quality specifications using genetic evolution principles
-- [**darwinian-evolution-coordinator**](/agents/darwinian-evolution-coordinator/) (L3) - Broader evolutionary coordination applying survival-of-the-fittest to platform components
-- [**ecosystem-biologist-coordinator**](/agents/ecosystem-biologist-coordinator/) (L3) - Ecological perspective on platform evolution treating the system as a living ecosystem
+- [**genetic-spec-propagator**](@/agents/genetic-spec-propagator.md) (L3) - Propagates quality specifications using genetic evolution principles
+- [**darwinian-evolution-coordinator**](@/agents/darwinian-evolution-coordinator.md) (L3) - Broader evolutionary coordination applying survival-of-the-fittest to platform components
+- [**ecosystem-biologist-coordinator**](@/agents/ecosystem-biologist-coordinator.md) (L3) - Ecological perspective on platform evolution treating the system as a living ecosystem
 
 ---
 
@@ -118,4 +118,4 @@ The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine applies to evo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

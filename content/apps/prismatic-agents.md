@@ -24,13 +24,13 @@ image_alt = "Prismatic Agents - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Agents is the autonomous agent runtime powering 404 specialized AI agents across 14 operational domains within the Prismatic Platform. Every agent adheres to the [AIAD](/glossary/aiad/) (AI-Agent Interface Definition) standard, a YAML-based specification that defines agent capabilities, tool access, authority tiers, and doctrine compliance requirements. The runtime provides process-per-agent isolation through [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/)s, command routing via an [ETS](/glossary/ets/)-backed [registry](/glossary/registry-otp/), [circuit breaker](/glossary/circuit-breaker/) protection for agent execution, and [telemetry integration](/capabilities/telemetry-integration/) for performance monitoring. Agents are organized into a five-tier authority hierarchy (L1 Basic through L5 Supreme) that governs resource access, decision scope, and escalation paths. The system supports 210 registered commands, each mapped to one or more agents with priority-based dispatch.
+Prismatic Agents is the autonomous agent runtime powering 404 specialized AI agents across 14 operational domains within the Prismatic Platform. Every agent adheres to the [AIAD](@/glossary/aiad.md) (AI-Agent Interface Definition) standard, a YAML-based specification that defines agent capabilities, tool access, authority tiers, and doctrine compliance requirements. The runtime provides process-per-agent isolation through [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md)s, command routing via an [ETS](@/glossary/ets.md)-backed [registry](@/glossary/registry-otp.md), [circuit breaker](@/glossary/circuit-breaker.md) protection for agent execution, and [telemetry integration](@/capabilities/telemetry-integration.md) for performance monitoring. Agents are organized into a five-tier authority hierarchy (L1 Basic through L5 Supreme) that governs resource access, decision scope, and escalation paths. The system supports 210 registered commands, each mapped to one or more agents with priority-based dispatch.
 
 ## 1. Introduction
 
 ### 1.1 Problem Statement
 
-A platform integrating 90 OTP applications, 121+ [OSINT](/glossary/osint/) sources, security operations, compliance assessment, and quality enforcement requires coordination logic that exceeds what can be expressed through direct function calls or simple event handlers. Complex operations -- such as conducting a full [EASM](/glossary/easm/) assessment, orchestrating color team security exercises, or performing multi-source [intelligence fusion](/glossary/intelligence-fusion/) -- involve sequences of tool invocations, conditional branching, error recovery, and result synthesis that benefit from an agent abstraction.
+A platform integrating 90 OTP applications, 121+ [OSINT](@/glossary/osint.md) sources, security operations, compliance assessment, and quality enforcement requires coordination logic that exceeds what can be expressed through direct function calls or simple event handlers. Complex operations -- such as conducting a full [EASM](@/glossary/easm.md) assessment, orchestrating color team security exercises, or performing multi-source [intelligence fusion](@/glossary/intelligence-fusion.md) -- involve sequences of tool invocations, conditional branching, error recovery, and result synthesis that benefit from an agent abstraction.
 
 Without a standardized agent framework, coordination logic becomes distributed across ad-hoc scripts, hard-coded pipelines, and manual operator intervention. Prismatic Agents centralizes this coordination in a runtime that provides isolation, monitoring, and standardized interfaces while allowing domain experts to define agent behavior declaratively.
 
@@ -38,9 +38,9 @@ Without a standardized agent framework, coordination logic becomes distributed a
 
 1. **Standardized agent definitions** -- all agents follow the AIAD specification, enabling automated indexing, capability discovery, and interoperability.
 2. **Five-tier authority hierarchy** -- agents operate within defined authority levels that constrain resource access and decision scope.
-3. **[Process isolation](/glossary/process-isolation/)** -- each agent execution runs in a supervised process, preventing failures from cascading across the runtime.
+3. **[Process isolation](@/glossary/process-isolation.md)** -- each agent execution runs in a supervised process, preventing failures from cascading across the runtime.
 4. **Command routing** -- a registry maps slash commands (e.g., `/archer-supreme`) to agent dispatch with priority ordering.
-5. **Doctrine compliance** -- all agents implement the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine enforcement block.
+5. **Doctrine compliance** -- all agents implement the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine enforcement block.
 6. **Telemetry integration** -- every agent invocation emits telemetry events for monitoring and performance analysis.
 
 ### 1.3 Scope
@@ -80,7 +80,7 @@ User Command ("/archer-supreme fix authentication")
 | `PrismaticAgents.Router` | Command string parsing and agent dispatch routing |
 | `PrismaticAgents.Dispatcher` | Agent process creation, execution supervision, timeout enforcement |
 | `PrismaticAgents.Authority` | Five-tier authority level enforcement (L1-L5) |
-| `PrismaticAgents.ToolAccess` | Tool permission management per [agent tier](/glossary/agent-tier/) |
+| `PrismaticAgents.ToolAccess` | Tool permission management per [agent tier](@/glossary/agent-tier.md) |
 | `PrismaticAgents.Telemetry` | Agent execution telemetry event emission |
 | `PrismaticAgents.AiadParser` | AIAD YAML specification parser and validator |
 | `PrismaticAgents.CircuitBreaker` | Per-agent circuit breaker for failure isolation |
@@ -181,22 +181,22 @@ config :prismatic_agents,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Core](/apps/prismatic-core/) | Base entity definitions and configuration |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Agent execution [metrics](/glossary/metrics/) |
-| [Prismatic Safety](/apps/prismatic-safety/) | Doctrine compliance enforcement |
-| [Prismatic Claude](/apps/prismatic-claude/) | Session lifecycle and stack conversation integration |
+| [Prismatic Core](@/apps/prismatic-core.md) | Base entity definitions and configuration |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Agent execution [metrics](@/glossary/metrics.md) |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Doctrine compliance enforcement |
+| [Prismatic Claude](@/apps/prismatic-claude.md) | Session lifecycle and stack conversation integration |
 
 ### 4.2 Dependents
 
-Every application that defines agents or consumes agent services depends on Prismatic Agents for dispatch and execution. Key consumers include [Prismatic Dark](/apps/prismatic-dark/) (20 color team agents), [Prismatic Perimeter](/apps/prismatic-perimeter/) (discovery and assessment agents), and [Prismatic OSINT Core](/apps/prismatic-osint-core/) (intelligence collection agents).
+Every application that defines agents or consumes agent services depends on Prismatic Agents for dispatch and execution. Key consumers include [Prismatic Dark](@/apps/prismatic-dark.md) (20 color team agents), [Prismatic Perimeter](@/apps/prismatic-perimeter.md) (discovery and assessment agents), and [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) (intelligence collection agents).
 
 ### 4.3 Inter-Process Communication
 
-Agent dispatch uses supervised Tasks for process isolation. Results are returned via Task.await with configurable timeouts. Agent-to-agent communication is mediated through the Dispatcher to maintain authority boundaries. Telemetry events provide asynchronous [observability](/glossary/observability/).
+Agent dispatch uses supervised Tasks for process isolation. Results are returned via Task.await with configurable timeouts. Agent-to-agent communication is mediated through the Dispatcher to maintain authority boundaries. Telemetry events provide asynchronous [observability](@/glossary/observability.md).
 
 ### 4.4 External Integrations
 
-The AIAD specification files (`.aiad/agents/*.agent.md`) are version-controlled alongside the codebase. The `aiad index` CLI tool generates a machine-readable registry from these files. External AI models (Claude, [Ollama](/glossary/ollama/)) interact with agents through the [Prismatic MCP](/apps/prismatic-mcp/) and [Prismatic Claude](/apps/prismatic-claude/) integration layers.
+The AIAD specification files (`.aiad/agents/*.agent.md`) are version-controlled alongside the codebase. The `aiad index` CLI tool generates a machine-readable registry from these files. External AI models (Claude, [Ollama](@/glossary/ollama.md)) interact with agents through the [Prismatic MCP](@/apps/prismatic-mcp.md) and [Prismatic Claude](@/apps/prismatic-claude.md) integration layers.
 
 ## 5. Performance
 
@@ -242,13 +242,13 @@ The primary threat is privilege escalation through unauthorized agent dispatch o
 
 ### 7.2 Access Control
 
-Agent execution inherits the authentication context of the initiating user or system. L5 (Supreme) agents require explicit operator authorization. All agent invocations are logged to the [audit trail](/glossary/audit-trail/) with full context including command, agent, tools used, and result.
+Agent execution inherits the authentication context of the initiating user or system. L5 (Supreme) agents require explicit operator authorization. All agent invocations are logged to the [audit trail](@/glossary/audit-trail.md) with full context including command, agent, tools used, and result.
 
 ## 8. Operational Considerations
 
 ### 8.1 Deployment
 
-Prismatic Agents deploys as part of the umbrella [release](/glossary/release/). Agent definitions are loaded from `.aiad/agents/` at boot time. The registry is rebuilt on each deployment, ensuring consistency with the codebase.
+Prismatic Agents deploys as part of the umbrella [release](@/glossary/release.md). Agent definitions are loaded from `.aiad/agents/` at boot time. The registry is rebuilt on each deployment, ensuring consistency with the codebase.
 
 ### 8.2 Monitoring
 
@@ -265,28 +265,28 @@ Telemetry events: `[:prismatic, :agents, :dispatch]`, `[:prismatic, :agents, :co
 
 ## 9. Future Work
 
-Planned enhancements include dynamic agent loading without restart, agent composition (pipelines of agents with data flow), agent versioning with [blue-green deployment](/glossary/blue-green-deployment/), distributed agent execution across cluster nodes, and agent performance profiling with optimization recommendations.
+Planned enhancements include dynamic agent loading without restart, agent composition (pipelines of agents with data flow), agent versioning with [blue-green deployment](@/glossary/blue-green-deployment.md), distributed agent execution across cluster nodes, and agent performance profiling with optimization recommendations.
 
 ## References
 
 - [AIAD Standard](.aiad/README.md) -- Agent specification standard
 - [Agent Registry](.claude/AGENT_REGISTRY.md) -- Complete agent catalog
 - [Command Registry](.claude/COMMAND_REGISTRY.md) -- Command catalog with mappings
-- [Prismatic Dark](/apps/prismatic-dark/) -- Color team security agents
-- [Prismatic Claude](/apps/prismatic-claude/) -- AI integration layer
-- [Prismatic Safety](/apps/prismatic-safety/) -- Quality and doctrine enforcement
+- [Prismatic Dark](@/apps/prismatic-dark.md) -- Color team security agents
+- [Prismatic Claude](@/apps/prismatic-claude.md) -- AI integration layer
+- [Prismatic Safety](@/apps/prismatic-safety.md) -- Quality and doctrine enforcement
 
 ## Related Agents
 
-- [Elixir Architect](/agents/elixir-architect/) -- Ensures all agent runtime code follows OTP best practices and Elixir architectural standards
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Drives autonomous evolution of the agent ecosystem through continuous improvement cycles
-- [Evolution Analyzer Specialist](/agents/evolution-analyzer-specialist/) -- Analyzes agent performance metrics and fitness scores to identify optimization opportunities
+- [Elixir Architect](@/agents/elixir-architect.md) -- Ensures all agent runtime code follows OTP best practices and Elixir architectural standards
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Drives autonomous evolution of the agent ecosystem through continuous improvement cycles
+- [Evolution Analyzer Specialist](@/agents/evolution-analyzer-specialist.md) -- Analyzes agent performance metrics and fitness scores to identify optimization opportunities
 
 ## Related Capabilities
 
-- [AIAD Standard](/capabilities/aiad-standard/) -- The YAML-based specification standard governing all 404 agent definitions, capabilities, and authority tiers
-- [Color Teams](/capabilities/color-teams/) -- Six-team adversarial-defensive security operations framework with 20 specialized agents
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Enables the agent runtime to detect failures and trigger automatic recovery through circuit breakers and evolution cycles
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- The YAML-based specification standard governing all 404 agent definitions, capabilities, and authority tiers
+- [Color Teams](@/capabilities/color-teams.md) -- Six-team adversarial-defensive security operations framework with 20 specialized agents
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Enables the agent runtime to detect failures and trigger automatic recovery through circuit breakers and evolution cycles
 
 ---
 
@@ -295,4 +295,4 @@ Planned enhancements include dynamic agent loading without restart, agent compos
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

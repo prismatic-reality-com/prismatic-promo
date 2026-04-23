@@ -25,7 +25,7 @@ image_alt = "Nahlizeni do KN - Prismatic Platform"
 
 ## Overview
 
-Nahlizeni do katastru nemovitosti (Remote Access to the Land [Registry](/glossary/registry-otp/)) is the public web interface to the Czech Cadastral Office (CUZK) database. It provides free access to basic property information including ownership, encumbrances, property descriptions, and geographic data. For [OSINT](/glossary/osint/) purposes, it reveals who owns specific properties, what liens or mortgages exist, and the history of ownership transfers. The complete dataset is the authoritative source for all real estate intelligence in the Czech Republic.
+Nahlizeni do katastru nemovitosti (Remote Access to the Land [Registry](@/glossary/registry-otp.md)) is the public web interface to the Czech Cadastral Office (CUZK) database. It provides free access to basic property information including ownership, encumbrances, property descriptions, and geographic data. For [OSINT](@/glossary/osint.md) purposes, it reveals who owns specific properties, what liens or mortgages exist, and the history of ownership transfers. The complete dataset is the authoritative source for all real estate intelligence in the Czech Republic.
 
 The Czech land registry system traces its origins to the Habsburg cadastral reforms of the 18th century and has been continuously maintained since. The modern digitized version contains records for approximately 22 million parcels across 13 regions (kraje) and 6,258 cadastral territories (katastralni uzemi). Every real estate transaction, mortgage, easement, and ownership change in the Czech Republic must be registered with CUZK to have legal effect, making this the single source of truth for property intelligence.
 
@@ -172,7 +172,7 @@ curl "https://services.cuzk.cz/wfs/inspire-cp?SERVICE=WFS&REQUEST=GetFeature&TYP
 
 ### Asset Investigation
 
-For investigators tracing the assets of persons or entities of interest, the land registry reveals property holdings that may not appear in financial disclosures or corporate records. Properties registered under personal names, family members, or shell companies can be systematically mapped to build comprehensive asset profiles. Cross-referencing with [ARES](/osint/ares/) company data reveals corporate property portfolios and identifies entities that hold real estate through layered ownership structures.
+For investigators tracing the assets of persons or entities of interest, the land registry reveals property holdings that may not appear in financial disclosures or corporate records. Properties registered under personal names, family members, or shell companies can be systematically mapped to build comprehensive asset profiles. Cross-referencing with [ARES](@/osint/ares.md) company data reveals corporate property portfolios and identifies entities that hold real estate through layered ownership structures.
 
 ### Financial Due Diligence
 
@@ -188,7 +188,7 @@ Czech real estate has historically been a vehicle for money laundering. Unusual 
 
 ### Insolvency and Debt Recovery
 
-When entities enter insolvency, their real estate assets become relevant to creditor claims. Cross-referencing cadastral data with the [Insolvency Registry](/osint/insolvencni-rejstrik/) reveals which properties are part of insolvency estates and which creditors hold secured claims.
+When entities enter insolvency, their real estate assets become relevant to creditor claims. Cross-referencing cadastral data with the [Insolvency Registry](@/osint/insolvencni-rejstrik.md) reveals which properties are part of insolvency estates and which creditors hold secured claims.
 
 ## Limitations
 
@@ -214,11 +214,11 @@ When entities enter insolvency, their real estate assets become relevant to cred
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), CUZK data forms a core component of the Czech entity intelligence pipeline, providing the property dimension of comprehensive entity profiles.
+Within the [Prismatic Platform](@/apps/prismatic.md), CUZK data forms a core component of the Czech entity intelligence pipeline, providing the property dimension of comprehensive entity profiles.
 
 - **Asset Mapping**: Property holdings are automatically aggregated across natural persons and legal entities, building complete real estate portfolios for investigated subjects.
 - **Encumbrance Monitoring**: Active mortgages and liens are tracked as financial obligations, contributing to entity risk scoring and credit assessment.
-- **Cross-Registry Correlation**: Property ownership is cross-referenced with [ARES](/osint/ares/) company records, [Insolvency Registry](/osint/insolvencni-rejstrik/) proceedings, and [Registr smluv](/osint/registr-smluv/) government contracts.
+- **Cross-Registry Correlation**: Property ownership is cross-referenced with [ARES](@/osint/ares.md) company records, [Insolvency Registry](@/osint/insolvencni-rejstrik.md) proceedings, and [Registr smluv](@/osint/registr-smluv.md) government contracts.
 - **Geospatial Integration**: Cadastral map data integrates with the platform's geographic visualization layer, enabling spatial analysis of property portfolios.
 - **AML Patterns**: The platform's analytical engine applies pattern detection to property transaction sequences, flagging indicators consistent with money laundering typologies.
 
@@ -228,7 +228,7 @@ Within the [Prismatic Platform](/apps/prismatic/), CUZK data forms a core compon
 
 2. **Check the plomba**: A proceedings marker (plomba) on a property indicates a pending change. Do not treat current ownership as final when a plomba is present.
 
-3. **Map ownership chains**: For properties owned by companies, trace the corporate ownership chain through [Justice.cz](/osint/justice-cz/) to identify ultimate beneficial owners.
+3. **Map ownership chains**: For properties owned by companies, trace the corporate ownership chain through [Justice.cz](@/osint/justice-cz.md) to identify ultimate beneficial owners.
 
 4. **Cross-reference area data**: Compare registered area with actual use through satellite imagery to identify discrepancies that may indicate unauthorized construction or land use changes.
 
@@ -240,13 +240,13 @@ Within the [Prismatic Platform](/apps/prismatic/), CUZK data forms a core compon
 
 ## Related Providers
 
-- [CUZK](/osint/cuzk/) - Czech Office for Surveying, Mapping and Cadastre (parent organization)
-- [ARES](/osint/ares/) - Czech business registry for entity identification
-- [Insolvencni rejstrik](/osint/insolvencni-rejstrik/) - Insolvency proceedings affecting property
-- [Justice.cz](/osint/justice-cz/) - Court decisions on property disputes
-- [Registr smluv](/osint/registr-smluv/) - Public contracts involving state property
-- [CEDR](/osint/cedr/) - Subsidies linked to property development
-- [Verejne zakazky](/osint/verejne-zakazky/) - Public procurement for construction projects
+- [CUZK](@/osint/cuzk.md) - Czech Office for Surveying, Mapping and Cadastre (parent organization)
+- [ARES](@/osint/ares.md) - Czech business registry for entity identification
+- [Insolvencni rejstrik](@/osint/insolvencni-rejstrik.md) - Insolvency proceedings affecting property
+- [Justice.cz](@/osint/justice-cz.md) - Court decisions on property disputes
+- [Registr smluv](@/osint/registr-smluv.md) - Public contracts involving state property
+- [CEDR](@/osint/cedr.md) - Subsidies linked to property development
+- [Verejne zakazky](@/osint/verejne-zakazky.md) - Public procurement for construction projects
 
 ---
 
@@ -255,4 +255,4 @@ Within the [Prismatic Platform](/apps/prismatic/), CUZK data forms a core compon
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

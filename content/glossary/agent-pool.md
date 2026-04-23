@@ -574,28 +574,28 @@ Parallel Credo, Dialyzer, and compilation checks across 115 applications run thr
 
 ## Related Concepts
 
-- [Agent](/glossary/agent/) -- The fundamental autonomous unit that executes within agent pools
-- [GenServer](/glossary/genserver/) -- The OTP abstraction underlying each agent worker in the pool
-- [Supervisor](/glossary/supervisor/) -- OTP supervision trees that manage pool lifecycle and automatic recovery
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- The mechanism for dynamically adding and removing workers within a pool
-- [Backpressure](/glossary/backpressure/) -- Flow control mechanism that agent pools use to prevent system overload
-- [Concurrency](/glossary/concurrency/) -- The concurrent execution model that agent pools manage and bound
-- [Process Isolation](/glossary/process-isolation/) -- BEAM process isolation that enables safe agent pool worker crashes
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System resilience achieved through pool supervision and automatic worker restart
-- [Agent Registry](/glossary/agent-registry/) -- The registry tracking all available agents and their pool assignments
-- [Multi-Agent System](/glossary/multi-agent-system/) -- The broader multi-agent architecture that agent pools support
+- [Agent](@/glossary/agent.md) -- The fundamental autonomous unit that executes within agent pools
+- [GenServer](@/glossary/genserver.md) -- The OTP abstraction underlying each agent worker in the pool
+- [Supervisor](@/glossary/supervisor.md) -- OTP supervision trees that manage pool lifecycle and automatic recovery
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- The mechanism for dynamically adding and removing workers within a pool
+- [Backpressure](@/glossary/backpressure.md) -- Flow control mechanism that agent pools use to prevent system overload
+- [Concurrency](@/glossary/concurrency.md) -- The concurrent execution model that agent pools manage and bound
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM process isolation that enables safe agent pool worker crashes
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System resilience achieved through pool supervision and automatic worker restart
+- [Agent Registry](@/glossary/agent-registry.md) -- The registry tracking all available agents and their pool assignments
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- The broader multi-agent architecture that agent pools support
 
 ## See Also
 
-- [Broadway](/glossary/broadway/) -- Data processing pipeline framework with built-in backpressure
-- [GenStage](/glossary/genstage/) -- Producer-consumer abstraction for demand-driven processing
-- [Connection Pooling](/glossary/connection-pooling/) -- Related pattern for managing database connection resources
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern for handling downstream failures in pooled agents
-- [Load Balancing](/glossary/load-balancing/) -- Request distribution across pooled agent workers
+- [Broadway](@/glossary/broadway.md) -- Data processing pipeline framework with built-in backpressure
+- [GenStage](@/glossary/genstage.md) -- Producer-consumer abstraction for demand-driven processing
+- [Connection Pooling](@/glossary/connection-pooling.md) -- Related pattern for managing database connection resources
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern for handling downstream failures in pooled agents
+- [Load Balancing](@/glossary/load-balancing.md) -- Request distribution across pooled agent workers
 
 ---
 
 ## Connect & Contribute
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

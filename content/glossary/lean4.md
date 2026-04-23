@@ -22,9 +22,9 @@ image_alt = "Lean4 - Prismatic Platform"
 
 Lean4 is a functional programming language and interactive theorem prover developed at Microsoft Research under the leadership of Leonardo de Moura. It occupies a distinctive position in the landscape of formal methods by simultaneously serving as a general-purpose programming language with competitive runtime performance and as a proof assistant capable of encoding and verifying arbitrarily complex mathematical propositions. Unlike conventional programming languages where correctness is established through testing -- an inherently incomplete method that can only demonstrate the presence of bugs, never their absence -- Lean4 enables developers to construct machine-checked proofs that properties hold universally across all possible inputs and system states.
 
-The significance of Lean4 extends well beyond academic curiosity. In safety-critical systems, mission-critical infrastructure, and platforms where epistemic integrity is non-negotiable, the ability to formally prove that invariants are maintained, that algorithms terminate, and that state transitions preserve consistency properties represents the strongest achievable guarantee of correctness. Where [property-based testing](/glossary/property-based-testing/) can explore thousands of randomized cases and [Monte Carlo verification](/glossary/monte-carlo-verification/) can sample from probability distributions to build statistical confidence, formal verification in Lean4 provides categorical certainty: a property either holds in all cases, or the proof fails to construct. There is no middle ground, no confidence interval, no probabilistic hedge.
+The significance of Lean4 extends well beyond academic curiosity. In safety-critical systems, mission-critical infrastructure, and platforms where epistemic integrity is non-negotiable, the ability to formally prove that invariants are maintained, that algorithms terminate, and that state transitions preserve consistency properties represents the strongest achievable guarantee of correctness. Where [property-based testing](@/glossary/property-based-testing.md) can explore thousands of randomized cases and [Monte Carlo verification](@/glossary/monte-carlo-verification.md) can sample from probability distributions to build statistical confidence, formal verification in Lean4 provides categorical certainty: a property either holds in all cases, or the proof fails to construct. There is no middle ground, no confidence interval, no probabilistic hedge.
 
-This distinction is what makes Lean4 the appropriate technology for the highest tier of the Prismatic Platform's verification hierarchy. When the [Trinity Gate](/glossary/trinity-gate/) demands formal necessity -- the third and most rigorous of its verification layers -- it is Lean4 that provides the substrate for those proofs.
+This distinction is what makes Lean4 the appropriate technology for the highest tier of the Prismatic Platform's verification hierarchy. When the [Trinity Gate](@/glossary/trinity-gate.md) demands formal necessity -- the third and most rigorous of its verification layers -- it is Lean4 that provides the substrate for those proofs.
 
 ## Historical Context
 
@@ -68,19 +68,19 @@ The Prismatic Platform employs Lean4 as the formal verification substrate for it
 
 ### Trinity Gate Formal Necessity Layer
 
-The [Trinity Gate](/glossary/trinity-gate/) enforces three independent verification conditions before any claim is accepted as established. The third condition, Formal Necessity, requires that the claim be provable in a formal system. Lean4 serves as this formal system. When the Trinity Gate evaluates a proposition -- for example, that a particular [belief graph](/glossary/belief-graph/) transformation preserves consistency, or that a [confidence threshold](/glossary/confidence-threshold/) computation is monotonic -- the formal necessity layer dispatches the proposition to Lean4 for machine-checked proof. If Lean4 cannot construct a proof, the Trinity Gate does not pass, and the claim is not accepted regardless of how compelling the structural and logical evidence may be.
+The [Trinity Gate](@/glossary/trinity-gate.md) enforces three independent verification conditions before any claim is accepted as established. The third condition, Formal Necessity, requires that the claim be provable in a formal system. Lean4 serves as this formal system. When the Trinity Gate evaluates a proposition -- for example, that a particular [belief graph](@/glossary/belief-graph.md) transformation preserves consistency, or that a [confidence threshold](@/glossary/confidence-threshold.md) computation is monotonic -- the formal necessity layer dispatches the proposition to Lean4 for machine-checked proof. If Lean4 cannot construct a proof, the Trinity Gate does not pass, and the claim is not accepted regardless of how compelling the structural and logical evidence may be.
 
 ### QEVE Integration
 
-The [QEVE](/glossary/qeve/) (Quality Evidence Verification Engine) uses Lean4 alongside [Monte Carlo verification](/glossary/monte-carlo-verification/) and [property-based testing](/glossary/property-based-testing/) to create a multi-layered verification strategy. Where Monte Carlo methods provide statistical confidence and property-based testing explores the input space stochastically, Lean4 provides categorical proofs for the most critical invariants. Five core platform theorems -- including safe evolution guarantees and [epistemic robustness](/glossary/epistemic-robustness/) invariants -- are maintained as Lean4 proofs that must verify successfully before any platform [generation](/glossary/generation/) transition is accepted.
+The [QEVE](@/glossary/qeve.md) (Quality Evidence Verification Engine) uses Lean4 alongside [Monte Carlo verification](@/glossary/monte-carlo-verification.md) and [property-based testing](@/glossary/property-based-testing.md) to create a multi-layered verification strategy. Where Monte Carlo methods provide statistical confidence and property-based testing explores the input space stochastically, Lean4 provides categorical proofs for the most critical invariants. Five core platform theorems -- including safe evolution guarantees and [epistemic robustness](@/glossary/epistemic-robustness.md) invariants -- are maintained as Lean4 proofs that must verify successfully before any platform [generation](@/glossary/generation.md) transition is accepted.
 
 ### White Team Proof Engineering
 
-The [White Team](/glossary/white-team/), the constructive verification arm of the platform's [Color Teams](/glossary/color-teams/) security architecture, uses Lean4 as its primary proof engine. The `white-invariant-prover` agent generates Lean4 proof obligations from platform specifications and either discharges them automatically using Lean4's built-in tactics or surfaces them for manual proof engineering. The [audit trail](/glossary/audit-trail/) for every White Team verification campaign includes the Lean4 proof artifacts, ensuring full [provenance](/glossary/provenance-mandatory/) traceability.
+The [White Team](@/glossary/white-team.md), the constructive verification arm of the platform's [Color Teams](@/glossary/color-teams.md) security architecture, uses Lean4 as its primary proof engine. The `white-invariant-prover` agent generates Lean4 proof obligations from platform specifications and either discharges them automatically using Lean4's built-in tactics or surfaces them for manual proof engineering. The [audit trail](@/glossary/audit-trail.md) for every White Team verification campaign includes the Lean4 proof artifacts, ensuring full [provenance](@/glossary/provenance-mandatory.md) traceability.
 
 ### Quality Gates
 
-The platform's [quality gates](/glossary/quality-gates/) include a formal verification tier that invokes Lean4 proof checking as part of the continuous integration pipeline. If any of the maintained Lean4 proofs fail to verify -- whether due to a code change that invalidates an assumption, a specification change that introduces a new obligation, or a proof regression -- the quality gate blocks the change. This integration ensures that formal guarantees are not merely established once and forgotten but are continuously maintained as the platform evolves through successive [generations](/glossary/generation/).
+The platform's [quality gates](@/glossary/quality-gates.md) include a formal verification tier that invokes Lean4 proof checking as part of the continuous integration pipeline. If any of the maintained Lean4 proofs fail to verify -- whether due to a code change that invalidates an assumption, a specification change that introduces a new obligation, or a proof regression -- the quality gate blocks the change. This integration ensures that formal guarantees are not merely established once and forgotten but are continuously maintained as the platform evolves through successive [generations](@/glossary/generation.md).
 
 ## Type System and Dependent Types
 
@@ -111,7 +111,7 @@ Lean4 provides a rich library of tactics for proof construction, each suited to 
 | `norm_num` | Numeric normalization | Evaluates and normalizes numeric expressions, including modular arithmetic. |
 | `exact` | Direct proof | Closes a goal by providing an exact proof term. |
 
-In the Prismatic Platform's QEVE integration, proof obligations are first attempted with `aesop` and `simp` for general automation. If these fail, `omega` and `linarith` handle arithmetic obligations, while `induction` and `cases` handle structural reasoning over platform data types. The [fitness score](/glossary/fitness-score/) computation proofs, for example, rely heavily on `omega` for bound-checking properties and `simp` for equational simplification of scoring formulas.
+In the Prismatic Platform's QEVE integration, proof obligations are first attempted with `aesop` and `simp` for general automation. If these fail, `omega` and `linarith` handle arithmetic obligations, while `induction` and `cases` handle structural reasoning over platform data types. The [fitness score](@/glossary/fitness-score.md) computation proofs, for example, rely heavily on `omega` for bound-checking properties and `simp` for equational simplification of scoring formulas.
 
 ## Comparison with Alternatives
 
@@ -128,7 +128,7 @@ The choice of Lean4 over alternative proof assistants for the Prismatic Platform
 | **Learning curve** | Moderate | Steep | Steep | Moderate |
 | **Self-hosting** | Yes (compiler in Lean4) | No (OCaml) | No (Haskell) | No (ML) |
 
-Lean4's self-hosting property -- the fact that its tactic framework, macro system, and much of its compiler are written in Lean4 itself -- is a decisive advantage for the Prismatic Platform. It means that custom proof automation for platform-specific domains (epistemic logic, belief graph invariants, [signal plurality](/glossary/signal-plurality/) properties) can be written in the same language as the proofs themselves, without requiring expertise in a separate metalanguage. The [AIAD](/glossary/aiad/) standard's requirement for full provenance traceability is also better served by a system where the proof automation code is itself subject to the same type-checking discipline as the proofs it produces.
+Lean4's self-hosting property -- the fact that its tactic framework, macro system, and much of its compiler are written in Lean4 itself -- is a decisive advantage for the Prismatic Platform. It means that custom proof automation for platform-specific domains (epistemic logic, belief graph invariants, [signal plurality](@/glossary/signal-plurality.md) properties) can be written in the same language as the proofs themselves, without requiring expertise in a separate metalanguage. The [AIAD](@/glossary/aiad.md) standard's requirement for full provenance traceability is also better served by a system where the proof automation code is itself subject to the same type-checking discipline as the proofs it produces.
 
 ## The Elixir-to-Lean4 Bridge
 
@@ -140,7 +140,7 @@ Translating properties of an Elixir/OTP system into Lean4 proof obligations pres
 
 **OTP behavior contracts**: GenServer callbacks, Supervisor strategies, and other OTP behaviors define implicit contracts about system behavior. The bridge layer extracts these contracts from the Elixir source code and encodes them as Lean4 type class instances, enabling proofs that specific modules satisfy their behavioral contracts.
 
-**[ETS](/glossary/ets/) state properties**: The platform's extensive use of ETS tables for in-memory state introduces mutable shared state that must be carefully modeled. The bridge layer treats ETS operations as effectful computations in a state monad, allowing Lean4 proofs about ETS-backed data structures (such as the [Quality DNA](/glossary/quality-dna/) state or the [agent](/glossary/agent/) registry) to reason about state transitions while maintaining the purity required by the proof system.
+**[ETS](@/glossary/ets.md) state properties**: The platform's extensive use of ETS tables for in-memory state introduces mutable shared state that must be carefully modeled. The bridge layer treats ETS operations as effectful computations in a state monad, allowing Lean4 proofs about ETS-backed data structures (such as the [Quality DNA](@/glossary/quality-dna.md) state or the [agent](@/glossary/agent.md) registry) to reason about state transitions while maintaining the purity required by the proof system.
 
 ## Performance Characteristics
 
@@ -154,40 +154,40 @@ Lean4 proof checking performance is a practical concern for any platform that in
 
 **Memory consumption**: Lean4's memory usage during proof checking is proportional to the complexity of the proof terms being checked. For the Prismatic Platform's proof corpus, peak memory usage remains under 2 GB, which is manageable for CI runners and developer workstations alike.
 
-These performance characteristics compare favorably with alternative proof assistants. Coq's proof checking for comparably complex theorems is typically 2-3x slower due to its less optimized kernel implementation. Isabelle's Sledgehammer automation, while powerful, can take minutes for individual goals due to its reliance on external ATP solvers. Lean4's balance of automation power and checking speed makes it the most practical choice for CI-integrated [formal verification](/glossary/formal-verification/).
+These performance characteristics compare favorably with alternative proof assistants. Coq's proof checking for comparably complex theorems is typically 2-3x slower due to its less optimized kernel implementation. Isabelle's Sledgehammer automation, while powerful, can take minutes for individual goals due to its reliance on external ATP solvers. Lean4's balance of automation power and checking speed makes it the most practical choice for CI-integrated [formal verification](@/glossary/formal-verification.md).
 
 ## Related Terms
 
-- [Trinity Gate](/glossary/trinity-gate/) -- Uses Lean4 for the Formal Necessity verification layer, the most rigorous of the three gate conditions
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework whose axioms are partially formalized as Lean4 theorems
-- [QEVE](/glossary/qeve/) -- Quality Evidence Verification Engine that orchestrates Lean4 alongside Monte Carlo and property-based methods
-- [Formal Verification](/glossary/formal-verification/) -- The broader discipline within which Lean4 operates as the primary proof engine
-- [Monte Carlo Verification](/glossary/monte-carlo-verification/) -- Statistical verification method complementing Lean4's categorical proofs
-- [Property-Based Testing](/glossary/property-based-testing/) -- Stochastic testing approach that occupies the tier below formal proof
-- [White Team](/glossary/white-team/) -- Constructive verification team that generates and maintains Lean4 proof artifacts
-- [Color Teams](/glossary/color-teams/) -- Security operations architecture within which the White Team operates
-- [Quality Gates](/glossary/quality-gates/) -- CI pipeline gates that include Lean4 proof verification as a blocking check
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality state whose invariants are partially Lean4-verified
-- [Fitness Score](/glossary/fitness-score/) -- Platform evolution metric with Lean4-proven bound properties
-- [Generation](/glossary/generation/) -- Platform evolution stages gated by formal verification requirements
-- [Belief Graph](/glossary/belief-graph/) -- Epistemic data structure whose well-formedness is Lean4-verified
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Numeric thresholds with Lean4-proven monotonicity properties
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom with formal backing in Lean4
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Epistemic principle whose consistency is Lean4-verified
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- System property with formal correctness guarantees
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Traceability requirement enforced across Lean4 proof artifacts
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record that includes formal proof verification results
-- [ETS](/glossary/ets/) -- In-memory storage whose state properties are modeled for Lean4 verification
-- [AIAD](/glossary/aiad/) -- Agent standard requiring provenance traceability compatible with Lean4 proof chains
-- [Agent](/glossary/agent/) -- Autonomous platform components whose behavioral contracts can be Lean4-verified
-- [NM/ND](/glossary/nm-nd/) -- Execution doctrine whose transition from exploration to action requires Trinity Gate passage including Lean4 proofs
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Uses Lean4 for the Formal Necessity verification layer, the most rigorous of the three gate conditions
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework whose axioms are partially formalized as Lean4 theorems
+- [QEVE](@/glossary/qeve.md) -- Quality Evidence Verification Engine that orchestrates Lean4 alongside Monte Carlo and property-based methods
+- [Formal Verification](@/glossary/formal-verification.md) -- The broader discipline within which Lean4 operates as the primary proof engine
+- [Monte Carlo Verification](@/glossary/monte-carlo-verification.md) -- Statistical verification method complementing Lean4's categorical proofs
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Stochastic testing approach that occupies the tier below formal proof
+- [White Team](@/glossary/white-team.md) -- Constructive verification team that generates and maintains Lean4 proof artifacts
+- [Color Teams](@/glossary/color-teams.md) -- Security operations architecture within which the White Team operates
+- [Quality Gates](@/glossary/quality-gates.md) -- CI pipeline gates that include Lean4 proof verification as a blocking check
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality state whose invariants are partially Lean4-verified
+- [Fitness Score](@/glossary/fitness-score.md) -- Platform evolution metric with Lean4-proven bound properties
+- [Generation](@/glossary/generation.md) -- Platform evolution stages gated by formal verification requirements
+- [Belief Graph](@/glossary/belief-graph.md) -- Epistemic data structure whose well-formedness is Lean4-verified
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Numeric thresholds with Lean4-proven monotonicity properties
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom with formal backing in Lean4
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Epistemic principle whose consistency is Lean4-verified
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- System property with formal correctness guarantees
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Traceability requirement enforced across Lean4 proof artifacts
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record that includes formal proof verification results
+- [ETS](@/glossary/ets.md) -- In-memory storage whose state properties are modeled for Lean4 verification
+- [AIAD](@/glossary/aiad.md) -- Agent standard requiring provenance traceability compatible with Lean4 proof chains
+- [Agent](@/glossary/agent.md) -- Autonomous platform components whose behavioral contracts can be Lean4-verified
+- [NM/ND](@/glossary/nm-nd.md) -- Execution doctrine whose transition from exploration to action requires Trinity Gate passage including Lean4 proofs
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture and verification infrastructure
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- 16-level pipeline whose upper levels invoke formal verification
-- [SEADF](/glossary/seadf/) -- Autonomous evolution framework with Lean4-backed quality assurance
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Monitoring system that tracks formal verification status
+- [Architecture](@/architecture/_index.md) -- Platform architecture and verification infrastructure
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- 16-level pipeline whose upper levels invoke formal verification
+- [SEADF](@/glossary/seadf.md) -- Autonomous evolution framework with Lean4-backed quality assurance
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Monitoring system that tracks formal verification status
 
 ---
 
@@ -196,4 +196,4 @@ These performance characteristics compare favorably with alternative proof assis
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

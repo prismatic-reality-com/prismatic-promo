@@ -63,7 +63,7 @@ The 14 operational domains form a complete taxonomy of platform capabilities. Ea
 
 ## Domain Architecture in Elixir
 
-Domains in the Prismatic Platform are implemented through a combination of [umbrella applications](/glossary/umbrella-application/), [supervision trees](/glossary/supervision-tree/), and registry-based discovery. Each domain maps to one or more umbrella applications, and agents within a domain are registered for discovery through the AIAD specification standard.
+Domains in the Prismatic Platform are implemented through a combination of [umbrella applications](@/glossary/umbrella-application.md), [supervision trees](@/glossary/supervision-tree.md), and registry-based discovery. Each domain maps to one or more umbrella applications, and agents within a domain are registered for discovery through the AIAD specification standard.
 
 ```elixir
 defmodule Prismatic.Domain.Registry do
@@ -260,7 +260,7 @@ L1 and L2 agents with cross-domain authority can coordinate multi-domain campaig
 
 ### Standardized Interfaces
 
-All domains implement common communication protocols ([AIAD](/glossary/aiad/)-compliant messaging) that enable inter-domain coordination without breaking domain encapsulation. The AIAD specification defines message formats, capability declarations, and interaction patterns that every agent must support.
+All domains implement common communication protocols ([AIAD](@/glossary/aiad.md)-compliant messaging) that enable inter-domain coordination without breaking domain encapsulation. The AIAD specification defines message formats, capability declarations, and interaction patterns that every agent must support.
 
 ### Shared Resources
 
@@ -268,7 +268,7 @@ Certain platform resources are accessible to all domains but managed centrally t
 
 | Resource | Access Pattern | Manager |
 |----------|---------------|---------|
-| **[Trinity Gate](/glossary/trinity-gate/)** | Validation requests from any domain | Central validator |
+| **[Trinity Gate](@/glossary/trinity-gate.md)** | Validation requests from any domain | Central validator |
 | **Quality DNA** | Read from any, write from quality domain | Quality domain |
 | **Session Context** | Read/write with domain tagging | Platform-level |
 | **Telemetry** | Emit from any, aggregate centrally | Analytics domain |
@@ -284,7 +284,7 @@ Each domain can develop deep expertise in its area without being distracted by c
 
 ### Failure Isolation
 
-Problems in one domain do not cascade to other domains. If a quality gate malfunctions, security enforcement continues unaffected. If an OSINT data source becomes unavailable, the development workflow continues without interruption. This isolation is enforced at the [OTP](/glossary/otp/) level through separate [supervision trees](/glossary/supervision-tree/) for each domain.
+Problems in one domain do not cascade to other domains. If a quality gate malfunctions, security enforcement continues unaffected. If an OSINT data source becomes unavailable, the development workflow continues without interruption. This isolation is enforced at the [OTP](@/glossary/otp.md) level through separate [supervision trees](@/glossary/supervision-tree.md) for each domain.
 
 ```elixir
 defmodule Prismatic.Domain.Supervisor do
@@ -341,7 +341,7 @@ Different domains can use different technologies, frameworks, or approaches as a
 
 ### Authority Delegation
 
-Domain classification enables precise authority delegation. An [agent](/glossary/agent/) can be granted "full authority within the Quality domain" without needing to specify every individual capability. This is analogous to organizational role-based access control, where permissions are associated with roles rather than individual users.
+Domain classification enables precise authority delegation. An [agent](@/glossary/agent.md) can be granted "full authority within the Quality domain" without needing to specify every individual capability. This is analogous to organizational role-based access control, where permissions are associated with roles rather than individual users.
 
 ## Domain-Driven Design Alignment
 
@@ -365,7 +365,7 @@ The key difference between traditional DDD and the Prismatic approach is that DD
 
 Domains are not static taxonomic categories -- they evolve as platform capabilities mature and new requirements emerge.
 
-**Domain Creation**: New domains can be created when a sufficiently distinct capability area emerges that cannot be adequately served by existing domains. The creation process involves defining the domain's scope, establishing its [supervision tree](/glossary/supervision-tree/), registering its agents, and configuring cross-domain bridges.
+**Domain Creation**: New domains can be created when a sufficiently distinct capability area emerges that cannot be adequately served by existing domains. The creation process involves defining the domain's scope, establishing its [supervision tree](@/glossary/supervision-tree.md), registering its agents, and configuring cross-domain bridges.
 
 **Domain Splitting**: Large domains can be split when they become too broad to manage effectively. The original "Operations" domain was split into "DevOps" and "Infrastructure" as those capabilities matured and required different specializations.
 
@@ -384,7 +384,7 @@ Each domain maintains its own governance standards while adhering to platform-wi
 | **Domain** | Internal domain practices | Domain commander authority |
 | **Agent** | Individual agent behavior | Constrained by domain standards |
 
-**Platform Standards** are non-negotiable: all domains must comply with NO MERCY NO DOUBTS doctrine, [Trinity Gate](/glossary/trinity-gate/) validation, and AIAD specification compliance.
+**Platform Standards** are non-negotiable: all domains must comply with NO MERCY NO DOUBTS doctrine, [Trinity Gate](@/glossary/trinity-gate.md) validation, and AIAD specification compliance.
 
 **Domain Standards** allow each domain to define best practices appropriate to its specialty. The Security domain might require additional threat modeling steps, while the Performance domain might require benchmark results for all changes.
 
@@ -478,7 +478,7 @@ end
 
 ## Domains and the AIAD Standard
 
-The [AIAD](/glossary/aiad/) specification standard uses domains as a primary classification axis for agents and commands. Every AIAD agent specification includes a `domain` field that determines which domain the agent belongs to, which in turn determines its [authority](/glossary/authority-level/) scope, coordination interfaces, and governance requirements.
+The [AIAD](@/glossary/aiad.md) specification standard uses domains as a primary classification axis for agents and commands. Every AIAD agent specification includes a `domain` field that determines which domain the agent belongs to, which in turn determines its [authority](@/glossary/authority-level.md) scope, coordination interfaces, and governance requirements.
 
 ```yaml
 # Example AIAD agent specification
@@ -495,7 +495,7 @@ agent-spec:
     delegation: true       # Can delegate to L5 workers
 ```
 
-This standardized classification enables automated agent discovery: when the platform needs a security specialist, it queries the [agent registry](/glossary/agent-registry/) for agents in the security domain with the required capabilities, without hardcoding specific agent names or module paths.
+This standardized classification enables automated agent discovery: when the platform needs a security specialist, it queries the [agent registry](@/glossary/agent-registry.md) for agents in the security domain with the required capabilities, without hardcoding specific agent names or module paths.
 
 ## Practical Domain Patterns
 
@@ -513,16 +513,16 @@ When a domain becomes unhealthy (high error rates, slow responses, or agent unav
 
 ## Related Concepts
 
-- [Agent](/glossary/agent/) -- Individual entities organized into domains
-- [AIAD](/glossary/aiad/) -- Specification standard using domain classification
-- [Agent Registry](/glossary/agent-registry/) -- Discovery mechanism for domain agents
-- [Authority Level](/glossary/authority-level/) -- Hierarchical authority within domains
-- [Supervision Tree](/glossary/supervision-tree/) -- Fault tolerance structure for domains
-- [Umbrella Application](/glossary/umbrella-application/) -- Code organization paralleling domains
-- [Multi-Agent System](/glossary/multi-agent-system/) -- System architecture using domains
-- [Taxonomy](/glossary/taxonomy/) -- Classification system including domains
-- [Architecture](/glossary/architecture/) -- Platform architecture shaped by domains
-- [OTP](/glossary/otp/) -- Framework enabling domain isolation
+- [Agent](@/glossary/agent.md) -- Individual entities organized into domains
+- [AIAD](@/glossary/aiad.md) -- Specification standard using domain classification
+- [Agent Registry](@/glossary/agent-registry.md) -- Discovery mechanism for domain agents
+- [Authority Level](@/glossary/authority-level.md) -- Hierarchical authority within domains
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Fault tolerance structure for domains
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Code organization paralleling domains
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- System architecture using domains
+- [Taxonomy](@/glossary/taxonomy.md) -- Classification system including domains
+- [Architecture](@/glossary/architecture.md) -- Platform architecture shaped by domains
+- [OTP](@/glossary/otp.md) -- Framework enabling domain isolation
 
 ---
 
@@ -531,4 +531,4 @@ When a domain becomes unhealthy (high error rates, slow responses, or agent unav
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -38,7 +38,7 @@ image_alt = "Epistemic Reasoning - Prismatic Platform"
 
 Epistemic reasoning is the systematic cognitive and computational process of forming, evaluating, revising, and justifying beliefs based on evidence, logical inference, and formal verification methods. It encompasses the full lifecycle of knowledge production: from raw observation through evidence assessment, hypothesis formation, confidence calibration, contradiction handling, and ultimately justified belief establishment.
 
-Unlike informal reasoning, epistemic reasoning demands explicit tracking of *why* a belief is held, *what evidence* supports it, *how confident* the reasoner should be, and *under what conditions* the belief should be revised. In the Prismatic Platform, all epistemic reasoning is governed by the seven non-negotiable axioms of the [NABLA Infinity](/glossary/nabla-infinity/) framework, ensuring that no belief is established without traceable provenance, adequate evidence plurality, and passage through the [Trinity Gate](/glossary/trinity-gate/).
+Unlike informal reasoning, epistemic reasoning demands explicit tracking of *why* a belief is held, *what evidence* supports it, *how confident* the reasoner should be, and *under what conditions* the belief should be revised. In the Prismatic Platform, all epistemic reasoning is governed by the seven non-negotiable axioms of the [NABLA Infinity](@/glossary/nabla-infinity.md) framework, ensuring that no belief is established without traceable provenance, adequate evidence plurality, and passage through the [Trinity Gate](@/glossary/trinity-gate.md).
 
 ## Overview
 
@@ -46,7 +46,7 @@ Epistemic reasoning sits at the intersection of epistemology (the philosophical 
 
 The need for rigorous epistemic reasoning in software systems has grown dramatically with the proliferation of AI agents, automated decision systems, and intelligence fusion platforms. When a system makes a claim -- "this domain is malicious," "this company is NIS2 compliant," "this vulnerability is critical" -- stakeholders must be able to trace the reasoning chain from raw evidence through inferential steps to final conclusion. Black-box claims are unacceptable.
 
-Prismatic's approach to epistemic reasoning is distinctive in several ways. First, it treats uncertainty as a first-class citizen rather than an error to eliminate. Second, it requires multiple independent evidence sources before establishing beliefs ([Signal Plurality](/glossary/signal-plurality/)). Third, it preserves contradictions rather than resolving them prematurely ([Contradiction Preservation](/glossary/contradiction-preservation/)). Fourth, it subjects all significant claims to a three-gate verification process: structural consistency, logical consistency, and formal necessity (the [Trinity Gate](/glossary/trinity-gate/)).
+Prismatic's approach to epistemic reasoning is distinctive in several ways. First, it treats uncertainty as a first-class citizen rather than an error to eliminate. Second, it requires multiple independent evidence sources before establishing beliefs ([Signal Plurality](@/glossary/signal-plurality.md)). Third, it preserves contradictions rather than resolving them prematurely ([Contradiction Preservation](@/glossary/contradiction-preservation.md)). Fourth, it subjects all significant claims to a three-gate verification process: structural consistency, logical consistency, and formal necessity (the [Trinity Gate](@/glossary/trinity-gate.md)).
 
 ### The Reasoning Lifecycle
 
@@ -68,7 +68,7 @@ Epistemic reasoning in Prismatic operates across four complementary modes:
 
 **Deductive Reasoning**: Starting from established premises and deriving conclusions through valid logical steps. If all NABLA axioms are satisfied and the Trinity Gate passes, the conclusion is established. Deductive reasoning provides certainty but requires strong premises. Implemented through the logical consistency gate of Trinity.
 
-**Inductive Reasoning**: Generalizing from specific observations to broader conclusions. Pattern detection across OSINT sources, security scans, and compliance assessments uses inductive reasoning. Conclusions carry confidence levels rather than certainty. Implemented through [Bayesian Reasoning](/glossary/bayesian-reasoning/) with explicit prior and posterior tracking.
+**Inductive Reasoning**: Generalizing from specific observations to broader conclusions. Pattern detection across OSINT sources, security scans, and compliance assessments uses inductive reasoning. Conclusions carry confidence levels rather than certainty. Implemented through [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) with explicit prior and posterior tracking.
 
 **Abductive Reasoning**: Inferring the best explanation for a set of observations. When multiple hypotheses could explain the same evidence, abductive reasoning evaluates which explanation best accounts for all available signals. Used extensively in threat analysis and incident investigation.
 
@@ -88,7 +88,7 @@ Where:
 - P(H) is the prior probability of H before observing E
 - P(E) is the marginal probability of observing E
 
-This is applied iteratively as new evidence arrives, with each update producing a new posterior that becomes the prior for the next update. The [Confidence Threshold](/glossary/confidence-threshold/) determines when accumulated evidence is sufficient to establish a belief for action.
+This is applied iteratively as new evidence arrives, with each update producing a new posterior that becomes the prior for the next update. The [Confidence Threshold](@/glossary/confidence-threshold.md) determines when accumulated evidence is sufficient to establish a belief for action.
 
 ### NABLA Axiom Compliance
 
@@ -460,26 +460,26 @@ Epistemic reasoning connects to decision theory through expected utility calcula
 
 ## Related Concepts
 
-- [NABLA Infinity](/glossary/nabla-infinity/) - The 7-axiom framework governing all epistemic reasoning in Prismatic
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) - The probabilistic updating mechanism at the core of inductive epistemic reasoning
-- [Logical Reasoning](/glossary/logical-reasoning/) - Formal logic systems providing the deductive component of epistemic reasoning
-- [Formal Verification](/glossary/formal-verification/) - Mathematical proof methods implementing the formal necessity gate of Trinity
-- [Trinity Gate](/glossary/trinity-gate/) - The 3-gate verification required for high-confidence belief establishment
-- [Confidence Threshold](/glossary/confidence-threshold/) - Context-dependent thresholds that determine when beliefs justify action
-- [Signal Plurality](/glossary/signal-plurality/) - The axiom requiring multiple independent evidence sources
-- [Contradiction Preservation](/glossary/contradiction-preservation/) - The axiom preventing premature contradiction resolution
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) - The processing pipeline implementing the full reasoning lifecycle
-- [Epistemic Coordination](/glossary/epistemic-coordination/) - Cross-agent coordination of reasoning outputs
-- [Evidence](/glossary/evidence/) - The fundamental input to epistemic reasoning processes
-- [Provenance Mandatory](/glossary/provenance-mandatory/) - The axiom requiring full traceability of all evidence and beliefs
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - The 7-axiom framework governing all epistemic reasoning in Prismatic
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) - The probabilistic updating mechanism at the core of inductive epistemic reasoning
+- [Logical Reasoning](@/glossary/logical-reasoning.md) - Formal logic systems providing the deductive component of epistemic reasoning
+- [Formal Verification](@/glossary/formal-verification.md) - Mathematical proof methods implementing the formal necessity gate of Trinity
+- [Trinity Gate](@/glossary/trinity-gate.md) - The 3-gate verification required for high-confidence belief establishment
+- [Confidence Threshold](@/glossary/confidence-threshold.md) - Context-dependent thresholds that determine when beliefs justify action
+- [Signal Plurality](@/glossary/signal-plurality.md) - The axiom requiring multiple independent evidence sources
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) - The axiom preventing premature contradiction resolution
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) - The processing pipeline implementing the full reasoning lifecycle
+- [Epistemic Coordination](@/glossary/epistemic-coordination.md) - Cross-agent coordination of reasoning outputs
+- [Evidence](@/glossary/evidence.md) - The fundamental input to epistemic reasoning processes
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) - The axiom requiring full traceability of all evidence and beliefs
 
 ## See Also
 
-- [Epistemic Attack](/glossary/epistemic-attack/) - Attacks that target reasoning processes to produce false beliefs
-- [Epistemic Robustness](/glossary/epistemic-robustness/) - System resilience against reasoning manipulation
-- [Epistemic Validation](/glossary/epistemic-validation/) - Validation of reasoning outputs and processes
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) - The principle that evidence must override subjective assessment
-- [Time Decay](/glossary/time-decay/) - Temporal weighting applied to evidence during reasoning
+- [Epistemic Attack](@/glossary/epistemic-attack.md) - Attacks that target reasoning processes to produce false beliefs
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) - System resilience against reasoning manipulation
+- [Epistemic Validation](@/glossary/epistemic-validation.md) - Validation of reasoning outputs and processes
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) - The principle that evidence must override subjective assessment
+- [Time Decay](@/glossary/time-decay.md) - Temporal weighting applied to evidence during reasoning
 
 ---
 
@@ -488,4 +488,4 @@ Epistemic reasoning connects to decision theory through expected utility calcula
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

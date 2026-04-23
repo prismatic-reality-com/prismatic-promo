@@ -40,7 +40,7 @@ Repair mechanisms are not merely error handling -- they represent a fundamental 
 
 The foundation of all repair mechanisms in the Prismatic Platform is the Erlang/OTP "let-it-crash" philosophy. This counter-intuitive principle states that processes should not defensively guard against every possible failure; instead, they should crash when encountering unexpected states and rely on supervisors to restart them in a known-good state.
 
-This philosophy works because of three properties of the [BEAM VM](/glossary/beam-vm/):
+This philosophy works because of three properties of the [BEAM VM](@/glossary/beam-vm.md):
 
 1. **Process isolation** -- Each BEAM process has its own heap, stack, and mailbox. When a process crashes, no other process is affected unless explicitly linked.
 2. **Lightweight processes** -- BEAM processes are extremely cheap to create and destroy (microsecond startup, kilobyte memory), making restart a viable recovery strategy.
@@ -354,7 +354,7 @@ end
 
 ## AutoHeal: 5-Level Healing Escalation
 
-The [AutoHeal](/glossary/autoheal/) system extends repair mechanisms from runtime fault recovery to code quality repair. It implements a 5-level escalation model that progressively applies more aggressive healing strategies:
+The [AutoHeal](@/glossary/autoheal.md) system extends repair mechanisms from runtime fault recovery to code quality repair. It implements a 5-level escalation model that progressively applies more aggressive healing strategies:
 
 ### Level 0: Baseline
 
@@ -542,7 +542,7 @@ Beyond application-level repair mechanisms, the Prismatic Platform implements in
 
 ### Blue-Green Deployment
 
-The platform uses [blue-green deployment](/glossary/blue-green-deployment/) on Fly.io, maintaining two production environments. If the new deployment fails health checks, traffic is automatically routed back to the previous version -- an infrastructure-level circuit breaker.
+The platform uses [blue-green deployment](@/glossary/blue-green-deployment.md) on Fly.io, maintaining two production environments. If the new deployment fails health checks, traffic is automatically routed back to the previous version -- an infrastructure-level circuit breaker.
 
 ### Health Check Endpoints
 
@@ -563,7 +563,7 @@ All repair mechanisms emit structured telemetry events for observability:
 | `[:prismatic, :autoheal, :cycle_complete]` | `%{fixed, remaining}` | level, timestamp |
 | `[:prismatic, :health, :check]` | `%{healthy, total}` | domain, timestamp |
 
-These events feed into the [quality monitoring](/glossary/quality-monitoring/) system, creating a feedback loop where repair activities are themselves monitored for effectiveness.
+These events feed into the [quality monitoring](@/glossary/quality-monitoring.md) system, creating a feedback loop where repair activities are themselves monitored for effectiveness.
 
 ## Comparison with Industry Approaches
 
@@ -587,18 +587,18 @@ The key differentiator is the BEAM VM's process model, which provides sub-millis
 
 ## Related Concepts
 
-- [AutoHeal](/glossary/autoheal/) -- Autonomous quality healing system
-- [Self-Healing](/glossary/self-healing/) -- Systems that repair themselves automatically
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Cascade failure prevention pattern
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP process hierarchy
-- [Supervision](/glossary/supervision/) -- OTP supervision patterns
-- [OTP](/glossary/otp/) -- Open Telecom Platform framework
-- [GenServer](/glossary/genserver/) -- Generic server process abstraction
-- [BEAM VM](/glossary/beam-vm/) -- Erlang virtual machine runtime
-- [Process Restart](/glossary/process-restart/) -- Individual process recovery
-- [Health Monitoring](/glossary/health-monitoring/) -- System health observation
-- [Quality Monitoring](/glossary/quality-monitoring/) -- Continuous quality observation
-- [Backpressure](/glossary/backpressure/) -- Load management under stress
+- [AutoHeal](@/glossary/autoheal.md) -- Autonomous quality healing system
+- [Self-Healing](@/glossary/self-healing.md) -- Systems that repair themselves automatically
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Cascade failure prevention pattern
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP process hierarchy
+- [Supervision](@/glossary/supervision.md) -- OTP supervision patterns
+- [OTP](@/glossary/otp.md) -- Open Telecom Platform framework
+- [GenServer](@/glossary/genserver.md) -- Generic server process abstraction
+- [BEAM VM](@/glossary/beam-vm.md) -- Erlang virtual machine runtime
+- [Process Restart](@/glossary/process-restart.md) -- Individual process recovery
+- [Health Monitoring](@/glossary/health-monitoring.md) -- System health observation
+- [Quality Monitoring](@/glossary/quality-monitoring.md) -- Continuous quality observation
+- [Backpressure](@/glossary/backpressure.md) -- Load management under stress
 
 ---
 
@@ -607,4 +607,4 @@ The key differentiator is the BEAM VM's process model, which provides sub-millis
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,9 +26,9 @@ image_alt = "/test - Prismatic Platform"
 
 **/test** is a production command in the **Development** category of the Prismatic Platform. It provides comprehensive test generation, execution, and verification across the entire umbrella codebase, covering unit tests, integration tests, property-based tests, and contract tests. The command analyzes source code to identify testable behaviors, generates ExUnit test modules with appropriate assertions, executes test suites with configurable scope, and reports results with coverage metrics. It is one of the highest-usage commands in the platform, integral to the NO MERCY doctrine requirement of 100% test coverage.
 
-This command operates under the **L2+** authority level and is executed by the `testing-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The testing-specialist agent has deep knowledge of ExUnit conventions, property-based testing with StreamData, LiveView testing patterns, Ecto test sandboxing, and the platform's 121-test three-phase test architecture (Phase 1: Workflow/Step, Phase 2: Storage/Web/Agent, Phase 3: E2E).
+This command operates under the **L2+** authority level and is executed by the `testing-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The testing-specialist agent has deep knowledge of ExUnit conventions, property-based testing with StreamData, LiveView testing patterns, Ecto test sandboxing, and the platform's 121-test three-phase test architecture (Phase 1: Workflow/Step, Phase 2: Storage/Web/Agent, Phase 3: E2E).
 
-The platform maintains 5,864 test files across 90+ umbrella applications. `/test` manages this test estate: generating new tests for uncovered code, running targeted test suites for modified modules, verifying test quality (assertions per test, edge case coverage, determinism), and enforcing the platform's mandatory regression test protocol. Every bug fix produced by [/fix](/commands/fix/) is validated through `/test`-generated regression tests.
+The platform maintains 5,864 test files across 90+ umbrella applications. `/test` manages this test estate: generating new tests for uncovered code, running targeted test suites for modified modules, verifying test quality (assertions per test, edge case coverage, determinism), and enforcing the platform's mandatory regression test protocol. Every bug fix produced by [/fix](@/commands/fix.md) is validated through `/test`-generated regression tests.
 
 ## Architecture
 
@@ -196,14 +196,14 @@ Results are formatted according to the requested output. The report includes: te
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/code](/commands/code/) | Peer | Code implementation paired with test generation |
-| [/fix](/commands/fix/) | Upstream | Bug fixes require regression tests from /test |
-| [/svihadlo](/commands/svihadlo/) | Upstream | Rapid features include auto-generated tests |
-| [/quality-gates](/commands/quality-gates/) | Enforcement | Test passage is a quality gate requirement |
-| [/regression-check](/commands/regression-check/) | Peer | Regression checks validate test adequacy |
-| [/refactor](/commands/refactor/) | Validation | Refactoring verified by existing tests |
-| [Quality DNA](/glossary/quality-dna/) | State | Test metrics persisted in quality DNA |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Test execution metrics and trends |
+| [/code](@/commands/code.md) | Peer | Code implementation paired with test generation |
+| [/fix](@/commands/fix.md) | Upstream | Bug fixes require regression tests from /test |
+| [/svihadlo](@/commands/svihadlo.md) | Upstream | Rapid features include auto-generated tests |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | Test passage is a quality gate requirement |
+| [/regression-check](@/commands/regression-check.md) | Peer | Regression checks validate test adequacy |
+| [/refactor](@/commands/refactor.md) | Validation | Refactoring verified by existing tests |
+| [Quality DNA](@/glossary/quality-dna.md) | State | Test metrics persisted in quality DNA |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Test execution metrics and trends |
 
 ## Best Practices
 
@@ -263,20 +263,20 @@ Generate snapshot tests for complex output:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. 100% test coverage is the standard. No untested code, no stubs, no mocks, no placeholders.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every test assertion is grounded in specification or observed behavior. Test generation is based on actual code analysis, not template guessing.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/svihadlo](/commands/svihadlo/) - Ultra-fast visible feature implementation in 5-15 minutes
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/validate](/commands/validate/) - Input validation and data integrity enforcement
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/svihadlo](@/commands/svihadlo.md) - Ultra-fast visible feature implementation in 5-15 minutes
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/validate](@/commands/validate.md) - Input validation and data integrity enforcement
 
 ---
 
@@ -285,4 +285,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -172,4 +172,4 @@ The umbrella architecture is not for every project. It shines when you have genu
 
 ---
 
-*Learn more about our architecture at [Architecture Documentation](/architecture/) or explore the [Developer Portal](/developers/) for contribution guidelines.*
+*Learn more about our architecture at [Architecture Documentation](@/architecture/_index.md) or explore the [Developer Portal](@/developers/_index.md) for contribution guidelines.*

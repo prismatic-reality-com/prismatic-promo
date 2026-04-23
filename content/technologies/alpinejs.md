@@ -24,9 +24,9 @@ image_alt = "Alpine.js - Prismatic Platform"
 
 ## Overview
 
-Alpine.js is the client-side reactive framework used in the Prismatic Platform for interactive UI behaviors that complement [Phoenix LiveView](/technologies/phoenix-liveview/)'s server-rendered approach. At just ~15KB minified and gzipped, Alpine provides reactive data binding, event handling, and DOM manipulation through declarative HTML attributes -- no build step, no bundler, no compilation pipeline required. It occupies the sweet spot between plain JavaScript and a full single-page application framework, delivering reactivity without the complexity overhead.
+Alpine.js is the client-side reactive framework used in the Prismatic Platform for interactive UI behaviors that complement [Phoenix LiveView](@/technologies/phoenix-liveview.md)'s server-rendered approach. At just ~15KB minified and gzipped, Alpine provides reactive data binding, event handling, and DOM manipulation through declarative HTML attributes -- no build step, no bundler, no compilation pipeline required. It occupies the sweet spot between plain JavaScript and a full single-page application framework, delivering reactivity without the complexity overhead.
 
-The Prismatic Platform uses Alpine.js for client-side-only interactions: search filtering, tab switching, dropdown menus, modal dialogs, and data table sorting. These interactions benefit from instant client-side response without a server round-trip, improving perceived performance for common UI operations. On the promotional site built with [Zola](/technologies/zola/), Alpine handles the entire registry filtering system, allowing visitors to search and filter through 404 agents, 211 commands, and 45 technologies entirely in the browser without any backend calls.
+The Prismatic Platform uses Alpine.js for client-side-only interactions: search filtering, tab switching, dropdown menus, modal dialogs, and data table sorting. These interactions benefit from instant client-side response without a server round-trip, improving perceived performance for common UI operations. On the promotional site built with [Zola](@/technologies/zola.md), Alpine handles the entire registry filtering system, allowing visitors to search and filter through 404 agents, 211 commands, and 45 technologies entirely in the browser without any backend calls.
 
 Alpine's `x-data`, `x-bind`, and `x-on` directives integrate cleanly with Zola's static site generation for the platform's documentation and promotional sites, while also working alongside LiveView in the main application. This dual-context usage means Alpine components are authored once and deployed across both static and dynamic contexts without modification, reducing the maintenance burden of shared UI patterns.
 
@@ -92,7 +92,7 @@ Alpine.js powers client-side filtering and interactions across all list views on
 </div>
 ```
 
-In the main [prismatic_web](/apps/prismatic-web/) application, Alpine handles lightweight interactions that do not require server state -- collapsible sidebar sections, clipboard copy buttons, and local preference toggles such as table density settings. These are interactions where a server round-trip would add unnecessary latency.
+In the main [prismatic_web](@/apps/prismatic-web.md) application, Alpine handles lightweight interactions that do not require server state -- collapsible sidebar sections, clipboard copy buttons, and local preference toggles such as table density settings. These are interactions where a server round-trip would add unnecessary latency.
 
 ## Architecture
 
@@ -101,9 +101,9 @@ Alpine.js occupies a specific niche in the platform's frontend architecture. The
 | Interaction Tier | Handler | Latency | State Location |
 |-----------------|---------|---------|----------------|
 | Page navigation | Phoenix Router | Full page load | Server |
-| Dynamic content | [Phoenix LiveView](/technologies/phoenix-liveview/) | ~50ms WebSocket | Server (assigns) |
+| Dynamic content | [Phoenix LiveView](@/technologies/phoenix-liveview.md) | ~50ms WebSocket | Server (assigns) |
 | Client-only UI | Alpine.js | Instant (0ms) | Browser (x-data) |
-| Styling/layout | [TailwindCSS](/technologies/tailwindcss/) | N/A (CSS) | Stylesheet |
+| Styling/layout | [TailwindCSS](@/technologies/tailwindcss.md) | N/A (CSS) | Stylesheet |
 
 This separation ensures that Alpine never competes with LiveView for DOM control. Alpine manages visibility, class toggling, and local state, while LiveView manages server-rendered content. The boundary is explicit: if an interaction requires data from the database or business logic, it belongs to LiveView. If it is purely presentational (show/hide, filter client-side data, toggle theme), it belongs to Alpine.
 
@@ -191,7 +191,7 @@ The platform follows several conventions for Alpine.js usage to maintain consist
 
 ## Comparison
 
-Alpine.js was chosen over heavier frontend frameworks because the Prismatic Platform's architecture delegates most interactivity to [Phoenix LiveView](/technologies/phoenix-liveview/) on the server side. Alpine fills the remaining gap for client-only interactions without introducing build complexity.
+Alpine.js was chosen over heavier frontend frameworks because the Prismatic Platform's architecture delegates most interactivity to [Phoenix LiveView](@/technologies/phoenix-liveview.md) on the server side. Alpine fills the remaining gap for client-only interactions without introducing build complexity.
 
 | Criterion | Alpine.js | React | Vue | Stimulus |
 |-----------|-----------|-------|-----|----------|
@@ -205,17 +205,17 @@ Alpine.js was chosen over heavier frontend frameworks because the Prismatic Plat
 
 ## Related Technologies
 
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Server-side real-time UI, complementary to Alpine's client-side role
-- [TailwindCSS](/technologies/tailwindcss/) - Utility-first CSS framework styled alongside Alpine directives
-- [Flowbite](/technologies/flowbite/) - Component library that uses Alpine-compatible JavaScript patterns
-- [Zola](/technologies/zola/) - Static site generator where Alpine provides all interactivity for the promo site
-- [Phoenix Framework](/technologies/phoenix/) - Web framework providing the server-side application layer
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Server-side real-time UI, complementary to Alpine's client-side role
+- [TailwindCSS](@/technologies/tailwindcss.md) - Utility-first CSS framework styled alongside Alpine directives
+- [Flowbite](@/technologies/flowbite.md) - Component library that uses Alpine-compatible JavaScript patterns
+- [Zola](@/technologies/zola.md) - Static site generator where Alpine provides all interactivity for the promo site
+- [Phoenix Framework](@/technologies/phoenix.md) - Web framework providing the server-side application layer
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - Client-side Alpine interactions in LiveView dashboards for collapsible panels and local preferences
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Alpine-powered filter controls on the EASM dashboard for asset filtering
-- [prismatic_api](/apps/prismatic-api/) - Swagger UI enhanced with Alpine.js for interactive API exploration
+- [prismatic_web](@/apps/prismatic-web.md) - Client-side Alpine interactions in LiveView dashboards for collapsible panels and local preferences
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Alpine-powered filter controls on the EASM dashboard for asset filtering
+- [prismatic_api](@/apps/prismatic-api.md) - Swagger UI enhanced with Alpine.js for interactive API exploration
 
 ---
 
@@ -224,4 +224,4 @@ Alpine.js was chosen over heavier frontend frameworks because the Prismatic Plat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

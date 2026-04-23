@@ -36,9 +36,9 @@ image_alt = "Latency - Prismatic Platform"
 
 ## Definition
 
-Latency is the time elapsed between initiating a request and receiving the first meaningful response. In computing systems, it is the fundamental measure of responsiveness -- the delay that users and systems experience when waiting for an operation to complete. Latency is distinct from [throughput](/glossary/throughput/), which measures how many operations complete per unit time. A system can have high throughput but also high latency (batch processing), or low latency with modest throughput (single-threaded request handling).
+Latency is the time elapsed between initiating a request and receiving the first meaningful response. In computing systems, it is the fundamental measure of responsiveness -- the delay that users and systems experience when waiting for an operation to complete. Latency is distinct from [throughput](@/glossary/throughput.md), which measures how many operations complete per unit time. A system can have high throughput but also high latency (batch processing), or low latency with modest throughput (single-threaded request handling).
 
-In the Prismatic Platform, latency is a P0 (absolute priority) concern with hard enforcement limits. Every page must load in under 250ms. Server-side rendering must complete in under 100ms. [LiveView](/glossary/liveview/) `handle_event` callbacks must respond in under 50ms. Health check endpoints must respond in under 10ms. These are not aspirational targets -- they are enforced through [quality gates](/glossary/quality-gate/), pre-commit hooks, CI/CD pipeline checks, and production [telemetry](/glossary/telemetry/) alerts. Violating these limits blocks merges and triggers rollbacks.
+In the Prismatic Platform, latency is a P0 (absolute priority) concern with hard enforcement limits. Every page must load in under 250ms. Server-side rendering must complete in under 100ms. [LiveView](@/glossary/liveview.md) `handle_event` callbacks must respond in under 50ms. Health check endpoints must respond in under 10ms. These are not aspirational targets -- they are enforced through [quality gates](@/glossary/quality-gate.md), pre-commit hooks, CI/CD pipeline checks, and production [telemetry](@/glossary/telemetry.md) alerts. Violating these limits blocks merges and triggers rollbacks.
 
 ## Overview
 
@@ -48,11 +48,11 @@ Latency affects every layer of a software system, from network transport to appl
 
 Each component has its own optimization strategies, measurement techniques, and failure modes. Network latency is bounded by physics (speed of light in fiber) and topology (number of hops). Server processing is bounded by algorithm complexity and available compute. Data access is bounded by storage medium (memory vs. disk vs. network) and query complexity. Serialization depends on payload size and format efficiency. Client rendering depends on browser capabilities and page complexity.
 
-In distributed systems like the Prismatic Platform's 115-application umbrella, latency becomes particularly complex because requests often traverse multiple services. A single page load might involve the [Phoenix](/glossary/phoenix/) router, authentication middleware, one or more GenServer calls, [ETS](/glossary/ets/) lookups, database queries, and template rendering. Each step contributes its own latency, and these contributions can compound unpredictably under load.
+In distributed systems like the Prismatic Platform's 115-application umbrella, latency becomes particularly complex because requests often traverse multiple services. A single page load might involve the [Phoenix](@/glossary/phoenix.md) router, authentication middleware, one or more GenServer calls, [ETS](@/glossary/ets.md) lookups, database queries, and template rendering. Each step contributes its own latency, and these contributions can compound unpredictably under load.
 
 Tail latency (P95, P99, P99.9) is often more important than average latency. A system with 10ms average latency but 2-second P99 latency delivers a poor experience to 1% of users -- which at scale means thousands of frustrated interactions. The Prismatic Platform monitors P95 latency in production and alerts when it exceeds 200ms, providing early warning before the hard 250ms limit is breached.
 
-The [BEAM](/glossary/beam/) virtual machine provides several latency advantages that the platform exploits: lightweight process scheduling with soft real-time guarantees, per-process garbage collection that avoids stop-the-world pauses, and preemptive scheduling that prevents any single process from monopolizing a CPU core. These properties make [Elixir](/glossary/elixir/)/[Erlang](/glossary/erlang/) particularly well-suited for low-latency concurrent systems.
+The [BEAM](@/glossary/beam.md) virtual machine provides several latency advantages that the platform exploits: lightweight process scheduling with soft real-time guarantees, per-process garbage collection that avoids stop-the-world pauses, and preemptive scheduling that prevents any single process from monopolizing a CPU core. These properties make [Elixir](@/glossary/elixir.md)/[Erlang](@/glossary/erlang.md) particularly well-suited for low-latency concurrent systems.
 
 ## Technical Details
 
@@ -242,7 +242,7 @@ end
 
 ### Connection Pooling for Database Latency
 
-Database queries are a major latency contributor. The platform uses [connection pooling](/glossary/connection-pooling/) via DBConnection to maintain warm connections:
+Database queries are a major latency contributor. The platform uses [connection pooling](@/glossary/connection-pooling.md) via DBConnection to maintain warm connections:
 
 ```elixir
 defmodule Prismatic.Repo do
@@ -270,7 +270,7 @@ end
 
 ### ETS-Based Caching for Sub-Millisecond Reads
 
-For data that must be read in under 1ms, the platform uses [ETS](/glossary/ets/) (Erlang Term Storage) as an in-memory cache:
+For data that must be read in under 1ms, the platform uses [ETS](@/glossary/ets.md) (Erlang Term Storage) as an in-memory cache:
 
 ```elixir
 defmodule Prismatic.Cache.LatencyOptimized do
@@ -356,11 +356,11 @@ end
 
 ### BEAM vs. JVM Latency Profile
 
-The BEAM excels at consistent low latency due to per-process GC and preemptive scheduling. The JVM excels at peak throughput due to JIT compilation and aggressive optimization. For the Prismatic Platform's use case -- concurrent [WebSocket](/glossary/websocket/) connections with real-time updates -- the BEAM's latency profile is superior because stop-the-world GC pauses in the JVM would cause visible UI stutter across all connected clients.
+The BEAM excels at consistent low latency due to per-process GC and preemptive scheduling. The JVM excels at peak throughput due to JIT compilation and aggressive optimization. For the Prismatic Platform's use case -- concurrent [WebSocket](@/glossary/websocket.md) connections with real-time updates -- the BEAM's latency profile is superior because stop-the-world GC pauses in the JVM would cause visible UI stutter across all connected clients.
 
 ### ETS vs. Redis for Low-Latency Caching
 
-[ETS](/glossary/ets/) provides sub-microsecond reads within the BEAM VM with zero serialization overhead. Redis provides single-digit millisecond reads over the network with serialization costs. For latency-critical lookups that do not require distribution across nodes, ETS is the correct choice. Redis is appropriate for shared cache across multiple nodes in a [distributed system](/glossary/distributed-system/) where network latency is acceptable.
+[ETS](@/glossary/ets.md) provides sub-microsecond reads within the BEAM VM with zero serialization overhead. Redis provides single-digit millisecond reads over the network with serialization costs. For latency-critical lookups that do not require distribution across nodes, ETS is the correct choice. Redis is appropriate for shared cache across multiple nodes in a [distributed system](@/glossary/distributed-system.md) where network latency is acceptable.
 
 ## Best Practices
 
@@ -370,13 +370,13 @@ The BEAM excels at consistent low latency due to per-process GC and preemptive s
 
 3. **Optimize the Critical Path**: Focus on the code that executes for every request. A 1ms improvement on the critical path saves more cumulative time than a 100ms improvement on a rarely-executed branch.
 
-4. **Cache Aggressively, Invalidate Carefully**: [Caching](/glossary/caching/) is the most effective latency reduction strategy. But stale caches cause subtle bugs. Use TTL-based expiration and event-driven invalidation.
+4. **Cache Aggressively, Invalidate Carefully**: [Caching](@/glossary/caching.md) is the most effective latency reduction strategy. But stale caches cause subtle bugs. Use TTL-based expiration and event-driven invalidation.
 
 5. **Avoid Synchronous External Calls**: External HTTP calls add 50-500ms of unpredictable latency. Use async patterns, background jobs, or cached responses for external dependencies.
 
 6. **Monitor Tail Latency**: P95 and P99 latency reveal problems that averages hide. A 10ms average with a 5-second P99 means 1% of users experience unacceptable delays.
 
-7. **Load Test Continuously**: Latency characteristics change under load. A system that responds in 5ms at 10 requests/second may respond in 500ms at 1000 requests/second. Use the platform's [laboratory](/glossary/laboratory/) for load experiments.
+7. **Load Test Continuously**: Latency characteristics change under load. A system that responds in 5ms at 10 requests/second may respond in 500ms at 1000 requests/second. Use the platform's [laboratory](@/glossary/laboratory.md) for load experiments.
 
 ## Common Pitfalls
 
@@ -386,7 +386,7 @@ The BEAM excels at consistent low latency due to per-process GC and preemptive s
 
 3. **N+1 Query Patterns**: Loading a list of N items and then making N additional database queries for related data. Each query adds 1-5ms, turning a 20ms page into a 500ms page. Use `Ecto.Query.preload/3` or batch loading.
 
-4. **Synchronous GenServer Bottlenecks**: Routing all requests through a single [GenServer](/glossary/genserver/) creates a serialization point where requests queue. Use ETS for reads and partition writes across multiple processes.
+4. **Synchronous GenServer Bottlenecks**: Routing all requests through a single [GenServer](@/glossary/genserver.md) creates a serialization point where requests queue. Use ETS for reads and partition writes across multiple processes.
 
 5. **Ignoring Serialization Costs**: JSON encoding/decoding adds 1-10ms for large payloads. Use binary protocols or reduce payload size for latency-critical paths.
 
@@ -398,7 +398,7 @@ The BEAM excels at consistent low latency due to per-process GC and preemptive s
 
 ### Real-Time LiveView Dashboards
 
-The Prismatic Platform's [LiveView](/glossary/liveview/) dashboards for OSINT toolbox, Perimeter EASM, and laboratory management require handle_event latency under 50ms to maintain interactive responsiveness. Users clicking buttons, filtering data, and navigating tabs expect immediate visual feedback. The 50ms budget ensures that server processing completes within one frame of animation (16ms at 60fps) plus network round-trip time.
+The Prismatic Platform's [LiveView](@/glossary/liveview.md) dashboards for OSINT toolbox, Perimeter EASM, and laboratory management require handle_event latency under 50ms to maintain interactive responsiveness. Users clicking buttons, filtering data, and navigating tabs expect immediate visual feedback. The 50ms budget ensures that server processing completes within one frame of animation (16ms at 60fps) plus network round-trip time.
 
 ### API Gateway Response Time
 
@@ -410,7 +410,7 @@ Load balancers and orchestration platforms poll health check endpoints every few
 
 ### OSINT Query Orchestration
 
-OSINT queries often involve multiple external data sources with variable latency (10ms to 5s). The platform uses async orchestration with timeout-bounded [circuit breakers](/glossary/circuit-breaker/) to prevent slow external sources from degrading the overall response time. Fast sources return immediately while slow sources are handled asynchronously with streaming updates via [WebSocket](/glossary/websocket/).
+OSINT queries often involve multiple external data sources with variable latency (10ms to 5s). The platform uses async orchestration with timeout-bounded [circuit breakers](@/glossary/circuit-breaker.md) to prevent slow external sources from degrading the overall response time. Fast sources return immediately while slow sources are handled asynchronously with streaming updates via [WebSocket](@/glossary/websocket.md).
 
 ### Perimeter Security Rating Computation
 
@@ -418,27 +418,27 @@ Computing a security rating for a domain involves aggregating data from asset di
 
 ## Related Concepts
 
-- [Performance](/glossary/performance/) -- The broader category encompassing latency, throughput, and resource efficiency
-- [Throughput](/glossary/throughput/) -- Operations per unit time, the complementary metric to latency
-- [Load Balancing](/glossary/load-balancing/) -- Distributing requests across servers to reduce per-server latency
-- [Caching](/glossary/caching/) -- Storing precomputed results to eliminate repeated computation latency
-- [Connection Pooling](/glossary/connection-pooling/) -- Maintaining warm database connections to avoid connection establishment latency
-- [Telemetry](/glossary/telemetry/) -- The instrumentation system measuring latency at every platform layer
-- [Observability](/glossary/observability/) -- Platform-wide visibility into latency distributions and anomalies
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Protection pattern preventing cascading latency from slow dependencies
-- [ETS](/glossary/ets/) -- In-memory storage providing sub-millisecond read latency
-- [GenServer](/glossary/genserver/) -- OTP abstraction whose call semantics directly affect request latency
-- [LiveView](/glossary/liveview/) -- Real-time UI framework with strict latency requirements
-- [WebSocket](/glossary/websocket/) -- Persistent connection protocol enabling low-latency server push
-- [BEAM](/glossary/beam/) -- Virtual machine providing soft real-time latency guarantees
-- [Distributed System](/glossary/distributed-system/) -- Architecture where network latency is a fundamental constraint
+- [Performance](@/glossary/performance.md) -- The broader category encompassing latency, throughput, and resource efficiency
+- [Throughput](@/glossary/throughput.md) -- Operations per unit time, the complementary metric to latency
+- [Load Balancing](@/glossary/load-balancing.md) -- Distributing requests across servers to reduce per-server latency
+- [Caching](@/glossary/caching.md) -- Storing precomputed results to eliminate repeated computation latency
+- [Connection Pooling](@/glossary/connection-pooling.md) -- Maintaining warm database connections to avoid connection establishment latency
+- [Telemetry](@/glossary/telemetry.md) -- The instrumentation system measuring latency at every platform layer
+- [Observability](@/glossary/observability.md) -- Platform-wide visibility into latency distributions and anomalies
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Protection pattern preventing cascading latency from slow dependencies
+- [ETS](@/glossary/ets.md) -- In-memory storage providing sub-millisecond read latency
+- [GenServer](@/glossary/genserver.md) -- OTP abstraction whose call semantics directly affect request latency
+- [LiveView](@/glossary/liveview.md) -- Real-time UI framework with strict latency requirements
+- [WebSocket](@/glossary/websocket.md) -- Persistent connection protocol enabling low-latency server push
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing soft real-time latency guarantees
+- [Distributed System](@/glossary/distributed-system.md) -- Architecture where network latency is a fundamental constraint
 
 ## See Also
 
-- [Monitoring](/glossary/monitoring/) -- Real-time latency tracking and alerting
-- [Phoenix](/glossary/phoenix/) -- Web framework with built-in telemetry for latency measurement
-- [Quality Gate](/glossary/quality-gate/) -- Enforcement mechanism that blocks merges when latency budgets are exceeded
-- [Laboratory](/glossary/laboratory/) -- Experimentation environment for latency profiling and load testing
+- [Monitoring](@/glossary/monitoring.md) -- Real-time latency tracking and alerting
+- [Phoenix](@/glossary/phoenix.md) -- Web framework with built-in telemetry for latency measurement
+- [Quality Gate](@/glossary/quality-gate.md) -- Enforcement mechanism that blocks merges when latency budgets are exceeded
+- [Laboratory](@/glossary/laboratory.md) -- Experimentation environment for latency profiling and load testing
 
 ---
 
@@ -447,4 +447,4 @@ Computing a security rating for a domain involves aggregating data from asset di
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

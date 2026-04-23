@@ -23,9 +23,9 @@ image_alt = "Prismatic Bifurcation - Prismatic Platform"
 
 ## Overview
 
-Prismatic Bifurcation provides decision branching and scenario analysis capabilities for strategic intelligence assessment within the Prismatic Platform. The system models multiple possible outcomes from a given entity state, evaluates branching points in behavioral event streams, and supports strategic assessment through "what if" scenario exploration across the intelligence pipeline. Bifurcation integrates with [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) for probabilistic branch evaluation, [Prismatic Nabla](/apps/prismatic-nabla/) for confidence propagation through decision trees, and [Prismatic Graph](/apps/prismatic-graph/) for scenario state snapshots.
+Prismatic Bifurcation provides decision branching and scenario analysis capabilities for strategic intelligence assessment within the Prismatic Platform. The system models multiple possible outcomes from a given entity state, evaluates branching points in behavioral event streams, and supports strategic assessment through "what if" scenario exploration across the intelligence pipeline. Bifurcation integrates with [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) for probabilistic branch evaluation, [Prismatic Nabla](@/apps/prismatic-nabla.md) for confidence propagation through decision trees, and [Prismatic Graph](@/apps/prismatic-graph.md) for scenario state snapshots.
 
-Intelligence analysis frequently requires evaluating how a situation might evolve under different conditions. When a vulnerability is disclosed affecting a monitored entity, the security outcome depends on whether the entity patches quickly, the vulnerability gets exploited in the wild, or the entity ignores the disclosure entirely. Each scenario leads to different [security rating](/glossary/security-rating/) trajectories, compliance implications, and risk assessments. Without systematic scenario analysis, these evaluations remain informal and subjective. Prismatic Bifurcation formalizes scenario analysis by modeling decision trees with probability-weighted branches, enabling quantitative comparison of possible futures.
+Intelligence analysis frequently requires evaluating how a situation might evolve under different conditions. When a vulnerability is disclosed affecting a monitored entity, the security outcome depends on whether the entity patches quickly, the vulnerability gets exploited in the wild, or the entity ignores the disclosure entirely. Each scenario leads to different [security rating](@/glossary/security-rating.md) trajectories, compliance implications, and risk assessments. Without systematic scenario analysis, these evaluations remain informal and subjective. Prismatic Bifurcation formalizes scenario analysis by modeling decision trees with probability-weighted branches, enabling quantitative comparison of possible futures.
 
 Each scenario branch is evaluated independently with cascading effect analysis, producing probability-weighted outcome distributions that inform decision recommendations with quantified uncertainty. The design goals encompass branch point identification to detect decision points in event streams where entity behavior could diverge, multi-scenario simulation to model and evaluate multiple outcome scenarios per branch point, probability assignment using Monte Carlo methods, cascading effect analysis to trace how branch outcomes propagate through dependent systems, decision support to produce ranked recommendations with confidence-weighted expected outcomes, and NABLA compliance ensuring all scenario assessments carry provenance and confidence per epistemic axioms.
 
@@ -142,17 +142,17 @@ End-to-end integration tests exercise the full analysis pipeline from event thro
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) | Probabilistic scenario evaluation engine |
-| [Prismatic Nabla](/apps/prismatic-nabla/) | Confidence propagation through branching structures |
-| [Prismatic Graph](/apps/prismatic-graph/) | Scenario state snapshots in knowledge graph |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Security rating scenario analysis for EASM |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | Compliance impact forecasting across scenarios |
+| [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) | Probabilistic scenario evaluation engine |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | Confidence propagation through branching structures |
+| [Prismatic Graph](@/apps/prismatic-graph.md) | Scenario state snapshots in knowledge graph |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Security rating scenario analysis for EASM |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | Compliance impact forecasting across scenarios |
 
-Scenario evaluations are dispatched as supervised tasks for parallel processing. Branch detection monitors [PubSub](/glossary/pubsub/) event topics for incoming events. All computation is performed locally using platform data with no external service dependencies.
+Scenario evaluations are dispatched as supervised tasks for parallel processing. Branch detection monitors [PubSub](@/glossary/pubsub.md) event topics for incoming events. All computation is performed locally using platform data with no external service dependencies.
 
 ## NABLA Compliance
 
-Prismatic Bifurcation enforces [NABLA](/glossary/nabla-infinity/) axiom compliance on all scenario assessments and decision recommendations.
+Prismatic Bifurcation enforces [NABLA](@/glossary/nabla-infinity.md) axiom compliance on all scenario assessments and decision recommendations.
 
 | NABLA Axiom | Bifurcation Enforcement | Implementation |
 |-------------|------------------------|----------------|
@@ -180,19 +180,19 @@ Scenario evaluations parallelize across branches. Monte Carlo iterations are emb
 | Memory | 128 MB | 512 MB |
 | CPU | 2 cores | 4 cores |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :bifurcation, :analysis_complete]`, `[:prismatic, :bifurcation, :recommendation_generated]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :bifurcation, :analysis_complete]`, `[:prismatic, :bifurcation, :recommendation_generated]`.
 
 ## Related Resources
 
-- [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) -- Probabilistic simulation engine
-- [Prismatic Nabla](/apps/prismatic-nabla/) -- Epistemic confidence framework
-- [Prismatic Graph](/apps/prismatic-graph/) -- [Knowledge graph](/glossary/knowledge-graph/) for state snapshots
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Drives scenario evaluation evolution for improved decision recommendations
-- [Cross-Pollination Specialist](/agents/cross-pollination-specialist/) -- Transfers bifurcation analysis patterns across security, compliance, and risk domains
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures scenario recommendations carry verifiable probability and confidence chains
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Confidence propagation through decision branches with provenance tracking
-- [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) -- Combines Monte Carlo, graph analysis, and decision theory for scenario evaluation
-- [Trinity Gate](/capabilities/trinity-gate/) -- Formal verification of scenario probability consistency and cascading effect logic
+- [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) -- Probabilistic simulation engine
+- [Prismatic Nabla](@/apps/prismatic-nabla.md) -- Epistemic confidence framework
+- [Prismatic Graph](@/apps/prismatic-graph.md) -- [Knowledge graph](@/glossary/knowledge-graph.md) for state snapshots
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Drives scenario evaluation evolution for improved decision recommendations
+- [Cross-Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Transfers bifurcation analysis patterns across security, compliance, and risk domains
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures scenario recommendations carry verifiable probability and confidence chains
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Confidence propagation through decision branches with provenance tracking
+- [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) -- Combines Monte Carlo, graph analysis, and decision theory for scenario evaluation
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Formal verification of scenario probability consistency and cascading effect logic
 
 ---
 
@@ -201,4 +201,4 @@ Scenario evaluations parallelize across branches. Monte Carlo iterations are emb
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

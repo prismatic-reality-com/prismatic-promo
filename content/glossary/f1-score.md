@@ -517,19 +517,19 @@ Logger.info("Adapter F1: #{Float.round(f1, 4)}")
 
 ## Related Terms
 
-- [Precision](/glossary/precision/) -- The fraction of predicted positives that are truly positive; the numerator component of F1 that measures prediction quality
-- [Recall](/glossary/recall/) -- The fraction of actual positives that were correctly identified; the numerator component of F1 that measures detection completeness
-- [Accuracy](/glossary/accuracy/) -- The fraction of all predictions that are correct; simpler but misleading for imbalanced datasets
+- [Precision](@/glossary/precision.md) -- The fraction of predicted positives that are truly positive; the numerator component of F1 that measures prediction quality
+- [Recall](@/glossary/recall.md) -- The fraction of actual positives that were correctly identified; the numerator component of F1 that measures detection completeness
+- [Accuracy](@/glossary/accuracy.md) -- The fraction of all predictions that are correct; simpler but misleading for imbalanced datasets
 - [Confusion Matrix](/glossary/confusion-matrix/) -- The 2x2 (or NxN) table of TP/FP/FN/TN counts from which F1 and all classification metrics are derived
 - [Classification](/glossary/classification/) -- The supervised learning task of assigning discrete labels to inputs; the domain where F1 is most applicable
-- [Mean](/glossary/mean/) -- Statistical averages; F1 uses the harmonic mean specifically because it penalizes extreme imbalance
-- [Distribution](/glossary/distribution/) -- Statistical distributions; class distribution determines whether F1 or accuracy is the appropriate metric
-- [Data Quality](/glossary/data-quality/) -- The reliability and completeness of training data; poor data quality directly degrades F1 scores
-- [OSINT](/glossary/osint/) -- Open Source Intelligence; the Prismatic OSINT pipeline uses F1 to evaluate adapter result quality
-- [Machine Learning](/glossary/machine-learning/) -- The broader field in which F1 serves as a standard evaluation metric
+- [Mean](@/glossary/mean.md) -- Statistical averages; F1 uses the harmonic mean specifically because it penalizes extreme imbalance
+- [Distribution](@/glossary/distribution.md) -- Statistical distributions; class distribution determines whether F1 or accuracy is the appropriate metric
+- [Data Quality](@/glossary/data-quality.md) -- The reliability and completeness of training data; poor data quality directly degrades F1 scores
+- [OSINT](@/glossary/osint.md) -- Open Source Intelligence; the Prismatic OSINT pipeline uses F1 to evaluate adapter result quality
+- [Machine Learning](@/glossary/machine-learning.md) -- The broader field in which F1 serves as a standard evaluation metric
 - [Deep Learning](/glossary/deep-learning/) -- Neural network approaches where F1 evaluation follows the same principles as classical ML
 - [Natural Language Processing](/glossary/natural-language-processing/) -- NLP tasks like NER and sentiment classification rely heavily on F1 for evaluation
-- [Anomaly Detection](/glossary/anomaly-detection/) -- Detecting rare events where F1 is preferred over accuracy due to extreme class imbalance
+- [Anomaly Detection](@/glossary/anomaly-detection.md) -- Detecting rare events where F1 is preferred over accuracy due to extreme class imbalance
 - [ROC-AUC](/glossary/roc-auc/) -- An alternative threshold-independent metric; complements F1 by evaluating across all thresholds simultaneously
 
 ---
@@ -547,4 +547,4 @@ Logger.info("Adapter F1: #{Float.round(f1, 4)}")
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

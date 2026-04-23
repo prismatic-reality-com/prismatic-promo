@@ -25,9 +25,9 @@ image_alt = "WhoisXML API - Prismatic Platform"
 
 ## Overview
 
-WhoisXML API provides enterprise-grade domain and IP intelligence through a comprehensive suite of over 50 APIs and data feeds. The platform maintains one of the largest [WHOIS](/glossary/whois/) databases globally, with over 7 billion historical WHOIS records spanning more than a decade, covering all gTLDs and over 1,000 ccTLDs. The service aggregates WHOIS registration data, DNS records, IP geolocation, subdomain intelligence, domain reputation, and website categorization into a unified API platform that powers security operations, brand protection, law enforcement investigations, and competitive intelligence research.
+WhoisXML API provides enterprise-grade domain and IP intelligence through a comprehensive suite of over 50 APIs and data feeds. The platform maintains one of the largest [WHOIS](@/glossary/whois.md) databases globally, with over 7 billion historical WHOIS records spanning more than a decade, covering all gTLDs and over 1,000 ccTLDs. The service aggregates WHOIS registration data, DNS records, IP geolocation, subdomain intelligence, domain reputation, and website categorization into a unified API platform that powers security operations, brand protection, law enforcement investigations, and competitive intelligence research.
 
-For [OSINT](/glossary/osint/) investigators, WhoisXML API provides the foundational domain and infrastructure intelligence needed for any internet-focused investigation. The platform's reverse WHOIS capability -- searching for all domains registered by a specific person, email, or organization -- is particularly powerful for mapping an entity's complete domain portfolio. Combined with DNS intelligence, subdomain discovery, and IP geolocation, WhoisXML API enables comprehensive infrastructure mapping from a single starting point.
+For [OSINT](@/glossary/osint.md) investigators, WhoisXML API provides the foundational domain and infrastructure intelligence needed for any internet-focused investigation. The platform's reverse WHOIS capability -- searching for all domains registered by a specific person, email, or organization -- is particularly powerful for mapping an entity's complete domain portfolio. Combined with DNS intelligence, subdomain discovery, and IP geolocation, WhoisXML API enables comprehensive infrastructure mapping from a single starting point.
 
 WhoisXML API distinguishes itself through the breadth of its product suite and the depth of its historical data. While many providers offer individual WHOIS or DNS lookup services, WhoisXML API provides an integrated platform that covers the full spectrum of domain and IP intelligence. The historical dimension is particularly valuable: even after GDPR-mandated WHOIS redaction reduced the availability of current registrant data, WhoisXML API's historical database retains pre-GDPR registration information that can still provide investigative leads.
 
@@ -264,7 +264,7 @@ Domain reputation scoring, combined with DNS intelligence and WHOIS data, enable
 
 ### Attack Surface Discovery
 
-Subdomain enumeration combined with reverse DNS and reverse NS lookups maps the complete domain infrastructure of a target organization. This feeds into External Attack Surface Management ([EASM](/glossary/easm/)) workflows alongside data from [SecurityTrails](/osint/securitytrails/) and [Shodan](/osint/shodan/).
+Subdomain enumeration combined with reverse DNS and reverse NS lookups maps the complete domain infrastructure of a target organization. This feeds into External Attack Surface Management ([EASM](@/glossary/easm.md)) workflows alongside data from [SecurityTrails](@/osint/securitytrails.md) and [Shodan](@/osint/shodan.md).
 
 ### Fraud Investigation
 
@@ -277,7 +277,7 @@ Historical WHOIS data reveals domain ownership changes, registration patterns, a
 | **GDPR WHOIS redaction** | Current WHOIS for EU domains increasingly redacted | Use historical records; combine with reverse WHOIS techniques |
 | **Credit-based pricing** | Each API call consumes credits; complex investigations use many | Monitor credit consumption; cache results aggressively |
 | **ccTLD coverage varies** | Some country-code TLDs have limited WHOIS data | Supplement with regional WHOIS services for specific ccTLDs |
-| **Subdomain completeness** | Passive enumeration may miss some subdomains | Combine with [crt.sh](/osint/crtsh/) and [SecurityTrails](/osint/securitytrails/) |
+| **Subdomain completeness** | Passive enumeration may miss some subdomains | Combine with [crt.sh](@/osint/crtsh.md) and [SecurityTrails](@/osint/securitytrails.md) |
 | **Reputation score context** | Domain reputation is automated and may lack context | Use reputation as one signal among many; validate manually |
 | **Rate limits on free tier** | 500 credits/month limits investigation scope | Use paid plans for production; implement intelligent caching |
 
@@ -293,14 +293,14 @@ Historical WHOIS data reveals domain ownership changes, registration patterns, a
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), WhoisXML API serves as the primary WHOIS and domain registration intelligence source.
+Within the [Prismatic Platform](@/apps/prismatic.md), WhoisXML API serves as the primary WHOIS and domain registration intelligence source.
 
 - **Domain Investigation**: WhoisXML API provides the WHOIS foundation for all domain-focused investigations, including current records, historical changes, and reverse lookups.
-- **Attack Surface Mapping**: Subdomain discovery and reverse DNS feed into [Prismatic Perimeter](/apps/prismatic-perimeter/) alongside [SecurityTrails](/osint/securitytrails/) and [crt.sh](/osint/crtsh/) for comprehensive domain infrastructure mapping.
-- **Entity Resolution**: Reverse WHOIS searches map domain portfolios to entities in the platform's [knowledge graph](/glossary/knowledge-graph/), connecting organizational identities to their internet infrastructure.
+- **Attack Surface Mapping**: Subdomain discovery and reverse DNS feed into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) alongside [SecurityTrails](@/osint/securitytrails.md) and [crt.sh](@/osint/crtsh.md) for comprehensive domain infrastructure mapping.
+- **Entity Resolution**: Reverse WHOIS searches map domain portfolios to entities in the platform's [knowledge graph](@/glossary/knowledge-graph.md), connecting organizational identities to their internet infrastructure.
 - **Brand Monitoring**: Newly registered domain feeds are monitored for brand-relevant registrations, triggering alerts for potential phishing or brand abuse.
 - **Reputation Scoring**: Domain reputation data feeds into the platform's entity risk scoring for assessed organizations and their infrastructure.
-- **Cross-Source Validation**: WhoisXML API data is cross-referenced with [SecurityTrails](/osint/securitytrails/), [RiskIQ](/osint/riskiq/), and [PassiveDNS](/osint/passivedns/) for multi-source domain intelligence.
+- **Cross-Source Validation**: WhoisXML API data is cross-referenced with [SecurityTrails](@/osint/securitytrails.md), [RiskIQ](@/osint/riskiq.md), and [PassiveDNS](@/osint/passivedns.md) for multi-source domain intelligence.
 
 ## Best Practices
 
@@ -322,14 +322,14 @@ Within the [Prismatic Platform](/apps/prismatic/), WhoisXML API serves as the pr
 
 ## Related Providers
 
-- [SecurityTrails](/osint/securitytrails/) - DNS history and domain intelligence
-- [RiskIQ](/osint/riskiq/) - Passive DNS with host pairs and web crawling
-- [PassiveDNS](/osint/passivedns/) - Historical DNS resolution databases
-- [Censys](/osint/censys/) - Certificate-based domain discovery
-- [DNSDumpster](/osint/dnsdumpster/) - Free DNS reconnaissance
-- [crt.sh](/osint/crtsh/) - Certificate transparency logs
-- [Shodan](/osint/shodan/) - IP-level service discovery
-- [Hunter.io](/osint/hunter-io/) - Email discovery for discovered domains
+- [SecurityTrails](@/osint/securitytrails.md) - DNS history and domain intelligence
+- [RiskIQ](@/osint/riskiq.md) - Passive DNS with host pairs and web crawling
+- [PassiveDNS](@/osint/passivedns.md) - Historical DNS resolution databases
+- [Censys](@/osint/censys.md) - Certificate-based domain discovery
+- [DNSDumpster](@/osint/dnsdumpster.md) - Free DNS reconnaissance
+- [crt.sh](@/osint/crtsh.md) - Certificate transparency logs
+- [Shodan](@/osint/shodan.md) - IP-level service discovery
+- [Hunter.io](@/osint/hunter-io.md) - Email discovery for discovered domains
 
 ---
 
@@ -338,4 +338,4 @@ Within the [Prismatic Platform](/apps/prismatic/), WhoisXML API serves as the pr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

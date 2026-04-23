@@ -23,9 +23,9 @@ image_alt = "Prismatic OSINT EU Institutions - Prismatic Platform"
 
 ## Overview
 
-Prismatic [OSINT](/glossary/osint/) EU Institutions provides [adapter pattern](/glossary/adapter-pattern/) implementations for European Union institutional data sources, integrating with EU sanctions lists, ECB financial data, Europol threat assessments, and EU regulatory databases for comprehensive European intelligence collection. Each adapter normalizes source-specific data formats into the platform's unified [entity resolution](/glossary/entity-resolution/) schema, enabling cross-source correlation and [knowledge graph](/glossary/knowledge-graph/) integration through consistent data structures.
+Prismatic [OSINT](@/glossary/osint.md) EU Institutions provides [adapter pattern](@/glossary/adapter-pattern.md) implementations for European Union institutional data sources, integrating with EU sanctions lists, ECB financial data, Europol threat assessments, and EU regulatory databases for comprehensive European intelligence collection. Each adapter normalizes source-specific data formats into the platform's unified [entity resolution](@/glossary/entity-resolution.md) schema, enabling cross-source correlation and [knowledge graph](@/glossary/knowledge-graph.md) integration through consistent data structures.
 
-The application implements real-time monitoring of EU sanctions list updates, automatically detecting additions, removals, and modifications to consolidated restrictive measures lists. Entity matching against sanctions lists uses fuzzy name resolution with transliteration support for names across European languages, combined with [confidence scoring](/glossary/confidence-scoring/) derived from the platform's [NABLA epistemic framework](/glossary/nabla-infinity/) to distinguish true matches from coincidental name similarities. All screening results pass through [Trinity Gate](/glossary/trinity-gate/) validation before being reported as findings.
+The application implements real-time monitoring of EU sanctions list updates, automatically detecting additions, removals, and modifications to consolidated restrictive measures lists. Entity matching against sanctions lists uses fuzzy name resolution with transliteration support for names across European languages, combined with [confidence scoring](@/glossary/confidence-scoring.md) derived from the platform's [NABLA epistemic framework](@/glossary/nabla-infinity.md) to distinguish true matches from coincidental name similarities. All screening results pass through [Trinity Gate](@/glossary/trinity-gate.md) validation before being reported as findings.
 
 Financial intelligence adapters integrate with ECB reference rates, EU trade statistics, and state aid databases, providing the economic context necessary for comprehensive due diligence assessments. Regulatory data adapters cover ECHA chemical substance registrations, EMA medicinal product authorizations, and TED public procurement data, enabling cross-domain intelligence synthesis that connects business entities to their regulatory footprint across the European Union.
 
@@ -46,7 +46,7 @@ Source Adapters --> Response Parser --> Entity Normalizer --> Evidence Store
                           Screening Engine --> Fuzzy Entity Matching
 ```
 
-All parsing and entity normalization follows [pure function](/glossary/pure-function/) principles. Network requests use [rate limiting](/glossary/rate-limiting/) and [backpressure](/glossary/backpressure/) to comply with EU API usage policies. Each adapter runs in its own supervised [process](/glossary/process-isolation/) under the [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/).
+All parsing and entity normalization follows [pure function](@/glossary/pure-function.md) principles. Network requests use [rate limiting](@/glossary/rate-limiting.md) and [backpressure](@/glossary/backpressure.md) to comply with EU API usage policies. Each adapter runs in its own supervised [process](@/glossary/process-isolation.md) under the [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md).
 
 ## Key Modules
 
@@ -107,7 +107,7 @@ end
 - Consolidated EU sanctions list screening with real-time update monitoring and automatic list refresh
 - Entity matching with fuzzy name resolution, transliteration support, and alias cross-referencing
 - Sanctions program categorization (terrorism, proliferation, human rights, regional) with regime mapping
-- Screening result [confidence scoring](/glossary/confidence-scoring/) with configurable thresholds for automated vs. manual review routing
+- Screening result [confidence scoring](@/glossary/confidence-scoring.md) with configurable thresholds for automated vs. manual review routing
 
 ### Financial Intelligence
 
@@ -163,8 +163,8 @@ end
 ### Source Health Monitoring
 
 - Availability tracking per EU data source with automatic failover and retry logic
-- [Circuit breaker](/glossary/circuit-breaker/) patterns preventing cascading failures when EU portals are unavailable
-- [Telemetry](/glossary/telemetry/) emission for source response times, error rates, and data freshness [metrics](/glossary/metrics/)
+- [Circuit breaker](@/glossary/circuit-breaker.md) patterns preventing cascading failures when EU portals are unavailable
+- [Telemetry](@/glossary/telemetry.md) emission for source response times, error rates, and data freshness [metrics](@/glossary/metrics.md)
 
 ## Integrated Sources
 
@@ -173,7 +173,7 @@ end
 | EU Sanctions List | Sanctions | Consolidated restrictive measures with daily updates |
 | TED (Tenders) | Procurement | EU-wide public procurement data above threshold values |
 | ECB | Financial | Exchange rates, monetary statistics, and financial stability data |
-| Europol | Threat | SOCTA, IOCTA [threat intelligence](/glossary/threat-intelligence/) assessments and trend analysis |
+| Europol | Threat | SOCTA, IOCTA [threat intelligence](@/glossary/threat-intelligence.md) assessments and trend analysis |
 | ECHA | Regulatory | Chemical substance registration and REACH compliance verification |
 | EMA | Regulatory | Medicinal product authorization and safety signal monitoring |
 
@@ -224,12 +224,12 @@ Integration tests exercise the full pipeline from EU source fetching through par
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic OSINT Sources](/apps/prismatic-osint-sources/) | EU adapters registered in the unified OSINT source catalog with capability metadata |
-| [Prismatic OSINT Business](/apps/prismatic-osint-business-financial/) | EU financial and sanctions data feeding business intelligence profiles |
-| [Prismatic Storage Ecto](/apps/prismatic-storage-ecto/) | [PostgreSQL](/glossary/postgresql/) persistence for screening results and regulatory data |
-| [Prismatic Graph](/apps/prismatic-graph/) | Entity relationship mapping connecting EU data to the knowledge graph |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | [NIS2](/glossary/nis2/) and [compliance framework](/glossary/compliance-framework/) assessment consuming EU regulatory data |
-| [Prismatic DD](/apps/prismatic-dd/) | Due diligence workflows incorporating EU sanctions screening results |
+| [Prismatic OSINT Sources](@/apps/prismatic-osint-sources.md) | EU adapters registered in the unified OSINT source catalog with capability metadata |
+| [Prismatic OSINT Business](@/apps/prismatic-osint-business-financial.md) | EU financial and sanctions data feeding business intelligence profiles |
+| [Prismatic Storage Ecto](@/apps/prismatic-storage-ecto.md) | [PostgreSQL](@/glossary/postgresql.md) persistence for screening results and regulatory data |
+| [Prismatic Graph](@/apps/prismatic-graph.md) | Entity relationship mapping connecting EU data to the knowledge graph |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | [NIS2](@/glossary/nis2.md) and [compliance framework](@/glossary/compliance-framework.md) assessment consuming EU regulatory data |
+| [Prismatic DD](@/apps/prismatic-dd.md) | Due diligence workflows incorporating EU sanctions screening results |
 
 ## Performance
 
@@ -242,17 +242,17 @@ Integration tests exercise the full pipeline from EU source fetching through par
 | Update check (per source) | < 1s | HTTP HEAD/conditional GET |
 | Entity normalization | < 50ms | Pure function transformation |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :osint_eu, :sanctions_screened]`, `[:prismatic, :osint_eu, :source_updated]`, `[:prismatic, :osint_eu, :rate_fetched]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :osint_eu, :sanctions_screened]`, `[:prismatic, :osint_eu, :source_updated]`, `[:prismatic, :osint_eu, :rate_fetched]`.
 
 ## Related Resources
 
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Core OSINT infrastructure shared across all source adapters
-- [Business Financial Intelligence Specialist](/agents/business-financial-intelligence-specialist/) -- Coordinates EU financial intelligence analysis
-- [Competitor Researcher](/agents/competitor-researcher/) -- Leverages EU procurement data for competitive intelligence
-- [Cross Pollination Specialist](/agents/cross-pollination-specialist/) -- Cross-domain intelligence synthesis from EU sources
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source EU evidence fusion for entity assessment
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Epistemic confidence scoring for sanctions screening results
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- EU source availability and data freshness monitoring
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Core OSINT infrastructure shared across all source adapters
+- [Business Financial Intelligence Specialist](@/agents/business-financial-intelligence-specialist.md) -- Coordinates EU financial intelligence analysis
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Leverages EU procurement data for competitive intelligence
+- [Cross Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Cross-domain intelligence synthesis from EU sources
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source EU evidence fusion for entity assessment
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Epistemic confidence scoring for sanctions screening results
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- EU source availability and data freshness monitoring
 
 ---
 
@@ -261,4 +261,4 @@ Integration tests exercise the full pipeline from EU source fetching through par
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

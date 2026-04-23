@@ -30,7 +30,7 @@ image_alt = "LLM Routing Orchestrator Agent - Prismatic Platform"
 
 The LLM Routing Orchestrator Agent operates as an L3 strategic command authority within the LLM domain of the Prismatic Platform. This agent provides master coordination for intelligent LLM routing, dynamically selecting the optimal model and provider for each request based on task complexity, cost constraints, latency requirements, and provider health status. By maintaining real-time awareness of provider capabilities, pricing, and availability, the orchestrator ensures that every LLM request is routed to the most appropriate backend.
 
-The Prismatic Platform integrates multiple LLM providers -- [Ollama](/glossary/ollama/) for local inference, Claude for complex reasoning, OpenRouter for model diversity -- each with distinct capabilities, cost profiles, and latency characteristics. Without intelligent routing, teams default to the most expensive model for every request, wasting budget on simple tasks that local models handle effectively. The LLM Routing Orchestrator eliminates this waste by matching task requirements to provider capabilities in real-time.
+The Prismatic Platform integrates multiple LLM providers -- [Ollama](@/glossary/ollama.md) for local inference, Claude for complex reasoning, OpenRouter for model diversity -- each with distinct capabilities, cost profiles, and latency characteristics. Without intelligent routing, teams default to the most expensive model for every request, wasting budget on simple tasks that local models handle effectively. The LLM Routing Orchestrator eliminates this waste by matching task requirements to provider capabilities in real-time.
 
 ## Routing Architecture
 
@@ -110,7 +110,7 @@ The orchestrator maintains a real-time registry of available LLM providers with 
 
 ## Circuit Breaker Integration
 
-Each provider connection is protected by a [circuit breaker](/glossary/circuit-breaker/) that prevents cascading failures when a provider becomes unavailable.
+Each provider connection is protected by a [circuit breaker](@/glossary/circuit-breaker.md) that prevents cascading failures when a provider becomes unavailable.
 
 ```elixir
 defmodule PrismaticAgents.LLMRouting.CircuitBreaker do
@@ -159,29 +159,29 @@ The orchestrator tracks token consumption and cost across all providers to optim
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/). Multi-domain coordination for LLM operations. The orchestrator has authority to route requests across all providers, manage circuit breaker states, and set cost budget allocations.
+**L3** - [Strategic Command](@/glossary/strategic-command.md). Multi-domain coordination for LLM operations. The orchestrator has authority to route requests across all providers, manage circuit breaker states, and set cost budget allocations.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [ollama-coordinator](/agents/ollama-coordinator/) | Local Provider | Manages Ollama model lifecycle and local inference |
-| [llm-cost-manager](/agents/llm-cost-manager/) | Cost Tracking | Provides detailed cost analysis for routing optimization |
-| [llm-fallback-coordinator](/agents/llm-fallback-coordinator/) | Fallback Management | Coordinates fallback routing when primary providers fail |
-| [llm-performance-optimizer](/agents/llm-performance-optimizer/) | Performance Tuning | Optimizes routing parameters based on performance telemetry |
+| [ollama-coordinator](@/agents/ollama-coordinator.md) | Local Provider | Manages Ollama model lifecycle and local inference |
+| [llm-cost-manager](@/agents/llm-cost-manager.md) | Cost Tracking | Provides detailed cost analysis for routing optimization |
+| [llm-fallback-coordinator](@/agents/llm-fallback-coordinator.md) | Fallback Management | Coordinates fallback routing when primary providers fail |
+| [llm-performance-optimizer](@/agents/llm-performance-optimizer.md) | Performance Tuning | Optimizes routing parameters based on performance telemetry |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [Ollama](/glossary/ollama/) | Local LLM inference provider |
-| [Circuit Breaker](/glossary/circuit-breaker/) | Provider health management |
-| Platform [Telemetry](/glossary/telemetry/) | Routing metrics, latency, and cost tracking |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Multi-signal routing decision evidence |
+| [Ollama](@/glossary/ollama.md) | Local LLM inference provider |
+| [Circuit Breaker](@/glossary/circuit-breaker.md) | Provider health management |
+| Platform [Telemetry](@/glossary/telemetry.md) | Routing metrics, latency, and cost tracking |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Multi-signal routing decision evidence |
 
 ## Enforcement
 
-The LLM Routing Orchestrator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. All routing decisions are logged with full evidence including request profile, provider scores, and selection rationale. Cost budget overruns trigger automatic routing policy adjustments. Provider health degradation triggers immediate circuit breaker activation. No LLM request is sent to an unhealthy provider. Routing decisions maintain complete [audit trail](/glossary/audit-trail/) provenance for cost and quality analysis.
+The LLM Routing Orchestrator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. All routing decisions are logged with full evidence including request profile, provider scores, and selection rationale. Cost budget overruns trigger automatic routing policy adjustments. Provider health degradation triggers immediate circuit breaker activation. No LLM request is sent to an unhealthy provider. Routing decisions maintain complete [audit trail](@/glossary/audit-trail.md) provenance for cost and quality analysis.
 
 ---
 
@@ -190,4 +190,4 @@ The LLM Routing Orchestrator operates under the [NO MERCY, NO DOUBTS](/glossary/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,11 +26,11 @@ image_alt = "/ma-dashboard - Prismatic Platform"
 
 **/ma-dashboard** is a production command in the **M&A Operations** category of the Prismatic Platform that provides a comprehensive, real-time dashboard view of the entire M&A deal pipeline. The dashboard aggregates deal status, financial summaries, timeline progress, intelligence collection status, and risk indicators across all active deals into a unified visual interface that gives M&A operators immediate situational awareness of the complete deal portfolio.
 
-This command operates under the **L2+** authority level and is executed by the `ma-report-generator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level allows broad access to pipeline visibility while restricting sensitive deal details to operators with appropriate clearance.
+This command operates under the **L2+** authority level and is executed by the `ma-report-generator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level allows broad access to pipeline visibility while restricting sensitive deal details to operators with appropriate clearance.
 
-The M&A dashboard integrates data from every component of the M&A operations suite. Deals created through [/ma-create](/commands/ma-create/) appear in the pipeline immediately. Analysis progress from [/ma-analyze](/commands/ma-analyze/) is reflected in real-time. Compliance status from [/ma-enforce](/commands/ma-enforce/) is surfaced as warning indicators. Intelligence collection status from [/investigate](/commands/investigate/) and related OSINT commands is tracked per-deal. The result is a single command that provides complete M&A portfolio visibility without requiring operators to query individual deal records.
+The M&A dashboard integrates data from every component of the M&A operations suite. Deals created through [/ma-create](@/commands/ma-create.md) appear in the pipeline immediately. Analysis progress from [/ma-analyze](@/commands/ma-analyze.md) is reflected in real-time. Compliance status from [/ma-enforce](@/commands/ma-enforce.md) is surfaced as warning indicators. Intelligence collection status from [/investigate](@/commands/investigate.md) and related OSINT commands is tracked per-deal. The result is a single command that provides complete M&A portfolio visibility without requiring operators to query individual deal records.
 
-The dashboard is built on Phoenix [LiveView](/glossary/liveview/) and renders as a real-time web interface when accessed through the platform's web layer, or as a formatted terminal report when invoked from the command line. LiveView's server-side rendering ensures that dashboard updates are pushed to all connected clients in real time as deal states change, analyses complete, or enforcement actions fire.
+The dashboard is built on Phoenix [LiveView](@/glossary/liveview.md) and renders as a real-time web interface when accessed through the platform's web layer, or as a formatted terminal report when invoked from the command line. LiveView's server-side rendering ensures that dashboard updates are pushed to all connected clients in real time as deal states change, analyses complete, or enforcement actions fire.
 
 ## Architecture
 
@@ -155,16 +155,16 @@ The dashboard system aggregates data from multiple M&A subsystems and renders it
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `ma-report-generator` | Dashboard rendering and data aggregation |
-| [/ma-create](/commands/ma-create/) | Deal source | New deals appear in pipeline view |
-| [/ma-analyze](/commands/ma-analyze/) | Analysis status | Analysis progress and results displayed |
-| [/ma-status](/commands/ma-status/) | Status data | Detailed status feeds dashboard metrics |
-| [/ma-enforce](/commands/ma-enforce/) | Compliance status | Enforcement warnings surfaced in dashboard |
-| [/ma-report](/commands/ma-report/) | Report generation | Dashboard data feeds report generation |
-| [/investigate](/commands/investigate/) | Intel status | OSINT collection progress per deal |
-| [LiveView](/glossary/liveview/) | Web rendering | Real-time dashboard updates via WebSocket |
-| [Telemetry](/glossary/telemetry/) | Activity feed | Event stream for activity tracking |
-| [Quality Gates](/glossary/quality-gates/) | Data quality | Dashboard data completeness validation |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `ma-report-generator` | Dashboard rendering and data aggregation |
+| [/ma-create](@/commands/ma-create.md) | Deal source | New deals appear in pipeline view |
+| [/ma-analyze](@/commands/ma-analyze.md) | Analysis status | Analysis progress and results displayed |
+| [/ma-status](@/commands/ma-status.md) | Status data | Detailed status feeds dashboard metrics |
+| [/ma-enforce](@/commands/ma-enforce.md) | Compliance status | Enforcement warnings surfaced in dashboard |
+| [/ma-report](@/commands/ma-report.md) | Report generation | Dashboard data feeds report generation |
+| [/investigate](@/commands/investigate.md) | Intel status | OSINT collection progress per deal |
+| [LiveView](@/glossary/liveview.md) | Web rendering | Real-time dashboard updates via WebSocket |
+| [Telemetry](@/glossary/telemetry.md) | Activity feed | Event stream for activity tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Data quality | Dashboard data completeness validation |
 
 ## Best Practices
 
@@ -172,7 +172,7 @@ The dashboard system aggregates data from multiple M&A subsystems and renders it
 
 **Use the kanban board for daily deal management.** The kanban view provides the most actionable interface for managing deal flow. Cards can be visually assessed for status, and the grouped layout makes it easy to identify bottlenecks in the deal process.
 
-**Monitor the compliance indicators.** Compliance warnings from [/ma-enforce](/commands/ma-enforce/) appear as visual indicators on deal cards. Unaddressed compliance issues escalate over time, so address warnings promptly to prevent deal delays.
+**Monitor the compliance indicators.** Compliance warnings from [/ma-enforce](@/commands/ma-enforce.md) appear as visual indicators on deal cards. Unaddressed compliance issues escalate over time, so address warnings promptly to prevent deal delays.
 
 **Export weekly snapshots for stakeholder reporting.** Use `--export=pdf` to generate presentation-ready pipeline snapshots for stakeholder meetings. The export includes charts, metrics, and deal summaries appropriate for executive audiences.
 
@@ -252,21 +252,21 @@ curl -N /api/v1/ma/dashboard/stream
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The dashboard renders all available data or reports exactly which data sources are unavailable. No silent data gaps are permitted -- missing information is explicitly surfaced.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. All metrics displayed on the dashboard are computed from verified data sources with clear provenance. Confidence scores are displayed alongside valuations to prevent false certainty.
 
 ## Related Commands
 
-- [/ma-create](/commands/ma-create/) - Create new M&A deal with target profiling and initial assessment
-- [/ma-analyze](/commands/ma-analyze/) - Comprehensive M&A analysis including financial, legal and operational review
-- [/ma-report](/commands/ma-report/) - Generate detailed M&A analysis report with visualizations
-- [/ma-status](/commands/ma-status/) - M&A deal pipeline status overview and progress tracking
-- [/ma-enforce](/commands/ma-enforce/) - M&A enforcement actions for deal compliance and deadline tracking
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/ma-create](@/commands/ma-create.md) - Create new M&A deal with target profiling and initial assessment
+- [/ma-analyze](@/commands/ma-analyze.md) - Comprehensive M&A analysis including financial, legal and operational review
+- [/ma-report](@/commands/ma-report.md) - Generate detailed M&A analysis report with visualizations
+- [/ma-status](@/commands/ma-status.md) - M&A deal pipeline status overview and progress tracking
+- [/ma-enforce](@/commands/ma-enforce.md) - M&A enforcement actions for deal compliance and deadline tracking
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -275,4 +275,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

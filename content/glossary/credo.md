@@ -35,7 +35,7 @@ image_alt = "Credo - Prismatic Platform"
 
 Credo is a static code analysis tool for the Elixir programming language that inspects source code for consistency, readability, and common anti-patterns without executing it. Unlike runtime testing, which validates behavior, Credo operates on the Abstract Syntax Tree (AST) of Elixir source files, examining structural patterns, naming conventions, code complexity, documentation completeness, and stylistic consistency. When run in strict mode (`mix credo --strict`), it enforces all check categories with elevated priority thresholds, treating even low-priority suggestions as issues that must be addressed.
 
-Credo fills a critical gap in the [Elixir](/glossary/elixir/) quality ecosystem. While the compiler catches syntax errors and undefined functions, and [Dialyzer](/glossary/dialyzer/) catches type-level discrepancies through success typing, neither tool addresses code style, design patterns, or cognitive complexity. Credo completes the static analysis triad by examining the aspects of code quality that affect human readability and long-term maintainability. Together, these three tools -- compiler, Dialyzer, and Credo -- form a comprehensive static analysis defense that catches errors at multiple levels of abstraction.
+Credo fills a critical gap in the [Elixir](@/glossary/elixir.md) quality ecosystem. While the compiler catches syntax errors and undefined functions, and [Dialyzer](@/glossary/dialyzer.md) catches type-level discrepancies through success typing, neither tool addresses code style, design patterns, or cognitive complexity. Credo completes the static analysis triad by examining the aspects of code quality that affect human readability and long-term maintainability. Together, these three tools -- compiler, Dialyzer, and Credo -- form a comprehensive static analysis defense that catches errors at multiple levels of abstraction.
 
 The tool was created by Rene Foehring and has become the standard linting tool in the Elixir ecosystem, with over 4,800 stars on GitHub and inclusion in most Elixir project templates. Its check system is extensible, allowing organizations to define custom checks that enforce project-specific conventions. Credo's output format includes priority levels (A through F), file locations with line numbers, and actionable explanations that guide developers toward fixes.
 
@@ -73,7 +73,7 @@ Priority D (low):     Minor style - nice to have
 Priority F (lowest):  Informational - awareness only
 ```
 
-In normal mode, Credo reports only priority A and B issues. In strict mode (`--strict`), the threshold drops to include C, D, and F priorities, making every check actionable. The Prismatic Platform mandates strict mode, meaning even the lowest-priority suggestions must be addressed before code passes the [quality gate](/glossary/quality-gates/).
+In normal mode, Credo reports only priority A and B issues. In strict mode (`--strict`), the threshold drops to include C, D, and F priorities, making every check actionable. The Prismatic Platform mandates strict mode, meaning even the lowest-priority suggestions must be addressed before code passes the [quality gate](@/glossary/quality-gates.md).
 
 ### AST-Based Analysis
 
@@ -248,7 +248,7 @@ Credo's execution follows a three-phase model:
 2. **AST Parsing**: Parses each collected file into its AST representation using Elixir's compiler
 3. **Check Execution**: Runs each enabled check against each parsed AST, collecting findings with locations and priorities
 
-For large codebases, Credo supports parallel execution across files using multiple BEAM schedulers. The Prismatic Platform's 6,652 Elixir source files complete Credo analysis in approximately 15-30 seconds, fast enough for [pre-commit hook](/glossary/pre-commit-hooks/) integration.
+For large codebases, Credo supports parallel execution across files using multiple BEAM schedulers. The Prismatic Platform's 6,652 Elixir source files complete Credo analysis in approximately 15-30 seconds, fast enough for [pre-commit hook](@/glossary/pre-commit-hooks.md) integration.
 
 ### Custom Check Development
 
@@ -384,7 +384,7 @@ $ mix credo --strict
 
 ### Integration with Quality DNA
 
-Credo results are persisted in the [Quality DNA](/glossary/quality-dna/) system, providing cross-session tracking of Credo compliance:
+Credo results are persisted in the [Quality DNA](@/glossary/quality-dna.md) system, providing cross-session tracking of Credo compliance:
 
 ```elixir
 defmodule PrismaticQuality.CredoTracker do
@@ -575,13 +575,13 @@ Credo's advantage in the Elixir ecosystem is its native understanding of Elixir 
 
 ## Best Practices
 
-**Run Credo in strict mode from day one.** Retrofitting strict mode onto an existing codebase with thousands of violations is painful. Starting with strict mode from the first commit establishes the standard before [technical debt](/glossary/technical-debt/) can accumulate. The Prismatic Platform's zero-violation state was achieved through consistent enforcement since early generations.
+**Run Credo in strict mode from day one.** Retrofitting strict mode onto an existing codebase with thousands of violations is painful. Starting with strict mode from the first commit establishes the standard before [technical debt](@/glossary/technical-debt.md) can accumulate. The Prismatic Platform's zero-violation state was achieved through consistent enforcement since early generations.
 
 **Integrate Credo into pre-commit hooks.** Running Credo before commits provides immediate feedback, preventing violations from entering the repository. The cost of a 15-30 second pre-commit check is negligible compared to the cost of discovering violations in CI minutes later.
 
 **Customize checks for your project.** Credo's default configuration is a good starting point, but production projects benefit from custom checks that enforce project-specific conventions. The naming convention enforcement (no Manager/Handler/Utils/Helper) is an example of a project-specific check that Credo's extensibility enables.
 
-**Use Credo alongside, not instead of, Dialyzer.** Credo and [Dialyzer](/glossary/dialyzer/) are complementary, not competing tools. Credo catches style and pattern issues; Dialyzer catches type errors. Running only one leaves an entire category of defects undetected. The triple-layer approach (compiler + Credo + Dialyzer) provides comprehensive coverage.
+**Use Credo alongside, not instead of, Dialyzer.** Credo and [Dialyzer](@/glossary/dialyzer.md) are complementary, not competing tools. Credo catches style and pattern issues; Dialyzer catches type errors. Running only one leaves an entire category of defects undetected. The triple-layer approach (compiler + Credo + Dialyzer) provides comprehensive coverage.
 
 **Keep Credo updated.** New Credo versions introduce additional checks that catch previously undetectable patterns. Regular updates expand the safety net without requiring manual check development.
 
@@ -601,22 +601,22 @@ Credo's advantage in the Elixir ecosystem is its native understanding of Elixir 
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement pipeline including Credo as a mandatory check
-- [Dialyzer](/glossary/dialyzer/) -- Complementary type analysis tool forming the second static analysis layer
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Related compilation standard ensuring zero warnings
-- [Clean Run](/glossary/clean-run/) -- Overall quality runtime standard that Credo contributes to
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Local enforcement running Credo before commits
-- [Typespec](/glossary/typespec/) -- Type annotations that Credo checks for documentation completeness
-- [Continuous Integration](/glossary/continuous-integration/) -- CI pipeline where Credo runs as a mandatory stage
-- [Elixir](/glossary/elixir/) -- The programming language Credo analyzes
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality tracking system that persists Credo results
-- [Technical Debt](/glossary/technical-debt/) -- Accumulated quality shortcuts that strict Credo enforcement prevents
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement pipeline including Credo as a mandatory check
+- [Dialyzer](@/glossary/dialyzer.md) -- Complementary type analysis tool forming the second static analysis layer
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Related compilation standard ensuring zero warnings
+- [Clean Run](@/glossary/clean-run.md) -- Overall quality runtime standard that Credo contributes to
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Local enforcement running Credo before commits
+- [Typespec](@/glossary/typespec.md) -- Type annotations that Credo checks for documentation completeness
+- [Continuous Integration](@/glossary/continuous-integration.md) -- CI pipeline where Credo runs as a mandatory stage
+- [Elixir](@/glossary/elixir.md) -- The programming language Credo analyzes
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality tracking system that persists Credo results
+- [Technical Debt](@/glossary/technical-debt.md) -- Accumulated quality shortcuts that strict Credo enforcement prevents
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Agents](/agents/) -- AIAD agents enforcing Credo compliance
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Agents](@/agents/_index.md) -- AIAD agents enforcing Credo compliance
 
 ---
 
@@ -625,4 +625,4 @@ Credo's advantage in the Elixir ecosystem is its native understanding of Elixir 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

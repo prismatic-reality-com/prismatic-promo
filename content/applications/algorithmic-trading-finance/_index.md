@@ -52,9 +52,9 @@ tags = ["applications", "algorithmic-trading--finance", "prismatic", "research-f
 
 ## Abstract
 
-This document provides a comprehensive overview of the Prismatic Platform's algorithmic trading and finance research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](/glossary/multi-agent-systems/), [epistemic verification](/glossary/epistemic-validation/), and [formal verification](/glossary/formal-verification/) to problems in computational finance, market microstructure modeling, and quantitative risk assessment. The domain spans five primary research areas: market strategy simulation, risk and portfolio analysis, behavioral and contagion dynamics, decentralized finance governance, and AI-driven financial intelligence.
+This document provides a comprehensive overview of the Prismatic Platform's algorithmic trading and finance research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](@/glossary/multi-agent-systems.md), [epistemic verification](@/glossary/epistemic-validation.md), and [formal verification](@/glossary/formal-verification.md) to problems in computational finance, market microstructure modeling, and quantitative risk assessment. The domain spans five primary research areas: market strategy simulation, risk and portfolio analysis, behavioral and contagion dynamics, decentralized finance governance, and AI-driven financial intelligence.
 
-Each framework leverages the platform's [agent orchestration](/glossary/agent-orchestration/) infrastructure, [signal plurality](/glossary/signal-plurality/) axioms, and [graph database](/glossary/graph-database/) capabilities to model the inherent complexity, adversarial dynamics, and information asymmetry present in financial markets. All frameworks operate exclusively with synthetic market data and are intended for research, education, and system design exploration. No framework provides investment advice or constitutes a financial product.
+Each framework leverages the platform's [agent orchestration](@/glossary/agent-orchestration.md) infrastructure, [signal plurality](@/glossary/signal-plurality.md) axioms, and [graph database](@/glossary/graph-database.md) capabilities to model the inherent complexity, adversarial dynamics, and information asymmetry present in financial markets. All frameworks operate exclusively with synthetic market data and are intended for research, education, and system design exploration. No framework provides investment advice or constitutes a financial product.
 
 ## Introduction
 
@@ -62,7 +62,7 @@ Each framework leverages the platform's [agent orchestration](/glossary/agent-or
 
 Financial markets represent one of the most complex adaptive systems studied in computational science. The intersection of rational optimization, behavioral biases, information asymmetry, temporal dynamics, and adversarial participants creates an environment that resists deterministic modeling. Traditional quantitative finance approaches -- while powerful for specific problems -- often fail to capture the emergent, multi-agent nature of market dynamics where individual decisions aggregate into systemic phenomena like flash crashes, liquidity crises, and speculative bubbles.
 
-The Prismatic Platform's algorithmic trading and finance domain was conceived as a research laboratory for studying how [multi-agent architectures](/glossary/multi-agent-system/), [epistemic reasoning](/glossary/epistemic-reasoning/) frameworks, and formal verification methods can illuminate the structural properties of financial markets. Rather than building trading systems, the goal is to develop theoretical models that help researchers understand market dynamics through simulation and formal analysis.
+The Prismatic Platform's algorithmic trading and finance domain was conceived as a research laboratory for studying how [multi-agent architectures](@/glossary/multi-agent-system.md), [epistemic reasoning](@/glossary/epistemic-reasoning.md) frameworks, and formal verification methods can illuminate the structural properties of financial markets. Rather than building trading systems, the goal is to develop theoretical models that help researchers understand market dynamics through simulation and formal analysis.
 
 ### Problem Definition
 
@@ -72,9 +72,9 @@ Computational finance research faces several interconnected theoretical challeng
 
 2. **Multi-Agent Strategic Interaction**: Market participants engage in strategic behavior where each agent's optimal action depends on the actions and beliefs of all other agents. Modeling this requires architectures supporting concurrent, game-theoretic reasoning with incomplete information.
 
-3. **Temporal Dynamics and Regime Changes**: Market conditions evolve through distinct regimes -- trending, mean-reverting, crisis -- that demand models accounting for [time decay](/glossary/time-decay/) of signal relevance and structural breaks in statistical relationships.
+3. **Temporal Dynamics and Regime Changes**: Market conditions evolve through distinct regimes -- trending, mean-reverting, crisis -- that demand models accounting for [time decay](@/glossary/time-decay.md) of signal relevance and structural breaks in statistical relationships.
 
-4. **Systemic Risk and Contagion**: Individual market failures can cascade through interconnected financial networks. Understanding contagion requires [graph-theoretic](/glossary/graph-theory/) models of counterparty relationships and exposure chains.
+4. **Systemic Risk and Contagion**: Individual market failures can cascade through interconnected financial networks. Understanding contagion requires [graph-theoretic](@/glossary/graph-theory.md) models of counterparty relationships and exposure chains.
 
 5. **Epistemic Uncertainty in Risk Models**: Risk assessment involves probabilistic inference under model uncertainty. The distinction between risk (quantifiable) and Knightian uncertainty (unquantifiable) demands frameworks that preserve epistemic humility rather than collapsing uncertainty into misleading point estimates.
 
@@ -82,10 +82,10 @@ Computational finance research faces several interconnected theoretical challeng
 
 This research domain provides:
 
-- **Theoretical frameworks** for studying [agent](/glossary/agent/)-based market dynamics and price discovery
+- **Theoretical frameworks** for studying [agent](@/glossary/agent.md)-based market dynamics and price discovery
 - **Simulation environments** using exclusively synthetic market data and order flows
-- **Formal reasoning tools** leveraging [formal verification](/glossary/formal-verification/) for trading strategy correctness analysis
-- **Epistemic models** that preserve uncertainty, [contradiction](/glossary/contradiction-preservation/), and provenance throughout financial reasoning chains
+- **Formal reasoning tools** leveraging [formal verification](@/glossary/formal-verification.md) for trading strategy correctness analysis
+- **Epistemic models** that preserve uncertainty, [contradiction](@/glossary/contradiction-preservation.md), and provenance throughout financial reasoning chains
 - **Ethical analysis frameworks** for studying market fairness, manipulation detection, and regulatory compliance
 
 ### Relationship to Platform Architecture
@@ -94,12 +94,12 @@ The financial research frameworks build upon several core platform subsystems:
 
 | Platform Component | Financial Application | Research Purpose |
 |-------------------|----------------------|------------------|
-| **[Blackboard](/glossary/blackboard/) Coordination** | Market state aggregation | Study how concurrent price signals from multiple venues synthesize into unified market views |
-| **[NABLA Infinity](/glossary/nabla-infinity/) Axioms** | Risk uncertainty management | Model epistemic properties of financial risk assessment under model uncertainty |
-| **[Agent Orchestration](/glossary/agent-orchestration/)** | Multi-participant market simulation | Simulate heterogeneous trading strategies and their market impact |
-| **[Trinity Gate](/glossary/trinity-gate/) Validation** | Strategy verification | Study formal properties of trading strategy correctness and risk bounds |
-| **[Graph Database](/glossary/graph-database/)** | Financial network analysis | Model counterparty exposure chains and contagion pathways |
-| **[Telemetry](/glossary/telemetry/)** | Market metrics collection | Study performance characteristics of trading simulations |
+| **[Blackboard](@/glossary/blackboard.md) Coordination** | Market state aggregation | Study how concurrent price signals from multiple venues synthesize into unified market views |
+| **[NABLA Infinity](@/glossary/nabla-infinity.md) Axioms** | Risk uncertainty management | Model epistemic properties of financial risk assessment under model uncertainty |
+| **[Agent Orchestration](@/glossary/agent-orchestration.md)** | Multi-participant market simulation | Simulate heterogeneous trading strategies and their market impact |
+| **[Trinity Gate](@/glossary/trinity-gate.md) Validation** | Strategy verification | Study formal properties of trading strategy correctness and risk bounds |
+| **[Graph Database](@/glossary/graph-database.md)** | Financial network analysis | Model counterparty exposure chains and contagion pathways |
+| **[Telemetry](@/glossary/telemetry.md)** | Market metrics collection | Study performance characteristics of trading simulations |
 
 ## Research Domain Taxonomy
 
@@ -111,14 +111,14 @@ Research into the formal properties of trading strategies, factor models, and ma
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Momentum vs. value strategies](/applications/algorithmic-trading-finance/momentum-vs-value-strategies/) | Factor strategy interaction modeling | Multi-factor equilibrium analysis |
-| [Long-short strategy replay](/applications/algorithmic-trading-finance/long-short-strategy-replay/) | Market-neutral strategy simulation | Statistical arbitrage theory |
-| [Event-driven trading AI](/applications/algorithmic-trading-finance/event-driven-trading-ai/) | News-driven alpha generation modeling | Information processing and market efficiency |
-| [Coq-verified trading agents](/applications/algorithmic-trading-finance/coq-verified-trading-agents/) | Formally verified strategy properties | Dependent type theory for financial constraints |
-| [Forex negotiation bots](/applications/algorithmic-trading-finance/forex-negotiation-bots/) | Currency market agent negotiation | Multi-party exchange rate dynamics |
-| [Crypto arbitrage evaluation](/applications/algorithmic-trading-finance/crypto-arbitrage-evaluation/) | Cross-venue price discrepancy analysis | Market efficiency and arbitrage theory |
+| [Momentum vs. value strategies](@/applications/algorithmic-trading-finance/momentum-vs-value-strategies.md) | Factor strategy interaction modeling | Multi-factor equilibrium analysis |
+| [Long-short strategy replay](@/applications/algorithmic-trading-finance/long-short-strategy-replay.md) | Market-neutral strategy simulation | Statistical arbitrage theory |
+| [Event-driven trading AI](@/applications/algorithmic-trading-finance/event-driven-trading-ai.md) | News-driven alpha generation modeling | Information processing and market efficiency |
+| [Coq-verified trading agents](@/applications/algorithmic-trading-finance/coq-verified-trading-agents.md) | Formally verified strategy properties | Dependent type theory for financial constraints |
+| [Forex negotiation bots](@/applications/algorithmic-trading-finance/forex-negotiation-bots.md) | Currency market agent negotiation | Multi-party exchange rate dynamics |
+| [Crypto arbitrage evaluation](@/applications/algorithmic-trading-finance/crypto-arbitrage-evaluation.md) | Cross-venue price discrepancy analysis | Market efficiency and arbitrage theory |
 
-These frameworks study how trading strategies interact in competitive environments. The Coq-verified trading agents framework is particularly notable for applying [formal verification](/glossary/formal-verification/) to prove properties about strategy behavior, such as bounded maximum drawdown and position limit compliance -- properties that are difficult to validate through testing alone.
+These frameworks study how trading strategies interact in competitive environments. The Coq-verified trading agents framework is particularly notable for applying [formal verification](@/glossary/formal-verification.md) to prove properties about strategy behavior, such as bounded maximum drawdown and position limit compliance -- properties that are difficult to validate through testing alone.
 
 ### Domain 2: Risk and Portfolio Analysis (5 frameworks)
 
@@ -126,13 +126,13 @@ Theoretical models for studying portfolio construction, stress testing, and risk
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Portfolio stress tests](/applications/algorithmic-trading-finance/portfolio-stress-tests/) | Multi-scenario portfolio resilience analysis | Extreme value theory and scenario simulation |
-| [LLM-driven risk metrics](/applications/algorithmic-trading-finance/llm-driven-risk-metrics/) | Language model risk narrative analysis | Natural language risk signal extraction |
-| [Epistemic risk models](/applications/algorithmic-trading-finance/epistemic-risk-models/) | Uncertainty-preserving risk quantification | Epistemic vs. aleatoric uncertainty separation |
-| [Derivatives pricing simulation](/applications/algorithmic-trading-finance/derivatives-pricing-simulation/) | Option pricing under model uncertainty | Stochastic calculus with parameter uncertainty |
-| [Quantitative finance tutoring](/applications/algorithmic-trading-finance/quantitative-finance-tutoring/) | Interactive financial concept education | Adaptive tutoring with financial domain knowledge |
+| [Portfolio stress tests](@/applications/algorithmic-trading-finance/portfolio-stress-tests.md) | Multi-scenario portfolio resilience analysis | Extreme value theory and scenario simulation |
+| [LLM-driven risk metrics](@/applications/algorithmic-trading-finance/llm-driven-risk-metrics.md) | Language model risk narrative analysis | Natural language risk signal extraction |
+| [Epistemic risk models](@/applications/algorithmic-trading-finance/epistemic-risk-models.md) | Uncertainty-preserving risk quantification | Epistemic vs. aleatoric uncertainty separation |
+| [Derivatives pricing simulation](@/applications/algorithmic-trading-finance/derivatives-pricing-simulation.md) | Option pricing under model uncertainty | Stochastic calculus with parameter uncertainty |
+| [Quantitative finance tutoring](@/applications/algorithmic-trading-finance/quantitative-finance-tutoring.md) | Interactive financial concept education | Adaptive tutoring with financial domain knowledge |
 
-The epistemic risk models framework applies the platform's [NABLA axioms](/glossary/nabla-axioms/) to distinguish between measurable risk and genuine uncertainty. The [contradiction preservation](/glossary/contradiction-preservation/) axiom is particularly relevant when different risk models produce conflicting assessments -- rather than averaging them into false precision, the framework preserves the disagreement as meaningful information about model uncertainty.
+The epistemic risk models framework applies the platform's [NABLA axioms](@/glossary/nabla-axioms.md) to distinguish between measurable risk and genuine uncertainty. The [contradiction preservation](@/glossary/contradiction-preservation.md) axiom is particularly relevant when different risk models produce conflicting assessments -- rather than averaging them into false precision, the framework preserves the disagreement as meaningful information about model uncertainty.
 
 ### Domain 3: Behavioral and Contagion Dynamics (5 frameworks)
 
@@ -140,13 +140,13 @@ Frameworks for studying how behavioral biases and network effects propagate thro
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Behavioral finance replay](/applications/algorithmic-trading-finance/behavioral-finance-replay/) | Cognitive bias impact on market dynamics | Prospect theory and behavioral economics |
-| [Panic selling simulation](/applications/algorithmic-trading-finance/panic-selling-simulation/) | Crisis behavior cascade modeling | Agent-based panic propagation models |
-| [Market contagion simulation](/applications/algorithmic-trading-finance/market-contagion-simulation/) | Cross-market shock transmission | Network contagion theory |
-| [Trust/conflict financial contagion](/applications/algorithmic-trading-finance/trustconflict-financial-contagion/) | Trust network impact on financial stability | Social network analysis applied to counterparty risk |
-| [Speculative bubble detection](/applications/algorithmic-trading-finance/speculative-bubble-detection/) | Bubble formation pattern recognition | Log-periodic power law models |
+| [Behavioral finance replay](@/applications/algorithmic-trading-finance/behavioral-finance-replay.md) | Cognitive bias impact on market dynamics | Prospect theory and behavioral economics |
+| [Panic selling simulation](@/applications/algorithmic-trading-finance/panic-selling-simulation.md) | Crisis behavior cascade modeling | Agent-based panic propagation models |
+| [Market contagion simulation](@/applications/algorithmic-trading-finance/market-contagion-simulation.md) | Cross-market shock transmission | Network contagion theory |
+| [Trust/conflict financial contagion](@/applications/algorithmic-trading-finance/trustconflict-financial-contagion.md) | Trust network impact on financial stability | Social network analysis applied to counterparty risk |
+| [Speculative bubble detection](@/applications/algorithmic-trading-finance/speculative-bubble-detection.md) | Bubble formation pattern recognition | Log-periodic power law models |
 
-These models leverage the platform's [multi-agent](/glossary/multi-agent-system/) architecture to study emergent market phenomena. The panic selling simulation, for example, models how individual agent fear responses aggregate into market-wide liquidity crises, while the contagion simulation studies how counterparty exposure networks transmit financial shocks using the platform's [graph database](/glossary/graph-database/) capabilities.
+These models leverage the platform's [multi-agent](@/glossary/multi-agent-system.md) architecture to study emergent market phenomena. The panic selling simulation, for example, models how individual agent fear responses aggregate into market-wide liquidity crises, while the contagion simulation studies how counterparty exposure networks transmit financial shocks using the platform's [graph database](@/glossary/graph-database.md) capabilities.
 
 ### Domain 4: Decentralized Finance and Governance (4 frameworks)
 
@@ -154,10 +154,10 @@ Research into blockchain-based financial systems, governance mechanisms, and dec
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [DeFi governance simulation](/applications/algorithmic-trading-finance/defi-governance-simulation/) | Token-weighted governance modeling | Mechanism design theory |
-| [Cross-exchange arbitrage detection](/applications/algorithmic-trading-finance/cross-exchange-arbitrage-detection/) | Multi-venue price convergence analysis | Arbitrage pricing theory |
-| [Ethical finance agents](/applications/algorithmic-trading-finance/ethical-finance-agents/) | ESG-constrained portfolio construction | Multi-objective optimization with ethical constraints |
-| [Autonomous financial societies](/applications/algorithmic-trading-finance/autonomous-financial-societies/) | Self-organizing financial agent communities | Complex adaptive systems theory |
+| [DeFi governance simulation](@/applications/algorithmic-trading-finance/defi-governance-simulation.md) | Token-weighted governance modeling | Mechanism design theory |
+| [Cross-exchange arbitrage detection](@/applications/algorithmic-trading-finance/cross-exchange-arbitrage-detection.md) | Multi-venue price convergence analysis | Arbitrage pricing theory |
+| [Ethical finance agents](@/applications/algorithmic-trading-finance/ethical-finance-agents.md) | ESG-constrained portfolio construction | Multi-objective optimization with ethical constraints |
+| [Autonomous financial societies](@/applications/algorithmic-trading-finance/autonomous-financial-societies.md) | Self-organizing financial agent communities | Complex adaptive systems theory |
 
 The DeFi governance framework applies mechanism design theory to study how token-based voting systems resist manipulation and achieve efficient outcomes. The autonomous financial societies framework extends this into emergent economic systems, studying how agent communities develop financial conventions and institutions from minimal initial rules.
 
@@ -167,33 +167,33 @@ Frameworks studying the intersection of artificial intelligence techniques with 
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [NLP for market sentiment](/applications/algorithmic-trading-finance/nlp-for-market-sentiment/) | Textual sentiment signal extraction | Natural language processing for financial text |
-| [Insider trading detection](/applications/algorithmic-trading-finance/insider-trading-detection/) | Anomalous trading pattern identification | Statistical anomaly detection |
-| [Multi-agent hedge fund](/applications/algorithmic-trading-finance/multi-agent-hedge-fund/) | Coordinated multi-strategy fund simulation | Portfolio-level agent coordination |
-| [Agent-based prediction markets](/applications/algorithmic-trading-finance/agent-based-prediction-markets/) | Information aggregation through market mechanisms | Prediction market theory |
-| [KuzuDB financial graph analysis](/applications/algorithmic-trading-finance/kuzudb-financial-graph-analysis/) | Graph-based financial relationship mining | Graph analytics for financial networks |
+| [NLP for market sentiment](@/applications/algorithmic-trading-finance/nlp-for-market-sentiment.md) | Textual sentiment signal extraction | Natural language processing for financial text |
+| [Insider trading detection](@/applications/algorithmic-trading-finance/insider-trading-detection.md) | Anomalous trading pattern identification | Statistical anomaly detection |
+| [Multi-agent hedge fund](@/applications/algorithmic-trading-finance/multi-agent-hedge-fund.md) | Coordinated multi-strategy fund simulation | Portfolio-level agent coordination |
+| [Agent-based prediction markets](@/applications/algorithmic-trading-finance/agent-based-prediction-markets.md) | Information aggregation through market mechanisms | Prediction market theory |
+| [KuzuDB financial graph analysis](@/applications/algorithmic-trading-finance/kuzudb-financial-graph-analysis.md) | Graph-based financial relationship mining | Graph analytics for financial networks |
 
-The KuzuDB financial graph analysis framework leverages the platform's [graph database](/glossary/graph-database/) integration to study corporate ownership networks, beneficial ownership chains, and financial relationship graphs -- capabilities directly relevant to anti-money-laundering research and regulatory compliance analysis.
+The KuzuDB financial graph analysis framework leverages the platform's [graph database](@/glossary/graph-database.md) integration to study corporate ownership networks, beneficial ownership chains, and financial relationship graphs -- capabilities directly relevant to anti-money-laundering research and regulatory compliance analysis.
 
 ## Theoretical Foundations
 
 ### Epistemic Architecture for Financial Modeling
 
-The financial research domain applies the platform's [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework to model the unique epistemic properties of market analysis:
+The financial research domain applies the platform's [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework to model the unique epistemic properties of market analysis:
 
 | NABLA Axiom | Financial Interpretation | Research Application |
 |-------------|--------------------------|---------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple independent market signals required before trade hypothesis formation | Models multi-source alpha signal fusion |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Contradictory signals preserved as informative about regime uncertainty | Prevents premature directional commitment |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple independent market signals required before trade hypothesis formation | Models multi-source alpha signal fusion |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Contradictory signals preserved as informative about regime uncertainty | Prevents premature directional commitment |
 | **Absence Informative** | Missing trading activity carries information (e.g., absence of volume in expected events) | Models informed silence and liquidity gaps |
-| **[Time Decay](/glossary/time-decay/)** | Signal alpha decays as information propagates through market | Models information half-life and signal degradation |
+| **[Time Decay](@/glossary/time-decay.md)** | Signal alpha decays as information propagates through market | Models information half-life and signal degradation |
 | **Unknown Valid** | Acknowledging Knightian uncertainty as legitimate model state | Prevents false precision in risk estimates |
 | **Source Independence** | Independent research weighted higher than correlated analysis | Models analyst herding and independent thinking |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | All trading decisions traceable to source signals | Supports regulatory audit trail requirements |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | All trading decisions traceable to source signals | Supports regulatory audit trail requirements |
 
 ### Multi-Agent Market Architecture
 
-Financial markets are inherently multi-agent: market makers, institutional investors, retail traders, arbitrageurs, and regulators each pursue distinct objectives. The platform's [agent](/glossary/agent/) architecture maps naturally to these roles:
+Financial markets are inherently multi-agent: market makers, institutional investors, retail traders, arbitrageurs, and regulators each pursue distinct objectives. The platform's [agent](@/glossary/agent.md) architecture maps naturally to these roles:
 
 ```
 Market Supervisor Agent (Exchange)
@@ -226,43 +226,43 @@ Market Supervisor Agent (Exchange)
 
 ### Market Strategy Simulation
 
-- [Momentum vs. value strategies](/applications/algorithmic-trading-finance/momentum-vs-value-strategies/) -- Factor strategy interaction and regime dependence
-- [Long-short strategy replay](/applications/algorithmic-trading-finance/long-short-strategy-replay/) -- Market-neutral strategy analysis with event replay
-- [Event-driven trading AI](/applications/algorithmic-trading-finance/event-driven-trading-ai/) -- News-driven alpha generation modeling
-- [Coq-verified trading agents](/applications/algorithmic-trading-finance/coq-verified-trading-agents/) -- Formally verified strategy properties
-- [Forex negotiation bots](/applications/algorithmic-trading-finance/forex-negotiation-bots/) -- Multi-party currency negotiation dynamics
-- [Crypto arbitrage evaluation](/applications/algorithmic-trading-finance/crypto-arbitrage-evaluation/) -- Cross-venue arbitrage opportunity analysis
+- [Momentum vs. value strategies](@/applications/algorithmic-trading-finance/momentum-vs-value-strategies.md) -- Factor strategy interaction and regime dependence
+- [Long-short strategy replay](@/applications/algorithmic-trading-finance/long-short-strategy-replay.md) -- Market-neutral strategy analysis with event replay
+- [Event-driven trading AI](@/applications/algorithmic-trading-finance/event-driven-trading-ai.md) -- News-driven alpha generation modeling
+- [Coq-verified trading agents](@/applications/algorithmic-trading-finance/coq-verified-trading-agents.md) -- Formally verified strategy properties
+- [Forex negotiation bots](@/applications/algorithmic-trading-finance/forex-negotiation-bots.md) -- Multi-party currency negotiation dynamics
+- [Crypto arbitrage evaluation](@/applications/algorithmic-trading-finance/crypto-arbitrage-evaluation.md) -- Cross-venue arbitrage opportunity analysis
 
 ### Risk and Portfolio Analysis
 
-- [Portfolio stress tests](/applications/algorithmic-trading-finance/portfolio-stress-tests/) -- Multi-scenario resilience analysis
-- [LLM-driven risk metrics](/applications/algorithmic-trading-finance/llm-driven-risk-metrics/) -- Language model risk narrative extraction
-- [Epistemic risk models](/applications/algorithmic-trading-finance/epistemic-risk-models/) -- Uncertainty-preserving risk quantification
-- [Derivatives pricing simulation](/applications/algorithmic-trading-finance/derivatives-pricing-simulation/) -- Option pricing under model uncertainty
-- [Quantitative finance tutoring](/applications/algorithmic-trading-finance/quantitative-finance-tutoring/) -- Interactive financial education
+- [Portfolio stress tests](@/applications/algorithmic-trading-finance/portfolio-stress-tests.md) -- Multi-scenario resilience analysis
+- [LLM-driven risk metrics](@/applications/algorithmic-trading-finance/llm-driven-risk-metrics.md) -- Language model risk narrative extraction
+- [Epistemic risk models](@/applications/algorithmic-trading-finance/epistemic-risk-models.md) -- Uncertainty-preserving risk quantification
+- [Derivatives pricing simulation](@/applications/algorithmic-trading-finance/derivatives-pricing-simulation.md) -- Option pricing under model uncertainty
+- [Quantitative finance tutoring](@/applications/algorithmic-trading-finance/quantitative-finance-tutoring.md) -- Interactive financial education
 
 ### Behavioral and Contagion Dynamics
 
-- [Behavioral finance replay](/applications/algorithmic-trading-finance/behavioral-finance-replay/) -- Cognitive bias impact analysis
-- [Panic selling simulation](/applications/algorithmic-trading-finance/panic-selling-simulation/) -- Crisis cascade modeling
-- [Market contagion simulation](/applications/algorithmic-trading-finance/market-contagion-simulation/) -- Cross-market shock transmission
-- [Trust/conflict financial contagion](/applications/algorithmic-trading-finance/trustconflict-financial-contagion/) -- Trust network financial stability
-- [Speculative bubble detection](/applications/algorithmic-trading-finance/speculative-bubble-detection/) -- Bubble formation pattern recognition
+- [Behavioral finance replay](@/applications/algorithmic-trading-finance/behavioral-finance-replay.md) -- Cognitive bias impact analysis
+- [Panic selling simulation](@/applications/algorithmic-trading-finance/panic-selling-simulation.md) -- Crisis cascade modeling
+- [Market contagion simulation](@/applications/algorithmic-trading-finance/market-contagion-simulation.md) -- Cross-market shock transmission
+- [Trust/conflict financial contagion](@/applications/algorithmic-trading-finance/trustconflict-financial-contagion.md) -- Trust network financial stability
+- [Speculative bubble detection](@/applications/algorithmic-trading-finance/speculative-bubble-detection.md) -- Bubble formation pattern recognition
 
 ### Decentralized Finance and Governance
 
-- [DeFi governance simulation](/applications/algorithmic-trading-finance/defi-governance-simulation/) -- Token-weighted governance modeling
-- [Cross-exchange arbitrage detection](/applications/algorithmic-trading-finance/cross-exchange-arbitrage-detection/) -- Multi-venue price convergence
-- [Ethical finance agents](/applications/algorithmic-trading-finance/ethical-finance-agents/) -- ESG-constrained portfolio construction
-- [Autonomous financial societies](/applications/algorithmic-trading-finance/autonomous-financial-societies/) -- Self-organizing agent economies
+- [DeFi governance simulation](@/applications/algorithmic-trading-finance/defi-governance-simulation.md) -- Token-weighted governance modeling
+- [Cross-exchange arbitrage detection](@/applications/algorithmic-trading-finance/cross-exchange-arbitrage-detection.md) -- Multi-venue price convergence
+- [Ethical finance agents](@/applications/algorithmic-trading-finance/ethical-finance-agents.md) -- ESG-constrained portfolio construction
+- [Autonomous financial societies](@/applications/algorithmic-trading-finance/autonomous-financial-societies.md) -- Self-organizing agent economies
 
 ### AI-Driven Financial Intelligence
 
-- [NLP for market sentiment](/applications/algorithmic-trading-finance/nlp-for-market-sentiment/) -- Textual sentiment extraction
-- [Insider trading detection](/applications/algorithmic-trading-finance/insider-trading-detection/) -- Anomalous pattern identification
-- [Multi-agent hedge fund](/applications/algorithmic-trading-finance/multi-agent-hedge-fund/) -- Coordinated multi-strategy simulation
-- [Agent-based prediction markets](/applications/algorithmic-trading-finance/agent-based-prediction-markets/) -- Information aggregation mechanisms
-- [KuzuDB financial graph analysis](/applications/algorithmic-trading-finance/kuzudb-financial-graph-analysis/) -- Graph-based financial relationship mining
+- [NLP for market sentiment](@/applications/algorithmic-trading-finance/nlp-for-market-sentiment.md) -- Textual sentiment extraction
+- [Insider trading detection](@/applications/algorithmic-trading-finance/insider-trading-detection.md) -- Anomalous pattern identification
+- [Multi-agent hedge fund](@/applications/algorithmic-trading-finance/multi-agent-hedge-fund.md) -- Coordinated multi-strategy simulation
+- [Agent-based prediction markets](@/applications/algorithmic-trading-finance/agent-based-prediction-markets.md) -- Information aggregation mechanisms
+- [KuzuDB financial graph analysis](@/applications/algorithmic-trading-finance/kuzudb-financial-graph-analysis.md) -- Graph-based financial relationship mining
 
 ## Future Research Directions
 
@@ -276,14 +276,14 @@ Market Supervisor Agent (Exchange)
 
 ### Internal Documentation
 
-- [Platform Capabilities](/capabilities/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Blackboard Architecture](/glossary/blackboard/)
-- [Formal Verification](/glossary/formal-verification/)
-- [Agent Orchestration](/glossary/agent-orchestration/)
-- [Risk Assessment](/glossary/risk-assessment/)
-- [Graph Database](/glossary/graph-database/)
+- [Platform Capabilities](@/capabilities/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Blackboard Architecture](@/glossary/blackboard.md)
+- [Formal Verification](@/glossary/formal-verification.md)
+- [Agent Orchestration](@/glossary/agent-orchestration.md)
+- [Risk Assessment](@/glossary/risk-assessment.md)
+- [Graph Database](@/glossary/graph-database.md)
 
 ### External Standards and Literature
 
@@ -303,4 +303,4 @@ Market Supervisor Agent (Exchange)
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

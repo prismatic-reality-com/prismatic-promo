@@ -473,24 +473,24 @@ In a large umbrella application like the Prismatic Platform (115 apps), the QMS 
 
 The Quality Measurement System integrates with the platform's quality, monitoring, and evolution infrastructure:
 
-- [Quality Gate](/glossary/quality-gate/) -- The individual checkpoints that feed data into the QMS
-- [Quality DNA](/glossary/quality-dna/) -- The persistence layer that stores QMS scores across sessions
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- The autonomous monitor that acts on QMS scores
-- [Telemetry](/glossary/telemetry/) -- The event infrastructure that distributes QMS data in real time
-- [Metrics](/glossary/metrics/) -- The broader concept of quantitative measurement that the QMS specializes for quality
-- [Observability](/glossary/observability/) -- The system property that enables external quality measurement
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- The principle that QMS data must be openly accessible
-- [Quality Standard](/glossary/quality-standard/) -- The codified criteria that the QMS evaluates against
-- [Quality Monitoring](/glossary/quality-monitoring/) -- The continuous observation of QMS outputs
-- [Fitness Score](/glossary/fitness-score/) -- The platform-level health metric that incorporates QMS data
+- [Quality Gate](@/glossary/quality-gate.md) -- The individual checkpoints that feed data into the QMS
+- [Quality DNA](@/glossary/quality-dna.md) -- The persistence layer that stores QMS scores across sessions
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- The autonomous monitor that acts on QMS scores
+- [Telemetry](@/glossary/telemetry.md) -- The event infrastructure that distributes QMS data in real time
+- [Metrics](@/glossary/metrics.md) -- The broader concept of quantitative measurement that the QMS specializes for quality
+- [Observability](@/glossary/observability.md) -- The system property that enables external quality measurement
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- The principle that QMS data must be openly accessible
+- [Quality Standard](@/glossary/quality-standard.md) -- The codified criteria that the QMS evaluates against
+- [Quality Monitoring](@/glossary/quality-monitoring.md) -- The continuous observation of QMS outputs
+- [Fitness Score](@/glossary/fitness-score.md) -- The platform-level health metric that incorporates QMS data
 
 ## See Also
 
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) -- The epistemic framework for interpreting QMS results
-- [Quality Innovation](/glossary/quality-innovation/) -- The process of creating new QMS domains and measurement techniques
-- [Dialyzer](/glossary/dialyzer/) -- The tool behind one of the most important QMS domains
-- [Credo](/glossary/credo/) -- The tool behind the code style QMS domain
-- [Quality Debt](/glossary/quality-debt/) -- The accumulated violations that the QMS quantifies
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) -- The epistemic framework for interpreting QMS results
+- [Quality Innovation](@/glossary/quality-innovation.md) -- The process of creating new QMS domains and measurement techniques
+- [Dialyzer](@/glossary/dialyzer.md) -- The tool behind one of the most important QMS domains
+- [Credo](@/glossary/credo.md) -- The tool behind the code style QMS domain
+- [Quality Debt](@/glossary/quality-debt.md) -- The accumulated violations that the QMS quantifies
 
 ---
 

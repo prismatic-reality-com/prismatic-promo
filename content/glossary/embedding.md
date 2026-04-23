@@ -36,7 +36,7 @@ image_alt = "Embedding - Prismatic Platform"
 
 ## Definition
 
-An embedding is a dense vector representation of data -- text, images, code, audio, or structured records -- in a continuous, high-dimensional space where semantic similarity maps to geometric proximity. Embedding models, typically neural networks built on the transformer architecture, transform discrete input tokens into fixed-length floating-point vectors (commonly 256 to 4096 dimensions), enabling mathematical operations that capture meaning rather than surface form. Two pieces of text with similar meaning produce vectors that are close together in the embedding space, even if they share no common words. This property enables semantic search, clustering, recommendation systems, anomaly detection, and [entity resolution](/glossary/entity-resolution/) without requiring exact keyword matching.
+An embedding is a dense vector representation of data -- text, images, code, audio, or structured records -- in a continuous, high-dimensional space where semantic similarity maps to geometric proximity. Embedding models, typically neural networks built on the transformer architecture, transform discrete input tokens into fixed-length floating-point vectors (commonly 256 to 4096 dimensions), enabling mathematical operations that capture meaning rather than surface form. Two pieces of text with similar meaning produce vectors that are close together in the embedding space, even if they share no common words. This property enables semantic search, clustering, recommendation systems, anomaly detection, and [entity resolution](@/glossary/entity-resolution.md) without requiring exact keyword matching.
 
 The mathematical foundation of embeddings rests on the distributional hypothesis: words (or concepts) that appear in similar contexts have similar meanings. Modern transformer-based models extend this principle beyond individual words to sentences, paragraphs, and entire documents, producing embeddings that capture complex semantic relationships including negation, analogy, and compositional meaning. The training process optimizes model parameters so that semantically related inputs map to nearby points in the vector space while unrelated inputs map to distant points, creating a continuous geometry of meaning that supports algebraic operations like analogy reasoning (king - man + woman = queen).
 
@@ -65,7 +65,7 @@ The choice of distance metric determines how similarity is measured in the embed
 | **Dot product** | sum(a_i * b_i) | (-inf, inf) | When vectors are normalized (equivalent to cosine) |
 | **Manhattan (L1)** | sum(\|a_i - b_i\|) | [0, inf) | Sparse embeddings, robust to outliers |
 
-[Cosine similarity](/glossary/cosine-similarity/) is the default choice for text embeddings because it focuses on the direction of vectors (semantic orientation) rather than their magnitude, making it robust to differences in document length and embedding normalization. When embeddings are pre-normalized to unit length, cosine similarity reduces to the dot product, enabling faster computation without loss of ranking quality.
+[Cosine similarity](@/glossary/cosine-similarity.md) is the default choice for text embeddings because it focuses on the direction of vectors (semantic orientation) rather than their magnitude, making it robust to differences in document length and embedding normalization. When embeddings are pre-normalized to unit length, cosine similarity reduces to the dot product, enabling faster computation without loss of ranking quality.
 
 ## Technical Details
 
@@ -179,11 +179,11 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform uses embeddings across multiple intelligence and search capabilities, integrating local model inference through [Ollama](/glossary/ollama/) with indexed search through [Meilisearch](/glossary/meilisearch/) and graph enrichment through [KuzuDB](/glossary/kuzudb/).
+The Prismatic Platform uses embeddings across multiple intelligence and search capabilities, integrating local model inference through [Ollama](@/glossary/ollama.md) with indexed search through [Meilisearch](@/glossary/meilisearch.md) and graph enrichment through [KuzuDB](@/glossary/kuzudb.md).
 
 ### Meilisearch Hybrid Search
 
-[Meilisearch](/glossary/meilisearch/) provides hybrid keyword-vector search over the platform's documentation files, combining traditional BM25 keyword scoring with semantic embedding similarity:
+[Meilisearch](@/glossary/meilisearch.md) provides hybrid keyword-vector search over the platform's documentation files, combining traditional BM25 keyword scoring with semantic embedding similarity:
 
 ```elixir
 defmodule PrismaticStorage.Meilisearch.EmbeddingSearch do
@@ -217,7 +217,7 @@ end
 
 ### OSINT Entity Resolution
 
-The [OSINT](/glossary/osint/) framework generates entity embeddings for cross-source intelligence correlation. Embedding-based entity resolution identifies matching entities across different data sources even when names, addresses, or identifiers are written differently:
+The [OSINT](@/glossary/osint.md) framework generates entity embeddings for cross-source intelligence correlation. Embedding-based entity resolution identifies matching entities across different data sources even when names, addresses, or identifiers are written differently:
 
 | Embedding Use Case | Model | Dimensions | Purpose |
 |-------------------|-------|-----------|---------|
@@ -229,7 +229,7 @@ The [OSINT](/glossary/osint/) framework generates entity embeddings for cross-so
 
 ### Ollama Local Embedding
 
-The platform runs local embedding models through [Ollama](/glossary/ollama/), avoiding external API dependencies and maintaining data privacy for sensitive OSINT operations:
+The platform runs local embedding models through [Ollama](@/glossary/ollama.md), avoiding external API dependencies and maintaining data privacy for sensitive OSINT operations:
 
 ```elixir
 defmodule PrismaticAI.Ollama.Embeddings do
@@ -318,7 +318,7 @@ Embeddings are recomputed only when the source content changes, detected through
 | **Knowledge graph** | Structured | Variable | Medium (traversal) | Explicit relationships |
 | **Bag of words** | None | Large | Fast | Simple classification |
 
-The Prismatic Platform favors hybrid approaches wherever possible. [Meilisearch](/glossary/meilisearch/) hybrid search combines BM25 keyword scoring with embedding similarity, capturing both exact matches (when a user searches for a specific function name or error code) and semantic matches (when a user describes a concept in different words). This hybrid approach consistently outperforms either pure keyword or pure semantic search in retrieval benchmarks.
+The Prismatic Platform favors hybrid approaches wherever possible. [Meilisearch](@/glossary/meilisearch.md) hybrid search combines BM25 keyword scoring with embedding similarity, capturing both exact matches (when a user searches for a specific function name or error code) and semantic matches (when a user describes a concept in different words). This hybrid approach consistently outperforms either pure keyword or pure semantic search in retrieval benchmarks.
 
 ## Best Practices
 
@@ -328,11 +328,11 @@ The Prismatic Platform favors hybrid approaches wherever possible. [Meilisearch]
 
 3. **Chunk Long Documents**: Embedding models have context window limits. Split long documents into overlapping chunks (512-1024 tokens with 10-20% overlap) and embed each chunk separately. Maintain metadata linking chunks to their parent document for result deduplication.
 
-4. **Cache Embeddings**: Embedding computation is expensive. Cache vectors in [ETS](/glossary/ets/) or [Meilisearch](/glossary/meilisearch/) and re-embed only when source content changes. Use content hashing to detect changes efficiently.
+4. **Cache Embeddings**: Embedding computation is expensive. Cache vectors in [ETS](@/glossary/ets.md) or [Meilisearch](@/glossary/meilisearch.md) and re-embed only when source content changes. Use content hashing to detect changes efficiently.
 
 5. **Monitor Embedding Quality**: Track retrieval precision and recall metrics. Embedding quality degrades for domains far from the model's training data distribution. Monitor semantic search relevance and retrain or fine-tune when quality drops below acceptable thresholds.
 
-6. **Use Local Models for Privacy**: [Ollama](/glossary/ollama/) enables local embedding generation without sending data to external APIs, critical for [OSINT](/glossary/osint/) and security-sensitive content where data sovereignty requirements prohibit external processing.
+6. **Use Local Models for Privacy**: [Ollama](@/glossary/ollama.md) enables local embedding generation without sending data to external APIs, critical for [OSINT](@/glossary/osint.md) and security-sensitive content where data sovereignty requirements prohibit external processing.
 
 7. **Batch for Throughput**: When embedding large document collections, use batch processing with configurable concurrency. The `embed_batch/2` function processes multiple texts in parallel, saturating available compute resources without overwhelming the embedding model.
 
@@ -348,29 +348,29 @@ The Prismatic Platform favors hybrid approaches wherever possible. [Meilisearch]
 
 - **Anomaly Detection**: Identifying unusual signals in OSINT data streams by measuring distance from cluster centroids in the embedding space. Entities or documents that fall far from any established cluster warrant investigation as potential novel threats or data quality issues.
 
-- **Knowledge Graph Enrichment**: Generating node embeddings for [KuzuDB](/glossary/kuzudb/) graph nodes to predict missing relationships and detect anomalous graph structures. Node2vec-style embeddings capture graph topology in a way that supports link prediction and community detection.
+- **Knowledge Graph Enrichment**: Generating node embeddings for [KuzuDB](@/glossary/kuzudb.md) graph nodes to predict missing relationships and detect anomalous graph structures. Node2vec-style embeddings capture graph topology in a way that supports link prediction and community detection.
 
 - **Cross-Lingual Intelligence**: Multilingual embedding models map text in different languages to the same vector space, enabling intelligence correlation across Czech, English, and other language sources without explicit translation.
 
 ## Related Concepts
 
-- [Vector Database](/glossary/vector-database/) - Storage system optimized for embedding similarity search
-- [Meilisearch](/glossary/meilisearch/) - Search engine providing hybrid keyword-vector retrieval
-- [Ollama](/glossary/ollama/) - Local AI runtime generating embeddings from platform models
-- [Knowledge Graph](/glossary/knowledge-graph/) - Graph structure enriched by entity embeddings
-- [Entity Resolution](/glossary/entity-resolution/) - Identity matching using embedding similarity
-- [OSINT](/glossary/osint/) - Intelligence operations leveraging embedding-based correlation
-- [KuzuDB](/glossary/kuzudb/) - Graph database with node embedding integration
-- [Cosine Similarity](/glossary/cosine-similarity/) - Primary distance metric for embedding comparison
-- [ETS](/glossary/ets/) - In-memory cache for hot embedding vectors
-- [Broadway](/glossary/broadway/) - Pipeline framework for batch embedding processing
-- [Data Pipeline](/glossary/data-pipeline/) - Infrastructure for moving embeddings through processing stages
+- [Vector Database](@/glossary/vector-database.md) - Storage system optimized for embedding similarity search
+- [Meilisearch](@/glossary/meilisearch.md) - Search engine providing hybrid keyword-vector retrieval
+- [Ollama](@/glossary/ollama.md) - Local AI runtime generating embeddings from platform models
+- [Knowledge Graph](@/glossary/knowledge-graph.md) - Graph structure enriched by entity embeddings
+- [Entity Resolution](@/glossary/entity-resolution.md) - Identity matching using embedding similarity
+- [OSINT](@/glossary/osint.md) - Intelligence operations leveraging embedding-based correlation
+- [KuzuDB](@/glossary/kuzudb.md) - Graph database with node embedding integration
+- [Cosine Similarity](@/glossary/cosine-similarity.md) - Primary distance metric for embedding comparison
+- [ETS](@/glossary/ets.md) - In-memory cache for hot embedding vectors
+- [Broadway](@/glossary/broadway.md) - Pipeline framework for batch embedding processing
+- [Data Pipeline](@/glossary/data-pipeline.md) - Infrastructure for moving embeddings through processing stages
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture and embedding integration patterns
-- [Technologies](/technologies/) -- Embedding model and vector search technology stack
-- [Capabilities](/capabilities/) -- Intelligence and search capabilities powered by embeddings
+- [Architecture](@/architecture/_index.md) -- Platform architecture and embedding integration patterns
+- [Technologies](@/technologies/_index.md) -- Embedding model and vector search technology stack
+- [Capabilities](@/capabilities/_index.md) -- Intelligence and search capabilities powered by embeddings
 
 ---
 
@@ -379,4 +379,4 @@ The Prismatic Platform favors hybrid approaches wherever possible. [Meilisearch]
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

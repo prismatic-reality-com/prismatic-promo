@@ -24,7 +24,7 @@ image_alt = "/agents - Prismatic Platform"
 
 ## Overview
 
-The **/agents** command provides comprehensive discovery, listing, and management capabilities for the 400+ [AIAD](/glossary/aiad/) agents that constitute the Prismatic Platform's autonomous intelligence ecosystem. As the primary interface for agent ecosystem visibility, this command enables operators to search agents by domain, inspect individual agent capabilities, monitor agent health and status, and retrieve statistical summaries of the entire agent fleet. In a platform where agents are the fundamental units of autonomous execution, understanding the available agent landscape is essential for effective orchestration and task delegation.
+The **/agents** command provides comprehensive discovery, listing, and management capabilities for the 400+ [AIAD](@/glossary/aiad.md) agents that constitute the Prismatic Platform's autonomous intelligence ecosystem. As the primary interface for agent ecosystem visibility, this command enables operators to search agents by domain, inspect individual agent capabilities, monitor agent health and status, and retrieve statistical summaries of the entire agent fleet. In a platform where agents are the fundamental units of autonomous execution, understanding the available agent landscape is essential for effective orchestration and task delegation.
 
 The scale of the Prismatic Platform's agent ecosystem demands dedicated tooling for discovery and management. With agents spanning over a dozen specialized domains -- from OSINT intelligence operations and storage architecture to security operations and developer experience -- finding the right agent for a specific task requires structured search and filtering capabilities. The `/agents` command addresses this need by providing multiple query modes: domain-based filtering, keyword search, individual agent inspection, capability matching, and aggregate statistics. Each query mode returns structured output designed for both human consumption and programmatic integration.
 
@@ -199,21 +199,21 @@ During development sessions, `/agents show <agent-id>` provides the detailed spe
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Primary target of discovery and management operations |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Primary target of discovery and management operations |
 | AIAD Registry | Source of agent specifications and metadata |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and agent health tracking |
-| [Session Context](/glossary/session-discipline/) | Agent discovery results logged in session context |
-| [/orchestrate](/commands/orchestrate/) | Multi-agent orchestration uses agent discovery for task assignment |
-| [/aiad-dashboard](/commands/aiad-dashboard/) | Dashboard displays agent metrics discovered by this command |
-| [Mycelial Network](/glossary/mycelial-network/) | Agent coordination patterns visible through network topology |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and agent health tracking |
+| [Session Context](@/glossary/session-discipline.md) | Agent discovery results logged in session context |
+| [/orchestrate](@/commands/orchestrate.md) | Multi-agent orchestration uses agent discovery for task assignment |
+| [/aiad-dashboard](@/commands/aiad-dashboard.md) | Dashboard displays agent metrics discovered by this command |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Agent coordination patterns visible through network topology |
 
 ## Doctrine Compliance
 
-All agent management operations are governed by the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All agent management operations are governed by the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Agent discovery must be complete and accurate. No agents are omitted from results due to performance shortcuts or lazy enumeration. The `list` action returns every agent in the ecosystem without exception. The `status` action reports honest health metrics including degraded and failed agents -- no status whitewashing.
-- **NO DOUBTS**: Agent specifications are parsed and validated before presentation. When the `show` action displays an agent's capabilities, those capabilities are verified against the actual agent specification file. Discrepancies between the registry and individual specification files are flagged rather than silently resolved. Evidence-based health metrics are derived from actual [telemetry](/glossary/telemetry/) data, not assumptions.
+- **NO DOUBTS**: Agent specifications are parsed and validated before presentation. When the `show` action displays an agent's capabilities, those capabilities are verified against the actual agent specification file. Discrepancies between the registry and individual specification files are flagged rather than silently resolved. Evidence-based health metrics are derived from actual [telemetry](@/glossary/telemetry.md) data, not assumptions.
 
 ## Best Practices
 
@@ -229,13 +229,13 @@ All agent management operations are governed by the **[NO MERCY, NO DOUBTS](/glo
 
 ## Related Commands
 
-- [/aiad-dashboard](/commands/aiad-dashboard/) - AIAD dashboard for intelligence and domain monitoring
-- [/orchestrate](/commands/orchestrate/) - Multi-agent orchestration for complex operations
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle
+- [/aiad-dashboard](@/commands/aiad-dashboard.md) - AIAD dashboard for intelligence and domain monitoring
+- [/orchestrate](@/commands/orchestrate.md) - Multi-agent orchestration for complex operations
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle
 
 ---
 
@@ -244,4 +244,4 @@ All agent management operations are governed by the **[NO MERCY, NO DOUBTS](/glo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

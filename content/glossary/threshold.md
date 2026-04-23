@@ -285,10 +285,10 @@ adaptive = PrismaticMonitoring.AdaptiveThreshold.compute(baseline_stats, 3.0)
 
 ## Cross-References
 
-- [SLA](/glossary/sla/) - Service agreements defined through threshold targets
-- [Quality Gates](/glossary/quality-gates/) - Enforcement system using threshold evaluation
-- [Standard Deviation](/glossary/standard-deviation/) - Statistical basis for adaptive thresholds
-- [Monitoring](/glossary/monitoring/) - Infrastructure providing metrics for threshold evaluation
+- [SLA](@/glossary/sla.md) - Service agreements defined through threshold targets
+- [Quality Gates](@/glossary/quality-gates.md) - Enforcement system using threshold evaluation
+- [Standard Deviation](@/glossary/standard-deviation.md) - Statistical basis for adaptive thresholds
+- [Monitoring](@/glossary/monitoring.md) - Infrastructure providing metrics for threshold evaluation
 
 ---
 

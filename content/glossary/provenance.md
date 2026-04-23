@@ -230,10 +230,10 @@ end
 
 ## Cross-References
 
-- [PEP](/glossary/pep/) - PEP screening results requiring provenance for regulatory compliance
-- [PII](/glossary/pii/) - Personal data requiring provenance for GDPR data lineage
+- [PEP](@/glossary/pep.md) - PEP screening results requiring provenance for regulatory compliance
+- [PII](@/glossary/pii.md) - Personal data requiring provenance for GDPR data lineage
 - **Sanctions** - Sanctions screening with mandatory provenance trails
-- [Quality Floor](/glossary/quality-floor/) - Quality standards verified through provenance completeness
+- [Quality Floor](@/glossary/quality-floor.md) - Quality standards verified through provenance completeness
 - **Semantic Link** - Knowledge graph connections with provenance metadata
 
 ---

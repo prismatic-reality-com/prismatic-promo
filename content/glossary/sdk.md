@@ -44,7 +44,7 @@ SDKs serve multiple audiences with different needs:
 
 Within the Prismatic Platform, the SDK strategy follows a multi-package architecture: a core SDK for fundamental platform interaction, a Plugin Kit for extending platform capabilities, a Security SDK for specialized security operations, and a UI SDK for building frontend interfaces. Each package is independently versioned, minimally coupled, and designed for the specific concerns of its target audience.
 
-The relationship between SDKs and [APIs](/glossary/api/) is complementary but distinct. An API defines the contract -- the endpoints, request formats, response schemas, and error codes. An SDK implements that contract in a specific language, adding type safety, retry logic, connection pooling, and developer ergonomics. You can use an API without an SDK (by making raw HTTP calls), but you cannot use an SDK without an underlying API. The SDK's value proposition is reducing the gap between "the API exists" and "I can productively use it."
+The relationship between SDKs and [APIs](@/glossary/api.md) is complementary but distinct. An API defines the contract -- the endpoints, request formats, response schemas, and error codes. An SDK implements that contract in a specific language, adding type safety, retry logic, connection pooling, and developer ergonomics. You can use an API without an SDK (by making raw HTTP calls), but you cannot use an SDK without an underlying API. The SDK's value proposition is reducing the gap between "the API exists" and "I can productively use it."
 
 ## Technical Deep Dive
 
@@ -342,7 +342,7 @@ end
 
 ### SDK Telemetry Integration
 
-Modern SDKs must be observable. The Prismatic SDK integrates with [Telemetry](/glossary/telemetry/) to provide standardized metrics for every API call:
+Modern SDKs must be observable. The Prismatic SDK integrates with [Telemetry](@/glossary/telemetry.md) to provide standardized metrics for every API call:
 
 ```elixir
 defmodule PrismaticSDK.Telemetry do
@@ -416,7 +416,7 @@ The Prismatic Platform SDK follows a multi-package strategy where each package s
 | **prismatic_security** | Security scanning, rating, compliance APIs | Security engineers | prismatic_sdk |
 | **prismatic_ui** | UI components, LiveView integration, themes | Frontend developers | prismatic_sdk, Phoenix |
 
-This separation follows the [adapter pattern](/glossary/adapter-pattern/) principle: each package adapts the underlying platform API to the specific concerns of its target audience. A security engineer installing `prismatic_security` should not need to understand the plugin lifecycle, and a plugin author should not need to pull in UI dependencies.
+This separation follows the [adapter pattern](@/glossary/adapter-pattern.md) principle: each package adapts the underlying platform API to the specific concerns of its target audience. A security engineer installing `prismatic_security` should not need to understand the plugin lifecycle, and a plugin author should not need to pull in UI dependencies.
 
 ### Versioning and Compatibility
 
@@ -432,13 +432,13 @@ The SDK maintains backward compatibility with at least two major versions of the
 
 ### SDK and the API Gateway
 
-The SDK communicates with the platform through the [API Gateway](/glossary/api-gateway/), which provides:
+The SDK communicates with the platform through the [API Gateway](@/glossary/api-gateway.md), which provides:
 
 - **Request routing**: SDK requests are routed to the appropriate backend service
 - **Rate limiting**: Per-client rate limits enforced at the gateway level
 - **Authentication**: API keys and OAuth2 tokens validated before reaching services
 - **Response caching**: Frequently requested data cached at the gateway layer
-- **OpenAPI validation**: Request and response schemas validated against the [OpenAPI specification](/glossary/api/)
+- **OpenAPI validation**: Request and response schemas validated against the [OpenAPI specification](@/glossary/api.md)
 
 ## Industry Context
 
@@ -491,20 +491,20 @@ SDK development is evolving in several directions:
 - **AI-assisted documentation**: Using LLMs to generate contextual examples based on the developer's specific integration scenario
 - **Multi-runtime support**: Single SDK source targeting multiple runtimes (BEAM, Node.js, WASM) through compilation
 
-The Prismatic Platform's SDK strategy -- with its multi-package architecture, OTP-native patterns, and comprehensive [telemetry](/glossary/telemetry/) integration -- positions the platform for adoption by the [Elixir](/glossary/elixir/) developer community while maintaining the quality standards enforced by the platform's [quality gates](/glossary/quality-gates/).
+The Prismatic Platform's SDK strategy -- with its multi-package architecture, OTP-native patterns, and comprehensive [telemetry](@/glossary/telemetry.md) integration -- positions the platform for adoption by the [Elixir](@/glossary/elixir.md) developer community while maintaining the quality standards enforced by the platform's [quality gates](@/glossary/quality-gates.md).
 
 ## Related Concepts
 
 SDKs connect to numerous platform concepts:
 
-- [API](/glossary/api/) -- The underlying contract that the SDK implements
-- [API Gateway](/glossary/api-gateway/) -- The infrastructure layer that routes SDK requests
-- [API Integration](/glossary/api-integration/) -- The practice of connecting systems through APIs and SDKs
-- [Adapter Pattern](/glossary/adapter-pattern/) -- The design pattern underlying SDK module architecture
-- [Composability](/glossary/composability/) -- The principle enabling SDK modules to be combined
-- [Telemetry](/glossary/telemetry/) -- Observability infrastructure integrated into every SDK call
-- [Open Source](/glossary/open-source/) -- Distribution model for the Prismatic SDK packages
-- [Protocol](/glossary/protocol/) -- Elixir protocols used for polymorphic SDK behavior
+- [API](@/glossary/api.md) -- The underlying contract that the SDK implements
+- [API Gateway](@/glossary/api-gateway.md) -- The infrastructure layer that routes SDK requests
+- [API Integration](@/glossary/api-integration.md) -- The practice of connecting systems through APIs and SDKs
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- The design pattern underlying SDK module architecture
+- [Composability](@/glossary/composability.md) -- The principle enabling SDK modules to be combined
+- [Telemetry](@/glossary/telemetry.md) -- Observability infrastructure integrated into every SDK call
+- [Open Source](@/glossary/open-source.md) -- Distribution model for the Prismatic SDK packages
+- [Protocol](@/glossary/protocol.md) -- Elixir protocols used for polymorphic SDK behavior
 
 ## Summary
 

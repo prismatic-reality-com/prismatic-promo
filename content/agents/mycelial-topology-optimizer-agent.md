@@ -28,9 +28,9 @@ image_alt = "Mycelial Topology Optimizer Agent - Prismatic Platform"
 
 ## Overview
 
-The Mycelial Topology Optimizer Agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform, responsible for optimizing the structural topology of the [mycelial network](/glossary/mycelial-network/) -- the inter-agent communication graph that connects the platform's 400+ autonomous agents. While the Mycelial Genetic Evolver handles connection weight optimization and the Evolution Specialist manages evolutionary population dynamics, the Topology Optimizer focuses on the structural properties of the network graph itself: which connections exist, how the network is partitioned, where hubs form, and whether the overall topology supports the communication patterns that agents actually use.
+The Mycelial Topology Optimizer Agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform, responsible for optimizing the structural topology of the [mycelial network](@/glossary/mycelial-network.md) -- the inter-agent communication graph that connects the platform's 400+ autonomous agents. While the Mycelial Genetic Evolver handles connection weight optimization and the Evolution Specialist manages evolutionary population dynamics, the Topology Optimizer focuses on the structural properties of the network graph itself: which connections exist, how the network is partitioned, where hubs form, and whether the overall topology supports the communication patterns that agents actually use.
 
-Built on the [AIAD](/glossary/aiad/) standard, this agent applies graph-theoretic analysis to continuously evaluate and improve the mycelial network's structural properties. Key metrics include network diameter (the longest shortest path between any two agents, targeting values below 5 to ensure rapid information propagation), betweenness centrality distribution (identifying overloaded hub agents that create bottleneck risks), clustering coefficient (measuring local connectivity density that supports neighborhood coordination), and algebraic connectivity (the second-smallest eigenvalue of the graph Laplacian, measuring the network's vulnerability to partitioning). The [NO DOUBTS](/glossary/no-doubts/) principle ensures that topology modifications are driven by measured structural deficiencies rather than speculative improvements.
+Built on the [AIAD](@/glossary/aiad.md) standard, this agent applies graph-theoretic analysis to continuously evaluate and improve the mycelial network's structural properties. Key metrics include network diameter (the longest shortest path between any two agents, targeting values below 5 to ensure rapid information propagation), betweenness centrality distribution (identifying overloaded hub agents that create bottleneck risks), clustering coefficient (measuring local connectivity density that supports neighborhood coordination), and algebraic connectivity (the second-smallest eigenvalue of the graph Laplacian, measuring the network's vulnerability to partitioning). The [NO DOUBTS](@/glossary/no-doubts.md) principle ensures that topology modifications are driven by measured structural deficiencies rather than speculative improvements.
 
 ## Theoretical Foundations
 
@@ -44,7 +44,7 @@ Small-world network theory provides the architectural target: the optimizer aims
 
 The topology optimization domain covers structural analysis and modification of the mycelial network graph. The optimizer works with the network's adjacency structure -- the binary question of which connections exist -- while leaving connection weight optimization to the Genetic Evolver. This separation of concerns enables independent optimization of structure and strength, with the optimizer ensuring that the right connections exist and the evolver ensuring that existing connections are properly weighted.
 
-The optimizer maintains a continuously-updated structural model of the mycelial network in [ETS](/glossary/ets/), computing and caching graph metrics that support optimization decisions. Full spectral analysis (eigenvalue decomposition of the Laplacian) is computationally expensive and runs on configurable schedules, while lightweight metrics (degree distribution, local clustering coefficients) are maintained in real-time.
+The optimizer maintains a continuously-updated structural model of the mycelial network in [ETS](@/glossary/ets.md), computing and caching graph metrics that support optimization decisions. Full spectral analysis (eigenvalue decomposition of the Laplacian) is computationally expensive and runs on configurable schedules, while lightweight metrics (degree distribution, local clustering coefficients) are maintained in real-time.
 
 ## Key Capabilities
 
@@ -54,8 +54,8 @@ The optimizer maintains a continuously-updated structural model of the mycelial 
 - **Clustering coefficient management** -- Monitors local and global clustering coefficients, ensuring that agent neighborhoods maintain sufficient mutual connectivity for efficient local coordination
 - **Small-world property maintenance** -- Evaluates the network against small-world criteria (high clustering, short paths) and applies targeted modifications to maintain or achieve this architecturally optimal configuration
 - **Community structure detection** -- Applies modularity optimization algorithms to identify natural agent communities, informing topology decisions that strengthen intra-community connections and maintain inter-community bridges
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed optimization cycles triggered by structural metric degradation
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing topology metrics including diameter, centrality distribution, clustering coefficients, algebraic connectivity, and small-world indices
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed optimization cycles triggered by structural metric degradation
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing topology metrics including diameter, centrality distribution, clustering coefficients, algebraic connectivity, and small-world indices
 
 ## Authority Level
 
@@ -80,11 +80,11 @@ Each candidate modification undergoes impact analysis before execution: the opti
 
 | Agent | Relationship |
 |-------|-------------|
-| [mycelial-genetic-evolver-agent](/agents/mycelial-genetic-evolver-agent/) | Structural topology decisions provide the edge set that the evolver optimizes weights for |
-| [mycelial-network-coordinator](/agents/mycelial-network-coordinator/) | Reports to L1 coordinator for strategic approval of major topology restructuring |
-| [mycelial-healer-specialist](/agents/mycelial-healer-specialist/) | Healing-driven topology changes are coordinated with optimization objectives |
-| [mycelial-emergence-sentinel-agent](/agents/mycelial-emergence-sentinel-agent/) | Emergent communication patterns inform topology optimization by revealing organic routing preferences |
-| [network-health-monitor](/agents/network-health-monitor/) | Health metrics provide operational context for topology decisions |
+| [mycelial-genetic-evolver-agent](@/agents/mycelial-genetic-evolver-agent.md) | Structural topology decisions provide the edge set that the evolver optimizes weights for |
+| [mycelial-network-coordinator](@/agents/mycelial-network-coordinator.md) | Reports to L1 coordinator for strategic approval of major topology restructuring |
+| [mycelial-healer-specialist](@/agents/mycelial-healer-specialist.md) | Healing-driven topology changes are coordinated with optimization objectives |
+| [mycelial-emergence-sentinel-agent](@/agents/mycelial-emergence-sentinel-agent.md) | Emergent communication patterns inform topology optimization by revealing organic routing preferences |
+| [network-health-monitor](@/agents/network-health-monitor.md) | Health metrics provide operational context for topology decisions |
 
 ## Structural Constraints
 
@@ -92,7 +92,7 @@ Topology modifications operate within a defined constraint set that prevents har
 
 ## Enforcement
 
-Topology modifications are validated through the [NO MERCY](/glossary/no-mercy/) doctrine: no modification is applied without demonstrated structural improvement, no degradation of any metric below acceptable thresholds is tolerated, and all modifications include rollback capability. The [Trinity Gate](/glossary/trinity-gate/) validates that topology changes maintain structural consistency with the network's design invariants, logical consistency with the agent authority hierarchy, and formal consistency with communication [protocol](/glossary/protocol/) requirements.
+Topology modifications are validated through the [NO MERCY](@/glossary/no-mercy.md) doctrine: no modification is applied without demonstrated structural improvement, no degradation of any metric below acceptable thresholds is tolerated, and all modifications include rollback capability. The [Trinity Gate](@/glossary/trinity-gate.md) validates that topology changes maintain structural consistency with the network's design invariants, logical consistency with the agent authority hierarchy, and formal consistency with communication [protocol](@/glossary/protocol.md) requirements.
 
 ---
 
@@ -101,4 +101,4 @@ Topology modifications are validated through the [NO MERCY](/glossary/no-mercy/)
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -255,10 +255,10 @@ config = %{base_url: "https://taxii.example.com", api_root: "api1", auth: {:bear
 
 ## Cross-References
 
-- [STIX](/glossary/stix/) - Data format transported by TAXII
-- [Threat Feed](/glossary/threat-feed/) - Intelligence stream delivered via TAXII
-- [OSINT](/glossary/osint/) - Intelligence discipline consuming TAXII feeds
-- [Signal](/glossary/signal/) - Platform-native format produced from TAXII data
+- [STIX](@/glossary/stix.md) - Data format transported by TAXII
+- [Threat Feed](@/glossary/threat-feed.md) - Intelligence stream delivered via TAXII
+- [OSINT](@/glossary/osint.md) - Intelligence discipline consuming TAXII feeds
+- [Signal](@/glossary/signal.md) - Platform-native format produced from TAXII data
 
 ---
 

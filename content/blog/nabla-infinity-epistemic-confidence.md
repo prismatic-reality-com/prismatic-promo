@@ -163,4 +163,4 @@ The Nabla Infinity framework transforms intelligence from "we found X" into "we 
 
 ---
 
-*Explore the [Architecture Documentation](/architecture/) for framework details or try the [Interactive Academy](/academy/) for hands-on exercises with confidence scoring.*
+*Explore the [Architecture Documentation](@/architecture/_index.md) for framework details or try the [Interactive Academy](@/academy/_index.md) for hands-on exercises with confidence scoring.*

@@ -23,11 +23,11 @@ image_alt = "Slash Command - Prismatic Platform"
 
 ## Definition and Overview
 
-A Slash Command is a structured command interface, prefixed with a forward slash (`/`), that triggers specific agent behaviors, platform operations, or workflow automations within the Prismatic Platform. Slash commands provide a uniform, discoverable interface for interacting with the platform's 530+ [AIAD agents](/glossary/aiad/), 225 registered commands, and numerous automated workflows. They serve as the primary human-to-platform interaction layer, translating high-level intent (e.g., `/orchestrate`, `/fix`, `/investigate`) into coordinated multi-agent operations.
+A Slash Command is a structured command interface, prefixed with a forward slash (`/`), that triggers specific agent behaviors, platform operations, or workflow automations within the Prismatic Platform. Slash commands provide a uniform, discoverable interface for interacting with the platform's 530+ [AIAD agents](@/glossary/aiad.md), 225 registered commands, and numerous automated workflows. They serve as the primary human-to-platform interaction layer, translating high-level intent (e.g., `/orchestrate`, `/fix`, `/investigate`) into coordinated multi-agent operations.
 
 The slash command pattern originates from IRC (Internet Relay Chat) in the late 1980s, where commands prefixed with `/` were distinguished from regular chat messages. The pattern was subsequently adopted by Slack, Discord, and numerous other platforms due to its intuitive affordance: the `/` prefix unambiguously signals "this is a command, not content." The Prismatic Platform adopts this proven interaction pattern and extends it with a type-safe, schema-validated, agent-backed execution model that goes far beyond simple command dispatch.
 
-In the platform's architecture, a slash command is not merely a string that triggers a function call. Each command is a first-class entity defined by an [AIAD command specification](/glossary/aiad/) (`.aiad/commands/*.cmd.md`) that declares its name, description, parameters, required authority level, associated agents, pre-conditions, post-conditions, and expected outputs. This specification-driven approach enables automated documentation generation, permission enforcement, parameter validation, and audit logging -- transforming what would otherwise be ad-hoc script invocations into a governed, observable command infrastructure.
+In the platform's architecture, a slash command is not merely a string that triggers a function call. Each command is a first-class entity defined by an [AIAD command specification](@/glossary/aiad.md) (`.aiad/commands/*.cmd.md`) that declares its name, description, parameters, required authority level, associated agents, pre-conditions, post-conditions, and expected outputs. This specification-driven approach enables automated documentation generation, permission enforcement, parameter validation, and audit logging -- transforming what would otherwise be ad-hoc script invocations into a governed, observable command infrastructure.
 
 ## Command Architecture
 
@@ -489,7 +489,7 @@ Session End (automatic):
 
 ### Mix Task Integration
 
-Many slash commands delegate to [Mix tasks](/glossary/mix-task/) for their underlying implementation:
+Many slash commands delegate to [Mix tasks](@/glossary/mix-task.md) for their underlying implementation:
 
 | Slash Command | Mix Task | Purpose |
 |---------------|----------|---------|
@@ -638,24 +638,24 @@ The command is now discoverable, documented, and executable through the slash co
 
 ## Related Concepts
 
-- [Command](/glossary/command/) -- Generic command concept in the platform
-- [AIAD](/glossary/aiad/) -- The agent and command standard framework
-- [Agent](/glossary/agent/) -- Autonomous entities that execute slash commands
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Multi-agent coordination triggered by commands
-- [Workflow](/glossary/workflow/) -- Structured processes composed from commands
-- [Mix Task](/glossary/mix-task/) -- Underlying task infrastructure for many commands
-- [Archer Supreme](/glossary/archer-supreme/) -- Supreme authority slash command
-- [Autoevolve](/glossary/autoevolve/) -- Autonomous evolution commands
-- [Autoheal](/glossary/autoheal/) -- Autonomous healing commands
-- [Doctrine](/glossary/doctrine/) -- Governance framework enforced by commands
-- [Agent Registry](/glossary/agent-registry/) -- Registry of agents backing commands
+- [Command](@/glossary/command.md) -- Generic command concept in the platform
+- [AIAD](@/glossary/aiad.md) -- The agent and command standard framework
+- [Agent](@/glossary/agent.md) -- Autonomous entities that execute slash commands
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Multi-agent coordination triggered by commands
+- [Workflow](@/glossary/workflow.md) -- Structured processes composed from commands
+- [Mix Task](@/glossary/mix-task.md) -- Underlying task infrastructure for many commands
+- [Archer Supreme](@/glossary/archer-supreme.md) -- Supreme authority slash command
+- [Autoevolve](@/glossary/autoevolve.md) -- Autonomous evolution commands
+- [Autoheal](@/glossary/autoheal.md) -- Autonomous healing commands
+- [Doctrine](@/glossary/doctrine.md) -- Governance framework enforced by commands
+- [Agent Registry](@/glossary/agent-registry.md) -- Registry of agents backing commands
 
 ## See Also
 
-- [AIAD Standard](/glossary/aiad/) -- Full specification for commands and agents
-- [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) -- Doctrine enforced by command execution
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Commands Section](/commands/) -- Full command catalog
+- [AIAD Standard](@/glossary/aiad.md) -- Full specification for commands and agents
+- [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) -- Doctrine enforced by command execution
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Commands Section](@/commands/_index.md) -- Full command catalog
 
 ---
 
@@ -664,4 +664,4 @@ The command is now discoverable, documented, and executable through the slash co
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

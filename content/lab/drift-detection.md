@@ -30,9 +30,9 @@ We hypothesize that sub-threshold drift -- changes too small to trigger conventi
 
 Drift is the silent killer of autonomous systems. While catastrophic failures trigger immediate alerts and rapid response, sub-threshold drift accumulates gradually across behavioral parameters, configuration values, and dependency versions. By the time drift becomes observable through conventional monitoring, it has often propagated across multiple subsystems, making root cause identification difficult and recovery expensive.
 
-The Prismatic Platform is particularly susceptible to drift because of its scale (90 applications, 434 agents, 250+ external integrations) and its epistemic requirements. The [NABLA Infinity](/glossary/nabla-infinity/) axiom of Time Decay explicitly acknowledges that all beliefs degrade over time, but the axiom addresses intentional time decay, not unintentional configuration drift.
+The Prismatic Platform is particularly susceptible to drift because of its scale (90 applications, 434 agents, 250+ external integrations) and its epistemic requirements. The [NABLA Infinity](@/glossary/nabla-infinity.md) axiom of Time Decay explicitly acknowledges that all beliefs degrade over time, but the axiom addresses intentional time decay, not unintentional configuration drift.
 
-The [Color Team](/glossary/color-teams/) simulation experiment identified Drift Induction as the most difficult adversarial primitive to close (85.3% closure rate vs 90%+ for other primitives). This motivates a dedicated drift detection infrastructure that operates below conventional alerting thresholds.
+The [Color Team](@/glossary/color-teams.md) simulation experiment identified Drift Induction as the most difficult adversarial primitive to close (85.3% closure rate vs 90%+ for other primitives). This motivates a dedicated drift detection infrastructure that operates below conventional alerting thresholds.
 
 We categorize drift into four types: Behavioral Drift (agent response patterns change), Configuration Drift (system parameters diverge from intended values), Dependency Drift (library versions and external API behaviors shift), and Performance Drift (latency and throughput characteristics degrade gradually).
 
@@ -42,11 +42,11 @@ The machine learning and systems reliability literature distinguishes several dr
 
 **Concept Drift** occurs when the statistical relationship between inputs and outputs changes. In AI-driven platforms, this manifests when the assumptions baked into agent decision logic no longer hold. For example, an OSINT enrichment agent calibrated against 2024-era API response formats will silently degrade as upstream providers evolve their schemas. Concept drift is particularly dangerous because the system continues to produce outputs -- they are simply wrong in ways that may not be immediately obvious.
 
-**Data Drift** (also called covariate shift) occurs when the distribution of input data changes while the underlying relationship remains stable. In the Prismatic context, this appears when investigation targets shift from one industry vertical to another, or when seasonal patterns alter the volume and character of incoming queries. A [Quality DNA](/glossary/quality-dna/) model trained on financial sector investigations will exhibit degraded confidence when applied to healthcare targets, even if its core logic remains sound.
+**Data Drift** (also called covariate shift) occurs when the distribution of input data changes while the underlying relationship remains stable. In the Prismatic context, this appears when investigation targets shift from one industry vertical to another, or when seasonal patterns alter the volume and character of incoming queries. A [Quality DNA](@/glossary/quality-dna.md) model trained on financial sector investigations will exhibit degraded confidence when applied to healthcare targets, even if its core logic remains sound.
 
-**Model Drift** refers to the gradual degradation of a trained model's predictive accuracy over time, even in the absence of concept or data drift. This is often caused by feedback loops: if an agent's outputs influence the data it later receives as input, small errors compound. The [epistemic framework](/lab/epistemic-framework/) experiment addresses this through mandatory provenance tracking.
+**Model Drift** refers to the gradual degradation of a trained model's predictive accuracy over time, even in the absence of concept or data drift. This is often caused by feedback loops: if an agent's outputs influence the data it later receives as input, small errors compound. The [epistemic framework](@/lab/epistemic-framework.md) experiment addresses this through mandatory provenance tracking.
 
-**Epistemic Drift** is a category specific to systems that maintain belief states. When the quality, freshness, or plurality of evidence supporting a belief degrades over time, the belief itself drifts from truth -- even if no individual observation is incorrect. The NABLA Infinity axiom of [Signal Plurality](/glossary/signal-plurality/) exists precisely to combat this: requiring minimum two independent signals for any belief establishment. Epistemic drift violates this axiom gradually rather than suddenly, making it the hardest category to detect with threshold-based alerts.
+**Epistemic Drift** is a category specific to systems that maintain belief states. When the quality, freshness, or plurality of evidence supporting a belief degrades over time, the belief itself drifts from truth -- even if no individual observation is incorrect. The NABLA Infinity axiom of [Signal Plurality](@/glossary/signal-plurality.md) exists precisely to combat this: requiring minimum two independent signals for any belief establishment. Epistemic drift violates this axiom gradually rather than suddenly, making it the hardest category to detect with threshold-based alerts.
 
 ### Sub-Threshold Drift: The Most Dangerous Category
 
@@ -66,7 +66,7 @@ The detection of sub-threshold drift draws on decades of statistical process con
 
 **EWMA (Exponentially Weighted Moving Average)** charts apply exponentially decaying weights to past observations, creating a smoothed statistic that responds to level shifts. EWMA provides a tunable sensitivity parameter (lambda) that controls the trade-off between detection speed and false alarm rate. Lower lambda values give more weight to historical observations, improving sensitivity to small shifts at the cost of slower detection of large shifts.
 
-Our implementation uses CUSUM as the primary detection algorithm because of its optimality properties for the sub-threshold regime, supplemented by EWMA for scenarios where the expected shift magnitude is unknown. The [telemetry](/glossary/telemetry/) infrastructure provides the observation pipeline, and [ETS](/glossary/ets/) tables provide the low-latency storage required for real-time accumulation.
+Our implementation uses CUSUM as the primary detection algorithm because of its optimality properties for the sub-threshold regime, supplemented by EWMA for scenarios where the expected shift magnitude is unknown. The [telemetry](@/glossary/telemetry.md) infrastructure provides the observation pipeline, and [ETS](@/glossary/ets.md) tables provide the low-latency storage required for real-time accumulation.
 
 ## Drift Taxonomy
 
@@ -78,11 +78,11 @@ The following taxonomy classifies drift by domain, detection method, and risk pr
 | **Configuration** | System parameters diverge from intended or declared values | Discrete change detection, version comparison, config snapshot diffing | Binary (changed/unchanged) or continuous parameter shift | Low -- parameters are well-defined | High |
 | **Dependency** | Upstream APIs, libraries, or data sources change behavior | Response schema validation, latency profiling, error rate monitoring | Variable -- API changes can be subtle or breaking | High -- external systems are noisy | High |
 | **Performance** | Latency, throughput, memory, or CPU characteristics degrade gradually | Time-series trend analysis, CUSUM/EWMA on percentile metrics | 0.5-5% per week | Medium -- metrics are well-instrumented | Medium |
-| **Epistemic** | Belief quality, evidence freshness, or source plurality degrades | [NABLA axiom](/glossary/nabla-infinity/) compliance checking, belief graph analysis, provenance age tracking | Gradual confidence erosion | Very High -- requires semantic analysis | Critical |
+| **Epistemic** | Belief quality, evidence freshness, or source plurality degrades | [NABLA axiom](@/glossary/nabla-infinity.md) compliance checking, belief graph analysis, provenance age tracking | Gradual confidence erosion | Very High -- requires semantic analysis | Critical |
 
 ### Behavioral Drift
 
-Behavioral drift is detected by maintaining statistical profiles of agent outputs. For each [agent](/glossary/agent/), we track output token distributions, response latency percentiles, confidence score distributions, and tool invocation patterns. A shift in any of these distributions, even if each individual response appears reasonable, indicates behavioral drift.
+Behavioral drift is detected by maintaining statistical profiles of agent outputs. For each [agent](@/glossary/agent.md), we track output token distributions, response latency percentiles, confidence score distributions, and tool invocation patterns. A shift in any of these distributions, even if each individual response appears reasonable, indicates behavioral drift.
 
 ### Configuration Drift
 
@@ -90,7 +90,7 @@ Configuration drift is the simplest to detect but among the most impactful to mi
 
 ### Dependency Drift
 
-Dependency drift encompasses changes in external systems that the platform depends on. This includes API version changes, response format modifications, rate limit adjustments, authentication mechanism updates, and behavioral changes in third-party services. The [OSINT pipeline](/lab/osint-pipeline/) is particularly vulnerable to dependency drift because it integrates with 250+ external data sources.
+Dependency drift encompasses changes in external systems that the platform depends on. This includes API version changes, response format modifications, rate limit adjustments, authentication mechanism updates, and behavioral changes in third-party services. The [OSINT pipeline](@/lab/osint-pipeline.md) is particularly vulnerable to dependency drift because it integrates with 250+ external data sources.
 
 ### Performance Drift
 
@@ -98,7 +98,7 @@ Performance drift manifests as gradual degradation in system timing characterist
 
 ### Epistemic Drift
 
-Epistemic drift is unique to systems that maintain structured beliefs. It occurs when the evidence supporting a belief degrades in quality, freshness, or plurality without the belief itself being updated. The [Trinity Gate](/capabilities/trinity-gate/) provides the formal verification layer, but epistemic drift attacks the evidence foundation beneath the gate rather than the gate logic itself.
+Epistemic drift is unique to systems that maintain structured beliefs. It occurs when the evidence supporting a belief degrades in quality, freshness, or plurality without the belief itself being updated. The [Trinity Gate](@/capabilities/trinity-gate.md) provides the formal verification layer, but epistemic drift attacks the evidence foundation beneath the gate rather than the gate logic itself.
 
 ## Methodology
 
@@ -108,7 +108,7 @@ The experiment deployed drift detectors across all four drift categories and mea
 
 **Calibration**: Each detector was calibrated on 30 days of historical data to establish baseline distributions. Thresholds were set to achieve approximately 5% false positive rate on the calibration data.
 
-**Validation**: Ground truth was established by correlating detected drift events with confirmed production incidents (logged in the incident management system) and with [Quality DNA](/glossary/quality-dna/) score changes.
+**Validation**: Ground truth was established by correlating detected drift events with confirmed production incidents (logged in the incident management system) and with [Quality DNA](@/glossary/quality-dna.md) score changes.
 
 **Injection Testing**: To validate detection sensitivity, we injected known drift patterns at controlled magnitudes and measured the minimum detectable drift magnitude for each category.
 
@@ -521,7 +521,7 @@ end
 
 ### ETS-Based Drift History Storage
 
-Drift observations and detection events are stored in [ETS](/glossary/ets/) for low-latency access during real-time detection, with periodic persistence to [TimescaleDB](/technologies/timescaledb/) for long-term analysis:
+Drift observations and detection events are stored in [ETS](@/glossary/ets.md) for low-latency access during real-time detection, with periodic persistence to [TimescaleDB](@/technologies/timescaledb.md) for long-term analysis:
 
 ```elixir
 defmodule PrismaticDrift.History do
@@ -635,7 +635,7 @@ The most sophisticated drift attacks -- and the most insidious organic drift -- 
 
 The multi-signal correlation engine operates on a publish-subscribe architecture. Each domain-specific detector publishes drift observations to a central correlation bus. The correlation engine maintains sliding windows of observations across all domains and computes cross-domain correlation coefficients in real time.
 
-The architecture follows the [supervision tree](/glossary/supervision-tree/) pattern, with each detector running as an independent [GenServer](/glossary/genserver/) under a domain-specific supervisor. This ensures that a failure in one detector does not affect others -- critical for a monitoring system that must be more reliable than the systems it monitors.
+The architecture follows the [supervision tree](@/glossary/supervision-tree.md) pattern, with each detector running as an independent [GenServer](@/glossary/genserver.md) under a domain-specific supervisor. This ensures that a failure in one detector does not affect others -- critical for a monitoring system that must be more reliable than the systems it monitors.
 
 ```
 DriftSupervisor (one_for_one)
@@ -664,11 +664,11 @@ DriftSupervisor (one_for_one)
 
 ### The Role of Blue Team Agents in Drift Defense
 
-The [Blue Team](/glossary/blue-team/) agents play a critical role in drift defense. The `blue-drift-detector` agent continuously monitors behavioral, configuration, dependency, and performance drift across the platform. When drift is detected, it produces structured evidence (not alerts) that feeds into the `blue-signal-aggregator` for cross-domain correlation.
+The [Blue Team](@/glossary/blue-team.md) agents play a critical role in drift defense. The `blue-drift-detector` agent continuously monitors behavioral, configuration, dependency, and performance drift across the platform. When drift is detected, it produces structured evidence (not alerts) that feeds into the `blue-signal-aggregator` for cross-domain correlation.
 
 The distinction between alerts and evidence is deliberate. Alerts demand immediate human attention; evidence accumulates and is synthesized. Sub-threshold drift produces evidence that, taken individually, does not warrant alerting. The Blue Team's signal aggregation process identifies when accumulated evidence crosses a threshold that warrants escalation.
 
-The `blue-signal-aggregator` enforces the NABLA [Signal Plurality](/glossary/signal-plurality/) axiom by requiring corroboration from at least two independent signal domains before elevating drift status. This prevents single-domain noise from generating false escalations while ensuring that genuine multi-domain drift is detected even when each domain's signal is weak.
+The `blue-signal-aggregator` enforces the NABLA [Signal Plurality](@/glossary/signal-plurality.md) axiom by requiring corroboration from at least two independent signal domains before elevating drift status. This prevents single-domain noise from generating false escalations while ensuring that genuine multi-domain drift is detected even when each domain's signal is weak.
 
 ### Signal Weighting and Confidence Scoring
 
@@ -676,7 +676,7 @@ Not all drift signals carry equal diagnostic value. The correlation engine assig
 
 1. **Signal Reliability**: Historical false positive rate for this specific signal. Signals with consistently low false positive rates receive higher weight.
 
-2. **Domain Criticality**: Configuration drift in security-sensitive parameters receives higher weight than performance drift in non-critical paths. The criticality map is derived from the platform's [supervision tree](/glossary/supervision-tree/) dependency analysis.
+2. **Domain Criticality**: Configuration drift in security-sensitive parameters receives higher weight than performance drift in non-critical paths. The criticality map is derived from the platform's [supervision tree](@/glossary/supervision-tree.md) dependency analysis.
 
 3. **Temporal Coherence**: Signals that shift in correlated timing patterns receive a coherence bonus. If behavioral drift and performance drift begin at the same time, this temporal correlation increases the composite score beyond what either signal would contribute independently.
 
@@ -766,7 +766,7 @@ Configuration drift has the fastest recovery (median 12 minutes) because auto-re
 
 ## Cascade Prevention
 
-Drift in one module can propagate to dependent modules through data flow, shared configuration, or transitive dependencies. This cascade effect transforms localized drift into systemic instability. The [CASCADE](/glossary/cascade/) pattern recognition system addresses cascading failures at the code level; drift cascade prevention addresses them at the runtime behavioral level.
+Drift in one module can propagate to dependent modules through data flow, shared configuration, or transitive dependencies. This cascade effect transforms localized drift into systemic instability. The [CASCADE](@/glossary/cascade.md) pattern recognition system addresses cascading failures at the code level; drift cascade prevention addresses them at the runtime behavioral level.
 
 ### How Drift Cascades
 
@@ -776,7 +776,7 @@ This amplification effect is analogous to error propagation in numerical computa
 
 ### Circuit Breaker Patterns for Drift Isolation
 
-The [circuit breaker](/glossary/circuit-breaker/) pattern, well-established for handling cascading failures in distributed systems, is adapted here for drift isolation. When drift is detected in a module, its downstream consumers are notified and can activate protective measures:
+The [circuit breaker](@/glossary/circuit-breaker.md) pattern, well-established for handling cascading failures in distributed systems, is adapted here for drift isolation. When drift is detected in a module, its downstream consumers are notified and can activate protective measures:
 
 **Open Circuit (Drift Detected)**: When a module's drift score exceeds the high threshold, the circuit opens. Downstream modules switch to cached or default values rather than consuming drifted output. This prevents drift propagation at the cost of freshness.
 
@@ -788,15 +788,15 @@ The drift circuit breaker differs from a failure circuit breaker in two importan
 
 ### Automatic Rollback Triggers
 
-For configuration drift and certain categories of behavioral drift, automatic rollback provides the fastest path to recovery. The rollback system integrates with the platform's [quality gates](/capabilities/quality-gates/) to ensure that rollbacks do not introduce regressions:
+For configuration drift and certain categories of behavioral drift, automatic rollback provides the fastest path to recovery. The rollback system integrates with the platform's [quality gates](@/capabilities/quality-gates.md) to ensure that rollbacks do not introduce regressions:
 
 1. **Pre-condition**: Drift score exceeds the emergency threshold (0.85) for a module with auto-rollback enabled.
 2. **Snapshot Lookup**: The system retrieves the most recent known-good configuration snapshot from the drift history store.
 3. **Compatibility Check**: The known-good snapshot is validated against the current system state to ensure it is still compatible (no schema changes, no removed dependencies).
 4. **Staged Rollback**: The rollback is applied to a canary subset first. If the canary's drift score decreases within the expected timeframe, the rollback is applied globally.
-5. **Post-condition**: The [Quality DNA](/glossary/quality-dna/) score for the affected module is verified to remain stable after rollback.
+5. **Post-condition**: The [Quality DNA](@/glossary/quality-dna.md) score for the affected module is verified to remain stable after rollback.
 
-Automatic rollback is intentionally limited to configuration drift and simple behavioral drift. Dependency drift and complex behavioral drift require human investigation because the root cause is external to the system. The [autonomous self-healing](/capabilities/autonomous-self-healing/) capability handles the broader class of automated remediation.
+Automatic rollback is intentionally limited to configuration drift and simple behavioral drift. Dependency drift and complex behavioral drift require human investigation because the root cause is external to the system. The [autonomous self-healing](@/capabilities/autonomous-self-healing.md) capability handles the broader class of automated remediation.
 
 ## Analysis
 
@@ -810,7 +810,7 @@ The adaptive threshold with monthly recalibration achieved the best balance: 4.1
 
 The multi-signal correlation results deserve particular attention. Of the 57 drift-caused incidents, 23 (40.4%) involved drift in multiple categories simultaneously. In these cases, no single category's detector would have reached its escalation threshold independently. Only the weighted composite score, which aggregates weak signals across domains, triggered the escalation. This validates the architectural decision to build a cross-domain correlation engine rather than relying on independent per-category detectors.
 
-The cascade prevention mechanisms were tested through controlled drift injection experiments. When drift was injected into Module A (a data enrichment agent), the circuit breaker successfully prevented propagation to Modules B and C in 94% of cases. The 6% failure rate occurred when drift accumulated very slowly -- below even the CUSUM detection threshold -- and propagated before any detector triggered. This represents the fundamental limit of any detection-based approach: drift that is truly undetectable will propagate. The solution is defense in depth, combining detection with periodic re-calibration and [formal verification](/lab/formal-verification/) of end-to-end invariants.
+The cascade prevention mechanisms were tested through controlled drift injection experiments. When drift was injected into Module A (a data enrichment agent), the circuit breaker successfully prevented propagation to Modules B and C in 94% of cases. The 6% failure rate occurred when drift accumulated very slowly -- below even the CUSUM detection threshold -- and propagated before any detector triggered. This represents the fundamental limit of any detection-based approach: drift that is truly undetectable will propagate. The solution is defense in depth, combining detection with periodic re-calibration and [formal verification](@/lab/formal-verification.md) of end-to-end invariants.
 
 ## Conclusions
 
@@ -827,23 +827,23 @@ The cascade prevention mechanisms were tested through controlled drift injection
 
 - Implement automated drift remediation for Configuration Drift (auto-reset to intended values)
 - Develop causal analysis to trace drift propagation paths across applications
-- Integrate with [Color Team](/glossary/color-teams/) to use drift injection as a Red Team testing technique
-- Build real-time drift visualization dashboards with [TimescaleDB](/technologies/timescaledb/) continuous aggregates
+- Integrate with [Color Team](@/glossary/color-teams.md) to use drift injection as a Red Team testing technique
+- Build real-time drift visualization dashboards with [TimescaleDB](@/technologies/timescaledb.md) continuous aggregates
 - Extend to inter-application drift correlation for detecting systemic drift patterns
 - Deploy EWMA detectors alongside CUSUM for unknown-magnitude shift detection
-- Implement [formal verification](/lab/formal-verification/) of end-to-end invariants as a complement to detection-based approaches
+- Implement [formal verification](@/lab/formal-verification.md) of end-to-end invariants as a complement to detection-based approaches
 - Investigate Bayesian online change-point detection as an alternative to CUSUM for non-stationary baselines
-- Develop epistemic drift detection integrated with the [belief graph](/glossary/belief-graph/) and [Trinity Gate](/capabilities/trinity-gate/)
+- Develop epistemic drift detection integrated with the [belief graph](@/glossary/belief-graph.md) and [Trinity Gate](@/capabilities/trinity-gate.md)
 
 ## Related Experiments
 
-- [Epistemic Framework](/lab/epistemic-framework/) -- Epistemic drift is a specific drift category
-- [Color Team Simulation](/lab/color-team-simulation/) -- Drift Induction as adversarial primitive
-- [Quality Evolution](/lab/quality-evolution/) -- Quality drift prevention through floor maintenance
-- [Pipeline Experimentation](/lab/pipeline-experimentation/) -- Pipeline behavior drift detection
-- [Formal Verification](/lab/formal-verification/) -- Proving invariants hold despite drift
-- [Multi-Agent Coordination](/lab/multi-agent-coordination/) -- Coordination drift in agent ensembles
-- [Architecture Validation](/lab/architecture-validation/) -- Structural drift in system architecture
+- [Epistemic Framework](@/lab/epistemic-framework.md) -- Epistemic drift is a specific drift category
+- [Color Team Simulation](@/lab/color-team-simulation.md) -- Drift Induction as adversarial primitive
+- [Quality Evolution](@/lab/quality-evolution.md) -- Quality drift prevention through floor maintenance
+- [Pipeline Experimentation](@/lab/pipeline-experimentation.md) -- Pipeline behavior drift detection
+- [Formal Verification](@/lab/formal-verification.md) -- Proving invariants hold despite drift
+- [Multi-Agent Coordination](@/lab/multi-agent-coordination.md) -- Coordination drift in agent ensembles
+- [Architecture Validation](@/lab/architecture-validation.md) -- Structural drift in system architecture
 
 ---
 
@@ -852,4 +852,4 @@ The cascade prevention mechanisms were tested through controlled drift injection
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -73,25 +73,25 @@ The platform orchestrates specialized AI agents across operational domains, from
 
 ### Quick Navigation
 
-- **[Agent Ecosystem](/agents/)** - 531 autonomous agents with specialized capabilities
-- **[Platform Capabilities](/capabilities/)** - Core doctrines and technical specifications
-- **[Architecture Overview](/architecture/)** - System design and component relationships
-- **[Developer Portal](/developers/)** - Open source tools and community resources
-- **[Applications Catalog](/applications/)** - 625+ production application blueprints
+- **[Agent Ecosystem](@/agents/_index.md)** - 531 autonomous agents with specialized capabilities
+- **[Platform Capabilities](@/capabilities/_index.md)** - Core doctrines and technical specifications
+- **[Architecture Overview](@/architecture/_index.md)** - System design and component relationships
+- **[Developer Portal](@/developers/_index.md)** - Open source tools and community resources
+- **[Applications Catalog](@/applications/_index.md)** - 625+ production application blueprints
 
 ### Explore Platform
 
 | Component | Description | Access Point |
 |-----------|-------------|--------------|
-| **Epistemic Framework** | NABLA Infinity doctrine with Trinity Gate verification | [/capabilities/](/capabilities/) |
-| **AI Orchestration** | 531 agents across L1-L5 authority hierarchy | [/agents/](/agents/) |
-| **Intelligence Operations** | 122+ OSINT sources with Czech registry integration | [/osint/](/osint/) |
-| **Open Source Ecosystem** | Complete codebase access under GPL-3.0 | [/developers/](/developers/) |
-| **Quality Enforcement** | 100/100 score across 13 domains, zero exceptions | [/capabilities/](/capabilities/) |
+| **Epistemic Framework** | NABLA Infinity doctrine with Trinity Gate verification | [/capabilities/](@/capabilities/_index.md) |
+| **AI Orchestration** | 531 agents across L1-L5 authority hierarchy | [/agents/](@/agents/_index.md) |
+| **Intelligence Operations** | 122+ OSINT sources with Czech registry integration | [/osint/](@/osint/_index.md) |
+| **Open Source Ecosystem** | Complete codebase access under GPL-3.0 | [/developers/](@/developers/_index.md) |
+| **Quality Enforcement** | 100/100 score across 13 domains, zero exceptions | [/capabilities/](@/capabilities/_index.md) |
 
 ### Want to Know More?
 
-Explore the [creator's philosophy](/about/author/), dive into the [five pillars](#the-five-pillars) that define the platform, or understand why this represents a [complete reimagining](#what-prismatic-is-not) of software development.
+Explore the [creator's philosophy](@/about/author.md), dive into the [five pillars](#the-five-pillars) that define the platform, or understand why this represents a [complete reimagining](#what-prismatic-is-not) of software development.
 
 **About Prismatic**: [Origin and Philosophy](#origin-and-philosophy) • [Platform Pillars](#the-five-pillars) • [What Makes It Different](#what-prismatic-is-not)
 
@@ -121,13 +121,13 @@ The word "epistemic" is deliberate. Traditional development tools care about syn
 
 ### 1. AI Orchestration (434 Agents, 14 Domains)
 
-Prismatic does not have "an AI." It has 434 specialized agents organized across 14 domains, from strategic command (8 agents with cross-domain authority) to tactical execution (89 focused task agents) to intelligence operations (67 information gathering agents) to security operations (20 agents across 6 color teams). Each agent has a defined authority level, a specific competency, and a formal behavioral specification written in the [AIAD standard](/glossary/aiad/).
+Prismatic does not have "an AI." It has 434 specialized agents organized across 14 domains, from strategic command (8 agents with cross-domain authority) to tactical execution (89 focused task agents) to intelligence operations (67 information gathering agents) to security operations (20 agents across 6 color teams). Each agent has a defined authority level, a specific competency, and a formal behavioral specification written in the [AIAD standard](@/glossary/aiad.md).
 
-These agents do not just answer questions. They orchestrate, verify, contradict each other, and converge on decisions that pass the [Trinity Gate](/glossary/trinity-gate/) -- a three-layer formal verification system requiring structural consistency, logical consistency, and formal proof before any claim is established.
+These agents do not just answer questions. They orchestrate, verify, contradict each other, and converge on decisions that pass the [Trinity Gate](@/glossary/trinity-gate.md) -- a three-layer formal verification system requiring structural consistency, logical consistency, and formal proof before any claim is established.
 
 ### 2. Security (Color Teams)
 
-Security in Prismatic is not a checkbox. It is a continuous adversarial-defensive synthesis operated by [6 color teams](/glossary/color-teams/) with 20 specialized agents:
+Security in Prismatic is not a checkbox. It is a continuous adversarial-defensive synthesis operated by [6 color teams](@/glossary/color-teams.md) with 20 specialized agents:
 
 - **Gray Team** explores boundaries and specification gaps without resolving them
 - **Red Team** simulates epistemic attacks in sandboxed environments with synthetic data only
@@ -142,13 +142,13 @@ All adversarial operations run in sandboxes. No real data. No network access. Et
 
 Prismatic maintains a perfect quality score across 13 measurement domains: Dialyzer type safety, Credo code quality, zero-warning compilation, DateTime precision, guard function safety, @impl behavior coverage (709 implementations), memory safety, performance benchmarks, regression prevention, timing pattern consistency, TODO management, typespec coverage, and safe map access. Zero violations in every domain.
 
-This is not aspirational. It is enforced. The [NO MERCY doctrine](/glossary/no-mercy/) blocks commits that introduce warnings, incomplete implementations, stubs, mocks, placeholders, TODOs, or FIXMEs. The [Quality Floor Guardian](/glossary/quality-floor-guardian/) monitors quality autonomously and triggers auto-evolution when scores approach thresholds. Every bug fix requires a mandatory regression test that must fail before the fix and pass after -- no exceptions, no bypass.
+This is not aspirational. It is enforced. The [NO MERCY doctrine](@/glossary/no-mercy.md) blocks commits that introduce warnings, incomplete implementations, stubs, mocks, placeholders, TODOs, or FIXMEs. The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) monitors quality autonomously and triggers auto-evolution when scores approach thresholds. Every bug fix requires a mandatory regression test that must fail before the fix and pass after -- no exceptions, no bypass.
 
 ### 4. Formal Verification (QEVE + Trinity Gate)
 
-Most AI platforms give you a confidence percentage. Prismatic gives you a **formally verified conclusion**. The [QEVE](/glossary/qeve/) (Quantified Epistemic Verification Engine) combines Lean4 formal proofs, NABLA epistemic axioms, and Monte Carlo robustness testing into a five-stage verification pipeline.
+Most AI platforms give you a confidence percentage. Prismatic gives you a **formally verified conclusion**. The [QEVE](@/glossary/qeve.md) (Quantified Epistemic Verification Engine) combines Lean4 formal proofs, NABLA epistemic axioms, and Monte Carlo robustness testing into a five-stage verification pipeline.
 
-The [Trinity Gate](/glossary/trinity-gate/) requires every established claim to pass three independent checks: structural consistency (graph theory -- the belief network forms a valid DAG), logical consistency (rule-based -- propositions follow logical rules), and formal necessity (modal logic + Lean4 proofs). No claim is established without Trinity passage.
+The [Trinity Gate](@/glossary/trinity-gate.md) requires every established claim to pass three independent checks: structural consistency (graph theory -- the belief network forms a valid DAG), logical consistency (rule-based -- propositions follow logical rules), and formal necessity (modal logic + Lean4 proofs). No claim is established without Trinity passage.
 
 This matters for compliance. When an auditor asks "why did the system make this decision?", the answer is not "the model said 87%." The answer is a traceable chain of evidence, axiom compliance, and formal proof.
 
@@ -184,7 +184,7 @@ Prismatic inverts this. The platform drives the development process. The human p
 
 These platforms add security scanning to CI/CD pipelines. They find vulnerabilities in dependencies, source code, and container images. They are valuable but reactive -- they scan after the code is written.
 
-Prismatic's Color Teams operate continuously, not as a pipeline stage. The [Gray Team](/glossary/gray-team/) discovers specification gaps before code is written. The [Red Team](/glossary/red-team/) simulates attacks against the design, not just the implementation. The [White Team](/glossary/white-team/) proves security properties formally. This is proactive security integrated into the development model, not reactive scanning bolted onto the deployment pipeline.
+Prismatic's Color Teams operate continuously, not as a pipeline stage. The [Gray Team](@/glossary/gray-team.md) discovers specification gaps before code is written. The [Red Team](@/glossary/red-team.md) simulates attacks against the design, not just the implementation. The [White Team](@/glossary/white-team.md) proves security properties formally. This is proactive security integrated into the development model, not reactive scanning bolted onto the deployment pipeline.
 
 ## Architecture at a Glance
 
@@ -230,11 +230,11 @@ Each application has its own supervision tree, its own test suite, its own `CLAU
 
 This section contains perspectives tailored to different audiences:
 
-- **[For Developers](/about/for-developers/)**: How Prismatic transforms the developer experience with 400+ agents, regression enforcement, and epistemic proofs. If you write code, start here.
-- **[For Architects](/about/for-architects/)**: Prismatic as a runtime for decisions over code -- contradictions, signal plurality, confidence thresholds, and the 16-level epistemic pipeline. If you design systems, this is your entry point.
-- **[For Executives](/about/for-executives/)**: Prismatic as a decision engine that turns development into an auditable process. Every decision traced, every conclusion proved. If you care about risk and compliance, read this.
-- **[For Security & Risk](/about/for-security/)**: Color Teams in your development process -- adversarial simulation, epistemic defense, formal proofs, and audit trails. If you think about threats and compliance, this is for you.
-- **[QEVE Deep Dive](/about/qeve-deep-dive/)**: The technical architecture of the Quantified Epistemic Verification Engine. From "model says 87%" to auditable, legally defensible conclusions.
+- **[For Developers](@/about/for-developers.md)**: How Prismatic transforms the developer experience with 400+ agents, regression enforcement, and epistemic proofs. If you write code, start here.
+- **[For Architects](@/about/for-architects.md)**: Prismatic as a runtime for decisions over code -- contradictions, signal plurality, confidence thresholds, and the 16-level epistemic pipeline. If you design systems, this is your entry point.
+- **[For Executives](@/about/for-executives.md)**: Prismatic as a decision engine that turns development into an auditable process. Every decision traced, every conclusion proved. If you care about risk and compliance, read this.
+- **[For Security & Risk](@/about/for-security.md)**: Color Teams in your development process -- adversarial simulation, epistemic defense, formal proofs, and audit trails. If you think about threats and compliance, this is for you.
+- **[QEVE Deep Dive](@/about/qeve-deep-dive.md)**: The technical architecture of the Quantified Epistemic Verification Engine. From "model says 87%" to auditable, legally defensible conclusions.
 
 ## The NABLA Foundation
 
@@ -276,11 +276,11 @@ The NO MERCY, NO DOUBTS doctrine is not theatrical. It was born from real experi
 
 ## Further Reading
 
-- [Platform Architecture](/architecture/) -- Technical deep dive into the OTP supervision tree and umbrella structure
-- [Agent Ecosystem](/agents/) -- The full registry of 434 AIAD agents
-- [Platform Capabilities](/capabilities/) -- Doctrines, quality systems, and governance frameworks
-- [Glossary](/glossary/) -- 127 defined terms with precise meanings
-- [Color Teams](/teams/) -- Detailed breakdown of the 6 security teams
+- [Platform Architecture](@/architecture/_index.md) -- Technical deep dive into the OTP supervision tree and umbrella structure
+- [Agent Ecosystem](@/agents/_index.md) -- The full registry of 434 AIAD agents
+- [Platform Capabilities](@/capabilities/_index.md) -- Doctrines, quality systems, and governance frameworks
+- [Glossary](@/glossary/_index.md) -- 127 defined terms with precise meanings
+- [Color Teams](@/teams/_index.md) -- Detailed breakdown of the 6 security teams
 
 ---
 
@@ -289,4 +289,4 @@ The NO MERCY, NO DOUBTS doctrine is not theatrical. It was born from real experi
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

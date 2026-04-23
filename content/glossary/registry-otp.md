@@ -20,17 +20,17 @@ image_alt = "Registry (OTP) - Prismatic Platform"
 
 ## Definition
 
-Registry is an OTP module included in Elixir's standard library that provides a decentralized, scalable process registry for name-based process lookup and dispatch. Unlike Erlang's built-in `:global` module (which requires cluster-wide coordination) or atom-based naming (which is limited by the atom table), Registry allows processes to be registered under arbitrary keys -- strings, tuples, integers, or any Elixir term -- enabling dynamic, runtime-determined process naming without the risk of atom table exhaustion. Registry supports both unique registrations (exactly one process per key, like a key-value store) and duplicate registrations (multiple processes per key, enabling [PubSub](/glossary/pubsub/)-like fan-out patterns).
+Registry is an OTP module included in Elixir's standard library that provides a decentralized, scalable process registry for name-based process lookup and dispatch. Unlike Erlang's built-in `:global` module (which requires cluster-wide coordination) or atom-based naming (which is limited by the atom table), Registry allows processes to be registered under arbitrary keys -- strings, tuples, integers, or any Elixir term -- enabling dynamic, runtime-determined process naming without the risk of atom table exhaustion. Registry supports both unique registrations (exactly one process per key, like a key-value store) and duplicate registrations (multiple processes per key, enabling [PubSub](@/glossary/pubsub.md)-like fan-out patterns).
 
-Registry achieves high concurrency by partitioning its internal state across multiple ETS tables, one per scheduler, so that concurrent lookups and registrations on different keys do not contend for the same lock. This partitioned design means that Registry scales linearly with the number of CPU cores, making it suitable for systems with thousands or millions of dynamically created processes. Registrations are automatically cleaned up when the registered process terminates, eliminating the need for manual deregistration and preventing stale entries -- a property that leverages the [BEAM](/glossary/beam/)'s process monitoring infrastructure.
+Registry achieves high concurrency by partitioning its internal state across multiple ETS tables, one per scheduler, so that concurrent lookups and registrations on different keys do not contend for the same lock. This partitioned design means that Registry scales linearly with the number of CPU cores, making it suitable for systems with thousands or millions of dynamically created processes. Registrations are automatically cleaned up when the registered process terminates, eliminating the need for manual deregistration and preventing stale entries -- a property that leverages the [BEAM](@/glossary/beam.md)'s process monitoring infrastructure.
 
-The Registry module is commonly used in conjunction with [Dynamic Supervisors](/glossary/dynamic-supervisor/) through the "via tuple" pattern, where processes are started under a DynamicSupervisor and simultaneously registered in a Registry. This combination enables the core OTP pattern for managing pools of dynamically created, named processes -- each process can be looked up by its domain-specific key rather than its process identifier (PID), which changes on restart.
+The Registry module is commonly used in conjunction with [Dynamic Supervisors](@/glossary/dynamic-supervisor.md) through the "via tuple" pattern, where processes are started under a DynamicSupervisor and simultaneously registered in a Registry. This combination enables the core OTP pattern for managing pools of dynamically created, named processes -- each process can be looked up by its domain-specific key rather than its process identifier (PID), which changes on restart.
 
 ## Context in Prismatic
 
-The Prismatic Platform uses Registry extensively for managing its 434 dynamically spawned agent processes. When agents are created at runtime through [DynamicSupervisor](/glossary/dynamic-supervisor/), they register under domain-specific keys in partitioned registries. This enables efficient O(1) lookup by agent type, domain, tier, or task identifier without maintaining external state or querying a central coordinator. The pattern is critical for the agent ecosystem where processes are frequently created, terminated, and restarted by supervisors.
+The Prismatic Platform uses Registry extensively for managing its 434 dynamically spawned agent processes. When agents are created at runtime through [DynamicSupervisor](@/glossary/dynamic-supervisor.md), they register under domain-specific keys in partitioned registries. This enables efficient O(1) lookup by agent type, domain, tier, or task identifier without maintaining external state or querying a central coordinator. The pattern is critical for the agent ecosystem where processes are frequently created, terminated, and restarted by supervisors.
 
-The platform implements a pluggable registry backend through the [Adapter Pattern](/glossary/adapter-pattern/) with `PrismaticSupervisor.Registry.Behaviour`. In development and single-node production, the `Registry.ETS` backend uses Elixir's standard Registry module backed by local ETS tables. In distributed production with multiple [cluster](/glossary/cluster/) nodes, the `Registry.Horde` backend uses Horde's CRDT-based distributed registry, providing [eventual consistency](/glossary/eventual-consistency/) of process registrations across nodes. The backend is selected at configuration time without code changes, enabling transparent scaling from single-node to multi-node deployments.
+The platform implements a pluggable registry backend through the [Adapter Pattern](@/glossary/adapter-pattern.md) with `PrismaticSupervisor.Registry.Behaviour`. In development and single-node production, the `Registry.ETS` backend uses Elixir's standard Registry module backed by local ETS tables. In distributed production with multiple [cluster](@/glossary/cluster.md) nodes, the `Registry.Horde` backend uses Horde's CRDT-based distributed registry, providing [eventual consistency](@/glossary/eventual-consistency.md) of process registrations across nodes. The backend is selected at configuration time without code changes, enabling transparent scaling from single-node to multi-node deployments.
 
 ## Via Tuples: The Registration Pattern
 
@@ -175,8 +175,8 @@ end
 
 | Feature | Registry.ETS (Local) | Registry.Horde (Distributed) |
 |---------|---------------------|------------------------------|
-| **Scope** | Single BEAM node | All nodes in [cluster](/glossary/cluster/) |
-| **Consistency** | Strong (immediate) | [Eventually consistent](/glossary/eventual-consistency/) |
+| **Scope** | Single BEAM node | All nodes in [cluster](@/glossary/cluster.md) |
+| **Consistency** | Strong (immediate) | [Eventually consistent](@/glossary/eventual-consistency.md) |
 | **Performance** | O(1) lookup, microseconds | O(1) lookup, sub-millisecond |
 | **Failure Mode** | Lost on node crash | Survives node failures (replicated) |
 | **Data Structure** | ETS tables | delta-CRDTs |
@@ -255,21 +255,21 @@ This lifecycle integration means that callers using via tuples automatically get
 
 ## Related Terms
 
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) - Runtime process creation paired with Registry
-- [Supervisor](/glossary/supervisor/) - Static supervision tree using registered names
-- [Cluster](/glossary/cluster/) - Multi-node deployment requiring distributed registry
-- [Agent](/glossary/agent/) - Platform agents managed via Registry lookup
-- [BEAM](/glossary/beam/) - VM providing process monitoring for automatic cleanup
-- [Process Isolation](/glossary/process-isolation/) - Each registered process runs independently
-- [Message Passing](/glossary/message-passing/) - Communication between registered processes
-- [PubSub](/glossary/pubsub/) - Higher-level broadcasting built on duplicate registries
-- [Adapter Pattern](/glossary/adapter-pattern/) - Pluggable registry backend pattern
-- [Eventual Consistency](/glossary/eventual-consistency/) - Horde registry consistency model
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) - Runtime process creation paired with Registry
+- [Supervisor](@/glossary/supervisor.md) - Static supervision tree using registered names
+- [Cluster](@/glossary/cluster.md) - Multi-node deployment requiring distributed registry
+- [Agent](@/glossary/agent.md) - Platform agents managed via Registry lookup
+- [BEAM](@/glossary/beam.md) - VM providing process monitoring for automatic cleanup
+- [Process Isolation](@/glossary/process-isolation.md) - Each registered process runs independently
+- [Message Passing](@/glossary/message-passing.md) - Communication between registered processes
+- [PubSub](@/glossary/pubsub.md) - Higher-level broadcasting built on duplicate registries
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Pluggable registry backend pattern
+- [Eventual Consistency](@/glossary/eventual-consistency.md) - Horde registry consistency model
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform process management architecture
-- [Technologies](/technologies/) - OTP infrastructure components
+- [Architecture](@/architecture/_index.md) - Platform process management architecture
+- [Technologies](@/technologies/_index.md) - OTP infrastructure components
 
 ---
 
@@ -278,4 +278,4 @@ This lifecycle integration means that callers using via tuples automatically get
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

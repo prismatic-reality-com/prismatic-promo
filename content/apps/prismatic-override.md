@@ -23,11 +23,11 @@ image_alt = "Prismatic Override - Prismatic Platform"
 
 ## Overview
 
-Prismatic Override provides the platform's moral override and ethical intervention infrastructure, implementing decision auditing, ethics enforcement, moral drift detection, and rationalization analysis for autonomous operations. In a platform running hundreds of [AIAD](/glossary/aiad/) agents making consequential decisions about intelligence collection, entity profiling, and risk assessment, the ability to detect when automated systems gradually normalize boundary violations -- and to intervene before those violations cause harm -- is a foundational safety requirement. Override embodies the principle that autonomous systems must be continuously monitored not just for technical correctness but for ethical alignment.
+Prismatic Override provides the platform's moral override and ethical intervention infrastructure, implementing decision auditing, ethics enforcement, moral drift detection, and rationalization analysis for autonomous operations. In a platform running hundreds of [AIAD](@/glossary/aiad.md) agents making consequential decisions about intelligence collection, entity profiling, and risk assessment, the ability to detect when automated systems gradually normalize boundary violations -- and to intervene before those violations cause harm -- is a foundational safety requirement. Override embodies the principle that autonomous systems must be continuously monitored not just for technical correctness but for ethical alignment.
 
 The application implements four interconnected subsystems: the Decision Auditor that captures and logs every significant override decision with full context and provenance; the Ethics Enforcer that validates decisions against configurable ethical boundaries before execution; the Disengagement Detector that identifies patterns where automated systems gradually rationalize increasingly aggressive actions; and the Drift Monitor that tracks cumulative moral drift across decision populations over time. Together, these subsystems ensure that the platform's autonomous capabilities remain transparent, accountable, and aligned with operator-defined ethical constraints.
 
-Override complements [Prismatic PRISC](/apps/prismatic-prisc/) in the platform's governance architecture. While PRISC provides the formal state machine and Guardian Council for structured decision approval, Override focuses specifically on the detection and prevention of moral disengagement -- the insidious process by which automated systems incrementally expand their operational boundaries through self-justified rationalization. This is a distinct and critical concern because moral drift typically occurs through a series of individually reasonable decisions that collectively represent a significant departure from intended behavior.
+Override complements [Prismatic PRISC](@/apps/prismatic-prisc.md) in the platform's governance architecture. While PRISC provides the formal state machine and Guardian Council for structured decision approval, Override focuses specifically on the detection and prevention of moral disengagement -- the insidious process by which automated systems incrementally expand their operational boundaries through self-justified rationalization. This is a distinct and critical concern because moral drift typically occurs through a series of individually reasonable decisions that collectively represent a significant departure from intended behavior.
 
 ## Architecture
 
@@ -101,7 +101,7 @@ The architecture follows a defense-in-depth approach to moral governance. Every 
 | Module | Purpose |
 |--------|---------|
 | `PrismaticOverride` | Main API facade for ethics validation and drift queries |
-| `PrismaticOverride.Application` | [OTP](/glossary/otp/) application entry point with supervision tree |
+| `PrismaticOverride.Application` | [OTP](@/glossary/otp.md) application entry point with supervision tree |
 | `PrismaticOverride.DecisionAuditor` | Immutable append-only decision event log with provenance chains |
 | `PrismaticOverride.EthicsEnforcer` | Real-time ethical validation engine checking decisions against configurable boundaries |
 | `PrismaticOverride.Ethics` | Ethical boundary definitions and constraint specification language |
@@ -110,7 +110,7 @@ The architecture follows a defense-in-depth approach to moral governance. Every 
 | `PrismaticOverride.GuiltTracer` | Provenance chain analysis for negative outcome root cause identification |
 | `PrismaticOverride.DriftMonitor` | Continuous monitoring for gradual ethical boundary erosion across decision populations |
 | `PrismaticOverride.MoralDrift` | Quantifies cumulative moral drift with statistical analysis of decision distributions |
-| `PrismaticOverride.PatternCache` | [ETS](/glossary/ets/)-cached analysis patterns for efficient repeated detection |
+| `PrismaticOverride.PatternCache` | [ETS](@/glossary/ets.md)-cached analysis patterns for efficient repeated detection |
 
 ## Key Features
 
@@ -256,12 +256,12 @@ Testing covers Ethics Enforcer boundary validation accuracy with both clear viol
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic PRISC](/apps/prismatic-prisc/) | Complementary governance: PRISC provides formal state machine, Override provides moral drift detection |
-| [Prismatic Agents](/apps/prismatic-agents/) | Agent decisions validated through ethics enforcer before execution |
-| [Prismatic Safety](/apps/prismatic-safety/) | [Quality Floor Guardian](/glossary/quality-floor-guardian/) triggers moral drift assessment on quality regression |
-| [Prismatic CER](/apps/prismatic-cer/) | Override audit logs stored as compliance evidence for regulatory reporting |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Governance event telemetry for monitoring dashboard integration |
-| [Prismatic Core](/apps/prismatic-core/) | Shared types, protocols, and platform-wide governance interfaces |
+| [Prismatic PRISC](@/apps/prismatic-prisc.md) | Complementary governance: PRISC provides formal state machine, Override provides moral drift detection |
+| [Prismatic Agents](@/apps/prismatic-agents.md) | Agent decisions validated through ethics enforcer before execution |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) triggers moral drift assessment on quality regression |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Override audit logs stored as compliance evidence for regulatory reporting |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Governance event telemetry for monitoring dashboard integration |
+| [Prismatic Core](@/apps/prismatic-core.md) | Shared types, protocols, and platform-wide governance interfaces |
 
 ## NABLA Compliance
 
@@ -287,12 +287,12 @@ Testing covers Ethics Enforcer boundary validation accuracy with both clear viol
 
 ## Related Resources
 
-- [Prismatic PRISC](/apps/prismatic-prisc/) -- Formal state machine and Guardian Council complementing moral override
-- [Prismatic Safety](/apps/prismatic-safety/) -- Quality governance complementing ethical governance
-- [Prismatic CER](/apps/prismatic-cer/) -- Compliance evidence from governance audit trail
-- [Quality Gates](/capabilities/quality-gates/) -- Decision quality enforcement checkpoints
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent governance compliance with AIAD protocols
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Epistemic framework enforcing provenance and contradiction preservation
+- [Prismatic PRISC](@/apps/prismatic-prisc.md) -- Formal state machine and Guardian Council complementing moral override
+- [Prismatic Safety](@/apps/prismatic-safety.md) -- Quality governance complementing ethical governance
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Compliance evidence from governance audit trail
+- [Quality Gates](@/capabilities/quality-gates.md) -- Decision quality enforcement checkpoints
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent governance compliance with AIAD protocols
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Epistemic framework enforcing provenance and contradiction preservation
 
 ---
 
@@ -301,4 +301,4 @@ Testing covers Ethics Enforcer boundary validation accuracy with both clear viol
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -64,37 +64,37 @@ The Identity Intelligence Commander provides six primary capabilities that enabl
 
 ## Technical Implementation
 
-The Commander's identity resolution engine is built on [KuzuDB](/glossary/kuzudb/) graph database storage that models identity entities, source signals, match relationships, and profile assemblies as a connected graph. The graph model enables efficient traversal of identity networks, path-finding between entities, and community detection for identifying clusters of related identities.
+The Commander's identity resolution engine is built on [KuzuDB](@/glossary/kuzudb.md) graph database storage that models identity entities, source signals, match relationships, and profile assemblies as a connected graph. The graph model enables efficient traversal of identity networks, path-finding between entities, and community detection for identifying clusters of related identities.
 
 Probabilistic matching uses a scoring model that weights attribute comparisons based on discriminative power (rare names contribute more to match confidence than common names), source reliability (authoritative registries contribute more than self-reported data), and temporal proximity (recent data weighted higher than historical data).
 
-Processing pipelines use [GenStage](/glossary/genstage/) for backpressure-managed signal processing, ensuring that high-volume source ingestion does not overwhelm the matching engine. Matching results are cached in [ETS](/glossary/ets/) tables for rapid access during interactive investigation sessions.
+Processing pipelines use [GenStage](@/glossary/genstage.md) for backpressure-managed signal processing, ensuring that high-volume source ingestion does not overwhelm the matching engine. Matching results are cached in [ETS](@/glossary/ets.md) tables for rapid access during interactive investigation sessions.
 
-Profile storage uses [PostgreSQL](/glossary/postgresql/) through [Ecto](/glossary/ecto/) with full temporal versioning, maintaining complete history of profile changes, match decisions, and enrichment events. The temporal model supports point-in-time queries that reconstruct profile state at any historical moment.
+Profile storage uses [PostgreSQL](@/glossary/postgresql.md) through [Ecto](@/glossary/ecto.md) with full temporal versioning, maintaining complete history of profile changes, match decisions, and enrichment events. The temporal model supports point-in-time queries that reconstruct profile state at any historical moment.
 
-[Telemetry](/glossary/telemetry/) tracking covers signal processing throughput, match confidence distributions, profile completeness metrics, and source contribution rates.
+[Telemetry](@/glossary/telemetry.md) tracking covers signal processing throughput, match confidence distributions, profile completeness metrics, and source contribution rates.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [email-intelligence-specialist](/agents/email-intelligence-specialist/) | Provides email-based identity signals for resolution and persona mapping | Intelligence |
-| [green-beret-specialist](/agents/green-beret-specialist/) | Supports cross-lingual identity resolution for multilingual name variations | Intelligence |
-| [hidden-asset-detection-specialist](/agents/hidden-asset-detection-specialist/) | Consumes resolved identity profiles for asset ownership attribution | Intelligence |
-| [intelligence-diffusion-coordinator-agent](/agents/intelligence-diffusion-coordinator-agent/) | Distributes identity intelligence products to consuming agents | Diffusion |
-| [intelligence-export-coordinator](/agents/intelligence-export-coordinator/) | Coordinates export of identity profiles for external reporting | Export |
+| [email-intelligence-specialist](@/agents/email-intelligence-specialist.md) | Provides email-based identity signals for resolution and persona mapping | Intelligence |
+| [green-beret-specialist](@/agents/green-beret-specialist.md) | Supports cross-lingual identity resolution for multilingual name variations | Intelligence |
+| [hidden-asset-detection-specialist](@/agents/hidden-asset-detection-specialist.md) | Consumes resolved identity profiles for asset ownership attribution | Intelligence |
+| [intelligence-diffusion-coordinator-agent](@/agents/intelligence-diffusion-coordinator-agent.md) | Distributes identity intelligence products to consuming agents | Diffusion |
+| [intelligence-export-coordinator](@/agents/intelligence-export-coordinator.md) | Coordinates export of identity profiles for external reporting | Export |
 
 ## Privacy and Ethics
 
-Identity intelligence operations require careful attention to privacy regulations and ethical boundaries. The Commander ensures that all identity data collection adheres to applicable privacy frameworks including [GDPR](/glossary/gdpr/), that data minimization principles limit collection to information necessary for the investigation purpose, and that identity profiles are protected through access controls that restrict visibility to authorized intelligence consumers. Data retention policies ensure that identity data is not retained beyond its operational utility.
+Identity intelligence operations require careful attention to privacy regulations and ethical boundaries. The Commander ensures that all identity data collection adheres to applicable privacy frameworks including [GDPR](@/glossary/gdpr.md), that data minimization principles limit collection to information necessary for the investigation purpose, and that identity profiles are protected through access controls that restrict visibility to authorized intelligence consumers. Data retention policies ensure that identity data is not retained beyond its operational utility.
 
 ## Evidence Standards
 
-All identity intelligence adheres to the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. Identity resolution findings require evidence from multiple independent sources following the Signal Plurality axiom. Match confidence scores are calibrated against known identity pairs to ensure statistical validity. The Unknown Valid axiom is applied to identity gaps, explicitly acknowledging what remains unknown about an entity rather than presenting incomplete profiles as comprehensive.
+All identity intelligence adheres to the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. Identity resolution findings require evidence from multiple independent sources following the Signal Plurality axiom. Match confidence scores are calibrated against known identity pairs to ensure statistical validity. The Unknown Valid axiom is applied to identity gaps, explicitly acknowledging what remains unknown about an entity rather than presenting incomplete profiles as comprehensive.
 
 ## Enforcement
 
-The Identity Intelligence Commander operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Identity resolution claims must be backed by quantified confidence scores with transparent methodology. No identity profile is published without minimum evidence thresholds. Match decisions are auditable with full provenance from source signals through scoring to conclusion. [Trinity Gate](/glossary/trinity-gate/) validation ensures structural, logical, and formal consistency of identity conclusions. Privacy compliance is verified for every collection and processing operation.
+The Identity Intelligence Commander operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Identity resolution claims must be backed by quantified confidence scores with transparent methodology. No identity profile is published without minimum evidence thresholds. Match decisions are auditable with full provenance from source signals through scoring to conclusion. [Trinity Gate](@/glossary/trinity-gate.md) validation ensures structural, logical, and formal consistency of identity conclusions. Privacy compliance is verified for every collection and processing operation.
 
 ---
 
@@ -103,4 +103,4 @@ The Identity Intelligence Commander operates under the [NO MERCY, NO DOUBTS](/gl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -37,7 +37,7 @@ see_also = ["capabilities", "architecture", "apps"]
 
 Data quality refers to the degree to which data meets the requirements of its intended use, measured across multiple dimensions including accuracy (correctness relative to real-world truth), completeness (absence of missing values), consistency (absence of contradictions across datasets), timeliness (currency and availability when needed), validity (conformance to defined formats and constraints), and uniqueness (absence of duplicates). High data quality is not an absolute property but is contextual -- data that is sufficient quality for one purpose may be inadequate for another.
 
-In intelligence and OSINT contexts, data quality directly impacts analytical confidence. Low-quality input data propagates errors through analysis pipelines, producing unreliable conclusions that can lead to incorrect decisions. The Prismatic Platform treats data quality as a first-class concern, embedding automated validation at every stage of the [Data Pipeline](/glossary/data-pipeline/) and enforcing minimum quality thresholds through [Quality Gates](/glossary/quality-gate/).
+In intelligence and OSINT contexts, data quality directly impacts analytical confidence. Low-quality input data propagates errors through analysis pipelines, producing unreliable conclusions that can lead to incorrect decisions. The Prismatic Platform treats data quality as a first-class concern, embedding automated validation at every stage of the [Data Pipeline](@/glossary/data-pipeline.md) and enforcing minimum quality thresholds through [Quality Gates](@/glossary/quality-gate.md).
 
 ## Overview
 
@@ -59,8 +59,8 @@ Data quality is assessed across six standardized dimensions, each producing a sc
 
 | Dimension | Definition | Metric Example | Prismatic Enforcement | Weight |
 |-----------|-----------|----------------|----------------------|--------|
-| **Accuracy** | Correctness relative to truth | Error rate < 1% | Cross-source [Validation](/glossary/validation/) | 0.25 |
-| **Completeness** | Required fields present | Null rate < 5% | Schema validation via [Ecto](/glossary/ecto/) changesets | 0.25 |
+| **Accuracy** | Correctness relative to truth | Error rate < 1% | Cross-source [Validation](@/glossary/validation.md) | 0.25 |
+| **Completeness** | Required fields present | Null rate < 5% | Schema validation via [Ecto](@/glossary/ecto.md) changesets | 0.25 |
 | **Consistency** | No contradictions | Conflict rate = 0% | Content hash dedup + cross-record checks | 0.20 |
 | **Timeliness** | Data is current | Staleness < 24h | Time decay scoring with configurable half-life | 0.15 |
 | **Validity** | Conforms to format rules | Format error rate = 0% | Ecto changesets + custom validators | 0.10 |
@@ -172,7 +172,7 @@ flowchart TD
 
 ### Source Reliability Tracking
 
-The platform maintains per-source reliability scores in [ETS](/glossary/ets/) for sub-millisecond access. Source reliability is updated using an exponential moving average:
+The platform maintains per-source reliability scores in [ETS](@/glossary/ets.md) for sub-millisecond access. Source reliability is updated using an exponential moving average:
 
 ```
 new_reliability = alpha * current_batch_quality + (1 - alpha) * previous_reliability
@@ -182,7 +182,7 @@ Where `alpha` (typically 0.1) controls how quickly the reliability score respond
 
 ## Usage in Prismatic Platform
 
-The DD pipeline enforces data quality at both the Client (fetch) and Loader (persist) phases, with content hashing for deduplication, changeset validation for structural integrity, and [Telemetry](/glossary/telemetry/) instrumentation for quality monitoring.
+The DD pipeline enforces data quality at both the Client (fetch) and Loader (persist) phases, with content hashing for deduplication, changeset validation for structural integrity, and [Telemetry](@/glossary/telemetry.md) instrumentation for quality monitoring.
 
 ### Core Quality Validation Module
 
@@ -514,7 +514,7 @@ end
 
 ### Telemetry Integration
 
-Data quality metrics are exposed through the platform's [Observability](/glossary/observability/) layer:
+Data quality metrics are exposed through the platform's [Observability](@/glossary/observability.md) layer:
 
 ```elixir
 defmodule PrismaticDd.DataQuality.Telemetry do
@@ -552,13 +552,13 @@ end
 
 2. **Define quality thresholds per data source** -- Different sources have different reliability profiles. Czech business registry (ARES) data typically scores 0.9+ on completeness, while social media scrapes may score 0.6. Adjust weights and thresholds accordingly using the `:weights` option in `validate_entity/2`.
 
-3. **Track quality metrics over time** -- Quality degradation often indicates source changes or collection failures. Use [Telemetry](/glossary/telemetry/) events to build dashboards showing quality trends per source, triggering alerts when the exponential moving average drops below historical baselines.
+3. **Track quality metrics over time** -- Quality degradation often indicates source changes or collection failures. Use [Telemetry](@/glossary/telemetry.md) events to build dashboards showing quality trends per source, triggering alerts when the exponential moving average drops below historical baselines.
 
 4. **Implement automated quality gates** -- Block low-quality data from entering production datasets. The `QualityGate` GenServer provides a centralized enforcement point that integrates with the pipeline's supervision tree.
 
 5. **Use content hashing for deduplication** -- Deterministic hash comparison is more reliable than fuzzy matching for exact duplicate detection. The platform uses SHA-256 content hashes stored alongside entities, enabling O(1) uniqueness checks via database unique constraints.
 
-6. **Report quality metrics alongside data** -- Consumers need quality context to assess analytical confidence. Every entity in the platform carries its quality report as metadata, enabling downstream [Confidence Score](/glossary/confidence-score/) calculations to incorporate data quality as an input variable.
+6. **Report quality metrics alongside data** -- Consumers need quality context to assess analytical confidence. Every entity in the platform carries its quality report as metadata, enabling downstream [Confidence Score](@/glossary/confidence-score.md) calculations to incorporate data quality as an input variable.
 
 7. **Leverage ETS for hot-path quality lookups** -- Source reliability scores are queried on every entity validation. Storing them in ETS with `read_concurrency: true` ensures sub-microsecond lookups without GenServer bottlenecks.
 
@@ -581,25 +581,25 @@ end
 
 ## Related Terms
 
-- [Data Pipeline](/glossary/data-pipeline/) -- Automated processing workflows where quality validation is embedded at every stage
-- [Data Migration](/glossary/data-migration/) -- Transfer processes requiring quality preservation validation and regression checks
-- [ETL](/glossary/etl/) -- Extract-Transform-Load pattern with quality checks at each stage of the transformation
-- [Data Provenance](/glossary/data-provenance/) -- Traceability enabling quality root cause analysis when scores degrade
-- [Ecto](/glossary/ecto/) -- Database wrapper providing changeset validation as the foundation for data quality enforcement
-- [Accuracy](/glossary/accuracy/) -- The correctness dimension of data quality, measuring alignment with ground truth
-- [Completeness](/glossary/completeness/) -- The absence-of-missing-values dimension, critical for entity verification
-- [Confidence Score](/glossary/confidence-score/) -- Analytical confidence metric that consumes data quality scores as inputs
-- [Anomaly Detection](/glossary/anomaly-detection/) -- Detection of outliers that may indicate quality issues in source data
-- [Validation](/glossary/validation/) -- The process of checking data against defined rules and constraints
-- [Quality Gate](/glossary/quality-gate/) -- Enforcement checkpoint that blocks low-quality data from proceeding
-- [Telemetry](/glossary/telemetry/) -- Observability infrastructure for tracking quality metrics in real time
-- [ETS](/glossary/ets/) -- In-memory storage used for sub-millisecond source reliability lookups
-- [Correlation](/glossary/correlation/) -- Statistical relationship analysis used in cross-source triangulation
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Automated processing workflows where quality validation is embedded at every stage
+- [Data Migration](@/glossary/data-migration.md) -- Transfer processes requiring quality preservation validation and regression checks
+- [ETL](@/glossary/etl.md) -- Extract-Transform-Load pattern with quality checks at each stage of the transformation
+- [Data Provenance](@/glossary/data-provenance.md) -- Traceability enabling quality root cause analysis when scores degrade
+- [Ecto](@/glossary/ecto.md) -- Database wrapper providing changeset validation as the foundation for data quality enforcement
+- [Accuracy](@/glossary/accuracy.md) -- The correctness dimension of data quality, measuring alignment with ground truth
+- [Completeness](@/glossary/completeness.md) -- The absence-of-missing-values dimension, critical for entity verification
+- [Confidence Score](@/glossary/confidence-score.md) -- Analytical confidence metric that consumes data quality scores as inputs
+- [Anomaly Detection](@/glossary/anomaly-detection.md) -- Detection of outliers that may indicate quality issues in source data
+- [Validation](@/glossary/validation.md) -- The process of checking data against defined rules and constraints
+- [Quality Gate](@/glossary/quality-gate.md) -- Enforcement checkpoint that blocks low-quality data from proceeding
+- [Telemetry](@/glossary/telemetry.md) -- Observability infrastructure for tracking quality metrics in real time
+- [ETS](@/glossary/ets.md) -- In-memory storage used for sub-millisecond source reliability lookups
+- [Correlation](@/glossary/correlation.md) -- Statistical relationship analysis used in cross-source triangulation
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- Platform data quality capabilities and enforcement features
-- [Architecture](/architecture/) -- Data pipeline architecture with quality gates at every stage
+- [Capabilities](@/capabilities/_index.md) -- Platform data quality capabilities and enforcement features
+- [Architecture](@/architecture/_index.md) -- Data pipeline architecture with quality gates at every stage
 - [NABLA Infinity Framework](/glossary/nabla/) -- Epistemic framework providing the theoretical foundation for quality axioms
 
 ---
@@ -609,4 +609,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

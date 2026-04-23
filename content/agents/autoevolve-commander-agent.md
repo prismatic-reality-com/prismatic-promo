@@ -28,9 +28,9 @@ image_alt = "Autoevolve Commander Agent - Prismatic Platform"
 
 ## Overview
 
-The [Autoevolve](/glossary/autoevolve/) Commander Agent is an L3 [strategic command](/glossary/strategic-command/) authority responsible for orchestrating autonomous platform evolution across the Prismatic Platform. This agent combines continuous quality scanning, automated improvement execution, and cross-domain coordination to drive the platform's fitness score upward with each evolution cycle. It serves as the command interface through which operators monitor, control, and steer the platform's autonomous evolution capabilities.
+The [Autoevolve](@/glossary/autoevolve.md) Commander Agent is an L3 [strategic command](@/glossary/strategic-command.md) authority responsible for orchestrating autonomous platform evolution across the Prismatic Platform. This agent combines continuous quality scanning, automated improvement execution, and cross-domain coordination to drive the platform's fitness score upward with each evolution cycle. It serves as the command interface through which operators monitor, control, and steer the platform's autonomous evolution capabilities.
 
-The Autoevolve Commander provides the operational layer between strategic evolution decisions (made by L1 authorities like the [auto-ultimate-orchestrator](/agents/auto-ultimate-orchestrator/)) and tactical evolution execution (performed by specialist agents). It translates high-level evolutionary directives into concrete scan-evaluate-improve cycles, manages evolution scheduling, and ensures that autonomous improvements do not conflict with active development or deployment operations.
+The Autoevolve Commander provides the operational layer between strategic evolution decisions (made by L1 authorities like the [auto-ultimate-orchestrator](@/agents/auto-ultimate-orchestrator.md)) and tactical evolution execution (performed by specialist agents). It translates high-level evolutionary directives into concrete scan-evaluate-improve cycles, manages evolution scheduling, and ensures that autonomous improvements do not conflict with active development or deployment operations.
 
 In the platform's 18-generation evolutionary history, the Autoevolve Commander has orchestrated over 500 improvement cycles, each producing measurable fitness gains. The commander's scheduling intelligence ensures that evolution cycles run during low-activity periods, avoiding interference with production deployments and active development sessions while maintaining continuous improvement pressure.
 
@@ -38,13 +38,13 @@ In the platform's 18-generation evolutionary history, the Autoevolve Commander h
 
 The General domain grants the Autoevolve Commander cross-cutting operational authority without restricting it to a single specialized area. This is essential because evolution cycles must evaluate and improve all platform domains: quality, performance, security, architecture, testing, documentation, and operational readiness. A domain-restricted evolution commander would create blind spots where improvements go undetected.
 
-The commander interfaces with the [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Development Framework) to execute its evolution mandate. SEADF provides the seven-subsystem framework (Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, Enhanced Healing) through which the commander channels its improvement activities.
+The commander interfaces with the [SEADF](@/glossary/seadf.md) (Self-Evolving Autonomous Development Framework) to execute its evolution mandate. SEADF provides the seven-subsystem framework (Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, Enhanced Healing) through which the commander channels its improvement activities.
 
 ## Key Capabilities
 
 - **Evolution cycle orchestration** managing the end-to-end lifecycle of improvement cycles from opportunity scanning through validation and deployment, ensuring each cycle produces verified fitness improvement
 
-- **Cross-domain evolution scanning** detecting improvement opportunities across quality, performance, security, architecture, and operational domains using [telemetry](/glossary/telemetry/) signals, static analysis output, and runtime metrics
+- **Cross-domain evolution scanning** detecting improvement opportunities across quality, performance, security, architecture, and operational domains using [telemetry](@/glossary/telemetry.md) signals, static analysis output, and runtime metrics
 
 - **Scheduling intelligence** timing evolution cycles to avoid conflict with production deployments, active development sessions, and other platform operations that could be disrupted by autonomous changes
 
@@ -66,7 +66,7 @@ Each evolution cycle follows a structured five-phase process with gate condition
 
 **Phase 4: Execution and Validation.** Selected improvements are applied through the SEADF Pipeline subsystem. Each improvement creates a verification checkpoint: pre-improvement baseline measurement, change application, post-improvement measurement, and fitness comparison. Improvements that fail to demonstrate fitness gain are automatically rolled back.
 
-**Phase 5: Integration and Reporting.** Successfully validated improvements are integrated into the platform baseline. The commander publishes an evolution cycle report documenting all changes, fitness measurements, and cumulative improvement trends. This report feeds into the [Quality DNA](/glossary/quality-dna/) persistence layer for cross-session continuity.
+**Phase 5: Integration and Reporting.** Successfully validated improvements are integrated into the platform baseline. The commander publishes an evolution cycle report documenting all changes, fitness measurements, and cumulative improvement trends. This report feeds into the [Quality DNA](@/glossary/quality-dna.md) persistence layer for cross-session continuity.
 
 ## Command Interface
 
@@ -86,25 +86,25 @@ These commands integrate with the Mandatory Session Discipline Protocol. `mix au
 
 | Component | Relationship | Data Flow |
 |-----------|-------------|-----------|
-| [SEADF](/glossary/seadf/) | Evolution framework | Bidirectional: receives scan results, dispatches improvement directives |
-| [auto-evolution-engine](/agents/auto-evolution-engine/) | Execution engine | Delegates improvement execution and fitness evaluation |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Quality monitoring | Receives quality metrics for evolution opportunity detection |
-| [auto-ultimate-orchestrator](/agents/auto-ultimate-orchestrator/) | Strategic authority | Receives strategic evolution directives and reports cycle outcomes |
-| [Telemetry](/glossary/telemetry/) Infrastructure | Signal source | Consumes platform-wide telemetry for opportunity scanning |
-| [Quality DNA](/glossary/quality-dna/) | Persistence | Stores evolution state for cross-session continuity |
+| [SEADF](@/glossary/seadf.md) | Evolution framework | Bidirectional: receives scan results, dispatches improvement directives |
+| [auto-evolution-engine](@/agents/auto-evolution-engine.md) | Execution engine | Delegates improvement execution and fitness evaluation |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Quality monitoring | Receives quality metrics for evolution opportunity detection |
+| [auto-ultimate-orchestrator](@/agents/auto-ultimate-orchestrator.md) | Strategic authority | Receives strategic evolution directives and reports cycle outcomes |
+| [Telemetry](@/glossary/telemetry.md) Infrastructure | Signal source | Consumes platform-wide telemetry for opportunity scanning |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | Stores evolution state for cross-session continuity |
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to initiate evolution cycles, select improvements, and coordinate cross-domain changes.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to initiate evolution cycles, select improvements, and coordinate cross-domain changes.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [auto-ultimate-orchestrator](/agents/auto-ultimate-orchestrator/) | Strategic Authority | Receives long-term evolutionary direction and generational advancement decisions |
-| [auto-evolution-engine](/agents/auto-evolution-engine/) | Execution Engine | Delegates improvement detection and autonomous execution |
-| [autoheal-commander-agent](/agents/autoheal-commander-agent/) | Healing Coordination | Coordinates evolution cycles with self-healing operations to prevent conflict |
-| [3nl-coordinator](/agents/3nl-coordinator/) | Intelligence Hub | Receives reasoning support for complex evolution decisions |
+| [auto-ultimate-orchestrator](@/agents/auto-ultimate-orchestrator.md) | Strategic Authority | Receives long-term evolutionary direction and generational advancement decisions |
+| [auto-evolution-engine](@/agents/auto-evolution-engine.md) | Execution Engine | Delegates improvement detection and autonomous execution |
+| [autoheal-commander-agent](@/agents/autoheal-commander-agent.md) | Healing Coordination | Coordinates evolution cycles with self-healing operations to prevent conflict |
+| [3nl-coordinator](@/agents/3nl-coordinator.md) | Intelligence Hub | Receives reasoning support for complex evolution decisions |
 
 ## Performance Metrics
 
@@ -119,7 +119,7 @@ These commands integrate with the Mandatory Session Discipline Protocol. `mix au
 
 ## Enforcement
 
-The Autoevolve Commander operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every evolution cycle must produce measurable results -- cycles that cannot demonstrate fitness improvement are logged as failures requiring investigation. No improvement is deployed without pre/post verification. Evolution scheduling is mandatory, not optional: the platform must continuously improve, and stagnation is treated as a defect. The [Trinity Gate](/glossary/trinity-gate/) validates all proposed improvements for structural consistency, logical coherence, and formal correctness before deployment. [NABLA Infinity](/glossary/nabla-infinity/) [Signal Plurality](/glossary/signal-plurality/) requires that fitness measurements come from multiple independent sources before a cycle is declared successful.
+The Autoevolve Commander operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every evolution cycle must produce measurable results -- cycles that cannot demonstrate fitness improvement are logged as failures requiring investigation. No improvement is deployed without pre/post verification. Evolution scheduling is mandatory, not optional: the platform must continuously improve, and stagnation is treated as a defect. The [Trinity Gate](@/glossary/trinity-gate.md) validates all proposed improvements for structural consistency, logical coherence, and formal correctness before deployment. [NABLA Infinity](@/glossary/nabla-infinity.md) [Signal Plurality](@/glossary/signal-plurality.md) requires that fitness measurements come from multiple independent sources before a cycle is declared successful.
 
 ---
 
@@ -128,4 +128,4 @@ The Autoevolve Commander operates under the [NO MERCY, NO DOUBTS](/glossary/no-m
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

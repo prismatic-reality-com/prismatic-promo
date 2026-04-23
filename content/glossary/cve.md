@@ -191,7 +191,7 @@ end
 
 ## Usage in Prismatic Platform
 
-The Prismatic Platform integrates CVE data within [Prismatic Perimeter](/glossary/prismatic-perimeter/)'s security assessment pipeline, using vulnerability exposure as a key factor in [security rating](/glossary/security-rating/) calculations.
+The Prismatic Platform integrates CVE data within [Prismatic Perimeter](@/glossary/prismatic-perimeter.md)'s security assessment pipeline, using vulnerability exposure as a key factor in [security rating](@/glossary/security-rating.md) calculations.
 
 ### Security Rating Impact
 
@@ -270,7 +270,7 @@ end
 
 ### OSINT Correlation
 
-The [OSINT](/glossary/osint/) framework correlates CVE data with external service fingerprints from Shodan and Censys:
+The [OSINT](@/glossary/osint.md) framework correlates CVE data with external service fingerprints from Shodan and Censys:
 
 ```elixir
 defmodule PrismaticOsint.CVECorrelator do
@@ -322,7 +322,7 @@ end
 
 **Monitor the gap between publication and detection.** The time between CVE publication and your organization's detection (mean time to detect, MTTD) and between detection and remediation (mean time to remediate, MTTR) are key security metrics. Reducing MTTD and MTTR directly reduces the exploitation window.
 
-**Include CVE data in compliance assessments.** Regulatory frameworks including [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) require vulnerability management programs. CVE tracking provides the evidence base for compliance documentation.
+**Include CVE data in compliance assessments.** Regulatory frameworks including [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) require vulnerability management programs. CVE tracking provides the evidence base for compliance documentation.
 
 ## Common Pitfalls
 
@@ -338,19 +338,19 @@ end
 
 ## Related Concepts
 
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Process that uses CVE data to evaluate exposure
-- [Security Rating](/glossary/security-rating/) -- Grades that factor CVE exposure into scoring
-- [Risk Score](/glossary/risk-score/) -- Quantified risk incorporating CVE severity data
-- [Cyber Threat Intelligence](/glossary/cyber-threat-intelligence/) -- Intelligence context for CVE exploitation trends
-- [EASM](/glossary/easm/) -- Attack surface management checking assets against CVE databases
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- Platform component integrating CVE assessment
-- [OSINT](/glossary/osint/) -- Open-source intelligence for CVE correlation with exposed services
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Process that uses CVE data to evaluate exposure
+- [Security Rating](@/glossary/security-rating.md) -- Grades that factor CVE exposure into scoring
+- [Risk Score](@/glossary/risk-score.md) -- Quantified risk incorporating CVE severity data
+- [Cyber Threat Intelligence](@/glossary/cyber-threat-intelligence.md) -- Intelligence context for CVE exploitation trends
+- [EASM](@/glossary/easm.md) -- Attack surface management checking assets against CVE databases
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- Platform component integrating CVE assessment
+- [OSINT](@/glossary/osint.md) -- Open-source intelligence for CVE correlation with exposed services
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Applications implementing CVE monitoring
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Applications implementing CVE monitoring
 
 ---
 
@@ -359,4 +359,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

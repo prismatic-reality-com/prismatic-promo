@@ -30,7 +30,7 @@ image_alt = "pricing-strategist - Prismatic Platform"
 
 The pricing-strategist operates as an L2 Tactical Operations authority within the Prismatic Platform's primary-producer domain, providing automated pricing strategy development and competitive pricing analysis for intelligence products and platform services. In multi-sided intelligence platforms, pricing is not a simple cost-plus exercise -- it requires continuous analysis of competitive positioning, value perception, customer segmentation, and market dynamics. This agent synthesizes market intelligence, competitor pricing data, usage patterns, and value metrics to produce evidence-based pricing recommendations with quantified confidence intervals and projected revenue impacts.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO DOUBTS](/glossary/no-doubts/) principle, every pricing recommendation carries explicit provenance chains linking the recommendation to the underlying market data, competitive intelligence, and analytical models that produced it. The agent applies [NABLA Infinity](/glossary/nabla-infinity/) [signal plurality](/glossary/signal-plurality/) requirements to pricing decisions, refusing to base strategies on single-source competitive data. [Contradiction preservation](/glossary/contradiction-preservation/) ensures that when market signals conflict -- for example, when competitor pricing moves suggest both premium and discount strategies simultaneously -- both perspectives are surfaced for decision-maker evaluation.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO DOUBTS](@/glossary/no-doubts.md) principle, every pricing recommendation carries explicit provenance chains linking the recommendation to the underlying market data, competitive intelligence, and analytical models that produced it. The agent applies [NABLA Infinity](@/glossary/nabla-infinity.md) [signal plurality](@/glossary/signal-plurality.md) requirements to pricing decisions, refusing to base strategies on single-source competitive data. [Contradiction preservation](@/glossary/contradiction-preservation.md) ensures that when market signals conflict -- for example, when competitor pricing moves suggest both premium and discount strategies simultaneously -- both perspectives are surfaced for decision-maker evaluation.
 
 ## Operational Domain
 
@@ -45,8 +45,8 @@ The agent maintains continuous competitive pricing monitoring across the intelli
 - **Customer segmentation pricing** -- Develops segment-specific pricing strategies based on usage patterns, willingness-to-pay analysis, and value realization metrics, enabling differential pricing that captures maximum value across diverse customer profiles
 - **Dynamic pricing optimization** -- Implements usage-based pricing algorithms that adjust per-query and per-API-call costs based on demand patterns, capacity utilization, and marginal cost analysis
 - **Revenue impact projection** -- Models the revenue impact of proposed pricing changes across customer segments, accounting for elasticity effects, competitive responses, and migration probabilities
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed competitive monitoring and pricing model recalibration cycles
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for pricing experiment tracking and revenue metric monitoring
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed competitive monitoring and pricing model recalibration cycles
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for pricing experiment tracking and revenue metric monitoring
 
 ## Pricing Framework Architecture
 
@@ -127,7 +127,7 @@ end
 
 ## Authority Level
 
-**L2** - Tactical Operations - Domain-specific [tactical execution](/glossary/tactical-execution/) with authority to develop pricing recommendations, conduct competitive pricing analysis, and execute pricing experiments within approved parameters.
+**L2** - Tactical Operations - Domain-specific [tactical execution](@/glossary/tactical-execution.md) with authority to develop pricing recommendations, conduct competitive pricing analysis, and execute pricing experiments within approved parameters.
 
 ## Command Interface
 
@@ -142,9 +142,9 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [risk-assessment-commander](/agents/risk-assessment-commander/) | Revenue risk from pricing changes feeds into financial risk models |
-| [report-synthesis-specialist](/agents/report-synthesis-specialist/) | Pricing analysis synthesized into executive intelligence reports |
-| [reputation-risk-specialist](/agents/reputation-risk-specialist/) | Reputational impact assessment of pricing strategy changes |
+| [risk-assessment-commander](@/agents/risk-assessment-commander.md) | Revenue risk from pricing changes feeds into financial risk models |
+| [report-synthesis-specialist](@/agents/report-synthesis-specialist.md) | Pricing analysis synthesized into executive intelligence reports |
+| [reputation-risk-specialist](@/agents/reputation-risk-specialist.md) | Reputational impact assessment of pricing strategy changes |
 
 ## Performance Metrics
 
@@ -158,7 +158,7 @@ end
 
 ## Enforcement
 
-Pricing recommendations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no recommendations are published without complete competitive context, confidence intervals, and revenue impact projections. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that all pricing claims are backed by quantitative evidence from market data and analytical models. Every pricing recommendation must pass [Trinity Gate](/glossary/trinity-gate/) structural consistency validation, ensuring that recommended prices are coherent across tiers, segments, and product categories.
+Pricing recommendations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no recommendations are published without complete competitive context, confidence intervals, and revenue impact projections. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that all pricing claims are backed by quantitative evidence from market data and analytical models. Every pricing recommendation must pass [Trinity Gate](@/glossary/trinity-gate.md) structural consistency validation, ensuring that recommended prices are coherent across tiers, segments, and product categories.
 
 ---
 
@@ -167,4 +167,4 @@ Pricing recommendations comply with the [NO MERCY](/glossary/no-mercy/) doctrine
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

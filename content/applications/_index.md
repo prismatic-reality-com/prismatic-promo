@@ -74,11 +74,11 @@ The platform provides complete application architectures that combine multi-agen
 
 ### Quick Navigation
 
-- **[Agent System](/agents/)** - 530+ agents powering application intelligence
-- **[OSINT Framework](/osint/)** - 122 intelligence sources for data collection
-- **[Architecture Overview](/architecture/)** - System design and integration patterns
-- **[Platform Capabilities](/capabilities/)** - Core features and technical specifications
-- **[Developer Portal](/developers/)** - SDK and development tools
+- **[Agent System](@/agents/_index.md)** - 530+ agents powering application intelligence
+- **[OSINT Framework](@/osint/_index.md)** - 122 intelligence sources for data collection
+- **[Architecture Overview](@/architecture/_index.md)** - System design and integration patterns
+- **[Platform Capabilities](@/capabilities/_index.md)** - Core features and technical specifications
+- **[Developer Portal](@/developers/_index.md)** - SDK and development tools
 
 ### Explore Platform
 
@@ -92,7 +92,7 @@ The platform provides complete application architectures that combine multi-agen
 
 ### Want to Know More?
 
-Dive deeper into specific application domains, explore the [agent ecosystem](/agents/) powering intelligent coordination, or review our [architecture patterns](/architecture/) for system design principles.
+Dive deeper into specific application domains, explore the [agent ecosystem](@/agents/_index.md) powering intelligent coordination, or review our [architecture patterns](@/architecture/_index.md) for system design principles.
 
 **About Applications**: [Domain Overview](#the-25-industry-domains) • [How Applications Relate](#how-applications-relate-to-the-platform) • [Getting Started](#getting-started)
 
@@ -249,4 +249,4 @@ The applications are designed to be composed and extended. A crisis intervention
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

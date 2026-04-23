@@ -24,9 +24,9 @@ image_alt = "/swarm-evolve - Prismatic Platform"
 
 ## Overview
 
-**/swarm-evolve** is an experimental command in the **Evolution** category of the Prismatic Platform. It coordinates multiple agents in a swarm formation to execute large-scale autonomous platform evolution that exceeds the capabilities of single-agent evolution commands. Where [/evolve](/commands/evolve/) operates as a single-agent evolution cycle and [/quality-evolve](/commands/quality-evolve/) targets specific quality domains, `/swarm-evolve` deploys dozens of agents simultaneously across multiple evolution fronts, using swarm intelligence algorithms (stigmergy, pheromone trails, consensus voting) to coordinate their efforts without central bottlenecks.
+**/swarm-evolve** is an experimental command in the **Evolution** category of the Prismatic Platform. It coordinates multiple agents in a swarm formation to execute large-scale autonomous platform evolution that exceeds the capabilities of single-agent evolution commands. Where [/evolve](@/commands/evolve.md) operates as a single-agent evolution cycle and [/quality-evolve](@/commands/quality-evolve.md) targets specific quality domains, `/swarm-evolve` deploys dozens of agents simultaneously across multiple evolution fronts, using swarm intelligence algorithms (stigmergy, pheromone trails, consensus voting) to coordinate their efforts without central bottlenecks.
 
-This command operates under the **COSMIC** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The COSMIC authority level -- the highest in the platform's hierarchy -- is required because swarm evolution can modify any file in the codebase, create new modules, refactor existing ones, update tests, and propagate changes across application boundaries. This scope demands unrestricted access.
+This command operates under the **COSMIC** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The COSMIC authority level -- the highest in the platform's hierarchy -- is required because swarm evolution can modify any file in the codebase, create new modules, refactor existing ones, update tests, and propagate changes across application boundaries. This scope demands unrestricted access.
 
 The biological inspiration comes from ant colony optimization and bee swarm intelligence. Individual agents have limited scope and capability, but their collective behavior produces emergent intelligence that identifies optimization opportunities, generates improvements, validates them, and promotes successful changes -- all at a scale and speed impossible for sequential execution. The swarm maintains quality through redundant validation: every change proposed by one agent must be independently verified by at least two others before promotion.
 
@@ -179,14 +179,14 @@ Merge agents integrate approved changes, resolving any conflicts between concurr
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/evolve](/commands/evolve/) | Foundation | Single-agent evolution provides the base protocol |
-| [/quality-evolve](/commands/quality-evolve/) | Domain | Quality-focused evolution used by quality-domain workers |
-| [/seadf](/commands/seadf/) | Infrastructure | SEADF subsystems provide scanner and healing infrastructure |
-| [/quality-gates](/commands/quality-gates/) | Enforcement | All swarm changes must pass quality gates |
-| [/mycelialize](/commands/mycelialize/) | Propagation | Successful swarm patterns propagated via mycelial network |
-| [/verify-patterns](/commands/verify-patterns/) | Validation | Pattern verification for swarm-generated code |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime | 400+ agents available for swarm recruitment |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Swarm metrics: agent utilization, consensus rates, quality impact |
+| [/evolve](@/commands/evolve.md) | Foundation | Single-agent evolution provides the base protocol |
+| [/quality-evolve](@/commands/quality-evolve.md) | Domain | Quality-focused evolution used by quality-domain workers |
+| [/seadf](@/commands/seadf.md) | Infrastructure | SEADF subsystems provide scanner and healing infrastructure |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | All swarm changes must pass quality gates |
+| [/mycelialize](@/commands/mycelialize.md) | Propagation | Successful swarm patterns propagated via mycelial network |
+| [/verify-patterns](@/commands/verify-patterns.md) | Validation | Pattern verification for swarm-generated code |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime | 400+ agents available for swarm recruitment |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Swarm metrics: agent utilization, consensus rates, quality impact |
 
 ## Best Practices
 
@@ -246,20 +246,20 @@ Run multiple independent swarms that share discovery data:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every swarm change must pass consensus validation and quality gates. Automatic rollback on quality regression.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Scout agents provide evidence for every improvement opportunity. Guard agents provide evidence for every approval or rejection.
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/quality-evolve](/commands/quality-evolve/) - Quality-focused evolution targeting specific quality domains
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/meta-evolve](/commands/meta-evolve/) - Evolve the evolution system itself
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/quality-evolve](@/commands/quality-evolve.md) - Quality-focused evolution targeting specific quality domains
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/meta-evolve](@/commands/meta-evolve.md) - Evolve the evolution system itself
 
 ---
 
@@ -268,4 +268,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

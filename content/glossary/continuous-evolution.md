@@ -335,7 +335,7 @@ end
 
 ### Quality DNA Persistence
 
-[Quality DNA](/glossary/quality-dna/) is the mechanism that preserves evolutionary state across sessions, deployments, and even platform restarts. Each application in the umbrella maintains its own quality DNA file (`.claude/quality-dna/current-state.json`) that records quality measurements, violation history, and improvement trajectories.
+[Quality DNA](@/glossary/quality-dna.md) is the mechanism that preserves evolutionary state across sessions, deployments, and even platform restarts. Each application in the umbrella maintains its own quality DNA file (`.claude/quality-dna/current-state.json`) that records quality measurements, violation history, and improvement trajectories.
 
 Quality DNA serves two critical functions in continuous evolution:
 
@@ -356,7 +356,7 @@ The platform recognizes four types of evolution triggers:
 
 ### SEADF Integration
 
-The [SEADF](/glossary/seadf/) framework (Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, Enhanced Healing) provides the operational infrastructure for continuous evolution. SEADF's 7 subsystems map directly to evolution capabilities:
+The [SEADF](@/glossary/seadf.md) framework (Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, Enhanced Healing) provides the operational infrastructure for continuous evolution. SEADF's 7 subsystems map directly to evolution capabilities:
 
 | SEADF Subsystem | Evolution Role |
 |-----------------|----------------|
@@ -372,7 +372,7 @@ The [SEADF](/glossary/seadf/) framework (Scanner, Pipeline, Quality Guardian, Kn
 
 ### Mix Task Integration
 
-The continuous evolution system exposes its capabilities through mix tasks that integrate with the [session discipline protocol](/glossary/session-discipline/):
+The continuous evolution system exposes its capabilities through mix tasks that integrate with the [session discipline protocol](@/glossary/session-discipline.md):
 
 ```
 mix autoevolve status          # Current generation, fitness, improvement opportunities
@@ -386,7 +386,7 @@ mix quality.gates.check --fast # Quick check for pre-command validation
 
 ### Session Lifecycle Hooks
 
-Every Claude session automatically triggers evolution checks through the [SessionLifecycle](/glossary/session-discipline/) GenServer. The session start hook runs `mix autoheal.baseline` and `mix autoevolve status`, establishing the quality context for the session. The session end hook runs `mix autoheal.cycle` and `mix autoevolve.mega`, ensuring that every session contributes to the platform's evolution.
+Every Claude session automatically triggers evolution checks through the [SessionLifecycle](@/glossary/session-discipline.md) GenServer. The session start hook runs `mix autoheal.baseline` and `mix autoevolve status`, establishing the quality context for the session. The session end hook runs `mix autoheal.cycle` and `mix autoevolve.mega`, ensuring that every session contributes to the platform's evolution.
 
 ### Pre-Commit Quality Protection
 
@@ -406,11 +406,11 @@ The pre-commit hook enforces an 11-phase quality validation that prevents regres
 
 ### Continuous Evolution vs. Genetic Algorithms
 
-Genetic algorithms use random mutation and selection to search solution spaces. Continuous evolution in Prismatic is guided rather than random -- the [autoevolve](/glossary/autoevolve/) scanner uses static analysis, pattern matching, and quality metrics to identify specific improvements. There is no random component; every proposed change has an identified rationale.
+Genetic algorithms use random mutation and selection to search solution spaces. Continuous evolution in Prismatic is guided rather than random -- the [autoevolve](@/glossary/autoevolve.md) scanner uses static analysis, pattern matching, and quality metrics to identify specific improvements. There is no random component; every proposed change has an identified rationale.
 
 ### Continuous Evolution vs. Self-Healing
 
-[Self-healing](/glossary/self-healing/) ([autoheal](/glossary/autoheal/)) restores the system to a known-good state after degradation. Continuous evolution advances the system to a better state. Self-healing is reactive (responds to problems); continuous evolution is proactive (seeks improvements). The two work together: self-healing ensures the quality floor is maintained while continuous evolution raises the ceiling.
+[Self-healing](@/glossary/self-healing.md) ([autoheal](@/glossary/autoheal.md)) restores the system to a known-good state after degradation. Continuous evolution advances the system to a better state. Self-healing is reactive (responds to problems); continuous evolution is proactive (seeks improvements). The two work together: self-healing ensures the quality floor is maintained while continuous evolution raises the ceiling.
 
 ## Best Practices
 
@@ -418,7 +418,7 @@ Genetic algorithms use random mutation and selection to search solution spaces. 
 
 **Maintain generation boundaries**. Each generation should represent a coherent set of improvements with a descriptive name and documented achievements. Avoid allowing the generation counter to advance for trivial changes.
 
-**Never compromise the quality floor**. Evolution must always increase or maintain fitness, never decrease it. The [Quality Floor Guardian](/glossary/quality-floor-guardian/) enforces this invariant: if a proposed improvement causes regression in any domain, it is rejected regardless of net improvement.
+**Never compromise the quality floor**. Evolution must always increase or maintain fitness, never decrease it. The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) enforces this invariant: if a proposed improvement causes regression in any domain, it is rejected regardless of net improvement.
 
 **Persist evolution state across sessions**. Quality DNA files must be committed to version control so that every session, developer, and CI pipeline shares the same understanding of the platform's evolutionary state.
 
@@ -450,24 +450,24 @@ Quality DNA files persist between sessions, enabling a new Claude session to imm
 
 ## Related Concepts
 
-- [Autoevolve](/glossary/autoevolve/) -- The primary mix task interface for triggering evolution cycles
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- The broader principle of systems that improve without human direction
-- [Generation](/glossary/generation/) -- Discrete evolutionary epochs with measurable improvements
-- [Fitness Score](/glossary/fitness-score/) -- The composite metric that measures evolutionary progress
-- [SEADF](/glossary/seadf/) -- The 7-subsystem framework that operationalizes continuous evolution
-- [Automated Self-Improvement](/glossary/automated-self-improvement/) -- The capability to identify and implement improvements autonomously
-- [Quality DNA](/glossary/quality-dna/) -- Persistence mechanism for evolutionary state across sessions
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Enforcement mechanism that prevents evolutionary regression
-- [Autoheal](/glossary/autoheal/) -- Reactive healing system that complements proactive evolution
-- [Quality Gates](/glossary/quality-gates/) -- Validation checkpoints that filter evolutionary changes
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- The doctrine that mandates continuous evolution without compromise
-- [Generation Evolution](/glossary/generation-evolution/) -- The trajectory pattern across generations
+- [Autoevolve](@/glossary/autoevolve.md) -- The primary mix task interface for triggering evolution cycles
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- The broader principle of systems that improve without human direction
+- [Generation](@/glossary/generation.md) -- Discrete evolutionary epochs with measurable improvements
+- [Fitness Score](@/glossary/fitness-score.md) -- The composite metric that measures evolutionary progress
+- [SEADF](@/glossary/seadf.md) -- The 7-subsystem framework that operationalizes continuous evolution
+- [Automated Self-Improvement](@/glossary/automated-self-improvement.md) -- The capability to identify and implement improvements autonomously
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistence mechanism for evolutionary state across sessions
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Enforcement mechanism that prevents evolutionary regression
+- [Autoheal](@/glossary/autoheal.md) -- Reactive healing system that complements proactive evolution
+- [Quality Gates](@/glossary/quality-gates.md) -- Validation checkpoints that filter evolutionary changes
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- The doctrine that mandates continuous evolution without compromise
+- [Generation Evolution](@/glossary/generation-evolution.md) -- The trajectory pattern across generations
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture supporting continuous evolution
-- [Capabilities](/capabilities/) -- Capabilities that emerge from evolutionary improvement
-- [Agents](/agents/) -- Agent ecosystem that evolves through generation advancement
+- [Architecture](@/architecture/_index.md) -- Platform architecture supporting continuous evolution
+- [Capabilities](@/capabilities/_index.md) -- Capabilities that emerge from evolutionary improvement
+- [Agents](@/agents/_index.md) -- Agent ecosystem that evolves through generation advancement
 
 ---
 
@@ -476,4 +476,4 @@ Quality DNA files persist between sessions, enabling a new Claude session to imm
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

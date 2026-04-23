@@ -44,9 +44,9 @@ In formal terms, epistemic coordination ensures that a distributed system of age
 
 The challenge of epistemic coordination arises whenever multiple knowledge-producing agents operate in parallel. In traditional software systems, this manifests as conflicting state, stale caches, or race conditions. In epistemic systems, the problem is deeper: two agents may reach contradictory conclusions from valid but incomplete evidence, and the system must handle this without silently discarding either perspective.
 
-Epistemic coordination draws from several intellectual traditions. Social epistemology studies how groups form and justify beliefs. Distributed artificial intelligence addresses how autonomous agents share and reconcile knowledge. Consensus protocols in distributed systems provide mechanisms for agreement under failure conditions. The Prismatic Platform synthesizes these traditions into a practical framework governed by the [NABLA Infinity](/glossary/nabla-infinity/) axioms.
+Epistemic coordination draws from several intellectual traditions. Social epistemology studies how groups form and justify beliefs. Distributed artificial intelligence addresses how autonomous agents share and reconcile knowledge. Consensus protocols in distributed systems provide mechanisms for agreement under failure conditions. The Prismatic Platform synthesizes these traditions into a practical framework governed by the [NABLA Infinity](@/glossary/nabla-infinity.md) axioms.
 
-The core tension in epistemic coordination is between **convergence** (agents should eventually agree) and **preservation** (contradictory signals carry information). Naive coordination forces premature convergence, discarding valuable dissenting evidence. The Prismatic approach, through [Contradiction Preservation](/glossary/contradiction-preservation/) and [Signal Plurality](/glossary/signal-plurality/), maintains both sides of contradictions until principled resolution is possible.
+The core tension in epistemic coordination is between **convergence** (agents should eventually agree) and **preservation** (contradictory signals carry information). Naive coordination forces premature convergence, discarding valuable dissenting evidence. The Prismatic approach, through [Contradiction Preservation](@/glossary/contradiction-preservation.md) and [Signal Plurality](@/glossary/signal-plurality.md), maintains both sides of contradictions until principled resolution is possible.
 
 ## Technical Details
 
@@ -58,19 +58,19 @@ Epistemic coordination operates across several distinct models, each with differ
 
 **Peer-to-Peer Reconciliation**: Agents directly exchange beliefs and reconcile pairwise. Scales poorly (O(n^2) communication) but avoids centralized bias. Used in gossip protocols and some distributed databases.
 
-**Hierarchical Synthesis**: Agents are organized in a tree structure. Local clusters reconcile first, then cluster-level summaries are reconciled at higher levels. The Prismatic [Color Teams](/glossary/color-teams/) use a variant of this model with [Purple Team](/glossary/purple-team/) as the synthesis authority.
+**Hierarchical Synthesis**: Agents are organized in a tree structure. Local clusters reconcile first, then cluster-level summaries are reconciled at higher levels. The Prismatic [Color Teams](@/glossary/color-teams.md) use a variant of this model with [Purple Team](@/glossary/purple-team.md) as the synthesis authority.
 
-**Adversarial Coordination**: Rather than seeking agreement, the system intentionally pits agents against each other to surface hidden assumptions and blind spots. The [Red Team](/glossary/red-team/) / [Blue Team](/glossary/blue-team/) dynamic exemplifies this approach.
+**Adversarial Coordination**: Rather than seeking agreement, the system intentionally pits agents against each other to surface hidden assumptions and blind spots. The [Red Team](@/glossary/red-team.md) / [Blue Team](@/glossary/blue-team.md) dynamic exemplifies this approach.
 
 ### Formal Properties
 
 A well-coordinated epistemic system must satisfy several properties:
 
-1. **Belief Traceability**: Every belief in the coordinated set must trace back to specific evidence and the agent that produced it ([Provenance Mandatory](/glossary/provenance-mandatory/)).
+1. **Belief Traceability**: Every belief in the coordinated set must trace back to specific evidence and the agent that produced it ([Provenance Mandatory](@/glossary/provenance-mandatory.md)).
 
 2. **Contradiction Visibility**: When agents disagree, the disagreement must be explicitly represented in the coordinated belief set, not silently resolved.
 
-3. **Confidence Calibration**: The coordinated system must properly weight beliefs by the quality of supporting evidence, the reliability of the producing agent, and the recency of the evidence ([Time Decay](/glossary/time-decay/)).
+3. **Confidence Calibration**: The coordinated system must properly weight beliefs by the quality of supporting evidence, the reliability of the producing agent, and the recency of the evidence ([Time Decay](@/glossary/time-decay.md)).
 
 4. **Monotonic Progress**: Coordination should never discard valid evidence. New coordination rounds may reinterpret evidence but never delete it.
 
@@ -90,7 +90,7 @@ Red Team (adversarial scenarios) ---> Purple Team (synthesis) ---> Blue Team (de
 Black Team (threat models)           White Team (proofs)       Platform Defense
 ```
 
-Each team produces beliefs with associated confidence levels and evidence chains. The [Purple Team](/glossary/purple-team/) serves as the central coordination authority, receiving inputs from all other teams and producing synthesized assessments that have passed the [Trinity Gate](/glossary/trinity-gate/).
+Each team produces beliefs with associated confidence levels and evidence chains. The [Purple Team](@/glossary/purple-team.md) serves as the central coordination authority, receiving inputs from all other teams and producing synthesized assessments that have passed the [Trinity Gate](@/glossary/trinity-gate.md).
 
 ## Implementation in Prismatic Platform
 
@@ -392,7 +392,7 @@ Conflict-free Replicated Data Types (CRDTs) guarantee eventual consistency throu
 
 ### vs. Blackboard Architecture
 
-The classic AI blackboard pattern provides a shared workspace where agents post partial solutions. Epistemic coordination extends this with formal properties: every posting must have provenance, confidence levels are mandatory, contradictions trigger synthesis rather than overwriting, and the [Trinity Gate](/glossary/trinity-gate/) validates coordinated outputs.
+The classic AI blackboard pattern provides a shared workspace where agents post partial solutions. Epistemic coordination extends this with formal properties: every posting must have provenance, confidence levels are mandatory, contradictions trigger synthesis rather than overwriting, and the [Trinity Gate](@/glossary/trinity-gate.md) validates coordinated outputs.
 
 ## Best Practices
 
@@ -412,7 +412,7 @@ The classic AI blackboard pattern provides a shared workspace where agents post 
 
 1. **Treating coordination as data synchronization.** The most common mistake is implementing epistemic coordination as if it were database replication. Knowledge is not data -- it carries interpretation, confidence, and context that raw synchronization destroys.
 
-2. **Silent contradiction resolution.** When two agents disagree, taking the "most recent" or "highest confidence" value without recording the disagreement violates [Contradiction Preservation](/glossary/contradiction-preservation/). The losing belief may contain crucial information.
+2. **Silent contradiction resolution.** When two agents disagree, taking the "most recent" or "highest confidence" value without recording the disagreement violates [Contradiction Preservation](@/glossary/contradiction-preservation.md). The losing belief may contain crucial information.
 
 3. **Single-source dominance.** If one agent consistently "wins" coordination rounds because it produces higher-confidence findings, the system degenerates into a single-agent system. Monitor agent contribution diversity and flag dominance patterns.
 
@@ -426,11 +426,11 @@ The classic AI blackboard pattern provides a shared workspace where agents post 
 
 ### Security Assessment Coordination
 
-The primary use case in Prismatic is coordinating security assessments across [Color Teams](/glossary/color-teams/). The [Red Team](/glossary/red-team/) identifies vulnerabilities through adversarial simulation. The [Blue Team](/glossary/blue-team/) assesses defensive posture. These often produce contradictory assessments of the same system: Red may rate a component as vulnerable while Blue rates it as defended. [Purple Team](/glossary/purple-team/) coordination synthesizes these into a nuanced assessment that preserves both perspectives.
+The primary use case in Prismatic is coordinating security assessments across [Color Teams](@/glossary/color-teams.md). The [Red Team](@/glossary/red-team.md) identifies vulnerabilities through adversarial simulation. The [Blue Team](@/glossary/blue-team.md) assesses defensive posture. These often produce contradictory assessments of the same system: Red may rate a component as vulnerable while Blue rates it as defended. [Purple Team](@/glossary/purple-team.md) coordination synthesizes these into a nuanced assessment that preserves both perspectives.
 
 ### OSINT Intelligence Fusion
 
-When multiple OSINT sources report on the same entity, epistemic coordination reconciles conflicting intelligence. Company registry data may conflict with financial filings. Domain WHOIS records may disagree with certificate transparency logs. The [Intelligence Fusion](/glossary/intelligence-fusion/) pipeline uses epistemic coordination to produce unified entity profiles with explicit uncertainty markers.
+When multiple OSINT sources report on the same entity, epistemic coordination reconciles conflicting intelligence. Company registry data may conflict with financial filings. Domain WHOIS records may disagree with certificate transparency logs. The [Intelligence Fusion](@/glossary/intelligence-fusion.md) pipeline uses epistemic coordination to produce unified entity profiles with explicit uncertainty markers.
 
 ### Compliance Assessment Synthesis
 
@@ -456,28 +456,28 @@ When coordination fails, the system must degrade gracefully. The circuit breaker
 
 ## Related Concepts
 
-- [Purple Team](/glossary/purple-team/) - The synthesis authority responsible for Red-Blue loop closure and primary coordination hub
-- [NABLA Infinity](/glossary/nabla-infinity/) - The epistemic framework whose 7 axioms govern all coordination constraints
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) - The processing pipeline through which beliefs flow from raw signals to coordinated knowledge
-- [Signal Plurality](/glossary/signal-plurality/) - The axiom requiring minimum 2 independent signals before establishing a belief
-- [Intelligence Fusion](/glossary/intelligence-fusion/) - The operational application of epistemic coordination to OSINT data
-- [Color Teams](/glossary/color-teams/) - The multi-team structure that produces the diverse findings requiring coordination
-- [Contradiction Preservation](/glossary/contradiction-preservation/) - The axiom preventing premature resolution of conflicting beliefs
-- [Trinity Gate](/glossary/trinity-gate/) - The 3-gate verification that coordinated belief sets must pass
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) - The individual agent reasoning that produces the beliefs being coordinated
-- [Confidence Threshold](/glossary/confidence-threshold/) - The minimum confidence levels required for coordinated beliefs to trigger action
-- [Red Team](/glossary/red-team/) - Adversarial simulation agents whose findings feed into coordination
-- [Blue Team](/glossary/blue-team/) - Defensive assessment agents whose findings are reconciled with Red Team outputs
+- [Purple Team](@/glossary/purple-team.md) - The synthesis authority responsible for Red-Blue loop closure and primary coordination hub
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - The epistemic framework whose 7 axioms govern all coordination constraints
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) - The processing pipeline through which beliefs flow from raw signals to coordinated knowledge
+- [Signal Plurality](@/glossary/signal-plurality.md) - The axiom requiring minimum 2 independent signals before establishing a belief
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) - The operational application of epistemic coordination to OSINT data
+- [Color Teams](@/glossary/color-teams.md) - The multi-team structure that produces the diverse findings requiring coordination
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) - The axiom preventing premature resolution of conflicting beliefs
+- [Trinity Gate](@/glossary/trinity-gate.md) - The 3-gate verification that coordinated belief sets must pass
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) - The individual agent reasoning that produces the beliefs being coordinated
+- [Confidence Threshold](@/glossary/confidence-threshold.md) - The minimum confidence levels required for coordinated beliefs to trigger action
+- [Red Team](@/glossary/red-team.md) - Adversarial simulation agents whose findings feed into coordination
+- [Blue Team](@/glossary/blue-team.md) - Defensive assessment agents whose findings are reconciled with Red Team outputs
 
 ## See Also
 
-- [Epistemic Attack](/glossary/epistemic-attack/) - Attacks targeting the coordination mechanisms themselves
-- [Epistemic Robustness](/glossary/epistemic-robustness/) - System resilience against coordination disruption
-- [Epistemic Validation](/glossary/epistemic-validation/) - Validation of coordinated belief sets
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) - Foundational principle requiring evidence-based coordination
-- [Time Decay](/glossary/time-decay/) - Evidence aging mechanism used in coordination weighting
-- [Provenance Mandatory](/glossary/provenance-mandatory/) - Traceability requirement for all coordinated beliefs
-- [Formal Verification](/glossary/formal-verification/) - Mathematical verification of coordination properties
+- [Epistemic Attack](@/glossary/epistemic-attack.md) - Attacks targeting the coordination mechanisms themselves
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) - System resilience against coordination disruption
+- [Epistemic Validation](@/glossary/epistemic-validation.md) - Validation of coordinated belief sets
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) - Foundational principle requiring evidence-based coordination
+- [Time Decay](@/glossary/time-decay.md) - Evidence aging mechanism used in coordination weighting
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) - Traceability requirement for all coordinated beliefs
+- [Formal Verification](@/glossary/formal-verification.md) - Mathematical verification of coordination properties
 
 ---
 
@@ -486,4 +486,4 @@ When coordination fails, the system must degrade gracefully. The circuit breaker
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

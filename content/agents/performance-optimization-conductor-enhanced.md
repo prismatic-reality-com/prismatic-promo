@@ -28,9 +28,9 @@ image_alt = "performance-optimization-conductor-enhanced - Prismatic Platform"
 
 ## Overview
 
-The Performance Optimization Conductor (Enhanced) operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's performance domain, serving as the genetically enhanced version of the base Performance Optimization Conductor. This enhanced variant incorporates autonomous decision-making capabilities through [AIAD](/glossary/aiad/)-compliant self-directed optimization cycles, enabling it to identify, plan, execute, and verify performance improvements without human intervention while maintaining full auditability and rollback capability.
+The Performance Optimization Conductor (Enhanced) operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's performance domain, serving as the genetically enhanced version of the base Performance Optimization Conductor. This enhanced variant incorporates autonomous decision-making capabilities through [AIAD](@/glossary/aiad.md)-compliant self-directed optimization cycles, enabling it to identify, plan, execute, and verify performance improvements without human intervention while maintaining full auditability and rollback capability.
 
-The "enhanced" designation reflects the agent's integration with the [SEADF](/glossary/seadf/) evolutionary framework, which continuously improves the conductor's optimization strategies based on historical outcome data. Each successful optimization campaign contributes to the agent's evolutionary fitness, improving its ability to select effective optimization approaches for future campaigns. The [NO MERCY](/glossary/no-mercy/) doctrine governs all operations: identified performance issues must be resolved completely, and the [NO DOUBTS](/glossary/no-doubts/) principle requires that every optimization is validated through pre/post benchmarking with statistical significance testing.
+The "enhanced" designation reflects the agent's integration with the [SEADF](@/glossary/seadf.md) evolutionary framework, which continuously improves the conductor's optimization strategies based on historical outcome data. Each successful optimization campaign contributes to the agent's evolutionary fitness, improving its ability to select effective optimization approaches for future campaigns. The [NO MERCY](@/glossary/no-mercy.md) doctrine governs all operations: identified performance issues must be resolved completely, and the [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every optimization is validated through pre/post benchmarking with statistical significance testing.
 
 ## Theoretical Foundations
 
@@ -42,9 +42,9 @@ The evolutionary enhancement layer operates through genetic programming applied 
 
 ## Operational Domain
 
-The performance domain encompasses all computational, I/O, and communication performance aspects of the Prismatic Platform. The conductor operates across all 90 umbrella applications, with particular focus on performance-critical hot paths identified through profiling and monitoring data. The domain includes [BEAM](/glossary/beam/) runtime optimization (scheduler configuration, garbage collection tuning, process topology), application-level optimization (algorithm selection, data structure choice, caching strategies), and infrastructure optimization (database query planning, network communication patterns, storage access patterns).
+The performance domain encompasses all computational, I/O, and communication performance aspects of the Prismatic Platform. The conductor operates across all 90 umbrella applications, with particular focus on performance-critical hot paths identified through profiling and monitoring data. The domain includes [BEAM](@/glossary/beam.md) runtime optimization (scheduler configuration, garbage collection tuning, process topology), application-level optimization (algorithm selection, data structure choice, caching strategies), and infrastructure optimization (database query planning, network communication patterns, storage access patterns).
 
-Unlike the base conductor which requires explicit optimization targets, the enhanced version autonomously identifies optimization opportunities by analyzing [telemetry](/glossary/telemetry/) data streams, monitoring [backpressure](/glossary/backpressure/) signals, and correlating performance patterns across subsystems.
+Unlike the base conductor which requires explicit optimization targets, the enhanced version autonomously identifies optimization opportunities by analyzing [telemetry](@/glossary/telemetry.md) data streams, monitoring [backpressure](@/glossary/backpressure.md) signals, and correlating performance patterns across subsystems.
 
 ## Key Capabilities
 
@@ -52,15 +52,15 @@ Unlike the base conductor which requires explicit optimization targets, the enha
 
 - **Multi-objective optimization** -- Evaluates optimization candidates against multiple performance objectives simultaneously, selecting only Pareto-optimal changes that improve some metrics without degrading others
 
-- **Evolutionary strategy improvement** -- Applies genetic programming to optimization decision rules, continuously improving strategy selection based on historical outcome data through [SEADF](/glossary/seadf/) integration
+- **Evolutionary strategy improvement** -- Applies genetic programming to optimization decision rules, continuously improving strategy selection based on historical outcome data through [SEADF](@/glossary/seadf.md) integration
 
-- **[CASCADE](/glossary/cascade/) anti-pattern elimination** -- Detects and eliminates classified performance anti-patterns including O(n) operations replaceable with O(1) alternatives, unnecessary process serialization, excessive memory allocation, and redundant computation
+- **[CASCADE](@/glossary/cascade.md) anti-pattern elimination** -- Detects and eliminates classified performance anti-patterns including O(n) operations replaceable with O(1) alternatives, unnecessary process serialization, excessive memory allocation, and redundant computation
 
-- **[Backpressure](/glossary/backpressure/)-aware optimization** -- Monitors GenStage and Flow pipelines for backpressure signals, adjusting buffer sizes, concurrency levels, and processing batch sizes to optimize throughput under varying load conditions
+- **[Backpressure](@/glossary/backpressure.md)-aware optimization** -- Monitors GenStage and Flow pipelines for backpressure signals, adjusting buffer sizes, concurrency levels, and processing batch sizes to optimize throughput under varying load conditions
 
 - **Safe autonomous execution** -- All autonomous optimizations execute within safety boundaries that prevent changes to critical system invariants, with automatic rollback triggered if post-optimization verification detects any negative impact
 
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for publishing optimization campaign metrics and outcome tracking
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for publishing optimization campaign metrics and outcome tracking
 
 ## Authority Level
 
@@ -92,11 +92,11 @@ The enhanced conductor operates in continuous optimization cycles:
 
 | Agent | Relationship |
 |-------|-------------|
-| [performance-optimization-conductor](/agents/performance-optimization-conductor/) | Base conductor provides foundational optimization capabilities |
-| [Performance Benchmarking Agent](/agents/performance-benchmarking-agent/) | Benchmark data validates optimization outcomes |
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Profiling data identifies optimization opportunities |
-| [performance-monitoring-specialist](/agents/performance-monitoring-specialist/) | Monitoring alerts trigger targeted optimization campaigns |
-| [Mycelial Genetic Evolver Agent](/agents/mycelial-genetic-evolver-agent/) | Evolutionary framework for strategy improvement |
+| [performance-optimization-conductor](@/agents/performance-optimization-conductor.md) | Base conductor provides foundational optimization capabilities |
+| [Performance Benchmarking Agent](@/agents/performance-benchmarking-agent.md) | Benchmark data validates optimization outcomes |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Profiling data identifies optimization opportunities |
+| [performance-monitoring-specialist](@/agents/performance-monitoring-specialist.md) | Monitoring alerts trigger targeted optimization campaigns |
+| [Mycelial Genetic Evolver Agent](@/agents/mycelial-genetic-evolver-agent.md) | Evolutionary framework for strategy improvement |
 
 ## Safety Boundaries
 
@@ -113,7 +113,7 @@ Autonomous execution is constrained by safety parameters that prevent the conduc
 
 ## Enforcement
 
-The enhanced conductor operates under strict [NO MERCY](/glossary/no-mercy/) enforcement: performance issues identified within its optimization scope must be addressed, and no optimization campaign is marked complete without verified improvement evidence. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every autonomous decision is logged with full reasoning trace, enabling post-hoc audit of the conductor's optimization logic and enabling rollback to any previous state if issues are discovered after deployment.
+The enhanced conductor operates under strict [NO MERCY](@/glossary/no-mercy.md) enforcement: performance issues identified within its optimization scope must be addressed, and no optimization campaign is marked complete without verified improvement evidence. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every autonomous decision is logged with full reasoning trace, enabling post-hoc audit of the conductor's optimization logic and enabling rollback to any previous state if issues are discovered after deployment.
 
 ## Related Agents
 
@@ -126,4 +126,4 @@ The enhanced conductor represents the autonomous evolution of the performance op
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

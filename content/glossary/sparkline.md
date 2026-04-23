@@ -38,9 +38,9 @@ Sparkline is a contract-locked integration framework within the Prismatic Platfo
 
 In a platform with 115 umbrella applications and 530 runtime agents, the number of potential inter-system interaction points grows combinatorially. Without formal contracts, these interactions become fragile: a change in one application's return type silently breaks a consumer in another application, a renamed field causes runtime crashes that unit tests in either application would not catch, and behavioral guarantees that exist only as developer assumptions erode during refactoring. Sparkline contracts address this by formalizing every inter-application boundary into an explicit, tested, and verified specification that is immutable once locked.
 
-The SPARKLINE NEXT initiative (Milestone MS-6253645) established the current generation of immutable API contracts across the platform. Once locked, these contracts cannot change without explicit renegotiation -- a deliberate process requiring [White Team](/glossary/white-team/) formal verification and Purple Team closure approval. This immutability prevents the "gradual drift" problem where small, individually-reasonable changes accumulate into incompatible interfaces over time. The initiative achieved complete canonicalization of all inter-application boundaries, transforming what was previously an implicit web of assumptions into a formally verified contract graph.
+The SPARKLINE NEXT initiative (Milestone MS-6253645) established the current generation of immutable API contracts across the platform. Once locked, these contracts cannot change without explicit renegotiation -- a deliberate process requiring [White Team](@/glossary/white-team.md) formal verification and Purple Team closure approval. This immutability prevents the "gradual drift" problem where small, individually-reasonable changes accumulate into incompatible interfaces over time. The initiative achieved complete canonicalization of all inter-application boundaries, transforming what was previously an implicit web of assumptions into a formally verified contract graph.
 
-Sparkline contracts operate at two verification levels: compile-time through Elixir [Behaviour](/glossary/behaviour/) callbacks that enforce function signatures, and runtime through [property-based testing](/glossary/property-based-testing/) that verifies behavioral guarantees under diverse input conditions. This dual-level approach catches both structural errors (wrong types, missing functions) and behavioral errors (correct types but wrong semantics) that single-level approaches miss. The framework draws inspiration from Bertrand Meyer's Design by Contract, Haskell's type classes, and Erlang's OTP behaviour system, combining the strengths of each into a cohesive verification framework.
+Sparkline contracts operate at two verification levels: compile-time through Elixir [Behaviour](@/glossary/behaviour.md) callbacks that enforce function signatures, and runtime through [property-based testing](@/glossary/property-based-testing.md) that verifies behavioral guarantees under diverse input conditions. This dual-level approach catches both structural errors (wrong types, missing functions) and behavioral errors (correct types but wrong semantics) that single-level approaches miss. The framework draws inspiration from Bertrand Meyer's Design by Contract, Haskell's type classes, and Erlang's OTP behaviour system, combining the strengths of each into a cohesive verification framework.
 
 ## Historical Context and Motivation
 
@@ -48,7 +48,7 @@ The Sparkline framework emerged from a specific class of failures that plagued t
 
 The first attempt to solve this problem used documentation -- each application maintained a README describing its public API. This approach failed because documentation diverges from code over time, and no automated tooling enforced documentation accuracy. The second attempt used shared type specifications, which improved compile-time checking but could not verify behavioral semantics. A function could satisfy the type `(String.t()) -> {:ok, term()} | {:error, atom()}` while violating the behavioral invariant that `get(key)` after `put(key, value)` must return `{:ok, value}`.
 
-Sparkline was designed to close this gap permanently. By combining compile-time type enforcement through [Behaviour](/glossary/behaviour/) callbacks, runtime behavioral verification through [property-based testing](/glossary/property-based-testing/), and immutability through contract locking, Sparkline ensures that contracts are correct at every level of abstraction. The framework was named after the data visualization concept because, like a sparkline chart, a Sparkline contract packs maximum information into minimum space -- a complete specification of a system boundary in a single, compact module.
+Sparkline was designed to close this gap permanently. By combining compile-time type enforcement through [Behaviour](@/glossary/behaviour.md) callbacks, runtime behavioral verification through [property-based testing](@/glossary/property-based-testing.md), and immutability through contract locking, Sparkline ensures that contracts are correct at every level of abstraction. The framework was named after the data visualization concept because, like a sparkline chart, a Sparkline contract packs maximum information into minimum space -- a complete specification of a system boundary in a single, compact module.
 
 ## Technical Deep Dive
 
@@ -312,11 +312,11 @@ Sparkline contracts cover all major inter-application boundaries, ensuring that 
 
 ### White Team Verification
 
-The [White Team](/glossary/white-team/) validates Sparkline contracts through progressive L0-L5 methodology, where each level provides stronger guarantees than the previous:
+The [White Team](@/glossary/white-team.md) validates Sparkline contracts through progressive L0-L5 methodology, where each level provides stronger guarantees than the previous:
 
 | Level | Verification Method | What It Proves | Tooling |
 |-------|-------------------|----------------|---------|
-| L0 | Type checking ([Dialyzer](/glossary/dialyzer/)) | Structural type compliance | dialyxir |
+| L0 | Type checking ([Dialyzer](@/glossary/dialyzer.md)) | Structural type compliance | dialyxir |
 | L1 | Unit testing | Individual function correctness | ExUnit |
 | L2 | Property-based testing | Behavioral invariants under random input | StreamData |
 | L3 | Integration testing | Cross-application contract compliance | Contract test suites |
@@ -460,7 +460,7 @@ Prismatic.Sparkline.PropertyRunner.verify_contract(
 
 ## Integration with Quality Gates
 
-Sparkline contract verification is integrated into the platform's [quality gates](/glossary/quality-gates/) pipeline, ensuring that every commit maintains contract compliance:
+Sparkline contract verification is integrated into the platform's [quality gates](@/glossary/quality-gates.md) pipeline, ensuring that every commit maintains contract compliance:
 
 ```elixir
 defmodule Prismatic.Quality.SparklineGate do
@@ -535,21 +535,21 @@ end
 
 ## Related Concepts
 
-- [Behaviour](/glossary/behaviour/) -- Compile-time contract mechanism underlying Sparkline
-- [Protocol](/glossary/protocol/) -- Type-based dispatch complementing module contracts
-- [White Team](/glossary/white-team/) -- Verification team validating contracts formally
-- [Property-Based Testing](/glossary/property-based-testing/) -- Runtime contract validation methodology
-- [Quality Gates](/glossary/quality-gates/) -- Pipeline enforcing contract compliance on every commit
-- [Regression Test](/glossary/regression-test/) -- Tests preventing contract drift
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Pattern enabling pluggable contract implementations
-- [Typespec](/glossary/typespec/) -- Type annotations powering compile-time contract checks
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis tool for L0 contract verification
+- [Behaviour](@/glossary/behaviour.md) -- Compile-time contract mechanism underlying Sparkline
+- [Protocol](@/glossary/protocol.md) -- Type-based dispatch complementing module contracts
+- [White Team](@/glossary/white-team.md) -- Verification team validating contracts formally
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Runtime contract validation methodology
+- [Quality Gates](@/glossary/quality-gates.md) -- Pipeline enforcing contract compliance on every commit
+- [Regression Test](@/glossary/regression-test.md) -- Tests preventing contract drift
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Pattern enabling pluggable contract implementations
+- [Typespec](@/glossary/typespec.md) -- Type annotations powering compile-time contract checks
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis tool for L0 contract verification
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory
 
 ---
 
@@ -558,4 +558,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

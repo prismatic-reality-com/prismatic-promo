@@ -28,9 +28,9 @@ image_alt = "billing-integration-specialist - Prismatic Platform"
 
 ## Overview
 
-The Billing Integration Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Business Intelligence domain of the Prismatic Platform. This agent manages the complete Stripe payment platform integration, handling subscription lifecycle management, payment processing, invoice generation, and webhook security for the platform's commercial operations.
+The Billing Integration Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Business Intelligence domain of the Prismatic Platform. This agent manages the complete Stripe payment platform integration, handling subscription lifecycle management, payment processing, invoice generation, and webhook security for the platform's commercial operations.
 
-Payment integration is a security-critical domain where errors directly impact revenue and customer trust. The Billing Integration Specialist ensures that Stripe webhook signatures are cryptographically verified, subscription state transitions follow documented lifecycle rules, and payment failure scenarios are handled gracefully with appropriate customer notification and retry logic. All billing operations maintain full [audit trail](/glossary/audit-trail/)s for financial compliance and dispute resolution.
+Payment integration is a security-critical domain where errors directly impact revenue and customer trust. The Billing Integration Specialist ensures that Stripe webhook signatures are cryptographically verified, subscription state transitions follow documented lifecycle rules, and payment failure scenarios are handled gracefully with appropriate customer notification and retry logic. All billing operations maintain full [audit trail](@/glossary/audit-trail.md)s for financial compliance and dispute resolution.
 
 The agent's design reflects a core architectural principle: payment processing must be treated as a bounded context with strict interface contracts, isolated failure domains, and defense-in-depth security. No other platform component accesses Stripe APIs directly -- all payment operations flow through the Billing Integration Specialist's controlled interface, which enforces validation, logging, and security at every interaction point.
 
@@ -66,7 +66,7 @@ The Billing Integration Specialist enforces a strict subscription state machine 
 | Paused | Active, Cancelled | Resume request / Expiry timeout |
 | Cancelled | Active (reactivation) | Customer reactivation with new payment |
 
-Invalid state transitions are rejected with detailed error messages. Every transition is logged with timestamp, trigger event, and actor identification for audit purposes. State transitions emit [telemetry](/glossary/telemetry/) events under `[:prismatic, :billing, :subscription, *]` for monitoring and analytics.
+Invalid state transitions are rejected with detailed error messages. Every transition is logged with timestamp, trigger event, and actor identification for audit purposes. State transitions emit [telemetry](@/glossary/telemetry.md) events under `[:prismatic, :billing, :subscription, *]` for monitoring and analytics.
 
 ## Webhook Security Architecture
 
@@ -101,8 +101,8 @@ The specialist implements a structured recovery process for failed payments that
 | Component | Relationship | Data Flow |
 |-----------|-------------|-----------|
 | Stripe API | Payment processor | Bidirectional: API calls and webhook events |
-| [Ecto](/glossary/ecto/) / PostgreSQL | Transaction storage | Subscription state, payment history, reconciliation data |
-| [Telemetry](/glossary/telemetry/) Infrastructure | Billing metrics | Revenue tracking, failure rates, conversion metrics |
+| [Ecto](@/glossary/ecto.md) / PostgreSQL | Transaction storage | Subscription state, payment history, reconciliation data |
+| [Telemetry](@/glossary/telemetry.md) Infrastructure | Billing metrics | Revenue tracking, failure rates, conversion metrics |
 | Customer notification system | Communication | Payment failure notifications, invoice delivery |
 | Financial reporting | Analysis | Revenue reports, churn analysis, pricing optimization data |
 
@@ -114,9 +114,9 @@ The specialist implements a structured recovery process for failed payments that
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [business-financial-intelligence-specialist](/agents/business-financial-intelligence-specialist/) | Financial Analysis | Provides financial intelligence context for billing optimization decisions |
-| [compliance-auditing-specialist](/agents/compliance-auditing-specialist/) | Audit Compliance | Ensures billing operations meet financial audit requirements |
-| [data-integrity-specialist](/agents/data-integrity-specialist/) | Data Validation | Validates billing data integrity across reconciliation processes |
+| [business-financial-intelligence-specialist](@/agents/business-financial-intelligence-specialist.md) | Financial Analysis | Provides financial intelligence context for billing optimization decisions |
+| [compliance-auditing-specialist](@/agents/compliance-auditing-specialist.md) | Audit Compliance | Ensures billing operations meet financial audit requirements |
+| [data-integrity-specialist](@/agents/data-integrity-specialist.md) | Data Validation | Validates billing data integrity across reconciliation processes |
 
 ## Performance Metrics
 
@@ -130,7 +130,7 @@ The specialist implements a structured recovery process for failed payments that
 
 ## Enforcement
 
-Billing operations execute under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with enhanced security rigor. No webhook is processed without cryptographic signature verification. No subscription state transition occurs without audit trail logging. Payment data handling follows PCI-DSS aligned practices with zero tolerance for credential exposure. The NABLA [Provenance Mandatory](/glossary/provenance-mandatory/) axiom requires every financial transaction to be fully traceable from initiation through settlement. Reconciliation discrepancies are treated as incidents requiring investigation within 24 hours. The [Trinity Gate](/glossary/trinity-gate/) validates that billing system changes maintain structural consistency with the subscription state machine, logical consistency with financial rules, and formal correctness of payment processing contracts.
+Billing operations execute under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with enhanced security rigor. No webhook is processed without cryptographic signature verification. No subscription state transition occurs without audit trail logging. Payment data handling follows PCI-DSS aligned practices with zero tolerance for credential exposure. The NABLA [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom requires every financial transaction to be fully traceable from initiation through settlement. Reconciliation discrepancies are treated as incidents requiring investigation within 24 hours. The [Trinity Gate](@/glossary/trinity-gate.md) validates that billing system changes maintain structural consistency with the subscription state machine, logical consistency with financial rules, and formal correctness of payment processing contracts.
 
 ---
 
@@ -139,4 +139,4 @@ Billing operations execute under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

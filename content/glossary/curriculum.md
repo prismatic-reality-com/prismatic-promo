@@ -479,23 +479,23 @@ The curriculum's modular structure provides ready-made content for conference ta
 
 The curriculum concept connects to multiple education and platform concepts within the Prismatic ecosystem:
 
-- [Learning Path](/glossary/learning-path/) -- individual paths through the curriculum based on learner goals
-- [Learning Resource](/glossary/learning-resource/) -- the content artifacts that compose curriculum modules
-- [Mentorship](/glossary/mentorship/) -- human guidance that complements structured curriculum content
-- [Elixir/OTP Training](/glossary/elixir-otp-training/) -- the platform-specific training track within the curriculum
-- [Certification Programs](/glossary/certification-programs/) -- formal validation of curriculum completion
-- [Workshop Facilitation](/glossary/workshop-facilitation/) -- delivery of curriculum content in workshop format
-- [Office Hours](/glossary/office-hours/) -- scheduled mentorship sessions supporting curriculum progress
-- [Progressive Disclosure](/glossary/progressive-disclosure/) -- the UX principle applied to curriculum content organization
-- [Documentation](/glossary/documentation/) -- reference material that supports but differs from curriculum content
-- [Knowledge Graph](/glossary/knowledge-graph/) -- the structured representation of knowledge relationships
+- [Learning Path](@/glossary/learning-path.md) -- individual paths through the curriculum based on learner goals
+- [Learning Resource](@/glossary/learning-resource.md) -- the content artifacts that compose curriculum modules
+- [Mentorship](@/glossary/mentorship.md) -- human guidance that complements structured curriculum content
+- [Elixir/OTP Training](@/glossary/elixir-otp-training.md) -- the platform-specific training track within the curriculum
+- [Certification Programs](@/glossary/certification-programs.md) -- formal validation of curriculum completion
+- [Workshop Facilitation](@/glossary/workshop-facilitation.md) -- delivery of curriculum content in workshop format
+- [Office Hours](@/glossary/office-hours.md) -- scheduled mentorship sessions supporting curriculum progress
+- [Progressive Disclosure](@/glossary/progressive-disclosure.md) -- the UX principle applied to curriculum content organization
+- [Documentation](@/glossary/documentation.md) -- reference material that supports but differs from curriculum content
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- the structured representation of knowledge relationships
 
 ## See Also
 
-- [AIAD](/glossary/aiad/) -- the standard that defines agent-assisted learning within the platform
-- [Quality Gates](/glossary/quality-gates/) -- automated assessment mechanism aligned with curriculum objectives
-- [Architecture](/glossary/architecture/) -- the platform architecture that the curriculum teaches
-- [Community Building](/glossary/community-building/) -- the community context within which curriculum operates
+- [AIAD](@/glossary/aiad.md) -- the standard that defines agent-assisted learning within the platform
+- [Quality Gates](@/glossary/quality-gates.md) -- automated assessment mechanism aligned with curriculum objectives
+- [Architecture](@/glossary/architecture.md) -- the platform architecture that the curriculum teaches
+- [Community Building](@/glossary/community-building.md) -- the community context within which curriculum operates
 
 ---
 

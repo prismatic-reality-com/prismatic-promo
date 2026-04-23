@@ -28,15 +28,15 @@ image_alt = "blue-signal-aggregator - Prismatic Platform"
 
 ## Overview
 
-The Blue Signal Aggregator is an L2 tactical operations agent within the Epistemic Defense domain of the Prismatic Platform. This agent collects, correlates, and synthesizes all 28 signal types from 8 [Blue Team](/glossary/blue-team/) categories into unified defensive intelligence feeds. As the Blue Team's primary signal processing engine, it ensures that no individual signal is evaluated in isolation -- every defensive observation is contextualized against the full signal landscape to detect patterns invisible to single-signal analysis.
+The Blue Signal Aggregator is an L2 tactical operations agent within the Epistemic Defense domain of the Prismatic Platform. This agent collects, correlates, and synthesizes all 28 signal types from 8 [Blue Team](@/glossary/blue-team.md) categories into unified defensive intelligence feeds. As the Blue Team's primary signal processing engine, it ensures that no individual signal is evaluated in isolation -- every defensive observation is contextualized against the full signal landscape to detect patterns invisible to single-signal analysis.
 
-Signal aggregation in epistemic defense is fundamentally different from traditional security information and event management ([SIEM](/glossary/siem/)). The Blue Signal Aggregator operates under [NABLA Infinity](/glossary/nabla-infinity/) axioms, enforcing [Signal Plurality](/glossary/signal-plurality/) (minimum two independent signals for any belief), [Contradiction Preservation](/glossary/contradiction-preservation/) (conflicting signals are preserved for analysis, not discarded), and Source Independence (independently sourced signals carry higher weight). This epistemic rigor prevents false confidence in defensive posture and ensures that contradictory evidence receives proper investigation rather than suppression.
+Signal aggregation in epistemic defense is fundamentally different from traditional security information and event management ([SIEM](@/glossary/siem.md)). The Blue Signal Aggregator operates under [NABLA Infinity](@/glossary/nabla-infinity.md) axioms, enforcing [Signal Plurality](@/glossary/signal-plurality.md) (minimum two independent signals for any belief), [Contradiction Preservation](@/glossary/contradiction-preservation.md) (conflicting signals are preserved for analysis, not discarded), and Source Independence (independently sourced signals carry higher weight). This epistemic rigor prevents false confidence in defensive posture and ensures that contradictory evidence receives proper investigation rather than suppression.
 
 The aggregator's value lies in cross-signal pattern detection. An authentication anomaly in isolation might be benign. A drift detection signal in isolation might be noise. But an authentication anomaly occurring simultaneously with behavioral drift in the same application, correlated with a dependency change -- this compound signal reveals a coordinated pattern that no individual detector could identify. The aggregator's cross-domain correlation capability transforms isolated observations into actionable intelligence.
 
 ## Operational Domain
 
-The agent operates within the Blue Team's signal processing pipeline, receiving raw signals from authentication monitoring, drift detection, configuration validation, and behavioral analysis subsystems. It performs cross-domain correlation to identify signal patterns that span multiple categories, detecting coordinated anomalies that individual category monitors would miss. Aggregated signals are forwarded to the [Blue Commander](/agents/blue-commander/) for strategic defensive assessment.
+The agent operates within the Blue Team's signal processing pipeline, receiving raw signals from authentication monitoring, drift detection, configuration validation, and behavioral analysis subsystems. It performs cross-domain correlation to identify signal patterns that span multiple categories, detecting coordinated anomalies that individual category monitors would miss. Aggregated signals are forwarded to the [Blue Commander](@/agents/blue-commander.md) for strategic defensive assessment.
 
 ## Key Capabilities
 
@@ -50,7 +50,7 @@ The agent operates within the Blue Team's signal processing pipeline, receiving 
 
 - **Temporal signal analysis** tracking signal patterns over time to detect slow-moving threats, gradual drift, and sub-threshold anomalies that evade point-in-time detection. Uses sliding window analysis with configurable window sizes per signal type.
 
-- **Signal [confidence scoring](/glossary/confidence-scoring/)** assigning evidence-weighted confidence levels to aggregated findings based on source independence, signal strength, and corroboration depth
+- **Signal [confidence scoring](@/glossary/confidence-scoring.md)** assigning evidence-weighted confidence levels to aggregated findings based on source independence, signal strength, and corroboration depth
 
 ## Signal Classification Framework
 
@@ -94,16 +94,16 @@ The aggregator implements specific NABLA axiom enforcement at the signal process
 
 ## Authority Level
 
-**L2** - Tactical Operations - Signal processing and correlation with authority to flag anomalies, request investigation, and escalate contradictory signals to [Blue Commander](/agents/blue-commander/) for strategic assessment.
+**L2** - Tactical Operations - Signal processing and correlation with authority to flag anomalies, request investigation, and escalate contradictory signals to [Blue Commander](@/agents/blue-commander.md) for strategic assessment.
 
 ## Coordination
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [blue-commander](/agents/blue-commander/) | Reports aggregated signal intelligence for strategic defensive assessment | Epistemic Defense |
-| [blue-auth-sentinel](/agents/blue-auth-sentinel/) | Receives authentication boundary signals for cross-category correlation | Epistemic Defense |
-| [blue-drift-detector](/agents/blue-drift-detector/) | Receives drift detection signals for temporal pattern analysis | Epistemic Defense |
-| [purple-coordinator](/agents/purple-coordinator/) | Provides aggregated signals for Red-Blue synthesis | Color Team Synthesis |
+| [blue-commander](@/agents/blue-commander.md) | Reports aggregated signal intelligence for strategic defensive assessment | Epistemic Defense |
+| [blue-auth-sentinel](@/agents/blue-auth-sentinel.md) | Receives authentication boundary signals for cross-category correlation | Epistemic Defense |
+| [blue-drift-detector](@/agents/blue-drift-detector.md) | Receives drift detection signals for temporal pattern analysis | Epistemic Defense |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Provides aggregated signals for Red-Blue synthesis | Color Team Synthesis |
 
 ## Performance Metrics
 
@@ -118,7 +118,7 @@ The aggregator implements specific NABLA axiom enforcement at the signal process
 
 ## Enforcement
 
-The Blue Signal Aggregator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with strict NABLA axiom compliance. No aggregated finding is reported without plurality verification from independent signal sources. Contradictions between signal categories are preserved with full provenance, never suppressed or averaged away. Signal processing pipelines are audited for completeness to ensure no signal type is silently dropped. The [Trinity Gate](/glossary/trinity-gate/) validates aggregated findings for structural consistency (signal chain integrity), logical consistency (correlation conclusions follow from evidence), and formal correctness (statistical methods properly applied). Signal gaps -- expected signals that are absent -- are treated as informative data per the NABLA Absence Informative axiom and actively investigated.
+The Blue Signal Aggregator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with strict NABLA axiom compliance. No aggregated finding is reported without plurality verification from independent signal sources. Contradictions between signal categories are preserved with full provenance, never suppressed or averaged away. Signal processing pipelines are audited for completeness to ensure no signal type is silently dropped. The [Trinity Gate](@/glossary/trinity-gate.md) validates aggregated findings for structural consistency (signal chain integrity), logical consistency (correlation conclusions follow from evidence), and formal correctness (statistical methods properly applied). Signal gaps -- expected signals that are absent -- are treated as informative data per the NABLA Absence Informative axiom and actively investigated.
 
 ---
 
@@ -127,4 +127,4 @@ The Blue Signal Aggregator operates under the [NO MERCY, NO DOUBTS](/glossary/no
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -46,9 +46,9 @@ date_modified = "2026-02-23"
 
 ## Perex
 
-The Prismatic Academy provides comprehensive structured [learning paths](/glossary/learning-path/) that take developers from initial platform orientation through mastery of [autonomous agent](/glossary/autonomous-agent/) development, [epistemic reasoning](/glossary/epistemic-reasoning/) systems, and production-grade [architecture](/glossary/software-architecture/). This living [curriculum](/glossary/curriculum/) evolves with the platform itself, incorporating lessons from [Lab](/glossary/laboratory/) experiments, production patterns, and [developer community](/glossary/developer-community/) feedback.
+The Prismatic Academy provides comprehensive structured [learning paths](@/glossary/learning-path.md) that take developers from initial platform orientation through mastery of [autonomous agent](@/glossary/autonomous-agent.md) development, [epistemic reasoning](@/glossary/epistemic-reasoning.md) systems, and production-grade [architecture](@/glossary/software-architecture.md). This living [curriculum](@/glossary/curriculum.md) evolves with the platform itself, incorporating lessons from [Lab](@/glossary/laboratory.md) experiments, production patterns, and [developer community](@/glossary/developer-community.md) feedback.
 
-Built on [progressive disclosure](/glossary/progressive-disclosure/), hands-on primacy, and production realism, every theoretical concept includes [executable code](/glossary/executable-code/) with observable results using the same [quality standards](/glossary/quality-standard/) that govern the [production platform](/glossary/production-environment/).
+Built on [progressive disclosure](@/glossary/progressive-disclosure.md), hands-on primacy, and production realism, every theoretical concept includes [executable code](@/glossary/executable-code.md) with observable results using the same [quality standards](@/glossary/quality-standard.md) that govern the [production platform](@/glossary/production-environment.md).
 
 ## Key Academy Resources
 
@@ -60,9 +60,9 @@ The Academy spans beginner through advanced tracks with progressive skill develo
 
 | Track | Duration | Focus Area | Skills Developed |
 |-------|----------|------------|------------------|
-| **Beginner** | 12 hours | Platform foundations | First [agent](/glossary/agent/), [quality standards](/glossary/quality-standard/), [OTP](/glossary/otp/) fundamentals |
-| **Intermediate** | 16 hours | [Agent orchestration](/glossary/agent-orchestration/) | [Multi-agent systems](/glossary/multi-agent-system/), [NABLA Infinity](/glossary/nabla-infinity/), [AIAD](/glossary/aiad/) standard |
-| **Advanced** | 12+ hours | Advanced systems | [Color Team](/glossary/color-teams/) security, [EASM](/glossary/easm/), [formal verification](/glossary/formal-verification/) |
+| **Beginner** | 12 hours | Platform foundations | First [agent](@/glossary/agent.md), [quality standards](@/glossary/quality-standard.md), [OTP](@/glossary/otp.md) fundamentals |
+| **Intermediate** | 16 hours | [Agent orchestration](@/glossary/agent-orchestration.md) | [Multi-agent systems](@/glossary/multi-agent-system.md), [NABLA Infinity](@/glossary/nabla-infinity.md), [AIAD](@/glossary/aiad.md) standard |
+| **Advanced** | 12+ hours | Advanced systems | [Color Team](@/glossary/color-teams.md) security, [EASM](@/glossary/easm.md), [formal verification](@/glossary/formal-verification.md) |
 
 ### Academy Statistics
 
@@ -76,11 +76,11 @@ The Academy spans beginner through advanced tracks with progressive skill develo
 
 ### Quick Navigation
 
-- **[Lab Experiments](/lab/)** - Hands-on experimentation complementing Academy theory
-- **[API Reference](/api/)** - Technical documentation for Academy concepts
-- **[Agent System](/agents/)** - 531 agents that students learn to build and orchestrate
-- **[Platform Capabilities](/capabilities/)** - Core doctrines taught throughout curriculum
-- **[Developer Portal](/developers/)** - Tools and resources for Academy students
+- **[Lab Experiments](@/lab/_index.md)** - Hands-on experimentation complementing Academy theory
+- **[API Reference](@/api/_index.md)** - Technical documentation for Academy concepts
+- **[Agent System](@/agents/_index.md)** - 531 agents that students learn to build and orchestrate
+- **[Platform Capabilities](@/capabilities/_index.md)** - Core doctrines taught throughout curriculum
+- **[Developer Portal](@/developers/_index.md)** - Tools and resources for Academy students
 
 ### Explore Platform
 
@@ -102,7 +102,7 @@ Start with the [beginner track](#beginner-track) for platform foundations, explo
 
 ## Overview
 
-The [curriculum](/glossary/curriculum/) spans 15 courses organized across three tracks, totaling over 40 hours of structured content. Each course combines explanatory text, annotated [code examples](/glossary/code-example/), guided exercises, and [assessment](/glossary/assessment/) checkpoints. The Academy integrates tightly with the [Lab](/lab/) for hands-on experimentation and the [API](/api/) for [reference documentation](/glossary/reference-documentation/), forming a triangle of [learning resources](/glossary/learning-resource/) that reinforces understanding from multiple angles.
+The [curriculum](@/glossary/curriculum.md) spans 15 courses organized across three tracks, totaling over 40 hours of structured content. Each course combines explanatory text, annotated [code examples](@/glossary/code-example.md), guided exercises, and [assessment](@/glossary/assessment.md) checkpoints. The Academy integrates tightly with the [Lab](@/lab/_index.md) for hands-on experimentation and the [API](@/api/_index.md) for [reference documentation](@/glossary/reference-documentation.md), forming a triangle of [learning resources](@/glossary/learning-resource.md) that reinforces understanding from multiple angles.
 
 The Academy does not assume prior experience with the Prismatic Platform, but it does assume baseline programming competence. Developers comfortable with at least one general-purpose programming language and familiar with basic concepts like version control, HTTP APIs, and relational databases will find the beginner track immediately accessible.
 
@@ -112,11 +112,11 @@ The Academy organizes its curriculum into three progressive tracks. Each track b
 
 The track structure is not merely organizational convenience. It reflects a deliberate pedagogical design that matches the cognitive load of each topic to the learner's preparation. Agent orchestration, for example, requires understanding individual agent behavior first; NABLA Infinity requires understanding why epistemic rigor matters before diving into axiom enforcement. The tracks encode these dependencies.
 
-**Beginner Track** (12 hours): Platform foundations, first [agent](/glossary/agent/), [quality standards](/glossary/quality-standard/), [development workflow](/glossary/development-workflow/), [OTP](/glossary/otp/) fundamentals. The learner emerges able to navigate the [codebase](/glossary/codebase/), build simple [agents](/glossary/agent/), and contribute code that passes [quality gates](/glossary/quality-gate/).
+**Beginner Track** (12 hours): Platform foundations, first [agent](@/glossary/agent.md), [quality standards](@/glossary/quality-standard.md), [development workflow](@/glossary/development-workflow.md), [OTP](@/glossary/otp.md) fundamentals. The learner emerges able to navigate the [codebase](@/glossary/codebase.md), build simple [agents](@/glossary/agent.md), and contribute code that passes [quality gates](@/glossary/quality-gate.md).
 
-**Intermediate Track** (16 hours): [Agent orchestration](/glossary/agent-orchestration/), [NABLA Infinity](/glossary/nabla-infinity/), [storage patterns](/glossary/storage-pattern/), [LiveView](/glossary/liveview/) dashboards, [AIAD](/glossary/aiad/) standard. The learner emerges able to design [multi-agent systems](/glossary/multi-agent-system/), implement [epistemic validation](/glossary/epistemic-validation/), and build production dashboards.
+**Intermediate Track** (16 hours): [Agent orchestration](@/glossary/agent-orchestration.md), [NABLA Infinity](@/glossary/nabla-infinity.md), [storage patterns](@/glossary/storage-pattern.md), [LiveView](@/glossary/liveview.md) dashboards, [AIAD](@/glossary/aiad.md) standard. The learner emerges able to design [multi-agent systems](@/glossary/multi-agent-system.md), implement [epistemic validation](@/glossary/epistemic-validation.md), and build production dashboards.
 
-**Advanced Track** (12+ hours): [Color Team](/glossary/color-teams/) security, [EASM](/glossary/easm/) development, [formal verification](/glossary/formal-verification/), evolution patterns, [API integration](/glossary/api-integration/). The learner emerges able to contribute to the platform's most sophisticated subsystems and lead architectural decisions.
+**Advanced Track** (12+ hours): [Color Team](@/glossary/color-teams.md) security, [EASM](@/glossary/easm.md) development, [formal verification](@/glossary/formal-verification.md), evolution patterns, [API integration](@/glossary/api-integration.md). The learner emerges able to contribute to the platform's most sophisticated subsystems and lead architectural decisions.
 
 ## Beginner Track
 
@@ -158,7 +158,7 @@ This course covers the practical mechanics of contributing to the platform: git 
 
 ### OTP Fundamentals
 
-The [OTP](/glossary/otp/) fundamentals course provides a focused introduction to the [OTP behaviours](/glossary/otp-behaviour/) that underpin the platform: [GenServer](/glossary/genserver/) for stateful processes, [Supervisor](/glossary/supervisor/) for [fault tolerance](/glossary/fault-tolerance/), and Application for [lifecycle management](/glossary/lifecycle-management/). Rather than covering [OTP](/glossary/otp/) in abstract, this course teaches it through platform-specific examples, showing how real Prismatic modules use these patterns.
+The [OTP](@/glossary/otp.md) fundamentals course provides a focused introduction to the [OTP behaviours](@/glossary/otp-behaviour.md) that underpin the platform: [GenServer](@/glossary/genserver.md) for stateful processes, [Supervisor](@/glossary/supervisor.md) for [fault tolerance](@/glossary/fault-tolerance.md), and Application for [lifecycle management](@/glossary/lifecycle-management.md). Rather than covering [OTP](@/glossary/otp.md) in abstract, this course teaches it through platform-specific examples, showing how real Prismatic modules use these patterns.
 
 ```elixir
 defmodule MyAgent.Server do
@@ -198,7 +198,7 @@ This course teaches the patterns for coordinating multiple agents to accomplish 
 
 ### NABLA Infinity
 
-The [NABLA Infinity](/glossary/nabla-infinity/) course is one of the Academy's most distinctive offerings. It teaches the platform's [epistemic framework](/glossary/epistemic-pipeline/): the seven non-negotiable [axioms](/glossary/nabla-axioms/) ([Signal Plurality](/glossary/signal-plurality/), [Contradiction Preservation](/glossary/contradiction-preservation/), Absence Informative, Time Decay, Unknown Valid, Source Independence, Provenance Mandatory), the [Trinity Gate's](/glossary/trinity-gate/) three-layer [validation](/glossary/validation/), and the [confidence threshold](/glossary/confidence-scoring/) system. Learners implement [axiom enforcement](/glossary/axiom-enforcement/) in practice scenarios and experience firsthand how the framework prevents common [reasoning errors](/glossary/reasoning-error/).
+The [NABLA Infinity](@/glossary/nabla-infinity.md) course is one of the Academy's most distinctive offerings. It teaches the platform's [epistemic framework](@/glossary/epistemic-pipeline.md): the seven non-negotiable [axioms](@/glossary/nabla-axioms.md) ([Signal Plurality](@/glossary/signal-plurality.md), [Contradiction Preservation](@/glossary/contradiction-preservation.md), Absence Informative, Time Decay, Unknown Valid, Source Independence, Provenance Mandatory), the [Trinity Gate's](@/glossary/trinity-gate.md) three-layer [validation](@/glossary/validation.md), and the [confidence threshold](@/glossary/confidence-scoring.md) system. Learners implement [axiom enforcement](@/glossary/axiom-enforcement.md) in practice scenarios and experience firsthand how the framework prevents common [reasoning errors](@/glossary/reasoning-error.md).
 
 ### Storage Patterns
 
@@ -234,7 +234,7 @@ The evolution patterns course examines the platform's self-evolving capabilities
 
 ### API Integration
 
-This course teaches advanced usage of the platform's [auto-introspecting API](/api/), covering topics beyond basic endpoint consumption: custom type mapping, webhook integration, rate limit management, batch operations, and the process by which [Lab](/lab/) experiments graduate to become API endpoints. Learners build a client library that consumes the API programmatically.
+This course teaches advanced usage of the platform's [auto-introspecting API](@/api/_index.md), covering topics beyond basic endpoint consumption: custom type mapping, webhook integration, rate limit management, batch operations, and the process by which [Lab](@/lab/_index.md) experiments graduate to become API endpoints. Learners build a client library that consumes the API programmatically.
 
 ## Pedagogical Approach
 
@@ -246,7 +246,7 @@ Concepts are introduced at the level of abstraction appropriate to the learner's
 
 ### Hands-On Primacy
 
-Every course maintains a minimum 60% hands-on ratio. Theory sections are kept concise and are immediately followed by executable examples. Learners are expected to run code, observe results, modify parameters, and verify their understanding through experimentation. The [Lab](/lab/) provides the sandboxed environment for experiments that exceed the scope of inline exercises.
+Every course maintains a minimum 60% hands-on ratio. Theory sections are kept concise and are immediately followed by executable examples. Learners are expected to run code, observe results, modify parameters, and verify their understanding through experimentation. The [Lab](@/lab/_index.md) provides the sandboxed environment for experiments that exceed the scope of inline exercises.
 
 ### Spaced Repetition
 
@@ -294,7 +294,7 @@ Every livebook connects to the platform via distributed Erlang (`Node.connect/1`
 - **Interactive Kino Widgets**: Dropdowns, sliders, buttons, text inputs for parameter configuration
 - **Real-time VegaLite Charts**: Live-updating visualizations with push-based data streaming
 - **BEAM VM Introspection**: Direct access to `:erlang.memory/0`, `Process.list/0`, `:ets.all/0`
-- **Cross-Domain References**: Each livebook links to related [Glossary](/glossary/) terms, [Lab](/lab/) experiments, and Academy courses
+- **Cross-Domain References**: Each livebook links to related [Glossary](@/glossary/_index.md) terms, [Lab](@/lab/_index.md) experiments, and Academy courses
 - **Platform Connectivity**: `Node.connect(:"prismatic@127.0.0.1")` for live distributed operation
 
 ### Recommended Livebook Sequences
@@ -308,7 +308,7 @@ All livebooks are located in `livebooks/domains/` within the platform repository
 
 ## Lab Integration
 
-The Academy maintains a bidirectional integration with the [Lab](/lab/) that enriches both components.
+The Academy maintains a bidirectional integration with the [Lab](@/lab/_index.md) that enriches both components.
 
 Academy courses reference real Lab experiments as case studies. When a course teaches pipeline optimization, it can point to a specific Lab experiment that benchmarked different pipeline topologies, showing real data and real conclusions. This grounding in actual experimental results gives Academy content an authority that purely theoretical material lacks.
 
@@ -318,7 +318,7 @@ Intermediate and advanced courses include Lab exercises where learners design an
 
 ## API Integration
 
-The [API](/api/) serves as the Academy's definitive reference layer. Every concept taught in the Academy has a corresponding API surface that learners can explore interactively.
+The [API](@/api/_index.md) serves as the Academy's definitive reference layer. Every concept taught in the Academy has a corresponding API surface that learners can explore interactively.
 
 When an Academy course introduces a capability such as security rating calculation, it teaches the concepts, motivation, and design behind the feature. The API reference then provides the precise endpoint specification, request/response schemas, error codes, and usage examples. This two-layer approach separates understanding (Academy) from specification (API), allowing each to serve its purpose without compromise.
 
@@ -387,7 +387,7 @@ The Academy supports a mentorship model where advanced-track graduates can volun
 
 ### Content Freshness
 
-Academy content is reviewed and updated on a quarterly cycle to reflect platform changes. When the platform introduces new capabilities, the Academy team assesses which courses need updating and creates new content where necessary. The [Lab](/lab/) provides a continuous stream of new experimental results that feed into course updates, and the [API](/api/) reference layer updates automatically as new endpoints are discovered.
+Academy content is reviewed and updated on a quarterly cycle to reflect platform changes. When the platform introduces new capabilities, the Academy team assesses which courses need updating and creates new content where necessary. The [Lab](@/lab/_index.md) provides a continuous stream of new experimental results that feed into course updates, and the [API](@/api/_index.md) reference layer updates automatically as new endpoints are discovered.
 
 The Academy's goal is not merely to document the platform but to accelerate mastery. Every design decision, from track structure to assessment methodology, serves this goal. Developers who complete the Academy curriculum are not just informed about the platform; they are prepared to contribute to its evolution.
 
@@ -398,4 +398,4 @@ The Academy's goal is not merely to document the platform but to accelerate mast
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

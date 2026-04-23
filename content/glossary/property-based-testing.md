@@ -41,7 +41,7 @@ Property-based testing is a testing methodology where instead of writing individ
 
 The approach was pioneered by Koen Claessen and John Hughes with QuickCheck for Haskell (2000), and has since been ported to virtually every programming language. The key insight is that developers are poor at imagining edge cases: they test the happy path, maybe a null input and an empty string, but miss the Unicode surrogate pairs, the maximum-length inputs, the negative numbers, the deeply nested structures, and the concurrent access patterns that cause real-world failures. Property-based testing shifts the burden of test case generation from human imagination to algorithmic exploration of the input space.
 
-The Prismatic Platform uses property-based testing through StreamData, Elixir's property-based testing library, for verifying storage adapter contracts, serialization round-trips, agent decision invariants, and epistemic pipeline properties. The platform's Quality Floor Guardian monitors property test coverage as part of its quality enforcement. The [Trinity Gate](/glossary/trinity-gate/) system's structural consistency layer uses property-based approaches to verify data structure invariants, and the [formal verification](/glossary/formal-verification/) pipeline complements property-based testing with mathematical proofs for critical properties.
+The Prismatic Platform uses property-based testing through StreamData, Elixir's property-based testing library, for verifying storage adapter contracts, serialization round-trips, agent decision invariants, and epistemic pipeline properties. The platform's Quality Floor Guardian monitors property test coverage as part of its quality enforcement. The [Trinity Gate](@/glossary/trinity-gate.md) system's structural consistency layer uses property-based approaches to verify data structure invariants, and the [formal verification](@/glossary/formal-verification.md) pipeline complements property-based testing with mathematical proofs for critical properties.
 
 ## Core Concepts
 
@@ -118,7 +118,7 @@ The shrunk input immediately reveals the bug: the function fails when the list c
 
 ### Storage Adapter Contract Testing
 
-The Prismatic Platform uses property-based testing to verify that all storage adapters ([ETS](/glossary/ets/), [Ecto](/glossary/ecto/), Meilisearch, KuzuDB) satisfy the same behavioral contract:
+The Prismatic Platform uses property-based testing to verify that all storage adapters ([ETS](@/glossary/ets.md), [Ecto](@/glossary/ecto.md), Meilisearch, KuzuDB) satisfy the same behavioral contract:
 
 ```elixir
 defmodule PrismaticStorage.AdapterContractTest do
@@ -769,11 +769,11 @@ end
 
 | Approach | Input Generation | Coverage | Guarantee | Failure Output |
 |----------|-----------------|----------|-----------|----------------|
-| **Example-based** ([ExUnit](/glossary/exunit/)) | Hand-written | Developer imagination | Specific cases | Exact failing test |
+| **Example-based** ([ExUnit](@/glossary/exunit.md)) | Hand-written | Developer imagination | Specific cases | Exact failing test |
 | **Property-based** (StreamData) | Random + shrinking | Statistical (high) | "No bug found in N tests" | Minimal failing case |
 | **Fuzz testing** | Random mutation | Crash/security focused | "No crash in N runs" | Crashing input |
-| **[Formal verification](/glossary/formal-verification/)** ([Lean4](/glossary/lean4/)) | Mathematical proof | Universal | "Proven for all inputs" | Counterexample or proof |
-| **[Chaos engineering](/glossary/chaos-engineering/)** | Fault injection | System resilience | "System survives failures" | Failure scenario |
+| **[Formal verification](@/glossary/formal-verification.md)** ([Lean4](@/glossary/lean4.md)) | Mathematical proof | Universal | "Proven for all inputs" | Counterexample or proof |
+| **[Chaos engineering](@/glossary/chaos-engineering.md)** | Fault injection | System resilience | "System survives failures" | Failure scenario |
 
 The Prismatic Platform uses all five approaches at different levels. Example-based tests verify specific business scenarios. Property-based tests verify invariants across random inputs. Formal verification proves critical properties mathematically. The approaches form a verification pyramid:
 
@@ -1156,8 +1156,8 @@ Property-based tests are a core component of the platform's NO MERCY quality enf
 | Storage adapter compliance | All contract properties pass for every adapter |
 | Serialization correctness | Roundtrip properties for all serializable types |
 | Pipeline invariants | Monotonicity, idempotency, and ordering properties |
-| [Typespec](/glossary/typespec/) compliance | Generated inputs respect function typespecs |
-| [Code Coverage](/glossary/code-coverage/) | Property tests contribute to 100% coverage target |
+| [Typespec](@/glossary/typespec.md) compliance | Generated inputs respect function typespecs |
+| [Code Coverage](@/glossary/code-coverage.md) | Property tests contribute to 100% coverage target |
 
 ## Property Testing Anti-Patterns
 
@@ -1614,22 +1614,22 @@ end
 
 ## Related Terms
 
-- [ExUnit](/glossary/exunit/) -- Elixir's test framework providing the `check all` macro for property tests
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate using property-based approaches for structural consistency
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof complement to statistical property verification
-- [Theorem Proving](/glossary/theorem-proving/) -- Formal proof technique providing universal guarantees
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Fault injection testing complementing property-based input testing
-- [Typespec](/glossary/typespec/) -- Type specifications guiding generator construction
-- [Code Coverage](/glossary/code-coverage/) -- Coverage metrics that property tests contribute to
-- [QDP](/glossary/qdp/) -- Quality debt eliminated through comprehensive property test suites
-- [Lean4](/glossary/lean4/) -- Theorem prover providing formal verification beyond property testing
-- [Behaviour](/glossary/behaviour/) -- Callback contracts verified through property-based adapter testing
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Storage adapters validated through shared property test suites
+- [ExUnit](@/glossary/exunit.md) -- Elixir's test framework providing the `check all` macro for property tests
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate using property-based approaches for structural consistency
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof complement to statistical property verification
+- [Theorem Proving](@/glossary/theorem-proving.md) -- Formal proof technique providing universal guarantees
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Fault injection testing complementing property-based input testing
+- [Typespec](@/glossary/typespec.md) -- Type specifications guiding generator construction
+- [Code Coverage](@/glossary/code-coverage.md) -- Coverage metrics that property tests contribute to
+- [QDP](@/glossary/qdp.md) -- Quality debt eliminated through comprehensive property test suites
+- [Lean4](@/glossary/lean4.md) -- Theorem prover providing formal verification beyond property testing
+- [Behaviour](@/glossary/behaviour.md) -- Callback contracts verified through property-based adapter testing
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Storage adapters validated through shared property test suites
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform testing architecture and verification pyramid
-- [Technologies](/technologies/) -- Testing technology stack (StreamData, ExUnit, Lean4)
+- [Architecture](@/architecture/_index.md) -- Platform testing architecture and verification pyramid
+- [Technologies](@/technologies/_index.md) -- Testing technology stack (StreamData, ExUnit, Lean4)
 
 ---
 
@@ -1638,4 +1638,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

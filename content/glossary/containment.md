@@ -187,11 +187,11 @@ The Quality Floor Guardian implements containment for quality regressions. When 
 
 ## Cross-References
 
-- [Circuit Breaker](/glossary/circuit-breaker/) - service-level containment pattern
-- [Containerization](/glossary/containerization/) - infrastructure-level isolation
-- [Color Teams](/glossary/color-teams/) - security operations practicing containment
-- [Closure](/glossary/closure/) - verified resolution following containment
-- [Compliance](/glossary/compliance/) - regulatory requirements for incident response
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - service-level containment pattern
+- [Containerization](@/glossary/containerization.md) - infrastructure-level isolation
+- [Color Teams](@/glossary/color-teams.md) - security operations practicing containment
+- [Closure](@/glossary/closure.md) - verified resolution following containment
+- [Compliance](@/glossary/compliance.md) - regulatory requirements for incident response
 - **Livebooks**: `livebooks/domains/security_compliance/` - incident response exercises
 - **Academy**: Security incident response and containment methodology
 

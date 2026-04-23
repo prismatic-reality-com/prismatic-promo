@@ -28,7 +28,7 @@ image_alt = "data-sync-specialist - Prismatic Platform"
 
 ## Overview
 
-The Data Sync Specialist is an L3 strategic authority operating within the Integration domain of the Prismatic Platform. This agent manages cross-system data synchronization and consistency between the platform's multiple data stores, ensuring that data replicated across [PostgreSQL](/glossary/postgresql/) databases, [ETS](/glossary/ets/) caches, [Meilisearch](/glossary/meilisearch/) indexes, and [KuzuDB](/glossary/kuzudb/) graph stores remains consistent and current. In a platform with diverse storage backends optimized for different access patterns, keeping synchronized copies consistent is a fundamental architectural challenge that this specialist addresses through event-driven synchronization pipelines with configurable consistency guarantees.
+The Data Sync Specialist is an L3 strategic authority operating within the Integration domain of the Prismatic Platform. This agent manages cross-system data synchronization and consistency between the platform's multiple data stores, ensuring that data replicated across [PostgreSQL](@/glossary/postgresql.md) databases, [ETS](@/glossary/ets.md) caches, [Meilisearch](@/glossary/meilisearch.md) indexes, and [KuzuDB](@/glossary/kuzudb.md) graph stores remains consistent and current. In a platform with diverse storage backends optimized for different access patterns, keeping synchronized copies consistent is a fundamental architectural challenge that this specialist addresses through event-driven synchronization pipelines with configurable consistency guarantees.
 
 Data synchronization in the Prismatic ecosystem goes beyond simple replication. Different storage backends serve different purposes -- PostgreSQL for transactional integrity, ETS for high-speed read access, Meilisearch for full-text search, and KuzuDB for graph queries. Each store may hold a different projection of the same underlying data, and the Data Sync Specialist ensures that when the authoritative source (typically PostgreSQL) changes, all derived projections are updated within defined consistency windows while handling the unique write semantics of each target system. The complexity compounds in a 90-app umbrella architecture where multiple applications may modify shared data concurrently, requiring coordination to prevent lost updates and conflicting projections.
 
@@ -59,7 +59,7 @@ Authoritative Stores     Sync Pipeline              Target Stores
                         +-------------------+
 ```
 
-The CDC layer captures row-level changes from PostgreSQL using logical replication or [Ecto](/glossary/ecto/) callback-based change tracking. Changes are routed to store-specific sync pipelines that transform the change event into the target store's write format. Each pipeline operates independently, allowing different consistency windows per target store based on their access pattern requirements.
+The CDC layer captures row-level changes from PostgreSQL using logical replication or [Ecto](@/glossary/ecto.md) callback-based change tracking. Changes are routed to store-specific sync pipelines that transform the change event into the target store's write format. Each pipeline operates independently, allowing different consistency windows per target store based on their access pattern requirements.
 
 ## Core Capabilities
 
@@ -137,14 +137,14 @@ end
 
 | Integration Target | Direction | Purpose |
 |---|---|---|
-| [etl-pipeline-specialist](/agents/etl-pipeline-specialist/) | Bidirectional | Coordinates on [data pipeline](/glossary/data-pipeline/) design for synchronization workflows |
-| [data-integrity-specialist](/agents/data-integrity-specialist/) | Outbound | Validates cross-store data consistency during verification cycles |
-| [adapter-pattern-specialist](/agents/adapter-pattern-specialist/) | Inbound | Provides store-specific adapter implementations for write operations |
+| [etl-pipeline-specialist](@/agents/etl-pipeline-specialist.md) | Bidirectional | Coordinates on [data pipeline](@/glossary/data-pipeline.md) design for synchronization workflows |
+| [data-integrity-specialist](@/agents/data-integrity-specialist.md) | Outbound | Validates cross-store data consistency during verification cycles |
+| [adapter-pattern-specialist](@/agents/adapter-pattern-specialist.md) | Inbound | Provides store-specific adapter implementations for write operations |
 | PostgreSQL (via Ecto) | Inbound | Primary change data capture source for all synchronization flows |
 | ETS Tables | Outbound | High-speed cache target for frequently read data projections |
 | Meilisearch | Outbound | Full-text search index target for searchable content |
 | KuzuDB | Outbound | Graph store target for relationship-oriented data projections |
-| Platform [Telemetry](/glossary/telemetry/) | Outbound | Reports sync throughput, lag metrics, conflict rates, and error counts |
+| Platform [Telemetry](@/glossary/telemetry.md) | Outbound | Reports sync throughput, lag metrics, conflict rates, and error counts |
 
 ## Operational Workflow
 
@@ -218,11 +218,11 @@ config :prismatic_integration, Prismatic.Integration.DataSync.Specialist,
 
 ## Related Resources
 
-- [etl-pipeline-specialist](/agents/etl-pipeline-specialist/) -- Data pipeline coordination
-- [data-integrity-specialist](/agents/data-integrity-specialist/) -- Cross-store integrity validation
-- [adapter-pattern-specialist](/agents/adapter-pattern-specialist/) -- Store adapter implementations
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NO MERCY, NO DOUBTS Doctrine](/glossary/no-mercy-no-doubts/) -- Quality enforcement
+- [etl-pipeline-specialist](@/agents/etl-pipeline-specialist.md) -- Data pipeline coordination
+- [data-integrity-specialist](@/agents/data-integrity-specialist.md) -- Cross-store integrity validation
+- [adapter-pattern-specialist](@/agents/adapter-pattern-specialist.md) -- Store adapter implementations
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NO MERCY, NO DOUBTS Doctrine](@/glossary/no-mercy-no-doubts.md) -- Quality enforcement
 
 ---
 
@@ -231,4 +231,4 @@ config :prismatic_integration, Prismatic.Integration.DataSync.Specialist,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

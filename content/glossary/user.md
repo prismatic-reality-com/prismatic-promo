@@ -219,11 +219,11 @@ The authorization system protects routes and actions throughout the platform, en
 
 ## Cross-References
 
-- [Token](/glossary/token/) - Authentication credential
-- [Authentication](/glossary/authentication/) - Identity verification
-- [Authorization](/glossary/authorization/) - Access control
-- [RBAC](/glossary/rbac/) - Role-Based Access Control
-- [Tracking](/glossary/tracking/) - User activity monitoring
+- [Token](@/glossary/token.md) - Authentication credential
+- [Authentication](@/glossary/authentication.md) - Identity verification
+- [Authorization](@/glossary/authorization.md) - Access control
+- [RBAC](@/glossary/rbac.md) - Role-Based Access Control
+- [Tracking](@/glossary/tracking.md) - User activity monitoring
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

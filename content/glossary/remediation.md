@@ -499,26 +499,26 @@ end
 
 ## Related Terms
 
-- [Risk Management](/glossary/risk-management/) -- the broader framework that prioritizes remediation effort
-- [Triage](/glossary/triage/) -- the severity assessment that drives remediation priority
-- [Vulnerability](/glossary/vulnerability/) -- the finding that triggers remediation
-- [Regression Testing](/glossary/regression-testing/) -- mandatory verification after remediation
-- [Security Rating](/glossary/security-rating/) -- composite score that reflects remediation completeness
-- [Compliance](/glossary/compliance/) -- regulatory requirements governing remediation timelines and evidence
-- [Incident Response](/glossary/incident-response/) -- the operational process that triggers P0 remediation
-- [Audit Logging](/glossary/audit-logging/) -- the evidence system that records remediation actions
-- [Monitoring](/glossary/monitoring/) -- the detection system that discovers issues requiring remediation
-- [Logging](/glossary/logging/) -- diagnostic records that provide forensic evidence for root cause analysis
-- [SLA](/glossary/sla/) -- service level agreements that define remediation timeline commitments
+- [Risk Management](@/glossary/risk-management.md) -- the broader framework that prioritizes remediation effort
+- [Triage](@/glossary/triage.md) -- the severity assessment that drives remediation priority
+- [Vulnerability](@/glossary/vulnerability.md) -- the finding that triggers remediation
+- [Regression Testing](@/glossary/regression-testing.md) -- mandatory verification after remediation
+- [Security Rating](@/glossary/security-rating.md) -- composite score that reflects remediation completeness
+- [Compliance](@/glossary/compliance.md) -- regulatory requirements governing remediation timelines and evidence
+- [Incident Response](@/glossary/incident-response.md) -- the operational process that triggers P0 remediation
+- [Audit Logging](@/glossary/audit-logging.md) -- the evidence system that records remediation actions
+- [Monitoring](@/glossary/monitoring.md) -- the detection system that discovers issues requiring remediation
+- [Logging](@/glossary/logging.md) -- diagnostic records that provide forensic evidence for root cause analysis
+- [SLA](@/glossary/sla.md) -- service level agreements that define remediation timeline commitments
 - [Perimeter](/glossary/perimeter/) -- external attack surface management that discovers vulnerabilities
 
 ## See Also
 
-- [Perimeter EASM](/capabilities/) -- vulnerability discovery and remediation tracking
-- [Quality Gates](/architecture/) -- automated remediation enforcement via pre-commit hooks
-- [NMND Doctrine](/architecture/) -- NO MERCY, NO DOUBTS enforcement for complete remediation
-- [TACH Doctrine](/architecture/) -- testing assurance requirements for regression prevention
-- [NIS2 Compliance](/capabilities/) -- European critical infrastructure security regulation
+- [Perimeter EASM](@/capabilities/_index.md) -- vulnerability discovery and remediation tracking
+- [Quality Gates](@/architecture/_index.md) -- automated remediation enforcement via pre-commit hooks
+- [NMND Doctrine](@/architecture/_index.md) -- NO MERCY, NO DOUBTS enforcement for complete remediation
+- [TACH Doctrine](@/architecture/_index.md) -- testing assurance requirements for regression prevention
+- [NIS2 Compliance](@/capabilities/_index.md) -- European critical infrastructure security regulation
 
 ---
 
@@ -527,4 +527,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

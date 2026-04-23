@@ -29,7 +29,7 @@ A reasoning error is a systematic flaw in the logical process of deriving conclu
 
 Reasoning errors are distinct from factual errors (wrong data) and from rationalization (motivated distortion). A factual error means the input is wrong. Rationalization means the reasoner knows the conclusion and selects evidence to support it. A reasoning error means the inferential machinery itself is faulty -- the reasoner genuinely follows what seems like valid logic but arrives at an incorrect conclusion because the logical steps contain a structural flaw.
 
-In the context of the Prismatic Platform, reasoning errors threaten both human decision-making (architecture choices, priority decisions, quality assessments) and automated reasoning (AI agent inference, rule-based systems, epistemic pipelines). The platform addresses reasoning errors through multiple layers: [formal verification](/glossary/formal-verification/), [Trinity Gate](/glossary/trinity-gate/) validation, [NABLA Infinity](/glossary/nabla-infinity/) axiom enforcement, and [static analysis](/glossary/static-analysis/) of logical structures.
+In the context of the Prismatic Platform, reasoning errors threaten both human decision-making (architecture choices, priority decisions, quality assessments) and automated reasoning (AI agent inference, rule-based systems, epistemic pipelines). The platform addresses reasoning errors through multiple layers: [formal verification](@/glossary/formal-verification.md), [Trinity Gate](@/glossary/trinity-gate.md) validation, [NABLA Infinity](@/glossary/nabla-infinity.md) axiom enforcement, and [static analysis](@/glossary/static-analysis.md) of logical structures.
 
 ## Taxonomy of Reasoning Errors
 
@@ -269,7 +269,7 @@ end
 
 ## Trinity Gate Reasoning Validation
 
-The [Trinity Gate](/glossary/trinity-gate/) provides three independent checks against reasoning errors, each targeting different error categories:
+The [Trinity Gate](@/glossary/trinity-gate.md) provides three independent checks against reasoning errors, each targeting different error categories:
 
 ### Gate 1: Structural Consistency
 
@@ -297,11 +297,11 @@ end
 
 ### Gate 2: Logical Consistency
 
-The [logical consistency](/glossary/logical-consistency/) gate verifies that the set of beliefs does not contain contradictions. Reasoning errors that produce contradictory conclusions (affirming and denying the same proposition) are detected as inconsistencies in the proposition set.
+The [logical consistency](@/glossary/logical-consistency.md) gate verifies that the set of beliefs does not contain contradictions. Reasoning errors that produce contradictory conclusions (affirming and denying the same proposition) are detected as inconsistencies in the proposition set.
 
 ### Gate 3: Formal Necessity
 
-The formal necessity gate uses [Lean4](/glossary/lean4/) formal proofs to verify that critical claims can be derived from axioms using only valid inference rules. This is the strongest check: any reasoning error that produces a conclusion that cannot be formally proven is caught at this gate.
+The formal necessity gate uses [Lean4](@/glossary/lean4.md) formal proofs to verify that critical claims can be derived from axioms using only valid inference rules. This is the strongest check: any reasoning error that produces a conclusion that cannot be formally proven is caught at this gate.
 
 ## Reasoning Errors in AI Systems
 
@@ -318,13 +318,13 @@ AI systems -- particularly large language models -- are susceptible to reasoning
 The Prismatic Platform addresses AI reasoning errors through:
 
 - **Structured output enforcement**: AI agents produce typed, validated outputs rather than free-text reasoning
-- **[Evidence provenance](/glossary/data-provenance/)**: Every AI-generated claim must reference verifiable source data
+- **[Evidence provenance](@/glossary/data-provenance.md)**: Every AI-generated claim must reference verifiable source data
 - **Multi-agent verification**: Critical conclusions require agreement from independent agents
-- **[Confidence scoring](/glossary/confidence-scoring/)**: Quantitative confidence prevents false certainty
+- **[Confidence scoring](@/glossary/confidence-scoring.md)**: Quantitative confidence prevents false certainty
 
 ## NABLA Axioms as Reasoning Error Prevention
 
-The [NABLA Infinity](/glossary/nabla-infinity/) axioms address specific categories of reasoning errors:
+The [NABLA Infinity](@/glossary/nabla-infinity.md) axioms address specific categories of reasoning errors:
 
 | Axiom | Reasoning Error Prevented |
 |-------|--------------------------|
@@ -344,15 +344,15 @@ Software engineering decisions are particularly vulnerable to reasoning errors b
 
 ### The Correlation-Causation Error in Performance
 
-"We added caching and response times improved." This ignores confounding variables: perhaps the database was under load from a batch job that completed, or the user population shifted to a less demanding workload. Proper performance reasoning requires controlled experiments ([A/B testing](/glossary/performance-testing/)) and statistical analysis.
+"We added caching and response times improved." This ignores confounding variables: perhaps the database was under load from a batch job that completed, or the user population shifted to a less demanding workload. Proper performance reasoning requires controlled experiments ([A/B testing](@/glossary/performance-testing.md)) and statistical analysis.
 
 ### The Composition Error in Complexity
 
-"Each microservice is simple, so the system is simple." This commits the composition fallacy: the complexity of a [distributed system](/glossary/distributed-system/) is not the sum of its components' complexities but includes the interaction complexity between all pairs of components. A system with N microservices has O(N^2) potential interaction patterns.
+"Each microservice is simple, so the system is simple." This commits the composition fallacy: the complexity of a [distributed system](@/glossary/distributed-system.md) is not the sum of its components' complexities but includes the interaction complexity between all pairs of components. A system with N microservices has O(N^2) potential interaction patterns.
 
 ### The Appeal to Popularity Error in Technology Choice
 
-"Everyone uses this framework, so it must be the best choice for our project." Framework popularity correlates with community size and available libraries, but not necessarily with fitness for a specific use case. The Prismatic Platform's choice of [Elixir](/glossary/elixir/) and [OTP](/glossary/otp/) deliberately prioritizes fitness for purpose over popularity.
+"Everyone uses this framework, so it must be the best choice for our project." Framework popularity correlates with community size and available libraries, but not necessarily with fitness for a specific use case. The Prismatic Platform's choice of [Elixir](@/glossary/elixir.md) and [OTP](@/glossary/otp.md) deliberately prioritizes fitness for purpose over popularity.
 
 ### The Neglect of Base Rate Error in Bug Reports
 
@@ -459,37 +459,37 @@ Reasoning errors compound over time. A single incorrect inference becomes a prem
 - **Performance problems**: Wrong reasoning about workload characteristics leads to inefficient designs
 - **Quality degradation**: Wrong reasoning about test coverage leads to false confidence in correctness
 
-The platform's [quality gates](/glossary/quality-gate/) and [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine exist precisely to catch reasoning errors before they compound into systemic problems.
+The platform's [quality gates](@/glossary/quality-gate.md) and [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine exist precisely to catch reasoning errors before they compound into systemic problems.
 
 ## Prevention Strategies
 
 | Strategy | Mechanism | Platform Implementation |
 |----------|-----------|------------------------|
-| **Formal verification** | Prove correctness mathematically | [Lean4](/glossary/lean4/) proofs, [Dialyzer](/glossary/dialyzer/) type checking |
-| **Adversarial review** | Have someone argue the opposite position | [Red team](/glossary/red-team/) epistemic attacks |
+| **Formal verification** | Prove correctness mathematically | [Lean4](@/glossary/lean4.md) proofs, [Dialyzer](@/glossary/dialyzer.md) type checking |
+| **Adversarial review** | Have someone argue the opposite position | [Red team](@/glossary/red-team.md) epistemic attacks |
 | **Evidence plurality** | Require multiple independent data sources | NABLA Signal Plurality axiom |
-| **Confidence calibration** | Compare predicted and actual outcomes | Bayesian [confidence scoring](/glossary/confidence-scoring/) |
+| **Confidence calibration** | Compare predicted and actual outcomes | Bayesian [confidence scoring](@/glossary/confidence-scoring.md) |
 | **Pre-mortem analysis** | Assume the decision failed and reason backward | Purple team closure analysis |
 | **Structured argumentation** | Formalize arguments before evaluating them | Argument chain validation |
 | **Automated auditing** | Machine-check reasoning structures | DecisionAuditor, Trinity Gate |
 
 ## Related Terms
 
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- Formal framework for correct reasoning about knowledge
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification catching reasoning errors
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework with axioms preventing reasoning errors
-- [Bias Detection](/glossary/bias-detection/) -- Automated identification of systematic reasoning biases
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof of reasoning correctness
-- [Logical Consistency](/glossary/logical-consistency/) -- Property of belief systems without contradictions
-- [Rationalize Evidence](/glossary/rationalize-evidence/) -- Motivated distortion related to reasoning errors
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Quantitative reasoning about certainty
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- Principle prioritizing evidence-based reasoning
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Axiom preventing premature resolution of contradictions
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- Formal framework for correct reasoning about knowledge
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification catching reasoning errors
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework with axioms preventing reasoning errors
+- [Bias Detection](@/glossary/bias-detection.md) -- Automated identification of systematic reasoning biases
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof of reasoning correctness
+- [Logical Consistency](@/glossary/logical-consistency.md) -- Property of belief systems without contradictions
+- [Rationalize Evidence](@/glossary/rationalize-evidence.md) -- Motivated distortion related to reasoning errors
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Quantitative reasoning about certainty
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- Principle prioritizing evidence-based reasoning
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Axiom preventing premature resolution of contradictions
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform epistemic architecture
-- [Capabilities](/capabilities/) -- Reasoning validation capabilities
+- [Architecture](@/architecture/_index.md) -- Platform epistemic architecture
+- [Capabilities](@/capabilities/_index.md) -- Reasoning validation capabilities
 - Glossary -- Complete glossary index
 
 ---
@@ -499,4 +499,4 @@ The platform's [quality gates](/glossary/quality-gate/) and [NO MERCY, NO DOUBTS
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

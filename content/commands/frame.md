@@ -26,9 +26,9 @@ image_alt = "/frame - Prismatic Platform"
 
 **/frame** is a production command in the **Stack Mode** category of the Prismatic Platform that inspects a specific conversation frame by its ID. Frames are the fundamental units of the stack-based conversation protocol -- each frame captures a single interaction cycle including user input, assistant output, key assumptions made, and key decisions taken. The `/frame` command provides read-only access to any frame in the active stack, enabling operators to review past context, verify assumptions, and trace the reasoning chain that led to the current conversational state.
 
-The command operates under the **Universal** authority level, meaning it is available to all operators without restriction. It is executed by the `stack-conversation-manager` agent and is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The Universal authority reflects the non-destructive, read-only nature of frame inspection -- viewing a frame never modifies the conversational state.
+The command operates under the **Universal** authority level, meaning it is available to all operators without restriction. It is executed by the `stack-conversation-manager` agent and is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The Universal authority reflects the non-destructive, read-only nature of frame inspection -- viewing a frame never modifies the conversational state.
 
-Stack-based conversation mode is a P0 absolute enforcement protocol in the Prismatic Platform. Every Claude interaction creates an immutable frame that records what was discussed, what was decided, and what assumptions underlie those decisions. The `/frame` command is the primary tool for accessing this historical record. Without it, operators would need to mentally reconstruct past context from memory -- a practice that violates the [NABLA](/glossary/nabla-infinity/) framework's provenance axiom, which requires all reasoning to be traceable.
+Stack-based conversation mode is a P0 absolute enforcement protocol in the Prismatic Platform. Every Claude interaction creates an immutable frame that records what was discussed, what was decided, and what assumptions underlie those decisions. The `/frame` command is the primary tool for accessing this historical record. Without it, operators would need to mentally reconstruct past context from memory -- a practice that violates the [NABLA](@/glossary/nabla-infinity.md) framework's provenance axiom, which requires all reasoning to be traceable.
 
 In practice, `/frame` is used most frequently during complex multi-step operations where decisions made in earlier frames influence later actions. Before making a significant decision, reviewing the relevant frame ensures that the current action is consistent with previously established assumptions and does not contradict earlier conclusions.
 
@@ -136,7 +136,7 @@ The dual-storage architecture ensures that frame data survives both process cras
 
 2. **Resolution**: Resolve the identifier to one or more concrete frame IDs. For checkpoints, the GenServer looks up the checkpoint registry to find the associated frame ID.
 
-3. **Validation**: Verify that the requested frame(s) exist in the active stack. Frames that have been orphaned by [/fork](/commands/fork/) or removed by [/pop](/commands/pop/) are not accessible through normal `/frame` operations.
+3. **Validation**: Verify that the requested frame(s) exist in the active stack. Frames that have been orphaned by [/fork](@/commands/fork.md) or removed by [/pop](@/commands/pop.md) are not accessible through normal `/frame` operations.
 
 4. **Retrieval**: Fetch the frame data from ETS. If ETS is unavailable (process restart scenario), fall back to disk persistence.
 
@@ -151,19 +151,19 @@ The dual-storage architecture ensures that frame data survives both process cras
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
 | Stack GenServer | Core | Direct GenServer call to `StackConversation.get_frame/1` |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Managed by `stack-conversation-manager` agent |
-| [NABLA Framework](/glossary/nabla-infinity/) | Epistemic | Frame inspection supports provenance tracing |
-| [Telemetry](/glossary/telemetry/) | Observability | Frame access events tracked for session analysis |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Managed by `stack-conversation-manager` agent |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Epistemic | Frame inspection supports provenance tracing |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Frame access events tracked for session analysis |
 | Session Context | Persistence | Frames contribute to session context for cross-session continuity |
-| [/stack](/commands/stack/) | Navigation | Stack overview provides the list of available frame IDs |
-| [/fork](/commands/fork/) | Branching | Fork operations create new frames with fork metadata |
-| [/checkpoint](/commands/checkpoint/) | Naming | Checkpoints assign human-readable names to frame IDs |
+| [/stack](@/commands/stack.md) | Navigation | Stack overview provides the list of available frame IDs |
+| [/fork](@/commands/fork.md) | Branching | Fork operations create new frames with fork metadata |
+| [/checkpoint](@/commands/checkpoint.md) | Naming | Checkpoints assign human-readable names to frame IDs |
 
 ## Best Practices
 
 **Review assumptions before critical decisions.** Before committing to a significant architectural change or irreversible operation, use `/frame` to review the assumptions established in earlier frames. Assumptions that were valid at frame 2 may no longer hold at frame 8 due to new information discovered in the intervening frames.
 
-**Use checkpoint names for frequently referenced frames.** Rather than remembering numeric frame IDs, use [/checkpoint](/commands/checkpoint/) to assign meaningful names like `pre-refactor` or `architecture-decision`. Then use `/frame checkpoint:pre-refactor` for quick access.
+**Use checkpoint names for frequently referenced frames.** Rather than remembering numeric frame IDs, use [/checkpoint](@/commands/checkpoint.md) to assign meaningful names like `pre-refactor` or `architecture-decision`. Then use `/frame checkpoint:pre-refactor` for quick access.
 
 **Inspect frame 0 to verify session initialization.** Frame 0 captures the initial session context, including loaded configuration, baseline state, and starting assumptions. Reviewing frame 0 periodically ensures that the conversation has not drifted from its original objectives.
 
@@ -175,8 +175,8 @@ The dual-storage architecture ensures that frame data survives both process cras
 
 | Error | Cause | Resolution |
 |-------|-------|------------|
-| `{:error, :frame_not_found}` | Requested frame ID does not exist in the active stack | Use [/stack](/commands/stack/) to view available frame IDs |
-| `{:error, :checkpoint_not_found}` | Named checkpoint does not exist | Use [/stack](/commands/stack/) to list available checkpoints |
+| `{:error, :frame_not_found}` | Requested frame ID does not exist in the active stack | Use [/stack](@/commands/stack.md) to view available frame IDs |
+| `{:error, :checkpoint_not_found}` | Named checkpoint does not exist | Use [/stack](@/commands/stack.md) to list available checkpoints |
 | `{:error, :invalid_frame_id}` | Frame ID is not a valid non-negative integer | Provide a valid numeric ID, `latest`, or `checkpoint:NAME` |
 | `{:error, :field_not_found}` | Specified `--field` value is not a valid frame field | Valid fields: assumptions, decisions, input, output, metadata |
 | `{:error, :genserver_unavailable}` | Stack GenServer is not running | Ensure PrismaticClaude application is started |
@@ -226,7 +226,7 @@ When resuming a session from saved context, frames provide the complete reconstr
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Frame data is always complete -- every frame must include all mandatory fields (input summary, output summary, assumptions, decisions).
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The `/frame` command is itself an instrument of the NO DOUBTS principle: it enables operators to verify assumptions and trace reasoning before acting.
@@ -235,13 +235,13 @@ Frame immutability is a non-negotiable behavioral rule: once created, frames can
 
 ## Related Commands
 
-- [/stack](/commands/stack/) - Display complete conversation stack with all frames
-- [/pop](/commands/pop/) - Remove last N frames from conversation stack (DESTRUCTIVE)
-- [/fork](/commands/fork/) - Branch conversation from specific frame (DESTRUCTIVE)
-- [/checkpoint](/commands/checkpoint/) - Mark current frame with a named checkpoint
-- [/goto](/commands/goto/) - Restore conversation to a named checkpoint
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/stack](@/commands/stack.md) - Display complete conversation stack with all frames
+- [/pop](@/commands/pop.md) - Remove last N frames from conversation stack (DESTRUCTIVE)
+- [/fork](@/commands/fork.md) - Branch conversation from specific frame (DESTRUCTIVE)
+- [/checkpoint](@/commands/checkpoint.md) - Mark current frame with a named checkpoint
+- [/goto](@/commands/goto.md) - Restore conversation to a named checkpoint
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -250,4 +250,4 @@ Frame immutability is a non-negotiable behavioral rule: once created, frames can
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

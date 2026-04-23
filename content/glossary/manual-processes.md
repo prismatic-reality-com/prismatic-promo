@@ -377,24 +377,24 @@ The 120+ OSINT tool integrations automate intelligence gathering that would othe
 
 Understanding manual processes connects to the broader automation and quality architecture of the Prismatic Platform:
 
-- [Automate Relentlessly](/glossary/automate-relentlessly/) -- the doctrine that every repeatable task must be automated
-- [CI/CD](/glossary/ci-cd/) -- continuous integration and deployment pipelines that automate the build-test-deploy cycle
-- [Quality Gates](/glossary/quality-gates/) -- automated enforcement points that replace manual quality verification
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- automated checks that execute before code enters the repository
-- [Pipeline](/glossary/pipeline/) -- the orchestrated sequence of automated stages in a workflow
-- [Quality Debt](/glossary/quality-debt/) -- the accumulation of quality shortcuts that manual processes often create
-- [Continuous Integration](/glossary/continuous-integration/) -- the practice of automatically integrating and testing code changes
-- [Automated Diagnostics](/glossary/automated-diagnostics/) -- automated analysis that replaces manual debugging and investigation
-- [Mix Task](/glossary/mix-task/) -- Elixir's task runner that codifies manual operations as executable commands
-- [Quality Assurance](/glossary/quality-assurance/) -- the discipline of ensuring software meets quality standards
+- [Automate Relentlessly](@/glossary/automate-relentlessly.md) -- the doctrine that every repeatable task must be automated
+- [CI/CD](@/glossary/ci-cd.md) -- continuous integration and deployment pipelines that automate the build-test-deploy cycle
+- [Quality Gates](@/glossary/quality-gates.md) -- automated enforcement points that replace manual quality verification
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- automated checks that execute before code enters the repository
+- [Pipeline](@/glossary/pipeline.md) -- the orchestrated sequence of automated stages in a workflow
+- [Quality Debt](@/glossary/quality-debt.md) -- the accumulation of quality shortcuts that manual processes often create
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the practice of automatically integrating and testing code changes
+- [Automated Diagnostics](@/glossary/automated-diagnostics.md) -- automated analysis that replaces manual debugging and investigation
+- [Mix Task](@/glossary/mix-task.md) -- Elixir's task runner that codifies manual operations as executable commands
+- [Quality Assurance](@/glossary/quality-assurance.md) -- the discipline of ensuring software meets quality standards
 
 ## See Also
 
-- [Automated Self-Improvement](/glossary/automated-self-improvement/) -- how the platform automatically improves itself
-- [Continuous Deployment](/glossary/continuous-deployment/) -- automated deployment to production environments
-- [Quality Monitoring](/glossary/quality-monitoring/) -- automated observation of quality metrics over time
-- [Static Analysis](/glossary/static-analysis/) -- automated code analysis that replaces manual code inspection
-- [Testing](/glossary/testing/) -- the automated verification of software correctness
+- [Automated Self-Improvement](@/glossary/automated-self-improvement.md) -- how the platform automatically improves itself
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- automated deployment to production environments
+- [Quality Monitoring](@/glossary/quality-monitoring.md) -- automated observation of quality metrics over time
+- [Static Analysis](@/glossary/static-analysis.md) -- automated code analysis that replaces manual code inspection
+- [Testing](@/glossary/testing.md) -- the automated verification of software correctness
 
 ---
 

@@ -26,9 +26,9 @@ image_alt = "/find-lowfruit - Prismatic Platform"
 
 **/find-lowfruit** is a production command in the **Documentation** category of the Prismatic Platform that systematically identifies low-hanging fruit improvements across the entire codebase. Rather than relying on manual code review or ad-hoc observation, this command applies structured analysis to discover improvements that deliver maximum value with minimal effort -- the proverbial "low-hanging fruit" that accumulates in any large-scale software system.
 
-The command operates under the **L2+** authority level and is executed by the `lowfruit-finder` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The lowfruit-finder agent employs a multi-dimensional scanning approach that evaluates code quality, documentation completeness, test coverage gaps, performance bottlenecks, and architectural debt simultaneously, producing a prioritized list of actionable improvements ranked by effort-to-impact ratio.
+The command operates under the **L2+** authority level and is executed by the `lowfruit-finder` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The lowfruit-finder agent employs a multi-dimensional scanning approach that evaluates code quality, documentation completeness, test coverage gaps, performance bottlenecks, and architectural debt simultaneously, producing a prioritized list of actionable improvements ranked by effort-to-impact ratio.
 
-In practice, `/find-lowfruit` serves as the entry point for continuous improvement workflows. When a development session begins without a specific objective, or when the platform operator seeks the highest-impact work items, this command provides a data-driven answer. It integrates with the platform's [quality gates](/glossary/quality-gates/) infrastructure, [telemetry](/glossary/telemetry/) system, and [NABLA](/glossary/nabla-infinity/) epistemic framework to ensure that every recommendation is backed by evidence rather than opinion.
+In practice, `/find-lowfruit` serves as the entry point for continuous improvement workflows. When a development session begins without a specific objective, or when the platform operator seeks the highest-impact work items, this command provides a data-driven answer. It integrates with the platform's [quality gates](@/glossary/quality-gates.md) infrastructure, [telemetry](@/glossary/telemetry.md) system, and [NABLA](@/glossary/nabla-infinity.md) epistemic framework to ensure that every recommendation is backed by evidence rather than opinion.
 
 The command's philosophy is rooted in the Pareto principle: roughly 80% of improvement value comes from 20% of possible changes. By algorithmically identifying that critical 20%, `/find-lowfruit` accelerates platform evolution while minimizing wasted effort on marginal improvements.
 
@@ -124,13 +124,13 @@ Each scanner operates independently, producing a list of `Finding` structs that 
 
 The command executes through a well-defined pipeline that ensures comprehensive analysis while maintaining performance on the platform's 6,652+ Elixir source files.
 
-1. **Initialization**: Load scanner configurations, connect to [telemetry](/glossary/telemetry/) system, resolve target scope (all apps or specific app).
+1. **Initialization**: Load scanner configurations, connect to [telemetry](@/glossary/telemetry.md) system, resolve target scope (all apps or specific app).
 
-2. **File Discovery**: Use [git-trees](/commands/git-trees/) for high-performance file enumeration (~80ms for 37,000 files), filtering by the specified scope and file types.
+2. **File Discovery**: Use [git-trees](@/commands/git-trees.md) for high-performance file enumeration (~80ms for 37,000 files), filtering by the specified scope and file types.
 
 3. **Parallel Scanning**: Execute all six dimension scanners concurrently using `Task.async_stream/3`, with each scanner analyzing its respective concern across the target files.
 
-4. **Evidence Collection**: Each scanner produces `Finding` structs with file paths, line numbers, categories, and evidence. Evidence is collected in compliance with [NABLA](/glossary/nabla-infinity/) signal plurality requirements.
+4. **Evidence Collection**: Each scanner produces `Finding` structs with file paths, line numbers, categories, and evidence. Evidence is collected in compliance with [NABLA](@/glossary/nabla-infinity.md) signal plurality requirements.
 
 5. **Impact Scoring**: The Ranker assigns impact scores based on platform-wide heuristics: how many other files depend on the target, how frequently the file is modified, whether it is in a critical path, and the severity of the finding.
 
@@ -144,13 +144,13 @@ The command executes through a well-defined pipeline that ensures comprehensive 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Invoked by `lowfruit-finder` agent with full platform context |
-| [Quality Gates](/glossary/quality-gates/) | Data Source | Quality gate results feed into the Code Quality scanner |
-| [Telemetry](/glossary/telemetry/) | Metrics | Emits `[:prismatic, :lowfruit, :scan_complete]` events with finding counts |
-| [Git Trees](/commands/git-trees/) | File Discovery | Uses git-tree based enumeration for ~100x faster file listing |
-| [Quality DNA](/glossary/quality-dna/) | Historical Data | References quality DNA records for effort estimation calibration |
-| [SEADF](/glossary/seadf/) | Evolution Pipeline | Findings feed into the Self-Evolving Autonomous Development Framework |
-| [Credo](/glossary/credo/) | Static Analysis | Credo check results are consumed by the Code Quality scanner |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Invoked by `lowfruit-finder` agent with full platform context |
+| [Quality Gates](@/glossary/quality-gates.md) | Data Source | Quality gate results feed into the Code Quality scanner |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Emits `[:prismatic, :lowfruit, :scan_complete]` events with finding counts |
+| [Git Trees](@/commands/git-trees.md) | File Discovery | Uses git-tree based enumeration for ~100x faster file listing |
+| [Quality DNA](@/glossary/quality-dna.md) | Historical Data | References quality DNA records for effort estimation calibration |
+| [SEADF](@/glossary/seadf.md) | Evolution Pipeline | Findings feed into the Self-Evolving Autonomous Development Framework |
+| [Credo](@/glossary/credo.md) | Static Analysis | Credo check results are consumed by the Code Quality scanner |
 | Session Context | Planning | Findings can be written as session context for structured work sessions |
 
 ## Best Practices
@@ -159,7 +159,7 @@ The command executes through a well-defined pipeline that ensures comprehensive 
 
 **Set effort thresholds for time-boxed sessions.** When working within a fixed time window, use `--max-effort` to filter findings to items that can be completed within the available time. A 30-minute session benefits from `--max-effort 15` to leave room for testing and verification.
 
-**Combine with `/fix` for complete workflows.** After identifying a low-hanging fruit item, use [/fix](/commands/fix/) to implement the improvement with mandatory regression tests. This ensures that every improvement is verified and protected against future regressions.
+**Combine with `/fix` for complete workflows.** After identifying a low-hanging fruit item, use [/fix](@/commands/fix.md) to implement the improvement with mandatory regression tests. This ensures that every improvement is verified and protected against future regressions.
 
 **Track improvement velocity.** Use `--diff` mode to compare current findings against previous scans. A decreasing count of findings indicates healthy platform evolution; a steady or increasing count suggests that new code is introducing issues faster than they are being resolved.
 
@@ -211,23 +211,23 @@ For autonomous platform improvement, chain `/find-lowfruit` with evolution comma
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every finding must include actionable evidence; vague suggestions are rejected by the Ranker.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Findings are backed by file paths, line numbers, and measurable impact scores -- never by subjective assessment alone.
 
-The command also enforces [NABLA](/glossary/nabla-infinity/) axiom compliance: every finding must satisfy signal plurality (at least two indicators supporting the recommendation) and provenance (traceable to specific source files and analysis methods).
+The command also enforces [NABLA](@/glossary/nabla-infinity.md) axiom compliance: every finding must satisfy signal plurality (at least two indicators supporting the recommendation) and provenance (traceable to specific source files and analysis methods).
 
 ## Related Commands
 
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/optimize](/commands/optimize/) - Performance optimization with measurement validation
-- [/chronic](/commands/chronic/) - Chronic documentation scan and technical hygiene maintenance
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
-- [/propagate-pattern](/commands/propagate-pattern/) - Propagate successful patterns across the ecosystem
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/genetic-evolve](/commands/genetic-evolve/) - Genetic evolution targeting spec-coverage, test-coverage and documentation
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/optimize](@/commands/optimize.md) - Performance optimization with measurement validation
+- [/chronic](@/commands/chronic.md) - Chronic documentation scan and technical hygiene maintenance
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
+- [/propagate-pattern](@/commands/propagate-pattern.md) - Propagate successful patterns across the ecosystem
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/genetic-evolve](@/commands/genetic-evolve.md) - Genetic evolution targeting spec-coverage, test-coverage and documentation
 
 ---
 
@@ -236,4 +236,4 @@ The command also enforces [NABLA](/glossary/nabla-infinity/) axiom compliance: e
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

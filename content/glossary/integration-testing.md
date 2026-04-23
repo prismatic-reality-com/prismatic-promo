@@ -405,24 +405,24 @@ Integration tests occupy the middle ground of the testing pyramid, providing sub
 
 Integration testing connects to the broader testing and quality ecosystem:
 
-- [Unit Testing](/glossary/unit-testing/) -- testing individual functions and modules in isolation, forming the foundation that integration tests build upon
-- [Testing](/glossary/testing/) -- the overall discipline of software verification including all test types and methodologies
-- [ExUnit](/glossary/exunit/) -- the built-in Elixir test framework providing the test runner, assertions, and setup callbacks
-- [Test Coverage](/glossary/test-coverage/) -- measuring what percentage of code is exercised by tests, including integration test contributions
-- [Property-Based Testing](/glossary/property-based-testing/) -- testing invariant properties over randomly generated inputs, complementing example-based integration tests
-- [Regression Testing](/glossary/regression-testing/) -- re-running tests after changes to detect unintended breakages, where integration tests catch boundary regressions
-- [CI/CD](/glossary/ci-cd/) -- continuous integration pipelines that automatically execute integration tests on every commit
-- [Quality Gates](/glossary/quality-gates/) -- automated checks that block merges when integration tests fail
-- [Code Coverage](/glossary/code-coverage/) -- quantitative measurement of test effectiveness across the codebase
-- [Ecto](/glossary/ecto/) -- the database library providing the Sandbox adapter essential for isolated integration tests
+- [Unit Testing](@/glossary/unit-testing.md) -- testing individual functions and modules in isolation, forming the foundation that integration tests build upon
+- [Testing](@/glossary/testing.md) -- the overall discipline of software verification including all test types and methodologies
+- [ExUnit](@/glossary/exunit.md) -- the built-in Elixir test framework providing the test runner, assertions, and setup callbacks
+- [Test Coverage](@/glossary/test-coverage.md) -- measuring what percentage of code is exercised by tests, including integration test contributions
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- testing invariant properties over randomly generated inputs, complementing example-based integration tests
+- [Regression Testing](@/glossary/regression-testing.md) -- re-running tests after changes to detect unintended breakages, where integration tests catch boundary regressions
+- [CI/CD](@/glossary/ci-cd.md) -- continuous integration pipelines that automatically execute integration tests on every commit
+- [Quality Gates](@/glossary/quality-gates.md) -- automated checks that block merges when integration tests fail
+- [Code Coverage](@/glossary/code-coverage.md) -- quantitative measurement of test effectiveness across the codebase
+- [Ecto](@/glossary/ecto.md) -- the database library providing the Sandbox adapter essential for isolated integration tests
 
 ## See Also
 
-- [Performance Testing](/glossary/performance-testing/) -- verifying non-functional requirements under load conditions
-- [Chaos Engineering](/glossary/chaos-engineering/) -- deliberately injecting failures to test system resilience
-- [Broadway](/glossary/broadway/) -- the concurrent data processing library whose pipelines are prime integration test targets
-- [Phoenix LiveView](/glossary/phoenix-liveview/) -- the server-rendered UI framework with built-in integration testing support
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision hierarchies whose recovery behavior is verified through integration tests
+- [Performance Testing](@/glossary/performance-testing.md) -- verifying non-functional requirements under load conditions
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- deliberately injecting failures to test system resilience
+- [Broadway](@/glossary/broadway.md) -- the concurrent data processing library whose pipelines are prime integration test targets
+- [Phoenix LiveView](@/glossary/phoenix-liveview.md) -- the server-rendered UI framework with built-in integration testing support
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision hierarchies whose recovery behavior is verified through integration tests
 
 ---
 

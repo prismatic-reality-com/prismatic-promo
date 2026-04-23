@@ -213,10 +213,10 @@ Success typing is enforced at every stage of the development lifecycle:
 
 ## Cross-References
 
-- [Dialyzer](/glossary/dialyzer/) - Static analysis tool implementing success typing
-- [Typespec](/glossary/typespec/) - Type annotations that guide success typing analysis
-- [PLT](/glossary/plt/) - Persistent Lookup Table caching type information
-- [Static Analysis](/glossary/static-analysis/) - Broader category including success typing
+- [Dialyzer](@/glossary/dialyzer.md) - Static analysis tool implementing success typing
+- [Typespec](@/glossary/typespec.md) - Type annotations that guide success typing analysis
+- [PLT](@/glossary/plt.md) - Persistent Lookup Table caching type information
+- [Static Analysis](@/glossary/static-analysis.md) - Broader category including success typing
 
 ---
 

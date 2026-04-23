@@ -176,10 +176,10 @@ The platform's internal compliance is enforced through the pre-commit pipeline, 
 
 ## Cross-References
 
-- [Certification](/glossary/certification/) - credentials validating compliance
+- [Certification](@/glossary/certification.md) - credentials validating compliance
 - **Consent** - GDPR data processing requirement
-- [Audit Trail](/glossary/audit-trail/) - compliance evidence mechanism
-- [Compliance Framework](/glossary/compliance-framework/) - regulatory structure detail
+- [Audit Trail](@/glossary/audit-trail.md) - compliance evidence mechanism
+- [Compliance Framework](@/glossary/compliance-framework.md) - regulatory structure detail
 - **Credential** - compliance certification artifacts
 - **Livebooks**: `livebooks/domains/security_compliance/` - compliance assessment labs
 - **Perimeter**: NIS2 and ZKB compliance engine at `/perimeter/compliance`

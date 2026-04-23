@@ -30,7 +30,7 @@ image_alt = "Neuroevolution Coordinator - Prismatic Platform"
 
 The Neuroevolution Coordinator operates as an L1 Supreme Authority within the Prismatic Platform's critical-organism domain, serving as the primary evolution coordinator responsible for implementing the Prismatic Neuroevolution Doctrine across the entire agent ecosystem. This agent governs the evolutionary lifecycle of all 400+ agents, managing the fitness evaluation frameworks, selection pressures, genetic operators, and generational transitions that drive the platform from its current state toward increasingly capable future states. As an L1 authority in the critical-organism domain, this coordinator holds platform-wide strategic and tactical control over all evolutionary processes.
 
-The Neuroevolution Doctrine defines the platform as an evolving organism rather than a static system. Every component -- from individual agent behaviors to cross-domain coordination patterns -- is subject to evolutionary pressure that selects for quality, efficiency, and adaptability. Built on the [AIAD](/glossary/aiad/) standard, the coordinator manages this evolutionary process through a combination of neuroevolutionary algorithms (evolving neural network-like coordination structures), genetic programming (evolving agent behavioral programs), and evolutionary strategies (adapting platform configuration parameters). The [SEADF](/glossary/seadf/) framework provides the evolutionary infrastructure, while the [NO DOUBTS](/glossary/no-doubts/) principle ensures that all evolutionary decisions are grounded in measured fitness evidence.
+The Neuroevolution Doctrine defines the platform as an evolving organism rather than a static system. Every component -- from individual agent behaviors to cross-domain coordination patterns -- is subject to evolutionary pressure that selects for quality, efficiency, and adaptability. Built on the [AIAD](@/glossary/aiad.md) standard, the coordinator manages this evolutionary process through a combination of neuroevolutionary algorithms (evolving neural network-like coordination structures), genetic programming (evolving agent behavioral programs), and evolutionary strategies (adapting platform configuration parameters). The [SEADF](@/glossary/seadf.md) framework provides the evolutionary infrastructure, while the [NO DOUBTS](@/glossary/no-doubts.md) principle ensures that all evolutionary decisions are grounded in measured fitness evidence.
 
 ## Theoretical Foundations
 
@@ -55,8 +55,8 @@ The coordinator manages evolutionary state including population registries, fitn
 - **Coevolutionary dynamics** -- Manages competitive and cooperative coevolution between agent populations, ensuring that evolutionary pressure drives improvement across all domains
 - **Evolutionary lineage tracking** -- Maintains complete genealogical records of agent and coordination pattern evolution, enabling analysis of evolutionary trajectories and identification of successful evolutionary strategies
 - **Fitness landscape adaptation** -- Adjusts fitness criteria based on changing platform objectives, environmental conditions, and observed evolutionary dynamics, preventing fitness landscape stagnation
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed evolutionary cycle management and adaptive generation timing
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing evolution metrics including generation count, global fitness trends, speciation dynamics, diversity indices, and evolutionary rate indicators
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed evolutionary cycle management and adaptive generation timing
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing evolution metrics including generation count, global fitness trends, speciation dynamics, diversity indices, and evolutionary rate indicators
 
 ## Authority Level
 
@@ -82,11 +82,11 @@ Rollback is available throughout the deployment phase: if next-generation perfor
 
 | Agent | Relationship |
 |-------|-------------|
-| [mycelial-evolution-specialist](/agents/mycelial-evolution-specialist/) | Executes mycelial network evolution within the global fitness framework |
-| [mycelial-genetic-evolver-agent](/agents/mycelial-genetic-evolver-agent/) | Genetic optimization operates within global evolutionary constraints |
-| [mycelial-emergence-sentinel-agent](/agents/mycelial-emergence-sentinel-agent/) | Emergence patterns may indicate evolutionary innovation worth preserving |
-| [mycelial-network-coordinator](/agents/mycelial-network-coordinator/) | Network operations are coordinated during generation transitions |
-| [performance-benchmarking-agent](/agents/performance-benchmarking-agent/) | Performance baselines calibrate fitness evaluation across generations |
+| [mycelial-evolution-specialist](@/agents/mycelial-evolution-specialist.md) | Executes mycelial network evolution within the global fitness framework |
+| [mycelial-genetic-evolver-agent](@/agents/mycelial-genetic-evolver-agent.md) | Genetic optimization operates within global evolutionary constraints |
+| [mycelial-emergence-sentinel-agent](@/agents/mycelial-emergence-sentinel-agent.md) | Emergence patterns may indicate evolutionary innovation worth preserving |
+| [mycelial-network-coordinator](@/agents/mycelial-network-coordinator.md) | Network operations are coordinated during generation transitions |
+| [performance-benchmarking-agent](@/agents/performance-benchmarking-agent.md) | Performance baselines calibrate fitness evaluation across generations |
 
 ## Evolutionary Safety
 
@@ -94,7 +94,7 @@ The coordinator implements safety constraints that prevent evolution from produc
 
 ## Enforcement
 
-Evolutionary processes are governed by the [NO MERCY](/glossary/no-mercy/) doctrine: no evolutionary regression is tolerated, no generation deploys without demonstrated fitness improvement, and evolutionary shortcuts that sacrifice quality for speed are rejected. The [Trinity Gate](/glossary/trinity-gate/) validates that evolved configurations maintain structural, logical, and formal consistency with platform invariants. All evolutionary decisions carry [NABLA Infinity](/glossary/nabla-infinity/) provenance chains traceable to specific fitness measurements.
+Evolutionary processes are governed by the [NO MERCY](@/glossary/no-mercy.md) doctrine: no evolutionary regression is tolerated, no generation deploys without demonstrated fitness improvement, and evolutionary shortcuts that sacrifice quality for speed are rejected. The [Trinity Gate](@/glossary/trinity-gate.md) validates that evolved configurations maintain structural, logical, and formal consistency with platform invariants. All evolutionary decisions carry [NABLA Infinity](@/glossary/nabla-infinity.md) provenance chains traceable to specific fitness measurements.
 
 ---
 
@@ -103,4 +103,4 @@ Evolutionary processes are governed by the [NO MERCY](/glossary/no-mercy/) doctr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -155,15 +155,15 @@ end
 ## Related Terms
 
 - **Configuration Drift** -- configuration-specific drift dimension
-- [Anomaly Detection](/glossary/anomaly-detection/) -- detection methods applicable to drift
-- [Alert](/glossary/alert/) -- notifications triggered when drift exceeds thresholds
-- [Benchmark](/glossary/benchmark/) -- performance baselines for drift comparison
+- [Anomaly Detection](@/glossary/anomaly-detection.md) -- detection methods applicable to drift
+- [Alert](@/glossary/alert.md) -- notifications triggered when drift exceeds thresholds
+- [Benchmark](@/glossary/benchmark.md) -- performance baselines for drift comparison
 - **Consistency** -- the property that drift erodes
 
 ## See Also
 
-- [Blue Team Defense](/glossary/color-teams/) -- team responsible for drift detection
-- [Quality Floor Guardian](/apps/) -- autonomous quality drift monitoring
+- [Blue Team Defense](@/glossary/color-teams.md) -- team responsible for drift detection
+- [Quality Floor Guardian](@/apps/_index.md) -- autonomous quality drift monitoring
 
 ---
 
@@ -172,4 +172,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

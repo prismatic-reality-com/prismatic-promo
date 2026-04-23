@@ -38,7 +38,7 @@ image_alt = "Policy - Prismatic Platform"
 
 A policy, in the context of platform governance and software engineering, is a formal, machine-readable document that defines rules, constraints, enforcement mechanisms, and violation protocols governing specific aspects of platform operations. Policies bridge the gap between high-level organizational principles (doctrines) and low-level technical enforcement (quality gates, pre-commit hooks, CI/CD checks). They are declarative specifications that answer three questions: what behavior is required, how compliance is verified, and what happens when violations occur.
 
-In the Prismatic Platform, policies are first-class [AIAD](/glossary/aiad/) components stored as `.aiad/policies/*.policy.md` files. They are governed by the [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine and enforced through automated [quality gates](/glossary/quality-gate/), pre-commit hooks, and CI/CD pipeline stages. The platform currently maintains over 20 active policies covering domains from code quality and security to performance and deployment procedures.
+In the Prismatic Platform, policies are first-class [AIAD](@/glossary/aiad.md) components stored as `.aiad/policies/*.policy.md` files. They are governed by the [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine and enforced through automated [quality gates](@/glossary/quality-gate.md), pre-commit hooks, and CI/CD pipeline stages. The platform currently maintains over 20 active policies covering domains from code quality and security to performance and deployment procedures.
 
 ## Overview
 
@@ -63,11 +63,11 @@ Quality Gates (automated enforcement mechanisms)
 Hooks & CI Stages (execution-level enforcement)
 ```
 
-[Doctrines](/glossary/doctrine/) establish philosophical principles. Policies translate those principles into specific, actionable rules. [Quality gates](/glossary/quality-gate/) implement automated checking of policy compliance. Pre-commit hooks and CI stages execute those checks at appropriate points in the development workflow.
+[Doctrines](@/glossary/doctrine.md) establish philosophical principles. Policies translate those principles into specific, actionable rules. [Quality gates](@/glossary/quality-gate.md) implement automated checking of policy compliance. Pre-commit hooks and CI stages execute those checks at appropriate points in the development workflow.
 
 ### Policy Anatomy
 
-Every Prismatic Platform policy follows a standardized structure defined by the [AIAD](/glossary/aiad/) specification:
+Every Prismatic Platform policy follows a standardized structure defined by the [AIAD](@/glossary/aiad.md) specification:
 
 1. **Metadata**: Name, version, author, authority level, enforcement status
 2. **Scope**: Which code, systems, or processes the policy governs
@@ -103,7 +103,7 @@ The frontmatter is machine-parseable, enabling automated policy discovery, valid
 
 ### Enforcement Levels
 
-Policies define enforcement at four levels, aligned with the [violation protocol](/glossary/violation-protocol/):
+Policies define enforcement at four levels, aligned with the [violation protocol](@/glossary/violation-protocol.md):
 
 | Level | Name | Trigger | Response | Authority |
 |-------|------|---------|----------|-----------|
@@ -300,7 +300,7 @@ end
 
 ### Policy Audit Trail
 
-Every policy enforcement decision is recorded to an immutable [audit trail](/glossary/audit-trail/) for compliance reporting and historical analysis:
+Every policy enforcement decision is recorded to an immutable [audit trail](@/glossary/audit-trail.md) for compliance reporting and historical analysis:
 
 ```elixir
 defmodule PrismaticGovernance.PolicyAudit do
@@ -375,7 +375,7 @@ Every policy should explain why the rule exists, not just what the rule is. This
 
 ### 3. Automate Enforcement
 
-If a policy cannot be automatically enforced, it will eventually be violated. Prioritize policies that can be checked by pre-commit hooks, [CI](/glossary/continuous-integration/) pipelines, or runtime monitoring. Manual-only policies should be reserved for genuinely subjective criteria.
+If a policy cannot be automatically enforced, it will eventually be violated. Prioritize policies that can be checked by pre-commit hooks, [CI](@/glossary/continuous-integration.md) pipelines, or runtime monitoring. Manual-only policies should be reserved for genuinely subjective criteria.
 
 ### 4. Version Policies Alongside Code
 
@@ -405,11 +405,11 @@ Blocking a commit without explaining which policy was violated and how to fix th
 
 ### Confusing Policy with Doctrine
 
-Policies are specific, enforceable rules. [Doctrines](/glossary/doctrine/) are philosophical principles. Mixing the two creates documents that are too abstract to enforce or too specific to serve as guiding principles. Keep the hierarchy clean: doctrine guides policy, policy guides implementation.
+Policies are specific, enforceable rules. [Doctrines](@/glossary/doctrine.md) are philosophical principles. Mixing the two creates documents that are too abstract to enforce or too specific to serve as guiding principles. Keep the hierarchy clean: doctrine guides policy, policy guides implementation.
 
 ### Exception Mechanisms That Bypass Enforcement
 
-Providing easy mechanisms to skip policy checks (like `--no-verify` flags) undermines the entire governance system. The Prismatic Platform explicitly forbids `--no-verify` in the [Session Discipline Protocol](/glossary/session-discipline/), treating its use as an L4 violation requiring Supreme Review.
+Providing easy mechanisms to skip policy checks (like `--no-verify` flags) undermines the entire governance system. The Prismatic Platform explicitly forbids `--no-verify` in the [Session Discipline Protocol](@/glossary/session-discipline.md), treating its use as an L4 violation requiring Supreme Review.
 
 ## Use Cases
 
@@ -419,44 +419,44 @@ The `forbidden-patterns-enforcement.policy.md` defines patterns that must never 
 
 ### Page Load Performance Standard
 
-The `page-load-performance.policy.md` establishes hard limits on page load times (250ms total, 100ms server render). Violations at V3 level (250-500ms) block merges; V4 level (>500ms) triggers rejection and rollback. The policy integrates with Benchee [performance](/glossary/performance/) tests and production [telemetry](/glossary/telemetry/).
+The `page-load-performance.policy.md` establishes hard limits on page load times (250ms total, 100ms server render). Violations at V3 level (250-500ms) block merges; V4 level (>500ms) triggers rejection and rollback. The policy integrates with Benchee [performance](@/glossary/performance.md) tests and production [telemetry](@/glossary/telemetry.md).
 
 ### Elixir Best Practices
 
-The `elixir-best-practices.policy.md` encodes [OTP](/glossary/otp/) patterns, naming standards, error handling conventions, and the meta-rule: "If the same solution could be written identically in Node.js, it is wrong." This policy drives architectural quality through automated [Credo](/glossary/credo/) checks and code review guidelines.
+The `elixir-best-practices.policy.md` encodes [OTP](@/glossary/otp.md) patterns, naming standards, error handling conventions, and the meta-rule: "If the same solution could be written identically in Node.js, it is wrong." This policy drives architectural quality through automated [Credo](@/glossary/credo.md) checks and code review guidelines.
 
 ### NIS2 and ZKB Compliance
 
-The [compliance framework](/glossary/compliance-framework/) policies translate regulatory requirements from EU NIS2 Directive and Czech ZKB 264/2025 Sb. into platform-enforceable rules for the [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM system.
+The [compliance framework](@/glossary/compliance-framework.md) policies translate regulatory requirements from EU NIS2 Directive and Czech ZKB 264/2025 Sb. into platform-enforceable rules for the [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) EASM system.
 
 ### Red Team Safety
 
-The `red-team-safety.policy.md` governs [Red Team](/glossary/red-team/) adversarial simulation operations, ensuring sandbox isolation, synthetic data only, no network access, and automated ethics checks every 10-15 seconds. This policy prevents security research from causing real system damage.
+The `red-team-safety.policy.md` governs [Red Team](@/glossary/red-team.md) adversarial simulation operations, ensuring sandbox isolation, synthetic data only, no network access, and automated ethics checks every 10-15 seconds. This policy prevents security research from causing real system damage.
 
 ## Related Concepts
 
-- [Enforcement Policy](/glossary/enforcement-policy/): Specific policy type focused on automated enforcement mechanisms
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/): The foundational doctrine that all policies must align with
-- [Quality Gate](/glossary/quality-gate/): Automated enforcement mechanism that policies define and reference
-- [Violation Protocol](/glossary/violation-protocol/): The escalation framework for policy violations (L1-L4)
-- [AIAD](/glossary/aiad/): The standard framework under which policies are defined and indexed
-- [Doctrine](/glossary/doctrine/): Higher-level philosophical principles that guide policy creation
-- [Compliance Framework](/glossary/compliance-framework/): Regulatory compliance policies for NIS2, ZKB, GDPR
-- [Clean Run](/glossary/clean-run/): Zero-warning compilation policy enforced across all apps
-- [Quality Standard](/glossary/quality-standard/): Universal quality requirements for all umbrella applications
-- [RBAC](/glossary/rbac/): Role-based access control policies for authorization
-- [Audit Trail](/glossary/audit-trail/): Immutable record of policy enforcement decisions
-- [Regression Testing](/glossary/regression-testing/): Mandatory regression test policy for all bug fixes
+- [Enforcement Policy](@/glossary/enforcement-policy.md): Specific policy type focused on automated enforcement mechanisms
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md): The foundational doctrine that all policies must align with
+- [Quality Gate](@/glossary/quality-gate.md): Automated enforcement mechanism that policies define and reference
+- [Violation Protocol](@/glossary/violation-protocol.md): The escalation framework for policy violations (L1-L4)
+- [AIAD](@/glossary/aiad.md): The standard framework under which policies are defined and indexed
+- [Doctrine](@/glossary/doctrine.md): Higher-level philosophical principles that guide policy creation
+- [Compliance Framework](@/glossary/compliance-framework.md): Regulatory compliance policies for NIS2, ZKB, GDPR
+- [Clean Run](@/glossary/clean-run.md): Zero-warning compilation policy enforced across all apps
+- [Quality Standard](@/glossary/quality-standard.md): Universal quality requirements for all umbrella applications
+- [RBAC](@/glossary/rbac.md): Role-based access control policies for authorization
+- [Audit Trail](@/glossary/audit-trail.md): Immutable record of policy enforcement decisions
+- [Regression Testing](@/glossary/regression-testing.md): Mandatory regression test policy for all bug fixes
 
 ## See Also
 
-- [Quality Gate](/glossary/quality-gate/) for the automated enforcement mechanism
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) for the governing doctrine
-- [AIAD](/glossary/aiad/) for the agent and policy specification standard
-- [Credo](/glossary/credo/) for static analysis policy enforcement
-- [Continuous Integration](/glossary/continuous-integration/) for CI-based policy enforcement
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) for commit-time policy checks
-- [Session Discipline](/glossary/session-discipline/) for session-level governance
+- [Quality Gate](@/glossary/quality-gate.md) for the automated enforcement mechanism
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) for the governing doctrine
+- [AIAD](@/glossary/aiad.md) for the agent and policy specification standard
+- [Credo](@/glossary/credo.md) for static analysis policy enforcement
+- [Continuous Integration](@/glossary/continuous-integration.md) for CI-based policy enforcement
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) for commit-time policy checks
+- [Session Discipline](@/glossary/session-discipline.md) for session-level governance
 
 ---
 
@@ -465,4 +465,4 @@ The `red-team-safety.policy.md` governs [Red Team](/glossary/red-team/) adversar
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

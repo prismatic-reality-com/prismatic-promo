@@ -37,7 +37,7 @@ Slash commands are the primary operator interface to the Prismatic Platform. Whi
 
 The distinction between commands and agents is architectural. Agents are autonomous execution units with their own state, coordination graphs, and lifecycle. Commands are stateless invocation contracts that define how operators interact with the platform. A single command may trigger multiple agents (the `/orchestrate` command selects and deploys entire agent teams), and a single agent may be invocable through multiple commands (the `archer-supreme` agent responds to both `/archer-supreme` and `/emergency` commands depending on context).
 
-The Command Registry maintains the full specification of every command: its name, parameters with types and validation rules, required authority level, output format, category classification, and the mandatory enforcement block that connects it to the platform's [NO MERCY](/capabilities/no-mercy/) [NO DOUBTS](/capabilities/no-doubts/) doctrine. This specification-first approach ensures that every command is documented, validated, and discoverable before it can be deployed.
+The Command Registry maintains the full specification of every command: its name, parameters with types and validation rules, required authority level, output format, category classification, and the mandatory enforcement block that connects it to the platform's [NO MERCY](@/capabilities/no-mercy.md) [NO DOUBTS](@/capabilities/no-doubts.md) doctrine. This specification-first approach ensures that every command is documented, validated, and discoverable before it can be deployed.
 
 ## Command Categories
 
@@ -115,7 +115,7 @@ command-spec:
     compliance: mandatory
 ```
 
-The specification enforces several invariants. Every command must declare a unique `name`, a valid authority level, at least one output type, and the mandatory enforcement block referencing the [NO MERCY](/capabilities/no-mercy/) doctrine. Parameters must declare their type, and enum/array types must provide the complete set of valid values.
+The specification enforces several invariants. Every command must declare a unique `name`, a valid authority level, at least one output type, and the mandatory enforcement block referencing the [NO MERCY](@/capabilities/no-mercy.md) doctrine. Parameters must declare their type, and enum/array types must provide the complete set of valid values.
 
 ### Parameter Type System
 
@@ -166,7 +166,7 @@ When an operator invokes a command, the execution engine processes it through fi
 
 ### Implementation in Elixir
 
-The dispatch pipeline is implemented as a series of [Elixir](/technologies/elixir/) modules within the `prismatic_claude` application:
+The dispatch pipeline is implemented as a series of [Elixir](@/technologies/elixir.md) modules within the `prismatic_claude` application:
 
 ```elixir
 defmodule PrismaticClaude.CommandDispatch do
@@ -196,7 +196,7 @@ defmodule PrismaticClaude.CommandDispatch do
 end
 ```
 
-The dispatch module uses the `with` construct for clean error propagation through the pipeline stages. Each stage returns `{:ok, value}` on success or `{:error, reason}` on failure, following [Elixir](/technologies/elixir/) conventions for result tuples.
+The dispatch module uses the `with` construct for clean error propagation through the pipeline stages. Each stage returns `{:ok, value}` on success or `{:error, reason}` on failure, following [Elixir](@/technologies/elixir.md) conventions for result tuples.
 
 ### Error Handling
 
@@ -228,7 +228,7 @@ Every command must be testable through the platform's validation framework. Test
 
 2. **Parameter validation**: Each parameter type is tested with valid values, boundary values, and invalid values to verify the validation rules behave correctly.
 
-3. **Integration testing**: The full dispatch pipeline is exercised with real agent resolution and execution to verify end-to-end behavior. Integration tests use the platform's test infrastructure built on [ExUnit](/technologies/exunit/).
+3. **Integration testing**: The full dispatch pipeline is exercised with real agent resolution and execution to verify end-to-end behavior. Integration tests use the platform's test infrastructure built on [ExUnit](@/technologies/exunit.md).
 
 ```elixir
 defmodule PrismaticClaude.CommandDispatchTest do
@@ -274,7 +274,7 @@ When a command is superseded or its functionality is absorbed by another command
 
 ## Quality Standards
 
-Every command in the registry must meet the platform's zero-tolerance quality requirements, enforced by the [Quality Gates](/capabilities/quality-gates/) pipeline and the [NO MERCY](/capabilities/no-mercy/) doctrine.
+Every command in the registry must meet the platform's zero-tolerance quality requirements, enforced by the [Quality Gates](@/capabilities/quality-gates.md) pipeline and the [NO MERCY](@/capabilities/no-mercy.md) doctrine.
 
 ### Mandatory Requirements
 
@@ -420,18 +420,18 @@ The most frequently invoked commands across platform operations:
 
 The Command Registry integrates with and is referenced by numerous platform components:
 
-- **[AIAD Standard](/capabilities/aiad-standard/)** -- The specification framework defining command schemas
-- **[NO MERCY](/capabilities/no-mercy/)** -- The execution doctrine enforced by every command's enforcement block
-- **[NO DOUBTS](/capabilities/no-doubts/)** -- The investigation doctrine requiring evidence-based action
-- **[Quality Gates](/capabilities/quality-gates/)** -- The quality pipeline validating command specifications
-- **[Trinity Gate](/capabilities/trinity-gate/)** -- The formal verification gate for command output validation
-- **[Session Discipline](/capabilities/session-discipline/)** -- The session management protocol governing command execution context
-- **[Regression Tests](/capabilities/regression-tests/)** -- The testing protocol ensuring command behavior stability
-- **[Elixir](/technologies/elixir/)** -- The implementation language for the command dispatch engine
-- **[Phoenix LiveView](/technologies/phoenix-liveview/)** -- The web framework powering interactive command interfaces
-- **[ETS](/technologies/ets/)** -- The in-memory storage backend for runtime command resolution
-- **[Mix](/technologies/mix/)** -- The build tool providing mix task command implementations
-- **[Agent Registry](/registry/agents/)** -- The companion catalog of agents invoked by commands
+- **[AIAD Standard](@/capabilities/aiad-standard.md)** -- The specification framework defining command schemas
+- **[NO MERCY](@/capabilities/no-mercy.md)** -- The execution doctrine enforced by every command's enforcement block
+- **[NO DOUBTS](@/capabilities/no-doubts.md)** -- The investigation doctrine requiring evidence-based action
+- **[Quality Gates](@/capabilities/quality-gates.md)** -- The quality pipeline validating command specifications
+- **[Trinity Gate](@/capabilities/trinity-gate.md)** -- The formal verification gate for command output validation
+- **[Session Discipline](@/capabilities/session-discipline.md)** -- The session management protocol governing command execution context
+- **[Regression Tests](@/capabilities/regression-tests.md)** -- The testing protocol ensuring command behavior stability
+- **[Elixir](@/technologies/elixir.md)** -- The implementation language for the command dispatch engine
+- **[Phoenix LiveView](@/technologies/phoenix-liveview.md)** -- The web framework powering interactive command interfaces
+- **[ETS](@/technologies/ets.md)** -- The in-memory storage backend for runtime command resolution
+- **[Mix](@/technologies/mix.md)** -- The build tool providing mix task command implementations
+- **[Agent Registry](@/registry/agents.md)** -- The companion catalog of agents invoked by commands
 
 ---
 
@@ -440,4 +440,4 @@ The Command Registry integrates with and is referenced by numerous platform comp
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

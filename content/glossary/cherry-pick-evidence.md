@@ -36,9 +36,9 @@ image_alt = "Cherry Pick Evidence - Prismatic Platform"
 
 ## Definition
 
-**Cherry Pick Evidence** (also known as cherry-picking or confirmation bias in evidence selection) is a forbidden anti-pattern within the Prismatic Platform's epistemic framework where an agent, process, or analysis selects only the evidence that supports a predetermined conclusion while systematically ignoring, suppressing, or downweighting contradictory data. This pattern directly violates two of the seven non-negotiable [NABLA Infinity](/glossary/nabla-infinity/) axioms: **Signal Plurality** (minimum 2 independent signals required for any belief) and **Contradiction Preservation** (contradictions must be preserved, never discarded).
+**Cherry Pick Evidence** (also known as cherry-picking or confirmation bias in evidence selection) is a forbidden anti-pattern within the Prismatic Platform's epistemic framework where an agent, process, or analysis selects only the evidence that supports a predetermined conclusion while systematically ignoring, suppressing, or downweighting contradictory data. This pattern directly violates two of the seven non-negotiable [NABLA Infinity](@/glossary/nabla-infinity.md) axioms: **Signal Plurality** (minimum 2 independent signals required for any belief) and **Contradiction Preservation** (contradictions must be preserved, never discarded).
 
-In the Prismatic Platform, cherry-picking evidence triggers an E2 BLOCK enforcement level, immediately halting the offending process and requiring correction before any further epistemic claims can be established. The violation is logged as an immutable audit event and routed through the [Trinity Gate](/glossary/trinity-gate/) for formal review.
+In the Prismatic Platform, cherry-picking evidence triggers an E2 BLOCK enforcement level, immediately halting the offending process and requiring correction before any further epistemic claims can be established. The violation is logged as an immutable audit event and routed through the [Trinity Gate](@/glossary/trinity-gate.md) for formal review.
 
 ## Overview
 
@@ -51,7 +51,7 @@ In human reasoning, cherry-picking often occurs unconsciously through confirmati
 - Aggregation pipelines that drop contradictory data points
 - Report generators that highlight supporting trends while omitting counter-trends
 
-The Prismatic Platform's [Addiction Preservation](/glossary/addiction-recovery/) doctrine explicitly addresses this: "Like addiction recovery, this requires constant vigilance against the human tendency to rationalize, dismiss, or cherry-pick evidence." The term "addiction preservation" itself refers to the platform's commitment to preserving contradictory signals -- maintaining the uncomfortable tension of unresolved contradictions rather than prematurely resolving them through selective evidence.
+The Prismatic Platform's [Addiction Preservation](@/glossary/addiction-recovery.md) doctrine explicitly addresses this: "Like addiction recovery, this requires constant vigilance against the human tendency to rationalize, dismiss, or cherry-pick evidence." The term "addiction preservation" itself refers to the platform's commitment to preserving contradictory signals -- maintaining the uncomfortable tension of unresolved contradictions rather than prematurely resolving them through selective evidence.
 
 The NABLA framework treats cherry-picking as a systemic threat precisely because it undermines the foundation of all downstream reasoning. If the evidence base is compromised through selective inclusion, then every conclusion drawn from that base is suspect -- no matter how rigorous the subsequent analysis.
 
@@ -238,15 +238,15 @@ The platform enforces evidence integrity through three complementary patterns:
 
 Cherry-pick detection is woven into the platform at multiple layers:
 
-**NABLA Axiom Enforcement**: The core NABLA engine runs cherry-pick detection on every evidence set before any claim can pass through the [Trinity Gate](/glossary/trinity-gate/). This is a HARD enforcement -- no bypass, no exceptions.
+**NABLA Axiom Enforcement**: The core NABLA engine runs cherry-pick detection on every evidence set before any claim can pass through the [Trinity Gate](@/glossary/trinity-gate.md). This is a HARD enforcement -- no bypass, no exceptions.
 
-**Color Team Integration**: The [Blue Team](/glossary/blue-team/) specifically monitors for cherry-picking as an epistemic attack vector. The `blue-signal-aggregator` agent cross-correlates signals from multiple domains to detect selective omission. The [Red Team](/glossary/epistemic-attack/) simulates cherry-picking attacks to test Blue Team detection capabilities.
+**Color Team Integration**: The [Blue Team](@/glossary/blue-team.md) specifically monitors for cherry-picking as an epistemic attack vector. The `blue-signal-aggregator` agent cross-correlates signals from multiple domains to detect selective omission. The [Red Team](@/glossary/epistemic-attack.md) simulates cherry-picking attacks to test Blue Team detection capabilities.
 
-**Quality Gate Integration**: The [quality gate](/glossary/quality-gate/) system includes evidence completeness as a gate condition. Code reviews, security assessments, and performance evaluations must all demonstrate that contradictory signals were considered.
+**Quality Gate Integration**: The [quality gate](@/glossary/quality-gate.md) system includes evidence completeness as a gate condition. Code reviews, security assessments, and performance evaluations must all demonstrate that contradictory signals were considered.
 
 **Audit Trail**: Every evidence selection decision is logged in an immutable audit trail with full provenance. Auditors can reconstruct what evidence was available, what was included, and what (if anything) was excluded and why.
 
-**Belief Graph Validation**: The [belief graph](/glossary/belief-graph/) tracks all active beliefs and their supporting evidence. The graph structure makes cherry-picking visible -- beliefs supported by only one direction of evidence create detectable patterns (isolated subgraphs without contradiction edges).
+**Belief Graph Validation**: The [belief graph](@/glossary/belief-graph.md) tracks all active beliefs and their supporting evidence. The graph structure makes cherry-picking visible -- beliefs supported by only one direction of evidence create detectable patterns (isolated subgraphs without contradiction edges).
 
 ## Comparison with Alternatives
 
@@ -322,23 +322,23 @@ When an L3 Strategic agent makes a domain-level decision, the Trinity Gate valid
 
 ## Related Concepts
 
-- [Cherry Picking](/glossary/cherry-picking/) -- General anti-pattern of selective evidence, broader than evidence-specific
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- NABLA axiom requiring contradictions be preserved, not discarded
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom requiring minimum 2 independent signals for any belief
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework containing the anti-cherry-picking axioms
-- [Rationalize Evidence](/glossary/rationalize-evidence/) -- Related anti-pattern of constructing post-hoc justifications
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- Foundational principle that evidence trumps intuition
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-gate validation system that catches cherry-picking
-- [Belief Graph](/glossary/belief-graph/) -- Graph structure where cherry-picking creates detectable isolation patterns
-- [Addiction Recovery](/glossary/addiction-recovery/) -- Doctrine of preserving uncomfortable evidence tensions
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- Broader reasoning framework within which cherry-pick detection operates
+- [Cherry Picking](@/glossary/cherry-picking.md) -- General anti-pattern of selective evidence, broader than evidence-specific
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- NABLA axiom requiring contradictions be preserved, not discarded
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom requiring minimum 2 independent signals for any belief
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework containing the anti-cherry-picking axioms
+- [Rationalize Evidence](@/glossary/rationalize-evidence.md) -- Related anti-pattern of constructing post-hoc justifications
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- Foundational principle that evidence trumps intuition
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-gate validation system that catches cherry-picking
+- [Belief Graph](@/glossary/belief-graph.md) -- Graph structure where cherry-picking creates detectable isolation patterns
+- [Addiction Recovery](@/glossary/addiction-recovery.md) -- Doctrine of preserving uncomfortable evidence tensions
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- Broader reasoning framework within which cherry-pick detection operates
 
 ## See Also
 
-- [NABLA Axioms](/glossary/nabla-axioms/) -- The seven non-negotiable epistemic axioms
-- [Formal Verification](/glossary/formal-verification/) -- Proving evidence completeness through formal methods
-- [Blue Team](/glossary/blue-team/) -- Defensive team that monitors for cherry-picking attacks
-- [Quality Gate](/glossary/quality-gate/) -- Gates that enforce evidence completeness
+- [NABLA Axioms](@/glossary/nabla-axioms.md) -- The seven non-negotiable epistemic axioms
+- [Formal Verification](@/glossary/formal-verification.md) -- Proving evidence completeness through formal methods
+- [Blue Team](@/glossary/blue-team.md) -- Defensive team that monitors for cherry-picking attacks
+- [Quality Gate](@/glossary/quality-gate.md) -- Gates that enforce evidence completeness
 
 ---
 
@@ -347,4 +347,4 @@ When an L3 Strategic agent makes a domain-level decision, the Trinity Gate valid
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

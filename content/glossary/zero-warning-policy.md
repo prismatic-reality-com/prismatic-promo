@@ -24,7 +24,7 @@ The Zero Warning Policy is a foundational quality enforcement rule mandating tha
 
 This policy represents the most uncompromising approach to compiler diagnostics in software engineering. Most projects tolerate some level of warnings, relying on developers to exercise judgment about which warnings are "real problems" and which are "acceptable noise." The Zero Warning Policy rejects this distinction entirely. Every warning is a potential defect indicator. Every warning increases the noise floor that obscures genuinely critical diagnostics. The only acceptable number of warnings is zero.
 
-The rationale is both practical and philosophical. Practically, maintaining zero warnings ensures that every new warning is immediately visible and attributable to a specific change, enabling instant root cause identification. A codebase with 200 existing warnings makes it trivial for a developer to introduce the 201st without noticing. A codebase with zero warnings makes every new warning an unmistakable signal. Philosophically, the policy aligns with the [NO MERCY](/glossary/no-mercy/) doctrine: there are no acceptable quality violations, no deferred fixes, and no tolerance for "good enough."
+The rationale is both practical and philosophical. Practically, maintaining zero warnings ensures that every new warning is immediately visible and attributable to a specific change, enabling instant root cause identification. A codebase with 200 existing warnings makes it trivial for a developer to introduce the 201st without noticing. A codebase with zero warnings makes every new warning an unmistakable signal. Philosophically, the policy aligns with the [NO MERCY](@/glossary/no-mercy.md) doctrine: there are no acceptable quality violations, no deferred fixes, and no tolerance for "good enough."
 
 The Prismatic Platform enforces this policy across all 6,652 Elixir source files in 90 umbrella applications. The current status is **zero compilation warnings** across the entire codebase---a state that has been maintained through disciplined enforcement at every stage of the development lifecycle.
 
@@ -340,7 +340,7 @@ end
 
 5. **Track warning categories**: Monitor which warning types appear most frequently. A spike in "unused variable" warnings may indicate copy-paste coding. A spike in "deprecated function" warnings may signal an upcoming Elixir version dependency.
 
-6. **Combine with Credo and Dialyzer**: The compiler catches a subset of code quality issues. [Credo](/glossary/credo/) covers style and design patterns. [Dialyzer](/glossary/dialyzer/) covers type analysis. All three together provide comprehensive static analysis coverage.
+6. **Combine with Credo and Dialyzer**: The compiler catches a subset of code quality issues. [Credo](@/glossary/credo.md) covers style and design patterns. [Dialyzer](@/glossary/dialyzer.md) covers type analysis. All three together provide comprehensive static analysis coverage.
 
 ## Common Pitfalls
 
@@ -356,23 +356,23 @@ end
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) - Enforcement pipeline including zero-warning compilation
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) - Local enforcement of zero-warning compilation
-- [NO MERCY](/glossary/no-mercy/) - Doctrine mandating zero tolerance for quality violations
-- [Clean Run](/glossary/clean-run/) - Extended clean compilation policy beyond warnings
-- [Credo](/glossary/credo/) - Static analysis complementing compiler warnings
-- [Dialyzer](/glossary/dialyzer/) - Type analysis complementing compiler warnings
-- [Mix Task](/glossary/mix-task/) - Build tool providing the `--warnings-as-errors` compilation flag
-- [Quality Debt](/glossary/quality-debt/) - Warnings tracked as QDP before elimination
-- [Violation Protocol](/glossary/violation-protocol/) - Escalation levels for warning policy violations
-- [NM/ND Doctrine](/glossary/nm-nd/) - Governing doctrine mandating zero tolerance
+- [Quality Gates](@/glossary/quality-gates.md) - Enforcement pipeline including zero-warning compilation
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) - Local enforcement of zero-warning compilation
+- [NO MERCY](@/glossary/no-mercy.md) - Doctrine mandating zero tolerance for quality violations
+- [Clean Run](@/glossary/clean-run.md) - Extended clean compilation policy beyond warnings
+- [Credo](@/glossary/credo.md) - Static analysis complementing compiler warnings
+- [Dialyzer](@/glossary/dialyzer.md) - Type analysis complementing compiler warnings
+- [Mix Task](@/glossary/mix-task.md) - Build tool providing the `--warnings-as-errors` compilation flag
+- [Quality Debt](@/glossary/quality-debt.md) - Warnings tracked as QDP before elimination
+- [Violation Protocol](@/glossary/violation-protocol.md) - Escalation levels for warning policy violations
+- [NM/ND Doctrine](@/glossary/nm-nd.md) - Governing doctrine mandating zero tolerance
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Apps](/apps/) - 90 umbrella applications under zero-warning enforcement
-- [Commands](/commands/) - Quality commands enforcing the policy
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Apps](@/apps/_index.md) - 90 umbrella applications under zero-warning enforcement
+- [Commands](@/commands/_index.md) - Quality commands enforcing the policy
 
 ---
 
@@ -381,4 +381,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

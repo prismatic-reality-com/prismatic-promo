@@ -28,7 +28,7 @@ The **/brainstorm** command provides intelligent technical brainstorming and sol
 
 The power of /brainstorm lies in its ability to leverage the collective intelligence of the platform's agent ecosystem. When presented with a challenge, the command does not simply apply a single perspective. Instead, it analyzes the problem domain, identifies which specialist agents have relevant expertise (storage architects for data challenges, performance engineers for optimization questions, LiveView specialists for UI problems), and orchestrates a multi-agent brainstorming session where each agent contributes insights from their domain. This produces richer, more complete solution designs that account for cross-cutting concerns that a single-perspective analysis would miss.
 
-Operating at the L2+ authority level and executed by the `brainstorm-facilitator` agent (backed by the `strategic-command` agent for orchestration), /brainstorm is a production command in the Development category. It is part of the platform's 216-command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command's interactive nature distinguishes it from other development commands: it actively engages the user through a refinement loop, presenting options to continue, refine, adjust agent selection, or proceed to full ideation at each stage.
+Operating at the L2+ authority level and executed by the `brainstorm-facilitator` agent (backed by the `strategic-command` agent for orchestration), /brainstorm is a production command in the Development category. It is part of the platform's 216-command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command's interactive nature distinguishes it from other development commands: it actively engages the user through a refinement loop, presenting options to continue, refine, adjust agent selection, or proceed to full ideation at each stage.
 
 ## Usage
 
@@ -148,7 +148,7 @@ Phase 4 (Creative Ideation) executes the multi-agent brainstorming session with 
 
 ## Workflow Integration
 
-The /brainstorm command serves as the ideation entry point in the development workflow, typically preceding implementation commands like [/code](/commands/code/) and [/architect](/commands/architect/). Its output -- refined requirements, feasibility matrices, and implementation roadmaps -- provides the foundation for informed development decisions.
+The /brainstorm command serves as the ideation entry point in the development workflow, typically preceding implementation commands like [/code](@/commands/code.md) and [/architect](@/commands/architect.md). Its output -- refined requirements, feasibility matrices, and implementation roadmaps -- provides the foundation for informed development decisions.
 
 Common workflow patterns include:
 
@@ -163,10 +163,10 @@ Common workflow patterns include:
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Dynamic agent discovery and multi-agent orchestration |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Dynamic agent discovery and multi-agent orchestration |
 | AIAD Registry | Agent capability database for intelligent selection |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and session tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and session tracking |
 | Agent Registry | 400+ agents indexed by domain, capability, and expertise level |
 | Strategic Command | Orchestration backbone for multi-agent coordination |
 | Report Generation | Structured output with executive summaries, idea catalogs, and roadmaps |
@@ -174,7 +174,7 @@ Common workflow patterns include:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Brainstorming output must be comprehensive and actionable. Idea catalogs include feasibility assessments for every item. Implementation roadmaps cover all identified dependencies and prerequisites. No idea is dismissed without documented reasoning. The command does not produce vague suggestions; every recommendation includes concrete implementation guidance.
 - **NO DOUBTS**: Agent selection is evidence-based, using quantified scoring against the agent registry rather than heuristic matching. Requirement refinement surfaces implicit assumptions rather than allowing them to persist unchallenged. Feasibility assessments include specific criteria (technical complexity, resource requirements, risk factors) rather than subjective labels. Clarification questions are generated from identified ambiguities, not generic templates.
@@ -187,18 +187,18 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 3. **Adjust agents when needed**: If the automatically selected agents do not match your expectations, use the [A] option to modify the team rather than accepting a suboptimal composition
 4. **Save reports for reference**: Brainstorming reports serve as decision documentation; save them for future reference when implementing the chosen approach
 5. **Iterate on framing**: If the initial results are not useful, try reframing the problem using the alternative framings suggested during refinement
-6. **Combine with /architect**: After brainstorming produces a preferred approach, use [/architect](/commands/architect/) to generate a formal architectural analysis of the chosen solution
+6. **Combine with /architect**: After brainstorming produces a preferred approach, use [/architect](@/commands/architect.md) to generate a formal architectural analysis of the chosen solution
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/architect](/commands/architect/) - Architecture design and recommendation generation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/orchestrate](/commands/orchestrate/) - Revolutionary AI-powered task orchestration with 10x development efficiency
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/architect](@/commands/architect.md) - Architecture design and recommendation generation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/orchestrate](@/commands/orchestrate.md) - Revolutionary AI-powered task orchestration with 10x development efficiency
 
 ---
 
@@ -207,4 +207,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

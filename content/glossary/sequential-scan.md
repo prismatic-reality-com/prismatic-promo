@@ -190,11 +190,11 @@ Query analysis is available through Mix tasks and the monitoring dashboard. Deve
 
 ## Cross-References
 
-- [Schema Migration](/glossary/schema-migration/) - Index creation through migrations to eliminate seq scans
-- [Point-in-Time Recovery](/glossary/point-in-time-recovery/) - Database recovery that may involve sequential replay
-- [Profiling](/glossary/profiling/) - Performance measurement identifying slow sequential scans
-- [Percentile](/glossary/percentile/) - Query latency percentiles affected by sequential scans
-- [Pivot Table](/glossary/pivot-table/) - Analytical operations that may legitimately require seq scans
+- [Schema Migration](@/glossary/schema-migration.md) - Index creation through migrations to eliminate seq scans
+- [Point-in-Time Recovery](@/glossary/point-in-time-recovery.md) - Database recovery that may involve sequential replay
+- [Profiling](@/glossary/profiling.md) - Performance measurement identifying slow sequential scans
+- [Percentile](@/glossary/percentile.md) - Query latency percentiles affected by sequential scans
+- [Pivot Table](@/glossary/pivot-table.md) - Analytical operations that may legitimately require seq scans
 
 ---
 

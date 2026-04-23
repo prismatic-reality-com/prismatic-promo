@@ -28,13 +28,13 @@ image_alt = "real-estate-valuation-specialist - Prismatic Platform"
 
 ## Overview
 
-The real-estate-valuation-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's real estate intelligence domain, providing automated property valuation analysis through multi-source data aggregation and market intelligence. This agent synthesizes public cadastral records, transaction histories, zoning data, development permits, and market comparable analysis to produce evidence-based property valuations with quantified confidence intervals. Its outputs support due diligence operations, investment analysis, and asset verification workflows.
+The real-estate-valuation-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's real estate intelligence domain, providing automated property valuation analysis through multi-source data aggregation and market intelligence. This agent synthesizes public cadastral records, transaction histories, zoning data, development permits, and market comparable analysis to produce evidence-based property valuations with quantified confidence intervals. Its outputs support due diligence operations, investment analysis, and asset verification workflows.
 
-Governed by the [AIAD](/glossary/aiad/) standard and the [NO DOUBTS](/glossary/no-doubts/) principle, every valuation produced by this agent carries explicit confidence scores and full provenance chains. The agent applies [NABLA Infinity](/glossary/nabla-infinity/) [signal plurality](/glossary/signal-plurality/) requirements, refusing to produce valuations from a single data source. Market data is subject to mandatory [time decay](/glossary/time-decay/) validation -- older comparables receive reduced weight in valuation models, and the agent flags stale data that may distort current estimates.
+Governed by the [AIAD](@/glossary/aiad.md) standard and the [NO DOUBTS](@/glossary/no-doubts.md) principle, every valuation produced by this agent carries explicit confidence scores and full provenance chains. The agent applies [NABLA Infinity](@/glossary/nabla-infinity.md) [signal plurality](@/glossary/signal-plurality.md) requirements, refusing to produce valuations from a single data source. Market data is subject to mandatory [time decay](@/glossary/time-decay.md) validation -- older comparables receive reduced weight in valuation models, and the agent flags stale data that may distort current estimates.
 
 ## Operational Domain
 
-The real estate intelligence domain encompasses property identification, ownership verification, market value estimation, and portfolio-level analysis. The agent operates across residential, commercial, and industrial property classes, adapting its valuation models to local market characteristics. Data sources include public land registries, tax assessment databases, building permit records, and [OSINT](/glossary/osint/)-accessible listing platforms.
+The real estate intelligence domain encompasses property identification, ownership verification, market value estimation, and portfolio-level analysis. The agent operates across residential, commercial, and industrial property classes, adapting its valuation models to local market characteristics. Data sources include public land registries, tax assessment databases, building permit records, and [OSINT](@/glossary/osint.md)-accessible listing platforms.
 
 ## Key Capabilities
 
@@ -42,8 +42,8 @@ The real estate intelligence domain encompasses property identification, ownersh
 - **Cadastral data integration** -- Extracts and correlates property records from public registries, including ownership chains, encumbrances, easements, and zoning classifications
 - **Development potential assessment** -- Evaluates undeveloped or underdeveloped properties against current zoning regulations and development permit patterns to estimate highest-and-best-use value
 - **Portfolio aggregation** -- Produces consolidated valuation reports across multi-property portfolios, identifying concentration risks and diversification characteristics
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed data collection and model calibration cycles
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for valuation pipeline monitoring and data freshness tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed data collection and model calibration cycles
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for valuation pipeline monitoring and data freshness tracking
 
 ## Authority Level
 
@@ -61,9 +61,9 @@ The real estate intelligence domain encompasses property identification, ownersh
 
 | Agent | Relationship |
 |-------|-------------|
-| [risk-assessment-commander](/agents/risk-assessment-commander/) | Provides property asset values for collateral risk models |
-| [regulatory-compliance-risk-specialist](/agents/regulatory-compliance-risk-specialist/) | Ensures valuation methods comply with jurisdictional regulatory requirements |
-| [opportunity-analyzer](/agents/opportunity-analyzer/) | Supplies valuation data for investment opportunity qualification |
+| [risk-assessment-commander](@/agents/risk-assessment-commander.md) | Provides property asset values for collateral risk models |
+| [regulatory-compliance-risk-specialist](@/agents/regulatory-compliance-risk-specialist.md) | Ensures valuation methods comply with jurisdictional regulatory requirements |
+| [opportunity-analyzer](@/agents/opportunity-analyzer.md) | Supplies valuation data for investment opportunity qualification |
 
 ## Valuation Methodology
 
@@ -148,15 +148,15 @@ end
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Valuation pipeline [metrics](/glossary/metrics/) and data freshness tracking |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent specification and discovery |
-| [SEADF](/glossary/seadf/) Pipeline | Valuation model accuracy assessment within evolution workflows |
-| [OSINT](/glossary/osint/) Infrastructure | Public data collection for market intelligence |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Valuation pipeline [metrics](@/glossary/metrics.md) and data freshness tracking |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
+| [SEADF](@/glossary/seadf.md) Pipeline | Valuation model accuracy assessment within evolution workflows |
+| [OSINT](@/glossary/osint.md) Infrastructure | Public data collection for market intelligence |
 
 ## Enforcement
 
-All valuations must pass [Trinity Gate](/glossary/trinity-gate/) validation before publication. The [NO MERCY](/glossary/no-mercy/) doctrine prohibits delivery of incomplete valuations -- every property assessment must include confidence intervals, data source citations, and explicit disclosure of any information gaps or assumptions. The [NO DOUBTS](/glossary/no-doubts/) principle requires that valuation claims are traceable to specific data sources with quantified confidence. Valuations based on stale data (comparables older than 180 days without market adjustment) are flagged with explicit freshness warnings.
+All valuations must pass [Trinity Gate](@/glossary/trinity-gate.md) validation before publication. The [NO MERCY](@/glossary/no-mercy.md) doctrine prohibits delivery of incomplete valuations -- every property assessment must include confidence intervals, data source citations, and explicit disclosure of any information gaps or assumptions. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that valuation claims are traceable to specific data sources with quantified confidence. Valuations based on stale data (comparables older than 180 days without market adjustment) are flagged with explicit freshness warnings.
 
 ---
 
@@ -165,4 +165,4 @@ All valuations must pass [Trinity Gate](/glossary/trinity-gate/) validation befo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

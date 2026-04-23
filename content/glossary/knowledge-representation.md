@@ -390,28 +390,28 @@ NIS2 Directive and ZKB 264/2025 compliance requirements must be represented as f
 
 Knowledge representation connects to a broad set of platform concepts that together form the knowledge engineering infrastructure:
 
-- [Knowledge Graph](/glossary/knowledge-graph/) -- the primary graph-based knowledge representation used for entity relationships and OSINT intelligence
-- [Knowledge Hoarding](/glossary/knowledge-hoarding/) -- the anti-pattern that knowledge representation directly combats by making knowledge explicit and accessible
-- [Ontology](/glossary/ontology/) -- the formal specification of concepts and relationships within a domain, providing the schema for knowledge representation
-- [Belief Graph](/glossary/belief-graph/) -- a specialized knowledge representation that tracks beliefs, confidence levels, and evidence chains for epistemic reasoning
-- [Graph Database](/glossary/graph-database/) -- the storage technology that implements graph-based knowledge representation with query capabilities
-- [ETS](/glossary/ets/) -- Erlang Term Storage, providing the high-speed key-value knowledge representation for operational data
-- [Embedding](/glossary/embedding/) -- vector-based knowledge representation enabling semantic similarity computation and retrieval-augmented generation
-- [RAG](/glossary/rag/) -- retrieval-augmented generation, a technique that combines knowledge representation with language model inference
-- [NABLA Infinity](/glossary/nabla-infinity/) -- the epistemic framework that defines how knowledge must be represented with provenance, confidence, and temporal decay
-- [AIAD](/glossary/aiad/) -- the agent standard that provides a structured document-based knowledge representation for all platform agents
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- the primary graph-based knowledge representation used for entity relationships and OSINT intelligence
+- [Knowledge Hoarding](@/glossary/knowledge-hoarding.md) -- the anti-pattern that knowledge representation directly combats by making knowledge explicit and accessible
+- [Ontology](@/glossary/ontology.md) -- the formal specification of concepts and relationships within a domain, providing the schema for knowledge representation
+- [Belief Graph](@/glossary/belief-graph.md) -- a specialized knowledge representation that tracks beliefs, confidence levels, and evidence chains for epistemic reasoning
+- [Graph Database](@/glossary/graph-database.md) -- the storage technology that implements graph-based knowledge representation with query capabilities
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage, providing the high-speed key-value knowledge representation for operational data
+- [Embedding](@/glossary/embedding.md) -- vector-based knowledge representation enabling semantic similarity computation and retrieval-augmented generation
+- [RAG](@/glossary/rag.md) -- retrieval-augmented generation, a technique that combines knowledge representation with language model inference
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- the epistemic framework that defines how knowledge must be represented with provenance, confidence, and temporal decay
+- [AIAD](@/glossary/aiad.md) -- the agent standard that provides a structured document-based knowledge representation for all platform agents
 
 ## See Also
 
-- [Machine Learning](/glossary/machine-learning/) -- uses knowledge representations as training data and produces learned representations as model weights
-- [Graph Theory](/glossary/graph-theory/) -- the mathematical foundation for graph-based knowledge representation
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- probabilistic reasoning over knowledge representations with uncertainty
-- [KuzuDB](/glossary/kuzu-db/) -- the specific graph database used for graph-based knowledge representation in the platform
-- [Meilisearch](/glossary/meilisearch/) -- the search engine that indexes knowledge representations for full-text retrieval
+- [Machine Learning](@/glossary/machine-learning.md) -- uses knowledge representations as training data and produces learned representations as model weights
+- [Graph Theory](@/glossary/graph-theory.md) -- the mathematical foundation for graph-based knowledge representation
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- probabilistic reasoning over knowledge representations with uncertainty
+- [KuzuDB](@/glossary/kuzu-db.md) -- the specific graph database used for graph-based knowledge representation in the platform
+- [Meilisearch](@/glossary/meilisearch.md) -- the search engine that indexes knowledge representations for full-text retrieval
 
 ---
 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Part of the [Prismatic Platform](https://github.com/korczis/prismatic-platform) Glossary
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | Glossary Index
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | Glossary Index

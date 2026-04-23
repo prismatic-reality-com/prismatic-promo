@@ -25,9 +25,9 @@ image_alt = "Executors - Prismatic Platform"
 
 ## Overview
 
-The Czech Executors [Registry](/glossary/registry-otp/) (Centralni evidence exekuci, CEE) is the central database of all bailiff enforcement proceedings in the Czech Republic, maintained by the Chamber of Executors (Exekutorska komora CR) under Act No. 120/2001 Coll. (Execution Code). When a creditor obtains an enforceable court decision or arbitration award, they may initiate execution proceedings through a court-appointed executor (soudni exekutor). All such proceedings are registered in CEE.
+The Czech Executors [Registry](@/glossary/registry-otp.md) (Centralni evidence exekuci, CEE) is the central database of all bailiff enforcement proceedings in the Czech Republic, maintained by the Chamber of Executors (Exekutorska komora CR) under Act No. 120/2001 Coll. (Execution Code). When a creditor obtains an enforceable court decision or arbitration award, they may initiate execution proceedings through a court-appointed executor (soudni exekutor). All such proceedings are registered in CEE.
 
-For [OSINT](/glossary/osint/) purposes, execution proceedings are among the most critical negative indicators for entity and individual risk assessment. The presence of active executions against a company or individual signals severe financial distress, failed debt obligations, and potential inability to fulfill contractual commitments. Unlike [insolvency proceedings](/osint/insolvencni-rejstrik/), which are collective and typically result in a structured process, executions represent individual creditor enforcement actions and can accumulate -- an entity may have dozens of simultaneous execution proceedings.
+For [OSINT](@/glossary/osint.md) purposes, execution proceedings are among the most critical negative indicators for entity and individual risk assessment. The presence of active executions against a company or individual signals severe financial distress, failed debt obligations, and potential inability to fulfill contractual commitments. Unlike [insolvency proceedings](@/osint/insolvencni-rejstrik.md), which are collective and typically result in a structured process, executions represent individual creditor enforcement actions and can accumulate -- an entity may have dozens of simultaneous execution proceedings.
 
 The CEE registry was established to bring transparency to the historically fragmented landscape of Czech enforcement proceedings. Prior to its creation, creditors and investigators had no centralized mechanism to determine the total enforcement burden on a debtor. Today, the registry provides a single point of inquiry for all bailiff proceedings across the country, regardless of which executor or court is handling the case.
 
@@ -73,7 +73,7 @@ Every execution proceeding follows a defined lifecycle within the Czech legal fr
 
 ## Integration with Prismatic
 
-The Executors registry provides the enforcement proceedings intelligence layer within the Prismatic platform, critical for credit risk assessment alongside [Insolvency Register](/osint/insolvencni-rejstrik/) data.
+The Executors registry provides the enforcement proceedings intelligence layer within the Prismatic platform, critical for credit risk assessment alongside [Insolvency Register](@/osint/insolvencni-rejstrik.md) data.
 
 ```elixir
 # Check executions by ICO
@@ -193,13 +193,13 @@ Recent legislative changes have introduced the principle of "territorial concent
 - Pre-contract screening for business partners
 - Ongoing monitoring of key customers and suppliers
 - Credit decisioning input for financial institutions
-- Combine with [Insolvency Register](/osint/insolvencni-rejstrik/) for complete distress picture
+- Combine with [Insolvency Register](@/osint/insolvencni-rejstrik.md) for complete distress picture
 
 ### Due Diligence
 - M&A target execution history assessment
 - Employee screening for financial positions (with consent)
-- Cross-reference with [ARES](/osint/ares/) and [Justice.cz](/osint/justice-cz/)
-- Property encumbrance verification with [CUZK](/osint/cuzk/)
+- Cross-reference with [ARES](@/osint/ares.md) and [Justice.cz](@/osint/justice-cz.md)
+- Property encumbrance verification with [CUZK](@/osint/cuzk.md)
 
 ### Asset Recovery
 - Identify assets available for enforcement
@@ -209,7 +209,7 @@ Recent legislative changes have introduced the principle of "territorial concent
 
 ### Regulatory Compliance
 - Anti-money laundering checks for financial institutions
-- [NIS2](/glossary/nis2/) supply chain risk assessment for critical infrastructure operators
+- [NIS2](@/glossary/nis2.md) supply chain risk assessment for critical infrastructure operators
 - Insurance underwriting risk evaluation
 - Public procurement disqualification screening
 
@@ -225,18 +225,18 @@ Execution data reveals patterns that go beyond individual case assessment. Aggre
 
 ## Related Sources
 
-- [Insolvency Register](/osint/insolvencni-rejstrik/) - Complementary insolvency data
-- [CUZK](/osint/cuzk/) - Property records (execution liens visible)
-- [ARES](/osint/ares/) - Entity identification for debtors
-- [Justice.cz](/osint/justice-cz/) - Court records and corporate data
-- [Court Cases](/osint/court-cases/) - Underlying court decisions
-- [Nespolehlivy Platce](/osint/nespolehlivy-platce/) - VAT non-compliance correlation
-- [VR.cz](/osint/vr-cz/) - Unified public registry for entity verification
+- [Insolvency Register](@/osint/insolvencni-rejstrik.md) - Complementary insolvency data
+- [CUZK](@/osint/cuzk.md) - Property records (execution liens visible)
+- [ARES](@/osint/ares.md) - Entity identification for debtors
+- [Justice.cz](@/osint/justice-cz.md) - Court records and corporate data
+- [Court Cases](@/osint/court-cases.md) - Underlying court decisions
+- [Nespolehlivy Platce](@/osint/nespolehlivy-platce.md) - VAT non-compliance correlation
+- [VR.cz](@/osint/vr-cz.md) - Unified public registry for entity verification
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Execution data in [EASM](/glossary/easm/) risk scoring
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Execution data in [EASM](@/glossary/easm.md) risk scoring
 
 ---
 
@@ -245,4 +245,4 @@ Execution data reveals patterns that go beyond individual case assessment. Aggre
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

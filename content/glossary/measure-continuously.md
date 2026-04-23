@@ -63,7 +63,7 @@ A critical constraint in continuous measurement is that the act of measuring mus
 
 Within the Prismatic Platform's 115-application umbrella ecosystem, continuous measurement operates as a cross-cutting concern managed by dedicated infrastructure. The platform emits telemetry events from every layer: HTTP request handling in Phoenix, database query execution in Ecto, GenServer state transitions, supervision tree health checks, and custom business logic events from domain-specific applications.
 
-The measurement infrastructure enforces the platform's quality standards through automated thresholds. The [Quality Floor Guardian](/glossary/quality-floor-guardian/) monitors quality scores in real-time, triggering alerts when any domain drops below established baselines. The [Quality DNA](/glossary/quality-dna/) system persists measurement data across sessions, enabling trend analysis and regression detection over weeks and months rather than single session windows.
+The measurement infrastructure enforces the platform's quality standards through automated thresholds. The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) monitors quality scores in real-time, triggering alerts when any domain drops below established baselines. The [Quality DNA](@/glossary/quality-dna.md) system persists measurement data across sessions, enabling trend analysis and regression detection over weeks and months rather than single session windows.
 
 Page load performance standards exemplify this approach: every page must load under 250ms total, with server-side render under 100ms and LiveView mount under 150ms. These are not aspirational targets but measured, enforced constraints verified by continuous telemetry.
 
@@ -314,7 +314,7 @@ The Prismatic Platform's monitoring dashboards subscribe to telemetry events and
 
 ## Integration with Quality Gates
 
-Continuous measurement directly feeds the platform's [quality gate](/glossary/quality-gates/) enforcement. The `mix quality.gates` task queries aggregated metrics to verify that quality standards are maintained. Metrics that fall below thresholds block commits through the pre-commit hook infrastructure, creating a feedback loop where measurement drives enforcement and enforcement drives improvement.
+Continuous measurement directly feeds the platform's [quality gate](@/glossary/quality-gates.md) enforcement. The `mix quality.gates` task queries aggregated metrics to verify that quality standards are maintained. Metrics that fall below thresholds block commits through the pre-commit hook infrastructure, creating a feedback loop where measurement drives enforcement and enforcement drives improvement.
 
 The quality gate metrics include compilation warning counts, Credo violation counts, Dialyzer error counts, test coverage percentages, and response time percentiles. Each metric has a defined threshold, and the gate reports a pass/fail result for each metric individually and in aggregate.
 
@@ -362,24 +362,24 @@ Several common mistakes undermine the effectiveness of continuous measurement:
 
 ## Relationship to Observability
 
-Continuous measurement is a subset of the broader [observability](/glossary/observability/) discipline. While measurement focuses on the collection and aggregation of quantitative data, observability encompasses the ability to understand internal system state from external outputs -- including qualitative analysis, debugging workflows, and the sociotechnical practices around incident response.
+Continuous measurement is a subset of the broader [observability](@/glossary/observability.md) discipline. While measurement focuses on the collection and aggregation of quantitative data, observability encompasses the ability to understand internal system state from external outputs -- including qualitative analysis, debugging workflows, and the sociotechnical practices around incident response.
 
-The distinction matters because measurement alone is insufficient. A system can produce millions of metrics and still be opaque if those metrics are not organized into a coherent model of system behavior. The Prismatic Platform bridges this gap by combining measurement with structured [telemetry](/glossary/telemetry/) events that carry enough context for root cause analysis, not just anomaly detection.
+The distinction matters because measurement alone is insufficient. A system can produce millions of metrics and still be opaque if those metrics are not organized into a coherent model of system behavior. The Prismatic Platform bridges this gap by combining measurement with structured [telemetry](@/glossary/telemetry.md) events that carry enough context for root cause analysis, not just anomaly detection.
 
 ## Cross-References
 
-- [Telemetry](/glossary/telemetry/) -- The event emission library underlying measurement
-- [Observability](/glossary/observability/) -- The broader discipline encompassing measurement
-- [Metrics](/glossary/metrics/) -- Specific numeric measurements collected continuously
-- [Monitoring](/glossary/monitoring/) -- Active surveillance of system health
-- [Performance Tracking](/glossary/performance-tracking/) -- Tracking performance over time
-- [Health Monitoring](/glossary/health-monitoring/) -- Process and system health checks
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Failure detection informed by measurement
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Automated quality enforcement
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session measurement persistence
-- [GenServer](/glossary/genserver/) -- Process abstraction for measurement workers
-- [Supervision Tree](/glossary/supervision-tree/) -- Fault-tolerant measurement infrastructure
-- [ETS](/glossary/ets/) -- In-memory storage for metric aggregation
+- [Telemetry](@/glossary/telemetry.md) -- The event emission library underlying measurement
+- [Observability](@/glossary/observability.md) -- The broader discipline encompassing measurement
+- [Metrics](@/glossary/metrics.md) -- Specific numeric measurements collected continuously
+- [Monitoring](@/glossary/monitoring.md) -- Active surveillance of system health
+- [Performance Tracking](@/glossary/performance-tracking.md) -- Tracking performance over time
+- [Health Monitoring](@/glossary/health-monitoring.md) -- Process and system health checks
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Failure detection informed by measurement
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Automated quality enforcement
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session measurement persistence
+- [GenServer](@/glossary/genserver.md) -- Process abstraction for measurement workers
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Fault-tolerant measurement infrastructure
+- [ETS](@/glossary/ets.md) -- In-memory storage for metric aggregation
 
 ---
 

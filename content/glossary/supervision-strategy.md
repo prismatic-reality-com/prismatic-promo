@@ -222,10 +222,10 @@ Supervisor.which_children(PrismaticDd.Supervisor)
 
 ## Cross-References
 
-- [Supervisor](/glossary/supervisor/) - OTP process that implements supervision strategies
-- [GenServer](/glossary/genserver/) - Common child process type managed by supervisors
-- [OTP](/glossary/otp/) - Framework providing supervision abstractions
-- [Fault Tolerance](/glossary/fault-tolerance/) - System property achieved through supervision
+- [Supervisor](@/glossary/supervisor.md) - OTP process that implements supervision strategies
+- [GenServer](@/glossary/genserver.md) - Common child process type managed by supervisors
+- [OTP](@/glossary/otp.md) - Framework providing supervision abstractions
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - System property achieved through supervision
 
 ---
 

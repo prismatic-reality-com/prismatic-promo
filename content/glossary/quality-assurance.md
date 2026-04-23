@@ -38,13 +38,13 @@ image_alt = "Quality Assurance - Prismatic Platform"
 
 Quality Assurance (QA) is the systematic, process-oriented discipline of ensuring that software products and processes meet defined quality requirements before, during, and after development. Unlike Quality Control (QC), which focuses on detecting defects in finished products, QA focuses on preventing defects through rigorous processes, automated enforcement, and continuous improvement cycles. QA encompasses the entire development lifecycle: requirements validation, design review, implementation standards, automated testing, static analysis, performance verification, and production monitoring.
 
-In the Prismatic Platform, quality assurance is not a separate activity performed by a dedicated QA team but is woven into every stage of development through automated enforcement. The platform maintains a 100/100 quality score across 13 quality domains with zero Quality Debt Points (QDP), enforced by an 11-phase pre-commit hook, [Credo](/glossary/credo/) strict analysis, [Dialyzer](/glossary/dialyzer/) type checking, compilation with warnings-as-errors, and continuous [quality gate](/glossary/quality-gate/) validation. The governing principle is simple: no code reaches production without passing every quality check. No exceptions.
+In the Prismatic Platform, quality assurance is not a separate activity performed by a dedicated QA team but is woven into every stage of development through automated enforcement. The platform maintains a 100/100 quality score across 13 quality domains with zero Quality Debt Points (QDP), enforced by an 11-phase pre-commit hook, [Credo](@/glossary/credo.md) strict analysis, [Dialyzer](@/glossary/dialyzer.md) type checking, compilation with warnings-as-errors, and continuous [quality gate](@/glossary/quality-gate.md) validation. The governing principle is simple: no code reaches production without passing every quality check. No exceptions.
 
 ## Overview
 
 Quality assurance in software engineering has evolved through several paradigms. Early approaches relied on manual testing performed after development was complete, a reactive model that caught defects late and expensive. The shift to automated testing (unit, integration, end-to-end) moved defect detection earlier in the lifecycle. Modern QA integrates continuous quality verification into the development workflow itself, making it impossible to introduce defects without immediate feedback.
 
-The Prismatic Platform represents an extreme point on this evolution spectrum: quality enforcement is automated, non-bypassable, and operates at every development stage from keystroke to production deployment. This approach is governed by the [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine, which mandates zero tolerance for incomplete implementations, quality violations, or untested code.
+The Prismatic Platform represents an extreme point on this evolution spectrum: quality enforcement is automated, non-bypassable, and operates at every development stage from keystroke to production deployment. This approach is governed by the [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine, which mandates zero tolerance for incomplete implementations, quality violations, or untested code.
 
 ### Quality Dimensions
 
@@ -406,7 +406,7 @@ end
 
 ### Quality DNA Cross-Session Continuity
 
-[Quality DNA](/glossary/quality-dna/) persists quality state across development sessions, ensuring that quality improvements are never lost and regressions are detected immediately:
+[Quality DNA](@/glossary/quality-dna.md) persists quality state across development sessions, ensuring that quality improvements are never lost and regressions are detected immediately:
 
 ```elixir
 defmodule PrismaticQuality.QualityDNA do
@@ -591,7 +591,7 @@ If developers can skip quality checks under time pressure, they will. The platfo
 
 ### 4. Track Quality Over Time
 
-Point-in-time quality checks miss trends. The [Quality DNA](/glossary/quality-dna/) system persists quality state across sessions, enabling regression detection and long-term trend analysis.
+Point-in-time quality checks miss trends. The [Quality DNA](@/glossary/quality-dna.md) system persists quality state across sessions, enabling regression detection and long-term trend analysis.
 
 ### 5. Define Quantitative Standards
 
@@ -599,7 +599,7 @@ Point-in-time quality checks miss trends. The [Quality DNA](/glossary/quality-dn
 
 ### 6. Address Root Causes, Not Symptoms
 
-When a quality violation is detected, fix the underlying design flaw rather than adding a workaround that satisfies the check. The mandatory [regression testing](/glossary/regression-testing/) protocol ensures that every fix is accompanied by tests that prevent recurrence.
+When a quality violation is detected, fix the underlying design flaw rather than adding a workaround that satisfies the check. The mandatory [regression testing](@/glossary/regression-testing.md) protocol ensures that every fix is accompanied by tests that prevent recurrence.
 
 ## Common Pitfalls
 
@@ -617,11 +617,11 @@ When quality assurance is delegated to a separate team, developers stop thinking
 
 ### Inconsistent Standards Across Components
 
-Applying different quality standards to different parts of the codebase creates confusion and maintenance burden. The [Universal App Quality Standard](/glossary/quality-standard/) ensures consistent quality requirements across all 115 umbrella applications.
+Applying different quality standards to different parts of the codebase creates confusion and maintenance burden. The [Universal App Quality Standard](@/glossary/quality-standard.md) ensures consistent quality requirements across all 115 umbrella applications.
 
 ### Neglecting Non-Functional Quality
 
-Focusing exclusively on functional correctness while ignoring [performance](/glossary/performance/), [security](/glossary/security/), maintainability, and observability. The 13-domain quality model ensures comprehensive coverage beyond functional testing.
+Focusing exclusively on functional correctness while ignoring [performance](@/glossary/performance.md), [security](@/glossary/security.md), maintainability, and observability. The 13-domain quality model ensures comprehensive coverage beyond functional testing.
 
 ## Use Cases
 
@@ -639,7 +639,7 @@ The `mix quality.gates` command runs all quality checks in a single invocation, 
 
 ### Cross-Session Quality Continuity
 
-The [Quality DNA](/glossary/quality-dna/) system saves quality state to `.claude/quality-dna/current-state.json` in each app directory, enabling detection of quality regressions across development sessions even when different developers or AI agents work on the codebase.
+The [Quality DNA](@/glossary/quality-dna.md) system saves quality state to `.claude/quality-dna/current-state.json` in each app directory, enabling detection of quality regressions across development sessions even when different developers or AI agents work on the codebase.
 
 ### Regression Test Enforcement
 
@@ -647,29 +647,29 @@ The Mandatory Regression Test Protocol ensures every bug fix includes tests that
 
 ## Related Concepts
 
-- [Quality Gate](/glossary/quality-gate/): Automated enforcement checkpoints that block non-compliant code
-- [Quality Standard](/glossary/quality-standard/): Universal quality requirements for all umbrella applications
-- [Quality DNA](/glossary/quality-dna/): Cross-session quality state persistence and regression detection
-- [Code Quality](/glossary/code-quality/): Source code characteristics measured by static analysis
-- [Regression Testing](/glossary/regression-testing/): Mandatory tests accompanying every bug fix
-- [Clean Run](/glossary/clean-run/): Zero-warning compilation standard across all apps
-- [Code Coverage](/glossary/code-coverage/): Line and branch coverage metrics for test suites
-- [Credo](/glossary/credo/): Elixir static analysis tool for code quality checking
-- [Dialyzer](/glossary/dialyzer/): Erlang/Elixir type checker and discrepancy analyzer
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/): Autonomous quality monitoring system
-- [Testing](/glossary/testing/): ExUnit-based test framework and strategy
-- [Static Analysis](/glossary/static-analysis/): Compile-time code analysis for defect detection
+- [Quality Gate](@/glossary/quality-gate.md): Automated enforcement checkpoints that block non-compliant code
+- [Quality Standard](@/glossary/quality-standard.md): Universal quality requirements for all umbrella applications
+- [Quality DNA](@/glossary/quality-dna.md): Cross-session quality state persistence and regression detection
+- [Code Quality](@/glossary/code-quality.md): Source code characteristics measured by static analysis
+- [Regression Testing](@/glossary/regression-testing.md): Mandatory tests accompanying every bug fix
+- [Clean Run](@/glossary/clean-run.md): Zero-warning compilation standard across all apps
+- [Code Coverage](@/glossary/code-coverage.md): Line and branch coverage metrics for test suites
+- [Credo](@/glossary/credo.md): Elixir static analysis tool for code quality checking
+- [Dialyzer](@/glossary/dialyzer.md): Erlang/Elixir type checker and discrepancy analyzer
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md): Autonomous quality monitoring system
+- [Testing](@/glossary/testing.md): ExUnit-based test framework and strategy
+- [Static Analysis](@/glossary/static-analysis.md): Compile-time code analysis for defect detection
 
 ## See Also
 
-- [Quality Gate](/glossary/quality-gate/) for automated enforcement mechanisms
-- [Quality DNA](/glossary/quality-dna/) for cross-session quality persistence
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) for the governing doctrine
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) for the 11-phase enforcement pipeline
-- [Credo](/glossary/credo/) for static analysis configuration
-- [Dialyzer](/glossary/dialyzer/) for type checking enforcement
-- [Performance](/glossary/performance/) for the P0 performance quality dimension
-- [ExUnit](/glossary/exunit/) for the testing framework
+- [Quality Gate](@/glossary/quality-gate.md) for automated enforcement mechanisms
+- [Quality DNA](@/glossary/quality-dna.md) for cross-session quality persistence
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) for the governing doctrine
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) for the 11-phase enforcement pipeline
+- [Credo](@/glossary/credo.md) for static analysis configuration
+- [Dialyzer](@/glossary/dialyzer.md) for type checking enforcement
+- [Performance](@/glossary/performance.md) for the P0 performance quality dimension
+- [ExUnit](@/glossary/exunit.md) for the testing framework
 
 ---
 
@@ -678,4 +678,4 @@ The Mandatory Regression Test Protocol ensures every bug fix includes tests that
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

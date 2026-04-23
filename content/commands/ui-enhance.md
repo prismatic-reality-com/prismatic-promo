@@ -24,9 +24,9 @@ image_alt = "/ui-enhance - Prismatic Platform"
 
 ## Overview
 
-**/ui-enhance** is a production command in the **Development** category of the Prismatic Platform. It improves the visual quality, usability, and accessibility of existing UI components, pages, and layouts using [TailwindCSS](/glossary/tailwindcss/) utilities and [Flowbite](/glossary/flowbite/) component patterns. While [/svihadlo](/commands/svihadlo/) creates new visible features from scratch, `/ui-enhance` focuses on refining and improving existing interfaces: modernizing layouts, improving responsive behavior, enhancing color schemes, fixing alignment issues, adding loading states, improving error presentations, and bringing pages up to the platform's design standards.
+**/ui-enhance** is a production command in the **Development** category of the Prismatic Platform. It improves the visual quality, usability, and accessibility of existing UI components, pages, and layouts using [TailwindCSS](@/glossary/tailwindcss.md) utilities and [Flowbite](@/glossary/flowbite.md) component patterns. While [/svihadlo](@/commands/svihadlo.md) creates new visible features from scratch, `/ui-enhance` focuses on refining and improving existing interfaces: modernizing layouts, improving responsive behavior, enhancing color schemes, fixing alignment issues, adding loading states, improving error presentations, and bringing pages up to the platform's design standards.
 
-This command operates under the **L2+** authority level and is executed by the `ui-enhance-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The ui-enhance-specialist agent has deep expertise in TailwindCSS utility composition, Flowbite component library patterns, responsive design breakpoints, dark mode implementation, and Phoenix LiveView component architecture.
+This command operates under the **L2+** authority level and is executed by the `ui-enhance-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The ui-enhance-specialist agent has deep expertise in TailwindCSS utility composition, Flowbite component library patterns, responsive design breakpoints, dark mode implementation, and Phoenix LiveView component architecture.
 
 The platform enforces a strict design mandate: all styling must use TailwindCSS utilities exclusively. Custom CSS is forbidden. This constraint means UI enhancement is entirely a matter of TailwindCSS class composition and Flowbite pattern application. `/ui-enhance` ensures this constraint is maintained while improving visual quality: it never introduces custom CSS, never adds inline styles, and always produces output that conforms to the platform's design system documentation.
 
@@ -178,19 +178,19 @@ Enhanced templates are validated: compilation check (HEEx parsing), Flowbite pat
 
 ### Phase 5: Verification
 
-Routes serving enhanced pages are tested via [/route-test](/commands/route-test/) to verify they still render correctly. Visual regression detection compares the enhanced output against the previous version to identify unintended changes.
+Routes serving enhanced pages are tested via [/route-test](@/commands/route-test.md) to verify they still render correctly. Visual regression detection compares the enhanced output against the previous version to identify unintended changes.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/svihadlo](/commands/svihadlo/) | Peer | New features; ui-enhance refines existing |
-| [/code](/commands/code/) | Peer | General coding for non-UI work |
-| [/route-test](/commands/route-test/) | Validation | Route verification after enhancements |
-| [/quality-gates](/commands/quality-gates/) | Enforcement | Enhanced code passes quality gates |
-| [TailwindCSS](/glossary/tailwindcss/) | Design System | Exclusive styling system |
-| [Flowbite](/glossary/flowbite/) | Component Library | Standard component patterns |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Enhancement execution metrics |
+| [/svihadlo](@/commands/svihadlo.md) | Peer | New features; ui-enhance refines existing |
+| [/code](@/commands/code.md) | Peer | General coding for non-UI work |
+| [/route-test](@/commands/route-test.md) | Validation | Route verification after enhancements |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | Enhanced code passes quality gates |
+| [TailwindCSS](@/glossary/tailwindcss.md) | Design System | Exclusive styling system |
+| [Flowbite](@/glossary/flowbite.md) | Component Library | Standard component patterns |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Enhancement execution metrics |
 | Page Load Performance | Constraint | Enhancements must not degrade load time |
 
 ## Best Practices
@@ -251,19 +251,19 @@ Compare before and after screenshots:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. No custom CSS, no inline styles, no accessibility regressions. Every enhancement must improve or maintain the design standard.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every enhancement is based on audit findings, not aesthetic preference. Changes are validated through compilation, route testing, and visual verification.
 
 ## Related Commands
 
-- [/svihadlo](/commands/svihadlo/) - Ultra-fast visible feature implementation in 5-15 minutes
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/route-test](/commands/route-test/) - Route testing and HTTP endpoint verification
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
+- [/svihadlo](@/commands/svihadlo.md) - Ultra-fast visible feature implementation in 5-15 minutes
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/route-test](@/commands/route-test.md) - Route testing and HTTP endpoint verification
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
 
 ---
 
@@ -272,4 +272,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

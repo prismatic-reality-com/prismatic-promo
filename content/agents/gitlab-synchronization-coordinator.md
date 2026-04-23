@@ -28,7 +28,7 @@ image_alt = "GitLab Synchronization Coordinator - Prismatic Platform"
 
 ## Overview
 
-The GitLab Synchronization Coordinator is an L3 strategic authority operating within the [Archer Supreme](/glossary/archer-supreme/) Mission Support domain of the Prismatic Platform. This agent provides real-time GitLab operations synchronization, ensuring that the platform's internal state representations remain continuously aligned with GitLab's external state across all resource types. As a mission-critical support agent, it enables the ARCHER SUPREME command hierarchy to operate with confidence that strategic decisions are based on current, accurate data rather than stale cached representations.
+The GitLab Synchronization Coordinator is an L3 strategic authority operating within the [Archer Supreme](@/glossary/archer-supreme.md) Mission Support domain of the Prismatic Platform. This agent provides real-time GitLab operations synchronization, ensuring that the platform's internal state representations remain continuously aligned with GitLab's external state across all resource types. As a mission-critical support agent, it enables the ARCHER SUPREME command hierarchy to operate with confidence that strategic decisions are based on current, accurate data rather than stale cached representations.
 
 In a platform where strategic decisions depend on GitLab state -- milestone progress driving resource allocation, pipeline status influencing deployment decisions, issue velocity informing timeline forecasts -- synchronization latency directly impacts decision quality. The Synchronization Coordinator minimizes this latency through real-time event processing with sub-second propagation of state changes from GitLab to internal representations. It operates as the central coordination point for all synchronization activities, orchestrating the specialized sync agents that handle individual resource types while maintaining a holistic view of cross-resource consistency.
 
@@ -62,25 +62,25 @@ The Synchronization Coordinator provides six primary capabilities that collectiv
 
 ## Technical Implementation
 
-The coordinator is implemented as a supervised [OTP](/glossary/otp/) application with a [GenServer](/glossary/genserver/)-based event router that distributes incoming webhook events to specialized handler processes. The event router uses consistent hashing to distribute events across handler processes, ensuring that events for the same resource are always processed by the same handler to maintain ordering guarantees.
+The coordinator is implemented as a supervised [OTP](@/glossary/otp.md) application with a [GenServer](@/glossary/genserver.md)-based event router that distributes incoming webhook events to specialized handler processes. The event router uses consistent hashing to distribute events across handler processes, ensuring that events for the same resource are always processed by the same handler to maintain ordering guarantees.
 
-State storage uses [ETS](/glossary/ets/) tables organized by resource type with secondary indexes on common query patterns. The ETS tables provide sub-millisecond read access for platform agents that need current GitLab state. Write operations are serialized through the responsible handler process to prevent concurrent modification conflicts.
+State storage uses [ETS](@/glossary/ets.md) tables organized by resource type with secondary indexes on common query patterns. The ETS tables provide sub-millisecond read access for platform agents that need current GitLab state. Write operations are serialized through the responsible handler process to prevent concurrent modification conflicts.
 
-The [SEADF](/glossary/seadf/) integration enables the coordinator to participate in the platform's self-evolving development framework. Synchronization patterns that prove particularly effective (such as optimized batch sizes or caching strategies) are captured and evolved through the SEADF genetic optimization engine.
+The [SEADF](@/glossary/seadf.md) integration enables the coordinator to participate in the platform's self-evolving development framework. Synchronization patterns that prove particularly effective (such as optimized batch sizes or caching strategies) are captured and evolved through the SEADF genetic optimization engine.
 
-[Mycelial network](/glossary/mycelial-network/) integration enables the coordinator to propagate synchronization patterns and optimizations discovered through operational experience to other synchronization-related agents across the platform.
+[Mycelial network](@/glossary/mycelial-network.md) integration enables the coordinator to propagate synchronization patterns and optimizations discovered through operational experience to other synchronization-related agents across the platform.
 
-[Telemetry](/glossary/telemetry/) events provide comprehensive observability into synchronization operations, including per-event processing times, queue utilization, consistency check results, and partition recovery events.
+[Telemetry](@/glossary/telemetry.md) events provide comprehensive observability into synchronization operations, including per-event processing times, queue utilization, consistency check results, and partition recovery events.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [gitlab-auto-sync-orchestrator](/agents/gitlab-auto-sync-orchestrator/) | Delegates resource-type synchronization operations | Synchronization |
-| [gitlab-issue-sync-specialist](/agents/gitlab-issue-sync-specialist/) | Coordinates issue-specific synchronization tasks | Issue Tracking |
-| [gitlab-strategic-coordinator](/agents/gitlab-strategic-coordinator/) | Provides synchronized data freshness guarantees for strategic planning | Strategic |
-| [gitlab-api-specialist-agent](/agents/gitlab-api-specialist-agent/) | Provides API access for synchronization and consistency verification operations | Integration |
-| [gitlab-mycelial-propagator](/agents/gitlab-mycelial-propagator/) | Propagates synchronization optimizations across platform domains | Cross-Domain |
+| [gitlab-auto-sync-orchestrator](@/agents/gitlab-auto-sync-orchestrator.md) | Delegates resource-type synchronization operations | Synchronization |
+| [gitlab-issue-sync-specialist](@/agents/gitlab-issue-sync-specialist.md) | Coordinates issue-specific synchronization tasks | Issue Tracking |
+| [gitlab-strategic-coordinator](@/agents/gitlab-strategic-coordinator.md) | Provides synchronized data freshness guarantees for strategic planning | Strategic |
+| [gitlab-api-specialist-agent](@/agents/gitlab-api-specialist-agent.md) | Provides API access for synchronization and consistency verification operations | Integration |
+| [gitlab-mycelial-propagator](@/agents/gitlab-mycelial-propagator.md) | Propagates synchronization optimizations across platform domains | Cross-Domain |
 
 ## Mission Support Operations
 
@@ -100,7 +100,7 @@ The coordinator also supports strategic simulation operations where the ARCHER S
 
 ## Enforcement
 
-The GitLab Synchronization Coordinator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Synchronization freshness guarantees are treated as SLAs with automatic escalation when thresholds are exceeded. Consistency drift is treated as an L2 violation requiring immediate investigation and corrective action. No platform agent is permitted to access GitLab state outside of the synchronized representation, ensuring that all agents operate on consistent data. Synchronization failures that cannot be automatically recovered trigger immediate escalation to the [Prismatic Safety](/apps/prismatic-safety/) [quality floor guardian](/glossary/quality-floor-guardian/).
+The GitLab Synchronization Coordinator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Synchronization freshness guarantees are treated as SLAs with automatic escalation when thresholds are exceeded. Consistency drift is treated as an L2 violation requiring immediate investigation and corrective action. No platform agent is permitted to access GitLab state outside of the synchronized representation, ensuring that all agents operate on consistent data. Synchronization failures that cannot be automatically recovered trigger immediate escalation to the [Prismatic Safety](@/apps/prismatic-safety.md) [quality floor guardian](@/glossary/quality-floor-guardian.md).
 
 ---
 
@@ -109,4 +109,4 @@ The GitLab Synchronization Coordinator operates under the [NO MERCY, NO DOUBTS](
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

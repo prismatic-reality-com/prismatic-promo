@@ -28,9 +28,9 @@ image_alt = "architecture-decision-specialist - Prismatic Platform"
 
 ## Overview
 
-The Architecture Decision Specialist operates as an L2 tactical operations agent within the Primary Producer domain of the Prismatic Platform. This agent manages the lifecycle of Architecture Decision Records (ADRs), ensuring that every significant architectural choice is documented with context, alternatives considered, decision rationale, and expected consequences. In a platform with 90 [umbrella application](/glossary/umbrella-application/)s and 400+ agents, undocumented architectural decisions become invisible constraints that trap future developers.
+The Architecture Decision Specialist operates as an L2 tactical operations agent within the Primary Producer domain of the Prismatic Platform. This agent manages the lifecycle of Architecture Decision Records (ADRs), ensuring that every significant architectural choice is documented with context, alternatives considered, decision rationale, and expected consequences. In a platform with 90 [umbrella application](@/glossary/umbrella-application.md)s and 400+ agents, undocumented architectural decisions become invisible constraints that trap future developers.
 
-Architectural decisions in the Prismatic ecosystem range from framework-level choices like the selection of [OTP](/glossary/otp/) supervision strategies to tactical decisions about storage [adapter pattern](/glossary/adapter-pattern/)s and inter-application communication protocols. The Architecture Decision Specialist ensures each decision follows a structured template that captures the problem statement, constraints, evaluated alternatives with pros and cons, the chosen approach, and measurable success criteria. This creates a searchable knowledge base that explains not just what was decided, but why.
+Architectural decisions in the Prismatic ecosystem range from framework-level choices like the selection of [OTP](@/glossary/otp.md) supervision strategies to tactical decisions about storage [adapter pattern](@/glossary/adapter-pattern.md)s and inter-application communication protocols. The Architecture Decision Specialist ensures each decision follows a structured template that captures the problem statement, constraints, evaluated alternatives with pros and cons, the chosen approach, and measurable success criteria. This creates a searchable knowledge base that explains not just what was decided, but why.
 
 ## Operational Domain
 
@@ -109,7 +109,7 @@ end
 - **Decision impact analysis** that evaluates proposed architectural changes against existing ADRs, identifying conflicts, superseded decisions, and downstream implications across the umbrella project
 - **Alternative documentation** requiring structured capture of all considered approaches with explicit pros, cons, and rejection rationale, preventing revisitation of previously evaluated options
 - **Decision compliance monitoring** that tracks whether implemented code aligns with approved ADRs, flagging deviations that may indicate either implementation drift or undocumented decision changes
-- **Cross-reference maintenance** linking ADRs to related code files, test suites, and other ADRs to create a navigable decision [knowledge graph](/glossary/knowledge-graph/)
+- **Cross-reference maintenance** linking ADRs to related code files, test suites, and other ADRs to create a navigable decision [knowledge graph](@/glossary/knowledge-graph.md)
 - **Temporal analysis** tracking decision effectiveness over time by evaluating success criteria against measurable outcomes at scheduled review dates
 
 ## Decision Impact Analysis
@@ -158,29 +158,29 @@ The specialist continuously monitors the codebase for deviations from accepted A
 
 ## Authority Level
 
-**L2** - Tactical Operations. Domain-specific [tactical execution](/glossary/tactical-execution/) with cross-domain coordination capabilities. The Architecture Decision Specialist can propose and document decisions across all domains but requires L3 authority approval for decisions that affect platform-wide architecture.
+**L2** - Tactical Operations. Domain-specific [tactical execution](@/glossary/tactical-execution.md) with cross-domain coordination capabilities. The Architecture Decision Specialist can propose and document decisions across all domains but requires L3 authority approval for decisions that affect platform-wide architecture.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [adr-specialist](/agents/adr-specialist/) | ADR Partner | Collaborates on ADR governance and record management standards |
-| [architecture-review-specialist](/agents/architecture-review-specialist/) | Review Authority | Validates architectural decisions against platform structural requirements |
-| [code-review-specialist-agent-v20](/agents/code-review-specialist-agent-v20/) | Implementation Checker | Verifies that code changes align with documented architectural decisions |
-| [system-architecture-specialist](/agents/system-architecture-specialist/) | Architecture Context | Provides system-wide architectural context for decision evaluation |
+| [adr-specialist](@/agents/adr-specialist.md) | ADR Partner | Collaborates on ADR governance and record management standards |
+| [architecture-review-specialist](@/agents/architecture-review-specialist.md) | Review Authority | Validates architectural decisions against platform structural requirements |
+| [code-review-specialist-agent-v20](@/agents/code-review-specialist-agent-v20.md) | Implementation Checker | Verifies that code changes align with documented architectural decisions |
+| [system-architecture-specialist](@/agents/system-architecture-specialist.md) | Architecture Context | Provides system-wide architectural context for decision evaluation |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [Quality Gates](/glossary/quality-gates/) | ADR compliance checks integrated into quality pipeline |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | ADR validation in merge request pipelines |
-| Platform [Telemetry](/glossary/telemetry/) | Decision effectiveness tracking through success criteria metrics |
-| [Knowledge Graph](/glossary/knowledge-graph/) | ADR cross-reference network for decision navigation |
+| [Quality Gates](@/glossary/quality-gates.md) | ADR compliance checks integrated into quality pipeline |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | ADR validation in merge request pipelines |
+| Platform [Telemetry](@/glossary/telemetry.md) | Decision effectiveness tracking through success criteria metrics |
+| [Knowledge Graph](@/glossary/knowledge-graph.md) | ADR cross-reference network for decision navigation |
 
 ## Enforcement
 
-All architectural decision processes are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No significant architectural change may proceed without a documented ADR that has completed the review process. Decisions without explicit alternative analysis are rejected as incomplete. Every ADR must include measurable success criteria and a review date for evaluating the decision's effectiveness after implementation. The [NABLA](/glossary/nabla-infinity/) Contradiction Preservation axiom requires that rejected alternatives remain documented with their rejection rationale, preventing the platform from revisiting decisions without acknowledging prior analysis.
+All architectural decision processes are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No significant architectural change may proceed without a documented ADR that has completed the review process. Decisions without explicit alternative analysis are rejected as incomplete. Every ADR must include measurable success criteria and a review date for evaluating the decision's effectiveness after implementation. The [NABLA](@/glossary/nabla-infinity.md) Contradiction Preservation axiom requires that rejected alternatives remain documented with their rejection rationale, preventing the platform from revisiting decisions without acknowledging prior analysis.
 
 ---
 
@@ -189,4 +189,4 @@ All architectural decision processes are governed by the [NO MERCY, NO DOUBTS](/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

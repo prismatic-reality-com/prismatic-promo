@@ -24,13 +24,13 @@ image_alt = "/evolve-patterns - Prismatic Platform"
 
 ## Overview
 
-**/evolve-patterns** is a production command in the **Evolution** category of the Prismatic Platform. It performs pattern evolution through meta-evolution analysis -- the process of evolving the patterns themselves rather than the code they describe. While standard evolution ([/evolve](/commands/evolve/)) improves the codebase through mutations, `/evolve-patterns` operates at a higher abstraction level, improving the mutation strategies, pattern libraries, and evolutionary heuristics that drive the entire evolution system.
+**/evolve-patterns** is a production command in the **Evolution** category of the Prismatic Platform. It performs pattern evolution through meta-evolution analysis -- the process of evolving the patterns themselves rather than the code they describe. While standard evolution ([/evolve](@/commands/evolve.md)) improves the codebase through mutations, `/evolve-patterns` operates at a higher abstraction level, improving the mutation strategies, pattern libraries, and evolutionary heuristics that drive the entire evolution system.
 
 Meta-evolution is a concept from evolutionary computation: the parameters of an evolutionary algorithm are themselves subject to evolution. In the Prismatic Platform, this means that the patterns used for code improvement, the fitness functions used for evaluation, and the selection strategies used for mutation retention are all treated as evolvable artifacts. The `/evolve-patterns` command drives this meta-evolutionary process, continuously refining the platform's capacity for self-improvement.
 
-The platform maintains a library of 55+ patterns sourced from 20+ years of development history across 116 [GARDEN](/glossary/garden/) repositories. These patterns range from low-level code idioms (OTP supervision tree structures, GenServer callback patterns) to high-level architectural patterns (hexagonal architecture boundaries, event-driven communication). The `/evolve-patterns` command analyzes the effectiveness of each pattern, identifies patterns that are underperforming or redundant, discovers new pattern candidates from recent code changes, and retires patterns that no longer contribute to fitness improvement.
+The platform maintains a library of 55+ patterns sourced from 20+ years of development history across 116 [GARDEN](@/glossary/garden.md) repositories. These patterns range from low-level code idioms (OTP supervision tree structures, GenServer callback patterns) to high-level architectural patterns (hexagonal architecture boundaries, event-driven communication). The `/evolve-patterns` command analyzes the effectiveness of each pattern, identifies patterns that are underperforming or redundant, discovers new pattern candidates from recent code changes, and retires patterns that no longer contribute to fitness improvement.
 
-This command operates under the **L3** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -55,7 +55,7 @@ Pattern Library --> Effectiveness Analyzer --> Meta-Evolution Engine --> Updated
 
 **Pattern Fitness Evaluator**: Computes a multi-dimensional fitness score for each pattern based on adoption rate, quality impact, applicability breadth, and maintenance cost. Patterns that require frequent manual adjustment after application receive fitness penalties.
 
-**GARDEN Knowledge Base**: The 116-repository [GARDEN](/glossary/garden/) legacy knowledge system provides historical context for pattern evolution, including patterns that succeeded or failed in past projects spanning two decades.
+**GARDEN Knowledge Base**: The 116-repository [GARDEN](@/glossary/garden.md) legacy knowledge system provides historical context for pattern evolution, including patterns that succeeded or failed in past projects spanning two decades.
 
 ## Usage
 
@@ -137,19 +137,19 @@ The `/evolve-patterns` command follows a structured 6-phase meta-evolutionary pi
 
 5. **Validation**: Modified and newly created patterns are validated through simulation. Each candidate pattern is tested against a representative sample of applications to verify that it produces positive quality impact without introducing regressions.
 
-6. **Library Update**: Validated patterns are committed to the pattern library. Retired patterns are archived with their historical effectiveness data. The updated library is persisted through [Quality DNA](/glossary/quality-dna/) for cross-session continuity.
+6. **Library Update**: Validated patterns are committed to the pattern library. Retired patterns are archived with their historical effectiveness data. The updated library is persisted through [Quality DNA](@/glossary/quality-dna.md) for cross-session continuity.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Evolution Engine](/glossary/autoevolve/) | Consumer | Standard evolution consumes patterns from the library |
-| [Mycelial Network](/glossary/mycelial-network/) | Distribution | Evolved patterns propagate via mycelial network |
-| [GARDEN](/glossary/garden/) | Knowledge Source | Legacy patterns from 116 repositories |
-| [Quality DNA](/glossary/quality-dna/) | Persistence | Pattern library state and fitness history |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Pattern validation against quality standards |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Evolution-orchestrator drives meta-evolution |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Pattern effectiveness [metrics](/glossary/metrics/) |
+| [Evolution Engine](@/glossary/autoevolve.md) | Consumer | Standard evolution consumes patterns from the library |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Distribution | Evolved patterns propagate via mycelial network |
+| [GARDEN](@/glossary/garden.md) | Knowledge Source | Legacy patterns from 116 repositories |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | Pattern library state and fitness history |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Pattern validation against quality standards |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Evolution-orchestrator drives meta-evolution |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Pattern effectiveness [metrics](@/glossary/metrics.md) |
 | AIAD Registry | Discovery | Command specification and pattern indexing |
 
 ## Best Practices
@@ -198,11 +198,11 @@ The `/evolve-patterns` command follows a structured 6-phase meta-evolutionary pi
 
 ### Integration with Formal Verification
 
-Evolved patterns can optionally be verified through the [/mycelialize-formal](/commands/mycelialize-formal/) pipeline, ensuring that meta-evolved patterns maintain formal correctness properties through [Lean4](/glossary/lean4/) proof construction.
+Evolved patterns can optionally be verified through the [/mycelialize-formal](@/commands/mycelialize-formal.md) pipeline, ensuring that meta-evolved patterns maintain formal correctness properties through [Lean4](@/glossary/lean4.md) proof construction.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for ineffective patterns in the library. Patterns that consistently fail to produce quality improvements are retired without sentiment. The meta-evolution system operates on empirical effectiveness, not historical attachment.
 - **NO DOUBTS**: Full investigation through comprehensive effectiveness analysis before any pattern modification. Every meta-evolution decision is backed by application history data spanning the entire umbrella ecosystem.
@@ -211,14 +211,14 @@ Pattern evolution embodies the platform's commitment to continuous improvement a
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/evolve-enforced](/commands/evolve-enforced/) - Evolution with mandatory QDP reduction
-- [/evolve-mycelialize](/commands/evolve-mycelialize/) - Unified evolution-propagation cycles
-- [/evolve-quality-gates](/commands/evolve-quality-gates/) - Quality gate evolution for warnings, tests and static analysis
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/evolve-enforced](@/commands/evolve-enforced.md) - Evolution with mandatory QDP reduction
+- [/evolve-mycelialize](@/commands/evolve-mycelialize.md) - Unified evolution-propagation cycles
+- [/evolve-quality-gates](@/commands/evolve-quality-gates.md) - Quality gate evolution for warnings, tests and static analysis
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -227,4 +227,4 @@ Pattern evolution embodies the platform's commitment to continuous improvement a
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

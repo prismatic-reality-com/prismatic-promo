@@ -377,7 +377,7 @@ The Prismatic Platform implements bulkhead isolation at multiple levels through 
 
 ### Application-Level Bulkheads
 
-Each of the 115 umbrella applications runs under its own [supervision tree](/glossary/supervision-tree/), creating natural bulkheads that prevent failures in one application from affecting others:
+Each of the 115 umbrella applications runs under its own [supervision tree](@/glossary/supervision-tree.md), creating natural bulkheads that prevent failures in one application from affecting others:
 
 | Domain | Applications | Isolation | Max Concurrency |
 |--------|-------------|-----------|-----------------|
@@ -479,7 +479,7 @@ end
 
 ## Bulkhead Pattern with Circuit Breakers
 
-Bulkheads and [circuit breakers](/glossary/circuit-breaker/) are complementary patterns that are most effective when used together. Bulkheads limit resource consumption; circuit breakers stop requests to failing dependencies. The combination provides comprehensive failure management:
+Bulkheads and [circuit breakers](@/glossary/circuit-breaker.md) are complementary patterns that are most effective when used together. Bulkheads limit resource consumption; circuit breakers stop requests to failing dependencies. The combination provides comprehensive failure management:
 
 ```elixir
 defmodule PrismaticPerimeter.ResilientClient do
@@ -572,9 +572,9 @@ end
 
 1. **Size bulkheads based on failure modes** -- Analyze historical failure patterns to determine appropriate compartment sizes. Undersized bulkheads reject legitimate traffic; oversized bulkheads fail to contain failures.
 
-2. **Monitor utilization** -- Track bulkhead utilization metrics via [telemetry](/glossary/telemetry/). Consistently high utilization indicates the need for capacity increases or performance optimization.
+2. **Monitor utilization** -- Track bulkhead utilization metrics via [telemetry](@/glossary/telemetry.md). Consistently high utilization indicates the need for capacity increases or performance optimization.
 
-3. **Combine with circuit breakers** -- Bulkheads prevent resource exhaustion; [circuit breakers](/glossary/circuit-breaker/) prevent repeated calls to failing services. Use both for comprehensive failure management.
+3. **Combine with circuit breakers** -- Bulkheads prevent resource exhaustion; [circuit breakers](@/glossary/circuit-breaker.md) prevent repeated calls to failing services. Use both for comprehensive failure management.
 
 4. **Use BEAM processes as natural bulkheads** -- Elixir/OTP's lightweight processes provide built-in isolation. Leverage Task.Supervisor's `max_children` option for bounded concurrency.
 
@@ -584,7 +584,7 @@ end
 
 7. **Implement graceful degradation** -- When a bulkhead is full, return meaningful errors rather than blocking. Allow the system to shed load gracefully.
 
-8. **Use backpressure signals** -- Connect bulkhead utilization to [backpressure](/glossary/backpressure/) mechanisms so upstream components reduce their request rate when downstream bulkheads approach capacity.
+8. **Use backpressure signals** -- Connect bulkhead utilization to [backpressure](@/glossary/backpressure.md) mechanisms so upstream components reduce their request rate when downstream bulkheads approach capacity.
 
 ## Common Pitfalls
 
@@ -619,22 +619,22 @@ The BEAM's advantage is that process creation costs approximately 2 microseconds
 
 ## Related Concepts
 
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Complementary pattern that stops requests to failing services
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP hierarchy providing natural bulkhead boundaries
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property that bulkheads help achieve
-- [Process Isolation](/glossary/process-isolation/) -- BEAM isolation model underlying bulkhead implementation
-- [Let It Crash](/glossary/let-it-crash/) -- Philosophy that bulkheads make safe by containing crash impact
-- [Backpressure](/glossary/backpressure/) -- Flow control mechanism complementing bulkhead capacity limits
-- [GenServer](/glossary/genserver/) -- OTP behaviour used to implement stateful bulkhead monitors
-- [BEAM](/glossary/beam/) -- Virtual machine providing lightweight process isolation for bulkheads
-- [Telemetry](/glossary/telemetry/) -- Observability framework for monitoring bulkhead utilization
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Complementary pattern that stops requests to failing services
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP hierarchy providing natural bulkhead boundaries
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property that bulkheads help achieve
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM isolation model underlying bulkhead implementation
+- [Let It Crash](@/glossary/let-it-crash.md) -- Philosophy that bulkheads make safe by containing crash impact
+- [Backpressure](@/glossary/backpressure.md) -- Flow control mechanism complementing bulkhead capacity limits
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour used to implement stateful bulkhead monitors
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing lightweight process isolation for bulkheads
+- [Telemetry](@/glossary/telemetry.md) -- Observability framework for monitoring bulkhead utilization
 
 ## Further Reading
 
 - [Release It! by Michael Nystrom](https://pragprog.com/titles/mnee2/release-it-second-edition/) -- Definitive reference for stability patterns including bulkheads
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Umbrella applications with bulkhead isolation
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications with bulkhead isolation
 
 ---
 
@@ -643,4 +643,4 @@ The BEAM's advantage is that process creation costs approximately 2 microseconds
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

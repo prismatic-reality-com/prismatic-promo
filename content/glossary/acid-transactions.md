@@ -45,7 +45,7 @@ image_alt = "ACID Transactions - Prismatic Platform"
 
 ACID transactions represent a set of four properties -- Atomicity, Consistency, Isolation, and Durability -- that guarantee reliable processing of database operations. These properties ensure that even under concurrent access, system failures, or network partitions, data remains in a valid and predictable state. First formalized by Andreas Reuter and Theo Harder in 1983, these guarantees became the cornerstone of relational database management systems and remain critical in modern distributed architectures.
 
-In the [Prismatic Platform](/glossary/application/), ACID transactions are the backbone of all persistent data operations, enforced through [PostgreSQL](/glossary/postgresql/) and the [Ecto](/glossary/ecto/) library across the entire 115-application umbrella ecosystem. Every data mutation flows through Ecto changesets and transactions, ensuring data integrity at every layer.
+In the [Prismatic Platform](@/glossary/application.md), ACID transactions are the backbone of all persistent data operations, enforced through [PostgreSQL](@/glossary/postgresql.md) and the [Ecto](@/glossary/ecto.md) library across the entire 115-application umbrella ecosystem. Every data mutation flows through Ecto changesets and transactions, ensuring data integrity at every layer.
 
 ---
 
@@ -67,7 +67,7 @@ Isolation ensures that concurrent transactions execute as if they were serial --
 
 Durability guarantees that once a transaction has been committed, its effects persist permanently, even in the event of system crashes, power failures, or hardware malfunctions. This is achieved through PostgreSQL's Write-Ahead Logging (WAL) and checkpoint mechanisms.
 
-Together, these four properties form the theoretical foundation upon which reliable data systems are built. In practice, systems often make calculated tradeoffs between strict ACID compliance and performance or availability, particularly in distributed environments where the [CAP theorem](/glossary/cap-theorem/) imposes fundamental constraints.
+Together, these four properties form the theoretical foundation upon which reliable data systems are built. In practice, systems often make calculated tradeoffs between strict ACID compliance and performance or availability, particularly in distributed environments where the [CAP theorem](@/glossary/cap-theorem.md) imposes fundamental constraints.
 
 ---
 
@@ -259,8 +259,8 @@ The BASE (Basically Available, Soft state, Eventually consistent) model represen
 | Approach | Pros | Cons | Prismatic Usage |
 |----------|------|------|-----------------|
 | Two-Phase Commit (2PC) | Strong consistency | Blocking, coordinator failure | Not used (single DB) |
-| [Saga Pattern](/glossary/saga-pattern/) | Non-blocking, compensatable | Complex, eventual consistency | Cross-service workflows |
-| [Event Sourcing](/glossary/event-sourcing/) | Full audit trail, replayable | Storage overhead, complexity | OSINT pipelines |
+| [Saga Pattern](@/glossary/saga-pattern.md) | Non-blocking, compensatable | Complex, eventual consistency | Cross-service workflows |
+| [Event Sourcing](@/glossary/event-sourcing.md) | Full audit trail, replayable | Storage overhead, complexity | OSINT pipelines |
 | Outbox Pattern | Reliable messaging + ACID | Additional table, polling | Event publishing |
 
 ---
@@ -295,9 +295,9 @@ The BASE (Basically Available, Soft state, Eventually consistent) model represen
 
 4. **Deadlock-prone ordering.** Accessing rows in inconsistent order across concurrent transactions. Always acquire locks in a deterministic order (e.g., by primary key ascending).
 
-5. **[Connection pool](/glossary/connection-pooling/) exhaustion.** Long transactions combined with small pool sizes can starve other operations. Monitor pool checkout times via [telemetry](/glossary/telemetry/).
+5. **[Connection pool](@/glossary/connection-pooling.md) exhaustion.** Long transactions combined with small pool sizes can starve other operations. Monitor pool checkout times via [telemetry](@/glossary/telemetry.md).
 
-6. **Assuming distributed ACID.** Transactions across multiple databases or services do not automatically provide ACID guarantees. Use [saga patterns](/glossary/saga-pattern/) or event sourcing for cross-service consistency.
+6. **Assuming distributed ACID.** Transactions across multiple databases or services do not automatically provide ACID guarantees. Use [saga patterns](@/glossary/saga-pattern.md) or event sourcing for cross-service consistency.
 
 7. **Missing error handling on transaction failure.** Not matching on `{:error, operation, changeset, changes_so_far}` from `Ecto.Multi` transactions, losing diagnostic information.
 
@@ -307,7 +307,7 @@ The BASE (Basically Available, Soft state, Eventually consistent) model represen
 
 ### Security Rating Calculation
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) module calculates security ratings (A-F grades, 300-900 scores) for domains. Each rating calculation involves multiple database writes that must be atomic -- a partial rating update would leave the system in an inconsistent state.
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) module calculates security ratings (A-F grades, 300-900 scores) for domains. Each rating calculation involves multiple database writes that must be atomic -- a partial rating update would leave the system in an inconsistent state.
 
 ### OSINT Data Ingestion
 
@@ -331,30 +331,30 @@ The Quality DNA system records quality scores across 13 domains. Score updates, 
 
 | Technology | Relationship to ACID Transactions |
 |---|---|
-| [PostgreSQL](/glossary/postgresql/) | The primary ACID-compliant database engine used throughout the platform |
-| [Ecto](/glossary/ecto/) | Elixir's database wrapper providing changeset-based ACID transaction support |
-| [CAP Theorem](/glossary/cap-theorem/) | Fundamental theorem describing tradeoffs affecting ACID in distributed settings |
-| [Event Sourcing](/glossary/event-sourcing/) | Alternative persistence pattern using immutable event streams |
-| [Saga Pattern](/glossary/saga-pattern/) | Distributed transaction pattern using compensating actions |
-| [Concurrency](/glossary/concurrency/) | Concurrent access patterns that ACID transactions safely handle |
-| [Distributed System](/glossary/distributed-system/) | Architectures where ACID becomes more challenging to maintain |
-| [Schema](/glossary/schema/) | Database schema definitions enforcing the Consistency property |
-| [Validation](/glossary/validation/) | Input validation as the first line of defense for consistency |
-| [Connection Pooling](/glossary/connection-pooling/) | Resource management critical for transaction throughput |
+| [PostgreSQL](@/glossary/postgresql.md) | The primary ACID-compliant database engine used throughout the platform |
+| [Ecto](@/glossary/ecto.md) | Elixir's database wrapper providing changeset-based ACID transaction support |
+| [CAP Theorem](@/glossary/cap-theorem.md) | Fundamental theorem describing tradeoffs affecting ACID in distributed settings |
+| [Event Sourcing](@/glossary/event-sourcing.md) | Alternative persistence pattern using immutable event streams |
+| [Saga Pattern](@/glossary/saga-pattern.md) | Distributed transaction pattern using compensating actions |
+| [Concurrency](@/glossary/concurrency.md) | Concurrent access patterns that ACID transactions safely handle |
+| [Distributed System](@/glossary/distributed-system.md) | Architectures where ACID becomes more challenging to maintain |
+| [Schema](@/glossary/schema.md) | Database schema definitions enforcing the Consistency property |
+| [Validation](@/glossary/validation.md) | Input validation as the first line of defense for consistency |
+| [Connection Pooling](@/glossary/connection-pooling.md) | Resource management critical for transaction throughput |
 
 ---
 
 ## See Also
 
-- [Database](/glossary/database/) -- General database concepts and patterns
-- [Eventual Consistency](/glossary/eventual-consistency/) -- The BASE alternative to ACID strong consistency
-- [Outbox Pattern](/glossary/outbox-pattern/) -- Reliable event publishing combined with ACID transactions
-- [ETS](/glossary/ets/) -- In-memory storage that does not provide full ACID guarantees
-- [Idempotency](/glossary/idempotency/) -- Operation design that complements transaction retry strategies
+- [Database](@/glossary/database.md) -- General database concepts and patterns
+- [Eventual Consistency](@/glossary/eventual-consistency.md) -- The BASE alternative to ACID strong consistency
+- [Outbox Pattern](@/glossary/outbox-pattern.md) -- Reliable event publishing combined with ACID transactions
+- [ETS](@/glossary/ets.md) -- In-memory storage that does not provide full ACID guarantees
+- [Idempotency](@/glossary/idempotency.md) -- Operation design that complements transaction retry strategies
 
 ---
 
 ## Connect & Contribute
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

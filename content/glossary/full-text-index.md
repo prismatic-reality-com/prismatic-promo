@@ -650,16 +650,16 @@ sequenceDiagram
 
 ## Related Terms
 
-- [Faceted Search](/glossary/faceted-search/) -- Multi-dimensional filtering over indexed data with category counts
-- [Meilisearch](/glossary/meilisearch/) -- Primary search engine used by the Prismatic Platform
-- [Tokenization](/glossary/tokenization/) -- Text splitting for index building and NLP pipelines
+- [Faceted Search](@/glossary/faceted-search.md) -- Multi-dimensional filtering over indexed data with category counts
+- [Meilisearch](@/glossary/meilisearch.md) -- Primary search engine used by the Prismatic Platform
+- [Tokenization](@/glossary/tokenization.md) -- Text splitting for index building and NLP pipelines
 - [Inverted Index](/glossary/inverted-index/) -- Core data structure mapping terms to documents
 - [BM25](/glossary/bm25/) -- Industry-standard relevance scoring algorithm
 - [Elasticsearch](/glossary/elasticsearch/) -- Distributed search engine for large-scale deployments
-- [PostgreSQL](/glossary/postgresql/) -- Relational database with built-in full-text search via tsvector
+- [PostgreSQL](@/glossary/postgresql.md) -- Relational database with built-in full-text search via tsvector
 - [GIN Index](/glossary/gin-index/) -- Generalized Inverted Index for PostgreSQL full-text and JSONB
-- [ETS](/glossary/ets/) -- Erlang Term Storage used for in-memory caching of search results
-- [Cache](/glossary/cache/) -- Caching strategies for search result performance
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage used for in-memory caching of search results
+- [Cache](@/glossary/cache.md) -- Caching strategies for search result performance
 - [Glossary](/glossary/glossary/) -- The Prismatic glossary system with 890+ searchable terms
 - [Index](/glossary/index/) -- General database index concepts and B-tree fundamentals
 - **Livebooks**: `storage_data/` notebooks demonstrate full-text search operations
@@ -672,4 +672,4 @@ sequenceDiagram
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

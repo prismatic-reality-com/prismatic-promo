@@ -26,9 +26,9 @@ image_alt = "/issues - Prismatic Platform"
 
 **/issues** is a production command in the **Operations** category of the Prismatic Platform that provides intelligent issue tracking with automatic extraction capabilities and bidirectional GitLab synchronization. This command transforms the traditionally manual process of issue management into an automated, AI-assisted workflow that detects, categorizes, and tracks issues across the entire platform lifecycle.
 
-Issue tracking in a platform with 99 umbrella applications, 400+ agents, and 2.8 million lines of code requires more than a simple ticketing system. The `/issues` command addresses this scale by integrating directly with the platform's code analysis tools, quality gates, and [telemetry](/glossary/telemetry/) infrastructure to automatically extract issues from compilation warnings, test failures, quality gate violations, and runtime anomalies. These automatically extracted issues are synchronized with GitLab, creating a single source of truth for all platform work items.
+Issue tracking in a platform with 99 umbrella applications, 400+ agents, and 2.8 million lines of code requires more than a simple ticketing system. The `/issues` command addresses this scale by integrating directly with the platform's code analysis tools, quality gates, and [telemetry](@/glossary/telemetry.md) infrastructure to automatically extract issues from compilation warnings, test failures, quality gate violations, and runtime anomalies. These automatically extracted issues are synchronized with GitLab, creating a single source of truth for all platform work items.
 
-This command operates under the **L2+** authority level and is executed by the `issue-tracking-specialist` agent, which maintains deep understanding of the platform's issue taxonomy, priority classification system, and milestone structure. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `issue-tracking-specialist` agent, which maintains deep understanding of the platform's issue taxonomy, priority classification system, and milestone structure. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 The command supports the full issue lifecycle: creation, assignment, status tracking, progress monitoring, resolution verification, and closure. It enforces the platform's mandatory session discipline protocol, which requires GitLab issues for all work items. The command also provides analytics capabilities, generating reports on issue velocity, resolution time distributions, and category trends.
 
@@ -165,7 +165,7 @@ The **Issue Extractors** monitor multiple data sources for issue-worthy events. 
 
 5. **GitLab Synchronization**: New issues are created in GitLab with appropriate labels, milestones, and assignments. Existing issues are updated if their status has changed locally. Remote changes are pulled and merged with local state.
 
-6. **Store Update**: The local [ETS](/glossary/ets/)-backed issue store is updated with the synchronized state.
+6. **Store Update**: The local [ETS](@/glossary/ets.md)-backed issue store is updated with the synchronized state.
 
 7. **Output Rendering**: Results are formatted according to the `--format` option and displayed or written to the specified output.
 
@@ -173,12 +173,12 @@ The **Issue Extractors** monitor multiple data sources for issue-worthy events. 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Executed by the `issue-tracking-specialist` agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Executed by the `issue-tracking-specialist` agent |
 | GitLab API | Synchronization | Bidirectional issue sync via GitLab REST API |
-| [Quality Gates](/glossary/quality-gates/) | Extraction | Quality violations automatically generate issues |
-| [Telemetry](/glossary/telemetry/) | Extraction | Runtime anomalies can trigger issue creation |
-| [ETS](/glossary/ets/) | Storage | Local issue cache for fast queries |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command registered via AIAD standard |
+| [Quality Gates](@/glossary/quality-gates.md) | Extraction | Quality violations automatically generate issues |
+| [Telemetry](@/glossary/telemetry.md) | Extraction | Runtime anomalies can trigger issue creation |
+| [ETS](@/glossary/ets.md) | Storage | Local issue cache for fast queries |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command registered via AIAD standard |
 | Session Lifecycle | Enforcement | Mandatory issue tracking for all sessions |
 | Milestone Tracking | Planning | Issues linked to strategic milestones |
 
@@ -234,19 +234,19 @@ The **Issue Extractors** monitor multiple data sources for issue-worthy events. 
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every quality gate violation, compilation warning, and test failure is eligible for automatic issue extraction. No quality problem goes untracked. The mandatory session discipline protocol requires GitLab issue tracking for all sessions -- sessions without issues are blocked.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Issues include structured evidence from their extraction source. Priority assignment is evidence-based, considering severity, affected components, and strategic alignment. Analytics reports are computed from verified data, not estimates.
 
 ## Related Commands
 
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -255,4 +255,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

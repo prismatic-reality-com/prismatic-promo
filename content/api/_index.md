@@ -59,7 +59,7 @@ The Prismatic API is a self-discovering REST gateway that eliminates the traditi
 
 This zero-configuration approach is not a convenience shortcut that trades capability for simplicity. The auto-introspected API supports the full range of features expected of a production REST gateway: role-based access control, request validation, structured error responses, rate limiting, and interactive documentation via SwaggerUI. The difference is that these features are derived from the source code itself rather than maintained as a separate, potentially divergent artifact.
 
-The API serves as the platform's primary external interface, enabling programmatic access to every capability that the platform exposes through its facade modules. It also functions as the definitive reference layer for the [Academy](/academy/), providing precise endpoint specifications that complement the Academy's conceptual teaching. When [Lab](/lab/) experiments graduate to production, their functions appear as API endpoints automatically, completing the research-to-deployment pipeline without additional integration work.
+The API serves as the platform's primary external interface, enabling programmatic access to every capability that the platform exposes through its facade modules. It also functions as the definitive reference layer for the [Academy](@/academy/_index.md), providing precise endpoint specifications that complement the Academy's conceptual teaching. When [Lab](@/lab/_index.md) experiments graduate to production, their functions appear as API endpoints automatically, completing the research-to-deployment pipeline without additional integration work.
 
 The API runs as a standalone Phoenix application on port 4004, separate from the main web interface but sharing the same underlying platform services. This separation allows the API to be scaled, monitored, and secured independently of the web dashboard.
 
@@ -526,7 +526,7 @@ Webhook payloads include an HMAC-SHA256 signature computed from the payload body
 
 ## Lab Integration
 
-The API's auto-discovery mechanism creates a natural integration pathway with the [Lab](/lab/). When a Lab experiment graduates to production, its public functions are implemented in the appropriate Prismatic facade module. At the next scanner run (or immediately if a live rescan is triggered), these functions appear as new API endpoints with full documentation and type schemas.
+The API's auto-discovery mechanism creates a natural integration pathway with the [Lab](@/lab/_index.md). When a Lab experiment graduates to production, its public functions are implemented in the appropriate Prismatic facade module. At the next scanner run (or immediately if a live rescan is triggered), these functions appear as new API endpoints with full documentation and type schemas.
 
 This integration means that the journey from validated Lab prototype to publicly accessible API endpoint is fully automated. The experiment team does not need to write controller code, define routes, or author OpenAPI annotations. They implement the function with proper `@doc` and `@spec` annotations, and the API infrastructure does the rest.
 
@@ -534,7 +534,7 @@ The `endpoint.discovered` webhook event notifies interested consumers when new e
 
 ## Academy Integration
 
-The API serves as the reference documentation layer for the [Academy](/academy/). When the Academy teaches a concept such as epistemic validation or attack surface management, it links to the corresponding API endpoint documentation for precise technical specifications.
+The API serves as the reference documentation layer for the [Academy](@/academy/_index.md). When the Academy teaches a concept such as epistemic validation or attack surface management, it links to the corresponding API endpoint documentation for precise technical specifications.
 
 This separation of concerns allows the Academy to focus on teaching why and how concepts work, while the API provides the exact what: parameter names, types, required fields, response formats, and error codes. The Academy teaches understanding; the API provides specification. Together they give learners both the conceptual foundation and the technical reference needed to work effectively with the platform.
 
@@ -549,4 +549,4 @@ The Prismatic API demonstrates that API development does not require a tradeoff 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

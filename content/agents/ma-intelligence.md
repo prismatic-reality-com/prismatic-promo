@@ -26,7 +26,7 @@ image_alt = "M&A Intelligence Agents - Prismatic Platform"
 
 The M&A Intelligence agent cluster provides comprehensive, automated support for mergers, acquisitions, and investment analysis within the Prismatic Platform. Comprising 28 specialized agents operating across financial analysis, risk assessment, market intelligence, technology evaluation, legal compliance, and integration planning domains, this cluster transforms the traditionally manual and time-intensive M&A due diligence process into a rapid, evidence-based intelligence operation. From initial target screening through deep due diligence to post-acquisition integration monitoring, these agents automate the intelligence-gathering, analysis, and reporting pipeline while maintaining the rigorous evidentiary standards required for high-stakes transaction decisions.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine, every M&A Intelligence agent applies the [NABLA Infinity](/glossary/nabla-infinity/) framework's seven axioms to ensure that deal intelligence is evidence-based, multi-source validated, and free from confirmation bias. The cluster's collective intelligence capability leverages the platform's [mycelial network](/glossary/mycelial-network/) for cross-agent coordination, enabling real-time synthesis of findings from multiple specialist domains into unified deal assessments.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine, every M&A Intelligence agent applies the [NABLA Infinity](@/glossary/nabla-infinity.md) framework's seven axioms to ensure that deal intelligence is evidence-based, multi-source validated, and free from confirmation bias. The cluster's collective intelligence capability leverages the platform's [mycelial network](@/glossary/mycelial-network.md) for cross-agent coordination, enabling real-time synthesis of findings from multiple specialist domains into unified deal assessments.
 
 The M&A Intelligence cluster addresses a fundamental challenge in corporate development: the asymmetry between the volume of information relevant to an acquisition decision and the capacity of human analysts to process it within deal timelines. By deploying autonomous agents across every due diligence domain simultaneously, the platform compresses analysis timelines from months to days while improving coverage and reducing the risk of overlooked critical findings.
 
@@ -82,12 +82,12 @@ The cluster provides deep analysis across seven due diligence domains, each serv
 
 | Domain | Coverage | Depth | Primary Agent |
 |--------|----------|-------|---------------|
-| **Financial** | Revenue, EBITDA, Cash Flow, Working Capital | 5-year historical + projections | [ma-financial-analyst](/agents/ma-financial-analyst/) |
+| **Financial** | Revenue, EBITDA, Cash Flow, Working Capital | 5-year historical + projections | [ma-financial-analyst](@/agents/ma-financial-analyst.md) |
 | **Legal** | Contracts, IP, Litigation, Regulatory | Full exposure assessment | Legal compliance specialists |
 | **Tax** | Structure, Obligations, Transfer Pricing | Cross-border analysis | Tax assessment agents |
-| **Operational** | Processes, Technology, Supply Chain | Efficiency audit | [ma-tech-assessor](/agents/ma-tech-assessor/) |
+| **Operational** | Processes, Technology, Supply Chain | Efficiency audit | [ma-tech-assessor](@/agents/ma-tech-assessor.md) |
 | **HR** | Key personnel, Culture, Retention | Organizational risk | HR assessment agents |
-| **Compliance** | Regulatory, Licenses, Permits | Gap analysis with remediation | [ma-enforcement-commander](/agents/ma-enforcement-commander/) |
+| **Compliance** | Regulatory, Licenses, Permits | Gap analysis with remediation | [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) |
 | **Cyber** | Security posture, Breach history, EASM | External attack surface scan | Security assessment agents |
 
 ### Presales Intelligence
@@ -170,12 +170,12 @@ end
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [OSINT](/glossary/osint/) Agents | Background intelligence on targets and principals | Inbound |
-| Security Agents | Cyber due diligence and [attack surface](/glossary/attack-surface/) assessment | Inbound |
-| Czech [Registry](/glossary/registry-otp/) | Corporate data, ownership structures, beneficial owners | Inbound |
-| Dashboard | [LiveView](/glossary/liveview/) deal pipeline visualization | Outbound |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
-| Prismatic Telemetry | Deal pipeline [metrics](/glossary/metrics/) and performance tracking | Outbound |
+| [OSINT](@/glossary/osint.md) Agents | Background intelligence on targets and principals | Inbound |
+| Security Agents | Cyber due diligence and [attack surface](@/glossary/attack-surface.md) assessment | Inbound |
+| Czech [Registry](@/glossary/registry-otp.md) | Corporate data, ownership structures, beneficial owners | Inbound |
+| Dashboard | [LiveView](@/glossary/liveview.md) deal pipeline visualization | Outbound |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
+| Prismatic Telemetry | Deal pipeline [metrics](@/glossary/metrics.md) and performance tracking | Outbound |
 
 ## Operational Workflow
 
@@ -193,7 +193,7 @@ The M&A Intelligence cluster follows a structured deal workflow from opportunity
 
 ## NABLA Compliance
 
-All M&A Intelligence operations enforce the seven [NABLA Infinity](/glossary/nabla-infinity/) axioms. Signal plurality requires multi-source validation for every deal finding. Contradiction preservation ensures conflicting assessments from different domains are surfaced rather than suppressed. Provenance is mandatory for every claim in deal documentation, enabling complete audit trail reconstruction.
+All M&A Intelligence operations enforce the seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms. Signal plurality requires multi-source validation for every deal finding. Contradiction preservation ensures conflicting assessments from different domains are surfaced rather than suppressed. Provenance is mandatory for every claim in deal documentation, enabling complete audit trail reconstruction.
 
 ## Configuration
 
@@ -226,14 +226,14 @@ All M&A Intelligence operations enforce the seven [NABLA Infinity](/glossary/nab
 
 ## Related Resources
 
-- [ma-financial-analyst](/agents/ma-financial-analyst/) -- Financial data extraction and analysis
-- [ma-risk-assessor](/agents/ma-risk-assessor/) -- Risk identification and quantification
-- [ma-tech-assessor](/agents/ma-tech-assessor/) -- Technology stack evaluation
-- [ma-market-analyst](/agents/ma-market-analyst/) -- Market and competitive analysis
-- [ma-enforcement-commander](/agents/ma-enforcement-commander/) -- Compliance enforcement
-- [ma-integration-planner](/agents/ma-integration-planner/) -- Post-acquisition integration planning
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing deal intelligence
+- [ma-financial-analyst](@/agents/ma-financial-analyst.md) -- Financial data extraction and analysis
+- [ma-risk-assessor](@/agents/ma-risk-assessor.md) -- Risk identification and quantification
+- [ma-tech-assessor](@/agents/ma-tech-assessor.md) -- Technology stack evaluation
+- [ma-market-analyst](@/agents/ma-market-analyst.md) -- Market and competitive analysis
+- [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) -- Compliance enforcement
+- [ma-integration-planner](@/agents/ma-integration-planner.md) -- Post-acquisition integration planning
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing deal intelligence
 
 ---
 
@@ -242,4 +242,4 @@ All M&A Intelligence operations enforce the seven [NABLA Infinity](/glossary/nab
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

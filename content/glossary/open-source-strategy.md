@@ -38,7 +38,7 @@ image_alt = "Open Source Strategy - Prismatic Platform"
 
 **Open Source Strategy** is the deliberate, systematic approach to leveraging open source software for achieving technical, business, and community objectives. It encompasses decisions about which components to open source, how to structure contributions to external projects, what licensing models to adopt, how to build and sustain contributor communities, and how to balance openness with competitive advantage. A well-crafted open source strategy is not simply about publishing source code -- it is a comprehensive plan that aligns software transparency with organizational goals.
 
-The [Prismatic Platform](/glossary/elixir/) embodies a mature open source strategy through its Generation 19 Ecosystem Expansion, which includes four published OSS packages (SDK, Plugin Kit, Security, UI), a developer portal, and a dual-track positioning that provides both open source community value and platform-specific capabilities. This strategy treats open source not as an afterthought but as a primary distribution and quality mechanism.
+The [Prismatic Platform](@/glossary/elixir.md) embodies a mature open source strategy through its Generation 19 Ecosystem Expansion, which includes four published OSS packages (SDK, Plugin Kit, Security, UI), a developer portal, and a dual-track positioning that provides both open source community value and platform-specific capabilities. This strategy treats open source not as an afterthought but as a primary distribution and quality mechanism.
 
 ## Overview
 
@@ -411,7 +411,7 @@ The Prismatic Platform applied this framework when selecting its four OSS packag
 
 ### Open Source Strategy vs. Open Source Leadership
 
-[Open source strategy](/glossary/open-source-strategy/) addresses the "what" and "why" of open source engagement -- which components to release, under what terms, and with what business objectives. [Open source leadership](/glossary/open-source-leadership/) addresses the "how" of guiding the resulting projects and communities. Strategy without leadership produces abandoned repositories; leadership without strategy produces undirected effort.
+[Open source strategy](@/glossary/open-source-strategy.md) addresses the "what" and "why" of open source engagement -- which components to release, under what terms, and with what business objectives. [Open source leadership](@/glossary/open-source-leadership.md) addresses the "how" of guiding the resulting projects and communities. Strategy without leadership produces abandoned repositories; leadership without strategy produces undirected effort.
 
 ## Best Practices
 
@@ -469,23 +469,23 @@ The Elixir ecosystem demonstrates community-level open source strategy through t
 
 Open source strategy intersects with multiple dimensions of the Prismatic Platform ecosystem:
 
-- [Open Source Leadership](/glossary/open-source-leadership/) -- governing the projects and communities created by the strategy
-- [Open Source Superiority](/glossary/open-source-superiority/) -- the philosophical case for open source as a quality driver
-- [Platform Strategy](/glossary/platform-strategy/) -- the broader strategic context within which OSS strategy operates
-- [Developer Portal](/glossary/developer-portal/) -- the primary channel for ecosystem engagement and developer onboarding
-- [SDK](/glossary/sdk/) -- one of the four Prismatic OSS packages enabling ecosystem participation
-- [REST API](/glossary/rest-api/) -- the API gateway that enables programmatic platform access
-- [Community Building](/glossary/community-building/) -- the practical execution of community growth objectives
-- [Developer Community](/glossary/developer-community/) -- the target audience and primary beneficiary of OSS strategy
-- [Collaborative Development](/glossary/collaborative-development/) -- the development practices that sustain multi-contributor OSS projects
-- [Community Ownership](/glossary/community-ownership/) -- governance models that emerge from successful OSS strategy
+- [Open Source Leadership](@/glossary/open-source-leadership.md) -- governing the projects and communities created by the strategy
+- [Open Source Superiority](@/glossary/open-source-superiority.md) -- the philosophical case for open source as a quality driver
+- [Platform Strategy](@/glossary/platform-strategy.md) -- the broader strategic context within which OSS strategy operates
+- [Developer Portal](@/glossary/developer-portal.md) -- the primary channel for ecosystem engagement and developer onboarding
+- [SDK](@/glossary/sdk.md) -- one of the four Prismatic OSS packages enabling ecosystem participation
+- [REST API](@/glossary/rest-api.md) -- the API gateway that enables programmatic platform access
+- [Community Building](@/glossary/community-building.md) -- the practical execution of community growth objectives
+- [Developer Community](@/glossary/developer-community.md) -- the target audience and primary beneficiary of OSS strategy
+- [Collaborative Development](@/glossary/collaborative-development.md) -- the development practices that sustain multi-contributor OSS projects
+- [Community Ownership](@/glossary/community-ownership.md) -- governance models that emerge from successful OSS strategy
 
 ## See Also
 
-- [Doctrine](/glossary/doctrine/) -- the quality principles that govern all platform operations including OSS releases
-- [Quality Gate](/glossary/quality-gate/) -- the automated enforcement mechanisms applied to OSS packages
-- [CI/CD](/glossary/ci-cd/) -- the pipeline infrastructure supporting automated OSS releases
-- [Umbrella Application](/glossary/umbrella-application/) -- the architectural pattern enabling selective OSS publication
+- [Doctrine](@/glossary/doctrine.md) -- the quality principles that govern all platform operations including OSS releases
+- [Quality Gate](@/glossary/quality-gate.md) -- the automated enforcement mechanisms applied to OSS packages
+- [CI/CD](@/glossary/ci-cd.md) -- the pipeline infrastructure supporting automated OSS releases
+- [Umbrella Application](@/glossary/umbrella-application.md) -- the architectural pattern enabling selective OSS publication
 
 ---
 

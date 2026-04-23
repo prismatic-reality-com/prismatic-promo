@@ -24,11 +24,11 @@ image_alt = "/deploy - Prismatic Platform"
 
 ## Overview
 
-The **/deploy** command orchestrates application deployment to target environments with comprehensive health validation and automatic rollback capabilities. As the foundational deployment command in the Prismatic Platform, it provides the core deployment workflow that is extended by specialized commands like [/deploy-production](/commands/deploy-production/) for production-specific safety gates and [/deploy-unified](/commands/deploy-unified/) for consolidated multi-environment management.
+The **/deploy** command orchestrates application deployment to target environments with comprehensive health validation and automatic rollback capabilities. As the foundational deployment command in the Prismatic Platform, it provides the core deployment workflow that is extended by specialized commands like [/deploy-production](@/commands/deploy-production.md) for production-specific safety gates and [/deploy-unified](@/commands/deploy-unified.md) for consolidated multi-environment management.
 
-The command implements a five-phase deployment protocol: pre-deployment validation (quality gates, clean working directory, dependency checks), database migration execution (with rollback preparation), application deployment (via [GitLab CI](/glossary/gitlab-ci/)/CD pipeline or direct Fly.io deployment), health check execution (endpoint probing, response time validation, error rate monitoring), and post-deployment monitoring (continuous health surveillance with automatic alert triggers).
+The command implements a five-phase deployment protocol: pre-deployment validation (quality gates, clean working directory, dependency checks), database migration execution (with rollback preparation), application deployment (via [GitLab CI](@/glossary/gitlab-ci.md)/CD pipeline or direct Fly.io deployment), health check execution (endpoint probing, response time validation, error rate monitoring), and post-deployment monitoring (continuous health surveillance with automatic alert triggers).
 
-This command operates under the **L3** authority level and is executed by the `deploy-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The deploy specialist agent coordinates with infrastructure agents for environment-specific operations while maintaining a consistent deployment protocol across all target environments.
+This command operates under the **L3** authority level and is executed by the `deploy-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The deploy specialist agent coordinates with infrastructure agents for environment-specific operations while maintaining a consistent deployment protocol across all target environments.
 
 Deployment strategy selection is a key capability. The command supports three strategies: **rolling** (default -- instances replaced gradually with zero-downtime), **blue-green** (new version deployed alongside old, traffic switched atomically), and **canary** (new version receives a fraction of traffic for validation before full rollout). Strategy selection depends on the risk profile of the changes being deployed and the criticality of the target environment. The choice of strategy represents a fundamental trade-off between deployment speed, risk mitigation, and resource utilization that the deploy specialist agent helps operators navigate.
 
@@ -195,15 +195,15 @@ Triggers an immediate rollback to the previously deployed version. The rollback 
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `deploy-specialist` agent | Agent coordinates deployment workflow |
-| [AIAD](/glossary/aiad/) Registry | Command specification | Operations category, L3 authority |
-| [Quality Gates](/glossary/quality-gates/) | Pre-deployment validation | Blocking gate -- deployment aborted on failure |
-| [Telemetry](/glossary/telemetry/) | Deployment [metrics](/glossary/metrics/) | Build time, deploy time, health check results |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Pipeline integration | CI/CD triggered deployments |
-| [Fly.io](/glossary/fly-io/) | Infrastructure provider | Application hosting platform |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `deploy-specialist` agent | Agent coordinates deployment workflow |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification | Operations category, L3 authority |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre-deployment validation | Blocking gate -- deployment aborted on failure |
+| [Telemetry](@/glossary/telemetry.md) | Deployment [metrics](@/glossary/metrics.md) | Build time, deploy time, health check results |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Pipeline integration | CI/CD triggered deployments |
+| [Fly.io](@/glossary/fly-io.md) | Infrastructure provider | Application hosting platform |
 | Page Load Performance | Post-deployment check | All pages must load < 250ms |
-| [/deploy-production](/commands/deploy-production/) | Specialized variant | Production-specific safety gates |
-| [/deploy-unified](/commands/deploy-unified/) | Unified interface | Multi-environment management |
+| [/deploy-production](@/commands/deploy-production.md) | Specialized variant | Production-specific safety gates |
+| [/deploy-unified](@/commands/deploy-unified.md) | Unified interface | Multi-environment management |
 
 ### CI/CD Pipeline Integration
 
@@ -227,10 +227,10 @@ The /deploy command occupies a central position in the platform's release workfl
 1. **Development Completion**: Code changes pass local quality gates (`mix compile --warnings-as-errors`, `mix test`, `mix credo --strict`).
 2. **Staging Deployment**: `/deploy staging` validates the build in a production-like environment.
 3. **Staging Validation**: Manual or automated testing against the staging environment confirms expected behavior.
-4. **Production Deployment**: After staging validation, [/deploy-production](/commands/deploy-production/) handles the production deployment with enhanced safety gates.
+4. **Production Deployment**: After staging validation, [/deploy-production](@/commands/deploy-production.md) handles the production deployment with enhanced safety gates.
 5. **Post-Deployment Monitoring**: Both staging and production deployments trigger continuous monitoring for performance regressions.
 
-The command also integrates with the platform's emergency response workflow. When [/emergency](/commands/emergency/) identifies a production issue, the rollback capability provides a rapid remediation path while the root cause is investigated.
+The command also integrates with the platform's emergency response workflow. When [/emergency](@/commands/emergency.md) identifies a production issue, the rollback capability provides a rapid remediation path while the root cause is investigated.
 
 ### Quality Gate Integration
 
@@ -244,7 +244,7 @@ mix quality.gates --quick                  # Fast quality check
 
 ## NABLA Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for deployment without quality validation. Quality gates must pass before any deployment proceeds. Health checks are mandatory, not optional. Failed deployments trigger automatic investigation, not silent acceptance. No partial deployments are permitted.
 - **NO DOUBTS**: Full pre-deployment verification through quality gates and clean working directory checks. Post-deployment health validated through active endpoint probing. Every deployment creates a traceable audit trail with timestamps, versions, and outcomes.
@@ -275,13 +275,13 @@ The deployment pipeline is optimized for speed without sacrificing safety. Docke
 
 ## Related Commands
 
-- [/deploy-production](/commands/deploy-production/) - Production deployment with enhanced safety checks
-- [/deploy-unified](/commands/deploy-unified/) - Unified deployment control for all environments
-- [/deploy-meilisearch](/commands/deploy-meilisearch/) - Meilisearch search engine deployment
-- [/quality-gates](/commands/quality-gates/) - Quality gate enforcement
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/emergency](/commands/emergency/) - Emergency response for deployment failures
-- [/benchmark](/commands/benchmark/) - Comprehensive performance benchmarking with P95/P99 analysis
+- [/deploy-production](@/commands/deploy-production.md) - Production deployment with enhanced safety checks
+- [/deploy-unified](@/commands/deploy-unified.md) - Unified deployment control for all environments
+- [/deploy-meilisearch](@/commands/deploy-meilisearch.md) - Meilisearch search engine deployment
+- [/quality-gates](@/commands/quality-gates.md) - Quality gate enforcement
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/emergency](@/commands/emergency.md) - Emergency response for deployment failures
+- [/benchmark](@/commands/benchmark.md) - Comprehensive performance benchmarking with P95/P99 analysis
 
 ---
 
@@ -290,4 +290,4 @@ The deployment pipeline is optimized for speed without sacrificing safety. Docke
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

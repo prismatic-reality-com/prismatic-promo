@@ -244,11 +244,11 @@ The API gateway uses contracts (specifically `@spec` annotations) as the foundat
 
 ## Cross-References
 
-- [Compilation](/glossary/compilation/) - build phase where contracts are verified
-- [Code Quality](/glossary/code-quality/) - contracts as quality enforcement
+- [Compilation](@/glossary/compilation.md) - build phase where contracts are verified
+- [Code Quality](@/glossary/code-quality.md) - contracts as quality enforcement
 - **Counterexample** - property test failures revealing contract violations
-- [Credo](/glossary/credo/) - enforces @spec annotation requirements
-- [Consistency](/glossary/consistency/) - behavioral consistency ensured by contracts
+- [Credo](@/glossary/credo.md) - enforces @spec annotation requirements
+- [Consistency](@/glossary/consistency.md) - behavioral consistency ensured by contracts
 - **Livebooks**: `livebooks/domains/quality_testing/` - contract testing experiments
 - **Academy**: Type systems and contract design topics
 

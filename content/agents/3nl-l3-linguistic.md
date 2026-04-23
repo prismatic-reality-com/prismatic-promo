@@ -28,11 +28,11 @@ image_alt = "3nl-l3-linguistic - Prismatic Platform"
 
 ## Overview
 
-The [3NL](/glossary/three-nl/) L3 Linguistic agent operates as an L3 [strategic command](/glossary/strategic-command/) agent providing the language understanding layer of the Three-Layer Neural-Logical-Linguistic (3NL) framework within the Prismatic Platform. This agent implements natural language processing, semantic analysis, entity extraction, and contextual interpretation capabilities that enable the platform to reason about unstructured text data. Where L1 Logic handles formal proofs and L2 Neural handles pattern recognition, L3 Linguistic bridges the gap between human-readable information and machine-processable knowledge.
+The [3NL](@/glossary/three-nl.md) L3 Linguistic agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent providing the language understanding layer of the Three-Layer Neural-Logical-Linguistic (3NL) framework within the Prismatic Platform. This agent implements natural language processing, semantic analysis, entity extraction, and contextual interpretation capabilities that enable the platform to reason about unstructured text data. Where L1 Logic handles formal proofs and L2 Neural handles pattern recognition, L3 Linguistic bridges the gap between human-readable information and machine-processable knowledge.
 
-Natural language understanding is critical in the Prismatic ecosystem because many intelligence sources produce unstructured text: [OSINT](/glossary/osint/) reports, compliance regulations, security advisories, and Czech business [registry](/glossary/registry-otp/) documents all arrive as natural language. The L3 Linguistic agent transforms this unstructured content into structured knowledge representations that can be processed by other reasoning layers and consumed by downstream intelligence agents. This transformation preserves nuance, handles ambiguity explicitly, and flags linguistic uncertainty rather than making silent assumptions.
+Natural language understanding is critical in the Prismatic ecosystem because many intelligence sources produce unstructured text: [OSINT](@/glossary/osint.md) reports, compliance regulations, security advisories, and Czech business [registry](@/glossary/registry-otp.md) documents all arrive as natural language. The L3 Linguistic agent transforms this unstructured content into structured knowledge representations that can be processed by other reasoning layers and consumed by downstream intelligence agents. This transformation preserves nuance, handles ambiguity explicitly, and flags linguistic uncertainty rather than making silent assumptions.
 
-The agent's design reflects a core epistemic principle: natural language is inherently ambiguous, and any system that processes natural language must acknowledge that ambiguity rather than silently resolving it. When a sentence admits multiple interpretations, the L3 Linguistic agent produces all plausible interpretations with associated confidence scores rather than selecting one and discarding the rest. This approach aligns with the NABLA [Contradiction Preservation](/glossary/contradiction-preservation/) axiom -- multiple valid readings of a text are preserved as legitimate epistemic signals, not collapsed into a single best guess that erases the uncertainty inherent in the source material.
+The agent's design reflects a core epistemic principle: natural language is inherently ambiguous, and any system that processes natural language must acknowledge that ambiguity rather than silently resolving it. When a sentence admits multiple interpretations, the L3 Linguistic agent produces all plausible interpretations with associated confidence scores rather than selecting one and discarding the rest. This approach aligns with the NABLA [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom -- multiple valid readings of a text are preserved as legitimate epistemic signals, not collapsed into a single best guess that erases the uncertainty inherent in the source material.
 
 ## Operational Domain
 
@@ -51,7 +51,7 @@ The operational scope covers four primary language processing modes. Entity extr
 
 ## Technical Architecture
 
-The L3 Linguistic agent is implemented as an [OTP](/glossary/otp/) application with a [GenServer](/glossary/genserver/) managing the NLP pipeline state, entity extraction models, and language detection heuristics. The agent maintains language-specific processing modules that are activated based on detected input language, ensuring that tokenization, stemming, and entity recognition use language-appropriate rules.
+The L3 Linguistic agent is implemented as an [OTP](@/glossary/otp.md) application with a [GenServer](@/glossary/genserver.md) managing the NLP pipeline state, entity extraction models, and language detection heuristics. The agent maintains language-specific processing modules that are activated based on detected input language, ensuring that tokenization, stemming, and entity recognition use language-appropriate rules.
 
 ```elixir
 defmodule Prismatic3NL.Layers.L3Linguistic do
@@ -119,12 +119,12 @@ The L3 designation permits direct coordination with peer reasoning layers and th
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [3nl-coordinator](/agents/3nl-coordinator/) | Coordination Hub | Receives text analysis requests and returns structured linguistic outputs |
-| [3nl-l1-logic](/agents/3nl-l1-logic/) | Peer Layer | Provides formal logic validation for linguistically derived propositions |
-| [3nl-l2-neural](/agents/3nl-l2-neural/) | Peer Layer | Provides neural pattern recognition for text classification tasks |
-| [3nl-l7-transcendent](/agents/3nl-l7-transcendent/) | Transcendent Layer | Transcendent semantic synthesis across consciousness layers |
-| [bayesian-analyst](/agents/bayesian-analyst/) | Confidence Partner | Quantifies uncertainty in linguistic interpretations using probabilistic methods |
-| [email-intelligence-specialist](/agents/email-intelligence-specialist/) | Intelligence Consumer | Consumes entity extraction for email-based intelligence profiling |
+| [3nl-coordinator](@/agents/3nl-coordinator.md) | Coordination Hub | Receives text analysis requests and returns structured linguistic outputs |
+| [3nl-l1-logic](@/agents/3nl-l1-logic.md) | Peer Layer | Provides formal logic validation for linguistically derived propositions |
+| [3nl-l2-neural](@/agents/3nl-l2-neural.md) | Peer Layer | Provides neural pattern recognition for text classification tasks |
+| [3nl-l7-transcendent](@/agents/3nl-l7-transcendent.md) | Transcendent Layer | Transcendent semantic synthesis across consciousness layers |
+| [bayesian-analyst](@/agents/bayesian-analyst.md) | Confidence Partner | Quantifies uncertainty in linguistic interpretations using probabilistic methods |
+| [email-intelligence-specialist](@/agents/email-intelligence-specialist.md) | Intelligence Consumer | Consumes entity extraction for email-based intelligence profiling |
 
 ## Performance Characteristics
 
@@ -139,16 +139,16 @@ The L3 designation permits direct coordination with peer reasoning layers and th
 
 ## Enforcement
 
-All L3 Linguistic operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Linguistic analysis must include confidence scores for all extracted entities and semantic interpretations. Ambiguous text must be flagged explicitly rather than silently resolved. No linguistic output is accepted as ground truth without cross-validation through at least one additional reasoning layer. Source language and translation confidence are mandatory metadata for all processed text. The NABLA [Signal Plurality](/glossary/signal-plurality/) axiom requires that linguistic conclusions used for critical decisions be corroborated by at least one non-linguistic signal source -- preventing critical actions from being taken solely on the basis of natural language interpretation, which is inherently subject to ambiguity.
+All L3 Linguistic operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Linguistic analysis must include confidence scores for all extracted entities and semantic interpretations. Ambiguous text must be flagged explicitly rather than silently resolved. No linguistic output is accepted as ground truth without cross-validation through at least one additional reasoning layer. Source language and translation confidence are mandatory metadata for all processed text. The NABLA [Signal Plurality](@/glossary/signal-plurality.md) axiom requires that linguistic conclusions used for critical decisions be corroborated by at least one non-linguistic signal source -- preventing critical actions from being taken solely on the basis of natural language interpretation, which is inherently subject to ambiguity.
 
 ## Related Resources
 
-- [3NL Framework](/glossary/three-nl/) -- The multi-paradigm reasoning architecture
-- [OSINT Sources](/osint/) -- Intelligence sources producing natural language text for linguistic analysis
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing ambiguity preservation
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-agent intelligence coordination
-- [Technologies](/technologies/) -- Platform technology stack including NLP infrastructure
-- [Glossary](/glossary/) -- Technical terminology and domain concepts
+- [3NL Framework](@/glossary/three-nl.md) -- The multi-paradigm reasoning architecture
+- [OSINT Sources](@/osint/_index.md) -- Intelligence sources producing natural language text for linguistic analysis
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing ambiguity preservation
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-agent intelligence coordination
+- [Technologies](@/technologies/_index.md) -- Platform technology stack including NLP infrastructure
+- [Glossary](@/glossary/_index.md) -- Technical terminology and domain concepts
 
 ---
 
@@ -157,4 +157,4 @@ All L3 Linguistic operations are governed by the [NO MERCY, NO DOUBTS](/glossary
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

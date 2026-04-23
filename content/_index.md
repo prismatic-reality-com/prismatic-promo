@@ -43,17 +43,17 @@ Prismatic Platform is a **fully open source** AI-orchestrated intelligence infra
 **🌍 For Community**: 25,000+ developers collaborating on the future of intelligence tools. Your contributions welcome!
 **💼 For Enterprises**: Production-ready platform with optional commercial support and professional services available
 
-**Created by [Tomáš Korcak (korczis)](/about/author/)** | **Alter Ego: Sig Nihl** | **Community-Driven** | **[GHL Licensed](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)**
+**Created by [Tomáš Korcak (korczis)](@/about/author.md)** | **Alter Ego: Sig Nihl** | **Community-Driven** | **[GHL Licensed](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)**
 
 ---
 
 ## 🚀 Quick Start & Community Links
 
 **New to Prismatic Platform?** Start here:
-- **📖 [Developer Portal](/developers/)** - Build with the platform
-- **🏗️ [Architecture Guide](/architecture/)** - Understand the system design
-- **🤖 [Agent Registry](/agents/)** - Explore 1,090 autonomous agents
-- **💬 [Connect with the Creator](/about/author/)** - Meet Tomáš Korcak (korczis)
+- **📖 [Developer Portal](@/developers/_index.md)** - Build with the platform
+- **🏗️ [Architecture Guide](@/architecture/_index.md)** - Understand the system design
+- **🤖 [Agent Registry](@/agents/_index.md)** - Explore 1,090 autonomous agents
+- **💬 [Connect with the Creator](@/about/author.md)** - Meet Tomáš Korcak (korczis)
 
 **Join the Community**:
 - **🐙 GitHub**: [korczis/prismatic-platform](https://github.com/korczis/prismatic-platform)
@@ -65,13 +65,13 @@ Prismatic Platform is a **fully open source** AI-orchestrated intelligence infra
 
 Prismatic Platform has achieved **three breakthrough innovations** that were previously considered impossible in computer science:
 
-### 1. 🔄 [Adaptive System Architecture](/technologies/adaptive-system-architecture/)
+### 1. 🔄 [Adaptive System Architecture](@/technologies/adaptive-system-architecture.md)
 **Industry-First Self-Modifying Supervision Trees** - Systems that automatically restructure their own architecture in real-time. **90x faster adaptation cycles**, **99.97% uptime** during continuous evolution, **autonomous optimization** without human intervention.
 
-### 2. ⚡ [Zero-Downtime Evolution System](/technologies/zero-downtime-evolution/)
+### 2. ⚡ [Zero-Downtime Evolution System](@/technologies/zero-downtime-evolution.md)
 **Revolutionary Hot Architecture Changes** - Complex architectural transformations without any service interruption. Operations requiring **4-24 hour maintenance windows** now complete in **30-90 seconds** with **100% service continuity**.
 
-### 3. 🔮 [Quantum-Inspired Optimization Engine](/technologies/quantum-inspired-optimization/)
+### 3. 🔮 [Quantum-Inspired Optimization Engine](@/technologies/quantum-inspired-optimization.md)
 **Classical Quantum Computing Breakthrough** - Quantum algorithms running on classical hardware with **10,000x speedup** on complex problems. Solve optimization spaces with **10^15+ solutions** in **under 30 seconds**.
 
 These innovations **transform the impossible into the inevitable**, positioning Prismatic Platform as the definitive leader in autonomous system technology.
@@ -483,16 +483,16 @@ The following table summarizes the current scale of the Prismatic Platform as of
 
 The Prismatic Platform documentation is organized into several major sections, each accessible from the site navigation:
 
-- **[Applications](/apps/)** -- Detailed documentation for each of the 141 OTP applications, including their purpose, API surface, configuration options, and inter-application dependencies
-- **[Agents](/agents/)** -- Complete registry of all 532 AIAD agents organized by operational domain, with capability descriptions, permission matrices, and interaction protocols
-- **[OSINT Sources](/osint/)** -- Documentation for the 121+ intelligence source adapters, including supported query types, rate limits, response formats, and confidence scoring methodology
-- **[Architecture](/architecture/)** -- Deep technical documentation of the 3NL framework, supervision tree design, event sourcing model, and cross-cutting concerns
-- **[Technologies](/technologies/)** -- Reference documentation for each technology in the stack, including configuration guides, performance tuning, and integration patterns
-- **[Color Teams](/teams/)** -- Detailed operational documentation for each of the six color-coded security teams, including engagement rules, safety protocols, and signal flow architecture
-- **[Doctrine](/capabilities/)** -- Formal specification of the NO MERCY, NO DOUBTS operational doctrine, NABLA Infinity epistemic framework, and quality enforcement mechanisms
-- **[Commands](/commands/)** -- Reference for all 216 slash commands available within the platform, organized by functional category
-- **[Glossary](/glossary/)** -- Definitions for platform-specific terminology, acronyms, and concepts
-- **[FAQ](/faq/)** -- Frequently asked questions about platform architecture, capabilities, and operational procedures
+- **[Applications](@/apps/_index.md)** -- Detailed documentation for each of the 141 OTP applications, including their purpose, API surface, configuration options, and inter-application dependencies
+- **[Agents](@/agents/_index.md)** -- Complete registry of all 532 AIAD agents organized by operational domain, with capability descriptions, permission matrices, and interaction protocols
+- **[OSINT Sources](@/osint/_index.md)** -- Documentation for the 121+ intelligence source adapters, including supported query types, rate limits, response formats, and confidence scoring methodology
+- **[Architecture](@/architecture/_index.md)** -- Deep technical documentation of the 3NL framework, supervision tree design, event sourcing model, and cross-cutting concerns
+- **[Technologies](@/technologies/_index.md)** -- Reference documentation for each technology in the stack, including configuration guides, performance tuning, and integration patterns
+- **[Color Teams](@/teams/_index.md)** -- Detailed operational documentation for each of the six color-coded security teams, including engagement rules, safety protocols, and signal flow architecture
+- **[Doctrine](@/capabilities/_index.md)** -- Formal specification of the NO MERCY, NO DOUBTS operational doctrine, NABLA Infinity epistemic framework, and quality enforcement mechanisms
+- **[Commands](@/commands/_index.md)** -- Reference for all 216 slash commands available within the platform, organized by functional category
+- **[Glossary](@/glossary/_index.md)** -- Definitions for platform-specific terminology, acronyms, and concepts
+- **[FAQ](@/faq/_index.md)** -- Frequently asked questions about platform architecture, capabilities, and operational procedures
 
 ---
 
@@ -515,4 +515,4 @@ The platform is production-deployed, continuously evolving, and open for explora
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

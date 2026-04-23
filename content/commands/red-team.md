@@ -24,15 +24,15 @@ image_alt = "/red-team - Prismatic Platform"
 
 ## Overview
 
-**/red-team** is a production command in the **[Color Teams](/glossary/color-teams/)** category of the Prismatic Platform that executes adversarial simulation scenarios against the platform's epistemic infrastructure. The Red Team operates as one of six color teams in the platform's security architecture, specifically responsible for simulating epistemic attacks using five defined primitives: truth distortion, confidence manipulation, signal poisoning, drift induction, and salience hijacking.
+**/red-team** is a production command in the **[Color Teams](@/glossary/color-teams.md)** category of the Prismatic Platform that executes adversarial simulation scenarios against the platform's epistemic infrastructure. The Red Team operates as one of six color teams in the platform's security architecture, specifically responsible for simulating epistemic attacks using five defined primitives: truth distortion, confidence manipulation, signal poisoning, drift induction, and salience hijacking.
 
-The purpose of Red Team operations is not to break things but to discover how they could break. By systematically probing the platform's reasoning infrastructure with adversarial scenarios, the Red Team reveals vulnerabilities that would remain invisible to purely defensive analysis. These findings flow through the [Purple Team](/commands/purple-team/) synthesis loop to inform defensive improvements by the [Blue Team](/commands/blue-team/), creating a continuous cycle of adversarial-defensive strengthening.
+The purpose of Red Team operations is not to break things but to discover how they could break. By systematically probing the platform's reasoning infrastructure with adversarial scenarios, the Red Team reveals vulnerabilities that would remain invisible to purely defensive analysis. These findings flow through the [Purple Team](@/commands/purple-team.md) synthesis loop to inform defensive improvements by the [Blue Team](@/commands/blue-team.md), creating a continuous cycle of adversarial-defensive strengthening.
 
 All Red Team operations execute exclusively within sandboxed environments using synthetic data. No real data, no production state, and no actual system modifications are involved. The attack primitives are epistemic in nature, targeting the platform's reasoning and decision-making processes rather than its runtime infrastructure. This distinction is fundamental: Red Team work tests whether the platform can be deceived, not whether it can be crashed.
 
-The Red Team's 329-entry attack taxonomy provides a comprehensive library of known epistemic attack patterns, organized by technique, target, and severity. Each taxonomy entry includes the attack description, expected impact, detection method, and recommended countermeasure. The [/red-team](/commands/red-team/) command provides automated execution of scenarios drawn from this taxonomy.
+The Red Team's 329-entry attack taxonomy provides a comprehensive library of known epistemic attack patterns, organized by technique, target, and severity. Each taxonomy entry includes the attack description, expected impact, detection method, and recommended countermeasure. The [/red-team](@/commands/red-team.md) command provides automated execution of scenarios drawn from this taxonomy.
 
-This command operates under the **L3** authority level and is executed by the `red-commander` agent, the strategic commander of all Red Team operations. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level and is executed by the `red-commander` agent, the strategic commander of all Red Team operations. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -131,7 +131,7 @@ Red Team operations follow a rigorous execution flow with mandatory safety check
 
 **Step 5 - Finding Extraction**: Results are analyzed to identify vulnerabilities, weaknesses, and unexpected behaviors. Findings are structured with severity, affected subsystem, evidence, and recommended countermeasure.
 
-**Step 6 - Finding Emission**: Structured findings are emitted to the [Purple Team](/commands/purple-team/) for synthesis with Blue Team defensive posture. Findings are also recorded in the immutable audit log.
+**Step 6 - Finding Emission**: Structured findings are emitted to the [Purple Team](@/commands/purple-team.md) for synthesis with Blue Team defensive posture. Findings are also recorded in the immutable audit log.
 
 **Step 7 - Sandbox Cleanup**: All sandbox state is destroyed. No residual attack artifacts remain in the system.
 
@@ -139,13 +139,13 @@ Red Team operations follow a rigorous execution flow with mandatory safety check
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Red Commander](/agents/red-commander/) | L3 Strategic Commander | Orchestrates all adversarial scenarios |
-| [Red Epistemic Attacker](/agents/red-epistemic-attacker/) | L2 Tactical Specialist | Truth distortion and source poisoning |
-| [Red Drift Inducer](/agents/red-drift-inducer/) | L2 Tactical Specialist | Sub-threshold drift attacks |
-| [Red Scenario Generator](/agents/red-scenario-generator/) | L2 Tactical Specialist | Multi-technique scenario composition |
-| [Purple Team](/commands/purple-team/) | Finding consumer | Synthesizes Red findings with Blue defense |
-| [Blue Team](/commands/blue-team/) | Defensive counterpart | Implements defenses against Red findings |
-| [Color Team](/commands/color-team/) | Status overview | Cross-team visibility and coordination |
+| [Red Commander](@/agents/red-commander.md) | L3 Strategic Commander | Orchestrates all adversarial scenarios |
+| [Red Epistemic Attacker](@/agents/red-epistemic-attacker.md) | L2 Tactical Specialist | Truth distortion and source poisoning |
+| [Red Drift Inducer](@/agents/red-drift-inducer.md) | L2 Tactical Specialist | Sub-threshold drift attacks |
+| [Red Scenario Generator](@/agents/red-scenario-generator.md) | L2 Tactical Specialist | Multi-technique scenario composition |
+| [Purple Team](@/commands/purple-team.md) | Finding consumer | Synthesizes Red findings with Blue defense |
+| [Blue Team](@/commands/blue-team.md) | Defensive counterpart | Implements defenses against Red findings |
+| [Color Team](@/commands/color-team.md) | Status overview | Cross-team visibility and coordination |
 | PrismaticDark.Sandbox | Execution environment | Isolated sandbox for adversarial operations |
 
 ## Best Practices
@@ -154,7 +154,7 @@ Design scenarios that test the boundaries of detection systems rather than attem
 
 Use composite scenarios to test the interaction between defensive systems. Individual attack primitives may be well-defended, but combinations can reveal gaps in the seams between detection systems. For example, combining confidence manipulation with drift induction tests whether the drift detector can function accurately when confidence scores are artificially inflated.
 
-Coordinate with the [Blue Team](/commands/blue-team/) through the [Purple Team](/commands/purple-team/) rather than directly. The Purple Team's synthesis function ensures that Red findings are properly contextualized and prioritized before defensive resources are allocated. Direct Red-Blue communication can create reactive fire-fighting rather than systematic defense improvement.
+Coordinate with the [Blue Team](@/commands/blue-team.md) through the [Purple Team](@/commands/purple-team.md) rather than directly. The Purple Team's synthesis function ensures that Red findings are properly contextualized and prioritized before defensive resources are allocated. Direct Red-Blue communication can create reactive fire-fighting rather than systematic defense improvement.
 
 Run regular regression scenarios to verify that previously identified vulnerabilities remain patched. The `--taxonomy` flag enables precise re-execution of specific attack patterns to confirm that defenses implemented in response to prior findings remain effective.
 
@@ -191,25 +191,25 @@ Advanced Red Team operations support campaign-level exercises that simulate soph
 /red-team scenario --generate --base=T-042 --variations=10
 ```
 
-Campaign-level exercises simulate the progression of a sophisticated adversary over simulated time, testing the platform's ability to detect and respond to evolving threats. These exercises are particularly valuable for evaluating the drift detection and anomaly correlation capabilities of the [Blue Team](/commands/blue-team/).
+Campaign-level exercises simulate the progression of a sophisticated adversary over simulated time, testing the platform's ability to detect and respond to evolving threats. These exercises are particularly valuable for evaluating the drift detection and anomaly correlation capabilities of the [Blue Team](@/commands/blue-team.md).
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Red Team exercises execute completely with full finding documentation. No vulnerability is left unreported, no scenario is abandoned mid-execution, and no finding is downgraded without evidence.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every finding includes the complete evidence chain from scenario input through attack execution to observed vulnerability. No finding is accepted without reproducible evidence.
 
-All Red Team operations additionally comply with the [Red Team Safety Policy](/glossary/red-team/), which mandates sandbox isolation, synthetic data only, zero network access, and continuous ethics monitoring.
+All Red Team operations additionally comply with the [Red Team Safety Policy](@/glossary/red-team.md), which mandates sandbox isolation, synthetic data only, zero network access, and continuous ethics monitoring.
 
 ## Related Commands
 
-- [/color-team](/commands/color-team/) - Color team status overview across all 6 teams
-- [/blue-team](/commands/blue-team/) - [Blue team](/glossary/blue-team/) epistemic defense posture assessment
-- [/purple-team](/commands/purple-team/) - [Purple team](/glossary/purple-team/) Red-Blue synthesis and closure analysis
-- [/manipulation-detect](/commands/manipulation-detect/) - Detect manipulation attempts using epistemic analysis
-- [/manipulation-protect](/commands/manipulation-protect/) - Activate manipulation protection defenses
-- [/manipulation-techniques](/commands/manipulation-techniques/) - View manipulation technique taxonomy and counter-measures
+- [/color-team](@/commands/color-team.md) - Color team status overview across all 6 teams
+- [/blue-team](@/commands/blue-team.md) - [Blue team](@/glossary/blue-team.md) epistemic defense posture assessment
+- [/purple-team](@/commands/purple-team.md) - [Purple team](@/glossary/purple-team.md) Red-Blue synthesis and closure analysis
+- [/manipulation-detect](@/commands/manipulation-detect.md) - Detect manipulation attempts using epistemic analysis
+- [/manipulation-protect](@/commands/manipulation-protect.md) - Activate manipulation protection defenses
+- [/manipulation-techniques](@/commands/manipulation-techniques.md) - View manipulation technique taxonomy and counter-measures
 
 ---
 
@@ -218,4 +218,4 @@ All Red Team operations additionally comply with the [Red Team Safety Policy](/g
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

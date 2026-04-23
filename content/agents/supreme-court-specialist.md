@@ -30,7 +30,7 @@ image_alt = "supreme-court-specialist - Prismatic Platform"
 
 The Supreme Court Specialist is an L3 strategic command agent operating within the Prismatic Platform's Czech domain, dedicated to the analysis of supreme court proceedings and appellate decisions within the Czech legal system. The Czech Supreme Court (Nejvyssi soud) and the Supreme Administrative Court (Nejvyssi spravni soud) produce jurisprudence that shapes the interpretation of commercial law, corporate governance standards, and regulatory enforcement across the Czech Republic. This agent systematically collects, analyzes, and structures intelligence from these judicial proceedings to support due diligence investigations, legal risk assessments, and compliance evaluations.
 
-Within the Prismatic ecosystem, the Supreme Court Specialist provides the judicial intelligence layer that transforms raw court proceedings data into actionable analytical products. Operating under the [AIAD](/glossary/aiad/) standard and the [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, the agent ensures that every legal analysis meets the highest standards of completeness and accuracy, with zero tolerance for mischaracterized rulings or incomplete case coverage.
+Within the Prismatic ecosystem, the Supreme Court Specialist provides the judicial intelligence layer that transforms raw court proceedings data into actionable analytical products. Operating under the [AIAD](@/glossary/aiad.md) standard and the [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, the agent ensures that every legal analysis meets the highest standards of completeness and accuracy, with zero tolerance for mischaracterized rulings or incomplete case coverage.
 
 ## Theoretical Foundations
 
@@ -38,9 +38,9 @@ Legal intelligence analysis draws from jurimetrics, the quantitative study of la
 
 The agent's analytical framework incorporates legal precedent theory, which holds that prior judicial decisions constrain future outcomes in similar cases. By mapping the citation network of Supreme Court decisions, the agent identifies authoritative precedents, traces the evolution of legal doctrines, and predicts the likely judicial treatment of novel legal questions based on existing precedent patterns.
 
-From [OSINT](/glossary/osint/) methodology, the agent applies structured analytical techniques to open-source judicial data. The Analysis of Competing Hypotheses (ACH) framework structures the evaluation of legal risk scenarios, while link analysis maps relationships between parties, legal representatives, and judicial outcomes to identify patterns that may indicate systematic legal risks.
+From [OSINT](@/glossary/osint.md) methodology, the agent applies structured analytical techniques to open-source judicial data. The Analysis of Competing Hypotheses (ACH) framework structures the evaluation of legal risk scenarios, while link analysis maps relationships between parties, legal representatives, and judicial outcomes to identify patterns that may indicate systematic legal risks.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework governs the agent's treatment of legal uncertainty. Legal interpretation inherently involves ambiguity, and the agent explicitly preserves this ambiguity through confidence-weighted assessments rather than presenting false certainty about legal outcomes.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework governs the agent's treatment of legal uncertainty. Legal interpretation inherently involves ambiguity, and the agent explicitly preserves this ambiguity through confidence-weighted assessments rather than presenting false certainty about legal outcomes.
 
 ## Core Capabilities
 
@@ -56,7 +56,7 @@ The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework governs the 
 
 ## Architecture and Implementation
 
-The agent operates as an [OTP](/glossary/otp/) process within the Prismatic Czech domain subsystem, implementing a pipeline architecture that processes judicial data through successive analytical stages.
+The agent operates as an [OTP](@/glossary/otp.md) process within the Prismatic Czech domain subsystem, implementing a pipeline architecture that processes judicial data through successive analytical stages.
 
 | Stage | Processing Activity | Output |
 |-------|-------------------|--------|
@@ -100,17 +100,17 @@ The agent employs a multi-method analytical approach that combines quantitative 
 
 | System | Integration Purpose | Data Flow |
 |--------|-------------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent lifecycle and task dispatch | Bidirectional |
-| [GARDEN](/glossary/garden/) Knowledge Base | Historical legal pattern repository | Read/Write |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent lifecycle and task dispatch | Bidirectional |
+| [GARDEN](@/glossary/garden.md) Knowledge Base | Historical legal pattern repository | Read/Write |
 | Czech Business Registry | Entity identification cross-reference | Read |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification and discovery | Read |
-| [Prismatic Telemetry](/glossary/telemetry/) | Processing metrics and event tracking | Write |
-| [Entity Resolution Engine](/glossary/entity-resolution/) | Party name disambiguation | Bidirectional |
-| [SEADF](/glossary/seadf/) | Autonomous evolution framework | Bidirectional |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Read |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Processing metrics and event tracking | Write |
+| [Entity Resolution Engine](@/glossary/entity-resolution.md) | Party name disambiguation | Bidirectional |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution framework | Bidirectional |
 
 ## Quality Assurance and Validation
 
-Legal analysis quality is validated through multiple mechanisms. The [Trinity Gate](/glossary/trinity-gate/) verification system checks that analytical conclusions are structurally consistent with the underlying evidence, logically coherent with established legal principles, and formally valid given the cited precedents.
+Legal analysis quality is validated through multiple mechanisms. The [Trinity Gate](@/glossary/trinity-gate.md) verification system checks that analytical conclusions are structurally consistent with the underlying evidence, logically coherent with established legal principles, and formally valid given the cited precedents.
 
 Extraction accuracy is validated against a curated corpus of manually annotated decisions, with precision and recall metrics maintained above 95% for key extraction fields. Classification accuracy is similarly validated against expert-labeled training sets for the Czech legal domain taxonomy.
 
@@ -118,11 +118,11 @@ The agent maintains provenance chains that trace every analytical conclusion bac
 
 ## Regulatory Context
 
-The agent's analytical products support compliance with multiple regulatory frameworks. The Czech [ZKB](/glossary/zkb/) regulation requires entities to assess the legal standing and dispute history of their suppliers and business partners. [NIS2](/glossary/nis2/) supply chain security obligations similarly require understanding the legal risk profile of entities within critical infrastructure supply chains. The Supreme Court Specialist provides the judicial intelligence component that enables compliance with these requirements.
+The agent's analytical products support compliance with multiple regulatory frameworks. The Czech [ZKB](@/glossary/zkb.md) regulation requires entities to assess the legal standing and dispute history of their suppliers and business partners. [NIS2](@/glossary/nis2.md) supply chain security obligations similarly require understanding the legal risk profile of entities within critical infrastructure supply chains. The Supreme Court Specialist provides the judicial intelligence component that enables compliance with these requirements.
 
 ## Related Agents
 
-The Supreme Court Specialist collaborates with other Czech domain agents to provide comprehensive legal intelligence. The [supplier-risk-specialist](/agents/supplier-risk-specialist/) and [supplier-vetting-specialist](/agents/supplier-vetting-specialist/) consume judicial intelligence as inputs to their supplier assessment workflows. OSINT domain agents contribute complementary intelligence from non-judicial sources that enriches the context surrounding judicial proceedings.
+The Supreme Court Specialist collaborates with other Czech domain agents to provide comprehensive legal intelligence. The [supplier-risk-specialist](@/agents/supplier-risk-specialist.md) and [supplier-vetting-specialist](@/agents/supplier-vetting-specialist.md) consume judicial intelligence as inputs to their supplier assessment workflows. OSINT domain agents contribute complementary intelligence from non-judicial sources that enriches the context surrounding judicial proceedings.
 
 ---
 
@@ -131,4 +131,4 @@ The Supreme Court Specialist collaborates with other Czech domain agents to prov
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

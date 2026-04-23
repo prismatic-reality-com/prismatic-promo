@@ -30,7 +30,7 @@ This command operates under the **L3** authority level and is executed by the `b
 
 The enforcement scope covers multiple dimensions of GitLab project governance. At the repository level, it verifies branch protection rules, merge request approval requirements, and push restrictions. At the workflow level, it validates that issues are properly labeled, milestones are assigned, and merge requests follow the platform's conventional format. At the CI/CD level, it ensures pipelines include all mandatory quality stages and that deployment guardrails are properly configured.
 
-The command integrates with the platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine as its primary enforcement mechanism. Where other commands focus on development productivity, `/gitlab-enforce` focuses exclusively on ensuring that productivity does not come at the cost of quality, traceability, or process integrity. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+The command integrates with the platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine as its primary enforcement mechanism. Where other commands focus on development productivity, `/gitlab-enforce` focuses exclusively on ensuring that productivity does not come at the cost of quality, traceability, or process integrity. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -161,7 +161,7 @@ The Policy Engine loads enforcement rules from the platform's `.aiad/policies/` 
 
 5. **Remediation Decision**: For each violation, determine whether auto-remediation is possible and permitted. Generate fix instructions for manual violations. Apply auto-fixes when the `--auto` flag is set.
 
-6. **Reporting**: Generate compliance report in the requested format. Emit [telemetry](/glossary/telemetry/) events for tracking compliance trends over time. Update session context with enforcement results.
+6. **Reporting**: Generate compliance report in the requested format. Emit [telemetry](@/glossary/telemetry.md) events for tracking compliance trends over time. Update session context with enforcement results.
 
 7. **Enforcement Action**: For blocking violations (L2+), set the appropriate enforcement flags that prevent merge requests from being approved, pipelines from deploying, or commits from being pushed until violations are resolved.
 
@@ -169,13 +169,13 @@ The Policy Engine loads enforcement rules from the platform's `.aiad/policies/` 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by `brutal-gitlab-enforcer` agent with L3 authority |
-| [Quality Gates](/glossary/quality-gates/) | Bidirectional | Enforces quality gate compliance in CI/CD configurations |
-| [Telemetry](/glossary/telemetry/) | Event Emission | Reports compliance metrics and violation trends |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by `brutal-gitlab-enforcer` agent with L3 authority |
+| [Quality Gates](@/glossary/quality-gates.md) | Bidirectional | Enforces quality gate compliance in CI/CD configurations |
+| [Telemetry](@/glossary/telemetry.md) | Event Emission | Reports compliance metrics and violation trends |
 | GitLab API | External Service | Reads and modifies project settings, branch rules, and MR configurations |
-| [/gitlab-ci](/commands/gitlab-ci/) | Pipeline Validation | Validates CI/CD configurations against mandatory stage requirements |
-| [/gitlab-mr](/commands/gitlab-mr/) | MR Compliance | Enforces merge request standards on created MRs |
-| [/guardrails](/commands/guardrails/) | Safety Enforcement | Coordinates deployment guardrails with compliance requirements |
+| [/gitlab-ci](@/commands/gitlab-ci.md) | Pipeline Validation | Validates CI/CD configurations against mandatory stage requirements |
+| [/gitlab-mr](@/commands/gitlab-mr.md) | MR Compliance | Enforces merge request standards on created MRs |
+| [/guardrails](@/commands/guardrails.md) | Safety Enforcement | Coordinates deployment guardrails with compliance requirements |
 | Session Lifecycle | Automation Hook | Triggered as part of mandatory session discipline protocol |
 
 ## Best Practices
@@ -240,7 +240,7 @@ The enforcement system integrates with the platform's pre-commit hooks to block 
 
 ## Doctrine Compliance
 
-All enforcement operations embody the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine at its most literal level.
+All enforcement operations embody the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine at its most literal level.
 
 - **NO MERCY**: The `brutal-gitlab-enforcer` agent applies zero tolerance to compliance violations. There are no warnings for critical violations -- only blocks and rejections. The enforcement is absolute, with no bypass mechanisms and no exception processes.
 - **NO DOUBTS**: Every enforcement decision is evidence-based, backed by specific policy definitions, current project state, and traceable audit trails. The command never enforces based on assumptions -- it queries actual GitLab state and evaluates against defined rules.
@@ -249,16 +249,16 @@ Enforcement levels follow the platform's violation protocol: L1 (minor deviation
 
 ## Related Commands
 
-- [/gitlab-api](/commands/gitlab-api/) - GitLab API operations for project and repository management
-- [/gitlab-auto-sync](/commands/gitlab-auto-sync/) - Automatic GitLab integration for all AIAD workflows
-- [/gitlab-ci](/commands/gitlab-ci/) - [GitLab CI](/glossary/gitlab-ci/)/CD pipeline management and configuration
-- [/gitlab-mr](/commands/gitlab-mr/) - GitLab merge request creation and management
-- [/gitlab-sync](/commands/gitlab-sync/) - GitLab issue synchronization and tracking operations
-- [/gitlab-supreme-sync](/commands/gitlab-supreme-sync/) - Comprehensive GitLab synchronization with commit forensics
-- [/guardrails](/commands/guardrails/) - CI/CD guardrails enforcement for deployment safety
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/gitlab-api](@/commands/gitlab-api.md) - GitLab API operations for project and repository management
+- [/gitlab-auto-sync](@/commands/gitlab-auto-sync.md) - Automatic GitLab integration for all AIAD workflows
+- [/gitlab-ci](@/commands/gitlab-ci.md) - [GitLab CI](@/glossary/gitlab-ci.md)/CD pipeline management and configuration
+- [/gitlab-mr](@/commands/gitlab-mr.md) - GitLab merge request creation and management
+- [/gitlab-sync](@/commands/gitlab-sync.md) - GitLab issue synchronization and tracking operations
+- [/gitlab-supreme-sync](@/commands/gitlab-supreme-sync.md) - Comprehensive GitLab synchronization with commit forensics
+- [/guardrails](@/commands/guardrails.md) - CI/CD guardrails enforcement for deployment safety
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -267,4 +267,4 @@ Enforcement levels follow the platform's violation protocol: L1 (minor deviation
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

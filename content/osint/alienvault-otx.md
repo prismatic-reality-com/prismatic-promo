@@ -28,7 +28,7 @@ image_alt = "AlienVault OTX - Prismatic Platform"
 
 ## Overview
 
-AlienVault OTX (Open Threat Exchange) is one of the world's largest open [threat intelligence](/glossary/threat-intelligence/) communities, with over 200,000 participants sharing indicators of compromise (IOCs) in near-real-time. Now part of AT&T Cybersecurity (and subsequently acquired by LevelBlue in 2024), OTX provides community-curated "pulses" -- collections of IOCs related to specific threats, campaigns, or threat actors. Each pulse contains multiple indicator types including IPs, domains, URLs, file hashes, and email addresses, along with human-authored narrative context describing the threat campaign, affected industries, and recommended mitigations.
+AlienVault OTX (Open Threat Exchange) is one of the world's largest open [threat intelligence](@/glossary/threat-intelligence.md) communities, with over 200,000 participants sharing indicators of compromise (IOCs) in near-real-time. Now part of AT&T Cybersecurity (and subsequently acquired by LevelBlue in 2024), OTX provides community-curated "pulses" -- collections of IOCs related to specific threats, campaigns, or threat actors. Each pulse contains multiple indicator types including IPs, domains, URLs, file hashes, and email addresses, along with human-authored narrative context describing the threat campaign, affected industries, and recommended mitigations.
 
 The platform operates on a crowdsourced intelligence model where security researchers, SOC analysts, incident responders, and threat intelligence teams worldwide contribute observations from their environments. This community-driven approach ensures rapid indicator sharing -- often within minutes of initial discovery -- providing significantly faster coverage than commercial threat feeds alone. OTX pulses frequently appear before formal advisories from vendors or government CERTs, making them a critical early-warning resource.
 
@@ -67,7 +67,7 @@ Integration partnerships with security vendors, ISPs, and national CERTs provide
 
 ### Authentication and Base URL
 
-OTX provides a comprehensive [REST API](/glossary/rest-api/) accessible at `https://otx.alienvault.com/api/v1/`. Authentication requires a free API key obtained through account registration. The API key is passed via the `X-OTX-API-KEY` HTTP header.
+OTX provides a comprehensive [REST API](@/glossary/rest-api.md) accessible at `https://otx.alienvault.com/api/v1/`. Authentication requires a free API key obtained through account registration. The API key is passed via the `X-OTX-API-KEY` HTTP header.
 
 ### API Endpoints
 
@@ -224,11 +224,11 @@ When threat hunters identify suspicious indicators during proactive hunting oper
 
 ### Automated Threat Feed Integration
 
-Security operations centers integrate OTX pulse subscriptions into [SIEM](/glossary/siem/) platforms and firewall rule generation workflows. The STIX/TAXII endpoints enable standardized ingestion, while the DirectConnect SDK provides language-specific integration for custom automation. Indicators flow automatically from OTX into detection rules, blocklists, and alerting pipelines.
+Security operations centers integrate OTX pulse subscriptions into [SIEM](@/glossary/siem.md) platforms and firewall rule generation workflows. The STIX/TAXII endpoints enable standardized ingestion, while the DirectConnect SDK provides language-specific integration for custom automation. Indicators flow automatically from OTX into detection rules, blocklists, and alerting pipelines.
 
 ### Incident Response Indicator Triage
 
-During [incident response](/glossary/incident-response/) operations, responders need rapid context on observed indicators. OTX's sub-second query response times enable real-time triage of IPs, domains, and file hashes discovered during forensic analysis. The community-contributed narratives provide immediate operational context that would otherwise require hours of manual research.
+During [incident response](@/glossary/incident-response.md) operations, responders need rapid context on observed indicators. OTX's sub-second query response times enable real-time triage of IPs, domains, and file hashes discovered during forensic analysis. The community-contributed narratives provide immediate operational context that would otherwise require hours of manual research.
 
 ### Campaign Tracking and Attribution
 
@@ -256,7 +256,7 @@ While OTX is an exceptionally valuable free resource, analysts should be aware o
 
 OTX operates under a community sharing model governed by the Traffic Light Protocol (TLP). Contributors designate the sharing scope of their pulses using TLP markings (WHITE, GREEN, AMBER, RED), and consumers must respect these designations. Most publicly accessible pulses are TLP:WHITE, meaning they can be freely shared and consumed.
 
-When using OTX data for security operations, organizations should ensure that indicator lookups comply with their jurisdiction's data protection regulations. Querying indicators derived from breach data or monitoring employee activity may trigger privacy obligations under [GDPR](/glossary/gdpr/) or local equivalents.
+When using OTX data for security operations, organizations should ensure that indicator lookups comply with their jurisdiction's data protection regulations. Querying indicators derived from breach data or monitoring employee activity may trigger privacy obligations under [GDPR](@/glossary/gdpr.md) or local equivalents.
 
 Contributing indicators to OTX requires care to avoid exposing sensitive information. Pulses should not contain internal hostnames, private IP ranges, or details that could reveal organizational security posture to adversaries. The principle of minimum necessary disclosure applies: share only the indicators and context needed for community defense.
 
@@ -268,7 +268,7 @@ Prismatic Platform integrates AlienVault OTX as a primary community threat intel
 
 ### Automated IOC Enrichment
 
-When new indicators are discovered by any platform module -- whether through [Prismatic Perimeter](/glossary/prismatic-perimeter/) attack surface scanning, network monitoring, or manual investigation -- they are automatically queried against OTX. The enrichment pipeline runs asynchronously, adding pulse context, reputation scores, and campaign associations to the platform's unified indicator store.
+When new indicators are discovered by any platform module -- whether through [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) attack surface scanning, network monitoring, or manual investigation -- they are automatically queried against OTX. The enrichment pipeline runs asynchronously, adding pulse context, reputation scores, and campaign associations to the platform's unified indicator store.
 
 ```elixir
 # Automatic enrichment pipeline integration
@@ -294,7 +294,7 @@ end
 
 ### Multi-Source Correlation
 
-OTX indicators are correlated with data from VirusTotal, AbuseIPDB, [GreyNoise](/glossary/greynoise/), and other threat intelligence sources. The correlation engine identifies indicators that appear across multiple sources, elevating confidence levels for confirmed threats and flagging discrepancies for analyst review.
+OTX indicators are correlated with data from VirusTotal, AbuseIPDB, [GreyNoise](@/glossary/greynoise.md), and other threat intelligence sources. The correlation engine identifies indicators that appear across multiple sources, elevating confidence levels for confirmed threats and flagging discrepancies for analyst review.
 
 ### Continuous Feed Synchronization
 
@@ -316,13 +316,13 @@ The platform maintains persistent OTX pulse subscriptions, synchronizing new and
 
 ## Related Providers
 
-- [VirusTotal](/osint/virustotal/) - Multi-engine malware and URL analysis with complementary detection coverage
-- [AbuseIPDB](/osint/abuseipdb/) - IP abuse reporting and reputation for cross-validation
-- [GreyNoise](/osint/greynoise/) - Internet scanner identification to filter benign scanning noise
-- [Pulsedive](/osint/pulsedive/) - Additional threat intelligence platform with risk scoring
-- [ThreatFox](/osint/threatfox/) - IOC sharing by abuse.ch with malware family focus
-- [MITRE ATT&CK](/osint/mitre-attack/) - TTP framework referenced in OTX pulse attack patterns
-- [CIRCL](/osint/circl-lu/) - Luxembourg CERT with MISP integration for structured sharing
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine malware and URL analysis with complementary detection coverage
+- [AbuseIPDB](@/osint/abuseipdb.md) - IP abuse reporting and reputation for cross-validation
+- [GreyNoise](@/osint/greynoise.md) - Internet scanner identification to filter benign scanning noise
+- [Pulsedive](@/osint/pulsedive.md) - Additional threat intelligence platform with risk scoring
+- [ThreatFox](@/osint/threatfox.md) - IOC sharing by abuse.ch with malware family focus
+- [MITRE ATT&CK](@/osint/mitre-attack.md) - TTP framework referenced in OTX pulse attack patterns
+- [CIRCL](@/osint/circl-lu.md) - Luxembourg CERT with MISP integration for structured sharing
 
 ---
 
@@ -331,4 +331,4 @@ The platform maintains persistent OTX pulse subscriptions, synchronizing new and
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

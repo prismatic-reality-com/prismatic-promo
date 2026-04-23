@@ -255,7 +255,7 @@ The AIAD indexer scans all specification files, validates them against their res
 
 ## Platform Implementation
 
-The AIAD Standard is implemented as an [Elixir](/technologies/elixir/) application that provides parsing, validation, registry management, and runtime enforcement capabilities.
+The AIAD Standard is implemented as an [Elixir](@/technologies/elixir.md) application that provides parsing, validation, registry management, and runtime enforcement capabilities.
 
 ```elixir
 defmodule PrismaticAiad.Standard do
@@ -311,7 +311,7 @@ defmodule PrismaticAiad.Standard do
 end
 ```
 
-The implementation leverages [ETS](/technologies/ets/) for fast in-memory registry lookups, enabling sub-millisecond agent discovery even with 400+ registered agents. The registry is rebuilt on application startup and incrementally updated as specifications change during development.
+The implementation leverages [ETS](@/technologies/ets.md) for fast in-memory registry lookups, enabling sub-millisecond agent discovery even with 400+ registered agents. The registry is rebuilt on application startup and incrementally updated as specifications change during development.
 
 ## Version Management
 
@@ -361,18 +361,18 @@ When the platform evolves -- adding new capabilities, retiring deprecated agents
 
 The AIAD Standard is the connective tissue of the platform's agent ecosystem.
 
-- [AIAD Compliance](/capabilities/aiad-compliance/) enforces the standard across all components
-- [NO MERCY](/capabilities/no-mercy/) doctrine encoded as mandatory enforcement blocks
-- [NO DOUBTS](/capabilities/no-doubts/) evidence requirements embedded in capability metrics
-- [Trinity Gate](/capabilities/trinity-gate/) verification referenced in quality gate definitions
-- [NABLA Axioms](/capabilities/nabla-axioms/) compliance required for epistemic agent specifications
-- [Quality Gates](/capabilities/quality-gates/) integrated as pipeline stage definitions
-- [Telemetry Integration](/capabilities/telemetry-integration/) events declared in agent specifications
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) uses specifications to detect compliance drift
-- [Color Teams](/capabilities/color-teams/) fully specified with tier-appropriate authority boundaries
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) tracks runtime metrics against declared capabilities
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) agents carry OSINT-specific capability declarations
-- [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) paradigm availability encoded in tier definitions
+- [AIAD Compliance](@/capabilities/aiad-compliance.md) enforces the standard across all components
+- [NO MERCY](@/capabilities/no-mercy.md) doctrine encoded as mandatory enforcement blocks
+- [NO DOUBTS](@/capabilities/no-doubts.md) evidence requirements embedded in capability metrics
+- [Trinity Gate](@/capabilities/trinity-gate.md) verification referenced in quality gate definitions
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) compliance required for epistemic agent specifications
+- [Quality Gates](@/capabilities/quality-gates.md) integrated as pipeline stage definitions
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) events declared in agent specifications
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) uses specifications to detect compliance drift
+- [Color Teams](@/capabilities/color-teams.md) fully specified with tier-appropriate authority boundaries
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) tracks runtime metrics against declared capabilities
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) agents carry OSINT-specific capability declarations
+- [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) paradigm availability encoded in tier definitions
 
 ---
 
@@ -381,4 +381,4 @@ The AIAD Standard is the connective tissue of the platform's agent ecosystem.
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

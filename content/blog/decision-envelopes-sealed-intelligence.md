@@ -45,7 +45,7 @@ defmodule PrismaticDD.Decision.Envelope do
 end
 ```
 
-Once sealed, the envelope is the record. Downstream callers can reject it, but they cannot silently edit it. That is the [No Mercy, No Doubts](/glossary/no-mercy-no-doubts) doctrine in practice.
+Once sealed, the envelope is the record. Downstream callers can reject it, but they cannot silently edit it. That is the [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine in practice.
 
 ## Epistemic vs aleatoric uncertainty
 
@@ -70,12 +70,12 @@ If epistemic dominates, the UI surfaces an "investigate further" affordance. If 
 
 Sealed does not mean forgotten. When an outcome arrives — the entity was sanctioned, the transaction did clear, the domain was malicious — the reconciliation loop attaches that outcome to the original envelope and updates the calibration of the scoring engine. Over time, the platform learns which source × query-type combinations are over- or under-confident.
 
-This runs as a [GenServer](/glossary/genserver) behind a `Task.Supervisor`, emits [telemetry](/glossary/telemetry) per reconciliation, and never blocks the decision path. It is a background consumer, not a critical-path mutator — exactly how [OTP](/glossary/otp) supervision trees are meant to be used.
+This runs as a [GenServer](@/glossary/genserver.md) behind a `Task.Supervisor`, emits [telemetry](@/glossary/telemetry.md) per reconciliation, and never blocks the decision path. It is a background consumer, not a critical-path mutator — exactly how [OTP](@/glossary/otp.md) supervision trees are meant to be used.
 
 ## Where to learn more
 
 - **Academy**: [Decision Core Fundamentals](/academy/learn/decision-core-fundamentals) — full walkthrough
 - **Academy**: [Monte Carlo Fundamentals](/academy/learn/monte-carlo-fundamentals) — how uncertainty is estimated
-- **Glossary**: [GenServer](/glossary/genserver), [OTP](/glossary/otp), [Telemetry](/glossary/telemetry)
+- **Glossary**: [GenServer](@/glossary/genserver.md), [OTP](@/glossary/otp.md), [Telemetry](@/glossary/telemetry.md)
 
 A decision you cannot defend is a decision you should not have made. Sealed envelopes are the difference between "we think" and "we can prove."

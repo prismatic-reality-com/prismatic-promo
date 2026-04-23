@@ -27,7 +27,7 @@ image_alt = "URLhaus - Prismatic Platform"
 
 URLhaus is a project from abuse.ch, a non-profit organization focused on combating malware and botnets. The platform collects, tracks, and shares malicious URLs that are being used for malware distribution. With over 2.5 million malicious URLs tracked since its inception, URLhaus serves as one of the most comprehensive open databases of active malware distribution infrastructure on the Internet.
 
-URLhaus relies on a global community of security researchers who submit URLs observed distributing malware. Each submission is tagged with the associated malware family (e.g., Emotet, QakBot, IcedID), enabling precise [threat intelligence](/glossary/threat-intelligence/). The database is updated in near real-time, with most submissions appearing within minutes of discovery.
+URLhaus relies on a global community of security researchers who submit URLs observed distributing malware. Each submission is tagged with the associated malware family (e.g., Emotet, QakBot, IcedID), enabling precise [threat intelligence](@/glossary/threat-intelligence.md). The database is updated in near real-time, with most submissions appearing within minutes of discovery.
 
 The project also tracks the hosting infrastructure behind malicious URLs, identifying abuse-tolerant hosting providers, compromised legitimate sites, and dedicated malware distribution servers. This hosting intelligence is invaluable for understanding the supply chain of cybercrime infrastructure.
 
@@ -64,7 +64,7 @@ Cross-reference with VirusTotal, AbuseIPDB, Shodan
 
 ## Integration with Prismatic
 
-URLhaus feeds into the Prismatic threat intelligence pipeline, providing malware distribution intelligence for the [Prismatic Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/) engine and the [OSINT Core](/apps/prismatic-osint-core/) aggregation framework.
+URLhaus feeds into the Prismatic threat intelligence pipeline, providing malware distribution intelligence for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md) engine and the [OSINT Core](@/apps/prismatic-osint-core.md) aggregation framework.
 
 ```elixir
 # Search by URL
@@ -166,13 +166,13 @@ end
 ### Threat Intelligence
 - Identify domains and IPs associated with active malware campaigns
 - Track malware family infrastructure evolution over time
-- Feed real-time IOCs into [SIEM](/glossary/siem/) and firewall blocklists
-- Cross-correlate with [VirusTotal](/osint/virustotal/) detections
+- Feed real-time IOCs into [SIEM](@/glossary/siem.md) and firewall blocklists
+- Cross-correlate with [VirusTotal](@/osint/virustotal.md) detections
 
 ### Domain Reputation
 - Check if a domain has ever hosted malware distribution URLs
 - Assess hosting provider reputation based on abuse volume
-- Feed domain [risk score](/glossary/risk-score/)s into [Prismatic Perimeter](/apps/prismatic-perimeter/) ratings
+- Feed domain [risk score](@/glossary/risk-score.md)s into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) ratings
 
 ### Incident Response
 - Rapidly identify malware family from observed URL patterns
@@ -181,11 +181,11 @@ end
 
 ## Related Sources
 
-- [VirusTotal](/osint/virustotal/) - Multi-engine malware scanning and URL analysis
-- [URLScan](/osint/urlscan/) - Visual URL analysis with DOM and network capture
-- [AbuseIPDB](/osint/abuseipdb/) - IP reputation for malware hosting infrastructure
-- [Shodan](/osint/shodan/) - Infrastructure scanning for distribution servers
-- [GreyNoise](/osint/greynoise/) - Background noise filtering for malware scanner IPs
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine malware scanning and URL analysis
+- [URLScan](@/osint/urlscan.md) - Visual URL analysis with DOM and network capture
+- [AbuseIPDB](@/osint/abuseipdb.md) - IP reputation for malware hosting infrastructure
+- [Shodan](@/osint/shodan.md) - Infrastructure scanning for distribution servers
+- [GreyNoise](@/osint/greynoise.md) - Background noise filtering for malware scanner IPs
 
 ## Malware Family Tracking
 
@@ -201,7 +201,7 @@ URLhaus tracks active malware distribution campaigns by family, providing intell
 | **RedLine** | Stealer | Cracked software, SEO poisoning | EXE |
 | **Remcos** | RAT | Business email compromise | EXE, DOCX |
 
-Tracking malware families through their distribution URLs enables correlation with [threat intelligence](/glossary/threat-intelligence/) from other sources and provides early warning when campaigns target specific industries or geographies.
+Tracking malware families through their distribution URLs enables correlation with [threat intelligence](@/glossary/threat-intelligence.md) from other sources and provides early warning when campaigns target specific industries or geographies.
 
 ### Hosting Infrastructure Analysis
 
@@ -216,8 +216,8 @@ URLhaus data reveals patterns in how threat actors use hosting infrastructure:
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - [EASM](/glossary/easm/) with threat feed integration
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - [EASM](@/glossary/easm.md) with threat feed integration
 
 ---
 
@@ -226,4 +226,4 @@ URLhaus data reveals patterns in how threat actors use hosting infrastructure:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

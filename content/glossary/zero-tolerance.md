@@ -38,9 +38,9 @@ image_alt = "Zero Tolerance - Prismatic Platform"
 
 **Zero tolerance** is a platform doctrine principle that mandates accepting absolutely no violations of established quality, security, or doctrinal standards. It is the philosophical foundation upon which the Prismatic Platform's quality enforcement infrastructure is built -- the principle that transforms quality standards from aspirational guidelines into non-negotiable system invariants.
 
-Zero tolerance in the Prismatic context means precisely what it says: zero compilation warnings (not "few"), zero [QDP](/glossary/qdp/) (not "low"), zero stubs and mocks in production code (not "minimal"), zero bypassed quality gates (not "rarely bypassed"), and mandatory [regression tests](/glossary/quality-gate/) for every bug fix (not "when convenient"). The word "zero" is literal, absolute, and enforced through automated systems that cannot be overridden by convenience, schedule pressure, or human judgment.
+Zero tolerance in the Prismatic context means precisely what it says: zero compilation warnings (not "few"), zero [QDP](@/glossary/qdp.md) (not "low"), zero stubs and mocks in production code (not "minimal"), zero bypassed quality gates (not "rarely bypassed"), and mandatory [regression tests](@/glossary/quality-gate.md) for every bug fix (not "when convenient"). The word "zero" is literal, absolute, and enforced through automated systems that cannot be overridden by convenience, schedule pressure, or human judgment.
 
-This principle is operationalized through the [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine, the [clean run](/glossary/clean-run/) requirement, the [zero warning policy](/glossary/zero-warning-policy/), and the [quality gate](/glossary/quality-gate/) enforcement pipeline. Together, these systems create a development environment where quality violations are physically impossible to commit -- they are blocked by automated gates before they can enter the codebase.
+This principle is operationalized through the [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine, the [clean run](@/glossary/clean-run.md) requirement, the [zero warning policy](@/glossary/zero-warning-policy.md), and the [quality gate](@/glossary/quality-gate.md) enforcement pipeline. Together, these systems create a development environment where quality violations are physically impossible to commit -- they are blocked by automated gates before they can enter the codebase.
 
 ## Overview
 
@@ -445,7 +445,7 @@ The platform's approach is closest to zero defect manufacturing (ZDM), adapted f
 
 7. **Connect enforcement to culture** -- Automated enforcement creates the conditions for quality culture, but culture reinforces enforcement. When zero tolerance is the norm, violations feel wrong even before the automated gate catches them.
 
-8. **Document the doctrine** -- Zero tolerance must be explicit, documented, and accessible. The [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine documentation ensures that every contributor understands the standards and their enforcement.
+8. **Document the doctrine** -- Zero tolerance must be explicit, documented, and accessible. The [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine documentation ensures that every contributor understands the standards and their enforcement.
 
 ## Common Pitfalls
 
@@ -461,7 +461,7 @@ The platform's approach is closest to zero defect manufacturing (ZDM), adapted f
 
 6. **Ignoring the cultural dimension** -- Automated enforcement handles compliance; culture handles commitment. Without a shared belief that zero tolerance serves the team's interests, enforcement becomes adversarial rather than supportive.
 
-7. **The "just this once" exception** -- A single exception to zero tolerance is the seed of its destruction. The [no-mercy](/glossary/no-mercy/) doctrine exists specifically to resist this pressure: no incomplete implementations, no quality violations, no untested code, no exceptions.
+7. **The "just this once" exception** -- A single exception to zero tolerance is the seed of its destruction. The [no-mercy](@/glossary/no-mercy.md) doctrine exists specifically to resist this pressure: no incomplete implementations, no quality violations, no untested code, no exceptions.
 
 ## Use Cases
 
@@ -487,18 +487,18 @@ After a complex refactoring across multiple applications, the Quality Floor Guar
 
 ## Related Concepts
 
-- [No Mercy](/glossary/no-mercy/) -- The enforcement half of the NM/ND doctrine that zero tolerance operationalizes
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- The complete doctrine that provides the philosophical foundation for zero tolerance
-- [Clean Run](/glossary/clean-run/) -- Requirement for zero runtime warnings, zero info/debug logs, complementing compile-time zero tolerance
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Specific application of zero tolerance to compilation warnings
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- Platform-wide quality standard built on zero tolerance principles
-- [Quality Gate](/glossary/quality-gate/) -- The automated enforcement mechanism that makes zero tolerance operational
-- [Pre-commit Hooks](/glossary/pre-commit-hooks/) -- First enforcement layer that blocks violations at commit time
-- [Quality Debt](/glossary/quality-debt/) -- What accumulates when zero tolerance is not enforced
-- [Technical Debt](/glossary/technical-debt/) -- The broader cost category that zero tolerance prevents
-- [Quality DNA](/glossary/quality-dna/) -- Persistent quality state that maintains the zero-violation baseline across sessions
-- [Credo](/glossary/credo/) -- Static analysis tool enforcing zero Credo violations under strict mode
-- [Dialyzer](/glossary/dialyzer/) -- Type analysis tool enforcing zero type safety violations
+- [No Mercy](@/glossary/no-mercy.md) -- The enforcement half of the NM/ND doctrine that zero tolerance operationalizes
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- The complete doctrine that provides the philosophical foundation for zero tolerance
+- [Clean Run](@/glossary/clean-run.md) -- Requirement for zero runtime warnings, zero info/debug logs, complementing compile-time zero tolerance
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Specific application of zero tolerance to compilation warnings
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- Platform-wide quality standard built on zero tolerance principles
+- [Quality Gate](@/glossary/quality-gate.md) -- The automated enforcement mechanism that makes zero tolerance operational
+- [Pre-commit Hooks](@/glossary/pre-commit-hooks.md) -- First enforcement layer that blocks violations at commit time
+- [Quality Debt](@/glossary/quality-debt.md) -- What accumulates when zero tolerance is not enforced
+- [Technical Debt](@/glossary/technical-debt.md) -- The broader cost category that zero tolerance prevents
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistent quality state that maintains the zero-violation baseline across sessions
+- [Credo](@/glossary/credo.md) -- Static analysis tool enforcing zero Credo violations under strict mode
+- [Dialyzer](@/glossary/dialyzer.md) -- Type analysis tool enforcing zero type safety violations
 
 ## See Also
 
@@ -515,4 +515,4 @@ After a complex refactoring across multiple applications, the Quality Floor Guar
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

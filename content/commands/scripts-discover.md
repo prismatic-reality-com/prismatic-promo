@@ -26,7 +26,7 @@ image_alt = "/scripts-discover - Prismatic Platform"
 
 **/scripts-discover** is a production command in the **Infrastructure** category of the Prismatic Platform. It provides AI-powered discovery, documentation, and intelligent execution of shell scripts across the platform's `scripts/` directory and beyond. The command scans script files, extracts their purpose from comments and code analysis, identifies required parameters, suggests default values, and can execute scripts with interactive parameter completion. This transforms a directory of potentially hundreds of undocumented scripts into a navigable, self-documenting toolbox.
 
-This command operates under the **L2+** authority level and is executed by the `scripts-infrastructure-supreme` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The infrastructure-supreme agent has deep knowledge of shell scripting conventions, environment variable patterns, and the platform's operational procedures.
+This command operates under the **L2+** authority level and is executed by the `scripts-infrastructure-supreme` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The infrastructure-supreme agent has deep knowledge of shell scripting conventions, environment variable patterns, and the platform's operational procedures.
 
 In a platform with 50+ shell scripts covering deployment, testing, validation, data management, and development utilities, remembering script names, their parameters, and their interactions is a significant cognitive burden. `/scripts-discover` eliminates this burden by providing a searchable, categorized, intelligently documented interface to the entire script ecosystem.
 
@@ -216,13 +216,13 @@ The script discovery system combines static analysis, AI-powered documentation g
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/seadf](/commands/seadf/) | Framework | Scripts are part of SEADF infrastructure |
-| [/ollama](/commands/ollama/) | AI Engine | Ollama powers AI documentation generation |
-| [Git Trees](/glossary/git-trees/) | Infrastructure | Fast script enumeration |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Script execution tracking |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Script quality standards |
-| [GARDEN](/glossary/garden/) | Data Source | Legacy scripts from GARDEN repos |
-| [/ramon-mode](/commands/ramon-mode/) | Guidance | Ramon Mode provides guided execution context |
+| [/seadf](@/commands/seadf.md) | Framework | Scripts are part of SEADF infrastructure |
+| [/ollama](@/commands/ollama.md) | AI Engine | Ollama powers AI documentation generation |
+| [Git Trees](@/glossary/git-trees.md) | Infrastructure | Fast script enumeration |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Script execution tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Script quality standards |
+| [GARDEN](@/glossary/garden.md) | Data Source | Legacy scripts from GARDEN repos |
+| [/ramon-mode](@/commands/ramon-mode.md) | Guidance | Ramon Mode provides guided execution context |
 
 ## Workflow Integration
 
@@ -240,7 +240,7 @@ The /scripts-discover command participates in several platform workflows:
 
 ## NABLA Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Undocumented scripts are flagged for remediation. AI-generated documentation is clearly marked and subject to human review.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Script analysis is based on actual code examination, not filename guessing. Parameter detection uses code analysis, not heuristics.
@@ -272,13 +272,13 @@ The discovery process is optimized for rapid scanning. Git Trees provides fast f
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/ollama](/commands/ollama/) - Local AI Ollama model management, installation and optimization
-- [/gardener](/commands/gardener/) - [GARDEN](/glossary/garden/) legacy knowledge repository management across 116 repos
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
-- [/ramon-mode](/commands/ramon-mode/) - Ramon mode guardian for specialized help and assistance
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/ollama](@/commands/ollama.md) - Local AI Ollama model management, installation and optimization
+- [/gardener](@/commands/gardener.md) - [GARDEN](@/glossary/garden.md) legacy knowledge repository management across 116 repos
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
+- [/ramon-mode](@/commands/ramon-mode.md) - Ramon mode guardian for specialized help and assistance
 
 ---
 
@@ -287,4 +287,4 @@ The discovery process is optimized for rapid scanning. Git Trees provides fast f
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

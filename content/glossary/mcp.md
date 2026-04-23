@@ -516,24 +516,24 @@ The GitHub MCP server provides tools for interacting with repositories, pull req
 
 Understanding MCP connects to several fundamental concepts in the Prismatic Platform:
 
-- [API](/glossary/api/) -- the general concept of application programming interfaces that MCP standardizes for AI access
-- [API Gateway](/glossary/api-gateway/) -- the gateway pattern that MCP servers apply to AI-tool communication
-- [Agent](/glossary/agent/) -- the autonomous entities that use MCP tools to interact with platform systems
-- [AI Agent](/glossary/ai-agent/) -- artificial intelligence agents that leverage MCP for tool access
-- [Protocol](/glossary/protocol/) -- the Elixir protocol concept that parallels MCP's interface standardization
-- [GenServer](/glossary/genserver/) -- the OTP behaviour used to implement MCP servers in the Prismatic Platform
-- [Telemetry](/glossary/telemetry/) -- the instrumentation layer that monitors MCP tool usage
-- [Agent Orchestration](/glossary/agent-orchestration/) -- the coordination of multiple agents using MCP tools
-- [API Integration](/glossary/api-integration/) -- the broader practice of integrating external APIs that MCP simplifies
-- [Plug](/glossary/plug/) -- the composable middleware pattern that influences MCP server design
+- [API](@/glossary/api.md) -- the general concept of application programming interfaces that MCP standardizes for AI access
+- [API Gateway](@/glossary/api-gateway.md) -- the gateway pattern that MCP servers apply to AI-tool communication
+- [Agent](@/glossary/agent.md) -- the autonomous entities that use MCP tools to interact with platform systems
+- [AI Agent](@/glossary/ai-agent.md) -- artificial intelligence agents that leverage MCP for tool access
+- [Protocol](@/glossary/protocol.md) -- the Elixir protocol concept that parallels MCP's interface standardization
+- [GenServer](@/glossary/genserver.md) -- the OTP behaviour used to implement MCP servers in the Prismatic Platform
+- [Telemetry](@/glossary/telemetry.md) -- the instrumentation layer that monitors MCP tool usage
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- the coordination of multiple agents using MCP tools
+- [API Integration](@/glossary/api-integration.md) -- the broader practice of integrating external APIs that MCP simplifies
+- [Plug](@/glossary/plug.md) -- the composable middleware pattern that influences MCP server design
 
 ## See Also
 
-- [AIAD](/glossary/aiad/) -- the AI Agent Definition standard that defines how agents declare MCP tool requirements
-- [Agent Registry](/glossary/agent-registry/) -- the registry that tracks which agents require which MCP tools
-- [Phoenix Framework](/glossary/phoenix-framework/) -- the web framework that hosts HTTP-based MCP transport endpoints
-- [OSINT](/glossary/osint/) -- the intelligence discipline that MCP tools expose for AI agent consumption
-- [Security](/glossary/security/) -- the security considerations for MCP server deployment and authorization
+- [AIAD](@/glossary/aiad.md) -- the AI Agent Definition standard that defines how agents declare MCP tool requirements
+- [Agent Registry](@/glossary/agent-registry.md) -- the registry that tracks which agents require which MCP tools
+- [Phoenix Framework](@/glossary/phoenix-framework.md) -- the web framework that hosts HTTP-based MCP transport endpoints
+- [OSINT](@/glossary/osint.md) -- the intelligence discipline that MCP tools expose for AI agent consumption
+- [Security](@/glossary/security.md) -- the security considerations for MCP server deployment and authorization
 
 ---
 

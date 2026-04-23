@@ -23,11 +23,11 @@ image_alt = "Prismatic Deduction - Prismatic Platform"
 
 ## Overview
 
-Prismatic Deduction provides automated logical reasoning capabilities for deriving new conclusions from existing knowledge. It implements forward and backward chaining [inference](/glossary/inference/), rule-based deduction, and abductive reasoning to discover hidden relationships and generate hypotheses from [OSINT](/glossary/osint/) data. In intelligence analysis, the most valuable insights are often not directly observed but rather deduced from the intersection of multiple data points -- Deduction automates this process at scale.
+Prismatic Deduction provides automated logical reasoning capabilities for deriving new conclusions from existing knowledge. It implements forward and backward chaining [inference](@/glossary/inference.md), rule-based deduction, and abductive reasoning to discover hidden relationships and generate hypotheses from [OSINT](@/glossary/osint.md) data. In intelligence analysis, the most valuable insights are often not directly observed but rather deduced from the intersection of multiple data points -- Deduction automates this process at scale.
 
 The module operates on a knowledge base of facts (observed data) and rules (domain expertise encoded as logical implications). Forward chaining proactively applies rules to known facts to discover everything that can be concluded, surfacing connections that analysts might miss. Backward chaining works in reverse, starting from a hypothesis and searching for supporting evidence. Abductive reasoning generates the most likely explanations for observed anomalies, producing ranked hypotheses that guide further investigation.
 
-Every conclusion produced by Deduction carries a full explanation chain -- the sequence of rules and facts that led to it. This is not merely a debugging convenience; it is a [NABLA](/glossary/nabla-infinity/) framework requirement. The provenance axiom mandates that all beliefs in the platform be traceable to their origins. Deduction enforces this by construction: no conclusion exists without a derivation path.
+Every conclusion produced by Deduction carries a full explanation chain -- the sequence of rules and facts that led to it. This is not merely a debugging convenience; it is a [NABLA](@/glossary/nabla-infinity.md) framework requirement. The provenance axiom mandates that all beliefs in the platform be traceable to their origins. Deduction enforces this by construction: no conclusion exists without a derivation path.
 
 ## Architecture
 
@@ -45,7 +45,7 @@ Facts (ETS) + Rules (DSL) --> Forward Chainer (event-driven)
                           Structured Conclusions
 ```
 
-The Forward Chainer is an event-driven [GenServer](/glossary/genserver/) that reacts to new facts arriving in the knowledge base, applying matching rules and asserting derived conclusions. The Backward Chainer accepts goal queries and searches the rule space using depth-first search with configurable depth limits and cycle detection. The Abductive Reasoner inverts the rule set, taking an observation and searching for fact combinations that would explain it.
+The Forward Chainer is an event-driven [GenServer](@/glossary/genserver.md) that reacts to new facts arriving in the knowledge base, applying matching rules and asserting derived conclusions. The Backward Chainer accepts goal queries and searches the rule space using depth-first search with configurable depth limits and cycle detection. The Abductive Reasoner inverts the rule set, taking an observation and searching for fact combinations that would explain it.
 
 ### Process Topology
 
@@ -65,7 +65,7 @@ PrismaticDeduction.Application (Supervisor, :one_for_one)
       Parallel inference task execution
 ```
 
-The knowledge base is stored in [ETS](/glossary/ets/) for fast [pattern matching](/glossary/pattern-matching/), with persistent snapshots to [PostgreSQL](/glossary/postgresql/) for durability. Rule definitions use an [Elixir](/glossary/elixir/) DSL that compiles to an internal representation compatible with the [Prismatic Logic Prolog](/apps/prismatic-logic-prolog/) engine.
+The knowledge base is stored in [ETS](@/glossary/ets.md) for fast [pattern matching](@/glossary/pattern-matching.md), with persistent snapshots to [PostgreSQL](@/glossary/postgresql.md) for durability. Rule definitions use an [Elixir](@/glossary/elixir.md) DSL that compiles to an internal representation compatible with the [Prismatic Logic Prolog](@/apps/prismatic-logic-prolog.md) engine.
 
 ## Key Modules
 
@@ -173,20 +173,20 @@ Configuration controls the maximum depth for forward and backward chaining to pr
 
 Forward chaining tests verify correct conclusion derivation from known fact/rule combinations. Backward chaining tests verify goal-directed search with cycle detection. Abductive reasoning tests verify hypothesis ranking by simplicity and evidence support. Confidence propagation tests verify that attenuation is monotonically decreasing through deduction chains.
 
-Property-based tests generate random rule sets and fact bases to verify that the inference engines terminate, produce consistent results, and that confidence attenuation is monotonically decreasing through deduction chains. Explanation chain tests verify that every conclusion is traceable to its premises. Integration tests with [Prismatic Logic Prolog](/apps/prismatic-logic-prolog/) verify compatibility of the rule DSL with Prolog-based evaluation.
+Property-based tests generate random rule sets and fact bases to verify that the inference engines terminate, produce consistent results, and that confidence attenuation is monotonically decreasing through deduction chains. Explanation chain tests verify that every conclusion is traceable to its premises. Integration tests with [Prismatic Logic Prolog](@/apps/prismatic-logic-prolog.md) verify compatibility of the rule DSL with Prolog-based evaluation.
 
 ## Integration Points
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Security findings consumed as facts for inference |
-| [Prismatic Property Intelligence](/apps/prismatic-property-intelligence/) | Ownership data as inference premises |
-| [Prismatic Influence](/apps/prismatic-influence/) | Credibility assessments as fact inputs |
-| [Prismatic Narrative](/apps/prismatic-narrative/) | Report generation from deduction explanations |
-| [Prismatic CER](/apps/prismatic-cer/) | Deduction conclusions as compliance evidence |
-| [Prismatic Logic Prolog](/apps/prismatic-logic-prolog/) | Logic programming backend for complex rule evaluation |
-| [Prismatic Blackboard](/apps/prismatic-blackboard/) | Multi-agent collaborative reasoning integration |
-| [Prismatic Lean4](/apps/prismatic-lean4/) | Formal verification of deduction chain correctness |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Security findings consumed as facts for inference |
+| [Prismatic Property Intelligence](@/apps/prismatic-property-intelligence.md) | Ownership data as inference premises |
+| [Prismatic Influence](@/apps/prismatic-influence.md) | Credibility assessments as fact inputs |
+| [Prismatic Narrative](@/apps/prismatic-narrative.md) | Report generation from deduction explanations |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Deduction conclusions as compliance evidence |
+| [Prismatic Logic Prolog](@/apps/prismatic-logic-prolog.md) | Logic programming backend for complex rule evaluation |
+| [Prismatic Blackboard](@/apps/prismatic-blackboard.md) | Multi-agent collaborative reasoning integration |
+| [Prismatic Lean4](@/apps/prismatic-lean4.md) | Formal verification of deduction chain correctness |
 
 ## NABLA Compliance
 
@@ -215,19 +215,19 @@ Deduction is one of the most NABLA-critical modules in the platform, as it gener
 | Memory | 128 MB | 256 MB |
 | CPU | 2 cores | 4 cores |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :deduction, :forward_chain]`, `[:prismatic, :deduction, :backward_chain]`, `[:prismatic, :deduction, :abduce]`, `[:prismatic, :deduction, :conclusion_derived]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :deduction, :forward_chain]`, `[:prismatic, :deduction, :backward_chain]`, `[:prismatic, :deduction, :abduce]`, `[:prismatic, :deduction, :conclusion_derived]`.
 
 ## Related Resources
 
-- [Prismatic Logic Prolog](/apps/prismatic-logic-prolog/) -- Logic programming backend
-- [Prismatic Narrative](/apps/prismatic-narrative/) -- Human-readable report generation
-- [Prismatic CER](/apps/prismatic-cer/) -- Compliance evidence storage
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures complete explanation chains
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Drives rule set evolution
-- [Cross-Pollination Specialist](/agents/cross-pollination-specialist/) -- Transfers reasoning patterns across domains
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Provenance mandatory axiom on all conclusions
-- [Trinity Gate](/capabilities/trinity-gate/) -- Formal verification of logical consistency
-- [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) -- Forward, backward, and abductive reasoning unified
+- [Prismatic Logic Prolog](@/apps/prismatic-logic-prolog.md) -- Logic programming backend
+- [Prismatic Narrative](@/apps/prismatic-narrative.md) -- Human-readable report generation
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Compliance evidence storage
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures complete explanation chains
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Drives rule set evolution
+- [Cross-Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Transfers reasoning patterns across domains
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Provenance mandatory axiom on all conclusions
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Formal verification of logical consistency
+- [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) -- Forward, backward, and abductive reasoning unified
 
 ---
 
@@ -236,4 +236,4 @@ Deduction is one of the most NABLA-critical modules in the platform, as it gener
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

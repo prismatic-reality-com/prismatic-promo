@@ -38,7 +38,7 @@ image_alt = "Credential Management - Prismatic Platform"
 
 Credential management is the discipline of securely generating, storing, distributing, rotating, and revoking authentication credentials throughout their lifecycle. Credentials encompass any secret material used to prove identity or authorize access: API keys, JWT signing secrets, database passwords, TLS certificates, SSH keys, OAuth2 client secrets, and service account tokens. Effective credential management ensures that secrets are never exposed in source code, logs, or transit; that compromised credentials can be revoked instantly; and that rotation occurs automatically without service disruption.
 
-In the Prismatic Platform, credential management is enforced as an absolute policy under the [NO MERCY](/glossary/no-mercy/) doctrine: zero secrets in source code, environment-variable-based configuration at runtime, ETS-backed credential stores with automatic rotation, and comprehensive [audit trails](/glossary/audit-trail/) for every credential access event. The platform's pre-commit hooks detect and block any attempt to commit secrets, API keys, or hardcoded credentials.
+In the Prismatic Platform, credential management is enforced as an absolute policy under the [NO MERCY](@/glossary/no-mercy.md) doctrine: zero secrets in source code, environment-variable-based configuration at runtime, ETS-backed credential stores with automatic rotation, and comprehensive [audit trails](@/glossary/audit-trail.md) for every credential access event. The platform's pre-commit hooks detect and block any attempt to commit secrets, API keys, or hardcoded credentials.
 
 ## Overview
 
@@ -48,9 +48,9 @@ The Prismatic Platform addresses credential management across four dimensions:
 
 1. **Generation**: Cryptographically strong credential generation using Erlang's `:crypto` module, ensuring sufficient entropy and appropriate key lengths for each credential type.
 
-2. **Storage**: Credentials are never stored in plaintext. API keys are SHA-256 hashed before storage in [ETS](/glossary/ets/) tables. Signing secrets are loaded from environment variables at boot time and held only in process memory. Database credentials use runtime configuration that resolves environment variables during application startup, not at compile time.
+2. **Storage**: Credentials are never stored in plaintext. API keys are SHA-256 hashed before storage in [ETS](@/glossary/ets.md) tables. Signing secrets are loaded from environment variables at boot time and held only in process memory. Database credentials use runtime configuration that resolves environment variables during application startup, not at compile time.
 
-3. **Distribution**: Credentials flow through secure channels only. In development, `.env` files (gitignored) provide local secrets. In production on [Fly.io](/glossary/fly-io/), secrets are injected as environment variables through the platform's encrypted secret store, never touching disk.
+3. **Distribution**: Credentials flow through secure channels only. In development, `.env` files (gitignored) provide local secrets. In production on [Fly.io](@/glossary/fly-io.md), secrets are injected as environment variables through the platform's encrypted secret store, never touching disk.
 
 4. **Rotation**: Credentials have defined lifetimes. API keys support overlapping validity windows for zero-downtime rotation. JWT signing keys use key ID (`kid`) headers to support multiple active keys during rotation. TLS certificates are monitored for expiration with automated renewal.
 
@@ -209,7 +209,7 @@ end
 
 ### ETS-Backed Credential Store
 
-The platform stores active credentials in [ETS](/glossary/ets/) for sub-microsecond lookup performance, with the original secret values replaced by cryptographic hashes:
+The platform stores active credentials in [ETS](@/glossary/ets.md) for sub-microsecond lookup performance, with the original secret values replaced by cryptographic hashes:
 
 ```elixir
 defmodule Prismatic.Credentials.Store do
@@ -477,7 +477,7 @@ Credential management in the Prismatic Platform is implemented as a multi-layere
 
 ### Layer 1: Prevention (Pre-Commit)
 
-The `.githooks/pre-commit` hook runs secret detection as Phase 3 of the 11-phase pre-commit pipeline. Any file containing patterns matching known secret formats is blocked from commit. This is enforced under [NO MERCY](/glossary/no-mercy/) -- no bypass flags permitted.
+The `.githooks/pre-commit` hook runs secret detection as Phase 3 of the 11-phase pre-commit pipeline. Any file containing patterns matching known secret formats is blocked from commit. This is enforced under [NO MERCY](@/glossary/no-mercy.md) -- no bypass flags permitted.
 
 ### Layer 2: Runtime Resolution
 
@@ -485,19 +485,19 @@ All credentials are resolved from environment variables at application startup u
 
 ### Layer 3: Secure Storage
 
-Active credentials are stored in [ETS](/glossary/ets/) tables with `:protected` access, meaning only the owning [GenServer](/glossary/genserver/) process can write to the table, while all processes can read. Raw credential values are replaced with SHA-256 hashes immediately upon registration.
+Active credentials are stored in [ETS](@/glossary/ets.md) tables with `:protected` access, meaning only the owning [GenServer](@/glossary/genserver.md) process can write to the table, while all processes can read. Raw credential values are replaced with SHA-256 hashes immediately upon registration.
 
 ### Layer 4: Audit and Telemetry
 
-Every credential operation emits [telemetry](/glossary/telemetry/) events: registration, validation, rejection, rotation, and revocation. These events feed into the platform's monitoring infrastructure for anomaly detection (e.g., unusual validation failure rates indicating a brute-force attack).
+Every credential operation emits [telemetry](@/glossary/telemetry.md) events: registration, validation, rejection, rotation, and revocation. These events feed into the platform's monitoring infrastructure for anomaly detection (e.g., unusual validation failure rates indicating a brute-force attack).
 
 ### Layer 5: Rotation Automation
 
-The `RotationScheduler` manages credential lifecycle transitions with configurable overlap windows, ensuring that rotation never causes service disruption. Credentials approaching expiration trigger alerts through the [Quality Floor Guardian](/glossary/quality-floor-guardian/).
+The `RotationScheduler` manages credential lifecycle transitions with configurable overlap windows, ensuring that rotation never causes service disruption. Credentials approaching expiration trigger alerts through the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md).
 
 ### Fly.io Production Integration
 
-In the production environment on [Fly.io](/glossary/fly-io/), credentials are managed through Fly's encrypted secrets:
+In the production environment on [Fly.io](@/glossary/fly-io.md), credentials are managed through Fly's encrypted secrets:
 
 ```bash
 # Setting production credentials (never logged, encrypted at rest)
@@ -561,7 +561,7 @@ The Prismatic Platform currently uses environment variables as the primary crede
 
 ### API Key Management for External Integrations
 
-The Prismatic Platform issues scoped API keys to external integrations (CI/CD pipelines, monitoring tools, third-party services). Each key is registered with a specific set of scopes (e.g., `read:perimeter`, `write:assets`) and an expiration date. The [API Gateway](/glossary/api-gateway/) validates keys against the ETS credential store on every request.
+The Prismatic Platform issues scoped API keys to external integrations (CI/CD pipelines, monitoring tools, third-party services). Each key is registered with a specific set of scopes (e.g., `read:perimeter`, `write:assets`) and an expiration date. The [API Gateway](@/glossary/api-gateway.md) validates keys against the ETS credential store on every request.
 
 ### JWT Signing Key Rotation
 
@@ -573,7 +573,7 @@ Database passwords are rotated quarterly through Fly.io's secret management. The
 
 ### OSINT Provider API Key Management
 
-The platform's 120+ [OSINT](/glossary/osint/) provider integrations each require separate API keys (Shodan, VirusTotal, Censys, etc.). These keys are managed through environment variables with a naming convention (`OSINT_SHODAN_API_KEY`, `OSINT_VIRUSTOTAL_API_KEY`) and validated at startup. Rate limiting is applied per-key to prevent quota exhaustion.
+The platform's 120+ [OSINT](@/glossary/osint.md) provider integrations each require separate API keys (Shodan, VirusTotal, Censys, etc.). These keys are managed through environment variables with a naming convention (`OSINT_SHODAN_API_KEY`, `OSINT_VIRUSTOTAL_API_KEY`) and validated at startup. Rate limiting is applied per-key to prevent quota exhaustion.
 
 ### TLS Certificate Management
 
@@ -581,18 +581,18 @@ TLS certificates for `prismatic-prod.fly.dev` are managed through Fly.io's autom
 
 ## Related Concepts
 
-- [Authentication](/glossary/authentication/) -- the process that consumes credentials to verify identity
-- [Authorization](/glossary/authorization/) -- permission decisions that follow successful credential verification
-- [Encryption](/glossary/encryption/) -- cryptographic primitives used for credential hashing and signing
-- [Encryption at Rest](/glossary/encryption-at-rest/) -- protecting stored credential material
-- [Security Operations](/glossary/security-operations/) -- monitoring credential usage and responding to compromises
-- [JWT](/glossary/jwt/) -- token format with embedded credential claims
-- [OAuth2](/glossary/oauth2/) -- delegated authorization framework involving client credentials
-- [TLS](/glossary/tls/) -- transport encryption protecting credentials in transit
-- [API Gateway](/glossary/api-gateway/) -- entry point where credentials are validated
-- [Audit Trail](/glossary/audit-trail/) -- immutable record of all credential operations
-- [ETS](/glossary/ets/) -- in-memory storage backend for the credential store
-- [GenServer](/glossary/genserver/) -- OTP process managing credential store state
+- [Authentication](@/glossary/authentication.md) -- the process that consumes credentials to verify identity
+- [Authorization](@/glossary/authorization.md) -- permission decisions that follow successful credential verification
+- [Encryption](@/glossary/encryption.md) -- cryptographic primitives used for credential hashing and signing
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) -- protecting stored credential material
+- [Security Operations](@/glossary/security-operations.md) -- monitoring credential usage and responding to compromises
+- [JWT](@/glossary/jwt.md) -- token format with embedded credential claims
+- [OAuth2](@/glossary/oauth2.md) -- delegated authorization framework involving client credentials
+- [TLS](@/glossary/tls.md) -- transport encryption protecting credentials in transit
+- [API Gateway](@/glossary/api-gateway.md) -- entry point where credentials are validated
+- [Audit Trail](@/glossary/audit-trail.md) -- immutable record of all credential operations
+- [ETS](@/glossary/ets.md) -- in-memory storage backend for the credential store
+- [GenServer](@/glossary/genserver.md) -- OTP process managing credential store state
 
 ## See Also
 
@@ -609,4 +609,4 @@ TLS certificates for `prismatic-prod.fly.dev` are managed through Fly.io's autom
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

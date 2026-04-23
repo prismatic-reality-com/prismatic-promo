@@ -38,7 +38,7 @@ image_alt = "Self-Coordinating - Prismatic Platform"
 
 Self-coordinating describes a property of systems, agents, or processes that can organize and synchronize their activities without relying on a central controller or coordinator. In a self-coordinating system, each participant makes local decisions based on local information and communication with peers, yet the collective behavior produces coherent, goal-directed outcomes that no single participant planned or directed.
 
-This property is distinct from orchestration, where a central controller assigns tasks and manages workflows. In [orchestration](/glossary/orchestration/), removing the orchestrator halts the system. In self-coordination, removing any individual participant degrades capacity but does not halt the system -- the remaining participants adapt, redistribute work, and continue operating. The coordination protocol is distributed across all participants rather than centralized in one.
+This property is distinct from orchestration, where a central controller assigns tasks and manages workflows. In [orchestration](@/glossary/orchestration.md), removing the orchestrator halts the system. In self-coordination, removing any individual participant degrades capacity but does not halt the system -- the remaining participants adapt, redistribute work, and continue operating. The coordination protocol is distributed across all participants rather than centralized in one.
 
 Self-coordination emerges from three interacting mechanisms: communication (agents can exchange information), decision rules (each agent has local rules for choosing actions based on available information), and feedback (agents observe the effects of their actions and adjust). When these mechanisms are well-designed, complex global behavior emerges from simple local interactions -- a phenomenon studied extensively in complexity science, swarm intelligence, and distributed systems theory.
 
@@ -50,7 +50,7 @@ The common thread is that coordination emerges from protocol design rather than 
 
 For software platforms, self-coordination provides several advantages over centralized orchestration:
 
-**Fault tolerance**: No single point of failure. If any participant fails, the remaining participants detect the failure and compensate. The [supervisor](/glossary/supervisor/) restarts the failed participant, which re-joins the coordination protocol upon recovery.
+**Fault tolerance**: No single point of failure. If any participant fails, the remaining participants detect the failure and compensate. The [supervisor](@/glossary/supervisor.md) restarts the failed participant, which re-joins the coordination protocol upon recovery.
 
 **Scalability**: Adding new participants increases the system's capacity without requiring changes to a central controller. Each new participant joins the coordination protocol and begins contributing immediately.
 
@@ -72,13 +72,13 @@ Fully Centralized          Partially Distributed         Fully Self-Coordinating
    of failure                with leader election           of failure
 ```
 
-The Prismatic Platform operates primarily in the "partially distributed" to "fully self-coordinating" range, using different coordination strategies for different domains. The [color teams](/glossary/color-teams/) use structured self-coordination with designated commanders but peer-to-peer information flow. The [SEADF](/glossary/seadf/) subsystems use a pipeline coordination pattern where each subsystem independently processes its inputs and publishes outputs for downstream consumers.
+The Prismatic Platform operates primarily in the "partially distributed" to "fully self-coordinating" range, using different coordination strategies for different domains. The [color teams](@/glossary/color-teams.md) use structured self-coordination with designated commanders but peer-to-peer information flow. The [SEADF](@/glossary/seadf.md) subsystems use a pipeline coordination pattern where each subsystem independently processes its inputs and publishes outputs for downstream consumers.
 
 ## Technical Details
 
 ### Coordination Protocols in Elixir/OTP
 
-The BEAM virtual machine provides native primitives for building self-coordinating systems: lightweight processes, message passing, process monitoring, and the [PubSub](/glossary/pubsub/) pattern. Each agent is an Erlang process that can send and receive messages, monitor other processes for failures, and subscribe to topics for event-driven coordination.
+The BEAM virtual machine provides native primitives for building self-coordinating systems: lightweight processes, message passing, process monitoring, and the [PubSub](@/glossary/pubsub.md) pattern. Each agent is an Erlang process that can send and receive messages, monitor other processes for failures, and subscribe to topics for event-driven coordination.
 
 ```elixir
 defmodule PrismaticCoordination.Protocol do
@@ -480,7 +480,7 @@ For decisions that require agreement among all participants (leader election, co
 
 ### Color Team Self-Coordination
 
-The [color teams](/glossary/color-teams/) provide the most visible example of self-coordination in the Prismatic Platform. Six teams (Gray, Red, Blue, Purple, White, Black) coordinate through a structured signal flow without a central controller.
+The [color teams](@/glossary/color-teams.md) provide the most visible example of self-coordination in the Prismatic Platform. Six teams (Gray, Red, Blue, Purple, White, Black) coordinate through a structured signal flow without a central controller.
 
 ```
 Gray (boundary seeds) --> Red (adversarial scenarios) --> Purple (synthesis) --> Blue (defense)
@@ -504,7 +504,7 @@ The coordination protocol is defined by the signal types and topics:
 
 ### AIAD Agent Mesh
 
-The 530+ [AIAD](/glossary/aiad/) agents form a self-coordinating mesh where agents discover each other through the [agent registry](/glossary/agent-registry/), advertise capabilities, and negotiate task execution through the coordination protocol. Each agent operates independently but contributes to platform-wide goals through the coordination patterns described above.
+The 530+ [AIAD](@/glossary/aiad.md) agents form a self-coordinating mesh where agents discover each other through the [agent registry](@/glossary/agent-registry.md), advertise capabilities, and negotiate task execution through the coordination protocol. Each agent operates independently but contributes to platform-wide goals through the coordination patterns described above.
 
 The agent mesh uses a layered coordination architecture:
 
@@ -515,7 +515,7 @@ The agent mesh uses a layered coordination architecture:
 
 ### PubSub as Coordination Infrastructure
 
-Phoenix [PubSub](/glossary/pubsub/) provides the communication backbone for self-coordination. Topics are organized hierarchically, allowing agents to subscribe to specific domains or broad categories:
+Phoenix [PubSub](@/glossary/pubsub.md) provides the communication backbone for self-coordination. Topics are organized hierarchically, allowing agents to subscribe to specific domains or broad categories:
 
 | Topic Pattern | Scope | Example |
 |---------------|-------|---------|
@@ -545,7 +545,7 @@ Choreography defines interactions through contracts between pairs of services. S
 
 ### Self-Coordinating vs. Event-Driven Architecture
 
-[Event-driven architecture](/glossary/event-sourcing/) is a communication pattern; self-coordination is a behavioral property. Event-driven systems may or may not be self-coordinating -- an event-driven system with a central event processor is not self-coordinating. Self-coordinating systems typically use event-driven communication (PubSub) as their coordination mechanism, but the self-coordination emerges from the agent decision rules, not from the event infrastructure alone.
+[Event-driven architecture](@/glossary/event-sourcing.md) is a communication pattern; self-coordination is a behavioral property. Event-driven systems may or may not be self-coordinating -- an event-driven system with a central event processor is not self-coordinating. Self-coordinating systems typically use event-driven communication (PubSub) as their coordination mechanism, but the self-coordination emerges from the agent decision rules, not from the event infrastructure alone.
 
 ## Best Practices
 
@@ -561,7 +561,7 @@ Choreography defines interactions through contracts between pairs of services. S
 
 ## Common Pitfalls
 
-**Assuming self-coordination is simpler than orchestration**. Self-coordinating systems trade centralized complexity for distributed complexity. Debugging, tracing, and reasoning about system behavior is harder when there is no central point to inspect. Invest in [observability](/glossary/observability/) and [distributed tracing](/glossary/distributed-tracing/) to compensate.
+**Assuming self-coordination is simpler than orchestration**. Self-coordinating systems trade centralized complexity for distributed complexity. Debugging, tracing, and reasoning about system behavior is harder when there is no central point to inspect. Invest in [observability](@/glossary/observability.md) and [distributed tracing](@/glossary/distributed-tracing.md) to compensate.
 
 **Designing for the happy path only**. Self-coordination must handle agent failures, message loss, network partitions, split-brain scenarios, and message reordering. A protocol that works when all agents are healthy but fails under partial failure is not self-coordinating -- it is fragile.
 
@@ -569,46 +569,46 @@ Choreography defines interactions through contracts between pairs of services. S
 
 **Creating implicit coordination dependencies**. If agent A assumes agent B will always handle certain tasks, the system has an implicit coordination dependency that breaks self-coordination. Each agent should be prepared to handle any task it is capable of, based on the coordination protocol's allocation, not on assumptions about other agents.
 
-**Neglecting the thundering herd problem**. When a failure occurs, all agents may simultaneously attempt to compensate, creating a thundering herd that overwhelms the system. Jitter (random delays), exponential backoff, and [rate limiting](/glossary/rate-limiting/) prevent this cascading response.
+**Neglecting the thundering herd problem**. When a failure occurs, all agents may simultaneously attempt to compensate, creating a thundering herd that overwhelms the system. Jitter (random delays), exponential backoff, and [rate limiting](@/glossary/rate-limiting.md) prevent this cascading response.
 
 ## Use Cases
 
 ### Multi-Agent Security Assessment
 
-The [color team](/glossary/color-teams/) system demonstrates self-coordination in security operations. When a [gray team](/glossary/gray-team/) agent discovers a boundary condition, it publishes the finding. Multiple [red team](/glossary/red-team/) agents independently evaluate whether the finding is exploitable. The red team agents that find viable attack scenarios publish them, and [blue team](/glossary/blue-team/) agents independently develop defensive responses. No central coordinator manages this flow -- the signal types and PubSub topics define the coordination pattern.
+The [color team](@/glossary/color-teams.md) system demonstrates self-coordination in security operations. When a [gray team](@/glossary/gray-team.md) agent discovers a boundary condition, it publishes the finding. Multiple [red team](@/glossary/red-team.md) agents independently evaluate whether the finding is exploitable. The red team agents that find viable attack scenarios publish them, and [blue team](@/glossary/blue-team.md) agents independently develop defensive responses. No central coordinator manages this flow -- the signal types and PubSub topics define the coordination pattern.
 
 ### Quality Domain Monitoring
 
-Each of the 13 quality domains in the Prismatic Platform is monitored by independent processes that self-coordinate through telemetry events. When one domain detects a violation, it publishes a telemetry event. The [Quality Floor Guardian](/glossary/quality-floor-guardian/) subscribes to all domain events and synthesizes them into a composite quality assessment. Individual domain monitors do not communicate with each other directly -- they coordinate through the shared telemetry infrastructure.
+Each of the 13 quality domains in the Prismatic Platform is monitored by independent processes that self-coordinate through telemetry events. When one domain detects a violation, it publishes a telemetry event. The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) subscribes to all domain events and synthesizes them into a composite quality assessment. Individual domain monitors do not communicate with each other directly -- they coordinate through the shared telemetry infrastructure.
 
 ### Distributed OSINT Collection
 
-The platform's 120 [OSINT](/glossary/osint/) tools operate as a self-coordinating collection system. Each tool independently queries its data source, processes results, and publishes findings to a shared topic. An [entity resolution](/glossary/entity-resolution/) system subscribes to all OSINT findings and merges them into unified entity profiles. Adding a new OSINT tool requires only implementing the tool and subscribing to the appropriate topic -- no central coordinator needs modification.
+The platform's 120 [OSINT](@/glossary/osint.md) tools operate as a self-coordinating collection system. Each tool independently queries its data source, processes results, and publishes findings to a shared topic. An [entity resolution](@/glossary/entity-resolution.md) system subscribes to all OSINT findings and merges them into unified entity profiles. Adding a new OSINT tool requires only implementing the tool and subscribing to the appropriate topic -- no central coordinator needs modification.
 
 ### Autonomous Evolution Coordination
 
-The [SEADF](/glossary/seadf/) subsystems (Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, Enhanced Healing) are self-coordinating. The Scanner identifies improvement opportunities and publishes them. The Pipeline processes improvements through validation stages. The Quality Guardian monitors for regressions. Each subsystem operates on its own schedule and reacts to events from other subsystems without central direction.
+The [SEADF](@/glossary/seadf.md) subsystems (Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, Enhanced Healing) are self-coordinating. The Scanner identifies improvement opportunities and publishes them. The Pipeline processes improvements through validation stages. The Quality Guardian monitors for regressions. Each subsystem operates on its own schedule and reacts to events from other subsystems without central direction.
 
 ## Related Concepts
 
-- [Autonomous Agent](/glossary/autonomous-agent/) -- Individual agents that participate in self-coordinating systems
-- [Multi-Agent System](/glossary/multi-agent-system/) -- Systems composed of multiple interacting autonomous agents
-- [Orchestration](/glossary/orchestration/) -- Centralized coordination pattern that self-coordination replaces
-- [Distributed System](/glossary/distributed-system/) -- Systems where self-coordination operates across network boundaries
-- [Cooperative Systems](/glossary/cooperative-systems/) -- Systems where agents work toward shared goals through coordination
-- [PubSub](/glossary/pubsub/) -- Communication infrastructure enabling decentralized coordination
-- [Color Teams](/glossary/color-teams/) -- Security teams demonstrating structured self-coordination
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Higher-level patterns for managing agent interactions
-- [Consensus Algorithm](/glossary/consensus-algorithm/) -- Protocols enabling distributed agreement without central authority
-- [Collective Intelligence](/glossary/collective-intelligence/) -- Emergent intelligence from coordinated agent interactions
-- [Supervisor](/glossary/supervisor/) -- OTP supervision enabling fault-tolerant self-coordination
-- [SEADF](/glossary/seadf/) -- Self-coordinating framework for platform evolution
+- [Autonomous Agent](@/glossary/autonomous-agent.md) -- Individual agents that participate in self-coordinating systems
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- Systems composed of multiple interacting autonomous agents
+- [Orchestration](@/glossary/orchestration.md) -- Centralized coordination pattern that self-coordination replaces
+- [Distributed System](@/glossary/distributed-system.md) -- Systems where self-coordination operates across network boundaries
+- [Cooperative Systems](@/glossary/cooperative-systems.md) -- Systems where agents work toward shared goals through coordination
+- [PubSub](@/glossary/pubsub.md) -- Communication infrastructure enabling decentralized coordination
+- [Color Teams](@/glossary/color-teams.md) -- Security teams demonstrating structured self-coordination
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Higher-level patterns for managing agent interactions
+- [Consensus Algorithm](@/glossary/consensus-algorithm.md) -- Protocols enabling distributed agreement without central authority
+- [Collective Intelligence](@/glossary/collective-intelligence.md) -- Emergent intelligence from coordinated agent interactions
+- [Supervisor](@/glossary/supervisor.md) -- OTP supervision enabling fault-tolerant self-coordination
+- [SEADF](@/glossary/seadf.md) -- Self-coordinating framework for platform evolution
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture enabling self-coordinating systems
-- [Agents](/agents/) -- 530+ agents participating in the self-coordinating mesh
-- [Capabilities](/capabilities/) -- Platform capabilities emerging from self-coordination
+- [Architecture](@/architecture/_index.md) -- Platform architecture enabling self-coordinating systems
+- [Agents](@/agents/_index.md) -- 530+ agents participating in the self-coordinating mesh
+- [Capabilities](@/capabilities/_index.md) -- Platform capabilities emerging from self-coordination
 
 ---
 
@@ -617,4 +617,4 @@ The [SEADF](/glossary/seadf/) subsystems (Scanner, Pipeline, Quality Guardian, K
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

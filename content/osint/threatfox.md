@@ -28,9 +28,9 @@ image_alt = "ThreatFox - Prismatic Platform"
 
 ## Overview
 
-ThreatFox is an open [threat intelligence](/glossary/threat-intelligence/) platform operated by abuse.ch, a well-respected Swiss non-profit research project affiliated with the Institute for Cybersecurity and Engineering at Bern University of Applied Sciences. ThreatFox enables security researchers worldwide to share indicators of compromise (IOCs) associated with malware, including command-and-control (C2) server addresses, botnet infrastructure, payload delivery URLs, and file hashes. Each IOC is tagged with the associated malware family, threat type, confidence level, and MITRE ATT&CK technique identifiers.
+ThreatFox is an open [threat intelligence](@/glossary/threat-intelligence.md) platform operated by abuse.ch, a well-respected Swiss non-profit research project affiliated with the Institute for Cybersecurity and Engineering at Bern University of Applied Sciences. ThreatFox enables security researchers worldwide to share indicators of compromise (IOCs) associated with malware, including command-and-control (C2) server addresses, botnet infrastructure, payload delivery URLs, and file hashes. Each IOC is tagged with the associated malware family, threat type, confidence level, and MITRE ATT&CK technique identifiers.
 
-For [OSINT](/glossary/osint/) and threat intelligence analysts, ThreatFox provides a high-quality, community-curated source of malware IOCs that is particularly strong for tracking botnet infrastructure, ransomware C2 servers, and commodity malware campaigns. Its association with abuse.ch's other projects -- URLhaus (malicious URL tracking), Malware Bazaar (malware sample repository), Feodo Tracker (banking trojan C2 tracking), and SSL Blacklist (malicious SSL certificate identification) -- provides a comprehensive malware intelligence ecosystem that covers the full lifecycle of malware operations.
+For [OSINT](@/glossary/osint.md) and threat intelligence analysts, ThreatFox provides a high-quality, community-curated source of malware IOCs that is particularly strong for tracking botnet infrastructure, ransomware C2 servers, and commodity malware campaigns. Its association with abuse.ch's other projects -- URLhaus (malicious URL tracking), Malware Bazaar (malware sample repository), Feodo Tracker (banking trojan C2 tracking), and SSL Blacklist (malicious SSL certificate identification) -- provides a comprehensive malware intelligence ecosystem that covers the full lifecycle of malware operations.
 
 ThreatFox distinguishes itself from commercial threat intelligence feeds through its community-driven model and its focus on operational IOCs that enable immediate defensive action. Every IOC in ThreatFox is submitted by a security researcher with specific context about the malware family, the role of the indicator (C2, payload delivery, data exfiltration), and its confidence level. This contextual richness makes ThreatFox particularly valuable for automated alert triage: when a security alert matches a ThreatFox IOC, the analyst immediately knows the malware family, the attack technique, and the indicator's role in the attack chain.
 
@@ -261,9 +261,9 @@ ThreatFox's extensive coverage of offensive security tool C2 infrastructure (Cob
 |------------|--------|------------|
 | **Community-dependent quality** | IOC quality varies by submitter | Use confidence scores for filtering; validate high-impact IOCs |
 | **Focus on commodity malware** | APT and targeted attack coverage limited | Supplement with commercial threat intelligence feeds |
-| **No enrichment** | Raw IOCs without passive DNS, WHOIS, or infrastructure context | Enrich with [Pulsedive](/osint/pulsedive/), [VirusTotal](/osint/virustotal/) |
+| **No enrichment** | Raw IOCs without passive DNS, WHOIS, or infrastructure context | Enrich with [Pulsedive](@/osint/pulsedive.md), [VirusTotal](@/osint/virustotal.md) |
 | **Time-limited relevance** | C2 infrastructure rotates frequently; IOCs may become stale | Focus on recent IOCs; implement time-based expiration |
-| **Limited historical analysis** | Database focused on active threats, not historical campaigns | Use [MISP](/osint/misp/) for long-term threat tracking |
+| **Limited historical analysis** | Database focused on active threats, not historical campaigns | Use [MISP](@/osint/misp.md) for long-term threat tracking |
 | **False positive risk** | Some IOCs may be shared hosting or CDN IPs | Validate context before blocking; check for shared infrastructure |
 
 ## Legal and Ethical Considerations
@@ -278,10 +278,10 @@ ThreatFox's extensive coverage of offensive security tool C2 infrastructure (Cob
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), ThreatFox serves as a specialized malware intelligence source within the threat intelligence pipeline.
+Within the [Prismatic Platform](@/apps/prismatic.md), ThreatFox serves as a specialized malware intelligence source within the threat intelligence pipeline.
 
 - **IOC Enrichment**: ThreatFox data is automatically queried during IOC enrichment, providing malware family attribution and confidence scoring for observed indicators.
-- **Cross-Source Validation**: ThreatFox IOCs are cross-referenced with [AlienVault OTX](/osint/alienvault-otx/), [VirusTotal](/osint/virustotal/), [Pulsedive](/osint/pulsedive/), and [AbuseIPDB](/osint/abuseipdb/) for multi-source validation.
+- **Cross-Source Validation**: ThreatFox IOCs are cross-referenced with [AlienVault OTX](@/osint/alienvault-otx.md), [VirusTotal](@/osint/virustotal.md), [Pulsedive](@/osint/pulsedive.md), and [AbuseIPDB](@/osint/abuseipdb.md) for multi-source validation.
 - **Abuse.ch Ecosystem**: The platform integrates ThreatFox alongside URLhaus, Malware Bazaar, and Feodo Tracker for comprehensive abuse.ch intelligence coverage.
 - **Feed Synchronization**: Daily ThreatFox feeds are synchronized to the platform's local threat intelligence database for low-latency lookups.
 - **MITRE ATT&CK Mapping**: ThreatFox's technique identifiers feed into the platform's ATT&CK coverage analysis, showing which techniques are actively observed in the threat landscape.
@@ -305,13 +305,13 @@ Within the [Prismatic Platform](/apps/prismatic/), ThreatFox serves as a special
 
 ## Related Providers
 
-- [AlienVault OTX](/osint/alienvault-otx/) - Community threat intelligence with pulses
-- [VirusTotal](/osint/virustotal/) - Multi-engine malware analysis for hash validation
-- [Pulsedive](/osint/pulsedive/) - Threat intelligence enrichment and risk scoring
-- [AbuseIPDB](/osint/abuseipdb/) - IP abuse reporting and reputation
-- [MISP](/osint/misp/) - Structured threat intelligence sharing platform
-- [GreyNoise](/osint/greynoise/) - Scanner and noise identification
-- [URLScan](/osint/urlscan/) - URL and website analysis
+- [AlienVault OTX](@/osint/alienvault-otx.md) - Community threat intelligence with pulses
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine malware analysis for hash validation
+- [Pulsedive](@/osint/pulsedive.md) - Threat intelligence enrichment and risk scoring
+- [AbuseIPDB](@/osint/abuseipdb.md) - IP abuse reporting and reputation
+- [MISP](@/osint/misp.md) - Structured threat intelligence sharing platform
+- [GreyNoise](@/osint/greynoise.md) - Scanner and noise identification
+- [URLScan](@/osint/urlscan.md) - URL and website analysis
 
 ---
 
@@ -320,4 +320,4 @@ Within the [Prismatic Platform](/apps/prismatic/), ThreatFox serves as a special
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

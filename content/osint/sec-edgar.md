@@ -27,7 +27,7 @@ image_alt = "SEC EDGAR - Prismatic Platform"
 
 EDGAR (Electronic Data Gathering, Analysis, and Retrieval) is the SEC's primary system for receiving, processing, and disseminating corporate filings required under the Securities Exchange Act of 1934 and the Securities Act of 1933. All publicly traded companies in the United States, as well as foreign private issuers listed on US exchanges, must file periodic reports, registration statements, proxy materials, and other disclosures through EDGAR. The system processes approximately 3,000 filings per day and maintains an archive of over 21 million filings dating back to 1993.
 
-For [OSINT](/glossary/osint/) purposes, EDGAR is among the most valuable financial intelligence sources globally. It provides access to annual reports (10-K), quarterly reports (10-Q), insider trading disclosures (Form 4), beneficial ownership reports (Schedule 13D/G), proxy statements (DEF 14A), and hundreds of other filing types. These filings reveal executive compensation structures, related-party transactions, risk factor assessments, pending legal proceedings, material contracts, and subsidiary structures -- intelligence that is directly relevant to due diligence, competitive analysis, investment research, and cross-border investigations.
+For [OSINT](@/glossary/osint.md) purposes, EDGAR is among the most valuable financial intelligence sources globally. It provides access to annual reports (10-K), quarterly reports (10-Q), insider trading disclosures (Form 4), beneficial ownership reports (Schedule 13D/G), proxy statements (DEF 14A), and hundreds of other filing types. These filings reveal executive compensation structures, related-party transactions, risk factor assessments, pending legal proceedings, material contracts, and subsidiary structures -- intelligence that is directly relevant to due diligence, competitive analysis, investment research, and cross-border investigations.
 
 The SEC's commitment to transparency means that EDGAR data is freely accessible with no authentication requirements. The 2023 introduction of the EDGAR Full-Text Search System (EFTS) and the expanding XBRL (eXtensible Business Reporting Language) mandate further enhance the platform's value by enabling structured data extraction from financial statements and full-text keyword searches across all filings.
 
@@ -220,7 +220,7 @@ EDGAR filings contain the most detailed financial disclosures required by any se
 - Analyze annual and quarterly financial statements with XBRL structured data
 - Review risk factor disclosures (Item 1A of 10-K) for identified and emerging risks
 - Track executive compensation and related-party transactions in proxy statements
-- Cross-reference with [Companies House](/osint/companies-house/) for dual-listed companies
+- Cross-reference with [Companies House](@/osint/companies-house.md) for dual-listed companies
 
 ### Insider Trading Analysis
 
@@ -237,7 +237,7 @@ For multinational investigations, EDGAR filings reveal US operations, subsidiari
 
 - US filings for companies with Czech/EU operations (geographic segment disclosures)
 - Subsidiary identification through Exhibit 21 of 10-K filings
-- Cross-reference with [EU Sanctions](/osint/eu-sanctions/) and [OFAC](/osint/ofac/)
+- Cross-reference with [EU Sanctions](@/osint/eu-sanctions.md) and [OFAC](@/osint/ofac.md)
 - Track foreign private issuer filings (20-F) for US-listed non-US companies
 
 ### Competitive and Market Intelligence
@@ -292,20 +292,20 @@ Public filings contain rich competitive intelligence including market analysis, 
 ## Related Resources
 
 ### Financial Intelligence
-- [Companies House](/osint/companies-house/) - UK company data for dual-listed entities
-- [EBR](/osint/ebr/) - European Business Registry for EU subsidiaries
+- [Companies House](@/osint/companies-house.md) - UK company data for dual-listed entities
+- [EBR](@/osint/ebr.md) - European Business Registry for EU subsidiaries
 
 ### Sanctions and Compliance
-- [OFAC](/osint/ofac/) - US Treasury sanctions (same jurisdiction)
-- [EU Sanctions](/osint/eu-sanctions/) - EU sanctions for cross-border screening
+- [OFAC](@/osint/ofac.md) - US Treasury sanctions (same jurisdiction)
+- [EU Sanctions](@/osint/eu-sanctions.md) - EU sanctions for cross-border screening
 
 ### Czech Entity Cross-Reference
-- [ARES](/osint/ares/) - Czech subsidiary identification
-- [Justice.cz](/osint/justice-cz/) - Czech entity cross-referencing
+- [ARES](@/osint/ares.md) - Czech subsidiary identification
+- [Justice.cz](@/osint/justice-cz.md) - Czech entity cross-referencing
 
 ### Platform Components
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Cross-border financial intelligence
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Cross-border financial intelligence
 
 ---
 
@@ -314,4 +314,4 @@ Public filings contain rich competitive intelligence including market analysis, 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

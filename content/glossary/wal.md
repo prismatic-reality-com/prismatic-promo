@@ -228,9 +228,9 @@ Understanding WAL behavior is particularly important for the DD pipeline, where 
 
 ## Cross-References
 
-- [PostgreSQL](/glossary/postgresql/) - Database system using WAL
-- [Vacuum](/glossary/vacuum/) - Maintenance operation interacting with WAL
-- [Replication](/glossary/replication/) - Data synchronization via WAL streaming
+- [PostgreSQL](@/glossary/postgresql.md) - Database system using WAL
+- [Vacuum](@/glossary/vacuum.md) - Maintenance operation interacting with WAL
+- [Replication](@/glossary/replication.md) - Data synchronization via WAL streaming
 - **Crash Recovery** - WAL-based state restoration
 - **Write Concurrency** - Write patterns generating WAL
 

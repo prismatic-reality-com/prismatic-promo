@@ -446,20 +446,20 @@ This continuous cycle ensures that the platform's weakness posture improves with
 
 ## Related Terms
 
-- [Vulnerability](/glossary/vulnerability/) -- specific, confirmed instances of weaknesses
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- systematic evaluation of vulnerabilities
-- [Attack Surface](/glossary/attack-surface/) -- the totality of exploitable entry points
-- [Security](/glossary/security/) -- comprehensive security architecture
-- [Security Assessment](/glossary/security-assessment/) -- structured security evaluation
-- [Security Audit](/glossary/security-audit/) -- formal security review processes
-- [Security Modeling](/glossary/security-modeling/) -- formal models of security properties
-- [Defensive Security](/glossary/defensive-security/) -- defensive posture and countermeasures
-- [Threat Assessment](/glossary/threat-assessment/) -- threat identification and prioritization
-- [Threat Intelligence](/glossary/threat-intelligence/) -- intelligence-driven threat awareness
-- [Comprehensive Security Modeling](/glossary/comprehensive-security-modeling/) -- holistic security modeling
-- [Theoretical Threat Modeling](/glossary/theoretical-threat-modeling/) -- abstract threat analysis
-- [Injection Vulnerability](/glossary/injection-vulnerability/) -- injection-class weaknesses
-- [Circuit Breaker](/glossary/circuit-breaker/) -- failure isolation preventing weakness exploitation
+- [Vulnerability](@/glossary/vulnerability.md) -- specific, confirmed instances of weaknesses
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- systematic evaluation of vulnerabilities
+- [Attack Surface](@/glossary/attack-surface.md) -- the totality of exploitable entry points
+- [Security](@/glossary/security.md) -- comprehensive security architecture
+- [Security Assessment](@/glossary/security-assessment.md) -- structured security evaluation
+- [Security Audit](@/glossary/security-audit.md) -- formal security review processes
+- [Security Modeling](@/glossary/security-modeling.md) -- formal models of security properties
+- [Defensive Security](@/glossary/defensive-security.md) -- defensive posture and countermeasures
+- [Threat Assessment](@/glossary/threat-assessment.md) -- threat identification and prioritization
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- intelligence-driven threat awareness
+- [Comprehensive Security Modeling](@/glossary/comprehensive-security-modeling.md) -- holistic security modeling
+- [Theoretical Threat Modeling](@/glossary/theoretical-threat-modeling.md) -- abstract threat analysis
+- [Injection Vulnerability](@/glossary/injection-vulnerability.md) -- injection-class weaknesses
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- failure isolation preventing weakness exploitation
 
 ## Further Reading
 
@@ -476,4 +476,4 @@ This continuous cycle ensures that the platform's weakness posture improves with
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

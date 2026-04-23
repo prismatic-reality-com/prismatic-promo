@@ -28,9 +28,9 @@ image_alt = "llm-fallback-coordinator - Prismatic Platform"
 
 ## Overview
 
-The llm-fallback-coordinator is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the [AIAD](/glossary/aiad/)-enhanced domain of the Prismatic Platform. This agent manages graceful degradation and fallback strategies for LLM operations, ensuring that platform functionality continues when primary LLM providers experience outages, rate limiting, elevated latency, or degraded response quality. In a platform where hundreds of autonomous agents depend on LLM capabilities, provider disruptions can cascade into widespread operational failures unless fallback mechanisms are in place to redirect requests to alternative providers transparently.
+The llm-fallback-coordinator is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the [AIAD](@/glossary/aiad.md)-enhanced domain of the Prismatic Platform. This agent manages graceful degradation and fallback strategies for LLM operations, ensuring that platform functionality continues when primary LLM providers experience outages, rate limiting, elevated latency, or degraded response quality. In a platform where hundreds of autonomous agents depend on LLM capabilities, provider disruptions can cascade into widespread operational failures unless fallback mechanisms are in place to redirect requests to alternative providers transparently.
 
-Built on the [AIAD](/glossary/aiad/) standard, the llm-fallback-coordinator implements a multi-tier resilience architecture that combines provider health monitoring, automatic failover, response quality validation, and graceful degradation. The coordinator's design philosophy is that no single LLM provider failure should cause platform-wide disruption -- the platform must maintain operational capability even when its preferred provider is unavailable, accepting controlled quality degradation over complete service interruption.
+Built on the [AIAD](@/glossary/aiad.md) standard, the llm-fallback-coordinator implements a multi-tier resilience architecture that combines provider health monitoring, automatic failover, response quality validation, and graceful degradation. The coordinator's design philosophy is that no single LLM provider failure should cause platform-wide disruption -- the platform must maintain operational capability even when its preferred provider is unavailable, accepting controlled quality degradation over complete service interruption.
 
 ## Resilience Architecture
 
@@ -53,8 +53,8 @@ Degradation management coordinates platform-wide response to sustained provider 
 - **Rate limit management** -- Monitors rate limit consumption across providers and proactively distributes requests to prevent rate limit exhaustion
 - **Provider recovery detection** -- Monitors recovering providers and automatically restores primary routing when provider health returns to acceptable levels
 - **Degradation signaling** -- Communicates degradation status to requesting agents, enabling agent-level degradation strategies
-- **[GenServer](/glossary/genserver/)-based coordination** -- Implements routing state and health monitoring as OTP GenServers for fault-tolerant operation
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for failover event tracking and provider health dashboard publication
+- **[GenServer](@/glossary/genserver.md)-based coordination** -- Implements routing state and health monitoring as OTP GenServers for fault-tolerant operation
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for failover event tracking and provider health dashboard publication
 
 ## Fallback Chain Configuration
 
@@ -78,19 +78,19 @@ The circuit breaker parameters (error threshold, cool-down period, test request 
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the coordinator to manage routing decisions across all LLM providers, signal degradation status to all requesting agents, and coordinate recovery procedures across the LLM infrastructure.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the coordinator to manage routing decisions across all LLM providers, signal degradation status to all requesting agents, and coordinate recovery procedures across the LLM infrastructure.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
 | LLM Client Library | Request routing and response delivery integration |
-| [GenServer](/glossary/genserver/) | OTP-based routing state and health monitoring |
+| [GenServer](@/glossary/genserver.md) | OTP-based routing state and health monitoring |
 | Ollama | Local model fallback for cloud provider outages |
-| Prismatic Telemetry | Failover event tracking and provider health [metrics](/glossary/metrics/) |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of fallback chain optimization |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery |
+| Prismatic Telemetry | Failover event tracking and provider health [metrics](@/glossary/metrics.md) |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of fallback chain optimization |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
 
 ## Command Interface
 
@@ -105,14 +105,14 @@ The circuit breaker parameters (error threshold, cool-down period, test request 
 
 | Agent | Relationship |
 |-------|-------------|
-| [**llm-model-selector**](/agents/llm-model-selector/) (L4) | Model selection considers provider health for initial routing |
-| [**llm-cost-manager**](/agents/llm-cost-manager/) (L4) | Failover cost implications are tracked and reported |
-| [**llm-generic-bridge**](/agents/llm-generic-bridge/) (L4) | Provider abstraction layer enables transparent failover |
-| [**llm-performance-optimizer**](/agents/llm-performance-optimizer/) (L3) | Latency monitoring contributes to provider health assessment |
+| [**llm-model-selector**](@/agents/llm-model-selector.md) (L4) | Model selection considers provider health for initial routing |
+| [**llm-cost-manager**](@/agents/llm-cost-manager.md) (L4) | Failover cost implications are tracked and reported |
+| [**llm-generic-bridge**](@/agents/llm-generic-bridge.md) (L4) | Provider abstraction layer enables transparent failover |
+| [**llm-performance-optimizer**](@/agents/llm-performance-optimizer.md) (L3) | Latency monitoring contributes to provider health assessment |
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that fallback mechanisms operate correctly and transparently. No LLM request fails silently due to provider outage when fallback options exist. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all failover events are logged with complete context (reason for failover, selected fallback, quality assessment of fallback response), enabling post-incident analysis and provider SLA evaluation.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that fallback mechanisms operate correctly and transparently. No LLM request fails silently due to provider outage when fallback options exist. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all failover events are logged with complete context (reason for failover, selected fallback, quality assessment of fallback response), enabling post-incident analysis and provider SLA evaluation.
 
 ---
 
@@ -121,4 +121,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that fallback mechanisms o
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

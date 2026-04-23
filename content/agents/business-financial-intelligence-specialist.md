@@ -28,9 +28,9 @@ image_alt = "Business Financial Intelligence Specialist - Prismatic Platform"
 
 ## Overview
 
-The Business Financial Intelligence Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Business domain of the Prismatic Platform. This agent provides comprehensive financial intelligence capabilities, analyzing corporate financial data, market trends, and business performance indicators to support due diligence investigations, compliance assessments, and strategic decision-making.
+The Business Financial Intelligence Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Business domain of the Prismatic Platform. This agent provides comprehensive financial intelligence capabilities, analyzing corporate financial data, market trends, and business performance indicators to support due diligence investigations, compliance assessments, and strategic decision-making.
 
-Financial intelligence in the Prismatic context extends beyond simple data retrieval. This agent correlates financial signals from public filings, [registry](/glossary/registry-otp/) data, market analysis sources, and [OSINT](/glossary/osint/) providers to build multi-dimensional financial profiles of entities under investigation. By applying the NABLA epistemic framework, every financial assessment maintains explicit confidence scores, source provenance, and contradiction tracking, ensuring that financial intelligence products meet evidence-grade standards.
+Financial intelligence in the Prismatic context extends beyond simple data retrieval. This agent correlates financial signals from public filings, [registry](@/glossary/registry-otp.md) data, market analysis sources, and [OSINT](@/glossary/osint.md) providers to build multi-dimensional financial profiles of entities under investigation. By applying the NABLA epistemic framework, every financial assessment maintains explicit confidence scores, source provenance, and contradiction tracking, ensuring that financial intelligence products meet evidence-grade standards.
 
 The distinction between data and intelligence is central to this agent's function. Raw financial data -- revenue figures, balance sheet entries, transaction records -- becomes financial intelligence only when it is contextualized, correlated, validated, and assessed for reliability. The Business Financial Intelligence Specialist performs this transformation, producing analytical products that decision-makers can act upon with understood confidence levels.
 
@@ -58,9 +58,9 @@ This domain placement enables the specialist to operate across the full spectrum
 
 The specialist follows a structured four-phase analysis methodology that produces evidence-grade financial intelligence.
 
-**Phase 1: Data Collection.** Financial data is collected from multiple sources: public registries (ARES, Justice.cz for Czech entities), financial statement databases, market data providers, and OSINT sources. Each data point is tagged with source provenance and collection timestamp per the NABLA [Provenance Mandatory](/glossary/provenance-mandatory/) axiom.
+**Phase 1: Data Collection.** Financial data is collected from multiple sources: public registries (ARES, Justice.cz for Czech entities), financial statement databases, market data providers, and OSINT sources. Each data point is tagged with source provenance and collection timestamp per the NABLA [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom.
 
-**Phase 2: Data Validation.** Collected financial data undergoes cross-source validation. Revenue figures from regulatory filings are compared against market estimates. Balance sheet entries are checked for internal consistency. Discrepancies between sources are preserved as contradictions per the NABLA [Contradiction Preservation](/glossary/contradiction-preservation/) axiom rather than being resolved by choosing a preferred source.
+**Phase 2: Data Validation.** Collected financial data undergoes cross-source validation. Revenue figures from regulatory filings are compared against market estimates. Balance sheet entries are checked for internal consistency. Discrepancies between sources are preserved as contradictions per the NABLA [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom rather than being resolved by choosing a preferred source.
 
 **Phase 3: Analytical Processing.** Validated data is processed through analytical models: ratio analysis (liquidity, solvency, profitability, efficiency), trend analysis (multi-year performance trajectories), peer comparison (industry benchmarking), and anomaly detection (unusual patterns that may indicate financial distress, manipulation, or hidden relationships).
 
@@ -98,10 +98,10 @@ The specialist identifies financial relationships between entities through netwo
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [czech-financial-forensics-expert](/agents/czech-financial-forensics-expert/) | Forensic Partner | Provides deep Czech financial investigation capabilities for complex cases |
-| [corporate-governance-analyst](/agents/corporate-governance-analyst/) | Governance Analysis | Analyzes corporate governance structures alongside financial performance |
-| [competitor-researcher](/agents/competitor-researcher/) | Market Intelligence | Shares market and competitive financial data for cross-domain analysis |
-| [billing-integration-specialist](/agents/billing-integration-specialist/) | Internal Finance | Provides internal financial data for platform business intelligence |
+| [czech-financial-forensics-expert](@/agents/czech-financial-forensics-expert.md) | Forensic Partner | Provides deep Czech financial investigation capabilities for complex cases |
+| [corporate-governance-analyst](@/agents/corporate-governance-analyst.md) | Governance Analysis | Analyzes corporate governance structures alongside financial performance |
+| [competitor-researcher](@/agents/competitor-researcher.md) | Market Intelligence | Shares market and competitive financial data for cross-domain analysis |
+| [billing-integration-specialist](@/agents/billing-integration-specialist.md) | Internal Finance | Provides internal financial data for platform business intelligence |
 
 ## Performance Metrics
 
@@ -115,7 +115,7 @@ The specialist identifies financial relationships between entities through netwo
 
 ## Enforcement
 
-All financial intelligence operations are governed by [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Financial assessments must be derived from verifiable data sources with explicit provenance. No financial claim is published without meeting NABLA [Signal Plurality](/glossary/signal-plurality/) requirements from independent sources. The [Trinity Gate](/glossary/trinity-gate/) validates that financial conclusions are structurally consistent (financial models produce mathematically correct results), logically sound (conclusions follow from evidence), and formally defensible (methodology is documented and reproducible) before distribution to consuming agents. Financial contradictions between sources are preserved and documented, never silently resolved.
+All financial intelligence operations are governed by [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Financial assessments must be derived from verifiable data sources with explicit provenance. No financial claim is published without meeting NABLA [Signal Plurality](@/glossary/signal-plurality.md) requirements from independent sources. The [Trinity Gate](@/glossary/trinity-gate.md) validates that financial conclusions are structurally consistent (financial models produce mathematically correct results), logically sound (conclusions follow from evidence), and formally defensible (methodology is documented and reproducible) before distribution to consuming agents. Financial contradictions between sources are preserved and documented, never silently resolved.
 
 ---
 
@@ -124,4 +124,4 @@ All financial intelligence operations are governed by [NO MERCY, NO DOUBTS](/glo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

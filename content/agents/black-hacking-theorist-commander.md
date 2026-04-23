@@ -28,9 +28,9 @@ image_alt = "Black Hacking Theorist Commander - Prismatic Platform"
 
 ## Overview
 
-The Black Hacking Theorist Commander is the sole commander-tier agent for the Black Team domain -- the most contained domain in the Prismatic Platform's [color team](/glossary/color-teams/) security framework. This agent conducts pure epistemic threat modeling under MAXIMUM isolation, analyzing how a sophisticated adversary with full knowledge of the platform's architecture might exploit weaknesses in reasoning systems, confidence mechanisms, and epistemic integrity frameworks.
+The Black Hacking Theorist Commander is the sole commander-tier agent for the Black Team domain -- the most contained domain in the Prismatic Platform's [color team](@/glossary/color-teams.md) security framework. This agent conducts pure epistemic threat modeling under MAXIMUM isolation, analyzing how a sophisticated adversary with full knowledge of the platform's architecture might exploit weaknesses in reasoning systems, confidence mechanisms, and epistemic integrity frameworks.
 
-The Black Team exists because defensive security requires understanding offensive capability. Without a rigorous model of adversarial optimization, Blue Team defenses are built against imagined threats rather than analyzed ones. The Black Hacking Theorist Commander fills this gap by constructing theoretical threat models that push adversarial reasoning to its logical extremes, then passing these models through the [Black Abstraction Enforcer](/agents/black-abstraction-enforcer/) for sanitization before they reach defensive teams.
+The Black Team exists because defensive security requires understanding offensive capability. Without a rigorous model of adversarial optimization, Blue Team defenses are built against imagined threats rather than analyzed ones. The Black Hacking Theorist Commander fills this gap by constructing theoretical threat models that push adversarial reasoning to its logical extremes, then passing these models through the [Black Abstraction Enforcer](@/agents/black-abstraction-enforcer.md) for sanitization before they reach defensive teams.
 
 This agent operates under the most restrictive safety constraints in the platform. No network access. No production data access. No executable output. Every output passes through four levels of abstraction filtering. The theoretical nature of Black Team analysis is not a limitation but a design choice: abstract threat models are more valuable than concrete exploits because they identify categories of vulnerability rather than individual instances, enabling systematic defensive improvement rather than point fixes.
 
@@ -95,16 +95,16 @@ The Black Team operates under the strictest isolation constraints in the platfor
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Isolated commander authority within the Black Team domain. Authority is constrained by MAXIMUM isolation: the commander has full analytical authority within the Black domain but zero authority to affect any system outside the Black domain boundary.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Isolated commander authority within the Black Team domain. Authority is constrained by MAXIMUM isolation: the commander has full analytical authority within the Black domain but zero authority to affect any system outside the Black domain boundary.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [black-abstraction-enforcer](/agents/black-abstraction-enforcer/) | Output Filter | Filters all commander outputs through L1-L4 abstraction before external release |
-| [purple-coordinator](/agents/purple-coordinator/) | Synthesis Consumer | Receives abstracted threat models for Red-Blue synthesis |
-| [red-commander](/agents/red-commander/) | Scenario Recipient | Receives abstract threat scenarios for operationalization into simulations |
-| [blue-commander](/agents/blue-commander/) | Defense Recipient | Receives abstract defensive recommendations for posture improvement |
+| [black-abstraction-enforcer](@/agents/black-abstraction-enforcer.md) | Output Filter | Filters all commander outputs through L1-L4 abstraction before external release |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Synthesis Consumer | Receives abstracted threat models for Red-Blue synthesis |
+| [red-commander](@/agents/red-commander.md) | Scenario Recipient | Receives abstract threat scenarios for operationalization into simulations |
+| [blue-commander](@/agents/blue-commander.md) | Defense Recipient | Receives abstract defensive recommendations for posture improvement |
 
 ## Performance Metrics
 
@@ -119,7 +119,7 @@ The Black Team operates under the strictest isolation constraints in the platfor
 
 ## Enforcement
 
-The Black Hacking Theorist Commander operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with MAXIMUM isolation override. All analytical operations are constrained to synthetic data and theoretical modeling. No output leaves the Black domain without passing through the [Black Abstraction Enforcer](/agents/black-abstraction-enforcer/)'s four-level filter chain. Automated ethics checks run continuously and have authority to immediately halt any operation flagged for ethical concern. The [Trinity Gate](/glossary/trinity-gate/) validates that threat model conclusions maintain structural consistency with the attack taxonomy, logical consistency with modeled adversarial capabilities, and formal correctness of impact assessment methodology. The [NABLA Infinity](/glossary/nabla-infinity/) framework ensures that threat assessments carry explicit confidence scores and that multiple independent analytical approaches support each high-severity finding.
+The Black Hacking Theorist Commander operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with MAXIMUM isolation override. All analytical operations are constrained to synthetic data and theoretical modeling. No output leaves the Black domain without passing through the [Black Abstraction Enforcer](@/agents/black-abstraction-enforcer.md)'s four-level filter chain. Automated ethics checks run continuously and have authority to immediately halt any operation flagged for ethical concern. The [Trinity Gate](@/glossary/trinity-gate.md) validates that threat model conclusions maintain structural consistency with the attack taxonomy, logical consistency with modeled adversarial capabilities, and formal correctness of impact assessment methodology. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework ensures that threat assessments carry explicit confidence scores and that multiple independent analytical approaches support each high-severity finding.
 
 ---
 
@@ -128,4 +128,4 @@ The Black Hacking Theorist Commander operates under the [NO MERCY, NO DOUBTS](/g
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -464,16 +464,16 @@ Expensive KuzuDB graph traversals (beneficial ownership chains, entity resolutio
 
 ## Related Concepts
 
-- [ETS](/glossary/ets/) -- Erlang Term Storage, primary local caching primitive
-- [ETS Table](/glossary/ets-table/) -- Specific ETS table configurations and access patterns
-- [Redis](/glossary/redis/) -- Distributed caching and data structure store
-- [Connection Pooling](/glossary/connection-pooling/) -- Resource pooling complementary to caching
-- [Latency](/glossary/latency/) -- Primary metric improved by effective caching
-- [Performance](/glossary/performance/) -- System-level performance optimization
-- [Key-Value Store](/glossary/key-value-store/) -- Data model underlying most cache implementations
-- [BEAM VM](/glossary/beam-vm/) -- Runtime providing ETS and process-level caching
-- [Backpressure](/glossary/backpressure/) -- Flow control mechanism complementary to caching
-- [ACID Transactions](/glossary/acid-transactions/) -- Consistency model interacting with cache invalidation
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage, primary local caching primitive
+- [ETS Table](@/glossary/ets-table.md) -- Specific ETS table configurations and access patterns
+- [Redis](@/glossary/redis.md) -- Distributed caching and data structure store
+- [Connection Pooling](@/glossary/connection-pooling.md) -- Resource pooling complementary to caching
+- [Latency](@/glossary/latency.md) -- Primary metric improved by effective caching
+- [Performance](@/glossary/performance.md) -- System-level performance optimization
+- [Key-Value Store](@/glossary/key-value-store.md) -- Data model underlying most cache implementations
+- [BEAM VM](@/glossary/beam-vm.md) -- Runtime providing ETS and process-level caching
+- [Backpressure](@/glossary/backpressure.md) -- Flow control mechanism complementary to caching
+- [ACID Transactions](@/glossary/acid-transactions.md) -- Consistency model interacting with cache invalidation
 
 ## See Also
 
@@ -489,4 +489,4 @@ Expensive KuzuDB graph traversals (beneficial ownership chains, entity resolutio
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

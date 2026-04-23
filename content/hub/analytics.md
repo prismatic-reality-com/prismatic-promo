@@ -62,7 +62,7 @@ The **Analytics Dashboard** provides real-time business intelligence with Chart.
 | **Live data streaming** | **Architecture guides** |
 | **Real-time charts** | **Technology stack docs** |
 | **Drill-down analysis** | **Reference materials** |
-| **Interactive Platform Hub** | **[→ Technology Docs](/technologies/)** |
+| **Interactive Platform Hub** | **[→ Technology Docs](@/technologies/_index.md)** |
 
 ## 🚀 Platform Access {#platform-access}
 
@@ -78,4 +78,4 @@ Access the platform through your configured endpoint to use:
 
 ---
 
-**Need the static documentation instead?** Visit **[Technology Documentation](/technologies/)**
+**Need the static documentation instead?** Visit **[Technology Documentation](@/technologies/_index.md)**

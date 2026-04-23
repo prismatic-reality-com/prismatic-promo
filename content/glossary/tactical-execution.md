@@ -29,13 +29,13 @@ image_alt = "Tactical Execution - Prismatic Platform"
 
 ## Definition and Overview
 
-Tactical Execution is the L2 agent tier responsible for focused, domain-specific operations within a single application or capability area in the Prismatic Platform's agent hierarchy. L2 agents are the operational backbone of the platform -- specialists who execute concrete tasks such as epistemic attacks ([Red Team](/glossary/red-team/)), drift detection ([Blue Team](/glossary/blue-team/)), contract validation ([White Team](/glossary/white-team/)), and boundary exploration ([Gray Team](/glossary/gray-team/)) under the coordination of their L3 Team Commander. With approximately 250 agents at this tier, L2 Tactical Execution specialists represent the largest population in the platform's 530-agent fleet.
+Tactical Execution is the L2 agent tier responsible for focused, domain-specific operations within a single application or capability area in the Prismatic Platform's agent hierarchy. L2 agents are the operational backbone of the platform -- specialists who execute concrete tasks such as epistemic attacks ([Red Team](@/glossary/red-team.md)), drift detection ([Blue Team](@/glossary/blue-team.md)), contract validation ([White Team](@/glossary/white-team.md)), and boundary exploration ([Gray Team](@/glossary/gray-team.md)) under the coordination of their L3 Team Commander. With approximately 250 agents at this tier, L2 Tactical Execution specialists represent the largest population in the platform's 530-agent fleet.
 
 The term "tactical" distinguishes this tier from strategic coordination (L4) and supreme authority (L5). In military doctrine, tactical operations are the direct execution of specific missions within well-defined parameters, as opposed to strategic planning that coordinates across multiple theaters. Similarly, L2 agents operate with deep expertise in narrow domains, executing specialized tasks with precision rather than coordinating across domains. This focus enables each L2 agent to maintain expert-level capability within its specialization -- a red-epistemic-attacker does not need to understand defensive posture assessment, and a blue-drift-detector does not need to generate adversarial scenarios.
 
 The L2 tier sits at the intersection of capability and coordination. L1 Assistant agents handle basic task execution within a single function scope, while L2 agents apply domain expertise to solve complex problems within their specialty. The distinction is significant: an L1 agent might format a log entry, while an L2 agent analyzes behavioral drift patterns across temporal windows to detect sub-threshold configuration changes. L2 agents report findings upward to L3 Team Commanders, who synthesize specialist reports into team-level assessments.
 
-Within the Prismatic Platform, L2 agents are defined through the [AIAD](/glossary/aiad/) (AI Agent Definition) standard, which specifies each agent's capabilities, authority boundaries, communication interfaces, and safety constraints. Every L2 agent has a formal specification document in `.aiad/agents/` that defines its operational parameters, ensuring that tactical execution occurs within well-documented boundaries with traceable accountability.
+Within the Prismatic Platform, L2 agents are defined through the [AIAD](@/glossary/aiad.md) (AI Agent Definition) standard, which specifies each agent's capabilities, authority boundaries, communication interfaces, and safety constraints. Every L2 agent has a formal specification document in `.aiad/agents/` that defines its operational parameters, ensuring that tactical execution occurs within well-documented boundaries with traceable accountability.
 
 ## Historical Context
 
@@ -313,7 +313,7 @@ The approximately 250 L2 agents are distributed across the six Color Teams and d
 |------|-----------|--------------------|----|
 | Red Team | ~40 | `red-epistemic-attacker`, `red-drift-inducer`, `red-scenario-generator` | Adversarial simulation |
 | Blue Team | ~45 | `blue-auth-sentinel`, `blue-drift-detector`, `blue-signal-aggregator` | Defensive analysis |
-| [Purple Team](/glossary/purple-team/) | ~30 | `purple-mapper`, `purple-closure-analyst`, `purple-regression-guard` | Synthesis and closure |
+| [Purple Team](@/glossary/purple-team.md) | ~30 | `purple-mapper`, `purple-closure-analyst`, `purple-regression-guard` | Synthesis and closure |
 | White Team | ~25 | `white-contract-validator`, `white-invariant-prover` | Formal verification |
 | Gray Team | ~20 | `gray-edge-finder`, `gray-escalation-guard` | Boundary exploration |
 | Domain Apps | ~90 | Quality specialists, EASM workers, API handlers | Application-specific |
@@ -416,15 +416,15 @@ end
 
 ## NABLA Integration
 
-L2 Tactical Execution agents operate under the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, which governs how they collect evidence, form conclusions, and report findings. The key NABLA requirements for L2 agents are:
+L2 Tactical Execution agents operate under the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, which governs how they collect evidence, form conclusions, and report findings. The key NABLA requirements for L2 agents are:
 
 **Signal Plurality**: L2 findings must be supported by at least two independent signals. A single observation is insufficient for a finding to be submitted.
 
-**Provenance Mandatory**: Every finding must carry a complete provenance chain from the raw signal through evidence processing to the final conclusion. The [Provenance Mandatory](/glossary/provenance-mandatory/) axiom is enforced structurally in the finding report schema.
+**Provenance Mandatory**: Every finding must carry a complete provenance chain from the raw signal through evidence processing to the final conclusion. The [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom is enforced structurally in the finding report schema.
 
 **Confidence Calibration**: L2 agents must calibrate their confidence scores to reflect the actual strength of their evidence. The confidence threshold system (0.95 for critical, 0.85 for high, 0.70 for medium) prevents premature escalation of uncertain findings.
 
-**Contradiction Preservation**: When L2 agents encounter contradictory evidence, they must preserve both signals and report the contradiction to their L3 commander rather than resolving it unilaterally. Cross-domain contradiction resolution is the responsibility of [Purple Team](/glossary/purple-team/) synthesis operations.
+**Contradiction Preservation**: When L2 agents encounter contradictory evidence, they must preserve both signals and report the contradiction to their L3 commander rather than resolving it unilaterally. Cross-domain contradiction resolution is the responsibility of [Purple Team](@/glossary/purple-team.md) synthesis operations.
 
 ## Usage in Prismatic Platform
 
@@ -490,13 +490,13 @@ L2 agents, particularly those in the Red and Black teams, operate under strict s
 
 | Constraint | Affected Teams | Enforcement | Violation Response |
 |------------|---------------|-------------|-------------------|
-| Sandbox isolation | Red, Black | Process-level isolation | L4 [Violation Protocol](/glossary/violation-protocol/) |
+| Sandbox isolation | Red, Black | Process-level isolation | L4 [Violation Protocol](@/glossary/violation-protocol.md) |
 | Synthetic data only | Red, Black, Gray | Data source validation | L3 rejection |
 | No network access | Red, Black | Firewall rules | Infrastructure block |
 | Read-only operations | Gray, White | File system permissions | Operation denied |
 | Audit logging | All teams | Immutable append-only log | System enforcement |
 
-These constraints are non-negotiable and apply equally in testing and production environments. The [NM/ND Doctrine](/glossary/no-mercy-no-doubts/) enforcement block in every agent's AIAD specification makes compliance mandatory.
+These constraints are non-negotiable and apply equally in testing and production environments. The [NM/ND Doctrine](@/glossary/no-mercy-no-doubts.md) enforcement block in every agent's AIAD specification makes compliance mandatory.
 
 ## Best Practices
 
@@ -526,22 +526,22 @@ These constraints are non-negotiable and apply equally in testing and production
 
 ## Related Concepts
 
-- [Agent Tier](/glossary/agent-tier/) -- Full L1-L5 classification system
-- [Strategic Command](/glossary/strategic-command/) -- L4 coordination tier managing cross-domain operations
-- [Supreme Commander](/glossary/supreme-commander/) -- L5 platform-wide authority
-- [Red Team](/glossary/red-team/) -- Team with L2 adversarial simulation specialists
-- [Blue Team](/glossary/blue-team/) -- Team with L2 defensive analysis specialists
-- [White Team](/glossary/white-team/) -- Team with L2 formal verification specialists
-- [Gray Team](/glossary/gray-team/) -- Team with L2 boundary exploration specialists
-- [AIAD](/glossary/aiad/) -- Agent definition standard for all tier classifications
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing L2 agent findings
-- [Violation Protocol](/glossary/violation-protocol/) -- Enforcement protocol for safety constraint violations
+- [Agent Tier](@/glossary/agent-tier.md) -- Full L1-L5 classification system
+- [Strategic Command](@/glossary/strategic-command.md) -- L4 coordination tier managing cross-domain operations
+- [Supreme Commander](@/glossary/supreme-commander.md) -- L5 platform-wide authority
+- [Red Team](@/glossary/red-team.md) -- Team with L2 adversarial simulation specialists
+- [Blue Team](@/glossary/blue-team.md) -- Team with L2 defensive analysis specialists
+- [White Team](@/glossary/white-team.md) -- Team with L2 formal verification specialists
+- [Gray Team](@/glossary/gray-team.md) -- Team with L2 boundary exploration specialists
+- [AIAD](@/glossary/aiad.md) -- Agent definition standard for all tier classifications
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing L2 agent findings
+- [Violation Protocol](@/glossary/violation-protocol.md) -- Enforcement protocol for safety constraint violations
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Agents](/agents/) -- Full agent catalog
-- [Commands](/commands/) -- Command catalog including agent operations
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Agents](@/agents/_index.md) -- Full agent catalog
+- [Commands](@/commands/_index.md) -- Command catalog including agent operations
 
 ---
 
@@ -550,4 +550,4 @@ These constraints are non-negotiable and apply equally in testing and production
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

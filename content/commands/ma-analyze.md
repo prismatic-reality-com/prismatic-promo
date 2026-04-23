@@ -24,13 +24,13 @@ image_alt = "/ma-analyze - Prismatic Platform"
 
 ## Overview
 
-**/ma-analyze** is a production command in the **M&A Operations** category of the Prismatic Platform that performs comprehensive Mergers and Acquisitions analysis spanning financial valuation, legal due diligence, operational assessment, and strategic fit evaluation. When an acquisition target has been identified through [/ma-create](/commands/ma-create/) and initial profiling is complete, the `/ma-analyze` command executes a deep, multi-dimensional analysis that produces the evidence base required for informed deal decisions.
+**/ma-analyze** is a production command in the **M&A Operations** category of the Prismatic Platform that performs comprehensive Mergers and Acquisitions analysis spanning financial valuation, legal due diligence, operational assessment, and strategic fit evaluation. When an acquisition target has been identified through [/ma-create](@/commands/ma-create.md) and initial profiling is complete, the `/ma-analyze` command executes a deep, multi-dimensional analysis that produces the evidence base required for informed deal decisions.
 
-This command operates under the **L3+** authority level and is executed by the `ma-financial-analyst` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3+ authority level reflects the sensitivity of M&A intelligence and ensures that analysis operations are restricted to operators with appropriate clearance for deal-sensitive material.
+This command operates under the **L3+** authority level and is executed by the `ma-financial-analyst` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3+ authority level reflects the sensitivity of M&A intelligence and ensures that analysis operations are restricted to operators with appropriate clearance for deal-sensitive material.
 
-M&A analysis within the Prismatic Platform is distinguished by its integration of traditional financial analysis methods with the platform's intelligence capabilities. The [/investigate](/commands/investigate/) command provides OSINT intelligence on acquisition targets, [/email-osint](/commands/email-osint/) maps key personnel and organizational relationships, and [/ghost-recon](/commands/ghost-recon/) assesses the target's digital infrastructure. The `/ma-analyze` command synthesizes all of these intelligence streams alongside financial data, legal filings, and operational metrics into a unified analysis framework calibrated by the [NABLA](/glossary/nabla-infinity/) epistemic framework for confidence scoring.
+M&A analysis within the Prismatic Platform is distinguished by its integration of traditional financial analysis methods with the platform's intelligence capabilities. The [/investigate](@/commands/investigate.md) command provides OSINT intelligence on acquisition targets, [/email-osint](@/commands/email-osint.md) maps key personnel and organizational relationships, and [/ghost-recon](@/commands/ghost-recon.md) assesses the target's digital infrastructure. The `/ma-analyze` command synthesizes all of these intelligence streams alongside financial data, legal filings, and operational metrics into a unified analysis framework calibrated by the [NABLA](@/glossary/nabla-infinity.md) epistemic framework for confidence scoring.
 
-The analysis engine supports multiple valuation methodologies including Discounted Cash Flow (DCF), Comparable Company Analysis, Precedent Transaction Analysis, and Asset-Based Valuation. Each methodology produces independent valuations that are then cross-referenced to establish a defensible valuation range with [NABLA](/glossary/nabla-infinity/)-calibrated confidence intervals.
+The analysis engine supports multiple valuation methodologies including Discounted Cash Flow (DCF), Comparable Company Analysis, Precedent Transaction Analysis, and Asset-Based Valuation. Each methodology produces independent valuations that are then cross-referenced to establish a defensible valuation range with [NABLA](@/glossary/nabla-infinity.md)-calibrated confidence intervals.
 
 ## Architecture
 
@@ -127,9 +127,9 @@ The M&A analysis system is structured as a multi-domain assessment engine with p
 
 ## Execution Flow
 
-1. **Deal Context Loading**: The specified deal is loaded from the M&A pipeline with all associated data including target company profile, preliminary assessments, and any existing analysis results. The deal must have been created through [/ma-create](/commands/ma-create/) and must be in an active state.
+1. **Deal Context Loading**: The specified deal is loaded from the M&A pipeline with all associated data including target company profile, preliminary assessments, and any existing analysis results. The deal must have been created through [/ma-create](@/commands/ma-create.md) and must be in an active state.
 
-2. **Intelligence Integration**: If `--integrate-intel` is enabled, the system retrieves OSINT intelligence previously collected on the target through [/investigate](/commands/investigate/), [/email-osint](/commands/email-osint/), and [/ghost-recon](/commands/ghost-recon/). This intelligence supplements the financial and operational data.
+2. **Intelligence Integration**: If `--integrate-intel` is enabled, the system retrieves OSINT intelligence previously collected on the target through [/investigate](@/commands/investigate.md), [/email-osint](@/commands/email-osint.md), and [/ghost-recon](@/commands/ghost-recon.md). This intelligence supplements the financial and operational data.
 
 3. **Parallel Domain Analysis**: Each analysis domain (financial, legal, operational, strategic, technical) is executed in parallel using `Task.async_stream`. Each domain analyzer operates independently, producing domain-specific findings with confidence scores.
 
@@ -143,9 +143,9 @@ The M&A analysis system is structured as a multi-domain assessment engine with p
 
 8. **Technical Assessment**: The technical analyzer evaluates the target's technology stack, technical debt levels, infrastructure requirements, integration complexity, and key technical talent. Compatibility with the acquirer's technology ecosystem is assessed.
 
-9. **Cross-Domain Synthesis**: All domain analyses are synthesized into a unified deal assessment. Contradictory findings across domains are preserved per the [addiction preservation](/glossary/contradiction-preservation/) doctrine. Cross-domain correlations are identified and documented.
+9. **Cross-Domain Synthesis**: All domain analyses are synthesized into a unified deal assessment. Contradictory findings across domains are preserved per the [addiction preservation](@/glossary/contradiction-preservation.md) doctrine. Cross-domain correlations are identified and documented.
 
-10. **Confidence Calibration**: All findings receive [NABLA](/glossary/nabla-infinity/)-calibrated confidence scores based on data quality, source reliability, and cross-domain corroboration. The overall deal confidence score aggregates domain confidence scores weighted by domain importance.
+10. **Confidence Calibration**: All findings receive [NABLA](@/glossary/nabla-infinity.md)-calibrated confidence scores based on data quality, source reliability, and cross-domain corroboration. The overall deal confidence score aggregates domain confidence scores weighted by domain importance.
 
 11. **Recommendation Generation**: Based on the synthesized analysis, the system generates a recommendation (Proceed, Proceed with Conditions, Hold for Additional Data, Do Not Proceed) with supporting evidence and risk factors.
 
@@ -153,17 +153,17 @@ The M&A analysis system is structured as a multi-domain assessment engine with p
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `ma-financial-analyst` | Coordinates domain analysis agents |
-| [/ma-create](/commands/ma-create/) | Deal source | Provides deal context and target profile |
-| [/ma-report](/commands/ma-report/) | Report generation | Formats analysis into structured reports |
-| [/ma-dashboard](/commands/ma-dashboard/) | Pipeline view | Analysis status visible in dashboard |
-| [/investigate](/commands/investigate/) | OSINT intelligence | Target company intelligence integration |
-| [/email-osint](/commands/email-osint/) | Personnel intelligence | Key personnel mapping |
-| [/ghost-recon](/commands/ghost-recon/) | Infrastructure intel | Digital infrastructure assessment |
-| [/intel-export](/commands/intel-export/) | Intelligence packaging | Structured intel for analysis |
-| [NABLA Framework](/glossary/nabla-infinity/) | Confidence calibration | Epistemic scoring for all findings |
-| [Quality Gates](/glossary/quality-gates/) | Analysis quality | Completeness and accuracy validation |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Analysis timing, coverage tracking |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `ma-financial-analyst` | Coordinates domain analysis agents |
+| [/ma-create](@/commands/ma-create.md) | Deal source | Provides deal context and target profile |
+| [/ma-report](@/commands/ma-report.md) | Report generation | Formats analysis into structured reports |
+| [/ma-dashboard](@/commands/ma-dashboard.md) | Pipeline view | Analysis status visible in dashboard |
+| [/investigate](@/commands/investigate.md) | OSINT intelligence | Target company intelligence integration |
+| [/email-osint](@/commands/email-osint.md) | Personnel intelligence | Key personnel mapping |
+| [/ghost-recon](@/commands/ghost-recon.md) | Infrastructure intel | Digital infrastructure assessment |
+| [/intel-export](@/commands/intel-export.md) | Intelligence packaging | Structured intel for analysis |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Confidence calibration | Epistemic scoring for all findings |
+| [Quality Gates](@/glossary/quality-gates.md) | Analysis quality | Completeness and accuracy validation |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Analysis timing, coverage tracking |
 
 ## Best Practices
 
@@ -247,21 +247,21 @@ Feed external financial data into the analysis engine.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every analysis domain must produce findings or explicitly document why findings could not be produced. Partial analyses are not delivered -- all requested domains must complete.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every financial projection, legal assessment, and strategic evaluation includes provenance, confidence scoring, and data quality indicators per [NABLA](/glossary/nabla-infinity/) requirements.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every financial projection, legal assessment, and strategic evaluation includes provenance, confidence scoring, and data quality indicators per [NABLA](@/glossary/nabla-infinity.md) requirements.
 
 ## Related Commands
 
-- [/ma-create](/commands/ma-create/) - Create new M&A deal with target profiling and initial assessment
-- [/ma-report](/commands/ma-report/) - Generate detailed M&A analysis report with visualizations
-- [/ma-dashboard](/commands/ma-dashboard/) - M&A deal pipeline dashboard with real-time status tracking
-- [/ma-status](/commands/ma-status/) - M&A deal pipeline status overview and progress tracking
-- [/ma-enforce](/commands/ma-enforce/) - M&A enforcement actions for deal compliance and deadline tracking
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/intel-export](/commands/intel-export/) - Generate comprehensive intelligence packages for external LLM analysis
+- [/ma-create](@/commands/ma-create.md) - Create new M&A deal with target profiling and initial assessment
+- [/ma-report](@/commands/ma-report.md) - Generate detailed M&A analysis report with visualizations
+- [/ma-dashboard](@/commands/ma-dashboard.md) - M&A deal pipeline dashboard with real-time status tracking
+- [/ma-status](@/commands/ma-status.md) - M&A deal pipeline status overview and progress tracking
+- [/ma-enforce](@/commands/ma-enforce.md) - M&A enforcement actions for deal compliance and deadline tracking
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/intel-export](@/commands/intel-export.md) - Generate comprehensive intelligence packages for external LLM analysis
 
 ---
 
@@ -270,4 +270,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

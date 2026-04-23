@@ -363,14 +363,14 @@ Every commit to the Prismatic Platform passes through 13 quality domains, each m
 
 ## Related Concepts
 
-- [Automated Decision-Making](/glossary/automated-decision-making/) - The broader category encompassing all forms of algorithm-driven decisions, from simple rule application to complex AI reasoning
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) - The platform's structured process for transforming raw data into verified knowledge that supports decision-making
-- [NABLA Infinity](/glossary/nabla-infinity/) - The epistemic framework ensuring that algorithmic decisions rest on plural, traceable, and contradiction-preserving evidence
-- [Audit Trail](/glossary/audit-trail/) - The immutable record of decision provenance required for regulatory compliance and post-hoc investigation
-- [Explainability](/glossary/explainability/) - The capacity of a decision system to produce understandable justifications for its outputs
-- [Bias Detection](/glossary/bias-detection/) - Techniques for identifying systematic unfairness in algorithmic decision outputs across protected groups
-- [Trinity Gate](/glossary/trinity-gate/) - Three-layer verification system that validates the structural, logical, and formal consistency of algorithmic decisions
-- [Compliance Framework](/glossary/compliance-framework/) - Regulatory structures (GDPR, EU AI Act, NIS2, ZKB) that govern how algorithmic decisions must be documented and governed
+- [Automated Decision-Making](@/glossary/automated-decision-making.md) - The broader category encompassing all forms of algorithm-driven decisions, from simple rule application to complex AI reasoning
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) - The platform's structured process for transforming raw data into verified knowledge that supports decision-making
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - The epistemic framework ensuring that algorithmic decisions rest on plural, traceable, and contradiction-preserving evidence
+- [Audit Trail](@/glossary/audit-trail.md) - The immutable record of decision provenance required for regulatory compliance and post-hoc investigation
+- [Explainability](@/glossary/explainability.md) - The capacity of a decision system to produce understandable justifications for its outputs
+- [Bias Detection](@/glossary/bias-detection.md) - Techniques for identifying systematic unfairness in algorithmic decision outputs across protected groups
+- [Trinity Gate](@/glossary/trinity-gate.md) - Three-layer verification system that validates the structural, logical, and formal consistency of algorithmic decisions
+- [Compliance Framework](@/glossary/compliance-framework.md) - Regulatory structures (GDPR, EU AI Act, NIS2, ZKB) that govern how algorithmic decisions must be documented and governed
 
 ## See Also
 
@@ -386,4 +386,4 @@ Every commit to the Prismatic Platform passes through 13 quality domains, each m
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

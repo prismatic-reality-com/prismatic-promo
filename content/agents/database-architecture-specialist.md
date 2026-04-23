@@ -28,9 +28,9 @@ image_alt = "database-architecture-specialist - Prismatic Platform"
 
 ## Overview
 
-The Database Architecture Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Architecture domain of the Prismatic Platform. This agent provides data modeling expertise, schema design guidance, database technology selection strategies, and polyglot persistence architecture for the platform's multi-storage-backend infrastructure. With data distributed across [PostgreSQL](/glossary/postgresql/), [ETS](/glossary/ets/), [KuzuDB](/glossary/kuzudb/), [Meilisearch](/glossary/meilisearch/), and [TimescaleDB](/glossary/timescaledb/), the specialist ensures that each data category is stored in the most appropriate backend while maintaining consistency and accessibility across the storage ecosystem.
+The Database Architecture Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Architecture domain of the Prismatic Platform. This agent provides data modeling expertise, schema design guidance, database technology selection strategies, and polyglot persistence architecture for the platform's multi-storage-backend infrastructure. With data distributed across [PostgreSQL](@/glossary/postgresql.md), [ETS](@/glossary/ets.md), [KuzuDB](@/glossary/kuzudb.md), [Meilisearch](@/glossary/meilisearch.md), and [TimescaleDB](@/glossary/timescaledb.md), the specialist ensures that each data category is stored in the most appropriate backend while maintaining consistency and accessibility across the storage ecosystem.
 
-Database architecture in a 90-app [umbrella application](/glossary/umbrella-application/) platform demands discipline that goes beyond individual schema design. The specialist manages the global data model that spans all applications, ensuring that shared entities have consistent representations, that foreign key relationships across application boundaries are properly managed, and that data access patterns are optimized for each application's specific requirements without creating global performance bottlenecks.
+Database architecture in a 90-app [umbrella application](@/glossary/umbrella-application.md) platform demands discipline that goes beyond individual schema design. The specialist manages the global data model that spans all applications, ensuring that shared entities have consistent representations, that foreign key relationships across application boundaries are properly managed, and that data access patterns are optimized for each application's specific requirements without creating global performance bottlenecks.
 
 The specialist also addresses the strategic dimension of database architecture: anticipating future data requirements, planning for scale, and ensuring that architectural decisions made today do not constrain the platform's evolution. Every data model decision is evaluated against both current requirements and the platform's strategic roadmap.
 
@@ -92,20 +92,20 @@ Connection management designs connection pooling configurations for each storage
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to define data modeling standards, approve schema designs, and make database technology selection decisions across the platform.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to define data modeling standards, approve schema designs, and make database technology selection decisions across the platform.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [database-performance-specialist](/agents/database-performance-specialist/) | Performance Partner | Provides query performance data that informs schema design decisions |
-| [database-migration-specialist](/agents/database-migration-specialist/) | Migration Partner | Implements schema changes designed by the architecture specialist |
-| [database-core-specialist](/agents/database-core-specialist/) | Engine Partner | Provides PostgreSQL engine-level context for architecture decisions |
-| [distributed-systems-specialist](/agents/distributed-systems-specialist/) | Distribution Partner | Coordinates on distributed data architecture across cluster nodes |
+| [database-performance-specialist](@/agents/database-performance-specialist.md) | Performance Partner | Provides query performance data that informs schema design decisions |
+| [database-migration-specialist](@/agents/database-migration-specialist.md) | Migration Partner | Implements schema changes designed by the architecture specialist |
+| [database-core-specialist](@/agents/database-core-specialist.md) | Engine Partner | Provides PostgreSQL engine-level context for architecture decisions |
+| [distributed-systems-specialist](@/agents/distributed-systems-specialist.md) | Distribution Partner | Coordinates on distributed data architecture across cluster nodes |
 
 ## Enforcement
 
-All database architecture decisions are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No schema reaches production without architecture review. Data model changes that affect shared entities require cross-application impact assessment. Database technology selections must include documented trade-off analysis. Schema designs must include migration strategies for anticipated evolution. Performance-critical data paths must have documented access patterns with validated performance characteristics.
+All database architecture decisions are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No schema reaches production without architecture review. Data model changes that affect shared entities require cross-application impact assessment. Database technology selections must include documented trade-off analysis. Schema designs must include migration strategies for anticipated evolution. Performance-critical data paths must have documented access patterns with validated performance characteristics.
 
 ---
 
@@ -114,4 +114,4 @@ All database architecture decisions are governed by the [NO MERCY, NO DOUBTS](/g
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

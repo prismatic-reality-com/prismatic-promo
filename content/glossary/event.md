@@ -34,7 +34,7 @@ An event is a record of something that happened at a specific point in time with
 
 Events differ from commands and queries in their temporal semantics and coupling characteristics. A command is an instruction to do something (imperative, future-tense), a query is a request for information (interrogative, present-tense), and an event is a notification that something happened (declarative, past-tense). This distinction is fundamental to CQRS (Command Query Responsibility Segregation) and event sourcing patterns, where the complete system state can be reconstructed by replaying the ordered sequence of events from the beginning of time.
 
-In the BEAM ecosystem, events are naturally represented as messages between processes. The [actor model](/glossary/actor-model/) treats message passing as the fundamental communication primitive, making event-driven architecture the default rather than an imposed pattern. Phoenix PubSub, Telemetry, and GenServer callback mechanisms all operate on event semantics, providing multiple abstraction levels for different use cases.
+In the BEAM ecosystem, events are naturally represented as messages between processes. The [actor model](@/glossary/actor-model.md) treats message passing as the fundamental communication primitive, making event-driven architecture the default rather than an imposed pattern. Phoenix PubSub, Telemetry, and GenServer callback mechanisms all operate on event semantics, providing multiple abstraction levels for different use cases.
 
 ## Technical Deep Dive
 
@@ -164,10 +164,10 @@ The DD pipeline publishes events on the `"dd:pipeline"` topic for real-time Live
 
 ## Cross-References
 
-- [Event Log](/glossary/event-log/) -- Immutable event persistence
-- [Message Passing](/glossary/message-passing/) -- BEAM communication primitive
-- [PubSub](/glossary/pubsub/) -- Publish-subscribe event distribution
-- [Telemetry](/glossary/telemetry/) -- Metric collection from events
+- [Event Log](@/glossary/event-log.md) -- Immutable event persistence
+- [Message Passing](@/glossary/message-passing.md) -- BEAM communication primitive
+- [PubSub](@/glossary/pubsub.md) -- Publish-subscribe event distribution
+- [Telemetry](@/glossary/telemetry.md) -- Metric collection from events
 - **Immutable Log** -- Append-only event storage
 - **Livebooks**: `api_integration/` notebooks demonstrate event-driven patterns
 - **Academy**: Topics on distributed systems cover event architecture
@@ -179,4 +179,4 @@ The DD pipeline publishes events on the `"dd:pipeline"` topic for real-time Live
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

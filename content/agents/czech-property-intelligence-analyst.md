@@ -28,9 +28,9 @@ image_alt = "czech-property-intelligence-analyst - Prismatic Platform"
 
 ## Overview
 
-The Czech Property Intelligence Analyst is an L3 strategic authority operating within the Czech domain of the Prismatic Platform. This agent specializes in research and analysis of Czech property [registry](/glossary/registry-otp/) (CUZK - Cesky urad zemericky a katastralni) data, extracting intelligence about property ownership, transactions, encumbrances, and liens for due diligence, fraud investigation, and compliance assessment purposes. Property records provide a critical dimension of entity profiling that business registries alone cannot reveal.
+The Czech Property Intelligence Analyst is an L3 strategic authority operating within the Czech domain of the Prismatic Platform. This agent specializes in research and analysis of Czech property [registry](@/glossary/registry-otp.md) (CUZK - Cesky urad zemericky a katastralni) data, extracting intelligence about property ownership, transactions, encumbrances, and liens for due diligence, fraud investigation, and compliance assessment purposes. Property records provide a critical dimension of entity profiling that business registries alone cannot reveal.
 
-Property intelligence is particularly valuable for identifying undisclosed assets, tracing beneficial ownership through property holding companies, and detecting asset concealment patterns in insolvency or enforcement scenarios. The Czech Property Intelligence Analyst processes cadastral data including ownership records, property valuations, mortgage registrations, easements, and transaction histories to build comprehensive asset profiles for investigated entities. It correlates property findings with business registry data to map the full asset landscape of persons and organizations under investigation. In regulatory contexts such as [ZKB](/glossary/zkb/) compliance and [NIS2](/glossary/nis2/) due diligence, property intelligence provides essential supplementary evidence about entity financial positions and potential conflicts of interest.
+Property intelligence is particularly valuable for identifying undisclosed assets, tracing beneficial ownership through property holding companies, and detecting asset concealment patterns in insolvency or enforcement scenarios. The Czech Property Intelligence Analyst processes cadastral data including ownership records, property valuations, mortgage registrations, easements, and transaction histories to build comprehensive asset profiles for investigated entities. It correlates property findings with business registry data to map the full asset landscape of persons and organizations under investigation. In regulatory contexts such as [ZKB](@/glossary/zkb.md) compliance and [NIS2](@/glossary/nis2.md) due diligence, property intelligence provides essential supplementary evidence about entity financial positions and potential conflicts of interest.
 
 ## Architecture
 
@@ -56,7 +56,7 @@ CUZK Data Sources        Processing Layers           Intelligence Output
 +------------------+    +-------------------+       +--------------------+
 ```
 
-Each processing layer operates as an independent [OTP](/glossary/otp/) process under supervision, with the cadastral parser handling the technical complexities of CUZK data formats while downstream components work with normalized property intelligence records. The architecture supports both real-time query processing for on-demand investigations and batch processing for portfolio-wide asset screening.
+Each processing layer operates as an independent [OTP](@/glossary/otp.md) process under supervision, with the cadastral parser handling the technical complexities of CUZK data formats while downstream components work with normalized property intelligence records. The architecture supports both real-time query processing for on-demand investigations and batch processing for portfolio-wide asset screening.
 
 ## Core Capabilities
 
@@ -76,7 +76,7 @@ The Czech Property Intelligence Analyst provides six primary capabilities that t
 
 ## Implementation
 
-The Czech Property Intelligence Analyst is implemented in [Elixir](/glossary/elixir/) with specialized parsers for CUZK data formats and correlation engines for cross-registry analysis.
+The Czech Property Intelligence Analyst is implemented in [Elixir](@/glossary/elixir.md) with specialized parsers for CUZK data formats and correlation engines for cross-registry analysis.
 
 ```elixir
 defmodule Prismatic.Czech.PropertyIntelligence.Analyst do
@@ -137,8 +137,8 @@ The Czech Property Intelligence Analyst integrates with the broader Czech intell
 | CUZK Cadastral Adapter | Inbound | Primary data source for all cadastral records, ownership certificates, and transaction logs |
 | ARES Registry Adapter | Inbound | Business registry data for corporate property ownership resolution |
 | ISIR Registry Adapter | Inbound | Insolvency filing data for asset concealment screening |
-| [KuzuDB](/glossary/kuzudb/) Graph Store | Outbound | Stores property-entity ownership relationships in the knowledge graph |
-| Platform [Telemetry](/glossary/telemetry/) | Outbound | Reports query volumes, processing latency, and cache hit rates |
+| [KuzuDB](@/glossary/kuzudb.md) Graph Store | Outbound | Stores property-entity ownership relationships in the knowledge graph |
+| Platform [Telemetry](@/glossary/telemetry.md) | Outbound | Reports query volumes, processing latency, and cache hit rates |
 
 ## Operational Workflow
 
@@ -158,7 +158,7 @@ The property investigation workflow follows a structured sequence from entity id
 
 ## NABLA Compliance
 
-The Czech Property Intelligence Analyst operates in strict compliance with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework.
+The Czech Property Intelligence Analyst operates in strict compliance with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework.
 
 | NABLA Axiom | Implementation |
 |---|---|
@@ -207,12 +207,12 @@ config :prismatic_czech, Prismatic.Czech.PropertyIntelligence.Analyst,
 
 ## Related Resources
 
-- [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) -- Business entity context for property analysis
-- [czech-financial-forensics-expert](/agents/czech-financial-forensics-expert/) -- Financial pattern analysis from property data
-- [czech-registry-person-investigator](/agents/czech-registry-person-investigator/) -- Person-centric investigation profiles
-- [NABLA Infinity Framework](/glossary/nabla-infinity/) -- Epistemic quality framework
-- [ZKB Compliance](/glossary/zkb/) -- Czech cybersecurity regulatory framework
-- [NIS2 Directive](/glossary/nis2/) -- EU network and information security directive
+- [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) -- Business entity context for property analysis
+- [czech-financial-forensics-expert](@/agents/czech-financial-forensics-expert.md) -- Financial pattern analysis from property data
+- [czech-registry-person-investigator](@/agents/czech-registry-person-investigator.md) -- Person-centric investigation profiles
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md) -- Epistemic quality framework
+- [ZKB Compliance](@/glossary/zkb.md) -- Czech cybersecurity regulatory framework
+- [NIS2 Directive](@/glossary/nis2.md) -- EU network and information security directive
 
 ---
 
@@ -221,4 +221,4 @@ config :prismatic_czech, Prismatic.Czech.PropertyIntelligence.Analyst,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

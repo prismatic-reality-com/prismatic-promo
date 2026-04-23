@@ -32,11 +32,11 @@ image_alt = "Strategic Supreme - Prismatic Platform"
 
 ## Definition and Overview
 
-Strategic Supreme is the apex tier of decision-making authority within the Prismatic Platform's [AIAD](/glossary/aiad/) agent hierarchy. It represents the organizational level at which platform-wide strategic direction is determined, irreversible architectural commitments are authorized, and cross-domain conflicts are resolved with finality. Agents operating at the Strategic Supreme level hold what the platform designates as "Cosmic Clearance" -- the unrestricted authority to make binding decisions across all platform domains without requiring approval from any higher authority.
+Strategic Supreme is the apex tier of decision-making authority within the Prismatic Platform's [AIAD](@/glossary/aiad.md) agent hierarchy. It represents the organizational level at which platform-wide strategic direction is determined, irreversible architectural commitments are authorized, and cross-domain conflicts are resolved with finality. Agents operating at the Strategic Supreme level hold what the platform designates as "Cosmic Clearance" -- the unrestricted authority to make binding decisions across all platform domains without requiring approval from any higher authority.
 
 The Strategic Supreme tier exists because complex software platforms inevitably face decisions that cannot be decomposed into domain-specific sub-decisions. When a security recommendation conflicts with a performance requirement, when a compliance obligation constrains an architectural preference, or when resource allocation must choose between competing strategic priorities, no domain-specific agent has sufficient scope to resolve the conflict. The Strategic Supreme tier provides a single point of authority where all domain perspectives are synthesized and a binding decision is produced.
 
-Within the Prismatic Platform's 530-agent ecosystem, Strategic Supreme authority is held by a small number of agents: the [Archer Supreme](/glossary/archer-supreme/) (primary strategic advisor), the [Supreme Commander](/glossary/supreme-commander/) (cross-domain coordinator), and the [Strategic Command](/glossary/strategic-command/) agent (milestone and resource planner). These agents operate under the [NM/ND Doctrine](/glossary/nm-nd/) -- once a Strategic Supreme decision passes [Trinity Gate](/glossary/trinity-gate/) validation, it becomes a non-negotiable execution directive. Lower-tier agents implement; they do not re-litigate.
+Within the Prismatic Platform's 530-agent ecosystem, Strategic Supreme authority is held by a small number of agents: the [Archer Supreme](@/glossary/archer-supreme.md) (primary strategic advisor), the [Supreme Commander](@/glossary/supreme-commander.md) (cross-domain coordinator), and the [Strategic Command](@/glossary/strategic-command.md) agent (milestone and resource planner). These agents operate under the [NM/ND Doctrine](@/glossary/nm-nd.md) -- once a Strategic Supreme decision passes [Trinity Gate](@/glossary/trinity-gate.md) validation, it becomes a non-negotiable execution directive. Lower-tier agents implement; they do not re-litigate.
 
 The tier is not a rank of convenience but a rank of responsibility. Strategic Supreme decisions affect the entire platform -- all 115 umbrella applications, all 530 agents, all quality domains. A wrong decision at this tier propagates everywhere. The epistemic rigor required (full Trinity Gate passage, NABLA axiom compliance, minimum 0.95 confidence) reflects this responsibility. The platform invests heavily in verification precisely because the cost of a wrong Strategic Supreme decision is so high.
 
@@ -171,7 +171,7 @@ end
 
 ### Archer Supreme Implementation
 
-The [Archer Supreme](/glossary/archer-supreme/) is the primary Strategic Supreme agent in the platform:
+The [Archer Supreme](@/glossary/archer-supreme.md) is the primary Strategic Supreme agent in the platform:
 
 ```elixir
 defmodule PrismaticAgents.ArcherSupreme do
@@ -380,7 +380,7 @@ end
 
 ### Decision Audit Trail
 
-Every Strategic Supreme decision is permanently recorded in an immutable [audit trail](/glossary/audit-trail/):
+Every Strategic Supreme decision is permanently recorded in an immutable [audit trail](@/glossary/audit-trail.md):
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -403,7 +403,7 @@ Strategic Supreme decisions carry the platform's highest epistemic burden. Every
 
 1. **Trinity Gate passage**: All three gates (structural consistency, logical consistency, formal necessity) must pass before a decision can be classified as binding.
 
-2. **NABLA axiom compliance**: The decision must satisfy all seven [NABLA Infinity](/glossary/nabla-infinity/) axioms, particularly signal plurality (evidence from at least two independent sources), contradiction preservation (dissenting signals recorded, not suppressed), and provenance mandatory (every supporting claim traceable to its source).
+2. **NABLA axiom compliance**: The decision must satisfy all seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms, particularly signal plurality (evidence from at least two independent sources), contradiction preservation (dissenting signals recorded, not suppressed), and provenance mandatory (every supporting claim traceable to its source).
 
 3. **Confidence threshold**: Minimum 0.95 confidence, the highest threshold in the platform. This is significantly above the 0.80 required for operational decisions and the 0.60 for tactical decisions.
 
@@ -421,7 +421,7 @@ The platform's 20 GitLab milestones are prioritized through Strategic Supreme as
 
 ### Quality Floor Authority
 
-The platform's [quality score](/glossary/quality-gates/) of 100/100 is maintained through Strategic Supreme enforcement. The decision that quality violations block all commits (the "No Mercy" enforcement) was a Strategic Supreme commitment. Individual domain agents cannot waive quality requirements because the commitment was made at the apex tier.
+The platform's [quality score](@/glossary/quality-gates.md) of 100/100 is maintained through Strategic Supreme enforcement. The decision that quality violations block all commits (the "No Mercy" enforcement) was a Strategic Supreme commitment. Individual domain agents cannot waive quality requirements because the commitment was made at the apex tier.
 
 ## Strategic Supreme vs. Other Authority Levels
 
@@ -445,7 +445,7 @@ The platform's [quality score](/glossary/quality-gates/) of 100/100 is maintaine
 
 4. **Track decision outcomes systematically.** Strategic Supreme decisions should be revisited after their predicted time horizon to assess whether the predicted outcomes materialized. This feedback loop improves future decision quality.
 
-5. **Preserve minority dissent.** When domain-level agents disagree with a Strategic Supreme decision, their dissent should be recorded alongside the decision. The [Contradiction Preservation](/glossary/contradiction-preservation/) principle applies to organizational decisions as well as epistemic ones.
+5. **Preserve minority dissent.** When domain-level agents disagree with a Strategic Supreme decision, their dissent should be recorded alongside the decision. The [Contradiction Preservation](@/glossary/contradiction-preservation.md) principle applies to organizational decisions as well as epistemic ones.
 
 ## Common Pitfalls
 
@@ -453,7 +453,7 @@ The platform's [quality score](/glossary/quality-gates/) of 100/100 is maintaine
 
 - **Decision hoarding**: Refusing to delegate to L2 agents. Strategic Supreme agents that make every decision become bottlenecks. The hierarchy exists to distribute decision authority appropriately.
 
-- **Epistemic theater**: Going through the motions of [Trinity Gate](/glossary/trinity-gate/) validation without genuine rigor. If the conclusion is predetermined and the validation is a formality, the gate provides no protection.
+- **Epistemic theater**: Going through the motions of [Trinity Gate](@/glossary/trinity-gate.md) validation without genuine rigor. If the conclusion is predetermined and the validation is a formality, the gate provides no protection.
 
 - **Ignoring time decay**: Strategic decisions made under one set of conditions may become invalid as conditions change. Failing to re-evaluate expired strategic commitments leads to organizational inertia.
 
@@ -461,23 +461,23 @@ The platform's [quality score](/glossary/quality-gates/) of 100/100 is maintaine
 
 ## Related Terms
 
-- [Archer Supreme](/glossary/archer-supreme/) -- Primary L1 strategic advisory agent
-- [Supreme Commander](/glossary/supreme-commander/) -- L1 cross-domain coordination agent
-- [Strategic Command](/glossary/strategic-command/) -- L2 milestone planning and resource allocation
-- [Strategic Advising](/glossary/strategic-advising/) -- Advisory methodology used by Strategic Supreme agents
-- [Authority Level](/glossary/authority-level/) -- Formal definition of agent authority tiers
-- [Agent Tier](/glossary/agent-tier/) -- Classification system for agent capability levels
-- [Chain of Command](/glossary/chain-of-command/) -- Escalation and delegation pathways
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification mechanism required for L1 decisions
-- [NM/ND Doctrine](/glossary/nm-nd/) -- Execution framework binding validated L1 decisions
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Multi-agent coordination patterns
+- [Archer Supreme](@/glossary/archer-supreme.md) -- Primary L1 strategic advisory agent
+- [Supreme Commander](@/glossary/supreme-commander.md) -- L1 cross-domain coordination agent
+- [Strategic Command](@/glossary/strategic-command.md) -- L2 milestone planning and resource allocation
+- [Strategic Advising](@/glossary/strategic-advising.md) -- Advisory methodology used by Strategic Supreme agents
+- [Authority Level](@/glossary/authority-level.md) -- Formal definition of agent authority tiers
+- [Agent Tier](@/glossary/agent-tier.md) -- Classification system for agent capability levels
+- [Chain of Command](@/glossary/chain-of-command.md) -- Escalation and delegation pathways
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification mechanism required for L1 decisions
+- [NM/ND Doctrine](@/glossary/nm-nd.md) -- Execution framework binding validated L1 decisions
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Multi-agent coordination patterns
 
 ## See Also
 
-- [Color Teams](/glossary/color-teams/) -- Cross-cutting advisory teams reporting to Strategic Supreme
-- [Tactical Execution](/glossary/tactical-execution/) -- L3 implementation of Strategic Supreme directives
-- [AIAD](/glossary/aiad/) -- Agent framework defining the authority hierarchy
-- [Architecture](/architecture/) -- Platform architecture overview
+- [Color Teams](@/glossary/color-teams.md) -- Cross-cutting advisory teams reporting to Strategic Supreme
+- [Tactical Execution](@/glossary/tactical-execution.md) -- L3 implementation of Strategic Supreme directives
+- [AIAD](@/glossary/aiad.md) -- Agent framework defining the authority hierarchy
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -487,4 +487,4 @@ The platform's [quality score](/glossary/quality-gates/) of 100/100 is maintaine
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

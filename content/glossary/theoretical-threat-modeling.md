@@ -340,18 +340,18 @@ The effectiveness of theoretical threat modeling is measured through several pro
 
 ## Cross-References
 
-- [Black Team](/glossary/black-team/) -- The MAXIMUM isolation team responsible for theoretical threat modeling
-- [Red Team](/glossary/red-team/) -- Adversarial simulation team that operationalizes abstract threat models
-- [Purple Team](/glossary/purple-team/) -- Synthesis team that translates threat models into defensive priorities
-- [Attack Surface](/glossary/attack-surface/) -- The enumerated set of points where an adversary can interact with a system
-- [Adversarial Simulation](/glossary/adversarial-simulation/) -- Practical execution of attack scenarios derived from threat models
-- [Epistemic Attack](/glossary/epistemic-attack/) -- Attacks targeting decision-making and knowledge integrity
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Collection and analysis of adversary capability information
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof of system properties including security invariants
-- [Risk Assessment](/glossary/risk-assessment/) -- Quantitative evaluation of threat likelihood and impact
-- [Security Modeling](/glossary/security-modeling/) -- Structural representations of security architecture
-- [Penetration Testing](/glossary/penetration-testing/) -- Practical security testing that complements theoretical modeling
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Systematic identification of system weaknesses
+- [Black Team](@/glossary/black-team.md) -- The MAXIMUM isolation team responsible for theoretical threat modeling
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation team that operationalizes abstract threat models
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis team that translates threat models into defensive priorities
+- [Attack Surface](@/glossary/attack-surface.md) -- The enumerated set of points where an adversary can interact with a system
+- [Adversarial Simulation](@/glossary/adversarial-simulation.md) -- Practical execution of attack scenarios derived from threat models
+- [Epistemic Attack](@/glossary/epistemic-attack.md) -- Attacks targeting decision-making and knowledge integrity
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Collection and analysis of adversary capability information
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof of system properties including security invariants
+- [Risk Assessment](@/glossary/risk-assessment.md) -- Quantitative evaluation of threat likelihood and impact
+- [Security Modeling](@/glossary/security-modeling.md) -- Structural representations of security architecture
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Practical security testing that complements theoretical modeling
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Systematic identification of system weaknesses
 
 ---
 

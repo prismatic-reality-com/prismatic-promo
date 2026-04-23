@@ -385,25 +385,25 @@ Alerting is a downstream consumer of health monitoring data. Health monitoring p
 
 Health monitoring intersects with many other concepts in the Prismatic Platform ecosystem:
 
-- [Telemetry](/glossary/telemetry/) provides the instrumentation foundation that health monitoring builds upon
-- [Observability](/glossary/observability/) is the broader discipline encompassing metrics, logs, and traces
-- [Fault Tolerance](/glossary/fault-tolerance/) describes the system's ability to continue operating despite component failures
-- [Supervision Trees](/glossary/supervision-tree/) provide hierarchical health propagation through OTP process trees
-- [Circuit Breakers](/glossary/circuit-breaker/) use health signals to protect systems from cascading failures
-- [Self-Healing](/glossary/self-healing/) systems consume health monitoring data to trigger automated remediation
-- [System Health](/glossary/system-health/) represents the aggregate state derived from individual health checks
-- [Metrics](/glossary/metrics/) are the quantitative measurements that health checks produce and evaluate
-- [Monitoring](/glossary/monitoring/) is the broader operational practice that health monitoring specializes
-- [Distributed Systems](/glossary/distributed-system/) present unique health monitoring challenges due to network partitions and partial failures
+- [Telemetry](@/glossary/telemetry.md) provides the instrumentation foundation that health monitoring builds upon
+- [Observability](@/glossary/observability.md) is the broader discipline encompassing metrics, logs, and traces
+- [Fault Tolerance](@/glossary/fault-tolerance.md) describes the system's ability to continue operating despite component failures
+- [Supervision Trees](@/glossary/supervision-tree.md) provide hierarchical health propagation through OTP process trees
+- [Circuit Breakers](@/glossary/circuit-breaker.md) use health signals to protect systems from cascading failures
+- [Self-Healing](@/glossary/self-healing.md) systems consume health monitoring data to trigger automated remediation
+- [System Health](@/glossary/system-health.md) represents the aggregate state derived from individual health checks
+- [Metrics](@/glossary/metrics.md) are the quantitative measurements that health checks produce and evaluate
+- [Monitoring](@/glossary/monitoring.md) is the broader operational practice that health monitoring specializes
+- [Distributed Systems](@/glossary/distributed-system.md) present unique health monitoring challenges due to network partitions and partial failures
 
 ## See Also
 
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- autonomous quality monitoring that uses health data
-- [Autoheal](/glossary/autoheal/) -- self-healing system triggered by health degradation
-- [Let It Crash](/glossary/let-it-crash/) -- OTP philosophy that complements health monitoring
-- [BEAM VM](/glossary/beam-vm/) -- the runtime that provides native process health introspection
-- [Performance Tracking](/glossary/performance-tracking/) -- related discipline focused on response time and throughput
-- [Structured Logging](/glossary/structured-logging/) -- complements health monitoring with contextual event data
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- autonomous quality monitoring that uses health data
+- [Autoheal](@/glossary/autoheal.md) -- self-healing system triggered by health degradation
+- [Let It Crash](@/glossary/let-it-crash.md) -- OTP philosophy that complements health monitoring
+- [BEAM VM](@/glossary/beam-vm.md) -- the runtime that provides native process health introspection
+- [Performance Tracking](@/glossary/performance-tracking.md) -- related discipline focused on response time and throughput
+- [Structured Logging](@/glossary/structured-logging.md) -- complements health monitoring with contextual event data
 
 ---
 

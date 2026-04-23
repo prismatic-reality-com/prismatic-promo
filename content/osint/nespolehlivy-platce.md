@@ -25,11 +25,11 @@ image_alt = "Nespolehlivy Platce - Prismatic Platform"
 
 ## Overview
 
-Nespolehlivy Platce DPH (Unreliable VAT Payer) is a public list maintained by the Czech Financial Administration (Financni sprava) under Section 106a of Act No. 235/2004 Coll. (VAT Act, Zakon o dani z pridane hodnoty). Entities are placed on this list when they seriously breach their VAT obligations -- including repeated failure to file VAT returns, failure to pay assessed VAT, or engaging in transactions designed to evade VAT. The designation carries severe business consequences: any entity paying an unreliable VAT payer to an account not published in the [DPH](/osint/dph/) [registry](/glossary/registry-otp/) becomes jointly liable for the unpaid VAT (guarantee liability under Section 109 VAT Act).
+Nespolehlivy Platce DPH (Unreliable VAT Payer) is a public list maintained by the Czech Financial Administration (Financni sprava) under Section 106a of Act No. 235/2004 Coll. (VAT Act, Zakon o dani z pridane hodnoty). Entities are placed on this list when they seriously breach their VAT obligations -- including repeated failure to file VAT returns, failure to pay assessed VAT, or engaging in transactions designed to evade VAT. The designation carries severe business consequences: any entity paying an unreliable VAT payer to an account not published in the [DPH](@/osint/dph.md) [registry](@/glossary/registry-otp.md) becomes jointly liable for the unpaid VAT (guarantee liability under Section 109 VAT Act).
 
 This joint liability mechanism (ruceni za nezaplacenou dan) creates a powerful incentive for all Czech businesses to screen their trading partners before making VAT-relevant payments. Failure to verify a trading partner's reliability status and published bank accounts can result in the paying entity being held responsible for the VAT obligations of its unreliable supplier. This makes the Unreliable VAT Payer list one of the most operationally significant Czech public registers for business compliance.
 
-For OSINT purposes, this list is one of the strongest negative indicators available in Czech public registers. Designation as an unreliable payer signals serious financial distress, tax evasion, or administrative neglect. It is a critical screening input for any business engagement with Czech entities, particularly for supply chain due diligence and KYC/AML processes. The presence of an entity on this list materially increases the risk profile of any transaction involving that entity and warrants enhanced due diligence through correlated sources such as [ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/), and the [Insolvency Register](/osint/insolvencni-rejstrik/).
+For OSINT purposes, this list is one of the strongest negative indicators available in Czech public registers. Designation as an unreliable payer signals serious financial distress, tax evasion, or administrative neglect. It is a critical screening input for any business engagement with Czech entities, particularly for supply chain due diligence and KYC/AML processes. The presence of an entity on this list materially increases the risk profile of any transaction involving that entity and warrants enhanced due diligence through correlated sources such as [ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md), and the [Insolvency Register](@/osint/insolvencni-rejstrik.md).
 
 ## Data Sources and Coverage
 
@@ -73,7 +73,7 @@ Data normalization handles the various formats in which tax identification numbe
 
 ## API Integration
 
-The Unreliable VAT Payer list provides a critical negative screening layer within the Prismatic platform, integrated tightly with [DPH](/osint/dph/) registry data and entity verification from [ARES](/osint/ares/).
+The Unreliable VAT Payer list provides a critical negative screening layer within the Prismatic platform, integrated tightly with [DPH](@/osint/dph.md) registry data and entity verification from [ARES](@/osint/ares.md).
 
 ```elixir
 # Check if entity is unreliable
@@ -144,19 +144,19 @@ end
 - Screen all vendors before payment to avoid guarantee liability under Section 109 of the VAT Act
 - Verify published bank accounts before VAT-relevant transfers to ensure payments go to registered accounts
 - Implement automated payment blocking for unreliable payers to prevent inadvertent liability
-- Combine with [DPH](/osint/dph/) for complete VAT compliance covering both registration status and published accounts
+- Combine with [DPH](@/osint/dph.md) for complete VAT compliance covering both registration status and published accounts
 
 ### Supplier Due Diligence
 - Red-flag unreliable payers during vendor onboarding to prevent onboarding of high-risk suppliers
 - Ongoing monitoring of existing supplier base through periodic batch rescreening
-- Cross-reference with [Insolvency Register](/osint/insolvencni-rejstrik/) for correlated distress signals
-- Include in comprehensive checks with [ARES](/osint/ares/) and [Justice.cz](/osint/justice-cz/) for complete entity profiling
+- Cross-reference with [Insolvency Register](@/osint/insolvencni-rejstrik.md) for correlated distress signals
+- Include in comprehensive checks with [ARES](@/osint/ares.md) and [Justice.cz](@/osint/justice-cz.md) for complete entity profiling
 
 ### Fraud Detection
 - Identify potential carousel fraud participants by analyzing networks of unreliable payers and their trading relationships
 - Track entities cycling between unreliable and reliable status, which may indicate manipulative compliance behavior
 - Map networks of related unreliable payers through shared directors, addresses, or bank accounts
-- Support [Hlidac Statu](/osint/hlidac-statu/) anti-corruption analysis with VAT compliance intelligence
+- Support [Hlidac Statu](@/osint/hlidac-statu.md) anti-corruption analysis with VAT compliance intelligence
 
 ### Regulatory Compliance
 - Automated compliance with Czech VAT Act requirements for trading partner verification
@@ -218,14 +218,14 @@ The ETS-backed cache enables O(1) lookups during batch screening operations, dra
 
 ## Related Resources
 
-- [DPH](/osint/dph/) - VAT payer registry with published bank accounts
-- [ARES](/osint/ares/) - Entity identification and verification
-- [Insolvency Register](/osint/insolvencni-rejstrik/) - Insolvency as correlated risk factor
-- [Justice.cz](/osint/justice-cz/) - Corporate details of flagged entities
-- [CNB](/osint/cnb/) - Financial entity verification
-- [Hlidac Statu](/osint/hlidac-statu/) - Cross-referenced entity analytics
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Financial compliance in security ratings
+- [DPH](@/osint/dph.md) - VAT payer registry with published bank accounts
+- [ARES](@/osint/ares.md) - Entity identification and verification
+- [Insolvency Register](@/osint/insolvencni-rejstrik.md) - Insolvency as correlated risk factor
+- [Justice.cz](@/osint/justice-cz.md) - Corporate details of flagged entities
+- [CNB](@/osint/cnb.md) - Financial entity verification
+- [Hlidac Statu](@/osint/hlidac-statu.md) - Cross-referenced entity analytics
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Financial compliance in security ratings
 
 ---
 
@@ -234,4 +234,4 @@ The ETS-backed cache enables O(1) lookups during batch screening operations, dra
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

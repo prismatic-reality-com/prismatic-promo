@@ -200,9 +200,9 @@ The Perimeter module traverses DNS and certificate graphs to map an organization
 ## Cross-References
 
 - **Graph** - Data structure navigated by traversal
-- [KuzuDB](/glossary/kuzudb/) - Graph database backend
+- [KuzuDB](@/glossary/kuzudb.md) - Graph database backend
 - **Relationship** - Edges connecting graph nodes
-- [Transform](/glossary/transform/) - Data conversion feeding graphs
+- [Transform](@/glossary/transform.md) - Data conversion feeding graphs
 - **Visualization** - Rendering traversal results
 
 ---

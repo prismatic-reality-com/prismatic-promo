@@ -28,7 +28,7 @@ image_alt = "/pack - Prismatic Platform"
 
 The fundamental challenge that `/pack` addresses is the impedance mismatch between large codebases and LLM context windows. A platform with over 6,600 Elixir source files, 11,300 documentation files, and 89 umbrella applications cannot be naively loaded into a language model's context. The pack command applies intelligent selection, prioritization, and compression strategies to produce an archive that maximizes the useful information density within a given token budget. It understands the platform's dependency graph, module relationships, and file importance rankings to select the most relevant subset of files for a given task context.
 
-This command operates under the **L2+** authority level and is executed by the `source-archive-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The source archive specialist agent is optimized for understanding codebase topology and producing archives that preserve structural context while respecting token constraints.
+This command operates under the **L2+** authority level and is executed by the `source-archive-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The source archive specialist agent is optimized for understanding codebase topology and producing archives that preserve structural context while respecting token constraints.
 
 The pack command represents a meta-capability: it enables the platform to describe itself to AI systems in a way that maximizes the quality of AI-assisted development. By producing context-aware, token-budget-optimized archives, it transforms the interaction between developers and AI tools from "give the AI some files and hope for the best" to "provide the AI with precisely the information it needs for this specific task."
 
@@ -186,11 +186,11 @@ Includes the target application and all its dependencies, with test files for un
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `source-archive-specialist` | Codebase topology expertise |
-| [Git Trees](/glossary/git-trees/) | File discovery | Optimized file enumeration (~100x faster) |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `source-archive-specialist` | Codebase topology expertise |
+| [Git Trees](@/glossary/git-trees.md) | File discovery | Optimized file enumeration (~100x faster) |
 | AIAD Registry | Command specification | Registered in command catalog |
-| [Telemetry](/glossary/telemetry/) | Execution metrics | Pack size, token counts, compression ratios |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post validation | Archive integrity verification |
+| [Telemetry](@/glossary/telemetry.md) | Execution metrics | Pack size, token counts, compression ratios |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post validation | Archive integrity verification |
 | Ollama Integration | Local AI support | Token budget calibration for local models |
 | Module Dependency Graph | Centrality analysis | File importance ranking |
 | Session Lifecycle | Context preparation | Automatic context generation on session start |
@@ -211,7 +211,7 @@ The `/pack` command integrates into several platform workflows:
 
 ## NABLA Compliance
 
-The `/pack` command adheres to [NABLA](/glossary/nabla-infinity/) epistemic axioms in its archive construction:
+The `/pack` command adheres to [NABLA](@/glossary/nabla-infinity.md) epistemic axioms in its archive construction:
 
 | Axiom | Enforcement |
 |-------|-------------|
@@ -239,12 +239,12 @@ The command leverages Git Trees for file discovery, achieving approximately 100x
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/registry-sync](/commands/registry-sync/) - AIAD registry synchronization and indexing
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/pattern](/commands/pattern/) - AI pattern lookup and pattern library access
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/registry-sync](@/commands/registry-sync.md) - AIAD registry synchronization and indexing
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/pattern](@/commands/pattern.md) - AI pattern lookup and pattern library access
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
 
 ---
 
@@ -253,4 +253,4 @@ The command leverages Git Trees for file discovery, achieving approximately 100x
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

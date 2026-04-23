@@ -28,9 +28,9 @@ image_alt = "Performance Benchmarking Specialist Agent - Prismatic Platform"
 
 ## Overview
 
-The Performance Benchmarking Specialist Agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform, specializing in the design and execution of targeted benchmarking campaigns that have delivered documented performance improvements ranging from 95% to 99.8% across critical platform subsystems while maintaining 100% budget compliance. Unlike the general-purpose Performance Benchmarking Agent that maintains platform-wide baselines, this specialist focuses on deep-dive benchmarking for specific optimization targets, producing the detailed performance evidence needed to validate optimization hypotheses and measure improvement outcomes.
+The Performance Benchmarking Specialist Agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform, specializing in the design and execution of targeted benchmarking campaigns that have delivered documented performance improvements ranging from 95% to 99.8% across critical platform subsystems while maintaining 100% budget compliance. Unlike the general-purpose Performance Benchmarking Agent that maintains platform-wide baselines, this specialist focuses on deep-dive benchmarking for specific optimization targets, producing the detailed performance evidence needed to validate optimization hypotheses and measure improvement outcomes.
 
-The agent's track record of 11 documented success cases demonstrates the effectiveness of its evidence-driven benchmarking methodology. Built on the [AIAD](/glossary/aiad/) standard, every improvement claim is backed by before-and-after benchmark data with statistical significance validation. The [NO DOUBTS](/glossary/no-doubts/) principle governs all performance assertions: no improvement is claimed without reproducible benchmark evidence showing statistically significant change, and all measurements include confidence intervals that accurately represent measurement uncertainty.
+The agent's track record of 11 documented success cases demonstrates the effectiveness of its evidence-driven benchmarking methodology. Built on the [AIAD](@/glossary/aiad.md) standard, every improvement claim is backed by before-and-after benchmark data with statistical significance validation. The [NO DOUBTS](@/glossary/no-doubts.md) principle governs all performance assertions: no improvement is claimed without reproducible benchmark evidence showing statistically significant change, and all measurements include confidence intervals that accurately represent measurement uncertainty.
 
 ## Theoretical Foundations
 
@@ -58,9 +58,9 @@ Campaign scope ranges from micro-benchmarks (individual function performance) to
 
 - **Regression validation** -- Provides definitive evidence when proposed changes introduce performance regressions, with quantified impact assessment and confidence intervals that enable informed accept/reject decisions
 
-- **[SEADF](/glossary/seadf/) evolutionary feedback** -- Publishes benchmark results as fitness metrics for the platform's evolutionary optimization cycles, enabling data-driven selection of performance improvements
+- **[SEADF](@/glossary/seadf.md) evolutionary feedback** -- Publishes benchmark results as fitness metrics for the platform's evolutionary optimization cycles, enabling data-driven selection of performance improvements
 
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for benchmark result publication and historical trend tracking
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for benchmark result publication and historical trend tracking
 
 ## Authority Level
 
@@ -94,10 +94,10 @@ Each case includes full benchmark methodology documentation, raw measurement dat
 
 | Agent | Relationship |
 |-------|-------------|
-| [Performance Benchmarking Agent](/agents/performance-benchmarking-agent/) | Baseline data provides starting point for specialist campaigns |
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Profiling identifies optimization targets for specialist benchmarking |
-| [performance-optimization-conductor](/agents/performance-optimization-conductor/) | Specialist results validate conductor's optimization decisions |
-| [performance-specialist](/agents/performance-specialist/) | Implementation optimization guided by specialist measurement data |
+| [Performance Benchmarking Agent](@/agents/performance-benchmarking-agent.md) | Baseline data provides starting point for specialist campaigns |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Profiling identifies optimization targets for specialist benchmarking |
+| [performance-optimization-conductor](@/agents/performance-optimization-conductor.md) | Specialist results validate conductor's optimization decisions |
+| [performance-specialist](@/agents/performance-specialist.md) | Implementation optimization guided by specialist measurement data |
 
 ## Campaign Methodology
 
@@ -113,7 +113,7 @@ Each benchmarking campaign follows a structured process:
 
 ## Enforcement
 
-The specialist's findings carry authoritative weight under the [NO MERCY](/glossary/no-mercy/) doctrine. Performance claims that contradict specialist benchmark data are rejected, and optimization proposals that fail to demonstrate measurable improvement in specialist campaigns are not approved for production deployment. All 100% budget compliance is tracked and enforced through the performance budget framework, with budget violations triggering mandatory optimization campaigns.
+The specialist's findings carry authoritative weight under the [NO MERCY](@/glossary/no-mercy.md) doctrine. Performance claims that contradict specialist benchmark data are rejected, and optimization proposals that fail to demonstrate measurable improvement in specialist campaigns are not approved for production deployment. All 100% budget compliance is tracked and enforced through the performance budget framework, with budget violations triggering mandatory optimization campaigns.
 
 ## Related Agents
 
@@ -126,4 +126,4 @@ The Performance Benchmarking Specialist Agent works within the broader performan
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

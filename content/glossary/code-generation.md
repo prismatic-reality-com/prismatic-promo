@@ -463,7 +463,7 @@ The Prismatic Platform uses a mix of these approaches, choosing the right tool f
 
 2. **Separate generated and hand-written code**: Use conventions (filename prefixes, directory structure) to distinguish generated code from hand-written code. Never mix generated and manual code in the same file.
 
-3. **Validate generated output**: Generated code should pass the same [quality gates](/glossary/quality-gates/) as manually written code. Run compilation, [Credo](/glossary/credo/), and [Dialyzer](/glossary/dialyzer/) checks on generated output.
+3. **Validate generated output**: Generated code should pass the same [quality gates](@/glossary/quality-gates.md) as manually written code. Run compilation, [Credo](@/glossary/credo.md), and [Dialyzer](@/glossary/dialyzer.md) checks on generated output.
 
 4. **Version your generators**: When a generator changes, all previously generated code should be regenerated. Track generator versions in the generated file headers.
 
@@ -497,7 +497,7 @@ The Prismatic Platform supports multiple storage backends (ETS, Ecto/PostgreSQL,
 
 ### API Endpoint Discovery
 
-The Prismatic API module uses [introspection](/glossary/introspection/) and runtime code generation to automatically expose all public facade functions as REST endpoints. This eliminates the manual step of writing controller actions for each function, ensuring that the API always reflects the current state of the codebase.
+The Prismatic API module uses [introspection](@/glossary/introspection.md) and runtime code generation to automatically expose all public facade functions as REST endpoints. This eliminates the manual step of writing controller actions for each function, ensuring that the API always reflects the current state of the codebase.
 
 ### Quality Infrastructure Standardization
 
@@ -511,24 +511,24 @@ Contract tests for storage adapters are generated from the behaviour specificati
 
 Code generation connects deeply to the Elixir ecosystem and platform architecture:
 
-- [Macro](/glossary/macro/) -- Elixir's compile-time metaprogramming facility, the primary mechanism for AST-based code generation in the platform
-- [AST](/glossary/ast/) -- Abstract Syntax Tree, the intermediate representation that macros manipulate during code generation
-- [Compilation](/glossary/compilation/) -- The build phase during which macro-based code generation executes and generated code is verified
-- [Mix Task](/glossary/mix-task/) -- The task system used to implement development-time code generators and scaffolding tools
-- [Code Quality](/glossary/code-quality/) -- Generated code must meet the same quality standards as hand-written code, enforced through quality gates
-- [Typespec](/glossary/typespec/) -- Type specifications that serve as inputs for API code generation and documentation generation
-- [Protocol](/glossary/protocol/) -- Elixir protocols whose implementations can be generated from declarative specifications
-- [Behaviour](/glossary/behaviour/) -- Behaviour contracts that define the interface that generated adapter code must implement
-- [Static Analysis](/glossary/static-analysis/) -- Tools like Credo and Dialyzer that validate generated code at compile time
-- [Code Example](/glossary/code-example/) -- Code examples that demonstrate generated code usage, themselves subject to doctest verification
+- [Macro](@/glossary/macro.md) -- Elixir's compile-time metaprogramming facility, the primary mechanism for AST-based code generation in the platform
+- [AST](@/glossary/ast.md) -- Abstract Syntax Tree, the intermediate representation that macros manipulate during code generation
+- [Compilation](@/glossary/compilation.md) -- The build phase during which macro-based code generation executes and generated code is verified
+- [Mix Task](@/glossary/mix-task.md) -- The task system used to implement development-time code generators and scaffolding tools
+- [Code Quality](@/glossary/code-quality.md) -- Generated code must meet the same quality standards as hand-written code, enforced through quality gates
+- [Typespec](@/glossary/typespec.md) -- Type specifications that serve as inputs for API code generation and documentation generation
+- [Protocol](@/glossary/protocol.md) -- Elixir protocols whose implementations can be generated from declarative specifications
+- [Behaviour](@/glossary/behaviour.md) -- Behaviour contracts that define the interface that generated adapter code must implement
+- [Static Analysis](@/glossary/static-analysis.md) -- Tools like Credo and Dialyzer that validate generated code at compile time
+- [Code Example](@/glossary/code-example.md) -- Code examples that demonstrate generated code usage, themselves subject to doctest verification
 
 ## See Also
 
-- [Introspection](/glossary/introspection/) -- Runtime module inspection used for API endpoint discovery
-- [OpenAPI](/glossary/openapi/) -- The specification format generated from function typespecs by the API scanner
-- [Elixir](/glossary/elixir/) -- The language whose macro system enables compile-time code generation
-- [Refactoring](/glossary/refactoring/) -- Code generation and refactoring are complementary practices for maintaining code quality
-- [Mix](/glossary/mix/) -- The build tool that provides the generator task infrastructure
+- [Introspection](@/glossary/introspection.md) -- Runtime module inspection used for API endpoint discovery
+- [OpenAPI](@/glossary/openapi.md) -- The specification format generated from function typespecs by the API scanner
+- [Elixir](@/glossary/elixir.md) -- The language whose macro system enables compile-time code generation
+- [Refactoring](@/glossary/refactoring.md) -- Code generation and refactoring are complementary practices for maintaining code quality
+- [Mix](@/glossary/mix.md) -- The build tool that provides the generator task infrastructure
 
 ---
 
@@ -537,4 +537,4 @@ Code generation connects deeply to the Elixir ecosystem and platform architectur
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -25,11 +25,11 @@ image_alt = "Security Rating - Prismatic Platform"
 
 ## Overview
 
-The Security Rating endpoint delivers a quantified security assessment for any domain, expressed as both a letter grade (A through F) and a numeric score (300-900). This rating aggregates evidence from the [Attack Surface Discovery](/api/perimeter-discover/) system across multiple security dimensions: network security, application security, DNS health, email security, certificate management, and vulnerability exposure.
+The Security Rating endpoint delivers a quantified security assessment for any domain, expressed as both a letter grade (A through F) and a numeric score (300-900). This rating aggregates evidence from the [Attack Surface Discovery](@/api/perimeter-discover.md) system across multiple security dimensions: network security, application security, DNS health, email security, certificate management, and vulnerability exposure.
 
 The rating methodology is designed to be comparable to commercial security rating platforms such as BitSight (250-900 scale), SecurityScorecard (0-100 per factor), and Black Kite (technical grade). The Prismatic rating uses a 300-900 numeric scale with letter grade mapping that corresponds to industry expectations.
 
-Ratings are evidence-based and fully traceable. Every point deduction is linked to a specific finding with remediation guidance. This transparency allows organizations to understand exactly why they received a particular grade and what actions would improve their score. The [Trinity Gate](/glossary/trinity-gate/) verification ensures that no rating is issued without structural, logical, and formal consistency in the underlying evidence.
+Ratings are evidence-based and fully traceable. Every point deduction is linked to a specific finding with remediation guidance. This transparency allows organizations to understand exactly why they received a particular grade and what actions would improve their score. The [Trinity Gate](@/glossary/trinity-gate.md) verification ensures that no rating is issued without structural, logical, and formal consistency in the underlying evidence.
 
 ## Endpoint
 
@@ -303,10 +303,10 @@ Ratings are computed from cached discovery data and are computationally lightwei
 
 ## Related Endpoints
 
-- [Attack Surface Discovery](/api/perimeter-discover/) -- Run a discovery scan to generate rating data
-- [Compliance Assessment](/api/perimeter-compliance/) -- Assess compliance using the same underlying data
-- [Webhooks](/api/webhooks/) -- Get notified when a domain's rating changes
-- [Batch Operations](/api/batch-operations/) -- Rate multiple domains in a single request
+- [Attack Surface Discovery](@/api/perimeter-discover.md) -- Run a discovery scan to generate rating data
+- [Compliance Assessment](@/api/perimeter-compliance.md) -- Assess compliance using the same underlying data
+- [Webhooks](@/api/webhooks.md) -- Get notified when a domain's rating changes
+- [Batch Operations](@/api/batch-operations.md) -- Rate multiple domains in a single request
 
 ## Methodology
 
@@ -319,7 +319,7 @@ The rating algorithm is transparent and reproducible. The overall score is a wei
 5. **Certificate Management** (15%) -- Expiry dates, key strength, chain completeness, revocation status
 6. **Vulnerability Exposure** (10%) -- Known CVEs on exposed services, patch currency, end-of-life software
 
-Every finding includes a severity classification (critical, high, medium, low, informational) and specific remediation guidance. The [Quality DNA](/glossary/quality-dna/) system tracks rating methodology changes across platform versions to ensure scoring consistency.
+Every finding includes a severity classification (critical, high, medium, low, informational) and specific remediation guidance. The [Quality DNA](@/glossary/quality-dna.md) system tracks rating methodology changes across platform versions to ensure scoring consistency.
 
 ---
 
@@ -328,4 +328,4 @@ Every finding includes a severity classification (critical, high, medium, low, i
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

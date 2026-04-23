@@ -524,24 +524,24 @@ end
 
 ## Related Terms
 
-- [Hex](/glossary/hex/) -- Elixir package manager providing audit capabilities and package metadata
-- [Mix](/glossary/mix/) -- Elixir build tool with dependency management and audit task integration
-- [Deployment](/glossary/deployment/) -- Release process that should include dependency audit gates
-- [Dependency Injection](/glossary/dependency-injection/) -- Design pattern enabling testable, auditable dependency management
-- [Vulnerability](/glossary/vulnerability/) -- Security weaknesses that dependency auditing detects
+- [Hex](@/glossary/hex.md) -- Elixir package manager providing audit capabilities and package metadata
+- [Mix](@/glossary/mix.md) -- Elixir build tool with dependency management and audit task integration
+- [Deployment](@/glossary/deployment.md) -- Release process that should include dependency audit gates
+- [Dependency Injection](@/glossary/dependency-injection.md) -- Design pattern enabling testable, auditable dependency management
+- [Vulnerability](@/glossary/vulnerability.md) -- Security weaknesses that dependency auditing detects
 - [Supply Chain](/glossary/supply-chain/) -- Broader supply chain security context for dependency auditing
 - [SBOM](/glossary/sbom/) -- Software Bill of Materials generated from dependency audit data
-- [CVE](/glossary/cve/) -- Common Vulnerabilities and Exposures identifiers for known vulnerabilities
+- [CVE](@/glossary/cve.md) -- Common Vulnerabilities and Exposures identifiers for known vulnerabilities
 - [License](/glossary/license/) -- Software license compliance dimension of dependency auditing
-- [CI/CD](/glossary/ci-cd/) -- Pipeline integration for automated dependency audit execution
-- [Compliance](/glossary/compliance/) -- Regulatory compliance requirements driving SBOM and audit mandates
-- [ISO 27001](/glossary/iso-27001/) -- Information security standard requiring supply chain security controls
+- [CI/CD](@/glossary/ci-cd.md) -- Pipeline integration for automated dependency audit execution
+- [Compliance](@/glossary/compliance.md) -- Regulatory compliance requirements driving SBOM and audit mandates
+- [ISO 27001](@/glossary/iso-27001.md) -- Information security standard requiring supply chain security controls
 
 ## See Also
 
-- [Technologies](/technologies/) -- Package management and security tooling in the Elixir ecosystem
-- [Architecture](/architecture/) -- Dependency management architecture and DEPS doctrine integration
-- [Capabilities](/capabilities/) -- Security audit and supply chain assessment capabilities
+- [Technologies](@/technologies/_index.md) -- Package management and security tooling in the Elixir ecosystem
+- [Architecture](@/architecture/_index.md) -- Dependency management architecture and DEPS doctrine integration
+- [Capabilities](@/capabilities/_index.md) -- Security audit and supply chain assessment capabilities
 
 ---
 
@@ -550,4 +550,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

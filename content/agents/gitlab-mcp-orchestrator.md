@@ -28,7 +28,7 @@ image_alt = "GitLab MCP Orchestrator - Prismatic Platform"
 
 ## Overview
 
-The GitLab MCP Orchestrator is an L3 strategic authority operating within the Strategic domain of the Prismatic Platform. This agent represents the next generation of GitLab orchestration, implementing a [3NL](/glossary/three-nl/) (3 Nested Levels) architecture with MCP (Model Context Protocol) [Blackboard](/glossary/blackboard/) coordination. It was designed to replace the earlier GitLabEnforcer pattern with a secure, bounded, and fully observable orchestration model that provides transparent reasoning about GitLab operations through structured intelligence layers.
+The GitLab MCP Orchestrator is an L3 strategic authority operating within the Strategic domain of the Prismatic Platform. This agent represents the next generation of GitLab orchestration, implementing a [3NL](@/glossary/three-nl.md) (3 Nested Levels) architecture with MCP (Model Context Protocol) [Blackboard](@/glossary/blackboard.md) coordination. It was designed to replace the earlier GitLabEnforcer pattern with a secure, bounded, and fully observable orchestration model that provides transparent reasoning about GitLab operations through structured intelligence layers.
 
 The 3NL architecture provides three nested levels of processing for GitLab operations: a Neural level that handles pattern recognition and anomaly detection across GitLab activity streams, a Logical level that applies rule-based governance and policy enforcement to proposed GitLab operations, and a Linguistic level that translates between human-readable strategic directives and machine-executable GitLab API operations. This layered approach ensures that every GitLab operation undergoes multi-level validation before execution, with each level providing independent verification from its own epistemic perspective.
 
@@ -46,7 +46,7 @@ The MCP Orchestrator implements the three nested levels of the 3NL framework as 
 
 The Blackboard pattern provides a shared knowledge space where multiple agents can contribute information and coordinate actions without direct coupling. The MCP Orchestrator serves as the Blackboard coordinator for all GitLab-related operations, maintaining a shared state representation that is accessible to all participating agents.
 
-**Knowledge Sources.** Each participating agent contributes specialized knowledge to the Blackboard. The [gitlab-api-specialist-agent](/agents/gitlab-api-specialist-agent/) contributes API state information, the [gitlab-strategic-coordinator](/agents/gitlab-strategic-coordinator/) contributes strategic priorities, and the [gitlab-security-specialist-agent](/agents/gitlab-security-specialist-agent/) contributes security posture assessments. The Orchestrator aggregates these contributions into a unified operational picture.
+**Knowledge Sources.** Each participating agent contributes specialized knowledge to the Blackboard. The [gitlab-api-specialist-agent](@/agents/gitlab-api-specialist-agent.md) contributes API state information, the [gitlab-strategic-coordinator](@/agents/gitlab-strategic-coordinator.md) contributes strategic priorities, and the [gitlab-security-specialist-agent](@/agents/gitlab-security-specialist-agent.md) contributes security posture assessments. The Orchestrator aggregates these contributions into a unified operational picture.
 
 **Control Flow.** The Blackboard implements an opportunistic control strategy where agents post observations and proposed actions to the shared space, and the Orchestrator evaluates which proposed actions should execute based on the current state of all knowledge sources. This approach enables complex multi-agent coordination without requiring explicit choreography between agents.
 
@@ -58,7 +58,7 @@ The MCP Orchestrator provides six primary capabilities that leverage its 3NL arc
 
 **Secure Operation Execution.** Every GitLab operation executes within a security boundary that validates authentication, authorization, and policy compliance before API calls are issued. The security boundary implements the principle of least privilege, ensuring that each operation uses only the minimum API permissions required for its specific task.
 
-**Observable Operation Tracing.** Complete observability into operation execution through structured logging, [telemetry](/glossary/telemetry/) events, and audit trail generation. Every operation produces a trace that includes the originating directive, 3NL processing decisions at each level, Blackboard state at the time of execution, and the resulting GitLab API interactions.
+**Observable Operation Tracing.** Complete observability into operation execution through structured logging, [telemetry](@/glossary/telemetry.md) events, and audit trail generation. Every operation produces a trace that includes the originating directive, 3NL processing decisions at each level, Blackboard state at the time of execution, and the resulting GitLab API interactions.
 
 **Bounded Execution Context.** Operations execute within defined resource bounds including time limits, API call budgets, and state change scope. Runaway operations that exceed their bounds are automatically terminated and rolled back. This bounded execution prevents cascading failures and ensures that individual operation failures do not impact overall orchestration health.
 
@@ -70,33 +70,33 @@ The MCP Orchestrator provides six primary capabilities that leverage its 3NL arc
 
 ## Technical Implementation
 
-The MCP Orchestrator is implemented as a supervised [OTP](/glossary/otp/) application with a GenServer-based Blackboard process that maintains shared state in [ETS](/glossary/ets/) tables. The Blackboard supports concurrent read access from multiple agent processes with serialized write access through the GenServer's message handling.
+The MCP Orchestrator is implemented as a supervised [OTP](@/glossary/otp.md) application with a GenServer-based Blackboard process that maintains shared state in [ETS](@/glossary/ets.md) tables. The Blackboard supports concurrent read access from multiple agent processes with serialized write access through the GenServer's message handling.
 
 The 3NL processing pipeline is implemented as a GenStage chain where each level represents a processing stage. Operations flow from Linguistic (directive parsing) through Logical (policy validation) to Neural (pattern context enrichment), with the ability to short-circuit at any level if validation fails.
 
 MCP protocol integration enables external tool connectivity through standardized JSON-RPC messaging. The Orchestrator exposes GitLab operations as MCP tools that can be invoked by Claude sessions and other MCP-compatible clients, providing a structured interface for AI-assisted development workflows.
 
-Persistent state management uses [Ecto](/glossary/ecto/) schemas with [PostgreSQL](/glossary/postgresql/) backing for the operation audit log and Blackboard state snapshots. Snapshots are taken at configurable intervals and retained for post-hoc analysis and compliance auditing.
+Persistent state management uses [Ecto](@/glossary/ecto.md) schemas with [PostgreSQL](@/glossary/postgresql.md) backing for the operation audit log and Blackboard state snapshots. Snapshots are taken at configurable intervals and retained for post-hoc analysis and compliance auditing.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [gitlab-strategic-coordinator](/agents/gitlab-strategic-coordinator/) | Receives strategic directives and provides execution status | Strategic |
-| [gitlab-full-circle-coordinator](/agents/gitlab-full-circle-coordinator/) | Coordinates lifecycle management through Blackboard integration | Lifecycle |
-| [gitlab-api-specialist-agent](/agents/gitlab-api-specialist-agent/) | Provides underlying API execution capabilities | Integration |
-| [autonomous-pattern-evolution-specialist](/agents/autonomous-pattern-evolution-specialist/) | Contributes pattern analysis to Blackboard knowledge sources | Evolution |
-| [Planner Agent](/agents/planner-agent/) | Receives planning directives translated through Linguistic level | Planning |
+| [gitlab-strategic-coordinator](@/agents/gitlab-strategic-coordinator.md) | Receives strategic directives and provides execution status | Strategic |
+| [gitlab-full-circle-coordinator](@/agents/gitlab-full-circle-coordinator.md) | Coordinates lifecycle management through Blackboard integration | Lifecycle |
+| [gitlab-api-specialist-agent](@/agents/gitlab-api-specialist-agent.md) | Provides underlying API execution capabilities | Integration |
+| [autonomous-pattern-evolution-specialist](@/agents/autonomous-pattern-evolution-specialist.md) | Contributes pattern analysis to Blackboard knowledge sources | Evolution |
+| [Planner Agent](@/agents/planner-agent.md) | Receives planning directives translated through Linguistic level | Planning |
 
 ## Security Model
 
-The Orchestrator implements defense-in-depth security for all GitLab operations. API credentials are stored in encrypted [Ecto](/glossary/ecto/) fields and accessed only through the secure execution boundary. All operations are subject to [RBAC](/glossary/rbac/) validation before execution. The audit trail records every operation with sufficient detail to reconstruct the complete decision chain from directive to execution.
+The Orchestrator implements defense-in-depth security for all GitLab operations. API credentials are stored in encrypted [Ecto](@/glossary/ecto.md) fields and accessed only through the secure execution boundary. All operations are subject to [RBAC](@/glossary/rbac.md) validation before execution. The audit trail records every operation with sufficient detail to reconstruct the complete decision chain from directive to execution.
 
 The MCP tool interface implements request validation that prevents injection attacks through tool parameters. Tool invocations are rate-limited per client to prevent abuse, and all tool responses are sanitized to prevent credential leakage.
 
 ## Enforcement
 
-The GitLab MCP Orchestrator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every GitLab operation must pass all three 3NL validation levels before execution. Blackboard contributions must include provenance information identifying the contributing agent and the evidence supporting the contribution. Operations that bypass the security boundary are logged as L3 violations and trigger immediate investigation. The [Trinity Gate](/glossary/trinity-gate/) framework validates that strategic decisions derived from Blackboard intelligence pass structural, logical, and formal consistency checks before influencing GitLab operations.
+The GitLab MCP Orchestrator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every GitLab operation must pass all three 3NL validation levels before execution. Blackboard contributions must include provenance information identifying the contributing agent and the evidence supporting the contribution. Operations that bypass the security boundary are logged as L3 violations and trigger immediate investigation. The [Trinity Gate](@/glossary/trinity-gate.md) framework validates that strategic decisions derived from Blackboard intelligence pass structural, logical, and formal consistency checks before influencing GitLab operations.
 
 ---
 
@@ -105,4 +105,4 @@ The GitLab MCP Orchestrator operates under the [NO MERCY, NO DOUBTS](/glossary/n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

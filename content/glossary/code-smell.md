@@ -173,11 +173,11 @@ The Academy teaches code smell recognition through interactive exercises where l
 
 ## Cross-References
 
-- [Code Quality](/glossary/code-quality/) - broader quality framework
-- [Credo](/glossary/credo/) - primary Elixir static analysis tool
-- [Code Reviews](/glossary/code-reviews/) - human smell detection
-- [Compilation](/glossary/compilation/) - build-time smell detection
-- [Code Coverage](/glossary/code-coverage/) - testing completeness metric
+- [Code Quality](@/glossary/code-quality.md) - broader quality framework
+- [Credo](@/glossary/credo.md) - primary Elixir static analysis tool
+- [Code Reviews](@/glossary/code-reviews.md) - human smell detection
+- [Compilation](@/glossary/compilation.md) - build-time smell detection
+- [Code Coverage](@/glossary/code-coverage.md) - testing completeness metric
 - **Livebooks**: `livebooks/domains/quality_testing/` - interactive smell detection labs
 - **Academy**: Code quality improvement topics
 

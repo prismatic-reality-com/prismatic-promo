@@ -28,11 +28,11 @@ image_alt = "consolidation-architect - Prismatic Platform"
 
 ## Overview
 
-The Consolidation Architect operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Consolidation domain of the Prismatic Platform. This agent is responsible for identifying, planning, and executing systematic consolidation of duplicated code, overlapping modules, and redundant patterns across the platform's 90-application umbrella architecture. Through genetic algorithm-enhanced analysis, the Consolidation Architect discovers optimization opportunities that manual review would miss, transforming organic codebase growth into deliberate, optimized architecture.
+The Consolidation Architect operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Consolidation domain of the Prismatic Platform. This agent is responsible for identifying, planning, and executing systematic consolidation of duplicated code, overlapping modules, and redundant patterns across the platform's 90-application umbrella architecture. Through genetic algorithm-enhanced analysis, the Consolidation Architect discovers optimization opportunities that manual review would miss, transforming organic codebase growth into deliberate, optimized architecture.
 
-In a platform of this scale -- over 6,600 Elixir source files across 90 umbrella applications -- consolidation is not merely a cleanup task but a strategic operation that affects compilation times, dependency management, cognitive load, and maintenance cost. The Consolidation Architect evaluates each consolidation candidate against type safety requirements, API compatibility constraints, and downstream dependency impact before proceeding. Every consolidation operation follows a rigorous verification [protocol](/glossary/protocol/) that ensures zero regression and measurable improvement in codebase cohesion.
+In a platform of this scale -- over 6,600 Elixir source files across 90 umbrella applications -- consolidation is not merely a cleanup task but a strategic operation that affects compilation times, dependency management, cognitive load, and maintenance cost. The Consolidation Architect evaluates each consolidation candidate against type safety requirements, API compatibility constraints, and downstream dependency impact before proceeding. Every consolidation operation follows a rigorous verification [protocol](@/glossary/protocol.md) that ensures zero regression and measurable improvement in codebase cohesion.
 
-As the first generation of consolidation intelligence, this agent established the foundational patterns and methodologies that the [Consolidation Architect V2](/agents/consolidation-architect-v2/) later evolved into a parallel squad-based approach. The original Consolidation Architect continues to operate, providing baseline pattern analysis and serving as the reference implementation for consolidation verification protocols.
+As the first generation of consolidation intelligence, this agent established the foundational patterns and methodologies that the [Consolidation Architect V2](@/agents/consolidation-architect-v2.md) later evolved into a parallel squad-based approach. The original Consolidation Architect continues to operate, providing baseline pattern analysis and serving as the reference implementation for consolidation verification protocols.
 
 ## Architecture
 
@@ -61,13 +61,13 @@ The Consolidation Architect follows a sequential pipeline architecture that prio
 +----------------------------------------------------------------------+
 ```
 
-The AST Pattern Scanner uses Elixir's `Code.string_to_quoted/1` and custom AST walking functions to identify structurally similar function implementations across the umbrella. The Genetic Optimizer applies evolutionary algorithms to discover non-obvious consolidation paths -- sequences of transformations that maximize code reuse while minimizing coupling between applications. The Type Analyzer validates that proposed consolidations maintain full backward compatibility through [typespec](/glossary/typespec/) analysis and [Dialyzer](/glossary/dialyzer/) contract verification.
+The AST Pattern Scanner uses Elixir's `Code.string_to_quoted/1` and custom AST walking functions to identify structurally similar function implementations across the umbrella. The Genetic Optimizer applies evolutionary algorithms to discover non-obvious consolidation paths -- sequences of transformations that maximize code reuse while minimizing coupling between applications. The Type Analyzer validates that proposed consolidations maintain full backward compatibility through [typespec](@/glossary/typespec.md) analysis and [Dialyzer](@/glossary/dialyzer.md) contract verification.
 
 ## Core Capabilities
 
-**Cross-Module Pattern Extraction** identifies functionally equivalent implementations across [umbrella application](/glossary/umbrella-application/)s and consolidates them into shared libraries with proper [behaviour](/glossary/behaviour/) specifications. The extraction process generates a behaviour that captures the common interface, implements a default module that satisfies the behaviour, and migrates all callers to use the new shared implementation.
+**Cross-Module Pattern Extraction** identifies functionally equivalent implementations across [umbrella application](@/glossary/umbrella-application.md)s and consolidates them into shared libraries with proper [behaviour](@/glossary/behaviour.md) specifications. The extraction process generates a behaviour that captures the common interface, implements a default module that satisfies the behaviour, and migrates all callers to use the new shared implementation.
 
-**Technical Debt Quantification** uses [metrics](/glossary/metrics/)-driven analysis to prioritize consolidation targets by impact, risk, and effort ratios. Each consolidation candidate is scored on four dimensions: lines of code eliminated, modules removed, dependency graph edges simplified, and maintenance cost reduction projected from historical modification frequency.
+**Technical Debt Quantification** uses [metrics](@/glossary/metrics.md)-driven analysis to prioritize consolidation targets by impact, risk, and effort ratios. Each consolidation candidate is scored on four dimensions: lines of code eliminated, modules removed, dependency graph edges simplified, and maintenance cost reduction projected from historical modification frequency.
 
 **Type-Safe Consolidation Planning** with comprehensive impact analysis verifies that consolidated modules maintain full backward compatibility through typespec validation. The planning phase generates a complete impact report showing every module, function, and type that would be affected by the proposed consolidation, enabling informed go/no-go decisions.
 
@@ -158,15 +158,15 @@ end
 | Mix Compiler | AST analysis | Source code parsing and pattern detection |
 | Git Repository | CLI | Branch management and rollback capability |
 | ExUnit | Test execution | Pre/post consolidation verification |
-| [Dialyzer](/glossary/dialyzer/) | PLT analysis | Type contract verification |
-| [Credo](/glossary/credo/) | Analysis | Code quality validation post-consolidation |
-| [Telemetry](/glossary/telemetry/) | Events | Consolidation metrics and progress tracking |
+| [Dialyzer](@/glossary/dialyzer.md) | PLT analysis | Type contract verification |
+| [Credo](@/glossary/credo.md) | Analysis | Code quality validation post-consolidation |
+| [Telemetry](@/glossary/telemetry.md) | Events | Consolidation metrics and progress tracking |
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [consolidation-architect-v2](/agents/consolidation-architect-v2/) | Enhanced Successor | Advanced version with proven 9.4x efficiency through living evolution |
-| [dependency-optimization-specialist](/agents/dependency-optimization-specialist/) | Tactical Partner | Coordinates dependency cleanup alongside consolidation operations |
-| [code-consolidation-specialist-agent](/agents/code-consolidation-specialist-agent/) | Operational Support | Handles code-level merge and refactoring during consolidation |
+| [consolidation-architect-v2](@/agents/consolidation-architect-v2.md) | Enhanced Successor | Advanced version with proven 9.4x efficiency through living evolution |
+| [dependency-optimization-specialist](@/agents/dependency-optimization-specialist.md) | Tactical Partner | Coordinates dependency cleanup alongside consolidation operations |
+| [code-consolidation-specialist-agent](@/agents/code-consolidation-specialist-agent.md) | Operational Support | Handles code-level merge and refactoring during consolidation |
 
 ## Operational Workflow
 
@@ -217,12 +217,12 @@ config :prismatic_consolidation, PrismaticConsolidation.Architect,
 
 ## Related Resources
 
-- [consolidation-architect-v2](/agents/consolidation-architect-v2/) -- Enhanced V2 with 9.4x efficiency
-- [dependency-optimization-specialist](/agents/dependency-optimization-specialist/) -- Dependency graph optimization
-- [code-consolidation-specialist-agent](/agents/code-consolidation-specialist-agent/) -- Code-level consolidation execution
-- [QDP](/glossary/qdp/) -- Quality Debt Points measurement
-- [Quality Gates](/glossary/quality-gates/) -- Platform quality enforcement
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [consolidation-architect-v2](@/agents/consolidation-architect-v2.md) -- Enhanced V2 with 9.4x efficiency
+- [dependency-optimization-specialist](@/agents/dependency-optimization-specialist.md) -- Dependency graph optimization
+- [code-consolidation-specialist-agent](@/agents/code-consolidation-specialist-agent.md) -- Code-level consolidation execution
+- [QDP](@/glossary/qdp.md) -- Quality Debt Points measurement
+- [Quality Gates](@/glossary/quality-gates.md) -- Platform quality enforcement
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -231,4 +231,4 @@ config :prismatic_consolidation, PrismaticConsolidation.Architect,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

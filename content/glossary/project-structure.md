@@ -516,24 +516,24 @@ A growing single-project application can be incrementally decomposed into an umb
 
 Project structure connects to architectural design, code organization, and development workflow patterns:
 
-- [Umbrella Application](/glossary/umbrella-application/) -- the Elixir project topology that enables multi-application monorepo structure with shared compilation
-- [Bounded Context](/glossary/bounded-context/) -- domain-driven design concept that informs how applications are partitioned within the umbrella
-- [Modularity](/glossary/modularity/) -- the software design principle that project structure physically enforces through directory and application boundaries
-- [Composability](/glossary/composability/) -- the property that well-structured projects exhibit, enabling applications to be composed into larger systems
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- architectural methodology whose bounded contexts map directly to umbrella applications
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP structure that each application defines independently, reflecting the project's process topology
-- [Circular Dependency](/glossary/circular-dependency/) -- structural anti-pattern that umbrella dependency management detects and prevents
-- [Adapter Pattern](/glossary/adapter-pattern/) -- design pattern used to separate storage core traits from concrete implementations across applications
-- [OTP Application](/glossary/otp-application/) -- the fundamental unit of project structure in Elixir, defining a supervised process tree
-- [Ecto](/glossary/ecto/) -- database library whose migrations and schemas are organized within application-specific `priv/` directories
+- [Umbrella Application](@/glossary/umbrella-application.md) -- the Elixir project topology that enables multi-application monorepo structure with shared compilation
+- [Bounded Context](@/glossary/bounded-context.md) -- domain-driven design concept that informs how applications are partitioned within the umbrella
+- [Modularity](@/glossary/modularity.md) -- the software design principle that project structure physically enforces through directory and application boundaries
+- [Composability](@/glossary/composability.md) -- the property that well-structured projects exhibit, enabling applications to be composed into larger systems
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- architectural methodology whose bounded contexts map directly to umbrella applications
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP structure that each application defines independently, reflecting the project's process topology
+- [Circular Dependency](@/glossary/circular-dependency.md) -- structural anti-pattern that umbrella dependency management detects and prevents
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- design pattern used to separate storage core traits from concrete implementations across applications
+- [OTP Application](@/glossary/otp-application.md) -- the fundamental unit of project structure in Elixir, defining a supervised process tree
+- [Ecto](@/glossary/ecto.md) -- database library whose migrations and schemas are organized within application-specific `priv/` directories
 
 ## See Also
 
-- [Compilation](/glossary/compilation/) -- the build process that project structure directly influences through dependency ordering
-- [Static Analysis](/glossary/static-analysis/) -- quality tooling that operates within the project's structural boundaries
-- [Credo](/glossary/credo/) -- Elixir linter that enforces naming conventions aligned with project structure
-- [Quality DNA](/glossary/quality-dna/) -- per-application quality tracking that mirrors the umbrella application structure
-- [Release](/glossary/release/) -- deployment packaging that assembles selected applications from the umbrella into a deployable unit
+- [Compilation](@/glossary/compilation.md) -- the build process that project structure directly influences through dependency ordering
+- [Static Analysis](@/glossary/static-analysis.md) -- quality tooling that operates within the project's structural boundaries
+- [Credo](@/glossary/credo.md) -- Elixir linter that enforces naming conventions aligned with project structure
+- [Quality DNA](@/glossary/quality-dna.md) -- per-application quality tracking that mirrors the umbrella application structure
+- [Release](@/glossary/release.md) -- deployment packaging that assembles selected applications from the umbrella into a deployable unit
 
 ---
 

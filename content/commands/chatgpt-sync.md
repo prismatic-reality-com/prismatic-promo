@@ -28,7 +28,7 @@ image_alt = "/chatgpt-sync - Prismatic Platform"
 
 In a multi-AI development workflow, maintaining synchronized context is essential for productive consultations. Without synchronization, each ChatGPT session starts from stale context, leading to recommendations based on outdated platform state. The `/chatgpt-sync` command solves this by providing automated, incremental synchronization that keeps ChatGPT projects current with the latest platform changes while minimizing bandwidth and processing overhead.
 
-This command operates under the **L2+** authority level and is executed by the `chatgpt-bridge` agent, specifically the `chatgpt-integration-commander`. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command supports five synchronization actions (sync, upload, create, status, list) and three synchronization modes (full, incremental, forced), with GitLab CI/CD integration for automated synchronization on every merge to main.
+This command operates under the **L2+** authority level and is executed by the `chatgpt-bridge` agent, specifically the `chatgpt-integration-commander`. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command supports five synchronization actions (sync, upload, create, status, list) and three synchronization modes (full, incremental, forced), with GitLab CI/CD integration for automated synchronization on every merge to main.
 
 The synchronization engine uses git-based change detection to identify modified files since the last successful sync, creating minimal delta archives that efficiently update ChatGPT projects without redundant full uploads. Conflict detection and resolution mechanisms handle cases where both Claude and ChatGPT sessions have produced changes that need reconciliation.
 
@@ -233,10 +233,10 @@ mix chatgpt.sync --notify     # With Slack notifications
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `chatgpt-bridge` agent | Integration commander |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `chatgpt-bridge` agent | Integration commander |
 | AIAD Registry | Command specification and discovery | Standard AIAD interface |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation | Sync integrity checks |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) | Sync performance tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation | Sync integrity checks |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) | Sync performance tracking |
 | Git Integration | Change detection engine | `git diff`, `git log` for deltas |
 | GitLab CI/CD | Automated sync on merge | `.gitlab-ci/chatgpt-sync.yml` |
 | OpenAI API | Assistant project management | File upload and project lifecycle |
@@ -317,19 +317,19 @@ end
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Sync operations must complete fully or report failure clearly. Partial syncs are not accepted as success.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Change detection provides complete visibility into what will be synchronized before any upload begins.
 
 ## Related Commands
 
-- [/chatgpt-pack](/commands/chatgpt-pack/) - Context packing for ChatGPT collaboration and knowledge transfer
-- [/chatgpt-consult](/commands/chatgpt-consult/) - Consult ChatGPT for alternative perspectives and solutions
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/debrief](/commands/debrief/) - Comprehensive session debrief with platform state analysis
+- [/chatgpt-pack](@/commands/chatgpt-pack.md) - Context packing for ChatGPT collaboration and knowledge transfer
+- [/chatgpt-consult](@/commands/chatgpt-consult.md) - Consult ChatGPT for alternative perspectives and solutions
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/debrief](@/commands/debrief.md) - Comprehensive session debrief with platform state analysis
 
 ---
 
@@ -338,4 +338,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

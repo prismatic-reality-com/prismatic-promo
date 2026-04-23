@@ -361,24 +361,24 @@ Quality innovations that detect subtle problems serve as teaching tools. When a 
 
 Quality Innovation connects with the platform's evolution and quality infrastructure:
 
-- [Autoevolve](/glossary/autoevolve/) -- The autonomous evolution system that discovers quality improvement opportunities
-- [Autoheal](/glossary/autoheal/) -- The self-repair system that creates quality fixes, often driving innovation
-- [Quality Gate](/glossary/quality-gate/) -- The enforcement mechanism that integrates quality innovations into the pipeline
-- [Quality DNA](/glossary/quality-dna/) -- A landmark quality innovation: cross-session quality persistence
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- The autonomous monitor that triggers quality innovation when scores degrade
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- The broader evolution framework that includes quality innovation
-- [Continuous Evolution](/glossary/continuous-evolution/) -- The principle of never-stopping improvement that motivates quality innovation
-- [SEADF](/glossary/seadf/) -- The 7-subsystem framework that orchestrates quality innovation at the strategic level
-- [Fitness Score](/glossary/fitness-score/) -- The metric that measures the impact of quality innovations on platform health
-- [Quality Measurement System](/glossary/quality-measurement-system/) -- The infrastructure that quantifies quality innovation effectiveness
+- [Autoevolve](@/glossary/autoevolve.md) -- The autonomous evolution system that discovers quality improvement opportunities
+- [Autoheal](@/glossary/autoheal.md) -- The self-repair system that creates quality fixes, often driving innovation
+- [Quality Gate](@/glossary/quality-gate.md) -- The enforcement mechanism that integrates quality innovations into the pipeline
+- [Quality DNA](@/glossary/quality-dna.md) -- A landmark quality innovation: cross-session quality persistence
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- The autonomous monitor that triggers quality innovation when scores degrade
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- The broader evolution framework that includes quality innovation
+- [Continuous Evolution](@/glossary/continuous-evolution.md) -- The principle of never-stopping improvement that motivates quality innovation
+- [SEADF](@/glossary/seadf.md) -- The 7-subsystem framework that orchestrates quality innovation at the strategic level
+- [Fitness Score](@/glossary/fitness-score.md) -- The metric that measures the impact of quality innovations on platform health
+- [Quality Measurement System](@/glossary/quality-measurement-system.md) -- The infrastructure that quantifies quality innovation effectiveness
 
 ## See Also
 
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- The principle that innovations must be observable and auditable
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) -- The epistemic framework for validating quality innovation claims
-- [Static Analysis](/glossary/static-analysis/) -- A foundational technique that many quality innovations build upon
-- [Property-Based Testing](/glossary/property-based-testing/) -- A testing innovation that generates broader quality evidence
-- [Cascade Pattern](/glossary/cascade-pattern/) -- A specific quality innovation detecting cross-domain quality degradation chains
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- The principle that innovations must be observable and auditable
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) -- The epistemic framework for validating quality innovation claims
+- [Static Analysis](@/glossary/static-analysis.md) -- A foundational technique that many quality innovations build upon
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- A testing innovation that generates broader quality evidence
+- [Cascade Pattern](@/glossary/cascade-pattern.md) -- A specific quality innovation detecting cross-domain quality degradation chains
 
 ---
 

@@ -25,9 +25,9 @@ image_alt = "VR.cz - Prismatic Platform"
 
 ## Overview
 
-VR.cz (Verejny rejstrik a Sbirka listin) is the unified public [registry](/glossary/registry-otp/) portal operated by the Czech Ministry of Justice. It provides a single access point to multiple registers: the Commercial Register (Obchodni rejstrik), Register of Associations (Spolkovy rejstrik), Foundation Register (Nadacni rejstrik), Register of Public Benefit Companies (Rejstrik ustavu), and the Register of Owners of Condominiums.
+VR.cz (Verejny rejstrik a Sbirka listin) is the unified public [registry](@/glossary/registry-otp.md) portal operated by the Czech Ministry of Justice. It provides a single access point to multiple registers: the Commercial Register (Obchodni rejstrik), Register of Associations (Spolkovy rejstrik), Foundation Register (Nadacni rejstrik), Register of Public Benefit Companies (Rejstrik ustavu), and the Register of Owners of Condominiums.
 
-While [Justice.cz](/osint/justice-cz/) focuses specifically on the Commercial Register, VR.cz provides a broader view encompassing all legal entity types registered in the Czech Republic, including non-profit organizations, foundations, and housing cooperatives.
+While [Justice.cz](@/osint/justice-cz.md) focuses specifically on the Commercial Register, VR.cz provides a broader view encompassing all legal entity types registered in the Czech Republic, including non-profit organizations, foundations, and housing cooperatives.
 
 ## Data Coverage
 
@@ -54,7 +54,7 @@ While [Justice.cz](/osint/justice-cz/) focuses specifically on the Commercial Re
 
 ## Integration with Prismatic
 
-VR.cz provides the broadest Czech entity lookup capability within the Prismatic platform, covering entity types not available through [ARES](/osint/ares/) alone.
+VR.cz provides the broadest Czech entity lookup capability within the Prismatic platform, covering entity types not available through [ARES](@/osint/ares.md) alone.
 
 ```elixir
 # Search across all registers
@@ -141,7 +141,7 @@ end
 | **Coverage** | All Czech legal entities across 5 register types |
 
 ### Technical Notes
-- No structured [REST API](/glossary/rest-api/); data access via HTML parsing
+- No structured [REST API](@/glossary/rest-api.md); data access via HTML parsing
 - Official extracts available as PDFs with court seal
 - Beneficial owner data availability varies by entity type
 - Historical changes tracked from register digitization onwards
@@ -151,7 +151,7 @@ end
 ### Entity Verification
 - Verify legal entity existence across all Czech register types
 - Confirm entity type and legal form
-- Access beneficial ownership data for [KYC/AML](/apps/prismatic-compliance/) compliance
+- Access beneficial ownership data for [KYC/AML](@/apps/prismatic-compliance.md) compliance
 
 ### Non-Profit Intelligence
 - Research associations, foundations, and public benefit entities
@@ -159,7 +159,7 @@ end
 - Track leadership changes in civic organizations
 
 ### Comprehensive Due Diligence
-- Single access point covering [Commercial Register](/osint/justice-cz/), [Trade Licenses](/osint/rzp/), and more
+- Single access point covering [Commercial Register](@/osint/justice-cz.md), [Trade Licenses](@/osint/rzp.md), and more
 - Cross-register data consistency verification
 - Beneficial owner identification for AML compliance
 
@@ -191,7 +191,7 @@ Since 2018, VR.cz provides access to beneficial ownership data as required by th
 | **Control Type** | Direct, indirect, or effective control |
 | **Since** | Date the beneficial ownership was established |
 
-Beneficial ownership data is critical for KYC/AML compliance and is automatically cross-referenced with [OFAC](/osint/ofac/), [EU Sanctions](/osint/eu-sanctions/), and [UN Sanctions](/osint/un-sanctions/) lists in the Prismatic compliance pipeline.
+Beneficial ownership data is critical for KYC/AML compliance and is automatically cross-referenced with [OFAC](@/osint/ofac.md), [EU Sanctions](@/osint/eu-sanctions.md), and [UN Sanctions](@/osint/un-sanctions.md) lists in the Prismatic compliance pipeline.
 
 ### Document Collection (Sbirka listin)
 
@@ -208,17 +208,17 @@ The document collection is a critical component of VR.cz, containing all legally
 
 ## Related Sources
 
-- [ARES](/osint/ares/) - Aggregated business register with API access
-- [Justice.cz](/osint/justice-cz/) - Commercial Register with detailed filings
-- [RZP](/osint/rzp/) - Trade Licensing Register
-- [Insolvency Register](/osint/insolvencni-rejstrik/) - Czech insolvency proceedings
-- [EU Sanctions](/osint/eu-sanctions/) - EU sanctions list for entity screening
-- [Executors](/osint/executors/) - Enforcement proceedings data
+- [ARES](@/osint/ares.md) - Aggregated business register with API access
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register with detailed filings
+- [RZP](@/osint/rzp.md) - Trade Licensing Register
+- [Insolvency Register](@/osint/insolvencni-rejstrik.md) - Czech insolvency proceedings
+- [EU Sanctions](@/osint/eu-sanctions.md) - EU sanctions list for entity screening
+- [Executors](@/osint/executors.md) - Enforcement proceedings data
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Czech entity data in [EASM](/glossary/easm/) ratings
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Czech entity data in [EASM](@/glossary/easm.md) ratings
 
 ---
 
@@ -227,4 +227,4 @@ The document collection is a critical component of VR.cz, containing all legally
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

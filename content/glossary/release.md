@@ -38,15 +38,15 @@ image_alt = "Release - Prismatic Platform"
 
 ## Definition
 
-An OTP Release is a self-contained, deployable package that bundles a compiled Elixir/Erlang application together with the Erlang Runtime System (ERTS), all compiled dependencies, boot scripts, and configuration into a single directory that can run on a target machine without requiring Elixir, Erlang, or any development tools to be installed. Releases are the standard production deployment artifact for [BEAM](/glossary/beam/) applications, analogous to Docker images for containerized services, JARs for Java applications, or statically-linked Go binaries -- but with the unique addition of including the entire runtime system, ensuring that the deployed artifact is completely self-sufficient and insensitive to the target machine's system-level package versions.
+An OTP Release is a self-contained, deployable package that bundles a compiled Elixir/Erlang application together with the Erlang Runtime System (ERTS), all compiled dependencies, boot scripts, and configuration into a single directory that can run on a target machine without requiring Elixir, Erlang, or any development tools to be installed. Releases are the standard production deployment artifact for [BEAM](@/glossary/beam.md) applications, analogous to Docker images for containerized services, JARs for Java applications, or statically-linked Go binaries -- but with the unique addition of including the entire runtime system, ensuring that the deployed artifact is completely self-sufficient and insensitive to the target machine's system-level package versions.
 
-The `mix release` command (introduced in Elixir 1.9, replacing the third-party Distillery library) handles the release assembly process: compiling all applications and their dependencies to BEAM bytecode (.beam files), copying the ERTS from the build machine, generating boot scripts that define the startup order based on the OTP application dependency graph, and creating wrapper scripts for start, stop, remote console, and health check operations. The resulting release directory is hermetic -- it contains everything needed to run, making it ideal for deployment to bare-metal servers, virtual machines, or [Docker](/glossary/docker/) containers. The hermetic nature also ensures reproducibility: the same release artifact behaves identically regardless of the target environment, eliminating the "works on my machine" class of deployment failures.
+The `mix release` command (introduced in Elixir 1.9, replacing the third-party Distillery library) handles the release assembly process: compiling all applications and their dependencies to BEAM bytecode (.beam files), copying the ERTS from the build machine, generating boot scripts that define the startup order based on the OTP application dependency graph, and creating wrapper scripts for start, stop, remote console, and health check operations. The resulting release directory is hermetic -- it contains everything needed to run, making it ideal for deployment to bare-metal servers, virtual machines, or [Docker](@/glossary/docker.md) containers. The hermetic nature also ensures reproducibility: the same release artifact behaves identically regardless of the target environment, eliminating the "works on my machine" class of deployment failures.
 
 Releases support runtime configuration through `config/runtime.exs`, which is evaluated at boot time (not compile time), enabling the same release artifact to be deployed to different environments by varying environment variables. This separation of build artifact from environment configuration is a key principle of the twelve-factor app methodology and is essential for CI/CD pipelines that build once and deploy to staging and production sequentially. Compile-time configuration (`config/config.exs`, `config/prod.exs`) is baked into the release and cannot be changed without rebuilding, while runtime configuration (`config/runtime.exs`) is evaluated fresh on every boot.
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform builds releases for deployment to [Fly.io](/glossary/fly-io/) via multi-stage Docker containers. The umbrella application produces a single release named `prismatic` containing all 115 apps with their [supervision trees](/glossary/supervisor/), started in dependency order by the OTP boot script. The PrismaticSupervisor provides compositional supervision with dependency-aware startup, domain supervisors, and pluggable backends:
+The Prismatic Platform builds releases for deployment to [Fly.io](@/glossary/fly-io.md) via multi-stage Docker containers. The umbrella application produces a single release named `prismatic` containing all 115 apps with their [supervision trees](@/glossary/supervisor.md), started in dependency order by the OTP boot script. The PrismaticSupervisor provides compositional supervision with dependency-aware startup, domain supervisors, and pluggable backends:
 
 ```elixir
 defmodule PrismaticStorage.Release do
@@ -137,7 +137,7 @@ defmodule PrismaticStorage.Release do
 end
 ```
 
-Runtime configuration loads environment variables for database URLs, API keys, secret key bases, [cluster](/glossary/cluster/) settings, and feature flags through `config/runtime.exs`. The CI/CD pipeline in GitLab builds the release artifact, runs the full test suite against it, and deploys to staging before production.
+Runtime configuration loads environment variables for database URLs, API keys, secret key bases, [cluster](@/glossary/cluster.md) settings, and feature flags through `config/runtime.exs`. The CI/CD pipeline in GitLab builds the release artifact, runs the full test suite against it, and deploys to staging before production.
 
 ## Release Assembly Process
 
@@ -425,7 +425,7 @@ bin/prismatic eval "IO.inspect(:erlang.memory())"
 
 ## Hot Code Reload vs. Immutable Deployment
 
-While [hot code reload](/glossary/hot-code-reload/) is a legendary BEAM capability, modern Elixir releases favor immutable deployments (build new release, deploy, restart) over in-place upgrades for production systems:
+While [hot code reload](@/glossary/hot-code-reload.md) is a legendary BEAM capability, modern Elixir releases favor immutable deployments (build new release, deploy, restart) over in-place upgrades for production systems:
 
 | Approach | Method | Risk | Complexity | Use Case |
 |----------|--------|------|------------|----------|
@@ -471,11 +471,11 @@ git push --> GitLab CI Pipeline
             Verify Production: health check + quality DNA snapshot
 ```
 
-Each stage is a gate: failure at any stage prevents progression to the next. The Quality Stage is particularly strict, requiring 0 [QDP](/glossary/qdp/) across all 13 quality domains before the release can be assembled. This ensures that no quality regression ever reaches production.
+Each stage is a gate: failure at any stage prevents progression to the next. The Quality Stage is particularly strict, requiring 0 [QDP](@/glossary/qdp.md) across all 13 quality domains before the release can be assembled. This ensures that no quality regression ever reaches production.
 
 ## Release Observability
 
-Deployed releases emit [telemetry](/glossary/observability/) events that provide visibility into runtime behavior:
+Deployed releases emit [telemetry](@/glossary/observability.md) events that provide visibility into runtime behavior:
 
 ```elixir
 defmodule PrismaticRelease.Telemetry do
@@ -513,22 +513,22 @@ end
 
 ## Related Terms
 
-- [Docker](/glossary/docker/) - Container packaging for release deployment
-- [Fly.io](/glossary/fly-io/) - Production hosting platform for releases
-- [Hot Code Reload](/glossary/hot-code-reload/) - BEAM capability for live code updates
-- [Mix](/glossary/mix/) - Build tool that assembles releases
-- [BEAM](/glossary/beam/) - Runtime system bundled in releases (ERTS)
-- [Supervisor](/glossary/supervisor/) - OTP process hierarchy started by release boot scripts
-- [Endpoint](/glossary/endpoint/) - Phoenix web server started during release boot
-- [Cluster](/glossary/cluster/) - Multi-node configuration via release runtime.exs
-- [Hex](/glossary/hex/) - Package manager whose deps are compiled into releases
-- [Observability](/glossary/observability/) - Monitoring infrastructure for deployed releases
-- [QDP](/glossary/qdp/) - Quality gates that must pass before release assembly
+- [Docker](@/glossary/docker.md) - Container packaging for release deployment
+- [Fly.io](@/glossary/fly-io.md) - Production hosting platform for releases
+- [Hot Code Reload](@/glossary/hot-code-reload.md) - BEAM capability for live code updates
+- [Mix](@/glossary/mix.md) - Build tool that assembles releases
+- [BEAM](@/glossary/beam.md) - Runtime system bundled in releases (ERTS)
+- [Supervisor](@/glossary/supervisor.md) - OTP process hierarchy started by release boot scripts
+- [Endpoint](@/glossary/endpoint.md) - Phoenix web server started during release boot
+- [Cluster](@/glossary/cluster.md) - Multi-node configuration via release runtime.exs
+- [Hex](@/glossary/hex.md) - Package manager whose deps are compiled into releases
+- [Observability](@/glossary/observability.md) - Monitoring infrastructure for deployed releases
+- [QDP](@/glossary/qdp.md) - Quality gates that must pass before release assembly
 
 ## See Also
 
-- [Architecture](/architecture/) - Deployment and release architecture
-- [Technologies](/technologies/) - Infrastructure and hosting stack
+- [Architecture](@/architecture/_index.md) - Deployment and release architecture
+- [Technologies](@/technologies/_index.md) - Infrastructure and hosting stack
 
 ---
 
@@ -537,4 +537,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

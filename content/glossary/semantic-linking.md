@@ -221,11 +221,11 @@ end
 
 ## Cross-References
 
-- [Semantic Link](/glossary/semantic-link/) - Individual connections created by the semantic linking engine
-- [Prerequisite](/glossary/prerequisite/) - Explicit link type handled by the interconnection engine
-- [Progress](/glossary/progress/) - Completion tracking using semantic link-based learning paths
-- [Self-Registration](/glossary/self-registration/) - Source of topic metadata driving automatic link generation
-- [Process](/glossary/process/) - GenServer process implementing the InterconnectionEngine
+- [Semantic Link](@/glossary/semantic-link.md) - Individual connections created by the semantic linking engine
+- [Prerequisite](@/glossary/prerequisite.md) - Explicit link type handled by the interconnection engine
+- [Progress](@/glossary/progress.md) - Completion tracking using semantic link-based learning paths
+- [Self-Registration](@/glossary/self-registration.md) - Source of topic metadata driving automatic link generation
+- [Process](@/glossary/process.md) - GenServer process implementing the InterconnectionEngine
 
 ---
 

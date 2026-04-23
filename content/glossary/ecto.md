@@ -20,7 +20,7 @@ image_alt = "Ecto - Prismatic Platform"
 
 ## Definition
 
-Ecto is Elixir's official database toolkit, providing a unified interface for data validation, querying, and persistence. Unlike traditional Object-Relational Mappers (ORMs) that attempt to hide the database behind an object-oriented abstraction, Ecto takes a functional approach that embraces the relational model. Schemas define data structures as Elixir structs, changesets validate and transform data before persistence, and queries compose through Elixir's [pipe operator](/glossary/pipe-operator/) without hidden state or lazy loading. Every database interaction is explicit, making data flows transparent and testable.
+Ecto is Elixir's official database toolkit, providing a unified interface for data validation, querying, and persistence. Unlike traditional Object-Relational Mappers (ORMs) that attempt to hide the database behind an object-oriented abstraction, Ecto takes a functional approach that embraces the relational model. Schemas define data structures as Elixir structs, changesets validate and transform data before persistence, and queries compose through Elixir's [pipe operator](@/glossary/pipe-operator.md) without hidden state or lazy loading. Every database interaction is explicit, making data flows transparent and testable.
 
 Ecto's architecture separates concerns into four distinct modules: `Ecto.Schema` defines data shapes and their database mappings, `Ecto.Changeset` handles validation, casting, and constraint checking as a pure data transformation pipeline, `Ecto.Query` builds composable SQL queries using Elixir's macro system, and `Ecto.Repo` manages database connections, transactions, and query execution. This separation means that validation logic can be tested without a database, queries can be built incrementally without execution, and database interactions are always explicit function calls rather than implicit side effects triggered by attribute access.
 
@@ -150,7 +150,7 @@ end
 
 ### Repo
 
-Ecto.Repo is the boundary between the application and the database. It manages connection pools, executes queries, and coordinates transactions. Each Repo is a module that uses `Ecto.Repo` and is started under a [supervision tree](/glossary/supervision-tree/):
+Ecto.Repo is the boundary between the application and the database. It manages connection pools, executes queries, and coordinates transactions. Each Repo is a module that uses `Ecto.Repo` and is started under a [supervision tree](@/glossary/supervision-tree.md):
 
 ```elixir
 defmodule PrismaticStorage.Repo do
@@ -239,11 +239,11 @@ Repo.insert(changeset, prefix: "tenant_acme")
 Ecto.Migrator.run(Repo, migrations_path, :up, prefix: "tenant_acme")
 ```
 
-This approach provides strong isolation guarantees -- each tenant's data lives in a separate [PostgreSQL](/glossary/postgresql/) schema, with cross-tenant queries impossible without explicit prefix specification.
+This approach provides strong isolation guarantees -- each tenant's data lives in a separate [PostgreSQL](@/glossary/postgresql.md) schema, with cross-tenant queries impossible without explicit prefix specification.
 
 ## Context in Prismatic
 
-The Prismatic Platform uses Ecto as its primary interface to [PostgreSQL](/glossary/postgresql/) across multiple umbrella applications. The `prismatic_storage_ecto` adapter implements the platform's storage protocols using Ecto repositories, following the [adapter pattern](/glossary/adapter-pattern/) that allows swapping storage backends without changing business logic.
+The Prismatic Platform uses Ecto as its primary interface to [PostgreSQL](@/glossary/postgresql.md) across multiple umbrella applications. The `prismatic_storage_ecto` adapter implements the platform's storage protocols using Ecto repositories, following the [adapter pattern](@/glossary/adapter-pattern.md) that allows swapping storage backends without changing business logic.
 
 | Application | Ecto Usage |
 |-------------|------------|
@@ -252,11 +252,11 @@ The Prismatic Platform uses Ecto as its primary interface to [PostgreSQL](/gloss
 | **prismatic_agents** | Agent configuration and state persistence |
 | **prismatic_web** | Session storage, user authentication |
 
-Ecto changesets enforce data integrity at the application layer, complementing PostgreSQL constraints. The platform's migration system manages schema evolution across all 90 applications through coordinated Ecto migrations, with [Mix](/glossary/mix/) tasks automating migration execution during deployments.
+Ecto changesets enforce data integrity at the application layer, complementing PostgreSQL constraints. The platform's migration system manages schema evolution across all 90 applications through coordinated Ecto migrations, with [Mix](@/glossary/mix.md) tasks automating migration execution during deployments.
 
 ## Telemetry and Performance
 
-Ecto emits telemetry events for every query execution, enabling comprehensive [observability](/glossary/observability/) without code instrumentation:
+Ecto emits telemetry events for every query execution, enabling comprehensive [observability](@/glossary/observability.md) without code instrumentation:
 
 | Event | Measurements | Use Case |
 |-------|-------------|----------|
@@ -281,25 +281,25 @@ Connection pooling is managed by DBConnection, with pool size configured per Rep
 
 ## Related Terms
 
-- [PostgreSQL](/glossary/postgresql/) - Primary database backend for Ecto in Prismatic
-- [Adapter Pattern](/glossary/adapter-pattern/) - Storage abstraction pattern Ecto enables
-- [Supervision Tree](/glossary/supervision-tree/) - Ecto.Repo runs under OTP supervision
-- [BEAM](/glossary/beam/) - Virtual machine managing Ecto's connection pools
-- [OTP](/glossary/otp/) - Runtime environment Ecto operates within
-- [Mix](/glossary/mix/) - Build tool running Ecto migrations and tasks
-- [Pipe Operator](/glossary/pipe-operator/) - Composition mechanism for Ecto queries and changesets
-- [Phoenix](/glossary/phoenix/) - Web framework commonly paired with Ecto
-- [Connection Pooling](/glossary/connection-pooling/) - Database connection management via DBConnection
-- [Observability](/glossary/observability/) - Telemetry-based query monitoring
-- [Pattern Matching](/glossary/pattern-matching/) - Elixir feature used extensively in Ecto APIs
-- [Immutability](/glossary/immutability/) - Changesets as immutable data transformations
+- [PostgreSQL](@/glossary/postgresql.md) - Primary database backend for Ecto in Prismatic
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Storage abstraction pattern Ecto enables
+- [Supervision Tree](@/glossary/supervision-tree.md) - Ecto.Repo runs under OTP supervision
+- [BEAM](@/glossary/beam.md) - Virtual machine managing Ecto's connection pools
+- [OTP](@/glossary/otp.md) - Runtime environment Ecto operates within
+- [Mix](@/glossary/mix.md) - Build tool running Ecto migrations and tasks
+- [Pipe Operator](@/glossary/pipe-operator.md) - Composition mechanism for Ecto queries and changesets
+- [Phoenix](@/glossary/phoenix.md) - Web framework commonly paired with Ecto
+- [Connection Pooling](@/glossary/connection-pooling.md) - Database connection management via DBConnection
+- [Observability](@/glossary/observability.md) - Telemetry-based query monitoring
+- [Pattern Matching](@/glossary/pattern-matching.md) - Elixir feature used extensively in Ecto APIs
+- [Immutability](@/glossary/immutability.md) - Changesets as immutable data transformations
 
 ## See Also
 
-- [Technologies](/technologies/) - Full technology stack
-- [Architecture](/architecture/) - Platform architecture
-- [Data Pipeline](/glossary/data-pipeline/) - Data processing patterns using Ecto as persistence layer
-- [TimescaleDB](/glossary/timescaledb/) - Time-series extension for PostgreSQL used with Ecto
+- [Technologies](@/technologies/_index.md) - Full technology stack
+- [Architecture](@/architecture/_index.md) - Platform architecture
+- [Data Pipeline](@/glossary/data-pipeline.md) - Data processing patterns using Ecto as persistence layer
+- [TimescaleDB](@/glossary/timescaledb.md) - Time-series extension for PostgreSQL used with Ecto
 
 ---
 
@@ -308,4 +308,4 @@ Connection pooling is managed by DBConnection, with pool size configured per Rep
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

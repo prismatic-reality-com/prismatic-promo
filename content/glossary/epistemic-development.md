@@ -346,24 +346,24 @@ The generational evolution system (currently at Gen 19) uses epistemic developme
 
 Epistemic development is deeply interconnected with several other concepts in the Prismatic Platform ecosystem:
 
-- [Epistemic Validation](/glossary/epistemic-validation/) -- The verification subprocess within epistemic development that ensures individual claims meet required evidence thresholds before acceptance.
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- The logical framework used to derive new knowledge from existing validated beliefs, operating under NABLA axiom constraints.
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The overarching epistemic framework defining the seven non-negotiable axioms that govern all knowledge operations in the platform.
-- [Trinity Gate](/glossary/trinity-gate/) -- The three-layer verification gate (structural, logical, formal) that every epistemic claim must pass before being accepted.
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- The doctrine requiring that conflicting evidence is preserved rather than discarded, ensuring the system never lies to itself.
-- [Signal Plurality](/glossary/signal-plurality/) -- The axiom requiring at least two independent evidence sources for any belief to be considered validated.
-- [Evidence](/glossary/evidence/) -- The fundamental unit of epistemic development: observable, verifiable facts that support or contradict knowledge claims.
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof techniques used as one evidence source within the epistemic development pipeline.
-- [Quality Gates](/glossary/quality-gates/) -- The enforcement mechanism that blocks code progression unless epistemic requirements are met.
-- [Confidence Threshold](/glossary/confidence-threshold/) -- The minimum confidence level required for a belief to be actionable, varying by operational context.
+- [Epistemic Validation](@/glossary/epistemic-validation.md) -- The verification subprocess within epistemic development that ensures individual claims meet required evidence thresholds before acceptance.
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- The logical framework used to derive new knowledge from existing validated beliefs, operating under NABLA axiom constraints.
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The overarching epistemic framework defining the seven non-negotiable axioms that govern all knowledge operations in the platform.
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The three-layer verification gate (structural, logical, formal) that every epistemic claim must pass before being accepted.
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- The doctrine requiring that conflicting evidence is preserved rather than discarded, ensuring the system never lies to itself.
+- [Signal Plurality](@/glossary/signal-plurality.md) -- The axiom requiring at least two independent evidence sources for any belief to be considered validated.
+- [Evidence](@/glossary/evidence.md) -- The fundamental unit of epistemic development: observable, verifiable facts that support or contradict knowledge claims.
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof techniques used as one evidence source within the epistemic development pipeline.
+- [Quality Gates](@/glossary/quality-gates.md) -- The enforcement mechanism that blocks code progression unless epistemic requirements are met.
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- The minimum confidence level required for a belief to be actionable, varying by operational context.
 
 ## See Also
 
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- The concrete implementation of the multi-stage knowledge validation process.
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- The measure of how well a knowledge structure withstands adversarial challenges and evidence updates.
-- [Epistemic Attack](/glossary/epistemic-attack/) -- Adversarial techniques that attempt to compromise the integrity of knowledge structures.
-- [Proves Before Claiming](/glossary/proves-before-claiming/) -- The operational principle that no system output is emitted without prior verification.
-- [Quality DNA](/glossary/quality-dna/) -- The cross-session persistence mechanism for quality state, built on epistemic development principles.
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- The concrete implementation of the multi-stage knowledge validation process.
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- The measure of how well a knowledge structure withstands adversarial challenges and evidence updates.
+- [Epistemic Attack](@/glossary/epistemic-attack.md) -- Adversarial techniques that attempt to compromise the integrity of knowledge structures.
+- [Proves Before Claiming](@/glossary/proves-before-claiming.md) -- The operational principle that no system output is emitted without prior verification.
+- [Quality DNA](@/glossary/quality-dna.md) -- The cross-session persistence mechanism for quality state, built on epistemic development principles.
 
 ---
 
@@ -372,4 +372,4 @@ Epistemic development is deeply interconnected with several other concepts in th
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** -- Building epistemic software systems with 20+ years of engineering experience.
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | Glossary Index
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | Glossary Index

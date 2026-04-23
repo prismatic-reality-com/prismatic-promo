@@ -29,7 +29,7 @@ image_alt = "LiveView UI testing packs - Prismatic Platform"
 glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 +++
 
-# [LiveView](/glossary/liveview/) UI testing packs
+# [LiveView](@/glossary/liveview.md) UI testing packs
 
 > **Domain:** Developer Tooling & Runtime
 > **Classification:** Applied developer experience and
@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-LiveView UI testing packs — An academic treatment of developer experience and runtime system engineering within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **liveview ui testing packs** as implemented within the Prismatic Platform's developer experience and runtime system engineering domain. We formalize the problem space through the lens of abstract syntax tree and language server protocol, propose a multi-agent architecture leveraging [OTP](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates static analysis, symbolic execution, profile-guided optimization to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for developer experience and runtime system engineering.
+LiveView UI testing packs — An academic treatment of developer experience and runtime system engineering within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **liveview ui testing packs** as implemented within the Prismatic Platform's developer experience and runtime system engineering domain. We formalize the problem space through the lens of abstract syntax tree and language server protocol, propose a multi-agent architecture leveraging [OTP](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates static analysis, symbolic execution, profile-guided optimization to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for developer experience and runtime system engineering.
 
 **Keywords:** LiveView, testing, packs, Prismatic-native, Developer, Tooling
 
@@ -115,7 +115,7 @@ The liveview ui testing packs system is implemented as a Prismatic-native applic
 
 ### 3.2 OTP Process Topology
 
-The system leverages [Elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [Elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule LiveviewUiTestingPacks.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -464,19 +464,19 @@ config :prismatic, LiveviewUiTestingPacks,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [LiveView presence metrics](/applications/experimental-labs-ui-demonstrations/liveview-presence-metrics/) — *Experimental Labs Ui Demonstrations*
-- [Experimentation packs](/applications/experimental-labs-ui-demonstrations/experimentation-packs/) — *Experimental Labs Ui Demonstrations*
-- [Smart factory cognitive packs](/applications/engineering-systems-design/smart-factory-cognitive-packs/) — *Engineering Systems Design*
-- [Cross-agent empathy testing](/applications/multi-agent-societies/cross-agent-empathy-testing/) — *Multi Agent Societies*
+- [LiveView presence metrics](@/applications/experimental-labs-ui-demonstrations/liveview-presence-metrics.md) — *Experimental Labs Ui Demonstrations*
+- [Experimentation packs](@/applications/experimental-labs-ui-demonstrations/experimentation-packs.md) — *Experimental Labs Ui Demonstrations*
+- [Smart factory cognitive packs](@/applications/engineering-systems-design/smart-factory-cognitive-packs.md) — *Engineering Systems Design*
+- [Cross-agent empathy testing](@/applications/multi-agent-societies/cross-agent-empathy-testing.md) — *Multi Agent Societies*
 
 
 ## Further Reading
 
-- [Developer Tooling Runtime — All Applications](/applications/developer-tooling-runtime/)
-- [Engineering Systems Design](/applications/engineering-systems-design/)
-- [Documentation Knowledge Systems](/applications/documentation-knowledge-systems/)
-- [Experimental Labs Ui Demonstrations](/applications/experimental-labs-ui-demonstrations/)
-- [Prismatic Application Catalogue](/applications/)
+- [Developer Tooling Runtime — All Applications](@/applications/developer-tooling-runtime/_index.md)
+- [Engineering Systems Design](@/applications/engineering-systems-design/_index.md)
+- [Documentation Knowledge Systems](@/applications/documentation-knowledge-systems/_index.md)
+- [Experimental Labs Ui Demonstrations](@/applications/experimental-labs-ui-demonstrations/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

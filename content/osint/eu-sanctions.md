@@ -31,7 +31,7 @@ For any organization operating within the European Union or dealing with EU-conn
 
 The sanctions list is updated frequently, often within 24 hours of new Council Decisions or Regulations being published in the Official Journal of the European Union. New designations can occur at any time, particularly in response to geopolitical events, making continuous monitoring essential for compliance. The list includes not only individuals and entities but also vessels (ships) subject to port entry restrictions, and designations from multiple regulatory frameworks covering different policy objectives.
 
-Within the Prismatic platform, the EU Sanctions list is a core data source for the compliance screening pipeline, integrated with [OFAC](/osint/ofac/) (US sanctions) to provide dual-jurisdiction coverage essential for entities operating across both EU and US regulatory environments. The combination of EU and US sanctions screening is a minimum requirement for virtually all financial compliance programs.
+Within the Prismatic platform, the EU Sanctions list is a core data source for the compliance screening pipeline, integrated with [OFAC](@/osint/ofac.md) (US sanctions) to provide dual-jurisdiction coverage essential for entities operating across both EU and US regulatory environments. The combination of EU and US sanctions screening is a minimum requirement for virtually all financial compliance programs.
 
 ## Data Sources and Coverage
 
@@ -206,19 +206,19 @@ end
 
 ### KYC/AML Compliance
 
-EU sanctions screening is a mandatory component of Know Your Customer (KYC) and Anti-Money Laundering (AML) programs for all EU-regulated entities. Key compliance workflows include mandatory screening for financial institutions during customer onboarding and periodic review, customer and beneficial owner verification against the consolidated list, ongoing monitoring of existing business relationships with configurable screening frequency, cross-reference with [OFAC](/osint/ofac/) for comprehensive dual-jurisdiction coverage, and automated alert generation for potential matches requiring enhanced due diligence.
+EU sanctions screening is a mandatory component of Know Your Customer (KYC) and Anti-Money Laundering (AML) programs for all EU-regulated entities. Key compliance workflows include mandatory screening for financial institutions during customer onboarding and periodic review, customer and beneficial owner verification against the consolidated list, ongoing monitoring of existing business relationships with configurable screening frequency, cross-reference with [OFAC](@/osint/ofac.md) for comprehensive dual-jurisdiction coverage, and automated alert generation for potential matches requiring enhanced due diligence.
 
 ### Supply Chain Due Diligence
 
-EU sanctions regulations extend beyond financial services to all economic activities. Supply chain applications include vendor and supplier sanctions screening before establishing business relationships, [NIS2](/apps/prismatic-compliance/) supply chain security requirements that include sanctions compliance, third-party risk management incorporating sanctions exposure assessment, monitoring supply chain partners for new designations that may affect existing contracts, and assessing geographic risk for supply chains with exposure to sanctioned jurisdictions.
+EU sanctions regulations extend beyond financial services to all economic activities. Supply chain applications include vendor and supplier sanctions screening before establishing business relationships, [NIS2](@/apps/prismatic-compliance.md) supply chain security requirements that include sanctions compliance, third-party risk management incorporating sanctions exposure assessment, monitoring supply chain partners for new designations that may affect existing contracts, and assessing geographic risk for supply chains with exposure to sanctioned jurisdictions.
 
 ### Corporate Intelligence and Risk Assessment
 
-EU sanctions data provides intelligence for broader corporate risk assessment. Applications include cross-referencing Czech registry data ([ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/)) with sanctions listings, assessing beneficial owner sanctions exposure through [Companies House](/osint/companies-house/) PSC data, geopolitical risk analysis for business operations in sanctioned or near-sanctioned jurisdictions, and monitoring sanctions regime changes for impact on existing business relationships.
+EU sanctions data provides intelligence for broader corporate risk assessment. Applications include cross-referencing Czech registry data ([ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md)) with sanctions listings, assessing beneficial owner sanctions exposure through [Companies House](@/osint/companies-house.md) PSC data, geopolitical risk analysis for business operations in sanctioned or near-sanctioned jurisdictions, and monitoring sanctions regime changes for impact on existing business relationships.
 
 ### Cryptocurrency Compliance
 
-EU sanctions increasingly include cryptocurrency-related designations, particularly related to the Russian sanctions regime. Screening applications include matching cryptocurrency addresses against EU-designated entities, cross-referencing with [Chainalysis](/osint/chainalysis/) for blockchain-based sanctions matching, monitoring for new crypto-specific designations, and assessing cryptocurrency service providers for sanctions compliance.
+EU sanctions increasingly include cryptocurrency-related designations, particularly related to the Russian sanctions regime. Screening applications include matching cryptocurrency addresses against EU-designated entities, cross-referencing with [Chainalysis](@/osint/chainalysis.md) for blockchain-based sanctions matching, monitoring for new crypto-specific designations, and assessing cryptocurrency service providers for sanctions compliance.
 
 ## Data Quality and Validation
 
@@ -234,9 +234,9 @@ De-listings occur when designations are overturned by the EU General Court or wh
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, the EU Sanctions list is integrated as a core compliance data source alongside [OFAC](/osint/ofac/) for dual-jurisdiction sanctions screening. The screening pipeline is invoked automatically during entity verification workflows, triggered by both new entity onboarding and periodic review cycles.
+Within the Prismatic ecosystem, the EU Sanctions list is integrated as a core compliance data source alongside [OFAC](@/osint/ofac.md) for dual-jurisdiction sanctions screening. The screening pipeline is invoked automatically during entity verification workflows, triggered by both new entity onboarding and periodic review cycles.
 
-The [Prismatic Perimeter](/apps/prismatic-perimeter/) security rating engine incorporates sanctions screening results as a critical factor in entity risk assessment. Any sanctions match (exact or potential) triggers maximum risk classification for the affected entity.
+The [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security rating engine incorporates sanctions screening results as a critical factor in entity risk assessment. Any sanctions match (exact or potential) triggers maximum risk classification for the affected entity.
 
 The compliance monitoring system maintains a screening schedule for all monitored entities and triggers re-screening when the sanctions list is updated, ensuring continuous compliance.
 
@@ -268,14 +268,14 @@ The Prismatic adapter maintains a local copy of the sanctions database synchroni
 
 ## Related Resources
 
-- [OFAC](/osint/ofac/) - US Treasury sanctions (SDN list)
-- [ARES](/osint/ares/) - Czech business register for entity identification
-- [Justice.cz](/osint/justice-cz/) - Czech Commercial Register for UBO data
-- [Companies House](/osint/companies-house/) - UK corporate data for cross-border screening
-- [VR.cz](/osint/vr-cz/) - Czech public registers with beneficial owners
-- [Chainalysis](/osint/chainalysis/) - Cryptocurrency sanctions screening
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Sanctions compliance in security ratings
+- [OFAC](@/osint/ofac.md) - US Treasury sanctions (SDN list)
+- [ARES](@/osint/ares.md) - Czech business register for entity identification
+- [Justice.cz](@/osint/justice-cz.md) - Czech Commercial Register for UBO data
+- [Companies House](@/osint/companies-house.md) - UK corporate data for cross-border screening
+- [VR.cz](@/osint/vr-cz.md) - Czech public registers with beneficial owners
+- [Chainalysis](@/osint/chainalysis.md) - Cryptocurrency sanctions screening
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Sanctions compliance in security ratings
 
 ---
 
@@ -284,4 +284,4 @@ The Prismatic adapter maintains a local copy of the sanctions database synchroni
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

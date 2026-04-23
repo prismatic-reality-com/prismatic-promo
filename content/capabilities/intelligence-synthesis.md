@@ -26,7 +26,7 @@ Intelligence Synthesis is the platform capability for aggregating, correlating, 
 
 The synthesis pipeline processes data from 121+ OSINT sources, applying Signal Plurality requirements, Contradiction Preservation protocols, and multi-layer verification before any finding achieves "verified" status. This approach eliminates the common intelligence analysis failure mode of premature convergence on a single narrative.
 
-Intelligence synthesis is not data aggregation. Aggregation collects; synthesis reasons. The platform does not simply merge data from multiple sources into a combined dataset. It resolves entity identities across heterogeneous schemas, detects contradictions between sources, preserves conflicting signals for consumer evaluation, scores confidence based on source reliability and corroboration, and validates conclusions through the [Trinity Gate](/capabilities/trinity-gate/) verification pipeline. The result is intelligence that is traceable, calibrated, and epistemically sound.
+Intelligence synthesis is not data aggregation. Aggregation collects; synthesis reasons. The platform does not simply merge data from multiple sources into a combined dataset. It resolves entity identities across heterogeneous schemas, detects contradictions between sources, preserves conflicting signals for consumer evaluation, scores confidence based on source reliability and corroboration, and validates conclusions through the [Trinity Gate](@/capabilities/trinity-gate.md) verification pipeline. The result is intelligence that is traceable, calibrated, and epistemically sound.
 
 ## Synthesis Pipeline Architecture
 
@@ -48,8 +48,8 @@ Each stage operates as an independent OTP process with backpressure management, 
 | **Collection** | Adapter-specific extraction with rate limiting | Raw structured data | Source availability check |
 | **Normalization** | Schema mapping, encoding normalization, deduplication | Canonical entity records | Schema validation |
 | **Correlation** | Cross-source entity linking, temporal alignment | Correlated entity clusters | Minimum 2-source requirement |
-| **Synthesis** | Evidence fusion, contradiction detection, gap analysis | Intelligence assessments | [NABLA Axioms](/capabilities/nabla-axioms/) compliance |
-| **Verification** | [Trinity Gate](/capabilities/trinity-gate/) passage, peer review, confidence calibration | Verified intelligence products | All 3 Trinity layers pass |
+| **Synthesis** | Evidence fusion, contradiction detection, gap analysis | Intelligence assessments | [NABLA Axioms](@/capabilities/nabla-axioms.md) compliance |
+| **Verification** | [Trinity Gate](@/capabilities/trinity-gate.md) passage, peer review, confidence calibration | Verified intelligence products | All 3 Trinity layers pass |
 | **Reporting** | Structured output with provenance chain | Consumable intelligence reports | Completeness validation |
 
 ## Source Coverage
@@ -64,7 +64,7 @@ The platform collects from 121+ sources organized into five intelligence domains
 | **Security Intel** | 30+ | Threat, vulnerability, exposure | CVE databases, Certificate Transparency |
 | **Financial** | 16+ | AML, crypto, sanctions | Blockchain explorers, PEP lists |
 
-Each source adapter implements a common behavior contract defined by the [AIAD Standard](/capabilities/aiad-standard/), ensuring consistent error handling, rate limiting, and telemetry across all 121+ sources.
+Each source adapter implements a common behavior contract defined by the [AIAD Standard](@/capabilities/aiad-standard.md), ensuring consistent error handling, rate limiting, and telemetry across all 121+ sources.
 
 ## Entity Resolution
 
@@ -146,7 +146,7 @@ The belief graph preserves contradictions rather than resolving them, following 
 
 ## Confidence Framework
 
-Intelligence synthesis follows all 7 [NABLA Axioms](/capabilities/nabla-axioms/) with strict enforcement.
+Intelligence synthesis follows all 7 [NABLA Axioms](@/capabilities/nabla-axioms.md) with strict enforcement.
 
 | Axiom | Synthesis Application | Enforcement |
 |-------|----------------------|-------------|
@@ -217,7 +217,7 @@ end
 
 ## Verification Pipeline
 
-All synthesized intelligence passes through [Trinity Gate](/capabilities/trinity-gate/) verification before achieving "verified" status.
+All synthesized intelligence passes through [Trinity Gate](@/capabilities/trinity-gate.md) verification before achieving "verified" status.
 
 | Gate Layer | Verification | Synthesis Application |
 |------------|-------------|----------------------|
@@ -228,7 +228,7 @@ All synthesized intelligence passes through [Trinity Gate](/capabilities/trinity
 
 ## Agent Infrastructure
 
-Intelligence synthesis is executed by 62+ specialized OSINT agents organized by domain, each operating under [AIAD Standard](/capabilities/aiad-standard/) specifications with full [AIAD Compliance](/capabilities/aiad-compliance/).
+Intelligence synthesis is executed by 62+ specialized OSINT agents organized by domain, each operating under [AIAD Standard](@/capabilities/aiad-standard.md) specifications with full [AIAD Compliance](@/capabilities/aiad-compliance.md).
 
 | Agent Domain | Agent Count | Specialization | Key Capabilities |
 |-------------|-------------|----------------|-----------------|
@@ -253,21 +253,21 @@ Intelligence synthesis is executed by 62+ specialized OSINT agents organized by 
 
 ## Integration
 
-- Validated through [Trinity Gate](/capabilities/trinity-gate/) 4-layer verification for all intelligence products
-- Governed by [NABLA Axioms](/capabilities/nabla-axioms/) epistemic framework for all belief formation
-- Enforces [NO DOUBTS](/capabilities/no-doubts/) evidence standards for all assessments
-- Quality enforced by [NO MERCY](/capabilities/no-mercy/) zero-tolerance standards
-- Agent specifications defined by [AIAD Standard](/capabilities/aiad-standard/) with OSINT-specific capability declarations
-- Compliance verified by [AIAD Compliance](/capabilities/aiad-compliance/) for all 62+ OSINT agents
-- Fed by [Real-Time Monitoring](/capabilities/real-time-monitoring/) for operational intelligence
-- Tracked through [Telemetry Integration](/capabilities/telemetry-integration/) for pipeline performance
-- Supports [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) with domain-specific analytical outputs
-- Security validated by [Color Teams](/capabilities/color-teams/) for pipeline integrity
-- Pipeline quality maintained by [Autonomous Self-Healing](/capabilities/autonomous-self-healing/)
-- [Quality Gates](/capabilities/quality-gates/) enforced at every synthesis pipeline stage
-- [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) enables multi-domain investigation workflows
-- Supports [EASM](/capabilities/easm/) with external attack surface intelligence
-- Supports [Compliance](/capabilities/compliance/) with regulatory assessment data
+- Validated through [Trinity Gate](@/capabilities/trinity-gate.md) 4-layer verification for all intelligence products
+- Governed by [NABLA Axioms](@/capabilities/nabla-axioms.md) epistemic framework for all belief formation
+- Enforces [NO DOUBTS](@/capabilities/no-doubts.md) evidence standards for all assessments
+- Quality enforced by [NO MERCY](@/capabilities/no-mercy.md) zero-tolerance standards
+- Agent specifications defined by [AIAD Standard](@/capabilities/aiad-standard.md) with OSINT-specific capability declarations
+- Compliance verified by [AIAD Compliance](@/capabilities/aiad-compliance.md) for all 62+ OSINT agents
+- Fed by [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) for operational intelligence
+- Tracked through [Telemetry Integration](@/capabilities/telemetry-integration.md) for pipeline performance
+- Supports [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) with domain-specific analytical outputs
+- Security validated by [Color Teams](@/capabilities/color-teams.md) for pipeline integrity
+- Pipeline quality maintained by [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md)
+- [Quality Gates](@/capabilities/quality-gates.md) enforced at every synthesis pipeline stage
+- [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) enables multi-domain investigation workflows
+- Supports [EASM](@/capabilities/easm.md) with external attack surface intelligence
+- Supports [Compliance](@/capabilities/compliance.md) with regulatory assessment data
 
 ---
 
@@ -276,4 +276,4 @@ Intelligence synthesis is executed by 62+ specialized OSINT agents organized by 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

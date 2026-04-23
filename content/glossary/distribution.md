@@ -35,9 +35,9 @@ see_also = ["capabilities", "architecture", "technologies"]
 
 ## Definition
 
-A statistical distribution describes how values in a dataset are spread across the possible range, characterized by measures of central tendency ([mean](/glossary/mean/), [median](/glossary/median/), mode), dispersion ([variance](/glossary/variance/), [standard deviation](/glossary/standard-deviation/), IQR), and shape (skewness, kurtosis). Understanding distributions is fundamental to data analysis because it determines which analytical methods are valid, how to detect [anomalies](/glossary/anomaly/), and what constitutes "normal" behavior in a system.
+A statistical distribution describes how values in a dataset are spread across the possible range, characterized by measures of central tendency ([mean](@/glossary/mean.md), [median](@/glossary/median.md), mode), dispersion ([variance](@/glossary/variance.md), [standard deviation](@/glossary/standard-deviation.md), IQR), and shape (skewness, kurtosis). Understanding distributions is fundamental to data analysis because it determines which analytical methods are valid, how to detect [anomalies](@/glossary/anomaly.md), and what constitutes "normal" behavior in a system.
 
-In the context of platform [monitoring](/glossary/monitoring/) and intelligence analysis, distribution analysis enables anomaly detection (values far from expected distribution), threshold setting (based on [percentiles](/glossary/percentile/) rather than absolute values), and quality assessment (verifying that metrics follow expected patterns). The choice of distribution model determines whether your analytics produce reliable insights or misleading conclusions.
+In the context of platform [monitoring](@/glossary/monitoring.md) and intelligence analysis, distribution analysis enables anomaly detection (values far from expected distribution), threshold setting (based on [percentiles](@/glossary/percentile.md) rather than absolute values), and quality assessment (verifying that metrics follow expected patterns). The choice of distribution model determines whether your analytics produce reliable insights or misleading conclusions.
 
 ## Overview
 
@@ -467,7 +467,7 @@ end
 ## Best Practices
 
 1. **Characterize distributions before applying analytics** -- methods assuming normality produce incorrect results on skewed data. Always visualize first with [histograms](/glossary/histogram/).
-2. **Use percentiles instead of standard deviations for non-normal data** -- IQR-based thresholds are robust to [outliers](/glossary/outlier/). The PERF doctrine mandates P95/P99, not means.
+2. **Use percentiles instead of standard deviations for non-normal data** -- IQR-based thresholds are robust to [outliers](@/glossary/outlier.md). The PERF doctrine mandates P95/P99, not means.
 3. **Monitor distribution changes over time** -- distribution drift indicates system behavior changes that may warrant investigation.
 4. **Match anomaly detection to distribution type** -- z-scores for normal data, IQR fencing for skewed data, power law analysis for heavy-tailed data.
 5. **Use appropriate sample sizes** -- distribution estimation requires sufficient data points. Rule of thumb: 30+ for central tendency, 100+ for shape, 1000+ for tail behavior.
@@ -487,26 +487,26 @@ end
 
 ## Related Terms
 
-- [Mean](/glossary/mean/) -- central tendency measure sensitive to distribution shape
-- [Median](/glossary/median/) -- robust central tendency for skewed distributions
-- [Percentile](/glossary/percentile/) -- distribution-based thresholds for monitoring
-- [Variance](/glossary/variance/) -- measure of spread around the mean
-- [Standard Deviation](/glossary/standard-deviation/) -- square root of variance, same units as data
+- [Mean](@/glossary/mean.md) -- central tendency measure sensitive to distribution shape
+- [Median](@/glossary/median.md) -- robust central tendency for skewed distributions
+- [Percentile](@/glossary/percentile.md) -- distribution-based thresholds for monitoring
+- [Variance](@/glossary/variance.md) -- measure of spread around the mean
+- [Standard Deviation](@/glossary/standard-deviation.md) -- square root of variance, same units as data
 - [Histogram](/glossary/histogram/) -- visual representation of distribution shape
-- [Outlier](/glossary/outlier/) -- extreme values identified by distribution analysis
-- [IQR](/glossary/iqr/) -- interquartile range measuring distribution spread
-- [Anomaly](/glossary/anomaly/) -- unusual values detected via distribution analysis
-- [Data Quality](/glossary/data-quality/) -- quality metrics analyzed through distributions
-- [Telemetry](/glossary/telemetry/) -- metric collection feeding distribution analysis
-- [Monitoring](/glossary/monitoring/) -- observability systems using distribution-aware alerting
-- [KPI](/glossary/kpi/) -- key performance indicators whose distributions reveal system health
+- [Outlier](@/glossary/outlier.md) -- extreme values identified by distribution analysis
+- [IQR](@/glossary/iqr.md) -- interquartile range measuring distribution spread
+- [Anomaly](@/glossary/anomaly.md) -- unusual values detected via distribution analysis
+- [Data Quality](@/glossary/data-quality.md) -- quality metrics analyzed through distributions
+- [Telemetry](@/glossary/telemetry.md) -- metric collection feeding distribution analysis
+- [Monitoring](@/glossary/monitoring.md) -- observability systems using distribution-aware alerting
+- [KPI](@/glossary/kpi.md) -- key performance indicators whose distributions reveal system health
 - [Benchee](/glossary/benchee/) -- benchmarking library that reports distribution statistics
-- [F1 Score](/glossary/f1-score/) -- classification metric with known distributions
+- [F1 Score](@/glossary/f1-score.md) -- classification metric with known distributions
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- analytics capabilities using distribution analysis
-- [Architecture](/architecture/) -- data analysis and telemetry architecture
+- [Capabilities](@/capabilities/_index.md) -- analytics capabilities using distribution analysis
+- [Architecture](@/architecture/_index.md) -- data analysis and telemetry architecture
 - [Quality Gates](/quality/) -- quality scoring based on metric distributions
 
 ---
@@ -516,4 +516,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

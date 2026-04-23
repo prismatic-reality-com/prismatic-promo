@@ -421,26 +421,26 @@ end
 
 ## Related Terms
 
-- [Memory](/glossary/memory/) -- BEAM memory architecture being profiled
-- [Memory Leak](/glossary/memory-leak/) -- the primary target of memory profiling investigation
-- [Profiling](/glossary/profiling/) -- general profiling including CPU, memory, and I/O
-- [Process](/glossary/process/) -- individual BEAM processes whose memory is profiled
-- [ETS](/glossary/ets/) -- Erlang Term Storage tables with independent memory accounting
-- [Binary](/glossary/binary/) -- shared binary heap and reference counting mechanism
+- [Memory](@/glossary/memory.md) -- BEAM memory architecture being profiled
+- [Memory Leak](@/glossary/memory-leak.md) -- the primary target of memory profiling investigation
+- [Profiling](@/glossary/profiling.md) -- general profiling including CPU, memory, and I/O
+- [Process](@/glossary/process.md) -- individual BEAM processes whose memory is profiled
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage tables with independent memory accounting
+- [Binary](@/glossary/binary.md) -- shared binary heap and reference counting mechanism
 - [Garbage Collection](/glossary/garbage-collection/) -- per-process GC that reclaims heap memory
-- [Named Table](/glossary/named-table/) -- ETS tables identified by atom for profiling
-- [Observer](/glossary/observer/) -- GUI development tool for memory visualization
+- [Named Table](@/glossary/named-table.md) -- ETS tables identified by atom for profiling
+- [Observer](@/glossary/observer.md) -- GUI development tool for memory visualization
 - [Recon](/glossary/recon/) -- production-safe profiling library for BEAM systems
-- [Heap](/glossary/heap/) -- per-process memory region managed by generational GC
+- [Heap](@/glossary/heap.md) -- per-process memory region managed by generational GC
 - [Allocator](/glossary/allocator/) -- BEAM's multi-tier memory allocation system
 
 ## See Also
 
-- [Architecture](/architecture/) -- observability and profiling architecture
-- [Capabilities](/capabilities/) -- performance analysis capabilities
+- [Architecture](@/architecture/_index.md) -- observability and profiling architecture
+- [Capabilities](@/capabilities/_index.md) -- performance analysis capabilities
 - [Performance Testing](/performance/) -- systematic performance validation
-- [OSINT Toolbox](/osint/) -- binary leak investigation case study
-- [DD Pipeline](/dd/) -- batch memory optimization case study
+- [OSINT Toolbox](@/osint/_index.md) -- binary leak investigation case study
+- [DD Pipeline](@/dd/_index.md) -- batch memory optimization case study
 
 ---
 
@@ -449,4 +449,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

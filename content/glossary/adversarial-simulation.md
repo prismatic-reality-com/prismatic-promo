@@ -396,10 +396,10 @@ The Red Team commander (`red-commander`) orchestrates adversarial simulation cam
 
 Adversarial simulation integrates with multiple platform systems:
 
-- **[NABLA Infinity](/glossary/nabla-infinity/)**: Scenarios test axiom compliance under adversarial pressure. Signal poisoning tests Signal Plurality. Evidence manipulation tests Contradiction Preservation. Replay attacks test Time Decay.
-- **[Trinity Gate](/glossary/trinity-gate/)**: Scenarios attempt to pass manipulated beliefs through all three verification layers. Success indicates a Trinity Gate weakness.
-- **[Addiction Recovery](/glossary/addiction-recovery/)**: Drift induction scenarios test the Vigilance Monitor's ability to detect gradual rationalization patterns.
-- **[Prismatic Perimeter](/glossary/easm/)**: Scenarios test whether security ratings can be artificially manipulated through evidence injection.
+- **[NABLA Infinity](@/glossary/nabla-infinity.md)**: Scenarios test axiom compliance under adversarial pressure. Signal poisoning tests Signal Plurality. Evidence manipulation tests Contradiction Preservation. Replay attacks test Time Decay.
+- **[Trinity Gate](@/glossary/trinity-gate.md)**: Scenarios attempt to pass manipulated beliefs through all three verification layers. Success indicates a Trinity Gate weakness.
+- **[Addiction Recovery](@/glossary/addiction-recovery.md)**: Drift induction scenarios test the Vigilance Monitor's ability to detect gradual rationalization patterns.
+- **[Prismatic Perimeter](@/glossary/easm.md)**: Scenarios test whether security ratings can be artificially manipulated through evidence injection.
 - **Quality Gates**: Simulation results feed into quality gate assessments, blocking releases that fail adversarial resilience criteria.
 
 ### Telemetry and Reporting
@@ -483,26 +483,26 @@ The regression selection strategy identifies scenarios that previously bypassed 
 
 ## Related Concepts
 
-- [Red Team](/glossary/red-team/) -- Primary executor of adversarial simulations using 5 epistemic attack primitives
-- [Blue Team](/glossary/blue-team/) -- Defensive team whose posture is tested and calibrated through simulations
-- [Purple Team](/glossary/purple-team/) -- Synthesis hub processing simulation findings into defensive improvements
-- [Black Team](/glossary/black-team/) -- Theoretical threat modeling that feeds simulation scenario design
-- [Gray Team](/glossary/gray-team/) -- Boundary exploration providing seeds for simulation scenarios
-- [Color Teams](/glossary/color-teams/) -- Complete color team framework overview
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Infrastructure resilience testing with complementary scope
-- [Penetration Testing](/glossary/penetration-testing/) -- Traditional security testing subsumed by adversarial simulation
-- [Attack Surface](/glossary/attack-surface/) -- The target domain assessed through simulation campaigns
-- [Adversarial Architecture](/glossary/adversarial-architecture/) -- Design methodology that adversarial simulation validates
-- [Adversarial Conditions](/glossary/adversarial-conditions/) -- Operating environments simulated through controlled scenarios
-- [Adversarial Drift](/glossary/adversarial-drift/) -- Specific threat type tested through drift induction scenarios
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework validated through axiom stress testing
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate tested through bypass attempt scenarios
+- [Red Team](@/glossary/red-team.md) -- Primary executor of adversarial simulations using 5 epistemic attack primitives
+- [Blue Team](@/glossary/blue-team.md) -- Defensive team whose posture is tested and calibrated through simulations
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis hub processing simulation findings into defensive improvements
+- [Black Team](@/glossary/black-team.md) -- Theoretical threat modeling that feeds simulation scenario design
+- [Gray Team](@/glossary/gray-team.md) -- Boundary exploration providing seeds for simulation scenarios
+- [Color Teams](@/glossary/color-teams.md) -- Complete color team framework overview
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Infrastructure resilience testing with complementary scope
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Traditional security testing subsumed by adversarial simulation
+- [Attack Surface](@/glossary/attack-surface.md) -- The target domain assessed through simulation campaigns
+- [Adversarial Architecture](@/glossary/adversarial-architecture.md) -- Design methodology that adversarial simulation validates
+- [Adversarial Conditions](@/glossary/adversarial-conditions.md) -- Operating environments simulated through controlled scenarios
+- [Adversarial Drift](@/glossary/adversarial-drift.md) -- Specific threat type tested through drift induction scenarios
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework validated through axiom stress testing
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate tested through bypass attempt scenarios
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Agents](/agents/) -- Full agent catalog including all 20 color team simulation agents
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Agents](@/agents/_index.md) -- Full agent catalog including all 20 color team simulation agents
 
 ---
 
@@ -511,4 +511,4 @@ The regression selection strategy identifies scenarios that previously bypassed 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

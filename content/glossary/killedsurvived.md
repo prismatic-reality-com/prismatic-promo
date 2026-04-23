@@ -194,11 +194,11 @@ Survived mutants in security-critical code paths are treated as P0 issues requir
 
 ## Cross-References
 
-- [Mutation Testing](/glossary/mutation-testing/) - The broader testing methodology
-- [Mutant](/glossary/mutant/) - The modified code unit being evaluated
+- [Mutation Testing](@/glossary/mutation-testing.md) - The broader testing methodology
+- [Mutant](@/glossary/mutant.md) - The modified code unit being evaluated
 - **Mutation Score** - Aggregate metric computed from kill/survive ratios
-- [Test Coverage](/glossary/test-coverage/) - Complementary but weaker quality metric
-- [Property-Based Testing](/glossary/property-based-testing/) - Alternative test quality technique
+- [Test Coverage](@/glossary/test-coverage.md) - Complementary but weaker quality metric
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Alternative test quality technique
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

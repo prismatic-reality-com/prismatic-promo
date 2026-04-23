@@ -45,7 +45,7 @@ Unlike simple key-value caches such as Memcached, Redis provides a rich collecti
 
 Redis also supports optional persistence through RDB (point-in-time snapshots) and AOF (append-only file logging), enabling data survival across restarts. For high availability, Redis Sentinel provides automatic failover monitoring, while Redis Cluster offers horizontal sharding across multiple nodes with automatic partition tolerance. These features position Redis as both an ephemeral acceleration layer and, when configured appropriately, a durable data store for specific workloads.
 
-Within the Prismatic Platform, Redis serves as a high-speed acceleration layer complementing [PostgreSQL](/glossary/postgresql/) for persistent storage and [ETS](/glossary/ets/) for node-local caching. It handles cross-node communication, distributed state, rate limiting, and session management -- workloads where sub-millisecond latency and atomic operations are essential.
+Within the Prismatic Platform, Redis serves as a high-speed acceleration layer complementing [PostgreSQL](@/glossary/postgresql.md) for persistent storage and [ETS](@/glossary/ets.md) for node-local caching. It handles cross-node communication, distributed state, rate limiting, and session management -- workloads where sub-millisecond latency and atomic operations are essential.
 
 ## Historical Context and Evolution
 
@@ -72,7 +72,7 @@ Redis's power derives from its native data structures, each optimized for specif
 
 ## Caching Patterns
 
-Redis excels as a caching layer, and several established patterns govern how caches interact with primary data stores like [PostgreSQL](/glossary/postgresql/).
+Redis excels as a caching layer, and several established patterns govern how caches interact with primary data stores like [PostgreSQL](@/glossary/postgresql.md).
 
 **Cache-Aside (Lazy Loading)** is the most common pattern: the application checks Redis first, and on a cache miss, queries the primary database, stores the result in Redis with a TTL (time-to-live), and returns the data. This pattern ensures Redis only contains data that has actually been requested, minimizing memory usage.
 
@@ -142,11 +142,11 @@ defmodule PrismaticCache do
 end
 ```
 
-**Cache Invalidation** remains one of the hardest problems in [distributed systems](/glossary/distributed-system/). Common strategies include TTL-based expiry (simple but allows stale reads), event-driven invalidation (accurate but complex), and versioned keys (append version numbers to cache keys, increment on mutation).
+**Cache Invalidation** remains one of the hardest problems in [distributed systems](@/glossary/distributed-system.md). Common strategies include TTL-based expiry (simple but allows stale reads), event-driven invalidation (accurate but complex), and versioned keys (append version numbers to cache keys, increment on mutation).
 
 ## Pub/Sub Messaging
 
-Redis includes a built-in [publish-subscribe](/glossary/pubsub/) messaging system that enables real-time communication between processes. Publishers send messages to named channels, and all subscribers listening on those channels receive the messages instantly. Unlike Redis's data structures, Pub/Sub messages are fire-and-forget -- they are not persisted, and subscribers who are not connected at the time of publication will miss the message.
+Redis includes a built-in [publish-subscribe](@/glossary/pubsub.md) messaging system that enables real-time communication between processes. Publishers send messages to named channels, and all subscribers listening on those channels receive the messages instantly. Unlike Redis's data structures, Pub/Sub messages are fire-and-forget -- they are not persisted, and subscribers who are not connected at the time of publication will miss the message.
 
 ```elixir
 defmodule PrismaticPubSub.RedisTransport do
@@ -230,10 +230,10 @@ end
 
 Beyond sessions and rate limiting, Redis manages several categories of ephemeral state:
 
-- **Distributed Locks**: The Redlock algorithm coordinates exclusive access across [distributed system](/glossary/distributed-system/) nodes
+- **Distributed Locks**: The Redlock algorithm coordinates exclusive access across [distributed system](@/glossary/distributed-system.md) nodes
 - **Feature Flags**: Simple key-value toggles with instant propagation across all application instances
 - **Temporary Tokens**: One-time-use tokens (password reset, email verification) with automatic expiry
-- **[Backpressure](/glossary/backpressure/) Counters**: Atomic counters tracking queue depth for flow control decisions
+- **[Backpressure](@/glossary/backpressure.md) Counters**: Atomic counters tracking queue depth for flow control decisions
 
 ## Persistence and Durability
 
@@ -266,21 +266,21 @@ Redis offers two complementary high-availability solutions:
 
 ## Usage in Prismatic Platform
 
-The Prismatic Platform uses Redis as a high-speed acceleration layer complementing [PostgreSQL](/glossary/postgresql/) as the primary persistent store and [ETS](/glossary/ets/) for node-local caching.
+The Prismatic Platform uses Redis as a high-speed acceleration layer complementing [PostgreSQL](@/glossary/postgresql.md) as the primary persistent store and [ETS](@/glossary/ets.md) for node-local caching.
 
 **API Response Caching**: The `prismatic_api` application caches endpoint discovery results in Redis, avoiding recomputation of expensive module introspection on every request. Cache entries carry TTLs aligned with deployment cycles, and cache invalidation triggers on application restarts.
 
 **Rate Limiting**: API gateway rate limiting uses Redis atomic counters with sliding window algorithms, protecting backend services from traffic spikes while providing per-client fairness guarantees.
 
-**Distributed PubSub Transport**: Redis Pub/Sub serves as a transport layer for [Phoenix.PubSub](/glossary/pubsub/) in multi-node deployments, enabling real-time event propagation across [cluster](/glossary/cluster/) nodes. LiveView dashboard updates, agent state changes, and security alerts broadcast through Redis-backed PubSub channels.
+**Distributed PubSub Transport**: Redis Pub/Sub serves as a transport layer for [Phoenix.PubSub](@/glossary/pubsub.md) in multi-node deployments, enabling real-time event propagation across [cluster](@/glossary/cluster.md) nodes. LiveView dashboard updates, agent state changes, and security alerts broadcast through Redis-backed PubSub channels.
 
 **Session Storage**: Web sessions for the LiveView dashboards are stored in Redis with automatic expiry, keeping session data close to the application tier for minimal lookup latency.
 
-**Ephemeral State**: Temporary computation results, [backpressure](/glossary/backpressure/) counters, and coordination tokens that do not warrant database persistence reside in Redis with appropriate TTLs.
+**Ephemeral State**: Temporary computation results, [backpressure](@/glossary/backpressure.md) counters, and coordination tokens that do not warrant database persistence reside in Redis with appropriate TTLs.
 
-**[OSINT](/glossary/osint/) Provider Rate Tracking**: Intelligence collection pipelines use Redis counters to track per-provider API usage against rate limits, preventing throttling and account suspension.
+**[OSINT](@/glossary/osint.md) Provider Rate Tracking**: Intelligence collection pipelines use Redis counters to track per-provider API usage against rate limits, preventing throttling and account suspension.
 
-The platform manages Redis connections through a [connection pool](/glossary/connection-pooling/) supervised by OTP, ensuring that connection failures are isolated and automatically recovered without affecting other platform components.
+The platform manages Redis connections through a [connection pool](@/glossary/connection-pooling.md) supervised by OTP, ensuring that connection failures are isolated and automatically recovered without affecting other platform components.
 
 ## Performance Characteristics
 
@@ -296,7 +296,7 @@ Redis's single-threaded execution model eliminates locking overhead and ensures 
 
 ## Redis vs ETS Comparison
 
-Both Redis and [ETS (Erlang Term Storage)](/glossary/ets/) serve as in-memory data stores in the Prismatic Platform, but they address different requirements:
+Both Redis and [ETS (Erlang Term Storage)](@/glossary/ets.md) serve as in-memory data stores in the Prismatic Platform, but they address different requirements:
 
 | Aspect | Redis | ETS |
 |--------|-------|-----|
@@ -323,7 +323,7 @@ The platform uses ETS for high-frequency, node-local lookups (agent registries, 
 
 ## Common Pitfalls
 
-- **Using Redis as a primary database.** Redis is optimized for speed, not durability. Even with AOF persistence, it lacks the ACID guarantees, query capabilities, and data integrity features of [PostgreSQL](/glossary/postgresql/).
+- **Using Redis as a primary database.** Redis is optimized for speed, not durability. Even with AOF persistence, it lacks the ACID guarantees, query capabilities, and data integrity features of [PostgreSQL](@/glossary/postgresql.md).
 
 - **Storing large objects.** Redis strings can hold up to 512MB, but large values increase memory fragmentation and slow down persistence operations. Keep values small and use reference patterns for large data.
 
@@ -331,28 +331,28 @@ The platform uses ETS for high-frequency, node-local lookups (agent registries, 
 
 - **Using KEYS in production.** The `KEYS` command scans all keys and blocks the server during execution. Use `SCAN` for production key enumeration.
 
-- **Neglecting connection pooling.** Each Redis connection consumes server resources. Use [connection pooling](/glossary/connection-pooling/) to limit concurrent connections and efficiently share them across processes.
+- **Neglecting connection pooling.** Each Redis connection consumes server resources. Use [connection pooling](@/glossary/connection-pooling.md) to limit concurrent connections and efficiently share them across processes.
 
 ## Related Terms
 
-- [PostgreSQL](/glossary/postgresql/) - Primary persistent database that Redis accelerates through caching
-- [ETS](/glossary/ets/) - Node-local in-memory store complementing Redis for BEAM-local data
-- [PubSub](/glossary/pubsub/) - Messaging pattern that Redis implements as a transport layer
-- [Connection Pooling](/glossary/connection-pooling/) - Pool management for Redis client connections
-- [Cluster](/glossary/cluster/) - Distributed deployment topology Redis supports natively
-- [Backpressure](/glossary/backpressure/) - Flow control mechanism using Redis counters
-- [Distributed System](/glossary/distributed-system/) - Architecture pattern requiring shared state management
-- [Rate Limiting](/glossary/rate-limiting/) - Traffic control implemented with Redis atomic operations
-- [Circuit Breaker](/glossary/circuit-breaker/) - Fault tolerance pattern applied to Redis connections
-- [Message Passing](/glossary/message-passing/) - Communication paradigm that Redis Pub/Sub extends across network boundaries
-- [Event Sourcing](/glossary/event-sourcing/) - Pattern implementable with Redis Streams
-- [OSINT](/glossary/osint/) - Intelligence collection using Redis for rate tracking
+- [PostgreSQL](@/glossary/postgresql.md) - Primary persistent database that Redis accelerates through caching
+- [ETS](@/glossary/ets.md) - Node-local in-memory store complementing Redis for BEAM-local data
+- [PubSub](@/glossary/pubsub.md) - Messaging pattern that Redis implements as a transport layer
+- [Connection Pooling](@/glossary/connection-pooling.md) - Pool management for Redis client connections
+- [Cluster](@/glossary/cluster.md) - Distributed deployment topology Redis supports natively
+- [Backpressure](@/glossary/backpressure.md) - Flow control mechanism using Redis counters
+- [Distributed System](@/glossary/distributed-system.md) - Architecture pattern requiring shared state management
+- [Rate Limiting](@/glossary/rate-limiting.md) - Traffic control implemented with Redis atomic operations
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Fault tolerance pattern applied to Redis connections
+- [Message Passing](@/glossary/message-passing.md) - Communication paradigm that Redis Pub/Sub extends across network boundaries
+- [Event Sourcing](@/glossary/event-sourcing.md) - Pattern implementable with Redis Streams
+- [OSINT](@/glossary/osint.md) - Intelligence collection using Redis for rate tracking
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture and data flow patterns
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Applications consuming Redis services
+- [Architecture](@/architecture/_index.md) -- Platform architecture and data flow patterns
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Applications consuming Redis services
 
 ---
 
@@ -361,4 +361,4 @@ The platform uses ETS for high-frequency, node-local lookups (agent registries, 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

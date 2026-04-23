@@ -44,7 +44,7 @@ In the Prismatic Platform, autonomous operation is built on the foundation of Er
 
 Traditional software operations depend on human operators for monitoring, incident response, and recovery. Even with sophisticated alerting systems, the loop is human-mediated: alert fires, human investigates, human decides response, human applies fix. This loop introduces latency (minutes to hours), inconsistency (different operators make different decisions), and availability gaps (humans sleep, take breaks, get distracted).
 
-Autonomous operation eliminates the human from the operational loop for routine scenarios. The system monitors itself through [Telemetry](/glossary/telemetry/) instrumentation, detects anomalies through health checks and drift detection, diagnoses issues through automated root cause analysis, and applies corrections through self-healing pipelines. Humans remain in the loop for novel situations that exceed the system's autonomous capabilities, but the vast majority of operational events are handled without human awareness.
+Autonomous operation eliminates the human from the operational loop for routine scenarios. The system monitors itself through [Telemetry](@/glossary/telemetry.md) instrumentation, detects anomalies through health checks and drift detection, diagnoses issues through automated root cause analysis, and applies corrections through self-healing pipelines. Humans remain in the loop for novel situations that exceed the system's autonomous capabilities, but the vast majority of operational events are handled without human awareness.
 
 The Prismatic Platform achieves autonomous operation through five interlocking systems:
 
@@ -534,7 +534,7 @@ Placing all processes under a single supervisor, losing the containment benefits
 
 ### Production Deployment Recovery
 
-When the platform deploys to Fly.io (`prismatic-prod.fly.dev`), the supervision tree ensures that any process crash during deployment is automatically recovered. If a [GenServer](/glossary/genserver/) fails to initialize due to a transient dependency issue, the supervisor retries according to its restart strategy.
+When the platform deploys to Fly.io (`prismatic-prod.fly.dev`), the supervision tree ensures that any process crash during deployment is automatically recovered. If a [GenServer](@/glossary/genserver.md) fails to initialize due to a transient dependency issue, the supervisor retries according to its restart strategy.
 
 ### Agent Pool Management
 
@@ -542,7 +542,7 @@ The platform's 530+ agents are managed through DynamicSupervisors that start and
 
 ### Database Connection Recovery
 
-When PostgreSQL connections drop (network hiccup, server restart), the [Ecto](/glossary/ets/) connection pool detects the failure, the circuit breaker trips to prevent request queueing, and the health monitor tracks recovery. Once connections are re-established, the circuit breaker transitions to half-open and then closed.
+When PostgreSQL connections drop (network hiccup, server restart), the [Ecto](@/glossary/ets.md) connection pool detects the failure, the circuit breaker trips to prevent request queueing, and the health monitor tracks recovery. Once connections are re-established, the circuit breaker transitions to half-open and then closed.
 
 ### Session Lifecycle Protection
 
@@ -550,25 +550,25 @@ The SessionLifecycle GenServer operates with circuit breaker protection on all h
 
 ## Related Concepts
 
-- [Autonomous Agent](/glossary/autonomous-agent/) -- Software entities that operate autonomously within the platform
-- [Self-Healing](/glossary/self-healing/) -- Automated detection and remediation of operational issues
-- [Health Monitoring](/glossary/health-monitoring/) -- Continuous assessment of component and system health
-- [AutoHeal](/glossary/autoheal/) -- Prismatic's concrete self-healing implementation
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System ability to continue operating despite component failures
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP hierarchical process supervision architecture
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern for isolating failing components
-- [GenServer](/glossary/genserver/) -- OTP behavior implementing stateful server processes
-- [OTP](/glossary/otp/) -- The Open Telecom Platform providing the foundation for autonomous operation
-- [Telemetry](/glossary/telemetry/) -- Metrics and event infrastructure enabling operational observability
-- [ETS](/glossary/ets/) -- In-memory storage used by health monitors and circuit breakers
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Quality monitoring component of autonomous operation
+- [Autonomous Agent](@/glossary/autonomous-agent.md) -- Software entities that operate autonomously within the platform
+- [Self-Healing](@/glossary/self-healing.md) -- Automated detection and remediation of operational issues
+- [Health Monitoring](@/glossary/health-monitoring.md) -- Continuous assessment of component and system health
+- [AutoHeal](@/glossary/autoheal.md) -- Prismatic's concrete self-healing implementation
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System ability to continue operating despite component failures
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP hierarchical process supervision architecture
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern for isolating failing components
+- [GenServer](@/glossary/genserver.md) -- OTP behavior implementing stateful server processes
+- [OTP](@/glossary/otp.md) -- The Open Telecom Platform providing the foundation for autonomous operation
+- [Telemetry](@/glossary/telemetry.md) -- Metrics and event infrastructure enabling operational observability
+- [ETS](@/glossary/ets.md) -- In-memory storage used by health monitors and circuit breakers
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Quality monitoring component of autonomous operation
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform supervision and operational architecture
-- [Technologies](/technologies/) -- OTP and Elixir technologies enabling autonomous operation
-- [Capabilities](/capabilities/) -- Platform autonomy capabilities overview
-- [Apps](/apps/) -- Umbrella applications managed by autonomous operation
+- [Architecture](@/architecture/_index.md) -- Platform supervision and operational architecture
+- [Technologies](@/technologies/_index.md) -- OTP and Elixir technologies enabling autonomous operation
+- [Capabilities](@/capabilities/_index.md) -- Platform autonomy capabilities overview
+- [Apps](@/apps/_index.md) -- Umbrella applications managed by autonomous operation
 
 ---
 
@@ -577,4 +577,4 @@ The SessionLifecycle GenServer operates with circuit breaker protection on all h
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

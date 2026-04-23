@@ -24,11 +24,11 @@ image_alt = "/auto - Prismatic Platform"
 
 ## Overview
 
-The **/auto** command is the intelligent autonomous evolution engine at the heart of the Prismatic Platform's self-improvement infrastructure. Designed for zero-human-intervention operation, it automatically scans the codebase for improvement opportunities, prioritizes them by impact and risk, implements safe changes, and verifies that all quality gates pass before committing results. This is the foundational command in the platform's three-tier autonomous development hierarchy, with [/auto-pro](/commands/auto-pro/) and [/auto-ultimate](/commands/auto-ultimate/) building progressively more sophisticated capabilities on top of its core architecture.
+The **/auto** command is the intelligent autonomous evolution engine at the heart of the Prismatic Platform's self-improvement infrastructure. Designed for zero-human-intervention operation, it automatically scans the codebase for improvement opportunities, prioritizes them by impact and risk, implements safe changes, and verifies that all quality gates pass before committing results. This is the foundational command in the platform's three-tier autonomous development hierarchy, with [/auto-pro](@/commands/auto-pro.md) and [/auto-ultimate](@/commands/auto-ultimate.md) building progressively more sophisticated capabilities on top of its core architecture.
 
 The philosophy behind /auto is rooted in the observation that software platforms accumulate technical debt, quality inconsistencies, and optimization opportunities at a rate that exceeds what manual review processes can address. Rather than relying exclusively on human-initiated improvement cycles, the /auto command operates as a continuous improvement engine that can be invoked at any time to autonomously identify and implement beneficial changes. It achieves this through a four-phase cycle: analysis, planning, implementation, and validation.
 
-Operating at the highest authority level (COSMIC - [ARCHER SUPREME](/glossary/archer-supreme/)), the /auto command has full platform access and is executed by the `auto-intelligence-engine` agent. This elevated authority is necessary because autonomous evolution may touch any application within the 90-app umbrella, requiring cross-boundary read and write permissions. The command is classified as high-usage within the platform's 216-command [registry](/glossary/registry-otp/) and is integral to the mandatory Universal Autonomous Evolution Protocol that runs at every session boundary.
+Operating at the highest authority level (COSMIC - [ARCHER SUPREME](@/glossary/archer-supreme.md)), the /auto command has full platform access and is executed by the `auto-intelligence-engine` agent. This elevated authority is necessary because autonomous evolution may touch any application within the 90-app umbrella, requiring cross-boundary read and write permissions. The command is classified as high-usage within the platform's 216-command [registry](@/glossary/registry-otp.md) and is integral to the mandatory Universal Autonomous Evolution Protocol that runs at every session boundary.
 
 ## Usage
 
@@ -150,10 +150,10 @@ Beyond the mandatory protocol, /auto integrates into several workflow patterns:
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `auto-intelligence-engine` agent with COSMIC authority |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `auto-intelligence-engine` agent with COSMIC authority |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Mandatory pass/fail validation after every evolution cycle |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and evolution tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Mandatory pass/fail validation after every evolution cycle |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and evolution tracking |
 | Quality Floor Guardian | Triggers /auto when quality score drops below threshold |
 | Quality DNA | Persists evolution metrics and improvement trajectories across sessions |
 | SEADF Framework | Autonomous evolution subsystem coordination |
@@ -163,7 +163,7 @@ Beyond the mandatory protocol, /auto integrates into several workflow patterns:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: The /auto command enforces a quality floor of 100/100. Any evolution cycle that would reduce the quality score below this threshold is automatically rolled back. Zero warnings, zero Credo violations, zero compilation errors are tolerated at any point during execution. Incomplete evolution cycles are rejected entirely rather than partially applied.
 - **NO DOUBTS**: Every improvement identified by /auto is backed by concrete evidence from static analysis, pattern detection, or test coverage metrics. The command never applies speculative changes. Each modification includes a traceable rationale linking it to a specific quality metric or anti-pattern detection. Dry-run mode enables full investigation before committing to action.
@@ -175,19 +175,19 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 2. **Use dry-run first**: For unfamiliar scopes, run `/auto analyze --dry-run` to preview what changes would be made before committing
 3. **Scope appropriately**: Target specific applications with `/auto evolve apps/[app]` rather than always running platform-wide to reduce cycle time and improve focus
 4. **Review reports**: After evolution cycles complete, review the generated report to understand what was changed and why, building institutional knowledge
-5. **Combine with /auto-pro**: For domains that have exhausted basic /auto improvements, escalate to [/auto-pro](/commands/auto-pro/) which adds genetic optimization and mycelial intelligence
+5. **Combine with /auto-pro**: For domains that have exhausted basic /auto improvements, escalate to [/auto-pro](@/commands/auto-pro.md) which adds genetic optimization and mycelial intelligence
 6. **Monitor quality DNA**: Track the evolution trajectory over time through Quality DNA metrics to ensure continuous positive momentum
 
 ## Related Commands
 
-- [/orchestrate](/commands/orchestrate/) - Revolutionary AI-powered task orchestration with 10x development efficiency
-- [/auto-pro](/commands/auto-pro/) - Steroids edition with genetic optimization, swarm intelligence and quantum decisions
-- [/auto-ultimate](/commands/auto-ultimate/) - Maximum [intelligence fusion](/glossary/intelligence-fusion/) combining MENDEL, MYCELIALIZE and AXON/EXLA neural computing
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/cascade](/commands/cascade/) - Execute [CASCADE pattern](/glossary/cascade-pattern/) fix for systematic anti-pattern removal
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/orchestrate](@/commands/orchestrate.md) - Revolutionary AI-powered task orchestration with 10x development efficiency
+- [/auto-pro](@/commands/auto-pro.md) - Steroids edition with genetic optimization, swarm intelligence and quantum decisions
+- [/auto-ultimate](@/commands/auto-ultimate.md) - Maximum [intelligence fusion](@/glossary/intelligence-fusion.md) combining MENDEL, MYCELIALIZE and AXON/EXLA neural computing
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/cascade](@/commands/cascade.md) - Execute [CASCADE pattern](@/glossary/cascade-pattern.md) fix for systematic anti-pattern removal
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
 
 ---
 
@@ -196,4 +196,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

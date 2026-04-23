@@ -516,23 +516,23 @@ Community participation develops professional skills. Measuring impact helps con
 
 Community impact connects to several foundational concepts in the Prismatic Platform ecosystem:
 
-- [Community Contributions](/glossary/community-contributions/) -- The inputs that produce community impact. Impact is the outcome; contributions are the mechanism.
-- [Community Engagement](/glossary/community-engagement/) -- The sustained participation patterns that drive the contribution volume necessary for measurable impact.
-- [Collective Progress](/glossary/collective-progress/) -- The compounding advancement that results from sustained community impact over multiple generations.
-- [Ecosystem Expansion](/glossary/ecosystem-expansion/) -- The Gen 19 theme that directly measures ecosystem impact through OSS package publication.
-- [Open Source](/glossary/open-source/) -- The licensing model that enables community impact by allowing unrestricted use, modification, and distribution.
-- [Developer Community](/glossary/developer-community/) -- The group whose collective actions produce the measured impact.
-- [Quality Gates](/glossary/quality-gates/) -- The enforcement mechanisms that ensure community contributions produce positive rather than negative impact.
-- [Sustainable Funding Models](/glossary/sustainable-funding-models/) -- The financial structures that depend on demonstrated community impact for continued investment.
-- [Community Ownership](/glossary/community-ownership/) -- The governance structure that aligns community incentives with positive impact creation.
-- [Fitness Score](/glossary/fitness-score/) -- The quantitative platform health indicator that tracks one dimension of community impact over time.
+- [Community Contributions](@/glossary/community-contributions.md) -- The inputs that produce community impact. Impact is the outcome; contributions are the mechanism.
+- [Community Engagement](@/glossary/community-engagement.md) -- The sustained participation patterns that drive the contribution volume necessary for measurable impact.
+- [Collective Progress](@/glossary/collective-progress.md) -- The compounding advancement that results from sustained community impact over multiple generations.
+- [Ecosystem Expansion](@/glossary/ecosystem-expansion.md) -- The Gen 19 theme that directly measures ecosystem impact through OSS package publication.
+- [Open Source](@/glossary/open-source.md) -- The licensing model that enables community impact by allowing unrestricted use, modification, and distribution.
+- [Developer Community](@/glossary/developer-community.md) -- The group whose collective actions produce the measured impact.
+- [Quality Gates](@/glossary/quality-gates.md) -- The enforcement mechanisms that ensure community contributions produce positive rather than negative impact.
+- [Sustainable Funding Models](@/glossary/sustainable-funding-models.md) -- The financial structures that depend on demonstrated community impact for continued investment.
+- [Community Ownership](@/glossary/community-ownership.md) -- The governance structure that aligns community incentives with positive impact creation.
+- [Fitness Score](@/glossary/fitness-score.md) -- The quantitative platform health indicator that tracks one dimension of community impact over time.
 
 ## See Also
 
-- [Community Interaction](/glossary/community-interaction/) -- The communication patterns that shape the quality and direction of community impact.
-- [Research Partnerships](/glossary/research-partnerships/) -- Formal collaborations that amplify community knowledge impact through academic channels.
-- [Open Source Advocacy](/glossary/open-source-advocacy/) -- Activities that increase awareness and adoption, amplifying the platform's impact reach.
-- [Analytics](/glossary/analytics/) -- The measurement infrastructure underlying community impact quantification.
+- [Community Interaction](@/glossary/community-interaction.md) -- The communication patterns that shape the quality and direction of community impact.
+- [Research Partnerships](@/glossary/research-partnerships.md) -- Formal collaborations that amplify community knowledge impact through academic channels.
+- [Open Source Advocacy](@/glossary/open-source-advocacy.md) -- Activities that increase awareness and adoption, amplifying the platform's impact reach.
+- [Analytics](@/glossary/analytics.md) -- The measurement infrastructure underlying community impact quantification.
 
 ---
 
@@ -541,4 +541,4 @@ Community impact connects to several foundational concepts in the Prismatic Plat
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

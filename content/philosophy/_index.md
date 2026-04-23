@@ -77,11 +77,11 @@ The GHL addresses these issues through a framework of **explicit permission** ra
 
 This philosophical framework covers:
 
-- **[General Honest License (GHL)](/philosophy/ghl-framework/)**: Revolutionary licensing model prioritizing authorial control
-- **[Intellectual Sovereignty](/philosophy/intellectual-sovereignty/)**: The author's inalienable right to creative independence
-- **[Ceremonial Computing](/philosophy/ceremonial-computing/)**: Software interaction as conscious ritual rather than casual consumption
-- **[Epistemic Integrity](/philosophy/epistemic-integrity/)**: Preservation of meaning and intent across time and context
-- **[Boundary Ethics](/philosophy/boundary-ethics/)**: The moral imperative of technical and conceptual boundaries
+- **[General Honest License (GHL)](@/philosophy/ghl-framework.md)**: Revolutionary licensing model prioritizing authorial control
+- **[Intellectual Sovereignty](@/philosophy/intellectual-sovereignty.md)**: The author's inalienable right to creative independence
+- **[Ceremonial Computing](@/philosophy/ceremonial-computing.md)**: Software interaction as conscious ritual rather than casual consumption
+- **[Epistemic Integrity](@/philosophy/epistemic-integrity.md)**: Preservation of meaning and intent across time and context
+- **[Boundary Ethics](@/philosophy/boundary-ethics.md)**: The moral imperative of technical and conceptual boundaries
 
 ## Core Philosophical Principles
 
@@ -339,4 +339,4 @@ The future belongs not to those who consume software casually, but to those who 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

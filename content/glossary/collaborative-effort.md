@@ -456,7 +456,7 @@ The quality gate system represents a form of collaboration between human develop
 
 1. **Prefer automated arbitration**: When possible, let automated systems (quality gates, type checkers, test suites) resolve disagreements objectively. If the code passes all gates, the disagreement is about style, not correctness.
 
-2. **Use evidence-based decision making**: The [NABLA axioms](/glossary/nabla-axioms/) apply to collaborative decisions -- require signal plurality, preserve contradictions, and demand provenance for claims.
+2. **Use evidence-based decision making**: The [NABLA axioms](@/glossary/nabla-axioms.md) apply to collaborative decisions -- require signal plurality, preserve contradictions, and demand provenance for claims.
 
 3. **Escalate deliberately**: When collaborators disagree on architectural decisions, escalate through the authority hierarchy (L1 to L5) with clear documentation of the disagreement and each position's evidence.
 
@@ -468,7 +468,7 @@ As the number of collaborators increases, communication overhead grows quadratic
 
 ### Knowledge Silos
 
-When collaboration is poorly structured, knowledge concentrates in individuals rather than being shared across the team. The Prismatic Platform combats this through mandatory [documentation](/glossary/documentation/), session context persistence, and the quality DNA system that captures quality state across sessions.
+When collaboration is poorly structured, knowledge concentrates in individuals rather than being shared across the team. The Prismatic Platform combats this through mandatory [documentation](@/glossary/documentation.md), session context persistence, and the quality DNA system that captures quality state across sessions.
 
 ### Coordination Failures
 
@@ -490,7 +490,7 @@ Community contributors collaborate with the core team through GitLab merge reque
 
 ### Incident Response
 
-Security incidents require rapid, coordinated effort across multiple domains -- investigation, containment, remediation, and communication. The color-team structure (Red/Blue/Purple) provides a pre-defined collaboration framework for [incident response](/glossary/incident-response/) scenarios.
+Security incidents require rapid, coordinated effort across multiple domains -- investigation, containment, remediation, and communication. The color-team structure (Red/Blue/Purple) provides a pre-defined collaboration framework for [incident response](@/glossary/incident-response.md) scenarios.
 
 ### Knowledge Transfer
 
@@ -500,23 +500,23 @@ When onboarding new contributors (human or AI), the combination of CLAUDE.md doc
 
 Collaborative effort connects to numerous aspects of the Prismatic Platform:
 
-- [Collaborative Development](/glossary/collaborative-development/) -- The specific development practices (branching strategies, merge workflows) that enable collaborative effort
-- [Multi-Agent System](/glossary/multi-agent-system/) -- The architectural pattern underlying the AIAD agent collaboration framework
-- [Agent Orchestration](/glossary/agent-orchestration/) -- The coordination mechanism that manages task delegation and result synthesis across agents
-- [Code Reviews](/glossary/code-reviews/) -- The primary human-to-human collaboration mechanism for quality assurance and knowledge sharing
-- [Open Source](/glossary/open-source/) -- The licensing and community model that extends collaborative effort to external contributors
-- [Collective Intelligence](/glossary/collective-intelligence/) -- The emergent capability that arises when multiple collaborators coordinate effectively
-- [Community Building](/glossary/community-building/) -- The practices that create and sustain the community of contributors participating in collaborative effort
-- [Community Ownership](/glossary/community-ownership/) -- The governance model where collaborative effort is directed by the community rather than a single authority
-- [Collaborative Intelligence](/glossary/collaborative-intelligence/) -- The combined human-AI intelligence that emerges from effective human-AI collaboration
-- [Developer Community](/glossary/developer-community/) -- The broader ecosystem of developers contributing to and using the platform
+- [Collaborative Development](@/glossary/collaborative-development.md) -- The specific development practices (branching strategies, merge workflows) that enable collaborative effort
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- The architectural pattern underlying the AIAD agent collaboration framework
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- The coordination mechanism that manages task delegation and result synthesis across agents
+- [Code Reviews](@/glossary/code-reviews.md) -- The primary human-to-human collaboration mechanism for quality assurance and knowledge sharing
+- [Open Source](@/glossary/open-source.md) -- The licensing and community model that extends collaborative effort to external contributors
+- [Collective Intelligence](@/glossary/collective-intelligence.md) -- The emergent capability that arises when multiple collaborators coordinate effectively
+- [Community Building](@/glossary/community-building.md) -- The practices that create and sustain the community of contributors participating in collaborative effort
+- [Community Ownership](@/glossary/community-ownership.md) -- The governance model where collaborative effort is directed by the community rather than a single authority
+- [Collaborative Intelligence](@/glossary/collaborative-intelligence.md) -- The combined human-AI intelligence that emerges from effective human-AI collaboration
+- [Developer Community](@/glossary/developer-community.md) -- The broader ecosystem of developers contributing to and using the platform
 
 ## See Also
 
-- [Documentation](/glossary/documentation/) -- The knowledge-sharing artifacts that enable effective collaboration across time and contributors
-- [Quality Gate](/glossary/quality-gate/) -- Automated quality enforcement that serves as a non-human collaborator in the development process
-- [Session Discipline](/glossary/session-discipline/) -- The protocol governing how collaborative sessions are conducted, tracked, and preserved
-- [Workflow](/glossary/workflow/) -- Defined sequences of collaborative activities that guide contributors through complex processes
+- [Documentation](@/glossary/documentation.md) -- The knowledge-sharing artifacts that enable effective collaboration across time and contributors
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated quality enforcement that serves as a non-human collaborator in the development process
+- [Session Discipline](@/glossary/session-discipline.md) -- The protocol governing how collaborative sessions are conducted, tracked, and preserved
+- [Workflow](@/glossary/workflow.md) -- Defined sequences of collaborative activities that guide contributors through complex processes
 
 ---
 
@@ -525,4 +525,4 @@ Collaborative effort connects to numerous aspects of the Prismatic Platform:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

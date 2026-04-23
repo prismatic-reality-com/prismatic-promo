@@ -24,9 +24,9 @@ image_alt = "/stack-utils - Prismatic Platform"
 
 ## Overview
 
-**/stack-utils** is a production command in the **Stack Mode** category of the Prismatic Platform. It provides advanced utility operations for the stack-based conversation system, including stack maintenance, debugging, analytics, export, and health monitoring. While the core stack commands ([/stack](/commands/stack/), [/frame](/commands/frame/), [/pop](/commands/pop/), [/fork](/commands/fork/)) handle basic conversation state management, `/stack-utils` addresses operational concerns: diagnosing stack corruption, analyzing conversation patterns, exporting stack histories, and maintaining the underlying ETS-backed storage layer.
+**/stack-utils** is a production command in the **Stack Mode** category of the Prismatic Platform. It provides advanced utility operations for the stack-based conversation system, including stack maintenance, debugging, analytics, export, and health monitoring. While the core stack commands ([/stack](@/commands/stack.md), [/frame](@/commands/frame.md), [/pop](@/commands/pop.md), [/fork](@/commands/fork.md)) handle basic conversation state management, `/stack-utils` addresses operational concerns: diagnosing stack corruption, analyzing conversation patterns, exporting stack histories, and maintaining the underlying ETS-backed storage layer.
 
-This command operates under the **L2+** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The stack-conversation-manager agent is implemented as an OTP-compliant GenServer (`PrismaticClaude.StackConversation`) with 1,128 lines of production code, providing the programmatic infrastructure for all stack operations.
+This command operates under the **L2+** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The stack-conversation-manager agent is implemented as an OTP-compliant GenServer (`PrismaticClaude.StackConversation`) with 1,128 lines of production code, providing the programmatic infrastructure for all stack operations.
 
 The stack-based conversation mode is a P0 absolute enforcement requirement for all Claude interactions on the Prismatic Platform. Every response creates an immutable frame, every branch is tracked, and every checkpoint is persisted. `/stack-utils` ensures this critical infrastructure remains healthy, provides diagnostic tools when issues arise, and enables operators to extract value from conversation history through analytics and export.
 
@@ -180,14 +180,14 @@ Results are formatted according to the requested output format. Health reports i
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/stack](/commands/stack/) | Core | Display operations use the same GenServer |
-| [/frame](/commands/frame/) | Core | Frame inspection shares state infrastructure |
-| [/pop](/commands/pop/) | Core | Pop operations tracked by utils analytics |
-| [/fork](/commands/fork/) | Core | Fork operations create branch records |
-| [StackConversation GenServer](/glossary/genserver/) | Runtime | Direct GenServer interaction |
-| [Telemetry](/glossary/telemetry/) | Monitoring | `[:prismatic_claude, :stack_conversation, *]` events |
-| [Quality DNA](/glossary/quality-dna/) | State | Conversation patterns inform quality DNA |
-| [Session Context](/glossary/session-discipline/) | Persistence | Stack data persists across sessions |
+| [/stack](@/commands/stack.md) | Core | Display operations use the same GenServer |
+| [/frame](@/commands/frame.md) | Core | Frame inspection shares state infrastructure |
+| [/pop](@/commands/pop.md) | Core | Pop operations tracked by utils analytics |
+| [/fork](@/commands/fork.md) | Core | Fork operations create branch records |
+| [StackConversation GenServer](@/glossary/genserver.md) | Runtime | Direct GenServer interaction |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | `[:prismatic_claude, :stack_conversation, *]` events |
+| [Quality DNA](@/glossary/quality-dna.md) | State | Conversation patterns inform quality DNA |
+| [Session Context](@/glossary/session-discipline.md) | Persistence | Stack data persists across sessions |
 
 ## Best Practices
 
@@ -248,20 +248,20 @@ Set up periodic maintenance hooks:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Stack integrity is maintained absolutely; corrupted frames are never silently ignored.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every repair operation provides evidence of corruption before and verification of repair after.
 
 ## Related Commands
 
-- [/stack](/commands/stack/) - Display complete conversation stack with all frames
-- [/frame](/commands/frame/) - Inspect specific conversation frame by ID
-- [/pop](/commands/pop/) - Remove last N frames from conversation stack (DESTRUCTIVE)
-- [/fork](/commands/fork/) - Branch conversation from specific frame (DESTRUCTIVE)
-- [/checkpoint](/commands/checkpoint/) - Mark current frame as named checkpoint
-- [/goto](/commands/goto/) - Restore conversation to named checkpoint
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/stack](@/commands/stack.md) - Display complete conversation stack with all frames
+- [/frame](@/commands/frame.md) - Inspect specific conversation frame by ID
+- [/pop](@/commands/pop.md) - Remove last N frames from conversation stack (DESTRUCTIVE)
+- [/fork](@/commands/fork.md) - Branch conversation from specific frame (DESTRUCTIVE)
+- [/checkpoint](@/commands/checkpoint.md) - Mark current frame as named checkpoint
+- [/goto](@/commands/goto.md) - Restore conversation to named checkpoint
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -270,4 +270,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -459,23 +459,23 @@ Before applying a database schema migration, metadata lineage tracking identifie
 
 ## Related Concepts
 
-- [Schema](/glossary/schema/) -- Structural definitions that form the foundation of technical metadata
-- [Data Pipeline](/glossary/data-pipeline/) -- Processing infrastructure that generates and consumes operational metadata
-- [ETL](/glossary/etl/) -- Extract-Transform-Load processes that rely on metadata for source and target descriptions
-- [Ecto](/glossary/ecto/) -- Elixir database library whose schemas provide rich extractable metadata
-- [Telemetry](/glossary/telemetry/) -- Event system that generates operational metadata for runtime monitoring
-- [Documentation](/glossary/documentation/) -- Human-readable knowledge artifacts complementing machine-readable metadata
-- [Data Provenance](/glossary/data-provenance/) -- Tracking data origins and transformation history through metadata lineage
-- [Registry](/glossary/registry/) -- Centralized lookup systems that store and serve component metadata
-- [Observability](/glossary/observability/) -- System property enabled by comprehensive operational metadata
-- [TypeSpec](/glossary/typespec/) -- Elixir type annotations that serve as extractable function-level metadata
+- [Schema](@/glossary/schema.md) -- Structural definitions that form the foundation of technical metadata
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Processing infrastructure that generates and consumes operational metadata
+- [ETL](@/glossary/etl.md) -- Extract-Transform-Load processes that rely on metadata for source and target descriptions
+- [Ecto](@/glossary/ecto.md) -- Elixir database library whose schemas provide rich extractable metadata
+- [Telemetry](@/glossary/telemetry.md) -- Event system that generates operational metadata for runtime monitoring
+- [Documentation](@/glossary/documentation.md) -- Human-readable knowledge artifacts complementing machine-readable metadata
+- [Data Provenance](@/glossary/data-provenance.md) -- Tracking data origins and transformation history through metadata lineage
+- [Registry](@/glossary/registry.md) -- Centralized lookup systems that store and serve component metadata
+- [Observability](@/glossary/observability.md) -- System property enabled by comprehensive operational metadata
+- [TypeSpec](@/glossary/typespec.md) -- Elixir type annotations that serve as extractable function-level metadata
 
 ## See Also
 
-- [Prismatic API](/glossary/prismatic-api/) -- Auto-introspecting REST gateway driven by module metadata
-- [Architecture](/architecture/) -- Platform architecture documentation describing metadata flows
-- [AIAD](/glossary/aiad/) -- Agent framework with standardized metadata schemas for all components
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality metadata persistence and analysis
+- [Prismatic API](@/glossary/prismatic-api.md) -- Auto-introspecting REST gateway driven by module metadata
+- [Architecture](@/architecture/_index.md) -- Platform architecture documentation describing metadata flows
+- [AIAD](@/glossary/aiad.md) -- Agent framework with standardized metadata schemas for all components
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality metadata persistence and analysis
 
 ---
 
@@ -484,4 +484,4 @@ Before applying a database schema migration, metadata lineage tracking identifie
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

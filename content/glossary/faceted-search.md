@@ -505,25 +505,25 @@ end
 
 ## Related Terms
 
-- [Full-Text Index](/glossary/full-text-index/) -- Index structures supporting faceted search
-- [Meilisearch](/glossary/meilisearch/) -- Search engine powering platform faceted search
+- [Full-Text Index](@/glossary/full-text-index.md) -- Index structures supporting faceted search
+- [Meilisearch](@/glossary/meilisearch.md) -- Search engine powering platform faceted search
 - [Elasticsearch](/glossary/elasticsearch/) -- Alternative search engine with faceted search support
-- [Taxonomy](/glossary/taxonomy/) -- Classification systems providing facet hierarchies
+- [Taxonomy](@/glossary/taxonomy.md) -- Classification systems providing facet hierarchies
 - [Inverted Index](/glossary/inverted-index/) -- Core data structure enabling facet counting
 - [Pagination](/glossary/pagination/) -- Result pagination combined with faceted filtering
-- [LiveView](/glossary/liveview/) -- Real-time UI framework rendering faceted interfaces
-- [ETS](/glossary/ets/) -- In-memory storage backing facet cache
-- [GenServer](/glossary/genserver/) -- Process model for facet cache management
-- [PubSub](/glossary/pubsub/) -- Event system for cross-component facet updates
-- [Data Quality](/glossary/data-quality/) -- Input quality affecting facet accuracy
+- [LiveView](@/glossary/liveview.md) -- Real-time UI framework rendering faceted interfaces
+- [ETS](@/glossary/ets.md) -- In-memory storage backing facet cache
+- [GenServer](@/glossary/genserver.md) -- Process model for facet cache management
+- [PubSub](@/glossary/pubsub.md) -- Event system for cross-component facet updates
+- [Data Quality](@/glossary/data-quality.md) -- Input quality affecting facet accuracy
 - [Search](/glossary/search/) -- Broader search capabilities encompassing faceted search
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- Platform capability catalog
-- [Architecture](/architecture/) -- Platform architecture overview
-- [OSINT Tools](/osint/) -- Platform OSINT tool registry with faceted interface
-- [Technologies](/technologies/) -- Technology stack including Meilisearch
+- [Capabilities](@/capabilities/_index.md) -- Platform capability catalog
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [OSINT Tools](@/osint/_index.md) -- Platform OSINT tool registry with faceted interface
+- [Technologies](@/technologies/_index.md) -- Technology stack including Meilisearch
 - **Livebooks**: `api_integration/` notebooks demonstrate Meilisearch faceted queries
 - **Academy**: Topics on information retrieval cover faceted search theory
 
@@ -534,4 +534,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

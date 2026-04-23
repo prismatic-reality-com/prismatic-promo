@@ -32,7 +32,7 @@ The Twitter/X Intelligence Specialist is an L3 agent operating in the **Twitter/
 
 Unlike platforms with algorithm-driven content curation (such as TikTok), Twitter/X provides a more transparent information flow where content propagation can be directly traced through retweets, quotes, and reply chains. This transparency makes Twitter/X particularly valuable for network analysis, influence mapping, and narrative tracking. The Twitter/X Intelligence Specialist exploits these characteristics with specialized analysis techniques optimized for the platform's unique data structures.
 
-This agent operates as part of the social intelligence domain within the platform's 434-strong autonomous agent ecosystem, feeding intelligence products to the [Social Media Network Analyst](/agents/social-media-network-analyst/) for cross-platform synthesis under [NABLA Infinity](/glossary/nabla-infinity/) epistemic standards.
+This agent operates as part of the social intelligence domain within the platform's 434-strong autonomous agent ecosystem, feeding intelligence products to the [Social Media Network Analyst](@/agents/social-media-network-analyst.md) for cross-platform synthesis under [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic standards.
 
 ## Intelligence Collection Capabilities
 
@@ -153,7 +153,7 @@ Twitter/X's retweet and quote mechanisms create traceable information propagatio
 
 ## Graph Storage
 
-Twitter/X intelligence data is stored in [KuzuDB](/glossary/kuzudb/) for efficient social graph analysis, enabling complex queries such as shortest path analysis between accounts and community detection.
+Twitter/X intelligence data is stored in [KuzuDB](@/glossary/kuzudb.md) for efficient social graph analysis, enabling complex queries such as shortest path analysis between accounts and community detection.
 
 | Node Type | Attributes | Connections |
 |-----------|------------|-------------|
@@ -250,15 +250,15 @@ Beyond individual tweet and account analysis, the Twitter/X Intelligence Special
 
 ## Integration Points
 
-- [**Intelligence Synthesis**](/capabilities/intelligence-synthesis/) -- Feeds Twitter/X intelligence to cross-platform analysis
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Collection performance metrics
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
+- [**Intelligence Synthesis**](@/capabilities/intelligence-synthesis.md) -- Feeds Twitter/X intelligence to cross-platform analysis
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Collection performance metrics
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
 
 ## Related Agents
 
-- [**Social Media Network Analyst**](/agents/social-media-network-analyst/) -- Cross-platform intelligence synthesis hub
-- [**TikTok Intelligence Specialist**](/agents/tiktok-intelligence-specialist/) -- Parallel social platform intelligence
-- [**Siege Master Specialist**](/agents/siege-master-specialist/) -- Long-term persistent operations
+- [**Social Media Network Analyst**](@/agents/social-media-network-analyst.md) -- Cross-platform intelligence synthesis hub
+- [**TikTok Intelligence Specialist**](@/agents/tiktok-intelligence-specialist.md) -- Parallel social platform intelligence
+- [**Siege Master Specialist**](@/agents/siege-master-specialist.md) -- Long-term persistent operations
 
 ## AIAD Specification Compliance
 
@@ -266,13 +266,13 @@ Beyond individual tweet and account analysis, the Twitter/X Intelligence Special
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 14 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority over Twitter/X-specific intelligence collection and analysis operations.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority over Twitter/X-specific intelligence collection and analysis operations.
 
 ---
 
@@ -281,4 +281,4 @@ Beyond individual tweet and account analysis, the Twitter/X Intelligence Special
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

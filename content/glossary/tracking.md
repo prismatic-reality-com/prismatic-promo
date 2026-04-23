@@ -229,11 +229,11 @@ The Quality DNA tracking system visualizes platform quality evolution across all
 
 ## Cross-References
 
-- [Telemetry](/glossary/telemetry/) - Event measurement framework
-- [Monitoring](/glossary/monitoring/) - Operational observation system
-- [Trace](/glossary/trace/) - Distributed request tracking
-- [Track](/glossary/track/) - Learning path sequence
-- [Analytics](/glossary/analytics/) - Data-driven insights
+- [Telemetry](@/glossary/telemetry.md) - Event measurement framework
+- [Monitoring](@/glossary/monitoring.md) - Operational observation system
+- [Trace](@/glossary/trace.md) - Distributed request tracking
+- [Track](@/glossary/track.md) - Learning path sequence
+- [Analytics](@/glossary/analytics.md) - Data-driven insights
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

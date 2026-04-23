@@ -214,11 +214,11 @@ The monitoring dashboard displays vacuum health alongside other database metrics
 
 ## Cross-References
 
-- [PostgreSQL](/glossary/postgresql/) - Database system requiring vacuum
+- [PostgreSQL](@/glossary/postgresql.md) - Database system requiring vacuum
 - **WAL** - Write-Ahead Log related to MVCC
 - **Dead Tuple** - Obsolete row versions cleaned by vacuum
 - **Write Concurrency** - High-write patterns causing bloat
-- [Monitoring](/glossary/monitoring/) - Vacuum health tracking
+- [Monitoring](@/glossary/monitoring.md) - Vacuum health tracking
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

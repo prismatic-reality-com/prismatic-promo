@@ -28,15 +28,15 @@ image_alt = "person-investigation-mycelial-agent - Prismatic Platform"
 
 ## Overview
 
-The Person Investigation Mycelial Agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's [OSINT](/glossary/osint/)/Czech domain, orchestrating comprehensive person investigations using Czech public registries with full [mycelial network](/glossary/mycelial-network/) integration for pattern learning and cross-investigation knowledge sharing. This agent combines deep integration with Czech government data sources (ARES, Justice.cz, ISIR, CUZK) with the platform's biologically-inspired knowledge network, enabling each investigation to benefit from patterns discovered in previous investigations and to contribute new patterns that improve future investigative capabilities.
+The Person Investigation Mycelial Agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's [OSINT](@/glossary/osint.md)/Czech domain, orchestrating comprehensive person investigations using Czech public registries with full [mycelial network](@/glossary/mycelial-network.md) integration for pattern learning and cross-investigation knowledge sharing. This agent combines deep integration with Czech government data sources (ARES, Justice.cz, ISIR, CUZK) with the platform's biologically-inspired knowledge network, enabling each investigation to benefit from patterns discovered in previous investigations and to contribute new patterns that improve future investigative capabilities.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, the agent enforces rigorous multi-source corroboration for all investigative findings. The signal plurality axiom requires that no claim about a person's identity, associations, or activities is established without evidence from at least two independent sources. All findings carry explicit confidence scores, temporal validity markers, and full provenance chains enabling traceability to original registry records.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, the agent enforces rigorous multi-source corroboration for all investigative findings. The signal plurality axiom requires that no claim about a person's identity, associations, or activities is established without evidence from at least two independent sources. All findings carry explicit confidence scores, temporal validity markers, and full provenance chains enabling traceability to original registry records.
 
 ## Theoretical Foundations
 
 Person investigation in the Czech Republic context requires understanding the country's distinctive public registry landscape. The Czech Republic maintains an unusually comprehensive set of publicly accessible data sources compared to many EU member states, including the ARES system (Administrative Register of Economic Subjects) which aggregates data from multiple underlying registries, the Justice.cz portal providing court records and company officer information, the ISIR insolvency register, and the CUZK land registry.
 
-The [entity resolution](/glossary/entity-resolution/) challenge in Czech person investigation is complicated by several factors: the relatively small set of common Czech surnames creates high ambiguity, the use of grammatical gender in name declension means the same person's name appears in different grammatical forms depending on context, and the distinction between permanent residence (trvaly pobyt) and temporary residence creates multiple address associations per person.
+The [entity resolution](@/glossary/entity-resolution.md) challenge in Czech person investigation is complicated by several factors: the relatively small set of common Czech surnames creates high ambiguity, the use of grammatical gender in name declension means the same person's name appears in different grammatical forms depending on context, and the distinction between permanent residence (trvaly pobyt) and temporary residence creates multiple address associations per person.
 
 The mycelial network integration addresses these challenges by accumulating cross-investigation knowledge. When one investigation resolves an ambiguous identity, the resolution pattern is propagated through the mycelial network, making it available to future investigations encountering similar ambiguity patterns. Over time, this creates a growing knowledge base of resolution strategies that progressively reduces investigation time and improves accuracy.
 
@@ -65,11 +65,11 @@ The domain also encompasses social media analysis, professional network investig
 
 - **Insolvency and court record analysis** -- Searches ISIR for insolvency proceedings and Justice.cz for court records involving the target, providing financial risk indicators
 
-- **Relationship network construction** -- Builds graph-based relationship networks stored in [KuzuDB](/glossary/kuzudb/) connecting the target person to associated individuals, companies, and properties through registry-documented relationships
+- **Relationship network construction** -- Builds graph-based relationship networks stored in [KuzuDB](@/glossary/kuzudb.md) connecting the target person to associated individuals, companies, and properties through registry-documented relationships
 
-- **Mycelial pattern learning** -- Each investigation contributes discovered patterns to the [mycelial network](/glossary/mycelial-network/), and new investigations automatically benefit from previously learned resolution strategies, entity disambiguation heuristics, and registry-specific data quality patterns
+- **Mycelial pattern learning** -- Each investigation contributes discovered patterns to the [mycelial network](@/glossary/mycelial-network.md), and new investigations automatically benefit from previously learned resolution strategies, entity disambiguation heuristics, and registry-specific data quality patterns
 
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed investigation workflows that expand scope based on discovered leads
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed investigation workflows that expand scope based on discovered leads
 
 ## Authority Level
 
@@ -101,10 +101,10 @@ The agent follows a structured investigation methodology:
 
 | Agent | Relationship |
 |-------|-------------|
-| [primary-identity-verification-commander](/agents/primary-identity-verification-commander/) | Identity verification provides confirmed entity identifiers for investigation |
-| [political-network-intelligence-specialist](/agents/political-network-intelligence-specialist/) | Person investigation results feed political network analysis |
-| [osint-technical-security-specialist](/agents/osint-technical-security-specialist/) | Technical security findings correlated with person investigation data |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Investigation findings inform individual risk assessments |
+| [primary-identity-verification-commander](@/agents/primary-identity-verification-commander.md) | Identity verification provides confirmed entity identifiers for investigation |
+| [political-network-intelligence-specialist](@/agents/political-network-intelligence-specialist.md) | Person investigation results feed political network analysis |
+| [osint-technical-security-specialist](@/agents/osint-technical-security-specialist.md) | Technical security findings correlated with person investigation data |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Investigation findings inform individual risk assessments |
 
 ## Mycelial Network Integration
 
@@ -114,7 +114,7 @@ Pattern propagation through the mycelial network follows confidence-weighted rou
 
 ## Enforcement
 
-All investigation outputs comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no investigation is published without complete evidence chains, and all findings pass [Trinity Gate](/glossary/trinity-gate/) validation. The [NO DOUBTS](/glossary/no-doubts/) principle ensures that confidence scores accurately reflect the evidence base. Privacy compliance is enforced through data handling rules that ensure all collected data is from legitimate public sources and processed in accordance with applicable privacy regulations.
+All investigation outputs comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no investigation is published without complete evidence chains, and all findings pass [Trinity Gate](@/glossary/trinity-gate.md) validation. The [NO DOUBTS](@/glossary/no-doubts.md) principle ensures that confidence scores accurately reflect the evidence base. Privacy compliance is enforced through data handling rules that ensure all collected data is from legitimate public sources and processed in accordance with applicable privacy regulations.
 
 ## Related Agents
 
@@ -127,4 +127,4 @@ Agents in the **osint/czech** domain collaborate to provide comprehensive Czech 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

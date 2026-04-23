@@ -28,13 +28,13 @@ We hypothesize that hierarchical coordination with domain-local autonomy scales 
 
 ## Background
 
-The Prismatic Platform operates 434 [AIAD](/glossary/aiad/) agents at runtime, making it one of the largest autonomous multi-agent systems in production. These agents span 14 domains including intelligence gathering, security operations, quality enforcement, evolution management, and infrastructure monitoring. Each agent is an independent OTP process with its own state, decision logic, and communication patterns.
+The Prismatic Platform operates 434 [AIAD](@/glossary/aiad.md) agents at runtime, making it one of the largest autonomous multi-agent systems in production. These agents span 14 domains including intelligence gathering, security operations, quality enforcement, evolution management, and infrastructure monitoring. Each agent is an independent OTP process with its own state, decision logic, and communication patterns.
 
 As the agent population grew from the initial 50 to over 400, coordination challenges became the primary scaling bottleneck. Early designs used a centralized orchestrator that received all agent communications and dispatched responses. This approach failed spectacularly at 120 agents when the orchestrator's message queue exceeded 50,000 pending messages, causing coordination latency to spike above 5 seconds.
 
 The platform evolved through three coordination paradigms: centralized orchestration (Gen 1-5), gossip-based peer-to-peer (Gen 6-12), and the current hierarchical domain-local model (Gen 13-18). Each paradigm solved problems while introducing new ones. This experiment systematically evaluates all three paradigms plus a novel hybrid approach at scale points of 5, 20, 100, and 434 agents.
 
-Understanding coordination overhead is critical because the [No Mercy](/glossary/no-mercy/) doctrine requires that all agents reach consensus on quality decisions within strict time bounds. A quality gate that takes 5 seconds to propagate across the agent swarm effectively creates a 5-second window where non-compliant code could be committed.
+Understanding coordination overhead is critical because the [No Mercy](@/glossary/no-mercy.md) doctrine requires that all agents reach consensus on quality decisions within strict time bounds. A quality gate that takes 5 seconds to propagate across the agent swarm effectively creates a 5-second window where non-compliant code could be committed.
 
 ## Methodology
 
@@ -231,14 +231,14 @@ The most significant finding is the failure resilience gap. When 10% of agents c
 - Implement adaptive leader election that accounts for agent load and latency
 - Test coordination under sustained network degradation (not just sudden failure)
 - Benchmark with realistic decision payloads (current tests use minimal payloads)
-- Integrate with [SEADF](/glossary/seadf/) for autonomous coordination pattern evolution
+- Integrate with [SEADF](@/glossary/seadf.md) for autonomous coordination pattern evolution
 
 ## Related Experiments
 
-- [Agent Prototyping](/lab/agent-prototyping/) -- Individual agent quality before coordination testing
-- [Architecture Validation](/lab/architecture-validation/) -- Supervision trees that host coordinated agents
-- [Color Team Simulation](/lab/color-team-simulation/) -- Color Teams as a specialized coordination case
-- [Mycelial Propagation](/lab/mycelial-propagation/) -- Cross-domain pattern sharing via coordination
+- [Agent Prototyping](@/lab/agent-prototyping.md) -- Individual agent quality before coordination testing
+- [Architecture Validation](@/lab/architecture-validation.md) -- Supervision trees that host coordinated agents
+- [Color Team Simulation](@/lab/color-team-simulation.md) -- Color Teams as a specialized coordination case
+- [Mycelial Propagation](@/lab/mycelial-propagation.md) -- Cross-domain pattern sharing via coordination
 
 ---
 
@@ -247,4 +247,4 @@ The most significant finding is the failure resilience gap. When 10% of agents c
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

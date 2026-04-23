@@ -28,9 +28,9 @@ image_alt = "/presales-analyze - Prismatic Platform"
 
 The analysis engine applies natural language processing, entity extraction, and domain-specific heuristics to identify key opportunity characteristics: project scope, budget indicators, timeline constraints, technical requirements, competitive landscape signals, and decision-maker information. These extracted signals are then evaluated against configurable qualification criteria to produce an opportunity score that quantifies the likelihood of successful engagement and the strategic value of pursuing the opportunity.
 
-This command operates under the **L2+** authority level and is executed by the `opportunity-analyzer` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The opportunity analyzer agent specializes in processing heterogeneous business documents and extracting actionable intelligence for sales strategy formulation.
+This command operates under the **L2+** authority level and is executed by the `opportunity-analyzer` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The opportunity analyzer agent specializes in processing heterogeneous business documents and extracting actionable intelligence for sales strategy formulation.
 
-Within the presales workflow, `/presales-analyze` typically serves as the first analytical step after an opportunity is identified. Raw materials such as tender documents, RFP PDFs, or prospect website URLs are fed into the analyzer, which produces a structured assessment that feeds into downstream commands like [/presales-assess](/commands/presales-assess/) for technical evaluation, [/presales-price](/commands/presales-price/) for pricing strategy, and [/presales-propose](/commands/presales-propose/) for proposal generation.
+Within the presales workflow, `/presales-analyze` typically serves as the first analytical step after an opportunity is identified. Raw materials such as tender documents, RFP PDFs, or prospect website URLs are fed into the analyzer, which produces a structured assessment that feeds into downstream commands like [/presales-assess](@/commands/presales-assess.md) for technical evaluation, [/presales-price](@/commands/presales-price.md) for pricing strategy, and [/presales-propose](@/commands/presales-propose.md) for proposal generation.
 
 ## Architecture
 
@@ -149,15 +149,15 @@ The analysis pipeline processes input through four sequential phases with parall
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/presales](/commands/presales/) | Parent Command | Top-level presales orchestration |
-| [/presales-assess](/commands/presales-assess/) | Downstream | Technical assessment of analyzed opportunity |
-| [/presales-price](/commands/presales-price/) | Downstream | Pricing based on analyzed requirements |
-| [/presales-propose](/commands/presales-propose/) | Downstream | Proposal generation from analysis |
-| [/presales-case](/commands/presales-case/) | Case Management | Associate analysis with presales case |
-| [/presales-research](/commands/presales-research/) | Complementary | Competitor research to enrich analysis |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `opportunity-analyzer` agent |
-| [Telemetry](/glossary/telemetry/) | Observability | Analysis timing and quality metrics |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Analysis completeness checks |
+| [/presales](@/commands/presales.md) | Parent Command | Top-level presales orchestration |
+| [/presales-assess](@/commands/presales-assess.md) | Downstream | Technical assessment of analyzed opportunity |
+| [/presales-price](@/commands/presales-price.md) | Downstream | Pricing based on analyzed requirements |
+| [/presales-propose](@/commands/presales-propose.md) | Downstream | Proposal generation from analysis |
+| [/presales-case](@/commands/presales-case.md) | Case Management | Associate analysis with presales case |
+| [/presales-research](@/commands/presales-research.md) | Complementary | Competitor research to enrich analysis |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `opportunity-analyzer` agent |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Analysis timing and quality metrics |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Analysis completeness checks |
 
 ## Best Practices
 
@@ -215,19 +215,19 @@ The analysis pipeline processes input through four sequential phases with parall
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every section of the input document is processed. No extraction failures are silently suppressed. Opportunity scores reflect all identified signals, including negative ones.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every extracted entity includes source provenance and confidence scoring. The [NABLA](/glossary/nabla-infinity/) axiom of Provenance Mandatory ensures all analytical claims are traceable to specific source content. Contradictory signals (e.g., large stated budget but constrained actual spending patterns) are preserved and highlighted per the Contradiction Preservation axiom.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every extracted entity includes source provenance and confidence scoring. The [NABLA](@/glossary/nabla-infinity.md) axiom of Provenance Mandatory ensures all analytical claims are traceable to specific source content. Contradictory signals (e.g., large stated budget but constrained actual spending patterns) are preserved and highlighted per the Contradiction Preservation axiom.
 
 ## Related Commands
 
-- [/presales](/commands/presales/) - Presales intelligence for company analysis and opportunity identification
-- [/presales-assess](/commands/presales-assess/) - Technical assessment of opportunities and cases
-- [/presales-case](/commands/presales-case/) - Presales case management for status tracking and updates
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/presales](@/commands/presales.md) - Presales intelligence for company analysis and opportunity identification
+- [/presales-assess](@/commands/presales-assess.md) - Technical assessment of opportunities and cases
+- [/presales-case](@/commands/presales-case.md) - Presales case management for status tracking and updates
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -236,4 +236,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

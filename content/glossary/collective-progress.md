@@ -308,23 +308,23 @@ The promo site's growth from a handful of pages to 1,800+ pages of technical doc
 
 Collective progress connects to several foundational concepts in the Prismatic Platform ecosystem:
 
-- [Community Contributions](/glossary/community-contributions/) -- The individual units of work that aggregate into collective progress. Without contributions, there is no progress to compound.
-- [Community Engagement](/glossary/community-engagement/) -- The active participation patterns that sustain contributor involvement and drive contribution volume over time.
-- [Collaborative Development](/glossary/collaborative-development/) -- The technical practices (version control, code review, CI/CD) that enable multiple contributors to work on the same codebase without conflicts.
-- [Continuous Evolution](/glossary/continuous-evolution/) -- The operational model where the platform improves incrementally and continuously rather than through discrete release cycles.
-- [Quality DNA](/glossary/quality-dna/) -- The persistence mechanism that preserves quality state across sessions, enabling collective progress to accumulate without regression.
-- [AutoEvolve](/glossary/autoevolve/) -- The automated system that accelerates collective progress by scanning for and applying improvement opportunities.
-- [Generation Evolution](/glossary/generation-evolution/) -- The milestone framework that organizes collective progress into discrete, communicable advancement stages.
-- [Ecosystem Expansion](/glossary/ecosystem-expansion/) -- The Gen 19 theme representing collective progress extending beyond the core platform into OSS packages and developer tooling.
-- [Open Source](/glossary/open-source/) -- The licensing and development model that enables collective progress by removing legal barriers to contribution.
-- [Quality Gates](/glossary/quality-gates/) -- The automated enforcement mechanisms that implement the quality ratchet, ensuring collective progress is monotonically non-decreasing.
+- [Community Contributions](@/glossary/community-contributions.md) -- The individual units of work that aggregate into collective progress. Without contributions, there is no progress to compound.
+- [Community Engagement](@/glossary/community-engagement.md) -- The active participation patterns that sustain contributor involvement and drive contribution volume over time.
+- [Collaborative Development](@/glossary/collaborative-development.md) -- The technical practices (version control, code review, CI/CD) that enable multiple contributors to work on the same codebase without conflicts.
+- [Continuous Evolution](@/glossary/continuous-evolution.md) -- The operational model where the platform improves incrementally and continuously rather than through discrete release cycles.
+- [Quality DNA](@/glossary/quality-dna.md) -- The persistence mechanism that preserves quality state across sessions, enabling collective progress to accumulate without regression.
+- [AutoEvolve](@/glossary/autoevolve.md) -- The automated system that accelerates collective progress by scanning for and applying improvement opportunities.
+- [Generation Evolution](@/glossary/generation-evolution.md) -- The milestone framework that organizes collective progress into discrete, communicable advancement stages.
+- [Ecosystem Expansion](@/glossary/ecosystem-expansion.md) -- The Gen 19 theme representing collective progress extending beyond the core platform into OSS packages and developer tooling.
+- [Open Source](@/glossary/open-source.md) -- The licensing and development model that enables collective progress by removing legal barriers to contribution.
+- [Quality Gates](@/glossary/quality-gates.md) -- The automated enforcement mechanisms that implement the quality ratchet, ensuring collective progress is monotonically non-decreasing.
 
 ## See Also
 
-- [Collective Intelligence](/glossary/collective-intelligence/) -- The broader concept of intelligence emerging from group interaction, of which collective progress is a practical application in software development.
-- [Community Impact](/glossary/community-impact/) -- The measurable effects of collective progress on the broader ecosystem beyond the platform itself.
-- [Fitness Score](/glossary/fitness-score/) -- The quantitative measure used to track collective progress across platform generations.
-- [SEADF](/glossary/seadf/) -- The Self-Evolving Autonomous Development Framework that operationalizes collective progress through automated evolution cycles.
+- [Collective Intelligence](@/glossary/collective-intelligence.md) -- The broader concept of intelligence emerging from group interaction, of which collective progress is a practical application in software development.
+- [Community Impact](@/glossary/community-impact.md) -- The measurable effects of collective progress on the broader ecosystem beyond the platform itself.
+- [Fitness Score](@/glossary/fitness-score.md) -- The quantitative measure used to track collective progress across platform generations.
+- [SEADF](@/glossary/seadf.md) -- The Self-Evolving Autonomous Development Framework that operationalizes collective progress through automated evolution cycles.
 
 ---
 
@@ -333,4 +333,4 @@ Collective progress connects to several foundational concepts in the Prismatic P
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

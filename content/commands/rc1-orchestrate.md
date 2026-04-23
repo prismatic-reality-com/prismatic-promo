@@ -26,11 +26,11 @@ image_alt = "/rc1-orchestrate - Prismatic Platform"
 
 **/rc1-orchestrate** is a production command in the **Framework** category of the Prismatic Platform that orchestrates the complete Release Candidate 1 delivery pipeline with integrated ROC (Release Optimization Cycle) processing. This command represents one of the most comprehensive automation capabilities in the platform, coordinating dozens of subsystems, quality gates, and validation steps into a single, deterministic delivery pipeline that transforms a development branch into a production-ready release candidate.
 
-The RC1 orchestration pipeline was designed to eliminate the fragility and human error inherent in manual release processes. In a platform comprising over 90 umbrella applications, 6,652 Elixir source files, and approximately 2.8 million lines of code, manual release coordination is not merely impractical but fundamentally incompatible with the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every release candidate must pass through an identical, reproducible pipeline that enforces quality standards without exception or deviation.
+The RC1 orchestration pipeline was designed to eliminate the fragility and human error inherent in manual release processes. In a platform comprising over 90 umbrella applications, 6,652 Elixir source files, and approximately 2.8 million lines of code, manual release coordination is not merely impractical but fundamentally incompatible with the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every release candidate must pass through an identical, reproducible pipeline that enforces quality standards without exception or deviation.
 
 The ROC optimization layer adds intelligent resource allocation and execution ordering to the pipeline. Rather than executing all validation steps sequentially, ROC analyzes dependency graphs between pipeline stages, identifies parallelizable work, and optimizes the critical path to minimize total delivery time. This optimization can reduce RC1 delivery from hours to minutes while maintaining complete verification coverage. The ROC engine continuously learns from previous pipeline executions, refining its optimization strategies based on observed timings and failure patterns.
 
-This command operates under the **SUPREME** authority level and is executed by the `archer-supreme` agent, the platform's elite tactical commander with unlimited authority for mission-critical operations. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **SUPREME** authority level and is executed by the `archer-supreme` agent, the platform's elite tactical commander with unlimited authority for mission-critical operations. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -64,7 +64,7 @@ Pipeline Entry
 RC1 Delivery Complete
 ```
 
-Each phase reports its results to the [telemetry](/glossary/telemetry/) subsystem and updates the pipeline state in ETS for real-time monitoring. The [Quality Floor Guardian](/glossary/quality-gates/) monitors all phases and can halt the pipeline if quality metrics drop below the configured threshold.
+Each phase reports its results to the [telemetry](@/glossary/telemetry.md) subsystem and updates the pipeline state in ETS for real-time monitoring. The [Quality Floor Guardian](@/glossary/quality-gates.md) monitors all phases and can halt the pipeline if quality metrics drop below the configured threshold.
 
 ## Usage
 
@@ -114,7 +114,7 @@ The RC1 orchestration follows a strict execution flow with checkpoint persistenc
 
 **Phase 1 - Pre-flight Checks**: The pipeline begins by verifying all prerequisites. This includes checking that the working directory is clean (no uncommitted changes), all dependencies are resolved and up to date, the Elixir and OTP versions match the project requirements, and the configuration files parse without errors. Any failure in pre-flight checks halts the pipeline immediately.
 
-**Phase 2 - Quality Gates**: The comprehensive quality gate battery runs, including zero-warning compilation (`mix compile --warnings-as-errors --force`), [Credo](/glossary/credo/) strict analysis, Dialyzer type checking, and custom regression checks. The platform's 25 custom Credo checks must all pass with zero violations.
+**Phase 2 - Quality Gates**: The comprehensive quality gate battery runs, including zero-warning compilation (`mix compile --warnings-as-errors --force`), [Credo](@/glossary/credo.md) strict analysis, Dialyzer type checking, and custom regression checks. The platform's 25 custom Credo checks must all pass with zero violations.
 
 **Phase 3 - Test Execution**: The complete test suite executes across all target applications. This includes unit tests, integration tests, property-based tests, and end-to-end tests. Coverage must meet the configured threshold (default 100%).
 
@@ -130,12 +130,12 @@ The RC1 orchestration follows a strict execution flow with checkpoint persistenc
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `archer-supreme` agent | SUPREME authority enables unrestricted pipeline control |
-| [AIAD](/glossary/aiad/) Registry | Command specification and discovery | Pipeline stages registered as AIAD sub-commands |
-| [Quality Gates](/glossary/quality-gates/) | Phase 2 enforcement | All 13 quality domains must achieve perfect scores |
-| [Telemetry](/glossary/telemetry/) | Pipeline-wide event tracking | Real-time progress monitoring and alerting |
-| [SEADF](/commands/seadf/) | Framework integration | Self-evolving capabilities applied to pipeline optimization |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Security validation | EASM checks during deployment validation |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `archer-supreme` agent | SUPREME authority enables unrestricted pipeline control |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification and discovery | Pipeline stages registered as AIAD sub-commands |
+| [Quality Gates](@/glossary/quality-gates.md) | Phase 2 enforcement | All 13 quality domains must achieve perfect scores |
+| [Telemetry](@/glossary/telemetry.md) | Pipeline-wide event tracking | Real-time progress monitoring and alerting |
+| [SEADF](@/commands/seadf.md) | Framework integration | Self-evolving capabilities applied to pipeline optimization |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Security validation | EASM checks during deployment validation |
 | Git Trees | Codebase analysis | Optimized file discovery for change detection |
 
 ## Best Practices
@@ -185,7 +185,7 @@ The ROC optimization engine exposes tuning parameters for advanced scenarios. Th
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The RC1 pipeline enforces every quality gate without exception. No stage can be skipped, no threshold can be lowered, and no failure can be bypassed. Every release candidate meets the same absolute standard.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every pipeline decision is logged with full provenance. The certification report provides complete traceability from source commit to deployed artifact.
@@ -194,14 +194,14 @@ The SUPREME authority level grants the `archer-supreme` agent unrestricted acces
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
-- [/ecosystem](/commands/ecosystem/) - Platform ecosystem overview and status monitoring
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/migrate](/commands/migrate/) - Safe migration planning with rollback strategies
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/regression-check](/commands/regression-check/) - Execute 25 custom Credo regression checks preventing 700+ violations
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
+- [/ecosystem](@/commands/ecosystem.md) - Platform ecosystem overview and status monitoring
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/migrate](@/commands/migrate.md) - Safe migration planning with rollback strategies
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom Credo regression checks preventing 700+ violations
 
 ---
 
@@ -210,4 +210,4 @@ The SUPREME authority level grants the `archer-supreme` agent unrestricted acces
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

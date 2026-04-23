@@ -788,23 +788,23 @@ end
 
 ## Related Concepts
 
-- [AutoEvolve](/glossary/autoevolve/) - Autonomous platform evolution engine that identifies and executes enhancements
-- [AutoHeal](/glossary/autoheal/) - Self-healing system that automatically repairs quality regressions
-- [Evolution](/glossary/evolution/) - The broader concept of platform change and adaptation over time
-- [Quality DNA](/glossary/quality-dna/) - Cross-session quality state tracking that preserves enhancement progress
-- [Continuous Evolution](/glossary/continuous-evolution/) - Philosophy of ongoing improvement as a fundamental platform property
-- [Generation Evolution](/glossary/generation-evolution/) - Generational model for tracking enhancement cycles
-- [Fitness Score](/glossary/fitness-score/) - Quantitative measure of platform health and enhancement progress
-- [Quality Gate](/glossary/quality-gate/) - Verification checkpoints ensuring enhancements meet standards
-- [Technical Debt](/glossary/technical-debt/) - Accumulated design shortcuts that enhancements eliminate
-- [Refactoring](/glossary/refactoring/) - Structural code improvement as a specific enhancement technique
+- [AutoEvolve](@/glossary/autoevolve.md) - Autonomous platform evolution engine that identifies and executes enhancements
+- [AutoHeal](@/glossary/autoheal.md) - Self-healing system that automatically repairs quality regressions
+- [Evolution](@/glossary/evolution.md) - The broader concept of platform change and adaptation over time
+- [Quality DNA](@/glossary/quality-dna.md) - Cross-session quality state tracking that preserves enhancement progress
+- [Continuous Evolution](@/glossary/continuous-evolution.md) - Philosophy of ongoing improvement as a fundamental platform property
+- [Generation Evolution](@/glossary/generation-evolution.md) - Generational model for tracking enhancement cycles
+- [Fitness Score](@/glossary/fitness-score.md) - Quantitative measure of platform health and enhancement progress
+- [Quality Gate](@/glossary/quality-gate.md) - Verification checkpoints ensuring enhancements meet standards
+- [Technical Debt](@/glossary/technical-debt.md) - Accumulated design shortcuts that enhancements eliminate
+- [Refactoring](@/glossary/refactoring.md) - Structural code improvement as a specific enhancement technique
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture that enhancements improve
-- [Capabilities](/capabilities/) - Capabilities built through systematic enhancement
+- [Architecture](@/architecture/_index.md) - Platform architecture that enhancements improve
+- [Capabilities](@/capabilities/_index.md) - Capabilities built through systematic enhancement
 - Glossary Index - Complete glossary of platform concepts
-- [Technologies](/technologies/) - Technology stack underlying enhancement infrastructure
+- [Technologies](@/technologies/_index.md) - Technology stack underlying enhancement infrastructure
 
 ---
 
@@ -813,4 +813,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

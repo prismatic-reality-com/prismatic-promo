@@ -24,11 +24,11 @@ image_alt = "/deploy-meilisearch - Prismatic Platform"
 
 ## Overview
 
-The **/deploy-meilisearch** command manages the complete lifecycle of [Meilisearch](/glossary/meilisearch/) search engine instances across the Prismatic Platform's deployment environments. Meilisearch provides the platform's full-text search capabilities, powering real-time search across business entities, OSINT intelligence data, agent registries, and documentation indexes. This command handles installation, configuration, index creation, health validation, and integration with the platform's storage adapter layer.
+The **/deploy-meilisearch** command manages the complete lifecycle of [Meilisearch](@/glossary/meilisearch.md) search engine instances across the Prismatic Platform's deployment environments. Meilisearch provides the platform's full-text search capabilities, powering real-time search across business entities, OSINT intelligence data, agent registries, and documentation indexes. This command handles installation, configuration, index creation, health validation, and integration with the platform's storage adapter layer.
 
 Meilisearch serves as the search backbone for several critical platform capabilities. The Czech Autocrawler indexes business entities in real-time for instant search across thousands of corporate records. The agent registry enables rapid lookup across 400+ agents by name, capability, or domain. The documentation system provides full-text search across 11,000+ documentation files. Without a properly configured Meilisearch instance, these capabilities degrade to sequential scanning, reducing search performance by orders of magnitude.
 
-This command operates under the **L3** authority level and is executed by the `meilisearch-deployment-agent` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the infrastructure-level impact of search engine deployment -- misconfiguration can affect multiple platform subsystems simultaneously.
+This command operates under the **L3** authority level and is executed by the `meilisearch-deployment-agent` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the infrastructure-level impact of search engine deployment -- misconfiguration can affect multiple platform subsystems simultaneously.
 
 The deployment process follows a five-phase protocol: prerequisites verification (Docker availability, port allocation, key management), instance deployment (container or native service), configuration (index creation, search settings, filterable/sortable attributes), validation (health checks, connectivity tests, search functionality verification), and integration (runtime configuration update, storage adapter registration, platform connectivity confirmation). Each phase includes rollback procedures in case of failure.
 
@@ -201,12 +201,12 @@ config :prismatic_storage_meilisearch,
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `meilisearch-deployment-agent` | Agent manages full deployment lifecycle |
-| [AIAD](/glossary/aiad/) Registry | Command specification and discovery | Operations category registration |
-| [Quality Gates](/glossary/quality-gates/) | Post-deployment validation | Health checks gate deployment success |
-| [Telemetry](/glossary/telemetry/) | Deployment [metrics](/glossary/metrics/) | Deployment time, health status, index counts |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `meilisearch-deployment-agent` | Agent manages full deployment lifecycle |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification and discovery | Operations category registration |
+| [Quality Gates](@/glossary/quality-gates.md) | Post-deployment validation | Health checks gate deployment success |
+| [Telemetry](@/glossary/telemetry.md) | Deployment [metrics](@/glossary/metrics.md) | Deployment time, health status, index counts |
 | PrismaticStorageMeilisearch | Storage adapter | Elixir adapter for Meilisearch operations |
-| [Czech Autocrawler](/commands/czech-autocrawler-supreme/) | Entity indexing | Real-time entity search index |
+| [Czech Autocrawler](@/commands/czech-autocrawler-supreme.md) | Entity indexing | Real-time entity search index |
 | Docker Engine | Container runtime | Container lifecycle management |
 
 ### Index Configuration
@@ -314,19 +314,19 @@ documents = [%{id: 1, title: "Doc 1"}, %{id: 2, title: "Doc 2"}]
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unhealthy Meilisearch instances. Every deployment must pass health validation before being declared successful. No partial deployments. No skipped configuration steps.
 - **NO DOUBTS**: Full health verification through active probing. Search functionality tested with real queries. Index creation confirmed through API verification. Integration validated end-to-end from Elixir adapter through to search results.
 
 ## Related Commands
 
-- [/deploy](/commands/deploy/) - Deployment to staging environment via [GitLab CI](/glossary/gitlab-ci/)/CD
-- [/deploy-unified](/commands/deploy-unified/) - Safe validated traceable deployment for all environments
-- [/deploy-production](/commands/deploy-production/) - Production deployment to [Fly.io](/glossary/fly-io/) with safety checks
-- [/czech-autocrawler-supreme](/commands/czech-autocrawler-supreme/) - Czech Registry intelligence (uses Meilisearch indexes)
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/deploy](@/commands/deploy.md) - Deployment to staging environment via [GitLab CI](@/glossary/gitlab-ci.md)/CD
+- [/deploy-unified](@/commands/deploy-unified.md) - Safe validated traceable deployment for all environments
+- [/deploy-production](@/commands/deploy-production.md) - Production deployment to [Fly.io](@/glossary/fly-io.md) with safety checks
+- [/czech-autocrawler-supreme](@/commands/czech-autocrawler-supreme.md) - Czech Registry intelligence (uses Meilisearch indexes)
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -335,4 +335,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

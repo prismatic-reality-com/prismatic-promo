@@ -28,11 +28,11 @@ image_alt = "ecosystem-biologist-coordinator - Prismatic Platform"
 
 ## Overview
 
-The Ecosystem Biologist Coordinator operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Supreme domain of the Prismatic Platform. This agent treats the entire platform as a living ecosystem, applying biological principles -- population dynamics, ecological succession, symbiotic relationships, and homeostatic regulation -- to model and optimize the behavior of 430+ autonomous agents operating across 90 [umbrella application](/glossary/umbrella-application/)s. The biological metaphor is not merely descriptive; it provides the formal framework through which the coordinator makes decisions about agent lifecycle management, resource allocation, and evolutionary trajectory.
+The Ecosystem Biologist Coordinator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Supreme domain of the Prismatic Platform. This agent treats the entire platform as a living ecosystem, applying biological principles -- population dynamics, ecological succession, symbiotic relationships, and homeostatic regulation -- to model and optimize the behavior of 430+ autonomous agents operating across 90 [umbrella application](@/glossary/umbrella-application.md)s. The biological metaphor is not merely descriptive; it provides the formal framework through which the coordinator makes decisions about agent lifecycle management, resource allocation, and evolutionary trajectory.
 
 In ecological terms, the Prismatic Platform exhibits characteristics of a complex adaptive system: emergent behaviors arise from agent interactions that no single agent was designed to produce, resource competition drives efficiency improvements, and environmental pressures (quality gates, performance targets, doctrine enforcement) create selection pressures that shape the agent population over generational cycles. The Ecosystem Biologist Coordinator serves as the platform's ecologist, monitoring these dynamics and intervening when the ecosystem drifts toward unhealthy states such as monoculture (too many similar agents), population collapse (agent failure cascades), or invasive dominance (a single agent pattern overwhelming diversity).
 
-The coordinator operates at the intersection of the [SEADF](/glossary/seadf/) self-evolving framework and the [mycelial network](/glossary/mycelial-network/) communication substrate, using biological models to inform both evolutionary strategy and pattern propagation decisions.
+The coordinator operates at the intersection of the [SEADF](@/glossary/seadf.md) self-evolving framework and the [mycelial network](@/glossary/mycelial-network.md) communication substrate, using biological models to inform both evolutionary strategy and pattern propagation decisions.
 
 ## Architecture
 
@@ -151,13 +151,13 @@ end
 
 | Component | Integration Type | Purpose |
 |-----------|-----------------|---------|
-| [SEADF](/glossary/seadf/) | Evolution Framework | Self-evolving development framework coordination for evolutionary interventions |
-| [Mycelial Network](/glossary/mycelial-network/) | Communication Substrate | Cross-domain pattern propagation and intervention distribution |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Quality Monitoring | Quality metrics as ecological health indicators |
-| [autonomous-healing-commander](/agents/autonomous-healing-commander/) | Healing Partner | L1-L5 healing capabilities triggered by ecosystem health degradation |
-| [darwinian-evolution-coordinator](/agents/darwinian-evolution-coordinator/) | Evolution Partner | Survival-of-the-fittest selection informed by ecological models |
-| [GARDENER SUPREME](/agents/gardener-supreme/) | Legacy Knowledge | Garden repository patterns as ecological reference data |
-| [Telemetry](/glossary/telemetry/) | Observability | Ecosystem health metrics and census event tracking |
+| [SEADF](@/glossary/seadf.md) | Evolution Framework | Self-evolving development framework coordination for evolutionary interventions |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Communication Substrate | Cross-domain pattern propagation and intervention distribution |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Quality Monitoring | Quality metrics as ecological health indicators |
+| [autonomous-healing-commander](@/agents/autonomous-healing-commander.md) | Healing Partner | L1-L5 healing capabilities triggered by ecosystem health degradation |
+| [darwinian-evolution-coordinator](@/agents/darwinian-evolution-coordinator.md) | Evolution Partner | Survival-of-the-fittest selection informed by ecological models |
+| [GARDENER SUPREME](@/agents/gardener-supreme.md) | Legacy Knowledge | Garden repository patterns as ecological reference data |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Ecosystem health metrics and census event tracking |
 
 ## Operational Workflow
 
@@ -167,7 +167,7 @@ end
 
 **Phase 3: Health Assessment.** Model outputs are synthesized into the composite ecosystem health score. Health assessments are compared against historical baselines and configurable thresholds to identify domains requiring attention.
 
-**Phase 4: Intervention Planning.** When health assessments identify concerning trends, the intervention planner generates corrective action proposals. Each proposal includes the identified problem, the proposed intervention, the expected ecological impact, and the confidence level of the prediction. Interventions requiring significant ecosystem changes are routed through the [Trinity Gate](/glossary/trinity-gate/) for formal validation.
+**Phase 4: Intervention Planning.** When health assessments identify concerning trends, the intervention planner generates corrective action proposals. Each proposal includes the identified problem, the proposed intervention, the expected ecological impact, and the confidence level of the prediction. Interventions requiring significant ecosystem changes are routed through the [Trinity Gate](@/glossary/trinity-gate.md) for formal validation.
 
 **Phase 5: Intervention Execution.** Approved interventions are propagated through the mycelial network to affected domains. The coordinator monitors intervention outcomes through subsequent census cycles, adjusting the intervention strategy based on observed results.
 
@@ -208,11 +208,11 @@ config :prismatic_agents, PrismaticAgents.EcosystemBiologist.Coordinator,
 
 ## Related Resources
 
-- [**autonomous-healing-commander**](/agents/autonomous-healing-commander/) (L3) - L1-L5 healing capabilities triggered by ecosystem health degradation
-- [**darwinian-evolution-coordinator**](/agents/darwinian-evolution-coordinator/) (L3) - Survival-of-the-fittest evolutionary selection informed by ecological models
-- [**GARDENER SUPREME**](/agents/gardener-supreme/) (L3) - Legacy knowledge garden providing ecological reference patterns from 22 repositories
-- [**evolution-orchestrator-supreme**](/agents/evolution-orchestrator-supreme/) (L3) - Supreme evolutionary orchestration consuming ecosystem health signals
-- [SEADF](/glossary/seadf/) - Self-evolving autonomous development framework coordinated by the biologist
+- [**autonomous-healing-commander**](@/agents/autonomous-healing-commander.md) (L3) - L1-L5 healing capabilities triggered by ecosystem health degradation
+- [**darwinian-evolution-coordinator**](@/agents/darwinian-evolution-coordinator.md) (L3) - Survival-of-the-fittest evolutionary selection informed by ecological models
+- [**GARDENER SUPREME**](@/agents/gardener-supreme.md) (L3) - Legacy knowledge garden providing ecological reference patterns from 22 repositories
+- [**evolution-orchestrator-supreme**](@/agents/evolution-orchestrator-supreme.md) (L3) - Supreme evolutionary orchestration consuming ecosystem health signals
+- [SEADF](@/glossary/seadf.md) - Self-evolving autonomous development framework coordinated by the biologist
 
 ---
 
@@ -221,4 +221,4 @@ config :prismatic_agents, PrismaticAgents.EcosystemBiologist.Coordinator,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

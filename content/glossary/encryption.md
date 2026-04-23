@@ -38,7 +38,7 @@ image_alt = "Encryption - Prismatic Platform"
 
 **Encryption** is the process of transforming plaintext data into ciphertext using a mathematical algorithm (cipher) and a secret key, such that only parties possessing the corresponding decryption key can recover the original information. Encryption is the foundational mechanism for data confidentiality -- one of the three pillars of information security alongside integrity and availability. Modern encryption operates through two primary paradigms: symmetric encryption (where the same key encrypts and decrypts) and asymmetric encryption (where mathematically related but distinct public and private keys are used for encryption and decryption respectively).
 
-In the Prismatic Platform, encryption operates at multiple layers: [TLS](/glossary/tls/) secures all network communication, [encryption at rest](/glossary/encryption-at-rest/) protects stored data, [credential management](/glossary/credential-management/) safeguards API keys and tokens, and [certificate transparency](/glossary/certificate-transparency/) monitoring ensures the integrity of the platform's PKI infrastructure.
+In the Prismatic Platform, encryption operates at multiple layers: [TLS](@/glossary/tls.md) secures all network communication, [encryption at rest](@/glossary/encryption-at-rest.md) protects stored data, [credential management](@/glossary/credential-management.md) safeguards API keys and tokens, and [certificate transparency](@/glossary/certificate-transparency.md) monitoring ensures the integrity of the platform's PKI infrastructure.
 
 ## Overview
 
@@ -61,7 +61,7 @@ Asymmetric algorithms use key pairs -- a public key for encryption and a private
 
 ### Hybrid Encryption
 
-In practice, systems combine both approaches: asymmetric encryption exchanges a symmetric session key, which then encrypts the actual data. This is exactly how [TLS](/glossary/tls/) works -- the handshake uses asymmetric cryptography to establish a shared secret, then symmetric ciphers encrypt the session.
+In practice, systems combine both approaches: asymmetric encryption exchanges a symmetric session key, which then encrypts the actual data. This is exactly how [TLS](@/glossary/tls.md) works -- the handshake uses asymmetric cryptography to establish a shared secret, then symmetric ciphers encrypt the session.
 
 ### Key Derivation
 
@@ -292,23 +292,23 @@ The Prismatic Platform implements encryption across four distinct layers, each a
 
 ### Layer 1: Transport Encryption (TLS)
 
-All network communication -- between the platform and external services, between the web interface and browsers, and between internal components when deployed across nodes -- uses [TLS](/glossary/tls/) 1.2 or 1.3. The platform's Cowboy/Bandit web servers are configured with modern cipher suites, and certificate management is automated through ACME (Let's Encrypt) integration on Fly.io.
+All network communication -- between the platform and external services, between the web interface and browsers, and between internal components when deployed across nodes -- uses [TLS](@/glossary/tls.md) 1.2 or 1.3. The platform's Cowboy/Bandit web servers are configured with modern cipher suites, and certificate management is automated through ACME (Let's Encrypt) integration on Fly.io.
 
 ### Layer 2: Encryption at Rest
 
-Sensitive data stored in PostgreSQL uses column-level encryption through `Cloak.Ecto`, which provides transparent encryption/decryption at the Ecto schema layer. ETS tables containing sensitive runtime state use application-level encryption before storage. See [Encryption at Rest](/glossary/encryption-at-rest/) for detailed implementation.
+Sensitive data stored in PostgreSQL uses column-level encryption through `Cloak.Ecto`, which provides transparent encryption/decryption at the Ecto schema layer. ETS tables containing sensitive runtime state use application-level encryption before storage. See [Encryption at Rest](@/glossary/encryption-at-rest.md) for detailed implementation.
 
 ### Layer 3: Credential Management
 
-API keys, tokens, and secrets are managed through the [credential management](/glossary/credential-management/) system, which encrypts credentials before storage and provides controlled access through a vault abstraction. Credentials are never logged, never included in error messages, and never exposed through the API without explicit authorization.
+API keys, tokens, and secrets are managed through the [credential management](@/glossary/credential-management.md) system, which encrypts credentials before storage and provides controlled access through a vault abstraction. Credentials are never logged, never included in error messages, and never exposed through the API without explicit authorization.
 
 ### Layer 4: Certificate Transparency Monitoring
 
-The [certificate transparency](/glossary/certificate-transparency/) monitoring subsystem within Prismatic Perimeter tracks certificate issuance for monitored domains, detecting unauthorized certificate creation that could enable man-in-the-middle attacks.
+The [certificate transparency](@/glossary/certificate-transparency.md) monitoring subsystem within Prismatic Perimeter tracks certificate issuance for monitored domains, detecting unauthorized certificate creation that could enable man-in-the-middle attacks.
 
 ### Encryption in the Quality System
 
-The platform's [enforcement policy](/glossary/enforcement-policy/) includes encryption-specific rules:
+The platform's [enforcement policy](@/glossary/enforcement-policy.md) includes encryption-specific rules:
 
 - Hardcoded secrets are blocked by pre-commit hooks (Phase 3)
 - Credential files (`.env`, `credentials.json`) are in `.gitignore`
@@ -402,7 +402,7 @@ In scenarios where the platform processes data for multiple clients, per-tenant 
 
 ### Credential Rotation in Agent Operations
 
-The 530+ [AIAD agents](/glossary/agent/) that interact with external services require API credentials. The credential vault encrypts these credentials and supports zero-downtime rotation, allowing agents to seamlessly transition to new credentials without service interruption.
+The 530+ [AIAD agents](@/glossary/agent.md) that interact with external services require API credentials. The credential vault encrypts these credentials and supports zero-downtime rotation, allowing agents to seamlessly transition to new credentials without service interruption.
 
 ### Compliance-Driven Encryption
 
@@ -412,24 +412,24 @@ NIS2 and ZKB compliance requirements mandate encryption for personal data proces
 
 Encryption integrates with numerous security and platform concepts:
 
-- [Encryption at Rest](/glossary/encryption-at-rest/) -- Applying encryption to stored data, complementing transport encryption
-- [TLS](/glossary/tls/) -- Transport Layer Security protocol for encrypted network communication
-- [Authentication](/glossary/authentication/) -- Verifying identity, often using cryptographic mechanisms
-- [Security Operations](/glossary/security-operations/) -- The operational framework for managing encryption infrastructure
-- [Certificate Transparency](/glossary/certificate-transparency/) -- Monitoring certificate issuance to prevent PKI abuse
-- [Credential Management](/glossary/credential-management/) -- Secure storage and rotation of encrypted credentials
-- [Authorization](/glossary/authorization/) -- Access control that determines who can decrypt what data
-- [Audit Trail](/glossary/audit-trail/) -- Logging encryption operations for compliance and forensics
-- [Policy](/glossary/policy/) -- Governance rules that mandate encryption standards
-- [Attack Surface](/glossary/attack-surface/) -- The exposure that encryption helps minimize
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) -- Applying encryption to stored data, complementing transport encryption
+- [TLS](@/glossary/tls.md) -- Transport Layer Security protocol for encrypted network communication
+- [Authentication](@/glossary/authentication.md) -- Verifying identity, often using cryptographic mechanisms
+- [Security Operations](@/glossary/security-operations.md) -- The operational framework for managing encryption infrastructure
+- [Certificate Transparency](@/glossary/certificate-transparency.md) -- Monitoring certificate issuance to prevent PKI abuse
+- [Credential Management](@/glossary/credential-management.md) -- Secure storage and rotation of encrypted credentials
+- [Authorization](@/glossary/authorization.md) -- Access control that determines who can decrypt what data
+- [Audit Trail](@/glossary/audit-trail.md) -- Logging encryption operations for compliance and forensics
+- [Policy](@/glossary/policy.md) -- Governance rules that mandate encryption standards
+- [Attack Surface](@/glossary/attack-surface.md) -- The exposure that encryption helps minimize
 
 ## See Also
 
 - Glossary Index -- Complete glossary of Prismatic Platform terminology
-- [Enforcement Policy](/glossary/enforcement-policy/) -- How encryption standards are enforced across the platform
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- The doctrine that mandates zero tolerance for encryption shortcuts
-- [Quality Gate](/glossary/quality-gate/) -- Automated checks that verify encryption compliance
-- [Formal Verification](/glossary/formal-verification/) -- Proving encryption implementations are correct
+- [Enforcement Policy](@/glossary/enforcement-policy.md) -- How encryption standards are enforced across the platform
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- The doctrine that mandates zero tolerance for encryption shortcuts
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated checks that verify encryption compliance
+- [Formal Verification](@/glossary/formal-verification.md) -- Proving encryption implementations are correct
 
 ---
 
@@ -438,4 +438,4 @@ Encryption integrates with numerous security and platform concepts:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

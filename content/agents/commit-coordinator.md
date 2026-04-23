@@ -28,7 +28,7 @@ image_alt = "commit-coordinator - Prismatic Platform"
 
 ## Executive Summary
 
-The Commit Coordinator operates as an L2 tactical operations agent within the Medium Predator domain of the Prismatic Platform. This agent specializes in Git commit operations, providing intelligent commit message generation, [quality gate](/glossary/quality-gates/) enforcement at commit time, Conventional Commits format compliance, and mandatory GitLab issue validation. Every commit passing through this agent is guaranteed to be traceable to a GitLab issue, formatted according to platform conventions, and verified against all quality gates before entering the repository.
+The Commit Coordinator operates as an L2 tactical operations agent within the Medium Predator domain of the Prismatic Platform. This agent specializes in Git commit operations, providing intelligent commit message generation, [quality gate](@/glossary/quality-gates.md) enforcement at commit time, Conventional Commits format compliance, and mandatory GitLab issue validation. Every commit passing through this agent is guaranteed to be traceable to a GitLab issue, formatted according to platform conventions, and verified against all quality gates before entering the repository.
 
 In a platform where session discipline requires continuous committing with mandatory push-to-remote, the quality and consistency of commits is critical. Poorly formatted commit messages, commits without issue references, and commits that bypass quality gates create maintenance burden, break traceability, and allow defects to enter the codebase. The Commit Coordinator eliminates these failure modes by intercepting every commit operation and applying a comprehensive validation and enhancement pipeline.
 
@@ -131,9 +131,9 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [commit-orchestrator](/agents/commit-orchestrator/) | Higher Authority | Receives strategic commit policies and priority overrides |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality Authority | Defines quality gate requirements enforced at commit time |
-| [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) | Guardrail Partner | Ensures commit-time gates match CI and deployment gates |
+| [commit-orchestrator](@/agents/commit-orchestrator.md) | Higher Authority | Receives strategic commit policies and priority overrides |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality Authority | Defines quality gate requirements enforced at commit time |
+| [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) | Guardrail Partner | Ensures commit-time gates match CI and deployment gates |
 
 ## Operational Workflow
 
@@ -160,15 +160,15 @@ end
 
 ## Enforcement
 
-Commit coordination operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every commit must pass all quality gates, follow Conventional Commits format, and reference a valid GitLab issue. The `--no-verify` flag is absolutely forbidden. Bypass attempts trigger immediate L4 escalation. No exceptions, no workarounds.
+Commit coordination operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every commit must pass all quality gates, follow Conventional Commits format, and reference a valid GitLab issue. The `--no-verify` flag is absolutely forbidden. Bypass attempts trigger immediate L4 escalation. No exceptions, no workarounds.
 
 ## Related Resources
 
-- [commit-orchestrator](/agents/commit-orchestrator/) -- Strategic commit orchestration
-- [code-quality-commander](/agents/code-quality-commander/) -- Quality enforcement
-- [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) -- Guardrail consistency
-- [Quality Gates](/capabilities/quality-gates/) -- Platform quality enforcement
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [commit-orchestrator](@/agents/commit-orchestrator.md) -- Strategic commit orchestration
+- [code-quality-commander](@/agents/code-quality-commander.md) -- Quality enforcement
+- [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) -- Guardrail consistency
+- [Quality Gates](@/capabilities/quality-gates.md) -- Platform quality enforcement
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -177,4 +177,4 @@ Commit coordination operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-d
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

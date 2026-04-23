@@ -40,7 +40,7 @@ A **security assessment** is a systematic, structured evaluation of an organizat
 
 Security assessments produce actionable intelligence -- not just lists of findings, but prioritized recommendations that map directly to risk reduction. They answer the fundamental question: "Given our current security posture, what is the probability and potential impact of a successful attack, and what is the most cost-effective path to reducing that risk?"
 
-In the context of the Prismatic Platform, security assessment is operationalized through the [Prismatic Perimeter](/glossary/easm/) subsystem, which performs continuous, automated [attack surface](/glossary/attack-surface/) evaluation with [security ratings](/glossary/security-rating/) graded A through F, [NIS2](/glossary/compliance-framework/) and ZKB compliance mapping, and evidence-based risk scoring with confidence intervals.
+In the context of the Prismatic Platform, security assessment is operationalized through the [Prismatic Perimeter](@/glossary/easm.md) subsystem, which performs continuous, automated [attack surface](@/glossary/attack-surface.md) evaluation with [security ratings](@/glossary/security-rating.md) graded A through F, [NIS2](@/glossary/compliance-framework.md) and ZKB compliance mapping, and evidence-based risk scoring with confidence intervals.
 
 ## Overview
 
@@ -57,7 +57,7 @@ The assessment lifecycle follows a structured methodology:
 7. **Remediation Tracking** -- Monitoring fix progress and verifying resolution
 8. **Continuous Monitoring** -- Ongoing assessment to detect drift and new exposures
 
-The Prismatic Platform implements this full lifecycle through its [EASM](/glossary/easm/) capabilities, the [Color Team](/glossary/blue-team/) security architecture, and the [quality gate](/glossary/quality-gate/) enforcement pipeline that treats security findings with the same [zero tolerance](/glossary/zero-tolerance/) as code quality violations.
+The Prismatic Platform implements this full lifecycle through its [EASM](@/glossary/easm.md) capabilities, the [Color Team](@/glossary/blue-team.md) security architecture, and the [quality gate](@/glossary/quality-gate.md) enforcement pipeline that treats security findings with the same [zero tolerance](@/glossary/zero-tolerance.md) as code quality violations.
 
 ## Technical Details
 
@@ -65,11 +65,11 @@ The Prismatic Platform implements this full lifecycle through its [EASM](/glossa
 
 Security assessments employ multiple complementary methodologies, each providing different perspectives on the security posture:
 
-**Black-Box Assessment** examines systems from an external attacker's perspective without internal knowledge. This maps to the Prismatic Perimeter's external scanning capabilities, where the system discovers and evaluates the publicly exposed [attack surface](/glossary/attack-surface/) of a target domain.
+**Black-Box Assessment** examines systems from an external attacker's perspective without internal knowledge. This maps to the Prismatic Perimeter's external scanning capabilities, where the system discovers and evaluates the publicly exposed [attack surface](@/glossary/attack-surface.md) of a target domain.
 
-**White-Box Assessment** leverages full internal access to source code, configurations, and architecture documentation. In Prismatic, this corresponds to [static analysis](/glossary/static-analysis/) via [Credo](/glossary/credo/) and [Dialyzer](/glossary/dialyzer/), which have complete visibility into the codebase.
+**White-Box Assessment** leverages full internal access to source code, configurations, and architecture documentation. In Prismatic, this corresponds to [static analysis](@/glossary/static-analysis.md) via [Credo](@/glossary/credo.md) and [Dialyzer](@/glossary/dialyzer.md), which have complete visibility into the codebase.
 
-**Gray-Box Assessment** combines elements of both, simulating an attacker with partial internal knowledge. The platform's Gray Team agents perform this function within the [Color Team](/glossary/adversarial-architecture/) framework, exploring specification boundaries and edge cases with controlled internal access.
+**Gray-Box Assessment** combines elements of both, simulating an attacker with partial internal knowledge. The platform's Gray Team agents perform this function within the [Color Team](@/glossary/adversarial-architecture.md) framework, exploring specification boundaries and edge cases with controlled internal access.
 
 ### Scoring and Rating Systems
 
@@ -275,7 +275,7 @@ end
 
 ### Integration with Platform Quality Gates
 
-Security assessment findings integrate directly into the platform's [quality gate](/glossary/quality-gate/) pipeline. Any critical or high-severity finding blocks deployment through the same enforcement mechanism used for [code quality](/glossary/code-quality/) violations:
+Security assessment findings integrate directly into the platform's [quality gate](@/glossary/quality-gate.md) pipeline. Any critical or high-severity finding blocks deployment through the same enforcement mechanism used for [code quality](@/glossary/code-quality.md) violations:
 
 ```elixir
 defmodule PrismaticPerimeter.QualityIntegration do
@@ -312,21 +312,21 @@ end
 | **OWASP ZAP** | Web application scanning | Free, comprehensive web testing, automation | Web-only, requires manual configuration, no rating system |
 | **Manual Pen Test** | Human-driven assessment | Deep analysis, creative attack paths, context awareness | Expensive, point-in-time, limited scale, inconsistent |
 
-The Prismatic approach differentiates by combining external attack surface assessment with internal [static analysis](/glossary/static-analysis/), [quality gate](/glossary/quality-gate/) enforcement, and [color team](/glossary/blue-team/) adversarial validation into a single unified assessment pipeline. This eliminates the gap between security findings and development workflow that plagues external-only assessment tools.
+The Prismatic approach differentiates by combining external attack surface assessment with internal [static analysis](@/glossary/static-analysis.md), [quality gate](@/glossary/quality-gate.md) enforcement, and [color team](@/glossary/blue-team.md) adversarial validation into a single unified assessment pipeline. This eliminates the gap between security findings and development workflow that plagues external-only assessment tools.
 
 ## Best Practices
 
 1. **Continuous over periodic** -- Run assessments continuously rather than quarterly. The Prismatic Perimeter performs ongoing monitoring with configurable scan intervals, ensuring that new exposures are detected within hours rather than months.
 
-2. **Evidence-based scoring** -- Every rating and finding must trace back to specific, verifiable evidence. The platform's [NABLA infinity](/glossary/quality-evidence-truth/) framework requires provenance for all security claims, preventing false positives from propagating into decision-making.
+2. **Evidence-based scoring** -- Every rating and finding must trace back to specific, verifiable evidence. The platform's [NABLA infinity](@/glossary/quality-evidence-truth.md) framework requires provenance for all security claims, preventing false positives from propagating into decision-making.
 
 3. **Scope completeness** -- Include shadow IT, third-party integrations, and supply chain components in assessment scope. Incomplete scope produces false confidence -- the most dangerous assessment outcome.
 
 4. **Risk-based prioritization** -- Not all findings are equal. Prioritize remediation by exploitability, exposure, and business impact rather than raw CVSS scores. A medium-severity finding on an internet-facing production system outranks a critical finding on an isolated test environment.
 
-5. **Compliance integration** -- Map findings directly to applicable regulatory frameworks ([NIS2](/glossary/compliance-framework/), ZKB, ISO 27001, SOC 2) to ensure assessment work serves both security improvement and compliance objectives simultaneously.
+5. **Compliance integration** -- Map findings directly to applicable regulatory frameworks ([NIS2](@/glossary/compliance-framework.md), ZKB, ISO 27001, SOC 2) to ensure assessment work serves both security improvement and compliance objectives simultaneously.
 
-6. **Automate remediation verification** -- After fixes are applied, automatically re-assess to confirm resolution. The platform's [pre-commit hooks](/glossary/pre-commit-hooks/) and quality gates provide this verification for code-level security findings.
+6. **Automate remediation verification** -- After fixes are applied, automatically re-assess to confirm resolution. The platform's [pre-commit hooks](@/glossary/pre-commit-hooks.md) and quality gates provide this verification for code-level security findings.
 
 7. **Maintain assessment history** -- Track rating trends over time to measure security program effectiveness. Point-in-time ratings are useful; rating trajectories are powerful.
 
@@ -336,7 +336,7 @@ The Prismatic approach differentiates by combining external attack surface asses
 
 1. **Scope blindness** -- Assessing only known assets while the real attack surface includes forgotten subdomains, test environments, and third-party services. The Prismatic asset discovery pipeline addresses this through DNS enumeration, certificate transparency log analysis, and cloud resource scanning.
 
-2. **Checkbox compliance** -- Treating assessment as a compliance exercise rather than a security improvement tool. Meeting the minimum requirements of a framework does not mean the organization is secure. The [no-mercy-no-doubts](/glossary/no-mercy-no-doubts/) doctrine rejects this mentality explicitly.
+2. **Checkbox compliance** -- Treating assessment as a compliance exercise rather than a security improvement tool. Meeting the minimum requirements of a framework does not mean the organization is secure. The [no-mercy-no-doubts](@/glossary/no-mercy-no-doubts.md) doctrine rejects this mentality explicitly.
 
 3. **Alert fatigue** -- Generating thousands of findings without prioritization overwhelms remediation teams and leads to critical issues being buried in noise. The rating engine's weighted scoring ensures that the most impactful findings surface first.
 
@@ -344,7 +344,7 @@ The Prismatic approach differentiates by combining external attack surface asses
 
 5. **Ignoring context** -- Applying the same assessment criteria to all systems regardless of their exposure, sensitivity, and criticality. A public-facing payment API requires fundamentally different assessment rigor than an internal documentation wiki.
 
-6. **Over-reliance on automation** -- Automated scanners excel at finding known vulnerability patterns but miss business logic flaws, design weaknesses, and novel attack vectors. The [Color Team](/glossary/adversarial-simulation/) architecture supplements automated assessment with structured adversarial analysis.
+6. **Over-reliance on automation** -- Automated scanners excel at finding known vulnerability patterns but miss business logic flaws, design weaknesses, and novel attack vectors. The [Color Team](@/glossary/adversarial-simulation.md) architecture supplements automated assessment with structured adversarial analysis.
 
 7. **Assessment without remediation** -- Identifying problems without fixing them provides no security benefit and may increase legal liability. Every assessment finding must have an assigned owner, a remediation timeline, and a verification plan.
 
@@ -364,7 +364,7 @@ A procurement team evaluates potential vendors by running external security asse
 
 ### Development Pipeline Integration
 
-The platform integrates security assessment into the CI/CD pipeline. Every deployment to production triggers a quick security scan that verifies no new critical exposures have been introduced. Failed assessments block deployment through the same [quality gate](/glossary/quality-gate/) mechanism that blocks code quality violations, ensuring security is treated as a non-negotiable build requirement.
+The platform integrates security assessment into the CI/CD pipeline. Every deployment to production triggers a quick security scan that verifies no new critical exposures have been introduced. Failed assessments block deployment through the same [quality gate](@/glossary/quality-gate.md) mechanism that blocks code quality violations, ensuring security is treated as a non-negotiable build requirement.
 
 ### Incident Response Prioritization
 
@@ -372,22 +372,22 @@ Following a disclosed vulnerability (e.g., a new CVE affecting a commonly used l
 
 ## Related Concepts
 
-- [Security Rating](/glossary/security-rating/) -- Quantitative scoring system (A-F, 300-900) produced by security assessments to enable comparison and trend analysis
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Focused identification and classification of specific technical vulnerabilities within systems
-- [Attack Surface](/glossary/attack-surface/) -- The total set of points where an attacker can attempt to enter or extract data from a system
-- [EASM](/glossary/easm/) -- External Attack Surface Management, the continuous discovery and assessment of externally exposed assets
-- [Penetration Testing](/glossary/penetration-testing/) -- Active exploitation attempts that validate assessment findings and test defensive controls
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory and standards requirements (NIS2, ZKB, ISO 27001, SOC 2) that assessments evaluate against
-- [Security Audit](/glossary/security-audit/) -- Formal examination of security controls against defined standards, often a subset of broader assessment
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of security events and assessment findings for accountability and forensics
-- [Quality Gate](/glossary/quality-gate/) -- Enforcement checkpoints that block progression when security or quality thresholds are not met
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- Platform doctrine that mandates zero tolerance for security violations and incomplete assessments
-- [Static Analysis](/glossary/static-analysis/) -- Code-level security assessment performed without execution, complementing external assessment
-- [Security Operations](/glossary/security-operations/) -- Ongoing operational security functions that consume and act on assessment outputs
+- [Security Rating](@/glossary/security-rating.md) -- Quantitative scoring system (A-F, 300-900) produced by security assessments to enable comparison and trend analysis
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Focused identification and classification of specific technical vulnerabilities within systems
+- [Attack Surface](@/glossary/attack-surface.md) -- The total set of points where an attacker can attempt to enter or extract data from a system
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management, the continuous discovery and assessment of externally exposed assets
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Active exploitation attempts that validate assessment findings and test defensive controls
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory and standards requirements (NIS2, ZKB, ISO 27001, SOC 2) that assessments evaluate against
+- [Security Audit](@/glossary/security-audit.md) -- Formal examination of security controls against defined standards, often a subset of broader assessment
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of security events and assessment findings for accountability and forensics
+- [Quality Gate](@/glossary/quality-gate.md) -- Enforcement checkpoints that block progression when security or quality thresholds are not met
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- Platform doctrine that mandates zero tolerance for security violations and incomplete assessments
+- [Static Analysis](@/glossary/static-analysis.md) -- Code-level security assessment performed without execution, complementing external assessment
+- [Security Operations](@/glossary/security-operations.md) -- Ongoing operational security functions that consume and act on assessment outputs
 
 ## See Also
 
-- [Prismatic Perimeter documentation](/apps/prismatic-perimeter/) -- Full EASM implementation guide
+- [Prismatic Perimeter documentation](@/apps/prismatic-perimeter.md) -- Full EASM implementation guide
 - [Color Team Security Operations](/architecture/color-teams/) -- Adversarial-defensive security architecture
 - [Quality Gate Pipeline](/architecture/quality-gates/) -- How security findings integrate with quality enforcement
 - [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/) -- Industry-standard web assessment methodology
@@ -401,4 +401,4 @@ Following a disclosed vulnerability (e.g., a new CVE affecting a commonly used l
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

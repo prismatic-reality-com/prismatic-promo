@@ -28,9 +28,9 @@ image_alt = "manipulation-forensics - Prismatic Platform"
 
 ## Overview
 
-The manipulation-forensics agent serves as the L3 [Strategic Command](/glossary/strategic-command/) authority for post-incident analysis of information manipulation events within the Prismatic Platform's security domain. When manipulation campaigns are detected or suspected, this agent conducts rigorous forensic examination to determine the origin, methodology, scope, and impact of the operation. Its forensic findings establish the evidentiary chain required for attribution, remediation planning, and defensive posture updates across the platform's [color-team](/glossary/color-teams/) security architecture.
+The manipulation-forensics agent serves as the L3 [Strategic Command](@/glossary/strategic-command.md) authority for post-incident analysis of information manipulation events within the Prismatic Platform's security domain. When manipulation campaigns are detected or suspected, this agent conducts rigorous forensic examination to determine the origin, methodology, scope, and impact of the operation. Its forensic findings establish the evidentiary chain required for attribution, remediation planning, and defensive posture updates across the platform's [color-team](@/glossary/color-teams.md) security architecture.
 
-Built on the [AIAD](/glossary/aiad/) standard and enforced by the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine, the manipulation-forensics agent operates with strict evidence chain preservation. Every forensic artifact maintains full provenance in compliance with [NABLA Infinity](/glossary/nabla-infinity/) axioms, and all attribution conclusions must pass [Trinity Gate](/glossary/trinity-gate/) validation across structural, logical, and formal consistency layers. The agent refuses to produce speculative attribution without meeting the 0.95 [confidence threshold](/glossary/confidence-threshold/) required for critical security decisions.
+Built on the [AIAD](@/glossary/aiad.md) standard and enforced by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine, the manipulation-forensics agent operates with strict evidence chain preservation. Every forensic artifact maintains full provenance in compliance with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms, and all attribution conclusions must pass [Trinity Gate](@/glossary/trinity-gate.md) validation across structural, logical, and formal consistency layers. The agent refuses to produce speculative attribution without meeting the 0.95 [confidence threshold](@/glossary/confidence-threshold.md) required for critical security decisions.
 
 The forensic analysis function is essential to the platform's epistemic defense architecture because it closes the feedback loop between detection and prevention. By thoroughly analyzing manipulation events after detection, the forensics agent produces actionable intelligence that strengthens detection signatures, validates defensive posture assumptions, and identifies previously unknown attack vectors. This retrospective analysis transforms individual incidents into systematic improvements across the entire security infrastructure.
 
@@ -63,7 +63,7 @@ The manipulation-forensics agent provides comprehensive post-incident analysis t
 
 **Evidence Chain Reconstruction** rebuilds the complete timeline of manipulation events from initial injection point through propagation paths to observed impact. All evidence artifacts maintain cryptographic integrity verification, ensuring that forensic findings cannot be challenged on chain-of-custody grounds. The reconstruction engine handles both digital evidence (content timestamps, network logs, metadata) and behavioral evidence (engagement patterns, audience response metrics).
 
-**Technique Fingerprinting** matches observed manipulation patterns against the platform's technique taxonomy maintained by the [manipulation-research](/agents/manipulation-research/) agent. Fingerprinting identifies known methodologies (narrative distortion variants, coordinated amplification patterns, source poisoning techniques) and flags novel approaches that do not match existing taxonomy entries. Novel technique identification triggers taxonomy update requests to the research agent.
+**Technique Fingerprinting** matches observed manipulation patterns against the platform's technique taxonomy maintained by the [manipulation-research](@/agents/manipulation-research.md) agent. Fingerprinting identifies known methodologies (narrative distortion variants, coordinated amplification patterns, source poisoning techniques) and flags novel approaches that do not match existing taxonomy entries. Novel technique identification triggers taxonomy update requests to the research agent.
 
 **Attribution Analysis** correlates behavioral patterns, timing signatures, infrastructure indicators, and technique preferences to establish actor profiles with quantified confidence levels. Attribution operates at multiple levels: technique attribution (what methods were used), infrastructure attribution (what platforms and tools were employed), and actor attribution (who conducted the operation). Each level carries independent confidence scoring, and attribution conclusions require the 0.95 confidence threshold for critical security decisions.
 
@@ -71,7 +71,7 @@ The manipulation-forensics agent provides comprehensive post-incident analysis t
 
 **Defensive Intelligence Production** translates forensic findings into actionable intelligence for other security agents. This includes detection signature updates for the manipulation-detection agent, adversarial scenario inputs for the red-team, defensive posture recommendations for the blue-team, and technique taxonomy updates for the research agent.
 
-**Sandbox Isolation** ensures that all forensic analysis of potentially adversarial content occurs within strict sandbox isolation. No forensic operation can modify platform state, access production data, or execute external network operations. Sandbox boundaries are enforced at the [OTP](/glossary/otp/) supervision level.
+**Sandbox Isolation** ensures that all forensic analysis of potentially adversarial content occurs within strict sandbox isolation. No forensic operation can modify platform state, access production data, or execute external network operations. Sandbox boundaries are enforced at the [OTP](@/glossary/otp.md) supervision level.
 
 ## Implementation
 
@@ -129,14 +129,14 @@ end
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [manipulation-detection](/agents/manipulation-detection/) | Receives detection alerts that trigger forensic investigations | Inbound |
-| [manipulation-research](/agents/manipulation-research/) | Consumes technique taxonomy for incident classification | Inbound |
-| [manipulation-detector](/agents/manipulation-detector/) | Receives detailed artifact analysis for investigation context | Inbound |
-| [purple-closure-analyst](/agents/purple-closure-analyst/) | Forensic findings feed closure evaluation for Red-Blue synthesis | Outbound |
-| [blue-commander](/agents/blue-commander/) | Investigation results update defensive posture assessments | Outbound |
-| [red-scenario-generator](/agents/red-scenario-generator/) | Forensic findings inform adversarial simulation scenarios | Outbound |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
-| Prismatic Telemetry | Investigation progress tracking and [metrics](/glossary/metrics/) | Outbound |
+| [manipulation-detection](@/agents/manipulation-detection.md) | Receives detection alerts that trigger forensic investigations | Inbound |
+| [manipulation-research](@/agents/manipulation-research.md) | Consumes technique taxonomy for incident classification | Inbound |
+| [manipulation-detector](@/agents/manipulation-detector.md) | Receives detailed artifact analysis for investigation context | Inbound |
+| [purple-closure-analyst](@/agents/purple-closure-analyst.md) | Forensic findings feed closure evaluation for Red-Blue synthesis | Outbound |
+| [blue-commander](@/agents/blue-commander.md) | Investigation results update defensive posture assessments | Outbound |
+| [red-scenario-generator](@/agents/red-scenario-generator.md) | Forensic findings inform adversarial simulation scenarios | Outbound |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
+| Prismatic Telemetry | Investigation progress tracking and [metrics](@/glossary/metrics.md) | Outbound |
 
 ## Operational Workflow
 
@@ -164,7 +164,7 @@ end
 | Source Independence | Independent evidence streams are weighted higher than correlated indicators |
 | Provenance Mandatory | Complete evidence chain from collection through analysis to conclusion |
 
-Forensic conclusions are held to the highest evidentiary standard under the [NO DOUBTS](/glossary/no-doubts/) principle. No attribution is published without meeting the 0.95 confidence threshold.
+Forensic conclusions are held to the highest evidentiary standard under the [NO DOUBTS](@/glossary/no-doubts.md) principle. No attribution is published without meeting the 0.95 confidence threshold.
 
 ## Configuration
 
@@ -198,14 +198,14 @@ config :prismatic_security, Prismatic.Security.ManipulationForensics,
 
 ## Related Resources
 
-- [manipulation-detection](/agents/manipulation-detection/) -- Detection alert source
-- [manipulation-research](/agents/manipulation-research/) -- Technique taxonomy for classification
-- [manipulation-detector](/agents/manipulation-detector/) -- Artifact analysis inputs
-- [blue-commander](/agents/blue-commander/) -- Defensive posture updates
-- [purple-closure-analyst](/agents/purple-closure-analyst/) -- Red-Blue synthesis integration
-- [Color Teams](/glossary/color-teams/) -- Security operations architecture
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for evidence-based investigation
+- [manipulation-detection](@/agents/manipulation-detection.md) -- Detection alert source
+- [manipulation-research](@/agents/manipulation-research.md) -- Technique taxonomy for classification
+- [manipulation-detector](@/agents/manipulation-detector.md) -- Artifact analysis inputs
+- [blue-commander](@/agents/blue-commander.md) -- Defensive posture updates
+- [purple-closure-analyst](@/agents/purple-closure-analyst.md) -- Red-Blue synthesis integration
+- [Color Teams](@/glossary/color-teams.md) -- Security operations architecture
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for evidence-based investigation
 
 ---
 
@@ -214,4 +214,4 @@ config :prismatic_security, Prismatic.Security.ManipulationForensics,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

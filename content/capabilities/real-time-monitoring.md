@@ -22,11 +22,11 @@ image_alt = "Real-Time Monitoring - Prismatic Platform"
 
 ## Overview
 
-Real-Time Monitoring provides continuous observation of platform health, quality metrics, agent operations, and system performance across the entire Prismatic Platform. Built on [Elixir](/technologies/elixir/)/OTP [telemetry](/glossary/telemetry/) and [Phoenix LiveView](/technologies/phoenix-liveview/), it enables immediate detection and response to any deviation from expected behavior. The monitoring infrastructure spans every layer of the platform -- from individual [GenServer](/technologies/genserver/) process health to aggregate quality scores across all 99 umbrella applications.
+Real-Time Monitoring provides continuous observation of platform health, quality metrics, agent operations, and system performance across the entire Prismatic Platform. Built on [Elixir](@/technologies/elixir.md)/OTP [telemetry](@/glossary/telemetry.md) and [Phoenix LiveView](@/technologies/phoenix-liveview.md), it enables immediate detection and response to any deviation from expected behavior. The monitoring infrastructure spans every layer of the platform -- from individual [GenServer](@/technologies/genserver.md) process health to aggregate quality scores across all 99 umbrella applications.
 
-Unlike traditional monitoring systems that poll at fixed intervals, the Prismatic Platform leverages the [BEAM](/technologies/beam/) virtual machine's built-in observability and the `:telemetry` library to emit events at the point of occurrence. This event-driven architecture means anomalies are detected within milliseconds of occurrence, not at the next polling cycle. The combination of ETS-backed in-memory aggregation and [PostgreSQL](/technologies/postgresql/) time-series storage enables both real-time dashboards and historical trend analysis with zero compromise on either capability.
+Unlike traditional monitoring systems that poll at fixed intervals, the Prismatic Platform leverages the [BEAM](@/technologies/beam.md) virtual machine's built-in observability and the `:telemetry` library to emit events at the point of occurrence. This event-driven architecture means anomalies are detected within milliseconds of occurrence, not at the next polling cycle. The combination of ETS-backed in-memory aggregation and [PostgreSQL](@/technologies/postgresql.md) time-series storage enables both real-time dashboards and historical trend analysis with zero compromise on either capability.
 
-The monitoring system is not an add-on observability layer but a core platform capability that powers [Autonomous Self-Healing](/capabilities/autonomous-self-healing/), feeds [Quality Gates](/capabilities/quality-gates/) decisions, and enforces the [NO MERCY](/capabilities/no-mercy/) zero-tolerance quality standards in production.
+The monitoring system is not an add-on observability layer but a core platform capability that powers [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md), feeds [Quality Gates](@/capabilities/quality-gates.md) decisions, and enforces the [NO MERCY](@/capabilities/no-mercy.md) zero-tolerance quality standards in production.
 
 ## Monitoring Domains
 
@@ -34,12 +34,12 @@ The platform monitors eight distinct operational domains, each with specialized 
 
 | Domain | Key Metrics | Collection Frequency | Dashboard |
 |--------|------------|---------------------|-----------|
-| **Quality Score** | Compilation, [Credo](/technologies/credo/), [Dialyzer](/technologies/dialyzer/), test results | Continuous (per commit) | Quality Floor Guardian |
+| **Quality Score** | Compilation, [Credo](@/technologies/credo.md), [Dialyzer](@/technologies/dialyzer.md), test results | Continuous (per commit) | Quality Floor Guardian |
 | **Agent Health** | Operation count, success rate, latency, exceptions | Per-operation | Agent Operations |
-| **System Resources** | Memory, CPU, process count, [ETS](/technologies/ets/) tables, schedulers | Every 10 seconds | System Overview |
+| **System Resources** | Memory, CPU, process count, [ETS](@/technologies/ets.md) tables, schedulers | Every 10 seconds | System Overview |
 | **Pipeline Status** | CI/CD stages, deployment health, gate results | Per-commit | Deployment Monitor |
-| **Security Posture** | [Color Team](/capabilities/color-teams/) signals, drift detection, threat models | Continuous | Security Dashboard |
-| **EASM Surface** | Asset discovery, security ratings, [compliance](/capabilities/compliance/) status | Per-scan cycle | Perimeter Dashboard |
+| **Security Posture** | [Color Team](@/capabilities/color-teams.md) signals, drift detection, threat models | Continuous | Security Dashboard |
+| **EASM Surface** | Asset discovery, security ratings, [compliance](@/capabilities/compliance.md) status | Per-scan cycle | Perimeter Dashboard |
 | **OSINT Operations** | Source availability, collection rate, entity freshness | Per-query | Intelligence Overview |
 | **Storage Health** | Adapter latency, connection pools, replication lag | Every 5 seconds | Storage Monitor |
 
@@ -56,7 +56,7 @@ Source Events --> Telemetry Handlers --> ETS Aggregation --> PubSub Broadcast --
   .execute()      + ETS Counters       Rollup (1m/5m/1h)    Topic Broadcast      DOM Patch
 ```
 
-This architecture ensures that monitoring adds negligible overhead to monitored operations. The `:telemetry.execute/3` call is a simple function dispatch with no serialization, no network I/O, and no blocking. Handlers run asynchronously in the calling process, with [ETS](/technologies/ets/) providing lock-free concurrent writes for counter updates.
+This architecture ensures that monitoring adds negligible overhead to monitored operations. The `:telemetry.execute/3` call is a simple function dispatch with no serialization, no network I/O, and no blocking. Handlers run asynchronously in the calling process, with [ETS](@/technologies/ets.md) providing lock-free concurrent writes for counter updates.
 
 ### Telemetry Event Flow
 
@@ -105,7 +105,7 @@ end
 
 ### LiveView Dashboard Infrastructure
 
-The monitoring dashboards are built with [Phoenix LiveView](/technologies/phoenix-liveview/), providing true real-time updates without polling or manual refresh. LiveView's server-rendered approach means dashboard state is always consistent with actual platform state:
+The monitoring dashboards are built with [Phoenix LiveView](@/technologies/phoenix-liveview.md), providing true real-time updates without polling or manual refresh. LiveView's server-rendered approach means dashboard state is always consistent with actual platform state:
 
 ```elixir
 defmodule PrismaticWeb.MonitoringLive.AgentDashboard do
@@ -243,7 +243,7 @@ end
 
 ## EASM Real-Time Scoring
 
-The [Perimeter](/capabilities/easm/) module's External Attack Surface Management integrates directly with the monitoring infrastructure for continuous security posture assessment:
+The [Perimeter](@/capabilities/easm.md) module's External Attack Surface Management integrates directly with the monitoring infrastructure for continuous security posture assessment:
 
 ```
 Asset Discovery --> Vulnerability Scan --> Risk Scoring --> Rating Calculation --> Dashboard
@@ -266,9 +266,9 @@ Raw telemetry events are aggregated into time-series buckets for historical anal
 
 | Aggregation Window | Storage Backend | Retention | Primary Use Case |
 |-------------------|-----------------|-----------|------------------|
-| **Raw events** | [ETS](/technologies/ets/) (in-memory) | 5 minutes | Real-time dashboards, live counters |
+| **Raw events** | [ETS](@/technologies/ets.md) (in-memory) | 5 minutes | Real-time dashboards, live counters |
 | **1-minute rollups** | ETS (in-memory) | 1 hour | Short-term trend detection |
-| **5-minute rollups** | [PostgreSQL](/technologies/postgresql/) | 7 days | Daily reporting, shift reviews |
+| **5-minute rollups** | [PostgreSQL](@/technologies/postgresql.md) | 7 days | Daily reporting, shift reviews |
 | **1-hour rollups** | PostgreSQL | 90 days | Capacity planning, weekly trends |
 | **Daily summaries** | PostgreSQL | 1 year | Long-term trends, quarterly reviews |
 
@@ -319,15 +319,15 @@ Violations at the P99 level trigger automatic investigation. Violations at the h
 
 Real-Time Monitoring connects to every major platform subsystem, serving as the observability backbone:
 
-- Powers [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) detection and response triggers
-- Feeds [Quality Gates](/capabilities/quality-gates/) validation with real-time quality metrics
-- Monitored by [Color Teams](/capabilities/color-teams/) for security posture and drift assessment
-- Built on [Telemetry Integration](/capabilities/telemetry-integration/) event infrastructure
-- Enforces [NO MERCY](/capabilities/no-mercy/) zero-tolerance quality standards in production
-- Supports [Intelligence Synthesis](/capabilities/intelligence-synthesis/) with operational performance metrics
-- Integrates with [AIAD Standard](/capabilities/aiad-standard/) for comprehensive agent health tracking
-- Validates [NABLA Axioms](/capabilities/nabla-axioms/) compliance through continuous signal monitoring
-- Provides evidence for [Trinity Gate](/capabilities/trinity-gate/) structural consistency validation
+- Powers [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) detection and response triggers
+- Feeds [Quality Gates](@/capabilities/quality-gates.md) validation with real-time quality metrics
+- Monitored by [Color Teams](@/capabilities/color-teams.md) for security posture and drift assessment
+- Built on [Telemetry Integration](@/capabilities/telemetry-integration.md) event infrastructure
+- Enforces [NO MERCY](@/capabilities/no-mercy.md) zero-tolerance quality standards in production
+- Supports [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) with operational performance metrics
+- Integrates with [AIAD Standard](@/capabilities/aiad-standard.md) for comprehensive agent health tracking
+- Validates [NABLA Axioms](@/capabilities/nabla-axioms.md) compliance through continuous signal monitoring
+- Provides evidence for [Trinity Gate](@/capabilities/trinity-gate.md) structural consistency validation
 
 ## Commands
 
@@ -346,4 +346,4 @@ Real-Time Monitoring connects to every major platform subsystem, serving as the 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

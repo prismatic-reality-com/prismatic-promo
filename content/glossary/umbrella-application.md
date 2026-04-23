@@ -32,13 +32,13 @@ image_alt = "Umbrella Application - Prismatic Platform"
 
 ## Definition and Overview
 
-An Umbrella Application is an [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/) project structure that houses multiple interconnected applications within a single repository under a shared `apps/` directory. Each child application maintains its own `mix.exs`, dependencies, [supervision tree](/glossary/supervision-tree/), configuration, and test suite while sharing a common build system, dependency resolution, and deployment pipeline. This structure enables modular architecture with clear compile-time boundaries between domains while avoiding the operational complexity of distributed microservices.
+An Umbrella Application is an [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md) project structure that houses multiple interconnected applications within a single repository under a shared `apps/` directory. Each child application maintains its own `mix.exs`, dependencies, [supervision tree](@/glossary/supervision-tree.md), configuration, and test suite while sharing a common build system, dependency resolution, and deployment pipeline. This structure enables modular architecture with clear compile-time boundaries between domains while avoiding the operational complexity of distributed microservices.
 
 The umbrella pattern addresses a fundamental tension in software architecture: the need for both modularity (clear boundaries, independent development, isolated failure) and integration (shared data types, direct function calls, coordinated deployment). Microservices provide modularity but impose distributed systems complexity -- network latency, serialization overhead, service discovery, partial failure handling. Monoliths provide integration but resist modularity -- everything depends on everything, changes in one area affect others, testing requires the entire system. Umbrella applications provide a third option: monorepo modularity with monolith integration.
 
 In an umbrella project, each child application is a first-class OTP application with its own `Application` module, supervision tree, and process hierarchy. Applications declare dependencies on each other explicitly in their `mix.exs` files, and the compiler enforces these boundaries -- an application cannot call modules from another application unless it declares the dependency. This compile-time enforcement prevents the gradual erosion of boundaries that plagues monolithic applications, where any module can call any other module without restriction.
 
-The deployment model for umbrella applications differs fundamentally from microservices. All child applications are compiled into a single OTP release and run within a single [BEAM](/glossary/beam/) virtual machine instance. This means inter-application communication uses direct function calls (microsecond latency) rather than network requests (millisecond latency), applications share the same [ETS](/glossary/ets/) tables and process registry, and a single deployment unit contains the entire system. The trade-off is that all applications must be deployed together, but the benefit is dramatically simpler operations and orders-of-magnitude lower communication latency.
+The deployment model for umbrella applications differs fundamentally from microservices. All child applications are compiled into a single OTP release and run within a single [BEAM](@/glossary/beam.md) virtual machine instance. This means inter-application communication uses direct function calls (microsecond latency) rather than network requests (millisecond latency), applications share the same [ETS](@/glossary/ets.md) tables and process registry, and a single deployment unit contains the entire system. The trade-off is that all applications must be deployed together, but the benefit is dramatically simpler operations and orders-of-magnitude lower communication latency.
 
 The Prismatic Platform uses an umbrella structure containing 115 OTP applications, from foundational layers (`prismatic_storage_core`, `prismatic`) to domain-specific systems (`prismatic_perimeter`, `prismatic_agents`, `prismatic_web`) to specialized adapters (`prismatic_storage_ets`, `prismatic_storage_ecto`, `prismatic_storage_meilisearch`). This structure supports the platform's 6,652 Elixir source files, 5,864 test files, and enables teams of agents to work on isolated domains without creating conflicts across the codebase.
 
@@ -158,7 +158,7 @@ The `in_umbrella: true` flag instructs Mix to resolve the dependency from the lo
 
 ### Per-Application Supervision Trees
 
-Each umbrella application defines its own [supervision tree](/glossary/supervision-tree/), creating an isolated process hierarchy:
+Each umbrella application defines its own [supervision tree](@/glossary/supervision-tree.md), creating an isolated process hierarchy:
 
 ```elixir
 defmodule PrismaticPerimeter.Application do
@@ -259,7 +259,7 @@ All inter-application communication occurs within a single BEAM instance, provid
 | Pattern | Mechanism | Latency | Use Case |
 |---------|-----------|---------|----------|
 | Direct function call | `Module.function(args)` | Microseconds | Synchronous queries |
-| [GenServer](/glossary/genserver/) call | `GenServer.call(name, msg)` | Microseconds | Stateful operations |
+| [GenServer](@/glossary/genserver.md) call | `GenServer.call(name, msg)` | Microseconds | Stateful operations |
 | PubSub broadcast | `Phoenix.PubSub.broadcast/3` | Microseconds | Event notification |
 | Telemetry events | `:telemetry.execute/3` | Microseconds | Observability |
 | Task.async | `Task.async(fn -> ... end)` | Microseconds | Parallel computation |
@@ -377,7 +377,7 @@ end
 
 **Keep foundation applications dependency-free.** Applications like `prismatic_storage_core` that define traits and protocols should have zero umbrella dependencies. This ensures they can be compiled first and used by all other applications without creating bottlenecks.
 
-**One supervision tree per application.** Each application should define its own `Application` module with a [supervision tree](/glossary/supervision-tree/). Do not rely on parent applications to supervise your processes.
+**One supervision tree per application.** Each application should define its own `Application` module with a [supervision tree](@/glossary/supervision-tree.md). Do not rely on parent applications to supervise your processes.
 
 **Test applications in isolation.** Each application's test suite should run independently. Cross-application integration tests belong in a dedicated test application or the root test suite.
 
@@ -403,22 +403,22 @@ end
 
 ## Related Concepts
 
-- [OTP](/glossary/otp/) -- The application framework underlying the umbrella structure
-- [Supervision Tree](/glossary/supervision-tree/) -- Per-app process management hierarchies
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Cross-app storage abstraction layer
-- [Phoenix LiveView](/glossary/phoenix-liveview/) -- Web framework application within the umbrella
-- [Elixir](/glossary/elixir/) -- The language providing umbrella project tooling via Mix
-- [BEAM](/glossary/beam/) -- Virtual machine hosting all umbrella applications in one instance
-- [GenServer](/glossary/genserver/) -- Process abstraction used across all umbrella applications
-- [ETS](/glossary/ets/) -- Shared in-memory storage accessible across applications
-- [Supervisor](/glossary/supervisor/) -- OTP behavior managing processes within each application
-- [Quality Debt](/glossary/quality-debt/) -- Quality tracking applied per-application
+- [OTP](@/glossary/otp.md) -- The application framework underlying the umbrella structure
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Per-app process management hierarchies
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Cross-app storage abstraction layer
+- [Phoenix LiveView](@/glossary/phoenix-liveview.md) -- Web framework application within the umbrella
+- [Elixir](@/glossary/elixir.md) -- The language providing umbrella project tooling via Mix
+- [BEAM](@/glossary/beam.md) -- Virtual machine hosting all umbrella applications in one instance
+- [GenServer](@/glossary/genserver.md) -- Process abstraction used across all umbrella applications
+- [ETS](@/glossary/ets.md) -- Shared in-memory storage accessible across applications
+- [Supervisor](@/glossary/supervisor.md) -- OTP behavior managing processes within each application
+- [Quality Debt](@/glossary/quality-debt.md) -- Quality tracking applied per-application
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory with all 115 umbrella applications
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory with all 115 umbrella applications
 
 ---
 
@@ -427,4 +427,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -51,7 +51,7 @@ The utility-first approach represents a paradigm shift from component-based CSS 
 
 When patterns repeat across multiple components, TailwindCSS provides two extraction mechanisms:
 
-1. **Component extraction**: Create reusable [LiveView](/glossary/liveview/) function components that encapsulate utility classes
+1. **Component extraction**: Create reusable [LiveView](@/glossary/liveview.md) function components that encapsulate utility classes
 2. **@apply directive**: Extract utility combinations into named CSS classes (used sparingly, as it defeats the utility-first advantage)
 
 ## Responsive Design System
@@ -146,7 +146,7 @@ TailwindCSS's default design system is fully customizable through `tailwind.conf
 | **theme.spacing** | Spacing scale | Additional spacing values |
 | **theme.fontFamily** | Typography | Custom font stacks |
 | **theme.extend** | Additive customization | Extend without overriding defaults |
-| **plugins** | Feature extensions | [Flowbite](/glossary/flowbite/), typography, forms |
+| **plugins** | Feature extensions | [Flowbite](@/glossary/flowbite.md), typography, forms |
 | **content** | Template file paths | Files to scan for class usage |
 
 TailwindCSS ships with a carefully crafted default design system that includes:
@@ -162,9 +162,9 @@ TailwindCSS ships with a carefully crafted default design system that includes:
 
 Within the Prismatic Platform, TailwindCSS is the mandatory and exclusive styling approach enforced by platform policy. This is a hard requirement with zero exceptions---inline styles and custom CSS files are explicitly forbidden across all applications.
 
-**Enforcement Scope**: All UI across [LiveView](/glossary/liveview/) dashboards, the [Perimeter EASM](/glossary/easm/) interface, administrative panels, and the public promo site must use TailwindCSS utilities combined with [Flowbite](/glossary/flowbite/) 2.3 components. This mandate ensures visual consistency across 89 umbrella applications and eliminates CSS specificity conflicts.
+**Enforcement Scope**: All UI across [LiveView](@/glossary/liveview.md) dashboards, the [Perimeter EASM](@/glossary/easm.md) interface, administrative panels, and the public promo site must use TailwindCSS utilities combined with [Flowbite](@/glossary/flowbite.md) 2.3 components. This mandate ensures visual consistency across 89 umbrella applications and eliminates CSS specificity conflicts.
 
-**Build Integration**: TailwindCSS is integrated into [Phoenix](/glossary/phoenix/)'s asset pipeline through esbuild configuration. The JIT compiler watches template files during development and generates optimized CSS for production releases. [Docker](/glossary/docker/) container builds include a TailwindCSS compilation step as part of the multi-stage build process.
+**Build Integration**: TailwindCSS is integrated into [Phoenix](@/glossary/phoenix.md)'s asset pipeline through esbuild configuration. The JIT compiler watches template files during development and generates optimized CSS for production releases. [Docker](@/glossary/docker.md) container builds include a TailwindCSS compilation step as part of the multi-stage build process.
 
 **Promo Site Rebuild Requirement**: The promo site at `sites/promo/` requires explicit TailwindCSS rebuilds after any template changes:
 
@@ -180,9 +180,9 @@ Failure to rebuild after template changes causes newly used classes to be absent
 | Layer | Technology | Role |
 |-------|-----------|------|
 | **Styling** | TailwindCSS 3.4 | Utility classes for all visual presentation |
-| **Components** | [Flowbite](/glossary/flowbite/) 2.3 | Pre-built accessible UI components |
+| **Components** | [Flowbite](@/glossary/flowbite.md) 2.3 | Pre-built accessible UI components |
 | **Interactivity** | Alpine.js 3.13.5 | Client-side behavior (dropdowns, modals) |
-| **Rendering** | [Phoenix LiveView](/glossary/liveview/) | Server-rendered reactive UI |
+| **Rendering** | [Phoenix LiveView](@/glossary/liveview.md) | Server-rendered reactive UI |
 | **Theme** | Forced dark mode | `class="dark"` on `<html>`, no toggle |
 
 ## TailwindCSS Anti-Patterns
@@ -197,21 +197,21 @@ Failure to rebuild after template changes causes newly used classes to be absent
 
 ## Related Terms
 
-- [Flowbite](/glossary/flowbite/) - TailwindCSS component library providing pre-built UI elements
-- [LiveView](/glossary/liveview/) - Server-side rendering framework consuming TailwindCSS for reactive UI
-- [Phoenix](/glossary/phoenix/) - Web framework integrating TailwindCSS via asset pipeline
-- [Clean Run](/glossary/clean-run/) - Quality standard extending to UI code consistency
-- [Docker](/glossary/docker/) - Container builds that include TailwindCSS compilation step
-- [EASM](/glossary/easm/) - Perimeter dashboard built entirely with TailwindCSS utilities
-- [Plug](/glossary/plug/) - Middleware serving compiled TailwindCSS assets
-- [Metrics](/glossary/metrics/) - Dashboard visualizations styled with TailwindCSS
-- [Observability](/glossary/observability/) - Monitoring UI built with TailwindCSS components
+- [Flowbite](@/glossary/flowbite.md) - TailwindCSS component library providing pre-built UI elements
+- [LiveView](@/glossary/liveview.md) - Server-side rendering framework consuming TailwindCSS for reactive UI
+- [Phoenix](@/glossary/phoenix.md) - Web framework integrating TailwindCSS via asset pipeline
+- [Clean Run](@/glossary/clean-run.md) - Quality standard extending to UI code consistency
+- [Docker](@/glossary/docker.md) - Container builds that include TailwindCSS compilation step
+- [EASM](@/glossary/easm.md) - Perimeter dashboard built entirely with TailwindCSS utilities
+- [Plug](@/glossary/plug.md) - Middleware serving compiled TailwindCSS assets
+- [Metrics](@/glossary/metrics.md) - Dashboard visualizations styled with TailwindCSS
+- [Observability](@/glossary/observability.md) - Monitoring UI built with TailwindCSS components
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform UI architecture and component strategy
-- [Technologies](/technologies/) - Technology stack details
-- [Apps](/apps/) - Applications using TailwindCSS for their interfaces
+- [Architecture](@/architecture/_index.md) - Platform UI architecture and component strategy
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Apps](@/apps/_index.md) - Applications using TailwindCSS for their interfaces
 
 ---
 
@@ -220,4 +220,4 @@ Failure to rebuild after template changes causes newly used classes to be absent
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

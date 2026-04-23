@@ -24,7 +24,7 @@ image_alt = "/aiad-auto-evolution - Prismatic Platform"
 
 ## Overview
 
-The **/aiad-auto-evolution** command is the Prismatic Platform's most advanced autonomous operation -- a self-evolving meta-command that orchestrates the continuous evolution of the entire [AIAD](/glossary/aiad/) ecosystem. Currently at version 4.0.0 and Generation 18, this command has achieved full autonomy with mathematically proven safety guarantees, enabling platform-wide evolution without human approval while preserving guaranteed human override capability. It represents the culmination of 18 generations of evolutionary design, from basic performance tuning in v1.0.0 to self-referential meta-evolution with [Lean4](/glossary/lean4/) formal verification in the current release.
+The **/aiad-auto-evolution** command is the Prismatic Platform's most advanced autonomous operation -- a self-evolving meta-command that orchestrates the continuous evolution of the entire [AIAD](@/glossary/aiad.md) ecosystem. Currently at version 4.0.0 and Generation 18, this command has achieved full autonomy with mathematically proven safety guarantees, enabling platform-wide evolution without human approval while preserving guaranteed human override capability. It represents the culmination of 18 generations of evolutionary design, from basic performance tuning in v1.0.0 to self-referential meta-evolution with [Lean4](@/glossary/lean4.md) formal verification in the current release.
 
 What distinguishes this command from conventional automation is its self-referential nature: the `/aiad-auto-evolution` command can evolve its own specification. When invoked with `--target self`, the command applies its own evolution algorithms to its specification file, enabling recursive self-improvement within mathematically bounded safety constraints. This capability is unique in the platform and represents a fundamental shift from human-directed evolution to autonomous, safety-proven evolution. Five core Lean4 theorems -- Quality Preservation, Regression Prevention, Safety Boundedness, Termination Guarantee, and Human Override Preservation -- provide mathematical proofs that autonomous evolution cannot degrade system quality, remove existing functionality, exceed safety thresholds, run indefinitely, or disable human control.
 
@@ -76,10 +76,10 @@ The command operates under COSMIC authority level and is executed by the `evolut
 | `--target` | string | `ecosystem` | Target: `ecosystem`, `agents`, `commands`, `self`, `specific` |
 | `--intelligence-focus` | array | `all` | Focus: `recursive`, `emergent`, `collective`, `meta`, `consciousness`, `mycelial`, `all` |
 | `--3nl-mode` | string | `fusion` | 3NL mode: `L1_logic`, `L2_neural`, `L3_linguistic`, `fusion` |
-| `--trinity-validation` | boolean | `true` | Enable 11-layer [Trinity Gate](/glossary/trinity-gate/) validation |
-| `--nabla-epistemic` | boolean | `true` | Enable [NABLA Infinity](/glossary/nabla-infinity/) epistemic confidence validation |
-| `--mycelial-propagation` | boolean | `true` | Enable [mycelial network](/glossary/mycelial-network/) pattern propagation |
-| `--quality-dna-persist` | boolean | `true` | Persist evolution state to [Quality DNA](/glossary/quality-dna/) |
+| `--trinity-validation` | boolean | `true` | Enable 11-layer [Trinity Gate](@/glossary/trinity-gate.md) validation |
+| `--nabla-epistemic` | boolean | `true` | Enable [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic confidence validation |
+| `--mycelial-propagation` | boolean | `true` | Enable [mycelial network](@/glossary/mycelial-network.md) pattern propagation |
+| `--quality-dna-persist` | boolean | `true` | Persist evolution state to [Quality DNA](@/glossary/quality-dna.md) |
 | `--cascade-methodology` | boolean | `true` | Enable CASCADE quality evolution patterns |
 | `--lean4-verification` | boolean | `false` | Enable Lean4 formal verification proofs |
 | `--garden-integration` | boolean | `true` | Enable GARDEN repository pattern extraction |
@@ -172,19 +172,19 @@ The CASCADE Methodology provides five proven quality evolution patterns extracte
 
 The `/aiad-auto-evolution` command operates in three execution modes. **Scheduled Evolution** runs every 6 hours for 15-45 minutes, performing comprehensive ecosystem analysis and targeted improvements. **Opportunity-Driven Evolution** triggers within 5 minutes when significant improvement opportunities are detected, such as new capability emergence potential or cross-domain optimization patterns. **Emergency Evolution** activates within 30 seconds for critical performance degradation, security vulnerabilities, or capability regressions.
 
-In practice, most developers interact with this command indirectly through scheduled cycles that continuously improve the platform. Direct invocation is reserved for targeted evolution campaigns, self-meta-evolution of the command itself, and emergency situations requiring maximum-authority evolution authority. The command integrates with the platform's session lifecycle, persisting evolution state to [Quality DNA](/glossary/quality-dna/) for cross-session continuity.
+In practice, most developers interact with this command indirectly through scheduled cycles that continuously improve the platform. Direct invocation is reserved for targeted evolution campaigns, self-meta-evolution of the command itself, and emergency situations requiring maximum-authority evolution authority. The command integrates with the platform's session lifecycle, persisting evolution state to [Quality DNA](@/glossary/quality-dna.md) for cross-session continuity.
 
 ## Integration Points
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Coordinates 8 supporting agents for evolution operations |
-| [Trinity Gate](/glossary/trinity-gate/) | 11-layer validation of all evolution outputs |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic confidence validation (0.95 threshold) |
-| [Quality Gates](/glossary/quality-gates/) | 21 quality gates including 7 full-autonomy gates |
-| [Quality DNA](/glossary/quality-dna/) | Cross-session evolution state persistence |
-| [Mycelial Network](/glossary/mycelial-network/) | Pattern propagation across 400+ agent ecosystem |
-| [Telemetry](/glossary/telemetry/) | Evolution [metrics](/glossary/metrics/), safety proof verification, consensus tracking |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Coordinates 8 supporting agents for evolution operations |
+| [Trinity Gate](@/glossary/trinity-gate.md) | 11-layer validation of all evolution outputs |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic confidence validation (0.95 threshold) |
+| [Quality Gates](@/glossary/quality-gates.md) | 21 quality gates including 7 full-autonomy gates |
+| [Quality DNA](@/glossary/quality-dna.md) | Cross-session evolution state persistence |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Pattern propagation across 400+ agent ecosystem |
+| [Telemetry](@/glossary/telemetry.md) | Evolution [metrics](@/glossary/metrics.md), safety proof verification, consensus tracking |
 | GARDEN | Legacy pattern extraction from 116 repositories |
 | Lean4 Theorem Library | Mathematical safety proofs in `priv/lean4/theorems/` |
 | MCP Tools | Direct access to 27 production tools via prismatic-mcp server |
@@ -192,12 +192,12 @@ In practice, most developers interact with this command indirectly through sched
 
 ## Doctrine Compliance
 
-All evolution operations are governed by the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine with additional autonomous safety enforcement:
+All evolution operations are governed by the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine with additional autonomous safety enforcement:
 
 - **NO MERCY**: Zero tolerance for quality regressions. The quality score must be preserved at 100/100 across all evolution cycles. Every evolution must produce measurable improvement or be rolled back. No incomplete evolutions are committed. The CASCADE methodology enforces 100% pattern compliance with zero regression tolerance.
 - **NO DOUBTS**: Every autonomous decision is backed by mathematical proof. Multi-LLM Byzantine Fault Tolerant consensus validates safety-critical decisions. Evolution strategies are generated from evidence-based analysis, not speculation. Lean4 formal verification provides proof-level confidence for critical changes. Human override capability is axiomatically preserved and continuously monitored.
 
-The command also enforces the [Addiction Preservation](/glossary/contradiction-preservation/) doctrine: contradictory evolution signals are preserved and analyzed rather than prematurely resolved, ensuring the full epistemic picture informs evolution decisions.
+The command also enforces the [Addiction Preservation](@/glossary/contradiction-preservation.md) doctrine: contradictory evolution signals are preserved and analyzed rather than prematurely resolved, ensuring the full epistemic picture informs evolution decisions.
 
 ## Best Practices
 
@@ -215,13 +215,13 @@ The command also enforces the [Addiction Preservation](/glossary/contradiction-p
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/3nl](/commands/3nl/) - Three-layer neural linguistic processing and coordination
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/3nl](@/commands/3nl.md) - Three-layer neural linguistic processing and coordination
 
 ---
 
@@ -230,4 +230,4 @@ The command also enforces the [Addiction Preservation](/glossary/contradiction-p
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -30,7 +30,7 @@ image_alt = "compliance-auditing-specialist - Prismatic Platform"
 
 The Compliance Auditing Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent ensures continuous regulatory compliance through automated validation, evidence collection, and audit preparation across all applicable regulatory frameworks. It transforms compliance from a periodic manual exercise into a continuous automated process where the platform's compliance posture is verifiable at any moment, producing evidence-grade audit packages with cryptographic integrity guarantees.
 
-Organizations operating in the European regulatory landscape face overlapping requirements from [NIS2](/glossary/nis2/), [GDPR](/glossary/gdpr/), Czech [ZKB](/glossary/zkb/) cybersecurity regulations, and sector-specific frameworks. The Compliance Auditing Specialist maintains mappings between these regulatory requirements and the platform's technical controls, continuously validating that each control is properly implemented, documented, and effective. When auditors arrive, the evidence is already collected, organized, and ready for presentation. This approach eliminates the traditional compliance scramble that consumes engineering resources and introduces risk through rushed documentation efforts.
+Organizations operating in the European regulatory landscape face overlapping requirements from [NIS2](@/glossary/nis2.md), [GDPR](@/glossary/gdpr.md), Czech [ZKB](@/glossary/zkb.md) cybersecurity regulations, and sector-specific frameworks. The Compliance Auditing Specialist maintains mappings between these regulatory requirements and the platform's technical controls, continuously validating that each control is properly implemented, documented, and effective. When auditors arrive, the evidence is already collected, organized, and ready for presentation. This approach eliminates the traditional compliance scramble that consumes engineering resources and introduces risk through rushed documentation efforts.
 
 The agent draws on the Prismatic Platform's 434-agent ecosystem to coordinate compliance verification across all operational domains. Rather than operating as an isolated compliance checker, the specialist integrates with security scanning agents, data integrity monitors, access control verifiers, and logging infrastructure agents to build a comprehensive, real-time compliance posture that reflects actual system behavior rather than aspirational documentation.
 
@@ -75,7 +75,7 @@ The Compliance Auditing Specialist delivers six primary capabilities that span t
 
 **Evidence Collection Automation** gathers audit artifacts from logs, configuration files, access records, and security scan results with cryptographic integrity verification. Every piece of evidence is timestamped, hashed, and linked to the specific control it supports. The collection system maintains an immutable audit trail that proves evidence was gathered through automated means at documented times, eliminating concerns about evidence fabrication or post-hoc documentation.
 
-**Multi-Framework Assessment** simultaneously evaluates compliance posture against NIS2, GDPR, ZKB, and [ISO 27001](/glossary/iso-27001/) requirements through unified control mapping. Where requirements overlap across frameworks, the system identifies shared controls and consolidates evidence collection, reducing duplication while maintaining framework-specific reporting capabilities.
+**Multi-Framework Assessment** simultaneously evaluates compliance posture against NIS2, GDPR, ZKB, and [ISO 27001](@/glossary/iso-27001.md) requirements through unified control mapping. Where requirements overlap across frameworks, the system identifies shared controls and consolidates evidence collection, reducing duplication while maintaining framework-specific reporting capabilities.
 
 **Audit Preparation** produces structured, auditor-ready documentation packages with evidence cross-references, control descriptions, and compliance status summaries. Each package follows the target framework's expected format and includes executive summaries, detailed control assessments, evidence indexes, and gap remediation timelines.
 
@@ -85,7 +85,7 @@ The Compliance Auditing Specialist delivers six primary capabilities that span t
 
 ## Implementation
 
-The Compliance Auditing Specialist is implemented as an [OTP](/glossary/otp/) application with a [supervision tree](/glossary/supervision-tree/) that manages concurrent compliance assessment workflows across multiple regulatory frameworks.
+The Compliance Auditing Specialist is implemented as an [OTP](@/glossary/otp.md) application with a [supervision tree](@/glossary/supervision-tree.md) that manages concurrent compliance assessment workflows across multiple regulatory frameworks.
 
 ```elixir
 defmodule PrismaticCompliance.AuditingSpecialist do
@@ -183,20 +183,20 @@ The Compliance Auditing Specialist integrates with multiple platform systems to 
 
 | Integration Target | Protocol | Purpose |
 |-------------------|----------|---------|
-| [Prismatic Perimeter](/glossary/prismatic-perimeter/) | GenServer calls | Security posture data for NIS2 technical controls |
-| [ETS](/glossary/ets/) Evidence Store | Direct ETS access | High-performance evidence caching and retrieval |
-| [PostgreSQL](/glossary/postgresql/) Audit Log | [Ecto](/glossary/ecto/) queries | Persistent evidence storage with integrity verification |
+| [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) | GenServer calls | Security posture data for NIS2 technical controls |
+| [ETS](@/glossary/ets.md) Evidence Store | Direct ETS access | High-performance evidence caching and retrieval |
+| [PostgreSQL](@/glossary/postgresql.md) Audit Log | [Ecto](@/glossary/ecto.md) queries | Persistent evidence storage with integrity verification |
 | GitLab CI/CD | REST API | Pipeline compliance evidence and deployment audit trails |
 | Access Control System | Internal API | User access records for GDPR and ZKB requirements |
-| [Prismatic Web](/glossary/prismatic-web/) | LiveView | Real-time compliance dashboard and audit report viewer |
+| [Prismatic Web](@/glossary/prismatic-web.md) | LiveView | Real-time compliance dashboard and audit report viewer |
 
 The agent also coordinates with peer agents to obtain domain-specific compliance evidence.
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [cer-compliance-commander](/agents/cer-compliance-commander/) | Receives strategic compliance directives and reports audit readiness status | Compliance |
-| [cloud-security-specialist](/agents/cloud-security-specialist/) | Coordinates on infrastructure security controls that support compliance requirements | Security |
-| [data-integrity-specialist](/agents/data-integrity-specialist/) | Validates data handling practices against GDPR and data protection requirements | Infrastructure |
+| [cer-compliance-commander](@/agents/cer-compliance-commander.md) | Receives strategic compliance directives and reports audit readiness status | Compliance |
+| [cloud-security-specialist](@/agents/cloud-security-specialist.md) | Coordinates on infrastructure security controls that support compliance requirements | Security |
+| [data-integrity-specialist](@/agents/data-integrity-specialist.md) | Validates data handling practices against GDPR and data protection requirements | Infrastructure |
 
 ## Operational Workflow
 
@@ -222,7 +222,7 @@ The Compliance Auditing Specialist enforces strict adherence to the NABLA Infini
 
 **Time Decay**: Compliance evidence is assigned freshness scores that decay over time. Stale evidence triggers re-collection before it can be used in audit packages. The decay rate is configurable per evidence type based on the volatility of the underlying control.
 
-All compliance claims must pass the [Trinity Gate](/glossary/trinity-gate/) validation before being reported: structural consistency of the evidence graph, logical consistency of compliance inferences, and formal verification of critical control effectiveness claims.
+All compliance claims must pass the [Trinity Gate](@/glossary/trinity-gate.md) validation before being reported: structural consistency of the evidence graph, logical consistency of compliance inferences, and formal verification of critical control effectiveness claims.
 
 ## Configuration
 
@@ -267,15 +267,15 @@ The ETS-based evidence cache provides sub-millisecond read access for dashboard 
 
 ## Related Resources
 
-- [cer-compliance-commander](/agents/cer-compliance-commander/) -- Strategic compliance directives and audit coordination
-- [cloud-security-specialist](/agents/cloud-security-specialist/) -- Infrastructure security controls for compliance
-- [data-integrity-specialist](/agents/data-integrity-specialist/) -- Data protection compliance validation
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- External attack surface compliance data
-- [NIS2 Directive](/glossary/nis2/) -- EU Network and Information Systems security requirements
-- [GDPR](/glossary/gdpr/) -- EU General Data Protection Regulation
-- [ZKB](/glossary/zkb/) -- Czech cybersecurity regulatory framework
-- [Quality Gates](/capabilities/quality-gates/) -- Platform quality enforcement infrastructure
-- [AIAD Standard](/glossary/aiad/) -- Autonomous Intelligence Agent Design specification
+- [cer-compliance-commander](@/agents/cer-compliance-commander.md) -- Strategic compliance directives and audit coordination
+- [cloud-security-specialist](@/agents/cloud-security-specialist.md) -- Infrastructure security controls for compliance
+- [data-integrity-specialist](@/agents/data-integrity-specialist.md) -- Data protection compliance validation
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- External attack surface compliance data
+- [NIS2 Directive](@/glossary/nis2.md) -- EU Network and Information Systems security requirements
+- [GDPR](@/glossary/gdpr.md) -- EU General Data Protection Regulation
+- [ZKB](@/glossary/zkb.md) -- Czech cybersecurity regulatory framework
+- [Quality Gates](@/capabilities/quality-gates.md) -- Platform quality enforcement infrastructure
+- [AIAD Standard](@/glossary/aiad.md) -- Autonomous Intelligence Agent Design specification
 
 ---
 
@@ -284,4 +284,4 @@ The ETS-based evidence cache provides sub-millisecond read access for dashboard 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

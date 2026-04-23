@@ -512,10 +512,10 @@ end
 
 ## Related Terms
 
-- [Learning Analytics](/glossary/learning-analytics/) -- data analysis of learner performance on knowledge checks
-- [Prerequisite](/glossary/prerequisite/) -- dependency relationship gated by knowledge check completion
-- [Progress](/glossary/progress/) -- learner advancement tracked through check completions
-- [Learning Path](/glossary/learning-path/) -- structured sequence of topics with embedded checks
+- [Learning Analytics](@/glossary/learning-analytics.md) -- data analysis of learner performance on knowledge checks
+- [Prerequisite](@/glossary/prerequisite.md) -- dependency relationship gated by knowledge check completion
+- [Progress](@/glossary/progress.md) -- learner advancement tracked through check completions
+- [Learning Path](@/glossary/learning-path.md) -- structured sequence of topics with embedded checks
 - [Academy](/glossary/academy/) -- the Prismatic learning platform using knowledge checks
 - [Spaced Repetition](/glossary/spaced-repetition/) -- review scheduling that strengthens knowledge check retention
 - [Formative Assessment](/glossary/formative-assessment/) -- assessment during learning, the category knowledge checks belong to
@@ -527,10 +527,10 @@ end
 
 ## See Also
 
-- [Academy](/academy/) -- the Prismatic learning platform using knowledge checks
-- [Capabilities](/capabilities/) -- platform educational capabilities
+- [Academy](@/academy/_index.md) -- the Prismatic learning platform using knowledge checks
+- [Capabilities](@/capabilities/_index.md) -- platform educational capabilities
 - [Learning Analytics Dashboard](/hub/academy/analytics) -- knowledge check performance visualization
-- [Topic Registry Architecture](/architecture/) -- metaprogramming system for topic registration
+- [Topic Registry Architecture](@/architecture/_index.md) -- metaprogramming system for topic registration
 
 ---
 
@@ -539,4 +539,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

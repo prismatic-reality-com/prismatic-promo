@@ -25,11 +25,11 @@ image_alt = "NewsAPI - Prismatic Platform"
 
 ## Overview
 
-NewsAPI is a [REST API](/glossary/rest-api/) that provides structured access to live and historical news articles from over 80,000 news sources and blogs worldwide. The API aggregates content from major publications (BBC, CNN, Reuters, Bloomberg), regional outlets, industry publications, and technology blogs, returning structured JSON responses with article metadata, descriptions, and source information. Founded in 2017, NewsAPI has become a cornerstone of programmatic news intelligence, serving developers and analysts who need machine-readable access to the global news landscape.
+NewsAPI is a [REST API](@/glossary/rest-api.md) that provides structured access to live and historical news articles from over 80,000 news sources and blogs worldwide. The API aggregates content from major publications (BBC, CNN, Reuters, Bloomberg), regional outlets, industry publications, and technology blogs, returning structured JSON responses with article metadata, descriptions, and source information. Founded in 2017, NewsAPI has become a cornerstone of programmatic news intelligence, serving developers and analysts who need machine-readable access to the global news landscape.
 
-For [OSINT](/glossary/osint/) practitioners, NewsAPI provides what web search engines cannot: structured, filterable, API-accessible news intelligence. Instead of scraping search results, investigators can programmatically query news content by keyword, source, language, country, and date range. This structured approach enables automated news monitoring pipelines that continuously scan for mentions of investigation targets, companies, or topics of interest. The ability to filter by specific trusted sources eliminates the noise that plagues general web searches, while the structured JSON response format enables automated processing, sentiment analysis, and trend detection.
+For [OSINT](@/glossary/osint.md) practitioners, NewsAPI provides what web search engines cannot: structured, filterable, API-accessible news intelligence. Instead of scraping search results, investigators can programmatically query news content by keyword, source, language, country, and date range. This structured approach enables automated news monitoring pipelines that continuously scan for mentions of investigation targets, companies, or topics of interest. The ability to filter by specific trusted sources eliminates the noise that plagues general web searches, while the structured JSON response format enables automated processing, sentiment analysis, and trend detection.
 
-NewsAPI complements the broader media intelligence provided by [GDELT](/osint/gdelt/) by offering more targeted, source-specific queries. While GDELT processes the entire global media landscape with event coding and tone analysis, NewsAPI provides precise queries against specific publications and categories. Together, they form a comprehensive media intelligence capability: GDELT for breadth and trend analysis, NewsAPI for depth and targeted monitoring. For Czech-specific news monitoring, NewsAPI coverage can be supplemented with direct Czech media monitoring through specialized adapters.
+NewsAPI complements the broader media intelligence provided by [GDELT](@/osint/gdelt.md) by offering more targeted, source-specific queries. While GDELT processes the entire global media landscape with event coding and tone analysis, NewsAPI provides precise queries against specific publications and categories. Together, they form a comprehensive media intelligence capability: GDELT for breadth and trend analysis, NewsAPI for depth and targeted monitoring. For Czech-specific news monitoring, NewsAPI coverage can be supplemented with direct Czech media monitoring through specialized adapters.
 
 ## Data Sources and Coverage
 
@@ -50,7 +50,7 @@ NewsAPI aggregates content from a vast network of news sources spanning every ma
 
 | Endpoint | Purpose | Best For |
 |----------|---------|----------|
-| `/top-headlines` | Breaking news by country and category | [Real-time monitoring](/capabilities/real-time-monitoring/) |
+| `/top-headlines` | Breaking news by country and category | [Real-time monitoring](@/capabilities/real-time-monitoring.md) |
 | `/everything` | Historical search with full-text matching | Investigation research |
 | `/sources` | Source metadata and availability | Source analysis and selection |
 
@@ -180,7 +180,7 @@ end
 ### Adverse Media Screening
 - Automated scanning of news sources for negative entity coverage as part of compliance workflows
 - KYC/AML compliance requiring structured media background checks with audit trail generation
-- Cross-reference news findings with [OFAC](/osint/ofac/) and [EU Sanctions](/osint/eu-sanctions/) for comprehensive risk assessment
+- Cross-reference news findings with [OFAC](@/osint/ofac.md) and [EU Sanctions](@/osint/eu-sanctions.md) for comprehensive risk assessment
 - Regulatory compliance with AML directives requiring adverse media monitoring
 
 ### Brand and Reputation Monitoring
@@ -192,7 +192,7 @@ end
 ### Investigative Research
 - Build news dossiers on investigation targets from structured data with temporal context
 - Track event timelines through chronological article search across multiple sources
-- Combine with [GDELT](/osint/gdelt/) for comprehensive media intelligence covering both depth and breadth
+- Combine with [GDELT](@/osint/gdelt.md) for comprehensive media intelligence covering both depth and breadth
 - Source triangulation by analyzing how different outlets report the same events
 
 ### Sector Intelligence
@@ -230,7 +230,7 @@ Within the Prismatic Platform, NewsAPI serves as a primary structured news intel
 
 NewsAPI data feeds into multiple platform workflows: adverse media screening for compliance, brand monitoring for reputation management, and investigative research for intelligence production. Each workflow applies different processing pipelines to the raw article data, extracting domain-specific signals and generating appropriate risk indicators.
 
-The news intelligence pipeline integrates with [Social Searcher](/osint/social-searcher/) for complementary social media coverage, creating a unified media intelligence layer that spans both traditional news and social platforms.
+The news intelligence pipeline integrates with [Social Searcher](@/osint/social-searcher.md) for complementary social media coverage, creating a unified media intelligence layer that spans both traditional news and social platforms.
 
 ## NABLA Compliance
 
@@ -255,13 +255,13 @@ The adapter implements intelligent quota management, prioritizing high-priority 
 
 ## Related Resources
 
-- [GDELT](/osint/gdelt/) - Global-scale media monitoring and event analysis
-- [Social Searcher](/osint/social-searcher/) - Social media monitoring for complementary coverage
-- [Crunchbase](/osint/crunchbase/) - Company intelligence to contextualize news
-- [OFAC](/osint/ofac/) - Sanctions correlation with news signals
-- [EU Sanctions](/osint/eu-sanctions/) - European sanctions for compliance context
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Adverse media in [security rating](/glossary/security-rating/)s
+- [GDELT](@/osint/gdelt.md) - Global-scale media monitoring and event analysis
+- [Social Searcher](@/osint/social-searcher.md) - Social media monitoring for complementary coverage
+- [Crunchbase](@/osint/crunchbase.md) - Company intelligence to contextualize news
+- [OFAC](@/osint/ofac.md) - Sanctions correlation with news signals
+- [EU Sanctions](@/osint/eu-sanctions.md) - European sanctions for compliance context
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Adverse media in [security rating](@/glossary/security-rating.md)s
 
 ---
 
@@ -270,4 +270,4 @@ The adapter implements intelligent quota management, prioritizing high-priority 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

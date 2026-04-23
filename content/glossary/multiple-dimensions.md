@@ -418,24 +418,24 @@ Online Analytical Processing (OLAP) cubes from data warehousing provide sophisti
 
 Multi-dimensional analysis intersects with several foundational concepts in the Prismatic Platform ecosystem:
 
-- [Observability](/glossary/observability/) -- the practice of making system behavior visible, which provides the raw signals that dimensional analysis consumes
-- [Telemetry](/glossary/telemetry/) -- the instrumentation layer that collects dimensional measurements from running systems
-- [Analytics](/glossary/analytics/) -- the broader discipline of deriving insights from data, of which dimensional analysis is a specialized technique
-- [Knowledge Graph](/glossary/knowledge-graph/) -- graph-based knowledge representation that naturally supports multi-dimensional relationships between entities
-- [Quality Measurement System](/glossary/quality-measurement-system/) -- the concrete implementation of multi-dimensional quality scoring in the Prismatic Platform
-- [Monitoring](/glossary/monitoring/) -- continuous observation of system metrics, providing the time-series data that powers dimensional trend analysis
-- [Metrics](/glossary/metrics/) -- the quantitative measurements that form the building blocks of dimensional scores
-- [System Analysis](/glossary/system-analysis/) -- the discipline of understanding system behavior through structured investigation
-- [Graph Database](/glossary/graph-database/) -- storage technology suited for multi-dimensional relationship queries (KuzuDB in the Prismatic Platform)
-- [Architecture](/glossary/architecture/) -- the structural decisions that define which dimensions are relevant and how they interact
+- [Observability](@/glossary/observability.md) -- the practice of making system behavior visible, which provides the raw signals that dimensional analysis consumes
+- [Telemetry](@/glossary/telemetry.md) -- the instrumentation layer that collects dimensional measurements from running systems
+- [Analytics](@/glossary/analytics.md) -- the broader discipline of deriving insights from data, of which dimensional analysis is a specialized technique
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- graph-based knowledge representation that naturally supports multi-dimensional relationships between entities
+- [Quality Measurement System](@/glossary/quality-measurement-system.md) -- the concrete implementation of multi-dimensional quality scoring in the Prismatic Platform
+- [Monitoring](@/glossary/monitoring.md) -- continuous observation of system metrics, providing the time-series data that powers dimensional trend analysis
+- [Metrics](@/glossary/metrics.md) -- the quantitative measurements that form the building blocks of dimensional scores
+- [System Analysis](@/glossary/system-analysis.md) -- the discipline of understanding system behavior through structured investigation
+- [Graph Database](@/glossary/graph-database.md) -- storage technology suited for multi-dimensional relationship queries (KuzuDB in the Prismatic Platform)
+- [Architecture](@/glossary/architecture.md) -- the structural decisions that define which dimensions are relevant and how they interact
 
 ## See Also
 
-- [Quality Gates](/glossary/quality-gates/) -- multi-dimensional quality enforcement at commit and merge boundaries
-- [Confidence Scoring](/glossary/confidence-scoring/) -- quantifying measurement certainty within individual dimensions
-- [EASM](/glossary/easm/) -- External Attack Surface Management with multi-dimensional security ratings
-- [Quality DNA](/glossary/quality-dna/) -- cross-session quality continuity that tracks dimensional evolution
-- [Distributed Tracing](/glossary/distributed-tracing/) -- request-level observability across service dimensions
+- [Quality Gates](@/glossary/quality-gates.md) -- multi-dimensional quality enforcement at commit and merge boundaries
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- quantifying measurement certainty within individual dimensions
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management with multi-dimensional security ratings
+- [Quality DNA](@/glossary/quality-dna.md) -- cross-session quality continuity that tracks dimensional evolution
+- [Distributed Tracing](@/glossary/distributed-tracing.md) -- request-level observability across service dimensions
 
 ---
 

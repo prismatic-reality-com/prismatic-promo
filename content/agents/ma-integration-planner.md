@@ -28,9 +28,9 @@ image_alt = "ma-integration-planner - Prismatic Platform"
 
 ## Overview
 
-The ma-integration-planner agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's primary domain, responsible for developing comprehensive post-acquisition integration strategies and master plans that transform deal intelligence into executable operational roadmaps. This agent synthesizes outputs from financial, technical, risk, and market analysis agents into cohesive integration blueprints that define timelines, resource requirements, dependency chains, risk mitigations, and success metrics for every phase of post-close integration.
+The ma-integration-planner agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's primary domain, responsible for developing comprehensive post-acquisition integration strategies and master plans that transform deal intelligence into executable operational roadmaps. This agent synthesizes outputs from financial, technical, risk, and market analysis agents into cohesive integration blueprints that define timelines, resource requirements, dependency chains, risk mitigations, and success metrics for every phase of post-close integration.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine, the ma-integration-planner refuses to produce integration plans without sufficient evidence. Every plan element traces back to validated intelligence from specialist agents, and all timeline projections carry explicit confidence intervals rather than point estimates. The agent applies the [NABLA Infinity](/glossary/nabla-infinity/) framework to ensure that integration plans acknowledge contradictory signals from different assessment domains rather than artificially resolving tensions.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine, the ma-integration-planner refuses to produce integration plans without sufficient evidence. Every plan element traces back to validated intelligence from specialist agents, and all timeline projections carry explicit confidence intervals rather than point estimates. The agent applies the [NABLA Infinity](@/glossary/nabla-infinity.md) framework to ensure that integration plans acknowledge contradictory signals from different assessment domains rather than artificially resolving tensions.
 
 Post-acquisition integration is widely recognized as the most critical determinant of M&A success, with studies consistently showing that 60-70% of acquisitions fail to deliver expected value due to integration failures. The ma-integration-planner addresses this challenge by providing structured, evidence-based integration planning that accounts for the complex interdependencies between technology systems, organizational structures, business processes, and cultural factors that determine integration outcomes.
 
@@ -78,7 +78,7 @@ The ma-integration-planner provides comprehensive post-acquisition integration p
 
 ## Implementation
 
-The integration planner is implemented as a [GenServer](/glossary/genserver/) process managing the integration planning state machine for each deal.
+The integration planner is implemented as a [GenServer](@/glossary/genserver.md) process managing the integration planning state machine for each deal.
 
 ```elixir
 defmodule Prismatic.MA.IntegrationPlanner do
@@ -144,14 +144,14 @@ end
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [ma-financial-analyst](/agents/ma-financial-analyst/) | Receives financial projections for integration cost modeling | Inbound |
-| [ma-tech-assessor](/agents/ma-tech-assessor/) | Consumes technology profiles for migration planning | Inbound |
-| [ma-risk-assessor](/agents/ma-risk-assessor/) | Risk assessments inform contingency planning | Inbound |
-| [ma-market-analyst](/agents/ma-market-analyst/) | Market dynamics shape commercial integration strategy | Inbound |
-| [ma-enforcement-commander](/agents/ma-enforcement-commander/) | Integration plans validated against safety theorems | Outbound |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
-| Prismatic Telemetry | Planning pipeline [metrics](/glossary/metrics/) and progress tracking | Outbound |
-| [SEADF](/glossary/seadf/) | Self-healing for planning pipeline failures | Bidirectional |
+| [ma-financial-analyst](@/agents/ma-financial-analyst.md) | Receives financial projections for integration cost modeling | Inbound |
+| [ma-tech-assessor](@/agents/ma-tech-assessor.md) | Consumes technology profiles for migration planning | Inbound |
+| [ma-risk-assessor](@/agents/ma-risk-assessor.md) | Risk assessments inform contingency planning | Inbound |
+| [ma-market-analyst](@/agents/ma-market-analyst.md) | Market dynamics shape commercial integration strategy | Inbound |
+| [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) | Integration plans validated against safety theorems | Outbound |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
+| Prismatic Telemetry | Planning pipeline [metrics](@/glossary/metrics.md) and progress tracking | Outbound |
+| [SEADF](@/glossary/seadf.md) | Self-healing for planning pipeline failures | Bidirectional |
 
 ## Operational Workflow
 
@@ -215,14 +215,14 @@ config :prismatic_ma, Prismatic.MA.IntegrationPlanner,
 
 ## Related Resources
 
-- [ma-enforcement-commander](/agents/ma-enforcement-commander/) -- Plan compliance verification
-- [ma-financial-analyst](/agents/ma-financial-analyst/) -- Financial input for cost modeling
-- [ma-tech-assessor](/agents/ma-tech-assessor/) -- Technology profiles for migration planning
-- [ma-risk-assessor](/agents/ma-risk-assessor/) -- Risk inputs for contingency planning
-- [ma-market-analyst](/agents/ma-market-analyst/) -- Market dynamics for commercial strategy
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for evidence-based planning
-- [SEADF](/glossary/seadf/) -- Self-healing subsystem integration
+- [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) -- Plan compliance verification
+- [ma-financial-analyst](@/agents/ma-financial-analyst.md) -- Financial input for cost modeling
+- [ma-tech-assessor](@/agents/ma-tech-assessor.md) -- Technology profiles for migration planning
+- [ma-risk-assessor](@/agents/ma-risk-assessor.md) -- Risk inputs for contingency planning
+- [ma-market-analyst](@/agents/ma-market-analyst.md) -- Market dynamics for commercial strategy
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for evidence-based planning
+- [SEADF](@/glossary/seadf.md) -- Self-healing subsystem integration
 
 ---
 
@@ -231,4 +231,4 @@ config :prismatic_ma, Prismatic.MA.IntegrationPlanner,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

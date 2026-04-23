@@ -31,7 +31,7 @@ see_also = ["osint", "architecture", "capabilities"]
 
 Keyhole Markup Language (KML) is an XML-based format for expressing geographic annotations and visualizations within two-dimensional maps and three-dimensional Earth browsers. Originally developed by Keyhole, Inc. (acquired by Google in 2004), KML became an Open Geospatial Consortium (OGC) standard in 2008 (OGC KML 2.2, standardized as OGC 07-147r2). KML documents describe features such as placemarks, ground overlays, screen overlays, paths (LineStrings), polygons, and 3D models with associated metadata including coordinates, altitude, timestamps, styling, and camera viewpoints.
 
-KML files use the `.kml` extension for uncompressed XML and `.kmz` for ZIP-compressed archives that bundle KML with associated resources (images, models, textures). The format supports temporal data through `TimeStamp` and `TimeSpan` elements, enabling animated visualizations of events over time -- a capability directly relevant to OSINT timeline reconstruction and [due diligence](/glossary/due-diligence/) investigation mapping.
+KML files use the `.kml` extension for uncompressed XML and `.kmz` for ZIP-compressed archives that bundle KML with associated resources (images, models, textures). The format supports temporal data through `TimeStamp` and `TimeSpan` elements, enabling animated visualizations of events over time -- a capability directly relevant to OSINT timeline reconstruction and [due diligence](@/glossary/due-diligence.md) investigation mapping.
 
 In the Prismatic Platform, KML serves as the primary geospatial export format for OSINT intelligence results, [DD pipeline](/glossary/dd-pipeline/) entity locations, and [Perimeter](/glossary/perimeter/) EASM asset geographic distributions. When analysts need to visualize where entities, infrastructure, or events are located in physical space, KML provides the bridge between platform data and geospatial visualization tools.
 
@@ -458,7 +458,7 @@ end
 
 ### OSINT Intelligence Export
 
-The Prismatic Platform's [OSINT toolbox](/glossary/osint/) generates KML exports for geospatial intelligence visualization. When OSINT tools resolve geographic coordinates -- IP [geolocation](/glossary/geolocation/), company registered addresses from Czech commercial registers, infrastructure locations from Shodan -- results can be exported as KML for analysis in Google Earth Pro or QGIS:
+The Prismatic Platform's [OSINT toolbox](@/glossary/osint.md) generates KML exports for geospatial intelligence visualization. When OSINT tools resolve geographic coordinates -- IP [geolocation](@/glossary/geolocation.md), company registered addresses from Czech commercial registers, infrastructure locations from Shodan -- results can be exported as KML for analysis in Google Earth Pro or QGIS:
 
 ```elixir
 # Export OSINT investigation results as KML
@@ -521,20 +521,20 @@ folders = [
 
 ## Related Terms
 
-- [JSON](/glossary/json/) -- alternative data interchange format, used for API responses and web maps
-- [Geolocation](/glossary/geolocation/) -- the process of determining geographic coordinates from IP addresses or addresses
-- [OSINT](/glossary/osint/) -- open source intelligence tools that produce geospatial data
-- [Data Provenance](/glossary/data-provenance/) -- tracking data lineage essential for geospatial intelligence
-- [Entity Graph](/glossary/entity-graph/) -- entity relationships that can be projected onto geographic space
+- [JSON](@/glossary/json.md) -- alternative data interchange format, used for API responses and web maps
+- [Geolocation](@/glossary/geolocation.md) -- the process of determining geographic coordinates from IP addresses or addresses
+- [OSINT](@/glossary/osint.md) -- open source intelligence tools that produce geospatial data
+- [Data Provenance](@/glossary/data-provenance.md) -- tracking data lineage essential for geospatial intelligence
+- [Entity Graph](@/glossary/entity-graph.md) -- entity relationships that can be projected onto geographic space
 - [Serialization](/glossary/serialization/) -- data format conversion including KML encoding
 - [XML](/glossary/xml/) -- the markup language underlying KML format
-- [Metadata Management](/glossary/metadata-management/) -- managing the extended data embedded in KML
+- [Metadata Management](@/glossary/metadata-management.md) -- managing the extended data embedded in KML
 
 ## See Also
 
-- [OSINT Toolbox](/osint/) -- intelligence tools that produce geospatial data
-- [Architecture](/architecture/) -- platform data export architecture
-- [Perimeter](/capabilities/) -- EASM asset discovery with geographic distribution
+- [OSINT Toolbox](@/osint/_index.md) -- intelligence tools that produce geospatial data
+- [Architecture](@/architecture/_index.md) -- platform data export architecture
+- [Perimeter](@/capabilities/_index.md) -- EASM asset discovery with geographic distribution
 - [OGC KML 2.2 Specification](https://www.ogc.org/standard/kml/)
 
 ---
@@ -544,4 +544,4 @@ folders = [
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

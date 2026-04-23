@@ -451,28 +451,28 @@ The `purple-mapper` L2 specialist takes Red Team findings and maps them to corre
 
 L2 Tactical Specialists operate within a rich ecosystem of agent hierarchy and security concepts:
 
-- [Agent Tier](/glossary/agent-tier/) -- the hierarchical classification system that defines L2's position and authority boundaries
-- [L1 Operational Units](/glossary/l1-operational-units/) -- the tier below L2, handling single-task execution under L2 direction
-- [L3 Strategic Commanders](/glossary/l3-strategic-commanders/) -- the tier above L2, providing strategic direction and task assignment
-- [L5 Supreme Authority](/glossary/l5-supreme-authority/) -- the highest authority tier with platform-wide doctrine-level decisions
-- [Color Teams](/glossary/color-teams/) -- the organizational structure within which L2 specialists operate
-- [Red Team](/glossary/red-team/) -- the adversarial simulation team containing 3 L2 specialists
-- [Blue Team](/glossary/blue-team/) -- the epistemic defense team containing 3 L2 specialists
-- [Agent Orchestration](/glossary/agent-orchestration/) -- the coordination mechanism by which L3 commanders direct L2 specialists
-- [AIAD](/glossary/aiad/) -- the agent definition standard that specifies L2 agent structure, capabilities, and constraints
-- [Tactical Execution](/glossary/tactical-execution/) -- the operational mode that defines L2 specialists' primary function
+- [Agent Tier](@/glossary/agent-tier.md) -- the hierarchical classification system that defines L2's position and authority boundaries
+- [L1 Operational Units](@/glossary/l1-operational-units.md) -- the tier below L2, handling single-task execution under L2 direction
+- [L3 Strategic Commanders](@/glossary/l3-strategic-commanders.md) -- the tier above L2, providing strategic direction and task assignment
+- [L5 Supreme Authority](@/glossary/l5-supreme-authority.md) -- the highest authority tier with platform-wide doctrine-level decisions
+- [Color Teams](@/glossary/color-teams.md) -- the organizational structure within which L2 specialists operate
+- [Red Team](@/glossary/red-team.md) -- the adversarial simulation team containing 3 L2 specialists
+- [Blue Team](@/glossary/blue-team.md) -- the epistemic defense team containing 3 L2 specialists
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- the coordination mechanism by which L3 commanders direct L2 specialists
+- [AIAD](@/glossary/aiad.md) -- the agent definition standard that specifies L2 agent structure, capabilities, and constraints
+- [Tactical Execution](@/glossary/tactical-execution.md) -- the operational mode that defines L2 specialists' primary function
 
 ## See Also
 
-- [Purple Team](/glossary/purple-team/) -- the synthesis team that closes the Red-Blue loop using L2 specialist findings
-- [White Team](/glossary/white-team/) -- the constructive verification team with L2 specialists for contract and invariant validation
-- [Gray Team](/glossary/gray-team/) -- the boundary exploration team that feeds initial findings into L2 specialist workflows
-- [Supervision Tree](/glossary/supervision-tree/) -- the OTP pattern used to supervise L2 agent processes
-- [Telemetry](/glossary/telemetry/) -- the observability infrastructure that monitors L2 agent performance and health
+- [Purple Team](@/glossary/purple-team.md) -- the synthesis team that closes the Red-Blue loop using L2 specialist findings
+- [White Team](@/glossary/white-team.md) -- the constructive verification team with L2 specialists for contract and invariant validation
+- [Gray Team](@/glossary/gray-team.md) -- the boundary exploration team that feeds initial findings into L2 specialist workflows
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the OTP pattern used to supervise L2 agent processes
+- [Telemetry](@/glossary/telemetry.md) -- the observability infrastructure that monitors L2 agent performance and health
 
 ---
 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Part of the [Prismatic Platform](https://github.com/korczis/prismatic-platform) Glossary
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | Glossary Index
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | Glossary Index

@@ -538,28 +538,28 @@ Red team attack simulations, Blue team defensive posture assessments, and Purple
 
 ## Related Concepts
 
-- [Agent Orchestration](/glossary/agent-orchestration/) -- The specific patterns for coordinating agent activities within the AIAD framework
-- [AI Agent](/glossary/ai-agent/) -- Individual autonomous agents that are orchestrated within the platform
-- [Multi-Agent System](/glossary/multi-agent-system/) -- The theoretical framework for systems composed of multiple interacting agents
-- [Orchestration](/glossary/orchestration/) -- General orchestration patterns beyond AI-specific coordination
-- [Pipeline](/glossary/pipeline/) -- Sequential data processing pipelines that form the backbone of orchestration workflows
-- [Workflow](/glossary/workflow/) -- Defined sequences of operations managed by the orchestration engine
-- [LLM](/glossary/llm/) -- Large language models that serve as the inference backbone for AI agents
-- [Ollama](/glossary/ollama/) -- Local AI inference runtime integrated into the orchestration model routing
-- [Agent Registry](/glossary/agent-registry/) -- The discovery mechanism used by the orchestrator to find capable agents
-- [Command](/glossary/command/) -- AIAD commands dispatched through the orchestration engine
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- The specific patterns for coordinating agent activities within the AIAD framework
+- [AI Agent](@/glossary/ai-agent.md) -- Individual autonomous agents that are orchestrated within the platform
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- The theoretical framework for systems composed of multiple interacting agents
+- [Orchestration](@/glossary/orchestration.md) -- General orchestration patterns beyond AI-specific coordination
+- [Pipeline](@/glossary/pipeline.md) -- Sequential data processing pipelines that form the backbone of orchestration workflows
+- [Workflow](@/glossary/workflow.md) -- Defined sequences of operations managed by the orchestration engine
+- [LLM](@/glossary/llm.md) -- Large language models that serve as the inference backbone for AI agents
+- [Ollama](@/glossary/ollama.md) -- Local AI inference runtime integrated into the orchestration model routing
+- [Agent Registry](@/glossary/agent-registry.md) -- The discovery mechanism used by the orchestrator to find capable agents
+- [Command](@/glossary/command.md) -- AIAD commands dispatched through the orchestration engine
 
 ## See Also
 
-- [AIAD](/glossary/aiad/) -- The AI Agent Development standard that defines the orchestration framework
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- Self-improving capabilities enabled by AI orchestration
-- [Trinity Gate](/glossary/trinity-gate/) -- Formal verification layer for orchestration decisions
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework guiding orchestration reasoning
-- [Color Teams](/glossary/color-teams/) -- Adversarial-defensive team orchestration for security operations
+- [AIAD](@/glossary/aiad.md) -- The AI Agent Development standard that defines the orchestration framework
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- Self-improving capabilities enabled by AI orchestration
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Formal verification layer for orchestration decisions
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework guiding orchestration reasoning
+- [Color Teams](@/glossary/color-teams.md) -- Adversarial-defensive team orchestration for security operations
 
 ---
 
 ## Connect & Contribute
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

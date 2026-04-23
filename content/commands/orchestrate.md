@@ -26,11 +26,11 @@ image_alt = "/orchestrate - Prismatic Platform"
 
 **/orchestrate** is a production command in the **Orchestration** category of the Prismatic Platform. It delivers revolutionary AI-powered task orchestration with 10x development efficiency, serving as the platform's supreme command interface that decomposes complex objectives into coordinated multi-agent workflows executed with optimal parallelism and quality enforcement.
 
-The `/orchestrate` command stands at the apex of the Prismatic command hierarchy. While individual commands like [/code](/commands/code/), [/fix](/commands/fix/), and [/test](/commands/test/) handle specific development tasks, `/orchestrate` operates at a higher abstraction level -- it understands the objective, breaks it into subtasks, selects the appropriate agents and commands for each subtask, manages dependencies between tasks, and ensures that the composite result meets all quality standards. This orchestration capability transforms multi-hour manual workflows into automated pipelines that complete in minutes.
+The `/orchestrate` command stands at the apex of the Prismatic command hierarchy. While individual commands like [/code](@/commands/code.md), [/fix](@/commands/fix.md), and [/test](@/commands/test.md) handle specific development tasks, `/orchestrate` operates at a higher abstraction level -- it understands the objective, breaks it into subtasks, selects the appropriate agents and commands for each subtask, manages dependencies between tasks, and ensures that the composite result meets all quality standards. This orchestration capability transforms multi-hour manual workflows into automated pipelines that complete in minutes.
 
 The "10x efficiency" claim is not marketing language -- it is a measured outcome. Traditional development workflows require sequential task planning, manual context switching between tools, repeated quality verification, and constant coordination overhead. The `/orchestrate` command eliminates these inefficiencies by maintaining the full platform context, parallelizing independent tasks, and embedding quality gates directly into the execution pipeline. Measured across production use cases, this consistently achieves 8-12x throughput improvement over manual workflows.
 
-This command operates under the **Supreme Platform Intelligence** authority level -- the highest in the platform's authority hierarchy -- and is executed by the `unified-orchestrator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The high usage frequency reflects its role as the preferred entry point for complex development tasks.
+This command operates under the **Supreme Platform Intelligence** authority level -- the highest in the platform's authority hierarchy -- and is executed by the `unified-orchestrator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The high usage frequency reflects its role as the preferred entry point for complex development tasks.
 
 ## Architecture
 
@@ -190,13 +190,13 @@ User Objective --> Objective Parser
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Multi-agent coordination | Dispatches to 403+ agents by capability |
-| [AIAD Registry](/glossary/aiad/) | Agent/command discovery | Queries capabilities for task matching |
-| [Quality Gates](/glossary/quality-gates/) | Per-task validation | Quality gates embedded in execution pipeline |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Task timing, agent utilization, quality scores |
-| [Session Lifecycle](/glossary/session-discipline/) | Context management | Maintains context across multi-task execution |
-| [GitLab](/glossary/gitlab-ci/) | Issue tracking | Creates/updates issues for orchestrated work |
-| [All Commands](/commands/) | Command dispatch | Can invoke any of 216 platform commands |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Multi-agent coordination | Dispatches to 403+ agents by capability |
+| [AIAD Registry](@/glossary/aiad.md) | Agent/command discovery | Queries capabilities for task matching |
+| [Quality Gates](@/glossary/quality-gates.md) | Per-task validation | Quality gates embedded in execution pipeline |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Task timing, agent utilization, quality scores |
+| [Session Lifecycle](@/glossary/session-discipline.md) | Context management | Maintains context across multi-task execution |
+| [GitLab](@/glossary/gitlab-ci.md) | Issue tracking | Creates/updates issues for orchestrated work |
+| [All Commands](@/commands/_index.md) | Command dispatch | Can invoke any of 216 platform commands |
 
 ## Best Practices
 
@@ -254,7 +254,7 @@ The orchestrator can invoke itself for sub-objectives:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every subtask must pass quality gates. No partial deliveries without explicit checkpoint. No skipped tests or documentation.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Task decomposition is validated against platform architecture. Agent assignments are based on measured capabilities. Quality assessments use quantitative metrics.
@@ -263,12 +263,12 @@ The Supreme Platform Intelligence authority level provides unrestricted access t
 
 ## Related Commands
 
-- [/auto](/commands/auto/) - Intelligent autonomous evolution engine for zero-human-intervention improvements
-- [/auto-pro](/commands/auto-pro/) - Steroids edition with genetic optimization, swarm intelligence and quantum decisions
-- [/auto-ultimate](/commands/auto-ultimate/) - Maximum [intelligence fusion](/glossary/intelligence-fusion/) combining MENDEL, MYCELIALIZE and AXON/EXLA neural computing
-- [/operation-order](/commands/operation-order/) - Military-grade operation order generation for complex tasks
-- [/archer-supreme](/commands/archer-supreme/) - Elite tactical commander for impossible mission execution
-- [/code](/commands/code/) - Core coding implementation and feature development
+- [/auto](@/commands/auto.md) - Intelligent autonomous evolution engine for zero-human-intervention improvements
+- [/auto-pro](@/commands/auto-pro.md) - Steroids edition with genetic optimization, swarm intelligence and quantum decisions
+- [/auto-ultimate](@/commands/auto-ultimate.md) - Maximum [intelligence fusion](@/glossary/intelligence-fusion.md) combining MENDEL, MYCELIALIZE and AXON/EXLA neural computing
+- [/operation-order](@/commands/operation-order.md) - Military-grade operation order generation for complex tasks
+- [/archer-supreme](@/commands/archer-supreme.md) - Elite tactical commander for impossible mission execution
+- [/code](@/commands/code.md) - Core coding implementation and feature development
 
 ---
 
@@ -277,4 +277,4 @@ The Supreme Platform Intelligence authority level provides unrestricted access t
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

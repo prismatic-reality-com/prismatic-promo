@@ -30,7 +30,7 @@ keywords = ["Case", "Management", "Investigation", "Workflow", "Structured", "Pr
 
 ## Abstract
 
-The Case Management System provides the organizational and procedural framework for due diligence investigations within the Prismatic Platform. It manages the lifecycle of investigation cases from creation through assignment, scoping, evidence collection, analysis, review, and final report delivery, ensuring that every investigation follows a structured, auditable, and compliant process. Cases support hierarchical organization, role-based access control, collaborative workflows, and integration with all platform subsystems including [entity management](/dd/entity-management/), [graph analysis](/dd/graph-analysis/), [risk assessment](/dd/risk-assessment/), and [OSINT collection](/dd/osint-integration/). This document describes the case lifecycle, the workflow engine, collaboration features, access control model, and reporting capabilities.
+The Case Management System provides the organizational and procedural framework for due diligence investigations within the Prismatic Platform. It manages the lifecycle of investigation cases from creation through assignment, scoping, evidence collection, analysis, review, and final report delivery, ensuring that every investigation follows a structured, auditable, and compliant process. Cases support hierarchical organization, role-based access control, collaborative workflows, and integration with all platform subsystems including [entity management](@/dd/entity-management.md), [graph analysis](@/dd/graph-analysis.md), [risk assessment](@/dd/risk-assessment.md), and [OSINT collection](@/dd/osint-integration.md). This document describes the case lifecycle, the workflow engine, collaboration features, access control model, and reporting capabilities.
 
 ## Introduction
 
@@ -42,13 +42,13 @@ The Prismatic Platform's Case Management System addresses this by treating each 
 
 ### Design Principles
 
-The case management system follows principles derived from both the platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine and established investigation management practices:
+The case management system follows principles derived from both the platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine and established investigation management practices:
 
 1. **Complete Capture**: Every investigation action is recorded within the case context. No findings exist outside of a case.
 2. **Structured Workflow**: Investigations follow defined lifecycle stages with explicit transition criteria.
 3. **Role-Based Access**: Case data is accessible only to authorized users based on their role and assignment.
 4. **Hierarchical Organization**: Complex investigations can be decomposed into sub-cases with independent lifecycles.
-5. **Regulatory Compliance**: Case records satisfy the audit trail requirements of [NIS2](/glossary/nis2/), [AML/KYC](/dd/compliance/), and internal compliance frameworks.
+5. **Regulatory Compliance**: Case records satisfy the audit trail requirements of [NIS2](@/glossary/nis2.md), [AML/KYC](@/dd/compliance.md), and internal compliance frameworks.
 
 ## Case Lifecycle
 
@@ -98,8 +98,8 @@ Within each lifecycle state, the workflow engine manages individual tasks that m
 |-----------|---------|------------|
 | Entity enrichment | New entity added to case | Platform (automated) |
 | Source collection | Entity enrichment initiated | Platform (per source adapter) |
-| Validation | Source data received | [Validation engine](/dd/methodology/) |
-| Risk scoring | Entity validation complete | [Risk assessment](/dd/risk-assessment/) |
+| Validation | Source data received | [Validation engine](@/dd/methodology.md) |
+| Risk scoring | Entity validation complete | [Risk assessment](@/dd/risk-assessment.md) |
 | Contradiction review | Cross-source contradiction detected | Lead analyst |
 | Sanctions screening | New person/company entity | Platform (automated) |
 
@@ -124,11 +124,11 @@ Tasks are prioritized using a composite scoring model that considers:
 
 ### Parallel Execution
 
-The workflow engine leverages [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/) concurrency to execute independent tasks in parallel. Entity enrichment across multiple [OSINT sources](/dd/osint-integration/) runs concurrently, and independent entity investigations within the same case proceed simultaneously. The platform monitors task completion and triggers downstream tasks as their dependencies are satisfied.
+The workflow engine leverages [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md) concurrency to execute independent tasks in parallel. Entity enrichment across multiple [OSINT sources](@/dd/osint-integration.md) runs concurrently, and independent entity investigations within the same case proceed simultaneously. The platform monitors task completion and triggers downstream tasks as their dependencies are satisfied.
 
 ## Hierarchical Case Organization
 
-Complex investigations, particularly [M&A due diligence](/dd/ma-due-diligence/) engagements, often involve multiple investigation targets with distinct scopes. The case management system supports hierarchical case organization:
+Complex investigations, particularly [M&A due diligence](@/dd/ma-due-diligence.md) engagements, often involve multiple investigation targets with distinct scopes. The case management system supports hierarchical case organization:
 
 ```
 Parent Case: M&A Due Diligence - Acquisition of Target Group
@@ -159,7 +159,7 @@ Parent cases aggregate risk assessments from child cases, providing a consolidat
 
 ### Role-Based Access Control
 
-The case management system implements [RBAC](/glossary/rbac/) with four defined roles:
+The case management system implements [RBAC](@/glossary/rbac.md) with four defined roles:
 
 | Role | Permissions | Typical User |
 |------|-------------|-------------|
@@ -173,9 +173,9 @@ The case management system implements [RBAC](/glossary/rbac/) with four defined 
 Case data is strictly isolated. An analyst assigned to Case A cannot access entity data, findings, or risk assessments from Case B unless they are also assigned to Case B. This isolation extends to:
 
 - Database-level row security on entity records
-- Case-scoped search indexes in [Meilisearch](/glossary/meilisearch/)
-- Case-filtered graph queries in [KuzuDB](/glossary/kuzudb/)
-- Case-scoped [audit trail](/glossary/audit-trail/) entries
+- Case-scoped search indexes in [Meilisearch](@/glossary/meilisearch.md)
+- Case-filtered graph queries in [KuzuDB](@/glossary/kuzudb.md)
+- Case-scoped [audit trail](@/glossary/audit-trail.md) entries
 
 ### Audit Trail
 
@@ -193,7 +193,7 @@ The audit trail is append-only and cannot be modified or deleted, satisfying reg
 
 ### Real-Time Collaboration
 
-Built on [Phoenix LiveView](/glossary/liveview/), the case management interface provides real-time collaboration features:
+Built on [Phoenix LiveView](@/glossary/liveview.md), the case management interface provides real-time collaboration features:
 
 - **Live entity updates**: When one analyst enriches an entity, all other case participants see updated data immediately
 - **Concurrent note editing**: Multiple analysts can add notes to the same entity simultaneously
@@ -216,7 +216,7 @@ The evidence collection system captures and organizes all investigative evidence
 
 | Evidence Type | Source | Storage |
 |---------------|--------|---------|
-| **Registry records** | Automated [OSINT collection](/dd/osint-integration/) | Structured entity data |
+| **Registry records** | Automated [OSINT collection](@/dd/osint-integration.md) | Structured entity data |
 | **Documents** | Manual upload or registry download | Document store with metadata |
 | **Screenshots** | Analyst-captured web evidence | Image store with annotations |
 | **Notes** | Analyst observations and analysis | Note database with threading |
@@ -236,7 +236,7 @@ The platform generates several report types from case data:
 | **Detailed DD Report** | Legal/compliance | PDF, 20-50 pages | Full investigation narrative with evidence |
 | **Risk Assessment** | Risk committee | PDF/HTML | Dimensional risk scores with supporting data |
 | **Entity Profile** | Analysts | HTML/JSON | Comprehensive entity data with source attribution |
-| **Compliance Mapping** | Regulators | PDF | Findings mapped to [NIS2](/glossary/nis2/)/[ZKB](/glossary/zkb/) requirements |
+| **Compliance Mapping** | Regulators | PDF | Findings mapped to [NIS2](@/glossary/nis2.md)/[ZKB](@/glossary/zkb.md) requirements |
 | **Graph Export** | Technical review | JSON/GraphML | Full relationship graph for external analysis |
 
 ### Report Generation Pipeline
@@ -252,7 +252,7 @@ Report generation follows a defined pipeline:
 
 ### Compliance-Mapped Reporting
 
-For regulated industries, the reporting system maps investigation findings to specific regulatory requirements. The [compliance module](/dd/compliance/) provides mapping templates for:
+For regulated industries, the reporting system maps investigation findings to specific regulatory requirements. The [compliance module](@/dd/compliance.md) provides mapping templates for:
 
 - **NIS2**: Supply chain security assessment requirements
 - **ZKB**: Czech cybersecurity regulation entity verification
@@ -267,12 +267,12 @@ The case management system integrates with all major platform subsystems:
 
 | Subsystem | Integration |
 |-----------|-------------|
-| **[Entity Management](/dd/entity-management/)** | Entities exist within case scope; case drives enrichment |
-| **[Graph Analysis](/dd/graph-analysis/)** | Graph traversals scoped to case entities |
-| **[Risk Assessment](/dd/risk-assessment/)** | Risk scores computed per case; aggregated in parent cases |
-| **[OSINT Integration](/dd/osint-integration/)** | Source queries triggered by case workflow engine |
-| **[Triple-Check Validation](/dd/methodology/)** | Validation pipeline processes case evidence |
-| **[Compliance Mapping](/dd/compliance/)** | Regulatory frameworks applied to case findings |
+| **[Entity Management](@/dd/entity-management.md)** | Entities exist within case scope; case drives enrichment |
+| **[Graph Analysis](@/dd/graph-analysis.md)** | Graph traversals scoped to case entities |
+| **[Risk Assessment](@/dd/risk-assessment.md)** | Risk scores computed per case; aggregated in parent cases |
+| **[OSINT Integration](@/dd/osint-integration.md)** | Source queries triggered by case workflow engine |
+| **[Triple-Check Validation](@/dd/methodology.md)** | Validation pipeline processes case evidence |
+| **[Compliance Mapping](@/dd/compliance.md)** | Regulatory frameworks applied to case findings |
 
 ## Conclusion
 
@@ -280,15 +280,15 @@ The Case Management System transforms due diligence from an unstructured collect
 
 ## References
 
-- [Entity Management System](/dd/entity-management/)
-- [Triple-Check Methodology](/dd/methodology/)
-- [Risk Assessment Framework](/dd/risk-assessment/)
-- [M&A Due Diligence Workflow](/dd/ma-due-diligence/)
-- [Compliance Framework Integration](/dd/compliance/)
-- [OSINT Integration Framework](/dd/osint-integration/)
-- [Phoenix LiveView](/glossary/liveview/)
-- [RBAC](/glossary/rbac/)
-- [Audit Trail](/glossary/audit-trail/)
+- [Entity Management System](@/dd/entity-management.md)
+- [Triple-Check Methodology](@/dd/methodology.md)
+- [Risk Assessment Framework](@/dd/risk-assessment.md)
+- [M&A Due Diligence Workflow](@/dd/ma-due-diligence.md)
+- [Compliance Framework Integration](@/dd/compliance.md)
+- [OSINT Integration Framework](@/dd/osint-integration.md)
+- [Phoenix LiveView](@/glossary/liveview.md)
+- [RBAC](@/glossary/rbac.md)
+- [Audit Trail](@/glossary/audit-trail.md)
 
 ---
 
@@ -297,4 +297,4 @@ The Case Management System transforms due diligence from an unstructured collect
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

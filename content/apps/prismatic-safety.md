@@ -24,13 +24,13 @@ image_alt = "Prismatic Safety - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Safety is the platform's autonomous quality enforcement system, implementing continuous monitoring, predictive regression prevention, and automatic evolution triggering across 13 quality domains. The system's core component, the [Quality Floor Guardian](/glossary/quality-floor-guardian/), operates as a [GenServer](/glossary/genserver/) that periodically evaluates the platform's quality score on a 0-100 scale and executes graduated response protocols: monitoring at 99-100, warning with investigation at 98-99, critical with automatic evolution triggers at 95-98, and emergency commit blocking below 95. The [Quality DNA](/glossary/quality-dna/) system provides cross-session continuity by persisting quality state, violation history, and intervention records in a structured JSON format. A predictive pre-commit hook analyzes staged changes for risk patterns -- including `length() > 0` anti-patterns, new `Process.sleep` usage, missing `@spec` annotations, and unsafe map access -- blocking commits that would degrade quality before they enter the codebase.
+Prismatic Safety is the platform's autonomous quality enforcement system, implementing continuous monitoring, predictive regression prevention, and automatic evolution triggering across 13 quality domains. The system's core component, the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md), operates as a [GenServer](@/glossary/genserver.md) that periodically evaluates the platform's quality score on a 0-100 scale and executes graduated response protocols: monitoring at 99-100, warning with investigation at 98-99, critical with automatic evolution triggers at 95-98, and emergency commit blocking below 95. The [Quality DNA](@/glossary/quality-dna.md) system provides cross-session continuity by persisting quality state, violation history, and intervention records in a structured JSON format. A predictive pre-commit hook analyzes staged changes for risk patterns -- including `length() > 0` anti-patterns, new `Process.sleep` usage, missing `@spec` annotations, and unsafe map access -- blocking commits that would degrade quality before they enter the codebase.
 
 ## 1. Introduction
 
 ### 1.1 Problem Statement
 
-Software quality in a large codebase (6,652 [Elixir](/glossary/elixir/) source files across 90 [OTP](/glossary/otp/) applications) tends to degrade incrementally. Individual changes that are "good enough" accumulate into systemic debt: missing type specifications reduce [Dialyzer](/glossary/dialyzer/) effectiveness, anti-patterns degrade performance, and coding standard violations reduce readability. Traditional quality enforcement relies on periodic audits or manual code review, both of which introduce latency between degradation and detection.
+Software quality in a large codebase (6,652 [Elixir](@/glossary/elixir.md) source files across 90 [OTP](@/glossary/otp.md) applications) tends to degrade incrementally. Individual changes that are "good enough" accumulate into systemic debt: missing type specifications reduce [Dialyzer](@/glossary/dialyzer.md) effectiveness, anti-patterns degrade performance, and coding standard violations reduce readability. Traditional quality enforcement relies on periodic audits or manual code review, both of which introduce latency between degradation and detection.
 
 Prismatic Safety solves this by making quality enforcement continuous, autonomous, and preemptive. The system detects quality degradation in real time, prevents it at commit time through predictive analysis, and automatically triggers corrective evolution when quality dips below defined thresholds.
 
@@ -38,14 +38,14 @@ Prismatic Safety solves this by making quality enforcement continuous, autonomou
 
 1. **Continuous autonomous monitoring** -- quality is assessed continuously, not periodically, through a GenServer-based monitoring loop.
 2. **Graduated response protocols** -- four severity levels with proportional automated responses, from passive monitoring to emergency commit blocking.
-3. **Predictive prevention** -- [pre-commit hooks](/glossary/pre-commit-hooks/) analyze changes for known risk patterns before code enters the repository.
+3. **Predictive prevention** -- [pre-commit hooks](@/glossary/pre-commit-hooks.md) analyze changes for known risk patterns before code enters the repository.
 4. **Cross-session continuity** -- the Quality DNA system preserves quality state across development sessions, enabling trend analysis and intervention tracking.
-5. **13-domain coverage** -- monitoring spans compilation, [Credo](/glossary/credo/), Dialyzer, memory safety, performance, datetime precision, guard functions, `@impl` coverage, regression prevention, timing patterns, TODO management, [typespec](/glossary/typespec/) coverage, and unsafe map access.
+5. **13-domain coverage** -- monitoring spans compilation, [Credo](@/glossary/credo.md), Dialyzer, memory safety, performance, datetime precision, guard functions, `@impl` coverage, regression prevention, timing patterns, TODO management, [typespec](@/glossary/typespec.md) coverage, and unsafe map access.
 6. **Zero manual intervention** -- the system self-corrects through automatic evolution triggers without requiring human operator action.
 
 ### 1.3 Scope
 
-Prismatic Safety covers quality monitoring, enforcement, and automatic remediation triggering. It does not implement the actual code fixes, which are performed by [Prismatic Annihilation](/apps/prismatic-annihilation/) and evolution agents. The pre-commit hook operates on staged changes; full codebase scanning is delegated to quality gate [mix task](/glossary/mix-task/)s.
+Prismatic Safety covers quality monitoring, enforcement, and automatic remediation triggering. It does not implement the actual code fixes, which are performed by [Prismatic Annihilation](@/apps/prismatic-annihilation.md) and evolution agents. The pre-commit hook operates on staged changes; full codebase scanning is delegated to quality gate [mix task](@/glossary/mix-task.md)s.
 
 ## 2. Architecture
 
@@ -77,7 +77,7 @@ Continuous Monitoring Loop
 
 | Module | Responsibility |
 |--------|----------------|
-| `PrismaticSafety.QualityFloorGuardian` | GenServer: continuous monitoring, score calculation, response [protocol](/glossary/protocol/) execution |
+| `PrismaticSafety.QualityFloorGuardian` | GenServer: continuous monitoring, score calculation, response [protocol](@/glossary/protocol.md) execution |
 | `PrismaticSafety.DomainScanner` | Per-domain quality assessment (compilation, Credo, Dialyzer, etc.) |
 | `PrismaticSafety.QualityDna` | Cross-session state persistence, trend analysis, intervention history |
 | `PrismaticSafety.RiskPatternDetector` | Static analysis for known anti-patterns and risk indicators |
@@ -102,7 +102,7 @@ PrismaticSafety.Application (Supervisor, :one_for_one)
 
 ### 2.4 Data Flow
 
-The Quality Floor Guardian executes periodic quality checks by invoking domain scanners for each of the 13 quality domains. Each scanner returns a domain-specific score and violation list. The Guardian aggregates these into a composite 0-100 score, compares against thresholds, and executes the appropriate response protocol. Quality DNA receives the score and violation data, persists it to disk, and computes trend [metrics](/glossary/metrics/). When a pre-commit hook fires, the Risk Pattern Detector analyzes staged files against its pattern database and returns a risk assessment that determines whether the commit proceeds.
+The Quality Floor Guardian executes periodic quality checks by invoking domain scanners for each of the 13 quality domains. Each scanner returns a domain-specific score and violation list. The Guardian aggregates these into a composite 0-100 score, compares against thresholds, and executes the appropriate response protocol. Quality DNA receives the score and violation data, persists it to disk, and computes trend [metrics](@/glossary/metrics.md). When a pre-commit hook fires, the Risk Pattern Detector analyzes staged files against its pattern database and returns a risk assessment that determines whether the commit proceeds.
 
 ## 3. Implementation
 
@@ -216,22 +216,22 @@ config :prismatic_safety,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Core](/apps/prismatic-core/) | Base configuration and entity definitions |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Quality metric emission and monitoring |
-| [Prismatic Credo](/apps/prismatic-credo/) | Credo analysis results for quality scoring |
+| [Prismatic Core](@/apps/prismatic-core.md) | Base configuration and entity definitions |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Quality metric emission and monitoring |
+| [Prismatic Credo](@/apps/prismatic-credo.md) | Credo analysis results for quality scoring |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Claude](/apps/prismatic-claude/) | Session lifecycle quality gate integration |
-| [Prismatic Annihilation](/apps/prismatic-annihilation/) | Receives evolution trigger signals |
-| [Prismatic Web](/apps/prismatic-web/) | Quality dashboard data source |
-| [Prismatic Agents](/apps/prismatic-agents/) | Quality enforcement doctrine compliance |
+| [Prismatic Claude](@/apps/prismatic-claude.md) | Session lifecycle quality gate integration |
+| [Prismatic Annihilation](@/apps/prismatic-annihilation.md) | Receives evolution trigger signals |
+| [Prismatic Web](@/apps/prismatic-web.md) | Quality dashboard data source |
+| [Prismatic Agents](@/apps/prismatic-agents.md) | Quality enforcement doctrine compliance |
 
 ### 4.3 Inter-Process Communication
 
-The Quality Floor Guardian publishes quality updates via [PubSub](/glossary/pubsub/) on the `"safety:quality_update"` topic. The Quality dashboard subscribes to this topic for real-time score display. Evolution triggers are dispatched as supervised tasks to prevent blocking the monitoring loop. Pre-commit hooks execute as external processes invoked by git.
+The Quality Floor Guardian publishes quality updates via [PubSub](@/glossary/pubsub.md) on the `"safety:quality_update"` topic. The Quality dashboard subscribes to this topic for real-time score display. Evolution triggers are dispatched as supervised tasks to prevent blocking the monitoring loop. Pre-commit hooks execute as external processes invoked by git.
 
 ### 4.4 External Integrations
 
@@ -245,7 +245,7 @@ Git hook integration via `.githooks/pre-commit-quality-protection` for pre-commi
 |-----------|---------|-------|
 | Full quality score calculation | 200-500ms | All 13 domains scanned |
 | Single domain scan | 15-50ms | Depends on domain complexity |
-| Risk pattern scan (single file) | 5-20ms | AST parsing and [pattern matching](/glossary/pattern-matching/) |
+| Risk pattern scan (single file) | 5-20ms | AST parsing and [pattern matching](@/glossary/pattern-matching.md) |
 | Pre-commit hook (10 files) | 100-300ms | Parallel file analysis |
 | Quality DNA persistence | < 5ms | JSON serialization to disk |
 
@@ -289,7 +289,7 @@ Quality Floor Guardian operates as a platform-internal service without external 
 
 ### 8.1 Deployment
 
-Prismatic Safety deploys as part of the umbrella [release](/glossary/release/). The pre-commit hook must be installed separately via `.githooks/` symlink. Quality DNA state is preserved across deployments through its file-based persistence.
+Prismatic Safety deploys as part of the umbrella [release](@/glossary/release.md). The pre-commit hook must be installed separately via `.githooks/` symlink. Quality DNA state is preserved across deployments through its file-based persistence.
 
 ### 8.2 Monitoring
 
@@ -302,31 +302,31 @@ Telemetry events: `[:prismatic, :safety, :quality_check]`, `[:prismatic, :safety
 | Quality score dropping | New violations introduced | Run `mix quality.gates` to identify domain |
 | Evolution triggered unexpectedly | Threshold misconfiguration | Check `thresholds` in config |
 | Pre-commit hook slow | Large number of staged files | Split commit into smaller changesets |
-| Quality DNA stale | Guardian process not running | Verify application started; check [supervisor](/glossary/supervisor/) |
+| Quality DNA stale | Guardian process not running | Verify application started; check [supervisor](@/glossary/supervisor.md) |
 
 ## 9. Future Work
 
-Planned enhancements include machine learning-based risk pattern detection trained on historical violation data, cross-application quality impact analysis for dependency chains, visual quality trend dashboards with anomaly highlighting, integration with [GitLab CI](/glossary/gitlab-ci/) for server-side quality enforcement, and quality score gamification for developer engagement.
+Planned enhancements include machine learning-based risk pattern detection trained on historical violation data, cross-application quality impact analysis for dependency chains, visual quality trend dashboards with anomaly highlighting, integration with [GitLab CI](@/glossary/gitlab-ci.md) for server-side quality enforcement, and quality score gamification for developer engagement.
 
 ## References
 
-- [Prismatic Annihilation](/apps/prismatic-annihilation/) -- Technical debt elimination engine
-- [Prismatic Credo](/apps/prismatic-credo/) -- Static analysis integration
-- [Prismatic Claude](/apps/prismatic-claude/) -- Session lifecycle integration
-- [Prismatic Telemetry](/apps/prismatic-telemetry/) -- Quality metric infrastructure
+- [Prismatic Annihilation](@/apps/prismatic-annihilation.md) -- Technical debt elimination engine
+- [Prismatic Credo](@/apps/prismatic-credo.md) -- Static analysis integration
+- [Prismatic Claude](@/apps/prismatic-claude.md) -- Session lifecycle integration
+- [Prismatic Telemetry](@/apps/prismatic-telemetry.md) -- Quality metric infrastructure
 - [Quality DNA](.claude/quality-dna/README.md) -- State persistence documentation
 
 ## Related Agents
 
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures quality floor assessments are evidence-based with verifiable violation tracking
-- [CICD Guardrails Enforcer](/agents/cicd-guardrails-enforcer/) -- Enforces pre-commit quality protection and CI/CD pipeline gate integration
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Coordinates automatic evolution triggers when quality thresholds breach critical levels
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures quality floor assessments are evidence-based with verifiable violation tracking
+- [CICD Guardrails Enforcer](@/agents/cicd-guardrails-enforcer.md) -- Enforces pre-commit quality protection and CI/CD pipeline gate integration
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Coordinates automatic evolution triggers when quality thresholds breach critical levels
 
 ## Related Capabilities
 
-- [Quality Gates](/capabilities/quality-gates/) -- 13-domain quality scoring with graduated response protocols from monitoring to emergency blocking
-- [No Mercy](/capabilities/no-mercy/) -- Zero-tolerance enforcement doctrine driving the quality floor guardian's uncompromising standards
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Automatic evolution triggers and predictive pre-commit regression prevention
+- [Quality Gates](@/capabilities/quality-gates.md) -- 13-domain quality scoring with graduated response protocols from monitoring to emergency blocking
+- [No Mercy](@/capabilities/no-mercy.md) -- Zero-tolerance enforcement doctrine driving the quality floor guardian's uncompromising standards
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Automatic evolution triggers and predictive pre-commit regression prevention
 
 ---
 
@@ -335,4 +335,4 @@ Planned enhancements include machine learning-based risk pattern detection train
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

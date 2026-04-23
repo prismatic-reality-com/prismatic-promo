@@ -631,21 +631,21 @@ end
 
 ## Related Terms
 
-- [Ecto](/glossary/ecto/) -- The database wrapper and query generator that provides the migration framework
-- [PostgreSQL](/glossary/postgresql/) -- The relational database system targeted by Prismatic migrations
-- [Deployment](/glossary/deployment/) -- The process that triggers migration execution via release commands
-- [Rollback](/glossary/rollback/) -- Reversing a migration to restore previous database state
-- [Point-in-Time Recovery](/glossary/point-in-time-recovery/) -- WAL-based restore protecting against migration failures
-- [GenServer](/glossary/genserver/) -- OTP pattern used by Ecto's migration runner process
-- [OTP](/glossary/otp/) -- The framework providing supervision and process management for migration execution
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchical process structure that manages Ecto repository connections
-- [Runtime](/glossary/runtime/) -- The execution phase where migrations run during deployment startup
-- [Semver](/glossary/semver/) -- Versioning standard coordinated with migration releases
-- [Process](/glossary/process/) -- BEAM process that executes each migration module
-- [CI/CD](/glossary/ci-cd/) -- Pipeline that validates migrations in test environments before production
-- [Release](/glossary/release/) -- Elixir release packaging that includes migration commands
-- [Telemetry](/glossary/telemetry/) -- Observability events emitted during migration execution
-- [Mix Task](/glossary/mix-task/) -- CLI interface for generating, running, and rolling back migrations
+- [Ecto](@/glossary/ecto.md) -- The database wrapper and query generator that provides the migration framework
+- [PostgreSQL](@/glossary/postgresql.md) -- The relational database system targeted by Prismatic migrations
+- [Deployment](@/glossary/deployment.md) -- The process that triggers migration execution via release commands
+- [Rollback](@/glossary/rollback.md) -- Reversing a migration to restore previous database state
+- [Point-in-Time Recovery](@/glossary/point-in-time-recovery.md) -- WAL-based restore protecting against migration failures
+- [GenServer](@/glossary/genserver.md) -- OTP pattern used by Ecto's migration runner process
+- [OTP](@/glossary/otp.md) -- The framework providing supervision and process management for migration execution
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchical process structure that manages Ecto repository connections
+- [Runtime](@/glossary/runtime.md) -- The execution phase where migrations run during deployment startup
+- [Semver](@/glossary/semver.md) -- Versioning standard coordinated with migration releases
+- [Process](@/glossary/process.md) -- BEAM process that executes each migration module
+- [CI/CD](@/glossary/ci-cd.md) -- Pipeline that validates migrations in test environments before production
+- [Release](@/glossary/release.md) -- Elixir release packaging that includes migration commands
+- [Telemetry](@/glossary/telemetry.md) -- Observability events emitted during migration execution
+- [Mix Task](@/glossary/mix-task.md) -- CLI interface for generating, running, and rolling back migrations
 
 ---
 

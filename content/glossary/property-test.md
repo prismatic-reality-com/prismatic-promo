@@ -197,11 +197,11 @@ end
 
 ## Cross-References
 
-- [Quality Floor](/glossary/quality-floor/) - Minimum quality standard that property tests help maintain
-- [Precision](/glossary/precision/) - ML metric validated through property-based testing of classifiers
-- [Placeholder](/glossary/placeholder/) - Forbidden pattern that property tests replace with real verification
-- [PLT](/glossary/plt/) - Dialyzer type analysis complementing property-based runtime verification
-- [Provenance](/glossary/provenance/) - Data origin tracing verified through property tests
+- [Quality Floor](@/glossary/quality-floor.md) - Minimum quality standard that property tests help maintain
+- [Precision](@/glossary/precision.md) - ML metric validated through property-based testing of classifiers
+- [Placeholder](@/glossary/placeholder.md) - Forbidden pattern that property tests replace with real verification
+- [PLT](@/glossary/plt.md) - Dialyzer type analysis complementing property-based runtime verification
+- [Provenance](@/glossary/provenance.md) - Data origin tracing verified through property tests
 
 ---
 

@@ -18,7 +18,7 @@ see_also = ["adapter-pattern", "postgresql", "ets", "meilisearch", "kuzudb"]
 image_alt = "Polyglot Persistence with Four Adapters"
 +++
 
-"Just use Postgres" is excellent advice until your workload has four different access patterns. Prismatic has exactly four: long-lived truth ([PostgreSQL](/glossary/postgresql)), hot reads ([ETS](/glossary/ets)), full-text search ([Meilisearch](/glossary/meilisearch)), and graph traversal ([KuzuDB](/glossary/kuzudb)). Mixing them under one storage trait keeps the calling code boring — which is the point.
+"Just use Postgres" is excellent advice until your workload has four different access patterns. Prismatic has exactly four: long-lived truth ([PostgreSQL](@/glossary/postgresql.md)), hot reads ([ETS](@/glossary/ets.md)), full-text search ([Meilisearch](@/glossary/meilisearch.md)), and graph traversal ([KuzuDB](@/glossary/kuzudb.md)). Mixing them under one storage trait keeps the calling code boring — which is the point.
 
 ## The trait
 
@@ -32,7 +32,7 @@ defmodule Prismatic.Storage.Trait do
 end
 ```
 
-Every [adapter](/glossary/adapter-pattern) implements this behaviour. The caller never knows which one answers — it gets the same tuple shape regardless. That single constraint is what makes polyglot persistence feasible instead of chaotic.
+Every [adapter](@/glossary/adapter-pattern.md) implements this behaviour. The caller never knows which one answers — it gets the same tuple shape regardless. That single constraint is what makes polyglot persistence feasible instead of chaotic.
 
 ## Adapter per access pattern
 
@@ -66,6 +66,6 @@ Polyglot persistence is a tax. Four adapters means four places to debug, four se
 ## Where to go next
 
 - **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — the trait in practice
-- **Glossary**: [Adapter Pattern](/glossary/adapter-pattern), [PostgreSQL](/glossary/postgresql), [ETS](/glossary/ets), [Meilisearch](/glossary/meilisearch), [KuzuDB](/glossary/kuzudb)
+- **Glossary**: [Adapter Pattern](@/glossary/adapter-pattern.md), [PostgreSQL](@/glossary/postgresql.md), [ETS](@/glossary/ets.md), [Meilisearch](@/glossary/meilisearch.md), [KuzuDB](@/glossary/kuzudb.md)
 
 Four stores. One trait. Boring callers. That is the whole trick.

@@ -24,11 +24,11 @@ image_alt = "Absinthe - Prismatic Platform"
 
 ## Overview
 
-Absinthe is the GraphQL toolkit used in the Prismatic Platform for building flexible, type-safe APIs. It provides a complete GraphQL implementation including queries, mutations, subscriptions, and middleware -- all integrated with [Elixir](/technologies/elixir/)'s type system and [Erlang/OTP](/technologies/erlang-otp/)'s concurrency model. As the most mature and feature-complete GraphQL implementation for the [BEAM](/technologies/beam/) ecosystem, Absinthe transforms complex data requirements into clean, declarative schema definitions that are validated at compile time.
+Absinthe is the GraphQL toolkit used in the Prismatic Platform for building flexible, type-safe APIs. It provides a complete GraphQL implementation including queries, mutations, subscriptions, and middleware -- all integrated with [Elixir](@/technologies/elixir.md)'s type system and [Erlang/OTP](@/technologies/erlang-otp.md)'s concurrency model. As the most mature and feature-complete GraphQL implementation for the [BEAM](@/technologies/beam.md) ecosystem, Absinthe transforms complex data requirements into clean, declarative schema definitions that are validated at compile time.
 
 The Prismatic Platform uses Absinthe to expose complex intelligence data through a unified GraphQL endpoint at `/graphql`. This enables clients to request exactly the data they need -- whether that is a simple agent status check or a deeply nested query combining security ratings, compliance assessments, and asset inventories -- in a single request. Absinthe's Elixir-native schema DSL means GraphQL types are defined using familiar Elixir syntax with compile-time validation, catching schema errors before deployment rather than discovering them at runtime.
 
-Absinthe's subscription system, built on [Phoenix](/technologies/phoenix/) channels and PubSub, powers real-time data feeds where clients receive instant updates when security ratings change, new vulnerabilities are discovered, or agent statuses shift. This is critical for the platform's security operations dashboards where stale data is unacceptable. The combination of Absinthe's subscription mechanism with the BEAM's lightweight process model means the platform can support thousands of concurrent subscription connections without degrading query performance.
+Absinthe's subscription system, built on [Phoenix](@/technologies/phoenix.md) channels and PubSub, powers real-time data feeds where clients receive instant updates when security ratings change, new vulnerabilities are discovered, or agent statuses shift. This is critical for the platform's security operations dashboards where stale data is unacceptable. The combination of Absinthe's subscription mechanism with the BEAM's lightweight process model means the platform can support thousands of concurrent subscription connections without degrading query performance.
 
 ## Key Features
 
@@ -149,8 +149,8 @@ Absinthe fits into the Prismatic Platform's layered architecture as the API pres
 | Presentation | Absinthe Schema + Types | GraphQL type definitions, field resolution mapping |
 | Middleware | Auth, Logging, Complexity | Cross-cutting concerns applied to every resolution |
 | Resolution | Resolver Modules | Data fetching and transformation logic |
-| Data Access | [Ecto](/technologies/ecto/) + Dataloader | Database queries, batched association loading |
-| Storage | [PostgreSQL](/technologies/postgresql/) + [ETS](/technologies/ets/) | Persistent and in-memory data storage |
+| Data Access | [Ecto](@/technologies/ecto.md) + Dataloader | Database queries, batched association loading |
+| Storage | [PostgreSQL](@/technologies/postgresql.md) + [ETS](@/technologies/ets.md) | Persistent and in-memory data storage |
 
 Dataloader integration prevents N+1 queries when resolving nested associations, batching all database access within a single request into the minimum number of queries:
 
@@ -211,7 +211,7 @@ The Prismatic Platform enforces strict conventions for Absinthe usage to maintai
 - **Use Dataloader for all associations** -- manual resolver queries lead to N+1 problems; Dataloader batches automatically across the entire query tree
 - **Add authentication middleware** -- every query and mutation should pass through the authentication middleware before resolving, enforcing the platform's security posture
 - **Limit query complexity** -- set `max_complexity` on the schema to prevent malicious queries from consuming excessive resources on public-facing endpoints
-- **Test resolvers independently** -- write unit tests for resolver functions with [ExUnit](/technologies/exunit/) and integration tests for the full GraphQL endpoint to catch schema regressions
+- **Test resolvers independently** -- write unit tests for resolver functions with [ExUnit](@/technologies/exunit.md) and integration tests for the full GraphQL endpoint to catch schema regressions
 - **Use `@desc` annotations** -- document every type, field, and argument; these descriptions appear in GraphiQL and generated docs, serving as the API's primary documentation
 - **Version schema changes carefully** -- GraphQL's type system means field removal is a breaking change; deprecate fields before removing them
 - **Monitor resolver performance** -- integrate Telemetry events to track resolution times and identify slow resolvers before they impact users
@@ -230,25 +230,25 @@ The platform evaluated several API approaches before selecting Absinthe as the p
 | Elixir ecosystem | Native, first-class | Native, first-class | Third-party library |
 | Learning curve | Moderate (GraphQL + Absinthe) | Low (REST conventions) | Moderate (protobuf + gRPC) |
 
-The platform also exposes a REST API through the auto-introspecting [Prismatic API](/apps/prismatic-api/) gateway for simpler integration scenarios, but Absinthe remains the primary choice for complex data queries.
+The platform also exposes a REST API through the auto-introspecting [Prismatic API](@/apps/prismatic-api.md) gateway for simpler integration scenarios, but Absinthe remains the primary choice for complex data queries.
 
 ## Related Technologies
 
-- [Phoenix Framework](/technologies/phoenix/) - Web framework providing the HTTP and WebSocket transport layer
-- [Ecto](/technologies/ecto/) - Data layer powering Dataloader and resolver queries
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Server-rendered UI that complements the GraphQL API
-- [PostgreSQL](/technologies/postgresql/) - Primary database backend for Ecto queries
-- [ETS](/technologies/ets/) - In-memory caching for frequently accessed resolver data
-- [ExUnit](/technologies/exunit/) - Testing framework for resolver and schema tests
-- [Credo](/technologies/credo/) - Code quality enforcement for schema module organization
+- [Phoenix Framework](@/technologies/phoenix.md) - Web framework providing the HTTP and WebSocket transport layer
+- [Ecto](@/technologies/ecto.md) - Data layer powering Dataloader and resolver queries
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Server-rendered UI that complements the GraphQL API
+- [PostgreSQL](@/technologies/postgresql.md) - Primary database backend for Ecto queries
+- [ETS](@/technologies/ets.md) - In-memory caching for frequently accessed resolver data
+- [ExUnit](@/technologies/exunit.md) - Testing framework for resolver and schema tests
+- [Credo](@/technologies/credo.md) - Code quality enforcement for schema module organization
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - Hosts the GraphQL endpoint, GraphiQL playground, and subscription WebSocket
-- [prismatic_api](/apps/prismatic-api/) - REST API gateway that complements the GraphQL interface for simpler integrations
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security and EASM data exposed through GraphQL queries and real-time subscriptions
-- [prismatic_agents](/apps/prismatic-agents/) - Agent status and control operations available through GraphQL mutations
-- [prismatic_storage_ecto](/apps/prismatic-storage-ecto/) - Ecto adapter that Dataloader uses for batched database access
+- [prismatic_web](@/apps/prismatic-web.md) - Hosts the GraphQL endpoint, GraphiQL playground, and subscription WebSocket
+- [prismatic_api](@/apps/prismatic-api.md) - REST API gateway that complements the GraphQL interface for simpler integrations
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security and EASM data exposed through GraphQL queries and real-time subscriptions
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent status and control operations available through GraphQL mutations
+- [prismatic_storage_ecto](@/apps/prismatic-storage-ecto.md) - Ecto adapter that Dataloader uses for batched database access
 
 ---
 
@@ -257,4 +257,4 @@ The platform also exposes a REST API through the auto-introspecting [Prismatic A
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

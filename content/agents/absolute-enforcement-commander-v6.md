@@ -28,23 +28,23 @@ image_alt = "absolute-enforcement-commander-v6 - Prismatic Platform"
 
 ## Overview
 
-The Absolute Enforcement Commander v6 is the Prismatic Platform's L1 compliance authority -- the agent that ensures every quality standard, every coding convention, and every operational [protocol](/glossary/protocol/) is enforced automatically, continuously, and without exception. Where other agents create, coordinate, or evolve, this agent polices. Its mandate is singular: zero tolerance for quality violations across the platform's 90 [umbrella application](/glossary/umbrella-application/)s and 13 quality domains.
+The Absolute Enforcement Commander v6 is the Prismatic Platform's L1 compliance authority -- the agent that ensures every quality standard, every coding convention, and every operational [protocol](@/glossary/protocol.md) is enforced automatically, continuously, and without exception. Where other agents create, coordinate, or evolve, this agent polices. Its mandate is singular: zero tolerance for quality violations across the platform's 90 [umbrella application](@/glossary/umbrella-application.md)s and 13 quality domains.
 
-The agent implements the [NO MERCY](/glossary/no-mercy/) doctrine in its most literal form. [Quality gates](/glossary/quality-gates/) do not warn -- they block. Violations are not logged for future review -- they trigger immediate remediation. The platform's achievement of 0 [QDP](/glossary/qdp/) ([Quality Debt](/glossary/quality-debt/) Points), maintained across 6,652 source files, is not the output of developer discipline alone. It is the output of an enforcement agent that makes non-compliance structurally impossible. Every commit, every compilation, every deployment passes through enforcement checkpoints that this agent governs. The "v6" designation reflects six major iterations of enforcement logic, each generation eliminating classes of violations that previous versions could not detect.
+The agent implements the [NO MERCY](@/glossary/no-mercy.md) doctrine in its most literal form. [Quality gates](@/glossary/quality-gates.md) do not warn -- they block. Violations are not logged for future review -- they trigger immediate remediation. The platform's achievement of 0 [QDP](@/glossary/qdp.md) ([Quality Debt](@/glossary/quality-debt.md) Points), maintained across 6,652 source files, is not the output of developer discipline alone. It is the output of an enforcement agent that makes non-compliance structurally impossible. Every commit, every compilation, every deployment passes through enforcement checkpoints that this agent governs. The "v6" designation reflects six major iterations of enforcement logic, each generation eliminating classes of violations that previous versions could not detect.
 
 The enforcement model operates on the principle that quality is not a post-hoc evaluation but a structural invariant. Rather than measuring quality after code is written and reporting deviations, the commander prevents deviations from occurring by embedding enforcement gates at every point where code transitions between states: from local change to commit, from commit to merge, from merge to deployment. This pervasive enforcement transforms quality from a metric to be tracked into a property to be guaranteed.
 
 ## Architecture
 
-The Absolute Enforcement Commander's architecture is organized into three enforcement layers, each operating at a different point in the development lifecycle and built on [OTP](/glossary/otp/) concurrency primitives.
+The Absolute Enforcement Commander's architecture is organized into three enforcement layers, each operating at a different point in the development lifecycle and built on [OTP](@/glossary/otp.md) concurrency primitives.
 
-**Static Analysis Gate Layer.** The outermost enforcement boundary intercepts code before it enters the repository. This layer orchestrates five static analysis tools -- [Dialyzer](/glossary/dialyzer/) for type correctness, [Credo](/glossary/credo/) for code style and complexity, the compiler's warning system in strict mode, the platform's custom pattern detectors for anti-patterns like `length() > 0` and unsafe `map.key` access, and [typespec](/glossary/typespec/) coverage analysis. Each tool runs as an independent check under the enforcement agent's coordination. The agent does not merely run these tools -- it interprets their outputs through the [NABLA Infinity](/glossary/nabla-infinity/) framework, requiring [signal plurality](/glossary/signal-plurality/) before classifying a finding as a true violation versus a false positive. This epistemic rigor prevents enforcement from becoming a source of developer friction through spurious rejections.
+**Static Analysis Gate Layer.** The outermost enforcement boundary intercepts code before it enters the repository. This layer orchestrates five static analysis tools -- [Dialyzer](@/glossary/dialyzer.md) for type correctness, [Credo](@/glossary/credo.md) for code style and complexity, the compiler's warning system in strict mode, the platform's custom pattern detectors for anti-patterns like `length() > 0` and unsafe `map.key` access, and [typespec](@/glossary/typespec.md) coverage analysis. Each tool runs as an independent check under the enforcement agent's coordination. The agent does not merely run these tools -- it interprets their outputs through the [NABLA Infinity](@/glossary/nabla-infinity.md) framework, requiring [signal plurality](@/glossary/signal-plurality.md) before classifying a finding as a true violation versus a false positive. This epistemic rigor prevents enforcement from becoming a source of developer friction through spurious rejections.
 
-**Runtime Compliance Monitor.** The second layer operates continuously during platform execution. The agent subscribes to [telemetry](/glossary/telemetry/) event streams across all applications under the `[:prismatic_quality, :enforcement, *]` namespace, monitoring for runtime quality signals: processes spawned without supervision, GenServers with unbounded mailboxes, missing [circuit breaker](/glossary/circuit-breaker/) patterns on external calls, and memory growth anomalies. When a runtime violation is detected, the agent emits a structured violation event that triggers the appropriate remediation workflow. The monitoring pipeline uses demand-driven [backpressure](/glossary/backpressure/) to prevent the enforcement system itself from becoming a performance bottleneck -- enforcement must be invisible to the platform's operational characteristics.
+**Runtime Compliance Monitor.** The second layer operates continuously during platform execution. The agent subscribes to [telemetry](@/glossary/telemetry.md) event streams across all applications under the `[:prismatic_quality, :enforcement, *]` namespace, monitoring for runtime quality signals: processes spawned without supervision, GenServers with unbounded mailboxes, missing [circuit breaker](@/glossary/circuit-breaker.md) patterns on external calls, and memory growth anomalies. When a runtime violation is detected, the agent emits a structured violation event that triggers the appropriate remediation workflow. The monitoring pipeline uses demand-driven [backpressure](@/glossary/backpressure.md) to prevent the enforcement system itself from becoming a performance bottleneck -- enforcement must be invisible to the platform's operational characteristics.
 
-**Gate Sequencing Engine.** The innermost layer implements the multi-phase gate protocol that governs commit, merge, and deployment workflows. Gates are organized as a directed acyclic graph where each gate's passage is a prerequisite for subsequent gates. The complete sequence spans nine phases: compilation (zero warnings), static analysis (Credo strict), type checking (Dialyzer), pattern detection ([CASCADE](/glossary/cascade/) anti-patterns), test execution (full suite with coverage), QDP accounting (net zero or negative delta), [Trinity Gate](/glossary/trinity-gate/) validation (structural and logical consistency), regression verification (mandatory tests for every fix), and deployment authorization (final approval gate). A failure at any phase halts the pipeline and produces a structured remediation report.
+**Gate Sequencing Engine.** The innermost layer implements the multi-phase gate protocol that governs commit, merge, and deployment workflows. Gates are organized as a directed acyclic graph where each gate's passage is a prerequisite for subsequent gates. The complete sequence spans nine phases: compilation (zero warnings), static analysis (Credo strict), type checking (Dialyzer), pattern detection ([CASCADE](@/glossary/cascade.md) anti-patterns), test execution (full suite with coverage), QDP accounting (net zero or negative delta), [Trinity Gate](@/glossary/trinity-gate.md) validation (structural and logical consistency), regression verification (mandatory tests for every fix), and deployment authorization (final approval gate). A failure at any phase halts the pipeline and produces a structured remediation report.
 
-The agent itself runs as a [GenServer](/glossary/genserver/) within the platform's [supervision tree](/glossary/supervision-tree/), monitored and restartable like any other process. Enforcement authority does not exempt the enforcer from the same resilience standards it imposes on others.
+The agent itself runs as a [GenServer](@/glossary/genserver.md) within the platform's [supervision tree](@/glossary/supervision-tree.md), monitored and restartable like any other process. Enforcement authority does not exempt the enforcer from the same resilience standards it imposes on others.
 
 ## Core Capabilities
 
@@ -53,8 +53,8 @@ The Absolute Enforcement Commander v6 provides six core capability areas that co
 - **Nine-phase quality gate sequencing** orchestrating compilation, static analysis, type checking, pattern detection, test execution, QDP accounting, Trinity Gate validation, regression verification, and deployment authorization as a dependency-ordered pipeline with atomic pass/fail semantics
 - **Automated violation remediation** applying canonical fixes for known anti-pattern classes through the CASCADE engine, including `length() > 0` replacement, missing `@impl` annotation insertion, unsafe map access correction, and timer pattern standardization
 - **Real-time runtime compliance monitoring** subscribing to telemetry event streams across all 90 umbrella applications to detect runtime quality signals including unsupervised processes, unbounded mailboxes, missing circuit breakers, and memory growth anomalies
-- **Escalation management** routing novel violation patterns to [ARCHER SUPREME](/agents/archer-supreme/) or human operators with full diagnostic context, impact assessment, and recommended resolution paths when automated remediation is insufficient
-- **Quality trend analysis** maintaining historical violation data in [Quality DNA](/glossary/quality-dna/) for cross-session trend analysis, enabling detection of quality degradation patterns before they manifest as individual violations
+- **Escalation management** routing novel violation patterns to [ARCHER SUPREME](@/agents/archer-supreme.md) or human operators with full diagnostic context, impact assessment, and recommended resolution paths when automated remediation is insufficient
+- **Quality trend analysis** maintaining historical violation data in [Quality DNA](@/glossary/quality-dna.md) for cross-session trend analysis, enabling detection of quality degradation patterns before they manifest as individual violations
 - **Cross-domain enforcement coordination** synchronizing quality gate execution with CI/CD pipelines, pre-commit hooks, and deployment workflows to ensure consistent enforcement regardless of the code path a change follows
 
 ## Implementation
@@ -126,13 +126,13 @@ The enforcement agent integrates with every quality-adjacent system in the platf
 
 | Integration | Relationship | Mechanism |
 |-------------|-------------|-----------|
-| **[Quality Floor Guardian](/glossary/quality-floor-guardian/)** | Primary signal source | Receives quality metric streams; triggers enforcement on degradation |
-| **[CASCADE](/glossary/cascade/) Engine** | Pattern remediation | Invokes CASCADE fixes for known anti-pattern classes |
-| **[SEADF](/glossary/seadf/) (7 subsystems)** | Bidirectional | Consumes Scanner outputs; feeds enforcement results to Knowledge Sync |
-| **[Pre-Commit Hooks](/glossary/pre-commit-hooks/)** | Gate implementation | Enforcement logic executes within `.githooks/pre-commit-quality-protection` |
-| **CI/CD Pipeline** | Gate implementation | [GitLab CI](/glossary/gitlab-ci/) stages execute enforcement gates in pipeline context |
-| **[ARCHER SUPREME](/agents/archer-supreme/) (L1)** | Escalation target | Receives novel violation escalations; provides crisis override coordination |
-| **[Quality DNA](/glossary/quality-dna/)** | Persistence layer | Stores enforcement state, violation history, and trend data across sessions |
+| **[Quality Floor Guardian](@/glossary/quality-floor-guardian.md)** | Primary signal source | Receives quality metric streams; triggers enforcement on degradation |
+| **[CASCADE](@/glossary/cascade.md) Engine** | Pattern remediation | Invokes CASCADE fixes for known anti-pattern classes |
+| **[SEADF](@/glossary/seadf.md) (7 subsystems)** | Bidirectional | Consumes Scanner outputs; feeds enforcement results to Knowledge Sync |
+| **[Pre-Commit Hooks](@/glossary/pre-commit-hooks.md)** | Gate implementation | Enforcement logic executes within `.githooks/pre-commit-quality-protection` |
+| **CI/CD Pipeline** | Gate implementation | [GitLab CI](@/glossary/gitlab-ci.md) stages execute enforcement gates in pipeline context |
+| **[ARCHER SUPREME](@/agents/archer-supreme.md) (L1)** | Escalation target | Receives novel violation escalations; provides crisis override coordination |
+| **[Quality DNA](@/glossary/quality-dna.md)** | Persistence layer | Stores enforcement state, violation history, and trend data across sessions |
 
 The bidirectional SEADF integration is particularly significant. The enforcement commander consumes Scanner outputs to identify violations but also feeds enforcement results back into the Knowledge Sync subsystem, enabling the platform's self-evolving framework to learn from enforcement patterns and improve detection heuristics across evolution cycles.
 
@@ -140,11 +140,11 @@ The bidirectional SEADF integration is particularly significant. The enforcement
 
 The enforcement lifecycle operates as a continuous loop synchronized with the platform's development rhythm.
 
-**Passive Monitoring Phase.** During normal development, the agent monitors telemetry streams for quality signals. The SEADF Quality Guardian subsystem feeds real-time quality [metrics](/glossary/metrics/) -- compilation status, test results, QDP counts -- into the enforcement agent's awareness model. Deviations from the quality baseline trigger transition to active enforcement.
+**Passive Monitoring Phase.** During normal development, the agent monitors telemetry streams for quality signals. The SEADF Quality Guardian subsystem feeds real-time quality [metrics](@/glossary/metrics.md) -- compilation status, test results, QDP counts -- into the enforcement agent's awareness model. Deviations from the quality baseline trigger transition to active enforcement.
 
-**Active Enforcement Phase.** When a developer initiates a commit or merge, the gate sequencing engine activates. All nine gate phases execute in dependency order. The agent tracks gate results in [ETS](/glossary/ets/) for low-latency access and emits telemetry events for each gate transition. Pass or fail, every gate execution is recorded for trend analysis.
+**Active Enforcement Phase.** When a developer initiates a commit or merge, the gate sequencing engine activates. All nine gate phases execute in dependency order. The agent tracks gate results in [ETS](@/glossary/ets.md) for low-latency access and emits telemetry events for each gate transition. Pass or fail, every gate execution is recorded for trend analysis.
 
-**Remediation Phase.** Failed gates trigger remediation workflows. For known patterns, automated fixes are applied and re-validated. For novel violations, structured escalation reports are generated. The [NO MERCY](/glossary/no-mercy/) enforcement level determines response severity: L1 violations receive warnings with immediate correction, L2 violations block with required correction, L3 violations trigger rejection and restart, and L4 violations escalate to supreme review.
+**Remediation Phase.** Failed gates trigger remediation workflows. For known patterns, automated fixes are applied and re-validated. For novel violations, structured escalation reports are generated. The [NO MERCY](@/glossary/no-mercy.md) enforcement level determines response severity: L1 violations receive warnings with immediate correction, L2 violations block with required correction, L3 violations trigger rejection and restart, and L4 violations escalate to supreme review.
 
 **Verification Phase.** After remediation, the complete gate sequence re-executes to confirm resolution. Partial fixes are not accepted -- enforcement is all-or-nothing.
 
@@ -197,14 +197,14 @@ The gate execution time target of under 120 seconds is critical for developer ex
 
 ## Related Resources
 
-- [Architecture Overview](/architecture/) -- Platform architecture informed by enforcement constraints
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard enforced by this commander
-- [SEADF](/glossary/seadf/) -- Self-Evolving Autonomous Development Framework with quality scanning
-- [CASCADE](/glossary/cascade/) -- Anti-pattern detection and remediation engine
-- [Trinity Gate](/glossary/trinity-gate/) -- Multi-layer validation system for quality assurance
-- [NO MERCY](/capabilities/no-mercy/) -- Quality enforcement doctrine governing all platform operations
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality state persistence
-- [Applications](/apps/) -- 90+ umbrella applications under enforcement
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture informed by enforcement constraints
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard enforced by this commander
+- [SEADF](@/glossary/seadf.md) -- Self-Evolving Autonomous Development Framework with quality scanning
+- [CASCADE](@/glossary/cascade.md) -- Anti-pattern detection and remediation engine
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Multi-layer validation system for quality assurance
+- [NO MERCY](@/capabilities/no-mercy.md) -- Quality enforcement doctrine governing all platform operations
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality state persistence
+- [Applications](@/apps/_index.md) -- 90+ umbrella applications under enforcement
 
 ---
 
@@ -213,4 +213,4 @@ The gate execution time target of under 120 seconds is critical for developer ex
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

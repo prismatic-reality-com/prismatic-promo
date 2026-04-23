@@ -36,21 +36,21 @@ image_alt = "Decisive Action - Prismatic Platform"
 
 ## Definition
 
-Decisive action is the principle that once a decision has been rigorously validated -- achieving the required [confidence threshold](/glossary/confidence-threshold/) and passing the [Trinity Gate](/glossary/trinity-gate/) verification -- it must be executed with full commitment, without hesitation, second-guessing, or half-measures. It is the execution phase of the [NO DOUBTS](/glossary/no-doubts/) doctrine, which states: "Once decided, execute with full commitment."
+Decisive action is the principle that once a decision has been rigorously validated -- achieving the required [confidence threshold](@/glossary/confidence-threshold.md) and passing the [Trinity Gate](@/glossary/trinity-gate.md) verification -- it must be executed with full commitment, without hesitation, second-guessing, or half-measures. It is the execution phase of the [NO DOUBTS](@/glossary/no-doubts.md) doctrine, which states: "Once decided, execute with full commitment."
 
-Decisive action is not recklessness. It is the disciplined outcome of a rigorous exploration phase ([NABLA Infinity](/glossary/nabla-infinity/)) that maps uncertainty, preserves contradictions, and builds confidence through evidence. The transition from exploration to execution occurs at a precisely defined boundary: when confidence reaches 0.95 or higher AND the Trinity Gate has been passed. Below that boundary, the system explores; above it, the system acts. There is no middle ground of tentative, partial, or hedged execution.
+Decisive action is not recklessness. It is the disciplined outcome of a rigorous exploration phase ([NABLA Infinity](@/glossary/nabla-infinity.md)) that maps uncertainty, preserves contradictions, and builds confidence through evidence. The transition from exploration to execution occurs at a precisely defined boundary: when confidence reaches 0.95 or higher AND the Trinity Gate has been passed. Below that boundary, the system explores; above it, the system acts. There is no middle ground of tentative, partial, or hedged execution.
 
 ## Overview
 
 Analysis paralysis -- the inability to act due to overthinking, excessive deliberation, or fear of imperfect information -- is one of the most destructive patterns in both human organizations and software systems. It manifests as endless planning cycles, committees that never decide, pull requests that linger in review, and systems that collect data indefinitely without acting on it.
 
-The Prismatic Platform addresses analysis paralysis through a two-phase approach embodied in the [transition protocol](/glossary/transition-protocol/). Phase one is exploration (governed by NABLA Infinity), where the system actively seeks information, maps uncertainty, considers multiple hypotheses, and preserves contradictory evidence. Phase two is execution (governed by NO DOUBTS), where the system commits fully to the decision and drives it to completion.
+The Prismatic Platform addresses analysis paralysis through a two-phase approach embodied in the [transition protocol](@/glossary/transition-protocol.md). Phase one is exploration (governed by NABLA Infinity), where the system actively seeks information, maps uncertainty, considers multiple hypotheses, and preserves contradictory evidence. Phase two is execution (governed by NO DOUBTS), where the system commits fully to the decision and drives it to completion.
 
 The critical insight is that both phases are governed by explicit, measurable criteria. Exploration does not continue indefinitely; it continues until confidence exceeds the threshold. Execution does not begin tentatively; it begins with full commitment because the preceding exploration phase has already established sufficient certainty.
 
 This design draws from military decision-making frameworks, particularly the OODA loop (Observe, Orient, Decide, Act). In the OODA loop, the "Act" phase must be decisive to maintain tempo advantage. Hesitation during execution negates the advantage gained through observation and orientation. The Prismatic Platform applies the same principle: the platform's epistemic rigor during exploration justifies full commitment during execution.
 
-Decisive action is paired with [NO MERCY](/glossary/no-mercy/), the complementary doctrine that demands complete execution without exceptions. Together, NO MERCY (quality of execution) and NO DOUBTS (commitment to execution) form the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine that governs all platform operations.
+Decisive action is paired with [NO MERCY](@/glossary/no-mercy.md), the complementary doctrine that demands complete execution without exceptions. Together, NO MERCY (quality of execution) and NO DOUBTS (commitment to execution) form the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine that governs all platform operations.
 
 ## Technical Details
 
@@ -62,7 +62,7 @@ The transition from exploration to decisive action is formalized as a state mach
 
 **TRANSITIONING state:** Confidence has reached the threshold (typically 0.95 for critical decisions, 0.80 for standard operations). The Trinity Gate evaluates the accumulated evidence through three checks: structural consistency (the belief graph forms a valid DAG), logical consistency (propositions follow logical rules), and formal necessity (claims can be proven in formal systems). This state is brief; it either advances to EXECUTING or falls back to EXPLORING if the gate fails.
 
-**EXECUTING state:** The Trinity Gate has passed. The decision is committed. All platform resources are focused on complete execution. There is no re-evaluation of the decision during execution (unless new evidence triggers an automatic abort condition). The [NO MERCY](/glossary/no-mercy/) doctrine governs execution quality: no partial implementations, no skipped tests, no deferred quality gates.
+**EXECUTING state:** The Trinity Gate has passed. The decision is committed. All platform resources are focused on complete execution. There is no re-evaluation of the decision during execution (unless new evidence triggers an automatic abort condition). The [NO MERCY](@/glossary/no-mercy.md) doctrine governs execution quality: no partial implementations, no skipped tests, no deferred quality gates.
 
 ### Confidence Threshold Framework
 
@@ -465,7 +465,7 @@ Consensus-driven decision making requires agreement among stakeholders before ac
 
 **Implement abort conditions from the start.** Decisive action without safety valves is recklessness. Define the specific conditions under which execution should be halted before beginning, and implement automated monitoring for those conditions.
 
-**Track execution commitments.** Every decisive action should produce a commitment record listing the required tasks (implementation, tests, quality gates). Do not consider the action complete until all required tasks are fulfilled, enforcing the [NO MERCY](/glossary/no-mercy/) standard.
+**Track execution commitments.** Every decisive action should produce a commitment record listing the required tasks (implementation, tests, quality gates). Do not consider the action complete until all required tasks are fulfilled, enforcing the [NO MERCY](@/glossary/no-mercy.md) standard.
 
 **Review aborted actions.** When an action is aborted during execution, conduct a post-mortem to determine whether the exploration phase was inadequate, whether new information was genuinely surprising, or whether the abort conditions were too sensitive.
 
@@ -473,7 +473,7 @@ Consensus-driven decision making requires agreement among stakeholders before ac
 
 **Premature transition.** Entering the EXECUTING state before genuine confidence is achieved -- because of time pressure, impatience, or misunderstanding of the evidence -- leads to committed execution of poorly-founded decisions. The Trinity Gate exists precisely to prevent this, but it can be circumvented if confidence calculation is miscalibrated.
 
-**Execution without commitment tracking.** Beginning decisive action without tracking the commitment allows half-completed work to be declared "done." The [NO MERCY](/glossary/no-mercy/) doctrine demands that every task in the commitment is fulfilled, and the commitment tracker enforces this.
+**Execution without commitment tracking.** Beginning decisive action without tracking the commitment allows half-completed work to be declared "done." The [NO MERCY](@/glossary/no-mercy.md) doctrine demands that every task in the commitment is fulfilled, and the commitment tracker enforces this.
 
 **Confusing speed with decisiveness.** Decisiveness is not about acting quickly; it is about acting fully once the decision is made. A carefully explored decision executed with full commitment three days after the investigation began is more decisive than a snap judgment executed partially within minutes.
 
@@ -485,7 +485,7 @@ Consensus-driven decision making requires agreement among stakeholders before ac
 
 ### Security Incident Response
 
-When the [Blue Team](/glossary/blue-team/) detects a potential security breach, the exploration phase begins: gathering evidence, assessing severity, identifying affected systems. Once confidence reaches 0.95 (critical threshold), the Trinity Gate evaluates the evidence. Upon passage, decisive action commences: the incident response protocol executes with full commitment -- isolation, remediation, notification -- without hesitation or half-measures.
+When the [Blue Team](@/glossary/blue-team.md) detects a potential security breach, the exploration phase begins: gathering evidence, assessing severity, identifying affected systems. Once confidence reaches 0.95 (critical threshold), the Trinity Gate evaluates the evidence. Upon passage, decisive action commences: the incident response protocol executes with full commitment -- isolation, remediation, notification -- without hesitation or half-measures.
 
 ### Quality Gate Enforcement
 
@@ -497,28 +497,28 @@ Deploying a new agent to production requires exploration (reviewing code, runnin
 
 ### NABLA-to-NM/ND Transition in OSINT Analysis
 
-An OSINT investigation begins in exploration mode, gathering intelligence from multiple adapters, cross-referencing sources, and building confidence in findings. When the [confidence threshold](/glossary/confidence-threshold/) is met and the Trinity Gate validates the evidence structure, the investigation transitions to decisive action: findings are committed to the platform's knowledge base, alerts are generated, and reports are published.
+An OSINT investigation begins in exploration mode, gathering intelligence from multiple adapters, cross-referencing sources, and building confidence in findings. When the [confidence threshold](@/glossary/confidence-threshold.md) is met and the Trinity Gate validates the evidence structure, the investigation transitions to decisive action: findings are committed to the platform's knowledge base, alerts are generated, and reports are published.
 
 ## Related Concepts
 
-- [NO DOUBTS](/glossary/no-doubts/) -- The doctrine principle that decisive action embodies in execution
-- [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) -- The complete doctrine governing quality (NO MERCY) and commitment (NO DOUBTS)
-- [Trinity Gate](/glossary/trinity-gate/) -- The three-part verification system that must pass before decisive action begins
-- [Transition Protocol](/glossary/transition-protocol/) -- The formal state machine governing the NABLA-to-execution transition
-- [Confidence Threshold](/glossary/confidence-threshold/) -- The numerical boundary that gates entry into decisive action
-- [Proves Before Claiming](/glossary/proves-before-claiming/) -- The evidence-first principle that precedes decisive action
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic exploration framework that precedes decisive action
-- [NO MERCY](/glossary/no-mercy/) -- The complementary doctrine demanding complete execution quality
-- [Formal Verification](/glossary/formal-verification/) -- Trinity Gate's third check ensuring formal correctness
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- The quality of evidence that enables confident decisive action
+- [NO DOUBTS](@/glossary/no-doubts.md) -- The doctrine principle that decisive action embodies in execution
+- [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) -- The complete doctrine governing quality (NO MERCY) and commitment (NO DOUBTS)
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The three-part verification system that must pass before decisive action begins
+- [Transition Protocol](@/glossary/transition-protocol.md) -- The formal state machine governing the NABLA-to-execution transition
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- The numerical boundary that gates entry into decisive action
+- [Proves Before Claiming](@/glossary/proves-before-claiming.md) -- The evidence-first principle that precedes decisive action
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic exploration framework that precedes decisive action
+- [NO MERCY](@/glossary/no-mercy.md) -- The complementary doctrine demanding complete execution quality
+- [Formal Verification](@/glossary/formal-verification.md) -- Trinity Gate's third check ensuring formal correctness
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- The quality of evidence that enables confident decisive action
 
 ## See Also
 
-- [Decision Making Hierarchy](/glossary/decision-making-hierarchy/) -- The authority framework within which decisive actions occur
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- NABLA axiom active during exploration but resolved before execution
-- [Signal Plurality](/glossary/signal-plurality/) -- Evidence quality requirement for building sufficient confidence
-- [Authority Level](/glossary/authority-level/) -- The tier classification determining who can authorize decisive actions
-- [Belief Graph](/glossary/belief-graph/) -- The evidence structure evaluated by Trinity Gate before execution
+- [Decision Making Hierarchy](@/glossary/decision-making-hierarchy.md) -- The authority framework within which decisive actions occur
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- NABLA axiom active during exploration but resolved before execution
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Evidence quality requirement for building sufficient confidence
+- [Authority Level](@/glossary/authority-level.md) -- The tier classification determining who can authorize decisive actions
+- [Belief Graph](@/glossary/belief-graph.md) -- The evidence structure evaluated by Trinity Gate before execution
 
 ---
 
@@ -527,4 +527,4 @@ An OSINT investigation begins in exploration mode, gathering intelligence from m
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

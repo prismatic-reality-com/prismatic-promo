@@ -28,7 +28,7 @@ image_alt = "cross-pollination-specialist - Prismatic Platform"
 
 ## Overview
 
-The Cross-Pollination Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Cross Pollination domain of the Prismatic Platform. This agent implements biological-inspired knowledge transfer mechanisms that enable successful patterns discovered in one domain to propagate and enhance other domains throughout the ecosystem. Drawing from the [mycelial network](/glossary/mycelial-network/) architecture, the specialist identifies high-fitness patterns and facilitates their adaptation to new contexts.
+The Cross-Pollination Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Cross Pollination domain of the Prismatic Platform. This agent implements biological-inspired knowledge transfer mechanisms that enable successful patterns discovered in one domain to propagate and enhance other domains throughout the ecosystem. Drawing from the [mycelial network](@/glossary/mycelial-network.md) architecture, the specialist identifies high-fitness patterns and facilitates their adaptation to new contexts.
 
 Pattern sharing in large-scale agent ecosystems requires more than simple copying. The Cross-Pollination Specialist evaluates each candidate pattern for contextual compatibility, adapts its implementation to the target domain's constraints, and monitors the transplanted pattern's fitness in its new environment. This approach mirrors natural pollination where genetic material is transferred between organisms, resulting in hybrid vigor that strengthens the overall ecosystem.
 
@@ -44,7 +44,7 @@ The biological metaphor extends beyond naming to architectural design. Like natu
 
 ## Pattern Discovery and Evaluation
 
-Pattern discovery begins with continuous monitoring of fitness metrics across all platform domains. The specialist subscribes to fitness change events emitted by the [SEADF](/glossary/seadf/) framework, which tracks pattern performance through genetic algorithm metrics including survival rate, reproduction success, and adaptation speed.
+Pattern discovery begins with continuous monitoring of fitness metrics across all platform domains. The specialist subscribes to fitness change events emitted by the [SEADF](@/glossary/seadf.md) framework, which tracks pattern performance through genetic algorithm metrics including survival rate, reproduction success, and adaptation speed.
 
 When a pattern's fitness exceeds the cross-pollination threshold in its origin domain, the specialist evaluates it for transfer candidacy. The evaluation considers several factors. Generalizability assesses whether the pattern addresses a domain-specific concern (low transfer value) or a general concern that manifests across multiple domains (high transfer value). Maturity assesses whether the pattern has been stable long enough to rule out initial novelty effects. Complexity assesses whether the pattern can be described at an abstraction level suitable for cross-domain communication.
 
@@ -100,14 +100,14 @@ Knowledge velocity acceleration increases the speed at which innovations propaga
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [cross-domain-quality-propagator](/agents/cross-domain-quality-propagator/) | Quality Partner | Propagates quality-specific patterns across domain boundaries |
-| [autonomous-pattern-evolution-specialist](/agents/autonomous-pattern-evolution-specialist/) | Pattern Source | Discovers and codifies successful patterns for pollination candidates |
-| [ecosystem-biologist-coordinator](/agents/ecosystem-biologist-coordinator/) | Ecosystem Authority | Provides ecosystem health context for pollination decisions |
-| [mycelial-network-coordinator](/agents/mycelial-network-coordinator/) | Transport Layer | Provides the communication substrate for pattern signal propagation |
+| [cross-domain-quality-propagator](@/agents/cross-domain-quality-propagator.md) | Quality Partner | Propagates quality-specific patterns across domain boundaries |
+| [autonomous-pattern-evolution-specialist](@/agents/autonomous-pattern-evolution-specialist.md) | Pattern Source | Discovers and codifies successful patterns for pollination candidates |
+| [ecosystem-biologist-coordinator](@/agents/ecosystem-biologist-coordinator.md) | Ecosystem Authority | Provides ecosystem health context for pollination decisions |
+| [mycelial-network-coordinator](@/agents/mycelial-network-coordinator.md) | Transport Layer | Provides the communication substrate for pattern signal propagation |
 
 ## Enforcement
 
-Cross-pollination operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No pattern is propagated without evidence of fitness in its origin domain. Failed transplantation attempts trigger immediate rollback and post-mortem analysis. The NABLA [Contradiction Preservation](/glossary/contradiction-preservation/) axiom ensures that conflicting pattern implementations are maintained and studied rather than prematurely resolved. Pattern fitness claims must be backed by measured metrics with documented methodology. Transplanted patterns that fail to achieve minimum fitness thresholds in the target domain within the evaluation window are automatically reverted with no exceptions.
+Cross-pollination operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No pattern is propagated without evidence of fitness in its origin domain. Failed transplantation attempts trigger immediate rollback and post-mortem analysis. The NABLA [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom ensures that conflicting pattern implementations are maintained and studied rather than prematurely resolved. Pattern fitness claims must be backed by measured metrics with documented methodology. Transplanted patterns that fail to achieve minimum fitness thresholds in the target domain within the evaluation window are automatically reverted with no exceptions.
 
 ---
 
@@ -116,4 +116,4 @@ Cross-pollination operations are governed by the [NO MERCY, NO DOUBTS](/glossary
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

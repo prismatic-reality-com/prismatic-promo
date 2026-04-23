@@ -953,16 +953,16 @@ Key platform components and their Elixir-specific architectures:
 
 ## Related Concepts
 
-- [BEAM](/glossary/beam/) - The virtual machine that executes Elixir code
-- [OTP](/glossary/otp/) - The framework library providing supervision and concurrency primitives
-- [Phoenix](/glossary/phoenix/) - Web framework built on Elixir for real-time applications
-- [GenServer](/glossary/genserver/) - OTP behaviour for building stateful server processes
-- [Mix](/glossary/mix/) - Elixir's build tool for compilation, testing, and dependency management
-- [ETS](/glossary/ets/) - In-memory storage system provided by the BEAM VM
-- [Supervision Tree](/glossary/supervision-tree/) - OTP fault tolerance pattern used throughout the platform
-- [Protocol](/glossary/protocol/) - Polymorphic dispatch mechanism for data-driven extensibility
-- [Behaviour](/glossary/behaviour/) - Callback contract mechanism for pluggable implementations
-- [LiveView](/glossary/liveview/) - Server-rendered reactive UI framework built on Phoenix
+- [BEAM](@/glossary/beam.md) - The virtual machine that executes Elixir code
+- [OTP](@/glossary/otp.md) - The framework library providing supervision and concurrency primitives
+- [Phoenix](@/glossary/phoenix.md) - Web framework built on Elixir for real-time applications
+- [GenServer](@/glossary/genserver.md) - OTP behaviour for building stateful server processes
+- [Mix](@/glossary/mix.md) - Elixir's build tool for compilation, testing, and dependency management
+- [ETS](@/glossary/ets.md) - In-memory storage system provided by the BEAM VM
+- [Supervision Tree](@/glossary/supervision-tree.md) - OTP fault tolerance pattern used throughout the platform
+- [Protocol](@/glossary/protocol.md) - Polymorphic dispatch mechanism for data-driven extensibility
+- [Behaviour](@/glossary/behaviour.md) - Callback contract mechanism for pluggable implementations
+- [LiveView](@/glossary/liveview.md) - Server-rendered reactive UI framework built on Phoenix
 
 ---
 
@@ -971,4 +971,4 @@ Key platform components and their Elixir-specific architectures:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

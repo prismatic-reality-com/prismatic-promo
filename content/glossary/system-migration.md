@@ -423,17 +423,17 @@ The entire migration completed with zero downtime, zero data loss, and full roll
 
 ## Related Terms
 
-- [ACID Transactions](/glossary/acid-transactions/) -- transactional guarantees during migration operations
-- [Data Pipeline](/glossary/data-pipeline/) -- pipeline patterns used in data transformation
-- [ETS Table](/glossary/ets-table/) -- in-memory storage requiring specialized migration
-- [Supervision Tree](/glossary/supervision-tree/) -- supervision hierarchy for migration processes
-- [Fault Tolerance](/glossary/fault-tolerance/) -- resilience during migration failures
-- [System Architecture](/glossary/system-architecture/) -- architectural context for migration planning
-- [Pipeline](/glossary/pipeline/) -- pipeline execution patterns for batch migration
-- [Quality Gate](/glossary/quality-gate/) -- verification gates for migration correctness
-- [OTP Application](/glossary/otp-application/) -- application-level migration coordination
-- [Telemetry](/glossary/telemetry/) -- migration progress monitoring
-- [Performance](/glossary/performance/) -- performance impact management during migration
+- [ACID Transactions](@/glossary/acid-transactions.md) -- transactional guarantees during migration operations
+- [Data Pipeline](@/glossary/data-pipeline.md) -- pipeline patterns used in data transformation
+- [ETS Table](@/glossary/ets-table.md) -- in-memory storage requiring specialized migration
+- [Supervision Tree](@/glossary/supervision-tree.md) -- supervision hierarchy for migration processes
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- resilience during migration failures
+- [System Architecture](@/glossary/system-architecture.md) -- architectural context for migration planning
+- [Pipeline](@/glossary/pipeline.md) -- pipeline execution patterns for batch migration
+- [Quality Gate](@/glossary/quality-gate.md) -- verification gates for migration correctness
+- [OTP Application](@/glossary/otp-application.md) -- application-level migration coordination
+- [Telemetry](@/glossary/telemetry.md) -- migration progress monitoring
+- [Performance](@/glossary/performance.md) -- performance impact management during migration
 
 ## Further Reading
 

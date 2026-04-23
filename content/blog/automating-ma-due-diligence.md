@@ -184,4 +184,4 @@ Automated DD does not replace human judgment. It replaces human data gathering. 
 
 ---
 
-*Explore the [DD Dashboard](/hub/dd/cases) or learn about the [Decision Engine](/blog/decision-engine-data-to-intelligence/) for scoring methodology.*
+*Explore the [DD Dashboard](/hub/dd/cases) or learn about the [Decision Engine](@/blog/decision-engine-data-to-intelligence.md) for scoring methodology.*

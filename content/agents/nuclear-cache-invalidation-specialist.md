@@ -28,9 +28,9 @@ image_alt = "Nuclear Cache Invalidation Specialist - Prismatic Platform"
 
 ## Overview
 
-The Nuclear Cache Invalidation Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's tactical domain, specializing in the identification and resolution of phantom violations caused by stale cache state across the platform's compilation, analysis, and runtime infrastructure. In a large-scale Elixir [umbrella application](/glossary/umbrella-application/) with 90+ applications and thousands of modules, cache coherency is a persistent challenge: compilation caches (_build directory), Dialyzer persistent lookup tables (PLTs), Credo analysis caches, and [ETS](/glossary/ets/) runtime state can all become stale in ways that produce false-positive violations -- quality check failures that appear real but are actually artifacts of inconsistent cache state.
+The Nuclear Cache Invalidation Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's tactical domain, specializing in the identification and resolution of phantom violations caused by stale cache state across the platform's compilation, analysis, and runtime infrastructure. In a large-scale Elixir [umbrella application](@/glossary/umbrella-application.md) with 90+ applications and thousands of modules, cache coherency is a persistent challenge: compilation caches (_build directory), Dialyzer persistent lookup tables (PLTs), Credo analysis caches, and [ETS](@/glossary/ets.md) runtime state can all become stale in ways that produce false-positive violations -- quality check failures that appear real but are actually artifacts of inconsistent cache state.
 
-The "nuclear" designation reflects this agent's authority to perform complete cache invalidation when surgical approaches are insufficient. Built on the [AIAD](/glossary/aiad/) standard, the specialist distinguishes between three invalidation strategies: **surgical invalidation** (clearing specific cache entries that are identified as stale), **targeted invalidation** (clearing cache segments related to modified code), and **nuclear invalidation** (complete destruction and rebuild of all cache layers). The [NO DOUBTS](/glossary/no-doubts/) principle governs invalidation decisions: caches are never invalidated speculatively, but phantom violations are never tolerated once identified.
+The "nuclear" designation reflects this agent's authority to perform complete cache invalidation when surgical approaches are insufficient. Built on the [AIAD](@/glossary/aiad.md) standard, the specialist distinguishes between three invalidation strategies: **surgical invalidation** (clearing specific cache entries that are identified as stale), **targeted invalidation** (clearing cache segments related to modified code), and **nuclear invalidation** (complete destruction and rebuild of all cache layers). The [NO DOUBTS](@/glossary/no-doubts.md) principle governs invalidation decisions: caches are never invalidated speculatively, but phantom violations are never tolerated once identified.
 
 ## Theoretical Foundations
 
@@ -42,7 +42,7 @@ The decision between surgical, targeted, and nuclear invalidation is based on th
 
 ## Operational Domain
 
-The tactical domain for cache invalidation covers all caching layers in the platform's development and deployment pipeline. The **compilation cache** (_build directory) stores compiled .beam files that are reused during incremental compilation. The **Dialyzer PLT** stores persistent type analysis results that accelerate subsequent Dialyzer runs. The **Credo cache** stores code analysis results for unchanged files. The **runtime caches** include [ETS](/glossary/ets/) tables, agent state caches, and application-level memoization.
+The tactical domain for cache invalidation covers all caching layers in the platform's development and deployment pipeline. The **compilation cache** (_build directory) stores compiled .beam files that are reused during incremental compilation. The **Dialyzer PLT** stores persistent type analysis results that accelerate subsequent Dialyzer runs. The **Credo cache** stores code analysis results for unchanged files. The **runtime caches** include [ETS](@/glossary/ets.md) tables, agent state caches, and application-level memoization.
 
 The specialist monitors quality gate outputs for patterns that indicate phantom violations: quality check failures that disappear after a clean rebuild, failures that contradict the source code (reporting violations in code that does not exhibit the reported pattern), and failures that appear only in specific build configurations. These patterns trigger investigation into cache coherency.
 
@@ -55,8 +55,8 @@ The specialist monitors quality gate outputs for patterns that indicate phantom 
 - **Nuclear cache invalidation** -- Performs complete destruction and rebuild of all cache layers when staleness is widespread or cannot be precisely localized, executing the canonical `rm -rf _build/dev/lib/<app>/ebin && rm -rf priv/plts/dialyzer.plt` sequence
 - **Post-invalidation verification** -- Runs quality gates after cache invalidation to confirm that phantom violations are resolved and no new genuine violations were masked by the stale cache
 - **Invalidation history tracking** -- Records all cache invalidation events with triggers, scope, resolution status, and rebuild costs, enabling pattern analysis for recurring cache coherency issues
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed cache monitoring and automatic invalidation when phantom violation patterns are detected
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing cache metrics including invalidation frequency, phantom violation detection rates, rebuild times, and cache hit ratios
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed cache monitoring and automatic invalidation when phantom violation patterns are detected
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing cache metrics including invalidation frequency, phantom violation detection rates, rebuild times, and cache hit ratios
 
 ## Authority Level
 
@@ -82,10 +82,10 @@ The confidence-vs-blast-radius matrix prioritizes cost-effectiveness: high-confi
 
 | Agent | Relationship |
 |-------|-------------|
-| [code-quality-commander](/agents/code-quality-commander/) | Quality gate failures trigger phantom violation investigation |
-| [performance-benchmarking-agent](/agents/performance-benchmarking-agent/) | Benchmarks cache rebuild costs to inform invalidation strategy selection |
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Invalidation events and phantom violation patterns are captured in session context |
-| [neuroevolution-coordinator](/agents/neuroevolution-coordinator/) | Evolutionary processes may trigger cache invalidation when agent code evolves |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality gate failures trigger phantom violation investigation |
+| [performance-benchmarking-agent](@/agents/performance-benchmarking-agent.md) | Benchmarks cache rebuild costs to inform invalidation strategy selection |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Invalidation events and phantom violation patterns are captured in session context |
+| [neuroevolution-coordinator](@/agents/neuroevolution-coordinator.md) | Evolutionary processes may trigger cache invalidation when agent code evolves |
 
 ## Known Phantom Violation Patterns
 
@@ -93,7 +93,7 @@ The specialist maintains a library of recognized phantom violation signatures. *
 
 ## Enforcement
 
-Cache invalidation follows the [NO MERCY](/glossary/no-mercy/) doctrine: phantom violations are never accepted as "known issues," every detected phantom triggers investigation and resolution, and invalidation scope is never restricted by rebuild cost considerations when quality integrity is at stake. The [NO DOUBTS](/glossary/no-doubts/) principle ensures that invalidation decisions are evidence-based, and post-invalidation verification confirms that resolution was achieved. The [Trinity Gate](/glossary/trinity-gate/) validates that invalidation operations maintain structural cache consistency across all layers.
+Cache invalidation follows the [NO MERCY](@/glossary/no-mercy.md) doctrine: phantom violations are never accepted as "known issues," every detected phantom triggers investigation and resolution, and invalidation scope is never restricted by rebuild cost considerations when quality integrity is at stake. The [NO DOUBTS](@/glossary/no-doubts.md) principle ensures that invalidation decisions are evidence-based, and post-invalidation verification confirms that resolution was achieved. The [Trinity Gate](@/glossary/trinity-gate.md) validates that invalidation operations maintain structural cache consistency across all layers.
 
 ---
 
@@ -102,4 +102,4 @@ Cache invalidation follows the [NO MERCY](/glossary/no-mercy/) doctrine: phantom
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

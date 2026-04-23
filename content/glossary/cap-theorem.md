@@ -32,11 +32,11 @@ image_alt = "CAP Theorem - Prismatic Platform"
 
 ## Definition and Overview
 
-The CAP theorem, formulated by Eric Brewer in 2000 and formally proved by Seth Gilbert and Nancy Lynch in 2002, states that a [distributed system](/glossary/distributed-system/) can simultaneously guarantee at most two of three properties: Consistency (every read receives the most recent write or an error), Availability (every request receives a non-error response, without guarantee that it contains the most recent write), and Partition tolerance (the system continues to operate despite an arbitrary number of messages being dropped or delayed by the network between nodes). Since network partitions are an unavoidable reality of distributed computing -- hardware fails, cables are cut, switches misconfigure -- the theorem's practical implication is that system designers must choose between consistency and availability during partition events.
+The CAP theorem, formulated by Eric Brewer in 2000 and formally proved by Seth Gilbert and Nancy Lynch in 2002, states that a [distributed system](@/glossary/distributed-system.md) can simultaneously guarantee at most two of three properties: Consistency (every read receives the most recent write or an error), Availability (every request receives a non-error response, without guarantee that it contains the most recent write), and Partition tolerance (the system continues to operate despite an arbitrary number of messages being dropped or delayed by the network between nodes). Since network partitions are an unavoidable reality of distributed computing -- hardware fails, cables are cut, switches misconfigure -- the theorem's practical implication is that system designers must choose between consistency and availability during partition events.
 
 The theorem is frequently misunderstood as forcing a binary choice between three options. In reality, the trade-off only activates during a network partition. When the network is healthy, a well-designed system can provide both consistency and availability simultaneously. The meaningful design question is not "which two of three?" but rather "when the network partitions, do we sacrifice consistency or availability?" This nuance led Daniel Abadi to propose the PACELC extension in 2012: if there is a Partition, choose between Availability and Consistency; Else (when the system is running normally), choose between Latency and Consistency. PACELC captures the reality that even during normal operation, stronger consistency requires coordination between nodes, which increases latency.
 
-Understanding CAP is essential for the Prismatic Platform because it operates as a polyglot persistence system where different storage backends make different CAP trade-offs. The platform does not make a single CAP choice -- it makes the appropriate choice for each data concern, ranging from strongly consistent [PostgreSQL](/glossary/postgresql/) transactions for security ratings to [eventually consistent](/glossary/eventual-consistency/) [ETS](/glossary/ets-table/) caches for OSINT data that tolerates brief staleness.
+Understanding CAP is essential for the Prismatic Platform because it operates as a polyglot persistence system where different storage backends make different CAP trade-offs. The platform does not make a single CAP choice -- it makes the appropriate choice for each data concern, ranging from strongly consistent [PostgreSQL](@/glossary/postgresql.md) transactions for security ratings to [eventually consistent](@/glossary/eventual-consistency.md) [ETS](@/glossary/ets-table.md) caches for OSINT data that tolerates brief staleness.
 
 ## Historical Context and Formal Proof
 
@@ -64,7 +64,7 @@ In practice, "available" means the system serves requests even when some nodes o
 
 ### Partition Tolerance (P)
 
-Partition tolerance means the system continues to function when network communication between nodes is unreliable -- messages may be lost, delayed, duplicated, or delivered out of order. A network partition divides the [cluster](/glossary/cluster/) into two or more groups that cannot communicate with each other.
+Partition tolerance means the system continues to function when network communication between nodes is unreliable -- messages may be lost, delayed, duplicated, or delivered out of order. A network partition divides the [cluster](@/glossary/cluster.md) into two or more groups that cannot communicate with each other.
 
 Partition tolerance is not optional in any real-world distributed system. Networks fail. The question is never "should we be partition-tolerant?" but rather "given that we must tolerate partitions, do we sacrifice C or A when they occur?"
 
@@ -86,9 +86,9 @@ The PACELC framework (Abadi, 2012) extends CAP to address normal operation trade
 
 The Prismatic Platform's storage backends span this classification space:
 
-- **[PostgreSQL](/glossary/postgresql/)** (PC/EC): Always consistent, accepts higher latency for coordination
-- **[ETS](/glossary/ets-table/)** (PA/EL): Node-local, always available, no cross-node coordination
-- **[Redis](/glossary/redis/)** (PA/EL): Available with asynchronous replication, low latency reads
+- **[PostgreSQL](@/glossary/postgresql.md)** (PC/EC): Always consistent, accepts higher latency for coordination
+- **[ETS](@/glossary/ets-table.md)** (PA/EL): Node-local, always available, no cross-node coordination
+- **[Redis](@/glossary/redis.md)** (PA/EL): Available with asynchronous replication, low latency reads
 - **Meilisearch** (PA/EL): Eventually consistent search indices, optimized for read latency
 - **KuzuDB** (PC/EC): Embedded graph database, node-local consistency
 
@@ -153,7 +153,7 @@ The platform does not make a single CAP trade-off -- it makes the appropriate tr
 
 ### CP Data (Consistency Prioritized)
 
-Data requiring absolute correctness uses [PostgreSQL](/glossary/postgresql/) with serializable transaction isolation:
+Data requiring absolute correctness uses [PostgreSQL](@/glossary/postgresql.md) with serializable transaction isolation:
 
 | Data Type | Why CP | Consequence of Inconsistency |
 |-----------|--------|------------------------------|
@@ -196,7 +196,7 @@ end
 
 ### AP Data (Availability Prioritized)
 
-Data tolerating brief staleness uses ETS, [Redis](/glossary/redis/), or Meilisearch:
+Data tolerating brief staleness uses ETS, [Redis](@/glossary/redis.md), or Meilisearch:
 
 | Data Type | Why AP | Staleness Tolerance |
 |-----------|--------|---------------------|
@@ -242,7 +242,7 @@ OSINT intelligence data presents a nuanced CAP challenge. Raw intelligence from 
 The platform therefore treats OSINT data as AP during collection and caching, but applies CP semantics when OSINT data is synthesized into security ratings or compliance assessments. The transition from AP to CP occurs at the analysis boundary:
 
 1. **Collection** (AP): OSINT providers are queried with best-effort availability; cached results served during provider outages
-2. **Fusion** (AP): Entity resolution and knowledge graph construction tolerates [eventual consistency](/glossary/eventual-consistency/)
+2. **Fusion** (AP): Entity resolution and knowledge graph construction tolerates [eventual consistency](@/glossary/eventual-consistency.md)
 3. **Analysis** (CP): Security rating calculation requires consistent input; reads from PostgreSQL authoritative store
 4. **Publication** (CP): Published ratings are transactionally consistent with their audit trails
 
@@ -250,7 +250,7 @@ This layered approach means the platform maximizes availability for data ingesti
 
 ## ETS vs. Distributed ETS
 
-A key architectural decision in [BEAM](/glossary/beam/) distributed systems is whether to use node-local ETS tables or distributed ETS (Mnesia or Horde-backed distributed ETS).
+A key architectural decision in [BEAM](@/glossary/beam.md) distributed systems is whether to use node-local ETS tables or distributed ETS (Mnesia or Horde-backed distributed ETS).
 
 | Dimension | Local ETS | Distributed ETS |
 |-----------|-----------|-----------------|
@@ -260,11 +260,11 @@ A key architectural decision in [BEAM](/glossary/beam/) distributed systems is w
 | **Capacity** | Bound by single node memory | Aggregated cluster memory |
 | **Complexity** | Trivial | Significant (conflict resolution, replication) |
 
-The Prismatic Platform defaults to node-local ETS for read-heavy caches where each node can independently populate its cache from the authoritative [PostgreSQL](/glossary/postgresql/) source. This avoids the complexity of distributed ETS while accepting that different nodes may serve slightly different cache contents during the brief window between a write and cache invalidation.
+The Prismatic Platform defaults to node-local ETS for read-heavy caches where each node can independently populate its cache from the authoritative [PostgreSQL](@/glossary/postgresql.md) source. This avoids the complexity of distributed ETS while accepting that different nodes may serve slightly different cache contents during the brief window between a write and cache invalidation.
 
 ## Consensus and Coordination Costs
 
-Achieving consistency in a distributed system requires [consensus](/glossary/consensus-algorithm/) -- agreement among nodes on the order and outcome of operations. Classical consensus protocols (Paxos, Raft) require a majority quorum: in a 3-node cluster, at least 2 nodes must agree on every write. This has measurable latency implications.
+Achieving consistency in a distributed system requires [consensus](@/glossary/consensus-algorithm.md) -- agreement among nodes on the order and outcome of operations. Classical consensus protocols (Paxos, Raft) require a majority quorum: in a 3-node cluster, at least 2 nodes must agree on every write. This has measurable latency implications.
 
 | Operation | Local | Cross-datacenter |
 |-----------|-------|-------------------|
@@ -311,24 +311,24 @@ When designing a new data store or choosing a storage backend for a new feature,
 
 ## Related Terms
 
-- [Distributed System](/glossary/distributed-system/) -- Systems governed by CAP constraints
-- [Eventual Consistency](/glossary/eventual-consistency/) -- AP-side consistency model where replicas converge over time
-- [Cluster](/glossary/cluster/) -- BEAM node group where CAP trade-offs are realized
-- [Consensus Algorithm](/glossary/consensus-algorithm/) -- Protocols (Paxos, Raft) enabling CP guarantees
-- [PostgreSQL](/glossary/postgresql/) -- CP-oriented authoritative data store for the platform
-- [Redis](/glossary/redis/) -- AP-oriented shared cache with configurable consistency
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern for graceful degradation during partition-induced failures
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System resilience that CAP constrains but does not prevent
-- [BEAM](/glossary/beam/) -- Virtual machine providing the distribution layer
-- [ETS Table](/glossary/ets-table/) -- Node-local storage providing AP semantics within a single node
-- [Connection Pooling](/glossary/connection-pooling/) -- Resource management for CP database connections
-- [Load Balancing](/glossary/load-balancing/) -- Request distribution affected by CAP trade-offs
+- [Distributed System](@/glossary/distributed-system.md) -- Systems governed by CAP constraints
+- [Eventual Consistency](@/glossary/eventual-consistency.md) -- AP-side consistency model where replicas converge over time
+- [Cluster](@/glossary/cluster.md) -- BEAM node group where CAP trade-offs are realized
+- [Consensus Algorithm](@/glossary/consensus-algorithm.md) -- Protocols (Paxos, Raft) enabling CP guarantees
+- [PostgreSQL](@/glossary/postgresql.md) -- CP-oriented authoritative data store for the platform
+- [Redis](@/glossary/redis.md) -- AP-oriented shared cache with configurable consistency
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern for graceful degradation during partition-induced failures
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System resilience that CAP constrains but does not prevent
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing the distribution layer
+- [ETS Table](@/glossary/ets-table.md) -- Node-local storage providing AP semantics within a single node
+- [Connection Pooling](@/glossary/connection-pooling.md) -- Resource management for CP database connections
+- [Load Balancing](@/glossary/load-balancing.md) -- Request distribution affected by CAP trade-offs
 
 ## See Also
 
-- [Architecture](/architecture/) -- Distributed storage architecture and CAP decisions
-- [Technologies](/technologies/) -- Storage backend trade-offs and implementations
-- [Apps](/apps/) -- Applications implementing polyglot persistence
+- [Architecture](@/architecture/_index.md) -- Distributed storage architecture and CAP decisions
+- [Technologies](@/technologies/_index.md) -- Storage backend trade-offs and implementations
+- [Apps](@/apps/_index.md) -- Applications implementing polyglot persistence
 
 ---
 
@@ -337,4 +337,4 @@ When designing a new data store or choosing a storage backend for a new feature,
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

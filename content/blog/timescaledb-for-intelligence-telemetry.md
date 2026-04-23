@@ -18,7 +18,7 @@ see_also = ["timescaledb", "time-series", "postgresql", "telemetry", "metrics"]
 image_alt = "TimescaleDB for Intelligence Telemetry"
 +++
 
-Prismatic writes a lot of [time-series](/glossary/time-series) data: OSINT run durations, decision engine calibration samples, error feed counts, EASM discovery events. At ~3,000 writes per second sustained, a plain Postgres table hits pain at ~100M rows — index maintenance dominates, `VACUUM` lags, query plans drift. [TimescaleDB](/glossary/timescaledb) is the "add one extension" fix that keeps the workload on [PostgreSQL](/glossary/postgresql) instead of forcing a new system into the stack.
+Prismatic writes a lot of [time-series](@/glossary/time-series.md) data: OSINT run durations, decision engine calibration samples, error feed counts, EASM discovery events. At ~3,000 writes per second sustained, a plain Postgres table hits pain at ~100M rows — index maintenance dominates, `VACUUM` lags, query plans drift. [TimescaleDB](@/glossary/timescaledb.md) is the "add one extension" fix that keeps the workload on [PostgreSQL](@/glossary/postgresql.md) instead of forcing a new system into the stack.
 
 ## What a hypertable actually does
 
@@ -75,11 +75,11 @@ Data older than 90 days is dropped chunk-by-chunk. No cron. No `DELETE` storm. N
 
 - The data is not time-keyed. If your primary filter is not `ts`, a hypertable does not help.
 - Volume is small. Under 10M rows, plain Postgres is fine and simpler.
-- You already have a dedicated [metrics](/glossary/metrics) pipeline (Prometheus + long-term storage). Don't duplicate the stack.
+- You already have a dedicated [metrics](@/glossary/metrics.md) pipeline (Prometheus + long-term storage). Don't duplicate the stack.
 
 ## Where to go next
 
 - **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — when hypertables belong in the mix
-- **Glossary**: [TimescaleDB](/glossary/timescaledb), [Time Series](/glossary/time-series), [PostgreSQL](/glossary/postgresql), [Telemetry](/glossary/telemetry), [Metrics](/glossary/metrics)
+- **Glossary**: [TimescaleDB](@/glossary/timescaledb.md), [Time Series](@/glossary/time-series.md), [PostgreSQL](@/glossary/postgresql.md), [Telemetry](@/glossary/telemetry.md), [Metrics](@/glossary/metrics.md)
 
 Same database. New access pattern. No new operations surface.

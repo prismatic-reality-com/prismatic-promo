@@ -36,7 +36,7 @@ image_alt = "Code Reviews - Prismatic Platform"
 
 ## Definition
 
-Code review is the systematic examination of source code by one or more developers other than the original author, with the goal of identifying defects, enforcing quality standards, improving design, and transferring knowledge across a team. In modern software engineering, code reviews operate at the intersection of automated tooling and human judgment -- static analyzers catch deterministic violations while human reviewers evaluate design decisions, architectural fitness, and domain correctness. In the Prismatic Platform, code reviews represent a multi-layered quality enforcement mechanism where automated analysis through [Credo](/glossary/credo/) and [Dialyzer](/glossary/dialyzer/) forms the first line of defense, backed by NO MERCY, NO DOUBTS doctrine enforcement that tolerates zero quality violations.
+Code review is the systematic examination of source code by one or more developers other than the original author, with the goal of identifying defects, enforcing quality standards, improving design, and transferring knowledge across a team. In modern software engineering, code reviews operate at the intersection of automated tooling and human judgment -- static analyzers catch deterministic violations while human reviewers evaluate design decisions, architectural fitness, and domain correctness. In the Prismatic Platform, code reviews represent a multi-layered quality enforcement mechanism where automated analysis through [Credo](@/glossary/credo.md) and [Dialyzer](@/glossary/dialyzer.md) forms the first line of defense, backed by NO MERCY, NO DOUBTS doctrine enforcement that tolerates zero quality violations.
 
 ## Overview
 
@@ -44,7 +44,7 @@ The practice of code review has evolved from informal desk checks in the 1970s t
 
 Code reviews serve multiple purposes simultaneously. The primary purpose is defect detection: finding bugs, logic errors, edge cases, and security vulnerabilities before code reaches production. The secondary purpose is quality enforcement: ensuring code adheres to established standards, patterns, and architectural guidelines. The tertiary purpose is knowledge transfer: reviews spread understanding of the codebase across the team, reducing bus factor risk and building collective ownership. A well-executed code review process also serves as a mentoring mechanism, where senior developers provide feedback that helps junior developers grow their skills and understanding.
 
-In the Elixir ecosystem, code reviews gain additional dimensions because of the language's functional nature and OTP patterns. Reviewers evaluate not just correctness but also whether the code properly leverages BEAM VM capabilities -- whether state is correctly isolated in [processes](/glossary/process-isolation/), whether supervision trees are properly structured, whether functions are pure where they should be, and whether the code could have been written identically in a non-functional language (which, per Prismatic's meta-rule, means it is wrong).
+In the Elixir ecosystem, code reviews gain additional dimensions because of the language's functional nature and OTP patterns. Reviewers evaluate not just correctness but also whether the code properly leverages BEAM VM capabilities -- whether state is correctly isolated in [processes](@/glossary/process-isolation.md), whether supervision trees are properly structured, whether functions are pure where they should be, and whether the code could have been written identically in a non-functional language (which, per Prismatic's meta-rule, means it is wrong).
 
 ## Technical Details
 
@@ -252,7 +252,7 @@ mix test --cover || exit 1
 
 The Prismatic Platform implements code reviews through a layered architecture that combines automated tooling with doctrine enforcement:
 
-**Layer 1 -- Automated Static Analysis**: Every code change passes through [Credo](/glossary/credo/) (style and consistency), [Dialyzer](/glossary/dialyzer/) (type correctness), and custom quality checks. Zero violations are permitted under the [Zero Warning Policy](/glossary/zero-warning-policy/).
+**Layer 1 -- Automated Static Analysis**: Every code change passes through [Credo](@/glossary/credo.md) (style and consistency), [Dialyzer](@/glossary/dialyzer.md) (type correctness), and custom quality checks. Zero violations are permitted under the [Zero Warning Policy](@/glossary/zero-warning-policy.md).
 
 **Layer 2 -- Forbidden Pattern Detection**: Automated scanning blocks mocks, stubs, placeholders, hardcoded values, and naive implementations. The `mix quality.forbidden_patterns` task enforces this with categories for mocks, stubs, placeholders, naive code, and localhost references.
 
@@ -264,7 +264,7 @@ The Prismatic Platform implements code reviews through a layered architecture th
 
 ### Quality DNA Integration
 
-Review outcomes feed into the [Quality DNA](/glossary/quality-dna/) system, which tracks quality metrics across sessions. Each review contributes to the platform's quality score (currently 100/100 across 13 domains), and any regression triggers automatic investigation and correction.
+Review outcomes feed into the [Quality DNA](@/glossary/quality-dna.md) system, which tracks quality metrics across sessions. Each review contributes to the platform's quality score (currently 100/100 across 13 domains), and any regression triggers automatic investigation and correction.
 
 ### AIAD Agent Support
 
@@ -335,7 +335,7 @@ Code reviews serve as an accelerated learning mechanism for new team members. By
 
 ### Security-Critical Changes
 
-Changes to authentication, authorization, data handling, or security-sensitive modules receive additional scrutiny. In Prismatic, these changes also trigger [Color Team](/glossary/adversarial-architecture/) evaluation where Red Team agents probe the change for potential vulnerabilities.
+Changes to authentication, authorization, data handling, or security-sensitive modules receive additional scrutiny. In Prismatic, these changes also trigger [Color Team](@/glossary/adversarial-architecture.md) evaluation where Red Team agents probe the change for potential vulnerabilities.
 
 ### Architectural Evolution
 
@@ -347,22 +347,22 @@ Every bug fix goes through a review that specifically verifies the inclusion of 
 
 ## Related Concepts
 
-- [Code Quality](/glossary/code-quality/) -- The broader discipline of maintaining high-quality source code
-- [Credo](/glossary/credo/) -- Elixir static analysis tool for style and consistency checking
-- [Dialyzer](/glossary/dialyzer/) -- Erlang/Elixir type analysis tool for detecting type errors
-- [Static Analysis](/glossary/static-analysis/) -- Automated examination of code without execution
-- [Quality Gate](/glossary/quality-gate/) -- Checkpoints that code must pass before proceeding
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Enforcement of zero compilation warnings
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality tracking and continuity system
-- [Clean Run](/glossary/clean-run/) -- Requirement for no runtime warnings or debug logs
-- [Collaborative Development](/glossary/collaborative-development/) -- Team-based software development practices
-- [Quality Gates](/glossary/quality-gates/) -- Automated quality enforcement checkpoints
+- [Code Quality](@/glossary/code-quality.md) -- The broader discipline of maintaining high-quality source code
+- [Credo](@/glossary/credo.md) -- Elixir static analysis tool for style and consistency checking
+- [Dialyzer](@/glossary/dialyzer.md) -- Erlang/Elixir type analysis tool for detecting type errors
+- [Static Analysis](@/glossary/static-analysis.md) -- Automated examination of code without execution
+- [Quality Gate](@/glossary/quality-gate.md) -- Checkpoints that code must pass before proceeding
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Enforcement of zero compilation warnings
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality tracking and continuity system
+- [Clean Run](@/glossary/clean-run.md) -- Requirement for no runtime warnings or debug logs
+- [Collaborative Development](@/glossary/collaborative-development.md) -- Team-based software development practices
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated quality enforcement checkpoints
 
 ## See Also
 
 - Glossary Index -- Complete glossary of Prismatic Platform terminology
-- [Mix Task](/glossary/mix-task/) -- Elixir build tool task system
-- [Elixir](/glossary/elixir/) -- The programming language powering the platform
+- [Mix Task](@/glossary/mix-task.md) -- Elixir build tool task system
+- [Elixir](@/glossary/elixir.md) -- The programming language powering the platform
 
 ---
 
@@ -371,4 +371,4 @@ Every bug fix goes through a review that specifically verifies the inclusion of 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

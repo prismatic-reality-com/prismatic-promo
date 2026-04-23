@@ -455,24 +455,24 @@ AIAD agents in the Prismatic Platform have dozens of configurable parameters. Th
 
 Progressive disclosure connects to interface design, information architecture, and system configuration patterns:
 
-- [Phoenix LiveView](/glossary/phoenix-liveview/) -- the real-time UI framework that enables layer transitions without full page reloads through server-pushed DOM updates
-- [Composability](/glossary/composability/) -- the ability to compose simple components into complex interfaces, the building blocks of progressive disclosure layers
-- [Modularity](/glossary/modularity/) -- software design principle that enables progressive disclosure by structuring functionality into independent, composable modules
-- [Observability](/glossary/observability/) -- production monitoring that benefits from progressive disclosure, showing summary dashboards with drill-down to raw telemetry
-- [Telemetry](/glossary/telemetry/) -- Elixir's metrics framework whose output is typically displayed through progressively disclosed dashboard layers
-- [Quality Gate](/glossary/quality-gate/) -- automated check that surfaces pass/fail summaries with drill-down to detailed violation reports
-- [Feature Flag](/glossary/feature-flag/) -- mechanism for controlling which features are disclosed to which users, complementing progressive disclosure with audience targeting
-- [API Gateway](/glossary/api-gateway/) -- entry point that can implement progressive disclosure through response expansion and field selection
-- [Authority Level](/glossary/authority-level/) -- AIAD concept where agent capabilities are disclosed progressively based on authority tier
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- architectural approach that informs disclosure layer boundaries by aligning them with domain contexts
+- [Phoenix LiveView](@/glossary/phoenix-liveview.md) -- the real-time UI framework that enables layer transitions without full page reloads through server-pushed DOM updates
+- [Composability](@/glossary/composability.md) -- the ability to compose simple components into complex interfaces, the building blocks of progressive disclosure layers
+- [Modularity](@/glossary/modularity.md) -- software design principle that enables progressive disclosure by structuring functionality into independent, composable modules
+- [Observability](@/glossary/observability.md) -- production monitoring that benefits from progressive disclosure, showing summary dashboards with drill-down to raw telemetry
+- [Telemetry](@/glossary/telemetry.md) -- Elixir's metrics framework whose output is typically displayed through progressively disclosed dashboard layers
+- [Quality Gate](@/glossary/quality-gate.md) -- automated check that surfaces pass/fail summaries with drill-down to detailed violation reports
+- [Feature Flag](@/glossary/feature-flag.md) -- mechanism for controlling which features are disclosed to which users, complementing progressive disclosure with audience targeting
+- [API Gateway](@/glossary/api-gateway.md) -- entry point that can implement progressive disclosure through response expansion and field selection
+- [Authority Level](@/glossary/authority-level.md) -- AIAD concept where agent capabilities are disclosed progressively based on authority tier
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- architectural approach that informs disclosure layer boundaries by aligning them with domain contexts
 
 ## See Also
 
-- [Monitoring](/glossary/monitoring/) -- production dashboards that exemplify progressive disclosure from alerts to metrics to traces
-- [Quality Gates](/glossary/quality-gates/) -- pass/fail summaries with expandable violation details
-- [Slash Command](/glossary/slash-command/) -- command interface that progressively reveals options through argument parsing
-- [Phoenix](/glossary/phoenix/) -- the web framework providing the foundation for LiveView-based progressive disclosure
-- [Architecture](/glossary/architecture/) -- system design discipline that informs how information is layered and disclosed
+- [Monitoring](@/glossary/monitoring.md) -- production dashboards that exemplify progressive disclosure from alerts to metrics to traces
+- [Quality Gates](@/glossary/quality-gates.md) -- pass/fail summaries with expandable violation details
+- [Slash Command](@/glossary/slash-command.md) -- command interface that progressively reveals options through argument parsing
+- [Phoenix](@/glossary/phoenix.md) -- the web framework providing the foundation for LiveView-based progressive disclosure
+- [Architecture](@/glossary/architecture.md) -- system design discipline that informs how information is layered and disclosed
 
 ---
 

@@ -38,7 +38,7 @@ image_alt = "Doctrine - Prismatic Platform"
 
 A **doctrine** is a codified, authoritative set of principles, beliefs, and operational policies that govern all platform operations, decision-making processes, and quality enforcement mechanisms. Unlike informal guidelines or suggestions, a doctrine carries binding authority: every component, agent, workflow, and human interaction within the governed system must comply with its tenets or face structured violation consequences. In software platform governance, doctrines bridge the gap between abstract values (such as "quality matters") and concrete, automated enforcement (such as "zero compilation warnings, enforced by pre-commit hooks").
 
-Within the [Prismatic Platform](/glossary/application/), doctrines represent the highest tier of governance artifacts. They sit above [policies](/glossary/compliance-framework/), which implement doctrine-level principles in specific domains, and above [enforcement rules](/glossary/clean-run/), which translate policies into automated checks. The platform currently operates under three primary doctrines: **No Mercy, No Doubts (NM/ND)**, **NABLA Infinity**, and **Addiction Preservation**, each addressing a distinct facet of platform integrity -- execution discipline, epistemic rigor, and evidence plurality, respectively.
+Within the [Prismatic Platform](@/glossary/application.md), doctrines represent the highest tier of governance artifacts. They sit above [policies](@/glossary/compliance-framework.md), which implement doctrine-level principles in specific domains, and above [enforcement rules](@/glossary/clean-run.md), which translate policies into automated checks. The platform currently operates under three primary doctrines: **No Mercy, No Doubts (NM/ND)**, **NABLA Infinity**, and **Addiction Preservation**, each addressing a distinct facet of platform integrity -- execution discipline, epistemic rigor, and evidence plurality, respectively.
 
 ## Overview
 
@@ -48,7 +48,7 @@ The concept of doctrine in technology platforms draws from military and organiza
 
 2. **Enforcement**: Provides the philosophical and structural foundation for automated gates, violation protocols, and escalation mechanisms. Without doctrine, enforcement rules lack coherent justification and become arbitrary.
 
-3. **Evolution**: Doctrines encode the platform's identity and aspirations. As the platform evolves through [generations](/glossary/generation/), doctrines provide the stable core that persists across architectural changes, ensuring that quality never regresses even as capabilities expand.
+3. **Evolution**: Doctrines encode the platform's identity and aspirations. As the platform evolves through [generations](@/glossary/generation.md), doctrines provide the stable core that persists across architectural changes, ensuring that quality never regresses even as capabilities expand.
 
 The Prismatic Platform's doctrine system is notable for its multi-layered enforcement architecture. A single doctrine principle (e.g., "zero tolerance for incomplete implementations") cascades through policy documents, pre-commit hooks, CI/CD gates, agent behaviors, and session discipline protocols, creating defense-in-depth against quality erosion.
 
@@ -69,9 +69,9 @@ A well-formed doctrine in the Prismatic ecosystem consists of several structural
 | L3 | Incomplete delivery | Rejection + Restart |
 | L4 | Doubt-compromised | Rejection + Supreme Review |
 
-**Compliance Gates**: Automated checkpoints where doctrine compliance is verified. These include pre-commit hooks, [CI/CD pipeline](/glossary/continuous-integration/) stages, quality gate mix tasks, and agent-level self-assessment.
+**Compliance Gates**: Automated checkpoints where doctrine compliance is verified. These include pre-commit hooks, [CI/CD pipeline](@/glossary/continuous-integration.md) stages, quality gate mix tasks, and agent-level self-assessment.
 
-**Axioms**: For epistemic doctrines like [NABLA Infinity](/glossary/belief-graph/), the doctrine may encode formal axioms that must hold for any claim to be considered valid. The seven NABLA axioms (Signal Plurality, Contradiction Preservation, Absence Informative, Time Decay, Unknown Valid, Source Independence, Provenance Mandatory) function as logical preconditions for the platform's belief system.
+**Axioms**: For epistemic doctrines like [NABLA Infinity](@/glossary/belief-graph.md), the doctrine may encode formal axioms that must hold for any claim to be considered valid. The seven NABLA axioms (Signal Plurality, Contradiction Preservation, Absence Informative, Time Decay, Unknown Valid, Source Independence, Provenance Mandatory) function as logical preconditions for the platform's belief system.
 
 ### Doctrine Composition
 
@@ -95,7 +95,7 @@ Session Discipline (Operational Protocol)
     +-- Governs per-session compliance
 ```
 
-The transition between exploration (NABLA-governed) and execution (NM/ND-governed) is mediated by a confidence threshold and the [Trinity Gate](/glossary/formal-verification/): when confidence reaches 0.95 and all three gate checks pass (structural consistency, logical consistency, formal necessity), the platform shifts from evidence-gathering mode to decisive execution mode.
+The transition between exploration (NABLA-governed) and execution (NM/ND-governed) is mediated by a confidence threshold and the [Trinity Gate](@/glossary/formal-verification.md): when confidence reaches 0.95 and all three gate checks pass (structural consistency, logical consistency, formal necessity), the platform shifts from evidence-gathering mode to decisive execution mode.
 
 ## Implementation in Prismatic Platform
 
@@ -458,7 +458,7 @@ end
 
 ### Doctrine vs. Policy
 
-A [policy](/glossary/compliance-framework/) is a domain-specific implementation of doctrine-level principles. For example, the NM/ND doctrine's principle of "zero tolerance" becomes the Forbidden Patterns Enforcement Policy, which specifies exactly which code patterns are blocked. Doctrines are stable across platform generations; policies evolve more frequently.
+A [policy](@/glossary/compliance-framework.md) is a domain-specific implementation of doctrine-level principles. For example, the NM/ND doctrine's principle of "zero tolerance" becomes the Forbidden Patterns Enforcement Policy, which specifies exactly which code patterns are blocked. Doctrines are stable across platform generations; policies evolve more frequently.
 
 ### Doctrine vs. Convention
 
@@ -490,7 +490,7 @@ ADRs document point-in-time decisions with context and consequences. Doctrines e
 
 4. **Document the "why" explicitly**: Each doctrine principle should include a rationale. The NM/ND doctrine does not just say "no stubs"; it explains that stubs signal incomplete thinking that compounds into technical debt, which violates the platform's quality identity.
 
-5. **Version doctrines independently**: As doctrines evolve (e.g., NM/ND v1.0 to v2.0), previous versions should remain accessible for audit and historical understanding. This supports the [Provenance Mandatory](/glossary/audit-trail/) axiom from NABLA Infinity.
+5. **Version doctrines independently**: As doctrines evolve (e.g., NM/ND v1.0 to v2.0), previous versions should remain accessible for audit and historical understanding. This supports the [Provenance Mandatory](@/glossary/audit-trail.md) axiom from NABLA Infinity.
 
 6. **Compose doctrines, do not merge them**: The NM/ND and NABLA Infinity doctrines serve distinct purposes. Merging them would lose the clarity of each. Instead, define interaction protocols (like the confidence threshold transition) that compose their effects.
 
@@ -504,9 +504,9 @@ ADRs document point-in-time decisions with context and consequences. Doctrines e
 
 3. **Cargo cult compliance**: Teams following doctrine rules mechanically without understanding the underlying principles. This produces code that technically passes all gates but misses the spirit of the doctrine. Combat this through documentation, onboarding, and code review that asks "why" questions.
 
-4. **Doctrine ossification**: Treating doctrines as immutable sacred texts rather than living documents. While doctrines should be more stable than policies, they must evolve with the platform. The Prismatic Platform versions its doctrines and tracks evolution through [generations](/glossary/generation/).
+4. **Doctrine ossification**: Treating doctrines as immutable sacred texts rather than living documents. While doctrines should be more stable than policies, they must evolve with the platform. The Prismatic Platform versions its doctrines and tracks evolution through [generations](@/glossary/generation.md).
 
-5. **False confidence from passing gates**: Assuming that passing all automated checks means the code is truly doctrine-compliant. Automated checks catch known patterns; novel violations require human judgment. The [Color Teams](/glossary/color-teams/) system (particularly Purple Team synthesis) addresses this gap.
+5. **False confidence from passing gates**: Assuming that passing all automated checks means the code is truly doctrine-compliant. Automated checks catch known patterns; novel violations require human judgment. The [Color Teams](@/glossary/color-teams.md) system (particularly Purple Team synthesis) addresses this gap.
 
 6. **Ignoring doctrine interaction effects**: Applying doctrines independently without considering how they compose. For example, NM/ND's "decisive action" principle can conflict with NABLA's "preserve contradictions" principle if the transition protocol is not properly implemented.
 
@@ -518,15 +518,15 @@ The primary use case for doctrine is establishing and maintaining platform-wide 
 
 ### Epistemic Security
 
-The NABLA Infinity doctrine governs how the platform handles uncertain or contradictory information, which is critical for [OSINT](/glossary/due-diligence/) and intelligence operations. By requiring signal plurality and contradiction preservation, the doctrine prevents the platform from arriving at false certainties based on incomplete evidence.
+The NABLA Infinity doctrine governs how the platform handles uncertain or contradictory information, which is critical for [OSINT](@/glossary/due-diligence.md) and intelligence operations. By requiring signal plurality and contradiction preservation, the doctrine prevents the platform from arriving at false certainties based on incomplete evidence.
 
 ### Multi-Agent Coordination
 
-With 530+ [AIAD agents](/glossary/aiad/), doctrines provide the shared behavioral framework that enables autonomous agent operation without constant human oversight. Every agent embeds a doctrine enforcement block, ensuring consistent behavior across the entire agent fleet.
+With 530+ [AIAD agents](@/glossary/aiad.md), doctrines provide the shared behavioral framework that enables autonomous agent operation without constant human oversight. Every agent embeds a doctrine enforcement block, ensuring consistent behavior across the entire agent fleet.
 
 ### Regulatory Compliance
 
-For security-sensitive operations like [EASM](/glossary/easm/) and compliance assessment, doctrines provide the governance layer that maps to regulatory requirements (NIS2, ZKB). The doctrine's violation protocol and [audit trail](/glossary/audit-trail/) capabilities directly support compliance reporting.
+For security-sensitive operations like [EASM](@/glossary/easm.md) and compliance assessment, doctrines provide the governance layer that maps to regulatory requirements (NIS2, ZKB). The doctrine's violation protocol and [audit trail](@/glossary/audit-trail.md) capabilities directly support compliance reporting.
 
 ### Session Discipline
 
@@ -534,24 +534,24 @@ The Session Discipline doctrine governs how development sessions operate, requir
 
 ## Related Concepts
 
-- [Policy](/glossary/compliance-framework/) -- domain-specific implementation of doctrine principles with automated enforcement rules
-- [AIAD](/glossary/aiad/) -- the agent framework that embeds doctrine compliance in every agent specification
-- [Quality Gate](/glossary/clean-run/) -- automated checkpoints where doctrine compliance is verified before code merges
-- [Trinity Gate](/glossary/formal-verification/) -- three-layer verification system (structural, logical, formal) required for epistemic claims
-- [Generation](/glossary/generation/) -- platform evolution milestones where doctrine stability enables capability growth
-- [Color Teams](/glossary/color-teams/) -- adversarial-defensive security operations governed by doctrine safety protocols
-- [Fitness Score](/glossary/fitness-score/) -- quantitative measure of platform health that doctrine enforcement directly maintains
-- [Audit Trail](/glossary/audit-trail/) -- immutable record of all compliance events required by doctrine provenance axioms
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- NABLA axiom ensuring conflicting evidence is never discarded
-- [Confidence Threshold](/glossary/confidence-threshold/) -- the tau value that gates the transition from exploration to execution
+- [Policy](@/glossary/compliance-framework.md) -- domain-specific implementation of doctrine principles with automated enforcement rules
+- [AIAD](@/glossary/aiad.md) -- the agent framework that embeds doctrine compliance in every agent specification
+- [Quality Gate](@/glossary/clean-run.md) -- automated checkpoints where doctrine compliance is verified before code merges
+- [Trinity Gate](@/glossary/formal-verification.md) -- three-layer verification system (structural, logical, formal) required for epistemic claims
+- [Generation](@/glossary/generation.md) -- platform evolution milestones where doctrine stability enables capability growth
+- [Color Teams](@/glossary/color-teams.md) -- adversarial-defensive security operations governed by doctrine safety protocols
+- [Fitness Score](@/glossary/fitness-score.md) -- quantitative measure of platform health that doctrine enforcement directly maintains
+- [Audit Trail](@/glossary/audit-trail.md) -- immutable record of all compliance events required by doctrine provenance axioms
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- NABLA axiom ensuring conflicting evidence is never discarded
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- the tau value that gates the transition from exploration to execution
 
 ## See Also
 
-- [NABLA Infinity](/glossary/belief-graph/) -- the epistemic framework doctrine governing evidence and belief management
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- the property that doctrines aim to achieve through enforcement
-- [Archer Supreme](/glossary/archer-supreme/) -- supreme coordinator agent that enforces doctrine at the highest authority level
-- [Continuous Integration](/glossary/continuous-integration/) -- the CI/CD infrastructure through which doctrine gates operate
-- [Credo](/glossary/credo/) -- static analysis tool that enforces code-level doctrine compliance
+- [NABLA Infinity](@/glossary/belief-graph.md) -- the epistemic framework doctrine governing evidence and belief management
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- the property that doctrines aim to achieve through enforcement
+- [Archer Supreme](@/glossary/archer-supreme.md) -- supreme coordinator agent that enforces doctrine at the highest authority level
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the CI/CD infrastructure through which doctrine gates operate
+- [Credo](@/glossary/credo.md) -- static analysis tool that enforces code-level doctrine compliance
 
 ---
 
@@ -560,4 +560,4 @@ The Session Discipline doctrine governs how development sessions operate, requir
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -30,7 +30,7 @@ image_alt = "tactical-command - Prismatic Platform"
 
 The Tactical Command agent is an L1 supreme authority agent operating within the Prismatic Platform's large predator domain, responsible for multi-squad coordination, parallel execution management, and mission deployment across the agent ecosystem. Equipped with a 4-squad operational structure, this agent translates strategic directives from supreme-level command into coordinated tactical operations that are executed simultaneously across multiple agent teams.
 
-In the platform's ecological hierarchy, Tactical Command occupies the large predator niche, reflecting its ability to coordinate complex multi-agent operations that involve significant resource commitments and cross-domain impact. Unlike the Supreme Commander, which operates at the strategic level, and unlike specialist agents that execute individual tasks, Tactical Command bridges the gap between strategy and execution by managing the operational complexity of multi-squad deployments. It operates under the [AIAD](/glossary/aiad/) standard and the [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, ensuring that every tactical operation achieves its objectives completely and decisively.
+In the platform's ecological hierarchy, Tactical Command occupies the large predator niche, reflecting its ability to coordinate complex multi-agent operations that involve significant resource commitments and cross-domain impact. Unlike the Supreme Commander, which operates at the strategic level, and unlike specialist agents that execute individual tasks, Tactical Command bridges the gap between strategy and execution by managing the operational complexity of multi-squad deployments. It operates under the [AIAD](@/glossary/aiad.md) standard and the [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, ensuring that every tactical operation achieves its objectives completely and decisively.
 
 ## Theoretical Foundations
 
@@ -38,9 +38,9 @@ Tactical command and control draws from military operations research, distribute
 
 The 4-squad structure implements a span of control principle from organizational theory. Research consistently demonstrates that coordination effectiveness degrades when a single commander directly manages more than 5-7 subordinate units. By organizing agents into four squads, Tactical Command maintains effective span of control while enabling large-scale parallel operations.
 
-From distributed systems theory, the agent implements concepts of distributed consensus, partial ordering of events, and Byzantine fault tolerance. These concepts ensure that multi-squad operations maintain consistency even when individual agents fail or produce conflicting results. The [mycelial network](/glossary/mycelial-network/) communication pattern enables efficient information sharing across squads without creating central bottlenecks.
+From distributed systems theory, the agent implements concepts of distributed consensus, partial ordering of events, and Byzantine fault tolerance. These concepts ensure that multi-squad operations maintain consistency even when individual agents fail or produce conflicting results. The [mycelial network](@/glossary/mycelial-network.md) communication pattern enables efficient information sharing across squads without creating central bottlenecks.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework governs tactical decision-making, requiring that operational decisions are supported by evidence from multiple intelligence sources and that conflicting intelligence reports are preserved and explicitly resolved before committing to a course of action.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework governs tactical decision-making, requiring that operational decisions are supported by evidence from multiple intelligence sources and that conflicting intelligence reports are preserved and explicitly resolved before committing to a course of action.
 
 ## Core Capabilities
 
@@ -56,7 +56,7 @@ The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework governs tact
 
 ## Architecture and Implementation
 
-Tactical Command is implemented as a supervised [OTP](/glossary/otp/) process on the [BEAM](/glossary/beam/) virtual machine, with a multi-layered architecture that reflects its complex coordination responsibilities.
+Tactical Command is implemented as a supervised [OTP](@/glossary/otp.md) process on the [BEAM](@/glossary/beam.md) virtual machine, with a multi-layered architecture that reflects its complex coordination responsibilities.
 
 | Component | Function | Implementation |
 |-----------|----------|---------------|
@@ -106,13 +106,13 @@ The tactical command protocol implements a structured communication framework th
 
 | System | Integration Role | Data Flow |
 |--------|-----------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Squad member lifecycle management | Bidirectional |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Squad member lifecycle management | Bidirectional |
 | Supreme Commander | Strategic directive reception | Inbound commands |
-| [Supreme Coordinator](/agents/supreme-coordinator/) | Mission planning coordination | Bidirectional |
-| [Prismatic Telemetry](/glossary/telemetry/) | Operational metrics and events | Write |
-| [AIAD Registry](/glossary/registry-otp/) | Agent capability discovery for squad assignment | Read |
-| [Trinity Gate](/glossary/trinity-gate/) | Mission plan verification | Mandatory check |
-| [SEADF](/glossary/seadf/) | Tactical effectiveness assessment | Bidirectional |
+| [Supreme Coordinator](@/agents/supreme-coordinator.md) | Mission planning coordination | Bidirectional |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Operational metrics and events | Write |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent capability discovery for squad assignment | Read |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Mission plan verification | Mandatory check |
+| [SEADF](@/glossary/seadf.md) | Tactical effectiveness assessment | Bidirectional |
 
 ## Performance Metrics
 
@@ -120,7 +120,7 @@ Tactical Command effectiveness is measured through metrics that assess both coor
 
 ## Related Agents
 
-Tactical Command receives strategic directives from the [supreme-commander](/agents/supreme-commander/) and mission plans from the [supreme-coordinator](/agents/supreme-coordinator/). It coordinates with the [unified-orchestrator](/agents/unified-orchestrator/) for intelligent task routing within squads. The [swarm-evolution-coordinator-agent](/agents/swarm-evolution-coordinator-agent/) evaluates the tactical effectiveness of squad configurations as input to evolutionary optimization.
+Tactical Command receives strategic directives from the [supreme-commander](@/agents/supreme-commander.md) and mission plans from the [supreme-coordinator](@/agents/supreme-coordinator.md). It coordinates with the [unified-orchestrator](@/agents/unified-orchestrator.md) for intelligent task routing within squads. The [swarm-evolution-coordinator-agent](@/agents/swarm-evolution-coordinator-agent.md) evaluates the tactical effectiveness of squad configurations as input to evolutionary optimization.
 
 ---
 
@@ -129,4 +129,4 @@ Tactical Command receives strategic directives from the [supreme-commander](/age
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

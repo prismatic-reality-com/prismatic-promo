@@ -164,10 +164,10 @@ The DD pipeline tracks entity attribute correlations over time. If an entity's f
 ## Cross-References
 
 - **Covariance** - unstandardized measure of joint variability
-- [Confidence Score](/glossary/confidence-score/) - reliability metric informed by correlation
+- [Confidence Score](@/glossary/confidence-score.md) - reliability metric informed by correlation
 - **Cross-Tabulation** - categorical data analysis
-- [Anomaly Detection](/glossary/anomaly-detection/) - detecting unexpected correlation changes
-- [Chart](/glossary/chart/) - scatter charts for visualizing correlations
+- [Anomaly Detection](@/glossary/anomaly-detection.md) - detecting unexpected correlation changes
+- [Chart](@/glossary/chart.md) - scatter charts for visualizing correlations
 - **Livebooks**: `livebooks/domains/data_analysis/` - statistical analysis lab
 - **Academy**: Statistical reasoning and OSINT signal analysis
 

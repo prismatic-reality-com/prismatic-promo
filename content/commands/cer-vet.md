@@ -28,7 +28,7 @@ The **/cer-vet** command performs comprehensive supplier vetting for Czech Criti
 
 Supply chain security has emerged as a primary concern in the European regulatory framework for critical infrastructure protection. The Czech transposition of the CER Directive recognizes that the resilience of essential services depends not only on the operator's own capabilities but also on the reliability and integrity of its supplier network. Section 18 of Law 266/2025 Sb. imposes explicit due diligence requirements on critical entities with respect to their suppliers, including verification of beneficial ownership, assessment of financial stability, and screening against sanctions lists. The **/cer-vet** command automates this entire due diligence workflow, aggregating data from ARES (the Czech Administrative Register of Economic Subjects), the Commercial Register (OR.cz), the ISIR insolvency register, international sanctions databases, and PEP (Politically Exposed Persons) screening services into a unified risk assessment.
 
-The command is executed by the `cer-compliance-commander` agent, a strategic-command-level agent within the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) framework. It supports three depth levels -- quick preliminary assessments, standard vetting, and comprehensive deep-dive analyses that include subsidiary mapping and extended beneficial ownership chains. Batch vetting via CSV file import enables organizations to vet their entire supplier portfolio efficiently. The command forms part of the Prismatic Platform's 216-command slash command [registry](/glossary/registry-otp/) and works in concert with [/cer-screen](/commands/cer-screen/) for personnel verification and [/cer-report](/commands/cer-report/) for aggregated compliance reporting.
+The command is executed by the `cer-compliance-commander` agent, a strategic-command-level agent within the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) framework. It supports three depth levels -- quick preliminary assessments, standard vetting, and comprehensive deep-dive analyses that include subsidiary mapping and extended beneficial ownership chains. Batch vetting via CSV file import enables organizations to vet their entire supplier portfolio efficiently. The command forms part of the Prismatic Platform's 216-command slash command [registry](@/glossary/registry-otp.md) and works in concert with [/cer-screen](@/commands/cer-screen.md) for personnel verification and [/cer-report](@/commands/cer-report.md) for aggregated compliance reporting.
 
 ## Usage
 
@@ -164,19 +164,19 @@ For **ongoing supplier monitoring**, batch vetting runs periodically (typically 
 
 During **contract renewal**, a fresh comprehensive vetting is recommended to verify that supplier risk profiles have not deteriorated since initial onboarding. Changes in beneficial ownership, insolvency filings, or sanctions list additions that occurred between vetting cycles are surfaced immediately.
 
-All vetting results automatically aggregate into [/cer-report](/commands/cer-report/) compliance reports, providing the supplier due diligence statistics required for the annual CER compliance submission.
+All vetting results automatically aggregate into [/cer-report](@/commands/cer-report.md) compliance reports, providing the supplier due diligence statistics required for the annual CER compliance submission.
 
 ## Integration Points
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `cer-compliance-commander` agent |
-| [/cer-report](/commands/cer-report/) | Vetting results aggregate into compliance reports |
-| [/cer-screen](/commands/cer-screen/) | Employee screening with supplier context correlation |
-| [/investigate](/commands/investigate/) | Deep OSINT investigation for flagged suppliers |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `cer-compliance-commander` agent |
+| [/cer-report](@/commands/cer-report.md) | Vetting results aggregate into compliance reports |
+| [/cer-screen](@/commands/cer-screen.md) | Employee screening with supplier context correlation |
+| [/investigate](@/commands/investigate.md) | Deep OSINT investigation for flagged suppliers |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and event tracking |
 | ARES / Commercial Register | Czech company registry data sources |
 | ISIR / Courts / Executors | Czech legal and insolvency registries |
 | Sanctions / PEP Databases | International sanctions and politically exposed persons screening |
@@ -184,10 +184,10 @@ All vetting results automatically aggregate into [/cer-report](/commands/cer-rep
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete vetting. Every data source appropriate for the selected depth level must return a definitive result or an explicit error status. No supplier is marked as `APPROVED` if any critical registry query failed. Batch vetting processes every ICO or fails with a clear manifest of which suppliers could not be vetted and why. Invalid ICO formats are rejected immediately with actionable error messages.
-- **NO DOUBTS**: Full investigation of all configured data sources before rendering a compliance determination. The UBO discovery engine follows ownership chains exhaustively rather than stopping at the first beneficial owner found. When registry data conflicts with sanctions data (for example, a company showing active status in ARES but appearing on a sanctions list), both signals are preserved with explicit conflict markers. The [NABLA Infinity](/glossary/nabla-infinity/) framework ensures that vetting determinations are never based on a single data source.
+- **NO DOUBTS**: Full investigation of all configured data sources before rendering a compliance determination. The UBO discovery engine follows ownership chains exhaustively rather than stopping at the first beneficial owner found. When registry data conflicts with sanctions data (for example, a company showing active status in ARES but appearing on a sanctions list), both signals are preserved with explicit conflict markers. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework ensures that vetting determinations are never based on a single data source.
 - **Regression Protection**: All vetting logic includes regression test suites that validate risk calculations and UBO discovery against known reference companies. Changes to scoring algorithms, source integration, or depth configuration trigger mandatory re-validation.
 
 ## Best Practices
@@ -201,11 +201,11 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Related Commands
 
-- [/cer-report](/commands/cer-report/) - Czech company compliance report generation from ICO identifier
-- [/cer-screen](/commands/cer-screen/) - Employee screening for compliance and background verification
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/cer-report](@/commands/cer-report.md) - Czech company compliance report generation from ICO identifier
+- [/cer-screen](@/commands/cer-screen.md) - Employee screening for compliance and background verification
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -214,4 +214,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,13 +26,13 @@ image_alt = "Dialyzer - Prismatic Platform"
 
 Dialyzer (DIscrepancy AnaLYZer for ERlang) is the static analysis tool that enforces type safety across the Prismatic Platform's entire codebase. Unlike compile-time type checkers in statically typed languages, Dialyzer uses success typing -- a sound analysis technique that finds guaranteed bugs. If Dialyzer reports a warning, it has mathematically proven that the code will fail at runtime. This zero-false-positive property makes Dialyzer warnings actionable with complete confidence: every warning represents a real defect that must be fixed.
 
-The Prismatic Platform enforces zero Dialyzer warnings as a mandatory [quality gate](/capabilities/quality-gates/). Every function has a `@spec` type specification, and the CI/CD pipeline blocks any commit that introduces a Dialyzer warning. This level of enforcement has eliminated entire categories of runtime errors from the platform -- type mismatches, unreachable code paths, and incorrect function call signatures are caught at analysis time rather than discovered in production. The platform's 90 umbrella applications produce zero Dialyzer warnings, a status maintained through continuous enforcement.
+The Prismatic Platform enforces zero Dialyzer warnings as a mandatory [quality gate](@/capabilities/quality-gates.md). Every function has a `@spec` type specification, and the CI/CD pipeline blocks any commit that introduces a Dialyzer warning. This level of enforcement has eliminated entire categories of runtime errors from the platform -- type mismatches, unreachable code paths, and incorrect function call signatures are caught at analysis time rather than discovered in production. The platform's 90 umbrella applications produce zero Dialyzer warnings, a status maintained through continuous enforcement.
 
 Dialyzer's PLT (Persistent Lookup Table) caches analysis results for dependencies, making incremental analysis fast even across the platform's massive codebase. The platform maintains a pre-built PLT for all dependencies that is refreshed during CI builds, reducing the analysis time for application code to seconds rather than minutes. The integration through the `dialyxir` library provides a clean Mix task interface that fits naturally into the platform's existing quality pipeline.
 
 ## Key Features
 
-Dialyzer provides a unique combination of soundness and usability that makes it the most reliable static analysis tool in the [Elixir](/technologies/elixir/) ecosystem.
+Dialyzer provides a unique combination of soundness and usability that makes it the most reliable static analysis tool in the [Elixir](@/technologies/elixir.md) ecosystem.
 
 - **Success Typing**: Finds guaranteed runtime failures with zero false positives -- every warning is a real bug
 - **Spec Checking**: Validates `@spec` annotations match actual function behavior, catching specification drift
@@ -117,14 +117,14 @@ end
 
 ## Architecture
 
-Dialyzer operates as part of the platform's multi-layer quality enforcement pipeline, complementing [Credo](/technologies/credo/)'s style analysis and [ExUnit](/technologies/exunit/)'s runtime testing with mathematically sound type analysis.
+Dialyzer operates as part of the platform's multi-layer quality enforcement pipeline, complementing [Credo](@/technologies/credo.md)'s style analysis and [ExUnit](@/technologies/exunit.md)'s runtime testing with mathematically sound type analysis.
 
 | Quality Dimension | Tool | Enforcement Level |
 |-------------------|------|-------------------|
 | Type Safety | **Dialyzer** | **Zero warnings (CI blocking)** |
-| Code Quality | [Credo](/technologies/credo/) | Zero violations (CI blocking) |
+| Code Quality | [Credo](@/technologies/credo.md) | Zero violations (CI blocking) |
 | Compilation | `mix compile` | `--warnings-as-errors` (CI blocking) |
-| Runtime Correctness | [ExUnit](/technologies/exunit/) | Full test passage (CI blocking) |
+| Runtime Correctness | [ExUnit](@/technologies/exunit.md) | Full test passage (CI blocking) |
 | Coverage | ExCoveralls | Threshold enforcement (CI blocking) |
 
 The PLT (Persistent Lookup Table) architecture is critical for performance. Dialyzer builds a PLT containing type information for all dependencies, which is then used as a baseline for analyzing application code. The platform's CI pipeline caches this PLT between builds to avoid the expensive 5-10 minute dependency analysis on every run.
@@ -214,18 +214,18 @@ Dialyzer occupies a unique position in the static analysis landscape due to its 
 
 ## Related Technologies
 
-- [Credo](/technologies/credo/) - Code quality analysis that complements Dialyzer's type-level analysis with style and design checks
-- [ExUnit](/technologies/exunit/) - Runtime testing that validates behavior Dialyzer cannot statically verify
-- [Elixir](/technologies/elixir/) - The language providing the `@spec` and `@type` annotation system
-- [Erlang/OTP](/technologies/erlang-otp/) - The runtime platform that Dialyzer was originally built for
-- [BEAM](/technologies/beam/) - Virtual machine whose type system Dialyzer analyzes
+- [Credo](@/technologies/credo.md) - Code quality analysis that complements Dialyzer's type-level analysis with style and design checks
+- [ExUnit](@/technologies/exunit.md) - Runtime testing that validates behavior Dialyzer cannot statically verify
+- [Elixir](@/technologies/elixir.md) - The language providing the `@spec` and `@type` annotation system
+- [Erlang/OTP](@/technologies/erlang-otp.md) - The runtime platform that Dialyzer was originally built for
+- [BEAM](@/technologies/beam.md) - Virtual machine whose type system Dialyzer analyzes
 
 ## Related Apps
 
 - All 90 Prismatic Platform applications are Dialyzer-checked with zero warnings as a mandatory quality gate
-- [prismatic_safety](/apps/prismatic-safety/) - Quality Floor Guardian monitors Dialyzer compliance status
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security-critical code with comprehensive type specifications
-- [prismatic_agents](/apps/prismatic-agents/) - Agent interface contracts validated by Dialyzer spec checking
+- [prismatic_safety](@/apps/prismatic-safety.md) - Quality Floor Guardian monitors Dialyzer compliance status
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security-critical code with comprehensive type specifications
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent interface contracts validated by Dialyzer spec checking
 
 ---
 
@@ -234,4 +234,4 @@ Dialyzer occupies a unique position in the static analysis landscape due to its 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

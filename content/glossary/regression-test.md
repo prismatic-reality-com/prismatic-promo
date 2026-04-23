@@ -24,7 +24,7 @@ A Regression Test is a test specifically written to verify that a previously ide
 
 Regression testing is a foundational practice in software quality assurance, but its effectiveness depends entirely on discipline: every bug fix must be accompanied by a test that would have caught the bug before it was reported. Without this discipline, the same defects recur across releases, eroding user confidence and consuming engineering resources on repeated investigation of known issues.
 
-The Prismatic Platform elevates regression testing from a best practice to a non-bypassable protocol. The Mandatory Regression Test Protocol is classified as P0 (Absolute) -- the highest enforcement level -- with zero exceptions regardless of urgency, scope, or authority level. A bug fix without a corresponding regression test is treated as an incomplete delivery under the [NO MERCY](/glossary/no-mercy/) doctrine.
+The Prismatic Platform elevates regression testing from a best practice to a non-bypassable protocol. The Mandatory Regression Test Protocol is classified as P0 (Absolute) -- the highest enforcement level -- with zero exceptions regardless of urgency, scope, or authority level. A bug fix without a corresponding regression test is treated as an incomplete delivery under the [NO MERCY](@/glossary/no-mercy.md) doctrine.
 
 | Protocol Aspect | Requirement |
 |-----------------|-------------|
@@ -188,7 +188,7 @@ end
 
 ### Integration with Quality Gates
 
-Regression tests integrate into the broader [Quality Gates](/glossary/quality-gates/) pipeline, which runs on every commit. The quality gates system verifies not only that all tests pass but that recent bug fix commits include corresponding regression test additions:
+Regression tests integrate into the broader [Quality Gates](@/glossary/quality-gates.md) pipeline, which runs on every commit. The quality gates system verifies not only that all tests pass but that recent bug fix commits include corresponding regression test additions:
 
 ```
 Commit --> Pre-Commit Hook --> Quality Gates Pipeline
@@ -207,7 +207,7 @@ Commit --> Pre-Commit Hook --> Quality Gates Pipeline
 
 ### Purple Team Regression Guard
 
-The [Purple Team](/glossary/purple-team/)'s `purple-regression-guard` agent extends the regression test concept to security findings. When a security vulnerability is identified and remediated, the regression guard ensures that:
+The [Purple Team](@/glossary/purple-team.md)'s `purple-regression-guard` agent extends the regression test concept to security findings. When a security vulnerability is identified and remediated, the regression guard ensures that:
 
 1. A security regression test validates the remediation
 2. The test is added to the security regression suite
@@ -241,7 +241,7 @@ The Mandatory Regression Test Protocol has been instrumental in achieving the pl
 
 **Zero Regression Incidents**: Since implementing the P0 protocol, the platform has experienced zero regression incidents -- no previously fixed bug has recurred in any subsequent release.
 
-**Quality Floor Guardian Integration**: The [Quality Floor Guardian](/glossary/quality-floor-guardian/) monitors regression test health as part of its autonomous quality monitoring. If a regression test becomes flaky (intermittently failing), it triggers investigation before the flakiness masks a genuine regression.
+**Quality Floor Guardian Integration**: The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) monitors regression test health as part of its autonomous quality monitoring. If a regression test becomes flaky (intermittently failing), it triggers investigation before the flakiness masks a genuine regression.
 
 **Pre-Commit Enforcement**: The `.githooks/pre-commit` hook validates that commits tagged as bug fixes include corresponding test additions. Commits that fail this validation are blocked at the local development stage, before reaching CI/CD.
 
@@ -402,19 +402,19 @@ These metrics feed into the Quality DNA system, which tracks quality trends acro
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) - Enforcement pipeline including regression test validation
-- [NM/ND Doctrine](/glossary/nm-nd/) - Governance framework requiring regression tests for every fix
-- [Violation Protocol](/glossary/violation-protocol/) - Escalation triggered by missing regression tests
-- [Purple Team](/glossary/purple-team/) - Security regression guard applying the same principle
-- [NO MERCY](/glossary/no-mercy/) - Zero tolerance doctrine mandating complete fix coverage
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) - Local enforcement mechanism for regression protocol
-- [SEADF](/glossary/seadf/) - Self-evolving framework tracking regression test coverage
+- [Quality Gates](@/glossary/quality-gates.md) - Enforcement pipeline including regression test validation
+- [NM/ND Doctrine](@/glossary/nm-nd.md) - Governance framework requiring regression tests for every fix
+- [Violation Protocol](@/glossary/violation-protocol.md) - Escalation triggered by missing regression tests
+- [Purple Team](@/glossary/purple-team.md) - Security regression guard applying the same principle
+- [NO MERCY](@/glossary/no-mercy.md) - Zero tolerance doctrine mandating complete fix coverage
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) - Local enforcement mechanism for regression protocol
+- [SEADF](@/glossary/seadf.md) - Self-evolving framework tracking regression test coverage
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Commands](/commands/) - Quality enforcement commands
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Commands](@/commands/_index.md) - Quality enforcement commands
 
 ---
 
@@ -423,4 +423,4 @@ These metrics feed into the Quality DNA system, which tracks quality trends acro
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

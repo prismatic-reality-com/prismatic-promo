@@ -174,10 +174,10 @@ For AI operations, the OSINT toolbox's integration with LLM-powered analysis tra
 
 ## Cross-References
 
-- [Authentication](/glossary/authentication/) - Identity verification process
-- [JWT](/glossary/jwt/) - JSON Web Token standard
+- [Authentication](@/glossary/authentication.md) - Identity verification process
+- [JWT](@/glossary/jwt.md) - JSON Web Token standard
 - **API Key** - Alternative authentication credential
-- [LLM](/glossary/llm/) - Large language model context
+- [LLM](@/glossary/llm.md) - Large language model context
 - **User** - Platform identity entity
 
 ---

@@ -28,13 +28,13 @@ image_alt = "modernization-specialist - Prismatic Platform"
 
 ## Overview
 
-The modernization-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's modernization domain, responsible for planning and executing technology stack upgrades, dependency modernization campaigns, and platform-wide migration operations. This agent applies genetic quality patterns -- evolutionary strategies that preserve quality DNA across transformation boundaries -- to ensure that modernization efforts improve the platform without regressing established capabilities. Every modernization operation passes through a three-stage verification pipeline: pre-migration validation, in-flight compatibility testing, and post-migration quality confirmation.
+The modernization-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's modernization domain, responsible for planning and executing technology stack upgrades, dependency modernization campaigns, and platform-wide migration operations. This agent applies genetic quality patterns -- evolutionary strategies that preserve quality DNA across transformation boundaries -- to ensure that modernization efforts improve the platform without regressing established capabilities. Every modernization operation passes through a three-stage verification pipeline: pre-migration validation, in-flight compatibility testing, and post-migration quality confirmation.
 
-Built on the [AIAD](/glossary/aiad/) standard, the modernization-specialist operates within the [SEADF](/glossary/seadf/) evolutionary framework, treating each modernization as a controlled mutation that must demonstrate fitness improvement before being committed to the platform's genetic lineage. The [NO MERCY](/glossary/no-mercy/) doctrine governs all modernization operations: no upgrade is deployed that introduces compilation warnings, test failures, or quality regressions.
+Built on the [AIAD](@/glossary/aiad.md) standard, the modernization-specialist operates within the [SEADF](@/glossary/seadf.md) evolutionary framework, treating each modernization as a controlled mutation that must demonstrate fitness improvement before being committed to the platform's genetic lineage. The [NO MERCY](@/glossary/no-mercy.md) doctrine governs all modernization operations: no upgrade is deployed that introduces compilation warnings, test failures, or quality regressions.
 
 ## Operational Domain
 
-The modernization domain covers all technology evolution activities across the platform's 90+ [umbrella applications](/glossary/umbrella-application/). This includes Elixir and [OTP](/glossary/otp/) version upgrades, [Phoenix](/glossary/phoenix/) framework migrations, dependency updates, deprecated API replacements, and database schema modernization through [Ecto](/glossary/ecto/) migrations. The agent maintains a technology debt registry that tracks every outdated dependency, deprecated function call, and legacy pattern across the codebase, prioritizing modernization efforts by risk and impact.
+The modernization domain covers all technology evolution activities across the platform's 90+ [umbrella applications](@/glossary/umbrella-application.md). This includes Elixir and [OTP](@/glossary/otp.md) version upgrades, [Phoenix](@/glossary/phoenix.md) framework migrations, dependency updates, deprecated API replacements, and database schema modernization through [Ecto](@/glossary/ecto.md) migrations. The agent maintains a technology debt registry that tracks every outdated dependency, deprecated function call, and legacy pattern across the codebase, prioritizing modernization efforts by risk and impact.
 
 | Modernization Category | Scope | Risk Level | Verification |
 |----------------------|-------|------------|-------------|
@@ -51,8 +51,8 @@ The modernization domain covers all technology evolution activities across the p
 - **Three-stage verification pipeline** -- Implements pre-migration baseline capture, in-flight compatibility validation, and post-migration quality confirmation to ensure zero-regression modernization
 - **Genetic quality preservation** -- Carries forward quality DNA (test coverage, type specifications, documentation) across modernization boundaries, ensuring that upgrades do not erode established quality standards
 - **Automated migration code generation** -- Produces migration scripts for deprecated API replacements, pattern updates, and configuration changes across multiple applications simultaneously
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed modernization scanning and technology debt assessment
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing modernization progress, debt reduction metrics, and migration health indicators
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed modernization scanning and technology debt assessment
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing modernization progress, debt reduction metrics, and migration health indicators
 
 ## Three-Stage Verification Pipeline
 
@@ -132,7 +132,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to initiate platform-wide modernization campaigns, approve dependency upgrades, and enforce migration timelines.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to initiate platform-wide modernization campaigns, approve dependency upgrades, and enforce migration timelines.
 
 ## Technology Debt Tracking
 
@@ -157,18 +157,18 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Aligns modernization campaigns with evolutionary fitness goals |
-| [database-migration-specialist](/agents/database-migration-specialist/) | Coordinates database schema modernization with code migrations |
-| [code-quality-commander](/agents/code-quality-commander/) | Validates quality preservation across modernization boundaries |
-| [security-audit-specialist](/agents/security-audit-specialist/) | Ensures security posture is maintained or improved after upgrades |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Aligns modernization campaigns with evolutionary fitness goals |
+| [database-migration-specialist](@/agents/database-migration-specialist.md) | Coordinates database schema modernization with code migrations |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Validates quality preservation across modernization boundaries |
+| [security-audit-specialist](@/agents/security-audit-specialist.md) | Ensures security posture is maintained or improved after upgrades |
 
 ## Genetic Quality Preservation
 
-The concept of "genetic quality preservation" is central to the modernization-specialist's approach. In the biological metaphor that underlies the [SEADF](/glossary/seadf/) framework, each application carries "quality DNA" -- the aggregate of its test coverage, type specification completeness, documentation quality, and code style consistency. When a modernization operation modifies application code, this quality DNA must be preserved or improved; it must never degrade.
+The concept of "genetic quality preservation" is central to the modernization-specialist's approach. In the biological metaphor that underlies the [SEADF](@/glossary/seadf.md) framework, each application carries "quality DNA" -- the aggregate of its test coverage, type specification completeness, documentation quality, and code style consistency. When a modernization operation modifies application code, this quality DNA must be preserved or improved; it must never degrade.
 
 The modernization-specialist implements quality DNA preservation through baseline capture before any modernization begins. The baseline records every measurable quality attribute across the affected applications: number of passing tests, test coverage percentage, Dialyzer success status, Credo score, documentation coverage, and typespec coverage. After modernization completes, the same measurements are taken and compared against the baseline. Any regression in any dimension blocks the modernization from proceeding.
 
-This preservation extends beyond numeric metrics. The specialist also validates that code patterns established through platform conventions (such as the `{:ok, _} | {:error, _}` return pattern, proper [GenServer](/glossary/genserver/) callback implementation, and supervision tree documentation) remain intact after modernization. Pattern preservation checks use AST analysis to verify that modernized code maintains the same structural patterns as the original.
+This preservation extends beyond numeric metrics. The specialist also validates that code patterns established through platform conventions (such as the `{:ok, _} | {:error, _}` return pattern, proper [GenServer](@/glossary/genserver.md) callback implementation, and supervision tree documentation) remain intact after modernization. Pattern preservation checks use AST analysis to verify that modernized code maintains the same structural patterns as the original.
 
 ## Modernization Campaign Types
 
@@ -187,13 +187,13 @@ Each campaign type triggers a specific workflow within the three-stage verificat
 
 ## Dependency Intelligence
 
-The modernization-specialist maintains continuous awareness of the platform's dependency landscape. This includes monitoring Hex.pm for new package versions and security advisories, tracking Elixir and OTP release schedules for upcoming deprecations, and analyzing the dependency graph for version conflicts that might emerge from independent application upgrades. Dependency intelligence is published through the platform's [telemetry](/glossary/telemetry/) infrastructure, enabling dashboards that display the current modernization status across all applications at a glance.
+The modernization-specialist maintains continuous awareness of the platform's dependency landscape. This includes monitoring Hex.pm for new package versions and security advisories, tracking Elixir and OTP release schedules for upcoming deprecations, and analyzing the dependency graph for version conflicts that might emerge from independent application upgrades. Dependency intelligence is published through the platform's [telemetry](@/glossary/telemetry.md) infrastructure, enabling dashboards that display the current modernization status across all applications at a glance.
 
 The specialist also tracks the "dependency health score" for each external package: a composite metric incorporating release frequency, maintainer activity, open issue count, and security advisory history. Packages with declining health scores are flagged for potential replacement before they become unmaintained liabilities.
 
 ## Enforcement
 
-All modernization operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no upgrade is deployed that introduces compilation warnings, test failures, quality score regressions, or [Dialyzer](/glossary/beam/) violations. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every modernization decision is backed by compatibility analysis and risk assessment. Rollback capability is mandatory for every migration step -- if any stage of the three-stage verification fails, the entire modernization is automatically reverted to the pre-migration baseline.
+All modernization operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no upgrade is deployed that introduces compilation warnings, test failures, quality score regressions, or [Dialyzer](@/glossary/beam.md) violations. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every modernization decision is backed by compatibility analysis and risk assessment. Rollback capability is mandatory for every migration step -- if any stage of the three-stage verification fails, the entire modernization is automatically reverted to the pre-migration baseline.
 
 ---
 
@@ -202,4 +202,4 @@ All modernization operations comply with the [NO MERCY](/glossary/no-mercy/) doc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

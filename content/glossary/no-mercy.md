@@ -313,21 +313,21 @@ end
 
 ## Related Concepts
 
-- [NO DOUBTS](/glossary/no-doubts/) - The investigative counterpart requiring evidence-based decisions
-- [NM/ND Doctrine](/glossary/nm-nd/) - The combined enforcement framework
-- [Violation Protocol](/glossary/violation-protocol/) - L1-L4 escalation for doctrine breaches
-- [Quality Gates](/glossary/quality-gates/) - Automated enforcement pipeline implementing NO MERCY
-- [Regression Test](/glossary/regression-test/) - Mandatory test required for every bug fix
-- [Quality Debt](/glossary/quality-debt/) - QDP measurement eliminated through NO MERCY
-- [CASCADE Pattern](/glossary/cascade-pattern/) - Bulk remediation patterns for systemic violations
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) - First enforcement point for NO MERCY compliance
-- [Clean Run](/glossary/clean-run/) - Zero warnings compilation standard
+- [NO DOUBTS](@/glossary/no-doubts.md) - The investigative counterpart requiring evidence-based decisions
+- [NM/ND Doctrine](@/glossary/nm-nd.md) - The combined enforcement framework
+- [Violation Protocol](@/glossary/violation-protocol.md) - L1-L4 escalation for doctrine breaches
+- [Quality Gates](@/glossary/quality-gates.md) - Automated enforcement pipeline implementing NO MERCY
+- [Regression Test](@/glossary/regression-test.md) - Mandatory test required for every bug fix
+- [Quality Debt](@/glossary/quality-debt.md) - QDP measurement eliminated through NO MERCY
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) - Bulk remediation patterns for systemic violations
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) - First enforcement point for NO MERCY compliance
+- [Clean Run](@/glossary/clean-run.md) - Zero warnings compilation standard
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Quality Gates Command](/commands/quality-gates/) - Quality enforcement commands
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Quality Gates Command](@/commands/quality-gates.md) - Quality enforcement commands
 
 ---
 
@@ -336,4 +336,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

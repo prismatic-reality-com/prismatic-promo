@@ -35,7 +35,7 @@ These characteristics can be measured, and if they can be measured, they can be 
 
 Prismatic operates at three evolutionary levels:
 
-**Level 1: Code Evolution** -- the platform's code improves through mutation, evaluation, and selection. This is the base level described in our [Self-Evolving Architecture](/blog/self-evolving-architecture/) post.
+**Level 1: Code Evolution** -- the platform's code improves through mutation, evaluation, and selection. This is the base level described in our [Self-Evolving Architecture](@/blog/self-evolving-architecture.md) post.
 
 **Level 2: Process Evolution** -- the evolution process itself improves. The scanner learns which patterns to look for. The mutator learns which transformations succeed. The evaluator refines its fitness function.
 
@@ -144,4 +144,4 @@ The key insight is that self-improvement requires self-measurement. Track the pe
 
 ---
 
-*Explore the [Evolution Module](/architecture/) for framework details or check the platform's current fitness with `mix health.score`.*
+*Explore the [Evolution Module](@/architecture/_index.md) for framework details or check the platform's current fitness with `mix health.score`.*

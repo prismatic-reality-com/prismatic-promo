@@ -38,7 +38,7 @@ image_alt = "Enforcement Policy - Prismatic Platform"
 
 An **enforcement policy** is a formal, machine-readable specification that defines how quality, security, and doctrinal standards are maintained across a software platform. Unlike advisory guidelines that suggest best practices, enforcement policies are binding: they specify exact conditions that must be met, the consequences of violations at each severity level, and the automated mechanisms that detect and block non-compliant changes before they reach production. An enforcement policy transforms aspirational standards into operational reality by removing human discretion from compliance decisions.
 
-In the Prismatic Platform, enforcement policies govern every aspect of the development lifecycle -- from the [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine that mandates zero tolerance for incomplete implementations, through 11-phase [pre-commit hooks](/glossary/pre-commit-hooks/) that block non-compliant commits, to [quality gates](/glossary/quality-gate/) that prevent degradation of the platform's 100/100 quality score.
+In the Prismatic Platform, enforcement policies govern every aspect of the development lifecycle -- from the [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine that mandates zero tolerance for incomplete implementations, through 11-phase [pre-commit hooks](@/glossary/pre-commit-hooks.md) that block non-compliant commits, to [quality gates](@/glossary/quality-gate.md) that prevent degradation of the platform's 100/100 quality score.
 
 ## Overview
 
@@ -50,19 +50,19 @@ The Prismatic Platform takes enforcement to its logical conclusion: every standa
 
 Enforcement policies operate at multiple levels of the platform:
 
-1. **Doctrinal Level**: The [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine establishes the philosophical foundation -- zero tolerance for incomplete work, full investigation before action, evidence-based decisions.
+1. **Doctrinal Level**: The [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine establishes the philosophical foundation -- zero tolerance for incomplete work, full investigation before action, evidence-based decisions.
 
 2. **Policy Level**: Individual policies (`*.policy.md` files in `.aiad/policies/`) codify specific rules for domains like forbidden patterns, Elixir best practices, page load performance, and Flowbite sidebar layouts.
 
-3. **Gate Level**: [Quality gates](/glossary/quality-gate/) implement policies as executable checks that return pass/fail results. The `mix quality.gates` command runs all gates in sequence.
+3. **Gate Level**: [Quality gates](@/glossary/quality-gate.md) implement policies as executable checks that return pass/fail results. The `mix quality.gates` command runs all gates in sequence.
 
-4. **Hook Level**: [Pre-commit hooks](/glossary/pre-commit-hooks/) enforce gates at the point of commit, preventing non-compliant code from entering version control.
+4. **Hook Level**: [Pre-commit hooks](@/glossary/pre-commit-hooks.md) enforce gates at the point of commit, preventing non-compliant code from entering version control.
 
 5. **CI Level**: Continuous integration pipelines provide a second enforcement layer, catching anything that might slip past local hooks.
 
 ### Violation Severity Model
 
-The platform uses a four-level violation severity model that maps directly to the [violation protocol](/glossary/violation-protocol/):
+The platform uses a four-level violation severity model that maps directly to the [violation protocol](@/glossary/violation-protocol.md):
 
 | Level | Name | Trigger | Automated Response | Human Response |
 |-------|------|---------|-------------------|----------------|
@@ -399,7 +399,7 @@ The regression test protocol is an enforcement policy with absolute authority (P
 5. Verify test passes with the fix
 6. Report completion with structured output
 
-This policy is enforced through code review, CI/CD validation, and the [clean run](/glossary/clean-run/) requirement.
+This policy is enforced through code review, CI/CD validation, and the [clean run](@/glossary/clean-run.md) requirement.
 
 ### Session Discipline Enforcement
 
@@ -466,13 +466,13 @@ Policies that reference deprecated tools, outdated patterns, or removed features
 
 If developers routinely seek workarounds for enforcement (committing from other tools, using force pushes, or disabling hooks), the enforcement system has a cultural problem, not a technical one.
 
-**Mitigation**: Ensure policies are reasonable, well-documented, and provide clear remediation paths. The [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine addresses this culturally: enforcement is not optional, not debatable, and not bypassable.
+**Mitigation**: Ensure policies are reasonable, well-documented, and provide clear remediation paths. The [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine addresses this culturally: enforcement is not optional, not debatable, and not bypassable.
 
 ## Use Cases
 
 ### Zero-Warning Compilation Enforcement
 
-The [zero-warning policy](/glossary/zero-warning-policy/) demonstrates enforcement at its most straightforward: `mix compile --warnings-as-errors --force` must complete without warnings. Any warning -- unused variable, missing `@impl`, deprecated function -- blocks the commit.
+The [zero-warning policy](@/glossary/zero-warning-policy.md) demonstrates enforcement at its most straightforward: `mix compile --warnings-as-errors --force` must complete without warnings. Any warning -- unused variable, missing `@impl`, deprecated function -- blocks the commit.
 
 ### Forbidden Pattern Prevention
 
@@ -490,24 +490,24 @@ The NM/ND enforcement policy ensures that the platform's philosophical foundatio
 
 Enforcement policies connect to the broader quality and governance ecosystem:
 
-- [Policy](/glossary/policy/) -- The parent concept; enforcement policies are a specific type of policy with blocking authority
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- The doctrinal foundation that enforcement policies operationalize
-- [Quality Gate](/glossary/quality-gate/) -- The automated check mechanism that implements enforcement policies
-- [Violation Protocol](/glossary/violation-protocol/) -- The escalation framework for different severity levels
-- [Clean Run](/glossary/clean-run/) -- The requirement that all enforcement checks pass without warnings or errors
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- A specific enforcement policy targeting compilation warnings
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- The git-level mechanism for pre-commit enforcement
-- [Regression Testing](/glossary/regression-testing/) -- Enforcement through test coverage of previously fixed bugs
-- [Audit Trail](/glossary/audit-trail/) -- Recording enforcement decisions for compliance and review
-- [Axiom Enforcement](/glossary/axiom-enforcement/) -- Enforcing the NABLA epistemic axioms
+- [Policy](@/glossary/policy.md) -- The parent concept; enforcement policies are a specific type of policy with blocking authority
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- The doctrinal foundation that enforcement policies operationalize
+- [Quality Gate](@/glossary/quality-gate.md) -- The automated check mechanism that implements enforcement policies
+- [Violation Protocol](@/glossary/violation-protocol.md) -- The escalation framework for different severity levels
+- [Clean Run](@/glossary/clean-run.md) -- The requirement that all enforcement checks pass without warnings or errors
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- A specific enforcement policy targeting compilation warnings
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- The git-level mechanism for pre-commit enforcement
+- [Regression Testing](@/glossary/regression-testing.md) -- Enforcement through test coverage of previously fixed bugs
+- [Audit Trail](@/glossary/audit-trail.md) -- Recording enforcement decisions for compliance and review
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) -- Enforcing the NABLA epistemic axioms
 
 ## See Also
 
 - Glossary Index -- Complete glossary of Prismatic Platform terminology
-- [AIAD](/glossary/aiad/) -- The agent standard that includes enforcement specifications
-- [Autonomous Quality](/glossary/autonomous-quality/) -- Self-managing quality systems built on enforcement policies
-- [Credo](/glossary/clean-run/) -- Static analysis tool integrated into enforcement pipeline
-- [Supervision](/glossary/supervision/) -- OTP fault tolerance as a form of runtime enforcement
+- [AIAD](@/glossary/aiad.md) -- The agent standard that includes enforcement specifications
+- [Autonomous Quality](@/glossary/autonomous-quality.md) -- Self-managing quality systems built on enforcement policies
+- [Credo](@/glossary/clean-run.md) -- Static analysis tool integrated into enforcement pipeline
+- [Supervision](@/glossary/supervision.md) -- OTP fault tolerance as a form of runtime enforcement
 
 ---
 
@@ -516,4 +516,4 @@ Enforcement policies connect to the broader quality and governance ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

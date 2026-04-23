@@ -27,7 +27,7 @@ image_alt = "Shodan - Prismatic Platform"
 
 Shodan is the world's first and most widely used search engine for internet-connected devices. Created by John Matherly in 2009, Shodan continuously scans the entire IPv4 address space and increasingly the IPv6 space, indexing the services running on every reachable device -- from web servers and databases to IoT devices, industrial control systems, and network infrastructure. Unlike traditional search engines that crawl web content, Shodan indexes service banners: the metadata that services announce when a connection is established.
 
-For [OSINT](/glossary/osint/) investigators and security professionals, Shodan is indispensable for [attack surface](/glossary/attack-surface/) discovery, vulnerability assessment, and infrastructure intelligence. It reveals not just which devices are connected to the internet, but what software they run, what ports they expose, whether they have known vulnerabilities, and how their configurations have changed over time. A single Shodan query can reveal exposed databases, misconfigured cloud services, unpatched industrial control systems, and forgotten development servers that represent significant security risks.
+For [OSINT](@/glossary/osint.md) investigators and security professionals, Shodan is indispensable for [attack surface](@/glossary/attack-surface.md) discovery, vulnerability assessment, and infrastructure intelligence. It reveals not just which devices are connected to the internet, but what software they run, what ports they expose, whether they have known vulnerabilities, and how their configurations have changed over time. A single Shodan query can reveal exposed databases, misconfigured cloud services, unpatched industrial control systems, and forgotten development servers that represent significant security risks.
 
 Shodan's scanning infrastructure consists of distributed scanners that probe every public IPv4 address on hundreds of ports, performing protocol-specific handshakes to identify the running service and extract its banner. This banner data includes software versions, configuration details, SSL certificate information, and sometimes even default credentials or error messages that reveal internal system details. The resulting database contains billions of data points about the internet's infrastructure, updated continuously as Shodan's scanners complete their cycles.
 
@@ -41,7 +41,7 @@ Shodan's scanners operate continuously, probing the entire IPv4 address space on
 |-----------|-------------|-----------------|
 | **Open Ports** | All detected open ports and services | Continuous scanning |
 | **Service Banners** | Protocol-specific banner data with version information | Per-scan cycle |
-| **SSL/[TLS](/glossary/tls/) Certificates** | Full certificate details, chain analysis, and security assessment | Continuous |
+| **SSL/[TLS](@/glossary/tls.md) Certificates** | Full certificate details, chain analysis, and security assessment | Continuous |
 | **Vulnerabilities** | Known CVEs affecting the detected software version | Matched against NVD |
 | **Geolocation** | Country, city, latitude/longitude, ISP, ASN | Per IP update |
 | **Operating System** | OS fingerprinting from banner and behavior analysis | Per-scan detection |
@@ -302,12 +302,12 @@ Shodan's honeypot scoring API uses behavioral analysis to estimate whether a sys
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
 | **Scan cycle timing** | Not real-time; scan cycles take days to weeks | Use on-demand scanning for time-sensitive needs |
-| **IPv6 coverage** | Limited IPv6 scanning compared to IPv4 | Supplement with [Censys](/osint/censys/) for IPv6 coverage |
+| **IPv6 coverage** | Limited IPv6 scanning compared to IPv4 | Supplement with [Censys](@/osint/censys.md) for IPv6 coverage |
 | **Free tier limits** | 100 queries/month and no filters severely limits utility | Membership ($49 one-time) provides significant upgrade |
 | **Banner depth** | Service identification depends on banner quality | Some services may be misidentified or unidentified |
 | **Firewall evasion** | Cannot detect services behind firewalls or WAFs | Combine with authorized internal scanning |
 | **False positive CVEs** | Vulnerability matching based on version strings may be inaccurate | Verify vulnerabilities with active scanning tools |
-| **No application-layer testing** | Identifies software but does not test for application-level bugs | Supplement with [Nuclei](/osint/nuclei/) for application testing |
+| **No application-layer testing** | Identifies software but does not test for application-level bugs | Supplement with [Nuclei](@/osint/nuclei.md) for application testing |
 
 ## Legal and Ethical Considerations
 
@@ -321,14 +321,14 @@ Shodan's honeypot scoring API uses behavioral analysis to estimate whether a sys
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), Shodan serves as the primary internet scanning intelligence source for infrastructure discovery and vulnerability assessment.
+Within the [Prismatic Platform](@/apps/prismatic.md), Shodan serves as the primary internet scanning intelligence source for infrastructure discovery and vulnerability assessment.
 
-- **Perimeter EASM**: Shodan data feeds [Prismatic Perimeter](/apps/prismatic-perimeter/) with service-level intelligence for all discovered IP addresses, complementing DNS-level discovery from [SecurityTrails](/osint/securitytrails/).
-- **Vulnerability Dashboard**: Shodan CVE data is correlated with [NVD](/osint/nvd/) and [OSV.dev](/osint/osv-dev/) to build comprehensive vulnerability profiles for monitored infrastructure.
+- **Perimeter EASM**: Shodan data feeds [Prismatic Perimeter](@/apps/prismatic-perimeter.md) with service-level intelligence for all discovered IP addresses, complementing DNS-level discovery from [SecurityTrails](@/osint/securitytrails.md).
+- **Vulnerability Dashboard**: Shodan CVE data is correlated with [NVD](@/osint/nvd.md) and [OSV.dev](@/osint/osv-dev.md) to build comprehensive vulnerability profiles for monitored infrastructure.
 - **Security Ratings**: Service exposure data from Shodan contributes to the platform's A-F security rating calculations for assessed organizations.
-- **Infrastructure Graphing**: Shodan host data feeds the platform's [knowledge graph](/glossary/knowledge-graph/), mapping relationships between IPs, services, certificates, and organizations.
+- **Infrastructure Graphing**: Shodan host data feeds the platform's [knowledge graph](@/glossary/knowledge-graph.md), mapping relationships between IPs, services, certificates, and organizations.
 - **Alert Monitoring**: Shodan monitoring alerts are integrated into the Perimeter dashboard for real-time notification of infrastructure changes.
-- **Cross-Scanner Validation**: Shodan findings are correlated with [Censys](/osint/censys/), [ZoomEye](/osint/zoomeye/), and [BinaryEdge](/osint/binaryedge/) for multi-source infrastructure intelligence.
+- **Cross-Scanner Validation**: Shodan findings are correlated with [Censys](@/osint/censys.md), [ZoomEye](@/osint/zoomeye.md), and [BinaryEdge](@/osint/binaryedge.md) for multi-source infrastructure intelligence.
 
 ## Best Practices
 
@@ -344,20 +344,20 @@ Within the [Prismatic Platform](/apps/prismatic/), Shodan serves as the primary 
 
 6. **Check the honeypot score**: Before spending time investigating a suspicious host, check its honeypot probability to avoid wasting effort on decoys.
 
-7. **Combine with DNS intelligence**: Use [SecurityTrails](/osint/securitytrails/) to discover domains and subdomains, then feed resolved IPs into Shodan for service-level intelligence.
+7. **Combine with DNS intelligence**: Use [SecurityTrails](@/osint/securitytrails.md) to discover domains and subdomains, then feed resolved IPs into Shodan for service-level intelligence.
 
 8. **Track historical changes**: Shodan's historical data (paid feature) reveals how a host's services and configurations have changed over time, which is invaluable for incident investigation.
 
 ## Related Providers
 
-- [Censys](/osint/censys/) - Internet-wide scanning with certificate intelligence
-- [ZoomEye](/osint/zoomeye/) - Chinese internet scanning with Asia-Pacific coverage
-- [BinaryEdge](/osint/binaryedge/) - Internet scanning with data leak detection
-- [GreyNoise](/osint/greynoise/) - Distinguish scanners from targeted attacks
-- [ONYPHE](/osint/onyphe/) - French cyber defense with European focus
-- [Netlas](/osint/netlas/) - Internet intelligence with response-level search
-- [SecurityTrails](/osint/securitytrails/) - DNS intelligence to feed IP discovery
-- [Nuclei](/osint/nuclei/) - Template-based vulnerability validation for Shodan findings
+- [Censys](@/osint/censys.md) - Internet-wide scanning with certificate intelligence
+- [ZoomEye](@/osint/zoomeye.md) - Chinese internet scanning with Asia-Pacific coverage
+- [BinaryEdge](@/osint/binaryedge.md) - Internet scanning with data leak detection
+- [GreyNoise](@/osint/greynoise.md) - Distinguish scanners from targeted attacks
+- [ONYPHE](@/osint/onyphe.md) - French cyber defense with European focus
+- [Netlas](@/osint/netlas.md) - Internet intelligence with response-level search
+- [SecurityTrails](@/osint/securitytrails.md) - DNS intelligence to feed IP discovery
+- [Nuclei](@/osint/nuclei.md) - Template-based vulnerability validation for Shodan findings
 
 ---
 
@@ -366,4 +366,4 @@ Within the [Prismatic Platform](/apps/prismatic/), Shodan serves as the primary 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

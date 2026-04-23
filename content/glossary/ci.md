@@ -317,7 +317,7 @@ end
 
 ### Pre-Commit Hook Integration
 
-CI pipelines run on remote servers after code is pushed, but the Prismatic Platform implements a complementary "shift-left" strategy with comprehensive [pre-commit hooks](/glossary/pre-commit-hooks/) that catch issues before they even reach the repository:
+CI pipelines run on remote servers after code is pushed, but the Prismatic Platform implements a complementary "shift-left" strategy with comprehensive [pre-commit hooks](@/glossary/pre-commit-hooks.md) that catch issues before they even reach the repository:
 
 ```elixir
 defmodule Prismatic.CI.PreCommitOrchestrator do
@@ -389,7 +389,7 @@ The Prismatic Platform operates a comprehensive CI system that embodies the NO M
 The platform uses GitLab CI/CD as its primary CI system. The pipeline configuration reflects the multi-stage verification approach with strict ordering and no-failure policies. Key characteristics:
 
 - **Zero-warning compilation**: `mix compile --warnings-as-errors --force` ensures that compiler warnings are treated as build failures
-- **Strict static analysis**: [Credo](/glossary/credo/) runs in strict mode, [Dialyzer](/glossary/dialyzer/) validates type contracts across the entire 115-app umbrella
+- **Strict static analysis**: [Credo](@/glossary/credo.md) runs in strict mode, [Dialyzer](@/glossary/dialyzer.md) validates type contracts across the entire 115-app umbrella
 - **Quality gates**: `mix quality.gates` enforces 13 quality domains, all of which must score 100%
 - **Test coverage**: Minimum 80% coverage threshold with per-module enforcement
 - **Forbidden pattern detection**: Automated scanning for mocks, stubs, placeholders, TODOs, and other violations of the platform's quality standard
@@ -478,34 +478,34 @@ The Prismatic Platform publishes 4 open-source packages. CI pipelines for these 
 
 ### Security-Critical Changes
 
-Changes to [authentication](/glossary/authentication/), [authorization](/glossary/authorization/), or [encryption](/glossary/encryption/) modules trigger enhanced CI pipelines that include security-specific checks: dependency vulnerability scanning, static security analysis, and automated penetration test suites.
+Changes to [authentication](@/glossary/authentication.md), [authorization](@/glossary/authorization.md), or [encryption](@/glossary/encryption.md) modules trigger enhanced CI pipelines that include security-specific checks: dependency vulnerability scanning, static security analysis, and automated penetration test suites.
 
 ### Production Deployment
 
-The CI pipeline extends into [continuous deployment](/glossary/continuous-deployment/) for the Prismatic Platform's Fly.io infrastructure. After all quality gates pass, the pipeline automatically deploys to the staging environment. Production deployment requires an additional manual approval step, but the CI pipeline ensures that only verified code reaches the deployment stage.
+The CI pipeline extends into [continuous deployment](@/glossary/continuous-deployment.md) for the Prismatic Platform's Fly.io infrastructure. After all quality gates pass, the pipeline automatically deploys to the staging environment. Production deployment requires an additional manual approval step, but the CI pipeline ensures that only verified code reaches the deployment stage.
 
 ## Related Concepts
 
 Continuous Integration connects to numerous concepts across the development and operations spectrum:
 
-- [CI/CD](/glossary/ci-cd/) -- The broader practice that combines Continuous Integration with Continuous Delivery/Deployment into an end-to-end automation pipeline
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Local validation that complements CI by catching issues before code reaches the remote repository
-- [Quality Gates](/glossary/quality-gates/) -- Automated checkpoints that enforce quality standards as blocking conditions in the CI pipeline
-- [Static Analysis](/glossary/static-analysis/) -- Automated code analysis (Credo, Dialyzer) integrated as CI pipeline stages to enforce code quality standards
-- [Testing](/glossary/testing/) -- Automated test suites that run within CI pipelines to verify functional correctness and detect regressions
-- [Credo](/glossary/credo/) -- Elixir static analysis tool that enforces code consistency and detects anti-patterns as a CI quality gate
-- [Dialyzer](/glossary/dialyzer/) -- Erlang/Elixir type checker that verifies type contracts across the codebase as a CI pipeline stage
-- [GitLab CI](/glossary/gitlab-ci/) -- The specific CI/CD platform used by Prismatic Platform for pipeline execution and deployment
-- [Compilation](/glossary/compilation/) -- The first CI pipeline stage that verifies code compiles without errors or warnings
-- [Continuous Deployment](/glossary/continuous-deployment/) -- The practice of automatically deploying verified code to production, extending CI into the deployment phase
+- [CI/CD](@/glossary/ci-cd.md) -- The broader practice that combines Continuous Integration with Continuous Delivery/Deployment into an end-to-end automation pipeline
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Local validation that complements CI by catching issues before code reaches the remote repository
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated checkpoints that enforce quality standards as blocking conditions in the CI pipeline
+- [Static Analysis](@/glossary/static-analysis.md) -- Automated code analysis (Credo, Dialyzer) integrated as CI pipeline stages to enforce code quality standards
+- [Testing](@/glossary/testing.md) -- Automated test suites that run within CI pipelines to verify functional correctness and detect regressions
+- [Credo](@/glossary/credo.md) -- Elixir static analysis tool that enforces code consistency and detects anti-patterns as a CI quality gate
+- [Dialyzer](@/glossary/dialyzer.md) -- Erlang/Elixir type checker that verifies type contracts across the codebase as a CI pipeline stage
+- [GitLab CI](@/glossary/gitlab-ci.md) -- The specific CI/CD platform used by Prismatic Platform for pipeline execution and deployment
+- [Compilation](@/glossary/compilation.md) -- The first CI pipeline stage that verifies code compiles without errors or warnings
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- The practice of automatically deploying verified code to production, extending CI into the deployment phase
 
 ## See Also
 
-- [Quality Gate](/glossary/quality-gate/) -- Individual quality checks that compose the CI quality enforcement system
-- [Regression Testing](/glossary/regression-testing/) -- Test category specifically designed to prevent reintroduction of fixed bugs
-- [Code Quality](/glossary/code-quality/) -- The broader concept of maintaining code standards that CI helps enforce
-- [GitOps](/glossary/gitops/) -- Infrastructure management paradigm that extends CI principles to operational configurations
-- [Docker](/glossary/docker/) -- Containerization technology used to create reproducible CI execution environments
+- [Quality Gate](@/glossary/quality-gate.md) -- Individual quality checks that compose the CI quality enforcement system
+- [Regression Testing](@/glossary/regression-testing.md) -- Test category specifically designed to prevent reintroduction of fixed bugs
+- [Code Quality](@/glossary/code-quality.md) -- The broader concept of maintaining code standards that CI helps enforce
+- [GitOps](@/glossary/gitops.md) -- Infrastructure management paradigm that extends CI principles to operational configurations
+- [Docker](@/glossary/docker.md) -- Containerization technology used to create reproducible CI execution environments
 
 ---
 
@@ -514,4 +514,4 @@ Continuous Integration connects to numerous concepts across the development and 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

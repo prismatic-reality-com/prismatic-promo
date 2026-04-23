@@ -28,9 +28,9 @@ image_alt = "mobile-security-specialist - Prismatic Platform"
 
 ## Overview
 
-The mobile-security-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's infrastructure domain, responsible for assessing mobile application security posture, enforcing secure coding practices, and identifying vulnerabilities in mobile API communication patterns. This agent evaluates mobile applications from both static analysis (code review, binary analysis) and dynamic analysis (runtime behavior, network traffic, data storage) perspectives, producing comprehensive security assessments that map to industry frameworks including OWASP Mobile Application Security Verification Standard (MASVS) and the Mobile Top 10.
+The mobile-security-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's infrastructure domain, responsible for assessing mobile application security posture, enforcing secure coding practices, and identifying vulnerabilities in mobile API communication patterns. This agent evaluates mobile applications from both static analysis (code review, binary analysis) and dynamic analysis (runtime behavior, network traffic, data storage) perspectives, producing comprehensive security assessments that map to industry frameworks including OWASP Mobile Application Security Verification Standard (MASVS) and the Mobile Top 10.
 
-Built on the [AIAD](/glossary/aiad/) standard, the mobile-security-specialist integrates with the platform's [OSINT](/glossary/osint/) infrastructure to correlate mobile application intelligence with broader [attack surface](/glossary/attack-surface/) analysis through the [EASM](/glossary/easm/) framework. The [NO MERCY](/glossary/no-mercy/) doctrine applies to mobile security findings: critical vulnerabilities trigger immediate escalation and no mobile-facing API is deployed without passing security validation gates.
+Built on the [AIAD](@/glossary/aiad.md) standard, the mobile-security-specialist integrates with the platform's [OSINT](@/glossary/osint.md) infrastructure to correlate mobile application intelligence with broader [attack surface](@/glossary/attack-surface.md) analysis through the [EASM](@/glossary/easm.md) framework. The [NO MERCY](@/glossary/no-mercy.md) doctrine applies to mobile security findings: critical vulnerabilities trigger immediate escalation and no mobile-facing API is deployed without passing security validation gates.
 
 ## Operational Domain
 
@@ -51,8 +51,8 @@ The mobile security domain covers the full spectrum of mobile application securi
 - **Mobile API security validation** -- Tests mobile-facing API endpoints for authentication bypass, authorization escalation, rate limiting effectiveness, and input validation vulnerabilities using automated test suites
 - **Binary analysis** -- Examines compiled mobile application binaries for hardcoded secrets, debug symbols, obfuscation effectiveness, and reverse engineering susceptibility
 - **Transport security verification** -- Validates TLS configurations, certificate pinning implementations, and network security policies to prevent man-in-the-middle attacks
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed security scanning cycles and vulnerability tracking
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing mobile security posture metrics and vulnerability discovery events
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed security scanning cycles and vulnerability tracking
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing mobile security posture metrics and vulnerability discovery events
 
 ## Security Assessment Framework
 
@@ -128,7 +128,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to block mobile API deployments that fail security validation and escalate critical findings to platform security governance.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to block mobile API deployments that fail security validation and escalate critical findings to platform security governance.
 
 ## Command Interface
 
@@ -142,10 +142,10 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [security-audit-specialist](/agents/security-audit-specialist/) | Integrates mobile findings into broader security audit reports |
-| [security-operations-specialist](/agents/security-operations-specialist/) | Escalates critical mobile vulnerabilities to security operations |
-| [performance-benchmarking-agent](/agents/performance-benchmarking-agent/) | Validates that security measures do not degrade mobile API performance |
-| [code-quality-commander](/agents/code-quality-commander/) | Enforces secure coding standards on mobile-facing code |
+| [security-audit-specialist](@/agents/security-audit-specialist.md) | Integrates mobile findings into broader security audit reports |
+| [security-operations-specialist](@/agents/security-operations-specialist.md) | Escalates critical mobile vulnerabilities to security operations |
+| [performance-benchmarking-agent](@/agents/performance-benchmarking-agent.md) | Validates that security measures do not degrade mobile API performance |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Enforces secure coding standards on mobile-facing code |
 
 ## Assessment Methodology
 
@@ -169,11 +169,11 @@ Assessment findings are compiled into a structured report that maps each finding
 
 ## API Security Integration
 
-The mobile-security-specialist integrates with the platform's [EASM](/glossary/easm/) framework to provide continuous security monitoring of mobile-facing API endpoints. This integration enables detection of API changes that might introduce security regressions, monitoring of API authentication patterns for anomalies, and correlation of mobile client behavior with server-side security events. API endpoints serving mobile clients receive enhanced scrutiny due to the additional attack vectors that mobile environments introduce, including root/jailbreak detection bypass, certificate pinning circumvention, and client-side authorization manipulation.
+The mobile-security-specialist integrates with the platform's [EASM](@/glossary/easm.md) framework to provide continuous security monitoring of mobile-facing API endpoints. This integration enables detection of API changes that might introduce security regressions, monitoring of API authentication patterns for anomalies, and correlation of mobile client behavior with server-side security events. API endpoints serving mobile clients receive enhanced scrutiny due to the additional attack vectors that mobile environments introduce, including root/jailbreak detection bypass, certificate pinning circumvention, and client-side authorization manipulation.
 
 ## Enforcement
 
-All mobile security assessments comply with the [NO MERCY](/glossary/no-mercy/) doctrine: critical vulnerabilities (CVSS 9.0+) trigger immediate API endpoint suspension, high-severity findings require remediation within 24 hours, and no mobile-facing release proceeds without a passing MASVS assessment. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all vulnerability findings include reproducible proof-of-concept evidence and are validated through [Trinity Gate](/glossary/trinity-gate/) before publication to prevent false positives.
+All mobile security assessments comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: critical vulnerabilities (CVSS 9.0+) trigger immediate API endpoint suspension, high-severity findings require remediation within 24 hours, and no mobile-facing release proceeds without a passing MASVS assessment. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all vulnerability findings include reproducible proof-of-concept evidence and are validated through [Trinity Gate](@/glossary/trinity-gate.md) before publication to prevent false positives.
 
 ---
 
@@ -182,4 +182,4 @@ All mobile security assessments comply with the [NO MERCY](/glossary/no-mercy/) 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

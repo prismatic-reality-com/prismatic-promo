@@ -18,7 +18,7 @@ see_also = ["ecto", "acid-transactions", "postgresql", "audit-trail", "invariant
 image_alt = "Ecto.Multi for Audit-Safe Writes"
 +++
 
-A DD case moves from "draft" to "in review". That one user click writes to the case table, inserts a state-transition row, appends to an audit log, updates a counter, and sends a PubSub broadcast. Five writes. Zero room for a partial failure. This is exactly the problem [Ecto](/glossary/ecto) `Multi` was built to solve — and the problem most codebases solve badly.
+A DD case moves from "draft" to "in review". That one user click writes to the case table, inserts a state-transition row, appends to an audit log, updates a counter, and sends a PubSub broadcast. Five writes. Zero room for a partial failure. This is exactly the problem [Ecto](@/glossary/ecto.md) `Multi` was built to solve — and the problem most codebases solve badly.
 
 ## The bad shape
 
@@ -64,9 +64,9 @@ Everything is atomic. If `:updated` fails because of a concurrent update, `:tran
 
 ## Invariants live in the Multi
 
-The [invariant](/glossary/invariant) "every state change has an audit row" is encoded in the Multi itself. You cannot skip the audit row because you cannot commit the state change without it. That is worlds better than a code review comment saying "remember to log state changes."
+The [invariant](@/glossary/invariant.md) "every state change has an audit row" is encoded in the Multi itself. You cannot skip the audit row because you cannot commit the state change without it. That is worlds better than a code review comment saying "remember to log state changes."
 
-This is also how you get [ACID](/glossary/acid-transactions) guarantees on aggregates without inventing an event-sourcing cathedral. Postgres already does the hard part; Multi just exposes it.
+This is also how you get [ACID](@/glossary/acid-transactions.md) guarantees on aggregates without inventing an event-sourcing cathedral. Postgres already does the hard part; Multi just exposes it.
 
 ## The one rule
 
@@ -78,6 +78,6 @@ The day someone adds a bare `Repo.insert` alongside a Multi is the day the audit
 
 - **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — when to reach for Multi
 - **Academy**: [DD Investigation](/academy/learn/dd-investigation) — how cases use Multi for state transitions
-- **Glossary**: [Ecto](/glossary/ecto), [ACID Transactions](/glossary/acid-transactions), [PostgreSQL](/glossary/postgresql), [Audit Trail](/glossary/audit-trail), [Invariant](/glossary/invariant)
+- **Glossary**: [Ecto](@/glossary/ecto.md), [ACID Transactions](@/glossary/acid-transactions.md), [PostgreSQL](@/glossary/postgresql.md), [Audit Trail](@/glossary/audit-trail.md), [Invariant](@/glossary/invariant.md)
 
 The transaction is the audit trail. Treat it that way and a whole class of bugs stops existing.

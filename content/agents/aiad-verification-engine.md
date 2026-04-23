@@ -28,15 +28,15 @@ image_alt = "aiad-verification-engine - Prismatic Platform"
 
 ## Overview
 
-The [AIAD](/glossary/aiad/) Verification Engine operates as an L4 domain specialist agent within the Infrastructure domain of the Prismatic Platform. This agent validates the structural integrity, semantic correctness, and schema compliance of all AIAD agent specifications, command definitions, pipeline configurations, and policy documents. Every artifact in the AIAD ecosystem must pass verification before it can be registered, deployed, or referenced by other agents.
+The [AIAD](@/glossary/aiad.md) Verification Engine operates as an L4 domain specialist agent within the Infrastructure domain of the Prismatic Platform. This agent validates the structural integrity, semantic correctness, and schema compliance of all AIAD agent specifications, command definitions, pipeline configurations, and policy documents. Every artifact in the AIAD ecosystem must pass verification before it can be registered, deployed, or referenced by other agents.
 
-Verification in the AIAD ecosystem encompasses multiple dimensions. Structural validation ensures that manifest files conform to the AIAD schema with all required fields present and correctly typed. Semantic validation checks that referenced agents, commands, and capabilities actually exist and that dependency declarations form a valid directed acyclic graph. Cross-reference validation confirms that agent coordination tables reference agents that exist in the [registry](/glossary/registry-otp/) and that authority level claims are consistent with the agent's domain classification.
+Verification in the AIAD ecosystem encompasses multiple dimensions. Structural validation ensures that manifest files conform to the AIAD schema with all required fields present and correctly typed. Semantic validation checks that referenced agents, commands, and capabilities actually exist and that dependency declarations form a valid directed acyclic graph. Cross-reference validation confirms that agent coordination tables reference agents that exist in the [registry](@/glossary/registry-otp.md) and that authority level claims are consistent with the agent's domain classification.
 
-The verification engine serves as the quality gate for the AIAD specification layer. Without rigorous verification, the autonomous evolution cycles driven by the [AIAD Auto-Evolution Supreme](/agents/aiad-auto-evolution-supreme/) could propagate specification errors across the ecosystem. The verification engine prevents this by enforcing schema compliance at every specification state transition: creation, modification, deployment, and hot reload. This continuous verification transforms the AIAD ecosystem from a collection of individual specification files into a formally validated knowledge base with guaranteed structural integrity.
+The verification engine serves as the quality gate for the AIAD specification layer. Without rigorous verification, the autonomous evolution cycles driven by the [AIAD Auto-Evolution Supreme](@/agents/aiad-auto-evolution-supreme.md) could propagate specification errors across the ecosystem. The verification engine prevents this by enforcing schema compliance at every specification state transition: creation, modification, deployment, and hot reload. This continuous verification transforms the AIAD ecosystem from a collection of individual specification files into a formally validated knowledge base with guaranteed structural integrity.
 
 ## Architecture
 
-The Verification Engine is implemented as a [GenServer](/glossary/genserver/) process within the `prismatic_agents` [supervision tree](/glossary/supervision-tree/). It maintains a verification cache in [ETS](/glossary/ets/) for previously verified specifications and uses the AIAD schema definition as the canonical reference for structural validation.
+The Verification Engine is implemented as a [GenServer](@/glossary/genserver.md) process within the `prismatic_agents` [supervision tree](@/glossary/supervision-tree.md). It maintains a verification cache in [ETS](@/glossary/ets.md) for previously verified specifications and uses the AIAD schema definition as the canonical reference for structural validation.
 
 The architecture separates verification into three independent validation passes that can execute in parallel. The structural pass validates YAML syntax, required fields, data types, and enumeration values against the schema. The semantic pass validates cross-references, dependency declarations, and authority level consistency. The ecosystem pass validates that the specification integrates correctly with the existing registry -- no dangling references, no circular dependencies, no authority level contradictions.
 
@@ -50,7 +50,7 @@ The periodic ecosystem scan runs a complete verification of all registered speci
 - **Cross-reference integrity checking** that validates all agent references, command links, capability claims, and coordination table entries resolve to existing ecosystem artifacts
 - **Dependency graph analysis** ensuring that agent dependency declarations form a valid DAG with no circular references, missing dependencies, or version conflicts
 - **Behavioral rule verification** that confirms agent specifications include all required behavioral rules, escalation paths, and doctrine compliance declarations
-- **Continuous ecosystem scanning** with periodic full-ecosystem verification runs that detect specification drift, orphaned references, and consistency violations across the entire [agent registry](/glossary/agent-registry/)
+- **Continuous ecosystem scanning** with periodic full-ecosystem verification runs that detect specification drift, orphaned references, and consistency violations across the entire [agent registry](@/glossary/agent-registry.md)
 - **Verification caching** with content-hash-based cache keys that enable instant re-verification of unchanged specifications while guaranteeing fresh validation for modified artifacts
 
 ## Implementation
@@ -136,12 +136,12 @@ The verification cache uses content-based hashing (SHA-256 of the specification 
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [aiad-deployment-engine](/agents/aiad-deployment-engine/) | Pre-deploy Gate | Validates deployment artifacts before [release](/glossary/release/) pipeline execution |
-| [aiad-backup-manager](/agents/aiad-backup-manager/) | Backup Validator | Verifies backup integrity by validating restored specifications |
-| [aiad-hot-reload-coordinator](/agents/aiad-hot-reload-coordinator/) | Reload Gate | Validates specifications before hot reload execution |
-| [agent-discovery-specialist](/agents/agent-discovery-specialist/) | Registration Gate | Validates specifications during registry registration |
-| [aiad-auto-evolution-supreme](/agents/aiad-auto-evolution-supreme/) | Evolution Gate | Validates specification mutations before ecosystem deployment |
-| [aiad-ecosystem-improver](/agents/aiad-ecosystem-improver/) | Improvement Gate | Validates improvement candidates before application |
+| [aiad-deployment-engine](@/agents/aiad-deployment-engine.md) | Pre-deploy Gate | Validates deployment artifacts before [release](@/glossary/release.md) pipeline execution |
+| [aiad-backup-manager](@/agents/aiad-backup-manager.md) | Backup Validator | Verifies backup integrity by validating restored specifications |
+| [aiad-hot-reload-coordinator](@/agents/aiad-hot-reload-coordinator.md) | Reload Gate | Validates specifications before hot reload execution |
+| [agent-discovery-specialist](@/agents/agent-discovery-specialist.md) | Registration Gate | Validates specifications during registry registration |
+| [aiad-auto-evolution-supreme](@/agents/aiad-auto-evolution-supreme.md) | Evolution Gate | Validates specification mutations before ecosystem deployment |
+| [aiad-ecosystem-improver](@/agents/aiad-ecosystem-improver.md) | Improvement Gate | Validates improvement candidates before application |
 
 ## Operational Workflow
 
@@ -149,7 +149,7 @@ The verification engine operates in two modes: on-demand verification for indivi
 
 **On-Demand Verification.** When an agent specification is created, modified, or presented for deployment, the verification engine is invoked synchronously. The three-pass pipeline (structural, semantic, ecosystem) executes in sequence. A failure in any pass produces a structured error report with specific field-level details. The requesting system receives either a verification certificate (on success) or a detailed failure report (on failure).
 
-**Ecosystem Scanning.** Every 2 hours, the verification engine executes a complete scan of all registered specifications. This scan catches consistency violations that individual specification verification cannot detect: agents that were valid when registered but became invalid due to subsequent changes in their dependencies, authority hierarchy, or coordination partners. Ecosystem scan failures trigger notifications to the [alert-management-specialist](/agents/alert-management-specialist/) for investigation.
+**Ecosystem Scanning.** Every 2 hours, the verification engine executes a complete scan of all registered specifications. This scan catches consistency violations that individual specification verification cannot detect: agents that were valid when registered but became invalid due to subsequent changes in their dependencies, authority hierarchy, or coordination partners. Ecosystem scan failures trigger notifications to the [alert-management-specialist](@/agents/alert-management-specialist.md) for investigation.
 
 **Cache Management.** Verification results are cached with content-hash keys. When a specification is presented for verification, the engine computes its content hash and checks the cache. Cache hits return immediately without re-executing the validation pipeline. Cache entries are invalidated automatically when ecosystem scans detect that external changes have affected the specification's validity context.
 
@@ -190,12 +190,12 @@ The AIAD specification at `.aiad/agents/aiad-verification-engine.agent.md` defin
 
 ## Related Resources
 
-- [AIAD Standard](/capabilities/aiad-standard/) -- Specification standard defining the verification schema
-- [Agent Registry](/registry/) -- Registry whose integrity is maintained by verification
-- [Architecture Overview](/architecture/) -- Platform architecture including verification layer
-- [Trinity Gate](/glossary/trinity-gate/) -- Multi-layer validation system complementing specification verification
-- [Applications](/apps/) -- Platform applications with agent specifications under verification
-- [Glossary](/glossary/) -- Technical terminology and concepts
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Specification standard defining the verification schema
+- [Agent Registry](@/registry/_index.md) -- Registry whose integrity is maintained by verification
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including verification layer
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Multi-layer validation system complementing specification verification
+- [Applications](@/apps/_index.md) -- Platform applications with agent specifications under verification
+- [Glossary](@/glossary/_index.md) -- Technical terminology and concepts
 
 ---
 
@@ -204,4 +204,4 @@ The AIAD specification at `.aiad/agents/aiad-verification-engine.agent.md` defin
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,7 +26,7 @@ image_alt = "/genetic-evolve - Prismatic Platform"
 
 **/genetic-evolve** is a production command in the **Evolution** category of the Prismatic Platform that applies genetic algorithm principles to systematically improve platform quality across three critical dimensions: type specification coverage (`@spec`), test coverage, and documentation completeness (`@doc`/`@moduledoc`). Rather than relying on manual identification of improvement targets, this command treats quality improvement as an optimization problem and applies evolutionary strategies to converge on maximum coverage across the entire codebase.
 
-The command operates under the **L3** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level grants the evolution-orchestrator the ability to create and modify files across the platform, subject to quality gate validation before any changes are committed.
+The command operates under the **L3** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level grants the evolution-orchestrator the ability to create and modify files across the platform, subject to quality gate validation before any changes are committed.
 
 The genetic evolution metaphor is implemented literally: quality improvements are treated as a population of candidate changes, each evaluated for fitness against the platform's quality metrics. The fittest candidates -- those that improve coverage metrics without introducing regressions -- survive and are applied, while ineffective candidates are discarded. Over successive generations, this process converges on optimal coverage across all three dimensions.
 
@@ -160,14 +160,14 @@ Population Init --> Fitness Evaluation --> Selection --> Mutation --> Quality Ga
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Invoked by `evolution-orchestrator` agent |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Every evolved change must pass quality gates |
-| [Credo](/glossary/credo/) | Static Analysis | Evolved code must pass Credo strict mode |
-| [Telemetry](/glossary/telemetry/) | Metrics | Evolution metrics tracked as telemetry events |
-| [Quality DNA](/glossary/quality-dna/) | History | Evolution history persisted in quality DNA |
-| [SEADF](/glossary/seadf/) | Framework | Genetic evolution is a component of the SEADF pipeline |
-| [/evolve](/commands/evolve/) | Parent | Part of the broader evolution command family |
-| [/quality-gates](/commands/quality-gates/) | Enforcement | Quality gates validate evolution outputs |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Invoked by `evolution-orchestrator` agent |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Every evolved change must pass quality gates |
+| [Credo](@/glossary/credo.md) | Static Analysis | Evolved code must pass Credo strict mode |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Evolution metrics tracked as telemetry events |
+| [Quality DNA](@/glossary/quality-dna.md) | History | Evolution history persisted in quality DNA |
+| [SEADF](@/glossary/seadf.md) | Framework | Genetic evolution is a component of the SEADF pipeline |
+| [/evolve](@/commands/evolve.md) | Parent | Part of the broader evolution command family |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | Quality gates validate evolution outputs |
 
 ## Best Practices
 
@@ -229,7 +229,7 @@ Chain evolution with other platform commands:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every evolved change must pass the full quality gate pipeline. No partial improvements, no TODO placeholders, no quality regressions.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Fitness measurements provide quantitative evidence for every evolution decision. No changes are applied based on heuristic guesses.
@@ -238,13 +238,13 @@ The genetic evolution process is a direct implementation of the platform's Gener
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/find-lowfruit](/commands/find-lowfruit/) - Identify low-hanging fruit improvements across codebase
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/find-lowfruit](@/commands/find-lowfruit.md) - Identify low-hanging fruit improvements across codebase
 
 ---
 
@@ -253,4 +253,4 @@ The genetic evolution process is a direct implementation of the platform's Gener
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

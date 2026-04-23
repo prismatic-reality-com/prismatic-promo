@@ -28,9 +28,9 @@ The **/context-preserve** command implements real-time session context preservat
 
 This command evolved from the Wave 3 documentation excellence initiative, which produced 60KB of forensic-grade session documentation across four specialized squads. That experience demonstrated that comprehensive context preservation achieves 100% session restoration capability, enabling any future session to resume exactly where a previous session ended. The pattern has since been elevated to MANDATORY authority level, making context preservation non-optional for all platform operations.
 
-The command operates under **MANDATORY** authority and is executed by the `context-preservation-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. Unlike most commands that operate on request, context preservation runs continuously through automatic triggers -- session start, periodic auto-save, phase completion, agent handoff, and session end.
+The command operates under **MANDATORY** authority and is executed by the `context-preservation-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. Unlike most commands that operate on request, context preservation runs continuously through automatic triggers -- session start, periodic auto-save, phase completion, agent handoff, and session end.
 
-The forensic integrity model ensures that every preserved context is cryptographically sealed, timestamped, and cross-referenced. This creates an immutable audit trail that satisfies both operational continuity requirements and the platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, which demands evidence-based decision-making with full provenance tracking.
+The forensic integrity model ensures that every preserved context is cryptographically sealed, timestamped, and cross-referenced. This creates an immutable audit trail that satisfies both operational continuity requirements and the platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, which demands evidence-based decision-making with full provenance tracking.
 
 ## Architecture
 
@@ -201,11 +201,11 @@ optional_content:
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `context-preservation-specialist` | Agent manages all preservation triggers and formatting |
-| [AIAD](/glossary/aiad/) Registry | Command specification and discovery | MANDATORY authority ensures universal execution |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `context-preservation-specialist` | Agent manages all preservation triggers and formatting |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification and discovery | MANDATORY authority ensures universal execution |
 | Session Lifecycle | Automatic trigger integration | Hooks into `SessionLifecycle` GenServer events |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation | Quality results captured in every context save |
-| [Telemetry](/glossary/telemetry/) | Event tracking | `[:prismatic_claude, :context_preserve, *]` events |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation | Quality results captured in every context save |
+| [Telemetry](@/glossary/telemetry.md) | Event tracking | `[:prismatic_claude, :context_preserve, *]` events |
 | Stack Conversation | Frame state coordination | Preserves stack frame state for session continuity |
 | Multi-Agent Orchestration | Cross-agent context sharing | Handoff protocol for seamless agent transitions |
 
@@ -336,7 +336,7 @@ The Wave 3 documentation excellence established measurable quality benchmarks:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete context preservation. Every session must produce restorable context. No session ends without a final save. No agent handoff occurs without context transfer. MANDATORY authority means no exceptions.
 - **NO DOUBTS**: Full session state investigation before preservation. Context integrity is cryptographically verified. Restoration instructions are validated for completeness. Evidence-based provenance tracking for every decision recorded.
@@ -345,13 +345,13 @@ Context preservation directly implements the NABLA axiom of **Provenance Mandato
 
 ## Related Commands
 
-- [/chronic](/commands/chronic/) - Chronic documentation scan and technical hygiene maintenance
-- [/find-lowfruit](/commands/find-lowfruit/) - Identify low-hanging fruit improvements across codebase
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
-- [/doc](/commands/doc/) - Technical documentation and API reference generation
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/optimize](/commands/optimize/) - Performance optimization with measurement validation
+- [/chronic](@/commands/chronic.md) - Chronic documentation scan and technical hygiene maintenance
+- [/find-lowfruit](@/commands/find-lowfruit.md) - Identify low-hanging fruit improvements across codebase
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
+- [/doc](@/commands/doc.md) - Technical documentation and API reference generation
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/optimize](@/commands/optimize.md) - Performance optimization with measurement validation
 
 ---
 
@@ -360,4 +360,4 @@ Context preservation directly implements the NABLA axiom of **Provenance Mandato
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

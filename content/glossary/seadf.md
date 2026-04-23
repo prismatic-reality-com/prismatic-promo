@@ -481,18 +481,18 @@ The framework also serves as the platform's immune system, detecting and respond
 
 ## Related Concepts
 
-- [Mycelial Network](/glossary/mycelial-network/) - Cross-domain pattern propagation within SEADF
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) - Quality monitoring integrated with SEADF
-- [Quality DNA](/glossary/quality-dna/) - Cross-session state managed by SEADF's Knowledge Sync
-- [GARDEN](/glossary/garden/) - Legacy knowledge base feeding SEADF patterns
-- [Telemetry](/glossary/telemetry/) - Event system providing SEADF monitoring data
-- [AutoEvolve](/glossary/autoevolve/) - Evolution execution engine within SEADF
-- [AutoHeal](/glossary/autoheal/) - Healing execution engine within SEADF
+- [Mycelial Network](@/glossary/mycelial-network.md) - Cross-domain pattern propagation within SEADF
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) - Quality monitoring integrated with SEADF
+- [Quality DNA](@/glossary/quality-dna.md) - Cross-session state managed by SEADF's Knowledge Sync
+- [GARDEN](@/glossary/garden.md) - Legacy knowledge base feeding SEADF patterns
+- [Telemetry](@/glossary/telemetry.md) - Event system providing SEADF monitoring data
+- [AutoEvolve](@/glossary/autoevolve.md) - Evolution execution engine within SEADF
+- [AutoHeal](@/glossary/autoheal.md) - Healing execution engine within SEADF
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
 
 ---
 
@@ -501,4 +501,4 @@ The framework also serves as the platform's immune system, detecting and respond
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -45,7 +45,7 @@ image_alt = "Architecture - Prismatic Platform"
 
 Software architecture is the discipline concerned with the high-level structuring of software systems. It defines the fundamental organization of a system, embodied in its components, their relationships to each other and the environment, and the principles governing its design and evolution. Architecture is not merely about choosing a framework or drawing box-and-arrow diagrams; it is about making the decisions that are costly to change later and that profoundly affect every aspect of a system's lifetime -- from development velocity and team organization to operational resilience and long-term maintainability.
 
-Within the [Prismatic Platform](/glossary/application/), architecture is elevated to a first-class engineering concern. With 115 umbrella applications, 530+ autonomous agents, and a codebase exceeding 2.8 million lines of code, architectural discipline is not optional -- it is the difference between a coherent system and an unmaintainable monolith. The platform's architecture leverages Elixir's [OTP](/glossary/otp/) framework, [supervision trees](/glossary/supervision-tree/), and the BEAM virtual machine to achieve fault tolerance, horizontal scalability, and real-time responsiveness that would be extraordinarily difficult to replicate in conventional technology stacks.
+Within the [Prismatic Platform](@/glossary/application.md), architecture is elevated to a first-class engineering concern. With 115 umbrella applications, 530+ autonomous agents, and a codebase exceeding 2.8 million lines of code, architectural discipline is not optional -- it is the difference between a coherent system and an unmaintainable monolith. The platform's architecture leverages Elixir's [OTP](@/glossary/otp.md) framework, [supervision trees](@/glossary/supervision-tree.md), and the BEAM virtual machine to achieve fault tolerance, horizontal scalability, and real-time responsiveness that would be extraordinarily difficult to replicate in conventional technology stacks.
 
 ---
 
@@ -55,7 +55,7 @@ The term "architecture" derives from the Greek *arkhitekton* (master builder), c
 
 The IEEE Standard 1471-2000 defines software architecture as "the fundamental organization of a system embodied in its components, their relationships to each other, and to the environment, and the principles guiding its design and evolution." Martin Fowler offers a more pragmatic definition: architecture is "the shared understanding that the expert developers have of the system design" combined with "the decisions that are hard to change." Both definitions capture an essential truth -- architecture is about the decisions that matter most because they constrain everything that follows.
 
-The field matured through several phases: the structured programming era of the 1970s, the object-oriented revolution of the 1980s and 1990s, the service-oriented architecture (SOA) movement of the 2000s, and the [microservices](/glossary/microservices/) and cloud-native paradigm of the 2010s and 2020s. Each phase brought new patterns, new trade-offs, and new understanding of what constitutes good structural design.
+The field matured through several phases: the structured programming era of the 1970s, the object-oriented revolution of the 1980s and 1990s, the service-oriented architecture (SOA) movement of the 2000s, and the [microservices](@/glossary/microservices.md) and cloud-native paradigm of the 2010s and 2020s. Each phase brought new patterns, new trade-offs, and new understanding of what constitutes good structural design.
 
 ---
 
@@ -79,11 +79,11 @@ The monolithic pattern deploys the entire application as a single unit. All comp
 
 ### Microservices Architecture
 
-[Microservices](/glossary/microservices/) decompose a system into independently deployable services, each owning its own data and communicating through well-defined APIs or message protocols. This pattern enables independent scaling, polyglot technology choices, and team autonomy, but introduces distributed systems complexity including network partitions, data consistency challenges, and operational overhead.
+[Microservices](@/glossary/microservices.md) decompose a system into independently deployable services, each owning its own data and communicating through well-defined APIs or message protocols. This pattern enables independent scaling, polyglot technology choices, and team autonomy, but introduces distributed systems complexity including network partitions, data consistency challenges, and operational overhead.
 
 ### Event-Driven Architecture
 
-Event-driven architecture organizes systems around the production, detection, and consumption of events. Components communicate by emitting and subscribing to events rather than making direct calls. This pattern excels at decoupling, temporal flexibility, and audit trails. It is closely related to [event sourcing](/glossary/event-sourcing/) and [CQRS](/glossary/cqrs/), which separate the write model from the read model.
+Event-driven architecture organizes systems around the production, detection, and consumption of events. Components communicate by emitting and subscribing to events rather than making direct calls. This pattern excels at decoupling, temporal flexibility, and audit trails. It is closely related to [event sourcing](@/glossary/event-sourcing.md) and [CQRS](@/glossary/cqrs.md), which separate the write model from the read model.
 
 ### Hexagonal Architecture (Ports and Adapters)
 
@@ -95,7 +95,7 @@ Robert C. Martin's clean architecture extends hexagonal architecture into concen
 
 ### CQRS (Command Query Responsibility Segregation)
 
-[CQRS](/glossary/cqrs/) separates the read and write sides of a system into distinct models. Commands mutate state through a write model optimized for consistency and validation, while queries read from a read model optimized for performance and the specific needs of consumers. This separation enables independent scaling and optimization of each path.
+[CQRS](@/glossary/cqrs.md) separates the read and write sides of a system into distinct models. Commands mutate state through a write model optimized for consistency and validation, while queries read from a read model optimized for performance and the specific needs of consumers. This separation enables independent scaling and optimization of each path.
 
 ---
 
@@ -144,7 +144,7 @@ The platform's architecture is governed by several non-negotiable principles:
 
 ### OTP Supervision Trees
 
-At the heart of the platform's resilience lies the [OTP supervision tree](/glossary/supervision-tree/) pattern. Every stateful component runs as a supervised process. When a process crashes, its supervisor restarts it according to a defined strategy, isolating failures and preventing cascading collapse.
+At the heart of the platform's resilience lies the [OTP supervision tree](@/glossary/supervision-tree.md) pattern. Every stateful component runs as a supervised process. When a process crashes, its supervisor restarts it according to a defined strategy, isolating failures and preventing cascading collapse.
 
 ```elixir
 defmodule PrismaticPerimeter.Application do
@@ -343,11 +343,11 @@ Quality attributes (also called non-functional requirements or "-ilities") are t
 
 ### Scalability
 
-[Scalability](/glossary/scalability/) measures a system's ability to handle growing load. Vertical scaling adds resources to existing nodes; horizontal scaling adds more nodes. The BEAM VM's lightweight processes and distributed Erlang capabilities make horizontal scaling natural -- the Prismatic Platform can distribute its 530+ agents across multiple nodes with minimal code changes.
+[Scalability](@/glossary/scalability.md) measures a system's ability to handle growing load. Vertical scaling adds resources to existing nodes; horizontal scaling adds more nodes. The BEAM VM's lightweight processes and distributed Erlang capabilities make horizontal scaling natural -- the Prismatic Platform can distribute its 530+ agents across multiple nodes with minimal code changes.
 
 ### Reliability and Fault Tolerance
 
-[Fault tolerance](/glossary/fault-tolerance/) is the ability to continue operating correctly in the presence of failures. OTP's "let it crash" philosophy treats failures as expected events rather than exceptional conditions. Supervision trees, circuit breakers, and bulkhead patterns ensure that individual component failures do not cascade into system-wide outages.
+[Fault tolerance](@/glossary/fault-tolerance.md) is the ability to continue operating correctly in the presence of failures. OTP's "let it crash" philosophy treats failures as expected events rather than exceptional conditions. Supervision trees, circuit breakers, and bulkhead patterns ensure that individual component failures do not cascade into system-wide outages.
 
 ### Maintainability
 
@@ -365,7 +365,7 @@ Performance is not an afterthought but an architectural concern. The platform en
 
 ## Domain-Driven Design and Bounded Contexts
 
-[Domain-Driven Design](/glossary/domain-driven-design/) (DDD), articulated by Eric Evans in 2003, provides the strategic design tools for organizing large systems around business domains. The central concept is the **bounded context** -- a linguistic and conceptual boundary within which a particular domain model applies consistently.
+[Domain-Driven Design](@/glossary/domain-driven-design.md) (DDD), articulated by Eric Evans in 2003, provides the strategic design tools for organizing large systems around business domains. The central concept is the **bounded context** -- a linguistic and conceptual boundary within which a particular domain model applies consistently.
 
 The Prismatic Platform's umbrella structure maps naturally to bounded contexts. Each application represents a distinct domain: `prismatic_perimeter` owns the External Attack Surface Management domain, `prismatic_agents` owns the agent lifecycle domain, `prismatic_storage_core` defines the storage abstraction domain. Communication between contexts occurs through well-defined interfaces -- Elixir behaviours and protocols -- rather than direct module coupling.
 
@@ -448,7 +448,7 @@ Using default supervision strategies without thinking about failure domains. A c
 
 ## Elixir/OTP Architectural Advantages
 
-Elixir and [OTP](/glossary/otp/) provide architectural capabilities that are difficult or impossible to achieve in mainstream technology stacks:
+Elixir and [OTP](@/glossary/otp.md) provide architectural capabilities that are difficult or impossible to achieve in mainstream technology stacks:
 
 **Fault Isolation**: Every process has its own heap. A crash in one process cannot corrupt another process's memory. This is a stronger isolation guarantee than threads in any conventional language.
 
@@ -478,7 +478,7 @@ Elixir and [OTP](/glossary/otp/) provide architectural capabilities that are dif
 
 6. **Use behaviours for all cross-application contracts.** Never call internal modules of another application. Define behaviours in `_core` applications and implement them in concrete applications.
 
-7. **Measure before optimizing.** Use [telemetry](/glossary/telemetry/) and benchmarks to identify actual bottlenecks rather than optimizing based on intuition.
+7. **Measure before optimizing.** Use [telemetry](@/glossary/telemetry.md) and benchmarks to identify actual bottlenecks rather than optimizing based on intuition.
 
 8. **Align architecture with team structure.** Conway's Law is real: the architecture will eventually mirror the communication structure of the organization. Design both intentionally.
 
@@ -512,16 +512,16 @@ The 530+ AIAD agents are organized into domain-specific applications with indepe
 
 | Technology | Relationship to Architecture |
 |---|---|
-| [OTP](/glossary/otp/) | Provides the foundational framework for fault-tolerant architecture in Elixir |
-| [Supervision Trees](/glossary/supervision-tree/) | The primary mechanism for organizing process hierarchies |
-| [Microservices](/glossary/microservices/) | An architectural pattern for decomposing systems into independent services |
-| [Domain-Driven Design](/glossary/domain-driven-design/) | Strategic design methodology for aligning architecture with business domains |
-| [CQRS](/glossary/cqrs/) | Pattern for separating read and write architectural concerns |
-| [Event Sourcing](/glossary/event-sourcing/) | Pattern for persisting state as a sequence of immutable events |
-| [Scalability](/glossary/scalability/) | Quality attribute that architecture must explicitly support |
-| [Fault Tolerance](/glossary/fault-tolerance/) | The ability to continue operating despite component failures |
-| [Telemetry](/glossary/telemetry/) | Observability infrastructure for monitoring architectural health |
-| [Monitoring](/glossary/monitoring/) | Operational practice for detecting architectural degradation |
+| [OTP](@/glossary/otp.md) | Provides the foundational framework for fault-tolerant architecture in Elixir |
+| [Supervision Trees](@/glossary/supervision-tree.md) | The primary mechanism for organizing process hierarchies |
+| [Microservices](@/glossary/microservices.md) | An architectural pattern for decomposing systems into independent services |
+| [Domain-Driven Design](@/glossary/domain-driven-design.md) | Strategic design methodology for aligning architecture with business domains |
+| [CQRS](@/glossary/cqrs.md) | Pattern for separating read and write architectural concerns |
+| [Event Sourcing](@/glossary/event-sourcing.md) | Pattern for persisting state as a sequence of immutable events |
+| [Scalability](@/glossary/scalability.md) | Quality attribute that architecture must explicitly support |
+| [Fault Tolerance](@/glossary/fault-tolerance.md) | The ability to continue operating despite component failures |
+| [Telemetry](@/glossary/telemetry.md) | Observability infrastructure for monitoring architectural health |
+| [Monitoring](@/glossary/monitoring.md) | Operational practice for detecting architectural degradation |
 
 ---
 
@@ -543,22 +543,22 @@ Software architecture continues to evolve in response to new challenges:
 
 ## See Also
 
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP's hierarchical process management pattern
-- [Microservices](/glossary/microservices/) -- Independent service decomposition pattern
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Strategic design methodology
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Resilience through failure isolation
-- [OTP](/glossary/otp/) -- Open Telecom Platform framework
-- [Scalability](/glossary/scalability/) -- System capacity growth capabilities
-- [CQRS](/glossary/cqrs/) -- Command Query Responsibility Segregation
-- [Event Sourcing](/glossary/event-sourcing/) -- Immutable event persistence pattern
-- [Telemetry](/glossary/telemetry/) -- Runtime observability and metrics collection
-- [Monitoring](/glossary/monitoring/) -- Operational health tracking and alerting
-- [Layered Architecture](/glossary/layered-architecture/) -- Architectural style organizing code into horizontal layers
-- [Elixir](/glossary/elixir/) -- The programming language enabling the platform's architectural patterns
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP's hierarchical process management pattern
+- [Microservices](@/glossary/microservices.md) -- Independent service decomposition pattern
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Strategic design methodology
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Resilience through failure isolation
+- [OTP](@/glossary/otp.md) -- Open Telecom Platform framework
+- [Scalability](@/glossary/scalability.md) -- System capacity growth capabilities
+- [CQRS](@/glossary/cqrs.md) -- Command Query Responsibility Segregation
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Immutable event persistence pattern
+- [Telemetry](@/glossary/telemetry.md) -- Runtime observability and metrics collection
+- [Monitoring](@/glossary/monitoring.md) -- Operational health tracking and alerting
+- [Layered Architecture](@/glossary/layered-architecture.md) -- Architectural style organizing code into horizontal layers
+- [Elixir](@/glossary/elixir.md) -- The programming language enabling the platform's architectural patterns
 
 ---
 
 ## Connect & Contribute
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

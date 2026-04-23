@@ -25,11 +25,11 @@ image_alt = "Agent Status - Prismatic Platform"
 
 ## Overview
 
-The Agent Status endpoint provides real-time health monitoring and performance telemetry for the Prismatic Platform's [AIAD](/glossary/aiad/) agent fleet. While the [Agent Registry](/api/agents-list/) provides the static catalog of agents, this endpoint delivers the dynamic operational picture: which agents are actively processing, their current resource consumption, message throughput, error rates, and responsiveness.
+The Agent Status endpoint provides real-time health monitoring and performance telemetry for the Prismatic Platform's [AIAD](@/glossary/aiad.md) agent fleet. While the [Agent Registry](@/api/agents-list.md) provides the static catalog of agents, this endpoint delivers the dynamic operational picture: which agents are actively processing, their current resource consumption, message throughput, error rates, and responsiveness.
 
 This endpoint is designed for operational dashboards, alerting integrations, and automated fleet management. The data is sourced directly from BEAM process telemetry, giving microsecond-accurate measurements of agent behavior without any sampling or approximation.
 
-Agent status data feeds into the platform's autonomous evolution system. When an agent's error rate exceeds configured thresholds or its response latency degrades, the [Quality DNA](/glossary/quality-dna/) system automatically triggers investigation and, if necessary, agent restart or reconfiguration. The [No Mercy](/glossary/no-mercy/) doctrine requires that no agent degradation is tolerated without immediate corrective action.
+Agent status data feeds into the platform's autonomous evolution system. When an agent's error rate exceeds configured thresholds or its response latency degrades, the [Quality DNA](@/glossary/quality-dna.md) system automatically triggers investigation and, if necessary, agent restart or reconfiguration. The [No Mercy](@/glossary/no-mercy.md) doctrine requires that no agent degradation is tolerated without immediate corrective action.
 
 ## Endpoint
 
@@ -313,10 +313,10 @@ Status data is derived from in-memory telemetry with minimal computation overhea
 
 ## Related Endpoints
 
-- [Agent Registry](/api/agents-list/) -- Static agent catalog with specifications
-- [Health Check](/api/health/) -- Platform-level health including agent runtime
-- [Webhooks](/api/webhooks/) -- Subscribe to agent health change notifications
-- [Error Handling](/api/error-handling/) -- Standard error response format
+- [Agent Registry](@/api/agents-list.md) -- Static agent catalog with specifications
+- [Health Check](@/api/health.md) -- Platform-level health including agent runtime
+- [Webhooks](@/api/webhooks.md) -- Subscribe to agent health change notifications
+- [Error Handling](@/api/error-handling.md) -- Standard error response format
 
 ---
 
@@ -325,4 +325,4 @@ Status data is derived from in-memory telemetry with minimal computation overhea
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

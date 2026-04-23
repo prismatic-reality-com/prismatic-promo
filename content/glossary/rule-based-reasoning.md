@@ -29,7 +29,7 @@ Rule-based reasoning is a computational approach to knowledge representation and
 
 The approach has deep roots in artificial intelligence, originating with expert systems in the 1970s and 1980s (MYCIN for medical diagnosis, DENDRAL for chemical analysis, R1/XCON for computer configuration). While machine learning and neural networks have since dominated AI headlines, rule-based reasoning remains indispensable in domains requiring explainability, auditability, and deterministic behavior -- precisely the properties needed for security enforcement, compliance validation, and quality assurance. When a system must explain exactly why a decision was made (not just what decision was made), rule-based reasoning provides the traceable inference chain that probabilistic methods cannot.
 
-In the Prismatic Platform, rule-based reasoning forms the deterministic backbone of the enforcement infrastructure: [quality gates](/glossary/quality-gate/) apply rules to code metrics to determine pass/fail, [Credo](/glossary/credo/) checks apply pattern-matching rules to AST nodes to detect code quality issues, the [Trinity Gate](/glossary/trinity-gate/) applies logical consistency rules to epistemic claims, and [NABLA axiom enforcement](/glossary/axiom-enforcement/) applies hard rules to belief states. Each of these systems derives its authority from explicit, auditable rules rather than opaque statistical models.
+In the Prismatic Platform, rule-based reasoning forms the deterministic backbone of the enforcement infrastructure: [quality gates](@/glossary/quality-gate.md) apply rules to code metrics to determine pass/fail, [Credo](@/glossary/credo.md) checks apply pattern-matching rules to AST nodes to detect code quality issues, the [Trinity Gate](@/glossary/trinity-gate.md) applies logical consistency rules to epistemic claims, and [NABLA axiom enforcement](@/glossary/axiom-enforcement.md) applies hard rules to belief states. Each of these systems derives its authority from explicit, auditable rules rather than opaque statistical models.
 
 ## Anatomy of a Rule
 
@@ -59,7 +59,7 @@ Rule-based systems use two primary inference strategies:
 | **Backward Chaining** | Goal-driven | Start with a hypothesis, find rules that could prove it | Diagnosis, explanation, compliance verification |
 | **Hybrid** | Both | Combine forward and backward chaining | Complex expert systems |
 
-The Prismatic Platform primarily uses forward chaining: known facts (code metrics, test results, scan findings) are fed into rule engines that fire matching rules to produce conclusions (pass/fail decisions, quality scores, compliance assessments). Backward chaining is used in diagnostic contexts, such as when the [autoheal](/glossary/autoheal/) system traces a quality violation backward through rules to identify root causes.
+The Prismatic Platform primarily uses forward chaining: known facts (code metrics, test results, scan findings) are fed into rule engines that fire matching rules to produce conclusions (pass/fail decisions, quality scores, compliance assessments). Backward chaining is used in diagnostic contexts, such as when the [autoheal](@/glossary/autoheal.md) system traces a quality violation backward through rules to identify root causes.
 
 ## Rule Categories in Prismatic
 
@@ -198,7 +198,7 @@ end
 
 ## NABLA Axiom Rules
 
-The platform's [NABLA epistemic framework](/glossary/axiom-enforcement/) encodes its seven non-negotiable axioms as rules with hard and soft enforcement levels:
+The platform's [NABLA epistemic framework](@/glossary/axiom-enforcement.md) encodes its seven non-negotiable axioms as rules with hard and soft enforcement levels:
 
 ```elixir
 defmodule PrismaticNabla.AxiomRules do
@@ -279,7 +279,7 @@ end
 
 ## Credo as a Rule Engine
 
-[Credo](/glossary/credo/) is the Prismatic Platform's primary [static analysis](/glossary/static-analysis/) tool, and it operates as a rule-based reasoning system. Each Credo check is a rule that pattern-matches against Elixir AST nodes to detect code quality issues:
+[Credo](@/glossary/credo.md) is the Prismatic Platform's primary [static analysis](@/glossary/static-analysis.md) tool, and it operates as a rule-based reasoning system. Each Credo check is a rule that pattern-matches against Elixir AST nodes to detect code quality issues:
 
 | Check Category | Rule Count | Examples | Enforcement |
 |---------------|-----------|---------|-------------|
@@ -364,7 +364,7 @@ Each phase is itself a rule: if the condition (phase applies to changed files) i
 
 ## Rule-Based vs. Probabilistic Reasoning
 
-Rule-based reasoning and [probabilistic/Bayesian reasoning](/glossary/bayesian-reasoning/) are complementary approaches with distinct strengths:
+Rule-based reasoning and [probabilistic/Bayesian reasoning](@/glossary/bayesian-reasoning.md) are complementary approaches with distinct strengths:
 
 | Dimension | Rule-Based | Probabilistic |
 |-----------|-----------|---------------|
@@ -375,9 +375,9 @@ Rule-based reasoning and [probabilistic/Bayesian reasoning](/glossary/bayesian-r
 | **Maintenance** | Explicit rule updates | Model retraining |
 | **Edge cases** | Must be explicitly encoded | Can generalize from training data |
 | **Auditability** | Complete audit trail | Statistical validation |
-| **Platform usage** | Quality gates, policy enforcement | [Risk scoring](/glossary/risk-score/), [confidence scoring](/glossary/confidence-scoring/) |
+| **Platform usage** | Quality gates, policy enforcement | [Risk scoring](@/glossary/risk-score.md), [confidence scoring](@/glossary/confidence-scoring.md) |
 
-The Prismatic Platform uses both: rule-based reasoning for enforcement (hard pass/fail decisions) and probabilistic reasoning for assessment (confidence-weighted scores). The [Trinity Gate](/glossary/trinity-gate/) combines both: structural consistency uses graph-theoretic rules, logical consistency uses formal logic rules, and formal necessity uses proof-theoretic verification.
+The Prismatic Platform uses both: rule-based reasoning for enforcement (hard pass/fail decisions) and probabilistic reasoning for assessment (confidence-weighted scores). The [Trinity Gate](@/glossary/trinity-gate.md) combines both: structural consistency uses graph-theoretic rules, logical consistency uses formal logic rules, and formal necessity uses proof-theoretic verification.
 
 ## Rule Lifecycle Management
 
@@ -394,31 +394,31 @@ Rules in the Prismatic Platform follow a managed lifecycle:
 
 ## Context in Prismatic
 
-Rule-based reasoning is the enforcement mechanism that gives the Prismatic Platform's doctrines and policies their teeth. The NO MERCY, NO DOUBTS doctrine articulates principles; rule-based reasoning translates those principles into executable checks that run on every commit, every build, and every deployment. The 13-domain [quality gate](/glossary/quality-gate/) system, the [pre-commit hooks](/glossary/pre-commit-hooks/), the [NABLA axiom enforcement](/glossary/axiom-enforcement/), and the [forbidden pattern detection](/glossary/quality-gate/) are all rule-based systems that operate deterministically on observable facts about the codebase.
+Rule-based reasoning is the enforcement mechanism that gives the Prismatic Platform's doctrines and policies their teeth. The NO MERCY, NO DOUBTS doctrine articulates principles; rule-based reasoning translates those principles into executable checks that run on every commit, every build, and every deployment. The 13-domain [quality gate](@/glossary/quality-gate.md) system, the [pre-commit hooks](@/glossary/pre-commit-hooks.md), the [NABLA axiom enforcement](@/glossary/axiom-enforcement.md), and the [forbidden pattern detection](@/glossary/quality-gate.md) are all rule-based systems that operate deterministically on observable facts about the codebase.
 
 This deterministic foundation is what enables the platform to maintain its 100/100 quality score across 141 umbrella applications and ~2.8M lines of code. Rules do not forget, do not get tired, and do not make exceptions -- they fire every time their conditions are met, which is exactly the behavior required for NO MERCY enforcement.
 
 ## Related Terms
 
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- Probabilistic complement to deterministic rule-based reasoning
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification system combining rule-based checks
-- [Quality Gate](/glossary/quality-gate/) -- Rule-based pass/fail checkpoints in the development pipeline
-- [Axiom Enforcement](/glossary/axiom-enforcement/) -- NABLA axioms encoded as non-bypassable rules
-- [Credo](/glossary/credo/) -- Static analysis tool operating as an AST-level rule engine
-- [Static Analysis](/glossary/static-analysis/) -- Code analysis powered by rule-based pattern matching
-- [Policy](/glossary/policy/) -- Organizational rules governing platform behavior
-- [Doctrine](/glossary/doctrine/) -- Foundational principles encoded as enforcement rules
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Probabilistic scoring complementing rule-based decisions
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Rule pipeline executing before every commit
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- NABLA axiom enforced through rules
-- [Dialyzer](/glossary/dialyzer/) -- Type-checking tool applying type-inference rules
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- Probabilistic complement to deterministic rule-based reasoning
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification system combining rule-based checks
+- [Quality Gate](@/glossary/quality-gate.md) -- Rule-based pass/fail checkpoints in the development pipeline
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) -- NABLA axioms encoded as non-bypassable rules
+- [Credo](@/glossary/credo.md) -- Static analysis tool operating as an AST-level rule engine
+- [Static Analysis](@/glossary/static-analysis.md) -- Code analysis powered by rule-based pattern matching
+- [Policy](@/glossary/policy.md) -- Organizational rules governing platform behavior
+- [Doctrine](@/glossary/doctrine.md) -- Foundational principles encoded as enforcement rules
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Probabilistic scoring complementing rule-based decisions
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Rule pipeline executing before every commit
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- NABLA axiom enforced through rules
+- [Dialyzer](@/glossary/dialyzer.md) -- Type-checking tool applying type-inference rules
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform enforcement architecture
-- [Capabilities](/capabilities/) -- Quality and enforcement capabilities
+- [Architecture](@/architecture/_index.md) -- Platform enforcement architecture
+- [Capabilities](@/capabilities/_index.md) -- Quality and enforcement capabilities
 - Glossary -- Related epistemic and quality concepts
-- [Commands](/commands/) -- Mix commands implementing rule-based checks
+- [Commands](@/commands/_index.md) -- Mix commands implementing rule-based checks
 
 ---
 
@@ -427,4 +427,4 @@ This deterministic foundation is what enables the platform to maintain its 100/1
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

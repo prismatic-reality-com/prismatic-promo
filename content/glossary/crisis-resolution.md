@@ -36,9 +36,9 @@ image_alt = "Crisis Resolution - Prismatic Platform"
 
 ## Definition
 
-Crisis resolution is the complete end-to-end process of moving a system from crisis state back to healthy operation, encompassing root cause identification, corrective action implementation, recovery validation, and regression prevention. While [crisis intervention](/glossary/crisis-intervention/) focuses on the first minutes -- containment and stabilization -- crisis resolution addresses the hours and days that follow: understanding why the crisis occurred, implementing permanent fixes, verifying recovery, and ensuring the same failure cannot recur.
+Crisis resolution is the complete end-to-end process of moving a system from crisis state back to healthy operation, encompassing root cause identification, corrective action implementation, recovery validation, and regression prevention. While [crisis intervention](@/glossary/crisis-intervention.md) focuses on the first minutes -- containment and stabilization -- crisis resolution addresses the hours and days that follow: understanding why the crisis occurred, implementing permanent fixes, verifying recovery, and ensuring the same failure cannot recur.
 
-In the Prismatic Platform, crisis resolution is orchestrated by [Archer Supreme](/glossary/archer-supreme/), which coordinates multi-agent response teams through a structured resolution pipeline. Every crisis resolution concludes with mandatory regression tests and platform evolution -- the crisis becomes a catalyst for making the system stronger than it was before the failure, embodying the antifragile principle that stress exposure improves system resilience.
+In the Prismatic Platform, crisis resolution is orchestrated by [Archer Supreme](@/glossary/archer-supreme.md), which coordinates multi-agent response teams through a structured resolution pipeline. Every crisis resolution concludes with mandatory regression tests and platform evolution -- the crisis becomes a catalyst for making the system stronger than it was before the failure, embodying the antifragile principle that stress exposure improves system resilience.
 
 ## Overview
 
@@ -48,11 +48,11 @@ Crisis resolution in the Prismatic Platform follows a seven-phase pipeline:
 
 1. **Stabilization Verification**: Confirm that containment actions from the intervention phase are holding. Verify that the blast radius is not expanding and that affected services have reached a stable (even if degraded) state.
 
-2. **Root Cause Analysis**: Systematically trace the causal chain from the observable symptoms back to the originating fault. This uses the platform's [audit trail](/glossary/audit-trail/), telemetry data, and crisis timeline to construct a provenance-complete explanation.
+2. **Root Cause Analysis**: Systematically trace the causal chain from the observable symptoms back to the originating fault. This uses the platform's [audit trail](@/glossary/audit-trail.md), telemetry data, and crisis timeline to construct a provenance-complete explanation.
 
 3. **Corrective Action Planning**: Design the fix that addresses the root cause, not just the symptoms. Evaluate alternatives with pros/cons. Plan the implementation, testing, and deployment sequence.
 
-4. **Fix Implementation**: Apply the corrective changes under the [NO MERCY](/glossary/no-mercy/) doctrine -- full test coverage, zero compilation warnings, complete [quality gates](/glossary/quality-gates/) passage.
+4. **Fix Implementation**: Apply the corrective changes under the [NO MERCY](@/glossary/no-mercy.md) doctrine -- full test coverage, zero compilation warnings, complete [quality gates](@/glossary/quality-gates.md) passage.
 
 5. **Recovery Execution**: Restore affected services to full operation. This may involve data reconciliation, cache warming, connection pool restoration, and gradual traffic ramp-up.
 
@@ -559,7 +559,7 @@ end
 
 ### Archer Supreme Orchestration
 
-[Archer Supreme](/glossary/archer-supreme/) serves as the crisis resolution orchestrator, coordinating multiple specialized agents:
+[Archer Supreme](@/glossary/archer-supreme.md) serves as the crisis resolution orchestrator, coordinating multiple specialized agents:
 
 | Agent Role | Responsibility | Phase |
 |------------|---------------|-------|
@@ -576,9 +576,9 @@ end
 
 Crisis resolution feeds directly into the platform's autonomous evolution systems:
 
-- [AutoHeal](/glossary/autoheal/) receives the root cause analysis and updates its detection patterns, enabling faster detection of similar issues in the future.
-- [AutoEvolve](/glossary/autoevolve/) receives the corrective actions and regression tests, incorporating them into the platform's evolutionary fitness function.
-- The [Quality Floor Guardian](/glossary/quality-floor-guardian/) updates its thresholds based on the crisis severity and detection latency.
+- [AutoHeal](@/glossary/autoheal.md) receives the root cause analysis and updates its detection patterns, enabling faster detection of similar issues in the future.
+- [AutoEvolve](@/glossary/autoevolve.md) receives the corrective actions and regression tests, incorporating them into the platform's evolutionary fitness function.
+- The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) updates its thresholds based on the crisis severity and detection latency.
 
 ### Post-Mortem Format
 
@@ -672,30 +672,30 @@ A schema migration causes query performance degradation, triggering an S1 crisis
 
 ### Memory Leak Resolution
 
-A [GenServer](/glossary/genserver/) accumulates state without bounds, eventually exhausting BEAM VM memory. The resolution pipeline traces the causal chain (unbounded list accumulation in `handle_info` callbacks), implements a fix (bounded queue with configurable maximum size), validates recovery (memory consumption stabilizes under sustained load), and adds regression tests (property-based tests verifying bounded memory growth).
+A [GenServer](@/glossary/genserver.md) accumulates state without bounds, eventually exhausting BEAM VM memory. The resolution pipeline traces the causal chain (unbounded list accumulation in `handle_info` callbacks), implements a fix (bounded queue with configurable maximum size), validates recovery (memory consumption stabilizes under sustained load), and adds regression tests (property-based tests verifying bounded memory growth).
 
 ### Cascading Failure Resolution
 
-A third-party API timeout cascades through the system due to missing [circuit breakers](/glossary/circuit-breaker/). The resolution pipeline identifies all services lacking timeout and circuit breaker protection, implements circuit breakers for all external dependencies, validates recovery (circuit breaker opens cleanly when the dependency is unavailable), and adds regression tests (chaos engineering tests that simulate dependency failures).
+A third-party API timeout cascades through the system due to missing [circuit breakers](@/glossary/circuit-breaker.md). The resolution pipeline identifies all services lacking timeout and circuit breaker protection, implements circuit breakers for all external dependencies, validates recovery (circuit breaker opens cleanly when the dependency is unavailable), and adds regression tests (chaos engineering tests that simulate dependency failures).
 
 ### Security Incident Resolution
 
-Unauthorized API access is detected by the [Blue Team](/glossary/blue-team/). The resolution pipeline identifies the attack vector (leaked API key from a development environment), implements corrective actions (key revocation, credential rotation, access log analysis), validates recovery (no further unauthorized access), and adds regression tests (automated secret scanning in CI, environment-specific credential isolation verification).
+Unauthorized API access is detected by the [Blue Team](@/glossary/blue-team.md). The resolution pipeline identifies the attack vector (leaked API key from a development environment), implements corrective actions (key revocation, credential rotation, access log analysis), validates recovery (no further unauthorized access), and adds regression tests (automated secret scanning in CI, environment-specific credential isolation verification).
 
 ## Related Concepts
 
-- [Crisis Intervention](/glossary/crisis-intervention/) -- the immediate containment phase that precedes resolution
-- [Incident Response](/glossary/incident-response/) -- the broader framework for handling incidents of all severities
-- [Self-Healing](/glossary/self-healing/) -- autonomous recovery for non-crisis failures
-- [Disaster Recovery](/glossary/disaster-recovery/) -- full system restoration after catastrophic failure
-- [Archer Supreme](/glossary/archer-supreme/) -- the supreme orchestration agent that coordinates resolution
-- [Fault Tolerance](/glossary/fault-tolerance/) -- OTP primitives that prevent failures from becoming crises
-- [Circuit Breaker](/glossary/circuit-breaker/) -- failure isolation pattern that limits blast radius
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- continuous quality monitoring that detects degradation
-- [AutoEvolve](/glossary/autoevolve/) -- evolutionary system that incorporates crisis learnings
-- [AutoHeal](/glossary/autoheal/) -- autonomous healing system updated by crisis root cause analysis
-- [Audit Trail](/glossary/audit-trail/) -- immutable event log used during root cause analysis
-- [Quality Gates](/glossary/quality-gates/) -- quality enforcement that corrective actions must pass
+- [Crisis Intervention](@/glossary/crisis-intervention.md) -- the immediate containment phase that precedes resolution
+- [Incident Response](@/glossary/incident-response.md) -- the broader framework for handling incidents of all severities
+- [Self-Healing](@/glossary/self-healing.md) -- autonomous recovery for non-crisis failures
+- [Disaster Recovery](@/glossary/disaster-recovery.md) -- full system restoration after catastrophic failure
+- [Archer Supreme](@/glossary/archer-supreme.md) -- the supreme orchestration agent that coordinates resolution
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- OTP primitives that prevent failures from becoming crises
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- failure isolation pattern that limits blast radius
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- continuous quality monitoring that detects degradation
+- [AutoEvolve](@/glossary/autoevolve.md) -- evolutionary system that incorporates crisis learnings
+- [AutoHeal](@/glossary/autoheal.md) -- autonomous healing system updated by crisis root cause analysis
+- [Audit Trail](@/glossary/audit-trail.md) -- immutable event log used during root cause analysis
+- [Quality Gates](@/glossary/quality-gates.md) -- quality enforcement that corrective actions must pass
 
 ## See Also
 
@@ -712,4 +712,4 @@ Unauthorized API access is detected by the [Blue Team](/glossary/blue-team/). Th
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

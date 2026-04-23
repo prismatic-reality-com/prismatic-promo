@@ -24,9 +24,9 @@ WHOIS is a query-response protocol defined by RFC 3912 used to retrieve registra
 
 WHOIS has been a foundational protocol of the Internet since its earliest days. Originally specified in RFC 812 (1982) as a simple directory service for ARPANET users, it evolved through RFC 954 and RFC 3912 to serve as the primary mechanism for querying domain registration information. The protocol is deliberately simple: a client connects to a WHOIS server, sends a query string terminated by a carriage return and line feed, and receives a human-readable text response containing the registration record.
 
-The landscape of WHOIS data availability changed dramatically with the implementation of the EU's General Data Protection Regulation ([GDPR](/glossary/gdpr/)) in 2018. ICANN's Temporary Specification for gTLD Registration Data required registrars to redact personal data from public WHOIS records, replacing registrant names, email addresses, phone numbers, and physical addresses with "REDACTED FOR PRIVACY" markers. This significantly reduced the intelligence value of WHOIS for individual attribution, though organizational registrations and infrastructure metadata remain available.
+The landscape of WHOIS data availability changed dramatically with the implementation of the EU's General Data Protection Regulation ([GDPR](@/glossary/gdpr.md)) in 2018. ICANN's Temporary Specification for gTLD Registration Data required registrars to redact personal data from public WHOIS records, replacing registrant names, email addresses, phone numbers, and physical addresses with "REDACTED FOR PRIVACY" markers. This significantly reduced the intelligence value of WHOIS for individual attribution, though organizational registrations and infrastructure metadata remain available.
 
-The Registration Data Access Protocol (RDAP), defined in RFCs 7480-7484, is the modern successor to WHOIS. RDAP provides structured JSON responses, standardized query formats, internationalization support, and differentiated access levels. While RDAP is gradually replacing WHOIS for domain queries, the legacy WHOIS protocol remains widely supported and continues to be the primary tool for quick domain lookups in security operations and [OSINT](/glossary/osint/) investigations.
+The Registration Data Access Protocol (RDAP), defined in RFCs 7480-7484, is the modern successor to WHOIS. RDAP provides structured JSON responses, standardized query formats, internationalization support, and differentiated access levels. While RDAP is gradually replacing WHOIS for domain queries, the legacy WHOIS protocol remains widely supported and continues to be the primary tool for quick domain lookups in security operations and [OSINT](@/glossary/osint.md) investigations.
 
 | Data Element | Pre-GDPR | Post-GDPR | RDAP |
 |-------------|----------|-----------|------|
@@ -76,7 +76,7 @@ For IP address queries, the five Regional Internet Registries (RIRs) maintain WH
 
 Each WHOIS record contains multiple fields with varying intelligence value for security operations:
 
-**Registration Dates** provide domain age analysis. Recently registered domains (less than 30 days) are statistically more likely to be associated with malicious activity such as phishing, malware distribution, or spam campaigns. Domain age is a significant factor in [security rating](/glossary/security-rating/) calculations.
+**Registration Dates** provide domain age analysis. Recently registered domains (less than 30 days) are statistically more likely to be associated with malicious activity such as phishing, malware distribution, or spam campaigns. Domain age is a significant factor in [security rating](@/glossary/security-rating.md) calculations.
 
 **Name Server Records** reveal DNS hosting infrastructure and provider relationships. Shared name servers across multiple domains can indicate common ownership or hosting relationships. Changes in name server delegation may indicate domain hijacking or infrastructure migration.
 
@@ -88,7 +88,7 @@ Each WHOIS record contains multiple fields with varying intelligence value for s
 
 ### Prismatic WHOIS Integration
 
-The Prismatic Platform integrates WHOIS lookups within the [Prismatic Perimeter](/apps/prismatic-perimeter/) EASM pipeline:
+The Prismatic Platform integrates WHOIS lookups within the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) EASM pipeline:
 
 ```elixir
 defmodule PrismaticPerimeter.Intelligence.Whois do
@@ -233,7 +233,7 @@ end
 
 ### EASM Asset Discovery
 
-WHOIS lookups are a core component of [Prismatic Perimeter's](/apps/prismatic-perimeter/) asset discovery pipeline. When discovering an organization's external attack surface, WHOIS data provides:
+WHOIS lookups are a core component of [Prismatic Perimeter's](@/apps/prismatic-perimeter.md) asset discovery pipeline. When discovering an organization's external attack surface, WHOIS data provides:
 
 1. **Domain ownership confirmation**: Verifies that discovered domains belong to the target organization
 2. **Infrastructure mapping**: Name server records reveal DNS hosting relationships and provider dependencies
@@ -242,7 +242,7 @@ WHOIS lookups are a core component of [Prismatic Perimeter's](/apps/prismatic-pe
 
 ### Security Rating Contribution
 
-WHOIS-derived data contributes to the overall [security rating](/glossary/security-rating/) through several factors:
+WHOIS-derived data contributes to the overall [security rating](@/glossary/security-rating.md) through several factors:
 
 | WHOIS Factor | Rating Impact | Weight |
 |-------------|--------------|--------|
@@ -256,10 +256,10 @@ WHOIS-derived data contributes to the overall [security rating](/glossary/securi
 
 WHOIS data gains maximum value when correlated with complementary intelligence sources:
 
-- **[DNS Enumeration](/glossary/dns-enumeration/)**: WHOIS name servers validated against DNS records
-- **[Certificate Transparency](/glossary/certificate-transparency/)**: Domain registrant correlated with certificate subject information
-- **[OSINT](/glossary/osint/)**: Registration data enriches organizational profiles
-- **[Censys](/glossary/censys/)**: IP ranges from WHOIS correlated with Censys service discovery
+- **[DNS Enumeration](@/glossary/dns-enumeration.md)**: WHOIS name servers validated against DNS records
+- **[Certificate Transparency](@/glossary/certificate-transparency.md)**: Domain registrant correlated with certificate subject information
+- **[OSINT](@/glossary/osint.md)**: Registration data enriches organizational profiles
+- **[Censys](@/glossary/censys.md)**: IP ranges from WHOIS correlated with Censys service discovery
 
 ## Code Examples
 
@@ -341,21 +341,21 @@ end
 
 ## Related Concepts
 
-- [OSINT](/glossary/osint/) - Intelligence discipline that uses WHOIS as a primary data source
-- [EASM](/glossary/easm/) - Attack surface management consuming WHOIS data for asset discovery
-- [DNS Enumeration](/glossary/dns-enumeration/) - Complementary technique mapping domain infrastructure
-- [Attack Surface](/glossary/attack-surface/) - Exposure area that WHOIS data helps map and attribute
-- [GDPR](/glossary/gdpr/) - Privacy regulation impacting WHOIS data availability
-- [Certificate Transparency](/glossary/certificate-transparency/) - Complementary domain intelligence source
-- [Security Rating](/glossary/security-rating/) - Rating system incorporating WHOIS-derived signals
-- [Censys](/glossary/censys/) - Internet scanning platform correlated with WHOIS data
+- [OSINT](@/glossary/osint.md) - Intelligence discipline that uses WHOIS as a primary data source
+- [EASM](@/glossary/easm.md) - Attack surface management consuming WHOIS data for asset discovery
+- [DNS Enumeration](@/glossary/dns-enumeration.md) - Complementary technique mapping domain infrastructure
+- [Attack Surface](@/glossary/attack-surface.md) - Exposure area that WHOIS data helps map and attribute
+- [GDPR](@/glossary/gdpr.md) - Privacy regulation impacting WHOIS data availability
+- [Certificate Transparency](@/glossary/certificate-transparency.md) - Complementary domain intelligence source
+- [Security Rating](@/glossary/security-rating.md) - Rating system incorporating WHOIS-derived signals
+- [Censys](@/glossary/censys.md) - Internet scanning platform correlated with WHOIS data
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Apps](/apps/) - Application ecosystem including Prismatic Perimeter
-- [Agents](/agents/) - Intelligence agents consuming WHOIS data
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Apps](@/apps/_index.md) - Application ecosystem including Prismatic Perimeter
+- [Agents](@/agents/_index.md) - Intelligence agents consuming WHOIS data
 
 ---
 
@@ -364,4 +364,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,13 +24,13 @@ image_alt = "/nmnd - Prismatic Platform"
 
 ## Overview
 
-**/nmnd** is a production command in the **Framework** category of the Prismatic Platform. It handles [NO MERCY](/glossary/no-mercy/) [NO DOUBTS](/glossary/no-doubts/) doctrine activation and enforcement, serving as the primary command interface for managing the platform's foundational governance framework that governs every aspect of development, deployment, and operational behavior.
+**/nmnd** is a production command in the **Framework** category of the Prismatic Platform. It handles [NO MERCY](@/glossary/no-mercy.md) [NO DOUBTS](@/glossary/no-doubts.md) doctrine activation and enforcement, serving as the primary command interface for managing the platform's foundational governance framework that governs every aspect of development, deployment, and operational behavior.
 
 The NO MERCY, NO DOUBTS doctrine is not merely a quality guideline -- it is the constitutional law of the Prismatic Platform. "No Mercy" mandates zero tolerance for incomplete implementations, quality violations, untested code, stubs, mocks, placeholders, and deferred fixes. "No Doubts" requires full investigation before action, evidence-based decision making, verified results, and traceable provenance for every claim. Together, they establish an absolute standard that transforms aspirational quality goals into enforceable operational requirements.
 
 The `/nmnd` command provides the operational interface for this doctrine. It can activate enforcement modes, configure violation responses, inject enforcement blocks into AIAD components, and manage the doctrine's lifecycle across the platform's 99 umbrella applications and 403 agents. When invoked, it ensures that every subsequent operation within the session adheres to the doctrine's requirements without exception.
 
-This command operates under the **L2+** authority level and is executed by the `nmnd-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level provides sufficient access to modify enforcement configurations while requiring escalation for structural doctrine changes.
+This command operates under the **L2+** authority level and is executed by the `nmnd-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level provides sufficient access to modify enforcement configurations while requiring escalation for structural doctrine changes.
 
 ## Architecture
 
@@ -175,14 +175,14 @@ The `/nmnd` command interfaces with the doctrine enforcement layer that permeate
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Managed by `nmnd-specialist` agent |
-| [AIAD Registry](/glossary/aiad/) | Enforcement injection | YAML blocks injected into all AIAD components |
-| [Quality Gates](/glossary/quality-gates/) | Gate enforcement | Doctrine compliance as mandatory gate |
-| [Telemetry](/glossary/telemetry/) | Event monitoring | Doctrine events under `[:prismatic, :doctrine, *]` |
-| [Pre-commit hooks](/glossary/pre-commit-hooks/) | Git integration | Doctrine checks in pre-commit pipeline |
-| [GitLab CI](/glossary/gitlab-ci/) | Pipeline integration | Doctrine gate in CI/CD pipeline |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Managed by `nmnd-specialist` agent |
+| [AIAD Registry](@/glossary/aiad.md) | Enforcement injection | YAML blocks injected into all AIAD components |
+| [Quality Gates](@/glossary/quality-gates.md) | Gate enforcement | Doctrine compliance as mandatory gate |
+| [Telemetry](@/glossary/telemetry.md) | Event monitoring | Doctrine events under `[:prismatic, :doctrine, *]` |
+| [Pre-commit hooks](@/glossary/pre-commit-hooks.md) | Git integration | Doctrine checks in pre-commit pipeline |
+| [GitLab CI](@/glossary/gitlab-ci.md) | Pipeline integration | Doctrine gate in CI/CD pipeline |
 | Session Lifecycle | Session management | Doctrine activation on session start |
-| [SEADF](/glossary/seadf/) | Framework alignment | Doctrine feeds into self-evolving framework |
+| [SEADF](@/glossary/seadf.md) | Framework alignment | Doctrine feeds into self-evolving framework |
 
 ## Best Practices
 
@@ -249,7 +249,7 @@ Organizations can extend the standard NM/ND doctrine with domain-specific polici
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The `/nmnd` command is the doctrine's own enforcement interface and therefore operates under the strictest possible interpretation. No partial activations. No enforcement gaps. No configuration states that would weaken doctrine compliance.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every enforcement action is logged with full context, rationale, and expected impact. Configuration changes produce before/after diffs for review. Violation classifications are evidence-based with file references and rule identifiers.
@@ -258,12 +258,12 @@ As the doctrine's primary command interface, `/nmnd` is self-referentially bound
 
 ## Related Commands
 
-- [/nmnd-status](/commands/nmnd-status/) - NO MERCY NO DOUBTS doctrine compliance verification
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/rc1-orchestrate](/commands/rc1-orchestrate/) - Complete RC1 delivery pipeline execution with ROC optimization
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
+- [/nmnd-status](@/commands/nmnd-status.md) - NO MERCY NO DOUBTS doctrine compliance verification
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/rc1-orchestrate](@/commands/rc1-orchestrate.md) - Complete RC1 delivery pipeline execution with ROC optimization
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
 
 ---
 
@@ -272,4 +272,4 @@ As the doctrine's primary command interface, `/nmnd` is self-referentially bound
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

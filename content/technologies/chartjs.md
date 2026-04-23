@@ -26,9 +26,9 @@ image_alt = "Chart.js - Prismatic Platform"
 
 Chart.js is the primary data visualization library used in the Prismatic Platform for rendering charts, graphs, and visual analytics across all dashboard interfaces. It provides a comprehensive set of chart types -- bar, line, doughnut, radar, scatter, and more -- that power the platform's security dashboards, performance metrics, and intelligence analysis displays. Chart.js strikes the optimal balance between rendering capability and bundle size, delivering publication-quality visualizations without the overhead of full-featured charting frameworks.
 
-The Prismatic Platform uses Chart.js for visualizing security rating distributions, agent activity timelines, OSINT source coverage breakdowns, compliance score comparisons, and real-time performance metrics. Chart.js's responsive design and animation capabilities create polished visualizations that update in real-time through [Phoenix LiveView](/technologies/phoenix-liveview/) hooks -- when a security rating changes or a new agent comes online, the chart animates smoothly to reflect the updated data without full page reloads or jarring visual transitions.
+The Prismatic Platform uses Chart.js for visualizing security rating distributions, agent activity timelines, OSINT source coverage breakdowns, compliance score comparisons, and real-time performance metrics. Chart.js's responsive design and animation capabilities create polished visualizations that update in real-time through [Phoenix LiveView](@/technologies/phoenix-liveview.md) hooks -- when a security rating changes or a new agent comes online, the chart animates smoothly to reflect the updated data without full page reloads or jarring visual transitions.
 
-Chart.js's dark mode compatibility and extensive customization options allow it to integrate seamlessly with the platform's [TailwindCSS](/technologies/tailwindcss/)-based design system, maintaining visual consistency across all dashboard views. Every chart uses the platform's standard color palette and typography, configured through a shared Chart.js defaults object that ensures all visualizations feel like a cohesive part of the interface rather than embedded third-party widgets.
+Chart.js's dark mode compatibility and extensive customization options allow it to integrate seamlessly with the platform's [TailwindCSS](@/technologies/tailwindcss.md)-based design system, maintaining visual consistency across all dashboard views. Every chart uses the platform's standard color palette and typography, configured through a shared Chart.js defaults object that ensures all visualizations feel like a cohesive part of the interface rather than embedded third-party widgets.
 
 ## Key Features
 
@@ -227,17 +227,17 @@ Chart.js was chosen over more complex charting libraries for its simplicity, dar
 
 ## Related Technologies
 
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Server-driven real-time chart data updates through LiveView hooks
-- [Alpine.js](/technologies/alpinejs/) - Client-side interaction handling alongside chart controls and filters
-- [TailwindCSS](/technologies/tailwindcss/) - CSS framework providing the design system that charts integrate with
-- [Flowbite](/technologies/flowbite/) - UI component library used alongside chart containers and dashboard layouts
-- [Phoenix Framework](/technologies/phoenix/) - Web framework providing the WebSocket transport for real-time updates
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Server-driven real-time chart data updates through LiveView hooks
+- [Alpine.js](@/technologies/alpinejs.md) - Client-side interaction handling alongside chart controls and filters
+- [TailwindCSS](@/technologies/tailwindcss.md) - CSS framework providing the design system that charts integrate with
+- [Flowbite](@/technologies/flowbite.md) - UI component library used alongside chart containers and dashboard layouts
+- [Phoenix Framework](@/technologies/phoenix.md) - Web framework providing the WebSocket transport for real-time updates
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - Dashboard chart rendering across all platform modules and views
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security analytics radar and distribution charts for EASM monitoring
-- [prismatic_agents](/apps/prismatic-agents/) - Agent activity and performance visualization dashboards
+- [prismatic_web](@/apps/prismatic-web.md) - Dashboard chart rendering across all platform modules and views
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security analytics radar and distribution charts for EASM monitoring
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent activity and performance visualization dashboards
 
 ---
 
@@ -246,4 +246,4 @@ Chart.js was chosen over more complex charting libraries for its simplicity, dar
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

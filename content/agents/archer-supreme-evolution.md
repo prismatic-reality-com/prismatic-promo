@@ -28,7 +28,7 @@ image_alt = "archer-supreme-evolution - Prismatic Platform"
 
 ## Overview
 
-The Archer Supreme Evolution agent operates as an L3 strategic command authority within the AIAD-Enhanced domain of the Prismatic Platform. This agent governs the formal verification of platform evolution operations through five core [Lean4](/glossary/lean4/) theorems that mathematically guarantee safe evolution transitions. Every evolutionary step in the platform -- from agent specification updates to quality pattern mutations -- must pass through the Archer Supreme Evolution verification gate before promotion to production.
+The Archer Supreme Evolution agent operates as an L3 strategic command authority within the AIAD-Enhanced domain of the Prismatic Platform. This agent governs the formal verification of platform evolution operations through five core [Lean4](@/glossary/lean4.md) theorems that mathematically guarantee safe evolution transitions. Every evolutionary step in the platform -- from agent specification updates to quality pattern mutations -- must pass through the Archer Supreme Evolution verification gate before promotion to production.
 
 Platform evolution without formal guarantees is a liability. The Prismatic Platform evolves continuously through genetic algorithms, pattern propagation, and autonomous quality improvement. Each evolution cycle modifies agent behaviors, quality thresholds, and detection patterns. The Archer Supreme Evolution agent ensures that no evolution step can degrade platform fitness below established baselines by encoding safety invariants as machine-verifiable Lean4 theorems. These theorems cover monotonic quality progression, agent compatibility preservation, supervision tree integrity, resource bound maintenance, and rollback completeness.
 
@@ -38,7 +38,7 @@ The five core Lean4 theorems form a mathematical foundation that evolution opera
 
 ### Theorem 1: Monotonic Quality Progression
 
-Quality scores across the platform must never decrease as a result of an evolution operation. This theorem encodes the invariant that the [quality gates](/glossary/quality-gates/) score after evolution is greater than or equal to the score before evolution, for every quality domain.
+Quality scores across the platform must never decrease as a result of an evolution operation. This theorem encodes the invariant that the [quality gates](@/glossary/quality-gates.md) score after evolution is greater than or equal to the score before evolution, for every quality domain.
 
 ```lean
 theorem monotonic_quality_progression
@@ -63,7 +63,7 @@ theorem agent_compatibility_preservation
 
 ### Theorem 3: Supervision Tree Integrity
 
-Every evolution step must produce a valid [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/). No evolution operation may create orphan processes, circular supervision dependencies, or processes without supervisors.
+Every evolution step must produce a valid [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md). No evolution operation may create orphan processes, circular supervision dependencies, or processes without supervisors.
 
 ### Theorem 4: Resource Bound Maintenance
 
@@ -123,14 +123,14 @@ end
 
 ## Trinity Gate Integration
 
-Every evolution verification passes through the [Trinity Gate](/glossary/trinity-gate/) four-layer validation system. The Archer Supreme Evolution agent produces structured proof artifacts that satisfy each gate layer.
+Every evolution verification passes through the [Trinity Gate](@/glossary/trinity-gate.md) four-layer validation system. The Archer Supreme Evolution agent produces structured proof artifacts that satisfy each gate layer.
 
 | Gate Layer | Evolution Verification | Evidence Type |
 |---|---|---|
 | Structural Consistency | Supervision tree forms valid DAG | Graph analysis proof |
 | Logical Consistency | Theorem propositions are logically sound | Lean4 proof certificates |
 | Formal Necessity | Proofs verified by Lean4 kernel | Machine-checked certificates |
-| Epistemic Validation | Evolution meets [NABLA](/glossary/nabla-infinity/) axiom requirements | Multi-signal evidence package |
+| Epistemic Validation | Evolution meets [NABLA](@/glossary/nabla-infinity.md) axiom requirements | Multi-signal evidence package |
 
 ## Fitness Tracking
 
@@ -151,20 +151,20 @@ The agent maintains a continuous fitness tracking system that monitors evolution
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [archer-supreme](/agents/archer-supreme/) | Supreme Authority | Receives evolution directives and escalates verification failures |
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Evolution Partner | Coordinates evolution execution after verification approval |
-| [auto-evolution-engine](/agents/auto-evolution-engine/) | Automation Layer | Provides candidate evolution changesets for verification |
-| [lean-specialist](/agents/lean-specialist/) | Formal Methods | Assists with Lean4 theorem construction and proof strategies |
+| [archer-supreme](@/agents/archer-supreme.md) | Supreme Authority | Receives evolution directives and escalates verification failures |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Evolution Partner | Coordinates evolution execution after verification approval |
+| [auto-evolution-engine](@/agents/auto-evolution-engine.md) | Automation Layer | Provides candidate evolution changesets for verification |
+| [lean-specialist](@/agents/lean-specialist.md) | Formal Methods | Assists with Lean4 theorem construction and proof strategies |
 
 ## SEADF Integration
 
-The Archer Supreme Evolution agent is a critical component of the [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Development Framework) ecosystem. It provides the formal verification layer that distinguishes controlled evolution from unverified mutation. Without this agent's approval gate, no SEADF evolution cycle can complete.
+The Archer Supreme Evolution agent is a critical component of the [SEADF](@/glossary/seadf.md) (Self-Evolving Autonomous Development Framework) ecosystem. It provides the formal verification layer that distinguishes controlled evolution from unverified mutation. Without this agent's approval gate, no SEADF evolution cycle can complete.
 
 The integration follows a strict sequence: SEADF proposes evolution candidates, the Archer Supreme Evolution agent verifies each candidate against the five theorems, and only verified candidates proceed to the evolution executor for deployment. This creates a provably safe evolution pipeline that maintains platform integrity across continuous improvement cycles.
 
 ## Enforcement
 
-All evolution verification operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No evolution operation bypasses formal verification regardless of urgency. Failed proofs result in immediate evolution rejection with no manual override capability at the L3 level. Evolution operations that cannot be expressed as verifiable theorems are rejected as insufficiently specified. Every verification result is recorded with full [audit trail](/glossary/audit-trail/) including the Lean4 proof certificates, [telemetry](/glossary/telemetry/) measurements, and Trinity Gate passage evidence.
+All evolution verification operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No evolution operation bypasses formal verification regardless of urgency. Failed proofs result in immediate evolution rejection with no manual override capability at the L3 level. Evolution operations that cannot be expressed as verifiable theorems are rejected as insufficiently specified. Every verification result is recorded with full [audit trail](@/glossary/audit-trail.md) including the Lean4 proof certificates, [telemetry](@/glossary/telemetry.md) measurements, and Trinity Gate passage evidence.
 
 ---
 
@@ -173,4 +173,4 @@ All evolution verification operations are governed by the [NO MERCY, NO DOUBTS](
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

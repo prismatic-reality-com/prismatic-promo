@@ -25,11 +25,11 @@ image_alt = "OSV.dev - Prismatic Platform"
 
 ## Overview
 
-OSV.dev is Google's open-source vulnerability database that aggregates vulnerability advisories from multiple ecosystems into a unified, machine-readable format. It covers vulnerabilities in open-source packages across all major ecosystems including npm, PyPI, crates.io, [Hex](/glossary/hex/), Go, Maven, and more. OSV provides precise version-level affected ranges, making it ideal for automated dependency scanning and software composition analysis.
+OSV.dev is Google's open-source vulnerability database that aggregates vulnerability advisories from multiple ecosystems into a unified, machine-readable format. It covers vulnerabilities in open-source packages across all major ecosystems including npm, PyPI, crates.io, [Hex](@/glossary/hex.md), Go, Maven, and more. OSV provides precise version-level affected ranges, making it ideal for automated dependency scanning and software composition analysis.
 
 The OSV project addresses a fundamental problem in vulnerability management: vulnerability data is scattered across dozens of ecosystem-specific advisory databases, each with different formats, identifiers, and version specifications. OSV aggregates these sources into a single API with a consistent schema, enabling tools to check dependencies against all known vulnerabilities without querying multiple databases. This aggregation is particularly valuable for polyglot projects that span multiple language ecosystems.
 
-OSV distinguishes itself from the National Vulnerability Database ([NVD](/osint/nvd/)) through its focus on precise, machine-actionable affected version ranges. While NVD provides CPE-based matching that often requires manual interpretation, OSV specifies exact version ranges per ecosystem package, enabling fully automated vulnerability detection with minimal false positives. The OSV schema has been adopted by numerous vulnerability databases and security tools as a standard interchange format.
+OSV distinguishes itself from the National Vulnerability Database ([NVD](@/osint/nvd.md)) through its focus on precise, machine-actionable affected version ranges. While NVD provides CPE-based matching that often requires manual interpretation, OSV specifies exact version ranges per ecosystem package, enabling fully automated vulnerability detection with minimal false positives. The OSV schema has been adopted by numerous vulnerability databases and security tools as a standard interchange format.
 
 The database is completely open -- all data is freely available through the API, web interface, and bulk data exports. There are no rate limits, no authentication requirements, and no usage restrictions. This makes OSV an ideal data source for building security tools and integrating vulnerability intelligence into development workflows.
 
@@ -47,7 +47,7 @@ OSV aggregates advisories from ecosystem-specific databases, each covering vulne
 | **Debian Security Tracker** | Debian packages | Comprehensive | 10,000+ |
 | **Alpine SecDB** | Alpine Linux packages | Comprehensive | 3,000+ |
 | **OSS-Fuzz** | C/C++ projects in OSS-Fuzz | Automated fuzzing findings | 10,000+ |
-| **Hex.pm Advisory** | [Hex](/glossary/hex/) ([Elixir](/glossary/elixir/)/Erlang) | Growing | 100+ |
+| **Hex.pm Advisory** | [Hex](@/glossary/hex.md) ([Elixir](@/glossary/elixir.md)/Erlang) | Growing | 100+ |
 | **NVD** | Cross-ecosystem via CPE | Broad but less precise | 200,000+ |
 | **Ubuntu Security Notices** | Ubuntu packages | Comprehensive | 5,000+ |
 | **Rocky Linux** | Rocky Linux packages | Comprehensive | 2,000+ |
@@ -256,7 +256,7 @@ OSV enables comprehensive dependency scanning across polyglot projects. By check
 
 ### Elixir/Hex Security
 
-For [Elixir](/glossary/elixir/) and Erlang projects, OSV provides vulnerability coverage through the Hex advisory database. Teams integrate OSV queries into their [mix](/glossary/mix/) build process, checking hex.pm packages against known vulnerabilities. This is particularly important for the Prismatic Platform's extensive Hex dependency tree.
+For [Elixir](@/glossary/elixir.md) and Erlang projects, OSV provides vulnerability coverage through the Hex advisory database. Teams integrate OSV queries into their [mix](@/glossary/mix.md) build process, checking hex.pm packages against known vulnerabilities. This is particularly important for the Prismatic Platform's extensive Hex dependency tree.
 
 ### CI/CD Integration
 
@@ -276,7 +276,7 @@ Development teams use OSV to track the remediation status of known vulnerabiliti
 |------------|--------|------------|
 | **Advisory aggregation delay** | New advisories may take hours to appear | Monitor source databases directly for critical CVEs |
 | **Ecosystem coverage varies** | Some ecosystems have better coverage than others | Supplement with ecosystem-specific tools for critical dependencies |
-| **No exploit intelligence** | OSV tracks vulnerabilities, not exploits | Combine with [Exploit-DB](/osint/exploit-db/) for exploit availability |
+| **No exploit intelligence** | OSV tracks vulnerabilities, not exploits | Combine with [Exploit-DB](@/osint/exploit-db.md) for exploit availability |
 | **Version range precision** | Some advisories have imprecise version ranges from source | Cross-reference with NVD and vendor advisories |
 | **No runtime detection** | Checks package versions, not runtime behavior | Use runtime application security testing (RAST) tools |
 | **Limited severity data** | Not all advisories include CVSS scores | Fall back to qualitative severity from advisory text |
@@ -291,14 +291,14 @@ Development teams use OSV to track the remediation status of known vulnerabiliti
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), OSV.dev serves as the primary dependency vulnerability intelligence source.
+Within the [Prismatic Platform](@/apps/prismatic.md), OSV.dev serves as the primary dependency vulnerability intelligence source.
 
 - **Automated Dependency Scanning**: The platform's build process queries OSV for all Hex, npm, and other ecosystem dependencies, blocking deployments with unresolved critical vulnerabilities.
 - **Lockfile Monitoring**: Changes to `mix.lock` trigger automatic OSV scans, alerting teams when new dependencies introduce known vulnerabilities.
 - **SBOM Generation and Analysis**: The platform generates CycloneDX SBOMs and scans them against OSV for compliance reporting.
-- **Vulnerability Dashboard**: OSV data feeds into the security dashboard in [Prismatic Perimeter](/apps/prismatic-perimeter/), showing dependency vulnerability posture alongside infrastructure findings.
-- **Cross-Source Correlation**: OSV findings are correlated with [NVD](/osint/nvd/) CVE data and [Nuclei](/osint/nuclei/) active scanning results for comprehensive vulnerability management.
-- **Hex Ecosystem Focus**: Special attention to Hex/[OTP](/glossary/otp/) advisories ensures comprehensive coverage of the platform's Elixir dependency tree.
+- **Vulnerability Dashboard**: OSV data feeds into the security dashboard in [Prismatic Perimeter](@/apps/prismatic-perimeter.md), showing dependency vulnerability posture alongside infrastructure findings.
+- **Cross-Source Correlation**: OSV findings are correlated with [NVD](@/osint/nvd.md) CVE data and [Nuclei](@/osint/nuclei.md) active scanning results for comprehensive vulnerability management.
+- **Hex Ecosystem Focus**: Special attention to Hex/[OTP](@/glossary/otp.md) advisories ensures comprehensive coverage of the platform's Elixir dependency tree.
 
 ## Best Practices
 
@@ -320,12 +320,12 @@ Within the [Prismatic Platform](/apps/prismatic/), OSV.dev serves as the primary
 
 ## Related Providers
 
-- [NVD](/osint/nvd/) - National Vulnerability Database (CVE authority)
-- [Exploit-DB](/osint/exploit-db/) - Exploit proof-of-concepts
-- [MITRE ATT&CK](/osint/mitre-attack/) - Adversary technique mapping
-- [Nuclei](/osint/nuclei/) - Template-based vulnerability scanning
-- [VirusTotal](/osint/virustotal/) - Malware and threat analysis
-- [Netlas](/osint/netlas/) - Internet intelligence with CVE mapping
+- [NVD](@/osint/nvd.md) - National Vulnerability Database (CVE authority)
+- [Exploit-DB](@/osint/exploit-db.md) - Exploit proof-of-concepts
+- [MITRE ATT&CK](@/osint/mitre-attack.md) - Adversary technique mapping
+- [Nuclei](@/osint/nuclei.md) - Template-based vulnerability scanning
+- [VirusTotal](@/osint/virustotal.md) - Malware and threat analysis
+- [Netlas](@/osint/netlas.md) - Internet intelligence with CVE mapping
 
 ---
 
@@ -334,4 +334,4 @@ Within the [Prismatic Platform](/apps/prismatic/), OSV.dev serves as the primary
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

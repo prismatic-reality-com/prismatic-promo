@@ -30,13 +30,13 @@ image_alt = "technical-debt-reduction-specialist - Prismatic Platform"
 
 The Technical Debt Reduction Specialist is an L3 strategic command agent operating within the Prismatic Platform's quality domain, dedicated to the systematic elimination and prevention of technical debt through targeted refactoring campaigns, automated remediation pipelines, and quality gate enforcement. While the Tech Debt Analyst identifies and quantifies debt, this agent executes the remediation, transforming analysis into action through methodical elimination of every identified debt item.
 
-The Prismatic Platform's achievement of zero [QDP](/glossary/qdp/) (Quality Debt Points) represents a state that this agent actively maintains and defends. Having led the elimination of 905 quality debt items through systematic [CASCADE](/glossary/cascade/) pattern remediation, the agent now operates primarily in prevention mode, intercepting new debt introduction through quality gate enforcement and automated correction. Under the [AIAD](/glossary/aiad/) standard and [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, the agent operates with zero tolerance for debt accumulation.
+The Prismatic Platform's achievement of zero [QDP](@/glossary/qdp.md) (Quality Debt Points) represents a state that this agent actively maintains and defends. Having led the elimination of 905 quality debt items through systematic [CASCADE](@/glossary/cascade.md) pattern remediation, the agent now operates primarily in prevention mode, intercepting new debt introduction through quality gate enforcement and automated correction. Under the [AIAD](@/glossary/aiad.md) standard and [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, the agent operates with zero tolerance for debt accumulation.
 
 ## Theoretical Foundations
 
 Technical debt reduction draws from software refactoring theory, established by Martin Fowler's foundational catalogue of refactoring patterns. Each refactoring operation transforms code structure while preserving external behavior, a property that must be formally verified for each transformation to prevent the introduction of new defects during debt remediation.
 
-The concept of behavior preservation during refactoring connects to formal program transformation theory, where program equivalence proofs ensure that refactored code produces identical outputs for all possible inputs. The agent leverages this theoretical foundation through comprehensive test coverage that serves as a practical proxy for formal equivalence proofs, supplemented by [property-based testing](/glossary/property-based-testing/) that verifies behavioral invariants across randomized input spaces.
+The concept of behavior preservation during refactoring connects to formal program transformation theory, where program equivalence proofs ensure that refactored code produces identical outputs for all possible inputs. The agent leverages this theoretical foundation through comprehensive test coverage that serves as a practical proxy for formal equivalence proofs, supplemented by [property-based testing](@/glossary/property-based-testing.md) that verifies behavioral invariants across randomized input spaces.
 
 The economic theory of debt reduction from financial mathematics informs the agent's prioritization strategy. The concept of "debt avalanche" (prioritizing highest-interest debt first) versus "debt snowball" (prioritizing smallest debt items first for momentum) applies directly to technical debt remediation. The agent implements a hybrid strategy that targets high-interest debt items (those causing the most ongoing maintenance cost) while also eliminating quick-win items that maintain remediation momentum.
 
@@ -56,7 +56,7 @@ The CASCADE pattern library, developed specifically for the Prismatic Platform, 
 
 ## Architecture and Implementation
 
-The agent operates as a supervised [OTP](/glossary/otp/) process within the quality domain, implementing a remediation pipeline with verification at every stage.
+The agent operates as a supervised [OTP](@/glossary/otp.md) process within the quality domain, implementing a remediation pipeline with verification at every stage.
 
 | Component | Function | Implementation |
 |-----------|----------|---------------|
@@ -105,13 +105,13 @@ The five CASCADE patterns represent the most impactful debt categories eliminate
 
 | System | Integration Purpose | Data Flow |
 |--------|-------------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent lifecycle and task dispatch | Bidirectional |
-| [Trinity Gate](/glossary/trinity-gate/) | Remediation correctness verification | Mandatory passage |
-| [SEADF](/glossary/seadf/) | Quality evolution and improvement tracking | Bidirectional |
-| [Prismatic Telemetry](/glossary/telemetry/) | Remediation metrics and events | Write |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification and discovery | Read |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent lifecycle and task dispatch | Bidirectional |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Remediation correctness verification | Mandatory passage |
+| [SEADF](@/glossary/seadf.md) | Quality evolution and improvement tracking | Bidirectional |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Remediation metrics and events | Write |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Read |
 | Git Hooks | Quality gate enforcement | Blocking gate |
-| [Tech Debt Analyst](/agents/tech-debt-analyst/) | Remediation target identification | Inbound analysis |
+| [Tech Debt Analyst](@/agents/tech-debt-analyst.md) | Remediation target identification | Inbound analysis |
 
 ## Quality Assurance
 
@@ -119,7 +119,7 @@ Every remediation operation undergoes Trinity Gate verification to ensure that t
 
 ## Related Agents
 
-The Technical Debt Reduction Specialist receives remediation targets from the [tech-debt-analyst](/agents/tech-debt-analyst/) and verification support from the [systematic-verifier](/agents/systematic-verifier/). The [type-inference-debugger](/agents/type-inference-debugger/) assists with Type Mismatch CASCADE remediation. The [test-generator-agent](/agents/test-generator-agent/) produces regression tests for code areas undergoing refactoring.
+The Technical Debt Reduction Specialist receives remediation targets from the [tech-debt-analyst](@/agents/tech-debt-analyst.md) and verification support from the [systematic-verifier](@/agents/systematic-verifier.md). The [type-inference-debugger](@/agents/type-inference-debugger.md) assists with Type Mismatch CASCADE remediation. The [test-generator-agent](@/agents/test-generator-agent.md) produces regression tests for code areas undergoing refactoring.
 
 ---
 
@@ -128,4 +128,4 @@ The Technical Debt Reduction Specialist receives remediation targets from the [t
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

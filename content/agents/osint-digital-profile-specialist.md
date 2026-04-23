@@ -28,9 +28,9 @@ image_alt = "osint-digital-profile-specialist - Prismatic Platform"
 
 ## Overview
 
-The osint-digital-profile-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's [OSINT](/glossary/osint/) domain, responsible for constructing comprehensive digital profiles of target entities by aggregating, correlating, and analyzing publicly available digital footprints across internet platforms, social media, professional networks, domain registrations, and code repositories. This agent builds multi-dimensional entity profiles that reveal online presence patterns, communication behaviors, technical capabilities, and relationship networks -- all from publicly accessible sources.
+The osint-digital-profile-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's [OSINT](@/glossary/osint.md) domain, responsible for constructing comprehensive digital profiles of target entities by aggregating, correlating, and analyzing publicly available digital footprints across internet platforms, social media, professional networks, domain registrations, and code repositories. This agent builds multi-dimensional entity profiles that reveal online presence patterns, communication behaviors, technical capabilities, and relationship networks -- all from publicly accessible sources.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the platform's [entity resolution](/glossary/entity-resolution/) engine, the digital profile specialist links disparate online identities to resolved entities through username correlation, email pivoting, profile image matching, and behavioral fingerprinting. All profile constructions comply with [NABLA Infinity](/glossary/nabla-infinity/) axioms: every identity linkage requires evidence from at least two independent sources, and all attributions carry quantified confidence scores that pass [Trinity Gate](/glossary/trinity-gate/) validation.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the platform's [entity resolution](@/glossary/entity-resolution.md) engine, the digital profile specialist links disparate online identities to resolved entities through username correlation, email pivoting, profile image matching, and behavioral fingerprinting. All profile constructions comply with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms: every identity linkage requires evidence from at least two independent sources, and all attributions carry quantified confidence scores that pass [Trinity Gate](@/glossary/trinity-gate.md) validation.
 
 ## Operational Domain
 
@@ -51,8 +51,8 @@ The digital profiling domain spans all publicly accessible internet platforms wh
 - **Email pivot analysis** -- Traces email addresses through breach databases, WHOIS records, and platform registrations to discover linked accounts and alternate identities
 - **Profile image matching** -- Compares profile images across platforms using perceptual hashing to identify accounts sharing the same or similar photographs
 - **Behavioral fingerprinting** -- Analyzes posting patterns, writing style, timezone activity, and language use to correlate anonymous accounts with known identities
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed profile expansion cycles that discover new linked accounts
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing profile completeness scores, source coverage metrics, and entity resolution confidence
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed profile expansion cycles that discover new linked accounts
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing profile completeness scores, source coverage metrics, and entity resolution confidence
 
 ## Digital Profile Construction
 
@@ -140,7 +140,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to orchestrate cross-platform digital profile collection and publish entity intelligence products.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to orchestrate cross-platform digital profile collection and publish entity intelligence products.
 
 ## Command Interface
 
@@ -154,14 +154,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [linkedin-intelligence-specialist](/agents/linkedin-intelligence-specialist/) | Provides professional network intelligence for profile enrichment |
-| [reddit-intelligence-specialist](/agents/reddit-intelligence-specialist/) | Supplies community engagement patterns and interest mapping |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Digital profiles feed into entity risk assessment models |
-| [reputation-risk-specialist](/agents/reputation-risk-specialist/) | Online presence patterns inform reputation risk analysis |
+| [linkedin-intelligence-specialist](@/agents/linkedin-intelligence-specialist.md) | Provides professional network intelligence for profile enrichment |
+| [reddit-intelligence-specialist](@/agents/reddit-intelligence-specialist.md) | Supplies community engagement patterns and interest mapping |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Digital profiles feed into entity risk assessment models |
+| [reputation-risk-specialist](@/agents/reputation-risk-specialist.md) | Online presence patterns inform reputation risk analysis |
 
 ## KuzuDB Graph Storage
 
-Digital profiles are stored in [KuzuDB](/glossary/kuzudb/) graph database structures, with entities as nodes and platform relationships as edges. This enables efficient traversal queries such as "find all entities connected to target X through shared GitHub organizations" or "identify entities with overlapping digital footprints across 3+ platforms." The graph model naturally represents the multi-hop relationship networks that digital profiling reveals.
+Digital profiles are stored in [KuzuDB](@/glossary/kuzudb.md) graph database structures, with entities as nodes and platform relationships as edges. This enables efficient traversal queries such as "find all entities connected to target X through shared GitHub organizations" or "identify entities with overlapping digital footprints across 3+ platforms." The graph model naturally represents the multi-hop relationship networks that digital profiling reveals.
 
 ## Identity Correlation Techniques
 
@@ -189,7 +189,7 @@ Digital profiling operations must be conducted with awareness of operational sig
 
 ## Enforcement
 
-All digital profiling operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no identity linkage is published without meeting minimum confidence thresholds, all profile attributions carry provenance chains to source platforms, and speculative connections are clearly labeled as unverified. The [NO DOUBTS](/glossary/no-doubts/) principle requires that entity resolution decisions are deterministic and reproducible. The [Trinity Gate](/glossary/trinity-gate/) validates that profile conclusions maintain structural consistency across all linked identities.
+All digital profiling operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no identity linkage is published without meeting minimum confidence thresholds, all profile attributions carry provenance chains to source platforms, and speculative connections are clearly labeled as unverified. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that entity resolution decisions are deterministic and reproducible. The [Trinity Gate](@/glossary/trinity-gate.md) validates that profile conclusions maintain structural consistency across all linked identities.
 
 ---
 
@@ -198,4 +198,4 @@ All digital profiling operations comply with the [NO MERCY](/glossary/no-mercy/)
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

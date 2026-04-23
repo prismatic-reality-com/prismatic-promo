@@ -22,9 +22,9 @@ image_alt = "Fly.io - Prismatic Platform"
 
 Fly.io is a platform-as-a-service that runs applications in lightweight Firecracker microVMs at edge locations worldwide. Unlike traditional cloud platforms that deploy to a single data center region, Fly.io distributes application instances across a global network of 30+ regions, running each instance in a dedicated microVM rather than a shared container environment. This architecture provides the security isolation of virtual machines with startup times measured in milliseconds, combining the best properties of containers and VMs.
 
-Fly.io is particularly well-suited for Elixir and Erlang applications because it provides native support for Erlang distribution -- the built-in clustering protocol that allows [BEAM](/glossary/beam/) nodes to form a mesh and communicate transparently. Fly.io's WireGuard-based private network (6PN) creates encrypted point-to-point tunnels between all instances in an organization, which Erlang distribution uses as its transport layer. This means that Phoenix [PubSub](/glossary/pubsub/) messages, distributed process registries (like Horde), and [BEAM](/glossary/beam/) process migration all work across Fly.io instances without any custom networking configuration.
+Fly.io is particularly well-suited for Elixir and Erlang applications because it provides native support for Erlang distribution -- the built-in clustering protocol that allows [BEAM](@/glossary/beam.md) nodes to form a mesh and communicate transparently. Fly.io's WireGuard-based private network (6PN) creates encrypted point-to-point tunnels between all instances in an organization, which Erlang distribution uses as its transport layer. This means that Phoenix [PubSub](@/glossary/pubsub.md) messages, distributed process registries (like Horde), and [BEAM](@/glossary/beam.md) process migration all work across Fly.io instances without any custom networking configuration.
 
-Applications deploy to Fly.io via the `flyctl` CLI, which builds the [Docker](/glossary/docker/) image (or uses a pre-built image), distributes it to the specified regions, and manages the rollout strategy. Fly.io provides automatic TLS certificate provisioning, global [load balancing](/glossary/load-balancing/), persistent volumes, managed [PostgreSQL](/glossary/postgresql/), and secrets management as built-in platform features.
+Applications deploy to Fly.io via the `flyctl` CLI, which builds the [Docker](@/glossary/docker.md) image (or uses a pre-built image), distributes it to the specified regions, and manages the rollout strategy. Fly.io provides automatic TLS certificate provisioning, global [load balancing](@/glossary/load-balancing.md), persistent volumes, managed [PostgreSQL](@/glossary/postgresql.md), and secrets management as built-in platform features.
 
 ## Prismatic Deployment Architecture
 
@@ -62,7 +62,7 @@ Deploy to Production
 
 ## Erlang Clustering on Fly.io
 
-Fly.io's 6PN (IPv6 private network) provides the foundation for BEAM [clustering](/glossary/cluster/). Each Fly.io instance receives a unique IPv6 address on the private network, and instances within the same application can discover each other through DNS:
+Fly.io's 6PN (IPv6 private network) provides the foundation for BEAM [clustering](@/glossary/cluster.md). Each Fly.io instance receives a unique IPv6 address on the private network, and instances within the same application can discover each other through DNS:
 
 ```elixir
 # config/runtime.exs -- Fly.io cluster configuration
@@ -93,9 +93,9 @@ end
 | **Phoenix PubSub** | Erlang distribution via 6PN | Real-time dashboard updates across all nodes |
 | **Distributed Registry** | Horde (CRDT-based) | Agent process registration across nodes |
 | **Process Migration** | BEAM distribution protocol | Agent failover between nodes |
-| **Session Affinity** | Fly.io `fly-replay` header | Sticky sessions for [LiveView](/glossary/liveview/) WebSocket connections |
+| **Session Affinity** | Fly.io `fly-replay` header | Sticky sessions for [LiveView](@/glossary/liveview.md) WebSocket connections |
 
-When a new instance starts (during scaling or rolling deployment), it polls DNS to discover existing instances, connects via Erlang distribution over WireGuard, and joins the cluster. [PubSub](/glossary/pubsub/) topics, process registries, and supervision trees then automatically account for the new node.
+When a new instance starts (during scaling or rolling deployment), it polls DNS to discover existing instances, connects via Erlang distribution over WireGuard, and joins the cluster. [PubSub](@/glossary/pubsub.md) topics, process registries, and supervision trees then automatically account for the new node.
 
 ## Secrets Management
 
@@ -118,7 +118,7 @@ config :prismatic_web, PrismaticWeb.Endpoint,
   secret_key_base: System.fetch_env!("SECRET_KEY_BASE")
 ```
 
-This approach ensures that secrets never appear in [Docker](/glossary/docker/) images, CI/CD logs, or configuration files.
+This approach ensures that secrets never appear in [Docker](@/glossary/docker.md) images, CI/CD logs, or configuration files.
 
 ## Health Checks and Monitoring
 
@@ -194,7 +194,7 @@ flyctl postgres attach prismatic-db --app prismatic
 flyctl postgres connect -a prismatic-db
 ```
 
-Fly Postgres runs as a separate Fly.io application with its own instances, providing dedicated resources and network isolation from the application tier. The platform uses [TimescaleDB](/glossary/timescaledb/) extensions for time-series data when available.
+Fly Postgres runs as a separate Fly.io application with its own instances, providing dedicated resources and network isolation from the application tier. The platform uses [TimescaleDB](@/glossary/timescaledb.md) extensions for time-series data when available.
 
 ## Multi-Region Deployment
 
@@ -229,10 +229,10 @@ Fly.io implements rolling deployments by default, ensuring zero downtime during 
 2. Health checks must pass before receiving traffic
 3. Traffic is gradually shifted from old to new instances
 4. Old instances receive a SIGTERM and begin graceful shutdown
-5. [BEAM](/glossary/beam/) processes complete in-flight work during shutdown grace period
+5. [BEAM](@/glossary/beam.md) processes complete in-flight work during shutdown grace period
 6. Old instances terminate after all connections drain
 
-The BEAM's graceful shutdown behavior integrates seamlessly with this process: [Broadway](/glossary/broadway/) pipelines drain their message queues, [LiveView](/glossary/liveview/) connections are cleanly terminated (clients reconnect to new instances automatically), and [Ecto](/glossary/ecto/) database connections are returned to the pool.
+The BEAM's graceful shutdown behavior integrates seamlessly with this process: [Broadway](@/glossary/broadway.md) pipelines drain their message queues, [LiveView](@/glossary/liveview.md) connections are cleanly terminated (clients reconnect to new instances automatically), and [Ecto](@/glossary/ecto.md) database connections are returned to the pool.
 
 ## Context in Prismatic
 
@@ -247,25 +247,25 @@ Fly.io is the production hosting platform for the entire Prismatic Platform. Key
 
 ## Related Terms
 
-- [Docker](/glossary/docker/) - Container format deployed to Fly.io microVMs
-- [Cluster](/glossary/cluster/) - Distributed Erlang cluster enabled by Fly.io 6PN networking
-- [Release](/glossary/release/) - OTP release running inside Fly.io instances
-- [BEAM](/glossary/beam/) - Virtual machine leveraging Fly.io's clustering support
-- [PubSub](/glossary/pubsub/) - Distributed messaging across Fly.io nodes
-- [LiveView](/glossary/liveview/) - Real-time UI with session affinity on Fly.io
-- [PostgreSQL](/glossary/postgresql/) - Managed database service on Fly.io
-- [Load Balancing](/glossary/load-balancing/) - Anycast routing to nearest Fly.io instance
-- [TLS](/glossary/tls/) - Automatic certificate provisioning by Fly.io
-- [Phoenix](/glossary/phoenix/) - Web framework deployed to Fly.io
-- [Distributed System](/glossary/distributed-system/) - Multi-region distributed architecture
-- [Broadway](/glossary/broadway/) - Data pipelines with graceful shutdown on deploy
+- [Docker](@/glossary/docker.md) - Container format deployed to Fly.io microVMs
+- [Cluster](@/glossary/cluster.md) - Distributed Erlang cluster enabled by Fly.io 6PN networking
+- [Release](@/glossary/release.md) - OTP release running inside Fly.io instances
+- [BEAM](@/glossary/beam.md) - Virtual machine leveraging Fly.io's clustering support
+- [PubSub](@/glossary/pubsub.md) - Distributed messaging across Fly.io nodes
+- [LiveView](@/glossary/liveview.md) - Real-time UI with session affinity on Fly.io
+- [PostgreSQL](@/glossary/postgresql.md) - Managed database service on Fly.io
+- [Load Balancing](@/glossary/load-balancing.md) - Anycast routing to nearest Fly.io instance
+- [TLS](@/glossary/tls.md) - Automatic certificate provisioning by Fly.io
+- [Phoenix](@/glossary/phoenix.md) - Web framework deployed to Fly.io
+- [Distributed System](@/glossary/distributed-system.md) - Multi-region distributed architecture
+- [Broadway](@/glossary/broadway.md) - Data pipelines with graceful shutdown on deploy
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture
-- [Technologies](/technologies/) - Technology stack
-- [Fault Tolerance](/glossary/fault-tolerance/) - Multi-region resilience through Fly.io
-- [Observability](/glossary/observability/) - Monitoring Fly.io deployments
+- [Architecture](@/architecture/_index.md) - Platform architecture
+- [Technologies](@/technologies/_index.md) - Technology stack
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - Multi-region resilience through Fly.io
+- [Observability](@/glossary/observability.md) - Monitoring Fly.io deployments
 
 ---
 
@@ -274,4 +274,4 @@ Fly.io is the production hosting platform for the entire Prismatic Platform. Key
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

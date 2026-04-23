@@ -31,9 +31,9 @@ image_alt = "Security Synthesis - Prismatic Platform"
 
 **Security synthesis** is the disciplined process of integrating offensive security findings with defensive security capabilities to produce measurable improvements in overall security posture. It transcends the traditional separation between attack simulation and defense by creating a structured feedback loop where adversarial discoveries directly inform defensive improvements, and defensive gaps directly shape future adversarial campaigns. Security synthesis is not merely correlating Red and Blue team outputs -- it is the creation of emergent security knowledge that neither team could produce independently.
 
-In the Prismatic Platform, security synthesis is the primary responsibility of the [Purple Team](/glossary/purple-team/), which operates as the central synthesis hub within the [Color Teams](/glossary/color-teams/) framework. The Purple Team coordinates between the [Red Team](/glossary/red-team/) (adversarial simulation), [Blue Team](/glossary/blue-team/) (epistemic defense), [Gray Team](/glossary/color-teams/) (boundary exploration), [White Team](/glossary/color-teams/) (constructive verification), and [Black Team](/glossary/black-team/) (theoretical threat modeling) to ensure that security findings flow through the entire pipeline from discovery to remediation to verification.
+In the Prismatic Platform, security synthesis is the primary responsibility of the [Purple Team](@/glossary/purple-team.md), which operates as the central synthesis hub within the [Color Teams](@/glossary/color-teams.md) framework. The Purple Team coordinates between the [Red Team](@/glossary/red-team.md) (adversarial simulation), [Blue Team](@/glossary/blue-team.md) (epistemic defense), [Gray Team](@/glossary/color-teams.md) (boundary exploration), [White Team](@/glossary/color-teams.md) (constructive verification), and [Black Team](@/glossary/black-team.md) (theoretical threat modeling) to ensure that security findings flow through the entire pipeline from discovery to remediation to verification.
 
-The platform's synthesis process is uniquely informed by the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, which ensures that contradictory findings are preserved rather than resolved prematurely, that evidence from multiple independent sources is weighted appropriately, and that all synthesis conclusions can be traced back to their supporting evidence.
+The platform's synthesis process is uniquely informed by the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, which ensures that contradictory findings are preserved rather than resolved prematurely, that evidence from multiple independent sources is weighted appropriately, and that all synthesis conclusions can be traced back to their supporting evidence.
 
 ## Historical Context
 
@@ -263,7 +263,7 @@ The Prismatic Platform uses a rigorous four-condition model for determining when
 
 ### Condition 1: Attack Reproduction Verified
 
-The original attack path must be independently reproducible within the [sandbox](/glossary/sandbox/) environment. This verifies that the finding is real and that the defense is addressing the actual vulnerability rather than a symptom. Reproduction uses synthetic data and isolated execution to prevent any risk to production systems.
+The original attack path must be independently reproducible within the [sandbox](@/glossary/sandbox.md) environment. This verifies that the finding is real and that the defense is addressing the actual vulnerability rather than a symptom. Reproduction uses synthetic data and isolated execution to prevent any risk to production systems.
 
 ### Condition 2: Defense Deployed and Validated
 
@@ -337,7 +337,7 @@ end
 
 ## Epistemic Security Integration
 
-Security synthesis in the Prismatic Platform is deeply integrated with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. This integration ensures that synthesis conclusions meet the same evidence standards as all other platform decisions.
+Security synthesis in the Prismatic Platform is deeply integrated with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. This integration ensures that synthesis conclusions meet the same evidence standards as all other platform decisions.
 
 The **signal plurality** axiom requires that security findings be confirmed by at least two independent signals before driving synthesis actions. A Red Team finding alone is insufficient; it must be corroborated by Blue Team telemetry, Gray Team boundary analysis, or White Team verification.
 
@@ -353,9 +353,9 @@ The regression monitoring system maintains a "regression trap" database that tra
 
 ## Integration with Platform Security
 
-Security synthesis feeds directly into the platform's [security operations](/glossary/security-operations/) framework. Synthesis results inform the Prismatic Perimeter EASM system's security ratings, providing evidence-based scores rather than heuristic estimates. Synthesis findings also drive updates to the platform's threat model, compliance assessments (NIS2, ZKB), and security training content.
+Security synthesis feeds directly into the platform's [security operations](@/glossary/security-operations.md) framework. Synthesis results inform the Prismatic Perimeter EASM system's security ratings, providing evidence-based scores rather than heuristic estimates. Synthesis findings also drive updates to the platform's threat model, compliance assessments (NIS2, ZKB), and security training content.
 
-The synthesis pipeline integrates with the platform's [quality gates](/glossary/quality-gates/) to ensure that security findings are treated with the same rigor as quality metrics. Security regressions block deployments just as quality regressions do, and security synthesis confidence levels must meet the same thresholds as quality confidence levels.
+The synthesis pipeline integrates with the platform's [quality gates](@/glossary/quality-gates.md) to ensure that security findings are treated with the same rigor as quality metrics. Security regressions block deployments just as quality regressions do, and security synthesis confidence levels must meet the same thresholds as quality confidence levels.
 
 ## Metrics and Measurement
 
@@ -377,17 +377,17 @@ The platform's approach aligns with and extends frameworks such as MITRE ATT&CK 
 
 ## Related Concepts
 
-- [Purple Team](/glossary/purple-team/) -- Primary synthesis team responsible for Red-Blue loop closure
-- [Red Team](/glossary/red-team/) -- Adversarial simulation producing findings for synthesis
-- [Blue Team](/glossary/blue-team/) -- Epistemic defense providing defensive capabilities for mapping
-- [Black Team](/glossary/black-team/) -- Theoretical threat modeling informing synthesis scope
-- [Color Teams](/glossary/color-teams/) -- Full Color Team framework driving the synthesis pipeline
-- [Sandbox](/glossary/sandbox/) -- Isolated execution environment for attack reproduction
-- [Trinity Gate](/glossary/trinity-gate/) -- Validation gate for synthesis conclusions
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework ensuring evidence rigor in synthesis
-- [Adversarial Simulation](/glossary/adversarial-simulation/) -- Attack simulation within sandbox boundaries
-- [Evidence](/glossary/evidence/) -- Evidence handling and provenance for synthesis findings
-- [Security Operations](/glossary/security-operations/) -- Operational security informed by synthesis results
+- [Purple Team](@/glossary/purple-team.md) -- Primary synthesis team responsible for Red-Blue loop closure
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation producing findings for synthesis
+- [Blue Team](@/glossary/blue-team.md) -- Epistemic defense providing defensive capabilities for mapping
+- [Black Team](@/glossary/black-team.md) -- Theoretical threat modeling informing synthesis scope
+- [Color Teams](@/glossary/color-teams.md) -- Full Color Team framework driving the synthesis pipeline
+- [Sandbox](@/glossary/sandbox.md) -- Isolated execution environment for attack reproduction
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Validation gate for synthesis conclusions
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework ensuring evidence rigor in synthesis
+- [Adversarial Simulation](@/glossary/adversarial-simulation.md) -- Attack simulation within sandbox boundaries
+- [Evidence](@/glossary/evidence.md) -- Evidence handling and provenance for synthesis findings
+- [Security Operations](@/glossary/security-operations.md) -- Operational security informed by synthesis results
 
 ---
 

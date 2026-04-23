@@ -28,9 +28,9 @@ image_alt = "l1-pattern-engine - Prismatic Platform"
 
 ## Overview
 
-The l1-pattern-engine is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the Czech pattern recognition domain of the Prismatic Platform. It serves as the first processing level in the platform's three-tier intelligence pipeline (L1 pattern recognition, L2 entity resolution, L3 strategy optimization) specifically designed for Czech corporate registry data, public records, and regulatory filing analysis. The L1 designation indicates that this agent operates at the structural pattern matching level, identifying recurring data patterns, template matches, and statistical anomalies in raw registry data before passing enriched observations to the [l2-entity-resolver](/agents/l2-entity-resolver/) for entity-level analysis.
+The l1-pattern-engine is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the Czech pattern recognition domain of the Prismatic Platform. It serves as the first processing level in the platform's three-tier intelligence pipeline (L1 pattern recognition, L2 entity resolution, L3 strategy optimization) specifically designed for Czech corporate registry data, public records, and regulatory filing analysis. The L1 designation indicates that this agent operates at the structural pattern matching level, identifying recurring data patterns, template matches, and statistical anomalies in raw registry data before passing enriched observations to the [l2-entity-resolver](@/agents/l2-entity-resolver.md) for entity-level analysis.
 
-Built on the [AIAD](/glossary/aiad/) standard with deep integration into the platform's Czech regulatory intelligence infrastructure, the l1-pattern-engine applies pattern recognition techniques calibrated for the specific characteristics of Czech data sources. Czech corporate registries (Obchodni rejstrik), beneficial ownership registries (Evidence skutecnych majitelu), insolvency registries (Insolvenni rejstrik), and public procurement databases (Vestnik verejnych zakazek) each have distinctive data structures, naming conventions, and update patterns that require specialized pattern recognition rules rather than generic approaches.
+Built on the [AIAD](@/glossary/aiad.md) standard with deep integration into the platform's Czech regulatory intelligence infrastructure, the l1-pattern-engine applies pattern recognition techniques calibrated for the specific characteristics of Czech data sources. Czech corporate registries (Obchodni rejstrik), beneficial ownership registries (Evidence skutecnych majitelu), insolvency registries (Insolvenni rejstrik), and public procurement databases (Vestnik verejnych zakazek) each have distinctive data structures, naming conventions, and update patterns that require specialized pattern recognition rules rather than generic approaches.
 
 ## Pattern Recognition Architecture
 
@@ -48,29 +48,29 @@ The output stage produces enriched observations that annotate the original data 
 - **Address clustering analysis** -- Identifies unusual concentrations of registered entities at shared addresses, flagging potential virtual office arrangements and mass registration patterns
 - **Director network mapping** -- Maps director appointment patterns across companies to identify professional nominee networks and interlocking directorate structures
 - **Anomaly detection** -- Applies statistical methods to identify data points that deviate significantly from expected distributions, including unusual filing timing, atypical capital structures, and outlier ownership patterns
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous processing of registry data feeds
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for pattern recognition performance and accuracy monitoring
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous processing of registry data feeds
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for pattern recognition performance and accuracy monitoring
 
 ## Czech Regulatory Context
 
-The l1-pattern-engine operates within the context of Czech and EU regulatory frameworks that shape the significance of recognized patterns. The [ZKB](/glossary/zkb/) (Zakon o kyberneticke bezpecnosti, 264/2025 Sb.) establishes cybersecurity requirements for critical infrastructure entities, making the identification of entities in regulated sectors a compliance-relevant pattern recognition task. The [NIS2](/glossary/nis2/) Directive (EU 2022/2555) expands the scope of regulated entities and imposes supply chain security requirements that make corporate ownership and control pattern analysis relevant for compliance assessment.
+The l1-pattern-engine operates within the context of Czech and EU regulatory frameworks that shape the significance of recognized patterns. The [ZKB](@/glossary/zkb.md) (Zakon o kyberneticke bezpecnosti, 264/2025 Sb.) establishes cybersecurity requirements for critical infrastructure entities, making the identification of entities in regulated sectors a compliance-relevant pattern recognition task. The [NIS2](@/glossary/nis2.md) Directive (EU 2022/2555) expands the scope of regulated entities and imposes supply chain security requirements that make corporate ownership and control pattern analysis relevant for compliance assessment.
 
 Czech corporate registry data has specific characteristics that the pattern engine accounts for. Company identification numbers (ICO) serve as stable entity identifiers across registries. The distinction between "spolecnost s rucenim omezenym" (s.r.o., limited liability company) and "akciova spolecnost" (a.s., joint-stock company) affects the available disclosure data and regulatory requirements. Czech beneficial ownership registry (ESM) data, while public, has variable completeness and update frequency that the pattern engine factors into confidence scoring.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the pattern engine to process data from multiple Czech registry sources, publish enriched observations to the entity resolution pipeline, and coordinate with regulatory compliance agents for pattern significance assessment.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the pattern engine to process data from multiple Czech registry sources, publish enriched observations to the entity resolution pipeline, and coordinate with regulatory compliance agents for pattern significance assessment.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
 | Prismatic OSINT | Czech registry data source integration and collection scheduling |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Pattern observation persistence and historical pattern indexing |
-| [KuzuDB](/glossary/kuzudb/) | Graph-based storage of director networks and corporate relationship patterns |
-| Prismatic Telemetry | Pattern recognition [metrics](/glossary/metrics/), throughput tracking, and accuracy monitoring |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of pattern recognition rules |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Pattern observation persistence and historical pattern indexing |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph-based storage of director networks and corporate relationship patterns |
+| Prismatic Telemetry | Pattern recognition [metrics](@/glossary/metrics.md), throughput tracking, and accuracy monitoring |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of pattern recognition rules |
 
 ## Command Interface
 
@@ -85,19 +85,19 @@ Czech corporate registry data has specific characteristics that the pattern engi
 
 | Agent | Relationship |
 |-------|-------------|
-| [**l2-entity-resolver**](/agents/l2-entity-resolver/) (L3) | Receives enriched observations for entity-level resolution and cross-referencing |
-| [**l3-strategy-optimizer**](/agents/l3-strategy-optimizer/) (L3) | Consumes entity-resolved intelligence for strategic pattern optimization |
-| [**investigate-coordinator**](/agents/investigate-coordinator/) (L3) | Routes Czech entity investigations through the L1-L2-L3 pipeline |
+| [**l2-entity-resolver**](@/agents/l2-entity-resolver.md) (L3) | Receives enriched observations for entity-level resolution and cross-referencing |
+| [**l3-strategy-optimizer**](@/agents/l3-strategy-optimizer.md) (L3) | Consumes entity-resolved intelligence for strategic pattern optimization |
+| [**investigate-coordinator**](@/agents/investigate-coordinator.md) (L3) | Routes Czech entity investigations through the L1-L2-L3 pipeline |
 
 ## Pattern Library Evolution
 
-The pattern library evolves through the [SEADF](/glossary/seadf/) autonomous evolution framework. New patterns are derived from analyst observations, regulatory changes, and statistical analysis of false negative rates (patterns present in data but not yet detected by existing rules). Pattern effectiveness is measured by precision (percentage of matches that are genuinely significant) and recall (percentage of significant patterns in the data that are successfully detected). Underperforming patterns are refined or retired, while high-performing patterns are promoted to higher confidence levels.
+The pattern library evolves through the [SEADF](@/glossary/seadf.md) autonomous evolution framework. New patterns are derived from analyst observations, regulatory changes, and statistical analysis of false negative rates (patterns present in data but not yet detected by existing rules). Pattern effectiveness is measured by precision (percentage of matches that are genuinely significant) and recall (percentage of significant patterns in the data that are successfully detected). Underperforming patterns are refined or retired, while high-performing patterns are promoted to higher confidence levels.
 
-The [GARDEN](/glossary/garden/) legacy knowledge repository provides historical pattern templates derived from 20+ years of Czech corporate intelligence analysis, giving the l1-pattern-engine a foundation of proven recognition rules that new machine-learning-derived patterns extend and complement.
+The [GARDEN](@/glossary/garden.md) legacy knowledge repository provides historical pattern templates derived from 20+ years of Czech corporate intelligence analysis, giving the l1-pattern-engine a foundation of proven recognition rules that new machine-learning-derived patterns extend and complement.
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that pattern recognition results include all detected matches without filtering or suppression. The [NABLA Infinity](/glossary/nabla-infinity/) signal plurality axiom requires that no pattern observation is treated as conclusive evidence by itself -- pattern matches are signals that require corroboration through entity resolution and multi-source verification at higher pipeline levels. The [NO DOUBTS](/glossary/no-doubts/) principle mandates explicit confidence scores on all pattern observations, reflecting match quality, data completeness, and temporal currency.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that pattern recognition results include all detected matches without filtering or suppression. The [NABLA Infinity](@/glossary/nabla-infinity.md) signal plurality axiom requires that no pattern observation is treated as conclusive evidence by itself -- pattern matches are signals that require corroboration through entity resolution and multi-source verification at higher pipeline levels. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates explicit confidence scores on all pattern observations, reflecting match quality, data completeness, and temporal currency.
 
 ---
 
@@ -106,4 +106,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that pattern recognition r
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

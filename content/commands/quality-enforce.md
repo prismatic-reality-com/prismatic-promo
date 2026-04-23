@@ -24,11 +24,11 @@ image_alt = "/quality-enforce - Prismatic Platform"
 
 ## Overview
 
-**/quality-enforce** is a production command in the **Quality** category of the Prismatic Platform that implements mandatory progressive [quality debt](/glossary/quality-debt/) elimination with [AIAD](/glossary/aiad/) enforcement. This is the platform's highest-authority quality command, operating at **P0 ABSOLUTE** -- a non-bypassable enforcement level that ensures every session, every commit, and every deployment contributes to maintaining the platform's quality score at 100/100 across all 13 quality domains.
+**/quality-enforce** is a production command in the **Quality** category of the Prismatic Platform that implements mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with [AIAD](@/glossary/aiad.md) enforcement. This is the platform's highest-authority quality command, operating at **P0 ABSOLUTE** -- a non-bypassable enforcement level that ensures every session, every commit, and every deployment contributes to maintaining the platform's quality score at 100/100 across all 13 quality domains.
 
 The command scans the codebase for quality violations across all monitored domains, classifies them by severity and remediation cost, generates fix plans, and optionally auto-fixes violations that have safe, deterministic corrections. It operates on the fundamental platform principle that quality debt compounds exponentially -- a single tolerated violation creates precedent for more, eventually undermining the entire quality infrastructure. The platform's journey from an initial quality score to the current perfect 100/100 was driven primarily by this command's relentless enforcement.
 
-This command operates under the **P0 ABSOLUTE** authority level and is executed by the `quality-enforcement-commander` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the AIAD (Autonomous Intelligence Agent Design) standard. The P0 ABSOLUTE authority means this command can block commits, reject deployments, and escalate violations to the highest platform authority levels without exception.
+This command operates under the **P0 ABSOLUTE** authority level and is executed by the `quality-enforcement-commander` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the AIAD (Autonomous Intelligence Agent Design) standard. The P0 ABSOLUTE authority means this command can block commits, reject deployments, and escalate violations to the highest platform authority levels without exception.
 
 Quality enforcement is not a one-time activity -- it is woven into every phase of the development lifecycle. The command integrates with pre-commit hooks, CI/CD pipelines, session lifecycle events, and the autonomous evolution system to ensure that quality never regresses, even as the codebase grows. The current platform state of zero quality debt across 6,600+ Elixir source files is maintained through continuous enforcement by this command.
 
@@ -192,15 +192,15 @@ Quality Enforcement Command
 
 | System | Integration | Purpose |
 |--------|-------------|---------|
-| [Quality Gates](/glossary/quality-gates/) | Direct quality gate enforcement | Gate authority |
-| [Pre-commit Hooks](/glossary/pre-commit-hooks/) | Pre-commit quality validation | Commit blocking |
+| [Quality Gates](@/glossary/quality-gates.md) | Direct quality gate enforcement | Gate authority |
+| [Pre-commit Hooks](@/glossary/pre-commit-hooks.md) | Pre-commit quality validation | Commit blocking |
 | CI/CD Pipeline | Quality check in deployment pipeline | Deployment blocking |
-| [Quality DNA](/glossary/quality-dna/) | Quality state persistence across sessions | State tracking |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Autonomous quality monitoring | Monitoring |
-| [SEADF](/glossary/seadf/) | Quality evolution tracking | Evolution |
-| [Telemetry](/glossary/telemetry/) | Enforcement metrics and events | Observability |
-| [Credo](/glossary/credo/) | Code style domain scanner | Domain input |
-| [Dialyzer](/glossary/dialyzer/) | Type analysis domain scanner | Domain input |
+| [Quality DNA](@/glossary/quality-dna.md) | Quality state persistence across sessions | State tracking |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Autonomous quality monitoring | Monitoring |
+| [SEADF](@/glossary/seadf.md) | Quality evolution tracking | Evolution |
+| [Telemetry](@/glossary/telemetry.md) | Enforcement metrics and events | Observability |
+| [Credo](@/glossary/credo.md) | Code style domain scanner | Domain input |
+| [Dialyzer](@/glossary/dialyzer.md) | Type analysis domain scanner | Domain input |
 
 ## Best Practices
 
@@ -263,21 +263,21 @@ QualityEnforcement.register_domain(:custom_check, %{
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. This command IS the NO MERCY doctrine in action. Every violation is detected, classified, and either fixed or blocked. No exceptions, no bypass, no deferred fixes.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every violation is reported with its exact location, root cause, and remediation path. Auto-fixes are validated by compilation and tests before acceptance.
 
-The command enforces [NABLA](/glossary/nabla-infinity/) axioms through its multi-domain scanning approach (Signal Plurality), its refusal to suppress any violation category (Contradiction Preservation), and its traceability of every fix to its originating violation (Provenance Mandatory).
+The command enforces [NABLA](@/glossary/nabla-infinity.md) axioms through its multi-domain scanning approach (Signal Plurality), its refusal to suppress any violation category (Contradiction Preservation), and its traceability of every fix to its originating violation (Provenance Mandatory).
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-unified](/commands/quality-unified/) - Unified quality command with quick, full, pre-commit and CI modes
-- [/quality-hbfs](/commands/quality-hbfs/) - Hottest-bug-first search for quality assessment prioritization
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/benchmark](/commands/benchmark/) - Comprehensive performance benchmarking with P95/P99 analysis
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-unified](@/commands/quality-unified.md) - Unified quality command with quick, full, pre-commit and CI modes
+- [/quality-hbfs](@/commands/quality-hbfs.md) - Hottest-bug-first search for quality assessment prioritization
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/benchmark](@/commands/benchmark.md) - Comprehensive performance benchmarking with P95/P99 analysis
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
 
 ---
 
@@ -286,4 +286,4 @@ The command enforces [NABLA](/glossary/nabla-infinity/) axioms through its multi
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

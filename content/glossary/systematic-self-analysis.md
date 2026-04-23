@@ -40,13 +40,13 @@ The need for systematic self-analysis emerged from a fundamental observation in 
 
 Traditional approaches to software quality rely on external tooling applied after the fact -- linters run in CI, test suites executed before merge, code review conducted by humans. These approaches share a common limitation: they are reactive rather than proactive, and they operate on snapshots rather than continuous streams. Systematic self-analysis inverts this model by embedding quality awareness directly into the platform's runtime, making introspection a first-class architectural concern rather than an afterthought.
 
-The evolution from Generation 1 to Generation 19 of the Prismatic Platform traces the progressive deepening of this self-analytical capability, from simple compilation checks to the current 13-layer [quality gate](/glossary/quality-gates/) system with autonomous healing and evolution.
+The evolution from Generation 1 to Generation 19 of the Prismatic Platform traces the progressive deepening of this self-analytical capability, from simple compilation checks to the current 13-layer [quality gate](@/glossary/quality-gates.md) system with autonomous healing and evolution.
 
 ## Core Principles
 
 ### Continuous Measurement
 
-Self-analysis must operate continuously, not periodically. The Prismatic Platform achieves this through [telemetry](/glossary/telemetry/) events emitted at every significant operation boundary, processed by dedicated monitoring processes that maintain rolling windows of quality metrics. This continuous measurement ensures that quality degradation is detected within seconds of introduction, not hours or days later.
+Self-analysis must operate continuously, not periodically. The Prismatic Platform achieves this through [telemetry](@/glossary/telemetry.md) events emitted at every significant operation boundary, processed by dedicated monitoring processes that maintain rolling windows of quality metrics. This continuous measurement ensures that quality degradation is detected within seconds of introduction, not hours or days later.
 
 ### Multi-Dimensional Assessment
 
@@ -54,7 +54,7 @@ A single quality metric is inherently insufficient. The platform evaluates quali
 
 ### Automated Remediation
 
-Measurement without action is observation, not analysis. True systematic self-analysis includes automated remediation pathways. When the platform detects a quality degradation, the [AutoHeal](/glossary/autoheal/) system engages to diagnose the root cause, propose fixes, and in many cases apply corrections autonomously. This closes the feedback loop from detection to resolution without human intervention.
+Measurement without action is observation, not analysis. True systematic self-analysis includes automated remediation pathways. When the platform detects a quality degradation, the [AutoHeal](@/glossary/autoheal.md) system engages to diagnose the root cause, propose fixes, and in many cases apply corrections autonomously. This closes the feedback loop from detection to resolution without human intervention.
 
 ### Evolutionary Fitness Tracking
 
@@ -82,7 +82,7 @@ Each layer builds upon the one below it, transforming raw data into progressivel
 
 ### The Self-Analysis GenServer
 
-At the heart of systematic self-analysis lies a dedicated [GenServer](/glossary/genserver/) process that orchestrates assessment cycles. This process maintains the current quality state, schedules periodic assessments, and coordinates with domain-specific analyzers.
+At the heart of systematic self-analysis lies a dedicated [GenServer](@/glossary/genserver.md) process that orchestrates assessment cycles. This process maintains the current quality state, schedules periodic assessments, and coordinates with domain-specific analyzers.
 
 ```elixir
 defmodule Prismatic.SelfAnalysis.Coordinator do
@@ -287,7 +287,7 @@ end
 
 ### Quality DNA Persistence
 
-Analysis results are not ephemeral -- they are persisted as [Quality DNA](/glossary/quality-dna/), providing cross-session continuity and historical trend analysis. This persistence enables the platform to track quality trajectories over time and detect slow degradation patterns that would be invisible in point-in-time assessments.
+Analysis results are not ephemeral -- they are persisted as [Quality DNA](@/glossary/quality-dna.md), providing cross-session continuity and historical trend analysis. This persistence enables the platform to track quality trajectories over time and detect slow degradation patterns that would be invisible in point-in-time assessments.
 
 ```elixir
 defmodule Prismatic.SelfAnalysis.QualityDNA do
@@ -336,23 +336,23 @@ Systematic self-analysis in the Prismatic Platform evaluates code across thirtee
 
 | Domain | What It Measures | Tool/Method |
 |--------|-----------------|-------------|
-| [Dialyzer](/glossary/dialyzer/) | Type safety and success typing | `mix dialyzer` |
-| [Credo](/glossary/credo/) | Code consistency and style | `mix credo --strict` |
-| [Compilation](/glossary/compilation/) | Warning-free compilation | `--warnings-as-errors` |
+| [Dialyzer](@/glossary/dialyzer.md) | Type safety and success typing | `mix dialyzer` |
+| [Credo](@/glossary/credo.md) | Code consistency and style | `mix credo --strict` |
+| [Compilation](@/glossary/compilation.md) | Warning-free compilation | `--warnings-as-errors` |
 | DateTime Precision | Microsecond timestamp usage | AST analysis |
 | Guard Functions | Proper guard clause usage | Pattern matching |
 | @impl Coverage | Callback documentation completeness | Module introspection |
 | Memory Safety | Resource leak prevention | Static analysis |
-| [Performance](/glossary/performance/) | Anti-pattern detection | Pattern matching |
-| [Regression Prevention](/glossary/regression-testing/) | Bug fix test coverage | Pre-commit hooks |
+| [Performance](@/glossary/performance.md) | Anti-pattern detection | Pattern matching |
+| [Regression Prevention](@/glossary/regression-testing.md) | Bug fix test coverage | Pre-commit hooks |
 | Timing Patterns | Process.sleep detection | AST scanning |
 | TODO Management | Tracked elimination of TODOs | Comment scanning |
-| [Typespec](/glossary/typespec/) Coverage | Function specification completeness | Module introspection |
+| [Typespec](@/glossary/typespec.md) Coverage | Function specification completeness | Module introspection |
 | Unsafe Map Access | Map.fetch! prevention | AST analysis |
 
 ## AutoEvolve Integration
 
-Systematic self-analysis feeds directly into the [AutoEvolve](/glossary/autoevolve/) system, which uses analysis results to plan and execute platform evolution cycles. When self-analysis detects patterns of degradation or identifies improvement opportunities, AutoEvolve generates evolution proposals that undergo Trinity Gate validation before application.
+Systematic self-analysis feeds directly into the [AutoEvolve](@/glossary/autoevolve.md) system, which uses analysis results to plan and execute platform evolution cycles. When self-analysis detects patterns of degradation or identifies improvement opportunities, AutoEvolve generates evolution proposals that undergo Trinity Gate validation before application.
 
 The feedback loop operates as follows:
 
@@ -367,7 +367,7 @@ This closed-loop architecture ensures that the platform's self-knowledge directl
 
 ## Quality Floor Guardian
 
-The [Quality Floor Guardian](/glossary/quality-floor-guardian/) is the enforcement mechanism for systematic self-analysis. It maintains minimum quality thresholds and takes autonomous action when those thresholds are threatened.
+The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) is the enforcement mechanism for systematic self-analysis. It maintains minimum quality thresholds and takes autonomous action when those thresholds are threatened.
 
 | Score Range | Status | Action |
 |-------------|--------|--------|
@@ -380,7 +380,7 @@ The Guardian operates as a dedicated OTP process that subscribes to telemetry ev
 
 ## Introspection Capabilities of the BEAM VM
 
-Systematic self-analysis in the Prismatic Platform leverages the BEAM virtual machine's exceptional [introspection](/glossary/introspection/) capabilities. Unlike platforms built on less reflective runtimes, BEAM-based systems can inspect module definitions, function clauses, type specifications, process states, and supervision tree structures at runtime.
+Systematic self-analysis in the Prismatic Platform leverages the BEAM virtual machine's exceptional [introspection](@/glossary/introspection.md) capabilities. Unlike platforms built on less reflective runtimes, BEAM-based systems can inspect module definitions, function clauses, type specifications, process states, and supervision tree structures at runtime.
 
 Key introspection facilities used by the self-analysis system:
 
@@ -409,7 +409,7 @@ Systematic self-analysis produces a rich set of metrics that quantify platform h
 
 ## Relationship to NO MERCY, NO DOUBTS
 
-Systematic self-analysis is the technical implementation of the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine's verification requirements. The NO DOUBTS principle demands that every claim be backed by evidence -- self-analysis provides that evidence. The NO MERCY principle demands zero tolerance for quality violations -- self-analysis detects those violations.
+Systematic self-analysis is the technical implementation of the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine's verification requirements. The NO DOUBTS principle demands that every claim be backed by evidence -- self-analysis provides that evidence. The NO MERCY principle demands zero tolerance for quality violations -- self-analysis detects those violations.
 
 Without systematic self-analysis, the NO MERCY, NO DOUBTS doctrine would be aspirational rather than enforceable. It is the measurement infrastructure that transforms philosophical principles into engineering constraints.
 
@@ -450,16 +450,16 @@ The Prismatic Platform's approach goes beyond these industry practices by embedd
 
 ## Related Concepts
 
-- [AutoEvolve](/glossary/autoevolve/) -- The autonomous evolution system driven by self-analysis results
-- [AutoHeal](/glossary/autoheal/) -- Automated remediation triggered by self-analysis findings
-- [Quality DNA](/glossary/quality-dna/) -- Persistent quality state that enables trend analysis
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Threshold enforcement for quality metrics
-- [Quality Gates](/glossary/quality-gates/) -- The gate system that blocks non-compliant code
-- [Static Analysis](/glossary/static-analysis/) -- One of the primary tools used in self-analysis
-- [Telemetry](/glossary/telemetry/) -- The event system that carries analysis metrics
-- [Introspection](/glossary/introspection/) -- The BEAM capability that enables deep self-analysis
-- [Metrics](/glossary/metrics/) -- The quantitative outputs of self-analysis
-- [Continuous Validation](/glossary/continuous-validation/) -- Ongoing verification powered by self-analysis
+- [AutoEvolve](@/glossary/autoevolve.md) -- The autonomous evolution system driven by self-analysis results
+- [AutoHeal](@/glossary/autoheal.md) -- Automated remediation triggered by self-analysis findings
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistent quality state that enables trend analysis
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Threshold enforcement for quality metrics
+- [Quality Gates](@/glossary/quality-gates.md) -- The gate system that blocks non-compliant code
+- [Static Analysis](@/glossary/static-analysis.md) -- One of the primary tools used in self-analysis
+- [Telemetry](@/glossary/telemetry.md) -- The event system that carries analysis metrics
+- [Introspection](@/glossary/introspection.md) -- The BEAM capability that enables deep self-analysis
+- [Metrics](@/glossary/metrics.md) -- The quantitative outputs of self-analysis
+- [Continuous Validation](@/glossary/continuous-validation.md) -- Ongoing verification powered by self-analysis
 
 See the Glossary index for the complete taxonomy of Prismatic Platform concepts.
 

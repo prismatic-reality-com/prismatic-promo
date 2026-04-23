@@ -36,15 +36,15 @@ image_alt = "Open Source - Prismatic Platform"
 
 ## Definition
 
-Open source is a software development and distribution model in which the source code of a program is made publicly available under a license that permits anyone to view, use, modify, and redistribute it, subject to the terms of that license. Open source goes beyond mere code availability -- it embodies a philosophy that software development benefits from transparency, collaboration, and community participation. The Prismatic Platform operates under the [GHL License](/glossary/ghl-license/) and publishes 4 open source packages (SDK, Plugin Kit, Security, UI), demonstrating its commitment to the [community-over-corporation](/glossary/community-over-corporation/) principle that knowledge sharing produces better software than proprietary isolation.
+Open source is a software development and distribution model in which the source code of a program is made publicly available under a license that permits anyone to view, use, modify, and redistribute it, subject to the terms of that license. Open source goes beyond mere code availability -- it embodies a philosophy that software development benefits from transparency, collaboration, and community participation. The Prismatic Platform operates under the [GHL License](@/glossary/ghl-license.md) and publishes 4 open source packages (SDK, Plugin Kit, Security, UI), demonstrating its commitment to the [community-over-corporation](@/glossary/community-over-corporation.md) principle that knowledge sharing produces better software than proprietary isolation.
 
 ## Overview
 
 The open source movement emerged from the free software movement of the 1980s, led by Richard Stallman's GNU Project and the Free Software Foundation. While free software emphasized the ethical imperative of software freedom (freedom to run, study, share, and modify), the open source movement -- formalized by the Open Source Initiative in 1998 -- reframed the argument in pragmatic terms: open development produces higher-quality, more secure, more innovative software than closed development.
 
-Three decades of evidence have vindicated this claim. The Linux kernel, the foundation of virtually all cloud infrastructure, is open source. The Erlang/OTP platform that powers the [BEAM](/glossary/beam/) virtual machine -- the runtime underlying the Prismatic Platform -- was open-sourced by Ericsson in 1998. [Elixir](/glossary/elixir/) itself is an open source language created by Jose Valim. The entire modern software stack, from operating systems to programming languages to databases to frameworks, is overwhelmingly open source.
+Three decades of evidence have vindicated this claim. The Linux kernel, the foundation of virtually all cloud infrastructure, is open source. The Erlang/OTP platform that powers the [BEAM](@/glossary/beam.md) virtual machine -- the runtime underlying the Prismatic Platform -- was open-sourced by Ericsson in 1998. [Elixir](@/glossary/elixir.md) itself is an open source language created by Jose Valim. The entire modern software stack, from operating systems to programming languages to databases to frameworks, is overwhelmingly open source.
 
-The Prismatic Platform's relationship with open source is not passive consumption. The platform actively contributes back through four published OSS packages, maintains dual-hosted repositories on [GitHub](https://github.com/korczis/prismatic-platform) and [GitLab](https://gitlab.com/korczis/prismatic-platform), and operates a [developer portal](/glossary/developer-portal/) designed to lower barriers to contribution. The [GHL License](/glossary/ghl-license/) under which the platform is released ensures that the code remains open while protecting against exploitative commercialization.
+The Prismatic Platform's relationship with open source is not passive consumption. The platform actively contributes back through four published OSS packages, maintains dual-hosted repositories on [GitHub](https://github.com/korczis/prismatic-platform) and [GitLab](https://gitlab.com/korczis/prismatic-platform), and operates a [developer portal](@/glossary/developer-portal.md) designed to lower barriers to contribution. The [GHL License](@/glossary/ghl-license.md) under which the platform is released ensures that the code remains open while protecting against exploitative commercialization.
 
 This is not altruism -- it is strategy. Open source creates a virtuous cycle: public code attracts contributors, contributors improve quality, quality attracts users, users become contributors. The platform's evolution from Gen 1 to Gen 19 was accelerated by this cycle, with each generation incorporating feedback, patches, and innovations from the community.
 
@@ -385,7 +385,7 @@ Open source projects live or die by their code quality. The Prismatic Platform's
 
 ### 4. Document Everything Publicly
 
-Architecture decisions, API design rationale, roadmap plans, and governance processes should all be publicly documented. The Prismatic Platform's extensive [CLAUDE.md](https://github.com/korczis/prismatic-platform), [AGENTS.md](https://github.com/korczis/prismatic-platform/blob/main/AGENTS.md), and [AIAD](/glossary/aiad/) specifications serve this purpose.
+Architecture decisions, API design rationale, roadmap plans, and governance processes should all be publicly documented. The Prismatic Platform's extensive [CLAUDE.md](https://github.com/korczis/prismatic-platform), [AGENTS.md](https://github.com/korczis/prismatic-platform/blob/main/AGENTS.md), and [AIAD](@/glossary/aiad.md) specifications serve this purpose.
 
 ### 5. Respond to Community Engagement
 
@@ -437,27 +437,27 @@ The platform's open source codebase serves as a comprehensive example of product
 
 ### 5. Transparent Security Assessment
 
-Because the platform's source code is publicly auditable, security assessments can be performed by anyone -- not just the development team. This transparency enables the [White Team](/glossary/white-team/) verification approach where external parties can verify security claims independently.
+Because the platform's source code is publicly auditable, security assessments can be performed by anyone -- not just the development team. This transparency enables the [White Team](@/glossary/white-team.md) verification approach where external parties can verify security claims independently.
 
 ## Related Concepts
 
-- [GHL License](/glossary/ghl-license/) -- the specific open source license under which the Prismatic Platform is released
-- [Open Source Strategy](/glossary/open-source-strategy/) -- the strategic framework guiding the platform's open source decisions
-- [Open Source Superiority](/glossary/open-source-superiority/) -- the principle that open development produces superior software
-- [Community Building](/glossary/community-building/) -- cultivating contributor and user communities around open source projects
-- [Community Over Corporation](/glossary/community-over-corporation/) -- the governance principle prioritizing community interests
-- [Collaborative Development](/glossary/collaborative-development/) -- the development methodology enabled by open source
-- [Developer Portal](/glossary/developer-portal/) -- the platform's public documentation and onboarding resource
-- [SDK](/glossary/sdk/) -- one of the four published open source packages
-- [Transparency](/glossary/complete-transparency/) -- the foundational value underlying open source philosophy
-- [Community Engagement](/glossary/community-engagement/) -- active participation with the open source community
+- [GHL License](@/glossary/ghl-license.md) -- the specific open source license under which the Prismatic Platform is released
+- [Open Source Strategy](@/glossary/open-source-strategy.md) -- the strategic framework guiding the platform's open source decisions
+- [Open Source Superiority](@/glossary/open-source-superiority.md) -- the principle that open development produces superior software
+- [Community Building](@/glossary/community-building.md) -- cultivating contributor and user communities around open source projects
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- the governance principle prioritizing community interests
+- [Collaborative Development](@/glossary/collaborative-development.md) -- the development methodology enabled by open source
+- [Developer Portal](@/glossary/developer-portal.md) -- the platform's public documentation and onboarding resource
+- [SDK](@/glossary/sdk.md) -- one of the four published open source packages
+- [Transparency](@/glossary/complete-transparency.md) -- the foundational value underlying open source philosophy
+- [Community Engagement](@/glossary/community-engagement.md) -- active participation with the open source community
 
 ## See Also
 
-- [AIAD Standard](/glossary/aiad/) -- the openly specified agent intelligence architecture
-- [Quality Gates](/glossary/quality-gates/) -- the quality enforcement system that ensures open source code meets standards
-- [Continuous Integration](/glossary/continuous-integration/) -- automated quality verification for open source contributions
-- [Architecture Overview](/architecture/) -- publicly documented system architecture
+- [AIAD Standard](@/glossary/aiad.md) -- the openly specified agent intelligence architecture
+- [Quality Gates](@/glossary/quality-gates.md) -- the quality enforcement system that ensures open source code meets standards
+- [Continuous Integration](@/glossary/continuous-integration.md) -- automated quality verification for open source contributions
+- [Architecture Overview](@/architecture/_index.md) -- publicly documented system architecture
 
 ---
 
@@ -466,4 +466,4 @@ Because the platform's source code is publicly auditable, security assessments c
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -70,7 +70,7 @@ Adversarial chaos is intentionally introduced by malicious actors:
 - **Supply chain attacks**: Compromised dependencies introducing malicious code
 - **Data exfiltration**: Unauthorized access to sensitive information
 
-The Prismatic Platform's [EASM capabilities](/glossary/easm/) and [security operations](/glossary/security-operations/) address adversarial chaos through continuous monitoring, [attack surface](/glossary/attack-surface/) management, and automated threat detection.
+The Prismatic Platform's [EASM capabilities](@/glossary/easm.md) and [security operations](@/glossary/security-operations.md) address adversarial chaos through continuous monitoring, [attack surface](@/glossary/attack-surface.md) management, and automated threat detection.
 
 ### Emergent Chaos
 
@@ -83,7 +83,7 @@ The most dangerous category: failures that emerge from the interaction of indivi
 
 ## Designing for Chaos: The Erlang/OTP Approach
 
-The [Erlang](/glossary/erlang/)/[OTP](/glossary/otp/) platform, on which the Prismatic Platform is built, was designed from its inception for real-world chaos. Ericsson's telephone switches needed 99.999% uptime (five nines: less than 5.26 minutes of downtime per year), and the only way to achieve that was to assume everything would fail and design accordingly.
+The [Erlang](@/glossary/erlang.md)/[OTP](@/glossary/otp.md) platform, on which the Prismatic Platform is built, was designed from its inception for real-world chaos. Ericsson's telephone switches needed 99.999% uptime (five nines: less than 5.26 minutes of downtime per year), and the only way to achieve that was to assume everything would fail and design accordingly.
 
 ```elixir
 defmodule PrismaticResilience.ChaosAwareSupervisor do
@@ -150,14 +150,14 @@ end
 The key design principles for chaos resilience in OTP:
 
 1. **Process isolation**: Each process has its own heap. One process crashing cannot corrupt another process's memory.
-2. **[Let it crash](/glossary/let-it-crash/)**: Processes that encounter unexpected states crash and are restarted by their [supervisor](/glossary/supervisor/) with clean state.
+2. **[Let it crash](@/glossary/let-it-crash.md)**: Processes that encounter unexpected states crash and are restarted by their [supervisor](@/glossary/supervisor.md) with clean state.
 3. **Supervision trees**: Hierarchical process management provides structured recovery from failures at any level.
 4. **Message passing**: Processes communicate through asynchronous messages, decoupling sender and receiver lifecycles.
 5. **Hot code reload**: Code can be updated without stopping the system, reducing deployment-related chaos.
 
 ## Chaos Engineering in the Prismatic Platform
 
-[Chaos engineering](/glossary/chaos-engineering/) is the discipline of experimenting on a production-like system to build confidence in its ability to withstand real-world chaos. Rather than waiting for chaos to find system weaknesses, chaos engineering proactively introduces controlled failures.
+[Chaos engineering](@/glossary/chaos-engineering.md) is the discipline of experimenting on a production-like system to build confidence in its ability to withstand real-world chaos. Rather than waiting for chaos to find system weaknesses, chaos engineering proactively introduces controlled failures.
 
 ```elixir
 defmodule PrismaticResilience.ChaosExperiment do
@@ -262,26 +262,26 @@ Not all chaos is equal. Understanding the spectrum helps prioritize defensive me
 
 | Chaos Level | Description | Example | Defense Strategy |
 |-------------|-------------|---------|-----------------|
-| **L1: Transient** | Brief, self-resolving failures | Network hiccup, GC pause | Retry with [exponential backoff](/glossary/exponential-backoff/) |
-| **L2: Intermittent** | Recurring but unpredictable | Flaky DNS, sporadic timeouts | [Circuit breaker](/glossary/circuit-breaker/), timeout tuning |
+| **L1: Transient** | Brief, self-resolving failures | Network hiccup, GC pause | Retry with [exponential backoff](@/glossary/exponential-backoff.md) |
+| **L2: Intermittent** | Recurring but unpredictable | Flaky DNS, sporadic timeouts | [Circuit breaker](@/glossary/circuit-breaker.md), timeout tuning |
 | **L3: Persistent** | Ongoing failure of a component | Service outage, disk full | Failover, graceful degradation |
-| **L4: Cascading** | Failure spreading across components | Connection pool exhaustion | [Bulkhead pattern](/glossary/bulkhead-pattern/), isolation |
+| **L4: Cascading** | Failure spreading across components | Connection pool exhaustion | [Bulkhead pattern](@/glossary/bulkhead-pattern.md), isolation |
 | **L5: Byzantine** | Components behaving incorrectly but not failing | Data corruption, split-brain | Consensus protocols, checksums |
 
 ## Chaos and Distributed Systems
 
-[Distributed systems](/glossary/distributed-system/) amplify real-world chaos. The [CAP theorem](/glossary/cap-theorem/) proves that in the presence of network partitions, a system must choose between consistency and availability. The Prismatic Platform makes this choice explicitly at each boundary:
+[Distributed systems](@/glossary/distributed-system.md) amplify real-world chaos. The [CAP theorem](@/glossary/cap-theorem.md) proves that in the presence of network partitions, a system must choose between consistency and availability. The Prismatic Platform makes this choice explicitly at each boundary:
 
-- **Storage layer**: Chooses consistency ([PostgreSQL](/glossary/postgresql/) with synchronous replication)
-- **Cache layer**: Chooses availability ([ETS](/glossary/ets/) with eventual consistency)
-- **Search layer**: Chooses availability ([Meilisearch](/glossary/meilisearch/) with async indexing)
+- **Storage layer**: Chooses consistency ([PostgreSQL](@/glossary/postgresql.md) with synchronous replication)
+- **Cache layer**: Chooses availability ([ETS](@/glossary/ets.md) with eventual consistency)
+- **Search layer**: Chooses availability ([Meilisearch](@/glossary/meilisearch.md) with async indexing)
 - **Agent coordination**: Chooses consistency (OTP distributed Erlang with global locks)
 
 Understanding which trade-off each component makes is essential for predicting behavior under chaos conditions. A system that chooses consistency will become unavailable during partitions. A system that chooses availability will serve potentially stale data during partitions. Neither choice is wrong -- the error is not making the choice explicitly.
 
 ## Chaos in the BEAM VM
 
-The [BEAM virtual machine](/glossary/beam-vm/) provides several chaos-resilient primitives:
+The [BEAM virtual machine](@/glossary/beam-vm.md) provides several chaos-resilient primitives:
 
 - **Preemptive scheduling**: No process can monopolize a scheduler, preventing CPU starvation
 - **Per-process garbage collection**: GC pauses affect only the process being collected, not the entire system
@@ -385,25 +385,25 @@ When chaos is detected, the platform employs graduated response strategies:
 | Strategy | When Used | Mechanism |
 |----------|----------|-----------|
 | **Retry** | Transient failures | Exponential backoff with jitter |
-| **Circuit break** | Repeated failures from same source | [Circuit breaker](/glossary/circuit-breaker/) pattern |
-| **Shed load** | System approaching capacity | [Rate limiting](/glossary/rate-limiting/), [backpressure](/glossary/backpressure/) |
-| **Isolate** | Failure spreading across boundaries | [Bulkhead pattern](/glossary/bulkhead-pattern/), process isolation |
+| **Circuit break** | Repeated failures from same source | [Circuit breaker](@/glossary/circuit-breaker.md) pattern |
+| **Shed load** | System approaching capacity | [Rate limiting](@/glossary/rate-limiting.md), [backpressure](@/glossary/backpressure.md) |
+| **Isolate** | Failure spreading across boundaries | [Bulkhead pattern](@/glossary/bulkhead-pattern.md), process isolation |
 | **Degrade gracefully** | Partial system failure | Disable non-essential features, serve cached data |
-| **[Self-heal](/glossary/self-healing/)** | Persistent but diagnosable failure | Automated diagnosis and remediation |
-| **Escalate** | Unrecoverable or undiagnosable failure | Alert human operators, trigger [incident response](/glossary/incident-response/) |
+| **[Self-heal](@/glossary/self-healing.md)** | Persistent but diagnosable failure | Automated diagnosis and remediation |
+| **Escalate** | Unrecoverable or undiagnosable failure | Alert human operators, trigger [incident response](@/glossary/incident-response.md) |
 
 The key principle is proportionality: the response should match the severity of the chaos. Killing a service because of a single timeout is as dangerous as ignoring a cascading failure. The graduated response ensures that each level of chaos triggers the minimum intervention necessary.
 
 ## Chaos and Quality Gates
 
-The platform's [quality gates](/glossary/quality-gate/) include chaos resilience requirements:
+The platform's [quality gates](@/glossary/quality-gate.md) include chaos resilience requirements:
 
 - All external calls must have timeouts
-- All external calls must have [circuit breakers](/glossary/circuit-breaker/)
+- All external calls must have [circuit breakers](@/glossary/circuit-breaker.md)
 - All stateful processes must be supervised
 - All supervision trees must specify restart strategies
 - All connection pools must have overflow limits and checkout timeouts
-- All [GenServer](/glossary/genserver/) handle_call implementations must handle the timeout case
+- All [GenServer](@/glossary/genserver.md) handle_call implementations must handle the timeout case
 
 These gates ensure that chaos resilience is not optional or aspirational but a hard requirement for every component that enters the codebase.
 
@@ -411,7 +411,7 @@ These gates ensure that chaos resilience is not optional or aspirational but a h
 
 The Prismatic Platform's resilience architecture has been shaped by specific production incidents:
 
-1. **The compilation timeout cascade**: A `mix compile` operation during a session lifecycle hook timed out, causing the session to hang. The [circuit breaker](/glossary/circuit-breaker/) pattern was added to session hooks to prevent this class of failure.
+1. **The compilation timeout cascade**: A `mix compile` operation during a session lifecycle hook timed out, causing the session to hang. The [circuit breaker](@/glossary/circuit-breaker.md) pattern was added to session hooks to prevent this class of failure.
 
 2. **The ETS table limit**: The platform created ETS tables without cleaning them up, eventually hitting the system limit. The fix was to add lifecycle management to all ETS table creation.
 
@@ -421,21 +421,21 @@ Each incident followed the same pattern: an unanticipated interaction between co
 
 ## Related Terms
 
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Discipline of proactively testing chaos resilience
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property of operating correctly despite failures
-- [Let It Crash](/glossary/let-it-crash/) -- Philosophy embracing failure as normal operation
-- [Adversarial Conditions](/glossary/adversarial-conditions/) -- Intentionally hostile operational environments
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern preventing cascading failures from chaos
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchical failure recovery structure
-- [Backpressure](/glossary/backpressure/) -- Flow control under chaotic load conditions
-- [Self-Healing](/glossary/self-healing/) -- Automated recovery from persistent chaos
-- [Distributed System](/glossary/distributed-system/) -- Systems where chaos is amplified by network boundaries
-- [Component Failures](/glossary/component-failures/) -- Individual failure modes within chaotic systems
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Discipline of proactively testing chaos resilience
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property of operating correctly despite failures
+- [Let It Crash](@/glossary/let-it-crash.md) -- Philosophy embracing failure as normal operation
+- [Adversarial Conditions](@/glossary/adversarial-conditions.md) -- Intentionally hostile operational environments
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern preventing cascading failures from chaos
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchical failure recovery structure
+- [Backpressure](@/glossary/backpressure.md) -- Flow control under chaotic load conditions
+- [Self-Healing](@/glossary/self-healing.md) -- Automated recovery from persistent chaos
+- [Distributed System](@/glossary/distributed-system.md) -- Systems where chaos is amplified by network boundaries
+- [Component Failures](@/glossary/component-failures.md) -- Individual failure modes within chaotic systems
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform resilience architecture
-- [Capabilities](/capabilities/) -- Fault tolerance capabilities
+- [Architecture](@/architecture/_index.md) -- Platform resilience architecture
+- [Capabilities](@/capabilities/_index.md) -- Fault tolerance capabilities
 - Glossary -- Complete glossary index
 
 ---
@@ -445,4 +445,4 @@ Each incident followed the same pattern: an unanticipated interaction between co
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

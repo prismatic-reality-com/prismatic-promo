@@ -28,9 +28,9 @@ image_alt = "gemini - Prismatic Platform"
 
 ## Overview
 
-The Gemini agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the General domain of the Prismatic Platform. This agent specializes in Python-based tasks, data analysis, and alternative solution exploration, providing the platform with computational capabilities that complement the primary Elixir/OTP technology stack. Named after the zodiacal twins, the Gemini agent embodies duality -- fluent in both the platform's native Elixir environment and the broader Python data science ecosystem, bridging the two worlds when tasks demand capabilities outside Elixir's primary strengths.
+The Gemini agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the General domain of the Prismatic Platform. This agent specializes in Python-based tasks, data analysis, and alternative solution exploration, providing the platform with computational capabilities that complement the primary Elixir/OTP technology stack. Named after the zodiacal twins, the Gemini agent embodies duality -- fluent in both the platform's native Elixir environment and the broader Python data science ecosystem, bridging the two worlds when tasks demand capabilities outside Elixir's primary strengths.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Gemini agent addresses a practical reality: while Elixir/OTP excels at concurrent, distributed, fault-tolerant systems, Python's ecosystem provides superior tooling for specific domains including numerical computing, machine learning, natural language processing, and rapid prototyping. The Gemini agent manages this complementary relationship, ensuring that Python capabilities are leveraged where they add genuine value while maintaining the platform's architectural integrity.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Gemini agent addresses a practical reality: while Elixir/OTP excels at concurrent, distributed, fault-tolerant systems, Python's ecosystem provides superior tooling for specific domains including numerical computing, machine learning, natural language processing, and rapid prototyping. The Gemini agent manages this complementary relationship, ensuring that Python capabilities are leveraged where they add genuine value while maintaining the platform's architectural integrity.
 
 ## Python Task Execution
 
@@ -82,7 +82,7 @@ Error handling translates Python exceptions into platform-compatible error forma
 
 ## Quality and Security
 
-Python task execution follows the platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with adaptations appropriate to the Python ecosystem.
+Python task execution follows the platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with adaptations appropriate to the Python ecosystem.
 
 Code quality enforcement applies Python-specific tooling (pylint, mypy, black) to Python code written or maintained by the agent. While Python code is not subject to Elixir-specific quality gates (Credo, Dialyzer), equivalent Python quality standards are enforced.
 
@@ -94,7 +94,7 @@ Input validation sanitizes all data entering the Python execution environment, p
 
 The Gemini agent's data analysis capabilities directly support the platform's intelligence operations through specialized analytical tasks.
 
-Entity clustering applies machine learning clustering algorithms to group entities by behavioral similarity, supporting the platform's [entity resolution](/glossary/entity-resolution/) and investigation workflows. Cluster analysis results feed into the intelligence domain's analytical pipeline.
+Entity clustering applies machine learning clustering algorithms to group entities by behavioral similarity, supporting the platform's [entity resolution](@/glossary/entity-resolution.md) and investigation workflows. Cluster analysis results feed into the intelligence domain's analytical pipeline.
 
 Pattern detection applies statistical anomaly detection to identify unusual patterns in financial, behavioral, and network data. Detected anomalies are forwarded to appropriate domain-specific intelligence agents for investigation.
 
@@ -102,23 +102,23 @@ Text analysis processes unstructured text content from OSINT sources, extracting
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework governs the Gemini agent's analytical outputs. Statistical results include confidence intervals and p-values that map to the platform's [confidence scoring](/glossary/confidence-scoring/) system. Machine learning predictions include uncertainty estimates. The Signal Plurality axiom requires that analytical conclusions draw on multiple data sources and methods rather than relying on single model outputs.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs the Gemini agent's analytical outputs. Statistical results include confidence intervals and p-values that map to the platform's [confidence scoring](@/glossary/confidence-scoring.md) system. Machine learning predictions include uncertainty estimates. The Signal Plurality axiom requires that analytical conclusions draw on multiple data sources and methods rather than relying on single model outputs.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution | Agent lifecycle and scheduling |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Agent specification and indexing |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution | Agent lifecycle and scheduling |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Agent specification and indexing |
 | Prismatic Telemetry | Monitoring | Task performance and resource metrics |
 | Python Runtime | Execution environment | Isolated Python task execution |
-| [3NL](/glossary/three-nl/) Framework | Cognitive integration | NLP capabilities for linguistic layer |
+| [3NL](@/glossary/three-nl.md) Framework | Cognitive integration | NLP capabilities for linguistic layer |
 
 ## Related Agents
 
-- [**3nl-coordinator**](/agents/3nl-coordinator/) (L3) - Cognitive framework coordinator consuming NLP analysis results for multi-layer reasoning
-- [**3nl-l1-logic**](/agents/3nl-l1-logic/) (L3) - Logic layer consuming statistically validated analytical inputs
-- [**3nl-l3-linguistic**](/agents/3nl-l3-linguistic/) (L3) - Linguistic layer consuming NLP processing outputs for natural language understanding
+- [**3nl-coordinator**](@/agents/3nl-coordinator.md) (L3) - Cognitive framework coordinator consuming NLP analysis results for multi-layer reasoning
+- [**3nl-l1-logic**](@/agents/3nl-l1-logic.md) (L3) - Logic layer consuming statistically validated analytical inputs
+- [**3nl-l3-linguistic**](@/agents/3nl-l3-linguistic.md) (L3) - Linguistic layer consuming NLP processing outputs for natural language understanding
 
 ---
 
@@ -127,4 +127,4 @@ The [NABLA Infinity](/glossary/nabla-infinity/) framework governs the Gemini age
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,11 +24,11 @@ image_alt = "Nginx - Prismatic Platform"
 
 ## Overview
 
-Nginx serves as the reverse proxy and load balancer in the Prismatic Platform's production infrastructure. It handles TLS termination, HTTP/2 multiplexing, WebSocket upgrade, static asset serving, and request routing to the platform's [Phoenix](/technologies/phoenix/) application servers running behind it. Nginx is the first point of contact for every external request to the platform, making its configuration critical for both performance and security.
+Nginx serves as the reverse proxy and load balancer in the Prismatic Platform's production infrastructure. It handles TLS termination, HTTP/2 multiplexing, WebSocket upgrade, static asset serving, and request routing to the platform's [Phoenix](@/technologies/phoenix.md) application servers running behind it. Nginx is the first point of contact for every external request to the platform, making its configuration critical for both performance and security.
 
-The Prismatic Platform uses Nginx for its ability to handle tens of thousands of concurrent connections with minimal resource usage. Nginx efficiently serves static assets (CSS, JavaScript, images) directly while proxying dynamic requests to the Phoenix application, reducing load on the [BEAM](/technologies/beam/) VM for non-application traffic. In production on [Fly.io](/technologies/flyio/), Nginx sits at the edge and distributes requests across multiple application instances, providing a layer of request buffering and connection management that protects the application from traffic spikes.
+The Prismatic Platform uses Nginx for its ability to handle tens of thousands of concurrent connections with minimal resource usage. Nginx efficiently serves static assets (CSS, JavaScript, images) directly while proxying dynamic requests to the Phoenix application, reducing load on the [BEAM](@/technologies/beam.md) VM for non-application traffic. In production on [Fly.io](@/technologies/flyio.md), Nginx sits at the edge and distributes requests across multiple application instances, providing a layer of request buffering and connection management that protects the application from traffic spikes.
 
-Nginx's WebSocket proxy support is critical for the platform's [Phoenix LiveView](/technologies/phoenix-liveview/) and Channel connections, which require long-lived bidirectional connections between the browser and server. Without proper WebSocket upgrade handling, real-time dashboards and agent coordination would fail silently. The platform's LiveView connections can persist for hours during security monitoring sessions, and Nginx must maintain these connections without timeout interruption.
+Nginx's WebSocket proxy support is critical for the platform's [Phoenix LiveView](@/technologies/phoenix-liveview.md) and Channel connections, which require long-lived bidirectional connections between the browser and server. Without proper WebSocket upgrade handling, real-time dashboards and agent coordination would fail silently. The platform's LiveView connections can persist for hours during security monitoring sessions, and Nginx must maintain these connections without timeout interruption.
 
 ## Key Features
 
@@ -164,7 +164,7 @@ The health check configuration works in conjunction with Fly.io's own health mon
 
 ## Performance Characteristics
 
-Nginx's performance characteristics directly impact the platform's ability to meet the 250ms page load requirement defined by the [quality gates](/capabilities/quality-gates/).
+Nginx's performance characteristics directly impact the platform's ability to meet the 250ms page load requirement defined by the [quality gates](@/capabilities/quality-gates.md).
 
 | Metric | Value | Notes |
 |--------|-------|-------|
@@ -274,18 +274,18 @@ Nginx was chosen for its combination of proven reliability, minimal resource usa
 
 ## Related Technologies
 
-- [Phoenix](/technologies/phoenix/) - Application server behind Nginx
-- [Fly.io](/technologies/flyio/) - Deployment platform hosting the Nginx instances
-- [Docker](/technologies/docker/) - Nginx container in the production stack
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - WebSocket connections proxied through Nginx
-- [TailwindCSS](/technologies/tailwindcss/) - Static CSS assets served by Nginx
-- [SSL/TLS](/technologies/ssl-tls/) - TLS termination handled at the Nginx layer
+- [Phoenix](@/technologies/phoenix.md) - Application server behind Nginx
+- [Fly.io](@/technologies/flyio.md) - Deployment platform hosting the Nginx instances
+- [Docker](@/technologies/docker.md) - Nginx container in the production stack
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - WebSocket connections proxied through Nginx
+- [TailwindCSS](@/technologies/tailwindcss.md) - Static CSS assets served by Nginx
+- [SSL/TLS](@/technologies/ssl-tls.md) - TLS termination handled at the Nginx layer
 
 ## Related Apps
 
 - Infrastructure layer serving all Prismatic Platform web applications
-- [prismatic_web](/apps/prismatic-web/) - Primary upstream application receiving proxied requests
-- [prismatic_api](/apps/prismatic-api/) - API gateway upstream with rate limiting and caching
+- [prismatic_web](@/apps/prismatic-web.md) - Primary upstream application receiving proxied requests
+- [prismatic_api](@/apps/prismatic-api.md) - API gateway upstream with rate limiting and caching
 
 ---
 
@@ -294,4 +294,4 @@ Nginx was chosen for its combination of proven reliability, minimal resource usa
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

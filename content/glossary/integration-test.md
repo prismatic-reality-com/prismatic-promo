@@ -176,7 +176,7 @@ The `AdapterContractTest` macro provides standardized integration test suites th
 
 - **Unit Test** - Isolated component testing complementing integration tests
 - **End-to-End Test** - Full system verification
-- [Ecto](/glossary/ecto/) - Database wrapper providing SQL Sandbox for test isolation
+- [Ecto](@/glossary/ecto.md) - Database wrapper providing SQL Sandbox for test isolation
 - **Test-Driven Development** - Development methodology guiding test creation
 - **Mutation Testing** - Verifying test effectiveness
 

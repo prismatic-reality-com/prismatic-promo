@@ -26,7 +26,7 @@ image_alt = "/gitlab-api - Prismatic Platform"
 
 **/gitlab-api** is a production command in the **GitLab** category of the Prismatic Platform that provides direct access to GitLab REST API operations for project management, repository operations, issue tracking, merge request handling, and CI/CD pipeline control. Rather than requiring operators to construct raw HTTP requests or navigate the GitLab web interface, this command wraps the most frequently used API endpoints behind a clean command-line interface with built-in authentication, pagination, error handling, and output formatting.
 
-This command operates under the **L2+** authority level and is executed by the `gitlab-api-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The GitLab API integration is foundational to the platform's development workflow, as GitLab serves as the primary source code host, CI/CD pipeline runner, issue tracker, and artifact repository.
+This command operates under the **L2+** authority level and is executed by the `gitlab-api-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The GitLab API integration is foundational to the platform's development workflow, as GitLab serves as the primary source code host, CI/CD pipeline runner, issue tracker, and artifact repository.
 
 The Prismatic Platform's mandatory session discipline protocol requires GitLab issue tracking for every development session. The `/gitlab-api` command facilitates this requirement by providing rapid issue creation, status updates, and progress tracking without leaving the command-line environment.
 
@@ -143,14 +143,14 @@ The command authenticates using the `GITLAB_TOKEN` environment variable, which s
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `gitlab-api-specialist` | Manages all GitLab API interactions |
-| [/gitlab-auto-sync](/commands/gitlab-auto-sync/) | Automated sync | Uses API for automatic workflow synchronization |
-| [/gitlab-ci](/commands/gitlab-ci/) | Pipeline management | API provides pipeline control capabilities |
-| [/gitlab-enforce](/commands/gitlab-enforce/) | Compliance enforcement | API validates compliance requirements |
-| [/cicd-unified](/commands/cicd-unified/) | CI/CD operations | API backend for pipeline operations |
-| [Session Lifecycle](/glossary/session-discipline/) | Issue tracking | Mandatory session-to-issue correlation |
-| [Telemetry](/glossary/telemetry/) | API [metrics](/glossary/metrics/) | Request timing and error rates |
-| [AIAD Registry](/glossary/aiad/) | Command specification | API command configuration |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `gitlab-api-specialist` | Manages all GitLab API interactions |
+| [/gitlab-auto-sync](@/commands/gitlab-auto-sync.md) | Automated sync | Uses API for automatic workflow synchronization |
+| [/gitlab-ci](@/commands/gitlab-ci.md) | Pipeline management | API provides pipeline control capabilities |
+| [/gitlab-enforce](@/commands/gitlab-enforce.md) | Compliance enforcement | API validates compliance requirements |
+| [/cicd-unified](@/commands/cicd-unified.md) | CI/CD operations | API backend for pipeline operations |
+| [Session Lifecycle](@/glossary/session-discipline.md) | Issue tracking | Mandatory session-to-issue correlation |
+| [Telemetry](@/glossary/telemetry.md) | API [metrics](@/glossary/metrics.md) | Request timing and error rates |
+| [AIAD Registry](@/glossary/aiad.md) | Command specification | API command configuration |
 
 ## Best Practices
 
@@ -225,19 +225,19 @@ Query milestones for strategic planning purposes.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every API operation is validated, retried on transient failures, and fully logged for audit purposes.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. API responses are parsed and validated before presentation. Error conditions are detected and reported with actionable remediation guidance.
 
 ## Related Commands
 
-- [/gitlab-auto-sync](/commands/gitlab-auto-sync/) - Automatic GitLab integration for all AIAD workflows
-- [/gitlab-ci](/commands/gitlab-ci/) - [GitLab CI](/glossary/gitlab-ci/)/CD pipeline management and configuration
-- [/gitlab-enforce](/commands/gitlab-enforce/) - GitLab enforcement for compliance and workflow standards
-- [/cicd-unified](/commands/cicd-unified/) - Unified CI/CD workflow actions for pipeline management
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/gitlab-auto-sync](@/commands/gitlab-auto-sync.md) - Automatic GitLab integration for all AIAD workflows
+- [/gitlab-ci](@/commands/gitlab-ci.md) - [GitLab CI](@/glossary/gitlab-ci.md)/CD pipeline management and configuration
+- [/gitlab-enforce](@/commands/gitlab-enforce.md) - GitLab enforcement for compliance and workflow standards
+- [/cicd-unified](@/commands/cicd-unified.md) - Unified CI/CD workflow actions for pipeline management
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -246,4 +246,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

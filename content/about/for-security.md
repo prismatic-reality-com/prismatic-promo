@@ -30,7 +30,7 @@ These are not token scanners or vulnerability databases with a team-colored labe
 
 ### Gray Team -- Boundary Exploration (3 agents)
 
-The [Gray Team](/glossary/gray-team/) is the starting point. It explores specification gaps, edge cases, and affordance drift -- the gradual expansion of how a system is used beyond its original design intent.
+The [Gray Team](@/glossary/gray-team.md) is the starting point. It explores specification gaps, edge cases, and affordance drift -- the gradual expansion of how a system is used beyond its original design intent.
 
 | Agent | Role | Function |
 |-------|------|----------|
@@ -44,7 +44,7 @@ The `gray-escalation-guard` deserves special attention. It monitors all Gray Tea
 
 ### Red Team -- Adversarial Simulation (4 agents)
 
-The [Red Team](/glossary/red-team/) simulates epistemic attacks using five attack primitives:
+The [Red Team](@/glossary/red-team.md) simulates epistemic attacks using five attack primitives:
 
 1. **Truth Distortion**: Manipulating the accuracy of signals entering the epistemic pipeline
 2. **Confidence Manipulation**: Artificially inflating or deflating confidence scores
@@ -63,7 +63,7 @@ All Red Team operations execute in `PrismaticDark.Sandbox`. No real data. No pro
 
 ### Blue Team -- Epistemic Defense (4 agents)
 
-The [Blue Team](/glossary/blue-team/) synthesizes defensive evidence. It does not produce alerts or notifications -- it produces **structured evidence** grounded in NABLA axioms.
+The [Blue Team](@/glossary/blue-team.md) synthesizes defensive evidence. It does not produce alerts or notifications -- it produces **structured evidence** grounded in NABLA axioms.
 
 | Agent | Role | Function |
 |-------|------|----------|
@@ -83,7 +83,7 @@ The `blue-drift-detector` monitors four drift dimensions continuously:
 
 ### Purple Team -- Synthesis & Closure (4 agents)
 
-The [Purple Team](/glossary/purple-team/) is the central hub. Its function: close the loop between Red and Blue, and determine when a security concern is genuinely resolved versus merely suppressed.
+The [Purple Team](@/glossary/purple-team.md) is the central hub. Its function: close the loop between Red and Blue, and determine when a security concern is genuinely resolved versus merely suppressed.
 
 | Agent | Role | Function |
 |-------|------|----------|
@@ -105,7 +105,7 @@ The `purple-regression-guard` prevents a closed security concern from re-emergin
 
 ### White Team -- Constructive Verification (3 agents)
 
-The [White Team](/glossary/white-team/) proves that systems hold. Not "tests indicate they probably hold" -- **proves**, using progressive methodology from basic property testing to full Lean4 formal proofs.
+The [White Team](@/glossary/white-team.md) proves that systems hold. Not "tests indicate they probably hold" -- **proves**, using progressive methodology from basic property testing to full Lean4 formal proofs.
 
 | Agent | Role | Function |
 |-------|------|----------|
@@ -124,11 +124,11 @@ The verification progression follows 6 levels:
 
 Not every security property requires L5 proof. The verification level is determined by the criticality of the property. Authentication invariants get L5. Logging format consistency gets L1. The resource allocation is proportional to the risk.
 
-All White Team output passes through the [Trinity Gate](/glossary/trinity-gate/). A proof is not accepted until it satisfies structural consistency, logical consistency, and formal necessity.
+All White Team output passes through the [Trinity Gate](@/glossary/trinity-gate.md). A proof is not accepted until it satisfies structural consistency, logical consistency, and formal necessity.
 
 ### Black Team -- Theoretical Threat Modeling (2 agents)
 
-The [Black Team](/glossary/black-team/) operates under **maximum isolation**. It models theoretical worst-case adversarial optimization -- what would a sophisticated, motivated attacker do with unlimited resources and deep system knowledge?
+The [Black Team](@/glossary/black-team.md) operates under **maximum isolation**. It models theoretical worst-case adversarial optimization -- what would a sophisticated, motivated attacker do with unlimited resources and deep system knowledge?
 
 | Agent | Role | Function |
 |-------|------|----------|
@@ -167,7 +167,7 @@ This is not a one-shot process. It runs continuously. New code, new configuratio
 
 ## EASM: External Attack Surface Management
 
-Prismatic includes a dedicated [EASM](/glossary/easm/) capability through the Prismatic Perimeter module. This provides:
+Prismatic includes a dedicated [EASM](@/glossary/easm.md) capability through the Prismatic Perimeter module. This provides:
 
 ### Asset Discovery
 
@@ -221,7 +221,7 @@ These are not configurable. They are structural constraints enforced at the arch
 
 When Prismatic makes a security decision, the result is not "probably risky" or "high confidence." It is a formally verified conclusion with quantified robustness:
 
-The [QEVE](/glossary/qeve/) pipeline for security decisions:
+The [QEVE](@/glossary/qeve.md) pipeline for security decisions:
 
 1. **Evidence Gathering**: Multi-source signal collection (Color Team findings, EASM results, drift detection, external feeds)
 2. **Hypothesis Formation**: Candidate security conclusions generated from evidence
@@ -258,12 +258,12 @@ If you are evaluating Prismatic from a security perspective, here is what matter
 
 ## Next Steps
 
-- [QEVE Deep Dive](/about/qeve-deep-dive/) -- Technical architecture of the verification engine
-- [For Executives](/about/for-executives/) -- Business case and compliance readiness
-- [For Architects](/about/for-architects/) -- The epistemic pipeline and drift detection architecture
-- [Color Teams](/teams/) -- Full documentation of all 6 teams
-- [Glossary: EASM](/glossary/easm/) -- External Attack Surface Management explained
-- [Glossary: Color Teams](/glossary/color-teams/) -- Team definitions and protocols
+- [QEVE Deep Dive](@/about/qeve-deep-dive.md) -- Technical architecture of the verification engine
+- [For Executives](@/about/for-executives.md) -- Business case and compliance readiness
+- [For Architects](@/about/for-architects.md) -- The epistemic pipeline and drift detection architecture
+- [Color Teams](@/teams/_index.md) -- Full documentation of all 6 teams
+- [Glossary: EASM](@/glossary/easm.md) -- External Attack Surface Management explained
+- [Glossary: Color Teams](@/glossary/color-teams.md) -- Team definitions and protocols
 
 ---
 
@@ -272,4 +272,4 @@ If you are evaluating Prismatic from a security perspective, here is what matter
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

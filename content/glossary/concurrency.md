@@ -468,24 +468,24 @@ The quality gate system runs 13 different analysis tools concurrently during pre
 
 ## Related Concepts
 
-- [BEAM VM](/glossary/beam-vm/) -- The virtual machine providing BEAM process concurrency primitives
-- [GenServer](/glossary/genserver/) -- The primary abstraction for stateful concurrent processes
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchical fault-tolerant process organization
-- [Message Passing](/glossary/message-passing/) -- The communication mechanism between concurrent processes
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Reliability through process isolation and supervision
-- [Process Isolation](/glossary/process-isolation/) -- Memory isolation between concurrent processes
-- [Backpressure](/glossary/backpressure/) -- Flow control preventing resource exhaustion
-- [Actor Model](/glossary/actor-model/) -- The theoretical foundation for BEAM concurrency
-- [Distributed System](/glossary/distributed-system/) -- Extending concurrency across multiple nodes
-- [Broadway](/glossary/broadway/) -- Data processing pipelines with built-in concurrency
+- [BEAM VM](@/glossary/beam-vm.md) -- The virtual machine providing BEAM process concurrency primitives
+- [GenServer](@/glossary/genserver.md) -- The primary abstraction for stateful concurrent processes
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchical fault-tolerant process organization
+- [Message Passing](@/glossary/message-passing.md) -- The communication mechanism between concurrent processes
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Reliability through process isolation and supervision
+- [Process Isolation](@/glossary/process-isolation.md) -- Memory isolation between concurrent processes
+- [Backpressure](@/glossary/backpressure.md) -- Flow control preventing resource exhaustion
+- [Actor Model](@/glossary/actor-model.md) -- The theoretical foundation for BEAM concurrency
+- [Distributed System](@/glossary/distributed-system.md) -- Extending concurrency across multiple nodes
+- [Broadway](@/glossary/broadway.md) -- Data processing pipelines with built-in concurrency
 
 ## See Also
 
-- [Erlang](/glossary/erlang/) -- The language that created the BEAM concurrency model
-- [Elixir](/glossary/elixir/) -- The language used to implement platform concurrency
-- [OTP](/glossary/otp/) -- The framework providing GenServer, Supervisor, and other concurrency tools
-- [Concurrent Programming](/glossary/concurrent-programming/) -- The broader field of concurrent software development
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- Runtime process creation and supervision
+- [Erlang](@/glossary/erlang.md) -- The language that created the BEAM concurrency model
+- [Elixir](@/glossary/elixir.md) -- The language used to implement platform concurrency
+- [OTP](@/glossary/otp.md) -- The framework providing GenServer, Supervisor, and other concurrency tools
+- [Concurrent Programming](@/glossary/concurrent-programming.md) -- The broader field of concurrent software development
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- Runtime process creation and supervision
 - Glossary Index -- Complete listing of all platform concepts
 
 ---
@@ -495,4 +495,4 @@ The quality gate system runs 13 different analysis tools concurrently during pre
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

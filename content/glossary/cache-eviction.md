@@ -600,18 +600,18 @@ end
 
 ## Related Terms
 
-- [Cache](/glossary/cache/) -- the storage layer being managed by eviction policies
-- [Configuration](/glossary/configuration/) -- eviction policy configuration and tuning parameters
-- [Consistency](/glossary/consistency/) -- data freshness guarantees affected by eviction timing
-- [Benchmark](/glossary/benchmark/) -- measuring eviction impact on cache hit rates and system performance
-- [Telemetry](/glossary/telemetry/) -- the event system for monitoring eviction metrics
-- [Response Distribution](/glossary/response-distribution/) -- cache hit/miss ratio directly affects response time distribution shape
-- [Retry](/glossary/retry/) -- retry policies interact with cache TTL when retrying cached responses
-- [Logging](/glossary/logging/) -- eviction events should be logged for operational visibility
-- [Batch Processing](/glossary/batch-processing/) -- batch cache warming and eviction strategies
+- [Cache](@/glossary/cache.md) -- the storage layer being managed by eviction policies
+- [Configuration](@/glossary/configuration.md) -- eviction policy configuration and tuning parameters
+- [Consistency](@/glossary/consistency.md) -- data freshness guarantees affected by eviction timing
+- [Benchmark](@/glossary/benchmark.md) -- measuring eviction impact on cache hit rates and system performance
+- [Telemetry](@/glossary/telemetry.md) -- the event system for monitoring eviction metrics
+- [Response Distribution](@/glossary/response-distribution.md) -- cache hit/miss ratio directly affects response time distribution shape
+- [Retry](@/glossary/retry.md) -- retry policies interact with cache TTL when retrying cached responses
+- [Logging](@/glossary/logging.md) -- eviction events should be logged for operational visibility
+- [Batch Processing](@/glossary/batch-processing.md) -- batch cache warming and eviction strategies
 - [Memory Management](/glossary/memory-management/) -- cache eviction is a key component of system memory management
-- [Throughput](/glossary/throughput/) -- cache hit rates directly impact system throughput
-- [Supervision Strategy](/glossary/supervision-strategy/) -- cache processes require proper OTP supervision for reliability
+- [Throughput](@/glossary/throughput.md) -- cache hit rates directly impact system throughput
+- [Supervision Strategy](@/glossary/supervision-strategy.md) -- cache processes require proper OTP supervision for reliability
 
 ## See Also
 
@@ -619,7 +619,7 @@ end
 - [Cachex Library](https://hexdocs.pm/cachex/) -- full-featured caching library for Elixir
 - [Nebulex Library](https://hexdocs.pm/nebulex/) -- distributed caching framework with pluggable adapters
 - [Cache Design Patterns](https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html) -- industry caching patterns and strategies
-- [Shared Utilities Guide](/architecture/) -- HierarchicalCache implementation in Prismatic Platform
+- [Shared Utilities Guide](@/architecture/_index.md) -- HierarchicalCache implementation in Prismatic Platform
 
 ---
 
@@ -628,4 +628,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

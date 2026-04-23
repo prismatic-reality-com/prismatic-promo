@@ -193,7 +193,7 @@ end
 
 ## Cross-References
 
-- [Percentile](/glossary/percentile/) - Statistical measure often computed alongside pivot aggregations
+- [Percentile](@/glossary/percentile.md) - Statistical measure often computed alongside pivot aggregations
 - **Scatter Plot** - Visualization complementing pivot table summaries
 - **Sequential Scan** - Database operation underlying large pivot computations
 - **Seasonality** - Temporal patterns revealed through time-dimensioned pivot tables

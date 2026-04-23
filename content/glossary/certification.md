@@ -520,25 +520,25 @@ The Perimeter module's SecurityRating engine incorporates certification status a
 
 ## Related Terms
 
-- [ISO 27001](/glossary/iso-27001/) -- Information security management system certification standard
-- [SOC 2](/glossary/soc2/) -- Service organization control framework for trust principles
-- [Compliance](/glossary/compliance/) -- Regulatory framework requiring certifications as evidence
-- [NIS2](/glossary/nis2/) -- EU cybersecurity directive mandating organizational security measures
-- [GDPR](/glossary/gdpr/) -- Data protection regulation with competency requirements
-- [Assessment](/glossary/assessment/) -- Evaluation process within the certification lifecycle
+- [ISO 27001](@/glossary/iso-27001.md) -- Information security management system certification standard
+- [SOC 2](@/glossary/soc2.md) -- Service organization control framework for trust principles
+- [Compliance](@/glossary/compliance.md) -- Regulatory framework requiring certifications as evidence
+- [NIS2](@/glossary/nis2.md) -- EU cybersecurity directive mandating organizational security measures
+- [GDPR](@/glossary/gdpr.md) -- Data protection regulation with competency requirements
+- [Assessment](@/glossary/assessment.md) -- Evaluation process within the certification lifecycle
 - [Audit](/glossary/audit/) -- Systematic examination process underlying certification
 - [Accreditation](/glossary/accreditation/) -- Recognition that a certification body is competent
-- [Risk Management](/glossary/risk-management/) -- Framework that certifications help validate
-- [Due Diligence](/glossary/due-diligence/) -- Investigation context where certification verification is critical
-- [Data Protection](/glossary/data-protection/) -- Technical measures that certifications help validate
-- [Credential](/glossary/credential/) -- Authentication artifact issued upon certification
+- [Risk Management](@/glossary/risk-management.md) -- Framework that certifications help validate
+- [Due Diligence](@/glossary/due-diligence.md) -- Investigation context where certification verification is critical
+- [Data Protection](@/glossary/data-protection.md) -- Technical measures that certifications help validate
+- [Credential](@/glossary/credential.md) -- Authentication artifact issued upon certification
 
 ## See Also
 
-- [Academy](/academy/) -- Interactive learning system with certification pathways
-- [Capabilities](/capabilities/) -- Platform compliance and certification verification capabilities
-- [Architecture](/architecture/) -- Certification engine and state machine architecture
-- [OSINT Tools](/osint/) -- Certification verification tools in the OSINT registry
+- [Academy](@/academy/_index.md) -- Interactive learning system with certification pathways
+- [Capabilities](@/capabilities/_index.md) -- Platform compliance and certification verification capabilities
+- [Architecture](@/architecture/_index.md) -- Certification engine and state machine architecture
+- [OSINT Tools](@/osint/_index.md) -- Certification verification tools in the OSINT registry
 
 ---
 
@@ -547,4 +547,4 @@ The Perimeter module's SecurityRating engine incorporates certification status a
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

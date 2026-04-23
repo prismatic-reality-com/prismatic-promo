@@ -219,11 +219,11 @@ The platform's 250ms total page load budget is allocated as: 100ms server render
 
 ## Cross-References
 
-- [Server](/glossary/server/) - Network service hosting the render engine
-- [Process](/glossary/process/) - BEAM processes handling render requests
-- [Runtime](/glossary/runtime/) - Server configuration affecting render performance
-- [Profiling](/glossary/profiling/) - Measuring server render performance
-- [Percentile](/glossary/percentile/) - Render time P95 thresholds for SLA enforcement
+- [Server](@/glossary/server.md) - Network service hosting the render engine
+- [Process](@/glossary/process.md) - BEAM processes handling render requests
+- [Runtime](@/glossary/runtime.md) - Server configuration affecting render performance
+- [Profiling](@/glossary/profiling.md) - Measuring server render performance
+- [Percentile](@/glossary/percentile.md) - Render time P95 thresholds for SLA enforcement
 
 ---
 

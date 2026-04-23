@@ -28,11 +28,11 @@ image_alt = "docker-build-specialist - Prismatic Platform"
 
 ## Overview
 
-The [Docker](/glossary/docker/) Build Specialist operates as an L3 strategic command agent within the Infrastructure domain of the Prismatic Platform. This agent provides deep expertise in container image optimization, multi-stage build pipeline design, build cache management, security scanning, and production image hardening. In a platform that deploys 90 [umbrella application](/glossary/umbrella-application/)s as containerized [Elixir](/glossary/elixir/) releases to [Fly.io](/glossary/fly-io/) edge infrastructure, container image quality directly impacts deployment speed, runtime performance, security posture, and infrastructure costs.
+The [Docker](@/glossary/docker.md) Build Specialist operates as an L3 strategic command agent within the Infrastructure domain of the Prismatic Platform. This agent provides deep expertise in container image optimization, multi-stage build pipeline design, build cache management, security scanning, and production image hardening. In a platform that deploys 90 [umbrella application](@/glossary/umbrella-application.md)s as containerized [Elixir](@/glossary/elixir.md) releases to [Fly.io](@/glossary/fly-io.md) edge infrastructure, container image quality directly impacts deployment speed, runtime performance, security posture, and infrastructure costs.
 
-The agent operates within the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard and follows the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. For container builds, this means zero tolerance for bloated images, unnecessary runtime dependencies, exposed build artifacts, or unscanned vulnerabilities. Every container image the platform produces must be minimal, secure, reproducible, and optimized for the [BEAM](/glossary/beam/) runtime's specific requirements.
+The agent operates within the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard and follows the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. For container builds, this means zero tolerance for bloated images, unnecessary runtime dependencies, exposed build artifacts, or unscanned vulnerabilities. Every container image the platform produces must be minimal, secure, reproducible, and optimized for the [BEAM](@/glossary/beam.md) runtime's specific requirements.
 
-The Prismatic Platform's Dockerfile implements a multi-stage build that separates compilation concerns from runtime requirements. The build stage includes Erlang/[OTP](/glossary/otp/), [Elixir](/glossary/elixir/), Node.js (for asset compilation), and all build-time dependencies. The runtime stage contains only the compiled release, its runtime dependencies, and the minimal operating system packages required for BEAM operation. The Docker Build Specialist ensures this separation is maintained correctly, that build caches are leveraged effectively, and that the resulting production images meet size, security, and performance targets.
+The Prismatic Platform's Dockerfile implements a multi-stage build that separates compilation concerns from runtime requirements. The build stage includes Erlang/[OTP](@/glossary/otp.md), [Elixir](@/glossary/elixir.md), Node.js (for asset compilation), and all build-time dependencies. The runtime stage contains only the compiled release, its runtime dependencies, and the minimal operating system packages required for BEAM operation. The Docker Build Specialist ensures this separation is maintained correctly, that build caches are leveraged effectively, and that the resulting production images meet size, security, and performance targets.
 
 ## Operational Domain
 
@@ -118,11 +118,11 @@ Container security scanning operates as a mandatory gate in the build pipeline.
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [PostgreSQL](/glossary/postgresql/) | Runtime dependency | Database client libraries included in runtime image |
-| [Fly.io](/glossary/fly-io/) | Deployment target | Container images deployed to Fly.io machine fleet |
+| [PostgreSQL](@/glossary/postgresql.md) | Runtime dependency | Database client libraries included in runtime image |
+| [Fly.io](@/glossary/fly-io.md) | Deployment target | Container images deployed to Fly.io machine fleet |
 | Docker Registry | Image storage | Versioned image storage and distribution |
 | GitLab CI/CD | Build automation | Automated image builds triggered by CI pipeline |
-| [Elixir](/glossary/elixir/) Release | Build output | OTP release artifacts packaged into container |
+| [Elixir](@/glossary/elixir.md) Release | Build output | OTP release artifacts packaged into container |
 | TailwindCSS | Asset pipeline | CSS compilation integrated into build stages |
 
 ## Build Environment Management
@@ -137,13 +137,13 @@ The specialist maintains build environment configurations that ensure consistent
 
 ## Enforcement
 
-The Docker Build Specialist operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Production images must pass all security scans before deployment. Image size regressions trigger investigation and correction. Dockerfile changes undergo review for cache efficiency, security implications, and size impact. No build artifact, debug tool, or development dependency is permitted in production images. Non-root execution is mandatory for all production containers.
+The Docker Build Specialist operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Production images must pass all security scans before deployment. Image size regressions trigger investigation and correction. Dockerfile changes undergo review for cache efficiency, security implications, and size impact. No build artifact, debug tool, or development dependency is permitted in production images. Non-root execution is mandatory for all production containers.
 
 ## Related Agents
 
-- [**devops-deployment-specialist**](/agents/devops-deployment-specialist/) (L2) - Deployment orchestration consuming built container images
-- [**aiad-deployment-engine**](/agents/aiad-deployment-engine/) (L4) - Core deployment engine with formal verification
-- [**aiad-verification-engine**](/agents/aiad-verification-engine/) (L4) - Build artifact verification and validation
+- [**devops-deployment-specialist**](@/agents/devops-deployment-specialist.md) (L2) - Deployment orchestration consuming built container images
+- [**aiad-deployment-engine**](@/agents/aiad-deployment-engine.md) (L4) - Core deployment engine with formal verification
+- [**aiad-verification-engine**](@/agents/aiad-verification-engine.md) (L4) - Build artifact verification and validation
 
 ---
 
@@ -152,4 +152,4 @@ The Docker Build Specialist operates under [NO MERCY, NO DOUBTS](/glossary/no-me
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

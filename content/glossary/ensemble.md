@@ -559,26 +559,26 @@ end
 
 ## Related Terms
 
-- [F1 Score](/glossary/f1-score/) -- Classification metric for evaluating ensemble performance
-- [Distribution](/glossary/distribution/) -- Statistical properties of ensemble predictions
-- [Few-Shot](/glossary/few-shot/) -- Learning technique that can serve as a base learner in ensembles
-- [Data Quality](/glossary/data-quality/) -- Input quality affecting ensemble accuracy
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Numerical reliability metric from ensemble outputs
-- [Chain of Thought](/glossary/chain-of-thought/) -- Reasoning technique paralleling self-consistency ensembles
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Multi-source combination applying ensemble principles
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing ensemble contradiction handling
-- [AI Agent](/glossary/ai-agent/) -- Autonomous entities acting as base learners in agent ensembles
-- [GenServer](/glossary/genserver/) -- Process model for ensemble monitor and scorer services
-- [ETS](/glossary/ets/) -- In-memory storage for source reliability weights and history
-- [PubSub](/glossary/pubsub/) -- Event system for ensemble health alerts
+- [F1 Score](@/glossary/f1-score.md) -- Classification metric for evaluating ensemble performance
+- [Distribution](@/glossary/distribution.md) -- Statistical properties of ensemble predictions
+- [Few-Shot](@/glossary/few-shot.md) -- Learning technique that can serve as a base learner in ensembles
+- [Data Quality](@/glossary/data-quality.md) -- Input quality affecting ensemble accuracy
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Numerical reliability metric from ensemble outputs
+- [Chain of Thought](@/glossary/chain-of-thought.md) -- Reasoning technique paralleling self-consistency ensembles
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Multi-source combination applying ensemble principles
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing ensemble contradiction handling
+- [AI Agent](@/glossary/ai-agent.md) -- Autonomous entities acting as base learners in agent ensembles
+- [GenServer](@/glossary/genserver.md) -- Process model for ensemble monitor and scorer services
+- [ETS](@/glossary/ets.md) -- In-memory storage for source reliability weights and history
+- [PubSub](@/glossary/pubsub.md) -- Event system for ensemble health alerts
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- Intelligence fusion capabilities
-- [Architecture](/architecture/) -- Scoring engine architecture
-- [Technologies](/technologies/) -- ML technology stack (Axon, EXLA)
+- [Capabilities](@/capabilities/_index.md) -- Intelligence fusion capabilities
+- [Architecture](@/architecture/_index.md) -- Scoring engine architecture
+- [Technologies](@/technologies/_index.md) -- ML technology stack (Axon, EXLA)
 - [Security](/security/) -- Security rating engine using ensemble scoring
-- [Agents](/agents/) -- Multi-agent ensemble via Purple Team synthesis
+- [Agents](@/agents/_index.md) -- Multi-agent ensemble via Purple Team synthesis
 
 ---
 
@@ -587,4 +587,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

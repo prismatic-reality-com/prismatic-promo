@@ -32,7 +32,7 @@ System architecture is the set of structures needed to reason about a software s
 
 Architecture decisions are distinguished from implementation decisions by their scope and cost of change. An architectural decision affects multiple components, constrains future implementation choices, and is expensive to reverse once the system is built. Choosing between a monolithic and microservice deployment model, selecting synchronous versus asynchronous communication patterns, deciding on a supervision hierarchy versus flat process topology -- these are architectural decisions. Choosing a sorting algorithm or formatting a log message are implementation details.
 
-The [Prismatic Platform](/glossary/prismatic-perimeter/) embodies a specific architectural philosophy: an Elixir/OTP umbrella application comprising 115 applications organized into layered domains, communicating through well-defined interfaces, supervised by a hierarchical fault-tolerance tree, and continuously validated by automated [quality gates](/glossary/quality-gates/). This architecture was not arrived at by accident -- it is the result of deliberate architectural decisions optimized for the platform's quality attributes.
+The [Prismatic Platform](@/glossary/prismatic-perimeter.md) embodies a specific architectural philosophy: an Elixir/OTP umbrella application comprising 115 applications organized into layered domains, communicating through well-defined interfaces, supervised by a hierarchical fault-tolerance tree, and continuously validated by automated [quality gates](@/glossary/quality-gates.md). This architecture was not arrived at by accident -- it is the result of deliberate architectural decisions optimized for the platform's quality attributes.
 
 ## Architectural Views and Perspectives
 
@@ -246,7 +246,7 @@ The platform combines several architectural styles, each addressing different qu
 
 ### Umbrella Application (Modular Monolith)
 
-The 115-app umbrella structure provides the modularity benefits of [microservices](/glossary/microservices/) (independent compilation, explicit dependencies, separate test suites) without the operational complexity (network partitions, distributed transactions, service discovery):
+The 115-app umbrella structure provides the modularity benefits of [microservices](@/glossary/microservices.md) (independent compilation, explicit dependencies, separate test suites) without the operational complexity (network partitions, distributed transactions, service discovery):
 
 ```elixir
 defmodule Prismatic.Umbrella.MixProject do
@@ -289,7 +289,7 @@ end
 
 ### Supervision Hierarchy (Fault Tolerance)
 
-OTP [supervision trees](/glossary/supervision-tree/) provide the platform's fault tolerance architecture. Each domain has its own supervisor with restart strategies tuned to that domain's failure characteristics:
+OTP [supervision trees](@/glossary/supervision-tree.md) provide the platform's fault tolerance architecture. Each domain has its own supervisor with restart strategies tuned to that domain's failure characteristics:
 
 ```elixir
 defmodule Prismatic.DomainSupervisor do
@@ -328,7 +328,7 @@ end
 
 ### Event-Driven Architecture (Decoupling)
 
-[PubSub](/glossary/pubsub/) and [Telemetry](/glossary/telemetry/) provide event-driven communication that decouples producers from consumers:
+[PubSub](@/glossary/pubsub.md) and [Telemetry](@/glossary/telemetry.md) provide event-driven communication that decouples producers from consumers:
 
 ```elixir
 defmodule Prismatic.Architecture.EventBus do
@@ -384,19 +384,19 @@ Architecture exists to satisfy quality attributes. Each quality attribute is ach
 
 ### Reliability
 
-**Tactics**: [Supervision](/glossary/supervision/) (automatic restart), [circuit breakers](/glossary/circuit-breaker/) (failure isolation), [bulkheads](/glossary/bulkhead-pattern/) (resource isolation), [backpressure](/glossary/backpressure/) (load shedding).
+**Tactics**: [Supervision](@/glossary/supervision.md) (automatic restart), [circuit breakers](@/glossary/circuit-breaker.md) (failure isolation), [bulkheads](@/glossary/bulkhead-pattern.md) (resource isolation), [backpressure](@/glossary/backpressure.md) (load shedding).
 
-**Enforcement**: [Let-it-crash](/glossary/let-it-crash/) philosophy -- processes fail fast, supervisors restart them. The platform's `:rest_for_one` strategy on storage ensures dependent processes restart when their dependencies fail.
+**Enforcement**: [Let-it-crash](@/glossary/let-it-crash.md) philosophy -- processes fail fast, supervisors restart them. The platform's `:rest_for_one` strategy on storage ensures dependent processes restart when their dependencies fail.
 
 ### Scalability
 
-**Tactics**: Process-per-entity concurrency, horizontal scaling via [distributed Erlang](/glossary/distributed-systems/), stateless web tier, database read replicas.
+**Tactics**: Process-per-entity concurrency, horizontal scaling via [distributed Erlang](@/glossary/distributed-systems.md), stateless web tier, database read replicas.
 
 **Enforcement**: The Fly.io deployment supports multi-region instances. The architecture separates state (PostgreSQL, ETS) from compute (Phoenix endpoints).
 
 ### Maintainability
 
-**Tactics**: Umbrella decomposition, explicit dependencies, comprehensive [static analysis](/glossary/static-analysis/), automated quality gates, 100% test coverage.
+**Tactics**: Umbrella decomposition, explicit dependencies, comprehensive [static analysis](@/glossary/static-analysis.md), automated quality gates, 100% test coverage.
 
 **Enforcement**: 13 quality domains at 100/100 score. Pre-commit hooks block code that degrades any domain.
 
@@ -404,7 +404,7 @@ Architecture exists to satisfy quality attributes. Each quality attribute is ach
 
 **Tactics**: Defense in depth, input validation, authentication/authorization layers, encrypted communication, audit logging.
 
-**Enforcement**: [Prismatic Perimeter](/glossary/prismatic-perimeter/) provides continuous external attack surface monitoring. Color teams conduct adversarial assessment.
+**Enforcement**: [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) provides continuous external attack surface monitoring. Color teams conduct adversarial assessment.
 
 ## Architectural Decision Records
 
@@ -481,7 +481,7 @@ Systematic architecture evaluation assesses whether the chosen architecture sati
 
 ## Architecture Evolution and Technical Debt
 
-Architectures evolve over time in response to changing requirements, growing scale, and accumulated learning. Managing this evolution requires balancing forward progress with [technical debt](/glossary/technical-debt/) management:
+Architectures evolve over time in response to changing requirements, growing scale, and accumulated learning. Managing this evolution requires balancing forward progress with [technical debt](@/glossary/technical-debt.md) management:
 
 The Prismatic Platform's evolution from Generation 1 to Generation 19 demonstrates disciplined architectural evolution: each generation introduced new capabilities while maintaining quality. The 0.9995 fitness score indicates near-optimal alignment between the architecture and its requirements.
 
@@ -495,16 +495,16 @@ Key evolutionary patterns include:
 
 ## Related Concepts
 
-- [System Analysis](/glossary/system-analysis/) -- the examination of existing architectures
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP fault tolerance hierarchy
-- [Distributed Systems](/glossary/distributed-systems/) -- multi-node architectural concerns
-- [Microservices](/glossary/microservices/) -- alternative decomposition strategy
-- [Layered Architecture](/glossary/layered-architecture/) -- vertical structural organization
-- [OTP](/glossary/otp/) -- the runtime platform enabling BEAM architectures
-- [Umbrella Application](/glossary/umbrella-application/) -- Elixir's modular monolith pattern
-- [Architectural Pattern](/glossary/architectural-pattern/) -- reusable architectural solutions
-- [Quality Gates](/glossary/quality-gates/) -- automated architecture conformance checking
-- [Scalability](/glossary/scalability/) -- growth capacity enabled by architecture
+- [System Analysis](@/glossary/system-analysis.md) -- the examination of existing architectures
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP fault tolerance hierarchy
+- [Distributed Systems](@/glossary/distributed-systems.md) -- multi-node architectural concerns
+- [Microservices](@/glossary/microservices.md) -- alternative decomposition strategy
+- [Layered Architecture](@/glossary/layered-architecture.md) -- vertical structural organization
+- [OTP](@/glossary/otp.md) -- the runtime platform enabling BEAM architectures
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Elixir's modular monolith pattern
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- reusable architectural solutions
+- [Quality Gates](@/glossary/quality-gates.md) -- automated architecture conformance checking
+- [Scalability](@/glossary/scalability.md) -- growth capacity enabled by architecture
 
 ---
 
@@ -513,4 +513,4 @@ Key evolutionary patterns include:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "ir-generator - Prismatic Platform"
 
 ## Overview
 
-The ir-generator is an L3 [Strategic Command](/glossary/strategic-command/) agent within the Prismatic Platform's execution domain, responsible for automatically generating Information Retrieval (IR) workflow definitions from natural language descriptions. This agent bridges the gap between human intent and executable IR pipelines by translating descriptive specifications into structured workflow graphs that can be validated, optimized, and executed by the platform's [PVM](/glossary/pvm/) (Platform Virtual Machine) runtime. The ir-generator leverages large language model capabilities to interpret ambiguous or high-level retrieval requirements and produce type-safe, composable workflow specifications.
+The ir-generator is an L3 [Strategic Command](@/glossary/strategic-command.md) agent within the Prismatic Platform's execution domain, responsible for automatically generating Information Retrieval (IR) workflow definitions from natural language descriptions. This agent bridges the gap between human intent and executable IR pipelines by translating descriptive specifications into structured workflow graphs that can be validated, optimized, and executed by the platform's [PVM](@/glossary/pvm.md) (Platform Virtual Machine) runtime. The ir-generator leverages large language model capabilities to interpret ambiguous or high-level retrieval requirements and produce type-safe, composable workflow specifications.
 
-Built on the [AIAD](/glossary/aiad/) standard, the ir-generator operates within the platform's broader IR compilation pipeline alongside the [ir-linter](/agents/ir-linter/), [ir-validator](/agents/ir-validator/), and [ir-pvm-profiler](/agents/ir-pvm-profiler/) agents. Together, these agents form a complete lifecycle management system for IR workflows: the generator creates workflow definitions, the linter checks them for quality and best-practice compliance, the validator verifies structural and type correctness, and the profiler measures runtime performance. This separation of concerns follows the Prismatic Platform's architectural principle that generation, validation, and execution should be handled by independent, specialized components.
+Built on the [AIAD](@/glossary/aiad.md) standard, the ir-generator operates within the platform's broader IR compilation pipeline alongside the [ir-linter](@/agents/ir-linter.md), [ir-validator](@/agents/ir-validator.md), and [ir-pvm-profiler](@/agents/ir-pvm-profiler.md) agents. Together, these agents form a complete lifecycle management system for IR workflows: the generator creates workflow definitions, the linter checks them for quality and best-practice compliance, the validator verifies structural and type correctness, and the profiler measures runtime performance. This separation of concerns follows the Prismatic Platform's architectural principle that generation, validation, and execution should be handled by independent, specialized components.
 
 ## Information Retrieval Workflow Architecture
 
@@ -48,8 +48,8 @@ The generated workflows are expressed in the platform's IR intermediate represen
 - **Optimization hint generation** -- Annotates generated workflows with optimization hints based on the described retrieval pattern, such as suggesting index-friendly query orderings or identifying parallelizable branches
 - **Iterative refinement** -- Supports multi-turn generation workflows where users refine their requirements through conversation, with the generator maintaining context and applying incremental modifications to the workflow DAG
 - **Template instantiation** -- Recognizes common retrieval patterns and instantiates pre-validated workflow templates when appropriate, reducing generation latency and improving output reliability
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-healing capabilities for generation pipeline recovery
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for generation quality monitoring and performance tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-healing capabilities for generation pipeline recovery
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for generation quality monitoring and performance tracking
 
 ## Generation Pipeline
 
@@ -59,29 +59,29 @@ The planning phase maps extracted semantic elements to available IR stages, reso
 
 The composition phase assembles selected stages into a DAG, connecting stages with typed edges and configuring stage parameters based on the extracted requirements. This phase applies topological sorting to establish a valid execution order and identifies opportunities for parallel execution of independent branches.
 
-The validation phase runs the generated workflow through lightweight structural checks before passing it to the [ir-validator](/agents/ir-validator/) for comprehensive verification. This early validation catches common generation errors (disconnected stages, type mismatches, missing required parameters) before the user commits to the workflow.
+The validation phase runs the generated workflow through lightweight structural checks before passing it to the [ir-validator](@/agents/ir-validator.md) for comprehensive verification. This early validation catches common generation errors (disconnected stages, type mismatches, missing required parameters) before the user commits to the workflow.
 
 ## LLM Integration Architecture
 
-The ir-generator's LLM integration follows the platform's standard LLM client architecture, using the [llm-generic-bridge](/agents/llm-generic-bridge/) for vendor-neutral model access and the [llm-context-optimizer](/agents/llm-context-optimizer/) for efficient context window utilization. The stage library documentation is indexed and compressed for inclusion in the LLM context, providing the model with the reference information needed to select appropriate stages and configure them correctly.
+The ir-generator's LLM integration follows the platform's standard LLM client architecture, using the [llm-generic-bridge](@/agents/llm-generic-bridge.md) for vendor-neutral model access and the [llm-context-optimizer](@/agents/llm-context-optimizer.md) for efficient context window utilization. The stage library documentation is indexed and compressed for inclusion in the LLM context, providing the model with the reference information needed to select appropriate stages and configure them correctly.
 
-Prompt engineering for IR generation follows structured templates that separate the user's natural language description from the stage library reference, example workflows, and output format specifications. This separation enables the [llm-prompt-engineer](/agents/llm-prompt-engineer/) to optimize each section independently, improving generation quality without increasing context window consumption proportionally.
+Prompt engineering for IR generation follows structured templates that separate the user's natural language description from the stage library reference, example workflows, and output format specifications. This separation enables the [llm-prompt-engineer](@/agents/llm-prompt-engineer.md) to optimize each section independently, improving generation quality without increasing context window consumption proportionally.
 
 Generated workflows are post-processed to remove LLM artifacts (hallucinated stage names, invalid parameter values, inconsistent type annotations) through a deterministic cleanup pass. This pass applies the platform's stage library as a ground truth reference, replacing any unrecognized stage names with their nearest valid equivalents and validating all parameter values against their declared schemas.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the ir-generator to access the complete stage library, invoke LLM services for natural language processing, and publish generated workflows to the platform's workflow registry for downstream consumption by validators and executors.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the ir-generator to access the complete stage library, invoke LLM services for natural language processing, and publish generated workflows to the platform's workflow registry for downstream consumption by validators and executors.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| [PVM](/glossary/pvm/) Runtime | Target execution environment for generated workflows |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| [PVM](@/glossary/pvm.md) Runtime | Target execution environment for generated workflows |
 | IR Stage Library | Reference catalog of available processing stages |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification, discovery, and indexing |
-| Prismatic Telemetry | Generation quality [metrics](/glossary/metrics/) and latency tracking |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification, discovery, and indexing |
+| Prismatic Telemetry | Generation quality [metrics](@/glossary/metrics.md) and latency tracking |
 | LLM Client | Natural language processing for intent extraction and workflow composition |
 
 ## Command Interface
@@ -99,20 +99,20 @@ The ir-generator operates as the first stage in the IR lifecycle pipeline, with 
 
 | Agent | Relationship |
 |-------|-------------|
-| [**ir-linter**](/agents/ir-linter/) (L3) | Checks generated workflows for quality, style, and best-practice compliance |
-| [**ir-validator**](/agents/ir-validator/) (L3) | Verifies structural correctness, type safety, and DAG validity |
-| [**ir-pvm-profiler**](/agents/ir-pvm-profiler/) (L3) | Profiles runtime performance of generated workflows |
-| [**pvm-executor**](/agents/pvm-executor/) (L4) | Executes validated and compiled workflows on the PVM runtime |
+| [**ir-linter**](@/agents/ir-linter.md) (L3) | Checks generated workflows for quality, style, and best-practice compliance |
+| [**ir-validator**](@/agents/ir-validator.md) (L3) | Verifies structural correctness, type safety, and DAG validity |
+| [**ir-pvm-profiler**](@/agents/ir-pvm-profiler.md) (L3) | Profiles runtime performance of generated workflows |
+| [**pvm-executor**](@/agents/pvm-executor.md) (L4) | Executes validated and compiled workflows on the PVM runtime |
 
 ## Quality Assurance
 
 Generated workflow quality is measured across multiple dimensions. Structural validity measures whether the generated DAG is well-formed (no cycles, no disconnected components, all edges typed). Type correctness measures whether data types are consistent across stage boundaries. Semantic accuracy measures whether the generated workflow faithfully implements the user's stated retrieval requirements. Performance efficiency measures whether the generated workflow avoids unnecessary stages and exploits available optimization opportunities.
 
-The agent maintains a feedback loop where validation failures from downstream agents (linter findings, validator rejections, profiler performance regressions) are analyzed to improve generation heuristics over time. This continuous improvement cycle is managed through the [SEADF](/glossary/seadf/) autonomous evolution framework.
+The agent maintains a feedback loop where validation failures from downstream agents (linter findings, validator rejections, profiler performance regressions) are analyzed to improve generation heuristics over time. This continuous improvement cycle is managed through the [SEADF](@/glossary/seadf.md) autonomous evolution framework.
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that every generated workflow passes basic structural validation before delivery. The ir-generator never produces workflows with known type errors, disconnected stages, or invalid parameter configurations. The [NO DOUBTS](/glossary/no-doubts/) principle requires that the generator explicitly communicates its confidence in the interpretation of ambiguous requirements, asking for clarification rather than guessing when the natural language input is genuinely ambiguous.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that every generated workflow passes basic structural validation before delivery. The ir-generator never produces workflows with known type errors, disconnected stages, or invalid parameter configurations. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that the generator explicitly communicates its confidence in the interpretation of ambiguous requirements, asking for clarification rather than guessing when the natural language input is genuinely ambiguous.
 
 ---
 
@@ -121,4 +121,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that every generated workf
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -152,4 +152,4 @@ The initial discovery typically completes within 5-15 minutes depending on the s
 
 ---
 
-*Explore the [EASM Dashboard](/capabilities/easm/) or read the [Security Ratings methodology](/blog/security-ratings-easm-explained/) for scoring details.*
+*Explore the [EASM Dashboard](@/capabilities/easm.md) or read the [Security Ratings methodology](@/blog/security-ratings-easm-explained.md) for scoring details.*

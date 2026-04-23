@@ -30,9 +30,9 @@ image_alt = "Trinity Passage - Prismatic Platform"
 
 ## Definition
 
-Trinity Passage refers to the successful traversal of all layers of the [Trinity Gate](/glossary/trinity-gate/) verification mechanism, certifying that a platform belief, decision, or conclusion has been independently validated across three orthogonal verification dimensions -- structural consistency (graph theory), logical consistency (rule-based evaluation), and formal necessity (modal logic and [Lean4](/glossary/lean4/) theorem proving) -- plus a meta-integrity check that validates the gate's own correctness. No claim within the Prismatic Platform is considered established without Trinity Passage. The passage is the formal act of epistemic certification.
+Trinity Passage refers to the successful traversal of all layers of the [Trinity Gate](@/glossary/trinity-gate.md) verification mechanism, certifying that a platform belief, decision, or conclusion has been independently validated across three orthogonal verification dimensions -- structural consistency (graph theory), logical consistency (rule-based evaluation), and formal necessity (modal logic and [Lean4](@/glossary/lean4.md) theorem proving) -- plus a meta-integrity check that validates the gate's own correctness. No claim within the Prismatic Platform is considered established without Trinity Passage. The passage is the formal act of epistemic certification.
 
-The distinction between "Trinity Gate" and "Trinity Passage" is important: the Trinity Gate is the mechanism (the verification apparatus), while Trinity Passage is the event (the successful completion of verification). A belief "attempts" the Trinity Gate and either "achieves" Trinity Passage or "fails" the gate. This distinction matters because the passage itself generates a cryptographically signed certificate -- a formal attestation that verification was completed, which layers were evaluated, what evidence was considered, and when the passage occurred. This certificate serves as the authorization token for the [Transition Protocol](/glossary/transition-protocol/), enabling the shift from exploration to execution.
+The distinction between "Trinity Gate" and "Trinity Passage" is important: the Trinity Gate is the mechanism (the verification apparatus), while Trinity Passage is the event (the successful completion of verification). A belief "attempts" the Trinity Gate and either "achieves" Trinity Passage or "fails" the gate. This distinction matters because the passage itself generates a cryptographically signed certificate -- a formal attestation that verification was completed, which layers were evaluated, what evidence was considered, and when the passage occurred. This certificate serves as the authorization token for the [Transition Protocol](@/glossary/transition-protocol.md), enabling the shift from exploration to execution.
 
 Within the Prismatic Platform ecosystem, the platform maintains 629 trinity entities with 100% passage compliance. Every belief that enters the execution phase has achieved Trinity Passage. Every decision that drives platform action carries a passage certificate. The 13-layer extended Trinity Gate architecture (introduced in Generation 19) adds ten additional verification layers beyond the original three, creating the most rigorous epistemic verification system in the platform's history.
 
@@ -66,11 +66,11 @@ The second layer evaluates whether the inference rules applied within the struct
 **What is verified**:
 - Conclusions follow from premises through valid inference rules
 - No conclusion asserts more than its premises support (overreach detection)
-- All seven [NABLA Infinity](/glossary/nabla-infinity/) axioms are satisfied at every inference step
+- All seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms are satisfied at every inference step
 - Hidden assumptions are detected through dependency analysis
 - Inference rules themselves are validated for soundness
-- [Signal Plurality](/glossary/signal-plurality/) compliance at every belief node
-- [Provenance Mandatory](/glossary/provenance-mandatory/) compliance throughout
+- [Signal Plurality](@/glossary/signal-plurality.md) compliance at every belief node
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) compliance throughout
 
 **Passage criteria**: Zero logical violations. Any unsound inference, axiom breach, or hidden assumption results in Layer 2 failure.
 
@@ -81,7 +81,7 @@ The second layer evaluates whether the inference rules applied within the struct
 
 ### Layer 3: Formal Necessity Check
 
-The third layer is the most computationally expensive and the most rigorous. It uses modal logic and [Lean4](/glossary/lean4/) formal proofs to determine whether the conclusion is not merely probable but **necessary** given the evidence.
+The third layer is the most computationally expensive and the most rigorous. It uses modal logic and [Lean4](@/glossary/lean4.md) formal proofs to determine whether the conclusion is not merely probable but **necessary** given the evidence.
 
 **What is verified**:
 - The conclusion is necessary in all possible worlds consistent with the evidence (modal logic)
@@ -355,7 +355,7 @@ The platform tracks detailed passage statistics across all 629 trinity entities:
 
 ## Relationship to Transition Protocol
 
-Trinity Passage is the central verification event within the [Transition Protocol](/glossary/transition-protocol/). The protocol's second condition (of three) requires Trinity Passage before any transition from exploration to execution is authorized. Without a valid Passage Certificate, the Transition Protocol blocks the shift to execution mode regardless of how high the confidence score is.
+Trinity Passage is the central verification event within the [Transition Protocol](@/glossary/transition-protocol.md). The protocol's second condition (of three) requires Trinity Passage before any transition from exploration to execution is authorized. Without a valid Passage Certificate, the Transition Protocol blocks the shift to execution mode regardless of how high the confidence score is.
 
 This relationship creates a two-factor verification model: high confidence (a quantitative measure of evidence strength) combined with Trinity Passage (a qualitative verification of reasoning integrity). Neither alone is sufficient. A belief can have 99% confidence but fail structural consistency due to circular reasoning. Conversely, a belief can pass all gate layers but have insufficient evidence for high confidence. Only when both conditions are met (along with full axiom compliance) does the transition proceed.
 
@@ -400,25 +400,25 @@ This multi-agent dimension adds complexity but also increases robustness. A sing
 
 ## Related Terms
 
-- [Trinity Gate](/glossary/trinity-gate/) -- The 4-layer verification mechanism that passage traverses
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework whose axioms must be satisfied for passage
-- [Transition Protocol](/glossary/transition-protocol/) -- Protocol requiring passage as transition condition
-- [Structural Consistency](/glossary/structural-consistency/) -- Layer 1 of the Trinity Gate
-- [Logical Consistency](/glossary/logical-consistency/) -- Layer 2 of the Trinity Gate
-- [Formal Necessity](/glossary/formal-necessity/) -- Layer 3 of the Trinity Gate
-- [Lean4](/glossary/lean4/) -- Theorem prover powering formal necessity verification
-- [Modal Logic](/glossary/modal-logic/) -- Logic system used in formal necessity evaluation
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Score threshold that triggers passage attempt
-- [White Team](/glossary/white-team/) -- Verification team producing formal proofs for passage
-- [Purple Team](/glossary/purple-team/) -- Synthesis team ensuring Red-Blue closure complements passage
-- [Axiom Enforcement](/glossary/axiom-enforcement/) -- Runtime enforcement verified during passage
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- Pipeline in which passage occurs
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) -- Doctrine activated by successful passage
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The 4-layer verification mechanism that passage traverses
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework whose axioms must be satisfied for passage
+- [Transition Protocol](@/glossary/transition-protocol.md) -- Protocol requiring passage as transition condition
+- [Structural Consistency](@/glossary/structural-consistency.md) -- Layer 1 of the Trinity Gate
+- [Logical Consistency](@/glossary/logical-consistency.md) -- Layer 2 of the Trinity Gate
+- [Formal Necessity](@/glossary/formal-necessity.md) -- Layer 3 of the Trinity Gate
+- [Lean4](@/glossary/lean4.md) -- Theorem prover powering formal necessity verification
+- [Modal Logic](@/glossary/modal-logic.md) -- Logic system used in formal necessity evaluation
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Score threshold that triggers passage attempt
+- [White Team](@/glossary/white-team.md) -- Verification team producing formal proofs for passage
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis team ensuring Red-Blue closure complements passage
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) -- Runtime enforcement verified during passage
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- Pipeline in which passage occurs
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) -- Doctrine activated by successful passage
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -428,4 +428,4 @@ This multi-agent dimension adds complexity but also increases robustness. A sing
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

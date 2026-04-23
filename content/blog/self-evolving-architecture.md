@@ -175,4 +175,4 @@ Self-evolution is not artificial intelligence generating code. It is automated q
 
 ---
 
-*Check the platform's current fitness with `mix health.score` or explore the [Evolution Module](/architecture/) for framework details.*
+*Check the platform's current fitness with `mix health.score` or explore the [Evolution Module](@/architecture/_index.md) for framework details.*

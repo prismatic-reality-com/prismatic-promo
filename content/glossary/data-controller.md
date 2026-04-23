@@ -465,25 +465,25 @@ end
 
 ## Related Terms
 
-- [GDPR](/glossary/gdpr/) -- Regulatory framework defining controller obligations and accountability
-- [Data Protection](/glossary/data-protection/) -- Technical and organizational measures controllers must implement
-- [Data Breach](/glossary/data-breach/) -- Security incidents controllers must detect and report within 72 hours
-- [Data Minimization](/glossary/data-minimization/) -- Principle requiring controllers to limit data collection to what is necessary
+- [GDPR](@/glossary/gdpr.md) -- Regulatory framework defining controller obligations and accountability
+- [Data Protection](@/glossary/data-protection.md) -- Technical and organizational measures controllers must implement
+- [Data Breach](@/glossary/data-breach.md) -- Security incidents controllers must detect and report within 72 hours
+- [Data Minimization](@/glossary/data-minimization.md) -- Principle requiring controllers to limit data collection to what is necessary
 - [Data Processor](/glossary/data-processor/) -- Entity processing personal data on behalf of the controller
 - [DPIA](/glossary/dpia/) -- Data Protection Impact Assessment required for high-risk processing
-- [Consent](/glossary/consent/) -- One of six lawful bases for processing personal data
-- [Encryption](/glossary/encryption/) -- Technical safeguard for protecting personal data at rest and in transit
-- [Incident Reporting](/glossary/incident-reporting/) -- Notification obligations following security incidents
-- [Compliance](/glossary/compliance/) -- Broader regulatory compliance framework encompassing controller duties
+- [Consent](@/glossary/consent.md) -- One of six lawful bases for processing personal data
+- [Encryption](@/glossary/encryption.md) -- Technical safeguard for protecting personal data at rest and in transit
+- [Incident Reporting](@/glossary/incident-reporting.md) -- Notification obligations following security incidents
+- [Compliance](@/glossary/compliance.md) -- Broader regulatory compliance framework encompassing controller duties
 - [Privacy by Design](/glossary/privacy-by-design/) -- Architectural principle mandated by GDPR Article 25
 - [Right to Erasure](/glossary/right-to-erasure/) -- Data subject right requiring controllers to delete personal data on request
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- Platform compliance and privacy capabilities
-- [Architecture](/architecture/) -- Privacy-by-design architecture patterns
-- [OSINT Tools](/osint/) -- Controller compliance assessment tools for due diligence
-- [Apps](/apps/) -- Compliance module implementations
+- [Capabilities](@/capabilities/_index.md) -- Platform compliance and privacy capabilities
+- [Architecture](@/architecture/_index.md) -- Privacy-by-design architecture patterns
+- [OSINT Tools](@/osint/_index.md) -- Controller compliance assessment tools for due diligence
+- [Apps](@/apps/_index.md) -- Compliance module implementations
 
 ---
 
@@ -492,4 +492,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

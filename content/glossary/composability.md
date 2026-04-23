@@ -38,7 +38,7 @@ image_alt = "Composability - Prismatic Platform"
 
 Composability is the design property that allows system components to be freely combined in various configurations to create new functionality without modifying the components themselves. A composable system is one where individual pieces can be connected, chained, nested, and rearranged like building blocks, with the output of one component serving as the input of another. The resulting composition exhibits predictable behavior derived from the behaviors of its constituent parts.
 
-In Elixir and the BEAM ecosystem, composability is a first-class architectural principle enabled by the [pipe operator](/glossary/pipe-operator/) (`|>`), [protocols](/glossary/protocol/) for polymorphic dispatch, [behaviours](/glossary/behaviour/) for contract-based composition, and the functional programming paradigm that treats data transformation as the fundamental unit of computation. Prismatic Platform's 115-app umbrella architecture is designed from the ground up around composability, allowing any combination of applications, adapters, and pipelines to be assembled into domain-specific solutions.
+In Elixir and the BEAM ecosystem, composability is a first-class architectural principle enabled by the [pipe operator](@/glossary/pipe-operator.md) (`|>`), [protocols](@/glossary/protocol.md) for polymorphic dispatch, [behaviours](@/glossary/behaviour.md) for contract-based composition, and the functional programming paradigm that treats data transformation as the fundamental unit of computation. Prismatic Platform's 115-app umbrella architecture is designed from the ground up around composability, allowing any combination of applications, adapters, and pipelines to be assembled into domain-specific solutions.
 
 ## Overview
 
@@ -134,7 +134,7 @@ Each function in this pipeline does exactly one thing: validate, enrich, or norm
 
 ### Protocol-Based Polymorphic Composition
 
-[Protocols](/glossary/protocol/) enable composability across data types. A single operation can work with any type that implements the protocol, allowing new types to participate in existing compositions without modifying the original code:
+[Protocols](@/glossary/protocol.md) enable composability across data types. A single operation can work with any type that implements the protocol, allowing new types to participate in existing compositions without modifying the original code:
 
 ```elixir
 defprotocol PrismaticStorage.Serializable do
@@ -184,7 +184,7 @@ With this protocol, any pipeline that serializes data works with maps, lists, or
 
 ### Behaviour-Based Contract Composition
 
-[Behaviours](/glossary/behaviour/) define contracts that modules must implement, enabling interchangeable components in composed systems:
+[Behaviours](@/glossary/behaviour.md) define contracts that modules must implement, enabling interchangeable components in composed systems:
 
 ```elixir
 defmodule PrismaticStorage.AdapterBehaviour do
@@ -577,22 +577,22 @@ The AIAD command pipeline system composes individual commands into multi-step wo
 
 ## Related Concepts
 
-- [Modularity](/glossary/modularity/) -- the structural property enabling composability through well-defined module boundaries
-- [Pipe Operator](/glossary/pipe-operator/) -- Elixir's primary syntactic mechanism for sequential composition
-- [Protocol](/glossary/protocol/) -- polymorphic dispatch enabling composability across data types
-- [Behaviour](/glossary/behaviour/) -- contract-based composition for interchangeable module implementations
-- [Adapter Pattern](/glossary/adapter-pattern/) -- design pattern translating interfaces to enable composition of incompatible components
-- [Functional Programming Language](/glossary/functional-programming-language/) -- the paradigm providing mathematical foundations for composability
-- [OTP](/glossary/otp/) -- the framework enabling process-level composition through supervision trees and GenServers
-- [GenServer](/glossary/genserver/) -- the OTP behaviour enabling composable stateful process management
+- [Modularity](@/glossary/modularity.md) -- the structural property enabling composability through well-defined module boundaries
+- [Pipe Operator](@/glossary/pipe-operator.md) -- Elixir's primary syntactic mechanism for sequential composition
+- [Protocol](@/glossary/protocol.md) -- polymorphic dispatch enabling composability across data types
+- [Behaviour](@/glossary/behaviour.md) -- contract-based composition for interchangeable module implementations
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- design pattern translating interfaces to enable composition of incompatible components
+- [Functional Programming Language](@/glossary/functional-programming-language.md) -- the paradigm providing mathematical foundations for composability
+- [OTP](@/glossary/otp.md) -- the framework enabling process-level composition through supervision trees and GenServers
+- [GenServer](@/glossary/genserver.md) -- the OTP behaviour enabling composable stateful process management
 
 ## See Also
 
 - Glossary Index -- complete listing of all platform terminology
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision as process-level composition
-- [Phoenix Framework](/glossary/phoenix-framework/) -- web framework built on Plug composability
-- [LiveView](/glossary/liveview/) -- real-time UI composable through Phoenix Components
-- [ETS](/glossary/ets/) -- composable in-memory storage used across platform adapters
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision as process-level composition
+- [Phoenix Framework](@/glossary/phoenix-framework.md) -- web framework built on Plug composability
+- [LiveView](@/glossary/liveview.md) -- real-time UI composable through Phoenix Components
+- [ETS](@/glossary/ets.md) -- composable in-memory storage used across platform adapters
 
 ---
 
@@ -601,4 +601,4 @@ The AIAD command pipeline system composes individual commands into multi-step wo
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

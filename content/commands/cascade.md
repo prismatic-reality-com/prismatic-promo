@@ -24,11 +24,11 @@ image_alt = "/cascade - Prismatic Platform"
 
 ## Overview
 
-**/cascade** is a production command in the **Quality** category of the Prismatic Platform that executes systematic [CASCADE pattern](/glossary/cascade-pattern/) fixes for anti-pattern removal across the entire codebase. CASCADE -- an acronym representing Concentrated Anti-pattern Strike with Cascading Automated Detection and Elimination -- provides a surgical, file-by-file approach to quality debt that targets high-concentration violation hotspots for maximum production impact with zero regression risk.
+**/cascade** is a production command in the **Quality** category of the Prismatic Platform that executes systematic [CASCADE pattern](@/glossary/cascade-pattern.md) fixes for anti-pattern removal across the entire codebase. CASCADE -- an acronym representing Concentrated Anti-pattern Strike with Cascading Automated Detection and Elimination -- provides a surgical, file-by-file approach to quality debt that targets high-concentration violation hotspots for maximum production impact with zero regression risk.
 
 Unlike traditional linting or static analysis tools that merely report violations, the `/cascade` command operates as a complete elimination pipeline: it detects anti-patterns, plans strike sequences, executes fixes with rollback safety, verifies compilation integrity, and generates comprehensive impact reports. The command has been battle-tested through real ARCHER SUPREME missions, where a single session eliminated 88 unsafe map access violations from 8 production-critical files with zero regressions.
 
-This command operates under the **L3** authority level and is executed by the `cascade-eliminator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The CASCADE system covers 13 quality domains with 40 pattern definitions stored in a structured PatternDB, enabling detection of everything from unsafe atom creation to stale TODO comments.
+This command operates under the **L3** authority level and is executed by the `cascade-eliminator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The CASCADE system covers 13 quality domains with 40 pattern definitions stored in a structured PatternDB, enabling detection of everything from unsafe atom creation to stale TODO comments.
 
 The CASCADE approach represents a fundamental shift from reactive quality maintenance to proactive, systematic elimination. By focusing on files with the highest concentration of violations, each strike maximizes the ratio of quality improvement per unit of developer effort, delivering measurable production stability improvements.
 
@@ -195,10 +195,10 @@ PHASE 6: REPORTING
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `cascade-eliminator` agent | Primary execution agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `cascade-eliminator` agent | Primary execution agent |
 | AIAD Registry | Command specification and discovery | Standard AIAD command interface |
-| [Quality Gates](/glossary/quality-gates/) | Direct quality gate enforcement | Mandatory post-fix verification |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) and event tracking | Real-time progress telemetry |
+| [Quality Gates](@/glossary/quality-gates.md) | Direct quality gate enforcement | Mandatory post-fix verification |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) and event tracking | Real-time progress telemetry |
 | Pre-commit Hooks | `.githooks/pre-commit-cascade` | Automated cascade checks before commit |
 | CI/CD Pipeline | GitLab CI integration | Merge request quality gating |
 | ARCHER SUPREME | Strategic coordination | Can invoke CASCADE for impossible missions |
@@ -296,7 +296,7 @@ The CASCADE system has demonstrated measurable impact in production sessions. In
 
 ## Doctrine Compliance
 
-All CASCADE operations operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All CASCADE operations operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for quality violations. Every detected anti-pattern is either eliminated or explicitly documented with justification for deferral. No incomplete strikes are accepted.
 - **NO DOUBTS**: Full investigation before action. Detection phase provides complete visibility before any fix is applied. Every fix is evidence-validated through compilation and testing.
@@ -305,14 +305,14 @@ The CASCADE system enforces the mandatory regression test protocol: every fix mu
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/darwinize](/commands/darwinize/) - Natural selection operation for evolutionary fitness optimization
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/darwinize](@/commands/darwinize.md) - Natural selection operation for evolutionary fitness optimization
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle
 
 ---
 
@@ -321,4 +321,4 @@ The CASCADE system enforces the mandatory regression test protocol: every fix mu
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

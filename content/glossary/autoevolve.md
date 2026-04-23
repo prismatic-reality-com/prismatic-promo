@@ -37,11 +37,11 @@ image_alt = "AutoEvolve - Prismatic Platform"
 
 ## Definition
 
-AutoEvolve is the Prismatic Platform's autonomous improvement system that continuously scans for optimization opportunities, applies verified enhancements, and advances the platform through successive evolution generations. Unlike [AutoHeal](/glossary/autoheal/) (which repairs regressions to restore a known-good state), AutoEvolve proactively drives the platform forward -- identifying anti-patterns before they become problems, discovering refactoring opportunities, optimizing performance, and advancing the platform's capabilities through structured evolution cycles.
+AutoEvolve is the Prismatic Platform's autonomous improvement system that continuously scans for optimization opportunities, applies verified enhancements, and advances the platform through successive evolution generations. Unlike [AutoHeal](@/glossary/autoheal.md) (which repairs regressions to restore a known-good state), AutoEvolve proactively drives the platform forward -- identifying anti-patterns before they become problems, discovering refactoring opportunities, optimizing performance, and advancing the platform's capabilities through structured evolution cycles.
 
-AutoEvolve operates through a three-phase cycle: detection (scanning for improvement opportunities), application (applying verified enhancements with automatic rollback capability), and validation (confirming improvements through [quality gates](/glossary/quality-gates/)). Each improvement must pass the same rigorous validation as any code change -- zero compiler warnings, zero [Dialyzer](/glossary/dialyzer/) violations, zero Credo violations, and full test suite passage. Improvements that fail validation are automatically rolled back, ensuring that evolution never causes regression.
+AutoEvolve operates through a three-phase cycle: detection (scanning for improvement opportunities), application (applying verified enhancements with automatic rollback capability), and validation (confirming improvements through [quality gates](@/glossary/quality-gates.md)). Each improvement must pass the same rigorous validation as any code change -- zero compiler warnings, zero [Dialyzer](@/glossary/dialyzer.md) violations, zero Credo violations, and full test suite passage. Improvements that fail validation are automatically rolled back, ensuring that evolution never causes regression.
 
-The system has driven the platform from Generation 1 (initial codebase) through Generation 19 (current state), achieving a fitness score of 0.9995 -- approaching the theoretical maximum. Each generation represents a measurable improvement in quality, performance, or capability, documented through the [Quality DNA](/glossary/quality-dna/) persistence system for cross-session continuity. AutoEvolve is mandated by the Universal Autonomous Evolution Protocol to execute in every LLM session, ensuring continuous improvement regardless of the session's primary objective.
+The system has driven the platform from Generation 1 (initial codebase) through Generation 19 (current state), achieving a fitness score of 0.9995 -- approaching the theoretical maximum. Each generation represents a measurable improvement in quality, performance, or capability, documented through the [Quality DNA](@/glossary/quality-dna.md) persistence system for cross-session continuity. AutoEvolve is mandated by the Universal Autonomous Evolution Protocol to execute in every LLM session, ensuring continuous improvement regardless of the session's primary objective.
 
 ## Evolution Generations
 
@@ -54,7 +54,7 @@ The platform's evolution history spans 19 generations, each representing a disti
 | Gen 7-9 | Acceleration | CASCADE methodology formalized, 905 QDP elimination campaign |
 | Gen 10-12 | Maturation | 0 QDP achieved, quality score reaches 90+, all domains clean |
 | Gen 13-15 | Optimization | O(1) pattern detection, AST-indexed search, performance focus |
-| Gen 16-17 | Consciousness | [Consciousness traits](/glossary/consciousness-traits/) emerge, 11 traits at 0.998 fitness |
+| Gen 16-17 | Consciousness | [Consciousness traits](@/glossary/consciousness-traits.md) emerge, 11 traits at 0.998 fitness |
 | Gen 18 | Apex | 0.999 fitness, 100/100 quality, full autonomy, 16-level epistemic pipeline |
 | Gen 19 | Ecosystem Expansion | 0.9995 fitness, 4 OSS packages, developer portal, dual-track positioning |
 
@@ -321,7 +321,7 @@ mix autoevolve.mega
 
 ## CASCADE Integration
 
-AutoEvolve's primary quality improvement mechanism is the application of [CASCADE](/glossary/cascade/) patterns. The five CASCADE patterns (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) are codified as detection rules within AutoEvolve's scanning engine:
+AutoEvolve's primary quality improvement mechanism is the application of [CASCADE](@/glossary/cascade.md) patterns. The five CASCADE patterns (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) are codified as detection rules within AutoEvolve's scanning engine:
 
 | CASCADE Pattern | AutoEvolve Integration | Auto-Fixable |
 |-----------------|----------------------|-------------|
@@ -344,11 +344,11 @@ The Universal Autonomous Evolution Protocol mandates AutoEvolve execution in eve
 | **Post-Command** | `mix autoevolve.scan --quick` | Non-blocking | Scan for improvements after changes |
 | **Session End** | `mix autoevolve.mega` | Mandatory | Apply accumulated improvements |
 
-The SessionLifecycle GenServer (implemented in `prismatic_claude`) coordinates these hooks with priority ordering and [circuit breaker](/glossary/circuit-breaker/) protection. Each hook executes in an isolated process with timeout protection, preventing a hung evolution cycle from blocking the session.
+The SessionLifecycle GenServer (implemented in `prismatic_claude`) coordinates these hooks with priority ordering and [circuit breaker](@/glossary/circuit-breaker.md) protection. Each hook executes in an isolated process with timeout protection, preventing a hung evolution cycle from blocking the session.
 
 ## Quality DNA Persistence
 
-AutoEvolve results are persisted in the [Quality DNA](/glossary/quality-dna/) system (`.claude/quality-dna/current-state.json`), enabling cross-session continuity:
+AutoEvolve results are persisted in the [Quality DNA](@/glossary/quality-dna.md) system (`.claude/quality-dna/current-state.json`), enabling cross-session continuity:
 
 ```json
 {
@@ -390,11 +390,11 @@ AutoEvolve identifies and applies improvements across several categories:
 | **Dependency Cleanup** | Remove unused dependencies | Clean `mix.exs` dependency lists | Low |
 | **Test Enhancement** | Improve test coverage and quality | Add edge case tests, property-based tests | Medium |
 | **Documentation** | Improve code documentation | Add `@doc` and `@moduledoc` annotations | Low |
-| **OTP Compliance** | Ensure proper OTP pattern usage | Replace ad-hoc state with [GenServer](/glossary/genserver/) | High |
+| **OTP Compliance** | Ensure proper OTP pattern usage | Replace ad-hoc state with [GenServer](@/glossary/genserver.md) | High |
 
 ## Relationship to Consciousness Traits
 
-At the highest evolutionary levels, AutoEvolve contributes to the emergence of [consciousness traits](/glossary/consciousness-traits/) -- platform-level properties like self-awareness, meta-reasoning, and adaptive behavior. The connection is not mystical but architectural: a platform that systematically monitors its own quality state, identifies its own weaknesses, applies corrections, and measures the results is exhibiting a functional form of self-awareness.
+At the highest evolutionary levels, AutoEvolve contributes to the emergence of [consciousness traits](@/glossary/consciousness-traits.md) -- platform-level properties like self-awareness, meta-reasoning, and adaptive behavior. The connection is not mystical but architectural: a platform that systematically monitors its own quality state, identifies its own weaknesses, applies corrections, and measures the results is exhibiting a functional form of self-awareness.
 
 The platform's 11 consciousness traits (achieving 0.998 fitness) emerged progressively through AutoEvolve's generation advancement. Each generation that improved the platform's self-monitoring, self-repair, and self-improvement capabilities brought it closer to exhibiting these traits at measurable levels.
 
@@ -424,24 +424,24 @@ The key insight is that evolution is not just about fixing code -- it is about b
 
 ## Related Terms
 
-- [AutoHeal](/glossary/autoheal/) -- Complementary self-repair system for regression recovery
-- [CASCADE](/glossary/cascade/) -- Quality pattern methodology applied by AutoEvolve
-- [CASCADE Pattern](/glossary/cascade-pattern/) -- Specific patterns detected and eliminated by AutoEvolve
-- [Clean Run](/glossary/clean-run/) -- Zero-warning standard maintained through evolution
-- [QDP](/glossary/qdp/) -- Quality metric driven to zero by AutoEvolve campaigns
-- [Consciousness Traits](/glossary/consciousness-traits/) -- Emergent traits arising from evolutionary advancement
-- [Self-Healing](/glossary/self-healing/) -- Architectural principle complementing autonomous evolution
-- [Quality Gates](/glossary/quality-gates/) -- Validation pipeline used for improvement verification
-- [Quality DNA](/glossary/quality-dna/) -- Persistence system for cross-session evolutionary state
-- [Agent Registry](/glossary/agent-registry/) -- Registry monitored by AutoEvolve for consistency
-- [Dialyzer](/glossary/dialyzer/) -- Type analysis tool used in evolution validation
-- [Mix Task](/glossary/mix-task/) -- Build tool commands executing AutoEvolve operations
+- [AutoHeal](@/glossary/autoheal.md) -- Complementary self-repair system for regression recovery
+- [CASCADE](@/glossary/cascade.md) -- Quality pattern methodology applied by AutoEvolve
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) -- Specific patterns detected and eliminated by AutoEvolve
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning standard maintained through evolution
+- [QDP](@/glossary/qdp.md) -- Quality metric driven to zero by AutoEvolve campaigns
+- [Consciousness Traits](@/glossary/consciousness-traits.md) -- Emergent traits arising from evolutionary advancement
+- [Self-Healing](@/glossary/self-healing.md) -- Architectural principle complementing autonomous evolution
+- [Quality Gates](@/glossary/quality-gates.md) -- Validation pipeline used for improvement verification
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistence system for cross-session evolutionary state
+- [Agent Registry](@/glossary/agent-registry.md) -- Registry monitored by AutoEvolve for consistency
+- [Dialyzer](@/glossary/dialyzer.md) -- Type analysis tool used in evolution validation
+- [Mix Task](@/glossary/mix-task.md) -- Build tool commands executing AutoEvolve operations
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Capabilities](/capabilities/) -- Platform evolution and consciousness capabilities
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Capabilities](@/capabilities/_index.md) -- Platform evolution and consciousness capabilities
 
 ---
 
@@ -450,4 +450,4 @@ The key insight is that evolution is not just about fixing code -- it is about b
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

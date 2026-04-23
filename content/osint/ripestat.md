@@ -27,9 +27,9 @@ image_alt = "RIPEstat - Prismatic Platform"
 
 RIPEstat is the official data analysis and statistics service of RIPE NCC (Reseaux IP Europeens Network Coordination Centre), one of the five Regional Internet Registries (RIRs) responsible for allocating and registering Internet number resources in Europe, the Middle East, and Central Asia. RIPEstat provides authoritative, registry-sourced data about IP prefixes, Autonomous System Numbers (ASNs), BGP routing state, abuse contacts, RPKI validation status, and network ownership across the global Internet.
 
-The critical distinction between RIPEstat and commercial IP intelligence services is authority. RIPEstat data originates directly from the registry responsible for allocating IP resources in its service region, and it aggregates data from all five RIRs (RIPE NCC, ARIN, APNIC, AfriNIC, LACNIC) through inter-registry data sharing agreements. This makes RIPEstat the definitive source for network ownership verification, BGP routing analysis, and abuse contact resolution. Commercial services such as [IPInfo](/osint/ipinfo/) or [MaxMind](/osint/maxmind/) provide valuable enrichment, but for authoritative ownership determination, RIPEstat is the primary source.
+The critical distinction between RIPEstat and commercial IP intelligence services is authority. RIPEstat data originates directly from the registry responsible for allocating IP resources in its service region, and it aggregates data from all five RIRs (RIPE NCC, ARIN, APNIC, AfriNIC, LACNIC) through inter-registry data sharing agreements. This makes RIPEstat the definitive source for network ownership verification, BGP routing analysis, and abuse contact resolution. Commercial services such as [IPInfo](@/osint/ipinfo.md) or [MaxMind](@/osint/maxmind.md) provide valuable enrichment, but for authoritative ownership determination, RIPEstat is the primary source.
 
-Within the Prismatic Platform, RIPEstat provides foundational network intelligence for the [Prismatic Perimeter](/apps/prismatic-perimeter/) [EASM](/glossary/easm/) module. It serves as the authoritative validation layer for IP ownership claims, routing security assessment (RPKI), and abuse contact resolution. The platform uses RIPEstat as the ground-truth source against which commercial IP intelligence data is validated.
+Within the Prismatic Platform, RIPEstat provides foundational network intelligence for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [EASM](@/glossary/easm.md) module. It serves as the authoritative validation layer for IP ownership claims, routing security assessment (RPKI), and abuse contact resolution. The platform uses RIPEstat as the ground-truth source against which commercial IP intelligence data is validated.
 
 ## Data Sources and Coverage
 
@@ -274,8 +274,8 @@ end
 
 In External Attack Surface Management, accurately attributing IP addresses to organizations is fundamental. RIPEstat provides the authoritative ownership data that validates or contradicts commercial intelligence sources.
 
-- Authoritatively verify IP prefix ownership for [Perimeter](/apps/prismatic-perimeter/) asset attribution
-- Validate ASN ownership claims from commercial sources like [IPInfo](/osint/ipinfo/)
+- Authoritatively verify IP prefix ownership for [Perimeter](@/apps/prismatic-perimeter.md) asset attribution
+- Validate ASN ownership claims from commercial sources like [IPInfo](@/osint/ipinfo.md)
 - Resolve allocation hierarchies (IANA to RIR to LIR to end user)
 - Identify whether IPs are allocated, assigned, or sub-allocated
 
@@ -286,14 +286,14 @@ BGP security is a critical component of organizational security posture. RIPEsta
 - Validate RPKI deployment for organizational prefixes (ROA coverage)
 - Detect BGP route anomalies including potential route hijacks
 - Monitor routing changes for critical infrastructure over time
-- Assess routing security maturity as part of [Perimeter](/apps/prismatic-perimeter/) security ratings
+- Assess routing security maturity as part of [Perimeter](@/apps/prismatic-perimeter.md) security ratings
 
 ### Abuse Management and Incident Response
 
 When responding to security incidents, identifying the responsible party for a network range requires authoritative data.
 
 - Look up authoritative abuse contacts for incident reporting
-- Cross-reference abuse contacts with [AbuseIPDB](/osint/abuseipdb/) community reports
+- Cross-reference abuse contacts with [AbuseIPDB](@/osint/abuseipdb.md) community reports
 - Identify the responsible LIR (Local Internet Registry) for network ranges
 - Support law enforcement with authoritative network attribution
 
@@ -361,21 +361,21 @@ RIPEstat serves as the authoritative network intelligence layer within the Prism
 ## Related Resources
 
 ### Network Intelligence Sources
-- [IPInfo](/osint/ipinfo/) - Commercial IP geolocation and ASN enrichment
-- [MaxMind](/osint/maxmind/) - GeoIP databases for offline geolocation
+- [IPInfo](@/osint/ipinfo.md) - Commercial IP geolocation and ASN enrichment
+- [MaxMind](@/osint/maxmind.md) - GeoIP databases for offline geolocation
 
 ### Threat and Abuse Intelligence
-- [AbuseIPDB](/osint/abuseipdb/) - Community IP abuse reporting
-- [Spamhaus](/osint/spamhaus/) - IP and domain blocklists
-- [GreyNoise](/osint/greynoise/) - Internet background noise classification
+- [AbuseIPDB](@/osint/abuseipdb.md) - Community IP abuse reporting
+- [Spamhaus](@/osint/spamhaus.md) - IP and domain blocklists
+- [GreyNoise](@/osint/greynoise.md) - Internet background noise classification
 
 ### Infrastructure Scanning
-- [Shodan](/osint/shodan/) - Internet device scanning per ASN
-- [Censys](/osint/censys/) - Internet-wide scanning with ASN-level analysis
+- [Shodan](@/osint/shodan.md) - Internet device scanning per ASN
+- [Censys](@/osint/censys.md) - Internet-wide scanning with ASN-level analysis
 
 ### Platform Components
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - EASM with network ownership verification
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - EASM with network ownership verification
 
 ---
 
@@ -384,4 +384,4 @@ RIPEstat serves as the authoritative network intelligence layer within the Prism
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -295,16 +295,16 @@ The open source strategy is governed by clear boundaries: packages that provide 
 
 ## Cross-References
 
-- [Code Quality](/glossary/code-quality/) -- Quality standards for open source contributions
-- [Quality Standard](/glossary/quality-standard/) -- Defining and enforcing quality thresholds
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- Transparency in quality metrics
-- [Quality Innovation](/glossary/quality-innovation/) -- Innovating quality practices
-- [Architecture Excellence](/glossary/architecture-excellence/) -- Architectural standards for packages
-- [Collaborative Intelligence](/glossary/collaborative-intelligence/) -- Community-driven intelligence
-- [Collective Intelligence](/glossary/collective-intelligence/) -- Aggregating community knowledge
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- Self-improving systems
-- [Quality Assurance](/glossary/quality-assurance/) -- QA practices for open source
-- [Elixir](/glossary/elixir/) -- The primary language of the Prismatic ecosystem
+- [Code Quality](@/glossary/code-quality.md) -- Quality standards for open source contributions
+- [Quality Standard](@/glossary/quality-standard.md) -- Defining and enforcing quality thresholds
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- Transparency in quality metrics
+- [Quality Innovation](@/glossary/quality-innovation.md) -- Innovating quality practices
+- [Architecture Excellence](@/glossary/architecture-excellence.md) -- Architectural standards for packages
+- [Collaborative Intelligence](@/glossary/collaborative-intelligence.md) -- Community-driven intelligence
+- [Collective Intelligence](@/glossary/collective-intelligence.md) -- Aggregating community knowledge
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- Self-improving systems
+- [Quality Assurance](@/glossary/quality-assurance.md) -- QA practices for open source
+- [Elixir](@/glossary/elixir.md) -- The primary language of the Prismatic ecosystem
 
 ---
 

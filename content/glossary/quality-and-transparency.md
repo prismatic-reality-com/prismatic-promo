@@ -52,7 +52,7 @@ Every quality metric in the Prismatic Platform carries provenance metadata: when
 
 ### Decision Transparency
 
-When a [quality gate](/glossary/quality-gate/) blocks a commit or deployment, the decision is recorded with full context: which checks failed, what thresholds were violated, what the measured values were, and what remediation is required. Developers never face opaque "quality check failed" messages -- they see exactly what failed and why.
+When a [quality gate](@/glossary/quality-gate.md) blocks a commit or deployment, the decision is recorded with full context: which checks failed, what thresholds were violated, what the measured values were, and what remediation is required. Developers never face opaque "quality check failed" messages -- they see exactly what failed and why.
 
 ### Stakeholder Accessibility
 
@@ -132,7 +132,7 @@ end
 
 ### Layer 2: Aggregation and Storage
 
-Telemetry events flow into aggregation handlers that compute domain-level and platform-level quality scores. These aggregated metrics are stored in the [Quality DNA](/glossary/quality-dna/) system, which maintains a persistent, cross-session record of quality state:
+Telemetry events flow into aggregation handlers that compute domain-level and platform-level quality scores. These aggregated metrics are stored in the [Quality DNA](@/glossary/quality-dna.md) system, which maintains a persistent, cross-session record of quality state:
 
 ```elixir
 defmodule Prismatic.Quality.Aggregator do
@@ -231,7 +231,7 @@ Each domain's metrics are independently visible, independently auditable, and in
 
 ## Quality Floor Guardian
 
-The [Quality Floor Guardian](/glossary/quality-floor-guardian/) is the autonomous agent that enforces quality transparency in real time. It continuously monitors all 13 domains and escalates when transparency requirements are violated:
+The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) is the autonomous agent that enforces quality transparency in real time. It continuously monitors all 13 domains and escalates when transparency requirements are violated:
 
 | Score Range | Enforcement Level | Action |
 |-------------|-------------------|--------|
@@ -244,7 +244,7 @@ The Guardian's decisions are themselves transparent -- every escalation includes
 
 ## Integration with Quality Gates
 
-[Quality gates](/glossary/quality-gates/) are the enforcement points where transparency becomes actionable. The Prismatic Platform's quality gates operate with full transparency:
+[Quality gates](@/glossary/quality-gates.md) are the enforcement points where transparency becomes actionable. The Prismatic Platform's quality gates operate with full transparency:
 
 ```elixir
 defmodule Prismatic.Quality.TransparentGate do
@@ -355,7 +355,7 @@ For integration with external tools and automated systems, quality reports are a
 
 ## Relationship to Open Source
 
-Quality transparency is particularly important in open-source contexts, where external contributors need visibility into project health without access to internal tooling. The Prismatic Platform's [open-source strategy](/glossary/open-source-strategy/) includes publishing quality metrics publicly, ensuring that potential contributors can assess project health before investing their time.
+Quality transparency is particularly important in open-source contexts, where external contributors need visibility into project health without access to internal tooling. The Prismatic Platform's [open-source strategy](@/glossary/open-source-strategy.md) includes publishing quality metrics publicly, ensuring that potential contributors can assess project health before investing their time.
 
 The platform's 4 published OSS packages (SDK, Plugin Kit, Security, UI) each carry quality badges derived from the same transparency pipelines that govern the internal codebase. This consistency ensures that external quality claims are backed by the same rigorous measurement infrastructure used internally.
 
@@ -398,7 +398,7 @@ A metric like "0 Credo violations" is meaningless without context: which rules w
 
 ## Connection to NABLA Infinity
 
-Quality transparency aligns directly with the [Trinity Gate](/glossary/trinity-gate/) requirements of the NABLA Infinity framework. The **Provenance Mandatory** axiom demands that all beliefs (including quality claims) carry traceable provenance. The **Signal Plurality** axiom requires that quality assessments be based on multiple independent measurements, not single metrics. Quality transparency provides the infrastructure to satisfy both axioms.
+Quality transparency aligns directly with the [Trinity Gate](@/glossary/trinity-gate.md) requirements of the NABLA Infinity framework. The **Provenance Mandatory** axiom demands that all beliefs (including quality claims) carry traceable provenance. The **Signal Plurality** axiom requires that quality assessments be based on multiple independent measurements, not single metrics. Quality transparency provides the infrastructure to satisfy both axioms.
 
 ## Performance Considerations
 
@@ -410,18 +410,18 @@ Quality transparency in the Prismatic Platform continues to evolve. Planned enha
 
 ## Related Concepts
 
-- [Quality Monitoring](/glossary/quality-monitoring/) -- Real-time observation of quality metrics
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous quality enforcement agent
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality state persistence
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement checkpoints in the development pipeline
-- [Quality Debt](/glossary/quality-debt/) -- Accumulated quality violations requiring remediation
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification for epistemic claims
-- [Telemetry](/glossary/telemetry/) -- Event-based observability infrastructure
-- [Metrics](/glossary/metrics/) -- Quantitative measurements of system properties
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of system decisions
-- [Complete Transparency](/glossary/complete-transparency/) -- Platform-wide transparency principle
-- [Code Quality](/glossary/code-quality/) -- Source code health and maintainability
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- Absolute quality standards
+- [Quality Monitoring](@/glossary/quality-monitoring.md) -- Real-time observation of quality metrics
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous quality enforcement agent
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality state persistence
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement checkpoints in the development pipeline
+- [Quality Debt](@/glossary/quality-debt.md) -- Accumulated quality violations requiring remediation
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification for epistemic claims
+- [Telemetry](@/glossary/telemetry.md) -- Event-based observability infrastructure
+- [Metrics](@/glossary/metrics.md) -- Quantitative measurements of system properties
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of system decisions
+- [Complete Transparency](@/glossary/complete-transparency.md) -- Platform-wide transparency principle
+- [Code Quality](@/glossary/code-quality.md) -- Source code health and maintainability
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- Absolute quality standards
 
 ---
 
@@ -430,4 +430,4 @@ Quality transparency in the Prismatic Platform continues to evolve. Planned enha
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

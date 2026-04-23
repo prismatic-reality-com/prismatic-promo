@@ -38,13 +38,13 @@ image_alt = "Privilege Escalation - Prismatic Platform"
 
 Privilege escalation is a class of security vulnerability in which an attacker, unauthorized user, or compromised process gains access rights beyond what was initially granted or intended. It represents one of the most critical threat categories in information security because it transforms a limited-access breach into a full-system compromise. The MITRE ATT&CK framework classifies privilege escalation as Tactic TA0004, recognizing it as a fundamental adversarial objective in post-exploitation scenarios.
 
-Privilege escalation manifests in two primary forms: **vertical escalation**, where a lower-privileged user gains higher-privileged access (e.g., user to administrator); and **horizontal escalation**, where a user accesses resources belonging to another user at the same privilege level (e.g., accessing another customer's data). Both forms can result from software vulnerabilities, configuration errors, or design flaws in [authorization](/glossary/authorization/) systems.
+Privilege escalation manifests in two primary forms: **vertical escalation**, where a lower-privileged user gains higher-privileged access (e.g., user to administrator); and **horizontal escalation**, where a user accesses resources belonging to another user at the same privilege level (e.g., accessing another customer's data). Both forms can result from software vulnerabilities, configuration errors, or design flaws in [authorization](@/glossary/authorization.md) systems.
 
-In the Prismatic Platform, privilege escalation prevention is enforced through multi-layered defenses: the [Blue Team](/glossary/blue-team/) auth-sentinel agent monitors for escalation attempts in real-time, [RBAC](/glossary/rbac/) enforcement prevents unauthorized role assumption, and the [Color Teams](/glossary/color-teams/) architecture provides adversarial testing through [Red Team](/glossary/red-team/) simulations of escalation scenarios.
+In the Prismatic Platform, privilege escalation prevention is enforced through multi-layered defenses: the [Blue Team](@/glossary/blue-team.md) auth-sentinel agent monitors for escalation attempts in real-time, [RBAC](@/glossary/rbac.md) enforcement prevents unauthorized role assumption, and the [Color Teams](@/glossary/color-teams.md) architecture provides adversarial testing through [Red Team](@/glossary/red-team.md) simulations of escalation scenarios.
 
 ## Overview
 
-Privilege escalation sits at the intersection of [authentication](/glossary/authentication/) (verifying identity) and [authorization](/glossary/authorization/) (granting permissions). While authentication ensures a user is who they claim to be, and authorization determines what they can access, privilege escalation exploits gaps between these two systems or flaws within the authorization layer itself.
+Privilege escalation sits at the intersection of [authentication](@/glossary/authentication.md) (verifying identity) and [authorization](@/glossary/authorization.md) (granting permissions). While authentication ensures a user is who they claim to be, and authorization determines what they can access, privilege escalation exploits gaps between these two systems or flaws within the authorization layer itself.
 
 The severity of privilege escalation vulnerabilities is reflected in their prevalence among major security frameworks. OWASP includes "Broken Access Control" as the number one vulnerability in its Top 10 list. CWE-269 (Improper Privilege Management) and CWE-284 (Improper Access Control) are among the most commonly reported weaknesses in production software. The Common Vulnerability Scoring System (CVSS) rates privilege escalation vectors with high base scores, reflecting their potential for catastrophic impact.
 
@@ -99,7 +99,7 @@ Privilege escalation vulnerabilities typically arise from flaws in one of three 
 
 ### BEAM Process Isolation and Privilege Boundaries
 
-The [BEAM](/glossary/beam/) virtual machine provides unique security properties relevant to privilege escalation prevention:
+The [BEAM](@/glossary/beam.md) virtual machine provides unique security properties relevant to privilege escalation prevention:
 
 1. **Process Memory Isolation**: Each BEAM process has its own heap, preventing memory-based privilege escalation between processes. A compromised process cannot read or write another process's memory.
 
@@ -107,13 +107,13 @@ The [BEAM](/glossary/beam/) virtual machine provides unique security properties 
 
 3. **No Shared Mutable State**: The absence of shared memory eliminates an entire class of privilege escalation vectors based on race conditions in shared state modification.
 
-4. **Supervision Trees**: Compromised processes can be terminated and restarted by [supervisors](/glossary/supervisor/), limiting the duration of any privilege escalation.
+4. **Supervision Trees**: Compromised processes can be terminated and restarted by [supervisors](@/glossary/supervisor.md), limiting the duration of any privilege escalation.
 
 ## Implementation in Prismatic Platform
 
 ### Blue Team Auth-Sentinel
 
-The [Blue Team](/glossary/blue-team/) auth-sentinel is a dedicated L2 Operational Specialist agent that continuously monitors for privilege escalation indicators:
+The [Blue Team](@/glossary/blue-team.md) auth-sentinel is a dedicated L2 Operational Specialist agent that continuously monitors for privilege escalation indicators:
 
 ```elixir
 defmodule PrismaticSecurity.AuthSentinel do
@@ -304,7 +304,7 @@ end
 
 ### RBAC Enforcement Layer
 
-The platform's [RBAC](/glossary/rbac/) system implements defense-in-depth against privilege escalation through multiple enforcement points:
+The platform's [RBAC](@/glossary/rbac.md) system implements defense-in-depth against privilege escalation through multiple enforcement points:
 
 ```elixir
 defmodule PrismaticSecurity.RBACEnforcer do
@@ -412,7 +412,7 @@ end
 
 ### Red Team Escalation Simulation
 
-The [Red Team](/glossary/red-team/) conducts simulated privilege escalation attacks using synthetic data within sandboxed environments to test the platform's defenses:
+The [Red Team](@/glossary/red-team.md) conducts simulated privilege escalation attacks using synthetic data within sandboxed environments to test the platform's defenses:
 
 ```elixir
 defmodule PrismaticSecurity.RedTeam.EscalationScenario do
@@ -509,7 +509,7 @@ The Prismatic Platform uses RBAC (Role-Based Access Control) as its primary auth
 - **ABAC** (Attribute-Based Access Control): Evaluates attributes of users, resources, and environment. More flexible but harder to audit and reason about.
 - **ReBAC** (Relationship-Based Access Control): Evaluates relationships between entities (e.g., Google Zanzibar). Excellent for social graphs but adds infrastructure complexity.
 
-RBAC was chosen for the platform because it provides clear privilege boundaries that are easy to audit, align with the [violation protocol](/glossary/violation-protocol/), and integrate with the hierarchical agent authority structure (L1-L5).
+RBAC was chosen for the platform because it provides clear privilege boundaries that are easy to audit, align with the [violation protocol](@/glossary/violation-protocol.md), and integrate with the hierarchical agent authority structure (L1-L5).
 
 ### BEAM vs Traditional Process Isolation
 
@@ -535,7 +535,7 @@ Privilege escalation attempts often manifest as behavioral anomalies before they
 
 ### 5. Audit All Authorization Decisions
 
-Every authorization check, whether granted or denied, should be logged to an [audit trail](/glossary/audit-trail/) for forensic analysis and compliance reporting.
+Every authorization check, whether granted or denied, should be logged to an [audit trail](@/glossary/audit-trail.md) for forensic analysis and compliance reporting.
 
 ### 6. Rotate and Expire Credentials
 
@@ -567,49 +567,49 @@ Organizations often focus on vertical escalation (user-to-admin) while neglectin
 
 ### Color Team Security Operations
 
-The Prismatic Platform's [Color Teams](/glossary/color-teams/) architecture uses privilege escalation as a central testing scenario. The [Red Team](/glossary/red-team/) simulates escalation attacks, the [Blue Team](/glossary/blue-team/) detects and defends, and the [Purple Team](/glossary/purple-team/) synthesizes findings to close gaps.
+The Prismatic Platform's [Color Teams](@/glossary/color-teams.md) architecture uses privilege escalation as a central testing scenario. The [Red Team](@/glossary/red-team.md) simulates escalation attacks, the [Blue Team](@/glossary/blue-team.md) detects and defends, and the [Purple Team](@/glossary/purple-team.md) synthesizes findings to close gaps.
 
 ### EASM Security Ratings
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM system evaluates external organizations' exposure to privilege escalation vulnerabilities as part of security rating calculations. Exposed administrative interfaces, default credentials, and misconfigured access controls reduce the target's security score.
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) EASM system evaluates external organizations' exposure to privilege escalation vulnerabilities as part of security rating calculations. Exposed administrative interfaces, default credentials, and misconfigured access controls reduce the target's security score.
 
 ### Agent Authority Hierarchy
 
-The platform's 530+ [AIAD](/glossary/aiad/) agents operate within a 5-level authority hierarchy (L1-L5). Each agent can only invoke capabilities at or below its authority level. The agent runtime enforces this hierarchy to prevent lower-level agents from escalating to strategic or supreme authority.
+The platform's 530+ [AIAD](@/glossary/aiad.md) agents operate within a 5-level authority hierarchy (L1-L5). Each agent can only invoke capabilities at or below its authority level. The agent runtime enforces this hierarchy to prevent lower-level agents from escalating to strategic or supreme authority.
 
 ### API Gateway Authorization
 
-The [Prismatic API](/glossary/prismatic-api/) gateway inherits authorization from `PrismaticWeb.Plugs.APIAuth` and enforces RBAC on all auto-discovered endpoints. The generic dispatch controller validates that the requesting user's role has permission to invoke the target function before execution.
+The [Prismatic API](@/glossary/prismatic-api.md) gateway inherits authorization from `PrismaticWeb.Plugs.APIAuth` and enforces RBAC on all auto-discovered endpoints. The generic dispatch controller validates that the requesting user's role has permission to invoke the target function before execution.
 
 ### Compliance Requirements
 
-[NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) compliance frameworks require organizations to implement and monitor access controls. The platform's privilege escalation detection and RBAC enforcement directly satisfy these regulatory requirements.
+[NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) compliance frameworks require organizations to implement and monitor access controls. The platform's privilege escalation detection and RBAC enforcement directly satisfy these regulatory requirements.
 
 ## Related Concepts
 
-- [Authorization](/glossary/authorization/): The access control mechanism that privilege escalation attacks attempt to bypass
-- [RBAC](/glossary/rbac/): Role-Based Access Control model preventing unauthorized role assumption
-- [Blue Team](/glossary/blue-team/): Defensive security team operating the auth-sentinel monitoring
-- [Red Team](/glossary/red-team/): Adversarial team simulating escalation attacks for defense validation
-- [Attack Surface](/glossary/attack-surface/): Total exposure area where escalation vectors may exist
-- [Vulnerability](/glossary/vulnerability/): Software weaknesses that enable privilege escalation
-- [Authentication](/glossary/authentication/): Identity verification that precedes authorization checks
-- [Zero Trust](/glossary/zero-trust/): Security model assuming no implicit trust within network boundaries
-- [Audit Trail](/glossary/audit-trail/): Immutable record of authorization decisions for forensic analysis
-- [Penetration Testing](/glossary/penetration-testing/): Authorized security testing including escalation attempts
-- [Color Teams](/glossary/color-teams/): Multi-team adversarial-defensive security architecture
-- [Security Operations](/glossary/security-operations/): Operational security monitoring and incident response
+- [Authorization](@/glossary/authorization.md): The access control mechanism that privilege escalation attacks attempt to bypass
+- [RBAC](@/glossary/rbac.md): Role-Based Access Control model preventing unauthorized role assumption
+- [Blue Team](@/glossary/blue-team.md): Defensive security team operating the auth-sentinel monitoring
+- [Red Team](@/glossary/red-team.md): Adversarial team simulating escalation attacks for defense validation
+- [Attack Surface](@/glossary/attack-surface.md): Total exposure area where escalation vectors may exist
+- [Vulnerability](@/glossary/vulnerability.md): Software weaknesses that enable privilege escalation
+- [Authentication](@/glossary/authentication.md): Identity verification that precedes authorization checks
+- [Zero Trust](@/glossary/zero-trust.md): Security model assuming no implicit trust within network boundaries
+- [Audit Trail](@/glossary/audit-trail.md): Immutable record of authorization decisions for forensic analysis
+- [Penetration Testing](@/glossary/penetration-testing.md): Authorized security testing including escalation attempts
+- [Color Teams](@/glossary/color-teams.md): Multi-team adversarial-defensive security architecture
+- [Security Operations](@/glossary/security-operations.md): Operational security monitoring and incident response
 
 ## See Also
 
-- [RBAC](/glossary/rbac/) for the role-based access control implementation
-- [Blue Team](/glossary/blue-team/) for defensive security monitoring
-- [Red Team](/glossary/red-team/) for adversarial escalation simulation
-- [OWASP](/glossary/owasp/) for web security vulnerability classification
-- [CVE](/glossary/cve/) for vulnerability identification standards
-- [Compliance Framework](/glossary/compliance-framework/) for NIS2/ZKB access control requirements
-- [Security Rating](/glossary/security-rating/) for EASM security assessment
-- [Injection Vulnerability](/glossary/injection-vulnerability/) for SQL injection-based escalation vectors
+- [RBAC](@/glossary/rbac.md) for the role-based access control implementation
+- [Blue Team](@/glossary/blue-team.md) for defensive security monitoring
+- [Red Team](@/glossary/red-team.md) for adversarial escalation simulation
+- [OWASP](@/glossary/owasp.md) for web security vulnerability classification
+- [CVE](@/glossary/cve.md) for vulnerability identification standards
+- [Compliance Framework](@/glossary/compliance-framework.md) for NIS2/ZKB access control requirements
+- [Security Rating](@/glossary/security-rating.md) for EASM security assessment
+- [Injection Vulnerability](@/glossary/injection-vulnerability.md) for SQL injection-based escalation vectors
 
 ---
 
@@ -618,4 +618,4 @@ The [Prismatic API](/glossary/prismatic-api/) gateway inherits authorization fro
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -57,9 +57,9 @@ tags = ["applications", "content-moderation--manipulation", "prismatic", "resear
 
 ## Abstract
 
-This document provides a comprehensive overview of the Prismatic Platform's content moderation and manipulation research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](/glossary/multi-agent-systems/), [epistemic validation](/glossary/epistemic-validation/), and adversarial analysis to problems in disinformation detection, manipulation network mapping, epistemic defense and inoculation, content governance, and community resilience. The domain spans five primary research areas: manipulation detection and analysis, disinformation network mapping, epistemic defense and inoculation, content governance and moderation, and community resilience and trust.
+This document provides a comprehensive overview of the Prismatic Platform's content moderation and manipulation research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](@/glossary/multi-agent-systems.md), [epistemic validation](@/glossary/epistemic-validation.md), and adversarial analysis to problems in disinformation detection, manipulation network mapping, epistemic defense and inoculation, content governance, and community resilience. The domain spans five primary research areas: manipulation detection and analysis, disinformation network mapping, epistemic defense and inoculation, content governance and moderation, and community resilience and trust.
 
-Each framework leverages the platform's [agent orchestration](/glossary/agent-orchestration/) infrastructure, [signal plurality](/glossary/signal-plurality/) axioms, and [graph theory](/glossary/graph-theory/) capabilities to model the adversarial dynamics of information manipulation -- environments where intelligent adversaries actively design content to exploit cognitive vulnerabilities, evade detection, and undermine public trust. The emphasis throughout is on defensive capabilities: detecting manipulation, building resilience, and restoring trust rather than creating or amplifying harmful content.
+Each framework leverages the platform's [agent orchestration](@/glossary/agent-orchestration.md) infrastructure, [signal plurality](@/glossary/signal-plurality.md) axioms, and [graph theory](@/glossary/graph-theory.md) capabilities to model the adversarial dynamics of information manipulation -- environments where intelligent adversaries actively design content to exploit cognitive vulnerabilities, evade detection, and undermine public trust. The emphasis throughout is on defensive capabilities: detecting manipulation, building resilience, and restoring trust rather than creating or amplifying harmful content.
 
 ## Introduction
 
@@ -67,7 +67,7 @@ Each framework leverages the platform's [agent orchestration](/glossary/agent-or
 
 The weaponization of information represents one of the most significant challenges to democratic societies in the digital age. Disinformation campaigns, coordinated inauthentic behavior, deepfake technologies, and algorithmic amplification create an adversarial information environment where the distinction between authentic and manufactured narratives becomes increasingly difficult to maintain. Content moderation -- the practice of governing what information circulates in digital spaces -- sits at the intersection of free expression, harm prevention, and epistemic integrity.
 
-The Prismatic Platform's content moderation domain was conceived as a defensive research laboratory where [multi-agent](/glossary/multi-agent-system/) architectures model the adversarial dynamics between manipulation campaigns and detection systems. The platform's [epistemic reasoning](/glossary/epistemic-reasoning/) infrastructure is uniquely suited to this domain because manipulation fundamentally targets the epistemic process -- it seeks to distort belief formation, undermine source credibility, and fragment shared understanding. By applying [NABLA axioms](/glossary/nabla-infinity/) to content analysis, the platform enables study of how epistemic hygiene practices can be computationally supported.
+The Prismatic Platform's content moderation domain was conceived as a defensive research laboratory where [multi-agent](@/glossary/multi-agent-system.md) architectures model the adversarial dynamics between manipulation campaigns and detection systems. The platform's [epistemic reasoning](@/glossary/epistemic-reasoning.md) infrastructure is uniquely suited to this domain because manipulation fundamentally targets the epistemic process -- it seeks to distort belief formation, undermine source credibility, and fragment shared understanding. By applying [NABLA axioms](@/glossary/nabla-infinity.md) to content analysis, the platform enables study of how epistemic hygiene practices can be computationally supported.
 
 ### Problem Definition
 
@@ -87,12 +87,12 @@ Content moderation and manipulation research faces several interconnected theore
 
 | Platform Component | Moderation Application | Research Purpose |
 |-------------------|----------------------|------------------|
-| **[Graph Theory](/glossary/graph-theory/) Infrastructure** | Coordination network detection | Map inauthentic behavior networks and amplification cascades |
-| **[Epistemic Validation](/glossary/epistemic-validation/)** | Content credibility assessment | Multi-dimensional content trustworthiness scoring |
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multi-signal manipulation detection | Require convergent indicators before manipulation verdict |
-| **[Data Provenance](/glossary/data-provenance/)** | Content origin tracking | Trace content through transformation and redistribution chains |
-| **[Audit Trail](/glossary/audit-trail/)** | Moderation decision accountability | Complete audit trail for moderation actions and rationale |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Narrative analysis | Maintain competing narratives for systematic comparison |
+| **[Graph Theory](@/glossary/graph-theory.md) Infrastructure** | Coordination network detection | Map inauthentic behavior networks and amplification cascades |
+| **[Epistemic Validation](@/glossary/epistemic-validation.md)** | Content credibility assessment | Multi-dimensional content trustworthiness scoring |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multi-signal manipulation detection | Require convergent indicators before manipulation verdict |
+| **[Data Provenance](@/glossary/data-provenance.md)** | Content origin tracking | Trace content through transformation and redistribution chains |
+| **[Audit Trail](@/glossary/audit-trail.md)** | Moderation decision accountability | Complete audit trail for moderation actions and rationale |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Narrative analysis | Maintain competing narratives for systematic comparison |
 
 ## Research Domain Taxonomy
 
@@ -102,11 +102,11 @@ Research into detecting, classifying, and analyzing information manipulation tec
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Logical fallacy detection](/applications/content-moderation-manipulation/logical-fallacy-detection/) | Automated informal fallacy identification | Argumentation theory with NLP classification |
-| [NLP pipeline for propaganda](/applications/content-moderation-manipulation/nlp-pipeline-for-propaganda/) | Propaganda technique detection and classification | IPA/JTRIG propaganda taxonomy formalization |
-| [Rhetorical device library detection](/applications/content-moderation-manipulation/rhetorical-device-library-detection/) | Persuasion technique identification | Classical rhetoric mapped to computational detection |
-| [Cross-lingual manipulation detection](/applications/content-moderation-manipulation/cross-lingual-manipulation-detection/) | Cross-language manipulation pattern matching | Multilingual [embedding](/glossary/embedding/) spaces for semantic manipulation detection |
-| [Bias amplification monitoring](/applications/content-moderation-manipulation/bias-amplification-monitoring/) | Algorithmic bias amplification tracking | Feedback loop detection in recommendation systems |
+| [Logical fallacy detection](@/applications/content-moderation-manipulation/logical-fallacy-detection.md) | Automated informal fallacy identification | Argumentation theory with NLP classification |
+| [NLP pipeline for propaganda](@/applications/content-moderation-manipulation/nlp-pipeline-for-propaganda.md) | Propaganda technique detection and classification | IPA/JTRIG propaganda taxonomy formalization |
+| [Rhetorical device library detection](@/applications/content-moderation-manipulation/rhetorical-device-library-detection.md) | Persuasion technique identification | Classical rhetoric mapped to computational detection |
+| [Cross-lingual manipulation detection](@/applications/content-moderation-manipulation/cross-lingual-manipulation-detection.md) | Cross-language manipulation pattern matching | Multilingual [embedding](@/glossary/embedding.md) spaces for semantic manipulation detection |
+| [Bias amplification monitoring](@/applications/content-moderation-manipulation/bias-amplification-monitoring.md) | Algorithmic bias amplification tracking | Feedback loop detection in recommendation systems |
 
 The NLP pipeline for propaganda framework implements a comprehensive taxonomy of propaganda techniques -- from loaded language and name-calling through appeal to authority and bandwagon effects -- as a multi-stage classification pipeline. Each technique is formalized with structural templates and linguistic markers, enabling systematic detection across large text corpora. The framework explicitly tracks false positive rates, recognizing that legitimate persuasion shares surface features with manipulative propaganda.
 
@@ -116,13 +116,13 @@ Theoretical models for studying coordinated inauthentic behavior, network struct
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Disinformation cluster graphing](/applications/content-moderation-manipulation/disinformation-cluster-graphing/) | Disinformation network topology analysis | Community detection in adversarial information networks |
-| [Coordinated inauthentic behavior detection](/applications/content-moderation-manipulation/coordinated-inauthentic-behavior-detection/) | CIB pattern identification and attribution | Temporal-behavioral coordination analysis |
-| [Meme propagation replay](/applications/content-moderation-manipulation/meme-propagation-replay/) | Memetic content mutation and propagation tracking | Epidemiological models of information spread |
-| [Agent-based rumor spreading](/applications/content-moderation-manipulation/agent-based-rumor-spreading/) | Rumor propagation dynamics simulation | SIR/SEIR epidemiological models adapted for information |
-| [Deepfake narrative simulation](/applications/content-moderation-manipulation/deepfake-narrative-simulation/) | Synthetic media impact assessment | Deepfake detection with narrative impact modeling |
+| [Disinformation cluster graphing](@/applications/content-moderation-manipulation/disinformation-cluster-graphing.md) | Disinformation network topology analysis | Community detection in adversarial information networks |
+| [Coordinated inauthentic behavior detection](@/applications/content-moderation-manipulation/coordinated-inauthentic-behavior-detection.md) | CIB pattern identification and attribution | Temporal-behavioral coordination analysis |
+| [Meme propagation replay](@/applications/content-moderation-manipulation/meme-propagation-replay.md) | Memetic content mutation and propagation tracking | Epidemiological models of information spread |
+| [Agent-based rumor spreading](@/applications/content-moderation-manipulation/agent-based-rumor-spreading.md) | Rumor propagation dynamics simulation | SIR/SEIR epidemiological models adapted for information |
+| [Deepfake narrative simulation](@/applications/content-moderation-manipulation/deepfake-narrative-simulation.md) | Synthetic media impact assessment | Deepfake detection with narrative impact modeling |
 
-The coordinated inauthentic behavior detection framework applies the platform's [graph theory](/glossary/graph-theory/) infrastructure to identify accounts that exhibit coordinated posting patterns, shared infrastructure markers, and synchronized amplification behavior. The framework distinguishes between organic coordination (genuine movements) and inauthentic coordination (astroturfing) by analyzing behavioral diversity, account provenance, and temporal posting patterns through the lens of [data provenance](/glossary/data-provenance/) tracking.
+The coordinated inauthentic behavior detection framework applies the platform's [graph theory](@/glossary/graph-theory.md) infrastructure to identify accounts that exhibit coordinated posting patterns, shared infrastructure markers, and synchronized amplification behavior. The framework distinguishes between organic coordination (genuine movements) and inauthentic coordination (astroturfing) by analyzing behavioral diversity, account provenance, and temporal posting patterns through the lens of [data provenance](@/glossary/data-provenance.md) tracking.
 
 ### Domain 3: Epistemic Defense and Inoculation (5 frameworks)
 
@@ -130,11 +130,11 @@ Research into building resistance against manipulation through epistemic inocula
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Epistemic inoculation scenario packs](/applications/content-moderation-manipulation/epistemic-inoculation-scenario-packs/) | Pre-exposure resistance building | Inoculation theory (McGuire) computational implementation |
-| [Counter-manipulation strategies](/applications/content-moderation-manipulation/counter-manipulation-strategies/) | Counter-narrative design and effectiveness | Strategic counter-messaging methodology |
-| [Misinformation resilience scoring](/applications/content-moderation-manipulation/misinformation-resilience-scoring/) | Individual and community resilience assessment | Multi-factor misinformation susceptibility modeling |
-| [Trait-based disinfo vulnerability modeling](/applications/content-moderation-manipulation/trait-based-disinfo-vulnerability-modeling/) | Personality-based vulnerability profiling | Big Five traits correlated with manipulation susceptibility |
-| [Influence campaign resilience testing](/applications/content-moderation-manipulation/influence-campaign-resilience-testing/) | Institutional resilience stress-testing | Red team methodology for information defense |
+| [Epistemic inoculation scenario packs](@/applications/content-moderation-manipulation/epistemic-inoculation-scenario-packs.md) | Pre-exposure resistance building | Inoculation theory (McGuire) computational implementation |
+| [Counter-manipulation strategies](@/applications/content-moderation-manipulation/counter-manipulation-strategies.md) | Counter-narrative design and effectiveness | Strategic counter-messaging methodology |
+| [Misinformation resilience scoring](@/applications/content-moderation-manipulation/misinformation-resilience-scoring.md) | Individual and community resilience assessment | Multi-factor misinformation susceptibility modeling |
+| [Trait-based disinfo vulnerability modeling](@/applications/content-moderation-manipulation/trait-based-disinfo-vulnerability-modeling.md) | Personality-based vulnerability profiling | Big Five traits correlated with manipulation susceptibility |
+| [Influence campaign resilience testing](@/applications/content-moderation-manipulation/influence-campaign-resilience-testing.md) | Institutional resilience stress-testing | Red team methodology for information defense |
 
 The epistemic inoculation framework implements McGuire's inoculation theory -- where exposure to weakened forms of manipulation builds resistance against full-strength attacks. Agents representing populations with varying levels of media literacy are exposed to labeled examples of manipulation techniques, and the framework measures how this pre-exposure affects susceptibility to subsequent manipulative content. This "vaccine for the mind" approach represents a proactive alternative to reactive content moderation.
 
@@ -144,11 +144,11 @@ Frameworks for studying content moderation policy, platform governance, and auto
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Ethical moderation bots](/applications/content-moderation-manipulation/ethical-moderation-bots/) | Value-aligned automated moderation | Ethical AI design for content governance |
-| [Populist narrative detection](/applications/content-moderation-manipulation/populist-narrative-detection/) | Populist rhetorical pattern identification | Political communication theory with NLP detection |
-| [Political campaign simulation](/applications/content-moderation-manipulation/political-campaign-simulation/) | Campaign information dynamics modeling | Electoral communication models with manipulation vectors |
-| [Censorship resistance modeling](/applications/content-moderation-manipulation/censorship-resistance-modeling/) | Anti-censorship technology effectiveness | Information flow under censorship regimes |
-| [Toxic content de-escalation](/applications/content-moderation-manipulation/toxic-content-de-escalation/) | Toxic content intervention design | De-escalation psychology with automated intervention |
+| [Ethical moderation bots](@/applications/content-moderation-manipulation/ethical-moderation-bots.md) | Value-aligned automated moderation | Ethical AI design for content governance |
+| [Populist narrative detection](@/applications/content-moderation-manipulation/populist-narrative-detection.md) | Populist rhetorical pattern identification | Political communication theory with NLP detection |
+| [Political campaign simulation](@/applications/content-moderation-manipulation/political-campaign-simulation.md) | Campaign information dynamics modeling | Electoral communication models with manipulation vectors |
+| [Censorship resistance modeling](@/applications/content-moderation-manipulation/censorship-resistance-modeling.md) | Anti-censorship technology effectiveness | Information flow under censorship regimes |
+| [Toxic content de-escalation](@/applications/content-moderation-manipulation/toxic-content-de-escalation.md) | Toxic content intervention design | De-escalation psychology with automated intervention |
 
 ### Domain 5: Community Resilience and Trust (5 frameworks)
 
@@ -156,11 +156,11 @@ Research into community trust dynamics, belief fragmentation, and post-manipulat
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Community trust reconstruction](/applications/content-moderation-manipulation/community-trust-reconstruction/) | Post-manipulation trust repair methodology | Social capital theory with trust repair models |
-| [Belief fragmentation resilience](/applications/content-moderation-manipulation/belief-fragmentation-resilience/) | Epistemological fragmentation defense | Shared epistemic ground theory and bridging strategies |
-| [Extremist rhetoric simulation](/applications/content-moderation-manipulation/extremist-rhetoric-simulation/) | Radicalization pathway modeling and intervention | Staircase to terrorism model with early intervention |
-| [Gamified manipulation training](/applications/content-moderation-manipulation/gamified-manipulation-training/) | Interactive manipulation awareness education | Gamification theory for media literacy |
-| [Psychological warfare replay](/applications/content-moderation-manipulation/psychological-warfare-replay/) | Historical PSYOP analysis and lessons learned | Military psychological operations theory (defensive study) |
+| [Community trust reconstruction](@/applications/content-moderation-manipulation/community-trust-reconstruction.md) | Post-manipulation trust repair methodology | Social capital theory with trust repair models |
+| [Belief fragmentation resilience](@/applications/content-moderation-manipulation/belief-fragmentation-resilience.md) | Epistemological fragmentation defense | Shared epistemic ground theory and bridging strategies |
+| [Extremist rhetoric simulation](@/applications/content-moderation-manipulation/extremist-rhetoric-simulation.md) | Radicalization pathway modeling and intervention | Staircase to terrorism model with early intervention |
+| [Gamified manipulation training](@/applications/content-moderation-manipulation/gamified-manipulation-training.md) | Interactive manipulation awareness education | Gamification theory for media literacy |
+| [Psychological warfare replay](@/applications/content-moderation-manipulation/psychological-warfare-replay.md) | Historical PSYOP analysis and lessons learned | Military psychological operations theory (defensive study) |
 
 The community trust reconstruction framework models how communities can rebuild shared epistemic ground after sustained disinformation campaigns have fragmented trust. Agents representing community members with divergent beliefs engage in structured dialogue protocols, and the framework studies which approaches -- fact-based correction, empathetic engagement, common-ground seeking, or institutional reform -- most effectively restore the shared factual basis necessary for democratic deliberation.
 
@@ -170,55 +170,55 @@ The community trust reconstruction framework models how communities can rebuild 
 
 | NABLA Axiom | Moderation Interpretation | Research Application |
 |-------------|--------------------------|---------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple independent indicators required before manipulation verdict | Prevents false positives that suppress legitimate speech |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Contradictory narratives preserved for comparative analysis | Enables systematic study of competing narrative strategies |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple independent indicators required before manipulation verdict | Prevents false positives that suppress legitimate speech |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Contradictory narratives preserved for comparative analysis | Enables systematic study of competing narrative strategies |
 | **Absence Informative** | Missing expected authentic engagement carries diagnostic weight | Models sock puppet detection through behavioral absence patterns |
-| **[Time Decay](/glossary/time-decay/)** | Manipulation technique effectiveness decays as awareness spreads | Models inoculation effect longevity and booster requirements |
+| **[Time Decay](@/glossary/time-decay.md)** | Manipulation technique effectiveness decays as awareness spreads | Models inoculation effect longevity and booster requirements |
 | **Unknown Valid** | Acknowledging detection uncertainty as legitimate assessment | Prevents overconfident moderation that chills legitimate expression |
 | **Source Independence** | Independent detection methods weighted higher than correlated signals | Models defense-in-depth for manipulation detection |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | All moderation decisions traceable to evidence and policy | Supports accountability and appeals in content governance |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | All moderation decisions traceable to evidence and policy | Supports accountability and appeals in content governance |
 
 ## Contents
 
 ### Manipulation Detection and Analysis
 
-- [Logical fallacy detection](/applications/content-moderation-manipulation/logical-fallacy-detection/) -- Automated informal fallacy identification
-- [NLP pipeline for propaganda](/applications/content-moderation-manipulation/nlp-pipeline-for-propaganda/) -- Propaganda technique detection and classification
-- [Rhetorical device library detection](/applications/content-moderation-manipulation/rhetorical-device-library-detection/) -- Persuasion technique identification
-- [Cross-lingual manipulation detection](/applications/content-moderation-manipulation/cross-lingual-manipulation-detection/) -- Cross-language manipulation matching
-- [Bias amplification monitoring](/applications/content-moderation-manipulation/bias-amplification-monitoring/) -- Algorithmic bias amplification tracking
+- [Logical fallacy detection](@/applications/content-moderation-manipulation/logical-fallacy-detection.md) -- Automated informal fallacy identification
+- [NLP pipeline for propaganda](@/applications/content-moderation-manipulation/nlp-pipeline-for-propaganda.md) -- Propaganda technique detection and classification
+- [Rhetorical device library detection](@/applications/content-moderation-manipulation/rhetorical-device-library-detection.md) -- Persuasion technique identification
+- [Cross-lingual manipulation detection](@/applications/content-moderation-manipulation/cross-lingual-manipulation-detection.md) -- Cross-language manipulation matching
+- [Bias amplification monitoring](@/applications/content-moderation-manipulation/bias-amplification-monitoring.md) -- Algorithmic bias amplification tracking
 
 ### Disinformation Network Mapping
 
-- [Disinformation cluster graphing](/applications/content-moderation-manipulation/disinformation-cluster-graphing/) -- Disinformation network topology analysis
-- [Coordinated inauthentic behavior detection](/applications/content-moderation-manipulation/coordinated-inauthentic-behavior-detection/) -- CIB pattern identification
-- [Meme propagation replay](/applications/content-moderation-manipulation/meme-propagation-replay/) -- Memetic content mutation tracking
-- [Agent-based rumor spreading](/applications/content-moderation-manipulation/agent-based-rumor-spreading/) -- Rumor propagation dynamics
-- [Deepfake narrative simulation](/applications/content-moderation-manipulation/deepfake-narrative-simulation/) -- Synthetic media impact assessment
+- [Disinformation cluster graphing](@/applications/content-moderation-manipulation/disinformation-cluster-graphing.md) -- Disinformation network topology analysis
+- [Coordinated inauthentic behavior detection](@/applications/content-moderation-manipulation/coordinated-inauthentic-behavior-detection.md) -- CIB pattern identification
+- [Meme propagation replay](@/applications/content-moderation-manipulation/meme-propagation-replay.md) -- Memetic content mutation tracking
+- [Agent-based rumor spreading](@/applications/content-moderation-manipulation/agent-based-rumor-spreading.md) -- Rumor propagation dynamics
+- [Deepfake narrative simulation](@/applications/content-moderation-manipulation/deepfake-narrative-simulation.md) -- Synthetic media impact assessment
 
 ### Epistemic Defense and Inoculation
 
-- [Epistemic inoculation scenario packs](/applications/content-moderation-manipulation/epistemic-inoculation-scenario-packs/) -- Pre-exposure resistance building
-- [Counter-manipulation strategies](/applications/content-moderation-manipulation/counter-manipulation-strategies/) -- Counter-narrative design
-- [Misinformation resilience scoring](/applications/content-moderation-manipulation/misinformation-resilience-scoring/) -- Resilience assessment methodology
-- [Trait-based disinfo vulnerability modeling](/applications/content-moderation-manipulation/trait-based-disinfo-vulnerability-modeling/) -- Vulnerability profiling
-- [Influence campaign resilience testing](/applications/content-moderation-manipulation/influence-campaign-resilience-testing/) -- Institutional stress-testing
+- [Epistemic inoculation scenario packs](@/applications/content-moderation-manipulation/epistemic-inoculation-scenario-packs.md) -- Pre-exposure resistance building
+- [Counter-manipulation strategies](@/applications/content-moderation-manipulation/counter-manipulation-strategies.md) -- Counter-narrative design
+- [Misinformation resilience scoring](@/applications/content-moderation-manipulation/misinformation-resilience-scoring.md) -- Resilience assessment methodology
+- [Trait-based disinfo vulnerability modeling](@/applications/content-moderation-manipulation/trait-based-disinfo-vulnerability-modeling.md) -- Vulnerability profiling
+- [Influence campaign resilience testing](@/applications/content-moderation-manipulation/influence-campaign-resilience-testing.md) -- Institutional stress-testing
 
 ### Content Governance and Moderation
 
-- [Ethical moderation bots](/applications/content-moderation-manipulation/ethical-moderation-bots/) -- Value-aligned automated moderation
-- [Populist narrative detection](/applications/content-moderation-manipulation/populist-narrative-detection/) -- Populist rhetorical pattern identification
-- [Political campaign simulation](/applications/content-moderation-manipulation/political-campaign-simulation/) -- Campaign information dynamics
-- [Censorship resistance modeling](/applications/content-moderation-manipulation/censorship-resistance-modeling/) -- Anti-censorship technology analysis
-- [Toxic content de-escalation](/applications/content-moderation-manipulation/toxic-content-de-escalation/) -- Toxic content intervention design
+- [Ethical moderation bots](@/applications/content-moderation-manipulation/ethical-moderation-bots.md) -- Value-aligned automated moderation
+- [Populist narrative detection](@/applications/content-moderation-manipulation/populist-narrative-detection.md) -- Populist rhetorical pattern identification
+- [Political campaign simulation](@/applications/content-moderation-manipulation/political-campaign-simulation.md) -- Campaign information dynamics
+- [Censorship resistance modeling](@/applications/content-moderation-manipulation/censorship-resistance-modeling.md) -- Anti-censorship technology analysis
+- [Toxic content de-escalation](@/applications/content-moderation-manipulation/toxic-content-de-escalation.md) -- Toxic content intervention design
 
 ### Community Resilience and Trust
 
-- [Community trust reconstruction](/applications/content-moderation-manipulation/community-trust-reconstruction/) -- Post-manipulation trust repair
-- [Belief fragmentation resilience](/applications/content-moderation-manipulation/belief-fragmentation-resilience/) -- Epistemological fragmentation defense
-- [Extremist rhetoric simulation](/applications/content-moderation-manipulation/extremist-rhetoric-simulation/) -- Radicalization pathway modeling
-- [Gamified manipulation training](/applications/content-moderation-manipulation/gamified-manipulation-training/) -- Interactive manipulation awareness
-- [Psychological warfare replay](/applications/content-moderation-manipulation/psychological-warfare-replay/) -- Historical PSYOP defensive analysis
+- [Community trust reconstruction](@/applications/content-moderation-manipulation/community-trust-reconstruction.md) -- Post-manipulation trust repair
+- [Belief fragmentation resilience](@/applications/content-moderation-manipulation/belief-fragmentation-resilience.md) -- Epistemological fragmentation defense
+- [Extremist rhetoric simulation](@/applications/content-moderation-manipulation/extremist-rhetoric-simulation.md) -- Radicalization pathway modeling
+- [Gamified manipulation training](@/applications/content-moderation-manipulation/gamified-manipulation-training.md) -- Interactive manipulation awareness
+- [Psychological warfare replay](@/applications/content-moderation-manipulation/psychological-warfare-replay.md) -- Historical PSYOP defensive analysis
 
 ## Future Research Directions
 
@@ -232,13 +232,13 @@ The community trust reconstruction framework models how communities can rebuild 
 
 ### Internal Documentation
 
-- [Platform Capabilities](/capabilities/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/)
-- [Graph Theory](/glossary/graph-theory/)
-- [Data Provenance](/glossary/data-provenance/)
-- [Signal Plurality](/glossary/signal-plurality/)
+- [Platform Capabilities](@/capabilities/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md)
+- [Graph Theory](@/glossary/graph-theory.md)
+- [Data Provenance](@/glossary/data-provenance.md)
+- [Signal Plurality](@/glossary/signal-plurality.md)
 
 ### External Standards and Literature
 
@@ -258,4 +258,4 @@ The community trust reconstruction framework models how communities can rebuild 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

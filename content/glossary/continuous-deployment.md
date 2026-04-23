@@ -952,19 +952,19 @@ end
 
 ## Related Concepts
 
-- [Continuous Integration](/glossary/continuous-integration/) -- Quality validation preceding deployment
-- [GitLab CI](/glossary/gitlab-ci/) -- Pipeline orchestrating the deployment process
-- [Feature Flag](/glossary/feature-flag/) -- Runtime toggle controlling feature visibility in production
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) -- Zero-downtime deployment strategy
-- [Canary Release](/glossary/canary-release/) -- Gradual rollout strategy complementing CD
-- [Quality Gates](/glossary/quality-gates/) -- Automated checks blocking deployment on failure
+- [Continuous Integration](@/glossary/continuous-integration.md) -- Quality validation preceding deployment
+- [GitLab CI](@/glossary/gitlab-ci.md) -- Pipeline orchestrating the deployment process
+- [Feature Flag](@/glossary/feature-flag.md) -- Runtime toggle controlling feature visibility in production
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) -- Zero-downtime deployment strategy
+- [Canary Release](@/glossary/canary-release.md) -- Gradual rollout strategy complementing CD
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated checks blocking deployment on failure
 
 ## Further Reading
 
 - [Accelerate by Nicole Forsgren](https://itrevolution.com/product/accelerate/) -- Research on CD and organizational performance
-- [Architecture](/architecture/) -- Deployment architecture
-- [Technologies](/technologies/) -- Deployment infrastructure
-- [Apps](/apps/) -- Applications in the CD pipeline
+- [Architecture](@/architecture/_index.md) -- Deployment architecture
+- [Technologies](@/technologies/_index.md) -- Deployment infrastructure
+- [Apps](@/apps/_index.md) -- Applications in the CD pipeline
 
 ---
 
@@ -973,4 +973,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

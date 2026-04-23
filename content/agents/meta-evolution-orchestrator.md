@@ -30,7 +30,7 @@ image_alt = "meta-evolution-orchestrator - Prismatic Platform"
 
 The meta-evolution-orchestrator operates as an L2 tactical agent within the Prismatic Platform's meta-evolution domain, responsible for orchestrating the platform's autonomous self-improvement cycles. Unlike standard evolution agents that optimize individual components, the meta-evolution-orchestrator operates at a higher abstraction level -- it evolves the evolution process itself. This agent analyzes the effectiveness of evolutionary strategies, identifies bottlenecks in the improvement pipeline, and adapts the platform's mutation, selection, and fitness evaluation mechanisms to achieve increasingly efficient self-optimization.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Development Framework), this agent maintains continuous feedback loops between evolutionary outcomes and the strategies that produced them. Through the [mycelial network](/glossary/mycelial-network/), it propagates successful meta-evolutionary patterns across the entire agent ecosystem, enabling platform-wide learning about which evolutionary approaches yield the highest fitness improvements per generation.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the [SEADF](@/glossary/seadf.md) (Self-Evolving Autonomous Development Framework), this agent maintains continuous feedback loops between evolutionary outcomes and the strategies that produced them. Through the [mycelial network](@/glossary/mycelial-network.md), it propagates successful meta-evolutionary patterns across the entire agent ecosystem, enabling platform-wide learning about which evolutionary approaches yield the highest fitness improvements per generation.
 
 ## Operational Domain
 
@@ -47,10 +47,10 @@ The meta-evolution domain sits above the standard evolution pipeline, functionin
 
 - **Evolutionary strategy analysis** -- Evaluates the effectiveness of current mutation operators, crossover strategies, and selection mechanisms by tracking fitness improvement trajectories across generations
 - **Adaptive parameter tuning** -- Dynamically adjusts mutation rates, population sizes, and selection pressures based on observed evolutionary dynamics, preventing premature convergence and stagnation
-- **[CASCADE](/glossary/cascade/) pattern detection** -- Identifies cascading improvement patterns where a single evolutionary change triggers beneficial adaptations across multiple platform domains
+- **[CASCADE](@/glossary/cascade.md) pattern detection** -- Identifies cascading improvement patterns where a single evolutionary change triggers beneficial adaptations across multiple platform domains
 - **Fitness function calibration** -- Monitors the alignment between fitness scores and actual platform quality metrics, adjusting fitness function weights when divergence is detected
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed meta-evolutionary cycles triggered by stagnation detection
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing evolutionary dynamics metrics under meta-evolution namespaces
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed meta-evolutionary cycles triggered by stagnation detection
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing evolutionary dynamics metrics under meta-evolution namespaces
 
 ## Meta-Evolution Pipeline
 
@@ -142,7 +142,7 @@ end
 
 ## Authority Level
 
-**L2** - [Tactical Operations](/glossary/tactical-execution/) - Domain-specific tactical execution with authority to modify evolutionary parameters and trigger meta-evolutionary cycles within the evolution domain.
+**L2** - [Tactical Operations](@/glossary/tactical-execution.md) - Domain-specific tactical execution with authority to modify evolutionary parameters and trigger meta-evolutionary cycles within the evolution domain.
 
 ## Evolutionary Dynamics Monitoring
 
@@ -167,14 +167,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Receives optimized evolutionary parameters for application to code evolution |
-| [evolution-analyzer-specialist](/agents/evolution-analyzer-specialist/) | Provides evolutionary outcome data for meta-analysis |
-| [evolution-executor-specialist](/agents/evolution-executor-specialist/) | Applies meta-optimized mutation operators during evolution cycles |
-| [code-quality-commander](/agents/code-quality-commander/) | Supplies ground-truth quality metrics for fitness function calibration |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Receives optimized evolutionary parameters for application to code evolution |
+| [evolution-analyzer-specialist](@/agents/evolution-analyzer-specialist.md) | Provides evolutionary outcome data for meta-analysis |
+| [evolution-executor-specialist](@/agents/evolution-executor-specialist.md) | Applies meta-optimized mutation operators during evolution cycles |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Supplies ground-truth quality metrics for fitness function calibration |
 
 ## NABLA Infinity Integration
 
-All meta-evolutionary decisions comply with [NABLA Infinity](/glossary/nabla-infinity/) axioms. Strategy effectiveness claims require evidence from at least two independent generation samples. Fitness function calibrations carry provenance chains linking quality metrics to evolutionary outcomes. The [Trinity Gate](/glossary/trinity-gate/) validates that parameter changes maintain structural consistency in the evolution pipeline. Stagnation detection uses [time decay](/glossary/time-decay/) to weight recent generations more heavily than historical data.
+All meta-evolutionary decisions comply with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms. Strategy effectiveness claims require evidence from at least two independent generation samples. Fitness function calibrations carry provenance chains linking quality metrics to evolutionary outcomes. The [Trinity Gate](@/glossary/trinity-gate.md) validates that parameter changes maintain structural consistency in the evolution pipeline. Stagnation detection uses [time decay](@/glossary/time-decay.md) to weight recent generations more heavily than historical data.
 
 ## Evolutionary Strategy Landscape
 
@@ -203,11 +203,11 @@ The accuracy of fitness functions directly determines the quality of evolutionar
 
 ## Generation History
 
-The orchestrator maintains a complete history of evolutionary parameters, fitness trajectories, and strategy selections across all generations. This history serves dual purposes: it provides the data substrate for meta-evolutionary analysis, and it enables "time travel" debugging where engineers can examine exactly what evolutionary parameters were in effect during any historical period. The history is stored in [ETS](/glossary/ets/) for rapid in-memory querying and periodically flushed to persistent storage for long-term retention.
+The orchestrator maintains a complete history of evolutionary parameters, fitness trajectories, and strategy selections across all generations. This history serves dual purposes: it provides the data substrate for meta-evolutionary analysis, and it enables "time travel" debugging where engineers can examine exactly what evolutionary parameters were in effect during any historical period. The history is stored in [ETS](@/glossary/ets.md) for rapid in-memory querying and periodically flushed to persistent storage for long-term retention.
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine applies to meta-evolutionary outcomes: parameter changes that reduce platform fitness below established baselines are immediately reverted. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all evolutionary strategy modifications are backed by statistical evidence from controlled generation experiments. No meta-evolutionary change reaches the production evolution pipeline without passing comprehensive regression tests.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine applies to meta-evolutionary outcomes: parameter changes that reduce platform fitness below established baselines are immediately reverted. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all evolutionary strategy modifications are backed by statistical evidence from controlled generation experiments. No meta-evolutionary change reaches the production evolution pipeline without passing comprehensive regression tests.
 
 ---
 
@@ -216,4 +216,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine applies to meta-evolutionary outcom
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

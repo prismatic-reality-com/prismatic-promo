@@ -474,24 +474,24 @@ The Prismatic Platform embodies enterprise software principles throughout its ar
 
 Enterprise software connects to many architectural and operational concepts:
 
-- [Enterprise Architecture](/glossary/enterprise-architecture/) - The discipline of designing and managing the overall structure of enterprise software systems, providing strategic alignment between business and technology
-- [Scalability](/glossary/scalability/) - The ability to handle growing workloads, a fundamental requirement for enterprise systems serving large user populations
-- [Security](/glossary/security/) - Enterprise software requires defense-in-depth security including authentication, authorization, encryption, and audit
-- [Compliance Framework](/glossary/compliance-framework/) - Regulatory frameworks (NIS2, GDPR, SOC2) that enterprise software must satisfy
-- [API Integration](/glossary/api-integration/) - Enterprise systems must integrate with numerous external systems through well-defined API contracts
-- [Reliability](/glossary/reliability/) - Enterprise software must achieve high availability and consistency under all operating conditions
-- [Monitoring](/glossary/monitoring/) - Comprehensive observability is essential for operating enterprise systems in production
-- [Audit Logging](/glossary/audit-logging/) - Immutable recording of all significant operations for compliance and forensic analysis
-- [Microservices](/glossary/microservices/) - An architectural pattern commonly used in modern enterprise systems for independent deployment and scaling
-- [Database](/glossary/database/) - Enterprise data management requires careful attention to ACID properties, isolation, backup, and disaster recovery
+- [Enterprise Architecture](@/glossary/enterprise-architecture.md) - The discipline of designing and managing the overall structure of enterprise software systems, providing strategic alignment between business and technology
+- [Scalability](@/glossary/scalability.md) - The ability to handle growing workloads, a fundamental requirement for enterprise systems serving large user populations
+- [Security](@/glossary/security.md) - Enterprise software requires defense-in-depth security including authentication, authorization, encryption, and audit
+- [Compliance Framework](@/glossary/compliance-framework.md) - Regulatory frameworks (NIS2, GDPR, SOC2) that enterprise software must satisfy
+- [API Integration](@/glossary/api-integration.md) - Enterprise systems must integrate with numerous external systems through well-defined API contracts
+- [Reliability](@/glossary/reliability.md) - Enterprise software must achieve high availability and consistency under all operating conditions
+- [Monitoring](@/glossary/monitoring.md) - Comprehensive observability is essential for operating enterprise systems in production
+- [Audit Logging](@/glossary/audit-logging.md) - Immutable recording of all significant operations for compliance and forensic analysis
+- [Microservices](@/glossary/microservices.md) - An architectural pattern commonly used in modern enterprise systems for independent deployment and scaling
+- [Database](@/glossary/database.md) - Enterprise data management requires careful attention to ACID properties, isolation, backup, and disaster recovery
 
 ## See Also
 
-- [Architecture](/glossary/architecture/) - Foundational architectural patterns for building enterprise systems
-- [CQRS](/glossary/cqrs/) - Command Query Responsibility Segregation for enterprise-scale read/write optimization
-- [Fault Tolerance](/glossary/fault-tolerance/) - Building systems that continue operating despite component failures
-- [Quality Gate](/glossary/quality-gate/) - Automated quality enforcement used in enterprise software development
-- [NIS2](/glossary/nis2/) - EU directive for network and information security compliance
+- [Architecture](@/glossary/architecture.md) - Foundational architectural patterns for building enterprise systems
+- [CQRS](@/glossary/cqrs.md) - Command Query Responsibility Segregation for enterprise-scale read/write optimization
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - Building systems that continue operating despite component failures
+- [Quality Gate](@/glossary/quality-gate.md) - Automated quality enforcement used in enterprise software development
+- [NIS2](@/glossary/nis2.md) - EU directive for network and information security compliance
 
 ---
 

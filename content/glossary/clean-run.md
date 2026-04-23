@@ -42,13 +42,13 @@ A Clean Run is the mandatory compilation and runtime standard requiring zero war
 
 The Clean Run standard addresses a pervasive problem in large software systems: warning fatigue. When a codebase produces dozens or hundreds of warnings during compilation, developers stop reading them. Critical warnings about type mismatches, unused variables that indicate logic errors, or deprecated function usage are lost in a sea of noise. By maintaining absolute zero warnings, Clean Run ensures that any warning that does appear is immediately visible, immediately investigated, and immediately resolved. There is no baseline noise level to habituate to.
 
-Clean Run is not merely a quality preference -- it is a structural enforcement integrated into the platform's compilation pipeline, [pre-commit hooks](/glossary/pre-commit-hooks/), CI/CD [quality gates](/glossary/quality-gates/), and continuous monitoring systems. Code that produces warnings cannot be compiled in production mode, cannot pass pre-commit validation, cannot merge into the main branch, and cannot be deployed. The enforcement is absolute and non-bypassable, governed by the [NO MERCY](/glossary/no-mercy/) doctrine.
+Clean Run is not merely a quality preference -- it is a structural enforcement integrated into the platform's compilation pipeline, [pre-commit hooks](@/glossary/pre-commit-hooks.md), CI/CD [quality gates](@/glossary/quality-gates.md), and continuous monitoring systems. Code that produces warnings cannot be compiled in production mode, cannot pass pre-commit validation, cannot merge into the main branch, and cannot be deployed. The enforcement is absolute and non-bypassable, governed by the [NO MERCY](@/glossary/no-mercy.md) doctrine.
 
 ## Historical Context and Motivation
 
 The Clean Run standard evolved from painful experience with warning accumulation in large Elixir umbrella projects. Before Clean Run was instituted, the Prismatic Platform carried hundreds of compiler warnings -- unused variables, deprecated function calls, unreachable pattern match clauses, and missing typespec annotations. These warnings were individually trivial but collectively catastrophic. A genuine warning about a type mismatch in a critical security module was invisible among hundreds of benign warnings about unused imports.
 
-The tipping point came during a quality assessment that identified 905 Quality Debt Points ([QDP](/glossary/qdp/)) across the codebase. The [CASCADE](/glossary/cascade/) methodology was developed specifically to eliminate this debt systematically, and Clean Run was established as the standard that would prevent debt from reaccumulating. The elimination campaign took multiple sessions and touched every umbrella application, but the result was a platform where every compiler message is meaningful and every warning demands immediate attention.
+The tipping point came during a quality assessment that identified 905 Quality Debt Points ([QDP](@/glossary/qdp.md)) across the codebase. The [CASCADE](@/glossary/cascade.md) methodology was developed specifically to eliminate this debt systematically, and Clean Run was established as the standard that would prevent debt from reaccumulating. The elimination campaign took multiple sessions and touched every umbrella application, but the result was a platform where every compiler message is meaningful and every warning demands immediate attention.
 
 The decision to extend Clean Run beyond compilation to runtime behavior was driven by a similar observation: log noise in production systems has the same desensitizing effect as compiler warning noise. When every request produces informational log output, operators stop monitoring logs. When a genuine error appears, it drowns in noise. Clean Run's runtime silence standard ensures that log output is reserved for events that warrant human attention, maintaining operational signal clarity.
 
@@ -60,7 +60,7 @@ Clean Run is enforced at multiple independent layers, creating defense-in-depth 
 
 ### Layer 1: Compiler Enforcement
 
-The [Elixir](/glossary/elixir/) compiler's `--warnings-as-errors` flag converts all compiler warnings to compilation errors. When this flag is active, any warning -- unused variable, deprecated function call, unreachable clause, missing return type -- causes compilation to fail entirely.
+The [Elixir](@/glossary/elixir.md) compiler's `--warnings-as-errors` flag converts all compiler warnings to compilation errors. When this flag is active, any warning -- unused variable, deprecated function call, unreachable clause, missing return type -- causes compilation to fail entirely.
 
 ```bash
 # Clean Run compilation command
@@ -73,11 +73,11 @@ mix compile --warnings-as-errors --force
 # - warning: Enum.uniq/2 is deprecated, use Enum.uniq_by/2
 ```
 
-The `--force` flag ensures complete recompilation, preventing stale artifacts from masking new warnings. This is particularly important in the context of [CASCADE](/glossary/cascade/) Nuclear Cache patterns, where incremental compilation can produce inconsistent results.
+The `--force` flag ensures complete recompilation, preventing stale artifacts from masking new warnings. This is particularly important in the context of [CASCADE](@/glossary/cascade.md) Nuclear Cache patterns, where incremental compilation can produce inconsistent results.
 
 ### Layer 2: Static Analysis (Credo)
 
-[Credo](/glossary/credo/) enforces code consistency, readability, and design rules in strict mode. Clean Run requires zero Credo violations.
+[Credo](@/glossary/credo.md) enforces code consistency, readability, and design rules in strict mode. Clean Run requires zero Credo violations.
 
 ```bash
 # Clean Run Credo check
@@ -95,7 +95,7 @@ Credo's strict mode enables all optional checks and reduces thresholds for compl
 
 ### Layer 3: Type Analysis (Dialyzer)
 
-[Dialyzer](/glossary/dialyzer/) performs success typing analysis across all modules, detecting type inconsistencies that the compiler cannot catch. Clean Run requires zero Dialyzer violations.
+[Dialyzer](@/glossary/dialyzer.md) performs success typing analysis across all modules, detecting type inconsistencies that the compiler cannot catch. Clean Run requires zero Dialyzer violations.
 
 ```bash
 # Clean Run Dialyzer check
@@ -108,7 +108,7 @@ mix dialyzer
 # - Invalid function calls (wrong argument types)
 ```
 
-Dialyzer analysis is computationally expensive (minutes for a full platform analysis), but the [AutoHeal](/glossary/autoheal/) system maintains the PLT (Persistent Lookup Table) incrementally to keep check times reasonable during development.
+Dialyzer analysis is computationally expensive (minutes for a full platform analysis), but the [AutoHeal](@/glossary/autoheal.md) system maintains the PLT (Persistent Lookup Table) incrementally to keep check times reasonable during development.
 
 ### Layer 4: Pre-Commit Hooks
 
@@ -175,11 +175,11 @@ end
 
 ### Layer 5: CI/CD Quality Gates
 
-The [GitLab CI](/glossary/gitlab-ci/) pipeline runs the complete Clean Run validation suite on every push, including full compilation, complete Credo analysis, full Dialyzer run, and test suite execution. This catches any violations that might have slipped past local pre-commit hooks due to environment differences.
+The [GitLab CI](@/glossary/gitlab-ci.md) pipeline runs the complete Clean Run validation suite on every push, including full compilation, complete Credo analysis, full Dialyzer run, and test suite execution. This catches any violations that might have slipped past local pre-commit hooks due to environment differences.
 
 ### Layer 6: Quality Floor Guardian
 
-The Quality Floor Guardian continuously monitors the platform's quality metrics, including Clean Run compliance. If a regression is detected, the Guardian triggers an [AutoHeal](/glossary/autoheal/) intervention and escalates according to severity.
+The Quality Floor Guardian continuously monitors the platform's quality metrics, including Clean Run compliance. If a regression is detected, the Guardian triggers an [AutoHeal](@/glossary/autoheal.md) intervention and escalates according to severity.
 
 | Quality Score | Level | Response |
 |---------------|-------|----------|
@@ -234,7 +234,7 @@ rm -rf _build/dev/lib/prismatic_claude/ebin && rm -rf priv/plts/dialyzer.plt
 mix compile --warnings-as-errors --force
 ```
 
-This operation is expensive (full recompilation of the entire umbrella) but guarantees accurate warning detection. The [AutoHeal](/glossary/autoheal/) system triggers this operation automatically when inconsistent compilation results are detected.
+This operation is expensive (full recompilation of the entire umbrella) but guarantees accurate warning detection. The [AutoHeal](@/glossary/autoheal.md) system triggers this operation automatically when inconsistent compilation results are detected.
 
 ### Automated Clean Run Validation
 
@@ -310,17 +310,17 @@ Clean Run is enforced uniformly across the entire platform.
 | **Lines of Code** | ~2.8M LOC |
 | **QDP (Quality Debt Points)** | 0 (zero) |
 
-Maintaining zero warnings across this scale is not trivial. Every new module, every dependency update, and every refactoring must preserve the Clean Run standard. The [CASCADE](/glossary/cascade/) methodology and [AutoEvolve](/glossary/autoevolve/) system work together to detect and eliminate warnings as they arise, maintaining the standard automatically rather than through manual vigilance.
+Maintaining zero warnings across this scale is not trivial. Every new module, every dependency update, and every refactoring must preserve the Clean Run standard. The [CASCADE](@/glossary/cascade.md) methodology and [AutoEvolve](@/glossary/autoevolve.md) system work together to detect and eliminate warnings as they arise, maintaining the standard automatically rather than through manual vigilance.
 
 ## Relationship to QDP
 
-Clean Run compliance is directly connected to the platform's [QDP](/glossary/qdp/) (Quality Debt Points) metric. Each compiler warning, Credo violation, or Dialyzer error contributes to QDP accumulation. The [CASCADE](/glossary/cascade/) methodology eliminated 905 QDP to achieve the current 0 QDP state, and Clean Run enforcement prevents new QDP from accumulating.
+Clean Run compliance is directly connected to the platform's [QDP](@/glossary/qdp.md) (Quality Debt Points) metric. Each compiler warning, Credo violation, or Dialyzer error contributes to QDP accumulation. The [CASCADE](@/glossary/cascade.md) methodology eliminated 905 QDP to achieve the current 0 QDP state, and Clean Run enforcement prevents new QDP from accumulating.
 
 The relationship is bidirectional: Clean Run enforcement prevents QDP introduction, and QDP elimination (through CASCADE) is necessary to achieve Clean Run status. A codebase with accumulated quality debt cannot achieve Clean Run until that debt is systematically eliminated.
 
 ## Relationship to NO MERCY Doctrine
 
-Clean Run is one of the primary enforcement mechanisms of the [NO MERCY](/glossary/no-mercy/) doctrine's quality requirements. The doctrine mandates zero tolerance for incomplete implementations, all quality gates must pass before any merge, no excuses for deferred fixes, and every line of code must be production-ready from the moment of creation.
+Clean Run is one of the primary enforcement mechanisms of the [NO MERCY](@/glossary/no-mercy.md) doctrine's quality requirements. The doctrine mandates zero tolerance for incomplete implementations, all quality gates must pass before any merge, no excuses for deferred fixes, and every line of code must be production-ready from the moment of creation.
 
 Clean Run operationalizes these principles at the compilation and static analysis level. A warning is an incomplete implementation. A Credo violation is a quality gate failure. Runtime log noise is deferred cleanup. Clean Run converts these doctrine principles into automated enforcement that operates without human judgment or intervention.
 
@@ -328,11 +328,11 @@ Clean Run operationalizes these principles at the compilation and static analysi
 
 ### AutoHeal Integration
 
-The [AutoHeal](/glossary/autoheal/) system monitors Clean Run status and automatically intervenes when regressions are detected. AutoHeal maintains the Dialyzer PLT incrementally, triggers Nuclear Cache Fix operations when needed, and generates fix suggestions for common warning patterns.
+The [AutoHeal](@/glossary/autoheal.md) system monitors Clean Run status and automatically intervenes when regressions are detected. AutoHeal maintains the Dialyzer PLT incrementally, triggers Nuclear Cache Fix operations when needed, and generates fix suggestions for common warning patterns.
 
 ### AutoEvolve Integration
 
-The [AutoEvolve](/glossary/autoevolve/) system uses Clean Run as a baseline quality indicator. When the platform evolves (new modules, refactored code, updated dependencies), AutoEvolve verifies that the evolution maintains Clean Run compliance and triggers corrective action if violations are detected.
+The [AutoEvolve](@/glossary/autoevolve.md) system uses Clean Run as a baseline quality indicator. When the platform evolves (new modules, refactored code, updated dependencies), AutoEvolve verifies that the evolution maintains Clean Run compliance and triggers corrective action if violations are detected.
 
 ### Quality DNA Persistence
 
@@ -373,24 +373,24 @@ Clean Run status is recorded in each application's Quality DNA file (`.claude/qu
 
 ## Related Concepts
 
-- [CASCADE](/glossary/cascade/) -- Methodology that eliminated 905 QDP to achieve Clean Run
-- [CASCADE Pattern](/glossary/cascade-pattern/) -- Specific anti-patterns that violated Clean Run
-- [QDP](/glossary/qdp/) -- Quality Debt Points prevented by Clean Run enforcement
-- [Dialyzer](/glossary/dialyzer/) -- Type analysis tool contributing to zero-violation standard
-- [Credo](/glossary/credo/) -- Static analysis tool enforcing code quality rules
-- [Typespec](/glossary/typespec/) -- Type annotations validated as part of Clean Run
-- [AutoEvolve](/glossary/autoevolve/) -- Evolution system maintaining Clean Run through automatic detection
-- [AutoHeal](/glossary/autoheal/) -- Self-repair system triggered by Clean Run regressions
-- [Mix](/glossary/mix/) -- Build tool executing Clean Run compilation checks
-- [Code Coverage](/glossary/code-coverage/) -- Coverage metric complementing Clean Run quality checks
-- [Property-Based Testing](/glossary/property-based-testing/) -- Testing technique validating Clean Run fixes
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement pipeline incorporating Clean Run checks
+- [CASCADE](@/glossary/cascade.md) -- Methodology that eliminated 905 QDP to achieve Clean Run
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) -- Specific anti-patterns that violated Clean Run
+- [QDP](@/glossary/qdp.md) -- Quality Debt Points prevented by Clean Run enforcement
+- [Dialyzer](@/glossary/dialyzer.md) -- Type analysis tool contributing to zero-violation standard
+- [Credo](@/glossary/credo.md) -- Static analysis tool enforcing code quality rules
+- [Typespec](@/glossary/typespec.md) -- Type annotations validated as part of Clean Run
+- [AutoEvolve](@/glossary/autoevolve.md) -- Evolution system maintaining Clean Run through automatic detection
+- [AutoHeal](@/glossary/autoheal.md) -- Self-repair system triggered by Clean Run regressions
+- [Mix](@/glossary/mix.md) -- Build tool executing Clean Run compilation checks
+- [Code Coverage](@/glossary/code-coverage.md) -- Coverage metric complementing Clean Run quality checks
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Testing technique validating Clean Run fixes
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement pipeline incorporating Clean Run checks
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Capabilities](/capabilities/) -- Platform quality capabilities
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Capabilities](@/capabilities/_index.md) -- Platform quality capabilities
 
 ---
 
@@ -399,4 +399,4 @@ Clean Run status is recorded in each application's Quality DNA file (`.claude/qu
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

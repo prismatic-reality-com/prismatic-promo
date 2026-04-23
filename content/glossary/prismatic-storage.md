@@ -642,14 +642,14 @@ end
 
 ## Related Concepts
 
-- [ETS Table](/glossary/ets-table/) -- In-memory storage backend for high-speed data access
-- [Ecto](/glossary/ecto/) -- Database toolkit powering the relational storage adapter
-- [PostgreSQL](/glossary/postgresql/) -- Primary persistent storage backend
-- [Meilisearch](/glossary/meilisearch/) -- Full-text and vector search backend
-- [KuzuDB](/glossary/kuzudb/) -- Graph database backend for relationship queries
-- [Behaviour](/glossary/behaviour/) -- Callback mechanism defining storage contracts
-- [Protocol](/glossary/protocol/) -- Type-based dispatch for the Storable protocol
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Design pattern underlying the storage architecture
+- [ETS Table](@/glossary/ets-table.md) -- In-memory storage backend for high-speed data access
+- [Ecto](@/glossary/ecto.md) -- Database toolkit powering the relational storage adapter
+- [PostgreSQL](@/glossary/postgresql.md) -- Primary persistent storage backend
+- [Meilisearch](@/glossary/meilisearch.md) -- Full-text and vector search backend
+- [KuzuDB](@/glossary/kuzudb.md) -- Graph database backend for relationship queries
+- [Behaviour](@/glossary/behaviour.md) -- Callback mechanism defining storage contracts
+- [Protocol](@/glossary/protocol.md) -- Type-based dispatch for the Storable protocol
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Design pattern underlying the storage architecture
 
 ## See Also
 
@@ -661,8 +661,8 @@ end
 - [prismatic_storage_redis](../../../apps/prismatic_storage_redis/README.md) -- Redis adapter for distributed caching
 - [prismatic_storage_duckdb](../../../apps/prismatic_storage_duckdb/README.md) -- DuckDB adapter for analytical queries
 - [prismatic_storage](../../../apps/prismatic_storage/README.md) -- Storage coordination and backend selection
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Umbrella applications using the storage layer
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Umbrella applications using the storage layer
 
 ---
 
@@ -671,4 +671,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

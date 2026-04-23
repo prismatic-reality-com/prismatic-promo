@@ -500,24 +500,24 @@ Production releases require specific compilation configurations: protocol consol
 
 Compilation connects to numerous technical concepts within the Prismatic Platform:
 
-- [BEAM VM](/glossary/beam-vm/) -- The virtual machine that executes compiled Elixir bytecode, providing concurrent execution, fault tolerance, and hot code reloading.
-- [AST](/glossary/ast/) -- The Abstract Syntax Tree intermediate representation produced during parsing and manipulated during macro expansion.
-- [Static Analysis](/glossary/static-analysis/) -- Analysis techniques applied to compiled code or AST representations to detect defects without execution.
-- [Dialyzer](/glossary/dialyzer/) -- The BEAM ecosystem's primary static analysis tool, operating on compiled bytecode to detect type errors and unreachable code.
-- [Credo](/glossary/credo/) -- Elixir's static code analysis tool that operates on source code and AST to enforce style and consistency rules.
-- [Zero-Warning Policy](/glossary/zero-warning-policy/) -- The Prismatic Platform's policy of treating all compilation warnings as errors, enforcing clean builds.
-- [Quality Gate](/glossary/quality-gate/) -- Automated checkpoints that code must pass before proceeding, with compilation being the first gate.
-- [Clean Run](/glossary/clean-run/) -- A compilation and test execution with zero warnings, zero errors, and complete test passage.
-- [Typespec](/glossary/typespec/) -- Elixir type specifications that enhance compilation analysis and enable Dialyzer verification.
-- [Release](/glossary/release/) -- The production deployment artifact produced by compiling, consolidating, and packaging an Elixir application.
+- [BEAM VM](@/glossary/beam-vm.md) -- The virtual machine that executes compiled Elixir bytecode, providing concurrent execution, fault tolerance, and hot code reloading.
+- [AST](@/glossary/ast.md) -- The Abstract Syntax Tree intermediate representation produced during parsing and manipulated during macro expansion.
+- [Static Analysis](@/glossary/static-analysis.md) -- Analysis techniques applied to compiled code or AST representations to detect defects without execution.
+- [Dialyzer](@/glossary/dialyzer.md) -- The BEAM ecosystem's primary static analysis tool, operating on compiled bytecode to detect type errors and unreachable code.
+- [Credo](@/glossary/credo.md) -- Elixir's static code analysis tool that operates on source code and AST to enforce style and consistency rules.
+- [Zero-Warning Policy](@/glossary/zero-warning-policy.md) -- The Prismatic Platform's policy of treating all compilation warnings as errors, enforcing clean builds.
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated checkpoints that code must pass before proceeding, with compilation being the first gate.
+- [Clean Run](@/glossary/clean-run.md) -- A compilation and test execution with zero warnings, zero errors, and complete test passage.
+- [Typespec](@/glossary/typespec.md) -- Elixir type specifications that enhance compilation analysis and enable Dialyzer verification.
+- [Release](@/glossary/release.md) -- The production deployment artifact produced by compiling, consolidating, and packaging an Elixir application.
 
 ## See Also
 
-- [BEAM](/glossary/beam/) -- The Erlang virtual machine underlying Elixir compilation and execution
-- [Phoenix Framework](/glossary/phoenix-framework/) -- Web framework with specific compilation requirements for templates and routes
-- [Umbrella Application](/glossary/umbrella-application/) -- The project structure that shapes compilation strategy for the Prismatic Platform
-- [Test Coverage](/glossary/test-coverage/) -- Coverage measurement that depends on compilation instrumentation
-- [Quality Gates](/glossary/quality-gates/) -- The multi-phase quality pipeline in which compilation is the first gate
+- [BEAM](@/glossary/beam.md) -- The Erlang virtual machine underlying Elixir compilation and execution
+- [Phoenix Framework](@/glossary/phoenix-framework.md) -- Web framework with specific compilation requirements for templates and routes
+- [Umbrella Application](@/glossary/umbrella-application.md) -- The project structure that shapes compilation strategy for the Prismatic Platform
+- [Test Coverage](@/glossary/test-coverage.md) -- Coverage measurement that depends on compilation instrumentation
+- [Quality Gates](@/glossary/quality-gates.md) -- The multi-phase quality pipeline in which compilation is the first gate
 
 ---
 

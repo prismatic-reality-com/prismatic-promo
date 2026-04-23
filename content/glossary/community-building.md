@@ -93,11 +93,11 @@ The Prismatic Platform implements community building through several concrete me
 
 ### Open-Source Licensing (GHL)
 
-The [GHL License](/glossary/ghl-license/) represents a deliberate governance choice. Unlike permissive licenses (MIT, Apache 2.0) that allow proprietary capture, or copyleft licenses (GPL) that mandate reciprocity, GHL balances openness with ecosystem protection. The license ensures that contributions flow back to the community rather than being captured by proprietary forks.
+The [GHL License](@/glossary/ghl-license.md) represents a deliberate governance choice. Unlike permissive licenses (MIT, Apache 2.0) that allow proprietary capture, or copyleft licenses (GPL) that mandate reciprocity, GHL balances openness with ecosystem protection. The license ensures that contributions flow back to the community rather than being captured by proprietary forks.
 
 ### Developer Portal Architecture
 
-The [developer portal](/glossary/developer-portal/) serves as the primary entry point for community participation. It is not merely documentation -- it is an onboarding pipeline designed to convert curious visitors into active contributors.
+The [developer portal](@/glossary/developer-portal.md) serves as the primary entry point for community participation. It is not merely documentation -- it is an onboarding pipeline designed to convert curious visitors into active contributors.
 
 ```elixir
 defmodule PrismaticCommunity.ContributorOnboarding do
@@ -311,9 +311,9 @@ end
 
 ### AIAD Agent Ecosystem as Community Infrastructure
 
-The [AIAD](/glossary/aiad/) standard itself is a community-building mechanism. By defining clear interfaces for agents, commands, and policies, the platform creates a framework where community members can contribute new capabilities without deep knowledge of the entire codebase. Each AIAD agent specification acts as a contract that enables independent development and review.
+The [AIAD](@/glossary/aiad.md) standard itself is a community-building mechanism. By defining clear interfaces for agents, commands, and policies, the platform creates a framework where community members can contribute new capabilities without deep knowledge of the entire codebase. Each AIAD agent specification acts as a contract that enables independent development and review.
 
-The 530+ agents in the platform registry represent a community artifact -- each agent was designed, implemented, tested, and documented following shared standards. The [agent registry](/glossary/agent-registry/) serves as both a technical catalog and a social document showing the breadth of community contribution.
+The 530+ agents in the platform registry represent a community artifact -- each agent was designed, implemented, tested, and documented following shared standards. The [agent registry](@/glossary/agent-registry.md) serves as both a technical catalog and a social document showing the breadth of community contribution.
 
 ## Comparison with Alternatives
 
@@ -346,7 +346,7 @@ Foundation-backed projects (Apache, CNCF, Eclipse) gain legal protection, infras
 
 **Establish governance before you need it**. Governance disputes in growing communities are destructive. Define decision-making processes, conflict resolution mechanisms, and role progression criteria early, before they are tested by real disagreements.
 
-**Invest in automation for contributor experience**. CI/CD that provides fast, clear feedback on PRs. Linting that catches style issues automatically rather than burdening reviewers. Templates for issues and PRs that guide contributors toward providing necessary information. The Prismatic Platform's [pre-commit hooks](/glossary/pre-commit-hooks/) and [quality gates](/glossary/quality-gates/) serve this purpose -- they enforce standards without human gatekeeping.
+**Invest in automation for contributor experience**. CI/CD that provides fast, clear feedback on PRs. Linting that catches style issues automatically rather than burdening reviewers. Templates for issues and PRs that guide contributors toward providing necessary information. The Prismatic Platform's [pre-commit hooks](@/glossary/pre-commit-hooks.md) and [quality gates](@/glossary/quality-gates.md) serve this purpose -- they enforce standards without human gatekeeping.
 
 **Create multiple entry points**. Not every contributor wants to write code. Some want to write documentation. Some want to triage issues. Some want to mentor newcomers. Design your community structure with multiple roles and progression paths.
 
@@ -354,7 +354,7 @@ Foundation-backed projects (Apache, CNCF, Eclipse) gain legal protection, infras
 
 **Building a community around a product rather than a mission**. Products change, pivot, or fail. Communities built around a shared mission -- "make security intelligence accessible to everyone" or "prove that quality and speed are not opposing forces" -- survive product evolution because the mission transcends any particular implementation.
 
-**Treating community building as a part-time activity**. Community management requires dedicated attention. Unanswered issues, unreviewed PRs, and silent communication channels signal neglect. If you start building a community, commit to maintaining it. The Prismatic Platform's [session discipline protocol](/glossary/session-discipline/) applies this principle -- consistent engagement, never deferred.
+**Treating community building as a part-time activity**. Community management requires dedicated attention. Unanswered issues, unreviewed PRs, and silent communication channels signal neglect. If you start building a community, commit to maintaining it. The Prismatic Platform's [session discipline protocol](@/glossary/session-discipline.md) applies this principle -- consistent engagement, never deferred.
 
 **Confusing a mailing list with a community**. Broadcast communication (newsletters, announcements) is not community. Community requires dialogue, interaction, and mutual support. Create spaces where members interact with each other, not just with the project maintainers.
 
@@ -368,42 +368,42 @@ Foundation-backed projects (Apache, CNCF, Eclipse) gain legal protection, infras
 
 ### Open-Source Platform Development
 
-Building a community around a platform like Prismatic involves creating multiple layers of participation. Core developers contribute to the platform's 115 umbrella applications. AIAD contributors design new agents and commands following the standard specification format. Documentation contributors enhance the promo site's 1,052+ markdown files. Security researchers participate through the [color teams](/glossary/color-teams/) framework. Each layer has its own tools, processes, and progression paths, but all contribute to the platform's evolution.
+Building a community around a platform like Prismatic involves creating multiple layers of participation. Core developers contribute to the platform's 115 umbrella applications. AIAD contributors design new agents and commands following the standard specification format. Documentation contributors enhance the promo site's 1,052+ markdown files. Security researchers participate through the [color teams](@/glossary/color-teams.md) framework. Each layer has its own tools, processes, and progression paths, but all contribute to the platform's evolution.
 
 ### Developer Ecosystem Growth
 
-The [ecosystem expansion](/glossary/ecosystem-expansion/) strategy (Gen 19) represents community building at the ecosystem level. By publishing 4 OSS packages (SDK, Plugin Kit, Security, UI), the platform creates extension points where community members can build their own tools, integrations, and applications. Each package has its own issue tracker, contribution guide, and release cycle, creating multiple semi-autonomous communities that feed back into the main project.
+The [ecosystem expansion](@/glossary/ecosystem-expansion.md) strategy (Gen 19) represents community building at the ecosystem level. By publishing 4 OSS packages (SDK, Plugin Kit, Security, UI), the platform creates extension points where community members can build their own tools, integrations, and applications. Each package has its own issue tracker, contribution guide, and release cycle, creating multiple semi-autonomous communities that feed back into the main project.
 
 ### Knowledge Sharing and Education
 
-The glossary itself -- with 600+ terms -- is a community artifact. Each term represents shared understanding, a common vocabulary that enables efficient communication among community members. The [learning path](/glossary/learning-path/) system guides newcomers from foundational concepts to advanced topics, reducing the knowledge barrier that prevents participation.
+The glossary itself -- with 600+ terms -- is a community artifact. Each term represents shared understanding, a common vocabulary that enables efficient communication among community members. The [learning path](@/glossary/learning-path.md) system guides newcomers from foundational concepts to advanced topics, reducing the knowledge barrier that prevents participation.
 
 ### Security Community Engagement
 
-The [color team](/glossary/color-teams/) structure creates a community of practice around security. [Red team](/glossary/red-team/) members simulate attacks, [blue team](/glossary/blue-team/) members design defenses, [purple team](/glossary/purple-team/) members synthesize findings. This structure transforms security from a solo activity into a collaborative discipline where diverse perspectives strengthen the overall posture.
+The [color team](@/glossary/color-teams.md) structure creates a community of practice around security. [Red team](@/glossary/red-team.md) members simulate attacks, [blue team](@/glossary/blue-team.md) members design defenses, [purple team](@/glossary/purple-team.md) members synthesize findings. This structure transforms security from a solo activity into a collaborative discipline where diverse perspectives strengthen the overall posture.
 
 ## Related Concepts
 
-- [Open Source](/glossary/open-source/) -- The licensing and development model that enables community building around shared code
-- [Community Over Corporation](/glossary/community-over-corporation/) -- The philosophical commitment to prioritizing community interests over corporate capture
-- [Developer Community](/glossary/developer-community/) -- The specific subset of community focused on technical practitioners
-- [Collaborative Development](/glossary/collaborative-development/) -- The practice of multiple contributors working on shared codebases
-- [GHL License](/glossary/ghl-license/) -- The licensing framework that protects community contributions from proprietary capture
-- [Developer Portal](/glossary/developer-portal/) -- The infrastructure that serves as the community's front door
-- [Ecosystem Expansion](/glossary/ecosystem-expansion/) -- The strategy of growing community through extension points and published packages
-- [Community Engagement](/glossary/community-engagement/) -- Active practices for maintaining and deepening community participation
-- [Community Ownership](/glossary/community-ownership/) -- Governance model where the community controls the project's direction
-- [AIAD](/glossary/aiad/) -- The agent standard that enables community-contributed agents and commands
-- [Quality Gates](/glossary/quality-gates/) -- Automated enforcement that maintains quality without human gatekeeping
-- [Color Teams](/glossary/color-teams/) -- Security community structure enabling collaborative adversarial-defensive practice
+- [Open Source](@/glossary/open-source.md) -- The licensing and development model that enables community building around shared code
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- The philosophical commitment to prioritizing community interests over corporate capture
+- [Developer Community](@/glossary/developer-community.md) -- The specific subset of community focused on technical practitioners
+- [Collaborative Development](@/glossary/collaborative-development.md) -- The practice of multiple contributors working on shared codebases
+- [GHL License](@/glossary/ghl-license.md) -- The licensing framework that protects community contributions from proprietary capture
+- [Developer Portal](@/glossary/developer-portal.md) -- The infrastructure that serves as the community's front door
+- [Ecosystem Expansion](@/glossary/ecosystem-expansion.md) -- The strategy of growing community through extension points and published packages
+- [Community Engagement](@/glossary/community-engagement.md) -- Active practices for maintaining and deepening community participation
+- [Community Ownership](@/glossary/community-ownership.md) -- Governance model where the community controls the project's direction
+- [AIAD](@/glossary/aiad.md) -- The agent standard that enables community-contributed agents and commands
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated enforcement that maintains quality without human gatekeeping
+- [Color Teams](@/glossary/color-teams.md) -- Security community structure enabling collaborative adversarial-defensive practice
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture enabling community contribution
-- [Capabilities](/capabilities/) -- Platform capabilities built through community effort
-- [Agents](/agents/) -- 530+ community-contributed AIAD agents
-- [Commands](/commands/) -- 225+ community-contributed AIAD commands
-- [OSINT](/osint/) -- 120 OSINT tools developed through community collaboration
+- [Architecture](@/architecture/_index.md) -- Platform architecture enabling community contribution
+- [Capabilities](@/capabilities/_index.md) -- Platform capabilities built through community effort
+- [Agents](@/agents/_index.md) -- 530+ community-contributed AIAD agents
+- [Commands](@/commands/_index.md) -- 225+ community-contributed AIAD commands
+- [OSINT](@/osint/_index.md) -- 120 OSINT tools developed through community collaboration
 
 ---
 
@@ -412,4 +412,4 @@ The [color team](/glossary/color-teams/) structure creates a community of practi
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,11 +24,11 @@ image_alt = "/spec-coverage - Prismatic Platform"
 
 ## Overview
 
-**/spec-coverage** is a production command in the **Quality** category of the Prismatic Platform that analyzes `@spec` coverage for [typespec](/glossary/typespec/) completeness across the codebase. Type specifications in Elixir serve as both documentation and verification artifacts -- they describe the expected input types and return types of functions, enabling Dialyzer to perform static type analysis and catch type-related bugs at compile time rather than in production. The `/spec-coverage` command measures how completely the codebase's public API is annotated with type specifications and identifies gaps that could allow type errors to go undetected.
+**/spec-coverage** is a production command in the **Quality** category of the Prismatic Platform that analyzes `@spec` coverage for [typespec](@/glossary/typespec.md) completeness across the codebase. Type specifications in Elixir serve as both documentation and verification artifacts -- they describe the expected input types and return types of functions, enabling Dialyzer to perform static type analysis and catch type-related bugs at compile time rather than in production. The `/spec-coverage` command measures how completely the codebase's public API is annotated with type specifications and identifies gaps that could allow type errors to go undetected.
 
 In a codebase of over 6,652 `.ex` files spanning 89 umbrella applications, maintaining comprehensive typespec coverage is a significant ongoing effort. Without automated measurement and enforcement, coverage tends to erode over time as developers add new functions without corresponding specs, or modify function signatures without updating the associated type annotations. The `/spec-coverage` command provides the measurement foundation that makes the platform's 100% typespec coverage target actionable and verifiable.
 
-This command operates under the **L2+** authority level and is executed by the `quality-unified-supreme` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The analysis integrates with the broader quality pipeline, feeding coverage metrics into the [Quality DNA](/glossary/quality-dna/) system and contributing to the platform's 100/100 quality score.
+This command operates under the **L2+** authority level and is executed by the `quality-unified-supreme` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The analysis integrates with the broader quality pipeline, feeding coverage metrics into the [Quality DNA](@/glossary/quality-dna.md) system and contributing to the platform's 100/100 quality score.
 
 The command goes beyond simple presence/absence checking. It validates that specs are semantically meaningful (not just `@spec function(any()) :: any()`), that they accurately reflect the function's actual behavior (cross-referenced with Dialyzer), and that complex types use named type definitions rather than inline anonymous types, improving readability and reusability of type annotations.
 
@@ -154,13 +154,13 @@ Source Files
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Dialyzer](/glossary/dialyzer/) | Cross-Validation | Verifies spec accuracy against inferred types |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Spec coverage is a quality gate checkpoint |
-| [Quality DNA](/glossary/quality-dna/) | Metrics | Coverage metrics feed into Quality DNA state |
-| [Credo](/glossary/credo/) | Complementary | Credo checks for missing specs; this command provides deeper analysis |
-| [Telemetry](/glossary/telemetry/) | Observability | Coverage metrics emitted as telemetry events |
-| [/six-sigma-psycho](/commands/six-sigma-psycho/) | PSYCHO Layer | Spec coverage is part of PSYCHO Layer 5 analysis |
-| [/regression-check](/commands/regression-check/) | Regression | Coverage decreases trigger regression violations |
+| [Dialyzer](@/glossary/dialyzer.md) | Cross-Validation | Verifies spec accuracy against inferred types |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Spec coverage is a quality gate checkpoint |
+| [Quality DNA](@/glossary/quality-dna.md) | Metrics | Coverage metrics feed into Quality DNA state |
+| [Credo](@/glossary/credo.md) | Complementary | Credo checks for missing specs; this command provides deeper analysis |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Coverage metrics emitted as telemetry events |
+| [/six-sigma-psycho](@/commands/six-sigma-psycho.md) | PSYCHO Layer | Spec coverage is part of PSYCHO Layer 5 analysis |
+| [/regression-check](@/commands/regression-check.md) | Regression | Coverage decreases trigger regression violations |
 
 ## Best Practices
 
@@ -224,19 +224,19 @@ Source Files
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: The platform mandates 100% typespec coverage on all public functions. Functions without specs are treated as quality violations subject to the same enforcement as compilation warnings or test failures. The `--quality-check` mode goes further, rejecting specs that are technically present but semantically useless.
 - **NO DOUBTS**: Coverage metrics are computed from AST analysis of actual source code -- not estimates or samples. Cross-validation with Dialyzer provides independent verification that specs accurately describe function behavior. Coverage results are reproducible and auditable.
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/six-sigma-psycho](/commands/six-sigma-psycho/) - Six Sigma quality gate enforcement with PSYCHO MODE intensity
-- [/verify-patterns](/commands/verify-patterns/) - Pattern matching audit for file, module or entire codebase
-- [/trinity](/commands/trinity/) - Trinity system status and rigidity score verification
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/six-sigma-psycho](@/commands/six-sigma-psycho.md) - Six Sigma quality gate enforcement with PSYCHO MODE intensity
+- [/verify-patterns](@/commands/verify-patterns.md) - Pattern matching audit for file, module or entire codebase
+- [/trinity](@/commands/trinity.md) - Trinity system status and rigidity score verification
 
 ---
 
@@ -245,4 +245,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

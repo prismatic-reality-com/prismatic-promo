@@ -368,12 +368,12 @@ Commit -> CI Pipeline -> Build Docker Image -> Deploy to Staging -> Validate
 
 ### BEAM-Specific Considerations
 
-The [BEAM](/glossary/beam/) VM provides additional deployment capabilities that complement blue-green deployment:
+The [BEAM](@/glossary/beam.md) VM provides additional deployment capabilities that complement blue-green deployment:
 
 | BEAM Feature | Benefit | Use Case |
 |-------------|---------|----------|
 | Hot Code Reload | Enables in-place code updates for minor changes without environment switching | Bug fixes, config changes |
-| Graceful Drain | Connected [WebSocket](/glossary/websocket/)/[LiveView](/glossary/liveview/) clients are gracefully migrated | Real-time dashboards |
+| Graceful Drain | Connected [WebSocket](@/glossary/websocket.md)/[LiveView](@/glossary/liveview.md) clients are gracefully migrated | Real-time dashboards |
 | Distribution | Nodes can join and leave clusters without downtime | Scaling, maintenance |
 | Application Restart | Individual OTP applications can restart without affecting others | Targeted recovery |
 | Rolling Restart | Within a cluster, nodes can restart one at a time | Zero-impact maintenance |
@@ -475,7 +475,7 @@ end
 
 ## LiveView Connection Handling
 
-Blue-green deployments require special attention for [LiveView](/glossary/liveview/) and [WebSocket](/glossary/websocket/) connections, which are long-lived and stateful:
+Blue-green deployments require special attention for [LiveView](@/glossary/liveview.md) and [WebSocket](@/glossary/websocket.md) connections, which are long-lived and stateful:
 
 ```elixir
 defmodule PrismaticWeb.DeploymentDrainHandler do
@@ -541,7 +541,7 @@ CMD ["/app/bin/prismatic", "start"]
 
 6. **Set a retirement policy** -- Define how long the standby environment is kept before being updated for the next deployment cycle.
 
-7. **Handle long-lived connections** -- [WebSocket](/glossary/websocket/) and [LiveView](/glossary/liveview/) connections need graceful draining during switchover.
+7. **Handle long-lived connections** -- [WebSocket](@/glossary/websocket.md) and [LiveView](@/glossary/liveview.md) connections need graceful draining during switchover.
 
 8. **Use health check cascades** -- Check not just HTTP endpoints but database connectivity, cache availability, and external service reachability.
 
@@ -561,22 +561,22 @@ CMD ["/app/bin/prismatic", "start"]
 
 ## Related Concepts
 
-- [Continuous Deployment](/glossary/continuous-deployment/) -- Automated pipeline triggering blue-green deployments
-- [Canary Release](/glossary/canary-release/) -- Gradual traffic migration alternative to atomic switching
-- [Feature Flag](/glossary/feature-flag/) -- Runtime control complementing deployment strategies
-- [Load Balancing](/glossary/load-balancing/) -- Traffic routing enabling environment switching
-- [Disaster Recovery](/glossary/disaster-recovery/) -- Broader resilience strategy that blue-green supports
-- [Docker](/glossary/docker/) -- Container technology used for environment parity
-- [Release](/glossary/release/) -- OTP release building for deployment artifacts
-- [WebSocket](/glossary/websocket/) -- Long-lived connections requiring graceful handling during switches
-- [LiveView](/glossary/liveview/) -- Server-rendered UI with stateful connections affected by deployments
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- Automated pipeline triggering blue-green deployments
+- [Canary Release](@/glossary/canary-release.md) -- Gradual traffic migration alternative to atomic switching
+- [Feature Flag](@/glossary/feature-flag.md) -- Runtime control complementing deployment strategies
+- [Load Balancing](@/glossary/load-balancing.md) -- Traffic routing enabling environment switching
+- [Disaster Recovery](@/glossary/disaster-recovery.md) -- Broader resilience strategy that blue-green supports
+- [Docker](@/glossary/docker.md) -- Container technology used for environment parity
+- [Release](@/glossary/release.md) -- OTP release building for deployment artifacts
+- [WebSocket](@/glossary/websocket.md) -- Long-lived connections requiring graceful handling during switches
+- [LiveView](@/glossary/liveview.md) -- Server-rendered UI with stateful connections affected by deployments
 
 ## Further Reading
 
 - [Fly.io Deployment Documentation](https://fly.io/docs/reference/deploy/) -- Platform deployment reference
-- [Architecture](/architecture/) -- Deployment architecture
-- [Technologies](/technologies/) -- Fly.io deployment infrastructure
-- [Apps](/apps/) -- Applications deployed via blue-green strategy
+- [Architecture](@/architecture/_index.md) -- Deployment architecture
+- [Technologies](@/technologies/_index.md) -- Fly.io deployment infrastructure
+- [Apps](@/apps/_index.md) -- Applications deployed via blue-green strategy
 
 ---
 
@@ -585,4 +585,4 @@ CMD ["/app/bin/prismatic", "start"]
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

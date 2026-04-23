@@ -37,7 +37,7 @@ image_alt = "Zero Tolerance Quality - Prismatic Platform"
 
 ## Definition
 
-**Zero Tolerance Quality** is the enforcement mechanism that transforms the [zero-compromise quality](/glossary/zero-compromise-quality/) philosophy into automated, non-bypassable quality gates at every stage of the software development lifecycle. While zero-compromise quality states the principle ("every line of code must be production-ready"), zero-tolerance quality implements the consequence ("non-compliant code is automatically blocked, and bypass attempts are detected and escalated"). Within the Prismatic Platform, zero-tolerance quality operates through an 11-phase pre-commit hook pipeline, a 4-level violation escalation protocol (L1 Warning through L4 Supreme Review), the Quality Floor Guardian maintaining a continuous 100/100 score, blocking CI/CD gates in the GitLab pipeline, automated forbidden pattern scanning, and a zero-bypass policy enforced through hook integrity monitoring. The critical distinction between this and the related [zero-compromise quality](/glossary/zero-compromise-quality/) is that zero-tolerance quality is about the enforcement infrastructure rather than the guiding philosophy -- it answers "how do we ensure compliance?" rather than "why do we demand it?"
+**Zero Tolerance Quality** is the enforcement mechanism that transforms the [zero-compromise quality](@/glossary/zero-compromise-quality.md) philosophy into automated, non-bypassable quality gates at every stage of the software development lifecycle. While zero-compromise quality states the principle ("every line of code must be production-ready"), zero-tolerance quality implements the consequence ("non-compliant code is automatically blocked, and bypass attempts are detected and escalated"). Within the Prismatic Platform, zero-tolerance quality operates through an 11-phase pre-commit hook pipeline, a 4-level violation escalation protocol (L1 Warning through L4 Supreme Review), the Quality Floor Guardian maintaining a continuous 100/100 score, blocking CI/CD gates in the GitLab pipeline, automated forbidden pattern scanning, and a zero-bypass policy enforced through hook integrity monitoring. The critical distinction between this and the related [zero-compromise quality](@/glossary/zero-compromise-quality.md) is that zero-tolerance quality is about the enforcement infrastructure rather than the guiding philosophy -- it answers "how do we ensure compliance?" rather than "why do we demand it?"
 
 ## Overview
 
@@ -473,18 +473,18 @@ These metrics are monitored continuously by the Quality Floor Guardian and displ
 
 ## Cross-References
 
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- The philosophical foundation that zero-tolerance quality enforces
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Specific policy enforced within the compilation phase
-- [Zero Tolerance](/glossary/zero-tolerance/) -- The general principle of zero-tolerance enforcement
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- The minimum quality score maintained by the Guardian
-- [Violation Protocol](/glossary/violation-protocol/) -- The 4-level escalation system for quality violations
-- [Verification](/glossary/verification/) -- The process that quality gates verify
-- [Test Coverage](/glossary/test-coverage/) -- Metric enforced by Phase 5 of the pre-commit pipeline
-- [Regression Testing](/glossary/regression-testing/) -- Mandatory protocol enforced for every bug fix
-- [Autoheal](/glossary/autoheal/) -- Autonomous system that fixes detected quality violations
-- [Autoevolve](/glossary/autoevolve/) -- Autonomous system that evolves enforcement standards
-- [Autonomous Quality](/glossary/autonomous-quality/) -- The self-maintaining quality system built on enforcement
-- [Technical Debt](/glossary/technical-debt/) -- What rigorous enforcement prevents from accumulating
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- The philosophical foundation that zero-tolerance quality enforces
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Specific policy enforced within the compilation phase
+- [Zero Tolerance](@/glossary/zero-tolerance.md) -- The general principle of zero-tolerance enforcement
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- The minimum quality score maintained by the Guardian
+- [Violation Protocol](@/glossary/violation-protocol.md) -- The 4-level escalation system for quality violations
+- [Verification](@/glossary/verification.md) -- The process that quality gates verify
+- [Test Coverage](@/glossary/test-coverage.md) -- Metric enforced by Phase 5 of the pre-commit pipeline
+- [Regression Testing](@/glossary/regression-testing.md) -- Mandatory protocol enforced for every bug fix
+- [Autoheal](@/glossary/autoheal.md) -- Autonomous system that fixes detected quality violations
+- [Autoevolve](@/glossary/autoevolve.md) -- Autonomous system that evolves enforcement standards
+- [Autonomous Quality](@/glossary/autonomous-quality.md) -- The self-maintaining quality system built on enforcement
+- [Technical Debt](@/glossary/technical-debt.md) -- What rigorous enforcement prevents from accumulating
 
 ## Best Practices
 

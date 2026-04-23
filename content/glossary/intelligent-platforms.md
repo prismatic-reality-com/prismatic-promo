@@ -355,24 +355,24 @@ Intelligent edge platforms manage thousands of distributed devices, automaticall
 
 Intelligent platforms draw from and integrate with numerous technical domains. Understanding these related concepts provides essential context for designing and operating intelligent systems:
 
-- [Autonomous Platforms](/glossary/autonomous-platforms/) -- platforms that operate independently, a subset of intelligence focused on operational autonomy
-- [Artificial Intelligence](/glossary/artificial-intelligence/) -- the foundational discipline enabling machine reasoning and learning capabilities
-- [Self-Healing](/glossary/self-healing/) -- automatic detection and remediation of system failures, a core intelligent platform capability
-- [Machine Learning](/glossary/machine-learning/) -- algorithms that improve through experience, powering predictive and adaptive behaviors
-- [Multi-Agent Systems](/glossary/multi-agent-system/) -- architectures where multiple autonomous agents collaborate, as in Prismatic's 530+ AIAD agents
-- [Observability](/glossary/observability/) -- the ability to understand internal system state from external outputs, the data foundation for intelligence
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP's hierarchical fault tolerance structure, the infrastructure substrate for self-healing
-- [Telemetry](/glossary/telemetry/) -- collection of operational metrics that feed the learning and decision systems
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- the ability of a platform to evolve its own architecture across generations
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Prismatic's autonomous quality monitoring system that prevents quality regression
+- [Autonomous Platforms](@/glossary/autonomous-platforms.md) -- platforms that operate independently, a subset of intelligence focused on operational autonomy
+- [Artificial Intelligence](@/glossary/artificial-intelligence.md) -- the foundational discipline enabling machine reasoning and learning capabilities
+- [Self-Healing](@/glossary/self-healing.md) -- automatic detection and remediation of system failures, a core intelligent platform capability
+- [Machine Learning](@/glossary/machine-learning.md) -- algorithms that improve through experience, powering predictive and adaptive behaviors
+- [Multi-Agent Systems](@/glossary/multi-agent-system.md) -- architectures where multiple autonomous agents collaborate, as in Prismatic's 530+ AIAD agents
+- [Observability](@/glossary/observability.md) -- the ability to understand internal system state from external outputs, the data foundation for intelligence
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP's hierarchical fault tolerance structure, the infrastructure substrate for self-healing
+- [Telemetry](@/glossary/telemetry.md) -- collection of operational metrics that feed the learning and decision systems
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- the ability of a platform to evolve its own architecture across generations
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Prismatic's autonomous quality monitoring system that prevents quality regression
 
 ## See Also
 
-- [Intelligence Platform](/glossary/intelligence-platform/) -- platforms focused specifically on intelligence analysis and fusion
-- [AI Agent](/glossary/ai-agent/) -- individual autonomous agents that comprise the intelligent platform's decision-making layer
-- [AutoEvolve](/glossary/autoevolve/) -- Prismatic's autonomous evolution system for platform-wide improvement
-- [AutoHeal](/glossary/autoheal/) -- Prismatic's self-healing system for autonomous quality remediation
-- [SEADF](/glossary/seadf/) -- the Self-Evolving Autonomous Development Framework powering Prismatic's intelligence
+- [Intelligence Platform](@/glossary/intelligence-platform.md) -- platforms focused specifically on intelligence analysis and fusion
+- [AI Agent](@/glossary/ai-agent.md) -- individual autonomous agents that comprise the intelligent platform's decision-making layer
+- [AutoEvolve](@/glossary/autoevolve.md) -- Prismatic's autonomous evolution system for platform-wide improvement
+- [AutoHeal](@/glossary/autoheal.md) -- Prismatic's self-healing system for autonomous quality remediation
+- [SEADF](@/glossary/seadf.md) -- the Self-Evolving Autonomous Development Framework powering Prismatic's intelligence
 
 ---
 

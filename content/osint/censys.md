@@ -27,9 +27,9 @@ image_alt = "Censys - Prismatic Platform"
 
 Censys is an Internet intelligence platform founded by researchers at the University of Michigan who created ZMap, the fastest Internet-wide scanner. Censys continuously scans the entire IPv4 address space and popular IPv6 ranges, indexing every reachable host, service, and certificate into a searchable database. The platform performs daily scans across more than 3,500 ports, generating one of the most comprehensive and up-to-date views of the global Internet infrastructure available to security professionals and researchers.
 
-Unlike simple port scanners that merely detect open ports, Censys performs deep application-layer handshakes, capturing full [TLS](/glossary/tls/) certificates, HTTP responses, banner data, and [protocol](/glossary/protocol/)-specific metadata. This application-layer enrichment transforms raw scan data into actionable intelligence about software versions, configurations, misconfigurations, and vulnerabilities. The platform's research heritage ensures rigorous methodology, with peer-reviewed scanning techniques that minimize disruption to scanned networks while maximizing data quality.
+Unlike simple port scanners that merely detect open ports, Censys performs deep application-layer handshakes, capturing full [TLS](@/glossary/tls.md) certificates, HTTP responses, banner data, and [protocol](@/glossary/protocol.md)-specific metadata. This application-layer enrichment transforms raw scan data into actionable intelligence about software versions, configurations, misconfigurations, and vulnerabilities. The platform's research heritage ensures rigorous methodology, with peer-reviewed scanning techniques that minimize disruption to scanned networks while maximizing data quality.
 
-Censys serves as the foundational data source for [attack surface](/glossary/attack-surface/) management programs, enabling organizations to discover assets they did not know they owned, identify shadow IT deployments, and continuously monitor their Internet-facing infrastructure for configuration changes and emerging vulnerabilities. The platform's combination of breadth (scanning every routable IP) and depth (full application-layer analysis) makes it uniquely suited for comprehensive external attack surface enumeration.
+Censys serves as the foundational data source for [attack surface](@/glossary/attack-surface.md) management programs, enabling organizations to discover assets they did not know they owned, identify shadow IT deployments, and continuously monitor their Internet-facing infrastructure for configuration changes and emerging vulnerabilities. The platform's combination of breadth (scanning every routable IP) and depth (full application-layer analysis) makes it uniquely suited for comprehensive external attack surface enumeration.
 
 ## Data Sources and Coverage
 
@@ -43,14 +43,14 @@ Censys aggregates data from multiple scanning and intelligence sources to build 
 | **Autonomous Systems** | ASN ownership, routing data, and peering relationships | Daily |
 | **Cloud Assets** | AWS, Azure, GCP resource identification and attribution | Daily |
 | **Software** | CPE-based software identification and version detection | Daily |
-| **Vulnerabilities** | [CVE](/glossary/cve/) mapping based on detected software versions | Daily |
+| **Vulnerabilities** | [CVE](@/glossary/cve.md) mapping based on detected software versions | Daily |
 | **Historical Data** | Point-in-time snapshots of host configurations | Archived |
 | **DNS Records** | Forward and reverse DNS resolution for all scanned hosts | Daily |
 | **JARM Fingerprints** | TLS server fingerprints for application identification | Daily |
 
 ### Certificate Transparency Integration
 
-Censys ingests all [Certificate Transparency](/glossary/certificate-transparency/) (CT) logs, providing a comprehensive view of every publicly trusted certificate ever issued. This integration enables subdomain discovery from certificate Subject Alternative Names (SANs), certificate expiry monitoring across organizational portfolios, rogue and unauthorized certificate detection, certificate authority trust chain analysis, and wildcard certificate coverage mapping. The CT log ingestion is continuous, meaning newly issued certificates appear in Censys search results within minutes of issuance.
+Censys ingests all [Certificate Transparency](@/glossary/certificate-transparency.md) (CT) logs, providing a comprehensive view of every publicly trusted certificate ever issued. This integration enables subdomain discovery from certificate Subject Alternative Names (SANs), certificate expiry monitoring across organizational portfolios, rogue and unauthorized certificate detection, certificate authority trust chain analysis, and wildcard certificate coverage mapping. The CT log ingestion is continuous, meaning newly issued certificates appear in Censys search results within minutes of issuance.
 
 ### Data Freshness and Quality
 
@@ -218,7 +218,7 @@ end
 
 ### External Attack Surface Management
 
-Censys is the primary data source for [EASM](/glossary/easm/) programs that need comprehensive visibility into an organization's Internet-facing infrastructure. Use cases include discovering all Internet-facing assets for an organization including forgotten and shadow IT systems, mapping cloud infrastructure across AWS, Azure, and GCP deployments, identifying unauthorized services exposed to the Internet, monitoring certificate health and expiry across the enterprise portfolio, and detecting configuration drift in TLS settings and security headers.
+Censys is the primary data source for [EASM](@/glossary/easm.md) programs that need comprehensive visibility into an organization's Internet-facing infrastructure. Use cases include discovering all Internet-facing assets for an organization including forgotten and shadow IT systems, mapping cloud infrastructure across AWS, Azure, and GCP deployments, identifying unauthorized services exposed to the Internet, monitoring certificate health and expiry across the enterprise portfolio, and detecting configuration drift in TLS settings and security headers.
 
 ### Threat Intelligence and Hunting
 
@@ -246,7 +246,7 @@ Historical data is maintained with immutable timestamps, enabling point-in-time 
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, Censys serves as a foundational data source for the [Prismatic Perimeter](/apps/prismatic-perimeter/) EASM module. The integration operates at multiple levels.
+Within the Prismatic ecosystem, Censys serves as a foundational data source for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) EASM module. The integration operates at multiple levels.
 
 The asset discovery pipeline uses Censys as the primary enumeration engine, combining certificate-based, DNS-based, and organization-based discovery methods to build a comprehensive asset inventory. Discovered assets are automatically enriched with service details, vulnerability mapping, and configuration analysis.
 
@@ -254,7 +254,7 @@ The security rating engine incorporates Censys data into its scoring model, pena
 
 The continuous monitoring system polls Censys for changes to monitored assets, generating alerts when new services appear, certificates expire, or configuration changes are detected. This enables near-real-time attack surface monitoring without requiring the organization to deploy its own scanning infrastructure.
 
-Censys data is correlated with intelligence from complementary sources including [Shodan](/osint/shodan/) for cross-validation of detected services, [crt.sh](/osint/crtsh/) for certificate transparency verification, [GreyNoise](/osint/greynoise/) for distinguishing scanning noise from targeted attacks, and [AbuseIPDB](/osint/abuseipdb/) for IP reputation context.
+Censys data is correlated with intelligence from complementary sources including [Shodan](@/osint/shodan.md) for cross-validation of detected services, [crt.sh](@/osint/crtsh.md) for certificate transparency verification, [GreyNoise](@/osint/greynoise.md) for distinguishing scanning noise from targeted attacks, and [AbuseIPDB](@/osint/abuseipdb.md) for IP reputation context.
 
 ## NABLA Compliance
 
@@ -291,13 +291,13 @@ Typical query response times range from 200ms for individual host lookups to 2-5
 
 ## Related Resources
 
-- [Shodan](/osint/shodan/) - Internet device search engine with banner grabbing
-- [crt.sh](/osint/crtsh/) - Certificate Transparency log search
-- [GreyNoise](/osint/greynoise/) - Distinguish scanners from targeted attacks
-- [AbuseIPDB](/osint/abuseipdb/) - IP reputation and abuse reporting
-- [Spyse](/osint/spyse/) - Internet assets search engine
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - EASM and security ratings
+- [Shodan](@/osint/shodan.md) - Internet device search engine with banner grabbing
+- [crt.sh](@/osint/crtsh.md) - Certificate Transparency log search
+- [GreyNoise](@/osint/greynoise.md) - Distinguish scanners from targeted attacks
+- [AbuseIPDB](@/osint/abuseipdb.md) - IP reputation and abuse reporting
+- [Spyse](@/osint/spyse.md) - Internet assets search engine
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - EASM and security ratings
 
 ---
 
@@ -306,4 +306,4 @@ Typical query response times range from 200ms for individual host lookups to 2-5
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

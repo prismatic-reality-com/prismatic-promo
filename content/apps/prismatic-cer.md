@@ -23,7 +23,7 @@ image_alt = "Prismatic CER - Prismatic Platform"
 
 ## Abstract
 
-Prismatic CER (Compliance and Evidence Repository) provides structured storage and management of compliance evidence, audit artifacts, and regulatory documentation within the Prismatic Platform. It supports [NIS2](/glossary/nis2/) Directive (EU 2022/2555), [GDPR](/glossary/gdpr/), ZKB 264/2025 Sb. (Czech cybersecurity law), and custom [compliance framework](/glossary/compliance-framework/)s by maintaining a tamper-proof repository of evidence collected from platform operations. The system implements SHA-256 content-addressable storage for tamper detection, continuous gap analysis against active frameworks, and an Auditor Portal via [Phoenix LiveView](/glossary/phoenix-liveview/) for authorized evidence review. In regulated industries, the ability to demonstrate compliance is as important as being compliant -- CER ensures the platform can produce auditable evidence chains for any compliance claim at any time.
+Prismatic CER (Compliance and Evidence Repository) provides structured storage and management of compliance evidence, audit artifacts, and regulatory documentation within the Prismatic Platform. It supports [NIS2](@/glossary/nis2.md) Directive (EU 2022/2555), [GDPR](@/glossary/gdpr.md), ZKB 264/2025 Sb. (Czech cybersecurity law), and custom [compliance framework](@/glossary/compliance-framework.md)s by maintaining a tamper-proof repository of evidence collected from platform operations. The system implements SHA-256 content-addressable storage for tamper detection, continuous gap analysis against active frameworks, and an Auditor Portal via [Phoenix LiveView](@/glossary/phoenix-liveview.md) for authorized evidence review. In regulated industries, the ability to demonstrate compliance is as important as being compliant -- CER ensures the platform can produce auditable evidence chains for any compliance claim at any time.
 
 ## 1. Introduction
 
@@ -183,19 +183,19 @@ config :prismatic_cer,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Storage Ecto](/apps/prismatic-storage-ecto/) | PostgreSQL persistence for evidence data |
-| [Prismatic Nabla](/apps/prismatic-nabla/) | Provenance tracking for evidence entries |
-| [Prismatic Web](/apps/prismatic-web/) | Auditor Portal LiveView dashboard |
+| [Prismatic Storage Ecto](@/apps/prismatic-storage-ecto.md) | PostgreSQL persistence for evidence data |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | Provenance tracking for evidence entries |
+| [Prismatic Web](@/apps/prismatic-web.md) | Auditor Portal LiveView dashboard |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Security assessment artifacts stored as compliance evidence |
-| [Prismatic Override](/apps/prismatic-override/) | Emergency action audit logs for incident compliance |
-| [Prismatic Narrative](/apps/prismatic-narrative/) | Intelligence reports stored as compliance documentation |
-| [Prismatic Compression](/apps/prismatic-compression/) | Evidence archival with retention policy enforcement |
-| [Prismatic Presales](/apps/prismatic-presales/) | Compliance capabilities for customer engagements |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Security assessment artifacts stored as compliance evidence |
+| [Prismatic Override](@/apps/prismatic-override.md) | Emergency action audit logs for incident compliance |
+| [Prismatic Narrative](@/apps/prismatic-narrative.md) | Intelligence reports stored as compliance documentation |
+| [Prismatic Compression](@/apps/prismatic-compression.md) | Evidence archival with retention policy enforcement |
+| [Prismatic Presales](@/apps/prismatic-presales.md) | Compliance capabilities for customer engagements |
 
 ### 4.3 Inter-Process Communication
 
@@ -236,7 +236,7 @@ StreamData generators produce random evidence entries and framework configuratio
 
 ## 7. NABLA Compliance
 
-CER is a primary consumer and enforcer of the provenance mandatory axiom. Every evidence entry carries full provenance metadata: source system, collection timestamp, collector identity, confidence level, and hash chain linkage. The [Trinity Gate](/glossary/trinity-gate/) validates that compliance claims are structurally consistent (evidence maps to requirements), logically consistent (evidence supports the claim), and formally verifiable (hash chains are intact).
+CER is a primary consumer and enforcer of the provenance mandatory axiom. Every evidence entry carries full provenance metadata: source system, collection timestamp, collector identity, confidence level, and hash chain linkage. The [Trinity Gate](@/glossary/trinity-gate.md) validates that compliance claims are structurally consistent (evidence maps to requirements), logically consistent (evidence supports the claim), and formally verifiable (hash chains are intact).
 
 ## 8. Supported Frameworks
 
@@ -256,11 +256,11 @@ Czech cybersecurity requirements with Czech-language report generation, covering
 
 ### 9.1 Deployment
 
-Deploys as part of the umbrella [release](/glossary/release/). Requires PostgreSQL for evidence storage. The Auditor Portal is accessible at `/compliance` through the platform web interface.
+Deploys as part of the umbrella [release](@/glossary/release.md). Requires PostgreSQL for evidence storage. The Auditor Portal is accessible at `/compliance` through the platform web interface.
 
 ### 9.2 Monitoring
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :cer, :evidence_stored]`, `[:prismatic, :cer, :gap_detected]`, `[:prismatic, :cer, :report_generated]`, `[:prismatic, :cer, :chain_verified]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :cer, :evidence_stored]`, `[:prismatic, :cer, :gap_detected]`, `[:prismatic, :cer, :report_generated]`, `[:prismatic, :cer, :chain_verified]`.
 
 ### 9.3 Troubleshooting
 
@@ -278,19 +278,19 @@ Planned enhancements include automated evidence collection from CI/CD pipeline a
 
 - [NIS2 Directive](https://eur-lex.europa.eu/eli/dir/2022/2555) -- EU cybersecurity directive
 - [GDPR](https://gdpr-info.eu/) -- General Data Protection Regulation
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- Security posture assessments
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- Security posture assessments
 
 ## Related Agents
 
-- [CER Compliance Commander](/agents/cer-compliance-commander/) -- Orchestrates compliance evidence collection and gap remediation campaigns
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures all compliance claims carry verifiable evidence chains
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews compliance architecture for regulatory alignment
+- [CER Compliance Commander](@/agents/cer-compliance-commander.md) -- Orchestrates compliance evidence collection and gap remediation campaigns
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures all compliance claims carry verifiable evidence chains
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews compliance architecture for regulatory alignment
 
 ## Related Capabilities
 
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Provenance mandatory axiom ensures all evidence is traceable to source
-- [Trinity Gate](/capabilities/trinity-gate/) -- Formal verification of compliance claim consistency
-- [AIAD Compliance](/capabilities/aiad-compliance/) -- Platform-wide compliance standard enforcement across all modules
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Provenance mandatory axiom ensures all evidence is traceable to source
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Formal verification of compliance claim consistency
+- [AIAD Compliance](@/capabilities/aiad-compliance.md) -- Platform-wide compliance standard enforcement across all modules
 
 ---
 
@@ -299,4 +299,4 @@ Planned enhancements include automated evidence collection from CI/CD pipeline a
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

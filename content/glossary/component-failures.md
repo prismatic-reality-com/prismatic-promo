@@ -444,23 +444,23 @@ The Prismatic Platform combines all of these approaches, using OTP supervision a
 
 Component failures connect to many reliability and resilience concepts in the Prismatic Platform:
 
-- [Circuit Breaker](/glossary/circuit-breaker/) -- prevents cascading failures by stopping calls to failing components
-- [Supervision Tree](/glossary/supervision-tree/) -- the OTP mechanism for organizing component failure recovery hierarchies
-- [Process Isolation](/glossary/process-isolation/) -- BEAM-level guarantee that process crashes do not corrupt other processes
-- [Self-Healing](/glossary/self-healing/) -- autonomous detection and recovery from component failures
-- [Chaos Engineering](/glossary/chaos-engineering/) -- deliberately injecting component failures to verify system resilience
-- [Bulkhead Pattern](/glossary/bulkhead-pattern/) -- resource partitioning to contain the blast radius of component failures
-- [Disaster Recovery](/glossary/disaster-recovery/) -- procedures for recovering from catastrophic multi-component failures
-- [Reliability](/glossary/reliability/) -- the overall system property that component failure management supports
-- [Controlled Failures](/glossary/controlled-failures/) -- deliberate failure injection for testing and validation
-- [Process Restart](/glossary/process-restart/) -- the fundamental OTP recovery mechanism for crashed processes
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- prevents cascading failures by stopping calls to failing components
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the OTP mechanism for organizing component failure recovery hierarchies
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM-level guarantee that process crashes do not corrupt other processes
+- [Self-Healing](@/glossary/self-healing.md) -- autonomous detection and recovery from component failures
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- deliberately injecting component failures to verify system resilience
+- [Bulkhead Pattern](@/glossary/bulkhead-pattern.md) -- resource partitioning to contain the blast radius of component failures
+- [Disaster Recovery](@/glossary/disaster-recovery.md) -- procedures for recovering from catastrophic multi-component failures
+- [Reliability](@/glossary/reliability.md) -- the overall system property that component failure management supports
+- [Controlled Failures](@/glossary/controlled-failures.md) -- deliberate failure injection for testing and validation
+- [Process Restart](@/glossary/process-restart.md) -- the fundamental OTP recovery mechanism for crashed processes
 
 ## See Also
 
 - Glossary Index -- complete listing of all platform terminology
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine that provides process-level failure isolation
-- [Cascade Pattern](/glossary/cascade-pattern/) -- patterns for managing how failures propagate through interconnected components
-- [Backpressure](/glossary/backpressure/) -- flow control that prevents failures caused by overwhelming downstream components
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine that provides process-level failure isolation
+- [Cascade Pattern](@/glossary/cascade-pattern.md) -- patterns for managing how failures propagate through interconnected components
+- [Backpressure](@/glossary/backpressure.md) -- flow control that prevents failures caused by overwhelming downstream components
 
 ---
 
@@ -469,4 +469,4 @@ Component failures connect to many reliability and resilience concepts in the Pr
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

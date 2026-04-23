@@ -53,9 +53,9 @@ tags = ["applications", "sustainability--ecology", "prismatic", "research-framew
 
 ## Abstract
 
-This document provides a comprehensive overview of the Prismatic Platform's sustainability and ecology research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](/glossary/multi-agent-systems/), [simulation](/glossary/simulation/) engines, and epistemic verification to problems in climate science, resource management, environmental governance, sustainable infrastructure, and ecological resilience. The domain spans five primary research areas: climate and atmospheric modeling, resource management and conservation, environmental governance and negotiation, sustainable infrastructure and supply chains, and ecological resilience and recovery.
+This document provides a comprehensive overview of the Prismatic Platform's sustainability and ecology research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](@/glossary/multi-agent-systems.md), [simulation](@/glossary/simulation.md) engines, and epistemic verification to problems in climate science, resource management, environmental governance, sustainable infrastructure, and ecological resilience. The domain spans five primary research areas: climate and atmospheric modeling, resource management and conservation, environmental governance and negotiation, sustainable infrastructure and supply chains, and ecological resilience and recovery.
 
-Each framework leverages the platform's [agent orchestration](/glossary/agent-orchestration/) infrastructure, [signal plurality](/glossary/signal-plurality/) axioms, and [risk assessment](/glossary/risk-assessment/) capabilities to model the deeply interconnected, multi-stakeholder, and temporally extended dynamics that characterize environmental systems. The emphasis throughout is on capturing the complexity of socio-ecological systems where human decisions, natural processes, and policy frameworks interact across spatial and temporal scales.
+Each framework leverages the platform's [agent orchestration](@/glossary/agent-orchestration.md) infrastructure, [signal plurality](@/glossary/signal-plurality.md) axioms, and [risk assessment](@/glossary/risk-assessment.md) capabilities to model the deeply interconnected, multi-stakeholder, and temporally extended dynamics that characterize environmental systems. The emphasis throughout is on capturing the complexity of socio-ecological systems where human decisions, natural processes, and policy frameworks interact across spatial and temporal scales.
 
 ## Introduction
 
@@ -63,7 +63,7 @@ Each framework leverages the platform's [agent orchestration](/glossary/agent-or
 
 Environmental sustainability represents one of the defining challenges of the 21st century. Climate change, biodiversity loss, resource depletion, and ecological degradation are interconnected crises that resist solution by any single discipline or stakeholder. Computational approaches to sustainability must model systems where physical processes (atmospheric dynamics, hydrological cycles, ecosystem interactions) are tightly coupled with human decision-making (policy choices, economic incentives, cultural values), creating socio-ecological systems of extraordinary complexity.
 
-The Prismatic Platform's sustainability domain was conceived as a research laboratory where [multi-agent](/glossary/multi-agent-system/) architectures naturally represent the diverse stakeholders -- governments, corporations, communities, ecosystems -- whose interactions determine environmental outcomes. Each agent can represent an actor with distinct objectives, constraints, and information states, enabling study of how individual rationality can produce collectively suboptimal outcomes (tragedy of the commons) and how institutional design can align incentives for sustainable behavior.
+The Prismatic Platform's sustainability domain was conceived as a research laboratory where [multi-agent](@/glossary/multi-agent-system.md) architectures naturally represent the diverse stakeholders -- governments, corporations, communities, ecosystems -- whose interactions determine environmental outcomes. Each agent can represent an actor with distinct objectives, constraints, and information states, enabling study of how individual rationality can produce collectively suboptimal outcomes (tragedy of the commons) and how institutional design can align incentives for sustainable behavior.
 
 ### Problem Definition
 
@@ -83,12 +83,12 @@ Sustainability and ecology research faces several interconnected theoretical cha
 
 | Platform Component | Sustainability Application | Research Purpose |
 |-------------------|----------------------|------------------|
-| **[Agent Orchestration](/glossary/agent-orchestration/)** | Stakeholder interaction modeling | Simulate multi-party environmental negotiations |
-| **[Simulation](/glossary/simulation/) Engines** | Climate and ecosystem dynamics | Temporal evolution of environmental state spaces |
-| **[Risk Assessment](/glossary/risk-assessment/)** | Environmental risk evaluation | Multi-dimensional ecological risk scoring |
-| **[Graph Database](/glossary/graph-database/)** | Supply chain and ecosystem networks | Model interconnected environmental dependencies |
-| **[Compliance Framework](/glossary/compliance-framework/)** | Environmental regulation modeling | Formalize and verify regulatory compliance |
-| **[Telemetry](/glossary/telemetry/)** | Environmental monitoring | Real-time ecological indicator tracking |
+| **[Agent Orchestration](@/glossary/agent-orchestration.md)** | Stakeholder interaction modeling | Simulate multi-party environmental negotiations |
+| **[Simulation](@/glossary/simulation.md) Engines** | Climate and ecosystem dynamics | Temporal evolution of environmental state spaces |
+| **[Risk Assessment](@/glossary/risk-assessment.md)** | Environmental risk evaluation | Multi-dimensional ecological risk scoring |
+| **[Graph Database](@/glossary/graph-database.md)** | Supply chain and ecosystem networks | Model interconnected environmental dependencies |
+| **[Compliance Framework](@/glossary/compliance-framework.md)** | Environmental regulation modeling | Formalize and verify regulatory compliance |
+| **[Telemetry](@/glossary/telemetry.md)** | Environmental monitoring | Real-time ecological indicator tracking |
 
 ## Research Domain Taxonomy
 
@@ -98,13 +98,13 @@ Research into climate scenario analysis, atmospheric dynamics, and long-range en
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Climate change scenario modeling](/applications/sustainability-ecology/climate-change-scenario-modeling/) | Multi-scenario climate trajectory analysis | IPCC shared socioeconomic pathways (SSP) formalization |
-| [Wildfire containment AI](/applications/sustainability-ecology/wildfire-containment-ai/) | Wildfire propagation and containment strategy | Cellular automata fire spread with agent-based response |
-| [Pollution impact simulation](/applications/sustainability-ecology/pollution-impact-simulation/) | Atmospheric and aquatic pollution dispersion | Advection-diffusion modeling with health impact assessment |
-| [Local vs global climate ethics](/applications/sustainability-ecology/local-vs-global-climate-ethics/) | Climate justice and differential responsibility | Distributive justice applied to emissions allocation |
-| [Post-collapse ecological scenarios](/applications/sustainability-ecology/post-collapse-ecological-scenarios/) | Post-catastrophe ecological recovery dynamics | Ecological succession theory under extreme perturbation |
+| [Climate change scenario modeling](@/applications/sustainability-ecology/climate-change-scenario-modeling.md) | Multi-scenario climate trajectory analysis | IPCC shared socioeconomic pathways (SSP) formalization |
+| [Wildfire containment AI](@/applications/sustainability-ecology/wildfire-containment-ai.md) | Wildfire propagation and containment strategy | Cellular automata fire spread with agent-based response |
+| [Pollution impact simulation](@/applications/sustainability-ecology/pollution-impact-simulation.md) | Atmospheric and aquatic pollution dispersion | Advection-diffusion modeling with health impact assessment |
+| [Local vs global climate ethics](@/applications/sustainability-ecology/local-vs-global-climate-ethics.md) | Climate justice and differential responsibility | Distributive justice applied to emissions allocation |
+| [Post-collapse ecological scenarios](@/applications/sustainability-ecology/post-collapse-ecological-scenarios.md) | Post-catastrophe ecological recovery dynamics | Ecological succession theory under extreme perturbation |
 
-The climate change scenario modeling framework applies the platform's [simulation](/glossary/simulation/) infrastructure to implement multiple IPCC Shared Socioeconomic Pathways simultaneously, enabling comparative analysis of climate trajectories under different policy assumptions. Each pathway is modeled as a distinct agent strategy for economic development, technology deployment, and governance structure, with atmospheric consequences computed through coupled climate models.
+The climate change scenario modeling framework applies the platform's [simulation](@/glossary/simulation.md) infrastructure to implement multiple IPCC Shared Socioeconomic Pathways simultaneously, enabling comparative analysis of climate trajectories under different policy assumptions. Each pathway is modeled as a distinct agent strategy for economic development, technology deployment, and governance structure, with atmospheric consequences computed through coupled climate models.
 
 ### Domain 2: Resource Management and Conservation (5 frameworks)
 
@@ -112,11 +112,11 @@ Theoretical models for studying resource allocation, conservation strategy, and 
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Water scarcity crisis modeling](/applications/sustainability-ecology/water-scarcity-crisis-modeling/) | Water resource allocation under scarcity | Common-pool resource theory with hydrology |
-| [Multi-agent conservation societies](/applications/sustainability-ecology/multi-agent-conservation-societies/) | Conservation coalition formation and strategy | Multi-agent cooperation in conservation games |
-| [Forest preservation strategies](/applications/sustainability-ecology/forest-preservation-strategies/) | Deforestation dynamics and preservation incentives | REDD+ mechanism modeling with land-use agents |
-| [Biodiversity preservation labs](/applications/sustainability-ecology/biodiversity-preservation-labs/) | Species interaction and extinction cascade modeling | Lotka-Volterra dynamics with habitat fragmentation |
-| [Ocean plastic reduction packs](/applications/sustainability-ecology/ocean-plastic-reduction-packs/) | Marine plastic pollution mitigation strategies | Source-to-ocean pollution pathway modeling |
+| [Water scarcity crisis modeling](@/applications/sustainability-ecology/water-scarcity-crisis-modeling.md) | Water resource allocation under scarcity | Common-pool resource theory with hydrology |
+| [Multi-agent conservation societies](@/applications/sustainability-ecology/multi-agent-conservation-societies.md) | Conservation coalition formation and strategy | Multi-agent cooperation in conservation games |
+| [Forest preservation strategies](@/applications/sustainability-ecology/forest-preservation-strategies.md) | Deforestation dynamics and preservation incentives | REDD+ mechanism modeling with land-use agents |
+| [Biodiversity preservation labs](@/applications/sustainability-ecology/biodiversity-preservation-labs.md) | Species interaction and extinction cascade modeling | Lotka-Volterra dynamics with habitat fragmentation |
+| [Ocean plastic reduction packs](@/applications/sustainability-ecology/ocean-plastic-reduction-packs.md) | Marine plastic pollution mitigation strategies | Source-to-ocean pollution pathway modeling |
 
 The multi-agent conservation societies framework models conservation as a cooperation problem where agents representing governments, NGOs, local communities, and corporations must form coalitions to protect shared ecological resources. The framework applies cooperative game theory to study how different institutional arrangements -- payment for ecosystem services, community-based natural resource management, conservation easements -- affect conservation outcomes.
 
@@ -126,13 +126,13 @@ Research into multilateral environmental agreements, eco-diplomacy, and institut
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Eco-diplomacy negotiation](/applications/sustainability-ecology/eco-diplomacy-negotiation/) | Multilateral environmental treaty negotiation | International environmental law formalization |
-| [Carbon trading negotiation agents](/applications/sustainability-ecology/carbon-trading-negotiation-agents/) | Emissions trading system design and dynamics | Cap-and-trade mechanism design theory |
-| [Cross-border eco agreements](/applications/sustainability-ecology/cross-border-eco-agreements/) | Transboundary environmental cooperation | International commons management theory |
-| [River basin negotiation simulation](/applications/sustainability-ecology/river-basin-negotiation-simulation/) | Transboundary water resource negotiation | Riparian rights and benefit-sharing theory |
-| [Community eco-decision making](/applications/sustainability-ecology/community-eco-decision-making/) | Participatory environmental governance | Deliberative democracy applied to ecological decisions |
+| [Eco-diplomacy negotiation](@/applications/sustainability-ecology/eco-diplomacy-negotiation.md) | Multilateral environmental treaty negotiation | International environmental law formalization |
+| [Carbon trading negotiation agents](@/applications/sustainability-ecology/carbon-trading-negotiation-agents.md) | Emissions trading system design and dynamics | Cap-and-trade mechanism design theory |
+| [Cross-border eco agreements](@/applications/sustainability-ecology/cross-border-eco-agreements.md) | Transboundary environmental cooperation | International commons management theory |
+| [River basin negotiation simulation](@/applications/sustainability-ecology/river-basin-negotiation-simulation.md) | Transboundary water resource negotiation | Riparian rights and benefit-sharing theory |
+| [Community eco-decision making](@/applications/sustainability-ecology/community-eco-decision-making.md) | Participatory environmental governance | Deliberative democracy applied to ecological decisions |
 
-The carbon trading framework implements emissions trading systems as multi-agent markets where agents representing national economies, industrial sectors, and financial intermediaries trade emission allowances. The platform's [signal plurality](/glossary/signal-plurality/) axiom ensures that carbon price formation reflects multiple independent signals including marginal abatement costs, regulatory expectations, and technological trajectories.
+The carbon trading framework implements emissions trading systems as multi-agent markets where agents representing national economies, industrial sectors, and financial intermediaries trade emission allowances. The platform's [signal plurality](@/glossary/signal-plurality.md) axiom ensures that carbon price formation reflects multiple independent signals including marginal abatement costs, regulatory expectations, and technological trajectories.
 
 ### Domain 4: Sustainable Infrastructure and Supply Chains (5 frameworks)
 
@@ -140,11 +140,11 @@ Frameworks for studying circular economy design, sustainable supply chains, and 
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Sustainable supply chains](/applications/sustainability-ecology/sustainable-supply-chains/) | Supply chain sustainability assessment and optimization | Life cycle assessment with multi-objective optimization |
-| [Circular economy replay](/applications/sustainability-ecology/circular-economy-replay/) | Circular material flow modeling and optimization | Cradle-to-cradle design theory formalization |
-| [Renewable energy adoption packs](/applications/sustainability-ecology/renewable-energy-adoption-packs/) | Clean energy technology diffusion modeling | Bass diffusion model with policy intervention effects |
-| [Green tech adoption scenarios](/applications/sustainability-ecology/green-tech-adoption-scenarios/) | Technology transition pathway analysis | Multi-level perspective on socio-technical transitions |
-| [Ethical consumption simulations](/applications/sustainability-ecology/ethical-consumption-simulations/) | Consumer behavior and sustainable choice | Behavioral economics of environmental decision-making |
+| [Sustainable supply chains](@/applications/sustainability-ecology/sustainable-supply-chains.md) | Supply chain sustainability assessment and optimization | Life cycle assessment with multi-objective optimization |
+| [Circular economy replay](@/applications/sustainability-ecology/circular-economy-replay.md) | Circular material flow modeling and optimization | Cradle-to-cradle design theory formalization |
+| [Renewable energy adoption packs](@/applications/sustainability-ecology/renewable-energy-adoption-packs.md) | Clean energy technology diffusion modeling | Bass diffusion model with policy intervention effects |
+| [Green tech adoption scenarios](@/applications/sustainability-ecology/green-tech-adoption-scenarios.md) | Technology transition pathway analysis | Multi-level perspective on socio-technical transitions |
+| [Ethical consumption simulations](@/applications/sustainability-ecology/ethical-consumption-simulations.md) | Consumer behavior and sustainable choice | Behavioral economics of environmental decision-making |
 
 ### Domain 5: Ecological Resilience and Recovery (5 frameworks)
 
@@ -152,13 +152,13 @@ Research into ecosystem resilience, disaster recovery, and post-disturbance ecol
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Disaster resilience simulation](/applications/sustainability-ecology/disaster-resilience-simulation/) | Community disaster preparedness and recovery | Socio-ecological resilience theory |
-| [Eco-resilience dashboard](/applications/sustainability-ecology/eco-resilience-dashboard/) | Real-time ecological resilience monitoring | Holling's adaptive cycle and panarchy theory |
-| [Sustainable farming simulation](/applications/sustainability-ecology/sustainable-farming-simulation/) | Sustainable agricultural systems modeling | Agroecology principles with economic viability |
-| [Ethical food system modeling](/applications/sustainability-ecology/ethical-food-system-modeling/) | Food system equity and sustainability | Food justice theory with supply chain modeling |
-| [Urban green planning agents](/applications/sustainability-ecology/urban-green-planning-agents/) | Urban ecological infrastructure planning | Nature-based solutions and green infrastructure theory |
+| [Disaster resilience simulation](@/applications/sustainability-ecology/disaster-resilience-simulation.md) | Community disaster preparedness and recovery | Socio-ecological resilience theory |
+| [Eco-resilience dashboard](@/applications/sustainability-ecology/eco-resilience-dashboard.md) | Real-time ecological resilience monitoring | Holling's adaptive cycle and panarchy theory |
+| [Sustainable farming simulation](@/applications/sustainability-ecology/sustainable-farming-simulation.md) | Sustainable agricultural systems modeling | Agroecology principles with economic viability |
+| [Ethical food system modeling](@/applications/sustainability-ecology/ethical-food-system-modeling.md) | Food system equity and sustainability | Food justice theory with supply chain modeling |
+| [Urban green planning agents](@/applications/sustainability-ecology/urban-green-planning-agents.md) | Urban ecological infrastructure planning | Nature-based solutions and green infrastructure theory |
 
-The eco-resilience dashboard framework applies the platform's [telemetry](/glossary/telemetry/) infrastructure to implement Holling's adaptive cycle model, tracking ecological systems through four phases: exploitation (rapid growth), conservation (stability), release (collapse), and reorganization (renewal). Resilience is measured as the capacity of the system to absorb disturbance and reorganize while retaining essential function.
+The eco-resilience dashboard framework applies the platform's [telemetry](@/glossary/telemetry.md) infrastructure to implement Holling's adaptive cycle model, tracking ecological systems through four phases: exploitation (rapid growth), conservation (stability), release (collapse), and reorganization (renewal). Resilience is measured as the capacity of the system to absorb disturbance and reorganize while retaining essential function.
 
 ## Theoretical Foundations
 
@@ -166,55 +166,55 @@ The eco-resilience dashboard framework applies the platform's [telemetry](/gloss
 
 | NABLA Axiom | Sustainability Interpretation | Research Application |
 |-------------|--------------------------|---------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple independent environmental indicators required before assessment | Models multi-source environmental monitoring (satellite, ground, sensor) |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Contradictory environmental data preserved as analytically significant | Prevents premature dismissal of inconvenient observations |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple independent environmental indicators required before assessment | Models multi-source environmental monitoring (satellite, ground, sensor) |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Contradictory environmental data preserved as analytically significant | Prevents premature dismissal of inconvenient observations |
 | **Absence Informative** | Missing expected ecological signals carry diagnostic weight | Models species absence, pollution gap detection, monitoring blackouts |
-| **[Time Decay](/glossary/time-decay/)** | Environmental data relevance changes with ecosystem dynamics | Models seasonal variation, regime shift detection, trend analysis |
+| **[Time Decay](@/glossary/time-decay.md)** | Environmental data relevance changes with ecosystem dynamics | Models seasonal variation, regime shift detection, trend analysis |
 | **Unknown Valid** | Acknowledging ecological uncertainty as legitimate assessment state | Prevents false precision in climate projections and biodiversity estimates |
 | **Source Independence** | Independent monitoring networks weighted higher than correlated sensors | Models satellite-ground truth cross-validation |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | All environmental claims traceable to measurement data | Supports scientific reproducibility and policy accountability |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | All environmental claims traceable to measurement data | Supports scientific reproducibility and policy accountability |
 
 ## Contents
 
 ### Climate and Atmospheric Modeling
 
-- [Climate change scenario modeling](/applications/sustainability-ecology/climate-change-scenario-modeling/) -- Multi-scenario climate trajectory analysis
-- [Wildfire containment AI](/applications/sustainability-ecology/wildfire-containment-ai/) -- Wildfire propagation and containment strategy
-- [Pollution impact simulation](/applications/sustainability-ecology/pollution-impact-simulation/) -- Atmospheric and aquatic pollution dispersion
-- [Local vs global climate ethics](/applications/sustainability-ecology/local-vs-global-climate-ethics/) -- Climate justice and differential responsibility
-- [Post-collapse ecological scenarios](/applications/sustainability-ecology/post-collapse-ecological-scenarios/) -- Post-catastrophe ecological recovery dynamics
+- [Climate change scenario modeling](@/applications/sustainability-ecology/climate-change-scenario-modeling.md) -- Multi-scenario climate trajectory analysis
+- [Wildfire containment AI](@/applications/sustainability-ecology/wildfire-containment-ai.md) -- Wildfire propagation and containment strategy
+- [Pollution impact simulation](@/applications/sustainability-ecology/pollution-impact-simulation.md) -- Atmospheric and aquatic pollution dispersion
+- [Local vs global climate ethics](@/applications/sustainability-ecology/local-vs-global-climate-ethics.md) -- Climate justice and differential responsibility
+- [Post-collapse ecological scenarios](@/applications/sustainability-ecology/post-collapse-ecological-scenarios.md) -- Post-catastrophe ecological recovery dynamics
 
 ### Resource Management and Conservation
 
-- [Water scarcity crisis modeling](/applications/sustainability-ecology/water-scarcity-crisis-modeling/) -- Water resource allocation under scarcity
-- [Multi-agent conservation societies](/applications/sustainability-ecology/multi-agent-conservation-societies/) -- Conservation coalition formation and strategy
-- [Forest preservation strategies](/applications/sustainability-ecology/forest-preservation-strategies/) -- Deforestation dynamics and preservation incentives
-- [Biodiversity preservation labs](/applications/sustainability-ecology/biodiversity-preservation-labs/) -- Species interaction and extinction cascades
-- [Ocean plastic reduction packs](/applications/sustainability-ecology/ocean-plastic-reduction-packs/) -- Marine plastic pollution mitigation
+- [Water scarcity crisis modeling](@/applications/sustainability-ecology/water-scarcity-crisis-modeling.md) -- Water resource allocation under scarcity
+- [Multi-agent conservation societies](@/applications/sustainability-ecology/multi-agent-conservation-societies.md) -- Conservation coalition formation and strategy
+- [Forest preservation strategies](@/applications/sustainability-ecology/forest-preservation-strategies.md) -- Deforestation dynamics and preservation incentives
+- [Biodiversity preservation labs](@/applications/sustainability-ecology/biodiversity-preservation-labs.md) -- Species interaction and extinction cascades
+- [Ocean plastic reduction packs](@/applications/sustainability-ecology/ocean-plastic-reduction-packs.md) -- Marine plastic pollution mitigation
 
 ### Environmental Governance and Negotiation
 
-- [Eco-diplomacy negotiation](/applications/sustainability-ecology/eco-diplomacy-negotiation/) -- Multilateral environmental treaty negotiation
-- [Carbon trading negotiation agents](/applications/sustainability-ecology/carbon-trading-negotiation-agents/) -- Emissions trading system design
-- [Cross-border eco agreements](/applications/sustainability-ecology/cross-border-eco-agreements/) -- Transboundary environmental cooperation
-- [River basin negotiation simulation](/applications/sustainability-ecology/river-basin-negotiation-simulation/) -- Transboundary water resource negotiation
-- [Community eco-decision making](/applications/sustainability-ecology/community-eco-decision-making/) -- Participatory environmental governance
+- [Eco-diplomacy negotiation](@/applications/sustainability-ecology/eco-diplomacy-negotiation.md) -- Multilateral environmental treaty negotiation
+- [Carbon trading negotiation agents](@/applications/sustainability-ecology/carbon-trading-negotiation-agents.md) -- Emissions trading system design
+- [Cross-border eco agreements](@/applications/sustainability-ecology/cross-border-eco-agreements.md) -- Transboundary environmental cooperation
+- [River basin negotiation simulation](@/applications/sustainability-ecology/river-basin-negotiation-simulation.md) -- Transboundary water resource negotiation
+- [Community eco-decision making](@/applications/sustainability-ecology/community-eco-decision-making.md) -- Participatory environmental governance
 
 ### Sustainable Infrastructure and Supply Chains
 
-- [Sustainable supply chains](/applications/sustainability-ecology/sustainable-supply-chains/) -- Supply chain sustainability optimization
-- [Circular economy replay](/applications/sustainability-ecology/circular-economy-replay/) -- Circular material flow modeling
-- [Renewable energy adoption packs](/applications/sustainability-ecology/renewable-energy-adoption-packs/) -- Clean energy diffusion modeling
-- [Green tech adoption scenarios](/applications/sustainability-ecology/green-tech-adoption-scenarios/) -- Technology transition pathway analysis
-- [Ethical consumption simulations](/applications/sustainability-ecology/ethical-consumption-simulations/) -- Sustainable consumer behavior modeling
+- [Sustainable supply chains](@/applications/sustainability-ecology/sustainable-supply-chains.md) -- Supply chain sustainability optimization
+- [Circular economy replay](@/applications/sustainability-ecology/circular-economy-replay.md) -- Circular material flow modeling
+- [Renewable energy adoption packs](@/applications/sustainability-ecology/renewable-energy-adoption-packs.md) -- Clean energy diffusion modeling
+- [Green tech adoption scenarios](@/applications/sustainability-ecology/green-tech-adoption-scenarios.md) -- Technology transition pathway analysis
+- [Ethical consumption simulations](@/applications/sustainability-ecology/ethical-consumption-simulations.md) -- Sustainable consumer behavior modeling
 
 ### Ecological Resilience and Recovery
 
-- [Disaster resilience simulation](/applications/sustainability-ecology/disaster-resilience-simulation/) -- Community disaster preparedness and recovery
-- [Eco-resilience dashboard](/applications/sustainability-ecology/eco-resilience-dashboard/) -- Real-time ecological resilience monitoring
-- [Sustainable farming simulation](/applications/sustainability-ecology/sustainable-farming-simulation/) -- Sustainable agricultural systems modeling
-- [Ethical food system modeling](/applications/sustainability-ecology/ethical-food-system-modeling/) -- Food system equity and sustainability
-- [Urban green planning agents](/applications/sustainability-ecology/urban-green-planning-agents/) -- Urban ecological infrastructure planning
+- [Disaster resilience simulation](@/applications/sustainability-ecology/disaster-resilience-simulation.md) -- Community disaster preparedness and recovery
+- [Eco-resilience dashboard](@/applications/sustainability-ecology/eco-resilience-dashboard.md) -- Real-time ecological resilience monitoring
+- [Sustainable farming simulation](@/applications/sustainability-ecology/sustainable-farming-simulation.md) -- Sustainable agricultural systems modeling
+- [Ethical food system modeling](@/applications/sustainability-ecology/ethical-food-system-modeling.md) -- Food system equity and sustainability
+- [Urban green planning agents](@/applications/sustainability-ecology/urban-green-planning-agents.md) -- Urban ecological infrastructure planning
 
 ## Future Research Directions
 
@@ -228,13 +228,13 @@ The eco-resilience dashboard framework applies the platform's [telemetry](/gloss
 
 ### Internal Documentation
 
-- [Platform Capabilities](/capabilities/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Simulation](/glossary/simulation/)
-- [Risk Assessment](/glossary/risk-assessment/)
-- [Compliance Framework](/glossary/compliance-framework/)
-- [Signal Plurality](/glossary/signal-plurality/)
+- [Platform Capabilities](@/capabilities/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Simulation](@/glossary/simulation.md)
+- [Risk Assessment](@/glossary/risk-assessment.md)
+- [Compliance Framework](@/glossary/compliance-framework.md)
+- [Signal Plurality](@/glossary/signal-plurality.md)
 
 ### External Standards and Literature
 
@@ -254,4 +254,4 @@ The eco-resilience dashboard framework applies the platform's [telemetry](/gloss
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

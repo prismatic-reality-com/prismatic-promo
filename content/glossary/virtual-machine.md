@@ -37,7 +37,7 @@ image_alt = "Virtual Machine - Prismatic Platform"
 
 ## Definition
 
-A **Virtual Machine** (VM) is a software abstraction that emulates a computer system, providing an execution environment for programs that is independent of the underlying physical hardware. Virtual machines come in two fundamental categories: *system virtual machines* (which emulate entire hardware platforms, enabling multiple operating systems to share physical resources) and *process virtual machines* (which provide a runtime environment for executing programs compiled to an intermediate bytecode format). The Prismatic Platform runs entirely on the [BEAM](/glossary/beam/) virtual machine -- the Erlang Runtime System (ERTS) -- which is a process virtual machine purpose-built for concurrent, distributed, fault-tolerant applications. The BEAM's architectural decisions (lightweight processes, preemptive scheduling via reduction counting, per-process garbage collection, hot code loading) directly enable the platform's ability to run 115 umbrella [applications](/glossary/application/) concurrently with soft real-time guarantees and zero-downtime deployments.
+A **Virtual Machine** (VM) is a software abstraction that emulates a computer system, providing an execution environment for programs that is independent of the underlying physical hardware. Virtual machines come in two fundamental categories: *system virtual machines* (which emulate entire hardware platforms, enabling multiple operating systems to share physical resources) and *process virtual machines* (which provide a runtime environment for executing programs compiled to an intermediate bytecode format). The Prismatic Platform runs entirely on the [BEAM](@/glossary/beam.md) virtual machine -- the Erlang Runtime System (ERTS) -- which is a process virtual machine purpose-built for concurrent, distributed, fault-tolerant applications. The BEAM's architectural decisions (lightweight processes, preemptive scheduling via reduction counting, per-process garbage collection, hot code loading) directly enable the platform's ability to run 115 umbrella [applications](@/glossary/application.md) concurrently with soft real-time guarantees and zero-downtime deployments.
 
 ## Overview
 
@@ -347,7 +347,7 @@ end
 
 The fundamental difference between these VMs lies in their concurrency models:
 
-**BEAM: Actor Model with Lightweight Processes.** Each concurrent entity is a process with its own memory, mailbox, and garbage collector. Processes communicate exclusively through message passing. The VM can handle millions of processes on a single node. This model maps naturally to the Prismatic Platform's architecture where each [agent](/glossary/agent/), [supervisor](/glossary/supervisor/), and service is its own process.
+**BEAM: Actor Model with Lightweight Processes.** Each concurrent entity is a process with its own memory, mailbox, and garbage collector. Processes communicate exclusively through message passing. The VM can handle millions of processes on a single node. This model maps naturally to the Prismatic Platform's architecture where each [agent](@/glossary/agent.md), [supervisor](@/glossary/supervisor.md), and service is its own process.
 
 **JVM: Shared Memory with Threads.** Java threads are typically mapped 1:1 to OS threads, sharing a common heap. Coordination requires locks, semaphores, or concurrent data structures. Project Loom (virtual threads in Java 21+) brings lightweight threads to the JVM, but they still share memory and require synchronization. Frameworks like Akka implement actor semantics on top of the JVM.
 
@@ -355,7 +355,7 @@ The fundamental difference between these VMs lies in their concurrency models:
 
 ### Fault Tolerance
 
-**BEAM:** Process crashes are isolated by design. A crashing process cannot corrupt other processes' memory. [Supervision trees](/glossary/supervision-tree/) automatically restart failed processes according to configurable strategies (one-for-one, one-for-all, rest-for-one). The "let it crash" philosophy embraces failure as a normal condition rather than an exceptional one.
+**BEAM:** Process crashes are isolated by design. A crashing process cannot corrupt other processes' memory. [Supervision trees](@/glossary/supervision-tree.md) automatically restart failed processes according to configurable strategies (one-for-one, one-for-all, rest-for-one). The "let it crash" philosophy embraces failure as a normal condition rather than an exceptional one.
 
 **JVM:** Thread crashes can potentially corrupt shared state. While exception handling is mature, an OutOfMemoryError or segfault in native code can bring down the entire VM. Defensive programming (try/catch/finally) is the primary failure handling strategy.
 
@@ -365,10 +365,10 @@ The fundamental difference between these VMs lies in their concurrency models:
 
 The BEAM VM is the invisible foundation of every Prismatic Platform operation:
 
-- **530 AIAD agents** run as BEAM processes under [supervision trees](/glossary/supervision-tree/)
+- **530 AIAD agents** run as BEAM processes under [supervision trees](@/glossary/supervision-tree.md)
 - **115 umbrella applications** share the same BEAM instance via the OTP application framework
 - **ETS tables** provide in-memory storage backed by the VM's native term storage
-- **[Telemetry](/glossary/telemetry/) events** flow through BEAM message passing at microsecond latency
+- **[Telemetry](@/glossary/telemetry.md) events** flow through BEAM message passing at microsecond latency
 - **Hot code loading** enables zero-downtime deployments on Fly.io
 - **Distribution protocols** connect multiple BEAM nodes for horizontal scaling
 
@@ -376,16 +376,16 @@ The platform's performance characteristics -- sub-100ms page loads, <50ms LiveVi
 
 ## Cross-References
 
-- [BEAM](/glossary/beam/) -- The specific virtual machine (Bogdan's Erlang Abstract Machine) underlying the platform
-- [BEAM VM](/glossary/beam-vm/) -- Extended reference to the BEAM runtime system
-- [Supervision Tree](/glossary/supervision-tree/) -- The hierarchical process management structure enabled by the VM
-- [Supervisor](/glossary/supervisor/) -- OTP supervisor processes that manage child process lifecycles
-- [Actor Model](/glossary/actor-model/) -- The concurrency model implemented by BEAM processes
-- [Backpressure](/glossary/backpressure/) -- Flow control mechanisms built on VM process mailboxes
-- [Concurrency](/glossary/concurrency/) -- The VM's approach to simultaneous execution
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Reliability guarantees provided by process isolation
-- [Telemetry](/glossary/telemetry/) -- Observability infrastructure running within the VM
-- [Application](/glossary/application/) -- OTP application framework managed by the VM
+- [BEAM](@/glossary/beam.md) -- The specific virtual machine (Bogdan's Erlang Abstract Machine) underlying the platform
+- [BEAM VM](@/glossary/beam-vm.md) -- Extended reference to the BEAM runtime system
+- [Supervision Tree](@/glossary/supervision-tree.md) -- The hierarchical process management structure enabled by the VM
+- [Supervisor](@/glossary/supervisor.md) -- OTP supervisor processes that manage child process lifecycles
+- [Actor Model](@/glossary/actor-model.md) -- The concurrency model implemented by BEAM processes
+- [Backpressure](@/glossary/backpressure.md) -- Flow control mechanisms built on VM process mailboxes
+- [Concurrency](@/glossary/concurrency.md) -- The VM's approach to simultaneous execution
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Reliability guarantees provided by process isolation
+- [Telemetry](@/glossary/telemetry.md) -- Observability infrastructure running within the VM
+- [Application](@/glossary/application.md) -- OTP application framework managed by the VM
 
 ## Best Practices
 

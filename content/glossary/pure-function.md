@@ -39,9 +39,9 @@ A pure function is a function that satisfies two invariants: it always produces 
 
 Referential transparency, the formal property underlying purity, means that a pure function call can be replaced with its return value anywhere in a program without changing the program's behavior. This property enables equational reasoning about code, aggressive compiler optimizations, safe memoization, trivial parallelization, and fundamentally simpler testing. When a function is pure, testing it requires no setup, no teardown, no mocking of external services, and no concern about execution order.
 
-In Elixir and functional programming more broadly, pure functions serve as the primary building blocks of computation. Complex systems are constructed by composing small pure functions through the [pipe operator](/glossary/pipe-operator/) and higher-order functions, with side effects (database writes, network calls, file I/O) confined to the outermost layers of the application through architectural patterns like ports and adapters. This separation creates systems where the vast majority of code is pure, testable, and predictable, with side effects managed at well-defined boundaries.
+In Elixir and functional programming more broadly, pure functions serve as the primary building blocks of computation. Complex systems are constructed by composing small pure functions through the [pipe operator](@/glossary/pipe-operator.md) and higher-order functions, with side effects (database writes, network calls, file I/O) confined to the outermost layers of the application through architectural patterns like ports and adapters. This separation creates systems where the vast majority of code is pure, testable, and predictable, with side effects managed at well-defined boundaries.
 
-The concept of purity is not unique to functional programming -- it appears in mathematics, formal verification, and even hardware design -- but functional languages make it a first-class concern. In Elixir, [immutability](/glossary/immutability/) is enforced at the language level (all data is immutable by default), and the [pipe operator](/glossary/pipe-operator/) encourages composing pure transformations. While Elixir does not enforce purity at the type system level (unlike Haskell's IO monad), the community convention is strong: business logic should be pure, and side effects should be isolated at system boundaries.
+The concept of purity is not unique to functional programming -- it appears in mathematics, formal verification, and even hardware design -- but functional languages make it a first-class concern. In Elixir, [immutability](@/glossary/immutability.md) is enforced at the language level (all data is immutable by default), and the [pipe operator](@/glossary/pipe-operator.md) encourages composing pure transformations. While Elixir does not enforce purity at the type system level (unlike Haskell's IO monad), the community convention is strong: business logic should be pure, and side effects should be isolated at system boundaries.
 
 ## Formal Properties
 
@@ -213,11 +213,11 @@ The Prismatic Platform enforces functional purity as a core architectural princi
 
 Key areas where purity is enforced:
 
-- **Security Rating Calculations**: All scoring algorithms in the [Perimeter](/glossary/easm/) module are pure functions mapping asset data to numeric scores, enabling deterministic compliance assessments.
+- **Security Rating Calculations**: All scoring algorithms in the [Perimeter](@/glossary/easm.md) module are pure functions mapping asset data to numeric scores, enabling deterministic compliance assessments.
 - **Quality Gate Checks**: The 13 quality domain validators are pure functions that accept code analysis results and return pass/fail verdicts with violation details.
-- **Data Transformations**: ETL pipelines, OSINT data normalization, and entity resolution logic use pure transformation functions composed through [pipe operators](/glossary/pipe-operator/).
-- **[NABLA](/glossary/nabla-infinity/) Epistemic Operations**: Belief graph calculations, [confidence scoring](/glossary/confidence-scoring/), and [Trinity Gate](/glossary/trinity-gate/) verification are pure functions operating on immutable evidence structures.
-- **Agent Decision Logic**: The decision-making core of each [agent](/glossary/agent/) is a pure function, with I/O operations handled by the surrounding [GenServer](/glossary/genserver/) shell.
+- **Data Transformations**: ETL pipelines, OSINT data normalization, and entity resolution logic use pure transformation functions composed through [pipe operators](@/glossary/pipe-operator.md).
+- **[NABLA](@/glossary/nabla-infinity.md) Epistemic Operations**: Belief graph calculations, [confidence scoring](@/glossary/confidence-scoring.md), and [Trinity Gate](@/glossary/trinity-gate.md) verification are pure functions operating on immutable evidence structures.
+- **Agent Decision Logic**: The decision-making core of each [agent](@/glossary/agent.md) is a pure function, with I/O operations handled by the surrounding [GenServer](@/glossary/genserver.md) shell.
 - **Compliance Assessment**: NIS2 and ZKB compliance checks are pure functions that map asset properties to compliance verdicts.
 - **Credo Custom Checks**: The custom Credo checks in `prismatic_credo` are pure functions that analyze AST nodes and return issue lists.
 
@@ -372,13 +372,13 @@ Pure functions dramatically simplify testing because they eliminate the need for
 | **Isolation** | Automatic -- no external dependencies | Manual -- requires mocking/stubbing external services |
 | **Determinism** | Guaranteed -- same inputs = same outputs | Fragile -- depends on test database state, timing, network |
 | **Speed** | Microseconds (no I/O) | Milliseconds to seconds (database, network) |
-| **[Property-Based Testing](/glossary/property-based-testing/)** | Natural fit -- generate random inputs | Difficult -- side effects complicate generators |
+| **[Property-Based Testing](@/glossary/property-based-testing.md)** | Natural fit -- generate random inputs | Difficult -- side effects complicate generators |
 | **Parallelism** | Tests run in parallel safely | Shared state causes test interference |
 | **Debugging** | Reproduce with same inputs | Must reproduce entire environment state |
 
 ### Property-Based Testing of Pure Functions
 
-Pure functions are ideal candidates for [property-based testing](/glossary/property-based-testing/), where properties hold for all possible inputs:
+Pure functions are ideal candidates for [property-based testing](@/glossary/property-based-testing.md), where properties hold for all possible inputs:
 
 ```elixir
 defmodule SecurityRatingPropertyTest do
@@ -454,22 +454,22 @@ end
 
 ## Related Terms
 
-- [Immutability](/glossary/immutability/) - Data property that enables and reinforces function purity
-- [Pattern Matching](/glossary/pattern-matching/) - Declarative input destructuring in pure function clauses
-- [Pipe Operator](/glossary/pipe-operator/) - Composition operator for chaining pure function calls
-- [Property-Based Testing](/glossary/property-based-testing/) - Testing technique that exploits function purity and determinism
-- [Idempotency](/glossary/idempotency/) - Related property where repeated application yields the same result
-- [CQRS](/glossary/cqrs/) - Pattern that separates pure queries from side-effectful commands
-- [Event Sourcing](/glossary/event-sourcing/) - Pattern using pure projection functions over immutable event logs
-- [Data Pipeline](/glossary/data-pipeline/) - Architectural pattern composed of pure transformation stages
-- [Behaviour](/glossary/behaviour/) - OTP contracts often implemented with pure callback functions
-- [Formal Verification](/glossary/formal-verification/) - Proof techniques that benefit from referential transparency
+- [Immutability](@/glossary/immutability.md) - Data property that enables and reinforces function purity
+- [Pattern Matching](@/glossary/pattern-matching.md) - Declarative input destructuring in pure function clauses
+- [Pipe Operator](@/glossary/pipe-operator.md) - Composition operator for chaining pure function calls
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Testing technique that exploits function purity and determinism
+- [Idempotency](@/glossary/idempotency.md) - Related property where repeated application yields the same result
+- [CQRS](@/glossary/cqrs.md) - Pattern that separates pure queries from side-effectful commands
+- [Event Sourcing](@/glossary/event-sourcing.md) - Pattern using pure projection functions over immutable event logs
+- [Data Pipeline](@/glossary/data-pipeline.md) - Architectural pattern composed of pure transformation stages
+- [Behaviour](@/glossary/behaviour.md) - OTP contracts often implemented with pure callback functions
+- [Formal Verification](@/glossary/formal-verification.md) - Proof techniques that benefit from referential transparency
 
 ## See Also
 
-- [Architecture](/architecture/) - Functional core / imperative shell design principles
-- [Technologies](/technologies/) - Elixir functional programming foundations
-- [Capabilities](/capabilities/) - Platform capabilities built on pure function composition
+- [Architecture](@/architecture/_index.md) - Functional core / imperative shell design principles
+- [Technologies](@/technologies/_index.md) - Elixir functional programming foundations
+- [Capabilities](@/capabilities/_index.md) - Platform capabilities built on pure function composition
 
 ---
 
@@ -478,4 +478,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

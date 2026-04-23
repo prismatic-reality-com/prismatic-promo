@@ -192,7 +192,7 @@ end
 
 ## Cross-References
 
-- [Property-Based Testing](/glossary/property-based-testing/) - Testing methodology that relies on shrinking for usable results
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Testing methodology that relies on shrinking for usable results
 - **StreamData** - Elixir library implementing integrated shrinking
 - **Test Suite** - Organized collection including property-based tests
 - **Counterexample** - Specific input that disproves a property

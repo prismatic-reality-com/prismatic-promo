@@ -465,25 +465,25 @@ end
 
 ## Related Terms
 
-- [AI Agent](/glossary/ai-agent/) -- Autonomous entities that use CoT for reasoning
-- [AI Inference](/glossary/ai-inference/) -- Model execution underlying CoT
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Multi-agent CoT coordination
-- [Confidence](/glossary/confidence/) -- Certainty level produced by CoT chains
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Numerical reliability metric from reasoning
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework enriching CoT with axioms
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- 16-level pipeline processing reasoning output
-- [Prompt Engineering](/glossary/prompt-engineering/) -- Techniques for constructing effective CoT prompts
-- [Ensemble](/glossary/ensemble/) -- Multi-model aggregation paralleling self-consistency
-- [GenServer](/glossary/genserver/) -- Process model for reasoning pipeline management
-- [PubSub](/glossary/pubsub/) -- Event system for real-time reasoning step broadcast
+- [AI Agent](@/glossary/ai-agent.md) -- Autonomous entities that use CoT for reasoning
+- [AI Inference](@/glossary/ai-inference.md) -- Model execution underlying CoT
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Multi-agent CoT coordination
+- [Confidence](@/glossary/confidence.md) -- Certainty level produced by CoT chains
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Numerical reliability metric from reasoning
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework enriching CoT with axioms
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- 16-level pipeline processing reasoning output
+- [Prompt Engineering](@/glossary/prompt-engineering.md) -- Techniques for constructing effective CoT prompts
+- [Ensemble](@/glossary/ensemble.md) -- Multi-model aggregation paralleling self-consistency
+- [GenServer](@/glossary/genserver.md) -- Process model for reasoning pipeline management
+- [PubSub](@/glossary/pubsub.md) -- Event system for real-time reasoning step broadcast
 - [Tree of Thought](/glossary/tree-of-thought/) -- Branching extension of linear CoT
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- Intelligence analysis capabilities
-- [Agents](/agents/) -- Full agent catalog with reasoning capabilities
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Capabilities](@/capabilities/_index.md) -- Intelligence analysis capabilities
+- [Agents](@/agents/_index.md) -- Full agent catalog with reasoning capabilities
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 - **Livebooks**: `livebooks/domains/ai_agents/` -- Interactive CoT experimentation
 - **Academy**: OSINT Signal Synthesis (GRACE framework) teaches structured reasoning
 
@@ -494,4 +494,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

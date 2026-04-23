@@ -30,7 +30,7 @@ keywords = ["Triple-Check", "Cross-Validation", "Methodology", "ensures", "every
 
 ## Abstract
 
-The triple-check cross-validation methodology is the epistemic foundation of the Prismatic Platform's due diligence capability. Derived from the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework and enforced through the [Trinity Gate](/glossary/trinity-gate/) verification pipeline, this methodology requires that every investigative finding be corroborated across at least three independent sources before it can be marked as verified. The approach addresses a fundamental weakness in conventional due diligence tooling: the tendency to accept single-source data at face value, producing reports that appear comprehensive but lack the evidentiary rigor required for regulatory scrutiny, M&A decision-making, and legal proceedings.
+The triple-check cross-validation methodology is the epistemic foundation of the Prismatic Platform's due diligence capability. Derived from the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework and enforced through the [Trinity Gate](@/glossary/trinity-gate.md) verification pipeline, this methodology requires that every investigative finding be corroborated across at least three independent sources before it can be marked as verified. The approach addresses a fundamental weakness in conventional due diligence tooling: the tendency to accept single-source data at face value, producing reports that appear comprehensive but lack the evidentiary rigor required for regulatory scrutiny, M&A decision-making, and legal proceedings.
 
 This document details the three validation layers, the confidence scoring model that quantifies evidentiary strength, the contradiction preservation mechanisms that prevent premature resolution of conflicting data, and the temporal consistency analysis that ensures findings remain valid across time horizons relevant to the investigation.
 
@@ -46,26 +46,26 @@ The Prismatic Platform eliminates single-source trust through a systematic metho
 
 ### Relationship to NABLA Axioms
 
-The triple-check methodology implements several of the platform's [NABLA axioms](/capabilities/nabla-axioms/) directly:
+The triple-check methodology implements several of the platform's [NABLA axioms](@/capabilities/nabla-axioms.md) directly:
 
 - **Signal Plurality**: The minimum-three-source requirement is a strict implementation of the Signal Plurality axiom, which mandates that no belief be accepted based on fewer than two independent signals. The triple-check methodology raises this bar to three signals for all due diligence claims.
-- **Contradiction Preservation**: When sources disagree, the methodology preserves both data points with full provenance rather than silently discarding the minority position. This directly implements the [Contradiction Preservation](/glossary/contradiction-preservation/) axiom.
-- **Provenance Mandatory**: Every data point in the validation pipeline carries complete source attribution, query timestamps, and confidence metadata, ensuring full traceability as required by the [Provenance Mandatory](/glossary/provenance-mandatory/) axiom.
-- **Time Decay**: Confidence scores incorporate temporal decay functions that reduce the weight of older data points, implementing the [Time Decay](/glossary/time-decay/) axiom.
+- **Contradiction Preservation**: When sources disagree, the methodology preserves both data points with full provenance rather than silently discarding the minority position. This directly implements the [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom.
+- **Provenance Mandatory**: Every data point in the validation pipeline carries complete source attribution, query timestamps, and confidence metadata, ensuring full traceability as required by the [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom.
+- **Time Decay**: Confidence scores incorporate temporal decay functions that reduce the weight of older data points, implementing the [Time Decay](@/glossary/time-decay.md) axiom.
 
 ## The Three Validation Layers
 
 ### Layer 1: Source-Level Validation
 
-The first validation layer operates at the individual source level, assessing the intrinsic reliability and relevance of each data point returned by an [OSINT](/glossary/osint/) source adapter. Source-level validation produces an initial confidence score for every data point before cross-source comparison begins.
+The first validation layer operates at the individual source level, assessing the intrinsic reliability and relevance of each data point returned by an [OSINT](@/glossary/osint.md) source adapter. Source-level validation produces an initial confidence score for every data point before cross-source comparison begins.
 
 **Authority Classification**: Each OSINT source is classified into one of four authority tiers that establish base confidence levels:
 
 | Authority Tier | Base Confidence | Examples | Rationale |
 |----------------|----------------|----------|-----------|
-| **T1: Authoritative** | 0.85 - 0.95 | [ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/), [CUZK](/osint/cuzk/) | Government-operated registries with legal standing |
-| **T2: Official** | 0.70 - 0.85 | [CNB](/osint/cnb/), [Hlidac Statu](/osint/hlidac-statu/), EU sanctions lists | Regulated or institutional sources with strong governance |
-| **T3: Professional** | 0.50 - 0.70 | [OpenCorporates](/osint/open-corporates/), [SecurityTrails](/osint/securitytrails/), credit agencies | Commercial data providers with quality assurance |
+| **T1: Authoritative** | 0.85 - 0.95 | [ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md), [CUZK](@/osint/cuzk.md) | Government-operated registries with legal standing |
+| **T2: Official** | 0.70 - 0.85 | [CNB](@/osint/cnb.md), [Hlidac Statu](@/osint/hlidac-statu.md), EU sanctions lists | Regulated or institutional sources with strong governance |
+| **T3: Professional** | 0.50 - 0.70 | [OpenCorporates](@/osint/open-corporates.md), [SecurityTrails](@/osint/securitytrails.md), credit agencies | Commercial data providers with quality assurance |
 | **T4: Community** | 0.30 - 0.50 | Social media, forums, crowd-sourced databases | User-contributed data without formal verification |
 
 **Freshness Weighting**: Within each authority tier, data freshness modifies the confidence score. Data retrieved within the last 24 hours receives full confidence credit, while data older than 90 days receives a 30% penalty. The freshness decay function is configurable per source, reflecting the update cadence of each registry.
@@ -82,7 +82,7 @@ The first validation layer operates at the individual source level, assessing th
 
 The second validation layer compares data points about the same entity attribute across multiple independent sources, applying Bayesian confidence updating to compute composite confidence scores.
 
-**Independence Verification**: Not all sources are truly independent. [ARES](/osint/ares/) aggregates data from [Justice.cz](/osint/justice-cz/) and [RZP](/osint/rzp/), so corroboration between ARES and Justice.cz is less meaningful than corroboration between Justice.cz and [Hlidac Statu](/osint/hlidac-statu/). The platform maintains a source dependency graph that maps data flows between sources, ensuring that only genuinely independent corroboration elevates confidence.
+**Independence Verification**: Not all sources are truly independent. [ARES](@/osint/ares.md) aggregates data from [Justice.cz](@/osint/justice-cz.md) and [RZP](@/osint/rzp.md), so corroboration between ARES and Justice.cz is less meaningful than corroboration between Justice.cz and [Hlidac Statu](@/osint/hlidac-statu.md). The platform maintains a source dependency graph that maps data flows between sources, ensuring that only genuinely independent corroboration elevates confidence.
 
 **Attribute-Level Comparison**: Cross-source corroboration operates at the attribute level, not the entity level. A company's registered address may be confirmed by three sources while its beneficial ownership structure is only available from one. The platform maintains separate confidence scores for each attribute, enabling analysts to see exactly which aspects of an entity profile are well-corroborated and which require further investigation.
 
@@ -128,21 +128,21 @@ The triple-check methodology produces a normalized confidence score for every cl
 | **0.40 - 0.59** | Low Confidence | Flagged for additional source collection |
 | **0.00 - 0.39** | Unverified | Excluded from reports unless explicitly overridden |
 
-These thresholds align with the platform's [Trinity Gate](/capabilities/trinity-gate/) requirements, where critical decisions require confidence at or above 0.95 and standard operations require confidence at or above 0.80.
+These thresholds align with the platform's [Trinity Gate](@/capabilities/trinity-gate.md) requirements, where critical decisions require confidence at or above 0.95 and standard operations require confidence at or above 0.80.
 
 ## Trinity Gate Integration
 
-Every claim that passes the triple-check methodology must also pass the [Trinity Gate](/glossary/trinity-gate/) before entering verified status. The Trinity Gate applies three orthogonal verification checks:
+Every claim that passes the triple-check methodology must also pass the [Trinity Gate](@/glossary/trinity-gate.md) before entering verified status. The Trinity Gate applies three orthogonal verification checks:
 
 1. **Structural Consistency**: The verified claim must be consistent with the entity's relationship graph. An ownership claim that creates a circular ownership loop fails structural consistency.
 2. **Logical Consistency**: The verified claim must not contradict other verified claims about the same entity. A company cannot simultaneously be listed as active in one verified claim and dissolved in another.
-3. **Formal Verification**: For high-stakes claims (e.g., beneficial ownership determinations, sanctions matches), the platform can invoke formal verification through [Lean4](/glossary/lean4/) theorem proving to establish logical necessity.
+3. **Formal Verification**: For high-stakes claims (e.g., beneficial ownership determinations, sanctions matches), the platform can invoke formal verification through [Lean4](@/glossary/lean4.md) theorem proving to establish logical necessity.
 
-The combination of triple-check cross-validation and Trinity Gate verification produces a level of evidentiary rigor that exceeds the requirements of most regulatory frameworks, including [NIS2](/glossary/nis2/) supply chain due diligence, [AML/KYC verification](/capabilities/compliance/), and M&A transaction support.
+The combination of triple-check cross-validation and Trinity Gate verification produces a level of evidentiary rigor that exceeds the requirements of most regulatory frameworks, including [NIS2](@/glossary/nis2.md) supply chain due diligence, [AML/KYC verification](@/capabilities/compliance.md), and M&A transaction support.
 
 ## Implementation Architecture
 
-The cross-validation engine is implemented as an [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/) pipeline that processes validation asynchronously, allowing the platform to validate thousands of data points across hundreds of sources without blocking the investigation workflow.
+The cross-validation engine is implemented as an [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md) pipeline that processes validation asynchronously, allowing the platform to validate thousands of data points across hundreds of sources without blocking the investigation workflow.
 
 ```
 Source Adapters --> Normalization --> Source Validation (L1)
@@ -158,7 +158,7 @@ Source Adapters --> Normalization --> Source Validation (L1)
                                    Verified Claims
 ```
 
-Each stage operates as an independent [GenServer](/glossary/genserver/) process, connected through the platform's [PubSub](/glossary/pubsub/) event system. This architecture enables horizontal scaling -- additional validation workers can be added to handle investigation spikes without modifying the pipeline logic.
+Each stage operates as an independent [GenServer](@/glossary/genserver.md) process, connected through the platform's [PubSub](@/glossary/pubsub.md) event system. This architecture enables horizontal scaling -- additional validation workers can be added to handle investigation spikes without modifying the pipeline logic.
 
 ## Practical Impact
 
@@ -175,18 +175,18 @@ These improvements derive directly from the methodology's systematic approach to
 
 ## Conclusion
 
-The triple-check cross-validation methodology transforms due diligence from a best-effort data collection exercise into a rigorous epistemic process with quantifiable confidence levels and full evidence provenance. Rooted in the [NABLA Infinity](/glossary/nabla-infinity/) framework and enforced through the [Trinity Gate](/glossary/trinity-gate/), this methodology ensures that every finding in a Prismatic due diligence report has been independently verified, temporally validated, and structurally verified before presentation to decision-makers.
+The triple-check cross-validation methodology transforms due diligence from a best-effort data collection exercise into a rigorous epistemic process with quantifiable confidence levels and full evidence provenance. Rooted in the [NABLA Infinity](@/glossary/nabla-infinity.md) framework and enforced through the [Trinity Gate](@/glossary/trinity-gate.md), this methodology ensures that every finding in a Prismatic due diligence report has been independently verified, temporally validated, and structurally verified before presentation to decision-makers.
 
 ## References
 
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Trinity Gate Verification](/capabilities/trinity-gate/)
-- [OSINT Integration Framework](/dd/osint-integration/)
-- [Risk Assessment Framework](/dd/risk-assessment/)
-- [Entity Management System](/dd/entity-management/)
-- [Confidence Scoring](/glossary/confidence-scoring/)
-- [Signal Plurality](/glossary/signal-plurality/)
-- [Contradiction Preservation](/glossary/contradiction-preservation/)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Trinity Gate Verification](@/capabilities/trinity-gate.md)
+- [OSINT Integration Framework](@/dd/osint-integration.md)
+- [Risk Assessment Framework](@/dd/risk-assessment.md)
+- [Entity Management System](@/dd/entity-management.md)
+- [Confidence Scoring](@/glossary/confidence-scoring.md)
+- [Signal Plurality](@/glossary/signal-plurality.md)
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md)
 
 ---
 
@@ -195,4 +195,4 @@ The triple-check cross-validation methodology transforms due diligence from a be
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

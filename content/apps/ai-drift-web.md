@@ -21,13 +21,13 @@ image_alt = "AI Drift Web - Prismatic Platform"
 
 ## Abstract
 
-AI Drift Web provides the real-time [LiveView](/glossary/liveview/) dashboard for monitoring AI decision drift across all tracked models within the Prismatic Platform. It renders drift scores, trend charts, alert histories, and model health indicators through [Phoenix LiveView](/glossary/phoenix-liveview/) server-rendered updates, eliminating the need for client-side JavaScript frameworks. The dashboard uses [TailwindCSS](/glossary/tailwindcss/) and [Flowbite](/glossary/flowbite/) components following the platform's unified UI standards. Built on Phoenix 1.8.3 with LiveView 1.1.0, the application leverages efficient DOM diffing over [WebSocket](/glossary/websocket/) connections managed by the [BEAM](/glossary/beam/) runtime, ensuring sub-second update latency even under high model monitoring loads.
+AI Drift Web provides the real-time [LiveView](@/glossary/liveview.md) dashboard for monitoring AI decision drift across all tracked models within the Prismatic Platform. It renders drift scores, trend charts, alert histories, and model health indicators through [Phoenix LiveView](@/glossary/phoenix-liveview.md) server-rendered updates, eliminating the need for client-side JavaScript frameworks. The dashboard uses [TailwindCSS](@/glossary/tailwindcss.md) and [Flowbite](@/glossary/flowbite.md) components following the platform's unified UI standards. Built on Phoenix 1.8.3 with LiveView 1.1.0, the application leverages efficient DOM diffing over [WebSocket](@/glossary/websocket.md) connections managed by the [BEAM](@/glossary/beam.md) runtime, ensuring sub-second update latency even under high model monitoring loads.
 
 ## 1. Introduction
 
 ### 1.1 Problem Statement
 
-AI systems in production require continuous monitoring to detect behavioral drift -- the gradual deviation of model outputs from their expected baselines. While the [AI Drift](/apps/ai-drift/) core engine performs statistical drift detection and threshold evaluation, raw drift scores and alert data are not actionable without a visual presentation layer that enables operators to identify patterns, investigate anomalies, and compare model behaviors in real time. Without a dedicated monitoring dashboard, drift detection insights remain buried in logs and API responses, reducing the operational value of the entire monitoring pipeline.
+AI systems in production require continuous monitoring to detect behavioral drift -- the gradual deviation of model outputs from their expected baselines. While the [AI Drift](@/apps/ai-drift.md) core engine performs statistical drift detection and threshold evaluation, raw drift scores and alert data are not actionable without a visual presentation layer that enables operators to identify patterns, investigate anomalies, and compare model behaviors in real time. Without a dedicated monitoring dashboard, drift detection insights remain buried in logs and API responses, reducing the operational value of the entire monitoring pipeline.
 
 AI Drift Web bridges this gap by transforming structured drift data into actionable visual intelligence. Every drift event, baseline deviation, and alert is rendered in real time over WebSocket connections, enabling immediate operator response to emerging drift patterns.
 
@@ -35,14 +35,14 @@ AI Drift Web bridges this gap by transforming structured drift data into actiona
 
 1. **Real-time visualization** -- sub-second updates for drift scores, alerts, and model health without polling or page reloads.
 2. **Zero client-side frameworks** -- all rendering handled server-side through Phoenix LiveView for reduced complexity and consistent behavior.
-3. **Role-based access** -- dashboard views filtered by operator role through [RBAC](/glossary/rbac/) integration with Prismatic Auth.
+3. **Role-based access** -- dashboard views filtered by operator role through [RBAC](@/glossary/rbac.md) integration with Prismatic Auth.
 4. **Comparative analysis** -- side-by-side model comparison enabling drift differential analysis across model versions.
-5. **Audit compliance** -- all dashboard interactions logged for [audit trail](/glossary/audit-trail/) compliance with [GDPR](/glossary/gdpr/) requirements.
+5. **Audit compliance** -- all dashboard interactions logged for [audit trail](@/glossary/audit-trail.md) compliance with [GDPR](@/glossary/gdpr.md) requirements.
 6. **Platform consistency** -- TailwindCSS and Flowbite components matching all other Prismatic dashboards.
 
 ### 1.3 Scope
 
-AI Drift Web covers the presentation and interaction layer for drift monitoring. All drift calculations, [confidence scoring](/glossary/confidence-scoring/), and alert logic reside in the [AI Drift](/apps/ai-drift/) core engine. The web layer consumes structured data through [PubSub](/glossary/pubsub/) broadcasts and [GenServer](/glossary/genserver/) queries, rendering interactive components that support filtering, drill-down, and comparative analysis without duplicating business logic.
+AI Drift Web covers the presentation and interaction layer for drift monitoring. All drift calculations, [confidence scoring](@/glossary/confidence-scoring.md), and alert logic reside in the [AI Drift](@/apps/ai-drift.md) core engine. The web layer consumes structured data through [PubSub](@/glossary/pubsub.md) broadcasts and [GenServer](@/glossary/genserver.md) queries, rendering interactive components that support filtering, drill-down, and comparative analysis without duplicating business logic.
 
 ## 2. Architecture
 
@@ -85,11 +85,11 @@ AppAiDriftWeb.Application (Supervisor, :one_for_one)
       Dashboard performance metrics reporting
 ```
 
-Each connected dashboard session runs as an independent LiveView process under [OTP](/glossary/otp/) supervision. The PubSub system broadcasts drift events from the core engine to all connected sessions, ensuring every operator sees identical real-time data without polling overhead.
+Each connected dashboard session runs as an independent LiveView process under [OTP](@/glossary/otp.md) supervision. The PubSub system broadcasts drift events from the core engine to all connected sessions, ensuring every operator sees identical real-time data without polling overhead.
 
 ### 2.4 Data Flow
 
-All rendering follows [pure function](/glossary/pure-function/) principles with stateless view functions computing display state from drift data. Side effects (user interactions, navigation, alert acknowledgments) are handled through LiveView event callbacks that delegate to the core engine's GenServer API. The separation ensures that view rendering never modifies drift state and that all state mutations flow through the core engine's supervision boundary.
+All rendering follows [pure function](@/glossary/pure-function.md) principles with stateless view functions computing display state from drift data. Side effects (user interactions, navigation, alert acknowledgments) are handled through LiveView event callbacks that delegate to the core engine's GenServer API. The separation ensures that view rendering never modifies drift state and that all state mutations flow through the core engine's supervision boundary.
 
 ## 3. Implementation
 
@@ -99,9 +99,9 @@ All rendering follows [pure function](/glossary/pure-function/) principles with 
 
 **Drift Visualization.** Time-series charts displaying drift magnitude over configurable time windows with baseline comparison overlays. Statistical distribution plots showing output deviation patterns with percentile markers. Heatmap views correlating drift intensity across multiple models and input dimensions enable rapid identification of systemic drift patterns versus isolated model issues.
 
-**Alert Management Console.** Interactive alert console for acknowledging, investigating, and resolving drift alerts with full audit trail. Alert severity classification with color-coded indicators and configurable notification thresholds. One-click escalation to [incident response](/glossary/incident-response/) workflows with evidence attachment. Alert deduplication prevents operator fatigue during sustained drift periods.
+**Alert Management Console.** Interactive alert console for acknowledging, investigating, and resolving drift alerts with full audit trail. Alert severity classification with color-coded indicators and configurable notification thresholds. One-click escalation to [incident response](@/glossary/incident-response.md) workflows with evidence attachment. Alert deduplication prevents operator fatigue during sustained drift periods.
 
-**Model Comparison.** Side-by-side model performance comparison with drift differential analysis and statistical summaries. Temporal alignment of drift events across model versions to identify regression patterns. Export capability for compliance reporting and [structured logging](/glossary/structured-logging/) integration generates evidence artifacts for the [Prismatic CER](/apps/prismatic-cer/) compliance repository.
+**Model Comparison.** Side-by-side model performance comparison with drift differential analysis and statistical summaries. Temporal alignment of drift events across model versions to identify regression patterns. Export capability for compliance reporting and [structured logging](@/glossary/structured-logging.md) integration generates evidence artifacts for the [Prismatic CER](@/apps/prismatic-cer.md) compliance repository.
 
 ### 3.2 LiveView Integration
 
@@ -158,15 +158,15 @@ config :app_ai_drift_web,
 
 | Application | Relationship |
 |-------------|--------------|
-| [AI Drift](/apps/ai-drift/) | Core drift detection engine providing real-time drift scores and alert data via PubSub |
-| [Prismatic Web](/apps/prismatic-web/) | Shared LiveView components, layout templates, and navigation infrastructure |
-| [Prismatic Auth](/apps/prismatic-auth/) | Authentication and RBAC for dashboard access control |
+| [AI Drift](@/apps/ai-drift.md) | Core drift detection engine providing real-time drift scores and alert data via PubSub |
+| [Prismatic Web](@/apps/prismatic-web.md) | Shared LiveView components, layout templates, and navigation infrastructure |
+| [Prismatic Auth](@/apps/prismatic-auth.md) | Authentication and RBAC for dashboard access control |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Web](/apps/prismatic-web/) | Hosts the drift dashboard routes within the unified platform navigation |
+| [Prismatic Web](@/apps/prismatic-web.md) | Hosts the drift dashboard routes within the unified platform navigation |
 
 ### 4.3 External Dependencies
 
@@ -210,7 +210,7 @@ end
 
 ### 6.2 Telemetry Events
 
-The dashboard emits telemetry events for performance monitoring: `[:app_ai_drift_web, :live_view, :mount]`, `[:app_ai_drift_web, :live_view, :handle_event]`, `[:app_ai_drift_web, :pubsub, :event_received]`. These feed into [Prismatic Telemetry](/apps/prismatic-telemetry/) for dashboard performance [observability](/glossary/observability/).
+The dashboard emits telemetry events for performance monitoring: `[:app_ai_drift_web, :live_view, :mount]`, `[:app_ai_drift_web, :live_view, :handle_event]`, `[:app_ai_drift_web, :pubsub, :event_received]`. These feed into [Prismatic Telemetry](@/apps/prismatic-telemetry.md) for dashboard performance [observability](@/glossary/observability.md).
 
 ### 6.3 Resource Requirements
 
@@ -222,13 +222,13 @@ The dashboard emits telemetry events for performance monitoring: `[:app_ai_drift
 
 ## 7. NABLA Compliance
 
-Dashboard views propagate [confidence scoring](/glossary/confidence-scoring/) from the core engine without modification. Every drift score, alert, and comparison displayed in the dashboard carries its original confidence annotation and provenance metadata. The dashboard does not generate new epistemic claims -- it renders existing claims with their full NABLA context, ensuring operators can assess the reliability of displayed information.
+Dashboard views propagate [confidence scoring](@/glossary/confidence-scoring.md) from the core engine without modification. Every drift score, alert, and comparison displayed in the dashboard carries its original confidence annotation and provenance metadata. The dashboard does not generate new epistemic claims -- it renders existing claims with their full NABLA context, ensuring operators can assess the reliability of displayed information.
 
 ## 8. Security Considerations
 
 ### 8.1 Access Control
 
-Dashboard access requires authentication through [Prismatic Auth](/apps/prismatic-auth/). Role-based filtering ensures that analyst, manager, and auditor roles see appropriate data scope. Sensitive model configuration details are only visible to users with the `drift_admin` permission.
+Dashboard access requires authentication through [Prismatic Auth](@/apps/prismatic-auth.md). Role-based filtering ensures that analyst, manager, and auditor roles see appropriate data scope. Sensitive model configuration details are only visible to users with the `drift_admin` permission.
 
 ### 8.2 Audit Trail
 
@@ -238,7 +238,7 @@ All user interactions -- alert acknowledgments, escalations, comparison exports 
 
 ### 9.1 Deployment
 
-Deploys as part of the umbrella [release](/glossary/release/). Assets are built via TailwindCSS and esbuild during the deployment pipeline. The endpoint binds to a configurable port with WebSocket upgrade support.
+Deploys as part of the umbrella [release](@/glossary/release.md). Assets are built via TailwindCSS and esbuild during the deployment pipeline. The endpoint binds to a configurable port with WebSocket upgrade support.
 
 ### 9.2 Troubleshooting
 
@@ -251,23 +251,23 @@ Deploys as part of the umbrella [release](/glossary/release/). Assets are built 
 
 ## 10. Future Work
 
-Planned enhancements include custom dashboard layout persistence per operator, PDF export of drift reports for compliance documentation, real-time collaboration features allowing operators to annotate drift events, and integration with [Prismatic Narrative](/apps/prismatic-narrative/) for automated drift analysis report generation.
+Planned enhancements include custom dashboard layout persistence per operator, PDF export of drift reports for compliance documentation, real-time collaboration features allowing operators to annotate drift events, and integration with [Prismatic Narrative](@/apps/prismatic-narrative.md) for automated drift analysis report generation.
 
 ## References
 
-- [AI Drift](/apps/ai-drift/) -- Core drift detection engine
-- [Prismatic Web](/apps/prismatic-web/) -- Platform LiveView infrastructure
+- [AI Drift](@/apps/ai-drift.md) -- Core drift detection engine
+- [Prismatic Web](@/apps/prismatic-web.md) -- Platform LiveView infrastructure
 - [Phoenix LiveView](https://hexdocs.pm/phoenix_live_view/) -- Server-rendered real-time UI framework
 
 ## Related Agents
 
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Coordinates alert lifecycle management across drift monitoring
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Validates LiveView component architecture compliance
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Coordinates alert lifecycle management across drift monitoring
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Validates LiveView component architecture compliance
 
 ## Related Capabilities
 
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Foundation for live drift data streaming and visualization
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Dashboard performance observability and render metrics
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Foundation for live drift data streaming and visualization
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Dashboard performance observability and render metrics
 
 ---
 
@@ -276,4 +276,4 @@ Planned enhancements include custom dashboard layout persistence per operator, P
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

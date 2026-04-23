@@ -546,25 +546,25 @@ end
 
 ## Related Terms
 
-- [GDPR](/glossary/gdpr/) -- EU regulation (not directive) for data protection, often assessed alongside NIS2
-- [NIS2](/glossary/nis2/) -- Network and Information Security Directive, the primary EU cybersecurity directive
-- [EASM](/glossary/easm/) -- External attack surface management supporting directive compliance assessment
-- [ISO 27001](/glossary/iso-27001/) -- Information security standard aligned with NIS2 risk management requirements
-- [Incident Reporting](/glossary/incident-reporting/) -- Mandatory notification obligations under NIS2, CER, and DORA
-- [Data Controller](/glossary/data-controller/) -- GDPR role with directive-intersecting compliance obligations
-- [Compliance](/glossary/compliance/) -- Broader regulatory compliance framework encompassing directive requirements
+- [GDPR](@/glossary/gdpr.md) -- EU regulation (not directive) for data protection, often assessed alongside NIS2
+- [NIS2](@/glossary/nis2.md) -- Network and Information Security Directive, the primary EU cybersecurity directive
+- [EASM](@/glossary/easm.md) -- External attack surface management supporting directive compliance assessment
+- [ISO 27001](@/glossary/iso-27001.md) -- Information security standard aligned with NIS2 risk management requirements
+- [Incident Reporting](@/glossary/incident-reporting.md) -- Mandatory notification obligations under NIS2, CER, and DORA
+- [Data Controller](@/glossary/data-controller.md) -- GDPR role with directive-intersecting compliance obligations
+- [Compliance](@/glossary/compliance.md) -- Broader regulatory compliance framework encompassing directive requirements
 - [Critical Infrastructure](/glossary/critical-infrastructure/) -- Entities subject to CER and NIS2 essential entity classification
-- [Risk Management](/glossary/risk-management/) -- Core requirement across NIS2, CER, and DORA
-- [Certification](/glossary/certification/) -- ISO 27001 certification as evidence of NIS2 compliance
+- [Risk Management](@/glossary/risk-management.md) -- Core requirement across NIS2, CER, and DORA
+- [Certification](@/glossary/certification.md) -- ISO 27001 certification as evidence of NIS2 compliance
 - [Regulation](/glossary/regulation/) -- Directly applicable EU legislative instrument (contrast with directive)
 - [CER](/glossary/cer/) -- Critical Entities Resilience Directive for physical and cyber resilience
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- Compliance assessment and directive mapping capabilities
-- [Architecture](/architecture/) -- Compliance framework architecture and Perimeter integration
-- [OSINT Tools](/osint/) -- Regulatory intelligence tools for directive monitoring
-- [Technologies](/technologies/) -- Compliance automation technologies and frameworks
+- [Capabilities](@/capabilities/_index.md) -- Compliance assessment and directive mapping capabilities
+- [Architecture](@/architecture/_index.md) -- Compliance framework architecture and Perimeter integration
+- [OSINT Tools](@/osint/_index.md) -- Regulatory intelligence tools for directive monitoring
+- [Technologies](@/technologies/_index.md) -- Compliance automation technologies and frameworks
 
 ---
 
@@ -573,4 +573,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -177,10 +177,10 @@ The DD pipeline appends events for every fetch and load operation, enabling full
 
 ## Cross-References
 
-- [Event](/glossary/event/) -- Individual event records
+- [Event](@/glossary/event.md) -- Individual event records
 - **Immutable Log** -- Broader immutable logging patterns
 - **Incident Reporting** -- NIS2 audit requirements
-- [ACID Transactions](/glossary/acid-transactions/) -- Transactional event appending
+- [ACID Transactions](@/glossary/acid-transactions.md) -- Transactional event appending
 - **Livebooks**: `storage_data/` notebooks demonstrate event log querying and replay
 - **Academy**: Topics on event-driven architecture reference event logs
 
@@ -191,4 +191,4 @@ The DD pipeline appends events for every fetch and load operation, enabling full
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

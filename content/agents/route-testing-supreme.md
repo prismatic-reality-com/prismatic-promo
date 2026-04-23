@@ -32,7 +32,7 @@ The route-testing-supreme operates as an L1 Supreme Authority within the Prismat
 
 Route testing at the supreme authority level reflects the critical importance of endpoint reliability in an intelligence platform. A broken route does not merely degrade user experience -- it can disrupt intelligence collection pipelines, block API consumers, prevent dashboard access during time-sensitive operations, and create security vulnerabilities through unexpected error responses that leak implementation details. The route-testing-supreme treats every route as a production contract that must be honored.
 
-Built on the [AIAD](/glossary/aiad/) standard and governing from the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine at supreme enforcement level, this agent maintains zero tolerance for untested routes. The [NABLA Infinity](/glossary/nabla-infinity/) framework applies to route testing through the [signal plurality](/glossary/signal-plurality/) axiom: route health is assessed through multiple independent verification methods (HTTP status, response body content, response time, header correctness) rather than relying on a single pass/fail signal.
+Built on the [AIAD](@/glossary/aiad.md) standard and governing from the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine at supreme enforcement level, this agent maintains zero tolerance for untested routes. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework applies to route testing through the [signal plurality](@/glossary/signal-plurality.md) axiom: route health is assessed through multiple independent verification methods (HTTP status, response body content, response time, header correctness) rather than relying on a single pass/fail signal.
 
 ## Route Testing Architecture
 
@@ -54,8 +54,8 @@ The testing architecture operates through comprehensive verification at multiple
 - **Security header verification** -- Confirms that all routes include required security headers and that protected routes enforce authentication boundaries correctly
 - **LiveView testing** -- Tests LiveView routes for successful mount, initial render, and event handler responsiveness
 - **Regression detection** -- Detects route regressions introduced by code changes, including broken routes, degraded performance, and altered response structures
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with automatic route testing triggered by deployment events
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for route health tracking, performance trending, and coverage metric monitoring
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with automatic route testing triggered by deployment events
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for route health tracking, performance trending, and coverage metric monitoring
 
 ## Route Verification Matrix
 
@@ -156,15 +156,15 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [prismatic-supreme-commander](/agents/prismatic-supreme-commander/) | Supreme coordination for platform-wide deployment decisions |
-| [prismatic-api-introspector](/agents/prismatic-api-introspector/) | API route discovery feeds route testing coverage |
-| [quality-enforcement-commander](/agents/quality-enforcement-commander/) | Route test results are a quality enforcement dimension |
-| [refactor-specialist-coordinator](/agents/refactor-specialist-coordinator/) | Refactoring operations verified by route testing |
-| [replication-specialist](/agents/replication-specialist/) | Route availability verified after failover operations |
+| [prismatic-supreme-commander](@/agents/prismatic-supreme-commander.md) | Supreme coordination for platform-wide deployment decisions |
+| [prismatic-api-introspector](@/agents/prismatic-api-introspector.md) | API route discovery feeds route testing coverage |
+| [quality-enforcement-commander](@/agents/quality-enforcement-commander.md) | Route test results are a quality enforcement dimension |
+| [refactor-specialist-coordinator](@/agents/refactor-specialist-coordinator.md) | Refactoring operations verified by route testing |
+| [replication-specialist](@/agents/replication-specialist.md) | Route availability verified after failover operations |
 
 ## Enforcement
 
-Route testing operates under absolute [NO MERCY](/glossary/no-mercy/) enforcement at the supreme level: no untested route reaches production, no performance violation is accepted, and no deployment proceeds with route test failures. The [NO DOUBTS](/glossary/no-doubts/) principle requires that route test results are deterministic -- the same route tested under the same conditions produces the same result. The [Trinity Gate](/glossary/trinity-gate/) validates route testing infrastructure integrity, ensuring that the testing system itself correctly detects the violations it claims to detect.
+Route testing operates under absolute [NO MERCY](@/glossary/no-mercy.md) enforcement at the supreme level: no untested route reaches production, no performance violation is accepted, and no deployment proceeds with route test failures. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that route test results are deterministic -- the same route tested under the same conditions produces the same result. The [Trinity Gate](@/glossary/trinity-gate.md) validates route testing infrastructure integrity, ensuring that the testing system itself correctly detects the violations it claims to detect.
 
 ---
 
@@ -173,4 +173,4 @@ Route testing operates under absolute [NO MERCY](/glossary/no-mercy/) enforcemen
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "l2-entity-resolver - Prismatic Platform"
 
 ## Overview
 
-The l2-entity-resolver is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the entity resolution synthesis domain of the Prismatic Platform. It serves as the second processing level in the platform's three-tier intelligence pipeline (L1 pattern recognition, L2 entity resolution, L3 strategy optimization), responsible for resolving pattern observations from the [l1-pattern-engine](/agents/l1-pattern-engine/) into disambiguated entity identities and mapping relationships between resolved entities. Where L1 operates on data patterns, L2 operates on entities -- the real-world persons, organizations, addresses, and assets that data patterns represent.
+The l2-entity-resolver is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the entity resolution synthesis domain of the Prismatic Platform. It serves as the second processing level in the platform's three-tier intelligence pipeline (L1 pattern recognition, L2 entity resolution, L3 strategy optimization), responsible for resolving pattern observations from the [l1-pattern-engine](@/agents/l1-pattern-engine.md) into disambiguated entity identities and mapping relationships between resolved entities. Where L1 operates on data patterns, L2 operates on entities -- the real-world persons, organizations, addresses, and assets that data patterns represent.
 
-Built on the [AIAD](/glossary/aiad/) standard with deep integration into the platform's [entity resolution](/glossary/entity-resolution/) infrastructure, the l2-entity-resolver applies sophisticated matching algorithms to determine whether data records from different sources refer to the same real-world entity. This is a fundamentally challenging problem because entities appear differently across data sources: names may be transliterated, abbreviated, or misspelled; addresses may use different formatting conventions; and temporal changes (name changes, address changes, role changes) create legitimate variation that must be distinguished from genuine entity distinction.
+Built on the [AIAD](@/glossary/aiad.md) standard with deep integration into the platform's [entity resolution](@/glossary/entity-resolution.md) infrastructure, the l2-entity-resolver applies sophisticated matching algorithms to determine whether data records from different sources refer to the same real-world entity. This is a fundamentally challenging problem because entities appear differently across data sources: names may be transliterated, abbreviated, or misspelled; addresses may use different formatting conventions; and temporal changes (name changes, address changes, role changes) create legitimate variation that must be distinguished from genuine entity distinction.
 
 ## Entity Resolution Architecture
 
@@ -50,8 +50,8 @@ The clustering phase groups records with high pairwise similarity into entity cl
 - **Temporal entity tracking** -- Maintains entity identity continuity across temporal changes (name changes, address changes, role changes) by tracking the evolution of entity attributes over time
 - **Relationship mapping** -- Discovers and maps relationships between resolved entities including corporate ownership chains, director networks, shared address connections, and family/professional associations
 - **Confidence-scored results** -- Every entity resolution decision carries an explicit confidence score reflecting match quality, source reliability, and information completeness
-- **[KuzuDB](/glossary/kuzudb/) graph persistence** -- Stores resolved entities and relationships in the platform's graph database for relationship-aware querying
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous resolution of incoming pattern observations
+- **[KuzuDB](@/glossary/kuzudb.md) graph persistence** -- Stores resolved entities and relationships in the platform's graph database for relationship-aware querying
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous resolution of incoming pattern observations
 
 ## Relationship Mapping
 
@@ -59,23 +59,23 @@ Beyond resolving individual entity identities, the l2-entity-resolver maps relat
 
 Relationship mapping leverages the resolved entity clusters to identify cross-entity patterns that are invisible when analyzing individual records. For example, a pattern of shared directors between companies becomes visible only after the director records are resolved into unique identities and the directorship relationships are mapped. Similarly, beneficial ownership chains become traceable only when intermediate holding companies are resolved and linked through their ownership relationships.
 
-The relationship graph is stored in [KuzuDB](/glossary/kuzudb/), the platform's graph database, enabling efficient traversal queries such as "find all companies within two ownership hops of entity X" or "identify all persons who have served as directors of companies registered at address Y." These graph queries power downstream strategic analysis in the [l3-strategy-optimizer](/agents/l3-strategy-optimizer/).
+The relationship graph is stored in [KuzuDB](@/glossary/kuzudb.md), the platform's graph database, enabling efficient traversal queries such as "find all companies within two ownership hops of entity X" or "identify all persons who have served as directors of companies registered at address Y." These graph queries power downstream strategic analysis in the [l3-strategy-optimizer](@/agents/l3-strategy-optimizer.md).
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the entity resolver to access data from multiple source domains, publish resolved entity records to the platform's knowledge graph, and coordinate with upstream pattern recognition and downstream strategy optimization agents.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the entity resolver to access data from multiple source domains, publish resolved entity records to the platform's knowledge graph, and coordinate with upstream pattern recognition and downstream strategy optimization agents.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| [KuzuDB](/glossary/kuzudb/) | Graph database for entity and relationship storage |
-| [PostgreSQL](/glossary/postgresql/) | Relational storage for entity resolution metadata and matching statistics |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph database for entity and relationship storage |
+| [PostgreSQL](@/glossary/postgresql.md) | Relational storage for entity resolution metadata and matching statistics |
 | Prismatic OSINT | Source data from OSINT collection pipelines |
-| Prismatic Telemetry | Resolution accuracy [metrics](/glossary/metrics/) and throughput monitoring |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of matching algorithms and threshold calibration |
-| [Trinity Gate](/glossary/trinity-gate/) | Epistemic validation of entity resolution claims |
+| Prismatic Telemetry | Resolution accuracy [metrics](@/glossary/metrics.md) and throughput monitoring |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of matching algorithms and threshold calibration |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Epistemic validation of entity resolution claims |
 
 ## Command Interface
 
@@ -91,18 +91,18 @@ The relationship graph is stored in [KuzuDB](/glossary/kuzudb/), the platform's 
 
 | Agent | Relationship |
 |-------|-------------|
-| [**l1-pattern-engine**](/agents/l1-pattern-engine/) (L3) | Provides enriched pattern observations as input for entity resolution |
-| [**l3-strategy-optimizer**](/agents/l3-strategy-optimizer/) (L3) | Consumes resolved entities and relationships for strategic analysis |
-| [**investigate-coordinator**](/agents/investigate-coordinator/) (L3) | Routes entity-focused investigations through the resolution pipeline |
-| [**primary-identity-verification-commander**](/agents/primary-identity-verification-commander/) (L3) | Uses resolved entities for identity verification workflows |
+| [**l1-pattern-engine**](@/agents/l1-pattern-engine.md) (L3) | Provides enriched pattern observations as input for entity resolution |
+| [**l3-strategy-optimizer**](@/agents/l3-strategy-optimizer.md) (L3) | Consumes resolved entities and relationships for strategic analysis |
+| [**investigate-coordinator**](@/agents/investigate-coordinator.md) (L3) | Routes entity-focused investigations through the resolution pipeline |
+| [**primary-identity-verification-commander**](@/agents/primary-identity-verification-commander.md) (L3) | Uses resolved entities for identity verification workflows |
 
 ## Epistemic Framework
 
-Entity resolution decisions are governed by the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. The signal plurality axiom requires that entity merges be supported by evidence from at least two independent data fields (a name match alone is insufficient; it must be corroborated by an address match, date match, or identifier match). The contradiction preservation axiom ensures that conflicting information within an entity cluster is preserved and flagged rather than silently resolved. The [Trinity Gate](/glossary/trinity-gate/) validates that the resulting entity graph maintains structural consistency (no impossible relationship patterns), logical consistency (no contradictory identity claims), and temporal consistency (entity attribute changes follow plausible timelines).
+Entity resolution decisions are governed by the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. The signal plurality axiom requires that entity merges be supported by evidence from at least two independent data fields (a name match alone is insufficient; it must be corroborated by an address match, date match, or identifier match). The contradiction preservation axiom ensures that conflicting information within an entity cluster is preserved and flagged rather than silently resolved. The [Trinity Gate](@/glossary/trinity-gate.md) validates that the resulting entity graph maintains structural consistency (no impossible relationship patterns), logical consistency (no contradictory identity claims), and temporal consistency (entity attribute changes follow plausible timelines).
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine prohibits incomplete entity resolution. Every entity record processed by the resolver receives a resolution decision (match, non-match, or uncertain) with an explicit confidence score. The [NO DOUBTS](/glossary/no-doubts/) principle requires that uncertain cases are explicitly flagged for human review rather than resolved through arbitrary threshold application. Entity merge decisions above 0.95 confidence proceed automatically; decisions between 0.70 and 0.95 are flagged as probable matches requiring confirmation; decisions below 0.70 are recorded as non-matches unless contradicted by subsequent evidence.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine prohibits incomplete entity resolution. Every entity record processed by the resolver receives a resolution decision (match, non-match, or uncertain) with an explicit confidence score. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that uncertain cases are explicitly flagged for human review rather than resolved through arbitrary threshold application. Entity merge decisions above 0.95 confidence proceed automatically; decisions between 0.70 and 0.95 are flagged as probable matches requiring confirmation; decisions below 0.70 are recorded as non-matches unless contradicted by subsequent evidence.
 
 ---
 
@@ -111,4 +111,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine prohibits incomplete entity resolut
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

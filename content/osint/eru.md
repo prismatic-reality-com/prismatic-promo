@@ -25,13 +25,13 @@ image_alt = "ERU - Prismatic Platform"
 
 ## Overview
 
-ERU (Energeticky regulacni urad -- Energy Regulatory Office) is the Czech Republic's independent energy regulatory authority established under Act No. 458/2000 Coll. (the Energy Act, Energeticky zakon). ERU operates as an autonomous administrative authority responsible for regulating the electricity, gas, and heat supply markets within the Czech Republic. The office licenses and supervises all participants in these energy markets, making its [registry](/glossary/registry-otp/) the authoritative source for energy sector entity verification and the definitive database of licensed energy market operators.
+ERU (Energeticky regulacni urad -- Energy Regulatory Office) is the Czech Republic's independent energy regulatory authority established under Act No. 458/2000 Coll. (the Energy Act, Energeticky zakon). ERU operates as an autonomous administrative authority responsible for regulating the electricity, gas, and heat supply markets within the Czech Republic. The office licenses and supervises all participants in these energy markets, making its [registry](@/glossary/registry-otp.md) the authoritative source for energy sector entity verification and the definitive database of licensed energy market operators.
 
 Every entity that generates, transmits, distributes, trades, or supplies electricity or gas in the Czech Republic must hold an ERU license. This licensing requirement extends to renewable energy installations receiving feed-in tariffs or green bonuses under the supported energy sources (POZE) framework. The licensing database is publicly accessible and provides a comprehensive map of the Czech energy market's participant landscape, including information about license types, validity periods, licensed capacities, and regulatory compliance status.
 
-For [OSINT](/glossary/osint/) purposes, ERU data reveals the complete structure of the Czech energy market. The registry identifies all licensed operators across the generation, transmission, distribution, trading, and supply segments. When combined with [ARES](/osint/ares/) corporate data, [CUZK](/osint/cuzk/) property records, and [Hlidac statu](/osint/hlidac-statu/) public contract analytics, ERU data enables comprehensive energy sector intelligence covering ownership structures, regulatory compliance history, renewable energy portfolios, and government procurement relationships.
+For [OSINT](@/glossary/osint.md) purposes, ERU data reveals the complete structure of the Czech energy market. The registry identifies all licensed operators across the generation, transmission, distribution, trading, and supply segments. When combined with [ARES](@/osint/ares.md) corporate data, [CUZK](@/osint/cuzk.md) property records, and [Hlidac statu](@/osint/hlidac-statu.md) public contract analytics, ERU data enables comprehensive energy sector intelligence covering ownership structures, regulatory compliance history, renewable energy portfolios, and government procurement relationships.
 
-ERU's data is particularly significant in the context of the European [NIS2](/glossary/nis2/) Directive implementation, which designates energy sector operators as essential entities requiring enhanced cybersecurity measures. ERU's licensing database effectively serves as the registry of NIS2-covered entities in the Czech energy sector, making it a critical data source for compliance assessment workflows.
+ERU's data is particularly significant in the context of the European [NIS2](@/glossary/nis2.md) Directive implementation, which designates energy sector operators as essential entities requiring enhanced cybersecurity measures. ERU's licensing database effectively serves as the registry of NIS2-covered entities in the Czech energy sector, making it a critical data source for compliance assessment workflows.
 
 ### Czech Legal Context
 
@@ -262,7 +262,7 @@ Organizations with energy sector operations or supply chain dependencies use ERU
 
 ## Platform Integration
 
-ERU provides the energy sector intelligence layer within the Prismatic Platform, critical for NIS2 compliance assessment through [Prismatic Perimeter](/apps/prismatic-perimeter/). License data feeds into entity classification workflows that determine NIS2 coverage, and penalty history contributes to regulatory risk scoring.
+ERU provides the energy sector intelligence layer within the Prismatic Platform, critical for NIS2 compliance assessment through [Prismatic Perimeter](@/apps/prismatic-perimeter.md). License data feeds into entity classification workflows that determine NIS2 coverage, and penalty history contributes to regulatory risk scoring.
 
 ## NABLA Compliance
 
@@ -289,13 +289,13 @@ ERU provides the energy sector intelligence layer within the Prismatic Platform,
 
 ## Related Resources
 
-- [ARES](/osint/ares/) - Entity identification for energy companies
-- [CTU](/osint/ctu/) - Telecom regulatory data (complementary Czech regulator)
-- [CUZK](/osint/cuzk/) - Property records for energy infrastructure locations
-- [CEDR](/osint/cedr/) - Energy sector subsidies and grants tracking
-- [Hlidac statu](/osint/hlidac-statu/) - Public contract analysis for energy sector procurement
-- [UOHS](/osint/uohs/) - Competition authority cases in energy markets
-- [EU Sanctions](/osint/eu-sanctions/) - Sanctions screening for energy sector entities
+- [ARES](@/osint/ares.md) - Entity identification for energy companies
+- [CTU](@/osint/ctu.md) - Telecom regulatory data (complementary Czech regulator)
+- [CUZK](@/osint/cuzk.md) - Property records for energy infrastructure locations
+- [CEDR](@/osint/cedr.md) - Energy sector subsidies and grants tracking
+- [Hlidac statu](@/osint/hlidac-statu.md) - Public contract analysis for energy sector procurement
+- [UOHS](@/osint/uohs.md) - Competition authority cases in energy markets
+- [EU Sanctions](@/osint/eu-sanctions.md) - Sanctions screening for energy sector entities
 
 ---
 
@@ -304,4 +304,4 @@ ERU provides the energy sector intelligence layer within the Prismatic Platform,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

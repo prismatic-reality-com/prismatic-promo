@@ -326,7 +326,7 @@ The Prismatic Platform's containerization strategy follows the principles outlin
 
 ### Build Pipeline
 
-The platform's [GitLab CI](/glossary/gitlab-ci/) pipeline builds container images on every push to the main branch. The pipeline stages ensure that only code passing all [quality gates](/glossary/quality-gates/) is containerized.
+The platform's [GitLab CI](@/glossary/gitlab-ci.md) pipeline builds container images on every push to the main branch. The pipeline stages ensure that only code passing all [quality gates](@/glossary/quality-gates.md) is containerized.
 
 | Stage | Action | Gate |
 |-------|--------|------|
@@ -341,7 +341,7 @@ The platform's [GitLab CI](/glossary/gitlab-ci/) pipeline builds container image
 
 ### Deployment on Fly.io
 
-The platform deploys to [Fly.io](/glossary/fly-io/), which provides container-native hosting with edge computing, automatic TLS, and multi-region deployment. Fly.io uses the container image directly, adding its own init system for process management and networking.
+The platform deploys to [Fly.io](@/glossary/fly-io.md), which provides container-native hosting with edge computing, automatic TLS, and multi-region deployment. Fly.io uses the container image directly, adding its own init system for process management and networking.
 
 The deployment configuration in `fly.toml` maps container configuration to Fly.io's infrastructure:
 
@@ -435,11 +435,11 @@ The Prismatic Platform chose containerization because the 115-application umbrel
 
 ### Prismatic Platform Deployment
 
-The 115-application umbrella is compiled into a single Elixir release, packaged into a container, and deployed to [Fly.io](/glossary/fly-io/). The container includes the compiled BEAM bytecode, Erlang/OTP runtime, and static assets. Database migrations run as a container entrypoint script before the application starts.
+The 115-application umbrella is compiled into a single Elixir release, packaged into a container, and deployed to [Fly.io](@/glossary/fly-io.md). The container includes the compiled BEAM bytecode, Erlang/OTP runtime, and static assets. Database migrations run as a container entrypoint script before the application starts.
 
 ### CI/CD Pipeline Isolation
 
-Each CI pipeline stage runs in its own container, ensuring that test environments are clean and reproducible. The [continuous integration](/glossary/continuous-integration/) pipeline uses containerized services (PostgreSQL, Redis) that are created fresh for each pipeline run, eliminating test pollution.
+Each CI pipeline stage runs in its own container, ensuring that test environments are clean and reproducible. The [continuous integration](@/glossary/continuous-integration.md) pipeline uses containerized services (PostgreSQL, Redis) that are created fresh for each pipeline run, eliminating test pollution.
 
 ### Local Development Environment
 
@@ -447,27 +447,27 @@ Docker Compose orchestrates the platform's service dependencies for local develo
 
 ### Security Scanning and EASM
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM system uses containerized scanning tools to assess external attack surfaces. Each scan runs in an isolated container with network access restricted to the target, preventing lateral movement if a scanning tool is compromised.
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) EASM system uses containerized scanning tools to assess external attack surfaces. Each scan runs in an isolated container with network access restricted to the target, preventing lateral movement if a scanning tool is compromised.
 
 ## Related Concepts
 
-- [Docker](/glossary/docker/) -- The dominant container runtime and the platform's primary containerization tool
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) -- Zero-downtime deployment strategy enabled by container immutability
-- [Fly.io](/glossary/fly-io/) -- Container-native hosting platform used for Prismatic Platform deployment
-- [Continuous Deployment](/glossary/continuous-deployment/) -- Automated deployment pipeline that produces and ships container images
-- [Continuous Integration](/glossary/continuous-integration/) -- Pipeline that builds and validates container images before deployment
-- [Release](/glossary/release/) -- Elixir release mechanism that produces the artifact packaged into containers
-- [Microservices](/glossary/microservices/) -- Architecture pattern where each service runs in its own container
-- [GitLab CI](/glossary/gitlab-ci/) -- CI/CD system that orchestrates container builds and deployments
-- [Production Environment](/glossary/production-environment/) -- The target environment where containerized applications run
-- [Quality Gates](/glossary/quality-gates/) -- Automated checks that must pass before container images are built
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property enhanced by container isolation and orchestration
+- [Docker](@/glossary/docker.md) -- The dominant container runtime and the platform's primary containerization tool
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) -- Zero-downtime deployment strategy enabled by container immutability
+- [Fly.io](@/glossary/fly-io.md) -- Container-native hosting platform used for Prismatic Platform deployment
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- Automated deployment pipeline that produces and ships container images
+- [Continuous Integration](@/glossary/continuous-integration.md) -- Pipeline that builds and validates container images before deployment
+- [Release](@/glossary/release.md) -- Elixir release mechanism that produces the artifact packaged into containers
+- [Microservices](@/glossary/microservices.md) -- Architecture pattern where each service runs in its own container
+- [GitLab CI](@/glossary/gitlab-ci.md) -- CI/CD system that orchestrates container builds and deployments
+- [Production Environment](@/glossary/production-environment.md) -- The target environment where containerized applications run
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated checks that must pass before container images are built
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property enhanced by container isolation and orchestration
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform deployment architecture
-- [Capabilities](/capabilities/) -- Infrastructure capabilities enabled by containerization
-- [Technologies](/technologies/) -- Technology stack including Docker, Fly.io, Alpine Linux
+- [Architecture](@/architecture/_index.md) -- Platform deployment architecture
+- [Capabilities](@/capabilities/_index.md) -- Infrastructure capabilities enabled by containerization
+- [Technologies](@/technologies/_index.md) -- Technology stack including Docker, Fly.io, Alpine Linux
 
 ---
 
@@ -476,4 +476,4 @@ The [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM system uses conta
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

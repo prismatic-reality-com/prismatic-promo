@@ -28,11 +28,11 @@ image_alt = "shell-setup-specialist - Prismatic Platform"
 
 ## Overview
 
-The Shell Setup Specialist is an L3 agent operating in the **developer-productivity** domain of the Prismatic Platform. This agent is responsible for configuring, optimizing, and maintaining shell environments, dotfile configurations, and developer tooling setups that maximize productivity across the platform's development team. From Zsh configuration and Git hooks to Elixir/[OTP](/glossary/otp/) development environment optimization, the Shell Setup Specialist ensures every developer has a consistent, high-performance workspace that enforces the platform's quality standards from the moment they open a terminal.
+The Shell Setup Specialist is an L3 agent operating in the **developer-productivity** domain of the Prismatic Platform. This agent is responsible for configuring, optimizing, and maintaining shell environments, dotfile configurations, and developer tooling setups that maximize productivity across the platform's development team. From Zsh configuration and Git hooks to Elixir/[OTP](@/glossary/otp.md) development environment optimization, the Shell Setup Specialist ensures every developer has a consistent, high-performance workspace that enforces the platform's quality standards from the moment they open a terminal.
 
 Shell environment consistency is a foundational requirement for a platform of this scale. With 90 umbrella applications, thousands of Mix tasks, and strict pre-commit quality gates, an improperly configured development environment can lead to silent quality degradation, inconsistent test results, or bypassed enforcement mechanisms. The Shell Setup Specialist eliminates this risk by providing deterministic, reproducible shell configurations.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, contributing to the self-evolving, deterministic intelligence infrastructure under the [AIAD](/glossary/aiad/) standard.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, contributing to the self-evolving, deterministic intelligence infrastructure under the [AIAD](@/glossary/aiad.md) standard.
 
 ## Core Responsibilities
 
@@ -264,7 +264,7 @@ The Shell Setup Specialist provides a suite of diagnostic tools that developers 
 
 ## Productivity Metrics
 
-The Shell Setup Specialist tracks developer productivity metrics to validate that environment configurations are achieving their intended efficiency gains. These metrics are collected through [telemetry](/glossary/telemetry/) events emitted by the diagnostic tools and compiled into weekly reports for the development team.
+The Shell Setup Specialist tracks developer productivity metrics to validate that environment configurations are achieving their intended efficiency gains. These metrics are collected through [telemetry](@/glossary/telemetry.md) events emitted by the diagnostic tools and compiled into weekly reports for the development team.
 
 | Metric | Baseline | Optimized | Improvement |
 |--------|----------|-----------|-------------|
@@ -278,10 +278,10 @@ The Shell Setup Specialist tracks developer productivity metrics to validate tha
 
 ## Integration Points
 
-- [**Autonomous Self-Healing**](/capabilities/autonomous-self-healing/) -- Auto-detects and repairs broken environment configurations
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Monitors build and test performance metrics
-- [**Quality Gates**](/capabilities/quality-gates/) -- Git hooks enforce quality gates at every commit
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full compliance with agent specification
+- [**Autonomous Self-Healing**](@/capabilities/autonomous-self-healing.md) -- Auto-detects and repairs broken environment configurations
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Monitors build and test performance metrics
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Git hooks enforce quality gates at every commit
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full compliance with agent specification
 
 ## Developer Onboarding Automation
 
@@ -305,21 +305,21 @@ One of the Shell Setup Specialist's highest-impact contributions is automating t
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 10 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Related Agents
 
 Agents in the **developer-productivity** domain work together to ensure maximum development efficiency.
 
-- [**UI Flowbite Specialist**](/agents/ui-flowbite-specialist/) -- Frontend development tooling and component library management
-- [**Source Archive Specialist**](/agents/source-archive-specialist/) -- Code packaging and distribution optimization
-- [**Type Inference Debugger**](/agents/type-inference-debugger/) -- Dialyzer integration and IDE-level type feedback
+- [**UI Flowbite Specialist**](@/agents/ui-flowbite-specialist.md) -- Frontend development tooling and component library management
+- [**Source Archive Specialist**](@/agents/source-archive-specialist.md) -- Code packaging and distribution optimization
+- [**Type Inference Debugger**](@/agents/type-inference-debugger.md) -- Dialyzer integration and IDE-level type feedback
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to enforce environment standards across all development workstations.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to enforce environment standards across all development workstations.
 
 ---
 
@@ -328,4 +328,4 @@ Agents in the **developer-productivity** domain work together to ensure maximum 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -30,7 +30,7 @@ image_alt = "proposal-writer - Prismatic Platform"
 
 The proposal-writer operates as an L2 Tactical Operations agent within the Prismatic Platform's primary-producer domain, specializing in automated sales proposal generation, business document creation, and structured content production for client-facing deliverables. This agent transforms raw intelligence gathered by the platform's investigation and analysis agents into polished, professional business documents that communicate findings, recommendations, and value propositions to external stakeholders. Whether producing security assessment proposals for Prismatic Perimeter prospects, due diligence reports for corporate investigations, or technical architecture documents for platform integration projects, the proposal-writer generates consistently structured, evidence-backed documents that maintain the platform's quality standards.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO DOUBTS](/glossary/no-doubts/) principle, every document produced by this agent includes explicit source attribution for all claims, quantified confidence levels for analytical statements, and clear separation between established facts and interpretive conclusions. The agent operates as an [OTP](/glossary/otp/) process with access to the platform's knowledge bases, [telemetry](/glossary/telemetry/) data, and agent capability registry, enabling it to assemble proposals that accurately reflect the platform's current capabilities and the specific intelligence gathered for each engagement.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO DOUBTS](@/glossary/no-doubts.md) principle, every document produced by this agent includes explicit source attribution for all claims, quantified confidence levels for analytical statements, and clear separation between established facts and interpretive conclusions. The agent operates as an [OTP](@/glossary/otp.md) process with access to the platform's knowledge bases, [telemetry](@/glossary/telemetry.md) data, and agent capability registry, enabling it to assemble proposals that accurately reflect the platform's current capabilities and the specific intelligence gathered for each engagement.
 
 ## Document Generation Architecture
 
@@ -50,7 +50,7 @@ The agent supports several categories of business documents, each with specializ
 
 **Security Assessment Reports** document the findings of Prismatic Perimeter security evaluations. These reports follow a standardized structure: executive summary with security rating (A-F grade), detailed findings organized by severity, compliance assessment against relevant frameworks (NIS2, ZKB), risk quantification with confidence intervals, and prioritized remediation recommendations. The agent ensures that all findings are supported by specific evidence and that risk ratings follow the platform's evidence-based scoring methodology.
 
-**Due Diligence Reports** compile investigation findings into structured documents suitable for legal and financial review. These reports maintain strict separation between verified facts and analytical interpretations, include complete provenance chains for all assertions, and flag areas where information gaps affect conclusion confidence. The [NABLA Infinity](/glossary/nabla-infinity/) signal plurality requirement is reflected in the report structure -- conclusions supported by multiple independent sources are distinguished from single-source findings.
+**Due Diligence Reports** compile investigation findings into structured documents suitable for legal and financial review. These reports maintain strict separation between verified facts and analytical interpretations, include complete provenance chains for all assertions, and flag areas where information gaps affect conclusion confidence. The [NABLA Infinity](@/glossary/nabla-infinity.md) signal plurality requirement is reflected in the report structure -- conclusions supported by multiple independent sources are distinguished from single-source findings.
 
 **Technical Architecture Documents** describe the platform's technical implementation for integration partners and technical stakeholders. These documents are generated from the platform's own codebase metadata, API specifications, and architecture documentation, ensuring accuracy without manual documentation maintenance.
 
@@ -83,24 +83,24 @@ Document formatting follows configurable brand guidelines including typography, 
 
 | Agent | Relationship |
 |-------|-------------|
-| [risk-assessment-commander](/agents/risk-assessment-commander/) | Risk findings and severity ratings for security assessment proposals |
-| [opportunity-analyzer](/agents/opportunity-analyzer/) | Prospect qualification data for proposal prioritization |
-| [regulatory-compliance-risk-specialist](/agents/regulatory-compliance-risk-specialist/) | Compliance requirement analysis for regulatory-focused proposals |
-| [real-estate-valuation-specialist](/agents/real-estate-valuation-specialist/) | Property valuation data for real estate due diligence reports |
+| [risk-assessment-commander](@/agents/risk-assessment-commander.md) | Risk findings and severity ratings for security assessment proposals |
+| [opportunity-analyzer](@/agents/opportunity-analyzer.md) | Prospect qualification data for proposal prioritization |
+| [regulatory-compliance-risk-specialist](@/agents/regulatory-compliance-risk-specialist.md) | Compliance requirement analysis for regulatory-focused proposals |
+| [real-estate-valuation-specialist](@/agents/real-estate-valuation-specialist.md) | Property valuation data for real estate due diligence reports |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Document generation performance [metrics](/glossary/metrics/) and quality tracking |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent specification and discovery |
-| [SEADF](/glossary/seadf/) Pipeline | Document quality assessment within content workflows |
-| [Mycelial Network](/glossary/mycelial-network/) | Cross-agent content aggregation for multi-source proposals |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Document generation performance [metrics](@/glossary/metrics.md) and quality tracking |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
+| [SEADF](@/glossary/seadf.md) Pipeline | Document quality assessment within content workflows |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Cross-agent content aggregation for multi-source proposals |
 
 ## Enforcement
 
-All generated documents comply with the [NO MERCY](/glossary/no-mercy/) doctrine -- incomplete documents, documents with unsubstantiated claims, or documents that fail quality assurance checks are rejected. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every factual claim in a generated document is traceable to a specific platform data source with explicit confidence attribution. Documents containing security-sensitive findings pass through additional review gates before external delivery, ensuring that disclosed information is appropriate for the target audience and complies with responsible disclosure practices.
+All generated documents comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine -- incomplete documents, documents with unsubstantiated claims, or documents that fail quality assurance checks are rejected. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every factual claim in a generated document is traceable to a specific platform data source with explicit confidence attribution. Documents containing security-sensitive findings pass through additional review gates before external delivery, ensuring that disclosed information is appropriate for the target audience and complies with responsible disclosure practices.
 
 ---
 
@@ -109,4 +109,4 @@ All generated documents comply with the [NO MERCY](/glossary/no-mercy/) doctrine
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

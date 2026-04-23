@@ -22,11 +22,11 @@ image_alt = "White Team - Prismatic Platform"
 
 ## Overview
 
-The White Team provides the formal verification and constructive proof capability within the Prismatic Platform's six-team color-team security architecture. While [Red Team](/teams/red/) finds vulnerabilities through adversarial simulation and [Blue Team](/teams/blue/) builds defenses through monitoring and detection, White Team proves that systems hold through progressive formal methods — from property-based testing through contract validation to full Lean4 theorem proving. White provides mathematical certainty where simulation and observation alone cannot.
+The White Team provides the formal verification and constructive proof capability within the Prismatic Platform's six-team color-team security architecture. While [Red Team](@/teams/red.md) finds vulnerabilities through adversarial simulation and [Blue Team](@/teams/blue.md) builds defenses through monitoring and detection, White Team proves that systems hold through progressive formal methods — from property-based testing through contract validation to full Lean4 theorem proving. White provides mathematical certainty where simulation and observation alone cannot.
 
 The theoretical foundation of White Team operations draws from formal methods in software engineering, type theory, constructive logic, and the Curry-Howard correspondence that links proofs and programs. The Prismatic Platform implements a six-level verification hierarchy (L0-L5) that allows verification effort to be calibrated to the criticality of the system under examination. Low-criticality modules receive L0-L1 verification (unit and property tests), while safety-critical paths receive L4-L5 verification (theorem proving and full formalization).
 
-White Team's role within the color-team architecture is uniquely constructive — while other teams find problems (Red), detect changes (Blue), explore boundaries (Gray), model threats (Black), and synthesize findings (Purple), White Team proves that solutions work. White verification evidence feeds into [Purple Team](/teams/purple/) closure decisions, providing the formal proof that a defense implementation actually satisfies its security properties. This constructive role makes White Team essential for the platform's [Trinity Gate](/glossary/trinity-gate/) — the three-layer verification gate that every belief must pass.
+White Team's role within the color-team architecture is uniquely constructive — while other teams find problems (Red), detect changes (Blue), explore boundaries (Gray), model threats (Black), and synthesize findings (Purple), White Team proves that solutions work. White verification evidence feeds into [Purple Team](@/teams/purple.md) closure decisions, providing the formal proof that a defense implementation actually satisfies its security properties. This constructive role makes White Team essential for the platform's [Trinity Gate](@/glossary/trinity-gate.md) — the three-layer verification gate that every belief must pass.
 
 ## Mission and Doctrine
 
@@ -42,7 +42,7 @@ The White Team mission is to provide progressive formal verification of platform
 | **Trinity Gate Support** | Provide formal necessity evidence for gate passage | Mandatory for critical claims |
 | **Reproducibility** | All proofs reproducible from specification to conclusion | Proof artifact storage |
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine governs White operations with emphasis on NO DOUBTS: every verification claim must be backed by reproducible proof artifacts, and no system is declared "verified" without evidence at the appropriate level. NO MERCY manifests in the insistence on genuine verification — proofs that actually prove the property in question, not superficially similar properties that are easier to verify.
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine governs White operations with emphasis on NO DOUBTS: every verification claim must be backed by reproducible proof artifacts, and no system is declared "verified" without evidence at the appropriate level. NO MERCY manifests in the insistence on genuine verification — proofs that actually prove the property in question, not superficially similar properties that are easier to verify.
 
 ## Team Composition
 
@@ -60,11 +60,11 @@ The Verifier Commander orchestrates verification campaigns, assigning verificati
 
 ### white-contract-validator
 
-The Contract Validator specializes in three contract types: behavior contracts (function input/output relationships verified against `@spec` annotations), protocol contracts (Elixir protocol compliance verification), and API contracts ([OpenAPI](/glossary/openapi/) specification validation for external interfaces). This agent produces test suites that continuously verify contract compliance, serving as the L1-L2 verification layer.
+The Contract Validator specializes in three contract types: behavior contracts (function input/output relationships verified against `@spec` annotations), protocol contracts (Elixir protocol compliance verification), and API contracts ([OpenAPI](@/glossary/openapi.md) specification validation for external interfaces). This agent produces test suites that continuously verify contract compliance, serving as the L1-L2 verification layer.
 
 ### white-invariant-prover
 
-The Invariant Prover conducts the deepest verification work — property-based testing with StreamData, model checking, and formal theorem proving with [Lean4](/glossary/lean4/). This agent handles L3-L5 verification, producing mathematical proofs of system invariants. The prover also conducts fault injection analysis, verifying that systems maintain their properties under controlled failure conditions.
+The Invariant Prover conducts the deepest verification work — property-based testing with StreamData, model checking, and formal theorem proving with [Lean4](@/glossary/lean4.md). This agent handles L3-L5 verification, producing mathematical proofs of system invariants. The prover also conducts fault injection analysis, verifying that systems maintain their properties under controlled failure conditions.
 
 ## Verification Hierarchy
 
@@ -72,7 +72,7 @@ The Invariant Prover conducts the deepest verification work — property-based t
 
 | Level | Method | Confidence | Tooling | Typical Targets |
 |-------|--------|------------|---------|-----------------|
-| **L0** | Unit Testing | 0.60 | [ExUnit](/glossary/exunit/) | All modules |
+| **L0** | Unit Testing | 0.60 | [ExUnit](@/glossary/exunit.md) | All modules |
 | **L1** | Property Testing | 0.75 | StreamData, PropCheck | Public APIs, data transformations |
 | **L2** | Contract Testing | 0.85 | TypeCheck, custom validators | Module interfaces, protocol impls |
 | **L3** | Model Checking | 0.90 | TLA+ specifications | State machines, concurrency |
@@ -313,7 +313,7 @@ White Team provides the formal verification layer that supports NABLA axiom enfo
 
 ### Trinity Gate Support
 
-White Team provides the **Formal Necessity** component of the [Trinity Gate](/glossary/trinity-gate/):
+White Team provides the **Formal Necessity** component of the [Trinity Gate](@/glossary/trinity-gate.md):
 
 | Gate | Provider | Method |
 |------|----------|--------|
@@ -339,12 +339,12 @@ White Team provides the **Formal Necessity** component of the [Trinity Gate](/gl
 
 | Component | Direction | Content | Purpose |
 |-----------|-----------|---------|---------|
-| [Purple Team](/teams/purple/) | White → Purple | Verification evidence, proof artifacts | Closure support |
-| [Trinity Gate](/glossary/trinity-gate/) | White → Trinity | Formal necessity proofs | Gate passage evidence |
-| [Red Team](/teams/red/) | Red → White | Findings requiring formal verification | Proof targets |
-| [Blue Team](/teams/blue/) | Blue → White | Defense implementations for verification | Verification targets |
-| [Gray Team](/teams/gray/) | Gray → White | Edge cases for formal analysis | Property test seeds |
-| [Quality Gates](/capabilities/quality-gates/) | White → Quality | Verification status | Quality integration |
+| [Purple Team](@/teams/purple.md) | White → Purple | Verification evidence, proof artifacts | Closure support |
+| [Trinity Gate](@/glossary/trinity-gate.md) | White → Trinity | Formal necessity proofs | Gate passage evidence |
+| [Red Team](@/teams/red.md) | Red → White | Findings requiring formal verification | Proof targets |
+| [Blue Team](@/teams/blue.md) | Blue → White | Defense implementations for verification | Verification targets |
+| [Gray Team](@/teams/gray.md) | Gray → White | Edge cases for formal analysis | Property test seeds |
+| [Quality Gates](@/capabilities/quality-gates.md) | White → Quality | Verification status | Quality integration |
 
 ### Signal Flow
 
@@ -371,13 +371,13 @@ Gray Edge Cases ──→ Property ───────────────
 
 ## Related Resources
 
-- [Purple Team](/teams/purple/) — Primary consumer of White verification evidence for closure
-- [Red Team](/teams/red/) — Produces findings that require formal verification
-- [Blue Team](/teams/blue/) — Produces defenses that White formally verifies
-- [Gray Team](/teams/gray/) — Edge case discoveries that seed property-based tests
-- [Black Team](/teams/black/) — Theoretical models verified against formal specifications
-- [Trinity Gate](/capabilities/trinity-gate/) — Three-layer verification gate supported by White proofs
-- [Quality Gates](/capabilities/quality-gates/) — Quality enforcement incorporating verification status
+- [Purple Team](@/teams/purple.md) — Primary consumer of White verification evidence for closure
+- [Red Team](@/teams/red.md) — Produces findings that require formal verification
+- [Blue Team](@/teams/blue.md) — Produces defenses that White formally verifies
+- [Gray Team](@/teams/gray.md) — Edge case discoveries that seed property-based tests
+- [Black Team](@/teams/black.md) — Theoretical models verified against formal specifications
+- [Trinity Gate](@/capabilities/trinity-gate.md) — Three-layer verification gate supported by White proofs
+- [Quality Gates](@/capabilities/quality-gates.md) — Quality enforcement incorporating verification status
 
 ---
 
@@ -386,4 +386,4 @@ Gray Edge Cases ──→ Property ───────────────
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

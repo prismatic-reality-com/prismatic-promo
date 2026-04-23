@@ -28,7 +28,7 @@ image_alt = "AIAD Adaptation Engine Agent - Prismatic Platform"
 
 ## Overview
 
-The [AIAD](/glossary/aiad/) Adaptation Engine Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Primary domain of the Prismatic Platform. This agent is responsible for removing all Prismatic-specific references from AIAD components and adapting them for deployment to external projects. When the AIAD knowledge transfer system exports agents, commands, workflows, and protocols to a target project, the Adaptation Engine ensures that every Prismatic module name, internal URL, file path, and platform-specific example is replaced with framework-agnostic equivalents appropriate for the target environment.
+The [AIAD](@/glossary/aiad.md) Adaptation Engine Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Primary domain of the Prismatic Platform. This agent is responsible for removing all Prismatic-specific references from AIAD components and adapting them for deployment to external projects. When the AIAD knowledge transfer system exports agents, commands, workflows, and protocols to a target project, the Adaptation Engine ensures that every Prismatic module name, internal URL, file path, and platform-specific example is replaced with framework-agnostic equivalents appropriate for the target environment.
 
 The challenge of knowledge transfer adaptation is not simply find-and-replace substitution. Prismatic references are embedded at multiple semantic levels: module names in code examples (`Prismatic.*`, `PrismaticStorage.*`, `PrismaticWeb.*`), internal URLs (`localhost:4000`, `prismatic-prod.fly.dev`), file paths (`apps/prismatic/`, `lib/prismatic/`), project names in documentation, and domain-specific concepts that assume Prismatic infrastructure. The Adaptation Engine applies pattern-aware transformation that understands the semantic role of each reference and produces contextually appropriate replacements. A module name in a code example is replaced with a properly formatted target-language equivalent; a URL is either replaced with a generic placeholder or removed entirely; a file path is translated to the target project's directory structure.
 
@@ -116,11 +116,11 @@ The batch adaptation pipeline processes multiple components in parallel using `T
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [agent-discovery-specialist](/agents/agent-discovery-specialist/) | Registry Source | Provides the agent catalog for adaptation target identification |
-| [AIAD Intelligence Selector Agent](/agents/aiad-intelligence-selector-agent/) | Pipeline Predecessor | Selects components for adaptation based on relevance scoring |
-| [AIAD Injection Coordinator Agent](/agents/aiad-injection-coordinator-agent/) | Pipeline Orchestrator | Coordinates the end-to-end knowledge transfer including adaptation |
-| [AIAD Template Generator Agent](/agents/aiad-template-generator-agent/) | Template Provider | Provides language-specific templates that guide adaptation rules |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Quality Gate | Validates adapted components against AIAD schema requirements |
+| [agent-discovery-specialist](@/agents/agent-discovery-specialist.md) | Registry Source | Provides the agent catalog for adaptation target identification |
+| [AIAD Intelligence Selector Agent](@/agents/aiad-intelligence-selector-agent.md) | Pipeline Predecessor | Selects components for adaptation based on relevance scoring |
+| [AIAD Injection Coordinator Agent](@/agents/aiad-injection-coordinator-agent.md) | Pipeline Orchestrator | Coordinates the end-to-end knowledge transfer including adaptation |
+| [AIAD Template Generator Agent](@/agents/aiad-template-generator-agent.md) | Template Provider | Provides language-specific templates that guide adaptation rules |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Quality Gate | Validates adapted components against AIAD schema requirements |
 
 ## Operational Workflow
 
@@ -176,12 +176,12 @@ The substitution rule library is maintained as a separate configuration module w
 
 ## Related Resources
 
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard defining adaptable component formats
-- [AIAD Intelligence Selector Agent](/agents/aiad-intelligence-selector-agent/) -- Component selection preceding adaptation
-- [AIAD Injection Coordinator Agent](/agents/aiad-injection-coordinator-agent/) -- Orchestrator for the complete knowledge transfer pipeline
-- [Technologies](/technologies/) -- Platform technology stack including supported target languages
-- [Commands](/commands/) -- Commands including the `/inject` knowledge transfer command
-- [Applications](/apps/) -- Platform applications providing source components for adaptation
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard defining adaptable component formats
+- [AIAD Intelligence Selector Agent](@/agents/aiad-intelligence-selector-agent.md) -- Component selection preceding adaptation
+- [AIAD Injection Coordinator Agent](@/agents/aiad-injection-coordinator-agent.md) -- Orchestrator for the complete knowledge transfer pipeline
+- [Technologies](@/technologies/_index.md) -- Platform technology stack including supported target languages
+- [Commands](@/commands/_index.md) -- Commands including the `/inject` knowledge transfer command
+- [Applications](@/apps/_index.md) -- Platform applications providing source components for adaptation
 
 ---
 
@@ -190,4 +190,4 @@ The substitution rule library is maintained as a separate configuration module w
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -179,10 +179,10 @@ end
 
 ## Cross-References
 
-- [CSPRNG](/glossary/csprng/) -- Secure key generation for HMAC
-- [CSRF](/glossary/csrf/) -- Token-based protection complementing HMAC
-- [Gateway](/glossary/gateway/) -- API gateway using HMAC authentication
-- [JWT](/glossary/jwt/) -- Token format using HMAC signing
+- [CSPRNG](@/glossary/csprng.md) -- Secure key generation for HMAC
+- [CSRF](@/glossary/csrf.md) -- Token-based protection complementing HMAC
+- [Gateway](@/glossary/gateway.md) -- API gateway using HMAC authentication
+- [JWT](@/glossary/jwt.md) -- Token format using HMAC signing
 - **Livebooks**: `security_compliance/` notebooks demonstrate HMAC operations
 - **Academy**: APISecurityAnalysis topic covers HMAC-based API authentication
 
@@ -193,4 +193,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

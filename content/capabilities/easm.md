@@ -22,7 +22,7 @@ image_alt = "External Attack Surface Management - Prismatic Platform"
 
 ## Overview
 
-External Attack Surface Management (EASM) is the Prismatic Platform's capability for continuously discovering, inventorying, and assessing an organization's externally visible digital assets. The EASM module -- implemented as [Prismatic Perimeter](/apps/prismatic-perimeter/) -- provides security ratings on an A-F grading scale, automated asset discovery across domains, IP ranges, certificates, cloud resources, and services, and real-time compliance assessment against NIS2 and ZKB regulatory frameworks. It operates as a competitive alternative to commercial platforms such as BitSight, SecurityScorecard, and Black Kite, with the architectural advantage of deep integration into the Prismatic intelligence and epistemic verification stack.
+External Attack Surface Management (EASM) is the Prismatic Platform's capability for continuously discovering, inventorying, and assessing an organization's externally visible digital assets. The EASM module -- implemented as [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- provides security ratings on an A-F grading scale, automated asset discovery across domains, IP ranges, certificates, cloud resources, and services, and real-time compliance assessment against NIS2 and ZKB regulatory frameworks. It operates as a competitive alternative to commercial platforms such as BitSight, SecurityScorecard, and Black Kite, with the architectural advantage of deep integration into the Prismatic intelligence and epistemic verification stack.
 
 EASM addresses a fundamental problem in modern cybersecurity: organizations cannot defend what they do not know they have. Shadow IT, forgotten subdomains, expired certificates, misconfigured cloud storage, and unmonitored third-party services all represent attack surface that adversaries actively enumerate and exploit. The Prismatic EASM module automates the discovery and continuous monitoring of this surface, transforming it from an unknown risk into a measured, scored, and managed security domain.
 
@@ -73,7 +73,7 @@ Ratings are computed from evidence-based findings across multiple assessment cat
 # }
 ```
 
-Every score component carries provenance metadata tracing it back to specific discovered assets and identified findings, satisfying the [Provenance Mandatory](/glossary/provenance-mandatory/) NABLA axiom.
+Every score component carries provenance metadata tracing it back to specific discovered assets and identified findings, satisfying the [Provenance Mandatory](@/glossary/provenance-mandatory.md) NABLA axiom.
 
 ## Asset Discovery
 
@@ -181,7 +181,7 @@ The Prismatic EASM module occupies the same market segment as established commer
 | **Self-Hosted Option** | Full control, on-premise capable | SaaS only | SaaS only | SaaS only |
 | **Evidence Provenance** | Full chain per finding | Summary only | Summary only | Summary only |
 
-The key differentiator is epistemic rigor: every EASM finding passes through the same [NABLA axiom](/capabilities/nabla-axioms/) verification and [Trinity Gate](/capabilities/trinity-gate/) validation that governs all platform intelligence products. Ratings are not opaque numbers but fully traceable evidence chains that analysts can inspect, challenge, and verify.
+The key differentiator is epistemic rigor: every EASM finding passes through the same [NABLA axiom](@/capabilities/nabla-axioms.md) verification and [Trinity Gate](@/capabilities/trinity-gate.md) validation that governs all platform intelligence products. Ratings are not opaque numbers but fully traceable evidence chains that analysts can inspect, challenge, and verify.
 
 ## Architecture
 
@@ -211,14 +211,14 @@ Each component runs as an independent OTP process with supervision, ensuring tha
 
 ## Integration
 
-- Scores feed into [Intelligence Synthesis](/capabilities/intelligence-synthesis/) for holistic entity risk assessment
-- Monitored through [Real-Time Monitoring](/capabilities/real-time-monitoring/) infrastructure
-- Verified by [Trinity Gate](/capabilities/trinity-gate/) epistemic validation
-- Governed by [NABLA Axioms](/capabilities/nabla-axioms/) for evidence-based scoring
-- Quality enforced by [NO MERCY](/capabilities/no-mercy/) zero-tolerance standards
-- Agent operations tracked via [Telemetry Integration](/capabilities/telemetry-integration/)
-- Supports [Color Teams](/capabilities/color-teams/) with external threat surface data
-- Automated through [AIAD Standard](/capabilities/aiad-standard/) agent orchestration
+- Scores feed into [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) for holistic entity risk assessment
+- Monitored through [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) infrastructure
+- Verified by [Trinity Gate](@/capabilities/trinity-gate.md) epistemic validation
+- Governed by [NABLA Axioms](@/capabilities/nabla-axioms.md) for evidence-based scoring
+- Quality enforced by [NO MERCY](@/capabilities/no-mercy.md) zero-tolerance standards
+- Agent operations tracked via [Telemetry Integration](@/capabilities/telemetry-integration.md)
+- Supports [Color Teams](@/capabilities/color-teams.md) with external threat surface data
+- Automated through [AIAD Standard](@/capabilities/aiad-standard.md) agent orchestration
 
 ---
 
@@ -227,4 +227,4 @@ Each component runs as an independent OTP process with supervision, ensuring tha
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "log-analysis-specialist - Prismatic Platform"
 
 ## Overview
 
-The Log Analysis Specialist operates as an L3 strategic command agent within the Infrastructure domain of the Prismatic Platform. This agent provides intelligent log aggregation, parsing, and pattern detection across the platform's 90 [umbrella application](/glossary/umbrella-application/)s, identifying anomalies, error patterns, and performance degradation signals from structured and unstructured log data. By applying pattern recognition to the continuous stream of operational logs, the specialist detects issues before they escalate to user-visible incidents.
+The Log Analysis Specialist operates as an L3 strategic command agent within the Infrastructure domain of the Prismatic Platform. This agent provides intelligent log aggregation, parsing, and pattern detection across the platform's 90 [umbrella application](@/glossary/umbrella-application.md)s, identifying anomalies, error patterns, and performance degradation signals from structured and unstructured log data. By applying pattern recognition to the continuous stream of operational logs, the specialist detects issues before they escalate to user-visible incidents.
 
-Log analysis in a [BEAM](/glossary/beam/)-based distributed system presents unique challenges. Elixir applications generate structured logs through Logger with metadata, OTP supervision trees produce crash reports with process genealogy, and [Phoenix](/glossary/phoenix/) request logs contain timing information for every connection. The Log Analysis Specialist normalizes these heterogeneous log formats into a unified analysis pipeline, correlates events across processes and applications, and extracts actionable intelligence from the log stream.
+Log analysis in a [BEAM](@/glossary/beam.md)-based distributed system presents unique challenges. Elixir applications generate structured logs through Logger with metadata, OTP supervision trees produce crash reports with process genealogy, and [Phoenix](@/glossary/phoenix.md) request logs contain timing information for every connection. The Log Analysis Specialist normalizes these heterogeneous log formats into a unified analysis pipeline, correlates events across processes and applications, and extracts actionable intelligence from the log stream.
 
 ## Operational Domain
 
@@ -150,35 +150,35 @@ The specialist provides specialized analysis for BEAM/OTP-specific log patterns 
 - **Multi-source log aggregation** collecting and normalizing logs from all 90 umbrella applications, OTP supervision trees, and external service integrations into a unified analysis pipeline
 - **Pattern-based detection** matching log events against a maintained library of known operational patterns for rapid identification of common issues
 - **Statistical anomaly detection** applying z-score analysis and time-series decomposition to identify unusual log patterns that deviate from established baselines
-- **BEAM-specific analysis** providing specialized detection for OTP supervision events, BEAM scheduler utilization, [ETS](/glossary/ets/) table growth, and process queue buildup
+- **BEAM-specific analysis** providing specialized detection for OTP supervision events, BEAM scheduler utilization, [ETS](@/glossary/ets.md) table growth, and process queue buildup
 - **Cross-application correlation** linking log events across applications using correlation IDs to trace the complete path of operations through the distributed system
 - **Automated baseline management** continuously updating statistical baselines from observed log patterns to maintain accurate anomaly detection as the system evolves
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/). Multi-domain coordination with authority to analyze logs across all applications and trigger investigation workflows when critical patterns are detected.
+**L3** - [Strategic Command](@/glossary/strategic-command.md). Multi-domain coordination with authority to analyze logs across all applications and trigger investigation workflows when critical patterns are detected.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [health-monitoring-specialist](/agents/health-monitoring-specialist/) | Health Partner | Correlates log patterns with system health metrics |
-| [alert-management-specialist](/agents/alert-management-specialist/) | Alerting | Routes critical log findings to appropriate alert channels |
-| [incident-response-specialist](/agents/incident-response-specialist/) | Incident Response | Provides log evidence for incident investigation |
-| [performance-monitoring-specialist](/agents/performance-monitoring-specialist/) | Performance | Correlates performance metrics with log-detected anomalies |
+| [health-monitoring-specialist](@/agents/health-monitoring-specialist.md) | Health Partner | Correlates log patterns with system health metrics |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Alerting | Routes critical log findings to appropriate alert channels |
+| [incident-response-specialist](@/agents/incident-response-specialist.md) | Incident Response | Provides log evidence for incident investigation |
+| [performance-monitoring-specialist](@/agents/performance-monitoring-specialist.md) | Performance | Correlates performance metrics with log-detected anomalies |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| Platform [Telemetry](/glossary/telemetry/) | Primary log and metric source |
-| [ETS](/glossary/ets/) | Baseline storage and real-time event buffering |
-| [PostgreSQL](/glossary/postgresql/) | Historical log storage and query analysis |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | CI pipeline log analysis for build failure detection |
+| Platform [Telemetry](@/glossary/telemetry.md) | Primary log and metric source |
+| [ETS](@/glossary/ets.md) | Baseline storage and real-time event buffering |
+| [PostgreSQL](@/glossary/postgresql.md) | Historical log storage and query analysis |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | CI pipeline log analysis for build failure detection |
 
 ## Enforcement
 
-The Log Analysis Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Critical log patterns trigger immediate alerts with no suppression or batching. Anomaly detection runs continuously without gaps. All detected patterns are recorded with full evidence including the triggering log events, detection confidence, and recommended actions. Log analysis baselines are maintained and version-controlled for audit trail purposes. No runtime warnings or error patterns are ignored -- every signal is evaluated against the pattern library.
+The Log Analysis Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Critical log patterns trigger immediate alerts with no suppression or batching. Anomaly detection runs continuously without gaps. All detected patterns are recorded with full evidence including the triggering log events, detection confidence, and recommended actions. Log analysis baselines are maintained and version-controlled for audit trail purposes. No runtime warnings or error patterns are ignored -- every signal is evaluated against the pattern library.
 
 ---
 
@@ -187,4 +187,4 @@ The Log Analysis Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

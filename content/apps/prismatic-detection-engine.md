@@ -23,11 +23,11 @@ image_alt = "Prismatic Detection Engine - Prismatic Platform"
 
 ## Overview
 
-Prismatic Detection Engine combines rule-based and statistical detection methods to identify threats, anomalies, and policy violations across all platform intelligence streams. It processes events from [OSINT](/glossary/osint/) collection, security scans, and system monitoring to generate actionable findings with severity scores, evidence links, and recommended response actions.
+Prismatic Detection Engine combines rule-based and statistical detection methods to identify threats, anomalies, and policy violations across all platform intelligence streams. It processes events from [OSINT](@/glossary/osint.md) collection, security scans, and system monitoring to generate actionable findings with severity scores, evidence links, and recommended response actions.
 
 The engine supports two complementary detection paradigms. Rule-based detection uses YAML-defined rules with Sigma compatibility for precise, deterministic matching against known threat patterns. Statistical detection employs time-series anomaly scoring, behavioral baseline deviation, and clustering algorithms to surface previously unknown threats that evade signature-based approaches. Both paradigms feed findings into a unified management layer that handles deduplication, correlation, and MITRE ATT&CK technique mapping.
 
-Detection rules are version-controlled and support A/B testing, allowing security teams to evaluate new detection logic against historical data before promoting rules to production. The engine integrates tightly with [Prismatic Signals](/apps/prismatic-signals/) for real-time event ingestion and with [Prismatic Traits](/apps/prismatic-traits/) for behavioral baseline computation. The [NABLA](/glossary/nabla-infinity/) framework's [signal plurality](/glossary/signal-plurality/) axiom is enforced throughout the detection pipeline: findings from a single detection method are flagged as preliminary until corroborated by an independent method, preventing false positive proliferation that erodes analyst trust.
+Detection rules are version-controlled and support A/B testing, allowing security teams to evaluate new detection logic against historical data before promoting rules to production. The engine integrates tightly with [Prismatic Signals](@/apps/prismatic-signals.md) for real-time event ingestion and with [Prismatic Traits](@/apps/prismatic-traits.md) for behavioral baseline computation. The [NABLA](@/glossary/nabla-infinity.md) framework's [signal plurality](@/glossary/signal-plurality.md) axiom is enforced throughout the detection pipeline: findings from a single detection method are flagged as preliminary until corroborated by an independent method, preventing false positive proliferation that erodes analyst trust.
 
 ## Architecture
 
@@ -43,7 +43,7 @@ Event Sources --> Ingestion Layer --> Detection Pipeline --> Finding Store
                                   Response Actions
 ```
 
-The pipeline is built on [GenStage](/glossary/genstage/) for [backpressure](/glossary/backpressure/)-aware processing. Each detection stage runs as a supervised [OTP](/glossary/otp/) process, enabling independent scaling of rule evaluation and statistical computation based on load. The separation of detection stages means that adding new detection methods requires only implementing a new stage module and registering it with the pipeline supervisor.
+The pipeline is built on [GenStage](@/glossary/genstage.md) for [backpressure](@/glossary/backpressure.md)-aware processing. Each detection stage runs as a supervised [OTP](@/glossary/otp.md) process, enabling independent scaling of rule evaluation and statistical computation based on load. The separation of detection stages means that adding new detection methods requires only implementing a new stage module and registering it with the pipeline supervisor.
 
 ## Key Modules
 
@@ -233,18 +233,18 @@ The false positive management system uses analyst feedback to continuously impro
 
 Detection rule tests use crafted event fixtures that should trigger specific rules and negative fixtures that should not match. Statistical detection tests verify baseline computation accuracy, anomaly scoring precision, and false positive rates against labeled datasets. Integration tests exercise the full pipeline from event ingestion through detection, finding storage, and alert generation.
 
-Property-based tests generate random events to verify that no detection rule produces unbounded findings and that the pipeline maintains [backpressure](/glossary/backpressure/) under load. Rule compilation tests verify YAML parsing correctness, condition tree construction, and Sigma compatibility across all supported rule formats.
+Property-based tests generate random events to verify that no detection rule produces unbounded findings and that the pipeline maintains [backpressure](@/glossary/backpressure.md) under load. Rule compilation tests verify YAML parsing correctness, condition tree construction, and Sigma compatibility across all supported rule formats.
 
 ## Integration Points
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Signals](/apps/prismatic-signals/) | Real-time event stream ingestion for detection processing |
-| [Prismatic Traits](/apps/prismatic-traits/) | Behavioral baselines for anomaly detection thresholds |
-| [Prismatic IR PVM](/apps/prismatic-ir-pvm/) | Finding escalation triggers incident creation |
-| [Prismatic OSINT Monitoring](/apps/prismatic-osint-monitoring/) | OSINT change events as detection inputs |
-| [Prismatic Perimeter Core](/apps/prismatic-perimeter-core/) | [Security rating](/glossary/security-rating/) adjustments based on detection findings |
-| [Prismatic Safety](/apps/prismatic-safety/) | Safety constraints on automated detection responses |
+| [Prismatic Signals](@/apps/prismatic-signals.md) | Real-time event stream ingestion for detection processing |
+| [Prismatic Traits](@/apps/prismatic-traits.md) | Behavioral baselines for anomaly detection thresholds |
+| [Prismatic IR PVM](@/apps/prismatic-ir-pvm.md) | Finding escalation triggers incident creation |
+| [Prismatic OSINT Monitoring](@/apps/prismatic-osint-monitoring.md) | OSINT change events as detection inputs |
+| [Prismatic Perimeter Core](@/apps/prismatic-perimeter-core.md) | [Security rating](@/glossary/security-rating.md) adjustments based on detection findings |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Safety constraints on automated detection responses |
 
 ## Performance
 
@@ -257,17 +257,17 @@ Property-based tests generate random events to verify that no detection rule pro
 | Rule loading (100 rules) | < 2s | YAML parse + compilation |
 | A/B test (30-day dataset) | 5-30s | Depends on event volume |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :detection, :rule_match]`, `[:prismatic, :detection, :anomaly_scored]`, `[:prismatic, :detection, :finding_created]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :detection, :rule_match]`, `[:prismatic, :detection, :anomaly_scored]`, `[:prismatic, :detection, :finding_created]`.
 
 ## Related Resources
 
-- [Prismatic Hawkeye](/apps/prismatic-hawkeye/) -- Visitor behavior detection for web threat analysis
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Configures detection rule alerting thresholds and false positive management
-- [GitLab Security Specialist Agent](/agents/gitlab-security-specialist-agent/) -- Reviews detection rule logic for security coverage gaps
-- [Evolution Analyzer Specialist](/agents/evolution-analyzer-specialist/) -- Analyzes detection rule effectiveness and recommends optimization
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Correlates detection findings across methods into unified threat assessments
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Real-time event ingestion and detection pipeline monitoring
-- [Color Teams](/capabilities/color-teams/) -- Red Team patterns feed detection rule development while Blue Team validates coverage
+- [Prismatic Hawkeye](@/apps/prismatic-hawkeye.md) -- Visitor behavior detection for web threat analysis
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Configures detection rule alerting thresholds and false positive management
+- [GitLab Security Specialist Agent](@/agents/gitlab-security-specialist-agent.md) -- Reviews detection rule logic for security coverage gaps
+- [Evolution Analyzer Specialist](@/agents/evolution-analyzer-specialist.md) -- Analyzes detection rule effectiveness and recommends optimization
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Correlates detection findings across methods into unified threat assessments
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Real-time event ingestion and detection pipeline monitoring
+- [Color Teams](@/capabilities/color-teams.md) -- Red Team patterns feed detection rule development while Blue Team validates coverage
 
 ---
 
@@ -276,4 +276,4 @@ Property-based tests generate random events to verify that no detection rule pro
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

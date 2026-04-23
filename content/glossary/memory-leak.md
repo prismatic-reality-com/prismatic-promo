@@ -531,24 +531,24 @@ end
 
 ## Related Terms
 
-- [Memory](/glossary/memory/) -- BEAM memory architecture and allocation model
-- [Memory Profiling](/glossary/memory-profiling/) -- tools and techniques for investigating memory usage
-- [Process](/glossary/process/) -- BEAM processes whose heaps can leak
-- [Message Queue](/glossary/message-queue/) -- mailbox accumulation as a primary leak vector
-- [ETS](/glossary/ets/) -- Erlang Term Storage tables prone to unbounded growth
-- [GenServer](/glossary/genserver/) -- OTP abstraction where state growth leaks manifest
-- [Binary](/glossary/binary/) -- binary data type with shared-heap reference counting
-- [Erlang](/glossary/erlang/) -- BEAM VM providing the memory model and GC
-- [Backpressure](/glossary/backpressure/) -- flow control preventing mailbox overflow
-- [PubSub](/glossary/pubsub/) -- publish-subscribe system where subscribers can leak if slow
-- [Profiling](/glossary/profiling/) -- general performance profiling including memory analysis
-- [Named Table](/glossary/named-table/) -- named ETS tables as a leak-prone resource
+- [Memory](@/glossary/memory.md) -- BEAM memory architecture and allocation model
+- [Memory Profiling](@/glossary/memory-profiling.md) -- tools and techniques for investigating memory usage
+- [Process](@/glossary/process.md) -- BEAM processes whose heaps can leak
+- [Message Queue](@/glossary/message-queue.md) -- mailbox accumulation as a primary leak vector
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage tables prone to unbounded growth
+- [GenServer](@/glossary/genserver.md) -- OTP abstraction where state growth leaks manifest
+- [Binary](@/glossary/binary.md) -- binary data type with shared-heap reference counting
+- [Erlang](@/glossary/erlang.md) -- BEAM VM providing the memory model and GC
+- [Backpressure](@/glossary/backpressure.md) -- flow control preventing mailbox overflow
+- [PubSub](@/glossary/pubsub.md) -- publish-subscribe system where subscribers can leak if slow
+- [Profiling](@/glossary/profiling.md) -- general performance profiling including memory analysis
+- [Named Table](@/glossary/named-table.md) -- named ETS tables as a leak-prone resource
 
 ## See Also
 
-- [Architecture](/architecture/) -- fault-tolerant architecture preventing leak impact
-- [Capabilities](/capabilities/) -- memory safety and monitoring capabilities
-- [Performance Standards](/architecture/) -- memory budget targets for production
+- [Architecture](@/architecture/_index.md) -- fault-tolerant architecture preventing leak impact
+- [Capabilities](@/capabilities/_index.md) -- memory safety and monitoring capabilities
+- [Performance Standards](@/architecture/_index.md) -- memory budget targets for production
 - [:recon documentation](https://ferd.github.io/recon/) -- production BEAM diagnostics library
 
 ---
@@ -558,4 +558,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -25,9 +25,9 @@ image_alt = "Event Sourcing - Prismatic Platform"
 
 ## Overview
 
-Event sourcing is the core data architecture of the Prismatic Platform, replacing traditional state-mutation persistence with an immutable, append-only log of domain events. Instead of storing the current state of an entity and overwriting it on each change, the platform records every state transition as a discrete, timestamped event. The current state is derived by replaying the event sequence from the beginning -- or, for performance, from a periodic snapshot. This approach provides full [auditability](/glossary/audit-trail/), deterministic replay, temporal queries ("what was the state at time T?"), and a natural integration point for the platform's distributed agent architecture.
+Event sourcing is the core data architecture of the Prismatic Platform, replacing traditional state-mutation persistence with an immutable, append-only log of domain events. Instead of storing the current state of an entity and overwriting it on each change, the platform records every state transition as a discrete, timestamped event. The current state is derived by replaying the event sequence from the beginning -- or, for performance, from a periodic snapshot. This approach provides full [auditability](@/glossary/audit-trail.md), deterministic replay, temporal queries ("what was the state at time T?"), and a natural integration point for the platform's distributed agent architecture.
 
-The decision to adopt event sourcing in the Prismatic Platform was driven by the requirements of the External [Attack Surface](/glossary/attack-surface/) Management ([EASM](/glossary/attack-surface/)) domain. Security intelligence systems must maintain a complete, tamper-evident history of every asset discovered, every vulnerability detected, every compliance assessment performed, and every remediation action taken. Regulatory frameworks like [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) mandate [audit trail](/glossary/audit-trail/)s that prove what was known, when it was known, and what actions were taken. Event sourcing satisfies these requirements by construction: the event log is the audit trail.
+The decision to adopt event sourcing in the Prismatic Platform was driven by the requirements of the External [Attack Surface](@/glossary/attack-surface.md) Management ([EASM](@/glossary/attack-surface.md)) domain. Security intelligence systems must maintain a complete, tamper-evident history of every asset discovered, every vulnerability detected, every compliance assessment performed, and every remediation action taken. Regulatory frameworks like [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) mandate [audit trail](@/glossary/audit-trail.md)s that prove what was known, when it was known, and what actions were taken. Event sourcing satisfies these requirements by construction: the event log is the audit trail.
 
 ## Event Sourcing vs. Traditional State Persistence
 
@@ -36,7 +36,7 @@ The decision to adopt event sourcing in the Prismatic Platform was driven by the
 Traditional CRUD (Create, Read, Update, Delete) persistence stores only the current state of an entity. When a record is updated, the previous state is overwritten and lost. This creates several problems for intelligence platforms:
 
 1. **No audit trail**: It is impossible to determine what the system knew at a past point in time without separate audit logging (which is often incomplete or inconsistent with the actual state).
-2. **Lost causation**: The reason for a state change is not captured. Why did this asset's [risk score](/glossary/risk-score/) change from 720 to 580? The CRUD model only shows the final value.
+2. **Lost causation**: The reason for a state change is not captured. Why did this asset's [risk score](@/glossary/risk-score.md) change from 720 to 580? The CRUD model only shows the final value.
 3. **Non-deterministic testing**: Tests must set up state through a sequence of mutations, and the order matters. There is no way to verify that a given sequence of inputs produces the expected outputs without replaying the entire mutation sequence.
 4. **Conflict resolution complexity**: Concurrent updates to the same record require pessimistic locking or optimistic concurrency control with conflict resolution logic that is domain-specific and error-prone.
 
@@ -55,7 +55,7 @@ Event sourcing addresses each of these problems:
 
 ## Event Architecture and Data Flow
 
-The Prismatic Platform implements the [CQRS](/glossary/cqrs/) (Command Query Responsibility Segregation) pattern alongside event sourcing. Commands represent intentions to change state. Events represent facts about what happened. Projections build read-optimized views from the event stream.
+The Prismatic Platform implements the [CQRS](@/glossary/cqrs.md) (Command Query Responsibility Segregation) pattern alongside event sourcing. Commands represent intentions to change state. Events represent facts about what happened. Projections build read-optimized views from the event stream.
 
 ```
 Command (intention)
@@ -85,7 +85,7 @@ This separation means that the write model (aggregates + event store) can be opt
 
 ### Event Definition
 
-Events are [Elixir](/glossary/elixir/) structs with enforced keys, ensuring that incomplete events cannot be created. Each event represents a single, atomic fact about the domain.
+Events are [Elixir](@/glossary/elixir.md) structs with enforced keys, ensuring that incomplete events cannot be created. Each event represents a single, atomic fact about the domain.
 
 ```elixir
 defmodule PrismaticEvents.AssetDiscovered do
@@ -161,7 +161,7 @@ end
 
 ### Event Store Schema
 
-The event store uses [PostgreSQL](/glossary/postgresql/) with a carefully designed schema that supports both efficient appending and fast stream reads.
+The event store uses [PostgreSQL](@/glossary/postgresql.md) with a carefully designed schema that supports both efficient appending and fast stream reads.
 
 | Column | Type | Purpose | Index |
 |--------|------|---------|-------|
@@ -285,7 +285,7 @@ defmodule PrismaticPerimeter.Aggregates.Asset do
 end
 ```
 
-The key insight is the separation between `execute/2` (which validates commands and produces events) and `apply/2` (which updates state from events). The `execute` function may reject commands by returning `{:error, reason}`. The `apply` function is a [pure function](/glossary/pure-function/) that must always succeed -- if an event was persisted, it must be applicable.
+The key insight is the separation between `execute/2` (which validates commands and produces events) and `apply/2` (which updates state from events). The `execute` function may reject commands by returning `{:error, reason}`. The `apply` function is a [pure function](@/glossary/pure-function.md) that must always succeed -- if an event was persisted, it must be applicable.
 
 ### Projections: Read-Optimized Views
 
@@ -467,7 +467,7 @@ end
 
 ## Subscription and Real-Time Processing
 
-Events are distributed in real-time through the subscription system, which integrates with the platform's [PubSub architecture](/architecture/pubsub/) and [telemetry](/architecture/telemetry/) infrastructure.
+Events are distributed in real-time through the subscription system, which integrates with the platform's [PubSub architecture](@/architecture/pubsub.md) and [telemetry](@/architecture/telemetry.md) infrastructure.
 
 ```elixir
 defmodule PrismaticPerimeter.Subscriptions.AlertHandler do
@@ -602,7 +602,7 @@ The event store's performance scales linearly with PostgreSQL's capabilities. Fo
 Event sourcing is not without costs. It is important to understand the tradeoffs made:
 
 1. **Complexity**: The CQRS/ES pattern introduces more moving parts than simple CRUD. Developers must understand commands, events, aggregates, projections, and subscriptions.
-2. **[Eventual consistency](/glossary/eventual-consistency/)**: Projections are updated asynchronously. Queries against projections may briefly return stale data. The platform accepts this tradeoff because security intelligence dashboards tolerate sub-second staleness.
+2. **[Eventual consistency](@/glossary/eventual-consistency.md)**: Projections are updated asynchronously. Queries against projections may briefly return stale data. The platform accepts this tradeoff because security intelligence dashboards tolerate sub-second staleness.
 3. **Schema evolution**: Changing event schemas requires careful versioning. Events are immutable and permanent -- you cannot ALTER TABLE on historical facts. The platform uses upcasters to transform old event formats during replay.
 4. **Storage growth**: The event store grows monotonically. Archival strategies (moving old events to cold storage) are necessary for multi-year operation.
 
@@ -610,7 +610,7 @@ These tradeoffs are acceptable for the Prismatic Platform because the benefits -
 
 ## Summary
 
-Event sourcing in the Prismatic Platform transforms the append-only event log from a mere persistence mechanism into an architectural cornerstone that enables [audit trails](/glossary/audit-trail/), temporal queries, deterministic testing, and real-time event distribution. By separating the write model (aggregates enforcing domain invariants) from read models (projections optimized for specific query patterns), the [CQRS](/glossary/cqrs/) architecture achieves both consistency and performance. Combined with [supervision trees](/architecture/supervision-trees/) for [fault-tolerant](/glossary/fault-tolerance/) event processing, [telemetry integration](/architecture/telemetry/) for [observability](/glossary/observability/), and the [umbrella architecture](/architecture/umbrella-apps/) for clean module boundaries, event sourcing provides the data foundation for a security intelligence platform where every fact is permanent, every change is traceable, and every state is reproducible.
+Event sourcing in the Prismatic Platform transforms the append-only event log from a mere persistence mechanism into an architectural cornerstone that enables [audit trails](@/glossary/audit-trail.md), temporal queries, deterministic testing, and real-time event distribution. By separating the write model (aggregates enforcing domain invariants) from read models (projections optimized for specific query patterns), the [CQRS](@/glossary/cqrs.md) architecture achieves both consistency and performance. Combined with [supervision trees](@/architecture/supervision-trees.md) for [fault-tolerant](@/glossary/fault-tolerance.md) event processing, [telemetry integration](@/architecture/telemetry.md) for [observability](@/glossary/observability.md), and the [umbrella architecture](@/architecture/umbrella-apps.md) for clean module boundaries, event sourcing provides the data foundation for a security intelligence platform where every fact is permanent, every change is traceable, and every state is reproducible.
 
 ---
 
@@ -619,4 +619,4 @@ Event sourcing in the Prismatic Platform transforms the append-only event log fr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

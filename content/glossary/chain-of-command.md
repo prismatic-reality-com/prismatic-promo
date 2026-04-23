@@ -44,7 +44,7 @@ Unlike flat organizational structures where any component can invoke any other, 
 
 The concept of a chain of command originates from military and organizational theory, where clear hierarchical structures prevent confusion, duplication of effort, and unauthorized actions. In software systems, this translates to governance models that control how autonomous agents make decisions, access resources, and interact with each other.
 
-In the Prismatic Platform, the chain of command is not merely an organizational metaphor -- it is a runtime-enforced authority system embedded in the [AIAD](/glossary/aiad/) framework. Every agent declaration includes an explicit `authority_level` field that determines what operations it can perform, what resources it can access, and which other agents it can direct or override.
+In the Prismatic Platform, the chain of command is not merely an organizational metaphor -- it is a runtime-enforced authority system embedded in the [AIAD](@/glossary/aiad.md) framework. Every agent declaration includes an explicit `authority_level` field that determines what operations it can perform, what resources it can access, and which other agents it can direct or override.
 
 The five-tier hierarchy creates natural separation of concerns:
 
@@ -254,13 +254,13 @@ When an agent encounters a situation that exceeds its authority, the chain of co
 
 The chain of command is deeply integrated into the Prismatic Platform's 530+ agent ecosystem:
 
-**Agent Registry**: The [Agent Registry](/glossary/agent-registry/) maintains a complete mapping of every agent's tier, reporting relationships, and override permissions. This registry is consulted on every cross-agent interaction to validate authority.
+**Agent Registry**: The [Agent Registry](@/glossary/agent-registry.md) maintains a complete mapping of every agent's tier, reporting relationships, and override permissions. This registry is consulted on every cross-agent interaction to validate authority.
 
-**Supervision Trees**: Elixir's OTP [supervision tree](/glossary/supervision-tree/) architecture naturally mirrors the chain of command. Higher-tier agents supervise lower-tier agents, with restart strategies propagating through the hierarchy.
+**Supervision Trees**: Elixir's OTP [supervision tree](@/glossary/supervision-tree.md) architecture naturally mirrors the chain of command. Higher-tier agents supervise lower-tier agents, with restart strategies propagating through the hierarchy.
 
 **Color Team Integration**: The six color teams (Gray, Red, Blue, Purple, White, Black) each have their own internal chain of command with L3 commanders directing L2 and L1 specialists. Cross-team coordination flows through the Purple coordinator at L3, with L4 Command agents orchestrating multi-team operations.
 
-**NO MERCY Enforcement**: The [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine is enforced at every tier. An L1 agent cannot bypass quality gates any more than an L2 agent can -- the doctrine applies universally, but enforcement authority escalates with tier level.
+**NO MERCY Enforcement**: The [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine is enforced at every tier. An L1 agent cannot bypass quality gates any more than an L2 agent can -- the doctrine applies universally, but enforcement authority escalates with tier level.
 
 **Runtime Telemetry**: Every authority check, escalation, and override is logged through Telemetry events (`[:prismatic_agents, :chain_of_command, :authorize | :escalate | :override]`), providing complete audit trails for governance compliance.
 
@@ -314,7 +314,7 @@ When the Blue Team's drift detector (L2) identifies a potential security anomaly
 
 ### Quality Gate Enforcement
 
-The [quality gate](/glossary/quality-gate/) system uses the chain of command to determine who can waive specific checks. L1 agents run individual checks, L2 agents aggregate results, L3 agents evaluate domain-level quality, and only L5 Supreme can authorize a quality gate bypass (which is documented and audited).
+The [quality gate](@/glossary/quality-gate.md) system uses the chain of command to determine who can waive specific checks. L1 agents run individual checks, L2 agents aggregate results, L3 agents evaluate domain-level quality, and only L5 Supreme can authorize a quality gate bypass (which is documented and audited).
 
 ### Multi-Domain Orchestration
 
@@ -326,21 +326,21 @@ During a critical failure, the chain of command enables rapid response. L5 Supre
 
 ## Related Concepts
 
-- [Authority Level](/glossary/authority-level/) -- The specific tier (L1-L5) assigned to each agent
-- [Authority Structure](/glossary/authority-structure/) -- The broader governance framework containing the chain of command
-- [Agent Tier](/glossary/agent-tier/) -- Classification system for agent capability and responsibility
-- [Decision Making Hierarchy](/glossary/decision-making-hierarchy/) -- How decisions propagate through the chain
-- [AIAD](/glossary/aiad/) -- The AI Agent Definition standard that formalizes the chain of command
-- [Strategic Command](/glossary/strategic-command/) -- L3/L4 tier command patterns
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision hierarchy that mirrors the chain of command
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Coordination of multi-agent operations through the chain
-- [Archer Supreme](/glossary/archer-supreme/) -- L5 Supreme agent with cosmic clearance
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- Doctrine enforced at all tiers of the chain
+- [Authority Level](@/glossary/authority-level.md) -- The specific tier (L1-L5) assigned to each agent
+- [Authority Structure](@/glossary/authority-structure.md) -- The broader governance framework containing the chain of command
+- [Agent Tier](@/glossary/agent-tier.md) -- Classification system for agent capability and responsibility
+- [Decision Making Hierarchy](@/glossary/decision-making-hierarchy.md) -- How decisions propagate through the chain
+- [AIAD](@/glossary/aiad.md) -- The AI Agent Definition standard that formalizes the chain of command
+- [Strategic Command](@/glossary/strategic-command.md) -- L3/L4 tier command patterns
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision hierarchy that mirrors the chain of command
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Coordination of multi-agent operations through the chain
+- [Archer Supreme](@/glossary/archer-supreme.md) -- L5 Supreme agent with cosmic clearance
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- Doctrine enforced at all tiers of the chain
 
 ## See Also
 
-- [Agent Registry](/glossary/agent-registry/) -- Runtime registry of all agents and their tier assignments
-- [Quality Gate](/glossary/quality-gate/) -- Gates enforced through chain of command authority
+- [Agent Registry](@/glossary/agent-registry.md) -- Runtime registry of all agents and their tier assignments
+- [Quality Gate](@/glossary/quality-gate.md) -- Gates enforced through chain of command authority
 - [Escalation Protocol](/architecture/escalation/) -- Detailed escalation flow documentation
 - [AIAD Agent Specification](/.aiad/README.md) -- Standard for declaring agent authority
 
@@ -351,4 +351,4 @@ During a critical failure, the chain of command enables rapid response. L5 Supre
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

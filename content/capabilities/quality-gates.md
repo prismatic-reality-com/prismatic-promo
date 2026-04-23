@@ -26,7 +26,7 @@ Quality Gates are automated checkpoints that block any code change that fails to
 
 The Quality Gates system operates at three distinct enforcement levels: local pre-commit hooks that catch violations before they leave the developer's machine, CI pipeline gates that perform comprehensive analysis on the remote server, and merge gates that provide final validation before code enters the main branch. This defense-in-depth approach ensures that quality violations are caught at the earliest and cheapest point of correction.
 
-Built on [Elixir](/technologies/elixir/) Mix tasks and integrated with [Credo](/technologies/credo/), [Dialyzer](/technologies/dialyzer/), and [ExUnit](/technologies/exunit/), the Quality Gates system enforces the [NO MERCY](/capabilities/no-mercy/) doctrine's zero-tolerance standards across all 99 umbrella applications in the platform.
+Built on [Elixir](@/technologies/elixir.md) Mix tasks and integrated with [Credo](@/technologies/credo.md), [Dialyzer](@/technologies/dialyzer.md), and [ExUnit](@/technologies/exunit.md), the Quality Gates system enforces the [NO MERCY](@/capabilities/no-mercy.md) doctrine's zero-tolerance standards across all 99 umbrella applications in the platform.
 
 ## Gate Pipeline Architecture
 
@@ -172,7 +172,7 @@ CI pipeline gates execute on the remote server after a push, performing comprehe
 
 ### Dialyzer Integration
 
-[Dialyzer](/technologies/dialyzer/) performs static type analysis across the entire codebase, catching type errors that unit tests cannot detect. The PLT (Persistent Lookup Table) is cached between runs for performance:
+[Dialyzer](@/technologies/dialyzer.md) performs static type analysis across the entire codebase, catching type errors that unit tests cannot detect. The PLT (Persistent Lookup Table) is cached between runs for performance:
 
 ```elixir
 # mix.exs configuration for Dialyzer
@@ -192,7 +192,7 @@ end
 
 ### Performance Gate
 
-Critical paths must meet strict latency requirements as defined in the [page load performance standard](/capabilities/real-time-monitoring/):
+Critical paths must meet strict latency requirements as defined in the [page load performance standard](@/capabilities/real-time-monitoring.md):
 
 | Metric | Hard Limit | Gate Action |
 |--------|-----------|-------------|
@@ -334,16 +334,16 @@ Quality Gates include proactive detection of known risk patterns that historical
 
 Quality Gates serve as the central enforcement mechanism connecting multiple platform capabilities:
 
-- **[NO MERCY](/capabilities/no-mercy/)**: Quality Gates are the technical implementation of NO MERCY's zero-tolerance standards
-- **[NO DOUBTS](/capabilities/no-doubts/)**: Gates verify that evidence requirements are met before execution proceeds
-- **[Trinity Gate](/capabilities/trinity-gate/)**: Formal verification layer for critical decisions beyond code quality
-- **[Regression Tests](/capabilities/regression-tests/)**: Mandatory regression test protocol enforced as a gate requirement
-- **[Session Discipline](/capabilities/session-discipline/)**: Gates enforce that commits meet session tracking requirements
-- **[Telemetry Integration](/capabilities/telemetry-integration/)**: Gate execution emits telemetry events for monitoring
-- **[Real-Time Monitoring](/capabilities/real-time-monitoring/)**: Quality Floor Guardian provides continuous score tracking
-- **[Autonomous Self-Healing](/capabilities/autonomous-self-healing/)**: Auto-healing triggered when quality score drops
-- **[AIAD Standard](/capabilities/aiad-standard/)**: Agent operations subject to same gate requirements
-- **[Color Teams](/capabilities/color-teams/)**: Purple Team validates gate effectiveness through adversarial testing
+- **[NO MERCY](@/capabilities/no-mercy.md)**: Quality Gates are the technical implementation of NO MERCY's zero-tolerance standards
+- **[NO DOUBTS](@/capabilities/no-doubts.md)**: Gates verify that evidence requirements are met before execution proceeds
+- **[Trinity Gate](@/capabilities/trinity-gate.md)**: Formal verification layer for critical decisions beyond code quality
+- **[Regression Tests](@/capabilities/regression-tests.md)**: Mandatory regression test protocol enforced as a gate requirement
+- **[Session Discipline](@/capabilities/session-discipline.md)**: Gates enforce that commits meet session tracking requirements
+- **[Telemetry Integration](@/capabilities/telemetry-integration.md)**: Gate execution emits telemetry events for monitoring
+- **[Real-Time Monitoring](@/capabilities/real-time-monitoring.md)**: Quality Floor Guardian provides continuous score tracking
+- **[Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md)**: Auto-healing triggered when quality score drops
+- **[AIAD Standard](@/capabilities/aiad-standard.md)**: Agent operations subject to same gate requirements
+- **[Color Teams](@/capabilities/color-teams.md)**: Purple Team validates gate effectiveness through adversarial testing
 
 ## Configuration
 
@@ -397,4 +397,4 @@ mix dialyzer
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

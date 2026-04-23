@@ -413,24 +413,24 @@ Functional programming's roots in lambda calculus make it natural for mathematic
 
 Functional programming connects to many core concepts in the Prismatic Platform:
 
-- [Elixir](/glossary/elixir/) is the functional programming language used throughout the Prismatic Platform
-- [Erlang](/glossary/erlang/) is the functional language that created the BEAM VM and OTP framework
-- [BEAM VM](/glossary/beam-vm/) is the virtual machine that executes Elixir and Erlang functional programs
-- [Immutability](/glossary/immutability/) is the foundational property that data cannot be changed after creation
-- [Pattern Matching](/glossary/pattern-matching/) is the primary control flow mechanism in functional Elixir
-- [Pipe Operator](/glossary/pipe-operator/) enables readable function composition in Elixir pipelines
-- [Pure Function](/glossary/pure-function/) is the ideal function type in functional programming: no side effects, deterministic output
-- [Concurrency](/glossary/concurrency/) is dramatically simplified by functional programming's immutability guarantees
-- [OTP](/glossary/otp/) is the framework that combines functional programming with actor-model concurrency
-- [Composability](/glossary/composability/) is the design principle of building complex behavior from simple, combinable functions
+- [Elixir](@/glossary/elixir.md) is the functional programming language used throughout the Prismatic Platform
+- [Erlang](@/glossary/erlang.md) is the functional language that created the BEAM VM and OTP framework
+- [BEAM VM](@/glossary/beam-vm.md) is the virtual machine that executes Elixir and Erlang functional programs
+- [Immutability](@/glossary/immutability.md) is the foundational property that data cannot be changed after creation
+- [Pattern Matching](@/glossary/pattern-matching.md) is the primary control flow mechanism in functional Elixir
+- [Pipe Operator](@/glossary/pipe-operator.md) enables readable function composition in Elixir pipelines
+- [Pure Function](@/glossary/pure-function.md) is the ideal function type in functional programming: no side effects, deterministic output
+- [Concurrency](@/glossary/concurrency.md) is dramatically simplified by functional programming's immutability guarantees
+- [OTP](@/glossary/otp.md) is the framework that combines functional programming with actor-model concurrency
+- [Composability](@/glossary/composability.md) is the design principle of building complex behavior from simple, combinable functions
 
 ## See Also
 
-- [Behaviour](/glossary/behaviour/) for the Elixir mechanism used to define polymorphic contracts in a functional style
-- [GenServer](/glossary/genserver/) for the OTP abstraction that adds state management to functional processes
-- [Comprehension](/glossary/comprehension/) for the declarative syntax for transforming and filtering collections
-- [Event Sourcing](/glossary/event-sourcing/) for the architectural pattern that leverages immutability for system history
-- [Property-Based Testing](/glossary/property-based-testing/) for the testing approach that leverages functional purity for universal property verification
+- [Behaviour](@/glossary/behaviour.md) for the Elixir mechanism used to define polymorphic contracts in a functional style
+- [GenServer](@/glossary/genserver.md) for the OTP abstraction that adds state management to functional processes
+- [Comprehension](@/glossary/comprehension.md) for the declarative syntax for transforming and filtering collections
+- [Event Sourcing](@/glossary/event-sourcing.md) for the architectural pattern that leverages immutability for system history
+- [Property-Based Testing](@/glossary/property-based-testing.md) for the testing approach that leverages functional purity for universal property verification
 
 ---
 

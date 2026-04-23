@@ -31,11 +31,11 @@ image_alt = "UI Components - Prismatic Platform"
 
 ## Definition and Overview
 
-UI Components in the Prismatic Platform are self-contained, reusable building blocks for constructing user interfaces. Built on [Phoenix LiveView](/glossary/phoenix-liveview/)'s component system, they combine HEEx templates, [TailwindCSS](/glossary/tailwindcss/) utility classes, and [Flowbite](/glossary/flowbite/) design patterns into a cohesive architecture that enforces type safety, accessibility, and visual consistency across every page in the platform. The component model spans three layers: function components (stateless, pure rendering), live components (stateful, process-backed), and CoreComponents (platform-wide shared primitives).
+UI Components in the Prismatic Platform are self-contained, reusable building blocks for constructing user interfaces. Built on [Phoenix LiveView](@/glossary/phoenix-liveview.md)'s component system, they combine HEEx templates, [TailwindCSS](@/glossary/tailwindcss.md) utility classes, and [Flowbite](@/glossary/flowbite.md) design patterns into a cohesive architecture that enforces type safety, accessibility, and visual consistency across every page in the platform. The component model spans three layers: function components (stateless, pure rendering), live components (stateful, process-backed), and CoreComponents (platform-wide shared primitives).
 
 The Prismatic Platform enforces a TailwindCSS-first policy for all UI work. Inline styles are forbidden. Custom CSS is forbidden. Every visual property is expressed through Tailwind utility classes, ensuring that the design system remains auditable, consistent, and maintainable across 115 umbrella applications. Flowbite provides the interaction patterns (modals, dropdowns, accordions, sidebars) while TailwindCSS provides the visual vocabulary. Phoenix LiveView provides the rendering engine and real-time update mechanism.
 
-This architecture reflects a deliberate choice: UI components in the Prismatic Platform are not thin wrappers around HTML. They are typed, documented, testable units of UI logic that participate in the same quality infrastructure as backend code. Every component has [typespecs](/glossary/typespec/), every component is verified by [Credo](/glossary/credo/) and [Dialyzer](/glossary/dialyzer/), and every component must pass the platform's [quality gates](/glossary/quality-gates/) before deployment. The goal is to treat the UI layer with the same rigor applied to OTP supervision trees and database schemas.
+This architecture reflects a deliberate choice: UI components in the Prismatic Platform are not thin wrappers around HTML. They are typed, documented, testable units of UI logic that participate in the same quality infrastructure as backend code. Every component has [typespecs](@/glossary/typespec.md), every component is verified by [Credo](@/glossary/credo.md) and [Dialyzer](@/glossary/dialyzer.md), and every component must pass the platform's [quality gates](@/glossary/quality-gates.md) before deployment. The goal is to treat the UI layer with the same rigor applied to OTP supervision trees and database schemas.
 
 ## Component Architecture Layers
 
@@ -103,7 +103,7 @@ Key properties of function components:
 
 - **Typed attributes**: `attr` declarations provide compile-time validation of component inputs
 - **Slots**: Named slots enable content projection without prop drilling
-- **Pattern matching**: Elixir's [pattern matching](/glossary/pattern-matching/) powers variant dispatch, eliminating conditional chains
+- **Pattern matching**: Elixir's [pattern matching](@/glossary/pattern-matching.md) powers variant dispatch, eliminating conditional chains
 - **Global attributes**: The `:global` rest attribute forwards arbitrary HTML attributes, supporting accessibility attrs like `aria-label`
 
 ### Live Components (Stateful)
@@ -285,7 +285,7 @@ end
 
 ## TailwindCSS-First Policy
 
-The Prismatic Platform enforces an absolute TailwindCSS-first policy. This is not a suggestion. It is a blocking requirement enforced by [pre-commit hooks](/glossary/pre-commit-hooks/) and [Credo](/glossary/credo/) checks.
+The Prismatic Platform enforces an absolute TailwindCSS-first policy. This is not a suggestion. It is a blocking requirement enforced by [pre-commit hooks](@/glossary/pre-commit-hooks.md) and [Credo](@/glossary/credo.md) checks.
 
 ### Rules
 
@@ -333,7 +333,7 @@ This pattern leverages Phoenix's automatic filtering of `nil` and `false` values
 
 ## Flowbite Integration
 
-[Flowbite](/glossary/flowbite/) provides the interaction design language for the platform. It is not used as a runtime dependency but as a pattern library -- Flowbite's HTML structure and Tailwind class combinations are adapted into Phoenix function components.
+[Flowbite](@/glossary/flowbite.md) provides the interaction design language for the platform. It is not used as a runtime dependency but as a pattern library -- Flowbite's HTML structure and Tailwind class combinations are adapted into Phoenix function components.
 
 ### Flowbite Component Mapping
 
@@ -743,22 +743,22 @@ end
 
 ## Related Concepts
 
-- [Phoenix LiveView](/glossary/phoenix-liveview/) -- The rendering engine powering all UI components
-- [Flowbite](/glossary/flowbite/) -- Design pattern library providing component interaction patterns
-- [TailwindCSS](/glossary/tailwindcss/) -- Utility-first CSS framework for all visual styling
-- [Phoenix Framework](/glossary/phoenix-framework/) -- Web framework providing the component infrastructure
-- [Pattern Matching](/glossary/pattern-matching/) -- Elixir feature used for variant dispatch in components
-- [Typespec](/glossary/typespec/) -- Type specifications ensuring component function contracts
-- [Telemetry](/glossary/telemetry/) -- Metrics tracking component render performance
-- [Testing](/glossary/testing/) -- Component test strategies and LiveViewTest helpers
-- [Quality Gates](/glossary/quality-gates/) -- Gates that verify component accessibility and styling compliance
-- [Pre-commit Hooks](/glossary/pre-commit-hooks/) -- Hooks enforcing TailwindCSS-first policy
+- [Phoenix LiveView](@/glossary/phoenix-liveview.md) -- The rendering engine powering all UI components
+- [Flowbite](@/glossary/flowbite.md) -- Design pattern library providing component interaction patterns
+- [TailwindCSS](@/glossary/tailwindcss.md) -- Utility-first CSS framework for all visual styling
+- [Phoenix Framework](@/glossary/phoenix-framework.md) -- Web framework providing the component infrastructure
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Elixir feature used for variant dispatch in components
+- [Typespec](@/glossary/typespec.md) -- Type specifications ensuring component function contracts
+- [Telemetry](@/glossary/telemetry.md) -- Metrics tracking component render performance
+- [Testing](@/glossary/testing.md) -- Component test strategies and LiveViewTest helpers
+- [Quality Gates](@/glossary/quality-gates.md) -- Gates that verify component accessibility and styling compliance
+- [Pre-commit Hooks](@/glossary/pre-commit-hooks.md) -- Hooks enforcing TailwindCSS-first policy
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Full technology stack details
-- [Apps](/apps/) -- Umbrella applications using the component system
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Full technology stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications using the component system
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -768,4 +768,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -32,7 +32,7 @@ image_alt = "Boot Time - Prismatic Platform"
 
 Boot time refers to the total elapsed duration from the moment a system begins its initialization sequence until it reaches full operational readiness and can serve its intended workload. In the context of OTP-based Elixir applications, boot time encompasses BEAM VM startup, application loading and dependency resolution, supervision tree construction, process spawning, state initialization, and health check validation. Unlike simple process start time, boot time in distributed systems must account for ordered dependency graphs, external service connectivity, data preloading, and coordinated multi-node startup sequences.
 
-In the Prismatic Platform, boot time is a first-class performance metric governed by the [performance](/glossary/performance/) standards that mandate sub-250ms page loads and sub-100ms server-side rendering. The platform's 115-application umbrella architecture makes boot-time optimization particularly challenging, requiring sophisticated dependency-aware startup orchestration through the PrismaticSupervisor system.
+In the Prismatic Platform, boot time is a first-class performance metric governed by the [performance](@/glossary/performance.md) standards that mandate sub-250ms page loads and sub-100ms server-side rendering. The platform's 115-application umbrella architecture makes boot-time optimization particularly challenging, requiring sophisticated dependency-aware startup orchestration through the PrismaticSupervisor system.
 
 ## Historical Context and Evolution
 
@@ -44,7 +44,7 @@ The Prismatic Platform's evolution from a single application to a 115-app umbrel
 
 ## OTP Application Start Phases
 
-Every OTP [application](/glossary/application/) follows a well-defined startup lifecycle managed by the Application behaviour. Understanding these phases is essential for optimizing boot time.
+Every OTP [application](@/glossary/application.md) follows a well-defined startup lifecycle managed by the Application behaviour. Understanding these phases is essential for optimizing boot time.
 
 ### Phase 1: Application Loading
 
@@ -56,11 +56,11 @@ OTP resolves the full transitive closure of application dependencies, constructi
 
 ### Phase 3: Sequential Application Start
 
-By default, OTP starts applications sequentially in dependency order. Each application's `start/2` callback is invoked, which typically starts the root [supervisor](/glossary/supervisor/). The callback must return `{:ok, pid}` or `{:ok, pid, state}` before the next application can begin. This sequential guarantee ensures that when an application starts, all its dependencies are already operational.
+By default, OTP starts applications sequentially in dependency order. Each application's `start/2` callback is invoked, which typically starts the root [supervisor](@/glossary/supervisor.md). The callback must return `{:ok, pid}` or `{:ok, pid, state}` before the next application can begin. This sequential guarantee ensures that when an application starts, all its dependencies are already operational.
 
 ### Phase 4: Supervision Tree Construction
 
-Within each application, the [supervision tree](/glossary/supervision-tree/) is constructed recursively. The root supervisor starts its children according to their `child_spec` definitions, respecting the configured strategy (`:one_for_one`, `:one_for_all`, `:rest_for_one`). Each child process initializes its state via `init/1` before the supervisor proceeds to the next child.
+Within each application, the [supervision tree](@/glossary/supervision-tree.md) is constructed recursively. The root supervisor starts its children according to their `child_spec` definitions, respecting the configured strategy (`:one_for_one`, `:one_for_all`, `:rest_for_one`). Each child process initializes its state via `init/1` before the supervisor proceeds to the next child.
 
 ### Phase 5: Post-Start Initialization
 
@@ -185,7 +185,7 @@ end
 
 ## Boot Time Measurement and Telemetry
 
-Accurate boot-time measurement requires instrumentation at multiple levels. The Prismatic Platform uses the [telemetry](/glossary/telemetry/) library to emit boot events that are captured by monitoring infrastructure.
+Accurate boot-time measurement requires instrumentation at multiple levels. The Prismatic Platform uses the [telemetry](@/glossary/telemetry.md) library to emit boot events that are captured by monitoring infrastructure.
 
 ```elixir
 defmodule PrismaticSupervisor.BootTelemetry do
@@ -276,7 +276,7 @@ end
 
 ### Strategy 2: Parallel ETS Table Creation
 
-[ETS](/glossary/ets/) table creation is a synchronous operation that blocks the creating process. When multiple applications need ETS tables, creating them in parallel within a dedicated boot phase significantly reduces aggregate boot time.
+[ETS](@/glossary/ets.md) table creation is a synchronous operation that blocks the creating process. When multiple applications need ETS tables, creating them in parallel within a dedicated boot phase significantly reduces aggregate boot time.
 
 ### Strategy 3: Connection Pool Pre-warming
 
@@ -288,7 +288,7 @@ Loading configuration from external sources (environment variables, config files
 
 ## Boot Time in Distributed Systems
 
-When the Prismatic Platform runs across multiple nodes in a [cluster](/glossary/cluster/), boot time takes on additional dimensions. Each node must not only complete its local boot sequence but also discover peers, establish connections, synchronize distributed state, and negotiate leadership for global resources.
+When the Prismatic Platform runs across multiple nodes in a [cluster](@/glossary/cluster.md), boot time takes on additional dimensions. Each node must not only complete its local boot sequence but also discover peers, establish connections, synchronize distributed state, and negotiate leadership for global resources.
 
 ### Node Discovery Phase
 
@@ -304,7 +304,7 @@ During rolling deployments, the cluster must maintain availability while individ
 
 ## Health Checks and Readiness Probes
 
-Boot time measurement alone is insufficient without readiness validation. The platform implements a multi-level health check system that distinguishes between "started" and "ready" states, integrating with [health monitoring](/glossary/health-monitoring/) infrastructure.
+Boot time measurement alone is insufficient without readiness validation. The platform implements a multi-level health check system that distinguishes between "started" and "ready" states, integrating with [health monitoring](@/glossary/health-monitoring.md) infrastructure.
 
 ```elixir
 defmodule PrismaticSupervisor.ReadinessProbe do
@@ -383,7 +383,7 @@ PrismaticSupervisor enforces per-domain boot timeouts. If a domain exceeds its a
 | Go | 10-100 ms | Simple main() initialization | No (process restart) |
 | Python (Django) | 1-5 seconds | Module import chain, app registry | No (process restart) |
 
-The Elixir/OTP model trades slightly longer boot time for dramatically better runtime characteristics: process isolation, fault tolerance through [let-it-crash](/glossary/let-it-crash/) philosophy, and hot code reload that eliminates most restart scenarios entirely.
+The Elixir/OTP model trades slightly longer boot time for dramatically better runtime characteristics: process isolation, fault tolerance through [let-it-crash](@/glossary/let-it-crash.md) philosophy, and hot code reload that eliminates most restart scenarios entirely.
 
 ## Testing Boot Time
 
@@ -439,16 +439,16 @@ end
 
 ## Related Concepts
 
-- [Supervision Tree](/glossary/supervision-tree/) -- The hierarchical process structure constructed during boot
-- [OTP](/glossary/otp/) -- The framework governing application start phases
-- [BEAM VM](/glossary/beam-vm/) -- The virtual machine that hosts the boot sequence
-- [GenServer](/glossary/genserver/) -- The primary process abstraction initialized during boot
-- [Fault Tolerance](/glossary/fault-tolerance/) -- The resilience properties that boot design must preserve
-- [Health Monitoring](/glossary/health-monitoring/) -- Post-boot readiness validation
-- [Telemetry](/glossary/telemetry/) -- Instrumentation for boot-time measurement
-- [Performance](/glossary/performance/) -- The broader performance framework governing boot targets
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- Runtime child spawning that can defer boot-time work
-- [Process Isolation](/glossary/process-isolation/) -- The BEAM property enabling independent process startup
+- [Supervision Tree](@/glossary/supervision-tree.md) -- The hierarchical process structure constructed during boot
+- [OTP](@/glossary/otp.md) -- The framework governing application start phases
+- [BEAM VM](@/glossary/beam-vm.md) -- The virtual machine that hosts the boot sequence
+- [GenServer](@/glossary/genserver.md) -- The primary process abstraction initialized during boot
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- The resilience properties that boot design must preserve
+- [Health Monitoring](@/glossary/health-monitoring.md) -- Post-boot readiness validation
+- [Telemetry](@/glossary/telemetry.md) -- Instrumentation for boot-time measurement
+- [Performance](@/glossary/performance.md) -- The broader performance framework governing boot targets
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- Runtime child spawning that can defer boot-time work
+- [Process Isolation](@/glossary/process-isolation.md) -- The BEAM property enabling independent process startup
 
 ## Further Reading
 

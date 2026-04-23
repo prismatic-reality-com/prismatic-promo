@@ -36,21 +36,21 @@ image_alt = "Authentication - Prismatic Platform"
 
 ## Definition
 
-Authentication is the process of verifying that an entity (user, service, or agent) is who or what it claims to be. It answers the fundamental question "Who are you?" by validating presented credentials -- such as passwords, tokens, certificates, or API keys -- against a trusted identity store. Authentication is the prerequisite gate that must be passed before any [Authorization](/glossary/authorization/) decision can be made: you must first establish identity before determining permissions.
+Authentication is the process of verifying that an entity (user, service, or agent) is who or what it claims to be. It answers the fundamental question "Who are you?" by validating presented credentials -- such as passwords, tokens, certificates, or API keys -- against a trusted identity store. Authentication is the prerequisite gate that must be passed before any [Authorization](@/glossary/authorization.md) decision can be made: you must first establish identity before determining permissions.
 
-In the Prismatic Platform, authentication operates across multiple layers: HTTP request authentication via [Plug](/glossary/plug/) pipelines, WebSocket authentication for [Phoenix LiveView](/glossary/phoenix-liveview/) connections, inter-service authentication between umbrella applications, and AIAD agent authentication within the [authority structure](/glossary/authority-structure/).
+In the Prismatic Platform, authentication operates across multiple layers: HTTP request authentication via [Plug](@/glossary/plug.md) pipelines, WebSocket authentication for [Phoenix LiveView](@/glossary/phoenix-liveview.md) connections, inter-service authentication between umbrella applications, and AIAD agent authentication within the [authority structure](@/glossary/authority-structure.md).
 
 ## Overview
 
-Authentication is one of the most critical security primitives in any distributed system. A failure in authentication undermines every other security measure -- if an attacker can impersonate a legitimate entity, authorization rules, audit logs, and access controls become meaningless. The Prismatic Platform treats authentication as a non-negotiable foundation, enforced through the [NO MERCY](/glossary/no-mercy/) doctrine: no unauthenticated request reaches application logic, no exception.
+Authentication is one of the most critical security primitives in any distributed system. A failure in authentication undermines every other security measure -- if an attacker can impersonate a legitimate entity, authorization rules, audit logs, and access controls become meaningless. The Prismatic Platform treats authentication as a non-negotiable foundation, enforced through the [NO MERCY](@/glossary/no-mercy.md) doctrine: no unauthenticated request reaches application logic, no exception.
 
 The platform employs a defense-in-depth authentication strategy:
 
-1. **Transport-layer security** via [TLS](/glossary/tls/) ensures credentials cannot be intercepted in transit
-2. **Token-based authentication** using [JWT](/glossary/jwt/) provides stateless verification for API consumers
-3. **Session-based authentication** via [Phoenix](/glossary/phoenix/) encrypted cookies handles browser-based interactions
+1. **Transport-layer security** via [TLS](@/glossary/tls.md) ensures credentials cannot be intercepted in transit
+2. **Token-based authentication** using [JWT](@/glossary/jwt.md) provides stateless verification for API consumers
+3. **Session-based authentication** via [Phoenix](@/glossary/phoenix.md) encrypted cookies handles browser-based interactions
 4. **API key authentication** enables machine-to-machine communication between services
-5. **Agent authentication** validates AIAD agent identity before granting [authority level](/glossary/authority-level/) access
+5. **Agent authentication** validates AIAD agent identity before granting [authority level](@/glossary/authority-level.md) access
 
 Each mechanism is selected based on the trust model, performance requirements, and client capabilities of the specific interaction pattern.
 
@@ -99,7 +99,7 @@ JWT tokens in the Prismatic Platform follow a strict lifecycle:
 
 ### Plug-Based Authentication Pipeline
 
-Phoenix authentication in the Prismatic Platform is implemented as a composable [Plug](/glossary/plug/) pipeline:
+Phoenix authentication in the Prismatic Platform is implemented as a composable [Plug](@/glossary/plug.md) pipeline:
 
 ```elixir
 defmodule PrismaticWeb.Plugs.Authentication do
@@ -427,7 +427,7 @@ end
 
 ### AIAD Agent Authentication
 
-Agents within the [AIAD](/glossary/aiad/) framework authenticate using a separate mechanism tied to their [authority level](/glossary/authority-level/):
+Agents within the [AIAD](@/glossary/aiad.md) framework authenticate using a separate mechanism tied to their [authority level](@/glossary/authority-level.md):
 
 ```elixir
 defmodule Prismatic.AIAD.AgentAuth do
@@ -477,13 +477,13 @@ The Prismatic Platform avoids Basic Auth entirely due to credential exposure ris
 
 6. **Validate all token claims**: Never trust a JWT without verifying signature, expiration, audience, and issuer. Missing any validation is a security vulnerability.
 
-7. **Separate authentication from authorization**: Authentication establishes identity; [authorization](/glossary/authorization/) determines permissions. Keep these concerns in separate modules with clear interfaces.
+7. **Separate authentication from authorization**: Authentication establishes identity; [authorization](@/glossary/authorization.md) determines permissions. Keep these concerns in separate modules with clear interfaces.
 
 8. **Rotate secrets regularly**: JWT signing keys, API keys, and session secrets should be rotated on a schedule. Support key overlap periods for zero-downtime rotation.
 
 ## Common Pitfalls
 
-1. **Confusing authentication with authorization**: Verifying identity (authentication) does not grant permissions. A valid JWT proves who you are, not what you can do. Always pair with [RBAC](/glossary/rbac/) checks.
+1. **Confusing authentication with authorization**: Verifying identity (authentication) does not grant permissions. A valid JWT proves who you are, not what you can do. Always pair with [RBAC](@/glossary/rbac.md) checks.
 
 2. **Storing JWT tokens in localStorage**: Browser localStorage is accessible to XSS attacks. Use HttpOnly, Secure, SameSite cookies for browser-based token storage.
 
@@ -501,7 +501,7 @@ The Prismatic Platform avoids Basic Auth entirely due to credential exposure ris
 
 ### REST API Consumer Authentication
 
-External clients authenticate to the Prismatic API using JWT bearer tokens obtained via [OAuth2](/glossary/oauth2/) token exchange. The stateless nature of JWT verification means API gateway nodes do not need shared session state, enabling horizontal scaling.
+External clients authenticate to the Prismatic API using JWT bearer tokens obtained via [OAuth2](@/glossary/oauth2.md) token exchange. The stateless nature of JWT verification means API gateway nodes do not need shared session state, enabling horizontal scaling.
 
 ### LiveView Dashboard Authentication
 
@@ -513,7 +513,7 @@ Umbrella applications within the Prismatic Platform authenticate to each other u
 
 ### AIAD Agent Authentication
 
-Autonomous agents authenticate through signed manifests that cryptographically prove their identity and [authority level](/glossary/authority-level/). This prevents unauthorized agents from executing privileged operations.
+Autonomous agents authenticate through signed manifests that cryptographically prove their identity and [authority level](@/glossary/authority-level.md). This prevents unauthorized agents from executing privileged operations.
 
 ### CI/CD Pipeline Authentication
 
@@ -521,18 +521,18 @@ Deployment pipelines authenticate to the platform using short-lived, scoped API 
 
 ## Related Concepts
 
-- [Authorization](/glossary/authorization/) -- determining permissions after identity is established
-- [RBAC](/glossary/rbac/) -- role-based access control for permission management
-- [JWT](/glossary/jwt/) -- JSON Web Tokens for stateless authentication
-- [OAuth2](/glossary/oauth2/) -- delegated authorization framework
-- [Credential Management](/glossary/credential-management/) -- lifecycle management of authentication credentials
-- [Security Operations](/glossary/security-operations/) -- monitoring and incident response for security events
-- [Plug](/glossary/plug/) -- composable request processing pipeline
-- [Phoenix](/glossary/phoenix/) -- web framework providing authentication infrastructure
-- [TLS](/glossary/tls/) -- transport-layer encryption protecting credentials in transit
-- [Encryption](/glossary/encryption/) -- cryptographic primitives underlying authentication mechanisms
-- [Authority Level](/glossary/authority-level/) -- hierarchical access classification for AIAD agents
-- [AIAD](/glossary/aiad/) -- agent framework with built-in authentication requirements
+- [Authorization](@/glossary/authorization.md) -- determining permissions after identity is established
+- [RBAC](@/glossary/rbac.md) -- role-based access control for permission management
+- [JWT](@/glossary/jwt.md) -- JSON Web Tokens for stateless authentication
+- [OAuth2](@/glossary/oauth2.md) -- delegated authorization framework
+- [Credential Management](@/glossary/credential-management.md) -- lifecycle management of authentication credentials
+- [Security Operations](@/glossary/security-operations.md) -- monitoring and incident response for security events
+- [Plug](@/glossary/plug.md) -- composable request processing pipeline
+- [Phoenix](@/glossary/phoenix.md) -- web framework providing authentication infrastructure
+- [TLS](@/glossary/tls.md) -- transport-layer encryption protecting credentials in transit
+- [Encryption](@/glossary/encryption.md) -- cryptographic primitives underlying authentication mechanisms
+- [Authority Level](@/glossary/authority-level.md) -- hierarchical access classification for AIAD agents
+- [AIAD](@/glossary/aiad.md) -- agent framework with built-in authentication requirements
 
 ## See Also
 
@@ -549,4 +549,4 @@ Deployment pipelines authenticate to the platform using short-lived, scoped API 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

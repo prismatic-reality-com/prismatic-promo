@@ -24,17 +24,17 @@ image_alt = "Phoenix Framework - Prismatic Platform"
 
 ## Overview
 
-Phoenix is the web framework powering the Prismatic Platform's HTTP interfaces, real-time dashboards, and API endpoints. Built on [Elixir](/technologies/elixir/) and the [BEAM](/technologies/beam/), Phoenix achieves microsecond response times while handling thousands of concurrent connections -- performance characteristics that are essential for the platform's real-time intelligence processing and monitoring dashboards. Phoenix serves as the foundational web layer for the entire platform, routing HTTP requests, managing WebSocket connections, and rendering the HTML that users interact with.
+Phoenix is the web framework powering the Prismatic Platform's HTTP interfaces, real-time dashboards, and API endpoints. Built on [Elixir](@/technologies/elixir.md) and the [BEAM](@/technologies/beam.md), Phoenix achieves microsecond response times while handling thousands of concurrent connections -- performance characteristics that are essential for the platform's real-time intelligence processing and monitoring dashboards. Phoenix serves as the foundational web layer for the entire platform, routing HTTP requests, managing WebSocket connections, and rendering the HTML that users interact with.
 
-Phoenix's channel system and [LiveView](/technologies/phoenix-liveview/) enable the platform to push real-time updates to connected clients without the complexity of client-side JavaScript frameworks. The Prismatic Platform's security monitoring dashboards, agent status displays, and OSINT data feeds all leverage Phoenix's real-time capabilities to deliver instant updates. The framework's Bandit HTTP adapter provides a pure-Elixir HTTP server that runs entirely on the BEAM, eliminating external dependencies like Cowboy's NIF-based components and simplifying deployment.
+Phoenix's channel system and [LiveView](@/technologies/phoenix-liveview.md) enable the platform to push real-time updates to connected clients without the complexity of client-side JavaScript frameworks. The Prismatic Platform's security monitoring dashboards, agent status displays, and OSINT data feeds all leverage Phoenix's real-time capabilities to deliver instant updates. The framework's Bandit HTTP adapter provides a pure-Elixir HTTP server that runs entirely on the BEAM, eliminating external dependencies like Cowboy's NIF-based components and simplifying deployment.
 
 The framework's emphasis on convention over configuration, combined with its powerful routing, controller, and template systems, enables rapid development of new platform features while maintaining clean separation of concerns across the 90-application umbrella structure. Phoenix's router compiles route patterns into efficient pattern-matching clauses at compile time, yielding sub-microsecond dispatch times regardless of the number of defined routes.
 
 ## Key Features
 
 - **Compiled Routing**: Route dispatch compiles to pattern matching for sub-microsecond request routing with zero runtime overhead
-- **Channels**: [WebSocket](/technologies/websockets/)-based real-time communication with presence tracking, topic-based routing, and automatic reconnection
-- **LiveView**: Server-rendered real-time UI that eliminates the need for JavaScript frontend frameworks (see [dedicated page](/technologies/phoenix-liveview/))
+- **Channels**: [WebSocket](@/technologies/websockets.md)-based real-time communication with presence tracking, topic-based routing, and automatic reconnection
+- **LiveView**: Server-rendered real-time UI that eliminates the need for JavaScript frontend frameworks (see [dedicated page](@/technologies/phoenix-liveview.md))
 - **PubSub**: Distributed publish-subscribe system for cross-node messaging with pluggable adapters
 - **Telemetry**: Built-in instrumentation for monitoring, metrics collection, and performance tracing through the Telemetry library
 - **Code Generation**: Mix tasks for scaffolding controllers, contexts, schemas, and LiveView modules with consistent project structure
@@ -122,9 +122,9 @@ Phoenix occupies the HTTP/presentation layer of the platform's architecture, int
 | **HTTP Server** | Bandit | TCP connection management, HTTP parsing, WebSocket upgrade |
 | **Endpoint** | `PrismaticWeb.Endpoint` | Static files, sessions, request logging, error handling |
 | **Router** | `PrismaticWeb.Router` | URL pattern matching, pipeline selection, scope management |
-| **Pipelines** | [Plug](/technologies/plug/) chains | Authentication, content negotiation, CSRF protection |
+| **Pipelines** | [Plug](@/technologies/plug.md) chains | Authentication, content negotiation, CSRF protection |
 | **Controllers** | Request handlers | Parameter extraction, context calls, response rendering |
-| **LiveView** | [Phoenix LiveView](/technologies/phoenix-liveview/) | Real-time server-rendered interactive UI |
+| **LiveView** | [Phoenix LiveView](@/technologies/phoenix-liveview.md) | Real-time server-rendered interactive UI |
 | **Channels** | WebSocket handlers | Topic-based real-time messaging with presence |
 | **Templates** | HEEx | Compile-time validated HTML templates with components |
 
@@ -145,7 +145,7 @@ defmodule PrismaticPerimeter do
 end
 ```
 
-This pattern means that web-layer code never imports [Ecto](/technologies/ecto/) or constructs queries directly. The context boundary ensures testability, enables internal refactoring without breaking the web interface, and provides clear documentation of the platform's public API surface.
+This pattern means that web-layer code never imports [Ecto](@/technologies/ecto.md) or constructs queries directly. The context boundary ensures testability, enables internal refactoring without breaking the web interface, and provides clear documentation of the platform's public API surface.
 
 ## Telemetry and Observability
 
@@ -224,7 +224,7 @@ config :prismatic_web, PrismaticWeb.Endpoint,
 ## Best Practices
 
 - **Use pipelines for cross-cutting concerns** -- authentication, rate limiting, and content negotiation belong in plug pipelines, not in individual controllers
-- **Separate contexts from controllers** -- controllers should call context modules (business logic) rather than accessing [Ecto](/technologies/ecto/) repositories directly
+- **Separate contexts from controllers** -- controllers should call context modules (business logic) rather than accessing [Ecto](@/technologies/ecto.md) repositories directly
 - **Prefer LiveView over traditional controllers** -- for any page that benefits from real-time updates, LiveView eliminates the need for polling and manual AJAX
 - **Configure `check_origin` in production** -- prevent WebSocket hijacking by whitelisting allowed origins
 - **Use Bandit over Cowboy** -- Bandit is a pure-Elixir HTTP server with better error messages, simpler configuration, and no NIF dependencies
@@ -247,20 +247,20 @@ Phoenix's combination of raw performance, native real-time support, and the BEAM
 
 ## Related Technologies
 
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Real-time server-rendered UI framework
-- [Plug](/technologies/plug/) - Middleware specification underlying all request processing
-- [Ecto](/technologies/ecto/) - Database wrapper and query interface for data persistence
-- [WebSockets](/technologies/websockets/) - Real-time communication protocol for channels and LiveView
-- [Phoenix PubSub](/technologies/pubsub/) - Distributed messaging for cross-node event delivery
-- [Elixir](/technologies/elixir/) - The programming language Phoenix is built with
-- [BEAM VM](/technologies/beam/) - The virtual machine providing Phoenix's concurrency model
-- [TailwindCSS](/technologies/tailwindcss/) - CSS framework used in all Phoenix templates
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Real-time server-rendered UI framework
+- [Plug](@/technologies/plug.md) - Middleware specification underlying all request processing
+- [Ecto](@/technologies/ecto.md) - Database wrapper and query interface for data persistence
+- [WebSockets](@/technologies/websockets.md) - Real-time communication protocol for channels and LiveView
+- [Phoenix PubSub](@/technologies/pubsub.md) - Distributed messaging for cross-node event delivery
+- [Elixir](@/technologies/elixir.md) - The programming language Phoenix is built with
+- [BEAM VM](@/technologies/beam.md) - The virtual machine providing Phoenix's concurrency model
+- [TailwindCSS](@/technologies/tailwindcss.md) - CSS framework used in all Phoenix templates
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - Main web interface (port 4000) with all LiveView dashboards
-- [prismatic_api](/apps/prismatic-api/) - REST API gateway (port 4004) with auto-introspecting OpenAPI
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - EASM module with Phoenix-powered dashboards
+- [prismatic_web](@/apps/prismatic-web.md) - Main web interface (port 4000) with all LiveView dashboards
+- [prismatic_api](@/apps/prismatic-api.md) - REST API gateway (port 4004) with auto-introspecting OpenAPI
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - EASM module with Phoenix-powered dashboards
 
 ---
 
@@ -269,4 +269,4 @@ Phoenix's combination of raw performance, native real-time support, and the BEAM
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

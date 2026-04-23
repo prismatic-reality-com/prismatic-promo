@@ -52,9 +52,9 @@ tags = ["applications", "education--adaptive-tutoring", "prismatic", "research-f
 
 ## Abstract
 
-This document provides a comprehensive overview of the Prismatic Platform's education and adaptive tutoring research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](/glossary/multi-agent-systems/), [epistemic verification](/glossary/epistemic-validation/), and adaptive learning theory to problems in personalized education, cognitive trajectory modeling, and intelligent tutoring system (ITS) design. The domain spans five primary research areas: adaptive tutoring and personalization, cognitive and motivational modeling, dialogue-based learning, assessment and analytics, and group and collaborative learning.
+This document provides a comprehensive overview of the Prismatic Platform's education and adaptive tutoring research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](@/glossary/multi-agent-systems.md), [epistemic verification](@/glossary/epistemic-validation.md), and adaptive learning theory to problems in personalized education, cognitive trajectory modeling, and intelligent tutoring system (ITS) design. The domain spans five primary research areas: adaptive tutoring and personalization, cognitive and motivational modeling, dialogue-based learning, assessment and analytics, and group and collaborative learning.
 
-Each framework leverages the platform's [agent orchestration](/glossary/agent-orchestration/) infrastructure, [signal plurality](/glossary/signal-plurality/) axioms, and [blackboard](/glossary/blackboard/) coordination to model the inherent complexity of educational environments where learner states, pedagogical strategies, and content knowledge interact dynamically. The emphasis throughout is on preserving the uncertainty inherent in learner modeling -- acknowledging that student understanding is not directly observable and must be inferred from behavioral evidence.
+Each framework leverages the platform's [agent orchestration](@/glossary/agent-orchestration.md) infrastructure, [signal plurality](@/glossary/signal-plurality.md) axioms, and [blackboard](@/glossary/blackboard.md) coordination to model the inherent complexity of educational environments where learner states, pedagogical strategies, and content knowledge interact dynamically. The emphasis throughout is on preserving the uncertainty inherent in learner modeling -- acknowledging that student understanding is not directly observable and must be inferred from behavioral evidence.
 
 ## Introduction
 
@@ -62,7 +62,7 @@ Each framework leverages the platform's [agent orchestration](/glossary/agent-or
 
 Education represents one of the most compelling application domains for multi-agent systems. The tutoring process naturally involves multiple roles -- instructor, student, mentor, assessor -- each contributing distinct expertise and operating with incomplete information about the others' states. Traditional educational technology approaches often model learning as a simple input-output process, failing to capture the epistemic complexity of how understanding develops, how motivation fluctuates, and how pedagogical interventions interact with individual learner characteristics.
 
-The Prismatic Platform's education research domain was conceived to study how [multi-agent architectures](/glossary/multi-agent-system/) and [epistemic reasoning](/glossary/epistemic-reasoning/) frameworks can model the nuanced dynamics of teaching and learning. The platform's Prismatic Academy subsystem, with its self-registering topic architecture and interconnection engine, provides a concrete foundation for studying how educational content and learner trajectories can be dynamically coordinated.
+The Prismatic Platform's education research domain was conceived to study how [multi-agent architectures](@/glossary/multi-agent-system.md) and [epistemic reasoning](@/glossary/epistemic-reasoning.md) frameworks can model the nuanced dynamics of teaching and learning. The platform's Prismatic Academy subsystem, with its self-registering topic architecture and interconnection engine, provides a concrete foundation for studying how educational content and learner trajectories can be dynamically coordinated.
 
 ### Problem Definition
 
@@ -82,12 +82,12 @@ Educational technology research faces several interconnected theoretical challen
 
 | Platform Component | Educational Application | Research Purpose |
 |-------------------|----------------------|------------------|
-| **[Blackboard](/glossary/blackboard/) Coordination** | Shared learner model | Study how tutor, assessor, and content agents share learner state information |
-| **[NABLA Infinity](/glossary/nabla-infinity/) Axioms** | Learner state uncertainty | Model epistemic uncertainty in knowledge assessment |
-| **[Agent Orchestration](/glossary/agent-orchestration/)** | Multi-role tutoring simulation | Simulate tutor, mentor, assessor, and peer agent interactions |
+| **[Blackboard](@/glossary/blackboard.md) Coordination** | Shared learner model | Study how tutor, assessor, and content agents share learner state information |
+| **[NABLA Infinity](@/glossary/nabla-infinity.md) Axioms** | Learner state uncertainty | Model epistemic uncertainty in knowledge assessment |
+| **[Agent Orchestration](@/glossary/agent-orchestration.md)** | Multi-role tutoring simulation | Simulate tutor, mentor, assessor, and peer agent interactions |
 | **Academy Topic Registry** | Content structure modeling | Study prerequisite graphs and content sequencing |
-| **[Telemetry](/glossary/telemetry/)** | Learning analytics | Collect and analyze learner interaction metrics |
-| **[Simulation](/glossary/simulation/)** | Classroom environment | Simulate multi-student classroom dynamics |
+| **[Telemetry](@/glossary/telemetry.md)** | Learning analytics | Collect and analyze learner interaction metrics |
+| **[Simulation](@/glossary/simulation.md)** | Classroom environment | Simulate multi-student classroom dynamics |
 
 ## Research Domain Taxonomy
 
@@ -97,14 +97,14 @@ Research into personalized learning path construction, adaptive content delivery
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Adaptive tutor agents](/applications/education-adaptive-tutoring/adaptive-tutor-agents/) | Personalized tutoring strategy selection | Bayesian knowledge tracing with multi-agent tutoring |
-| [Cognitive trajectory learning maps](/applications/education-adaptive-tutoring/cognitive-trajectory-learning-maps/) | Learning path optimization | Knowledge space theory with prerequisite graphs |
-| [Cross-cultural tutor adaptation](/applications/education-adaptive-tutoring/cross-cultural-tutor-adaptation/) | Cultural sensitivity in tutoring | Cross-cultural learning theory |
-| [Personalized study coach](/applications/education-adaptive-tutoring/personalized-study-coach/) | Long-term learning trajectory planning | Spaced repetition and learning curve theory |
-| [Adaptive quiz generation](/applications/education-adaptive-tutoring/adaptive-quiz-generation/) | Dynamic assessment item generation | Item response theory with adaptive testing |
-| [Visual learning preference detection](/applications/education-adaptive-tutoring/visual-learning-preference-detection/) | Learning style identification | Multi-modal learning theory |
+| [Adaptive tutor agents](@/applications/education-adaptive-tutoring/adaptive-tutor-agents.md) | Personalized tutoring strategy selection | Bayesian knowledge tracing with multi-agent tutoring |
+| [Cognitive trajectory learning maps](@/applications/education-adaptive-tutoring/cognitive-trajectory-learning-maps.md) | Learning path optimization | Knowledge space theory with prerequisite graphs |
+| [Cross-cultural tutor adaptation](@/applications/education-adaptive-tutoring/cross-cultural-tutor-adaptation.md) | Cultural sensitivity in tutoring | Cross-cultural learning theory |
+| [Personalized study coach](@/applications/education-adaptive-tutoring/personalized-study-coach.md) | Long-term learning trajectory planning | Spaced repetition and learning curve theory |
+| [Adaptive quiz generation](@/applications/education-adaptive-tutoring/adaptive-quiz-generation.md) | Dynamic assessment item generation | Item response theory with adaptive testing |
+| [Visual learning preference detection](@/applications/education-adaptive-tutoring/visual-learning-preference-detection.md) | Learning style identification | Multi-modal learning theory |
 
-These frameworks study how tutoring agents can adapt their strategies based on accumulated evidence about learner states. The adaptive tutor agents framework applies Bayesian knowledge tracing within a [multi-agent](/glossary/multi-agent-system/) architecture, where separate agents maintain beliefs about different aspects of student understanding (factual knowledge, procedural skill, metacognitive awareness) and negotiate pedagogical strategies through [blackboard](/glossary/blackboard/)-based coordination.
+These frameworks study how tutoring agents can adapt their strategies based on accumulated evidence about learner states. The adaptive tutor agents framework applies Bayesian knowledge tracing within a [multi-agent](@/glossary/multi-agent-system.md) architecture, where separate agents maintain beliefs about different aspects of student understanding (factual knowledge, procedural skill, metacognitive awareness) and negotiate pedagogical strategies through [blackboard](@/glossary/blackboard.md)-based coordination.
 
 ### Domain 2: Cognitive and Motivational Modeling (5 frameworks)
 
@@ -112,13 +112,13 @@ Theoretical models for studying learner cognition, motivation dynamics, and atte
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Student motivation analysis](/applications/education-adaptive-tutoring/student-motivation-analysis/) | Motivational state tracking | Self-determination theory and flow theory |
-| [Attention span simulation](/applications/education-adaptive-tutoring/attention-span-simulation/) | Attention dynamics modeling | Cognitive load theory |
-| [Replay of failed learning attempts](/applications/education-adaptive-tutoring/replay-of-failed-learning-attempts/) | Error pattern analysis | Productive failure theory |
-| [Self-reflection journaling AI](/applications/education-adaptive-tutoring/self-reflection-journaling-ai/) | Metacognitive development modeling | Metacognition and self-regulated learning |
-| [Educational resilience testing](/applications/education-adaptive-tutoring/educational-resilience-testing/) | Learner persistence modeling | Academic resilience theory |
+| [Student motivation analysis](@/applications/education-adaptive-tutoring/student-motivation-analysis.md) | Motivational state tracking | Self-determination theory and flow theory |
+| [Attention span simulation](@/applications/education-adaptive-tutoring/attention-span-simulation.md) | Attention dynamics modeling | Cognitive load theory |
+| [Replay of failed learning attempts](@/applications/education-adaptive-tutoring/replay-of-failed-learning-attempts.md) | Error pattern analysis | Productive failure theory |
+| [Self-reflection journaling AI](@/applications/education-adaptive-tutoring/self-reflection-journaling-ai.md) | Metacognitive development modeling | Metacognition and self-regulated learning |
+| [Educational resilience testing](@/applications/education-adaptive-tutoring/educational-resilience-testing.md) | Learner persistence modeling | Academic resilience theory |
 
-The motivation analysis framework applies [signal plurality](/glossary/signal-plurality/) to track multiple behavioral indicators of motivational state -- response time, help-seeking behavior, persistence on difficult problems, voluntary exploration -- using the platform's [contradiction preservation](/glossary/contradiction-preservation/) axiom to handle cases where indicators disagree (e.g., fast responses but frequent errors may indicate either expertise or disengagement).
+The motivation analysis framework applies [signal plurality](@/glossary/signal-plurality.md) to track multiple behavioral indicators of motivational state -- response time, help-seeking behavior, persistence on difficult problems, voluntary exploration -- using the platform's [contradiction preservation](@/glossary/contradiction-preservation.md) axiom to handle cases where indicators disagree (e.g., fast responses but frequent errors may indicate either expertise or disengagement).
 
 ### Domain 3: Dialogue-Based Learning (4 frameworks)
 
@@ -126,12 +126,12 @@ Frameworks for studying Socratic dialogue, philosophical inquiry, and debate-bas
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Socratic dialogue engine](/applications/education-adaptive-tutoring/socratic-dialogue-engine/) | Guided inquiry through questioning | Socratic method formalization |
-| [Philosophy dialogue simulator](/applications/education-adaptive-tutoring/philosophy-dialogue-simulator/) | Philosophical argument modeling | Argumentation theory |
-| [Debate moderation agent](/applications/education-adaptive-tutoring/debate-moderation-agent/) | Structured debate facilitation | Deliberative discourse theory |
-| [Epistemic collapse in philosophy class](/applications/education-adaptive-tutoring/epistemic-collapse-in-philosophy-class/) | Epistemic crisis in learning | Epistemic crisis resolution theory |
+| [Socratic dialogue engine](@/applications/education-adaptive-tutoring/socratic-dialogue-engine.md) | Guided inquiry through questioning | Socratic method formalization |
+| [Philosophy dialogue simulator](@/applications/education-adaptive-tutoring/philosophy-dialogue-simulator.md) | Philosophical argument modeling | Argumentation theory |
+| [Debate moderation agent](@/applications/education-adaptive-tutoring/debate-moderation-agent.md) | Structured debate facilitation | Deliberative discourse theory |
+| [Epistemic collapse in philosophy class](@/applications/education-adaptive-tutoring/epistemic-collapse-in-philosophy-class.md) | Epistemic crisis in learning | Epistemic crisis resolution theory |
 
-The Socratic dialogue engine is particularly notable for its deep integration with the platform's [epistemic pipeline](/glossary/epistemic-pipeline/) -- it models the Socratic elenchus as a systematic process of belief examination, contradiction discovery, and knowledge reconstruction that maps directly to the platform's [NABLA axioms](/glossary/nabla-axioms/).
+The Socratic dialogue engine is particularly notable for its deep integration with the platform's [epistemic pipeline](@/glossary/epistemic-pipeline.md) -- it models the Socratic elenchus as a systematic process of belief examination, contradiction discovery, and knowledge reconstruction that maps directly to the platform's [NABLA axioms](@/glossary/nabla-axioms.md).
 
 ### Domain 4: Assessment and Learning Analytics (5 frameworks)
 
@@ -139,11 +139,11 @@ Research into automated assessment, grading methodology, and learning performanc
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Exam prep with replay](/applications/education-adaptive-tutoring/exam-prep-with-replay/) | Practice examination with event replay | Spaced retrieval practice theory |
-| [Adaptive grading systems](/applications/education-adaptive-tutoring/adaptive-grading-systems/) | Dynamic grading criteria modeling | Standards-based grading theory |
-| [Real-time reading comprehension tracking](/applications/education-adaptive-tutoring/real-time-reading-comprehension-tracking/) | Comprehension monitoring | Reading comprehension models |
-| [Critical thinking reinforcement](/applications/education-adaptive-tutoring/critical-thinking-reinforcement/) | Critical thinking skill development | Bloom's taxonomy and higher-order thinking |
-| [Ethics & dilemmas teaching](/applications/education-adaptive-tutoring/ethics-dilemmas-teaching/) | Moral reasoning development | Kohlberg's moral development theory |
+| [Exam prep with replay](@/applications/education-adaptive-tutoring/exam-prep-with-replay.md) | Practice examination with event replay | Spaced retrieval practice theory |
+| [Adaptive grading systems](@/applications/education-adaptive-tutoring/adaptive-grading-systems.md) | Dynamic grading criteria modeling | Standards-based grading theory |
+| [Real-time reading comprehension tracking](@/applications/education-adaptive-tutoring/real-time-reading-comprehension-tracking.md) | Comprehension monitoring | Reading comprehension models |
+| [Critical thinking reinforcement](@/applications/education-adaptive-tutoring/critical-thinking-reinforcement.md) | Critical thinking skill development | Bloom's taxonomy and higher-order thinking |
+| [Ethics & dilemmas teaching](@/applications/education-adaptive-tutoring/ethics-dilemmas-teaching.md) | Moral reasoning development | Kohlberg's moral development theory |
 
 ### Domain 5: Group and Collaborative Learning (5 frameworks)
 
@@ -151,13 +151,13 @@ Frameworks for studying peer interaction, collaborative problem-solving, and cla
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Group classroom AI assistant](/applications/education-adaptive-tutoring/group-classroom-ai-assistant/) | Classroom-level adaptive support | Differentiated instruction theory |
-| [Multi-agent peer group learning](/applications/education-adaptive-tutoring/multi-agent-peer-group-learning/) | Peer learning dynamics | Social constructivism and Vygotsky's ZPD |
-| [Trait-based mentoring matches](/applications/education-adaptive-tutoring/trait-based-mentoring-matches/) | Mentor-mentee compatibility modeling | Mentoring relationship theory |
-| [Multi-disciplinary scenario packs](/applications/education-adaptive-tutoring/multi-disciplinary-scenario-packs/) | Cross-curricular scenario design | Interdisciplinary learning theory |
-| [Language acquisition agent](/applications/education-adaptive-tutoring/language-acquisition-agent/) | Second language acquisition modeling | SLA theory with interaction hypothesis |
+| [Group classroom AI assistant](@/applications/education-adaptive-tutoring/group-classroom-ai-assistant.md) | Classroom-level adaptive support | Differentiated instruction theory |
+| [Multi-agent peer group learning](@/applications/education-adaptive-tutoring/multi-agent-peer-group-learning.md) | Peer learning dynamics | Social constructivism and Vygotsky's ZPD |
+| [Trait-based mentoring matches](@/applications/education-adaptive-tutoring/trait-based-mentoring-matches.md) | Mentor-mentee compatibility modeling | Mentoring relationship theory |
+| [Multi-disciplinary scenario packs](@/applications/education-adaptive-tutoring/multi-disciplinary-scenario-packs.md) | Cross-curricular scenario design | Interdisciplinary learning theory |
+| [Language acquisition agent](@/applications/education-adaptive-tutoring/language-acquisition-agent.md) | Second language acquisition modeling | SLA theory with interaction hypothesis |
 
-The multi-agent peer group learning framework applies Vygotsky's Zone of Proximal Development (ZPD) within a [multi-agent](/glossary/multi-agent-system/) simulation, studying how heterogeneous learner groups develop shared understanding through interaction. Each learner agent maintains a private knowledge model, and collective understanding emerges through [blackboard](/glossary/blackboard/)-mediated negotiation.
+The multi-agent peer group learning framework applies Vygotsky's Zone of Proximal Development (ZPD) within a [multi-agent](@/glossary/multi-agent-system.md) simulation, studying how heterogeneous learner groups develop shared understanding through interaction. Each learner agent maintains a private knowledge model, and collective understanding emerges through [blackboard](@/glossary/blackboard.md)-mediated negotiation.
 
 ## Theoretical Foundations
 
@@ -165,55 +165,55 @@ The multi-agent peer group learning framework applies Vygotsky's Zone of Proxima
 
 | NABLA Axiom | Educational Interpretation | Research Application |
 |-------------|--------------------------|---------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple assessment signals required before knowledge state inference | Models multi-evidence learning assessment |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Contradictory performance indicators preserved as diagnostically meaningful | Prevents premature mastery/failure classification |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple assessment signals required before knowledge state inference | Models multi-evidence learning assessment |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Contradictory performance indicators preserved as diagnostically meaningful | Prevents premature mastery/failure classification |
 | **Absence Informative** | Topics never attempted carry information about learner confidence | Models avoidance behavior as diagnostic signal |
-| **[Time Decay](/glossary/time-decay/)** | Knowledge assessment confidence decreases without recent evidence | Models forgetting curves and skill decay |
+| **[Time Decay](@/glossary/time-decay.md)** | Knowledge assessment confidence decreases without recent evidence | Models forgetting curves and skill decay |
 | **Unknown Valid** | Acknowledging uncertainty about learner state as legitimate | Prevents overconfident learner modeling |
 | **Source Independence** | Independent assessments weighted higher than repeated measures | Models test-retest reliability requirements |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | All learning assessments traceable to evidence | Supports learning analytics audit trails |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | All learning assessments traceable to evidence | Supports learning analytics audit trails |
 
 ## Contents
 
 ### Adaptive Tutoring and Personalization
 
-- [Adaptive tutor agents](/applications/education-adaptive-tutoring/adaptive-tutor-agents/) -- Personalized tutoring strategy selection
-- [Cognitive trajectory learning maps](/applications/education-adaptive-tutoring/cognitive-trajectory-learning-maps/) -- Learning path optimization with prerequisite graphs
-- [Cross-cultural tutor adaptation](/applications/education-adaptive-tutoring/cross-cultural-tutor-adaptation/) -- Cultural sensitivity in automated tutoring
-- [Personalized study coach](/applications/education-adaptive-tutoring/personalized-study-coach/) -- Long-term learning trajectory planning
-- [Adaptive quiz generation](/applications/education-adaptive-tutoring/adaptive-quiz-generation/) -- Dynamic assessment item generation
-- [Visual learning preference detection](/applications/education-adaptive-tutoring/visual-learning-preference-detection/) -- Learning modality identification
+- [Adaptive tutor agents](@/applications/education-adaptive-tutoring/adaptive-tutor-agents.md) -- Personalized tutoring strategy selection
+- [Cognitive trajectory learning maps](@/applications/education-adaptive-tutoring/cognitive-trajectory-learning-maps.md) -- Learning path optimization with prerequisite graphs
+- [Cross-cultural tutor adaptation](@/applications/education-adaptive-tutoring/cross-cultural-tutor-adaptation.md) -- Cultural sensitivity in automated tutoring
+- [Personalized study coach](@/applications/education-adaptive-tutoring/personalized-study-coach.md) -- Long-term learning trajectory planning
+- [Adaptive quiz generation](@/applications/education-adaptive-tutoring/adaptive-quiz-generation.md) -- Dynamic assessment item generation
+- [Visual learning preference detection](@/applications/education-adaptive-tutoring/visual-learning-preference-detection.md) -- Learning modality identification
 
 ### Cognitive and Motivational Modeling
 
-- [Student motivation analysis](/applications/education-adaptive-tutoring/student-motivation-analysis/) -- Motivational state tracking and intervention
-- [Attention span simulation](/applications/education-adaptive-tutoring/attention-span-simulation/) -- Cognitive load and attention dynamics
-- [Replay of failed learning attempts](/applications/education-adaptive-tutoring/replay-of-failed-learning-attempts/) -- Error pattern analysis and productive failure
-- [Self-reflection journaling AI](/applications/education-adaptive-tutoring/self-reflection-journaling-ai/) -- Metacognitive development support
-- [Educational resilience testing](/applications/education-adaptive-tutoring/educational-resilience-testing/) -- Learner persistence and resilience modeling
+- [Student motivation analysis](@/applications/education-adaptive-tutoring/student-motivation-analysis.md) -- Motivational state tracking and intervention
+- [Attention span simulation](@/applications/education-adaptive-tutoring/attention-span-simulation.md) -- Cognitive load and attention dynamics
+- [Replay of failed learning attempts](@/applications/education-adaptive-tutoring/replay-of-failed-learning-attempts.md) -- Error pattern analysis and productive failure
+- [Self-reflection journaling AI](@/applications/education-adaptive-tutoring/self-reflection-journaling-ai.md) -- Metacognitive development support
+- [Educational resilience testing](@/applications/education-adaptive-tutoring/educational-resilience-testing.md) -- Learner persistence and resilience modeling
 
 ### Dialogue-Based Learning
 
-- [Socratic dialogue engine](/applications/education-adaptive-tutoring/socratic-dialogue-engine/) -- Guided inquiry through systematic questioning
-- [Philosophy dialogue simulator](/applications/education-adaptive-tutoring/philosophy-dialogue-simulator/) -- Philosophical argument modeling
-- [Debate moderation agent](/applications/education-adaptive-tutoring/debate-moderation-agent/) -- Structured debate facilitation
-- [Epistemic collapse in philosophy class](/applications/education-adaptive-tutoring/epistemic-collapse-in-philosophy-class/) -- Epistemic crisis in learning
+- [Socratic dialogue engine](@/applications/education-adaptive-tutoring/socratic-dialogue-engine.md) -- Guided inquiry through systematic questioning
+- [Philosophy dialogue simulator](@/applications/education-adaptive-tutoring/philosophy-dialogue-simulator.md) -- Philosophical argument modeling
+- [Debate moderation agent](@/applications/education-adaptive-tutoring/debate-moderation-agent.md) -- Structured debate facilitation
+- [Epistemic collapse in philosophy class](@/applications/education-adaptive-tutoring/epistemic-collapse-in-philosophy-class.md) -- Epistemic crisis in learning
 
 ### Assessment and Learning Analytics
 
-- [Exam prep with replay](/applications/education-adaptive-tutoring/exam-prep-with-replay/) -- Practice examination with event replay
-- [Adaptive grading systems](/applications/education-adaptive-tutoring/adaptive-grading-systems/) -- Dynamic grading criteria modeling
-- [Real-time reading comprehension tracking](/applications/education-adaptive-tutoring/real-time-reading-comprehension-tracking/) -- Comprehension monitoring
-- [Critical thinking reinforcement](/applications/education-adaptive-tutoring/critical-thinking-reinforcement/) -- Higher-order thinking skill development
-- [Ethics & dilemmas teaching](/applications/education-adaptive-tutoring/ethics-dilemmas-teaching/) -- Moral reasoning development
+- [Exam prep with replay](@/applications/education-adaptive-tutoring/exam-prep-with-replay.md) -- Practice examination with event replay
+- [Adaptive grading systems](@/applications/education-adaptive-tutoring/adaptive-grading-systems.md) -- Dynamic grading criteria modeling
+- [Real-time reading comprehension tracking](@/applications/education-adaptive-tutoring/real-time-reading-comprehension-tracking.md) -- Comprehension monitoring
+- [Critical thinking reinforcement](@/applications/education-adaptive-tutoring/critical-thinking-reinforcement.md) -- Higher-order thinking skill development
+- [Ethics & dilemmas teaching](@/applications/education-adaptive-tutoring/ethics-dilemmas-teaching.md) -- Moral reasoning development
 
 ### Group and Collaborative Learning
 
-- [Group classroom AI assistant](/applications/education-adaptive-tutoring/group-classroom-ai-assistant/) -- Classroom-level adaptive differentiation
-- [Multi-agent peer group learning](/applications/education-adaptive-tutoring/multi-agent-peer-group-learning/) -- Peer learning dynamics simulation
-- [Trait-based mentoring matches](/applications/education-adaptive-tutoring/trait-based-mentoring-matches/) -- Mentor-mentee compatibility modeling
-- [Multi-disciplinary scenario packs](/applications/education-adaptive-tutoring/multi-disciplinary-scenario-packs/) -- Cross-curricular scenario design
-- [Language acquisition agent](/applications/education-adaptive-tutoring/language-acquisition-agent/) -- Second language acquisition modeling
+- [Group classroom AI assistant](@/applications/education-adaptive-tutoring/group-classroom-ai-assistant.md) -- Classroom-level adaptive differentiation
+- [Multi-agent peer group learning](@/applications/education-adaptive-tutoring/multi-agent-peer-group-learning.md) -- Peer learning dynamics simulation
+- [Trait-based mentoring matches](@/applications/education-adaptive-tutoring/trait-based-mentoring-matches.md) -- Mentor-mentee compatibility modeling
+- [Multi-disciplinary scenario packs](@/applications/education-adaptive-tutoring/multi-disciplinary-scenario-packs.md) -- Cross-curricular scenario design
+- [Language acquisition agent](@/applications/education-adaptive-tutoring/language-acquisition-agent.md) -- Second language acquisition modeling
 
 ## Future Research Directions
 
@@ -227,13 +227,13 @@ The multi-agent peer group learning framework applies Vygotsky's Zone of Proxima
 
 ### Internal Documentation
 
-- [Platform Capabilities](/capabilities/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Blackboard Architecture](/glossary/blackboard/)
-- [Agent Orchestration](/glossary/agent-orchestration/)
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/)
-- [Telemetry](/glossary/telemetry/)
+- [Platform Capabilities](@/capabilities/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Blackboard Architecture](@/glossary/blackboard.md)
+- [Agent Orchestration](@/glossary/agent-orchestration.md)
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md)
+- [Telemetry](@/glossary/telemetry.md)
 
 ### External Standards and Literature
 
@@ -253,4 +253,4 @@ The multi-agent peer group learning framework applies Vygotsky's Zone of Proxima
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

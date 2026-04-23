@@ -38,9 +38,9 @@ image_alt = "ExUnit - Prismatic Platform"
 
 ExUnit is Elixir's built-in unit testing framework, included in the standard library and requiring no external dependencies. It provides a complete testing infrastructure: test case organization through modules, rich assertion macros with detailed failure messages, setup and teardown callbacks at both test and module scope, asynchronous test execution for parallelism, doctests that verify code examples embedded in documentation, tag-based filtering for selective test runs, and comprehensive failure formatting with diff output for easy debugging.
 
-ExUnit follows a deliberately simple design philosophy -- test modules are regular Elixir modules that `use ExUnit.Case`, and individual tests are functions defined with the `test` macro. This simplicity enables tests to leverage the full power of Elixir's [pattern matching](/glossary/pattern-matching/), [pipe operator](/glossary/pipe-operator/), and [immutable data](/glossary/immutability/) without framework-specific abstractions obscuring what is being tested.
+ExUnit follows a deliberately simple design philosophy -- test modules are regular Elixir modules that `use ExUnit.Case`, and individual tests are functions defined with the `test` macro. This simplicity enables tests to leverage the full power of Elixir's [pattern matching](@/glossary/pattern-matching.md), [pipe operator](@/glossary/pipe-operator.md), and [immutable data](@/glossary/immutability.md) without framework-specific abstractions obscuring what is being tested.
 
-The framework runs via `mix test` and integrates with the broader Elixir toolchain: [code coverage](/glossary/code-coverage/) reporting through Erlang's `:cover` module, [Dialyzer](/glossary/dialyzer/) type checking on test modules, and CI/CD pipeline integration through structured output formatters. ExUnit's async execution model spawns each test module as a separate [BEAM](/glossary/beam/) process, enabling true parallel execution while maintaining isolation -- a crashed test cannot affect other tests running concurrently.
+The framework runs via `mix test` and integrates with the broader Elixir toolchain: [code coverage](@/glossary/code-coverage.md) reporting through Erlang's `:cover` module, [Dialyzer](@/glossary/dialyzer.md) type checking on test modules, and CI/CD pipeline integration through structured output formatters. ExUnit's async execution model spawns each test module as a separate [BEAM](@/glossary/beam.md) process, enabling true parallel execution while maintaining isolation -- a crashed test cannot affect other tests running concurrently.
 
 ## Historical Context and Design Philosophy
 
@@ -50,13 +50,13 @@ The key insight in ExUnit's design is that the BEAM's process model provides nat
 
 ExUnit's assertion macros are implemented using Elixir's macro system, which enables them to provide detailed failure messages that include the actual and expected values, source code location, and even structural diffs. The `assert left == right` macro, for example, captures both operands at compile time and presents them in a side-by-side diff on failure. This compile-time analysis makes ExUnit's error messages significantly more informative than runtime-only assertion libraries.
 
-The framework's integration with [Mix](/glossary/mix/) provides lifecycle management: `mix test` automatically compiles test dependencies, starts required applications, runs tests in the configured order, and reports results. Mix also handles test partitioning for CI environments, seed-based randomization for test ordering, and stale-test detection for incremental testing during development.
+The framework's integration with [Mix](@/glossary/mix.md) provides lifecycle management: `mix test` automatically compiles test dependencies, starts required applications, runs tests in the configured order, and reports results. Mix also handles test partitioning for CI environments, seed-based randomization for test ordering, and stale-test detection for incremental testing during development.
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform maintains over 5,500 test files running through ExUnit across all 115 umbrella applications. The NO MERCY doctrine mandates 100% test coverage for all new code, with mandatory regression tests for every bug fix (the Mandatory Regression Test Protocol requires that every fix includes a test proving the bug existed and is now resolved). ExUnit is configured with `--warnings-as-errors` to catch test-time compilation warnings, ensuring the [Clean Run](/glossary/clean-run/) standard applies to test code as well as production code.
+The Prismatic Platform maintains over 5,500 test files running through ExUnit across all 115 umbrella applications. The NO MERCY doctrine mandates 100% test coverage for all new code, with mandatory regression tests for every bug fix (the Mandatory Regression Test Protocol requires that every fix includes a test proving the bug existed and is now resolved). ExUnit is configured with `--warnings-as-errors` to catch test-time compilation warnings, ensuring the [Clean Run](@/glossary/clean-run.md) standard applies to test code as well as production code.
 
-The platform uses ExUnit's async mode extensively for parallel test execution, reducing the full test suite runtime from what would be hours to minutes. Contract tests validate adapter compliance through shared test modules (`PrismaticStorage.AdapterContractTest`), ensuring that all storage implementations ([ETS](/glossary/ets/), Ecto, [Meilisearch](/glossary/meilisearch/), [KuzuDB](/glossary/kuzudb/)) behave identically. [Property-based testing](/glossary/property-based-testing/) via StreamData complements ExUnit's example-based tests for critical business logic.
+The platform uses ExUnit's async mode extensively for parallel test execution, reducing the full test suite runtime from what would be hours to minutes. Contract tests validate adapter compliance through shared test modules (`PrismaticStorage.AdapterContractTest`), ensuring that all storage implementations ([ETS](@/glossary/ets.md), Ecto, [Meilisearch](@/glossary/meilisearch.md), [KuzuDB](@/glossary/kuzudb.md)) behave identically. [Property-based testing](@/glossary/property-based-testing.md) via StreamData complements ExUnit's example-based tests for critical business logic.
 
 ## Test Structure and Organization
 
@@ -236,7 +236,7 @@ The `on_exit/1` callback registers cleanup functions that execute after the test
 
 ## Async Execution Model
 
-ExUnit's async execution leverages the [BEAM](/glossary/beam/) to run test modules in parallel:
+ExUnit's async execution leverages the [BEAM](@/glossary/beam.md) to run test modules in parallel:
 
 | Mode | Declaration | Behavior | Use When |
 |------|-------------|----------|----------|
@@ -525,24 +525,24 @@ mix test --only external_api
 
 ## Related Concepts
 
-- [Property-Based Testing](/glossary/property-based-testing/) - Generative testing complementing ExUnit examples
-- [Code Coverage](/glossary/code-coverage/) - Coverage measurement via `mix test --cover`
-- [QDP](/glossary/qdp/) - Quality metric requiring comprehensive test coverage
-- [Mix](/glossary/mix/) - Build tool that runs ExUnit via `mix test`
-- [Clean Run](/glossary/clean-run/) - Zero-warning standard applied to test compilation
-- [Dialyzer](/glossary/dialyzer/) - Static analysis applicable to test modules
-- [BEAM](/glossary/beam/) - VM enabling async test execution through process isolation
-- [Pattern Matching](/glossary/pattern-matching/) - Core assertion mechanism in ExUnit
-- [Typespec](/glossary/typespec/) - Type annotations verified alongside tests
-- [Immutability](/glossary/immutability/) - Data model ensuring test isolation
-- [GenServer](/glossary/genserver/) - OTP pattern tested through ExUnit callbacks
-- [Supervisor](/glossary/supervisor/) - Supervision tree testing patterns
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Generative testing complementing ExUnit examples
+- [Code Coverage](@/glossary/code-coverage.md) - Coverage measurement via `mix test --cover`
+- [QDP](@/glossary/qdp.md) - Quality metric requiring comprehensive test coverage
+- [Mix](@/glossary/mix.md) - Build tool that runs ExUnit via `mix test`
+- [Clean Run](@/glossary/clean-run.md) - Zero-warning standard applied to test compilation
+- [Dialyzer](@/glossary/dialyzer.md) - Static analysis applicable to test modules
+- [BEAM](@/glossary/beam.md) - VM enabling async test execution through process isolation
+- [Pattern Matching](@/glossary/pattern-matching.md) - Core assertion mechanism in ExUnit
+- [Typespec](@/glossary/typespec.md) - Type annotations verified alongside tests
+- [Immutability](@/glossary/immutability.md) - Data model ensuring test isolation
+- [GenServer](@/glossary/genserver.md) - OTP pattern tested through ExUnit callbacks
+- [Supervisor](@/glossary/supervisor.md) - Supervision tree testing patterns
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform testing architecture
-- [Applications](/apps/) - Umbrella apps with independent test suites
-- [Capabilities](/capabilities/) - Quality and testing capabilities
+- [Architecture](@/architecture/_index.md) - Platform testing architecture
+- [Applications](@/apps/_index.md) - Umbrella apps with independent test suites
+- [Capabilities](@/capabilities/_index.md) - Quality and testing capabilities
 
 ---
 
@@ -551,4 +551,4 @@ mix test --only external_api
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

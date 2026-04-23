@@ -24,9 +24,9 @@ image_alt = "/llm - Prismatic Platform"
 
 ## Overview
 
-**/llm** is a production command in the **LLM Operations** category of the Prismatic Platform that serves as the primary interface for managing and orchestrating Large Language Model operations across all available providers. The platform supports multiple LLM backends -- local [Ollama](/glossary/ollama/) instances, Claude via the Anthropic API, OpenRouter for multi-model access, and ChatGPT through the bridge interface -- and this command provides a unified control plane for routing requests, managing provider health, tracking token usage, and optimizing cost-performance tradeoffs.
+**/llm** is a production command in the **LLM Operations** category of the Prismatic Platform that serves as the primary interface for managing and orchestrating Large Language Model operations across all available providers. The platform supports multiple LLM backends -- local [Ollama](@/glossary/ollama.md) instances, Claude via the Anthropic API, OpenRouter for multi-model access, and ChatGPT through the bridge interface -- and this command provides a unified control plane for routing requests, managing provider health, tracking token usage, and optimizing cost-performance tradeoffs.
 
-This command operates under the **L2+** authority level and is executed by the `llm-unified-orchestrator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The unified orchestrator eliminates the complexity of managing multiple LLM providers by presenting a single interface that automatically routes requests to the optimal provider based on task requirements, model capabilities, cost constraints, and availability.
+This command operates under the **L2+** authority level and is executed by the `llm-unified-orchestrator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The unified orchestrator eliminates the complexity of managing multiple LLM providers by presenting a single interface that automatically routes requests to the optimal provider based on task requirements, model capabilities, cost constraints, and availability.
 
 LLM operations are central to the Prismatic Platform's agent ecosystem. Over 400 AIAD agents rely on language model capabilities for code generation, analysis, reasoning, and natural language processing. The `/llm` command ensures these agents always have access to appropriate model capabilities, whether through cloud APIs or local inference.
 
@@ -140,14 +140,14 @@ The request router uses a multi-factor scoring model to select the optimal provi
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `llm-unified-orchestrator` | Central LLM coordination |
-| [/local-llm](/commands/local-llm/) | Local provider | Zero-cost Ollama provider |
-| [/openrouter](/commands/openrouter/) | Cloud provider | Multi-model cloud access |
-| [/chatgpt-bridge](/commands/chatgpt-bridge/) | Bridge provider | ChatGPT session-based access |
-| [Ollama](/glossary/ollama/) | Local inference | Local model management |
-| [Telemetry](/glossary/telemetry/) | Usage tracking | Token counts, costs, latencies |
-| [Quality Gates](/glossary/quality-gates/) | Response quality | Quality validation |
-| [AIAD Registry](/glossary/aiad/) | Command specification | LLM command configuration |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `llm-unified-orchestrator` | Central LLM coordination |
+| [/local-llm](@/commands/local-llm.md) | Local provider | Zero-cost Ollama provider |
+| [/openrouter](@/commands/openrouter.md) | Cloud provider | Multi-model cloud access |
+| [/chatgpt-bridge](@/commands/chatgpt-bridge.md) | Bridge provider | ChatGPT session-based access |
+| [Ollama](@/glossary/ollama.md) | Local inference | Local model management |
+| [Telemetry](@/glossary/telemetry.md) | Usage tracking | Token counts, costs, latencies |
+| [Quality Gates](@/glossary/quality-gates.md) | Response quality | Quality validation |
+| [AIAD Registry](@/glossary/aiad.md) | Command specification | LLM command configuration |
 
 ## Best Practices
 
@@ -218,19 +218,19 @@ Configure different routing strategies for different agent types.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every LLM request is validated, routed optimally, and quality-checked before delivery. Failed requests trigger automatic fallback.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Provider selection is based on quantitative scoring, not assumptions. Usage tracking provides evidence for cost optimization decisions.
 
 ## Related Commands
 
-- [/local-llm](/commands/local-llm/) - Execute LLM requests using local providers with zero API cost
-- [/openrouter](/commands/openrouter/) - OpenRouter LLM provider operations and management
-- [/chatgpt-bridge](/commands/chatgpt-bridge/) - ChatGPT bridge operations for cross-LLM coordination
-- [/chatgpt-workflow](/commands/chatgpt-workflow/) - Multi-step workflow coordination across AI assistants
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/local-llm](@/commands/local-llm.md) - Execute LLM requests using local providers with zero API cost
+- [/openrouter](@/commands/openrouter.md) - OpenRouter LLM provider operations and management
+- [/chatgpt-bridge](@/commands/chatgpt-bridge.md) - ChatGPT bridge operations for cross-LLM coordination
+- [/chatgpt-workflow](@/commands/chatgpt-workflow.md) - Multi-step workflow coordination across AI assistants
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -239,4 +239,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

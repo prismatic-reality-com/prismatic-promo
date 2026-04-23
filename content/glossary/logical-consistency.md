@@ -370,25 +370,25 @@ At the code level, Credo strict mode and custom Prismatic Credo checks enforce a
 
 Logical consistency connects to fundamental epistemic and verification concepts across the platform:
 
-- [Structural Consistency](/glossary/structural-consistency/) -- the first Trinity Gate layer verifying belief network graph validity
-- [Formal Necessity](/glossary/formal-necessity/) -- the third Trinity Gate layer using modal logic and Lean4 proofs
-- [Trinity Gate](/glossary/trinity-gate/) -- the three-layer verification framework requiring all gates to pass
-- [NABLA Infinity](/glossary/nabla-infinity/) -- the epistemic framework defining seven non-negotiable axioms
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- the NABLA axiom preserving conflicting evidence
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- the systematic approach to knowledge validation
-- [Belief Graph](/glossary/belief-graph/) -- the directed graph structure storing propositions and their relationships
-- [Modal Logic](/glossary/modal-logic/) -- the logical framework for reasoning about necessity and possibility
-- [Formal Verification](/glossary/formal-verification/) -- mathematical proof that systems satisfy specifications
-- [Quality Gates](/glossary/quality-gates/) -- the enforcement mechanism blocking quality violations
+- [Structural Consistency](@/glossary/structural-consistency.md) -- the first Trinity Gate layer verifying belief network graph validity
+- [Formal Necessity](@/glossary/formal-necessity.md) -- the third Trinity Gate layer using modal logic and Lean4 proofs
+- [Trinity Gate](@/glossary/trinity-gate.md) -- the three-layer verification framework requiring all gates to pass
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- the epistemic framework defining seven non-negotiable axioms
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- the NABLA axiom preserving conflicting evidence
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- the systematic approach to knowledge validation
+- [Belief Graph](@/glossary/belief-graph.md) -- the directed graph structure storing propositions and their relationships
+- [Modal Logic](@/glossary/modal-logic.md) -- the logical framework for reasoning about necessity and possibility
+- [Formal Verification](@/glossary/formal-verification.md) -- mathematical proof that systems satisfy specifications
+- [Quality Gates](@/glossary/quality-gates.md) -- the enforcement mechanism blocking quality violations
 
 ## See Also
 
-- [Confidence Threshold](/glossary/confidence-threshold/) -- the minimum confidence required for Trinity Gate evaluation
-- [Signal Plurality](/glossary/signal-plurality/) -- the requirement for multiple independent signals before forming beliefs
-- [Evidence](/glossary/evidence/) -- the foundation of all knowledge claims in the epistemic framework
-- [Rule-Based Reasoning](/glossary/rule-based-reasoning/) -- the logical approach used by Gate 2 for consistency checking
-- [Static Analysis](/glossary/static-analysis/) -- compile-time verification of code-level logical consistency
-- [Credo](/glossary/credo/) -- the Elixir static analysis tool enforcing code consistency
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- the minimum confidence required for Trinity Gate evaluation
+- [Signal Plurality](@/glossary/signal-plurality.md) -- the requirement for multiple independent signals before forming beliefs
+- [Evidence](@/glossary/evidence.md) -- the foundation of all knowledge claims in the epistemic framework
+- [Rule-Based Reasoning](@/glossary/rule-based-reasoning.md) -- the logical approach used by Gate 2 for consistency checking
+- [Static Analysis](@/glossary/static-analysis.md) -- compile-time verification of code-level logical consistency
+- [Credo](@/glossary/credo.md) -- the Elixir static analysis tool enforcing code consistency
 
 ---
 

@@ -308,23 +308,23 @@ Constant-time data structures often trade memory for speed. ETS tables consume m
 
 ## Related Concepts
 
-- [Performance](/glossary/performance/) -- the broader discipline encompassing constant-time optimization
-- [ETS (Erlang Term Storage)](/glossary/ets/) -- the primary O(1) data structure on the BEAM
-- [ETS Table](/glossary/ets-table/) -- specific table types and their complexity characteristics
-- [Latency](/glossary/latency/) -- the measurable impact of constant-time vs non-constant operations
-- [Throughput](/glossary/throughput/) -- how O(1) operations enable linear throughput scaling
-- [Caching](/glossary/caching/) -- a common application of constant-time lookup structures
-- [Algorithmic Consistency](/glossary/algorithmic-consistency/) -- ensuring algorithms maintain their complexity guarantees
-- [Determinism](/glossary/determinism/) -- the predictability property that constant-time operations provide
-- [Scalability](/glossary/scalability/) -- how constant-time primitives enable horizontal scaling
-- [Concurrency](/glossary/concurrency/) -- concurrent access patterns for O(1) data structures
+- [Performance](@/glossary/performance.md) -- the broader discipline encompassing constant-time optimization
+- [ETS (Erlang Term Storage)](@/glossary/ets.md) -- the primary O(1) data structure on the BEAM
+- [ETS Table](@/glossary/ets-table.md) -- specific table types and their complexity characteristics
+- [Latency](@/glossary/latency.md) -- the measurable impact of constant-time vs non-constant operations
+- [Throughput](@/glossary/throughput.md) -- how O(1) operations enable linear throughput scaling
+- [Caching](@/glossary/caching.md) -- a common application of constant-time lookup structures
+- [Algorithmic Consistency](@/glossary/algorithmic-consistency.md) -- ensuring algorithms maintain their complexity guarantees
+- [Determinism](@/glossary/determinism.md) -- the predictability property that constant-time operations provide
+- [Scalability](@/glossary/scalability.md) -- how constant-time primitives enable horizontal scaling
+- [Concurrency](@/glossary/concurrency.md) -- concurrent access patterns for O(1) data structures
 
 ## See Also
 
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine that provides ETS and pattern matching dispatch
-- [Security](/glossary/security/) -- constant-time operations as a security requirement
-- [Circuit Breaker](/glossary/circuit-breaker/) -- O(1) state checks in failure handling patterns
-- [Performance Testing](/glossary/performance-testing/) -- benchmarking constant-time guarantees
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine that provides ETS and pattern matching dispatch
+- [Security](@/glossary/security.md) -- constant-time operations as a security requirement
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- O(1) state checks in failure handling patterns
+- [Performance Testing](@/glossary/performance-testing.md) -- benchmarking constant-time guarantees
 
 ---
 

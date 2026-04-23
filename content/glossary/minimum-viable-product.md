@@ -403,23 +403,23 @@ Internal engineering tools (Quality Floor Guardian, AutoEvolve scanner, Git Tree
 
 ## Related Concepts
 
-- [Proof of Concept](/glossary/proof-of-concept/) -- Technical feasibility validation that often precedes MVP development
-- [Continuous Integration](/glossary/continuous-integration/) -- Automation infrastructure enabling rapid MVP iteration cycles
-- [Testing](/glossary/testing/) -- Quality assurance applied selectively to MVP core functionality
-- [Quality Gates](/glossary/quality-gates/) -- Automated enforcement ensuring MVP quality meets minimum standards
-- [Architecture](/glossary/architecture/) -- System design enabling MVP evolution into full product
-- [Scalability](/glossary/scalability/) -- Growth dimension intentionally deferred in MVP design
-- [Continuous Deployment](/glossary/continuous-deployment/) -- Release automation enabling rapid MVP iteration
-- [Feature Flag](/glossary/feature-flag/) -- Progressive feature enablement for post-MVP expansion
-- [Telemetry](/glossary/telemetry/) -- Measurement infrastructure validating MVP hypotheses
-- [Canary Release](/glossary/canary-release/) -- Gradual rollout strategy for MVP to production
+- [Proof of Concept](@/glossary/proof-of-concept.md) -- Technical feasibility validation that often precedes MVP development
+- [Continuous Integration](@/glossary/continuous-integration.md) -- Automation infrastructure enabling rapid MVP iteration cycles
+- [Testing](@/glossary/testing.md) -- Quality assurance applied selectively to MVP core functionality
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated enforcement ensuring MVP quality meets minimum standards
+- [Architecture](@/glossary/architecture.md) -- System design enabling MVP evolution into full product
+- [Scalability](@/glossary/scalability.md) -- Growth dimension intentionally deferred in MVP design
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- Release automation enabling rapid MVP iteration
+- [Feature Flag](@/glossary/feature-flag.md) -- Progressive feature enablement for post-MVP expansion
+- [Telemetry](@/glossary/telemetry.md) -- Measurement infrastructure validating MVP hypotheses
+- [Canary Release](@/glossary/canary-release.md) -- Gradual rollout strategy for MVP to production
 
 ## See Also
 
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- EASM module developed using MVP methodology (M46)
-- [Prismatic API](/glossary/prismatic-api/) -- Auto-introspecting REST gateway developed as an MVP
-- [Apps](/apps/) -- 115 umbrella applications, many originating as validated MVPs
-- [Architecture](/architecture/) -- Platform architecture designed to support iterative MVP evolution
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- EASM module developed using MVP methodology (M46)
+- [Prismatic API](@/glossary/prismatic-api.md) -- Auto-introspecting REST gateway developed as an MVP
+- [Apps](@/apps/_index.md) -- 115 umbrella applications, many originating as validated MVPs
+- [Architecture](@/architecture/_index.md) -- Platform architecture designed to support iterative MVP evolution
 
 ---
 
@@ -428,4 +428,4 @@ Internal engineering tools (Quality Floor Guardian, AutoEvolve scanner, Git Tree
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

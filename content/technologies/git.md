@@ -26,7 +26,7 @@ image_alt = "Git - Prismatic Platform"
 
 Git is the version control system managing the entire Prismatic Platform codebase -- over 37,000 files, 2.8 million lines of code, and 90 umbrella applications. Git's distributed architecture enables multiple developers and AI agents to work on different branches simultaneously while maintaining a clean, auditable history of every change. The repository represents one of the most comprehensive Elixir codebases in existence, and Git's performance characteristics are critical for maintaining developer productivity at this scale.
 
-The Prismatic Platform extends Git with custom hooks that enforce quality standards before every commit and push. The pre-commit hook runs formatting checks, [Credo](/technologies/credo/) analysis, compilation with warnings-as-errors, and targeted tests; the commit-msg hook validates conventional commit format; and the pre-push hook runs the full quality gate suite. These hooks are mandatory -- `--no-verify` bypasses are absolutely forbidden by platform policy and constitute an L4 Supreme Review violation under the [NO MERCY](/capabilities/no-mercy/) doctrine.
+The Prismatic Platform extends Git with custom hooks that enforce quality standards before every commit and push. The pre-commit hook runs formatting checks, [Credo](@/technologies/credo.md) analysis, compilation with warnings-as-errors, and targeted tests; the commit-msg hook validates conventional commit format; and the pre-push hook runs the full quality gate suite. These hooks are mandatory -- `--no-verify` bypasses are absolutely forbidden by platform policy and constitute an L4 Supreme Review violation under the [NO MERCY](@/capabilities/no-mercy.md) doctrine.
 
 The platform's `git-trees.sh` script provides optimized codebase exploration using `git ls-tree`, which is approximately 100x faster than `find` or `ls -R` for the platform's 37,000+ file repository, executing in ~80ms versus 500ms+. This optimization is mandated for all platform agents and tools that need to explore the codebase structure.
 
@@ -96,10 +96,10 @@ Git occupies the version control layer of the platform's development infrastruct
 | Hooks | Quality gate enforcement | `.githooks/` |
 | Git Trees | Fast codebase exploration | `scripts/git-trees.sh` and `mix git_trees` |
 | Branch Strategy | Feature branches, main-only deploys | `feature/*`, `fix/*`, `main` |
-| CI Integration | Pipeline triggers on every push | [GitLab CI/CD](/technologies/gitlab-ci/) |
+| CI Integration | Pipeline triggers on every push | [GitLab CI/CD](@/technologies/gitlab-ci.md) |
 | GARDEN Repos | 22 legacy knowledge repositories | External, referenced via GARDEN guide |
 
-The repository structure follows the [Elixir](/technologies/elixir/) umbrella convention with all applications under the `apps/` directory, shared configuration at the root, and platform-wide tooling in `scripts/` and `.aiad/`.
+The repository structure follows the [Elixir](@/technologies/elixir.md) umbrella convention with all applications under the `apps/` directory, shared configuration at the root, and platform-wide tooling in `scripts/` and `.aiad/`.
 
 ## Performance Characteristics
 
@@ -120,7 +120,7 @@ The Git Trees optimization (`git ls-tree -r --name-only HEAD`) is mandated over 
 
 ## Hook System
 
-The platform's Git hook system is the enforcement mechanism for the [quality gates](/capabilities/quality-gates/). Every hook is mandatory, and bypass flags are forbidden.
+The platform's Git hook system is the enforcement mechanism for the [quality gates](@/capabilities/quality-gates.md). Every hook is mandatory, and bypass flags are forbidden.
 
 | Hook | Trigger | Enforcement | Bypass Allowed |
 |------|---------|-------------|----------------|
@@ -193,21 +193,21 @@ The `.gitignore` is carefully maintained to exclude build artifacts, dependencie
 | CI/CD Integration | Universal | Limited | Limited | P4 plugins |
 | Community | Dominant | Niche | Legacy | Enterprise |
 
-Git is the universal standard for version control in the Elixir ecosystem, with native support from [Hex](/technologies/mix/) (package manager), [GitLab CI/CD](/technologies/gitlab-ci/), and all development tools. The platform's monorepo approach also ensures that cross-application refactoring can be performed atomically in a single commit, maintaining consistency across the entire umbrella.
+Git is the universal standard for version control in the Elixir ecosystem, with native support from [Hex](@/technologies/mix.md) (package manager), [GitLab CI/CD](@/technologies/gitlab-ci.md), and all development tools. The platform's monorepo approach also ensures that cross-application refactoring can be performed atomically in a single commit, maintaining consistency across the entire umbrella.
 
 ## Related Technologies
 
-- [GitLab CI/CD](/technologies/gitlab-ci/) - CI/CD pipeline integration triggered by Git events
-- [Docker](/technologies/docker/) - Containerized builds from Git repository
-- [Credo](/technologies/credo/) - Code quality analysis enforced via Git hooks
-- [Dialyzer](/technologies/dialyzer/) - Static type analysis enforced via Git hooks
-- [Mix](/technologies/mix/) - Build tool invoked by Git hooks for compilation and testing
+- [GitLab CI/CD](@/technologies/gitlab-ci.md) - CI/CD pipeline integration triggered by Git events
+- [Docker](@/technologies/docker.md) - Containerized builds from Git repository
+- [Credo](@/technologies/credo.md) - Code quality analysis enforced via Git hooks
+- [Dialyzer](@/technologies/dialyzer.md) - Static type analysis enforced via Git hooks
+- [Mix](@/technologies/mix.md) - Build tool invoked by Git hooks for compilation and testing
 
 ## Related Apps
 
 - All 90 Prismatic Platform applications are managed in a single Git monorepo
-- [prismatic_safety](/apps/prismatic-safety/) - Quality Floor Guardian enforced through Git hooks
-- [prismatic_claude](/apps/prismatic-claude/) - Session lifecycle integrated with Git commit tracking
+- [prismatic_safety](@/apps/prismatic-safety.md) - Quality Floor Guardian enforced through Git hooks
+- [prismatic_claude](@/apps/prismatic-claude.md) - Session lifecycle integrated with Git commit tracking
 
 ---
 
@@ -216,4 +216,4 @@ Git is the universal standard for version control in the Elixir ecosystem, with 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

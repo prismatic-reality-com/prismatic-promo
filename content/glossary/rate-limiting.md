@@ -22,9 +22,9 @@ image_alt = "Rate Limiting - Prismatic Platform"
 
 Rate limiting is a technique that controls the number of requests a client can make to a service within a defined time window. It serves as a critical defense mechanism against abuse, denial-of-service attacks, resource exhaustion, and unfair resource monopolization by individual clients. By enforcing request quotas, rate limiting ensures that no single client can overwhelm the system, preserving service availability and fairness for all users.
 
-Rate limiting operates on a fundamentally different principle than [load balancing](/glossary/load-balancing/) and [backpressure](/glossary/backpressure/), though all three manage traffic flow. Load balancing distributes traffic across multiple servers to maximize throughput. Backpressure propagates flow control signals upstream to slow producers when consumers are overwhelmed. Rate limiting, by contrast, enforces hard ceilings on request frequency regardless of available capacity -- even if the system could handle more requests, the limit is enforced to prevent abuse and ensure fairness.
+Rate limiting operates on a fundamentally different principle than [load balancing](@/glossary/load-balancing.md) and [backpressure](@/glossary/backpressure.md), though all three manage traffic flow. Load balancing distributes traffic across multiple servers to maximize throughput. Backpressure propagates flow control signals upstream to slow producers when consumers are overwhelmed. Rate limiting, by contrast, enforces hard ceilings on request frequency regardless of available capacity -- even if the system could handle more requests, the limit is enforced to prevent abuse and ensure fairness.
 
-In API-centric architectures, rate limiting is typically enforced at the [API Gateway](/glossary/api-gateway/) level, where it can be applied consistently across all endpoints before requests reach backend services. This centralized enforcement prevents rate limit bypass through direct backend access and ensures that all clients, whether human users, automated scripts, or third-party integrations, are subject to the same policies.
+In API-centric architectures, rate limiting is typically enforced at the [API Gateway](@/glossary/api-gateway.md) level, where it can be applied consistently across all endpoints before requests reach backend services. This centralized enforcement prevents rate limit bypass through direct backend access and ensures that all clients, whether human users, automated scripts, or third-party integrations, are subject to the same policies.
 
 ## Rate Limiting Algorithms
 
@@ -124,8 +124,8 @@ The Prismatic Platform implements rate limiting at multiple levels, each protect
 | **API Gateway** | Per-client, per-endpoint | 100 req/min, 5000 req/hr | Protect backend services |
 | **Per-User** | Per authenticated user | 1000 req/hr across all endpoints | Fair usage enforcement |
 | **Per-Endpoint** | Per specific API route | POST /scans: 10 req/hr | Protect expensive operations |
-| **Per-Role** | Per [RBAC](/glossary/rbac/) role | Admin: 10000/hr, Viewer: 1000/hr | Tiered access |
-| **External API** | Per third-party provider | [Shodan](/glossary/shodan/): calibrated to tier | Respect provider quotas |
+| **Per-Role** | Per [RBAC](@/glossary/rbac.md) role | Admin: 10000/hr, Viewer: 1000/hr | Tiered access |
+| **External API** | Per third-party provider | [Shodan](@/glossary/shodan.md): calibrated to tier | Respect provider quotas |
 | **OSINT Pipeline** | Per data source in Broadway | Configured per provider | Prevent API ban |
 | **Global** | System-wide safety limit | 50000 req/min total | System protection |
 
@@ -192,13 +192,13 @@ The HTTP 429 (Too Many Requests) status code indicates that rate limiting has be
 
 ## External API Rate Limiting
 
-The Prismatic Platform manages rate limits for external OSINT data sources used in the [EASM](/glossary/easm/) pipeline. Each provider has different quotas, and exceeding them can result in temporary or permanent API key revocation:
+The Prismatic Platform manages rate limits for external OSINT data sources used in the [EASM](@/glossary/easm.md) pipeline. Each provider has different quotas, and exceeding them can result in temporary or permanent API key revocation:
 
 | Provider | Rate Limit | Algorithm | Prismatic Strategy |
 |----------|-----------|-----------|-------------------|
-| **[Shodan](/glossary/shodan/)** | 1 req/sec (free), varies by tier | Token bucket | Calibrated to subscription tier |
-| **[Censys](/glossary/censys/)** | Varies by tier (0.4-10 req/sec) | Sliding window | Conservative with retry backoff |
-| **[GreyNoise](/glossary/greynoise/)** | 100 req/day (community), varies | Token bucket | Bulk lookups to minimize requests |
+| **[Shodan](@/glossary/shodan.md)** | 1 req/sec (free), varies by tier | Token bucket | Calibrated to subscription tier |
+| **[Censys](@/glossary/censys.md)** | Varies by tier (0.4-10 req/sec) | Sliding window | Conservative with retry backoff |
+| **[GreyNoise](@/glossary/greynoise.md)** | 100 req/day (community), varies | Token bucket | Bulk lookups to minimize requests |
 | **Certificate Transparency** | Varies by log operator | Per-log limiting | Round-robin across CT logs |
 | **DNS resolvers** | Provider-dependent | Leaky bucket | Distributed across resolvers |
 
@@ -232,7 +232,7 @@ end
 
 ## Context in Prismatic
 
-The Prismatic Platform implements rate limiting at multiple levels through the Plug middleware system. The [API Gateway](/glossary/api-gateway/) enforces per-client request limits through `PrismaticWeb.Plugs.RateLimiter`, protecting backend services from excessive load. External OSINT API integrations ([Shodan](/glossary/shodan/), [Censys](/glossary/censys/), [GreyNoise](/glossary/greynoise/)) use provider-specific rate limiters to respect quotas. [Broadway](/glossary/broadway/) pipelines use [backpressure](/glossary/backpressure/)-aware rate limiting to control throughput in data processing operations.
+The Prismatic Platform implements rate limiting at multiple levels through the Plug middleware system. The [API Gateway](@/glossary/api-gateway.md) enforces per-client request limits through `PrismaticWeb.Plugs.RateLimiter`, protecting backend services from excessive load. External OSINT API integrations ([Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md), [GreyNoise](@/glossary/greynoise.md)) use provider-specific rate limiters to respect quotas. [Broadway](@/glossary/broadway.md) pipelines use [backpressure](@/glossary/backpressure.md)-aware rate limiting to control throughput in data processing operations.
 
 The Hammer library provides the underlying rate limiting implementation with ETS-backed state for single-node deployments and pluggable backends (Redis, Mnesia) for distributed configurations. This aligns with the platform's pattern of using ETS for development and distributed backends for production.
 
@@ -242,30 +242,30 @@ Rate limiting works in concert with several other traffic management patterns:
 
 | Pattern | Relationship | Combined Behavior |
 |---------|-------------|-------------------|
-| **[Circuit Breaker](/glossary/circuit-breaker/)** | Complementary | Rate limit prevents overload; circuit breaker handles failures |
-| **[Backpressure](/glossary/backpressure/)** | Layered | Rate limit at edges; backpressure within pipelines |
-| **[Load Balancing](/glossary/load-balancing/)** | Complementary | Load balancer distributes; rate limiter caps per-client |
+| **[Circuit Breaker](@/glossary/circuit-breaker.md)** | Complementary | Rate limit prevents overload; circuit breaker handles failures |
+| **[Backpressure](@/glossary/backpressure.md)** | Layered | Rate limit at edges; backpressure within pipelines |
+| **[Load Balancing](@/glossary/load-balancing.md)** | Complementary | Load balancer distributes; rate limiter caps per-client |
 | **Retry with Backoff** | Client-side | Rate limit enforces server policy; client respects it |
 | **Bulkhead Isolation** | Complementary | Rate limit per-client; bulkhead per-resource pool |
 
 ## Related Terms
 
-- [API Gateway](/glossary/api-gateway/) - Primary enforcement point for API rate limits
-- [REST API](/glossary/rest-api/) - HTTP interface protected by rate limiting
-- [Load Balancing](/glossary/load-balancing/) - Complementary traffic distribution technique
-- [Backpressure](/glossary/backpressure/) - Internal flow control coordinating with rate limits
-- [Circuit Breaker](/glossary/circuit-breaker/) - Failure-triggered traffic halt complementing rate limits
-- [Plug](/glossary/plug/) - Elixir middleware implementing rate limit enforcement
-- [Shodan](/glossary/shodan/) - External API with provider-specific rate limits
-- [Censys](/glossary/censys/) - External API with tier-based rate limits
-- [RBAC](/glossary/rbac/) - Per-role rate limit tiers
-- [Observability](/glossary/observability/) - Monitoring rate limit metrics and rejections
+- [API Gateway](@/glossary/api-gateway.md) - Primary enforcement point for API rate limits
+- [REST API](@/glossary/rest-api.md) - HTTP interface protected by rate limiting
+- [Load Balancing](@/glossary/load-balancing.md) - Complementary traffic distribution technique
+- [Backpressure](@/glossary/backpressure.md) - Internal flow control coordinating with rate limits
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Failure-triggered traffic halt complementing rate limits
+- [Plug](@/glossary/plug.md) - Elixir middleware implementing rate limit enforcement
+- [Shodan](@/glossary/shodan.md) - External API with provider-specific rate limits
+- [Censys](@/glossary/censys.md) - External API with tier-based rate limits
+- [RBAC](@/glossary/rbac.md) - Per-role rate limit tiers
+- [Observability](@/glossary/observability.md) - Monitoring rate limit metrics and rejections
 
 ## See Also
 
-- [Architecture](/architecture/) - Traffic management architecture
-- [Apps](/apps/) - Prismatic API gateway application
-- [Technologies](/technologies/) - Hammer library and rate limiting infrastructure
+- [Architecture](@/architecture/_index.md) - Traffic management architecture
+- [Apps](@/apps/_index.md) - Prismatic API gateway application
+- [Technologies](@/technologies/_index.md) - Hammer library and rate limiting infrastructure
 
 ---
 
@@ -274,4 +274,4 @@ Rate limiting works in concert with several other traffic management patterns:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

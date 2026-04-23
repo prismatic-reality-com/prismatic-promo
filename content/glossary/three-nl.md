@@ -34,7 +34,7 @@ The **3NL (Three Nested Loops) Framework** is a hierarchical processing architec
 
 Unlike flat governance models where all processing rules apply uniformly, 3NL recognizes that epistemic rigor manifests differently across processing modalities. A logic check (L1) operates with binary pass/fail semantics. A neural assessment (L2) operates with probabilistic confidence scores. A linguistic evaluation (L3) operates with semantic coherence and contextual appropriateness. The framework ensures all three modes run simultaneously on every platform operation, with cross-layer validation catching failures that any single layer would miss.
 
-3NL is one of the 18 pillars of the Prismatic Platform [doctrine](/glossary/doctrine/), alongside [NM/ND](/glossary/nm-nd/), [NWB](/glossary/nwb/), [FLLM](/glossary/fllm/), and others. It is the only pillar without a dedicated enforcement module in CI, because its requirements are architectural rather than scannable -- 3NL compliance is verified through the structural presence of all three processing layers in platform operations rather than through pattern matching on source code.
+3NL is one of the 18 pillars of the Prismatic Platform [doctrine](@/glossary/doctrine.md), alongside [NM/ND](@/glossary/nm-nd.md), [NWB](/glossary/nwb/), [FLLM](/glossary/fllm/), and others. It is the only pillar without a dedicated enforcement module in CI, because its requirements are architectural rather than scannable -- 3NL compliance is verified through the structural presence of all three processing layers in platform operations rather than through pattern matching on source code.
 
 ## Overview: The Three Nested Loops
 
@@ -45,34 +45,34 @@ The 3NL architecture operates three concurrent processing loops. Each loop has d
 The Logic Layer is the innermost loop. It handles deterministic computation: formal rule evaluation, constraint checking, type verification, and logical inference. L1 produces binary outputs -- a rule either passes or fails, a constraint is either satisfied or violated. There is no ambiguity at this layer.
 
 **Responsibilities:**
-- Axiom compliance verification (all [NABLA Infinity](/glossary/nabla-infinity/) axioms)
+- Axiom compliance verification (all [NABLA Infinity](@/glossary/nabla-infinity.md) axioms)
 - Type safety and structural validation
 - Pre-condition and post-condition checking
-- Formal proof verification via [QEVE](/glossary/qeve/) engine
-- [Trinity Gate](/glossary/trinity-gate/) structural consistency checks
+- Formal proof verification via [QEVE](@/glossary/qeve.md) engine
+- [Trinity Gate](@/glossary/trinity-gate.md) structural consistency checks
 - Database constraint enforcement
 - Input boundary validation
 
 **Output characteristics:** Boolean (pass/fail), deterministic, reproducible. Given identical inputs, L1 always produces identical outputs.
 
-**Failure mode:** Hard failure. When L1 detects a violation, the operation is blocked. There is no "partial pass" at the logic layer. This maps directly to the [NM/ND](/glossary/nm-nd/) doctrine's zero-tolerance principle.
+**Failure mode:** Hard failure. When L1 detects a violation, the operation is blocked. There is no "partial pass" at the logic layer. This maps directly to the [NM/ND](@/glossary/nm-nd.md) doctrine's zero-tolerance principle.
 
 ### L2: Neural Layer
 
 The Neural Layer is the middle loop. It handles probabilistic computation: pattern recognition, confidence estimation, anomaly detection, and adaptive learning from historical data. L2 produces continuous-valued outputs -- confidence scores, risk assessments, similarity measures.
 
 **Responsibilities:**
-- [Confidence scoring](/glossary/confidence-scoring/) and calibration
+- [Confidence scoring](@/glossary/confidence-scoring.md) and calibration
 - Pattern recognition across agent outputs
 - Anomaly detection in platform behavior
 - Historical trend analysis and prediction
-- [Fitness score](/glossary/fitness-score/) computation
+- [Fitness score](@/glossary/fitness-score.md) computation
 - Cross-domain signal correlation
 - Adaptive threshold adjustment
 
 **Output characteristics:** Probabilistic (0.0 to 1.0 confidence), non-deterministic (may vary with training data), requires calibration against ground truth.
 
-**Failure mode:** Soft degradation. When L2 confidence drops below the [confidence threshold](/glossary/confidence-threshold/) (typically 0.80 for standard operations, 0.95 for critical cross-domain claims), the operation is flagged for review but not necessarily blocked. L2 failures trigger downward pressure on L1 verification intensity.
+**Failure mode:** Soft degradation. When L2 confidence drops below the [confidence threshold](@/glossary/confidence-threshold.md) (typically 0.80 for standard operations, 0.95 for critical cross-domain claims), the operation is flagged for review but not necessarily blocked. L2 failures trigger downward pressure on L1 verification intensity.
 
 ### L3: Linguistic Layer
 
@@ -83,7 +83,7 @@ The Linguistic Layer is the outermost loop. It handles semantic computation: nat
 - Investigation report generation
 - Explanation and reasoning trace production
 - Semantic coherence validation
-- [Agent](/glossary/agent/) instruction interpretation
+- [Agent](@/glossary/agent.md) instruction interpretation
 - Documentation and glossary content processing
 - User-facing output formatting and clarity
 
@@ -115,7 +115,7 @@ A failure at L1 cascades outward: if the logic layer rejects an input, neither t
 The L1 loop executes a strict evaluation pipeline on every operation:
 
 1. **Input validation** -- Verify structural correctness of incoming data against schema
-2. **Axiom evaluation** -- Check all applicable NABLA axioms ([Signal Plurality](/glossary/signal-plurality/), [Contradiction Preservation](/glossary/contradiction-preservation/), [Time Decay](/glossary/time-decay/), [Provenance Mandatory](/glossary/provenance-mandatory/), Absence Informative, Unknown Valid, Source Independence)
+2. **Axiom evaluation** -- Check all applicable NABLA axioms ([Signal Plurality](@/glossary/signal-plurality.md), [Contradiction Preservation](@/glossary/contradiction-preservation.md), [Time Decay](@/glossary/time-decay.md), [Provenance Mandatory](@/glossary/provenance-mandatory.md), Absence Informative, Unknown Valid, Source Independence)
 3. **Constraint satisfaction** -- Evaluate domain-specific business rules
 4. **Trinity Gate passage** -- Three-layer consistency check (structural, logical, formal)
 5. **Output certification** -- Stamp result with L1 verification status
@@ -127,13 +127,13 @@ The entire L1 cycle must complete in under 10ms for inline operations. For batch
 The L2 loop operates on L1-certified data:
 
 1. **Feature extraction** -- Transform L1-validated data into feature vectors
-2. **Pattern matching** -- Compare against historical patterns in [ETS](/glossary/ets/)-backed registries
+2. **Pattern matching** -- Compare against historical patterns in [ETS](@/glossary/ets.md)-backed registries
 3. **Confidence computation** -- Calculate belief confidence using Bayesian updating
 4. **Anomaly scoring** -- Flag deviations from expected patterns
-5. **Threshold evaluation** -- Compare scores against configurable [confidence thresholds](/glossary/confidence-threshold/)
+5. **Threshold evaluation** -- Compare scores against configurable [confidence thresholds](@/glossary/confidence-threshold.md)
 6. **Adaptive feedback** -- Update internal models based on outcome data
 
-L2 maintains state across operations through the [Quality DNA](/glossary/quality-dna/) system. Each agent's L2 state includes a running confidence calibration that improves as more ground-truth data becomes available.
+L2 maintains state across operations through the [Quality DNA](@/glossary/quality-dna.md) system. Each agent's L2 state includes a running confidence calibration that improves as more ground-truth data becomes available.
 
 #### L3: Linguistic Loop Execution Cycle
 
@@ -216,7 +216,7 @@ graph TB
 
 | Pillar | Primary Layer | Secondary Layer | Integration Pattern |
 |--------|--------------|-----------------|---------------------|
-| [NM/ND](/glossary/nm-nd/) | L1 (zero tolerance) | L2 (evidence validation) | L1 blocks violations, L2 validates evidence claims |
+| [NM/ND](@/glossary/nm-nd.md) | L1 (zero tolerance) | L2 (evidence validation) | L1 blocks violations, L2 validates evidence claims |
 | [NWB](/glossary/nwb/) | L1 (permanent constraints) | L3 (documentation) | L1 enforces irreversibility, L3 documents rationale |
 | [FLLM](/glossary/fllm/) | L1 (pattern scanning) | L3 (semantic CSS review) | L1 scans for violations, L3 suggests Tailwind alternatives |
 | TACH | L1 (test file existence) | L2 (coverage analysis) | L1 checks file exists, L2 assesses coverage quality |
@@ -229,7 +229,7 @@ graph TB
 
 ### How 3NL Integrates with NM/ND
 
-The [NM/ND](/glossary/nm-nd/) doctrine ("No Mercy, No Doubts") and 3NL have a synergistic relationship:
+The [NM/ND](@/glossary/nm-nd.md) doctrine ("No Mercy, No Doubts") and 3NL have a synergistic relationship:
 
 - **No Mercy (enforcement)** maps to L1: Zero-tolerance rule evaluation. When L1 detects a violation, NM/ND requires immediate blocking with no exceptions.
 - **No Doubts (evidence)** maps to L2: Every claim must be backed by quantifiable evidence. L2's confidence scoring provides the numerical backing that NM/ND demands.
@@ -571,21 +571,21 @@ Even operations that never produce user-facing output should engage L3. The ling
 
 ## Historical Context
 
-The 3NL Framework emerged from practical necessity during the Prismatic Platform's evolution through successive [generations](/glossary/generation/). Early platform generations (Gen 1 through Gen 5) operated with a flat epistemic model: NABLA axioms were specified once and applied uniformly. This approach worked adequately when the platform consisted of fewer than fifty agents operating within a handful of domains, but began to exhibit serious scaling failures as the agent population grew.
+The 3NL Framework emerged from practical necessity during the Prismatic Platform's evolution through successive [generations](@/glossary/generation.md). Early platform generations (Gen 1 through Gen 5) operated with a flat epistemic model: NABLA axioms were specified once and applied uniformly. This approach worked adequately when the platform consisted of fewer than fifty agents operating within a handful of domains, but began to exhibit serious scaling failures as the agent population grew.
 
 Three categories of failure motivated the transition to a nested architecture:
 
 1. **Axiom enforcement at scale** produced an exponential verification burden. When every agent must independently verify every axiom for every decision, the computational cost grows multiplicatively with agent count and axiom count.
 
-2. **Cross-domain interactions** introduced axiom conflicts that flat models could not resolve. Two agents operating in different domains might both comply with [Signal Plurality](/glossary/signal-plurality/) locally while producing contradictory platform-level beliefs due to incompatible signal weighting across domain boundaries.
+2. **Cross-domain interactions** introduced axiom conflicts that flat models could not resolve. Two agents operating in different domains might both comply with [Signal Plurality](@/glossary/signal-plurality.md) locally while producing contradictory platform-level beliefs due to incompatible signal weighting across domain boundaries.
 
 3. **Emergent platform properties** -- such as coherent risk assessment across OSINT, EASM, and compliance domains -- proved to be genuinely emergent, requiring explicit architectural support rather than simply more rigorous local enforcement.
 
-The intellectual antecedents of 3NL include hierarchical control theory (Mesarovic, Macko, and Takahara's multilevel systems theory), Simon's "nearly decomposable systems" from _The Sciences of the Artificial_, and the stratified ontology tradition in critical realism (Bhaskar). The framework reached its current mature form during Gen 14, coinciding with the introduction of [consciousness traits](/glossary/consciousness-traits/).
+The intellectual antecedents of 3NL include hierarchical control theory (Mesarovic, Macko, and Takahara's multilevel systems theory), Simon's "nearly decomposable systems" from _The Sciences of the Artificial_, and the stratified ontology tradition in critical realism (Bhaskar). The framework reached its current mature form during Gen 14, coinciding with the introduction of [consciousness traits](@/glossary/consciousness-traits.md).
 
 ## NABLA-AIAD Bridge
 
-The 3NL Framework bridges [NABLA Infinity](/glossary/nabla-infinity/) epistemic axioms to [AIAD](/glossary/aiad/) agent operations:
+The 3NL Framework bridges [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic axioms to [AIAD](@/glossary/aiad.md) agent operations:
 
 - **At L1:** Each NABLA axiom translates into AIAD behavioral requirements encoded in the agent's `.agent.md` specification. The axiom "Signal Plurality requires minimum two independent signals" becomes a testable L1 constraint.
 
@@ -601,49 +601,49 @@ An OSINT investigation targeting a corporate entity involves dozens of specializ
 
 - **L1:** Each agent independently verifies signal plurality (multiple sources for each finding), preserves contradictions (conflicting ownership records both retained), and tracks provenance (every finding traces to its source API).
 - **L2:** The investigation coordinator merges findings across agents. When the DNS agent and the certificate agent both report the same IP address, L2 counts this as one signal (source deduplication) rather than two (preventing false plurality). Confidence scores reflect evidence strength.
-- **L3:** The platform generates a coherent investigation report, assessing overall quality: is the [belief graph](/glossary/belief-graph/) sufficiently complete? Are there systematic blind spots? Is the language clear enough for the target audience?
+- **L3:** The platform generates a coherent investigation report, assessing overall quality: is the [belief graph](@/glossary/belief-graph.md) sufficiently complete? Are there systematic blind spots? Is the language clear enough for the target audience?
 
 ### Due Diligence
 
 Due diligence workflows illustrate all three layers simultaneously:
 
 - **L1:** Agents perform sanctions screening, beneficial ownership lookup, and adverse media scanning with strict axiom compliance.
-- **L2:** [Entity resolution](/glossary/entity-resolution/) operates at L2 -- is "Acme Corp" in the sanctions list the same entity as "ACME Corporation" in the company registry? L2 produces a similarity confidence rather than a binary match.
+- **L2:** [Entity resolution](@/glossary/entity-resolution.md) operates at L2 -- is "Acme Corp" in the sanctions list the same entity as "ACME Corporation" in the company registry? L2 produces a similarity confidence rather than a binary match.
 - **L3:** The holistic risk assessment combines L1 verification and L2 confidence into a human-readable recommendation that accounts for known unknowns and explicitly flags areas of insufficient evidence.
 
 ## Measurement and Metrics
 
-**Level 1 Metrics:** Per-agent axiom compliance rate (target: 1.0), Trinity Gate pass rate, provenance chain completeness, latency percentiles. Tracked in [Quality DNA](/glossary/quality-dna/).
+**Level 1 Metrics:** Per-agent axiom compliance rate (target: 1.0), Trinity Gate pass rate, provenance chain completeness, latency percentiles. Tracked in [Quality DNA](@/glossary/quality-dna.md).
 
-**Level 2 Metrics:** Source deduplication effectiveness, cross-domain confidence calibration, contradiction propagation fidelity, anomaly detection precision. Assessed via [audit trail](/glossary/audit-trail/) analysis.
+**Level 2 Metrics:** Source deduplication effectiveness, cross-domain confidence calibration, contradiction propagation fidelity, anomaly detection precision. Assessed via [audit trail](@/glossary/audit-trail.md) analysis.
 
 **Level 3 Metrics:** Explanation coherence scores, report quality ratings, semantic consistency checks. Evaluated through coherence scoring and cross-referencing with L1/L2 outputs.
 
-The [epistemic pipeline](/glossary/epistemic-pipeline/) provides the measurement infrastructure. Lower pipeline levels (L0-L5) feed L1 metrics. Middle levels (L6-L10) contribute to L2 assessment. Upper levels (L11-L13, Meta, Consciousness) provide L3 measurements.
+The [epistemic pipeline](@/glossary/epistemic-pipeline.md) provides the measurement infrastructure. Lower pipeline levels (L0-L5) feed L1 metrics. Middle levels (L6-L10) contribute to L2 assessment. Upper levels (L11-L13, Meta, Consciousness) provide L3 measurements.
 
 ## Related Terms
 
-- [NM/ND](/glossary/nm-nd/) -- No Mercy, No Doubts doctrine enforced at all 3NL layers
+- [NM/ND](@/glossary/nm-nd.md) -- No Mercy, No Doubts doctrine enforced at all 3NL layers
 - [NWB](/glossary/nwb/) -- No Way Back permanent solution doctrine verified across L1/L2/L3
 - [FLLM](/glossary/fllm/) -- Flowbite LLM CSS hygiene enforced at L1 with L3 semantic review
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Seven epistemic axioms integrated across all layers
-- [AIAD](/glossary/aiad/) -- Agent standard that 3NL bridges to NABLA axioms
-- [Agent](/glossary/agent/) -- Autonomous unit governed by L1 compliance
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification gate applied at L1
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement mechanism blocking non-compliant code
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous monitor bridging L2/L3 properties
-- [SEADF](/glossary/seadf/) -- Seven-subsystem framework producing L3 emergent properties
-- [Confidence Threshold](/glossary/confidence-threshold/) -- L2 mechanism controlling cross-domain propagation
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- 16-level processing mapped to 3NL measurement tiers
-- [Consciousness Traits](/glossary/consciousness-traits/) -- Emergent L3 properties characterizing platform self-awareness
-- [Quality DNA](/glossary/quality-dna/) -- Persistent quality tracking providing L1/L2 compliance data
-- [Fitness Score](/glossary/fitness-score/) -- Quantitative platform health metric computed across all layers
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Seven epistemic axioms integrated across all layers
+- [AIAD](@/glossary/aiad.md) -- Agent standard that 3NL bridges to NABLA axioms
+- [Agent](@/glossary/agent.md) -- Autonomous unit governed by L1 compliance
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification gate applied at L1
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement mechanism blocking non-compliant code
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous monitor bridging L2/L3 properties
+- [SEADF](@/glossary/seadf.md) -- Seven-subsystem framework producing L3 emergent properties
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- L2 mechanism controlling cross-domain propagation
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- 16-level processing mapped to 3NL measurement tiers
+- [Consciousness Traits](@/glossary/consciousness-traits.md) -- Emergent L3 properties characterizing platform self-awareness
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistent quality tracking providing L1/L2 compliance data
+- [Fitness Score](@/glossary/fitness-score.md) -- Quantitative platform health metric computed across all layers
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview showing 3NL's structural role
-- [Technologies](/technologies/) -- Technology stack supporting 3NL implementation
-- [Agents](/agents/) -- Agent catalog operating under 3NL Level 1 governance
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview showing 3NL's structural role
+- [Technologies](@/technologies/_index.md) -- Technology stack supporting 3NL implementation
+- [Agents](@/agents/_index.md) -- Agent catalog operating under 3NL Level 1 governance
 
 ---
 
@@ -652,4 +652,4 @@ The [epistemic pipeline](/glossary/epistemic-pipeline/) provides the measurement
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

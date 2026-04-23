@@ -434,30 +434,30 @@ When the Prismatic Perimeter team needs to integrate with the Storage layer, kno
 
 Knowledge hoarding connects to numerous platform concepts that work together to prevent information siloing:
 
-- [Knowledge Representation](/glossary/knowledge-representation/) -- the formal methods for encoding knowledge into machine-processable and human-readable formats, directly opposing hoarding through explicit representation
-- [Knowledge Graph](/glossary/knowledge-graph/) -- graph-based structures that externalize relationship knowledge into queryable, traversable data structures
-- [Collective Intelligence](/glossary/collective-intelligence/) -- the emergent capability that arises when knowledge is shared rather than hoarded across an organization
-- [Information Asymmetry](/glossary/information-asymmetry/) -- the power imbalance created when some parties have access to knowledge that others do not
-- [Share Openly](/glossary/share-openly/) -- the cultural principle that directly counters knowledge hoarding by mandating open distribution of knowledge
-- [Complete Transparency](/glossary/complete-transparency/) -- the operational requirement that system state, decisions, and rationale be visible to all authorized parties
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- the principle that open knowledge sharing strengthens organizational and system reliability
-- [Open Source Superiority](/glossary/open-source-superiority/) -- the philosophy that open, shared codebases produce superior outcomes compared to closed, hoarded ones
-- [Community Ownership](/glossary/community-ownership/) -- the governance model where knowledge belongs to the community rather than to individuals
-- [Documentation](/glossary/documentation/) -- the primary technical mechanism for externalizing knowledge from individuals into accessible artifacts
-- [Quality DNA](/glossary/quality-dna/) -- the persistence mechanism that prevents quality knowledge from being lost across sessions and personnel changes
-- [Observability](/glossary/observability/) -- the technical capability to inspect system state externally, preventing runtime knowledge from being hoarded inside processes
+- [Knowledge Representation](@/glossary/knowledge-representation.md) -- the formal methods for encoding knowledge into machine-processable and human-readable formats, directly opposing hoarding through explicit representation
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- graph-based structures that externalize relationship knowledge into queryable, traversable data structures
+- [Collective Intelligence](@/glossary/collective-intelligence.md) -- the emergent capability that arises when knowledge is shared rather than hoarded across an organization
+- [Information Asymmetry](@/glossary/information-asymmetry.md) -- the power imbalance created when some parties have access to knowledge that others do not
+- [Share Openly](@/glossary/share-openly.md) -- the cultural principle that directly counters knowledge hoarding by mandating open distribution of knowledge
+- [Complete Transparency](@/glossary/complete-transparency.md) -- the operational requirement that system state, decisions, and rationale be visible to all authorized parties
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- the principle that open knowledge sharing strengthens organizational and system reliability
+- [Open Source Superiority](@/glossary/open-source-superiority.md) -- the philosophy that open, shared codebases produce superior outcomes compared to closed, hoarded ones
+- [Community Ownership](@/glossary/community-ownership.md) -- the governance model where knowledge belongs to the community rather than to individuals
+- [Documentation](@/glossary/documentation.md) -- the primary technical mechanism for externalizing knowledge from individuals into accessible artifacts
+- [Quality DNA](@/glossary/quality-dna.md) -- the persistence mechanism that prevents quality knowledge from being lost across sessions and personnel changes
+- [Observability](@/glossary/observability.md) -- the technical capability to inspect system state externally, preventing runtime knowledge from being hoarded inside processes
 
 ## See Also
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- the epistemic framework that mandates signal plurality and provenance, both incompatible with knowledge hoarding
-- [NO MERCY NO DOUBTS](/glossary/no-mercy-no-doubts/) -- the operational doctrine requiring complete transparency and evidence-based action
-- [AIAD](/glossary/aiad/) -- the agent standard that externalizes operational knowledge into structured, searchable artifacts
-- [Collaborative Intelligence](/glossary/collaborative-intelligence/) -- the multi-agent paradigm that distributes knowledge across specialized agents
-- [Signal Plurality](/glossary/signal-plurality/) -- the axiom requiring multiple independent sources, impossible under knowledge hoarding
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- the epistemic framework that mandates signal plurality and provenance, both incompatible with knowledge hoarding
+- [NO MERCY NO DOUBTS](@/glossary/no-mercy-no-doubts.md) -- the operational doctrine requiring complete transparency and evidence-based action
+- [AIAD](@/glossary/aiad.md) -- the agent standard that externalizes operational knowledge into structured, searchable artifacts
+- [Collaborative Intelligence](@/glossary/collaborative-intelligence.md) -- the multi-agent paradigm that distributes knowledge across specialized agents
+- [Signal Plurality](@/glossary/signal-plurality.md) -- the axiom requiring multiple independent sources, impossible under knowledge hoarding
 
 ---
 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Part of the [Prismatic Platform](https://github.com/korczis/prismatic-platform) Glossary
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | Glossary Index
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | Glossary Index

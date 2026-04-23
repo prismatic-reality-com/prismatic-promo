@@ -28,7 +28,7 @@ The Trinity Gate addresses a fundamental problem in complex systems: how to dist
 
 The three gates are designed to be independently sufficient for detecting different categories of epistemic failure. Structural consistency catches topological defects in reasoning graphs. Logical consistency catches contradictions and inference errors. Formal necessity catches claims that are plausible but not provably necessary. Together, they create a verification barrier that invalid conclusions cannot penetrate.
 
-The Trinity Gate integrates with the [NABLA Axioms](/capabilities/nabla-axioms/) epistemic framework as its enforcement mechanism, and with the [NO DOUBTS](/capabilities/no-doubts/) doctrine's confidence thresholds as its activation trigger.
+The Trinity Gate integrates with the [NABLA Axioms](@/capabilities/nabla-axioms.md) epistemic framework as its enforcement mechanism, and with the [NO DOUBTS](@/capabilities/no-doubts.md) doctrine's confidence thresholds as its activation trigger.
 
 ## The Three Gates
 
@@ -145,7 +145,7 @@ end
 
 ### Gate 2: Logical Consistency (Rule-Based)
 
-The second gate ensures that no unresolved contradictions exist in the belief system and that all inference chains follow valid deductive steps. This gate enforces the [NABLA Axioms](/capabilities/nabla-axioms/) contradiction preservation requirement -- contradictions are preserved as data, not silently discarded.
+The second gate ensures that no unresolved contradictions exist in the belief system and that all inference chains follow valid deductive steps. This gate enforces the [NABLA Axioms](@/capabilities/nabla-axioms.md) contradiction preservation requirement -- contradictions are preserved as data, not silently discarded.
 
 | Check | Description | Failure Mode | Detection |
 |-------|-------------|--------------|-----------|
@@ -376,7 +376,7 @@ end
 
 ## Confidence Threshold Integration
 
-The Trinity Gate activates at different confidence thresholds depending on the operational context, as defined by the [NO DOUBTS](/capabilities/no-doubts/) doctrine:
+The Trinity Gate activates at different confidence thresholds depending on the operational context, as defined by the [NO DOUBTS](@/capabilities/no-doubts.md) doctrine:
 
 | Context | Confidence Threshold | Trinity Gate Requirement | Gates Applied |
 |---------|---------------------|--------------------------|---------------|
@@ -387,7 +387,7 @@ The Trinity Gate activates at different confidence thresholds depending on the o
 
 ### Transition Protocol
 
-The Trinity Gate serves as the gateway between the investigation phase (governed by [NO DOUBTS](/capabilities/no-doubts/)) and the execution phase (governed by [NO MERCY](/capabilities/no-mercy/)):
+The Trinity Gate serves as the gateway between the investigation phase (governed by [NO DOUBTS](@/capabilities/no-doubts.md)) and the execution phase (governed by [NO MERCY](@/capabilities/no-mercy.md)):
 
 ```
 INVESTIGATION (NABLA: uncertainty mapping, contradiction preservation)
@@ -439,16 +439,16 @@ The Trinity Gate is designed for practical use in real-time decision making:
 
 The Trinity Gate connects to the platform's epistemic and quality infrastructure:
 
-- **[NABLA Axioms](/capabilities/nabla-axioms/)**: Trinity Gate enforces NABLA axiom compliance in Gate 2
-- **[NO DOUBTS](/capabilities/no-doubts/)**: Confidence thresholds trigger Trinity Gate validation
-- **[NO MERCY](/capabilities/no-mercy/)**: Execution phase begins only after Trinity Gate passes
-- **[Quality Gates](/capabilities/quality-gates/)**: Trinity Gate provides formal verification beyond code quality
-- **[Color Teams](/capabilities/color-teams/)**: Red Team challenges claims; Trinity Gate validates defenses
-- **[Intelligence Synthesis](/capabilities/intelligence-synthesis/)**: OSINT conclusions pass through Trinity before acceptance
-- **[AIAD Standard](/capabilities/aiad-standard/)**: Agent decisions subject to Trinity validation at appropriate confidence levels
-- **[Telemetry Integration](/capabilities/telemetry-integration/)**: Gate pass/fail events emitted for monitoring
-- **[Real-Time Monitoring](/capabilities/real-time-monitoring/)**: Trinity Gate failure rates tracked in dashboards
-- **[Autonomous Self-Healing](/capabilities/autonomous-self-healing/)**: Repeated Trinity failures trigger investigation
+- **[NABLA Axioms](@/capabilities/nabla-axioms.md)**: Trinity Gate enforces NABLA axiom compliance in Gate 2
+- **[NO DOUBTS](@/capabilities/no-doubts.md)**: Confidence thresholds trigger Trinity Gate validation
+- **[NO MERCY](@/capabilities/no-mercy.md)**: Execution phase begins only after Trinity Gate passes
+- **[Quality Gates](@/capabilities/quality-gates.md)**: Trinity Gate provides formal verification beyond code quality
+- **[Color Teams](@/capabilities/color-teams.md)**: Red Team challenges claims; Trinity Gate validates defenses
+- **[Intelligence Synthesis](@/capabilities/intelligence-synthesis.md)**: OSINT conclusions pass through Trinity before acceptance
+- **[AIAD Standard](@/capabilities/aiad-standard.md)**: Agent decisions subject to Trinity validation at appropriate confidence levels
+- **[Telemetry Integration](@/capabilities/telemetry-integration.md)**: Gate pass/fail events emitted for monitoring
+- **[Real-Time Monitoring](@/capabilities/real-time-monitoring.md)**: Trinity Gate failure rates tracked in dashboards
+- **[Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md)**: Repeated Trinity failures trigger investigation
 
 ## Commands
 
@@ -466,4 +466,4 @@ The Trinity Gate connects to the platform's epistemic and quality infrastructure
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,7 +28,7 @@ Ollama is the local AI inference engine that enables the Prismatic Platform to r
 
 The Prismatic Platform integrates Ollama as a first-class AI provider, running models like qwen3-coder (7B), gpt-oss (20B), and deepseek-coder (6.7B) for code generation, analysis, and natural language processing tasks. Ollama's response times of under 3 seconds for 7B models and under 5 seconds for 20B models meet the platform's interactive usage requirements. These response times are achieved on consumer-grade hardware (Apple M-series with 16GB+ RAM or NVIDIA GPUs with 8GB+ VRAM), making local AI inference accessible without datacenter hardware.
 
-Ollama operates as the primary AI backend for development and testing, with automatic fallback to cloud providers ([Claude](/technologies/claude/), [OpenAI](/technologies/openai/)) when higher capability is needed. This hybrid approach maximizes privacy while maintaining access to frontier model capabilities. Sensitive data -- proprietary code, security findings, OSINT intelligence -- can be processed locally through Ollama without ever leaving the developer's machine.
+Ollama operates as the primary AI backend for development and testing, with automatic fallback to cloud providers ([Claude](@/technologies/claude.md), [OpenAI](@/technologies/openai.md)) when higher capability is needed. This hybrid approach maximizes privacy while maintaining access to frontier model capabilities. Sensitive data -- proprietary code, security findings, OSINT intelligence -- can be processed locally through Ollama without ever leaving the developer's machine.
 
 ## Key Features
 
@@ -130,8 +130,8 @@ Ollama integrates into the platform's multi-provider AI architecture as the loca
 | Provider | Tier | Use Case | Latency | Privacy |
 |----------|------|----------|---------|---------|
 | Ollama (local) | Primary for dev | Code generation, analysis, testing | 1-5s | Full (local) |
-| [Claude](/technologies/claude/) | Primary for production | Complex reasoning, architecture analysis | 2-30s | Cloud API |
-| [OpenAI](/technologies/openai/) | Secondary | Embeddings, classification, fallback | 2-20s | Cloud API |
+| [Claude](@/technologies/claude.md) | Primary for production | Complex reasoning, architecture analysis | 2-30s | Cloud API |
+| [OpenAI](@/technologies/openai.md) | Secondary | Embeddings, classification, fallback | 2-20s | Cloud API |
 
 The provider selection follows a priority-based routing strategy.
 
@@ -229,7 +229,7 @@ config :prismatic_claude, :claude_code,
 - **Configure `OLLAMA_MAX_LOADED_MODELS`** -- limit concurrent model loading to prevent memory exhaustion on constrained hardware
 - **Use streaming for interactive use** -- enable `stream: true` for chat interfaces to provide progressive output
 - **Implement health checks** -- the provider's `available?/0` function should be called before routing to ensure Ollama is responsive
-- **Cache model outputs** -- store generated embeddings and repeated query results in [ETS](/technologies/ets/) to avoid redundant inference
+- **Cache model outputs** -- store generated embeddings and repeated query results in [ETS](@/technologies/ets.md) to avoid redundant inference
 - **Create custom Modelfiles** -- tailor system prompts and parameters to the platform's coding conventions for better output quality
 - **Monitor memory usage** -- Ollama can consume significant RAM with large models; ensure the system has adequate free memory
 
@@ -249,16 +249,16 @@ Ollama was chosen for its minimal setup complexity, built-in model management, a
 
 ## Related Technologies
 
-- [Claude](/technologies/claude/) - Cloud AI provider for complex reasoning tasks
-- [OpenAI](/technologies/openai/) - Cloud AI provider for embeddings and fallback
-- [ETS](/technologies/ets/) - In-memory cache for Ollama response caching
-- [Elixir](/technologies/elixir/) - Host language providing the HTTP client for Ollama integration
+- [Claude](@/technologies/claude.md) - Cloud AI provider for complex reasoning tasks
+- [OpenAI](@/technologies/openai.md) - Cloud AI provider for embeddings and fallback
+- [ETS](@/technologies/ets.md) - In-memory cache for Ollama response caching
+- [Elixir](@/technologies/elixir.md) - Host language providing the HTTP client for Ollama integration
 
 ## Related Apps
 
-- [prismatic_claude](/apps/prismatic-claude/) - Multi-provider AI layer hosting the Ollama adapter
-- [prismatic_agents](/apps/prismatic-agents/) - AI-powered agent operations using local inference
-- [prismatic_ollama](/apps/prismatic-ollama/) - Ollama-specific integration and model management
+- [prismatic_claude](@/apps/prismatic-claude.md) - Multi-provider AI layer hosting the Ollama adapter
+- [prismatic_agents](@/apps/prismatic-agents.md) - AI-powered agent operations using local inference
+- [prismatic_ollama](@/apps/prismatic-ollama.md) - Ollama-specific integration and model management
 
 ---
 
@@ -267,4 +267,4 @@ Ollama was chosen for its minimal setup complexity, built-in model management, a
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -41,13 +41,13 @@ Coverage analysis serves as a necessary but insufficient quality indicator. It a
 
 Coverage analysis operates at multiple granularities. Line coverage (the most common metric) tracks whether each source line was executed. Branch coverage tracks whether both true and false paths of every conditional expression (`if`, `case`, `cond`, `with`) were tested. Function coverage tracks whether each function was called. Path coverage -- the most rigorous -- tracks whether every possible execution path through a function was exercised. Each level provides progressively more confidence that the test suite exercises the code comprehensively, with correspondingly higher effort to achieve.
 
-In the Elixir ecosystem, coverage is measured through Erlang's `:cover` module, which performs compile-time instrumentation of [BEAM](/glossary/beam/) bytecode. When a covered module executes, the instrumented code increments counters for each line and clause, producing a detailed execution map after tests complete. The `mix test --cover` command provides basic coverage reporting, while ExCoveralls and `mix coveralls` provide richer reporting with HTML output, threshold enforcement, and CI integration.
+In the Elixir ecosystem, coverage is measured through Erlang's `:cover` module, which performs compile-time instrumentation of [BEAM](@/glossary/beam.md) bytecode. When a covered module executes, the instrumented code increments counters for each line and clause, producing a detailed execution map after tests complete. The `mix test --cover` command provides basic coverage reporting, while ExCoveralls and `mix coveralls` provide richer reporting with HTML output, threshold enforcement, and CI integration.
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform enforces 100% code coverage for all new code as a non-negotiable requirement of the NO MERCY doctrine. Coverage is measured via `mix test --cover` and ExCoveralls, and enforced through [quality gates](/glossary/quality-gates/), CI/CD pipelines, and the [Quality Floor Guardian](/glossary/quality-floor-guardian/). The platform's test files achieve comprehensive coverage across all 115 umbrella applications. The Mandatory Regression Test Protocol requires that every bug fix includes a regression test proving the bug existed before the fix and is resolved after -- ensuring that coverage is not just broad but targeted at actual failure modes.
+The Prismatic Platform enforces 100% code coverage for all new code as a non-negotiable requirement of the NO MERCY doctrine. Coverage is measured via `mix test --cover` and ExCoveralls, and enforced through [quality gates](@/glossary/quality-gates.md), CI/CD pipelines, and the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md). The platform's test files achieve comprehensive coverage across all 115 umbrella applications. The Mandatory Regression Test Protocol requires that every bug fix includes a regression test proving the bug existed before the fix and is resolved after -- ensuring that coverage is not just broad but targeted at actual failure modes.
 
-Coverage reports are integrated into the platform's quality infrastructure. The [QDP](/glossary/qdp/) system counts insufficient coverage as quality debt, and the Quality Floor Guardian monitors coverage trends across sessions through [Quality DNA](/glossary/quality-dna/) persistence. When coverage drops below thresholds, commits are blocked until tests are added. The [Clean Run](/glossary/clean-run/) standard requires zero warnings during test compilation, ensuring that the test code itself meets the same quality bar as production code.
+Coverage reports are integrated into the platform's quality infrastructure. The [QDP](@/glossary/qdp.md) system counts insufficient coverage as quality debt, and the Quality Floor Guardian monitors coverage trends across sessions through [Quality DNA](@/glossary/quality-dna.md) persistence. When coverage drops below thresholds, commits are blocked until tests are added. The [Clean Run](@/glossary/clean-run.md) standard requires zero warnings during test compilation, ensuring that the test code itself meets the same quality bar as production code.
 
 ## Coverage Measurement in Elixir
 
@@ -210,9 +210,9 @@ end
 
 The Prismatic Platform addresses the coverage paradox through complementary measures:
 
-- [Property-based testing](/glossary/property-based-testing/) via StreamData generates thousands of randomized inputs, catching edge cases that hand-written tests miss
-- [Dialyzer](/glossary/dialyzer/) catches type mismatches that tests may overlook through static analysis
-- [ExUnit](/glossary/exunit/) doctests verify documentation examples remain accurate
+- [Property-based testing](@/glossary/property-based-testing.md) via StreamData generates thousands of randomized inputs, catching edge cases that hand-written tests miss
+- [Dialyzer](@/glossary/dialyzer.md) catches type mismatches that tests may overlook through static analysis
+- [ExUnit](@/glossary/exunit.md) doctests verify documentation examples remain accurate
 - Assertion density reviews during code review ensure tests are meaningful, not just comprehensive
 
 ## Coverage Reporting
@@ -340,7 +340,7 @@ The platform's coverage enforcement creates a natural development workflow where
 
 ## Coverage in the Quality DNA Context
 
-Coverage metrics are tracked as part of each application's [Quality DNA](/glossary/quality-dna/) record, enabling cross-session trend analysis:
+Coverage metrics are tracked as part of each application's [Quality DNA](@/glossary/quality-dna.md) record, enabling cross-session trend analysis:
 
 ```elixir
 defmodule Prismatic.Quality.CoverageTracker do
@@ -405,7 +405,7 @@ end
 
 6. **Track Coverage Trends**: Individual coverage snapshots are less valuable than trends. A module whose coverage drops from 95% to 90% over three sessions signals a developing quality problem.
 
-7. **Complement with Property-Based Testing**: Coverage counts lines executed, not input diversity. [Property-based testing](/glossary/property-based-testing/) generates thousands of randomized inputs, achieving higher effective coverage than hand-written example tests.
+7. **Complement with Property-Based Testing**: Coverage counts lines executed, not input diversity. [Property-based testing](@/glossary/property-based-testing.md) generates thousands of randomized inputs, achieving higher effective coverage than hand-written example tests.
 
 ## Common Pitfalls
 
@@ -429,21 +429,21 @@ end
 
 ## Related Concepts
 
-- [ExUnit](/glossary/exunit/) -- Test framework that generates coverage data
-- [Clean Run](/glossary/clean-run/) -- Zero-warning standard including coverage requirements
-- [QDP](/glossary/qdp/) -- Quality debt system tracking insufficient coverage
-- [Property-Based Testing](/glossary/property-based-testing/) -- Generative testing for higher effective coverage
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis complementing runtime coverage
-- [Typespec](/glossary/typespec/) -- Type annotations enabling compile-time verification
-- [Mix](/glossary/mix/) -- Build tool running coverage via `mix test --cover`
-- [BEAM](/glossary/beam/) -- VM whose bytecode is instrumented for coverage
-- [Quality DNA](/glossary/quality-dna/) -- Persistence mechanism tracking coverage trends
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement pipeline where coverage is checked
+- [ExUnit](@/glossary/exunit.md) -- Test framework that generates coverage data
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning standard including coverage requirements
+- [QDP](@/glossary/qdp.md) -- Quality debt system tracking insufficient coverage
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Generative testing for higher effective coverage
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis complementing runtime coverage
+- [Typespec](@/glossary/typespec.md) -- Type annotations enabling compile-time verification
+- [Mix](@/glossary/mix.md) -- Build tool running coverage via `mix test --cover`
+- [BEAM](@/glossary/beam.md) -- VM whose bytecode is instrumented for coverage
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistence mechanism tracking coverage trends
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement pipeline where coverage is checked
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform quality and testing architecture
-- [Technologies](/technologies/) -- Testing tools and coverage infrastructure
+- [Architecture](@/architecture/_index.md) -- Platform quality and testing architecture
+- [Technologies](@/technologies/_index.md) -- Testing tools and coverage infrastructure
 
 ---
 
@@ -452,4 +452,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

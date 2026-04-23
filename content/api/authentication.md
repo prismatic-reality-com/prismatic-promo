@@ -25,13 +25,13 @@ image_alt = "Authentication & Authorization - Prismatic Platform"
 
 ## Overview
 
-The Prismatic API uses a layered authentication and authorization system built on Bearer tokens with role-based access control (RBAC) and fine-grained scope enforcement. Every API request (except the [Health Check](/api/health/) and [OpenAPI Specification](/api/openapi-spec/) endpoints) must include a valid Bearer token that identifies the caller and determines what operations they are authorized to perform.
+The Prismatic API uses a layered authentication and authorization system built on Bearer tokens with role-based access control (RBAC) and fine-grained scope enforcement. Every API request (except the [Health Check](@/api/health.md) and [OpenAPI Specification](@/api/openapi-spec.md) endpoints) must include a valid Bearer token that identifies the caller and determines what operations they are authorized to perform.
 
-The authentication system is implemented as a Phoenix plug (`PrismaticWeb.Plugs.APIAuth`) that executes before the [Generic Dispatch](/api/dispatch/) controller. It validates the token, resolves the associated identity, checks scope requirements for the requested endpoint, and attaches the authorization context to the connection. If any check fails, the request is rejected before reaching the dispatch layer.
+The authentication system is implemented as a Phoenix plug (`PrismaticWeb.Plugs.APIAuth`) that executes before the [Generic Dispatch](@/api/dispatch.md) controller. It validates the token, resolves the associated identity, checks scope requirements for the requested endpoint, and attaches the authorization context to the connection. If any check fails, the request is rejected before reaching the dispatch layer.
 
 Token management follows the principle of least privilege: tokens are issued with specific scopes that limit access to particular API domains. A token with `perimeter:read` scope can query security ratings but cannot modify agent configurations. This granularity allows organizations to issue purpose-specific tokens for different integration scenarios.
 
-The [No Mercy](/glossary/no-mercy/) doctrine applies to authentication: there are no grace periods, no soft failures, and no anonymous access to protected endpoints. Invalid tokens are rejected immediately with a clear error response.
+The [No Mercy](@/glossary/no-mercy.md) doctrine applies to authentication: there are no grace periods, no soft failures, and no anonymous access to protected endpoints. Invalid tokens are rejected immediately with a clear error response.
 
 ## Authentication Methods
 
@@ -310,7 +310,7 @@ print(f"Rating: {rating['data']['rating']['grade']}")
 | 403 | `insufficient_role` | Token's role does not permit the operation |
 | 422 | `invalid_scope` | Requested scope does not exist |
 
-See [Error Handling](/api/error-handling/) for the standard error response format.
+See [Error Handling](@/api/error-handling.md) for the standard error response format.
 
 ## Rate Limits
 
@@ -338,12 +338,12 @@ After 20 failed authentication attempts from a single IP within 5 minutes, the I
 
 ## Related Endpoints
 
-- [Health Check](/api/health/) -- Public endpoint (no auth required)
-- [OpenAPI Specification](/api/openapi-spec/) -- Public endpoint (no auth required)
-- [Rate Limiting](/api/rate-limiting/) -- Rate limit enforcement details
-- [Error Handling](/api/error-handling/) -- Authentication error response format
+- [Health Check](@/api/health.md) -- Public endpoint (no auth required)
+- [OpenAPI Specification](@/api/openapi-spec.md) -- Public endpoint (no auth required)
+- [Rate Limiting](@/api/rate-limiting.md) -- Rate limit enforcement details
+- [Error Handling](@/api/error-handling.md) -- Authentication error response format
 
-The authentication system enforces the [Color Teams](/glossary/color-teams/) isolation model. Tokens associated with Red Team operations cannot access Blue Team data, and vice versa. The [Trinity Gate](/glossary/trinity-gate/) verification validates that scope definitions are internally consistent and that no privilege escalation paths exist in the role hierarchy.
+The authentication system enforces the [Color Teams](@/glossary/color-teams.md) isolation model. Tokens associated with Red Team operations cannot access Blue Team data, and vice versa. The [Trinity Gate](@/glossary/trinity-gate.md) verification validates that scope definitions are internally consistent and that no privilege escalation paths exist in the role hierarchy.
 
 ---
 
@@ -352,4 +352,4 @@ The authentication system enforces the [Color Teams](/glossary/color-teams/) iso
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

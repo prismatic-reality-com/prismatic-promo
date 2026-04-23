@@ -582,23 +582,23 @@ end
 
 ## Related Terms
 
-- [P95](/glossary/p95/) -- the 95th percentile latency, a standard performance SLO
-- [P99](/glossary/p99/) -- the 99th percentile latency, measuring worst-case experience
-- [Mean](/glossary/mean/) -- arithmetic average that hides tail behavior
-- [Median](/glossary/median/) -- 50th percentile, the typical experience measure
-- [Page Load](/glossary/page-load/) -- end-to-end page rendering time measured in percentiles
-- [Telemetry](/glossary/telemetry/) -- the instrumentation framework feeding latency data
-- [KPI](/glossary/kpi/) -- key performance indicators including latency percentiles
+- [P95](@/glossary/p95.md) -- the 95th percentile latency, a standard performance SLO
+- [P99](@/glossary/p99.md) -- the 99th percentile latency, measuring worst-case experience
+- [Mean](@/glossary/mean.md) -- arithmetic average that hides tail behavior
+- [Median](@/glossary/median.md) -- 50th percentile, the typical experience measure
+- [Page Load](@/glossary/page-load.md) -- end-to-end page rendering time measured in percentiles
+- [Telemetry](@/glossary/telemetry.md) -- the instrumentation framework feeding latency data
+- [KPI](@/glossary/kpi.md) -- key performance indicators including latency percentiles
 - [Histogram](/glossary/histogram/) -- data structure for storing latency distributions
 - [SLO](/glossary/slo/) -- service level objective defined using percentile thresholds
-- [SLA](/glossary/sla/) -- service level agreement with percentile-based guarantees
-- [Percentile](/glossary/percentile/) -- the general statistical concept underlying latency measurement
-- [Throughput](/glossary/throughput/) -- request rate, the complement to latency measurement
+- [SLA](@/glossary/sla.md) -- service level agreement with percentile-based guarantees
+- [Percentile](@/glossary/percentile.md) -- the general statistical concept underlying latency measurement
+- [Throughput](@/glossary/throughput.md) -- request rate, the complement to latency measurement
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- performance monitoring capabilities
-- [Architecture](/architecture/) -- telemetry and monitoring architecture
+- [Capabilities](@/capabilities/_index.md) -- performance monitoring capabilities
+- [Architecture](@/architecture/_index.md) -- telemetry and monitoring architecture
 - [Performance Testing](/hub/system) -- latency dashboard visualization
 - [BEAM Performance Guide](https://www.erlang.org/doc/efficiency_guide/processes.html) -- understanding BEAM scheduling impact on latency
 
@@ -609,4 +609,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

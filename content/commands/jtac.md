@@ -28,7 +28,7 @@ image_alt = "/jtac - Prismatic Platform"
 
 The JTAC approach is particularly valuable in a large-scale Elixir umbrella project where a single change can cascade through dozens of dependent applications. Traditional development workflows often result in broad, imprecise modifications that introduce unexpected regressions. The `/jtac` command addresses this by providing precise targeting capabilities -- identifying the exact modules, functions, and lines that need modification, analyzing the blast radius of proposed changes, and coordinating the execution to minimize disruption.
 
-This command operates under the **L3** authority level -- higher than standard development commands -- reflecting the elevated precision and impact of JTAC operations. It is executed by the `elixir-core-specialist` agent, the platform's most experienced Elixir developer agent with deep knowledge of OTP patterns, supervision trees, and cross-application dependencies. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level -- higher than standard development commands -- reflecting the elevated precision and impact of JTAC operations. It is executed by the `elixir-core-specialist` agent, the platform's most experienced Elixir developer agent with deep knowledge of OTP patterns, supervision trees, and cross-application dependencies. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 The command implements four operational phases: reconnaissance (target identification and analysis), planning (change strategy and blast radius assessment), execution (precise code modification), and verification (post-modification testing and validation). Each phase produces structured output that feeds into the next, creating an auditable chain of evidence for every code change.
 
@@ -156,18 +156,18 @@ The **Reconnaissance** subsystem analyzes the codebase to identify targets match
 
 4. **Execution** (for `execute` subcommand): The plan is applied with precision. Each modification is atomic -- either all changes in the plan succeed or none do. If `--auto-rollback` is enabled, test failures trigger immediate rollback to the pre-modification state.
 
-5. **Verification** (for `verify` subcommand): The verification engine runs targeted tests for all affected modules, checks compilation with `--warnings-as-errors`, runs [Credo](/glossary/credo/) checks on modified files, and validates that quality gates pass. An after-action report documents the operation's outcome.
+5. **Verification** (for `verify` subcommand): The verification engine runs targeted tests for all affected modules, checks compilation with `--warnings-as-errors`, runs [Credo](@/glossary/credo.md) checks on modified files, and validates that quality gates pass. An after-action report documents the operation's outcome.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Executed by the `elixir-core-specialist` agent |
-| [Quality Gates](/glossary/quality-gates/) | Verification | Post-operation quality validation |
-| [Telemetry](/glossary/telemetry/) | Observability | Operation metrics and audit trail |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command registered via AIAD standard |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Executed by the `elixir-core-specialist` agent |
+| [Quality Gates](@/glossary/quality-gates.md) | Verification | Post-operation quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Operation metrics and audit trail |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command registered via AIAD standard |
 | Git | Version Control | Atomic commits with rollback support |
-| [Credo](/glossary/credo/) | Quality | Modified file quality checks |
+| [Credo](@/glossary/credo.md) | Quality | Modified file quality checks |
 | Dialyzer | Type Safety | Type checking on modified modules |
 | ExUnit | Testing | Targeted test execution for affected modules |
 
@@ -196,22 +196,22 @@ The **Reconnaissance** subsystem analyzes the codebase to identify targets match
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. JTAC operations are atomic -- partial execution is never acceptable. All modified code must pass compilation, testing, linting, and quality gates. Rollback is automatic on any failure.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The reconnaissance and planning phases ensure complete understanding before execution. Every decision is documented in the after-action report. No change is applied without evidence that it achieves the intended effect.
 
-The JTAC paradigm embodies the [NABLA Infinity](/glossary/nabla-infinity/) principle of exploring uncertainty thoroughly (reconnaissance) before committing to decisive action (execution), with the transition governed by confidence thresholds and trinity gate passage.
+The JTAC paradigm embodies the [NABLA Infinity](@/glossary/nabla-infinity.md) principle of exploring uncertainty thoroughly (reconnaissance) before committing to decisive action (execution), with the transition governed by confidence thresholds and trinity gate passage.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -220,4 +220,4 @@ The JTAC paradigm embodies the [NABLA Infinity](/glossary/nabla-infinity/) princ
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,13 +28,13 @@ image_alt = "Registr smluv - Prismatic Platform"
 
 ## Overview
 
-Registr smluv (Czech Contract [Registry](/glossary/registry-otp/)) is a legally mandated public database where Czech state bodies, municipalities, state-owned enterprises, and other public entities must publish contracts valued above CZK 50,000. Established by Act No. 340/2015 Sb., contracts that are not published within 30 days are considered void. This makes it one of the most complete sources of public-sector financial relationships in the Czech Republic.
+Registr smluv (Czech Contract [Registry](@/glossary/registry-otp.md)) is a legally mandated public database where Czech state bodies, municipalities, state-owned enterprises, and other public entities must publish contracts valued above CZK 50,000. Established by Act No. 340/2015 Sb., contracts that are not published within 30 days are considered void. This makes it one of the most complete sources of public-sector financial relationships in the Czech Republic.
 
-For [OSINT](/glossary/osint/) investigations, the registry reveals business relationships between private companies and state entities, contract values, counterparty networks, and patterns of public spending. The legal requirement for publication and the void sanction for non-compliance ensure nearly complete coverage of public-sector contracting above the threshold.
+For [OSINT](@/glossary/osint.md) investigations, the registry reveals business relationships between private companies and state entities, contract values, counterparty networks, and patterns of public spending. The legal requirement for publication and the void sanction for non-compliance ensure nearly complete coverage of public-sector contracting above the threshold.
 
 The registry has been operational since July 1, 2016, and has accumulated over 5 million published contracts. It covers all ministries, government agencies, regional authorities, municipalities with extended competence, state-owned enterprises, public universities, public hospitals, and other entities subject to the publication obligation. Certain contracts are exempt from publication -- those involving intelligence services, military procurement classified for security reasons, and contracts with natural persons concerning their personal property.
 
-The transparency provided by Registr smluv has transformed Czech public procurement oversight. Independent watchdog organizations like [Hlidac statu](/osint/hlidac-statu/) systematically analyze registry data to identify procurement anomalies, political connections in contracting, and spending patterns. For OSINT analysts, this creates a rich ecosystem of both raw data and analytical tools for investigating public-sector financial relationships.
+The transparency provided by Registr smluv has transformed Czech public procurement oversight. Independent watchdog organizations like [Hlidac statu](@/osint/hlidac-statu.md) systematically analyze registry data to identify procurement anomalies, political connections in contracting, and spending patterns. For OSINT analysts, this creates a rich ecosystem of both raw data and analytical tools for investigating public-sector financial relationships.
 
 ## Data Sources and Coverage
 
@@ -199,7 +199,7 @@ By aggregating all contracts for a target company, analysts build comprehensive 
 
 ### Conflict of Interest Detection
 
-Cross-referencing contract parties with company ownership data from [Justice.cz](/osint/justice-cz/) reveals potential conflicts of interest -- such as companies owned by relatives of government officials winning contracts from the official's agency. [Hlidac statu](/osint/hlidac-statu/) automates much of this analysis.
+Cross-referencing contract parties with company ownership data from [Justice.cz](@/osint/justice-cz.md) reveals potential conflicts of interest -- such as companies owned by relatives of government officials winning contracts from the official's agency. [Hlidac statu](@/osint/hlidac-statu.md) automates much of this analysis.
 
 ### Public Spending Analysis
 
@@ -207,7 +207,7 @@ Aggregate analysis of contract data reveals spending patterns across government 
 
 ### Shell Company Detection
 
-Companies that exist primarily to win public contracts while having minimal staff, no public presence, and recent registration dates may be shell entities used for corruption or tax optimization. The combination of Registr smluv contract data with [ARES](/osint/ares/) financial data and [Nahlizeni do KN](/osint/nahlizeni-kn/) property records helps identify these patterns.
+Companies that exist primarily to win public contracts while having minimal staff, no public presence, and recent registration dates may be shell entities used for corruption or tax optimization. The combination of Registr smluv contract data with [ARES](@/osint/ares.md) financial data and [Nahlizeni do KN](@/osint/nahlizeni-kn.md) property records helps identify these patterns.
 
 ### Supply Chain Mapping
 
@@ -217,7 +217,7 @@ For companies that provide critical services to the state (IT infrastructure, en
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
-| **CZK 50,000 threshold** | Contracts below threshold are not published | Use [Verejne zakazky](/osint/verejne-zakazky/) for smaller procurements |
+| **CZK 50,000 threshold** | Contracts below threshold are not published | Use [Verejne zakazky](@/osint/verejne-zakazky.md) for smaller procurements |
 | **Security exemptions** | Intelligence and classified military contracts excluded | These represent a small fraction of total spending |
 | **Subject description quality** | Free-text descriptions vary in detail and accuracy | Use full-text search combined with ICO-based filtering |
 | **Natural person contracts** | Some contracts with individuals exempt from full publication | Limited impact for corporate investigation |
@@ -236,13 +236,13 @@ For companies that provide critical services to the state (IT infrastructure, en
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), Registr smluv serves as the primary Czech public-sector financial intelligence source.
+Within the [Prismatic Platform](@/apps/prismatic.md), Registr smluv serves as the primary Czech public-sector financial intelligence source.
 
 - **Supplier Network Mapping**: Contract data is analyzed to build supplier relationship graphs showing connections between companies and government entities.
 - **Anomaly Detection**: Statistical analysis of contracting patterns identifies unusual behaviors -- concentration, timing patterns, value clustering, and amendment frequency.
-- **Cross-Registry Enrichment**: Contract parties are automatically enriched with [ARES](/osint/ares/) company data, [Justice.cz](/osint/justice-cz/) ownership information, and [UOHS](/osint/uohs/) competition authority decisions.
-- **Financial Intelligence**: Contract values feed into entity financial profiles alongside [CEDR](/osint/cedr/) subsidy data and [Verejne zakazky](/osint/verejne-zakazky/) procurement records.
-- **Watchdog Integration**: Platform findings are cross-referenced with [Hlidac statu](/osint/hlidac-statu/) analytics for enhanced insight.
+- **Cross-Registry Enrichment**: Contract parties are automatically enriched with [ARES](@/osint/ares.md) company data, [Justice.cz](@/osint/justice-cz.md) ownership information, and [UOHS](@/osint/uohs.md) competition authority decisions.
+- **Financial Intelligence**: Contract values feed into entity financial profiles alongside [CEDR](@/osint/cedr.md) subsidy data and [Verejne zakazky](@/osint/verejne-zakazky.md) procurement records.
+- **Watchdog Integration**: Platform findings are cross-referenced with [Hlidac statu](@/osint/hlidac-statu.md) analytics for enhanced insight.
 
 ## Best Practices
 
@@ -252,7 +252,7 @@ Within the [Prismatic Platform](/apps/prismatic/), Registr smluv serves as the p
 
 3. **Analyze temporal patterns**: Plot contract signing dates to identify suspicious clustering (e.g., many contracts signed just before elections or budget deadlines).
 
-4. **Cross-reference with procurement**: Contracts often result from formal procurement procedures. Cross-reference with [Verejne zakazky](/osint/verejne-zakazky/) to understand the competitive context.
+4. **Cross-reference with procurement**: Contracts often result from formal procurement procedures. Cross-reference with [Verejne zakazky](@/osint/verejne-zakazky.md) to understand the competitive context.
 
 5. **Download attachments**: The contract text in attachments often contains more detail than the structured metadata. Parse PDFs for pricing, scope, and penalty clauses.
 
@@ -262,13 +262,13 @@ Within the [Prismatic Platform](/apps/prismatic/), Registr smluv serves as the p
 
 ## Related Providers
 
-- [ARES](/osint/ares/) - Czech business registry for company identification
-- [Justice.cz](/osint/justice-cz/) - Commercial Register with beneficial owners
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog with contract analytics
-- [Verejne zakazky](/osint/verejne-zakazky/) - Public procurement portal
-- [CEDR](/osint/cedr/) - Central Register of Subsidies
-- [UOHS](/osint/uohs/) - Competition authority reviewing procurement
-- [Nahlizeni do KN](/osint/nahlizeni-kn/) - Property records for asset correlation
+- [ARES](@/osint/ares.md) - Czech business registry for company identification
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register with beneficial owners
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog with contract analytics
+- [Verejne zakazky](@/osint/verejne-zakazky.md) - Public procurement portal
+- [CEDR](@/osint/cedr.md) - Central Register of Subsidies
+- [UOHS](@/osint/uohs.md) - Competition authority reviewing procurement
+- [Nahlizeni do KN](@/osint/nahlizeni-kn.md) - Property records for asset correlation
 
 ---
 
@@ -277,4 +277,4 @@ Within the [Prismatic Platform](/apps/prismatic/), Registr smluv serves as the p
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

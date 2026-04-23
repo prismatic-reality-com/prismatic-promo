@@ -34,7 +34,7 @@ image_alt = "Feature Flag - Prismatic Platform"
 
 A feature flag (also called feature toggle, feature switch, or feature gate) is a software engineering technique that allows developers to enable or disable features at runtime without deploying new code. Feature flags decouple the act of deploying code to production from the act of releasing features to users, enabling trunk-based development, gradual rollouts, A/B testing, instant kill switches for problematic features, and per-tenant customization. At their core, feature flags are conditional statements that check a configuration source to determine whether a code path should execute.
 
-The concept originated in the early 2000s as a practice within continuous delivery pipelines, but has since evolved into a sophisticated discipline with dedicated tooling, lifecycle management, and governance practices. Feature flags can be categorized into several types: **release flags** (short-lived, controlling feature rollout), **experiment flags** (A/B testing with metrics collection), **ops flags** (operational controls like [circuit breakers](/glossary/circuit-breaker/)), and **permission flags** (long-lived, controlling feature access by user role or subscription tier). Each type has different lifecycle expectations and cleanup requirements.
+The concept originated in the early 2000s as a practice within continuous delivery pipelines, but has since evolved into a sophisticated discipline with dedicated tooling, lifecycle management, and governance practices. Feature flags can be categorized into several types: **release flags** (short-lived, controlling feature rollout), **experiment flags** (A/B testing with metrics collection), **ops flags** (operational controls like [circuit breakers](@/glossary/circuit-breaker.md)), and **permission flags** (long-lived, controlling feature access by user role or subscription tier). Each type has different lifecycle expectations and cleanup requirements.
 
 Feature flags represent a fundamental shift in how software teams think about releases. Instead of the traditional model where deployment equals release, feature flags enable a model where code is deployed continuously but features are released independently, on their own schedules, to specific user segments. This separation of concerns is particularly valuable in large-scale platforms like Prismatic, where multiple teams contribute to a shared codebase of 115 umbrella applications.
 
@@ -42,7 +42,7 @@ Feature flags represent a fundamental shift in how software teams think about re
 
 Feature flags trace their origins to the early practices of continuous integration and delivery. Martin Fowler popularized the concept in 2010 with his article on feature toggles, but the practice existed informally in companies like Flickr and Facebook well before that. The evolution from simple boolean configuration values to sophisticated targeting systems with user segments, percentage rollouts, and real-time streaming updates represents a maturation of the practice into a first-class engineering discipline.
 
-In the Elixir/OTP ecosystem, feature flags benefit from the BEAM virtual machine's unique properties. Hot code reloading allows flag configuration changes to propagate without restart. [ETS](/glossary/ets/) tables provide microsecond-level lookup performance for flag evaluation. [GenServer](/glossary/genserver/) processes can manage flag lifecycle and refresh cycles with OTP supervision guarantees. The combination of these capabilities makes Elixir an exceptionally good platform for implementing feature flag systems.
+In the Elixir/OTP ecosystem, feature flags benefit from the BEAM virtual machine's unique properties. Hot code reloading allows flag configuration changes to propagate without restart. [ETS](@/glossary/ets.md) tables provide microsecond-level lookup performance for flag evaluation. [GenServer](@/glossary/genserver.md) processes can manage flag lifecycle and refresh cycles with OTP supervision guarantees. The combination of these capabilities makes Elixir an exceptionally good platform for implementing feature flag systems.
 
 The evolution of feature flag taxonomy has settled on four primary categories, each with distinct characteristics:
 
@@ -244,7 +244,7 @@ Configuration Source (config.exs / database / external service)
   Telemetry (flag evaluation metrics, usage tracking)
 ```
 
-**Storage Layer**: Flags are stored in [ETS](/glossary/ets/) for O(1) lookup performance. The ETS table is owned by a dedicated [GenServer](/glossary/genserver/) that handles flag updates, periodic refresh from the configuration source, and flag lifecycle management. Using ETS ensures that flag evaluation never blocks on a GenServer call, which is critical for high-throughput request paths.
+**Storage Layer**: Flags are stored in [ETS](@/glossary/ets.md) for O(1) lookup performance. The ETS table is owned by a dedicated [GenServer](@/glossary/genserver.md) that handles flag updates, periodic refresh from the configuration source, and flag lifecycle management. Using ETS ensures that flag evaluation never blocks on a GenServer call, which is critical for high-throughput request paths.
 
 **Lifecycle Management**: Feature flags must be actively managed through their lifecycle. A release flag that has been fully rolled out (100% of users) should be cleaned up by removing the flag check from code and the flag definition from configuration. Stale flags create technical debt and confusion. The lifecycle stages are: **created** (defined but disabled), **testing** (enabled for internal users), **rolling out** (enabled for increasing percentages), **fully released** (enabled for all), and **cleanup** (flag removed from code).
 
@@ -254,7 +254,7 @@ Configuration Source (config.exs / database / external service)
 |--------|---------|-----------------|------------|
 | `config.exs` | Zero (compiled) | Requires redeploy | Minimal |
 | Application env | Zero (in-memory) | Runtime via `Application.put_env` | Low |
-| [ETS](/glossary/ets/) table | Microseconds | Instant via GenServer | Medium |
+| [ETS](@/glossary/ets.md) table | Microseconds | Instant via GenServer | Medium |
 | Database (PostgreSQL) | Milliseconds | Instant, persistent | Medium |
 | External service (LaunchDarkly) | Network RTT | Real-time streaming | High |
 
@@ -305,7 +305,7 @@ defmodule Prismatic.Agents.Registry do
 end
 ```
 
-**Operational Controls**: Feature flags serve as operational [circuit breakers](/glossary/circuit-breaker/), allowing operators to disable resource-intensive features under load without a deployment cycle:
+**Operational Controls**: Feature flags serve as operational [circuit breakers](@/glossary/circuit-breaker.md), allowing operators to disable resource-intensive features under load without a deployment cycle:
 
 ```elixir
 # config/runtime.exs
@@ -472,9 +472,9 @@ end
 
 **Default to Disabled**: New flags should default to `false` (disabled) in production. This ensures that deploying flag-gated code has no user impact until the flag is explicitly enabled.
 
-**Test Both Paths**: Write tests that exercise both the enabled and disabled code paths using [ExUnit](/glossary/exunit/). Feature flag conditionals create implicit branches that can harbor untested behavior.
+**Test Both Paths**: Write tests that exercise both the enabled and disabled code paths using [ExUnit](@/glossary/exunit.md). Feature flag conditionals create implicit branches that can harbor untested behavior.
 
-**Use Telemetry for Flag Evaluation Tracking**: Emit [telemetry](/glossary/telemetry/) events on flag evaluation to understand usage patterns and identify stale flags that are always returning the same value.
+**Use Telemetry for Flag Evaluation Tracking**: Emit [telemetry](@/glossary/telemetry.md) events on flag evaluation to understand usage patterns and identify stale flags that are always returning the same value.
 
 **Avoid Nested Flags**: Do not create flag dependencies where one flag's behavior depends on another flag's state. This creates exponential complexity in testing and reasoning about system behavior.
 
@@ -484,9 +484,9 @@ end
 
 **Testing Gaps**: Failing to test both the enabled and disabled paths of a feature flag leads to production surprises when a flag is toggled. Both paths must have comprehensive test coverage.
 
-**Performance Impact**: Evaluating flags on hot code paths can become a bottleneck if the flag store requires network calls. Always use [ETS](/glossary/ets/)-cached flag state for request-path evaluation, refreshing from slower sources on a background schedule.
+**Performance Impact**: Evaluating flags on hot code paths can become a bottleneck if the flag store requires network calls. Always use [ETS](@/glossary/ets.md)-cached flag state for request-path evaluation, refreshing from slower sources on a background schedule.
 
-**Inconsistent State Across Nodes**: In distributed deployments, flag state must be synchronized across all [BEAM](/glossary/beam/) nodes. A flag change that propagates to some nodes but not others creates inconsistent user experiences. Use distributed ETS, database-backed flags, or an external flag service with local caching.
+**Inconsistent State Across Nodes**: In distributed deployments, flag state must be synchronized across all [BEAM](@/glossary/beam.md) nodes. A flag change that propagates to some nodes but not others creates inconsistent user experiences. Use distributed ETS, database-backed flags, or an external flag service with local caching.
 
 **Boolean-Only Thinking**: Feature flags are not limited to boolean values. They can return strings, integers, or configuration maps. Thinking of flags as purely on/off limits their utility for A/B testing (where you need variant identifiers) and operational controls (where you need threshold values).
 
@@ -504,22 +504,22 @@ end
 
 ## Related Concepts
 
-- [Continuous Deployment](/glossary/continuous-deployment/) - Deployment practice enabled by feature flag safety nets
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) - Complementary zero-downtime deployment strategy
-- [Canary Release](/glossary/canary-release/) - Gradual rollout strategy often combined with feature flags
-- [ETS](/glossary/ets/) - In-memory store caching feature flag state for fast evaluation
-- [GenServer](/glossary/genserver/) - Process managing feature flag state and refresh cycles
-- [Telemetry](/glossary/telemetry/) - Metrics system tracking flag evaluation patterns
-- [Circuit Breaker](/glossary/circuit-breaker/) - Operational pattern that feature flags can implement
-- [Phoenix](/glossary/phoenix/) - Web framework integrating feature flags in LiveView and controllers
-- [BEAM](/glossary/beam/) - Virtual machine enabling hot code reloading for flag updates
-- [ExUnit](/glossary/exunit/) - Test framework for verifying both flag paths
+- [Continuous Deployment](@/glossary/continuous-deployment.md) - Deployment practice enabled by feature flag safety nets
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) - Complementary zero-downtime deployment strategy
+- [Canary Release](@/glossary/canary-release.md) - Gradual rollout strategy often combined with feature flags
+- [ETS](@/glossary/ets.md) - In-memory store caching feature flag state for fast evaluation
+- [GenServer](@/glossary/genserver.md) - Process managing feature flag state and refresh cycles
+- [Telemetry](@/glossary/telemetry.md) - Metrics system tracking flag evaluation patterns
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Operational pattern that feature flags can implement
+- [Phoenix](@/glossary/phoenix.md) - Web framework integrating feature flags in LiveView and controllers
+- [BEAM](@/glossary/beam.md) - Virtual machine enabling hot code reloading for flag updates
+- [ExUnit](@/glossary/exunit.md) - Test framework for verifying both flag paths
 
 ## See Also
 
-- [Architecture](/architecture/) - Feature management architecture patterns
-- [Technologies](/technologies/) - Runtime configuration infrastructure
-- [Apps](/apps/) - Umbrella applications using feature flags
+- [Architecture](@/architecture/_index.md) - Feature management architecture patterns
+- [Technologies](@/technologies/_index.md) - Runtime configuration infrastructure
+- [Apps](@/apps/_index.md) - Umbrella applications using feature flags
 
 ---
 
@@ -528,4 +528,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

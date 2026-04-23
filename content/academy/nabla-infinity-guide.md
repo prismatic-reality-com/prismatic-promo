@@ -24,7 +24,7 @@ image_alt = "Applying NABLA Infinity Axioms - Prismatic Platform"
 
 ## Overview
 
-[NABLA Infinity](/glossary/nabla-infinity/) is the epistemic framework that governs how the Prismatic Platform forms beliefs, evaluates evidence, and makes decisions. While [NO MERCY, NO DOUBTS](/academy/quality-standards/) governs code quality, NABLA Infinity governs knowledge quality. This guide teaches you to apply the 7 axioms in your agent implementations, validate claims through the [Trinity Gate](/glossary/trinity-gate/), and calibrate confidence thresholds for different decision contexts.
+[NABLA Infinity](@/glossary/nabla-infinity.md) is the epistemic framework that governs how the Prismatic Platform forms beliefs, evaluates evidence, and makes decisions. While [NO MERCY, NO DOUBTS](@/academy/quality-standards.md) governs code quality, NABLA Infinity governs knowledge quality. This guide teaches you to apply the 7 axioms in your agent implementations, validate claims through the [Trinity Gate](@/glossary/trinity-gate.md), and calibrate confidence thresholds for different decision contexts.
 
 You will learn:
 
@@ -36,8 +36,8 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Understanding NO MERCY, NO DOUBTS](/academy/quality-standards/)
-- Completed [Building Your First Autonomous Agent](/academy/first-agent/)
+- Completed [Understanding NO MERCY, NO DOUBTS](@/academy/quality-standards.md)
+- Completed [Building Your First Autonomous Agent](@/academy/first-agent.md)
 - Conceptual understanding of epistemic reasoning (forming justified beliefs)
 
 ## Core Concepts
@@ -389,37 +389,37 @@ Confidence thresholds govern the NABLA-to-NM/ND transition:
 ## See Also
 
 ### Related Applications
-- [prismatic_nabla](/apps/prismatic-nabla/) -- Core NABLA Infinity axiom implementation
+- [prismatic_nabla](@/apps/prismatic-nabla.md) -- Core NABLA Infinity axiom implementation
 - **prismatic_trinity_nexus** (`apps/prismatic_trinity_nexus/`) -- Trinity Gate 3-layer validation
-- [prismatic_deduction](/apps/prismatic-deduction/) -- Formal deduction and reasoning chains
-- [prismatic_lean4](/apps/prismatic-lean4/) -- Lean4 formal proof verification
-- [prismatic_signals](/apps/prismatic-signals/) -- Signal processing for axiom enforcement
+- [prismatic_deduction](@/apps/prismatic-deduction.md) -- Formal deduction and reasoning chains
+- [prismatic_lean4](@/apps/prismatic-lean4.md) -- Lean4 formal proof verification
+- [prismatic_signals](@/apps/prismatic-signals.md) -- Signal processing for axiom enforcement
 
 ### Glossary
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework itself
-- [Trinity Gate](/glossary/trinity-gate/) -- 3-layer claim validation gate
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom 1: minimum 2 independent signals
-- [Time Decay](/glossary/time-decay/) -- Axiom 4: belief freshness enforcement
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom 7: all beliefs traceable
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Context-dependent certainty levels
-- [Cherry Picking](/glossary/cherry-picking/) -- Anti-pattern: selecting only supporting evidence
-- [Belief Graph](/glossary/belief-graph/) -- DAG structure for structural consistency checking
-- [Theorem Proving](/glossary/theorem-proving/) -- Formal verification underlying Trinity Gate
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework itself
+- [Trinity Gate](@/glossary/trinity-gate.md) -- 3-layer claim validation gate
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom 1: minimum 2 independent signals
+- [Time Decay](@/glossary/time-decay.md) -- Axiom 4: belief freshness enforcement
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom 7: all beliefs traceable
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Context-dependent certainty levels
+- [Cherry Picking](@/glossary/cherry-picking.md) -- Anti-pattern: selecting only supporting evidence
+- [Belief Graph](@/glossary/belief-graph.md) -- DAG structure for structural consistency checking
+- [Theorem Proving](@/glossary/theorem-proving.md) -- Formal verification underlying Trinity Gate
 
 ### Architecture
-- [NABLA Framework](/architecture/nabla-framework/) -- Architectural overview of the epistemic framework
+- [NABLA Framework](@/architecture/nabla-framework.md) -- Architectural overview of the epistemic framework
 
 ### Related Academy Topics
-- [Formal Verification with Lean4](/academy/formal-verification-guide/) -- The formal proof layer of the Trinity Gate
-- [Color Team Security](/academy/color-team-security/) -- NABLA axioms applied to adversarial analysis
-- [Self-Evolving Ecosystems](/academy/evolution-patterns/) -- How NABLA governs evolutionary fitness
-- [Quality Standards](/academy/quality-standards/) -- NO MERCY execution phase that NABLA transitions into
+- [Formal Verification with Lean4](@/academy/formal-verification-guide.md) -- The formal proof layer of the Trinity Gate
+- [Color Team Security](@/academy/color-team-security.md) -- NABLA axioms applied to adversarial analysis
+- [Self-Evolving Ecosystems](@/academy/evolution-patterns.md) -- How NABLA governs evolutionary fitness
+- [Quality Standards](@/academy/quality-standards.md) -- NO MERCY execution phase that NABLA transitions into
 
 ## Next Steps
 
-- [Formal Verification with Lean4](/academy/formal-verification-guide/) -- the formal proof layer of the Trinity Gate
-- [Color Team Security Operations](/academy/color-team-security/) -- NABLA axioms applied to adversarial analysis
-- [Self-Evolving Agent Ecosystems](/academy/evolution-patterns/) -- how NABLA governs evolutionary fitness evaluation
+- [Formal Verification with Lean4](@/academy/formal-verification-guide.md) -- the formal proof layer of the Trinity Gate
+- [Color Team Security Operations](@/academy/color-team-security.md) -- NABLA axioms applied to adversarial analysis
+- [Self-Evolving Agent Ecosystems](@/academy/evolution-patterns.md) -- how NABLA governs evolutionary fitness evaluation
 
 ---
 
@@ -428,4 +428,4 @@ Confidence thresholds govern the NABLA-to-NM/ND transition:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

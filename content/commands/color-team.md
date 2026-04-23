@@ -24,11 +24,11 @@ image_alt = "/color-team - Prismatic Platform"
 
 ## Overview
 
-**/color-team** is a production command in the **[Color Teams](/glossary/color-teams/)** category of the Prismatic Platform that provides a comprehensive status overview across all six color-coded security teams: Gray (boundary exploration), Red (adversarial simulation), Blue (epistemic defense), Purple (synthesis and closure), White (constructive verification), and Black (theoretical threat modeling). The command serves as the central dashboard for the platform's adversarial-defensive security posture.
+**/color-team** is a production command in the **[Color Teams](@/glossary/color-teams.md)** category of the Prismatic Platform that provides a comprehensive status overview across all six color-coded security teams: Gray (boundary exploration), Red (adversarial simulation), Blue (epistemic defense), Purple (synthesis and closure), White (constructive verification), and Black (theoretical threat modeling). The command serves as the central dashboard for the platform's adversarial-defensive security posture.
 
 The color-team framework implements epistemic security through adversarial-defensive synthesis. Rather than relying solely on defensive measures, the platform maintains dedicated teams that probe for weaknesses (Red), explore boundary conditions (Gray), model theoretical threats (Black), and then synthesize these findings into improved defenses (Blue, Purple) with formal verification (White). This six-team structure ensures that security evolves through genuine adversarial pressure rather than assumed robustness.
 
-This command operates under the **L3+** authority level and is executed by the `supreme-coordinator` agent, which has oversight across all color teams. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3+ authority requirement reflects the sensitive nature of security operations -- only strategic-level agents can view cross-team status, as individual team operations may contain classified findings.
+This command operates under the **L3+** authority level and is executed by the `supreme-coordinator` agent, which has oversight across all color teams. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3+ authority requirement reflects the sensitive nature of security operations -- only strategic-level agents can view cross-team status, as individual team operations may contain classified findings.
 
 The command aggregates real-time status from 20 specialized agents distributed across the six teams, providing a unified view of security posture including active campaigns, pending findings, closure status, and safety protocol compliance. All operations are sandboxed, use synthetic data only, and enforce strict isolation between teams to prevent information leakage.
 
@@ -215,10 +215,10 @@ All color-team operations enforce strict safety protocols:
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | 20 agents across 6 teams | Full agent ecosystem |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | 20 agents across 6 teams | Full agent ecosystem |
 | AIAD Registry | Agent and command discovery | Standard AIAD interface |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution validation | Quality-gated findings |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Security posture tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution validation | Quality-gated findings |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Security posture tracking |
 | PrismaticDark.Sandbox | Adversarial operation isolation | Red/Black containment |
 | Trinity Gate | Finding validation | 3-gate verification for findings |
 | NABLA Framework | Epistemic security integration | Axiom enforcement |
@@ -277,20 +277,20 @@ The color-team framework operates within the NABLA epistemic framework, enforcin
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for security gaps. Every identified vulnerability must be addressed through the full Gray-Red-Purple-Blue-White pipeline. No findings are suppressed or ignored.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. All security findings pass through Trinity Gate verification before being considered established.
 
 ## Related Commands
 
-- [/red-team](/commands/red-team/) - [Red team](/glossary/red-team/) adversarial simulation scenario execution
-- [/blue-team](/commands/blue-team/) - [Blue team](/glossary/blue-team/) epistemic defense posture assessment
-- [/purple-team](/commands/purple-team/) - [Purple team](/glossary/purple-team/) Red-Blue synthesis and closure analysis
-- [/manipulation-detect](/commands/manipulation-detect/) - Detect manipulation attempts using epistemic analysis
-- [/manipulation-protect](/commands/manipulation-protect/) - Activate manipulation protection defenses
-- [/manipulation-techniques](/commands/manipulation-techniques/) - View manipulation technique taxonomy and counter-measures
-- [/check](/commands/check/) - Verification and integrity checking command
+- [/red-team](@/commands/red-team.md) - [Red team](@/glossary/red-team.md) adversarial simulation scenario execution
+- [/blue-team](@/commands/blue-team.md) - [Blue team](@/glossary/blue-team.md) epistemic defense posture assessment
+- [/purple-team](@/commands/purple-team.md) - [Purple team](@/glossary/purple-team.md) Red-Blue synthesis and closure analysis
+- [/manipulation-detect](@/commands/manipulation-detect.md) - Detect manipulation attempts using epistemic analysis
+- [/manipulation-protect](@/commands/manipulation-protect.md) - Activate manipulation protection defenses
+- [/manipulation-techniques](@/commands/manipulation-techniques.md) - View manipulation technique taxonomy and counter-measures
+- [/check](@/commands/check.md) - Verification and integrity checking command
 
 ---
 
@@ -299,4 +299,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

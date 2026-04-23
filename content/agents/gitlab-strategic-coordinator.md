@@ -28,7 +28,7 @@ image_alt = "GitLab Strategic Coordinator - Prismatic Platform"
 
 ## Overview
 
-The GitLab Strategic Coordinator is an L3 strategic authority operating within the Strategic Coordination domain of the Prismatic Platform. This agent provides supreme GitLab orchestration capabilities, managing milestone coordination, critical path optimization, and phase-based execution planning across the entire platform development lifecycle. Operating with [ARCHER SUPREME](/glossary/archer-supreme/) authority, it transforms complex multi-milestone roadmaps into executable tactical plans with clear dependencies, resource assignments, and delivery timelines.
+The GitLab Strategic Coordinator is an L3 strategic authority operating within the Strategic Coordination domain of the Prismatic Platform. This agent provides supreme GitLab orchestration capabilities, managing milestone coordination, critical path optimization, and phase-based execution planning across the entire platform development lifecycle. Operating with [ARCHER SUPREME](@/glossary/archer-supreme.md) authority, it transforms complex multi-milestone roadmaps into executable tactical plans with clear dependencies, resource assignments, and delivery timelines.
 
 The platform manages over 20 milestones spanning security hardening, feature development, compliance implementation, and infrastructure evolution. Without strategic coordination, these parallel work streams risk resource conflicts, dependency deadlocks, and priority inversions that delay critical deliverables. The GitLab Strategic Coordinator prevents these failure modes by maintaining a real-time dependency graph across all active milestones, identifying critical path bottlenecks, and dynamically reprioritizing work streams when blockers emerge. The coordinator's strategic perspective enables optimization decisions that no individual domain agent could make, as it alone possesses the cross-domain visibility necessary to balance competing priorities against platform-level objectives.
 
@@ -62,29 +62,29 @@ The agent provides six primary capabilities that enable strategic GitLab coordin
 
 ## Operational Domain
 
-The agent operates at the strategic planning layer, interfacing directly with GitLab's milestone, issue, and merge request APIs. It monitors progress across all active milestones, tracks velocity [metrics](/glossary/metrics/) per team and domain, and generates strategic intelligence reports for executive decision-making. The coordinator also manages phase-based execution, breaking large milestones into sequential phases with clear entry and exit criteria validated through [quality gates](/glossary/quality-gates/).
+The agent operates at the strategic planning layer, interfacing directly with GitLab's milestone, issue, and merge request APIs. It monitors progress across all active milestones, tracks velocity [metrics](@/glossary/metrics.md) per team and domain, and generates strategic intelligence reports for executive decision-making. The coordinator also manages phase-based execution, breaking large milestones into sequential phases with clear entry and exit criteria validated through [quality gates](@/glossary/quality-gates.md).
 
-Strategic decisions are informed by the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, requiring multiple independent signals before establishing strategic beliefs. The coordinator does not accept single-source evidence for strategic conclusions, instead requiring corroboration from multiple data streams (velocity metrics, blocker analysis, resource utilization) before recommending priority changes or resource reallocation.
+Strategic decisions are informed by the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, requiring multiple independent signals before establishing strategic beliefs. The coordinator does not accept single-source evidence for strategic conclusions, instead requiring corroboration from multiple data streams (velocity metrics, blocker analysis, resource utilization) before recommending priority changes or resource reallocation.
 
 ## Technical Implementation
 
-The coordinator is implemented as a GenServer-based [OTP](/glossary/otp/) application that maintains the platform's strategic state model. The dependency graph is stored in memory using a directed acyclic graph (DAG) data structure optimized for critical path computation. Graph updates trigger incremental critical path recalculation, avoiding full graph recomputation on every state change.
+The coordinator is implemented as a GenServer-based [OTP](@/glossary/otp.md) application that maintains the platform's strategic state model. The dependency graph is stored in memory using a directed acyclic graph (DAG) data structure optimized for critical path computation. Graph updates trigger incremental critical path recalculation, avoiding full graph recomputation on every state change.
 
-Milestone and issue data is synchronized from GitLab through the [gitlab-auto-sync-orchestrator](/agents/gitlab-auto-sync-orchestrator/), ensuring that strategic planning operates on current data. The coordinator subscribes to synchronization events to trigger strategic reassessment when significant state changes occur.
+Milestone and issue data is synchronized from GitLab through the [gitlab-auto-sync-orchestrator](@/agents/gitlab-auto-sync-orchestrator.md), ensuring that strategic planning operates on current data. The coordinator subscribes to synchronization events to trigger strategic reassessment when significant state changes occur.
 
-[Telemetry](/glossary/telemetry/) events track strategic operations including dependency graph updates, critical path recomputation, resource allocation changes, and risk alert generation. These events feed strategic dashboards that provide real-time visibility into milestone health, resource utilization, and delivery risk.
+[Telemetry](@/glossary/telemetry.md) events track strategic operations including dependency graph updates, critical path recomputation, resource allocation changes, and risk alert generation. These events feed strategic dashboards that provide real-time visibility into milestone health, resource utilization, and delivery risk.
 
-Persistent storage uses [Ecto](/glossary/ecto/)-backed [PostgreSQL](/glossary/postgresql/) for strategic decision history, velocity measurements, and risk assessment records. Historical data enables trend analysis and calibration of estimation models against actual execution outcomes.
+Persistent storage uses [Ecto](@/glossary/ecto.md)-backed [PostgreSQL](@/glossary/postgresql.md) for strategic decision history, velocity measurements, and risk assessment records. Historical data enables trend analysis and calibration of estimation models against actual execution outcomes.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [gitlab-full-circle-coordinator](/agents/gitlab-full-circle-coordinator/) | Receives milestone execution status and completion signals | GitLab |
-| [gitlab-3nl-intelligence-analyzer](/agents/gitlab-3nl-intelligence-analyzer/) | Provides 3NL intelligence analysis for strategic decision support | Intelligence |
-| [commit-orchestrator](/agents/commit-orchestrator/) | Coordinates commit flow within milestone execution phases | Development |
-| [gitlab-mcp-orchestrator](/agents/gitlab-mcp-orchestrator/) | Translates strategic directives into executable GitLab operations | Orchestration |
-| [gitlab-api-specialist-agent](/agents/gitlab-api-specialist-agent/) | Provides API execution capabilities for direct GitLab operations | Integration |
+| [gitlab-full-circle-coordinator](@/agents/gitlab-full-circle-coordinator.md) | Receives milestone execution status and completion signals | GitLab |
+| [gitlab-3nl-intelligence-analyzer](@/agents/gitlab-3nl-intelligence-analyzer.md) | Provides 3NL intelligence analysis for strategic decision support | Intelligence |
+| [commit-orchestrator](@/agents/commit-orchestrator.md) | Coordinates commit flow within milestone execution phases | Development |
+| [gitlab-mcp-orchestrator](@/agents/gitlab-mcp-orchestrator.md) | Translates strategic directives into executable GitLab operations | Orchestration |
+| [gitlab-api-specialist-agent](@/agents/gitlab-api-specialist-agent.md) | Provides API execution capabilities for direct GitLab operations | Integration |
 
 ## Strategic Reporting
 
@@ -100,7 +100,7 @@ The coordinator produces structured reports at multiple cadences that inform pla
 
 ## Enforcement
 
-The GitLab Strategic Coordinator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Milestone commitments are non-negotiable once approved. Phase gates must pass completely before advancement. Resource conflicts are resolved immediately through evidence-based prioritization, not political negotiation. Every strategic decision carries full provenance and [audit trail](/glossary/audit-trail/). Strategic claims require [NABLA](/glossary/nabla-infinity/) multi-signal validation, and critical strategic decisions pass through [Trinity Gate](/glossary/trinity-gate/) verification before execution.
+The GitLab Strategic Coordinator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Milestone commitments are non-negotiable once approved. Phase gates must pass completely before advancement. Resource conflicts are resolved immediately through evidence-based prioritization, not political negotiation. Every strategic decision carries full provenance and [audit trail](@/glossary/audit-trail.md). Strategic claims require [NABLA](@/glossary/nabla-infinity.md) multi-signal validation, and critical strategic decisions pass through [Trinity Gate](@/glossary/trinity-gate.md) verification before execution.
 
 ---
 
@@ -109,4 +109,4 @@ The GitLab Strategic Coordinator operates under the [NO MERCY, NO DOUBTS](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

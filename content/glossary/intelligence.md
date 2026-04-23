@@ -458,25 +458,25 @@ The Prismatic Platform primarily produces OSINT and threat intelligence, with ca
 
 Intelligence is deeply connected to numerous platform and security concepts:
 
-- [OSINT](/glossary/osint/) -- open source intelligence, the most accessible and widely used form of intelligence collection
-- [Intelligence Tools](/glossary/intelligence-tools/) -- the software instruments used to collect, process, and analyze intelligence
-- [Intelligence Analysis](/glossary/intelligence-analysis/) -- the analytical tradecraft applied to transform data into intelligence
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- combining intelligence from multiple sources and disciplines for comprehensive understanding
-- [Threat Intelligence](/glossary/threat-intelligence/) -- intelligence focused specifically on understanding and countering cyber threats
-- [Knowledge Graph](/glossary/knowledge-graph/) -- graph-based representation of entities and relationships central to intelligence analysis
-- [Evidence](/glossary/evidence/) -- the evidentiary basis for intelligence assessments, governed by NABLA Infinity axioms
-- [Confidence Scoring](/glossary/confidence-scoring/) -- quantitative expression of certainty in intelligence assessments
-- [NABLA Infinity](/glossary/nabla-infinity/) -- the epistemic framework governing intelligence rigor in the Prismatic Platform
-- [Entity Resolution](/glossary/entity-resolution/) -- determining when records from different sources refer to the same real-world entity
+- [OSINT](@/glossary/osint.md) -- open source intelligence, the most accessible and widely used form of intelligence collection
+- [Intelligence Tools](@/glossary/intelligence-tools.md) -- the software instruments used to collect, process, and analyze intelligence
+- [Intelligence Analysis](@/glossary/intelligence-analysis.md) -- the analytical tradecraft applied to transform data into intelligence
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- combining intelligence from multiple sources and disciplines for comprehensive understanding
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- intelligence focused specifically on understanding and countering cyber threats
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- graph-based representation of entities and relationships central to intelligence analysis
+- [Evidence](@/glossary/evidence.md) -- the evidentiary basis for intelligence assessments, governed by NABLA Infinity axioms
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- quantitative expression of certainty in intelligence assessments
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- the epistemic framework governing intelligence rigor in the Prismatic Platform
+- [Entity Resolution](@/glossary/entity-resolution.md) -- determining when records from different sources refer to the same real-world entity
 
 ## See Also
 
-- [Intelligence Platform](/glossary/intelligence-platform/) -- integrated systems for managing the complete intelligence lifecycle
-- [Cyber Threat Intelligence](/glossary/cyber-threat-intelligence/) -- technical intelligence about threat actors and indicators of compromise
-- [Due Diligence](/glossary/due-diligence/) -- a primary application domain for intelligence production
-- [Security Rating](/glossary/security-rating/) -- quantitative security assessments produced through intelligence processes
-- [Risk Assessment](/glossary/risk-assessment/) -- evaluating risks informed by intelligence products
-- [Decision-Making Hierarchy](/glossary/decision-making-hierarchy/) -- the organizational structure through which intelligence is consumed and acted upon
+- [Intelligence Platform](@/glossary/intelligence-platform.md) -- integrated systems for managing the complete intelligence lifecycle
+- [Cyber Threat Intelligence](@/glossary/cyber-threat-intelligence.md) -- technical intelligence about threat actors and indicators of compromise
+- [Due Diligence](@/glossary/due-diligence.md) -- a primary application domain for intelligence production
+- [Security Rating](@/glossary/security-rating.md) -- quantitative security assessments produced through intelligence processes
+- [Risk Assessment](@/glossary/risk-assessment.md) -- evaluating risks informed by intelligence products
+- [Decision-Making Hierarchy](@/glossary/decision-making-hierarchy.md) -- the organizational structure through which intelligence is consumed and acted upon
 
 ---
 

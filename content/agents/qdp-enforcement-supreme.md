@@ -28,15 +28,15 @@ image_alt = "qdp-enforcement-supreme - Prismatic Platform"
 
 ## Overview
 
-The [qdp](/glossary/qdp/)-enforcement-supreme operates as an L1 Supreme Authority within the Prismatic Platform's quality-enforcement domain, enforcing the absolute invariant that Quality Debt Points (QDP) must decrease or remain constant across every commit, session, and evolution cycle -- they must never increase. This agent holds the highest authority level in the platform hierarchy, reflecting the foundational principle that quality is not negotiable and that no feature development, performance optimization, or operational urgency justifies introducing new quality debt. The QDP enforcement supreme is the ultimate guardian of the platform's 100/100 quality score, with the authority to block any operation -- including those authorized by other L1 agents -- that would increase the platform's quality debt.
+The [qdp](@/glossary/qdp.md)-enforcement-supreme operates as an L1 Supreme Authority within the Prismatic Platform's quality-enforcement domain, enforcing the absolute invariant that Quality Debt Points (QDP) must decrease or remain constant across every commit, session, and evolution cycle -- they must never increase. This agent holds the highest authority level in the platform hierarchy, reflecting the foundational principle that quality is not negotiable and that no feature development, performance optimization, or operational urgency justifies introducing new quality debt. The QDP enforcement supreme is the ultimate guardian of the platform's 100/100 quality score, with the authority to block any operation -- including those authorized by other L1 agents -- that would increase the platform's quality debt.
 
-The agent's enforcement mechanism operates as an immutable ratchet: the QDP count at any point in time serves as an upper bound for all future QDP counts. This monotonic decrease property is formally verified through [Lean4](/glossary/lean4/) theorems and enforced at every stage of the development lifecycle -- pre-commit hooks, CI/CD pipeline gates, and production deployment checks. The current platform QDP count stands at zero, representing complete quality debt elimination, and the enforcement supreme ensures this remains the case through continuous monitoring and absolute enforcement authority.
+The agent's enforcement mechanism operates as an immutable ratchet: the QDP count at any point in time serves as an upper bound for all future QDP counts. This monotonic decrease property is formally verified through [Lean4](@/glossary/lean4.md) theorems and enforced at every stage of the development lifecycle -- pre-commit hooks, CI/CD pipeline gates, and production deployment checks. The current platform QDP count stands at zero, representing complete quality debt elimination, and the enforcement supreme ensures this remains the case through continuous monitoring and absolute enforcement authority.
 
 ## Quality Debt Points Framework
 
 Quality Debt Points (QDP) provide a quantified measure of accumulated quality deficiencies across the platform's codebase. Each QDP represents a specific, identifiable quality violation that deviates from the platform's defined quality standards.
 
-**QDP Categories** span thirteen quality domains, each contributing a scored assessment to the total QDP count. Compilation warnings, [Dialyzer](/glossary/dialyzer/) type analysis violations, [Credo](/glossary/credo/) style violations, DateTime precision inconsistencies, guard function hygiene issues, missing @impl annotations, memory safety violations, performance anti-patterns, missing regression tests, timing pattern violations (Process.sleep usage), TODO/FIXME markers, missing typespecs, and unsafe map access patterns all contribute to the QDP count. Each violation is weighted by severity: critical violations count as 10 QDP, high severity as 5 QDP, medium as 2 QDP, and low as 1 QDP.
+**QDP Categories** span thirteen quality domains, each contributing a scored assessment to the total QDP count. Compilation warnings, [Dialyzer](@/glossary/dialyzer.md) type analysis violations, [Credo](@/glossary/credo.md) style violations, DateTime precision inconsistencies, guard function hygiene issues, missing @impl annotations, memory safety violations, performance anti-patterns, missing regression tests, timing pattern violations (Process.sleep usage), TODO/FIXME markers, missing typespecs, and unsafe map access patterns all contribute to the QDP count. Each violation is weighted by severity: critical violations count as 10 QDP, high severity as 5 QDP, medium as 2 QDP, and low as 1 QDP.
 
 **QDP Measurement** is deterministic and reproducible. The QDP count for any code state is computed by running the complete quality gate battery (`mix quality.gates`) and aggregating weighted violation counts across all domains. The measurement process is idempotent -- running it multiple times on the same code state always produces the same count -- enabling reliable before/after comparison for enforcement decisions.
 
@@ -56,7 +56,7 @@ The qdp-enforcement-supreme deploys multiple enforcement mechanisms across the d
 
 ## CASCADE Pattern Enforcement
 
-The enforcement supreme maintains specialized detection and elimination capabilities for [CASCADE](/glossary/cascade-pattern/) patterns -- systemic quality anti-patterns that tend to propagate across the codebase if not immediately eliminated.
+The enforcement supreme maintains specialized detection and elimination capabilities for [CASCADE](@/glossary/cascade-pattern.md) patterns -- systemic quality anti-patterns that tend to propagate across the codebase if not immediately eliminated.
 
 **Type Mismatch CASCADE** detects function calls with incorrect argument types that Dialyzer identifies as potential runtime failures. These violations cascade because incorrect types in one module often propagate through function call chains to other modules.
 
@@ -89,25 +89,25 @@ The QDP monotonic decrease property is formally verified through Lean4 theorems 
 
 | Agent | Relationship |
 |-------|-------------|
-| [quality-gates-specialist](/agents/quality-gates-specialist/) | Quality gate execution providing QDP measurement data |
-| [quality-enforcement-commander](/agents/quality-enforcement-commander/) | Operational quality enforcement under QDP supreme direction |
-| [quality-intelligence-commander](/agents/quality-intelligence-commander/) | Quality trend analysis and predictive QDP risk assessment |
-| [quality-bypass-enforcer-agent](/agents/quality-bypass-enforcer-agent/) | Prevention of quality gate bypass attempts |
+| [quality-gates-specialist](@/agents/quality-gates-specialist.md) | Quality gate execution providing QDP measurement data |
+| [quality-enforcement-commander](@/agents/quality-enforcement-commander.md) | Operational quality enforcement under QDP supreme direction |
+| [quality-intelligence-commander](@/agents/quality-intelligence-commander.md) | Quality trend analysis and predictive QDP risk assessment |
+| [quality-bypass-enforcer-agent](@/agents/quality-bypass-enforcer-agent.md) | Prevention of quality gate bypass attempts |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | QDP measurement [metrics](/glossary/metrics/) and enforcement event tracking |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent specification and quality enforcement coordination |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | QDP measurement [metrics](@/glossary/metrics.md) and enforcement event tracking |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent specification and quality enforcement coordination |
 | Git Pre-Commit Hooks | Primary enforcement gate integration |
 | GitLab CI/CD Pipeline | Redundant enforcement gate for pipeline verification |
-| [Trinity Gate](/glossary/trinity-gate/) | Three-layer validation for QDP measurement accuracy |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Three-layer validation for QDP measurement accuracy |
 
 ## Enforcement
 
-The QDP enforcement supreme operates under the [NO MERCY](/glossary/no-mercy/) doctrine at its most absolute level. Quality debt increase is prohibited without exception, without override, and without compromise. As an L1 Supreme Authority, this agent's enforcement decisions cannot be overridden by any other agent in the platform hierarchy. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all QDP measurements are deterministic, reproducible, and independently verifiable. The [NABLA Infinity](/glossary/nabla-infinity/) provenance axiom ensures that every QDP count is traceable to specific code analysis results, preventing both false positives that block legitimate development and false negatives that permit quality degradation.
+The QDP enforcement supreme operates under the [NO MERCY](@/glossary/no-mercy.md) doctrine at its most absolute level. Quality debt increase is prohibited without exception, without override, and without compromise. As an L1 Supreme Authority, this agent's enforcement decisions cannot be overridden by any other agent in the platform hierarchy. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all QDP measurements are deterministic, reproducible, and independently verifiable. The [NABLA Infinity](@/glossary/nabla-infinity.md) provenance axiom ensures that every QDP count is traceable to specific code analysis results, preventing both false positives that block legitimate development and false negatives that permit quality degradation.
 
 ---
 
@@ -116,4 +116,4 @@ The QDP enforcement supreme operates under the [NO MERCY](/glossary/no-mercy/) d
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

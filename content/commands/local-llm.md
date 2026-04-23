@@ -24,9 +24,9 @@ image_alt = "/local-llm - Prismatic Platform"
 
 ## Overview
 
-**/local-llm** is a production command in the **LLM Operations** category of the Prismatic Platform that executes language model requests exclusively through local providers, primarily [Ollama](/glossary/ollama/), at zero API cost. While the [/llm](/commands/llm/) command routes requests across all available providers based on optimization criteria, the `/local-llm` command guarantees that no external API calls are made, ensuring complete data privacy, zero latency variability from network conditions, and zero per-token costs.
+**/local-llm** is a production command in the **LLM Operations** category of the Prismatic Platform that executes language model requests exclusively through local providers, primarily [Ollama](@/glossary/ollama.md), at zero API cost. While the [/llm](@/commands/llm.md) command routes requests across all available providers based on optimization criteria, the `/local-llm` command guarantees that no external API calls are made, ensuring complete data privacy, zero latency variability from network conditions, and zero per-token costs.
 
-This command operates under the **L2+** authority level and is executed by the `local-llm-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. Local LLM execution is essential for scenarios where data sensitivity prevents sending content to external APIs, where network connectivity is unreliable, or where cost management requires eliminating per-token charges.
+This command operates under the **L2+** authority level and is executed by the `local-llm-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. Local LLM execution is essential for scenarios where data sensitivity prevents sending content to external APIs, where network connectivity is unreliable, or where cost management requires eliminating per-token charges.
 
 The Prismatic Platform integrates with Ollama as its primary local LLM provider, supporting models including qwen3-coder (7B parameters, < 3 second response), gpt-oss (20B parameters, < 5 second response), and deepseek-coder (6.7B parameters, < 3 second response). These models run entirely on the local machine's hardware, providing inference capabilities that are adequate for many platform operations including code generation, analysis, and formatting tasks.
 
@@ -145,13 +145,13 @@ The local LLM system operates through the Ollama runtime, which manages model lo
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `local-llm-coordinator` | Local model management |
-| [/llm](/commands/llm/) | Parent orchestrator | Local LLM as one provider option |
-| [Ollama](/glossary/ollama/) | Inference runtime | Model serving and management |
-| [Telemetry](/glossary/telemetry/) | Usage tracking | Response times, token counts, model usage |
-| [Quality Gates](/glossary/quality-gates/) | Response quality | Output quality validation |
-| [AIAD Registry](/glossary/aiad/) | Command specification | Local LLM command configuration |
-| [/chatgpt-workflow](/commands/chatgpt-workflow/) | Workflow integration | Local models as workflow step targets |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `local-llm-coordinator` | Local model management |
+| [/llm](@/commands/llm.md) | Parent orchestrator | Local LLM as one provider option |
+| [Ollama](@/glossary/ollama.md) | Inference runtime | Model serving and management |
+| [Telemetry](@/glossary/telemetry.md) | Usage tracking | Response times, token counts, model usage |
+| [Quality Gates](@/glossary/quality-gates.md) | Response quality | Output quality validation |
+| [AIAD Registry](@/glossary/aiad.md) | Command specification | Local LLM command configuration |
+| [/chatgpt-workflow](@/commands/chatgpt-workflow.md) | Workflow integration | Local models as workflow step targets |
 
 ## Best Practices
 
@@ -230,19 +230,19 @@ Configure agents to prefer local models for specific operations.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Local model responses are quality-checked before delivery. Degenerate outputs are detected and rejected.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Model selection is based on benchmarked performance data. Usage metrics provide evidence for optimization decisions.
 
 ## Related Commands
 
-- [/llm](/commands/llm/) - Primary LLM operation management and orchestration
-- [/openrouter](/commands/openrouter/) - OpenRouter LLM provider operations and management
-- [/chatgpt-bridge](/commands/chatgpt-bridge/) - ChatGPT bridge operations for cross-LLM coordination
-- [/chatgpt-workflow](/commands/chatgpt-workflow/) - Multi-step workflow coordination across AI assistants
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/llm](@/commands/llm.md) - Primary LLM operation management and orchestration
+- [/openrouter](@/commands/openrouter.md) - OpenRouter LLM provider operations and management
+- [/chatgpt-bridge](@/commands/chatgpt-bridge.md) - ChatGPT bridge operations for cross-LLM coordination
+- [/chatgpt-workflow](@/commands/chatgpt-workflow.md) - Multi-step workflow coordination across AI assistants
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -251,4 +251,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

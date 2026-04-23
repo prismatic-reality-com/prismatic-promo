@@ -23,11 +23,11 @@ image_alt = "Prismatic Logic Prolog - Prismatic Platform"
 
 ## Overview
 
-Prismatic Logic Prolog embeds a Prolog logic programming engine within the [Elixir](/glossary/elixir/) platform, enabling declarative rule-based reasoning, expert system construction, and constraint satisfaction for complex intelligence analysis problems. Prolog's [pattern matching](/glossary/pattern-matching/) and backtracking naturally complement Elixir's functional approach -- where Elixir excels at data transformation and concurrency, Prolog excels at exploring search spaces defined by logical rules. Together, they form one pillar of the platform's [multi-paradigm solving](/capabilities/multi-paradigm-solving/) strategy, alongside [formal verification](/glossary/formal-verification/) in [Lean4](/glossary/lean4/) and probabilistic analysis via [Monte Carlo verification](/glossary/monte-carlo-verification/).
+Prismatic Logic Prolog embeds a Prolog logic programming engine within the [Elixir](@/glossary/elixir.md) platform, enabling declarative rule-based reasoning, expert system construction, and constraint satisfaction for complex intelligence analysis problems. Prolog's [pattern matching](@/glossary/pattern-matching.md) and backtracking naturally complement Elixir's functional approach -- where Elixir excels at data transformation and concurrency, Prolog excels at exploring search spaces defined by logical rules. Together, they form one pillar of the platform's [multi-paradigm solving](@/capabilities/multi-paradigm-solving.md) strategy, alongside [formal verification](@/glossary/formal-verification.md) in [Lean4](@/glossary/lean4.md) and probabilistic analysis via [Monte Carlo verification](@/glossary/monte-carlo-verification.md).
 
-The module provides a bidirectional bridge between Elixir data structures and Prolog terms. Elixir maps, keyword lists, and structs are automatically translated into Prolog facts, and query results are marshalled back into native Elixir types. This means analysts can define complex classification rules in Prolog's declarative syntax while the rest of the platform continues operating in standard Elixir/[OTP](/glossary/otp/) patterns. The bridge uses [NIF](/glossary/beam/) bindings for performance-critical term conversion while maintaining [fault tolerance](/glossary/fault-tolerance/) through supervised worker isolation.
+The module provides a bidirectional bridge between Elixir data structures and Prolog terms. Elixir maps, keyword lists, and structs are automatically translated into Prolog facts, and query results are marshalled back into native Elixir types. This means analysts can define complex classification rules in Prolog's declarative syntax while the rest of the platform continues operating in standard Elixir/[OTP](@/glossary/otp.md) patterns. The bridge uses [NIF](@/glossary/beam.md) bindings for performance-critical term conversion while maintaining [fault tolerance](@/glossary/fault-tolerance.md) through supervised worker isolation.
 
-A primary use case is compliance rule evaluation. Regulatory requirements such as [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) can be expressed as Prolog rules that are easier to audit and maintain than equivalent imperative code. When regulations change, analysts update rule definitions without modifying application code. The engine supports rule provenance tracking so every deduced conclusion can be traced back to the specific rules and facts that produced it -- a requirement of the [NABLA](/glossary/nabla-infinity/) framework's provenance mandatory axiom and the [Trinity Gate](/glossary/trinity-gate/) logical consistency check.
+A primary use case is compliance rule evaluation. Regulatory requirements such as [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) can be expressed as Prolog rules that are easier to audit and maintain than equivalent imperative code. When regulations change, analysts update rule definitions without modifying application code. The engine supports rule provenance tracking so every deduced conclusion can be traced back to the specific rules and facts that produced it -- a requirement of the [NABLA](@/glossary/nabla-infinity.md) framework's provenance mandatory axiom and the [Trinity Gate](@/glossary/trinity-gate.md) logical consistency check.
 
 ## Architecture
 
@@ -58,7 +58,7 @@ Rule Files (.pl) → Knowledge Base Manager → Prolog Engine Pool → Query Res
   Audit Trail         Hot-Reload Support        Depth Limits        Provenance Link
 ```
 
-Multiple Prolog worker processes run concurrently under a `PoolSupervisor`, preventing a single long-running query from blocking other reasoning tasks. Each worker runs in [process isolation](/glossary/process-isolation/) so that a runaway unification or infinite backtracking loop is contained and terminated without affecting the platform.
+Multiple Prolog worker processes run concurrently under a `PoolSupervisor`, preventing a single long-running query from blocking other reasoning tasks. Each worker runs in [process isolation](@/glossary/process-isolation.md) so that a runaway unification or infinite backtracking loop is contained and terminated without affecting the platform.
 
 ## Key Modules
 
@@ -147,11 +147,11 @@ Testing includes property-based tests (via PropCheck and StreamData) for bidirec
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic Deduction](/apps/prismatic-deduction/) | Orchestrates higher-level inference workflows using Prolog as reasoning backend |
-| [Prismatic CER](/apps/prismatic-cer/) | Rule evaluation results stored as compliance evidence with full provenance |
-| [Prismatic Influence](/apps/prismatic-influence/) | Entity classifications consumed for threat assessment |
-| [Prismatic Lean](/apps/prismatic-lean/) | Complementary verification: Prolog for search-based reasoning, Lean4 for proof |
-| [Prismatic Storage Core](/apps/prismatic-storage-core/) | Data access through storage traits for rule fact population |
+| [Prismatic Deduction](@/apps/prismatic-deduction.md) | Orchestrates higher-level inference workflows using Prolog as reasoning backend |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Rule evaluation results stored as compliance evidence with full provenance |
+| [Prismatic Influence](@/apps/prismatic-influence.md) | Entity classifications consumed for threat assessment |
+| [Prismatic Lean](@/apps/prismatic-lean.md) | Complementary verification: Prolog for search-based reasoning, Lean4 for proof |
+| [Prismatic Storage Core](@/apps/prismatic-storage-core.md) | Data access through storage traits for rule fact population |
 
 ## NABLA Compliance
 
@@ -162,7 +162,7 @@ Testing includes property-based tests (via PropCheck and StreamData) for bidirec
 | Provenance Mandatory | HARD -- every conclusion traced to source rules | RuleVersioner tracks rule ID + fact sources per result |
 | Source Independence | SOFT -- rules can reference independent data sources | Multi-domain knowledge base separation |
 
-Rule provenance tracking ensures that every deduced conclusion links back through the specific rules and facts that produced it. This satisfies the NABLA provenance mandatory axiom and enables auditing of all reasoning chains. Conclusions from Prolog pass through [Trinity Gate](/glossary/trinity-gate/) Gate 2 (logical consistency) validation.
+Rule provenance tracking ensures that every deduced conclusion links back through the specific rules and facts that produced it. This satisfies the NABLA provenance mandatory axiom and enables auditing of all reasoning chains. Conclusions from Prolog pass through [Trinity Gate](@/glossary/trinity-gate.md) Gate 2 (logical consistency) validation.
 
 ## Performance
 
@@ -177,13 +177,13 @@ Rule provenance tracking ensures that every deduced conclusion links back throug
 
 ## Related Resources
 
-- [Prismatic Deduction](/apps/prismatic-deduction/) -- Orchestrates inference workflows using Prolog as a reasoning backend
-- [Prismatic CER](/apps/prismatic-cer/) -- Stores rule evaluation results as compliance evidence
-- [Prismatic Narrative](/apps/prismatic-narrative/) -- Renders Prolog explanation chains as human-readable reports
-- [Prismatic Labs](/apps/prismatic-labs/) -- Experimental rule sets prototyped before production deployment
-- [Multi-Paradigm Problem Solving](/capabilities/multi-paradigm-solving/) -- Prolog as the logic programming paradigm
-- [Trinity Gate](/capabilities/trinity-gate/) -- Prolog conclusions validated through Gate 2 logical consistency
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Rule provenance tracking enforces provenance mandatory axiom
+- [Prismatic Deduction](@/apps/prismatic-deduction.md) -- Orchestrates inference workflows using Prolog as a reasoning backend
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Stores rule evaluation results as compliance evidence
+- [Prismatic Narrative](@/apps/prismatic-narrative.md) -- Renders Prolog explanation chains as human-readable reports
+- [Prismatic Labs](@/apps/prismatic-labs.md) -- Experimental rule sets prototyped before production deployment
+- [Multi-Paradigm Problem Solving](@/capabilities/multi-paradigm-solving.md) -- Prolog as the logic programming paradigm
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Prolog conclusions validated through Gate 2 logical consistency
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Rule provenance tracking enforces provenance mandatory axiom
 
 ---
 
@@ -192,4 +192,4 @@ Rule provenance tracking ensures that every deduced conclusion links back throug
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

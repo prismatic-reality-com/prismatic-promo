@@ -24,7 +24,7 @@ examples = [
 
 # Livebook
 
-**Livebook** is a web-based notebook platform for [Elixir](/glossary/elixir/) that combines **executable code, rich text documentation, and interactive visualizations** in a single collaborative environment. Built specifically for the BEAM ecosystem, Livebook enables real-time data analysis, system monitoring, prototyping, and collaborative development through an intuitive browser-based interface.
+**Livebook** is a web-based notebook platform for [Elixir](@/glossary/elixir.md) that combines **executable code, rich text documentation, and interactive visualizations** in a single collaborative environment. Built specifically for the BEAM ecosystem, Livebook enables real-time data analysis, system monitoring, prototyping, and collaborative development through an intuitive browser-based interface.
 
 ## Core Capabilities
 
@@ -275,8 +275,8 @@ just livebook-template system_health --name "My Dashboard"
 - **Kino Library** - Interactive widget library for Livebook
 - **Interactive Computing** - Computing paradigm emphasizing real-time interaction
 - **Jupyter Notebook** - Popular notebook platform for Python/R
-- **[Phoenix LiveView](/glossary/phoenix-liveview/)** - Real-time web applications with Elixir
-- **[Dashboard](/glossary/dashboard/)** - Live monitoring and visualization interfaces
+- **[Phoenix LiveView](@/glossary/phoenix-liveview.md)** - Real-time web applications with Elixir
+- **[Dashboard](@/glossary/dashboard.md)** - Live monitoring and visualization interfaces
 
 ---
 

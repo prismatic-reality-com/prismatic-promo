@@ -26,7 +26,7 @@ image_alt = "/pack-sources - Prismatic Platform"
 
 **/pack-sources** is a production command in the **Framework** category of the Prismatic Platform. It creates optimized, context-rich source archives specifically designed for consumption by AI models and Large Language Models (LLMs). The command intelligently selects, filters, and packages source code, configuration files, documentation, and metadata into compressed archives that maximize the useful context an LLM can extract while staying within token limits. Optional mycelial evolution integration enables the archives to include pattern propagation data, evolution history, and quality metrics alongside raw source code.
 
-This command operates under the **L2+** authority level and is executed by the `source-archive-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command recognizes that modern development workflows increasingly involve AI-assisted analysis, and that the quality of AI outputs depends heavily on the quality and organization of the input context.
+This command operates under the **L2+** authority level and is executed by the `source-archive-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command recognizes that modern development workflows increasingly involve AI-assisted analysis, and that the quality of AI outputs depends heavily on the quality and organization of the input context.
 
 In a platform with 90+ applications, 6,600+ Elixir source files, and millions of lines of code, blindly concatenating source files produces archives that exceed LLM context windows and dilute relevant information with noise. `/pack-sources` solves this through intelligent selection heuristics, dependency-aware ordering, and configurable filtering that produces archives tuned for specific analysis tasks.
 
@@ -192,13 +192,13 @@ The final archive is assembled with files in dependency-sorted, priority-ranked 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/seadf](/commands/seadf/) | Framework | SEADF provides source scanning infrastructure |
-| [/analyze](/commands/analyze/) | Peer | Architecture analysis enriches metadata |
-| [/scan-mycelium](/commands/scan-mycelium/) | Data Source | Mycelial patterns included in enriched archives |
-| [Git Trees](/glossary/git-trees/) | Infrastructure | Fast file enumeration from git index |
-| [Quality Gates](/glossary/quality-gates/) | Data Source | Quality scores used for metadata enrichment |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Packing statistics and timing metrics |
-| [GARDEN](/glossary/garden/) | Data Source | Legacy patterns available for inclusion |
+| [/seadf](@/commands/seadf.md) | Framework | SEADF provides source scanning infrastructure |
+| [/analyze](@/commands/analyze.md) | Peer | Architecture analysis enriches metadata |
+| [/scan-mycelium](@/commands/scan-mycelium.md) | Data Source | Mycelial patterns included in enriched archives |
+| [Git Trees](@/glossary/git-trees.md) | Infrastructure | Fast file enumeration from git index |
+| [Quality Gates](@/glossary/quality-gates.md) | Data Source | Quality scores used for metadata enrichment |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Packing statistics and timing metrics |
+| [GARDEN](@/glossary/garden.md) | Data Source | Legacy patterns available for inclusion |
 
 ## Best Practices
 
@@ -265,20 +265,20 @@ Use pack-sources as part of an automated analysis pipeline:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Archives include quality metadata so analysis can identify violations.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Manifests provide complete provenance for every included file.
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
-- [/rc1-orchestrate](/commands/rc1-orchestrate/) - Complete RC1 delivery pipeline execution with ROC optimization
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
-- [/migrate](/commands/migrate/) - Safe migration planning with rollback strategies
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
+- [/rc1-orchestrate](@/commands/rc1-orchestrate.md) - Complete RC1 delivery pipeline execution with ROC optimization
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
+- [/migrate](@/commands/migrate.md) - Safe migration planning with rollback strategies
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
 
 ---
 
@@ -287,4 +287,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

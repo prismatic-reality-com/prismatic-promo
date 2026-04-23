@@ -477,24 +477,24 @@ Large-scale refactoring is performed incrementally through a series of small, at
 
 The development workflow integrates with many platform concepts:
 
-- [CI/CD](/glossary/ci-cd/) -- The automation backbone that executes the development workflow's validation and deployment stages
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- The local validation mechanism that enforces quality before code reaches the repository
-- [Quality Gates](/glossary/quality-gates/) -- The automated checkpoints that evaluate code quality across 13 independent domains
-- [Code Reviews](/glossary/code-reviews/) -- The human review process that complements automated quality checks
-- [Testing](/glossary/testing/) -- The verification methodology that validates correctness at unit, integration, and system levels
-- [Continuous Integration](/glossary/continuous-integration/) -- The practice of frequently integrating code changes with automated validation
-- [Continuous Deployment](/glossary/continuous-deployment/) -- The practice of automatically deploying validated code to production
-- [GitOps](/glossary/gitops/) -- The operational model where Git is the single source of truth for infrastructure and application state
-- [Code Quality](/glossary/code-quality/) -- The measurable attributes of code that the development workflow enforces
-- [Static Analysis](/glossary/static-analysis/) -- The compile-time code analysis tools (Dialyzer, Credo) integrated into the workflow
+- [CI/CD](@/glossary/ci-cd.md) -- The automation backbone that executes the development workflow's validation and deployment stages
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- The local validation mechanism that enforces quality before code reaches the repository
+- [Quality Gates](@/glossary/quality-gates.md) -- The automated checkpoints that evaluate code quality across 13 independent domains
+- [Code Reviews](@/glossary/code-reviews.md) -- The human review process that complements automated quality checks
+- [Testing](@/glossary/testing.md) -- The verification methodology that validates correctness at unit, integration, and system levels
+- [Continuous Integration](@/glossary/continuous-integration.md) -- The practice of frequently integrating code changes with automated validation
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- The practice of automatically deploying validated code to production
+- [GitOps](@/glossary/gitops.md) -- The operational model where Git is the single source of truth for infrastructure and application state
+- [Code Quality](@/glossary/code-quality.md) -- The measurable attributes of code that the development workflow enforces
+- [Static Analysis](@/glossary/static-analysis.md) -- The compile-time code analysis tools (Dialyzer, Credo) integrated into the workflow
 
 ## See Also
 
-- [Clean Run](/glossary/clean-run/) -- The zero-warning compilation requirement enforced by the workflow
-- [Session Discipline](/glossary/session-discipline/) -- The protocol governing development session behavior
-- [Quality DNA](/glossary/quality-dna/) -- The cross-session quality tracking system maintained by the workflow
-- [Credo](/glossary/credo/) -- The static analysis tool integrated into Phase 3 of the pre-commit hook
-- [Dialyzer](/glossary/dialyzer/) -- The type-checking tool integrated into Phase 4 of the pre-commit hook
+- [Clean Run](@/glossary/clean-run.md) -- The zero-warning compilation requirement enforced by the workflow
+- [Session Discipline](@/glossary/session-discipline.md) -- The protocol governing development session behavior
+- [Quality DNA](@/glossary/quality-dna.md) -- The cross-session quality tracking system maintained by the workflow
+- [Credo](@/glossary/credo.md) -- The static analysis tool integrated into Phase 3 of the pre-commit hook
+- [Dialyzer](@/glossary/dialyzer.md) -- The type-checking tool integrated into Phase 4 of the pre-commit hook
 
 ---
 
@@ -503,4 +503,4 @@ The development workflow integrates with many platform concepts:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

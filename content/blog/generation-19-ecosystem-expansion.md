@@ -42,10 +42,10 @@ Gen 19's defining trait is the launch of four open-source packages:
 
 | Package | Purpose | License |
 |---------|---------|---------|
-| [Prismatic SDK](/developers/sdk/) | Type-safe client libraries (TS, Python, Elixir, Go) | MIT |
-| [Plugin Kit](/developers/plugins/) | Custom intelligence adapter framework | MIT |
-| [UI Components](/developers/ui-components/) | React, Vue, Web Components for dashboards | MIT |
-| [Security Framework](/developers/community/) | IP protection and validation tools | MIT |
+| [Prismatic SDK](@/developers/sdk/_index.md) | Type-safe client libraries (TS, Python, Elixir, Go) | MIT |
+| [Plugin Kit](@/developers/plugins/_index.md) | Custom intelligence adapter framework | MIT |
+| [UI Components](@/developers/ui-components/_index.md) | React, Vue, Web Components for dashboards | MIT |
+| [Security Framework](@/developers/community/_index.md) | IP protection and validation tools | MIT |
 
 ### Agent Optimization
 
@@ -87,4 +87,4 @@ The platform evolves. Every session. Every generation.
 
 ---
 
-*Learn more about the evolution system in our [Architecture documentation](/architecture/) or explore the [Academy](/academy/) for hands-on tutorials.*
+*Learn more about the evolution system in our [Architecture documentation](@/architecture/_index.md) or explore the [Academy](@/academy/_index.md) for hands-on tutorials.*

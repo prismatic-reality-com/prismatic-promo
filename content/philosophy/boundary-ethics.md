@@ -117,7 +117,7 @@ Legal boundaries translate philosophical principles into enforceable rights and 
 
 #### The GHL Legal Framework
 
-The [General Honest License](/philosophy/ghl-framework/) establishes legal boundaries through:
+The [General Honest License](@/philosophy/ghl-framework.md) establishes legal boundaries through:
 
 - **Default Prohibition**: All usage requires explicit authorization
 - **Scope Limitation**: Each grant specifies exact permitted usage
@@ -391,4 +391,4 @@ The future of software lies not in the removal of all boundaries but in the thou
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

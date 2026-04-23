@@ -26,7 +26,7 @@ image_alt = "/git-trees - Prismatic Platform"
 
 **/git-trees** is a production command in the **Framework** category of the Prismatic Platform that provides ultra-fast codebase exploration by leveraging `git ls-tree` rather than filesystem operations. In a repository containing over 37,000 tracked files across nearly 100 umbrella applications, conventional tools like `find`, `ls -R`, and `fd` take 500 milliseconds or more to traverse the directory structure. The `/git-trees` command achieves the same results in approximately 80 milliseconds -- a ~100x performance improvement that fundamentally changes how agents and operators interact with the codebase.
 
-This command operates under the **L2+** authority level and is executed by the `git-trees-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The performance advantage is not incremental; it transforms codebase exploration from a perceptibly slow operation into an instantaneous one, enabling workflows that would be impractical with conventional tools.
+This command operates under the **L2+** authority level and is executed by the `git-trees-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The performance advantage is not incremental; it transforms codebase exploration from a perceptibly slow operation into an instantaneous one, enabling workflows that would be impractical with conventional tools.
 
 The git-trees approach is mandatory for all platform agents. Every AIAD agent that needs to explore the codebase must use `/git-trees` or the underlying `mix git_trees` / `./scripts/git-trees.sh` implementations rather than filesystem traversal commands. This mandate is enforced through agent specifications and is a core element of the platform's performance architecture.
 
@@ -153,14 +153,14 @@ Git Object Database (packed) -> git ls-tree -r HEAD -> Parse Output -> Format Re
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `git-trees-specialist` | All agents mandated to use git-trees |
-| [AIAD Registry](/glossary/aiad/) | Codebase exploration standard | Mandatory for all agent file operations |
-| [/dx-brutalist-analysis](/commands/dx-brutalist-analysis/) | Data source | Provides file metrics for DX analysis |
-| [/git-forensics](/commands/git-forensics/) | Data source | Provides file inventory for forensics |
-| [/ecosystem](/commands/ecosystem/) | Codebase metrics | File counts and LOC for ecosystem overview |
-| [Quality Gates](/glossary/quality-gates/) | File discovery | Identifies files requiring quality checks |
-| [Telemetry](/glossary/telemetry/) | Performance [metrics](/glossary/metrics/) | Query timing and cache hit rates |
-| [SEADF](/glossary/seadf/) | Evolution data | Codebase structure feeds evolution engine |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `git-trees-specialist` | All agents mandated to use git-trees |
+| [AIAD Registry](@/glossary/aiad.md) | Codebase exploration standard | Mandatory for all agent file operations |
+| [/dx-brutalist-analysis](@/commands/dx-brutalist-analysis.md) | Data source | Provides file metrics for DX analysis |
+| [/git-forensics](@/commands/git-forensics.md) | Data source | Provides file inventory for forensics |
+| [/ecosystem](@/commands/ecosystem.md) | Codebase metrics | File counts and LOC for ecosystem overview |
+| [Quality Gates](@/glossary/quality-gates.md) | File discovery | Identifies files requiring quality checks |
+| [Telemetry](@/glossary/telemetry.md) | Performance [metrics](@/glossary/metrics.md) | Query timing and cache hit rates |
+| [SEADF](@/glossary/seadf.md) | Evolution data | Codebase structure feeds evolution engine |
 
 ## Best Practices
 
@@ -234,19 +234,19 @@ Combine git-trees with other commands for comprehensive analysis.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for slow codebase exploration. The ~100x performance improvement is mandatory, not optional. Agents that use filesystem traversal instead of git-trees are in violation.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Git-trees provides exact file inventories from the git object database, eliminating guesswork about repository contents.
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/git-forensics](/commands/git-forensics/) - Cynical git history analysis distinguishing signal from noise
-- [/dx-brutalist-analysis](/commands/dx-brutalist-analysis/) - Developer experience brutalist analysis of git history
-- [/ecosystem](/commands/ecosystem/) - Platform ecosystem overview and status monitoring
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/git-forensics](@/commands/git-forensics.md) - Cynical git history analysis distinguishing signal from noise
+- [/dx-brutalist-analysis](@/commands/dx-brutalist-analysis.md) - Developer experience brutalist analysis of git history
+- [/ecosystem](@/commands/ecosystem.md) - Platform ecosystem overview and status monitoring
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
 
 ---
 
@@ -255,4 +255,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

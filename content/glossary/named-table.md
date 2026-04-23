@@ -212,11 +212,11 @@ The consistent use of named tables across ToolRegistry, TopicRegistry, and Sourc
 
 ## Cross-References
 
-- [ETS](/glossary/ets/) - The underlying in-memory storage system
-- [GenServer](/glossary/genserver/) - Process pattern owning named tables
-- [Registry](/glossary/registry/) - Conceptual pattern implemented with named tables
+- [ETS](@/glossary/ets.md) - The underlying in-memory storage system
+- [GenServer](@/glossary/genserver.md) - Process pattern owning named tables
+- [Registry](@/glossary/registry.md) - Conceptual pattern implemented with named tables
 - **Ordered Set** - ETS table type alternative for sorted access
-- [Module](/glossary/module/) - Source of data populating named table registries
+- [Module](@/glossary/module.md) - Source of data populating named table registries
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

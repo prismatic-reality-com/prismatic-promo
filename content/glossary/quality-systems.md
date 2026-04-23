@@ -568,7 +568,7 @@ When a quality system issue is detected:
 
 ## Integration with Platform Doctrine
 
-The quality systems architecture is deeply integrated with the platform's philosophical and operational doctrines. The [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine mandates that quality enforcement is non-negotiable and non-bypassable. The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework requires that quality claims be evidence-based and independently verifiable. The [Trinity Gate](/glossary/trinity-gate/) demands structural, logical, and formal consistency before any quality assertion is accepted. These doctrines are not external constraints imposed on the quality systems -- they are the philosophical foundations from which the quality systems were designed.
+The quality systems architecture is deeply integrated with the platform's philosophical and operational doctrines. The [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine mandates that quality enforcement is non-negotiable and non-bypassable. The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework requires that quality claims be evidence-based and independently verifiable. The [Trinity Gate](@/glossary/trinity-gate.md) demands structural, logical, and formal consistency before any quality assertion is accepted. These doctrines are not external constraints imposed on the quality systems -- they are the philosophical foundations from which the quality systems were designed.
 
 The interaction between quality systems and the doctrine framework creates a closed loop of accountability. Doctrines define the principles. Quality standards translate principles into measurable criteria. Quality gates enforce criteria automatically. Quality DNA tracks compliance over time. The evolution engine identifies opportunities to strengthen enforcement. And the doctrines themselves are subject to the same evidence-based evaluation that they mandate for everything else.
 
@@ -602,22 +602,22 @@ The interaction between quality systems and the doctrine framework creates a clo
 
 ## Related Concepts
 
-- [Quality Monitoring](/glossary/quality-monitoring/) -- Continuous observation subsystem
-- [Quality Standard](/glossary/quality-standard/) -- Standards definition subsystem
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement subsystem
-- [Quality DNA](/glossary/quality-dna/) -- Persistence subsystem
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous guardian subsystem
-- [Quality Debt](/glossary/quality-debt/) -- Debt tracking and elimination
-- [AutoEvolve](/glossary/autoevolve/) -- Evolution engine
-- [AutoHeal](/glossary/autoheal/) -- Self-healing subsystem
-- [SEADF](/glossary/seadf/) -- Ecosystem evolution framework
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision underlying the system
+- [Quality Monitoring](@/glossary/quality-monitoring.md) -- Continuous observation subsystem
+- [Quality Standard](@/glossary/quality-standard.md) -- Standards definition subsystem
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement subsystem
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistence subsystem
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous guardian subsystem
+- [Quality Debt](@/glossary/quality-debt.md) -- Debt tracking and elimination
+- [AutoEvolve](@/glossary/autoevolve.md) -- Evolution engine
+- [AutoHeal](@/glossary/autoheal.md) -- Self-healing subsystem
+- [SEADF](@/glossary/seadf.md) -- Ecosystem evolution framework
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision underlying the system
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory with quality system integration
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory with quality system integration
 
 ---
 
@@ -626,4 +626,4 @@ The interaction between quality systems and the doctrine framework creates a clo
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

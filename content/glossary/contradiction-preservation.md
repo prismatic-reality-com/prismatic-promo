@@ -37,7 +37,7 @@ image_alt = "Contradiction Preservation - Prismatic Platform"
 
 ## Definition
 
-Contradiction Preservation is the second of seven [NABLA Infinity](/glossary/nabla-infinity/) axioms and one of the most counterintuitive principles in the Prismatic Platform's epistemic framework. It mandates that when contradictory evidence exists -- when Signal A supports a conclusion and Signal B opposes it -- both signals must be preserved explicitly in the [belief graph](/glossary/belief-graph/), with their contradiction annotated, classified, and propagated to all downstream consumers. Neither signal may be discarded, downweighted, averaged, or rationalized away. The contradiction must persist until one side is definitively disproven through new evidence, not through algorithmic resolution.
+Contradiction Preservation is the second of seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms and one of the most counterintuitive principles in the Prismatic Platform's epistemic framework. It mandates that when contradictory evidence exists -- when Signal A supports a conclusion and Signal B opposes it -- both signals must be preserved explicitly in the [belief graph](@/glossary/belief-graph.md), with their contradiction annotated, classified, and propagated to all downstream consumers. Neither signal may be discarded, downweighted, averaged, or rationalized away. The contradiction must persist until one side is definitively disproven through new evidence, not through algorithmic resolution.
 
 The axiom is HARD enforced at level E2, meaning violations trigger immediate BLOCK: the operation is halted and the offending action is rejected. There is no configuration option, authority level, or emergency override that permits contradiction suppression. The enforcement is non-bypassable by design, reflecting the platform's assessment that contradiction suppression is among the most dangerous epistemic failure modes -- more dangerous than missing evidence, stale data, or even single-source beliefs, because it actively destroys information that was already captured.
 
@@ -66,7 +66,7 @@ The economic argument for contradiction preservation rests on asymmetric cost an
 | **Preserve** | Information retained, further investigation possible | One extra node in belief graph (~100 bytes) |
 | **Resolve** | Critical information destroyed, false certainty produced | Minimal space saved |
 
-The cost of preserving a spurious contradiction is trivially small (one additional node in the [belief graph](/glossary/belief-graph/) with negligible storage and computation cost). The cost of discarding a genuine contradiction can be catastrophic (a due diligence conclusion treated as verified when it rests on suppressed evidence). The asymmetry is extreme, making preservation the rational default regardless of the contradiction's expected genuineness.
+The cost of preserving a spurious contradiction is trivially small (one additional node in the [belief graph](@/glossary/belief-graph.md) with negligible storage and computation cost). The cost of discarding a genuine contradiction can be catastrophic (a due diligence conclusion treated as verified when it rests on suppressed evidence). The asymmetry is extreme, making preservation the rational default regardless of the contradiction's expected genuineness.
 
 ## The Psychology of Contradiction Resolution
 
@@ -81,7 +81,7 @@ Leon Festinger's theory of cognitive dissonance (1957) establishes that holding 
 - **Source derogation**: Questioning the credibility of the contradictory source while accepting the confirming source uncritically
 - **Premature closure**: Declaring the contradiction "resolved" before genuinely new evidence is obtained
 
-Each of these mechanisms produces a belief graph that appears cleaner and more confident than warranted -- the hallmark of [cherry picking](/glossary/cherry-picking/).
+Each of these mechanisms produces a belief graph that appears cleaner and more confident than warranted -- the hallmark of [cherry picking](@/glossary/cherry-picking.md).
 
 ### Organizational Pressure
 
@@ -98,7 +98,7 @@ The Prismatic Platform's automated enforcement removes these pressures from the 
 
 ### Contradiction Nodes
 
-Contradictions are represented as first-class entities in the [belief graph](/glossary/belief-graph/), not as edge annotations or metadata. A contradiction node explicitly connects the two contradicting nodes and carries structured metadata:
+Contradictions are represented as first-class entities in the [belief graph](@/glossary/belief-graph.md), not as edge annotations or metadata. A contradiction node explicitly connects the two contradicting nodes and carries structured metadata:
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -111,7 +111,7 @@ Contradictions are represented as first-class entities in the [belief graph](/gl
 
 ### Contradiction Index
 
-The contradiction index is a numeric measure [0.0, 1.0] reflecting the proportion of unresolved contradictions affecting a hypothesis. It feeds into the [confidence scoring](/glossary/confidence-scoring/) formula:
+The contradiction index is a numeric measure [0.0, 1.0] reflecting the proportion of unresolved contradictions affecting a hypothesis. It feeds into the [confidence scoring](@/glossary/confidence-scoring.md) formula:
 
 ```
 final_confidence = belief_strength * robustness_score * (1 - contradiction_index)
@@ -224,22 +224,22 @@ Moderate contradictions carry a severity weight of 0.50 in the contradiction ind
 
 ### Strong Contradictions
 
-Strong contradictions indicate direct logical opposition. Example: Source A states "Firm X has no pending litigation" while Source B identifies "Firm X is defendant in Case No. 12345." These cannot both be true. At least one source is wrong, outdated, or referring to a different entity (an [entity resolution](/glossary/entity-resolution/) problem).
+Strong contradictions indicate direct logical opposition. Example: Source A states "Firm X has no pending litigation" while Source B identifies "Firm X is defendant in Case No. 12345." These cannot both be true. At least one source is wrong, outdated, or referring to a different entity (an [entity resolution](@/glossary/entity-resolution.md) problem).
 
 Strong contradictions carry a full severity weight of 1.00 in the contradiction index. They dramatically reduce confidence and typically require resolution before the conclusion can be acted upon. Resolution requires new evidence that definitively disproves one side -- not analyst judgment, not authority, not majority rule.
 
 ## Relationship to Other NABLA Axioms
 
-Contradiction Preservation interacts with every other [NABLA Infinity](/glossary/nabla-infinity/) axiom:
+Contradiction Preservation interacts with every other [NABLA Infinity](@/glossary/nabla-infinity.md) axiom:
 
 | Axiom | Interaction with Contradiction Preservation |
 |-------|---------------------------------------------|
-| [Signal Plurality](/glossary/signal-plurality/) | Plurality increases the chance of detecting contradictions (more signals = more opportunities for disagreement) |
+| [Signal Plurality](@/glossary/signal-plurality.md) | Plurality increases the chance of detecting contradictions (more signals = more opportunities for disagreement) |
 | Absence Informative | The absence of an expected contradiction can itself be informative (suspiciously clean evidence) |
-| [Time Decay](/glossary/time-decay/) | Contradictions have temporal dynamics -- a contradiction between fresh and stale evidence may resolve through decay |
+| [Time Decay](@/glossary/time-decay.md) | Contradictions have temporal dynamics -- a contradiction between fresh and stale evidence may resolve through decay |
 | Unknown Valid | When both sides of a contradiction are plausible, the correct state is "unknown" rather than forced resolution |
 | Source Independence | Independent sources producing contradictions are more significant than correlated sources doing so |
-| [Provenance Mandatory](/glossary/provenance-mandatory/) | Contradiction provenance (which sources, when detected) must be fully traceable |
+| [Provenance Mandatory](@/glossary/provenance-mandatory.md) | Contradiction provenance (which sources, when detected) must be fully traceable |
 
 ## Connection to Paraconsistent Logic
 
@@ -263,7 +263,7 @@ A subtler anti-pattern is "contradiction averaging": replacing two contradicting
 
 ### Premature Resolution
 
-Declaring a contradiction "resolved" without genuinely new evidence is another forbidden pattern. Resolution status can only transition from `:preserved` to `:resolved` when new evidence is ingested that definitively disproves one side. Analyst judgment alone is insufficient -- the platform requires an evidence-backed resolution with full [provenance](/glossary/provenance-mandatory/).
+Declaring a contradiction "resolved" without genuinely new evidence is another forbidden pattern. Resolution status can only transition from `:preserved` to `:resolved` when new evidence is ingested that definitively disproves one side. Analyst judgment alone is insufficient -- the platform requires an evidence-backed resolution with full [provenance](@/glossary/provenance-mandatory.md).
 
 ## Real-World Application
 
@@ -291,9 +291,9 @@ The preserved contradiction tells the analyst exactly what to investigate. The a
 
 3. **Monitor the contradiction index trend, not just its value.** A rising contradiction index indicates increasing epistemic uncertainty across the system. This trend may reveal systematic issues (a source becoming unreliable, a methodology becoming outdated) that individual contradictions cannot reveal.
 
-4. **Distinguish temporal contradictions from logical ones.** A signal that was true last month but false today is not the same as two simultaneous signals that disagree. Temporal contradictions often resolve through [time decay](/glossary/time-decay/); logical contradictions require new evidence. Treating them identically leads to either premature resolution or unnecessary preservation.
+4. **Distinguish temporal contradictions from logical ones.** A signal that was true last month but false today is not the same as two simultaneous signals that disagree. Temporal contradictions often resolve through [time decay](@/glossary/time-decay.md); logical contradictions require new evidence. Treating them identically leads to either premature resolution or unnecessary preservation.
 
-5. **Use contradiction density as a quality signal.** A region of the [belief graph](/glossary/belief-graph/) with unusually high contradiction density may indicate that the underlying domain model is flawed, the sources are unreliable, or the framing of the question needs revision. Contradiction density is diagnostic, not merely problematic.
+5. **Use contradiction density as a quality signal.** A region of the [belief graph](@/glossary/belief-graph.md) with unusually high contradiction density may indicate that the underlying domain model is flawed, the sources are unreliable, or the framing of the question needs revision. Contradiction density is diagnostic, not merely problematic.
 
 6. **Never optimize for contradiction reduction.** Reducing the number of contradictions is not a goal. Contradictions should resolve naturally through new evidence, not through algorithmic pressure to minimize them. Systems that optimize for fewer contradictions are systems that suppress inconvenient truths.
 
@@ -303,26 +303,26 @@ The preserved contradiction tells the analyst exactly what to investigate. The a
 
 ## Related Terms
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Parent epistemic framework defining this axiom
-- [Belief Graph](/glossary/belief-graph/) -- Data structure where contradictions are represented as first-class nodes
-- [Cherry Picking](/glossary/cherry-picking/) -- Anti-pattern that contradiction preservation directly prevents
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Formula incorporating contradiction index as multiplicative penalty
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- Robustness measure that contradiction preservation supports
-- [Signal Plurality](/glossary/signal-plurality/) -- Complementary axiom increasing contradiction detection opportunity
-- [Time Decay](/glossary/time-decay/) -- Temporal dimension interacting with contradiction dynamics
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom requiring full traceability of contradiction provenance
-- [QEVE](/glossary/qeve/) -- Verification engine enforcing contradiction preservation in Stage 1
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate checking contradiction representation integrity
-- [Entity Resolution](/glossary/entity-resolution/) -- Process that can create or resolve contradictions through node merging
-- [Formal Verification](/glossary/formal-verification/) -- Verification of Contradiction Visibility theorem
-- [Audit Trail](/glossary/audit-trail/) -- Record of all contradiction events and resolutions
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Parent epistemic framework defining this axiom
+- [Belief Graph](@/glossary/belief-graph.md) -- Data structure where contradictions are represented as first-class nodes
+- [Cherry Picking](@/glossary/cherry-picking.md) -- Anti-pattern that contradiction preservation directly prevents
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Formula incorporating contradiction index as multiplicative penalty
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- Robustness measure that contradiction preservation supports
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Complementary axiom increasing contradiction detection opportunity
+- [Time Decay](@/glossary/time-decay.md) -- Temporal dimension interacting with contradiction dynamics
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom requiring full traceability of contradiction provenance
+- [QEVE](@/glossary/qeve.md) -- Verification engine enforcing contradiction preservation in Stage 1
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate checking contradiction representation integrity
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Process that can create or resolve contradictions through node merging
+- [Formal Verification](@/glossary/formal-verification.md) -- Verification of Contradiction Visibility theorem
+- [Audit Trail](@/glossary/audit-trail.md) -- Record of all contradiction events and resolutions
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Blue Team](/glossary/blue-team/) -- Defensive team that preserves contradictions in evidence synthesis
-- [OTP](/glossary/otp/) -- Process model underlying contradiction detection agents
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Blue Team](@/glossary/blue-team.md) -- Defensive team that preserves contradictions in evidence synthesis
+- [OTP](@/glossary/otp.md) -- Process model underlying contradiction detection agents
 
 ---
 
@@ -331,4 +331,4 @@ The preserved contradiction tells the analyst exactly what to investigate. The a
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,7 +24,7 @@ image_alt = "Self-Evolving Agent Ecosystems - Prismatic Platform"
 
 ## Overview
 
-The Prismatic Platform does not just run agents -- it evolves them. Through a Darwinian process spanning 18 generations, the platform's agent ecosystem has achieved 0.999 apex fitness with 11 consciousness traits. This guide teaches you the evolutionary mechanisms: how fitness is measured, how agents are selected and mutated, and how the [SEADF](/glossary/seadf/) framework drives autonomous improvement across sessions.
+The Prismatic Platform does not just run agents -- it evolves them. Through a Darwinian process spanning 18 generations, the platform's agent ecosystem has achieved 0.999 apex fitness with 11 consciousness traits. This guide teaches you the evolutionary mechanisms: how fitness is measured, how agents are selected and mutated, and how the [SEADF](@/glossary/seadf.md) framework drives autonomous improvement across sessions.
 
 You will learn:
 
@@ -32,14 +32,14 @@ You will learn:
 - Fitness functions: how agent quality is measured quantitatively
 - Generation progression: from Gen 1 (basic) to Gen 18 (full autonomy)
 - The SEADF framework: Scanner, Pipeline, Guardian, Knowledge Sync, Innovator, Reporter, Healing
-- How [Quality DNA](/glossary/quality-dna/) maintains evolutionary state across sessions
+- How [Quality DNA](@/glossary/quality-dna.md) maintains evolutionary state across sessions
 - The autoevolve and autoheal mix tasks that drive evolution
 
 ## Prerequisites
 
-- Completed [Multi-Agent Orchestration Patterns](/academy/agent-orchestration/)
-- Completed [Applying NABLA Infinity Axioms](/academy/nabla-infinity-guide/)
-- Completed [Understanding NO MERCY, NO DOUBTS](/academy/quality-standards/)
+- Completed [Multi-Agent Orchestration Patterns](@/academy/agent-orchestration.md)
+- Completed [Applying NABLA Infinity Axioms](@/academy/nabla-infinity-guide.md)
+- Completed [Understanding NO MERCY, NO DOUBTS](@/academy/quality-standards.md)
 
 ## Core Concepts
 
@@ -447,32 +447,32 @@ mix seadf status --verbose     # Full SEADF subsystem status
 ## See Also
 
 ### Related Applications
-- [prismatic_safety](/apps/prismatic-safety/) -- Quality DNA, Floor Guardian, and self-healing
-- [prismatic_claude](/apps/prismatic-claude/) -- Session lifecycle driving evolution hooks
-- [prismatic_quality_intelligence](/apps/prismatic-quality-intelligence/) -- Quality analysis for evolution decisions
-- [prismatic_transcendence](/apps/prismatic-transcendence/) -- Platform consciousness and meta-cognition
-- [prismatic_agents](/apps/prismatic-agents/) -- Agent fitness evaluation infrastructure
+- [prismatic_safety](@/apps/prismatic-safety.md) -- Quality DNA, Floor Guardian, and self-healing
+- [prismatic_claude](@/apps/prismatic-claude.md) -- Session lifecycle driving evolution hooks
+- [prismatic_quality_intelligence](@/apps/prismatic-quality-intelligence.md) -- Quality analysis for evolution decisions
+- [prismatic_transcendence](@/apps/prismatic-transcendence.md) -- Platform consciousness and meta-cognition
+- [prismatic_agents](@/apps/prismatic-agents.md) -- Agent fitness evaluation infrastructure
 
 ### Glossary
-- [SEADF](/glossary/seadf/) -- Self-Evolving Autonomous Development Framework (7 subsystems)
-- [Quality DNA](/glossary/quality-dna/) -- Persistent evolutionary state across sessions
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous quality monitoring
-- [CASCADE](/glossary/cascade/) -- Pattern for eliminating entire defect categories
-- [Autoevolve](/glossary/autoevolve/) -- Autonomous evolution system
-- [Autoheal](/glossary/autoheal/) -- Self-healing infrastructure
-- [Self-Healing](/glossary/self-healing/) -- 5-level error correction system
+- [SEADF](@/glossary/seadf.md) -- Self-Evolving Autonomous Development Framework (7 subsystems)
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistent evolutionary state across sessions
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous quality monitoring
+- [CASCADE](@/glossary/cascade.md) -- Pattern for eliminating entire defect categories
+- [Autoevolve](@/glossary/autoevolve.md) -- Autonomous evolution system
+- [Autoheal](@/glossary/autoheal.md) -- Self-healing infrastructure
+- [Self-Healing](@/glossary/self-healing.md) -- 5-level error correction system
 
 ### Related Academy Topics
-- [Formal Verification with Lean4](/academy/formal-verification-guide/) -- Verifying fitness function correctness
-- [The AIAD Standard](/academy/aiad-standard/) -- How evolution requirements are encoded in agent specs
-- [Quality Standards](/academy/quality-standards/) -- The quality framework evolution optimizes for
-- [NABLA Infinity Axioms](/academy/nabla-infinity-guide/) -- Epistemic framework governing fitness evaluation
+- [Formal Verification with Lean4](@/academy/formal-verification-guide.md) -- Verifying fitness function correctness
+- [The AIAD Standard](@/academy/aiad-standard.md) -- How evolution requirements are encoded in agent specs
+- [Quality Standards](@/academy/quality-standards.md) -- The quality framework evolution optimizes for
+- [NABLA Infinity Axioms](@/academy/nabla-infinity-guide.md) -- Epistemic framework governing fitness evaluation
 
 ## Next Steps
 
-- [Formal Verification with Lean4](/academy/formal-verification-guide/) -- verify that fitness functions are correct
-- [The AIAD Standard Explained](/academy/aiad-standard/) -- how evolution requirements are encoded in agent specs
-- [Understanding NO MERCY, NO DOUBTS](/academy/quality-standards/) -- the quality framework that evolution optimizes for
+- [Formal Verification with Lean4](@/academy/formal-verification-guide.md) -- verify that fitness functions are correct
+- [The AIAD Standard Explained](@/academy/aiad-standard.md) -- how evolution requirements are encoded in agent specs
+- [Understanding NO MERCY, NO DOUBTS](@/academy/quality-standards.md) -- the quality framework that evolution optimizes for
 
 ---
 
@@ -481,4 +481,4 @@ mix seadf status --verbose     # Full SEADF subsystem status
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

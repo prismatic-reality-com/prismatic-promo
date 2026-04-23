@@ -420,24 +420,24 @@ When a production issue defies dashboard analysis, an engineer connects a remote
 
 Production environment intersects with deployment, infrastructure, and operational concerns across the platform:
 
-- [Fly.io](/glossary/fly-io/) -- the cloud platform hosting the Prismatic Platform's production and staging environments
-- [Docker](/glossary/docker/) -- containerization technology used to package OTP releases for reproducible production deployment
-- [CI/CD](/glossary/ci-cd/) -- the automated pipeline that validates, builds, and deploys code to the production environment
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) -- deployment strategy that maintains two identical production environments for instant rollback
-- [Canary Release](/glossary/canary-release/) -- gradual rollout strategy that routes a small percentage of production traffic to new releases
-- [Monitoring](/glossary/monitoring/) -- continuous observation of production health through metrics, logs, and traces
-- [Telemetry](/glossary/telemetry/) -- Elixir's instrumentation library for emitting and consuming production metrics
-- [Observability](/glossary/observability/) -- the ability to understand production system state from external outputs
-- [Release](/glossary/release/) -- OTP release packaging that creates self-contained deployable artifacts for production
-- [Cluster](/glossary/cluster/) -- distributed BEAM node topology used in multi-region production deployments
+- [Fly.io](@/glossary/fly-io.md) -- the cloud platform hosting the Prismatic Platform's production and staging environments
+- [Docker](@/glossary/docker.md) -- containerization technology used to package OTP releases for reproducible production deployment
+- [CI/CD](@/glossary/ci-cd.md) -- the automated pipeline that validates, builds, and deploys code to the production environment
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) -- deployment strategy that maintains two identical production environments for instant rollback
+- [Canary Release](@/glossary/canary-release.md) -- gradual rollout strategy that routes a small percentage of production traffic to new releases
+- [Monitoring](@/glossary/monitoring.md) -- continuous observation of production health through metrics, logs, and traces
+- [Telemetry](@/glossary/telemetry.md) -- Elixir's instrumentation library for emitting and consuming production metrics
+- [Observability](@/glossary/observability.md) -- the ability to understand production system state from external outputs
+- [Release](@/glossary/release.md) -- OTP release packaging that creates self-contained deployable artifacts for production
+- [Cluster](@/glossary/cluster.md) -- distributed BEAM node topology used in multi-region production deployments
 
 ## See Also
 
-- [Supervision Tree](/glossary/supervision-tree/) -- the OTP structure that provides automatic recovery in production
-- [Fault Tolerance](/glossary/fault-tolerance/) -- system property that ensures production services survive component failures
-- [Load Balancing](/glossary/load-balancing/) -- traffic distribution across production instances for performance and availability
-- [Incident Response](/glossary/incident-response/) -- procedures for diagnosing and resolving production issues
-- [Circuit Breaker](/glossary/circuit-breaker/) -- pattern for protecting production services from cascading failures
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the OTP structure that provides automatic recovery in production
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- system property that ensures production services survive component failures
+- [Load Balancing](@/glossary/load-balancing.md) -- traffic distribution across production instances for performance and availability
+- [Incident Response](@/glossary/incident-response.md) -- procedures for diagnosing and resolving production issues
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- pattern for protecting production services from cascading failures
 
 ---
 

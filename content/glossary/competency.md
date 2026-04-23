@@ -153,11 +153,11 @@ The Color Team assignments consider competency profiles when composing team rost
 
 ## Cross-References
 
-- [Certification](/glossary/certification/) - credential validation built on competency
+- [Certification](@/glossary/certification.md) - credential validation built on competency
 - **Completion** - learning progress metric feeding competency
-- [Assessment](/glossary/assessment/) - evaluation method for competency measurement
-- [Curriculum](/glossary/curriculum/) - structured learning path developing competencies
-- [Comprehension](/glossary/comprehension/) - understanding level within competency
+- [Assessment](@/glossary/assessment.md) - evaluation method for competency measurement
+- [Curriculum](@/glossary/curriculum.md) - structured learning path developing competencies
+- [Comprehension](@/glossary/comprehension.md) - understanding level within competency
 - **Livebooks**: `livebooks/domains/academy_learning/` - competency tracking exercises
 - **Academy**: All topics define target competencies via self-registration
 

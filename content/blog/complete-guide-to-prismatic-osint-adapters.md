@@ -392,7 +392,7 @@ curl -X POST http://localhost:4004/api/v1/osint/execute_tool \
 
 ## Building Your Own
 
-The platform is extensible. See [Building OSINT Adapters with Elixir](/blog/building-osint-adapters-with-elixir/) for a step-by-step guide, or scaffold one instantly:
+The platform is extensible. See [Building OSINT Adapters with Elixir](@/blog/building-osint-adapters-with-elixir.md) for a step-by-step guide, or scaffold one instantly:
 
 ```bash
 mix prismatic.gen.adapter --name my_custom_source --category global

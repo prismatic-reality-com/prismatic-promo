@@ -24,11 +24,11 @@ image_alt = "/deploy-production - Prismatic Platform"
 
 ## Overview
 
-The **/deploy-production** command executes safe, validated production deployments of the Prismatic Platform to [Fly.io](/glossary/fly-io/) infrastructure. Production deployment is the highest-stakes operation in the platform lifecycle -- a failed deployment can result in service downtime, data inconsistency, or user impact. This command wraps the deployment process in comprehensive safety checks, mandatory quality gates, automatic health validation, and prepared rollback procedures to minimize risk.
+The **/deploy-production** command executes safe, validated production deployments of the Prismatic Platform to [Fly.io](@/glossary/fly-io.md) infrastructure. Production deployment is the highest-stakes operation in the platform lifecycle -- a failed deployment can result in service downtime, data inconsistency, or user impact. This command wraps the deployment process in comprehensive safety checks, mandatory quality gates, automatic health validation, and prepared rollback procedures to minimize risk.
 
 The command enforces a strict deployment protocol: all staging tests must have passed, the working directory must be clean (no uncommitted changes), quality gates must report green across all 13 domains, database migrations must be validated, and a rollback path must be tested and ready before any production deployment begins. Only after these prerequisites are satisfied does the actual deployment proceed, followed by continuous health monitoring for the first 10 seconds with automatic rollback if health checks fail.
 
-This command operates under the **L4** authority level -- the highest non-SUPREME authority in the platform hierarchy -- reflecting the critical nature of production deployments. It is executed by the `fly-io-deployment-agent` agent and is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L4 authority requirement ensures that only authorized operators can trigger production deployments, and that every deployment is traceable and auditable.
+This command operates under the **L4** authority level -- the highest non-SUPREME authority in the platform hierarchy -- reflecting the critical nature of production deployments. It is executed by the `fly-io-deployment-agent` agent and is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L4 authority requirement ensures that only authorized operators can trigger production deployments, and that every deployment is traceable and auditable.
 
 The Prismatic Platform runs on Fly.io's global edge infrastructure, with the production application accessible at `prismatic-prod.fly.dev` and the staging environment at `prismatic-staging.fly.dev`. Deployments use Fly.io's rolling update strategy by default, which replaces instances gradually to maintain availability during the transition. The command also supports manual rollback control for situations where automatic rollback is insufficient.
 
@@ -188,11 +188,11 @@ PRE-DEPLOYMENT QUALITY GATES
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `fly-io-deployment-agent` | Agent manages Fly.io deployment lifecycle |
-| [AIAD](/glossary/aiad/) Registry | Command specification | Operations category, L4 authority |
-| [Quality Gates](/glossary/quality-gates/) | Mandatory pre-deployment validation | All 13 quality domains must pass |
-| [Telemetry](/glossary/telemetry/) | Deployment [metrics](/glossary/metrics/) | Deployment time, health status, rollback events |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Pipeline integration | Deployment triggered from CI pipeline |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `fly-io-deployment-agent` | Agent manages Fly.io deployment lifecycle |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification | Operations category, L4 authority |
+| [Quality Gates](@/glossary/quality-gates.md) | Mandatory pre-deployment validation | All 13 quality domains must pass |
+| [Telemetry](@/glossary/telemetry.md) | Deployment [metrics](@/glossary/metrics.md) | Deployment time, health status, rollback events |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Pipeline integration | Deployment triggered from CI pipeline |
 | Fly.io | Infrastructure provider | Application hosting and scaling |
 | Page Load Performance | Post-deployment validation | All pages must load under 250ms |
 
@@ -341,19 +341,19 @@ end
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for production deployments that bypass quality gates. Every deployment must pass all 13 quality domains. Every deployment must be health-validated. Automatic rollback is mandatory, not optional. Page load performance under 250ms is enforced, not suggested.
 - **NO DOUBTS**: Full pre-deployment verification through quality gates, staging confirmation, and migration validation. Post-deployment health checks use active probing, not cached state. Evidence-based deployment decisions with measurable metrics at every stage.
 
 ## Related Commands
 
-- [/deploy](/commands/deploy/) - Deployment to staging environment via [GitLab CI](/glossary/gitlab-ci/)/CD
-- [/deploy-unified](/commands/deploy-unified/) - Safe validated traceable deployment for all environments
-- [/deploy-meilisearch](/commands/deploy-meilisearch/) - Meilisearch instance deployment and configuration
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/emergency](/commands/emergency/) - Emergency response and crisis management activation
+- [/deploy](@/commands/deploy.md) - Deployment to staging environment via [GitLab CI](@/glossary/gitlab-ci.md)/CD
+- [/deploy-unified](@/commands/deploy-unified.md) - Safe validated traceable deployment for all environments
+- [/deploy-meilisearch](@/commands/deploy-meilisearch.md) - Meilisearch instance deployment and configuration
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/emergency](@/commands/emergency.md) - Emergency response and crisis management activation
 
 ---
 
@@ -362,4 +362,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

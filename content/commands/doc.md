@@ -26,9 +26,9 @@ image_alt = "/doc - Prismatic Platform"
 
 The **/doc** command generates comprehensive technical documentation automatically from code analysis, producing API references, usage examples, architecture diagrams, and integration guides. Rather than manually writing documentation that inevitably drifts from the implementation, this command analyzes the actual codebase -- module structures, function signatures, typespecs, existing documentation -- and generates or enhances documentation that reflects the code as it truly exists.
 
-The documentation generation process uses intelligent agent discovery to assemble the right team for each target. When documenting a storage adapter, the command recruits the storage architecture expert and the [Elixir](/glossary/elixir/) core specialist. When documenting a LiveView component, it brings in the Phoenix LiveView specialist and the UI design expert. This domain-aware agent selection ensures that generated documentation captures not just API surfaces but also architectural context, design rationale, and usage patterns specific to each component's domain.
+The documentation generation process uses intelligent agent discovery to assemble the right team for each target. When documenting a storage adapter, the command recruits the storage architecture expert and the [Elixir](@/glossary/elixir.md) core specialist. When documenting a LiveView component, it brings in the Phoenix LiveView specialist and the UI design expert. This domain-aware agent selection ensures that generated documentation captures not just API surfaces but also architectural context, design rationale, and usage patterns specific to each component's domain.
 
-This command operates under the **L2+** authority level and is executed by the `documentation-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. Documentation generation is considered a development-category operation because it directly enhances the codebase by improving `@moduledoc`, `@doc`, and `@spec` annotations alongside external documentation artifacts.
+This command operates under the **L2+** authority level and is executed by the `documentation-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. Documentation generation is considered a development-category operation because it directly enhances the codebase by improving `@moduledoc`, `@doc`, and `@spec` annotations alongside external documentation artifacts.
 
 The command supports four output formats: inline documentation (embedded in source files as `@moduledoc` and `@doc`), README generation (application-level markdown documentation), ExDoc output (full ExDoc documentation site generation), and integration guides (standalone guides for complex subsystems). Each format follows quality gates that ensure completeness, accuracy, and executability of all code examples.
 
@@ -207,10 +207,10 @@ PHASE 5: DELIVERABLE OUTPUT
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Multi-agent documentation team | Domain experts + doc specialists assembled per target |
-| [AIAD](/glossary/aiad/) Registry | Command specification | Development category |
-| [Quality Gates](/glossary/quality-gates/) | Documentation quality validation | 4-gate quality check on generated docs |
-| [Telemetry](/glossary/telemetry/) | Generation [metrics](/glossary/metrics/) | Target, format, generation time, coverage delta |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Multi-agent documentation team | Domain experts + doc specialists assembled per target |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification | Development category |
+| [Quality Gates](@/glossary/quality-gates.md) | Documentation quality validation | 4-gate quality check on generated docs |
+| [Telemetry](@/glossary/telemetry.md) | Generation [metrics](@/glossary/metrics.md) | Target, format, generation time, coverage delta |
 | ExDoc | Documentation site generation | Full ExDoc integration for HTML documentation |
 | Source Files | Inline documentation | Direct `@moduledoc`/`@doc` injection |
 
@@ -325,20 +325,20 @@ ASCII Architecture Diagram:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for undocumented public APIs. Every public function must have `@doc`, `@spec`, and at least one usage example. Documentation quality gates must pass before deliverables are finalized. No generated documentation is shipped without quality validation.
 - **NO DOUBTS**: Generated documentation is verified against the actual code. Typespecs are validated against implementation. Examples are tested for compilability. No claims made in documentation that are not backed by the codebase.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints
-- [/quality-enforce](/commands/quality-enforce/) - Progressive [quality debt](/glossary/quality-debt/) elimination
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints
+- [/quality-enforce](@/commands/quality-enforce.md) - Progressive [quality debt](@/glossary/quality-debt.md) elimination
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks
 
 ---
 
@@ -347,4 +347,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

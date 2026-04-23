@@ -25,9 +25,9 @@ image_alt = "DeHashed - Prismatic Platform"
 
 ## Overview
 
-DeHashed is a specialized data breach search engine that enables security professionals to search across billions of records from known data breaches. The platform indexes leaked credentials, personal information, and associated metadata from publicly disclosed breach datasets, providing a critical tool for organizations assessing their exposure from data security incidents. DeHashed is designed for legitimate security purposes including credential monitoring, [incident response](/glossary/incident-response/), security awareness programs, and penetration testing credential validation.
+DeHashed is a specialized data breach search engine that enables security professionals to search across billions of records from known data breaches. The platform indexes leaked credentials, personal information, and associated metadata from publicly disclosed breach datasets, providing a critical tool for organizations assessing their exposure from data security incidents. DeHashed is designed for legitimate security purposes including credential monitoring, [incident response](@/glossary/incident-response.md), security awareness programs, and penetration testing credential validation.
 
-For [OSINT](/glossary/osint/) analysts, DeHashed represents one of the most comprehensive searchable breach databases available through a legitimate commercial service. Unlike raw breach data dumps that require significant processing to query effectively, DeHashed provides an indexed, normalized search interface across multiple breach datasets with consistent field mapping. This enables rapid assessment of credential exposure for domains, email addresses, usernames, IP addresses, and even name-based searches across the aggregated breach corpus.
+For [OSINT](@/glossary/osint.md) analysts, DeHashed represents one of the most comprehensive searchable breach databases available through a legitimate commercial service. Unlike raw breach data dumps that require significant processing to query effectively, DeHashed provides an indexed, normalized search interface across multiple breach datasets with consistent field mapping. This enables rapid assessment of credential exposure for domains, email addresses, usernames, IP addresses, and even name-based searches across the aggregated breach corpus.
 
 The platform maintains a continuously growing index as new breach datasets are identified, verified, and added to the searchable database. Each record is tagged with the source breach, enabling analysts to trace exposure back to specific incidents and assess the scope and potential impact of each breach affecting their organization or investigation targets.
 
@@ -280,7 +280,7 @@ Data retention for DeHashed results follows the platform's intelligence retentio
 
 ## Platform Integration
 
-DeHashed integrates into the Prismatic Platform's credential intelligence pipeline alongside [Have I Been Pwned](/osint/haveibeenpwned/) and [Intelligence X](/osint/intelx/), providing comprehensive breach exposure assessment through multi-source correlation.
+DeHashed integrates into the Prismatic Platform's credential intelligence pipeline alongside [Have I Been Pwned](@/osint/haveibeenpwned.md) and [Intelligence X](@/osint/intelx.md), providing comprehensive breach exposure assessment through multi-source correlation.
 
 ```elixir
 defmodule Prismatic.Pipeline.CredentialIntelligence do
@@ -313,7 +313,7 @@ end
 
 ## Best Practices
 
-When using DeHashed for organizational security assessment, start with a domain-wide query to establish baseline exposure metrics before investigating individual accounts. Prioritize investigation of accounts where plaintext passwords are exposed, as these represent immediate credential stuffing risk. Cross-reference DeHashed findings with [Have I Been Pwned](/osint/haveibeenpwned/) to ensure comprehensive coverage, as the two platforms may index different breach datasets.
+When using DeHashed for organizational security assessment, start with a domain-wide query to establish baseline exposure metrics before investigating individual accounts. Prioritize investigation of accounts where plaintext passwords are exposed, as these represent immediate credential stuffing risk. Cross-reference DeHashed findings with [Have I Been Pwned](@/osint/haveibeenpwned.md) to ensure comprehensive coverage, as the two platforms may index different breach datasets.
 
 For ongoing monitoring, schedule periodic domain scans and compare results against previous baselines to detect new exposures. Integrate findings into security awareness training by providing employees with evidence of their personal exposure (without revealing actual passwords) to motivate better credential hygiene practices.
 
@@ -321,13 +321,13 @@ Implement appropriate operational security when handling DeHashed results. Proce
 
 ## Related Sources
 
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Complementary breach notification and credential checking
-- [Intelligence X](/osint/intelx/) - Dark web and leak search with historical content
-- [Hunter.io](/osint/hunter-io/) - Email discovery for scope assessment
-- [SpiderFoot](/osint/spiderfoot/) - Automated OSINT with breach integration modules
-- [VirusTotal](/osint/virustotal/) - Threat correlation for breach-related indicators
-- [DataBreaches.net](/osint/databreaches-net/) - Breach reporting and threat actor tracking
-- [ThreatFox](/osint/threatfox/) - IOC sharing for malware associated with breaches
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Complementary breach notification and credential checking
+- [Intelligence X](@/osint/intelx.md) - Dark web and leak search with historical content
+- [Hunter.io](@/osint/hunter-io.md) - Email discovery for scope assessment
+- [SpiderFoot](@/osint/spiderfoot.md) - Automated OSINT with breach integration modules
+- [VirusTotal](@/osint/virustotal.md) - Threat correlation for breach-related indicators
+- [DataBreaches.net](@/osint/databreaches-net.md) - Breach reporting and threat actor tracking
+- [ThreatFox](@/osint/threatfox.md) - IOC sharing for malware associated with breaches
 
 ---
 
@@ -336,4 +336,4 @@ Implement appropriate operational security when handling DeHashed results. Proce
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

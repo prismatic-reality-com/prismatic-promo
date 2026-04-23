@@ -28,17 +28,17 @@ image_alt = "adr-specialist - Prismatic Platform"
 
 ## Overview
 
-The ADR Specialist operates as an L2 [tactical execution](/glossary/tactical-execution/) agent within the Primary Producer domain of the Prismatic Platform. This agent governs the lifecycle of Architecture Decision Records (ADRs) -- structured documents that capture the context, rationale, and consequences of significant architectural choices. In a platform with 90 [umbrella application](/glossary/umbrella-application/)s, 404 autonomous agents, and a codebase exceeding 2.8 million lines, undocumented architectural decisions create compounding technical risk. The ADR Specialist ensures that every significant design choice is recorded, validated against existing decisions, and maintained as a living document that evolves with the platform.
+The ADR Specialist operates as an L2 [tactical execution](@/glossary/tactical-execution.md) agent within the Primary Producer domain of the Prismatic Platform. This agent governs the lifecycle of Architecture Decision Records (ADRs) -- structured documents that capture the context, rationale, and consequences of significant architectural choices. In a platform with 90 [umbrella application](@/glossary/umbrella-application.md)s, 404 autonomous agents, and a codebase exceeding 2.8 million lines, undocumented architectural decisions create compounding technical risk. The ADR Specialist ensures that every significant design choice is recorded, validated against existing decisions, and maintained as a living document that evolves with the platform.
 
-The agent's mandate extends beyond simple documentation. Architecture Decision Records in the Prismatic Platform are living intelligence artifacts that track the downstream impact of each decision, detect when assumptions underlying a decision have changed, and trigger review workflows when dependent components evolve. A decision recorded six months ago to use [ETS](/glossary/ets/) for a particular cache layer carries assumptions about data volume, access patterns, and concurrency requirements. When those assumptions change -- as detected through [telemetry](/glossary/telemetry/) monitoring and [SEADF](/glossary/seadf/) scanning -- the ADR Specialist flags the decision for reassessment rather than allowing architectural drift to accumulate silently.
+The agent's mandate extends beyond simple documentation. Architecture Decision Records in the Prismatic Platform are living intelligence artifacts that track the downstream impact of each decision, detect when assumptions underlying a decision have changed, and trigger review workflows when dependent components evolve. A decision recorded six months ago to use [ETS](@/glossary/ets.md) for a particular cache layer carries assumptions about data volume, access patterns, and concurrency requirements. When those assumptions change -- as detected through [telemetry](@/glossary/telemetry.md) monitoring and [SEADF](@/glossary/seadf.md) scanning -- the ADR Specialist flags the decision for reassessment rather than allowing architectural drift to accumulate silently.
 
-This approach transforms ADRs from static historical records into active governance instruments. Each ADR is linked to the components it affects, the [metrics](/glossary/metrics/) that validate its assumptions, and the agents responsible for the domain it governs. The [NABLA Infinity](/glossary/nabla-infinity/) provenance axiom is directly served by this agent: every architectural claim in the platform can be traced to a specific decision record with documented rationale, alternatives considered, and evidence evaluated.
+This approach transforms ADRs from static historical records into active governance instruments. Each ADR is linked to the components it affects, the [metrics](@/glossary/metrics.md) that validate its assumptions, and the agents responsible for the domain it governs. The [NABLA Infinity](@/glossary/nabla-infinity.md) provenance axiom is directly served by this agent: every architectural claim in the platform can be traced to a specific decision record with documented rationale, alternatives considered, and evidence evaluated.
 
 ## Architecture
 
-The ADR Specialist is implemented as an [OTP](/glossary/otp/) process that maintains a decision index in memory and persists ADR artifacts to the platform's documentation layer. The agent integrates with the git history to detect architectural changes and with the SEADF Scanner to correlate decisions with code quality metrics.
+The ADR Specialist is implemented as an [OTP](@/glossary/otp.md) process that maintains a decision index in memory and persists ADR artifacts to the platform's documentation layer. The agent integrates with the git history to detect architectural changes and with the SEADF Scanner to correlate decisions with code quality metrics.
 
-The decision index is maintained in [ETS](/glossary/ets/) with `:set` type keyed by ADR identifier, enabling O(1) lookup by ID. Secondary indices support efficient search across the decision corpus by domain, technology, affected component, or date range. The index is rebuilt from the filesystem at startup and maintained incrementally through filesystem monitoring during runtime.
+The decision index is maintained in [ETS](@/glossary/ets.md) with `:set` type keyed by ADR identifier, enabling O(1) lookup by ID. Secondary indices support efficient search across the decision corpus by domain, technology, affected component, or date range. The index is rebuilt from the filesystem at startup and maintained incrementally through filesystem monitoring during runtime.
 
 Impact tracking operates through telemetry subscriptions. When an ADR is accepted, the specialist registers telemetry event handlers for the metrics that validate the decision's assumptions. If a decision assumes that a particular ETS table will contain fewer than 100,000 entries, a telemetry handler monitors table size and triggers a review alert when the threshold approaches. This proactive monitoring transforms architectural governance from periodic review into continuous validation.
 
@@ -117,18 +117,18 @@ defmodule PrismaticADR.Specialist do
 end
 ```
 
-The consistency validation algorithm compares proposed decisions against a semantic index of existing decisions, flagging potential contradictions where a new decision's context overlaps with an existing decision but reaches a different conclusion. Contradictions are not automatically rejected -- they are surfaced for human review, consistent with the NABLA [Contradiction Preservation](/glossary/contradiction-preservation/) axiom that treats contradictory evidence as informative rather than erroneous.
+The consistency validation algorithm compares proposed decisions against a semantic index of existing decisions, flagging potential contradictions where a new decision's context overlaps with an existing decision but reaches a different conclusion. Contradictions are not automatically rejected -- they are surfaced for human review, consistent with the NABLA [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom that treats contradictory evidence as informative rather than erroneous.
 
 ## Integration Points
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [architecture-decision-specialist](/agents/architecture-decision-specialist/) | Peer Specialist | Shares ADR management responsibilities and architectural decision expertise |
-| [AIAD Template Generator Agent](/agents/aiad-template-generator-agent/) | Template Consumer | Consumes ADR templates for project-specific configuration generation |
-| [Code Review Specialist Agent v2.0](/agents/code-review-specialist-agent-v20/) | Review Partner | Validates that code changes align with documented architectural decisions |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Verification Gate | Verifies ADR cross-references and consistency during ecosystem scans |
-| [SEADF](/glossary/seadf/) Scanner | Quality Source | Correlates code quality metrics with ADR-documented decisions |
-| [Quality DNA](/glossary/quality-dna/) | Persistence | Stores ADR-related quality state across sessions |
+| [architecture-decision-specialist](@/agents/architecture-decision-specialist.md) | Peer Specialist | Shares ADR management responsibilities and architectural decision expertise |
+| [AIAD Template Generator Agent](@/agents/aiad-template-generator-agent.md) | Template Consumer | Consumes ADR templates for project-specific configuration generation |
+| [Code Review Specialist Agent v2.0](@/agents/code-review-specialist-agent-v20.md) | Review Partner | Validates that code changes align with documented architectural decisions |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Verification Gate | Verifies ADR cross-references and consistency during ecosystem scans |
+| [SEADF](@/glossary/seadf.md) Scanner | Quality Source | Correlates code quality metrics with ADR-documented decisions |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | Stores ADR-related quality state across sessions |
 
 ## Operational Workflow
 
@@ -189,12 +189,12 @@ The AIAD specification at `.aiad/agents/adr-specialist.agent.md` defines L2 tact
 
 ## Related Resources
 
-- [Architecture Overview](/architecture/) -- Platform architecture informed by ADR decisions
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard using ADR governance
-- [SEADF](/glossary/seadf/) -- Self-Evolving Autonomous Development Framework with quality scanning
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-agent coordination capabilities
-- [Applications](/apps/) -- 90+ umbrella applications governed by architectural decisions
-- [Glossary](/glossary/) -- Technical terminology including ADR concepts
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture informed by ADR decisions
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard using ADR governance
+- [SEADF](@/glossary/seadf.md) -- Self-Evolving Autonomous Development Framework with quality scanning
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-agent coordination capabilities
+- [Applications](@/apps/_index.md) -- 90+ umbrella applications governed by architectural decisions
+- [Glossary](@/glossary/_index.md) -- Technical terminology including ADR concepts
 
 ---
 
@@ -203,4 +203,4 @@ The AIAD specification at `.aiad/agents/adr-specialist.agent.md` defines L2 tact
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

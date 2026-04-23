@@ -28,15 +28,15 @@ image_alt = "/optimize - Prismatic Platform"
 
 Performance optimization in the Prismatic Platform follows a disciplined methodology that rejects premature optimization and gut-feeling improvements. The `/optimize` command enforces this discipline by requiring baseline measurements before any changes, automated benchmarking after changes, and statistical validation that improvements are genuine rather than measurement noise. This evidence-based approach prevents the common antipattern of "optimization" that degrades code clarity without measurable benefit.
 
-The command integrates with the platform's comprehensive [telemetry](/glossary/telemetry/) infrastructure to capture performance data at multiple granularity levels: function-level execution time, module-level throughput, application-level latency, and system-level resource utilization. All measurements are stored in the platform's time-series database for historical trend analysis and regression detection.
+The command integrates with the platform's comprehensive [telemetry](@/glossary/telemetry.md) infrastructure to capture performance data at multiple granularity levels: function-level execution time, module-level throughput, application-level latency, and system-level resource utilization. All measurements are stored in the platform's time-series database for historical trend analysis and regression detection.
 
 The platform enforces hard performance limits: all pages must load under 250ms, server-side rendering must complete under 100ms, LiveView mounts under 150ms, and handle_event callbacks under 50ms. The `/optimize` command is the primary tool for achieving and maintaining compliance with these standards.
 
-This command operates under the **L3** authority level and is executed by the `performance-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level and is executed by the `performance-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
-The `/optimize` command implements a measurement-driven optimization pipeline built on Benchee for microbenchmarks and custom [telemetry](/glossary/telemetry/) for application-level measurements.
+The `/optimize` command implements a measurement-driven optimization pipeline built on Benchee for microbenchmarks and custom [telemetry](@/glossary/telemetry.md) for application-level measurements.
 
 ### Optimization Pipeline
 
@@ -176,12 +176,12 @@ Target Identification --> Baseline Measurement
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Managed by `performance-specialist` agent |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post validation | Performance gates as quality checkpoints |
-| [Telemetry](/glossary/telemetry/) | Data source | Production [metrics](/glossary/metrics/) for hotspot identification |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Managed by `performance-specialist` agent |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post validation | Performance gates as quality checkpoints |
+| [Telemetry](@/glossary/telemetry.md) | Data source | Production [metrics](@/glossary/metrics.md) for hotspot identification |
 | Benchee | Measurement | Statistical benchmarking framework |
-| [Test Suite](/glossary/exunit/) | Regression guard | Functional verification after optimization |
-| [CI/CD Pipeline](/glossary/gitlab-ci/) | Gate | Performance budgets enforced in pipeline |
+| [Test Suite](@/glossary/exunit.md) | Regression guard | Functional verification after optimization |
+| [CI/CD Pipeline](@/glossary/gitlab-ci.md) | Gate | Performance budgets enforced in pipeline |
 | Page Load Policy | Standards | 250ms page load, 100ms render targets |
 
 ## Best Practices
@@ -240,19 +240,19 @@ The platform has achieved O(1) pattern detection providing 90-250x speedup over 
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every optimization must be fully measured, validated, and regression-tested. No "it feels faster" claims. No optimization without evidence.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Profiling before optimizing. Statistical validation of improvements. Quantitative reporting with confidence intervals.
 
 ## Related Commands
 
-- [/perf-profile](/commands/perf-profile/) - Application profiling and performance hotspot identification
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/perf-profile](@/commands/perf-profile.md) - Application profiling and performance hotspot identification
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -261,4 +261,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

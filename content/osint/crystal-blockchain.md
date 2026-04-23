@@ -31,7 +31,7 @@ Crystal distinguishes itself through its visual investigation interface and deta
 
 The platform's risk scoring considers both direct and indirect exposure to categories including darknet markets, ransomware, mixers, stolen funds, sanctioned entities, gambling services, and high-risk exchanges. Risk scores are computed on a 0-100 scale with category-level breakdown, enabling analysts to understand not just the overall risk level but the specific nature of the risk exposure.
 
-For the Prismatic platform, Crystal serves as a third-party validation source alongside [Chainalysis](/osint/chainalysis/) and [Elliptic](/osint/elliptic/). In high-stakes compliance scenarios, having multiple independent analytics providers is essential for demonstrating comprehensive due diligence and meeting the evidentiary standards required by regulators and courts. Crystal's visual capabilities are particularly valuable for producing investigation deliverables that effectively communicate findings to stakeholders.
+For the Prismatic platform, Crystal serves as a third-party validation source alongside [Chainalysis](@/osint/chainalysis.md) and [Elliptic](@/osint/elliptic.md). In high-stakes compliance scenarios, having multiple independent analytics providers is essential for demonstrating comprehensive due diligence and meeting the evidentiary standards required by regulators and courts. Crystal's visual capabilities are particularly valuable for producing investigation deliverables that effectively communicate findings to stakeholders.
 
 ## Data Sources and Coverage
 
@@ -39,11 +39,11 @@ Crystal Blockchain builds its intelligence from blockchain data analysis, entity
 
 | Data Type | Description | Coverage |
 |-----------|-------------|---------|
-| **[Risk Score](/glossary/risk-score/)s** | Address and transaction risk ratings (0-100 scale) | All supported chains |
+| **[Risk Score](@/glossary/risk-score.md)s** | Address and transaction risk ratings (0-100 scale) | All supported chains |
 | **Entity Attribution** | Address labels for known entities (exchanges, services, etc.) | Growing database |
 | **Cluster Data** | Address groupings by common ownership patterns | Heuristic-based |
 | **Transaction Graphs** | Interactive visual fund flow exploration | Unlimited depth |
-| **[Sanctions Screening](/glossary/sanctions-screening/)** | OFAC, EU, UN sanctions list matching | Global lists |
+| **[Sanctions Screening](@/glossary/sanctions-screening.md)** | OFAC, EU, UN sanctions list matching | Global lists |
 | **Entity Reports** | Detailed profiles of known cryptocurrency entities | Major entities |
 | **Cross-Chain Data** | Bitcoin, Ethereum, Litecoin, and additional chains | Multi-chain |
 | **Real-Time Alerts** | Configurable monitoring for address activity | Webhook-based |
@@ -210,11 +210,11 @@ Crystal's graph explorer is designed for interactive investigation workflows tha
 
 ### Compliance Automation
 
-Crystal provides automated compliance screening capabilities for VASPs and financial institutions. Key workflows include automated screening of incoming cryptocurrency deposits against risk thresholds, [real-time monitoring](/capabilities/real-time-monitoring/) of high-risk addresses with webhook-based alerting, batch processing for customer portfolio screening during periodic reviews, sanctions list matching with automatic escalation for positive matches, and configurable risk policies that map risk scores to compliance actions.
+Crystal provides automated compliance screening capabilities for VASPs and financial institutions. Key workflows include automated screening of incoming cryptocurrency deposits against risk thresholds, [real-time monitoring](@/capabilities/real-time-monitoring.md) of high-risk addresses with webhook-based alerting, batch processing for customer portfolio screening during periodic reviews, sanctions list matching with automatic escalation for positive matches, and configurable risk policies that map risk scores to compliance actions.
 
 ### Multi-Provider Validation and Due Diligence
 
-Crystal's independent risk assessment methodology makes it valuable for cross-validation in high-stakes compliance decisions. Specific applications include cross-validating risk assessments from [Chainalysis](/osint/chainalysis/) and [Elliptic](/osint/elliptic/) to identify false positives and false negatives, demonstrating comprehensive due diligence to regulators through multi-provider screening, resolving disagreements between primary screening providers using Crystal as a tie-breaker, and supporting regulatory examinations with evidence from multiple independent sources.
+Crystal's independent risk assessment methodology makes it valuable for cross-validation in high-stakes compliance decisions. Specific applications include cross-validating risk assessments from [Chainalysis](@/osint/chainalysis.md) and [Elliptic](@/osint/elliptic.md) to identify false positives and false negatives, demonstrating comprehensive due diligence to regulators through multi-provider screening, resolving disagreements between primary screening providers using Crystal as a tie-breaker, and supporting regulatory examinations with evidence from multiple independent sources.
 
 ### Ransomware and Financial Crime Analysis
 
@@ -232,11 +232,11 @@ Cross-chain tracing accuracy is lower than single-chain analysis due to the comp
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, Crystal Blockchain provides visual investigation capabilities and independent risk assessment for the cryptocurrency compliance pipeline. Crystal data is used alongside [Chainalysis](/osint/chainalysis/) as the primary provider and [Elliptic](/osint/elliptic/) as a secondary provider, with Crystal serving as a third independent validation source for critical screening decisions.
+Within the Prismatic ecosystem, Crystal Blockchain provides visual investigation capabilities and independent risk assessment for the cryptocurrency compliance pipeline. Crystal data is used alongside [Chainalysis](@/osint/chainalysis.md) as the primary provider and [Elliptic](@/osint/elliptic.md) as a secondary provider, with Crystal serving as a third independent validation source for critical screening decisions.
 
 The triple-provider consensus mechanism requires agreement from at least two of three providers before risk classifications are assigned, reducing false positive rates while maintaining high detection sensitivity for genuine risks.
 
-The [Prismatic Perimeter](/apps/prismatic-perimeter/) security rating engine incorporates Crystal risk data as part of the cryptocurrency compliance factor in organizational security ratings.
+The [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security rating engine incorporates Crystal risk data as part of the cryptocurrency compliance factor in organizational security ratings.
 
 ## NABLA Compliance
 
@@ -265,13 +265,13 @@ API key required for all programmatic access. Enterprise contracts with tiered a
 
 ## Related Resources
 
-- [Chainalysis](/osint/chainalysis/) - Enterprise blockchain analytics leader
-- [Elliptic](/osint/elliptic/) - Crypto compliance with holistic screening
-- [Blockchain.com](/osint/blockchain-com/) - Bitcoin blockchain raw data
-- [Etherscan](/osint/etherscan/) - Ethereum blockchain explorer
-- [OFAC](/osint/ofac/) - US sanctions including cryptocurrency addresses
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Cryptocurrency risk in security ratings
+- [Chainalysis](@/osint/chainalysis.md) - Enterprise blockchain analytics leader
+- [Elliptic](@/osint/elliptic.md) - Crypto compliance with holistic screening
+- [Blockchain.com](@/osint/blockchain-com.md) - Bitcoin blockchain raw data
+- [Etherscan](@/osint/etherscan.md) - Ethereum blockchain explorer
+- [OFAC](@/osint/ofac.md) - US sanctions including cryptocurrency addresses
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Cryptocurrency risk in security ratings
 
 ---
 
@@ -280,4 +280,4 @@ API key required for all programmatic access. Enterprise contracts with tiered a
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

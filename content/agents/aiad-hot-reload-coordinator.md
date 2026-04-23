@@ -28,17 +28,17 @@ image_alt = "aiad-hot-reload-coordinator - Prismatic Platform"
 
 ## Overview
 
-The [AIAD](/glossary/aiad/) Hot Reload Coordinator operates as an L3 [strategic command](/glossary/strategic-command/) agent that manages live updates to agent specifications without requiring system restarts or deployment cycles. Leveraging the [BEAM](/glossary/beam/) virtual machine's native [hot code reload](/glossary/hot-code-reload/)ing capabilities, this agent enables real-time modification of agent behavior, configuration, and coordination patterns while the platform continues serving requests. This is essential for maintaining the platform's zero-downtime operational guarantee.
+The [AIAD](@/glossary/aiad.md) Hot Reload Coordinator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent that manages live updates to agent specifications without requiring system restarts or deployment cycles. Leveraging the [BEAM](@/glossary/beam.md) virtual machine's native [hot code reload](@/glossary/hot-code-reload.md)ing capabilities, this agent enables real-time modification of agent behavior, configuration, and coordination patterns while the platform continues serving requests. This is essential for maintaining the platform's zero-downtime operational guarantee.
 
-Hot code reloading in a 400+ agent ecosystem is not as simple as swapping a module. The Hot Reload Coordinator must ensure state consistency across reloaded agents, validate that new specifications are compatible with in-flight operations, and coordinate reload timing to prevent partial updates that could leave the agent ecosystem in an inconsistent state. The coordinator implements a two-phase reload [protocol](/glossary/protocol/): first validating the new specification against the current runtime state, then executing the reload with rollback capability if post-reload health checks fail.
+Hot code reloading in a 400+ agent ecosystem is not as simple as swapping a module. The Hot Reload Coordinator must ensure state consistency across reloaded agents, validate that new specifications are compatible with in-flight operations, and coordinate reload timing to prevent partial updates that could leave the agent ecosystem in an inconsistent state. The coordinator implements a two-phase reload [protocol](@/glossary/protocol.md): first validating the new specification against the current runtime state, then executing the reload with rollback capability if post-reload health checks fail.
 
 The two-phase approach addresses a fundamental tension in live code updates: the need for speed (minimize the window where old and new code coexist) versus the need for safety (ensure the new code does not corrupt existing state or break ongoing operations). By separating validation from execution, the coordinator can perform thorough compatibility checks without holding any locks, then execute the actual code swap in a minimal time window with pre-built rollback capability.
 
 ## Architecture
 
-The Hot Reload Coordinator is implemented as a [GenServer](/glossary/genserver/) within the `prismatic_agents` [supervision tree](/glossary/supervision-tree/). The architecture separates three concerns: specification validation, code swap execution, and post-reload verification.
+The Hot Reload Coordinator is implemented as a [GenServer](@/glossary/genserver.md) within the `prismatic_agents` [supervision tree](@/glossary/supervision-tree.md). The architecture separates three concerns: specification validation, code swap execution, and post-reload verification.
 
-The validation layer checks structural compatibility between the new specification and the current runtime state. If a [GenServer](/glossary/genserver/) state structure changes between versions, the validator identifies the required state transformation and generates a migration function. If the new specification changes the agent's coordination table (adding or removing peer agents), the validator ensures all referenced agents exist and are ready to accept the updated coordination pattern.
+The validation layer checks structural compatibility between the new specification and the current runtime state. If a [GenServer](@/glossary/genserver.md) state structure changes between versions, the validator identifies the required state transformation and generates a migration function. If the new specification changes the agent's coordination table (adding or removing peer agents), the validator ensures all referenced agents exist and are ready to accept the updated coordination pattern.
 
 The execution layer leverages BEAM's built-in code loading mechanism through `:code.load_binary/3` and `:code.purge/1`. For specification-only changes (metadata, configuration), the update is applied through ETS table writes without module code changes. For behavioral changes that require module recompilation, the coordinator uses Erlang's code upgrade protocol, calling `code_change/3` callbacks on affected GenServers to migrate state between versions.
 
@@ -97,9 +97,9 @@ end
 - **Two-phase reload protocol** that validates specification compatibility before executing code swap, with automatic rollback if post-reload health checks detect degraded behavior or state corruption
 - **Dependency-aware reload sequencing** that identifies agents dependent on the reloading target and coordinates reload ordering to maintain consistency across the agent communication graph
 - **State migration during reload** preserving GenServer state across code versions by implementing state transformation functions that adapt existing state to new specification requirements
-- **Selective module targeting** enabling reload of individual [agent module](/glossary/agent-module/)s without affecting the broader ecosystem, minimizing blast radius during iterative development cycles
+- **Selective module targeting** enabling reload of individual [agent module](@/glossary/agent-module.md)s without affecting the broader ecosystem, minimizing blast radius during iterative development cycles
 - **Batch reload coordination** supporting coordinated updates of multiple agents in dependency order, ensuring that inter-agent communication remains consistent throughout the batch reload process
-- **Reload [audit trail](/glossary/audit-trail/)** recording every hot reload event with before/after specification versions, triggering session, and post-reload validation results for compliance and debugging
+- **Reload [audit trail](@/glossary/audit-trail.md)** recording every hot reload event with before/after specification versions, triggering session, and post-reload validation results for compliance and debugging
 
 ## Implementation
 
@@ -115,11 +115,11 @@ For behavioral updates requiring module changes, the coordinator uses Erlang's `
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [aiad-dashboard-commander](/agents/aiad-dashboard-commander/) | Visibility Partner | Displays reload events and post-reload health status on monitoring dashboards |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Pre-reload Validator | Validates new specifications before reload execution |
-| [aiad-deployment-engine](/agents/aiad-deployment-engine/) | Deployment Fallback | Handles cases where hot reload is insufficient and full deployment is required |
-| [aiad-backup-manager](/agents/aiad-backup-manager/) | Safety Net | Provides pre-reload backup for rollback capability |
-| [alert-management-specialist](/agents/alert-management-specialist/) | Alert Router | Routes reload failure alerts to operations teams |
+| [aiad-dashboard-commander](@/agents/aiad-dashboard-commander.md) | Visibility Partner | Displays reload events and post-reload health status on monitoring dashboards |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Pre-reload Validator | Validates new specifications before reload execution |
+| [aiad-deployment-engine](@/agents/aiad-deployment-engine.md) | Deployment Fallback | Handles cases where hot reload is insufficient and full deployment is required |
+| [aiad-backup-manager](@/agents/aiad-backup-manager.md) | Safety Net | Provides pre-reload backup for rollback capability |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Alert Router | Routes reload failure alerts to operations teams |
 
 ## Operational Workflow
 
@@ -170,12 +170,12 @@ The AIAD specification at `.aiad/agents/aiad-hot-reload-coordinator.agent.md` de
 
 ## Related Resources
 
-- [BEAM Hot Code Loading](/glossary/hot-code-reload/) -- BEAM virtual machine code loading mechanism
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard for reloadable specifications
-- [OTP Code Upgrade](/glossary/otp/) -- OTP code_change callback protocol
-- [Architecture Overview](/architecture/) -- Platform architecture including live update capabilities
-- [Applications](/apps/) -- Platform applications hosting reloadable agents
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Telemetry events for reload monitoring
+- [BEAM Hot Code Loading](@/glossary/hot-code-reload.md) -- BEAM virtual machine code loading mechanism
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard for reloadable specifications
+- [OTP Code Upgrade](@/glossary/otp.md) -- OTP code_change callback protocol
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including live update capabilities
+- [Applications](@/apps/_index.md) -- Platform applications hosting reloadable agents
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Telemetry events for reload monitoring
 
 ---
 
@@ -184,4 +184,4 @@ The AIAD specification at `.aiad/agents/aiad-hot-reload-coordinator.agent.md` de
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

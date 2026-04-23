@@ -208,11 +208,11 @@ Every survived mutant in critical modules triggers the regression test protocol,
 
 ## Cross-References
 
-- [Mutation Testing](/glossary/mutation-testing/) - The methodology using mutants
-- [Killed/Survived](/glossary/killedsurvived/) - Binary outcome of mutant evaluation
+- [Mutation Testing](@/glossary/mutation-testing.md) - The methodology using mutants
+- [Killed/Survived](@/glossary/killedsurvived.md) - Binary outcome of mutant evaluation
 - **Mutation Score** - Aggregate quality metric from mutant results
-- [Property-Based Testing](/glossary/property-based-testing/) - Complementary test quality technique
-- [Invariant](/glossary/invariant/) - Properties that mutants should violate when killed
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Complementary test quality technique
+- [Invariant](@/glossary/invariant.md) - Properties that mutants should violate when killed
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

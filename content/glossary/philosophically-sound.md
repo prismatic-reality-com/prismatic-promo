@@ -263,23 +263,23 @@ This is not boilerplate -- it forces the agent designer to articulate the philos
 
 ## Related Concepts
 
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) - The formal study of knowledge and justified belief that underpins philosophical soundness
-- [NABLA Infinity](/glossary/nabla-infinity/) - The platform's epistemic framework enforcing evidence plurality and contradiction preservation
-- [Trinity Gate](/glossary/trinity-gate/) - Three-layer verification system ensuring claims are structurally, logically, and formally sound
-- [Code as Truth](/glossary/code-as-truth/) - The principle that executable code is the authoritative specification of system behavior
-- [Axiom Enforcement](/glossary/axiom-enforcement/) - Mechanism for enforcing non-negotiable design constraints
-- [Addiction Recovery](/glossary/addiction-recovery/) - The Addiction Preservation doctrine for maintaining evidential honesty
-- [Architectural Decision](/glossary/architectural-decision/) - Formal record of a justified design choice
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) - The platform's commitment to evidence-based quality measurement
-- [Conceptual Framework](/glossary/conceptual-framework/) - The theoretical structures that organize philosophical reasoning
-- [Architectural Thinking](/glossary/architectural-thinking/) - The discipline of reasoning about system structure and evolution
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) - The formal study of knowledge and justified belief that underpins philosophical soundness
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - The platform's epistemic framework enforcing evidence plurality and contradiction preservation
+- [Trinity Gate](@/glossary/trinity-gate.md) - Three-layer verification system ensuring claims are structurally, logically, and formally sound
+- [Code as Truth](@/glossary/code-as-truth.md) - The principle that executable code is the authoritative specification of system behavior
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) - Mechanism for enforcing non-negotiable design constraints
+- [Addiction Recovery](@/glossary/addiction-recovery.md) - The Addiction Preservation doctrine for maintaining evidential honesty
+- [Architectural Decision](@/glossary/architectural-decision.md) - Formal record of a justified design choice
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) - The platform's commitment to evidence-based quality measurement
+- [Conceptual Framework](@/glossary/conceptual-framework.md) - The theoretical structures that organize philosophical reasoning
+- [Architectural Thinking](@/glossary/architectural-thinking.md) - The discipline of reasoning about system structure and evolution
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture grounded in philosophical soundness
+- [Architecture](@/architecture/_index.md) - Platform architecture grounded in philosophical soundness
 - Glossary Index - Complete glossary of platform concepts
-- [Capabilities](/capabilities/) - Platform capabilities justified through first-principles reasoning
-- [Technologies](/technologies/) - Technology choices with philosophical justification
+- [Capabilities](@/capabilities/_index.md) - Platform capabilities justified through first-principles reasoning
+- [Technologies](@/technologies/_index.md) - Technology choices with philosophical justification
 
 ---
 
@@ -288,4 +288,4 @@ This is not boilerplate -- it forces the agent designer to articulate the philos
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

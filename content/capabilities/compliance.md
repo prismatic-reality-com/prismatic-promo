@@ -24,7 +24,7 @@ image_alt = "Compliance & Regulatory - Prismatic Platform"
 
 Compliance & Regulatory is the Prismatic Platform's capability for automated assessment, continuous monitoring, and evidence-based reporting of compliance posture against regulatory frameworks. The platform currently supports three primary frameworks -- NIS2 (EU Network and Information Security Directive 2), GDPR (General Data Protection Regulation), and ZKB (Czech Cybersecurity Decree 264/2025 Sb.) -- with an extensible architecture designed to accommodate additional regulatory regimes as they emerge. Every compliance finding is backed by verifiable evidence, carries confidence scores, and maintains a complete audit trail from assessment to remediation.
 
-Regulatory compliance is not a checkbox exercise. Organizations that treat it as one inevitably discover gaps when regulators, auditors, or adversaries test their actual posture. The Prismatic approach applies the same epistemic rigor to compliance that governs all platform intelligence products: multi-source evidence gathering, contradiction preservation, confidence scoring, and formal verification through [Trinity Gate](/capabilities/trinity-gate/). The result is a compliance posture that is not merely claimed but demonstrably proved.
+Regulatory compliance is not a checkbox exercise. Organizations that treat it as one inevitably discover gaps when regulators, auditors, or adversaries test their actual posture. The Prismatic approach applies the same epistemic rigor to compliance that governs all platform intelligence products: multi-source evidence gathering, contradiction preservation, confidence scoring, and formal verification through [Trinity Gate](@/capabilities/trinity-gate.md). The result is a compliance posture that is not merely claimed but demonstrably proved.
 
 ## Regulatory Frameworks
 
@@ -109,7 +109,7 @@ The compliance assessment engine collects evidence from multiple platform capabi
 
 | Evidence Source | Data Collected | Framework Applicability |
 |----------------|---------------|------------------------|
-| **[EASM](/capabilities/easm/)** | External attack surface findings, security ratings | NIS2 Art. 21, ZKB Network Security |
+| **[EASM](@/capabilities/easm.md)** | External attack surface findings, security ratings | NIS2 Art. 21, ZKB Network Security |
 | **Czech Registries** | Registration status, entity classification | ZKB scope determination, NIS2 Art. 28 |
 | **Certificate Monitoring** | TLS configuration, certificate validity | NIS2 Art. 21(h), ZKB Cryptographic Controls |
 | **DNS Assessment** | SPF/DKIM/DMARC/DNSSEC configuration | NIS2 Art. 21(e), ZKB Network Security |
@@ -163,7 +163,7 @@ Every compliance assessment produces an immutable audit trail that satisfies reg
 
 ### Provenance Compliance
 
-Following the [Provenance Mandatory](/glossary/provenance-mandatory/) NABLA axiom, every compliance finding is traceable to its original evidence:
+Following the [Provenance Mandatory](@/glossary/provenance-mandatory.md) NABLA axiom, every compliance finding is traceable to its original evidence:
 
 ```
 Finding: "TLS 1.0 still enabled on subdomain X"
@@ -251,16 +251,16 @@ The LiveView-based compliance dashboard provides real-time visibility into compl
 
 ## Integration
 
-- Powered by [External Attack Surface Management](/capabilities/easm/) for technical evidence collection
-- All findings verified through [Trinity Gate](/capabilities/trinity-gate/) 4-layer validation
-- Governed by [NABLA Axioms](/capabilities/nabla-axioms/) for evidence-based compliance assessment
-- Enforces [NO DOUBTS](/capabilities/no-doubts/) -- every compliance claim backed by traceable evidence
-- Quality enforced by [NO MERCY](/capabilities/no-mercy/) zero-tolerance standards
-- Intelligence from [Intelligence Synthesis](/capabilities/intelligence-synthesis/) feeds regulatory risk assessment
-- Monitored through [Real-Time Monitoring](/capabilities/real-time-monitoring/) for compliance drift detection
-- Agent operations tracked via [Telemetry Integration](/capabilities/telemetry-integration/)
-- Supports [M&A Intelligence](/capabilities/ma-intelligence/) with compliance risk domain data
-- Automated through [AIAD Standard](/capabilities/aiad-standard/) agent orchestration
+- Powered by [External Attack Surface Management](@/capabilities/easm.md) for technical evidence collection
+- All findings verified through [Trinity Gate](@/capabilities/trinity-gate.md) 4-layer validation
+- Governed by [NABLA Axioms](@/capabilities/nabla-axioms.md) for evidence-based compliance assessment
+- Enforces [NO DOUBTS](@/capabilities/no-doubts.md) -- every compliance claim backed by traceable evidence
+- Quality enforced by [NO MERCY](@/capabilities/no-mercy.md) zero-tolerance standards
+- Intelligence from [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) feeds regulatory risk assessment
+- Monitored through [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) for compliance drift detection
+- Agent operations tracked via [Telemetry Integration](@/capabilities/telemetry-integration.md)
+- Supports [M&A Intelligence](@/capabilities/ma-intelligence.md) with compliance risk domain data
+- Automated through [AIAD Standard](@/capabilities/aiad-standard.md) agent orchestration
 
 ---
 
@@ -269,4 +269,4 @@ The LiveView-based compliance dashboard provides real-time visibility into compl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -46,7 +46,7 @@ P(H|E) = P(E|H) * P(H) / P(E)
 
 Where `P(H|E)` is the posterior probability of hypothesis H given evidence E, `P(E|H)` is the likelihood of observing E if H is true, `P(H)` is the prior probability of H, and `P(E)` is the marginal probability of E across all hypotheses.
 
-In the [Prismatic Platform](/glossary/nabla-infinity/), Bayesian reasoning is the mathematical foundation for [confidence scoring](/glossary/confidence-scoring/) within the NABLA epistemic pipeline. Every belief in the platform's [belief graph](/glossary/belief-graph/) carries a confidence value that is updated through Bayesian inference as new signals arrive from OSINT sources, security scans, quality metrics, and agent analyses.
+In the [Prismatic Platform](@/glossary/nabla-infinity.md), Bayesian reasoning is the mathematical foundation for [confidence scoring](@/glossary/confidence-scoring.md) within the NABLA epistemic pipeline. Every belief in the platform's [belief graph](@/glossary/belief-graph.md) carries a confidence value that is updated through Bayesian inference as new signals arrive from OSINT sources, security scans, quality metrics, and agent analyses.
 
 ## Overview
 
@@ -54,7 +54,7 @@ Bayesian reasoning represents a fundamentally different approach to knowledge th
 
 This distinction has profound implications for epistemic systems. A frequentist system can only assign probabilities to repeatable experiments -- it cannot meaningfully say "there is a 73% probability that this company is involved in money laundering" because this is not a repeatable experiment. A Bayesian system can, because it interprets 73% as a degree of belief warranted by the available evidence, subject to update as new evidence arrives.
 
-For the Prismatic Platform, which must reason about unique entities (specific companies, domains, security configurations), Bayesian reasoning provides the only coherent framework for quantifying confidence. The platform's [signal plurality](/glossary/signal-plurality/) axiom ensures multiple independent evidence sources, and Bayesian updating aggregates these signals into a single coherent confidence score.
+For the Prismatic Platform, which must reason about unique entities (specific companies, domains, security configurations), Bayesian reasoning provides the only coherent framework for quantifying confidence. The platform's [signal plurality](@/glossary/signal-plurality.md) axiom ensures multiple independent evidence sources, and Bayesian updating aggregates these signals into a single coherent confidence score.
 
 ### Key Concepts
 
@@ -316,7 +316,7 @@ end
 
 ### Signal Aggregation Pipeline
 
-Bayesian reasoning integrates with the NABLA pipeline through a signal aggregation module that respects the [signal plurality](/glossary/signal-plurality/) axiom:
+Bayesian reasoning integrates with the NABLA pipeline through a signal aggregation module that respects the [signal plurality](@/glossary/signal-plurality.md) axiom:
 
 ```elixir
 defmodule Prismatic.Epistemic.SignalAggregator do
@@ -383,11 +383,11 @@ end
 
 ### Confidence Scoring System
 
-The platform's [confidence scoring](/glossary/confidence-scoring/) system is built entirely on Bayesian principles. Every entity assessment, security rating, and quality metric carries a confidence score computed through Bayesian updating:
+The platform's [confidence scoring](@/glossary/confidence-scoring.md) system is built entirely on Bayesian principles. Every entity assessment, security rating, and quality metric carries a confidence score computed through Bayesian updating:
 
 - **OSINT Intelligence**: Each data source (ARES, Shodan, VirusTotal, etc.) produces signals that update entity risk confidence via Bayesian inference
-- **Security Ratings**: The [Prismatic Perimeter](/glossary/easm/) A-F grading system uses multi-hypothesis Bayesian reasoning to classify security posture
-- **Quality Metrics**: Code quality confidence is updated as new analysis results arrive from [Credo](/glossary/credo/), [Dialyzer](/glossary/dialyzer/), and test coverage
+- **Security Ratings**: The [Prismatic Perimeter](@/glossary/easm.md) A-F grading system uses multi-hypothesis Bayesian reasoning to classify security posture
+- **Quality Metrics**: Code quality confidence is updated as new analysis results arrive from [Credo](@/glossary/credo.md), [Dialyzer](@/glossary/dialyzer.md), and test coverage
 
 ### NABLA Pipeline Integration
 
@@ -432,7 +432,7 @@ Bayesian inference is the optimal choice for the Prismatic Platform because it p
 
 **Maintain numerical stability.** Work in log-space when multiplying many probabilities to avoid underflow. Clamp confidence values to avoid exact 0.0 or 1.0 (which make further updating impossible). The `@epsilon`, `@min_confidence`, and `@max_confidence` constants in the updater serve this purpose.
 
-**Track update provenance.** Every Bayesian update should record the prior, the signal, the likelihood ratio, and the posterior. This creates an auditable trail that satisfies the [provenance mandatory](/glossary/provenance-mandatory/) axiom and enables debugging of unexpected confidence values.
+**Track update provenance.** Every Bayesian update should record the prior, the signal, the likelihood ratio, and the posterior. This creates an auditable trail that satisfies the [provenance mandatory](@/glossary/provenance-mandatory.md) axiom and enables debugging of unexpected confidence values.
 
 **Use uninformative priors for genuinely new hypotheses.** When there is no prior information, start with Beta(1,1) (uniform) rather than an arbitrary informative prior. Let the evidence speak for itself. Reserve informative priors for cases where genuine prior knowledge exists.
 
@@ -472,27 +472,27 @@ The platform's quality scoring system uses Beta-Binomial models to track confide
 
 ## Related Concepts
 
-- [Confidence Scoring](/glossary/confidence-scoring/) -- The scoring system built on Bayesian updates
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Context-dependent posterior thresholds for decisions
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- Broader reasoning framework incorporating Bayesian methods
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework whose pipeline uses Bayesian computation
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom ensuring multiple signals for Bayesian aggregation
-- [Belief Graph](/glossary/belief-graph/) -- Graph structure storing beliefs with Bayesian confidence values
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Contradictory evidence handled via opposing likelihood ratios
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Audit trail requirement for every Bayesian update
-- [Trinity Gate](/glossary/trinity-gate/) -- Validation gate using confidence thresholds from Bayesian inference
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- System resilience measured through Bayesian uncertainty
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- The scoring system built on Bayesian updates
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Context-dependent posterior thresholds for decisions
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- Broader reasoning framework incorporating Bayesian methods
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework whose pipeline uses Bayesian computation
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom ensuring multiple signals for Bayesian aggregation
+- [Belief Graph](@/glossary/belief-graph.md) -- Graph structure storing beliefs with Bayesian confidence values
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Contradictory evidence handled via opposing likelihood ratios
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Audit trail requirement for every Bayesian update
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Validation gate using confidence thresholds from Bayesian inference
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- System resilience measured through Bayesian uncertainty
 
 ## See Also
 
-- [Axiom Enforcement](/glossary/axiom-enforcement/) -- Enforcement of NABLA axioms that govern Bayesian operations
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proofs complementing probabilistic reasoning
-- [Cosine Similarity](/glossary/cosine-similarity/) -- Similarity metric used alongside Bayesian scores
-- [Entity Resolution](/glossary/entity-resolution/) -- Bayesian methods for resolving entity identity
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Uses Bayesian confidence for quality decisions
-- [EASM](/glossary/easm/) -- External attack surface management using Bayesian security ratings
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Umbrella applications using Bayesian reasoning
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) -- Enforcement of NABLA axioms that govern Bayesian operations
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proofs complementing probabilistic reasoning
+- [Cosine Similarity](@/glossary/cosine-similarity.md) -- Similarity metric used alongside Bayesian scores
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Bayesian methods for resolving entity identity
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Uses Bayesian confidence for quality decisions
+- [EASM](@/glossary/easm.md) -- External attack surface management using Bayesian security ratings
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Umbrella applications using Bayesian reasoning
 
 ---
 
@@ -501,4 +501,4 @@ The platform's quality scoring system uses Beta-Binomial models to track confide
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

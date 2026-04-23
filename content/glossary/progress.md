@@ -248,11 +248,11 @@ end
 
 ## Cross-References
 
-- [Prerequisite](/glossary/prerequisite/) - Learning dependency validated by progress tracking
+- [Prerequisite](@/glossary/prerequisite.md) - Learning dependency validated by progress tracking
 - **Semantic Link** - Knowledge graph connections enriching learning paths
 - **Semantic Linking** - Topic interconnection engine supporting progress-based recommendations
 - **Self-Registration** - Metaprogramming pattern that registers topics tracked by progress
-- [Process](/glossary/process/) - GenServer process implementing the ProgressTracker
+- [Process](@/glossary/process.md) - GenServer process implementing the ProgressTracker
 
 ---
 

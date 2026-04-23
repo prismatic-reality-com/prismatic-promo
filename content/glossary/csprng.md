@@ -162,9 +162,9 @@ The platform enforces CSPRNG usage through Credo checks that flag usage of `:ran
 ## Cross-References
 
 - **HMAC Signature** -- Message authentication using keyed hashes
-- [CSRF](/glossary/csrf/) -- Cross-site request forgery prevention requires CSPRNG tokens
-- [AES](/glossary/aes/) -- Block cipher used in CTR_DRBG construction
-- [Session Management](/glossary/session/) -- Session tokens require cryptographic randomness
+- [CSRF](@/glossary/csrf.md) -- Cross-site request forgery prevention requires CSPRNG tokens
+- [AES](@/glossary/aes.md) -- Block cipher used in CTR_DRBG construction
+- [Session Management](@/glossary/session.md) -- Session tokens require cryptographic randomness
 - **Livebooks**: `security_compliance/` notebooks demonstrate token generation and analysis
 - **Academy**: APISecurityAnalysis topic covers secure token practices
 
@@ -175,4 +175,4 @@ The platform enforces CSPRNG usage through Credo checks that flag usage of `:ran
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

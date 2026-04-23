@@ -25,7 +25,7 @@ image_alt = "SpiderFoot - Prismatic Platform"
 
 ## Overview
 
-SpiderFoot is an open-source intelligence automation framework that queries over 200 data sources to gather intelligence on IP addresses, domains, email addresses, names, and other entities. Created by Steve Micallef, SpiderFoot automates the tedious process of collecting [OSINT](/glossary/osint/) by chaining queries across multiple sources and correlating results into a unified investigation view. Available as both open-source (self-hosted) and a commercial cloud service (SpiderFoot HX), it represents one of the most comprehensive automated reconnaissance platforms available.
+SpiderFoot is an open-source intelligence automation framework that queries over 200 data sources to gather intelligence on IP addresses, domains, email addresses, names, and other entities. Created by Steve Micallef, SpiderFoot automates the tedious process of collecting [OSINT](@/glossary/osint.md) by chaining queries across multiple sources and correlating results into a unified investigation view. Available as both open-source (self-hosted) and a commercial cloud service (SpiderFoot HX), it represents one of the most comprehensive automated reconnaissance platforms available.
 
 For OSINT investigators, SpiderFoot eliminates the manual process of querying dozens of individual data sources and correlating results. A single scan target -- whether an IP address, domain name, email address, phone number, or person's name -- triggers automated queries across all relevant data sources, with results cross-referenced and linked through the platform's correlation engine. This automation transforms what would be hours of manual investigation into a systematic, repeatable process that ensures no relevant data source is overlooked.
 
@@ -39,20 +39,20 @@ SpiderFoot integrates with over 200 data sources across multiple intelligence ca
 
 | Category | Module Count | Examples | Data Types |
 |----------|-------------|----------|------------|
-| **DNS Intelligence** | 15+ | [SecurityTrails](/osint/securitytrails/), [DNSDumpster](/osint/dnsdumpster/), [ViewDNS](/osint/viewdns/) | Subdomains, DNS records, zone transfers |
-| **WHOIS & Registration** | 10+ | [WhoisXML](/osint/whoisxml/), DomainTools, ARIN/RIPE | Registrant data, registration history |
-| **Threat Intelligence** | 20+ | [VirusTotal](/osint/virustotal/), [AlienVault OTX](/osint/alienvault-otx/), [ThreatFox](/osint/threatfox/) | Malware, C2, blocklists |
-| **Internet Scanning** | 10+ | [Shodan](/osint/shodan/), [Censys](/osint/censys/), [ZoomEye](/osint/zoomeye/) | Open ports, services, vulnerabilities |
+| **DNS Intelligence** | 15+ | [SecurityTrails](@/osint/securitytrails.md), [DNSDumpster](@/osint/dnsdumpster.md), [ViewDNS](@/osint/viewdns.md) | Subdomains, DNS records, zone transfers |
+| **WHOIS & Registration** | 10+ | [WhoisXML](@/osint/whoisxml.md), DomainTools, ARIN/RIPE | Registrant data, registration history |
+| **Threat Intelligence** | 20+ | [VirusTotal](@/osint/virustotal.md), [AlienVault OTX](@/osint/alienvault-otx.md), [ThreatFox](@/osint/threatfox.md) | Malware, C2, blocklists |
+| **Internet Scanning** | 10+ | [Shodan](@/osint/shodan.md), [Censys](@/osint/censys.md), [ZoomEye](@/osint/zoomeye.md) | Open ports, services, vulnerabilities |
 | **Dark Web** | 5+ | Tor, I2P, .onion scanning, dark web search | Dark web mentions, hidden services |
-| **Breach Intelligence** | 10+ | [Have I Been Pwned](/osint/haveibeenpwned/), [Intelligence X](/osint/intelx/), DeHashed | Leaked credentials, exposed data |
+| **Breach Intelligence** | 10+ | [Have I Been Pwned](@/osint/haveibeenpwned.md), [Intelligence X](@/osint/intelx.md), DeHashed | Leaked credentials, exposed data |
 | **Social Media** | 10+ | Twitter, LinkedIn, GitHub, Reddit | Profiles, posts, repositories |
-| **Geolocation** | 5+ | [MaxMind](/osint/maxmind/), IPInfo, IP2Location | IP geolocation, ASN data |
-| **Email Intelligence** | 10+ | [Hunter.io](/osint/hunter-io/), EmailRep, email validation | Email discovery, verification, reputation |
-| **Certificate Intelligence** | 5+ | [crt.sh](/osint/crtsh/), CertSpotter, SSL Labs | Certificate history, transparency logs |
+| **Geolocation** | 5+ | [MaxMind](@/osint/maxmind.md), IPInfo, IP2Location | IP geolocation, ASN data |
+| **Email Intelligence** | 10+ | [Hunter.io](@/osint/hunter-io.md), EmailRep, email validation | Email discovery, verification, reputation |
+| **Certificate Intelligence** | 5+ | [crt.sh](@/osint/crtsh.md), CertSpotter, SSL Labs | Certificate history, transparency logs |
 | **Search Engines** | 5+ | Google, Bing, DuckDuckGo, Baidu | Cached content, indexed pages |
 | **Code Repositories** | 5+ | GitHub, GitLab, Bitbucket | Code leaks, secret exposure |
-| **Passive DNS** | 5+ | [PassiveDNS](/osint/passivedns/), CIRCL, Farsight | Historical DNS resolution |
-| **Web Analysis** | 10+ | [BuiltWith](/osint/builtwith/), Wappalyzer, web scrapers | Technology detection, content analysis |
+| **Passive DNS** | 5+ | [PassiveDNS](@/osint/passivedns.md), CIRCL, Farsight | Historical DNS resolution |
+| **Web Analysis** | 10+ | [BuiltWith](@/osint/builtwith.md), Wappalyzer, web scrapers | Technology detection, content analysis |
 
 ### Scan Target Types
 
@@ -274,13 +274,13 @@ SpiderFoot enables assessment of third-party vendor security posture by scanning
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), SpiderFoot serves as the automated reconnaissance engine for comprehensive OSINT collection.
+Within the [Prismatic Platform](@/apps/prismatic.md), SpiderFoot serves as the automated reconnaissance engine for comprehensive OSINT collection.
 
 - **Automated Reconnaissance Pipeline**: SpiderFoot scans are triggered through the platform's investigation workflow, with results automatically ingested and correlated with existing entity data.
 - **Module Orchestration**: The platform manages SpiderFoot module selection and API key configuration, ensuring optimal module activation for each investigation type.
-- **Entity Enrichment**: SpiderFoot discoveries feed into the platform's [knowledge graph](/glossary/knowledge-graph/), automatically enriching entities with cross-source intelligence.
-- **Breach Intelligence**: SpiderFoot's breach detection results are correlated with [Have I Been Pwned](/osint/haveibeenpwned/) and [Intelligence X](/osint/intelx/) data for comprehensive credential exposure assessment.
-- **Attack Surface Integration**: SpiderFoot's domain and infrastructure discoveries feed into [Prismatic Perimeter](/apps/prismatic-perimeter/) for continuous attack surface monitoring.
+- **Entity Enrichment**: SpiderFoot discoveries feed into the platform's [knowledge graph](@/glossary/knowledge-graph.md), automatically enriching entities with cross-source intelligence.
+- **Breach Intelligence**: SpiderFoot's breach detection results are correlated with [Have I Been Pwned](@/osint/haveibeenpwned.md) and [Intelligence X](@/osint/intelx.md) data for comprehensive credential exposure assessment.
+- **Attack Surface Integration**: SpiderFoot's domain and infrastructure discoveries feed into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) for continuous attack surface monitoring.
 - **Report Generation**: SpiderFoot scan results are formatted into the platform's standardized investigation report templates.
 
 ## Best Practices
@@ -299,18 +299,18 @@ Within the [Prismatic Platform](/apps/prismatic/), SpiderFoot serves as the auto
 
 7. **Use Docker for isolation**: Deploy SpiderFoot in Docker containers to isolate scanning infrastructure and simplify deployment.
 
-8. **Combine with specialized tools**: Use SpiderFoot for broad coverage, then follow up with specialized tools ([Shodan](/osint/shodan/) for deep port analysis, [Maltego](/osint/maltego/) for visual analysis) for detailed investigation.
+8. **Combine with specialized tools**: Use SpiderFoot for broad coverage, then follow up with specialized tools ([Shodan](@/osint/shodan.md) for deep port analysis, [Maltego](@/osint/maltego.md) for visual analysis) for detailed investigation.
 
 ## Related Providers
 
-- [Maltego](/osint/maltego/) - Visual link analysis and graph intelligence
-- [Shodan](/osint/shodan/) - Internet device and service discovery
-- [Censys](/osint/censys/) - Internet-wide scanning platform
-- [SecurityTrails](/osint/securitytrails/) - DNS and domain intelligence
-- [VirusTotal](/osint/virustotal/) - Multi-engine threat analysis
-- [Intelligence X](/osint/intelx/) - Dark web and breach intelligence
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach detection
-- [Hunter.io](/osint/hunter-io/) - Email discovery and verification
+- [Maltego](@/osint/maltego.md) - Visual link analysis and graph intelligence
+- [Shodan](@/osint/shodan.md) - Internet device and service discovery
+- [Censys](@/osint/censys.md) - Internet-wide scanning platform
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and domain intelligence
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine threat analysis
+- [Intelligence X](@/osint/intelx.md) - Dark web and breach intelligence
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach detection
+- [Hunter.io](@/osint/hunter-io.md) - Email discovery and verification
 
 ---
 
@@ -319,4 +319,4 @@ Within the [Prismatic Platform](/apps/prismatic/), SpiderFoot serves as the auto
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

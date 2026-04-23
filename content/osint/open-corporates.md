@@ -28,9 +28,9 @@ image_alt = "OpenCorporates - Prismatic Platform"
 
 ## Overview
 
-OpenCorporates is the largest open database of companies in the world, aggregating official corporate [registry](/glossary/registry-otp/) data from over 140 jurisdictions into a single searchable platform. With records on over 200 million companies and 300 million officer appointments, OpenCorporates provides a unified interface to discover corporate entities, their directors, and corporate structures across countries. Data is sourced directly from official government registries and updated regularly, making it the most comprehensive cross-jurisdictional corporate intelligence resource available.
+OpenCorporates is the largest open database of companies in the world, aggregating official corporate [registry](@/glossary/registry-otp.md) data from over 140 jurisdictions into a single searchable platform. With records on over 200 million companies and 300 million officer appointments, OpenCorporates provides a unified interface to discover corporate entities, their directors, and corporate structures across countries. Data is sourced directly from official government registries and updated regularly, making it the most comprehensive cross-jurisdictional corporate intelligence resource available.
 
-For [OSINT](/glossary/osint/) investigators, OpenCorporates is the go-to source for cross-jurisdictional corporate research. It enables analysts to trace corporate structures across borders, identify common directors between entities in different countries, and discover shell company networks that span multiple jurisdictions. The platform's officer search capability is particularly powerful for beneficial ownership investigations, where identifying the same individual serving as director of companies in multiple countries can reveal hidden corporate relationships and control structures.
+For [OSINT](@/glossary/osint.md) investigators, OpenCorporates is the go-to source for cross-jurisdictional corporate research. It enables analysts to trace corporate structures across borders, identify common directors between entities in different countries, and discover shell company networks that span multiple jurisdictions. The platform's officer search capability is particularly powerful for beneficial ownership investigations, where identifying the same individual serving as director of companies in multiple countries can reveal hidden corporate relationships and control structures.
 
 The platform operates on the principle that corporate data should be openly accessible to promote transparency and accountability. While individual national registries may charge for access or present data in inconsistent formats, OpenCorporates normalizes this data into a consistent schema with standardized company types, officer roles, and status classifications. This normalization is essential for cross-jurisdictional analysis where comparing a Czech s.r.o. with a UK Limited or German GmbH requires understanding equivalent legal forms.
 
@@ -222,13 +222,13 @@ Source Independence is inherently strong since OpenCorporates aggregates from hu
 
 ## Related Resources
 
-- [ARES](/osint/ares/) - Czech business registry for domestic entity data
-- [Companies House](/osint/companies-house/) - UK company registry
-- [SEC EDGAR](/osint/sec-edgar/) - US corporate filings
-- [Crunchbase](/osint/crunchbase/) - Business and startup intelligence
-- [Justice.cz](/osint/justice-cz/) - Czech Commercial Register
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Corporate entity risk assessment
+- [ARES](@/osint/ares.md) - Czech business registry for domestic entity data
+- [Companies House](@/osint/companies-house.md) - UK company registry
+- [SEC EDGAR](@/osint/sec-edgar.md) - US corporate filings
+- [Crunchbase](@/osint/crunchbase.md) - Business and startup intelligence
+- [Justice.cz](@/osint/justice-cz.md) - Czech Commercial Register
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Corporate entity risk assessment
 
 ---
 
@@ -237,4 +237,4 @@ Source Independence is inherently strong since OpenCorporates aggregates from hu
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

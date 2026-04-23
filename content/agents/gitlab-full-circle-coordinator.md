@@ -64,23 +64,23 @@ The Full Circle Coordinator provides comprehensive lifecycle management through 
 
 ## Technical Implementation
 
-The Full Circle Coordinator is implemented as a [GenServer](/glossary/genserver/)-based [OTP](/glossary/otp/) application that maintains in-memory state machines for all active work items. Each work item's lifecycle state is tracked through an [ETS](/glossary/ets/)-backed state machine that records phase transitions with timestamps, enabling precise cycle time measurement.
+The Full Circle Coordinator is implemented as a [GenServer](@/glossary/genserver.md)-based [OTP](@/glossary/otp.md) application that maintains in-memory state machines for all active work items. Each work item's lifecycle state is tracked through an [ETS](@/glossary/ets.md)-backed state machine that records phase transitions with timestamps, enabling precise cycle time measurement.
 
 The coordinator subscribes to GitLab webhook events for issues, merge requests, pipelines, and deployments, using these events to drive state machine transitions. Webhook events are validated against expected lifecycle patterns before triggering transitions, with unexpected events queued for investigation rather than applied automatically.
 
-Lifecycle data is persisted to [PostgreSQL](/glossary/postgresql/) through [Ecto](/glossary/ecto/) schemas that model the full work item lifecycle, including phase transition history, validation checkpoint results, and cross-phase consistency verification outcomes. Historical lifecycle data supports trend analysis and process improvement initiatives.
+Lifecycle data is persisted to [PostgreSQL](@/glossary/postgresql.md) through [Ecto](@/glossary/ecto.md) schemas that model the full work item lifecycle, including phase transition history, validation checkpoint results, and cross-phase consistency verification outcomes. Historical lifecycle data supports trend analysis and process improvement initiatives.
 
-The coordinator integrates with the platform's [telemetry](/glossary/telemetry/) infrastructure, emitting events for every lifecycle transition, validation checkpoint, and anomaly detection. These events feed dashboards that provide real-time visibility into work item flow across the development lifecycle.
+The coordinator integrates with the platform's [telemetry](@/glossary/telemetry.md) infrastructure, emitting events for every lifecycle transition, validation checkpoint, and anomaly detection. These events feed dashboards that provide real-time visibility into work item flow across the development lifecycle.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [gitlab-strategic-coordinator](/agents/gitlab-strategic-coordinator/) | Receives strategic priorities that influence lifecycle scheduling and resource allocation | Strategic |
-| [gitlab-mcp-orchestrator](/agents/gitlab-mcp-orchestrator/) | Coordinates [3NL](/glossary/three-nl/) intelligence analysis for lifecycle decision support | Intelligence |
-| [gitlab-merge-request-specialist-agent](/agents/gitlab-merge-request-specialist-agent/) | Delegates merge request lifecycle management during validation phase | Development |
-| [gitlab-cicd-specialist-agent](/agents/gitlab-cicd-specialist-agent/) | Coordinates CI/CD pipeline execution during validation and deployment phases | DevOps |
-| [autonomous-pattern-evolution-specialist](/agents/autonomous-pattern-evolution-specialist/) | Identifies lifecycle patterns suitable for automation and optimization | Evolution |
+| [gitlab-strategic-coordinator](@/agents/gitlab-strategic-coordinator.md) | Receives strategic priorities that influence lifecycle scheduling and resource allocation | Strategic |
+| [gitlab-mcp-orchestrator](@/agents/gitlab-mcp-orchestrator.md) | Coordinates [3NL](@/glossary/three-nl.md) intelligence analysis for lifecycle decision support | Intelligence |
+| [gitlab-merge-request-specialist-agent](@/agents/gitlab-merge-request-specialist-agent.md) | Delegates merge request lifecycle management during validation phase | Development |
+| [gitlab-cicd-specialist-agent](@/agents/gitlab-cicd-specialist-agent.md) | Coordinates CI/CD pipeline execution during validation and deployment phases | DevOps |
+| [autonomous-pattern-evolution-specialist](@/agents/autonomous-pattern-evolution-specialist.md) | Identifies lifecycle patterns suitable for automation and optimization | Evolution |
 
 ## Metrics and Reporting
 
@@ -98,7 +98,7 @@ Reports are generated on daily, weekly, and milestone-level cadences, with drill
 
 ## Enforcement
 
-The GitLab Full Circle Coordinator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No work item bypasses lifecycle phases. Every deployed change must be traceable to an originating issue with defined acceptance criteria. Lifecycle shortcuts that skip validation or verification phases are blocked at the state machine level. Phase exit criteria are enforced automatically, and manual overrides require explicit authorization with documented justification. The coordinator maintains a complete [audit trail](/glossary/audit-trail/) of all lifecycle transitions, enabling retrospective analysis of any work item's complete journey through the development process.
+The GitLab Full Circle Coordinator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No work item bypasses lifecycle phases. Every deployed change must be traceable to an originating issue with defined acceptance criteria. Lifecycle shortcuts that skip validation or verification phases are blocked at the state machine level. Phase exit criteria are enforced automatically, and manual overrides require explicit authorization with documented justification. The coordinator maintains a complete [audit trail](@/glossary/audit-trail.md) of all lifecycle transitions, enabling retrospective analysis of any work item's complete journey through the development process.
 
 ---
 
@@ -107,4 +107,4 @@ The GitLab Full Circle Coordinator operates under the [NO MERCY, NO DOUBTS](/glo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

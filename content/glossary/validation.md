@@ -36,9 +36,9 @@ image_alt = "Validation - Prismatic Platform"
 
 ## Definition
 
-Validation is the process of checking whether data, outputs, or system states meet specified requirements, constraints, and expectations. In software engineering, validation answers the question "Are we building the right thing?" -- confirming that the system's behavior aligns with user needs and business requirements. This contrasts with [verification](/glossary/verification/), which asks "Are we building the thing right?" -- confirming that the implementation correctly follows the specification.
+Validation is the process of checking whether data, outputs, or system states meet specified requirements, constraints, and expectations. In software engineering, validation answers the question "Are we building the right thing?" -- confirming that the system's behavior aligns with user needs and business requirements. This contrasts with [verification](@/glossary/verification.md), which asks "Are we building the thing right?" -- confirming that the implementation correctly follows the specification.
 
-In the Prismatic Platform, validation operates at multiple layers: data validation through [Ecto](/glossary/ecto/) changesets ensures database integrity, input validation prevents injection attacks and malformed data, NABLA axiom validation enforces epistemic correctness, and [Trinity Gate](/glossary/trinity-gate/) validation ensures claims pass structural, logical, and formal checks before being established as platform truth.
+In the Prismatic Platform, validation operates at multiple layers: data validation through [Ecto](@/glossary/ecto.md) changesets ensures database integrity, input validation prevents injection attacks and malformed data, NABLA axiom validation enforces epistemic correctness, and [Trinity Gate](@/glossary/trinity-gate.md) validation ensures claims pass structural, logical, and formal checks before being established as platform truth.
 
 ## Overview
 
@@ -51,9 +51,9 @@ The principle of "validate early, fail fast" is central to robust system design.
 | Concept | Question | Scope | Timing |
 |---------|----------|-------|--------|
 | **Validation** | "Does this meet requirements?" | Requirements conformance | Runtime + design time |
-| **[Verification](/glossary/verification/)** | "Does this match the spec?" | Specification conformance | Build time + formal proofs |
+| **[Verification](@/glossary/verification.md)** | "Does this match the spec?" | Specification conformance | Build time + formal proofs |
 | **Testing** | "Does this work correctly?" | Behavioral correctness | Development + CI/CD |
-| **[Formal Verification](/glossary/formal-verification/)** | "Is this mathematically proven?" | Logical proof | Design time |
+| **[Formal Verification](@/glossary/formal-verification.md)** | "Is this mathematically proven?" | Logical proof | Design time |
 
 ### Types of Validation
 
@@ -389,14 +389,14 @@ The Prismatic Platform implements validation at every system boundary:
 | **HTTP Input** | Request validation | Plug pipeline, parameter casting | API request body schema |
 | **LiveView** | Form validation | Changeset-driven forms | Asset creation form |
 | **Business Logic** | Domain validation | Context functions with changesets | Compliance score thresholds |
-| **Database** | Constraint validation | [Ecto](/glossary/ecto/) constraints, DB constraints | Unique domain, foreign keys |
+| **Database** | Constraint validation | [Ecto](@/glossary/ecto.md) constraints, DB constraints | Unique domain, foreign keys |
 | **Epistemic** | Axiom validation | NABLA axiom checker | Signal plurality, provenance |
-| **Quality** | Gate validation | [Quality gates](/glossary/quality-gates/) pipeline | Compilation, Credo, Dialyzer |
-| **Trinity** | Formal validation | [Trinity Gate](/glossary/trinity-gate/) | Structural, logical, formal |
+| **Quality** | Gate validation | [Quality gates](@/glossary/quality-gates.md) pipeline | Compilation, Credo, Dialyzer |
+| **Trinity** | Formal validation | [Trinity Gate](@/glossary/trinity-gate.md) | Structural, logical, formal |
 
 ### Input Validation for Security
 
-Input [validation](/glossary/validation/) is the first line of defense against injection attacks, XSS, and data corruption:
+Input [validation](@/glossary/validation.md) is the first line of defense against injection attacks, XSS, and data corruption:
 
 ```elixir
 defmodule PrismaticWeb.InputValidator do
@@ -455,12 +455,12 @@ end
 |----------|--------|----------|----------|
 | **Ecto Changesets** | Runtime (data mutation) | Type-safe, composable, clear errors | Database-specific |
 | **JSON Schema** | Runtime (API input) | Language-agnostic, widely supported | Verbose, limited logic |
-| **[Property-Based Testing](/glossary/property-based-testing/)** | Test time | Exhaustive edge case discovery | Not runtime validation |
-| **[Formal Verification](/glossary/formal-verification/)** | Design/build time | Mathematical proof | High effort, limited scope |
+| **[Property-Based Testing](@/glossary/property-based-testing.md)** | Test time | Exhaustive edge case discovery | Not runtime validation |
+| **[Formal Verification](@/glossary/formal-verification.md)** | Design/build time | Mathematical proof | High effort, limited scope |
 | **Contract Testing** | Integration test time | API boundary validation | Does not cover all inputs |
 | **Type Systems (Dialyzer)** | Compile time | Static type checking | Cannot validate runtime data |
 
-Prismatic combines all these approaches in a layered strategy: Dialyzer catches type errors at compile time, Ecto changesets validate data at runtime, property-based testing validates invariants during testing, and the [Trinity Gate](/glossary/trinity-gate/) provides formal verification for critical claims.
+Prismatic combines all these approaches in a layered strategy: Dialyzer catches type errors at compile time, Ecto changesets validate data at runtime, property-based testing validates invariants during testing, and the [Trinity Gate](@/glossary/trinity-gate.md) provides formal verification for critical claims.
 
 ## Best Practices
 
@@ -474,7 +474,7 @@ Prismatic combines all these approaches in a layered strategy: Dialyzer catches 
 
 5. **Layer validation defense in depth**: Combine client-side validation (UX), server-side validation (security), database constraints (integrity), and business rule validation (correctness) for comprehensive coverage.
 
-6. **Test validation boundaries exhaustively**: Use [property-based testing](/glossary/property-based-testing/) to generate random inputs and verify that validation correctly accepts valid data and rejects invalid data across the full input space.
+6. **Test validation boundaries exhaustively**: Use [property-based testing](@/glossary/property-based-testing.md) to generate random inputs and verify that validation correctly accepts valid data and rejects invalid data across the full input space.
 
 7. **Document validation rules**: Make validation rules explicit in module documentation and API specs. Use `@spec` and `@doc` to communicate what inputs are accepted and what errors are returned.
 
@@ -496,36 +496,36 @@ Prismatic combines all these approaches in a layered strategy: Dialyzer catches 
 
 **API Input Validation**: Every request to the Prismatic API is validated against OpenApiSpex schemas before processing. Invalid requests receive 400 responses with detailed error descriptions.
 
-**Compliance Assessment Validation**: ZKB and [NIS2](/glossary/nis2/) compliance assessment inputs (organization data, control evidence, configuration settings) are validated for completeness and consistency before assessment calculations begin.
+**Compliance Assessment Validation**: ZKB and [NIS2](@/glossary/nis2.md) compliance assessment inputs (organization data, control evidence, configuration settings) are validated for completeness and consistency before assessment calculations begin.
 
-**Agent Authority Validation**: [AIAD](/glossary/aiad/) agent operations are validated against authority level requirements. An L4 agent cannot perform L2 operations without explicit escalation through the validation pipeline.
+**Agent Authority Validation**: [AIAD](@/glossary/aiad.md) agent operations are validated against authority level requirements. An L4 agent cannot perform L2 operations without explicit escalation through the validation pipeline.
 
-**Quality Gate Enforcement**: Every code change passes through [quality gate](/glossary/quality-gate/) validation: compilation (zero warnings), Credo (strict mode), Dialyzer (type checking), tests (100% pass), and coverage thresholds.
+**Quality Gate Enforcement**: Every code change passes through [quality gate](@/glossary/quality-gate.md) validation: compilation (zero warnings), Credo (strict mode), Dialyzer (type checking), tests (100% pass), and coverage thresholds.
 
 **Epistemic Claim Validation**: Claims entering the NABLA belief system are validated against seven axioms. Claims lacking signal plurality, provenance, or timestamps are rejected, maintaining epistemic integrity.
 
 ## Related Concepts
 
-- [Verification](/glossary/verification/) -- Confirming implementation matches specification
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof of system properties
-- [Property-Based Testing](/glossary/property-based-testing/) -- Generative testing of validation invariants
-- [Quality Gate](/glossary/quality-gate/) -- Automated validation checkpoints for code changes
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer formal validation for epistemic claims
-- [Epistemic Validation](/glossary/epistemic-validation/) -- NABLA axiom compliance checking
-- [Ecto](/glossary/ecto/) -- Elixir database library providing changeset validation
-- [Quality Gates](/glossary/quality-gates/) -- Pipeline of validation checks for code quality
-- [Security Assessment](/glossary/security-assessment/) -- Validation of security posture
-- [Zero Tolerance](/glossary/zero-tolerance/) -- Quality enforcement requiring validation passage
-- [OWASP](/glossary/owasp/) -- Input validation requirements for web security
-- [AIAD](/glossary/aiad/) -- Agent authority validation framework
+- [Verification](@/glossary/verification.md) -- Confirming implementation matches specification
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof of system properties
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Generative testing of validation invariants
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated validation checkpoints for code changes
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer formal validation for epistemic claims
+- [Epistemic Validation](@/glossary/epistemic-validation.md) -- NABLA axiom compliance checking
+- [Ecto](@/glossary/ecto.md) -- Elixir database library providing changeset validation
+- [Quality Gates](@/glossary/quality-gates.md) -- Pipeline of validation checks for code quality
+- [Security Assessment](@/glossary/security-assessment.md) -- Validation of security posture
+- [Zero Tolerance](@/glossary/zero-tolerance.md) -- Quality enforcement requiring validation passage
+- [OWASP](@/glossary/owasp.md) -- Input validation requirements for web security
+- [AIAD](@/glossary/aiad.md) -- Agent authority validation framework
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application ecosystem
-- [Vulnerability](/glossary/vulnerability/) -- Vulnerabilities prevented by proper validation
-- [Authentication](/glossary/authentication/) -- Identity validation
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application ecosystem
+- [Vulnerability](@/glossary/vulnerability.md) -- Vulnerabilities prevented by proper validation
+- [Authentication](@/glossary/authentication.md) -- Identity validation
 
 ---
 
@@ -534,4 +534,4 @@ Prismatic combines all these approaches in a layered strategy: Dialyzer catches 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

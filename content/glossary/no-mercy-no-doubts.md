@@ -41,7 +41,7 @@ The NM/ND Doctrine draws from several intellectual traditions, though it does no
 
 From **stoic philosophy**, NM/ND adopts the principle that excellence is not an act but a habit. Marcus Aurelius wrote: "Waste no more time arguing about what a good man should be. Be one." The doctrine translates this into engineering terms: waste no more time debating what good code should be -- enforce it automatically. The pre-commit hook does not argue; it blocks.
 
-From **lean manufacturing**, NM/ND adopts the concept of "jidoka" (autonomation) -- the principle that quality defects should be detected and stopped at the point of creation, not downstream. In Toyota's production system, any worker can stop the assembly line when a defect is detected. In the Prismatic Platform, any [quality gate](/glossary/quality-gates/) can stop a commit when a violation is detected. The cost of stopping is always less than the cost of propagating a defect.
+From **lean manufacturing**, NM/ND adopts the concept of "jidoka" (autonomation) -- the principle that quality defects should be detected and stopped at the point of creation, not downstream. In Toyota's production system, any worker can stop the assembly line when a defect is detected. In the Prismatic Platform, any [quality gate](@/glossary/quality-gates.md) can stop a commit when a violation is detected. The cost of stopping is always less than the cost of propagating a defect.
 
 From **military doctrine**, NM/ND adopts the principle of "commander's intent" -- clear articulation of the desired end state that enables autonomous execution. The doctrine's end state is explicit: 100/100 quality, zero warnings, zero debt, zero known issues. Every agent and every developer understands this intent and can act autonomously toward it.
 
@@ -49,7 +49,7 @@ From **military doctrine**, NM/ND adopts the principle of "commander's intent" -
 
 ### NO MERCY -- Enforcement
 
-[NO MERCY](/glossary/no-mercy/) governs the delivery of all code and artifacts within the platform. Its requirements are absolute:
+[NO MERCY](@/glossary/no-mercy.md) governs the delivery of all code and artifacts within the platform. Its requirements are absolute:
 
 - **Zero Tolerance**: No incomplete implementations, no stubs, no mocks used as permanent fixtures, no placeholder code, no TODO markers, no FIXME annotations. If something is written, it is finished.
 - **100% Test Coverage**: All code must have comprehensive tests -- unit tests, integration tests, and property-based tests where applicable. Coverage is measured and enforced, not estimated.
@@ -62,11 +62,11 @@ The enforcement is not advisory. Pre-commit hooks block commits that violate any
 
 ### NO DOUBTS -- Epistemic Rigor
 
-[NO DOUBTS](/glossary/no-doubts/) governs the decision-making process that precedes action. Its requirements complement NO MERCY by ensuring that the right problem is solved before demanding that the solution is complete:
+[NO DOUBTS](@/glossary/no-doubts.md) governs the decision-making process that precedes action. Its requirements complement NO MERCY by ensuring that the right problem is solved before demanding that the solution is complete:
 
 - **Full Investigation**: Before implementing any change, the developer or agent must fully understand the problem, its root cause, its scope, and its implications. Surface-level analysis is insufficient.
 - **Evidence-Based Action**: Every decision must be backed by tests, benchmarks, profiling data, or formal verification. Assertions without evidence are treated as unverified hypotheses, not facts.
-- **Confidence Gating**: The transition from exploration to execution occurs only when confidence reaches the 0.95 threshold and the [Trinity Gate](/glossary/trinity-gate/) passes all three verification layers (structural consistency, logical consistency, and formal necessity).
+- **Confidence Gating**: The transition from exploration to execution occurs only when confidence reaches the 0.95 threshold and the [Trinity Gate](@/glossary/trinity-gate.md) passes all three verification layers (structural consistency, logical consistency, and formal necessity).
 - **No Unvalidated Claims**: All outputs must be verified before delivery. Claims about performance improvements must include benchmarks. Claims about bug fixes must include regression tests. Claims about security must include verification.
 - **Decisive Commitment**: Once investigation is complete and confidence is established, execution proceeds with full commitment and no second-guessing. Hesitation after the confidence threshold is met is itself a violation.
 
@@ -74,7 +74,7 @@ The interplay between the two arms prevents both failure modes: NO MERCY prevent
 
 ## Integration with NABLA Infinity
 
-The NM/ND Doctrine operates in conjunction with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. NABLA governs the exploration and hypothesis-formation phase of work, while NM/ND governs the execution and delivery phase. The transition between them is formalized:
+The NM/ND Doctrine operates in conjunction with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. NABLA governs the exploration and hypothesis-formation phase of work, while NM/ND governs the execution and delivery phase. The transition between them is formalized:
 
 ```
 EXPLORATION (NABLA: maps uncertainty, preserves contradictions, forms hypotheses)
@@ -84,7 +84,7 @@ EXPLORATION (NABLA: maps uncertainty, preserves contradictions, forms hypotheses
 EXECUTION (NM/ND: decisive action, complete delivery, zero tolerance)
 ```
 
-During the NABLA phase, [contradiction preservation](/glossary/contradiction-preservation/) is mandatory -- conflicting evidence is maintained, not resolved prematurely. Multiple hypotheses are explored in parallel. Uncertainty is mapped explicitly rather than hidden behind false confidence. The seven NABLA axioms (Signal Plurality, Contradiction Preservation, Absence Informative, Time Decay, Unknown Valid, Source Independence, [Provenance Mandatory](/glossary/provenance-mandatory/)) govern this phase.
+During the NABLA phase, [contradiction preservation](@/glossary/contradiction-preservation.md) is mandatory -- conflicting evidence is maintained, not resolved prematurely. Multiple hypotheses are explored in parallel. Uncertainty is mapped explicitly rather than hidden behind false confidence. The seven NABLA axioms (Signal Plurality, Contradiction Preservation, Absence Informative, Time Decay, Unknown Valid, Source Independence, [Provenance Mandatory](@/glossary/provenance-mandatory.md)) govern this phase.
 
 The transition to NM/ND execution occurs only when confidence crosses the 0.95 threshold and the Trinity Gate validates the conclusion through three independent verification methods. Once this transition occurs, the NM/ND enforcement rules apply in full: the implementation must be complete, tested, documented, and production-ready.
 
@@ -107,7 +107,7 @@ There are no exceptions to the violation protocol. The phrase "just this once" d
 
 ## Agent Enforcement
 
-Every agent in the Prismatic Platform's 530+ agent ecosystem carries a mandatory NM/ND enforcement block in its [AIAD](/glossary/aiad/) specification:
+Every agent in the Prismatic Platform's 530+ agent ecosystem carries a mandatory NM/ND enforcement block in its [AIAD](@/glossary/aiad.md) specification:
 
 ```yaml
 enforcement:
@@ -120,7 +120,7 @@ This block is not optional metadata -- it is a required field validated during a
 
 The enforcement block serves two purposes. First, it declares that the agent operates under NM/ND governance, making compliance expectations explicit to anyone reading the agent specification. Second, it enables automated compliance checking: the platform can scan all agent definitions and verify that every agent is governed by the current doctrine version.
 
-Agents at different tier levels (L1 through L5) all carry the same enforcement block. The doctrine applies uniformly regardless of agent authority level. An [Archer Supreme](/glossary/archer-supreme/) L5 agent and an L1 tactical specialist are both subject to the same quality requirements.
+Agents at different tier levels (L1 through L5) all carry the same enforcement block. The doctrine applies uniformly regardless of agent authority level. An [Archer Supreme](@/glossary/archer-supreme.md) L5 agent and an L1 tactical specialist are both subject to the same quality requirements.
 
 ## Automated Enforcement Infrastructure
 
@@ -138,7 +138,7 @@ NM/ND enforcement is implemented through multiple automated systems that operate
 
 ## Implementation in Elixir
 
-The NM/ND Doctrine's enforcement infrastructure is itself implemented as [OTP](/glossary/otp/) applications within the platform:
+The NM/ND Doctrine's enforcement infrastructure is itself implemented as [OTP](@/glossary/otp.md) applications within the platform:
 
 ```elixir
 defmodule PrismaticSafety.DoctrineEnforcer do
@@ -205,7 +205,7 @@ The NM/ND Doctrine has measurable effects on the platform's quality metrics:
 
 - **Quality Score**: 100/100 across all 13 quality domains, maintained continuously
 - **Quality Debt**: 0 QDP (Quality Debt Points) -- complete elimination of accumulated debt
-- **Compilation**: Zero warnings across 115 [OTP](/glossary/otp/) applications
+- **Compilation**: Zero warnings across 115 [OTP](@/glossary/otp.md) applications
 - **Static Analysis**: Zero Credo violations, zero Dialyzer violations
 - **Test Coverage**: Comprehensive coverage with mandatory regression tests for every bug fix
 - **Runtime**: Zero known defects in the active codebase
@@ -241,25 +241,25 @@ The workflow makes the NM/ND transition explicit. Steps 2-3 operate under NO DOU
 
 ## Related Terms
 
-- [NO MERCY](/glossary/no-mercy/) -- The zero tolerance enforcement arm of the doctrine
-- [NO DOUBTS](/glossary/no-doubts/) -- The evidence-based investigation arm of the doctrine
-- [Violation Protocol](/glossary/violation-protocol/) -- L1-L4 escalation levels for doctrine breaches
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing the exploration phase before NM/ND execution
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification gate enabling the NABLA-to-NM/ND transition
-- [Quality Gates](/glossary/quality-gates/) -- Automated enforcement pipeline implementing NM/ND checks
-- [AIAD](/glossary/aiad/) -- Agent specification standard carrying mandatory NM/ND enforcement blocks
-- [Confidence Threshold](/glossary/confidence-threshold/) -- The 0.95 threshold that triggers transition from exploration to execution
-- [Clean Run](/glossary/clean-run/) -- The compilation and test state required by NO MERCY enforcement
-- [Regression Test](/glossary/regression-test/) -- Mandatory test accompanying every bug fix under NM/ND
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- NABLA axiom ensuring decisions have traceable evidence
+- [NO MERCY](@/glossary/no-mercy.md) -- The zero tolerance enforcement arm of the doctrine
+- [NO DOUBTS](@/glossary/no-doubts.md) -- The evidence-based investigation arm of the doctrine
+- [Violation Protocol](@/glossary/violation-protocol.md) -- L1-L4 escalation levels for doctrine breaches
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing the exploration phase before NM/ND execution
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification gate enabling the NABLA-to-NM/ND transition
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated enforcement pipeline implementing NM/ND checks
+- [AIAD](@/glossary/aiad.md) -- Agent specification standard carrying mandatory NM/ND enforcement blocks
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- The 0.95 threshold that triggers transition from exploration to execution
+- [Clean Run](@/glossary/clean-run.md) -- The compilation and test state required by NO MERCY enforcement
+- [Regression Test](@/glossary/regression-test.md) -- Mandatory test accompanying every bug fix under NM/ND
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- NABLA axiom ensuring decisions have traceable evidence
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture governed by NM/ND principles
-- [Platform Capabilities](/capabilities/) -- Quality enforcement and doctrine capabilities in action
-- [Applications](/apps/) -- 115 OTP applications all operating under NM/ND governance
-- [Agent Registry](/agents/) -- 530+ agents carrying mandatory NM/ND enforcement blocks
-- [Technologies](/technologies/) -- Technology stack supporting NM/ND automated enforcement
+- [Architecture](@/architecture/_index.md) -- Platform architecture governed by NM/ND principles
+- [Platform Capabilities](@/capabilities/_index.md) -- Quality enforcement and doctrine capabilities in action
+- [Applications](@/apps/_index.md) -- 115 OTP applications all operating under NM/ND governance
+- [Agent Registry](@/agents/_index.md) -- 530+ agents carrying mandatory NM/ND enforcement blocks
+- [Technologies](@/technologies/_index.md) -- Technology stack supporting NM/ND automated enforcement
 
 ---
 
@@ -268,4 +268,4 @@ The workflow makes the NM/ND transition explicit. Steps 2-3 operate under NO DOU
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -51,7 +51,7 @@ image_alt = "Injection - Prismatic Platform"
 
 ## Definition
 
-Injection is a class of security vulnerabilities where an attacker supplies untrusted data that is interpreted as part of a command or query by an interpreter. Rather than being treated as inert data, the malicious input alters the semantic structure of the target language -- whether SQL, OS shell commands, programming language expressions, or even the BEAM virtual machine's atom table. Injection consistently ranks among the most dangerous vulnerability classes in the [OWASP](/glossary/owasp/) Top 10 and is catalogued under multiple Common Weakness Enumeration (CWE) entries including CWE-89 (SQL Injection), CWE-78 (OS Command Injection), CWE-94 (Code Injection), and CWE-917 (Expression Language Injection).
+Injection is a class of security vulnerabilities where an attacker supplies untrusted data that is interpreted as part of a command or query by an interpreter. Rather than being treated as inert data, the malicious input alters the semantic structure of the target language -- whether SQL, OS shell commands, programming language expressions, or even the BEAM virtual machine's atom table. Injection consistently ranks among the most dangerous vulnerability classes in the [OWASP](@/glossary/owasp.md) Top 10 and is catalogued under multiple Common Weakness Enumeration (CWE) entries including CWE-89 (SQL Injection), CWE-78 (OS Command Injection), CWE-94 (Code Injection), and CWE-917 (Expression Language Injection).
 
 The fundamental root cause of all injection vulnerabilities is the same: mixing code and data in a single channel without structural separation. When an application constructs commands by concatenating user input without proper parameterization or sanitization, attackers can break out of the data context and inject arbitrary commands into the interpreter.
 
@@ -61,9 +61,9 @@ The fundamental root cause of all injection vulnerabilities is the same: mixing 
 
 Injection attacks have been responsible for some of the largest data breaches in computing history, exposing hundreds of millions of records from organizations including government agencies, financial institutions, and technology companies. SQL injection alone accounts for a significant portion of all reported web application vulnerabilities. The 2017 Equifax breach, which exposed 147 million records, was traced to a single injection vulnerability in the Apache Struts framework.
 
-In [OSINT](/glossary/osint/) and intelligence platforms like Prismatic, injection vulnerabilities carry amplified risk because they can compromise the integrity of intelligence data, expose sensitive investigation details, reveal surveillance targets, or grant attackers access to the platform's reconnaissance capabilities. A single SQL injection in a [due diligence](/glossary/due-diligence/) query could expose the entire entity graph of an active investigation.
+In [OSINT](@/glossary/osint.md) and intelligence platforms like Prismatic, injection vulnerabilities carry amplified risk because they can compromise the integrity of intelligence data, expose sensitive investigation details, reveal surveillance targets, or grant attackers access to the platform's reconnaissance capabilities. A single SQL injection in a [due diligence](@/glossary/due-diligence.md) query could expose the entire entity graph of an active investigation.
 
-The Prismatic Platform addresses injection through the **SEAL (Security Enforcement Absolute Lock)** doctrine pillar -- one of the 18 mandatory enforcement pillars that govern all platform development. SEAL enforcement operates at three levels: pre-commit hooks that block known injection patterns, CI/CD pipeline validation through `mix check.doctrines`, and runtime defense through [Ecto](/glossary/ecto/) parameterized queries, Phoenix template escaping, and API boundary validation.
+The Prismatic Platform addresses injection through the **SEAL (Security Enforcement Absolute Lock)** doctrine pillar -- one of the 18 mandatory enforcement pillars that govern all platform development. SEAL enforcement operates at three levels: pre-commit hooks that block known injection patterns, CI/CD pipeline validation through `mix check.doctrines`, and runtime defense through [Ecto](@/glossary/ecto.md) parameterized queries, Phoenix template escaping, and API boundary validation.
 
 The defense philosophy follows a defense-in-depth model: no single layer is trusted to catch every attack. Multiple overlapping controls ensure that even if one layer fails, subsequent layers prevent exploitation.
 
@@ -86,7 +86,7 @@ SELECT * FROM users WHERE email = '' OR '1'='1' --' AND password_hash = 'abc123'
 -- The -- comments out the remaining password check
 ```
 
-Beyond authentication bypass, SQL injection enables data exfiltration via UNION-based attacks, blind inference through boolean or time-based techniques, and in severe cases, operating system command execution through database-specific features like `xp_cmdshell` (SQL Server) or `COPY TO PROGRAM` ([PostgreSQL](/glossary/postgresql/)).
+Beyond authentication bypass, SQL injection enables data exfiltration via UNION-based attacks, blind inference through boolean or time-based techniques, and in severe cases, operating system command execution through database-specific features like `xp_cmdshell` (SQL Server) or `COPY TO PROGRAM` ([PostgreSQL](@/glossary/postgresql.md)).
 
 **Second-order SQL injection** is particularly insidious: the malicious payload is first stored safely in the database, then later retrieved and concatenated into a new query without parameterization. This makes it harder to detect because the injection point and the exploitation point are separated in time and code location.
 
@@ -104,7 +104,7 @@ System.cmd("whois", [user_input])
 # Attacker supplies: example.com; cat /etc/passwd
 ```
 
-The Prismatic Platform's [OSINT toolbox](/glossary/osint/) faces this risk because many intelligence-gathering operations involve external tool execution. Every OSINT adapter that calls external processes must use the argument-list form of `System.cmd/3` (which bypasses shell interpretation) and validate inputs against allowlists of acceptable characters.
+The Prismatic Platform's [OSINT toolbox](@/glossary/osint.md) faces this risk because many intelligence-gathering operations involve external tool execution. Every OSINT adapter that calls external processes must use the argument-list form of `System.cmd/3` (which bypasses shell interpretation) and validate inputs against allowlists of acceptable characters.
 
 ### Code Injection
 
@@ -139,7 +139,7 @@ This vulnerability is particularly dangerous in the Prismatic Platform because t
 
 Server-side template injection (SSTI) occurs when user input is embedded into template engines that support code execution. While Phoenix's [HEEx](/glossary/heex/) templates are compiled at build time and do not evaluate runtime expressions from user input, the risk exists in any system that constructs templates dynamically.
 
-Phoenix's automatic HTML escaping prevents most [XSS](/glossary/xss/) (client-side injection) by default, but developers must remain vigilant when using `raw/1` or `Phoenix.HTML.raw/1` which explicitly bypasses escaping.
+Phoenix's automatic HTML escaping prevents most [XSS](@/glossary/xss.md) (client-side injection) by default, but developers must remain vigilant when using `raw/1` or `Phoenix.HTML.raw/1` which explicitly bypasses escaping.
 
 ---
 
@@ -202,9 +202,9 @@ The SEAL (Security Enforcement Absolute Lock) doctrine pillar enforces injection
 - Static analysis detects `Code.eval_string/3` usage with non-literal arguments
 
 **Runtime defense**:
-- [Ecto](/glossary/ecto/) parameterized queries are the only sanctioned database interaction method
+- [Ecto](@/glossary/ecto.md) parameterized queries are the only sanctioned database interaction method
 - Phoenix template engine automatically escapes all output by default
-- API gateway validates all incoming parameters against [OpenApiSpex](/glossary/api/) schemas
+- API gateway validates all incoming parameters against [OpenApiSpex](@/glossary/api.md) schemas
 
 ### Multi-Layer Input Validation Architecture
 
@@ -296,7 +296,7 @@ end
 
 ### OSINT Adapter Input Handling
 
-The [OSINT toolbox](/glossary/osint/) presents a unique injection challenge because its 157 adapters accept user-provided search queries that are forwarded to external APIs. Each adapter must sanitize inputs at the boundary and use structured HTTP clients:
+The [OSINT toolbox](@/glossary/osint.md) presents a unique injection challenge because its 157 adapters accept user-provided search queries that are forwarded to external APIs. Each adapter must sanitize inputs at the boundary and use structured HTTP clients:
 
 ```elixir
 defmodule PrismaticOsintSources.Adapters.CzechAres do
@@ -505,7 +505,7 @@ Never construct SQL through string concatenation or interpolation. Ecto's query 
 
 ### 2. Validate at System Boundaries
 
-Input validation belongs at the edges of the system -- API controllers, LiveView event handlers, and adapter entry points. Internal function calls between trusted modules do not need redundant validation. Use [OpenApiSpex](/glossary/api/) schemas for API endpoints and Ecto changesets for form submissions.
+Input validation belongs at the edges of the system -- API controllers, LiveView event handlers, and adapter entry points. Internal function calls between trusted modules do not need redundant validation. Use [OpenApiSpex](@/glossary/api.md) schemas for API endpoints and Ecto changesets for form submissions.
 
 ### 3. Prefer Allowlists Over Denylists
 
@@ -533,11 +533,11 @@ Phoenix templates automatically escape HTML output, but be cautious with `raw/1`
 
 ### 9. Log and Monitor Injection Attempts
 
-Rejected requests should be logged with sufficient context (request path, sanitized parameter values, rejection reason) to enable the [Blue Team](/glossary/blue-team/) to detect active attack campaigns. The platform's Error Intelligence pipeline aggregates these signals for pattern analysis.
+Rejected requests should be logged with sufficient context (request path, sanitized parameter values, rejection reason) to enable the [Blue Team](@/glossary/blue-team.md) to detect active attack campaigns. The platform's Error Intelligence pipeline aggregates these signals for pattern analysis.
 
 ### 10. Test Injection Resistance
 
-Include injection test cases in your test suite. The [Red Team](/glossary/red-team/) models injection attack scenarios during security exercises. Property-based testing with StreamData can generate random injection payloads to validate sanitization logic.
+Include injection test cases in your test suite. The [Red Team](@/glossary/red-team.md) models injection attack scenarios during security exercises. Property-based testing with StreamData can generate random injection payloads to validate sanitization logic.
 
 ---
 
@@ -618,20 +618,20 @@ graph LR
 
 ## Related Terms
 
-- [OWASP](/glossary/owasp/) -- Security standards body maintaining the Top 10 vulnerability list that consistently ranks injection as a critical risk
-- [XSS (Cross-Site Scripting)](/glossary/xss/) -- Client-side injection variant where malicious scripts execute in the victim's browser
+- [OWASP](@/glossary/owasp.md) -- Security standards body maintaining the Top 10 vulnerability list that consistently ranks injection as a critical risk
+- [XSS (Cross-Site Scripting)](@/glossary/xss.md) -- Client-side injection variant where malicious scripts execute in the victim's browser
 - [Input Validation](/glossary/input-validation/) -- First line of defense against injection, enforcing data format and type constraints at system boundaries
-- [Authentication](/glossary/authentication/) -- Identity verification that injection attacks frequently attempt to bypass
-- [Authorization](/glossary/authorization/) -- Access control that injection attacks escalate past when authentication is compromised
-- [Ecto](/glossary/ecto/) -- Elixir database library providing parameterized queries as the primary SQL injection defense
-- [PostgreSQL](/glossary/postgresql/) -- Database engine supporting prepared statements that structurally prevent SQL injection
-- [Penetration Testing](/glossary/penetration-testing/) -- Authorized security testing that specifically targets injection vulnerabilities
+- [Authentication](@/glossary/authentication.md) -- Identity verification that injection attacks frequently attempt to bypass
+- [Authorization](@/glossary/authorization.md) -- Access control that injection attacks escalate past when authentication is compromised
+- [Ecto](@/glossary/ecto.md) -- Elixir database library providing parameterized queries as the primary SQL injection defense
+- [PostgreSQL](@/glossary/postgresql.md) -- Database engine supporting prepared statements that structurally prevent SQL injection
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Authorized security testing that specifically targets injection vulnerabilities
 - [Threat Modeling](/glossary/threat-modeling/) -- Systematic identification of injection attack surfaces during application design
 - [Content Security Policy](/glossary/content-security-policy/) -- HTTP header that mitigates the impact of successful injection by restricting browser behavior
-- [Static Analysis](/glossary/static-analysis/) -- Automated code scanning (Credo) that detects injection-prone patterns before deployment
-- [Red Team](/glossary/red-team/) -- Offensive security team that models injection attack scenarios against platform defenses
-- [Blue Team](/glossary/blue-team/) -- Defensive security team that monitors for injection attempt patterns in request logs
-- [API](/glossary/api/) -- REST API gateway where OpenApiSpex schema validation provides the first injection defense layer
+- [Static Analysis](@/glossary/static-analysis.md) -- Automated code scanning (Credo) that detects injection-prone patterns before deployment
+- [Red Team](@/glossary/red-team.md) -- Offensive security team that models injection attack scenarios against platform defenses
+- [Blue Team](@/glossary/blue-team.md) -- Defensive security team that monitors for injection attempt patterns in request logs
+- [API](@/glossary/api.md) -- REST API gateway where OpenApiSpex schema validation provides the first injection defense layer
 
 ---
 
@@ -652,4 +652,4 @@ graph LR
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -40,7 +40,7 @@ This contract guarantees that every adapter -- whether it queries the Czech ARES
 
 ## Scaffolding with Plugin Kit
 
-The [Plugin Kit](/developers/plugins/) provides a scaffold command:
+The [Plugin Kit](@/developers/plugins/_index.md) provides a scaffold command:
 
 ```bash
 mix prismatic.gen.adapter --name my_custom_source --category global
@@ -143,10 +143,10 @@ This automatically runs 15+ contract assertions covering metadata validation, re
 
 ## Next Steps
 
-- **[SDK Documentation](/developers/sdk/)** -- Use the SDK to call your adapter from TypeScript or Python
-- **[Interactive Labs](/lab/)** -- Test your adapter in a sandboxed environment
-- **[Academy](/academy/)** -- Deeper courses on OSINT adapter patterns and OTP supervision
-- **[OSINT Sources](/osint/)** -- Browse all 121+ existing adapters for reference
+- **[SDK Documentation](@/developers/sdk/_index.md)** -- Use the SDK to call your adapter from TypeScript or Python
+- **[Interactive Labs](@/lab/_index.md)** -- Test your adapter in a sandboxed environment
+- **[Academy](@/academy/_index.md)** -- Deeper courses on OSINT adapter patterns and OTP supervision
+- **[OSINT Sources](@/osint/_index.md)** -- Browse all 121+ existing adapters for reference
 
 ---
 

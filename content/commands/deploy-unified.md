@@ -28,7 +28,7 @@ The **/deploy-unified** command serves as the single entry point for all deploym
 
 The unified deployment philosophy addresses a common operational anti-pattern: scattered deployment procedures across mix tasks, shell scripts, CI/CD pipelines, and manual Fly.io commands. By consolidating all deployment operations under a single command with consistent parameter conventions, the platform eliminates the cognitive overhead of remembering which tool to use for which scenario, reduces the risk of using the wrong procedure, and ensures that every deployment follows the same safety protocol regardless of the operator's familiarity with the infrastructure.
 
-This command operates under the **L3** authority level and is executed by the `deployment-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The deployment coordinator agent orchestrates all deployment-related operations, delegating to specialized agents for environment-specific tasks while maintaining a unified audit trail.
+This command operates under the **L3** authority level and is executed by the `deployment-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The deployment coordinator agent orchestrates all deployment-related operations, delegating to specialized agents for environment-specific tasks while maintaining a unified audit trail.
 
 Safety is the primary design principle. Every deployment passes through mandatory quality gates. Production deployments require explicit confirmation. Health checks run automatically after every deployment. Rollback procedures are prepared and tested before any forward deployment. The `--dry-run` option allows operators to preview exactly what a deployment would do before committing to execution, and the `--force` flag is available for non-production environments when prompt bypassing is needed during automated CI/CD flows.
 
@@ -225,12 +225,12 @@ COMPLETE
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `deployment-coordinator` agent | Central orchestrator for all deployment operations |
-| [AIAD](/glossary/aiad/) Registry | Command specification | Operations category |
-| [Quality Gates](/glossary/quality-gates/) | Mandatory pre-deployment validation | `mix quality.gates --quick` execution |
-| [Telemetry](/glossary/telemetry/) | Deployment [metrics](/glossary/metrics/) | Deploy time, health status, rollback events |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `deployment-coordinator` agent | Central orchestrator for all deployment operations |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification | Operations category |
+| [Quality Gates](@/glossary/quality-gates.md) | Mandatory pre-deployment validation | `mix quality.gates --quick` execution |
+| [Telemetry](@/glossary/telemetry.md) | Deployment [metrics](@/glossary/metrics.md) | Deploy time, health status, rollback events |
 | Fly.io | Infrastructure provider | Staging and production hosting |
-| [GitLab CI](/glossary/gitlab-ci/) | Pipeline integration | Automated deployment triggers |
+| [GitLab CI](@/glossary/gitlab-ci.md) | Pipeline integration | Automated deployment triggers |
 
 ### Multiple Invocation Paths
 
@@ -351,19 +351,19 @@ fly scale count 1 --region iad
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unvalidated deployments. Quality gates are mandatory, not optional. Health checks are automatic, not manual. Rollback procedures are prepared before deployment, not improvised after failure. Production confirmation is explicit, not assumed.
 - **NO DOUBTS**: Full pre-deployment verification through automated quality gates. Post-deployment health validated through active probing. Every deployment produces a traceable audit trail. Evidence-based deployment decisions with measurable pass/fail criteria.
 
 ## Related Commands
 
-- [/deploy](/commands/deploy/) - Deployment to staging environment via [GitLab CI](/glossary/gitlab-ci/)/CD
-- [/deploy-production](/commands/deploy-production/) - Production deployment to [Fly.io](/glossary/fly-io/) with safety checks
-- [/deploy-meilisearch](/commands/deploy-meilisearch/) - Meilisearch instance deployment and configuration
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/emergency](/commands/emergency/) - Emergency response and crisis management activation
+- [/deploy](@/commands/deploy.md) - Deployment to staging environment via [GitLab CI](@/glossary/gitlab-ci.md)/CD
+- [/deploy-production](@/commands/deploy-production.md) - Production deployment to [Fly.io](@/glossary/fly-io.md) with safety checks
+- [/deploy-meilisearch](@/commands/deploy-meilisearch.md) - Meilisearch instance deployment and configuration
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/emergency](@/commands/emergency.md) - Emergency response and crisis management activation
 
 ---
 
@@ -372,4 +372,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

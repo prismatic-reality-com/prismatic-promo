@@ -26,9 +26,9 @@ image_alt = "/architect - Prismatic Platform"
 
 The **/architect** command provides comprehensive architectural analysis and design recommendation generation for the Prismatic Platform. As the primary entry point for architecture-level decision making, this command enables developers and system designers to perform deep structural analysis of individual components, services, or the entire platform, producing actionable insights in the form of reports, Architecture Decision Records (ADRs), and system diagrams.
 
-Architecture is the skeleton upon which all other platform capabilities depend. Without deliberate, well-documented architectural decisions, systems inevitably accumulate structural debt that compounds over time. The /architect command addresses this challenge by automating the analytical process that typically requires senior engineering effort, synthesizing knowledge from the platform's [AIAD](/glossary/aiad/) agent ecosystem, code structure analysis, dependency graphs, and established architectural patterns to produce recommendations that are both evidence-based and immediately actionable.
+Architecture is the skeleton upon which all other platform capabilities depend. Without deliberate, well-documented architectural decisions, systems inevitably accumulate structural debt that compounds over time. The /architect command addresses this challenge by automating the analytical process that typically requires senior engineering effort, synthesizing knowledge from the platform's [AIAD](@/glossary/aiad.md) agent ecosystem, code structure analysis, dependency graphs, and established architectural patterns to produce recommendations that are both evidence-based and immediately actionable.
 
-Within the Prismatic Platform's 216-command [registry](/glossary/registry-otp/), /architect occupies the Architecture category alongside related structural analysis tools. It operates at the L3 authority level, granting it sufficient permissions to read across all application boundaries, inspect supervision trees, analyze inter-process communication patterns, and generate formal architectural artifacts. The command is executed by the `architecture-analyst` agent, a specialist in structural evaluation, pattern recognition, and design trade-off analysis.
+Within the Prismatic Platform's 216-command [registry](@/glossary/registry-otp.md), /architect occupies the Architecture category alongside related structural analysis tools. It operates at the L3 authority level, granting it sufficient permissions to read across all application boundaries, inspect supervision trees, analyze inter-process communication patterns, and generate formal architectural artifacts. The command is executed by the `architecture-analyst` agent, a specialist in structural evaluation, pattern recognition, and design trade-off analysis.
 
 The command's analytical capability extends beyond static code analysis. By leveraging the BEAM VM's introspection capabilities, /architect can examine running supervision trees, process communication topologies, and message-passing patterns that are invisible in source code alone. This runtime awareness distinguishes the command from conventional architecture analysis tools that operate solely on source code artifacts.
 
@@ -157,16 +157,16 @@ A periodic system-level analysis with runtime data provides a current-state over
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `architecture-analyst` agent with cross-domain knowledge |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `architecture-analyst` agent with cross-domain knowledge |
 | AIAD Registry | Command specification, discovery, and version management |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation ensuring architectural standards |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation ensuring architectural standards |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and event tracking |
 | Git Trees | Rapid codebase traversal for dependency analysis (~100x faster than filesystem) |
 | Supervision Trees | OTP supervision hierarchy inspection for topology mapping |
 | SEADF Framework | Scanner subsystem integration for ecosystem-wide analysis |
 | Quality DNA | Architecture quality metrics persisted across sessions |
-| [/pattern](/commands/pattern/) | Pattern library consulted for pattern detection |
-| [/analyze](/commands/analyze/) | Complementary analysis with different focus areas |
+| [/pattern](@/commands/pattern.md) | Pattern library consulted for pattern detection |
+| [/analyze](@/commands/analyze.md) | Complementary analysis with different focus areas |
 
 The architecture-analyst agent coordinates with domain-specific agents when analyzing applications outside its primary expertise. For example, when analyzing the Perimeter module's security architecture, it consults the security specialist agent for domain-specific pattern evaluation.
 
@@ -188,7 +188,7 @@ The /architect command is most effective when used at specific points in the dev
 
 ## NABLA Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Architectural analysis is exhaustive. No dependencies are overlooked, no coupling is ignored, no anti-patterns are tolerated. Reports that fail to meet completeness thresholds are rejected and re-generated. The command enforces zero tolerance for incomplete analysis results.
 - **NO DOUBTS**: Every recommendation is backed by evidence from the codebase. Pattern detections include file paths, line numbers, and concrete examples. Trade-off analyses present both sides with quantified metrics. The command never produces speculative recommendations without supporting data.
@@ -222,15 +222,15 @@ The command leverages Git Trees for file discovery, achieving approximately 100x
 
 ## Related Commands
 
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/migrate](/commands/migrate/) - Safe migration planning with rollback strategies
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/cascade](/commands/cascade/) - Execute [CASCADE pattern](/glossary/cascade-pattern/) fix for systematic anti-pattern removal
-- [/benchmark](/commands/benchmark/) - Comprehensive performance benchmarking with P95/P99 analysis
-- [/pattern](/commands/pattern/) - AI pattern lookup and pattern library access
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/migrate](@/commands/migrate.md) - Safe migration planning with rollback strategies
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/cascade](@/commands/cascade.md) - Execute [CASCADE pattern](@/glossary/cascade-pattern.md) fix for systematic anti-pattern removal
+- [/benchmark](@/commands/benchmark.md) - Comprehensive performance benchmarking with P95/P99 analysis
+- [/pattern](@/commands/pattern.md) - AI pattern lookup and pattern library access
 
 ---
 
@@ -239,4 +239,4 @@ The command leverages Git Trees for file discovery, achieving approximately 100x
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

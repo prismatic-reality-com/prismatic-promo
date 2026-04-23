@@ -24,9 +24,9 @@ image_alt = "/web-crawler - Prismatic Platform"
 
 ## Overview
 
-**/web-crawler** is a production command in the **Intelligence** category of the Prismatic Platform. It provides automated web crawling and structured data extraction for [OSINT](/glossary/osint/) investigations, competitive intelligence, and data collection operations. The command manages configurable crawlers that traverse web pages, extract structured data using CSS selectors and XPath expressions, follow links within defined boundaries, respect robots.txt and rate limits, and output normalized data in multiple formats. It is the primary data acquisition tool for the platform's intelligence gathering pipeline.
+**/web-crawler** is a production command in the **Intelligence** category of the Prismatic Platform. It provides automated web crawling and structured data extraction for [OSINT](@/glossary/osint.md) investigations, competitive intelligence, and data collection operations. The command manages configurable crawlers that traverse web pages, extract structured data using CSS selectors and XPath expressions, follow links within defined boundaries, respect robots.txt and rate limits, and output normalized data in multiple formats. It is the primary data acquisition tool for the platform's intelligence gathering pipeline.
 
-This command operates under the **L2+** authority level and is executed by the `web-crawler-agent` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The web-crawler-agent handles HTTP request management, HTML parsing, data extraction, politeness enforcement, and output formatting. It integrates with the platform's broader OSINT ecosystem for data enrichment and correlation.
+This command operates under the **L2+** authority level and is executed by the `web-crawler-agent` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The web-crawler-agent handles HTTP request management, HTML parsing, data extraction, politeness enforcement, and output formatting. It integrates with the platform's broader OSINT ecosystem for data enrichment and correlation.
 
 Web crawling on the Prismatic Platform follows strict ethical guidelines. All crawlers respect robots.txt directives, implement configurable rate limiting (default: 1 request per second per domain), identify themselves with a proper User-Agent string, and never access authenticated or restricted content without explicit authorization. The crawler is designed for open-source intelligence gathering from publicly accessible sources only.
 
@@ -196,14 +196,14 @@ Normalized data is formatted for the requested output format and either displaye
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/investigate](/commands/investigate/) | Consumer | Investigation uses crawler for data acquisition |
-| [/email-osint](/commands/email-osint/) | Peer | Email OSINT may trigger targeted crawls |
-| [/google-hacking](/commands/google-hacking/) | Peer | Google dorking discovers URLs for crawling |
-| [/osint-engines](/commands/osint-engines/) | Upstream | OSINT engines coordinate with crawlers |
-| [/ghost-recon](/commands/ghost-recon/) | Peer | Stealth recon uses targeted page extraction |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Consumer | EASM uses crawling for asset discovery |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Crawl performance metrics |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Crawl configurations validated |
+| [/investigate](@/commands/investigate.md) | Consumer | Investigation uses crawler for data acquisition |
+| [/email-osint](@/commands/email-osint.md) | Peer | Email OSINT may trigger targeted crawls |
+| [/google-hacking](@/commands/google-hacking.md) | Peer | Google dorking discovers URLs for crawling |
+| [/osint-engines](@/commands/osint-engines.md) | Upstream | OSINT engines coordinate with crawlers |
+| [/ghost-recon](@/commands/ghost-recon.md) | Peer | Stealth recon uses targeted page extraction |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Consumer | EASM uses crawling for asset discovery |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Crawl performance metrics |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Crawl configurations validated |
 
 ## Best Practices
 
@@ -264,20 +264,20 @@ Crawl multiple sites in coordinated campaign:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every URL in scope is crawled, every extraction rule is applied, every politeness control is enforced without exception.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Extracted data includes source URLs, extraction timestamps, and confidence indicators. No data is reported without verifiable provenance.
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/ghost-recon](/commands/ghost-recon/) - Stealth OSINT reconnaissance and passive intelligence gathering
-- [/osint-engines](/commands/osint-engines/) - Multi-engine OSINT provider coordination and management
-- [/delta-force](/commands/delta-force/) - Precision OSINT operations with surgical data extraction
-- [/navy-seal](/commands/navy-seal/) - Deep-water OSINT operations in restricted information spaces
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/ghost-recon](@/commands/ghost-recon.md) - Stealth OSINT reconnaissance and passive intelligence gathering
+- [/osint-engines](@/commands/osint-engines.md) - Multi-engine OSINT provider coordination and management
+- [/delta-force](@/commands/delta-force.md) - Precision OSINT operations with surgical data extraction
+- [/navy-seal](@/commands/navy-seal.md) - Deep-water OSINT operations in restricted information spaces
 
 ---
 
@@ -286,4 +286,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -520,22 +520,22 @@ end
 
 ## Related Terms
 
-- [Aggregation](/glossary/aggregation/) -- combining batch-processed results into summary statistics
-- [Cache](/glossary/cache/) -- caching batch results for subsequent access, ETS-backed
-- [Pipeline](/glossary/pipeline/) -- multi-stage processing pipelines built from batch stages
-- [CSV](/glossary/csv/) -- common batch data input format parsed from binary streams
-- [GenServer](/glossary/genserver/) -- process managing batch state and coordination
-- [Telemetry](/glossary/telemetry/) -- instrumentation for batch progress and performance
-- [ETS](/glossary/ets/) -- in-memory storage for batch intermediate results
+- [Aggregation](@/glossary/aggregation.md) -- combining batch-processed results into summary statistics
+- [Cache](@/glossary/cache.md) -- caching batch results for subsequent access, ETS-backed
+- [Pipeline](@/glossary/pipeline.md) -- multi-stage processing pipelines built from batch stages
+- [CSV](@/glossary/csv.md) -- common batch data input format parsed from binary streams
+- [GenServer](@/glossary/genserver.md) -- process managing batch state and coordination
+- [Telemetry](@/glossary/telemetry.md) -- instrumentation for batch progress and performance
+- [ETS](@/glossary/ets.md) -- in-memory storage for batch intermediate results
 - [Stream](/glossary/stream/) -- lazy enumeration underlying chunk generation
-- [Connection Pool](/glossary/connection-pool/) -- database connection management during batch writes
-- [Configuration](/glossary/configuration/) -- batch parameter configuration (chunk size, concurrency)
-- [Data Pipeline](/glossary/data-pipeline/) -- end-to-end data flow incorporating batch stages
-- [ETL](/glossary/etl/) -- extract-transform-load pattern built on batch operations
+- [Connection Pool](@/glossary/connection-pool.md) -- database connection management during batch writes
+- [Configuration](@/glossary/configuration.md) -- batch parameter configuration (chunk size, concurrency)
+- [Data Pipeline](@/glossary/data-pipeline.md) -- end-to-end data flow incorporating batch stages
+- [ETL](@/glossary/etl.md) -- extract-transform-load pattern built on batch operations
 
 ## See Also
 
-- [DD Pipeline Architecture](/glossary/pipeline/) -- batch processing in entity loading
+- [DD Pipeline Architecture](@/glossary/pipeline.md) -- batch processing in entity loading
 - [Broadway](https://hexdocs.pm/broadway/) -- Elixir concurrent and multi-stage data ingestion
 - [GenStage](https://hexdocs.pm/gen_stage/) -- demand-driven producer-consumer pipelines
 - [Flow](https://hexdocs.pm/flow/) -- parallel data processing on collections
@@ -549,4 +549,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,11 +24,11 @@ image_alt = "/manipulation-dashboard - Prismatic Platform"
 
 ## Overview
 
-**/manipulation-dashboard** is a production command in the **Defensive Security** category of the Prismatic Platform that provides a real-time monitoring dashboard for manipulation detection across the platform's epistemic systems. The dashboard aggregates threat indicators from [/manipulation-detect](/commands/manipulation-detect/), displays active protection status from [/manipulation-protect](/commands/manipulation-protect/), and visualizes the manipulation threat landscape across all monitored channels and agents.
+**/manipulation-dashboard** is a production command in the **Defensive Security** category of the Prismatic Platform that provides a real-time monitoring dashboard for manipulation detection across the platform's epistemic systems. The dashboard aggregates threat indicators from [/manipulation-detect](@/commands/manipulation-detect.md), displays active protection status from [/manipulation-protect](@/commands/manipulation-protect.md), and visualizes the manipulation threat landscape across all monitored channels and agents.
 
-This command operates under the **L2+** authority level and is executed by the `manipulation-detector` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level provides broad access to manipulation monitoring while restricting configuration changes to operators with higher clearance.
+This command operates under the **L2+** authority level and is executed by the `manipulation-detector` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level provides broad access to manipulation monitoring while restricting configuration changes to operators with higher clearance.
 
-The Prismatic Platform's manipulation detection system monitors for epistemic attacks -- attempts to distort the platform's knowledge base, compromise agent decision-making, or inject false information into intelligence streams. These attacks are categorized using a comprehensive taxonomy derived from the [Color-Team](/glossary/color-teams/) security framework, where the [Red Team](/glossary/red-team/) simulates epistemic attacks and the [Blue Team](/glossary/blue-team/) develops defensive responses. The manipulation dashboard provides the Blue Team's operational view of the current threat landscape.
+The Prismatic Platform's manipulation detection system monitors for epistemic attacks -- attempts to distort the platform's knowledge base, compromise agent decision-making, or inject false information into intelligence streams. These attacks are categorized using a comprehensive taxonomy derived from the [Color-Team](@/glossary/color-teams.md) security framework, where the [Red Team](@/glossary/red-team.md) simulates epistemic attacks and the [Blue Team](@/glossary/blue-team.md) develops defensive responses. The manipulation dashboard provides the Blue Team's operational view of the current threat landscape.
 
 The dashboard tracks five primary manipulation categories: truth distortion (attempts to alter established facts), confidence manipulation (attempts to inflate or deflate certainty scores), signal poisoning (injection of false signals into intelligence streams), drift induction (gradual, sub-threshold deviation from baseline behavior), and salience hijacking (misdirection of attention to irrelevant targets). Each category has dedicated detection algorithms, and the dashboard provides per-category threat indicators alongside aggregate threat levels.
 
@@ -151,7 +151,7 @@ The dashboard system aggregates detection signals from multiple monitoring point
 
 4. **Alert Generation**: When threat scores exceed configured thresholds, alerts are generated with the detected technique classification, affected scope (agent, channel, domain), confidence level, and recommended response actions.
 
-5. **Protection Status Integration**: Current protection status from [/manipulation-protect](/commands/manipulation-protect/) is integrated into the dashboard, showing which defenses are active, their coverage scope, and their effectiveness metrics.
+5. **Protection Status Integration**: Current protection status from [/manipulation-protect](@/commands/manipulation-protect.md) is integrated into the dashboard, showing which defenses are active, their coverage scope, and their effectiveness metrics.
 
 6. **View Rendering**: The selected view is rendered with current data. The overview shows all components simultaneously. Specific views (threats, agents, historical) provide focused, detailed views of individual aspects.
 
@@ -161,20 +161,20 @@ The dashboard system aggregates detection signals from multiple monitoring point
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `manipulation-detector` | Signal aggregation and visualization |
-| [/manipulation-detect](/commands/manipulation-detect/) | Detection engine | Primary detection signals feed dashboard |
-| [/manipulation-protect](/commands/manipulation-protect/) | Defense status | Active protection status display |
-| [/manipulation-techniques](/commands/manipulation-techniques/) | Technique reference | Taxonomy for detected technique classification |
-| [Color-Team](/glossary/color-teams/) | Security framework | Red/Blue team findings integrated |
-| [NABLA Framework](/glossary/nabla-infinity/) | Signal quality | Epistemic health metrics from NABLA |
-| [LiveView](/glossary/liveview/) | Web rendering | Real-time dashboard via WebSocket |
-| [Telemetry](/glossary/telemetry/) | Event stream | Detection events and performance metrics |
-| [/emergency](/commands/emergency/) | Crisis response | Critical threat triggers emergency protocol |
-| [/dark-ops](/commands/dark-ops/) | Structural analysis | Deep epistemic crisis detection |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `manipulation-detector` | Signal aggregation and visualization |
+| [/manipulation-detect](@/commands/manipulation-detect.md) | Detection engine | Primary detection signals feed dashboard |
+| [/manipulation-protect](@/commands/manipulation-protect.md) | Defense status | Active protection status display |
+| [/manipulation-techniques](@/commands/manipulation-techniques.md) | Technique reference | Taxonomy for detected technique classification |
+| [Color-Team](@/glossary/color-teams.md) | Security framework | Red/Blue team findings integrated |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Signal quality | Epistemic health metrics from NABLA |
+| [LiveView](@/glossary/liveview.md) | Web rendering | Real-time dashboard via WebSocket |
+| [Telemetry](@/glossary/telemetry.md) | Event stream | Detection events and performance metrics |
+| [/emergency](@/commands/emergency.md) | Crisis response | Critical threat triggers emergency protocol |
+| [/dark-ops](@/commands/dark-ops.md) | Structural analysis | Deep epistemic crisis detection |
 
 ## Best Practices
 
-**Monitor the dashboard during intelligence operations.** Active OSINT collection and analysis sessions are the highest-risk periods for manipulation attempts. Keep the dashboard visible during [/investigate](/commands/investigate/) operations.
+**Monitor the dashboard during intelligence operations.** Active OSINT collection and analysis sessions are the highest-risk periods for manipulation attempts. Keep the dashboard visible during [/investigate](@/commands/investigate.md) operations.
 
 **Investigate YELLOW threats promptly.** Elevated threat levels often precede more severe attacks. Early investigation at the YELLOW stage can prevent escalation to ORANGE or RED.
 
@@ -241,19 +241,19 @@ Add custom manipulation detection rules to the dashboard.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The dashboard displays all available threat data or explicitly indicates which data sources are unavailable. No manipulation signal is silently dropped.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. All threat indicators include confidence scores and source provenance. Alert classifications reference specific taxonomy entries with evidence chains.
 
 ## Related Commands
 
-- [/manipulation-detect](/commands/manipulation-detect/) - Detect manipulation attempts using epistemic analysis
-- [/manipulation-protect](/commands/manipulation-protect/) - Activate manipulation protection defenses
-- [/manipulation-techniques](/commands/manipulation-techniques/) - View manipulation technique taxonomy and counter-measures
-- [/emergency](/commands/emergency/) - Emergency response and crisis management activation
-- [/archer-supreme](/commands/archer-supreme/) - Supreme authority activation for platform-wide operations
-- [/dark-ops](/commands/dark-ops/) - NABLA structural crisis detection and dark operations analysis
+- [/manipulation-detect](@/commands/manipulation-detect.md) - Detect manipulation attempts using epistemic analysis
+- [/manipulation-protect](@/commands/manipulation-protect.md) - Activate manipulation protection defenses
+- [/manipulation-techniques](@/commands/manipulation-techniques.md) - View manipulation technique taxonomy and counter-measures
+- [/emergency](@/commands/emergency.md) - Emergency response and crisis management activation
+- [/archer-supreme](@/commands/archer-supreme.md) - Supreme authority activation for platform-wide operations
+- [/dark-ops](@/commands/dark-ops.md) - NABLA structural crisis detection and dark operations analysis
 
 ---
 
@@ -262,4 +262,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

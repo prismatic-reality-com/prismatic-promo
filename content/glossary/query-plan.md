@@ -426,15 +426,15 @@ end
 
 ## Related Terms
 
-- [Query](/glossary/query/) -- the request that triggers plan generation
-- [Sequential Scan](/glossary/sequential-scan/) -- full-table scan, often a sign of missing indexes
-- [Vacuum](/glossary/vacuum/) -- maintenance operation that updates planner statistics
-- [Statistics](/glossary/statistics/) -- data distribution information used by the planner
-- [Schema](/glossary/schema/) -- structural definitions that determine available indexes
-- [Ecto](/glossary/ecto/) -- Elixir database wrapper that generates SQL from query DSL
+- [Query](@/glossary/query.md) -- the request that triggers plan generation
+- [Sequential Scan](@/glossary/sequential-scan.md) -- full-table scan, often a sign of missing indexes
+- [Vacuum](@/glossary/vacuum.md) -- maintenance operation that updates planner statistics
+- [Statistics](@/glossary/statistics.md) -- data distribution information used by the planner
+- [Schema](@/glossary/schema.md) -- structural definitions that determine available indexes
+- [Ecto](@/glossary/ecto.md) -- Elixir database wrapper that generates SQL from query DSL
 - [Index](/glossary/index/) -- data structure enabling efficient lookups
 - [Transaction](/glossary/transaction/) -- isolation context affecting plan visibility
-- [Connection Pool](/glossary/connection-pool/) -- resource management for database connections
+- [Connection Pool](@/glossary/connection-pool.md) -- resource management for database connections
 - [N Plus One](/glossary/n-plus-one/) -- anti-pattern where separate queries replace joins
 - [Materialized View](/glossary/materialized-view/) -- pre-computed query results for expensive plans
 - [CTE](/glossary/cte/) -- Common Table Expressions and their planning implications
@@ -442,9 +442,9 @@ end
 ## See Also
 
 - [PostgreSQL EXPLAIN Documentation](https://www.postgresql.org/docs/current/using-explain.html)
-- [Platform Architecture](/architecture/) -- database infrastructure and query patterns
+- [Platform Architecture](@/architecture/_index.md) -- database infrastructure and query patterns
 - [DD Pipeline](/hub/dd/pipeline) -- entity queries optimized through plan analysis
-- [Performance Testing](/capabilities/) -- automated plan regression detection
+- [Performance Testing](@/capabilities/_index.md) -- automated plan regression detection
 
 ---
 
@@ -453,4 +453,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

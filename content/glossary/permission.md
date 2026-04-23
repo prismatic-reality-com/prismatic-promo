@@ -248,7 +248,7 @@ end
 
 - **Scope** - Boundary definition that permissions enforce
 - **Secrets** - Sensitive values protected by permission-gated access
-- [PII](/glossary/pii/) - Personal data requiring strict permission controls
+- [PII](@/glossary/pii.md) - Personal data requiring strict permission controls
 - **Self-Registration** - OSINT tools auto-register their permission requirements
 - **Server** - Services that enforce permissions at the API boundary
 

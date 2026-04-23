@@ -36,9 +36,9 @@ image_alt = "LLM - Prismatic Platform"
 
 ## Definition
 
-A Large Language Model (LLM) is a [neural network](/glossary/neural-network/) -- typically based on the transformer architecture -- trained on massive text corpora (hundreds of billions to trillions of tokens) that develops the ability to generate coherent text, analyze complex documents, reason through multi-step problems, write code, and follow nuanced instructions. LLMs operate by predicting the next token in a sequence, but this simple mechanism gives rise to emergent capabilities including in-context learning, chain-of-thought reasoning, and tool use.
+A Large Language Model (LLM) is a [neural network](@/glossary/neural-network.md) -- typically based on the transformer architecture -- trained on massive text corpora (hundreds of billions to trillions of tokens) that develops the ability to generate coherent text, analyze complex documents, reason through multi-step problems, write code, and follow nuanced instructions. LLMs operate by predicting the next token in a sequence, but this simple mechanism gives rise to emergent capabilities including in-context learning, chain-of-thought reasoning, and tool use.
 
-In the Prismatic Platform, LLMs are the cognitive engine powering 530+ [AIAD](/glossary/aiad/) agents. The platform integrates with two inference backends: the [Claude AI](/glossary/claude-ai/) API (Anthropic's frontier models) for high-capability tasks requiring advanced reasoning, and [Ollama](/glossary/ollama/) for local inference with open-weight models (qwen3-coder 7B, gpt-oss 20B, deepseek-coder 6.7B) that provide sub-3-second response times without network dependency. This dual-track architecture ensures that the platform can operate with full AI capabilities both online (cloud API) and offline (local inference), with automatic fallback from local to cloud when task complexity exceeds local model capacity.
+In the Prismatic Platform, LLMs are the cognitive engine powering 530+ [AIAD](@/glossary/aiad.md) agents. The platform integrates with two inference backends: the [Claude AI](@/glossary/claude-ai.md) API (Anthropic's frontier models) for high-capability tasks requiring advanced reasoning, and [Ollama](@/glossary/ollama.md) for local inference with open-weight models (qwen3-coder 7B, gpt-oss 20B, deepseek-coder 6.7B) that provide sub-3-second response times without network dependency. This dual-track architecture ensures that the platform can operate with full AI capabilities both online (cloud API) and offline (local inference), with automatic fallback from local to cloud when task complexity exceeds local model capacity.
 
 ## Overview
 
@@ -48,13 +48,13 @@ Modern LLMs operate at scales that would have been considered impractical a deca
 
 The key capabilities relevant to the Prismatic Platform include:
 
-- **Code Generation**: LLMs can generate [Elixir](/glossary/elixir/) code with correct syntax, idiomatic patterns, proper `@spec` annotations, and OTP-compliant designs. The platform uses this capability for agent code generation, automated refactoring, and quality improvement suggestions.
-- **Reasoning**: Multi-step logical reasoning enables agents to analyze complex situations, evaluate evidence chains, and make decisions within the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework.
+- **Code Generation**: LLMs can generate [Elixir](@/glossary/elixir.md) code with correct syntax, idiomatic patterns, proper `@spec` annotations, and OTP-compliant designs. The platform uses this capability for agent code generation, automated refactoring, and quality improvement suggestions.
+- **Reasoning**: Multi-step logical reasoning enables agents to analyze complex situations, evaluate evidence chains, and make decisions within the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework.
 - **Analysis**: LLMs can process and summarize large codebases, identify patterns, detect anomalies, and extract structured information from unstructured text -- essential for OSINT operations and security analysis.
 - **Instruction Following**: The ability to follow detailed instructions enables precise agent behavior specification through the AIAD standard's prompt engineering layer.
 - **Tool Use**: Modern LLMs can decide when and how to use external tools (APIs, databases, code execution environments), enabling agents to interact with the platform's infrastructure.
 
-The platform's dual-track inference architecture (cloud + local) reflects a pragmatic engineering decision. Cloud inference provides frontier model capabilities but introduces network [latency](/glossary/latency/), cost per token, and internet dependency. Local inference via [Ollama](/glossary/ollama/) provides privacy, zero network latency, and predictable costs but with reduced model capability. The automatic fallback mechanism ensures that agents always have access to LLM capabilities regardless of network conditions.
+The platform's dual-track inference architecture (cloud + local) reflects a pragmatic engineering decision. Cloud inference provides frontier model capabilities but introduces network [latency](@/glossary/latency.md), cost per token, and internet dependency. Local inference via [Ollama](@/glossary/ollama.md) provides privacy, zero network latency, and predictable costs but with reduced model capability. The automatic fallback mechanism ensures that agents always have access to LLM capabilities regardless of network conditions.
 
 ## Technical Details
 
@@ -63,7 +63,7 @@ The platform's dual-track inference architecture (cloud + local) reflects a prag
 The transformer architecture consists of stacked layers, each containing a multi-head self-attention mechanism and a feed-forward network. For a sequence of N tokens:
 
 1. **Tokenization**: Input text is split into tokens (subword units) using a trained tokenizer (BPE, SentencePiece, or similar). Each token maps to an integer ID.
-2. **[Embedding](/glossary/embedding/)**: Token IDs are mapped to dense vectors (embeddings) that encode semantic meaning in high-dimensional space.
+2. **[Embedding](@/glossary/embedding.md)**: Token IDs are mapped to dense vectors (embeddings) that encode semantic meaning in high-dimensional space.
 3. **Positional Encoding**: Position information is added to embeddings so the model knows token order (transformers process all positions in parallel).
 4. **Self-Attention**: Each token attends to all other tokens, computing weighted combinations that capture contextual relationships. Multi-head attention runs multiple attention computations in parallel, capturing different types of relationships.
 5. **Feed-Forward**: Position-wise feed-forward networks process each token independently after attention aggregation.
@@ -163,7 +163,7 @@ end
 
 ### Ollama Local Inference Integration
 
-The [Ollama](/glossary/ollama/) integration provides local LLM inference with automatic model management:
+The [Ollama](@/glossary/ollama.md) integration provides local LLM inference with automatic model management:
 
 ```elixir
 defmodule PrismaticAgents.LLM.Ollama do
@@ -299,7 +299,7 @@ end
 
 ### Agent-LLM Integration
 
-Each [AIAD](/glossary/aiad/) agent specifies its LLM requirements in the agent specification, and the runtime dispatches to the appropriate backend:
+Each [AIAD](@/glossary/aiad.md) agent specifies its LLM requirements in the agent specification, and the runtime dispatches to the appropriate backend:
 
 ```elixir
 defmodule PrismaticAgents.Runtime.LLMDispatcher do
@@ -389,7 +389,7 @@ end
 
 ### LLM vs. Rule-Based Systems
 
-LLMs excel at handling ambiguity, novel inputs, and tasks where the rules are too complex to enumerate. [Rule-based systems](/glossary/rule-based-reasoning/) excel at deterministic, verifiable decisions where correctness is more important than flexibility. The Prismatic Platform uses both: LLMs for agent reasoning and analysis, rule-based systems for [quality gates](/glossary/quality-gate/), authority validation, and compliance checks.
+LLMs excel at handling ambiguity, novel inputs, and tasks where the rules are too complex to enumerate. [Rule-based systems](@/glossary/rule-based-reasoning.md) excel at deterministic, verifiable decisions where correctness is more important than flexibility. The Prismatic Platform uses both: LLMs for agent reasoning and analysis, rule-based systems for [quality gates](@/glossary/quality-gate.md), authority validation, and compliance checks.
 
 ## Best Practices
 
@@ -403,13 +403,13 @@ LLMs excel at handling ambiguity, novel inputs, and tasks where the rules are to
 
 5. **Response Validation**: Never trust LLM output without validation. Parse structured outputs, type-check code generation, and verify factual claims against platform data.
 
-6. **[Prompt Engineering](/glossary/prompt-engineering/) Versioning**: Treat prompts as code. Version them, test them, and review them. A prompt change can alter agent behavior as dramatically as a code change.
+6. **[Prompt Engineering](@/glossary/prompt-engineering.md) Versioning**: Treat prompts as code. Version them, test them, and review them. A prompt change can alter agent behavior as dramatically as a code change.
 
 7. **Caching Identical Requests**: If multiple agents issue the same query, cache the response. LLM inference is expensive and deterministic at temperature 0.0.
 
 ## Common Pitfalls
 
-1. **Hallucination Trust**: LLMs can generate plausible but factually incorrect text. Every LLM output used for platform decisions must be validated through the [Trinity Gate](/glossary/trinity-gate/) or verified against ground truth.
+1. **Hallucination Trust**: LLMs can generate plausible but factually incorrect text. Every LLM output used for platform decisions must be validated through the [Trinity Gate](@/glossary/trinity-gate.md) or verified against ground truth.
 
 2. **Context Window Overflow**: Exceeding the model's context window silently truncates input, losing critical information. The platform estimates token counts before submission and truncates intelligently (summarizing older context).
 
@@ -417,7 +417,7 @@ LLMs excel at handling ambiguity, novel inputs, and tasks where the rules are to
 
 4. **Cost Explosion**: Cloud LLM costs scale linearly with token count. A misconfigured agent that generates verbose prompts or requests unnecessary completions can consume the entire monthly budget in hours.
 
-5. **Latency Variability**: Cloud LLM [latency](/glossary/latency/) varies widely (500ms to 30s) depending on model load, request complexity, and output length. Design for worst-case latency with timeouts and async patterns.
+5. **Latency Variability**: Cloud LLM [latency](@/glossary/latency.md) varies widely (500ms to 30s) depending on model load, request complexity, and output length. Design for worst-case latency with timeouts and async patterns.
 
 6. **Model Monoculture**: Depending on a single model provider creates a single point of failure. The platform's dual-track architecture (Claude + Ollama) mitigates this, but teams should also test agent behavior across different models.
 
@@ -425,11 +425,11 @@ LLMs excel at handling ambiguity, novel inputs, and tasks where the rules are to
 
 ### Agent-Powered Code Generation
 
-When the platform's autoevolve system identifies an improvement opportunity, an L3 Strategic Commander decomposes the task and assigns code generation to L2 agents. These agents use Claude or qwen3-coder to generate [Elixir](/glossary/elixir/) code complete with `@spec` annotations, `@moduledoc` documentation, and property-based tests. The generated code passes through quality gates before integration.
+When the platform's autoevolve system identifies an improvement opportunity, an L3 Strategic Commander decomposes the task and assigns code generation to L2 agents. These agents use Claude or qwen3-coder to generate [Elixir](@/glossary/elixir.md) code complete with `@spec` annotations, `@moduledoc` documentation, and property-based tests. The generated code passes through quality gates before integration.
 
 ### OSINT Intelligence Analysis
 
-The platform's 120 OSINT tools collect raw data from Czech business registries, global threat intelligence feeds, and sanctions databases. LLMs analyze this raw data to extract entities, identify relationships, assess risk levels, and generate structured intelligence reports. The analysis follows [NABLA Infinity](/glossary/nabla-infinity/) axioms, maintaining signal plurality and contradiction preservation.
+The platform's 120 OSINT tools collect raw data from Czech business registries, global threat intelligence feeds, and sanctions databases. LLMs analyze this raw data to extract entities, identify relationships, assess risk levels, and generate structured intelligence reports. The analysis follows [NABLA Infinity](@/glossary/nabla-infinity.md) axioms, maintaining signal plurality and contradiction preservation.
 
 ### Natural Language Query Interface
 
@@ -437,36 +437,36 @@ Users can query platform state using natural language through the API and LiveVi
 
 ### Security Assessment Reasoning
 
-The Perimeter EASM system uses LLMs to reason about security findings, correlate vulnerabilities across assets, and generate security rating justifications. The reasoning chain is preserved as evidence for the [formal verification](/glossary/formal-verification/) system, ensuring that security ratings are traceable and defensible.
+The Perimeter EASM system uses LLMs to reason about security findings, correlate vulnerabilities across assets, and generate security rating justifications. The reasoning chain is preserved as evidence for the [formal verification](@/glossary/formal-verification.md) system, ensuring that security ratings are traceable and defensible.
 
 ### Automated Documentation
 
-LLMs generate and maintain documentation for the platform's 115 umbrella applications, including CLAUDE.md files, API documentation, and [knowledge graph](/glossary/knowledge-graph/) entries. The generation process uses the existing codebase as ground truth, reducing hallucination risk.
+LLMs generate and maintain documentation for the platform's 115 umbrella applications, including CLAUDE.md files, API documentation, and [knowledge graph](@/glossary/knowledge-graph.md) entries. The generation process uses the existing codebase as ground truth, reducing hallucination risk.
 
 ## Related Concepts
 
-- [AI Model](/glossary/ai-model/) -- The broader category of machine learning models that includes LLMs
-- [AI Inference](/glossary/ai-inference/) -- The process of running input through a trained LLM to produce output
-- [Ollama](/glossary/ollama/) -- Local LLM inference server providing the platform's offline AI capability
-- [Claude AI](/glossary/claude-ai/) -- Anthropic's frontier LLM powering the platform's high-capability agents
-- [Prompt Engineering](/glossary/prompt-engineering/) -- The practice of crafting effective instructions for LLMs
-- [Fine-Tuning](/glossary/fine-tuning/) -- Adapting a pre-trained LLM to specific tasks through additional training
-- [Neural Network](/glossary/neural-network/) -- The computational architecture underlying LLMs
-- [Embedding](/glossary/embedding/) -- Dense vector representations used internally by LLMs and for semantic search
-- [RAG](/glossary/rag/) -- Retrieval-Augmented Generation, combining LLMs with knowledge retrieval
-- [Agent](/glossary/agent/) -- Autonomous entities powered by LLM reasoning in the platform
-- [AIAD](/glossary/aiad/) -- The standard defining how agents interface with LLMs
-- [Agent Registry](/glossary/agent-registry/) -- Registry managing 530+ LLM-powered agents
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Structured knowledge that grounds LLM reasoning
-- [Ontology](/glossary/ontology/) -- Formal domain models that constrain LLM output to valid concepts
+- [AI Model](@/glossary/ai-model.md) -- The broader category of machine learning models that includes LLMs
+- [AI Inference](@/glossary/ai-inference.md) -- The process of running input through a trained LLM to produce output
+- [Ollama](@/glossary/ollama.md) -- Local LLM inference server providing the platform's offline AI capability
+- [Claude AI](@/glossary/claude-ai.md) -- Anthropic's frontier LLM powering the platform's high-capability agents
+- [Prompt Engineering](@/glossary/prompt-engineering.md) -- The practice of crafting effective instructions for LLMs
+- [Fine-Tuning](@/glossary/fine-tuning.md) -- Adapting a pre-trained LLM to specific tasks through additional training
+- [Neural Network](@/glossary/neural-network.md) -- The computational architecture underlying LLMs
+- [Embedding](@/glossary/embedding.md) -- Dense vector representations used internally by LLMs and for semantic search
+- [RAG](@/glossary/rag.md) -- Retrieval-Augmented Generation, combining LLMs with knowledge retrieval
+- [Agent](@/glossary/agent.md) -- Autonomous entities powered by LLM reasoning in the platform
+- [AIAD](@/glossary/aiad.md) -- The standard defining how agents interface with LLMs
+- [Agent Registry](@/glossary/agent-registry.md) -- Registry managing 530+ LLM-powered agents
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Structured knowledge that grounds LLM reasoning
+- [Ontology](@/glossary/ontology.md) -- Formal domain models that constrain LLM output to valid concepts
 
 ## See Also
 
-- [Agent Tier](/glossary/agent-tier/) -- Authority levels that determine LLM model selection per agent
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification system that validates LLM-generated claims
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework constraining how LLM outputs are treated as evidence
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical verification complementing LLM probabilistic reasoning
-- [Elixir](/glossary/elixir/) -- The platform's primary language, both generated by and orchestrating LLMs
+- [Agent Tier](@/glossary/agent-tier.md) -- Authority levels that determine LLM model selection per agent
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification system that validates LLM-generated claims
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework constraining how LLM outputs are treated as evidence
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical verification complementing LLM probabilistic reasoning
+- [Elixir](@/glossary/elixir.md) -- The platform's primary language, both generated by and orchestrating LLMs
 
 ---
 
@@ -475,4 +475,4 @@ LLMs generate and maintain documentation for the platform's 115 umbrella applica
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

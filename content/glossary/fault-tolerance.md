@@ -38,9 +38,9 @@ image_alt = "Fault Tolerance - Prismatic Platform"
 
 Fault tolerance is a system design property ensuring continued correct operation even when individual components fail. Rather than attempting to prevent all failures -- an approach that produces brittle, over-engineered systems -- fault-tolerant systems accept that failures are inevitable and design for rapid detection, isolation, and recovery. The goal is not a system that never fails, but a system that fails gracefully: degrading non-critical functionality while maintaining core operations, recovering automatically from transient failures, and escalating persistent failures to human operators with full diagnostic context.
 
-This philosophy is deeply embedded in the Erlang/OTP ecosystem and, by extension, in the [BEAM](/glossary/beam/) virtual machine that powers Elixir. Joe Armstrong, Erlang's creator, designed the language specifically for telecommunications systems that required 99.9999999% uptime (nine nines, or approximately 31 milliseconds of downtime per year). The fault tolerance techniques that emerged from this requirement -- process isolation, supervision trees, and the let-it-crash philosophy -- remain the most battle-tested approach to building resilient distributed systems.
+This philosophy is deeply embedded in the Erlang/OTP ecosystem and, by extension, in the [BEAM](@/glossary/beam.md) virtual machine that powers Elixir. Joe Armstrong, Erlang's creator, designed the language specifically for telecommunications systems that required 99.9999999% uptime (nine nines, or approximately 31 milliseconds of downtime per year). The fault tolerance techniques that emerged from this requirement -- process isolation, supervision trees, and the let-it-crash philosophy -- remain the most battle-tested approach to building resilient distributed systems.
 
-The Prismatic Platform inherits these guarantees from the BEAM VM and extends them through application-level systems: the SEADF [self-healing](/glossary/self-healing/) framework, the Quality Floor Guardian, and the [circuit breaker](/glossary/circuit-breaker/) patterns that protect external dependency boundaries. The result is a platform that can sustain individual process crashes, external service outages, and even partial infrastructure failures while maintaining its core intelligence-gathering and analysis operations.
+The Prismatic Platform inherits these guarantees from the BEAM VM and extends them through application-level systems: the SEADF [self-healing](@/glossary/self-healing.md) framework, the Quality Floor Guardian, and the [circuit breaker](@/glossary/circuit-breaker.md) patterns that protect external dependency boundaries. The result is a platform that can sustain individual process crashes, external service outages, and even partial infrastructure failures while maintaining its core intelligence-gathering and analysis operations.
 
 ## Historical Context
 
@@ -64,13 +64,13 @@ Three principles underpin Erlang's approach:
 
 1. **Processes are cheap and isolated**: Creating a process costs approximately 2-3 microseconds and 2KB of memory. Processes share no memory. A crash in one process cannot corrupt another process's state.
 
-2. **Supervisors replace failed processes**: When a process crashes, its [supervisor](/glossary/supervisor/) detects the failure (via linked exit signals) and starts a replacement process with clean initial state. This happens automatically, without application code intervention.
+2. **Supervisors replace failed processes**: When a process crashes, its [supervisor](@/glossary/supervisor.md) detects the failure (via linked exit signals) and starts a replacement process with clean initial state. This happens automatically, without application code intervention.
 
 3. **Failure is information**: A crashed process generates diagnostic data (the crash reason, the state at crash time, the stack trace) that supervisors and logging systems capture. Failure is not hidden or suppressed -- it is surfaced, recorded, and used to improve the system.
 
 ## Process Isolation
 
-[Process isolation](/glossary/process-isolation/) is the foundation upon which all other fault tolerance mechanisms are built. In the BEAM VM, every process has its own heap, its own stack, and its own garbage collector. There is no shared mutable state between processes. Communication occurs exclusively through [message passing](/glossary/message-passing/), which copies data between process heaps.
+[Process isolation](@/glossary/process-isolation.md) is the foundation upon which all other fault tolerance mechanisms are built. In the BEAM VM, every process has its own heap, its own stack, and its own garbage collector. There is no shared mutable state between processes. Communication occurs exclusively through [message passing](@/glossary/message-passing.md), which copies data between process heaps.
 
 This isolation provides several guarantees critical to fault tolerance:
 
@@ -142,7 +142,7 @@ end
 
 ## Supervision Trees
 
-[Supervisor](/glossary/supervisor/) trees are the organizational structure that makes process isolation useful for fault tolerance. Without supervisors, a crashed process would simply disappear, leaving a gap in the system. Supervisors ensure that crashed processes are replaced, that dependent processes are restarted in the correct order, and that persistent failures are escalated.
+[Supervisor](@/glossary/supervisor.md) trees are the organizational structure that makes process isolation useful for fault tolerance. Without supervisors, a crashed process would simply disappear, leaving a gap in the system. Supervisors ensure that crashed processes are replaced, that dependent processes are restarted in the correct order, and that persistent failures are escalated.
 
 ### Supervision Strategies
 
@@ -217,7 +217,7 @@ end
 
 ## Circuit Breakers
 
-[Circuit breakers](/glossary/circuit-breaker/) complement supervision trees by handling a class of failures that supervisors alone cannot address: slow external dependencies. A supervisor excels at handling fast failures (process crashes), but it cannot help when an external API is responding slowly, consuming the calling process's time and resources without actually crashing.
+[Circuit breakers](@/glossary/circuit-breaker.md) complement supervision trees by handling a class of failures that supervisors alone cannot address: slow external dependencies. A supervisor excels at handling fast failures (process crashes), but it cannot help when an external API is responding slowly, consuming the calling process's time and resources without actually crashing.
 
 Circuit breakers address this by monitoring failure rates and temporarily stopping requests to degraded dependencies. The pattern operates as a state machine:
 
@@ -290,7 +290,7 @@ defmodule PrismaticPerimeter.CircuitBreaker do
 end
 ```
 
-In the Prismatic Platform, circuit breakers protect every external dependency boundary: database connections, API calls to [Shodan](/glossary/shodan/), [Censys](/glossary/censys/), [GreyNoise](/glossary/greynoise/), LLM provider calls to [Ollama](/glossary/ollama/), and inter-service communication.
+In the Prismatic Platform, circuit breakers protect every external dependency boundary: database connections, API calls to [Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md), [GreyNoise](@/glossary/greynoise.md), LLM provider calls to [Ollama](@/glossary/ollama.md), and inter-service communication.
 
 ## Graceful Degradation
 
@@ -336,7 +336,7 @@ end
 
 ## Self-Healing Systems
 
-The Prismatic Platform extends OTP's fault tolerance with application-level [self-healing](/glossary/self-healing/) systems that go beyond process restart to actively diagnose and remediate system-level issues:
+The Prismatic Platform extends OTP's fault tolerance with application-level [self-healing](@/glossary/self-healing.md) systems that go beyond process restart to actively diagnose and remediate system-level issues:
 
 | System | Purpose | Recovery Scope |
 |--------|---------|---------------|
@@ -396,7 +396,7 @@ end
 
 ## BEAM VM Guarantees
 
-The [BEAM](/glossary/beam/) virtual machine provides several guarantees that make OTP-style fault tolerance possible. These are not library features that can be replicated in other runtimes -- they are properties of the virtual machine itself:
+The [BEAM](@/glossary/beam.md) virtual machine provides several guarantees that make OTP-style fault tolerance possible. These are not library features that can be replicated in other runtimes -- they are properties of the virtual machine itself:
 
 | Guarantee | Description | Impact on Fault Tolerance |
 |-----------|-------------|--------------------------|
@@ -411,7 +411,7 @@ These guarantees mean that the Prismatic Platform's fault tolerance is not aspir
 
 ## Fault Tolerance in Distributed Systems
 
-Fault tolerance becomes significantly more challenging in [distributed systems](/glossary/distributed-system/) where network partitions, clock skew, and partial failures are additional failure modes. The BEAM VM's distribution protocol handles many of these challenges transparently:
+Fault tolerance becomes significantly more challenging in [distributed systems](@/glossary/distributed-system.md) where network partitions, clock skew, and partial failures are additional failure modes. The BEAM VM's distribution protocol handles many of these challenges transparently:
 
 ```elixir
 defmodule PrismaticCluster.NodeMonitor do
@@ -477,24 +477,24 @@ Fault tolerance is not a binary property -- it exists on a spectrum. The Prismat
 
 ## Related Terms
 
-- [Let It Crash](/glossary/let-it-crash/) -- Philosophy enabling fault tolerance through supervised failure
-- [Supervisor](/glossary/supervisor/) -- OTP behavior implementing automatic recovery
-- [Process Isolation](/glossary/process-isolation/) -- Memory isolation preventing cross-process corruption
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern preventing cascading failures across boundaries
-- [Self-Healing](/glossary/self-healing/) -- Platform-level automated recovery building on OTP foundations
-- [BEAM](/glossary/beam/) -- Virtual machine providing fault tolerance guarantees
-- [OTP](/glossary/otp/) -- Framework providing supervision and fault tolerance infrastructure
-- [Backpressure](/glossary/backpressure/) -- Flow control preventing resource exhaustion failures
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Testing methodology that validates fault tolerance
-- [Observability](/glossary/observability/) -- Monitoring enabling failure detection and diagnosis
-- [Distributed System](/glossary/distributed-system/) -- Systems requiring fault tolerance across network boundaries
-- [Message Passing](/glossary/message-passing/) -- Communication mechanism preserving process isolation
+- [Let It Crash](@/glossary/let-it-crash.md) -- Philosophy enabling fault tolerance through supervised failure
+- [Supervisor](@/glossary/supervisor.md) -- OTP behavior implementing automatic recovery
+- [Process Isolation](@/glossary/process-isolation.md) -- Memory isolation preventing cross-process corruption
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern preventing cascading failures across boundaries
+- [Self-Healing](@/glossary/self-healing.md) -- Platform-level automated recovery building on OTP foundations
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing fault tolerance guarantees
+- [OTP](@/glossary/otp.md) -- Framework providing supervision and fault tolerance infrastructure
+- [Backpressure](@/glossary/backpressure.md) -- Flow control preventing resource exhaustion failures
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Testing methodology that validates fault tolerance
+- [Observability](@/glossary/observability.md) -- Monitoring enabling failure detection and diagnosis
+- [Distributed System](@/glossary/distributed-system.md) -- Systems requiring fault tolerance across network boundaries
+- [Message Passing](@/glossary/message-passing.md) -- Communication mechanism preserving process isolation
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform resilience architecture
-- [Technologies](/technologies/) -- BEAM VM and OTP technology details
-- [Capabilities](/capabilities/) -- Platform fault tolerance capabilities
+- [Architecture](@/architecture/_index.md) -- Platform resilience architecture
+- [Technologies](@/technologies/_index.md) -- BEAM VM and OTP technology details
+- [Capabilities](@/capabilities/_index.md) -- Platform fault tolerance capabilities
 
 ---
 
@@ -503,4 +503,4 @@ Fault tolerance is not a binary property -- it exists on a spectrum. The Prismat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

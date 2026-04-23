@@ -118,7 +118,7 @@ Intellectual sovereignty is not absolute authoritarianism. It operates within sp
 
 ### Revolutionary Approach to Licensing
 
-The [General Honest License (GHL)](/glossary/ghl-license/) serves as the primary mechanism for implementing intellectual sovereignty in software. Unlike traditional licenses that grant broad permissions with minimal restrictions, the GHL operates on **explicit permission** principles:
+The [General Honest License (GHL)](@/glossary/ghl-license.md) serves as the primary mechanism for implementing intellectual sovereignty in software. Unlike traditional licenses that grant broad permissions with minimal restrictions, the GHL operates on **explicit permission** principles:
 
 #### Default Prohibition Model
 ```toml
@@ -131,7 +131,7 @@ author_approval_mandatory = true
 All usage requires explicit written permission from the author. This inverts the traditional model where permission is assumed unless explicitly restricted.
 
 #### Ceremonial Invocation Requirement
-Users must engage in **[ceremonial computing](/philosophy/ceremonial-computing/)** - conscious, intentional interaction with software that acknowledges the author's sovereignty:
+Users must engage in **[ceremonial computing](@/philosophy/ceremonial-computing.md)** - conscious, intentional interaction with software that acknowledges the author's sovereignty:
 
 - **Sworn Oath**: Users commit to proper usage through ritual declaration
 - **Witness Attestation**: Community members verify ceremonial compliance
@@ -352,7 +352,7 @@ Building tools, platforms, and communities that support sovereignty-protected wo
 
 Intellectual sovereignty represents more than a licensing strategy - it constitutes a fundamental shift in how we understand the relationship between creators, users, and intellectual works. By asserting the author's inherent authority over their creations, we create space for deeper creative expression, more meaningful relationships, and more sustainable development practices.
 
-The [General Honest License](/philosophy/ghl-framework/) serves as both practical implementation and philosophical statement. It demonstrates that alternatives to the commons model are not only possible but potentially superior for certain types of creative work.
+The [General Honest License](@/philosophy/ghl-framework.md) serves as both practical implementation and philosophical statement. It demonstrates that alternatives to the commons model are not only possible but potentially superior for certain types of creative work.
 
 ### The Path Forward
 
@@ -379,4 +379,4 @@ The future belongs not to those who consume ideas carelessly, but to those who c
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

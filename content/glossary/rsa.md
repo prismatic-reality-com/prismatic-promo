@@ -516,23 +516,23 @@ end
 
 ## Related Terms
 
-- [Token](/glossary/token/) -- JWT tokens signed with RSA keys for authentication
-- [JWT](/glossary/jwt/) -- JSON Web Token standard using RS256 signing
-- [TLS](/glossary/tls/) -- Transport Layer Security using RSA for certificate authentication
-- [SPF](/glossary/spf/) -- email authentication complementing RSA-based DKIM
-- [Secrets](/glossary/secrets/) -- secure storage for RSA private keys
-- [Zero Trust](/glossary/zero-trust/) -- security model where RSA enables identity verification
-- [AES](/glossary/aes/) -- symmetric encryption used with RSA in hybrid schemes
-- [Authentication](/glossary/authentication/) -- identity verification powered by RSA signatures
-- [Authorization](/glossary/authorization/) -- access control enabled by RSA-signed tokens
-- [API Gateway](/glossary/api-gateway/) -- gateway that validates RSA-signed JWT tokens
-- [Audit Trail](/glossary/audit-trail/) -- cryptographic audit integrity via RSA signatures
-- [Access Control](/glossary/access-control/) -- permission systems built on RSA-authenticated identity
+- [Token](@/glossary/token.md) -- JWT tokens signed with RSA keys for authentication
+- [JWT](@/glossary/jwt.md) -- JSON Web Token standard using RS256 signing
+- [TLS](@/glossary/tls.md) -- Transport Layer Security using RSA for certificate authentication
+- [SPF](@/glossary/spf.md) -- email authentication complementing RSA-based DKIM
+- [Secrets](@/glossary/secrets.md) -- secure storage for RSA private keys
+- [Zero Trust](@/glossary/zero-trust.md) -- security model where RSA enables identity verification
+- [AES](@/glossary/aes.md) -- symmetric encryption used with RSA in hybrid schemes
+- [Authentication](@/glossary/authentication.md) -- identity verification powered by RSA signatures
+- [Authorization](@/glossary/authorization.md) -- access control enabled by RSA-signed tokens
+- [API Gateway](@/glossary/api-gateway.md) -- gateway that validates RSA-signed JWT tokens
+- [Audit Trail](@/glossary/audit-trail.md) -- cryptographic audit integrity via RSA signatures
+- [Access Control](@/glossary/access-control.md) -- permission systems built on RSA-authenticated identity
 
 ## See Also
 
-- [Authentication Architecture](/architecture/) -- RSA-based token signing and verification
-- [Security Capabilities](/capabilities/) -- cryptographic infrastructure overview
+- [Authentication Architecture](@/architecture/_index.md) -- RSA-based token signing and verification
+- [Security Capabilities](@/capabilities/_index.md) -- cryptographic infrastructure overview
 - [OSINT Email Analysis](/hub/osint/tools) -- DKIM/SPF analysis tools
 - [Erlang :public_key documentation](https://www.erlang.org/doc/man/public_key) -- BEAM cryptographic primitives
 
@@ -543,4 +543,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

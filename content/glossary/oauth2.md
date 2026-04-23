@@ -171,7 +171,7 @@ end
 
 ## Scopes and Permission Mapping
 
-OAuth2 scopes define the boundaries of access that a token grants. Scopes are strings that represent specific capabilities, and they map to the platform's [RBAC](/glossary/rbac/) permission model:
+OAuth2 scopes define the boundaries of access that a token grants. Scopes are strings that represent specific capabilities, and they map to the platform's [RBAC](@/glossary/rbac.md) permission model:
 
 | OAuth2 Scope | RBAC Permission | Description |
 |-------------|-----------------|-------------|
@@ -186,11 +186,11 @@ Scope validation occurs at two points: when the token is issued (ensuring the re
 
 ## Context in Prismatic
 
-The Prismatic Platform supports OAuth2 for third-party integrations and API access delegation. External services accessing Prismatic API endpoints authenticate through the client credentials flow, receiving [JWT](/glossary/jwt/) access tokens with scoped permissions. The [RBAC](/glossary/rbac/) system maps OAuth2 scopes to platform roles, ensuring that delegated access respects the same permission boundaries as direct authentication.
+The Prismatic Platform supports OAuth2 for third-party integrations and API access delegation. External services accessing Prismatic API endpoints authenticate through the client credentials flow, receiving [JWT](@/glossary/jwt.md) access tokens with scoped permissions. The [RBAC](@/glossary/rbac.md) system maps OAuth2 scopes to platform roles, ensuring that delegated access respects the same permission boundaries as direct authentication.
 
-For user-facing authentication, the platform integrates with the [Ueberauth](https://hex.pm/packages/ueberauth) library, which provides a composable, strategy-based approach to OAuth2 authentication with external providers. Each provider (GitHub, Google, GitLab) is configured as a separate Ueberauth strategy, and successful authentication results in a platform [JWT](/glossary/jwt/) being issued with the appropriate role claims.
+For user-facing authentication, the platform integrates with the [Ueberauth](https://hex.pm/packages/ueberauth) library, which provides a composable, strategy-based approach to OAuth2 authentication with external providers. Each provider (GitHub, Google, GitLab) is configured as a separate Ueberauth strategy, and successful authentication results in a platform [JWT](@/glossary/jwt.md) being issued with the appropriate role claims.
 
-The [API Gateway](/glossary/api-gateway/) validates all incoming tokens through [Plug](/glossary/plug/) middleware, checking token signature, expiration, and scope before routing to backend services. All token exchange occurs over [TLS](/glossary/tls/) to prevent interception.
+The [API Gateway](@/glossary/api-gateway.md) validates all incoming tokens through [Plug](@/glossary/plug.md) middleware, checking token signature, expiration, and scope before routing to backend services. All token exchange occurs over [TLS](@/glossary/tls.md) to prevent interception.
 
 ```elixir
 # Ueberauth configuration for OAuth2 providers
@@ -239,7 +239,7 @@ OAuth2 implementations must address several security concerns to prevent token t
 | **CSRF on authorization endpoint** | `state` parameter with HMAC | Mandatory for all flows |
 | **Refresh token theft** | Token rotation (RFC 6819) | New refresh token on each use |
 
-All OAuth2 token exchange MUST occur over [TLS](/glossary/tls/). The Prismatic Platform enforces HTTPS for all OAuth2 endpoints and rejects plain HTTP requests at the [API Gateway](/glossary/api-gateway/) level.
+All OAuth2 token exchange MUST occur over [TLS](@/glossary/tls.md). The Prismatic Platform enforces HTTPS for all OAuth2 endpoints and rejects plain HTTP requests at the [API Gateway](@/glossary/api-gateway.md) level.
 
 ## OAuth 2.1 and Future Direction
 
@@ -256,22 +256,22 @@ These changes align with what the Prismatic Platform already enforces, as the pl
 
 ## Related Terms
 
-- [JWT](/glossary/jwt/) - Token format commonly used for OAuth2 access tokens
-- [RBAC](/glossary/rbac/) - Permission model mapping OAuth2 scopes to platform roles
-- [REST API](/glossary/rest-api/) - API interface secured with OAuth2 tokens
-- [TLS](/glossary/tls/) - Transport encryption protecting OAuth2 token exchange
-- [API Gateway](/glossary/api-gateway/) - Centralized token validation and routing
-- [Plug](/glossary/plug/) - Elixir middleware implementing OAuth2 validation
-- [Rate Limiting](/glossary/rate-limiting/) - Per-client throttling using OAuth2 client identity
-- [Encryption at Rest](/glossary/encryption-at-rest/) - Protection of stored refresh tokens and client secrets
-- [Observability](/glossary/observability/) - Monitoring OAuth2 flows and token usage
-- [OpenAPI](/glossary/openapi/) - API specification documenting OAuth2 security schemes
+- [JWT](@/glossary/jwt.md) - Token format commonly used for OAuth2 access tokens
+- [RBAC](@/glossary/rbac.md) - Permission model mapping OAuth2 scopes to platform roles
+- [REST API](@/glossary/rest-api.md) - API interface secured with OAuth2 tokens
+- [TLS](@/glossary/tls.md) - Transport encryption protecting OAuth2 token exchange
+- [API Gateway](@/glossary/api-gateway.md) - Centralized token validation and routing
+- [Plug](@/glossary/plug.md) - Elixir middleware implementing OAuth2 validation
+- [Rate Limiting](@/glossary/rate-limiting.md) - Per-client throttling using OAuth2 client identity
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) - Protection of stored refresh tokens and client secrets
+- [Observability](@/glossary/observability.md) - Monitoring OAuth2 flows and token usage
+- [OpenAPI](@/glossary/openapi.md) - API specification documenting OAuth2 security schemes
 
 ## See Also
 
-- [Architecture](/architecture/) - Authentication architecture
-- [Apps](/apps/) - Prismatic API application with OAuth2 support
-- [Agents](/agents/) - Agent authentication and authorization
+- [Architecture](@/architecture/_index.md) - Authentication architecture
+- [Apps](@/apps/_index.md) - Prismatic API application with OAuth2 support
+- [Agents](@/agents/_index.md) - Agent authentication and authorization
 
 ---
 
@@ -280,4 +280,4 @@ These changes align with what the Prismatic Platform already enforces, as the pl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

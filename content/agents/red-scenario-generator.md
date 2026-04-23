@@ -28,11 +28,11 @@ image_alt = "red-scenario-generator - Prismatic Platform"
 
 ## Overview
 
-The red-scenario-generator operates as an L4 Domain Authority specialist within the Prismatic Platform's adversarial-epistemics domain, creating composite adversarial epistemic scenarios by combining techniques from the 329-entry [Red Team](/teams/red/) taxonomy. While the [red-epistemic-attacker](/agents/red-epistemic-attacker/) and [red-drift-inducer](/agents/red-drift-inducer/) execute individual attack primitives, this agent designs multi-technique scenarios that model realistic adversarial campaigns where attackers combine multiple methods simultaneously. Real-world epistemic threats rarely use a single technique in isolation; effective adversarial campaigns layer multiple attack vectors to create synergistic effects that exceed the sum of individual technique impacts.
+The red-scenario-generator operates as an L4 Domain Authority specialist within the Prismatic Platform's adversarial-epistemics domain, creating composite adversarial epistemic scenarios by combining techniques from the 329-entry [Red Team](@/teams/red.md) taxonomy. While the [red-epistemic-attacker](@/agents/red-epistemic-attacker.md) and [red-drift-inducer](@/agents/red-drift-inducer.md) execute individual attack primitives, this agent designs multi-technique scenarios that model realistic adversarial campaigns where attackers combine multiple methods simultaneously. Real-world epistemic threats rarely use a single technique in isolation; effective adversarial campaigns layer multiple attack vectors to create synergistic effects that exceed the sum of individual technique impacts.
 
 The 329-entry taxonomy provides the building blocks from which the scenario generator constructs adversarial campaigns. Each taxonomy entry describes an attack technique with its mechanism, target vulnerability, prerequisite conditions, expected impact, and interaction effects with other techniques. The generator uses these interaction profiles to identify technique combinations that produce amplified effects -- for example, confidence manipulation that makes the platform more susceptible to subsequent truth distortion, or drift induction that establishes conditions favorable for salience hijacking.
 
-Built on the [AIAD](/glossary/aiad/) standard, the scenario generator operates under the [red-commander](/agents/red-commander/)'s strategic direction within `PrismaticDark.Sandbox` safety constraints. All scenarios use synthetic data exclusively and cannot access production systems.
+Built on the [AIAD](@/glossary/aiad.md) standard, the scenario generator operates under the [red-commander](@/agents/red-commander.md)'s strategic direction within `PrismaticDark.Sandbox` safety constraints. All scenarios use synthetic data exclusively and cannot access production systems.
 
 ## Scenario Composition Framework
 
@@ -40,7 +40,7 @@ The scenario generator employs a compositional framework that transforms individ
 
 **Sequential amplification** occurs when one technique creates conditions that increase the effectiveness of a subsequent technique. For example, a drift induction phase that gradually erodes confidence in a particular evidence source creates favorable conditions for a truth distortion attack that introduces fabricated evidence to replace the discredited source. The generator identifies these amplification chains within the taxonomy.
 
-**Parallel convergence** describes scenarios where multiple techniques operate simultaneously against different aspects of the same analytical process, creating a multi-front attack that overwhelms defensive resources. While the [Blue Team](/teams/blue/) responds to signal poisoning on one evidence stream, confidence manipulation on a different stream may go undetected due to resource allocation constraints.
+**Parallel convergence** describes scenarios where multiple techniques operate simultaneously against different aspects of the same analytical process, creating a multi-front attack that overwhelms defensive resources. While the [Blue Team](@/teams/blue.md) responds to signal poisoning on one evidence stream, confidence manipulation on a different stream may go undetected due to resource allocation constraints.
 
 **Masking interaction** occurs when one technique's effects obscure the indicators of another technique's operation. High-frequency noise injection, for example, can mask the statistical signatures of low-frequency drift, preventing detection algorithms from identifying the drift component of a combined attack.
 
@@ -54,8 +54,8 @@ The generator evaluates all pairwise and higher-order technique interactions wit
 - **Scenario difficulty calibration** -- Adjusts scenario complexity and sophistication to match the current defensive posture, ensuring that scenarios provide meaningful challenge without being trivially detected or impossibly sophisticated
 - **Coverage analysis** -- Tracks which taxonomy techniques and technique combinations have been tested, identifying untested areas that represent potential defensive blind spots
 - **Scenario library management** -- Maintains a library of proven scenario templates with measured outcomes, enabling rapid deployment of pre-validated scenarios and systematic coverage of the attack taxonomy
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with automated scenario generation cycles tuned to defensive improvement pace
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for scenario execution monitoring and taxonomy coverage tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with automated scenario generation cycles tuned to defensive improvement pace
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for scenario execution monitoring and taxonomy coverage tracking
 
 ## Scenario Generation Process
 
@@ -63,11 +63,11 @@ The generation process follows a structured methodology. The **targeting phase**
 
 The **parameterization phase** instantiates scenario templates with specific parameters: attack magnitudes, timing schedules, target evidence streams, and success criteria. Parameters are calibrated against current detection thresholds to ensure scenarios provide meaningful defensive challenge. The **validation phase** reviews the composed scenario for internal consistency, safety constraint compliance, and expected informational value before execution approval.
 
-Upon [red-commander](/agents/red-commander/) approval, the **dispatch phase** distributes scenario components to the appropriate specialist agents for execution. The scenario generator monitors execution progress, coordinating timing dependencies between sequential and parallel components.
+Upon [red-commander](@/agents/red-commander.md) approval, the **dispatch phase** distributes scenario components to the appropriate specialist agents for execution. The scenario generator monitors execution progress, coordinating timing dependencies between sequential and parallel components.
 
 ## Authority Level
 
-**L4** - Domain Authority - Specialized domain expertise in adversarial scenario composition, operating under the [red-commander](/agents/red-commander/)'s strategic direction with autonomy in technique selection and combination within approved scenario parameters.
+**L4** - Domain Authority - Specialized domain expertise in adversarial scenario composition, operating under the [red-commander](@/agents/red-commander.md)'s strategic direction with autonomy in technique selection and combination within approved scenario parameters.
 
 ## Command Interface
 
@@ -81,11 +81,11 @@ Upon [red-commander](/agents/red-commander/) approval, the **dispatch phase** di
 
 | Agent | Relationship |
 |-------|-------------|
-| [red-commander](/agents/red-commander/) | Strategic direction, scenario approval, and execution authorization |
-| [red-epistemic-attacker](/agents/red-epistemic-attacker/) | Executes truth distortion and source poisoning components of composed scenarios |
-| [red-drift-inducer](/agents/red-drift-inducer/) | Executes drift induction components of composed scenarios |
-| [purple-coordinator](/agents/purple-coordinator/) | Scenario outcomes feed into Purple Team synthesis for systemic defensive improvement |
-| [blue-commander](/agents/blue-commander/) | Defensive posture assessments inform scenario targeting decisions |
+| [red-commander](@/agents/red-commander.md) | Strategic direction, scenario approval, and execution authorization |
+| [red-epistemic-attacker](@/agents/red-epistemic-attacker.md) | Executes truth distortion and source poisoning components of composed scenarios |
+| [red-drift-inducer](@/agents/red-drift-inducer.md) | Executes drift induction components of composed scenarios |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Scenario outcomes feed into Purple Team synthesis for systemic defensive improvement |
+| [blue-commander](@/agents/blue-commander.md) | Defensive posture assessments inform scenario targeting decisions |
 
 ## Taxonomy Structure
 
@@ -99,7 +99,7 @@ All generated scenarios are constrained to sandbox execution with synthetic data
 
 ## Enforcement
 
-Scenario design and execution comply with the [NO MERCY](/glossary/no-mercy/) doctrine: scenarios are designed to genuinely challenge defenses rather than confirm existing capabilities. The [NO DOUBTS](/glossary/no-doubts/) principle requires reproducible scenario execution and verifiable outcome measurement. [Trinity Gate](/glossary/trinity-gate/) validates scenario findings before they enter the defensive improvement pipeline.
+Scenario design and execution comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: scenarios are designed to genuinely challenge defenses rather than confirm existing capabilities. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires reproducible scenario execution and verifiable outcome measurement. [Trinity Gate](@/glossary/trinity-gate.md) validates scenario findings before they enter the defensive improvement pipeline.
 
 ---
 
@@ -108,4 +108,4 @@ Scenario design and execution comply with the [NO MERCY](/glossary/no-mercy/) do
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

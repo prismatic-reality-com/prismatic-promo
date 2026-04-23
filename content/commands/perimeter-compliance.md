@@ -24,11 +24,11 @@ image_alt = "/perimeter-compliance - Prismatic Platform"
 
 ## Overview
 
-**/perimeter-compliance** is a production command in the **Perimeter** category of the Prismatic Platform that performs automated compliance assessment against major European cybersecurity regulatory frameworks. The command evaluates an organization's external [attack surface](/glossary/attack-surface/) against the requirements of the [NIS2](/glossary/nis2/) Directive (EU 2022/2555) and the Czech [ZKB](/glossary/zkb/) regulation (264/2025 Sb.), producing comprehensive gap analysis reports with actionable remediation guidance.
+**/perimeter-compliance** is a production command in the **Perimeter** category of the Prismatic Platform that performs automated compliance assessment against major European cybersecurity regulatory frameworks. The command evaluates an organization's external [attack surface](@/glossary/attack-surface.md) against the requirements of the [NIS2](@/glossary/nis2.md) Directive (EU 2022/2555) and the Czech [ZKB](@/glossary/zkb.md) regulation (264/2025 Sb.), producing comprehensive gap analysis reports with actionable remediation guidance.
 
-The compliance assessment engine operates by correlating discovered assets, security findings, and configuration data from the [Prismatic Perimeter](/apps/prismatic-perimeter/) application against a structured regulatory requirement database. Each requirement is mapped to specific technical controls, and the command evaluates whether the organization's observed external posture satisfies those controls. The result is a detailed compliance scorecard that quantifies adherence at the requirement level, identifies specific gaps, and prioritizes remediation actions by risk severity and regulatory criticality.
+The compliance assessment engine operates by correlating discovered assets, security findings, and configuration data from the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) application against a structured regulatory requirement database. Each requirement is mapped to specific technical controls, and the command evaluates whether the organization's observed external posture satisfies those controls. The result is a detailed compliance scorecard that quantifies adherence at the requirement level, identifies specific gaps, and prioritizes remediation actions by risk severity and regulatory criticality.
 
-This command operates under the **L2+** authority level and is executed by the `compliance-checker` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level reflects the sensitivity of compliance data and the potential business impact of compliance assessments, requiring operators to have established trust within the platform's authorization hierarchy.
+This command operates under the **L2+** authority level and is executed by the `compliance-checker` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level reflects the sensitivity of compliance data and the potential business impact of compliance assessments, requiring operators to have established trust within the platform's authorization hierarchy.
 
 Unlike manual compliance audits that can take weeks or months, `/perimeter-compliance` delivers real-time, evidence-based assessments that are continuously updated as the attack surface changes. This positions organizations to maintain ongoing compliance awareness rather than relying on periodic point-in-time assessments that rapidly become stale. The command's integration with the broader Perimeter suite means that compliance gaps are automatically linked to specific assets and vulnerabilities, creating a direct path from regulatory requirement to technical remediation.
 
@@ -53,7 +53,7 @@ Regulatory Framework DB ──> Requirement Parser ──> Control Mapper
                               Compliance Report (JSON/HTML/PDF)
 ```
 
-The `compliance-checker` agent orchestrates the evaluation pipeline, which consists of four primary stages: requirement decomposition, control mapping, evidence collection, and gap analysis. Each stage is implemented as an independent OTP process within the [Prismatic Perimeter](/apps/prismatic-perimeter/) supervision tree, allowing concurrent evaluation of multiple regulatory frameworks.
+The `compliance-checker` agent orchestrates the evaluation pipeline, which consists of four primary stages: requirement decomposition, control mapping, evidence collection, and gap analysis. Each stage is implemented as an independent OTP process within the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) supervision tree, allowing concurrent evaluation of multiple regulatory frameworks.
 
 The framework registry stores structured representations of regulatory requirements using a hierarchical model: Framework > Chapter > Article > Requirement > Control. This decomposition enables granular compliance tracking down to individual technical controls while maintaining the ability to aggregate scores at any level of the hierarchy.
 
@@ -144,16 +144,16 @@ The `/perimeter-compliance` command integrates deeply with the Prismatic Platfor
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Data Source | Asset inventory, security findings, scan results |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `compliance-checker` agent orchestration |
-| [Prismatic Storage](/apps/prismatic-storage/) | Persistence | Compliance history, baselines, trend data |
-| [Telemetry](/glossary/telemetry/) | Observability | Assessment timing, control evaluation metrics |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Pre/post execution quality checks |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command specification and routing |
-| [/perimeter-easm](/commands/perimeter-easm/) | Upstream | Security ratings feed into compliance scoring |
-| [/perimeter](/commands/perimeter/) | Dashboard | Compliance widgets on main dashboard |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Data Source | Asset inventory, security findings, scan results |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `compliance-checker` agent orchestration |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Persistence | Compliance history, baselines, trend data |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Assessment timing, control evaluation metrics |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Pre/post execution quality checks |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command specification and routing |
+| [/perimeter-easm](@/commands/perimeter-easm.md) | Upstream | Security ratings feed into compliance scoring |
+| [/perimeter](@/commands/perimeter.md) | Dashboard | Compliance widgets on main dashboard |
 
-The command also emits structured [telemetry](/glossary/telemetry/) events at each pipeline phase, enabling performance monitoring and operational dashboards. Key telemetry events include `[:perimeter, :compliance, :assessment_started]`, `[:perimeter, :compliance, :framework_evaluated]`, and `[:perimeter, :compliance, :report_generated]`.
+The command also emits structured [telemetry](@/glossary/telemetry.md) events at each pipeline phase, enabling performance monitoring and operational dashboards. Key telemetry events include `[:perimeter, :compliance, :assessment_started]`, `[:perimeter, :compliance, :framework_evaluated]`, and `[:perimeter, :compliance, :report_generated]`.
 
 ## Best Practices
 
@@ -163,7 +163,7 @@ The command also emits structured [telemetry](/glossary/telemetry/) events at ea
 
 **Prioritize by Risk**: When the gap analysis reveals multiple non-compliant controls, use the remediation priority rankings to focus on the highest-risk gaps first. NIS2 Article 21 requirements related to incident handling and access control typically carry the highest regulatory risk.
 
-**Combine with EASM Data**: The compliance assessment is most valuable when the underlying asset inventory is comprehensive. Run [/perimeter-easm](/commands/perimeter-easm/) before compliance assessment to ensure all external assets are discovered and their security posture is current.
+**Combine with EASM Data**: The compliance assessment is most valuable when the underlying asset inventory is comprehensive. Run [/perimeter-easm](@/commands/perimeter-easm.md) before compliance assessment to ensure all external assets are discovered and their security posture is current.
 
 **Export for Audit**: For regulatory audit preparation, use `--format pdf --evidence` to generate self-contained compliance reports that include all supporting evidence artifacts. These reports are designed to satisfy auditor documentation requirements.
 
@@ -173,7 +173,7 @@ The compliance assessment pipeline implements comprehensive error handling at ea
 
 | Error Condition | Behavior | Recovery |
 |----------------|----------|----------|
-| No assets discovered | Warning + empty assessment | Run [/perimeter](/commands/perimeter/) first |
+| No assets discovered | Warning + empty assessment | Run [/perimeter](@/commands/perimeter.md) first |
 | Framework not recognized | Error with supported list | Use `nis2` or `zkb` |
 | Incomplete asset data | Partial assessment + warnings | Controls marked "Not Assessable" |
 | Storage unavailable | Assessment continues in-memory | Results not persisted to history |
@@ -217,21 +217,21 @@ The `--threshold` parameter sets a minimum compliance score percentage. If the a
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every compliance control must be evaluated -- partial assessments are clearly marked and never presented as complete. No compliance gap is suppressed or minimized.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every compliance determination is backed by specific evidence artifacts from the Perimeter data layer. The [NABLA](/glossary/nabla-infinity/) axiom of Signal Plurality is enforced: compliance status requires corroboration from multiple data sources where available.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every compliance determination is backed by specific evidence artifacts from the Perimeter data layer. The [NABLA](@/glossary/nabla-infinity.md) axiom of Signal Plurality is enforced: compliance status requires corroboration from multiple data sources where available.
 
 The compliance assessment pipeline enforces the Trinity Gate for all critical compliance determinations, ensuring structural consistency (the compliance graph forms a valid DAG), logical consistency (no contradictory compliance states), and formal necessity (critical controls are formally verified).
 
 ## Related Commands
 
-- [/perimeter](/commands/perimeter/) - External [attack surface](/glossary/attack-surface/) management dashboard and overview
-- [/perimeter-assets](/commands/perimeter-assets/) - Asset inventory with domain, IP, certificate discovery
-- [/perimeter-easm](/commands/perimeter-easm/) - Advanced EASM dashboard with [security rating](/glossary/security-rating/)s (A-F)
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/perimeter](@/commands/perimeter.md) - External [attack surface](@/glossary/attack-surface.md) management dashboard and overview
+- [/perimeter-assets](@/commands/perimeter-assets.md) - Asset inventory with domain, IP, certificate discovery
+- [/perimeter-easm](@/commands/perimeter-easm.md) - Advanced EASM dashboard with [security rating](@/glossary/security-rating.md)s (A-F)
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -240,4 +240,4 @@ The compliance assessment pipeline enforces the Trinity Gate for all critical co
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

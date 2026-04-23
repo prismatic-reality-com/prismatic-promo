@@ -199,11 +199,11 @@ The glossary hover card system also benefits from typo tolerance when users sear
 
 ## Cross-References
 
-- [Meilisearch](/glossary/meilisearch/) - Full-text search engine
+- [Meilisearch](@/glossary/meilisearch.md) - Full-text search engine
 - **Search** - Information retrieval concepts
 - **Relevance** - Search result ranking
 - **Fuzzy Matching** - Approximate string matching
-- [Tool](/glossary/tool/) - OSINT tools discoverable via search
+- [Tool](@/glossary/tool.md) - OSINT tools discoverable via search
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

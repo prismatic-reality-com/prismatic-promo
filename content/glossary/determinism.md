@@ -315,24 +315,24 @@ The Prismatic Platform's distributed storage layer uses deterministic state mach
 
 Determinism connects deeply to many concepts across the Prismatic Platform:
 
-- [Pure Function](/glossary/pure-function/) -- The building block of deterministic computation; functions with no side effects and referential transparency
-- [Immutability](/glossary/immutability/) -- Eliminates mutation-based non-determinism by ensuring data structures cannot change after creation
-- [State Machine](/glossary/state-machine/) -- The canonical formalization of deterministic state transitions with well-defined transition functions
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof that a system satisfies its specification, which requires deterministic behavior
-- [Idempotency](/glossary/idempotency/) -- A related but distinct property where applying an operation multiple times produces the same result as applying it once
-- [Property-Based Testing](/glossary/property-based-testing/) -- Testing methodology that verifies deterministic invariants hold across large input spaces
-- [Concurrency](/glossary/concurrency/) -- The primary source of non-determinism in software systems, requiring careful architecture to preserve deterministic behavior
-- [Pattern Matching](/glossary/pattern-matching/) -- Elixir's mechanism for exhaustive case analysis, ensuring all inputs are handled deterministically
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Deterministic failure handling through supervision trees and the "let it crash" philosophy
-- [GenServer](/glossary/genserver/) -- OTP's generic server abstraction that provides deterministic sequential message processing
+- [Pure Function](@/glossary/pure-function.md) -- The building block of deterministic computation; functions with no side effects and referential transparency
+- [Immutability](@/glossary/immutability.md) -- Eliminates mutation-based non-determinism by ensuring data structures cannot change after creation
+- [State Machine](@/glossary/state-machine.md) -- The canonical formalization of deterministic state transitions with well-defined transition functions
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof that a system satisfies its specification, which requires deterministic behavior
+- [Idempotency](@/glossary/idempotency.md) -- A related but distinct property where applying an operation multiple times produces the same result as applying it once
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Testing methodology that verifies deterministic invariants hold across large input spaces
+- [Concurrency](@/glossary/concurrency.md) -- The primary source of non-determinism in software systems, requiring careful architecture to preserve deterministic behavior
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Elixir's mechanism for exhaustive case analysis, ensuring all inputs are handled deterministically
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Deterministic failure handling through supervision trees and the "let it crash" philosophy
+- [GenServer](@/glossary/genserver.md) -- OTP's generic server abstraction that provides deterministic sequential message processing
 
 ## See Also
 
-- [Functional Programming Language](/glossary/functional-programming-language/) -- The programming paradigm that makes determinism the default
-- [BEAM VM](/glossary/beam-vm/) -- The virtual machine whose process model enables deterministic concurrent programming
-- [Quality Gate](/glossary/quality-gate/) -- Deterministic pass/fail evaluation of code quality criteria
-- [Regression Testing](/glossary/regression-testing/) -- Testing approach that depends on deterministic reproducibility of bugs
-- [Trinity Gate](/glossary/trinity-gate/) -- The 13-layer verification system that requires deterministic behavior for formal proofs
+- [Functional Programming Language](@/glossary/functional-programming-language.md) -- The programming paradigm that makes determinism the default
+- [BEAM VM](@/glossary/beam-vm.md) -- The virtual machine whose process model enables deterministic concurrent programming
+- [Quality Gate](@/glossary/quality-gate.md) -- Deterministic pass/fail evaluation of code quality criteria
+- [Regression Testing](@/glossary/regression-testing.md) -- Testing approach that depends on deterministic reproducibility of bugs
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The 13-layer verification system that requires deterministic behavior for formal proofs
 
 ---
 
@@ -341,4 +341,4 @@ Determinism connects deeply to many concepts across the Prismatic Platform:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

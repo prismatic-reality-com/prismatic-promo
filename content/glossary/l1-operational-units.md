@@ -440,7 +440,7 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform deploys approximately 300 L1 Operational Unit agents across its 115 umbrella applications. These agents are the workhorses of the platform's [OSINT](/glossary/osint/) collection, data processing, and system monitoring capabilities.
+The Prismatic Platform deploys approximately 300 L1 Operational Unit agents across its 115 umbrella applications. These agents are the workhorses of the platform's [OSINT](@/glossary/osint.md) collection, data processing, and system monitoring capabilities.
 
 ### Agent Distribution by Domain
 
@@ -506,7 +506,7 @@ AIAD's L1 tier provides structural guarantees (compile-time behaviour enforcemen
 
 1. **One Operation Per Agent**: An L1 agent should do exactly one thing. If you need to collect and parse, create two L1 agents
 2. **Enforce Read-Only by Default**: Start with `:read_only` access and only upgrade to `:limited_write` when the operation genuinely requires writing
-3. **Emit Telemetry Always**: Every L1 operation must emit telemetry events for monitoring by [L3 Strategic Commanders](/glossary/l3-strategic-commanders/)
+3. **Emit Telemetry Always**: Every L1 operation must emit telemetry events for monitoring by [L3 Strategic Commanders](@/glossary/l3-strategic-commanders.md)
 4. **Use Transient Restart**: L1 agents performing one-shot collection should use `:transient` restart strategy; periodic collectors use `:permanent`
 5. **Keep State Minimal**: L1 agents should hold minimal state -- ideally only their configuration. Working data belongs in the pipeline, not the agent
 6. **Timeout Everything**: All external calls must have explicit timeouts. An L1 agent that hangs is worse than one that fails fast
@@ -528,11 +528,11 @@ AIAD's L1 tier provides structural guarantees (compile-time behaviour enforcemen
 
 ### OSINT Data Collection
 
-The primary use case for L1 agents is [OSINT](/glossary/osint/) data collection. Each of the platform's 120+ OSINT source adapters is implemented as an L1 Operational Unit. The DNS collector queries DNS records, the WHOIS collector fetches registration data, the ARES adapter queries the Czech business registry -- each operating independently within its single-domain scope.
+The primary use case for L1 agents is [OSINT](@/glossary/osint.md) data collection. Each of the platform's 120+ OSINT source adapters is implemented as an L1 Operational Unit. The DNS collector queries DNS records, the WHOIS collector fetches registration data, the ARES adapter queries the Czech business registry -- each operating independently within its single-domain scope.
 
 ### System Health Monitoring
 
-L1 metric collection agents monitor individual system components: a health check agent pings each service endpoint, a latency measurer records response times, and a resource monitor tracks memory and CPU usage. These feeds aggregate through [L2 Tactical Specialists](/glossary/l2-tactical-specialists/) into system health dashboards.
+L1 metric collection agents monitor individual system components: a health check agent pings each service endpoint, a latency measurer records response times, and a resource monitor tracks memory and CPU usage. These feeds aggregate through [L2 Tactical Specialists](@/glossary/l2-tactical-specialists.md) into system health dashboards.
 
 ### Data Validation Pipeline
 
@@ -544,25 +544,25 @@ L1 notifier agents deliver alerts through specific channels. An email notifier s
 
 ## Related Concepts
 
-- [Agent Tier](/glossary/agent-tier/) -- The hierarchical classification system for AIAD agents
-- [Authority Level](/glossary/authority-level/) -- Access and permission framework governing agent capabilities
-- [L2 Tactical Specialists](/glossary/l2-tactical-specialists/) -- The next tier up, with domain write access and deeper analysis
-- [L3 Strategic Commanders](/glossary/l3-strategic-commanders/) -- Multi-domain coordinators that orchestrate L1 and L2 agents
-- [L5 Supreme Authority](/glossary/l5-supreme-authority/) -- Platform-wide control tier
-- [AIAD](/glossary/aiad/) -- The AI-Augmented Intelligence Design framework defining the agent hierarchy
-- [Chain of Command](/glossary/chain-of-command/) -- The authority flow from L5 through L1
-- [Strategic Command](/glossary/strategic-command/) -- Command patterns used by higher-tier agents to direct L1 operations
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision architecture underlying agent fault tolerance
-- [GenServer](/glossary/genserver/) -- The OTP behaviour that L1 agents implement
+- [Agent Tier](@/glossary/agent-tier.md) -- The hierarchical classification system for AIAD agents
+- [Authority Level](@/glossary/authority-level.md) -- Access and permission framework governing agent capabilities
+- [L2 Tactical Specialists](@/glossary/l2-tactical-specialists.md) -- The next tier up, with domain write access and deeper analysis
+- [L3 Strategic Commanders](@/glossary/l3-strategic-commanders.md) -- Multi-domain coordinators that orchestrate L1 and L2 agents
+- [L5 Supreme Authority](@/glossary/l5-supreme-authority.md) -- Platform-wide control tier
+- [AIAD](@/glossary/aiad.md) -- The AI-Augmented Intelligence Design framework defining the agent hierarchy
+- [Chain of Command](@/glossary/chain-of-command.md) -- The authority flow from L5 through L1
+- [Strategic Command](@/glossary/strategic-command.md) -- Command patterns used by higher-tier agents to direct L1 operations
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision architecture underlying agent fault tolerance
+- [GenServer](@/glossary/genserver.md) -- The OTP behaviour that L1 agents implement
 
 ## See Also
 
-- [AIAD](/glossary/aiad/) -- Framework specification
-- [Agent Tier](/glossary/agent-tier/) -- Hierarchy overview
-- [L2 Tactical Specialists](/glossary/l2-tactical-specialists/) -- Next authority tier
-- [L3 Strategic Commanders](/glossary/l3-strategic-commanders/) -- Coordination tier
-- [OSINT](/glossary/osint/) -- Primary L1 collection domain
-- [Telemetry](/glossary/telemetry/) -- Observability framework for L1 agents
+- [AIAD](@/glossary/aiad.md) -- Framework specification
+- [Agent Tier](@/glossary/agent-tier.md) -- Hierarchy overview
+- [L2 Tactical Specialists](@/glossary/l2-tactical-specialists.md) -- Next authority tier
+- [L3 Strategic Commanders](@/glossary/l3-strategic-commanders.md) -- Coordination tier
+- [OSINT](@/glossary/osint.md) -- Primary L1 collection domain
+- [Telemetry](@/glossary/telemetry.md) -- Observability framework for L1 agents
 
 ---
 
@@ -571,4 +571,4 @@ L1 notifier agents deliver alerts through specific channels. An email notifier s
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

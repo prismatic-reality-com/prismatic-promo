@@ -25,11 +25,11 @@ image_alt = "Hunter.io - Prismatic Platform"
 
 ## Overview
 
-Hunter.io is the leading email intelligence platform, enabling discovery and verification of professional email addresses associated with any domain. It crawls the web, indexing publicly available email addresses and their associated metadata, and uses pattern recognition to predict email formats for organizations. With over 100 million indexed email addresses, Hunter.io is a critical component of any email-based [OSINT](/glossary/osint/) workflow.
+Hunter.io is the leading email intelligence platform, enabling discovery and verification of professional email addresses associated with any domain. It crawls the web, indexing publicly available email addresses and their associated metadata, and uses pattern recognition to predict email formats for organizations. With over 100 million indexed email addresses, Hunter.io is a critical component of any email-based [OSINT](@/glossary/osint.md) workflow.
 
-In the Prismatic Platform ecosystem, Hunter.io serves as the primary email discovery engine, feeding verified contact data into investigation pipelines, social engineering assessments, and organizational mapping workflows. It complements breach-focused tools like [Have I Been Pwned](/osint/haveibeenpwned/) by providing the discovery layer that identifies which email addresses exist for a target domain.
+In the Prismatic Platform ecosystem, Hunter.io serves as the primary email discovery engine, feeding verified contact data into investigation pipelines, social engineering assessments, and organizational mapping workflows. It complements breach-focused tools like [Have I Been Pwned](@/osint/haveibeenpwned.md) by providing the discovery layer that identifies which email addresses exist for a target domain.
 
-The platform's strength lies in its dual capability: discovery and verification. Discovery reveals the email landscape of an organization, while verification confirms deliverability through SMTP-level checks without sending actual messages. This combination ensures that downstream enrichment through [FullContact](/osint/fullcontact/) or breach checking through [Have I Been Pwned](/osint/haveibeenpwned/) operates on validated data.
+The platform's strength lies in its dual capability: discovery and verification. Discovery reveals the email landscape of an organization, while verification confirms deliverability through SMTP-level checks without sending actual messages. This combination ensures that downstream enrichment through [FullContact](@/osint/fullcontact.md) or breach checking through [Have I Been Pwned](@/osint/haveibeenpwned.md) operates on validated data.
 
 ## Data Coverage
 
@@ -68,7 +68,7 @@ The SMTP-level verification process produces detailed results that go beyond sim
 
 ## Integration with Prismatic
 
-Hunter.io integrates with the [OSINT Core](/apps/prismatic-osint-core/) framework as the primary email discovery adapter, feeding into person enrichment, organizational mapping, and security assessment pipelines.
+Hunter.io integrates with the [OSINT Core](@/apps/prismatic-osint-core.md) framework as the primary email discovery adapter, feeding into person enrichment, organizational mapping, and security assessment pipelines.
 
 ```elixir
 # Search for all email addresses at a domain
@@ -113,7 +113,7 @@ Hunter.io integrates with the [OSINT Core](/apps/prismatic-osint-core/) framewor
 
 ### Organizational Mapping Pipeline
 
-The organizational mapping pipeline combines Hunter.io email discovery with [FullContact](/osint/fullcontact/) enrichment to build complete organizational profiles from a single domain input.
+The organizational mapping pipeline combines Hunter.io email discovery with [FullContact](@/osint/fullcontact.md) enrichment to build complete organizational profiles from a single domain input.
 
 ```elixir
 defmodule PrismaticOsint.Enrichment.OrganizationMapper do
@@ -223,13 +223,13 @@ All API requests require an API key passed as a query parameter or `Authorizatio
 - Enumerate generic addresses (info@, support@, admin@) for service mapping
 
 ### Breach Correlation
-- Cross-reference discovered emails with [Have I Been Pwned](/osint/haveibeenpwned/) breach data
+- Cross-reference discovered emails with [Have I Been Pwned](@/osint/haveibeenpwned.md) breach data
 - Identify compromised executive accounts for security posture assessment
-- Feed verified emails into [DeHashed](/osint/dehashed/) for credential exposure checks
+- Feed verified emails into [DeHashed](@/osint/dehashed.md) for credential exposure checks
 - Calculate organizational breach exposure rate (breached/total emails)
 
 ### Security Posture Assessment
-- Measure email exposure surface for [Perimeter security ratings](/apps/prismatic-perimeter/)
+- Measure email exposure surface for [Perimeter security ratings](@/apps/prismatic-perimeter.md)
 - Identify over-exposed employee email addresses
 - Validate email security configurations (SPF, DKIM, DMARC) via discovered patterns
 - Assess accept-all and catch-all configurations as spoofing risk indicators
@@ -242,17 +242,17 @@ All API requests require an API key passed as a query parameter or `Authorizatio
 
 ## Related Sources
 
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Check discovered emails against breach databases
-- [EmailRep](/osint/emailrep/) - Reputation scoring for discovered email addresses
-- [FullContact](/osint/fullcontact/) - Person enrichment from email addresses
-- [DeHashed](/osint/dehashed/) - Credential exposure search for discovered emails
-- [Intelligence X](/osint/intelligencex/) - Deep search for email appearances in leaked datasets
-- [IPQualityScore](/osint/ipqualityscore/) - Email validation and fraud scoring
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Check discovered emails against breach databases
+- [EmailRep](@/osint/emailrep.md) - Reputation scoring for discovered email addresses
+- [FullContact](@/osint/fullcontact.md) - Person enrichment from email addresses
+- [DeHashed](@/osint/dehashed.md) - Credential exposure search for discovered emails
+- [Intelligence X](@/osint/intelligencex.md) - Deep search for email appearances in leaked datasets
+- [IPQualityScore](@/osint/ipqualityscore.md) - Email validation and fraud scoring
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Email exposure in [EASM](/glossary/easm/) security ratings
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Email exposure in [EASM](@/glossary/easm.md) security ratings
 
 ---
 
@@ -261,4 +261,4 @@ All API requests require an API key passed as a query parameter or `Authorizatio
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -367,13 +367,13 @@ Process.alive?(GenServer.whereis(PrismaticPerimeter.Rating.Engine))
 
 ## Related Concepts
 
-- [GenServer](/glossary/genserver/) -- Stateful processes managed within supervision trees
-- [OTP](/glossary/otp/) -- Framework providing supervisor behaviours
-- [Umbrella Application](/glossary/umbrella-application/) -- Per-app supervision tree isolation
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- Runtime child management
-- [Process Isolation](/glossary/process-isolation/) -- BEAM isolation underlying supervision
-- [Self-Healing](/glossary/self-healing/) -- Platform-level recovery complementing OTP supervision
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Failure detection pattern within supervised processes
+- [GenServer](@/glossary/genserver.md) -- Stateful processes managed within supervision trees
+- [OTP](@/glossary/otp.md) -- Framework providing supervisor behaviours
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Per-app supervision tree isolation
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- Runtime child management
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM isolation underlying supervision
+- [Self-Healing](@/glossary/self-healing.md) -- Platform-level recovery complementing OTP supervision
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Failure detection pattern within supervised processes
 
 ## See Also
 
@@ -381,8 +381,8 @@ Process.alive?(GenServer.whereis(PrismaticPerimeter.Rating.Engine))
 - [prismatic_agents](../../../apps/prismatic_agents/README.md) -- Domain supervisor hierarchy for 434 agents
 - [prismatic_core](../../../apps/prismatic_core/README.md) -- Core platform supervision tree
 - [prismatic_safety](../../../apps/prismatic_safety/README.md) -- Quality Floor Guardian supervised process
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Application directory with per-app supervision trees
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Application directory with per-app supervision trees
 
 ---
 
@@ -391,4 +391,4 @@ Process.alive?(GenServer.whereis(PrismaticPerimeter.Rating.Engine))
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -23,11 +23,11 @@ image_alt = "Prismatic IR PVM - Prismatic Platform"
 
 ## Overview
 
-Prismatic IR [PVM](/glossary/pvm/) provides integrated [Incident Response](/glossary/incident-response/) with Patch and Vulnerability Management capabilities. It tracks discovered vulnerabilities from initial detection through remediation, manages patching workflows with SLA enforcement, and coordinates incident response activities when vulnerabilities are actively exploited. The module bridges the critical gap between vulnerability discovery and remediation execution that organizations frequently struggle with.
+Prismatic IR [PVM](@/glossary/pvm.md) provides integrated [Incident Response](@/glossary/incident-response.md) with Patch and Vulnerability Management capabilities. It tracks discovered vulnerabilities from initial detection through remediation, manages patching workflows with SLA enforcement, and coordinates incident response activities when vulnerabilities are actively exploited. The module bridges the critical gap between vulnerability discovery and remediation execution that organizations frequently struggle with.
 
 The system implements the full incident response lifecycle -- detect, contain, eradicate, and recover -- with automated playbook execution for common incident types. Each incident maintains a complete evidence chain with custody tracking, enabling post-incident forensic analysis and regulatory compliance reporting. Vulnerability data is enriched with [CVSS](https://www.first.org/cvss/) scoring, asset mapping, and patch availability monitoring to support risk-based prioritization decisions.
 
-By integrating vulnerability management directly with incident response, IR PVM eliminates the organizational silos that typically delay remediation. When [Prismatic Detection Engine](/apps/prismatic-detection-engine/) identifies active exploitation of a known vulnerability, IR PVM automatically escalates the vulnerability to incident status and initiates the appropriate response playbook. The [NABLA](/glossary/nabla-infinity/) framework's [provenance mandatory](/glossary/provenance-mandatory/) axiom ensures that every step of the incident lifecycle is documented with cryptographic evidence chains that satisfy regulatory audit requirements under [NIS2](/glossary/nis2/) and [GDPR](/glossary/gdpr/).
+By integrating vulnerability management directly with incident response, IR PVM eliminates the organizational silos that typically delay remediation. When [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) identifies active exploitation of a known vulnerability, IR PVM automatically escalates the vulnerability to incident status and initiates the appropriate response playbook. The [NABLA](@/glossary/nabla-infinity.md) framework's [provenance mandatory](@/glossary/provenance-mandatory.md) axiom ensures that every step of the incident lifecycle is documented with cryptographic evidence chains that satisfy regulatory audit requirements under [NIS2](@/glossary/nis2.md) and [GDPR](@/glossary/gdpr.md).
 
 ## Architecture
 
@@ -45,7 +45,7 @@ Detection Engine --> Incident Creation --> Playbook Execution --> Recovery
                    Chain of Custody       Lessons Learned
 ```
 
-The architecture uses [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/)s to manage long-running incident workflows as stateful processes. Each active incident runs under its own supervised process, ensuring that a crash in one incident workflow cannot affect others. The state machine pattern ensures that incidents follow valid lifecycle transitions and that SLA timers are enforced.
+The architecture uses [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md)s to manage long-running incident workflows as stateful processes. Each active incident runs under its own supervised process, ensuring that a crash in one incident workflow cannot affect others. The state machine pattern ensures that incidents follow valid lifecycle transitions and that SLA timers are enforced.
 
 ## Key Modules
 
@@ -208,12 +208,12 @@ Integration tests exercise the full pipeline from vulnerability detection throug
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Detection Engine](/apps/prismatic-detection-engine/) | Triggers incident creation on active exploitation detection |
-| [Prismatic Perimeter Core](/apps/prismatic-perimeter-core/) | Vulnerability data feeds into [security rating](/glossary/security-rating/) computation |
-| [Prismatic OSINT Network](/apps/prismatic-osint-network/) | External vulnerability intelligence enrichment |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | [Compliance framework](/glossary/compliance-framework/) integration for remediation reporting |
-| [Prismatic IR PVM Web](/apps/prismatic-ir-pvm-web/) | [LiveView](/glossary/liveview/) dashboard for incident and vulnerability management |
-| [Prismatic Audit](/apps/prismatic-audit/) | Immutable [audit trail](/glossary/audit-trail/) for all incident response activities |
+| [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) | Triggers incident creation on active exploitation detection |
+| [Prismatic Perimeter Core](@/apps/prismatic-perimeter-core.md) | Vulnerability data feeds into [security rating](@/glossary/security-rating.md) computation |
+| [Prismatic OSINT Network](@/apps/prismatic-osint-network.md) | External vulnerability intelligence enrichment |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | [Compliance framework](@/glossary/compliance-framework.md) integration for remediation reporting |
+| [Prismatic IR PVM Web](@/apps/prismatic-ir-pvm-web.md) | [LiveView](@/glossary/liveview.md) dashboard for incident and vulnerability management |
+| [Prismatic Audit](@/apps/prismatic-audit.md) | Immutable [audit trail](@/glossary/audit-trail.md) for all incident response activities |
 
 ## Performance
 
@@ -226,17 +226,17 @@ Integration tests exercise the full pipeline from vulnerability detection throug
 | Compliance report generation | 2-10s | Depends on reporting period scope |
 | Risk prioritization (full) | < 500ms | Weighted scoring across all factors |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :ir_pvm, :vulnerability_tracked]`, `[:prismatic, :ir_pvm, :incident_created]`, `[:prismatic, :ir_pvm, :playbook_step]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :ir_pvm, :vulnerability_tracked]`, `[:prismatic, :ir_pvm, :incident_created]`, `[:prismatic, :ir_pvm, :playbook_step]`.
 
 ## Related Resources
 
-- [Prismatic Safety](/apps/prismatic-safety/) -- Safety constraints on incident response actions
-- [GitLab Security Specialist Agent](/agents/gitlab-security-specialist-agent/) -- Coordinates vulnerability tracking across CI/CD
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Manages incident alert severity and escalation
-- [Deployment Commander Agent](/agents/deployment-commander-agent/) -- Orchestrates patch deployment and rollback
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Enables immediate detection of active exploitation
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Automated playbook execution during incident response
-- [Color Teams](/capabilities/color-teams/) -- Adversarial-defensive synthesis for vulnerability assessment
+- [Prismatic Safety](@/apps/prismatic-safety.md) -- Safety constraints on incident response actions
+- [GitLab Security Specialist Agent](@/agents/gitlab-security-specialist-agent.md) -- Coordinates vulnerability tracking across CI/CD
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Manages incident alert severity and escalation
+- [Deployment Commander Agent](@/agents/deployment-commander-agent.md) -- Orchestrates patch deployment and rollback
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Enables immediate detection of active exploitation
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Automated playbook execution during incident response
+- [Color Teams](@/capabilities/color-teams.md) -- Adversarial-defensive synthesis for vulnerability assessment
 
 ---
 
@@ -245,4 +245,4 @@ Integration tests exercise the full pipeline from vulnerability detection throug
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

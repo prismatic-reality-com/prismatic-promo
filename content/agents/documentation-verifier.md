@@ -28,11 +28,11 @@ image_alt = "documentation-verifier - Prismatic Platform"
 
 ## Overview
 
-The Documentation Verifier operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Quality domain of the Prismatic Platform. This agent performs fine-grained verification of code-comment consistency, return type documentation accuracy, example code validity, and synchronization between documentation artifacts and their corresponding implementations. While the Documentation Validation Commander operates at the strategic campaign level, the Documentation Verifier works at the individual module and function level, ensuring that every `@doc`, `@moduledoc`, and `@spec` annotation accurately reflects the current implementation.
+The Documentation Verifier operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Quality domain of the Prismatic Platform. This agent performs fine-grained verification of code-comment consistency, return type documentation accuracy, example code validity, and synchronization between documentation artifacts and their corresponding implementations. While the Documentation Validation Commander operates at the strategic campaign level, the Documentation Verifier works at the individual module and function level, ensuring that every `@doc`, `@moduledoc`, and `@spec` annotation accurately reflects the current implementation.
 
 In a codebase of 6,652 Elixir source files containing approximately 2.8 million lines of code, documentation at the function level is both essential and fragile. Refactoring operations that modify function signatures, rename parameters, or change return types frequently leave documentation annotations behind. The Documentation Verifier detects these discrepancies through systematic introspection of compiled modules, comparing documented claims against actual typespecs, function arities, and runtime behavior sampled through example code execution.
 
-The agent integrates with the platform's [quality gates](/glossary/quality-gates/) pipeline, treating documentation accuracy as a quality dimension subject to the same enforcement rigor as compilation warnings and [Credo](/glossary/credo/) violations. Documentation inaccuracies contribute to [Quality Debt Points](/glossary/qdp/) (QDP) and are tracked through the same elimination infrastructure used for code quality issues.
+The agent integrates with the platform's [quality gates](@/glossary/quality-gates.md) pipeline, treating documentation accuracy as a quality dimension subject to the same enforcement rigor as compilation warnings and [Credo](@/glossary/credo.md) violations. Documentation inaccuracies contribute to [Quality Debt Points](@/glossary/qdp.md) (QDP) and are tracked through the same elimination infrastructure used for code quality issues.
 
 ## Architecture
 
@@ -68,7 +68,7 @@ Pass 1: Static Analysis          Pass 2: Introspection         Pass 3: Runtime
 
 **Property-Based Documentation Testing.** Beyond individual example validation, the verifier generates property-based tests from documented type specifications. If a function is documented as accepting `non_neg_integer()` and returning `{:ok, binary()}`, the verifier generates random inputs within the documented type domain and verifies that outputs conform to the documented return type.
 
-**QDP Integration.** Documentation quality issues are quantified as [Quality Debt Points](/glossary/qdp/) and integrated into the platform's debt elimination infrastructure. Undocumented public functions, inaccurate typespecs, and broken examples each contribute configurable QDP scores, enabling prioritization alongside other quality debt categories.
+**QDP Integration.** Documentation quality issues are quantified as [Quality Debt Points](@/glossary/qdp.md) and integrated into the platform's debt elimination infrastructure. Undocumented public functions, inaccurate typespecs, and broken examples each contribute configurable QDP scores, enabling prioritization alongside other quality debt categories.
 
 ## Implementation
 
@@ -132,12 +132,12 @@ end
 
 | Component | Integration Type | Purpose |
 |-----------|-----------------|---------|
-| [Quality Gates](/glossary/quality-gates/) | Pipeline Stage | Documentation verification as a quality gate requirement |
-| [Prismatic Safety](/glossary/quality-floor-guardian/) | Quality Monitoring | Verification results feed into quality floor guardian |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Pipeline Enforcement | Automated verification during CI with blocking on critical failures |
-| [documentation-validation-commander](/agents/documentation-validation-commander/) | Command Authority | Receives campaign directives and reports verification results |
-| [ETS](/glossary/ets/) | Cache Layer | Verification results cached per module with invalidation on recompilation |
-| [Telemetry](/glossary/telemetry/) | Observability | Per-module verification metrics and QDP contribution tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pipeline Stage | Documentation verification as a quality gate requirement |
+| [Prismatic Safety](@/glossary/quality-floor-guardian.md) | Quality Monitoring | Verification results feed into quality floor guardian |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Pipeline Enforcement | Automated verification during CI with blocking on critical failures |
+| [documentation-validation-commander](@/agents/documentation-validation-commander.md) | Command Authority | Receives campaign directives and reports verification results |
+| [ETS](@/glossary/ets.md) | Cache Layer | Verification results cached per module with invalidation on recompilation |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Per-module verification metrics and QDP contribution tracking |
 
 ## Operational Workflow
 
@@ -196,11 +196,11 @@ config :prismatic_agents, PrismaticAgents.DocumentationVerifier,
 
 ## Related Resources
 
-- [**cascade-quality-specialist**](/agents/cascade-quality-specialist/) (L3) - Systematic CASCADE elimination specialist preventing quality debt through pattern-based evolution
-- [**hbfs-quality-evolution**](/agents/hbfs-quality-evolution/) (L3) - Drives continuous quality evolution through HBFS optimization methodology
-- [**integration-testing-specialist**](/agents/integration-testing-specialist/) (L3) - End-to-end integration testing across system boundaries
-- [**documentation-validation-commander**](/agents/documentation-validation-commander/) (L3) - Strategic commander coordinating documentation quality campaigns
-- [Quality Gates](/glossary/quality-gates/) - Platform quality enforcement pipeline consuming verification results
+- [**cascade-quality-specialist**](@/agents/cascade-quality-specialist.md) (L3) - Systematic CASCADE elimination specialist preventing quality debt through pattern-based evolution
+- [**hbfs-quality-evolution**](@/agents/hbfs-quality-evolution.md) (L3) - Drives continuous quality evolution through HBFS optimization methodology
+- [**integration-testing-specialist**](@/agents/integration-testing-specialist.md) (L3) - End-to-end integration testing across system boundaries
+- [**documentation-validation-commander**](@/agents/documentation-validation-commander.md) (L3) - Strategic commander coordinating documentation quality campaigns
+- [Quality Gates](@/glossary/quality-gates.md) - Platform quality enforcement pipeline consuming verification results
 
 ---
 
@@ -209,4 +209,4 @@ config :prismatic_agents, PrismaticAgents.DocumentationVerifier,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "cer-screening-specialist - Prismatic Platform"
 
 ## Overview
 
-The CER Screening Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Domain domain of the Prismatic Platform, providing comprehensive employee and entity screening capabilities for Czech Critical Infrastructure (CER) compliance. Version 2.1 of this agent introduces CLI tooling through [mix](/glossary/mix/) tasks (`mix cer.screen`), [REST API](/glossary/rest-api/) endpoints (`/api/cer/screen`), and a LiveView dashboard for interactive screening management. The agent automates the complex process of verifying individuals and organizations against Czech registry systems, producing compliance-ready screening reports with full audit trails.
+The CER Screening Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Domain domain of the Prismatic Platform, providing comprehensive employee and entity screening capabilities for Czech Critical Infrastructure (CER) compliance. Version 2.1 of this agent introduces CLI tooling through [mix](@/glossary/mix.md) tasks (`mix cer.screen`), [REST API](@/glossary/rest-api.md) endpoints (`/api/cer/screen`), and a LiveView dashboard for interactive screening management. The agent automates the complex process of verifying individuals and organizations against Czech registry systems, producing compliance-ready screening reports with full audit trails.
 
-Czech critical infrastructure regulation requires organizations designated as critical entities to conduct background screening of personnel with access to critical systems. This screening must verify identity against official registries, check for criminal records, validate professional qualifications, and assess potential conflict-of-interest situations. The CER Screening Specialist automates this multi-registry verification process, reducing screening turnaround from days of manual work to minutes of automated processing. Each screening operation produces a structured report with evidence provenance that satisfies NUKIB auditor requirements. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard, operating under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine.
+Czech critical infrastructure regulation requires organizations designated as critical entities to conduct background screening of personnel with access to critical systems. This screening must verify identity against official registries, check for criminal records, validate professional qualifications, and assess potential conflict-of-interest situations. The CER Screening Specialist automates this multi-registry verification process, reducing screening turnaround from days of manual work to minutes of automated processing. Each screening operation produces a structured report with evidence provenance that satisfies NUKIB auditor requirements. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard, operating under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine.
 
 ## Architecture
 
@@ -51,13 +51,13 @@ The CER Screening Specialist implements a pipeline-based screening architecture 
 - **Risk-based scoring** applying configurable risk models that weight screening findings by relevance to the specific role, producing nuanced risk assessments rather than binary pass/fail determinations
 - **CLI tooling integration** through `mix cer.screen` commands that enable batch screening operations, scheduled re-screening campaigns, and integration with existing HR workflows through scriptable interfaces
 - **REST API exposure** via `/api/cer/screen` endpoints that enable external systems (HR platforms, access management systems) to trigger and retrieve screening results programmatically
-- **LiveView screening dashboard** providing real-time visibility into screening operations, queue status, result summaries, and trend analysis through an interactive [Phoenix](/glossary/phoenix/) LiveView interface
+- **LiveView screening dashboard** providing real-time visibility into screening operations, queue status, result summaries, and trend analysis through an interactive [Phoenix](@/glossary/phoenix.md) LiveView interface
 - **Audit trail management** maintaining immutable records of every screening operation including who requested it, when it was performed, which registries were consulted, and what results were obtained
 - **Re-screening scheduling** automatically scheduling periodic re-screening of previously cleared personnel based on configurable intervals aligned with regulatory requirements
 
 ## Implementation
 
-The screening pipeline is implemented as an [OTP](/glossary/otp/) application with supervised registry adapter processes and a GenStage-based processing pipeline.
+The screening pipeline is implemented as an [OTP](@/glossary/otp.md) application with supervised registry adapter processes and a GenStage-based processing pipeline.
 
 ```elixir
 defmodule Prismatic.CER.Screening.Specialist do
@@ -131,13 +131,13 @@ end
 
 | Component | Integration Type | Function |
 |-----------|-----------------|----------|
-| [cer-compliance-commander](/agents/cer-compliance-commander/) | Command Authority | Receives screening directives and reports results back for compliance assessment integration |
+| [cer-compliance-commander](@/agents/cer-compliance-commander.md) | Command Authority | Receives screening directives and reports results back for compliance assessment integration |
 | Czech Business Registry (OR) | External Registry | Provides company registration data, ownership structures, and statutory representatives |
 | Czech Trade Registry (RZP) | External Registry | Supplies trade license information and business activity classifications |
 | Czech Insolvency Registry (ISIR) | External Registry | Reports insolvency proceedings, bankruptcy declarations, and financial distress indicators |
-| [Prismatic API](/glossary/prismatic-api/) | REST Exposure | Exposes screening operations through `/api/cer/screen` endpoints for external system integration |
-| [Phoenix LiveView](/glossary/liveview/) | Dashboard UI | Provides interactive screening management interface with real-time status updates |
-| [Prismatic Telemetry](/glossary/telemetry/) | Observability | Emits screening operation metrics for monitoring, alerting, and capacity planning |
+| [Prismatic API](@/glossary/prismatic-api.md) | REST Exposure | Exposes screening operations through `/api/cer/screen` endpoints for external system integration |
+| [Phoenix LiveView](@/glossary/liveview.md) | Dashboard UI | Provides interactive screening management interface with real-time status updates |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Observability | Emits screening operation metrics for monitoring, alerting, and capacity planning |
 
 ## Operational Workflow
 
@@ -194,11 +194,11 @@ config :prismatic_cer, Prismatic.CER.Screening.Specialist,
 
 ## Related Resources
 
-- [**cer-compliance-commander**](/agents/cer-compliance-commander/) (L3) -- Strategic CER compliance coordination authority
-- [**employee-screening-specialist**](/agents/employee-screening-specialist/) -- Employee-specific screening operations
-- [**supplier-vetting-specialist**](/agents/supplier-vetting-specialist/) -- Supply chain screening and vendor assessment
-- [**aiad-dashboard-commander**](/agents/aiad-dashboard-commander/) (L3) -- Dashboard management for screening visualization
-- [Hot Code Reload](/glossary/hot-code-reload/) -- Registry adapter updates without screening downtime
+- [**cer-compliance-commander**](@/agents/cer-compliance-commander.md) (L3) -- Strategic CER compliance coordination authority
+- [**employee-screening-specialist**](@/agents/employee-screening-specialist.md) -- Employee-specific screening operations
+- [**supplier-vetting-specialist**](@/agents/supplier-vetting-specialist.md) -- Supply chain screening and vendor assessment
+- [**aiad-dashboard-commander**](@/agents/aiad-dashboard-commander.md) (L3) -- Dashboard management for screening visualization
+- [Hot Code Reload](@/glossary/hot-code-reload.md) -- Registry adapter updates without screening downtime
 
 ---
 
@@ -207,4 +207,4 @@ config :prismatic_cer, Prismatic.CER.Screening.Specialist,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -216,10 +216,10 @@ SPF analysis is used in email OSINT operations, Perimeter security assessments, 
 
 ## Cross-References
 
-- [DNS](/glossary/dns/) - Protocol hosting SPF TXT records
+- [DNS](@/glossary/dns.md) - Protocol hosting SPF TXT records
 - **DKIM** - Complementary email authentication via cryptographic signatures
-- [DMARC](/glossary/dmarc/) - Policy layer that combines SPF and DKIM results
-- [OSINT](/glossary/osint/) - Intelligence discipline using SPF for infrastructure discovery
+- [DMARC](@/glossary/dmarc.md) - Policy layer that combines SPF and DKIM results
+- [OSINT](@/glossary/osint.md) - Intelligence discipline using SPF for infrastructure discovery
 
 ---
 

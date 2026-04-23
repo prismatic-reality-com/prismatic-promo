@@ -504,26 +504,26 @@ end
 
 ## Related Terms
 
-- [Analytics](/glossary/analytics/) -- data analysis that charts visualize
-- [Telemetry](/glossary/telemetry/) -- event system feeding chart data pipelines
-- [PubSub](/glossary/pubsub/) -- real-time event delivery for streaming charts
-- [LiveView](/glossary/liveview/) -- server-rendered UI hosting chart components
+- [Analytics](@/glossary/analytics.md) -- data analysis that charts visualize
+- [Telemetry](@/glossary/telemetry.md) -- event system feeding chart data pipelines
+- [PubSub](@/glossary/pubsub.md) -- real-time event delivery for streaming charts
+- [LiveView](@/glossary/liveview.md) -- server-rendered UI hosting chart components
 - [Hook](/glossary/hook/) -- JavaScript hooks managing Chart.js lifecycle
-- [Flowbite](/glossary/flowbite/) -- design system providing chart container layouts
-- [WebSocket](/glossary/websocket/) -- transport layer for real-time chart updates
-- [Dashboard](/glossary/dashboard/) -- composite views aggregating multiple charts
-- [Anomaly Detection](/glossary/anomaly-detection/) -- outliers highlighted in chart visualizations
-- [Benchmark](/glossary/benchmark/) -- performance data visualized through charts
-- [Correlation](/glossary/correlation/) -- statistical relationships shown via scatter charts
-- [Cross-Tabulation](/glossary/cross-tabulation/) -- pivot data often rendered as heatmap charts
+- [Flowbite](@/glossary/flowbite.md) -- design system providing chart container layouts
+- [WebSocket](@/glossary/websocket.md) -- transport layer for real-time chart updates
+- [Dashboard](@/glossary/dashboard.md) -- composite views aggregating multiple charts
+- [Anomaly Detection](@/glossary/anomaly-detection.md) -- outliers highlighted in chart visualizations
+- [Benchmark](@/glossary/benchmark.md) -- performance data visualized through charts
+- [Correlation](@/glossary/correlation.md) -- statistical relationships shown via scatter charts
+- [Cross-Tabulation](@/glossary/cross-tabulation.md) -- pivot data often rendered as heatmap charts
 
 ---
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform visualization architecture
-- [Technologies](/technologies/) -- Chart.js and D3.js technology profiles
-- [Capabilities](/capabilities/) -- dashboard and analytics capabilities
+- [Architecture](@/architecture/_index.md) -- platform visualization architecture
+- [Technologies](@/technologies/_index.md) -- Chart.js and D3.js technology profiles
+- [Capabilities](@/capabilities/_index.md) -- dashboard and analytics capabilities
 - **Livebooks**: `livebooks/domains/data_analysis/` -- interactive chart creation notebooks
 - **Academy**: Data visualization techniques in analytical topics
 
@@ -534,4 +534,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

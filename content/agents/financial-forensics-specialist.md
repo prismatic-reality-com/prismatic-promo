@@ -28,9 +28,9 @@ image_alt = "financial-forensics-specialist - Prismatic Platform"
 
 ## Overview
 
-The Financial Forensics Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Financial domain of the Prismatic Platform. This agent performs deep transaction-level forensic analysis, producing evidence-grade documentation suitable for regulatory filings, legal proceedings, and internal compliance investigations. Where the [financial-crimes-detection-commander](/agents/financial-crimes-detection-commander/) identifies potential criminal activity through pattern detection, the Financial Forensics Specialist conducts the detailed evidentiary analysis required to substantiate or refute those initial assessments.
+The Financial Forensics Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Financial domain of the Prismatic Platform. This agent performs deep transaction-level forensic analysis, producing evidence-grade documentation suitable for regulatory filings, legal proceedings, and internal compliance investigations. Where the [financial-crimes-detection-commander](@/agents/financial-crimes-detection-commander.md) identifies potential criminal activity through pattern detection, the Financial Forensics Specialist conducts the detailed evidentiary analysis required to substantiate or refute those initial assessments.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, this agent serves as the forensic backbone of the Financial domain. Its work product -- detailed transaction reconstructions, fund flow analyses, and evidence chains -- forms the evidentiary foundation for regulatory submissions and supports the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine's requirement for evidence-based decision-making without compromise.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, this agent serves as the forensic backbone of the Financial domain. Its work product -- detailed transaction reconstructions, fund flow analyses, and evidence chains -- forms the evidentiary foundation for regulatory submissions and supports the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine's requirement for evidence-based decision-making without compromise.
 
 ## Transaction Forensics Methodology
 
@@ -66,7 +66,7 @@ Financial forensic investigations frequently require analysis of corporate owner
 
 Ownership chain analysis traces control from operating entities up through holding companies, trusts, and nominee arrangements to ultimate beneficial owners. The agent handles common obfuscation techniques including multi-layered holding structures, nominee shareholders and directors, cross-ownership arrangements, and offshore jurisdictions with limited disclosure requirements.
 
-Corporate structure analysis leverages the platform's [KuzuDB](/glossary/kuzudb/) graph database for relationship storage and traversal, enabling efficient navigation of complex corporate networks. The [entity resolution](/glossary/entity-resolution/) engine resolves individual references across multiple registries, handling name variations, address changes, and role transitions.
+Corporate structure analysis leverages the platform's [KuzuDB](@/glossary/kuzudb.md) graph database for relationship storage and traversal, enabling efficient navigation of complex corporate networks. The [entity resolution](@/glossary/entity-resolution.md) engine resolves individual references across multiple registries, handling name variations, address changes, and role transitions.
 
 ## Regulatory Framework Alignment
 
@@ -90,25 +90,25 @@ Quality metrics track error rates by analysis type, measuring both factual error
 
 ## Epistemic Framework Integration
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework's axioms directly govern the agent's analytical practices. The Contradiction Preservation axiom requires that conflicting evidence be maintained and explicitly addressed rather than silently discarded. The Provenance Mandatory axiom ensures that every analytical claim traces back to specific source records. The Signal Plurality axiom prevents conclusions based on single-source evidence.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's axioms directly govern the agent's analytical practices. The Contradiction Preservation axiom requires that conflicting evidence be maintained and explicitly addressed rather than silently discarded. The Provenance Mandatory axiom ensures that every analytical claim traces back to specific source records. The Signal Plurality axiom prevents conclusions based on single-source evidence.
 
-The [Trinity Gate](/glossary/trinity-gate/) validation applies before any forensic finding is finalized. Structural Consistency verifies that the evidence network forms a valid directed acyclic graph. Logical Consistency confirms that conclusions follow from premises through valid reasoning. Formal Necessity ensures mathematical claims are provably correct.
+The [Trinity Gate](@/glossary/trinity-gate.md) validation applies before any forensic finding is finalized. Structural Consistency verifies that the evidence network forms a valid directed acyclic graph. Logical Consistency confirms that conclusions follow from premises through valid reasoning. Formal Necessity ensures mathematical claims are provably correct.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| Prismatic [OSINT](/glossary/osint/) | Data collection | Financial record retrieval from public sources |
+| Prismatic [OSINT](@/glossary/osint.md) | Data collection | Financial record retrieval from public sources |
 | Czech Registries | Corporate data | Company records, ownership chains, financial statements |
 | Risk Scoring | Analytical input | Quantitative risk assessment contributing to forensic context |
-| [KuzuDB](/glossary/kuzudb/) | Graph storage | Corporate and financial relationship mapping |
-| [PostgreSQL](/glossary/postgresql/) | Structured data | Transaction records, case files, evidence metadata |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph storage | Corporate and financial relationship mapping |
+| [PostgreSQL](@/glossary/postgresql.md) | Structured data | Transaction records, case files, evidence metadata |
 | Report Synthesis | Output generation | Formatted forensic reports with evidence appendices |
 
 ## Related Agents
 
-- [**financial-crimes-detection-commander**](/agents/financial-crimes-detection-commander/) (L3) - Strategic detection and coordination of financial crime investigations, providing case referrals to the forensics specialist
-- [**financial-intelligence-commander**](/agents/financial-intelligence-commander/) (L3) - Broad financial intelligence synthesis providing strategic context for forensic investigations
+- [**financial-crimes-detection-commander**](@/agents/financial-crimes-detection-commander.md) (L3) - Strategic detection and coordination of financial crime investigations, providing case referrals to the forensics specialist
+- [**financial-intelligence-commander**](@/agents/financial-intelligence-commander.md) (L3) - Broad financial intelligence synthesis providing strategic context for forensic investigations
 
 ---
 
@@ -117,4 +117,4 @@ The [Trinity Gate](/glossary/trinity-gate/) validation applies before any forens
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

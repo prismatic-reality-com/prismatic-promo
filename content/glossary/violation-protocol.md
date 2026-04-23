@@ -29,11 +29,11 @@ image_alt = "Violation Protocol - Prismatic Platform"
 
 ## Definition & Overview
 
-The Violation Protocol is the formal escalation and enforcement framework governing responses to breaches of the [NO MERCY, NO DOUBTS (NM/ND) Doctrine](/glossary/nm-nd/) within the Prismatic Platform. It defines four precisely calibrated escalation levels---L1 through L4---each mapping to a specific category of violation severity, a prescribed enforcement response, and a resolution authority. The protocol ensures that every quality deviation, incomplete delivery, or doctrine compromise receives a proportional, deterministic, and auditable response.
+The Violation Protocol is the formal escalation and enforcement framework governing responses to breaches of the [NO MERCY, NO DOUBTS (NM/ND) Doctrine](@/glossary/nm-nd.md) within the Prismatic Platform. It defines four precisely calibrated escalation levels---L1 through L4---each mapping to a specific category of violation severity, a prescribed enforcement response, and a resolution authority. The protocol ensures that every quality deviation, incomplete delivery, or doctrine compromise receives a proportional, deterministic, and auditable response.
 
 In traditional software engineering, quality violations are handled informally: code review comments, Jira tickets, or at best, CI pipeline failures that developers can retry or override. The Violation Protocol fundamentally rejects this approach. It treats quality enforcement as a formal system with defined states, transitions, and invariants. Every violation has exactly one correct escalation level, one prescribed response, and one resolution pathway. There is no ambiguity, no negotiation, and no bypass.
 
-The protocol operates across three enforcement domains simultaneously: automated tooling (pre-commit hooks, CI pipelines, quality gates), agent oversight (AIAD agents monitoring code quality in real time), and supreme authority review (L5 agents such as [Archer Supreme](/glossary/archer-supreme/) for the most severe violations). This layered enforcement ensures that violations are caught at the earliest possible point and escalated only when the violation severity warrants elevated authority.
+The protocol operates across three enforcement domains simultaneously: automated tooling (pre-commit hooks, CI pipelines, quality gates), agent oversight (AIAD agents monitoring code quality in real time), and supreme authority review (L5 agents such as [Archer Supreme](@/glossary/archer-supreme.md) for the most severe violations). This layered enforcement ensures that violations are caught at the earliest possible point and escalated only when the violation severity warrants elevated authority.
 
 The four escalation levels form a strict hierarchy:
 
@@ -46,7 +46,7 @@ The four escalation levels form a strict hierarchy:
 
 ## Historical Context and Motivation
 
-The Violation Protocol was formalized in Generation 6 of the Prismatic Platform's evolution, during the period when [quality gates](/glossary/quality-gates/) were being introduced systematically. Before the protocol's existence, quality enforcement was binary: checks either passed or failed, with no distinction between a minor formatting issue and a deliberate hook bypass attempt. This lack of granularity created two problems.
+The Violation Protocol was formalized in Generation 6 of the Prismatic Platform's evolution, during the period when [quality gates](@/glossary/quality-gates.md) were being introduced systematically. Before the protocol's existence, quality enforcement was binary: checks either passed or failed, with no distinction between a minor formatting issue and a deliberate hook bypass attempt. This lack of granularity created two problems.
 
 First, developers treated all failures equally, applying minimal effort to pass the gate regardless of the underlying issue's severity. A compilation warning received the same attention as a stub implementation, despite the fact that the latter represents a fundamentally different category of quality risk. Second, there was no escalation pathway for systemic violations. When a pattern of repeated failures indicated a deeper process problem rather than an isolated coding mistake, the enforcement system had no mechanism to escalate beyond the immediate blocking action.
 
@@ -62,11 +62,11 @@ Each violation level carries precise semantic meaning that determines both the e
 
 **L1 - Minor Deviation** represents cosmetic or stylistic departures from platform standards. These include variable naming inconsistencies, suboptimal but functional code patterns, missing documentation on internal helper functions, or minor formatting deviations. L1 violations do not affect correctness or security. The response is a warning with immediate correction expected in the same commit or work session. L1 violations are tracked but do not block progress.
 
-**L2 - Quality Violation** represents functional quality failures detected by automated tooling. Compilation warnings (under `--warnings-as-errors`), [Credo](/glossary/credo/) strict violations, [Dialyzer](/glossary/dialyzer/) type errors, failed unit tests, and coverage regressions all trigger L2. The response is a hard block: the commit, merge, or deployment is rejected until the violation is corrected. L2 violations require the developer or agent to fix the issue and re-submit through the full quality gate pipeline.
+**L2 - Quality Violation** represents functional quality failures detected by automated tooling. Compilation warnings (under `--warnings-as-errors`), [Credo](@/glossary/credo.md) strict violations, [Dialyzer](@/glossary/dialyzer.md) type errors, failed unit tests, and coverage regressions all trigger L2. The response is a hard block: the commit, merge, or deployment is rejected until the violation is corrected. L2 violations require the developer or agent to fix the issue and re-submit through the full quality gate pipeline.
 
 **L3 - Incomplete Delivery** represents work product that fails to meet the NM/ND completeness standard. Stub implementations, placeholder functions returning hardcoded values, TODO or FIXME comments left in production code, mock implementations where real ones are required, and missing regression tests for bug fixes all trigger L3. The response is rejection with restart: the entire deliverable is rejected, and the work must be redone from scratch rather than patched incrementally. This ensures that incomplete work is never built upon.
 
-**L4 - Doubt-Compromised** represents the most severe category: violations that undermine the integrity of the enforcement system itself. Using `git commit --no-verify` to bypass pre-commit hooks, using `git push --no-verify`, falsifying test results, disabling quality gates, or any attempt to circumvent the enforcement pipeline triggers L4. The response is rejection plus Supreme Review by L5 authority agents. L4 violations indicate a systemic threat to platform integrity and require investigation by [Archer Supreme](/glossary/archer-supreme/) or the Supreme Commander.
+**L4 - Doubt-Compromised** represents the most severe category: violations that undermine the integrity of the enforcement system itself. Using `git commit --no-verify` to bypass pre-commit hooks, using `git push --no-verify`, falsifying test results, disabling quality gates, or any attempt to circumvent the enforcement pipeline triggers L4. The response is rejection plus Supreme Review by L5 authority agents. L4 violations indicate a systemic threat to platform integrity and require investigation by [Archer Supreme](@/glossary/archer-supreme.md) or the Supreme Commander.
 
 ### Violation Detection Mechanisms
 
@@ -281,7 +281,7 @@ L3 violations require a complete restart of the deliverable. The key distinction
 
 ### L4 Resolution Flow
 
-L4 violations trigger the most extensive workflow. The deliverable is rejected, and a Supreme Review is initiated. The L5 authority agent (typically [Archer Supreme](/glossary/archer-supreme/)) investigates the violation to determine whether it was accidental (developer error) or intentional (process circumvention). The investigation examines the git history, the specific flags used, and the context of the violation. Resolution requires both fixing the immediate issue and addressing the root cause that led to the integrity violation.
+L4 violations trigger the most extensive workflow. The deliverable is rejected, and a Supreme Review is initiated. The L5 authority agent (typically [Archer Supreme](@/glossary/archer-supreme.md)) investigates the violation to determine whether it was accidental (developer error) or intentional (process circumvention). The investigation examines the git history, the specific flags used, and the context of the violation. Resolution requires both fixing the immediate issue and addressing the root cause that led to the integrity violation.
 
 ## Usage in Prismatic Platform
 
@@ -305,7 +305,7 @@ The `mix quality.gates` task orchestrates the full violation detection suite. It
 
 ### Agent Enforcement
 
-AIAD agents continuously monitor code changes and classify violations in real time. The [Quality Floor Guardian](/glossary/quality-gates/) agent maintains a baseline quality score and triggers violations when the score drops below defined thresholds. Agent-detected violations follow the same L1-L4 escalation pathway as automated tooling violations.
+AIAD agents continuously monitor code changes and classify violations in real time. The [Quality Floor Guardian](@/glossary/quality-gates.md) agent maintains a baseline quality score and triggers violations when the score drops below defined thresholds. Agent-detected violations follow the same L1-L4 escalation pathway as automated tooling violations.
 
 ## Code Examples
 
@@ -444,7 +444,7 @@ The key differentiator is that the Violation Protocol combines deterministic cla
 
 3. **Never attempt bypass**: L4 violations carry the most severe consequences. Using `--no-verify` does not save time; it triggers Supreme Review, which costs significantly more time and undermines trust.
 
-4. **Write regression tests preemptively**: The mandatory [regression test](/glossary/regression-test/) protocol exists to prevent repeat violations. Every bug fix must include a test that would have caught the original issue.
+4. **Write regression tests preemptively**: The mandatory [regression test](@/glossary/regression-test.md) protocol exists to prevent repeat violations. Every bug fix must include a test that would have caught the original issue.
 
 5. **Understand the classification**: Before addressing a violation, understand why it was classified at its specific level. An L3 rejection means the deliverable needs fundamental rework, not incremental patching.
 
@@ -460,39 +460,39 @@ The key differentiator is that the Violation Protocol combines deterministic cla
 
 - **Confusing violation level with effort required**: An L2 violation (compilation warning) may take 30 seconds to fix. An L1 violation (naming inconsistency) may require renaming across 50 files. The level reflects severity to platform integrity, not effort to resolve.
 
-- **Assuming CI catches everything**: [Pre-commit hooks](/glossary/pre-commit-hooks/) are the first line of defense. Relying solely on CI for violation detection introduces delay between violation and feedback, reducing developer productivity.
+- **Assuming CI catches everything**: [Pre-commit hooks](@/glossary/pre-commit-hooks.md) are the first line of defense. Relying solely on CI for violation detection introduces delay between violation and feedback, reducing developer productivity.
 
-- **Treating the protocol as punitive**: The Violation Protocol is a quality assurance mechanism, not a punishment system. It exists to maintain the platform's [zero-warning](/glossary/zero-warning-policy/), zero-debt state across the entire codebase.
+- **Treating the protocol as punitive**: The Violation Protocol is a quality assurance mechanism, not a punishment system. It exists to maintain the platform's [zero-warning](@/glossary/zero-warning-policy.md), zero-debt state across the entire codebase.
 
 - **Failing to distinguish root cause from symptom**: A compilation warning (L2) might be a symptom of a deeper architectural issue. Fixing the warning without investigating the root cause leads to repeated violations in the same area.
 
 ## Integration with Session Discipline
 
-The Violation Protocol works in concert with the platform's [Session Discipline Protocol](/glossary/session-discipline/) to ensure violations are addressed within the session where they occur. Session discipline requires continuous commits, immediate pushes, and local test verification before every commit. When a violation is detected during a session, the session discipline protocol prevents the developer from deferring the fix to a later session.
+The Violation Protocol works in concert with the platform's [Session Discipline Protocol](@/glossary/session-discipline.md) to ensure violations are addressed within the session where they occur. Session discipline requires continuous commits, immediate pushes, and local test verification before every commit. When a violation is detected during a session, the session discipline protocol prevents the developer from deferring the fix to a later session.
 
 This integration creates a closed feedback loop: violations are detected immediately (through pre-commit hooks), fixed immediately (through session discipline), and verified immediately (through re-running quality gates). The loop eliminates the gap between violation detection and resolution that plagues most development workflows.
 
 ## Related Concepts
 
-- [NM/ND Doctrine](/glossary/nm-nd/) - The governing framework that the Violation Protocol enforces
-- [NO MERCY](/glossary/no-mercy/) - Zero tolerance enforcement principle triggering violations
-- [NO DOUBTS](/glossary/no-doubts/) - Evidence-based decision principle preventing L4 doubt-compromised states
-- [Quality Gates](/glossary/quality-gates/) - Automated enforcement pipeline detecting L2+ violations
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) - First enforcement point in the violation detection chain
-- [Archer Supreme](/glossary/archer-supreme/) - L5 agent conducting Supreme Review for L4 violations
-- [Regression Test](/glossary/regression-test/) - Mandatory test preventing repeat violations
-- [Quality Debt](/glossary/quality-debt/) - Accumulated violations tracked as Quality Debt Points before elimination
-- [Credo](/glossary/credo/) - Static analysis tool detecting L2 violations
-- [Dialyzer](/glossary/dialyzer/) - Type analysis tool detecting L2 violations
-- [Clean Run](/glossary/clean-run/) - The compilation and test state required by enforcement
-- [Zero Warning Policy](/glossary/zero-warning-policy/) - The policy that makes compilation warnings L2 violations
+- [NM/ND Doctrine](@/glossary/nm-nd.md) - The governing framework that the Violation Protocol enforces
+- [NO MERCY](@/glossary/no-mercy.md) - Zero tolerance enforcement principle triggering violations
+- [NO DOUBTS](@/glossary/no-doubts.md) - Evidence-based decision principle preventing L4 doubt-compromised states
+- [Quality Gates](@/glossary/quality-gates.md) - Automated enforcement pipeline detecting L2+ violations
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) - First enforcement point in the violation detection chain
+- [Archer Supreme](@/glossary/archer-supreme.md) - L5 agent conducting Supreme Review for L4 violations
+- [Regression Test](@/glossary/regression-test.md) - Mandatory test preventing repeat violations
+- [Quality Debt](@/glossary/quality-debt.md) - Accumulated violations tracked as Quality Debt Points before elimination
+- [Credo](@/glossary/credo.md) - Static analysis tool detecting L2 violations
+- [Dialyzer](@/glossary/dialyzer.md) - Type analysis tool detecting L2 violations
+- [Clean Run](@/glossary/clean-run.md) - The compilation and test state required by enforcement
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) - The policy that makes compilation warnings L2 violations
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Apps](/apps/) - Application ecosystem governed by the Violation Protocol
-- [Capabilities](/capabilities/) - Platform enforcement capabilities
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Apps](@/apps/_index.md) - Application ecosystem governed by the Violation Protocol
+- [Capabilities](@/capabilities/_index.md) - Platform enforcement capabilities
 
 ---
 
@@ -501,4 +501,4 @@ This integration creates a closed feedback loop: violations are detected immedia
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -23,9 +23,9 @@ image_alt = "Prismatic Credo - Prismatic Platform"
 
 ## Overview
 
-Prismatic [Credo](/glossary/credo/) provides enhanced Credo integration with custom quality checks specific to the Prismatic Platform. It extends the standard Credo linter with platform-specific rules, enforces coding standards across all 90+ [umbrella application](/glossary/umbrella-application/)s, and manages the evolution of quality rules as the platform grows. Where stock Credo catches generic [Elixir](/glossary/elixir/) anti-patterns, Prismatic Credo enforces the architectural decisions and [OTP](/glossary/otp/) conventions that define the platform's [NO MERCY NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. The module is central to maintaining the platform's perfect 100/100 quality score across 13 quality domains.
+Prismatic [Credo](@/glossary/credo.md) provides enhanced Credo integration with custom quality checks specific to the Prismatic Platform. It extends the standard Credo linter with platform-specific rules, enforces coding standards across all 90+ [umbrella application](@/glossary/umbrella-application.md)s, and manages the evolution of quality rules as the platform grows. Where stock Credo catches generic [Elixir](@/glossary/elixir.md) anti-patterns, Prismatic Credo enforces the architectural decisions and [OTP](@/glossary/otp.md) conventions that define the platform's [NO MERCY NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. The module is central to maintaining the platform's perfect 100/100 quality score across 13 quality domains.
 
-The module currently ships 28 custom checks covering areas that standard Credo does not address: [supervision tree](/glossary/supervision-tree/) topology, storage adapter [protocol](/glossary/protocol/) compliance, [NABLA](/glossary/nabla-infinity/) axiom annotation requirements, and naming conventions specific to the [AIAD](/glossary/aiad/) agent framework. Each check includes a detailed explanation and suggested fix, making it actionable rather than merely informative. The checks are designed to catch violations at development time rather than discovering them through runtime failures.
+The module currently ships 28 custom checks covering areas that standard Credo does not address: [supervision tree](@/glossary/supervision-tree.md) topology, storage adapter [protocol](@/glossary/protocol.md) compliance, [NABLA](@/glossary/nabla-infinity.md) axiom annotation requirements, and naming conventions specific to the [AIAD](@/glossary/aiad.md) agent framework. Each check includes a detailed explanation and suggested fix, making it actionable rather than merely informative. The checks are designed to catch violations at development time rather than discovering them through runtime failures.
 
 Prismatic Credo also manages rule evolution over time. As the platform introduces new patterns, Credo rules are versioned and updated to enforce the new standard while providing a grace period for migration of existing code. This evolution tracking ensures that quality standards advance with the platform rather than becoming stale.
 
@@ -40,9 +40,9 @@ Prismatic Credo also manages rule evolution over time. As the platform introduce
   Exception Rules      Override Resolution         Fix Suggestions    Dashboard Feed
 ```
 
-The module wraps Credo's plugin architecture with a `PrismaticCredo.CheckRegistry` [GenServer](/glossary/genserver/) that maintains the active set of checks, their priorities, and per-application overrides. Checks are organized into four categories: Consistency (naming, formatting), Design (OTP patterns, protocol compliance), Readability (documentation, module structure), and Warning (potential bugs, unsafe patterns).
+The module wraps Credo's plugin architecture with a `PrismaticCredo.CheckRegistry` [GenServer](@/glossary/genserver.md) that maintains the active set of checks, their priorities, and per-application overrides. Checks are organized into four categories: Consistency (naming, formatting), Design (OTP patterns, protocol compliance), Readability (documentation, module structure), and Warning (potential bugs, unsafe patterns).
 
-Check execution is parallelized across available CPU cores via [BEAM](/glossary/beam/) process spawning, with results aggregated by a collector process. [Telemetry](/glossary/telemetry/) events are emitted for each check run, feeding into the platform's quality observability pipeline.
+Check execution is parallelized across available CPU cores via [BEAM](@/glossary/beam.md) process spawning, with results aggregated by a collector process. [Telemetry](@/glossary/telemetry.md) events are emitted for each check run, feeding into the platform's quality observability pipeline.
 
 ## Key Modules
 
@@ -57,7 +57,7 @@ Check execution is parallelized across available CPU cores via [BEAM](/glossary/
 | `PrismaticCredo.Checks.NablaAnnotation` | Ensures epistemic pipeline modules carry NABLA provenance annotations |
 | `PrismaticCredo.RuleEvolution` | Versioned rule management with grace period tracking |
 
-Custom checks enforce Prismatic naming conventions (no `Manager`, `Handler`, `Utils`, or `Helper` suffixes), OTP pattern compliance for proper GenServer, [Supervisor](/glossary/supervisor/), and Task usage, storage adapter protocol compliance against `PrismaticStorageCore` [behaviour](/glossary/behaviour/)s, and NABLA axiom annotation verification on [epistemic pipeline](/glossary/epistemic-pipeline/) modules.
+Custom checks enforce Prismatic naming conventions (no `Manager`, `Handler`, `Utils`, or `Helper` suffixes), OTP pattern compliance for proper GenServer, [Supervisor](@/glossary/supervisor.md), and Task usage, storage adapter protocol compliance against `PrismaticStorageCore` [behaviour](@/glossary/behaviour.md)s, and NABLA axiom annotation verification on [epistemic pipeline](@/glossary/epistemic-pipeline.md) modules.
 
 ## Custom Check Categories
 
@@ -80,7 +80,7 @@ Design checks represent the highest-value category, enforcing architectural deci
 
 ### Warning Checks
 
-Warning checks identify code patterns that are technically valid but likely to cause problems. These include unsafe [map](/glossary/pattern-matching/) access patterns (using `map.key` instead of `Map.get/2`), missing error handling on external service calls, and use of deprecated platform APIs that will be removed in future versions.
+Warning checks identify code patterns that are technically valid but likely to cause problems. These include unsafe [map](@/glossary/pattern-matching.md) access patterns (using `map.key` instead of `Map.get/2`), missing error handling on external service calls, and use of deprecated platform APIs that will be removed in future versions.
 
 ## Configuration
 
@@ -164,13 +164,13 @@ Integration tests run the full Credo suite against the actual platform codebase 
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Safety](/apps/prismatic-safety/) | [Quality Floor Guardian](/glossary/quality-floor-guardian/) monitors Credo violation counts |
-| [Prismatic Tidewave](/apps/prismatic-tidewave/) | AI-generated code validated against all 28 custom checks |
-| [Prismatic Claude](/apps/prismatic-claude/) | Session lifecycle hooks run Credo on changed files |
-| [Prismatic Quality Intelligence](/apps/prismatic-quality-intelligence/) | Credo scores feed into cross-domain quality correlation |
-| [Prismatic Labs](/apps/prismatic-labs/) | Experimental checks prototyped before promotion |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) monitors Credo violation counts |
+| [Prismatic Tidewave](@/apps/prismatic-tidewave.md) | AI-generated code validated against all 28 custom checks |
+| [Prismatic Claude](@/apps/prismatic-claude.md) | Session lifecycle hooks run Credo on changed files |
+| [Prismatic Quality Intelligence](@/apps/prismatic-quality-intelligence.md) | Credo scores feed into cross-domain quality correlation |
+| [Prismatic Labs](@/apps/prismatic-labs.md) | Experimental checks prototyped before promotion |
 
-Pre-commit hook enforcement blocks commits with any Credo violations. [GitLab CI](/glossary/gitlab-ci/) pipeline stage produces JSON quality reports for trend analysis. The quality enforcement pipeline ensures that no code with Credo violations reaches the main branch.
+Pre-commit hook enforcement blocks commits with any Credo violations. [GitLab CI](@/glossary/gitlab-ci.md) pipeline stage produces JSON quality reports for trend analysis. The quality enforcement pipeline ensures that no code with Credo violations reaches the main branch.
 
 ## NABLA Compliance
 
@@ -182,7 +182,7 @@ Pre-commit hook enforcement blocks commits with any Credo violations. [GitLab CI
 | Time Decay | Rule evolution tracks version timestamps | Every rule version carries introduction date and grace period metadata |
 | Contradiction Preservation | Conflicting check results preserved in reports | Category-level and check-level results maintained independently |
 
-Prismatic Credo serves as a quality enforcement mechanism that helps maintain NABLA compliance indirectly by catching code patterns that would violate epistemic framework requirements. The NablaAnnotation check specifically ensures that modules participating in the [epistemic pipeline](/glossary/epistemic-pipeline/) carry the required provenance metadata.
+Prismatic Credo serves as a quality enforcement mechanism that helps maintain NABLA compliance indirectly by catching code patterns that would violate epistemic framework requirements. The NablaAnnotation check specifically ensures that modules participating in the [epistemic pipeline](@/glossary/epistemic-pipeline.md) carry the required provenance metadata.
 
 ## Performance
 
@@ -198,15 +198,15 @@ Telemetry events: `[:prismatic, :credo, :check_run]`, `[:prismatic, :credo, :vio
 
 ## Related Resources
 
-- [Prismatic Safety](/apps/prismatic-safety/) -- Quality Floor Guardian monitors Credo compliance
-- [Prismatic Tidewave](/apps/prismatic-tidewave/) -- Generated code validated against Credo rules
-- [Prismatic Labs](/apps/prismatic-labs/) -- Experimental checks prototyped before promotion
-- [Elixir Architect](/agents/elixir-architect/) -- Defines OTP and naming conventions that Credo custom checks enforce
-- [CI/CD Guardrails Enforcer](/agents/cicd-guardrails-enforcer/) -- Ensures Credo gates are active in all CI pipeline configurations
-- [DX Brutalist Analyst](/agents/dx-brutalist-analyst/) -- Developer experience analysis of Credo check messages
-- [Quality Gates](/capabilities/quality-gates/) -- Credo as a mandatory quality gate in the pre-commit pipeline
-- [AIAD Compliance](/capabilities/aiad-compliance/) -- Custom checks verify AIAD agent specification compliance
-- [Regression Tests](/capabilities/regression-tests/) -- Every new Credo check includes regression test coverage
+- [Prismatic Safety](@/apps/prismatic-safety.md) -- Quality Floor Guardian monitors Credo compliance
+- [Prismatic Tidewave](@/apps/prismatic-tidewave.md) -- Generated code validated against Credo rules
+- [Prismatic Labs](@/apps/prismatic-labs.md) -- Experimental checks prototyped before promotion
+- [Elixir Architect](@/agents/elixir-architect.md) -- Defines OTP and naming conventions that Credo custom checks enforce
+- [CI/CD Guardrails Enforcer](@/agents/cicd-guardrails-enforcer.md) -- Ensures Credo gates are active in all CI pipeline configurations
+- [DX Brutalist Analyst](@/agents/dx-brutalist-analyst.md) -- Developer experience analysis of Credo check messages
+- [Quality Gates](@/capabilities/quality-gates.md) -- Credo as a mandatory quality gate in the pre-commit pipeline
+- [AIAD Compliance](@/capabilities/aiad-compliance.md) -- Custom checks verify AIAD agent specification compliance
+- [Regression Tests](@/capabilities/regression-tests.md) -- Every new Credo check includes regression test coverage
 
 ---
 
@@ -215,4 +215,4 @@ Telemetry events: `[:prismatic, :credo, :check_run]`, `[:prismatic, :credo, :vio
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

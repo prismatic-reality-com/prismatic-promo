@@ -28,11 +28,11 @@ image_alt = "Registry Auto - Prismatic Platform"
 
 ## Overview
 
-The [Registry](/glossary/registry-otp/) Auto agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform, providing automatic synchronization of the [AIAD](/glossary/aiad/) registry through file system monitoring and event-driven indexing. In a platform with over 400 agents and 200 commands defined as AIAD specification files, keeping the registry synchronized with the file system is a continuous operational requirement. This agent monitors the `.aiad/` directory structure for changes to agent specifications, command definitions, policy documents, and pipeline configurations, automatically triggering re-indexing operations that keep the registry current.
+The [Registry](@/glossary/registry-otp.md) Auto agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform, providing automatic synchronization of the [AIAD](@/glossary/aiad.md) registry through file system monitoring and event-driven indexing. In a platform with over 400 agents and 200 commands defined as AIAD specification files, keeping the registry synchronized with the file system is a continuous operational requirement. This agent monitors the `.aiad/` directory structure for changes to agent specifications, command definitions, policy documents, and pipeline configurations, automatically triggering re-indexing operations that keep the registry current.
 
 Without automatic registry synchronization, the platform's agent discovery, command routing, and specification validation systems would operate on stale data, potentially routing commands to deprecated agents or failing to discover newly created agents. The Registry Auto agent eliminates this synchronization gap by maintaining real-time awareness of AIAD file changes and propagating those changes to the registry infrastructure within seconds.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, this agent ensures that registry synchronization is reliable, complete, and verified. Every synchronization event is logged with before-and-after state snapshots, enabling audit trail reconstruction and change attribution.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, this agent ensures that registry synchronization is reliable, complete, and verified. Every synchronization event is logged with before-and-after state snapshots, enabling audit trail reconstruction and change attribution.
 
 ## File System Monitoring Architecture
 
@@ -58,8 +58,8 @@ The agent processes the following AIAD file types:
 - **Change event generation** -- Produces structured change events for each registry update, enabling downstream systems to react to specification changes
 - **Reconciliation scanning** -- Performs periodic full-directory scans to detect and correct any synchronization drift between the file system and the registry
 - **Batch optimization** -- Aggregates rapid sequences of file changes into batched re-indexing operations, preventing redundant indexing when multiple files change within a short window
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous file system monitoring and self-recovering event processing
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for synchronization latency monitoring and change event tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous file system monitoring and self-recovering event processing
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for synchronization latency monitoring and change event tracking
 
 ## Synchronization Protocol
 
@@ -71,7 +71,7 @@ The synchronization protocol ensures consistency between the file system and the
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to update the AIAD registry, validate specifications, and propagate change events across the platform.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to update the AIAD registry, validate specifications, and propagate change events across the platform.
 
 ## Command Interface
 
@@ -85,9 +85,9 @@ The synchronization protocol ensures consistency between the file system and the
 
 | Agent | Relationship |
 |-------|-------------|
-| [quality-assurance-commander](/agents/archer-supreme/) | Registry consistency is a quality metric monitored by the quality infrastructure |
-| [recursive-optimizer](/agents/recursive-optimizer/) | Registry synchronization patterns are analyzed for optimization opportunities |
-| [repair-society-coordinator](/agents/repair-society-coordinator/) | Registry corruption triggers repair operations through the mycelial network |
+| [quality-assurance-commander](@/agents/archer-supreme.md) | Registry consistency is a quality metric monitored by the quality infrastructure |
+| [recursive-optimizer](@/agents/recursive-optimizer.md) | Registry synchronization patterns are analyzed for optimization opportunities |
+| [repair-society-coordinator](@/agents/repair-society-coordinator.md) | Registry corruption triggers repair operations through the mycelial network |
 
 ## Operational Characteristics
 
@@ -97,7 +97,7 @@ The agent maintains a write-ahead log of pending registry updates, ensuring that
 
 ## Enforcement
 
-Registry synchronization complies with the [NO MERCY](/glossary/no-mercy/) doctrine: stale registry state is treated as a quality violation requiring immediate correction. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that registry state is verified against the file system through reconciliation, not merely assumed to be correct based on event processing. All synchronization events are logged to an immutable audit trail, and synchronization failures trigger immediate alerting through the [telemetry](/glossary/telemetry/) infrastructure.
+Registry synchronization complies with the [NO MERCY](@/glossary/no-mercy.md) doctrine: stale registry state is treated as a quality violation requiring immediate correction. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that registry state is verified against the file system through reconciliation, not merely assumed to be correct based on event processing. All synchronization events are logged to an immutable audit trail, and synchronization failures trigger immediate alerting through the [telemetry](@/glossary/telemetry.md) infrastructure.
 
 ---
 
@@ -106,4 +106,4 @@ Registry synchronization complies with the [NO MERCY](/glossary/no-mercy/) doctr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

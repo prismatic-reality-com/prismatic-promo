@@ -31,13 +31,13 @@ beam_schedulers = 10
 date_modified = "2026-02-23"
 +++
 
-Technical deep-dive into Prismatic Platform's deterministic, [fault-tolerant](/glossary/fault-tolerance/) architecture built on [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/). The platform runs as 93 OTP applications on a single [BEAM](/glossary/beam/) node, coordinated through [supervision trees](/glossary/supervision-tree/), [PubSub](/glossary/pubsub/) event buses, and a pluggable storage [adapter](/glossary/adapter-pattern/) layer -- achieving microsecond inter-service latency without the operational complexity of distributed [microservices](/glossary/microservices/).
+Technical deep-dive into Prismatic Platform's deterministic, [fault-tolerant](@/glossary/fault-tolerance.md) architecture built on [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md). The platform runs as 93 OTP applications on a single [BEAM](@/glossary/beam.md) node, coordinated through [supervision trees](@/glossary/supervision-tree.md), [PubSub](@/glossary/pubsub.md) event buses, and a pluggable storage [adapter](@/glossary/adapter-pattern.md) layer -- achieving microsecond inter-service latency without the operational complexity of distributed [microservices](@/glossary/microservices.md).
 
 ## Abstract
 
-This section documents the architectural decisions, runtime characteristics, and design patterns that underpin the Prismatic Platform. The architecture is organized around three core principles: **fault tolerance through OTP supervision** (every stateful component lives in a supervised process tree with automatic restart), **data consistency through [event sourcing](/glossary/event-sourcing/)** (system state is derived from an append-only event log, enabling full auditability and temporal queries), and **cognitive reliability through the [NABLA](/glossary/nabla-infinity/) [epistemic pipeline](/glossary/epistemic-pipeline/)** (all beliefs formed by the system pass a formal [Trinity Gate](/glossary/trinity-gate/) before influencing decisions).
+This section documents the architectural decisions, runtime characteristics, and design patterns that underpin the Prismatic Platform. The architecture is organized around three core principles: **fault tolerance through OTP supervision** (every stateful component lives in a supervised process tree with automatic restart), **data consistency through [event sourcing](@/glossary/event-sourcing.md)** (system state is derived from an append-only event log, enabling full auditability and temporal queries), and **cognitive reliability through the [NABLA](@/glossary/nabla-infinity.md) [epistemic pipeline](@/glossary/epistemic-pipeline.md)** (all beliefs formed by the system pass a formal [Trinity Gate](@/glossary/trinity-gate.md) before influencing decisions).
 
-The platform rejects the microservice-over-HTTP pattern in favour of a monolithic deployment of 93 OTP applications sharing a single BEAM virtual machine. This design eliminates network serialization overhead between components while preserving modularity through Elixir's [umbrella project](/glossary/umbrella-application/) structure and compile-time dependency enforcement.
+The platform rejects the microservice-over-HTTP pattern in favour of a monolithic deployment of 93 OTP applications sharing a single BEAM virtual machine. This design eliminates network serialization overhead between components while preserving modularity through Elixir's [umbrella project](@/glossary/umbrella-application.md) structure and compile-time dependency enforcement.
 
 ## Introduction
 
@@ -47,9 +47,9 @@ The choice of Elixir on the BEAM VM is not incidental -- it directly addresses t
 
 1. **Soft real-time guarantees**: The BEAM scheduler provides preemptive scheduling across lightweight processes with sub-millisecond context switching, ensuring that no single computation starves others. This matters when 434+ AI agents, web dashboard connections, and background crawl jobs share the same runtime.
 
-2. **Fault isolation without containers**: Each Erlang process has its own heap and garbage-collects independently. A crash in one process does not corrupt another's memory. OTP supervisors automatically restart failed processes according to configurable strategies, making the system [self-healing](/glossary/self-healing/) at the [process](/glossary/process-isolation/) level.
+2. **Fault isolation without containers**: Each Erlang process has its own heap and garbage-collects independently. A crash in one process does not corrupt another's memory. OTP supervisors automatically restart failed processes according to configurable strategies, making the system [self-healing](@/glossary/self-healing.md) at the [process](@/glossary/process-isolation.md) level.
 
-3. **[Hot code loading](/glossary/hot-code-reload/)**: The BEAM supports replacing module code in a running system without dropping connections or losing process state. While not used in production today, this capability enables zero-downtime deployments for future production scenarios.
+3. **[Hot code loading](@/glossary/hot-code-reload.md)**: The BEAM supports replacing module code in a running system without dropping connections or losing process state. While not used in production today, this capability enables zero-downtime deployments for future production scenarios.
 
 ### Architectural Layers
 
@@ -111,7 +111,7 @@ defmodule Prismatic.Application do
 end
 ```
 
-**Deep dive**: [Supervision Trees](/architecture/supervision-trees/)
+**Deep dive**: [Supervision Trees](@/architecture/supervision-trees.md)
 
 ### Umbrella Application Structure
 
@@ -130,19 +130,19 @@ end
 
 The umbrella structure provides microservice-like modularity (independent compilation, isolated testing) without microservice operational overhead (no service discovery, no network serialization, no distributed tracing).
 
-**Deep dive**: [Umbrella Applications](/architecture/umbrella-apps/)
+**Deep dive**: [Umbrella Applications](@/architecture/umbrella-apps.md)
 
 ### Storage Adapter Architecture
 
-The storage layer implements a [behaviour](/glossary/behaviour/)-based adapter pattern. All storage operations route through the `PrismaticStorage.Adapter` behaviour, allowing the platform to swap backends without changing domain code:
+The storage layer implements a [behaviour](@/glossary/behaviour.md)-based adapter pattern. All storage operations route through the `PrismaticStorage.Adapter` behaviour, allowing the platform to swap backends without changing domain code:
 
 | Adapter | Backend | Latency | Use Case |
 |---------|---------|---------|----------|
-| **[ETS](/glossary/ets/)** | Erlang Term Storage | ~1 μs | Caches, sessions, hot data |
-| **[Ecto](/glossary/ecto/)** | [PostgreSQL](/glossary/postgresql/) | ~2-10 ms | Persistent records, transactions |
-| **[Meilisearch](/glossary/meilisearch/)** | Meilisearch | ~5-20 ms | Full-text search, faceted queries |
-| **[KuzuDB](/glossary/kuzudb/)** | KuzuDB | ~3-15 ms | Graph queries, relationship traversal |
-| **[Redis](/glossary/redis/)** | Redis | ~1-5 ms | Distributed cache, [rate limiting](/glossary/rate-limiting/) |
+| **[ETS](@/glossary/ets.md)** | Erlang Term Storage | ~1 μs | Caches, sessions, hot data |
+| **[Ecto](@/glossary/ecto.md)** | [PostgreSQL](@/glossary/postgresql.md) | ~2-10 ms | Persistent records, transactions |
+| **[Meilisearch](@/glossary/meilisearch.md)** | Meilisearch | ~5-20 ms | Full-text search, faceted queries |
+| **[KuzuDB](@/glossary/kuzudb.md)** | KuzuDB | ~3-15 ms | Graph queries, relationship traversal |
+| **[Redis](@/glossary/redis.md)** | Redis | ~1-5 ms | Distributed cache, [rate limiting](@/glossary/rate-limiting.md) |
 
 The adapter protocol enforces a uniform API across all backends:
 
@@ -153,7 +153,7 @@ The adapter protocol enforces a uniform API across all backends:
 @callback list(prefix, opts) :: {:ok, [term()]} | {:error, term()}
 ```
 
-**Deep dive**: [Storage Adapters](/architecture/storage-adapters/)
+**Deep dive**: [Storage Adapters](@/architecture/storage-adapters.md)
 
 ### Event Sourcing
 
@@ -167,11 +167,11 @@ Projection:    %User{id: 1}    %User{role: :admin}  %User{perms: [:read, :write]
 
 This pattern provides complete audit trails, enables temporal queries ("what was the state at timestamp T?"), and supports retroactive bug fixes by re-projecting events through corrected logic.
 
-**Deep dive**: [Event Sourcing](/architecture/event-sourcing/)
+**Deep dive**: [Event Sourcing](@/architecture/event-sourcing.md)
 
 ### Phoenix LiveView
 
-Web interfaces are built with [Phoenix](/glossary/phoenix/) [LiveView](/glossary/liveview/), delivering real-time server-rendered UI without client-side JavaScript frameworks. Each LiveView process maintains a WebSocket connection and pushes DOM diffs to the browser:
+Web interfaces are built with [Phoenix](@/glossary/phoenix.md) [LiveView](@/glossary/liveview.md), delivering real-time server-rendered UI without client-side JavaScript frameworks. Each LiveView process maintains a WebSocket connection and pushes DOM diffs to the browser:
 
 | Dashboard | Route | Function |
 |-----------|-------|----------|
@@ -184,7 +184,7 @@ Web interfaces are built with [Phoenix](/glossary/phoenix/) [LiveView](/glossary
 
 LiveView's process model means each connected user gets a dedicated Erlang process with its own state, crash isolation, and garbage collection -- no shared mutable state between sessions.
 
-**Deep dive**: [Phoenix LiveView](/architecture/phoenix-liveview/)
+**Deep dive**: [Phoenix LiveView](@/architecture/phoenix-liveview.md)
 
 ### PubSub Event Bus
 
@@ -206,11 +206,11 @@ end
 
 PubSub events are fire-and-forget with at-most-once delivery within the local BEAM node. For guaranteed delivery, the platform uses Oban jobs.
 
-**Deep dive**: [PubSub](/architecture/pubsub/)
+**Deep dive**: [PubSub](@/architecture/pubsub.md)
 
 ### Telemetry & Observability
 
-The platform uses Erlang's [`:telemetry`](/glossary/telemetry/) library for metrics emission. Every significant operation emits telemetry events that are consumed by handlers for logging, metrics aggregation, and alerting:
+The platform uses Erlang's [`:telemetry`](@/glossary/telemetry.md) library for metrics emission. Every significant operation emits telemetry events that are consumed by handlers for logging, metrics aggregation, and alerting:
 
 ```elixir
 :telemetry.execute(
@@ -222,11 +222,11 @@ The platform uses Erlang's [`:telemetry`](/glossary/telemetry/) library for metr
 
 Key telemetry dimensions: request latency, query duration, cache hit rates, agent response times, queue depths, error rates.
 
-**Deep dive**: [Telemetry](/architecture/telemetry/)
+**Deep dive**: [Telemetry](@/architecture/telemetry.md)
 
 ### NABLA Epistemic Pipeline
 
-The [NABLA Infinity](/glossary/nabla-infinity/) (∇∞) framework implements a 16-level epistemic pipeline ensuring that beliefs formed by the platform's AI agents meet formal consistency requirements before influencing decisions:
+The [NABLA Infinity](@/glossary/nabla-infinity.md) (∇∞) framework implements a 16-level epistemic pipeline ensuring that beliefs formed by the platform's AI agents meet formal consistency requirements before influencing decisions:
 
 ```
 L0: Raw Signal → L1: Validated Signal → L2: Correlated Evidence
@@ -241,22 +241,22 @@ Every belief must pass the **Trinity Gate** -- three independent consistency che
 2. **Logical Consistency**: Rule-based evaluation against known axioms
 3. **Formal Necessity**: Modal logic verification with optional Lean4 proof
 
-**Deep dive**: [NABLA Framework](/architecture/nabla-framework/)
+**Deep dive**: [NABLA Framework](@/architecture/nabla-framework.md)
 
 ### PostgreSQL & KuzuDB
 
-The platform uses PostgreSQL as its primary relational store (via Ecto) and [KuzuDB](/glossary/kuzudb/) as an embedded [graph database](/glossary/knowledge-graph/) for relationship-heavy queries:
+The platform uses PostgreSQL as its primary relational store (via Ecto) and [KuzuDB](@/glossary/kuzudb.md) as an embedded [graph database](@/glossary/knowledge-graph.md) for relationship-heavy queries:
 
 - **PostgreSQL**: Entity records, audit logs, configuration, Oban job queues
 - **KuzuDB**: Entity relationship graphs, influence networks, ownership chains
 
 The dual-database architecture avoids forcing graph queries into SQL joins or flattening relational data into graph structures.
 
-**Deep dive**: [PostgreSQL & KuzuDB](/architecture/postgresql-kuzudb/)
+**Deep dive**: [PostgreSQL & KuzuDB](@/architecture/postgresql-kuzudb.md)
 
 ### Ollama Local AI
 
-Local AI [inference](/glossary/inference/) via [Ollama](/glossary/ollama/) provides <3 second response times for code generation, content analysis, and decision support without external API dependencies:
+Local AI [inference](@/glossary/inference.md) via [Ollama](@/glossary/ollama.md) provides <3 second response times for code generation, content analysis, and decision support without external API dependencies:
 
 | Model | Parameters | Response Time | Use Case |
 |-------|-----------|---------------|----------|
@@ -266,7 +266,7 @@ Local AI [inference](/glossary/inference/) via [Ollama](/glossary/ollama/) provi
 
 The architecture includes automatic fallback to cloud APIs when local models are unavailable or when tasks exceed local model capabilities.
 
-**Deep dive**: [Ollama Integration](/architecture/ollama/)
+**Deep dive**: [Ollama Integration](@/architecture/ollama.md)
 
 ### Meilisearch
 
@@ -276,23 +276,23 @@ Full-text search across platform data uses Meilisearch, an embedded search engin
 - **Features**: Typo tolerance, faceted filtering, ranking rules, synonym support
 - **Deployment**: Embedded in the platform, no external service dependency
 
-**Deep dive**: [Meilisearch](/architecture/meilisearch/)
+**Deep dive**: [Meilisearch](@/architecture/meilisearch.md)
 
 ### GraphQL
 
-The platform exposes a [GraphQL](/glossary/graphql/) API alongside [REST](/glossary/rest-api/) for complex, nested data queries where clients need control over response shape:
+The platform exposes a [GraphQL](@/glossary/graphql.md) API alongside [REST](@/glossary/rest-api.md) for complex, nested data queries where clients need control over response shape:
 
 - **Schema**: Auto-generated from Ecto schemas and domain types
 - **Subscriptions**: Real-time updates via WebSocket for dashboard widgets
 - **DataLoader**: N+1 query prevention through batched data loading
 
-**Deep dive**: [GraphQL](/architecture/graphql/)
+**Deep dive**: [GraphQL](@/architecture/graphql.md)
 
 ## Cross-Cutting Concerns
 
 ### 3NL (Three Nested Levels) Framework
 
-All architectural components are organized according to the [3NL](/glossary/three-nl/) framework:
+All architectural components are organized according to the [3NL](@/glossary/three-nl.md) framework:
 
 - **Level 1 (Strategic)**: Public APIs, facade modules, external interfaces
 - **Level 2 (Tactical)**: Inter-application coordination, pipeline orchestration, agent messaging
@@ -302,7 +302,7 @@ The 3NL framework ensures that consumers at each level interact only with approp
 
 ### Error Handling Philosophy
 
-The platform follows Erlang's "[let it crash](/glossary/let-it-crash/)" philosophy, augmented with structured error tuples at API boundaries:
+The platform follows Erlang's "[let it crash](@/glossary/let-it-crash.md)" philosophy, augmented with structured error tuples at API boundaries:
 
 - **Internal processes**: Let supervisors handle crashes and restarts
 - **API boundaries**: Return `{:ok, result}` / `{:error, reason}` tuples
@@ -358,14 +358,14 @@ Sensitive configuration (database credentials, API keys) is loaded exclusively f
 The BEAM VM provides natural security boundaries:
 
 - **Memory isolation**: Processes cannot access each other's heap
-- **[Message-based communication](/glossary/message-passing/)**: All inter-process data is copied, not shared
+- **[Message-based communication](@/glossary/message-passing.md)**: All inter-process data is copied, not shared
 - **Scheduler fairness**: No process can monopolize CPU time (reduction counting)
 - **Port isolation**: External program interaction through controlled ports
 
 ### Network Security
 
-- **[TLS](/glossary/tls/) everywhere**: All external connections use TLS 1.3
-- **API authentication**: [JWT](/glossary/jwt/) tokens with configurable TTL and refresh
+- **[TLS](@/glossary/tls.md) everywhere**: All external connections use TLS 1.3
+- **API authentication**: [JWT](@/glossary/jwt.md) tokens with configurable TTL and refresh
 - **Rate limiting**: Per-endpoint and per-client rate limiting via Token Bucket
 - **CORS**: Strict origin whitelisting for browser clients
 - **CSP**: Content Security Policy headers on all HTML responses
@@ -387,24 +387,24 @@ The architectural components documented in this section -- supervision trees, st
 
 ### Architecture Pages
 
-- [Supervision Trees](/architecture/supervision-trees/) -- OTP supervision patterns and restart strategies
-- [Umbrella Applications](/architecture/umbrella-apps/) -- Project structure and dependency management
-- [Storage Adapters](/architecture/storage-adapters/) -- Pluggable storage backend architecture
-- [Event Sourcing](/architecture/event-sourcing/) -- Append-only event logs and projections
-- [Phoenix LiveView](/architecture/phoenix-liveview/) -- Real-time server-rendered UI
-- [PubSub](/architecture/pubsub/) -- Event-driven inter-application messaging
-- [Telemetry](/architecture/telemetry/) -- Metrics, tracing, and observability
-- [NABLA Framework](/architecture/nabla-framework/) -- Epistemic pipeline and Trinity Gate
-- [PostgreSQL & KuzuDB](/architecture/postgresql-kuzudb/) -- Dual-database architecture
-- [Ollama](/architecture/ollama/) -- Local AI inference integration
-- [Meilisearch](/architecture/meilisearch/) -- Full-text search engine
-- [GraphQL](/architecture/graphql/) -- Query API and subscriptions
+- [Supervision Trees](@/architecture/supervision-trees.md) -- OTP supervision patterns and restart strategies
+- [Umbrella Applications](@/architecture/umbrella-apps.md) -- Project structure and dependency management
+- [Storage Adapters](@/architecture/storage-adapters.md) -- Pluggable storage backend architecture
+- [Event Sourcing](@/architecture/event-sourcing.md) -- Append-only event logs and projections
+- [Phoenix LiveView](@/architecture/phoenix-liveview.md) -- Real-time server-rendered UI
+- [PubSub](@/architecture/pubsub.md) -- Event-driven inter-application messaging
+- [Telemetry](@/architecture/telemetry.md) -- Metrics, tracing, and observability
+- [NABLA Framework](@/architecture/nabla-framework.md) -- Epistemic pipeline and Trinity Gate
+- [PostgreSQL & KuzuDB](@/architecture/postgresql-kuzudb.md) -- Dual-database architecture
+- [Ollama](@/architecture/ollama.md) -- Local AI inference integration
+- [Meilisearch](@/architecture/meilisearch.md) -- Full-text search engine
+- [GraphQL](@/architecture/graphql.md) -- Query API and subscriptions
 
 ### Platform Documentation
 
-- [Applications](/apps/) -- Complete application catalog
-- [Technologies](/technologies/) -- Technology stack reference
-- [Platform Capabilities](/capabilities/) -- Doctrines and quality enforcement
+- [Applications](@/apps/_index.md) -- Complete application catalog
+- [Technologies](@/technologies/_index.md) -- Technology stack reference
+- [Platform Capabilities](@/capabilities/_index.md) -- Doctrines and quality enforcement
 
 ### External References
 
@@ -424,4 +424,4 @@ The architectural components documented in this section -- supervision trees, st
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

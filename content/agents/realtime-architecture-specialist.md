@@ -28,9 +28,9 @@ image_alt = "realtime-architecture-specialist - Prismatic Platform"
 
 ## Overview
 
-The realtime-architecture-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's architecture domain, providing expert guidance on [WebSocket](/glossary/websocket/) infrastructure, real-time communication protocols, and low-latency system design. In a platform built on the [BEAM](/glossary/beam/) virtual machine and [OTP](/glossary/otp/) principles, real-time capabilities are not an afterthought but a fundamental architectural characteristic. This agent ensures that the platform's real-time infrastructure -- spanning [Phoenix](/glossary/phoenix/) Channels, [LiveView](/glossary/liveview/) connections, [GenServer](/glossary/genserver/) event streams, and distributed [PubSub](/glossary/pubsub/) topologies -- meets rigorous latency, throughput, and reliability requirements.
+The realtime-architecture-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's architecture domain, providing expert guidance on [WebSocket](@/glossary/websocket.md) infrastructure, real-time communication protocols, and low-latency system design. In a platform built on the [BEAM](@/glossary/beam.md) virtual machine and [OTP](@/glossary/otp.md) principles, real-time capabilities are not an afterthought but a fundamental architectural characteristic. This agent ensures that the platform's real-time infrastructure -- spanning [Phoenix](@/glossary/phoenix.md) Channels, [LiveView](@/glossary/liveview.md) connections, [GenServer](@/glossary/genserver.md) event streams, and distributed [PubSub](@/glossary/pubsub.md) topologies -- meets rigorous latency, throughput, and reliability requirements.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, this agent approaches real-time architecture with evidence-based methodology. Latency claims require benchmark validation, throughput guarantees require load test verification, and architectural decisions carry documented rationale with measured performance characteristics. The [NABLA Infinity](/glossary/nabla-infinity/) framework applies to architectural trade-off analysis: when conflicting design approaches each present valid advantages, both perspectives are preserved and evaluated rather than prematurely selecting a single solution.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, this agent approaches real-time architecture with evidence-based methodology. Latency claims require benchmark validation, throughput guarantees require load test verification, and architectural decisions carry documented rationale with measured performance characteristics. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework applies to architectural trade-off analysis: when conflicting design approaches each present valid advantages, both perspectives are preserved and evaluated rather than prematurely selecting a single solution.
 
 This agent is part of the platform's autonomous agent ecosystem, contributing to the self-evolving, deterministic intelligence infrastructure that powers real-time communication across all Prismatic subsystems.
 
@@ -49,9 +49,9 @@ Distributed real-time communication across multiple nodes uses Phoenix PubSub wi
 - **LiveView performance optimization** -- Analyzes LiveView component structures for render efficiency, identifying unnecessary re-renders, optimizing assigns tracking, and designing component boundaries that minimize DOM diff payloads
 - **Latency profiling and optimization** -- Conducts end-to-end latency analysis from event origin through processing pipeline to client delivery, identifying bottlenecks and implementing targeted optimizations
 - **Distributed PubSub architecture** -- Designs cross-node real-time communication topologies that maintain message ordering guarantees and delivery semantics across clustered deployments
-- **Backpressure management** -- Implements [backpressure](/glossary/backpressure/) mechanisms using [GenStage](/glossary/genstage/) and Flow to prevent fast producers from overwhelming slow consumers in real-time data pipelines
+- **Backpressure management** -- Implements [backpressure](@/glossary/backpressure.md) mechanisms using [GenStage](@/glossary/genstage.md) and Flow to prevent fast producers from overwhelming slow consumers in real-time data pipelines
 - **Connection scaling strategies** -- Plans horizontal scaling approaches for WebSocket connections including sticky sessions, connection migration, and load balancer configuration for persistent connections
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous real-time infrastructure health monitoring and proactive performance degradation detection
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous real-time infrastructure health monitoring and proactive performance degradation detection
 
 ## Real-Time Design Patterns
 
@@ -63,7 +63,7 @@ The **Selective Subscription** pattern enables clients to subscribe to fine-grai
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to define real-time architecture standards, approve WebSocket infrastructure changes, and coordinate cross-team real-time integration efforts.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to define real-time architecture standards, approve WebSocket infrastructure changes, and coordinate cross-team real-time integration efforts.
 
 ## Command Interface
 
@@ -77,14 +77,14 @@ The **Selective Subscription** pattern enables clients to subscribe to fine-grai
 
 | Agent | Relationship |
 |-------|-------------|
-| [scalability-architect](/agents/scalability-architect/) | Scaling strategies must account for WebSocket connection persistence and state |
-| [performance-optimization-specialist](/agents/archer-supreme/) | Real-time latency optimization aligns with broader performance objectives |
-| [infrastructure-reliability-specialist](/agents/archer-supreme/) | Real-time infrastructure reliability feeds into platform-wide reliability assessment |
-| [performance-monitoring-specialist](/agents/performance-monitoring-specialist/) | Real-time metrics are collected and displayed through the monitoring infrastructure |
+| [scalability-architect](@/agents/scalability-architect.md) | Scaling strategies must account for WebSocket connection persistence and state |
+| [performance-optimization-specialist](@/agents/archer-supreme.md) | Real-time latency optimization aligns with broader performance objectives |
+| [infrastructure-reliability-specialist](@/agents/archer-supreme.md) | Real-time infrastructure reliability feeds into platform-wide reliability assessment |
+| [performance-monitoring-specialist](@/agents/performance-monitoring-specialist.md) | Real-time metrics are collected and displayed through the monitoring infrastructure |
 
 ## Implementation Considerations
 
-Real-time architecture decisions carry significant implications for the platform's operational characteristics. WebSocket connections maintain server-side state, which means that horizontal scaling requires careful consideration of connection affinity, state migration, and graceful connection draining during deployments. The agent evaluates these trade-offs using the [NABLA Infinity](/glossary/nabla-infinity/) framework's structured decision methodology.
+Real-time architecture decisions carry significant implications for the platform's operational characteristics. WebSocket connections maintain server-side state, which means that horizontal scaling requires careful consideration of connection affinity, state migration, and graceful connection draining during deployments. The agent evaluates these trade-offs using the [NABLA Infinity](@/glossary/nabla-infinity.md) framework's structured decision methodology.
 
 Memory consumption per connection is a critical scaling parameter. Each Phoenix Channel connection maintains a process on the BEAM, consuming approximately 2-4 KB of base memory plus application-specific state. For deployments targeting millions of concurrent connections, the agent plans memory budgets that account for both connection overhead and application state growth patterns.
 
@@ -92,7 +92,7 @@ Message serialization format selection impacts both latency and bandwidth. The a
 
 ## Enforcement
 
-All real-time architecture decisions comply with the [NO MERCY](/glossary/no-mercy/) doctrine: latency requirements are treated as hard constraints rather than aspirational targets, and every architectural claim is backed by benchmark evidence. The [Trinity Gate](/glossary/trinity-gate/) validates architectural designs for structural consistency before implementation begins. Real-time infrastructure changes undergo load testing verification that confirms performance characteristics under realistic traffic patterns, ensuring that production behavior matches design expectations.
+All real-time architecture decisions comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: latency requirements are treated as hard constraints rather than aspirational targets, and every architectural claim is backed by benchmark evidence. The [Trinity Gate](@/glossary/trinity-gate.md) validates architectural designs for structural consistency before implementation begins. Real-time infrastructure changes undergo load testing verification that confirms performance characteristics under realistic traffic patterns, ensuring that production behavior matches design expectations.
 
 ---
 
@@ -101,4 +101,4 @@ All real-time architecture decisions comply with the [NO MERCY](/glossary/no-mer
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

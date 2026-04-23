@@ -28,9 +28,9 @@ image_alt = "Test Generator Agent - Prismatic Platform"
 
 ## Overview
 
-The Test Generator Agent is an L3 strategic command agent operating within the Prismatic Platform's quality-assurance domain, purpose-built to automate the generation of comprehensive, production-ready tests for [GenServer](/glossary/genserver/) modules across the platform. Created as part of the M47 Mass Testing Initiative targeting 968 GenServers, this agent addresses the fundamental challenge of achieving complete test coverage across a large-scale [OTP](/glossary/otp/) application ecosystem where manual test creation cannot scale to meet coverage requirements.
+The Test Generator Agent is an L3 strategic command agent operating within the Prismatic Platform's quality-assurance domain, purpose-built to automate the generation of comprehensive, production-ready tests for [GenServer](@/glossary/genserver.md) modules across the platform. Created as part of the M47 Mass Testing Initiative targeting 968 GenServers, this agent addresses the fundamental challenge of achieving complete test coverage across a large-scale [OTP](@/glossary/otp.md) application ecosystem where manual test creation cannot scale to meet coverage requirements.
 
-The platform's quality standard demands 100% test passage with comprehensive coverage of all behavioral contracts. With 968 GenServer modules representing the core stateful components of the system, automated test generation provides the only viable path to complete coverage within practical timeframes. Operating under the [AIAD](/glossary/aiad/) standard and [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, the agent generates tests that meet production-quality standards with zero tolerance for brittle, flaky, or incomplete test cases.
+The platform's quality standard demands 100% test passage with comprehensive coverage of all behavioral contracts. With 968 GenServer modules representing the core stateful components of the system, automated test generation provides the only viable path to complete coverage within practical timeframes. Operating under the [AIAD](@/glossary/aiad.md) standard and [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, the agent generates tests that meet production-quality standards with zero tolerance for brittle, flaky, or incomplete test cases.
 
 ## Theoretical Foundations
 
@@ -38,7 +38,7 @@ Automated test generation draws from multiple theoretical traditions in software
 
 Specification-based test generation, grounded in the work of Gaudel and others, derives test cases from formal or semi-formal specifications. In the OTP context, GenServer callback specifications (@spec annotations) serve as the specification basis. The agent analyzes function signatures, return type specifications, and behavioral contracts to generate test cases that exercise the specified behavior systematically.
 
-[Property-based testing](/glossary/property-based-testing/), pioneered by QuickCheck and implemented in Elixir through StreamData, provides a complementary approach where tests verify invariant properties rather than specific input-output pairs. The agent generates property-based tests that verify behavioral invariants such as "init always returns a valid state", "handle_call with valid input always returns a valid reply", and "handle_info never crashes the server".
+[Property-based testing](@/glossary/property-based-testing.md), pioneered by QuickCheck and implemented in Elixir through StreamData, provides a complementary approach where tests verify invariant properties rather than specific input-output pairs. The agent generates property-based tests that verify behavioral invariants such as "init always returns a valid state", "handle_call with valid input always returns a valid reply", and "handle_info never crashes the server".
 
 The theory of mutation testing provides the quality metric for generated tests. By systematically introducing small changes (mutations) to the code under test and verifying that the generated tests detect these mutations, the agent validates that its generated tests are truly effective at catching defects rather than merely achieving superficial coverage metrics.
 
@@ -52,11 +52,11 @@ The theory of mutation testing provides the quality metric for generated tests. 
 
 **State Transition Testing** models GenServer state as a state machine and generates test sequences that exercise state transitions systematically. The agent identifies distinct state configurations reachable through different callback sequences and generates tests that verify behavior in each state.
 
-**Regression Test Generation** creates targeted tests for code areas that have historically contained defects, as identified by the [CASCADE](/glossary/cascade/) pattern library and bug fix history. These tests focus on the specific failure modes that have occurred in the past, preventing recurrence.
+**Regression Test Generation** creates targeted tests for code areas that have historically contained defects, as identified by the [CASCADE](@/glossary/cascade.md) pattern library and bug fix history. These tests focus on the specific failure modes that have occurred in the past, preventing recurrence.
 
 ## Architecture and Implementation
 
-The Test Generator Agent operates as a supervised [OTP](/glossary/otp/) process with a multi-stage generation pipeline.
+The Test Generator Agent operates as a supervised [OTP](@/glossary/otp.md) process with a multi-stage generation pipeline.
 
 | Component | Function | Implementation |
 |-----------|----------|---------------|
@@ -98,12 +98,12 @@ Tests use the Arrange-Act-Assert pattern consistently. The Arrange phase establi
 
 | System | Integration Purpose | Data Flow |
 |--------|-------------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent lifecycle and task dispatch | Bidirectional |
-| [Trinity Gate](/glossary/trinity-gate/) | Generated test quality verification | Mandatory check |
-| [SEADF](/glossary/seadf/) | Testing effectiveness tracking | Bidirectional |
-| [Prismatic Telemetry](/glossary/telemetry/) | Generation metrics and events | Write |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification and discovery | Read |
-| [Systematic Verifier](/agents/systematic-verifier/) | Integration with verification pipeline | Bidirectional |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent lifecycle and task dispatch | Bidirectional |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Generated test quality verification | Mandatory check |
+| [SEADF](@/glossary/seadf.md) | Testing effectiveness tracking | Bidirectional |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Generation metrics and events | Write |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Read |
+| [Systematic Verifier](@/agents/systematic-verifier.md) | Integration with verification pipeline | Bidirectional |
 
 ## Quality Assurance
 
@@ -113,7 +113,7 @@ The agent tracks generation quality metrics including tests generated per module
 
 ## Related Agents
 
-The Test Generator Agent produces tests that are executed by the [systematic-verifier](/agents/systematic-verifier/) as part of the verification pipeline. The [test-specialist](/agents/test-specialist/) provides broader testing expertise that informs generation strategies. The [type-annotation-analyst](/agents/type-annotation-analyst/) ensures that type specifications used as generation inputs are accurate and complete.
+The Test Generator Agent produces tests that are executed by the [systematic-verifier](@/agents/systematic-verifier.md) as part of the verification pipeline. The [test-specialist](@/agents/test-specialist.md) provides broader testing expertise that informs generation strategies. The [type-annotation-analyst](@/agents/type-annotation-analyst.md) ensures that type specifications used as generation inputs are accurate and complete.
 
 ---
 
@@ -122,4 +122,4 @@ The Test Generator Agent produces tests that are executed by the [systematic-ver
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

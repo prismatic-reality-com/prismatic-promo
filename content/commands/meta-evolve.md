@@ -26,9 +26,9 @@ image_alt = "/meta-evolve - Prismatic Platform"
 
 **/meta-evolve** is a production command in the **Evolution** category of the Prismatic Platform. It evolves the evolution system itself through meta-recursive improvement -- a fundamentally reflexive operation where the mechanisms responsible for platform evolution become the subject of their own optimization. This is the platform's most philosophically ambitious evolution command: rather than improving code, agents, or patterns, it improves the process by which improvement occurs.
 
-The meta-evolution concept addresses a critical limitation of fixed evolution strategies. Standard evolution commands like [/evolve](/commands/evolve/) and [/mendelize](/commands/mendelize/) operate with predetermined parameters: mutation rates, selection pressures, propagation thresholds, and quality gate configurations. These parameters were initially set through expert judgment, but optimal values change as the platform evolves. What works at Generation 5 may be suboptimal at Generation 15. Meta-evolution solves this by treating evolution parameters themselves as evolvable traits, subject to the same selection and optimization pressures as any other platform component.
+The meta-evolution concept addresses a critical limitation of fixed evolution strategies. Standard evolution commands like [/evolve](@/commands/evolve.md) and [/mendelize](@/commands/mendelize.md) operate with predetermined parameters: mutation rates, selection pressures, propagation thresholds, and quality gate configurations. These parameters were initially set through expert judgment, but optimal values change as the platform evolves. What works at Generation 5 may be suboptimal at Generation 15. Meta-evolution solves this by treating evolution parameters themselves as evolvable traits, subject to the same selection and optimization pressures as any other platform component.
 
-This command operates under the **SUPREME** authority level and is executed by the `meta-evolution-orchestrator` agent, a supreme-level agent with the unique capability of modifying the behavior of other evolution agents. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The SUPREME authority requirement is essential because meta-evolution can alter the fundamental characteristics of the platform's evolution infrastructure, potentially changing how quality is measured, how fitness is evaluated, and how improvements are selected.
+This command operates under the **SUPREME** authority level and is executed by the `meta-evolution-orchestrator` agent, a supreme-level agent with the unique capability of modifying the behavior of other evolution agents. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The SUPREME authority requirement is essential because meta-evolution can alter the fundamental characteristics of the platform's evolution infrastructure, potentially changing how quality is measured, how fitness is evaluated, and how improvements are selected.
 
 The command integrates with GitLab for comprehensive tracking of meta-evolution experiments. Each meta-evolution cycle creates a GitLab issue documenting the hypothesis (which evolution parameters to modify), the experiment (what changes were made), and the outcome (whether the modified parameters produced better evolution results). This tracking supports the platform's commitment to evidence-based decision-making and provides an audit trail for the evolution of evolution itself.
 
@@ -55,7 +55,7 @@ Meta-evolution operates through a layered architecture that separates the meta-l
 +---------------------+     +---------------------+     +---------------------+
 ```
 
-The **Meta-Parameter Registry** stores all tunable parameters across the platform's evolution subsystems. This includes mutation rates for [/mendelize](/commands/mendelize/), propagation thresholds for [/mycelialize](/commands/mycelialize/), healing aggressiveness for autoheal, and quality gate sensitivity. Each parameter has a valid range, current value, historical values, and sensitivity analysis results.
+The **Meta-Parameter Registry** stores all tunable parameters across the platform's evolution subsystems. This includes mutation rates for [/mendelize](@/commands/mendelize.md), propagation thresholds for [/mycelialize](@/commands/mycelialize.md), healing aggressiveness for autoheal, and quality gate sensitivity. Each parameter has a valid range, current value, historical values, and sensitivity analysis results.
 
 The **Strategy Evaluator** implements A/B testing for evolution strategies. It runs parallel evolution experiments with different parameter configurations and compares outcomes using statistical significance testing. This ensures that meta-evolution decisions are supported by evidence rather than intuition.
 
@@ -172,15 +172,15 @@ The **Experiment Manager** manages the complete lifecycle of meta-evolution expe
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by the `meta-evolution-orchestrator` agent |
-| [Mega-Evolve](/commands/mega-evolve/) | Phase Integration | Meta-evolution as Phase 7 of mega-evolution |
-| [Mendelize](/commands/mendelize/) | Target Subsystem | Genetic algorithm parameters are meta-evolvable |
-| [Mycelialize](/commands/mycelialize/) | Target Subsystem | Propagation parameters are meta-evolvable |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by the `meta-evolution-orchestrator` agent |
+| [Mega-Evolve](@/commands/mega-evolve.md) | Phase Integration | Meta-evolution as Phase 7 of mega-evolution |
+| [Mendelize](@/commands/mendelize.md) | Target Subsystem | Genetic algorithm parameters are meta-evolvable |
+| [Mycelialize](@/commands/mycelialize.md) | Target Subsystem | Propagation parameters are meta-evolvable |
 | AutoHeal | Target Subsystem | Healing parameters are meta-evolvable |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Evolution improvements validated through quality gates |
-| [GitLab](/glossary/gitlab-ci/) | Experiment Tracking | Full experiment lifecycle tracked in GitLab issues |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic Framework | Meta-evolution claims validated through Trinity Gate |
-| [Telemetry](/glossary/telemetry/) | Observability | Meta-level metrics for evolution of evolution |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Evolution improvements validated through quality gates |
+| [GitLab](@/glossary/gitlab-ci.md) | Experiment Tracking | Full experiment lifecycle tracked in GitLab issues |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic Framework | Meta-evolution claims validated through Trinity Gate |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Meta-level metrics for evolution of evolution |
 
 ## Best Practices
 
@@ -227,19 +227,19 @@ Optimize meta-parameters for multiple objectives simultaneously:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for undocumented meta-parameter changes. Every modification must be tracked, justified by experimental evidence, and validated through quality gates. Uncontrolled modifications to evolution parameters are rejected as L4 violations.
-- **NO DOUBTS**: Full statistical evaluation of every meta-evolution hypothesis. No parameter change is accepted without evidence meeting the configured confidence threshold. The system explicitly maintains and reports uncertainty through confidence intervals and p-values, aligned with the [NABLA Infinity](/glossary/nabla-infinity/) "Unknown Valid" axiom.
+- **NO DOUBTS**: Full statistical evaluation of every meta-evolution hypothesis. No parameter change is accepted without evidence meeting the configured confidence threshold. The system explicitly maintains and reports uncertainty through confidence intervals and p-values, aligned with the [NABLA Infinity](@/glossary/nabla-infinity.md) "Unknown Valid" axiom.
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -248,4 +248,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

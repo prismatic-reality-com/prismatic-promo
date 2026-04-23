@@ -208,11 +208,11 @@ end
 
 ## Cross-References
 
-- [Percentile](/glossary/percentile/) - Statistical distribution used to contextualize precision scores
+- [Percentile](@/glossary/percentile.md) - Statistical distribution used to contextualize precision scores
 - **Scatter Plot** - Visualization technique for precision-recall curves
-- [Property Test](/glossary/property-test/) - Testing approach validating classifier precision bounds
+- [Property Test](@/glossary/property-test.md) - Testing approach validating classifier precision bounds
 - **Profiling** - Performance measurement of classification pipelines
-- [PEP](/glossary/pep/) - Politically exposed person screening where precision directly impacts operations
+- [PEP](@/glossary/pep.md) - Politically exposed person screening where precision directly impacts operations
 
 ---
 

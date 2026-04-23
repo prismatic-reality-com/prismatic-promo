@@ -25,23 +25,23 @@ image_alt = "Umbrella Architecture - Prismatic Platform"
 
 ## Overview
 
-The Prismatic Platform is organized as an [Elixir](/glossary/elixir/) umbrella project containing 90 [OTP](/glossary/otp/) applications within a single monorepo. This architectural decision represents a deliberate middle ground between two extremes: a monolithic application where all code lives in a single compilation unit, and a distributed [microservices](/glossary/microservices/) architecture where each service is an independently deployed artifact. The umbrella approach provides the modularity and isolation of microservices -- each application has its own [supervision tree](/glossary/supervision-tree/), configuration, dependency declarations, and test suite -- while preserving the monorepo advantages of atomic cross-cutting changes, shared tooling, and compile-time dependency verification.
+The Prismatic Platform is organized as an [Elixir](@/glossary/elixir.md) umbrella project containing 90 [OTP](@/glossary/otp.md) applications within a single monorepo. This architectural decision represents a deliberate middle ground between two extremes: a monolithic application where all code lives in a single compilation unit, and a distributed [microservices](@/glossary/microservices.md) architecture where each service is an independently deployed artifact. The umbrella approach provides the modularity and isolation of microservices -- each application has its own [supervision tree](@/glossary/supervision-tree.md), configuration, dependency declarations, and test suite -- while preserving the monorepo advantages of atomic cross-cutting changes, shared tooling, and compile-time dependency verification.
 
-This article examines the rationale for this choice, the internal organization principles, the dependency management strategies that prevent the architecture from degrading into a "distributed monolith," and the operational benefits realized across 2.8 million lines of code managed by over 400 [AIAD agents](/glossary/aiad/).
+This article examines the rationale for this choice, the internal organization principles, the dependency management strategies that prevent the architecture from degrading into a "distributed monolith," and the operational benefits realized across 2.8 million lines of code managed by over 400 [AIAD agents](@/glossary/aiad.md).
 
 ## Rationale: Why Umbrella Over Alternatives
 
 ### The Monolith Problem
 
-A single Elixir application containing all 2.8 million lines of code would suffer from several pathologies. Compilation times would be prohibitive: a change to a single module would trigger recompilation of all dependent modules, potentially the entire codebase. Test suites would run monolithically, providing no isolation between unrelated subsystems. Namespace pollution would make it difficult to reason about module boundaries. And perhaps most critically, there would be no structural enforcement of the separation between, say, the [EASM](/glossary/easm/) scanning engine and the [OSINT](/glossary/osint/) intelligence pipeline -- developers could freely couple any module to any other.
+A single Elixir application containing all 2.8 million lines of code would suffer from several pathologies. Compilation times would be prohibitive: a change to a single module would trigger recompilation of all dependent modules, potentially the entire codebase. Test suites would run monolithically, providing no isolation between unrelated subsystems. Namespace pollution would make it difficult to reason about module boundaries. And perhaps most critically, there would be no structural enforcement of the separation between, say, the [EASM](@/glossary/easm.md) scanning engine and the [OSINT](@/glossary/osint.md) intelligence pipeline -- developers could freely couple any module to any other.
 
 ### The Microservices Problem
 
-A fully distributed microservices architecture introduces network boundaries between components. While this provides the strongest isolation, it imposes significant operational overhead: each service needs its own deployment pipeline, monitoring, and runtime infrastructure. Network calls between services add latency and failure modes (network partitions, timeouts, serialization overhead). Cross-cutting changes that span multiple services require coordinated deployments. And critically for an Elixir platform, microservices forfeit the [BEAM](/glossary/beam/)'s greatest strengths: lightweight processes, supervision trees, and in-memory [message passing](/glossary/message-passing/) between processes on the same node.
+A fully distributed microservices architecture introduces network boundaries between components. While this provides the strongest isolation, it imposes significant operational overhead: each service needs its own deployment pipeline, monitoring, and runtime infrastructure. Network calls between services add latency and failure modes (network partitions, timeouts, serialization overhead). Cross-cutting changes that span multiple services require coordinated deployments. And critically for an Elixir platform, microservices forfeit the [BEAM](@/glossary/beam.md)'s greatest strengths: lightweight processes, supervision trees, and in-memory [message passing](@/glossary/message-passing.md) between processes on the same node.
 
 ### The Umbrella Sweet Spot
 
-The umbrella architecture provides compile-time boundaries without runtime boundaries. Each application is compiled independently -- changing a module in `prismatic_perimeter` only recompiles `prismatic_perimeter` and its dependents, not the entire platform. Each application declares its dependencies explicitly in its `mix.exs`, creating a verifiable dependency graph. Yet at runtime, all applications share the same [BEAM](/glossary/beam/) node, communicating through fast in-memory message passing rather than network calls.
+The umbrella architecture provides compile-time boundaries without runtime boundaries. Each application is compiled independently -- changing a module in `prismatic_perimeter` only recompiles `prismatic_perimeter` and its dependents, not the entire platform. Each application declares its dependencies explicitly in its `mix.exs`, creating a verifiable dependency graph. Yet at runtime, all applications share the same [BEAM](@/glossary/beam.md) node, communicating through fast in-memory message passing rather than network calls.
 
 | Dimension | Monolith | Umbrella | Microservices |
 |-----------|----------|----------|---------------|
@@ -50,7 +50,7 @@ The umbrella architecture provides compile-time boundaries without runtime bound
 | Communication overhead | Function call | Function call / message | Network RPC |
 | Deployment granularity | All or nothing | Selective releases | Per-service |
 | Cross-cutting changes | Trivial | Atomic commit | Coordinated deploy |
-| Dependency enforcement | None (convention) | Compile-time ([mix](/glossary/mix/).exs) | Network boundary |
+| Dependency enforcement | None (convention) | Compile-time ([mix](@/glossary/mix.md).exs) | Network boundary |
 | Operational overhead | Low | Low | High |
 
 ## Project Structure and Organization Principles
@@ -89,27 +89,27 @@ prismatic-platform/
 | Category | Count | Purpose | Key Applications |
 |----------|-------|---------|-----------------|
 | Core | 5 | Coordination, routing, events | prismatic, prismatic_core, prismatic_events |
-| Storage | 8 | Adapters and protocols | [prismatic_storage_core](/apps/prismatic-storage-core/), [prismatic_storage_ets](/apps/prismatic-storage-ets/), [prismatic_storage_ecto](/apps/prismatic-storage-ecto/) |
+| Storage | 8 | Adapters and protocols | [prismatic_storage_core](@/apps/prismatic-storage-core.md), [prismatic_storage_ets](@/apps/prismatic-storage-ets.md), [prismatic_storage_ecto](@/apps/prismatic-storage-ecto.md) |
 | Intelligence | 12 | OSINT, analysis, discovery | prismatic_osint_core, prismatic_deduction, prismatic_detection_engine |
-| Security | 6 | Scanning, compliance, ratings | [prismatic_perimeter](/apps/prismatic-perimeter/), prismatic_dark, prismatic_compliance |
-| Agents | 10 | Agent types and runtime | [prismatic_agents](/apps/prismatic-agents/), prismatic_claude |
-| Web | 4 | [LiveView](/glossary/liveview/), API, real-time | [prismatic_web](/apps/prismatic-web/), [prismatic_api](/apps/prismatic-api/) |
+| Security | 6 | Scanning, compliance, ratings | [prismatic_perimeter](@/apps/prismatic-perimeter.md), prismatic_dark, prismatic_compliance |
+| Agents | 10 | Agent types and runtime | [prismatic_agents](@/apps/prismatic-agents.md), prismatic_claude |
+| Web | 4 | [LiveView](@/glossary/liveview.md), API, real-time | [prismatic_web](@/apps/prismatic-web.md), [prismatic_api](@/apps/prismatic-api.md) |
 | Integration | 15 | External service adapters | prismatic_crawler, prismatic_browser |
-| Safety | 8 | Quality enforcement, testing | [prismatic_safety](/apps/prismatic-safety/), prismatic_credo |
-| Tooling | 22 | [Mix task](/glossary/mix-task/)s, generators, CLI | prismatic_algorithms, prismatic_compression |
+| Safety | 8 | Quality enforcement, testing | [prismatic_safety](@/apps/prismatic-safety.md), prismatic_credo |
+| Tooling | 22 | [Mix task](@/glossary/mix-task.md)s, generators, CLI | prismatic_algorithms, prismatic_compression |
 
 ### Naming Conventions
 
 Application naming follows strict conventions that encode architectural information:
 
 - `prismatic_storage_*` -- Storage layer adapters implementing the `StorageCore` protocols
-- `prismatic_*_web` -- [Phoenix](/glossary/phoenix/) web interfaces for specific domains
+- `prismatic_*_web` -- [Phoenix](@/glossary/phoenix.md) web interfaces for specific domains
 - `prismatic_*_core` -- Core domain logic without external dependencies
 - `prismatic_*` -- General-purpose applications within the platform namespace
 
 ## Dependency Management and Acyclic Enforcement
 
-The most critical aspect of umbrella architecture is maintaining a clean, acyclic dependency graph. Without discipline, [umbrella application](/glossary/umbrella-application/)s can develop circular dependencies, effectively negating the modularity benefits and creating a "distributed monolith" that is harder to reason about than an actual monolith.
+The most critical aspect of umbrella architecture is maintaining a clean, acyclic dependency graph. Without discipline, [umbrella application](@/glossary/umbrella-application.md)s can develop circular dependencies, effectively negating the modularity benefits and creating a "distributed monolith" that is harder to reason about than an actual monolith.
 
 ### Internal Dependencies
 
@@ -273,7 +273,7 @@ mix test apps/prismatic_storage_ecto/test/
 
 ### Contract Testing Across Applications
 
-The [storage adapters](/architecture/storage-adapters/) demonstrate a powerful umbrella testing pattern: contract tests defined once in `prismatic_storage_core` and executed by every adapter implementation.
+The [storage adapters](@/architecture/storage-adapters.md) demonstrate a powerful umbrella testing pattern: contract tests defined once in `prismatic_storage_core` and executed by every adapter implementation.
 
 ```elixir
 # In prismatic_storage_core: define the contract
@@ -333,7 +333,7 @@ mix test --max-cases 16
 
 ### Single Consolidated Release
 
-The primary deployment model packages all applications into a single OTP [release](/glossary/release/):
+The primary deployment model packages all applications into a single OTP [release](@/glossary/release.md):
 
 ```elixir
 # mix.exs (umbrella root)
@@ -403,7 +403,7 @@ end
 
 ### PubSub (Asynchronous, Decoupled)
 
-For event-driven communication where the publisher should not know about subscribers. This integrates with the [event sourcing](/architecture/event-sourcing/) architecture and the [PubSub system](/architecture/pubsub/):
+For event-driven communication where the publisher should not know about subscribers. This integrates with the [event sourcing](@/architecture/event-sourcing.md) architecture and the [PubSub system](@/architecture/pubsub.md):
 
 ```elixir
 # Publisher in prismatic_perimeter
@@ -438,20 +438,20 @@ end
 
 ## Quality Metrics and Enforcement
 
-The umbrella architecture enables per-application quality measurement and enforcement through the [quality gates](/capabilities/quality-gates/) system.
+The umbrella architecture enables per-application quality measurement and enforcement through the [quality gates](@/capabilities/quality-gates.md) system.
 
 | Metric | Value | Enforcement |
 |--------|-------|-------------|
-| Total applications | 90 | Tracked in [quality DNA](/glossary/quality-dna/) |
+| Total applications | 90 | Tracked in [quality DNA](@/glossary/quality-dna.md) |
 | Total Elixir files | 13,223 | Git tree indexed |
 | Lines of code | ~2.8M | Measured per app |
 | Test files | 5,864 | Per-app coverage required |
 | Compilation warnings | 0 | `--warnings-as-errors` enforced |
-| [Credo](/glossary/credo/) violations | 0 | `--strict` mode enforced |
-| [Dialyzer](/glossary/dialyzer/) violations | 0 | PLT checked per app |
-| [Typespec](/glossary/typespec/) coverage | 100% | All public functions |
+| [Credo](@/glossary/credo.md) violations | 0 | `--strict` mode enforced |
+| [Dialyzer](@/glossary/dialyzer.md) violations | 0 | PLT checked per app |
+| [Typespec](@/glossary/typespec.md) coverage | 100% | All public functions |
 
-Each application maintains its own `CLAUDE.md` documentation file and quality DNA state, enabling the [autonomous self-healing](/capabilities/autonomous-self-healing/) system to track and improve quality at the per-application level.
+Each application maintains its own `CLAUDE.md` documentation file and quality DNA state, enabling the [autonomous self-healing](@/capabilities/autonomous-self-healing.md) system to track and improve quality at the per-application level.
 
 ## Performance Impact of Umbrella Organization
 
@@ -469,7 +469,7 @@ At runtime, the umbrella organization has zero overhead. All applications are lo
 
 ## Summary
 
-The [umbrella application](/glossary/umbrella-application/) architecture gives the Prismatic Platform the modularity of [microservices](/glossary/microservices/) with the operational simplicity of a monolith. By enforcing explicit dependency declarations, facade-based public APIs, and layered dependency directionality, the architecture scales to 90 applications and 2.8 million lines of code without degrading into either a tangled monolith or a coordination-heavy [distributed system](/glossary/distributed-system/). Combined with [OTP supervision trees](/architecture/supervision-trees/) for [fault tolerance](/glossary/fault-tolerance/), [event sourcing](/architecture/event-sourcing/) for state management, and [telemetry](/architecture/telemetry/) for [observability](/glossary/observability/), the umbrella architecture provides the structural foundation for a platform that evolves rapidly while maintaining production-grade reliability.
+The [umbrella application](@/glossary/umbrella-application.md) architecture gives the Prismatic Platform the modularity of [microservices](@/glossary/microservices.md) with the operational simplicity of a monolith. By enforcing explicit dependency declarations, facade-based public APIs, and layered dependency directionality, the architecture scales to 90 applications and 2.8 million lines of code without degrading into either a tangled monolith or a coordination-heavy [distributed system](@/glossary/distributed-system.md). Combined with [OTP supervision trees](@/architecture/supervision-trees.md) for [fault tolerance](@/glossary/fault-tolerance.md), [event sourcing](@/architecture/event-sourcing.md) for state management, and [telemetry](@/architecture/telemetry.md) for [observability](@/glossary/observability.md), the umbrella architecture provides the structural foundation for a platform that evolves rapidly while maintaining production-grade reliability.
 
 ---
 
@@ -478,4 +478,4 @@ The [umbrella application](/glossary/umbrella-application/) architecture gives t
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

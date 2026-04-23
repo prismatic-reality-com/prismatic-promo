@@ -24,9 +24,9 @@ image_alt = "/gitlab-auto-sync - Prismatic Platform"
 
 ## Overview
 
-**/gitlab-auto-sync** is a production command in the **GitLab** category of the Prismatic Platform that provides automatic bidirectional synchronization between the platform's [AIAD](/glossary/aiad/) workflow system and GitLab project management. When enabled, this command ensures that every AIAD workflow action -- agent deployments, command executions, quality gate results, and evolution cycles -- is automatically reflected in GitLab issues, milestones, labels, and merge requests without manual intervention.
+**/gitlab-auto-sync** is a production command in the **GitLab** category of the Prismatic Platform that provides automatic bidirectional synchronization between the platform's [AIAD](@/glossary/aiad.md) workflow system and GitLab project management. When enabled, this command ensures that every AIAD workflow action -- agent deployments, command executions, quality gate results, and evolution cycles -- is automatically reflected in GitLab issues, milestones, labels, and merge requests without manual intervention.
 
-This command operates under the **L2+** authority level and is executed by the `gitlab-auto-sync-orchestrator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the AIAD (Autonomous Intelligence Agent Design) standard. The automatic synchronization eliminates the manual overhead of updating GitLab project state to reflect development activities, ensuring that the GitLab project always accurately represents the current state of platform development.
+This command operates under the **L2+** authority level and is executed by the `gitlab-auto-sync-orchestrator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the AIAD (Autonomous Intelligence Agent Design) standard. The automatic synchronization eliminates the manual overhead of updating GitLab project state to reflect development activities, ensuring that the GitLab project always accurately represents the current state of platform development.
 
 The synchronization is bidirectional: changes in GitLab (new issues, label changes, milestone updates) can trigger AIAD workflow actions, and AIAD workflow events automatically create or update GitLab resources. This tight coupling ensures that the GitLab project serves as a reliable single source of truth for project status, even when most development activities are driven by AIAD agents and slash commands.
 
@@ -150,14 +150,14 @@ The synchronization state is maintained in an ETS table with disk persistence to
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `gitlab-auto-sync-orchestrator` | Manages bidirectional sync |
-| [/gitlab-api](/commands/gitlab-api/) | API backend | All GitLab operations go through the API client |
-| [/gitlab-ci](/commands/gitlab-ci/) | Pipeline sync | Pipeline status reflected in sync state |
-| [/gitlab-enforce](/commands/gitlab-enforce/) | Compliance | Enforcement actions synced to GitLab |
-| [Session Lifecycle](/glossary/session-discipline/) | Session tracking | Session start/end creates/updates issues |
-| [Quality Gates](/glossary/quality-gates/) | Quality sync | Gate results synced as issue labels |
-| [Telemetry](/glossary/telemetry/) | Event source | AIAD events collected from telemetry stream |
-| [AIAD Registry](/glossary/aiad/) | Entity mapping | AIAD entities mapped to GitLab resources |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `gitlab-auto-sync-orchestrator` | Manages bidirectional sync |
+| [/gitlab-api](@/commands/gitlab-api.md) | API backend | All GitLab operations go through the API client |
+| [/gitlab-ci](@/commands/gitlab-ci.md) | Pipeline sync | Pipeline status reflected in sync state |
+| [/gitlab-enforce](@/commands/gitlab-enforce.md) | Compliance | Enforcement actions synced to GitLab |
+| [Session Lifecycle](@/glossary/session-discipline.md) | Session tracking | Session start/end creates/updates issues |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality sync | Gate results synced as issue labels |
+| [Telemetry](@/glossary/telemetry.md) | Event source | AIAD events collected from telemetry stream |
+| [AIAD Registry](@/glossary/aiad.md) | Entity mapping | AIAD entities mapped to GitLab resources |
 
 ## Best Practices
 
@@ -231,19 +231,19 @@ Sync only specific milestones or label groups.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every AIAD action is reflected in GitLab; no development activity goes untracked.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Sync state is verified before every operation. Conflicts are detected and resolved rather than silently ignored.
 
 ## Related Commands
 
-- [/gitlab-api](/commands/gitlab-api/) - GitLab API operations for project and repository management
-- [/gitlab-ci](/commands/gitlab-ci/) - [GitLab CI](/glossary/gitlab-ci/)/CD pipeline management and configuration
-- [/gitlab-enforce](/commands/gitlab-enforce/) - GitLab enforcement for compliance and workflow standards
-- [/cicd-unified](/commands/cicd-unified/) - Unified CI/CD workflow actions for pipeline management
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/gitlab-api](@/commands/gitlab-api.md) - GitLab API operations for project and repository management
+- [/gitlab-ci](@/commands/gitlab-ci.md) - [GitLab CI](@/glossary/gitlab-ci.md)/CD pipeline management and configuration
+- [/gitlab-enforce](@/commands/gitlab-enforce.md) - GitLab enforcement for compliance and workflow standards
+- [/cicd-unified](@/commands/cicd-unified.md) - Unified CI/CD workflow actions for pipeline management
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -252,4 +252,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

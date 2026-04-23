@@ -494,24 +494,24 @@ end
 
 ## Related Terms
 
-- [LiveView](/glossary/liveview/) -- Phoenix's server-rendered real-time UI framework
-- [WebSocket](/glossary/websocket/) -- the transport protocol enabling persistent real-time connections
-- [PubSub](/glossary/pubsub/) -- publish-subscribe pattern for decoupled real-time event distribution
+- [LiveView](@/glossary/liveview.md) -- Phoenix's server-rendered real-time UI framework
+- [WebSocket](@/glossary/websocket.md) -- the transport protocol enabling persistent real-time connections
+- [PubSub](@/glossary/pubsub.md) -- publish-subscribe pattern for decoupled real-time event distribution
 - [Phoenix Channel](/glossary/phoenix-channel/) -- topic-based real-time communication abstraction
-- [Server-Sent Events](/glossary/server-sent-events/) -- unidirectional real-time server-to-client streaming
-- [Scheduler](/glossary/scheduler/) -- BEAM's preemptive scheduler providing soft real-time guarantees
+- [Server-Sent Events](@/glossary/server-sent-events.md) -- unidirectional real-time server-to-client streaming
+- [Scheduler](@/glossary/scheduler.md) -- BEAM's preemptive scheduler providing soft real-time guarantees
 - [Reduction](/glossary/reduction/) -- the work unit used for BEAM preemptive scheduling budgets
 - [Garbage Collection](/glossary/garbage-collection/) -- per-process GC enabling real-time behavior
-- [GenServer](/glossary/genserver/) -- the process abstraction commonly used for real-time state management
-- [Telemetry](/glossary/telemetry/) -- metrics and events system for monitoring real-time performance
-- [Time to First Byte](/glossary/time-to-first-byte/) -- latency metric for initial response delivery
-- [Throughput](/glossary/throughput/) -- volume metric complementing latency in real-time systems
+- [GenServer](@/glossary/genserver.md) -- the process abstraction commonly used for real-time state management
+- [Telemetry](@/glossary/telemetry.md) -- metrics and events system for monitoring real-time performance
+- [Time to First Byte](@/glossary/time-to-first-byte.md) -- latency metric for initial response delivery
+- [Throughput](@/glossary/throughput.md) -- volume metric complementing latency in real-time systems
 
 ## See Also
 
 - [Phoenix LiveView Documentation](https://hexdocs.pm/phoenix_live_view/) -- official LiveView guide
-- [Platform Architecture](/architecture/) -- real-time infrastructure design
-- [Performance Standards](/capabilities/) -- real-time latency targets and enforcement
+- [Platform Architecture](@/architecture/_index.md) -- real-time infrastructure design
+- [Performance Standards](@/capabilities/_index.md) -- real-time latency targets and enforcement
 - [BEAM Scheduler Documentation](https://www.erlang.org/doc/man/erl.html#+S) -- scheduler configuration
 - [Phoenix PubSub](https://hexdocs.pm/phoenix_pubsub/) -- PubSub library documentation
 
@@ -522,4 +522,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

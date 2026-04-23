@@ -27,11 +27,11 @@ image_alt = "CTU - Prismatic Platform"
 
 CTU (Cesky telekomunikacni urad) is the Czech Republic's national regulatory authority for electronic communications and postal services, operating under Act No. 127/2005 Coll. (Electronic Communications Act). CTU maintains registries of all authorized telecom operators, spectrum license holders, numbering allocations, and regulatory decisions. Any entity providing electronic communications services or networks in the Czech Republic must notify CTU, making its registries the authoritative source for telecommunications market intelligence.
 
-For [OSINT](/glossary/osint/) purposes, CTU data reveals the complete structure of the Czech telecommunications market -- who operates networks, holds spectrum licenses, provides services, and at what scale. This intelligence is critical for [NIS2](/glossary/nis2/) compliance assessment (telecom operators are classified as essential service providers under the directive), competitive intelligence in the telecommunications sector, infrastructure mapping for security assessments, and regulatory risk analysis for entities operating in regulated markets.
+For [OSINT](@/glossary/osint.md) purposes, CTU data reveals the complete structure of the Czech telecommunications market -- who operates networks, holds spectrum licenses, provides services, and at what scale. This intelligence is critical for [NIS2](@/glossary/nis2.md) compliance assessment (telecom operators are classified as essential service providers under the directive), competitive intelligence in the telecommunications sector, infrastructure mapping for security assessments, and regulatory risk analysis for entities operating in regulated markets.
 
 CTU's regulatory authority extends beyond simple registration. The office conducts market analyses, imposes access obligations on operators with significant market power (SMP), regulates wholesale pricing, manages spectrum auctions, and enforces quality-of-service requirements. Regulatory decisions and penalty records provide intelligence about an operator's compliance history and market position that is not available from any other source.
 
-Combined with [ERU](/osint/eru/) energy regulatory data, CTU completes the critical infrastructure intelligence picture for Czech NIS2 assessments. The convergence of telecommunications and energy infrastructure makes cross-referencing between these regulatory databases essential for comprehensive critical infrastructure mapping.
+Combined with [ERU](@/osint/eru.md) energy regulatory data, CTU completes the critical infrastructure intelligence picture for Czech NIS2 assessments. The convergence of telecommunications and energy infrastructure makes cross-referencing between these regulatory databases essential for comprehensive critical infrastructure mapping.
 
 ## Data Sources and Coverage
 
@@ -196,7 +196,7 @@ end
 
 ### Critical Infrastructure Mapping
 
-CTU data is essential for comprehensive mapping of Czech telecommunications critical infrastructure. Key applications include identifying all telecom infrastructure operators and their authorized service areas, mapping spectrum holdings and network coverage areas for mobile and fixed operators, NIS2 essential entity identification based on service type and scale classification, combining CTU authorization data with [Shodan](/osint/shodan/) for infrastructure exposure assessment, and assessing the concentration of critical services among operators to evaluate systemic risk.
+CTU data is essential for comprehensive mapping of Czech telecommunications critical infrastructure. Key applications include identifying all telecom infrastructure operators and their authorized service areas, mapping spectrum holdings and network coverage areas for mobile and fixed operators, NIS2 essential entity identification based on service type and scale classification, combining CTU authorization data with [Shodan](@/osint/shodan.md) for infrastructure exposure assessment, and assessing the concentration of critical services among operators to evaluate systemic risk.
 
 ### Competitive Intelligence
 
@@ -204,7 +204,7 @@ Telecommunications market analysis leverages CTU data for competitive positionin
 
 ### Due Diligence and Regulatory Compliance
 
-CTU data supports due diligence workflows for entities in the telecommunications sector. Specific applications include verifying telecom operator license claims during M&A due diligence, checking regulatory penalty history for compliance risk assessment, cross-referencing CTU data with [ARES](/osint/ares/) for entity verification and [Justice.cz](/osint/justice-cz/) for corporate structure analysis, assessing spectrum asset portfolio value for investment analysis, and evaluating NIS2 compliance readiness based on CTU registration and service classification.
+CTU data supports due diligence workflows for entities in the telecommunications sector. Specific applications include verifying telecom operator license claims during M&A due diligence, checking regulatory penalty history for compliance risk assessment, cross-referencing CTU data with [ARES](@/osint/ares.md) for entity verification and [Justice.cz](@/osint/justice-cz.md) for corporate structure analysis, assessing spectrum asset portfolio value for investment analysis, and evaluating NIS2 compliance readiness based on CTU registration and service classification.
 
 ### Fraud Investigation Support
 
@@ -222,7 +222,7 @@ Coverage is comprehensive for registered operators but may not capture unauthori
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, CTU provides the telecommunications intelligence layer for [Prismatic Perimeter](/apps/prismatic-perimeter/) NIS2 assessments. CTU data is correlated with [ARES](/osint/ares/) entity data, [Shodan](/osint/shodan/) infrastructure exposure data, [Censys](/osint/censys/) certificate and service scanning, and [ERU](/osint/eru/) energy regulatory data for comprehensive critical infrastructure mapping.
+Within the Prismatic ecosystem, CTU provides the telecommunications intelligence layer for [Prismatic Perimeter](@/apps/prismatic-perimeter.md) NIS2 assessments. CTU data is correlated with [ARES](@/osint/ares.md) entity data, [Shodan](@/osint/shodan.md) infrastructure exposure data, [Censys](@/osint/censys.md) certificate and service scanning, and [ERU](@/osint/eru.md) energy regulatory data for comprehensive critical infrastructure mapping.
 
 The NIS2 compliance assessment module uses CTU service classifications to determine entity NIS2 status (essential, important, or standard) and combines this with security rating data to produce compliance gap analyses.
 
@@ -253,14 +253,14 @@ The Prismatic adapter caches operator registry data with 7-day TTL, spectrum all
 
 ## Related Resources
 
-- [ERU](/osint/eru/) - Energy regulator (sister critical infrastructure authority)
-- [ARES](/osint/ares/) - Entity identification for telecom companies
-- [Shodan](/osint/shodan/) - Network infrastructure exposure assessment
-- [Censys](/osint/censys/) - Certificate and service scanning for operators
-- [Hlidac Statu](/osint/hlidac-statu/) - Public contracts for telecom entities
-- [UOHS](/osint/uohs/) - Competition cases in telecom markets
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - NIS2 compliance assessment
+- [ERU](@/osint/eru.md) - Energy regulator (sister critical infrastructure authority)
+- [ARES](@/osint/ares.md) - Entity identification for telecom companies
+- [Shodan](@/osint/shodan.md) - Network infrastructure exposure assessment
+- [Censys](@/osint/censys.md) - Certificate and service scanning for operators
+- [Hlidac Statu](@/osint/hlidac-statu.md) - Public contracts for telecom entities
+- [UOHS](@/osint/uohs.md) - Competition cases in telecom markets
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - NIS2 compliance assessment
 
 ---
 
@@ -269,4 +269,4 @@ The Prismatic adapter caches operator registry data with 7-day TTL, spectrum all
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

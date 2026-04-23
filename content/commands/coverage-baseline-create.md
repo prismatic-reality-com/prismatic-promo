@@ -28,7 +28,7 @@ The **/coverage-baseline-create** command establishes test coverage baselines th
 
 Coverage baselines are branch-specific, meaning each feature branch, release branch, and the main branch maintain independent baselines. This design allows teams to set appropriate coverage expectations for different development contexts while ensuring that the main branch's coverage never regresses. The baseline system integrates directly with the platform's pre-commit hooks and CI/CD pipeline, creating an automated enforcement loop that requires zero manual intervention.
 
-This command operates under the **L2+** authority level and is executed by the `quality-unified-supreme` agent, which coordinates all quality enforcement activities across the platform. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command plays a critical role in the platform's quality infrastructure, which has achieved and maintains a 100/100 quality score across 13 quality domains.
+This command operates under the **L2+** authority level and is executed by the `quality-unified-supreme` agent, which coordinates all quality enforcement activities across the platform. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command plays a critical role in the platform's quality infrastructure, which has achieved and maintains a 100/100 quality score across 13 quality domains.
 
 The underlying implementation executes `mix test --cover` to measure actual coverage, parses the output to extract precise metrics, stores the baseline in ETS for runtime access, writes a local backup file for persistence, and optionally uploads the baseline to GitLab as a pipeline artifact. A read-after-write verification step ensures data integrity across all storage layers.
 
@@ -192,10 +192,10 @@ Exit Code: 0
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `quality-unified-supreme` agent | Agent coordinates all quality enforcement |
-| [AIAD](/glossary/aiad/) Registry | Command specification and discovery | Registered in quality category |
-| [Quality Gates](/glossary/quality-gates/) | Direct quality gate enforcement | Baselines feed into pre-commit quality gates |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) and event tracking | Coverage metrics emitted as telemetry events |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `quality-unified-supreme` agent | Agent coordinates all quality enforcement |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification and discovery | Registered in quality category |
+| [Quality Gates](@/glossary/quality-gates.md) | Direct quality gate enforcement | Baselines feed into pre-commit quality gates |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) and event tracking | Coverage metrics emitted as telemetry events |
 | GitLab CI/CD | Artifact storage and pipeline integration | Baselines stored as pipeline artifacts |
 | Pre-commit Hooks | Regression prevention enforcement | `.githooks/pre-commit` checks against baseline |
 | Quality DNA | Cross-session quality continuity | Baselines contribute to quality DNA state |
@@ -325,20 +325,20 @@ The Quality Floor Guardian monitors coverage baselines as part of its autonomous
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for coverage regression. Once a baseline is established, coverage can only go up. No commits bypass coverage checks. No baselines are lowered without force flag and explicit justification.
 - **NO DOUBTS**: Full coverage measurement before baseline creation. Read-after-write verification ensures data integrity. Evidence-based metrics with precise line counts, not approximations.
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -347,4 +347,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

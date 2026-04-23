@@ -32,7 +32,7 @@ Blockchain.com is one of the oldest and most widely used blockchain explorer pla
 
 At its core, Blockchain.com's explorer provides transparent visibility into the public ledger of cryptocurrency transactions. Every Bitcoin or Ethereum transaction ever executed is recorded on its respective blockchain and can be queried, traced, and analyzed through the explorer interface and API. For a single Bitcoin address, the explorer reveals the complete transaction history, current balance, total received and sent amounts, and the relationship to other addresses through transaction inputs and outputs. This raw blockchain data forms the foundation upon which more sophisticated analytics tools build their intelligence.
 
-For [OSINT](/glossary/osint/) and financial crime investigations, blockchain explorers are essential infrastructure. Cryptocurrency has become a significant medium for ransomware payments, fraud proceeds, sanctions evasion, darknet marketplace transactions, and money laundering. The ability to trace the flow of funds from a known address through intermediate wallets to eventual cash-out points at exchanges or services is a fundamental investigative technique. Blockchain.com provides the raw transaction data that feeds this analysis, while more advanced analytics platforms like [Chainalysis](/osint/chainalysis/) and [Crystal Blockchain](/osint/crystal-blockchain/) layer attribution and risk intelligence on top.
+For [OSINT](@/glossary/osint.md) and financial crime investigations, blockchain explorers are essential infrastructure. Cryptocurrency has become a significant medium for ransomware payments, fraud proceeds, sanctions evasion, darknet marketplace transactions, and money laundering. The ability to trace the flow of funds from a known address through intermediate wallets to eventual cash-out points at exchanges or services is a fundamental investigative technique. Blockchain.com provides the raw transaction data that feeds this analysis, while more advanced analytics platforms like [Chainalysis](@/osint/chainalysis.md) and [Crystal Blockchain](@/osint/crystal-blockchain.md) layer attribution and risk intelligence on top.
 
 Within the Prismatic Platform, Blockchain.com serves as the primary source for raw blockchain data, providing the transaction-level detail that underpins cryptocurrency compliance screening and financial investigation workflows.
 
@@ -61,7 +61,7 @@ Ethereum uses an account-based model where each address maintains a balance that
 
 ## Technical Architecture
 
-Blockchain.com provides a [REST API](/glossary/rest-api/) with multiple base endpoints for different data types. The primary Bitcoin API operates at `https://blockchain.info/` with JSON response format by default.
+Blockchain.com provides a [REST API](@/glossary/rest-api.md) with multiple base endpoints for different data types. The primary Bitcoin API operates at `https://blockchain.info/` with JSON response format by default.
 
 ### API Endpoints
 
@@ -79,7 +79,7 @@ Blockchain.com provides a [REST API](/glossary/rest-api/) with multiple base end
 | `/ticker` | Current exchange rates in multiple currencies | None required |
 | `/charts/{type}?format=json` | Network statistics time series | None required |
 
-The API returns JSON by default. [WebSocket](/glossary/websocket/) feeds are available at `wss://ws.blockchain.info/inv` for real-time transaction and block monitoring. Subscription messages use a simple JSON protocol: `{"op":"addr_sub","addr":"1A1zP1..."}` to subscribe to address activity, `{"op":"unconfirmed_sub"}` for all unconfirmed transactions, and `{"op":"blocks_sub"}` for new blocks. Rate limiting applies to free access; API keys are available for higher quotas through the developer portal.
+The API returns JSON by default. [WebSocket](@/glossary/websocket.md) feeds are available at `wss://ws.blockchain.info/inv` for real-time transaction and block monitoring. Subscription messages use a simple JSON protocol: `{"op":"addr_sub","addr":"1A1zP1..."}` to subscribe to address activity, `{"op":"unconfirmed_sub"}` for all unconfirmed transactions, and `{"op":"blocks_sub"}` for new blocks. Rate limiting applies to free access; API keys are available for higher quotas through the developer portal.
 
 ## API Integration
 
@@ -183,7 +183,7 @@ When organizations pay ransomware demands or law enforcement investigates ransom
 
 ### Sanctions Compliance Verification
 
-Financial institutions and Virtual Asset Service Providers (VASPs) must screen cryptocurrency addresses against sanctions lists. Blockchain.com provides the transaction history needed to determine whether an address has received funds from or sent funds to sanctioned addresses listed by [OFAC](/osint/ofac/) or [EU Sanctions](/osint/eu-sanctions/). The WebSocket API enables real-time monitoring of watched addresses for immediate alerting on new activity.
+Financial institutions and Virtual Asset Service Providers (VASPs) must screen cryptocurrency addresses against sanctions lists. Blockchain.com provides the transaction history needed to determine whether an address has received funds from or sent funds to sanctioned addresses listed by [OFAC](@/osint/ofac.md) or [EU Sanctions](@/osint/eu-sanctions.md). The WebSocket API enables real-time monitoring of watched addresses for immediate alerting on new activity.
 
 ### Fraud Investigation and Asset Recovery
 
@@ -191,7 +191,7 @@ In fraud cases involving cryptocurrency, Blockchain.com enables investigators to
 
 ### Due Diligence and Risk Assessment
 
-During counterparty onboarding for cryptocurrency-related business relationships, compliance teams assess address histories to identify exposure to high-risk activities. Blockchain.com provides the foundational transaction data for this analysis, revealing patterns, counterparty addresses, and flow volumes that feed into automated risk scoring systems provided by [Chainalysis](/osint/chainalysis/) or [Crystal Blockchain](/osint/crystal-blockchain/).
+During counterparty onboarding for cryptocurrency-related business relationships, compliance teams assess address histories to identify exposure to high-risk activities. Blockchain.com provides the foundational transaction data for this analysis, revealing patterns, counterparty addresses, and flow volumes that feed into automated risk scoring systems provided by [Chainalysis](@/osint/chainalysis.md) or [Crystal Blockchain](@/osint/crystal-blockchain.md).
 
 ### Network Health Monitoring
 
@@ -203,7 +203,7 @@ Blockchain.com's network statistics endpoints provide real-time visibility into 
 
 **Limitations**: Raw blockchain data provides transaction-level detail but lacks attribution -- it shows addresses and amounts but not the real-world identities behind them. Bitcoin's UTXO model creates complexity in determining the true sender and recipient without address clustering analysis. The API's rate limiting on the free tier constrains high-volume automated analysis. Ethereum internal transactions (calls between contracts) and some token transfer events may not be fully captured by all standard API endpoints.
 
-**Mitigation**: Within the Prismatic Platform, Blockchain.com's raw data is always enriched with attribution intelligence from [Chainalysis](/osint/chainalysis/), [Crystal Blockchain](/osint/crystal-blockchain/), or [Elliptic](/osint/elliptic/) before making compliance decisions. Raw blockchain data provides the evidence layer; analytics platforms provide the intelligence layer. This separation ensures that evidence integrity is maintained while analytical interpretation can be updated as attribution databases improve.
+**Mitigation**: Within the Prismatic Platform, Blockchain.com's raw data is always enriched with attribution intelligence from [Chainalysis](@/osint/chainalysis.md), [Crystal Blockchain](@/osint/crystal-blockchain.md), or [Elliptic](@/osint/elliptic.md) before making compliance decisions. Raw blockchain data provides the evidence layer; analytics platforms provide the intelligence layer. This separation ensures that evidence integrity is maintained while analytical interpretation can be updated as attribution databases improve.
 
 ## Platform Integration
 
@@ -240,12 +240,12 @@ Blockchain.com's network statistics endpoints provide real-time visibility into 
 
 ## Related Resources
 
-- [Chainalysis](/osint/chainalysis/) - Enterprise cryptocurrency analytics with address attribution intelligence
-- [Crystal Blockchain](/osint/crystal-blockchain/) - Blockchain analytics with visual graph exploration tools
-- [Etherscan](/osint/etherscan/) - Ethereum-focused blockchain explorer with token analytics
-- [OFAC](/osint/ofac/) - US sanctions list with designated cryptocurrency addresses
-- [EU Sanctions](/osint/eu-sanctions/) - European Union sanctions for compliance screening
-- [Elliptic](/osint/elliptic/) - Crypto risk management and holistic compliance platform
+- [Chainalysis](@/osint/chainalysis.md) - Enterprise cryptocurrency analytics with address attribution intelligence
+- [Crystal Blockchain](@/osint/crystal-blockchain.md) - Blockchain analytics with visual graph exploration tools
+- [Etherscan](@/osint/etherscan.md) - Ethereum-focused blockchain explorer with token analytics
+- [OFAC](@/osint/ofac.md) - US sanctions list with designated cryptocurrency addresses
+- [EU Sanctions](@/osint/eu-sanctions.md) - European Union sanctions for compliance screening
+- [Elliptic](@/osint/elliptic.md) - Crypto risk management and holistic compliance platform
 
 ---
 
@@ -254,4 +254,4 @@ Blockchain.com's network statistics endpoints provide real-time visibility into 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

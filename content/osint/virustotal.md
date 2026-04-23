@@ -25,9 +25,9 @@ image_alt = "VirusTotal - Prismatic Platform"
 
 ## Overview
 
-VirusTotal is Google's comprehensive malware analysis and [threat intelligence](/glossary/threat-intelligence/) platform that aggregates results from over 70 antivirus engines and website scanners into a unified interface. Since its founding in 2004 by Hispasec Sistemas and its acquisition by Google in 2012, VirusTotal has become the de facto standard for malware analysis, indicator enrichment, and file reputation checking in the security industry. The platform processes over two million file submissions and URL scans daily, building a massive database of threat intelligence that spans files, URLs, domains, and IP addresses.
+VirusTotal is Google's comprehensive malware analysis and [threat intelligence](@/glossary/threat-intelligence.md) platform that aggregates results from over 70 antivirus engines and website scanners into a unified interface. Since its founding in 2004 by Hispasec Sistemas and its acquisition by Google in 2012, VirusTotal has become the de facto standard for malware analysis, indicator enrichment, and file reputation checking in the security industry. The platform processes over two million file submissions and URL scans daily, building a massive database of threat intelligence that spans files, URLs, domains, and IP addresses.
 
-For [OSINT](/glossary/osint/) investigators and security professionals, VirusTotal provides multi-dimensional intelligence. A single file hash query reveals detection rates across 70+ antivirus engines, sandbox behavioral analysis, static file metadata, embedded indicators (URLs, IPs, domains), and relationships to other analyzed samples. Similarly, domain and IP queries reveal reputation scores, passive DNS history, downloaded files, communicating files, and certificate information. This depth of intelligence makes VirusTotal indispensable for threat investigation, incident response, and indicator enrichment.
+For [OSINT](@/glossary/osint.md) investigators and security professionals, VirusTotal provides multi-dimensional intelligence. A single file hash query reveals detection rates across 70+ antivirus engines, sandbox behavioral analysis, static file metadata, embedded indicators (URLs, IPs, domains), and relationships to other analyzed samples. Similarly, domain and IP queries reveal reputation scores, passive DNS history, downloaded files, communicating files, and certificate information. This depth of intelligence makes VirusTotal indispensable for threat investigation, incident response, and indicator enrichment.
 
 VirusTotal's VT Intelligence service extends the platform with advanced capabilities including content search (searching within the bodies of submitted files), YARA hunting (real-time matching of YARA rules against incoming submissions), retrohunting (matching rules against the historical database), and file similarity analysis. These capabilities transform VirusTotal from a lookup service into a proactive threat hunting platform that can discover new malware families, track campaign evolution, and identify emerging threats before they are widely detected.
 
@@ -42,7 +42,7 @@ VirusTotal aggregates intelligence from multiple analysis and detection engines,
 | **Antivirus Engines** | Kaspersky, Bitdefender, ESET, CrowdStrike, Microsoft, Sophos | 70+ engines |
 | **Sandbox Analysis** | VirusTotal Jujubox, Zenbox, Dr.Web vxCube, Tencent HABO | Multiple sandboxes |
 | **URL Scanners** | Google Safe Browsing, Phishtank, CLEAN MX, OpenPhish | 80+ URL scanners |
-| **WHOIS Providers** | Direct [WHOIS](/glossary/whois/) lookups with historical tracking | All gTLDs, major ccTLDs |
+| **WHOIS Providers** | Direct [WHOIS](@/glossary/whois.md) lookups with historical tracking | All gTLDs, major ccTLDs |
 | **Passive DNS** | Historical DNS resolution from VirusTotal sensors | Global coverage |
 | **Sigma Rules** | Community Sigma detection rules for behavioral matching | Extensive ruleset |
 | **YARA Rules** | Custom and community YARA rules for content matching | VT Intelligence feature |
@@ -310,12 +310,12 @@ URL and domain analysis capabilities enable investigation of phishing campaigns.
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), VirusTotal serves as the primary multi-engine malware analysis and file reputation service.
+Within the [Prismatic Platform](@/apps/prismatic.md), VirusTotal serves as the primary multi-engine malware analysis and file reputation service.
 
 - **IOC Enrichment**: All file hashes, URLs, domains, and IPs discovered during investigations are automatically enriched with VirusTotal intelligence, including detection rates, behavioral analysis, and relationship data.
-- **Threat Intelligence Pipeline**: VirusTotal detection data is correlated with [ThreatFox](/osint/threatfox/), [AlienVault OTX](/osint/alienvault-otx/), and [Pulsedive](/osint/pulsedive/) for multi-source threat validation.
-- **Malware Analysis**: The platform's investigation workflow integrates VirusTotal sandbox results alongside [MISP](/osint/misp/) structured intelligence for comprehensive malware analysis.
-- **Infrastructure Investigation**: VirusTotal's domain and IP intelligence feeds into [Prismatic Perimeter](/apps/prismatic-perimeter/) for identifying potentially compromised infrastructure.
+- **Threat Intelligence Pipeline**: VirusTotal detection data is correlated with [ThreatFox](@/osint/threatfox.md), [AlienVault OTX](@/osint/alienvault-otx.md), and [Pulsedive](@/osint/pulsedive.md) for multi-source threat validation.
+- **Malware Analysis**: The platform's investigation workflow integrates VirusTotal sandbox results alongside [MISP](@/osint/misp.md) structured intelligence for comprehensive malware analysis.
+- **Infrastructure Investigation**: VirusTotal's domain and IP intelligence feeds into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) for identifying potentially compromised infrastructure.
 - **Alert Enrichment**: Security alerts are automatically enriched with VirusTotal context, enabling rapid triage based on multi-engine detection consensus.
 - **YARA Integration**: The platform supports YARA rule deployment to VT Intelligence for proactive threat hunting aligned with organizational threat models.
 
@@ -335,18 +335,18 @@ Within the [Prismatic Platform](/apps/prismatic/), VirusTotal serves as the prim
 
 7. **Implement caching**: VirusTotal data changes slowly for most indicators. Cache results for 24-48 hours to maximize API quota efficiency.
 
-8. **Combine with specialized sources**: Use VirusTotal for broad coverage, then consult [ThreatFox](/osint/threatfox/) for malware family context and [MISP](/osint/misp/) for structured threat intelligence.
+8. **Combine with specialized sources**: Use VirusTotal for broad coverage, then consult [ThreatFox](@/osint/threatfox.md) for malware family context and [MISP](@/osint/misp.md) for structured threat intelligence.
 
 ## Related Providers
 
-- [ThreatFox](/osint/threatfox/) - IOC sharing with malware family attribution
-- [AlienVault OTX](/osint/alienvault-otx/) - Community threat intelligence with pulses
-- [Pulsedive](/osint/pulsedive/) - Threat intelligence enrichment and risk scoring
-- [MISP](/osint/misp/) - Structured threat intelligence sharing platform
-- [AbuseIPDB](/osint/abuseipdb/) - IP reputation for infrastructure analysis
-- [Shodan](/osint/shodan/) - Internet device search for infrastructure context
-- [URLScan](/osint/urlscan/) - URL analysis with screenshots and DOM inspection
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach data correlation
+- [ThreatFox](@/osint/threatfox.md) - IOC sharing with malware family attribution
+- [AlienVault OTX](@/osint/alienvault-otx.md) - Community threat intelligence with pulses
+- [Pulsedive](@/osint/pulsedive.md) - Threat intelligence enrichment and risk scoring
+- [MISP](@/osint/misp.md) - Structured threat intelligence sharing platform
+- [AbuseIPDB](@/osint/abuseipdb.md) - IP reputation for infrastructure analysis
+- [Shodan](@/osint/shodan.md) - Internet device search for infrastructure context
+- [URLScan](@/osint/urlscan.md) - URL analysis with screenshots and DOM inspection
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach data correlation
 
 ---
 
@@ -355,4 +355,4 @@ Within the [Prismatic Platform](/apps/prismatic/), VirusTotal serves as the prim
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

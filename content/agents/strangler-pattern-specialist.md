@@ -30,9 +30,9 @@ image_alt = "strangler-pattern-specialist - Prismatic Platform"
 
 The Strangler Pattern Specialist is an L3 agent operating in the **integration** domain of the Prismatic Platform. This agent manages the gradual replacement of legacy system components using the strangler fig pattern -- a software migration strategy inspired by the strangler fig tree that grows around its host, eventually replacing it entirely while maintaining system functionality throughout the transition.
 
-In a platform with 90 umbrella applications and over 20 years of accumulated knowledge in the [GARDEN](/glossary/garden/) legacy repository system, systematic legacy replacement is an ongoing operational concern. The Strangler Pattern Specialist ensures that legacy components are replaced incrementally, with each replacement step maintaining full backward compatibility and zero downtime. This approach contrasts with "big bang" rewrites that carry unacceptable risk for production systems operating under the [NO MERCY](/glossary/no-mercy/) doctrine.
+In a platform with 90 umbrella applications and over 20 years of accumulated knowledge in the [GARDEN](@/glossary/garden.md) legacy repository system, systematic legacy replacement is an ongoing operational concern. The Strangler Pattern Specialist ensures that legacy components are replaced incrementally, with each replacement step maintaining full backward compatibility and zero downtime. This approach contrasts with "big bang" rewrites that carry unacceptable risk for production systems operating under the [NO MERCY](@/glossary/no-mercy.md) doctrine.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, operating under [AIAD](/glossary/aiad/) standard compliance and coordinating with the GARDEN integration infrastructure for legacy knowledge extraction.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, operating under [AIAD](@/glossary/aiad.md) standard compliance and coordinating with the GARDEN integration infrastructure for legacy knowledge extraction.
 
 ## The Strangler Fig Pattern
 
@@ -165,7 +165,7 @@ Before any traffic split advancement, the specialist runs comprehensive health c
 
 ## GARDEN Integration
 
-The Strangler Pattern Specialist coordinates closely with the [GARDEN](/glossary/garden/) legacy knowledge system to extract patterns, algorithms, and domain knowledge from legacy repositories before replacement. This extraction process ensures that decades of accumulated domain knowledge are preserved and migrated to the new implementations rather than being lost during component replacement.
+The Strangler Pattern Specialist coordinates closely with the [GARDEN](@/glossary/garden.md) legacy knowledge system to extract patterns, algorithms, and domain knowledge from legacy repositories before replacement. This extraction process ensures that decades of accumulated domain knowledge are preserved and migrated to the new implementations rather than being lost during component replacement.
 
 | GARDEN Repository | Content | Files | Extraction Status | Priority |
 |------------------|---------|-------|-------------------|----------|
@@ -232,14 +232,14 @@ end
 
 ## Integration Points
 
-- [**Quality Gates**](/capabilities/quality-gates/) -- Migration advancement gated by quality checks
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Migration health metrics
-- [**Real-time Monitoring**](/capabilities/real-time-monitoring/) -- Live migration dashboards
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Migration advancement gated by quality checks
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Migration health metrics
+- [**Real-time Monitoring**](@/capabilities/real-time-monitoring.md) -- Live migration dashboards
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
 
 ## Rollback Procedures
 
-Every migration managed by the Strangler Pattern Specialist includes a documented and tested rollback procedure. Rollback capability is a non-negotiable prerequisite for advancing any migration phase, as the [NO MERCY](/glossary/no-mercy/) doctrine requires that no migration step can leave the platform in a state where reversal is impossible.
+Every migration managed by the Strangler Pattern Specialist includes a documented and tested rollback procedure. Rollback capability is a non-negotiable prerequisite for advancing any migration phase, as the [NO MERCY](@/glossary/no-mercy.md) doctrine requires that no migration step can leave the platform in a state where reversal is impossible.
 
 | Rollback Aspect | Requirement | Verification |
 |----------------|-------------|-------------|
@@ -269,19 +269,19 @@ Before any migration component can be declared "eliminated" (fully migrated), it
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 12 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Related Agents
 
-- [**Scalability Architect**](/agents/scalability-architect/) -- Ensures new implementations scale properly
-- [**Source Archive Specialist**](/agents/source-archive-specialist/) -- Archives legacy code before removal
-- [**Unified Orchestrator**](/agents/unified-orchestrator/) -- Coordinates multi-agent migration tasks
+- [**Scalability Architect**](@/agents/scalability-architect.md) -- Ensures new implementations scale properly
+- [**Source Archive Specialist**](@/agents/source-archive-specialist.md) -- Archives legacy code before removal
+- [**Unified Orchestrator**](@/agents/unified-orchestrator.md) -- Coordinates multi-agent migration tasks
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to manage legacy system replacement across the platform's umbrella applications.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to manage legacy system replacement across the platform's umbrella applications.
 
 ---
 
@@ -290,4 +290,4 @@ Before any migration component can be declared "eliminated" (fully migrated), it
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

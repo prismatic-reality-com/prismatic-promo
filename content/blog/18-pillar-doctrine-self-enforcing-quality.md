@@ -188,4 +188,4 @@ Quality is a system property, not an individual discipline. The 18-pillar doctri
 
 ---
 
-*Explore the full doctrine at [Architecture Documentation](/architecture/) or try the [Quality Gates command](/developers/) to validate your own code against the doctrine.*
+*Explore the full doctrine at [Architecture Documentation](@/architecture/_index.md) or try the [Quality Gates command](@/developers/_index.md) to validate your own code against the doctrine.*

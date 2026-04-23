@@ -24,11 +24,11 @@ image_alt = "Prismatic Meilisearch - Prismatic Platform"
 
 ## Overview
 
-Prismatic [Meilisearch](/glossary/meilisearch/) integrates the Meilisearch full-text search engine into the Prismatic Platform, providing lightning-fast, typo-tolerant search across all indexed data. Meilisearch delivers sub-50ms search responses with built-in relevancy ranking, faceted search, and filtering -- essential for searching across the platform's vast [OSINT](/glossary/osint/) intelligence data, entity records, and agent outputs. The search engine handles over 500,000 documents across six specialized indexes, supporting query patterns that range from simple keyword searches to complex faceted analytics with multi-attribute filtering.
+Prismatic [Meilisearch](@/glossary/meilisearch.md) integrates the Meilisearch full-text search engine into the Prismatic Platform, providing lightning-fast, typo-tolerant search across all indexed data. Meilisearch delivers sub-50ms search responses with built-in relevancy ranking, faceted search, and filtering -- essential for searching across the platform's vast [OSINT](@/glossary/osint.md) intelligence data, entity records, and agent outputs. The search engine handles over 500,000 documents across six specialized indexes, supporting query patterns that range from simple keyword searches to complex faceted analytics with multi-attribute filtering.
 
-As part of the [Prismatic Storage](/apps/prismatic-storage/) adapter ecosystem, Meilisearch is accessed through the `Indexable` and `Queryable` traits, allowing transparent search operations across the platform. The actual application is `prismatic_storage_meilisearch`, implementing the storage adapter [protocol](/glossary/protocol/) for consistent access patterns alongside [ETS](/glossary/ets/), [Ecto](/glossary/ecto/), [KuzuDB](/glossary/kuzudb/), and [DuckDB](/glossary/duckdb/) adapters. This uniform interface means that application code never interacts with Meilisearch's HTTP API directly -- all queries flow through the trait system, enabling future backend substitution without consumer changes.
+As part of the [Prismatic Storage](@/apps/prismatic-storage.md) adapter ecosystem, Meilisearch is accessed through the `Indexable` and `Queryable` traits, allowing transparent search operations across the platform. The actual application is `prismatic_storage_meilisearch`, implementing the storage adapter [protocol](@/glossary/protocol.md) for consistent access patterns alongside [ETS](@/glossary/ets.md), [Ecto](@/glossary/ecto.md), [KuzuDB](@/glossary/kuzudb.md), and [DuckDB](@/glossary/duckdb.md) adapters. This uniform interface means that application code never interacts with Meilisearch's HTTP API directly -- all queries flow through the trait system, enabling future backend substitution without consumer changes.
 
-The integration goes beyond simple search indexing. Meilisearch serves as the platform's primary discovery layer for human-facing interfaces: when an analyst searches for an entity by name in any [LiveView](/glossary/liveview/) dashboard, the query routes through this adapter. Typo tolerance ensures that misspelled company names, transliterated personal names, and approximate domain matches still return relevant results -- a critical capability when dealing with international intelligence data where name spellings vary across sources and languages.
+The integration goes beyond simple search indexing. Meilisearch serves as the platform's primary discovery layer for human-facing interfaces: when an analyst searches for an entity by name in any [LiveView](@/glossary/liveview.md) dashboard, the query routes through this adapter. Typo tolerance ensures that misspelled company names, transliterated personal names, and approximate domain matches still return relevant results -- a critical capability when dealing with international intelligence data where name spellings vary across sources and languages.
 
 ## Architecture
 
@@ -47,7 +47,7 @@ PrismaticStorageMeilisearch.Application
         +-- Indexable + Queryable trait implementation
 ```
 
-The architecture follows a supervised [GenServer](/glossary/genserver/) pattern where each concern -- HTTP communication, index management, query building, and data synchronization -- runs as an independent process under [OTP](/glossary/otp/) supervision. This isolation ensures that a failure in synchronization cannot affect search query processing, and that index management operations do not block ongoing searches.
+The architecture follows a supervised [GenServer](@/glossary/genserver.md) pattern where each concern -- HTTP communication, index management, query building, and data synchronization -- runs as an independent process under [OTP](@/glossary/otp.md) supervision. This isolation ensures that a failure in synchronization cannot affect search query processing, and that index management operations do not block ongoing searches.
 
 ```
 Application Code --> PrismaticStorage.search(:meilisearch_adapter, query)
@@ -262,12 +262,12 @@ mix test test/prismatic_storage_meilisearch/adapter_test.exs
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Storage Core](/apps/prismatic-storage-core/) | Indexable and Queryable trait implementation conforming to adapter protocol |
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | OSINT data indexing for full-text search across intelligence findings |
-| [Prismatic Web](/apps/prismatic-web/) | Search UI components in LiveView dashboards with instant results |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Asset search and filtering for attack surface management |
-| [Prismatic Modalities](/apps/prismatic-modalities/) | OCR and transcription text indexing for multi-modal search |
-| [Prismatic DD](/apps/prismatic-dd/) | Due diligence case search across entity and evidence records |
+| [Prismatic Storage Core](@/apps/prismatic-storage-core.md) | Indexable and Queryable trait implementation conforming to adapter protocol |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | OSINT data indexing for full-text search across intelligence findings |
+| [Prismatic Web](@/apps/prismatic-web.md) | Search UI components in LiveView dashboards with instant results |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Asset search and filtering for attack surface management |
+| [Prismatic Modalities](@/apps/prismatic-modalities.md) | OCR and transcription text indexing for multi-modal search |
+| [Prismatic DD](@/apps/prismatic-dd.md) | Due diligence case search across entity and evidence records |
 
 ## Performance
 
@@ -281,17 +281,17 @@ mix test test/prismatic_storage_meilisearch/adapter_test.exs
 | Index size | ~2GB | All indexes combined |
 | Health check | < 5ms | Connectivity and status verification |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :meilisearch, :search]`, `[:prismatic, :meilisearch, :index]`, `[:prismatic, :meilisearch, :sync]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :meilisearch, :search]`, `[:prismatic, :meilisearch, :index]`, `[:prismatic, :meilisearch, :sync]`.
 
 ## Related Resources
 
-- [Prismatic Storage Core](/apps/prismatic-storage-core/) -- Storage adapter trait system defining Indexable and Queryable contracts
-- [Prismatic Storage ETS](/apps/prismatic-storage-ets/) -- In-memory storage complement for sub-millisecond lookups
-- [Prismatic Storage KuzuDB](/apps/prismatic-storage-kuzudb/) -- Graph storage for relationship queries complementing text search
-- [Consolidation Architect](/agents/consolidation-architect/) -- Data deduplication across indexes preventing duplicate search results
-- [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) -- Search spanning all data domains through multi-index queries
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Search latency and index health monitoring through telemetry
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source data fusion populating search indexes
+- [Prismatic Storage Core](@/apps/prismatic-storage-core.md) -- Storage adapter trait system defining Indexable and Queryable contracts
+- [Prismatic Storage ETS](@/apps/prismatic-storage-ets.md) -- In-memory storage complement for sub-millisecond lookups
+- [Prismatic Storage KuzuDB](@/apps/prismatic-storage-kuzudb.md) -- Graph storage for relationship queries complementing text search
+- [Consolidation Architect](@/agents/consolidation-architect.md) -- Data deduplication across indexes preventing duplicate search results
+- [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) -- Search spanning all data domains through multi-index queries
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Search latency and index health monitoring through telemetry
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source data fusion populating search indexes
 
 ---
 
@@ -300,4 +300,4 @@ mix test test/prismatic_storage_meilisearch/adapter_test.exs
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

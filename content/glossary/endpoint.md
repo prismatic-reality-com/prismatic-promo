@@ -33,11 +33,11 @@ image_alt = "Endpoint - Prismatic Platform"
 
 ## Definition and Overview
 
-A Phoenix Endpoint is the boundary module through which all HTTP requests enter a [Phoenix](/glossary/phoenix/) application. Defined using the `Phoenix.Endpoint` behaviour, it acts as the outermost [Plug](/glossary/plug/) pipeline -- a sequence of composable middleware transformations applied to every request before it reaches the router. The endpoint is responsible for foundational concerns that apply universally: starting the HTTP server (Cowboy or Bandit), serving static files, parsing request bodies, managing sessions, configuring [WebSocket](/glossary/websocket/) and [LiveView](/glossary/liveview/) socket paths, enabling code reloading in development, and initializing the [PubSub](/glossary/pubsub/) system for real-time broadcasting.
+A Phoenix Endpoint is the boundary module through which all HTTP requests enter a [Phoenix](@/glossary/phoenix.md) application. Defined using the `Phoenix.Endpoint` behaviour, it acts as the outermost [Plug](@/glossary/plug.md) pipeline -- a sequence of composable middleware transformations applied to every request before it reaches the router. The endpoint is responsible for foundational concerns that apply universally: starting the HTTP server (Cowboy or Bandit), serving static files, parsing request bodies, managing sessions, configuring [WebSocket](@/glossary/websocket.md) and [LiveView](@/glossary/liveview.md) socket paths, enabling code reloading in development, and initializing the [PubSub](@/glossary/pubsub.md) system for real-time broadcasting.
 
-Each Phoenix application has exactly one endpoint module, which is started as a child of the application's [supervision tree](/glossary/supervision-tree/). The endpoint supervises the HTTP listener, the PubSub adapter, and any socket handlers. This means that if the HTTP server crashes, the supervisor restarts it automatically without affecting the rest of the application -- a direct benefit of [OTP](/glossary/otp/) process isolation.
+Each Phoenix application has exactly one endpoint module, which is started as a child of the application's [supervision tree](@/glossary/supervision-tree.md). The endpoint supervises the HTTP listener, the PubSub adapter, and any socket handlers. This means that if the HTTP server crashes, the supervisor restarts it automatically without affecting the rest of the application -- a direct benefit of [OTP](@/glossary/otp.md) process isolation.
 
-The endpoint sits between the web server and the router in Phoenix's request processing pipeline. Its plug chain executes in order for every request, making it the correct place for cross-cutting concerns like request logging, CORS headers, security headers, and [rate limiting](/glossary/rate-limiting/). The router, by contrast, handles path-specific dispatching to controllers and LiveView modules.
+The endpoint sits between the web server and the router in Phoenix's request processing pipeline. Its plug chain executes in order for every request, making it the correct place for cross-cutting concerns like request logging, CORS headers, security headers, and [rate limiting](@/glossary/rate-limiting.md). The router, by contrast, handles path-specific dispatching to controllers and LiveView modules.
 
 In the context of the Prismatic Platform, the endpoint is a critical architectural component because the platform operates multiple endpoints across its umbrella structure, each serving distinct concerns with independent security policies, authentication mechanisms, and performance budgets.
 
@@ -47,11 +47,11 @@ Phoenix's endpoint design evolved from the Plug specification that Jose Valim an
 
 Early Phoenix versions (pre-1.0) used a simpler endpoint configuration that conflated request processing with application startup. Phoenix 1.0 separated these concerns, establishing the endpoint as a supervised process with its own lifecycle. Phoenix 1.3 introduced the context-based architecture that further clarified the endpoint's role as a pure HTTP boundary, with business logic delegated to context modules. Phoenix 1.7's introduction of verified routes and the shift to function components reinforced the endpoint's position as an infrastructure-only concern.
 
-The Prismatic Platform adopted the multi-endpoint pattern early in its architecture, recognizing that serving a [LiveView](/glossary/liveview/) dashboard and a [REST API](/glossary/rest-api/) gateway through the same endpoint creates security and performance coupling that violates the platform's isolation requirements.
+The Prismatic Platform adopted the multi-endpoint pattern early in its architecture, recognizing that serving a [LiveView](@/glossary/liveview.md) dashboard and a [REST API](@/glossary/rest-api.md) gateway through the same endpoint creates security and performance coupling that violates the platform's isolation requirements.
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform operates multiple Phoenix endpoints across its umbrella architecture, each serving a distinct concern. `PrismaticWeb.Endpoint` (port 4000) serves the LiveView dashboard with real-time security monitoring, agent status feeds, the Perimeter [EASM](/glossary/easm/) interface, and [Quality Floor Guardian](/glossary/quality-floor-guardian/) views. `PrismaticApi.Endpoint` (port 4004) handles the auto-introspecting REST API with OpenAPI spec generation and SwaggerUI. Each endpoint configures its own plug pipeline, socket connections, static asset paths, and PubSub adapter independently, while sharing the same [BEAM](/glossary/beam/) node and supervision infrastructure.
+The Prismatic Platform operates multiple Phoenix endpoints across its umbrella architecture, each serving a distinct concern. `PrismaticWeb.Endpoint` (port 4000) serves the LiveView dashboard with real-time security monitoring, agent status feeds, the Perimeter [EASM](@/glossary/easm.md) interface, and [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) views. `PrismaticApi.Endpoint` (port 4004) handles the auto-introspecting REST API with OpenAPI spec generation and SwaggerUI. Each endpoint configures its own plug pipeline, socket connections, static asset paths, and PubSub adapter independently, while sharing the same [BEAM](@/glossary/beam.md) node and supervision infrastructure.
 
 The multi-endpoint architecture allows the platform to apply different security policies, rate limits, and authentication mechanisms to the web dashboard and API gateway without cross-contamination. API requests pass through `APIAuth` plugs with JWT token validation, while dashboard requests use session-based authentication with CSRF protection.
 
@@ -107,8 +107,8 @@ The endpoint's plug pipeline processes every incoming request through a determin
 | Pipeline Stage | Plug | Purpose | Avg Latency |
 |---------------|------|---------|-------------|
 | **1. Code Reloader** | `Plug.CodeReloader` | Recompiles changed modules (dev only) | 0ms (prod) |
-| **2. Request ID** | `Plug.RequestId` | Assigns unique ID for [distributed tracing](/glossary/distributed-tracing/) | <0.1ms |
-| **3. Telemetry** | `Plug.Telemetry` | Emits request metrics for [observability](/glossary/observability/) | <0.1ms |
+| **2. Request ID** | `Plug.RequestId` | Assigns unique ID for [distributed tracing](@/glossary/distributed-tracing.md) | <0.1ms |
+| **3. Telemetry** | `Plug.Telemetry` | Emits request metrics for [observability](@/glossary/observability.md) | <0.1ms |
 | **4. Static Files** | `Plug.Static` | Serves CSS, JS, images from `priv/static` | <1ms |
 | **5. Body Parser** | `Plug.Parsers` | Parses JSON, URL-encoded, and multipart bodies | 1-5ms |
 | **6. Method Override** | `Plug.MethodOverride` | Supports PUT/PATCH/DELETE via POST form data | <0.1ms |
@@ -148,7 +148,7 @@ Each socket declaration creates a supervised process tree for managing connectio
 | **Channel Socket** | WebSocket + LongPoll | Agent status feeds, inter-component events | Per-node limit |
 | **LiveReload Socket** | WebSocket | Development-only hot reload (disabled in prod) | Dev only |
 
-The WebSocket transport is preferred for its lower overhead and bidirectional capability. LongPoll serves as a fallback for environments where WebSocket connections are blocked by proxies or firewalls. The platform's production deployment on [Fly.io](/glossary/fly-io/) supports native WebSocket connections through its edge proxy.
+The WebSocket transport is preferred for its lower overhead and bidirectional capability. LongPoll serves as a fallback for environments where WebSocket connections are blocked by proxies or firewalls. The platform's production deployment on [Fly.io](@/glossary/fly-io.md) supports native WebSocket connections through its edge proxy.
 
 ## Static File Serving
 
@@ -162,7 +162,7 @@ The endpoint's `Plug.Static` configuration serves compiled frontend assets direc
 | `only` | `~w(assets fonts images ...)` | Whitelist of directories/files to serve |
 | `cache_control_for_etags` | `"public, max-age=31536000"` | Long-term caching for fingerprinted assets |
 
-In production, static files are typically served by a CDN or reverse proxy (Fly.io's edge network for Prismatic), but the endpoint's `Plug.Static` serves as a reliable fallback and is the primary mechanism during development. The [TailwindCSS](/glossary/tailwindcss/) and JavaScript bundles are fingerprinted during the build process, enabling aggressive cache headers (1-year max-age) without stale content risks.
+In production, static files are typically served by a CDN or reverse proxy (Fly.io's edge network for Prismatic), but the endpoint's `Plug.Static` serves as a reliable fallback and is the primary mechanism during development. The [TailwindCSS](@/glossary/tailwindcss.md) and JavaScript bundles are fingerprinted during the build process, enabling aggressive cache headers (1-year max-age) without stale content risks.
 
 ## Configuration and Runtime Settings
 
@@ -195,7 +195,7 @@ Key configuration categories:
 |----------|----------|---------|
 | **HTTP** | `ip`, `port`, `transport_options` | Listener binding and connection limits |
 | **URL** | `host`, `port`, `scheme` | URL generation for links and redirects |
-| **PubSub** | `pubsub_server` | [PubSub](/glossary/pubsub/) adapter for broadcasting |
+| **PubSub** | `pubsub_server` | [PubSub](@/glossary/pubsub.md) adapter for broadcasting |
 | **Secret** | `secret_key_base`, `signing_salt` | Session encryption and LiveView token signing |
 | **Render** | `render_errors`, `layout` | Error page rendering configuration |
 | **HTTP Server** | `adapter` | Bandit (default) or Cowboy selection |
@@ -216,7 +216,7 @@ Application Supervisor
         |-- Phoenix.PubSub (API-specific broadcasting)
 ```
 
-This architecture means the endpoint benefits from OTP's [fault tolerance](/glossary/fault-tolerance/) guarantees. If the HTTP server crashes, the endpoint supervisor restarts it. If a single WebSocket connection process crashes, it affects only that client. The endpoint itself remains available throughout, and the supervision tree ensures automatic recovery without manual intervention.
+This architecture means the endpoint benefits from OTP's [fault tolerance](@/glossary/fault-tolerance.md) guarantees. If the HTTP server crashes, the endpoint supervisor restarts it. If a single WebSocket connection process crashes, it affects only that client. The endpoint itself remains available throughout, and the supervision tree ensures automatic recovery without manual intervention.
 
 The endpoint's supervision strategy is `:one_for_one`, meaning each child process is restarted independently. This is correct because the HTTP server, PubSub system, and socket pools are operationally independent -- a PubSub crash does not require restarting the HTTP server, and vice versa.
 
@@ -294,22 +294,22 @@ end
 
 ## Related Concepts
 
-- [Phoenix](/glossary/phoenix/) -- Framework defining the Endpoint behaviour
-- [Plug](/glossary/plug/) -- Composable middleware modules in the endpoint pipeline
-- [LiveView](/glossary/liveview/) -- Real-time UI connected through endpoint socket configuration
-- [Channel](/glossary/channel/) -- Bidirectional communication configured at the endpoint
-- [WebSocket](/glossary/websocket/) -- Transport protocol for real-time endpoint connections
-- [PubSub](/glossary/pubsub/) -- Broadcasting system initialized by the endpoint
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP process tree managing endpoint lifecycle
-- [REST API](/glossary/rest-api/) -- Stateless API served through dedicated endpoint
-- [Rate Limiting](/glossary/rate-limiting/) -- Traffic control applied in endpoint plug pipeline
-- [Observability](/glossary/observability/) -- Telemetry and metrics emitted by endpoint plugs
+- [Phoenix](@/glossary/phoenix.md) -- Framework defining the Endpoint behaviour
+- [Plug](@/glossary/plug.md) -- Composable middleware modules in the endpoint pipeline
+- [LiveView](@/glossary/liveview.md) -- Real-time UI connected through endpoint socket configuration
+- [Channel](@/glossary/channel.md) -- Bidirectional communication configured at the endpoint
+- [WebSocket](@/glossary/websocket.md) -- Transport protocol for real-time endpoint connections
+- [PubSub](@/glossary/pubsub.md) -- Broadcasting system initialized by the endpoint
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP process tree managing endpoint lifecycle
+- [REST API](@/glossary/rest-api.md) -- Stateless API served through dedicated endpoint
+- [Rate Limiting](@/glossary/rate-limiting.md) -- Traffic control applied in endpoint plug pipeline
+- [Observability](@/glossary/observability.md) -- Telemetry and metrics emitted by endpoint plugs
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture and multi-endpoint design
-- [Technologies](/technologies/) -- Technology stack details
-- [Applications](/apps/) -- Umbrella apps with independent endpoints
+- [Architecture](@/architecture/_index.md) -- Platform architecture and multi-endpoint design
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Applications](@/apps/_index.md) -- Umbrella apps with independent endpoints
 
 ---
 
@@ -318,4 +318,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

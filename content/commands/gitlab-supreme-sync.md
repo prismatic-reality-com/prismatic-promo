@@ -24,13 +24,13 @@ image_alt = "/gitlab-supreme-sync - Prismatic Platform"
 
 ## Overview
 
-**/gitlab-supreme-sync** is a production command in the **GitLab** category of the Prismatic Platform that performs comprehensive, deep-level synchronization between the local development environment and GitLab, incorporating commit forensics, strategic milestone analysis, issue intelligence gathering, and cross-session continuity management. Unlike the standard [/gitlab-sync](/commands/gitlab-sync/) command that handles routine issue synchronization, `/gitlab-supreme-sync` operates at the SUPREME authority level to perform exhaustive analysis of the project's entire GitLab state.
+**/gitlab-supreme-sync** is a production command in the **GitLab** category of the Prismatic Platform that performs comprehensive, deep-level synchronization between the local development environment and GitLab, incorporating commit forensics, strategic milestone analysis, issue intelligence gathering, and cross-session continuity management. Unlike the standard [/gitlab-sync](@/commands/gitlab-sync.md) command that handles routine issue synchronization, `/gitlab-supreme-sync` operates at the SUPREME authority level to perform exhaustive analysis of the project's entire GitLab state.
 
 This command is executed by the `gitlab-sync-orchestrator` agent, which has the highest authority level in the platform's hierarchy. The SUPREME authority grants the agent unrestricted access to all GitLab project resources, including protected branches, deployment environments, project settings, and audit logs. This elevated access is necessary because supreme synchronization involves operations that span the full breadth of project management: analyzing commit patterns across all branches, evaluating milestone progress against strategic timelines, correlating issue dependencies, and generating strategic planning recommendations.
 
 The commit forensics capability is the command's distinguishing feature. Where standard synchronization tools track issue states and labels, `/gitlab-supreme-sync` performs deep analysis of commit patterns to identify development velocity trends, contributor activity distributions, code churn hotspots, and potential quality risks based on commit frequency and size patterns. This forensic analysis feeds into the platform's strategic planning capabilities, enabling evidence-based milestone adjustments and resource allocation decisions.
 
-The command is designed for periodic deep synchronization rather than continuous use, which accounts for its low usage frequency. Typical invocation occurs at session start, during strategic planning sessions, or before milestone reviews. Each execution produces a comprehensive synchronization report that is stored in the session context directory for cross-session continuity, and it is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+The command is designed for periodic deep synchronization rather than continuous use, which accounts for its low usage frequency. Typical invocation occurs at session start, during strategic planning sessions, or before milestone reviews. Each execution produces a comprehensive synchronization report that is stored in the session context directory for cross-session continuity, and it is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -173,19 +173,19 @@ The architecture separates forensic analysis from synchronization to allow paral
 
 7. **Report Generation**: Produce a comprehensive synchronization report including all collected data, forensic analysis, milestone intelligence, strategic recommendations, and delta summary. Store the report in session context for cross-session continuity.
 
-8. **Telemetry Emission**: Report synchronization metrics to the [telemetry](/glossary/telemetry/) subsystem for trend tracking.
+8. **Telemetry Emission**: Report synchronization metrics to the [telemetry](@/glossary/telemetry.md) subsystem for trend tracking.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by `gitlab-sync-orchestrator` at SUPREME authority |
-| [/gitlab-sync](/commands/gitlab-sync/) | Standard Sync | Supreme sync subsumes and extends standard synchronization |
-| [/gitlab-ci](/commands/gitlab-ci/) | Pipeline Data | Incorporates pipeline success/failure data into forensics |
-| [/gitlab-mr](/commands/gitlab-mr/) | MR Intelligence | Analyzes MR lifecycle metrics for velocity assessment |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by `gitlab-sync-orchestrator` at SUPREME authority |
+| [/gitlab-sync](@/commands/gitlab-sync.md) | Standard Sync | Supreme sync subsumes and extends standard synchronization |
+| [/gitlab-ci](@/commands/gitlab-ci.md) | Pipeline Data | Incorporates pipeline success/failure data into forensics |
+| [/gitlab-mr](@/commands/gitlab-mr.md) | MR Intelligence | Analyzes MR lifecycle metrics for velocity assessment |
 | Session Context | Continuity | Stores/loads sync reports from `.claude/session-context/` |
-| [Telemetry](/glossary/telemetry/) | Metrics | Reports sync metrics and strategic indicators |
-| [SEADF](/glossary/seadf/) | Evolution Input | Sync data feeds autonomous evolution decisions |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Reports sync metrics and strategic indicators |
+| [SEADF](@/glossary/seadf.md) | Evolution Input | Sync data feeds autonomous evolution decisions |
 | Quality DNA | State Tracking | Synchronizes quality metrics with GitLab issue tracking |
 
 ## Best Practices
@@ -243,7 +243,7 @@ Supreme sync data feeds directly into ARCHER SUPREME strategic analysis sessions
 
 ## Doctrine Compliance
 
-All supreme synchronization operations enforce the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine.
+All supreme synchronization operations enforce the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine.
 
 - **NO MERCY**: The synchronization is exhaustive -- no GitLab resource is left unexamined. Incomplete synchronization due to API errors or timeouts triggers automatic retry. The command does not produce partial results.
 - **NO DOUBTS**: Every data point in the synchronization report is sourced directly from the GitLab API with full provenance. Forensic analysis results include confidence scores. Strategic recommendations cite the specific data that supports each recommendation, following the NABLA axiom of mandatory provenance.
@@ -252,14 +252,14 @@ The SUPREME authority level means this command can access and analyze any projec
 
 ## Related Commands
 
-- [/gitlab-api](/commands/gitlab-api/) - GitLab API operations for project and repository management
-- [/gitlab-auto-sync](/commands/gitlab-auto-sync/) - Automatic GitLab integration for all AIAD workflows
-- [/gitlab-ci](/commands/gitlab-ci/) - [GitLab CI](/glossary/gitlab-ci/)/CD pipeline management and configuration
-- [/gitlab-enforce](/commands/gitlab-enforce/) - GitLab enforcement for compliance and workflow standards
-- [/gitlab-mr](/commands/gitlab-mr/) - GitLab merge request creation and management
-- [/gitlab-sync](/commands/gitlab-sync/) - GitLab issue synchronization and tracking operations
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/gitlab-api](@/commands/gitlab-api.md) - GitLab API operations for project and repository management
+- [/gitlab-auto-sync](@/commands/gitlab-auto-sync.md) - Automatic GitLab integration for all AIAD workflows
+- [/gitlab-ci](@/commands/gitlab-ci.md) - [GitLab CI](@/glossary/gitlab-ci.md)/CD pipeline management and configuration
+- [/gitlab-enforce](@/commands/gitlab-enforce.md) - GitLab enforcement for compliance and workflow standards
+- [/gitlab-mr](@/commands/gitlab-mr.md) - GitLab merge request creation and management
+- [/gitlab-sync](@/commands/gitlab-sync.md) - GitLab issue synchronization and tracking operations
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -268,4 +268,4 @@ The SUPREME authority level means this command can access and analyze any projec
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

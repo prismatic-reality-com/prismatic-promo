@@ -28,11 +28,11 @@ image_alt = "trinity-bridge-commander - Prismatic Platform"
 
 ## Overview
 
-The Trinity Bridge Commander is an L3 agent operating in the **verification** domain of the Prismatic Platform. This agent commands the Trinity Bridge -- the formal verification infrastructure that connects the platform's operational systems to its mathematical proof framework. Through five core [Lean4](/glossary/lean4/) theorems, the Trinity Bridge Commander guarantees that platform evolution is safe, deterministic, and formally verified before any change reaches production.
+The Trinity Bridge Commander is an L3 agent operating in the **verification** domain of the Prismatic Platform. This agent commands the Trinity Bridge -- the formal verification infrastructure that connects the platform's operational systems to its mathematical proof framework. Through five core [Lean4](@/glossary/lean4.md) theorems, the Trinity Bridge Commander guarantees that platform evolution is safe, deterministic, and formally verified before any change reaches production.
 
-The "Trinity" in Trinity Bridge refers to the three-layer verification gate that every claim, belief, and system change must pass: Structural Consistency (graph theory), Logical Consistency (rule-based), and Formal Necessity (modal logic + Lean4). The bridge metaphor represents the connection between the platform's practical Elixir/[OTP](/glossary/otp/) implementation and the mathematical proof framework that guarantees its correctness.
+The "Trinity" in Trinity Bridge refers to the three-layer verification gate that every claim, belief, and system change must pass: Structural Consistency (graph theory), Logical Consistency (rule-based), and Formal Necessity (modal logic + Lean4). The bridge metaphor represents the connection between the platform's practical Elixir/[OTP](@/glossary/otp.md) implementation and the mathematical proof framework that guarantees its correctness.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, operating at the intersection of [formal verification](/glossary/formal-verification/) and practical software engineering under the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, operating at the intersection of [formal verification](@/glossary/formal-verification.md) and practical software engineering under the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework.
 
 ## Five Core Lean4 Theorems
 
@@ -73,7 +73,7 @@ The Trinity Bridge Commander orchestrates the three-layer verification gate that
 |-------|------------------|--------|---------------|
 | **Layer 1** | Structural Consistency | Graph theory analysis | Belief network forms valid DAG |
 | **Layer 2** | Logical Consistency | Rule-based inference | No logical contradictions |
-| **Layer 3** | Formal Necessity | [Modal logic](/glossary/modal-logic/) + Lean4 | Formally proven in proof assistant |
+| **Layer 3** | Formal Necessity | [Modal logic](@/glossary/modal-logic.md) + Lean4 | Formally proven in proof assistant |
 
 ```
 Change Request
@@ -158,7 +158,7 @@ end
 
 ## Property-Based Testing Integration
 
-The Trinity Bridge Commander integrates with [property-based testing](/glossary/property-based-testing/) to complement formal proofs with empirical validation across massive input spaces.
+The Trinity Bridge Commander integrates with [property-based testing](@/glossary/property-based-testing.md) to complement formal proofs with empirical validation across massive input spaces.
 
 | Property Category | Properties Tested | Generator Coverage |
 |------------------|-------------------|-------------------|
@@ -243,10 +243,10 @@ When a change fails Trinity Gate verification, the Trinity Bridge Commander prov
 
 ## Integration Points
 
-- [**Trinity Gate**](/capabilities/trinity-gate/) -- Primary verification infrastructure
-- [**Quality Gates**](/capabilities/quality-gates/) -- Quality verification integration
-- [**NABLA Axioms**](/capabilities/nabla-axioms/) -- Epistemic axiom compliance
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Agent specification compliance
+- [**Trinity Gate**](@/capabilities/trinity-gate.md) -- Primary verification infrastructure
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Quality verification integration
+- [**NABLA Axioms**](@/capabilities/nabla-axioms.md) -- Epistemic axiom compliance
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Agent specification compliance
 
 ## AIAD Specification Compliance
 
@@ -254,10 +254,10 @@ When a change fails Trinity Gate verification, the Trinity Bridge Commander prov
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 15 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
-| [Property-based testing](/glossary/property-based-testing/) | 45 properties verified |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
+| [Property-based testing](@/glossary/property-based-testing.md) | 45 properties verified |
 
 ## Continuous Theorem Maintenance
 
@@ -272,13 +272,13 @@ The five core Lean4 theorems are not static artifacts -- they evolve as the plat
 
 ## Related Agents
 
-- [**Trinity Bridge Coordinator**](/agents/trinity-bridge-coordinator/) -- Coordinates verification across AIAD components
-- [**Trinity Integration Coordinator**](/agents/trinity-integration-coordinator/) -- Integrates Trinity verification into platform workflows
-- [**Route Testing Specialist**](/agents/routetestingspecialist/) -- Route-specific formal verification
+- [**Trinity Bridge Coordinator**](@/agents/trinity-bridge-coordinator.md) -- Coordinates verification across AIAD components
+- [**Trinity Integration Coordinator**](@/agents/trinity-integration-coordinator.md) -- Integrates Trinity verification into platform workflows
+- [**Route Testing Specialist**](@/agents/routetestingspecialist.md) -- Route-specific formal verification
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to approve or reject any platform change based on formal verification results.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to approve or reject any platform change based on formal verification results.
 
 ---
 
@@ -287,4 +287,4 @@ The five core Lean4 theorems are not static artifacts -- they evolve as the plat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

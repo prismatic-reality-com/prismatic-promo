@@ -28,9 +28,9 @@ image_alt = "Mycelial Healer Specialist - Prismatic Platform"
 
 ## Overview
 
-The Mycelial Healer Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's network-healing domain, responsible for detecting, diagnosing, and repairing degradation in the [mycelial network](/glossary/mycelial-network/) -- the inter-agent communication topology that connects over 400 autonomous agents. Network degradation manifests in many forms: broken connections between agents, stale routing patterns that no longer reflect current communication needs, orphaned coordination channels that consume resources without delivering value, and congestion points that create latency bottlenecks. The healer specialist addresses all these pathologies through systematic diagnosis and targeted repair interventions.
+The Mycelial Healer Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's network-healing domain, responsible for detecting, diagnosing, and repairing degradation in the [mycelial network](@/glossary/mycelial-network.md) -- the inter-agent communication topology that connects over 400 autonomous agents. Network degradation manifests in many forms: broken connections between agents, stale routing patterns that no longer reflect current communication needs, orphaned coordination channels that consume resources without delivering value, and congestion points that create latency bottlenecks. The healer specialist addresses all these pathologies through systematic diagnosis and targeted repair interventions.
 
-Built on the [AIAD](/glossary/aiad/) standard and operating within the [SEADF](/glossary/seadf/) ecosystem framework, this agent applies healing strategies that draw from both biological wound repair analogies and distributed systems fault recovery patterns. Just as biological mycelial networks route around damaged segments and reinforce alternative pathways, this specialist redirects communication flows around failed connections, repairs damaged links when possible, and prunes irrecoverable pathways to prevent resource waste. The [NO MERCY](/glossary/no-mercy/) doctrine ensures that healing is complete: no partial repairs are accepted, and degraded connections are either fully restored or cleanly removed.
+Built on the [AIAD](@/glossary/aiad.md) standard and operating within the [SEADF](@/glossary/seadf.md) ecosystem framework, this agent applies healing strategies that draw from both biological wound repair analogies and distributed systems fault recovery patterns. Just as biological mycelial networks route around damaged segments and reinforce alternative pathways, this specialist redirects communication flows around failed connections, repairs damaged links when possible, and prunes irrecoverable pathways to prevent resource waste. The [NO MERCY](@/glossary/no-mercy.md) doctrine ensures that healing is complete: no partial repairs are accepted, and degraded connections are either fully restored or cleanly removed.
 
 ## Theoretical Foundations
 
@@ -44,7 +44,7 @@ The healing process follows a biological wound repair analogy: **hemostasis** (s
 
 The network-healing domain covers all aspects of mycelial network maintenance and restoration. The healer monitors connection health through heartbeat signals, message delivery confirmation rates, latency measurements, and error rate tracking. When health indicators cross configured thresholds, the healing pipeline activates. The domain operates continuously with monitoring cycles running at subsecond intervals for critical connections and minute-scale intervals for lower-priority links.
 
-The healer maintains a comprehensive health map of the entire mycelial network, stored in [ETS](/glossary/ets/) tables and updated in real-time from [telemetry](/glossary/telemetry/) event streams. This health map tracks per-connection metrics including message delivery success rate, average latency, latency variance, error rate, last successful communication timestamp, and cumulative traffic volume. The map enables both reactive healing (responding to detected failures) and proactive healing (addressing degradation trends before they cause failures).
+The healer maintains a comprehensive health map of the entire mycelial network, stored in [ETS](@/glossary/ets.md) tables and updated in real-time from [telemetry](@/glossary/telemetry.md) event streams. This health map tracks per-connection metrics including message delivery success rate, average latency, latency variance, error rate, last successful communication timestamp, and cumulative traffic volume. The map enables both reactive healing (responding to detected failures) and proactive healing (addressing degradation trends before they cause failures).
 
 ## Key Capabilities
 
@@ -54,8 +54,8 @@ The healer maintains a comprehensive health map of the entire mycelial network, 
 - **Orphaned channel cleanup** -- Detects and removes coordination channels that have lost their participating agents due to process crashes, restarts, or decommissioning, freeing resources for active communication
 - **Congestion point resolution** -- Identifies network nodes with disproportionate message routing burden and implements load redistribution through connection weight adjustment and alternative path activation
 - **Proactive degradation intervention** -- Applies predictive models to connection health trends, initiating preventive healing actions when degradation trajectories indicate imminent failure
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed healing cycles that escalate in intensity based on degradation severity and healing urgency
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing healing metrics including connection health distribution, repair success rates, mean time to repair, and proactive intervention counts
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed healing cycles that escalate in intensity based on degradation severity and healing urgency
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing healing metrics including connection health distribution, repair success rates, mean time to repair, and proactive intervention counts
 
 ## Authority Level
 
@@ -63,11 +63,11 @@ The healer maintains a comprehensive health map of the entire mycelial network, 
 
 ## Healing Pipeline Architecture
 
-The healing pipeline operates in four stages. The **detection stage** runs continuously, processing [telemetry](/glossary/telemetry/) events from the mycelial network monitoring infrastructure. Connection health events flow through a [GenStage](/glossary/genstage/) pipeline with configurable throughput limits to prevent healing operations from consuming excessive resources during widespread network degradation events.
+The healing pipeline operates in four stages. The **detection stage** runs continuously, processing [telemetry](@/glossary/telemetry.md) events from the mycelial network monitoring infrastructure. Connection health events flow through a [GenStage](@/glossary/genstage.md) pipeline with configurable throughput limits to prevent healing operations from consuming excessive resources during widespread network degradation events.
 
 The **diagnosis stage** classifies detected problems by type, severity, and scope. A single failed connection might indicate a transient agent process restart, while correlated failures across multiple connections suggest a broader infrastructure problem. The diagnosis stage uses correlation analysis and temporal clustering to distinguish local failures from systemic issues, routing each to the appropriate healing strategy.
 
-The **intervention stage** applies healing actions. For simple connection repairs, the healer reinitializes the communication channel through the platform's [message passing](/glossary/message-passing/) infrastructure. For more complex pathologies, the healer may redirect traffic through alternative routes, adjust connection weights to offload congested nodes, or create new connections to restore severed communication paths.
+The **intervention stage** applies healing actions. For simple connection repairs, the healer reinitializes the communication channel through the platform's [message passing](@/glossary/message-passing.md) infrastructure. For more complex pathologies, the healer may redirect traffic through alternative routes, adjust connection weights to offload congested nodes, or create new connections to restore severed communication paths.
 
 The **verification stage** confirms that healing actions achieved their intended effect. Post-intervention health checks verify that repaired connections are delivering messages reliably, redirected traffic is flowing through alternative paths successfully, and cleaned-up channels are no longer consuming resources.
 
@@ -84,14 +84,14 @@ The **verification stage** confirms that healing actions achieved their intended
 
 | Agent | Relationship |
 |-------|-------------|
-| [network-health-monitor](/agents/network-health-monitor/) | Provides real-time health data that triggers healing interventions |
-| [mycelial-network-coordinator](/agents/mycelial-network-coordinator/) | Coordinates healing actions with broader network management operations |
-| [mycelial-topology-optimizer-agent](/agents/mycelial-topology-optimizer-agent/) | Structural healing recommendations feed into topology optimization decisions |
-| [mycelial-emergence-sentinel-agent](/agents/mycelial-emergence-sentinel-agent/) | Distinguishes healing-triggered topology changes from emergent self-organization |
+| [network-health-monitor](@/agents/network-health-monitor.md) | Provides real-time health data that triggers healing interventions |
+| [mycelial-network-coordinator](@/agents/mycelial-network-coordinator.md) | Coordinates healing actions with broader network management operations |
+| [mycelial-topology-optimizer-agent](@/agents/mycelial-topology-optimizer-agent.md) | Structural healing recommendations feed into topology optimization decisions |
+| [mycelial-emergence-sentinel-agent](@/agents/mycelial-emergence-sentinel-agent.md) | Distinguishes healing-triggered topology changes from emergent self-organization |
 
 ## Enforcement
 
-Healing operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no degraded connection is tolerated when repair is possible, no stale pattern is preserved when cleanup is warranted, and all healing interventions must demonstrate measurable health improvement. The [NO DOUBTS](/glossary/no-doubts/) principle requires that healing diagnoses are evidence-based, with correlation between observed symptoms and diagnosed causes validated before interventions are applied. The [Trinity Gate](/glossary/trinity-gate/) ensures healing actions maintain structural network consistency, logical coordination integrity, and formal safety invariants.
+Healing operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no degraded connection is tolerated when repair is possible, no stale pattern is preserved when cleanup is warranted, and all healing interventions must demonstrate measurable health improvement. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that healing diagnoses are evidence-based, with correlation between observed symptoms and diagnosed causes validated before interventions are applied. The [Trinity Gate](@/glossary/trinity-gate.md) ensures healing actions maintain structural network consistency, logical coordination integrity, and formal safety invariants.
 
 ---
 
@@ -100,4 +100,4 @@ Healing operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

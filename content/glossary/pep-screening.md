@@ -401,24 +401,24 @@ Real-time PEP screening of transaction counterparties identifies elevated-risk t
 
 PEP screening intersects with multiple compliance and intelligence domains within the Prismatic Platform:
 
-- [AML](/glossary/aml/) -- the broader regulatory framework within which PEP screening operates
-- [KYC](/glossary/kyc/) -- the customer identification process that incorporates PEP screening as a mandatory component
-- [Sanctions Screening](/glossary/sanctions-screening/) -- the complementary process of checking against prohibited persons and entity lists
-- [Due Diligence](/glossary/due-diligence/) -- the comprehensive assessment process that includes PEP screening as one of multiple investigative dimensions
-- [Beneficial Ownership](/glossary/beneficial-ownership/) -- the analysis of corporate ownership chains critical for identifying hidden PEP connections
-- [Entity Resolution](/glossary/entity-resolution/) -- the technical capability for disambiguating PEP matches and reducing false positives
-- [Risk Assessment](/glossary/risk-assessment/) -- the framework for evaluating and scoring PEP-related risks
-- [OSINT](/glossary/osint/) -- the intelligence gathering infrastructure that powers PEP data collection and verification
-- [Compliance Framework](/glossary/compliance-framework/) -- the organizational and technical structure governing PEP screening implementation
-- [NIS2](/glossary/nis2/) -- the EU cybersecurity directive with implications for systems processing PEP data
+- [AML](@/glossary/aml.md) -- the broader regulatory framework within which PEP screening operates
+- [KYC](@/glossary/kyc.md) -- the customer identification process that incorporates PEP screening as a mandatory component
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- the complementary process of checking against prohibited persons and entity lists
+- [Due Diligence](@/glossary/due-diligence.md) -- the comprehensive assessment process that includes PEP screening as one of multiple investigative dimensions
+- [Beneficial Ownership](@/glossary/beneficial-ownership.md) -- the analysis of corporate ownership chains critical for identifying hidden PEP connections
+- [Entity Resolution](@/glossary/entity-resolution.md) -- the technical capability for disambiguating PEP matches and reducing false positives
+- [Risk Assessment](@/glossary/risk-assessment.md) -- the framework for evaluating and scoring PEP-related risks
+- [OSINT](@/glossary/osint.md) -- the intelligence gathering infrastructure that powers PEP data collection and verification
+- [Compliance Framework](@/glossary/compliance-framework.md) -- the organizational and technical structure governing PEP screening implementation
+- [NIS2](@/glossary/nis2.md) -- the EU cybersecurity directive with implications for systems processing PEP data
 
 ## See Also
 
-- [Intelligence Platform](/glossary/intelligence-platform/) -- the Prismatic Platform's broader intelligence capability
-- [Audit Trail](/glossary/audit-trail/) -- the provenance and documentation system critical for regulatory compliance
-- [Risk Score](/glossary/risk-score/) -- the quantitative framework for assessing screening results
-- [ZKB](/glossary/zkb/) -- Czech cybersecurity regulation affecting PEP screening infrastructure
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- the external attack surface management system that includes compliance assessment
+- [Intelligence Platform](@/glossary/intelligence-platform.md) -- the Prismatic Platform's broader intelligence capability
+- [Audit Trail](@/glossary/audit-trail.md) -- the provenance and documentation system critical for regulatory compliance
+- [Risk Score](@/glossary/risk-score.md) -- the quantitative framework for assessing screening results
+- [ZKB](@/glossary/zkb.md) -- Czech cybersecurity regulation affecting PEP screening infrastructure
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- the external attack surface management system that includes compliance assessment
 
 ---
 

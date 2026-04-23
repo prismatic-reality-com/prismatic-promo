@@ -24,9 +24,9 @@ image_alt = "Fly.io - Prismatic Platform"
 
 ## Overview
 
-Fly.io is the deployment platform for the Prismatic Platform's production and staging environments. It provides globally distributed application hosting with automatic TLS, private networking, and native support for [BEAM](/technologies/beam/) clustering -- enabling the platform to run distributed [Elixir](/technologies/elixir/) nodes across multiple regions with transparent inter-node communication. Fly.io was selected specifically for its first-class Elixir and BEAM support, which eliminates the infrastructure complexity that other platforms require for distributed Erlang clustering.
+Fly.io is the deployment platform for the Prismatic Platform's production and staging environments. It provides globally distributed application hosting with automatic TLS, private networking, and native support for [BEAM](@/technologies/beam.md) clustering -- enabling the platform to run distributed [Elixir](@/technologies/elixir.md) nodes across multiple regions with transparent inter-node communication. Fly.io was selected specifically for its first-class Elixir and BEAM support, which eliminates the infrastructure complexity that other platforms require for distributed Erlang clustering.
 
-The Prismatic Platform runs on Fly.io at `prismatic-prod.fly.dev` (production) and `prismatic-staging.fly.dev` (staging). Fly's support for BEAM distribution means the platform's [Erlang/OTP](/technologies/erlang-otp/) applications can form clusters across regions, sharing agent state and real-time events through Distributed Erlang with zero additional infrastructure. This is a significant architectural advantage: features like [Phoenix PubSub](/technologies/pubsub/) broadcasting, distributed [ETS](/technologies/ets/) replication, and global process registration work natively across Fly.io machines without requiring external message brokers or service meshes.
+The Prismatic Platform runs on Fly.io at `prismatic-prod.fly.dev` (production) and `prismatic-staging.fly.dev` (staging). Fly's support for BEAM distribution means the platform's [Erlang/OTP](@/technologies/erlang-otp.md) applications can form clusters across regions, sharing agent state and real-time events through Distributed Erlang with zero additional infrastructure. This is a significant architectural advantage: features like [Phoenix PubSub](@/technologies/pubsub.md) broadcasting, distributed [ETS](@/technologies/ets.md) replication, and global process registration work natively across Fly.io machines without requiring external message brokers or service meshes.
 
 Fly.io's Machines API enables the platform to scale dynamically -- spinning up additional compute for intensive security scanning operations and scaling down during quiet periods, optimizing cost while maintaining responsiveness. The auto-start and auto-stop capabilities mean the platform pays only for active compute, with machines hibernating during periods of inactivity and waking within seconds when requests arrive.
 
@@ -43,7 +43,7 @@ Fly.io's Machines API enables the platform to scale dynamically -- spinning up a
 
 ## Platform Integration
 
-Fly.io hosts the platform with BEAM-native clustering, enabling distributed [GenServer](/technologies/genserver/) processes to communicate transparently across machines.
+Fly.io hosts the platform with BEAM-native clustering, enabling distributed [GenServer](@/technologies/genserver.md) processes to communicate transparently across machines.
 
 ```elixir
 defmodule PrismaticWeb.Release do
@@ -89,9 +89,9 @@ Fly.io provides the entire production infrastructure stack for the Prismatic Pla
 | Edge | Anycast routing | Global request distribution to nearest region |
 | TLS | Automatic certificates | HTTPS termination with TLSv1.3 |
 | Proxy | Fly Proxy | HTTP/2, WebSocket upgrade, connection pooling |
-| Compute | Fly Machines | [Phoenix](/technologies/phoenix/) application instances |
+| Compute | Fly Machines | [Phoenix](@/technologies/phoenix.md) application instances |
 | Networking | 6PN (WireGuard) | BEAM cluster communication, inter-service calls |
-| Storage | Fly Volumes | [PostgreSQL](/technologies/postgresql/) data, [KuzuDB](/technologies/kuzudb/) graph files |
+| Storage | Fly Volumes | [PostgreSQL](@/technologies/postgresql.md) data, [KuzuDB](@/technologies/kuzudb.md) graph files |
 | DNS | `.fly.dev` | Public hostname, internal service discovery |
 | Secrets | Encrypted vault | API keys, database credentials, signing keys |
 
@@ -99,7 +99,7 @@ The deployment topology places the primary application in the `fra` (Frankfurt) 
 
 ## Performance Characteristics
 
-Fly.io's infrastructure meets the platform's strict performance requirements enforced by the [quality gates](/capabilities/quality-gates/).
+Fly.io's infrastructure meets the platform's strict performance requirements enforced by the [quality gates](@/capabilities/quality-gates.md).
 
 | Metric | Target | Measured | Status |
 |--------|--------|----------|--------|
@@ -111,7 +111,7 @@ Fly.io's infrastructure meets the platform's strict performance requirements enf
 | TLS handshake | < 100ms | ~30ms | Pass |
 | Volume I/O (NVMe) | > 100 MB/s | ~400 MB/s | Pass |
 
-These measurements are collected through the platform's [telemetry](/capabilities/telemetry-integration/) system and validated against the requirement that all pages load under 250ms.
+These measurements are collected through the platform's [telemetry](@/capabilities/telemetry-integration.md) system and validated against the requirement that all pages load under 250ms.
 
 ## Configuration
 
@@ -160,7 +160,7 @@ The configuration enforces HTTPS, sets up auto-scaling with at minimum one machi
 
 ## Deployment Pipeline
 
-Deployments to Fly.io are automated through the [GitLab CI/CD](/technologies/gitlab-ci/) pipeline. The deployment process follows a blue-green strategy where the new version is deployed alongside the existing one, and traffic is shifted only after health checks pass.
+Deployments to Fly.io are automated through the [GitLab CI/CD](@/technologies/gitlab-ci.md) pipeline. The deployment process follows a blue-green strategy where the new version is deployed alongside the existing one, and traffic is shifted only after health checks pass.
 
 ```yaml
 # GitLab CI deployment stage
@@ -216,18 +216,18 @@ Fly.io was chosen because it is the only platform that provides native BEAM clus
 
 ## Related Technologies
 
-- [Docker](/technologies/docker/) - Container builds for Fly.io deployment images
-- [GitLab CI/CD](/technologies/gitlab-ci/) - Automated deployment pipeline to Fly.io
-- [Nginx](/technologies/nginx/) - Edge routing complement for advanced proxy configurations
-- [PostgreSQL](/technologies/postgresql/) - Database hosted on Fly.io volumes
-- [BEAM](/technologies/beam/) - Virtual machine with native clustering on Fly.io's 6PN network
-- [Elixir](/technologies/elixir/) - Primary application language with first-class Fly.io support
+- [Docker](@/technologies/docker.md) - Container builds for Fly.io deployment images
+- [GitLab CI/CD](@/technologies/gitlab-ci.md) - Automated deployment pipeline to Fly.io
+- [Nginx](@/technologies/nginx.md) - Edge routing complement for advanced proxy configurations
+- [PostgreSQL](@/technologies/postgresql.md) - Database hosted on Fly.io volumes
+- [BEAM](@/technologies/beam.md) - Virtual machine with native clustering on Fly.io's 6PN network
+- [Elixir](@/technologies/elixir.md) - Primary application language with first-class Fly.io support
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - Primary web application deployed to Fly.io
-- [prismatic_api](/apps/prismatic-api/) - REST API gateway running on Fly.io
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - EASM service utilizing Fly.io's global distribution
+- [prismatic_web](@/apps/prismatic-web.md) - Primary web application deployed to Fly.io
+- [prismatic_api](@/apps/prismatic-api.md) - REST API gateway running on Fly.io
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - EASM service utilizing Fly.io's global distribution
 - All 90 Prismatic Platform applications deploy as a single release to Fly.io
 
 ---
@@ -237,4 +237,4 @@ Fly.io was chosen because it is the only platform that provides native BEAM clus
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

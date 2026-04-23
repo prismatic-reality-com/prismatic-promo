@@ -450,18 +450,18 @@ end
 
 ## Related Terms
 
-- [AES](/glossary/aes/) -- cryptographic operations on binaries (ciphertext, IVs, keys)
-- [CSV](/glossary/csv/) -- text data format parsed from binary streams
-- [Artifact](/glossary/artifact/) -- compiled binary artifacts in the build pipeline
-- [ETS](/glossary/ets/) -- in-memory storage with binary keys and values
-- [Cache](/glossary/cache/) -- caching binary data with TTL expiration
-- [Encoding](/glossary/encoding/) -- binary encoding formats (UTF-8, Base64, hex)
-- [Pattern Matching](/glossary/pattern-matching/) -- binary pattern matching syntax and optimization
-- [GenServer](/glossary/genserver/) -- processes holding binary state with GC implications
-- [Compile-time](/glossary/compile-time/) -- binary literal compilation and optimization
-- [Telemetry](/glossary/telemetry/) -- binary memory monitoring instrumentation
+- [AES](@/glossary/aes.md) -- cryptographic operations on binaries (ciphertext, IVs, keys)
+- [CSV](@/glossary/csv.md) -- text data format parsed from binary streams
+- [Artifact](@/glossary/artifact.md) -- compiled binary artifacts in the build pipeline
+- [ETS](@/glossary/ets.md) -- in-memory storage with binary keys and values
+- [Cache](@/glossary/cache.md) -- caching binary data with TTL expiration
+- [Encoding](@/glossary/encoding.md) -- binary encoding formats (UTF-8, Base64, hex)
+- [Pattern Matching](@/glossary/pattern-matching.md) -- binary pattern matching syntax and optimization
+- [GenServer](@/glossary/genserver.md) -- processes holding binary state with GC implications
+- [Compile-time](@/glossary/compile-time.md) -- binary literal compilation and optimization
+- [Telemetry](@/glossary/telemetry.md) -- binary memory monitoring instrumentation
 - [String](/glossary/string/) -- UTF-8 encoded binaries with Unicode operations
-- [Protocol](/glossary/protocol/) -- binary protocol parsing for network intelligence
+- [Protocol](@/glossary/protocol.md) -- binary protocol parsing for network intelligence
 
 ## See Also
 
@@ -478,4 +478,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

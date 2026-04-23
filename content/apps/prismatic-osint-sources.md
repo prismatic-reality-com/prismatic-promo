@@ -23,11 +23,11 @@ image_alt = "Prismatic OSINT Sources - Prismatic Platform"
 
 ## Overview
 
-Prismatic [OSINT](/glossary/osint/) Sources manages the registry and lifecycle of all 121+ OSINT source adapters within the Prismatic Platform. It provides source discovery, health monitoring, capability querying, and unified access to all intelligence sources through a consistent [adapter pattern](/glossary/adapter-pattern/) [protocol](/glossary/protocol/). Every adapter implements the same [behaviour](/glossary/behaviour/) contract, ensuring that consumers can query any source -- from network intelligence to [threat intelligence](/glossary/threat-intelligence/) feeds -- through a single, uniform API without knowledge of source-specific authentication, pagination, or data format details.
+Prismatic [OSINT](@/glossary/osint.md) Sources manages the registry and lifecycle of all 121+ OSINT source adapters within the Prismatic Platform. It provides source discovery, health monitoring, capability querying, and unified access to all intelligence sources through a consistent [adapter pattern](@/glossary/adapter-pattern.md) [protocol](@/glossary/protocol.md). Every adapter implements the same [behaviour](@/glossary/behaviour.md) contract, ensuring that consumers can query any source -- from network intelligence to [threat intelligence](@/glossary/threat-intelligence.md) feeds -- through a single, uniform API without knowledge of source-specific authentication, pagination, or data format details.
 
-The source registry maintains a capability-based catalog backed by [ETS](/glossary/ets/), enabling O(1) lookups when the platform needs to find all sources that support a particular query type such as IP reputation, domain intelligence, or [sanctions screening](/glossary/sanctions-screening/). Each source entry tracks availability status, response latency percentiles, [rate limiting](/glossary/rate-limiting/) quotas, and credential validity, providing the orchestration layer with real-time intelligence about which sources are healthy, cost-effective, and responsive for a given query.
+The source registry maintains a capability-based catalog backed by [ETS](@/glossary/ets.md), enabling O(1) lookups when the platform needs to find all sources that support a particular query type such as IP reputation, domain intelligence, or [sanctions screening](@/glossary/sanctions-screening.md). Each source entry tracks availability status, response latency percentiles, [rate limiting](@/glossary/rate-limiting.md) quotas, and credential validity, providing the orchestration layer with real-time intelligence about which sources are healthy, cost-effective, and responsive for a given query.
 
-Multi-source parallel querying enables the platform to fan out intelligence requests across multiple adapters simultaneously, collecting results through [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/) coordination and deduplicating findings with [entity resolution](/glossary/entity-resolution/) algorithms. Source priority ordering and cost-aware selection ensure that expensive commercial APIs are queried only when free or lower-cost sources cannot satisfy the information requirement, optimizing operational costs while maintaining intelligence completeness.
+Multi-source parallel querying enables the platform to fan out intelligence requests across multiple adapters simultaneously, collecting results through [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md) coordination and deduplicating findings with [entity resolution](@/glossary/entity-resolution.md) algorithms. Source priority ordering and cost-aware selection ensure that expensive commercial APIs are queried only when free or lower-cost sources cannot satisfy the information requirement, optimizing operational costs while maintaining intelligence completeness.
 
 ## Architecture
 
@@ -45,7 +45,7 @@ Query Request --> Source Selector --> Parallel Dispatcher --> Result Aggregator
                            Credential Manager --> Auth Rotation
 ```
 
-All source selection and result aggregation logic follows [pure function](/glossary/pure-function/) principles. Network requests execute in isolated worker processes with [circuit breaker](/glossary/circuit-breaker/) patterns and [backpressure](/glossary/backpressure/) mechanisms preventing cascade failures when individual sources become unavailable.
+All source selection and result aggregation logic follows [pure function](@/glossary/pure-function.md) principles. Network requests execute in isolated worker processes with [circuit breaker](@/glossary/circuit-breaker.md) patterns and [backpressure](@/glossary/backpressure.md) mechanisms preventing cascade failures when individual sources become unavailable.
 
 ## Key Modules
 
@@ -58,7 +58,7 @@ All source selection and result aggregation logic follows [pure function](/gloss
 | `PrismaticOsintSources.ParallelDispatcher` | Concurrent multi-source query execution with timeout management |
 | `PrismaticOsintSources.ResultAggregator` | Cross-source result deduplication, normalization, and confidence scoring |
 | `PrismaticOsintSources.HealthMonitor` | Per-source availability tracking with degradation and recovery detection |
-| `PrismaticOsintSources.CredentialManager` | API key rotation, [OAuth2](/glossary/oauth2/) token refresh, and credential validation |
+| `PrismaticOsintSources.CredentialManager` | API key rotation, [OAuth2](@/glossary/oauth2.md) token refresh, and credential validation |
 | `PrismaticOsintSources.QuotaTracker` | Token bucket rate limiting with per-source quota tracking and forecasting |
 
 ## Key Features
@@ -117,17 +117,17 @@ Every OSINT source adapter must implement the `SourceAdapter` behaviour, ensurin
 | `rate_limit/0` | Report current quota status | `%{remaining: integer(), resets_at: DateTime.t()}` |
 | `normalize/1` | Convert source response to common schema | `{:ok, NormalizedResult.t()}` |
 
-- Unified [protocol](/glossary/protocol/) interface for all OSINT queries with structured request/response contracts
+- Unified [protocol](@/glossary/protocol.md) interface for all OSINT queries with structured request/response contracts
 - Structured result normalization converting source-specific formats to platform-standard schemas
 - Error handling with source-specific context including retry recommendations and degradation status
-- Credential and authentication management supporting API keys, [OAuth2](/glossary/oauth2/), and certificate-based auth
+- Credential and authentication management supporting API keys, [OAuth2](@/glossary/oauth2.md), and certificate-based auth
 
 ### Source Orchestration
 
 - Multi-source parallel querying with configurable concurrency limits and timeout policies
-- Result deduplication across sources using [entity resolution](/glossary/entity-resolution/) and [confidence scoring](/glossary/confidence-scoring/)
+- Result deduplication across sources using [entity resolution](@/glossary/entity-resolution.md) and [confidence scoring](@/glossary/confidence-scoring.md)
 - Source priority and fallback ordering with cost-aware selection minimizing API expenditure
-- [Telemetry](/glossary/telemetry/) emission for query latency, source utilization, and cache hit [metrics](/glossary/metrics/)
+- [Telemetry](@/glossary/telemetry.md) emission for query latency, source utilization, and cache hit [metrics](@/glossary/metrics.md)
 
 ### Cost Optimization
 
@@ -203,12 +203,12 @@ Health monitoring tests verify degradation detection, recovery triggering, and a
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Core OSINT infrastructure consuming source registry data for query routing |
-| [Prismatic OSINT Business](/apps/prismatic-osint-business-financial/) | Business intelligence adapters registered as sources |
-| [Prismatic OSINT EU Institutions](/apps/prismatic-osint-eu-institutions/) | EU data adapters registered in the unified source catalog |
-| [Prismatic OSINT Network](/apps/prismatic-osint-network/) | Network intelligence adapters for [attack surface](/glossary/attack-surface/) discovery |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | [EASM](/glossary/easm/) consuming multi-source intelligence for [security rating](/glossary/security-rating/) |
-| [Prismatic Storage ETS](/apps/prismatic-storage-ets/) | [ETS](/glossary/ets/)-backed source registry with sub-millisecond lookups |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Core OSINT infrastructure consuming source registry data for query routing |
+| [Prismatic OSINT Business](@/apps/prismatic-osint-business-financial.md) | Business intelligence adapters registered as sources |
+| [Prismatic OSINT EU Institutions](@/apps/prismatic-osint-eu-institutions.md) | EU data adapters registered in the unified source catalog |
+| [Prismatic OSINT Network](@/apps/prismatic-osint-network.md) | Network intelligence adapters for [attack surface](@/glossary/attack-surface.md) discovery |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | [EASM](@/glossary/easm.md) consuming multi-source intelligence for [security rating](@/glossary/security-rating.md) |
+| [Prismatic Storage ETS](@/apps/prismatic-storage-ets.md) | [ETS](@/glossary/ets.md)-backed source registry with sub-millisecond lookups |
 
 ## Performance
 
@@ -221,17 +221,17 @@ Health monitoring tests verify degradation detection, recovery triggering, and a
 | Result deduplication | < 100ms | Entity resolution across source results |
 | Credential rotation | < 50ms | Token refresh with cached fallback |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :osint_sources, :query_dispatched]`, `[:prismatic, :osint_sources, :source_health_changed]`, `[:prismatic, :osint_sources, :quota_consumed]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :osint_sources, :query_dispatched]`, `[:prismatic, :osint_sources, :source_health_changed]`, `[:prismatic, :osint_sources, :quota_consumed]`.
 
 ## Related Resources
 
-- [Prismatic Czech Autocrawler](/apps/prismatic-czech-autocrawler/) -- Czech registry adapters consuming the source protocol
-- [Cross Pollination Specialist](/agents/cross-pollination-specialist/) -- Cross-domain intelligence synthesis leveraging source diversity
-- [Business Financial Intelligence Specialist](/agents/business-financial-intelligence-specialist/) -- Business source selection and analysis coordination
-- [Crawler Development Specialist](/agents/crawler-development-specialist/) -- Source adapter development and maintenance
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source evidence fusion and deduplication
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Source independence and signal plurality enforcement
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Source health monitoring and availability tracking
+- [Prismatic Czech Autocrawler](@/apps/prismatic-czech-autocrawler.md) -- Czech registry adapters consuming the source protocol
+- [Cross Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Cross-domain intelligence synthesis leveraging source diversity
+- [Business Financial Intelligence Specialist](@/agents/business-financial-intelligence-specialist.md) -- Business source selection and analysis coordination
+- [Crawler Development Specialist](@/agents/crawler-development-specialist.md) -- Source adapter development and maintenance
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source evidence fusion and deduplication
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Source independence and signal plurality enforcement
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Source health monitoring and availability tracking
 
 ---
 
@@ -240,4 +240,4 @@ Health monitoring tests verify degradation detection, recovery triggering, and a
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

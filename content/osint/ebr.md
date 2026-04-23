@@ -25,13 +25,13 @@ image_alt = "EU Business Registry - Prismatic Platform"
 
 ## Overview
 
-The European Business [Registry](/glossary/registry-otp/) (EBR) and its successor system, the Business Registers Interconnection System (BRIS), represent the European Union's foundational infrastructure for cross-border corporate intelligence. Mandated by EU Directive 2012/17/EU (the Interconnection Directive) and subsequently strengthened by Directive 2019/1151/EU (the Digitalization Directive), BRIS provides a unified interface through which all national business registers of EU and EEA member states are interconnected, enabling seamless cross-border company searches, automated branch registration notifications, and sharing of disqualified director information.
+The European Business [Registry](@/glossary/registry-otp.md) (EBR) and its successor system, the Business Registers Interconnection System (BRIS), represent the European Union's foundational infrastructure for cross-border corporate intelligence. Mandated by EU Directive 2012/17/EU (the Interconnection Directive) and subsequently strengthened by Directive 2019/1151/EU (the Digitalization Directive), BRIS provides a unified interface through which all national business registers of EU and EEA member states are interconnected, enabling seamless cross-border company searches, automated branch registration notifications, and sharing of disqualified director information.
 
 The system addresses a fundamental challenge in European corporate intelligence: the fragmentation of company registration data across 30 independent national registers, each with its own data formats, access procedures, legal frameworks, and languages. Before BRIS, verifying a company's existence and status across European borders required navigating each national register individually, often requiring language expertise and understanding of local registration conventions. BRIS consolidates this fragmented landscape into a single access point through the European e-Justice portal.
 
 BRIS became fully operational on June 8, 2017, connecting the business registers of all 27 EU member states plus Iceland, Liechtenstein, and Norway (EEA). The system processes cross-border company searches, delivers automated notifications when branches are registered in other member states, shares information about cross-border mergers, and enables the exchange of disqualified director data across jurisdictions. Each company accessible through BRIS receives a standardized European Unique Identifier (EUID) in the format `{country_code}.{register_code}.{registration_number}`, enabling unambiguous cross-border entity identification.
 
-For [OSINT](/glossary/osint/) practitioners and due diligence professionals, BRIS/EBR provides the critical capability to trace corporate structures across European borders. When a Czech s.r.o. operates a branch in Germany, or a French SA has a subsidiary registered in Austria, BRIS connects these registrations and enables investigators to build complete multi-jurisdictional corporate group maps. This is essential for pan-European due diligence, beneficial ownership tracing, anti-money laundering compliance, and understanding multi-jurisdictional corporate groups.
+For [OSINT](@/glossary/osint.md) practitioners and due diligence professionals, BRIS/EBR provides the critical capability to trace corporate structures across European borders. When a Czech s.r.o. operates a branch in Germany, or a French SA has a subsidiary registered in Austria, BRIS connects these registrations and enables investigators to build complete multi-jurisdictional corporate group maps. This is essential for pan-European due diligence, beneficial ownership tracing, anti-money laundering compliance, and understanding multi-jurisdictional corporate groups.
 
 ## Data Sources and Coverage
 
@@ -56,9 +56,9 @@ BRIS aggregates data from national business registers across 30 countries, with 
 
 | Country | Register | National ID Format | Data Depth |
 |---------|----------|-------------------|------------|
-| **Czech Republic** | [Justice.cz](/osint/justice-cz/) / Obchodni rejstrik | ICO (8 digits) | High (full filings) |
+| **Czech Republic** | [Justice.cz](@/osint/justice-cz.md) / Obchodni rejstrik | ICO (8 digits) | High (full filings) |
 | **Germany** | Handelsregister | HRB/HRA + number | High |
-| **United Kingdom** | [Companies House](/osint/companies-house/) | 8-digit number | Very High |
+| **United Kingdom** | [Companies House](@/osint/companies-house.md) | 8-digit number | Very High |
 | **France** | Registre du Commerce (RCS) | SIREN (9 digits) | High |
 | **Netherlands** | Kamer van Koophandel (KvK) | KvK number (8 digits) | High |
 | **Austria** | Firmenbuch | FN + number | High |
@@ -267,7 +267,7 @@ BRIS's disqualified director sharing mechanism enables screening of proposed dir
 
 ### NIS2 Supply Chain Compliance
 
-The [NIS2](/glossary/nis2/) Directive requires covered entities to conduct supply chain due diligence, including verification of EU suppliers. BRIS provides the foundational entity verification capability for this compliance requirement, confirming the existence and status of suppliers registered in any EU member state.
+The [NIS2](@/glossary/nis2.md) Directive requires covered entities to conduct supply chain due diligence, including verification of EU suppliers. BRIS provides the foundational entity verification capability for this compliance requirement, confirming the existence and status of suppliers registered in any EU member state.
 
 ## Data Quality and Reliability
 
@@ -284,7 +284,7 @@ The [NIS2](/glossary/nis2/) Directive requires covered entities to conduct suppl
 
 BRIS/EBR provides the pan-European entity intelligence layer within the Prismatic Platform, enabling cross-border corporate structure tracing and multi-jurisdictional due diligence. The adapter aggregates BRIS portal queries with direct national register API access (where available) to maximize data depth and coverage.
 
-Results feed into the platform's entity resolution engine, linking BRIS entities with data from national registers ([ARES](/osint/ares/), [Companies House](/osint/companies-house/)), sanctions lists ([EU Sanctions](/osint/eu-sanctions/), [OFAC](/osint/ofac/)), and commercial intelligence sources.
+Results feed into the platform's entity resolution engine, linking BRIS entities with data from national registers ([ARES](@/osint/ares.md), [Companies House](@/osint/companies-house.md)), sanctions lists ([EU Sanctions](@/osint/eu-sanctions.md), [OFAC](@/osint/ofac.md)), and commercial intelligence sources.
 
 ## NABLA Compliance
 
@@ -312,13 +312,13 @@ Results feed into the platform's entity resolution engine, linking BRIS entities
 
 ## Related Resources
 
-- [ARES](/osint/ares/) - Czech national register connected via BRIS
-- [Justice.cz](/osint/justice-cz/) - Czech Commercial Register (BRIS source register)
-- [Companies House](/osint/companies-house/) - UK register connected via BRIS
-- [SEC EDGAR](/osint/sec-edgar/) - US filings for EU companies listed in US markets
-- [EU Sanctions](/osint/eu-sanctions/) - EU [sanctions screening](/glossary/sanctions-screening/) for BRIS entities
-- [OFAC](/osint/ofac/) - US sanctions for entities with US nexus
-- [Open Corporates](/osint/open-corporates/) - Commercial aggregator of global company data
+- [ARES](@/osint/ares.md) - Czech national register connected via BRIS
+- [Justice.cz](@/osint/justice-cz.md) - Czech Commercial Register (BRIS source register)
+- [Companies House](@/osint/companies-house.md) - UK register connected via BRIS
+- [SEC EDGAR](@/osint/sec-edgar.md) - US filings for EU companies listed in US markets
+- [EU Sanctions](@/osint/eu-sanctions.md) - EU [sanctions screening](@/glossary/sanctions-screening.md) for BRIS entities
+- [OFAC](@/osint/ofac.md) - US sanctions for entities with US nexus
+- [Open Corporates](@/osint/open-corporates.md) - Commercial aggregator of global company data
 
 ---
 
@@ -327,4 +327,4 @@ Results feed into the platform's entity resolution engine, linking BRIS entities
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

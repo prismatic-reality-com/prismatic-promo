@@ -237,10 +237,10 @@ enriched = PrismaticAgents.ContextEnricher.enrich(prompt, include_quality: true)
 
 ## Cross-References
 
-- [AIAD](/glossary/aiad/) - Agent specification standard defining system prompt structure
-- [LLM](/glossary/llm/) - Language model that consumes system prompts
+- [AIAD](@/glossary/aiad.md) - Agent specification standard defining system prompt structure
+- [LLM](@/glossary/llm.md) - Language model that consumes system prompts
 - **Temperature** - Parameter affecting response generation alongside prompts
-- [Agent](/glossary/agent/) - Specialized entity created through system prompt configuration
+- [Agent](@/glossary/agent.md) - Specialized entity created through system prompt configuration
 
 ---
 

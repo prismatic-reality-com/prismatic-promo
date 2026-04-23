@@ -28,7 +28,7 @@ image_alt = "Hidden Asset Detection Specialist - Prismatic Platform"
 
 ## Overview
 
-The Hidden Asset Detection Specialist is an L3 strategic authority operating within the Intelligence and Asset Discovery domain of the Prismatic Platform. This agent specializes in detecting concealed, undisclosed, or deliberately obscured assets through multi-source [OSINT](/glossary/osint/) (Open Source Intelligence) analysis and cross-referencing techniques. While standard asset discovery identifies directly declared holdings, the Hidden Asset Detection Specialist targets the gap between disclosed and actual asset ownership -- properties, companies, financial instruments, intellectual property, and digital infrastructure that exist but are not readily apparent through conventional information retrieval.
+The Hidden Asset Detection Specialist is an L3 strategic authority operating within the Intelligence and Asset Discovery domain of the Prismatic Platform. This agent specializes in detecting concealed, undisclosed, or deliberately obscured assets through multi-source [OSINT](@/glossary/osint.md) (Open Source Intelligence) analysis and cross-referencing techniques. While standard asset discovery identifies directly declared holdings, the Hidden Asset Detection Specialist targets the gap between disclosed and actual asset ownership -- properties, companies, financial instruments, intellectual property, and digital infrastructure that exist but are not readily apparent through conventional information retrieval.
 
 Hidden asset detection addresses a fundamental challenge in intelligence and due diligence operations: entities frequently structure their asset holdings to minimize visibility through intermediary ownership structures, nominee arrangements, multi-jurisdictional corporate layering, and deliberate information compartmentalization. The Specialist employs a combination of corporate registry analysis, property record examination, financial disclosure cross-referencing, and digital infrastructure mapping to pierce these obscuring structures and reconstruct actual ownership networks. This capability is critical for compliance investigations, due diligence assessments, and risk evaluation where undisclosed assets may represent material risk factors.
 
@@ -66,31 +66,31 @@ The Hidden Asset Detection Specialist provides six primary capabilities that ena
 
 The Specialist integrates with the platform's OSINT infrastructure through specialized collection adapters for corporate registries, property databases, financial disclosure systems, and digital infrastructure registries. Each adapter handles jurisdiction-specific authentication, data format parsing, and rate limit management.
 
-[Entity resolution](/glossary/entity-resolution/) uses [KuzuDB](/glossary/kuzudb/) graph database storage to model ownership networks, directorship relationships, and asset-entity associations. The graph model supports efficient path-finding queries that trace ownership chains through multiple intermediate entities, and community detection algorithms that identify connected components in ownership networks.
+[Entity resolution](@/glossary/entity-resolution.md) uses [KuzuDB](@/glossary/kuzudb.md) graph database storage to model ownership networks, directorship relationships, and asset-entity associations. The graph model supports efficient path-finding queries that trace ownership chains through multiple intermediate entities, and community detection algorithms that identify connected components in ownership networks.
 
-Cross-referencing logic is implemented through [GenStage](/glossary/genstage/) processing pipelines that parallel-process data from multiple sources and produce correlation events when matching entities or assets are identified across sources. The pipeline handles data quality challenges including name variations, address format differences, and temporal misalignment between source update frequencies.
+Cross-referencing logic is implemented through [GenStage](@/glossary/genstage.md) processing pipelines that parallel-process data from multiple sources and produce correlation events when matching entities or assets are identified across sources. The pipeline handles data quality challenges including name variations, address format differences, and temporal misalignment between source update frequencies.
 
-Findings are stored in [PostgreSQL](/glossary/postgresql/) through [Ecto](/glossary/ecto/) schemas that model the full evidence chain from source data through analytical inference to finding conclusion. The schema supports confidence scoring at each inference step, enabling end-to-end confidence assessment for complex multi-step analytical chains.
+Findings are stored in [PostgreSQL](@/glossary/postgresql.md) through [Ecto](@/glossary/ecto.md) schemas that model the full evidence chain from source data through analytical inference to finding conclusion. The schema supports confidence scoring at each inference step, enabling end-to-end confidence assessment for complex multi-step analytical chains.
 
-[Telemetry](/glossary/telemetry/) tracking covers collection coverage metrics per source type and jurisdiction, cross-referencing hit rates, entity resolution confidence distributions, and detection methodology effectiveness.
+[Telemetry](@/glossary/telemetry.md) tracking covers collection coverage metrics per source type and jurisdiction, cross-referencing hit rates, entity resolution confidence distributions, and detection methodology effectiveness.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [identity-intelligence-commander](/agents/identity-intelligence-commander/) | Provides identity resolution capabilities for asset-owner identification | Identity |
-| [green-beret-specialist](/agents/green-beret-specialist/) | Supports foreign-language source access for multi-jurisdictional investigations | Intelligence |
-| [intelligence-diffusion-coordinator-agent](/agents/intelligence-diffusion-coordinator-agent/) | Distributes hidden asset findings to consuming intelligence agents | Diffusion |
-| [intelligence-export-coordinator](/agents/intelligence-export-coordinator/) | Coordinates export of hidden asset intelligence reports | Export |
-| [email-intelligence-specialist](/agents/email-intelligence-specialist/) | Correlates email domain ownership with corporate asset detection | Intelligence |
+| [identity-intelligence-commander](@/agents/identity-intelligence-commander.md) | Provides identity resolution capabilities for asset-owner identification | Identity |
+| [green-beret-specialist](@/agents/green-beret-specialist.md) | Supports foreign-language source access for multi-jurisdictional investigations | Intelligence |
+| [intelligence-diffusion-coordinator-agent](@/agents/intelligence-diffusion-coordinator-agent.md) | Distributes hidden asset findings to consuming intelligence agents | Diffusion |
+| [intelligence-export-coordinator](@/agents/intelligence-export-coordinator.md) | Coordinates export of hidden asset intelligence reports | Export |
+| [email-intelligence-specialist](@/agents/email-intelligence-specialist.md) | Correlates email domain ownership with corporate asset detection | Intelligence |
 
 ## Evidence Standards
 
-All hidden asset findings adhere to the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. The Signal Plurality axiom requires that hidden asset claims are supported by evidence from at least two independent sources. The Provenance Mandatory axiom ensures that every finding includes a complete evidence chain. The Unknown Valid axiom acknowledges that hidden asset detection inherently operates with incomplete information, and findings explicitly state what remains unknown alongside what has been established.
+All hidden asset findings adhere to the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. The Signal Plurality axiom requires that hidden asset claims are supported by evidence from at least two independent sources. The Provenance Mandatory axiom ensures that every finding includes a complete evidence chain. The Unknown Valid axiom acknowledges that hidden asset detection inherently operates with incomplete information, and findings explicitly state what remains unknown alongside what has been established.
 
 ## Enforcement
 
-The Hidden Asset Detection Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. All hidden asset claims must be backed by verifiable evidence with complete source provenance. Confidence assessments must accurately reflect the strength of supporting evidence without inflation. Detection findings undergo [Trinity Gate](/glossary/trinity-gate/) validation for structural, logical, and formal consistency. No finding is published without peer review by at least one other intelligence agent. Data collection adheres to all applicable legal frameworks and privacy regulations.
+The Hidden Asset Detection Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. All hidden asset claims must be backed by verifiable evidence with complete source provenance. Confidence assessments must accurately reflect the strength of supporting evidence without inflation. Detection findings undergo [Trinity Gate](@/glossary/trinity-gate.md) validation for structural, logical, and formal consistency. No finding is published without peer review by at least one other intelligence agent. Data collection adheres to all applicable legal frameworks and privacy regulations.
 
 ---
 
@@ -99,4 +99,4 @@ The Hidden Asset Detection Specialist operates under the [NO MERCY, NO DOUBTS](/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

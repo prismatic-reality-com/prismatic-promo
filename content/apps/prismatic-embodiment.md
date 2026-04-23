@@ -23,11 +23,11 @@ image_alt = "Prismatic Embodiment - Prismatic Platform"
 
 ## Overview
 
-Prismatic Embodiment bridges the physical and digital worlds by providing IoT sensor integration, physical infrastructure monitoring, and real-world data collection capabilities. While the majority of the Prismatic Platform operates on digital data sources, many intelligence and security use cases require correlation with physical-world events -- building access logs, environmental sensor readings, network hardware locations, and physical perimeter monitoring. Embodiment provides the ingestion, normalization, and correlation layer that makes physical data a first-class citizen in the platform's intelligence pipeline. In the context of [EASM](/glossary/easm/), physical infrastructure monitoring is essential because digital [attack surface](/glossary/attack-surface/) exposure often originates from physical access vectors.
+Prismatic Embodiment bridges the physical and digital worlds by providing IoT sensor integration, physical infrastructure monitoring, and real-world data collection capabilities. While the majority of the Prismatic Platform operates on digital data sources, many intelligence and security use cases require correlation with physical-world events -- building access logs, environmental sensor readings, network hardware locations, and physical perimeter monitoring. Embodiment provides the ingestion, normalization, and correlation layer that makes physical data a first-class citizen in the platform's intelligence pipeline. In the context of [EASM](@/glossary/easm.md), physical infrastructure monitoring is essential because digital [attack surface](@/glossary/attack-surface.md) exposure often originates from physical access vectors.
 
-The module supports standard IoT protocols including MQTT, CoAP, and AMQP, allowing it to collect data from a wide variety of commercial sensor hardware without custom driver development. Incoming sensor readings are normalized into a unified time-series format with device metadata, measurement type, and [confidence scoring](/glossary/confidence-scoring/) annotations before being stored in [TimescaleDB](/glossary/timescaledb/) hypertables optimized for time-range queries. The [Elixir](/glossary/elixir/) [BEAM](/glossary/beam/) runtime's lightweight process model is particularly well-suited for this domain -- each sensor connection runs as an isolated [process](/glossary/process-isolation/), meaning a failure in one sensor's data stream cannot cascade to affect others.
+The module supports standard IoT protocols including MQTT, CoAP, and AMQP, allowing it to collect data from a wide variety of commercial sensor hardware without custom driver development. Incoming sensor readings are normalized into a unified time-series format with device metadata, measurement type, and [confidence scoring](@/glossary/confidence-scoring.md) annotations before being stored in [TimescaleDB](@/glossary/timescaledb.md) hypertables optimized for time-range queries. The [Elixir](@/glossary/elixir.md) [BEAM](@/glossary/beam.md) runtime's lightweight process model is particularly well-suited for this domain -- each sensor connection runs as an isolated [process](@/glossary/process-isolation.md), meaning a failure in one sensor's data stream cannot cascade to affect others.
 
-Beyond simple data collection, Embodiment provides anomaly detection on sensor streams. By establishing baseline behavioral profiles for each sensor, the module can detect deviations -- unexpected temperature spikes in a server room, after-hours motion in a restricted area, or environmental conditions suggesting physical tampering with infrastructure. These anomalies are emitted as platform events that downstream modules like [Prismatic Influence](/apps/prismatic-influence/) and [Prismatic Override](/apps/prismatic-override/) can act upon, following the platform's [event sourcing](/glossary/event-sourcing/) pattern for full traceability.
+Beyond simple data collection, Embodiment provides anomaly detection on sensor streams. By establishing baseline behavioral profiles for each sensor, the module can detect deviations -- unexpected temperature spikes in a server room, after-hours motion in a restricted area, or environmental conditions suggesting physical tampering with infrastructure. These anomalies are emitted as platform events that downstream modules like [Prismatic Influence](@/apps/prismatic-influence.md) and [Prismatic Override](@/apps/prismatic-override.md) can act upon, following the platform's [event sourcing](@/glossary/event-sourcing.md) pattern for full traceability.
 
 ## Architecture
 
@@ -40,9 +40,9 @@ IoT Devices --> Protocol Adapters --> Broadway Pipeline --> Storage + PubSub
   Custom       Device Registry      Multi-Sensor Fuse    Dashboard Feed
 ```
 
-Embodiment is structured around a **Device [Registry](/glossary/registry-otp/)** and a **Stream Processor**. The Device Registry is an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) that maintains metadata for all connected sensors -- device ID, [protocol](/glossary/protocol/), location, measurement types, and health status. The Stream Processor is a [Broadway](/glossary/broadway/) pipeline that consumes messages from protocol-specific producers (MQTT, CoAP, AMQP), normalizes readings, applies anomaly detection, and writes results to both TimescaleDB for persistence and [PubSub](/glossary/pubsub/) for real-time distribution.
+Embodiment is structured around a **Device [Registry](@/glossary/registry-otp.md)** and a **Stream Processor**. The Device Registry is an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) that maintains metadata for all connected sensors -- device ID, [protocol](@/glossary/protocol.md), location, measurement types, and health status. The Stream Processor is a [Broadway](@/glossary/broadway.md) pipeline that consumes messages from protocol-specific producers (MQTT, CoAP, AMQP), normalizes readings, applies anomaly detection, and writes results to both TimescaleDB for persistence and [PubSub](@/glossary/pubsub.md) for real-time distribution.
 
-Each protocol adapter runs as a supervised child under the Embodiment [supervisor](/glossary/supervisor/), and new protocols can be added by implementing the `PrismaticEmbodiment.Protocol` [behaviour](/glossary/behaviour/) without modifying existing code -- a clean application of the [adapter pattern](/glossary/adapter-pattern/).
+Each protocol adapter runs as a supervised child under the Embodiment [supervisor](@/glossary/supervisor.md), and new protocols can be added by implementing the `PrismaticEmbodiment.Protocol` [behaviour](@/glossary/behaviour.md) without modifying existing code -- a clean application of the [adapter pattern](@/glossary/adapter-pattern.md).
 
 ## Key Modules
 
@@ -61,10 +61,10 @@ Each protocol adapter runs as a supervised child under the Embodiment [superviso
 ## Key Features
 
 ### Sensor Integration
-- IoT protocol support for MQTT 5.0, CoAP, and AMQP with automatic reconnection and [circuit breaker](/glossary/circuit-breaker/)
+- IoT protocol support for MQTT 5.0, CoAP, and AMQP with automatic reconnection and [circuit breaker](@/glossary/circuit-breaker.md)
 - Sensor data normalization into unified `%Reading{}` structs with metadata
-- Time-series ingestion pipeline using Broadway for [backpressure](/glossary/backpressure/)-aware processing
-- Device health monitoring with automatic stale-device detection and alerting via [Telemetry](/glossary/telemetry/)
+- Time-series ingestion pipeline using Broadway for [backpressure](@/glossary/backpressure.md)-aware processing
+- Device health monitoring with automatic stale-device detection and alerting via [Telemetry](@/glossary/telemetry.md)
 
 ### Physical Intelligence
 - Geospatial correlation of digital events with physical sensor data using PostGIS
@@ -73,16 +73,16 @@ Each protocol adapter runs as a supervised child under the Embodiment [superviso
 - Asset location intelligence through BLE beacon and RFID reader integration
 
 ### Anomaly Detection
-- Real-time sensor data [stream processing](/glossary/stream-processing/) with configurable window functions
+- Real-time sensor data [stream processing](@/glossary/stream-processing.md) with configurable window functions
 - Anomaly detection using rolling baseline comparison with adaptive thresholds
 - Historical trend analysis with automatic downsampling for long-range queries
 - Multi-sensor data fusion combining readings from co-located sensors for higher confidence
 
 ### Data Management
-- [Data pipeline](/glossary/data-pipeline/) with configurable retention policies per sensor type
-- Compressed archival for historical sensor data via [Prismatic Compression](/apps/prismatic-compression/)
-- [Structured logging](/glossary/structured-logging/) of all device lifecycle events for [audit trail](/glossary/audit-trail/)
-- [GDPR](/glossary/gdpr/)-compliant handling of location data tied to individuals
+- [Data pipeline](@/glossary/data-pipeline.md) with configurable retention policies per sensor type
+- Compressed archival for historical sensor data via [Prismatic Compression](@/apps/prismatic-compression.md)
+- [Structured logging](@/glossary/structured-logging.md) of all device lifecycle events for [audit trail](@/glossary/audit-trail.md)
+- [GDPR](@/glossary/gdpr.md)-compliant handling of location data tied to individuals
 
 ## Protocol Adapter Design
 
@@ -193,11 +193,11 @@ Integration tests exercise the full pipeline from protocol adapter through norma
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Override](/apps/prismatic-override/) | Emergency responses triggered by physical anomalies |
-| [Prismatic Property Intelligence](/apps/prismatic-property-intelligence/) | Location data enrichment for property analysis |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Physical sensor anomalies contribute to attack surface assessment |
-| [Prismatic Compression](/apps/prismatic-compression/) | High-volume sensor data compression for archival |
-| [Prismatic Narrative](/apps/prismatic-narrative/) | Timeline construction from correlated physical and digital events |
+| [Prismatic Override](@/apps/prismatic-override.md) | Emergency responses triggered by physical anomalies |
+| [Prismatic Property Intelligence](@/apps/prismatic-property-intelligence.md) | Location data enrichment for property analysis |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Physical sensor anomalies contribute to attack surface assessment |
+| [Prismatic Compression](@/apps/prismatic-compression.md) | High-volume sensor data compression for archival |
+| [Prismatic Narrative](@/apps/prismatic-narrative.md) | Timeline construction from correlated physical and digital events |
 
 ## Performance
 
@@ -209,18 +209,18 @@ Integration tests exercise the full pipeline from protocol adapter through norma
 | Device registration | < 5ms | ETS-backed registry |
 | Multi-sensor fusion | < 100ms | Concurrent sensor data aggregation |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :embodiment, :reading_ingested]`, `[:prismatic, :embodiment, :anomaly_detected]`, `[:prismatic, :embodiment, :device_stale]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :embodiment, :reading_ingested]`, `[:prismatic, :embodiment, :anomaly_detected]`, `[:prismatic, :embodiment, :device_stale]`.
 
 ## Related Resources
 
-- [Prismatic Override](/apps/prismatic-override/) -- Emergency response triggered by physical anomalies
-- [Prismatic Suppression](/apps/prismatic-suppression/) -- Noise filtering for high-volume sensor alerts
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Manages sensor anomaly alert routing and escalation
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Reviews IoT protocol adapter implementations
-- [Elixir Architect](/agents/elixir-architect/) -- Ensures Broadway pipeline and OTP supervision design follows best practices
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Sensor data feeds into platform-wide monitoring dashboards
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Device health and pipeline metrics instrumented through Telemetry
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Physical-digital data fusion for comprehensive situational awareness
+- [Prismatic Override](@/apps/prismatic-override.md) -- Emergency response triggered by physical anomalies
+- [Prismatic Suppression](@/apps/prismatic-suppression.md) -- Noise filtering for high-volume sensor alerts
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Manages sensor anomaly alert routing and escalation
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Reviews IoT protocol adapter implementations
+- [Elixir Architect](@/agents/elixir-architect.md) -- Ensures Broadway pipeline and OTP supervision design follows best practices
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Sensor data feeds into platform-wide monitoring dashboards
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Device health and pipeline metrics instrumented through Telemetry
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Physical-digital data fusion for comprehensive situational awareness
 
 ---
 
@@ -229,4 +229,4 @@ Integration tests exercise the full pipeline from protocol adapter through norma
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -147,4 +147,4 @@ The journey from monolith to 94 apps took 18 months and three major refactoring 
 
 ---
 
-*Read more about the architecture at [Architecture Documentation](/architecture/) or explore the [Umbrella Structure](/blog/umbrella-architecture-at-scale/) for technical patterns.*
+*Read more about the architecture at [Architecture Documentation](@/architecture/_index.md) or explore the [Umbrella Structure](@/blog/umbrella-architecture-at-scale.md) for technical patterns.*

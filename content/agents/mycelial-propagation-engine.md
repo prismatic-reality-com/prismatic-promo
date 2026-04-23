@@ -28,9 +28,9 @@ image_alt = "Mycelial Propagation Engine - Prismatic Platform"
 
 ## Overview
 
-The Mycelial Propagation Engine operates as an L2 Tactical Operations authority within the Prismatic Platform's cross-platform pattern distribution domain, providing the formally verified execution substrate for pattern propagation across the [mycelial network](/glossary/mycelial-network/). While higher-level agents like the Mycelial Network Supreme manage routing decisions and propagation strategy, the Propagation Engine handles the technical execution of pattern delivery with mathematical guarantees of safety. Five core [Lean4](/glossary/lean4/) theorems establish formal proofs that propagation operations preserve network integrity, prevent information loss, maintain ordering guarantees, respect capacity constraints, and ensure termination.
+The Mycelial Propagation Engine operates as an L2 Tactical Operations authority within the Prismatic Platform's cross-platform pattern distribution domain, providing the formally verified execution substrate for pattern propagation across the [mycelial network](@/glossary/mycelial-network.md). While higher-level agents like the Mycelial Network Supreme manage routing decisions and propagation strategy, the Propagation Engine handles the technical execution of pattern delivery with mathematical guarantees of safety. Five core [Lean4](@/glossary/lean4.md) theorems establish formal proofs that propagation operations preserve network integrity, prevent information loss, maintain ordering guarantees, respect capacity constraints, and ensure termination.
 
-Built on the [AIAD](/glossary/aiad/) standard and implemented within the [SEADF](/glossary/seadf/) evolutionary framework, the engine combines the practical efficiency of Elixir's [message passing](/glossary/message-passing/) infrastructure with the mathematical rigor of formal verification. This dual approach ensures that pattern propagation is both fast enough for real-time operations (sub-second delivery for critical patterns) and safe enough for mission-critical information distribution (no pattern loss, no ordering violation, no capacity overflow). The [NO DOUBTS](/glossary/no-doubts/) principle is embedded in the engine's architecture: every propagation guarantee is backed by formal proof rather than empirical testing alone.
+Built on the [AIAD](@/glossary/aiad.md) standard and implemented within the [SEADF](@/glossary/seadf.md) evolutionary framework, the engine combines the practical efficiency of Elixir's [message passing](@/glossary/message-passing.md) infrastructure with the mathematical rigor of formal verification. This dual approach ensures that pattern propagation is both fast enough for real-time operations (sub-second delivery for critical patterns) and safe enough for mission-critical information distribution (no pattern loss, no ordering violation, no capacity overflow). The [NO DOUBTS](@/glossary/no-doubts.md) principle is embedded in the engine's architecture: every propagation guarantee is backed by formal proof rather than empirical testing alone.
 
 ## Formal Verification Framework
 
@@ -48,9 +48,9 @@ The five core Lean4 theorems that govern the Propagation Engine establish rigoro
 
 ## Operational Domain
 
-The cross-platform pattern distribution domain covers the technical execution of pattern delivery across all mycelial network channels. The engine operates as the execution layer beneath the routing decisions made by higher-level propagation management agents. It receives propagation directives (pattern + target domain list + quality-of-service requirements) and executes them through the platform's [message passing](/glossary/message-passing/) infrastructure, maintaining formal invariants throughout execution.
+The cross-platform pattern distribution domain covers the technical execution of pattern delivery across all mycelial network channels. The engine operates as the execution layer beneath the routing decisions made by higher-level propagation management agents. It receives propagation directives (pattern + target domain list + quality-of-service requirements) and executes them through the platform's [message passing](@/glossary/message-passing.md) infrastructure, maintaining formal invariants throughout execution.
 
-The engine manages propagation buffers for each target domain, implementing backpressure through the [GenStage](/glossary/genstage/) demand model to prevent overwhelming consumers. Buffer management respects the Capacity Boundedness theorem by enforcing per-domain and global in-flight pattern limits. When limits are approached, the engine applies priority-based admission control that rejects lower-priority patterns while maintaining delivery guarantees for higher-priority ones.
+The engine manages propagation buffers for each target domain, implementing backpressure through the [GenStage](@/glossary/genstage.md) demand model to prevent overwhelming consumers. Buffer management respects the Capacity Boundedness theorem by enforcing per-domain and global in-flight pattern limits. When limits are approached, the engine applies priority-based admission control that rejects lower-priority patterns while maintaining delivery guarantees for higher-priority ones.
 
 ## Key Capabilities
 
@@ -58,20 +58,20 @@ The engine manages propagation buffers for each target domain, implementing back
 - **Multi-channel propagation** -- Manages dedicated propagation channels for each target domain with independent flow control, enabling different domains to consume patterns at different rates without mutual interference
 - **Priority-based admission control** -- When propagation capacity is constrained, applies priority-weighted admission that ensures critical patterns are delivered while lower-priority patterns are explicitly rejected with recorded reasons
 - **Causal dependency tracking** -- Maintains a dependency graph between patterns, ensuring that causally related patterns are delivered in correct order across all target domains
-- **Backpressure-aware delivery** -- Integrates with consumer demand signals through [GenStage](/glossary/genstage/) to adapt delivery rates to consumer processing capacity, preventing buffer overflows and consumer overload
+- **Backpressure-aware delivery** -- Integrates with consumer demand signals through [GenStage](@/glossary/genstage.md) to adapt delivery rates to consumer processing capacity, preventing buffer overflows and consumer overload
 - **Delivery confirmation** -- Tracks per-pattern delivery status with confirmed delivery receipts from consumers, enabling end-to-end delivery verification
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-managed buffer levels, adaptive delivery rates, and automatic failover for degraded channels
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing propagation metrics including delivery latency distributions, buffer utilization, admission control statistics, and per-theorem invariant verification results
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-managed buffer levels, adaptive delivery rates, and automatic failover for degraded channels
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing propagation metrics including delivery latency distributions, buffer utilization, admission control statistics, and per-theorem invariant verification results
 
 ## Authority Level
 
-**L2** - Tactical Operations - Domain-specific [tactical execution](/glossary/tactical-execution/) with authority over pattern delivery mechanics, buffer management, and flow control within the propagation infrastructure.
+**L2** - Tactical Operations - Domain-specific [tactical execution](@/glossary/tactical-execution.md) with authority over pattern delivery mechanics, buffer management, and flow control within the propagation infrastructure.
 
 ## Engine Architecture
 
-The Propagation Engine is implemented as an [OTP](/glossary/otp/) application with a [supervision tree](/glossary/supervision-tree/) that isolates per-domain delivery workers from the central coordination process. The central coordinator receives propagation directives from higher-level agents, validates them against formal invariants, assigns them to domain-specific delivery workers, and tracks their lifecycle through to terminal state.
+The Propagation Engine is implemented as an [OTP](@/glossary/otp.md) application with a [supervision tree](@/glossary/supervision-tree.md) that isolates per-domain delivery workers from the central coordination process. The central coordinator receives propagation directives from higher-level agents, validates them against formal invariants, assigns them to domain-specific delivery workers, and tracks their lifecycle through to terminal state.
 
-Each delivery worker operates as an independent [GenServer](/glossary/genserver/) process, managed by a [Dynamic Supervisor](/glossary/dynamic-supervisor/) that enables runtime scaling. When propagation traffic to a specific domain increases, additional workers are spawned to handle the load. When traffic decreases, excess workers are gracefully terminated. [Process isolation](/glossary/process-isolation/) ensures that a delivery worker crash does not affect workers for other domains.
+Each delivery worker operates as an independent [GenServer](@/glossary/genserver.md) process, managed by a [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) that enables runtime scaling. When propagation traffic to a specific domain increases, additional workers are spawned to handle the load. When traffic decreases, excess workers are gracefully terminated. [Process isolation](@/glossary/process-isolation.md) ensures that a delivery worker crash does not affect workers for other domains.
 
 The engine maintains an in-memory causal dependency graph that tracks relationships between patterns. Before delivering a pattern, the engine verifies that all causally prior patterns have been confirmed delivered to the same target domain. If a dependency has not yet been delivered, the dependent pattern is held in a dependency-wait buffer until its prerequisites are satisfied.
 
@@ -88,18 +88,18 @@ The engine maintains an in-memory causal dependency graph that tracks relationsh
 
 | Agent | Relationship |
 |-------|-------------|
-| [mycelial-network-supreme](/agents/mycelial-network-supreme/) | Receives propagation directives with routing decisions and QoS requirements |
-| [mycelial-network-coordinator](/agents/mycelial-network-coordinator/) | Reports propagation health metrics and receives resource allocation adjustments |
-| [mycelial-healer-specialist](/agents/mycelial-healer-specialist/) | Coordinates channel repair when delivery failures indicate network degradation |
-| [network-health-monitor](/agents/network-health-monitor/) | Provides network health context for delivery path selection |
+| [mycelial-network-supreme](@/agents/mycelial-network-supreme.md) | Receives propagation directives with routing decisions and QoS requirements |
+| [mycelial-network-coordinator](@/agents/mycelial-network-coordinator.md) | Reports propagation health metrics and receives resource allocation adjustments |
+| [mycelial-healer-specialist](@/agents/mycelial-healer-specialist.md) | Coordinates channel repair when delivery failures indicate network degradation |
+| [network-health-monitor](@/agents/network-health-monitor.md) | Provides network health context for delivery path selection |
 
 ## Invariant Monitoring
 
-The engine continuously monitors compliance with its five formal invariants through runtime assertion checking. Each invariant has a corresponding monitoring function that evaluates the current engine state against the invariant's requirements. Monitoring runs at configurable intervals (default: every 100 propagation operations) and publishes verification results through [telemetry](/glossary/telemetry/). An invariant violation triggers an emergency response: the engine halts propagation, preserves current state for forensic analysis, and notifies the [mycelial-network-coordinator](/agents/mycelial-network-coordinator/) for intervention.
+The engine continuously monitors compliance with its five formal invariants through runtime assertion checking. Each invariant has a corresponding monitoring function that evaluates the current engine state against the invariant's requirements. Monitoring runs at configurable intervals (default: every 100 propagation operations) and publishes verification results through [telemetry](@/glossary/telemetry.md). An invariant violation triggers an emergency response: the engine halts propagation, preserves current state for forensic analysis, and notifies the [mycelial-network-coordinator](@/agents/mycelial-network-coordinator.md) for intervention.
 
 ## Enforcement
 
-The Propagation Engine enforces the [NO MERCY](/glossary/no-mercy/) doctrine at the execution level: no pattern is silently dropped, no ordering violation is tolerated, and no capacity overflow is permitted. The [NO DOUBTS](/glossary/no-doubts/) principle is embodied in the formal verification approach: delivery guarantees are proven rather than merely tested. The [Trinity Gate](/glossary/trinity-gate/) validates that the engine's runtime behavior conforms to its formal specification, with structural, logical, and formal consistency checks applied to every state transition.
+The Propagation Engine enforces the [NO MERCY](@/glossary/no-mercy.md) doctrine at the execution level: no pattern is silently dropped, no ordering violation is tolerated, and no capacity overflow is permitted. The [NO DOUBTS](@/glossary/no-doubts.md) principle is embodied in the formal verification approach: delivery guarantees are proven rather than merely tested. The [Trinity Gate](@/glossary/trinity-gate.md) validates that the engine's runtime behavior conforms to its formal specification, with structural, logical, and formal consistency checks applied to every state transition.
 
 ---
 
@@ -108,4 +108,4 @@ The Propagation Engine enforces the [NO MERCY](/glossary/no-mercy/) doctrine at 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -41,7 +41,7 @@ Macros in Elixir are compile-time metaprogramming constructs that receive abstra
 
 The theoretical foundation of Elixir's macro system derives from homoiconicity -- the property that code and data share the same representation. In Elixir, every expression can be represented as a three-element tuple `{atom, metadata, arguments}` forming the AST. The `quote` special form converts code into its AST representation, and `unquote` injects values into a quoted expression. This uniform representation means that macros manipulate code using the same data structures and functions used for any other data processing, making metaprogramming a natural extension of regular programming rather than a separate discipline requiring specialized syntax.
 
-Elixir itself is substantially built on macros. Core language constructs including `def`, `defmodule`, `if`, `unless`, `case`, `cond`, `with`, and the [pipe operator](/glossary/pipe-operator/) `|>` are implemented as macros in the standard library, expanding to lower-level primitives during compilation. This design philosophy -- building the language from a minimal core and expressing higher-level constructs as macros -- provides both extensibility and transparency. Developers can inspect how any language construct works by examining its macro implementation, and they can create similarly powerful constructs for their own domains. The macro system is one of the features that distinguishes [Elixir](/glossary/elixir/) from other [BEAM](/glossary/beam/) languages and is deeply integrated into how the Prismatic Platform generates reliable, type-safe code across its 115 umbrella applications.
+Elixir itself is substantially built on macros. Core language constructs including `def`, `defmodule`, `if`, `unless`, `case`, `cond`, `with`, and the [pipe operator](@/glossary/pipe-operator.md) `|>` are implemented as macros in the standard library, expanding to lower-level primitives during compilation. This design philosophy -- building the language from a minimal core and expressing higher-level constructs as macros -- provides both extensibility and transparency. Developers can inspect how any language construct works by examining its macro implementation, and they can create similarly powerful constructs for their own domains. The macro system is one of the features that distinguishes [Elixir](@/glossary/elixir.md) from other [BEAM](@/glossary/beam.md) languages and is deeply integrated into how the Prismatic Platform generates reliable, type-safe code across its 115 umbrella applications.
 
 ## Historical Context and Theoretical Foundations
 
@@ -130,7 +130,7 @@ defmacro unhygienic_example(var_name) do
 end
 ```
 
-The `var!` function is the explicit escape hatch from hygiene. Every usage of `var!` should be treated as a code smell requiring justification and documentation. The Prismatic Platform's [Credo](/glossary/credo/) configuration includes a custom check that flags `var!` usage for mandatory review.
+The `var!` function is the explicit escape hatch from hygiene. Every usage of `var!` should be treated as a code smell requiring justification and documentation. The Prismatic Platform's [Credo](@/glossary/credo.md) configuration includes a custom check that flags `var!` usage for mandatory review.
 
 ### Compile-Time vs Runtime
 
@@ -356,7 +356,7 @@ IO.puts(Macro.to_string(expanded))
 
 ### The @compile :debug_info Attribute
 
-Adding `@compile :debug_info` to a module preserves macro expansion information in the compiled BEAM file, enabling [Dialyzer](/glossary/dialyzer/) and other analysis tools to reason about the generated code. The Prismatic Platform enables debug info globally for all compilation modes through the project configuration.
+Adding `@compile :debug_info` to a module preserves macro expansion information in the compiled BEAM file, enabling [Dialyzer](@/glossary/dialyzer.md) and other analysis tools to reason about the generated code. The Prismatic Platform enables debug info globally for all compilation modes through the project configuration.
 
 ### IEx Helpers
 
@@ -404,37 +404,37 @@ Macros have zero runtime overhead because all macro code executes during compila
 
 ## Use Cases
 
-- **Contract Test Generation**: The `AdapterContractTest` macro generates standardized test suites for all storage adapters ([ETS](/glossary/ets/), Ecto, Meilisearch, KuzuDB), ensuring consistent contract compliance across the 7-backend storage architecture.
+- **Contract Test Generation**: The `AdapterContractTest` macro generates standardized test suites for all storage adapters ([ETS](@/glossary/ets.md), Ecto, Meilisearch, KuzuDB), ensuring consistent contract compliance across the 7-backend storage architecture.
 
-- **Behaviour Callback Boilerplate**: Macros generate default implementations for OTP [behaviour](/glossary/behaviour/) callbacks ([GenServer](/glossary/genserver/), Supervisor), reducing repetitive code across the platform's hundreds of GenServer processes.
+- **Behaviour Callback Boilerplate**: Macros generate default implementations for OTP [behaviour](@/glossary/behaviour.md) callbacks ([GenServer](@/glossary/genserver.md), Supervisor), reducing repetitive code across the platform's hundreds of GenServer processes.
 
-- **Typespec Generation**: Macros generate `@spec` annotations from struct definitions, maintaining [typespec](/glossary/typespec/) coverage without manual annotation of every function.
+- **Typespec Generation**: Macros generate `@spec` annotations from struct definitions, maintaining [typespec](@/glossary/typespec.md) coverage without manual annotation of every function.
 
 - **Telemetry Instrumentation**: The instrumentation macro adds telemetry event emission to functions without modifying their logic, enabling observability across the platform with minimal code intrusion.
 
-- **Mix Task Definition**: Custom [Mix](/glossary/mix/) tasks use macros to define standardized task metadata (description, shortdoc, moduledoc) and argument parsing boilerplate.
+- **Mix Task Definition**: Custom [Mix](@/glossary/mix.md) tasks use macros to define standardized task metadata (description, shortdoc, moduledoc) and argument parsing boilerplate.
 
 - **Quality Gate Enforcement**: Compile-time macros verify that modules comply with platform quality standards, catching violations before code reaches the test or deployment stages.
 
 ## Related Concepts
 
-- [Elixir](/glossary/elixir/) -- Language providing the macro system and AST manipulation primitives
-- [Protocol](/glossary/protocol/) -- Polymorphism mechanism that macros help implement across types
-- [Behaviour](/glossary/behaviour/) -- Callback contracts that macros can auto-implement
-- [Pattern Matching](/glossary/pattern-matching/) -- Core language feature used within macro-generated code
-- [Mix](/glossary/mix/) -- Build tool that orchestrates compilation triggering macro expansion
-- [BEAM](/glossary/beam/) -- Virtual machine executing compiled macro-expanded bytecode
-- [Pipe Operator](/glossary/pipe-operator/) -- Language construct itself implemented as a macro
-- [GenServer](/glossary/genserver/) -- OTP behaviour with macro-generated callback boilerplate
-- [Dialyzer](/glossary/dialyzer/) -- Type analysis tool that analyzes macro-expanded code
-- [Credo](/glossary/credo/) -- Static analysis tool enforcing macro usage policies
-- [ETS](/glossary/ets/) -- Storage backend with macro-generated contract tests
+- [Elixir](@/glossary/elixir.md) -- Language providing the macro system and AST manipulation primitives
+- [Protocol](@/glossary/protocol.md) -- Polymorphism mechanism that macros help implement across types
+- [Behaviour](@/glossary/behaviour.md) -- Callback contracts that macros can auto-implement
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Core language feature used within macro-generated code
+- [Mix](@/glossary/mix.md) -- Build tool that orchestrates compilation triggering macro expansion
+- [BEAM](@/glossary/beam.md) -- Virtual machine executing compiled macro-expanded bytecode
+- [Pipe Operator](@/glossary/pipe-operator.md) -- Language construct itself implemented as a macro
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour with macro-generated callback boilerplate
+- [Dialyzer](@/glossary/dialyzer.md) -- Type analysis tool that analyzes macro-expanded code
+- [Credo](@/glossary/credo.md) -- Static analysis tool enforcing macro usage policies
+- [ETS](@/glossary/ets.md) -- Storage backend with macro-generated contract tests
 
 ## See Also
 
-- [Architecture](/architecture/) -- Code generation patterns and metaprogramming architecture
-- [Technologies](/technologies/) -- Elixir macro system and compile-time tooling
-- [Capabilities](/capabilities/) -- Code generation and automation capabilities
+- [Architecture](@/architecture/_index.md) -- Code generation patterns and metaprogramming architecture
+- [Technologies](@/technologies/_index.md) -- Elixir macro system and compile-time tooling
+- [Capabilities](@/capabilities/_index.md) -- Code generation and automation capabilities
 
 ---
 
@@ -443,4 +443,4 @@ Macros have zero runtime overhead because all macro code executes during compila
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

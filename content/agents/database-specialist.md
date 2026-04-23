@@ -28,9 +28,9 @@ image_alt = "database-specialist - Prismatic Platform"
 
 ## Overview
 
-The Database Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Development domain of the Prismatic Platform. This agent provides deep [PostgreSQL](/glossary/postgresql/) expertise including schema design, [Ecto](/glossary/ecto/) migration management, query optimization, indexing strategy, and data integrity enforcement. Every database schema change in the Prismatic ecosystem passes through this agent's review process to ensure correctness, performance, and backward compatibility with existing data.
+The Database Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Development domain of the Prismatic Platform. This agent provides deep [PostgreSQL](@/glossary/postgresql.md) expertise including schema design, [Ecto](@/glossary/ecto.md) migration management, query optimization, indexing strategy, and data integrity enforcement. Every database schema change in the Prismatic ecosystem passes through this agent's review process to ensure correctness, performance, and backward compatibility with existing data.
 
-Database operations in a platform with 90 [umbrella application](/glossary/umbrella-application/)s and multiple storage backends demand rigorous discipline. The Database Specialist ensures that Ecto schemas follow normalization best practices (typically 3NF), that migrations are reversible and idempotent, that indexes are strategically placed on frequently queried columns, and that complex queries use EXPLAIN ANALYZE for performance validation before deployment. The agent also manages the interaction between PostgreSQL and the platform's other storage systems including [ETS](/glossary/ets/) for in-memory caching, [Meilisearch](/glossary/meilisearch/) for full-text search, and [KuzuDB](/glossary/kuzudb/) for graph operations.
+Database operations in a platform with 90 [umbrella application](@/glossary/umbrella-application.md)s and multiple storage backends demand rigorous discipline. The Database Specialist ensures that Ecto schemas follow normalization best practices (typically 3NF), that migrations are reversible and idempotent, that indexes are strategically placed on frequently queried columns, and that complex queries use EXPLAIN ANALYZE for performance validation before deployment. The agent also manages the interaction between PostgreSQL and the platform's other storage systems including [ETS](@/glossary/ets.md) for in-memory caching, [Meilisearch](@/glossary/meilisearch.md) for full-text search, and [KuzuDB](@/glossary/kuzudb.md) for graph operations.
 
 The Database Specialist serves as the primary point of contact for development teams working on database-related features, providing guidance that balances the immediate needs of feature development against the long-term health of the data layer.
 
@@ -94,13 +94,13 @@ Consistency monitoring detects inconsistencies between storage backends that sho
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [code-specialist](/agents/code-specialist/) | Code Partner | Coordinates on Ecto schema code generation and database-related implementations |
-| [data-integrity-specialist](/agents/data-integrity-specialist/) | Integrity Partner | Validates data integrity constraints and cross-system consistency |
-| [database-performance-specialist](/agents/database-performance-specialist/) | Performance Partner | Collaborates on query optimization and index strategy decisions |
+| [code-specialist](@/agents/code-specialist.md) | Code Partner | Coordinates on Ecto schema code generation and database-related implementations |
+| [data-integrity-specialist](@/agents/data-integrity-specialist.md) | Integrity Partner | Validates data integrity constraints and cross-system consistency |
+| [database-performance-specialist](@/agents/database-performance-specialist.md) | Performance Partner | Collaborates on query optimization and index strategy decisions |
 
 ## Enforcement
 
-All database operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No migration reaches production without reversibility verification and performance impact assessment. Every schema change must include corresponding test coverage for the affected data paths. Queries that exceed performance thresholds are blocked until optimized, and direct database access bypassing Ecto repositories is a quality gate violation with zero exceptions.
+All database operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No migration reaches production without reversibility verification and performance impact assessment. Every schema change must include corresponding test coverage for the affected data paths. Queries that exceed performance thresholds are blocked until optimized, and direct database access bypassing Ecto repositories is a quality gate violation with zero exceptions.
 
 ---
 
@@ -109,4 +109,4 @@ All database operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-m
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

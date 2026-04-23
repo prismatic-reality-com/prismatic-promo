@@ -78,7 +78,7 @@ Adversarial Architecture defines five fundamental primitives that cover the full
 
 **2. Confidence Manipulation**: Artificially inflating or deflating certainty scores without changing underlying facts. Systems that use confidence thresholds for decision-making are vulnerable to attacks that push marginal decisions across threshold boundaries. Example: injecting auxiliary evidence that does not directly address a hypothesis but statistically inflates its confidence through correlation effects.
 
-**3. Signal Poisoning**: Introducing false signals into evidence streams to corrupt the [Signal Plurality](/glossary/signal-plurality/) requirement. Poisoned signals are designed to appear independent, undermining the assumption that multiple confirming sources provide robustness. Example: creating multiple apparently independent websites that all reference the same fabricated source, creating an illusion of independent confirmation.
+**3. Signal Poisoning**: Introducing false signals into evidence streams to corrupt the [Signal Plurality](@/glossary/signal-plurality.md) requirement. Poisoned signals are designed to appear independent, undermining the assumption that multiple confirming sources provide robustness. Example: creating multiple apparently independent websites that all reference the same fabricated source, creating an illusion of independent confirmation.
 
 **4. Drift Induction**: Introducing sub-threshold changes that individually pass detection but collectively shift system behavior over time. This is the most insidious primitive because each individual change is genuinely below the detection threshold -- only the cumulative effect is harmful. Example: modifying configuration parameters by 0.1% per update cycle, resulting in a 10% deviation after 100 cycles.
 
@@ -249,13 +249,13 @@ end
 
 ### Trinity Gate Integration
 
-All claims produced by the adversarial architecture -- defensive assertions, vulnerability assessments, and closure decisions -- must pass through the [Trinity Gate](/glossary/trinity-gate/):
+All claims produced by the adversarial architecture -- defensive assertions, vulnerability assessments, and closure decisions -- must pass through the [Trinity Gate](@/glossary/trinity-gate.md):
 
 1. **Structural Consistency**: The belief network formed by adversarial findings must be a valid DAG without circular dependencies. A Red Team finding that contradicts itself or depends on its own conclusion fails structural consistency.
 
 2. **Logical Consistency**: Defensive claims must follow established logical rules. "System X is protected against attack Y" must be consistent with all known evidence about System X and Attack Y.
 
-3. **Formal Necessity**: Critical defensive claims are proven through formal verification. The [White Team](/glossary/white-team/) produces Lean4 proofs or property-based test suites that demonstrate specific invariants hold under defined conditions.
+3. **Formal Necessity**: Critical defensive claims are proven through formal verification. The [White Team](@/glossary/white-team.md) produces Lean4 proofs or property-based test suites that demonstrate specific invariants hold under defined conditions.
 
 ## Implementation in Prismatic Platform
 
@@ -274,7 +274,7 @@ The Prismatic Platform implements adversarial architecture through 20 specialize
 
 ### NABLA Infinity Integration
 
-The adversarial architecture is deeply integrated with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. The seven non-negotiable axioms govern all adversarial operations:
+The adversarial architecture is deeply integrated with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. The seven non-negotiable axioms govern all adversarial operations:
 
 - **Signal Plurality**: Red Team findings must be confirmed by independent verification before driving defensive changes
 - **Contradiction Preservation**: When Red and Blue assessments contradict, both are preserved for Purple synthesis
@@ -289,7 +289,7 @@ The adversarial architecture is deeply integrated with the [NABLA Infinity](/glo
 | Domain | Adversarial Architecture Application |
 |--------|--------------------------------------|
 | **OSINT Intelligence** | Cross-validation of intelligence sources, detection of information manipulation campaigns |
-| **[Perimeter Security](/glossary/easm/)** | Continuous attack surface assessment through simulated adversarial probing |
+| **[Perimeter Security](@/glossary/easm.md)** | Continuous attack surface assessment through simulated adversarial probing |
 | **AI Agent Operations** | Verification that agent reasoning cannot be subverted through prompt injection or data poisoning |
 | **Release Management** | Pre-deployment adversarial testing of new features and configuration changes |
 | **Compliance Assessment** | Adversarial testing of compliance claims to prevent false compliance certification |
@@ -346,7 +346,7 @@ When the platform aggregates Open Source Intelligence from 120+ providers, adver
 
 ### Use Case 2: Security Rating Assurance
 
-The [Prismatic Perimeter](/glossary/easm/) produces security ratings (A-F grades, 300-900 numeric scores) for assessed entities. Adversarial architecture validates these ratings through Red Team scenarios that attempt to artificially inflate or deflate ratings through evidence manipulation. White Team formal verification proves that the rating algorithm produces consistent, monotonic results given consistent evidence inputs.
+The [Prismatic Perimeter](@/glossary/easm.md) produces security ratings (A-F grades, 300-900 numeric scores) for assessed entities. Adversarial architecture validates these ratings through Red Team scenarios that attempt to artificially inflate or deflate ratings through evidence manipulation. White Team formal verification proves that the rating algorithm produces consistent, monotonic results given consistent evidence inputs.
 
 ### Use Case 3: Agent Reasoning Integrity
 
@@ -358,26 +358,26 @@ Before any platform release, an adversarial architecture campaign validates that
 
 ## Related Concepts
 
-- [Red Team](/glossary/red-team/) -- Adversarial simulation team using 5 epistemic attack primitives
-- [Blue Team](/glossary/blue-team/) -- Epistemic defense team maintaining defensive posture
-- [Purple Team](/glossary/purple-team/) -- Synthesis hub for Red-Blue loop closure
-- [Black Team](/glossary/black-team/) -- Theoretical threat modeling under maximum isolation
-- [Gray Team](/glossary/gray-team/) -- Boundary exploration team surfacing specification gaps
-- [White Team](/glossary/white-team/) -- Constructive verification through formal proofs
-- [Color Teams](/glossary/color-teams/) -- Complete color team framework overview
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification gate for adversarial architecture claims
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing all adversarial operations
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System-level resilience patterns complementing adversarial testing
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Infrastructure resilience testing contributing to adversarial architecture
-- [Attack Surface](/glossary/attack-surface/) -- The target domain that adversarial architecture systematically assesses
-- [Penetration Testing](/glossary/penetration-testing/) -- Traditional security testing subsumed by adversarial architecture
-- [Process Isolation](/glossary/process-isolation/) -- BEAM VM isolation providing containment for adversarial operations
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation team using 5 epistemic attack primitives
+- [Blue Team](@/glossary/blue-team.md) -- Epistemic defense team maintaining defensive posture
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis hub for Red-Blue loop closure
+- [Black Team](@/glossary/black-team.md) -- Theoretical threat modeling under maximum isolation
+- [Gray Team](@/glossary/gray-team.md) -- Boundary exploration team surfacing specification gaps
+- [White Team](@/glossary/white-team.md) -- Constructive verification through formal proofs
+- [Color Teams](@/glossary/color-teams.md) -- Complete color team framework overview
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification gate for adversarial architecture claims
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing all adversarial operations
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System-level resilience patterns complementing adversarial testing
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Infrastructure resilience testing contributing to adversarial architecture
+- [Attack Surface](@/glossary/attack-surface.md) -- The target domain that adversarial architecture systematically assesses
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Traditional security testing subsumed by adversarial architecture
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM VM isolation providing containment for adversarial operations
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Agents](/agents/) -- Full agent catalog including all 20 color team agents
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Agents](@/agents/_index.md) -- Full agent catalog including all 20 color team agents
 
 ---
 
@@ -386,4 +386,4 @@ Before any platform release, an adversarial architecture campaign validates that
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

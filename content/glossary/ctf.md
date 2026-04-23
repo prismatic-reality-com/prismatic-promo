@@ -498,23 +498,23 @@ CTF challenges based on the platform's own architecture test whether security co
 
 CTF methodology connects to numerous security and platform concepts within the Prismatic ecosystem:
 
-- [Red Team](/glossary/red-team/) -- adversarial simulation team that uses CTF methodology for offensive security operations
-- [Blue Team](/glossary/blue-team/) -- defensive security team that validates defenses through CTF-style challenges
-- [Purple Team](/glossary/purple-team/) -- synthesis team that bridges offensive and defensive CTF findings
-- [Color Teams](/glossary/color-teams/) -- the full color team architecture derived from CTF organizational models
-- [Penetration Testing](/glossary/penetration-testing/) -- professional security testing that CTF training supports
-- [Adversarial Testing](/glossary/adversarial-testing/) -- the broader framework of testing through adversarial engagement
-- [Adversarial Simulation](/glossary/adversarial-simulation/) -- simulated attacks within controlled environments
-- [Sandbox](/glossary/sandbox/) -- isolated execution environments essential for safe CTF operations
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- systematic identification of security weaknesses
-- [Security Verification](/glossary/security-verification/) -- formal verification of security properties discovered through CTF
+- [Red Team](@/glossary/red-team.md) -- adversarial simulation team that uses CTF methodology for offensive security operations
+- [Blue Team](@/glossary/blue-team.md) -- defensive security team that validates defenses through CTF-style challenges
+- [Purple Team](@/glossary/purple-team.md) -- synthesis team that bridges offensive and defensive CTF findings
+- [Color Teams](@/glossary/color-teams.md) -- the full color team architecture derived from CTF organizational models
+- [Penetration Testing](@/glossary/penetration-testing.md) -- professional security testing that CTF training supports
+- [Adversarial Testing](@/glossary/adversarial-testing.md) -- the broader framework of testing through adversarial engagement
+- [Adversarial Simulation](@/glossary/adversarial-simulation.md) -- simulated attacks within controlled environments
+- [Sandbox](@/glossary/sandbox.md) -- isolated execution environments essential for safe CTF operations
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- systematic identification of security weaknesses
+- [Security Verification](@/glossary/security-verification.md) -- formal verification of security properties discovered through CTF
 
 ## See Also
 
-- [OSINT](/glossary/osint/) -- open-source intelligence gathering, a common CTF challenge category
-- [Security](/glossary/security/) -- the overarching security framework within which CTF operates
-- [Defensive Security](/glossary/defensive-security/) -- Blue Team security operations informed by CTF insights
-- [Incident Response](/glossary/incident-response/) -- real-world application of skills developed through CTF training
+- [OSINT](@/glossary/osint.md) -- open-source intelligence gathering, a common CTF challenge category
+- [Security](@/glossary/security.md) -- the overarching security framework within which CTF operates
+- [Defensive Security](@/glossary/defensive-security.md) -- Blue Team security operations informed by CTF insights
+- [Incident Response](@/glossary/incident-response.md) -- real-world application of skills developed through CTF training
 
 ---
 

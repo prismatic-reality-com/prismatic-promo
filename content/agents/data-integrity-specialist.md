@@ -28,7 +28,7 @@ image_alt = "data-integrity-specialist - Prismatic Platform"
 
 ## Overview
 
-The Data Integrity Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent ensures data consistency, validates referential integrity, and detects corruption across all platform data stores including [PostgreSQL](/glossary/postgresql/) databases, [ETS](/glossary/ets/) tables, and file-based storage. In a platform processing intelligence data, compliance records, and security assessments, data integrity is not merely a technical requirement but a foundational trust guarantee that underpins every decision made from platform data.
+The Data Integrity Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent ensures data consistency, validates referential integrity, and detects corruption across all platform data stores including [PostgreSQL](@/glossary/postgresql.md) databases, [ETS](@/glossary/ets.md) tables, and file-based storage. In a platform processing intelligence data, compliance records, and security assessments, data integrity is not merely a technical requirement but a foundational trust guarantee that underpins every decision made from platform data.
 
 Data corruption can be catastrophic in an intelligence platform -- a corrupted compliance record could misrepresent regulatory posture, a corrupted security assessment could mask vulnerabilities, and corrupted agent state could cause cascading behavioral failures. The Data Integrity Specialist implements defense-in-depth against data corruption through checksumming, referential integrity validation, cross-store consistency checks, and anomaly detection that identifies data patterns inconsistent with known business rules. This agent operates continuously, not just reactively, providing proactive integrity assurance rather than post-incident forensics.
 
@@ -56,19 +56,19 @@ Data Stores              Validation Layers           Integrity Outcomes
 +------------------+    +-------------------+       +--------------------+
 ```
 
-Each validation layer runs on independent schedules configurable per data store and check type. High-criticality checks (referential integrity on compliance data) run more frequently than lower-criticality checks (search index consistency). The architecture uses [GenServer](/glossary/genserver/) processes under a [supervision tree](/glossary/supervision-tree/) to ensure that validation failures do not impact the data stores themselves.
+Each validation layer runs on independent schedules configurable per data store and check type. High-criticality checks (referential integrity on compliance data) run more frequently than lower-criticality checks (search index consistency). The architecture uses [GenServer](@/glossary/genserver.md) processes under a [supervision tree](@/glossary/supervision-tree.md) to ensure that validation failures do not impact the data stores themselves.
 
 ## Core Capabilities
 
 **Referential Integrity Validation** continuously checks foreign key relationships, orphaned record detection, and constraint compliance across all PostgreSQL databases. The validator goes beyond database-level foreign keys to verify application-level referential expectations, catching cases where soft-deleted records leave dangling references or where cross-schema relationships are not enforced by database constraints. Orphaned records are classified by impact severity and reported with remediation recommendations.
 
-**Cross-Store Consistency Verification** compares data between PostgreSQL authoritative stores and [ETS](/glossary/ets/)/[Redis](/glossary/redis/) caches to detect synchronization failures or stale cache entries. The verification engine samples records from cache layers and validates them against the authoritative PostgreSQL source, computing consistency rates per table and per cache. When consistency drops below configured thresholds, the system can trigger selective cache invalidation or full re-synchronization depending on the discrepancy scope.
+**Cross-Store Consistency Verification** compares data between PostgreSQL authoritative stores and [ETS](@/glossary/ets.md)/[Redis](@/glossary/redis.md) caches to detect synchronization failures or stale cache entries. The verification engine samples records from cache layers and validates them against the authoritative PostgreSQL source, computing consistency rates per table and per cache. When consistency drops below configured thresholds, the system can trigger selective cache invalidation or full re-synchronization depending on the discrepancy scope.
 
 **Data Corruption Detection** uses checksums, format validation, and business rule verification to identify corrupted or inconsistent data before it impacts downstream processing. Checksum verification operates at the row level for critical data (compliance records, security assessments, audit logs) and at the batch level for high-volume data (telemetry, event logs). Format validation catches type mismatches, encoding errors, and truncation artifacts.
 
-**Schema Drift Detection** monitors for unauthorized schema changes, missing migrations, and data type mismatches between application expectations and actual database state. Schema drift can occur when migrations are applied inconsistently across environments or when database changes are made outside the migration framework. The detector compares the running schema against the expected schema derived from [Ecto](/glossary/ecto/) schema definitions.
+**Schema Drift Detection** monitors for unauthorized schema changes, missing migrations, and data type mismatches between application expectations and actual database state. Schema drift can occur when migrations are applied inconsistently across environments or when database changes are made outside the migration framework. The detector compares the running schema against the expected schema derived from [Ecto](@/glossary/ecto.md) schema definitions.
 
-**Audit Trail Integrity** verifies the completeness and [immutability](/glossary/immutability/) of audit logs, ensuring that no records have been modified or deleted outside of authorized procedures. The system validates sequential record numbering, timestamp ordering, and hash chain integrity for append-only audit tables. Any gaps, out-of-order entries, or hash chain breaks are treated as critical integrity violations requiring immediate investigation.
+**Audit Trail Integrity** verifies the completeness and [immutability](@/glossary/immutability.md) of audit logs, ensuring that no records have been modified or deleted outside of authorized procedures. The system validates sequential record numbering, timestamp ordering, and hash chain integrity for append-only audit tables. Any gaps, out-of-order entries, or hash chain breaks are treated as critical integrity violations requiring immediate investigation.
 
 **Anomaly Detection** identifies data patterns that violate known business invariants, flagging records that are technically valid but logically impossible for investigation. For example, an entity with a creation date after its first transaction, a compliance score outside the valid range, or an agent configuration referencing a nonexistent capability. Anomaly rules are defined declaratively and can be extended without modifying the detection engine.
 
@@ -131,12 +131,12 @@ end
 
 | Integration Target | Direction | Purpose |
 |---|---|---|
-| [database-core-specialist](/agents/database-core-specialist/) | Bidirectional | Coordinates on core database operations that impact data integrity; receives schema change notifications |
-| [backup-restore-specialist](/agents/backup-restore-specialist/) | Outbound | Provides integrity verification for backup validation and post-restore consistency checks |
-| [data-migration-architect](/agents/data-migration-architect/) | Bidirectional | Validates data integrity before and after migration operations; provides pre-migration integrity baselines |
+| [database-core-specialist](@/agents/database-core-specialist.md) | Bidirectional | Coordinates on core database operations that impact data integrity; receives schema change notifications |
+| [backup-restore-specialist](@/agents/backup-restore-specialist.md) | Outbound | Provides integrity verification for backup validation and post-restore consistency checks |
+| [data-migration-architect](@/agents/data-migration-architect.md) | Bidirectional | Validates data integrity before and after migration operations; provides pre-migration integrity baselines |
 | PostgreSQL System Catalogs | Inbound | Reads pg_constraint, pg_index, and information_schema for schema validation |
 | ETS Table Owners | Inbound | Reads ETS table contents for cache consistency verification |
-| Platform [Telemetry](/glossary/telemetry/) | Outbound | Reports integrity check results, violation counts, and check performance metrics |
+| Platform [Telemetry](@/glossary/telemetry.md) | Outbound | Reports integrity check results, violation counts, and check performance metrics |
 | Alert Pipeline | Outbound | Delivers critical integrity violation alerts for immediate investigation |
 
 ## Operational Workflow
@@ -206,11 +206,11 @@ config :prismatic_infrastructure, Prismatic.Infrastructure.DataIntegrity.Special
 
 ## Related Resources
 
-- [database-core-specialist](/agents/database-core-specialist/) -- Core database operations coordination
-- [backup-restore-specialist](/agents/backup-restore-specialist/) -- Backup integrity verification
-- [data-migration-architect](/agents/data-migration-architect/) -- Migration integrity validation
-- [NO MERCY, NO DOUBTS Doctrine](/glossary/no-mercy-no-doubts/) -- Quality enforcement framework
-- [NABLA Infinity Framework](/glossary/nabla-infinity/) -- Epistemic quality standards
+- [database-core-specialist](@/agents/database-core-specialist.md) -- Core database operations coordination
+- [backup-restore-specialist](@/agents/backup-restore-specialist.md) -- Backup integrity verification
+- [data-migration-architect](@/agents/data-migration-architect.md) -- Migration integrity validation
+- [NO MERCY, NO DOUBTS Doctrine](@/glossary/no-mercy-no-doubts.md) -- Quality enforcement framework
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md) -- Epistemic quality standards
 
 ---
 
@@ -219,4 +219,4 @@ config :prismatic_infrastructure, Prismatic.Infrastructure.DataIntegrity.Special
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

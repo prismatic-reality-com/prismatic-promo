@@ -216,11 +216,11 @@ The OSINT toolbox dashboard uses VegaLite to show tool execution frequency distr
 
 ## Cross-References
 
-- [Visualization](/glossary/visualization/) - Broader data representation concepts
-- [Livebook](/glossary/livebook/) - Interactive notebook with VegaLite support
-- [Telemetry](/glossary/telemetry/) - Data source for visualizations
-- [Time Series](/glossary/time-series/) - Temporal data often visualized
-- [Trend](/glossary/trend/) - Pattern visualization in time data
+- [Visualization](@/glossary/visualization.md) - Broader data representation concepts
+- [Livebook](@/glossary/livebook.md) - Interactive notebook with VegaLite support
+- [Telemetry](@/glossary/telemetry.md) - Data source for visualizations
+- [Time Series](@/glossary/time-series.md) - Temporal data often visualized
+- [Trend](@/glossary/trend.md) - Pattern visualization in time data
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

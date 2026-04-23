@@ -28,9 +28,9 @@ image_alt = "pvm-executor - Prismatic Platform"
 
 ## Overview
 
-The [pvm](/glossary/pvm/)-executor operates as an L4 Domain Authority within the Prismatic Platform's execution domain, providing high-performance workflow execution with [fault tolerance](/glossary/fault-tolerance/) and distributed execution capabilities for the Prismatic Virtual Machine (PVM). This agent is the runtime engine that interprets compiled PVM bytecode produced by the [pvm-compiler](/agents/pvm-compiler/), dispatching operations to appropriate platform subsystems, managing execution state across multi-step workflows, and handling failure recovery when individual operations encounter errors. The executor is the point where declarative workflow specifications become operational reality -- every agent orchestration, pipeline execution, and quality gate evaluation ultimately runs through the PVM executor.
+The [pvm](@/glossary/pvm.md)-executor operates as an L4 Domain Authority within the Prismatic Platform's execution domain, providing high-performance workflow execution with [fault tolerance](@/glossary/fault-tolerance.md) and distributed execution capabilities for the Prismatic Virtual Machine (PVM). This agent is the runtime engine that interprets compiled PVM bytecode produced by the [pvm-compiler](@/agents/pvm-compiler.md), dispatching operations to appropriate platform subsystems, managing execution state across multi-step workflows, and handling failure recovery when individual operations encounter errors. The executor is the point where declarative workflow specifications become operational reality -- every agent orchestration, pipeline execution, and quality gate evaluation ultimately runs through the PVM executor.
 
-Built on the [BEAM](/glossary/beam/) virtual machine's native concurrency and fault tolerance capabilities, the executor leverages [OTP](/glossary/otp/) supervision trees to isolate workflow executions from each other, preventing failures in one workflow from affecting others. Each workflow execution runs in its own BEAM process with configurable resource limits (memory, execution time, message queue depth), providing natural sandboxing without external containerization. The executor supports distributed execution across multiple BEAM nodes, enabling workflows to span machine boundaries when resource requirements exceed single-node capacity.
+Built on the [BEAM](@/glossary/beam.md) virtual machine's native concurrency and fault tolerance capabilities, the executor leverages [OTP](@/glossary/otp.md) supervision trees to isolate workflow executions from each other, preventing failures in one workflow from affecting others. Each workflow execution runs in its own BEAM process with configurable resource limits (memory, execution time, message queue depth), providing natural sandboxing without external containerization. The executor supports distributed execution across multiple BEAM nodes, enabling workflows to span machine boundaries when resource requirements exceed single-node capacity.
 
 ## Execution Engine Architecture
 
@@ -48,9 +48,9 @@ The PVM executor implements a register-based bytecode interpreter optimized for 
 
 The executor implements a comprehensive fault tolerance model that ensures workflow reliability in the presence of component failures.
 
-**Process Isolation** runs each workflow execution in a dedicated BEAM process under a [supervision tree](/glossary/supervision-tree/). If a workflow process crashes, the supervisor can restart it according to the workflow's restart strategy (retry from beginning, retry from last checkpoint, or fail permanently). Process isolation ensures that a crash in one workflow cannot corrupt the state of other running workflows.
+**Process Isolation** runs each workflow execution in a dedicated BEAM process under a [supervision tree](@/glossary/supervision-tree.md). If a workflow process crashes, the supervisor can restart it according to the workflow's restart strategy (retry from beginning, retry from last checkpoint, or fail permanently). Process isolation ensures that a crash in one workflow cannot corrupt the state of other running workflows.
 
-**Checkpoint and Recovery** enables long-running workflows to persist their execution state at configurable checkpoints. If a workflow is interrupted (by crash, node failure, or resource exhaustion), it can resume from the most recent checkpoint rather than restarting from the beginning. Checkpoint data is stored in [ETS](/glossary/ets/) tables with periodic persistence to disk for durability across node restarts.
+**Checkpoint and Recovery** enables long-running workflows to persist their execution state at configurable checkpoints. If a workflow is interrupted (by crash, node failure, or resource exhaustion), it can resume from the most recent checkpoint rather than restarting from the beginning. Checkpoint data is stored in [ETS](@/glossary/ets.md) tables with periodic persistence to disk for durability across node restarts.
 
 **Timeout Management** enforces configurable time limits at multiple granularities: per-instruction timeouts prevent individual operations from blocking indefinitely, per-stage timeouts bound the execution time of workflow phases, and per-workflow timeouts limit total workflow execution time. Timeout violations trigger the workflow's configured failure handler, which may retry, skip, or terminate the workflow.
 
@@ -89,24 +89,24 @@ The executor implements fine-grained resource management to prevent resource exh
 
 | Agent | Relationship |
 |-------|-------------|
-| [pvm-compiler](/agents/pvm-compiler/) | Receives compiled bytecode artifacts for execution |
-| [pvm-adaptive-scheduler](/agents/pvm-adaptive-scheduler/) | Receives scheduling decisions for workflow dispatch timing |
-| [pvm-tracer](/agents/pvm-tracer/) | Produces execution traces for monitoring and debugging |
-| [production-deployment-specialist](/agents/production-deployment-specialist/) | Execution environment preparation for deployment workflows |
+| [pvm-compiler](@/agents/pvm-compiler.md) | Receives compiled bytecode artifacts for execution |
+| [pvm-adaptive-scheduler](@/agents/pvm-adaptive-scheduler.md) | Receives scheduling decisions for workflow dispatch timing |
+| [pvm-tracer](@/agents/pvm-tracer.md) | Produces execution traces for monitoring and debugging |
+| [production-deployment-specialist](@/agents/production-deployment-specialist.md) | Execution environment preparation for deployment workflows |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Execution performance [metrics](/glossary/metrics/) and workflow completion tracking |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent invocation dispatch during workflow execution |
-| [BEAM](/glossary/beam/) Distribution | Multi-node workflow execution and state synchronization |
-| [SEADF](/glossary/seadf/) Pipeline | Evolution workflow execution and quality gate evaluation |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Execution performance [metrics](@/glossary/metrics.md) and workflow completion tracking |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent invocation dispatch during workflow execution |
+| [BEAM](@/glossary/beam.md) Distribution | Multi-node workflow execution and state synchronization |
+| [SEADF](@/glossary/seadf.md) Pipeline | Evolution workflow execution and quality gate evaluation |
 
 ## Enforcement
 
-Execution operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine -- workflows that violate resource limits, exceed timeout budgets, or produce invalid outputs are terminated without exception. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all execution results include full provenance information tracking which bytecode instructions produced each output element. The [Trinity Gate](/glossary/trinity-gate/) validates execution outputs for critical workflows through structural consistency (output data structures match specification), logical consistency (output values satisfy workflow postconditions), and formal necessity (output derivation is traceable through the executed instruction sequence).
+Execution operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine -- workflows that violate resource limits, exceed timeout budgets, or produce invalid outputs are terminated without exception. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all execution results include full provenance information tracking which bytecode instructions produced each output element. The [Trinity Gate](@/glossary/trinity-gate.md) validates execution outputs for critical workflows through structural consistency (output data structures match specification), logical consistency (output values satisfy workflow postconditions), and formal necessity (output derivation is traceable through the executed instruction sequence).
 
 ---
 
@@ -115,4 +115,4 @@ Execution operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine --
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

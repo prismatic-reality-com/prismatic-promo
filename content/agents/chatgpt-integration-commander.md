@@ -28,9 +28,9 @@ image_alt = "chatgpt-integration-commander - Prismatic Platform"
 
 ## Executive Summary
 
-The ChatGPT Integration Commander operates as an L3 [strategic command](/glossary/strategic-command/) agent within the AI Platform Integration domain of the Prismatic Platform. This agent manages the full integration lifecycle between the Prismatic ecosystem and OpenAI's ChatGPT API, handling connection management, request routing, response validation, and failover strategies. It serves as the strategic authority for all ChatGPT-related operations, ensuring that external AI capabilities are integrated reliably and securely into the platform's operational fabric.
+The ChatGPT Integration Commander operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the AI Platform Integration domain of the Prismatic Platform. This agent manages the full integration lifecycle between the Prismatic ecosystem and OpenAI's ChatGPT API, handling connection management, request routing, response validation, and failover strategies. It serves as the strategic authority for all ChatGPT-related operations, ensuring that external AI capabilities are integrated reliably and securely into the platform's operational fabric.
 
-The platform's multi-AI strategy requires robust integration infrastructure that can handle API rate limits, service degradation, model version transitions, and pricing changes without disrupting dependent workflows. The ChatGPT Integration Commander implements [circuit breaker](/glossary/circuit-breaker/) patterns, automatic retry with exponential backoff, and graceful degradation to local [Ollama](/glossary/ollama/) models when external APIs are unavailable. This architectural approach ensures that AI-dependent platform operations maintain continuity regardless of external service status, a critical requirement for a platform where 434 agents may depend on AI capabilities at any time.
+The platform's multi-AI strategy requires robust integration infrastructure that can handle API rate limits, service degradation, model version transitions, and pricing changes without disrupting dependent workflows. The ChatGPT Integration Commander implements [circuit breaker](@/glossary/circuit-breaker.md) patterns, automatic retry with exponential backoff, and graceful degradation to local [Ollama](@/glossary/ollama.md) models when external APIs are unavailable. This architectural approach ensures that AI-dependent platform operations maintain continuity regardless of external service status, a critical requirement for a platform where 434 agents may depend on AI capabilities at any time.
 
 ## Architecture
 
@@ -78,7 +78,7 @@ The domain also manages the economic dimension of AI integration. ChatGPT API ca
 
 ## Core Capabilities
 
-**API Connection Lifecycle Management** handles authentication, [rate limiting](/glossary/rate-limiting/), [connection pooling](/glossary/connection-pooling/), and graceful shutdown for ChatGPT API interactions. The connection manager maintains a pool of authenticated connections, rotating API keys when approaching per-key rate limits and handling key renewal when keys expire. Connection health is monitored through periodic heartbeat checks, and unhealthy connections are removed from the pool and replaced automatically.
+**API Connection Lifecycle Management** handles authentication, [rate limiting](@/glossary/rate-limiting.md), [connection pooling](@/glossary/connection-pooling.md), and graceful shutdown for ChatGPT API interactions. The connection manager maintains a pool of authenticated connections, rotating API keys when approaching per-key rate limits and handling key renewal when keys expire. Connection health is monitored through periodic heartbeat checks, and unhealthy connections are removed from the pool and replaced automatically.
 
 **Circuit Breaker Implementation** automatically disables external API calls after configurable failure thresholds and recovers once service health is restored. The circuit breaker operates per model endpoint, allowing individual model circuits to trip independently. The breaker tracks three states: closed (normal operation), open (all requests routed to fallback), and half-open (testing recovery with limited traffic). Transition thresholds, timeout durations, and test traffic percentages are configurable per model.
 
@@ -167,10 +167,10 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [chatgpt-bridge-commander](/agents/chatgpt-bridge-commander/) | Bridge Operations | Manages low-level API communication protocols and transport layer concerns |
-| [chatgpt-prompt-engineer](/agents/chatgpt-prompt-engineer/) | Prompt Design | Optimizes prompt templates, informing token budget allocation per request |
-| [chatgpt-workflow-orchestrator](/agents/chatgpt-workflow-orchestrator/) | Workflow Routing | Routes workflow-specific requests through the integration layer with priority scheduling |
-| [chatgpt-context-manager](/agents/chatgpt-context-manager/) | Context Layer | Coordinates context preparation that affects token consumption and budget allocation |
+| [chatgpt-bridge-commander](@/agents/chatgpt-bridge-commander.md) | Bridge Operations | Manages low-level API communication protocols and transport layer concerns |
+| [chatgpt-prompt-engineer](@/agents/chatgpt-prompt-engineer.md) | Prompt Design | Optimizes prompt templates, informing token budget allocation per request |
+| [chatgpt-workflow-orchestrator](@/agents/chatgpt-workflow-orchestrator.md) | Workflow Routing | Routes workflow-specific requests through the integration layer with priority scheduling |
+| [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) | Context Layer | Coordinates context preparation that affects token consumption and budget allocation |
 
 ## Operational Workflow
 
@@ -205,15 +205,15 @@ end
 
 ## Enforcement
 
-Integration operations are governed by [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No external API dependency operates without circuit breaker protection. No response from external services is trusted without validation. Failed integrations trigger immediate fallback to local models with no service interruption. The NABLA Source Independence axiom requires that platform operations never become critically dependent on a single external AI provider.
+Integration operations are governed by [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No external API dependency operates without circuit breaker protection. No response from external services is trusted without validation. Failed integrations trigger immediate fallback to local models with no service interruption. The NABLA Source Independence axiom requires that platform operations never become critically dependent on a single external AI provider.
 
 ## Related Resources
 
-- [chatgpt-bridge-commander](/agents/chatgpt-bridge-commander/) -- Low-level API bridge operations
-- [chatgpt-prompt-engineer](/agents/chatgpt-prompt-engineer/) -- Prompt design and optimization
-- [chatgpt-workflow-orchestrator](/agents/chatgpt-workflow-orchestrator/) -- Workflow execution engine
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Self-healing patterns
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [chatgpt-bridge-commander](@/agents/chatgpt-bridge-commander.md) -- Low-level API bridge operations
+- [chatgpt-prompt-engineer](@/agents/chatgpt-prompt-engineer.md) -- Prompt design and optimization
+- [chatgpt-workflow-orchestrator](@/agents/chatgpt-workflow-orchestrator.md) -- Workflow execution engine
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Self-healing patterns
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -222,4 +222,4 @@ Integration operations are governed by [NO MERCY, NO DOUBTS](/glossary/no-mercy-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

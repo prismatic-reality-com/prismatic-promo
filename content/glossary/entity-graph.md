@@ -36,9 +36,9 @@ image_alt = "Entity Graph - Prismatic Platform"
 
 ## Definition
 
-An **entity graph** is a directed, labeled graph data structure in which nodes represent real-world entities (people, organizations, assets, addresses, digital identifiers) and edges represent typed relationships between those entities (ownership, employment, directorship, transaction, communication). Unlike flat relational tables, entity graphs natively model the multi-hop, many-to-many, and recursive relationships that characterize real-world intelligence data -- making them the natural substrate for [OSINT](/glossary/due-diligence/) analysis, [due diligence](/glossary/due-diligence/) investigations, anti-money laundering (AML) compliance, and beneficial ownership mapping.
+An **entity graph** is a directed, labeled graph data structure in which nodes represent real-world entities (people, organizations, assets, addresses, digital identifiers) and edges represent typed relationships between those entities (ownership, employment, directorship, transaction, communication). Unlike flat relational tables, entity graphs natively model the multi-hop, many-to-many, and recursive relationships that characterize real-world intelligence data -- making them the natural substrate for [OSINT](@/glossary/due-diligence.md) analysis, [due diligence](@/glossary/due-diligence.md) investigations, anti-money laundering (AML) compliance, and beneficial ownership mapping.
 
-In the [Prismatic Platform](/glossary/application/), entity graphs are stored and queried through [KuzuDB](/glossary/duckdb/), an embedded graph database that provides Cypher-compatible query language, ACID transactions, and columnar storage optimized for analytical workloads. The platform's entity graph layer bridges OSINT data collection (120+ adapters across Czech, EU, and global sources) with analytical capabilities like [entity resolution](/glossary/entity-resolution/), ownership chain analysis, and risk scoring, creating a unified intelligence fabric that transforms raw data into actionable knowledge.
+In the [Prismatic Platform](@/glossary/application.md), entity graphs are stored and queried through [KuzuDB](@/glossary/duckdb.md), an embedded graph database that provides Cypher-compatible query language, ACID transactions, and columnar storage optimized for analytical workloads. The platform's entity graph layer bridges OSINT data collection (120+ adapters across Czech, EU, and global sources) with analytical capabilities like [entity resolution](@/glossary/entity-resolution.md), ownership chain analysis, and risk scoring, creating a unified intelligence fabric that transforms raw data into actionable knowledge.
 
 ## Overview
 
@@ -823,7 +823,7 @@ Relational databases excel at structured, tabular data with fixed schemas. Entit
 
 ### Entity Graph vs. Knowledge Graph
 
-A knowledge graph is a broader concept that includes semantic meaning (ontologies, RDF triples, reasoning). An entity graph is a pragmatic subset focused on real-world entities and typed relationships without the full semantic overhead. The Prismatic Platform uses entity graphs for operational intelligence and [belief graphs](/glossary/belief-graph/) for epistemic reasoning.
+A knowledge graph is a broader concept that includes semantic meaning (ontologies, RDF triples, reasoning). An entity graph is a pragmatic subset focused on real-world entities and typed relationships without the full semantic overhead. The Prismatic Platform uses entity graphs for operational intelligence and [belief graphs](@/glossary/belief-graph.md) for epistemic reasoning.
 
 ### Entity Graph vs. Document Store
 
@@ -844,7 +844,7 @@ Neo4j's property graph model is conceptually similar to entity graphs. The disti
 
 ## Best Practices
 
-1. **Model entities by real-world identity, not data source**: A person should have one node in the graph regardless of how many OSINT sources mention them. Use [entity resolution](/glossary/entity-resolution/) to merge duplicate mentions into canonical entities.
+1. **Model entities by real-world identity, not data source**: A person should have one node in the graph regardless of how many OSINT sources mention them. Use [entity resolution](@/glossary/entity-resolution.md) to merge duplicate mentions into canonical entities.
 
 2. **Carry confidence scores on every node and edge**: Intelligence data varies in reliability. A government registry entry (confidence 0.95) should be weighted differently from an unverified web scrape (confidence 0.40). Propagate confidence through traversals to produce calibrated result confidence.
 
@@ -856,11 +856,11 @@ Neo4j's property graph model is conceptually similar to entity graphs. The disti
 
 6. **Validate graph consistency periodically**: Run consistency checks to ensure all relationships reference existing nodes, ownership percentages are valid (0-100%), and temporal properties are logically consistent (start_date < end_date).
 
-7. **Separate ingestion from analysis**: Use a [data pipeline](/glossary/data-pipeline/) to ingest and normalize OSINT data into the entity graph, and a separate query layer for analytical traversals. This prevents long-running analysis from blocking ingestion.
+7. **Separate ingestion from analysis**: Use a [data pipeline](@/glossary/data-pipeline.md) to ingest and normalize OSINT data into the entity graph, and a separate query layer for analytical traversals. This prevents long-running analysis from blocking ingestion.
 
 ## Common Pitfalls
 
-1. **Entity duplication**: Failing to resolve entities across sources, creating multiple nodes for the same real-world entity. "ACME Corp" from ARES and "ACME Corporation" from SEC EDGAR should resolve to one node, not two. Invest in robust [entity resolution](/glossary/entity-resolution/).
+1. **Entity duplication**: Failing to resolve entities across sources, creating multiple nodes for the same real-world entity. "ACME Corp" from ARES and "ACME Corporation" from SEC EDGAR should resolve to one node, not two. Invest in robust [entity resolution](@/glossary/entity-resolution.md).
 
 2. **Ignoring confidence propagation**: Treating all relationships as equally reliable. A multi-hop ownership chain where one hop has low confidence should not produce a high-confidence conclusion. Multiply confidence scores through the chain.
 
@@ -870,13 +870,13 @@ Neo4j's property graph model is conceptually similar to entity graphs. The disti
 
 5. **Neglecting temporal consistency**: Querying the graph without time context, mixing current and historical relationships. An ownership chain valid in 2020 may not be valid in 2025. Always scope queries to a specific temporal window.
 
-6. **Treating the graph as a data lake**: Dumping raw OSINT data into graph nodes without normalization. Entity graphs should contain clean, resolved, structured data. Raw data belongs in the [ETL](/glossary/etl/) staging layer.
+6. **Treating the graph as a data lake**: Dumping raw OSINT data into graph nodes without normalization. Entity graphs should contain clean, resolved, structured data. Raw data belongs in the [ETL](@/glossary/etl.md) staging layer.
 
 ## Use Cases
 
 ### OSINT Intelligence Aggregation
 
-The platform's 120+ [OSINT adapters](/glossary/due-diligence/) produce raw data about entities across Czech registries (ARES, Justice, ISIR), global sources (Shodan, Censys, VirusTotal), and sanctions lists (EU, OFAC, UN). The entity graph aggregates this data into a unified intelligence picture, enabling analysts to see connections that are invisible in isolated data sources.
+The platform's 120+ [OSINT adapters](@/glossary/due-diligence.md) produce raw data about entities across Czech registries (ARES, Justice, ISIR), global sources (Shodan, Censys, VirusTotal), and sanctions lists (EU, OFAC, UN). The entity graph aggregates this data into a unified intelligence picture, enabling analysts to see connections that are invisible in isolated data sources.
 
 ### Beneficial Ownership Mapping
 
@@ -884,7 +884,7 @@ For compliance with EU Anti-Money Laundering Directives, the entity graph traces
 
 ### Attack Surface Discovery
 
-In [EASM](/glossary/easm/) operations, the entity graph maps the relationship between domains, IP addresses, certificates, and services to build a complete picture of an organization's external attack surface. Graph traversal reveals infrastructure dependencies and hidden exposure points.
+In [EASM](@/glossary/easm.md) operations, the entity graph maps the relationship between domains, IP addresses, certificates, and services to build a complete picture of an organization's external attack surface. Graph traversal reveals infrastructure dependencies and hidden exposure points.
 
 ### Due Diligence Investigation
 
@@ -896,24 +896,24 @@ The entity graph enables graph-based risk scoring where an entity's risk is infl
 
 ## Related Concepts
 
-- [Knowledge Graph](/glossary/belief-graph/) -- broader concept encompassing semantic reasoning and ontologies beyond entity relationships
-- [Entity Resolution](/glossary/entity-resolution/) -- the process of determining when two entity references denote the same real-world entity
-- [Due Diligence](/glossary/due-diligence/) -- investigative process that heavily relies on entity graph traversal
-- [Data Pipeline](/glossary/data-pipeline/) -- the ingestion and normalization layer that feeds data into the entity graph
-- [EASM](/glossary/easm/) -- external attack surface management that uses entity graphs to map infrastructure
-- [Belief Graph](/glossary/belief-graph/) -- epistemic graph used for reasoning about the reliability of entity graph data
-- [Ecto](/glossary/ecto/) -- the relational data layer that complements graph storage for structured entity metadata
-- [Embedding](/glossary/embedding/) -- vector representations used for entity similarity and fuzzy matching
-- [Cosine Similarity](/glossary/cosine-similarity/) -- similarity metric used in entity resolution within the graph
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- the processing chain that transforms raw OSINT data into graph-ready entities
+- [Knowledge Graph](@/glossary/belief-graph.md) -- broader concept encompassing semantic reasoning and ontologies beyond entity relationships
+- [Entity Resolution](@/glossary/entity-resolution.md) -- the process of determining when two entity references denote the same real-world entity
+- [Due Diligence](@/glossary/due-diligence.md) -- investigative process that heavily relies on entity graph traversal
+- [Data Pipeline](@/glossary/data-pipeline.md) -- the ingestion and normalization layer that feeds data into the entity graph
+- [EASM](@/glossary/easm.md) -- external attack surface management that uses entity graphs to map infrastructure
+- [Belief Graph](@/glossary/belief-graph.md) -- epistemic graph used for reasoning about the reliability of entity graph data
+- [Ecto](@/glossary/ecto.md) -- the relational data layer that complements graph storage for structured entity metadata
+- [Embedding](@/glossary/embedding.md) -- vector representations used for entity similarity and fuzzy matching
+- [Cosine Similarity](@/glossary/cosine-similarity.md) -- similarity metric used in entity resolution within the graph
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- the processing chain that transforms raw OSINT data into graph-ready entities
 
 ## See Also
 
-- [Distributed System](/glossary/distributed-system/) -- architecture patterns for scaling entity graphs across nodes
-- [ETS](/glossary/ets/) -- in-memory storage used for caching frequently accessed graph query results
-- [Event Sourcing](/glossary/event-sourcing/) -- pattern for tracking all changes to the entity graph over time
-- [GraphQL](/glossary/graphql/) -- query language that can expose entity graph data to external consumers
-- [Confidence Scoring](/glossary/confidence-scoring/) -- the scoring system applied to entity graph nodes and edges
+- [Distributed System](@/glossary/distributed-system.md) -- architecture patterns for scaling entity graphs across nodes
+- [ETS](@/glossary/ets.md) -- in-memory storage used for caching frequently accessed graph query results
+- [Event Sourcing](@/glossary/event-sourcing.md) -- pattern for tracking all changes to the entity graph over time
+- [GraphQL](@/glossary/graphql.md) -- query language that can expose entity graph data to external consumers
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- the scoring system applied to entity graph nodes and edges
 
 ---
 
@@ -922,4 +922,4 @@ The entity graph enables graph-based risk scoring where an entity's risk is infl
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

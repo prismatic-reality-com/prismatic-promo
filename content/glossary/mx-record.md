@@ -219,11 +219,11 @@ MX record analysis is one of the most frequently used OSINT tools in the platfor
 
 ## Cross-References
 
-- [DNS](/glossary/dns/) - The protocol system containing MX records
+- [DNS](@/glossary/dns.md) - The protocol system containing MX records
 - **Email** - The communication system MX records route
-- [OSINT](/glossary/osint/) - Intelligence discipline leveraging MX data
-- [SPF](/glossary/spf/) - Complementary email authentication DNS record
-- [Domain](/glossary/domain/) - The entity identified by MX records
+- [OSINT](@/glossary/osint.md) - Intelligence discipline leveraging MX data
+- [SPF](@/glossary/spf.md) - Complementary email authentication DNS record
+- [Domain](@/glossary/domain.md) - The entity identified by MX records
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

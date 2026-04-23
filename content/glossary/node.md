@@ -220,11 +220,11 @@ The Prismatic Platform's deployment architecture uses BEAM nodes for both develo
 
 ### PrismaticSupervisor and Horde
 
-The [PrismaticSupervisor](/glossary/supervision-tree/) application supports Horde-based distributed supervision across nodes in production, falling back to local ETS-based registries in development. The `Registry.Behaviour` trait abstracts this difference, allowing the same supervision code to work transparently in both environments.
+The [PrismaticSupervisor](@/glossary/supervision-tree.md) application supports Horde-based distributed supervision across nodes in production, falling back to local ETS-based registries in development. The `Registry.Behaviour` trait abstracts this difference, allowing the same supervision code to work transparently in both environments.
 
 ### Agent Distribution
 
-The platform's 434 runtime agents can distribute across nodes through the agent registry. The [Prismatic Agents](/glossary/prismatic-agents/) runtime uses the platform's message-passing architecture to ensure transparent cross-node agent communication. When an agent is located on a remote node, the dispatch mechanism routes messages through the BEAM distribution protocol without any change to the calling code.
+The platform's 434 runtime agents can distribute across nodes through the agent registry. The [Prismatic Agents](@/glossary/prismatic-agents.md) runtime uses the platform's message-passing architecture to ensure transparent cross-node agent communication. When an agent is located on a remote node, the dispatch mechanism routes messages through the BEAM distribution protocol without any change to the calling code.
 
 ### Data Replication
 
@@ -342,19 +342,19 @@ end
 
 ## Related Concepts
 
-- [BEAM](/glossary/beam/) - Virtual machine that each node runs as an instance of
-- [Cluster](/glossary/cluster/) - Group of connected nodes forming a distributed system
-- [Distributed System](/glossary/distributed-system/) - Architecture pattern enabled by node connectivity
-- [Message Passing](/glossary/message-passing/) - Communication model that works transparently across nodes
-- [Process Isolation](/glossary/process-isolation/) - Isolation model maintained across node boundaries
-- [OTP](/glossary/otp/) - Application framework providing distributed supervision across nodes
-- [Supervision Tree](/glossary/supervision-tree/) - Hierarchical process management across node boundaries
+- [BEAM](@/glossary/beam.md) - Virtual machine that each node runs as an instance of
+- [Cluster](@/glossary/cluster.md) - Group of connected nodes forming a distributed system
+- [Distributed System](@/glossary/distributed-system.md) - Architecture pattern enabled by node connectivity
+- [Message Passing](@/glossary/message-passing.md) - Communication model that works transparently across nodes
+- [Process Isolation](@/glossary/process-isolation.md) - Isolation model maintained across node boundaries
+- [OTP](@/glossary/otp.md) - Application framework providing distributed supervision across nodes
+- [Supervision Tree](@/glossary/supervision-tree.md) - Hierarchical process management across node boundaries
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Prismatic Agents](/apps/prismatic-agents/) - Agent distribution across nodes
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Prismatic Agents](@/apps/prismatic-agents.md) - Agent distribution across nodes
 
 ---
 
@@ -363,4 +363,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

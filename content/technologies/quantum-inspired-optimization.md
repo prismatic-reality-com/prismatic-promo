@@ -783,10 +783,10 @@ QuantumInspiredOptimization.configure_algorithm(:quantum_annealing, %{
 
 ## Related Technologies
 
-- [Adaptive System Architecture](/technologies/adaptive-system-architecture/) - Uses quantum optimization
-- [Zero-Downtime Evolution System](/technologies/zero-downtime-evolution/) - Powered by quantum planning
-- [Quantum Computing](/technologies/quantum-inspired-optimization/) - Theoretical foundation
-- [Optimization Algorithms](/technologies/quantum-inspired-optimization/) - Traditional optimization methods
+- [Adaptive System Architecture](@/technologies/adaptive-system-architecture.md) - Uses quantum optimization
+- [Zero-Downtime Evolution System](@/technologies/zero-downtime-evolution.md) - Powered by quantum planning
+- [Quantum Computing](@/technologies/quantum-inspired-optimization.md) - Theoretical foundation
+- [Optimization Algorithms](@/technologies/quantum-inspired-optimization.md) - Traditional optimization methods
 
 ## Conclusion
 

@@ -28,9 +28,9 @@ image_alt = "CNB - Prismatic Platform"
 
 ## Overview
 
-CNB (Ceska narodni banka -- Czech National Bank) is the central bank of the Czech Republic and the primary financial market [supervisor](/glossary/supervisor/) responsible for maintaining price stability, overseeing the financial system, and regulating all financial market participants operating within Czech jurisdiction. Established in 1993 following the dissolution of Czechoslovakia, CNB exercises comprehensive supervisory authority over banks, credit unions, insurance companies, pension funds, investment firms, payment institutions, electronic money issuers, and foreign exchange offices.
+CNB (Ceska narodni banka -- Czech National Bank) is the central bank of the Czech Republic and the primary financial market [supervisor](@/glossary/supervisor.md) responsible for maintaining price stability, overseeing the financial system, and regulating all financial market participants operating within Czech jurisdiction. Established in 1993 following the dissolution of Czechoslovakia, CNB exercises comprehensive supervisory authority over banks, credit unions, insurance companies, pension funds, investment firms, payment institutions, electronic money issuers, and foreign exchange offices.
 
-For [OSINT](/glossary/osint/) analysts, compliance professionals, and due diligence investigators, CNB registries represent the authoritative source for verifying the regulatory status of financial entities operating in the Czech Republic. The CNB maintains public registries (seznamy regulovanych a registrovanych subjektu) that enumerate every entity authorized to conduct financial activities, the scope of their permitted operations, and any supervisory actions taken against them. This data is essential for KYC (Know Your Customer) verification, AML (Anti-Money Laundering) compliance, counterparty risk assessment, and financial crime investigation.
+For [OSINT](@/glossary/osint.md) analysts, compliance professionals, and due diligence investigators, CNB registries represent the authoritative source for verifying the regulatory status of financial entities operating in the Czech Republic. The CNB maintains public registries (seznamy regulovanych a registrovanych subjektu) that enumerate every entity authorized to conduct financial activities, the scope of their permitted operations, and any supervisory actions taken against them. This data is essential for KYC (Know Your Customer) verification, AML (Anti-Money Laundering) compliance, counterparty risk assessment, and financial crime investigation.
 
 The CNB's ARAD (Automatizovany RADa) database system provides comprehensive economic and financial statistics covering monetary policy, banking sector performance, balance of payments, financial market data, and real sector indicators. The ARAD system contains over 5,000 time series updated on schedules ranging from daily (exchange rates) to annual (structural statistics), making it one of the most comprehensive economic data repositories for any Central European economy.
 
@@ -254,7 +254,7 @@ CNB registries include entities operating in the Czech Republic under EU passpor
 
 CNB registry data is public information published under Czech law (Act No. 6/1993 Sb., on the Czech National Bank, and sectoral financial regulation). Access to and use of this data does not require consent or authorization. However, users should consider several aspects.
 
-The processing of personal data from CNB registries (names and addresses of statutory representatives, insurance intermediaries) must comply with [GDPR](/glossary/gdpr/) requirements. While the data is published for regulatory transparency purposes, its aggregation or use for purposes unrelated to financial regulation may require a separate lawful basis under Article 6 GDPR.
+The processing of personal data from CNB registries (names and addresses of statutory representatives, insurance intermediaries) must comply with [GDPR](@/glossary/gdpr.md) requirements. While the data is published for regulatory transparency purposes, its aggregation or use for purposes unrelated to financial regulation may require a separate lawful basis under Article 6 GDPR.
 
 Supervisory decision data should be used responsibly. Published enforcement actions represent concluded proceedings and factual regulatory determinations. Using this data to make unsubstantiated claims about entities or individuals beyond what the published decisions state could give rise to defamation liability.
 
@@ -293,7 +293,7 @@ end
 
 ### Multi-Source Financial Intelligence
 
-Financial entity lookups are cross-referenced with ARES business data, EU and OFAC [sanctions](/glossary/sanctions-screening/) lists, the DPH unreliable payer registry, and Hlidac statu risk analytics to provide comprehensive KYC/AML screening. The adapter automatically validates license status and flags entities with supervisory actions or revoked authorizations.
+Financial entity lookups are cross-referenced with ARES business data, EU and OFAC [sanctions](@/glossary/sanctions-screening.md) lists, the DPH unreliable payer registry, and Hlidac statu risk analytics to provide comprehensive KYC/AML screening. The adapter automatically validates license status and flags entities with supervisory actions or revoked authorizations.
 
 ### Exchange Rate Service
 
@@ -315,13 +315,13 @@ The platform ingests daily CNB exchange rates for use across all modules requiri
 
 ## Related Providers
 
-- [ARES](/osint/ares/) - Czech business registry for entity identification and cross-referencing
-- [EU Sanctions](/osint/eu-sanctions/) - EU sanctions list for compliance screening
-- [OFAC](/osint/ofac/) - US Treasury sanctions list for international screening
-- [DPH](/osint/dph/) - Czech VAT payer registry for tax compliance
-- [Justice.cz](/osint/justice-cz/) - Commercial Register with company details and beneficial ownership
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog with company risk analytics
-- [Crunchbase](/osint/crunchbase/) - Business intelligence for fintech and financial company profiling
+- [ARES](@/osint/ares.md) - Czech business registry for entity identification and cross-referencing
+- [EU Sanctions](@/osint/eu-sanctions.md) - EU sanctions list for compliance screening
+- [OFAC](@/osint/ofac.md) - US Treasury sanctions list for international screening
+- [DPH](@/osint/dph.md) - Czech VAT payer registry for tax compliance
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register with company details and beneficial ownership
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog with company risk analytics
+- [Crunchbase](@/osint/crunchbase.md) - Business intelligence for fintech and financial company profiling
 
 ---
 
@@ -330,4 +330,4 @@ The platform ingests daily CNB exchange rates for use across all modules requiri
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

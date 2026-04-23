@@ -28,15 +28,15 @@ image_alt = "zero-downtime-deployment-specialist - Prismatic Platform"
 
 ## Overview
 
-The Zero-Downtime Deployment Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's infrastructure domain, responsible for implementing and managing deployment strategies that maintain continuous service availability during platform updates. This agent orchestrates blue-green deployments, canary releases, rolling updates, and hot code upgrades to ensure that the platform's web interfaces, API endpoints, and background processing systems remain fully operational throughout every deployment cycle.
+The Zero-Downtime Deployment Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's infrastructure domain, responsible for implementing and managing deployment strategies that maintain continuous service availability during platform updates. This agent orchestrates blue-green deployments, canary releases, rolling updates, and hot code upgrades to ensure that the platform's web interfaces, API endpoints, and background processing systems remain fully operational throughout every deployment cycle.
 
-The Prismatic Platform runs on [Fly.io](/glossary/fly-io/) infrastructure with production (`prismatic-prod.fly.dev`) and staging (`prismatic-staging.fly.dev`) environments. The platform's 90 [umbrella application](/glossary/umbrella-application/)s, [LiveView](/glossary/liveview/) WebSocket connections, long-running [GenServer](/glossary/genserver/) processes, and [ETS](/glossary/ets/) caches create deployment challenges that go beyond simple container replacement. The Zero-Downtime Deployment Specialist addresses these challenges through deployment strategies specifically designed for the [BEAM](/glossary/beam/) virtual machine's unique capabilities, including hot code loading and graceful connection draining.
+The Prismatic Platform runs on [Fly.io](@/glossary/fly-io.md) infrastructure with production (`prismatic-prod.fly.dev`) and staging (`prismatic-staging.fly.dev`) environments. The platform's 90 [umbrella application](@/glossary/umbrella-application.md)s, [LiveView](@/glossary/liveview.md) WebSocket connections, long-running [GenServer](@/glossary/genserver.md) processes, and [ETS](@/glossary/ets.md) caches create deployment challenges that go beyond simple container replacement. The Zero-Downtime Deployment Specialist addresses these challenges through deployment strategies specifically designed for the [BEAM](@/glossary/beam.md) virtual machine's unique capabilities, including hot code loading and graceful connection draining.
 
-Built on the [AIAD](/glossary/aiad/) standard, the agent enforces the [NO MERCY](/glossary/no-mercy/) doctrine's zero-tolerance policy for service disruption during deployments. The platform's [page load performance standard](/glossary/aiad/) requires all pages to load under 250ms and server-side render time under 100ms -- these targets must be maintained even during active deployments. All deployment decisions comply with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, requiring evidence-based validation at every deployment stage.
+Built on the [AIAD](@/glossary/aiad.md) standard, the agent enforces the [NO MERCY](@/glossary/no-mercy.md) doctrine's zero-tolerance policy for service disruption during deployments. The platform's [page load performance standard](@/glossary/aiad.md) requires all pages to load under 250ms and server-side render time under 100ms -- these targets must be maintained even during active deployments. All deployment decisions comply with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, requiring evidence-based validation at every deployment stage.
 
 ## Architecture
 
-The Zero-Downtime Deployment Specialist is built on a multi-strategy deployment architecture that separates deployment planning, execution, monitoring, and rollback into distinct [OTP](/glossary/otp/) processes.
+The Zero-Downtime Deployment Specialist is built on a multi-strategy deployment architecture that separates deployment planning, execution, monitoring, and rollback into distinct [OTP](@/glossary/otp.md) processes.
 
 ```
 ZeroDowntimeDeployment.Supervisor
@@ -51,7 +51,7 @@ ZeroDowntimeDeployment.Supervisor
 
 The DeploymentPlanner analyzes the nature of the deployment (schema migration, code change, configuration update) and selects the optimal strategy. Blue-green deployments are used for major releases with schema changes; canary releases for feature-flagged changes; rolling updates for minor patches. The strategy controllers manage the mechanics of each deployment type: provisioning new instances, migrating traffic, validating health, and decommissioning old instances.
 
-The HealthChecker continuously monitors deployment targets using synthetic transactions, latency measurements, error rate tracking, and [LiveView](/glossary/liveview/) WebSocket connectivity tests. The TrafficRouter manages gradual traffic shifting between deployment environments, supporting percentage-based splitting for canary deployments. The RollbackManager maintains instant rollback capability throughout the deployment, ready to revert traffic to the previous version within seconds if health checks fail.
+The HealthChecker continuously monitors deployment targets using synthetic transactions, latency measurements, error rate tracking, and [LiveView](@/glossary/liveview.md) WebSocket connectivity tests. The TrafficRouter manages gradual traffic shifting between deployment environments, supporting percentage-based splitting for canary deployments. The RollbackManager maintains instant rollback capability throughout the deployment, ready to revert traffic to the previous version within seconds if health checks fail.
 
 ## Core Capabilities
 
@@ -63,15 +63,15 @@ The Zero-Downtime Deployment Specialist provides six primary capabilities ensuri
 
 **Rolling Update Coordination** orchestrates sequential updates across platform instances, ensuring that a minimum number of instances are always serving traffic. The agent calculates the optimal batch size based on total instance count, traffic load, and acceptable capacity reduction, then updates instances in batches with health verification between each batch.
 
-**BEAM Hot Code Loading** leverages the [BEAM](/glossary/beam/) virtual machine's unique hot code loading capability to update running code without restarting processes. For changes that are compatible with hot code loading (pure code changes without state schema modifications), the agent applies updates to running instances while maintaining all GenServer states, ETS tables, and WebSocket connections.
+**BEAM Hot Code Loading** leverages the [BEAM](@/glossary/beam.md) virtual machine's unique hot code loading capability to update running code without restarting processes. For changes that are compatible with hot code loading (pure code changes without state schema modifications), the agent applies updates to running instances while maintaining all GenServer states, ETS tables, and WebSocket connections.
 
-**LiveView Connection Draining** manages graceful draining of [LiveView](/glossary/liveview/) WebSocket connections during instance retirement. Rather than abruptly terminating connections, the agent signals LiveView processes to complete current operations and gracefully reconnect to new instances, providing a seamless user experience during deployments.
+**LiveView Connection Draining** manages graceful draining of [LiveView](@/glossary/liveview.md) WebSocket connections during instance retirement. Rather than abruptly terminating connections, the agent signals LiveView processes to complete current operations and gracefully reconnect to new instances, providing a seamless user experience during deployments.
 
 **Database Migration Coordination** sequences database migrations with code deployments to avoid compatibility issues. The agent ensures that schema changes are backward-compatible (additive migrations first, removal migrations after code deployment), manages migration execution timing, and verifies data consistency after migration completion.
 
 ## Implementation
 
-The core deployment coordinator is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that manages deployment lifecycle and strategy execution.
+The core deployment coordinator is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that manages deployment lifecycle and strategy execution.
 
 ```elixir
 defmodule Prismatic.Agents.ZeroDowntimeDeployment do
@@ -297,14 +297,14 @@ The `deploy/2` function orchestrates the full deployment lifecycle: strategy sel
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [Fly.io](/glossary/fly-io/) Infrastructure | Bidirectional | Instance provisioning, traffic routing, and health monitoring |
-| [Prismatic Web](/glossary/prismatic-web/) | Target | LiveView connection draining and WebSocket migration |
-| [Prismatic API](/apps/prismatic-api/) | Target | API endpoint health validation during deployment |
-| [PostgreSQL](/glossary/postgresql/) | Outbound | Database migration execution and verification |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Outbound | Reports deployment health metrics for quality scoring |
-| [SEADF](/glossary/seadf/) Evolution Pipeline | Inbound | Receives deployment directives from autonomous evolution |
+| [Fly.io](@/glossary/fly-io.md) Infrastructure | Bidirectional | Instance provisioning, traffic routing, and health monitoring |
+| [Prismatic Web](@/glossary/prismatic-web.md) | Target | LiveView connection draining and WebSocket migration |
+| [Prismatic API](@/apps/prismatic-api.md) | Target | API endpoint health validation during deployment |
+| [PostgreSQL](@/glossary/postgresql.md) | Outbound | Database migration execution and verification |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Outbound | Reports deployment health metrics for quality scoring |
+| [SEADF](@/glossary/seadf.md) Evolution Pipeline | Inbound | Receives deployment directives from autonomous evolution |
 | CI/CD Pipeline | Inbound | Receives deployment triggers from GitLab CI/CD |
-| [ETS](/glossary/ets/) State | Managed | Handles ETS table state during hot code loads |
+| [ETS](@/glossary/ets.md) State | Managed | Handles ETS table state during hot code loads |
 
 ## Operational Workflow
 
@@ -320,7 +320,7 @@ The agent operates through four primary modes: planned deployment, emergency dep
 
 ## NABLA Compliance
 
-The Zero-Downtime Deployment Specialist operates under [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance for deployment decisions.
+The Zero-Downtime Deployment Specialist operates under [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance for deployment decisions.
 
 **Signal Plurality**: Deployment health claims require at least three independent signals: synthetic transaction success, latency measurement within thresholds, and error rate below limits. A deployment is not marked as healthy until all three signals converge.
 
@@ -371,14 +371,14 @@ The agent optimizes deployment speed while maintaining safety through progressiv
 
 ## Related Resources
 
-- [BEAM](/glossary/beam/) -- Erlang virtual machine with hot code loading capability
-- [Fly.io](/glossary/fly-io/) -- Platform infrastructure for deployment management
-- [LiveView](/glossary/liveview/) -- Real-time UI framework requiring graceful connection handling
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern for deployment failure isolation
-- [Page Load Performance](/glossary/aiad/) -- Performance standard maintained during deployments
-- [NO MERCY Doctrine](/glossary/no-mercy/) -- Zero-tolerance for service disruption
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for deployment health claims
-- [AIAD Standard](/glossary/aiad/) -- Agent specification standard
+- [BEAM](@/glossary/beam.md) -- Erlang virtual machine with hot code loading capability
+- [Fly.io](@/glossary/fly-io.md) -- Platform infrastructure for deployment management
+- [LiveView](@/glossary/liveview.md) -- Real-time UI framework requiring graceful connection handling
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern for deployment failure isolation
+- [Page Load Performance](@/glossary/aiad.md) -- Performance standard maintained during deployments
+- [NO MERCY Doctrine](@/glossary/no-mercy.md) -- Zero-tolerance for service disruption
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for deployment health claims
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification standard
 
 ---
 
@@ -387,4 +387,4 @@ The agent optimizes deployment speed while maintaining safety through progressiv
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

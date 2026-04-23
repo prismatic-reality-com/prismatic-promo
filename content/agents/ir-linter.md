@@ -28,9 +28,9 @@ image_alt = "ir-linter - Prismatic Platform"
 
 ## Overview
 
-The ir-linter is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the quality domain of the Prismatic Platform. It performs advanced static analysis and quality enforcement for Information Retrieval (IR) workflow definitions, identifying anti-patterns, performance risks, maintainability issues, and style violations before workflows reach the validation and execution stages. While the [ir-validator](/agents/ir-validator/) checks structural correctness (whether a workflow is valid), the ir-linter evaluates qualitative aspects (whether a workflow is well-designed) and provides actionable recommendations for improvement.
+The ir-linter is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the quality domain of the Prismatic Platform. It performs advanced static analysis and quality enforcement for Information Retrieval (IR) workflow definitions, identifying anti-patterns, performance risks, maintainability issues, and style violations before workflows reach the validation and execution stages. While the [ir-validator](@/agents/ir-validator.md) checks structural correctness (whether a workflow is valid), the ir-linter evaluates qualitative aspects (whether a workflow is well-designed) and provides actionable recommendations for improvement.
 
-Built on the [AIAD](/glossary/aiad/) standard and operating under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, the ir-linter enforces the principle that technically correct code is not sufficient -- it must also be efficient, maintainable, and idiomatic. This agent applies the same philosophy that tools like Credo bring to Elixir code, adapted for the specific domain of IR workflow specifications. Every linting finding is evidence-based, with clear explanations of why a pattern is problematic and specific suggestions for how to improve it.
+Built on the [AIAD](@/glossary/aiad.md) standard and operating under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, the ir-linter enforces the principle that technically correct code is not sufficient -- it must also be efficient, maintainable, and idiomatic. This agent applies the same philosophy that tools like Credo bring to Elixir code, adapted for the specific domain of IR workflow specifications. Every linting finding is evidence-based, with clear explanations of why a pattern is problematic and specific suggestions for how to improve it.
 
 ## Static Analysis Framework
 
@@ -51,9 +51,9 @@ The maintainability analysis lens evaluates human readability: Are stages meanin
 - **Performance risk identification** -- Flags workflow patterns likely to cause poor runtime performance, with quantitative estimates of the expected impact based on historical profiling data from similar patterns
 - **Maintainability scoring** -- Assigns maintainability scores to workflows based on naming quality, documentation completeness, structural complexity, and decomposition granularity
 - **Auto-fix suggestions** -- Generates concrete code modifications that would resolve identified issues, enabling one-click remediation for common anti-patterns
-- **[Quality gate integration](/capabilities/quality-gates/)** -- Enforces linting gates in the IR development pipeline, blocking deployment of workflows with unresolved error-level findings
-- **[Regression prevention](/capabilities/regression-tests/)** with comprehensive test coverage enforcement
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for linting performance and finding trend monitoring
+- **[Quality gate integration](@/capabilities/quality-gates.md)** -- Enforces linting gates in the IR development pipeline, blocking deployment of workflows with unresolved error-level findings
+- **[Regression prevention](@/capabilities/regression-tests.md)** with comprehensive test coverage enforcement
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for linting performance and finding trend monitoring
 
 ## Linting Rule Categories
 
@@ -69,23 +69,23 @@ The ir-linter organizes its rules into categories that align with the platform's
 
 ## Integration with IR Pipeline
 
-The ir-linter operates as the second stage in the IR lifecycle pipeline, receiving workflow definitions from the [ir-generator](/agents/ir-generator/) and producing annotated workflows for the [ir-validator](/agents/ir-validator/). Linting can also be invoked independently on manually authored workflows or on workflows being modified for maintenance.
+The ir-linter operates as the second stage in the IR lifecycle pipeline, receiving workflow definitions from the [ir-generator](@/agents/ir-generator.md) and producing annotated workflows for the [ir-validator](@/agents/ir-validator.md). Linting can also be invoked independently on manually authored workflows or on workflows being modified for maintenance.
 
 The linting process is non-destructive: the ir-linter annotates workflow definitions with findings but does not modify the workflow itself. This annotation-based approach preserves the original workflow for comparison and allows users to selectively address findings in order of priority.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the ir-linter to access the IR stage library for rule reference, query historical profiling data for performance risk estimation, and publish linting results to the platform's quality tracking system.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the ir-linter to access the IR stage library for rule reference, query historical profiling data for performance risk estimation, and publish linting results to the platform's quality tracking system.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Quality Gates](/glossary/quality-gates/) | Static analysis enforcement and compilation gate integration |
-| Prismatic Safety | [Quality floor guardian](/glossary/quality-floor-guardian/) and evolution tracking |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Automated linting pipeline execution in CI/CD workflows |
+| [Quality Gates](@/glossary/quality-gates.md) | Static analysis enforcement and compilation gate integration |
+| Prismatic Safety | [Quality floor guardian](@/glossary/quality-floor-guardian.md) and evolution tracking |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Automated linting pipeline execution in CI/CD workflows |
 | IR Stage Library | Reference catalog for rule validation and anti-pattern detection |
-| [ETS](/glossary/ets/) Cache | In-memory caching of linting rules and historical finding data |
+| [ETS](@/glossary/ets.md) Cache | In-memory caching of linting rules and historical finding data |
 | Prismatic Telemetry | Linting performance metrics and finding trend analysis |
 
 ## Command Interface
@@ -101,11 +101,11 @@ The linting process is non-destructive: the ir-linter annotates workflow definit
 
 | Agent | Relationship |
 |-------|-------------|
-| [**ir-generator**](/agents/ir-generator/) (L3) | Produces workflow definitions that the linter evaluates for quality |
-| [**ir-validator**](/agents/ir-validator/) (L3) | Receives linter-annotated workflows for structural validation |
-| [**cascade-quality-specialist**](/agents/cascade-quality-specialist/) (L3) | Applies CASCADE elimination patterns to IR workflow quality debt |
-| [**documentation-verifier**](/agents/documentation-verifier/) (L3) | Verifies documentation coverage within IR workflow specifications |
-| [**hbfs-quality-evolution**](/agents/hbfs-quality-evolution/) (L3) | Drives quality evolution of linting rules through HBFS optimization |
+| [**ir-generator**](@/agents/ir-generator.md) (L3) | Produces workflow definitions that the linter evaluates for quality |
+| [**ir-validator**](@/agents/ir-validator.md) (L3) | Receives linter-annotated workflows for structural validation |
+| [**cascade-quality-specialist**](@/agents/cascade-quality-specialist.md) (L3) | Applies CASCADE elimination patterns to IR workflow quality debt |
+| [**documentation-verifier**](@/agents/documentation-verifier.md) (L3) | Verifies documentation coverage within IR workflow specifications |
+| [**hbfs-quality-evolution**](@/agents/hbfs-quality-evolution.md) (L3) | Drives quality evolution of linting rules through HBFS optimization |
 
 ## Quality Evolution
 
@@ -115,7 +115,7 @@ This evolutionary approach ensures that the linting rule set remains current wit
 
 ## Enforcement
 
-The ir-linter enforces strict quality standards under the [NO MERCY](/glossary/no-mercy/) doctrine. Error-level findings block workflow deployment -- no workflow with known quality errors enters production. Warning-level findings are tracked in the platform's [quality debt](/glossary/quality-debt/) system and must be addressed within a configurable timeframe. Info-level findings are recorded for trend analysis but do not create enforcement obligations. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every finding includes a clear explanation and concrete remediation path, ensuring that developers can act on findings without additional research.
+The ir-linter enforces strict quality standards under the [NO MERCY](@/glossary/no-mercy.md) doctrine. Error-level findings block workflow deployment -- no workflow with known quality errors enters production. Warning-level findings are tracked in the platform's [quality debt](@/glossary/quality-debt.md) system and must be addressed within a configurable timeframe. Info-level findings are recorded for trend analysis but do not create enforcement obligations. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every finding includes a clear explanation and concrete remediation path, ensuring that developers can act on findings without additional research.
 
 ---
 
@@ -124,4 +124,4 @@ The ir-linter enforces strict quality standards under the [NO MERCY](/glossary/n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

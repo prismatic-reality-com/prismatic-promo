@@ -203,10 +203,10 @@ The platform monitors hit rates for the OSINT ToolRegistry ETS cache (target >99
 
 ## Cross-References
 
-- [ETS Memory](/glossary/ets-memory/) -- ETS tables as primary cache storage
-- [Execution Time](/glossary/execution-time/) -- Cache impact on operation timing
-- [Performance](/glossary/performance/) -- Broader performance optimization
-- [Telemetry](/glossary/telemetry/) -- Metric collection for hit rate tracking
+- [ETS Memory](@/glossary/ets-memory.md) -- ETS tables as primary cache storage
+- [Execution Time](@/glossary/execution-time.md) -- Cache impact on operation timing
+- [Performance](@/glossary/performance.md) -- Broader performance optimization
+- [Telemetry](@/glossary/telemetry.md) -- Metric collection for hit rate tracking
 - **Livebooks**: `performance_monitoring/` notebooks include cache analysis tools
 - **Academy**: Performance topics cover caching strategies and hit rate optimization
 
@@ -217,4 +217,4 @@ The platform monitors hit rates for the OSINT ToolRegistry ETS cache (target >99
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

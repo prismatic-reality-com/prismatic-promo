@@ -479,18 +479,18 @@ This architecture has maintained the platform at 100/100 quality score across al
 
 ## Related Terms
 
-- [Health Monitoring](/glossary/health-monitoring/) -- dedicated monitoring infrastructure for health status tracking
-- [Monitoring](/glossary/monitoring/) -- broader monitoring concepts including metrics, logs, and traces
-- [Telemetry](/glossary/telemetry/) -- structured event emission for observability
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision hierarchies that underpin self-healing
-- [Fault Tolerance](/glossary/fault-tolerance/) -- system resilience to component failures
-- [Circuit Breaker](/glossary/circuit-breaker/) -- failure isolation pattern for dependency management
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- autonomous quality health monitoring
-- [Autoheal](/glossary/autoheal/) -- automated self-healing cycle system
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine providing runtime health introspection
-- [Process Isolation](/glossary/process-isolation/) -- process-level fault containment
-- [GenServer](/glossary/genserver/) -- the OTP behaviour used for health check servers
-- [Performance](/glossary/performance/) -- performance dimension of system health
+- [Health Monitoring](@/glossary/health-monitoring.md) -- dedicated monitoring infrastructure for health status tracking
+- [Monitoring](@/glossary/monitoring.md) -- broader monitoring concepts including metrics, logs, and traces
+- [Telemetry](@/glossary/telemetry.md) -- structured event emission for observability
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision hierarchies that underpin self-healing
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- system resilience to component failures
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- failure isolation pattern for dependency management
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- autonomous quality health monitoring
+- [Autoheal](@/glossary/autoheal.md) -- automated self-healing cycle system
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine providing runtime health introspection
+- [Process Isolation](@/glossary/process-isolation.md) -- process-level fault containment
+- [GenServer](@/glossary/genserver.md) -- the OTP behaviour used for health check servers
+- [Performance](@/glossary/performance.md) -- performance dimension of system health
 
 ## Further Reading
 

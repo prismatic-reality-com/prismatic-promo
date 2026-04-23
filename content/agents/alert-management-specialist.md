@@ -28,17 +28,17 @@ image_alt = "alert-management-specialist - Prismatic Platform"
 
 ## Overview
 
-The Alert Management Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Infrastructure domain of the Prismatic Platform. This agent is responsible for intelligent alert routing, notification escalation, and incident prioritization across the entire platform infrastructure. Rather than flooding operators with raw system events, it applies contextual filtering, deduplication, and severity classification to ensure that only actionable alerts reach the appropriate response teams.
+The Alert Management Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Infrastructure domain of the Prismatic Platform. This agent is responsible for intelligent alert routing, notification escalation, and incident prioritization across the entire platform infrastructure. Rather than flooding operators with raw system events, it applies contextual filtering, deduplication, and severity classification to ensure that only actionable alerts reach the appropriate response teams.
 
-In a [distributed system](/glossary/distributed-system/) with 90 [umbrella application](/glossary/umbrella-application/)s running on [BEAM](/glossary/beam/), alert fatigue is a genuine operational risk. The Alert Management Specialist addresses this by implementing multi-tier alert classification with configurable thresholds, temporal correlation of related events, and automatic suppression of known transient conditions. When a [PostgreSQL](/glossary/postgresql/) connection pool approaches exhaustion while a deployment is in progress, this agent correlates both signals and routes a single consolidated alert rather than generating separate notifications for each symptom.
+In a [distributed system](@/glossary/distributed-system.md) with 90 [umbrella application](@/glossary/umbrella-application.md)s running on [BEAM](@/glossary/beam.md), alert fatigue is a genuine operational risk. The Alert Management Specialist addresses this by implementing multi-tier alert classification with configurable thresholds, temporal correlation of related events, and automatic suppression of known transient conditions. When a [PostgreSQL](@/glossary/postgresql.md) connection pool approaches exhaustion while a deployment is in progress, this agent correlates both signals and routes a single consolidated alert rather than generating separate notifications for each symptom.
 
 The agent also manages the complete alert lifecycle from creation through acknowledgment, investigation, resolution, and post-incident analysis. Every alert is tracked with full provenance including the triggering telemetry events, classification rationale, routing decisions, and resolution actions. This lifecycle management transforms alerts from ephemeral notifications into durable incident records that feed into the platform's continuous improvement process.
 
 ## Architecture
 
-The Alert Management Specialist is implemented as a [GenServer](/glossary/genserver/) process with dedicated [ETS](/glossary/ets/) tables for alert state management, correlation windows, and routing rules. The architecture separates three concerns: alert ingestion (receiving and classifying raw events), alert processing (correlation, deduplication, and enrichment), and alert dispatch (routing, notification, and escalation).
+The Alert Management Specialist is implemented as a [GenServer](@/glossary/genserver.md) process with dedicated [ETS](@/glossary/ets.md) tables for alert state management, correlation windows, and routing rules. The architecture separates three concerns: alert ingestion (receiving and classifying raw events), alert processing (correlation, deduplication, and enrichment), and alert dispatch (routing, notification, and escalation).
 
-The ingestion layer subscribes to [telemetry](/glossary/telemetry/) events across the platform under `[:prismatic_*, :alert, *]` namespaces. Raw events are classified by severity (critical, high, medium, low, informational) based on configurable rules that account for system state, deployment windows, and historical patterns. Classification rules are stored in ETS and hot-reloadable without agent restart.
+The ingestion layer subscribes to [telemetry](@/glossary/telemetry.md) events across the platform under `[:prismatic_*, :alert, *]` namespaces. Raw events are classified by severity (critical, high, medium, low, informational) based on configurable rules that account for system state, deployment windows, and historical patterns. Classification rules are stored in ETS and hot-reloadable without agent restart.
 
 The processing layer implements a temporal correlation engine that groups related alerts occurring within configurable time windows. The correlation algorithm maintains a sliding window of recent alerts and matches incoming alerts against active correlation groups using event type, source domain, and temporal proximity. Correlated alerts are merged into unified incidents that capture the complete event sequence, reducing notification volume during cascading failure scenarios.
 
@@ -104,19 +104,19 @@ end
 - **Intelligent notification routing** that directs alerts to the appropriate response teams based on domain ownership, on-call schedules, and alert category, preventing notification overload
 - **Temporal correlation engine** that groups related alerts occurring within configurable time windows into unified incidents, reducing duplicate notifications during cascading failure scenarios
 - **Escalation policy enforcement** with automatic severity promotion when alerts remain unacknowledged beyond defined SLA thresholds, ensuring no critical issue goes unaddressed
-- **Alert lifecycle management** tracking alerts from creation through acknowledgment, investigation, and resolution with full [audit trail](/glossary/audit-trail/) and post-incident analysis data
+- **Alert lifecycle management** tracking alerts from creation through acknowledgment, investigation, and resolution with full [audit trail](@/glossary/audit-trail.md) and post-incident analysis data
 - **Suppression rule management** with documented justification and periodic review requirements, preventing alert suppression from becoming a vector for missed incidents
 
 ## Integration Points
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [deployment-health-monitor](/agents/deployment-health-monitor/) | Signal Source | Receives deployment health signals for alert generation |
-| [aiad-backup-manager](/agents/aiad-backup-manager/) | Infrastructure Peer | Coordinates backup failure alerts with recovery procedures |
-| [compliance-auditing-specialist](/agents/compliance-auditing-specialist/) | Compliance Partner | Routes compliance-related alerts through regulatory notification channels |
-| [aiad-dashboard-commander](/agents/aiad-dashboard-commander/) | Visualization | Displays alert timelines and escalation status on monitoring dashboards |
-| [absolute-enforcement-commander-v6](/agents/absolute-enforcement-commander-v6/) | Quality Alert Source | Receives quality gate failure alerts for routing |
-| [aiad-agent-session](/agents/aiad-agent-session/) | Session Alert Source | Receives session discipline violation alerts |
+| [deployment-health-monitor](@/agents/deployment-health-monitor.md) | Signal Source | Receives deployment health signals for alert generation |
+| [aiad-backup-manager](@/agents/aiad-backup-manager.md) | Infrastructure Peer | Coordinates backup failure alerts with recovery procedures |
+| [compliance-auditing-specialist](@/agents/compliance-auditing-specialist.md) | Compliance Partner | Routes compliance-related alerts through regulatory notification channels |
+| [aiad-dashboard-commander](@/agents/aiad-dashboard-commander.md) | Visualization | Displays alert timelines and escalation status on monitoring dashboards |
+| [absolute-enforcement-commander-v6](@/agents/absolute-enforcement-commander-v6.md) | Quality Alert Source | Receives quality gate failure alerts for routing |
+| [aiad-agent-session](@/agents/aiad-agent-session.md) | Session Alert Source | Receives session discipline violation alerts |
 
 ## Operational Workflow
 
@@ -172,12 +172,12 @@ The AIAD specification at `.aiad/agents/alert-management-specialist.agent.md` de
 
 ## Related Resources
 
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Platform telemetry providing alert source events
-- [Architecture Overview](/architecture/) -- Platform architecture including monitoring and alerting
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard for alerting agents
-- [Applications](/apps/) -- Platform applications generating alert events
-- [Color Teams](/teams/) -- Security teams with dedicated alert channels
-- [Glossary](/glossary/) -- Technical terminology and concepts
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Platform telemetry providing alert source events
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including monitoring and alerting
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard for alerting agents
+- [Applications](@/apps/_index.md) -- Platform applications generating alert events
+- [Color Teams](@/teams/_index.md) -- Security teams with dedicated alert channels
+- [Glossary](@/glossary/_index.md) -- Technical terminology and concepts
 
 ---
 
@@ -186,4 +186,4 @@ The AIAD specification at `.aiad/agents/alert-management-specialist.agent.md` de
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

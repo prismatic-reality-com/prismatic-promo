@@ -28,7 +28,7 @@ image_alt = "capability-emergence-detector - Prismatic Platform"
 
 ## Overview
 
-The Capability Emergence Detector is an L3 [strategic command](/glossary/strategic-command/) agent operating within the Collaborative Intelligence domain of the Prismatic Platform. This agent performs real-time detection of novel capability patterns that emerge from agent interactions, ecosystem evolution, and cross-domain collaboration. When multiple agents combine their individual capabilities in new ways, the resulting composite capability may exceed the sum of its parts -- the Capability Emergence Detector identifies, validates, and catalogues these emergent capabilities.
+The Capability Emergence Detector is an L3 [strategic command](@/glossary/strategic-command.md) agent operating within the Collaborative Intelligence domain of the Prismatic Platform. This agent performs real-time detection of novel capability patterns that emerge from agent interactions, ecosystem evolution, and cross-domain collaboration. When multiple agents combine their individual capabilities in new ways, the resulting composite capability may exceed the sum of its parts -- the Capability Emergence Detector identifies, validates, and catalogues these emergent capabilities.
 
 Emergence is a defining property of complex systems: behaviors and capabilities that exist at the system level but are not present in any individual component. In an ecosystem of 430+ autonomous agents, emergent capabilities arise naturally as agents discover effective collaboration patterns, develop novel data flow configurations, and combine specialized skills in ways their designers did not explicitly anticipate. Without active detection, these emergent capabilities go unrecognized, unexploited, and potentially lost when the conditions that produced them change.
 
@@ -42,7 +42,7 @@ The domain operates at a meta-level relative to individual agent domains: while 
 
 ## Key Capabilities
 
-- **Interaction pattern monitoring** observing [message passing](/glossary/message-passing/) patterns between agents to identify new collaboration configurations that produce outputs exceeding the capabilities of any participating agent individually
+- **Interaction pattern monitoring** observing [message passing](@/glossary/message-passing.md) patterns between agents to identify new collaboration configurations that produce outputs exceeding the capabilities of any participating agent individually
 
 - **Capability fingerprinting** characterizing detected emergent capabilities through input-output analysis, producing formal capability specifications that describe what the emergent capability does, which agents participate, and what conditions are necessary for emergence
 
@@ -58,7 +58,7 @@ The domain operates at a meta-level relative to individual agent domains: while 
 
 The detector follows a structured five-phase methodology for identifying and validating emergent capabilities.
 
-**Phase 1: Interaction Monitoring.** The detector continuously monitors agent interaction patterns through [telemetry](/glossary/telemetry/) event analysis. Interactions are characterized by participating agents, message content types, temporal patterns, and output properties. Monitoring operates passively to avoid perturbing the natural dynamics that produce emergence.
+**Phase 1: Interaction Monitoring.** The detector continuously monitors agent interaction patterns through [telemetry](@/glossary/telemetry.md) event analysis. Interactions are characterized by participating agents, message content types, temporal patterns, and output properties. Monitoring operates passively to avoid perturbing the natural dynamics that produce emergence.
 
 **Phase 2: Anomaly Detection.** Interaction patterns are compared against baseline collaboration models derived from documented agent coordination relationships. Interactions that produce outputs significantly different from predicted outcomes -- in type, quality, or scope -- are flagged as potential emergence candidates.
 
@@ -83,9 +83,9 @@ The detector classifies emergent capabilities into four categories based on thei
 
 Detected emergent capabilities feed into the platform's evolutionary pipeline through multiple channels.
 
-**Pattern Codification.** Stable emergent capabilities are forwarded to the [autonomous-pattern-evolution-specialist](/agents/autonomous-pattern-evolution-specialist/) for codification as formal collaboration patterns.
+**Pattern Codification.** Stable emergent capabilities are forwarded to the [autonomous-pattern-evolution-specialist](@/agents/autonomous-pattern-evolution-specialist.md) for codification as formal collaboration patterns.
 
-**Fitness Enhancement.** Emergent capabilities that improve platform fitness scores are forwarded to the [auto-evolution-engine](/agents/auto-evolution-engine/) for incorporation into evolutionary optimization targets.
+**Fitness Enhancement.** Emergent capabilities that improve platform fitness scores are forwarded to the [auto-evolution-engine](@/agents/auto-evolution-engine.md) for incorporation into evolutionary optimization targets.
 
 **Capability Catalog Expansion.** Validated emergent capabilities expand the platform's formal capability catalog, making them visible to agents that might benefit from invoking them deliberately.
 
@@ -93,24 +93,24 @@ Detected emergent capabilities feed into the platform's evolutionary pipeline th
 
 | Component | Relationship | Data Flow |
 |-----------|-------------|-----------|
-| [Telemetry](/glossary/telemetry/) Infrastructure | Interaction monitoring | Agent message patterns, output characteristics |
+| [Telemetry](@/glossary/telemetry.md) Infrastructure | Interaction monitoring | Agent message patterns, output characteristics |
 | AIAD Agent Registry | Capability catalog | Known capabilities for novelty comparison |
-| [Mycelial Network](/glossary/mycelial-network/) | Pattern propagation | Emergent patterns distributed for deliberate adoption |
-| [SEADF](/glossary/seadf/) | Evolution integration | Emergence data feeding into evolutionary cycles |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Evidence persistence | Emergence detection records and capability specifications |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Pattern propagation | Emergent patterns distributed for deliberate adoption |
+| [SEADF](@/glossary/seadf.md) | Evolution integration | Emergence data feeding into evolutionary cycles |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Evidence persistence | Emergence detection records and capability specifications |
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to monitor agent interactions, classify emergent capabilities, and recommend capability catalog updates.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to monitor agent interactions, classify emergent capabilities, and recommend capability catalog updates.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [bayesian-analyst](/agents/bayesian-analyst/) | Probability Assessment | Provides probability estimates for emergence detection confidence |
-| [autonomous-pattern-evolution-specialist](/agents/autonomous-pattern-evolution-specialist/) | Pattern Codification | Receives stable emergent patterns for formal codification |
-| [auto-evolution-engine](/agents/auto-evolution-engine/) | Evolution Feed | Provides emergence data for evolutionary optimization |
-| [darwinian-evolution-coordinator](/agents/darwinian-evolution-coordinator/) | Ecosystem Analysis | Shares emergence observations for ecosystem-level analysis |
+| [bayesian-analyst](@/agents/bayesian-analyst.md) | Probability Assessment | Provides probability estimates for emergence detection confidence |
+| [autonomous-pattern-evolution-specialist](@/agents/autonomous-pattern-evolution-specialist.md) | Pattern Codification | Receives stable emergent patterns for formal codification |
+| [auto-evolution-engine](@/agents/auto-evolution-engine.md) | Evolution Feed | Provides emergence data for evolutionary optimization |
+| [darwinian-evolution-coordinator](@/agents/darwinian-evolution-coordinator.md) | Ecosystem Analysis | Shares emergence observations for ecosystem-level analysis |
 
 ## Performance Metrics
 
@@ -125,7 +125,7 @@ Detected emergent capabilities feed into the platform's evolutionary pipeline th
 
 ## Enforcement
 
-The Capability Emergence Detector operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every claimed emergence must be validated through replication or multi-observation confirmation. Emergent capabilities must meet [NABLA Infinity](/glossary/nabla-infinity/) [Signal Plurality](/glossary/signal-plurality/) requirements: detection must be supported by multiple independent observations before classification as genuine emergence. The [Trinity Gate](/glossary/trinity-gate/) validates that emergence claims maintain structural consistency (the participating agents and interactions are correctly identified), logical consistency (the emergent capability logically follows from the observed interactions), and formal correctness (the capability specification is testable and measurable). Passive monitoring is mandatory -- the detector must never perturb the systems it observes, as intervention would compromise the validity of emergence observations.
+The Capability Emergence Detector operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every claimed emergence must be validated through replication or multi-observation confirmation. Emergent capabilities must meet [NABLA Infinity](@/glossary/nabla-infinity.md) [Signal Plurality](@/glossary/signal-plurality.md) requirements: detection must be supported by multiple independent observations before classification as genuine emergence. The [Trinity Gate](@/glossary/trinity-gate.md) validates that emergence claims maintain structural consistency (the participating agents and interactions are correctly identified), logical consistency (the emergent capability logically follows from the observed interactions), and formal correctness (the capability specification is testable and measurable). Passive monitoring is mandatory -- the detector must never perturb the systems it observes, as intervention would compromise the validity of emergence observations.
 
 ---
 
@@ -134,4 +134,4 @@ The Capability Emergence Detector operates under the [NO MERCY, NO DOUBTS](/glos
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

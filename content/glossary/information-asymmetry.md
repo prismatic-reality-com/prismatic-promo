@@ -361,25 +361,25 @@ Deception is the deliberate creation or exploitation of information asymmetry. W
 
 Information asymmetry connects to intelligence, epistemic, and security concepts across the Prismatic Platform:
 
-- [OSINT](/glossary/osint/) is the primary discipline for reducing information asymmetry through open source intelligence
-- [Intelligence Analysis](/glossary/intelligence-analysis/) transforms raw signals into structured assessments that reduce asymmetry
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) provides the formal framework for reasoning under information asymmetry
-- [Due Diligence](/glossary/due-diligence/) is the investigative practice that screens for hidden information
-- [Risk Assessment](/glossary/risk-assessment/) must account for information asymmetry when evaluating threats
-- [Adversarial Thinking](/glossary/adversarial-thinking/) models how adversaries exploit information advantages
-- [Threat Intelligence](/glossary/threat-intelligence/) reduces asymmetry between defenders and threat actors
-- [NABLA Infinity](/glossary/nabla-infinity/) provides epistemic axioms that guard against asymmetry-induced reasoning failures
-- [Signal Plurality](/glossary/signal-plurality/) is the axiom requiring multiple signals to counteract asymmetric information
-- [Evidence](/glossary/evidence/) is the foundation upon which asymmetry reduction is built
+- [OSINT](@/glossary/osint.md) is the primary discipline for reducing information asymmetry through open source intelligence
+- [Intelligence Analysis](@/glossary/intelligence-analysis.md) transforms raw signals into structured assessments that reduce asymmetry
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) provides the formal framework for reasoning under information asymmetry
+- [Due Diligence](@/glossary/due-diligence.md) is the investigative practice that screens for hidden information
+- [Risk Assessment](@/glossary/risk-assessment.md) must account for information asymmetry when evaluating threats
+- [Adversarial Thinking](@/glossary/adversarial-thinking.md) models how adversaries exploit information advantages
+- [Threat Intelligence](@/glossary/threat-intelligence.md) reduces asymmetry between defenders and threat actors
+- [NABLA Infinity](@/glossary/nabla-infinity.md) provides epistemic axioms that guard against asymmetry-induced reasoning failures
+- [Signal Plurality](@/glossary/signal-plurality.md) is the axiom requiring multiple signals to counteract asymmetric information
+- [Evidence](@/glossary/evidence.md) is the foundation upon which asymmetry reduction is built
 
 ## See Also
 
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- preserves conflicting signals rather than prematurely resolving asymmetry
-- [Red Team](/glossary/red-team/) -- simulates adversarial information advantages
-- [Blue Team](/glossary/blue-team/) -- develops defenses that function under information asymmetry
-- [EASM](/glossary/easm/) -- reduces attack surface information asymmetry through continuous discovery
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- formal method for updating beliefs as asymmetry is reduced
-- [Cherry Picking](/glossary/cherry-picking/) -- anti-pattern that creates artificial information asymmetry
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- preserves conflicting signals rather than prematurely resolving asymmetry
+- [Red Team](@/glossary/red-team.md) -- simulates adversarial information advantages
+- [Blue Team](@/glossary/blue-team.md) -- develops defenses that function under information asymmetry
+- [EASM](@/glossary/easm.md) -- reduces attack surface information asymmetry through continuous discovery
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- formal method for updating beliefs as asymmetry is reduced
+- [Cherry Picking](@/glossary/cherry-picking.md) -- anti-pattern that creates artificial information asymmetry
 
 ---
 

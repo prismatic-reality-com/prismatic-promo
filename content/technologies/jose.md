@@ -125,11 +125,11 @@ JOSE operates at the authentication boundary of the platform's security architec
 | Browser Sessions | Access JWT | HS256 | 1 hour | LiveView and page authentication |
 | API Clients | API JWT | HS256 | 1 hour | REST and GraphQL API access |
 | Refresh Tokens | Refresh JWT | HS256 | 24 hours | Silent token renewal |
-| WebSocket Auth | Connection JWT | HS256 | 1 hour | [Phoenix LiveView](/technologies/phoenix-liveview/) channel auth |
+| WebSocket Auth | Connection JWT | HS256 | 1 hour | [Phoenix LiveView](@/technologies/phoenix-liveview.md) channel auth |
 | Inter-service | Service JWT | RS256 | 5 minutes | Umbrella app communication |
 | External Webhooks | Signed Payload | ES256 | N/A | Outbound webhook signatures |
 
-The authentication flow integrates JOSE with [Phoenix](/technologies/phoenix/) Plugs to verify tokens on every request.
+The authentication flow integrates JOSE with [Phoenix](@/technologies/phoenix.md) Plugs to verify tokens on every request.
 
 ```elixir
 defmodule PrismaticWeb.Plugs.APIAuth do
@@ -210,7 +210,7 @@ end
 
 ## Token Revocation Strategy
 
-While JWTs are stateless by design, certain security scenarios require the ability to invalidate tokens before their natural expiration. The platform implements a token revocation strategy using [Redis](/technologies/redis/) as a blacklist store. When a user logs out, changes their password, or when a security incident requires mass token invalidation, the token's `jti` (JWT ID) claim is added to the Redis blacklist with a TTL matching the token's remaining lifetime.
+While JWTs are stateless by design, certain security scenarios require the ability to invalidate tokens before their natural expiration. The platform implements a token revocation strategy using [Redis](@/technologies/redis.md) as a blacklist store. When a user logs out, changes their password, or when a security incident requires mass token invalidation, the token's `jti` (JWT ID) claim is added to the Redis blacklist with a TTL matching the token's remaining lifetime.
 
 This approach keeps the performance benefits of stateless JWT verification for the common case (no Redis lookup required unless the token is blacklisted) while providing the security guarantee that compromised tokens can be immediately invalidated across all cluster nodes.
 
@@ -274,7 +274,7 @@ The platform enforces strict security practices around JOSE token handling to pr
 - **Generate unique `jti` claims** -- token identifiers enable server-side revocation and prevent replay attacks
 - **Rotate keys regularly** -- use the key rotation configuration to automatically generate new signing keys with a grace period for in-flight tokens
 - **Use HS256 for internal tokens** -- symmetric signing is faster and simpler when both parties share a secret; reserve asymmetric algorithms for external-facing tokens
-- **Store signing keys securely** -- signing keys are stored in [Fly.io](/technologies/flyio/) secrets and loaded at runtime, never committed to version control
+- **Store signing keys securely** -- signing keys are stored in [Fly.io](@/technologies/flyio.md) secrets and loaded at runtime, never committed to version control
 - **Validate all claims** -- verify issuer, audience, expiration, and custom claims; do not trust token contents without validation
 - **Use JWE for sensitive payloads** -- encrypt token contents that carry security-critical information to prevent inspection even when the token is intercepted
 
@@ -297,18 +297,18 @@ The platform also leverages JOSE's JWE (JSON Web Encryption) capabilities for en
 
 ## Related Technologies
 
-- [Phoenix](/technologies/phoenix/) - Web framework consuming JOSE tokens via Plug authentication
-- [Argon2](/technologies/argon2/) - Password hashing companion for credential-based authentication
-- [Plug](/technologies/plug/) - Middleware layer integrating JOSE token verification into request pipelines
-- [Ecto](/technologies/ecto/) - Database layer storing user credentials and token revocation lists
-- [Redis](/technologies/redis/) - Token blacklist and session store for revocation support
-- [SSL/TLS](/technologies/ssl-tls/) - Transport-layer encryption complementing application-layer token security
+- [Phoenix](@/technologies/phoenix.md) - Web framework consuming JOSE tokens via Plug authentication
+- [Argon2](@/technologies/argon2.md) - Password hashing companion for credential-based authentication
+- [Plug](@/technologies/plug.md) - Middleware layer integrating JOSE token verification into request pipelines
+- [Ecto](@/technologies/ecto.md) - Database layer storing user credentials and token revocation lists
+- [Redis](@/technologies/redis.md) - Token blacklist and session store for revocation support
+- [SSL/TLS](@/technologies/ssl-tls.md) - Transport-layer encryption complementing application-layer token security
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - Browser session tokens and LiveView authentication
-- [prismatic_api](/apps/prismatic-api/) - API authentication tokens for the REST gateway
-- [prismatic_auth](/apps/prismatic-auth/) - Core authentication module managing token lifecycle
+- [prismatic_web](@/apps/prismatic-web.md) - Browser session tokens and LiveView authentication
+- [prismatic_api](@/apps/prismatic-api.md) - API authentication tokens for the REST gateway
+- [prismatic_auth](@/apps/prismatic-auth.md) - Core authentication module managing token lifecycle
 
 ---
 
@@ -317,4 +317,4 @@ The platform also leverages JOSE's JWE (JSON Web Encryption) capabilities for en
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

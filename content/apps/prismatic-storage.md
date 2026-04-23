@@ -24,19 +24,19 @@ image_alt = "Prismatic Storage - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Storage provides a unified storage abstraction layer that enables application code to interact with seven heterogeneous storage backends -- [ETS](/glossary/ets/), [PostgreSQL](/glossary/postgresql/) (via [Ecto](/glossary/ecto/)), [Redis](/glossary/redis/), [Meilisearch](/glossary/meilisearch/), [KuzuDB](/glossary/kuzudb/), [DuckDB](/glossary/duckdb/), and filesystem -- through a consistent trait-based [protocol](/glossary/protocol/) system. The architecture defines six protocol traits (Readable, Writable, Queryable, Indexable, Graphable, Cacheable) that each adapter implements according to its backend's capabilities. Application code programs against traits rather than concrete adapters, enabling runtime adapter selection, transparent failover, and multi-adapter operations without code changes. The contract testing framework ensures protocol compliance across all adapters, while adapter-specific optimizations preserve the performance characteristics of each backend. This design supports the platform's diverse storage requirements: microsecond-latency ETS for hot data, ACID-compliant PostgreSQL for durable entities, sub-millisecond Redis for distributed caching, typo-tolerant Meilisearch for full-text search, native graph traversal via KuzuDB, and columnar analytics through DuckDB.
+Prismatic Storage provides a unified storage abstraction layer that enables application code to interact with seven heterogeneous storage backends -- [ETS](@/glossary/ets.md), [PostgreSQL](@/glossary/postgresql.md) (via [Ecto](@/glossary/ecto.md)), [Redis](@/glossary/redis.md), [Meilisearch](@/glossary/meilisearch.md), [KuzuDB](@/glossary/kuzudb.md), [DuckDB](@/glossary/duckdb.md), and filesystem -- through a consistent trait-based [protocol](@/glossary/protocol.md) system. The architecture defines six protocol traits (Readable, Writable, Queryable, Indexable, Graphable, Cacheable) that each adapter implements according to its backend's capabilities. Application code programs against traits rather than concrete adapters, enabling runtime adapter selection, transparent failover, and multi-adapter operations without code changes. The contract testing framework ensures protocol compliance across all adapters, while adapter-specific optimizations preserve the performance characteristics of each backend. This design supports the platform's diverse storage requirements: microsecond-latency ETS for hot data, ACID-compliant PostgreSQL for durable entities, sub-millisecond Redis for distributed caching, typo-tolerant Meilisearch for full-text search, native graph traversal via KuzuDB, and columnar analytics through DuckDB.
 
 ## 1. Introduction
 
 ### 1.1 Problem Statement
 
-An intelligence platform integrating 121+ [OSINT](/glossary/osint/) sources, security assessments, compliance reporting, and visitor analytics generates heterogeneous data with conflicting storage requirements. Entity records need ACID durability (PostgreSQL). Hot session data needs microsecond access (ETS). Full-text search across millions of documents needs relevancy ranking and typo tolerance (Meilisearch). Entity relationship traversal needs native graph queries (KuzuDB). Analytical aggregations over time-series data need columnar storage (DuckDB). Distributed state needs sub-millisecond access across nodes (Redis).
+An intelligence platform integrating 121+ [OSINT](@/glossary/osint.md) sources, security assessments, compliance reporting, and visitor analytics generates heterogeneous data with conflicting storage requirements. Entity records need ACID durability (PostgreSQL). Hot session data needs microsecond access (ETS). Full-text search across millions of documents needs relevancy ranking and typo tolerance (Meilisearch). Entity relationship traversal needs native graph queries (KuzuDB). Analytical aggregations over time-series data need columnar storage (DuckDB). Distributed state needs sub-millisecond access across nodes (Redis).
 
 Without a unifying abstraction, application code becomes tightly coupled to specific storage technologies, making it impossible to change backends without rewriting business logic. The trait-based protocol system solves this by defining storage operations as protocol contracts that adapters implement independently.
 
 ### 1.2 Design Goals
 
-1. **Trait-based protocols** -- define storage operations as [Elixir](/glossary/elixir/) protocols that adapters implement, enabling polymorphic dispatch.
+1. **Trait-based protocols** -- define storage operations as [Elixir](@/glossary/elixir.md) protocols that adapters implement, enabling polymorphic dispatch.
 2. **Adapter-agnostic application code** -- business logic programs against traits, not concrete adapters.
 3. **Runtime adapter selection** -- choose adapters at runtime based on data type, performance requirements, or operational conditions.
 4. **Contract testing** -- a shared test suite that verifies every adapter correctly implements required protocols.
@@ -45,7 +45,7 @@ Without a unifying abstraction, application code becomes tightly coupled to spec
 
 ### 1.3 Scope
 
-Prismatic Storage covers the abstraction layer, protocol definitions, and adapter implementations. It does not implement application-specific schemas, migrations, or business logic. Each adapter is a separate [OTP](/glossary/otp/) application within the umbrella.
+Prismatic Storage covers the abstraction layer, protocol definitions, and adapter implementations. It does not implement application-specific schemas, migrations, or business logic. Each adapter is a separate [OTP](@/glossary/otp.md) application within the umbrella.
 
 ## 2. Architecture
 
@@ -96,11 +96,11 @@ PrismaticStorage.Application (Supervisor, :one_for_one)
 +-- Per-adapter supervision trees (started by each adapter app)
 ```
 
-Each adapter application manages its own [supervision tree](/glossary/supervision-tree/), connection pools, and health monitoring. The central Storage application coordinates routing and discovery.
+Each adapter application manages its own [supervision tree](@/glossary/supervision-tree.md), connection pools, and health monitoring. The central Storage application coordinates routing and discovery.
 
 ### 2.4 Data Flow
 
-Read operations flow through the facade, which resolves the appropriate adapter via the Router, dispatches through the trait protocol, and returns the result. Write operations follow the same path but may additionally trigger replication to secondary adapters (e.g., writing to Ecto for durability and Meilisearch for searchability). Multi-adapter operations are coordinated through the Router with [eventual consistency](/glossary/eventual-consistency/) semantics.
+Read operations flow through the facade, which resolves the appropriate adapter via the Router, dispatches through the trait protocol, and returns the result. Write operations follow the same path but may additionally trigger replication to secondary adapters (e.g., writing to Ecto for durability and Meilisearch for searchability). Multi-adapter operations are coordinated through the Router with [eventual consistency](@/glossary/eventual-consistency.md) semantics.
 
 ## 3. Implementation
 
@@ -108,7 +108,7 @@ Read operations flow through the facade, which resolves the appropriate adapter 
 
 **Adapter Selection**. The Router maintains a mapping from data types to preferred adapters. When no explicit adapter is specified, the Router selects based on operation type: Readable/Writable default to ETS for volatile data and Ecto for persistent data; Indexable routes to Meilisearch; Graphable routes to KuzuDB; Cacheable routes to Redis. Application code can override the default by specifying an adapter explicitly.
 
-**Contract Verification**. The contract testing framework generates a comprehensive test suite from protocol definitions. Each adapter runs the same test suite, verifying that all required callbacks return correct types, handle error cases, and maintain [idempotency](/glossary/idempotency/) where specified.
+**Contract Verification**. The contract testing framework generates a comprehensive test suite from protocol definitions. Each adapter runs the same test suite, verifying that all required callbacks return correct types, handle error cases, and maintain [idempotency](@/glossary/idempotency.md) where specified.
 
 ### 3.2 Data Structures
 
@@ -184,16 +184,16 @@ config :prismatic_storage,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Core](/apps/prismatic-core/) | Base entity definitions and protocols |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Storage operation [metrics](/glossary/metrics/) |
+| [Prismatic Core](@/apps/prismatic-core.md) | Base entity definitions and protocols |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Storage operation [metrics](@/glossary/metrics.md) |
 
 ### 4.2 Dependents
 
-Every platform application that persists or queries data depends on Prismatic Storage. Key consumers include [Prismatic Perimeter](/apps/prismatic-perimeter/) (entity and rating persistence), [Prismatic OSINT Core](/apps/prismatic-osint-core/) (intelligence data storage), [Prismatic Agents](/apps/prismatic-agents/) (agent definition [registry](/glossary/registry-otp/)), and [Prismatic Web](/apps/prismatic-web/) (session and dashboard state).
+Every platform application that persists or queries data depends on Prismatic Storage. Key consumers include [Prismatic Perimeter](@/apps/prismatic-perimeter.md) (entity and rating persistence), [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) (intelligence data storage), [Prismatic Agents](@/apps/prismatic-agents.md) (agent definition [registry](@/glossary/registry-otp.md)), and [Prismatic Web](@/apps/prismatic-web.md) (session and dashboard state).
 
 ### 4.3 Inter-Process Communication
 
-Adapters manage their own connection pools and process hierarchies. The Storage facade communicates with adapters through protocol dispatch (function calls), not [message passing](/glossary/message-passing/), minimizing latency. Replication between adapters uses asynchronous Task-based coordination.
+Adapters manage their own connection pools and process hierarchies. The Storage facade communicates with adapters through protocol dispatch (function calls), not [message passing](@/glossary/message-passing.md), minimizing latency. Replication between adapters uses asynchronous Task-based coordination.
 
 ### 4.4 External Integrations
 
@@ -242,7 +242,7 @@ StreamData generators produce random keys, values, and query predicates to verif
 
 ### 7.1 Threat Model
 
-Storage layer threats include unauthorized data access, SQL injection (Ecto adapter), and data corruption. Mitigations include parameterized queries (Ecto), access control through the application layer, [encryption at rest](/glossary/encryption-at-rest/) (PostgreSQL), and audit logging for all write operations.
+Storage layer threats include unauthorized data access, SQL injection (Ecto adapter), and data corruption. Mitigations include parameterized queries (Ecto), access control through the application layer, [encryption at rest](@/glossary/encryption-at-rest.md) (PostgreSQL), and audit logging for all write operations.
 
 ### 7.2 Access Control
 
@@ -273,25 +273,25 @@ Planned enhancements include automatic adapter selection based on query complexi
 
 ## References
 
-- [Prismatic Storage Core](/apps/prismatic-storage-core/) -- Protocol definitions and contracts
-- [Prismatic Storage ETS](/apps/prismatic-storage-ets/) -- ETS adapter
-- [Prismatic Storage Ecto](/apps/prismatic-storage-ecto/) -- PostgreSQL adapter
-- [Prismatic Storage Redis](/apps/prismatic-storage-redis/) -- Redis adapter
-- [Prismatic Storage KuzuDB](/apps/prismatic-storage-kuzudb/) -- Graph database adapter
-- [Prismatic Storage DuckDB](/apps/prismatic-storage-duckdb/) -- Analytical adapter
-- [Prismatic Meilisearch](/apps/prismatic-meilisearch/) -- Full-text search adapter
+- [Prismatic Storage Core](@/apps/prismatic-storage-core.md) -- Protocol definitions and contracts
+- [Prismatic Storage ETS](@/apps/prismatic-storage-ets.md) -- ETS adapter
+- [Prismatic Storage Ecto](@/apps/prismatic-storage-ecto.md) -- PostgreSQL adapter
+- [Prismatic Storage Redis](@/apps/prismatic-storage-redis.md) -- Redis adapter
+- [Prismatic Storage KuzuDB](@/apps/prismatic-storage-kuzudb.md) -- Graph database adapter
+- [Prismatic Storage DuckDB](@/apps/prismatic-storage-duckdb.md) -- Analytical adapter
+- [Prismatic Meilisearch](@/apps/prismatic-meilisearch.md) -- Full-text search adapter
 
 ## Related Agents
 
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Designs the trait-based protocol system enabling 7 heterogeneous storage backends through unified interfaces
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews the multi-adapter architecture for protocol compliance, performance preservation, and failover correctness
-- [Consolidation Architect](/agents/consolidation-architect/) -- Coordinates the unified storage layer consolidation across ETS, Ecto, Redis, Meilisearch, KuzuDB, and DuckDB
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Designs the trait-based protocol system enabling 7 heterogeneous storage backends through unified interfaces
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews the multi-adapter architecture for protocol compliance, performance preservation, and failover correctness
+- [Consolidation Architect](@/agents/consolidation-architect.md) -- Coordinates the unified storage layer consolidation across ETS, Ecto, Redis, Meilisearch, KuzuDB, and DuckDB
 
 ## Related Capabilities
 
-- [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) -- Trait-based protocols enable runtime adapter selection across volatile, persistent, search, graph, and analytical workloads
-- [Quality Gates](/capabilities/quality-gates/) -- Contract testing framework running 121 tests against every adapter to verify protocol compliance
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Full operation coverage with per-adapter latency, error rates, and connection pool utilization metrics
+- [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) -- Trait-based protocols enable runtime adapter selection across volatile, persistent, search, graph, and analytical workloads
+- [Quality Gates](@/capabilities/quality-gates.md) -- Contract testing framework running 121 tests against every adapter to verify protocol compliance
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Full operation coverage with per-adapter latency, error rates, and connection pool utilization metrics
 
 ---
 
@@ -300,4 +300,4 @@ Planned enhancements include automatic adapter selection based on query complexi
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

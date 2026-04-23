@@ -402,14 +402,14 @@ With 530+ agents operating across the platform, fleet-level analytics provides e
 
 ## Related Concepts
 
-- [Telemetry](/glossary/telemetry/) - The foundational event-emission system that provides raw data for analytics processing
-- [Monitoring](/glossary/monitoring/) - Real-time observation of system health metrics that analytics infrastructure enables
-- [Metrics](/glossary/metrics/) - Quantified measurements that serve as the atomic data elements of analytics
-- [Data Pipeline](/glossary/data-pipeline/) - Structured data flow architecture that moves analytics data from collection through processing to storage
-- [Observability](/glossary/observability/) - The broader discipline of understanding system behavior through external outputs, of which analytics is a core component
-- [Dashboard](/glossary/dashboard/) - Visual presentation layer that renders analytics data as interactive real-time displays
-- [Quality Gates](/glossary/quality-gates/) - Automated enforcement checkpoints powered by analytics measurements
-- [Performance Tracking](/glossary/performance-tracking/) - Specialized analytics focused on system latency, throughput, and resource utilization
+- [Telemetry](@/glossary/telemetry.md) - The foundational event-emission system that provides raw data for analytics processing
+- [Monitoring](@/glossary/monitoring.md) - Real-time observation of system health metrics that analytics infrastructure enables
+- [Metrics](@/glossary/metrics.md) - Quantified measurements that serve as the atomic data elements of analytics
+- [Data Pipeline](@/glossary/data-pipeline.md) - Structured data flow architecture that moves analytics data from collection through processing to storage
+- [Observability](@/glossary/observability.md) - The broader discipline of understanding system behavior through external outputs, of which analytics is a core component
+- [Dashboard](@/glossary/dashboard.md) - Visual presentation layer that renders analytics data as interactive real-time displays
+- [Quality Gates](@/glossary/quality-gates.md) - Automated enforcement checkpoints powered by analytics measurements
+- [Performance Tracking](@/glossary/performance-tracking.md) - Specialized analytics focused on system latency, throughput, and resource utilization
 
 ## See Also
 
@@ -425,4 +425,4 @@ With 530+ agents operating across the platform, fleet-level analytics provides e
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

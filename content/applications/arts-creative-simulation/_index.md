@@ -53,17 +53,17 @@ tags = ["applications", "arts--creative-simulation", "prismatic", "research-fram
 
 ## Abstract
 
-This document provides a comprehensive overview of the Prismatic Platform's arts and creative simulation research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](/glossary/multi-agent-systems/), [epistemic verification](/glossary/epistemic-validation/), and generative modeling to problems in computational creativity, narrative intelligence, aesthetic analysis, therapeutic arts, and experimental surrealism. The domain spans five primary research areas: music and sound generation, narrative and storytelling, visual and performing arts, therapeutic and cultural applications, and experimental and surreal exploration.
+This document provides a comprehensive overview of the Prismatic Platform's arts and creative simulation research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](@/glossary/multi-agent-systems.md), [epistemic verification](@/glossary/epistemic-validation.md), and generative modeling to problems in computational creativity, narrative intelligence, aesthetic analysis, therapeutic arts, and experimental surrealism. The domain spans five primary research areas: music and sound generation, narrative and storytelling, visual and performing arts, therapeutic and cultural applications, and experimental and surreal exploration.
 
-Each framework leverages the platform's [agent orchestration](/glossary/agent-orchestration/) infrastructure, [signal plurality](/glossary/signal-plurality/) axioms, and [simulation](/glossary/simulation/) capabilities to model the complexity, emergent dynamics, and subjective evaluation inherent in creative processes and artistic expression.
+Each framework leverages the platform's [agent orchestration](@/glossary/agent-orchestration.md) infrastructure, [signal plurality](@/glossary/signal-plurality.md) axioms, and [simulation](@/glossary/simulation.md) capabilities to model the complexity, emergent dynamics, and subjective evaluation inherent in creative processes and artistic expression.
 
 ## Introduction
 
 ### Context and Motivation
 
-Computational creativity occupies a unique position at the intersection of artificial intelligence, cognitive science, and aesthetic philosophy. Unlike optimization problems with well-defined objective functions, creative domains involve subjective evaluation, cultural context, and emergent meaning that resist reductive quantification. This makes creativity one of the most challenging -- and most revealing -- application areas for [multi-agent](/glossary/multi-agent-system/) modeling, where the interaction between generating agents, evaluating agents, and cultural context produces emergent creative dynamics that no single agent could achieve in isolation.
+Computational creativity occupies a unique position at the intersection of artificial intelligence, cognitive science, and aesthetic philosophy. Unlike optimization problems with well-defined objective functions, creative domains involve subjective evaluation, cultural context, and emergent meaning that resist reductive quantification. This makes creativity one of the most challenging -- and most revealing -- application areas for [multi-agent](@/glossary/multi-agent-system.md) modeling, where the interaction between generating agents, evaluating agents, and cultural context produces emergent creative dynamics that no single agent could achieve in isolation.
 
-The Prismatic Platform's arts and creative simulation domain was conceived as a research laboratory for studying how epistemic frameworks designed for rigorous analytical reasoning can be adapted to domains where ambiguity, contradiction, and subjective interpretation are not failures but essential features of the output. The platform's emphasis on [contradiction preservation](/glossary/contradiction-preservation/) proves particularly valuable in creative contexts, where maintaining multiple interpretive perspectives enriches rather than degrades the creative output.
+The Prismatic Platform's arts and creative simulation domain was conceived as a research laboratory for studying how epistemic frameworks designed for rigorous analytical reasoning can be adapted to domains where ambiguity, contradiction, and subjective interpretation are not failures but essential features of the output. The platform's emphasis on [contradiction preservation](@/glossary/contradiction-preservation.md) proves particularly valuable in creative contexts, where maintaining multiple interpretive perspectives enriches rather than degrades the creative output.
 
 ### Problem Definition
 
@@ -83,12 +83,12 @@ Research in computational creativity faces several interconnected theoretical ch
 
 | Platform Component | Creative Application | Research Purpose |
 |-------------------|----------------------|------------------|
-| **[Agent Orchestration](/glossary/agent-orchestration/)** | Multi-agent creative ensemble | Study collaborative generation dynamics |
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multi-perspective aesthetic evaluation | Study subjective evaluation without reduction |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Ambiguity as creative resource | Study productive tension in art |
-| **[Simulation](/glossary/simulation/) Engine** | Creative process modeling | Study generative dynamics and emergence |
-| **[Embedding](/glossary/embedding/) Space** | Semantic proximity in creative domains | Study cross-genre and cross-modal mapping |
-| **[LLM](/glossary/llm/) Integration** | Narrative generation and analysis | Study language-based creativity |
+| **[Agent Orchestration](@/glossary/agent-orchestration.md)** | Multi-agent creative ensemble | Study collaborative generation dynamics |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multi-perspective aesthetic evaluation | Study subjective evaluation without reduction |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Ambiguity as creative resource | Study productive tension in art |
+| **[Simulation](@/glossary/simulation.md) Engine** | Creative process modeling | Study generative dynamics and emergence |
+| **[Embedding](@/glossary/embedding.md) Space** | Semantic proximity in creative domains | Study cross-genre and cross-modal mapping |
+| **[LLM](@/glossary/llm.md) Integration** | Narrative generation and analysis | Study language-based creativity |
 
 ## Research Domain Taxonomy
 
@@ -98,11 +98,11 @@ Research into algorithmic composition, emotional resonance, sonic experimentatio
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Music generation with traits](/applications/arts-creative-simulation/music-generation-with-traits/) | Trait-driven algorithmic composition | Personality-mapped generative models |
-| [Emotional resonance scoring of tracks](/applications/arts-creative-simulation/emotional-resonance-scoring-of-tracks/) | Affective computing for music analysis | Dimensional emotion models (valence-arousal) |
-| [Epistemic jazz improvisation](/applications/arts-creative-simulation/epistemic-jazz-improvisation/) | Jazz improvisation as epistemic process | Call-response dynamics and belief updating |
-| [Music therapy simulation](/applications/arts-creative-simulation/music-therapy-simulation/) | Therapeutic music intervention modeling | Receptive and active music therapy theory |
-| [Sonic playground simulations](/applications/arts-creative-simulation/sonic-playground-simulations/) | Experimental sound environment design | Acoustic ecology and soundscape composition |
+| [Music generation with traits](@/applications/arts-creative-simulation/music-generation-with-traits.md) | Trait-driven algorithmic composition | Personality-mapped generative models |
+| [Emotional resonance scoring of tracks](@/applications/arts-creative-simulation/emotional-resonance-scoring-of-tracks.md) | Affective computing for music analysis | Dimensional emotion models (valence-arousal) |
+| [Epistemic jazz improvisation](@/applications/arts-creative-simulation/epistemic-jazz-improvisation.md) | Jazz improvisation as epistemic process | Call-response dynamics and belief updating |
+| [Music therapy simulation](@/applications/arts-creative-simulation/music-therapy-simulation.md) | Therapeutic music intervention modeling | Receptive and active music therapy theory |
+| [Sonic playground simulations](@/applications/arts-creative-simulation/sonic-playground-simulations.md) | Experimental sound environment design | Acoustic ecology and soundscape composition |
 
 The epistemic jazz improvisation framework is particularly notable for modeling musical improvisation as a process of hypothesis generation and real-time belief updating -- a direct application of the platform's epistemic pipeline architecture to a domain where "truth" is replaced by "musical coherence."
 
@@ -112,11 +112,11 @@ Theoretical models for studying narrative generation, story architecture, archet
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Narrative AI co-writer](/applications/arts-creative-simulation/narrative-ai-co-writer/) | Human-AI collaborative writing | Co-creative agent interaction models |
-| [Storytelling archetype synthesis](/applications/arts-creative-simulation/storytelling-archetype-synthesis/) | Narrative archetype combination | Jungian archetype theory formalization |
-| [Interactive fejeton generation](/applications/arts-creative-simulation/interactive-fejeton-generation/) | Czech literary form generation | Genre-specific narrative constraints |
-| [Poetry resonance analysis](/applications/arts-creative-simulation/poetry-resonance-analysis/) | Poetic structure and semantic resonance | Prosody analysis and semantic field mapping |
-| [Myth generation packs](/applications/arts-creative-simulation/myth-generation-packs/) | Mythological narrative synthesis | Comparative mythology (Campbell, Levi-Strauss) |
+| [Narrative AI co-writer](@/applications/arts-creative-simulation/narrative-ai-co-writer.md) | Human-AI collaborative writing | Co-creative agent interaction models |
+| [Storytelling archetype synthesis](@/applications/arts-creative-simulation/storytelling-archetype-synthesis.md) | Narrative archetype combination | Jungian archetype theory formalization |
+| [Interactive fejeton generation](@/applications/arts-creative-simulation/interactive-fejeton-generation.md) | Czech literary form generation | Genre-specific narrative constraints |
+| [Poetry resonance analysis](@/applications/arts-creative-simulation/poetry-resonance-analysis.md) | Poetic structure and semantic resonance | Prosody analysis and semantic field mapping |
+| [Myth generation packs](@/applications/arts-creative-simulation/myth-generation-packs.md) | Mythological narrative synthesis | Comparative mythology (Campbell, Levi-Strauss) |
 
 ### Domain 3: Visual and Performing Arts (5 frameworks)
 
@@ -124,11 +124,11 @@ Frameworks for studying visual art generation, performance simulation, and embod
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Visual arts epistemic influence](/applications/arts-creative-simulation/visual-arts-epistemic-influence/) | Epistemic dimensions of visual art | Art as knowledge transmission theory |
-| [Dance movement simulation](/applications/arts-creative-simulation/dance-movement-simulation/) | Choreographic pattern generation | Laban movement analysis formalization |
-| [Theater agent roleplay](/applications/arts-creative-simulation/theater-agent-roleplay/) | Theatrical performance simulation | Stanislavski method and agent embodiment |
-| [Persona art generator](/applications/arts-creative-simulation/persona-art-generator/) | Personality-driven visual generation | Trait-to-aesthetic mapping models |
-| [Fractal art dashboards](/applications/arts-creative-simulation/fractal-art-dashboards/) | Mathematical art visualization | Fractal geometry and procedural aesthetics |
+| [Visual arts epistemic influence](@/applications/arts-creative-simulation/visual-arts-epistemic-influence.md) | Epistemic dimensions of visual art | Art as knowledge transmission theory |
+| [Dance movement simulation](@/applications/arts-creative-simulation/dance-movement-simulation.md) | Choreographic pattern generation | Laban movement analysis formalization |
+| [Theater agent roleplay](@/applications/arts-creative-simulation/theater-agent-roleplay.md) | Theatrical performance simulation | Stanislavski method and agent embodiment |
+| [Persona art generator](@/applications/arts-creative-simulation/persona-art-generator.md) | Personality-driven visual generation | Trait-to-aesthetic mapping models |
+| [Fractal art dashboards](@/applications/arts-creative-simulation/fractal-art-dashboards.md) | Mathematical art visualization | Fractal geometry and procedural aesthetics |
 
 The dance movement simulation framework applies Laban Movement Analysis -- a systematic notation for human movement quality -- as a formal specification language for agent-based choreography, bridging the gap between embodied performance and computational representation.
 
@@ -138,11 +138,11 @@ Research into therapeutic uses of creative simulation and cultural archetype map
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Aesthetic resonance analysis](/applications/arts-creative-simulation/aesthetic-resonance-analysis/) | Cross-modal aesthetic evaluation | Synesthetic correspondence theory |
-| [Cultural archetype mapping](/applications/arts-creative-simulation/cultural-archetype-mapping/) | Cultural pattern identification | Cross-cultural archetype comparison |
-| [Improvisation replay packs](/applications/arts-creative-simulation/improvisation-replay-packs/) | Improvisation session analysis | Performance replay and pattern extraction |
-| [Surreal persona simulation](/applications/arts-creative-simulation/surreal-persona-simulation/) | Identity exploration through surrealism | Surrealist automatism and persona theory |
-| [Dark noir persona packs](/applications/arts-creative-simulation/dark-noir-persona-packs/) | Noir genre persona modeling | Film noir aesthetics and character archetypes |
+| [Aesthetic resonance analysis](@/applications/arts-creative-simulation/aesthetic-resonance-analysis.md) | Cross-modal aesthetic evaluation | Synesthetic correspondence theory |
+| [Cultural archetype mapping](@/applications/arts-creative-simulation/cultural-archetype-mapping.md) | Cultural pattern identification | Cross-cultural archetype comparison |
+| [Improvisation replay packs](@/applications/arts-creative-simulation/improvisation-replay-packs.md) | Improvisation session analysis | Performance replay and pattern extraction |
+| [Surreal persona simulation](@/applications/arts-creative-simulation/surreal-persona-simulation.md) | Identity exploration through surrealism | Surrealist automatism and persona theory |
+| [Dark noir persona packs](@/applications/arts-creative-simulation/dark-noir-persona-packs.md) | Noir genre persona modeling | Film noir aesthetics and character archetypes |
 
 ### Domain 5: Experimental and Surreal Exploration (5 frameworks)
 
@@ -150,11 +150,11 @@ Frameworks for studying boundary-pushing creative processes, swarm creativity, a
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Creative swarm intelligence](/applications/arts-creative-simulation/creative-swarm-intelligence/) | Emergent creativity from agent swarms | Swarm intelligence applied to aesthetics |
-| [Linguistic surrealism agents](/applications/arts-creative-simulation/linguistic-surrealism-agents/) | Surrealist language generation | Automatic writing and cut-up technique |
-| [Dream replay experiments](/applications/arts-creative-simulation/dream-replay-experiments/) | Dream narrative reconstruction | Oneiric logic and associative reasoning |
-| [Cross-genre creativity maps](/applications/arts-creative-simulation/cross-genre-creativity-maps/) | Inter-genre creative transfer | Genre boundary analysis and hybridization |
-| [Surreal epistemic scenarios](/applications/arts-creative-simulation/surreal-epistemic-scenarios/) | Epistemic frameworks in surreal contexts | Epistemic paradox as creative methodology |
+| [Creative swarm intelligence](@/applications/arts-creative-simulation/creative-swarm-intelligence.md) | Emergent creativity from agent swarms | Swarm intelligence applied to aesthetics |
+| [Linguistic surrealism agents](@/applications/arts-creative-simulation/linguistic-surrealism-agents.md) | Surrealist language generation | Automatic writing and cut-up technique |
+| [Dream replay experiments](@/applications/arts-creative-simulation/dream-replay-experiments.md) | Dream narrative reconstruction | Oneiric logic and associative reasoning |
+| [Cross-genre creativity maps](@/applications/arts-creative-simulation/cross-genre-creativity-maps.md) | Inter-genre creative transfer | Genre boundary analysis and hybridization |
+| [Surreal epistemic scenarios](@/applications/arts-creative-simulation/surreal-epistemic-scenarios.md) | Epistemic frameworks in surreal contexts | Epistemic paradox as creative methodology |
 
 ## Theoretical Foundations
 
@@ -162,55 +162,55 @@ Frameworks for studying boundary-pushing creative processes, swarm creativity, a
 
 | NABLA Axiom | Creative Interpretation | Research Application |
 |-------------|--------------------------|---------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple aesthetic perspectives required before evaluation | Models multi-critic evaluation of creative output |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Contradictory interpretations preserved as artistically significant | Prevents premature aesthetic judgment |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple aesthetic perspectives required before evaluation | Models multi-critic evaluation of creative output |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Contradictory interpretations preserved as artistically significant | Prevents premature aesthetic judgment |
 | **Absence Informative** | What is left unsaid or unshown carries artistic weight | Models negative space and silence as creative elements |
-| **[Time Decay](/glossary/time-decay/)** | Aesthetic judgments evolve as cultural context shifts | Models changing reception of art over time |
+| **[Time Decay](@/glossary/time-decay.md)** | Aesthetic judgments evolve as cultural context shifts | Models changing reception of art over time |
 | **Unknown Valid** | Acknowledging irreducible ambiguity as legitimate artistic state | Prevents false certainty in aesthetic evaluation |
 | **Source Independence** | Independent creative perspectives weighted higher than derivative ones | Models originality assessment |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | All creative decisions traceable to generative sources | Supports attribution and influence analysis |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | All creative decisions traceable to generative sources | Supports attribution and influence analysis |
 
 ## Contents
 
 ### Music and Sound Generation
 
-- [Music generation with traits](/applications/arts-creative-simulation/music-generation-with-traits/) -- Trait-driven algorithmic composition
-- [Emotional resonance scoring of tracks](/applications/arts-creative-simulation/emotional-resonance-scoring-of-tracks/) -- Affective computing for music
-- [Epistemic jazz improvisation](/applications/arts-creative-simulation/epistemic-jazz-improvisation/) -- Jazz as epistemic process
-- [Music therapy simulation](/applications/arts-creative-simulation/music-therapy-simulation/) -- Therapeutic music intervention
-- [Sonic playground simulations](/applications/arts-creative-simulation/sonic-playground-simulations/) -- Experimental sound environments
+- [Music generation with traits](@/applications/arts-creative-simulation/music-generation-with-traits.md) -- Trait-driven algorithmic composition
+- [Emotional resonance scoring of tracks](@/applications/arts-creative-simulation/emotional-resonance-scoring-of-tracks.md) -- Affective computing for music
+- [Epistemic jazz improvisation](@/applications/arts-creative-simulation/epistemic-jazz-improvisation.md) -- Jazz as epistemic process
+- [Music therapy simulation](@/applications/arts-creative-simulation/music-therapy-simulation.md) -- Therapeutic music intervention
+- [Sonic playground simulations](@/applications/arts-creative-simulation/sonic-playground-simulations.md) -- Experimental sound environments
 
 ### Narrative and Storytelling
 
-- [Narrative AI co-writer](/applications/arts-creative-simulation/narrative-ai-co-writer/) -- Human-AI collaborative writing
-- [Storytelling archetype synthesis](/applications/arts-creative-simulation/storytelling-archetype-synthesis/) -- Narrative archetype combination
-- [Interactive fejeton generation](/applications/arts-creative-simulation/interactive-fejeton-generation/) -- Czech literary form generation
-- [Poetry resonance analysis](/applications/arts-creative-simulation/poetry-resonance-analysis/) -- Poetic structure analysis
-- [Myth generation packs](/applications/arts-creative-simulation/myth-generation-packs/) -- Mythological narrative synthesis
+- [Narrative AI co-writer](@/applications/arts-creative-simulation/narrative-ai-co-writer.md) -- Human-AI collaborative writing
+- [Storytelling archetype synthesis](@/applications/arts-creative-simulation/storytelling-archetype-synthesis.md) -- Narrative archetype combination
+- [Interactive fejeton generation](@/applications/arts-creative-simulation/interactive-fejeton-generation.md) -- Czech literary form generation
+- [Poetry resonance analysis](@/applications/arts-creative-simulation/poetry-resonance-analysis.md) -- Poetic structure analysis
+- [Myth generation packs](@/applications/arts-creative-simulation/myth-generation-packs.md) -- Mythological narrative synthesis
 
 ### Visual and Performing Arts
 
-- [Visual arts epistemic influence](/applications/arts-creative-simulation/visual-arts-epistemic-influence/) -- Epistemic dimensions of visual art
-- [Dance movement simulation](/applications/arts-creative-simulation/dance-movement-simulation/) -- Choreographic pattern generation
-- [Theater agent roleplay](/applications/arts-creative-simulation/theater-agent-roleplay/) -- Theatrical performance simulation
-- [Persona art generator](/applications/arts-creative-simulation/persona-art-generator/) -- Personality-driven visual generation
-- [Fractal art dashboards](/applications/arts-creative-simulation/fractal-art-dashboards/) -- Mathematical art visualization
+- [Visual arts epistemic influence](@/applications/arts-creative-simulation/visual-arts-epistemic-influence.md) -- Epistemic dimensions of visual art
+- [Dance movement simulation](@/applications/arts-creative-simulation/dance-movement-simulation.md) -- Choreographic pattern generation
+- [Theater agent roleplay](@/applications/arts-creative-simulation/theater-agent-roleplay.md) -- Theatrical performance simulation
+- [Persona art generator](@/applications/arts-creative-simulation/persona-art-generator.md) -- Personality-driven visual generation
+- [Fractal art dashboards](@/applications/arts-creative-simulation/fractal-art-dashboards.md) -- Mathematical art visualization
 
 ### Therapeutic and Cultural Applications
 
-- [Aesthetic resonance analysis](/applications/arts-creative-simulation/aesthetic-resonance-analysis/) -- Cross-modal aesthetic evaluation
-- [Cultural archetype mapping](/applications/arts-creative-simulation/cultural-archetype-mapping/) -- Cultural pattern identification
-- [Improvisation replay packs](/applications/arts-creative-simulation/improvisation-replay-packs/) -- Improvisation session analysis
-- [Surreal persona simulation](/applications/arts-creative-simulation/surreal-persona-simulation/) -- Identity exploration through surrealism
-- [Dark noir persona packs](/applications/arts-creative-simulation/dark-noir-persona-packs/) -- Noir genre persona modeling
+- [Aesthetic resonance analysis](@/applications/arts-creative-simulation/aesthetic-resonance-analysis.md) -- Cross-modal aesthetic evaluation
+- [Cultural archetype mapping](@/applications/arts-creative-simulation/cultural-archetype-mapping.md) -- Cultural pattern identification
+- [Improvisation replay packs](@/applications/arts-creative-simulation/improvisation-replay-packs.md) -- Improvisation session analysis
+- [Surreal persona simulation](@/applications/arts-creative-simulation/surreal-persona-simulation.md) -- Identity exploration through surrealism
+- [Dark noir persona packs](@/applications/arts-creative-simulation/dark-noir-persona-packs.md) -- Noir genre persona modeling
 
 ### Experimental and Surreal Exploration
 
-- [Creative swarm intelligence](/applications/arts-creative-simulation/creative-swarm-intelligence/) -- Emergent swarm creativity
-- [Linguistic surrealism agents](/applications/arts-creative-simulation/linguistic-surrealism-agents/) -- Surrealist language generation
-- [Dream replay experiments](/applications/arts-creative-simulation/dream-replay-experiments/) -- Dream narrative reconstruction
-- [Cross-genre creativity maps](/applications/arts-creative-simulation/cross-genre-creativity-maps/) -- Inter-genre creative transfer
-- [Surreal epistemic scenarios](/applications/arts-creative-simulation/surreal-epistemic-scenarios/) -- Epistemic paradox as creativity
+- [Creative swarm intelligence](@/applications/arts-creative-simulation/creative-swarm-intelligence.md) -- Emergent swarm creativity
+- [Linguistic surrealism agents](@/applications/arts-creative-simulation/linguistic-surrealism-agents.md) -- Surrealist language generation
+- [Dream replay experiments](@/applications/arts-creative-simulation/dream-replay-experiments.md) -- Dream narrative reconstruction
+- [Cross-genre creativity maps](@/applications/arts-creative-simulation/cross-genre-creativity-maps.md) -- Inter-genre creative transfer
+- [Surreal epistemic scenarios](@/applications/arts-creative-simulation/surreal-epistemic-scenarios.md) -- Epistemic paradox as creativity
 
 ## Future Research Directions
 
@@ -224,11 +224,11 @@ Frameworks for studying boundary-pushing creative processes, swarm creativity, a
 
 ### Internal Documentation
 
-- [Platform Capabilities](/capabilities/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Agent Orchestration](/glossary/agent-orchestration/)
-- [Simulation](/glossary/simulation/)
+- [Platform Capabilities](@/capabilities/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Agent Orchestration](@/glossary/agent-orchestration.md)
+- [Simulation](@/glossary/simulation.md)
 
 ### External Standards and Literature
 
@@ -248,4 +248,4 @@ Frameworks for studying boundary-pushing creative processes, swarm creativity, a
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -303,7 +303,7 @@ end
 
 ### Autoevolve System
 
-The [Autoevolve](/glossary/autoevolve/) system is the primary implementation of automated self-improvement in the Prismatic Platform. It operates through several commands:
+The [Autoevolve](@/glossary/autoevolve.md) system is the primary implementation of automated self-improvement in the Prismatic Platform. It operates through several commands:
 
 - `mix autoevolve status` -- reports current fitness score and available improvement opportunities
 - `mix autoevolve.scan --quick` -- fast scan for immediate improvement opportunities
@@ -326,19 +326,19 @@ The result is a platform with 0/0 quality debt -- every domain at 100% complianc
 
 ### Fitness Score Tracking
 
-The [Fitness Score](/glossary/fitness-score/) is the quantitative measure that drives all self-improvement decisions. It is computed across 10 dimensions (compilation, dialyzer, credo, test coverage, performance, security, documentation, typespec coverage, pattern compliance, architecture) and produces a single number between 0.0 and 1.0. The current platform fitness is 0.9995.
+The [Fitness Score](@/glossary/fitness-score.md) is the quantitative measure that drives all self-improvement decisions. It is computed across 10 dimensions (compilation, dialyzer, credo, test coverage, performance, security, documentation, typespec coverage, pattern compliance, architecture) and produces a single number between 0.0 and 1.0. The current platform fitness is 0.9995.
 
 ### Generation Advancement
 
-Each [Generation](/glossary/generation/) represents a plateau of capability that required qualitative, not just quantitative, improvement to reach. Advancing from Gen 18 to Gen 19 required not just improving existing metrics but expanding the platform's scope to include open-source ecosystem participation -- a fundamentally new capability, not an optimization of an existing one.
+Each [Generation](@/glossary/generation.md) represents a plateau of capability that required qualitative, not just quantitative, improvement to reach. Advancing from Gen 18 to Gen 19 required not just improving existing metrics but expanding the platform's scope to include open-source ecosystem participation -- a fundamentally new capability, not an optimization of an existing one.
 
 ### SEADF Integration
 
-The [SEADF](/glossary/seadf/) framework (Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, Enhanced Healing) provides the infrastructure within which automated self-improvement operates. Each SEADF subsystem contributes to the self-improvement loop: the Scanner identifies opportunities, the Pipeline processes them, the Quality Guardian validates them, and the Enhanced Healing system applies remediation.
+The [SEADF](@/glossary/seadf.md) framework (Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, Enhanced Healing) provides the infrastructure within which automated self-improvement operates. Each SEADF subsystem contributes to the self-improvement loop: the Scanner identifies opportunities, the Pipeline processes them, the Quality Guardian validates them, and the Enhanced Healing system applies remediation.
 
 ### Quality DNA Persistence
 
-The [Quality DNA](/glossary/quality-dna/) system ensures that self-improvement gains persist across sessions. Each session's ending state is serialized to `.claude/quality-dna/current-state.json`, providing continuity so that the next session begins from the improved state rather than re-discovering the same opportunities.
+The [Quality DNA](@/glossary/quality-dna.md) system ensures that self-improvement gains persist across sessions. Each session's ending state is serialized to `.claude/quality-dna/current-state.json`, providing continuity so that the next session begins from the improved state rather than re-discovering the same opportunities.
 
 ## Comparison with Alternatives
 
@@ -403,24 +403,24 @@ The self-improvement system continuously monitors security patterns and identifi
 
 ## Related Concepts
 
-- [Autoevolve](/glossary/autoevolve/) -- the primary self-improvement engine in Prismatic
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- broader concept of systems that evolve independently
-- [Fitness Score](/glossary/fitness-score/) -- the metric that drives improvement decisions
-- [Generation](/glossary/generation/) -- milestones in the platform's evolutionary trajectory
-- [Self-Healing](/glossary/self-healing/) -- automated repair (maintenance), a subset of self-improvement
-- [Quality Debt](/glossary/quality-debt/) -- accumulated quality violations that self-improvement eliminates
-- [Quality DNA](/glossary/quality-dna/) -- persistence mechanism for improvement state
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- monitors quality to trigger improvement
-- [Autoheal](/glossary/autoheal/) -- automated repair system that feeds into self-improvement
-- [SEADF](/glossary/seadf/) -- the framework providing self-improvement infrastructure
+- [Autoevolve](@/glossary/autoevolve.md) -- the primary self-improvement engine in Prismatic
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- broader concept of systems that evolve independently
+- [Fitness Score](@/glossary/fitness-score.md) -- the metric that drives improvement decisions
+- [Generation](@/glossary/generation.md) -- milestones in the platform's evolutionary trajectory
+- [Self-Healing](@/glossary/self-healing.md) -- automated repair (maintenance), a subset of self-improvement
+- [Quality Debt](@/glossary/quality-debt.md) -- accumulated quality violations that self-improvement eliminates
+- [Quality DNA](@/glossary/quality-dna.md) -- persistence mechanism for improvement state
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- monitors quality to trigger improvement
+- [Autoheal](@/glossary/autoheal.md) -- automated repair system that feeds into self-improvement
+- [SEADF](@/glossary/seadf.md) -- the framework providing self-improvement infrastructure
 
 ## See Also
 
-- [Autoevolve](/glossary/autoevolve/) for detailed autoevolve system documentation
-- [Quality Gates](/glossary/quality-gates/) for the validation system that self-improvement must satisfy
-- [Trinity Gate](/glossary/trinity-gate/) for the epistemic validation of improvement claims
-- [Generational Evolution](/glossary/generation-evolution/) for the long-term evolution model
-- [Quality Measurement System](/glossary/quality-measurement-system/) for the fitness evaluation infrastructure
+- [Autoevolve](@/glossary/autoevolve.md) for detailed autoevolve system documentation
+- [Quality Gates](@/glossary/quality-gates.md) for the validation system that self-improvement must satisfy
+- [Trinity Gate](@/glossary/trinity-gate.md) for the epistemic validation of improvement claims
+- [Generational Evolution](@/glossary/generation-evolution.md) for the long-term evolution model
+- [Quality Measurement System](@/glossary/quality-measurement-system.md) for the fitness evaluation infrastructure
 
 ---
 
@@ -429,4 +429,4 @@ The self-improvement system continuously monitors security patterns and identifi
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

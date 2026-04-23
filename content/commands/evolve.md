@@ -24,13 +24,13 @@ image_alt = "/evolve - Prismatic Platform"
 
 ## Overview
 
-**/evolve** is the flagship production command in the **Evolution** category of the Prismatic Platform. It drives living [AIAD](/glossary/aiad/) ecosystem evolution through a 5-phase cycle with full GitLab [observability](/glossary/observability/), serving as the primary mechanism by which the platform autonomously improves itself across generations. This is not incremental refactoring or manual optimization -- it is systematic, measured, generational evolution of the entire platform ecosystem.
+**/evolve** is the flagship production command in the **Evolution** category of the Prismatic Platform. It drives living [AIAD](@/glossary/aiad.md) ecosystem evolution through a 5-phase cycle with full GitLab [observability](@/glossary/observability.md), serving as the primary mechanism by which the platform autonomously improves itself across generations. This is not incremental refactoring or manual optimization -- it is systematic, measured, generational evolution of the entire platform ecosystem.
 
 The Prismatic Platform has evolved through 18 generations, from an initial Gen 1 state to the current Gen 18 apex with 0.999 fitness across 13 quality domains. Each generation represents a measurable improvement in code quality, agent capability, pattern diversity, and architectural coherence. The `/evolve` command orchestrates this entire evolutionary process, managing the lifecycle from mutation generation through fitness evaluation to selection and persistence.
 
 The command's SUPREME + SELF-RECURSIVE authority level is unique in the platform's command registry. SUPREME authority grants it the ability to modify any platform component. SELF-RECURSIVE authority means the evolution system can evolve itself -- improving its own mutation strategies, fitness functions, and selection algorithms through the same evolutionary process it applies to the rest of the platform. This self-recursive capability is what enables exponential improvement: each generation's evolution is driven by a more capable evolution system than the previous generation's.
 
-This command is executed by the `evolution-orchestrator` agent, the most powerful orchestration agent in the AIAD ecosystem. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the AIAD (Autonomous Intelligence Agent Design) standard, and represents the highest expression of the platform's autonomous intelligence capabilities.
+This command is executed by the `evolution-orchestrator` agent, the most powerful orchestration agent in the AIAD ecosystem. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the AIAD (Autonomous Intelligence Agent Design) standard, and represents the highest expression of the platform's autonomous intelligence capabilities.
 
 ## Architecture
 
@@ -55,7 +55,7 @@ The evolution engine implements a biological-inspired generational model with fi
                                                  Dialyzer
 ```
 
-**Phase 1 -- SCAN**: The evolution engine surveys the entire codebase using [git trees](/glossary/git-trees/) (~100x faster than filesystem traversal) and AST-indexed semantic search. The scan identifies all modules, their quality profiles, dependency relationships, and recent change patterns. Output: a comprehensive codebase map.
+**Phase 1 -- SCAN**: The evolution engine surveys the entire codebase using [git trees](@/glossary/git-trees.md) (~100x faster than filesystem traversal) and AST-indexed semantic search. The scan identifies all modules, their quality profiles, dependency relationships, and recent change patterns. Output: a comprehensive codebase map.
 
 **Phase 2 -- ANALYZE**: Each module is analyzed across 13 quality domains. The analysis identifies quality gaps, improvement opportunities, and areas where patterns from the library could be applied. Historical analysis from previous generations provides trend context.
 
@@ -150,7 +150,7 @@ The evolution engine implements a biological-inspired generational model with fi
 
 The `/evolve` command follows the canonical 5-phase evolution cycle, wrapped in observability infrastructure:
 
-1. **Initialization**: The evolution orchestrator loads the current generation state from [Quality DNA](/glossary/quality-dna/), initializes telemetry instrumentation, and optionally syncs with GitLab for observability. The previous generation's fitness scores serve as the baseline.
+1. **Initialization**: The evolution orchestrator loads the current generation state from [Quality DNA](@/glossary/quality-dna.md), initializes telemetry instrumentation, and optionally syncs with GitLab for observability. The previous generation's fitness scores serve as the baseline.
 
 2. **Scan Phase**: The codebase is surveyed using git trees and AST indexing. All 100+ umbrella applications are catalogued with their module counts, quality profiles, and dependency graphs. The scan typically completes in under 500ms for the full 37,000-file codebase.
 
@@ -168,15 +168,15 @@ The `/evolve` command follows the canonical 5-phase evolution cycle, wrapped in 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Quality DNA](/glossary/quality-dna/) | Persistence | Generation state, fitness history |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Mutation validation pipeline |
-| [Git Trees](/glossary/git-trees/) | Scanning | Codebase survey (~100x faster) |
-| [SEADF](/glossary/seadf/) | Framework | Self-evolving framework integration |
-| [Mycelial Network](/glossary/mycelial-network/) | Distribution | Pattern propagation for evolved mutations |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | 434 agents participating in evolution |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Evolution [metrics](/glossary/metrics/) and phase timing |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | Generation state, fitness history |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Mutation validation pipeline |
+| [Git Trees](@/glossary/git-trees.md) | Scanning | Codebase survey (~100x faster) |
+| [SEADF](@/glossary/seadf.md) | Framework | Self-evolving framework integration |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Distribution | Pattern propagation for evolved mutations |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | 434 agents participating in evolution |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Evolution [metrics](@/glossary/metrics.md) and phase timing |
 | GitLab API | Observability | Generation tracking, milestone updates |
-| [GARDEN](/glossary/garden/) | Knowledge | 116 repositories of legacy patterns |
+| [GARDEN](@/glossary/garden.md) | Knowledge | 116 repositories of legacy patterns |
 | AIAD Registry | Discovery | Command and agent specifications |
 
 ## Best Practices
@@ -236,7 +236,7 @@ The `/evolve` command follows the canonical 5-phase evolution cycle, wrapped in 
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Evolution is mandatory and relentless. Every session contributes to generational improvement. Fitness regressions are treated as failures requiring immediate correction. No generation is accepted unless it meets or exceeds the fitness of the previous generation.
 - **NO DOUBTS**: Every evolution decision is evidence-based. Fitness improvements are measured across 13 domains with quantified metrics. Mutations are validated through comprehensive quality gates. The evolution system never guesses -- it measures, evaluates, and selects based on empirical data.
@@ -245,17 +245,17 @@ The SUPREME + SELF-RECURSIVE authority level represents the platform's deepest c
 
 ## Related Commands
 
-- [/evolve-enforced](/commands/evolve-enforced/) - Evolution with mandatory QDP reduction
-- [/evolve-mycelialize](/commands/evolve-mycelialize/) - Unified evolution-propagation cycles
-- [/evolve-patterns](/commands/evolve-patterns/) - Pattern evolution through meta-evolution analysis
-- [/evolve-quality-gates](/commands/evolve-quality-gates/) - Quality gate evolution for warnings, tests and static analysis
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/mycelialize-living](/commands/mycelialize-living/) - Living self-evolving intelligence with introspection, AST manipulation and agent swarms
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/evo-stats](/commands/evo-stats/) - Evolution statistics and metrics reporting
+- [/evolve-enforced](@/commands/evolve-enforced.md) - Evolution with mandatory QDP reduction
+- [/evolve-mycelialize](@/commands/evolve-mycelialize.md) - Unified evolution-propagation cycles
+- [/evolve-patterns](@/commands/evolve-patterns.md) - Pattern evolution through meta-evolution analysis
+- [/evolve-quality-gates](@/commands/evolve-quality-gates.md) - Quality gate evolution for warnings, tests and static analysis
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/mycelialize-living](@/commands/mycelialize-living.md) - Living self-evolving intelligence with introspection, AST manipulation and agent swarms
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/evo-stats](@/commands/evo-stats.md) - Evolution statistics and metrics reporting
 
 ---
 
@@ -264,4 +264,4 @@ The SUPREME + SELF-RECURSIVE authority level represents the platform's deepest c
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -25,7 +25,7 @@ image_alt = "ONYPHE - Prismatic Platform"
 
 ## Overview
 
-ONYPHE is a French cyber defense search engine that collects and indexes data from the internet by scanning IP addresses, crawling URLs, and aggregating [threat intelligence](/glossary/threat-intelligence/) feeds. It provides a comprehensive view of the [attack surface](/glossary/attack-surface/) through active scanning, passive DNS collection, certificate monitoring, and threat feed integration. ONYPHE differentiates itself with strong [GDPR](/glossary/gdpr/) compliance and European data sovereignty.
+ONYPHE is a French cyber defense search engine that collects and indexes data from the internet by scanning IP addresses, crawling URLs, and aggregating [threat intelligence](@/glossary/threat-intelligence.md) feeds. It provides a comprehensive view of the [attack surface](@/glossary/attack-surface.md) through active scanning, passive DNS collection, certificate monitoring, and threat feed integration. ONYPHE differentiates itself with strong [GDPR](@/glossary/gdpr.md) compliance and European data sovereignty.
 
 Founded in 2017 by Patrice Auffret, ONYPHE is built on the principle that European organizations need internet intelligence platforms that comply with EU data protection regulations without sacrificing capability. All data is stored and processed within the European Union, making ONYPHE the preferred choice for organizations subject to European data sovereignty requirements, particularly those in regulated sectors like finance, healthcare, and government.
 
@@ -41,11 +41,11 @@ The platform's query language supports complex searches across multiple data cat
 | **Data Scanning** | Service-specific data collection (HTTP, SSH, etc.) | Active protocol interaction | Top 100 ports |
 | **Passive DNS** | Historical DNS resolution data | Sensor network monitoring | Billions of records |
 | **DNS Resolution** | Active DNS queries for domains | Active DNS resolution | 500M+ domains |
-| **Certificate Monitoring** | SSL/[TLS](/glossary/tls/) certificate tracking | CT log + active collection | All publicly trusted CAs |
+| **Certificate Monitoring** | SSL/[TLS](@/glossary/tls.md) certificate tracking | CT log + active collection | All publicly trusted CAs |
 | **Geolocation** | IP to geographic location mapping | Multi-source aggregation | Full IPv4 coverage |
 | **Threat Lists** | Blocklists, botnet, C2, scanner identification | Feed aggregation | 100+ feeds |
 | **Data Leak Detection** | Exposed databases and sensitive data | Active scanning + monitoring | Continuous |
-| **[CVE](/glossary/cve/) Mapping** | Vulnerability detection via version matching | Automated CVE correlation | 200K+ CVEs |
+| **[CVE](@/glossary/cve.md) Mapping** | Vulnerability detection via version matching | Automated CVE correlation | 200K+ CVEs |
 | **Web Crawling** | HTTP response headers, technologies, content | Active HTTP crawling | 100M+ URLs |
 | **WHOIS** | Domain registration data | WHOIS queries | 500M+ domains |
 
@@ -249,7 +249,7 @@ ONYPHE provides continuous monitoring of external assets with European data resi
 
 ONYPHE aggregates threat intelligence from over 100 feeds, providing IP reputation assessment that combines blocklist matches, botnet detection, scanner identification, and historical behavior analysis. The integrated approach eliminates the need to query multiple threat feeds separately.
 
-### [NIS2](/glossary/nis2/) Compliance
+### [NIS2](@/glossary/nis2.md) Compliance
 
 European organizations subject to the NIS2 Directive can use ONYPHE to assess their attack surface, monitor for vulnerabilities, and demonstrate continuous security monitoring as required by the directive. ONYPHE's EU data sovereignty aligns with NIS2's emphasis on European cybersecurity autonomy.
 
@@ -265,7 +265,7 @@ During incident response, ONYPHE provides rapid context for observed IP addresse
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
-| **European focus** | Stronger coverage of EU infrastructure vs global | Supplement with [Shodan](/osint/shodan/)/[Censys](/osint/censys/) for global coverage |
+| **European focus** | Stronger coverage of EU infrastructure vs global | Supplement with [Shodan](@/osint/shodan.md)/[Censys](@/osint/censys.md) for global coverage |
 | **Free tier limited** | 50 queries/month with 10 results | Professional tier for regular use |
 | **Scan frequency** | Full IPv4 scan takes ~1 week | Use alerts for near-real-time notifications |
 | **No IPv6 scanning** | IPv6 address space not scanned | Use other tools for IPv6 assessment |
@@ -283,13 +283,13 @@ During incident response, ONYPHE provides rapid context for observed IP addresse
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), ONYPHE serves as the European-sovereign internet intelligence source, complementing global scanning platforms.
+Within the [Prismatic Platform](@/apps/prismatic.md), ONYPHE serves as the European-sovereign internet intelligence source, complementing global scanning platforms.
 
-- **EU Data Sovereignty**: For European clients, ONYPHE provides attack surface intelligence without US jurisdiction data exposure, critical for [NIS2](/glossary/nis2/) and GDPR compliance.
-- **Vulnerability Correlation**: ONYPHE vulnscan results are cross-referenced with [Nuclei](/osint/nuclei/) active scanning and [NVD](/osint/nvd/) intelligence for multi-source vulnerability validation.
-- **Threat Intelligence Fusion**: ONYPHE's aggregated threat lists supplement [Pulsedive](/osint/pulsedive/), [ThreatFox](/osint/threatfox/), and [MISP](/osint/misp/) data in the platform's threat intelligence pipeline.
-- **Attack Surface Management**: ONYPHE powers the European component of [Prismatic Perimeter](/apps/prismatic-perimeter/) EASM, providing asset discovery and monitoring with EU data residency guarantees.
-- **Passive DNS Integration**: ONYPHE's passive DNS data feeds into the platform's infrastructure mapping alongside [SecurityTrails](/osint/securitytrails/) and [PassiveDNS](/osint/passivedns/) sources.
+- **EU Data Sovereignty**: For European clients, ONYPHE provides attack surface intelligence without US jurisdiction data exposure, critical for [NIS2](@/glossary/nis2.md) and GDPR compliance.
+- **Vulnerability Correlation**: ONYPHE vulnscan results are cross-referenced with [Nuclei](@/osint/nuclei.md) active scanning and [NVD](@/osint/nvd.md) intelligence for multi-source vulnerability validation.
+- **Threat Intelligence Fusion**: ONYPHE's aggregated threat lists supplement [Pulsedive](@/osint/pulsedive.md), [ThreatFox](@/osint/threatfox.md), and [MISP](@/osint/misp.md) data in the platform's threat intelligence pipeline.
+- **Attack Surface Management**: ONYPHE powers the European component of [Prismatic Perimeter](@/apps/prismatic-perimeter.md) EASM, providing asset discovery and monitoring with EU data residency guarantees.
+- **Passive DNS Integration**: ONYPHE's passive DNS data feeds into the platform's infrastructure mapping alongside [SecurityTrails](@/osint/securitytrails.md) and [PassiveDNS](@/osint/passivedns.md) sources.
 
 ## Best Practices
 
@@ -301,21 +301,21 @@ Within the [Prismatic Platform](/apps/prismatic/), ONYPHE serves as the European
 
 4. **Leverage EU sovereignty**: For European clients, use ONYPHE as the primary internet intelligence source to maintain data sovereignty compliance.
 
-5. **Combine with active scanning**: Use ONYPHE for passive intelligence and [Nuclei](/osint/nuclei/) for active verification of critical findings.
+5. **Combine with active scanning**: Use ONYPHE for passive intelligence and [Nuclei](@/osint/nuclei.md) for active verification of critical findings.
 
 6. **Filter by CVSS**: When searching for vulnerabilities, use CVSS score filtering to focus on actionable findings above your risk threshold.
 
-7. **Cross-reference threat lists**: Validate ONYPHE threat list matches against [AbuseIPDB](/osint/abuseipdb/) and [GreyNoise](/osint/greynoise/) for confirmation.
+7. **Cross-reference threat lists**: Validate ONYPHE threat list matches against [AbuseIPDB](@/osint/abuseipdb.md) and [GreyNoise](@/osint/greynoise.md) for confirmation.
 
 ## Related Providers
 
-- [Shodan](/osint/shodan/) - Global internet scanning platform
-- [Censys](/osint/censys/) - Internet-wide asset discovery
-- [BinaryEdge](/osint/binaryedge/) - Threat intelligence platform
-- [GreyNoise](/osint/greynoise/) - Scanner and noise identification
-- [FullHunt](/osint/fullhunt/) - Attack surface intelligence
-- [Netlas](/osint/netlas/) - Response-level internet search
-- [MaxMind](/osint/maxmind/) - IP geolocation and ASN data
+- [Shodan](@/osint/shodan.md) - Global internet scanning platform
+- [Censys](@/osint/censys.md) - Internet-wide asset discovery
+- [BinaryEdge](@/osint/binaryedge.md) - Threat intelligence platform
+- [GreyNoise](@/osint/greynoise.md) - Scanner and noise identification
+- [FullHunt](@/osint/fullhunt.md) - Attack surface intelligence
+- [Netlas](@/osint/netlas.md) - Response-level internet search
+- [MaxMind](@/osint/maxmind.md) - IP geolocation and ASN data
 
 ---
 
@@ -324,4 +324,4 @@ Within the [Prismatic Platform](/apps/prismatic/), ONYPHE serves as the European
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "NVD - Prismatic Platform"
 
 ## Overview
 
-The NVD (National Vulnerability Database) is the US government's authoritative repository of vulnerability management data, maintained by NIST (National Institute of Standards and Technology) under the Information Technology Laboratory. It catalogs all CVEs (Common Vulnerabilities and Exposures) with structured analysis including CVSS (Common Vulnerability Scoring System) scores, affected product enumerations (CPE), weakness classifications (CWE), and references to advisories and patches. The NVD processes every [CVE](/glossary/cve/) published by MITRE's CVE Program and enriches it with additional analysis, making it the world's most comprehensive structured vulnerability intelligence source.
+The NVD (National Vulnerability Database) is the US government's authoritative repository of vulnerability management data, maintained by NIST (National Institute of Standards and Technology) under the Information Technology Laboratory. It catalogs all CVEs (Common Vulnerabilities and Exposures) with structured analysis including CVSS (Common Vulnerability Scoring System) scores, affected product enumerations (CPE), weakness classifications (CWE), and references to advisories and patches. The NVD processes every [CVE](@/glossary/cve.md) published by MITRE's CVE Program and enriches it with additional analysis, making it the world's most comprehensive structured vulnerability intelligence source.
 
-For [OSINT](/glossary/osint/) and security assessments, the NVD is the foundational source for vulnerability intelligence. It provides standardized severity scoring, affected product identification, and remediation guidance that enables systematic vulnerability management across any technology stack. The database contains over 200,000 CVE entries dating back to 1999, with new vulnerabilities added daily as the CVE Program processes disclosures from researchers, vendors, and coordination centers worldwide.
+For [OSINT](@/glossary/osint.md) and security assessments, the NVD is the foundational source for vulnerability intelligence. It provides standardized severity scoring, affected product identification, and remediation guidance that enables systematic vulnerability management across any technology stack. The database contains over 200,000 CVE entries dating back to 1999, with new vulnerabilities added daily as the CVE Program processes disclosures from researchers, vendors, and coordination centers worldwide.
 
 The NVD's structured data model -- combining CVE descriptions, CVSS vector strings, CPE product identifiers, and CWE weakness types -- enables automated vulnerability correlation that would be impossible with unstructured advisory text alone. When a technology detection tool identifies Apache HTTP Server 2.4.49 on a target system, the NVD's CPE matching capability instantly returns all known vulnerabilities affecting that exact version, complete with severity scores and exploitation likelihood indicators.
 
@@ -227,14 +227,14 @@ The local PostgreSQL mirror enables sub-millisecond vulnerability lookups for ca
 
 ## Related Resources
 
-- [Exploit-DB](/osint/exploit-db/) - Public exploits for NVD-cataloged vulnerabilities
-- [Shodan](/osint/shodan/) - Service detection revealing vulnerable software
-- [BuiltWith](/osint/builtwith/) - Technology detection for CPE matching
-- [Censys](/osint/censys/) - Internet scanning for vulnerability context
-- [VirusTotal](/osint/virustotal/) - Malware samples exploiting known CVEs
-- [MITRE ATT&CK](/osint/mitre-attack/) - Technique mapping for exploited vulnerabilities
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Vulnerability-based security ratings
+- [Exploit-DB](@/osint/exploit-db.md) - Public exploits for NVD-cataloged vulnerabilities
+- [Shodan](@/osint/shodan.md) - Service detection revealing vulnerable software
+- [BuiltWith](@/osint/builtwith.md) - Technology detection for CPE matching
+- [Censys](@/osint/censys.md) - Internet scanning for vulnerability context
+- [VirusTotal](@/osint/virustotal.md) - Malware samples exploiting known CVEs
+- [MITRE ATT&CK](@/osint/mitre-attack.md) - Technique mapping for exploited vulnerabilities
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Vulnerability-based security ratings
 
 ---
 
@@ -243,4 +243,4 @@ The local PostgreSQL mirror enables sub-millisecond vulnerability lookups for ca
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -612,24 +612,24 @@ end
 
 ## Related Terms
 
-- [Time to First Byte](/glossary/time-to-first-byte/) -- a specific latency metric within the response distribution
-- [Standard Deviation](/glossary/standard-deviation/) -- measures spread around the mean, less useful than percentiles for skewed distributions
-- [Variance](/glossary/variance/) -- the squared deviation measure underlying distributions
-- [SLA](/glossary/sla/) -- service level agreements that define acceptable distribution percentiles
-- [Threshold](/glossary/threshold/) -- the cutoff values applied to distribution percentiles
-- [Telemetry](/glossary/telemetry/) -- the event system that feeds response time measurements into distributions
-- [Benchmark](/glossary/benchmark/) -- controlled measurement of response distributions under known load
-- [KPI](/glossary/kpi/) -- key performance indicators derived from distribution percentiles
-- [Latency](/glossary/latency/) -- the raw time measurement that distributions aggregate
-- [Profiling](/glossary/profiling/) -- complementary technique for diagnosing individual slow requests
-- [Monitoring](/glossary/monitoring/) -- the operational practice of tracking distributions in production
-- [Cache Eviction](/glossary/cache-eviction/) -- cache hit/miss ratios directly affect distribution shape
+- [Time to First Byte](@/glossary/time-to-first-byte.md) -- a specific latency metric within the response distribution
+- [Standard Deviation](@/glossary/standard-deviation.md) -- measures spread around the mean, less useful than percentiles for skewed distributions
+- [Variance](@/glossary/variance.md) -- the squared deviation measure underlying distributions
+- [SLA](@/glossary/sla.md) -- service level agreements that define acceptable distribution percentiles
+- [Threshold](@/glossary/threshold.md) -- the cutoff values applied to distribution percentiles
+- [Telemetry](@/glossary/telemetry.md) -- the event system that feeds response time measurements into distributions
+- [Benchmark](@/glossary/benchmark.md) -- controlled measurement of response distributions under known load
+- [KPI](@/glossary/kpi.md) -- key performance indicators derived from distribution percentiles
+- [Latency](@/glossary/latency.md) -- the raw time measurement that distributions aggregate
+- [Profiling](@/glossary/profiling.md) -- complementary technique for diagnosing individual slow requests
+- [Monitoring](@/glossary/monitoring.md) -- the operational practice of tracking distributions in production
+- [Cache Eviction](@/glossary/cache-eviction.md) -- cache hit/miss ratios directly affect distribution shape
 
 ## See Also
 
-- [Performance Standards](/capabilities/) -- platform response time requirements and SLO definitions
-- [Monitoring Architecture](/architecture/) -- telemetry infrastructure for distribution tracking
-- [LiveDashboard Integration](/architecture/) -- real-time distribution visualization in development
+- [Performance Standards](@/capabilities/_index.md) -- platform response time requirements and SLO definitions
+- [Monitoring Architecture](@/architecture/_index.md) -- telemetry infrastructure for distribution tracking
+- [LiveDashboard Integration](@/architecture/_index.md) -- real-time distribution visualization in development
 - [HDR Histogram (Erlang)](https://github.com/HdrHistogram/hdr_histogram_erl) -- high-precision histogram library for BEAM
 - [Prometheus Histograms](https://prometheus.io/docs/concepts/metric_types/#histogram) -- industry-standard histogram metric type
 
@@ -640,4 +640,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

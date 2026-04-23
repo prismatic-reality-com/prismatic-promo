@@ -22,7 +22,7 @@ image_alt = "Strategic Command Agents - Prismatic Platform"
 
 ## Overview
 
-[Strategic Command](/glossary/strategic-command/) agents form the apex of the Prismatic agent hierarchy. These L3-L5 agents coordinate complex multi-agent operations, manage mission-critical decisions, and maintain platform-wide coherence.
+[Strategic Command](@/glossary/strategic-command.md) agents form the apex of the Prismatic agent hierarchy. These L3-L5 agents coordinate complex multi-agent operations, manage mission-critical decisions, and maintain platform-wide coherence.
 
 ## Agent Roster
 
@@ -32,7 +32,7 @@ image_alt = "Strategic Command Agents - Prismatic Platform"
 | **archer-supreme** | L4 | Crisis Commander | Impossible missions, zero-error requirements |
 | **strategic-command** | L4 | Mission Planner | Multi-phase operation coordination |
 | **archer-command-center** | L4 | Tactical Hub | Real-time mission control |
-| **tactical-command** | L3 | Field Operations | Domain-specific [tactical execution](/glossary/tactical-execution/) |
+| **tactical-command** | L3 | Field Operations | Domain-specific [tactical execution](@/glossary/tactical-execution.md) |
 
 ## Key Capabilities
 
@@ -63,9 +63,9 @@ image_alt = "Strategic Command Agents - Prismatic Platform"
 
 ## Integration Points
 
-- **[Quality Gates](/glossary/quality-gates/)**: All strategic decisions pass [Trinity Gate](/glossary/trinity-gate/) verification
-- **Epistemic Framework**: [NABLA Infinity](/glossary/nabla-infinity/) 7-axiom compliance
-- **[Audit Trail](/glossary/audit-trail/)**: Immutable decision logging with provenance
+- **[Quality Gates](@/glossary/quality-gates.md)**: All strategic decisions pass [Trinity Gate](@/glossary/trinity-gate.md) verification
+- **Epistemic Framework**: [NABLA Infinity](@/glossary/nabla-infinity.md) 7-axiom compliance
+- **[Audit Trail](@/glossary/audit-trail.md)**: Immutable decision logging with provenance
 
 ## Commands
 
@@ -74,7 +74,7 @@ image_alt = "Strategic Command Agents - Prismatic Platform"
 | `/orchestrate` | Multi-agent task orchestration | L3+ |
 | `/archer-supreme` | Crisis/impossible mission activation | L4 |
 | `/coordinate` | Cross-domain coordination | L3+ |
-| `/emergency` | Emergency response [protocol](/glossary/protocol/) | L4 |
+| `/emergency` | Emergency response [protocol](@/glossary/protocol.md) | L4 |
 
 ---
 
@@ -83,4 +83,4 @@ image_alt = "Strategic Command Agents - Prismatic Platform"
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

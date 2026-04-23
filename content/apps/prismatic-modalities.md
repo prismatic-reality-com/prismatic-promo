@@ -27,7 +27,7 @@ Prismatic Modalities provides a comprehensive behavioral profiling framework tha
 
 The application implements a behaviour-driven architecture where each modality dimension is defined through the `ModalityBehaviour` protocol, ensuring consistent measurement, scoring, and comparison across all modality categories. The system currently models over 120 individual modality dimensions organized into seven primary categories: verbal communication, nonverbal communication, emotional expression, cognitive expression, social interaction, learning and knowledge, creative expression, and adaptation to change. This granularity enables the platform to construct multi-dimensional behavioral fingerprints that capture the full spectrum of observable human expression patterns.
 
-The modality framework integrates with the platform's broader [entity resolution](/glossary/entity-resolution/) pipeline by contributing behavioral trait vectors to entity profiles stored in [KuzuDB](/glossary/kuzudb/). When combined with technical intelligence from [OSINT](/glossary/osint/) sources and structural data from corporate registries, behavioral modality profiles enable a holistic assessment that bridges the gap between what entities do technically and how the humans behind them behave -- a capability essential for social engineering detection, insider threat identification, and deception analysis.
+The modality framework integrates with the platform's broader [entity resolution](@/glossary/entity-resolution.md) pipeline by contributing behavioral trait vectors to entity profiles stored in [KuzuDB](@/glossary/kuzudb.md). When combined with technical intelligence from [OSINT](@/glossary/osint.md) sources and structural data from corporate registries, behavioral modality profiles enable a holistic assessment that bridges the gap between what entities do technically and how the humans behind them behave -- a capability essential for social engineering detection, insider threat identification, and deception analysis.
 
 ## Architecture
 
@@ -75,7 +75,7 @@ Each modality dimension is implemented as an independent module conforming to th
 | Module | Purpose |
 |--------|---------|
 | `PrismaticModalities` | Main API facade for behavioral profiling and modality analysis |
-| `PrismaticModalities.Application` | [OTP](/glossary/otp/) application entry point with supervision tree |
+| `PrismaticModalities.Application` | [OTP](@/glossary/otp.md) application entry point with supervision tree |
 | `PrismaticModalities.Manager` | Central coordinator for cross-category behavioral analysis |
 | `PrismaticModalities.Registry` | ETS-backed registry of all modality dimension definitions |
 | `PrismaticModalities.ModalityBehaviour` | Behaviour protocol defining the contract for all modality dimensions |
@@ -183,12 +183,12 @@ Testing includes property-based tests (via StreamData) for dimension scoring nor
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic Tracking](/apps/prismatic-tracking/) | Behavioral modality snapshots enrich entity state with expression pattern intelligence |
-| [Prismatic Storage KuzuDB](/apps/prismatic-storage-kuzudb/) | Behavioral trait vectors stored as node properties for graph similarity queries |
-| [Prismatic Mycelial Nx](/apps/prismatic-mycelial-nx/) | Numerical feature extraction for embedding computation and similarity scoring |
-| [Prismatic Storage Meilisearch](/apps/prismatic-storage-meilisearch/) | Full-text content from verbal modality analysis indexed for search |
-| [Prismatic Manipulation](/apps/prismatic-manipulation/) | Behavioral baseline comparison for social engineering detection |
-| [Prismatic OSINT Social Media](/apps/prismatic-osint-social-media/) | Social media content feeds verbal and cognitive expression analysis |
+| [Prismatic Tracking](@/apps/prismatic-tracking.md) | Behavioral modality snapshots enrich entity state with expression pattern intelligence |
+| [Prismatic Storage KuzuDB](@/apps/prismatic-storage-kuzudb.md) | Behavioral trait vectors stored as node properties for graph similarity queries |
+| [Prismatic Mycelial Nx](@/apps/prismatic-mycelial-nx.md) | Numerical feature extraction for embedding computation and similarity scoring |
+| [Prismatic Storage Meilisearch](@/apps/prismatic-storage-meilisearch.md) | Full-text content from verbal modality analysis indexed for search |
+| [Prismatic Manipulation](@/apps/prismatic-manipulation.md) | Behavioral baseline comparison for social engineering detection |
+| [Prismatic OSINT Social Media](@/apps/prismatic-osint-social-media.md) | Social media content feeds verbal and cognitive expression analysis |
 
 ## NABLA Compliance
 
@@ -215,13 +215,13 @@ Behavioral intelligence is inherently probabilistic and context-dependent. The N
 
 ## Related Resources
 
-- [Prismatic Mycelial Nx](/apps/prismatic-mycelial-nx/) -- Embedding computation and ML inference for behavioral feature vectors
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Source intelligence feeding modality processing pipelines
-- [Prismatic Storage KuzuDB](/apps/prismatic-storage-kuzudb/) -- Cross-modal relationship graph storage for behavioral networks
-- [Prismatic Storage Meilisearch](/apps/prismatic-storage-meilisearch/) -- Full-text search on extracted verbal communication content
-- [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) -- Combines behavioral psychology, NLP, and statistical profiling paradigms
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-modal entity resolution and behavioral intelligence fusion
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Contradiction detection between modalities surfaced as intelligence findings
+- [Prismatic Mycelial Nx](@/apps/prismatic-mycelial-nx.md) -- Embedding computation and ML inference for behavioral feature vectors
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Source intelligence feeding modality processing pipelines
+- [Prismatic Storage KuzuDB](@/apps/prismatic-storage-kuzudb.md) -- Cross-modal relationship graph storage for behavioral networks
+- [Prismatic Storage Meilisearch](@/apps/prismatic-storage-meilisearch.md) -- Full-text search on extracted verbal communication content
+- [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) -- Combines behavioral psychology, NLP, and statistical profiling paradigms
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-modal entity resolution and behavioral intelligence fusion
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Contradiction detection between modalities surfaced as intelligence findings
 
 ---
 
@@ -230,4 +230,4 @@ Behavioral intelligence is inherently probabilistic and context-dependent. The N
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -22,7 +22,7 @@ Intelligence UIs fail in distinctive ways. A single slow adapter blocks a whole 
 
 ## 1. Never block in mount
 
-The single most expensive mistake is doing work in [mount/3](/glossary/liveview). The socket is not connected yet on the first call; doing a 2-second OSINT query there means the user stares at a blank page and the supervisor sees a slow mount.
+The single most expensive mistake is doing work in [mount/3](@/glossary/liveview.md). The socket is not connected yet on the first call; doing a 2-second OSINT query there means the user stares at a blank page and the supervisor sees a slow mount.
 
 ```elixir
 def mount(params, _session, socket) do
@@ -40,7 +40,7 @@ rescue
 end
 ```
 
-Note the `rescue` is specific — bare rescues are banned under [zero-tolerance](/glossary/zero-tolerance) error handling. Also note the timeout: no external call is ever unbounded.
+Note the `rescue` is specific — bare rescues are banned under [zero-tolerance](@/glossary/zero-tolerance.md) error handling. Also note the timeout: no external call is ever unbounded.
 
 ## 2. PubSub topics are a contract, not a free-for-all
 
@@ -62,11 +62,11 @@ def mount(_params, _session, socket) do
 end
 ```
 
-Streams keep the DOM under control and the memory bounded. Memory bounded matters because LiveView processes are long-lived [GenServers](/glossary/genserver) — a leak in one socket multiplies across every connected client.
+Streams keep the DOM under control and the memory bounded. Memory bounded matters because LiveView processes are long-lived [GenServers](@/glossary/genserver.md) — a leak in one socket multiplies across every connected client.
 
 ## 4. Avoid N+1 at the mount boundary
 
-An innocent `Enum.map(cases, &Repo.get(Entity, &1.entity_id))` is a [query-plan](/glossary/query-plan) violation that only surfaces when a case has 50 entities. Batch fetch once, join in memory. The pre-commit perf checker catches the common shapes; code review catches the rest.
+An innocent `Enum.map(cases, &Repo.get(Entity, &1.entity_id))` is a [query-plan](@/glossary/query-plan.md) violation that only surfaces when a case has 50 entities. Batch fetch once, join in memory. The pre-commit perf checker catches the common shapes; code review catches the rest.
 
 ## 5. LiveView is not a place for business logic
 
@@ -75,6 +75,6 @@ Business logic lives in contexts. LiveView orchestrates. If you find yourself co
 ## Where to go next
 
 - **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — the LiveView side of /hub
-- **Glossary**: [LiveView](/glossary/liveview), [Phoenix](/glossary/phoenix), [GenServer](/glossary/genserver), [OTP](/glossary/otp)
+- **Glossary**: [LiveView](@/glossary/liveview.md), [Phoenix](@/glossary/phoenix.md), [GenServer](@/glossary/genserver.md), [OTP](@/glossary/otp.md)
 
 Five patterns, one rule: the UI must fail open, never block, and never lie about state. Everything else is details.

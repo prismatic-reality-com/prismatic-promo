@@ -40,7 +40,7 @@ image_alt = "LiveView - Prismatic Platform"
 
 ## Definition
 
-LiveView is a [Phoenix](/glossary/phoenix/) framework feature that enables rich, real-time user interfaces rendered entirely on the server and delivered over [WebSocket](/glossary/websocket/) connections. Unlike traditional Single Page Applications (SPAs) that run JavaScript frameworks like React or Vue in the browser, LiveView maintains all UI state on the server as an Elixir process, sending minimal DOM diffs to the client for efficient updates. This architecture eliminates the need for separate frontend and backend codebases while providing a responsive, interactive experience that rivals client-side frameworks.
+LiveView is a [Phoenix](@/glossary/phoenix.md) framework feature that enables rich, real-time user interfaces rendered entirely on the server and delivered over [WebSocket](@/glossary/websocket.md) connections. Unlike traditional Single Page Applications (SPAs) that run JavaScript frameworks like React or Vue in the browser, LiveView maintains all UI state on the server as an Elixir process, sending minimal DOM diffs to the client for efficient updates. This architecture eliminates the need for separate frontend and backend codebases while providing a responsive, interactive experience that rivals client-side frameworks.
 
 The core insight behind LiveView is that modern network latencies (typically 10-50ms for most users) are fast enough that server-rendered updates feel instantaneous for the vast majority of UI interactions. By keeping state on the server, LiveView eliminates entire categories of frontend engineering problems: state synchronization between client and server, API versioning, client-side caching invalidation, and the security implications of running business logic in the browser. The trade-off is a persistent WebSocket connection per user session and slightly higher server memory usage compared to stateless HTTP request handling.
 
@@ -56,7 +56,7 @@ When a user navigates to a LiveView route, two separate renders occur:
 
 1. **Static HTML render** (HTTP): The initial page load renders the LiveView as static HTML on the server and sends it to the browser. This ensures the page is visible immediately, is SEO-friendly, and works even before the WebSocket connects.
 
-2. **Live render** (WebSocket): Once the page loads, the browser's LiveView JavaScript client establishes a WebSocket connection. The server spawns a dedicated [GenServer](/glossary/genserver/) process for this connection and performs a second mount, this time with the `connected?` check returning true. From this point forward, all interactions happen over the WebSocket.
+2. **Live render** (WebSocket): Once the page loads, the browser's LiveView JavaScript client establishes a WebSocket connection. The server spawns a dedicated [GenServer](@/glossary/genserver.md) process for this connection and performs a second mount, this time with the `connected?` check returning true. From this point forward, all interactions happen over the WebSocket.
 
 ```elixir
 defmodule PrismaticWeb.PerimeterDashboardLive do
@@ -129,11 +129,11 @@ Each LiveView connection spawns a dedicated server-side process (GenServer) that
 
 1. Manages the view's state (assigns)
 2. Handles user events (clicks, form submissions, keyboard input)
-3. Subscribes to [PubSub](/glossary/pubsub/) topics for real-time updates from other processes
+3. Subscribes to [PubSub](@/glossary/pubsub.md) topics for real-time updates from other processes
 4. Re-renders and sends DOM diffs on state changes
 5. Monitors connection health and cleans up on disconnect
 
-Because each LiveView is a BEAM process, it benefits from all of [BEAM](/glossary/beam/)'s properties: [fault isolation](/glossary/process-isolation/) (one user's crashed view does not affect others), preemptive scheduling (no single view can block others), and per-process garbage collection (GC pauses are bounded per-view).
+Because each LiveView is a BEAM process, it benefits from all of [BEAM](@/glossary/beam.md)'s properties: [fault isolation](@/glossary/process-isolation.md) (one user's crashed view does not affect others), preemptive scheduling (no single view can block others), and per-process garbage collection (GC pauses are bounded per-view).
 
 ## LiveComponents
 
@@ -229,14 +229,14 @@ Hooks.ClipboardCopy = {
 
 ## Context in Prismatic
 
-LiveView powers all of the Prismatic Platform's real-time dashboards. The platform enforces [TailwindCSS](/glossary/tailwindcss/)-first styling with [Flowbite](/glossary/flowbite/) components for all LiveView templates, explicitly forbidding inline styles and custom CSS.
+LiveView powers all of the Prismatic Platform's real-time dashboards. The platform enforces [TailwindCSS](@/glossary/tailwindcss.md)-first styling with [Flowbite](@/glossary/flowbite.md) components for all LiveView templates, explicitly forbidding inline styles and custom CSS.
 
 ### Dashboard Routes
 
 | Route | LiveView Module | Description |
 |-------|----------------|-------------|
 | `/` | `DashboardLive` | Main platform dashboard with system overview |
-| `/perimeter` | `PerimeterLive` | [EASM](/glossary/easm/) overview with security ratings |
+| `/perimeter` | `PerimeterLive` | [EASM](@/glossary/easm.md) overview with security ratings |
 | `/perimeter/assets` | `PerimeterAssetsLive` | Asset inventory with filtering and sorting |
 | `/perimeter/compliance` | `PerimeterComplianceLive` | NIS2/ZKB compliance assessment |
 | `/perimeter/easm` | `PerimeterEASMLive` | Advanced EASM dashboard with drill-down |
@@ -273,18 +273,18 @@ end
 
 ## Related Terms
 
-- [Phoenix](/glossary/phoenix/) - Web framework that LiveView is built into
-- [GenServer](/glossary/genserver/) - Behavior underlying each LiveView process
-- [BEAM](/glossary/beam/) - Virtual machine providing process isolation for LiveView
-- [WebSocket](/glossary/websocket/) - Transport protocol for LiveView connections
-- [PubSub](/glossary/pubsub/) - Distributed messaging for real-time LiveView updates
-- [Channel](/glossary/channel/) - Alternative real-time communication layer in Phoenix
-- [Flowbite](/glossary/flowbite/) - Component library used with LiveView in Prismatic
-- [TailwindCSS](/glossary/tailwindcss/) - Utility CSS framework for LiveView templates
-- [EASM](/glossary/easm/) - External attack surface module with LiveView dashboards
-- [Process Isolation](/glossary/process-isolation/) - Crash containment per LiveView connection
-- [Plug](/glossary/plug/) - Middleware layer that routes requests to LiveView
-- [Endpoint](/glossary/endpoint/) - Phoenix entry point managing WebSocket upgrades
+- [Phoenix](@/glossary/phoenix.md) - Web framework that LiveView is built into
+- [GenServer](@/glossary/genserver.md) - Behavior underlying each LiveView process
+- [BEAM](@/glossary/beam.md) - Virtual machine providing process isolation for LiveView
+- [WebSocket](@/glossary/websocket.md) - Transport protocol for LiveView connections
+- [PubSub](@/glossary/pubsub.md) - Distributed messaging for real-time LiveView updates
+- [Channel](@/glossary/channel.md) - Alternative real-time communication layer in Phoenix
+- [Flowbite](@/glossary/flowbite.md) - Component library used with LiveView in Prismatic
+- [TailwindCSS](@/glossary/tailwindcss.md) - Utility CSS framework for LiveView templates
+- [EASM](@/glossary/easm.md) - External attack surface module with LiveView dashboards
+- [Process Isolation](@/glossary/process-isolation.md) - Crash containment per LiveView connection
+- [Plug](@/glossary/plug.md) - Middleware layer that routes requests to LiveView
+- [Endpoint](@/glossary/endpoint.md) - Phoenix entry point managing WebSocket upgrades
 
 ## See Also
 
@@ -292,9 +292,9 @@ end
 - [prismatic_perimeter_web](../../../apps/prismatic_perimeter_web/README.md) -- Perimeter EASM LiveView dashboards
 - [prismatic_hawkeye_web](../../../apps/prismatic_hawkeye_web/README.md) -- HAWKEYE visitor intelligence LiveView
 - [prismatic_ir_pvm_web](../../../apps/prismatic_ir_pvm_web/README.md) -- PVM incident response LiveView
-- [Architecture](/architecture/) -- Platform architecture
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System reliability through process isolation
-- [Observability](/glossary/observability/) -- Monitoring LiveView performance via telemetry
+- [Architecture](@/architecture/_index.md) -- Platform architecture
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System reliability through process isolation
+- [Observability](@/glossary/observability.md) -- Monitoring LiveView performance via telemetry
 
 ---
 
@@ -303,4 +303,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

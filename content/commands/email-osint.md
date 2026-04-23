@@ -24,9 +24,9 @@ image_alt = "/email-osint - Prismatic Platform"
 
 ## Overview
 
-**/email-[osint](/glossary/osint/)** is a production command in the **Intelligence** category of the Prismatic Platform that performs comprehensive Open Source Intelligence gathering centered on email addresses. Given one or more email addresses as input, the command orchestrates a multi-source intelligence collection pipeline that correlates data from breach databases, social media platforms, domain registration records, professional networks, and public data repositories to build a comprehensive profile of the email owner's digital footprint.
+**/email-[osint](@/glossary/osint.md)** is a production command in the **Intelligence** category of the Prismatic Platform that performs comprehensive Open Source Intelligence gathering centered on email addresses. Given one or more email addresses as input, the command orchestrates a multi-source intelligence collection pipeline that correlates data from breach databases, social media platforms, domain registration records, professional networks, and public data repositories to build a comprehensive profile of the email owner's digital footprint.
 
-This command operates under the **L2+** authority level and is executed by the `email-intelligence-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The intelligence gathering process adheres to strict ethical guidelines: all data sources are publicly accessible, no authentication boundaries are bypassed, and collection activities leave minimal footprint on target systems.
+This command operates under the **L2+** authority level and is executed by the `email-intelligence-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The intelligence gathering process adheres to strict ethical guidelines: all data sources are publicly accessible, no authentication boundaries are bypassed, and collection activities leave minimal footprint on target systems.
 
 Email addresses serve as uniquely powerful pivot points for OSINT investigations because they function as persistent digital identifiers that bridge multiple online ecosystems. A single email address can unlock connections between social media accounts, professional profiles, code repositories, forum posts, domain registrations, and data breach records. The `/email-osint` command automates this correlation work, transforming hours of manual research into structured intelligence products delivered in seconds.
 
@@ -142,13 +142,13 @@ The correlation engine uses entity resolution techniques to link discoveries acr
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `email-intelligence-specialist` | Manages collection pipeline |
-| [/investigate](/commands/investigate/) | Parent command | Email OSINT is a subcommand of the investigation suite |
-| [/ghost-recon](/commands/ghost-recon/) | Passive collection | Ghost recon provides zero-footprint alternative |
-| [/intel-export](/commands/intel-export/) | Report packaging | Exports findings for external analysis |
-| [NABLA Framework](/glossary/nabla-infinity/) | Epistemic validation | Signal plurality enforced across sources |
-| [Quality Gates](/glossary/quality-gates/) | Result validation | Intelligence quality scoring |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Source response times and success rates |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `email-intelligence-specialist` | Manages collection pipeline |
+| [/investigate](@/commands/investigate.md) | Parent command | Email OSINT is a subcommand of the investigation suite |
+| [/ghost-recon](@/commands/ghost-recon.md) | Passive collection | Ghost recon provides zero-footprint alternative |
+| [/intel-export](@/commands/intel-export.md) | Report packaging | Exports findings for external analysis |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Epistemic validation | Signal plurality enforced across sources |
+| [Quality Gates](@/glossary/quality-gates.md) | Result validation | Intelligence quality scoring |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Source response times and success rates |
 
 ## Best Practices
 
@@ -162,7 +162,7 @@ The correlation engine uses entity resolution techniques to link discoveries acr
 
 **Document your authorization.** Email OSINT should only be conducted under proper authorization (corporate security assessments, authorized penetration testing, personal account verification). Maintain documentation of your authorization for every investigation.
 
-**Combine with other intelligence.** Email OSINT is most powerful when combined with [/google-hacking](/commands/google-hacking/) for web presence discovery and [/ghost-recon](/commands/ghost-recon/) for passive infrastructure reconnaissance.
+**Combine with other intelligence.** Email OSINT is most powerful when combined with [/google-hacking](@/commands/google-hacking.md) for web presence discovery and [/ghost-recon](@/commands/ghost-recon.md) for passive infrastructure reconnaissance.
 
 ## Error Handling
 
@@ -229,19 +229,19 @@ Email OSINT is frequently used during M&A due diligence to assess target company
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. All available sources are queried; partial failures are reported but do not stop the investigation.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every finding includes provenance, confidence scoring, and source attribution per [NABLA](/glossary/nabla-infinity/) requirements.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every finding includes provenance, confidence scoring, and source attribution per [NABLA](@/glossary/nabla-infinity.md) requirements.
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive OSINT investigation across 121+ sources
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/ghost-recon](/commands/ghost-recon/) - Ghost reconnaissance for passive zero-footprint intelligence gathering
-- [/intel-export](/commands/intel-export/) - Generate comprehensive intelligence packages for external LLM analysis
-- [/osint-engines](/commands/osint-engines/) - Multi-engine OSINT source coordination and parallel querying
-- [/ma-analyze](/commands/ma-analyze/) - Comprehensive M&A analysis including financial, legal and operational review
+- [/investigate](@/commands/investigate.md) - Launch comprehensive OSINT investigation across 121+ sources
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/ghost-recon](@/commands/ghost-recon.md) - Ghost reconnaissance for passive zero-footprint intelligence gathering
+- [/intel-export](@/commands/intel-export.md) - Generate comprehensive intelligence packages for external LLM analysis
+- [/osint-engines](@/commands/osint-engines.md) - Multi-engine OSINT source coordination and parallel querying
+- [/ma-analyze](@/commands/ma-analyze.md) - Comprehensive M&A analysis including financial, legal and operational review
 
 ---
 
@@ -250,4 +250,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

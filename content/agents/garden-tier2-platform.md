@@ -28,9 +28,9 @@ image_alt = "garden-tier2-platform - Prismatic Platform"
 
 ## Overview
 
-The [Garden](/glossary/garden/) Tier 2 Platform agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Platform Core Repositories domain of the Prismatic Platform. This agent manages Tier 2 garden repositories -- platform core assets that contain foundational libraries, SDK implementations, database adapters, and architectural components essential to the platform's infrastructure. While Tier 1 repositories represent production applications, Tier 2 repositories represent the building blocks from which those applications are constructed.
+The [Garden](@/glossary/garden.md) Tier 2 Platform agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Platform Core Repositories domain of the Prismatic Platform. This agent manages Tier 2 garden repositories -- platform core assets that contain foundational libraries, SDK implementations, database adapters, and architectural components essential to the platform's infrastructure. While Tier 1 repositories represent production applications, Tier 2 repositories represent the building blocks from which those applications are constructed.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Tier 2 Platform agent serves a bridging role between high-value production code (Tier 1) and general-purpose libraries (Tier 3). Tier 2 repositories contain platform-specific implementations that are not standalone applications but provide capabilities that multiple applications depend upon. Their management requires understanding both their technical characteristics and their dependency relationships with the broader platform.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Tier 2 Platform agent serves a bridging role between high-value production code (Tier 1) and general-purpose libraries (Tier 3). Tier 2 repositories contain platform-specific implementations that are not standalone applications but provide capabilities that multiple applications depend upon. Their management requires understanding both their technical characteristics and their dependency relationships with the broader platform.
 
 ## Tier 2 Repository Portfolio
 
@@ -58,13 +58,13 @@ Documentation currency ensures that Tier 2 repository documentation accurately r
 
 ## Architecture Pattern Extraction
 
-Tier 2 repositories are rich sources of architectural patterns that inform current platform design. The agent identifies and catalogs these patterns for use by the [garden-analyzer](/agents/garden-analyzer/) and [garden-pattern-scout](/agents/garden-pattern-scout/).
+Tier 2 repositories are rich sources of architectural patterns that inform current platform design. The agent identifies and catalogs these patterns for use by the [garden-analyzer](@/agents/garden-analyzer.md) and [garden-pattern-scout](@/agents/garden-pattern-scout.md).
 
-Connection management patterns from database SDK repositories (kuzu-ex and others) demonstrate approaches to connection pooling, health checking, retry logic, and graceful degradation. These patterns directly inform the platform's database connection management across [PostgreSQL](/glossary/postgresql/), KuzuDB, Meilisearch, and Redis adapters.
+Connection management patterns from database SDK repositories (kuzu-ex and others) demonstrate approaches to connection pooling, health checking, retry logic, and graceful degradation. These patterns directly inform the platform's database connection management across [PostgreSQL](@/glossary/postgresql.md), KuzuDB, Meilisearch, and Redis adapters.
 
 Query builder patterns from data access repositories show different approaches to constructing type-safe queries, managing query parameters, and handling result sets. Comparison across Tier 2 repositories reveals how query builder design evolved and which approaches proved most maintainable.
 
-Pipeline architecture patterns from data processing repositories demonstrate approaches to staged data transformation, error handling within pipelines, backpressure management, and pipeline monitoring. These patterns directly inform the platform's [GenStage](/glossary/genstage/)-based processing pipelines.
+Pipeline architecture patterns from data processing repositories demonstrate approaches to staged data transformation, error handling within pipelines, backpressure management, and pipeline monitoring. These patterns directly inform the platform's [GenStage](@/glossary/genstage.md)-based processing pipelines.
 
 ## Synchronization and Maintenance
 
@@ -94,25 +94,25 @@ Type safety coverage tracks the percentage of public functions with type specifi
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework's Time Decay axiom governs the agent's assessment of Tier 2 repository currency. Repository assessments carry timestamps and are flagged for refresh on their daily synchronization schedule. The Provenance Mandatory axiom requires that all integration recommendations trace back to specific repository analysis results.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's Time Decay axiom governs the agent's assessment of Tier 2 repository currency. Repository assessments carry timestamps and are flagged for refresh on their daily synchronization schedule. The Provenance Mandatory axiom requires that all integration recommendations trace back to specific repository analysis results.
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine applies to all Tier 2 operations. No component is recommended for extraction without thorough quality and compatibility assessment. No integration proceeds without verification of platform standard compliance.
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine applies to all Tier 2 operations. No component is recommended for extraction without thorough quality and compatibility assessment. No integration proceeds without verification of platform standard compliance.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution | Agent lifecycle management |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Specification and lookup |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution | Agent lifecycle management |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Specification and lookup |
 | Prismatic Telemetry | Monitoring | Repository health and quality metrics |
 | Tier 2 Repositories | Data source | Platform core code assets |
-| [Ecto](/glossary/ecto/) | Data patterns | Schema and query pattern reference |
+| [Ecto](@/glossary/ecto.md) | Data patterns | Schema and query pattern reference |
 
 ## Related Agents
 
-- [**garden-tier1-production**](/agents/garden-tier1-production/) (L3) - Manages higher-priority production repositories with tighter monitoring cycles
-- [**garden-tier3-libraries**](/agents/garden-tier3-libraries/) (L3) - Manages lower-priority library repositories with less frequent synchronization
-- [**gardener-supreme**](/agents/gardener-supreme/) (L3) - Strategic oversight coordinating priorities across all GARDEN tiers
+- [**garden-tier1-production**](@/agents/garden-tier1-production.md) (L3) - Manages higher-priority production repositories with tighter monitoring cycles
+- [**garden-tier3-libraries**](@/agents/garden-tier3-libraries.md) (L3) - Manages lower-priority library repositories with less frequent synchronization
+- [**gardener-supreme**](@/agents/gardener-supreme.md) (L3) - Strategic oversight coordinating priorities across all GARDEN tiers
 
 ---
 
@@ -121,4 +121,4 @@ The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine applies to all
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

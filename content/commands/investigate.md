@@ -24,11 +24,11 @@ image_alt = "/investigate - Prismatic Platform"
 
 ## Overview
 
-**/investigate** is a production command in the **Intelligence** category of the Prismatic Platform that launches comprehensive Open Source Intelligence ([OSINT](/glossary/osint/)) investigations across 121+ data sources simultaneously. This is the platform's primary intelligence collection command, orchestrating a fleet of specialized collection agents to build a complete intelligence picture of any target entity -- whether a person, organization, domain, email address, IP address, or phone number.
+**/investigate** is a production command in the **Intelligence** category of the Prismatic Platform that launches comprehensive Open Source Intelligence ([OSINT](@/glossary/osint.md)) investigations across 121+ data sources simultaneously. This is the platform's primary intelligence collection command, orchestrating a fleet of specialized collection agents to build a complete intelligence picture of any target entity -- whether a person, organization, domain, email address, IP address, or phone number.
 
-This command operates under the **L3+** authority level and is executed by the `sig-osint-commander` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3+ authority level requires elevated clearance and reflects the power and sensitivity of comprehensive intelligence collection. The sig-osint-commander agent inherits capabilities from the GARDEN legacy's Sig project, which pioneered multi-source OSINT orchestration with over 250 provider adapters.
+This command operates under the **L3+** authority level and is executed by the `sig-osint-commander` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3+ authority level requires elevated clearance and reflects the power and sensitivity of comprehensive intelligence collection. The sig-osint-commander agent inherits capabilities from the GARDEN legacy's Sig project, which pioneered multi-source OSINT orchestration with over 250 provider adapters.
 
-The `/investigate` command is the highest-level entry point for intelligence operations. It automatically selects and coordinates specialized sub-commands ([/email-osint](/commands/email-osint/), [/ghost-recon](/commands/ghost-recon/), [/google-hacking](/commands/google-hacking/)) based on the target type and investigation scope, eliminating the need for operators to manually compose collection pipelines.
+The `/investigate` command is the highest-level entry point for intelligence operations. It automatically selects and coordinates specialized sub-commands ([/email-osint](@/commands/email-osint.md), [/ghost-recon](@/commands/ghost-recon.md), [/google-hacking](@/commands/google-hacking.md)) based on the target type and investigation scope, eliminating the need for operators to manually compose collection pipelines.
 
 ## Architecture
 
@@ -160,15 +160,15 @@ The commander orchestrates collection in three waves.
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `sig-osint-commander` | Coordinates all collection agents |
-| [/email-osint](/commands/email-osint/) | Email collection | Specialized email intelligence |
-| [/ghost-recon](/commands/ghost-recon/) | Passive collection | Zero-footprint infrastructure intel |
-| [/google-hacking](/commands/google-hacking/) | Search intel | Advanced search engine dorking |
-| [/intel-export](/commands/intel-export/) | Report export | Packages for external analysis |
-| [NABLA Framework](/glossary/nabla-infinity/) | Epistemic validation | Source plurality and confidence |
-| [Quality Gates](/glossary/quality-gates/) | Intelligence quality | Finding validation and scoring |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Collection timing and success rates |
-| [GARDEN Legacy](/glossary/garden/) | Heritage | 250+ providers from Sig project |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `sig-osint-commander` | Coordinates all collection agents |
+| [/email-osint](@/commands/email-osint.md) | Email collection | Specialized email intelligence |
+| [/ghost-recon](@/commands/ghost-recon.md) | Passive collection | Zero-footprint infrastructure intel |
+| [/google-hacking](@/commands/google-hacking.md) | Search intel | Advanced search engine dorking |
+| [/intel-export](@/commands/intel-export.md) | Report export | Packages for external analysis |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Epistemic validation | Source plurality and confidence |
+| [Quality Gates](@/glossary/quality-gates.md) | Intelligence quality | Finding validation and scoring |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Collection timing and success rates |
+| [GARDEN Legacy](@/glossary/garden.md) | Heritage | 250+ providers from Sig project |
 
 ## Best Practices
 
@@ -178,9 +178,9 @@ The commander orchestrates collection in three waves.
 
 **Review pivot points.** After Wave 1 completes, the investigation may discover additional identifiers (alternate email addresses, associated domains, usernames) that significantly expand the scope. Review these pivots to ensure the expanded scope is appropriate.
 
-**Export for team analysis.** Use [/intel-export](/commands/intel-export/) to generate structured packages that can be shared with team members or fed into other analysis tools without granting them direct platform access.
+**Export for team analysis.** Use [/intel-export](@/commands/intel-export.md) to generate structured packages that can be shared with team members or fed into other analysis tools without granting them direct platform access.
 
-**Combine with EASM.** For domain and organization investigations, complement the OSINT findings with [Prismatic Perimeter](/apps/prismatic-perimeter/) External Attack Surface Management data for a complete security picture.
+**Combine with EASM.** For domain and organization investigations, complement the OSINT findings with [Prismatic Perimeter](@/apps/prismatic-perimeter.md) External Attack Surface Management data for a complete security picture.
 
 **Monitor high-value targets.** Use the `--monitor` flag for targets that require ongoing awareness. The monitoring system automatically detects changes in the target's digital footprint and alerts on significant developments.
 
@@ -232,19 +232,19 @@ Integrate OSINT findings with M&A analysis workflows.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. All available sources are queried within the configured scope. Partial failures do not prevent the investigation from completing with available data.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every finding includes full provenance, multi-source corroboration where possible, and NABLA-calibrated confidence scoring.
 
 ## Related Commands
 
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/ghost-recon](/commands/ghost-recon/) - Ghost reconnaissance for passive zero-footprint intelligence gathering
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/intel-export](/commands/intel-export/) - Generate comprehensive intelligence packages for external LLM analysis
-- [/osint-engines](/commands/osint-engines/) - Multi-engine OSINT source coordination and parallel querying
-- [/ma-analyze](/commands/ma-analyze/) - Comprehensive M&A analysis including financial, legal and operational review
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/ghost-recon](@/commands/ghost-recon.md) - Ghost reconnaissance for passive zero-footprint intelligence gathering
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/intel-export](@/commands/intel-export.md) - Generate comprehensive intelligence packages for external LLM analysis
+- [/osint-engines](@/commands/osint-engines.md) - Multi-engine OSINT source coordination and parallel querying
+- [/ma-analyze](@/commands/ma-analyze.md) - Comprehensive M&A analysis including financial, legal and operational review
 
 ---
 
@@ -253,4 +253,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

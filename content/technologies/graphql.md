@@ -26,16 +26,16 @@ image_alt = "GraphQL - Prismatic Platform"
 
 GraphQL is the API query language used in the Prismatic Platform for flexible, client-driven data fetching. Unlike REST APIs where the server determines the response structure, GraphQL lets clients specify exactly which fields they need, eliminating over-fetching and under-fetching problems that are common in traditional API designs. This client-specified query model is particularly valuable for the Prismatic Platform, which serves diverse clients with vastly different data requirements -- from lightweight mobile dashboards to full-featured desktop security operations interfaces.
 
-The Prismatic Platform exposes a GraphQL endpoint through [Absinthe](/technologies/absinthe/) that provides access to agents, security ratings, compliance assessments, OSINT intelligence, and system metrics. This enables diverse clients -- [Phoenix LiveView](/technologies/phoenix-liveview/) dashboards, mobile apps, CLI tools, and external integrations -- to each request precisely the data they need in a single query. For example, a mobile client can request only agent names and statuses, while the full desktop dashboard fetches the complete agent profile including activity history and domain assignments. Both clients use the same endpoint, the same schema, and the same authentication, but receive only the data they requested.
+The Prismatic Platform exposes a GraphQL endpoint through [Absinthe](@/technologies/absinthe.md) that provides access to agents, security ratings, compliance assessments, OSINT intelligence, and system metrics. This enables diverse clients -- [Phoenix LiveView](@/technologies/phoenix-liveview.md) dashboards, mobile apps, CLI tools, and external integrations -- to each request precisely the data they need in a single query. For example, a mobile client can request only agent names and statuses, while the full desktop dashboard fetches the complete agent profile including activity history and domain assignments. Both clients use the same endpoint, the same schema, and the same authentication, but receive only the data they requested.
 
 GraphQL's type system provides self-documenting APIs with introspection, enabling tools like GraphiQL to offer autocomplete, validation, and documentation automatically. The platform serves GraphiQL at `/graphiql` for interactive schema exploration during development. This introspection capability means the API documentation is always in sync with the actual implementation -- there is no separate documentation system to maintain.
 
 ## Key Features
 
-- **Type System**: Strong typing with scalars, objects, enums, unions, and interfaces -- mapped from [Elixir](/technologies/elixir/) types via Absinthe macros
+- **Type System**: Strong typing with scalars, objects, enums, unions, and interfaces -- mapped from [Elixir](@/technologies/elixir.md) types via Absinthe macros
 - **Client-Specified Queries**: Request exactly the data needed, reducing payload size and eliminating waterfall requests
 - **Single Endpoint**: One URL (`/graphql`) serves all data needs, simplifying client configuration and authentication
-- **Subscriptions**: Real-time data pushes through [WebSocket](/technologies/websockets/) connections for live dashboard updates
+- **Subscriptions**: Real-time data pushes through [WebSocket](@/technologies/websockets.md) connections for live dashboard updates
 - **Introspection**: Self-documenting API with full schema exploration via GraphiQL playground
 - **Fragments**: Reusable query components for DRY client code when fetching overlapping data sets
 - **Batching**: Multiple queries in a single request, reducing round-trip overhead for dashboard initialization
@@ -97,15 +97,15 @@ subscription SecurityEvents($domain: String!) {
 
 ## Architecture
 
-GraphQL occupies the API layer between client applications and the platform's domain logic, with Absinthe providing the [Elixir](/technologies/elixir/)-native implementation.
+GraphQL occupies the API layer between client applications and the platform's domain logic, with Absinthe providing the [Elixir](@/technologies/elixir.md)-native implementation.
 
 | Layer | Component | Responsibility |
 |-------|-----------|----------------|
-| Transport | [Phoenix](/technologies/phoenix/) Router | HTTP endpoint and WebSocket connections |
+| Transport | [Phoenix](@/technologies/phoenix.md) Router | HTTP endpoint and WebSocket connections |
 | Schema | Absinthe Schema | Type definitions, query/mutation/subscription roots |
 | Resolution | Absinthe Resolvers | Data fetching from domain services |
 | Data Loading | Dataloader | Batch loading to prevent N+1 queries |
-| Persistence | [Ecto](/technologies/ecto/) / [ETS](/technologies/ets/) | Database queries and cache lookups |
+| Persistence | [Ecto](@/technologies/ecto.md) / [ETS](@/technologies/ets.md) | Database queries and cache lookups |
 | Real-time | Absinthe Subscriptions | PubSub-triggered subscription delivery |
 | Authentication | Plug Pipeline | Token verification before resolver access |
 
@@ -198,7 +198,7 @@ Query complexity analysis assigns costs to individual fields, preventing clients
 
 ## Configuration
 
-The GraphQL endpoint is configured in the [Phoenix](/technologies/phoenix/) router with separate paths for the API endpoint and the interactive playground.
+The GraphQL endpoint is configured in the [Phoenix](@/technologies/phoenix.md) router with separate paths for the API endpoint and the interactive playground.
 
 ```elixir
 # GraphQL endpoint configuration in router.ex
@@ -282,23 +282,23 @@ end
 | Caching | Complex (POST) | Simple (HTTP cache) | N/A | N/A |
 | Platform Role | Flexible client API | Auto-introspecting gateway | Not used | Not used |
 
-The Prismatic Platform uses both GraphQL (for flexible client queries) and REST via [OpenAPI](/technologies/openapi/) (for the auto-introspecting API gateway), choosing the appropriate protocol for each use case. GraphQL excels when clients have varying data requirements and when real-time subscriptions are needed, while the REST API gateway provides a simpler integration point for external automation tools that benefit from standard HTTP caching and straightforward URL-based resource identification.
+The Prismatic Platform uses both GraphQL (for flexible client queries) and REST via [OpenAPI](@/technologies/openapi.md) (for the auto-introspecting API gateway), choosing the appropriate protocol for each use case. GraphQL excels when clients have varying data requirements and when real-time subscriptions are needed, while the REST API gateway provides a simpler integration point for external automation tools that benefit from standard HTTP caching and straightforward URL-based resource identification.
 
 ## Related Technologies
 
-- [Absinthe](/technologies/absinthe/) - Elixir GraphQL implementation powering the endpoint
-- [OpenAPI](/technologies/openapi/) - REST API alternative exposed via the auto-introspecting API gateway
-- [WebSockets](/technologies/websockets/) - Transport layer for GraphQL subscriptions
-- [Ecto](/technologies/ecto/) - Database layer backing GraphQL resolvers
-- [Phoenix](/technologies/phoenix/) - Web framework hosting the GraphQL endpoint
-- [ETS](/technologies/ets/) - In-memory cache for frequently queried data in resolvers
+- [Absinthe](@/technologies/absinthe.md) - Elixir GraphQL implementation powering the endpoint
+- [OpenAPI](@/technologies/openapi.md) - REST API alternative exposed via the auto-introspecting API gateway
+- [WebSockets](@/technologies/websockets.md) - Transport layer for GraphQL subscriptions
+- [Ecto](@/technologies/ecto.md) - Database layer backing GraphQL resolvers
+- [Phoenix](@/technologies/phoenix.md) - Web framework hosting the GraphQL endpoint
+- [ETS](@/technologies/ets.md) - In-memory cache for frequently queried data in resolvers
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - Hosts the GraphQL endpoint and GraphiQL playground
-- [prismatic_api](/apps/prismatic-api/) - REST API gateway that complements the GraphQL interface
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security data exposed through GraphQL queries
-- [prismatic_agents](/apps/prismatic-agents/) - Agent data and subscriptions available through GraphQL
+- [prismatic_web](@/apps/prismatic-web.md) - Hosts the GraphQL endpoint and GraphiQL playground
+- [prismatic_api](@/apps/prismatic-api.md) - REST API gateway that complements the GraphQL interface
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security data exposed through GraphQL queries
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent data and subscriptions available through GraphQL
 
 ---
 
@@ -307,4 +307,4 @@ The Prismatic Platform uses both GraphQL (for flexible client queries) and REST 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

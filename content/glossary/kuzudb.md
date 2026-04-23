@@ -48,7 +48,7 @@ KuzuDB's architecture is optimized for graph analytical workloads through column
 
 Graph databases address a fundamental limitation of relational databases: efficiently querying relationships. In a relational system, discovering that "Organization A operates Domain B, which resolves to IP C, which hosts Service D, which has Vulnerability E" requires joining five tables. Each join adds computational cost, and the query plan scales poorly as relationship depth increases. In a graph database, this same query is a five-hop traversal that executes in time proportional to the actual data touched, not the table sizes.
 
-KuzuDB occupies a specific niche in the graph database landscape: embedded analytical graph processing. This positioning makes it ideal for applications that need graph query capabilities without the operational overhead of running a separate database server. For the Prismatic Platform, this means graph intelligence operations run within the [BEAM](/glossary/beam/) virtual machine's process space, communicating through function calls rather than network protocols.
+KuzuDB occupies a specific niche in the graph database landscape: embedded analytical graph processing. This positioning makes it ideal for applications that need graph query capabilities without the operational overhead of running a separate database server. For the Prismatic Platform, this means graph intelligence operations run within the [BEAM](@/glossary/beam.md) virtual machine's process space, communicating through function calls rather than network protocols.
 
 The worst-case-optimal join algorithms ensure that multi-hop graph pattern matching (the core operation in graph queries) does not degenerate to exponential execution times on adversarial graph structures. The system supports ACID transactions, ensuring that concurrent read and write operations maintain data consistency. Schema definitions enforce type safety on node labels and relationship types, catching data modeling errors at insert time rather than query time.
 
@@ -87,7 +87,7 @@ Application Code (Elixir/BEAM)
     Disk Storage (database directory)
 ```
 
-The kuzu-ex SDK provides Elixir bindings through NIFs (Native Implemented Functions), enabling direct function calls from Elixir to the KuzuDB C++ engine without network overhead. This NIF integration means graph queries execute in the same OS process as the [BEAM](/glossary/beam/), with results returned directly to Elixir data structures.
+The kuzu-ex SDK provides Elixir bindings through NIFs (Native Implemented Functions), enabling direct function calls from Elixir to the KuzuDB C++ engine without network overhead. This NIF integration means graph queries execute in the same OS process as the [BEAM](@/glossary/beam.md), with results returned directly to Elixir data structures.
 
 ## Cypher Query Language
 
@@ -186,7 +186,7 @@ The performance advantage of KuzuDB grows exponentially with traversal depth. Fo
 
 ## Implementation in Prismatic Platform
 
-KuzuDB is integrated through the `prismatic_storage_kuzu` adapter and the `kuzu-ex` Elixir SDK, a [GARDEN](/glossary/garden/) Tier 2 active repository:
+KuzuDB is integrated through the `prismatic_storage_kuzu` adapter and the `kuzu-ex` Elixir SDK, a [GARDEN](@/glossary/garden.md) Tier 2 active repository:
 
 ```elixir
 defmodule PrismaticStorage.KuzuDB.Adapter do
@@ -273,7 +273,7 @@ end
 
 ## Knowledge Graph Builder
 
-The knowledge graph builder ingests [OSINT](/glossary/osint/) data from multiple sources and resolves entities into the unified graph structure:
+The knowledge graph builder ingests [OSINT](@/glossary/osint.md) data from multiple sources and resolves entities into the unified graph structure:
 
 ```elixir
 defmodule PrismaticStorage.KuzuDB.KnowledgeGraphBuilder do
@@ -345,7 +345,7 @@ end
 | **ACID** | Yes | Yes | Yes | Yes | Yes |
 | **Analytics** | Optimized (vectorized) | Moderate | Limited | Multi-model | Requires CTEs |
 | **Operational cost** | Zero (embedded) | High (JVM, clustering) | Managed (pay-per-use) | Moderate | Low (existing infra) |
-| **Elixir integration** | NIF via kuzu-ex | HTTP/Bolt driver | HTTP API | HTTP API | [Ecto](/glossary/ecto/) |
+| **Elixir integration** | NIF via kuzu-ex | HTTP/Bolt driver | HTTP API | HTTP API | [Ecto](@/glossary/ecto.md) |
 | **Best for** | Embedded analytics | Enterprise graph apps | Cloud-native graph | Multi-model needs | Existing PostgreSQL |
 
 ## Graph Analytics Capabilities
@@ -378,34 +378,34 @@ Beyond simple traversal queries, KuzuDB supports graph analytics operations that
 
 ## Use Cases
 
-- **Attack Surface Mapping**: KuzuDB stores the complete attack surface graph for monitored organizations, enabling multi-hop relationship traversal to discover indirect exposure paths, shared infrastructure risks, and supply chain dependencies through the [Prismatic Perimeter](/glossary/prismatic-perimeter/).
+- **Attack Surface Mapping**: KuzuDB stores the complete attack surface graph for monitored organizations, enabling multi-hop relationship traversal to discover indirect exposure paths, shared infrastructure risks, and supply chain dependencies through the [Prismatic Perimeter](@/glossary/prismatic-perimeter.md).
 
-- **Agent Coordination Network**: The 530 AIAD [agents'](/glossary/agent/) coordination relationships are modeled as a graph, enabling queries like "which agents depend on the output of agent X" and "what is the critical path through agent dependencies for this workflow."
+- **Agent Coordination Network**: The 530 AIAD [agents'](@/glossary/agent.md) coordination relationships are modeled as a graph, enabling queries like "which agents depend on the output of agent X" and "what is the critical path through agent dependencies for this workflow."
 
 - **Entity Relationship Intelligence**: OSINT investigations use KuzuDB to explore relationships between people, companies, domains, and infrastructure elements, discovering non-obvious connections through graph traversal that would be invisible in tabular data.
 
-- **Blackboard Knowledge Store**: The platform's [Blackboard](/glossary/blackboard/) system uses KuzuDB for storing and querying relationship-rich knowledge that does not fit naturally into relational tables or key-value stores.
+- **Blackboard Knowledge Store**: The platform's [Blackboard](@/glossary/blackboard.md) system uses KuzuDB for storing and querying relationship-rich knowledge that does not fit naturally into relational tables or key-value stores.
 
 - **Vulnerability Path Analysis**: Security assessments use graph path queries to trace exploitation chains from external-facing assets through internal infrastructure to sensitive data stores, identifying the shortest attack paths.
 
 ## Related Concepts
 
-- [Knowledge Graph](/glossary/knowledge-graph/) - Graph-structured knowledge representation built on KuzuDB
-- [Adapter Pattern](/glossary/adapter-pattern/) - Unified storage interface including KuzuDB as the graph adapter
-- [Blackboard](/glossary/blackboard/) - Knowledge store leveraging KuzuDB for relationship-rich queries
-- [GARDEN](/glossary/garden/) - Source of the kuzu-ex SDK and graph knowledge patterns
-- [Meilisearch](/glossary/meilisearch/) - Complementary full-text search capability in the storage stack
-- [DuckDB](/glossary/duckdb/) - Complementary analytical database for OLAP workloads
-- [ETS](/glossary/ets/) - In-memory storage complementing KuzuDB for fast key-value access
-- [PostgreSQL](/glossary/postgresql/) - Relational storage complementing KuzuDB for structured data
-- [Embedding](/glossary/embedding/) - Node embeddings enriching KuzuDB graph structures
-- [Data Pipeline](/glossary/data-pipeline/) - Pipeline infrastructure feeding data into KuzuDB
+- [Knowledge Graph](@/glossary/knowledge-graph.md) - Graph-structured knowledge representation built on KuzuDB
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Unified storage interface including KuzuDB as the graph adapter
+- [Blackboard](@/glossary/blackboard.md) - Knowledge store leveraging KuzuDB for relationship-rich queries
+- [GARDEN](@/glossary/garden.md) - Source of the kuzu-ex SDK and graph knowledge patterns
+- [Meilisearch](@/glossary/meilisearch.md) - Complementary full-text search capability in the storage stack
+- [DuckDB](@/glossary/duckdb.md) - Complementary analytical database for OLAP workloads
+- [ETS](@/glossary/ets.md) - In-memory storage complementing KuzuDB for fast key-value access
+- [PostgreSQL](@/glossary/postgresql.md) - Relational storage complementing KuzuDB for structured data
+- [Embedding](@/glossary/embedding.md) - Node embeddings enriching KuzuDB graph structures
+- [Data Pipeline](@/glossary/data-pipeline.md) - Pipeline infrastructure feeding data into KuzuDB
 
 ## See Also
 
-- [Architecture](/architecture/) -- Storage architecture and graph database integration
-- [Capabilities](/capabilities/) -- Intelligence and graph analytics capabilities
-- [Technologies](/technologies/) -- Graph database technology stack
+- [Architecture](@/architecture/_index.md) -- Storage architecture and graph database integration
+- [Capabilities](@/capabilities/_index.md) -- Intelligence and graph analytics capabilities
+- [Technologies](@/technologies/_index.md) -- Graph database technology stack
 
 ---
 
@@ -414,4 +414,4 @@ Beyond simple traversal queries, KuzuDB supports graph analytics operations that
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -380,24 +380,24 @@ When a new OSS package is ready for extraction, the evolution system tracks the 
 
 ## Related Concepts
 
-- [AutoEvolve](/glossary/autoevolve/) -- The Mix task and GenServer system that drives autonomous platform evolution.
-- [Generation](/glossary/generation/) -- A discrete evolutionary milestone with recorded fitness improvements.
-- [Fitness Score](/glossary/fitness-score/) -- The quantitative measure of platform health across all dimensions.
-- [Quality Gates](/glossary/quality-gates/) -- The verification checkpoints that every evolutionary change must pass.
-- [Quality DNA](/glossary/quality-dna/) -- The cross-session persistence mechanism that maintains evolution state continuity.
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- The broader concept of self-improving systems that evolution implements.
-- [Self-Healing](/glossary/self-healing/) -- The complementary system that repairs degradation, while evolution improves capability.
-- [Continuous Evolution](/glossary/continuous-evolution/) -- The ongoing nature of the evolution process across all platform sessions.
-- [SEADF](/glossary/seadf/) -- The framework whose subsystems feed into and benefit from platform evolution.
-- [Trinity Gate](/glossary/trinity-gate/) -- The three-layer verification gate that validates evolutionary proposals.
+- [AutoEvolve](@/glossary/autoevolve.md) -- The Mix task and GenServer system that drives autonomous platform evolution.
+- [Generation](@/glossary/generation.md) -- A discrete evolutionary milestone with recorded fitness improvements.
+- [Fitness Score](@/glossary/fitness-score.md) -- The quantitative measure of platform health across all dimensions.
+- [Quality Gates](@/glossary/quality-gates.md) -- The verification checkpoints that every evolutionary change must pass.
+- [Quality DNA](@/glossary/quality-dna.md) -- The cross-session persistence mechanism that maintains evolution state continuity.
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- The broader concept of self-improving systems that evolution implements.
+- [Self-Healing](@/glossary/self-healing.md) -- The complementary system that repairs degradation, while evolution improves capability.
+- [Continuous Evolution](@/glossary/continuous-evolution.md) -- The ongoing nature of the evolution process across all platform sessions.
+- [SEADF](@/glossary/seadf.md) -- The framework whose subsystems feed into and benefit from platform evolution.
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The three-layer verification gate that validates evolutionary proposals.
 
 ## See Also
 
-- [AutoHeal](/glossary/autoheal/) -- The healing counterpart to evolution, focused on restoring rather than improving.
-- [Generation Evolution](/glossary/generation-evolution/) -- Detailed documentation of the generational advancement process.
-- [Ecosystem Expansion](/glossary/ecosystem-expansion/) -- The Gen 19 focus area for OSS package extraction and community growth.
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- The doctrine that governs execution standards during evolution.
-- [Evolves By Necessity](/glossary/evolves-by-necessity/) -- The philosophical principle that drives evolution toward genuine improvement.
+- [AutoHeal](@/glossary/autoheal.md) -- The healing counterpart to evolution, focused on restoring rather than improving.
+- [Generation Evolution](@/glossary/generation-evolution.md) -- Detailed documentation of the generational advancement process.
+- [Ecosystem Expansion](@/glossary/ecosystem-expansion.md) -- The Gen 19 focus area for OSS package extraction and community growth.
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- The doctrine that governs execution standards during evolution.
+- [Evolves By Necessity](@/glossary/evolves-by-necessity.md) -- The philosophical principle that drives evolution toward genuine improvement.
 
 ---
 
@@ -406,4 +406,4 @@ When a new OSS package is ready for extraction, the evolution system tracks the 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** -- 19 generations of evolution, driven by evidence and enforced by quality gates.
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | Glossary Index
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | Glossary Index

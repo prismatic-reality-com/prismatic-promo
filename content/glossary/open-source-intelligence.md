@@ -244,9 +244,9 @@ The 84 global adapters span cybersecurity, corporate intelligence, and technical
 
 **Cybersecurity adapters** include Shodan (internet-connected device search), Censys (certificate and host scanning), VirusTotal (malware and URL analysis), and Have I Been Pwned (credential breach monitoring). These adapters form the technical intelligence layer of the Prismatic Perimeter EASM capability.
 
-**Corporate intelligence adapters** cover OpenCorporates (global company data), Orbis (Bureau van Dijk's corporate database), and various national registry APIs. These support [beneficial ownership](/glossary/beneficial-ownership/) verification and corporate structure mapping.
+**Corporate intelligence adapters** cover OpenCorporates (global company data), Orbis (Bureau van Dijk's corporate database), and various national registry APIs. These support [beneficial ownership](@/glossary/beneficial-ownership.md) verification and corporate structure mapping.
 
-**Infrastructure adapters** query DNS records, WHOIS databases, certificate transparency logs, and BGP routing tables. Combined with the cybersecurity adapters, they provide comprehensive [attack surface](/glossary/attack-surface/) discovery.
+**Infrastructure adapters** query DNS records, WHOIS databases, certificate transparency logs, and BGP routing tables. Combined with the cybersecurity adapters, they provide comprehensive [attack surface](@/glossary/attack-surface.md) discovery.
 
 ## Ethical and Legal Framework
 
@@ -256,13 +256,13 @@ OSINT collection operates within a complex legal landscape that varies by jurisd
 
 **Rate limiting and access controls** respect the terms of service of data sources. Aggressive scraping that bypasses rate limits or accesses non-public API endpoints is both unethical and potentially illegal under computer fraud statutes.
 
-**Source attribution** is mandatory in all intelligence products. Every data point must be traceable to its source, enabling verification and supporting the [audit trail](/glossary/audit-trail/) requirements of regulated industries.
+**Source attribution** is mandatory in all intelligence products. Every data point must be traceable to its source, enabling verification and supporting the [audit trail](@/glossary/audit-trail.md) requirements of regulated industries.
 
 **Proportionality** ensures that collection activities are proportionate to the intelligence requirement. A routine vendor assessment does not justify the same depth of investigation as a fraud investigation.
 
 ## Intelligence Fusion and Analysis
 
-Raw OSINT data becomes intelligence through fusion -- the combination of data from multiple sources to produce insights that no single source could provide. The Prismatic Platform's [intelligence fusion](/glossary/intelligence-fusion/) capability cross-references entities across all adapter results, building a knowledge graph that reveals relationships invisible in individual data sources.
+Raw OSINT data becomes intelligence through fusion -- the combination of data from multiple sources to produce insights that no single source could provide. The Prismatic Platform's [intelligence fusion](@/glossary/intelligence-fusion.md) capability cross-references entities across all adapter results, building a knowledge graph that reveals relationships invisible in individual data sources.
 
 Entity resolution -- determining that "John Smith, Director at Acme Ltd" in one registry is the same person as "J. Smith, Board Member at Acme Holdings" in another -- is the core challenge of intelligence fusion. The platform uses a combination of deterministic matching (exact identifier matches on tax IDs, registration numbers) and probabilistic matching (name similarity, address proximity, temporal co-occurrence) to resolve entities across sources.
 
@@ -286,22 +286,22 @@ Automated quality checks validate returned data against expected schemas, flag s
 
 The OSINT landscape is evolving rapidly. Large language models are being applied to unstructured OSINT sources -- extracting entities from news articles, classifying sentiment in social media posts, and summarizing lengthy corporate filings. The Prismatic Platform's integration with local AI models through Ollama provides a foundation for on-premises AI-enhanced OSINT processing that maintains data sovereignty.
 
-Graph-based analysis, powered by the platform's [KuzuDB](/glossary/kuzudb/) integration, enables relationship-centric intelligence queries that traditional relational databases cannot efficiently support. Questions like "find all companies within two ownership hops of sanctioned entities" become native graph traversals rather than complex SQL joins.
+Graph-based analysis, powered by the platform's [KuzuDB](@/glossary/kuzudb.md) integration, enables relationship-centric intelligence queries that traditional relational databases cannot efficiently support. Questions like "find all companies within two ownership hops of sanctioned entities" become native graph traversals rather than complex SQL joins.
 
 ## Cross-References
 
-- [OSINT](/glossary/osint/) -- Abbreviated form and quick reference
-- [Intelligence Analysis](/glossary/intelligence-analysis/) -- Analytical methods applied to OSINT data
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Combining multi-source intelligence
-- [Cyber Threat Intelligence](/glossary/cyber-threat-intelligence/) -- OSINT applied to cybersecurity
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Broader threat intelligence context
-- [Attack Surface](/glossary/attack-surface/) -- OSINT-driven attack surface discovery
-- [Beneficial Ownership](/glossary/beneficial-ownership/) -- Corporate ownership transparency
-- [AML](/glossary/aml/) -- Anti-money laundering compliance using OSINT
-- [Audit Trail](/glossary/audit-trail/) -- Collection provenance tracking
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Design pattern for OSINT adapters
-- [Intelligence Platform](/glossary/intelligence-platform/) -- Platform architecture for intelligence
-- [KuzuDB](/glossary/kuzudb/) -- Graph database for relationship analysis
+- [OSINT](@/glossary/osint.md) -- Abbreviated form and quick reference
+- [Intelligence Analysis](@/glossary/intelligence-analysis.md) -- Analytical methods applied to OSINT data
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Combining multi-source intelligence
+- [Cyber Threat Intelligence](@/glossary/cyber-threat-intelligence.md) -- OSINT applied to cybersecurity
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Broader threat intelligence context
+- [Attack Surface](@/glossary/attack-surface.md) -- OSINT-driven attack surface discovery
+- [Beneficial Ownership](@/glossary/beneficial-ownership.md) -- Corporate ownership transparency
+- [AML](@/glossary/aml.md) -- Anti-money laundering compliance using OSINT
+- [Audit Trail](@/glossary/audit-trail.md) -- Collection provenance tracking
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Design pattern for OSINT adapters
+- [Intelligence Platform](@/glossary/intelligence-platform.md) -- Platform architecture for intelligence
+- [KuzuDB](@/glossary/kuzudb.md) -- Graph database for relationship analysis
 
 ---
 

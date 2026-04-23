@@ -307,7 +307,7 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform integrates breach intelligence as a core component of its [External Attack Surface Management (EASM)](/glossary/easm/) capabilities through Prismatic Perimeter. The implementation follows a layered architecture:
+The Prismatic Platform integrates breach intelligence as a core component of its [External Attack Surface Management (EASM)](@/glossary/easm.md) capabilities through Prismatic Perimeter. The implementation follows a layered architecture:
 
 ### Intelligence Pipeline
 
@@ -321,7 +321,7 @@ The Prismatic Platform integrates breach intelligence as a core component of its
 
 ### Integration with Security Ratings
 
-Breach exposure is a weighted factor in Prismatic Perimeter's A-F [security rating](/glossary/security-rating/) system. The scoring considers:
+Breach exposure is a weighted factor in Prismatic Perimeter's A-F [security rating](@/glossary/security-rating.md) system. The scoring considers:
 
 - **Number of unique compromised accounts** relative to estimated organization size
 - **Recency of exposure** -- recent breaches carry higher weight
@@ -331,7 +331,7 @@ Breach exposure is a weighted factor in Prismatic Perimeter's A-F [security rati
 
 ### Compliance Alignment
 
-Breach database handling in Prismatic Platform is designed to comply with [GDPR](/glossary/gdpr/) data processing requirements, [NIS2](/glossary/nis2/) incident reporting obligations, and Czech ZKB 264/2025 Sb. national security requirements. All PII is processed under legitimate interest or consent-based legal bases, with automatic data minimization and retention policies.
+Breach database handling in Prismatic Platform is designed to comply with [GDPR](@/glossary/gdpr.md) data processing requirements, [NIS2](@/glossary/nis2.md) incident reporting obligations, and Czech ZKB 264/2025 Sb. national security requirements. All PII is processed under legitimate interest or consent-based legal bases, with automatic data minimization and retention policies.
 
 ## Comparison with Alternatives
 
@@ -343,7 +343,7 @@ Breach database handling in Prismatic Platform is designed to comply with [GDPR]
 | **Prismatic Platform** | Integrated EASM intelligence | Correlation engine, security ratings, compliance | Requires intelligence feed subscriptions |
 | **BreachDirectory** | Free lookup service | Easy access | Limited features, questionable data provenance |
 
-The Prismatic Platform differentiates itself through deep integration between breach intelligence and the broader [attack surface](/glossary/attack-surface/) management workflow. Rather than providing standalone breach lookup, breach data is one signal among many that contributes to a holistic security posture assessment.
+The Prismatic Platform differentiates itself through deep integration between breach intelligence and the broader [attack surface](@/glossary/attack-surface.md) management workflow. Rather than providing standalone breach lookup, breach data is one signal among many that contributes to a holistic security posture assessment.
 
 ## Best Practices
 
@@ -351,7 +351,7 @@ The Prismatic Platform differentiates itself through deep integration between br
 
 1. **Never store plaintext passwords**: Even when breach data contains plaintext credentials, store only salted hashes for comparison purposes. The original plaintext must be discarded immediately after hashing.
 
-2. **Implement access controls**: Breach data is sensitive by nature. Apply role-based access control ([RBAC](/glossary/rbac/)) with principle of least privilege. Analysts should only see aggregated exposure metrics, not individual credentials.
+2. **Implement access controls**: Breach data is sensitive by nature. Apply role-based access control ([RBAC](@/glossary/rbac.md)) with principle of least privilege. Analysts should only see aggregated exposure metrics, not individual credentials.
 
 3. **Maintain provenance chains**: Every breach record must be traceable to its source. This is critical for both intelligence quality assessment and compliance with data protection regulations.
 
@@ -363,11 +363,11 @@ The Prismatic Platform differentiates itself through deep integration between br
 
 1. **Validate breach authenticity**: Not all claimed breaches are real. Cross-reference breach claims against known breach disclosures, check data consistency, and assess source reliability before ingesting.
 
-2. **Correlate across sources**: Single-source intelligence is unreliable. The [signal plurality](/glossary/signal-plurality/) principle requires corroboration from multiple independent sources before establishing high-confidence exposure claims.
+2. **Correlate across sources**: Single-source intelligence is unreliable. The [signal plurality](@/glossary/signal-plurality.md) principle requires corroboration from multiple independent sources before establishing high-confidence exposure claims.
 
 3. **Monitor for recombination attacks**: Threat actors combine data from multiple breaches to build enriched profiles. Monitor for credential reuse patterns that indicate cross-breach correlation by adversaries.
 
-4. **Integrate with [authentication](/glossary/authentication/) systems**: Breach intelligence should feed directly into authentication decisions -- blocking or flagging login attempts using known-compromised credentials.
+4. **Integrate with [authentication](@/glossary/authentication.md) systems**: Breach intelligence should feed directly into authentication decisions -- blocking or flagging login attempts using known-compromised credentials.
 
 ## Common Pitfalls
 
@@ -392,7 +392,7 @@ Security teams use breach databases to understand their organization's exposure 
 
 ### Third-Party Risk Management
 
-During [due diligence](/glossary/due-diligence/) assessments, breach intelligence provides insight into a vendor's or partner's security posture. A history of frequent breaches or exposure of sensitive data may indicate systemic security weaknesses that affect the risk profile of the business relationship.
+During [due diligence](@/glossary/due-diligence.md) assessments, breach intelligence provides insight into a vendor's or partner's security posture. A history of frequent breaches or exposure of sensitive data may indicate systemic security weaknesses that affect the risk profile of the business relationship.
 
 ### Incident Response
 
@@ -400,35 +400,35 @@ When investigating a security incident, breach databases help determine whether 
 
 ### Compliance Monitoring
 
-Regulatory frameworks including [NIS2](/glossary/nis2/) and the Czech [ZKB](/glossary/zkb/) require organizations to maintain awareness of their security posture and report incidents. Continuous breach monitoring provides evidence of proactive security management and supports compliance reporting obligations.
+Regulatory frameworks including [NIS2](@/glossary/nis2.md) and the Czech [ZKB](@/glossary/zkb.md) require organizations to maintain awareness of their security posture and report incidents. Continuous breach monitoring provides evidence of proactive security management and supports compliance reporting obligations.
 
 ### Red Team Operations
 
-Authorized [penetration testing](/glossary/penetration-testing/) teams use breach intelligence to simulate realistic attack scenarios. By identifying actually compromised credentials (with proper authorization and scope agreements), red teams can demonstrate the real-world risk of credential-based attacks and validate the effectiveness of detective controls.
+Authorized [penetration testing](@/glossary/penetration-testing.md) teams use breach intelligence to simulate realistic attack scenarios. By identifying actually compromised credentials (with proper authorization and scope agreements), red teams can demonstrate the real-world risk of credential-based attacks and validate the effectiveness of detective controls.
 
 ## Related Concepts
 
 Breach databases intersect with numerous security and intelligence domains within the Prismatic Platform:
 
-- [OSINT](/glossary/osint/) -- Breach databases are a primary source within the broader open-source intelligence discipline, providing actionable data about exposed credentials and organizational security posture
-- [EASM](/glossary/easm/) -- External Attack Surface Management uses breach intelligence as one signal for assessing an organization's external exposure and security rating
-- [Attack Surface](/glossary/attack-surface/) -- Compromised credentials expand an organization's effective attack surface by providing adversaries with valid authentication vectors
-- [Credential Management](/glossary/credential-management/) -- Breach intelligence informs credential lifecycle policies, rotation schedules, and complexity requirements
-- [Security Rating](/glossary/security-rating/) -- Breach exposure is a weighted factor in computing A-F security grades within Prismatic Perimeter
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Breach databases represent one category of threat intelligence feeds integrated into comprehensive threat analysis
-- [Vulnerability](/glossary/vulnerability/) -- Compromised credentials represent a vulnerability class that traditional vulnerability scanning cannot detect
-- [Authentication](/glossary/authentication/) -- Breach-aware authentication systems reject known-compromised passwords and enforce stronger authentication for exposed accounts
-- [Risk Assessment](/glossary/risk-assessment/) -- Breach exposure data feeds directly into organizational risk quantification models
-- [Encryption](/glossary/encryption/) -- The strength of password hashing in breached databases directly impacts the exploitability of exposed credentials
+- [OSINT](@/glossary/osint.md) -- Breach databases are a primary source within the broader open-source intelligence discipline, providing actionable data about exposed credentials and organizational security posture
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management uses breach intelligence as one signal for assessing an organization's external exposure and security rating
+- [Attack Surface](@/glossary/attack-surface.md) -- Compromised credentials expand an organization's effective attack surface by providing adversaries with valid authentication vectors
+- [Credential Management](@/glossary/credential-management.md) -- Breach intelligence informs credential lifecycle policies, rotation schedules, and complexity requirements
+- [Security Rating](@/glossary/security-rating.md) -- Breach exposure is a weighted factor in computing A-F security grades within Prismatic Perimeter
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Breach databases represent one category of threat intelligence feeds integrated into comprehensive threat analysis
+- [Vulnerability](@/glossary/vulnerability.md) -- Compromised credentials represent a vulnerability class that traditional vulnerability scanning cannot detect
+- [Authentication](@/glossary/authentication.md) -- Breach-aware authentication systems reject known-compromised passwords and enforce stronger authentication for exposed accounts
+- [Risk Assessment](@/glossary/risk-assessment.md) -- Breach exposure data feeds directly into organizational risk quantification models
+- [Encryption](@/glossary/encryption.md) -- The strength of password hashing in breached databases directly impacts the exploitability of exposed credentials
 
 ## See Also
 
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- The EASM module that integrates breach intelligence into security ratings
-- [Due Diligence](/glossary/due-diligence/) -- Third-party risk assessment process that leverages breach intelligence
-- [GDPR](/glossary/gdpr/) -- European data protection regulation governing breach data handling
-- [NIS2](/glossary/nis2/) -- EU directive requiring breach awareness and incident reporting
-- [Sanctions Screening](/glossary/sanctions-screening/) -- Another intelligence-driven compliance capability in the platform
-- [Penetration Testing](/glossary/penetration-testing/) -- Authorized security testing that may leverage breach intelligence
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- The EASM module that integrates breach intelligence into security ratings
+- [Due Diligence](@/glossary/due-diligence.md) -- Third-party risk assessment process that leverages breach intelligence
+- [GDPR](@/glossary/gdpr.md) -- European data protection regulation governing breach data handling
+- [NIS2](@/glossary/nis2.md) -- EU directive requiring breach awareness and incident reporting
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- Another intelligence-driven compliance capability in the platform
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Authorized security testing that may leverage breach intelligence
 
 ---
 
@@ -437,4 +437,4 @@ Breach databases intersect with numerous security and intelligence domains withi
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,13 +24,13 @@ image_alt = "/evolve-mycelialize - Prismatic Platform"
 
 ## Overview
 
-**/evolve-mycelialize** is a production command in the **Evolution** category of the Prismatic Platform. It provides unified evolution-propagation cycles that integrate the capabilities of [/evolve](/commands/evolve/) and [/mycelialize](/commands/mycelialize/) into a single cohesive operation. Where `/evolve` focuses on generational fitness improvement and `/mycelialize` handles biological-inspired pattern propagation, `/evolve-mycelialize` fuses both capabilities to simultaneously evolve the platform while propagating successful patterns across the entire ecosystem.
+**/evolve-mycelialize** is a production command in the **Evolution** category of the Prismatic Platform. It provides unified evolution-propagation cycles that integrate the capabilities of [/evolve](@/commands/evolve.md) and [/mycelialize](@/commands/mycelialize.md) into a single cohesive operation. Where `/evolve` focuses on generational fitness improvement and `/mycelialize` handles biological-inspired pattern propagation, `/evolve-mycelialize` fuses both capabilities to simultaneously evolve the platform while propagating successful patterns across the entire ecosystem.
 
 The biological metaphor underlying this command is instructive. In natural ecosystems, evolution and mycelial networks are deeply interconnected -- fungal mycelium networks facilitate nutrient transfer and communication between organisms, accelerating evolutionary adaptation across the ecosystem. The `/evolve-mycelialize` command replicates this synergy in the software domain: evolution generates beneficial mutations (quality improvements, pattern discoveries, architectural refinements), while the mycelial propagation network distributes these improvements across all 100+ umbrella applications simultaneously.
 
-This fusion is not merely a sequential composition of two commands. The [evolution-mycelial-fusion-commander](/agents/evolution-mycelial-fusion-commander/) agent implements a co-evolutionary protocol where evolution and propagation inform each other in real time. Patterns that propagate successfully across many applications receive higher fitness scores, biasing future evolution toward patterns with proven cross-application applicability. Conversely, evolution cycles that discover novel patterns immediately feed the mycelial network for rapid ecosystem-wide distribution.
+This fusion is not merely a sequential composition of two commands. The [evolution-mycelial-fusion-commander](@/agents/evolution-mycelial-fusion-commander.md) agent implements a co-evolutionary protocol where evolution and propagation inform each other in real time. Patterns that propagate successfully across many applications receive higher fitness scores, biasing future evolution toward patterns with proven cross-application applicability. Conversely, evolution cycles that discover novel patterns immediately feed the mycelial network for rapid ecosystem-wide distribution.
 
-This command operates under the **SUPREME** authority level, the highest non-self-recursive authority in the platform hierarchy. SUPREME authority is required because unified evolution-propagation cycles modify code across the entire umbrella ecosystem simultaneously. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **SUPREME** authority level, the highest non-self-recursive authority in the platform hierarchy. SUPREME authority is required because unified evolution-propagation cycles modify code across the entire umbrella ecosystem simultaneously. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -142,19 +142,19 @@ The `/evolve-mycelialize` command follows a structured 7-phase co-evolutionary p
 
 6. **Feedback Synthesis**: Propagation results (success rates, quality improvements, application coverage) are synthesized into fitness adjustments. Patterns that propagated successfully to many applications receive higher fitness scores, influencing future evolution strategy.
 
-7. **State Persistence**: The final state -- evolution results, propagation outcomes, and fitness adjustments -- is persisted to [Quality DNA](/glossary/quality-dna/) for cross-session continuity.
+7. **State Persistence**: The final state -- evolution results, propagation outcomes, and fitness adjustments -- is persisted to [Quality DNA](@/glossary/quality-dna.md) for cross-session continuity.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Evolution Engine](/glossary/autoevolve/) | Core | 5-phase evolution cycle with fitness evaluation |
-| [Mycelial Network](/glossary/mycelial-network/) | Core | Pattern propagation at 500K patterns/sec |
-| [Quality DNA](/glossary/quality-dna/) | Persistence | Cross-session state and fitness history |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Pre/post cycle quality verification |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Fusion commander agent orchestrates |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Co-evolution [metrics](/glossary/metrics/) and propagation events |
-| [SEADF](/glossary/seadf/) | Framework | Self-evolving framework integration |
+| [Evolution Engine](@/glossary/autoevolve.md) | Core | 5-phase evolution cycle with fitness evaluation |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Core | Pattern propagation at 500K patterns/sec |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | Cross-session state and fitness history |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Pre/post cycle quality verification |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Fusion commander agent orchestrates |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Co-evolution [metrics](@/glossary/metrics.md) and propagation events |
+| [SEADF](@/glossary/seadf.md) | Framework | Self-evolving framework integration |
 | AIAD Registry | Discovery | Command specification and agent binding |
 
 ## Best Practices
@@ -206,11 +206,11 @@ The `/evolve-mycelialize` command follows a structured 7-phase co-evolutionary p
 
 ### Integration with Formal Verification
 
-The co-evolutionary pipeline can optionally route emerged patterns through the [/mycelialize-formal](/commands/mycelialize-formal/) formal verification pipeline, using [Lean4](/glossary/lean4/) proofs to validate pattern correctness before ecosystem-wide propagation.
+The co-evolutionary pipeline can optionally route emerged patterns through the [/mycelialize-formal](@/commands/mycelialize-formal.md) formal verification pipeline, using [Lean4](@/glossary/lean4.md) proofs to validate pattern correctness before ecosystem-wide propagation.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for degradation during co-evolution. Every propagated pattern must pass quality gates in every target application. Failed propagations are rolled back completely -- no partial application, no "good enough" compromises.
 - **NO DOUBTS**: Full investigation through the co-evolutionary feedback loop. Pattern effectiveness is measured empirically through propagation success rates. Fitness adjustments are evidence-based, not heuristic.
@@ -219,14 +219,14 @@ The SUPREME authority level reflects the scope of this command's impact. Unified
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/evolve-enforced](/commands/evolve-enforced/) - Evolution with mandatory QDP reduction
-- [/evolve-patterns](/commands/evolve-patterns/) - Pattern evolution through meta-evolution analysis
-- [/evolve-quality-gates](/commands/evolve-quality-gates/) - Quality gate evolution for warnings, tests and static analysis
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/evolve-enforced](@/commands/evolve-enforced.md) - Evolution with mandatory QDP reduction
+- [/evolve-patterns](@/commands/evolve-patterns.md) - Pattern evolution through meta-evolution analysis
+- [/evolve-quality-gates](@/commands/evolve-quality-gates.md) - Quality gate evolution for warnings, tests and static analysis
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -235,4 +235,4 @@ The SUPREME authority level reflects the scope of this command's impact. Unified
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -36,7 +36,7 @@ image_alt = "Taxonomy - Prismatic Platform"
 
 ## Definition
 
-A **Taxonomy** is a systematic scheme of classification that organizes concepts, entities, or data into hierarchical categories based on shared characteristics, relationships, and distinguishing properties. Derived from the Greek *taxis* (arrangement) and *nomos* (law), taxonomy provides the structural foundation for naming, grouping, and navigating complex domains of knowledge. Within the Prismatic Platform, taxonomy is not merely a documentation convenience but a first-class architectural concept: the [agent tier](/glossary/agent-tier/) taxonomy (L1-L5) governs operational authority, the [quality](/glossary/quality/) domain taxonomy (13 domains) structures platform integrity enforcement, the [Red Team](/glossary/red-team/) maintains a 329-entry attack taxonomy for adversarial simulation, and OSINT provider classification organizes 120+ intelligence sources across 7 categories.
+A **Taxonomy** is a systematic scheme of classification that organizes concepts, entities, or data into hierarchical categories based on shared characteristics, relationships, and distinguishing properties. Derived from the Greek *taxis* (arrangement) and *nomos* (law), taxonomy provides the structural foundation for naming, grouping, and navigating complex domains of knowledge. Within the Prismatic Platform, taxonomy is not merely a documentation convenience but a first-class architectural concept: the [agent tier](@/glossary/agent-tier.md) taxonomy (L1-L5) governs operational authority, the [quality](@/glossary/quality.md) domain taxonomy (13 domains) structures platform integrity enforcement, the [Red Team](@/glossary/red-team.md) maintains a 329-entry attack taxonomy for adversarial simulation, and OSINT provider classification organizes 120+ intelligence sources across 7 categories.
 
 ## Overview
 
@@ -50,7 +50,7 @@ In software engineering, taxonomies appear wherever systems must organize and na
 - **Permission Systems** -- Role-based access control hierarchies
 - **Content Management** -- Categorizing documents, articles, and knowledge base entries
 
-The Prismatic Platform takes taxonomy further by making taxonomic structures computationally active -- they are not just documentation but runtime data structures that drive authorization decisions, quality enforcement, agent orchestration, and security assessment. Every taxonomy in the platform is defined as Elixir code with type specifications, validated at compile time through [Dialyzer](/glossary/dialyzer/), and enforced through [behaviour](/glossary/behaviour/) contracts.
+The Prismatic Platform takes taxonomy further by making taxonomic structures computationally active -- they are not just documentation but runtime data structures that drive authorization decisions, quality enforcement, agent orchestration, and security assessment. Every taxonomy in the platform is defined as Elixir code with type specifications, validated at compile time through [Dialyzer](@/glossary/dialyzer.md), and enforced through [behaviour](@/glossary/behaviour.md) contracts.
 
 ### Key Properties of Well-Formed Taxonomies
 
@@ -403,7 +403,7 @@ end
 
 ### Quality Domain Taxonomy
 
-The 13 [quality](/glossary/quality/) domains form a flat taxonomy (single level) with domain-specific enforcement rules:
+The 13 [quality](@/glossary/quality.md) domains form a flat taxonomy (single level) with domain-specific enforcement rules:
 
 ```elixir
 defmodule Prismatic.Taxonomy.QualityDomain do
@@ -461,7 +461,7 @@ end
 
 ### Attack Taxonomy (329 Entries)
 
-The [Red Team](/glossary/red-team/) maintains a comprehensive attack taxonomy organized by five epistemic attack primitives:
+The [Red Team](@/glossary/red-team.md) maintains a comprehensive attack taxonomy organized by five epistemic attack primitives:
 
 ```
 Attack Taxonomy (329 entries)
@@ -552,8 +552,8 @@ The Prismatic Platform deliberately uses simple tree taxonomies for most classif
 
 ### Implementation Patterns
 
-- **ETS for Lookup** -- Store the taxonomy tree in [ETS](/glossary/ets/) for O(1) node lookup by ID. Tree traversal is rare; point lookups are common.
-- **Compile-Time Validation** -- Use `@type` and `@spec` to encode taxonomy constraints that [Dialyzer](/glossary/dialyzer/) can verify at compile time.
+- **ETS for Lookup** -- Store the taxonomy tree in [ETS](@/glossary/ets.md) for O(1) node lookup by ID. Tree traversal is rare; point lookups are common.
+- **Compile-Time Validation** -- Use `@type` and `@spec` to encode taxonomy constraints that [Dialyzer](@/glossary/dialyzer.md) can verify at compile time.
 - **Pattern Matching Classification** -- Leverage Elixir's pattern matching for classification logic rather than conditional chains.
 
 ## Common Pitfalls
@@ -586,7 +586,7 @@ Designing a taxonomy as a fixed structure that cannot accommodate new categories
 
 ### Agent Orchestration
 
-The [agent tier](/glossary/agent-tier/) taxonomy (L1-L5) is the foundation of the platform's agent orchestration model. When a task arrives, the orchestrator uses the taxonomy to determine which tier of agent has the authority to handle it, whether escalation is needed, and how many agents at each tier are available. The taxonomy enforces that L5 workers cannot make strategic decisions and that L1 Supreme agents are reserved for platform-wide operations.
+The [agent tier](@/glossary/agent-tier.md) taxonomy (L1-L5) is the foundation of the platform's agent orchestration model. When a task arrives, the orchestrator uses the taxonomy to determine which tier of agent has the authority to handle it, whether escalation is needed, and how many agents at each tier are available. The taxonomy enforces that L5 workers cannot make strategic decisions and that L1 Supreme agents are reserved for platform-wide operations.
 
 ### Quality Gate Enforcement
 
@@ -594,7 +594,7 @@ The 13 quality domain taxonomy structures the platform's pre-commit validation p
 
 ### Red Team Scenario Generation
 
-The 329-entry attack taxonomy enables systematic adversarial testing by providing a structured vocabulary of attack techniques. The [Red Team](/glossary/red-team/) scenario generator selects attack primitives from the taxonomy, composes them into multi-technique scenarios, and tracks coverage across the taxonomy to identify untested attack categories.
+The 329-entry attack taxonomy enables systematic adversarial testing by providing a structured vocabulary of attack techniques. The [Red Team](@/glossary/red-team.md) scenario generator selects attack primitives from the taxonomy, composes them into multi-technique scenarios, and tracks coverage across the taxonomy to identify untested attack categories.
 
 ### OSINT Source Selection
 
@@ -602,31 +602,31 @@ When conducting an investigation, the platform uses the OSINT provider taxonomy 
 
 ### Knowledge Organization
 
-The glossary, documentation, and [knowledge graph](/glossary/knowledge-graph/) use taxonomic classification to organize information for navigation and search. Each glossary term is classified by category, difficulty, and domain, enabling multi-dimensional browsing.
+The glossary, documentation, and [knowledge graph](@/glossary/knowledge-graph.md) use taxonomic classification to organize information for navigation and search. Each glossary term is classified by category, difficulty, and domain, enabling multi-dimensional browsing.
 
 ## Related Concepts
 
-- [Ontology](/glossary/ontology/) -- Formal specification of concepts and relationships, richer than taxonomy
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Graph-structured knowledge representation using taxonomic categories
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Strategic design approach that defines domain taxonomies
-- [Agent Tier](/glossary/agent-tier/) -- The L1-L5 agent hierarchy governed by the agent tier taxonomy
-- [Quality](/glossary/quality/) -- Platform quality system organized by the 13-domain quality taxonomy
-- [Red Team](/glossary/red-team/) -- Adversarial simulation using the 329-entry attack taxonomy
-- [Color Teams](/glossary/color-teams/) -- Security organization with team-based classification
-- [Belief Graph](/glossary/belief-graph/) -- Epistemic graph structure using taxonomic categories for node types
-- [Credo](/glossary/credo/) -- Static analysis tool whose checks form a quality sub-taxonomy
-- [EASM](/glossary/easm/) -- External attack surface management using asset type taxonomies
+- [Ontology](@/glossary/ontology.md) -- Formal specification of concepts and relationships, richer than taxonomy
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Graph-structured knowledge representation using taxonomic categories
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Strategic design approach that defines domain taxonomies
+- [Agent Tier](@/glossary/agent-tier.md) -- The L1-L5 agent hierarchy governed by the agent tier taxonomy
+- [Quality](@/glossary/quality.md) -- Platform quality system organized by the 13-domain quality taxonomy
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation using the 329-entry attack taxonomy
+- [Color Teams](@/glossary/color-teams.md) -- Security organization with team-based classification
+- [Belief Graph](@/glossary/belief-graph.md) -- Epistemic graph structure using taxonomic categories for node types
+- [Credo](@/glossary/credo.md) -- Static analysis tool whose checks form a quality sub-taxonomy
+- [EASM](@/glossary/easm.md) -- External attack surface management using asset type taxonomies
 
 ## See Also
 
-- [Agent](/glossary/agent/) -- AIAD agents classified by the tier taxonomy
-- [Dialyzer](/glossary/dialyzer/) -- Type checking tool validating taxonomy type specifications
-- [ETS](/glossary/ets/) -- In-memory storage used for taxonomy lookup tables
-- [Behaviour](/glossary/behaviour/) -- Interface contracts enabling taxonomy-driven dispatch
-- [Pattern Matching](/glossary/pattern-matching/) -- Core Elixir feature for taxonomy-based classification logic
-- [Architectural Pattern](/glossary/architectural-pattern/) -- Design patterns organized taxonomically
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Security assessment using vulnerability taxonomies
-- [Enterprise Architecture](/glossary/enterprise-architecture/) -- Organization-wide architecture using capability taxonomies
+- [Agent](@/glossary/agent.md) -- AIAD agents classified by the tier taxonomy
+- [Dialyzer](@/glossary/dialyzer.md) -- Type checking tool validating taxonomy type specifications
+- [ETS](@/glossary/ets.md) -- In-memory storage used for taxonomy lookup tables
+- [Behaviour](@/glossary/behaviour.md) -- Interface contracts enabling taxonomy-driven dispatch
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Core Elixir feature for taxonomy-based classification logic
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- Design patterns organized taxonomically
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Security assessment using vulnerability taxonomies
+- [Enterprise Architecture](@/glossary/enterprise-architecture.md) -- Organization-wide architecture using capability taxonomies
 
 ---
 
@@ -635,4 +635,4 @@ The glossary, documentation, and [knowledge graph](/glossary/knowledge-graph/) u
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

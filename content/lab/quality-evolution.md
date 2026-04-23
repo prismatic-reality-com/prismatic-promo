@@ -24,25 +24,25 @@ image_alt = "Autonomous Quality Floor Maintenance - Prismatic Platform"
 
 ## Hypothesis
 
-We hypothesize that an autonomous quality floor system can maintain perfect quality scores (100/100) across 13 quality domains with zero human intervention, that Quality Debt Points (QDP) can be eliminated at a velocity exceeding 50 QDP per hour through automated [CASCADE](/glossary/cascade/) pattern application, and that the self-healing system will prevent quality regressions with 99.5%+ effectiveness.
+We hypothesize that an autonomous quality floor system can maintain perfect quality scores (100/100) across 13 quality domains with zero human intervention, that Quality Debt Points (QDP) can be eliminated at a velocity exceeding 50 QDP per hour through automated [CASCADE](@/glossary/cascade.md) pattern application, and that the self-healing system will prevent quality regressions with 99.5%+ effectiveness.
 
 ## Background
 
-The Prismatic Platform's journey from a quality score of 68/100 to 100/100 represents one of the most significant engineering achievements in the platform's history. The quality score spans 13 domains: [Dialyzer](/technologies/dialyzer/), [Credo](/technologies/credo/), Compilation, DateTime Precision, Guard Functions, @impl Coverage, Memory Safety, Performance, Regression Prevention, Timing Patterns, TODO Management, [Typespec](/glossary/typespec/) Coverage, and Unsafe Map Access.
+The Prismatic Platform's journey from a quality score of 68/100 to 100/100 represents one of the most significant engineering achievements in the platform's history. The quality score spans 13 domains: [Dialyzer](@/technologies/dialyzer.md), [Credo](@/technologies/credo.md), Compilation, DateTime Precision, Guard Functions, @impl Coverage, Memory Safety, Performance, Regression Prevention, Timing Patterns, TODO Management, [Typespec](@/glossary/typespec.md) Coverage, and Unsafe Map Access.
 
-Quality Debt Points ([QDP](/glossary/qdp/)) are the platform's unit of quality measurement. Each violation detected by any quality domain adds QDP to the total. At the peak, the platform carried 905 QDP across all domains. The [No Mercy](/glossary/no-mercy/) doctrine mandates zero QDP as a non-negotiable requirement.
+Quality Debt Points ([QDP](@/glossary/qdp.md)) are the platform's unit of quality measurement. Each violation detected by any quality domain adds QDP to the total. At the peak, the platform carried 905 QDP across all domains. The [No Mercy](@/glossary/no-mercy.md) doctrine mandates zero QDP as a non-negotiable requirement.
 
-The Quality Floor Guardian (`prismatic_safety/quality_floor_guardian.ex`) monitors quality in real-time and triggers corrective actions when violations are detected. The [Quality DNA](/glossary/quality-dna/) system provides cross-session continuity, ensuring that quality improvements persist across development sessions.
+The Quality Floor Guardian (`prismatic_safety/quality_floor_guardian.ex`) monitors quality in real-time and triggers corrective actions when violations are detected. The [Quality DNA](@/glossary/quality-dna.md) system provides cross-session continuity, ensuring that quality improvements persist across development sessions.
 
-[CASCADE](/glossary/cascade/) patterns were the breakthrough innovation that enabled mass QDP elimination. Five pattern categories -- Type Mismatch, Dead Code, Empty Check, Timer Replacement, and Nuclear Cache -- were identified as responsible for 87% of all QDP. Automated detection and correction of these patterns transformed QDP elimination from a manual craft to an automated process.
+[CASCADE](@/glossary/cascade.md) patterns were the breakthrough innovation that enabled mass QDP elimination. Five pattern categories -- Type Mismatch, Dead Code, Empty Check, Timer Replacement, and Nuclear Cache -- were identified as responsible for 87% of all QDP. Automated detection and correction of these patterns transformed QDP elimination from a manual craft to an automated process.
 
 ### Technical Debt as Entropy
 
 Software quality, left unattended, degrades according to principles remarkably similar to thermodynamic entropy. Every code change introduces the possibility of disorder: a slightly mismatched type annotation, a function whose guard clause does not cover all input domains, a test that exercises the happy path but ignores the boundary. In isolation, each of these is trivial. Accumulated over thousands of commits across 90 umbrella applications, they compose into a systemic drag that slows development, obscures intent, and breeds production failures.
 
-The insight that drove the Prismatic quality evolution was treating this degradation not as a human discipline problem but as a systems engineering problem. Manual code review catches some violations, but it is fundamentally limited by reviewer attention span, inconsistent enforcement across reviewers, and the impossibility of checking 13 quality domains simultaneously during every review. A reviewer might catch a missing [typespec](/glossary/typespec/), but miss an unsafe map access three modules away that was introduced by the same change. The only reliable countermeasure to quality entropy is automated, continuous, and exhaustive enforcement -- a system that checks every domain on every change with zero exceptions.
+The insight that drove the Prismatic quality evolution was treating this degradation not as a human discipline problem but as a systems engineering problem. Manual code review catches some violations, but it is fundamentally limited by reviewer attention span, inconsistent enforcement across reviewers, and the impossibility of checking 13 quality domains simultaneously during every review. A reviewer might catch a missing [typespec](@/glossary/typespec.md), but miss an unsafe map access three modules away that was introduced by the same change. The only reliable countermeasure to quality entropy is automated, continuous, and exhaustive enforcement -- a system that checks every domain on every change with zero exceptions.
 
-This is the philosophical foundation of the [No Mercy, No Doubts](/glossary/no-mercy/) doctrine as applied to quality: the conviction that quality cannot be a best-effort aspiration. It must be a hard constraint enforced by machinery that never tires, never overlooks, and never rationalizes exceptions.
+This is the philosophical foundation of the [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine as applied to quality: the conviction that quality cannot be a best-effort aspiration. It must be a hard constraint enforced by machinery that never tires, never overlooks, and never rationalizes exceptions.
 
 ### The Quality Floor Concept
 
@@ -52,7 +52,7 @@ The Quality Floor Guardian operates at four enforcement levels, each calibrated 
 
 - **OPTIMAL (100/100)**: The system monitors passively. No corrective action is required. Quality telemetry is recorded for trend analysis.
 - **WARNING (99/100)**: A single-point deviation triggers an automated investigation. The system identifies which domain dropped and which specific files are responsible. An alert is emitted but commits are not blocked.
-- **CRITICAL (95-98/100)**: The system activates the [auto-evolution](/glossary/autoevolve/) engine, which attempts to fix the detected violations through CASCADE pattern application. If auto-fix fails, the system escalates to human review.
+- **CRITICAL (95-98/100)**: The system activates the [auto-evolution](@/glossary/autoevolve.md) engine, which attempts to fix the detected violations through CASCADE pattern application. If auto-fix fails, the system escalates to human review.
 - **EMERGENCY (below 95/100)**: All commits are blocked platform-wide. An immediate escalation is triggered. The system enters a defensive posture where only quality-improving changes are permitted until the floor is restored.
 
 The current Quality Floor is set at 100/100 -- the most aggressive possible setting. This means any single violation in any domain triggers at least a WARNING, and multiple violations trigger active intervention. The platform has maintained this floor continuously since Week 7 of the experiment.
@@ -63,13 +63,13 @@ The platform's quality infrastructure evolved through 18 distinct generations, e
 
 **Generations 1-3 (Foundation)**: Basic compilation checks and manual Credo runs. Quality was measured informally and enforced through code review alone. Quality scores in this era were not tracked systematically, but retrospective analysis estimates they hovered around 45-55/100.
 
-**Generations 4-6 (Automation)**: Introduction of `mix compile --warnings-as-errors` and automated Credo checks in CI. [Dialyzer](/technologies/dialyzer/) was added but not yet enforced as a blocking gate. Quality scores stabilized around 60-68/100, with compilation and Credo violations reaching zero but other domains remaining unchecked.
+**Generations 4-6 (Automation)**: Introduction of `mix compile --warnings-as-errors` and automated Credo checks in CI. [Dialyzer](@/technologies/dialyzer.md) was added but not yet enforced as a blocking gate. Quality scores stabilized around 60-68/100, with compilation and Credo violations reaching zero but other domains remaining unchecked.
 
 **Generations 7-9 (Expansion)**: The quality domain count expanded from 3 to 13. New domains for DateTime Precision, Guard Functions, Memory Safety, and Unsafe Map Access were introduced. This expansion initially caused the apparent quality score to drop (because previously invisible violations were now counted), but it provided the comprehensive measurement necessary for systematic improvement.
 
 **Generations 10-12 (CASCADE)**: The CASCADE pattern system was developed and deployed. Automated detection and correction of the five major pattern categories eliminated 87% of all QDP. Quality scores rose rapidly from 68/100 to 95/100 during this period.
 
-**Generations 13-15 (Guardian)**: The Quality Floor Guardian was implemented as a persistent [GenServer](/technologies/genserver/) process. Pre-commit hooks gained quality awareness. The Quality DNA system was introduced for cross-session persistence. Quality reached 100/100 for the first time.
+**Generations 13-15 (Guardian)**: The Quality Floor Guardian was implemented as a persistent [GenServer](@/technologies/genserver.md) process. Pre-commit hooks gained quality awareness. The Quality DNA system was introduced for cross-session persistence. Quality reached 100/100 for the first time.
 
 **Generations 16-18 (Autonomy)**: Full autonomous maintenance with zero human intervention. Predictive quality analysis, self-healing cycles, and the integration of quality enforcement into every platform workflow. The system now maintains 100/100 indefinitely without degradation.
 
@@ -362,7 +362,7 @@ defmodule PrismaticSafety.QualityDNA do
 end
 ```
 
-The [auto-healing](/glossary/autoheal/) cycle implementation orchestrates periodic quality scans and automated correction:
+The [auto-healing](@/glossary/autoheal.md) cycle implementation orchestrates periodic quality scans and automated correction:
 
 ```elixir
 defmodule PrismaticSafety.AutoHealCycle do
@@ -445,10 +445,10 @@ The platform's quality measurement system spans 13 distinct domains, each with i
 | Domain | Measurement Method | Threshold | Enforcement |
 |--------|-------------------|-----------|-------------|
 | Compilation Warnings | `mix compile --warnings-as-errors --force` | Zero tolerance | Pre-commit BLOCK |
-| [Dialyzer](/technologies/dialyzer/) Type Violations | `mix dialyzer --format short` via persistent PLT | Zero tolerance | Pre-commit BLOCK |
-| [Credo](/technologies/credo/) Style Violations | `mix credo --strict --all` | Zero tolerance | Pre-commit BLOCK |
+| [Dialyzer](@/technologies/dialyzer.md) Type Violations | `mix dialyzer --format short` via persistent PLT | Zero tolerance | Pre-commit BLOCK |
+| [Credo](@/technologies/credo.md) Style Violations | `mix credo --strict --all` | Zero tolerance | Pre-commit BLOCK |
 | Test Coverage | `mix test --cover` with `ExCoveralls` | 100% business logic, 90% overall | CI BLOCK |
-| [Typespec](/glossary/typespec/) Coverage | AST scan for public functions without `@spec` | All public functions | Pre-commit WARN, CI BLOCK |
+| [Typespec](@/glossary/typespec.md) Coverage | AST scan for public functions without `@spec` | All public functions | Pre-commit WARN, CI BLOCK |
 | Memory Safety | Pattern scan for unbounded list accumulation, ETS leaks | Zero tolerance | Pre-commit BLOCK |
 | Unsafe Map Access | AST scan for `map.field` dot-access on dynamic maps | Zero tolerance | Pre-commit BLOCK |
 | DateTime Precision | Pattern scan for `DateTime.utc_now()` without microsecond precision | Zero tolerance | Pre-commit BLOCK |
@@ -463,7 +463,7 @@ The platform's quality measurement system spans 13 distinct domains, each with i
 
 **Dialyzer Type Violations** represent the platform's static type analysis layer. Dialyzer performs success typing analysis over the entire codebase using a Persistent Lookup Table (PLT) that caches type information across runs. While Elixir is dynamically typed, Dialyzer can detect type mismatches, unreachable code paths, and contract violations through `@spec` annotations. The platform maintains a zero-violation Dialyzer posture, meaning every type contract is satisfied.
 
-**Memory Safety Patterns** detect code that could lead to unbounded memory growth. Common violations include accumulating lists without bounds, creating [ETS](/technologies/ets/) entries without cleanup, spawning processes without supervision, and holding references to large binaries. These patterns are particularly dangerous because they manifest only under production load and can be invisible in testing.
+**Memory Safety Patterns** detect code that could lead to unbounded memory growth. Common violations include accumulating lists without bounds, creating [ETS](@/technologies/ets.md) entries without cleanup, spawning processes without supervision, and holding references to large binaries. These patterns are particularly dangerous because they manifest only under production load and can be invisible in testing.
 
 **Unsafe Map Access** catches the use of Elixir's dot-access syntax (`map.field`) on maps that are not structs. This syntax raises a `KeyError` at runtime if the key is missing, whereas `Map.get/3`, `Map.fetch/2`, or pattern matching provide safe alternatives. In a codebase with thousands of map operations, this single pattern class eliminated over 100 potential runtime crashes.
 
@@ -584,7 +584,7 @@ end
 
 ### Timer Replacement Pattern
 
-The timer replacement pattern targets uses of `Process.sleep/1` and `:timer.sleep/1` in production code. Sleep-based timing is a code smell in [OTP](/technologies/erlang-otp/) applications because it blocks the process, is not testable, and does not compose with the supervision tree. The correct OTP approach uses `Process.send_after/3`, `GenServer` timeouts, or `:timer.send_interval/2`.
+The timer replacement pattern targets uses of `Process.sleep/1` and `:timer.sleep/1` in production code. Sleep-based timing is a code smell in [OTP](@/technologies/erlang-otp.md) applications because it blocks the process, is not testable, and does not compose with the supervision tree. The correct OTP approach uses `Process.send_after/3`, `GenServer` timeouts, or `:timer.send_interval/2`.
 
 **Detection**: AST scan for `Process.sleep` and `:timer.sleep` calls outside of test files. Context analysis determines whether the sleep is in a GenServer callback, a Task, or a bare function.
 
@@ -717,7 +717,7 @@ The Quality DNA system serves several critical functions beyond simple score rec
 
 ### Integration with CI/CD
 
-The Quality DNA state file is committed to the repository, making it available to both local development and CI pipeline runs. The [GitLab CI](/technologies/gitlab-ci/) pipeline reads the Quality DNA at the start of each run and writes an updated state at the end. This creates a continuous quality timeline that spans local development sessions, CI runs, and deployment events.
+The Quality DNA state file is committed to the repository, making it available to both local development and CI pipeline runs. The [GitLab CI](@/technologies/gitlab-ci.md) pipeline reads the Quality DNA at the start of each run and writes an updated state at the end. This creates a continuous quality timeline that spans local development sessions, CI runs, and deployment events.
 
 The CI integration also enables quality gate enforcement at the pipeline level. If the Quality DNA shows a trend toward degradation, the pipeline can activate more aggressive checking (such as running the full CASCADE scan rather than just the fast pre-commit checks). Conversely, when the Quality DNA shows extended stability, the pipeline can optimize by running abbreviated checks for routine commits and reserving full scans for high-risk changes.
 
@@ -839,22 +839,22 @@ The steady-state phase revealed the true value of the system: zero QDP introduct
 2. **CASCADE patterns address 87% of quality debt** through automated detection and correction.
 3. **QDP elimination velocity exceeds 50/hour** during the active elimination phase.
 4. **Pre-commit enforcement prevents 100% of regressions** with sub-second detection.
-5. **The Quality Floor Guardian is the foundation** for the platform's [No Mercy](/glossary/no-mercy/) enforcement.
+5. **The Quality Floor Guardian is the foundation** for the platform's [No Mercy](@/glossary/no-mercy.md) enforcement.
 
 ## Next Steps
 
 - Develop new CASCADE patterns for emerging violation categories
 - Implement predictive quality analysis that identifies at-risk code before violations occur
 - Extend the Quality DNA system with machine learning for pattern evolution
-- Build quality trend dashboards in [Phoenix LiveView](/technologies/phoenix-liveview/)
+- Build quality trend dashboards in [Phoenix LiveView](@/technologies/phoenix-liveview.md)
 - Open-source the CASCADE pattern framework for community adoption
 
 ## Related Experiments
 
-- [Agent Prototyping](/lab/agent-prototyping/) -- Agent quality measured by the same system
-- [Epistemic Framework](/lab/epistemic-framework/) -- Epistemic quality correlates with code quality
-- [Drift Detection](/lab/drift-detection/) -- Quality drift is one category of drift detected
-- [Formal Verification](/lab/formal-verification/) -- Formal proofs complement quality metrics
+- [Agent Prototyping](@/lab/agent-prototyping.md) -- Agent quality measured by the same system
+- [Epistemic Framework](@/lab/epistemic-framework.md) -- Epistemic quality correlates with code quality
+- [Drift Detection](@/lab/drift-detection.md) -- Quality drift is one category of drift detected
+- [Formal Verification](@/lab/formal-verification.md) -- Formal proofs complement quality metrics
 
 ---
 
@@ -863,4 +863,4 @@ The steady-state phase revealed the true value of the system: zero QDP introduct
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

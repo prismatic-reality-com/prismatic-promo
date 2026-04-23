@@ -195,7 +195,7 @@ z = Statistics.z_score(stats, current_latency)
 
 - **Statistics** - Broader mathematical discipline encompassing standard deviation
 - **Statistical Detection** - Anomaly identification using statistical methods
-- [Monitoring](/glossary/monitoring/) - Infrastructure consuming standard deviation calculations
+- [Monitoring](@/glossary/monitoring.md) - Infrastructure consuming standard deviation calculations
 - **Threshold** - Decision boundary configured using sigma multiples
 
 ---

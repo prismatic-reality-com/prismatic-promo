@@ -33,17 +33,17 @@ image_alt = "Prismatic Agents - Prismatic Platform"
 
 ## Definition and Overview
 
-Prismatic Agents (`prismatic_agents`) is the runtime engine application within the Prismatic Platform's [umbrella application](/glossary/umbrella-application/) that manages the complete lifecycle, coordination, dispatch, and monitoring of 530 AIAD-compliant agents across 16 operational domains. The application provides agent registration, discovery by capability or domain, message routing, telemetry emission, and graceful degradation through [OTP](/glossary/otp/)-supervised processes. Each agent is defined by an AIAD specification file that declares its tier level (L1-L5), operational domain, capability set, authority scope, and behavioral constraints, creating a uniform runtime contract that the engine enforces.
+Prismatic Agents (`prismatic_agents`) is the runtime engine application within the Prismatic Platform's [umbrella application](@/glossary/umbrella-application.md) that manages the complete lifecycle, coordination, dispatch, and monitoring of 530 AIAD-compliant agents across 16 operational domains. The application provides agent registration, discovery by capability or domain, message routing, telemetry emission, and graceful degradation through [OTP](@/glossary/otp.md)-supervised processes. Each agent is defined by an AIAD specification file that declares its tier level (L1-L5), operational domain, capability set, authority scope, and behavioral constraints, creating a uniform runtime contract that the engine enforces.
 
-Prismatic Agents represents the convergence of AI agent orchestration with Erlang/OTP's battle-tested process management model. Rather than treating agents as stateless functions invoked on demand, the platform models each agent as a supervised process with its own state, mailbox, and lifecycle -- enabling persistent context, autonomous behavior, inter-agent communication, and fault-tolerant operation that survives individual agent failures without cascading to the broader system. This approach leverages the [BEAM](/glossary/beam/) virtual machine's fundamental strengths: lightweight processes, preemptive scheduling, per-process garbage collection, and message-passing isolation.
+Prismatic Agents represents the convergence of AI agent orchestration with Erlang/OTP's battle-tested process management model. Rather than treating agents as stateless functions invoked on demand, the platform models each agent as a supervised process with its own state, mailbox, and lifecycle -- enabling persistent context, autonomous behavior, inter-agent communication, and fault-tolerant operation that survives individual agent failures without cascading to the broader system. This approach leverages the [BEAM](@/glossary/beam.md) virtual machine's fundamental strengths: lightweight processes, preemptive scheduling, per-process garbage collection, and message-passing isolation.
 
-The 530 agents span 16 operational domains: security (Color-Team agents), intelligence (OSINT agents), quality (guardian and gate agents), evolution (autoevolve and autoheal agents), tactical (ARCHER, Supreme Commander, Delta Force), infrastructure ([supervisor](/glossary/supervisor/), storage, API agents), content (promo enhancer, documentation agents), analysis (epistemic pipeline, NABLA agents), compliance (NIS2, ZKB, OWASP agents), development (code generation, refactoring agents), testing (regression, property-based, integration agents), monitoring (telemetry, health, performance agents), deployment (release, CI/CD, Docker agents), research (GARDEN, knowledge extraction agents), ecosystem (OSS package, developer portal agents), and coordination (orchestration, dispatch, routing agents).
+The 530 agents span 16 operational domains: security (Color-Team agents), intelligence (OSINT agents), quality (guardian and gate agents), evolution (autoevolve and autoheal agents), tactical (ARCHER, Supreme Commander, Delta Force), infrastructure ([supervisor](@/glossary/supervisor.md), storage, API agents), content (promo enhancer, documentation agents), analysis (epistemic pipeline, NABLA agents), compliance (NIS2, ZKB, OWASP agents), development (code generation, refactoring agents), testing (regression, property-based, integration agents), monitoring (telemetry, health, performance agents), deployment (release, CI/CD, Docker agents), research (GARDEN, knowledge extraction agents), ecosystem (OSS package, developer portal agents), and coordination (orchestration, dispatch, routing agents).
 
 ## Historical Context and Motivation
 
 The agent runtime engine emerged from the recognition that managing hundreds of AI agents requires the same reliability guarantees that telecommunications systems demand for managing millions of concurrent connections. Early agent systems in the platform used ad-hoc process management -- spawning agents as needed and hoping they would remain healthy. This approach failed predictably: agent crashes went undetected, crashed agents were not restarted, and there was no way to discover which agents were available for a given task.
 
-The transition to OTP-based agent management was inspired by Ericsson's experience with the AXD 301 ATM switch, which achieved nine nines (99.9999999%) uptime by modeling every connection as a supervised [Erlang](/glossary/elixir/) process. The same principle applies to agents: each agent is a supervised [GenServer](/glossary/genserver/) process, and the [supervision tree](/glossary/supervision-tree/) ensures that failed agents are automatically restarted according to configurable strategies.
+The transition to OTP-based agent management was inspired by Ericsson's experience with the AXD 301 ATM switch, which achieved nine nines (99.9999999%) uptime by modeling every connection as a supervised [Erlang](@/glossary/elixir.md) process. The same principle applies to agents: each agent is a supervised [GenServer](@/glossary/genserver.md) process, and the [supervision tree](@/glossary/supervision-tree.md) ensures that failed agents are automatically restarted according to configurable strategies.
 
 The AIAD (AI Agent Integration and Definition) standard was introduced to bring uniformity to agent definitions. Before AIAD, each agent had its own ad-hoc configuration format, making automated discovery and validation impossible. AIAD provides a standardized YAML/Markdown format that declares an agent's tier, domain, capabilities, authority scope, and behavioral constraints, enabling the registry to validate and index agents at boot time.
 
@@ -51,7 +51,7 @@ The AIAD (AI Agent Integration and Definition) standard was introduced to bring 
 
 ### Agent Registry Architecture
 
-The Agent Registry provides O(1) lookup of agent definitions using [ETS](/glossary/ets/) (Erlang Term Storage) as the backing store, with secondary indexes for domain, tier, and capability queries:
+The Agent Registry provides O(1) lookup of agent definitions using [ETS](@/glossary/ets.md) (Erlang Term Storage) as the backing store, with secondary indexes for domain, tier, and capability queries:
 
 ```elixir
 defmodule PrismaticAgents.Registry do
@@ -179,7 +179,7 @@ end
 
 ### Agent Supervision Tree
 
-Agents are organized under a [supervision tree](/glossary/supervision-tree/) that mirrors the domain hierarchy, providing fault isolation at the domain level:
+Agents are organized under a [supervision tree](@/glossary/supervision-tree.md) that mirrors the domain hierarchy, providing fault isolation at the domain level:
 
 ```
 PrismaticAgents.Supervisor (one_for_one)
@@ -473,11 +473,11 @@ agent-spec:
 | **Semantic Kernel** | Plugin-based | Planner orchestration | Plugin retry | Plugin count limited | C#/Python |
 | **Custom Actor System** | Actor per agent | Akka/Proto.Actor | Supervision hierarchy | Cluster-wide | JVM/Go |
 
-Prismatic Agents' primary differentiator is its foundation on OTP, which provides battle-tested process supervision, fault isolation, and hot code reloading. The tradeoff is the requirement that agents run within the [BEAM](/glossary/beam/) ecosystem. However, this tradeoff is overwhelmingly positive for a platform that already uses [Elixir](/glossary/elixir/) as its primary language.
+Prismatic Agents' primary differentiator is its foundation on OTP, which provides battle-tested process supervision, fault isolation, and hot code reloading. The tradeoff is the requirement that agents run within the [BEAM](@/glossary/beam.md) ecosystem. However, this tradeoff is overwhelmingly positive for a platform that already uses [Elixir](@/glossary/elixir.md) as its primary language.
 
 ## Telemetry and Monitoring
 
-Every agent lifecycle event emits [telemetry](/glossary/telemetry/) events under the `[:prismatic_agents, *]` namespace:
+Every agent lifecycle event emits [telemetry](@/glossary/telemetry.md) events under the `[:prismatic_agents, *]` namespace:
 
 | Event | Measurements | Metadata | Purpose |
 |-------|-------------|----------|---------|
@@ -496,7 +496,7 @@ Every agent lifecycle event emits [telemetry](/glossary/telemetry/) events under
 
 **Graceful Degradation**: Design agents to degrade gracefully rather than crash hard. An agent experiencing transient errors should enter degraded status with reduced capabilities rather than crashing and restarting with lost context.
 
-**Telemetry Coverage**: Emit telemetry events for all significant agent actions, not just errors. Comprehensive telemetry enables proactive monitoring and trend analysis by the [Quality Floor Guardian](/glossary/quality-floor-guardian/).
+**Telemetry Coverage**: Emit telemetry events for all significant agent actions, not just errors. Comprehensive telemetry enables proactive monitoring and trend analysis by the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md).
 
 **Stateless Where Possible**: Minimize per-agent state. Agents that rely heavily on accumulated state are harder to restart and more vulnerable to state corruption. Persist critical state to storage backends and reload on restart.
 
@@ -514,22 +514,22 @@ Every agent lifecycle event emits [telemetry](/glossary/telemetry/) events under
 
 ## Related Concepts
 
-- [AIAD](/glossary/aiad/) -- Agent integration standard governing agent specification and lifecycle
-- [Agent](/glossary/agent/) -- Individual AI agent unit managed by the runtime engine
-- [Agent Registry](/glossary/agent-registry/) -- Registration system for agent discovery and lookup
-- [Agent Tier](/glossary/agent-tier/) -- Authority level classification for runtime agents
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP hierarchy managing agent process lifecycles
-- [GenServer](/glossary/genserver/) -- Process abstraction backing each agent instance
-- [ETS](/glossary/ets/) -- In-memory storage backing the agent registry
-- [Telemetry](/glossary/telemetry/) -- Event system for agent monitoring and observability
-- [Elixir](/glossary/elixir/) -- Programming language implementing the agent runtime
-- [BEAM](/glossary/beam/) -- Virtual machine providing process isolation for agents
+- [AIAD](@/glossary/aiad.md) -- Agent integration standard governing agent specification and lifecycle
+- [Agent](@/glossary/agent.md) -- Individual AI agent unit managed by the runtime engine
+- [Agent Registry](@/glossary/agent-registry.md) -- Registration system for agent discovery and lookup
+- [Agent Tier](@/glossary/agent-tier.md) -- Authority level classification for runtime agents
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP hierarchy managing agent process lifecycles
+- [GenServer](@/glossary/genserver.md) -- Process abstraction backing each agent instance
+- [ETS](@/glossary/ets.md) -- In-memory storage backing the agent registry
+- [Telemetry](@/glossary/telemetry.md) -- Event system for agent monitoring and observability
+- [Elixir](@/glossary/elixir.md) -- Programming language implementing the agent runtime
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing process isolation for agents
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Agents](/agents/) -- AIAD agent catalog
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Agents](@/agents/_index.md) -- AIAD agent catalog
 
 ---
 
@@ -538,4 +538,4 @@ Every agent lifecycle event emits [telemetry](/glossary/telemetry/) events under
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,7 +28,7 @@ The **/chatgpt-pack** command creates optimized context archives of the Prismati
 
 The necessity of context packing arises from the asymmetry between local development environments and cloud-based LLM services. Claude Code operates within the local development context with full filesystem access, but ChatGPT requires explicit context provision through its Projects feature. A platform of the Prismatic scale -- 90 umbrella applications, 6,652 Elixir source files, 11,308 documentation files, and over 2.8 million lines of code -- cannot be uploaded in its entirety. The **/chatgpt-pack** command solves this by applying intelligent content selection algorithms that prioritize the most informationally dense files, exclude build artifacts and dependencies, and optimize the archive structure for ChatGPT's file processing capabilities. A well-constructed 100MB focused archive often produces better consultation outcomes than a 500MB full dump, because ChatGPT can process the focused context more effectively within its attention window.
 
-The command is executed by the `chatgpt-bridge` agent through the `chatgpt-archive-specialist` subsystem within the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) framework. It supports four archive modes -- standard, fast, full, and incremental -- and four content focus options that control the balance between documentation, source code, and architecture content. The command produces compressed ZIP archives with configurable target sizes, respecting ChatGPT's 512MB maximum per project. As part of the platform's 216-command slash command [registry](/glossary/registry-otp/), it integrates with [/chatgpt-sync](/commands/chatgpt-sync/) for automated project synchronization and [/chatgpt-consult](/commands/chatgpt-consult/) for context preparation in consultation workflows.
+The command is executed by the `chatgpt-bridge` agent through the `chatgpt-archive-specialist` subsystem within the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) framework. It supports four archive modes -- standard, fast, full, and incremental -- and four content focus options that control the balance between documentation, source code, and architecture content. The command produces compressed ZIP archives with configurable target sizes, respecting ChatGPT's 512MB maximum per project. As part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), it integrates with [/chatgpt-sync](@/commands/chatgpt-sync.md) for automated project synchronization and [/chatgpt-consult](@/commands/chatgpt-consult.md) for context preparation in consultation workflows.
 
 ## Usage
 
@@ -170,9 +170,9 @@ Post-creation validation verifies archive integrity (ZIP format validity), confi
 
 ## Workflow Integration
 
-The **/chatgpt-pack** command fits into several cross-LLM workflow patterns. In the **initial consultation setup workflow**, a `full` or `standard` archive is created and uploaded to a ChatGPT Project before the first consultation session. This one-time setup provides ChatGPT with comprehensive platform context, enabling high-quality consultations through [/chatgpt-consult](/commands/chatgpt-consult/).
+The **/chatgpt-pack** command fits into several cross-LLM workflow patterns. In the **initial consultation setup workflow**, a `full` or `standard` archive is created and uploaded to a ChatGPT Project before the first consultation session. This one-time setup provides ChatGPT with comprehensive platform context, enabling high-quality consultations through [/chatgpt-consult](@/commands/chatgpt-consult.md).
 
-In the **continuous synchronization workflow**, the command is paired with [/chatgpt-sync](/commands/chatgpt-sync/) for automated project updates. After each significant development milestone, an `incremental` archive captures only the changes, keeping the ChatGPT Project current without re-uploading the entire platform context.
+In the **continuous synchronization workflow**, the command is paired with [/chatgpt-sync](@/commands/chatgpt-sync.md) for automated project updates. After each significant development milestone, an `incremental` archive captures only the changes, keeping the ChatGPT Project current without re-uploading the entire platform context.
 
 The **focused consultation workflow** uses purpose-specific archives. Before an architecture discussion, create a `documentation` or `architecture` focused archive. Before a code review session, create a `source` focused archive. This targeted approach maximizes the relevance of context within ChatGPT's processing capacity.
 
@@ -182,21 +182,21 @@ The command also integrates with CI/CD through the `mix chatgpt.sync` task and t
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `chatgpt-bridge` agent via archive specialist |
-| [/chatgpt-sync](/commands/chatgpt-sync/) | Archives uploaded via sync command |
-| [/chatgpt-consult](/commands/chatgpt-consult/) | Context preparation for consultation sessions |
-| [/chatgpt-analyze](/commands/chatgpt-analyze/) | Context archives support analysis sessions |
-| [/chatgpt-bridge](/commands/chatgpt-bridge/) | Archive upload through bridge API |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `chatgpt-bridge` agent via archive specialist |
+| [/chatgpt-sync](@/commands/chatgpt-sync.md) | Archives uploaded via sync command |
+| [/chatgpt-consult](@/commands/chatgpt-consult.md) | Context preparation for consultation sessions |
+| [/chatgpt-analyze](@/commands/chatgpt-analyze.md) | Context archives support analysis sessions |
+| [/chatgpt-bridge](@/commands/chatgpt-bridge.md) | Archive upload through bridge API |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation |
-| [Telemetry](/glossary/telemetry/) | Archive creation [metrics](/glossary/metrics/): size, duration, content density |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Archive creation [metrics](@/glossary/metrics.md): size, duration, content density |
 | Git Integration | Change detection for incremental mode via `git log` and `git diff` |
 | ChatGPT Projects API | Target upload destination for archives |
 | Security Scanner | Prevents inclusion of secrets and credentials |
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Archive creation must complete successfully or fail with explicit diagnostics. No partial archives are produced. Size constraints are enforced strictly -- if the target size cannot accommodate the minimum required content for the selected focus, the command fails with a clear message rather than producing an inadequate archive. Sensitive data scanning is mandatory; archives containing detected credentials or API keys are rejected.
 - **NO DOUBTS**: Archive content manifests provide complete transparency about what is included and excluded. File selection priorities are deterministic and reproducible. Incremental mode change detection uses git's authoritative change tracking rather than filesystem timestamps. Post-creation validation confirms archive integrity before reporting success.
@@ -213,16 +213,16 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Related Commands
 
-- [/chatgpt-consult](/commands/chatgpt-consult/) - Consult ChatGPT for alternative perspectives and solutions
-- [/chatgpt-sync](/commands/chatgpt-sync/) - Synchronize context and progress between Claude and ChatGPT
-- [/chatgpt-bridge](/commands/chatgpt-bridge/) - ChatGPT bridge operations for cross-LLM coordination
-- [/chatgpt-analyze](/commands/chatgpt-analyze/) - Launch ChatGPT ANALYZE conversation for deep code analysis
-- [/chatgpt-convert](/commands/chatgpt-convert/) - Convert content between LLM-specific formats and prompts
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/chatgpt-consult](@/commands/chatgpt-consult.md) - Consult ChatGPT for alternative perspectives and solutions
+- [/chatgpt-sync](@/commands/chatgpt-sync.md) - Synchronize context and progress between Claude and ChatGPT
+- [/chatgpt-bridge](@/commands/chatgpt-bridge.md) - ChatGPT bridge operations for cross-LLM coordination
+- [/chatgpt-analyze](@/commands/chatgpt-analyze.md) - Launch ChatGPT ANALYZE conversation for deep code analysis
+- [/chatgpt-convert](@/commands/chatgpt-convert.md) - Convert content between LLM-specific formats and prompts
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -231,4 +231,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

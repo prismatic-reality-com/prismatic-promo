@@ -32,7 +32,7 @@ The Source Archive Specialist is an L3 agent operating in the **domain** domain 
 
 Source code archival extends beyond simple backup. The Source Archive Specialist understands the semantic structure of the codebase, creating intelligent archives that preserve not just files but their relationships, dependencies, compilation artifacts, and historical context. This enables precise point-in-time reconstruction of any version of the platform, supporting both regulatory compliance requirements and the platform's self-evolution capabilities.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, operating under [AIAD](/glossary/aiad/) standard compliance and enforcing the [NO MERCY](/glossary/no-mercy/) doctrine for archive integrity.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, operating under [AIAD](@/glossary/aiad.md) standard compliance and enforcing the [NO MERCY](@/glossary/no-mercy.md) doctrine for archive integrity.
 
 ## Core Responsibilities
 
@@ -246,10 +246,10 @@ end
 
 ## Integration Points
 
-- [**Quality Gates**](/capabilities/quality-gates/) -- Archive creation gated by quality checks
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Archive metrics and storage monitoring
-- [**Autonomous Self-Healing**](/capabilities/autonomous-self-healing/) -- Auto-repair corrupted archives
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Archive creation gated by quality checks
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Archive metrics and storage monitoring
+- [**Autonomous Self-Healing**](@/capabilities/autonomous-self-healing.md) -- Auto-repair corrupted archives
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
 
 ## AIAD Specification Compliance
 
@@ -257,9 +257,9 @@ end
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 8 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Disaster Recovery Integration
 
@@ -275,13 +275,13 @@ The Source Archive Specialist plays a critical role in the platform's disaster r
 
 ## Related Agents
 
-- [**Shell Setup Specialist**](/agents/shell-setup-specialist/) -- Development environment configuration for archive tooling
-- [**Scalability Architect**](/agents/scalability-architect/) -- Storage scaling for archive growth
-- [**Strategic Command**](/agents/strategic-command/) -- Archive retention policy governance
+- [**Shell Setup Specialist**](@/agents/shell-setup-specialist.md) -- Development environment configuration for archive tooling
+- [**Scalability Architect**](@/agents/scalability-architect.md) -- Storage scaling for archive growth
+- [**Strategic Command**](@/agents/strategic-command.md) -- Archive retention policy governance
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to create, manage, and verify source code archives across the entire platform.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to create, manage, and verify source code archives across the entire platform.
 
 ---
 
@@ -290,4 +290,4 @@ The Source Archive Specialist plays a critical role in the platform's disaster r
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

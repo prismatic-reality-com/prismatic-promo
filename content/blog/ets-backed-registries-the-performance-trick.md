@@ -18,19 +18,19 @@ see_also = ["ets", "registry", "self-registration", "metaprogramming", "agent-re
 image_alt = "ETS-Backed Self-Registering Registries"
 +++
 
-When Prismatic needs to answer "what agents exist?" it does not scan a directory, parse YAML, or query Postgres. It hits [ETS](/glossary/ets) and gets an answer in under a microsecond. The same pattern backs the 128 OSINT adapters, the 228 AIAD commands, and the glossary lookups. This is the [self-registration](/glossary/self-registration) pattern — and it is simpler than it looks.
+When Prismatic needs to answer "what agents exist?" it does not scan a directory, parse YAML, or query Postgres. It hits [ETS](@/glossary/ets.md) and gets an answer in under a microsecond. The same pattern backs the 128 OSINT adapters, the 228 AIAD commands, and the glossary lookups. This is the [self-registration](@/glossary/self-registration.md) pattern — and it is simpler than it looks.
 
 ## The goal
 
 A subsystem that satisfies three properties:
 
-1. **Zero manual registration.** Add a new module, recompile, it appears in the [registry](/glossary/registry).
+1. **Zero manual registration.** Add a new module, recompile, it appears in the [registry](@/glossary/registry.md).
 2. **O(1) lookup.** No scanning, no filtering at query time.
 3. **Reload-safe.** Restarting the registry GenServer rebuilds from the current BEAM, not a stale disk cache.
 
 ## The pattern
 
-Step one: a registry [GenServer](/glossary/genserver) that owns a named, read-concurrent ETS table.
+Step one: a registry [GenServer](@/glossary/genserver.md) that owns a named, read-concurrent ETS table.
 
 ```elixir
 defmodule PrismaticAgents.Registry do
@@ -97,6 +97,6 @@ In dev with `iex -S mix`, if a module is edited and the registry GenServer is *n
 
 - **Academy**: [First Agent](/academy/learn/first-agent) — build a self-registering agent
 - **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — when ETS is the right adapter
-- **Glossary**: [ETS](/glossary/ets), [Registry](/glossary/registry), [Self-Registration](/glossary/self-registration), [Metaprogramming](/glossary/metaprogramming), [Agent Registry](/glossary/agent-registry)
+- **Glossary**: [ETS](@/glossary/ets.md), [Registry](@/glossary/registry.md), [Self-Registration](@/glossary/self-registration.md), [Metaprogramming](@/glossary/metaprogramming.md), [Agent Registry](@/glossary/agent-registry.md)
 
 Three small pieces. 552 agents. Sub-microsecond lookups. That is the trick.

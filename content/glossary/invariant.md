@@ -34,9 +34,9 @@ image_alt = "Invariant - Prismatic Platform"
 
 ## Definition
 
-An invariant is a property or condition that must remain true throughout the execution of a program, across all possible state transitions. Invariants define the fundamental correctness constraints of a system: a bank account balance must never go negative (unless overdraft is enabled), a sorted list must remain sorted after insertion, a [supervision tree](/glossary/supervision-tree/) must always have a running root supervisor. When an invariant is violated, it indicates a bug, and the system should fail loudly rather than continue in an inconsistent state.
+An invariant is a property or condition that must remain true throughout the execution of a program, across all possible state transitions. Invariants define the fundamental correctness constraints of a system: a bank account balance must never go negative (unless overdraft is enabled), a sorted list must remain sorted after insertion, a [supervision tree](@/glossary/supervision-tree.md) must always have a running root supervisor. When an invariant is violated, it indicates a bug, and the system should fail loudly rather than continue in an inconsistent state.
 
-Invariants are the strongest form of correctness specification: while a test verifies a specific scenario, an invariant must hold for all possible inputs, states, and execution paths. This universality makes invariants powerful but also demanding -- verifying them requires techniques beyond traditional example-based testing, including [property-based testing](/glossary/property-based-testing/), static type analysis ([Dialyzer](/glossary/dialyzer/)), and in critical cases, formal mathematical proofs.
+Invariants are the strongest form of correctness specification: while a test verifies a specific scenario, an invariant must hold for all possible inputs, states, and execution paths. This universality makes invariants powerful but also demanding -- verifying them requires techniques beyond traditional example-based testing, including [property-based testing](@/glossary/property-based-testing.md), static type analysis ([Dialyzer](@/glossary/dialyzer.md)), and in critical cases, formal mathematical proofs.
 
 ## Overview
 
@@ -71,12 +71,12 @@ flowchart TD
 | **Invariant** | Must ALWAYS hold | Every state transition | Balance >= 0 |
 | **Precondition** | Must hold BEFORE call | At function entry | List is non-empty |
 | **Postcondition** | Must hold AFTER call | At function exit | Result is sorted |
-| **[Assertion](/glossary/assertion/)** | Must hold AT THIS POINT | Specific code location | count == expected |
+| **[Assertion](@/glossary/assertion.md)** | Must hold AT THIS POINT | Specific code location | count == expected |
 | **Type spec** | Must hold FOR ALL VALUES | Compile-time (Dialyzer) | @spec f(integer()) :: string() |
 
 ### The "Let It Crash" Connection
 
-[Elixir](/glossary/elixir/)'s "let it crash" philosophy is fundamentally about invariants. When a [GenServer](/glossary/genserver/) receives unexpected input that would violate its state invariants, the correct response is to crash (raising an exception) rather than attempting to handle the inconsistent state. The [supervision tree](/glossary/supervision-tree/) restarts the process with a known-good initial state, restoring invariants automatically.
+[Elixir](@/glossary/elixir.md)'s "let it crash" philosophy is fundamentally about invariants. When a [GenServer](@/glossary/genserver.md) receives unexpected input that would violate its state invariants, the correct response is to crash (raising an exception) rather than attempting to handle the inconsistent state. The [supervision tree](@/glossary/supervision-tree.md) restarts the process with a known-good initial state, restoring invariants automatically.
 
 ```elixir
 # Let it crash: pattern match enforces invariant
@@ -94,7 +94,7 @@ end
 
 ### Property-Based Testing for Invariants
 
-[Property-based testing](/glossary/property-based-testing/) is the most powerful tool for invariant verification because it explores the input space systematically. Rather than writing individual test cases, you describe the property that must always hold, and the testing framework generates inputs to try to falsify it. When it finds a failing case, it shrinks the input to the minimal reproduction.
+[Property-based testing](@/glossary/property-based-testing.md) is the most powerful tool for invariant verification because it explores the input space systematically. Rather than writing individual test cases, you describe the property that must always hold, and the testing framework generates inputs to try to falsify it. When it finds a failing case, it shrinks the input to the minimal reproduction.
 
 ```elixir
 defmodule PrismaticDd.Invariants.EntityInvariantTest do
@@ -150,7 +150,7 @@ end
 
 ### Compile-Time Invariants with Dialyzer
 
-[Dialyzer](/glossary/dialyzer/) enforces type-level invariants at [compile-time](/glossary/compile-time/):
+[Dialyzer](@/glossary/dialyzer.md) enforces type-level invariants at [compile-time](@/glossary/compile-time.md):
 
 ```elixir
 defmodule PrismaticSafety.QualityScore do
@@ -253,7 +253,7 @@ end
 
 ### Ecto Changeset Invariants
 
-[Ecto](/glossary/ecto/) changesets enforce data invariants at the persistence boundary:
+[Ecto](@/glossary/ecto.md) changesets enforce data invariants at the persistence boundary:
 
 ```elixir
 defmodule PrismaticDd.Schemas.DdCase do
@@ -327,12 +327,12 @@ The Prismatic Platform enforces invariants at four architectural layers:
 
 | Layer | Mechanism | Example | Enforcement |
 |-------|-----------|---------|-------------|
-| **Data** | [Ecto](/glossary/ecto/) changesets | Required fields, format constraints | Database rejects invalid data |
+| **Data** | [Ecto](@/glossary/ecto.md) changesets | Required fields, format constraints | Database rejects invalid data |
 | **Process** | GenServer state assertions | Count matches ETS size | Process crashes on violation |
-| **System** | [Supervision tree](/glossary/supervision-tree/) + health checks | Critical processes running | Auto-restart on failure |
+| **System** | [Supervision tree](@/glossary/supervision-tree.md) + health checks | Critical processes running | Auto-restart on failure |
 | **Epistemic** | NABLA axioms | Knowledge claims are evidence-backed | Trinity Gate validation |
 
-Runtime invariant checks are strategically placed on state-modifying operations and periodically on read paths. The overhead is negligible (a single ETS info call) compared to the safety they provide. In production, invariant violations trigger immediate [telemetry](/glossary/telemetry/) alerts and are treated as P0 incidents under the NMND doctrine.
+Runtime invariant checks are strategically placed on state-modifying operations and periodically on read paths. The overhead is negligible (a single ETS info call) compared to the safety they provide. In production, invariant violations trigger immediate [telemetry](@/glossary/telemetry.md) alerts and are treated as P0 incidents under the NMND doctrine.
 
 ## Invariant Testing Patterns
 
@@ -418,10 +418,10 @@ end
 
 1. **Make invariants explicit** -- document them in `@moduledoc` and enforce them in code, not just in comments
 2. **Verify invariants on every state mutation** -- the cost is negligible compared to debugging corrupted state
-3. **Use property-based testing** -- [StreamData](/glossary/property-based-testing/) generators find edge cases humans miss
-4. **Crash on violation** -- never silently recover from an invariant violation; let the [supervisor](/glossary/supervision-tree/) restart with known-good state
+3. **Use property-based testing** -- [StreamData](@/glossary/property-based-testing.md) generators find edge cases humans miss
+4. **Crash on violation** -- never silently recover from an invariant violation; let the [supervisor](@/glossary/supervision-tree.md) restart with known-good state
 5. **Layer enforcement** -- compile-time (Dialyzer) + test-time (property tests) + runtime (assertions)
-6. **Monitor violations in production** -- emit [telemetry](/glossary/telemetry/) events on invariant checks for observability
+6. **Monitor violations in production** -- emit [telemetry](@/glossary/telemetry.md) events on invariant checks for observability
 7. **Start with the strongest invariants** -- focus on data corruption prevention before optimization invariants
 8. **Test invariant violations** -- verify that your system correctly rejects invalid states
 
@@ -434,28 +434,28 @@ end
 | Checking invariants only on writes | Read paths return inconsistent data | Periodic read-path verification |
 | Overly broad invariants | Can't pinpoint what failed | Specific, named invariant checks |
 | Missing invariants on state transitions | Invalid transitions allowed | Validate state machine transitions explicitly |
-| Trusting external input to maintain invariants | Injection, corruption | Validate at system boundaries ([Ecto](/glossary/ecto/) changesets) |
+| Trusting external input to maintain invariants | Injection, corruption | Validate at system boundaries ([Ecto](@/glossary/ecto.md) changesets) |
 
 ## Related Terms
 
-- [Property-Based Testing](/glossary/property-based-testing/) -- primary invariant verification technique using random generation
-- [Assertion](/glossary/assertion/) -- runtime invariant checking at specific code points
-- [Formal Verification](/glossary/formal-verification/) -- mathematical proof that invariants hold
-- [Dialyzer](/glossary/dialyzer/) -- compile-time type invariant checker
-- [Ecto](/glossary/ecto/) -- database layer enforcing data invariants via changesets
-- [GenServer](/glossary/genserver/) -- OTP pattern where state invariants protect process integrity
-- [Supervision Tree](/glossary/supervision-tree/) -- fault tolerance restoring invariants after crashes
-- [Pattern Matching](/glossary/pattern-matching/) -- Elixir feature that enforces structural invariants
-- [Behaviour](/glossary/behaviour/) -- callback specifications as module-level invariants
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- primary invariant verification technique using random generation
+- [Assertion](@/glossary/assertion.md) -- runtime invariant checking at specific code points
+- [Formal Verification](@/glossary/formal-verification.md) -- mathematical proof that invariants hold
+- [Dialyzer](@/glossary/dialyzer.md) -- compile-time type invariant checker
+- [Ecto](@/glossary/ecto.md) -- database layer enforcing data invariants via changesets
+- [GenServer](@/glossary/genserver.md) -- OTP pattern where state invariants protect process integrity
+- [Supervision Tree](@/glossary/supervision-tree.md) -- fault tolerance restoring invariants after crashes
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Elixir feature that enforces structural invariants
+- [Behaviour](@/glossary/behaviour.md) -- callback specifications as module-level invariants
 - [Type Spec](/glossary/type-spec/) -- type-level invariants checked by Dialyzer
 - [Changeset](/glossary/changeset/) -- Ecto data validation enforcing persistence invariants
-- [Mutation Testing](/glossary/mutation-testing/) -- verifying that tests catch invariant violations
-- [Contract](/glossary/contract/) -- interface-level invariant specifications
+- [Mutation Testing](@/glossary/mutation-testing.md) -- verifying that tests catch invariant violations
+- [Contract](@/glossary/contract.md) -- interface-level invariant specifications
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform invariant enforcement architecture
-- [Capabilities](/capabilities/) -- quality verification capabilities
+- [Architecture](@/architecture/_index.md) -- platform invariant enforcement architecture
+- [Capabilities](@/capabilities/_index.md) -- quality verification capabilities
 - [Quality Gates](/quality/) -- quality enforcement through invariant checking
 
 ---
@@ -465,4 +465,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

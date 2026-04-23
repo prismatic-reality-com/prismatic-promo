@@ -24,13 +24,13 @@ image_alt = "/reasoning - Prismatic Platform"
 
 ## Overview
 
-**/reasoning** is a production command in the **[Formal Verification](/glossary/formal-verification/)** category of the Prismatic Platform that provides multi-paradigm reasoning capabilities combining Bayesian probabilistic inference, classical logical deduction, and abductive hypothesis generation. This command serves as the platform's primary cognitive engine for complex decision-making scenarios where a single reasoning paradigm would produce incomplete or biased conclusions.
+**/reasoning** is a production command in the **[Formal Verification](@/glossary/formal-verification.md)** category of the Prismatic Platform that provides multi-paradigm reasoning capabilities combining Bayesian probabilistic inference, classical logical deduction, and abductive hypothesis generation. This command serves as the platform's primary cognitive engine for complex decision-making scenarios where a single reasoning paradigm would produce incomplete or biased conclusions.
 
 The reasoning command addresses a fundamental limitation in automated decision systems: the tendency to rely on a single inference method. Bayesian reasoning excels at updating beliefs with new evidence but struggles with structural relationships. Logical deduction provides rigorous proofs but cannot handle uncertainty. Abductive reasoning generates explanatory hypotheses but lacks the formal guarantees of deductive methods. By combining all three paradigms in a coordinated pipeline, the `/reasoning` command produces conclusions that are simultaneously probabilistically calibrated, logically consistent, and explanatorily complete.
 
-At its core, the reasoning engine implements the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, enforcing all seven non-negotiable axioms during every reasoning operation. Signal plurality ensures that conclusions draw from multiple independent evidence sources. Contradiction preservation maintains conflicting signals rather than prematurely resolving them. Provenance tracking ensures that every conclusion can be traced back through its complete chain of evidence and inference steps.
+At its core, the reasoning engine implements the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, enforcing all seven non-negotiable axioms during every reasoning operation. Signal plurality ensures that conclusions draw from multiple independent evidence sources. Contradiction preservation maintains conflicting signals rather than prematurely resolving them. Provenance tracking ensures that every conclusion can be traced back through its complete chain of evidence and inference steps.
 
-This command operates under the **L2+** authority level and is executed by the `reasoning-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `reasoning-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -62,7 +62,7 @@ The Bayesian engine maintains a belief network represented as a directed acyclic
 
 The logical engine operates on a first-order logic foundation with support for modal operators (necessity and possibility) and temporal logic extensions. Proof search employs resolution-based theorem proving with heuristic guidance from the abductive engine.
 
-The abductive engine generates candidate explanations for observed evidence using a pattern library derived from the platform's [GARDEN](/glossary/garden/) knowledge base. Hypotheses are ranked by explanatory power, simplicity, and consistency with the other paradigms' outputs.
+The abductive engine generates candidate explanations for observed evidence using a pattern library derived from the platform's [GARDEN](@/glossary/garden.md) knowledge base. Hypotheses are ranked by explanatory power, simplicity, and consistency with the other paradigms' outputs.
 
 ## Usage
 
@@ -128,13 +128,13 @@ The reasoning command follows a disciplined execution flow that preserves episte
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `reasoning-coordinator` | Coordinates with specialist agents per paradigm |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic framework | All 7 axioms enforced during reasoning |
-| [Trinity Gate](/glossary/trinity-gate/) | Conclusion validation | 3-layer verification for all established beliefs |
-| [Lean4](/commands/lean/) | Formal proofs | Logical engine outputs verified in Lean4 |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post validation | Reasoning quality metrics tracked |
-| [GARDEN](/glossary/garden/) | Pattern library | Abductive engine draws from 55+ known patterns |
-| [Telemetry](/glossary/telemetry/) | Execution metrics | Reasoning times and confidence distributions tracked |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `reasoning-coordinator` | Coordinates with specialist agents per paradigm |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic framework | All 7 axioms enforced during reasoning |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Conclusion validation | 3-layer verification for all established beliefs |
+| [Lean4](@/commands/lean.md) | Formal proofs | Logical engine outputs verified in Lean4 |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post validation | Reasoning quality metrics tracked |
+| [GARDEN](@/glossary/garden.md) | Pattern library | Abductive engine draws from 55+ known patterns |
+| [Telemetry](@/glossary/telemetry.md) | Execution metrics | Reasoning times and confidence distributions tracked |
 
 ## Best Practices
 
@@ -180,19 +180,19 @@ The `--graph` output format generates a DOT-format visualization of the reasonin
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The reasoning engine never produces conclusions without complete evidence chains. Partial results are explicitly labeled as such and never presented as established beliefs.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. This command is the embodiment of the NO DOUBTS principle. Every conclusion is backed by multi-paradigm evidence, verified through the Trinity Gate, and traceable through complete provenance chains.
 
 ## Related Commands
 
-- [/lean](/commands/lean/) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
-- [/prolog](/commands/prolog/) - Prolog-based logical reasoning and inference operations
-- [/formal-verify](/commands/formal-verify/) - Formal verification of system properties and invariants
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/lean](@/commands/lean.md) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
+- [/prolog](@/commands/prolog.md) - Prolog-based logical reasoning and inference operations
+- [/formal-verify](@/commands/formal-verify.md) - Formal verification of system properties and invariants
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -201,4 +201,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

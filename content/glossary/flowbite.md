@@ -39,9 +39,9 @@ image_alt = "Flowbite - Prismatic Platform"
 
 ## Definition
 
-Flowbite is an open-source UI component library built entirely on [TailwindCSS](/glossary/tailwindcss/) utility classes, providing a comprehensive collection of pre-designed, accessible, and interactive components for building modern web interfaces. Unlike monolithic CSS frameworks that ship their own styling system, Flowbite components are composed exclusively from TailwindCSS utilities, meaning they inherit the framework's utility-first philosophy, JIT compilation benefits, and design token consistency without introducing any custom CSS or additional styling abstraction layers.
+Flowbite is an open-source UI component library built entirely on [TailwindCSS](@/glossary/tailwindcss.md) utility classes, providing a comprehensive collection of pre-designed, accessible, and interactive components for building modern web interfaces. Unlike monolithic CSS frameworks that ship their own styling system, Flowbite components are composed exclusively from TailwindCSS utilities, meaning they inherit the framework's utility-first philosophy, JIT compilation benefits, and design token consistency without introducing any custom CSS or additional styling abstraction layers.
 
-The library provides over 50 component categories -- from basic elements like buttons, badges, and alerts to complex interactive components like dropdowns, modals, datepickers, and data tables -- each implementing WAI-ARIA accessibility guidelines, keyboard navigation, and screen reader support out of the box. Interactive behaviors (opening modals, toggling dropdowns, managing accordion state) are powered by lightweight vanilla JavaScript or Alpine.js integration, avoiding heavy framework dependencies while maintaining framework agnosticism across React, Vue, Svelte, Angular, and server-rendered environments like [Phoenix LiveView](/glossary/liveview/).
+The library provides over 50 component categories -- from basic elements like buttons, badges, and alerts to complex interactive components like dropdowns, modals, datepickers, and data tables -- each implementing WAI-ARIA accessibility guidelines, keyboard navigation, and screen reader support out of the box. Interactive behaviors (opening modals, toggling dropdowns, managing accordion state) are powered by lightweight vanilla JavaScript or Alpine.js integration, avoiding heavy framework dependencies while maintaining framework agnosticism across React, Vue, Svelte, Angular, and server-rendered environments like [Phoenix LiveView](@/glossary/liveview.md).
 
 Flowbite's design philosophy centers on providing production-ready components that require zero custom CSS while remaining fully customizable through TailwindCSS's existing configuration and utility override mechanisms. Every component is designed with full dark mode support through TailwindCSS's `dark:` variant system, consistent spacing using the default spacing scale, and responsive layouts through breakpoint prefixes. This makes Flowbite a natural extension of TailwindCSS rather than a competing styling system.
 
@@ -335,9 +335,9 @@ end
 
 ## Context in Prismatic
 
-The Prismatic Platform uses Flowbite 2.3 as its standard component library for all [LiveView](/glossary/liveview/) dashboards and web interfaces across 115 umbrella applications. The library is a core part of the platform's UI stack alongside [TailwindCSS](/glossary/tailwindcss/) 3.4 and Alpine.js 3.13.5.
+The Prismatic Platform uses Flowbite 2.3 as its standard component library for all [LiveView](@/glossary/liveview.md) dashboards and web interfaces across 115 umbrella applications. The library is a core part of the platform's UI stack alongside [TailwindCSS](@/glossary/tailwindcss.md) 3.4 and Alpine.js 3.13.5.
 
-**Dashboard Components**: The [Perimeter EASM](/glossary/easm/) dashboard at `/perimeter` uses Flowbite data tables for asset inventory display, badge components for security grade visualization (color-coded A-F grades), progress bars for compliance scores, and card layouts for metric summaries.
+**Dashboard Components**: The [Perimeter EASM](@/glossary/easm.md) dashboard at `/perimeter` uses Flowbite data tables for asset inventory display, badge components for security grade visualization (color-coded A-F grades), progress bars for compliance scores, and card layouts for metric summaries.
 
 **Navigation Protection**: Platform development rules specifically mandate that `phx-click` handlers on Flowbite dropdowns must never be broken during code changes. This navigation protection rule exists because dropdown menus in the LiveView dashboards combine Flowbite's JavaScript toggle behavior with Phoenix's server-side event handling, and breaking either layer renders navigation unusable.
 
@@ -422,22 +422,22 @@ Flowbite inherits TailwindCSS's design token system, ensuring visual consistency
 
 ## Related Terms
 
-- [TailwindCSS](/glossary/tailwindcss/) - The underlying CSS framework that Flowbite extends with components
-- [LiveView](/glossary/liveview/) - Server-side rendering framework consuming Flowbite components
-- [Phoenix](/glossary/phoenix/) - Web framework providing the application layer
-- [EASM](/glossary/easm/) - Dashboard using Flowbite components for asset inventory and compliance views
-- [Clean Run](/glossary/clean-run/) - Quality standard extending to UI code consistency
-- [Channel](/glossary/channel/) - Real-time communication backing live dashboard updates
-- [WebSocket](/glossary/websocket/) - Transport protocol enabling real-time Flowbite component updates
-- [PubSub](/glossary/pubsub/) - Event system triggering dashboard component refreshes
-- [Observability](/glossary/observability/) - Monitoring dashboards built with Flowbite components
-- [Docker](/glossary/docker/) - Container builds including Flowbite dependency installation
+- [TailwindCSS](@/glossary/tailwindcss.md) - The underlying CSS framework that Flowbite extends with components
+- [LiveView](@/glossary/liveview.md) - Server-side rendering framework consuming Flowbite components
+- [Phoenix](@/glossary/phoenix.md) - Web framework providing the application layer
+- [EASM](@/glossary/easm.md) - Dashboard using Flowbite components for asset inventory and compliance views
+- [Clean Run](@/glossary/clean-run.md) - Quality standard extending to UI code consistency
+- [Channel](@/glossary/channel.md) - Real-time communication backing live dashboard updates
+- [WebSocket](@/glossary/websocket.md) - Transport protocol enabling real-time Flowbite component updates
+- [PubSub](@/glossary/pubsub.md) - Event system triggering dashboard component refreshes
+- [Observability](@/glossary/observability.md) - Monitoring dashboards built with Flowbite components
+- [Docker](@/glossary/docker.md) - Container builds including Flowbite dependency installation
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform UI architecture and component strategy
-- [Technologies](/technologies/) - Technology stack details
-- [Apps](/apps/) - Applications using Flowbite components
+- [Architecture](@/architecture/_index.md) - Platform UI architecture and component strategy
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Apps](@/apps/_index.md) - Applications using Flowbite components
 
 ---
 
@@ -446,4 +446,4 @@ Flowbite inherits TailwindCSS's design token system, ensuring visual consistency
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -188,11 +188,11 @@ The release system ensures that every deployment of the Prismatic Platform is a 
 
 ## Cross-References
 
-- [OTP](/glossary/otp/) - The framework providing release infrastructure
-- [BEAM](/glossary/beam/) - Virtual machine included in releases
-- [Docker](/glossary/docker/) - Container format for release deployment
-- [Module](/glossary/module/) - Compiled code units included in releases
-- [GenServer](/glossary/genserver/) - Processes started by release boot scripts
+- [OTP](@/glossary/otp.md) - The framework providing release infrastructure
+- [BEAM](@/glossary/beam.md) - Virtual machine included in releases
+- [Docker](@/glossary/docker.md) - Container format for release deployment
+- [Module](@/glossary/module.md) - Compiled code units included in releases
+- [GenServer](@/glossary/genserver.md) - Processes started by release boot scripts
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

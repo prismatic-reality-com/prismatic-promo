@@ -24,13 +24,13 @@ image_alt = "/rebrief - Prismatic Platform"
 
 ## Overview
 
-**/rebrief** is a production command in the **Session** category of the Prismatic Platform that performs retrospective analysis of development activity across multiple sessions. Unlike the forward-looking [/debrief](/commands/debrief/) command which summarizes a single session's work, `/rebrief` synthesizes patterns, trends, and insights from a configurable window of historical sessions, providing strategic visibility into the platform's evolution trajectory.
+**/rebrief** is a production command in the **Session** category of the Prismatic Platform that performs retrospective analysis of development activity across multiple sessions. Unlike the forward-looking [/debrief](@/commands/debrief.md) command which summarizes a single session's work, `/rebrief` synthesizes patterns, trends, and insights from a configurable window of historical sessions, providing strategic visibility into the platform's evolution trajectory.
 
 The rebrief command addresses a critical knowledge management challenge in long-running development efforts. When a platform spans 90+ applications and accumulates hundreds of session contexts over weeks or months, individual session summaries become insufficient for understanding the broader narrative. What features have been steadily progressing? Which areas show recurring issues? Where are quality metrics trending? The rebrief command answers these strategic questions by performing cross-session pattern analysis and trend detection.
 
 At its core, the rebrief engine processes session context files stored in `.claude/session-context/`, extracting structured data about objectives achieved, files modified, decisions made, and quality metrics recorded. It then applies temporal analysis to identify trends, clustering algorithms to group related activities, and anomaly detection to highlight sessions that deviated significantly from established patterns.
 
-This command operates under the **L2+** authority level and is executed by the `session-context-synthesizer` agent, which specializes in cross-session knowledge synthesis and temporal pattern recognition. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `session-context-synthesizer` agent, which specializes in cross-session knowledge synthesis and temporal pattern recognition. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -125,13 +125,13 @@ The rebrief command follows a systematic execution flow designed to maximize ins
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `session-context-synthesizer` | Specialized in cross-session knowledge synthesis |
-| [/debrief](/commands/debrief/) | Complementary command | Debrief handles single sessions; rebrief handles multiple |
-| [/session-compress](/commands/session-compress/) | Data source | Compressed sessions provide efficient historical access |
-| [/session-track](/commands/session-track/) | GitLab integration | Session tracking data enriches rebrief analysis |
-| [Quality DNA](/glossary/quality-gates/) | Quality trends | Quality DNA state files provide historical quality metrics |
-| [Telemetry](/glossary/telemetry/) | Execution metrics | Rebrief execution itself is tracked via telemetry |
-| [AIAD](/glossary/aiad/) Registry | Command specification | Registered as a Session category command |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `session-context-synthesizer` | Specialized in cross-session knowledge synthesis |
+| [/debrief](@/commands/debrief.md) | Complementary command | Debrief handles single sessions; rebrief handles multiple |
+| [/session-compress](@/commands/session-compress.md) | Data source | Compressed sessions provide efficient historical access |
+| [/session-track](@/commands/session-track.md) | GitLab integration | Session tracking data enriches rebrief analysis |
+| [Quality DNA](@/glossary/quality-gates.md) | Quality trends | Quality DNA state files provide historical quality metrics |
+| [Telemetry](@/glossary/telemetry.md) | Execution metrics | Rebrief execution itself is tracked via telemetry |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification | Registered as a Session category command |
 
 ## Best Practices
 
@@ -180,19 +180,19 @@ The rebrief command also supports template-based report generation for standardi
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The rebrief command processes all available sessions within the configured window. No session is silently ignored and no data point is discarded without explicit reporting.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Rebrief conclusions are grounded in quantitative metrics extracted from actual session data. Trend claims include confidence intervals and anomaly flags ensure that unusual patterns are surfaced rather than smoothed over.
 
 ## Related Commands
 
-- [/debrief](/commands/debrief/) - Comprehensive session debrief with platform state analysis and changelog detection
-- [/session-compress](/commands/session-compress/) - Advanced session context compression with multi-session pattern detection
-- [/session-track](/commands/session-track/) - Session tracking actions for GitLab integration and progress monitoring
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/debrief](@/commands/debrief.md) - Comprehensive session debrief with platform state analysis and changelog detection
+- [/session-compress](@/commands/session-compress.md) - Advanced session context compression with multi-session pattern detection
+- [/session-track](@/commands/session-track.md) - Session tracking actions for GitLab integration and progress monitoring
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -201,4 +201,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

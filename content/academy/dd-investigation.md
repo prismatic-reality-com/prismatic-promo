@@ -37,10 +37,10 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Multi-Agent Orchestration Patterns](/academy/agent-orchestration/)
-- Completed [Storage Architecture & Adapters](/academy/storage-patterns/)
-- Completed [Building LiveView Dashboards](/academy/liveview-dashboards/)
-- Familiarity with [Entity Resolution](/glossary/entity-resolution/) concepts
+- Completed [Multi-Agent Orchestration Patterns](@/academy/agent-orchestration.md)
+- Completed [Storage Architecture & Adapters](@/academy/storage-patterns.md)
+- Completed [Building LiveView Dashboards](@/academy/liveview-dashboards.md)
+- Familiarity with [Entity Resolution](@/glossary/entity-resolution.md) concepts
 - Basic understanding of KYC/AML compliance requirements
 
 ## The DD Architecture
@@ -101,7 +101,7 @@ Entity resolution is the critical step that links records from different sources
 | **Probabilistic** | Jaro-Winkler name similarity + attribute overlap | 0.60-0.95 |
 | **Graph-Based** | Shared directors, addresses, or associates | 0.70-0.95 |
 
-All resolution confidence scores must comply with [NABLA Infinity](/glossary/nabla-infinity/) axioms -- particularly Signal Plurality (minimum 2 independent signals) and Provenance Mandatory (every link traceable to evidence).
+All resolution confidence scores must comply with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms -- particularly Signal Plurality (minimum 2 independent signals) and Provenance Mandatory (every link traceable to evidence).
 
 ## Triple-Check Cross-Validation
 
@@ -215,12 +215,12 @@ end
 
 ## Related Resources
 
-- [DD Platform Overview](/dd/) -- Full architectural documentation
-- [OSINT Intelligence Sources](/osint/) -- Available OSINT adapters
-- [Entity Resolution](/glossary/entity-resolution/) -- Resolution methodology
-- [Building EASM Features](/academy/easm-development/) -- Related security assessment development
-- [NABLA Infinity Guide](/academy/nabla-infinity-guide/) -- Epistemic framework underpinning triple-check validation
-- [Storage Architecture & Adapters](/academy/storage-patterns/) -- KuzuDB graph storage patterns
+- [DD Platform Overview](@/dd/_index.md) -- Full architectural documentation
+- [OSINT Intelligence Sources](@/osint/_index.md) -- Available OSINT adapters
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Resolution methodology
+- [Building EASM Features](@/academy/easm-development.md) -- Related security assessment development
+- [NABLA Infinity Guide](@/academy/nabla-infinity-guide.md) -- Epistemic framework underpinning triple-check validation
+- [Storage Architecture & Adapters](@/academy/storage-patterns.md) -- KuzuDB graph storage patterns
 
 ## Practical Implementation
 
@@ -264,37 +264,37 @@ apps/prismatic_dd/priv/data/entities/asset/asset-*.json
 ## See Also
 
 ### Related Applications
-- [prismatic_dd](/apps/prismatic-dd/) -- Core DD engine and investigation orchestrator
-- [prismatic_osint_core](/apps/prismatic-osint-core/) -- OSINT source adapter framework
-- [prismatic_osint_czech_legal](/apps/prismatic-osint-czech-legal/) -- Czech registry adapters (ARES, Justice.cz, ISIR, RZP)
-- [prismatic_osint_business_financial](/apps/prismatic-osint-business-financial/) -- Business and financial intelligence adapters
-- [prismatic_osint_sources](/apps/prismatic-osint-sources/) -- Full catalog of 122 OSINT source adapters
-- [prismatic_osint_monitoring](/apps/prismatic-osint-monitoring/) -- Continuous OSINT monitoring and alerting
-- [prismatic_storage_kuzudb](/apps/prismatic-storage-kuzudb/) -- Graph database for ownership chains
-- [prismatic_storage_meilisearch](/apps/prismatic-storage-meilisearch/) -- Full-text search for entity resolution
-- [prismatic_czech_autocrawler](/apps/prismatic-czech-autocrawler/) -- Czech registry automated crawler
+- [prismatic_dd](@/apps/prismatic-dd.md) -- Core DD engine and investigation orchestrator
+- [prismatic_osint_core](@/apps/prismatic-osint-core.md) -- OSINT source adapter framework
+- [prismatic_osint_czech_legal](@/apps/prismatic-osint-czech-legal.md) -- Czech registry adapters (ARES, Justice.cz, ISIR, RZP)
+- [prismatic_osint_business_financial](@/apps/prismatic-osint-business-financial.md) -- Business and financial intelligence adapters
+- [prismatic_osint_sources](@/apps/prismatic-osint-sources.md) -- Full catalog of 122 OSINT source adapters
+- [prismatic_osint_monitoring](@/apps/prismatic-osint-monitoring.md) -- Continuous OSINT monitoring and alerting
+- [prismatic_storage_kuzudb](@/apps/prismatic-storage-kuzudb.md) -- Graph database for ownership chains
+- [prismatic_storage_meilisearch](@/apps/prismatic-storage-meilisearch.md) -- Full-text search for entity resolution
+- [prismatic_czech_autocrawler](@/apps/prismatic-czech-autocrawler.md) -- Czech registry automated crawler
 
 ### Glossary
-- [Due Diligence](/glossary/due-diligence/) -- Investigation methodology
-- [KYC](/glossary/kyc/) -- Know Your Customer compliance
-- [AML](/glossary/aml/) -- Anti-Money Laundering compliance
-- [Entity Resolution](/glossary/entity-resolution/) -- Linking records to real-world entities
-- [Beneficial Ownership](/glossary/beneficial-ownership/) -- Ultimate beneficial owner identification
-- [Sanctions Screening](/glossary/sanctions-screening/) -- Checking against sanctions lists
-- [Triple-Check](/glossary/triple-check/) -- Three-source validation methodology
-- [Risk Score](/glossary/risk-score/) -- Multi-dimensional risk assessment
-- [OSINT](/glossary/osint/) -- Open Source Intelligence methodology
+- [Due Diligence](@/glossary/due-diligence.md) -- Investigation methodology
+- [KYC](@/glossary/kyc.md) -- Know Your Customer compliance
+- [AML](@/glossary/aml.md) -- Anti-Money Laundering compliance
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Linking records to real-world entities
+- [Beneficial Ownership](@/glossary/beneficial-ownership.md) -- Ultimate beneficial owner identification
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- Checking against sanctions lists
+- [Triple-Check](@/glossary/triple-check.md) -- Three-source validation methodology
+- [Risk Score](@/glossary/risk-score.md) -- Multi-dimensional risk assessment
+- [OSINT](@/glossary/osint.md) -- Open Source Intelligence methodology
 
 ### Architecture
-- [PostgreSQL & KuzuDB](/architecture/postgresql-kuzudb/) -- Relational and graph storage for DD
-- [Meilisearch](/architecture/meilisearch/) -- Search infrastructure for entity discovery
-- [Storage Adapters](/architecture/storage-adapters/) -- Multi-backend storage architecture
+- [PostgreSQL & KuzuDB](@/architecture/postgresql-kuzudb.md) -- Relational and graph storage for DD
+- [Meilisearch](@/architecture/meilisearch.md) -- Search infrastructure for entity discovery
+- [Storage Adapters](@/architecture/storage-adapters.md) -- Multi-backend storage architecture
 
 ### Related Academy Topics
-- [Storage Architecture](/academy/storage-patterns/) -- KuzuDB and Meilisearch adapter patterns
-- [Building EASM Features](/academy/easm-development/) -- Related security assessment capabilities
-- [NABLA Infinity Axioms](/academy/nabla-infinity-guide/) -- Epistemic framework for triple-check validation
-- [Multi-Agent Orchestration](/academy/agent-orchestration/) -- OSINT source coordination patterns
+- [Storage Architecture](@/academy/storage-patterns.md) -- KuzuDB and Meilisearch adapter patterns
+- [Building EASM Features](@/academy/easm-development.md) -- Related security assessment capabilities
+- [NABLA Infinity Axioms](@/academy/nabla-infinity-guide.md) -- Epistemic framework for triple-check validation
+- [Multi-Agent Orchestration](@/academy/agent-orchestration.md) -- OSINT source coordination patterns
 
 ---
 
@@ -303,4 +303,4 @@ apps/prismatic_dd/priv/data/entities/asset/asset-*.json
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

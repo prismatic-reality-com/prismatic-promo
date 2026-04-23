@@ -28,11 +28,11 @@ image_alt = "EDGE-{campaign}-{sequence} - Prismatic Platform"
 
 ## Overview
 
-The EDGE-{campaign}-{sequence} agent operates as an L4 domain specialist within the Boundary Exploration domain of the Prismatic Platform's [Gray Team](/teams/gray/) color-team security operations. This agent specializes in systematic boundary value and edge case detection within Gray Hacking campaigns, identifying specification gaps, boundary conditions, corner cases, and affordance drift that could be exploited by adversarial actors or that reveal undocumented system behaviors.
+The EDGE-{campaign}-{sequence} agent operates as an L4 domain specialist within the Boundary Exploration domain of the Prismatic Platform's [Gray Team](@/teams/gray.md) color-team security operations. This agent specializes in systematic boundary value and edge case detection within Gray Hacking campaigns, identifying specification gaps, boundary conditions, corner cases, and affordance drift that could be exploited by adversarial actors or that reveal undocumented system behaviors.
 
 Each EDGE agent instance is parameterized by a campaign identifier and a sequence number, enabling multiple concurrent boundary exploration operations to run independently while feeding findings into a shared analysis pipeline. The campaign parameter ties the agent to a specific exploration objective (a module boundary, a protocol edge, an API surface), while the sequence number enables ordered parallel exploration of different boundary dimensions within the same campaign scope.
 
-Boundary exploration occupies the critical space between known behavior and unknown behavior. While unit tests verify that systems handle expected inputs correctly, and property-based tests explore random inputs within declared types, the EDGE agent deliberately targets the spaces between types -- the null-to-non-null transitions, the maximum-to-overflow boundaries, the encoding-switch thresholds where implementations most commonly harbor undocumented behavior. This systematic approach to boundary hunting draws from formal methods in boundary value analysis while adapting for the practical realities of a large-scale [OTP](/glossary/otp/) platform.
+Boundary exploration occupies the critical space between known behavior and unknown behavior. While unit tests verify that systems handle expected inputs correctly, and property-based tests explore random inputs within declared types, the EDGE agent deliberately targets the spaces between types -- the null-to-non-null transitions, the maximum-to-overflow boundaries, the encoding-switch thresholds where implementations most commonly harbor undocumented behavior. This systematic approach to boundary hunting draws from formal methods in boundary value analysis while adapting for the practical realities of a large-scale [OTP](@/glossary/otp.md) platform.
 
 ## Architecture
 
@@ -71,7 +71,7 @@ Gray Explorer Commander (L3)
 
 **Affordance Drift Detection.** Over evolutionary generations, the actual behavior of a system can drift from its originally designed affordances. The EDGE agent compares current system behavior against historical behavioral records (from earlier campaign findings and test suite expectations) to detect where functionality has silently changed without corresponding specification updates.
 
-**[Property-Based Testing](/glossary/property-based-testing/) Integration.** The agent generates targeted [property-based tests](/glossary/property-based-testing/) from discovered boundaries. When a boundary condition reveals interesting behavior, the agent automatically generates a StreamData-based property test that exercises that boundary space, ensuring that future regressions at the boundary are caught by the test suite.
+**[Property-Based Testing](@/glossary/property-based-testing.md) Integration.** The agent generates targeted [property-based tests](@/glossary/property-based-testing.md) from discovered boundaries. When a boundary condition reveals interesting behavior, the agent automatically generates a StreamData-based property test that exercises that boundary space, ensuring that future regressions at the boundary are caught by the test suite.
 
 **Safe Exploration Enforcement.** All boundary exploration operates under strict safety constraints. The agent performs only read-only operations by default. State-mutating explorations are sandboxed in isolated processes with rollback capability. Resource consumption is bounded by configurable limits. The Gray Escalation Guard agent monitors all EDGE operations and can halt any exploration that approaches unsafe territory.
 
@@ -157,12 +157,12 @@ end
 
 | Component | Integration Type | Purpose |
 |-----------|-----------------|---------|
-| [Gray Team](/teams/gray/) | Campaign Framework | Campaign definition, coordination, and findings aggregation |
-| [gray-explorer-commander](/agents/gray-explorer-commander/) | Command Authority | Issues campaign directives and receives exploration results |
-| [gray-escalation-guard](/agents/gray-escalation-guard/) | Safety Monitor | Monitors EDGE operations for safety constraint violations and prevents escalation |
-| [Purple Team](/teams/purple/) | Finding Synthesis | Receives aggregated findings for Red-Blue loop closure synthesis |
-| [Prismatic Safety](/apps/prismatic-safety/) | Escalation Prevention | Platform-wide safety monitoring for boundary exploration operations |
-| [Telemetry](/glossary/telemetry/) | Observability | Campaign progress, finding rates, and safety constraint metrics |
+| [Gray Team](@/teams/gray.md) | Campaign Framework | Campaign definition, coordination, and findings aggregation |
+| [gray-explorer-commander](@/agents/gray-explorer-commander.md) | Command Authority | Issues campaign directives and receives exploration results |
+| [gray-escalation-guard](@/agents/gray-escalation-guard.md) | Safety Monitor | Monitors EDGE operations for safety constraint violations and prevents escalation |
+| [Purple Team](@/teams/purple.md) | Finding Synthesis | Receives aggregated findings for Red-Blue loop closure synthesis |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Escalation Prevention | Platform-wide safety monitoring for boundary exploration operations |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Campaign progress, finding rates, and safety constraint metrics |
 
 ## Operational Workflow
 
@@ -220,11 +220,11 @@ config :prismatic_agents, PrismaticAgents.ColorTeams.Gray.Edge,
 
 ## Related Resources
 
-- [**gray-explorer-commander**](/agents/gray-explorer-commander/) (L3) - Supreme commander for Gray Hacking boundary-exploration operations
-- [**gray-escalation-guard**](/agents/gray-escalation-guard/) (L4) - Safety-critical specialist preventing Gray operations from escalating into unsafe territory
-- [Color Teams](/glossary/color-teams/) - Six-team security operations framework within which EDGE agents operate
-- [Property-Based Testing](/glossary/property-based-testing/) - Testing methodology that EDGE agents generate tests for discovered boundaries
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework governing finding classification and evidence requirements
+- [**gray-explorer-commander**](@/agents/gray-explorer-commander.md) (L3) - Supreme commander for Gray Hacking boundary-exploration operations
+- [**gray-escalation-guard**](@/agents/gray-escalation-guard.md) (L4) - Safety-critical specialist preventing Gray operations from escalating into unsafe territory
+- [Color Teams](@/glossary/color-teams.md) - Six-team security operations framework within which EDGE agents operate
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Testing methodology that EDGE agents generate tests for discovered boundaries
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework governing finding classification and evidence requirements
 
 ---
 
@@ -233,4 +233,4 @@ config :prismatic_agents, PrismaticAgents.ColorTeams.Gray.Edge,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

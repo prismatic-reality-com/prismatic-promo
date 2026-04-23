@@ -24,11 +24,11 @@ image_alt = "ExUnit - Prismatic Platform"
 
 ## Overview
 
-ExUnit is [Elixir](/technologies/elixir/)'s built-in testing framework and the foundation of the Prismatic Platform's comprehensive test suite spanning 5,864 test files. ExUnit provides async test execution, rich assertions, setup/teardown callbacks, test tagging, and doctest support -- all the tools needed for the platform's rigorous quality mandate. As a built-in framework, ExUnit is deeply integrated with the Mix build tool and the Elixir compiler, enabling features like automatic test discovery and compile-time test validation that external frameworks cannot provide.
+ExUnit is [Elixir](@/technologies/elixir.md)'s built-in testing framework and the foundation of the Prismatic Platform's comprehensive test suite spanning 5,864 test files. ExUnit provides async test execution, rich assertions, setup/teardown callbacks, test tagging, and doctest support -- all the tools needed for the platform's rigorous quality mandate. As a built-in framework, ExUnit is deeply integrated with the Mix build tool and the Elixir compiler, enabling features like automatic test discovery and compile-time test validation that external frameworks cannot provide.
 
-The Prismatic Platform uses ExUnit for unit tests, integration tests, property-based tests, and contract tests across all 90 applications. The platform's test suite runs in parallel by default, leveraging the [BEAM](/technologies/beam/)'s concurrency to execute thousands of tests in seconds. Database tests use [Ecto](/technologies/ecto/)'s SQL Sandbox for isolation, enabling concurrent database tests without data leaks between test cases. This parallel execution capability is essential for maintaining fast feedback loops in a codebase with thousands of tests.
+The Prismatic Platform uses ExUnit for unit tests, integration tests, property-based tests, and contract tests across all 90 applications. The platform's test suite runs in parallel by default, leveraging the [BEAM](@/technologies/beam.md)'s concurrency to execute thousands of tests in seconds. Database tests use [Ecto](@/technologies/ecto.md)'s SQL Sandbox for isolation, enabling concurrent database tests without data leaks between test cases. This parallel execution capability is essential for maintaining fast feedback loops in a codebase with thousands of tests.
 
-ExUnit's describe blocks, tags, and setup callbacks enable structured test organization that mirrors the platform's module hierarchy, making it straightforward to find and maintain tests alongside their corresponding implementation code. The platform's [NO MERCY](/capabilities/no-mercy/) doctrine requires comprehensive test coverage for all new code, with regression tests mandatory for every bug fix -- ExUnit is the tool that makes this achievable without sacrificing development velocity.
+ExUnit's describe blocks, tags, and setup callbacks enable structured test organization that mirrors the platform's module hierarchy, making it straightforward to find and maintain tests alongside their corresponding implementation code. The platform's [NO MERCY](@/capabilities/no-mercy.md) doctrine requires comprehensive test coverage for all new code, with regression tests mandatory for every bug fix -- ExUnit is the tool that makes this achievable without sacrificing development velocity.
 
 ## Key Features
 
@@ -159,12 +159,12 @@ end
 
 ## Architecture
 
-ExUnit integrates into the platform's quality enforcement pipeline as the runtime correctness verification layer, complementing [Credo](/technologies/credo/)'s static style analysis and [Dialyzer](/technologies/dialyzer/)'s type checking.
+ExUnit integrates into the platform's quality enforcement pipeline as the runtime correctness verification layer, complementing [Credo](@/technologies/credo.md)'s static style analysis and [Dialyzer](@/technologies/dialyzer.md)'s type checking.
 
 | Quality Layer | Tool | What It Validates | Execution |
 |--------------|------|-------------------|-----------|
-| Type Safety | [Dialyzer](/technologies/dialyzer/) | Type correctness (static) | `mix dialyzer` |
-| Code Quality | [Credo](/technologies/credo/) | Style and design (static) | `mix credo --strict` |
+| Type Safety | [Dialyzer](@/technologies/dialyzer.md) | Type correctness (static) | `mix dialyzer` |
+| Code Quality | [Credo](@/technologies/credo.md) | Style and design (static) | `mix credo --strict` |
 | Compilation | `mix compile` | Syntax and references | `--warnings-as-errors` |
 | **Runtime Correctness** | **ExUnit** | **Behavior and logic** | **`mix test`** |
 | Coverage | ExCoveralls | Untested code paths | `mix coveralls` |
@@ -290,18 +290,18 @@ ExUnit was chosen as the platform's test framework because it is built into Elix
 
 ## Related Technologies
 
-- [Elixir](/technologies/elixir/) - The language providing ExUnit as a built-in standard library module
-- [Dialyzer](/technologies/dialyzer/) - Static type analysis that complements ExUnit's runtime testing
-- [Credo](/technologies/credo/) - Code quality analysis that complements ExUnit's correctness testing
-- [Ecto](/technologies/ecto/) - Database library providing the SQL Sandbox for concurrent test isolation
-- [BEAM](/technologies/beam/) - Runtime enabling parallel test execution through lightweight processes
+- [Elixir](@/technologies/elixir.md) - The language providing ExUnit as a built-in standard library module
+- [Dialyzer](@/technologies/dialyzer.md) - Static type analysis that complements ExUnit's runtime testing
+- [Credo](@/technologies/credo.md) - Code quality analysis that complements ExUnit's correctness testing
+- [Ecto](@/technologies/ecto.md) - Database library providing the SQL Sandbox for concurrent test isolation
+- [BEAM](@/technologies/beam.md) - Runtime enabling parallel test execution through lightweight processes
 
 ## Related Apps
 
 - All 90 Prismatic Platform applications use ExUnit for comprehensive testing with strict coverage requirements
-- [prismatic_safety](/apps/prismatic-safety/) - Quality Floor Guardian monitoring test coverage and pass rates
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security-critical code with extensive property-based and contract tests
-- [prismatic_storage_core](/apps/prismatic-storage-core/) - Defines contract test macros used by all storage adapter implementations
+- [prismatic_safety](@/apps/prismatic-safety.md) - Quality Floor Guardian monitoring test coverage and pass rates
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security-critical code with extensive property-based and contract tests
+- [prismatic_storage_core](@/apps/prismatic-storage-core.md) - Defines contract test macros used by all storage adapter implementations
 
 ---
 
@@ -310,4 +310,4 @@ ExUnit was chosen as the platform's test framework because it is built into Elix
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

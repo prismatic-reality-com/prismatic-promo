@@ -162,29 +162,29 @@ The agent enforces coverage requirements at multiple levels with escalating seve
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/). Multi-domain coordination and specialized operational command. The Coverage Enforcement Supreme Agent has authority to block merges across all applications and escalate persistent coverage violations to supreme-level agents.
+**L3** - [Strategic Command](@/glossary/strategic-command.md). Multi-domain coordination and specialized operational command. The Coverage Enforcement Supreme Agent has authority to block merges across all applications and escalate persistent coverage violations to supreme-level agents.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [cascade-quality-specialist](/agents/cascade-quality-specialist/) | Quality Partner | Coordinates CASCADE pattern elimination with coverage improvement efforts |
-| [quality-enforcement-commander](/agents/quality-enforcement-commander/) | Enforcement Authority | Escalation path for persistent coverage violations |
-| [test-specialist](/agents/test-specialist/) | Test Generation | Collaborates on generating tests for uncovered code paths |
-| [mandatory-regression-prevention-commander](/agents/mandatory-regression-prevention-commander/) | Regression Partner | Ensures bug fixes include regression tests that contribute to coverage |
+| [cascade-quality-specialist](@/agents/cascade-quality-specialist.md) | Quality Partner | Coordinates CASCADE pattern elimination with coverage improvement efforts |
+| [quality-enforcement-commander](@/agents/quality-enforcement-commander.md) | Enforcement Authority | Escalation path for persistent coverage violations |
+| [test-specialist](@/agents/test-specialist.md) | Test Generation | Collaborates on generating tests for uncovered code paths |
+| [mandatory-regression-prevention-commander](@/agents/mandatory-regression-prevention-commander.md) | Regression Partner | Ensures bug fixes include regression tests that contribute to coverage |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [Quality Gates](/glossary/quality-gates/) | Coverage check as mandatory quality gate |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Pipeline integration for automated coverage measurement |
+| [Quality Gates](@/glossary/quality-gates.md) | Coverage check as mandatory quality gate |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Pipeline integration for automated coverage measurement |
 | Quality DNA | Cross-session coverage baseline persistence |
-| Platform [Telemetry](/glossary/telemetry/) | Coverage metrics emission for monitoring dashboards |
+| Platform [Telemetry](@/glossary/telemetry.md) | Coverage metrics emission for monitoring dashboards |
 
 ## Enforcement
 
-All coverage enforcement operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Coverage regressions are blocked without exception. There is no manual override for coverage gate failures. Applications that fall below the 80% threshold are flagged for immediate remediation. The Coverage Enforcement Supreme Agent maintains an immutable audit trail of all coverage measurements, baseline updates, and enforcement decisions for full traceability and accountability.
+All coverage enforcement operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Coverage regressions are blocked without exception. There is no manual override for coverage gate failures. Applications that fall below the 80% threshold are flagged for immediate remediation. The Coverage Enforcement Supreme Agent maintains an immutable audit trail of all coverage measurements, baseline updates, and enforcement decisions for full traceability and accountability.
 
 ---
 
@@ -193,4 +193,4 @@ All coverage enforcement operates under the [NO MERCY, NO DOUBTS](/glossary/no-m
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

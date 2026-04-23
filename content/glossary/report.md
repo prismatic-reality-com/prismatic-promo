@@ -32,7 +32,7 @@ see_also = ["capabilities", "architecture", "quality-floor"]
 
 A **report** is a structured output that aggregates, summarizes, and presents data for human interpretation and decision-making. Reports transform raw data (logs, metrics, scan results, test outputs) into actionable information by applying formatting, filtering, aggregation, and contextual explanation. They serve as the communication bridge between automated systems and human stakeholders.
 
-In the Prismatic Platform, reports are generated at multiple levels: [quality gate](/glossary/quality-floor/) reports summarize codebase health, OSINT execution reports document intelligence findings, [Perimeter](/glossary/perimeter/) reports present security ratings and compliance status, [DD pipeline](/glossary/dd-pipeline/) reports consolidate due diligence analysis, and session reports capture development activity for continuity across conversations. Reports are the primary output artifact of nearly every platform subsystem -- they are the "deliverable" that makes automated analysis useful.
+In the Prismatic Platform, reports are generated at multiple levels: [quality gate](@/glossary/quality-floor.md) reports summarize codebase health, OSINT execution reports document intelligence findings, [Perimeter](/glossary/perimeter/) reports present security ratings and compliance status, [DD pipeline](/glossary/dd-pipeline/) reports consolidate due diligence analysis, and session reports capture development activity for continuity across conversations. Reports are the primary output artifact of nearly every platform subsystem -- they are the "deliverable" that makes automated analysis useful.
 
 The platform treats reports as first-class artifacts: they are versioned, immutably stored, and cross-referenced with their generating commands and input data. This auditability is critical for compliance-oriented use cases like Czech CER (Critical Entity Regulation) reporting and M&A due diligence where report provenance must be traceable.
 
@@ -545,28 +545,28 @@ The DD analysis pipeline generates HTML contradiction reports with cross-referen
 6. **Include provenance** -- every report must record its generator, input data hash, and generation timestamp.
 7. **Use severity classification** -- tag sections as info/warning/critical so readers can triage effectively.
 8. **Support multiple formats** -- the same data should be renderable as Markdown (dev), HTML (stakeholder), JSON (automation), and CSV (analysis).
-9. **Cross-reference with evidence** -- link findings to source data, commits, or [telemetry](/glossary/telemetry/) events for verification.
+9. **Cross-reference with evidence** -- link findings to source data, commits, or [telemetry](@/glossary/telemetry.md) events for verification.
 10. **Track report generation metrics** -- monitor how often reports are generated, their size, and which sections contain findings.
 
 ## Related Terms
 
-- [Structured Log](/glossary/structured-log/) -- the raw data that feeds into reports
-- [Visualization](/glossary/visualization/) -- graphical representation complementing textual reports
-- [Statistics](/glossary/statistics/) -- the numerical summaries reports present
-- [Triage](/glossary/triage/) -- the prioritization process reports inform
-- [Dashboard](/glossary/dashboard/) -- real-time visualization complementing periodic reports
-- [Telemetry](/glossary/telemetry/) -- metrics collection feeding report aggregation
-- [KPI](/glossary/kpi/) -- key performance indicators highlighted in reports
-- [Audit Logging](/glossary/audit-logging/) -- event recording that reports summarize
-- [Quality Floor](/glossary/quality-floor/) -- quality threshold enforced through gate reports
+- [Structured Log](@/glossary/structured-log.md) -- the raw data that feeds into reports
+- [Visualization](@/glossary/visualization.md) -- graphical representation complementing textual reports
+- [Statistics](@/glossary/statistics.md) -- the numerical summaries reports present
+- [Triage](@/glossary/triage.md) -- the prioritization process reports inform
+- [Dashboard](@/glossary/dashboard.md) -- real-time visualization complementing periodic reports
+- [Telemetry](@/glossary/telemetry.md) -- metrics collection feeding report aggregation
+- [KPI](@/glossary/kpi.md) -- key performance indicators highlighted in reports
+- [Audit Logging](@/glossary/audit-logging.md) -- event recording that reports summarize
+- [Quality Floor](@/glossary/quality-floor.md) -- quality threshold enforced through gate reports
 - [Regression](/glossary/regression/) -- mandatory report format for bug fixes
 
 ## See Also
 
-- [Quality Gates](/capabilities/) -- automated quality reporting
-- [Session Context](/architecture/) -- development session reports
-- [OSINT Toolbox](/osint/) -- intelligence execution reports
-- [DD Pipeline](/capabilities/) -- due diligence analysis reports
+- [Quality Gates](@/capabilities/_index.md) -- automated quality reporting
+- [Session Context](@/architecture/_index.md) -- development session reports
+- [OSINT Toolbox](@/osint/_index.md) -- intelligence execution reports
+- [DD Pipeline](@/capabilities/_index.md) -- due diligence analysis reports
 
 ---
 
@@ -575,4 +575,4 @@ The DD analysis pipeline generates HTML contradiction reports with cross-referen
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

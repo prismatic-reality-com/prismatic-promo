@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-Deception ethics boundary tests — An academic treatment of computational ethics and moral philosophy within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **deception ethics boundary tests** as implemented within the Prismatic Platform's computational ethics and moral philosophy domain. We formalize the problem space through the lens of moral reasoning and ethical frameworks, propose a multi-agent architecture leveraging [OTP](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates moral graph construction, deontic logic formalization, preference learning for value alignment to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for computational ethics and moral philosophy.
+Deception ethics boundary tests — An academic treatment of computational ethics and moral philosophy within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **deception ethics boundary tests** as implemented within the Prismatic Platform's computational ethics and moral philosophy domain. We formalize the problem space through the lens of moral reasoning and ethical frameworks, propose a multi-agent architecture leveraging [OTP](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates moral graph construction, deontic logic formalization, preference learning for value alignment to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for computational ethics and moral philosophy.
 
 **Keywords:** Deception, ethics, boundary, tests, Prismatic-native, Moral
 
@@ -115,7 +115,7 @@ The deception ethics boundary tests system is implemented as a Prismatic-native 
 
 ### 3.2 OTP Process Topology
 
-The system leverages [Elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [Elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule DeceptionEthicsBoundaryTests.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -216,7 +216,7 @@ The implementation leverages the Prismatic Platform's technology stack:
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
 | Runtime | Elixir 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
-| Web Layer | Phoenix [LiveView](/glossary/liveview/) | Real-time interactive dashboards |
+| Web Layer | Phoenix [LiveView](@/glossary/liveview.md) | Real-time interactive dashboards |
 | Storage | PostgreSQL + ETS | Persistent + in-memory storage |
 | Search | Meilisearch | Full-text search and indexing |
 | Styling | TailwindCSS + Flowbite | Consistent UI component library |
@@ -464,19 +464,19 @@ config :prismatic, DeceptionEthicsBoundaryTests,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [Evil demon deception tests](/applications/philosophy-metaphysics/evil-demon-deception-tests/) — *Philosophy Metaphysics*
-- [Regulatory stress tests](/applications/legal-governance-systems/regulatory-stress-tests/) — *Legal Governance Systems*
-- [Meta-ethics taxonomy explorer](/applications/philosophy-metaphysics/meta-ethics-taxonomy-explorer/) — *Philosophy Metaphysics*
-- [Cross-cultural ethics replay](/applications/academic-research-epistemology/cross-cultural-ethics-replay/) — *Academic Research Epistemology*
+- [Evil demon deception tests](@/applications/philosophy-metaphysics/evil-demon-deception-tests.md) — *Philosophy Metaphysics*
+- [Regulatory stress tests](@/applications/legal-governance-systems/regulatory-stress-tests.md) — *Legal Governance Systems*
+- [Meta-ethics taxonomy explorer](@/applications/philosophy-metaphysics/meta-ethics-taxonomy-explorer.md) — *Philosophy Metaphysics*
+- [Cross-cultural ethics replay](@/applications/academic-research-epistemology/cross-cultural-ethics-replay.md) — *Academic Research Epistemology*
 
 
 ## Further Reading
 
-- [Ethics Moral Philosophy — All Applications](/applications/ethics-moral-philosophy/)
-- [Philosophy Metaphysics](/applications/philosophy-metaphysics/)
-- [Legal Governance Systems](/applications/legal-governance-systems/)
-- [Consciousness Research](/applications/consciousness-research/)
-- [Prismatic Application Catalogue](/applications/)
+- [Ethics Moral Philosophy — All Applications](@/applications/ethics-moral-philosophy/_index.md)
+- [Philosophy Metaphysics](@/applications/philosophy-metaphysics/_index.md)
+- [Legal Governance Systems](@/applications/legal-governance-systems/_index.md)
+- [Consciousness Research](@/applications/consciousness-research/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

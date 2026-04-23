@@ -76,13 +76,13 @@ The Compressor delivers five primary capabilities that span the document compres
 
 **Incremental Compression** detects changes in source documents and recompresses only affected sections, avoiding full reprocessing of the entire documentation corpus when individual documents change. Change detection operates at the section level using content hashing, enabling targeted recompression that completes in milliseconds rather than seconds.
 
-**Search Index Integration** pushes compressed artifacts to [Meilisearch](/glossary/meilisearch/) with appropriate metadata, enabling full-text search across the compressed documentation corpus with sub-50ms query latency. Search results link back to both compressed and full-detail versions of each document.
+**Search Index Integration** pushes compressed artifacts to [Meilisearch](@/glossary/meilisearch.md) with appropriate metadata, enabling full-text search across the compressed documentation corpus with sub-50ms query latency. Search results link back to both compressed and full-detail versions of each document.
 
 **Context Window Optimization** produces compression artifacts specifically sized for target context windows. When an agent needs to load documentation context, the Compressor calculates available token budget and selects or generates artifacts that maximize information delivery within the constraint.
 
 ## Implementation
 
-The Compressor is implemented as a [GenServer](/glossary/genserver/)-based pipeline that processes documents through configurable compression stages.
+The Compressor is implemented as a [GenServer](@/glossary/genserver.md)-based pipeline that processes documents through configurable compression stages.
 
 ```elixir
 defmodule PrismaticDocumentation.Compressor do
@@ -157,7 +157,7 @@ defmodule PrismaticDocumentation.Compressor do
 end
 ```
 
-The compression pipeline uses [ETS](/glossary/ets/) for caching compressed artifacts and Meilisearch for indexed search access, providing fast retrieval for both targeted lookups and full-text queries across the documentation corpus.
+The compression pipeline uses [ETS](@/glossary/ets.md) for caching compressed artifacts and Meilisearch for indexed search access, providing fast retrieval for both targeted lookups and full-text queries across the documentation corpus.
 
 ## Integration Points
 
@@ -165,17 +165,17 @@ The Compressor integrates with multiple platform subsystems to serve documentati
 
 | Component | Protocol | Purpose |
 |-----------|----------|---------|
-| [AIAD](/glossary/aiad/) Registry | GenServer calls | Agent and command documentation compression |
-| [Meilisearch](/glossary/meilisearch/) | REST API | Full-text search index for compressed artifacts |
-| [Prismatic Web](/glossary/prismatic-web/) | LiveView channels | Documentation dashboard and viewer |
-| [ETS](/glossary/ets/) Cache | Direct access | High-speed compressed artifact retrieval |
+| [AIAD](@/glossary/aiad.md) Registry | GenServer calls | Agent and command documentation compression |
+| [Meilisearch](@/glossary/meilisearch.md) | REST API | Full-text search index for compressed artifacts |
+| [Prismatic Web](@/glossary/prismatic-web.md) | LiveView channels | Documentation dashboard and viewer |
+| [ETS](@/glossary/ets.md) Cache | Direct access | High-speed compressed artifact retrieval |
 | GitLab Wiki | REST API | External documentation synchronization |
 | Session Context | File system | Session context compression for continuity |
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [context-compression-enforcer-agent](/agents/context-compression-enforcer-agent/) | Enforcement partner ensuring compression policies are followed | General |
-| [context-preservation-specialist-agent](/agents/context-preservation-specialist-agent/) | Consumes compressed context artifacts for session restoration | Authority |
+| [context-compression-enforcer-agent](@/agents/context-compression-enforcer-agent.md) | Enforcement partner ensuring compression policies are followed | General |
+| [context-preservation-specialist-agent](@/agents/context-preservation-specialist-agent.md) | Consumes compressed context artifacts for session restoration | Authority |
 | documentation-integrity-specialist | Validates that compression preserves documentation accuracy | Documentation |
 
 ## Operational Workflow
@@ -239,13 +239,13 @@ The ETS cache provides sub-millisecond retrieval for hot documentation artifacts
 
 ## Related Resources
 
-- [context-compression-enforcer-agent](/agents/context-compression-enforcer-agent/) -- Compression policy enforcement
-- [context-preservation-specialist-agent](/agents/context-preservation-specialist-agent/) -- Session context management
+- [context-compression-enforcer-agent](@/agents/context-compression-enforcer-agent.md) -- Compression policy enforcement
+- [context-preservation-specialist-agent](@/agents/context-preservation-specialist-agent.md) -- Session context management
 - documentation-integrity-specialist -- Documentation accuracy validation
-- [Meilisearch](/glossary/meilisearch/) -- Full-text search engine integration
-- [SEADF](/glossary/seadf/) -- Self-Evolving Autonomous Development Framework
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Platform monitoring infrastructure
+- [Meilisearch](@/glossary/meilisearch.md) -- Full-text search engine integration
+- [SEADF](@/glossary/seadf.md) -- Self-Evolving Autonomous Development Framework
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Platform monitoring infrastructure
 
 ---
 
@@ -254,4 +254,4 @@ The ETS cache provides sub-millisecond retrieval for hot documentation artifacts
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

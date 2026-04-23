@@ -18,11 +18,11 @@ see_also = ["meilisearch", "full-text-search", "typo-tolerance", "osint", "due-d
 image_alt = "Meilisearch for Intelligence Search"
 +++
 
-A product search for "iphon" should return "iPhone" because the user is trying to buy a phone. An intelligence search for "navigara" must return "Navigára spol. s r.o." *and* tell you how confident it is in the match, because the user is deciding whether to flag a subsidiary. Same primitive, completely different requirements. [Meilisearch](/glossary/meilisearch) handles both — if you configure it deliberately.
+A product search for "iphon" should return "iPhone" because the user is trying to buy a phone. An intelligence search for "navigara" must return "Navigára spol. s r.o." *and* tell you how confident it is in the match, because the user is deciding whether to flag a subsidiary. Same primitive, completely different requirements. [Meilisearch](@/glossary/meilisearch.md) handles both — if you configure it deliberately.
 
 ## Why not Postgres FTS
 
-Postgres full-text search is excellent when you own the schema and the queries are predictable. Intelligence search is the opposite: the schema is wide, queries span many fields, and users make typos in names written in languages they don't speak. Postgres FTS can do this, but configuring ranking, [typo tolerance](/glossary/typo-tolerance), and multi-language stemming inside Postgres is a lot of SQL for a moving target.
+Postgres full-text search is excellent when you own the schema and the queries are predictable. Intelligence search is the opposite: the schema is wide, queries span many fields, and users make typos in names written in languages they don't speak. Postgres FTS can do this, but configuring ranking, [typo tolerance](@/glossary/typo-tolerance.md), and multi-language stemming inside Postgres is a lot of SQL for a moving target.
 
 Meilisearch is a tool for exactly this shape.
 
@@ -83,6 +83,6 @@ An index that mirrors your Postgres schema is a bad index. An index built around
 
 - **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — when to reach for Meilisearch
 - **Academy**: [DD Investigation](/academy/learn/dd-investigation) — using Meilisearch in a real case
-- **Glossary**: [Meilisearch](/glossary/meilisearch), [Full-Text Search](/glossary/full-text-search), [Typo Tolerance](/glossary/typo-tolerance), [OSINT](/glossary/osint), [Due Diligence](/glossary/due-diligence)
+- **Glossary**: [Meilisearch](@/glossary/meilisearch.md), [Full-Text Search](@/glossary/full-text-search.md), [Typo Tolerance](@/glossary/typo-tolerance.md), [OSINT](@/glossary/osint.md), [Due Diligence](@/glossary/due-diligence.md)
 
 Typo tolerance is a feature in consumer search. In intelligence search it is the difference between finding the subsidiary and missing it.

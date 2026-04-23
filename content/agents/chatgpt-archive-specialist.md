@@ -28,19 +28,19 @@ image_alt = "chatgpt-archive-specialist - Prismatic Platform"
 
 ## Overview
 
-The ChatGPT Archive Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the AI Archive Management domain of the Prismatic Platform. This agent manages the systematic archival, indexing, and retrieval of ChatGPT interaction histories, ensuring that valuable AI-generated insights are preserved for future reference, pattern extraction, and cross-session knowledge continuity. In a platform that coordinates multiple AI providers for diverse analytical tasks, interaction archives become a strategic knowledge asset that improves over time.
+The ChatGPT Archive Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the AI Archive Management domain of the Prismatic Platform. This agent manages the systematic archival, indexing, and retrieval of ChatGPT interaction histories, ensuring that valuable AI-generated insights are preserved for future reference, pattern extraction, and cross-session knowledge continuity. In a platform that coordinates multiple AI providers for diverse analytical tasks, interaction archives become a strategic knowledge asset that improves over time.
 
-The ChatGPT Archive Specialist captures not just raw conversation logs but structured metadata: prompt patterns that produced high-quality responses, token usage efficiency [metrics](/glossary/metrics/), response quality scores, contextual tags that enable targeted retrieval, and temporal markers that track knowledge evolution. This structured archival approach transforms ephemeral AI interactions into a searchable, analyzable knowledge base that enables the platform to learn from its own AI consultation history. Over time, the archive reveals which prompt strategies produce the best results for specific analysis types, which model configurations optimize quality-to-cost ratios, and which consultation patterns should be replicated or retired. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard, operating under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine.
+The ChatGPT Archive Specialist captures not just raw conversation logs but structured metadata: prompt patterns that produced high-quality responses, token usage efficiency [metrics](@/glossary/metrics.md), response quality scores, contextual tags that enable targeted retrieval, and temporal markers that track knowledge evolution. This structured archival approach transforms ephemeral AI interactions into a searchable, analyzable knowledge base that enables the platform to learn from its own AI consultation history. Over time, the archive reveals which prompt strategies produce the best results for specific analysis types, which model configurations optimize quality-to-cost ratios, and which consultation patterns should be replicated or retired. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard, operating under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine.
 
 ## Architecture
 
 The Archive Specialist implements a three-tier storage architecture designed for efficient ingestion, indexed retrieval, and long-term knowledge preservation.
 
-**Hot Tier (ETS)** -- Recent interactions from the current and previous session are maintained in [ETS](/glossary/ets/) tables for sub-millisecond access. The hot tier supports real-time queries from agents that need to reference recent AI interactions for context building or deduplication. Hot tier entries include full conversation content, metadata, and quality annotations.
+**Hot Tier (ETS)** -- Recent interactions from the current and previous session are maintained in [ETS](@/glossary/ets.md) tables for sub-millisecond access. The hot tier supports real-time queries from agents that need to reference recent AI interactions for context building or deduplication. Hot tier entries include full conversation content, metadata, and quality annotations.
 
 **Warm Tier (PostgreSQL)** -- Interactions older than the hot tier retention window are migrated to PostgreSQL with full-text search indexing. The warm tier supports complex queries including metadata filtering, temporal range searches, quality score ranking, and prompt pattern matching. Database-level compression reduces storage costs while maintaining query performance.
 
-**Cold Tier (Compressed Archive)** -- Interactions exceeding the warm tier retention period are compressed and moved to archival storage. Cold tier data is accessible through batch retrieval requests with higher latency but minimal storage cost. This tier satisfies [GDPR](/glossary/gdpr/) retention requirements by enabling scheduled purging of archived data that exceeds legal retention limits.
+**Cold Tier (Compressed Archive)** -- Interactions exceeding the warm tier retention period are compressed and moved to archival storage. Cold tier data is accessible through batch retrieval requests with higher latency but minimal storage cost. This tier satisfies [GDPR](@/glossary/gdpr.md) retention requirements by enabling scheduled purging of archived data that exceeds legal retention limits.
 
 ## Core Capabilities
 
@@ -54,7 +54,7 @@ The Archive Specialist implements a three-tier storage architecture designed for
 
 ## Implementation
 
-The archive system is implemented as an [OTP](/glossary/otp/) application with supervised processes for each storage tier and a unified query interface.
+The archive system is implemented as an [OTP](@/glossary/otp.md) application with supervised processes for each storage tier and a unified query interface.
 
 ```elixir
 defmodule Prismatic.AI.Archive.Specialist do
@@ -142,13 +142,13 @@ end
 
 | Component | Integration Type | Function |
 |-----------|-----------------|----------|
-| [chatgpt-bridge-commander](/agents/chatgpt-bridge-commander/) | Data Source | Provides raw ChatGPT interaction data including API responses, token usage, and timing metrics |
-| [chatgpt-context-manager](/agents/chatgpt-context-manager/) | Context Partner | Shares context metadata that enriches archive entries with domain classification and relevance scores |
-| [chatgpt-prompt-engineer](/agents/chatgpt-prompt-engineer/) | Pattern Consumer | Receives extracted prompt patterns and effectiveness metrics for template library improvement |
-| [context-preservation-specialist-agent](/agents/context-preservation-specialist-agent/) | Preservation Coordination | Aligns AI archive management with platform-wide context preservation strategies and retention policies |
+| [chatgpt-bridge-commander](@/agents/chatgpt-bridge-commander.md) | Data Source | Provides raw ChatGPT interaction data including API responses, token usage, and timing metrics |
+| [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) | Context Partner | Shares context metadata that enriches archive entries with domain classification and relevance scores |
+| [chatgpt-prompt-engineer](@/agents/chatgpt-prompt-engineer.md) | Pattern Consumer | Receives extracted prompt patterns and effectiveness metrics for template library improvement |
+| [context-preservation-specialist-agent](@/agents/context-preservation-specialist-agent.md) | Preservation Coordination | Aligns AI archive management with platform-wide context preservation strategies and retention policies |
 | PostgreSQL | Warm Storage | Provides full-text indexed storage for medium-term interaction archives with complex query support |
-| [ETS](/glossary/ets/) | Hot Storage | Supplies sub-millisecond access to recent interactions for real-time context building |
-| [Prismatic Telemetry](/glossary/telemetry/) | Observability | Emits archival metrics including storage utilization, query performance, and pattern extraction rates |
+| [ETS](@/glossary/ets.md) | Hot Storage | Supplies sub-millisecond access to recent interactions for real-time context building |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Observability | Emits archival metrics including storage utilization, query performance, and pattern extraction rates |
 
 ## Operational Workflow
 
@@ -207,11 +207,11 @@ config :prismatic_ai, Prismatic.AI.Archive.Specialist,
 
 ## Related Resources
 
-- [**chatgpt-bridge-commander**](/agents/chatgpt-bridge-commander/) (L2) -- API transport providing raw interaction data
-- [**chatgpt-context-manager**](/agents/chatgpt-context-manager/) (L3) -- Context metadata enrichment partner
-- [**chatgpt-prompt-engineer**](/agents/chatgpt-prompt-engineer/) (L3) -- Consumer of extracted prompt patterns
-- [**context-preservation-specialist-agent**](/agents/context-preservation-specialist-agent/) -- Platform-wide context preservation alignment
-- [GDPR](/glossary/gdpr/) -- Data protection regulation governing archive retention policies
+- [**chatgpt-bridge-commander**](@/agents/chatgpt-bridge-commander.md) (L2) -- API transport providing raw interaction data
+- [**chatgpt-context-manager**](@/agents/chatgpt-context-manager.md) (L3) -- Context metadata enrichment partner
+- [**chatgpt-prompt-engineer**](@/agents/chatgpt-prompt-engineer.md) (L3) -- Consumer of extracted prompt patterns
+- [**context-preservation-specialist-agent**](@/agents/context-preservation-specialist-agent.md) -- Platform-wide context preservation alignment
+- [GDPR](@/glossary/gdpr.md) -- Data protection regulation governing archive retention policies
 
 ---
 
@@ -220,4 +220,4 @@ config :prismatic_ai, Prismatic.AI.Archive.Specialist,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,7 +28,7 @@ image_alt = "documentation-validation-commander - Prismatic Platform"
 
 ## Overview
 
-The Documentation Validation Commander operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Documentation Quality domain of the Prismatic Platform. This agent ensures that all platform documentation -- from inline code comments to CLAUDE.md files to promo site content -- maintains accuracy, completeness, and consistency with the actual codebase. In a platform managing over 11,300 documentation files across 90 [umbrella application](/glossary/umbrella-application/)s, documentation drift represents a constant threat to developer productivity and system reliability. The Documentation Validation Commander systematically eliminates this drift through continuous cross-referencing, automated validation pipelines, and five core [Lean4](/glossary/lean4/) theorems that formally guarantee the safety of documentation evolution alongside code evolution.
+The Documentation Validation Commander operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Documentation Quality domain of the Prismatic Platform. This agent ensures that all platform documentation -- from inline code comments to CLAUDE.md files to promo site content -- maintains accuracy, completeness, and consistency with the actual codebase. In a platform managing over 11,300 documentation files across 90 [umbrella application](@/glossary/umbrella-application.md)s, documentation drift represents a constant threat to developer productivity and system reliability. The Documentation Validation Commander systematically eliminates this drift through continuous cross-referencing, automated validation pipelines, and five core [Lean4](@/glossary/lean4.md) theorems that formally guarantee the safety of documentation evolution alongside code evolution.
 
 Documentation that diverges from implementation is worse than absent documentation, because it actively misleads developers and operators. When a CLAUDE.md file claims an API accepts three parameters but the implementation requires four, when a promo article describes a feature that was refactored two generations ago, when cross-references point to renamed modules -- these discrepancies compound into a pervasive trust deficit that undermines the entire documentation ecosystem. The Documentation Validation Commander addresses this by treating documentation as a first-class artifact subject to the same quality enforcement as production code.
 
@@ -64,7 +64,7 @@ The aggregation pipeline combines validation results from all three tiers and ap
 
 ## Core Capabilities
 
-**Cross-Reference Validation.** The commander verifies that documentation links, file references, and code examples point to existing, current resources rather than deleted or renamed targets. This capability spans the entire documentation corpus including Markdown content, ExDoc annotations, AIAD specifications, and Zola promo templates. [Meilisearch](/glossary/meilisearch/) integration enables full-text search validation across the documentation index, identifying semantic references that may not be explicit hyperlinks but still create implicit dependencies.
+**Cross-Reference Validation.** The commander verifies that documentation links, file references, and code examples point to existing, current resources rather than deleted or renamed targets. This capability spans the entire documentation corpus including Markdown content, ExDoc annotations, AIAD specifications, and Zola promo templates. [Meilisearch](@/glossary/meilisearch.md) integration enables full-text search validation across the documentation index, identifying semantic references that may not be explicit hyperlinks but still create implicit dependencies.
 
 **API Documentation Accuracy.** Documented function signatures, return types, and behavior descriptions are compared against actual module typespecs and implementations using Elixir introspection (`Code.fetch_docs/1`, `Code.Typespec.fetch_specs/1`). Discrepancies between documented and actual behavior are classified by severity: signature mismatches are critical violations, while description inaccuracies are standard warnings.
 
@@ -78,7 +78,7 @@ The aggregation pipeline combines validation results from all three tiers and ap
 
 ## Implementation
 
-The Documentation Validation Commander is implemented as a [GenServer](/glossary/genserver/) with [GenStage](/glossary/genstage/) integration for demand-driven validation pipeline processing.
+The Documentation Validation Commander is implemented as a [GenServer](@/glossary/genserver.md) with [GenStage](@/glossary/genstage.md) integration for demand-driven validation pipeline processing.
 
 ```elixir
 defmodule PrismaticAgents.DocumentationValidation.Commander do
@@ -162,13 +162,13 @@ The GenStage integration enables incremental validation campaigns that process c
 
 | Component | Integration Type | Purpose |
 |-----------|-----------------|---------|
-| [documentation-verifier](/agents/documentation-verifier/) | Verification Partner | Performs detailed document-level verification under commander directives |
-| [doc-specialist](/agents/doc-specialist/) | Content Authority | Handles documentation content creation and revision when validation identifies gaps |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | AIAD Validation | Validates AIAD agent specification documentation compliance |
-| [Meilisearch](/glossary/meilisearch/) | Search Engine | Full-text search across documentation corpus for semantic cross-reference validation |
-| [ETS](/glossary/ets/) | Cache Layer | Validation results cached for rapid re-query and drift tracking |
-| [SEADF](/glossary/seadf/) | Quality Framework | Documentation quality metrics feed into platform-wide quality monitoring |
-| [Telemetry](/glossary/telemetry/) | Observability | Validation campaign metrics and drift detection events |
+| [documentation-verifier](@/agents/documentation-verifier.md) | Verification Partner | Performs detailed document-level verification under commander directives |
+| [doc-specialist](@/agents/doc-specialist.md) | Content Authority | Handles documentation content creation and revision when validation identifies gaps |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | AIAD Validation | Validates AIAD agent specification documentation compliance |
+| [Meilisearch](@/glossary/meilisearch.md) | Search Engine | Full-text search across documentation corpus for semantic cross-reference validation |
+| [ETS](@/glossary/ets.md) | Cache Layer | Validation results cached for rapid re-query and drift tracking |
+| [SEADF](@/glossary/seadf.md) | Quality Framework | Documentation quality metrics feed into platform-wide quality monitoring |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Validation campaign metrics and drift detection events |
 
 ## Operational Workflow
 
@@ -184,7 +184,7 @@ The GenStage integration enables incremental validation campaigns that process c
 
 ## NABLA Compliance
 
-The Documentation Validation Commander enforces [NABLA Infinity](/glossary/nabla-infinity/) axioms specifically adapted for documentation quality assurance.
+The Documentation Validation Commander enforces [NABLA Infinity](@/glossary/nabla-infinity.md) axioms specifically adapted for documentation quality assurance.
 
 | Axiom | Documentation Enforcement |
 |-------|--------------------------|
@@ -233,11 +233,11 @@ config :prismatic_agents, PrismaticAgents.DocumentationValidation.Commander,
 
 ## Related Resources
 
-- [**documentation-verifier**](/agents/documentation-verifier/) (L3) - Performs detailed code-comment consistency checking and return type documentation verification
-- [**doc-specialist**](/agents/doc-specialist/) (L3) - Handles documentation content creation and revision under commander directives
-- [**aiad-verification-engine**](/agents/aiad-verification-engine/) - Validates AIAD agent specification documentation compliance
-- [**document-authentication-specialist**](/agents/document-authentication-specialist/) (L3) - Verifies document provenance and integrity, complementing content validation with authenticity assurance
-- [Lean4 Formal Verification](/glossary/lean4/) - Theorem proving framework used for documentation safety invariant proofs
+- [**documentation-verifier**](@/agents/documentation-verifier.md) (L3) - Performs detailed code-comment consistency checking and return type documentation verification
+- [**doc-specialist**](@/agents/doc-specialist.md) (L3) - Handles documentation content creation and revision under commander directives
+- [**aiad-verification-engine**](@/agents/aiad-verification-engine.md) - Validates AIAD agent specification documentation compliance
+- [**document-authentication-specialist**](@/agents/document-authentication-specialist.md) (L3) - Verifies document provenance and integrity, complementing content validation with authenticity assurance
+- [Lean4 Formal Verification](@/glossary/lean4.md) - Theorem proving framework used for documentation safety invariant proofs
 
 ---
 
@@ -246,4 +246,4 @@ config :prismatic_agents, PrismaticAgents.DocumentationValidation.Commander,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

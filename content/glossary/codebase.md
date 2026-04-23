@@ -36,7 +36,7 @@ image_alt = "Codebase - Prismatic Platform"
 
 ## Definition
 
-A codebase is the complete collection of source code, configuration files, tests, documentation, build scripts, and related artifacts that together constitute a software system. It represents the totality of human-written (and increasingly machine-generated) instructions that define a system's behavior, structure, and operational characteristics. The codebase is the single source of truth for what a software system does, how it does it, and how it is built, tested, and deployed. In the Prismatic Platform, the codebase encompasses approximately 2.8 million lines of code across 115 [umbrella applications](/glossary/umbrella-application/), 48,124 total files, 530 AIAD agents, and 225 commands -- representing one of the most comprehensive Elixir platforms in existence.
+A codebase is the complete collection of source code, configuration files, tests, documentation, build scripts, and related artifacts that together constitute a software system. It represents the totality of human-written (and increasingly machine-generated) instructions that define a system's behavior, structure, and operational characteristics. The codebase is the single source of truth for what a software system does, how it does it, and how it is built, tested, and deployed. In the Prismatic Platform, the codebase encompasses approximately 2.8 million lines of code across 115 [umbrella applications](@/glossary/umbrella-application.md), 48,124 total files, 530 AIAD agents, and 225 commands -- representing one of the most comprehensive Elixir platforms in existence.
 
 ## Overview
 
@@ -44,9 +44,9 @@ The concept of a codebase extends beyond mere source files. A modern codebase is
 
 Codebase organization profoundly impacts developer productivity, system reliability, and long-term maintainability. Research from Google's monorepo team and Microsoft's codebase studies demonstrates that codebase structure directly correlates with team effectiveness -- well-organized codebases reduce onboarding time, minimize merge conflicts, enable faster code reviews, and reduce defect rates. Conversely, poorly organized codebases create friction that compounds over time, leading to what is commonly called "technical debt."
 
-The scale of a codebase introduces distinct engineering challenges. Small codebases (under 100K LOC) can be held entirely in a single developer's mental model. Medium codebases (100K-1M LOC) require structured organization and tooling. Large codebases (1M+ LOC) demand sophisticated tooling for navigation, analysis, and build management. The Prismatic Platform, at 2.8M LOC, operates firmly in the large codebase category and employs specialized tools like [Git Trees](/glossary/git-trees/) for efficient navigation and [compilation](/glossary/compilation/) pipelines for build management.
+The scale of a codebase introduces distinct engineering challenges. Small codebases (under 100K LOC) can be held entirely in a single developer's mental model. Medium codebases (100K-1M LOC) require structured organization and tooling. Large codebases (1M+ LOC) demand sophisticated tooling for navigation, analysis, and build management. The Prismatic Platform, at 2.8M LOC, operates firmly in the large codebase category and employs specialized tools like [Git Trees](@/glossary/git-trees.md) for efficient navigation and [compilation](@/glossary/compilation.md) pipelines for build management.
 
-Two primary organizational strategies exist for large codebases: the monorepo (single repository containing all code) and the polyrepo (multiple repositories for different components). Prismatic uses a monorepo with [umbrella application](/glossary/umbrella-application/) structure, which provides the benefits of unified versioning and atomic cross-cutting changes while maintaining logical separation between components.
+Two primary organizational strategies exist for large codebases: the monorepo (single repository containing all code) and the polyrepo (multiple repositories for different components). Prismatic uses a monorepo with [umbrella application](@/glossary/umbrella-application.md) structure, which provides the benefits of unified versioning and atomic cross-cutting changes while maintaining logical separation between components.
 
 ## Technical Details
 
@@ -580,7 +580,7 @@ end
 
 ### Codebase Navigation with Git Trees
 
-Efficient navigation of large codebases requires specialized tooling. The Prismatic Platform mandates use of [Git Trees](/glossary/git-trees/) for all codebase exploration, achieving approximately 100x performance improvement over traditional `find` and `ls -R` commands:
+Efficient navigation of large codebases requires specialized tooling. The Prismatic Platform mandates use of [Git Trees](@/glossary/git-trees.md) for all codebase exploration, achieving approximately 100x performance improvement over traditional `find` and `ls -R` commands:
 
 ```bash
 # Repository-wide statistics (~80ms for 48,124 files)
@@ -689,7 +689,7 @@ prismatic-platform/
 
 Every file in the codebase is subject to quality enforcement:
 
-- **Source files** (`.ex`): [Compilation](/glossary/compilation/) with `--warnings-as-errors`, [Credo](/glossary/credo/) strict analysis, [Dialyzer](/glossary/dialyzer/) type checking, typespec coverage, forbidden pattern detection
+- **Source files** (`.ex`): [Compilation](@/glossary/compilation.md) with `--warnings-as-errors`, [Credo](@/glossary/credo.md) strict analysis, [Dialyzer](@/glossary/dialyzer.md) type checking, typespec coverage, forbidden pattern detection
 - **Test files** (`.exs`): Test execution with coverage, regression test requirements
 - **Configuration** (`.exs`): Compilation validation, security scanning for secrets
 - **Documentation** (`.md`): Content quality scoring (word count, sections, cross-references)
@@ -763,22 +763,22 @@ The promo site at `sites/promo/` demonstrates how a codebase can include public-
 
 ## Related Concepts
 
-- [Umbrella Application](/glossary/umbrella-application/) -- Elixir's native multi-application project structure
-- [Lines of Code](/glossary/lines-of-code/) -- Quantitative measurement of codebase size
-- [Project Structure](/glossary/project-structure/) -- Organizational patterns for source code
-- [Git Trees](/glossary/git-trees/) -- Efficient codebase navigation using git ls-tree
-- [Compilation](/glossary/compilation/) -- Transforming source code into executable form
-- [Code Quality](/glossary/code-quality/) -- Standards and practices for maintaining high-quality code
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality tracking and continuity
-- [Architecture](/glossary/architecture/) -- System-level structural design decisions
-- [Mix](/glossary/mix/) -- Elixir's build tool for managing the codebase
-- [Application](/glossary/application/) -- Individual OTP application within the umbrella
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Elixir's native multi-application project structure
+- [Lines of Code](@/glossary/lines-of-code.md) -- Quantitative measurement of codebase size
+- [Project Structure](@/glossary/project-structure.md) -- Organizational patterns for source code
+- [Git Trees](@/glossary/git-trees.md) -- Efficient codebase navigation using git ls-tree
+- [Compilation](@/glossary/compilation.md) -- Transforming source code into executable form
+- [Code Quality](@/glossary/code-quality.md) -- Standards and practices for maintaining high-quality code
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality tracking and continuity
+- [Architecture](@/glossary/architecture.md) -- System-level structural design decisions
+- [Mix](@/glossary/mix.md) -- Elixir's build tool for managing the codebase
+- [Application](@/glossary/application.md) -- Individual OTP application within the umbrella
 
 ## See Also
 
 - Glossary Index -- Complete glossary of Prismatic Platform terminology
-- [Elixir](/glossary/elixir/) -- The primary language of the Prismatic codebase
-- [Quality Gates](/glossary/quality-gates/) -- Automated quality enforcement checkpoints
+- [Elixir](@/glossary/elixir.md) -- The primary language of the Prismatic codebase
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated quality enforcement checkpoints
 
 ---
 
@@ -787,4 +787,4 @@ The promo site at `sites/promo/` demonstrates how a codebase can include public-
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

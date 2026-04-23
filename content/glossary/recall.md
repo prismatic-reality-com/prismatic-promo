@@ -508,25 +508,25 @@ end
 
 ## Related Terms
 
-- [Statistical Detection](/glossary/statistical-detection/) -- anomaly detection systems where recall is critical
-- [Threshold](/glossary/threshold/) -- the decision boundary that controls recall-precision tradeoff
-- [Signal](/glossary/signal/) -- the raw intelligence data recall measures detection completeness for
-- [R-squared](/glossary/r-squared/) -- model quality metric complementary to recall (for regression)
-- [Precision](/glossary/precision/) -- the complementary metric measuring detection accuracy
-- [F1 Score](/glossary/f1-score/) -- harmonic mean balancing precision and recall
+- [Statistical Detection](@/glossary/statistical-detection.md) -- anomaly detection systems where recall is critical
+- [Threshold](@/glossary/threshold.md) -- the decision boundary that controls recall-precision tradeoff
+- [Signal](@/glossary/signal.md) -- the raw intelligence data recall measures detection completeness for
+- [R-squared](@/glossary/r-squared.md) -- model quality metric complementary to recall (for regression)
+- [Precision](@/glossary/precision.md) -- the complementary metric measuring detection accuracy
+- [F1 Score](@/glossary/f1-score.md) -- harmonic mean balancing precision and recall
 - [Confusion Matrix](/glossary/confusion-matrix/) -- the fundamental table from which recall is derived
 - [ROC Curve](/glossary/roc-curve/) -- visualization of classifier performance across thresholds
 - [Specificity](/glossary/specificity/) -- true negative rate, the counterpart to recall
-- [Accuracy](/glossary/accuracy/) -- overall correctness metric, misleading on imbalanced data
+- [Accuracy](@/glossary/accuracy.md) -- overall correctness metric, misleading on imbalanced data
 - [AUC](/glossary/auc/) -- area under ROC or PR curve, threshold-independent performance measure
-- [Statistics](/glossary/statistics/) -- mathematical foundations underlying recall computation
+- [Statistics](@/glossary/statistics.md) -- mathematical foundations underlying recall computation
 
 ## See Also
 
-- [OSINT Tools](/osint/) -- intelligence tools where recall drives detection quality
-- [Perimeter Security](/capabilities/) -- asset discovery optimized for recall
+- [OSINT Tools](@/osint/_index.md) -- intelligence tools where recall drives detection quality
+- [Perimeter Security](@/capabilities/_index.md) -- asset discovery optimized for recall
 - [Sanctions Screening](/hub/dd/) -- compliance system with recall floor requirements
-- [Statistical Detection Architecture](/architecture/) -- multi-stage detection pipeline design
+- [Statistical Detection Architecture](@/architecture/_index.md) -- multi-stage detection pipeline design
 
 ---
 
@@ -535,4 +535,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

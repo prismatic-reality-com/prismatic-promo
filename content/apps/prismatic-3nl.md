@@ -23,7 +23,7 @@ image_alt = "Prismatic 3NL - Prismatic Platform"
 
 ## Abstract
 
-Prismatic [3NL](/glossary/three-nl/) (Three Natural Language) is the platform's epistemic natural language processing framework, implementing a three-level pipeline that transforms raw text through syntactic analysis (Level 1), semantic interpretation (Level 2), and epistemic verification (Level 3). Unlike conventional NLP systems that terminate at entity extraction or sentiment analysis, 3NL extends processing into the epistemic domain where extracted claims are assessed for truth value, assigned confidence scores, and verified against independent sources per the NABLA axiom framework. The system processes Czech and English text with full diacritics support, cross-language [entity resolution](/glossary/entity-resolution/), and transliteration normalization. Each processing level produces typed output that serves as input to the next, with provenance metadata propagated through the entire pipeline. The framework powers intelligence extraction from [OSINT](/glossary/osint/) sources, report generation with epistemic confidence annotations, and [knowledge graph](/glossary/knowledge-graph/) population from unstructured text.
+Prismatic [3NL](@/glossary/three-nl.md) (Three Natural Language) is the platform's epistemic natural language processing framework, implementing a three-level pipeline that transforms raw text through syntactic analysis (Level 1), semantic interpretation (Level 2), and epistemic verification (Level 3). Unlike conventional NLP systems that terminate at entity extraction or sentiment analysis, 3NL extends processing into the epistemic domain where extracted claims are assessed for truth value, assigned confidence scores, and verified against independent sources per the NABLA axiom framework. The system processes Czech and English text with full diacritics support, cross-language [entity resolution](@/glossary/entity-resolution.md), and transliteration normalization. Each processing level produces typed output that serves as input to the next, with provenance metadata propagated through the entire pipeline. The framework powers intelligence extraction from [OSINT](@/glossary/osint.md) sources, report generation with epistemic confidence annotations, and [knowledge graph](@/glossary/knowledge-graph.md) population from unstructured text.
 
 ## 1. Introduction
 
@@ -36,15 +36,15 @@ Prismatic 3NL automates this epistemic layer, producing intelligence output wher
 ### 1.2 Design Goals
 
 1. **Three-level processing pipeline** -- syntactic, semantic, and epistemic processing as distinct, composable stages.
-2. **Epistemic integration** -- NABLA axiom enforcement at the processing level, with [confidence scoring](/glossary/confidence-scoring/) and provenance tracking for all extracted facts.
+2. **Epistemic integration** -- NABLA axiom enforcement at the processing level, with [confidence scoring](@/glossary/confidence-scoring.md) and provenance tracking for all extracted facts.
 3. **Bilingual support** -- full Czech and English processing with cross-language entity resolution.
 4. **Pipeline composability** -- each level can be invoked independently or as part of the full pipeline.
 5. **Provenance propagation** -- every output datum carries complete lineage from source text through each processing stage.
-6. **Knowledge graph integration** -- extracted entities and relationships are structured for direct ingestion into [Prismatic Graph](/apps/prismatic-graph/).
+6. **Knowledge graph integration** -- extracted entities and relationships are structured for direct ingestion into [Prismatic Graph](@/apps/prismatic-graph.md).
 
 ### 1.3 Scope
 
-Prismatic 3NL covers text processing from raw input through epistemic verification. It does not implement speech-to-text (handled by [Prismatic Audio](/apps/prismatic-audio/)), image text extraction, or language translation. Cross-language entity resolution operates on pre-extracted entities, not full document translation.
+Prismatic 3NL covers text processing from raw input through epistemic verification. It does not implement speech-to-text (handled by [Prismatic Audio](@/apps/prismatic-audio.md)), image text extraction, or language translation. Cross-language entity resolution operates on pre-extracted entities, not full document translation.
 
 ## 2. Architecture
 
@@ -71,7 +71,7 @@ Raw Text Input
 | Module | Responsibility |
 |--------|----------------|
 | `Prismatic3NL` | Public facade: `process/2`, `extract_entities/1`, `analyze_semantics/1`, `verify_claims/2` |
-| `Prismatic3NL.Syntactic` | Level 1: [tokenization](/glossary/tokenization/), part-of-speech tagging, named entity recognition, parse tree construction |
+| `Prismatic3NL.Syntactic` | Level 1: [tokenization](@/glossary/tokenization.md), part-of-speech tagging, named entity recognition, parse tree construction |
 | `Prismatic3NL.Semantic` | Level 2: relationship extraction, context resolution, coreference resolution, temporal anchoring |
 | `Prismatic3NL.Epistemic` | Level 3: claim extraction, truth value assessment, confidence scoring, source cross-verification |
 | `Prismatic3NL.Czech` | Czech language specialization: diacritics handling, ICO/DIC recognition, legal entity type parsing |
@@ -101,7 +101,7 @@ Text enters through the facade, which routes it through the three levels sequent
 
 ### 3.1 Key Algorithms
 
-**Entity Resolution**. Cross-language entity resolution matches Czech and English references to the same entity using normalized names, known aliases, and contextual disambiguation. The resolver maintains an entity cache in [ETS](/glossary/ets/) for fast lookup and uses fuzzy matching with configurable thresholds for names that differ only in transliteration.
+**Entity Resolution**. Cross-language entity resolution matches Czech and English references to the same entity using normalized names, known aliases, and contextual disambiguation. The resolver maintains an entity cache in [ETS](@/glossary/ets.md) for fast lookup and uses fuzzy matching with configurable thresholds for names that differ only in transliteration.
 
 **Confidence Propagation**. When a claim derived at Level 3 depends on entities or relationships extracted at Levels 1 and 2, the confidence of the derived claim is bounded by the minimum confidence of its constituent parts. This ensures that uncertain entity extraction does not produce high-confidence conclusions.
 
@@ -164,21 +164,21 @@ config :prismatic_3nl,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Nabla](/apps/prismatic-nabla/) | Confidence scoring axiom enforcement |
-| [Prismatic Graph](/apps/prismatic-graph/) | Knowledge base for claim verification |
-| [Prismatic Storage](/apps/prismatic-storage/) | Entity and claim persistence |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | Confidence scoring axiom enforcement |
+| [Prismatic Graph](@/apps/prismatic-graph.md) | Knowledge base for claim verification |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Entity and claim persistence |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Intelligence extraction from source text |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | Regulatory document analysis |
-| [Prismatic Narrative](/apps/prismatic-narrative/) | Report generation with epistemic annotations |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Intelligence extraction from source text |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | Regulatory document analysis |
+| [Prismatic Narrative](@/apps/prismatic-narrative.md) | Report generation with epistemic annotations |
 
 ### 4.3 Inter-Process Communication
 
-Document processing tasks are dispatched via Task.[Supervisor](/glossary/supervisor/) for parallelism. The entity cache is shared via ETS for concurrent access. Confidence engine interactions are synchronous [GenServer](/glossary/genserver/) calls to maintain scoring consistency.
+Document processing tasks are dispatched via Task.[Supervisor](@/glossary/supervisor.md) for parallelism. The entity cache is shared via ETS for concurrent access. Confidence engine interactions are synchronous [GenServer](@/glossary/genserver.md) calls to maintain scoring consistency.
 
 ### 4.4 External Integrations
 
@@ -229,17 +229,17 @@ Adversarial text crafted to produce incorrect entity extraction or false confide
 
 ### 7.2 Access Control
 
-3NL processing requires `osint_query` permission through [Prismatic Auth](/apps/prismatic-auth/). Output documents containing personal data are subject to [GDPR](/glossary/gdpr/) retention policies.
+3NL processing requires `osint_query` permission through [Prismatic Auth](@/apps/prismatic-auth.md). Output documents containing personal data are subject to [GDPR](@/glossary/gdpr.md) retention policies.
 
 ## 8. Operational Considerations
 
 ### 8.1 Deployment
 
-Deploys as part of the umbrella [release](/glossary/release/) with bundled language resources. No external NLP services required.
+Deploys as part of the umbrella [release](@/glossary/release.md) with bundled language resources. No external NLP services required.
 
 ### 8.2 Monitoring
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :_3nl, :process]`, `[:prismatic, :_3nl, :entity_resolved]`, `[:prismatic, :_3nl, :claim_verified]`. [Metrics](/glossary/metrics/) include per-level processing latency, entity cache hit rate, and confidence score distributions.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :_3nl, :process]`, `[:prismatic, :_3nl, :entity_resolved]`, `[:prismatic, :_3nl, :claim_verified]`. [Metrics](@/glossary/metrics.md) include per-level processing latency, entity cache hit rate, and confidence score distributions.
 
 ### 8.3 Troubleshooting
 
@@ -256,22 +256,22 @@ Planned enhancements include support for additional languages (German, Slovak, P
 
 ## References
 
-- [Prismatic Nabla](/apps/prismatic-nabla/) -- Epistemic confidence framework
-- [Prismatic Graph](/apps/prismatic-graph/) -- Knowledge graph for claim verification
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Intelligence source pipeline
-- [Prismatic Audio](/apps/prismatic-audio/) -- Speech-to-text for audio sources
+- [Prismatic Nabla](@/apps/prismatic-nabla.md) -- Epistemic confidence framework
+- [Prismatic Graph](@/apps/prismatic-graph.md) -- Knowledge graph for claim verification
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Intelligence source pipeline
+- [Prismatic Audio](@/apps/prismatic-audio.md) -- Speech-to-text for audio sources
 
 ## Related Agents
 
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Enforces evidence provenance and confidence scoring requirements across the epistemic verification pipeline
-- [Cross-Pollination Specialist](/agents/cross-pollination-specialist/) -- Facilitates cross-domain knowledge transfer between the three processing levels and external intelligence systems
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Orchestrates continuous improvement of the 3NL pipeline through autonomous evolution cycles
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Enforces evidence provenance and confidence scoring requirements across the epistemic verification pipeline
+- [Cross-Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Facilitates cross-domain knowledge transfer between the three processing levels and external intelligence systems
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Orchestrates continuous improvement of the 3NL pipeline through autonomous evolution cycles
 
 ## Related Capabilities
 
-- [Trinity Gate](/capabilities/trinity-gate/) -- Three-layer verification gate ensuring structural, logical, and formal consistency of epistemic claims produced at Level 3
-- [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) -- Combines syntactic, semantic, and epistemic paradigms for comprehensive natural language intelligence extraction
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Seven non-negotiable axioms governing confidence scoring, provenance tracking, and signal plurality in the epistemic layer
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Three-layer verification gate ensuring structural, logical, and formal consistency of epistemic claims produced at Level 3
+- [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) -- Combines syntactic, semantic, and epistemic paradigms for comprehensive natural language intelligence extraction
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Seven non-negotiable axioms governing confidence scoring, provenance tracking, and signal plurality in the epistemic layer
 
 ---
 
@@ -280,4 +280,4 @@ Planned enhancements include support for additional languages (German, Slovak, P
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

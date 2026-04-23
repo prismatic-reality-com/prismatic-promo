@@ -27,11 +27,11 @@ image_alt = "Court Cases (Czech) - Prismatic Platform"
 
 The Czech Court Decisions database (rozhodnuti.justice.cz) is the official public repository of court decisions maintained by the Czech Ministry of Justice. It provides access to decisions from the Supreme Court (Nejvyssi soud), Supreme Administrative Court (Nejvyssi spravni soud), Constitutional Court (Ustavni soud), and selected lower court decisions from regional and district courts. The database is searchable by case number, subject matter, judge, date, and full-text content, providing comprehensive access to Czech judicial output.
 
-For [OSINT](/glossary/osint/) purposes, Czech court decisions reveal critical intelligence about entities and individuals: criminal convictions, civil disputes, commercial litigation, administrative sanctions, insolvency proceedings, intellectual property disputes, and constitutional complaints. This data is essential for comprehensive due diligence, litigation risk assessment, and compliance verification. Decisions often name parties, their legal representatives, and contain detailed factual findings that provide investigative leads beyond what corporate registry data alone can reveal.
+For [OSINT](@/glossary/osint.md) purposes, Czech court decisions reveal critical intelligence about entities and individuals: criminal convictions, civil disputes, commercial litigation, administrative sanctions, insolvency proceedings, intellectual property disputes, and constitutional complaints. This data is essential for comprehensive due diligence, litigation risk assessment, and compliance verification. Decisions often name parties, their legal representatives, and contain detailed factual findings that provide investigative leads beyond what corporate registry data alone can reveal.
 
 The database covers decisions from the highest Czech courts comprehensively, while lower court coverage is selective. Supreme Court decisions include civil and criminal cassation rulings with detailed legal reasoning. Supreme Administrative Court decisions cover tax disputes, regulatory challenges, asylum cases, and administrative law. Constitutional Court decisions address constitutional complaints, abstract judicial review, and competence disputes. This hierarchical coverage means that significant cases are reliably captured, while routine lower court matters may not be fully indexed.
 
-Within the Prismatic platform, the Court Cases module provides legal intelligence that complements corporate data from [ARES](/osint/ares/), competition decisions from [UOHS](/osint/uohs/), insolvency data from the [Insolvency Registry](/osint/insolvencni-rejstrik/), and enforcement data from the [Executors](/osint/executors/) registry.
+Within the Prismatic platform, the Court Cases module provides legal intelligence that complements corporate data from [ARES](@/osint/ares.md), competition decisions from [UOHS](@/osint/uohs.md), insolvency data from the [Insolvency Registry](@/osint/insolvencni-rejstrik.md), and enforcement data from the [Executors](@/osint/executors.md) registry.
 
 ## Data Sources and Coverage
 
@@ -186,7 +186,7 @@ end
 
 ### Legal Due Diligence
 
-Court decisions provide essential intelligence for comprehensive entity due diligence. Key applications include searching for litigation history of target entities and their officers, identifying criminal proceedings involving company directors or beneficial owners, assessing patterns of commercial disputes that may indicate contractual reliability issues, cross-referencing case parties with [Justice.cz](/osint/justice-cz/) corporate data for entity identification, and analyzing the nature and outcomes of past litigation to assess future legal risk.
+Court decisions provide essential intelligence for comprehensive entity due diligence. Key applications include searching for litigation history of target entities and their officers, identifying criminal proceedings involving company directors or beneficial owners, assessing patterns of commercial disputes that may indicate contractual reliability issues, cross-referencing case parties with [Justice.cz](@/osint/justice-cz.md) corporate data for entity identification, and analyzing the nature and outcomes of past litigation to assess future legal risk.
 
 ### Compliance and Risk Assessment
 
@@ -212,9 +212,9 @@ Full-text search accuracy depends on the quality of OCR processing for older dec
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, the Court Cases module feeds legal intelligence into the comprehensive entity risk assessment pipeline. Court decision data is correlated with [ARES](/osint/ares/) entity data for company identification, [Insolvency Registry](/osint/insolvencni-rejstrik/) data for financial distress correlation, [Executors](/osint/executors/) data for enforcement action correlation, [UOHS](/osint/uohs/) competition decisions for regulatory risk assessment, and [EU Sanctions](/osint/eu-sanctions/) data for sanctions-related legal proceedings.
+Within the Prismatic ecosystem, the Court Cases module feeds legal intelligence into the comprehensive entity risk assessment pipeline. Court decision data is correlated with [ARES](@/osint/ares.md) entity data for company identification, [Insolvency Registry](@/osint/insolvencni-rejstrik.md) data for financial distress correlation, [Executors](@/osint/executors.md) data for enforcement action correlation, [UOHS](@/osint/uohs.md) competition decisions for regulatory risk assessment, and [EU Sanctions](@/osint/eu-sanctions.md) data for sanctions-related legal proceedings.
 
-The [Prismatic Perimeter](/apps/prismatic-perimeter/) security rating engine incorporates legal risk indicators from court decision analysis, with criminal proceedings and competition violations contributing negatively to entity security ratings.
+The [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security rating engine incorporates legal risk indicators from court decision analysis, with criminal proceedings and competition violations contributing negatively to entity security ratings.
 
 ## NABLA Compliance
 
@@ -245,12 +245,12 @@ The Prismatic adapter caches search results with 7-day TTL and full decision tex
 
 ## Related Resources
 
-- [Justice.cz](/osint/justice-cz/) - Commercial register and corporate details
-- [Insolvency Registry](/osint/insolvencni-rejstrik/) - Insolvency proceedings
-- [UOHS](/osint/uohs/) - Competition law decisions
-- [Executors](/osint/executors/) - Execution proceedings
-- [ARES](/osint/ares/) - Entity identification for case parties
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
+- [Justice.cz](@/osint/justice-cz.md) - Commercial register and corporate details
+- [Insolvency Registry](@/osint/insolvencni-rejstrik.md) - Insolvency proceedings
+- [UOHS](@/osint/uohs.md) - Competition law decisions
+- [Executors](@/osint/executors.md) - Execution proceedings
+- [ARES](@/osint/ares.md) - Entity identification for case parties
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
 
 ---
 
@@ -259,4 +259,4 @@ The Prismatic adapter caches search results with 7-day TTL and full decision tex
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -254,11 +254,11 @@ Z-score anomaly detection integrates with the platform's triage system, where de
 
 ## Cross-References
 
-- [Variance](/glossary/variance/) - Statistical dispersion used in z-score calculation
-- [Time Series](/glossary/time-series/) - Temporal data analyzed for anomalies
-- [Trend](/glossary/trend/) - Directional patterns complementing anomaly detection
-- [Monitoring](/glossary/monitoring/) - Observation systems generating z-score data
-- [Triage](/glossary/triage/) - Prioritization of detected anomalies
+- [Variance](@/glossary/variance.md) - Statistical dispersion used in z-score calculation
+- [Time Series](@/glossary/time-series.md) - Temporal data analyzed for anomalies
+- [Trend](@/glossary/trend.md) - Directional patterns complementing anomaly detection
+- [Monitoring](@/glossary/monitoring.md) - Observation systems generating z-score data
+- [Triage](@/glossary/triage.md) - Prioritization of detected anomalies
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

@@ -39,7 +39,7 @@ Microservices is an architectural style in which an application is structured as
 
 The microservices architecture emerged as a response to the limitations of monolithic applications, where all functionality resides in a single deployable unit. In a monolith, changes to any component require rebuilding and redeploying the entire application, scaling requires replicating the entire application even when only one component is the bottleneck, and a failure in one component can cascade to bring down the entire system. Microservices address these limitations by decomposing the monolith into independently operable units, trading the simplicity of a single deployment for the flexibility of independent lifecycle management.
 
-However, microservices introduce substantial [distributed systems](/glossary/distributed-system/) complexity: network communication replaces function calls, data consistency requires distributed transactions or [eventual consistency](/glossary/eventual-consistency/) patterns, debugging spans multiple services, and deployment requires orchestration infrastructure (Kubernetes, service mesh). The decision between monolithic and microservice architectures is not a matter of one being superior to the other but of understanding which complexity profile better fits the organization's size, team structure, deployment requirements, and operational maturity.
+However, microservices introduce substantial [distributed systems](@/glossary/distributed-system.md) complexity: network communication replaces function calls, data consistency requires distributed transactions or [eventual consistency](@/glossary/eventual-consistency.md) patterns, debugging spans multiple services, and deployment requires orchestration infrastructure (Kubernetes, service mesh). The decision between monolithic and microservice architectures is not a matter of one being superior to the other but of understanding which complexity profile better fits the organization's size, team structure, deployment requirements, and operational maturity.
 
 ## Historical Context
 
@@ -62,7 +62,7 @@ Modern architectures exist on a spectrum rather than as a binary choice:
 | **Microservices** | Multiple independent deployments | Many artifacts | Network (HTTP, gRPC, messaging) | Independent teams per service |
 | **Serverless** | Functions deployed individually, no server management | Per-function | Event-driven | Per-function ownership |
 
-The Prismatic Platform occupies the "modular monolith" position, using Elixir's [umbrella application](/glossary/umbrella-application/) pattern to achieve microservice-like modularity within a single [BEAM](/glossary/beam/) deployment. Each umbrella app is an independent bounded context with its own compilation, testing, and [supervision tree](/glossary/supervision-tree/), but they communicate through in-process function calls rather than network APIs.
+The Prismatic Platform occupies the "modular monolith" position, using Elixir's [umbrella application](@/glossary/umbrella-application.md) pattern to achieve microservice-like modularity within a single [BEAM](@/glossary/beam.md) deployment. Each umbrella app is an independent bounded context with its own compilation, testing, and [supervision tree](@/glossary/supervision-tree.md), but they communicate through in-process function calls rather than network APIs.
 
 ## Key Principles
 
@@ -72,7 +72,7 @@ The Prismatic Platform occupies the "modular monolith" position, using Elixir's 
 | **Data ownership** | Each service owns its database/storage | Cross-service queries require APIs |
 | **Independent deployment** | Services deploy without coordinating with others | Version compatibility complexity |
 | **Technology freedom** | Each service can use different languages/frameworks | Operational diversity overhead |
-| **Resilience** | Service failure is isolated, does not cascade | Requires [circuit breakers](/glossary/circuit-breaker/), retries |
+| **Resilience** | Service failure is isolated, does not cascade | Requires [circuit breakers](@/glossary/circuit-breaker.md), retries |
 | **Scalability** | Scale individual services based on their load | Container orchestration overhead |
 | **Decentralized governance** | Teams choose their own tools and patterns | Consistency requires conventions |
 | **Design for failure** | Every service call can fail | Error handling is pervasive |
@@ -84,7 +84,7 @@ The Prismatic Platform occupies the "modular monolith" position, using Elixir's 
 | **Synchronous REST** | HTTP/JSON | Simple CRUD, queries | Higher | Medium |
 | **Synchronous gRPC** | HTTP/2 + Protobuf | Performance-critical, typed APIs | Higher | Low |
 | **Async messaging** | AMQP, Kafka | Event-driven, eventual consistency | Lower | Higher |
-| **[Event sourcing](/glossary/event-sourcing/)** | Event log | Audit trails, temporal queries | Lowest | Varies |
+| **[Event sourcing](@/glossary/event-sourcing.md)** | Event log | Audit trails, temporal queries | Lowest | Varies |
 | **Saga pattern** | Choreography/orchestration | Distributed transactions | Medium | High |
 
 ## Service Decomposition Strategies
@@ -92,7 +92,7 @@ The Prismatic Platform occupies the "modular monolith" position, using Elixir's 
 | Strategy | Approach | Example | Risk |
 |----------|----------|---------|------|
 | **By business capability** | Each service maps to a business function | Payment service, Inventory service | Anemic services |
-| **By domain (DDD)** | Services align with [bounded contexts](/glossary/bounded-context/) | Order context, Shipping context | Over-decomposition |
+| **By domain (DDD)** | Services align with [bounded contexts](@/glossary/bounded-context.md) | Order context, Shipping context | Over-decomposition |
 | **By data ownership** | Services grouped by data domain | Customer data service, Product catalog | Data duplication |
 | **Strangler fig** | Incrementally extract from monolith | Extract authentication first, then billing | Partial migration |
 | **Team topology** | Services aligned to team boundaries | Conway's Law compliance | Organizational rigidity |
@@ -125,7 +125,7 @@ Microservices are subject to all eight fallacies of distributed computing, formu
 7. Transport cost is zero
 8. The network is homogeneous
 
-Each fallacy represents a class of failures that do not exist in monolithic architectures but must be handled in microservices through retries, [circuit breakers](/glossary/circuit-breaker/), timeouts, encryption, service discovery, and careful capacity planning. The Prismatic Platform avoids these fallacies entirely for internal communication by keeping all services within a single BEAM node, where function calls are local, latency is microseconds, and network partitions are impossible.
+Each fallacy represents a class of failures that do not exist in monolithic architectures but must be handled in microservices through retries, [circuit breakers](@/glossary/circuit-breaker.md), timeouts, encryption, service discovery, and careful capacity planning. The Prismatic Platform avoids these fallacies entirely for internal communication by keeping all services within a single BEAM node, where function calls are local, latency is microseconds, and network partitions are impossible.
 
 ## Implementation in Prismatic Platform
 
@@ -174,7 +174,7 @@ end
 | **Data sharing** | Shared PostgreSQL with schema boundaries | Database per service |
 | **Latency** | Microseconds (function call) | Milliseconds (network) |
 | **Transactions** | ACID across apps (same DB) | Saga/eventual consistency |
-| **Failure isolation** | [OTP](/glossary/otp/) supervision trees | Service mesh, circuit breakers |
+| **Failure isolation** | [OTP](@/glossary/otp.md) supervision trees | Service mesh, circuit breakers |
 | **Independent testing** | Each app compilable/testable alone | Each service runnable alone |
 | **Dependency management** | mix.exs declares inter-app deps | API contracts, versioning |
 | **Team boundaries** | App ownership (same repo) | Service ownership (separate repos) |
@@ -213,7 +213,7 @@ defmodule Prismatic.ArchitecturalPhilosophy do
 end
 ```
 
-The [BEAM](/glossary/beam/) virtual machine provides most of what microservices architectures simulate through external infrastructure. Process isolation provides failure boundaries, [supervision trees](/glossary/supervision-tree/) provide automatic recovery, message passing provides asynchronous communication, and distribution provides cross-node deployment. Layering HTTP-based microservices on top of the BEAM means paying the distributed systems tax without receiving its benefits.
+The [BEAM](@/glossary/beam.md) virtual machine provides most of what microservices architectures simulate through external infrastructure. Process isolation provides failure boundaries, [supervision trees](@/glossary/supervision-tree.md) provide automatic recovery, message passing provides asynchronous communication, and distribution provides cross-node deployment. Layering HTTP-based microservices on top of the BEAM means paying the distributed systems tax without receiving its benefits.
 
 ## When Microservices Are Appropriate
 
@@ -244,11 +244,11 @@ The key insight is that microservices solve organizational scaling problems, not
 
 1. **Start Monolithic, Extract When Needed**: Do not begin with microservices. Start with a well-structured monolith (or umbrella), and extract services only when organizational scaling demands it. Premature decomposition creates complexity without benefit.
 
-2. **Define Clear Boundaries First**: Whether using microservices or umbrella apps, establish [bounded contexts](/glossary/bounded-context/) before writing code. Each boundary should encapsulate a cohesive business capability with a well-defined API. The Prismatic Platform's 115 umbrella apps each represent a distinct bounded context.
+2. **Define Clear Boundaries First**: Whether using microservices or umbrella apps, establish [bounded contexts](@/glossary/bounded-context.md) before writing code. Each boundary should encapsulate a cohesive business capability with a well-defined API. The Prismatic Platform's 115 umbrella apps each represent a distinct bounded context.
 
 3. **Prefer In-Process Communication**: When services run on the same platform (BEAM), prefer function calls over network communication. Network calls add latency, failure modes, and serialization overhead that in-process calls avoid.
 
-4. **Use OTP for What Microservices Promise**: Process isolation, [supervision trees](/glossary/supervision-tree/), hot code reload, and distributed Erlang provide the benefits that microservices architectures simulate. Use the platform's native capabilities rather than reimplementing them through infrastructure.
+4. **Use OTP for What Microservices Promise**: Process isolation, [supervision trees](@/glossary/supervision-tree.md), hot code reload, and distributed Erlang provide the benefits that microservices architectures simulate. Use the platform's native capabilities rather than reimplementing them through infrastructure.
 
 5. **Accept the Trade-offs Consciously**: If you choose microservices, accept the full complexity cost: distributed tracing, service discovery, circuit breakers, eventual consistency, contract testing, and deployment orchestration. Partial adoption leads to the worst of both worlds.
 
@@ -258,30 +258,30 @@ The key insight is that microservices solve organizational scaling problems, not
 
 - **Umbrella Application Architecture**: The Prismatic Platform's 115 umbrella applications demonstrate how microservice-like modularity is achieved within a monolithic BEAM deployment, with each app maintaining independent compilation, testing, and supervision.
 
-- **[API Gateway](/glossary/api-gateway/) Pattern**: The `prismatic_api` application functions as an API gateway, exposing internal umbrella app functionality through a unified REST interface -- a pattern borrowed from microservices architecture.
+- **[API Gateway](@/glossary/api-gateway.md) Pattern**: The `prismatic_api` application functions as an API gateway, exposing internal umbrella app functionality through a unified REST interface -- a pattern borrowed from microservices architecture.
 
-- **Storage Adapter Abstraction**: The [adapter pattern](/glossary/adapter-pattern/) across 7 storage backends (ETS, Ecto, Meilisearch, KuzuDB, DuckDB, Redis, PostgreSQL) provides the data isolation that microservices achieve through database-per-service, but without network overhead.
+- **Storage Adapter Abstraction**: The [adapter pattern](@/glossary/adapter-pattern.md) across 7 storage backends (ETS, Ecto, Meilisearch, KuzuDB, DuckDB, Redis, PostgreSQL) provides the data isolation that microservices achieve through database-per-service, but without network overhead.
 
 - **Agent Specialization**: The 530 AIAD agents operate as specialized units with defined responsibilities, communicating through message passing -- achieving the single-responsibility principle of microservices through OTP processes.
 
 ## Related Concepts
 
-- [Bounded Context](/glossary/bounded-context/) - DDD concept mapped to service or umbrella app boundaries
-- [Domain-Driven Design](/glossary/domain-driven-design/) - Methodology informing service decomposition
-- [API Gateway](/glossary/api-gateway/) - Entry point for external access to services
-- [Umbrella Application](/glossary/umbrella-application/) - Elixir mechanism providing microservice modularity
-- [Distributed System](/glossary/distributed-system/) - Architecture pattern that microservices create
-- [Circuit Breaker](/glossary/circuit-breaker/) - Resilience pattern essential in microservices
-- [Supervisor](/glossary/supervisor/) - OTP alternative to microservice fault isolation
-- [Event Sourcing](/glossary/event-sourcing/) - Data pattern enabling microservice data independence
-- [CAP Theorem](/glossary/cap-theorem/) - Fundamental constraint governing distributed data
-- [Eventual Consistency](/glossary/eventual-consistency/) - Data model required by microservice data ownership
+- [Bounded Context](@/glossary/bounded-context.md) - DDD concept mapped to service or umbrella app boundaries
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) - Methodology informing service decomposition
+- [API Gateway](@/glossary/api-gateway.md) - Entry point for external access to services
+- [Umbrella Application](@/glossary/umbrella-application.md) - Elixir mechanism providing microservice modularity
+- [Distributed System](@/glossary/distributed-system.md) - Architecture pattern that microservices create
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Resilience pattern essential in microservices
+- [Supervisor](@/glossary/supervisor.md) - OTP alternative to microservice fault isolation
+- [Event Sourcing](@/glossary/event-sourcing.md) - Data pattern enabling microservice data independence
+- [CAP Theorem](@/glossary/cap-theorem.md) - Fundamental constraint governing distributed data
+- [Eventual Consistency](@/glossary/eventual-consistency.md) - Data model required by microservice data ownership
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture and umbrella vs microservices analysis
-- [Apps](/apps/) - Catalog of 115 umbrella applications
-- [Technologies](/technologies/) - Technology stack and architectural patterns
+- [Architecture](@/architecture/_index.md) - Platform architecture and umbrella vs microservices analysis
+- [Apps](@/apps/_index.md) - Catalog of 115 umbrella applications
+- [Technologies](@/technologies/_index.md) - Technology stack and architectural patterns
 
 ---
 
@@ -290,4 +290,4 @@ The key insight is that microservices solve organizational scaling problems, not
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

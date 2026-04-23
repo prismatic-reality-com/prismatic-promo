@@ -25,11 +25,11 @@ image_alt = "Compliance Assessment - Prismatic Platform"
 
 ## Overview
 
-The Compliance Assessment endpoint evaluates an organization's externally observable security posture against regulatory compliance frameworks. Currently supported frameworks are the **NIS2 Directive** (EU 2022/2555) and the **ZKB 264/2025 Sb.** (Czech cybersecurity regulation). The assessment maps findings from the [Attack Surface Discovery](/api/perimeter-discover/) system to specific regulatory requirements and produces a structured compliance report with gap analysis.
+The Compliance Assessment endpoint evaluates an organization's externally observable security posture against regulatory compliance frameworks. Currently supported frameworks are the **NIS2 Directive** (EU 2022/2555) and the **ZKB 264/2025 Sb.** (Czech cybersecurity regulation). The assessment maps findings from the [Attack Surface Discovery](@/api/perimeter-discover.md) system to specific regulatory requirements and produces a structured compliance report with gap analysis.
 
 Unlike internal compliance tools that require agent installation and access to internal systems, this endpoint assesses compliance purely from external observations. It answers the question: "Based on what is visible from the internet, does this organization appear to meet the externally observable requirements of the specified frameworks?"
 
-Each compliance check maps to a specific article and paragraph of the regulatory text. The assessment produces a per-requirement status (compliant, partially compliant, non-compliant, or indeterminate) along with evidence citations and remediation guidance. The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework ensures that indeterminate findings are preserved as valid states rather than being collapsed into false certainty.
+Each compliance check maps to a specific article and paragraph of the regulatory text. The assessment produces a per-requirement status (compliant, partially compliant, non-compliant, or indeterminate) along with evidence citations and remediation guidance. The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework ensures that indeterminate findings are preserved as valid states rather than being collapsed into false certainty.
 
 This capability positions the Prismatic Platform alongside dedicated GRC (Governance, Risk, and Compliance) tools while integrating directly with the EASM workflow.
 
@@ -250,7 +250,7 @@ Authorization: Bearer <api_token>
 
 ### Confidence Levels
 
-Each requirement includes a confidence score (0.0 to 1.0) indicating how reliably the compliance status can be determined from external observation. The [NABLA Infinity](/glossary/nabla-infinity/) framework mandates that low-confidence assessments are flagged rather than presented as certain.
+Each requirement includes a confidence score (0.0 to 1.0) indicating how reliably the compliance status can be determined from external observation. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework mandates that low-confidence assessments are flagged rather than presented as certain.
 
 | Confidence | Interpretation |
 |------------|---------------|
@@ -364,10 +364,10 @@ for fw_name, fw_data in data["frameworks"].items():
 
 ## Related Endpoints
 
-- [Attack Surface Discovery](/api/perimeter-discover/) -- Generate the discovery data that compliance assessment uses
-- [Security Rating](/api/perimeter-rating/) -- Complementary security score from the same underlying data
-- [Webhooks](/api/webhooks/) -- Get notified when compliance status changes
-- [Error Handling](/api/error-handling/) -- Standard error response format
+- [Attack Surface Discovery](@/api/perimeter-discover.md) -- Generate the discovery data that compliance assessment uses
+- [Security Rating](@/api/perimeter-rating.md) -- Complementary security score from the same underlying data
+- [Webhooks](@/api/webhooks.md) -- Get notified when compliance status changes
+- [Error Handling](@/api/error-handling.md) -- Standard error response format
 
 ---
 
@@ -376,4 +376,4 @@ for fw_name, fw_data in data["frameworks"].items():
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

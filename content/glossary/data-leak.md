@@ -461,24 +461,24 @@ end
 
 ## Related Terms
 
-- [Data Breach](/glossary/data-breach/) -- Active security boundary violations, distinct from passive leaks
-- [EASM](/glossary/easm/) -- External attack surface management for continuous leak detection
-- [Dark Web](/glossary/dark-web/) -- Networks where leaked data is traded and distributed
-- [OSINT](/glossary/osint/) -- Intelligence collection methodology for discovering data leaks
+- [Data Breach](@/glossary/data-breach.md) -- Active security boundary violations, distinct from passive leaks
+- [EASM](@/glossary/easm.md) -- External attack surface management for continuous leak detection
+- [Dark Web](@/glossary/dark-web.md) -- Networks where leaked data is traded and distributed
+- [OSINT](@/glossary/osint.md) -- Intelligence collection methodology for discovering data leaks
 - [SEAL](/glossary/seal/) -- Security Enforcement Absolute Lock doctrine preventing leaks
-- [DMARC](/glossary/dmarc/) -- Email authentication preventing information leakage through spoofed messages
-- [Encryption](/glossary/encryption/) -- Data protection rendering leaked data unreadable
-- [Input Sanitization](/glossary/input-sanitization/) -- Preventing injection attacks that lead to data exposure
+- [DMARC](@/glossary/dmarc.md) -- Email authentication preventing information leakage through spoofed messages
+- [Encryption](@/glossary/encryption.md) -- Data protection rendering leaked data unreadable
+- [Input Sanitization](@/glossary/input-sanitization.md) -- Preventing injection attacks that lead to data exposure
 - [Cloud Security](/glossary/cloud-security/) -- Securing cloud resources against misconfiguration
 - [Secret Scanning](/glossary/secret-scanning/) -- Automated detection of credentials in code
 - [DLP](/glossary/dlp/) -- Data Loss Prevention systems controlling data movement
-- [GDPR](/glossary/gdpr/) -- EU regulation governing personal data breach notification
+- [GDPR](@/glossary/gdpr.md) -- EU regulation governing personal data breach notification
 
 ## See Also
 
-- [OSINT Tools](/osint/) -- Platform tools for leak detection and monitoring
-- [Capabilities](/capabilities/) -- Security monitoring capabilities
-- [Architecture](/architecture/) -- Platform security architecture
+- [OSINT Tools](@/osint/_index.md) -- Platform tools for leak detection and monitoring
+- [Capabilities](@/capabilities/_index.md) -- Security monitoring capabilities
+- [Architecture](@/architecture/_index.md) -- Platform security architecture
 - **SEAL Doctrine** -- Pre-commit and CI enforcement preventing code-level leaks
 - **Prismatic Perimeter** -- EASM module for continuous attack surface monitoring
 - **NIS2 Compliance** -- European directive requiring incident response capabilities
@@ -490,4 +490,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

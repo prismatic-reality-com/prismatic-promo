@@ -26,7 +26,7 @@ image_alt = "Argon2 - Prismatic Platform"
 
 Argon2 is the password hashing algorithm used in the Prismatic Platform for secure credential storage. Winner of the Password Hashing Competition (PHC) in 2015, Argon2 is specifically designed to be resistant to GPU and ASIC-based cracking attacks by requiring significant memory in addition to CPU time -- making parallel cracking attempts prohibitively expensive. This memory-hardness property is what distinguishes Argon2 from older algorithms like bcrypt and scrypt, which are primarily CPU-bound and increasingly vulnerable to specialized hardware attacks.
 
-The Prismatic Platform uses Argon2id (the hybrid variant) for all password hashing operations. This variant combines Argon2i's resistance to side-channel attacks with Argon2d's resistance to GPU cracking, providing the best overall security profile for credential storage. The platform's authentication system never stores plain-text passwords -- all credentials are hashed with Argon2id before storage in [PostgreSQL](/technologies/postgresql/), and verification occurs by rehashing the provided password and comparing the result.
+The Prismatic Platform uses Argon2id (the hybrid variant) for all password hashing operations. This variant combines Argon2i's resistance to side-channel attacks with Argon2d's resistance to GPU cracking, providing the best overall security profile for credential storage. The platform's authentication system never stores plain-text passwords -- all credentials are hashed with Argon2id before storage in [PostgreSQL](@/technologies/postgresql.md), and verification occurs by rehashing the provided password and comparing the result.
 
 Argon2's configurable parameters (memory, iterations, parallelism) allow the platform to tune the hashing cost to balance security and user experience, targeting a hash time of approximately 500ms on production hardware. This deliberate slowness is a feature, not a bug -- it ensures that even if the password database is compromised, attackers face an enormous computational cost to crack individual passwords. The platform implements automatic parameter upgrades so that as hardware improves, existing password hashes are transparently rehashed with stronger parameters during the next successful login.
 
@@ -55,7 +55,7 @@ Argon2 provides a comprehensive set of security properties that make it the curr
 
 ## Platform Integration
 
-Argon2 secures all credential storage in the platform through a dedicated password module that encapsulates hashing, verification, and parameter management. The module is used by the authentication system in [prismatic_web](/apps/prismatic-web/) and any service that handles user credentials.
+Argon2 secures all credential storage in the platform through a dedicated password module that encapsulates hashing, verification, and parameter management. The module is used by the authentication system in [prismatic_web](@/apps/prismatic-web.md) and any service that handles user credentials.
 
 ```elixir
 defmodule PrismaticWeb.Auth.Password do
@@ -141,7 +141,7 @@ Argon2 sits at the security foundation layer of the platform's authentication ar
 | Application | Rate Limiting | Brute-force prevention |
 | Session | JOSE/JWT | Stateless authentication tokens |
 | Credential | **Argon2id** | **Password hashing at rest** |
-| Storage | [PostgreSQL](/technologies/postgresql/) | Encrypted storage backend |
+| Storage | [PostgreSQL](@/technologies/postgresql.md) | Encrypted storage backend |
 
 The platform's defense-in-depth strategy means Argon2 is never the only protection mechanism, but it is the critical one that protects credentials even when all other layers have been compromised. The authentication flow ensures that plaintext passwords exist in memory only for the duration of the hash comparison and are never logged, cached, or transmitted after initial receipt.
 
@@ -210,17 +210,17 @@ The platform chose Argon2id over other password hashing algorithms based on a co
 
 ## Related Technologies
 
-- [PostgreSQL](/technologies/postgresql/) - Credential storage backend where hashed passwords are persisted
-- [Phoenix Framework](/technologies/phoenix/) - Web framework providing the authentication endpoints
-- [Elixir](/technologies/elixir/) - Runtime environment through the argon2_elixir NIF binding
-- [BEAM](/technologies/beam/) - Virtual machine that manages the NIF thread pool for Argon2 operations
-- [Docker](/technologies/docker/) - Container environment where Argon2 NIF libraries must be compiled
+- [PostgreSQL](@/technologies/postgresql.md) - Credential storage backend where hashed passwords are persisted
+- [Phoenix Framework](@/technologies/phoenix.md) - Web framework providing the authentication endpoints
+- [Elixir](@/technologies/elixir.md) - Runtime environment through the argon2_elixir NIF binding
+- [BEAM](@/technologies/beam.md) - Virtual machine that manages the NIF thread pool for Argon2 operations
+- [Docker](@/technologies/docker.md) - Container environment where Argon2 NIF libraries must be compiled
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - User authentication and session management
-- [prismatic_auth](/apps/prismatic-auth/) - Authentication module housing the password hashing logic
-- [prismatic_safety](/apps/prismatic-safety/) - Security audit monitoring of authentication operations
+- [prismatic_web](@/apps/prismatic-web.md) - User authentication and session management
+- [prismatic_auth](@/apps/prismatic-auth.md) - Authentication module housing the password hashing logic
+- [prismatic_safety](@/apps/prismatic-safety.md) - Security audit monitoring of authentication operations
 
 ---
 
@@ -229,4 +229,4 @@ The platform chose Argon2id over other password hashing algorithms based on a co
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

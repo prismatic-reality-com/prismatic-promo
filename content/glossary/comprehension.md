@@ -33,9 +33,9 @@ image_alt = "Comprehension - Prismatic Platform"
 
 ## Definition and Overview
 
-Comprehensions in Elixir use the `for` special form to iterate over enumerables, apply filters, and collect results into various data structures via the `:into` option. They combine generators (iterating sources), filters (guard expressions), and collectors (target containers like lists, maps, or binaries) in a single expressive construct. Comprehensions support multiple generators for cartesian products, binary generators for parsing binary data, and [pattern matching](/glossary/pattern-matching/) in generator clauses to destructure and filter simultaneously, making them one of [Elixir](/glossary/elixir/)'s most powerful syntactic tools for data transformation.
+Comprehensions in Elixir use the `for` special form to iterate over enumerables, apply filters, and collect results into various data structures via the `:into` option. They combine generators (iterating sources), filters (guard expressions), and collectors (target containers like lists, maps, or binaries) in a single expressive construct. Comprehensions support multiple generators for cartesian products, binary generators for parsing binary data, and [pattern matching](@/glossary/pattern-matching.md) in generator clauses to destructure and filter simultaneously, making them one of [Elixir](@/glossary/elixir.md)'s most powerful syntactic tools for data transformation.
 
-Comprehensions unify the concepts of mapping, filtering, and collecting into a single expression that reads almost like natural language. Where imperative languages require nested loops and conditional blocks to achieve the same result, Elixir comprehensions express the same logic in a compact, declarative form that makes intent explicit and implementation concise. The Prismatic Platform uses comprehensions extensively across its 115 umbrella applications for agent registry population, quality gate violation collection, [EASM](/glossary/easm/) asset indexing, compliance assessment aggregation, and binary protocol parsing.
+Comprehensions unify the concepts of mapping, filtering, and collecting into a single expression that reads almost like natural language. Where imperative languages require nested loops and conditional blocks to achieve the same result, Elixir comprehensions express the same logic in a compact, declarative form that makes intent explicit and implementation concise. The Prismatic Platform uses comprehensions extensively across its 115 umbrella applications for agent registry population, quality gate violation collection, [EASM](@/glossary/easm.md) asset indexing, compliance assessment aggregation, and binary protocol parsing.
 
 The `for` construct in Elixir draws inspiration from list comprehensions in Haskell and Python, but extends the concept with several Elixir-specific features: pattern matching in generators (which simultaneously destructures and filters), binary generators for binary protocol parsing, the `:into` option for collecting into any `Collectable` data structure, the `:reduce` option for accumulating arbitrary results, and the `:uniq` option for automatic deduplication. These extensions make Elixir comprehensions a versatile tool far beyond simple list generation, capable of expressing complex data transformation pipelines in a single, readable expression.
 
@@ -410,7 +410,7 @@ agents = agent_files
   |> Map.new(&{&1.id, &1})
 ```
 
-Use comprehensions when you need to map, filter, and collect in one operation, especially with pattern matching generators. Use [pipe operator](/glossary/pipe-operator/) chains when transformations are sequential and each step is independently meaningful. Use [Stream](/glossary/stream-processing/) when data is large or infinite and lazy evaluation is needed.
+Use comprehensions when you need to map, filter, and collect in one operation, especially with pattern matching generators. Use [pipe operator](@/glossary/pipe-operator.md) chains when transformations are sequential and each step is independently meaningful. Use [Stream](@/glossary/stream-processing.md) when data is large or infinite and lazy evaluation is needed.
 
 ## Best Practices
 
@@ -422,7 +422,7 @@ Use comprehensions when you need to map, filter, and collect in one operation, e
 
 4. **Use `:reduce` for accumulation** -- When the result is not a collection but an accumulated value (sum, maximum, running state), use the `:reduce` option instead of `Enum.reduce/3`.
 
-5. **Avoid side effects in comprehension bodies** -- Comprehension bodies should be [pure functions](/glossary/pure-function/). If you need side effects, use `Enum.each/2` instead.
+5. **Avoid side effects in comprehension bodies** -- Comprehension bodies should be [pure functions](@/glossary/pure-function.md). If you need side effects, use `Enum.each/2` instead.
 
 6. **Consider Streams for large data** -- Comprehensions are eager. For large datasets or infinite sequences, use `Stream` functions for lazy evaluation or `Flow` for parallel processing.
 
@@ -444,22 +444,22 @@ Use comprehensions when you need to map, filter, and collect in one operation, e
 
 ## Related Concepts
 
-- [Elixir](/glossary/elixir/) -- Language providing the comprehension syntax and semantics
-- [Pattern Matching](/glossary/pattern-matching/) -- Destructuring mechanism used in comprehension generators
-- [Pipe Operator](/glossary/pipe-operator/) -- Composition alternative for sequential transformations
-- [Pure Function](/glossary/pure-function/) -- Side-effect-free functions used within comprehension bodies
-- [Stream Processing](/glossary/stream-processing/) -- Lazy alternative for large dataset transformations
-- [Immutability](/glossary/immutability/) -- Data model ensuring comprehension safety
-- [EASM](/glossary/easm/) -- Domain using comprehensions for asset indexing
-- [Quality Gates](/glossary/quality-gates/) -- Domain using comprehensions for violation collection
-- [OSINT](/glossary/osint/) -- Domain using comprehensions for result processing
+- [Elixir](@/glossary/elixir.md) -- Language providing the comprehension syntax and semantics
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Destructuring mechanism used in comprehension generators
+- [Pipe Operator](@/glossary/pipe-operator.md) -- Composition alternative for sequential transformations
+- [Pure Function](@/glossary/pure-function.md) -- Side-effect-free functions used within comprehension bodies
+- [Stream Processing](@/glossary/stream-processing.md) -- Lazy alternative for large dataset transformations
+- [Immutability](@/glossary/immutability.md) -- Data model ensuring comprehension safety
+- [EASM](@/glossary/easm.md) -- Domain using comprehensions for asset indexing
+- [Quality Gates](@/glossary/quality-gates.md) -- Domain using comprehensions for violation collection
+- [OSINT](@/glossary/osint.md) -- Domain using comprehensions for result processing
 
 ## See Also
 
 - [Elixir Comprehensions Guide](https://hexdocs.pm/elixir/comprehensions.html) -- Official documentation
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Applications using comprehension patterns throughout the platform
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Applications using comprehension patterns throughout the platform
 
 ---
 
@@ -468,4 +468,4 @@ Use comprehensions when you need to map, filter, and collect in one operation, e
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

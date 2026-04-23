@@ -1199,19 +1199,19 @@ end
 
 ## Related Concepts
 
-- [GenServer](/glossary/genserver/) -- Long-running stateful process, complementary to short-lived tasks
-- [OTP](/glossary/otp/) -- Framework providing Task and supervision infrastructure
-- [Supervision Tree](/glossary/supervision-tree/) -- Process hierarchy managing task lifecycles
-- [Process Isolation](/glossary/process-isolation/) -- BEAM isolation model underlying task safety
-- [BEAM](/glossary/beam/) -- Virtual machine providing lightweight process primitives
-- [Supervisor](/glossary/supervisor/) -- Parent process managing task process lifecycles
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- Runtime process management for on-demand tasks
+- [GenServer](@/glossary/genserver.md) -- Long-running stateful process, complementary to short-lived tasks
+- [OTP](@/glossary/otp.md) -- Framework providing Task and supervision infrastructure
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Process hierarchy managing task lifecycles
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM isolation model underlying task safety
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing lightweight process primitives
+- [Supervisor](@/glossary/supervisor.md) -- Parent process managing task process lifecycles
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- Runtime process management for on-demand tasks
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory
 
 ---
 
@@ -1220,4 +1220,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

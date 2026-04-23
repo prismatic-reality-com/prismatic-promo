@@ -28,7 +28,7 @@ image_alt = "/migrate - Prismatic Platform"
 
 The command goes beyond simple Ecto migration execution. While `mix ecto.migrate` handles individual database migrations, `/migrate` operates at a higher level of abstraction: it analyzes migration impact across the entire umbrella, identifies cross-application dependencies that could be affected, generates rollback plans before execution, validates data integrity constraints post-migration, and provides a unified interface for all types of migrations -- not just database schema changes.
 
-This command operates under the **L3** authority level and is executed by the `migration-specialist` agent, a specialized architecture agent with deep knowledge of the platform's data model, application dependencies, and deployment topology. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority requirement reflects the potential production impact of migration operations, which can alter data structures, break API contracts, and affect running services.
+This command operates under the **L3** authority level and is executed by the `migration-specialist` agent, a specialized architecture agent with deep knowledge of the platform's data model, application dependencies, and deployment topology. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority requirement reflects the potential production impact of migration operations, which can alter data structures, break API contracts, and affect running services.
 
 The safety-first approach embodied by this command is informed by production incidents across the software industry where poorly planned migrations caused data loss, extended downtime, or subtle data corruption. Every feature of `/migrate` exists to prevent a specific category of migration failure: dependency analysis prevents cascade failures, rollback strategies ensure recoverability, dry-run capability enables pre-flight validation, and post-migration checks detect data integrity issues before they propagate.
 
@@ -179,13 +179,13 @@ The **Validation Engine** performs pre-flight checks: schema compatibility, data
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by the `migration-specialist` agent |
-| [Ecto](/glossary/ecto/) | Database Layer | Core database migration infrastructure |
-| [PostgreSQL](/glossary/postgresql/) | Database | Target database for schema migrations |
-| [Quality Gates](/glossary/quality-gates/) | Pre/Post Validation | Migration quality gate checks |
-| [Telemetry](/glossary/telemetry/) | Observability | Migration execution metrics and events |
-| [Prismatic API](/apps/prismatic-api/) | API Impact | API version migrations coordinated with gateway |
-| [Supervision Trees](/glossary/supervision-tree/) | Process Impact | Process topology changes during migration |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by the `migration-specialist` agent |
+| [Ecto](@/glossary/ecto.md) | Database Layer | Core database migration infrastructure |
+| [PostgreSQL](@/glossary/postgresql.md) | Database | Target database for schema migrations |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/Post Validation | Migration quality gate checks |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Migration execution metrics and events |
+| [Prismatic API](@/apps/prismatic-api.md) | API Impact | API version migrations coordinated with gateway |
+| [Supervision Trees](@/glossary/supervision-tree.md) | Process Impact | Process topology changes during migration |
 
 ## Best Practices
 
@@ -250,19 +250,19 @@ Test migrations in isolation before applying to shared environments:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for migrations without rollback strategies. Every migration must have a validated rollback plan before execution. Migrations that fail post-execution verification trigger immediate investigation. No migration is considered complete until integrity checks pass.
 - **NO DOUBTS**: Full impact analysis before execution. Every migration is analyzed for cross-application effects, dependency chain risks, and data integrity implications. The dry-run capability ensures operators can verify the complete execution plan before committing. Evidence-based verification replaces assumption-based confidence.
 
 ## Related Commands
 
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/architect](/commands/architect/) - Architecture design and recommendation generation
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/architect](@/commands/architect.md) - Architecture design and recommendation generation
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -271,4 +271,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

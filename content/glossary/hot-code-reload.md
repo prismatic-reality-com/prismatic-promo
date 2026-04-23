@@ -20,7 +20,7 @@ image_alt = "Hot Code Reload - Prismatic Platform"
 
 ## Definition
 
-Hot code reload is a [BEAM](/glossary/beam/) virtual machine capability that allows replacing a module's compiled code at runtime while the system continues operating without interruption. The BEAM maintains up to two versions of each module simultaneously -- the "current" version and the "old" version -- ensuring that processes executing the old code can finish their current function call before transitioning to the new version. Any new function call from a process (specifically, a fully-qualified external call) will execute the updated code immediately.
+Hot code reload is a [BEAM](@/glossary/beam.md) virtual machine capability that allows replacing a module's compiled code at runtime while the system continues operating without interruption. The BEAM maintains up to two versions of each module simultaneously -- the "current" version and the "old" version -- ensuring that processes executing the old code can finish their current function call before transitioning to the new version. Any new function call from a process (specifically, a fully-qualified external call) will execute the updated code immediately.
 
 This capability was originally designed for Ericsson's telecommunications switches in the late 1980s, where systems handling tens of thousands of concurrent phone calls could not be taken offline for software updates. The ability to upgrade code without dropping connections or losing state was a hard requirement that shaped the entire BEAM architecture. Hot code reload is not a bolt-on feature; it is a fundamental property of how the BEAM loads and executes code, deeply integrated with the module system, process model, and OTP release handling infrastructure.
 
@@ -190,10 +190,10 @@ This process is fully transactional at the application level. If any step fails,
 The Prismatic Platform leverages hot code reload at both development and production stages:
 
 - **Development Workflow**: Phoenix's code reloader watches source files and automatically recompiles and reloads modified modules when a request arrives. This provides sub-second feedback during development -- save a file, refresh the browser, see the change. All 89 umbrella apps participate in the reload cycle.
-- **[LiveView](/glossary/liveview/) Development**: LiveView pages update in real-time during development without losing client state, enabling rapid UI iteration.
-- **Production Deployments on [Fly.io](/glossary/fly-io/)**: The platform uses OTP [releases](/glossary/release/) for production deployment. While the current deployment strategy uses rolling restarts (new instances start, old instances drain), the underlying BEAM infrastructure supports in-place upgrades for future zero-downtime deployment scenarios.
+- **[LiveView](@/glossary/liveview.md) Development**: LiveView pages update in real-time during development without losing client state, enabling rapid UI iteration.
+- **Production Deployments on [Fly.io](@/glossary/fly-io.md)**: The platform uses OTP [releases](@/glossary/release.md) for production deployment. While the current deployment strategy uses rolling restarts (new instances start, old instances drain), the underlying BEAM infrastructure supports in-place upgrades for future zero-downtime deployment scenarios.
 - **Agent Behavior Updates**: Agent decision logic can be updated through hot code reload without restarting agent processes, preserving accumulated agent state and in-flight operations.
-- **Quality Rule Adjustments**: Quality gate rules and [QDP](/glossary/qdp/) scoring criteria can be adjusted in production without service interruption.
+- **Quality Rule Adjustments**: Quality gate rules and [QDP](@/glossary/qdp.md) scoring criteria can be adjusted in production without service interruption.
 - **Live Debugging**: The BEAM's `:observer` and `:recon` tools can be loaded into a running production system for debugging without restarting the application.
 
 ## Development vs. Production Hot Reload
@@ -698,22 +698,22 @@ end
 
 ## Related Terms
 
-- [BEAM](/glossary/beam/) - Virtual machine providing the hot code reload infrastructure
-- [Release](/glossary/release/) - OTP release packaging with upgrade/downgrade support
-- [Fly.io](/glossary/fly-io/) - Deployment platform for production BEAM releases
-- [Supervisor](/glossary/supervisor/) - Process supervision during code upgrades
-- [Fault Tolerance](/glossary/fault-tolerance/) - Zero-downtime upgrades as a fault tolerance mechanism
-- [Process Isolation](/glossary/process-isolation/) - Per-process code version tracking
-- [LiveView](/glossary/liveview/) - Real-time UI updates leveraging development hot reload
-- [Observer](/glossary/observer/) - Debugging tool loadable at runtime through hot code loading
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) - Flexible supervision during code upgrades
-- [Phoenix](/glossary/phoenix/) - Web framework with development-time code reloading
+- [BEAM](@/glossary/beam.md) - Virtual machine providing the hot code reload infrastructure
+- [Release](@/glossary/release.md) - OTP release packaging with upgrade/downgrade support
+- [Fly.io](@/glossary/fly-io.md) - Deployment platform for production BEAM releases
+- [Supervisor](@/glossary/supervisor.md) - Process supervision during code upgrades
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - Zero-downtime upgrades as a fault tolerance mechanism
+- [Process Isolation](@/glossary/process-isolation.md) - Per-process code version tracking
+- [LiveView](@/glossary/liveview.md) - Real-time UI updates leveraging development hot reload
+- [Observer](@/glossary/observer.md) - Debugging tool loadable at runtime through hot code loading
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) - Flexible supervision during code upgrades
+- [Phoenix](@/glossary/phoenix.md) - Web framework with development-time code reloading
 
 ## See Also
 
-- [Architecture](/architecture/) - Deployment and upgrade architecture
-- [Technologies](/technologies/) - BEAM runtime and OTP release handling
-- [Capabilities](/capabilities/) - Zero-downtime deployment capabilities
+- [Architecture](@/architecture/_index.md) - Deployment and upgrade architecture
+- [Technologies](@/technologies/_index.md) - BEAM runtime and OTP release handling
+- [Capabilities](@/capabilities/_index.md) - Zero-downtime deployment capabilities
 
 ---
 
@@ -722,4 +722,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

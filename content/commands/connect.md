@@ -28,7 +28,7 @@ The **/connect** command provides comprehensive management of Model Context Prot
 
 MCP (Model Context Protocol) enables structured communication between autonomous agents and external tools. Within the Prismatic Platform, MCP servers expose specialized capabilities -- from filesystem operations and database queries to GitHub integration and memory persistence. The `/connect` command abstracts the complexity of managing these server lifecycles, providing operators with a unified control plane for the entire coordination network.
 
-The command operates under the **L2+** authority level and is executed by the `mcp-server-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. Connection management is foundational to all multi-agent workflows, making this command a critical operational dependency for orchestration, parallel execution, and distributed intelligence gathering.
+The command operates under the **L2+** authority level and is executed by the `mcp-server-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. Connection management is foundational to all multi-agent workflows, making this command a critical operational dependency for orchestration, parallel execution, and distributed intelligence gathering.
 
 Beyond simple connectivity, `/connect` implements role-based coordination with three distinct operational modes: coordinator (central authority for task distribution), worker (execution node receiving and processing tasks), and observer (read-only monitoring of coordination state). This architecture mirrors OTP supervision patterns, ensuring fault-tolerant coordination even when individual instances fail or become temporarily unreachable.
 
@@ -72,7 +72,7 @@ Coordinator Instance (Hub)
 | **Filesystem** | filesystem-server | File read/write/search |
 | **Version Control** | github-server | Repository operations |
 | **Database** | postgres-server | Database queries and management |
-| **Search** | [meilisearch](/glossary/meilisearch/)-server | Full-text search operations |
+| **Search** | [meilisearch](@/glossary/meilisearch.md)-server | Full-text search operations |
 | **Memory** | memory-server | Persistent knowledge storage |
 | **Context** | context7-server | Documentation context retrieval |
 | **Monitoring** | telemetry-server | Metrics and event tracking |
@@ -205,10 +205,10 @@ Health: EXCELLENT
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `mcp-server-coordinator` agent | Agent manages server lifecycle and health monitoring |
-| [AIAD](/glossary/aiad/) Registry | Command specification and discovery | Registered as coordination-category command |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation | Connection health is a quality gate prerequisite |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) | Connection events emitted as telemetry spans |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `mcp-server-coordinator` agent | Agent manages server lifecycle and health monitoring |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification and discovery | Registered as coordination-category command |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation | Connection health is a quality gate prerequisite |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) | Connection events emitted as telemetry spans |
 | Prismatic Supervisor | Process supervision | MCP server processes supervised via OTP |
 | Blackboard System | Shared state coordination | ETS-backed shared state for multi-instance workflows |
 
@@ -323,7 +323,7 @@ Configuration is managed through `.claude/mcp-servers.json` with environment-spe
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unhealthy server connections. All 14+ servers must report healthy status before multi-agent operations proceed. No degraded-mode operation is acceptable for production workflows.
 - **NO DOUBTS**: Full server health verification before reporting status. Connection state is validated through active probing, not cached state. Evidence-based health reporting with measurable metrics.
@@ -332,14 +332,14 @@ The command enforces NABLA signal plurality by requiring health confirmation fro
 
 ## Related Commands
 
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/livebook](/commands/livebook/) - Livebook integration for interactive [Elixir](/glossary/elixir/) notebooks
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/deploy-unified](/commands/deploy-unified/) - Safe validated traceable deployment for all environments
-- [/orchestrate](/commands/orchestrate/) - Multi-agent orchestration with 10x efficiency
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/livebook](@/commands/livebook.md) - Livebook integration for interactive [Elixir](@/glossary/elixir.md) notebooks
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/deploy-unified](@/commands/deploy-unified.md) - Safe validated traceable deployment for all environments
+- [/orchestrate](@/commands/orchestrate.md) - Multi-agent orchestration with 10x efficiency
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -348,4 +348,4 @@ The command enforces NABLA signal plurality by requiring health confirmation fro
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

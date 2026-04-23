@@ -28,15 +28,15 @@ image_alt = "session-debrief-specialist - Prismatic Platform"
 
 ## Overview
 
-The session-debrief-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's P0-critical operational domain, responsible for capturing, structuring, and persisting the knowledge artifacts generated during each Claude development session. Every session produces decisions, code changes, architectural insights, and contextual understanding that would be lost without systematic debriefing. This agent ensures that session intelligence is preserved in structured formats that enable cross-session continuity and prevent knowledge regression.
+The session-debrief-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's P0-critical operational domain, responsible for capturing, structuring, and persisting the knowledge artifacts generated during each Claude development session. Every session produces decisions, code changes, architectural insights, and contextual understanding that would be lost without systematic debriefing. This agent ensures that session intelligence is preserved in structured formats that enable cross-session continuity and prevent knowledge regression.
 
-Governed by the [AIAD](/glossary/aiad/) standard and the platform's Mandatory [Session Discipline](/glossary/session-discipline/) [Protocol](/glossary/protocol/), the session-debrief-specialist enforces the requirement that every session produces a persistent context record stored in `.claude/session-context/`. The [NO MERCY](/glossary/no-mercy/) doctrine applies to session documentation: no session ends without a debrief artifact, no debrief is accepted without covering objectives, actions, files modified, decisions made, and recommended next steps.
+Governed by the [AIAD](@/glossary/aiad.md) standard and the platform's Mandatory [Session Discipline](@/glossary/session-discipline.md) [Protocol](@/glossary/protocol.md), the session-debrief-specialist enforces the requirement that every session produces a persistent context record stored in `.claude/session-context/`. The [NO MERCY](@/glossary/no-mercy.md) doctrine applies to session documentation: no session ends without a debrief artifact, no debrief is accepted without covering objectives, actions, files modified, decisions made, and recommended next steps.
 
 In a platform with over 430 agents, 90 applications, and 2.8 million lines of code, the cost of knowledge loss between sessions is substantial. A developer returning to a complex investigation without session context may spend hours re-discovering what was already understood, make decisions that contradict previous architectural rationale, or repeat debugging work that was already completed. The session-debrief-specialist eliminates this waste by ensuring that every session's output is captured in a form that enables immediate productive continuation.
 
 ## Operational Domain
 
-The P0-critical session management domain covers the complete session lifecycle: context loading at session start, progressive knowledge capture during the session, and structured debrief generation at session end. The agent interacts with the Stack-Based Conversation Mode infrastructure to extract frame-level decision records and the Session Lifecycle [GenServer](/glossary/genserver/) (`PrismaticClaude.SessionLifecycle`) to trigger mandatory debriefing workflows. Session context files follow standardized naming (`YYYY-MM-DD-{description}-session.md`) and format conventions that enable automated parsing and indexing.
+The P0-critical session management domain covers the complete session lifecycle: context loading at session start, progressive knowledge capture during the session, and structured debrief generation at session end. The agent interacts with the Stack-Based Conversation Mode infrastructure to extract frame-level decision records and the Session Lifecycle [GenServer](@/glossary/genserver.md) (`PrismaticClaude.SessionLifecycle`) to trigger mandatory debriefing workflows. Session context files follow standardized naming (`YYYY-MM-DD-{description}-session.md`) and format conventions that enable automated parsing and indexing.
 
 The domain extends to quality preservation. Session debriefs include quality metric snapshots that enable detection of quality regressions introduced during the session, providing a forensic record that the Quality Floor Guardian can reference when investigating quality changes.
 
@@ -45,10 +45,10 @@ The domain extends to quality preservation. Session debriefs include quality met
 - **Automated context extraction** -- Analyzes session activity to extract key decisions, file modifications, architectural changes, and unresolved questions without requiring manual summarization. Extraction uses structured parsing of conversation frames and git diff analysis
 - **Structured debrief generation** -- Produces session debrief documents with standardized sections: objectives, actions taken, files modified, deliverables, key decisions, open questions, and recommended next steps. Each section follows a defined schema
 - **Cross-session continuity** -- Loads and integrates previous session contexts to maintain knowledge continuity, preventing redundant investigation and decision reversal across development sessions
-- **[Quality DNA](/glossary/quality-dna/) updates** -- Propagates session outcomes into the platform's Quality DNA persistence layer at `.claude/quality-dna/current-state.json`, maintaining the canonical record of platform quality state
+- **[Quality DNA](@/glossary/quality-dna.md) updates** -- Propagates session outcomes into the platform's Quality DNA persistence layer at `.claude/quality-dna/current-state.json`, maintaining the canonical record of platform quality state
 - **GitLab issue integration** -- Links session debriefs to corresponding GitLab issues per the Mandatory Session Discipline Protocol, ensuring traceability between development sessions and issue tracking
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with triggered debrief workflows at session lifecycle boundaries
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing session lifecycle events under `:prismatic_claude, :session_lifecycle` namespace
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with triggered debrief workflows at session lifecycle boundaries
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing session lifecycle events under `:prismatic_claude, :session_lifecycle` namespace
 
 ## Debrief Document Schema
 
@@ -108,12 +108,12 @@ Session debriefs must meet quality standards before they are accepted into the c
 
 | Agent | Relationship |
 |-------|-------------|
-| [session-context-coordinator](/agents/session-context-coordinator/) | Coordinates context loading using debriefs produced by this agent |
-| [session-context-synthesizer](/agents/session-context-synthesizer/) | Synthesizes patterns across multiple debriefs |
-| [session-compressor-specialist](/agents/session-compressor-specialist/) | Compresses older debriefs to manage storage growth |
-| [session-pattern-analyzer](/agents/session-pattern-analyzer/) | Analyzes debrief content for recurring patterns |
-| [code-quality-commander](/agents/code-quality-commander/) | Session outcomes inform quality posture updates |
-| [Mycelial Genetic Evolver Agent](/agents/mycelial-genetic-evolver-agent/) | Session learning feeds into evolutionary adaptation cycles |
+| [session-context-coordinator](@/agents/session-context-coordinator.md) | Coordinates context loading using debriefs produced by this agent |
+| [session-context-synthesizer](@/agents/session-context-synthesizer.md) | Synthesizes patterns across multiple debriefs |
+| [session-compressor-specialist](@/agents/session-compressor-specialist.md) | Compresses older debriefs to manage storage growth |
+| [session-pattern-analyzer](@/agents/session-pattern-analyzer.md) | Analyzes debrief content for recurring patterns |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Session outcomes inform quality posture updates |
+| [Mycelial Genetic Evolver Agent](@/agents/mycelial-genetic-evolver-agent.md) | Session learning feeds into evolutionary adaptation cycles |
 
 ## Implementation Architecture
 
@@ -123,7 +123,7 @@ Session context files are stored as structured Markdown with YAML frontmatter, e
 
 ## Enforcement
 
-Session debriefing is P0 mandatory under the Session Discipline Protocol. The [NO MERCY](/glossary/no-mercy/) doctrine enforces that no session concludes without a persisted debrief artifact. Sessions without proper context saves are flagged as L2 violations. All debrief content must include traceable provenance per [NABLA Infinity](/glossary/nabla-infinity/) requirements, ensuring that every recorded decision, metric, and recommendation can be traced to its origin within the session.
+Session debriefing is P0 mandatory under the Session Discipline Protocol. The [NO MERCY](@/glossary/no-mercy.md) doctrine enforces that no session concludes without a persisted debrief artifact. Sessions without proper context saves are flagged as L2 violations. All debrief content must include traceable provenance per [NABLA Infinity](@/glossary/nabla-infinity.md) requirements, ensuring that every recorded decision, metric, and recommendation can be traced to its origin within the session.
 
 ## Related Agents
 
@@ -136,4 +136,4 @@ Agents in the **P0-critical** domain ensure that the platform's most essential o
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

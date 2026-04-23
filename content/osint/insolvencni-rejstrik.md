@@ -70,7 +70,7 @@ Each insolvency proceeding follows a structured lifecycle tracked in ISIR:
 
 ## Integration with Prismatic
 
-The Insolvency Register is a core data source for the Prismatic platform's risk assessment and due diligence pipelines, integrated with the Czech [registry](/glossary/registry-otp/) intelligence layer.
+The Insolvency Register is a core data source for the Prismatic platform's risk assessment and due diligence pipelines, integrated with the Czech [registry](@/glossary/registry-otp.md) intelligence layer.
 
 ```elixir
 # Search by company ICO
@@ -186,7 +186,7 @@ For creditors monitoring their claims in active proceedings, ISIR data enables r
 | Aspect | Details |
 |--------|---------|
 | **Authentication** | None required (public register) |
-| **API** | ISIR [REST API](/glossary/rest-api/) available (isir.justice.cz) |
+| **API** | ISIR [REST API](@/glossary/rest-api.md) available (isir.justice.cz) |
 | **Rate Limit** | No official limit; responsible use expected |
 | **Data Format** | JSON (REST API), HTML (web interface) |
 | **Cost** | Free access |
@@ -218,13 +218,13 @@ ISIR supports event-based monitoring, enabling the Prismatic platform to detect 
 - Pre-contract insolvency screening for business partners
 - Ongoing monitoring of key suppliers and customers
 - Credit decisioning input for financial institutions
-- Combine with [Executors](/osint/executors/) for complete financial distress picture
+- Combine with [Executors](@/osint/executors.md) for complete financial distress picture
 
 ### Due Diligence
-- Part of comprehensive Czech entity checks with [ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/), and [RZP](/osint/rzp/)
+- Part of comprehensive Czech entity checks with [ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md), and [RZP](@/osint/rzp.md)
 - M&A target insolvency history verification
-- Vendor qualification for [NIS2](/glossary/nis2/) supply chain requirements
-- Cross-reference with [VR.cz](/osint/vr-cz/) for complete entity intelligence
+- Vendor qualification for [NIS2](@/glossary/nis2.md) supply chain requirements
+- Cross-reference with [VR.cz](@/osint/vr-cz.md) for complete entity intelligence
 
 ### Legal and Compliance
 - Creditor claim filing monitoring
@@ -240,17 +240,17 @@ ISIR supports event-based monitoring, enabling the Prismatic platform to detect 
 
 ## Related Sources
 
-- [ARES](/osint/ares/) - Czech business register aggregator
-- [Justice.cz](/osint/justice-cz/) - Commercial Register with filings
-- [RZP](/osint/rzp/) - Trade Licensing Register
-- [VR.cz](/osint/vr-cz/) - Czech Business Registry
-- [Executors](/osint/executors/) - Enforcement proceedings data
-- [EU Sanctions](/osint/eu-sanctions/) - [Sanctions screening](/glossary/sanctions-screening/) for compliance
+- [ARES](@/osint/ares.md) - Czech business register aggregator
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register with filings
+- [RZP](@/osint/rzp.md) - Trade Licensing Register
+- [VR.cz](@/osint/vr-cz.md) - Czech Business Registry
+- [Executors](@/osint/executors.md) - Enforcement proceedings data
+- [EU Sanctions](@/osint/eu-sanctions.md) - [Sanctions screening](@/glossary/sanctions-screening.md) for compliance
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Insolvency data in credit risk ratings
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Insolvency data in credit risk ratings
 
 ---
 
@@ -259,4 +259,4 @@ ISIR supports event-based monitoring, enabling the Prismatic platform to detect 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -328,16 +328,16 @@ The current era is characterized by "source available" licenses (SSPL, BSL, Elas
 
 Corporate interests intersect with numerous technical and governance concepts within the Prismatic Platform ecosystem:
 
-- [Open Source](/glossary/open-source/) -- the licensing and distribution model that counters proprietary corporate control
-- [Community Over Corporation](/glossary/community-over-corporation/) -- the governing principle that prioritizes community welfare
-- [Platform Strategy](/glossary/platform-strategy/) -- strategic decisions shaped by awareness of corporate interest dynamics
-- [GHL License](/glossary/ghl-license/) -- the specific license chosen to prevent corporate capture
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- the transparency principle that enables community oversight
-- [Proprietary Solutions](/glossary/proprietary-solutions/) -- the corporate-interest-driven alternative to open platforms
-- [Knowledge Hoarding](/glossary/knowledge-hoarding/) -- the anti-pattern of restricting information flow for competitive advantage
-- [Sustainable Funding Models](/glossary/sustainable-funding-models/) -- approaches to financial sustainability that align corporate and community interests
-- [Perfection Over Profit](/glossary/perfection-over-profit/) -- the principle that quality should never be sacrificed for financial gain
-- [Community Ownership](/glossary/community-ownership/) -- the governance structure that prevents corporate capture
+- [Open Source](@/glossary/open-source.md) -- the licensing and distribution model that counters proprietary corporate control
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- the governing principle that prioritizes community welfare
+- [Platform Strategy](@/glossary/platform-strategy.md) -- strategic decisions shaped by awareness of corporate interest dynamics
+- [GHL License](@/glossary/ghl-license.md) -- the specific license chosen to prevent corporate capture
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- the transparency principle that enables community oversight
+- [Proprietary Solutions](@/glossary/proprietary-solutions.md) -- the corporate-interest-driven alternative to open platforms
+- [Knowledge Hoarding](@/glossary/knowledge-hoarding.md) -- the anti-pattern of restricting information flow for competitive advantage
+- [Sustainable Funding Models](@/glossary/sustainable-funding-models.md) -- approaches to financial sustainability that align corporate and community interests
+- [Perfection Over Profit](@/glossary/perfection-over-profit.md) -- the principle that quality should never be sacrificed for financial gain
+- [Community Ownership](@/glossary/community-ownership.md) -- the governance structure that prevents corporate capture
 
 ## Industry Impact Analysis
 
@@ -375,10 +375,10 @@ end
 
 ## See Also
 
-- [Adapter Pattern](/glossary/adapter-pattern/) -- technical mechanism for preventing vendor lock-in
-- [Due Diligence](/glossary/due-diligence/) -- investigative processes that assess corporate interest risks
-- [Compliance Framework](/glossary/compliance-framework/) -- regulatory structures that constrain corporate behavior
-- [Architecture](/glossary/architecture/) -- the technical foundation that either enables or prevents corporate capture
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- technical mechanism for preventing vendor lock-in
+- [Due Diligence](@/glossary/due-diligence.md) -- investigative processes that assess corporate interest risks
+- [Compliance Framework](@/glossary/compliance-framework.md) -- regulatory structures that constrain corporate behavior
+- [Architecture](@/glossary/architecture.md) -- the technical foundation that either enables or prevents corporate capture
 
 ---
 

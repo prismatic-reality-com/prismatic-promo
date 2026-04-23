@@ -23,11 +23,11 @@ image_alt = "Prismatic Presales - Prismatic Platform"
 
 ## Overview
 
-Prismatic Presales provides tooling for customer demonstrations, proof-of-concept deployments, and presales intelligence gathering. It generates tailored demo environments showcasing platform capabilities against prospect-relevant scenarios, and supports the sales process with automated competitive intelligence. Unlike static demo scripts, Presales dynamically provisions isolated [Phoenix LiveView](/glossary/phoenix-liveview/) instances populated with prospect-specific data, allowing sales engineers to demonstrate real platform functionality rather than slide decks. The module embodies the platform's philosophy that the best way to sell security intelligence is to demonstrate it against the prospect's own infrastructure.
+Prismatic Presales provides tooling for customer demonstrations, proof-of-concept deployments, and presales intelligence gathering. It generates tailored demo environments showcasing platform capabilities against prospect-relevant scenarios, and supports the sales process with automated competitive intelligence. Unlike static demo scripts, Presales dynamically provisions isolated [Phoenix LiveView](@/glossary/phoenix-liveview.md) instances populated with prospect-specific data, allowing sales engineers to demonstrate real platform functionality rather than slide decks. The module embodies the platform's philosophy that the best way to sell security intelligence is to demonstrate it against the prospect's own infrastructure.
 
-The module draws on the platform's [OSINT](/glossary/osint/) capabilities to enrich the presales process itself. Before a customer engagement, Presales automatically collects publicly available information about the prospect's domain, technology stack, and [security rating](/glossary/security-rating/) using [Prismatic Perimeter](/apps/prismatic-perimeter/) scanning. This means the first demo already shows real findings for the prospect's own [attack surface](/glossary/attack-surface/), making the value proposition immediately tangible. The [NABLA](/glossary/nabla-infinity/) framework's [confidence scoring](/glossary/confidence-scoring/) ensures that every finding presented to prospects includes epistemic rigor -- no unsupported claims, no inflated severity, no false positives that would undermine credibility.
+The module draws on the platform's [OSINT](@/glossary/osint.md) capabilities to enrich the presales process itself. Before a customer engagement, Presales automatically collects publicly available information about the prospect's domain, technology stack, and [security rating](@/glossary/security-rating.md) using [Prismatic Perimeter](@/apps/prismatic-perimeter.md) scanning. This means the first demo already shows real findings for the prospect's own [attack surface](@/glossary/attack-surface.md), making the value proposition immediately tangible. The [NABLA](@/glossary/nabla-infinity.md) framework's [confidence scoring](@/glossary/confidence-scoring.md) ensures that every finding presented to prospects includes epistemic rigor -- no unsupported claims, no inflated severity, no false positives that would undermine credibility.
 
-Presales also maintains a competitive intelligence [knowledge graph](/glossary/knowledge-graph/) that tracks feature releases, pricing changes, and public evaluations of competitors including BitSight, Black Kite, and SecurityScorecard. This intelligence feeds directly into proposal generation, ensuring comparison matrices are always current and evidence-based.
+Presales also maintains a competitive intelligence [knowledge graph](@/glossary/knowledge-graph.md) that tracks feature releases, pricing changes, and public evaluations of competitors including BitSight, Black Kite, and SecurityScorecard. This intelligence feeds directly into proposal generation, ensuring comparison matrices are always current and evidence-based.
 
 ## Architecture
 
@@ -40,9 +40,9 @@ Prospect Onboard --> OSINT Scan --> Demo Provisioning --> Live Demo --> Proposal
   Contact Map     Competitor DB    Config Apply       Findings    Timeline
 ```
 
-Presales follows a three-layer architecture. The **Demo Engine** manages isolated [Fly.io](/glossary/fly-io/) instances with time-limited lifespans, each running a stripped-down platform deployment with prospect-specific configuration. The **Intelligence Layer** aggregates competitive data from OSINT sources, analyst reports, and public API documentation into a structured knowledge base stored in [Prismatic Storage](/apps/prismatic-storage/). The **Proposal Generator** combines templates, prospect intelligence, and competitive positioning into formatted deliverables.
+Presales follows a three-layer architecture. The **Demo Engine** manages isolated [Fly.io](@/glossary/fly-io.md) instances with time-limited lifespans, each running a stripped-down platform deployment with prospect-specific configuration. The **Intelligence Layer** aggregates competitive data from OSINT sources, analyst reports, and public API documentation into a structured knowledge base stored in [Prismatic Storage](@/apps/prismatic-storage.md). The **Proposal Generator** combines templates, prospect intelligence, and competitive positioning into formatted deliverables.
 
-Demo instances are supervised by a `DynamicSupervisor` with automatic teardown after the configured expiry period, preventing resource leaks. Each instance runs under [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/) management with [Telemetry](/glossary/telemetry/) instrumentation for usage tracking.
+Demo instances are supervised by a `DynamicSupervisor` with automatic teardown after the configured expiry period, preventing resource leaks. Each instance runs under [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md) management with [Telemetry](@/glossary/telemetry.md) instrumentation for usage tracking.
 
 ## Key Modules
 
@@ -97,10 +97,10 @@ defmodule PrismaticPresales.DemoEngine do
 end
 ```
 
-- On-demand demo instance provisioning with isolated [PostgreSQL](/glossary/postgresql/) databases and configuration
-- Scenario-based demonstration scripts covering [EASM](/glossary/easm/), [compliance framework](/glossary/compliance-framework/), and [risk score](/glossary/risk-score/) rating workflows
-- Pre-loaded sample data with realistic [entity resolution](/glossary/entity-resolution/) graphs and security findings
-- Customizable [LiveView](/glossary/liveview/) dashboards configured per prospect's industry and needs
+- On-demand demo instance provisioning with isolated [PostgreSQL](@/glossary/postgresql.md) databases and configuration
+- Scenario-based demonstration scripts covering [EASM](@/glossary/easm.md), [compliance framework](@/glossary/compliance-framework.md), and [risk score](@/glossary/risk-score.md) rating workflows
+- Pre-loaded sample data with realistic [entity resolution](@/glossary/entity-resolution.md) graphs and security findings
+- Customizable [LiveView](@/glossary/liveview.md) dashboards configured per prospect's industry and needs
 
 ### Competitive Intelligence
 
@@ -153,10 +153,10 @@ defmodule PrismaticPresales.ProspectScanner do
 end
 ```
 
-- Automated domain reconnaissance using [Prismatic Perimeter](/apps/prismatic-perimeter/) scanning capabilities
+- Automated domain reconnaissance using [Prismatic Perimeter](@/apps/prismatic-perimeter.md) scanning capabilities
 - Technology stack fingerprinting from public-facing infrastructure analysis
-- [Vulnerability assessment](/glossary/vulnerability-assessment/) preview showing real findings for prospect domains
-- Industry benchmarking using aggregate [security rating](/glossary/security-rating/) data
+- [Vulnerability assessment](@/glossary/vulnerability-assessment.md) preview showing real findings for prospect domains
+- Industry benchmarking using aggregate [security rating](@/glossary/security-rating.md) data
 
 ### ROI Modeling
 
@@ -224,11 +224,11 @@ Proposal generator tests verify template rendering, ROI calculation accuracy, an
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Live [attack surface](/glossary/attack-surface/) scanning during demos using real prospect domains |
-| [Prismatic CER](/apps/prismatic-cer/) | Demonstrates [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) compliance reporting capabilities |
-| [Prismatic Storage](/apps/prismatic-storage/) | Demo data seeding across PostgreSQL and [ETS](/glossary/ets/) backends |
-| [Prismatic Narrative](/apps/prismatic-narrative/) | Report generation engine for proposal documents and executive summaries |
-| [Prismatic Override](/apps/prismatic-override/) | Demo instance lifecycle management and resource allocation |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Live [attack surface](@/glossary/attack-surface.md) scanning during demos using real prospect domains |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Demonstrates [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) compliance reporting capabilities |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Demo data seeding across PostgreSQL and [ETS](@/glossary/ets.md) backends |
+| [Prismatic Narrative](@/apps/prismatic-narrative.md) | Report generation engine for proposal documents and executive summaries |
+| [Prismatic Override](@/apps/prismatic-override.md) | Demo instance lifecycle management and resource allocation |
 
 ## Performance
 
@@ -241,19 +241,19 @@ Proposal generator tests verify template rendering, ROI calculation accuracy, an
 | ROI calculation | < 100ms | Pure function computation |
 | Instance teardown | < 30s | Clean shutdown with data archival |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :presales, :demo_created]`, `[:prismatic, :presales, :prospect_scanned]`, `[:prismatic, :presales, :proposal_generated]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :presales, :demo_created]`, `[:prismatic, :presales, :prospect_scanned]`, `[:prismatic, :presales, :proposal_generated]`.
 
 ## Related Resources
 
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- Live EASM scanning for demo environments
-- [Prismatic CER](/apps/prismatic-cer/) -- Compliance demonstration capabilities
-- [Prismatic Narrative](/apps/prismatic-narrative/) -- Report generation for proposal documents
-- [Prismatic Override](/apps/prismatic-override/) -- Demo instance lifecycle management
-- [Competitor Researcher](/agents/competitor-researcher/) -- Automated competitive intelligence gathering and analysis
-- [CER Compliance Commander](/agents/cer-compliance-commander/) -- Compliance scenario preparation for demo environments
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source competitive intelligence fusion for prospect briefings
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Live demo dashboards showcasing real-time security monitoring
-- [AIAD Compliance](/capabilities/aiad-compliance/) -- Demo agent configurations follow AIAD standards for consistency
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- Live EASM scanning for demo environments
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Compliance demonstration capabilities
+- [Prismatic Narrative](@/apps/prismatic-narrative.md) -- Report generation for proposal documents
+- [Prismatic Override](@/apps/prismatic-override.md) -- Demo instance lifecycle management
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Automated competitive intelligence gathering and analysis
+- [CER Compliance Commander](@/agents/cer-compliance-commander.md) -- Compliance scenario preparation for demo environments
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source competitive intelligence fusion for prospect briefings
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Live demo dashboards showcasing real-time security monitoring
+- [AIAD Compliance](@/capabilities/aiad-compliance.md) -- Demo agent configurations follow AIAD standards for consistency
 
 ---
 
@@ -262,4 +262,4 @@ Proposal generator tests verify template rendering, ROI calculation accuracy, an
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

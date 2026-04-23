@@ -230,11 +230,11 @@ The parallel session safety mechanism checks for concurrent sessions before savi
 
 ## Cross-References
 
-- [Configuration Drift](/glossary/configuration-drift/) - drift detected by cross-session comparison
-- [Consistency](/glossary/consistency/) - state coherence maintained across sessions
-- [Code Quality](/glossary/code-quality/) - quality metrics persisted by Quality DNA
-- [Compilation](/glossary/compilation/) - compilation state tracked across sessions
-- [Confidence](/glossary/confidence/) - confidence in quality state persistence
+- [Configuration Drift](@/glossary/configuration-drift.md) - drift detected by cross-session comparison
+- [Consistency](@/glossary/consistency.md) - state coherence maintained across sessions
+- [Code Quality](@/glossary/code-quality.md) - quality metrics persisted by Quality DNA
+- [Compilation](@/glossary/compilation.md) - compilation state tracked across sessions
+- [Confidence](@/glossary/confidence.md) - confidence in quality state persistence
 - **Livebooks**: `livebooks/domains/platform_administration/` - Quality DNA management
 - **Academy**: Platform quality management and session lifecycle
 

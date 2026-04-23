@@ -44,7 +44,7 @@ The practice has deep roots in both military strategic analysis and formal metho
 | **Bell-LaPadula** | MITRE (1973) | Formally proven confidentiality properties | Does not address integrity |
 | **Clark-Wilson** | Clark & Wilson (1987) | Integrity-focused, transaction-based | Complex to implement |
 
-Within the Prismatic Platform, security modeling is operationalized through the [Color Teams](/glossary/color-teams/) framework, the [Perimeter](/glossary/attack-surface/) EASM system, and the formal verification infrastructure that proves security properties hold across system states.
+Within the Prismatic Platform, security modeling is operationalized through the [Color Teams](@/glossary/color-teams.md) framework, the [Perimeter](@/glossary/attack-surface.md) EASM system, and the formal verification infrastructure that proves security properties hold across system states.
 
 ## Technical Deep Dive
 
@@ -475,16 +475,16 @@ The Prismatic Platform applies security modeling at multiple layers:
 
 ### Integration with Quality Gates
 
-Security modeling results feed directly into the platform's [Quality Gates](/glossary/quality-gates/):
+Security modeling results feed directly into the platform's [Quality Gates](@/glossary/quality-gates.md):
 
 - **Pre-commit**: New code changes are checked against the threat model for affected components
 - **CI/CD**: Security controls are verified for every deployment
-- **Runtime**: [Monitoring](/glossary/monitoring/) validates that modeled security properties hold in production
+- **Runtime**: [Monitoring](@/glossary/monitoring.md) validates that modeled security properties hold in production
 - **Periodic review**: Threat models are refreshed when architecture changes or new threats emerge
 
 ### Color Team Security Modeling
 
-The [Color Teams](/glossary/color-teams/) use security models as shared artifacts:
+The [Color Teams](@/glossary/color-teams.md) use security models as shared artifacts:
 
 | Team | Use of Security Model |
 |------|----------------------|
@@ -544,20 +544,20 @@ Security modeling is evolving in several directions:
 - **Quantitative risk**: Moving from qualitative (high/medium/low) to quantitative (probabilistic, monetary) risk assessment using methods like FAIR (Factor Analysis of Information Risk)
 - **Supply chain modeling**: Extending threat models to include third-party dependencies, build pipeline integrity, and software bill of materials (SBOM) analysis
 
-The Prismatic Platform's integration of security modeling with [adversarial testing](/glossary/adversarial-testing/), [formal verification](/glossary/comprehensive-verification/), and the [Color Teams](/glossary/color-teams/) framework provides a comprehensive approach that addresses the full spectrum from theoretical threat analysis to empirical validation.
+The Prismatic Platform's integration of security modeling with [adversarial testing](@/glossary/adversarial-testing.md), [formal verification](@/glossary/comprehensive-verification.md), and the [Color Teams](@/glossary/color-teams.md) framework provides a comprehensive approach that addresses the full spectrum from theoretical threat analysis to empirical validation.
 
 ## Related Concepts
 
 Security modeling connects to numerous platform concepts:
 
-- [Security Operations](/glossary/security-operations/) -- The operational framework that consumes security model outputs
-- [Security Analyst](/glossary/security-analyst/) -- The human role that performs and maintains security modeling
-- [Attack Surface](/glossary/attack-surface/) -- The scope of exposure that security modeling maps
-- [Threat Intelligence](/glossary/threat-intelligence/) -- External intelligence that informs threat model content
-- [Risk Assessment](/glossary/risk-assessment/) -- Quantitative evaluation of threats identified by modeling
-- [Zero Trust](/glossary/zero-trust/) -- Architecture paradigm that security modeling validates
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory requirements that drive modeling mandates
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Tactical finding of weaknesses identified by models
+- [Security Operations](@/glossary/security-operations.md) -- The operational framework that consumes security model outputs
+- [Security Analyst](@/glossary/security-analyst.md) -- The human role that performs and maintains security modeling
+- [Attack Surface](@/glossary/attack-surface.md) -- The scope of exposure that security modeling maps
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- External intelligence that informs threat model content
+- [Risk Assessment](@/glossary/risk-assessment.md) -- Quantitative evaluation of threats identified by modeling
+- [Zero Trust](@/glossary/zero-trust.md) -- Architecture paradigm that security modeling validates
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory requirements that drive modeling mandates
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Tactical finding of weaknesses identified by models
 
 ## Summary
 

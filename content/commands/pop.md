@@ -28,9 +28,9 @@ image_alt = "/pop - Prismatic Platform"
 
 The Stack-Based Conversation Mode is a foundational protocol of the Prismatic Platform, enforced at P0 (absolute) level across all Claude interactions. Every response creates an immutable frame containing the user input summary, assistant output summary, key assumptions, and key decisions. The `/pop` command provides controlled regression within this stack, allowing operators to discard frames that represent dead-end explorations, incorrect assumptions, or superseded decisions without contaminating subsequent analysis.
 
-This command operates under the **DESTRUCTIVE** authority level, the highest caution classification in the platform's authority hierarchy. It is executed by the `stack-conversation-manager` agent. The DESTRUCTIVE classification means that the command permanently alters conversation state in ways that cannot be undone through normal operations. This is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **DESTRUCTIVE** authority level, the highest caution classification in the platform's authority hierarchy. It is executed by the `stack-conversation-manager` agent. The DESTRUCTIVE classification means that the command permanently alters conversation state in ways that cannot be undone through normal operations. This is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
-Understanding when and how to use `/pop` is critical for effective conversation management. The command is not merely a convenience feature -- it is a fundamental tool for maintaining epistemic hygiene within the [NABLA](/glossary/nabla-infinity/) framework. Popping frames that contain flawed assumptions prevents those assumptions from propagating through subsequent reasoning, which is precisely the kind of "contradiction burial" that the NABLA axioms are designed to prevent. Used correctly, `/pop` strengthens the conversation's epistemic foundation by removing contaminated context.
+Understanding when and how to use `/pop` is critical for effective conversation management. The command is not merely a convenience feature -- it is a fundamental tool for maintaining epistemic hygiene within the [NABLA](@/glossary/nabla-infinity.md) framework. Popping frames that contain flawed assumptions prevents those assumptions from propagating through subsequent reasoning, which is precisely the kind of "contradiction burial" that the NABLA axioms are designed to prevent. Used correctly, `/pop` strengthens the conversation's epistemic foundation by removing contaminated context.
 
 ## Architecture
 
@@ -150,23 +150,23 @@ The pop operation follows a carefully sequenced pipeline to ensure data integrit
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
 | StackConversation GenServer | Direct API | `StackConversation.pop/1` function call |
-| [/stack](/commands/stack/) | Complementary | View stack state before/after pop |
-| [/frame](/commands/frame/) | Complementary | Inspect specific frames before popping |
-| [/fork](/commands/fork/) | Complementary | Branch from specific frame as alternative to pop |
-| [/checkpoint](/commands/checkpoint/) | Safety Net | Create named checkpoints before destructive ops |
-| [/goto](/commands/goto/) | Alternative | Restore to checkpoint instead of popping |
-| [Telemetry](/glossary/telemetry/) | Observability | Pop operation tracking and audit |
-| [Prismatic Claude](/apps/prismatic-claude/) | Parent App | StackConversation supervision and lifecycle |
+| [/stack](@/commands/stack.md) | Complementary | View stack state before/after pop |
+| [/frame](@/commands/frame.md) | Complementary | Inspect specific frames before popping |
+| [/fork](@/commands/fork.md) | Complementary | Branch from specific frame as alternative to pop |
+| [/checkpoint](@/commands/checkpoint.md) | Safety Net | Create named checkpoints before destructive ops |
+| [/goto](@/commands/goto.md) | Alternative | Restore to checkpoint instead of popping |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Pop operation tracking and audit |
+| [Prismatic Claude](@/apps/prismatic-claude.md) | Parent App | StackConversation supervision and lifecycle |
 
 ## Best Practices
 
 **Always Preview Before Large Pops**: Use `/pop N --dry-run` before executing pops of more than 2-3 frames. This shows exactly what context will be lost and allows informed decision-making.
 
-**Create Checkpoints Before Destructive Operations**: Before popping frames that represent significant work, use [/checkpoint](/commands/checkpoint/) to create a named restore point. While popped frames are archived, checkpoints provide a more accessible recovery mechanism.
+**Create Checkpoints Before Destructive Operations**: Before popping frames that represent significant work, use [/checkpoint](@/commands/checkpoint.md) to create a named restore point. While popped frames are archived, checkpoints provide a more accessible recovery mechanism.
 
 **Pop Incrementally**: Rather than popping many frames at once, consider popping one or two at a time and verifying the resulting context. This incremental approach reduces the risk of accidentally removing valuable context.
 
-**Use `/fork` Instead When Exploring Alternatives**: If the goal is to explore a different approach while preserving the current context, [/fork](/commands/fork/) is often more appropriate than `/pop`. Forking creates a new branch without destroying the original context.
+**Use `/fork` Instead When Exploring Alternatives**: If the goal is to explore a different approach while preserving the current context, [/fork](@/commands/fork.md) is often more appropriate than `/pop`. Forking creates a new branch without destroying the original context.
 
 **Pop to Clean Up Dead-End Explorations**: The most common and appropriate use of `/pop` is removing frames that represent explorations that proved unproductive. Leaving dead-end frames on the stack pollutes the active context with irrelevant or misleading information.
 
@@ -219,21 +219,21 @@ The pop operation follows a carefully sequenced pipeline to ensure data integrit
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Pop operations are atomic -- they either fully complete or fully roll back. No partial stack corruption is possible. The archive mechanism ensures that even destructive operations maintain a full audit trail.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The `--dry-run` option supports informed decision-making by showing exactly what will be removed. Large pop operations require explicit confirmation to prevent accidental context loss.
 
-Within the [NABLA](/glossary/nabla-infinity/) framework, `/pop` serves the Contradiction Preservation axiom by providing a mechanism to remove frames where contradictions were introduced through flawed analysis. Rather than burying contradictions by continuing to build on bad foundations, the operator can pop back to a clean state and re-analyze with corrected assumptions.
+Within the [NABLA](@/glossary/nabla-infinity.md) framework, `/pop` serves the Contradiction Preservation axiom by providing a mechanism to remove frames where contradictions were introduced through flawed analysis. Rather than burying contradictions by continuing to build on bad foundations, the operator can pop back to a clean state and re-analyze with corrected assumptions.
 
 ## Related Commands
 
-- [/stack](/commands/stack/) - Display complete conversation stack with all frames
-- [/frame](/commands/frame/) - Inspect specific conversation frame by ID
-- [/fork](/commands/fork/) - Branch conversation from specific frame (DESTRUCTIVE)
-- [/checkpoint](/commands/checkpoint/) - Create named checkpoint for stack state
-- [/goto](/commands/goto/) - Restore conversation to named checkpoint
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/stack](@/commands/stack.md) - Display complete conversation stack with all frames
+- [/frame](@/commands/frame.md) - Inspect specific conversation frame by ID
+- [/fork](@/commands/fork.md) - Branch conversation from specific frame (DESTRUCTIVE)
+- [/checkpoint](@/commands/checkpoint.md) - Create named checkpoint for stack state
+- [/goto](@/commands/goto.md) - Restore conversation to named checkpoint
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -242,4 +242,4 @@ Within the [NABLA](/glossary/nabla-infinity/) framework, `/pop` serves the Contr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

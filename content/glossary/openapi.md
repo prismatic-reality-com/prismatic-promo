@@ -185,7 +185,7 @@ The OpenAPI ecosystem provides tools across every stage of the API lifecycle, fr
 
 ## OpenApiSpex Integration
 
-The Prismatic Platform uses [OpenApiSpex](https://hex.pm/packages/open_api_spex), an Elixir library that generates OpenAPI 3.0 specifications from [Phoenix](/glossary/phoenix/) controller annotations and Elixir type specifications. OpenApiSpex provides a bidirectional bridge: Elixir data structures define the schema, and the schema validates incoming requests at runtime:
+The Prismatic Platform uses [OpenApiSpex](https://hex.pm/packages/open_api_spex), an Elixir library that generates OpenAPI 3.0 specifications from [Phoenix](@/glossary/phoenix.md) controller annotations and Elixir type specifications. OpenApiSpex provides a bidirectional bridge: Elixir data structures define the schema, and the schema validates incoming requests at runtime:
 
 ```elixir
 defmodule PrismaticApi.Schemas.SecurityRating do
@@ -249,7 +249,7 @@ OpenApiSpex provides three key capabilities for the platform:
 
 ## Implementation in Prismatic Platform
 
-The `prismatic_api` application implements a unique auto-introspecting API architecture that combines OpenAPI with Elixir's runtime introspection capabilities. Rather than manually defining API endpoints, the system automatically discovers all public functions across `Prismatic*` facade modules and exposes them as documented [REST API](/glossary/rest-api/) endpoints:
+The `prismatic_api` application implements a unique auto-introspecting API architecture that combines OpenAPI with Elixir's runtime introspection capabilities. Rather than manually defining API endpoints, the system automatically discovers all public functions across `Prismatic*` facade modules and exposes them as documented [REST API](@/glossary/rest-api.md) endpoints:
 
 ```elixir
 defmodule PrismaticApi.Scanner do
@@ -308,7 +308,7 @@ defmodule PrismaticApi.Scanner do
 end
 ```
 
-**Auto-Discovery Pipeline**: At boot time, the Scanner module uses `Code.fetch_docs/1`, `Code.Typespec.fetch_specs/1`, and `Module.__info__/1` to enumerate all public functions, extract their type specifications, and build an endpoint registry cached in [ETS](/glossary/ets/).
+**Auto-Discovery Pipeline**: At boot time, the Scanner module uses `Code.fetch_docs/1`, `Code.Typespec.fetch_specs/1`, and `Module.__info__/1` to enumerate all public functions, extract their type specifications, and build an endpoint registry cached in [ETS](@/glossary/ets.md).
 
 **Type Mapping**: Elixir `@spec` type annotations are automatically translated to JSON Schema types for the OpenAPI specification through a dedicated TypeMapper module:
 
@@ -350,7 +350,7 @@ defmodule PrismaticApi.TypeMapper do
 end
 ```
 
-**Generic Dispatch**: A single [Plug](/glossary/plug/)-based controller resolves `{app, action}` path parameters to `module.function(args)` calls, eliminating the need for per-endpoint controller modules.
+**Generic Dispatch**: A single [Plug](@/glossary/plug.md)-based controller resolves `{app, action}` path parameters to `module.function(args)` calls, eliminating the need for per-endpoint controller modules.
 
 **Endpoint Architecture**:
 
@@ -427,7 +427,7 @@ OpenAPI defines multiple security scheme types that map to different authenticat
 
 | Scheme Type | OpenAPI Key | Prismatic Usage |
 |-------------|-------------|-----------------|
-| **HTTP Bearer** | `bearerAuth` | [JWT](/glossary/jwt/) token authentication |
+| **HTTP Bearer** | `bearerAuth` | [JWT](@/glossary/jwt.md) token authentication |
 | **API Key** | `apiKey` | Service-to-service authentication |
 | **OAuth 2.0** | `oauth2` | Third-party integrations |
 | **OpenID Connect** | `openIdConnect` | SSO federation |
@@ -442,23 +442,23 @@ OpenAPI defines multiple security scheme types that map to different authenticat
 
 ## Related Terms
 
-- [REST API](/glossary/rest-api/) - Architectural style that OpenAPI describes and documents
-- [API Gateway](/glossary/api-gateway/) - Entry point that serves and enforces the OpenAPI specification
-- [Phoenix](/glossary/phoenix/) - Web framework hosting the OpenAPI-documented API
-- [Plug](/glossary/plug/) - Composable middleware validating requests against OpenAPI schemas
-- [GraphQL](/glossary/graphql/) - Alternative API paradigm with its own introspection mechanism
-- [Typespec](/glossary/typespec/) - Elixir type annotations that feed the auto-generated OpenAPI spec
-- [Endpoint](/glossary/endpoint/) - Individual API operations defined in the OpenAPI paths section
-- [RBAC](/glossary/rbac/) - Access control model described in the OpenAPI security section
-- [JWT](/glossary/jwt/) - Authentication token format defined in OpenAPI security schemes
-- [Observability](/glossary/observability/) - Monitoring infrastructure tracking API usage and errors
-- [ETS](/glossary/ets/) - In-memory store caching the auto-discovered endpoint registry
+- [REST API](@/glossary/rest-api.md) - Architectural style that OpenAPI describes and documents
+- [API Gateway](@/glossary/api-gateway.md) - Entry point that serves and enforces the OpenAPI specification
+- [Phoenix](@/glossary/phoenix.md) - Web framework hosting the OpenAPI-documented API
+- [Plug](@/glossary/plug.md) - Composable middleware validating requests against OpenAPI schemas
+- [GraphQL](@/glossary/graphql.md) - Alternative API paradigm with its own introspection mechanism
+- [Typespec](@/glossary/typespec.md) - Elixir type annotations that feed the auto-generated OpenAPI spec
+- [Endpoint](@/glossary/endpoint.md) - Individual API operations defined in the OpenAPI paths section
+- [RBAC](@/glossary/rbac.md) - Access control model described in the OpenAPI security section
+- [JWT](@/glossary/jwt.md) - Authentication token format defined in OpenAPI security schemes
+- [Observability](@/glossary/observability.md) - Monitoring infrastructure tracking API usage and errors
+- [ETS](@/glossary/ets.md) - In-memory store caching the auto-discovered endpoint registry
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform API architecture and auto-introspection design
-- [Technologies](/technologies/) - Technology stack including API tooling
-- [Apps](/apps/) - Applications exposing OpenAPI-documented endpoints
+- [Architecture](@/architecture/_index.md) - Platform API architecture and auto-introspection design
+- [Technologies](@/technologies/_index.md) - Technology stack including API tooling
+- [Apps](@/apps/_index.md) - Applications exposing OpenAPI-documented endpoints
 
 ---
 
@@ -467,4 +467,4 @@ OpenAPI defines multiple security scheme types that map to different authenticat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -34,13 +34,13 @@ image_alt = "Transparency Builds Trust - Prismatic Platform"
 
 The principle is deliberately stated as a causal claim: transparency *builds* trust, not transparency *is* trust. Trust is the outcome, not the input. A system that publishes its source code, exposes its quality metrics, and provides complete audit trails earns trust through accumulated evidence. A system that merely claims to be trustworthy without providing verifiable evidence is, by the platform's standards, epistemically bankrupt.
 
-Within the Prismatic Platform, this principle manifests concretely: the platform maintains a 100/100 quality score across 13 domains, publishes this score through automated quality gates, provides the source code that generates the score, and documents every quality decision through the [Quality DNA](/glossary/quality-dna/) system. Any external observer can verify the quality claims by examining the code, running the tests, and auditing the decision trails. The trust is not in the claim -- it is in the verifiability of the claim.
+Within the Prismatic Platform, this principle manifests concretely: the platform maintains a 100/100 quality score across 13 domains, publishes this score through automated quality gates, provides the source code that generates the score, and documents every quality decision through the [Quality DNA](@/glossary/quality-dna.md) system. Any external observer can verify the quality claims by examining the code, running the tests, and auditing the decision trails. The trust is not in the claim -- it is in the verifiability of the claim.
 
 ## The Three Dimensions of Transparency
 
 ### Dimension 1: Source Code Transparency (Open Source)
 
-The most fundamental form of transparency is making the source code publicly available. [Open source](/glossary/open-source/) is not merely a licensing decision -- it is an epistemic commitment. When the source code is public, every architectural decision, every algorithm, every data handling pattern is subject to external scrutiny. Claims about system behavior can be verified by reading the code rather than trusting documentation.
+The most fundamental form of transparency is making the source code publicly available. [Open source](@/glossary/open-source.md) is not merely a licensing decision -- it is an epistemic commitment. When the source code is public, every architectural decision, every algorithm, every data handling pattern is subject to external scrutiny. Claims about system behavior can be verified by reading the code rather than trusting documentation.
 
 Source code transparency in the Prismatic Platform extends beyond simply publishing the repository:
 
@@ -49,7 +49,7 @@ Source code transparency in the Prismatic Platform extends beyond simply publish
 - **Test transparency**: All tests are public. The test suite's assertions document expected behavior more precisely than any prose documentation
 - **Dependency transparency**: All dependencies are declared in `mix.exs` files with locked versions. No hidden dependencies, no proprietary libraries, no closed-source components in the dependency tree
 
-The [open source advocacy](/glossary/open-source-advocacy/) principle strengthens this dimension by actively promoting open source as a trust mechanism, not just a development methodology.
+The [open source advocacy](@/glossary/open-source-advocacy.md) principle strengthens this dimension by actively promoting open source as a trust mechanism, not just a development methodology.
 
 ### Dimension 2: Quality Transparency
 
@@ -82,14 +82,14 @@ The platform's 100/100 quality score decomposes into 13 independently verifiable
 | Typespec Coverage | Missing typespecs | 0 | Dialyzer + custom |
 | Unsafe Map Access | Unsafe access patterns | 0 | Pattern detection |
 
-Quality transparency also means that quality *history* is transparent. The [Quality DNA](/glossary/quality-dna/) system maintains a versioned record of quality state across sessions, making it possible to trace quality improvements (and regressions) over time. This historical transparency prevents a specific failure mode: a system that achieves a high quality score by ignoring or hiding historical quality problems.
+Quality transparency also means that quality *history* is transparent. The [Quality DNA](@/glossary/quality-dna.md) system maintains a versioned record of quality state across sessions, making it possible to trace quality improvements (and regressions) over time. This historical transparency prevents a specific failure mode: a system that achieves a high quality score by ignoring or hiding historical quality problems.
 
 ### Dimension 3: Operational Transparency
 
 Operational transparency means that the system's runtime behavior is observable, its decisions are traceable, and its operations are auditable. This is the most challenging dimension because it requires transparency not just in what the code *is* but in what the code *does* at runtime:
 
-- **[Audit trails](/glossary/audit-trail/)**: Every significant operation generates an immutable audit record with full provenance. Who (or which agent) initiated the operation, what inputs were provided, what decision was made, and what evidence supported the decision
-- **[Provenance tracking](/glossary/provenance-mandatory/)**: Every belief, conclusion, and output traces back to its source data through a complete chain of custody. The NABLA Infinity axiom of Provenance Mandatory enforces this at the framework level
+- **[Audit trails](@/glossary/audit-trail.md)**: Every significant operation generates an immutable audit record with full provenance. Who (or which agent) initiated the operation, what inputs were provided, what decision was made, and what evidence supported the decision
+- **[Provenance tracking](@/glossary/provenance-mandatory.md)**: Every belief, conclusion, and output traces back to its source data through a complete chain of custody. The NABLA Infinity axiom of Provenance Mandatory enforces this at the framework level
 - **Telemetry**: The platform emits telemetry events at every decision point, enabling real-time observability of system behavior
 - **Decision explanations**: When the platform produces a result (a security rating, a compliance assessment, a due diligence finding), it provides not just the result but the reasoning chain that produced it
 
@@ -220,13 +220,13 @@ The "Transparency Builds Trust" principle is particularly critical in the contex
 
 The Prismatic Platform addresses this challenge through structural transparency:
 
-1. **No hidden models**: The platform uses [Ollama](/glossary/ollama/) for local AI inference, running models locally rather than sending data to opaque cloud APIs. Users can inspect the models, understand their capabilities and limitations, and verify that no data leaves the local environment.
+1. **No hidden models**: The platform uses [Ollama](@/glossary/ollama.md) for local AI inference, running models locally rather than sending data to opaque cloud APIs. Users can inspect the models, understand their capabilities and limitations, and verify that no data leaves the local environment.
 
 2. **Decision provenance**: Every AI-assisted decision includes a complete provenance chain linking the output to the input data, the model used, the inference parameters, and the post-processing applied. Users can audit exactly how a conclusion was reached.
 
-3. **Confidence calibration**: Confidence scores are calibrated through the [NABLA Infinity](/glossary/nabla-infinity/) framework, which enforces signal plurality, contradiction preservation, and time decay. A 95% confidence score means something specific and verifiable, not "the model is pretty sure."
+3. **Confidence calibration**: Confidence scores are calibrated through the [NABLA Infinity](@/glossary/nabla-infinity.md) framework, which enforces signal plurality, contradiction preservation, and time decay. A 95% confidence score means something specific and verifiable, not "the model is pretty sure."
 
-4. **Adversarial testing**: The platform's [Red Team](/glossary/adversarial-testing/) continuously tests the system's transparency claims, attempting to find cases where the reported behavior diverges from actual behavior. This adversarial validation provides independent verification of transparency integrity.
+4. **Adversarial testing**: The platform's [Red Team](@/glossary/adversarial-testing.md) continuously tests the system's transparency claims, attempting to find cases where the reported behavior diverges from actual behavior. This adversarial validation provides independent verification of transparency integrity.
 
 ## Trust Erosion Patterns
 
@@ -275,13 +275,13 @@ Unlike many platform principles that are enforced through automated tooling, "Tr
 
 "Transparency Builds Trust" intersects with several other platform principles:
 
-- **[Code as Truth](/glossary/code-as-truth/)**: The source code is the ground truth about system behavior. Transparency makes this truth accessible.
-- **[Evidence Over Opinion](/glossary/evidence-over-opinion/)**: Trust claims must be backed by evidence, not assertions. Transparency provides the evidence.
-- **[Quality and Transparency](/glossary/quality-and-transparency/)**: Quality metrics are meaningful only when they are transparent and reproducible.
-- **[Complete Transparency](/glossary/complete-transparency/)**: The commitment to transparency extends to all aspects of the platform, not just the favorable ones.
-- **[No Mercy, No Doubts](/glossary/no-mercy-no-doubts/)**: The NM/ND doctrine's "No Doubts" component requires evidence-based confidence, which transparency enables.
-- **[NABLA Infinity](/glossary/nabla-infinity/)**: The Provenance Mandatory axiom is the formal expression of operational transparency in the epistemic framework.
-- **[Quality DNA](/glossary/quality-dna/)**: Cross-session quality state tracking provides historical transparency that prevents quality regression hiding.
+- **[Code as Truth](@/glossary/code-as-truth.md)**: The source code is the ground truth about system behavior. Transparency makes this truth accessible.
+- **[Evidence Over Opinion](@/glossary/evidence-over-opinion.md)**: Trust claims must be backed by evidence, not assertions. Transparency provides the evidence.
+- **[Quality and Transparency](@/glossary/quality-and-transparency.md)**: Quality metrics are meaningful only when they are transparent and reproducible.
+- **[Complete Transparency](@/glossary/complete-transparency.md)**: The commitment to transparency extends to all aspects of the platform, not just the favorable ones.
+- **[No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md)**: The NM/ND doctrine's "No Doubts" component requires evidence-based confidence, which transparency enables.
+- **[NABLA Infinity](@/glossary/nabla-infinity.md)**: The Provenance Mandatory axiom is the formal expression of operational transparency in the epistemic framework.
+- **[Quality DNA](@/glossary/quality-dna.md)**: Cross-session quality state tracking provides historical transparency that prevents quality regression hiding.
 
 ## Industry Context
 
@@ -289,24 +289,24 @@ The principle reflects a broader movement in the technology industry toward AI t
 
 ## Related Terms
 
-- [Open Source](/glossary/open-source/) -- Licensing and development model enabling source code transparency
-- [Open Source Advocacy](/glossary/open-source-advocacy/) -- Active promotion of open source as trust mechanism
-- [Open Source Leadership](/glossary/open-source-leadership/) -- Leadership through transparent governance
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- Quality metrics as transparency vehicle
-- [Complete Transparency](/glossary/complete-transparency/) -- Commitment to full-spectrum transparency
-- [Code as Truth](/glossary/code-as-truth/) -- Source code as authoritative behavior reference
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- Evidence-based trust over assertion
-- [Quality DNA](/glossary/quality-dna/) -- Historical quality state tracking
-- [Quality Gate](/glossary/quality-gate/) -- Automated quality verification checkpoints
-- [Audit Trail](/glossary/audit-trail/) -- Immutable operational decision records
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- NABLA axiom enforcing traceability
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) -- Execution doctrine requiring evidence-based confidence
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework with Provenance Mandatory axiom
+- [Open Source](@/glossary/open-source.md) -- Licensing and development model enabling source code transparency
+- [Open Source Advocacy](@/glossary/open-source-advocacy.md) -- Active promotion of open source as trust mechanism
+- [Open Source Leadership](@/glossary/open-source-leadership.md) -- Leadership through transparent governance
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- Quality metrics as transparency vehicle
+- [Complete Transparency](@/glossary/complete-transparency.md) -- Commitment to full-spectrum transparency
+- [Code as Truth](@/glossary/code-as-truth.md) -- Source code as authoritative behavior reference
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- Evidence-based trust over assertion
+- [Quality DNA](@/glossary/quality-dna.md) -- Historical quality state tracking
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated quality verification checkpoints
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable operational decision records
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- NABLA axiom enforcing traceability
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) -- Execution doctrine requiring evidence-based confidence
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework with Provenance Mandatory axiom
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -316,4 +316,4 @@ The principle reflects a broader movement in the technology industry toward AI t
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

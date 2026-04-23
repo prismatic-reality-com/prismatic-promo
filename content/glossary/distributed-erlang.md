@@ -171,16 +171,16 @@ end
 
 ## Related Terms
 
-- [BEAM](/glossary/beam/) -- Virtual machine providing distribution infrastructure
-- [Actor Model](/glossary/actor-model/) -- Computation model enabling transparent distribution
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing distribution infrastructure
+- [Actor Model](@/glossary/actor-model.md) -- Computation model enabling transparent distribution
 - **Hot Code Upgrade** -- Capability enhanced by distributed node management
-- [Distributed System](/glossary/distributed-system/) -- Broader category of multi-node architectures
-- [GenServer](/glossary/genserver/) -- OTP behaviour that works transparently across nodes
+- [Distributed System](@/glossary/distributed-system.md) -- Broader category of multi-node architectures
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour that works transparently across nodes
 
 ## See Also
 
-- [Technologies](/technologies/) -- BEAM clustering technologies
-- [Architecture](/architecture/) -- Platform distribution architecture
+- [Technologies](@/technologies/_index.md) -- BEAM clustering technologies
+- [Architecture](@/architecture/_index.md) -- Platform distribution architecture
 
 ---
 
@@ -189,4 +189,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

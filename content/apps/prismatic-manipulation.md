@@ -23,7 +23,7 @@ image_alt = "Prismatic Manipulation - Prismatic Platform"
 
 ## Overview
 
-Prismatic Manipulation provides defensive analysis capabilities for detecting social engineering attempts, manipulation tactics, and deceptive communication patterns. It analyzes communication content for manipulation indicators, scoring the likelihood of deceptive intent for security awareness and [incident response](/glossary/incident-response/). While [Prismatic Influence](/apps/prismatic-influence/) operates at the strategic level of coordinated campaigns, Manipulation focuses on the tactical level -- individual communications, specific phishing attempts, and targeted social engineering against personnel.
+Prismatic Manipulation provides defensive analysis capabilities for detecting social engineering attempts, manipulation tactics, and deceptive communication patterns. It analyzes communication content for manipulation indicators, scoring the likelihood of deceptive intent for security awareness and [incident response](@/glossary/incident-response.md). While [Prismatic Influence](@/apps/prismatic-influence.md) operates at the strategic level of coordinated campaigns, Manipulation focuses on the tactical level -- individual communications, specific phishing attempts, and targeted social engineering against personnel.
 
 The module implements a multi-layered detection framework based on established influence psychology research, including Cialdini's six principles of persuasion (reciprocity, commitment, social proof, authority, liking, scarcity). Each incoming communication is analyzed for the presence and intensity of these manipulation vectors, producing a structured score that security teams can use for triage. A message scoring high on authority impersonation and urgency pressure, for example, is flagged with higher confidence than one exhibiting only mild scarcity language.
 
@@ -47,7 +47,7 @@ PrismaticManipulation.Application
 
 The Detection Pipeline accepts raw communication content (emails, messages, documents), applies NLP preprocessing, extracts manipulation features using a configurable feature extractor, and scores the result using a weighted model trained on labeled social engineering datasets. The Training Generator inverts this pipeline -- given a tactic specification and difficulty level, it produces synthetic communications that exhibit those tactics for training purposes.
 
-Both components run as supervised [GenServer](/glossary/genserver/)s with the Detection Pipeline accepting async submissions through a [Broadway](/glossary/broadway/)-backed queue for high-throughput email scanning.
+Both components run as supervised [GenServer](@/glossary/genserver.md)s with the Detection Pipeline accepting async submissions through a [Broadway](@/glossary/broadway.md)-backed queue for high-throughput email scanning.
 
 ## Key Modules
 
@@ -137,12 +137,12 @@ Testing includes labeled dataset validation for detection accuracy, property-bas
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic Influence](/apps/prismatic-influence/) | Strategic campaign analysis complementing tactical detection |
-| [Prismatic CER](/apps/prismatic-cer/) | Security incident logging for detected social engineering |
-| [Prismatic Deduction](/apps/prismatic-deduction/) | Rule-based risk classification using manipulation scores |
-| [Prismatic Suppression](/apps/prismatic-suppression/) | Alert noise management for high-volume scanning |
-| [Prismatic Safety](/apps/prismatic-safety/) | Safety validation for training content generation |
-| [Prismatic Bifurcation](/apps/prismatic-bifurcation/) | Decision tree analysis for manipulation scenario branching |
+| [Prismatic Influence](@/apps/prismatic-influence.md) | Strategic campaign analysis complementing tactical detection |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Security incident logging for detected social engineering |
+| [Prismatic Deduction](@/apps/prismatic-deduction.md) | Rule-based risk classification using manipulation scores |
+| [Prismatic Suppression](@/apps/prismatic-suppression.md) | Alert noise management for high-volume scanning |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Safety validation for training content generation |
+| [Prismatic Bifurcation](@/apps/prismatic-bifurcation.md) | Decision tree analysis for manipulation scenario branching |
 
 ## NABLA Compliance
 
@@ -167,13 +167,13 @@ Detection results are treated as intelligence signals under the NABLA framework,
 
 ## Related Resources
 
-- [Prismatic Influence](/apps/prismatic-influence/) -- Strategic influence operation detection
-- [Prismatic CER](/apps/prismatic-cer/) -- Security incident logging for detected attempts
-- [Prismatic Deduction](/apps/prismatic-deduction/) -- Rule-based risk classification
-- [Prismatic Suppression](/apps/prismatic-suppression/) -- Alert noise management
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-domain intelligence fusion
-- [Color Teams](/capabilities/color-teams/) -- Adversarial simulation validating detection effectiveness
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Continuous communication monitoring
+- [Prismatic Influence](@/apps/prismatic-influence.md) -- Strategic influence operation detection
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Security incident logging for detected attempts
+- [Prismatic Deduction](@/apps/prismatic-deduction.md) -- Rule-based risk classification
+- [Prismatic Suppression](@/apps/prismatic-suppression.md) -- Alert noise management
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-domain intelligence fusion
+- [Color Teams](@/capabilities/color-teams.md) -- Adversarial simulation validating detection effectiveness
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Continuous communication monitoring
 
 ---
 
@@ -182,4 +182,4 @@ Detection results are treated as intelligence signals under the NABLA framework,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

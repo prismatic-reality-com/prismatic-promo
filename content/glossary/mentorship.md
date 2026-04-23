@@ -383,23 +383,23 @@ Production incident response is learned through guided practice. Mentors walk ju
 
 ## Related Concepts
 
-- [Documentation](/glossary/documentation/) -- Written knowledge artifacts that scale mentorship beyond individual relationships
-- [Code Reviews](/glossary/code-reviews/) -- The most frequent and scalable form of engineering mentorship
-- [Community Building](/glossary/community-building/) -- Creating environments where mentorship relationships form organically
-- [Developer Experience](/glossary/developer-experience/) -- Tooling and practices that accelerate the learning curve mentorship addresses
-- [Knowledge Sharing](/glossary/knowledge-hoarding/) -- Organizational practices for distributing knowledge across team boundaries
-- [Learning Path](/glossary/learning-path/) -- Structured sequences of learning that mentors guide mentees through
-- [Curriculum](/glossary/curriculum/) -- Formalized learning content that complements personalized mentorship
-- [Conference Speaking](/glossary/conference-speaking/) -- Public knowledge sharing that extends mentorship to the broader community
-- [Collaborative Development](/glossary/collaborative-development/) -- Team practices that embed mentorship into daily development workflow
-- [Office Hours](/glossary/office-hours/) -- Scheduled availability for ad-hoc mentorship and knowledge transfer
+- [Documentation](@/glossary/documentation.md) -- Written knowledge artifacts that scale mentorship beyond individual relationships
+- [Code Reviews](@/glossary/code-reviews.md) -- The most frequent and scalable form of engineering mentorship
+- [Community Building](@/glossary/community-building.md) -- Creating environments where mentorship relationships form organically
+- [Developer Experience](@/glossary/developer-experience.md) -- Tooling and practices that accelerate the learning curve mentorship addresses
+- [Knowledge Sharing](@/glossary/knowledge-hoarding.md) -- Organizational practices for distributing knowledge across team boundaries
+- [Learning Path](@/glossary/learning-path.md) -- Structured sequences of learning that mentors guide mentees through
+- [Curriculum](@/glossary/curriculum.md) -- Formalized learning content that complements personalized mentorship
+- [Conference Speaking](@/glossary/conference-speaking.md) -- Public knowledge sharing that extends mentorship to the broader community
+- [Collaborative Development](@/glossary/collaborative-development.md) -- Team practices that embed mentorship into daily development workflow
+- [Office Hours](@/glossary/office-hours.md) -- Scheduled availability for ad-hoc mentorship and knowledge transfer
 
 ## See Also
 
-- [Developer Portal](/developers/) -- Entry point for new contributors to the Prismatic Platform
-- [Architecture](/architecture/) -- Platform architecture documentation that supports mentorship
+- [Developer Portal](@/developers/_index.md) -- Entry point for new contributors to the Prismatic Platform
+- [Architecture](@/architecture/_index.md) -- Platform architecture documentation that supports mentorship
 - Glossary -- 600+ term definitions that codify knowledge for self-directed learning
-- [AIAD](/glossary/aiad/) -- Agent framework whose documentation serves as structured learning material
+- [AIAD](@/glossary/aiad.md) -- Agent framework whose documentation serves as structured learning material
 
 ---
 
@@ -408,4 +408,4 @@ Production incident response is learned through guided practice. Mentors walk ju
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

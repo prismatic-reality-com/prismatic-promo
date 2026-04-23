@@ -503,10 +503,10 @@ end
 
 ## Related Capabilities
 
-- [Zero-Downtime Operations](/capabilities/zero-downtime-operations/) - Complementary continuous operation capability
-- [Quantum Optimization](/capabilities/quantum-optimization/) - Advanced optimization algorithms
-- [Autonomous Evolution](/capabilities/self-adaptive-systems/) - Platform-wide evolution capability
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) - Monitoring infrastructure
+- [Zero-Downtime Operations](@/capabilities/zero-downtime-operations.md) - Complementary continuous operation capability
+- [Quantum Optimization](@/capabilities/quantum-optimization.md) - Advanced optimization algorithms
+- [Autonomous Evolution](@/capabilities/self-adaptive-systems.md) - Platform-wide evolution capability
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) - Monitoring infrastructure
 
 ## Conclusion
 

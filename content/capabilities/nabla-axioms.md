@@ -180,7 +180,7 @@ Every belief in the platform traces back to its originating signals through an u
 
 ## Confidence Thresholds
 
-Different operational contexts require different confidence thresholds before action can be taken. These thresholds work in conjunction with the [Trinity Gate](/capabilities/trinity-gate/) verification requirements.
+Different operational contexts require different confidence thresholds before action can be taken. These thresholds work in conjunction with the [Trinity Gate](@/capabilities/trinity-gate.md) verification requirements.
 
 | Context | Threshold | Trinity Gate | Rationale |
 |---------|-----------|-------------|-----------|
@@ -199,7 +199,7 @@ Axiom violations trigger a four-level enforcement response proportional to the s
 |-------|---------|----------|-----------|----------|
 | **E1** | Single axiom soft violation | Warning + correction request | Agent | Self-correct within current operation |
 | **E2** | Single axiom hard violation | BLOCK + rejection | System | Must resolve before proceeding |
-| **E3** | [Trinity Gate](/capabilities/trinity-gate/) failure | HALT + review required | Supreme | Requires strategic-level review |
+| **E3** | [Trinity Gate](@/capabilities/trinity-gate.md) failure | HALT + review required | Supreme | Requires strategic-level review |
 | **E4** | Multiple axiom violations | Investigation + full audit | Cosmic | Complete epistemic audit required |
 
 ### Anti-Patterns (Forbidden)
@@ -218,7 +218,7 @@ These patterns represent common intelligence analysis failures that NABLA axioms
 
 ## Platform Implementation
 
-The NABLA axiom enforcement is implemented as an [Elixir](/technologies/elixir/) module that wraps all epistemic operations with axiom validation.
+The NABLA axiom enforcement is implemented as an [Elixir](@/technologies/elixir.md) module that wraps all epistemic operations with axiom validation.
 
 ```elixir
 defmodule PrismaticNabla.AxiomEnforcer do
@@ -280,7 +280,7 @@ end
 
 ## NABLA and Trinity Gate Integration
 
-The NABLA axioms serve as prerequisites for [Trinity Gate](/capabilities/trinity-gate/) passage. A belief that violates any hard axiom cannot enter the Trinity Gate verification pipeline, regardless of how well it might score on structural, logical, or formal checks.
+The NABLA axioms serve as prerequisites for [Trinity Gate](@/capabilities/trinity-gate.md) passage. A belief that violates any hard axiom cannot enter the Trinity Gate verification pipeline, regardless of how well it might score on structural, logical, or formal checks.
 
 | Integration Point | NABLA Role | Trinity Gate Role |
 |------------------|-----------|------------------|
@@ -312,20 +312,20 @@ The NABLA axioms serve as prerequisites for [Trinity Gate](/capabilities/trinity
 
 ## Integration
 
-- Prerequisite for [Trinity Gate](/capabilities/trinity-gate/) verification passage
-- Governs all [Intelligence Synthesis](/capabilities/intelligence-synthesis/) operations
-- Applied through [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) epistemic paradigm
-- Enforced by [NO DOUBTS](/capabilities/no-doubts/) evidence standards
-- Quality assured by [NO MERCY](/capabilities/no-mercy/) zero-tolerance enforcement
-- [Color Teams](/capabilities/color-teams/) operate under full NABLA compliance
-- [AIAD Standard](/capabilities/aiad-standard/) encodes NABLA requirements in agent specifications
-- [AIAD Compliance](/capabilities/aiad-compliance/) validates NABLA enforcement blocks
-- Monitored by [Real-Time Monitoring](/capabilities/real-time-monitoring/) for axiom compliance metrics
-- Tracked by [Telemetry Integration](/capabilities/telemetry-integration/) for enforcement performance
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) uses evidence-based healing per NABLA requirements
-- [Quality Gates](/capabilities/quality-gates/) include NABLA compliance as a gate criterion
-- Supports [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) epistemic operations across domains
-- Feeds [EASM](/capabilities/easm/) and [Compliance](/capabilities/compliance/) with calibrated intelligence
+- Prerequisite for [Trinity Gate](@/capabilities/trinity-gate.md) verification passage
+- Governs all [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) operations
+- Applied through [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) epistemic paradigm
+- Enforced by [NO DOUBTS](@/capabilities/no-doubts.md) evidence standards
+- Quality assured by [NO MERCY](@/capabilities/no-mercy.md) zero-tolerance enforcement
+- [Color Teams](@/capabilities/color-teams.md) operate under full NABLA compliance
+- [AIAD Standard](@/capabilities/aiad-standard.md) encodes NABLA requirements in agent specifications
+- [AIAD Compliance](@/capabilities/aiad-compliance.md) validates NABLA enforcement blocks
+- Monitored by [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) for axiom compliance metrics
+- Tracked by [Telemetry Integration](@/capabilities/telemetry-integration.md) for enforcement performance
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) uses evidence-based healing per NABLA requirements
+- [Quality Gates](@/capabilities/quality-gates.md) include NABLA compliance as a gate criterion
+- Supports [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) epistemic operations across domains
+- Feeds [EASM](@/capabilities/easm.md) and [Compliance](@/capabilities/compliance.md) with calibrated intelligence
 
 ---
 
@@ -334,4 +334,4 @@ The NABLA axioms serve as prerequisites for [Trinity Gate](/capabilities/trinity
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

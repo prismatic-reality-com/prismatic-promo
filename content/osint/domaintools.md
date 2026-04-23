@@ -25,9 +25,9 @@ image_alt = "DomainTools - Prismatic Platform"
 
 ## Overview
 
-DomainTools is the enterprise-grade domain intelligence platform that has served as the foundational data source for domain-centric security investigations since its founding in 2002. Originally launched as a WHOIS lookup service, DomainTools has evolved into the most comprehensive domain intelligence platform available, maintaining the world's largest repository of [WHOIS](/glossary/whois/) historical records with data spanning over two decades and covering virtually every registered domain on the internet.
+DomainTools is the enterprise-grade domain intelligence platform that has served as the foundational data source for domain-centric security investigations since its founding in 2002. Originally launched as a WHOIS lookup service, DomainTools has evolved into the most comprehensive domain intelligence platform available, maintaining the world's largest repository of [WHOIS](@/glossary/whois.md) historical records with data spanning over two decades and covering virtually every registered domain on the internet.
 
-The platform is trusted by security operations centers (SOCs), [threat intelligence](/glossary/threat-intelligence/) teams, law enforcement agencies, brand protection departments, and fraud investigation units at major organizations worldwide. DomainTools' unique value proposition lies in its historical depth: while current WHOIS records show who owns a domain today, DomainTools preserves the complete registration history, revealing previous owners, registration patterns, nameserver changes, and hosting migrations that are invisible to point-in-time queries.
+The platform is trusted by security operations centers (SOCs), [threat intelligence](@/glossary/threat-intelligence.md) teams, law enforcement agencies, brand protection departments, and fraud investigation units at major organizations worldwide. DomainTools' unique value proposition lies in its historical depth: while current WHOIS records show who owns a domain today, DomainTools preserves the complete registration history, revealing previous owners, registration patterns, nameserver changes, and hosting migrations that are invisible to point-in-time queries.
 
 DomainTools' flagship investigation platform, Iris, provides connected threat intelligence through domain-centric graph analysis. Iris enables analysts to pivot from a single suspicious domain to discover entire threat actor infrastructures by following connections through shared registrant information, nameserver configurations, IP address co-hosting patterns, and SSL certificate relationships. This connected intelligence approach has proven particularly effective for phishing campaign attribution, malware command-and-control infrastructure mapping, and brand impersonation detection.
 
@@ -286,7 +286,7 @@ DomainTools' primary limitation since 2018 is the impact of GDPR on WHOIS data a
 
 Within the Prismatic Platform, DomainTools serves as the premium domain intelligence source, providing historical depth and connected infrastructure analysis that complement free and lower-cost alternatives. The integration prioritizes DomainTools for high-confidence investigation workflows where historical context and attribution capabilities are critical.
 
-DomainTools risk scores feed directly into [Prismatic Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/) calculations, contributing to the domain reputation component of overall security posture assessments. The Iris Investigate API enables automated infrastructure mapping that populates the platform's threat intelligence knowledge graph.
+DomainTools risk scores feed directly into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md) calculations, contributing to the domain reputation component of overall security posture assessments. The Iris Investigate API enables automated infrastructure mapping that populates the platform's threat intelligence knowledge graph.
 
 ## NABLA Compliance
 
@@ -314,12 +314,12 @@ DomainTools risk scores feed directly into [Prismatic Perimeter](/apps/prismatic
 
 ## Related Resources
 
-- [WhoisXML API](/osint/whoisxml/) - WHOIS and DNS intelligence alternative
-- [SecurityTrails](/osint/securitytrails/) - DNS history and passive DNS intelligence
-- [RiskIQ](/osint/riskiq/) - Passive DNS and web intelligence platform
-- [crt.sh](/osint/crtsh/) - [Certificate transparency](/glossary/certificate-transparency/) for domain discovery
-- [DNSdumpster](/osint/dnsdumpster/) - Free DNS reconnaissance complement
-- [FullHunt](/osint/fullhunt/) - Attack surface discovery for domain infrastructure
+- [WhoisXML API](@/osint/whoisxml.md) - WHOIS and DNS intelligence alternative
+- [SecurityTrails](@/osint/securitytrails.md) - DNS history and passive DNS intelligence
+- [RiskIQ](@/osint/riskiq.md) - Passive DNS and web intelligence platform
+- [crt.sh](@/osint/crtsh.md) - [Certificate transparency](@/glossary/certificate-transparency.md) for domain discovery
+- [DNSdumpster](@/osint/dnsdumpster.md) - Free DNS reconnaissance complement
+- [FullHunt](@/osint/fullhunt.md) - Attack surface discovery for domain infrastructure
 
 ---
 
@@ -328,4 +328,4 @@ DomainTools risk scores feed directly into [Prismatic Perimeter](/apps/prismatic
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

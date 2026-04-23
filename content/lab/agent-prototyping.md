@@ -24,31 +24,31 @@ image_alt = "Autonomous Agent Prototyping Framework - Prismatic Platform"
 
 ## Hypothesis
 
-We hypothesize that systematic agent prototyping through structured configuration testing, response quality measurement, and decision tree evaluation can reduce the time-to-production for new [AIAD](/glossary/aiad/) agents by 60% while maintaining or exceeding the platform's [Quality DNA](/glossary/quality-dna/) standards. Specifically, we predict that agents prototyped through our framework will achieve first-pass quality scores above 85/100 compared to the historical average of 62/100 for manually configured agents.
+We hypothesize that systematic agent prototyping through structured configuration testing, response quality measurement, and decision tree evaluation can reduce the time-to-production for new [AIAD](@/glossary/aiad.md) agents by 60% while maintaining or exceeding the platform's [Quality DNA](@/glossary/quality-dna.md) standards. Specifically, we predict that agents prototyped through our framework will achieve first-pass quality scores above 85/100 compared to the historical average of 62/100 for manually configured agents.
 
 ## Background
 
-The Prismatic Platform operates 434 autonomous [agents](/glossary/agent/) across 14 domains, registered in the [Agent Registry](/glossary/agent-registry/), making it one of the largest multi-agent systems built on [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/). Each agent requires careful configuration of behavioral parameters, response templates, decision thresholds, and interaction protocols. Historically, agent development followed an ad-hoc process: engineers would define an agent specification in [AIAD](/glossary/aiad/) YAML, implement the backing [GenServer](/glossary/genserver/), and iterate through manual testing until [quality gates](/glossary/quality-gates/) passed.
+The Prismatic Platform operates 434 autonomous [agents](@/glossary/agent.md) across 14 domains, registered in the [Agent Registry](@/glossary/agent-registry.md), making it one of the largest multi-agent systems built on [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md). Each agent requires careful configuration of behavioral parameters, response templates, decision thresholds, and interaction protocols. Historically, agent development followed an ad-hoc process: engineers would define an agent specification in [AIAD](@/glossary/aiad.md) YAML, implement the backing [GenServer](@/glossary/genserver.md), and iterate through manual testing until [quality gates](@/glossary/quality-gates.md) passed.
 
-This approach suffered from three key problems. First, configuration drift between the [AIAD](/glossary/aiad/) specification and the runtime [behaviour](/glossary/behaviour/) was common, detected only when [quality gates](/glossary/quality-gates/) failed late in the pipeline. Second, decision tree evaluation relied on subjective assessment rather than quantitative [fitness scores](/glossary/fitness-score/). Third, the feedback loop between prototyping and production validation averaged 4.2 hours, making rapid iteration impractical.
+This approach suffered from three key problems. First, configuration drift between the [AIAD](@/glossary/aiad.md) specification and the runtime [behaviour](@/glossary/behaviour.md) was common, detected only when [quality gates](@/glossary/quality-gates.md) failed late in the pipeline. Second, decision tree evaluation relied on subjective assessment rather than quantitative [fitness scores](@/glossary/fitness-score.md). Third, the feedback loop between prototyping and production validation averaged 4.2 hours, making rapid iteration impractical.
 
-The Agent Prototyping Framework addresses these gaps by introducing a structured sandbox environment -- built on dedicated [supervision trees](/glossary/supervision-tree/) with [process isolation](/glossary/process-isolation/) -- where agent configurations can be tested against synthetic workloads, measured against quantitative quality benchmarks, and validated through automated decision tree analysis before any production deployment.
+The Agent Prototyping Framework addresses these gaps by introducing a structured sandbox environment -- built on dedicated [supervision trees](@/glossary/supervision-tree.md) with [process isolation](@/glossary/process-isolation.md) -- where agent configurations can be tested against synthetic workloads, measured against quantitative quality benchmarks, and validated through automated decision tree analysis before any production deployment.
 
 ## Methodology
 
-The experiment follows a three-phase evaluation protocol aligned with the platform's [No Mercy](/glossary/no-mercy/) doctrine.
+The experiment follows a three-phase evaluation protocol aligned with the platform's [No Mercy](@/glossary/no-mercy.md) doctrine.
 
-**Phase 1: Configuration Space Exploration** -- We define a parameterized agent configuration space and use Latin Hypercube Sampling to select 200 configuration points. Each configuration is instantiated as a sandboxed [GenServer](/glossary/genserver/) and evaluated against a standardized workload of 1,000 synthetic requests.
+**Phase 1: Configuration Space Exploration** -- We define a parameterized agent configuration space and use Latin Hypercube Sampling to select 200 configuration points. Each configuration is instantiated as a sandboxed [GenServer](@/glossary/genserver.md) and evaluated against a standardized workload of 1,000 synthetic requests.
 
-**Phase 2: Response Quality Measurement** -- Each agent instance processes the workload while we capture response latency (p50, p95, p99), response accuracy (measured against ground truth labels), decision consistency (same input produces same output across 10 runs), and resource consumption (memory, [message](/glossary/message-passing/) queue depth, process count).
+**Phase 2: Response Quality Measurement** -- Each agent instance processes the workload while we capture response latency (p50, p95, p99), response accuracy (measured against ground truth labels), decision consistency (same input produces same output across 10 runs), and resource consumption (memory, [message](@/glossary/message-passing.md) queue depth, process count).
 
 **Phase 3: Decision Tree Evaluation** -- For agents that implement branching decision logic, we extract the decision tree structure and evaluate path coverage, branch balance, dead branch detection, and decision boundary sensitivity using perturbation analysis.
 
-All measurements are recorded in [ETS](/technologies/ets/) tables and persisted to [PostgreSQL](/technologies/postgresql/) for cross-experiment comparison.
+All measurements are recorded in [ETS](@/technologies/ets.md) tables and persisted to [PostgreSQL](@/technologies/postgresql.md) for cross-experiment comparison.
 
 ## Setup
 
-The prototyping framework is configured through a dedicated [Mix](/glossary/mix/) task and a [GenServer](/glossary/genserver/)-based sandbox:
+The prototyping framework is configured through a dedicated [Mix](@/glossary/mix.md) task and a [GenServer](@/glossary/genserver.md)-based sandbox:
 
 ```elixir
 defmodule PrismaticAgents.Prototyping.Sandbox do
@@ -168,28 +168,28 @@ The memory reduction of 29.8% was an unexpected benefit. By systematically testi
 
 The Agent Prototyping Framework validates that structured, quantitative agent development significantly outperforms ad-hoc manual processes. Key takeaways:
 
-1. **Automated configuration validation eliminates drift** -- The sandbox catches specification-runtime mismatches before they reach production, enforcing [AIAD](/glossary/aiad/) contract fidelity.
-2. **Decision tree analysis prevents latent defects** -- Dead branches and sensitive boundaries are systemic risks that manual review misses, detectable through [property-based testing](/glossary/property-based-testing/) approaches.
-3. **Resource optimization is a natural side effect** -- Systematic testing reveals inefficiencies that are invisible in manual development, improving [fitness scores](/glossary/fitness-score/).
-4. **Quality scores above 85/100 are achievable at scale** -- The framework makes high quality the default rather than the exception, aligning with the [Quality Floor Guardian](/glossary/quality-floor-guardian/)'s enforcement thresholds.
+1. **Automated configuration validation eliminates drift** -- The sandbox catches specification-runtime mismatches before they reach production, enforcing [AIAD](@/glossary/aiad.md) contract fidelity.
+2. **Decision tree analysis prevents latent defects** -- Dead branches and sensitive boundaries are systemic risks that manual review misses, detectable through [property-based testing](@/glossary/property-based-testing.md) approaches.
+3. **Resource optimization is a natural side effect** -- Systematic testing reveals inefficiencies that are invisible in manual development, improving [fitness scores](@/glossary/fitness-score.md).
+4. **Quality scores above 85/100 are achievable at scale** -- The framework makes high quality the default rather than the exception, aligning with the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md)'s enforcement thresholds.
 
-The framework has been adopted as the mandatory prototyping step for all new agent development, enforced through the [No Mercy](/glossary/no-mercy/) quality gates.
+The framework has been adopted as the mandatory prototyping step for all new agent development, enforced through the [No Mercy](@/glossary/no-mercy.md) quality gates.
 
 ## Next Steps
 
-- Extend the workload generator to support adversarial inputs from [Color Team](/glossary/color-teams/) simulations
-- Integrate with the [SEADF](/glossary/seadf/) evolution pipeline and [autoevolve](/glossary/autoevolve/) scanner for automatic agent improvement
-- Add support for multi-agent interaction testing within the sandbox using [Dynamic Supervisor](/glossary/dynamic-supervisor/) orchestration
-- Implement continuous prototyping that re-evaluates production agents against updated workload profiles, tracked via [telemetry](/glossary/telemetry/)
-- Build a visual decision tree explorer in [LiveView](/glossary/liveview/) with [Flowbite](/glossary/flowbite/) components
-- Integrate [Dialyzer](/glossary/dialyzer/) and [typespec](/glossary/typespec/) validation into the automated prototyping pipeline
+- Extend the workload generator to support adversarial inputs from [Color Team](@/glossary/color-teams.md) simulations
+- Integrate with the [SEADF](@/glossary/seadf.md) evolution pipeline and [autoevolve](@/glossary/autoevolve.md) scanner for automatic agent improvement
+- Add support for multi-agent interaction testing within the sandbox using [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) orchestration
+- Implement continuous prototyping that re-evaluates production agents against updated workload profiles, tracked via [telemetry](@/glossary/telemetry.md)
+- Build a visual decision tree explorer in [LiveView](@/glossary/liveview.md) with [Flowbite](@/glossary/flowbite.md) components
+- Integrate [Dialyzer](@/glossary/dialyzer.md) and [typespec](@/glossary/typespec.md) validation into the automated prototyping pipeline
 
 ## Related Experiments
 
-- [Multi-Agent Coordination](/lab/multi-agent-coordination/) -- Testing how prototyped agents perform in coordinated swarms
-- [Quality Evolution](/lab/quality-evolution/) -- Autonomous quality maintenance that builds on prototyping metrics
-- [Session Lifecycle](/lab/session-lifecycle/) -- Context persistence across prototyping sessions
-- [Epistemic Framework](/lab/epistemic-framework/) -- NABLA axiom enforcement in agent decision-making
+- [Multi-Agent Coordination](@/lab/multi-agent-coordination.md) -- Testing how prototyped agents perform in coordinated swarms
+- [Quality Evolution](@/lab/quality-evolution.md) -- Autonomous quality maintenance that builds on prototyping metrics
+- [Session Lifecycle](@/lab/session-lifecycle.md) -- Context persistence across prototyping sessions
+- [Epistemic Framework](@/lab/epistemic-framework.md) -- NABLA axiom enforcement in agent decision-making
 
 ---
 
@@ -198,4 +198,4 @@ The framework has been adopted as the mandatory prototyping step for all new age
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

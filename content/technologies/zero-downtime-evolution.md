@@ -680,10 +680,10 @@ ZeroDowntimeEvolution.set_resource_limits(%{
 
 ## Related Technologies
 
-- [Adaptive System Architecture](/technologies/adaptive-system-architecture/) - Complementary self-modifying capabilities
-- [Quantum-Inspired Optimization](/technologies/quantum-inspired-optimization/) - Optimization algorithms
-- [BEAM Virtual Machine](/technologies/beam/) - Foundation hot code loading
-- [OTP Supervision Trees](/technologies/erlang-otp/) - Core supervision primitives
+- [Adaptive System Architecture](@/technologies/adaptive-system-architecture.md) - Complementary self-modifying capabilities
+- [Quantum-Inspired Optimization](@/technologies/quantum-inspired-optimization.md) - Optimization algorithms
+- [BEAM Virtual Machine](@/technologies/beam.md) - Foundation hot code loading
+- [OTP Supervision Trees](@/technologies/erlang-otp.md) - Core supervision primitives
 
 ## Conclusion
 

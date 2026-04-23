@@ -34,7 +34,7 @@ image_alt = "Technical Mediocrity - Prismatic Platform"
 
 Technical mediocrity is the systemic anti-pattern of accepting software that is merely "good enough" -- code that compiles but carries warnings, implementations that work but lack tests, architectures that function but ignore established patterns, and quality standards that exist on paper but are routinely bypassed under schedule pressure. It is not a single bad decision but an accumulation of small compromises that compound exponentially over time, transforming maintainable systems into fragile, inscrutable codebases that resist change and breed defects.
 
-Within the Prismatic Platform, technical mediocrity is treated as the primary adversary -- the fundamental threat that all quality systems, enforcement mechanisms, and cultural practices are designed to prevent. The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine exists specifically as an organizational immune response to technical mediocrity.
+Within the Prismatic Platform, technical mediocrity is treated as the primary adversary -- the fundamental threat that all quality systems, enforcement mechanisms, and cultural practices are designed to prevent. The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine exists specifically as an organizational immune response to technical mediocrity.
 
 ## The Anatomy of Mediocrity
 
@@ -167,7 +167,7 @@ The Prismatic Platform's investment in quality infrastructure -- 13 quality doma
 
 ## NO MERCY Doctrine as Immune Response
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine was designed explicitly as an organizational immune response to technical mediocrity. Every principle maps to a specific mediocrity vector:
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine was designed explicitly as an organizational immune response to technical mediocrity. Every principle maps to a specific mediocrity vector:
 
 | NO MERCY Principle | Mediocrity It Prevents |
 |--------------------|----------------------|
@@ -284,7 +284,7 @@ end
 
 ### Continuous Quality Monitoring
 
-The [Quality Floor Guardian](/glossary/quality-floor-guardian/) monitors quality metrics in real-time, triggering alerts and blocking actions when mediocrity indicators emerge. This continuous monitoring catches gradual quality erosion that periodic checks might miss.
+The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) monitors quality metrics in real-time, triggering alerts and blocking actions when mediocrity indicators emerge. This continuous monitoring catches gradual quality erosion that periodic checks might miss.
 
 ### Forbidden Patterns Enforcement
 
@@ -326,7 +326,7 @@ Technical mediocrity is ultimately a cultural problem, not a technical one. Orga
 - **Code review feedback on quality is seen as "nitpicking"**
 - **"It works" is considered a sufficient acceptance criterion**
 
-The Prismatic Platform's culture explicitly rejects all of these positions. The [zero-compromise quality](/glossary/zero-compromise-quality/) standard establishes that quality is not negotiable, not optional, and not subject to trade-offs with schedule or scope.
+The Prismatic Platform's culture explicitly rejects all of these positions. The [zero-compromise quality](@/glossary/zero-compromise-quality.md) standard establishes that quality is not negotiable, not optional, and not subject to trade-offs with schedule or scope.
 
 ## Mediocrity vs. Pragmatism
 
@@ -336,13 +336,13 @@ A common defense of technical mediocrity disguises itself as pragmatism: "We nee
 
 **Mediocrity** is making uninformed or rationalized trade-offs that accumulate without tracking or remediation. A mediocre decision ignores the quality cost, documents nothing, and assumes the debt will never come due.
 
-The distinction is accountability. Pragmatic decisions are tracked as explicit [quality debt](/glossary/quality-debt/) with remediation plans. Mediocre decisions disappear into the codebase, compounding silently.
+The distinction is accountability. Pragmatic decisions are tracked as explicit [quality debt](@/glossary/quality-debt.md) with remediation plans. Mediocre decisions disappear into the codebase, compounding silently.
 
 ## Recovery from Technical Mediocrity
 
 For codebases that have already accumulated significant technical mediocrity, recovery requires a structured approach:
 
-1. **Baseline Assessment**: Quantify the current state across all quality domains using [static analysis](/glossary/static-analysis/) and automated scanning
+1. **Baseline Assessment**: Quantify the current state across all quality domains using [static analysis](@/glossary/static-analysis.md) and automated scanning
 2. **Prioritized Remediation**: Address violations by impact, starting with security-critical and correctness-critical issues
 3. **Ratcheting Standards**: Implement quality gates that prevent new mediocrity while gradually raising the floor on existing code
 4. **Automated Enforcement**: Remove human discretion from quality decisions through pre-commit hooks and CI/CD gates
@@ -364,16 +364,16 @@ Mediocrity can and should be measured. Key indicators include:
 
 ## Related Concepts
 
-- [Technical Perfection](/glossary/technical-perfection/) -- The antithesis of technical mediocrity
-- [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) -- The doctrine designed to eliminate mediocrity
-- [Quality Debt](/glossary/quality-debt/) -- The quantified cost of accumulated mediocrity
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- The standard that rejects mediocrity
-- [Zero Tolerance Quality](/glossary/zero-tolerance-quality/) -- The enforcement posture against mediocrity
-- [Quality Gates](/glossary/quality-gates/) -- The automated barriers that block mediocre code
-- [Code Quality](/glossary/code-quality/) -- The multi-dimensional measure mediocrity degrades
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- The autonomous monitor that detects mediocrity
-- [Refactoring](/glossary/refactoring/) -- The primary tool for eliminating existing mediocrity
-- [Quality Standard](/glossary/quality-standard/) -- The formal specification mediocrity violates
+- [Technical Perfection](@/glossary/technical-perfection.md) -- The antithesis of technical mediocrity
+- [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) -- The doctrine designed to eliminate mediocrity
+- [Quality Debt](@/glossary/quality-debt.md) -- The quantified cost of accumulated mediocrity
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- The standard that rejects mediocrity
+- [Zero Tolerance Quality](@/glossary/zero-tolerance-quality.md) -- The enforcement posture against mediocrity
+- [Quality Gates](@/glossary/quality-gates.md) -- The automated barriers that block mediocre code
+- [Code Quality](@/glossary/code-quality.md) -- The multi-dimensional measure mediocrity degrades
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- The autonomous monitor that detects mediocrity
+- [Refactoring](@/glossary/refactoring.md) -- The primary tool for eliminating existing mediocrity
+- [Quality Standard](@/glossary/quality-standard.md) -- The formal specification mediocrity violates
 
 See the Glossary index for the complete taxonomy of Prismatic Platform concepts.
 

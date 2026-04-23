@@ -41,15 +41,15 @@ image_alt = "Agent - Prismatic Platform"
 
 An Agent in the Prismatic Platform is an autonomous software entity defined by the AIAD (AI Agent Definition) standard. Each agent operates within a precisely defined scope: a classification level (L1 through L5) determining its operational authority, a domain specialization constraining its area of expertise, and a set of capabilities defining what actions it can perform. Agents are the primary execution units of the platform -- every significant operation, from code quality analysis to security scanning to epistemic reasoning, is performed by one or more agents coordinated through the AIAD framework.
 
-The agent model in Prismatic differs fundamentally from the "agent" concept in most AI platforms, where an agent is typically a language model with tool access. In Prismatic, an agent is an OTP-supervised process with formally specified inputs, outputs, authority constraints, and doctrine compliance requirements. Agents do not operate with unconstrained autonomy -- they operate within strict boundaries defined by the NO MERCY NO DOUBTS doctrine and verified through [Trinity Gate](/glossary/trinity-gate/) validation.
+The agent model in Prismatic differs fundamentally from the "agent" concept in most AI platforms, where an agent is typically a language model with tool access. In Prismatic, an agent is an OTP-supervised process with formally specified inputs, outputs, authority constraints, and doctrine compliance requirements. Agents do not operate with unconstrained autonomy -- they operate within strict boundaries defined by the NO MERCY NO DOUBTS doctrine and verified through [Trinity Gate](@/glossary/trinity-gate.md) validation.
 
 The platform currently deploys 530 agents across 16 specialized domains, forming what is likely the largest structured agent ecosystem in any single platform. These agents range from simple tactical specialists (L1) performing focused operations to supreme authority agents (L5) capable of coordinating cross-domain campaigns with unlimited operational scope.
 
 ## Overview
 
-The agent ecosystem represents a deliberate architectural choice: rather than building monolithic systems that attempt to handle all platform concerns, the Prismatic Platform decomposes every operational concern into autonomous agents with clear responsibilities, explicit interfaces, and enforceable constraints. This decomposition follows the [OTP](/glossary/otp/) principle of isolating concerns into independent processes, but extends it with formal specification through the AIAD standard, hierarchical authority through the tier system, and epistemic rigor through [NABLA Infinity](/glossary/nabla-infinity/) compliance.
+The agent ecosystem represents a deliberate architectural choice: rather than building monolithic systems that attempt to handle all platform concerns, the Prismatic Platform decomposes every operational concern into autonomous agents with clear responsibilities, explicit interfaces, and enforceable constraints. This decomposition follows the [OTP](@/glossary/otp.md) principle of isolating concerns into independent processes, but extends it with formal specification through the AIAD standard, hierarchical authority through the tier system, and epistemic rigor through [NABLA Infinity](@/glossary/nabla-infinity.md) compliance.
 
-The agent architecture draws on three intellectual traditions: autonomous agents from artificial intelligence research, the Actor model from concurrent computing (as implemented in [Erlang/OTP](/glossary/beam/)), and military command structures for hierarchical coordination. The synthesis of these traditions produces agents that are simultaneously autonomous (making independent decisions within their authority), supervised (monitored and restarted by OTP supervisors), and coordinated (operating within a command hierarchy that prevents conflicts and ensures coherent behavior across the ecosystem).
+The agent architecture draws on three intellectual traditions: autonomous agents from artificial intelligence research, the Actor model from concurrent computing (as implemented in [Erlang/OTP](@/glossary/beam.md)), and military command structures for hierarchical coordination. The synthesis of these traditions produces agents that are simultaneously autonomous (making independent decisions within their authority), supervised (monitored and restarted by OTP supervisors), and coordinated (operating within a command hierarchy that prevents conflicts and ensures coherent behavior across the ecosystem).
 
 ## Agent Architecture: The Perception-Decision-Action Loop
 
@@ -57,7 +57,7 @@ Every agent in the platform follows a common architectural pattern derived from 
 
 **Perception Phase**: The agent receives input signals from its environment. This may include telemetry data from monitored systems, commands from higher-authority agents or operators, findings from other agents in the ecosystem, or scheduled trigger events. Perception is filtered through the agent's domain specialization -- a security agent perceives security-relevant signals while ignoring quality metrics, and vice versa.
 
-**Decision Phase**: The agent evaluates perceived signals against its knowledge base, domain rules, and doctrine constraints. For agents at L3 and above, decision-making incorporates [NABLA Infinity](/glossary/nabla-infinity/) axiom compliance -- the agent must verify that its evidence base satisfies signal plurality and provenance mandatory before proceeding. The decision phase produces an action plan with explicit confidence levels.
+**Decision Phase**: The agent evaluates perceived signals against its knowledge base, domain rules, and doctrine constraints. For agents at L3 and above, decision-making incorporates [NABLA Infinity](@/glossary/nabla-infinity.md) axiom compliance -- the agent must verify that its evidence base satisfies signal plurality and provenance mandatory before proceeding. The decision phase produces an action plan with explicit confidence levels.
 
 **Action Phase**: The agent executes its plan within its authorized scope. Actions may include generating reports, modifying code, creating alerts, publishing findings to other agents, or triggering downstream processes. Every action is logged with full provenance for auditability.
 
@@ -139,9 +139,9 @@ An agent's lifecycle follows a well-defined sequence from specification to decom
 
 1. **Specification**: The agent is defined in an `.agent.md` file following the AIAD standard. This includes its tier, domain, capabilities, enforcement requirements, and doctrine compliance declaration.
 
-2. **Registration**: The agent is registered in the [Agent Registry](/glossary/agent-registry/), which indexes it by domain, tier, and capability. The registry maintains a complete inventory of all platform agents and their current status.
+2. **Registration**: The agent is registered in the [Agent Registry](@/glossary/agent-registry.md), which indexes it by domain, tier, and capability. The registry maintains a complete inventory of all platform agents and their current status.
 
-3. **Instantiation**: When needed, the agent's OTP process is started under a [supervisor](/glossary/supervisor/). The process initializes with the agent's configuration, loads its domain-specific knowledge, and registers itself with the runtime registry.
+3. **Instantiation**: When needed, the agent's OTP process is started under a [supervisor](@/glossary/supervisor.md). The process initializes with the agent's configuration, loads its domain-specific knowledge, and registers itself with the runtime registry.
 
 4. **Operation**: The agent enters its perception-decision-action loop, processing signals and producing outputs within its authorized scope. All operations are logged and provenance-tracked.
 
@@ -174,7 +174,7 @@ Agents are organized across 16 specialized domains, each responsible for a disti
 
 | Domain | Agent Count | Key Agents | Primary Function |
 |--------|------------|------------|------------------|
-| **Security Operations** | 20 | [Color Teams](/glossary/color-teams/) (Red, Blue, Purple, White, Gray, Black) | Adversarial simulation, epistemic defense |
+| **Security Operations** | 20 | [Color Teams](@/glossary/color-teams.md) (Red, Blue, Purple, White, Gray, Black) | Adversarial simulation, epistemic defense |
 | **Quality Enforcement** | 45+ | Quality guardian, CASCADE agents | Code quality, zero-warning enforcement |
 | **OSINT Intelligence** | 60+ | Scanner agents, evidence extractors | Open-source intelligence gathering |
 | **Evolution** | 30+ | Autoevolve, autoheal agents | Platform improvement and healing |
@@ -199,16 +199,16 @@ At the highest tier (L5), agents exhibit what the platform terms "consciousness 
 | **Multi-Signal Synthesis** | Agent integrates signals from multiple domains coherently | Cross-domain correlation accuracy |
 | **Provenance Consciousness** | Agent maintains awareness of its own reasoning chain | Provenance completeness score |
 
-These traits are not metaphysical claims about machine consciousness. They are measurable behavioral properties that emerge when agents operate under the full NABLA-Trinity-NMND framework. The [fitness score](/glossary/fitness-score/) of 0.9995 across 11 traits indicates near-perfect behavioral alignment with the target trait profiles.
+These traits are not metaphysical claims about machine consciousness. They are measurable behavioral properties that emerge when agents operate under the full NABLA-Trinity-NMND framework. The [fitness score](@/glossary/fitness-score.md) of 0.9995 across 11 traits indicates near-perfect behavioral alignment with the target trait profiles.
 
 ## Relationship to Supervisor Trees
 
-Every running agent process exists within an OTP [supervision tree](/glossary/supervisor/). This relationship is not optional -- the NO MERCY doctrine mandates that no GenServer exists without supervision. The supervision relationship provides:
+Every running agent process exists within an OTP [supervision tree](@/glossary/supervisor.md). This relationship is not optional -- the NO MERCY doctrine mandates that no GenServer exists without supervision. The supervision relationship provides:
 
 - **Automatic restart**: If an agent process crashes, its supervisor restarts it with clean state
 - **Dependency ordering**: Agents that depend on other agents are started in the correct sequence via `rest_for_one` strategy
 - **Resource cleanup**: When an agent is terminated, its supervisor ensures proper resource release
-- **Escalation**: Persistent crashes propagate upward, eventually triggering [self-healing](/glossary/self-healing/) at higher levels
+- **Escalation**: Persistent crashes propagate upward, eventually triggering [self-healing](@/glossary/self-healing.md) at higher levels
 
 The PrismaticSupervisor module provides compositional supervision with dependency-aware startup, ensuring that the agent ecosystem initializes in the correct order with all dependencies satisfied.
 
@@ -257,7 +257,7 @@ end
 
 ## Color Team Integration
 
-The [Color Teams](/glossary/color-teams/) represent the most sophisticated agent coordination pattern in the platform: 20 agents across 6 teams engaged in continuous adversarial-defensive synthesis. Each team operates as a coordinated unit under its L3 commander, with inter-team communication flowing through the Purple Team's synthesis hub:
+The [Color Teams](@/glossary/color-teams.md) represent the most sophisticated agent coordination pattern in the platform: 20 agents across 6 teams engaged in continuous adversarial-defensive synthesis. Each team operates as a coordinated unit under its L3 commander, with inter-team communication flowing through the Purple Team's synthesis hub:
 
 - **Gray Team** (3 agents): Boundary exploration, edge case discovery
 - **Red Team** (4 agents): Adversarial simulation, attack scenario generation
@@ -274,7 +274,7 @@ The Color Team structure demonstrates that agents are not merely individual acto
 
 2. **Respect the Tier System**: Never implement capabilities in an agent that exceed its tier authorization. If an agent needs higher-authority operations, it must request them from a higher-tier agent through proper channels.
 
-3. **Emit Telemetry**: Every agent should emit telemetry events for its key operations. This enables platform-wide [observability](/glossary/observability/) and supports the Quality Floor Guardian's monitoring.
+3. **Emit Telemetry**: Every agent should emit telemetry events for its key operations. This enables platform-wide [observability](@/glossary/observability.md) and supports the Quality Floor Guardian's monitoring.
 
 4. **Handle All Messages**: Agents must handle all possible messages in their domain. Unhandled messages cause crashes that propagate through the supervision tree. Use catch-all clauses for unexpected messages with appropriate logging.
 
@@ -282,26 +282,26 @@ The Color Team structure demonstrates that agents are not merely individual acto
 
 ## Related Terms
 
-- [AIAD](/glossary/aiad/) -- Standard defining agent specifications and compliance requirements
-- [Agent Registry](/glossary/agent-registry/) -- Centralized index of all platform agents
-- [Agent Tier](/glossary/agent-tier/) -- Classification system for agent authority levels
-- [Supervisor](/glossary/supervisor/) -- OTP behavior managing agent process lifecycles
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification system validating agent outputs
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing agent belief formation
-- [Color Teams](/glossary/color-teams/) -- Security agent teams (Red, Blue, Purple, White, Gray, Black)
-- [Consciousness Traits](/glossary/consciousness-traits/) -- Emergent behavioral properties of L5 agents
-- [Process Isolation](/glossary/process-isolation/) -- Memory isolation enabling independent agent operation
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- Processing pipeline agents operate within
-- [Self-Healing](/glossary/self-healing/) -- Recovery system that agents both contribute to and benefit from
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- OTP behavior for runtime agent instantiation
-- [GenServer](/glossary/genserver/) -- Base OTP behavior underlying most agent implementations
-- [Fitness Score](/glossary/fitness-score/) -- Evolutionary metric measuring agent effectiveness
+- [AIAD](@/glossary/aiad.md) -- Standard defining agent specifications and compliance requirements
+- [Agent Registry](@/glossary/agent-registry.md) -- Centralized index of all platform agents
+- [Agent Tier](@/glossary/agent-tier.md) -- Classification system for agent authority levels
+- [Supervisor](@/glossary/supervisor.md) -- OTP behavior managing agent process lifecycles
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification system validating agent outputs
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing agent belief formation
+- [Color Teams](@/glossary/color-teams.md) -- Security agent teams (Red, Blue, Purple, White, Gray, Black)
+- [Consciousness Traits](@/glossary/consciousness-traits.md) -- Emergent behavioral properties of L5 agents
+- [Process Isolation](@/glossary/process-isolation.md) -- Memory isolation enabling independent agent operation
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- Processing pipeline agents operate within
+- [Self-Healing](@/glossary/self-healing.md) -- Recovery system that agents both contribute to and benefit from
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- OTP behavior for runtime agent instantiation
+- [GenServer](@/glossary/genserver.md) -- Base OTP behavior underlying most agent implementations
+- [Fitness Score](@/glossary/fitness-score.md) -- Evolutionary metric measuring agent effectiveness
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Capabilities](/capabilities/) -- Platform capability descriptions
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Capabilities](@/capabilities/_index.md) -- Platform capability descriptions
 
 ---
 
@@ -310,4 +310,4 @@ The Color Team structure demonstrates that agents are not merely individual acto
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

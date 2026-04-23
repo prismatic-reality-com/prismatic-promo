@@ -28,7 +28,7 @@ The **/adr** command provides a structured system for creating and managing Arch
 
 Architecture decisions in complex systems are rarely reversible without significant cost. The `/adr` command addresses this reality by enforcing a disciplined documentation practice that goes beyond simple notes or comments. Each ADR follows a standardized template with mandatory sections for status tracking, decision context, the decision itself, and categorized consequences. This structured approach ensures that future developers and architects can reconstruct the reasoning behind any significant architectural choice, even years after the original decision was made.
 
-The command is executed by the `architecture-decision-specialist` agent, which brings domain expertise in architectural patterns, [Elixir](/glossary/elixir/)/OTP design principles, and the Prismatic Platform's specific architectural conventions. The agent ensures that ADRs are not merely bureaucratic artifacts but genuinely useful documents that capture the nuanced trade-offs inherent in architectural decisions. ADRs produced by this command integrate with the platform's broader documentation ecosystem and are stored in a dedicated directory with consistent naming conventions for easy discovery and cross-referencing.
+The command is executed by the `architecture-decision-specialist` agent, which brings domain expertise in architectural patterns, [Elixir](@/glossary/elixir.md)/OTP design principles, and the Prismatic Platform's specific architectural conventions. The agent ensures that ADRs are not merely bureaucratic artifacts but genuinely useful documents that capture the nuanced trade-offs inherent in architectural decisions. ADRs produced by this command integrate with the platform's broader documentation ecosystem and are stored in a dedicated directory with consistent naming conventions for easy discovery and cross-referencing.
 
 ## Usage
 
@@ -195,23 +195,23 @@ The command should be invoked early in the decision-making process -- ideally wh
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `architecture-decision-specialist` agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `architecture-decision-specialist` agent |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and event tracking |
 | Documentation Ecosystem | ADRs stored in `docs/architecture/decisions/` alongside architectural diagrams |
-| [Session Context](/glossary/session-discipline/) | ADR operations logged in session context for continuity |
-| [/architect](/commands/architect/) | Architecture design recommendations reference existing ADRs |
-| [/analyze](/commands/analyze/) | Architecture analysis surfaces related ADR decisions |
+| [Session Context](@/glossary/session-discipline.md) | ADR operations logged in session context for continuity |
+| [/architect](@/commands/architect.md) | Architecture design recommendations reference existing ADRs |
+| [/analyze](@/commands/analyze.md) | Architecture analysis surfaces related ADR decisions |
 
 ## Doctrine Compliance
 
-All ADR command operations are governed by the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All ADR command operations are governed by the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Every significant architectural decision must be documented. No exceptions, no shortcuts. ADRs must include all mandatory sections. Incomplete records are rejected. The `new` action validates template completeness before writing. Decisions without documented consequences are not accepted.
 - **NO DOUBTS**: Full investigation of context before documenting decisions. The `architecture-decision-specialist` agent verifies that the stated context accurately reflects the problem space, that the decision addresses the stated context, and that consequences are realistically assessed. Evidence-based rationale is required -- assertions without supporting evidence are flagged for revision.
 
-The ADR system also supports the platform's [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework through its Provenance Mandatory axiom: every architectural belief encoded in the platform must be traceable to a documented decision with explicit rationale.
+The ADR system also supports the platform's [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework through its Provenance Mandatory axiom: every architectural belief encoded in the platform must be traceable to a documented decision with explicit rationale.
 
 ## Best Practices
 
@@ -229,13 +229,13 @@ The ADR system also supports the platform's [NABLA Infinity](/glossary/nabla-inf
 
 ## Related Commands
 
-- [/architect](/commands/architect/) - Architecture design and recommendation generation
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/chronic](/commands/chronic/) - Chronic documentation scan and technical hygiene maintenance
-- [/find-lowfruit](/commands/find-lowfruit/) - Identify low-hanging fruit improvements across codebase
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/architect](@/commands/architect.md) - Architecture design and recommendation generation
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/chronic](@/commands/chronic.md) - Chronic documentation scan and technical hygiene maintenance
+- [/find-lowfruit](@/commands/find-lowfruit.md) - Identify low-hanging fruit improvements across codebase
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -244,4 +244,4 @@ The ADR system also supports the platform's [NABLA Infinity](/glossary/nabla-inf
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

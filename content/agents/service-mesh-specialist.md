@@ -28,25 +28,25 @@ image_alt = "service-mesh-specialist - Prismatic Platform"
 
 ## Overview
 
-The service-mesh-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's integration domain, governing service-to-service communication architecture, traffic management, and inter-process [observability](/glossary/observability/) across the platform's 90-application umbrella. In an [OTP](/glossary/otp/) ecosystem with hundreds of [GenServers](/glossary/genserver/), supervisors, and distributed processes, reliable inter-service communication is foundational to platform stability. This agent designs and enforces communication patterns that ensure message delivery guarantees, load distribution, fault isolation, and end-to-end request tracing.
+The service-mesh-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's integration domain, governing service-to-service communication architecture, traffic management, and inter-process [observability](@/glossary/observability.md) across the platform's 90-application umbrella. In an [OTP](@/glossary/otp.md) ecosystem with hundreds of [GenServers](@/glossary/genserver.md), supervisors, and distributed processes, reliable inter-service communication is foundational to platform stability. This agent designs and enforces communication patterns that ensure message delivery guarantees, load distribution, fault isolation, and end-to-end request tracing.
 
-Built on the [AIAD](/glossary/aiad/) standard, the service-mesh-specialist applies OTP-native communication patterns rather than importing external service mesh frameworks such as Istio or Linkerd. The [BEAM](/glossary/beam/) virtual machine provides built-in primitives for service mesh functionality that external frameworks replicate at higher cost: process [registry](/glossary/registry-otp/) management enables service discovery, process groups support load balancing, monitors provide health checking, and [telemetry](/glossary/telemetry/)-instrumented [message passing](/glossary/message-passing/) provides distributed tracing. The [NO MERCY](/glossary/no-mercy/) doctrine mandates that every inter-service call path has defined timeout behavior, [backpressure](/glossary/backpressure/) handling, and failure recovery -- no fire-and-forget messaging is permitted for operations that affect system state.
+Built on the [AIAD](@/glossary/aiad.md) standard, the service-mesh-specialist applies OTP-native communication patterns rather than importing external service mesh frameworks such as Istio or Linkerd. The [BEAM](@/glossary/beam.md) virtual machine provides built-in primitives for service mesh functionality that external frameworks replicate at higher cost: process [registry](@/glossary/registry-otp.md) management enables service discovery, process groups support load balancing, monitors provide health checking, and [telemetry](@/glossary/telemetry.md)-instrumented [message passing](@/glossary/message-passing.md) provides distributed tracing. The [NO MERCY](@/glossary/no-mercy.md) doctrine mandates that every inter-service call path has defined timeout behavior, [backpressure](@/glossary/backpressure.md) handling, and failure recovery -- no fire-and-forget messaging is permitted for operations that affect system state.
 
 ## Operational Domain
 
-The service mesh domain encompasses process discovery, message routing, [load balancing](/glossary/load-balancing/) across process pools, [circuit breaker](/glossary/circuit-breaker/) management, and [distributed tracing](/glossary/distributed-tracing/) instrumentation. The agent manages the communication topology between platform applications, ensuring that service boundaries are respected and that cross-application calls use defined interfaces rather than direct process references. Traffic management policies govern [rate limiting](/glossary/rate-limiting/), request prioritization, and graceful degradation during partial system outages.
+The service mesh domain encompasses process discovery, message routing, [load balancing](@/glossary/load-balancing.md) across process pools, [circuit breaker](@/glossary/circuit-breaker.md) management, and [distributed tracing](@/glossary/distributed-tracing.md) instrumentation. The agent manages the communication topology between platform applications, ensuring that service boundaries are respected and that cross-application calls use defined interfaces rather than direct process references. Traffic management policies govern [rate limiting](@/glossary/rate-limiting.md), request prioritization, and graceful degradation during partial system outages.
 
 The domain also covers the communication patterns between the platform's different runtime environments: the main Phoenix web application (port 4000), the API gateway (port 4004), background processing workers, and scheduled task executors. Each environment has different latency tolerances, throughput requirements, and failure handling characteristics that the service mesh must accommodate.
 
 ## Key Capabilities
 
-- **Process registry management** -- Maintains service discovery infrastructure using [ETS](/glossary/ets/)-backed registries and process groups, enabling location-transparent communication across the [umbrella application](/glossary/umbrella-application/). Service registration is automatic at process startup and deregistration occurs through monitor-triggered cleanup
+- **Process registry management** -- Maintains service discovery infrastructure using [ETS](@/glossary/ets.md)-backed registries and process groups, enabling location-transparent communication across the [umbrella application](@/glossary/umbrella-application.md). Service registration is automatic at process startup and deregistration occurs through monitor-triggered cleanup
 - **Circuit breaker orchestration** -- Configures and monitors circuit breakers on inter-service call paths, preventing cascading failures when downstream services experience degradation. Circuit breaker states (closed, open, half-open) are tracked in ETS for low-latency access
-- **Distributed tracing** -- Instruments request flows with correlation identifiers that propagate across process boundaries, enabling end-to-end latency analysis and bottleneck identification through [telemetry](/glossary/telemetry/) events
-- **[Backpressure](/glossary/backpressure/) enforcement** -- Implements producer-consumer rate management to prevent fast producers from overwhelming slow consumers, using OTP-native demand-driven patterns including GenStage-style demand signaling
+- **Distributed tracing** -- Instruments request flows with correlation identifiers that propagate across process boundaries, enabling end-to-end latency analysis and bottleneck identification through [telemetry](@/glossary/telemetry.md) events
+- **[Backpressure](@/glossary/backpressure.md) enforcement** -- Implements producer-consumer rate management to prevent fast producers from overwhelming slow consumers, using OTP-native demand-driven patterns including GenStage-style demand signaling
 - **Traffic shaping** -- Manages request prioritization and rate limiting at service boundaries, ensuring that high-priority operations (security events, health checks) receive preferential treatment during load spikes
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-healing communication path recovery when service topology changes
-- **[SEADF](/glossary/seadf/) integration** for evolutionary optimization of traffic routing patterns based on observed latency distributions
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-healing communication path recovery when service topology changes
+- **[SEADF](@/glossary/seadf.md) integration** for evolutionary optimization of traffic routing patterns based on observed latency distributions
 
 ## OTP-Native Service Mesh Architecture
 
@@ -91,10 +91,10 @@ The agent enforces specific communication patterns based on the relationship bet
 
 | Agent | Relationship |
 |-------|-------------|
-| [platform-integration-specialist](/agents/platform-integration-specialist/) | Manages external integration traffic that enters the service mesh |
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Consumes distributed trace data for performance bottleneck analysis |
-| [Performance Benchmarking Agent](/agents/performance-benchmarking-agent/) | Validates that mesh overhead stays within acceptable latency budgets |
-| [security-operations-specialist](/agents/security-operations-specialist/) | Security monitoring of inter-service communication for anomaly detection |
+| [platform-integration-specialist](@/agents/platform-integration-specialist.md) | Manages external integration traffic that enters the service mesh |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Consumes distributed trace data for performance bottleneck analysis |
+| [Performance Benchmarking Agent](@/agents/performance-benchmarking-agent.md) | Validates that mesh overhead stays within acceptable latency budgets |
+| [security-operations-specialist](@/agents/security-operations-specialist.md) | Security monitoring of inter-service communication for anomaly detection |
 
 ## Observability Integration
 
@@ -109,7 +109,7 @@ The service mesh generates comprehensive observability data that feeds into the 
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that all inter-service calls have explicit timeout definitions, circuit breaker configurations, and error handling paths. No direct process references across application boundaries are permitted -- all communication must flow through registered service interfaces. All communication paths must be instrumented with [telemetry](/glossary/telemetry/) spans for observability compliance. Services that violate mesh policies receive L2 violation notices, and repeated violations trigger architectural review by the L1 infrastructure authority.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that all inter-service calls have explicit timeout definitions, circuit breaker configurations, and error handling paths. No direct process references across application boundaries are permitted -- all communication must flow through registered service interfaces. All communication paths must be instrumented with [telemetry](@/glossary/telemetry.md) spans for observability compliance. Services that violate mesh policies receive L2 violation notices, and repeated violations trigger architectural review by the L1 infrastructure authority.
 
 ## Related Agents
 
@@ -122,4 +122,4 @@ Agents in the **integration** domain collaborate with the service-mesh-specialis
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

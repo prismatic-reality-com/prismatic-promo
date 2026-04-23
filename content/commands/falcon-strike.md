@@ -26,11 +26,11 @@ image_alt = "/falcon-strike - Prismatic Platform"
 
 **/falcon-strike** is a production command in the **Intelligence** category of the Prismatic Platform. It executes rapid aerial-perspective intelligence sweep operations, providing a high-altitude reconnaissance view of intelligence targets before committing to deep-dive investigation. The command is designed for speed and breadth rather than depth, producing actionable intelligence summaries that inform whether further investigation is warranted.
 
-The falcon metaphor captures the operational philosophy precisely: a falcon circles at high altitude, surveys the landscape with exceptional visual acuity, identifies targets of interest, and then commits to a rapid, precise strike on the highest-value target. The `/falcon-strike` command replicates this pattern in the [OSINT](/glossary/osint/) domain -- sweeping across multiple intelligence sources simultaneously, correlating surface-level signals, and producing a prioritized target assessment that guides subsequent investigation with commands like [/investigate](/commands/investigate/) or [/email-osint](/commands/email-osint/).
+The falcon metaphor captures the operational philosophy precisely: a falcon circles at high altitude, surveys the landscape with exceptional visual acuity, identifies targets of interest, and then commits to a rapid, precise strike on the highest-value target. The `/falcon-strike` command replicates this pattern in the [OSINT](@/glossary/osint.md) domain -- sweeping across multiple intelligence sources simultaneously, correlating surface-level signals, and producing a prioritized target assessment that guides subsequent investigation with commands like [/investigate](@/commands/investigate.md) or [/email-osint](@/commands/email-osint.md).
 
 The falcon-strike-operator agent executes these sweeps using the platform's OSINT infrastructure, which includes access to 121+ intelligence sources spanning domain registration databases, certificate transparency logs, social media platforms, code repositories, breach databases, and dark web monitors. The operator agent is optimized for parallel source querying and rapid signal correlation, typically completing a full sweep in seconds rather than the minutes required by deep investigation.
 
-This command operates under the **L3** authority level, reflecting the sensitivity of intelligence operations. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level, reflecting the sensitivity of intelligence operations. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -54,7 +54,7 @@ Target Input --> Target Analyzer --> Parallel Source Sweep --> Signal Correlator
 
 **Parallel Source Sweep**: Queries multiple intelligence sources simultaneously using Elixir's concurrency model. Each source query runs as an independent Task, with configurable timeout and fallback behavior. The sweep typically queries 15-30 sources in parallel, depending on target type.
 
-**Signal Correlator**: Cross-references signals from multiple sources to identify convergent intelligence. A domain appearing in both certificate transparency logs and breach databases is more significant than its appearance in either alone. The correlator applies the [NABLA Infinity](/glossary/nabla-infinity/) signal plurality axiom -- claims backed by multiple independent sources receive higher confidence scores.
+**Signal Correlator**: Cross-references signals from multiple sources to identify convergent intelligence. A domain appearing in both certificate transparency logs and breach databases is more significant than its appearance in either alone. The correlator applies the [NABLA Infinity](@/glossary/nabla-infinity.md) signal plurality axiom -- claims backed by multiple independent sources receive higher confidence scores.
 
 **Assessment Generator**: Synthesizes correlated signals into a prioritized assessment report. The report includes target classification, threat indicators, exposure level, and recommended follow-up actions. High-priority findings are flagged for immediate attention.
 
@@ -148,24 +148,24 @@ The `/falcon-strike` command follows a structured 6-phase sweep pipeline optimiz
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Falcon-strike-operator agent conducts sweeps |
-| [OSINT Infrastructure](/glossary/osint/) | Data Source | 121+ intelligence sources |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Framework | Signal plurality and source independence scoring |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Integration | Attack surface correlation with sweep results |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Sweep [metrics](/glossary/metrics/), source response times |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Intelligence quality assessment |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Falcon-strike-operator agent conducts sweeps |
+| [OSINT Infrastructure](@/glossary/osint.md) | Data Source | 121+ intelligence sources |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Framework | Signal plurality and source independence scoring |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Integration | Attack surface correlation with sweep results |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Sweep [metrics](@/glossary/metrics.md), source response times |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Intelligence quality assessment |
 | AIAD Registry | Discovery | Command specification and agent binding |
-| [Color Teams](/glossary/color-teams/) | Security | Red team scenario input, Blue team defense posture |
+| [Color Teams](@/glossary/color-teams.md) | Security | Red team scenario input, Blue team defense posture |
 
 ## Best Practices
 
-**Start with falcon-strike before deep investigation**: Use `/falcon-strike` to identify the highest-value targets before committing resources to deep investigation with [/investigate](/commands/investigate/). This prevents wasted effort on low-yield targets.
+**Start with falcon-strike before deep investigation**: Use `/falcon-strike` to identify the highest-value targets before committing resources to deep investigation with [/investigate](@/commands/investigate.md). This prevents wasted effort on low-yield targets.
 
 **Use rapid mode for time-sensitive operations**: When response time is critical, `--rapid` queries only the highest-yield sources. The speed-coverage trade-off is favorable for initial triage.
 
 **Set appropriate confidence thresholds**: The default 0.6 confidence threshold balances signal coverage with noise reduction. Lower thresholds (0.3-0.5) for exploratory sweeps where false positives are acceptable. Higher thresholds (0.8+) for actionable intelligence.
 
-**Correlate with Perimeter data**: When sweeping targets that overlap with [Prismatic Perimeter](/apps/prismatic-perimeter/) monitored assets, cross-reference sweep results with Perimeter security ratings for enriched threat context.
+**Correlate with Perimeter data**: When sweeping targets that overlap with [Prismatic Perimeter](@/apps/prismatic-perimeter.md) monitored assets, cross-reference sweep results with Perimeter security ratings for enriched threat context.
 
 **Log sweep results for trend analysis**: Regular sweeps of monitored targets build a longitudinal intelligence profile. Changes in sweep results over time may indicate evolving threats or exposure changes.
 
@@ -221,22 +221,22 @@ When sweeping multiple related targets, the falcon-strike system performs cross-
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Every sweep must produce actionable output. No partial results accepted as complete. Failed sources are logged and retried. The sweep either delivers a comprehensive assessment or explicitly reports what intelligence is missing and why.
 - **NO DOUBTS**: All reported intelligence is attributed to specific sources with confidence scores. The signal plurality axiom is enforced -- single-source claims are flagged as low-confidence. The sweep never presents unverified intelligence as established fact.
 
-Intelligence operations carry particular epistemic responsibility. The `/falcon-strike` command enforces [NABLA Infinity](/glossary/nabla-infinity/) axioms rigorously: provenance mandatory (every signal traceable to its source), signal plurality (multi-source corroboration required for high confidence), and time decay (intelligence freshness tracked and reported).
+Intelligence operations carry particular epistemic responsibility. The `/falcon-strike` command enforces [NABLA Infinity](@/glossary/nabla-infinity.md) axioms rigorously: provenance mandatory (every signal traceable to its source), signal plurality (multi-source corroboration required for high confidence), and time decay (intelligence freshness tracked and reported).
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/ghost-recon](/commands/ghost-recon/) - Stealth reconnaissance operations
-- [/delta-force](/commands/delta-force/) - Precision intelligence operations
-- [/navy-seal](/commands/navy-seal/) - Deep-dive intelligence extraction
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/ghost-recon](@/commands/ghost-recon.md) - Stealth reconnaissance operations
+- [/delta-force](@/commands/delta-force.md) - Precision intelligence operations
+- [/navy-seal](@/commands/navy-seal.md) - Deep-dive intelligence extraction
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -245,4 +245,4 @@ Intelligence operations carry particular epistemic responsibility. The `/falcon-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

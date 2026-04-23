@@ -233,11 +233,11 @@ end
 
 ## Cross-References
 
-- [Telemetry](/glossary/telemetry/) - Event measurement framework
-- [Monitoring](/glossary/monitoring/) - Operational observation
-- [Logging](/glossary/logging/) - Event recording system
-- [Tracking](/glossary/tracking/) - Progress and analytics monitoring
-- [Time to First Byte](/glossary/time-to-first-byte/) - Performance metric benefiting from trace data
+- [Telemetry](@/glossary/telemetry.md) - Event measurement framework
+- [Monitoring](@/glossary/monitoring.md) - Operational observation
+- [Logging](@/glossary/logging.md) - Event recording system
+- [Tracking](@/glossary/tracking.md) - Progress and analytics monitoring
+- [Time to First Byte](@/glossary/time-to-first-byte.md) - Performance metric benefiting from trace data
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

@@ -365,24 +365,24 @@ The Prismatic Platform chose focused applications within an umbrella over micros
 
 Focused applications connect to several architectural concepts in the Prismatic Platform:
 
-- [Umbrella Application](/glossary/umbrella-application/) is the Elixir project structure that houses focused applications
-- [Bounded Context](/glossary/bounded-context/) from DDD maps directly to focused application boundaries
-- [Modularity](/glossary/modularity/) is the design principle that focused applications enforce at the application level
-- [Composability](/glossary/composability/) is enabled by focused applications that expose clean, composable facade interfaces
-- [Domain-Driven Design](/glossary/domain-driven-design/) provides the theoretical framework for identifying application boundaries
-- [OTP Application](/glossary/otp-application/) is the Erlang/OTP construct that underpins focused applications
-- [Supervision Tree](/glossary/supervision-tree/) defines the process management structure within each focused application
-- [Facade Modules](/glossary/facade-modules/) provide the public API through which focused applications expose their capabilities
-- [Project Structure](/glossary/project-structure/) defines how focused applications are organized in the repository
-- [Microservices](/glossary/microservices/) is the distributed alternative to focused umbrella applications
+- [Umbrella Application](@/glossary/umbrella-application.md) is the Elixir project structure that houses focused applications
+- [Bounded Context](@/glossary/bounded-context.md) from DDD maps directly to focused application boundaries
+- [Modularity](@/glossary/modularity.md) is the design principle that focused applications enforce at the application level
+- [Composability](@/glossary/composability.md) is enabled by focused applications that expose clean, composable facade interfaces
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) provides the theoretical framework for identifying application boundaries
+- [OTP Application](@/glossary/otp-application.md) is the Erlang/OTP construct that underpins focused applications
+- [Supervision Tree](@/glossary/supervision-tree.md) defines the process management structure within each focused application
+- [Facade Modules](@/glossary/facade-modules.md) provide the public API through which focused applications expose their capabilities
+- [Project Structure](@/glossary/project-structure.md) defines how focused applications are organized in the repository
+- [Microservices](@/glossary/microservices.md) is the distributed alternative to focused umbrella applications
 
 ## See Also
 
-- [Adapter Pattern](/glossary/adapter-pattern/) -- the pattern used for storage adapter focused applications
-- [Dependency Injection](/glossary/dependency-injection/) -- enabling runtime selection of focused application implementations
-- [Scalability](/glossary/scalability/) -- how focused applications support scaling strategies
-- [Maintainability](/glossary/maintainability/) -- the quality attribute that focused applications directly improve
-- [Circular Dependency](/glossary/circular-dependency/) -- the anti-pattern that focused application boundaries prevent
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- the pattern used for storage adapter focused applications
+- [Dependency Injection](@/glossary/dependency-injection.md) -- enabling runtime selection of focused application implementations
+- [Scalability](@/glossary/scalability.md) -- how focused applications support scaling strategies
+- [Maintainability](@/glossary/maintainability.md) -- the quality attribute that focused applications directly improve
+- [Circular Dependency](@/glossary/circular-dependency.md) -- the anti-pattern that focused application boundaries prevent
 
 ---
 

@@ -213,11 +213,11 @@ end
 
 ## Cross-References
 
-- [Authentication](/glossary/authentication/) - The process of verifying user identity that creates sessions
-- [ETS](/glossary/ets/) - In-memory store used for high-performance session storage
-- [Plug](/glossary/plug/) - Composable middleware specification that manages session lifecycle
-- [Phoenix](/glossary/phoenix/) - Web framework providing session infrastructure
-- [JWT](/glossary/jwt/) - Token format used for API session representation
+- [Authentication](@/glossary/authentication.md) - The process of verifying user identity that creates sessions
+- [ETS](@/glossary/ets.md) - In-memory store used for high-performance session storage
+- [Plug](@/glossary/plug.md) - Composable middleware specification that manages session lifecycle
+- [Phoenix](@/glossary/phoenix.md) - Web framework providing session infrastructure
+- [JWT](@/glossary/jwt.md) - Token format used for API session representation
 
 ---
 

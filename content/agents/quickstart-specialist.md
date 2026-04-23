@@ -28,17 +28,17 @@ image_alt = "quickstart-specialist - Prismatic Platform"
 
 ## Overview
 
-The quickstart-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's development domain, providing rapid feature scaffolding with intelligent code generation, boilerplate automation, and best practice pattern application. In a platform comprising 90 umbrella applications with strict quality requirements across 13 quality domains, creating new features from scratch requires generating substantial amounts of boilerplate code that must comply with all platform conventions, quality standards, and architectural patterns from the first commit. This agent eliminates the ramp-up time by generating production-ready scaffolding that satisfies all quality gates immediately.
+The quickstart-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's development domain, providing rapid feature scaffolding with intelligent code generation, boilerplate automation, and best practice pattern application. In a platform comprising 90 umbrella applications with strict quality requirements across 13 quality domains, creating new features from scratch requires generating substantial amounts of boilerplate code that must comply with all platform conventions, quality standards, and architectural patterns from the first commit. This agent eliminates the ramp-up time by generating production-ready scaffolding that satisfies all quality gates immediately.
 
-The quickstart-specialist differs from generic code generators in that it understands the Prismatic Platform's specific architecture, conventions, and quality requirements. Generated code includes proper [supervision tree](/glossary/supervision-tree/) integration, [GenServer](/glossary/genserver/) implementations with correct state management patterns, [Ecto](/glossary/ecto/) schema definitions with proper changesets, [Phoenix](/glossary/phoenix/)/[LiveView](/glossary/liveview/) components with TailwindCSS styling, comprehensive test suites, and full typespec coverage. Every generated file passes all quality gates without modification.
+The quickstart-specialist differs from generic code generators in that it understands the Prismatic Platform's specific architecture, conventions, and quality requirements. Generated code includes proper [supervision tree](@/glossary/supervision-tree.md) integration, [GenServer](@/glossary/genserver.md) implementations with correct state management patterns, [Ecto](@/glossary/ecto.md) schema definitions with proper changesets, [Phoenix](@/glossary/phoenix.md)/[LiveView](@/glossary/liveview.md) components with TailwindCSS styling, comprehensive test suites, and full typespec coverage. Every generated file passes all quality gates without modification.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, the quickstart-specialist generates code that is production-ready from creation. No stubs, no placeholders, no TODO comments, no incomplete implementations. Generated code meets the same standard as hand-written code that has passed through the full quality enforcement pipeline.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, the quickstart-specialist generates code that is production-ready from creation. No stubs, no placeholders, no TODO comments, no incomplete implementations. Generated code meets the same standard as hand-written code that has passed through the full quality enforcement pipeline.
 
 ## Scaffolding Architecture
 
 The scaffolding system operates through template-based generation with intelligent customization.
 
-**Template management** maintains a library of validated code templates for common patterns: GenServer processes, [Phoenix](/glossary/phoenix/) controllers, LiveView modules, [Ecto](/glossary/ecto/) contexts, storage adapters, agent specifications, and test suites. Templates are parameterized and composable, allowing the generator to produce code that combines multiple patterns as required by the feature specification.
+**Template management** maintains a library of validated code templates for common patterns: GenServer processes, [Phoenix](@/glossary/phoenix.md) controllers, LiveView modules, [Ecto](@/glossary/ecto.md) contexts, storage adapters, agent specifications, and test suites. Templates are parameterized and composable, allowing the generator to produce code that combines multiple patterns as required by the feature specification.
 
 **Convention enforcement** ensures that generated code follows all platform naming conventions, module organization patterns, and documentation requirements. Module names follow the umbrella's namespace hierarchy, function signatures follow the `{:ok, result}` / `{:error, reason}` convention, and all public functions include `@doc`, `@spec`, and `@impl` annotations as required.
 
@@ -54,8 +54,8 @@ The scaffolding system operates through template-based generation with intellige
 - **Test suite generation** -- Produces comprehensive tests including unit, property-based, and integration tests with full coverage of generated functionality
 - **Template composition** -- Combines multiple code templates into coherent feature implementations, managing dependencies and imports across generated modules
 - **Incremental generation** -- Supports generating additional components for existing features without overwriting or conflicting with previously generated or hand-written code
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with template evolution based on quality gate feedback
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for generation frequency, quality compliance, and template effectiveness tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with template evolution based on quality gate feedback
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for generation frequency, quality compliance, and template effectiveness tracking
 
 ## Generation Templates
 
@@ -130,7 +130,7 @@ Post-Generation Verification (actual gate run)
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to generate code across application boundaries, create new modules, and produce test suites.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to generate code across application boundaries, create new modules, and produce test suites.
 
 ## Command Interface
 
@@ -144,14 +144,14 @@ Post-Generation Verification (actual gate run)
 
 | Agent | Relationship |
 |-------|-------------|
-| [quality-gates-specialist](/agents/quality-gates-specialist/) | Quality gate compliance validated on all generated code |
-| [quality-enforcement-commander](/agents/quality-enforcement-commander/) | Generated code must satisfy enforcement requirements |
-| [refactor-specialist-coordinator](/agents/refactor-specialist-coordinator/) | Generated scaffolding follows refactoring-friendly patterns |
-| [rapid-feature-specialist](/agents/rapid-feature-specialist/) | Feature implementation builds on quickstart scaffolding |
+| [quality-gates-specialist](@/agents/quality-gates-specialist.md) | Quality gate compliance validated on all generated code |
+| [quality-enforcement-commander](@/agents/quality-enforcement-commander.md) | Generated code must satisfy enforcement requirements |
+| [refactor-specialist-coordinator](@/agents/refactor-specialist-coordinator.md) | Generated scaffolding follows refactoring-friendly patterns |
+| [rapid-feature-specialist](@/agents/rapid-feature-specialist.md) | Feature implementation builds on quickstart scaffolding |
 
 ## Enforcement
 
-Generated code must satisfy the [NO MERCY](/glossary/no-mercy/) doctrine from creation: no stubs, no placeholders, no incomplete implementations, no TODO markers. The [NO DOUBTS](/glossary/no-doubts/) principle requires that generated code is verified through quality gates, not assumed compliant. Every scaffolding operation concludes with actual gate execution confirming full compliance. The [Trinity Gate](/glossary/trinity-gate/) validates that generated code maintains structural consistency with the existing codebase.
+Generated code must satisfy the [NO MERCY](@/glossary/no-mercy.md) doctrine from creation: no stubs, no placeholders, no incomplete implementations, no TODO markers. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that generated code is verified through quality gates, not assumed compliant. Every scaffolding operation concludes with actual gate execution confirming full compliance. The [Trinity Gate](@/glossary/trinity-gate.md) validates that generated code maintains structural consistency with the existing codebase.
 
 ---
 
@@ -160,4 +160,4 @@ Generated code must satisfy the [NO MERCY](/glossary/no-mercy/) doctrine from cr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "AIAD Intelligence Selector Agent - Prismatic Platform"
 
 ## Overview
 
-The [AIAD](/glossary/aiad/) Intelligence Selector Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Primary domain of the Prismatic Platform. This agent is responsible for intelligent component selection during knowledge transfer operations, analyzing a target project's characteristics and scoring every available AIAD component for relevance. The selector determines which agents, commands, workflows, and protocols from the platform's 404-agent, 210-command ecosystem should be included in a knowledge transfer deployment, ensuring that target projects receive precisely the components they need -- no more, no less.
+The [AIAD](@/glossary/aiad.md) Intelligence Selector Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Primary domain of the Prismatic Platform. This agent is responsible for intelligent component selection during knowledge transfer operations, analyzing a target project's characteristics and scoring every available AIAD component for relevance. The selector determines which agents, commands, workflows, and protocols from the platform's 404-agent, 210-command ecosystem should be included in a knowledge transfer deployment, ensuring that target projects receive precisely the components they need -- no more, no less.
 
-Indiscriminate component deployment would overwhelm target projects with irrelevant infrastructure. A Python Django REST API project does not need Elixir-specific [OTP](/glossary/otp/) supervision agents or [LiveView](/glossary/liveview/) dashboard commanders. Conversely, omitting a critical dependency of a selected component would produce an incomplete, non-functional installation. The Intelligence Selector balances these concerns through a weighted scoring algorithm that evaluates language match, framework match, domain match, and capability match for every component, then resolves dependencies to ensure that selected components form a complete, self-consistent installation package.
+Indiscriminate component deployment would overwhelm target projects with irrelevant infrastructure. A Python Django REST API project does not need Elixir-specific [OTP](@/glossary/otp.md) supervision agents or [LiveView](@/glossary/liveview.md) dashboard commanders. Conversely, omitting a critical dependency of a selected component would produce an incomplete, non-functional installation. The Intelligence Selector balances these concerns through a weighted scoring algorithm that evaluates language match, framework match, domain match, and capability match for every component, then resolves dependencies to ensure that selected components form a complete, self-consistent installation package.
 
 The selection process is transparent and explainable. For every component, the selector produces a relevance score (0.0 to 1.0), a breakdown of how each scoring factor contributed to the total, and a human-readable explanation of why the component was selected or excluded. This transparency supports the NABLA provenance axiom by ensuring that selection decisions can be audited and understood by operators who review the deployment package before installation.
 
@@ -107,11 +107,11 @@ Dependency resolution operates after initial scoring to ensure completeness. If 
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [agent-discovery-specialist](/agents/agent-discovery-specialist/) | Registry Source | Provides the complete agent catalog for evaluation |
-| [AIAD Adaptation Engine Agent](/agents/aiad-adaptation-engine-agent/) | Pipeline Successor | Receives selected components for Prismatic reference removal |
-| [AIAD Project Analyzer Agent](/agents/aiad-project-analyzer-agent/) | Analysis Source | Provides target project analysis driving selection decisions |
-| [AIAD Injection Coordinator Agent](/agents/aiad-injection-coordinator-agent/) | Pipeline Orchestrator | Coordinates overall knowledge transfer including selection stage |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Completeness Check | Validates that selected component set is internally consistent |
+| [agent-discovery-specialist](@/agents/agent-discovery-specialist.md) | Registry Source | Provides the complete agent catalog for evaluation |
+| [AIAD Adaptation Engine Agent](@/agents/aiad-adaptation-engine-agent.md) | Pipeline Successor | Receives selected components for Prismatic reference removal |
+| [AIAD Project Analyzer Agent](@/agents/aiad-project-analyzer-agent.md) | Analysis Source | Provides target project analysis driving selection decisions |
+| [AIAD Injection Coordinator Agent](@/agents/aiad-injection-coordinator-agent.md) | Pipeline Orchestrator | Coordinates overall knowledge transfer including selection stage |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Completeness Check | Validates that selected component set is internally consistent |
 
 ## Performance Characteristics
 
@@ -126,16 +126,16 @@ Dependency resolution operates after initial scoring to ensure completeness. If 
 
 ## Enforcement
 
-All selection operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every selection decision must include documented reasoning -- components are never included or excluded without explanation. Dependency resolution is mandatory and non-bypassable; incomplete component sets are rejected. Selection scores are computed deterministically from the scoring algorithm, ensuring reproducibility. The [NO DOUBTS](/glossary/no-doubts/) principle requires that selection decisions be evidence-based, derived from measured characteristics of the target project and component registry, not from assumptions or heuristics without validated backing.
+All selection operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every selection decision must include documented reasoning -- components are never included or excluded without explanation. Dependency resolution is mandatory and non-bypassable; incomplete component sets are rejected. Selection scores are computed deterministically from the scoring algorithm, ensuring reproducibility. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that selection decisions be evidence-based, derived from measured characteristics of the target project and component registry, not from assumptions or heuristics without validated backing.
 
 ## Related Resources
 
-- [AIAD Standard](/capabilities/aiad-standard/) -- Specification standard defining selectable components
-- [AIAD Injection Coordinator Agent](/agents/aiad-injection-coordinator-agent/) -- Pipeline orchestrator invoking selection
-- [AIAD Project Analyzer Agent](/agents/aiad-project-analyzer-agent/) -- Upstream analysis feeding selection
-- [Agent Registry](/registry/) -- Complete registry of selectable agents
-- [Commands](/commands/) -- Complete registry of selectable commands
-- [Technologies](/technologies/) -- Technology stack informing language/framework matching
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Specification standard defining selectable components
+- [AIAD Injection Coordinator Agent](@/agents/aiad-injection-coordinator-agent.md) -- Pipeline orchestrator invoking selection
+- [AIAD Project Analyzer Agent](@/agents/aiad-project-analyzer-agent.md) -- Upstream analysis feeding selection
+- [Agent Registry](@/registry/_index.md) -- Complete registry of selectable agents
+- [Commands](@/commands/_index.md) -- Complete registry of selectable commands
+- [Technologies](@/technologies/_index.md) -- Technology stack informing language/framework matching
 
 ---
 
@@ -144,4 +144,4 @@ All selection operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

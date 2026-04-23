@@ -28,9 +28,9 @@ image_alt = "evolution-analyzer-specialist - Prismatic Platform"
 
 ## Overview
 
-The Evolution Analyzer Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Ecosystem Analysis and Health Assessment domain of the Prismatic Platform. This agent performs comprehensive evaluation of the platform's evolutionary trajectory, measuring fitness across generations, identifying stagnation risks, and quantifying the health of the agent ecosystem through multi-dimensional scoring models. The platform's evolutionary capabilities -- spanning 18 generations from initial deployment to the current 0.999 apex fitness -- depend on accurate, evidence-based analysis of ecosystem state to guide evolutionary decisions.
+The Evolution Analyzer Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Ecosystem Analysis and Health Assessment domain of the Prismatic Platform. This agent performs comprehensive evaluation of the platform's evolutionary trajectory, measuring fitness across generations, identifying stagnation risks, and quantifying the health of the agent ecosystem through multi-dimensional scoring models. The platform's evolutionary capabilities -- spanning 18 generations from initial deployment to the current 0.999 apex fitness -- depend on accurate, evidence-based analysis of ecosystem state to guide evolutionary decisions.
 
-Ecosystem health in the Prismatic context encompasses more than uptime [metrics](/glossary/metrics/). The Evolution Analyzer evaluates agent fitness distributions, pattern propagation success rates, [mycelial network](/glossary/mycelial-network/) throughput, and inter-generational improvement rates. By tracking these signals across the platform's 18-generation evolutionary history, the agent builds predictive models that forecast evolutionary bottlenecks and recommend targeted interventions before degradation occurs.
+Ecosystem health in the Prismatic context encompasses more than uptime [metrics](@/glossary/metrics.md). The Evolution Analyzer evaluates agent fitness distributions, pattern propagation success rates, [mycelial network](@/glossary/mycelial-network.md) throughput, and inter-generational improvement rates. By tracking these signals across the platform's 18-generation evolutionary history, the agent builds predictive models that forecast evolutionary bottlenecks and recommend targeted interventions before degradation occurs.
 
 Without accurate ecosystem analysis, evolutionary operations become blind mutation -- changes that are as likely to degrade the system as improve it. The Evolution Analyzer provides the diagnostic foundation that transforms evolution from random variation into directed improvement. Every evolutionary decision -- which mutations to attempt, which patterns to propagate, which fitness functions to prioritize -- depends on the analyzer's assessment of current ecosystem state and trajectory.
 
@@ -52,7 +52,7 @@ The Evolution Analyzer Specialist provides six core analytical capabilities for 
 
 **Stagnation detection** uses statistical analysis of fitness plateaus to trigger proactive evolutionary interventions before the ecosystem becomes trapped in local optima. The analyzer monitors fitness improvement rates using moving averages and change-point detection algorithms. When improvement rates drop below configurable thresholds for sustained periods, stagnation alerts are issued with diagnostic information about which dimensions are plateauing and potential causes.
 
-**[SEADF](/glossary/seadf/) integration** feeds health assessments directly into the Self-Evolving Autonomous Development Framework for automated response. SEADF's seven subsystems (Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, Enhanced Healing) each consume specific health metrics to guide their operations. The analyzer ensures that SEADF receives timely, accurate health data to drive its autonomous improvement cycles.
+**[SEADF](@/glossary/seadf.md) integration** feeds health assessments directly into the Self-Evolving Autonomous Development Framework for automated response. SEADF's seven subsystems (Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, Enhanced Healing) each consume specific health metrics to guide their operations. The analyzer ensures that SEADF receives timely, accurate health data to drive its autonomous improvement cycles.
 
 **Trend forecasting** projects ecosystem health trajectories based on current metrics and historical patterns. Forecasting uses time-series analysis techniques to predict where each health dimension will be in 1, 5, and 10 generations, enabling proactive planning rather than reactive intervention. Forecasts include confidence intervals reflecting prediction uncertainty, which widens for longer time horizons.
 
@@ -99,20 +99,20 @@ Health assessments are delivered in formats supporting different consumer needs.
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Strategic Consumer | Receives health assessments to inform evolutionary orchestration |
-| [darwinian-evolution-coordinator](/agents/darwinian-evolution-coordinator/) | Evolution Partner | Coordinates fitness-based selection using analyzer findings |
-| [ecosystem-biologist-coordinator](/agents/ecosystem-biologist-coordinator/) | Domain Authority | Provides biological modeling context for health assessments |
-| [emergence-detector-specialist](/agents/emergence-detector-specialist/) | Meta-level Input | Provides emergent pattern data that affects health scoring |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Strategic Consumer | Receives health assessments to inform evolutionary orchestration |
+| [darwinian-evolution-coordinator](@/agents/darwinian-evolution-coordinator.md) | Evolution Partner | Coordinates fitness-based selection using analyzer findings |
+| [ecosystem-biologist-coordinator](@/agents/ecosystem-biologist-coordinator.md) | Domain Authority | Provides biological modeling context for health assessments |
+| [emergence-detector-specialist](@/agents/emergence-detector-specialist.md) | Meta-level Input | Provides emergent pattern data that affects health scoring |
 
 ## Enforcement
 
-Ecosystem analysis operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Health scores must be derived from verifiable [telemetry](/glossary/telemetry/) data, never from subjective assessment. The NABLA [Provenance Mandatory](/glossary/provenance-mandatory/) axiom requires all health metrics to be traceable to specific measurement sources. Optimistic health reports without supporting evidence are treated as L2 quality violations and blocked from distribution. Every health score includes explicit methodology, data sources, and confidence levels.
+Ecosystem analysis operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Health scores must be derived from verifiable [telemetry](@/glossary/telemetry.md) data, never from subjective assessment. The NABLA [Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom requires all health metrics to be traceable to specific measurement sources. Optimistic health reports without supporting evidence are treated as L2 quality violations and blocked from distribution. Every health score includes explicit methodology, data sources, and confidence levels.
 
 ## Related Agents
 
-- [**evolution-orchestrator-supreme**](/agents/evolution-orchestrator-supreme/) (L3) - Evolutionary orchestration consuming analyzer outputs
-- [**darwinian-evolution-coordinator**](/agents/darwinian-evolution-coordinator/) (L3) - Fitness-based evolutionary selection
-- [**ecosystem-biologist-coordinator**](/agents/ecosystem-biologist-coordinator/) (L3) - Biological modeling for ecosystem assessment
+- [**evolution-orchestrator-supreme**](@/agents/evolution-orchestrator-supreme.md) (L3) - Evolutionary orchestration consuming analyzer outputs
+- [**darwinian-evolution-coordinator**](@/agents/darwinian-evolution-coordinator.md) (L3) - Fitness-based evolutionary selection
+- [**ecosystem-biologist-coordinator**](@/agents/ecosystem-biologist-coordinator.md) (L3) - Biological modeling for ecosystem assessment
 
 ---
 
@@ -121,4 +121,4 @@ Ecosystem analysis operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-do
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

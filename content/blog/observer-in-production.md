@@ -18,7 +18,7 @@ see_also = ["observer", "introspection", "beam", "beam-vm", "monitoring"]
 image_alt = "Observer in Production"
 +++
 
-The first time you attach [observer](/glossary/observer) to a running production node and see every process, every mailbox, every ETS table, every linked supervisor — live, updating, interactive — you realize how much production debugging you have been doing blind. This is BEAM [introspection](/glossary/introspection), and it is arguably the single biggest operational advantage Elixir has over other runtimes.
+The first time you attach [observer](@/glossary/observer.md) to a running production node and see every process, every mailbox, every ETS table, every linked supervisor — live, updating, interactive — you realize how much production debugging you have been doing blind. This is BEAM [introspection](@/glossary/introspection.md), and it is arguably the single biggest operational advantage Elixir has over other runtimes.
 
 ## Attaching to a remote node
 
@@ -43,7 +43,7 @@ Three tabs, three things:
 
 1. **Processes** — sort by reductions desc. Top 10 tells you where the CPU went. Sort by message queue desc. Top 10 tells you which GenServer is overloaded.
 2. **Applications** — the supervision tree visualized. Crashed children are obvious. Restart intensity is visible per supervisor.
-3. **Table Viewer** — every [ETS](/glossary/ets) table with row counts and memory. A table that keeps growing is a leak.
+3. **Table Viewer** — every [ETS](@/glossary/ets.md) table with row counts and memory. A table that keeps growing is a leak.
 
 Most production problems show up in one of these three tabs in under a minute.
 
@@ -70,6 +70,6 @@ If GUI over SSH is too slow, `:runtime_tools` and `:recon` give you the same inf
 ## Where to go next
 
 - **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — the supervision trees Observer visualizes
-- **Glossary**: [Observer](/glossary/observer), [Introspection](/glossary/introspection), [BEAM](/glossary/beam), [BEAM VM](/glossary/beam-vm), [Monitoring](/glossary/monitoring)
+- **Glossary**: [Observer](@/glossary/observer.md), [Introspection](@/glossary/introspection.md), [BEAM](@/glossary/beam.md), [BEAM VM](@/glossary/beam-vm.md), [Monitoring](@/glossary/monitoring.md)
 
 Most production debugging in other runtimes is archaeology. In Elixir it is live inspection. Use it.

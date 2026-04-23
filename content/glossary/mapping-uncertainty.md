@@ -423,24 +423,24 @@ During incident response, multiple hypotheses compete to explain observed sympto
 
 Understanding mapping uncertainty connects to the NABLA Infinity epistemic framework and broader Prismatic Platform architecture:
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- the overarching epistemic framework that mandates systematic uncertainty management
-- [NABLA Axioms](/glossary/nabla-axioms/) -- the seven non-negotiable axioms that govern uncertainty handling
-- [Belief Graph](/glossary/belief-graph/) -- the directed acyclic graph structure that represents beliefs with uncertainty annotations
-- [Confidence Scoring](/glossary/confidence-scoring/) -- the quantitative assessment of belief reliability
-- [Trinity Gate](/glossary/trinity-gate/) -- the three-layer validation system that integrates with uncertainty thresholds
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- the probabilistic foundation for updating beliefs given new evidence
-- [Signal Plurality](/glossary/signal-plurality/) -- the requirement for multiple independent evidence sources
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- the broader practice of reasoning about knowledge and belief
-- [Evidence](/glossary/evidence/) -- the informational basis for all confidence assessments
-- [Formal Verification](/glossary/formal-verification/) -- the mathematical proof techniques used for high-confidence claims
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- the overarching epistemic framework that mandates systematic uncertainty management
+- [NABLA Axioms](@/glossary/nabla-axioms.md) -- the seven non-negotiable axioms that govern uncertainty handling
+- [Belief Graph](@/glossary/belief-graph.md) -- the directed acyclic graph structure that represents beliefs with uncertainty annotations
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- the quantitative assessment of belief reliability
+- [Trinity Gate](@/glossary/trinity-gate.md) -- the three-layer validation system that integrates with uncertainty thresholds
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- the probabilistic foundation for updating beliefs given new evidence
+- [Signal Plurality](@/glossary/signal-plurality.md) -- the requirement for multiple independent evidence sources
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- the broader practice of reasoning about knowledge and belief
+- [Evidence](@/glossary/evidence.md) -- the informational basis for all confidence assessments
+- [Formal Verification](@/glossary/formal-verification.md) -- the mathematical proof techniques used for high-confidence claims
 
 ## See Also
 
-- [Adversarial Drift](/glossary/adversarial-drift/) -- how uncertainty increases when adversarial conditions shift undetected
-- [Confidence Threshold](/glossary/confidence-threshold/) -- the minimum confidence required for different categories of decisions
-- [Epistemic Validation](/glossary/epistemic-validation/) -- the validation of reasoning processes themselves
-- [Modal Logic](/glossary/modal-logic/) -- the formal logical system for reasoning about possibility and necessity
-- [Axiom Enforcement](/glossary/axiom-enforcement/) -- how the NABLA axioms are technically enforced in the platform
+- [Adversarial Drift](@/glossary/adversarial-drift.md) -- how uncertainty increases when adversarial conditions shift undetected
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- the minimum confidence required for different categories of decisions
+- [Epistemic Validation](@/glossary/epistemic-validation.md) -- the validation of reasoning processes themselves
+- [Modal Logic](@/glossary/modal-logic.md) -- the formal logical system for reasoning about possibility and necessity
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) -- how the NABLA axioms are technically enforced in the platform
 
 ---
 

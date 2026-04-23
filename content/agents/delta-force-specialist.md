@@ -28,7 +28,7 @@ image_alt = "delta-force-specialist - Prismatic Platform"
 
 ## Overview
 
-The Delta Force Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Intelligence domain of the Prismatic Platform. This agent executes precision intelligence operations targeting specific high-value objectives with surgical accuracy. Unlike broad intelligence collection agents that cast wide nets, the Delta Force Specialist focuses its capabilities on individual targets, conducting deep-dive investigations that exhaust available data sources and produce comprehensive intelligence products with the highest confidence levels.
+The Delta Force Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Intelligence domain of the Prismatic Platform. This agent executes precision intelligence operations targeting specific high-value objectives with surgical accuracy. Unlike broad intelligence collection agents that cast wide nets, the Delta Force Specialist focuses its capabilities on individual targets, conducting deep-dive investigations that exhaust available data sources and produce comprehensive intelligence products with the highest confidence levels.
 
 Precision intelligence operations require a fundamentally different approach from routine intelligence collection. The Delta Force Specialist invests disproportionate analytical resources on a single target, correlating signals from every available domain, pursuing indirect evidence chains through multiple intermediary entities, and maintaining persistent monitoring that detects changes in the target's behavior or circumstances. This depth of investigation produces intelligence products that meet the evidentiary standards required for critical decisions including regulatory actions, investment decisions, and security assessments.
 
@@ -56,7 +56,7 @@ Focused collection directs targeted data acquisition to fill identified intellig
 
 Analysis and correlation combines newly collected data with existing intelligence to build a comprehensive picture of the target. The specialist applies cross-domain correlation techniques including temporal analysis (event timing patterns), structural analysis (relationship network topology), behavioral analysis (activity pattern characterization), and financial analysis (fund flow reconstruction). Each analytical finding is documented with its evidence basis and confidence assessment.
 
-Assessment synthesis produces the final intelligence product that answers the original intelligence questions. The assessment explicitly addresses each question, documents the evidence supporting the assessment, identifies contradictions or uncertainties that could not be resolved, and provides confidence scores calibrated against the [NABLA](/glossary/nabla-infinity/) framework requirements.
+Assessment synthesis produces the final intelligence product that answers the original intelligence questions. The assessment explicitly addresses each question, documents the evidence supporting the assessment, identifies contradictions or uncertainties that could not be resolved, and provides confidence scores calibrated against the [NABLA](@/glossary/nabla-infinity.md) framework requirements.
 
 ## Multi-Source Evidence Correlation
 
@@ -66,9 +66,9 @@ Source independence verification ensures that corroborating evidence comes from 
 
 Temporal correlation identifies relationships between events across different domains that share timing characteristics. A corporate restructuring followed by unusual financial transactions followed by regulatory compliance changes may indicate a coordinated strategy that individual events would not reveal. The specialist constructs event timelines across all domains to detect such temporal patterns.
 
-Contradiction analysis explicitly examines cases where different sources provide conflicting information about the target. Following the NABLA [Contradiction Preservation](/glossary/contradiction-preservation/) axiom, contradictions are preserved and analyzed rather than resolved by favoring one source over another. The specialist evaluates each contradictory signal's provenance and reliability to assess which source is more likely correct while maintaining both signals in the evidence record.
+Contradiction analysis explicitly examines cases where different sources provide conflicting information about the target. Following the NABLA [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom, contradictions are preserved and analyzed rather than resolved by favoring one source over another. The specialist evaluates each contradictory signal's provenance and reliability to assess which source is more likely correct while maintaining both signals in the evidence record.
 
-Network analysis examines the target's relationship network to identify associates, affiliates, and related entities that provide contextual intelligence. The specialist uses [KuzuDB](/glossary/kuzudb/) graph queries to discover connection paths between the target and other entities of interest, including indirect connections through intermediate entities that direct analysis would miss.
+Network analysis examines the target's relationship network to identify associates, affiliates, and related entities that provide contextual intelligence. The specialist uses [KuzuDB](@/glossary/kuzudb.md) graph queries to discover connection paths between the target and other entities of interest, including indirect connections through intermediate entities that direct analysis would miss.
 
 ## Operational Security
 
@@ -84,26 +84,26 @@ Delta Force investigations produce intelligence products that meet the highest q
 
 Evidence chain documentation provides a complete, auditable path from each assessment conclusion back through the analytical reasoning to the original evidence sources. Every claim in the intelligence product can be independently verified by following the evidence chain.
 
-Confidence calibration ensures that reported confidence scores accurately reflect the strength of the underlying evidence. The specialist calibrates confidence scores against the [Trinity Gate](/glossary/trinity-gate/) framework: structural consistency of the evidence graph, logical consistency of the analytical reasoning, and formal verification of critical claims.
+Confidence calibration ensures that reported confidence scores accurately reflect the strength of the underlying evidence. The specialist calibrates confidence scores against the [Trinity Gate](@/glossary/trinity-gate.md) framework: structural consistency of the evidence graph, logical consistency of the analytical reasoning, and formal verification of critical claims.
 
 Alternative hypothesis evaluation documents the alternative explanations that were considered and the evidence that led to their rejection. This documentation enables intelligence consumers to assess the robustness of the assessment by evaluating whether the rejected alternatives are genuinely unlikely given the available evidence.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to direct targeted intelligence collection, coordinate cross-domain analysis, and produce highest-confidence intelligence assessments.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to direct targeted intelligence collection, coordinate cross-domain analysis, and produce highest-confidence intelligence assessments.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [cross-domain-intelligence-coordinator](/agents/cross-domain-intelligence-coordinator/) | Tasking Authority | Receives investigation targets and intelligence requirements |
-| [email-intelligence-specialist](/agents/email-intelligence-specialist/) | Collection Support | Provides email-derived intelligence for target investigations |
-| [ghost-recon-specialist](/agents/ghost-recon-specialist/) | OSINT Support | Provides stealth OSINT collection for sensitive investigations |
-| [falcon-strike-specialist](/agents/falcon-strike-specialist/) | Rapid Collection | Provides rapid deployment collection for time-sensitive intelligence needs |
+| [cross-domain-intelligence-coordinator](@/agents/cross-domain-intelligence-coordinator.md) | Tasking Authority | Receives investigation targets and intelligence requirements |
+| [email-intelligence-specialist](@/agents/email-intelligence-specialist.md) | Collection Support | Provides email-derived intelligence for target investigations |
+| [ghost-recon-specialist](@/agents/ghost-recon-specialist.md) | OSINT Support | Provides stealth OSINT collection for sensitive investigations |
+| [falcon-strike-specialist](@/agents/falcon-strike-specialist.md) | Rapid Collection | Provides rapid deployment collection for time-sensitive intelligence needs |
 
 ## Enforcement
 
-All Delta Force operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No intelligence assessment is released without meeting Trinity Gate validation. Evidence chains must be complete and auditable. Confidence scores must be calibrated and documented. Contradictions must be preserved and presented. Operational security protocols are mandatory for all active investigations. Intelligence products must include alternative hypothesis evaluation. The NABLA Signal Plurality axiom requires that critical assessments draw from at least three independent source domains.
+All Delta Force operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No intelligence assessment is released without meeting Trinity Gate validation. Evidence chains must be complete and auditable. Confidence scores must be calibrated and documented. Contradictions must be preserved and presented. Operational security protocols are mandatory for all active investigations. Intelligence products must include alternative hypothesis evaluation. The NABLA Signal Plurality axiom requires that critical assessments draw from at least three independent source domains.
 
 ---
 
@@ -112,4 +112,4 @@ All Delta Force operations are governed by the [NO MERCY, NO DOUBTS](/glossary/n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

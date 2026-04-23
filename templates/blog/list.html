@@ -37,14 +37,23 @@
     </div>
 </section>
 
-{% if section.pages %}
+{# With paginate_by in _index.md, section.pages is empty. Zola exposes
+   the actual pages through paginator.pages on the paginated template.
+   Fall back to section.pages when pagination is disabled. #}
+{% if paginator %}
+  {% set all_pages = paginator.pages %}
+{% else %}
+  {% set all_pages = section.pages %}
+{% endif %}
+
+{% if all_pages %}
 <section class="py-12 lg:py-16">
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="grid gap-8 lg:grid-cols-4">
             <!-- Main Content (3/4) -->
             <div class="lg:col-span-3">
                 <!-- Featured Posts -->
-                {% set featured = section.pages | filter(attribute="extra.featured", value=true) %}
+                {% set featured = all_pages | filter(attribute="extra.featured", value=true) %}
                 {% if featured | length > 0 %}
                 <div class="mb-12">
                     <h2 class="text-lg font-semibold text-white mb-6 flex items-center gap-2">
@@ -81,7 +90,7 @@
                 <!-- All Posts -->
                 <h2 class="text-lg font-semibold text-white mb-6">All Posts</h2>
                 <div class="grid gap-4">
-                    {% for page in section.pages %}
+                    {% for page in all_pages %}
                     <a href="{{ page.permalink }}"
                        class="group flex flex-col sm:flex-row sm:items-start gap-4 p-5 bg-gray-800 rounded-xl border border-gray-700 hover:border-green-700/50 hover:bg-gray-800/80 transition-all duration-200">
                         <div class="flex-1 min-w-0">

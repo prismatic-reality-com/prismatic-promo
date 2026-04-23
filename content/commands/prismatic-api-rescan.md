@@ -24,11 +24,11 @@ image_alt = "/prismatic-api-rescan - Prismatic Platform"
 
 ## Overview
 
-**/prismatic-api-rescan** is a production command in the **API** category of the Prismatic Platform that triggers a complete re-scan of all Prismatic facade modules to refresh the API endpoint registry. The command forces the [Prismatic API](/glossary/prismatic-api/) gateway's scanner process to re-execute its boot-time discovery procedure, updating the ETS-cached endpoint registry with any newly added, modified, or removed facade module functions. This is essential after hot code reloading, new module deployment, or when the endpoint registry needs to be synchronized with the current codebase state.
+**/prismatic-api-rescan** is a production command in the **API** category of the Prismatic Platform that triggers a complete re-scan of all Prismatic facade modules to refresh the API endpoint registry. The command forces the [Prismatic API](@/glossary/prismatic-api.md) gateway's scanner process to re-execute its boot-time discovery procedure, updating the ETS-cached endpoint registry with any newly added, modified, or removed facade module functions. This is essential after hot code reloading, new module deployment, or when the endpoint registry needs to be synchronized with the current codebase state.
 
 The Prismatic API's auto-introspection architecture discovers endpoints once during application boot and caches them in ETS for performance. While this design provides sub-millisecond endpoint resolution during request handling, it means that changes to facade modules after boot -- whether through hot code upgrades, new module compilation, or dynamic module loading -- are not automatically reflected in the API surface area. The `/prismatic-api-rescan` command bridges this gap by providing on-demand registry refresh without requiring application restart.
 
-This command operates under the **L3** authority level, reflecting the elevated privileges required for operations that modify the API gateway's runtime behavior. It is executed by the `elixir-core-specialist` agent. The L3 authority level ensures that only operators with sufficient access can trigger rescans, preventing unauthorized modifications to the public API surface area. This is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level, reflecting the elevated privileges required for operations that modify the API gateway's runtime behavior. It is executed by the `elixir-core-specialist` agent. The L3 authority level ensures that only operators with sufficient access can trigger rescans, preventing unauthorized modifications to the public API surface area. This is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 The rescan operation is designed to be safe for production use. It follows an atomic swap pattern: the new endpoint registry is built completely in a shadow ETS table before atomically replacing the live registry. This ensures that in-flight API requests are never served from an incomplete or inconsistent registry. If the rescan fails for any reason, the previous registry remains intact and the failure is logged with full diagnostic context.
 
@@ -156,7 +156,7 @@ The rescan operation follows the five-phase pipeline with additional validation 
 
 **Phase 2 -- Module Introspection** (100ms-1s): Each qualifying module is introspected using three Elixir reflection functions. `Module.__info__(:functions)` returns the list of exported functions with arities. `Code.fetch_docs/1` retrieves embedded documentation. `Code.Typespec.fetch_specs/1` extracts `@spec` type annotations. Functions that are private, deprecated, or explicitly excluded via module attributes are filtered out.
 
-**Phase 3 -- Schema Generation** (100ms-2s): For each discovered function, the TypeMapper converts the Elixir `@spec` AST into [OpenAPI](/glossary/openapi/) 3.0 JSON Schema definitions. Parameter types are mapped to JSON Schema types (atom -> string, integer -> integer, map -> object, list -> array). Return types are mapped to response schemas. Complex types (union types, structs, custom types) are handled through configurable type mapping rules.
+**Phase 3 -- Schema Generation** (100ms-2s): For each discovered function, the TypeMapper converts the Elixir `@spec` AST into [OpenAPI](@/glossary/openapi.md) 3.0 JSON Schema definitions. Parameter types are mapped to JSON Schema types (atom -> string, integer -> integer, map -> object, list -> array). Return types are mapped to response schemas. Complex types (union types, structs, custom types) are handled through configurable type mapping rules.
 
 **Phase 4 -- Shadow Registry Build** (< 100ms): A new ETS table is created with the `:endpoints_shadow` name. All discovered endpoints are inserted into this shadow table with their complete metadata: module, function, arity, HTTP method, parameter schema, response schema, and documentation. The insertion is performed as a batch operation for efficiency.
 
@@ -166,14 +166,14 @@ The rescan operation follows the five-phase pipeline with additional validation 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic API](/apps/prismatic-api/) | Core Application | Scanner process and ETS registry |
-| [/prismatic-api-endpoints](/commands/prismatic-api-endpoints/) | Downstream | Endpoint listing reflects rescan results |
-| [/prismatic-api-spec](/commands/prismatic-api-spec/) | Downstream | OpenAPI spec regenerated from new registry |
-| [/prismatic-api-status](/commands/prismatic-api-status/) | Diagnostic | Status reflects last scan timestamp |
-| [OpenAPI](/glossary/openapi/) | Standard | Schema generation during rescan |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `elixir-core-specialist` agent |
-| [Telemetry](/glossary/telemetry/) | Observability | Rescan timing, endpoint delta metrics |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Post-rescan endpoint health check |
+| [Prismatic API](@/apps/prismatic-api.md) | Core Application | Scanner process and ETS registry |
+| [/prismatic-api-endpoints](@/commands/prismatic-api-endpoints.md) | Downstream | Endpoint listing reflects rescan results |
+| [/prismatic-api-spec](@/commands/prismatic-api-spec.md) | Downstream | OpenAPI spec regenerated from new registry |
+| [/prismatic-api-status](@/commands/prismatic-api-status.md) | Diagnostic | Status reflects last scan timestamp |
+| [OpenAPI](@/glossary/openapi.md) | Standard | Schema generation during rescan |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `elixir-core-specialist` agent |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Rescan timing, endpoint delta metrics |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Post-rescan endpoint health check |
 
 ## Best Practices
 
@@ -232,19 +232,19 @@ The rescan operation follows the five-phase pipeline with additional validation 
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The rescan process must complete fully or not at all -- partial registry updates are never applied. Every discoverable module is scanned; failures in individual modules are logged but do not prevent scanning of remaining modules. Post-scan validation is available and recommended.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. The `--dry-run` option enables informed decision-making before committing to registry changes. The `--diff` option provides clear visibility into exactly what changed. The [NABLA](/glossary/nabla-infinity/) axiom of Provenance Mandatory is satisfied: every endpoint in the registry is traceable to a specific module and function in the codebase, with the scan timestamp providing temporal context.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. The `--dry-run` option enables informed decision-making before committing to registry changes. The `--diff` option provides clear visibility into exactly what changed. The [NABLA](@/glossary/nabla-infinity.md) axiom of Provenance Mandatory is satisfied: every endpoint in the registry is traceable to a specific module and function in the codebase, with the scan timestamp providing temporal context.
 
 ## Related Commands
 
-- [/prismatic-api-status](/commands/prismatic-api-status/) - [Prismatic API](/glossary/prismatic-api/) auto-introspecting REST gateway status
-- [/prismatic-api-endpoints](/commands/prismatic-api-endpoints/) - List all auto-discovered API endpoints from facade modules
-- [/prismatic-api-spec](/commands/prismatic-api-spec/) - Generate and view [OpenAPI](/glossary/openapi/) 3.0 specification
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/prismatic-api-status](@/commands/prismatic-api-status.md) - [Prismatic API](@/glossary/prismatic-api.md) auto-introspecting REST gateway status
+- [/prismatic-api-endpoints](@/commands/prismatic-api-endpoints.md) - List all auto-discovered API endpoints from facade modules
+- [/prismatic-api-spec](@/commands/prismatic-api-spec.md) - Generate and view [OpenAPI](@/glossary/openapi.md) 3.0 specification
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -253,4 +253,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

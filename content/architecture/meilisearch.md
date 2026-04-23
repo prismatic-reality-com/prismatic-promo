@@ -26,9 +26,9 @@ image_alt = "Meilisearch - Prismatic Platform"
 
 Meilisearch powers Prismatic Platform's search infrastructure, providing sub-50ms full-text search with typo tolerance, faceted filtering, and real-time index synchronization across the platform's data domains. In an intelligence platform managing hundreds of thousands of assets, agents, documents, and corporate entities, the ability to find the right information instantly is not a convenience feature -- it is an operational necessity.
 
-The decision to use a dedicated search engine rather than relying solely on [PostgreSQL's](/glossary/postgresql/) built-in full-text search capabilities was driven by three requirements: sub-50ms response times at scale (PostgreSQL's `tsvector` approach degrades above 100K documents without careful tuning), typo tolerance (critical for names transliterated between Czech and English alphabets), and faceted filtering (enabling drill-down navigation in the [LiveView](/architecture/phoenix-liveview/) dashboards). Meilisearch meets all three requirements out of the box, with minimal operational overhead.
+The decision to use a dedicated search engine rather than relying solely on [PostgreSQL's](@/glossary/postgresql.md) built-in full-text search capabilities was driven by three requirements: sub-50ms response times at scale (PostgreSQL's `tsvector` approach degrades above 100K documents without careful tuning), typo tolerance (critical for names transliterated between Czech and English alphabets), and faceted filtering (enabling drill-down navigation in the [LiveView](@/architecture/phoenix-liveview.md) dashboards). Meilisearch meets all three requirements out of the box, with minimal operational overhead.
 
-The search subsystem integrates with the platform's [storage adapter layer](/architecture/storage-adapters/) through a dedicated [Meilisearch adapter](/apps/prismatic-storage-meilisearch/) and synchronizes with the primary [PostgreSQL database](/architecture/postgresql-kuzudb/) through an event-driven pipeline that keeps search indexes current within seconds of data changes.
+The search subsystem integrates with the platform's [storage adapter layer](@/architecture/storage-adapters.md) through a dedicated [Meilisearch adapter](@/apps/prismatic-storage-meilisearch.md) and synchronizes with the primary [PostgreSQL database](@/architecture/postgresql-kuzudb.md) through an event-driven pipeline that keeps search indexes current within seconds of data changes.
 
 ## Why Meilisearch Over Alternatives
 
@@ -44,10 +44,10 @@ The search engine landscape is dominated by Elasticsearch, which is the industry
 | **Faceted filtering** | Native | Native | Native | Manual aggregation |
 | **Real-time indexing** | Yes (sub-second) | Near-real-time (1s refresh) | Yes | Immediate (triggers) |
 | **Operational overhead** | Minimal | High (cluster management) | Minimal | None |
-| **[Elixir](/glossary/elixir/) ecosystem** | HTTP API (any client) | elasticsearch-elixir | HTTP API | [Ecto](/glossary/ecto/) native |
+| **[Elixir](@/glossary/elixir.md) ecosystem** | HTTP API (any client) | elasticsearch-elixir | HTTP API | [Ecto](@/glossary/ecto.md) native |
 | **License** | MIT | SSPL/Elastic License | GPL v3 | PostgreSQL License |
 
-Meilisearch was selected because it provides Elasticsearch-class search quality with Typesense-class operational simplicity. For an intelligence platform that already manages [PostgreSQL](/glossary/postgresql/), [KuzuDB](/glossary/kuzudb/), [Redis](/apps/prismatic-storage-redis/), and [ETS](/glossary/ets/), adding a JVM-based cluster (Elasticsearch) would create disproportionate operational burden. Meilisearch's single-binary deployment and sub-500MB memory footprint fit the platform's "minimal viable infrastructure" philosophy.
+Meilisearch was selected because it provides Elasticsearch-class search quality with Typesense-class operational simplicity. For an intelligence platform that already manages [PostgreSQL](@/glossary/postgresql.md), [KuzuDB](@/glossary/kuzudb.md), [Redis](@/apps/prismatic-storage-redis.md), and [ETS](@/glossary/ets.md), adding a JVM-based cluster (Elasticsearch) would create disproportionate operational burden. Meilisearch's single-binary deployment and sub-500MB memory footprint fit the platform's "minimal viable infrastructure" philosophy.
 
 PostgreSQL's built-in full-text search was rejected not because it is inadequate for simple use cases, but because the platform's search requirements exceed its sweet spot: typo tolerance requires `pg_trgm` with GIN indexes plus similarity thresholds, which is fragile to configure and slow at scale. Meilisearch handles this natively.
 
@@ -200,7 +200,7 @@ The ranking pipeline operates as follows:
 
 ## Client Implementation
 
-The search client provides a typed interface to Meilisearch's HTTP API, with [connection pooling](/glossary/connection-pooling/), request batching, and [telemetry](/glossary/telemetry/) integration.
+The search client provides a typed interface to Meilisearch's HTTP API, with [connection pooling](@/glossary/connection-pooling.md), request batching, and [telemetry](@/glossary/telemetry.md) integration.
 
 ```elixir
 defmodule PrismaticSearch.Client do
@@ -299,7 +299,7 @@ end
 
 ## Real-Time Synchronization
 
-Search indexes must reflect the current state of the platform's data. The synchronization layer uses an event-driven architecture where data changes in [PostgreSQL](/architecture/postgresql-kuzudb/) trigger index updates through the platform's [PubSub system](/architecture/pubsub/).
+Search indexes must reflect the current state of the platform's data. The synchronization layer uses an event-driven architecture where data changes in [PostgreSQL](@/architecture/postgresql-kuzudb.md) trigger index updates through the platform's [PubSub system](@/architecture/pubsub.md).
 
 ### Event-Driven Sync
 
@@ -406,7 +406,7 @@ end
 
 ### Full Reindex
 
-For [disaster recovery](/glossary/disaster-recovery/) or after schema changes, the platform supports full reindexing from PostgreSQL. The reindex process streams records in batches to avoid memory pressure.
+For [disaster recovery](@/glossary/disaster-recovery.md) or after schema changes, the platform supports full reindexing from PostgreSQL. The reindex process streams records in batches to avoid memory pressure.
 
 ```elixir
 defmodule PrismaticSearch.Reindexer do
@@ -488,7 +488,7 @@ Meilisearch's typo tolerance algorithm uses a prefix tree (trie) with Levenshtei
 
 ### Faceted Search
 
-Faceted search enables drill-down navigation in the [LiveView](/architecture/phoenix-liveview/) dashboards. Users can search for assets and simultaneously see the distribution of results across [security rating](/glossary/security-rating/)s, asset types, and compliance statuses.
+Faceted search enables drill-down navigation in the [LiveView](@/architecture/phoenix-liveview.md) dashboards. Users can search for assets and simultaneously see the distribution of results across [security rating](@/glossary/security-rating.md)s, asset types, and compliance statuses.
 
 ```elixir
 {:ok, results} = PrismaticSearch.Client.search("assets", "example.com",
@@ -526,7 +526,7 @@ Highlighted search results improve the user experience by showing exactly which 
 
 ## LiveView Integration
 
-The search client integrates with [Phoenix LiveView](/architecture/phoenix-liveview/) for real-time, interactive search experiences. Debounced keystroke handling prevents excessive API calls while maintaining perceived instantaneity.
+The search client integrates with [Phoenix LiveView](@/architecture/phoenix-liveview.md) for real-time, interactive search experiences. Debounced keystroke handling prevents excessive API calls while maintaining perceived instantaneity.
 
 ```elixir
 defmodule PrismaticWeb.AssetSearchLive do
@@ -633,17 +633,17 @@ For teams considering Elasticsearch as an alternative, the key tradeoffs are:
 | **Learning curve** | Minimal (~1 hour to productive) | Significant (~1 week to productive) |
 | **Index management** | Automatic | Manual (mapping, analyzers, tokenizers) |
 
-Meilisearch wins for the platform's primary use case (interactive, user-facing search) but would not be suitable for log analytics or complex aggregation workloads. Those workloads are handled by [PostgreSQL](/architecture/postgresql-kuzudb/) or dedicated analytics tools.
+Meilisearch wins for the platform's primary use case (interactive, user-facing search) but would not be suitable for log analytics or complex aggregation workloads. Those workloads are handled by [PostgreSQL](@/architecture/postgresql-kuzudb.md) or dedicated analytics tools.
 
 ## Integration with Platform Components
 
-- **[PostgreSQL](/architecture/postgresql-kuzudb/)**: Source of truth for all indexed data. Synchronization via PubSub events.
-- **[Storage adapters](/architecture/storage-adapters/)**: Meilisearch adapter implements the platform's `AdapterBehaviour` for unified query interface.
-- **[Telemetry](/architecture/telemetry/)**: All search and indexing operations emit telemetry events for performance monitoring.
-- **[LiveView](/architecture/phoenix-liveview/)**: Real-time search interface with debounced keystroke handling and faceted filtering.
-- **[Local AI (Ollama)](/architecture/ollama/)**: Semantic search enrichment using local LLM embeddings for query expansion without exposing queries to external APIs.
-- **[Perimeter EASM](/apps/prismatic-perimeter/)**: Asset search powers the [attack surface](/glossary/attack-surface/) exploration interface.
-- **[Agent registry](/apps/prismatic-agents/)**: Agent discovery search enables finding the right agent for a given task.
+- **[PostgreSQL](@/architecture/postgresql-kuzudb.md)**: Source of truth for all indexed data. Synchronization via PubSub events.
+- **[Storage adapters](@/architecture/storage-adapters.md)**: Meilisearch adapter implements the platform's `AdapterBehaviour` for unified query interface.
+- **[Telemetry](@/architecture/telemetry.md)**: All search and indexing operations emit telemetry events for performance monitoring.
+- **[LiveView](@/architecture/phoenix-liveview.md)**: Real-time search interface with debounced keystroke handling and faceted filtering.
+- **[Local AI (Ollama)](@/architecture/ollama.md)**: Semantic search enrichment using local LLM embeddings for query expansion without exposing queries to external APIs.
+- **[Perimeter EASM](@/apps/prismatic-perimeter.md)**: Asset search powers the [attack surface](@/glossary/attack-surface.md) exploration interface.
+- **[Agent registry](@/apps/prismatic-agents.md)**: Agent discovery search enables finding the right agent for a given task.
 
 ## Operational Considerations
 
@@ -653,11 +653,11 @@ Meilisearch maintains its indexes on disk at a configurable path. The platform b
 
 ### Security
 
-Meilisearch supports API key authentication with fine-grained permissions (search-only keys, admin keys, tenant-scoped keys). The platform uses search-only keys for the LiveView frontend and admin keys only for the synchronization service. Meilisearch binds to localhost only; external access is proxied through the platform's [API gateway](/glossary/api-gateway/).
+Meilisearch supports API key authentication with fine-grained permissions (search-only keys, admin keys, tenant-scoped keys). The platform uses search-only keys for the LiveView frontend and admin keys only for the synchronization service. Meilisearch binds to localhost only; external access is proxied through the platform's [API gateway](@/glossary/api-gateway.md).
 
 ### Monitoring
 
-The [telemetry system](/architecture/telemetry/) tracks search latency, indexing throughput, and error rates. Alerts fire when search p99 latency exceeds 100ms or when the synchronization backlog exceeds 1,000 pending documents, enabling proactive capacity management before users notice degradation.
+The [telemetry system](@/architecture/telemetry.md) tracks search latency, indexing throughput, and error rates. Alerts fire when search p99 latency exceeds 100ms or when the synchronization backlog exceeds 1,000 pending documents, enabling proactive capacity management before users notice degradation.
 
 ---
 
@@ -666,4 +666,4 @@ The [telemetry system](/architecture/telemetry/) tracks search latency, indexing
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

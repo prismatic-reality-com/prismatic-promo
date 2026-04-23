@@ -33,11 +33,11 @@ image_alt = "Phoenix - Prismatic Platform"
 
 ## Definition
 
-Phoenix is a productive, fault-tolerant web framework written in [Elixir](/glossary/elixir/) that leverages [OTP](/glossary/otp/) and the [BEAM](/glossary/beam/) virtual machine for building scalable, real-time web applications. Created by Chris McCord in 2014, Phoenix combines the developer productivity of frameworks like Ruby on Rails with the performance and reliability characteristics of Erlang/OTP systems. It has since become the dominant web framework in the Elixir ecosystem, powering applications ranging from real-time collaboration tools to financial trading platforms, and serving as the foundational web layer for the Prismatic Platform's 115 umbrella applications.
+Phoenix is a productive, fault-tolerant web framework written in [Elixir](@/glossary/elixir.md) that leverages [OTP](@/glossary/otp.md) and the [BEAM](@/glossary/beam.md) virtual machine for building scalable, real-time web applications. Created by Chris McCord in 2014, Phoenix combines the developer productivity of frameworks like Ruby on Rails with the performance and reliability characteristics of Erlang/OTP systems. It has since become the dominant web framework in the Elixir ecosystem, powering applications ranging from real-time collaboration tools to financial trading platforms, and serving as the foundational web layer for the Prismatic Platform's 115 umbrella applications.
 
 Phoenix's architecture processes each HTTP request in an isolated BEAM process, meaning a slow or crashing request cannot affect other connections. This is a fundamental departure from thread-pooled frameworks (Rails, Django, Express) where a single hung request can exhaust the pool and bring down the entire application. With Phoenix, tens of thousands of simultaneous connections are routine, and millions are achievable on a single node -- a property inherited directly from BEAM's lightweight process model that creates processes in microseconds with approximately 2KB of initial memory.
 
-The framework's most significant innovation is [LiveView](/glossary/phoenix-liveview/), which enables rich, interactive user interfaces rendered entirely on the server without custom JavaScript. Combined with Phoenix's channel system for real-time bidirectional communication through [WebSockets](/glossary/websocket/), Phoenix provides a complete stack for building modern web applications where real-time updates are first-class citizens rather than bolted-on afterthoughts. The Prismatic Platform uses both Phoenix applications -- `prismatic_web` on port 4000 for LiveView dashboards and `prismatic_api` on port 4004 for the auto-introspecting REST gateway.
+The framework's most significant innovation is [LiveView](@/glossary/phoenix-liveview.md), which enables rich, interactive user interfaces rendered entirely on the server without custom JavaScript. Combined with Phoenix's channel system for real-time bidirectional communication through [WebSockets](@/glossary/websocket.md), Phoenix provides a complete stack for building modern web applications where real-time updates are first-class citizens rather than bolted-on afterthoughts. The Prismatic Platform uses both Phoenix applications -- `prismatic_web` on port 4000 for LiveView dashboards and `prismatic_api` on port 4004 for the auto-introspecting REST gateway.
 
 ## Historical Context and Evolution
 
@@ -45,7 +45,7 @@ Phoenix emerged from Chris McCord's experience with Ruby on Rails, where he reco
 
 The introduction of LiveView in late 2018 marked a paradigm shift. Prior to LiveView, Phoenix followed the traditional request-response model for HTML pages and used Channels for real-time features. LiveView unified both patterns: server-rendered HTML with WebSocket-driven interactivity, eliminating the need for separate JavaScript frameworks for interactive UIs. This innovation influenced the broader web development industry, inspiring similar approaches in other ecosystems such as Laravel Livewire (PHP), Hotwire (Rails), and Blazor Server (.NET).
 
-Phoenix 1.7 (released 2023) introduced significant architectural changes: verified routes replacing path helpers, unified function components replacing view modules, and built-in support for [TailwindCSS](/glossary/tailwindcss/) in the project generator. These changes streamlined the developer experience and aligned Phoenix more closely with the component-based architecture that LiveView had popularized.
+Phoenix 1.7 (released 2023) introduced significant architectural changes: verified routes replacing path helpers, unified function components replacing view modules, and built-in support for [TailwindCSS](@/glossary/tailwindcss.md) in the project generator. These changes streamlined the developer experience and aligned Phoenix more closely with the component-based architecture that LiveView had popularized.
 
 ## Architecture Overview
 
@@ -78,7 +78,7 @@ Controller / LiveView
 Response (HTML, JSON, WebSocket upgrade)
 ```
 
-Each layer is implemented as a chain of [Plugs](/glossary/plug/) -- composable functions that receive a connection struct, transform it, and pass it forward. This design makes the request lifecycle completely transparent and easily extensible. The Prismatic Platform adds custom plugs for API authentication, rate limiting, request tracing, and [telemetry](/glossary/telemetry/) instrumentation at each stage.
+Each layer is implemented as a chain of [Plugs](@/glossary/plug.md) -- composable functions that receive a connection struct, transform it, and pass it forward. This design makes the request lifecycle completely transparent and easily extensible. The Prismatic Platform adds custom plugs for API authentication, rate limiting, request tracing, and [telemetry](@/glossary/telemetry.md) instrumentation at each stage.
 
 ### Core Components
 
@@ -148,7 +148,7 @@ Pipelines are one of Phoenix's most powerful abstractions. They allow different 
 
 ## Phoenix PubSub and Real-Time Communication
 
-Phoenix includes a distributed publish-subscribe system (`Phoenix.PubSub`) that enables real-time communication between processes, both within a single node and across a [cluster](/glossary/cluster/) of BEAM nodes. PubSub is the backbone of both Channels and LiveView's real-time capabilities:
+Phoenix includes a distributed publish-subscribe system (`Phoenix.PubSub`) that enables real-time communication between processes, both within a single node and across a [cluster](@/glossary/cluster.md) of BEAM nodes. PubSub is the backbone of both Channels and LiveView's real-time capabilities:
 
 ```elixir
 defmodule PrismaticPerimeter.AlertBroadcaster do
@@ -179,7 +179,7 @@ PubSub adapters determine how messages propagate across nodes. The default `Phoe
 
 ## Channels and WebSockets
 
-Phoenix Channels provide a high-level abstraction for real-time bidirectional communication over [WebSockets](/glossary/websocket/). Each channel connection spawns a dedicated BEAM process, meaning a single Phoenix server can maintain hundreds of thousands of simultaneous WebSocket connections with each connection fully isolated:
+Phoenix Channels provide a high-level abstraction for real-time bidirectional communication over [WebSockets](@/glossary/websocket.md). Each channel connection spawns a dedicated BEAM process, meaning a single Phoenix server can maintain hundreds of thousands of simultaneous WebSocket connections with each connection fully isolated:
 
 ```elixir
 defmodule PrismaticWeb.PerimeterChannel do
@@ -221,7 +221,7 @@ Phoenix.Presence provides distributed, real-time user tracking using CRDTs (Conf
 
 ## Telemetry Integration
 
-Phoenix ships with comprehensive [telemetry](/glossary/telemetry/) instrumentation, emitting events at every stage of request processing:
+Phoenix ships with comprehensive [telemetry](@/glossary/telemetry.md) instrumentation, emitting events at every stage of request processing:
 
 | Event | Measurements | Metadata |
 |-------|-------------|----------|
@@ -234,11 +234,11 @@ Phoenix ships with comprehensive [telemetry](/glossary/telemetry/) instrumentati
 | `[:phoenix, :live_view, :handle_event, :stop]` | `duration` | `socket`, `event` |
 | `[:phoenix, :channel_joined]` | `duration` | `socket`, `params` |
 
-The Prismatic Platform aggregates these telemetry events through its [observability](/glossary/observability/) infrastructure, feeding them into dashboards, alerting systems, and the quality floor guardian. The P0 page load performance standard (total page load < 250ms, server-side render < 100ms, LiveView mount < 150ms) is enforced through these telemetry measurements.
+The Prismatic Platform aggregates these telemetry events through its [observability](@/glossary/observability.md) infrastructure, feeding them into dashboards, alerting systems, and the quality floor guardian. The P0 page load performance standard (total page load < 250ms, server-side render < 100ms, LiveView mount < 150ms) is enforced through these telemetry measurements.
 
 ## Plug Architecture
 
-The [Plug](/glossary/plug/) specification is the foundation of Phoenix's request processing. Every stage of request handling -- from endpoint to router to controller -- is a Plug. This composability enables the Prismatic Platform to insert custom behavior at any point in the pipeline:
+The [Plug](@/glossary/plug.md) specification is the foundation of Phoenix's request processing. Every stage of request handling -- from endpoint to router to controller -- is a Plug. This composability enables the Prismatic Platform to insert custom behavior at any point in the pipeline:
 
 ```elixir
 defmodule PrismaticWeb.Plugs.RequestTracing do
@@ -284,9 +284,9 @@ Phoenix powers the Prismatic Platform's web interfaces through two separate Phoe
 | **prismatic_web** | 4000 | LiveView dashboards, real-time UI | `/`, `/perimeter`, `/perimeter/*`, `/osint/toolbox` |
 | **prismatic_api** | 4004 | Auto-introspecting REST API | `/api/v1/*`, `/api/swaggerui`, `/api/openapi` |
 
-The `prismatic_web` application uses [LiveView](/glossary/phoenix-liveview/) with [Flowbite](/glossary/flowbite/) components and [TailwindCSS](/glossary/tailwindcss/) for all dashboards, including the Perimeter EASM dashboard, agent monitoring views, the OSINT toolbox (120 tools across 7 categories), and the quality floor guardian interface. All LiveView templates comply with the TailwindCSS-first mandate -- zero inline styles, zero custom CSS files.
+The `prismatic_web` application uses [LiveView](@/glossary/phoenix-liveview.md) with [Flowbite](@/glossary/flowbite.md) components and [TailwindCSS](@/glossary/tailwindcss.md) for all dashboards, including the Perimeter EASM dashboard, agent monitoring views, the OSINT toolbox (120 tools across 7 categories), and the quality floor guardian interface. All LiveView templates comply with the TailwindCSS-first mandate -- zero inline styles, zero custom CSS files.
 
-The `prismatic_api` application leverages Phoenix's [Plug](/glossary/plug/) pipeline and [OpenAPI](/glossary/openapi/) specification (via OpenApiSpex) for automatic [REST API](/glossary/rest-api/) generation. It auto-discovers all public functions across all `Prismatic*` facade modules using Elixir introspection at boot time, requiring zero manual endpoint configuration.
+The `prismatic_api` application leverages Phoenix's [Plug](@/glossary/plug.md) pipeline and [OpenAPI](@/glossary/openapi.md) specification (via OpenApiSpex) for automatic [REST API](@/glossary/rest-api.md) generation. It auto-discovers all public functions across all `Prismatic*` facade modules using Elixir introspection at boot time, requiring zero manual endpoint configuration.
 
 ## Performance Characteristics
 
@@ -305,7 +305,7 @@ The linear degradation property is Phoenix's killer feature for production syste
 
 ## Deployment and Releases
 
-Phoenix applications are deployed as OTP [releases](/glossary/release/) -- self-contained packages that include the Erlang runtime, compiled BEAM bytecode, and all dependencies:
+Phoenix applications are deployed as OTP [releases](@/glossary/release.md) -- self-contained packages that include the Erlang runtime, compiled BEAM bytecode, and all dependencies:
 
 ```elixir
 defmodule PrismaticPlatform.MixProject do
@@ -332,7 +332,7 @@ defmodule PrismaticPlatform.MixProject do
 end
 ```
 
-The Prismatic Platform packages Phoenix releases into [Docker](/glossary/docker/) containers using multi-stage builds. The build stage compiles Elixir code, compiles TailwindCSS and esbuild assets, and produces a release tarball. The runtime stage uses a minimal Alpine Linux image with only the Erlang runtime. The resulting container deploys to [Fly.io](/glossary/fly-io/) with staging (`prismatic-staging.fly.dev`) and production (`prismatic-prod.fly.dev`) environments.
+The Prismatic Platform packages Phoenix releases into [Docker](@/glossary/docker.md) containers using multi-stage builds. The build stage compiles Elixir code, compiles TailwindCSS and esbuild assets, and produces a release tarball. The runtime stage uses a minimal Alpine Linux image with only the Erlang runtime. The resulting container deploys to [Fly.io](@/glossary/fly-io.md) with staging (`prismatic-staging.fly.dev`) and production (`prismatic-prod.fly.dev`) environments.
 
 ## Testing Phoenix Applications
 
@@ -379,7 +379,7 @@ end
 
 ## Error Handling and Fallbacks
 
-[Phoenix](/glossary/phoenix/) leverages [OTP](/glossary/otp/)'s "let it crash" philosophy for error handling. Each request executes in an isolated BEAM process, so an unhandled exception in one request terminates only that process -- other connections are completely unaffected. The [Plug](/glossary/plug/) pipeline provides structured error handling through exception-catching plugs and custom error views:
+[Phoenix](@/glossary/phoenix.md) leverages [OTP](@/glossary/otp.md)'s "let it crash" philosophy for error handling. Each request executes in an isolated BEAM process, so an unhandled exception in one request terminates only that process -- other connections are completely unaffected. The [Plug](@/glossary/plug.md) pipeline provides structured error handling through exception-catching plugs and custom error views:
 
 ```elixir
 defmodule PrismaticWeb.FallbackController do
@@ -415,28 +415,28 @@ defmodule PrismaticWeb.FallbackController do
 end
 ```
 
-For LiveView, error handling follows a different pattern. The `handle_info/2` and `handle_event/3` callbacks can return `{:noreply, socket}` with error assigns to display error states in the UI without crashing the LiveView process. If a LiveView process does crash, [Phoenix](/glossary/phoenix/) automatically reconnects the client and re-mounts the LiveView, providing seamless recovery from transient errors. This self-healing property is inherited directly from the BEAM's supervision model and is one of the key advantages Phoenix has over JavaScript-based frameworks where a runtime error can leave the UI in an inconsistent state.
+For LiveView, error handling follows a different pattern. The `handle_info/2` and `handle_event/3` callbacks can return `{:noreply, socket}` with error assigns to display error states in the UI without crashing the LiveView process. If a LiveView process does crash, [Phoenix](@/glossary/phoenix.md) automatically reconnects the client and re-mounts the LiveView, providing seamless recovery from transient errors. This self-healing property is inherited directly from the BEAM's supervision model and is one of the key advantages Phoenix has over JavaScript-based frameworks where a runtime error can leave the UI in an inconsistent state.
 
 ## Related Terms
 
-- [OTP](/glossary/otp/) - Foundation runtime Phoenix is built upon
-- [BEAM](/glossary/beam/) - Virtual machine executing Phoenix processes
-- [LiveView](/glossary/phoenix-liveview/) - Phoenix's real-time server-rendered UI framework
-- [Plug](/glossary/plug/) - Composable middleware specification powering Phoenix pipelines
-- [Channel](/glossary/channel/) - WebSocket-based real-time communication layer
-- [PubSub](/glossary/pubsub/) - Distributed publish-subscribe for real-time events
-- [Ecto](/glossary/ecto/) - Database toolkit commonly paired with Phoenix
-- [Endpoint](/glossary/endpoint/) - HTTP server entry point in Phoenix applications
-- [Flowbite](/glossary/flowbite/) - UI component library used with Phoenix LiveView
-- [TailwindCSS](/glossary/tailwindcss/) - Utility-first CSS framework used in Phoenix templates
-- [OpenAPI](/glossary/openapi/) - API specification standard for Phoenix REST endpoints
-- [WebSocket](/glossary/websocket/) - Transport protocol for Channels and LiveView
+- [OTP](@/glossary/otp.md) - Foundation runtime Phoenix is built upon
+- [BEAM](@/glossary/beam.md) - Virtual machine executing Phoenix processes
+- [LiveView](@/glossary/phoenix-liveview.md) - Phoenix's real-time server-rendered UI framework
+- [Plug](@/glossary/plug.md) - Composable middleware specification powering Phoenix pipelines
+- [Channel](@/glossary/channel.md) - WebSocket-based real-time communication layer
+- [PubSub](@/glossary/pubsub.md) - Distributed publish-subscribe for real-time events
+- [Ecto](@/glossary/ecto.md) - Database toolkit commonly paired with Phoenix
+- [Endpoint](@/glossary/endpoint.md) - HTTP server entry point in Phoenix applications
+- [Flowbite](@/glossary/flowbite.md) - UI component library used with Phoenix LiveView
+- [TailwindCSS](@/glossary/tailwindcss.md) - Utility-first CSS framework used in Phoenix templates
+- [OpenAPI](@/glossary/openapi.md) - API specification standard for Phoenix REST endpoints
+- [WebSocket](@/glossary/websocket.md) - Transport protocol for Channels and LiveView
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture
-- [Technologies](/technologies/) - Technology stack details
-- [Apps](/apps/) - Application directory including prismatic_web and prismatic_api
+- [Architecture](@/architecture/_index.md) - Platform architecture
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Apps](@/apps/_index.md) - Application directory including prismatic_web and prismatic_api
 
 ---
 
@@ -445,4 +445,4 @@ For LiveView, error handling follows a different pattern. The `handle_info/2` an
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

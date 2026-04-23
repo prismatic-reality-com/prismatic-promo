@@ -188,9 +188,9 @@ This multi-source approach, combined with NABLA's signal plurality requirement, 
 
 ## Cross-References
 
-- [Threat Intelligence](/glossary/threat-intelligence/) - Broader intelligence context for IOCs
-- [OSINT](/glossary/osint/) - Open-source intelligence gathering including IOC collection
-- [Incident Response](/glossary/incident-response/) - Operational use of IOCs during breaches
+- [Threat Intelligence](@/glossary/threat-intelligence.md) - Broader intelligence context for IOCs
+- [OSINT](@/glossary/osint.md) - Open-source intelligence gathering including IOC collection
+- [Incident Response](@/glossary/incident-response.md) - Operational use of IOCs during breaches
 - **MITRE ATT&CK** - Framework for classifying IOC-related techniques
 - **Penetration Test** - Controlled testing that may generate IOCs
 

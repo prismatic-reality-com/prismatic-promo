@@ -24,11 +24,11 @@ image_alt = "WebSockets - Prismatic Platform"
 
 ## Overview
 
-WebSockets provide the real-time communication backbone for the Prismatic Platform, enabling persistent bidirectional connections between browsers and the [Phoenix](/technologies/phoenix/) server. Every [Phoenix LiveView](/technologies/phoenix-liveview/) dashboard, real-time agent status display, and security monitoring interface relies on WebSocket connections to receive instant updates without polling. The protocol's persistent connection model eliminates the overhead of repeated HTTP handshakes, enabling sub-millisecond message delivery after the initial connection is established.
+WebSockets provide the real-time communication backbone for the Prismatic Platform, enabling persistent bidirectional connections between browsers and the [Phoenix](@/technologies/phoenix.md) server. Every [Phoenix LiveView](@/technologies/phoenix-liveview.md) dashboard, real-time agent status display, and security monitoring interface relies on WebSocket connections to receive instant updates without polling. The protocol's persistent connection model eliminates the overhead of repeated HTTP handshakes, enabling sub-millisecond message delivery after the initial connection is established.
 
 The Prismatic Platform leverages Phoenix Channels atop WebSockets for structured real-time messaging with topic-based routing. When a security scan discovers a new vulnerability, when an agent changes status, or when a compliance score updates, the information is pushed to all connected clients through WebSocket channels in milliseconds. This push-based architecture means dashboards always display current data without the latency and bandwidth waste of periodic polling.
 
-The [BEAM](/technologies/beam/)'s lightweight process model means each WebSocket connection is handled by a dedicated process consuming only ~2KB of memory, enabling the platform to maintain tens of thousands of concurrent real-time connections on modest hardware. This process-per-connection model also provides natural isolation: a slow or crashed client connection cannot affect other connections, and the [Supervisor](/technologies/supervisor/) automatically cleans up resources when connections terminate.
+The [BEAM](@/technologies/beam.md)'s lightweight process model means each WebSocket connection is handled by a dedicated process consuming only ~2KB of memory, enabling the platform to maintain tens of thousands of concurrent real-time connections on modest hardware. This process-per-connection model also provides natural isolation: a slow or crashed client connection cannot affect other connections, and the [Supervisor](@/technologies/supervisor.md) automatically cleans up resources when connections terminate.
 
 ## Key Features
 
@@ -142,7 +142,7 @@ WebSockets operate at the transport layer of the platform's real-time stack, con
 | **Endpoint** | `PrismaticWeb.Endpoint` | Socket routing, authentication |
 | **Channels** | Topic-based handlers | Message routing, state management |
 | **LiveView** | `Phoenix.LiveView.Socket` | Server-rendered UI updates |
-| **PubSub** | [Phoenix PubSub](/technologies/pubsub/) | Cross-process event distribution |
+| **PubSub** | [Phoenix PubSub](@/technologies/pubsub.md) | Cross-process event distribution |
 | **Processes** | BEAM processes | One process per connection (~2KB) |
 
 Connection lifecycle:
@@ -236,18 +236,18 @@ The BEAM's process-per-connection model provides natural backpressure and resour
 
 ## Related Technologies
 
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Uses WebSockets for real-time server-rendered UI
-- [Phoenix PubSub](/technologies/pubsub/) - Message distribution to WebSocket-connected processes
-- [Phoenix Framework](/technologies/phoenix/) - Channel implementation and WebSocket endpoint management
-- [BEAM VM](/technologies/beam/) - Process-per-connection model enabling massive concurrency
-- [Supervisor](/technologies/supervisor/) - Fault tolerance for WebSocket connection processes
-- [Nginx](/technologies/nginx/) - WebSocket proxy support for reverse proxy deployments
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Uses WebSockets for real-time server-rendered UI
+- [Phoenix PubSub](@/technologies/pubsub.md) - Message distribution to WebSocket-connected processes
+- [Phoenix Framework](@/technologies/phoenix.md) - Channel implementation and WebSocket endpoint management
+- [BEAM VM](@/technologies/beam.md) - Process-per-connection model enabling massive concurrency
+- [Supervisor](@/technologies/supervisor.md) - Fault tolerance for WebSocket connection processes
+- [Nginx](@/technologies/nginx.md) - WebSocket proxy support for reverse proxy deployments
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - All real-time interfaces using LiveView and Channels over WebSockets
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security monitoring dashboards with real-time updates
-- [prismatic_agents](/apps/prismatic-agents/) - Agent status broadcasting through WebSocket channels
+- [prismatic_web](@/apps/prismatic-web.md) - All real-time interfaces using LiveView and Channels over WebSockets
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security monitoring dashboards with real-time updates
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent status broadcasting through WebSocket channels
 
 ---
 
@@ -256,4 +256,4 @@ The BEAM's process-per-connection model provides natural backpressure and resour
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

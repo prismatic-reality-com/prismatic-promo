@@ -38,7 +38,7 @@ image_alt = "Developer Experience - Prismatic Platform"
 
 Developer Experience (DX) encompasses the totality of a developer's interactions with the tools, APIs, documentation, workflows, libraries, frameworks, and development environments they use to build software. It is the developer-facing analog of User Experience (UX) -- where UX optimizes for end users, DX optimizes for the developers who build, maintain, extend, and operate software systems. DX spans the entire software development lifecycle: from initial onboarding and environment setup, through code authoring and debugging, to testing, deployment, monitoring, and maintenance.
 
-A platform with excellent developer experience reduces cognitive load, minimizes friction, provides clear and actionable error messages, maintains comprehensive and accurate documentation, offers consistent and predictable APIs, and automates repetitive tasks. The Prismatic Platform treats developer experience as a first-class architectural concern, with dedicated infrastructure including comprehensive [CLAUDE.md](/glossary/claude-code/) documentation, 225 [AIAD commands](/glossary/command/), Mix task ergonomics, quality tooling, and deep Claude Code integration.
+A platform with excellent developer experience reduces cognitive load, minimizes friction, provides clear and actionable error messages, maintains comprehensive and accurate documentation, offers consistent and predictable APIs, and automates repetitive tasks. The Prismatic Platform treats developer experience as a first-class architectural concern, with dedicated infrastructure including comprehensive [CLAUDE.md](@/glossary/claude-code.md) documentation, 225 [AIAD commands](@/glossary/command.md), Mix task ergonomics, quality tooling, and deep Claude Code integration.
 
 ## Overview
 
@@ -251,9 +251,9 @@ The Prismatic Platform treats documentation as a first-class artifact that is ve
 
 **CLAUDE.md Files**: Every application in the umbrella has a dedicated CLAUDE.md file that provides AI-readable and human-readable documentation. These files serve as the entry point for both Claude Code sessions and human developers, providing architecture overview, key modules, common operations, and known issues.
 
-**Inline Documentation**: All public modules and functions carry `@moduledoc` and `@doc` attributes with descriptions, examples, and type signatures. The `@spec` annotations serve double duty as documentation and input for [Dialyzer](/glossary/dialyzer/) type checking.
+**Inline Documentation**: All public modules and functions carry `@moduledoc` and `@doc` attributes with descriptions, examples, and type signatures. The `@spec` annotations serve double duty as documentation and input for [Dialyzer](@/glossary/dialyzer.md) type checking.
 
-**Quality Enforcement**: The platform's [Credo](/glossary/credo/) configuration and custom checks enforce documentation standards -- missing `@moduledoc`, missing `@spec`, and undocumented public functions generate warnings that block commits.
+**Quality Enforcement**: The platform's [Credo](@/glossary/credo.md) configuration and custom checks enforce documentation standards -- missing `@moduledoc`, missing `@spec`, and undocumented public functions generate warnings that block commits.
 
 ### Error Message Quality
 
@@ -299,11 +299,11 @@ The Prismatic Platform implements developer experience as a systematic architect
 
 ### AIAD Command System
 
-The platform provides 225 [AIAD commands](/glossary/command/) that encapsulate complex operations behind simple, discoverable interfaces. Commands follow consistent naming conventions (`/orchestrate`, `/investigate`, `/quality.gates`), provide built-in help text, and integrate with the [agent](/glossary/agent/) system for intelligent execution.
+The platform provides 225 [AIAD commands](@/glossary/command.md) that encapsulate complex operations behind simple, discoverable interfaces. Commands follow consistent naming conventions (`/orchestrate`, `/investigate`, `/quality.gates`), provide built-in help text, and integrate with the [agent](@/glossary/agent.md) system for intelligent execution.
 
 ### Claude Code Integration
 
-The platform is designed for deep integration with [Claude Code](/glossary/claude-code/), Anthropic's CLI for Claude. The comprehensive CLAUDE.md at the repository root provides Claude with full platform context -- architecture, conventions, commands, quality standards, and forbidden patterns. This enables Claude to provide platform-aware assistance that respects established conventions and quality requirements.
+The platform is designed for deep integration with [Claude Code](@/glossary/claude-code.md), Anthropic's CLI for Claude. The comprehensive CLAUDE.md at the repository root provides Claude with full platform context -- architecture, conventions, commands, quality standards, and forbidden patterns. This enables Claude to provide platform-aware assistance that respects established conventions and quality requirements.
 
 ### Quality Tooling Pipeline
 
@@ -335,9 +335,9 @@ Developer context persists across sessions through the `.claude/session-context/
 
 ## Best Practices
 
-1. **Documentation-First Development**: Write [documentation](/glossary/documentation/) before implementation. API documentation, usage examples, and error scenarios should be designed before writing code. The Prismatic Platform enforces this through mandatory `@moduledoc` and `@doc` attributes.
+1. **Documentation-First Development**: Write [documentation](@/glossary/documentation.md) before implementation. API documentation, usage examples, and error scenarios should be designed before writing code. The Prismatic Platform enforces this through mandatory `@moduledoc` and `@doc` attributes.
 
-2. **Consistent Return Types**: Use consistent `{:ok, result}` / `{:error, reason}` patterns across all public APIs. Developers should never need to guess what shape a return value takes. The Prismatic Platform's [Elixir best practices](/glossary/behaviour/) policy enforces this pattern.
+2. **Consistent Return Types**: Use consistent `{:ok, result}` / `{:error, reason}` patterns across all public APIs. Developers should never need to guess what shape a return value takes. The Prismatic Platform's [Elixir best practices](@/glossary/behaviour.md) policy enforces this pattern.
 
 3. **Fast Feedback Loops**: Optimize compilation time, test execution speed, and hot code reloading. Every second of latency in the feedback loop compounds across hundreds of daily iterations. Phoenix's sub-second live reload and BEAM's hot code upgrade capability are key platform advantages.
 
@@ -347,7 +347,7 @@ Developer context persists across sessions through the `.claude/session-context/
 
 6. **Discoverable Commands**: Use consistent naming patterns and provide comprehensive help text. All Mix tasks in the Prismatic Platform support `--help` and follow the `mix domain.action` naming convention.
 
-7. **Automate the Repetitive**: Every manual step that developers repeat should be automated. The Prismatic Platform automates [quality checks](/glossary/quality-gates/), session context management, and codebase exploration through dedicated tooling.
+7. **Automate the Repetitive**: Every manual step that developers repeat should be automated. The Prismatic Platform automates [quality checks](@/glossary/quality-gates.md), session context management, and codebase exploration through dedicated tooling.
 
 8. **Invest in Onboarding**: The time-to-first-success metric is the most important DX metric for platform adoption. Comprehensive CLAUDE.md files, clear contribution guidelines, and working examples reduce onboarding friction.
 
@@ -375,15 +375,15 @@ New developers joining the Prismatic Platform are guided by the CLAUDE.md docume
 
 ### AI-Assisted Development
 
-The platform's deep [Claude Code](/glossary/claude-code/) integration enables AI-assisted development workflows where Claude understands platform conventions, quality standards, and architectural patterns. This reduces the cognitive load on developers by offloading convention compliance and boilerplate generation to the AI assistant.
+The platform's deep [Claude Code](@/glossary/claude-code.md) integration enables AI-assisted development workflows where Claude understands platform conventions, quality standards, and architectural patterns. This reduces the cognitive load on developers by offloading convention compliance and boilerplate generation to the AI assistant.
 
 ### Quality Enforcement Workflow
 
-The developer's quality workflow is streamlined through the `mix quality.gates` command and [pre-commit hooks](/glossary/pre-commit-hooks/). Rather than manually running multiple tools and interpreting their output, developers receive a single pass/fail result with clear remediation guidance for any failures.
+The developer's quality workflow is streamlined through the `mix quality.gates` command and [pre-commit hooks](@/glossary/pre-commit-hooks.md). Rather than manually running multiple tools and interpreting their output, developers receive a single pass/fail result with clear remediation guidance for any failures.
 
 ### Codebase Exploration
 
-Navigating a 115-application umbrella with 48,000+ files requires specialized tooling. The Git Trees system provides sub-100ms file discovery, while application-level CLAUDE.md files and the [AIAD agent registry](/glossary/agent-registry/) provide semantic navigation by capability rather than file path.
+Navigating a 115-application umbrella with 48,000+ files requires specialized tooling. The Git Trees system provides sub-100ms file discovery, while application-level CLAUDE.md files and the [AIAD agent registry](@/glossary/agent-registry.md) provide semantic navigation by capability rather than file path.
 
 ### Continuous Integration
 
@@ -391,26 +391,26 @@ The platform's DX extends to CI/CD through machine-readable output formats (`--j
 
 ## Related Concepts
 
-- [Developer Portal](/glossary/developer-portal/) -- The platform's developer-facing documentation and resource hub
-- [Development Workflow](/glossary/development-workflow/) -- The end-to-end process of developing, testing, and deploying code
-- [Developer Community](/glossary/developer-community/) -- The community of developers contributing to and using the platform
-- [Documentation](/glossary/documentation/) -- Written materials that describe how to use, extend, and maintain the platform
-- [Code Quality](/glossary/code-quality/) -- Measurable attributes of code including correctness, clarity, and maintainability
-- [Claude Code](/glossary/claude-code/) -- Anthropic's CLI for AI-assisted development, deeply integrated with the platform
-- [CI/CD](/glossary/ci-cd/) -- Continuous integration and deployment pipelines that automate the build-test-deploy cycle
-- [Static Analysis](/glossary/static-analysis/) -- Automated analysis of source code without execution to find bugs and enforce standards
-- [Credo](/glossary/credo/) -- Elixir static analysis tool enforcing consistency and best practices
-- [Quality Gates](/glossary/quality-gates/) -- Multi-phase quality enforcement system ensuring code meets platform standards
-- [Testing](/glossary/testing/) -- Verification of software behavior through automated test execution
-- [AIAD](/glossary/aiad/) -- The AI Agent Development standard powering platform commands and agents
+- [Developer Portal](@/glossary/developer-portal.md) -- The platform's developer-facing documentation and resource hub
+- [Development Workflow](@/glossary/development-workflow.md) -- The end-to-end process of developing, testing, and deploying code
+- [Developer Community](@/glossary/developer-community.md) -- The community of developers contributing to and using the platform
+- [Documentation](@/glossary/documentation.md) -- Written materials that describe how to use, extend, and maintain the platform
+- [Code Quality](@/glossary/code-quality.md) -- Measurable attributes of code including correctness, clarity, and maintainability
+- [Claude Code](@/glossary/claude-code.md) -- Anthropic's CLI for AI-assisted development, deeply integrated with the platform
+- [CI/CD](@/glossary/ci-cd.md) -- Continuous integration and deployment pipelines that automate the build-test-deploy cycle
+- [Static Analysis](@/glossary/static-analysis.md) -- Automated analysis of source code without execution to find bugs and enforce standards
+- [Credo](@/glossary/credo.md) -- Elixir static analysis tool enforcing consistency and best practices
+- [Quality Gates](@/glossary/quality-gates.md) -- Multi-phase quality enforcement system ensuring code meets platform standards
+- [Testing](@/glossary/testing.md) -- Verification of software behavior through automated test execution
+- [AIAD](@/glossary/aiad.md) -- The AI Agent Development standard powering platform commands and agents
 
 ## See Also
 
-- [Prismatic Web](/glossary/prismatic-web/) -- The LiveView web application providing the platform dashboard
-- [Prismatic API](/glossary/prismatic-api/) -- The auto-introspecting REST API gateway
-- [Dialyzer](/glossary/dialyzer/) -- Erlang/Elixir static type analyzer
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Automated validation before code enters version control
-- [Refactoring](/glossary/refactoring/) -- Improving code structure without changing behavior
+- [Prismatic Web](@/glossary/prismatic-web.md) -- The LiveView web application providing the platform dashboard
+- [Prismatic API](@/glossary/prismatic-api.md) -- The auto-introspecting REST API gateway
+- [Dialyzer](@/glossary/dialyzer.md) -- Erlang/Elixir static type analyzer
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Automated validation before code enters version control
+- [Refactoring](@/glossary/refactoring.md) -- Improving code structure without changing behavior
 
 ---
 
@@ -419,4 +419,4 @@ The platform's DX extends to CI/CD through machine-readable output formats (`--j
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -240,11 +240,11 @@ External services like GitLab CI send webhooks to the platform when pipeline eve
 
 ## Cross-References
 
-- [API](/glossary/api/) - RESTful interface complementing webhooks
-- [PubSub](/glossary/pubsub/) - Internal event distribution
-- [Transport](/glossary/transport/) - Communication layer
-- [Monitoring](/glossary/monitoring/) - Alert delivery via webhooks
-- [Token](/glossary/token/) - Authentication for webhook endpoints
+- [API](@/glossary/api.md) - RESTful interface complementing webhooks
+- [PubSub](@/glossary/pubsub.md) - Internal event distribution
+- [Transport](@/glossary/transport.md) - Communication layer
+- [Monitoring](@/glossary/monitoring.md) - Alert delivery via webhooks
+- [Token](@/glossary/token.md) - Authentication for webhook endpoints
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

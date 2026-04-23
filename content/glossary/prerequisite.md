@@ -184,7 +184,7 @@ end
 
 ## Cross-References
 
-- [Progress](/glossary/progress/) - Completion tracking that validates prerequisite satisfaction
+- [Progress](@/glossary/progress.md) - Completion tracking that validates prerequisite satisfaction
 - **Semantic Link** - Knowledge graph connections complementing prerequisite edges
 - **Semantic Linking** - Interconnection engine that validates prerequisite DAGs
 - **Self-Registration** - Metaprogramming pattern through which topics declare prerequisites

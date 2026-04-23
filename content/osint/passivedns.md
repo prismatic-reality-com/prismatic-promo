@@ -25,7 +25,7 @@ image_alt = "PassiveDNS - Prismatic Platform"
 
 ## Overview
 
-Passive DNS databases collect and store DNS resolution data observed from real DNS traffic without actively querying authoritative servers. This creates a historical record of which domains resolved to which IP addresses over time. Multiple organizations maintain passive DNS databases including Farsight DNSDB, CIRCL, and mnemonic. These are essential for [threat intelligence](/glossary/threat-intelligence/), attribution, and infrastructure investigation.
+Passive DNS databases collect and store DNS resolution data observed from real DNS traffic without actively querying authoritative servers. This creates a historical record of which domains resolved to which IP addresses over time. Multiple organizations maintain passive DNS databases including Farsight DNSDB, CIRCL, and mnemonic. These are essential for [threat intelligence](@/glossary/threat-intelligence.md), attribution, and infrastructure investigation.
 
 Passive DNS operates on a fundamentally different principle from active DNS querying. Rather than asking DNS servers for current resolution data, passive DNS sensors are deployed at strategic points in DNS infrastructure (recursive resolvers, ISP networks, corporate networks) where they observe and record DNS query-response pairs as they occur naturally. This means passive DNS captures the actual DNS resolutions that occurred at specific points in time, providing a historical record that survives domain deregistration, hosting changes, and deliberate infrastructure rotation.
 
@@ -215,7 +215,7 @@ During incident response, passive DNS provides immediate context for observed do
 | **Latency** | Observations may take hours to days to appear in databases | Use active DNS for real-time needs; passive DNS for historical |
 | **Cost** | Major providers (Farsight) are expensive for high-volume use | Combine free (CIRCL) and paid sources based on investigation needs |
 | **Privacy concerns** | DNS resolution data can reveal user browsing patterns | Providers apply anonymization; use for infrastructure analysis, not user tracking |
-| **Short-lived domains** | Domains used briefly may be observed by few sensors | Cross-reference with [certificate transparency](/glossary/certificate-transparency/) and WHOIS for additional coverage |
+| **Short-lived domains** | Domains used briefly may be observed by few sensors | Cross-reference with [certificate transparency](@/glossary/certificate-transparency.md) and WHOIS for additional coverage |
 
 ## Legal and Ethical Considerations
 
@@ -229,12 +229,12 @@ During incident response, passive DNS provides immediate context for observed do
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), passive DNS serves as a core intelligence layer for infrastructure investigation and attack surface management.
+Within the [Prismatic Platform](@/apps/prismatic.md), passive DNS serves as a core intelligence layer for infrastructure investigation and attack surface management.
 
-- **Multi-Provider Aggregation**: The platform queries Farsight DNSDB, CIRCL pDNS, and [SecurityTrails](/osint/securitytrails/) in parallel, consolidating results for cross-provider validation.
-- **Infrastructure Graphing**: Passive DNS pivot results feed into the platform's [knowledge graph](/glossary/knowledge-graph/), enabling visual exploration of domain-IP relationships over time.
+- **Multi-Provider Aggregation**: The platform queries Farsight DNSDB, CIRCL pDNS, and [SecurityTrails](@/osint/securitytrails.md) in parallel, consolidating results for cross-provider validation.
+- **Infrastructure Graphing**: Passive DNS pivot results feed into the platform's [knowledge graph](@/glossary/knowledge-graph.md), enabling visual exploration of domain-IP relationships over time.
 - **Fast-Flux Detection**: Automated analysis of passive DNS resolution patterns identifies fast-flux networks as part of threat intelligence processing.
-- **Historical Change Tracking**: DNS changes for monitored domains are tracked and alerted, supporting [Prismatic Perimeter](/apps/prismatic-perimeter/) attack surface monitoring.
+- **Historical Change Tracking**: DNS changes for monitored domains are tracked and alerted, supporting [Prismatic Perimeter](@/apps/prismatic-perimeter.md) attack surface monitoring.
 - **Threat Actor Attribution**: Infrastructure clustering through passive DNS pivots supports threat actor profiling and campaign tracking.
 
 ## Best Practices
@@ -255,13 +255,13 @@ Within the [Prismatic Platform](/apps/prismatic/), passive DNS serves as a core 
 
 ## Related Providers
 
-- [SecurityTrails](/osint/securitytrails/) - DNS and domain intelligence
-- [CIRCL](/osint/circl-lu/) - CIRCL passive DNS and SSL
-- [RiskIQ](/osint/riskiq/) - Microsoft passive DNS
-- [DNSDumpster](/osint/dnsdumpster/) - Free DNS recon
-- [crt.sh](/osint/crtsh/) - [Certificate transparency](/glossary/certificate-transparency/) logs
-- [ONYPHE](/osint/onyphe/) - Passive DNS with European coverage
-- [WhoisXML](/osint/whoisxml/) - WHOIS and DNS intelligence
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and domain intelligence
+- [CIRCL](@/osint/circl-lu.md) - CIRCL passive DNS and SSL
+- [RiskIQ](@/osint/riskiq.md) - Microsoft passive DNS
+- [DNSDumpster](@/osint/dnsdumpster.md) - Free DNS recon
+- [crt.sh](@/osint/crtsh.md) - [Certificate transparency](@/glossary/certificate-transparency.md) logs
+- [ONYPHE](@/osint/onyphe.md) - Passive DNS with European coverage
+- [WhoisXML](@/osint/whoisxml.md) - WHOIS and DNS intelligence
 
 ---
 
@@ -270,4 +270,4 @@ Within the [Prismatic Platform](/apps/prismatic/), passive DNS serves as a core 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

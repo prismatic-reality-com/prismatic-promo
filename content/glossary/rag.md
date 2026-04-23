@@ -202,9 +202,9 @@ The generation stage constructs a prompt combining the user's query, retrieved c
 
 The Prismatic Platform implements RAG patterns across multiple subsystems for context-aware AI operations:
 
-**Knowledge Base Indexing**: The platform's 11,308 documentation files and 6,652 Elixir source files serve as the knowledge base, indexed through [Meilisearch](/glossary/meilisearch/)'s hybrid search engine. This provides both dense semantic search and sparse keyword matching in a single retrieval call, eliminating the need for separate retrieval pipelines.
+**Knowledge Base Indexing**: The platform's 11,308 documentation files and 6,652 Elixir source files serve as the knowledge base, indexed through [Meilisearch](@/glossary/meilisearch.md)'s hybrid search engine. This provides both dense semantic search and sparse keyword matching in a single retrieval call, eliminating the need for separate retrieval pipelines.
 
-**Local Model Integration**: [Ollama](/glossary/ollama/) local models (qwen3-coder 7B, gpt-oss:20b, deepseek-coder 6.7B) receive retrieved context for code generation and analysis tasks. The RAG pipeline manages token budgets across models with different context window sizes, automatically adjusting retrieval depth based on the target model's capacity.
+**Local Model Integration**: [Ollama](@/glossary/ollama.md) local models (qwen3-coder 7B, gpt-oss:20b, deepseek-coder 6.7B) receive retrieved context for code generation and analysis tasks. The RAG pipeline manages token budgets across models with different context window sizes, automatically adjusting retrieval depth based on the target model's capacity.
 
 **AIAD Agent Context**: The AIAD agent system uses RAG to ground agent responses in platform-specific knowledge from CLAUDE.md files, session contexts, and quality DNA state. When an agent processes a request, relevant documentation is retrieved and injected into the agent's context, ensuring responses reflect current platform state rather than stale training data.
 
@@ -377,13 +377,13 @@ end
 
 ## Related Concepts
 
-- [Ollama](/glossary/ollama/) - Local AI runtime powering RAG generation with platform models
-- [Vector Database](/glossary/vector-database/) - Storage enabling similarity-based document retrieval
-- [Meilisearch](/glossary/meilisearch/) - Search engine providing hybrid retrieval for RAG pipelines
-- [Knowledge Graph](/glossary/knowledge-graph/) - Structured knowledge complementing document-based RAG
-- [Data Pipeline](/glossary/data-pipeline/) - Processing infrastructure feeding RAG knowledge bases
-- [Tokenization](/glossary/tokenization/) - Text-to-token conversion underlying RAG context management
-- [SEADF](/glossary/seadf/) - Self-evolving framework using RAG for knowledge synthesis
+- [Ollama](@/glossary/ollama.md) - Local AI runtime powering RAG generation with platform models
+- [Vector Database](@/glossary/vector-database.md) - Storage enabling similarity-based document retrieval
+- [Meilisearch](@/glossary/meilisearch.md) - Search engine providing hybrid retrieval for RAG pipelines
+- [Knowledge Graph](@/glossary/knowledge-graph.md) - Structured knowledge complementing document-based RAG
+- [Data Pipeline](@/glossary/data-pipeline.md) - Processing infrastructure feeding RAG knowledge bases
+- [Tokenization](@/glossary/tokenization.md) - Text-to-token conversion underlying RAG context management
+- [SEADF](@/glossary/seadf.md) - Self-evolving framework using RAG for knowledge synthesis
 
 ## See Also
 
@@ -392,8 +392,8 @@ end
 - [prismatic_storage_kuzudb](../../../apps/prismatic_storage_kuzudb/README.md) -- Graph-based knowledge retrieval for RAG
 - [prismatic_claude](../../../apps/prismatic_claude/README.md) -- Session context retrieval for RAG continuity
 - [prismatic_agents](../../../apps/prismatic_agents/README.md) -- Agent system using RAG for grounded responses
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Application catalog
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Application catalog
 
 ---
 
@@ -402,4 +402,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

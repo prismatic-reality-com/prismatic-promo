@@ -32,7 +32,7 @@ image_alt = "Cooperative Systems - Prismatic Platform"
 
 Cooperative systems are computational architectures in which multiple autonomous components -- whether processes, agents, services, or nodes -- work together through shared protocols, negotiated interactions, and coordinated behavior to achieve collective outcomes that exceed the capabilities of any individual component. Unlike centrally controlled systems where a single orchestrator dictates all behavior, cooperative systems distribute decision-making authority among participants who voluntarily adhere to shared rules and communication protocols.
 
-In the Prismatic Platform, cooperative systems manifest at multiple architectural levels: at the BEAM VM level through cooperative process scheduling, at the OTP level through supervision trees and inter-process [message passing](/glossary/message-passing/), and at the AIAD level through [multi-agent systems](/glossary/multi-agent-system/) where 530+ agents coordinate their activities to perform complex intelligence, security, and quality operations. The platform's entire design philosophy rests on the principle that sophisticated behavior emerges from the cooperation of simple, well-defined components.
+In the Prismatic Platform, cooperative systems manifest at multiple architectural levels: at the BEAM VM level through cooperative process scheduling, at the OTP level through supervision trees and inter-process [message passing](@/glossary/message-passing.md), and at the AIAD level through [multi-agent systems](@/glossary/multi-agent-system.md) where 530+ agents coordinate their activities to perform complex intelligence, security, and quality operations. The platform's entire design philosophy rests on the principle that sophisticated behavior emerges from the cooperation of simple, well-defined components.
 
 ## Theoretical Foundations
 
@@ -50,7 +50,7 @@ System design exists on a spectrum between pure cooperation and pure competition
 
 ### The Actor Model as Cooperative Foundation
 
-The [Actor Model](/glossary/actor-model/), which underpins the BEAM virtual machine, provides the theoretical foundation for cooperative systems in the Prismatic Platform. Each actor (process) is an autonomous entity that communicates exclusively through asynchronous message passing. Cooperation emerges from the protocols that processes follow when exchanging messages, not from shared memory or global state.
+The [Actor Model](@/glossary/actor-model.md), which underpins the BEAM virtual machine, provides the theoretical foundation for cooperative systems in the Prismatic Platform. Each actor (process) is an autonomous entity that communicates exclusively through asynchronous message passing. Cooperation emerges from the protocols that processes follow when exchanging messages, not from shared memory or global state.
 
 This shared-nothing architecture is fundamentally cooperative: processes cannot forcefully access another process's state. All interaction requires the willing participation of both parties through message send and receive. This constraint ensures that cooperation is explicit and observable, eliminating entire categories of concurrency bugs that plague shared-memory systems.
 
@@ -114,7 +114,7 @@ OTP provides several battle-tested patterns for building cooperative systems tha
 
 ### Supervision as Cooperative Infrastructure
 
-[Supervision trees](/glossary/supervision-tree/) are the primary cooperative infrastructure in OTP. A supervisor cooperates with its children by monitoring their health, restarting them when they fail, and enforcing lifecycle contracts. Children cooperate by adhering to the `child_spec` contract, implementing proper `init/1` and `terminate/2` callbacks, and respecting shutdown signals.
+[Supervision trees](@/glossary/supervision-tree.md) are the primary cooperative infrastructure in OTP. A supervisor cooperates with its children by monitoring their health, restarting them when they fail, and enforcing lifecycle contracts. Children cooperate by adhering to the `child_spec` contract, implementing proper `init/1` and `terminate/2` callbacks, and respecting shutdown signals.
 
 ```elixir
 defmodule Prismatic.Cooperation.TeamSupervisor do
@@ -154,7 +154,7 @@ end
 
 ### GenServer Cooperation Protocols
 
-[GenServer](/glossary/genserver/) processes cooperate through well-defined message protocols. The call/cast/info trichotomy provides different cooperation semantics:
+[GenServer](@/glossary/genserver.md) processes cooperate through well-defined message protocols. The call/cast/info trichotomy provides different cooperation semantics:
 
 - **`call`**: Synchronous cooperation where the caller waits for a response. Used when the calling process needs the result before continuing.
 - **`cast`**: Asynchronous cooperation where the sender fires and forgets. Used for notifications, updates, and non-blocking commands.
@@ -235,7 +235,7 @@ end
 
 ### PubSub for Broadcast Cooperation
 
-The [PubSub](/glossary/pubsub/) pattern enables one-to-many cooperative communication where publishers share information with all interested subscribers without needing to know who they are.
+The [PubSub](@/glossary/pubsub.md) pattern enables one-to-many cooperative communication where publishers share information with all interested subscribers without needing to know who they are.
 
 ```elixir
 defmodule Prismatic.Cooperation.EventBus do
@@ -314,13 +314,13 @@ end
 
 ### Color-Team Cooperative Security
 
-The [Color Teams](/glossary/color-teams/) architecture represents a specialized cooperative system where teams with deliberately different objectives cooperate to improve platform security. The [Red Team](/glossary/red-team/) attacks while the [Blue Team](/glossary/blue-team/) defends, but both cooperate within the larger goal of identifying and closing security gaps. The [Purple Team](/glossary/purple-team/) serves as the cooperative synthesis layer, ensuring that adversarial findings translate into defensive improvements.
+The [Color Teams](@/glossary/color-teams.md) architecture represents a specialized cooperative system where teams with deliberately different objectives cooperate to improve platform security. The [Red Team](@/glossary/red-team.md) attacks while the [Blue Team](@/glossary/blue-team.md) defends, but both cooperate within the larger goal of identifying and closing security gaps. The [Purple Team](@/glossary/purple-team.md) serves as the cooperative synthesis layer, ensuring that adversarial findings translate into defensive improvements.
 
 This adversarial cooperation pattern -- where agents cooperate at the meta-level while competing at the operational level -- is one of the most sophisticated cooperation models in the platform.
 
 ## Backpressure as Cooperative Flow Control
 
-[Backpressure](/glossary/backpressure/) is a cooperative flow control mechanism where downstream consumers signal upstream producers to slow down when they cannot process messages fast enough. Without backpressure, cooperative systems degrade into overwhelmed systems where message queues grow unbounded.
+[Backpressure](@/glossary/backpressure.md) is a cooperative flow control mechanism where downstream consumers signal upstream producers to slow down when they cannot process messages fast enough. Without backpressure, cooperative systems degrade into overwhelmed systems where message queues grow unbounded.
 
 ```elixir
 defmodule Prismatic.Cooperation.BackpressureAware do
@@ -373,7 +373,7 @@ end
 
 ## Distributed Cooperation Across Nodes
 
-When the Prismatic Platform runs in a [distributed](/glossary/distributed-systems/) configuration across multiple BEAM nodes, cooperation extends across network boundaries. Erlang's distribution protocol makes remote message passing syntactically identical to local message passing, enabling cooperative patterns to scale transparently across nodes.
+When the Prismatic Platform runs in a [distributed](@/glossary/distributed-systems.md) configuration across multiple BEAM nodes, cooperation extends across network boundaries. Erlang's distribution protocol makes remote message passing syntactically identical to local message passing, enabling cooperative patterns to scale transparently across nodes.
 
 ### Cluster Cooperation Patterns
 
@@ -396,7 +396,7 @@ Two processes waiting for each other's response create a cooperation deadlock. O
 
 ### Cascading Cooperation Failures
 
-When a critical cooperative component fails, all components depending on it may also fail. [Supervision trees](/glossary/supervision-tree/) address this through restart strategies (`:one_for_all`, `:rest_for_one`) that ensure dependent components restart together in a consistent state.
+When a critical cooperative component fails, all components depending on it may also fail. [Supervision trees](@/glossary/supervision-tree.md) address this through restart strategies (`:one_for_all`, `:rest_for_one`) that ensure dependent components restart together in a consistent state.
 
 ### Split-Brain in Distributed Cooperation
 
@@ -436,22 +436,22 @@ The BEAM/OTP model provides the strongest guarantees for cooperative systems due
 
 5. **Design for partial cooperation failure**: Assume that any cooperating component can fail at any time. Use supervision trees, circuit breakers, and graceful degradation to maintain system availability.
 
-6. **Test cooperation under adversarial conditions**: Use the [Red Team](/glossary/red-team/) to inject cooperation failures, delays, and Byzantine behavior to validate system resilience.
+6. **Test cooperation under adversarial conditions**: Use the [Red Team](@/glossary/red-team.md) to inject cooperation failures, delays, and Byzantine behavior to validate system resilience.
 
 7. **Keep cooperation protocols simple**: Complex multi-step cooperation protocols are fragile. Prefer simple request-response or event-driven patterns.
 
 ## Related Concepts
 
-- [Multi-Agent System](/glossary/multi-agent-system/) -- The broader framework for autonomous agent cooperation
-- [Actor Model](/glossary/actor-model/) -- The theoretical foundation for BEAM cooperative processes
-- [Message Passing](/glossary/message-passing/) -- The communication mechanism enabling cooperation
-- [Collaborative Intelligence](/glossary/collaborative-intelligence/) -- Intelligence emerging from agent cooperation
-- [Supervision Tree](/glossary/supervision-tree/) -- The cooperative failure handling infrastructure
-- [Backpressure](/glossary/backpressure/) -- Cooperative flow control between components
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System resilience enabled by cooperative recovery
-- [PubSub](/glossary/pubsub/) -- Broadcast cooperation pattern
-- [Concurrency](/glossary/concurrency/) -- The execution model for cooperative processes
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Higher-level coordination of cooperative agents
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- The broader framework for autonomous agent cooperation
+- [Actor Model](@/glossary/actor-model.md) -- The theoretical foundation for BEAM cooperative processes
+- [Message Passing](@/glossary/message-passing.md) -- The communication mechanism enabling cooperation
+- [Collaborative Intelligence](@/glossary/collaborative-intelligence.md) -- Intelligence emerging from agent cooperation
+- [Supervision Tree](@/glossary/supervision-tree.md) -- The cooperative failure handling infrastructure
+- [Backpressure](@/glossary/backpressure.md) -- Cooperative flow control between components
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System resilience enabled by cooperative recovery
+- [PubSub](@/glossary/pubsub.md) -- Broadcast cooperation pattern
+- [Concurrency](@/glossary/concurrency.md) -- The execution model for cooperative processes
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Higher-level coordination of cooperative agents
 
 ## Further Reading
 

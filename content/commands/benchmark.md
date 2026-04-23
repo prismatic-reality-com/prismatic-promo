@@ -28,7 +28,7 @@ The **/benchmark** command delivers comprehensive performance benchmarking with 
 
 Performance is a first-class concern in the Prismatic Platform, where the page load performance standard mandates sub-250ms total page loads and sub-100ms server-side render times with zero exceptions. The /benchmark command provides the measurement infrastructure that makes these standards enforceable. Rather than relying on intuition or manual profiling, it produces statistically valid performance measurements with controlled warmup periods, configurable iteration counts, and percentile analysis that accurately reflects production behavior at scale.
 
-Operating under the PERFORMANCE authority level and executed by the `performance-benchmarking-specialist` agent, /benchmark is a production command in the Quality category of the platform's 216-command [registry](/glossary/registry-otp/). It integrates directly with the platform's CI/CD pipeline as a mandatory deployment gate, ensuring that every release meets its performance budget before reaching production. The command has been battle-tested through the Wave 3 Performance Squad, where it validated 95-99.8% improvements across 11 critical operations with 100% budget compliance.
+Operating under the PERFORMANCE authority level and executed by the `performance-benchmarking-specialist` agent, /benchmark is a production command in the Quality category of the platform's 216-command [registry](@/glossary/registry-otp.md). It integrates directly with the platform's CI/CD pipeline as a mandatory deployment gate, ensuring that every release meets its performance budget before reaching production. The command has been battle-tested through the Wave 3 Performance Squad, where it validated 95-99.8% improvements across 11 critical operations with 100% budget compliance.
 
 ## Usage
 
@@ -172,10 +172,10 @@ Common workflow patterns include:
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `performance-benchmarking-specialist` agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `performance-benchmarking-specialist` agent |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Direct quality gate enforcement with blocking authority |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and benchmark event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Direct quality gate enforcement with blocking authority |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and benchmark event tracking |
 | Benchee Library | Core benchmarking engine with statistical analysis |
 | Performance Budgets | Predefined operation latency budgets with P95 enforcement |
 | CI/CD Pipeline | Mandatory gate in deployment workflow |
@@ -185,7 +185,7 @@ Common workflow patterns include:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Performance budgets are absolute. Any operation that exceeds its P95 budget in strict mode causes immediate failure with a non-zero exit code. There are no grace periods, no acceptable degradation thresholds, and no exceptions. The command enforces 100% budget compliance on all critical operations. Regressions exceeding the configured threshold (default 5%) are treated as blocking violations.
 - **NO DOUBTS**: All performance claims are backed by statistical evidence. Measurements require a minimum of 100 iterations for statistical accuracy, with standard deviation ratio checks ensuring measurement reliability (std_dev_ratio < 25%). Results include percentile distributions, not just averages, because production performance is determined by tail latencies. Baselines provide objective comparison points that eliminate subjective assessment.
@@ -202,14 +202,14 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/cascade](/commands/cascade/) - Execute [CASCADE pattern](/glossary/cascade-pattern/) fix for systematic anti-pattern removal
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/architect](/commands/architect/) - Architecture design and recommendation generation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/cascade](@/commands/cascade.md) - Execute [CASCADE pattern](@/glossary/cascade-pattern.md) fix for systematic anti-pattern removal
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/architect](@/commands/architect.md) - Architecture design and recommendation generation
 
 ---
 
@@ -218,4 +218,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

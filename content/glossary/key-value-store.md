@@ -444,24 +444,24 @@ Circuit breakers track failure counts and state transitions (closed, open, half-
 
 Key-value stores connect to many fundamental concepts in data storage and distributed systems:
 
-- [ETS](/glossary/ets/) -- the BEAM virtual machine's built-in key-value store, the primary in-process storage mechanism
-- [Redis](/glossary/redis/) -- the most widely used external key-value store, supporting rich data types and persistence
-- [Caching](/glossary/caching/) -- the access pattern that key-value stores are most commonly used to implement
-- [Mnesia](/glossary/mnesia/) -- Erlang's distributed database that extends ETS with transactions and replication
-- [Database](/glossary/database/) -- the broader category of data storage systems that includes key-value stores
-- [Distributed Systems](/glossary/distributed-systems/) -- the architectural context where distributed key-value stores operate
-- [Performance](/glossary/performance/) -- the primary motivation for choosing key-value stores over more complex storage systems
-- [Polyglot Persistence](/glossary/polyglot-persistence/) -- the strategy of using multiple storage types including key-value stores for their respective strengths
-- [Prismatic Storage](/glossary/prismatic-storage/) -- the Prismatic Platform's unified storage abstraction that includes key-value backends
-- [Connection Pooling](/glossary/connection-pooling/) -- the resource management pattern used with network-based key-value stores like Redis
+- [ETS](@/glossary/ets.md) -- the BEAM virtual machine's built-in key-value store, the primary in-process storage mechanism
+- [Redis](@/glossary/redis.md) -- the most widely used external key-value store, supporting rich data types and persistence
+- [Caching](@/glossary/caching.md) -- the access pattern that key-value stores are most commonly used to implement
+- [Mnesia](@/glossary/mnesia.md) -- Erlang's distributed database that extends ETS with transactions and replication
+- [Database](@/glossary/database.md) -- the broader category of data storage systems that includes key-value stores
+- [Distributed Systems](@/glossary/distributed-systems.md) -- the architectural context where distributed key-value stores operate
+- [Performance](@/glossary/performance.md) -- the primary motivation for choosing key-value stores over more complex storage systems
+- [Polyglot Persistence](@/glossary/polyglot-persistence.md) -- the strategy of using multiple storage types including key-value stores for their respective strengths
+- [Prismatic Storage](@/glossary/prismatic-storage.md) -- the Prismatic Platform's unified storage abstraction that includes key-value backends
+- [Connection Pooling](@/glossary/connection-pooling.md) -- the resource management pattern used with network-based key-value stores like Redis
 
 ## See Also
 
-- [ETS Table](/glossary/ets-table/) -- specific ETS table types and their access patterns
-- [CAP Theorem](/glossary/cap-theorem/) -- the consistency-availability-partition tolerance trade-off governing distributed key-value stores
-- [Eventual Consistency](/glossary/eventual-consistency/) -- the consistency model used by many distributed key-value stores
-- [Backpressure](/glossary/backpressure/) -- flow control mechanisms relevant to high-throughput key-value store access
-- [Meilisearch](/glossary/meilisearch/) -- full-text search engine used alongside key-value stores for different access patterns
+- [ETS Table](@/glossary/ets-table.md) -- specific ETS table types and their access patterns
+- [CAP Theorem](@/glossary/cap-theorem.md) -- the consistency-availability-partition tolerance trade-off governing distributed key-value stores
+- [Eventual Consistency](@/glossary/eventual-consistency.md) -- the consistency model used by many distributed key-value stores
+- [Backpressure](@/glossary/backpressure.md) -- flow control mechanisms relevant to high-throughput key-value store access
+- [Meilisearch](@/glossary/meilisearch.md) -- full-text search engine used alongside key-value stores for different access patterns
 
 ---
 

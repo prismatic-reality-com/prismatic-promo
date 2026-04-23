@@ -38,9 +38,9 @@ image_alt = "API Gateway - Prismatic Platform"
 
 An API gateway is an infrastructure component that serves as the single entry point for all client requests to a system's backend services. It handles cross-cutting concerns including request routing, authentication, authorization, rate limiting, response aggregation, protocol translation, request/response transformation, and observability. By centralizing these responsibilities in a single layer, an API gateway simplifies client interactions and enforces consistent security and operational policies across all endpoints.
 
-The API gateway pattern emerged from the [microservices](/glossary/microservices/) architectural style, where decomposing a monolithic application into many services creates a challenge for clients: instead of communicating with one server, clients would need to know about and manage connections to dozens of services. The gateway abstracts this complexity, presenting a unified API surface while routing requests to the appropriate backend service. This decoupling allows backend services to evolve independently -- services can be split, merged, or replaced without affecting client integrations.
+The API gateway pattern emerged from the [microservices](@/glossary/microservices.md) architectural style, where decomposing a monolithic application into many services creates a challenge for clients: instead of communicating with one server, clients would need to know about and manage connections to dozens of services. The gateway abstracts this complexity, presenting a unified API surface while routing requests to the appropriate backend service. This decoupling allows backend services to evolve independently -- services can be split, merged, or replaced without affecting client integrations.
 
-Beyond simple routing, modern API gateways provide sophisticated capabilities including request validation (ensuring payloads conform to schema definitions before they reach backend services), response transformation (adapting internal data formats to client expectations), [circuit breaking](/glossary/circuit-breaker/) (preventing cascading failures when downstream services degrade), and API versioning (supporting multiple API versions simultaneously). These capabilities make the API gateway a critical piece of production infrastructure that directly impacts security posture, reliability, and developer experience.
+Beyond simple routing, modern API gateways provide sophisticated capabilities including request validation (ensuring payloads conform to schema definitions before they reach backend services), response transformation (adapting internal data formats to client expectations), [circuit breaking](@/glossary/circuit-breaker.md) (preventing cascading failures when downstream services degrade), and API versioning (supporting multiple API versions simultaneously). These capabilities make the API gateway a critical piece of production infrastructure that directly impacts security posture, reliability, and developer experience.
 
 ## Historical Context and Evolution
 
@@ -59,13 +59,13 @@ An API gateway centralizes several cross-cutting concerns that would otherwise b
 | Responsibility | Description | Benefit |
 |---------------|-------------|---------|
 | **Request Routing** | Maps incoming paths to backend services | Clients interact with a single endpoint |
-| **Authentication** | Validates [JWT](/glossary/jwt/) tokens and API keys | Consistent auth across all services |
-| **Authorization** | Enforces [RBAC](/glossary/rbac/) policies per endpoint | Centralized permission management |
-| **[Rate Limiting](/glossary/rate-limiting/)** | Throttles requests per client/endpoint | Prevents abuse and resource exhaustion |
-| **Request Validation** | Validates payloads against [OpenAPI](/glossary/openapi/) schemas | Malformed requests rejected early |
+| **Authentication** | Validates [JWT](@/glossary/jwt.md) tokens and API keys | Consistent auth across all services |
+| **Authorization** | Enforces [RBAC](@/glossary/rbac.md) policies per endpoint | Centralized permission management |
+| **[Rate Limiting](@/glossary/rate-limiting.md)** | Throttles requests per client/endpoint | Prevents abuse and resource exhaustion |
+| **Request Validation** | Validates payloads against [OpenAPI](@/glossary/openapi.md) schemas | Malformed requests rejected early |
 | **Response Transformation** | Adapts internal formats to client expectations | Backend independence from API contract |
 | **Protocol Translation** | Bridges HTTP to WebSocket, gRPC, etc. | Multi-protocol support from single entry |
-| **[Observability](/glossary/observability/)** | Logs, metrics, and traces for all traffic | Unified monitoring and debugging |
+| **[Observability](@/glossary/observability.md)** | Logs, metrics, and traces for all traffic | Unified monitoring and debugging |
 | **CORS Management** | Cross-origin resource sharing headers | Consistent browser security policies |
 | **Caching** | Response caching for frequently accessed data | Reduced backend load and latency |
 | **Versioning** | Simultaneous support for multiple API versions | Backward compatibility without backend coupling |
@@ -83,7 +83,7 @@ API gateways can be implemented following several architectural patterns, each s
 | **Sidecar Proxy** | Per-service proxy (Envoy, Istio) | Service mesh architectures | Fine-grained control but complex |
 | **Auto-Introspecting** | Self-discovering endpoint registry | Convention-over-configuration | Zero-config but requires conventions |
 
-The Prismatic Platform implements the auto-introspecting pattern, where the gateway discovers available endpoints at boot time through Elixir module introspection rather than requiring manual route configuration. This approach leverages the [BEAM](/glossary/beam/) virtual machine's runtime code inspection capabilities to eliminate configuration drift between the actual codebase and the gateway's routing table.
+The Prismatic Platform implements the auto-introspecting pattern, where the gateway discovers available endpoints at boot time through Elixir module introspection rather than requiring manual route configuration. This approach leverages the [BEAM](@/glossary/beam.md) virtual machine's runtime code inspection capabilities to eliminate configuration drift between the actual codebase and the gateway's routing table.
 
 ## Auto-Introspecting Gateway Design
 
@@ -111,7 +111,7 @@ Runtime:
                                                    JSON Response
 ```
 
-The scanner examines all compiled modules matching the `Prismatic*` namespace, extracting public functions with their documentation (`Code.fetch_docs/1`) and type specifications (`Code.Typespec.fetch_specs/1`). These are registered in an [ETS](/glossary/ets/)-backed endpoint registry and automatically mapped to [OpenAPI](/glossary/openapi/) schema definitions through the TypeMapper.
+The scanner examines all compiled modules matching the `Prismatic*` namespace, extracting public functions with their documentation (`Code.fetch_docs/1`) and type specifications (`Code.Typespec.fetch_specs/1`). These are registered in an [ETS](@/glossary/ets.md)-backed endpoint registry and automatically mapped to [OpenAPI](@/glossary/openapi.md) schema definitions through the TypeMapper.
 
 ```elixir
 defmodule PrismaticApi.Scanner do
@@ -173,11 +173,11 @@ end
 
 ## Request Pipeline
 
-The Prismatic API gateway processes every request through a [Plug](/glossary/plug/) pipeline that enforces security and operational policies:
+The Prismatic API gateway processes every request through a [Plug](@/glossary/plug.md) pipeline that enforces security and operational policies:
 
 | Stage | Plug | Responsibility | Failure Response |
 |-------|------|---------------|-----------------|
-| 1 | `Plug.SSL` | Force HTTPS, [TLS](/glossary/tls/) enforcement | 301 redirect to HTTPS |
+| 1 | `Plug.SSL` | Force HTTPS, [TLS](@/glossary/tls.md) enforcement | 301 redirect to HTTPS |
 | 2 | `Plug.Parsers` | Parse JSON/form request bodies | 400 Bad Request |
 | 3 | `PrismaticWeb.Plugs.RequestId` | Assign unique request ID for tracing | (never fails) |
 | 4 | `PrismaticWeb.Plugs.APIAuth` | Validate JWT, extract user context | 401 Unauthorized |
@@ -290,7 +290,7 @@ end
 
 ## OpenAPI Integration
 
-The gateway automatically generates a complete [OpenAPI](/glossary/openapi/) 3.0 specification from discovered endpoints. The TypeMapper converts Elixir `@spec` AST into JSON Schema definitions:
+The gateway automatically generates a complete [OpenAPI](@/glossary/openapi.md) 3.0 specification from discovered endpoints. The TypeMapper converts Elixir `@spec` AST into JSON Schema definitions:
 
 | Elixir Type | OpenAPI Schema | Notes |
 |-------------|---------------|-------|
@@ -312,16 +312,16 @@ The gateway serves as the security perimeter for all API access, implementing de
 
 | Security Layer | Implementation | Protection |
 |---------------|----------------|------------|
-| **Transport** | [TLS](/glossary/tls/) 1.3, HSTS, force_ssl | Encryption in transit |
-| **Authentication** | [JWT](/glossary/jwt/) validation via Guardian | Identity verification |
-| **Authorization** | [RBAC](/glossary/rbac/) plug middleware | Permission enforcement |
+| **Transport** | [TLS](@/glossary/tls.md) 1.3, HSTS, force_ssl | Encryption in transit |
+| **Authentication** | [JWT](@/glossary/jwt.md) validation via Guardian | Identity verification |
+| **Authorization** | [RBAC](@/glossary/rbac.md) plug middleware | Permission enforcement |
 | **Rate Limiting** | Token bucket per client/endpoint | DoS protection |
 | **Input Validation** | OpenAPI schema validation | Injection prevention |
 | **CORS** | Strict origin whitelist | Cross-origin protection |
 | **Logging** | Structured JSON with request ID | Audit trail |
-| **Token Scoping** | [OAuth2](/glossary/oauth2/) scope validation | Least-privilege access |
+| **Token Scoping** | [OAuth2](@/glossary/oauth2.md) scope validation | Least-privilege access |
 
-All security decisions are made at the gateway level, ensuring that backend services never receive unauthenticated, unauthorized, or malformed requests. This "zero trust at the edge" approach simplifies backend service security because services can trust that requests passing through the gateway have been validated. The gateway also serves as the enforcement point for the [NO MERCY, NO DOUBTS doctrine](/glossary/nm-nd/), where any security policy violation results in immediate request rejection without exception.
+All security decisions are made at the gateway level, ensuring that backend services never receive unauthenticated, unauthorized, or malformed requests. This "zero trust at the edge" approach simplifies backend service security because services can trust that requests passing through the gateway have been validated. The gateway also serves as the enforcement point for the [NO MERCY, NO DOUBTS doctrine](@/glossary/nm-nd.md), where any security policy violation results in immediate request rejection without exception.
 
 ## Performance Optimization
 
@@ -353,7 +353,7 @@ The gateway emits comprehensive telemetry for monitoring and debugging:
 
 ## Context in Prismatic
 
-The Prismatic API application (`prismatic_api`, port 4004) functions as the platform's API gateway. It auto-discovers all Prismatic facade modules via Elixir introspection at boot time, registers them in an ETS-backed endpoint registry, and routes incoming requests through a generic dispatch controller. Authentication is handled by `PrismaticWeb.Plugs.APIAuth` with [RBAC](/glossary/rbac/) enforcement, and the full API surface is documented via OpenApiSpex with SwaggerUI at `/api/swaggerui`.
+The Prismatic API application (`prismatic_api`, port 4004) functions as the platform's API gateway. It auto-discovers all Prismatic facade modules via Elixir introspection at boot time, registers them in an ETS-backed endpoint registry, and routes incoming requests through a generic dispatch controller. Authentication is handled by `PrismaticWeb.Plugs.APIAuth` with [RBAC](@/glossary/rbac.md) enforcement, and the full API surface is documented via OpenApiSpex with SwaggerUI at `/api/swaggerui`.
 
 Key gateway routes:
 
@@ -392,24 +392,24 @@ Key gateway routes:
 
 ## Related Terms
 
-- [REST API](/glossary/rest-api/) - HTTP interface style served through the gateway
-- [Rate Limiting](/glossary/rate-limiting/) - Traffic control enforced at the gateway level
-- [JWT](/glossary/jwt/) - Token-based authentication validated by the gateway
-- [RBAC](/glossary/rbac/) - Role-based authorization enforced at the gateway
-- [OAuth2](/glossary/oauth2/) - Token issuance and validation through the gateway
-- [OpenAPI](/glossary/openapi/) - Specification documenting all gateway endpoints
-- [Plug](/glossary/plug/) - Elixir middleware composing the gateway pipeline
-- [TLS](/glossary/tls/) - Transport encryption terminated at the gateway
-- [Circuit Breaker](/glossary/circuit-breaker/) - Resilience pattern protecting backend services
-- [Observability](/glossary/observability/) - Monitoring and tracing through gateway telemetry
-- [Microservices](/glossary/microservices/) - Architectural style that necessitates API gateways
-- [ETS](/glossary/ets/) - In-memory storage backing the endpoint registry
+- [REST API](@/glossary/rest-api.md) - HTTP interface style served through the gateway
+- [Rate Limiting](@/glossary/rate-limiting.md) - Traffic control enforced at the gateway level
+- [JWT](@/glossary/jwt.md) - Token-based authentication validated by the gateway
+- [RBAC](@/glossary/rbac.md) - Role-based authorization enforced at the gateway
+- [OAuth2](@/glossary/oauth2.md) - Token issuance and validation through the gateway
+- [OpenAPI](@/glossary/openapi.md) - Specification documenting all gateway endpoints
+- [Plug](@/glossary/plug.md) - Elixir middleware composing the gateway pipeline
+- [TLS](@/glossary/tls.md) - Transport encryption terminated at the gateway
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Resilience pattern protecting backend services
+- [Observability](@/glossary/observability.md) - Monitoring and tracing through gateway telemetry
+- [Microservices](@/glossary/microservices.md) - Architectural style that necessitates API gateways
+- [ETS](@/glossary/ets.md) - In-memory storage backing the endpoint registry
 
 ## See Also
 
-- [Architecture](/architecture/) - Gateway integration architecture
-- [Apps](/apps/) - Prismatic API application details
-- [Technologies](/technologies/) - Phoenix, Plug, and OpenApiSpex
+- [Architecture](@/architecture/_index.md) - Gateway integration architecture
+- [Apps](@/apps/_index.md) - Prismatic API application details
+- [Technologies](@/technologies/_index.md) - Phoenix, Plug, and OpenApiSpex
 
 ---
 
@@ -418,4 +418,4 @@ Key gateway routes:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

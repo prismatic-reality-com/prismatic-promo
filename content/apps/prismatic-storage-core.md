@@ -23,7 +23,7 @@ image_alt = "Prismatic Storage Core - Prismatic Platform"
 
 ## Overview
 
-[Prismatic Storage](/glossary/prismatic-storage/) Core defines the storage abstraction layer used by all storage adapters in the Prismatic Platform. It provides [protocol](/glossary/protocol/) definitions, [behavior](/glossary/behaviour/) contracts, trait composition mechanisms, and shared utilities that ensure every storage backend -- [ETS](/glossary/ets/), [Ecto](/glossary/ecto/), [Redis](/glossary/redis/), [KuzuDB](/glossary/kuzudb/), [Meilisearch](/glossary/meilisearch/), [DuckDB](/glossary/duckdb/) -- presents a consistent interface to application code. The design draws inspiration from Rust's trait system, adapted for Elixir's dynamic capabilities with compile-time verification and runtime capability checking.
+[Prismatic Storage](@/glossary/prismatic-storage.md) Core defines the storage abstraction layer used by all storage adapters in the Prismatic Platform. It provides [protocol](@/glossary/protocol.md) definitions, [behavior](@/glossary/behaviour.md) contracts, trait composition mechanisms, and shared utilities that ensure every storage backend -- [ETS](@/glossary/ets.md), [Ecto](@/glossary/ecto.md), [Redis](@/glossary/redis.md), [KuzuDB](@/glossary/kuzudb.md), [Meilisearch](@/glossary/meilisearch.md), [DuckDB](@/glossary/duckdb.md) -- presents a consistent interface to application code. The design draws inspiration from Rust's trait system, adapted for Elixir's dynamic capabilities with compile-time verification and runtime capability checking.
 
 This application is the cornerstone of the platform's storage strategy: application code never interacts with a specific storage backend directly. Instead, it programs against the protocols and behaviors defined in Storage Core. This indirection enables backend-agnostic data access, multi-adapter query federation, runtime adapter switching, and comprehensive contract testing -- all without modifying a single line of application code. The trait composition system allows adapters to declare optional capabilities beyond the base CRUD contract, enabling the storage router to select optimal backends based on operation type and data characteristics.
 
@@ -222,12 +222,12 @@ Storage Core integrates with every storage adapter in the platform:
 
 | Adapter | Type | Latency | Best For |
 |---------|------|---------|----------|
-| **[Prismatic Storage ETS](/apps/prismatic-storage-ets/)** | In-memory | Microseconds | Hot caches, session state |
-| **[Prismatic Storage Ecto](/apps/prismatic-storage-ecto/)** | Relational | Milliseconds | Entities, complex queries |
-| **[Prismatic Storage Redis](/apps/prismatic-storage-redis/)** | Cache/KV | Sub-millisecond | Rate limiting, pub/sub |
-| **[Prismatic Storage KuzuDB](/apps/prismatic-storage-kuzudb/)** | Graph | Milliseconds | Entity relationships |
-| **[Prismatic Storage Meilisearch](/apps/prismatic-storage-meilisearch/)** | Search | Milliseconds | Full-text search |
-| **[Prismatic Storage DuckDB](/apps/prismatic-storage-duckdb/)** | Analytical | Varies | Aggregations, reporting |
+| **[Prismatic Storage ETS](@/apps/prismatic-storage-ets.md)** | In-memory | Microseconds | Hot caches, session state |
+| **[Prismatic Storage Ecto](@/apps/prismatic-storage-ecto.md)** | Relational | Milliseconds | Entities, complex queries |
+| **[Prismatic Storage Redis](@/apps/prismatic-storage-redis.md)** | Cache/KV | Sub-millisecond | Rate limiting, pub/sub |
+| **[Prismatic Storage KuzuDB](@/apps/prismatic-storage-kuzudb.md)** | Graph | Milliseconds | Entity relationships |
+| **[Prismatic Storage Meilisearch](@/apps/prismatic-storage-meilisearch.md)** | Search | Milliseconds | Full-text search |
+| **[Prismatic Storage DuckDB](@/apps/prismatic-storage-duckdb.md)** | Analytical | Varies | Aggregations, reporting |
 
 ## NABLA Compliance
 
@@ -245,9 +245,9 @@ Storage Core enforces epistemic provenance at the data layer. Every storage oper
 
 ## Related Resources
 
-- [Prismatic Storage](/apps/prismatic-storage/) -- Unified storage facade consuming Core contracts
-- [Prismatic](/apps/prismatic/) -- Core application consuming storage services through the adapter protocol
-- [Prismatic Testing](/apps/prismatic-testing/) -- Contract test infrastructure shared across all adapters
+- [Prismatic Storage](@/apps/prismatic-storage.md) -- Unified storage facade consuming Core contracts
+- [Prismatic](@/apps/prismatic.md) -- Core application consuming storage services through the adapter protocol
+- [Prismatic Testing](@/apps/prismatic-testing.md) -- Contract test infrastructure shared across all adapters
 
 ---
 
@@ -256,4 +256,4 @@ Storage Core enforces epistemic provenance at the data layer. Every storage oper
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -33,7 +33,7 @@ image_alt = "Test Coverage - Prismatic Platform"
 
 Test coverage is a quantitative measure of how much of a software system's source code is exercised by its automated test suite. In the Prismatic Platform, test coverage is not a passive metric observed after the fact -- it is an actively enforced quality gate that blocks merges, deployments, and releases when coverage falls below mandated thresholds. The platform's NO MERCY doctrine demands 100% test coverage on all new code, with existing code maintained at rigorously high levels across all 115 umbrella applications.
 
-Coverage measurement in Elixir operates through the built-in `:cover` module, which instruments compiled BEAM bytecode to track which lines are executed during test runs. The Prismatic Platform extends this foundation with [ExCoveralls](https://github.com/parroty/excoveralls) for detailed reporting, threshold enforcement, and CI integration. Every `mix test --cover` invocation produces coverage data that feeds into the platform's [quality gates](/glossary/quality-gates/), where coverage violations are treated with the same severity as compilation warnings or [Credo](/glossary/credo/) violations.
+Coverage measurement in Elixir operates through the built-in `:cover` module, which instruments compiled BEAM bytecode to track which lines are executed during test runs. The Prismatic Platform extends this foundation with [ExCoveralls](https://github.com/parroty/excoveralls) for detailed reporting, threshold enforcement, and CI integration. Every `mix test --cover` invocation produces coverage data that feeds into the platform's [quality gates](@/glossary/quality-gates.md), where coverage violations are treated with the same severity as compilation warnings or [Credo](@/glossary/credo.md) violations.
 
 The distinction between measuring coverage and enforcing coverage is critical. Many projects measure coverage as an informational metric, displayed on badges and dashboards but not blocking any workflow. The Prismatic Platform treats coverage as a hard gate: code that reduces coverage below the threshold cannot be committed, merged, or deployed. This enforcement transforms coverage from a lagging indicator into a leading constraint that shapes how developers write code.
 
@@ -55,7 +55,7 @@ Function coverage measures whether every function in the module has been called 
 
 ### Path Coverage
 
-Path coverage measures whether every possible execution path through a function has been tested. For functions with multiple conditional branches, path coverage requires testing all combinations. This is the most thorough metric but exponentially expensive -- a function with N independent conditions has 2^N paths. The platform uses [property-based testing](/glossary/property-based-testing/) to approximate path coverage for complex functions.
+Path coverage measures whether every possible execution path through a function has been tested. For functions with multiple conditional branches, path coverage requires testing all combinations. This is the most thorough metric but exponentially expensive -- a function with N independent conditions has 2^N paths. The platform uses [property-based testing](@/glossary/property-based-testing.md) to approximate path coverage for complex functions.
 
 ```elixir
 defmodule PrismaticQuality.CoverageMetrics do
@@ -522,13 +522,13 @@ The platform's LiveView dashboard displays real-time coverage metrics alongside 
 
 Test coverage does not exist in isolation. It interacts with and reinforces other quality domains enforced by the Prismatic Platform.
 
-[Dialyzer](/glossary/dialyzer/) performs static type analysis that catches entire categories of bugs before tests run. High Dialyzer compliance reduces the number of runtime errors that tests need to catch, allowing coverage efforts to focus on business logic correctness.
+[Dialyzer](@/glossary/dialyzer.md) performs static type analysis that catches entire categories of bugs before tests run. High Dialyzer compliance reduces the number of runtime errors that tests need to catch, allowing coverage efforts to focus on business logic correctness.
 
-[Credo](/glossary/credo/) enforces code style and complexity standards that make code easier to test. Functions that comply with Credo's complexity limits tend to have fewer code paths, making high coverage easier to achieve.
+[Credo](@/glossary/credo.md) enforces code style and complexity standards that make code easier to test. Functions that comply with Credo's complexity limits tend to have fewer code paths, making high coverage easier to achieve.
 
-[Property-based testing](/glossary/property-based-testing/) generates thousands of random test inputs, exercising code paths that hand-written tests might miss. Property-based tests often achieve higher branch coverage than example-based tests because they explore the input space more thoroughly.
+[Property-based testing](@/glossary/property-based-testing.md) generates thousands of random test inputs, exercising code paths that hand-written tests might miss. Property-based tests often achieve higher branch coverage than example-based tests because they explore the input space more thoroughly.
 
-[Regression testing](/glossary/regression-testing/) ensures that bug fixes include tests that would have caught the original bug. The platform's mandatory regression test protocol requires every bug fix to include a regression test, directly increasing coverage on code paths known to be defect-prone.
+[Regression testing](@/glossary/regression-testing.md) ensures that bug fixes include tests that would have caught the original bug. The platform's mandatory regression test protocol requires every bug fix to include a regression test, directly increasing coverage on code paths known to be defect-prone.
 
 ## Performance Considerations
 
@@ -544,16 +544,16 @@ Running the full test suite with coverage measurement is slower than running tes
 
 ## Related Concepts
 
-- [Unit Testing](/glossary/unit-testing/) -- The primary mechanism for achieving test coverage
-- [Testing](/glossary/testing/) -- Comprehensive testing strategy overview
-- [Quality Gates](/glossary/quality-gates/) -- Automated enforcement of coverage thresholds
-- [Quality Standard](/glossary/quality-standard/) -- Platform-wide quality standards including coverage
-- [Code Quality](/glossary/code-quality/) -- Broader code quality context
-- [Credo](/glossary/credo/) -- Static analysis complementing coverage measurement
-- [Dialyzer](/glossary/dialyzer/) -- Type analysis reducing the test surface area
-- [Continuous Integration](/glossary/continuous-integration/) -- CI pipeline running coverage checks
-- [Regression Testing](/glossary/regression-testing/) -- Mandatory regression tests increasing coverage
-- [Property-Based Testing](/glossary/property-based-testing/) -- Generative testing for deeper coverage
+- [Unit Testing](@/glossary/unit-testing.md) -- The primary mechanism for achieving test coverage
+- [Testing](@/glossary/testing.md) -- Comprehensive testing strategy overview
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated enforcement of coverage thresholds
+- [Quality Standard](@/glossary/quality-standard.md) -- Platform-wide quality standards including coverage
+- [Code Quality](@/glossary/code-quality.md) -- Broader code quality context
+- [Credo](@/glossary/credo.md) -- Static analysis complementing coverage measurement
+- [Dialyzer](@/glossary/dialyzer.md) -- Type analysis reducing the test surface area
+- [Continuous Integration](@/glossary/continuous-integration.md) -- CI pipeline running coverage checks
+- [Regression Testing](@/glossary/regression-testing.md) -- Mandatory regression tests increasing coverage
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Generative testing for deeper coverage
 
 ---
 
@@ -562,4 +562,4 @@ Running the full test suite with coverage measurement is slower than running tes
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

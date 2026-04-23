@@ -28,7 +28,7 @@ image_alt = "infrastructure-as-code-specialist - Prismatic Platform"
 
 ## Overview
 
-The Infrastructure as Code Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent manages the declarative definition, version control, and automated provisioning of all platform infrastructure through tools including Terraform, Ansible, [Docker](/glossary/docker/) Compose, and [Fly.io](/glossary/fly-io/) configuration files. Every infrastructure component -- from database instances to edge computing nodes -- is defined in code, reviewed through merge requests, and deployed through automated pipelines.
+The Infrastructure as Code Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent manages the declarative definition, version control, and automated provisioning of all platform infrastructure through tools including Terraform, Ansible, [Docker](@/glossary/docker.md) Compose, and [Fly.io](@/glossary/fly-io.md) configuration files. Every infrastructure component -- from database instances to edge computing nodes -- is defined in code, reviewed through merge requests, and deployed through automated pipelines.
 
 Infrastructure as Code (IaC) eliminates configuration drift, the silent divergence between intended and actual infrastructure state that causes production incidents. The IaC Specialist ensures that the production environment can be fully reconstructed from version-controlled definitions, that infrastructure changes undergo the same review rigor as application code, and that rollback to any previous infrastructure state is achievable through git revert operations. This discipline is particularly critical for the platform's Fly.io deployment, where edge node configuration must be consistent across all regions.
 
@@ -171,29 +171,29 @@ The IaC Specialist continuously monitors for configuration drift across all infr
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/). Multi-domain coordination with authority to approve or reject infrastructure changes and enforce IaC standards across all platform environments.
+**L3** - [Strategic Command](@/glossary/strategic-command.md). Multi-domain coordination with authority to approve or reject infrastructure changes and enforce IaC standards across all platform environments.
 
 ## Coordination
 
 | Agent | Relationship | Domain |
 |---|---|---|
-| [flyio-deployment-specialist](/agents/flyio-deployment-specialist/) | Coordinates Fly.io-specific deployment configuration and scaling policies | Infrastructure |
-| [docker-build-specialist](/agents/docker-build-specialist/) | Collaborates on container image optimization and build pipeline efficiency | Infrastructure |
-| [deployment-commander-agent](/agents/deployment-commander-agent/) | Receives deployment directives and ensures infrastructure readiness for releases | Deployment |
-| [secrets-management-specialist](/agents/secrets-management-specialist/) | Coordinates secure credential management for infrastructure provisioning | Security |
+| [flyio-deployment-specialist](@/agents/flyio-deployment-specialist.md) | Coordinates Fly.io-specific deployment configuration and scaling policies | Infrastructure |
+| [docker-build-specialist](@/agents/docker-build-specialist.md) | Collaborates on container image optimization and build pipeline efficiency | Infrastructure |
+| [deployment-commander-agent](@/agents/deployment-commander-agent.md) | Receives deployment directives and ensures infrastructure readiness for releases | Deployment |
+| [secrets-management-specialist](@/agents/secrets-management-specialist.md) | Coordinates secure credential management for infrastructure provisioning | Security |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Infrastructure pipeline execution and state management |
-| [Fly.io](/glossary/fly-io/) | Primary deployment target for production infrastructure |
-| [PostgreSQL](/glossary/postgresql/) | Database infrastructure provisioning and migration |
-| Platform [Telemetry](/glossary/telemetry/) | Infrastructure health metrics and drift detection signals |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Infrastructure pipeline execution and state management |
+| [Fly.io](@/glossary/fly-io.md) | Primary deployment target for production infrastructure |
+| [PostgreSQL](@/glossary/postgresql.md) | Database infrastructure provisioning and migration |
+| Platform [Telemetry](@/glossary/telemetry.md) | Infrastructure health metrics and drift detection signals |
 
 ## Enforcement
 
-The Infrastructure as Code Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No manual infrastructure changes are permitted in any environment. Every infrastructure modification must be defined in code, reviewed, and applied through automated pipelines. Configuration drift is treated as an L2 violation requiring immediate remediation. Infrastructure state files are secured with mandatory encryption and access controls. All infrastructure changes maintain full [audit trail](/glossary/audit-trail/) provenance for compliance and forensic analysis.
+The Infrastructure as Code Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No manual infrastructure changes are permitted in any environment. Every infrastructure modification must be defined in code, reviewed, and applied through automated pipelines. Configuration drift is treated as an L2 violation requiring immediate remediation. Infrastructure state files are secured with mandatory encryption and access controls. All infrastructure changes maintain full [audit trail](@/glossary/audit-trail.md) provenance for compliance and forensic analysis.
 
 ---
 
@@ -202,4 +202,4 @@ The Infrastructure as Code Specialist operates under the [NO MERCY, NO DOUBTS](/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

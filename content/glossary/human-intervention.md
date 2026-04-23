@@ -374,24 +374,24 @@ Circuit breakers automatically halt operations when failure rates exceed thresho
 
 Human intervention connects to autonomy, safety, and governance concepts throughout the Prismatic Platform:
 
-- [Autonomous Operation](/glossary/autonomous-operation/) is the mode that human intervention complements and constrains
-- [Autonomous Decision-Making](/glossary/autonomous-decision-making/) describes the algorithmic processes that may trigger intervention
-- [Crisis Intervention](/glossary/crisis-intervention/) is the most urgent form of human intervention in emergency scenarios
-- [Chain of Command](/glossary/chain-of-command/) defines who has authority to make intervention decisions at each level
-- [Authority Level](/glossary/authority-level/) determines the threshold at which human intervention is required
-- [Explainability](/glossary/explainability/) ensures that intervention requests include understandable context
-- [Bias Detection](/glossary/bias-detection/) identifies situations where automated systems may require human correction
-- [Audit Trail](/glossary/audit-trail/) records all intervention decisions for compliance and analysis
-- [Decisive Action](/glossary/decisive-action/) describes the execution mode after human intervention approves an action
-- [Automated Decision-Making](/glossary/automated-decision-making/) is the counterpart that operates without human involvement
+- [Autonomous Operation](@/glossary/autonomous-operation.md) is the mode that human intervention complements and constrains
+- [Autonomous Decision-Making](@/glossary/autonomous-decision-making.md) describes the algorithmic processes that may trigger intervention
+- [Crisis Intervention](@/glossary/crisis-intervention.md) is the most urgent form of human intervention in emergency scenarios
+- [Chain of Command](@/glossary/chain-of-command.md) defines who has authority to make intervention decisions at each level
+- [Authority Level](@/glossary/authority-level.md) determines the threshold at which human intervention is required
+- [Explainability](@/glossary/explainability.md) ensures that intervention requests include understandable context
+- [Bias Detection](@/glossary/bias-detection.md) identifies situations where automated systems may require human correction
+- [Audit Trail](@/glossary/audit-trail.md) records all intervention decisions for compliance and analysis
+- [Decisive Action](@/glossary/decisive-action.md) describes the execution mode after human intervention approves an action
+- [Automated Decision-Making](@/glossary/automated-decision-making.md) is the counterpart that operates without human involvement
 
 ## See Also
 
-- [Circuit Breaker](/glossary/circuit-breaker/) -- automated intervention mechanism for cascading failure prevention
-- [Violation Protocol](/glossary/violation-protocol/) -- defines responses when automated systems detect policy violations
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- doctrine governing execution after human intervention approves
-- [Confidence Threshold](/glossary/confidence-threshold/) -- determines when confidence is insufficient for autonomous operation
-- [Trinity Gate](/glossary/trinity-gate/) -- verification gate that must pass before autonomous execution
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- automated intervention mechanism for cascading failure prevention
+- [Violation Protocol](@/glossary/violation-protocol.md) -- defines responses when automated systems detect policy violations
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- doctrine governing execution after human intervention approves
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- determines when confidence is insufficient for autonomous operation
+- [Trinity Gate](@/glossary/trinity-gate.md) -- verification gate that must pass before autonomous execution
 
 ---
 

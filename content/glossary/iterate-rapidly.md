@@ -356,24 +356,24 @@ REST APIs evolve through rapid iteration: add a new endpoint, measure adoption, 
 
 Rapid iteration is enabled by and contributes to many technical practices and organizational patterns:
 
-- [Continuous Integration](/glossary/continuous-integration/) -- the practice of merging changes frequently that enables rapid iteration through fast feedback
-- [Continuous Deployment](/glossary/continuous-deployment/) -- the delivery mechanism that reduces the time from commit to production
-- [Fast Safe Iteration](/glossary/fast-safe-iteration/) -- the broader principle of balancing iteration speed with system safety
-- [Quality Gates](/glossary/quality-gates/) -- automated checkpoints that ensure each iteration maintains quality standards
-- [Refactoring](/glossary/refactoring/) -- disciplined code improvement that keeps the codebase healthy during rapid iteration
-- [Testing](/glossary/testing/) -- the validation foundation that enables confident rapid iteration
-- [CI/CD](/glossary/ci-cd/) -- the infrastructure pipeline supporting continuous integration and deployment
-- [AutoEvolve](/glossary/autoevolve/) -- the Prismatic system that automates the iteration cycle at platform scale
-- [Minimum Viable Product](/glossary/minimum-viable-product/) -- the smallest deliverable that enables learning, the starting point for iteration
-- [Development Workflow](/glossary/development-workflow/) -- the structured process within which rapid iteration operates
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the practice of merging changes frequently that enables rapid iteration through fast feedback
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- the delivery mechanism that reduces the time from commit to production
+- [Fast Safe Iteration](@/glossary/fast-safe-iteration.md) -- the broader principle of balancing iteration speed with system safety
+- [Quality Gates](@/glossary/quality-gates.md) -- automated checkpoints that ensure each iteration maintains quality standards
+- [Refactoring](@/glossary/refactoring.md) -- disciplined code improvement that keeps the codebase healthy during rapid iteration
+- [Testing](@/glossary/testing.md) -- the validation foundation that enables confident rapid iteration
+- [CI/CD](@/glossary/ci-cd.md) -- the infrastructure pipeline supporting continuous integration and deployment
+- [AutoEvolve](@/glossary/autoevolve.md) -- the Prismatic system that automates the iteration cycle at platform scale
+- [Minimum Viable Product](@/glossary/minimum-viable-product.md) -- the smallest deliverable that enables learning, the starting point for iteration
+- [Development Workflow](@/glossary/development-workflow.md) -- the structured process within which rapid iteration operates
 
 ## See Also
 
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- the automated quality enforcement that enables confident rapid deployment
-- [AutoHeal](/glossary/autoheal/) -- the self-healing system that automatically resolves quality regressions during iteration
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the monitoring system that prevents quality degradation during rapid iteration
-- [Hot Code Reload](/glossary/hot-code-reload/) -- the BEAM capability enabling code changes without service interruption
-- [ExUnit](/glossary/exunit/) -- the testing framework supporting fast, parallel test execution for rapid feedback
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- the automated quality enforcement that enables confident rapid deployment
+- [AutoHeal](@/glossary/autoheal.md) -- the self-healing system that automatically resolves quality regressions during iteration
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the monitoring system that prevents quality degradation during rapid iteration
+- [Hot Code Reload](@/glossary/hot-code-reload.md) -- the BEAM capability enabling code changes without service interruption
+- [ExUnit](@/glossary/exunit.md) -- the testing framework supporting fast, parallel test execution for rapid feedback
 
 ---
 

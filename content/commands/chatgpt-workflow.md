@@ -24,9 +24,9 @@ image_alt = "/chatgpt-workflow - Prismatic Platform"
 
 ## Overview
 
-**/chatgpt-workflow** is a production command in the **Development** category of the Prismatic Platform that orchestrates multi-step workflow coordination across heterogeneous AI assistants. Rather than relying on a single language model for every stage of a complex task, this command decomposes workflows into discrete steps and routes each step to the most capable assistant available, whether that is a local [Ollama](/glossary/ollama/) model, a cloud-hosted Claude instance, or a ChatGPT session accessible through the platform's bridge infrastructure.
+**/chatgpt-workflow** is a production command in the **Development** category of the Prismatic Platform that orchestrates multi-step workflow coordination across heterogeneous AI assistants. Rather than relying on a single language model for every stage of a complex task, this command decomposes workflows into discrete steps and routes each step to the most capable assistant available, whether that is a local [Ollama](@/glossary/ollama.md) model, a cloud-hosted Claude instance, or a ChatGPT session accessible through the platform's bridge infrastructure.
 
-This command operates under the **L2+** authority level and is executed by the `chatgpt-bridge` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The workflow engine supports sequential, parallel, and conditional step execution, with full provenance tracking to satisfy the platform's [NABLA](/glossary/nabla-infinity/) epistemic requirements.
+This command operates under the **L2+** authority level and is executed by the `chatgpt-bridge` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The workflow engine supports sequential, parallel, and conditional step execution, with full provenance tracking to satisfy the platform's [NABLA](@/glossary/nabla-infinity.md) epistemic requirements.
 
 Cross-assistant workflow coordination addresses a fundamental limitation of single-model interactions: no single LLM excels at every task. Code generation, creative writing, data analysis, and formal reasoning each benefit from different model strengths. The `/chatgpt-workflow` command allows operators to define workflows that leverage these complementary capabilities while maintaining a unified execution context and audit trail.
 
@@ -157,13 +157,13 @@ This command integrates with the following platform components.
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `chatgpt-bridge` agent | Agent manages bridge connections and session lifecycle |
-| [AIAD Registry](/glossary/aiad/) | Command and workflow specification | Workflow definitions stored as AIAD artifacts |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution validation | Workflow outputs validated against quality criteria |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Step timing, token usage, and success rates tracked |
-| [NABLA Framework](/glossary/nabla-infinity/) | Epistemic provenance | Signal plurality enforced across multi-assistant outputs |
-| [Ollama](/glossary/ollama/) | Local LLM bridge | Zero-cost local model execution for suitable steps |
-| [Session Lifecycle](/glossary/session-discipline/) | Context persistence | Workflow state survives session boundaries |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `chatgpt-bridge` agent | Agent manages bridge connections and session lifecycle |
+| [AIAD Registry](@/glossary/aiad.md) | Command and workflow specification | Workflow definitions stored as AIAD artifacts |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution validation | Workflow outputs validated against quality criteria |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Step timing, token usage, and success rates tracked |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Epistemic provenance | Signal plurality enforced across multi-assistant outputs |
+| [Ollama](@/glossary/ollama.md) | Local LLM bridge | Zero-cost local model execution for suitable steps |
+| [Session Lifecycle](@/glossary/session-discipline.md) | Context persistence | Workflow state survives session boundaries |
 
 ## Best Practices
 
@@ -251,21 +251,21 @@ Complex workflows can compose simpler workflows as sub-workflows, enabling reuse
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every workflow step must complete successfully or the entire workflow fails with full diagnostics.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Multi-assistant outputs are cross-validated to ensure signal plurality per NABLA requirements.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/llm](/commands/llm/) - Primary LLM operation management and orchestration
-- [/local-llm](/commands/local-llm/) - Execute LLM requests using local providers with zero API cost
-- [/chatgpt-bridge](/commands/chatgpt-bridge/) - ChatGPT bridge operations for cross-LLM coordination
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/llm](@/commands/llm.md) - Primary LLM operation management and orchestration
+- [/local-llm](@/commands/local-llm.md) - Execute LLM requests using local providers with zero API cost
+- [/chatgpt-bridge](@/commands/chatgpt-bridge.md) - ChatGPT bridge operations for cross-LLM coordination
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -274,4 +274,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

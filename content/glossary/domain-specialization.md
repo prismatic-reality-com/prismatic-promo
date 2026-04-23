@@ -442,24 +442,24 @@ The Prismatic Platform is one of the most comprehensive implementations of domai
 
 Domain specialization intersects with many architectural and design concepts in the Prismatic Platform:
 
-- [Domain-Driven Design](/glossary/domain-driven-design/) - The strategic design methodology that provides the theoretical foundation for domain specialization, including bounded contexts and ubiquitous language
-- [Bounded Context](/glossary/bounded-context/) - The DDD pattern that defines explicit boundaries around domain models, directly implementing domain specialization at the model level
-- [Agent](/glossary/agent/) - Autonomous software entities that embody domain specialization by possessing deep expertise in their assigned domain
-- [Modularity](/glossary/modularity/) - The software design principle that enables domain specialization through well-defined interfaces and encapsulation
-- [Supervision Tree](/glossary/supervision-tree/) - OTP supervision trees provide the fault isolation that allows specialized domains to fail independently without cascading
-- [Microservices](/glossary/microservices/) - An architectural style that takes domain specialization to the deployment level, with each service owning its domain
-- [Composability](/glossary/composability/) - The ability to compose specialized domains into larger capabilities through well-defined interfaces
-- [Adapter Pattern](/glossary/adapter-pattern/) - Enables domain specialization in storage and external integrations by abstracting implementation details behind domain interfaces
-- [Umbrella Application](/glossary/umbrella-application/) - Elixir's umbrella project structure that physically enforces domain boundaries at the application level
-- [Architecture](/glossary/architecture/) - Domain specialization is a fundamental architectural decision that shapes the entire platform's structure
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) - The strategic design methodology that provides the theoretical foundation for domain specialization, including bounded contexts and ubiquitous language
+- [Bounded Context](@/glossary/bounded-context.md) - The DDD pattern that defines explicit boundaries around domain models, directly implementing domain specialization at the model level
+- [Agent](@/glossary/agent.md) - Autonomous software entities that embody domain specialization by possessing deep expertise in their assigned domain
+- [Modularity](@/glossary/modularity.md) - The software design principle that enables domain specialization through well-defined interfaces and encapsulation
+- [Supervision Tree](@/glossary/supervision-tree.md) - OTP supervision trees provide the fault isolation that allows specialized domains to fail independently without cascading
+- [Microservices](@/glossary/microservices.md) - An architectural style that takes domain specialization to the deployment level, with each service owning its domain
+- [Composability](@/glossary/composability.md) - The ability to compose specialized domains into larger capabilities through well-defined interfaces
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Enables domain specialization in storage and external integrations by abstracting implementation details behind domain interfaces
+- [Umbrella Application](@/glossary/umbrella-application.md) - Elixir's umbrella project structure that physically enforces domain boundaries at the application level
+- [Architecture](@/glossary/architecture.md) - Domain specialization is a fundamental architectural decision that shapes the entire platform's structure
 
 ## See Also
 
-- [Agent Tier](/glossary/agent-tier/) - The hierarchical organization of agents by specialization depth
-- [AIAD](/glossary/aiad/) - The AI Agent Development framework that codifies domain specialization for agents
-- [Layered Architecture](/glossary/layered-architecture/) - An alternative decomposition strategy that organizes by technical layer rather than domain
-- [CQRS](/glossary/cqrs/) - Command Query Responsibility Segregation, a pattern that applies specialization to read and write operations
-- [Event Sourcing](/glossary/event-sourcing/) - A pattern that supports domain specialization by decoupling domain events from their consumers
+- [Agent Tier](@/glossary/agent-tier.md) - The hierarchical organization of agents by specialization depth
+- [AIAD](@/glossary/aiad.md) - The AI Agent Development framework that codifies domain specialization for agents
+- [Layered Architecture](@/glossary/layered-architecture.md) - An alternative decomposition strategy that organizes by technical layer rather than domain
+- [CQRS](@/glossary/cqrs.md) - Command Query Responsibility Segregation, a pattern that applies specialization to read and write operations
+- [Event Sourcing](@/glossary/event-sourcing.md) - A pattern that supports domain specialization by decoupling domain events from their consumers
 
 ---
 

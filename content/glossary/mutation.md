@@ -227,11 +227,11 @@ This unified report system tracks mutation testing quality over time, ensuring b
 
 ## Cross-References
 
-- [Mutation Testing](/glossary/mutation-testing/) - The testing methodology using code mutations
-- [Mutant](/glossary/mutant/) - The modified code resulting from a mutation
-- [Mutation Score](/glossary/mutation-score/) - Quality metric derived from mutation results
-- [GraphQL](/glossary/graphql/) - Query language where mutations are write operations
-- [API](/glossary/api/) - Interface layer exposing mutation operations
+- [Mutation Testing](@/glossary/mutation-testing.md) - The testing methodology using code mutations
+- [Mutant](@/glossary/mutant.md) - The modified code resulting from a mutation
+- [Mutation Score](@/glossary/mutation-score.md) - Quality metric derived from mutation results
+- [GraphQL](@/glossary/graphql.md) - Query language where mutations are write operations
+- [API](@/glossary/api.md) - Interface layer exposing mutation operations
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

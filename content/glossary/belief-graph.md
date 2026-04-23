@@ -21,9 +21,9 @@ image_alt = "Belief Graph - Prismatic Platform"
 
 ## Definition
 
-A belief graph is a directed acyclic graph (DAG) that represents the platform's knowledge structure at any point in time. Nodes represent either evidence signals (raw data from external sources) or hypotheses (derived conclusions), while directed edges represent inference relationships -- "this evidence supports that hypothesis" or "this hypothesis depends on that premise." Every edge carries a weight reflecting the strength of the inferential relationship, a timestamp subject to [time decay](/glossary/time-decay/), and provenance metadata tracing the edge back to its origin.
+A belief graph is a directed acyclic graph (DAG) that represents the platform's knowledge structure at any point in time. Nodes represent either evidence signals (raw data from external sources) or hypotheses (derived conclusions), while directed edges represent inference relationships -- "this evidence supports that hypothesis" or "this hypothesis depends on that premise." Every edge carries a weight reflecting the strength of the inferential relationship, a timestamp subject to [time decay](@/glossary/time-decay.md), and provenance metadata tracing the edge back to its origin.
 
-The belief graph is the central data structure of the Prismatic Platform's epistemic infrastructure. It is the input to [QEVE](/glossary/qeve/) verification, the subject of [Trinity Gate](/glossary/trinity-gate/) evaluation, and the substrate on which all seven [NABLA Infinity](/glossary/nabla-infinity/) axioms operate. Every epistemic operation -- signal ingestion, hypothesis formation, confidence computation, contradiction detection, robustness testing -- is ultimately an operation on the belief graph.
+The belief graph is the central data structure of the Prismatic Platform's epistemic infrastructure. It is the input to [QEVE](@/glossary/qeve.md) verification, the subject of [Trinity Gate](@/glossary/trinity-gate.md) evaluation, and the substrate on which all seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms operate. Every epistemic operation -- signal ingestion, hypothesis formation, confidence computation, contradiction detection, robustness testing -- is ultimately an operation on the belief graph.
 
 The distinction between a belief graph and a conventional knowledge graph is fundamental. A knowledge graph asserts facts: "Entity A is related to Entity B." A belief graph asserts beliefs about facts, with quantified uncertainty: "There is evidence from two independent sources, weighted 0.73 and 0.68, that Entity A may be related to Entity B, with a contradiction index of 0.12 and a time-decayed confidence of 0.71." Knowledge graphs pretend certainty. Belief graphs quantify doubt.
 
@@ -31,7 +31,7 @@ The distinction between a belief graph and a conventional knowledge graph is fun
 
 ### Directed Acyclic Graphs
 
-A DAG is a directed graph containing no cycles. In the belief graph context, this structural constraint has a precise epistemic meaning: circular reasoning is forbidden. If Hypothesis A supports Hypothesis B, then B cannot support A, either directly or through any chain of intermediate nodes. The acyclicity constraint is enforced structurally by [Trinity Gate](/glossary/trinity-gate/)'s first layer (Structural Consistency) and is the most common point of gate failure, accounting for approximately 40% of rejections.
+A DAG is a directed graph containing no cycles. In the belief graph context, this structural constraint has a precise epistemic meaning: circular reasoning is forbidden. If Hypothesis A supports Hypothesis B, then B cannot support A, either directly or through any chain of intermediate nodes. The acyclicity constraint is enforced structurally by [Trinity Gate](@/glossary/trinity-gate.md)'s first layer (Structural Consistency) and is the most common point of gate failure, accounting for approximately 40% of rejections.
 
 Formally, the belief graph G = (V, E) consists of:
 - **V**: A set of vertices, partitioned into evidence nodes V_e and hypothesis nodes V_h
@@ -40,7 +40,7 @@ Formally, the belief graph G = (V, E) consists of:
 
 ### Topological Ordering
 
-Because the belief graph is a DAG, it admits a topological ordering: a linear arrangement of all nodes such that for every edge (u, v), node u appears before v. The topological ordering defines the evaluation sequence for the [QEVE](/glossary/qeve/) pipeline -- evidence nodes are evaluated first, then intermediate hypotheses in dependency order, then final conclusions. This ordering guarantees that every hypothesis is evaluated only after all of its supporting evidence has been processed.
+Because the belief graph is a DAG, it admits a topological ordering: a linear arrangement of all nodes such that for every edge (u, v), node u appears before v. The topological ordering defines the evaluation sequence for the [QEVE](@/glossary/qeve.md) pipeline -- evidence nodes are evaluated first, then intermediate hypotheses in dependency order, then final conclusions. This ordering guarantees that every hypothesis is evaluated only after all of its supporting evidence has been processed.
 
 The platform computes the topological ordering using Kahn's algorithm, which also serves as a cycle detection mechanism: if the algorithm cannot produce a complete ordering (some nodes remain with nonzero in-degree), the graph contains a cycle and is structurally invalid.
 
@@ -54,16 +54,16 @@ Connectivity analysis identifies isolated components -- subgraphs that are not c
 
 ### Evidence Nodes
 
-Evidence nodes represent raw signals from external sources. Each evidence node carries the full data model specified by the [QEVE](/glossary/qeve/) Evidence structure:
+Evidence nodes represent raw signals from external sources. Each evidence node carries the full data model specified by the [QEVE](@/glossary/qeve.md) Evidence structure:
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `signal_type` | atom | Classification (`:sanctions_hit`, `:ownership_change`, `:lawsuit`, etc.) |
-| `weight` | float | Signal strength [0.0, 1.0], subject to [time decay](/glossary/time-decay/) |
+| `weight` | float | Signal strength [0.0, 1.0], subject to [time decay](@/glossary/time-decay.md) |
 | `source_id` | string | Unique identifier for the originating source |
-| `independence_group` | string | Source independence grouping for [Signal Plurality](/glossary/signal-plurality/) validation |
+| `independence_group` | string | Source independence grouping for [Signal Plurality](@/glossary/signal-plurality.md) validation |
 | `timestamp` | DateTime | Collection timestamp (UTC, microsecond precision) |
-| `provenance` | map | Full chain of custody per [Provenance Mandatory](/glossary/provenance-mandatory/) |
+| `provenance` | map | Full chain of custody per [Provenance Mandatory](@/glossary/provenance-mandatory.md) |
 | `raw_data_hash` | string | SHA-256 hash of original data for integrity verification |
 
 Evidence nodes are leaf nodes in the DAG -- they have no incoming edges (no evidence supports evidence; evidence comes from external observation). They have outgoing edges to the hypothesis nodes they support.
@@ -78,7 +78,7 @@ Hypothesis nodes represent derived conclusions at varying levels of abstraction,
 | `premises` | list | References to supporting evidence or lower-level hypothesis nodes |
 | `rule_id` | string | Identifier of the inference rule deriving this hypothesis |
 | `risk_level` | atom | Assessed risk level (`:low`, `:medium`, `:high`, `:critical`) |
-| `threshold` | float | Minimum [confidence threshold](/glossary/confidence-threshold/) for acceptance |
+| `threshold` | float | Minimum [confidence threshold](@/glossary/confidence-threshold.md) for acceptance |
 | `confidence` | float | Current computed confidence, incorporating all axiom effects |
 | `contradiction_index` | float | Proportion of contradictory evidence [0.0, 1.0] |
 
@@ -95,7 +95,7 @@ A distinctive feature of the belief graph is explicit contradiction representati
 | `type` | atom | Contradiction category (`:direct`, `:inferential`, `:temporal`) |
 | `resolution_status` | atom | Always `:preserved` (resolution is forbidden by NABLA axiom) |
 
-Contradiction nodes implement the [Contradiction Preservation](/glossary/contradiction-preservation/) axiom structurally. They are visible to all downstream consumers and factor into [confidence scoring](/glossary/confidence-scoring/) through the contradiction index.
+Contradiction nodes implement the [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom structurally. They are visible to all downstream consumers and factor into [confidence scoring](@/glossary/confidence-scoring.md) through the contradiction index.
 
 ## Edge Properties
 
@@ -110,7 +110,7 @@ Every edge in the belief graph carries metadata beyond the bare inferential rela
 | `half_life` | Duration | Domain-specific half-life for decay calculation |
 | `provenance` | map | How this edge was derived (automatic inference, analyst judgment, etc.) |
 
-Edge weights are not static. They decay over time according to the configured decay function, implementing the [NABLA Infinity](/glossary/nabla-infinity/) Time Decay axiom at the graph level. An edge established 18 months ago with an exponential decay function and 6-month half-life would have its weight reduced by approximately 87.5% (three half-lives of decay).
+Edge weights are not static. They decay over time according to the configured decay function, implementing the [NABLA Infinity](@/glossary/nabla-infinity.md) Time Decay axiom at the graph level. An edge established 18 months ago with an exponential decay function and 6-month half-life would have its weight reduced by approximately 87.5% (three half-lives of decay).
 
 ## Belief Propagation
 
@@ -127,7 +127,7 @@ confidence(hypothesis) = aggregate(
 )
 ```
 
-The aggregation function is not a simple sum or average. It implements a weighted combination that respects [Signal Plurality](/glossary/signal-plurality/) (requiring at least two independent contributing signals) and penalizes correlated sources (reducing the effective weight of signals sharing an `independence_group`).
+The aggregation function is not a simple sum or average. It implements a weighted combination that respects [Signal Plurality](@/glossary/signal-plurality.md) (requiring at least two independent contributing signals) and penalizes correlated sources (reducing the effective weight of signals sharing an `independence_group`).
 
 ### Contradiction Impact
 
@@ -141,7 +141,7 @@ A hypothesis with raw confidence 0.90 and contradiction index 0.20 has effective
 
 ### Absence Propagation
 
-The [NABLA Infinity](/glossary/nabla-infinity/) "Absence Informative" axiom requires tracking expected-but-missing evidence. Absence propagates as a specific signal type: a node representing "expected evidence X was not found." This node participates in the belief graph with a configurable negative weight, reducing confidence in hypotheses that depend on the expected evidence.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) "Absence Informative" axiom requires tracking expected-but-missing evidence. Absence propagates as a specific signal type: a node representing "expected evidence X was not found." This node participates in the belief graph with a configurable negative weight, reducing confidence in hypotheses that depend on the expected evidence.
 
 ## Implementation Architecture
 
@@ -161,7 +161,7 @@ The graph is partitioned across three ETS tables:
 
 ### Persistent Snapshots
 
-ETS provides in-memory storage that is lost on process termination. The platform periodically snapshots the belief graph to persistent storage (PostgreSQL) for [audit trail](/glossary/audit-trail/) compliance and recovery. Snapshots are timestamped and immutable -- they represent the exact state of the belief graph at a specific moment, enabling forensic reconstruction of any historical assessment.
+ETS provides in-memory storage that is lost on process termination. The platform periodically snapshots the belief graph to persistent storage (PostgreSQL) for [audit trail](@/glossary/audit-trail.md) compliance and recovery. Snapshots are timestamped and immutable -- they represent the exact state of the belief graph at a specific moment, enabling forensic reconstruction of any historical assessment.
 
 ### Graph Mutations
 
@@ -170,7 +170,7 @@ All mutations to the belief graph are logged and versioned. Adding a signal, cre
 1. Applied to the in-memory ETS graph
 2. Recorded in the mutation log (append-only)
 3. Published via Telemetry for monitoring
-4. Persisted to the [audit trail](/glossary/audit-trail/)
+4. Persisted to the [audit trail](@/glossary/audit-trail.md)
 
 This architecture enables both real-time operation (fast ETS reads) and full auditability (complete mutation history).
 
@@ -197,11 +197,11 @@ Bayesian networks represent probabilistic dependencies between variables. Nodes 
 - Bayesian networks assume fixed structure; belief graphs evolve dynamically as new evidence arrives
 - Bayesian networks produce point estimates (posterior probabilities); belief graphs produce confidence intervals with robustness scores
 
-The platform's confidence propagation algorithm draws on Bayesian inference principles but extends them with [NABLA Infinity](/glossary/nabla-infinity/) axiom enforcement, contradiction preservation, and the multiplicative [confidence scoring](/glossary/confidence-scoring/) formula.
+The platform's confidence propagation algorithm draws on Bayesian inference principles but extends them with [NABLA Infinity](@/glossary/nabla-infinity.md) axiom enforcement, contradiction preservation, and the multiplicative [confidence scoring](@/glossary/confidence-scoring.md) formula.
 
 ### Argumentation Frameworks
 
-Dung's abstract argumentation frameworks (1995) represent arguments and attacks between them. An argument is "acceptable" if it is defended against all attacks. Belief graphs incorporate argumentation concepts -- contradictions function as attacks -- but extend them with weighted evidence, temporal decay, and formal verification through [QEVE](/glossary/qeve/).
+Dung's abstract argumentation frameworks (1995) represent arguments and attacks between them. An argument is "acceptable" if it is defended against all attacks. Belief graphs incorporate argumentation concepts -- contradictions function as attacks -- but extend them with weighted evidence, temporal decay, and formal verification through [QEVE](@/glossary/qeve.md).
 
 ## Graph Operations
 
@@ -215,7 +215,7 @@ When a new evidence signal arrives, the platform:
 4. Creates edges from the signal to relevant hypotheses
 5. If contradictions are detected, creates contradiction nodes
 6. Recomputes confidence for all affected hypotheses (forward propagation)
-7. Logs the mutation for [audit trail](/glossary/audit-trail/)
+7. Logs the mutation for [audit trail](@/glossary/audit-trail.md)
 
 ### Hypothesis Formation
 
@@ -224,7 +224,7 @@ New hypotheses are formed by inference rules that combine existing nodes:
 1. An inference rule matches a pattern of existing nodes
 2. A new hypothesis node is created with the matched nodes as premises
 3. Edges are created from premises to hypothesis
-4. [Signal Plurality](/glossary/signal-plurality/) is verified (at least 2 independent supporting signals)
+4. [Signal Plurality](@/glossary/signal-plurality.md) is verified (at least 2 independent supporting signals)
 5. Confidence is computed through forward propagation
 6. The hypothesis is evaluated against its acceptance threshold
 
@@ -241,18 +241,18 @@ Pruning never deletes nodes or edges from the active graph. Instead, it marks th
 
 ## Role in QEVE Pipeline
 
-The belief graph is the input to Stage 1 (Graph Build) of the [QEVE](/glossary/qeve/) pipeline. Stage 1 constructs or refreshes the belief graph from available evidence, enforcing NABLA axioms during construction. The subsequent stages operate on the graph:
+The belief graph is the input to Stage 1 (Graph Build) of the [QEVE](@/glossary/qeve.md) pipeline. Stage 1 constructs or refreshes the belief graph from available evidence, enforcing NABLA axioms during construction. The subsequent stages operate on the graph:
 
 - **Stage 2 (Structural Check)**: Validates DAG integrity, detects cycles, checks connectivity
 - **Stage 3 (Logical Check)**: Validates inference rules applied in the graph
-- **Stage 4 ([Formal Verification](/glossary/formal-verification/))**: Extracts theorems from the graph and proves them in Lean4
-- **Stage 5 ([Monte Carlo Verification](/glossary/monte-carlo-verification/))**: Perturbs the graph to test conclusion robustness
+- **Stage 4 ([Formal Verification](@/glossary/formal-verification.md))**: Extracts theorems from the graph and proves them in Lean4
+- **Stage 5 ([Monte Carlo Verification](@/glossary/monte-carlo-verification.md))**: Perturbs the graph to test conclusion robustness
 
 The belief graph is not a passive data structure. It is the medium through which the platform's epistemic reasoning is expressed, validated, and stress-tested.
 
 ## Entity Resolution Integration
 
-[Entity resolution](/glossary/entity-resolution/) -- determining whether two references point to the same real-world entity -- is a critical operation on the belief graph. When entity resolution identifies that two previously separate nodes refer to the same entity, the graph undergoes a merge operation:
+[Entity resolution](@/glossary/entity-resolution.md) -- determining whether two references point to the same real-world entity -- is a critical operation on the belief graph. When entity resolution identifies that two previously separate nodes refer to the same entity, the graph undergoes a merge operation:
 
 1. The two nodes are consolidated into a single node
 2. All incoming and outgoing edges from both nodes are transferred to the merged node
@@ -263,25 +263,25 @@ Entity resolution can both strengthen and weaken conclusions. Merging two entiti
 
 ## Related Terms
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework whose axioms govern belief graph construction and maintenance
-- [QEVE](/glossary/qeve/) -- Verification pipeline that operates on the belief graph
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate that evaluates belief graph structural consistency
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom enforcing minimum evidence diversity in the graph
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom requiring full traceability for all graph nodes and edges
-- [Time Decay](/glossary/time-decay/) -- Temporal weighting mechanism applied to graph edges
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Axiom requiring explicit contradiction representation in the graph
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Formula computing confidence from belief graph structure
-- [Monte Carlo Verification](/glossary/monte-carlo-verification/) -- Robustness testing through belief graph perturbation
-- [Formal Verification](/glossary/formal-verification/) -- Theorem extraction and proof from belief graph claims
-- [Entity Resolution](/glossary/entity-resolution/) -- Node merging operation on the belief graph
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- The 16-level pipeline in which the belief graph is processed
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of all belief graph mutations
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Decision thresholds applied to belief graph confidence scores
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework whose axioms govern belief graph construction and maintenance
+- [QEVE](@/glossary/qeve.md) -- Verification pipeline that operates on the belief graph
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate that evaluates belief graph structural consistency
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom enforcing minimum evidence diversity in the graph
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom requiring full traceability for all graph nodes and edges
+- [Time Decay](@/glossary/time-decay.md) -- Temporal weighting mechanism applied to graph edges
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Axiom requiring explicit contradiction representation in the graph
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Formula computing confidence from belief graph structure
+- [Monte Carlo Verification](@/glossary/monte-carlo-verification.md) -- Robustness testing through belief graph perturbation
+- [Formal Verification](@/glossary/formal-verification.md) -- Theorem extraction and proof from belief graph claims
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Node merging operation on the belief graph
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- The 16-level pipeline in which the belief graph is processed
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of all belief graph mutations
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Decision thresholds applied to belief graph confidence scores
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -290,4 +290,4 @@ Entity resolution can both strengthen and weaken conclusions. Merging two entiti
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

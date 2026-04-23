@@ -24,13 +24,13 @@ image_alt = "Prismatic Cache - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Cache provides a multi-layer caching system that reduces latency and external API consumption across the platform through a three-tier hierarchy: L1 (process-local [ETS](/glossary/ets/)) for sub-microsecond access, L2 (shared ETS) for cross-process caching within a node, and L3 ([Redis](/glossary/redis/)) for distributed caching across cluster nodes. For an intelligence platform querying 121+ [OSINT](/glossary/osint/) sources with strict rate limits and per-query costs, effective caching is a functional necessity. The system implements transparent fallthrough (L1 miss promotes to L2, L2 miss promotes to L3, L3 miss executes the origin function), per-source TTL configuration, pattern-based invalidation, event-driven invalidation through [PubSub](/glossary/pubsub/), cache warming for frequently accessed data, and comprehensive statistics tracking including hit rates, API call savings, and estimated cost savings. The cache saves an estimated 56,000+ daily API calls with an overall hit rate exceeding 99%.
+Prismatic Cache provides a multi-layer caching system that reduces latency and external API consumption across the platform through a three-tier hierarchy: L1 (process-local [ETS](@/glossary/ets.md)) for sub-microsecond access, L2 (shared ETS) for cross-process caching within a node, and L3 ([Redis](@/glossary/redis.md)) for distributed caching across cluster nodes. For an intelligence platform querying 121+ [OSINT](@/glossary/osint.md) sources with strict rate limits and per-query costs, effective caching is a functional necessity. The system implements transparent fallthrough (L1 miss promotes to L2, L2 miss promotes to L3, L3 miss executes the origin function), per-source TTL configuration, pattern-based invalidation, event-driven invalidation through [PubSub](@/glossary/pubsub.md), cache warming for frequently accessed data, and comprehensive statistics tracking including hit rates, API call savings, and estimated cost savings. The cache saves an estimated 56,000+ daily API calls with an overall hit rate exceeding 99%.
 
 ## 1. Introduction
 
 ### 1.1 Problem Statement
 
-The Prismatic Platform queries over 121 external OSINT sources, many with strict rate limits ([Shodan](/glossary/shodan/): 100 requests/hour, AbuseIPDB: 1,000 requests/day) and per-query costs. An entity that appears in multiple intelligence operations would trigger redundant queries to the same sources. Without caching, the platform would exhaust API quotas within hours of moderate usage, and response latency would be dominated by external API round-trip times.
+The Prismatic Platform queries over 121 external OSINT sources, many with strict rate limits ([Shodan](@/glossary/shodan.md): 100 requests/hour, AbuseIPDB: 1,000 requests/day) and per-query costs. An entity that appears in multiple intelligence operations would trigger redundant queries to the same sources. Without caching, the platform would exhaust API quotas within hours of moderate usage, and response latency would be dominated by external API round-trip times.
 
 Prismatic Cache ensures that each external query is performed at most once within its TTL window, regardless of how many platform components request the same data.
 
@@ -74,7 +74,7 @@ Application Request
 | Module | Responsibility |
 |--------|----------------|
 | `PrismaticCache` | Public facade: `fetch/3`, `put/3`, `invalidate/1`, `invalidate_pattern/1`, `stats/0` |
-| `PrismaticCache.L1` | Process-local ETS cache with per-[process isolation](/glossary/process-isolation/) |
+| `PrismaticCache.L1` | Process-local ETS cache with per-[process isolation](@/glossary/process-isolation.md) |
 | `PrismaticCache.L2` | Shared ETS cache accessible across all processes on a node |
 | `PrismaticCache.L3` | Redis-backed distributed cache for cross-node access |
 | `PrismaticCache.TTLManager` | Per-source TTL resolution and expiration enforcement |
@@ -99,7 +99,7 @@ PrismaticCache.Application (Supervisor, :one_for_one)
 
 ### 2.4 Data Flow
 
-A `fetch/3` call first checks L1 (process-local ETS). On a hit, the cached value is returned immediately. On a miss, L2 (shared ETS) is checked; a hit promotes the entry to L1 and returns. On an L2 miss, L3 (Redis) is checked; a hit promotes to L1 and L2. On an L3 miss, the origin function is executed, and the result is stored in all three layers. TTL is determined by the cache key [pattern matching](/glossary/pattern-matching/) against the per-source TTL configuration.
+A `fetch/3` call first checks L1 (process-local ETS). On a hit, the cached value is returned immediately. On a miss, L2 (shared ETS) is checked; a hit promotes the entry to L1 and returns. On an L2 miss, L3 (Redis) is checked; a hit promotes to L1 and L2. On an L3 miss, the origin function is executed, and the result is stored in all three layers. TTL is determined by the cache key [pattern matching](@/glossary/pattern-matching.md) against the per-source TTL configuration.
 
 ## 3. Implementation
 
@@ -187,17 +187,17 @@ config :prismatic_cache,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Storage](/apps/prismatic-storage/) | Redis adapter for L3 cache |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Cache hit/miss [metrics](/glossary/metrics/) |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Redis adapter for L3 cache |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Cache hit/miss [metrics](@/glossary/metrics.md) |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | OSINT query result caching |
-| [Prismatic API](/apps/prismatic-api/) | API response caching with ETag |
-| [Prismatic HAWKEYE](/apps/prismatic-hawkeye/) | Intelligence query caching |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Assessment result caching |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | OSINT query result caching |
+| [Prismatic API](@/apps/prismatic-api.md) | API response caching with ETag |
+| [Prismatic HAWKEYE](@/apps/prismatic-hawkeye.md) | Intelligence query caching |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Assessment result caching |
 
 ### 4.3 Inter-Process Communication
 
@@ -279,22 +279,22 @@ Planned enhancements include adaptive TTL based on source update frequency, cach
 
 ## References
 
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Primary cache consumer
-- [Prismatic Storage](/apps/prismatic-storage/) -- Redis adapter for L3
-- [Prismatic API](/apps/prismatic-api/) -- Response cache integration
-- [Prismatic Telemetry](/apps/prismatic-telemetry/) -- Cache metric pipeline
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Primary cache consumer
+- [Prismatic Storage](@/apps/prismatic-storage.md) -- Redis adapter for L3
+- [Prismatic API](@/apps/prismatic-api.md) -- Response cache integration
+- [Prismatic Telemetry](@/apps/prismatic-telemetry.md) -- Cache metric pipeline
 
 ## Related Agents
 
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Designs the three-tier cache layer abstraction with consistent interfaces across ETS, shared ETS, and Redis backends
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews cache architecture for correct promotion semantics, TTL resolution, and invalidation propagation
-- [Deployment Commander Agent](/agents/deployment-commander-agent/) -- Manages Redis deployment, cache warming schedules, and production cache configuration across environments
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Designs the three-tier cache layer abstraction with consistent interfaces across ETS, shared ETS, and Redis backends
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews cache architecture for correct promotion semantics, TTL resolution, and invalidation propagation
+- [Deployment Commander Agent](@/agents/deployment-commander-agent.md) -- Manages Redis deployment, cache warming schedules, and production cache configuration across environments
 
 ## Related Capabilities
 
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Tracks per-layer hit rates, API call savings, and cost estimation metrics for cache performance optimization
-- [Quality Gates](/capabilities/quality-gates/) -- Validates cache correctness through property-based testing of TTL expiration, promotion behavior, and invalidation patterns
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Detects cache degradation and triggers automatic recovery through connection pool reset and warming cycles
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Tracks per-layer hit rates, API call savings, and cost estimation metrics for cache performance optimization
+- [Quality Gates](@/capabilities/quality-gates.md) -- Validates cache correctness through property-based testing of TTL expiration, promotion behavior, and invalidation patterns
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Detects cache degradation and triggers automatic recovery through connection pool reset and warming cycles
 
 ---
 
@@ -303,4 +303,4 @@ Planned enhancements include adaptive TTL based on source update frequency, cach
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

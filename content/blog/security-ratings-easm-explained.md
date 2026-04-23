@@ -18,7 +18,7 @@ see_also = ["easm", "attack-surface", "risk-score", "security-assessment", "nis2
 image_alt = "Security Ratings and EASM: How Prismatic Perimeter Scores Your Attack Surface - Prismatic Platform"
 +++
 
-External Attack Surface Management (EASM) is the practice of continuously discovering, monitoring, and assessing an organization's internet-facing assets. [Prismatic Perimeter](/capabilities/easm/) is our EASM capability, designed to provide transparent, evidence-based security ratings that compete with established vendors like BitSight, Black Kite, and SecurityScorecard.
+External Attack Surface Management (EASM) is the practice of continuously discovering, monitoring, and assessing an organization's internet-facing assets. [Prismatic Perimeter](@/capabilities/easm.md) is our EASM capability, designed to provide transparent, evidence-based security ratings that compete with established vendors like BitSight, Black Kite, and SecurityScorecard.
 
 This post explains how the scoring methodology works.
 
@@ -118,7 +118,7 @@ curl -X POST https://api.prismatic-reality.com/v1/perimeter/discover \
   -d '{"domain": "your-company.com"}'
 ```
 
-Or use the [SDK](/developers/sdk/):
+Or use the [SDK](@/developers/sdk/_index.md):
 
 ```typescript
 const surface = await prismatic.perimeter.discover("your-company.com");
@@ -127,10 +127,10 @@ console.log(`Grade: ${surface.rating.grade}, Score: ${surface.rating.score}`);
 
 ## Further Reading
 
-- **[Perimeter Dashboard](/capabilities/easm/)** -- Interactive EASM overview
-- **[Due Diligence](/dd/)** -- How EASM integrates with DD workflows
-- **[Compliance](/capabilities/compliance/)** -- NIS2 and ZKB regulatory details
-- **[API Reference](/api/)** -- Full Perimeter API endpoints
+- **[Perimeter Dashboard](@/capabilities/easm.md)** -- Interactive EASM overview
+- **[Due Diligence](@/dd/_index.md)** -- How EASM integrates with DD workflows
+- **[Compliance](@/capabilities/compliance.md)** -- NIS2 and ZKB regulatory details
+- **[API Reference](@/api/_index.md)** -- Full Perimeter API endpoints
 
 ---
 

@@ -45,7 +45,7 @@ image_alt = "Dashboard - Prismatic Platform"
 
 A dashboard is a visual display of the most important information needed to achieve one or more objectives, consolidated and arranged on a single screen so the information can be monitored at a glance. In software engineering, dashboards serve as the primary human interface for understanding system state, detecting anomalies, tracking business metrics, and making operational decisions. They transform raw data streams into actionable visual narratives.
 
-Within the [Prismatic Platform](/glossary/application/), dashboards are not peripheral features but central operational tools. The platform exposes 15+ distinct dashboard views built with Phoenix [LiveView](/glossary/liveview/), [Flowbite](/glossary/flowbite/) UI components, and TailwindCSS. These dashboards provide real-time visibility into agent operations, security ratings, quality metrics, OSINT intelligence, and system health -- all rendered server-side and pushed to the browser over WebSocket connections without requiring a JavaScript framework.
+Within the [Prismatic Platform](@/glossary/application.md), dashboards are not peripheral features but central operational tools. The platform exposes 15+ distinct dashboard views built with Phoenix [LiveView](@/glossary/liveview.md), [Flowbite](@/glossary/flowbite.md) UI components, and TailwindCSS. These dashboards provide real-time visibility into agent operations, security ratings, quality metrics, OSINT intelligence, and system health -- all rendered server-side and pushed to the browser over WebSocket connections without requiring a JavaScript framework.
 
 ---
 
@@ -97,17 +97,17 @@ Tactical dashboards bridge operational and strategic concerns. They help manager
 
 ## Technical Deep Dive: Phoenix LiveView Dashboards
 
-Phoenix [LiveView](/glossary/liveview/) fundamentally changes dashboard architecture by eliminating the traditional client-server separation for real-time interfaces. Instead of building a JavaScript single-page application that polls a REST API, LiveView renders HTML on the server and pushes incremental DOM updates to the browser over a persistent WebSocket connection.
+Phoenix [LiveView](@/glossary/liveview.md) fundamentally changes dashboard architecture by eliminating the traditional client-server separation for real-time interfaces. Instead of building a JavaScript single-page application that polls a REST API, LiveView renders HTML on the server and pushes incremental DOM updates to the browser over a persistent WebSocket connection.
 
 ### Architectural Advantages
 
 **No JavaScript framework required.** Dashboard interactivity -- sorting tables, filtering data, toggling views, expanding details -- is handled entirely through server-side event handling. This eliminates an entire class of frontend complexity: no Redux, no React state management, no API serialization layer.
 
-**Automatic real-time updates.** When server state changes, the LiveView process automatically re-renders the affected template portions and sends minimal diffs to the browser. For dashboards displaying live [metrics](/glossary/metrics/), this means sub-second updates without polling.
+**Automatic real-time updates.** When server state changes, the LiveView process automatically re-renders the affected template portions and sends minimal diffs to the browser. For dashboards displaying live [metrics](@/glossary/metrics.md), this means sub-second updates without polling.
 
 **Server-side state management.** Dashboard state (selected filters, time ranges, expanded sections) lives in the LiveView process's memory. There is no state synchronization problem between client and server because the server is the single source of truth.
 
-**Built-in fault tolerance.** Each dashboard user session runs as an independent BEAM process under [OTP supervision](/glossary/supervision-tree/). If one user's session crashes, it is automatically restarted without affecting other users. The browser reconnects seamlessly.
+**Built-in fault tolerance.** Each dashboard user session runs as an independent BEAM process under [OTP supervision](@/glossary/supervision-tree.md). If one user's session crashes, it is automatically restarted without affecting other users. The browser reconnects seamlessly.
 
 ### LiveView Dashboard Implementation
 
@@ -208,7 +208,7 @@ end
 
 ### Template Pattern with Flowbite Components
 
-The corresponding LiveView template leverages [Flowbite](/glossary/flowbite/) components for consistent, accessible UI. The card-based layout follows the information hierarchy principle -- primary KPIs in the top row, detail tables and charts below:
+The corresponding LiveView template leverages [Flowbite](@/glossary/flowbite.md) components for consistent, accessible UI. The card-based layout follows the information hierarchy principle -- primary KPIs in the top row, detail tables and charts below:
 
 ```heex
 <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 mb-6">
@@ -307,7 +307,7 @@ Edward Tufte's principle of maximizing the data-ink ratio argues that every elem
 
 Dashboards often serve as the presentation layer for broader business intelligence (BI) systems. The Prismatic Platform integrates BI concepts at multiple levels:
 
-**Data Aggregation**: [Telemetry](/glossary/telemetry/) events from across the platform are aggregated into time-bucketed summaries suitable for dashboard display. Raw event rates of thousands per second are reduced to meaningful aggregates (averages, percentiles, counts) computed at configurable intervals.
+**Data Aggregation**: [Telemetry](@/glossary/telemetry.md) events from across the platform are aggregated into time-bucketed summaries suitable for dashboard display. Raw event rates of thousands per second are reduced to meaningful aggregates (averages, percentiles, counts) computed at configurable intervals.
 
 **Dimensional Analysis**: Metrics can be sliced along multiple dimensions -- by application, by agent tier, by time period, by geographic region. The dashboard provides interactive filters that allow users to explore these dimensions without requiring new queries.
 
@@ -405,16 +405,16 @@ Loading all dashboard data synchronously in the `mount/3` callback. This blocks 
 
 | Technology | Relationship to Dashboards |
 |---|---|
-| [LiveView](/glossary/liveview/) | Server-rendered real-time UI framework powering Prismatic dashboards |
-| [Flowbite](/glossary/flowbite/) | TailwindCSS component library providing dashboard UI elements |
-| [Telemetry](/glossary/telemetry/) | Event and metrics collection infrastructure feeding dashboard data |
-| [Monitoring](/glossary/monitoring/) | Operational practice that dashboards visualize and make actionable |
-| [Metrics](/glossary/metrics/) | Quantitative measurements displayed on dashboards |
-| [Scalability](/glossary/scalability/) | Quality attribute tracked through dashboard KPIs |
-| [Fault Tolerance](/glossary/fault-tolerance/) | Resilience property monitored via dashboard health indicators |
-| [OTP](/glossary/otp/) | Foundation enabling per-user dashboard process isolation |
-| [EASM](/glossary/easm/) | External Attack Surface Management displayed through security dashboards |
-| [Supervision Tree](/glossary/supervision-tree/) | Process hierarchy ensuring dashboard session fault tolerance |
+| [LiveView](@/glossary/liveview.md) | Server-rendered real-time UI framework powering Prismatic dashboards |
+| [Flowbite](@/glossary/flowbite.md) | TailwindCSS component library providing dashboard UI elements |
+| [Telemetry](@/glossary/telemetry.md) | Event and metrics collection infrastructure feeding dashboard data |
+| [Monitoring](@/glossary/monitoring.md) | Operational practice that dashboards visualize and make actionable |
+| [Metrics](@/glossary/metrics.md) | Quantitative measurements displayed on dashboards |
+| [Scalability](@/glossary/scalability.md) | Quality attribute tracked through dashboard KPIs |
+| [Fault Tolerance](@/glossary/fault-tolerance.md) | Resilience property monitored via dashboard health indicators |
+| [OTP](@/glossary/otp.md) | Foundation enabling per-user dashboard process isolation |
+| [EASM](@/glossary/easm.md) | External Attack Surface Management displayed through security dashboards |
+| [Supervision Tree](@/glossary/supervision-tree.md) | Process hierarchy ensuring dashboard session fault tolerance |
 
 ---
 
@@ -434,20 +434,20 @@ Loading all dashboard data synchronously in the `mount/3` callback. This blocks 
 
 ## See Also
 
-- [LiveView](/glossary/liveview/) -- Phoenix framework for real-time server-rendered interfaces
-- [Monitoring](/glossary/monitoring/) -- Operational practice of observing system health
-- [Telemetry](/glossary/telemetry/) -- Elixir metrics and event collection library
-- [Flowbite](/glossary/flowbite/) -- TailwindCSS component library for UI design
-- [Metrics](/glossary/metrics/) -- Quantitative system measurements
-- [Scalability](/glossary/scalability/) -- System capacity and growth management
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Resilience through failure isolation
-- [OTP](/glossary/otp/) -- Open Telecom Platform framework
-- [Supervision Tree](/glossary/supervision-tree/) -- Process hierarchy management
-- [EASM](/glossary/easm/) -- External Attack Surface Management
+- [LiveView](@/glossary/liveview.md) -- Phoenix framework for real-time server-rendered interfaces
+- [Monitoring](@/glossary/monitoring.md) -- Operational practice of observing system health
+- [Telemetry](@/glossary/telemetry.md) -- Elixir metrics and event collection library
+- [Flowbite](@/glossary/flowbite.md) -- TailwindCSS component library for UI design
+- [Metrics](@/glossary/metrics.md) -- Quantitative system measurements
+- [Scalability](@/glossary/scalability.md) -- System capacity and growth management
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Resilience through failure isolation
+- [OTP](@/glossary/otp.md) -- Open Telecom Platform framework
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Process hierarchy management
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management
 
 ---
 
 ## Connect & Contribute
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

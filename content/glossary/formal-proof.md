@@ -356,24 +356,24 @@ With 530+ agents in the platform ecosystem, formal proofs verify critical safety
 
 Formal proof connects to numerous concepts in the Prismatic Platform:
 
-- [Formal Necessity](/glossary/formal-necessity/) is the modal logic property that formal proofs establish within the Trinity Gate framework
-- [Formal Verification](/glossary/formal-verification/) is the broader discipline encompassing formal proofs, model checking, and static analysis
-- [Theorem Proving](/glossary/theorem-proving/) covers the algorithms and heuristics used to construct formal proofs
-- [Lean4](/glossary/lean4/) is the proof assistant used by the Prismatic Platform for constructing and checking formal proofs
-- [Trinity Gate](/glossary/trinity-gate/) is the verification framework where formal proofs provide evidence for the formal necessity pillar
-- [Property-Based Testing](/glossary/property-based-testing/) is a complementary technique that uses randomized testing to explore universal properties
-- [Static Analysis](/glossary/static-analysis/) provides lightweight verification that complements formal proofs for common error classes
-- [Dialyzer](/glossary/dialyzer/) is the Elixir/Erlang static analysis tool that provides success typing analysis
-- [Logical Consistency](/glossary/logical-consistency/) is the second Trinity Gate pillar that formal proofs support
-- [Nabla Infinity](/glossary/nabla-infinity/) is the epistemic framework that mandates formal proofs for high-confidence claims
+- [Formal Necessity](@/glossary/formal-necessity.md) is the modal logic property that formal proofs establish within the Trinity Gate framework
+- [Formal Verification](@/glossary/formal-verification.md) is the broader discipline encompassing formal proofs, model checking, and static analysis
+- [Theorem Proving](@/glossary/theorem-proving.md) covers the algorithms and heuristics used to construct formal proofs
+- [Lean4](@/glossary/lean4.md) is the proof assistant used by the Prismatic Platform for constructing and checking formal proofs
+- [Trinity Gate](@/glossary/trinity-gate.md) is the verification framework where formal proofs provide evidence for the formal necessity pillar
+- [Property-Based Testing](@/glossary/property-based-testing.md) is a complementary technique that uses randomized testing to explore universal properties
+- [Static Analysis](@/glossary/static-analysis.md) provides lightweight verification that complements formal proofs for common error classes
+- [Dialyzer](@/glossary/dialyzer.md) is the Elixir/Erlang static analysis tool that provides success typing analysis
+- [Logical Consistency](@/glossary/logical-consistency.md) is the second Trinity Gate pillar that formal proofs support
+- [Nabla Infinity](@/glossary/nabla-infinity.md) is the epistemic framework that mandates formal proofs for high-confidence claims
 
 ## See Also
 
-- [Modal Logic](/glossary/modal-logic/) for the theoretical framework underlying necessity proofs
-- [Quality Gates](/glossary/quality-gates/) for how formal proof verification integrates with the CI/CD pipeline
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) for the philosophical context of formal proof in knowledge systems
-- [Evidence](/glossary/evidence/) for the broader evidence framework where formal proofs serve as the highest tier
-- [Code Quality](/glossary/code-quality/) for the platform's comprehensive quality assurance approach
+- [Modal Logic](@/glossary/modal-logic.md) for the theoretical framework underlying necessity proofs
+- [Quality Gates](@/glossary/quality-gates.md) for how formal proof verification integrates with the CI/CD pipeline
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) for the philosophical context of formal proof in knowledge systems
+- [Evidence](@/glossary/evidence.md) for the broader evidence framework where formal proofs serve as the highest tier
+- [Code Quality](@/glossary/code-quality.md) for the platform's comprehensive quality assurance approach
 
 ---
 

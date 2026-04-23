@@ -24,13 +24,13 @@ image_alt = "Multi-Paradigm Problem Solving - Prismatic Platform"
 
 Multi-Paradigm Problem Solving enables platform agents to apply multiple problem-solving paradigms to complex challenges. Rather than constraining agents to a single computational model, the Prismatic Platform embraces the insight that different problem domains respond optimally to different computational paradigms. Agents combine functional programming patterns, logical reasoning, heuristic approaches, graph-based analysis, and formal verification methods to achieve solutions that no single paradigm could deliver alone.
 
-This capability is foundational to the platform's approach to [Intelligence Synthesis](/capabilities/intelligence-synthesis/), where real-world problems rarely conform to a single analytical model. A compliance assessment, for instance, may require functional data transformations, logical rule evaluation, graph traversal for entity relationships, and formal proofs for regulatory completeness -- all within a single investigation workflow.
+This capability is foundational to the platform's approach to [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md), where real-world problems rarely conform to a single analytical model. A compliance assessment, for instance, may require functional data transformations, logical rule evaluation, graph traversal for entity relationships, and formal proofs for regulatory completeness -- all within a single investigation workflow.
 
 The multi-paradigm approach is not eclecticism. It is a structured capability where paradigm selection is governed by problem characteristics, agent tier authority, and quality requirements. Each paradigm has defined strengths, known limitations, and measurable performance characteristics. The platform's paradigm selection protocol matches problems to paradigms based on empirical evidence, not arbitrary preference.
 
 ## Paradigm Catalog
 
-The platform supports six distinct problem-solving paradigms, each implemented through [Elixir](/technologies/elixir/)/OTP's capabilities and extended through specialized libraries and formal tools.
+The platform supports six distinct problem-solving paradigms, each implemented through [Elixir](@/technologies/elixir.md)/OTP's capabilities and extended through specialized libraries and formal tools.
 
 ### Functional Programming
 
@@ -138,11 +138,11 @@ The White Team agents employ formal verification through Lean4 theorem proving, 
 
 | Formal Method | Platform Application | Guarantee Level |
 |---------------|---------------------|-----------------|
-| **Lean4 Proofs** | [Trinity Gate](/capabilities/trinity-gate/) Layer 3 (Formal Necessity) | Mathematical certainty |
+| **Lean4 Proofs** | [Trinity Gate](@/capabilities/trinity-gate.md) Layer 3 (Formal Necessity) | Mathematical certainty |
 | **Property-Based Testing** | Adapter contract compliance | Exhaustive input space coverage |
 | **Typespec + Dialyzer** | Type safety across modules | Static type verification |
 | **Contract Testing** | Storage adapter behavior | Interface compliance proof |
-| **Invariant Proofs** | [NABLA Axioms](/capabilities/nabla-axioms/) enforcement | Epistemic correctness |
+| **Invariant Proofs** | [NABLA Axioms](@/capabilities/nabla-axioms.md) enforcement | Epistemic correctness |
 
 ### Epistemic Reasoning
 
@@ -192,7 +192,7 @@ Problem Input --> Complexity Assessment --> Paradigm Selection --> Execute --> V
 
 ### Combined Paradigm Example
 
-A typical [EASM](/capabilities/easm/) security assessment demonstrates multi-paradigm synergy.
+A typical [EASM](@/capabilities/easm.md) security assessment demonstrates multi-paradigm synergy.
 
 | Phase | Paradigm | Operation | Output |
 |-------|----------|-----------|--------|
@@ -200,12 +200,12 @@ A typical [EASM](/capabilities/easm/) security assessment demonstrates multi-par
 | **2** | OTP | Parallel discovery across DNS, certificates, ports, cloud | Raw discovery data |
 | **3** | Graph | Map relationships between discovered assets and entities | Asset relationship graph |
 | **4** | Epistemic | Score findings with NABLA-compliant confidence levels | Calibrated risk scores |
-| **5** | Formal | Verify [Compliance](/capabilities/compliance/) claims against NIS2 requirements | Formal compliance proof |
+| **5** | Formal | Verify [Compliance](@/capabilities/compliance.md) claims against NIS2 requirements | Formal compliance proof |
 | **6** | Heuristic | Apply pattern-based risk scoring from historical data | Comparative risk assessment |
 
 ## Agent Tier Integration
 
-Paradigm availability is governed by the [AIAD Standard](/capabilities/aiad-standard/) tier system, ensuring that complex multi-paradigm operations are coordinated by appropriately authorized agents.
+Paradigm availability is governed by the [AIAD Standard](@/capabilities/aiad-standard.md) tier system, ensuring that complex multi-paradigm operations are coordinated by appropriately authorized agents.
 
 | Agent Tier | Available Paradigms | Authority |
 |------------|---------------------|-----------|
@@ -222,11 +222,11 @@ Every paradigm application passes through the platform's quality infrastructure.
 
 | Quality Layer | Paradigm Validation | Enforcement |
 |--------------|-------------------|-------------|
-| **[Quality Gates](/capabilities/quality-gates/)** | Compilation, Credo, Dialyzer, test coverage | BLOCKING |
-| **[Trinity Gate](/capabilities/trinity-gate/)** | Structural, logical, formal verification | BLOCKING for epistemic output |
-| **[NO MERCY](/capabilities/no-mercy/)** | Zero tolerance for incomplete paradigm application | BLOCKING |
-| **[NO DOUBTS](/capabilities/no-doubts/)** | Evidence-based paradigm selection with documented rationale | BLOCKING |
-| **[NABLA Axioms](/capabilities/nabla-axioms/)** | Epistemic paradigm axiom compliance | BLOCKING for epistemic operations |
+| **[Quality Gates](@/capabilities/quality-gates.md)** | Compilation, Credo, Dialyzer, test coverage | BLOCKING |
+| **[Trinity Gate](@/capabilities/trinity-gate.md)** | Structural, logical, formal verification | BLOCKING for epistemic output |
+| **[NO MERCY](@/capabilities/no-mercy.md)** | Zero tolerance for incomplete paradigm application | BLOCKING |
+| **[NO DOUBTS](@/capabilities/no-doubts.md)** | Evidence-based paradigm selection with documented rationale | BLOCKING |
+| **[NABLA Axioms](@/capabilities/nabla-axioms.md)** | Epistemic paradigm axiom compliance | BLOCKING for epistemic operations |
 
 ## Performance and Metrics
 
@@ -271,19 +271,19 @@ config :prismatic_agents, PrismaticAgents.ParadigmMonitor,
 
 ## Integration
 
-- Applied through [NABLA Axioms](/capabilities/nabla-axioms/) for epistemic problems
-- Validated by [Trinity Gate](/capabilities/trinity-gate/) formal verification for all conclusions
-- Powered by [Telemetry Integration](/capabilities/telemetry-integration/) for paradigm performance tracking
-- Governed by [NO DOUBTS](/capabilities/no-doubts/) evidence requirements for paradigm selection
-- Quality enforced by [NO MERCY](/capabilities/no-mercy/) zero-tolerance standards
-- Supports [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) through multi-paradigm diagnostic analysis
-- Feeds [Intelligence Synthesis](/capabilities/intelligence-synthesis/) with paradigm-appropriate analytical outputs
-- Tier-governed by [AIAD Standard](/capabilities/aiad-standard/) authority definitions
-- Compliance verified by [AIAD Compliance](/capabilities/aiad-compliance/)
-- Monitored by [Real-Time Monitoring](/capabilities/real-time-monitoring/) for operational metrics
-- [Quality Gates](/capabilities/quality-gates/) enforce paradigm-specific quality requirements
-- [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) enables paradigm application across domains
-- [Color Teams](/capabilities/color-teams/) White Team provides formal verification paradigm
+- Applied through [NABLA Axioms](@/capabilities/nabla-axioms.md) for epistemic problems
+- Validated by [Trinity Gate](@/capabilities/trinity-gate.md) formal verification for all conclusions
+- Powered by [Telemetry Integration](@/capabilities/telemetry-integration.md) for paradigm performance tracking
+- Governed by [NO DOUBTS](@/capabilities/no-doubts.md) evidence requirements for paradigm selection
+- Quality enforced by [NO MERCY](@/capabilities/no-mercy.md) zero-tolerance standards
+- Supports [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) through multi-paradigm diagnostic analysis
+- Feeds [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) with paradigm-appropriate analytical outputs
+- Tier-governed by [AIAD Standard](@/capabilities/aiad-standard.md) authority definitions
+- Compliance verified by [AIAD Compliance](@/capabilities/aiad-compliance.md)
+- Monitored by [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) for operational metrics
+- [Quality Gates](@/capabilities/quality-gates.md) enforce paradigm-specific quality requirements
+- [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) enables paradigm application across domains
+- [Color Teams](@/capabilities/color-teams.md) White Team provides formal verification paradigm
 
 ---
 
@@ -292,4 +292,4 @@ config :prismatic_agents, PrismaticAgents.ParadigmMonitor,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

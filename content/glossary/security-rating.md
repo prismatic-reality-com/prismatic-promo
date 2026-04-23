@@ -44,7 +44,7 @@ A Security Rating is a quantified assessment of an organization's external secur
 
 Security ratings emerged in the cybersecurity industry as a response to the opacity of organizational security posture. Before rating systems, assessing a vendor's or partner's security required expensive audits, lengthy questionnaires, and subjective evaluation. Security ratings provide an objective, continuously updated, evidence-based assessment that can be computed without the target organization's cooperation, using only externally observable data. This external-only approach is both the primary strength and the primary limitation of security ratings.
 
-The Prismatic Platform's Security Rating system, implemented within [Prismatic Perimeter](/apps/prismatic-perimeter/), competes with commercial platforms such as BitSight, Black Kite, and SecurityScorecard. It differentiates through integration with EU and Czech compliance frameworks (NIS2 and ZKB), evidence-based scoring with explicit confidence levels, and the epistemic rigor of the NABLA Infinity framework ensuring that ratings are grounded in plural, independent evidence sources rather than single-signal assessments.
+The Prismatic Platform's Security Rating system, implemented within [Prismatic Perimeter](@/apps/prismatic-perimeter.md), competes with commercial platforms such as BitSight, Black Kite, and SecurityScorecard. It differentiates through integration with EU and Czech compliance frameworks (NIS2 and ZKB), evidence-based scoring with explicit confidence levels, and the epistemic rigor of the NABLA Infinity framework ensuring that ratings are grounded in plural, independent evidence sources rather than single-signal assessments.
 
 ## Technical Deep Dive
 
@@ -908,13 +908,13 @@ end
 
 ## Related Concepts
 
-- [EASM](/glossary/easm/) -- The system producing security ratings through external scanning
-- [NIS2 Directive](/glossary/nis2/) -- EU compliance factor influencing ratings
-- [ZKB](/glossary/zkb/) -- Czech compliance factor influencing ratings
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom enforcing multi-source evidence
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Rating confidence methodology
-- [HAWKEYE](/glossary/hawkeye/) -- Visitor intelligence contributing to security posture
-- [Risk Score](/glossary/risk-score/) -- Per-finding risk quantification within rating dimensions
+- [EASM](@/glossary/easm.md) -- The system producing security ratings through external scanning
+- [NIS2 Directive](@/glossary/nis2.md) -- EU compliance factor influencing ratings
+- [ZKB](@/glossary/zkb.md) -- Czech compliance factor influencing ratings
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom enforcing multi-source evidence
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Rating confidence methodology
+- [HAWKEYE](@/glossary/hawkeye.md) -- Visitor intelligence contributing to security posture
+- [Risk Score](@/glossary/risk-score.md) -- Per-finding risk quantification within rating dimensions
 
 ## See Also
 
@@ -922,8 +922,8 @@ end
 - [prismatic_perimeter_core](../../../apps/prismatic_perimeter_core/README.md) -- Rating engine core logic
 - [prismatic_compliance](../../../apps/prismatic_compliance/README.md) -- Compliance assessment linked to security ratings
 - [prismatic_osint_core](../../../apps/prismatic_osint_core/README.md) -- OSINT data feeding rating calculations
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Application directory including Prismatic Perimeter
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Application directory including Prismatic Perimeter
 
 ---
 
@@ -932,4 +932,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

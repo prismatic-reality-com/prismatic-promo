@@ -211,10 +211,10 @@ Logger.info("Fetch completed", record_count: 98, duration_ms: 1250)
 
 ## Cross-References
 
-- [Telemetry](/glossary/telemetry/) - Event system complementing structured logging
-- [Monitoring](/glossary/monitoring/) - Infrastructure consuming structured log data
-- [Observability](/glossary/observability/) - Broader practice encompassing structured logging
-- [JSON](/glossary/json/) - Data format used for structured log entries
+- [Telemetry](@/glossary/telemetry.md) - Event system complementing structured logging
+- [Monitoring](@/glossary/monitoring.md) - Infrastructure consuming structured log data
+- [Observability](@/glossary/observability.md) - Broader practice encompassing structured logging
+- [JSON](@/glossary/json.md) - Data format used for structured log entries
 
 ---
 

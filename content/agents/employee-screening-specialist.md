@@ -28,9 +28,9 @@ image_alt = "employee-screening-specialist - Prismatic Platform"
 
 ## Overview
 
-The Employee Screening Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Compliance domain of the Prismatic Platform. This agent performs systematic background verification of personnel against Czech public registries, sanction lists, and regulatory databases to support Critical Entity Resilience (CER) compliance requirements. Employee screening is a mandatory obligation under both the EU [NIS2](/glossary/nis2/) Directive (2022/2555) and Czech [ZKB](/glossary/zkb/) legislation (264/2025 Sb.) for organizations operating critical infrastructure.
+The Employee Screening Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Compliance domain of the Prismatic Platform. This agent performs systematic background verification of personnel against Czech public registries, sanction lists, and regulatory databases to support Critical Entity Resilience (CER) compliance requirements. Employee screening is a mandatory obligation under both the EU [NIS2](@/glossary/nis2.md) Directive (2022/2555) and Czech [ZKB](@/glossary/zkb.md) legislation (264/2025 Sb.) for organizations operating critical infrastructure.
 
-Screening operations require careful balance between thoroughness and privacy compliance. The Employee Screening Specialist queries Czech business registries, insolvency registers, and criminal record abstracts through authorized channels while maintaining strict [GDPR](/glossary/gdpr/) compliance throughout the process. Each screening result is produced with explicit confidence scores, source attribution, and temporal validity markers, ensuring that screening decisions are evidence-based and auditable.
+Screening operations require careful balance between thoroughness and privacy compliance. The Employee Screening Specialist queries Czech business registries, insolvency registers, and criminal record abstracts through authorized channels while maintaining strict [GDPR](@/glossary/gdpr.md) compliance throughout the process. Each screening result is produced with explicit confidence scores, source attribution, and temporal validity markers, ensuring that screening decisions are evidence-based and auditable.
 
 The Prismatic Platform's compliance capabilities serve organizations that operate critical infrastructure within Czech and EU jurisdictions. These organizations face regulatory requirements to verify the trustworthiness of personnel who access critical systems, handle sensitive data, or occupy positions of organizational authority. The Employee Screening Specialist automates the verification process that these organizations would otherwise perform manually through fragmented registry access, providing structured, repeatable, and auditable screening workflows.
 
@@ -44,9 +44,9 @@ The domain intersects with both the Czech domain (for registry access) and the I
 
 The Employee Screening Specialist provides six core screening capabilities targeting personnel verification requirements.
 
-**Multi-[registry](/glossary/registry-otp/) screening** queries Czech business registries, insolvency databases, and sanction lists to build comprehensive personnel risk profiles. The screening pipeline queries ARES for business involvement, Justice.cz for corporate officer positions, ISIR for insolvency proceedings, and international sanction lists for regulatory compliance flags. Each registry query returns structured results that are normalized and aggregated into a unified screening profile.
+**Multi-[registry](@/glossary/registry-otp.md) screening** queries Czech business registries, insolvency databases, and sanction lists to build comprehensive personnel risk profiles. The screening pipeline queries ARES for business involvement, Justice.cz for corporate officer positions, ISIR for insolvency proceedings, and international sanction lists for regulatory compliance flags. Each registry query returns structured results that are normalized and aggregated into a unified screening profile.
 
-**Risk scoring** computes configurable [risk score](/glossary/risk-score/)s based on screening findings, combining multiple risk factors with weighted scoring models. Risk factors include insolvency history (weighted by recency and resolution status), active litigation involvement, sanction list presence, corporate officer positions in high-risk entities, and cross-entity relationship patterns that suggest undisclosed conflicts of interest. Scoring models are configurable per organization to reflect different risk tolerance levels and regulatory requirements.
+**Risk scoring** computes configurable [risk score](@/glossary/risk-score.md)s based on screening findings, combining multiple risk factors with weighted scoring models. Risk factors include insolvency history (weighted by recency and resolution status), active litigation involvement, sanction list presence, corporate officer positions in high-risk entities, and cross-entity relationship patterns that suggest undisclosed conflicts of interest. Scoring models are configurable per organization to reflect different risk tolerance levels and regulatory requirements.
 
 **GDPR-compliant processing** ensures all personal data processing adheres to data minimization, purpose limitation, and retention policies required by European privacy regulations. The screening specialist collects only data relevant to the screening purpose, processes it within defined retention windows, and provides data subject access capabilities required by GDPR Articles 15-20. Processing activities are logged for GDPR accountability requirements under Article 30.
 
@@ -110,10 +110,10 @@ The Employee Screening Specialist's capabilities map directly to regulatory requ
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [cer-compliance-commander](/agents/cer-compliance-commander/) | Command Authority | Receives screening directives and reports results for CER compliance assessment |
-| [supplier-vetting-specialist](/agents/supplier-vetting-specialist/) | Screening Partner | Coordinates screening methodology shared between employee and supplier verification |
-| [czech-registry-person-investigator](/agents/czech-registry-person-investigator/) | Registry Access | Provides Czech registry query capabilities for person-level investigations |
-| [district-court-specialist](/agents/district-court-specialist/) | Legal Data | Provides court record analysis for litigation history screening |
+| [cer-compliance-commander](@/agents/cer-compliance-commander.md) | Command Authority | Receives screening directives and reports results for CER compliance assessment |
+| [supplier-vetting-specialist](@/agents/supplier-vetting-specialist.md) | Screening Partner | Coordinates screening methodology shared between employee and supplier verification |
+| [czech-registry-person-investigator](@/agents/czech-registry-person-investigator.md) | Registry Access | Provides Czech registry query capabilities for person-level investigations |
+| [district-court-specialist](@/agents/district-court-specialist.md) | Legal Data | Provides court record analysis for litigation history screening |
 
 ## Integration Architecture
 
@@ -121,10 +121,10 @@ The Employee Screening Specialist's capabilities map directly to regulatory requ
 |-----------|-------------|---------|
 | Czech Registries | Data source | Public registry queries for screening data |
 | Sanction Lists | Data source | International sanction list screening |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Evidence persistence | Screening result storage with GDPR compliance |
-| [Entity Resolution](/glossary/entity-resolution/) | Identity matching | Cross-registry identity verification |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Evidence persistence | Screening result storage with GDPR compliance |
+| [Entity Resolution](@/glossary/entity-resolution.md) | Identity matching | Cross-registry identity verification |
 | Report Synthesis | Output formatting | Compliance-ready report generation |
-| [Telemetry](/glossary/telemetry/) | Operational metrics | Screening throughput and accuracy tracking |
+| [Telemetry](@/glossary/telemetry.md) | Operational metrics | Screening throughput and accuracy tracking |
 
 ## Privacy Safeguards
 
@@ -141,13 +141,13 @@ Employee screening involves personal data processing that requires strict privac
 
 ## Enforcement
 
-Employee screening operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No screening report is issued without verified source data from at least two independent registries, per NABLA [Signal Plurality](/glossary/signal-plurality/). Screening results without explicit confidence scores and provenance chains are rejected as incomplete. GDPR violations in screening operations trigger immediate L3 escalation and process halt. Screening reports that exceed their temporal validity are automatically flagged and excluded from compliance evidence until re-screening is completed.
+Employee screening operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No screening report is issued without verified source data from at least two independent registries, per NABLA [Signal Plurality](@/glossary/signal-plurality.md). Screening results without explicit confidence scores and provenance chains are rejected as incomplete. GDPR violations in screening operations trigger immediate L3 escalation and process halt. Screening reports that exceed their temporal validity are automatically flagged and excluded from compliance evidence until re-screening is completed.
 
 ## Related Agents
 
-- [**cer-compliance-commander**](/agents/cer-compliance-commander/) (L3) - CER compliance assessment and directive coordination
-- [**supplier-vetting-specialist**](/agents/supplier-vetting-specialist/) (L3) - Supply chain partner verification using shared screening methodology
-- [**czech-registry-person-investigator**](/agents/czech-registry-person-investigator/) (L3) - Czech registry person-level investigation capabilities
+- [**cer-compliance-commander**](@/agents/cer-compliance-commander.md) (L3) - CER compliance assessment and directive coordination
+- [**supplier-vetting-specialist**](@/agents/supplier-vetting-specialist.md) (L3) - Supply chain partner verification using shared screening methodology
+- [**czech-registry-person-investigator**](@/agents/czech-registry-person-investigator.md) (L3) - Czech registry person-level investigation capabilities
 
 ---
 
@@ -156,4 +156,4 @@ Employee screening operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-do
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

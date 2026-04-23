@@ -28,7 +28,7 @@ image_alt = "llm-unified-orchestrator - Prismatic Platform"
 
 ## Overview
 
-The LLM Unified Orchestrator operates as an L2 tactical operations agent providing strategic orchestration of multi-provider LLM operations with [3NL](/glossary/three-nl/) (Three-Normative-Layer) integration within the Prismatic Platform. This agent serves as the unified execution layer that receives routed LLM requests and manages the complete lifecycle of each request through prompt construction, provider API interaction, response validation, and result integration back into the platform's intelligence pipeline.
+The LLM Unified Orchestrator operates as an L2 tactical operations agent providing strategic orchestration of multi-provider LLM operations with [3NL](@/glossary/three-nl.md) (Three-Normative-Layer) integration within the Prismatic Platform. This agent serves as the unified execution layer that receives routed LLM requests and manages the complete lifecycle of each request through prompt construction, provider API interaction, response validation, and result integration back into the platform's intelligence pipeline.
 
 While the LLM Routing Orchestrator decides where to send requests, the Unified Orchestrator handles how requests are executed. This includes prompt template management, context window optimization, response quality validation, retry handling, and integration with the 3NL framework for linguistically-aware response processing. The orchestrator ensures that LLM responses meet quality thresholds before they influence platform decisions.
 
@@ -143,7 +143,7 @@ Every LLM response undergoes quality validation before being accepted.
 
 ## Key Capabilities
 
-- **Multi-provider execution** managing LLM request lifecycle across [Ollama](/glossary/ollama/), Claude, and OpenRouter with provider-specific API handling and error normalization
+- **Multi-provider execution** managing LLM request lifecycle across [Ollama](@/glossary/ollama.md), Claude, and OpenRouter with provider-specific API handling and error normalization
 - **3NL linguistic processing** applying three-layer linguistic analysis to prompts and responses for quality assurance and consistency
 - **Context window optimization** intelligently managing context to maximize information density within token limits for each provider and model
 - **Response quality validation** enforcing quality thresholds on all LLM responses with automatic retry and prompt refinement for substandard results
@@ -152,29 +152,29 @@ Every LLM response undergoes quality validation before being accepted.
 
 ## Authority Level
 
-**L2** - Tactical Operations. Domain-specific [tactical execution](/glossary/tactical-execution/) with cross-domain coordination capabilities. The orchestrator executes LLM requests as directed by the routing layer and reports quality metrics back for routing optimization.
+**L2** - Tactical Operations. Domain-specific [tactical execution](@/glossary/tactical-execution.md) with cross-domain coordination capabilities. The orchestrator executes LLM requests as directed by the routing layer and reports quality metrics back for routing optimization.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [llm-routing-orchestrator-agent](/agents/llm-routing-orchestrator-agent/) | Routing Authority | Receives routing decisions and reports execution outcomes |
-| [llm-prompt-engineer](/agents/llm-prompt-engineer/) | Prompt Optimization | Collaborates on prompt template design and optimization |
-| [llm-context-optimizer](/agents/llm-context-optimizer/) | Context Management | Assists with context window optimization strategies |
-| [3nl-coordinator](/agents/3nl-coordinator/) | 3NL Integration | Provides three-layer normative processing for LLM interactions |
+| [llm-routing-orchestrator-agent](@/agents/llm-routing-orchestrator-agent.md) | Routing Authority | Receives routing decisions and reports execution outcomes |
+| [llm-prompt-engineer](@/agents/llm-prompt-engineer.md) | Prompt Optimization | Collaborates on prompt template design and optimization |
+| [llm-context-optimizer](@/agents/llm-context-optimizer.md) | Context Management | Assists with context window optimization strategies |
+| [3nl-coordinator](@/agents/3nl-coordinator.md) | 3NL Integration | Provides three-layer normative processing for LLM interactions |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [3NL](/glossary/three-nl/) Framework | Linguistic normalization and semantic analysis |
-| [Ollama](/glossary/ollama/) | Local LLM inference execution |
-| Platform [Telemetry](/glossary/telemetry/) | Request metrics, quality scores, and latency tracking |
-| [SEADF](/glossary/seadf/) | Evolutionary optimization of prompt templates |
+| [3NL](@/glossary/three-nl.md) Framework | Linguistic normalization and semantic analysis |
+| [Ollama](@/glossary/ollama.md) | Local LLM inference execution |
+| Platform [Telemetry](@/glossary/telemetry.md) | Request metrics, quality scores, and latency tracking |
+| [SEADF](@/glossary/seadf.md) | Evolutionary optimization of prompt templates |
 
 ## Enforcement
 
-The LLM Unified Orchestrator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. All LLM responses must meet quality thresholds before acceptance. Responses that fail quality validation are retried up to the configured maximum with progressive prompt refinement. Token consumption is tracked and reported for every request. No LLM response influences platform decisions without passing 3NL validation. All request-response pairs are logged with full provenance for quality analysis and prompt optimization.
+The LLM Unified Orchestrator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. All LLM responses must meet quality thresholds before acceptance. Responses that fail quality validation are retried up to the configured maximum with progressive prompt refinement. Token consumption is tracked and reported for every request. No LLM response influences platform decisions without passing 3NL validation. All request-response pairs are logged with full provenance for quality analysis and prompt optimization.
 
 ---
 
@@ -183,4 +183,4 @@ The LLM Unified Orchestrator operates under the [NO MERCY, NO DOUBTS](/glossary/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

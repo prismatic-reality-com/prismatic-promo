@@ -35,7 +35,7 @@ image_alt = "DNS Enumeration - Prismatic Platform"
 
 ## Definition
 
-DNS enumeration is a reconnaissance technique that systematically queries the Domain Name System to discover an organization's digital infrastructure. It encompasses subdomain brute-forcing, zone transfer attempts (AXFR), reverse DNS lookups, DNS record type enumeration (A, AAAA, CNAME, MX, TXT, NS, SRV, SOA, CAA, DNSKEY, TLSA), passive DNS database queries, and [certificate transparency](/glossary/certificate-transparency/) log mining. The technique reveals hostnames, mail servers, service endpoints, cloud provider usage, content delivery networks, and security configurations (SPF, DKIM, DMARC, DNSSEC, CAA) that collectively map an organization's digital footprint. DNS enumeration is a foundational capability in [External Attack Surface Management (EASM)](/glossary/easm/) and [Open Source Intelligence (OSINT)](/glossary/osint/) operations.
+DNS enumeration is a reconnaissance technique that systematically queries the Domain Name System to discover an organization's digital infrastructure. It encompasses subdomain brute-forcing, zone transfer attempts (AXFR), reverse DNS lookups, DNS record type enumeration (A, AAAA, CNAME, MX, TXT, NS, SRV, SOA, CAA, DNSKEY, TLSA), passive DNS database queries, and [certificate transparency](@/glossary/certificate-transparency.md) log mining. The technique reveals hostnames, mail servers, service endpoints, cloud provider usage, content delivery networks, and security configurations (SPF, DKIM, DMARC, DNSSEC, CAA) that collectively map an organization's digital footprint. DNS enumeration is a foundational capability in [External Attack Surface Management (EASM)](@/glossary/easm.md) and [Open Source Intelligence (OSINT)](@/glossary/osint.md) operations.
 
 Unlike port scanning or vulnerability assessment, DNS enumeration operates at the naming layer of the internet, discovering what exists before probing how it is configured. This makes it the natural first step in any reconnaissance workflow: you must know what assets exist before you can assess their security posture. The DNS layer is particularly valuable because it is designed to be publicly queryable -- organizations cannot hide their DNS records without breaking the services those records support.
 
@@ -49,7 +49,7 @@ As organizations recognized the security implications of unrestricted zone trans
 
 The modern DNS enumeration landscape (2020s) combines multiple techniques simultaneously for comprehensive coverage. No single technique provides complete visibility, but the combination of active brute-forcing, passive DNS history, CT log mining, and search engine dorking approaches comprehensive coverage for most organizations' external infrastructure.
 
-Tools like Amass (OWASP), Subfinder, DNSRecon, and Fierce have made DNS enumeration accessible to security practitioners, while cloud-native scanning platforms like [Censys](/glossary/censys/) and [Shodan](/glossary/shodan/) have incorporated DNS data into their broader internet scanning datasets. The Prismatic Platform integrates these capabilities natively in Elixir, combining them with OTP's concurrency model for high-performance parallel enumeration.
+Tools like Amass (OWASP), Subfinder, DNSRecon, and Fierce have made DNS enumeration accessible to security practitioners, while cloud-native scanning platforms like [Censys](@/glossary/censys.md) and [Shodan](@/glossary/shodan.md) have incorporated DNS data into their broader internet scanning datasets. The Prismatic Platform integrates these capabilities natively in Elixir, combining them with OTP's concurrency model for high-performance parallel enumeration.
 
 ## Overview
 
@@ -409,15 +409,15 @@ end
 
 ## Implementation in Prismatic Platform
 
-DNS enumeration is a core capability within Prismatic Perimeter's [EASM](/glossary/easm/) asset discovery pipeline. The platform performs automated DNS record discovery across all standard record types, identifying subdomains, mail infrastructure, and service endpoints for target organizations.
+DNS enumeration is a core capability within Prismatic Perimeter's [EASM](@/glossary/easm.md) asset discovery pipeline. The platform performs automated DNS record discovery across all standard record types, identifying subdomains, mail infrastructure, and service endpoints for target organizations.
 
 The discovery pipeline operates in three phases:
 
-1. **Passive Collection**: [Certificate Transparency](/glossary/certificate-transparency/) logs, passive DNS databases, and search engine indices are queried for known subdomains and historical records without sending any traffic to the target.
+1. **Passive Collection**: [Certificate Transparency](@/glossary/certificate-transparency.md) logs, passive DNS databases, and search engine indices are queried for known subdomains and historical records without sending any traffic to the target.
 
 2. **Active Enumeration**: Targeted DNS queries enumerate all record types for discovered domains and attempt subdomain brute-forcing with curated wordlists optimized for common naming patterns.
 
-3. **Security Assessment**: Discovered DNS configurations are evaluated against security best practices, with results feeding into the A-F [security rating](/glossary/security-rating/) calculation.
+3. **Security Assessment**: Discovered DNS configurations are evaluated against security best practices, with results feeding into the A-F [security rating](@/glossary/security-rating.md) calculation.
 
 | Pipeline Stage | Data Source | Output |
 |---------------|-------------|--------|
@@ -468,7 +468,7 @@ Custom wordlists incorporate industry-specific naming patterns (e.g., healthcare
 
 6. **Combine with Certificate Transparency**: CT logs provide a continuously updated source of subdomain intelligence that complements active enumeration, often revealing subdomains that brute-forcing misses.
 
-7. **Correlate with IP Intelligence**: Combine DNS resolution data with [Shodan](/glossary/shodan/) and [Censys](/glossary/censys/) data to enrich subdomain discoveries with service fingerprinting and vulnerability context.
+7. **Correlate with IP Intelligence**: Combine DNS resolution data with [Shodan](@/glossary/shodan.md) and [Censys](@/glossary/censys.md) data to enrich subdomain discoveries with service fingerprinting and vulnerability context.
 
 8. **Document Zone Transfer Results**: If zone transfers succeed, document the finding as a significant security misconfiguration. Zone transfers should be restricted to authorized secondary nameservers.
 
@@ -482,25 +482,25 @@ Custom wordlists incorporate industry-specific naming patterns (e.g., healthcare
 
 - **Cloud Provider Identification**: Analyzing CNAME chains and IP address ranges to identify cloud providers, CDNs, and third-party services in use.
 
-- **Compliance Verification**: Assessing DNSSEC deployment, CAA record configuration, and DNS hygiene as part of [NIS2](/glossary/nis2/) and ZKB compliance frameworks within Prismatic Perimeter.
+- **Compliance Verification**: Assessing DNSSEC deployment, CAA record configuration, and DNS hygiene as part of [NIS2](@/glossary/nis2.md) and ZKB compliance frameworks within Prismatic Perimeter.
 
-- **Infrastructure Change Detection**: Periodic re-enumeration detects new subdomains, decommissioned services, and configuration changes that alter the [attack surface](/glossary/attack-surface/).
+- **Infrastructure Change Detection**: Periodic re-enumeration detects new subdomains, decommissioned services, and configuration changes that alter the [attack surface](@/glossary/attack-surface.md).
 
 - **Incident Response Support**: During security incidents, DNS enumeration helps identify the full scope of potentially affected infrastructure and discover related domains or services.
 
 ## Related Concepts
 
-- [EASM](/glossary/easm/) -- Attack surface management framework using DNS enumeration for discovery
-- [OSINT](/glossary/osint/) -- Open source intelligence discipline encompassing DNS reconnaissance
-- [Attack Surface](/glossary/attack-surface/) -- Total exposure area that DNS enumeration helps quantify
-- [Certificate Transparency](/glossary/certificate-transparency/) -- Complementary passive discovery technique via CT logs
-- [Shodan](/glossary/shodan/) -- Internet scanner complementing DNS data with service fingerprinting
-- [Censys](/glossary/censys/) -- Certificate and host scanner enriching DNS discovery results
-- [Security Rating](/glossary/security-rating/) -- A-F grading system incorporating DNS hygiene scores
-- [Penetration Testing](/glossary/penetration-testing/) -- Security assessment that begins with DNS enumeration
-- [NIS2](/glossary/nis2/) -- EU compliance framework requiring attack surface visibility
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Intelligence feeds enriching DNS discovery results
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Multi-source correlation that includes DNS signals
+- [EASM](@/glossary/easm.md) -- Attack surface management framework using DNS enumeration for discovery
+- [OSINT](@/glossary/osint.md) -- Open source intelligence discipline encompassing DNS reconnaissance
+- [Attack Surface](@/glossary/attack-surface.md) -- Total exposure area that DNS enumeration helps quantify
+- [Certificate Transparency](@/glossary/certificate-transparency.md) -- Complementary passive discovery technique via CT logs
+- [Shodan](@/glossary/shodan.md) -- Internet scanner complementing DNS data with service fingerprinting
+- [Censys](@/glossary/censys.md) -- Certificate and host scanner enriching DNS discovery results
+- [Security Rating](@/glossary/security-rating.md) -- A-F grading system incorporating DNS hygiene scores
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Security assessment that begins with DNS enumeration
+- [NIS2](@/glossary/nis2.md) -- EU compliance framework requiring attack surface visibility
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Intelligence feeds enriching DNS discovery results
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Multi-source correlation that includes DNS signals
 
 ---
 
@@ -509,4 +509,4 @@ Custom wordlists incorporate industry-specific naming patterns (e.g., healthcare
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -32,9 +32,9 @@ see_also = ["capabilities", "architecture", "anomaly-detection"]
 
 **R-squared** (R², also known as the coefficient of determination) is a statistical measure that represents the proportion of variance in a dependent variable that is predictable from independent variable(s). An R² value of 1.0 indicates that the model perfectly explains all variability in the response data. A value of 0.0 indicates the model explains none of the variability. In practice, R² values between 0.7 and 0.9 are considered strong for most predictive models, though the acceptable threshold depends heavily on the domain and use case.
 
-R² answers a fundamental question in modeling: "How much better is my model than simply predicting the [mean](/glossary/mean/) for every observation?" A model that captures 85% of variance (R² = 0.85) leaves only 15% of variation unexplained -- attributable to noise, missing variables, or inherent randomness in the system. This makes R² the standard first-pass metric for model quality assessment across disciplines from econometrics to machine learning to systems monitoring.
+R² answers a fundamental question in modeling: "How much better is my model than simply predicting the [mean](@/glossary/mean.md) for every observation?" A model that captures 85% of variance (R² = 0.85) leaves only 15% of variation unexplained -- attributable to noise, missing variables, or inherent randomness in the system. This makes R² the standard first-pass metric for model quality assessment across disciplines from econometrics to machine learning to systems monitoring.
 
-In the Prismatic Platform, R-squared is used to evaluate the quality of statistical models in [anomaly detection](/glossary/anomaly-detection/), trend analysis for OSINT signals, performance regression detection, and [quality debt](/glossary/quality-debt/) prediction. When the platform builds models to predict expected behavior (request latency, query duration, signal frequency), R² quantifies how well those models capture the underlying patterns before deployment to production monitoring.
+In the Prismatic Platform, R-squared is used to evaluate the quality of statistical models in [anomaly detection](@/glossary/anomaly-detection.md), trend analysis for OSINT signals, performance regression detection, and [quality debt](@/glossary/quality-debt.md) prediction. When the platform builds models to predict expected behavior (request latency, query duration, signal frequency), R² quantifies how well those models capture the underlying patterns before deployment to production monitoring.
 
 ## Core Concepts
 
@@ -99,7 +99,7 @@ Where `n` is the sample size and `p` is the number of predictors. If a new predi
 
 ### Numerical Stability
 
-Computing R² seems trivial, but production implementations face several challenges. Naive summation of floating-point values accumulates rounding errors. The Prismatic Platform uses [Kahan compensated summation](/glossary/mean/) for all statistical aggregations to maintain accuracy across large datasets:
+Computing R² seems trivial, but production implementations face several challenges. Naive summation of floating-point values accumulates rounding errors. The Prismatic Platform uses [Kahan compensated summation](@/glossary/mean.md) for all statistical aggregations to maintain accuracy across large datasets:
 
 ```elixir
 defmodule PrismaticStats.KahanAccumulator do
@@ -169,7 +169,7 @@ end
 
 ### Time Series Considerations
 
-For [time series](/glossary/trend/) data common in platform monitoring, R² must be interpreted carefully:
+For [time series](@/glossary/trend.md) data common in platform monitoring, R² must be interpreted carefully:
 
 1. **Autocorrelation** in residuals inflates R² values, giving a false sense of model quality. The Durbin-Watson statistic should accompany R² for time series models.
 2. **Non-stationarity** (trending data) can produce spuriously high R² values. Two random walks will show high R² despite having no causal relationship.
@@ -267,7 +267,7 @@ Where R²_j is the R² from regressing predictor j on all other predictors. VIF 
 
 ### Anomaly Detection Model Validation
 
-The [statistical detection](/glossary/statistical-detection/) system evaluates anomaly detection model quality using R² -- models with R² below 0.6 are flagged as insufficiently predictive and trigger automatic retraining:
+The [statistical detection](@/glossary/statistical-detection.md) system evaluates anomaly detection model quality using R² -- models with R² below 0.6 are flagged as insufficiently predictive and trigger automatic retraining:
 
 ```elixir
 defmodule PrismaticMonitoring.ModelEvaluator do
@@ -476,23 +476,23 @@ end
 
 ## Related Terms
 
-- [Variance](/glossary/variance/) -- the statistical measure R² partitions into explained and unexplained components
-- [Standard Deviation](/glossary/standard-deviation/) -- square root of variance, related spread measure
-- [Statistics](/glossary/statistics/) -- the broader field encompassing R² and regression analysis
-- [Trend](/glossary/trend/) -- directional patterns R² helps quantify
-- [Scatter Plot](/glossary/scatter-plot/) -- visualization that reveals the relationship R² measures
-- [Mean](/glossary/mean/) -- the baseline predictor that R² compares against
-- [Median](/glossary/median/) -- outlier-resistant alternative central tendency measure
-- [Percentile](/glossary/percentile/) -- distributional metric complementing R² analysis
-- [Outlier](/glossary/outlier/) -- extreme values that affect R² computation
-- [Anomaly Detection](/glossary/anomaly-detection/) -- system that uses R² for model validation
+- [Variance](@/glossary/variance.md) -- the statistical measure R² partitions into explained and unexplained components
+- [Standard Deviation](@/glossary/standard-deviation.md) -- square root of variance, related spread measure
+- [Statistics](@/glossary/statistics.md) -- the broader field encompassing R² and regression analysis
+- [Trend](@/glossary/trend.md) -- directional patterns R² helps quantify
+- [Scatter Plot](@/glossary/scatter-plot.md) -- visualization that reveals the relationship R² measures
+- [Mean](@/glossary/mean.md) -- the baseline predictor that R² compares against
+- [Median](@/glossary/median.md) -- outlier-resistant alternative central tendency measure
+- [Percentile](@/glossary/percentile.md) -- distributional metric complementing R² analysis
+- [Outlier](@/glossary/outlier.md) -- extreme values that affect R² computation
+- [Anomaly Detection](@/glossary/anomaly-detection.md) -- system that uses R² for model validation
 
 ## See Also
 
-- [Data Analysis Livebooks](/capabilities/) -- interactive R² calculation notebooks
-- [Statistical Detection](/architecture/) -- anomaly detection using R² model validation
-- [Performance Monitoring](/architecture/) -- R² in latency trend analysis
-- [OSINT Signal Analysis](/osint/) -- R² for intelligence signal correlation
+- [Data Analysis Livebooks](@/capabilities/_index.md) -- interactive R² calculation notebooks
+- [Statistical Detection](@/architecture/_index.md) -- anomaly detection using R² model validation
+- [Performance Monitoring](@/architecture/_index.md) -- R² in latency trend analysis
+- [OSINT Signal Analysis](@/osint/_index.md) -- R² for intelligence signal correlation
 
 ---
 
@@ -501,4 +501,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

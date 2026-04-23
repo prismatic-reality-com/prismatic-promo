@@ -50,7 +50,7 @@ The **Agent Registry Hub** provides real-time access to all 530+ AIAD agents in 
 | **Live agent status** | **Agent specifications** |
 | **Real-time metrics** | **Command documentation** |
 | **Direct execution** | **Reference materials** |
-| **Interactive Platform Hub** | **[→ Agent Docs](/agents/)** |
+| **Interactive Platform Hub** | **[→ Agent Docs](@/agents/_index.md)** |
 
 ## 🚀 Platform Access {#platform-access}
 
@@ -66,4 +66,4 @@ Access the platform through your configured endpoint to use:
 
 ---
 
-**Need the static documentation instead?** Visit **[Agent Documentation](/agents/)**
+**Need the static documentation instead?** Visit **[Agent Documentation](@/agents/_index.md)**

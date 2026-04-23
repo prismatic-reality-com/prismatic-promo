@@ -24,13 +24,13 @@ image_alt = "/regression-check - Prismatic Platform"
 
 ## Overview
 
-**/regression-check** is a production command in the **Quality** category of the Prismatic Platform that executes 25 custom [Credo](/glossary/credo/) regression checks specifically designed to prevent the reintroduction of over 700 previously eliminated quality violations. This command represents the platform's active defense against quality regression, ensuring that patterns, anti-patterns, and violations that were eliminated through deliberate quality improvement campaigns cannot silently return to the codebase.
+**/regression-check** is a production command in the **Quality** category of the Prismatic Platform that executes 25 custom [Credo](@/glossary/credo.md) regression checks specifically designed to prevent the reintroduction of over 700 previously eliminated quality violations. This command represents the platform's active defense against quality regression, ensuring that patterns, anti-patterns, and violations that were eliminated through deliberate quality improvement campaigns cannot silently return to the codebase.
 
 The 25 custom Credo checks were developed through the platform's quality evolution from a starting point of 700+ violations to the current state of zero violations across all 13 quality domains. Each check encodes the specific pattern that caused a category of violations, enabling automatic detection if that pattern reappears. Unlike generic linting rules, these checks are calibrated to the Prismatic Platform's specific architectural conventions, OTP patterns, and quality standards.
 
-The regression guard operates as a mandatory quality gate in the development workflow. It runs automatically during pre-commit hooks, CI/CD pipelines, and on-demand via this command. No code can be committed, merged, or deployed without passing all 25 regression checks. This enforcement is absolute under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine and cannot be bypassed through any mechanism, including `--no-verify` flags (which are explicitly forbidden by platform policy).
+The regression guard operates as a mandatory quality gate in the development workflow. It runs automatically during pre-commit hooks, CI/CD pipelines, and on-demand via this command. No code can be committed, merged, or deployed without passing all 25 regression checks. This enforcement is absolute under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine and cannot be bypassed through any mechanism, including `--no-verify` flags (which are explicitly forbidden by platform policy).
 
-This command operates under the **REGRESSION PREVENTION** authority level and is executed by the `regression-guard` agent, a specialized quality agent with blocking authority over all commit and merge operations. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **REGRESSION PREVENTION** authority level and is executed by the `regression-guard` agent, a specialized quality agent with blocking authority over all commit and merge operations. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -185,13 +185,13 @@ The regression check execution follows an optimized flow designed for speed with
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `regression-guard` | Blocking authority over commits and merges |
-| [Credo](/glossary/credo/) | Check framework | Custom checks extend Credo's check behavior |
-| [Quality Gates](/glossary/quality-gates/) | Direct enforcement | Regression checks are a mandatory quality gate |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `regression-guard` | Blocking authority over commits and merges |
+| [Credo](@/glossary/credo.md) | Check framework | Custom checks extend Credo's check behavior |
+| [Quality Gates](@/glossary/quality-gates.md) | Direct enforcement | Regression checks are a mandatory quality gate |
 | Pre-commit hooks | Automatic execution | `.githooks/pre-commit` includes regression checks |
-| [/quality-gates](/commands/quality-gates/) | Parent command | Quality gates include regression checks as a sub-gate |
-| [/refactor](/commands/refactor/) | Post-refactoring validation | Regression checks verify refactoring safety |
-| [Telemetry](/glossary/telemetry/) | Execution metrics | Check timings and violation counts tracked |
+| [/quality-gates](@/commands/quality-gates.md) | Parent command | Quality gates include regression checks as a sub-gate |
+| [/refactor](@/commands/refactor.md) | Post-refactoring validation | Regression checks verify refactoring safety |
+| [Telemetry](@/glossary/telemetry.md) | Execution metrics | Check timings and violation counts tracked |
 | Quality Floor Guardian | Alert integration | Violations trigger guardian alerts |
 
 ## Best Practices
@@ -252,19 +252,19 @@ The `--create-from-fix` option automates the creation of new regression checks f
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every regression check must pass. There is no mechanism to suppress, skip, or downgrade a violation. The REGRESSION PREVENTION authority level grants the regression-guard agent blocking power over all code integration paths.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Each custom check was developed from empirical evidence of actual violations in the codebase. The check descriptions and fix suggestions are grounded in documented patterns, not theoretical concerns.
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/benchmark](/commands/benchmark/) - Comprehensive performance benchmarking with P95/P99 analysis
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/benchmark](@/commands/benchmark.md) - Comprehensive performance benchmarking with P95/P99 analysis
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -273,4 +273,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

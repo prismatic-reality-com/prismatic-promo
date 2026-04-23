@@ -30,7 +30,7 @@ image_alt = "telegram-intelligence-specialist - Prismatic Platform"
 
 The Telegram Intelligence Specialist is an L3 strategic command agent operating within the Prismatic Platform's Telegram domain, dedicated to structured intelligence gathering and analysis from the Telegram messaging platform. Telegram has emerged as a significant communication platform for diverse communities including technology groups, financial markets, political movements, and unfortunately, threat actors. This agent systematically monitors, collects, and analyzes publicly accessible Telegram content to produce structured intelligence products that support due diligence investigations, threat assessment, and situational awareness.
 
-Within the Prismatic ecosystem's [OSINT](/glossary/osint/) intelligence architecture, the Telegram Intelligence Specialist provides the platform-specific collection and analysis capability for one of the world's most widely used messaging platforms. Operating under the [AIAD](/glossary/aiad/) standard and [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, the agent maintains rigorous analytical standards where every intelligence assessment is backed by verifiable evidence and confidence-weighted analysis.
+Within the Prismatic ecosystem's [OSINT](@/glossary/osint.md) intelligence architecture, the Telegram Intelligence Specialist provides the platform-specific collection and analysis capability for one of the world's most widely used messaging platforms. Operating under the [AIAD](@/glossary/aiad.md) standard and [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, the agent maintains rigorous analytical standards where every intelligence assessment is backed by verifiable evidence and confidence-weighted analysis.
 
 ## Theoretical Foundations
 
@@ -40,7 +40,7 @@ The concept of information environments, developed in intelligence studies, reco
 
 Network analysis theory provides the mathematical foundation for understanding communication patterns within Telegram communities. Social network analysis (SNA) metrics including centrality measures, community detection algorithms, and influence propagation models enable the agent to identify key actors, information sources, and communication patterns within monitored Telegram spaces.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework governs the agent's treatment of intelligence derived from social media sources, which are inherently noisy and subject to manipulation. The signal plurality axiom requires corroboration from multiple independent sources before assessments achieve high confidence. The contradiction preservation axiom ensures that conflicting signals from different Telegram sources are explicitly maintained and analyzed rather than prematurely resolved.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework governs the agent's treatment of intelligence derived from social media sources, which are inherently noisy and subject to manipulation. The signal plurality axiom requires corroboration from multiple independent sources before assessments achieve high confidence. The contradiction preservation axiom ensures that conflicting signals from different Telegram sources are explicitly maintained and analyzed rather than prematurely resolved.
 
 Content analysis theory, drawing from both quantitative (computational linguistics) and qualitative (discourse analysis) traditions, provides the methodological basis for extracting meaningful intelligence from unstructured text communications. The agent implements automated content analysis techniques that classify messages by topic, sentiment, urgency, and relevance to active intelligence requirements.
 
@@ -50,7 +50,7 @@ Content analysis theory, drawing from both quantitative (computational linguisti
 
 **Content Collection and Structuring** systematically collects messages, media, and metadata from monitored Telegram sources and transforms this unstructured content into structured intelligence records. Each record includes the original content, extracted entities, classification tags, temporal metadata, and provenance information.
 
-**Entity Extraction and Resolution** identifies mentions of persons, organizations, locations, and other entities within Telegram messages and resolves these mentions to canonical entity identifiers in the platform's [entity resolution](/glossary/entity-resolution/) system. This capability links Telegram-derived intelligence to the broader entity knowledge graph maintained in [KuzuDB](/glossary/kuzudb/).
+**Entity Extraction and Resolution** identifies mentions of persons, organizations, locations, and other entities within Telegram messages and resolves these mentions to canonical entity identifiers in the platform's [entity resolution](@/glossary/entity-resolution.md) system. This capability links Telegram-derived intelligence to the broader entity knowledge graph maintained in [KuzuDB](@/glossary/kuzudb.md).
 
 **Network Mapping** constructs social network graphs from communication patterns observed in Telegram groups, identifying key actors, information brokers, and community structures. Network analysis reveals the topology of communication relationships that may not be apparent from individual message analysis.
 
@@ -60,7 +60,7 @@ Content analysis theory, drawing from both quantitative (computational linguisti
 
 ## Architecture and Implementation
 
-The agent operates as a supervised [OTP](/glossary/otp/) process within the Prismatic social intelligence subsystem, implementing a collection-enrichment-analysis pipeline.
+The agent operates as a supervised [OTP](@/glossary/otp.md) process within the Prismatic social intelligence subsystem, implementing a collection-enrichment-analysis pipeline.
 
 | Component | Function | Implementation |
 |-----------|----------|---------------|
@@ -98,24 +98,24 @@ The agent maintains awareness of jurisdictional variations in social media monit
 
 | System | Integration Purpose | Data Flow |
 |--------|-------------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent lifecycle and task dispatch | Bidirectional |
-| [Entity Resolution](/glossary/entity-resolution/) | Entity identification and linking | Bidirectional |
-| [KuzuDB](/glossary/kuzudb/) | Relationship graph storage | Write |
-| [GARDEN](/glossary/garden/) | Historical intelligence patterns | Read/Write |
-| [Prismatic Telemetry](/glossary/telemetry/) | Collection and analysis metrics | Write |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification and discovery | Read |
-| [Trinity Gate](/glossary/trinity-gate/) | Intelligence assessment verification | Mandatory check |
-| [SEADF](/glossary/seadf/) | Collection effectiveness optimization | Bidirectional |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent lifecycle and task dispatch | Bidirectional |
+| [Entity Resolution](@/glossary/entity-resolution.md) | Entity identification and linking | Bidirectional |
+| [KuzuDB](@/glossary/kuzudb.md) | Relationship graph storage | Write |
+| [GARDEN](@/glossary/garden.md) | Historical intelligence patterns | Read/Write |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Collection and analysis metrics | Write |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification and discovery | Read |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Intelligence assessment verification | Mandatory check |
+| [SEADF](@/glossary/seadf.md) | Collection effectiveness optimization | Bidirectional |
 
 ## Quality Assurance
 
-Intelligence quality is validated through the [Trinity Gate](/glossary/trinity-gate/) verification system. Structural consistency checks ensure that intelligence products reference verifiable sources and maintain valid provenance chains. Logical consistency checks verify that analytical conclusions follow from the presented evidence. Formal necessity checks ensure that confidence levels are proportional to the quantity and quality of supporting evidence.
+Intelligence quality is validated through the [Trinity Gate](@/glossary/trinity-gate.md) verification system. Structural consistency checks ensure that intelligence products reference verifiable sources and maintain valid provenance chains. Logical consistency checks verify that analytical conclusions follow from the presented evidence. Formal necessity checks ensure that confidence levels are proportional to the quantity and quality of supporting evidence.
 
 The NABLA Infinity provenance mandatory axiom ensures that every intelligence assessment can be traced back to specific collected messages and analytical reasoning, enabling independent verification of any intelligence product.
 
 ## Related Agents
 
-The Telegram Intelligence Specialist operates alongside other social media intelligence agents including the [twitter-x-intelligence-specialist](/agents/twitter-x-intelligence-specialist/) and [tiktok-intelligence-specialist](/agents/tiktok-intelligence-specialist/). Cross-platform intelligence fusion enables detection of coordinated activities that span multiple social media platforms. The [supplier-risk-specialist](/agents/supplier-risk-specialist/) and [supplier-vetting-specialist](/agents/supplier-vetting-specialist/) consume social media intelligence as inputs to their due diligence assessments.
+The Telegram Intelligence Specialist operates alongside other social media intelligence agents including the [twitter-x-intelligence-specialist](@/agents/twitter-x-intelligence-specialist.md) and [tiktok-intelligence-specialist](@/agents/tiktok-intelligence-specialist.md). Cross-platform intelligence fusion enables detection of coordinated activities that span multiple social media platforms. The [supplier-risk-specialist](@/agents/supplier-risk-specialist.md) and [supplier-vetting-specialist](@/agents/supplier-vetting-specialist.md) consume social media intelligence as inputs to their due diligence assessments.
 
 ---
 
@@ -124,4 +124,4 @@ The Telegram Intelligence Specialist operates alongside other social media intel
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -252,11 +252,11 @@ Ordered sets provide natural priority queue semantics when using `{priority, tim
 
 ## Cross-References
 
-- [ETS](/glossary/ets/) - The underlying in-memory storage system
-- [Named Table](/glossary/named-table/) - Named access pattern for ETS tables
-- [GenServer](/glossary/genserver/) - Process owning and managing ordered set tables
-- [Index Scan](/glossary/index-scan/) - Database equivalent of ordered access
-- [Time Series](/glossary/time-series/) - Common data type stored in ordered sets
+- [ETS](@/glossary/ets.md) - The underlying in-memory storage system
+- [Named Table](@/glossary/named-table.md) - Named access pattern for ETS tables
+- [GenServer](@/glossary/genserver.md) - Process owning and managing ordered set tables
+- [Index Scan](@/glossary/index-scan.md) - Database equivalent of ordered access
+- [Time Series](@/glossary/time-series.md) - Common data type stored in ordered sets
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

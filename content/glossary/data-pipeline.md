@@ -24,7 +24,7 @@ A data pipeline is an automated system that moves and transforms data through a 
 
 Data pipelines exist at the intersection of data engineering and software architecture. They are distinct from simple scripts or ad-hoc data processing in their emphasis on reliability, observability, and operational maturity. A production data pipeline handles schema evolution, late-arriving data, partial failures, backpressure, exactly-once semantics, and monitoring -- concerns that rarely arise in one-off data processing but are essential when data flows continuously and downstream consumers depend on its availability and correctness.
 
-The Prismatic Platform's architecture is fundamentally pipeline-oriented. Intelligence data flows from external sources through extraction, normalization, enrichment, verification, and indexing stages before becoming available to consumers via dashboards, APIs, and agent queries. The platform's adoption of [Broadway](/glossary/broadway/) and [GenStage](/glossary/genstage/) means that pipelines are not merely conceptual but are explicit OTP processes connected by demand-driven data flow with built-in [backpressure](/glossary/backpressure/) and fault tolerance.
+The Prismatic Platform's architecture is fundamentally pipeline-oriented. Intelligence data flows from external sources through extraction, normalization, enrichment, verification, and indexing stages before becoming available to consumers via dashboards, APIs, and agent queries. The platform's adoption of [Broadway](@/glossary/broadway.md) and [GenStage](@/glossary/genstage.md) means that pipelines are not merely conceptual but are explicit OTP processes connected by demand-driven data flow with built-in [backpressure](@/glossary/backpressure.md) and fault tolerance.
 
 ## Pipeline Topology
 
@@ -63,7 +63,7 @@ Source B →├→ Merge → Process → Destination
 Source C →┘
 ```
 
-Use case: Intelligence fusion combining data from [Shodan](/glossary/shodan/), [Censys](/glossary/censys/), and [GreyNoise](/glossary/greynoise/).
+Use case: Intelligence fusion combining data from [Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md), and [GreyNoise](@/glossary/greynoise.md).
 
 ### DAG Pipeline
 
@@ -255,7 +255,7 @@ Level 4: [load_postgresql] [load_meilisearch] [load_kuzudb]    (parallel, scorin
 
 ## Pipeline Monitoring and Observability
 
-Production data pipelines require comprehensive [observability](/glossary/observability/) to detect degradation, diagnose failures, and optimize throughput.
+Production data pipelines require comprehensive [observability](@/glossary/observability.md) to detect degradation, diagnose failures, and optimize throughput.
 
 ### Key Metrics
 
@@ -294,7 +294,7 @@ Broadway emits Telemetry events at each pipeline stage, which the Prismatic Plat
 |---------|-------------|----------------|
 | **Retry with backoff** | Retry failed operations with increasing delay | Broadway message retry + exponential backoff |
 | **Dead letter queue** | Route permanently failed records for investigation | Separate Broadway batcher for failures |
-| **Circuit breaker** | Stop calling failing external services | [Circuit Breaker](/glossary/circuit-breaker/) per provider |
+| **Circuit breaker** | Stop calling failing external services | [Circuit Breaker](@/glossary/circuit-breaker.md) per provider |
 | **Checkpointing** | Record processing progress for resumption | Broadway acknowledgment + offset tracking |
 | **Idempotent operations** | Ensure re-processing produces same result | Upsert with conflict resolution |
 | **Stage isolation** | Contain failures to single stage | OTP supervision, independent stage restarts |
@@ -302,7 +302,7 @@ Broadway emits Telemetry events at each pipeline stage, which the Prismatic Plat
 
 ## Comparison with Elixir's Pipe Operator
 
-The [pipe operator](/glossary/pipe-operator/) (`|>`) in Elixir and the data pipeline pattern share a conceptual similarity -- both chain transformations -- but operate at fundamentally different scales.
+The [pipe operator](@/glossary/pipe-operator.md) (`|>`) in Elixir and the data pipeline pattern share a conceptual similarity -- both chain transformations -- but operate at fundamentally different scales.
 
 | Dimension | Pipe Operator (`\|>`) | Data Pipeline |
 |-----------|----------------------|---------------|
@@ -317,22 +317,22 @@ However, the pipe operator's functional composition philosophy directly influenc
 
 ## Related Terms
 
-- [Stream Processing](/glossary/stream-processing/) - Real-time variant of data pipeline processing
-- [Broadway](/glossary/broadway/) - Elixir library for building concurrent data pipelines with backpressure
-- [ETL](/glossary/etl/) - Extract-Transform-Load pipeline pattern for data integration
-- [GenStage](/glossary/genstage/) - Demand-driven data exchange between pipeline stages
-- [Backpressure](/glossary/backpressure/) - Flow control preventing pipeline overload
-- [Pipe Operator](/glossary/pipe-operator/) - Elixir syntax for function composition, conceptual ancestor
-- [Event Sourcing](/glossary/event-sourcing/) - Event-based state management complementing pipeline architecture
-- [Observability](/glossary/observability/) - Monitoring infrastructure for pipeline health and performance
-- [Circuit Breaker](/glossary/circuit-breaker/) - Resilience pattern for handling external service failures
-- [Adapter Pattern](/glossary/adapter-pattern/) - Storage abstraction enabling multi-destination pipeline loading
+- [Stream Processing](@/glossary/stream-processing.md) - Real-time variant of data pipeline processing
+- [Broadway](@/glossary/broadway.md) - Elixir library for building concurrent data pipelines with backpressure
+- [ETL](@/glossary/etl.md) - Extract-Transform-Load pipeline pattern for data integration
+- [GenStage](@/glossary/genstage.md) - Demand-driven data exchange between pipeline stages
+- [Backpressure](@/glossary/backpressure.md) - Flow control preventing pipeline overload
+- [Pipe Operator](@/glossary/pipe-operator.md) - Elixir syntax for function composition, conceptual ancestor
+- [Event Sourcing](@/glossary/event-sourcing.md) - Event-based state management complementing pipeline architecture
+- [Observability](@/glossary/observability.md) - Monitoring infrastructure for pipeline health and performance
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Resilience pattern for handling external service failures
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Storage abstraction enabling multi-destination pipeline loading
 
 ## See Also
 
-- [Architecture](/architecture/) - Pipeline architecture patterns and DAG orchestration
-- [Technologies](/technologies/) - Pipeline implementation technologies and library ecosystem
-- [Apps](/apps/) - Prismatic applications implementing data pipelines
+- [Architecture](@/architecture/_index.md) - Pipeline architecture patterns and DAG orchestration
+- [Technologies](@/technologies/_index.md) - Pipeline implementation technologies and library ecosystem
+- [Apps](@/apps/_index.md) - Prismatic applications implementing data pipelines
 
 ---
 
@@ -341,4 +341,4 @@ However, the pipe operator's functional composition philosophy directly influenc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

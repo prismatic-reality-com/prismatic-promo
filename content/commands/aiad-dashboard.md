@@ -24,9 +24,9 @@ image_alt = "/aiad-dashboard - Prismatic Platform"
 
 ## Overview
 
-The **/aiad-dashboard** command provides a real-time intelligence dashboard for the entire [AIAD](/glossary/aiad/) ecosystem, delivering live metrics on agent performance, command execution statistics, workflow health, and cross-domain coordination efficiency. In a platform with 400+ agents, 210+ commands, and dozens of active workflows, centralized visibility into ecosystem health is not a luxury -- it is an operational necessity. The dashboard consolidates disparate telemetry streams into a unified operational picture that enables data-driven decision making and proactive issue identification.
+The **/aiad-dashboard** command provides a real-time intelligence dashboard for the entire [AIAD](@/glossary/aiad.md) ecosystem, delivering live metrics on agent performance, command execution statistics, workflow health, and cross-domain coordination efficiency. In a platform with 400+ agents, 210+ commands, and dozens of active workflows, centralized visibility into ecosystem health is not a luxury -- it is an operational necessity. The dashboard consolidates disparate telemetry streams into a unified operational picture that enables data-driven decision making and proactive issue identification.
 
-The dashboard operates across four analytical dimensions. The **Ecosystem Overview** provides live aggregate metrics including agent success rates, command execution frequency, workflow throughput, and [mycelial network](/glossary/mycelial-network/) health scores. The **Real-Time Intelligence Feed** surfaces active operations, performance alerts, evolution tracking, and resource utilization across all AIAD processes. The **Strategic Intelligence** layer identifies capability gaps, successful coordination patterns, evolution opportunities, and compliance status. The **Predictive Analytics** module projects performance trends, capacity requirements, failure predictions, and AI-powered optimization recommendations.
+The dashboard operates across four analytical dimensions. The **Ecosystem Overview** provides live aggregate metrics including agent success rates, command execution frequency, workflow throughput, and [mycelial network](@/glossary/mycelial-network.md) health scores. The **Real-Time Intelligence Feed** surfaces active operations, performance alerts, evolution tracking, and resource utilization across all AIAD processes. The **Strategic Intelligence** layer identifies capability gaps, successful coordination patterns, evolution opportunities, and compliance status. The **Predictive Analytics** module projects performance trends, capacity requirements, failure predictions, and AI-powered optimization recommendations.
 
 This command is classified as Strategic Intelligence and is executed by the `aiad-dashboard-commander` agent. The dashboard runs in an isolated process pool to ensure zero performance impact on the monitored systems. Metric collection completes in under 100 milliseconds, and dashboard refresh occurs in under 500 milliseconds, providing near-real-time visibility without degrading platform performance. The command supports domain-specific views, enabling operators to focus on agents, commands, or workflows independently, as well as a comprehensive all-domain view for holistic ecosystem monitoring.
 
@@ -167,19 +167,19 @@ The dashboard also serves a strategic planning function. The trend analysis (`--
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Monitors all 400+ agents with performance and health metrics |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Monitors all 400+ agents with performance and health metrics |
 | AIAD Registry | Command and agent specification source for dashboard entities |
-| [Quality Gates](/glossary/quality-gates/) | Quality gate compliance status displayed in dashboard |
-| [Telemetry](/glossary/telemetry/) | Primary data source for all dashboard [metrics](/glossary/metrics/) |
-| [Mycelial Network](/glossary/mycelial-network/) | Network health, propagation success, and emergence tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality gate compliance status displayed in dashboard |
+| [Telemetry](@/glossary/telemetry.md) | Primary data source for all dashboard [metrics](@/glossary/metrics.md) |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Network health, propagation success, and emergence tracking |
 | Phoenix PubSub | Real-time metric delivery to LiveView dashboard |
-| [/agents](/commands/agents/) | Agent discovery data feeds dashboard agent metrics |
-| [/aiad-auto-evolution](/commands/aiad-auto-evolution/) | Evolution progress and safety metrics displayed |
-| [Session Context](/glossary/session-discipline/) | Dashboard state persisted for cross-session continuity |
+| [/agents](@/commands/agents.md) | Agent discovery data feeds dashboard agent metrics |
+| [/aiad-auto-evolution](@/commands/aiad-auto-evolution.md) | Evolution progress and safety metrics displayed |
+| [Session Context](@/glossary/session-discipline.md) | Dashboard state persisted for cross-session continuity |
 
 ## Doctrine Compliance
 
-All dashboard operations are governed by the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All dashboard operations are governed by the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: The dashboard reports honest, unfiltered metrics. Degraded agents are shown as degraded, not hidden or minimized. Failed commands are counted accurately. Bottlenecks are identified by name. There is no metric whitewashing, no optimistic rounding, and no suppression of inconvenient data points. The dashboard presents reality as measured, not reality as desired.
 - **NO DOUBTS**: All metrics are derived from verified telemetry data with timestamps and provenance. The dashboard does not present estimates where measurements are available. When data is stale (beyond the expected refresh interval), staleness is explicitly indicated. Predictive analytics are clearly labeled as predictions with confidence intervals, never presented as established facts.
@@ -202,13 +202,13 @@ The dashboard enforces the NABLA axiom of Time Decay by displaying timestamps on
 
 ## Related Commands
 
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/aiad-auto-evolution](/commands/aiad-auto-evolution/) - Self-evolving command specification with meta-evolution capabilities
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/aiad-auto-evolution](@/commands/aiad-auto-evolution.md) - Self-evolving command specification with meta-evolution capabilities
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle
 
 ---
 
@@ -217,4 +217,4 @@ The dashboard enforces the NABLA axiom of Time Decay by displaying timestamps on
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

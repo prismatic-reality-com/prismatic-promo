@@ -23,11 +23,11 @@ image_alt = "Prismatic OSINT Network - Prismatic Platform"
 
 ## Overview
 
-Prismatic [OSINT](/glossary/osint/) Network provides adapters for network-focused intelligence sources, integrating with platforms such as [Shodan](/glossary/shodan/), [Censys](/glossary/censys/), BinaryEdge, SecurityTrails, and [GreyNoise](/glossary/greynoise/) to collect data about IP addresses, domains, DNS records, open ports, and network infrastructure. Each external source is accessed through a standardized adapter that normalizes data into a common schema, enabling uniform querying regardless of the originating platform.
+Prismatic [OSINT](@/glossary/osint.md) Network provides adapters for network-focused intelligence sources, integrating with platforms such as [Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md), BinaryEdge, SecurityTrails, and [GreyNoise](@/glossary/greynoise.md) to collect data about IP addresses, domains, DNS records, open ports, and network infrastructure. Each external source is accessed through a standardized adapter that normalizes data into a common schema, enabling uniform querying regardless of the originating platform.
 
-Network intelligence forms the backbone of [attack surface](/glossary/attack-surface/) discovery. When [Prismatic Perimeter](/apps/prismatic-perimeter/) evaluates an organization's external exposure, it relies on OSINT Network adapters to enumerate subdomains, identify exposed services, correlate IP addresses with autonomous systems, and track [certificate transparency](/glossary/certificate-transparency/) logs. The resulting data feeds directly into [security rating](/glossary/security-rating/) algorithms in [Prismatic Perimeter Core](/apps/prismatic-perimeter-core/).
+Network intelligence forms the backbone of [attack surface](@/glossary/attack-surface.md) discovery. When [Prismatic Perimeter](@/apps/prismatic-perimeter.md) evaluates an organization's external exposure, it relies on OSINT Network adapters to enumerate subdomains, identify exposed services, correlate IP addresses with autonomous systems, and track [certificate transparency](@/glossary/certificate-transparency.md) logs. The resulting data feeds directly into [security rating](@/glossary/security-rating.md) algorithms in [Prismatic Perimeter Core](@/apps/prismatic-perimeter-core.md).
 
-The module implements intelligent source orchestration. Rather than querying all sources for every request, it selects the optimal combination of sources based on the query type, data freshness requirements, and API quota availability. Source responses are cached with configurable TTLs and cross-validated for consistency, adhering to the platform's [signal plurality](/glossary/signal-plurality/) requirements under the [NABLA framework](/glossary/nabla-infinity/).
+The module implements intelligent source orchestration. Rather than querying all sources for every request, it selects the optimal combination of sources based on the query type, data freshness requirements, and API quota availability. Source responses are cached with configurable TTLs and cross-validated for consistency, adhering to the platform's [signal plurality](@/glossary/signal-plurality.md) requirements under the [NABLA framework](@/glossary/nabla-infinity.md).
 
 ## Architecture
 
@@ -39,7 +39,7 @@ Query Interface --> Source Selector --> Adapter Pool --> Response Normalizer -->
   DNS/WHOIS         Type Matching   Error Handling   Scoring          Invalidation
 ```
 
-Each adapter runs as a supervised process with its own [rate limiting](/glossary/rate-limiting/) state, ensuring that API quotas are never exceeded even under concurrent query load. The [adapter pattern](/glossary/adapter-pattern/) follows the platform's storage adapter design from [Prismatic Storage Core](/apps/prismatic-storage-core/).
+Each adapter runs as a supervised process with its own [rate limiting](@/glossary/rate-limiting.md) state, ensuring that API quotas are never exceeded even under concurrent query load. The [adapter pattern](@/glossary/adapter-pattern.md) follows the platform's storage adapter design from [Prismatic Storage Core](@/apps/prismatic-storage-core.md).
 
 ## Key Modules
 
@@ -59,7 +59,7 @@ Each adapter runs as a supervised process with its own [rate limiting](/glossary
 
 ### IP Intelligence
 
-Comprehensive IP address analysis combines data from multiple network intelligence sources into a unified profile with [confidence scoring](/glossary/confidence-scoring/):
+Comprehensive IP address analysis combines data from multiple network intelligence sources into a unified profile with [confidence scoring](@/glossary/confidence-scoring.md):
 
 ```elixir
 defmodule PrismaticOsintNetwork.IpIntelligence do
@@ -93,7 +93,7 @@ end
 - Geolocation, ASN, and organization mapping from multiple sources with cross-validation
 - Reverse DNS and PTR record resolution with history tracking
 - Port and service enumeration with banner analysis and version detection
-- Reputation scoring aggregated from [threat intelligence](/glossary/threat-intelligence/) feeds
+- Reputation scoring aggregated from [threat intelligence](@/glossary/threat-intelligence.md) feeds
 
 ### DNS Intelligence
 
@@ -117,7 +117,7 @@ The infrastructure mapping capability assembles a complete picture of an organiz
 
 - Subdomain enumeration across certificate transparency, DNS, and web sources
 - Certificate transparency log monitoring for new certificate issuances
-- [WHOIS](/glossary/whois/) and registration data aggregation with change tracking
+- [WHOIS](@/glossary/whois.md) and registration data aggregation with change tracking
 - Technology stack fingerprinting from HTTP headers and response analysis
 
 ### Source Orchestration
@@ -155,7 +155,7 @@ end
 |--------|-----------|----------------|
 | Shodan | IP/Port | Service banner collection and vulnerability tagging |
 | Censys | Cert/Host | Certificate intelligence and host profiling |
-| BinaryEdge | Scan | Internet-wide scanning with [protocol](/glossary/protocol/) analysis |
+| BinaryEdge | Scan | Internet-wide scanning with [protocol](@/glossary/protocol.md) analysis |
 | SecurityTrails | DNS | Historical DNS data and domain intelligence |
 | GreyNoise | IP | Scanner identification and benign traffic classification |
 | IPInfo | IP | Geolocation, ASN mapping, and company attribution |
@@ -199,18 +199,18 @@ end
 
 IP intelligence tests verify multi-source data merging, geolocation accuracy, and ASN correlation against known IP address fixtures. DNS intelligence tests verify record resolution, historical tracking, and DNSSEC validation. Infrastructure mapping tests verify subdomain enumeration completeness, certificate monitoring, and technology fingerprinting accuracy.
 
-Source orchestration tests verify quota management, cost optimization, and plurality enforcement. Integration tests exercise the full pipeline from multi-source query through normalization to cached result delivery. Adapter contract tests verify consistent [behaviour](/glossary/behaviour/) compliance across all source adapters.
+Source orchestration tests verify quota management, cost optimization, and plurality enforcement. Integration tests exercise the full pipeline from multi-source query through normalization to cached result delivery. Adapter contract tests verify consistent [behaviour](@/glossary/behaviour.md) compliance across all source adapters.
 
 ## Integration Points
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Primary consumer for attack surface discovery and asset enumeration |
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Implements core OSINT adapter protocol for network sources |
-| [Prismatic OSINT Monitoring](/apps/prismatic-osint-monitoring/) | Network source checks for continuous infrastructure monitoring |
-| [Prismatic Detection Engine](/apps/prismatic-detection-engine/) | Network intelligence feeds threat detection rules |
-| [Prismatic OSINT Sources](/apps/prismatic-osint-sources/) | Source [registry](/glossary/registry-otp/) and API key management |
-| [Prismatic Perimeter Core](/apps/prismatic-perimeter-core/) | Network data feeds security rating dimension scoring |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Primary consumer for attack surface discovery and asset enumeration |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Implements core OSINT adapter protocol for network sources |
+| [Prismatic OSINT Monitoring](@/apps/prismatic-osint-monitoring.md) | Network source checks for continuous infrastructure monitoring |
+| [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) | Network intelligence feeds threat detection rules |
+| [Prismatic OSINT Sources](@/apps/prismatic-osint-sources.md) | Source [registry](@/glossary/registry-otp.md) and API key management |
+| [Prismatic Perimeter Core](@/apps/prismatic-perimeter-core.md) | Network data feeds security rating dimension scoring |
 
 ## Performance
 
@@ -224,19 +224,19 @@ Source orchestration tests verify quota management, cost optimization, and plura
 | Source quota check | < 10ms | ETS-backed quota state |
 | Response normalization | < 50ms | Pure function transformation |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :osint_network, :query_completed]`, `[:prismatic, :osint_network, :source_selected]`, `[:prismatic, :osint_network, :quota_consumed]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :osint_network, :query_completed]`, `[:prismatic, :osint_network, :source_selected]`, `[:prismatic, :osint_network, :quota_consumed]`.
 
 ## Related Resources
 
-- [Prismatic OSINT Sources](/apps/prismatic-osint-sources/) -- Source registry and API key management for all OSINT adapters
-- [Prismatic Crawler Core](/apps/prismatic-crawler-core/) -- HTTP-based collection infrastructure for active scanning
-- [Prismatic Traits](/apps/prismatic-traits/) -- Network intelligence contributes to entity trait computation
-- [Competitor Researcher](/agents/competitor-researcher/) -- Leverages network intelligence for competitive infrastructure analysis
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Manages alerts from network intelligence change detection
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Ensures OSINT source adapters follow consistent interface patterns
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source network intelligence fusion across Shodan, Censys, and others
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Continuous monitoring of network infrastructure changes
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Signal plurality enforced across independent network intelligence sources
+- [Prismatic OSINT Sources](@/apps/prismatic-osint-sources.md) -- Source registry and API key management for all OSINT adapters
+- [Prismatic Crawler Core](@/apps/prismatic-crawler-core.md) -- HTTP-based collection infrastructure for active scanning
+- [Prismatic Traits](@/apps/prismatic-traits.md) -- Network intelligence contributes to entity trait computation
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Leverages network intelligence for competitive infrastructure analysis
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Manages alerts from network intelligence change detection
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Ensures OSINT source adapters follow consistent interface patterns
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source network intelligence fusion across Shodan, Censys, and others
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Continuous monitoring of network infrastructure changes
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Signal plurality enforced across independent network intelligence sources
 
 ---
 
@@ -245,4 +245,4 @@ Source orchestration tests verify quota management, cost optimization, and plura
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

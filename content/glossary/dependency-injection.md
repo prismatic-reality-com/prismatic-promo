@@ -100,7 +100,7 @@ defmodule StorageAdapter do
 end
 ```
 
-Any module implementing this behaviour must provide all four callbacks. The compiler warns if callbacks are missing, and [Dialyzer](/glossary/dialyzer/) verifies that implementations conform to the specified type signatures. This compile-time enforcement ensures that dependency injection failures are caught before runtime.
+Any module implementing this behaviour must provide all four callbacks. The compiler warns if callbacks are missing, and [Dialyzer](@/glossary/dialyzer.md) verifies that implementations conform to the specified type signatures. This compile-time enforcement ensures that dependency injection failures are caught before runtime.
 
 ### Testing with Injected Dependencies
 
@@ -367,19 +367,19 @@ end
 
 ## Related Concepts
 
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Pattern providing interchangeable implementations via DI
-- [Behaviour](/glossary/behaviour/) -- Elixir mechanism defining injectable dependency contracts
-- [Protocol](/glossary/protocol/) -- Type-based dispatch complementing behaviour-based injection
-- [Property-Based Testing](/glossary/property-based-testing/) -- Testing approach benefiting from injectable dependencies
-- [OTP](/glossary/otp/) -- Framework providing supervision and process architecture for DI
-- [Prismatic Storage](/glossary/prismatic-storage/) -- Platform storage layer exemplifying DI at scale
-- [GenServer](/glossary/genserver/) -- Stateful processes that commonly hold injected adapter references
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Pattern providing interchangeable implementations via DI
+- [Behaviour](@/glossary/behaviour.md) -- Elixir mechanism defining injectable dependency contracts
+- [Protocol](@/glossary/protocol.md) -- Type-based dispatch complementing behaviour-based injection
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Testing approach benefiting from injectable dependencies
+- [OTP](@/glossary/otp.md) -- Framework providing supervision and process architecture for DI
+- [Prismatic Storage](@/glossary/prismatic-storage.md) -- Platform storage layer exemplifying DI at scale
+- [GenServer](@/glossary/genserver.md) -- Stateful processes that commonly hold injected adapter references
 
 ## See Also
 
-- [Architecture](/architecture/) -- Dependency management architecture
-- [Technologies](/technologies/) -- Elixir dependency patterns
-- [Apps](/apps/) -- Umbrella applications using DI patterns
+- [Architecture](@/architecture/_index.md) -- Dependency management architecture
+- [Technologies](@/technologies/_index.md) -- Elixir dependency patterns
+- [Apps](@/apps/_index.md) -- Umbrella applications using DI patterns
 
 ---
 
@@ -388,4 +388,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

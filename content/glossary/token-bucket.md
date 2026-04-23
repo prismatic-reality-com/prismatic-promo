@@ -32,9 +32,9 @@ image_alt = "Token Bucket - Prismatic Platform"
 
 Token Bucket is a rate-limiting algorithm that governs the flow of operations through the Prismatic Platform by maintaining a finite pool of tokens that are replenished at a fixed rate. Each incoming request or operation must acquire one or more tokens from the bucket before proceeding. When the bucket is empty, operations are either queued for later execution, rejected immediately, or routed through a degraded service path depending on the configured policy. The algorithm provides a natural mechanism for burst tolerance -- the bucket can accumulate tokens up to a maximum capacity during idle periods, allowing short bursts of activity that exceed the steady-state rate without triggering rejection.
 
-Within the Prismatic Platform's 115-application umbrella architecture, token bucket rate limiting operates at multiple levels: per-endpoint in the [API Gateway](/glossary/api-gateway/), per-agent in the AIAD agent orchestration layer, per-adapter in the OSINT data collection pipeline, and per-tenant in the multi-user web interface. The algorithm is implemented as an OTP-compliant [GenServer](/glossary/genserver/) backed by [ETS](/glossary/ets/) tables for microsecond-level token acquisition, supervised within the platform's [Supervision Tree](/glossary/supervision-tree/) to guarantee availability even under extreme load conditions.
+Within the Prismatic Platform's 115-application umbrella architecture, token bucket rate limiting operates at multiple levels: per-endpoint in the [API Gateway](@/glossary/api-gateway.md), per-agent in the AIAD agent orchestration layer, per-adapter in the OSINT data collection pipeline, and per-tenant in the multi-user web interface. The algorithm is implemented as an OTP-compliant [GenServer](@/glossary/genserver.md) backed by [ETS](@/glossary/ets.md) tables for microsecond-level token acquisition, supervised within the platform's [Supervision Tree](@/glossary/supervision-tree.md) to guarantee availability even under extreme load conditions.
 
-The token bucket is a foundational component of the platform's resilience strategy, working in concert with [Circuit Breakers](/glossary/circuit-breaker/), [Backpressure](/glossary/backpressure/) mechanisms, and [Fault Tolerance](/glossary/fault-tolerance/) patterns to ensure that no single client, agent, or subsystem can destabilize the entire platform through excessive resource consumption.
+The token bucket is a foundational component of the platform's resilience strategy, working in concert with [Circuit Breakers](@/glossary/circuit-breaker.md), [Backpressure](@/glossary/backpressure.md) mechanisms, and [Fault Tolerance](@/glossary/fault-tolerance.md) patterns to ensure that no single client, agent, or subsystem can destabilize the entire platform through excessive resource consumption.
 
 ## Mathematical Foundation
 
@@ -283,7 +283,7 @@ end
 
 ## Integration with Circuit Breaker Pattern
 
-Token buckets and [circuit breakers](/glossary/circuit-breaker/) serve complementary but distinct purposes. The token bucket controls the rate of requests to a service, while the circuit breaker controls whether requests should be sent at all based on failure patterns. In the Prismatic Platform, these two patterns are composed into a unified flow control pipeline:
+Token buckets and [circuit breakers](@/glossary/circuit-breaker.md) serve complementary but distinct purposes. The token bucket controls the rate of requests to a service, while the circuit breaker controls whether requests should be sent at all based on failure patterns. In the Prismatic Platform, these two patterns are composed into a unified flow control pipeline:
 
 1. **Token Bucket Check**: Does the caller have available rate budget?
 2. **Circuit Breaker Check**: Is the target service healthy enough to receive requests?
@@ -294,7 +294,7 @@ This composition prevents two common failure modes: (a) a token bucket allowing 
 
 ## ETS-Backed Performance
 
-The choice of [ETS](/glossary/ets/) as the storage backend for token bucket state is driven by performance requirements. Rate limiting is a hot path -- every request to the platform passes through at least one token bucket check. The implementation must add negligible latency:
+The choice of [ETS](@/glossary/ets.md) as the storage backend for token bucket state is driven by performance requirements. Rate limiting is a hot path -- every request to the platform passes through at least one token bucket check. The implementation must add negligible latency:
 
 | Operation | Average Latency | P99 Latency | Mechanism |
 |-----------|----------------|-------------|-----------|
@@ -415,7 +415,7 @@ The choice between local and distributed buckets is configured per bucket based 
 
 ## Testing Token Buckets
 
-The platform's [Quality Gate](/glossary/quality-gate/) requirements demand comprehensive testing of rate-limiting behavior, including timing-sensitive tests that verify burst tolerance, refill accuracy, and adaptive policy responses:
+The platform's [Quality Gate](@/glossary/quality-gate.md) requirements demand comprehensive testing of rate-limiting behavior, including timing-sensitive tests that verify burst tolerance, refill accuracy, and adaptive policy responses:
 
 ```elixir
 defmodule PrismaticRateLimiter.TokenBucketTest do
@@ -460,21 +460,21 @@ end
 
 ## Related Terms
 
-- [Rate Limiting](/glossary/rate-limiting/) -- The broader concept of controlling request throughput
-- [Backpressure](/glossary/backpressure/) -- Flow control mechanism that signals upstream to slow down
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern for failing fast when a service is unhealthy
-- [GenServer](/glossary/genserver/) -- OTP behavior used to implement the token bucket process
-- [ETS](/glossary/ets/) -- In-memory storage providing microsecond token state access
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property ensuring operation despite component failures
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchy governing token bucket process lifecycle
-- [API Gateway](/glossary/api-gateway/) -- Entry point where platform-level rate limiting is enforced
-- [Quality Gate](/glossary/quality-gate/) -- Verification checkpoint that includes rate-limit testing
-- [Process Isolation](/glossary/process-isolation/) -- BEAM property enabling independent bucket processes
+- [Rate Limiting](@/glossary/rate-limiting.md) -- The broader concept of controlling request throughput
+- [Backpressure](@/glossary/backpressure.md) -- Flow control mechanism that signals upstream to slow down
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern for failing fast when a service is unhealthy
+- [GenServer](@/glossary/genserver.md) -- OTP behavior used to implement the token bucket process
+- [ETS](@/glossary/ets.md) -- In-memory storage providing microsecond token state access
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property ensuring operation despite component failures
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchy governing token bucket process lifecycle
+- [API Gateway](@/glossary/api-gateway.md) -- Entry point where platform-level rate limiting is enforced
+- [Quality Gate](@/glossary/quality-gate.md) -- Verification checkpoint that includes rate-limit testing
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM property enabling independent bucket processes
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -484,4 +484,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

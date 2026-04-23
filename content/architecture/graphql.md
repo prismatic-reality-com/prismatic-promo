@@ -24,11 +24,11 @@ image_alt = "GraphQL API - Prismatic Platform"
 
 ## Overview
 
-The Prismatic Platform exposes a [GraphQL](/glossary/graphql/) API built on Absinthe, the premier GraphQL implementation for the [Elixir](/glossary/elixir/) ecosystem. The choice of GraphQL over a pure REST approach was driven by three concrete requirements: the platform serves diverse clients ([LiveView](/glossary/liveview/) dashboards, CLI tools, external integrations, mobile applications) that each need different subsets of the same data; the domain model contains deeply nested relationships (assets have vulnerabilities which have ratings which have historical trends) where REST would require either over-fetching or multiple round-trips; and real-time subscriptions for security events must be first-class API citizens rather than bolted-on afterthoughts.
+The Prismatic Platform exposes a [GraphQL](@/glossary/graphql.md) API built on Absinthe, the premier GraphQL implementation for the [Elixir](@/glossary/elixir.md) ecosystem. The choice of GraphQL over a pure REST approach was driven by three concrete requirements: the platform serves diverse clients ([LiveView](@/glossary/liveview.md) dashboards, CLI tools, external integrations, mobile applications) that each need different subsets of the same data; the domain model contains deeply nested relationships (assets have vulnerabilities which have ratings which have historical trends) where REST would require either over-fetching or multiple round-trips; and real-time subscriptions for security events must be first-class API citizens rather than bolted-on afterthoughts.
 
-Absinthe was selected over alternatives like GraphQL-Yoga (Node.js), Strawberry (Python), or graphql-java because it leverages the [BEAM](/glossary/beam/) runtime's native strengths: each GraphQL subscription maps to a lightweight process, subscription delivery piggybacks on [Phoenix PubSub](/architecture/pubsub/) without additional infrastructure, and the Absinthe middleware pipeline integrates naturally with [OTP](/glossary/otp/) patterns for authentication, authorization, and [telemetry](/glossary/telemetry/).
+Absinthe was selected over alternatives like GraphQL-Yoga (Node.js), Strawberry (Python), or graphql-java because it leverages the [BEAM](@/glossary/beam.md) runtime's native strengths: each GraphQL subscription maps to a lightweight process, subscription delivery piggybacks on [Phoenix PubSub](@/architecture/pubsub.md) without additional infrastructure, and the Absinthe middleware pipeline integrates naturally with [OTP](@/glossary/otp.md) patterns for authentication, authorization, and [telemetry](@/glossary/telemetry.md).
 
-The [Prismatic API application](/apps/prismatic-api/) also provides a REST gateway that auto-discovers facade modules, but the GraphQL layer remains the preferred interface for complex queries, nested data traversal, and real-time event streams where clients need fine-grained control over the response shape.
+The [Prismatic API application](@/apps/prismatic-api.md) also provides a REST gateway that auto-discovers facade modules, but the GraphQL layer remains the preferred interface for complex queries, nested data traversal, and real-time event streams where clients need fine-grained control over the response shape.
 
 ## Schema Architecture
 
@@ -66,7 +66,7 @@ Client Request
   Response Serialization (JSON)
 ```
 
-The key design decision is that resolvers never contain business logic directly. They delegate to domain modules (such as `PrismaticPerimeter` or `PrismaticAgents`), which keeps the GraphQL layer thin and testable independently of the API transport. This also means the same business logic is reachable from LiveView dashboards, background jobs, and the [REST API](/glossary/rest-api/) without duplication.
+The key design decision is that resolvers never contain business logic directly. They delegate to domain modules (such as `PrismaticPerimeter` or `PrismaticAgents`), which keeps the GraphQL layer thin and testable independently of the API transport. This also means the same business logic is reachable from LiveView dashboards, background jobs, and the [REST API](@/glossary/rest-api.md) without duplication.
 
 ## Schema Definition and Type System
 
@@ -240,9 +240,9 @@ end
 
 ## DataLoader: Solving the N+1 Problem
 
-The N+1 query problem is the most common performance pitfall in GraphQL implementations. When a client queries a list of assets and requests the [security rating](/glossary/security-rating/) for each, a naive resolver implementation executes one database query for the asset list, then one additional query per asset to fetch its rating. For 100 assets, this produces 101 queries.
+The N+1 query problem is the most common performance pitfall in GraphQL implementations. When a client queries a list of assets and requests the [security rating](@/glossary/security-rating.md) for each, a naive resolver implementation executes one database query for the asset list, then one additional query per asset to fetch its rating. For 100 assets, this produces 101 queries.
 
-DataLoader solves this by collecting all requested keys during resolution and executing a single batched query. The Prismatic Platform's DataLoader configuration demonstrates how this works across multiple [storage backends](/architecture/storage-adapters/):
+DataLoader solves this by collecting all requested keys during resolution and executing a single batched query. The Prismatic Platform's DataLoader configuration demonstrates how this works across multiple [storage backends](@/architecture/storage-adapters.md):
 
 ```elixir
 defmodule PrismaticGraphQL.DataSource do
@@ -307,7 +307,7 @@ The query reduction is dramatic and measurable:
 | 50 assets + ratings + vulns | 101 queries, ~110ms | 3 queries, ~5ms | 97% |
 | 100 assets + all associations | 301 queries, ~350ms | 4 queries, ~8ms | 99% |
 
-These benchmarks were measured using [Ecto](/glossary/ecto/) telemetry events against the platform's [PostgreSQL](/glossary/postgresql/) instance. The DataLoader approach also reduces database connection pool pressure, which is critical when the same pool serves [LiveView](/architecture/phoenix-liveview/) dashboards, background jobs, and API requests simultaneously.
+These benchmarks were measured using [Ecto](@/glossary/ecto.md) telemetry events against the platform's [PostgreSQL](@/glossary/postgresql.md) instance. The DataLoader approach also reduces database connection pool pressure, which is critical when the same pool serves [LiveView](@/architecture/phoenix-liveview.md) dashboards, background jobs, and API requests simultaneously.
 
 ## Middleware Pipeline
 
@@ -482,7 +482,7 @@ end
 
 ## Subscriptions and Real-Time Events
 
-GraphQL subscriptions in Absinthe leverage [Phoenix PubSub](/architecture/pubsub/) for event delivery. Each subscription creates a lightweight BEAM process that listens on a PubSub topic and pushes data to the client over a [WebSocket](/glossary/websocket/) connection. This is where Absinthe's BEAM-native design truly differentiates it from Node.js or Java GraphQL implementations that require external message brokers for subscription support.
+GraphQL subscriptions in Absinthe leverage [Phoenix PubSub](@/architecture/pubsub.md) for event delivery. Each subscription creates a lightweight BEAM process that listens on a PubSub topic and pushes data to the client over a [WebSocket](@/glossary/websocket.md) connection. This is where Absinthe's BEAM-native design truly differentiates it from Node.js or Java GraphQL implementations that require external message brokers for subscription support.
 
 ```elixir
 defmodule PrismaticGraphQL.Subscriptions.Publisher do
@@ -517,12 +517,12 @@ end
 | Concurrent subscriptions per node | 10,000+ | Each is a ~2KB BEAM process |
 | Event delivery latency | <50ms | PubSub broadcast + serialization |
 | Memory per subscription | ~3KB | Process heap + topic metadata |
-| Reconnection handling | Automatic | Phoenix [Channel](/glossary/channel/) reconnection [protocol](/glossary/protocol/) |
+| Reconnection handling | Automatic | Phoenix [Channel](@/glossary/channel.md) reconnection [protocol](@/glossary/protocol.md) |
 | Subscription parsing | <1ms | Cached after first parse |
 
 ## Authentication and Authorization
 
-The authentication context is established at the [plug](/glossary/plug/) level before Absinthe processes the request. This separation ensures that the GraphQL layer never handles raw tokens or credentials:
+The authentication context is established at the [plug](@/glossary/plug.md) level before Absinthe processes the request. This separation ensures that the GraphQL layer never handles raw tokens or credentials:
 
 ```elixir
 defmodule PrismaticGraphQL.ContextPlug do
@@ -600,21 +600,21 @@ Benchmarks against the Prismatic Platform GraphQL endpoint (single node, 8-core,
 | Client diversity | Fixed response shape | Client-specified fields | GraphQL: serves diverse clients |
 | Nested data | Multiple requests or includes | Single query with depth | GraphQL: fewer round-trips |
 | Over-fetching | Returns full resource | Returns requested fields only | GraphQL: bandwidth efficiency |
-| Discoverability | Requires separate docs ([OpenAPI](/glossary/openapi/)) | Built-in introspection | GraphQL: self-documenting |
+| Discoverability | Requires separate docs ([OpenAPI](@/glossary/openapi.md)) | Built-in introspection | GraphQL: self-documenting |
 | Caching | HTTP caching built-in | Requires custom strategy | REST: simpler caching |
 | File uploads | Multipart native | Requires extensions | REST: simpler uploads |
 | Real-time | Separate WebSocket layer | Native subscriptions | GraphQL: unified API |
 
-The Prismatic Platform maintains both a [REST API](/apps/prismatic-api/) (for simple CRUD operations and external integrations that expect REST) and the GraphQL API (for complex queries, subscriptions, and internal tooling). This dual approach avoids forcing GraphQL on consumers who do not benefit from it while providing its advantages where they matter.
+The Prismatic Platform maintains both a [REST API](@/apps/prismatic-api.md) (for simple CRUD operations and external integrations that expect REST) and the GraphQL API (for complex queries, subscriptions, and internal tooling). This dual approach avoids forcing GraphQL on consumers who do not benefit from it while providing its advantages where they matter.
 
 ### Absinthe vs Other GraphQL Libraries
 
 Absinthe was chosen over Apollo Server (Node.js), Sangria (Scala), and graphql-ruby for the following reasons:
 
-1. **Process-per-subscription**: Each subscription is a BEAM process, not a shared thread pool entry. This provides natural [backpressure](/glossary/backpressure/) and fault isolation.
-2. **PubSub integration**: Subscription delivery uses [Phoenix PubSub](/architecture/pubsub/) directly, with no additional message broker required for single-cluster deployments.
+1. **Process-per-subscription**: Each subscription is a BEAM process, not a shared thread pool entry. This provides natural [backpressure](@/glossary/backpressure.md) and fault isolation.
+2. **PubSub integration**: Subscription delivery uses [Phoenix PubSub](@/architecture/pubsub.md) directly, with no additional message broker required for single-cluster deployments.
 3. **Middleware composability**: Absinthe's middleware system is more granular (field-level) than most alternatives (resolver-level).
-4. **DataLoader integration**: Built specifically for Absinthe, with [Ecto](/glossary/ecto/) support that understands changesets, schemas, and query composition.
+4. **DataLoader integration**: Built specifically for Absinthe, with [Ecto](@/glossary/ecto.md) support that understands changesets, schemas, and query composition.
 
 ## Introspection and Developer Experience
 
@@ -687,7 +687,7 @@ end
 
 ## Summary
 
-The GraphQL API serves as the platform's primary programmatic interface for complex data access patterns. By leveraging Absinthe's BEAM-native architecture, the [Prismatic Platform](/apps/prismatic-api/) achieves type-safe, self-documenting, real-time capable API access with performance characteristics that would require significantly more infrastructure in other language ecosystems. The DataLoader integration eliminates N+1 queries structurally, the middleware pipeline provides field-level security controls, and the subscription system delivers real-time events to thousands of concurrent clients using the same [PubSub infrastructure](/architecture/pubsub/) that powers [LiveView dashboards](/architecture/phoenix-liveview/) and [agent coordination](/apps/prismatic-agents/). The result is a unified, high-performance API layer that adapts to each client's needs without sacrificing type safety or [observability](/glossary/observability/).
+The GraphQL API serves as the platform's primary programmatic interface for complex data access patterns. By leveraging Absinthe's BEAM-native architecture, the [Prismatic Platform](@/apps/prismatic-api.md) achieves type-safe, self-documenting, real-time capable API access with performance characteristics that would require significantly more infrastructure in other language ecosystems. The DataLoader integration eliminates N+1 queries structurally, the middleware pipeline provides field-level security controls, and the subscription system delivers real-time events to thousands of concurrent clients using the same [PubSub infrastructure](@/architecture/pubsub.md) that powers [LiveView dashboards](@/architecture/phoenix-liveview.md) and [agent coordination](@/apps/prismatic-agents.md). The result is a unified, high-performance API layer that adapts to each client's needs without sacrificing type safety or [observability](@/glossary/observability.md).
 
 ---
 
@@ -696,4 +696,4 @@ The GraphQL API serves as the platform's primary programmatic interface for comp
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

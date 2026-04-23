@@ -57,17 +57,17 @@ Mix ships with a comprehensive set of built-in tasks that cover the standard dev
 |------|-------------|-------------|
 | `mix new` | Create a new project or umbrella application | `--umbrella`, `--app`, `--module` |
 | `mix compile` | Compile the project and its dependencies | `--warnings-as-errors`, `--force` |
-| `mix test` | Run the test suite via [ExUnit](/glossary/exunit/) | `--cover`, `--stale`, `--trace` |
-| `mix deps.get` | Fetch and install dependencies from [Hex](/glossary/hex/) | `--only` |
+| `mix test` | Run the test suite via [ExUnit](@/glossary/exunit.md) | `--cover`, `--stale`, `--trace` |
+| `mix deps.get` | Fetch and install dependencies from [Hex](@/glossary/hex.md) | `--only` |
 | `mix deps.compile` | Compile fetched dependencies | `--force` |
 | `mix format` | Auto-format Elixir source code | `--check-formatted`, `--dry-run` |
-| `mix release` | Build an OTP [release](/glossary/release/) for deployment | `--overwrite`, `--path` |
-| `mix ecto.migrate` | Run [Ecto](/glossary/ecto/) database migrations | `--step`, `--to` |
+| `mix release` | Build an OTP [release](@/glossary/release.md) for deployment | `--overwrite`, `--path` |
+| `mix ecto.migrate` | Run [Ecto](@/glossary/ecto.md) database migrations | `--step`, `--to` |
 | `mix ecto.rollback` | Reverse database migrations | `--step`, `--to` |
-| `mix phx.server` | Start the [Phoenix](/glossary/phoenix/) web server | - |
+| `mix phx.server` | Start the [Phoenix](@/glossary/phoenix.md) web server | - |
 | `mix phx.routes` | Display all configured routes | - |
 | `mix xref` | Cross-reference analysis for dependencies | `graph`, `callers`, `unreachable` |
-| `mix dialyzer` | Run [Dialyzer](/glossary/dialyzer/) static analysis | `--format`, `--quiet` |
+| `mix dialyzer` | Run [Dialyzer](@/glossary/dialyzer.md) static analysis | `--format`, `--quiet` |
 
 ### Task Execution Model
 
@@ -185,7 +185,7 @@ The Prismatic Platform mandates `warnings_as_errors: true` across all 90 umbrell
 
 ## Dependency Management with Hex
 
-Mix integrates with [Hex](/glossary/hex/), the package manager for the Erlang ecosystem, for external dependency management. Dependencies are declared in `mix.exs` and resolved by Mix's dependency resolver:
+Mix integrates with [Hex](@/glossary/hex.md), the package manager for the Erlang ecosystem, for external dependency management. Dependencies are declared in `mix.exs` and resolved by Mix's dependency resolver:
 
 ```elixir
 defp deps do
@@ -267,7 +267,7 @@ These tasks form the operational backbone of the platform, invoked manually duri
 
 ## Release Building
 
-Mix builds OTP [releases](/glossary/release/) -- self-contained deployment packages that include the Erlang runtime, all compiled BEAM bytecode, and application configuration:
+Mix builds OTP [releases](@/glossary/release.md) -- self-contained deployment packages that include the Erlang runtime, all compiled BEAM bytecode, and application configuration:
 
 ```elixir
 # Release configuration in mix.exs
@@ -289,7 +289,7 @@ def project do
 end
 ```
 
-The `mix release` command produces a tarball that can be deployed to any compatible Linux system without installing Erlang or Elixir. The Prismatic Platform builds releases inside [Docker](/glossary/docker/) multi-stage builds for deployment to [Fly.io](/glossary/fly-io/).
+The `mix release` command produces a tarball that can be deployed to any compatible Linux system without installing Erlang or Elixir. The Prismatic Platform builds releases inside [Docker](@/glossary/docker.md) multi-stage builds for deployment to [Fly.io](@/glossary/fly-io.md).
 
 ## Advanced Mix Patterns
 
@@ -1036,27 +1036,27 @@ end
 
 ## Related Terms
 
-- [Hex](/glossary/hex/) - Package manager integrated with Mix for dependency management
-- [ExUnit](/glossary/exunit/) - Test framework executed via `mix test`
-- [Ecto](/glossary/ecto/) - Database toolkit with Mix tasks for migrations
-- [Phoenix](/glossary/phoenix/) - Web framework with Mix tasks for server management
-- [Dialyzer](/glossary/dialyzer/) - Static analysis tool invoked via `mix dialyzer`
-- [Release](/glossary/release/) - OTP release built with `mix release`
-- [Docker](/glossary/docker/) - Container builds using Mix releases
-- [BEAM](/glossary/beam/) - Virtual machine executing compiled Mix output
-- [Typespec](/glossary/typespec/) - Type specifications checked during compilation
-- [Code Coverage](/glossary/code-coverage/) - Test coverage measured via `mix test --cover`
-- [Umbrella Application](/glossary/umbrella-application/) - Multi-app project structure managed by Mix
-- [Quality Gates](/glossary/quality-gates/) - Automated quality checks implemented as Mix tasks
-- [GenServer](/glossary/genserver/) - OTP behavior compiled and managed through Mix
-- [Supervision Tree](/glossary/supervision-tree/) - Process hierarchies in applications built with Mix
+- [Hex](@/glossary/hex.md) - Package manager integrated with Mix for dependency management
+- [ExUnit](@/glossary/exunit.md) - Test framework executed via `mix test`
+- [Ecto](@/glossary/ecto.md) - Database toolkit with Mix tasks for migrations
+- [Phoenix](@/glossary/phoenix.md) - Web framework with Mix tasks for server management
+- [Dialyzer](@/glossary/dialyzer.md) - Static analysis tool invoked via `mix dialyzer`
+- [Release](@/glossary/release.md) - OTP release built with `mix release`
+- [Docker](@/glossary/docker.md) - Container builds using Mix releases
+- [BEAM](@/glossary/beam.md) - Virtual machine executing compiled Mix output
+- [Typespec](@/glossary/typespec.md) - Type specifications checked during compilation
+- [Code Coverage](@/glossary/code-coverage.md) - Test coverage measured via `mix test --cover`
+- [Umbrella Application](@/glossary/umbrella-application.md) - Multi-app project structure managed by Mix
+- [Quality Gates](@/glossary/quality-gates.md) - Automated quality checks implemented as Mix tasks
+- [GenServer](@/glossary/genserver.md) - OTP behavior compiled and managed through Mix
+- [Supervision Tree](@/glossary/supervision-tree.md) - Process hierarchies in applications built with Mix
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture
-- [Technologies](/technologies/) - Technology stack
-- [Quality Gates](/glossary/quality-gates/) - Quality enforcement via custom Mix tasks
-- [Observability](/glossary/observability/) - Monitoring infrastructure triggered by Mix tasks
+- [Architecture](@/architecture/_index.md) - Platform architecture
+- [Technologies](@/technologies/_index.md) - Technology stack
+- [Quality Gates](@/glossary/quality-gates.md) - Quality enforcement via custom Mix tasks
+- [Observability](@/glossary/observability.md) - Monitoring infrastructure triggered by Mix tasks
 
 ---
 
@@ -1065,4 +1065,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

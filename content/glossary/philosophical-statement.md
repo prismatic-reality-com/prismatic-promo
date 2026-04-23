@@ -34,7 +34,7 @@ image_alt = "Philosophical Statement - Prismatic Platform"
 
 A Philosophical Statement within the Prismatic Platform is a formal, explicit assertion that expresses a foundational belief, value commitment, or engineering principle that governs platform behavior. Unlike informal opinions or preferences, philosophical statements are documented, version-controlled, and enforced through automated systems. They occupy the highest abstraction layer in the platform's governance hierarchy: philosophical statements generate doctrines, doctrines generate policies, policies generate automated checks, and automated checks produce binary pass/fail enforcement. Every quality gate, every pre-commit hook, and every agent compliance rule traces its authority back to one or more philosophical statements.
 
-Examples of philosophical statements in the Prismatic Platform include: "Reality is not a democracy. Evidence is not optional. Contradictions are not embarrassments." ([NABLA Infinity](/glossary/nabla-infinity/)); "If the same solution could be written identically in Node.js, it is WRONG." (the Elixir meta-rule); and "No mercy, no doubts" -- the two-word distillation of the platform's execution philosophy. Each statement carries implications that cascade through the entire platform, from architecture decisions to code review criteria to agent behavior specifications.
+Examples of philosophical statements in the Prismatic Platform include: "Reality is not a democracy. Evidence is not optional. Contradictions are not embarrassments." ([NABLA Infinity](@/glossary/nabla-infinity.md)); "If the same solution could be written identically in Node.js, it is WRONG." (the Elixir meta-rule); and "No mercy, no doubts" -- the two-word distillation of the platform's execution philosophy. Each statement carries implications that cascade through the entire platform, from architecture decisions to code review criteria to agent behavior specifications.
 
 ## Overview
 
@@ -48,15 +48,15 @@ The Prismatic Platform takes the opposite approach. Its philosophical statements
 
 **Enforceable**: Each statement maps to concrete technical criteria that automated systems can verify. "Every line of code is production-ready from the moment it is written" maps to zero warnings, zero TODOs, zero stubs, comprehensive tests, and complete documentation -- all checked automatically.
 
-**Immutable once adopted**: Philosophical statements are not revised casually. Changing a foundational statement requires evidence that the statement is incorrect (not merely inconvenient), confidence exceeding the 0.95 threshold, and [Trinity Gate](/glossary/trinity-gate/) passage. This prevents drift under deadline pressure.
+**Immutable once adopted**: Philosophical statements are not revised casually. Changing a foundational statement requires evidence that the statement is incorrect (not merely inconvenient), confidence exceeding the 0.95 threshold, and [Trinity Gate](@/glossary/trinity-gate.md) passage. This prevents drift under deadline pressure.
 
-**Composable**: Statements combine to form coherent doctrines. "Quality is binary" + "Action requires confidence" + "Delivery must be complete" compose into the [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine. The composition is explicit, not emergent.
+**Composable**: Statements combine to form coherent doctrines. "Quality is binary" + "Action requires confidence" + "Delivery must be complete" compose into the [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine. The composition is explicit, not emergent.
 
 ## Historical Context
 
 The practice of grounding engineering organizations in explicit philosophical commitments has deep roots. W. Edwards Deming's management philosophy, codified in his 14 Points for Management, demonstrated that organizational behavior flows from stated principles. The Toyota Production System's foundational principle of "respect for people" generates specific engineering practices like Jidoka (automation with a human touch) and Kaizen (continuous improvement). In software, the Agile Manifesto (2001) represented an explicit philosophical statement that generated the entire agile methodology ecosystem.
 
-The Prismatic Platform extends this tradition by adding automated enforcement. Where the Agile Manifesto relies on cultural adoption, Prismatic philosophical statements are enforced through [quality gates](/glossary/quality-gates/), [pre-commit hooks](/glossary/pre-commit-hooks/), and agent compliance validation. This automation ensures that philosophical commitments are not eroded by deadline pressure or team turnover. The statement corpus has grown organically since Generation 3, with each new statement subject to the same validation rigor as the code it governs.
+The Prismatic Platform extends this tradition by adding automated enforcement. Where the Agile Manifesto relies on cultural adoption, Prismatic philosophical statements are enforced through [quality gates](@/glossary/quality-gates.md), [pre-commit hooks](@/glossary/pre-commit-hooks.md), and agent compliance validation. This automation ensures that philosophical commitments are not eroded by deadline pressure or team turnover. The statement corpus has grown organically since Generation 3, with each new statement subject to the same validation rigor as the code it governs.
 
 ## Technical Details
 
@@ -341,7 +341,7 @@ Philosophical statements in the Prismatic Platform follow a lifecycle from propo
 
 **Proposal Phase**: A new statement is articulated with its text, justification, category, and intended doctrines/policies/checks. The `StatementValidator` verifies consistency with the existing corpus.
 
-**Review Phase**: The proposed statement undergoes review through the [Trinity Gate](/glossary/trinity-gate/) -- structural consistency (does it fit the existing governance hierarchy?), logical consistency (does it follow from stated premises?), and formal necessity (is it required to close an identified gap?).
+**Review Phase**: The proposed statement undergoes review through the [Trinity Gate](@/glossary/trinity-gate.md) -- structural consistency (does it fit the existing governance hierarchy?), logical consistency (does it follow from stated premises?), and formal necessity (is it required to close an identified gap?).
 
 **Adoption Phase**: Upon Trinity Gate passage, the statement is registered in the `StatementRegistry` with an immutable version identifier and adoption date. It cannot be modified after adoption -- only superseded by a new version.
 
@@ -374,7 +374,7 @@ Prismatic philosophical statements occupy a unique position: they are as formal 
 
 **Version statements, do not modify them.** When a statement needs revision, create a new version with a new adoption date. The old version remains in the registry for historical reference. This prevents the Orwellian problem of retroactively changing the principles by which past work was evaluated.
 
-**Compose statements into doctrines explicitly.** Do not assume that individual statements imply a coherent whole. Document how statements combine into doctrines and resolve any tensions between them. The relationship between [Perfection Unacceptable](/glossary/perfection-unacceptable/) and [Zero Compromise Quality](/glossary/zero-compromise-quality/) is a good example -- each is valid, but their composition requires explicit explanation.
+**Compose statements into doctrines explicitly.** Do not assume that individual statements imply a coherent whole. Document how statements combine into doctrines and resolve any tensions between them. The relationship between [Perfection Unacceptable](@/glossary/perfection-unacceptable.md) and [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) is a good example -- each is valid, but their composition requires explicit explanation.
 
 ## Pitfalls
 
@@ -392,32 +392,32 @@ Prismatic philosophical statements occupy a unique position: they are as formal 
 
 **Resolving Technical Disagreements**: When two approaches to a problem both pass quality gates, philosophical statements can break the tie. If one approach better embodies "Reality is not a democracy" (by using multiple evidence sources) while the other relies on a single assumption, the statement favors the first approach.
 
-**Agent Design Governance**: Every [AIAD](/glossary/aiad/) agent's behavior is validated against philosophical statements. An agent that produces claims without evidence violates PS-001. An agent that ships incomplete work violates PS-002. The statements provide a uniform design language across the 530+ agent ecosystem.
+**Agent Design Governance**: Every [AIAD](@/glossary/aiad.md) agent's behavior is validated against philosophical statements. An agent that produces claims without evidence violates PS-001. An agent that ships incomplete work violates PS-002. The statements provide a uniform design language across the 530+ agent ecosystem.
 
 **External Communication**: When asked "what makes the Prismatic Platform different?" the philosophical statements provide a concise, principled answer. They communicate the platform's identity more effectively than feature lists or technical specifications.
 
-**Audit and Compliance**: Philosophical statements serve as the root justification in compliance audits. When a regulatory body asks "why does your platform enforce this particular [quality gate](/glossary/quality-gates/)?" the answer traces from the gate through its policy, through its doctrine, to the philosophical statement that justifies the entire chain. This traceability satisfies NIS2 and ZKB documentation requirements for security governance.
+**Audit and Compliance**: Philosophical statements serve as the root justification in compliance audits. When a regulatory body asks "why does your platform enforce this particular [quality gate](@/glossary/quality-gates.md)?" the answer traces from the gate through its policy, through its doctrine, to the philosophical statement that justifies the entire chain. This traceability satisfies NIS2 and ZKB documentation requirements for security governance.
 
 ## Related Concepts
 
-- [Philosophical Concepts](/glossary/philosophical-concepts/) -- The broader framework of which individual statements are elements
-- [Philosophically Sound](/glossary/philosophically-sound/) -- The quality attribute of systems aligned with philosophical statements
-- [Doctrine](/glossary/doctrine/) -- The enforcement frameworks generated by philosophical statements
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) -- The primary execution doctrine derived from philosophical statements
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic doctrine derived from statements about knowledge and evidence
-- [Perfection Unacceptable](/glossary/perfection-unacceptable/) -- The delivery doctrine derived from statements about completeness vs. perfection
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) -- The epistemic position that quality is objective and evidence-based
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- The quality floor commitment derived from craftsmanship statements
-- [Trinity Gate](/glossary/trinity-gate/) -- The verification system that validates new philosophical statements
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- The reasoning methodology applied to statement evaluation
+- [Philosophical Concepts](@/glossary/philosophical-concepts.md) -- The broader framework of which individual statements are elements
+- [Philosophically Sound](@/glossary/philosophically-sound.md) -- The quality attribute of systems aligned with philosophical statements
+- [Doctrine](@/glossary/doctrine.md) -- The enforcement frameworks generated by philosophical statements
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) -- The primary execution doctrine derived from philosophical statements
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic doctrine derived from statements about knowledge and evidence
+- [Perfection Unacceptable](@/glossary/perfection-unacceptable.md) -- The delivery doctrine derived from statements about completeness vs. perfection
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) -- The epistemic position that quality is objective and evidence-based
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- The quality floor commitment derived from craftsmanship statements
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The verification system that validates new philosophical statements
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- The reasoning methodology applied to statement evaluation
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture governed by philosophical statements
-- [Platform Capabilities](/capabilities/) -- Capabilities that implement philosophical commitments
-- [Applications](/apps/) -- 115 OTP applications operating under the statement framework
-- [Technologies](/technologies/) -- Technology choices justified by philosophical statements
-- [Agent Registry](/agents/) -- 530+ agents validated against philosophical statements
+- [Architecture](@/architecture/_index.md) -- Platform architecture governed by philosophical statements
+- [Platform Capabilities](@/capabilities/_index.md) -- Capabilities that implement philosophical commitments
+- [Applications](@/apps/_index.md) -- 115 OTP applications operating under the statement framework
+- [Technologies](@/technologies/_index.md) -- Technology choices justified by philosophical statements
+- [Agent Registry](@/agents/_index.md) -- 530+ agents validated against philosophical statements
 
 ---
 
@@ -426,4 +426,4 @@ Prismatic philosophical statements occupy a unique position: they are as formal 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

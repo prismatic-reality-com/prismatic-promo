@@ -199,11 +199,11 @@ The data analysis Livebooks include interactive covariance computation and visua
 
 ## Cross-References
 
-- [Correlation](/glossary/correlation/) - standardized version of covariance
-- [Cross-Tabulation](/glossary/cross-tabulation/) - categorical data analysis complement
-- [Confidence Score](/glossary/confidence-score/) - reliability metrics analyzed by covariance
-- [Anomaly Detection](/glossary/anomaly-detection/) - detecting unusual covariance changes
-- [Chart](/glossary/chart/) - heatmap visualization of covariance matrices
+- [Correlation](@/glossary/correlation.md) - standardized version of covariance
+- [Cross-Tabulation](@/glossary/cross-tabulation.md) - categorical data analysis complement
+- [Confidence Score](@/glossary/confidence-score.md) - reliability metrics analyzed by covariance
+- [Anomaly Detection](@/glossary/anomaly-detection.md) - detecting unusual covariance changes
+- [Chart](@/glossary/chart.md) - heatmap visualization of covariance matrices
 - **Livebooks**: `livebooks/domains/data_analysis/` - statistical analysis studio
 - **Academy**: Statistical methods and data analysis topics
 

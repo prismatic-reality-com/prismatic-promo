@@ -37,11 +37,11 @@ image_alt = "Umbrella Application - Prismatic Platform"
 
 An umbrella application is an Elixir project structure that hosts multiple independent OTP applications within a single repository under a shared `apps/` directory. Each child application maintains its own `mix.exs`, dependencies, configuration, and test suite while sharing a common build environment and dependency resolution. The umbrella enforces compile-time dependency boundaries -- an application can only call modules from applications it explicitly declares as dependencies, preventing the accidental coupling that degrades monolithic codebases over time.
 
-The umbrella pattern represents Elixir's answer to a decades-old architectural question: how do you structure a large application to maintain modularity without introducing the operational burden of distributed systems? The answer draws from OTP's application concept -- in Erlang/OTP, an "application" is not just a program but a self-contained unit of functionality with its own [supervision tree](/glossary/supervision-tree/), configuration, and lifecycle. The umbrella project takes this concept and provides build tooling that manages multiple such applications within a single repository.
+The umbrella pattern represents Elixir's answer to a decades-old architectural question: how do you structure a large application to maintain modularity without introducing the operational burden of distributed systems? The answer draws from OTP's application concept -- in Erlang/OTP, an "application" is not just a program but a self-contained unit of functionality with its own [supervision tree](@/glossary/supervision-tree.md), configuration, and lifecycle. The umbrella project takes this concept and provides build tooling that manages multiple such applications within a single repository.
 
 The critical distinction between an umbrella application and a simple monolith is compile-time boundary enforcement. In a monolith, any module can call any other module -- there are no enforced boundaries, and over time, cross-cutting dependencies accumulate until the codebase becomes an entangled web of interdependencies. In an umbrella, each application declares its dependencies explicitly, and the Elixir compiler rejects calls to modules from undeclared dependencies. This enforcement is automatic, requires no discipline from developers, and cannot be accidentally bypassed.
 
-The Prismatic Platform is structured as an umbrella application containing 115 [OTP](/glossary/otp/) applications, organized across architectural layers from foundational storage traits to domain-specific systems to user-facing web interfaces. This structure provides microservice-like modularity -- independent compilation, isolated testing, explicit dependency declarations -- without the operational overhead of distributed microservices. All applications share a single [BEAM](/glossary/beam/) node, communicating through direct function calls and message passing with microsecond latency rather than the millisecond latency of network-based inter-service communication.
+The Prismatic Platform is structured as an umbrella application containing 115 [OTP](@/glossary/otp.md) applications, organized across architectural layers from foundational storage traits to domain-specific systems to user-facing web interfaces. This structure provides microservice-like modularity -- independent compilation, isolated testing, explicit dependency declarations -- without the operational overhead of distributed microservices. All applications share a single [BEAM](@/glossary/beam.md) node, communicating through direct function calls and message passing with microsecond latency rather than the millisecond latency of network-based inter-service communication.
 
 ## Historical Evolution of the Platform
 
@@ -523,20 +523,20 @@ end
 
 ## Related Concepts
 
-- [OTP](/glossary/otp/) -- The framework providing application structure and supervision
-- [BEAM](/glossary/beam/) -- The virtual machine hosting all umbrella applications
-- [Elixir](/glossary/elixir/) -- The language providing umbrella project tooling via Mix
-- [Supervision Tree](/glossary/supervision-tree/) -- Per-app process supervision hierarchies
-- [Sparkline](/glossary/sparkline/) -- Contract-locked interfaces between applications
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Storage abstraction across applications
-- [Mix](/glossary/mix/) -- Build tool managing umbrella compilation and testing
-- [Quality DNA](/glossary/quality-dna/) -- Per-application quality state tracking
+- [OTP](@/glossary/otp.md) -- The framework providing application structure and supervision
+- [BEAM](@/glossary/beam.md) -- The virtual machine hosting all umbrella applications
+- [Elixir](@/glossary/elixir.md) -- The language providing umbrella project tooling via Mix
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Per-app process supervision hierarchies
+- [Sparkline](@/glossary/sparkline.md) -- Contract-locked interfaces between applications
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Storage abstraction across applications
+- [Mix](@/glossary/mix.md) -- Build tool managing umbrella compilation and testing
+- [Quality DNA](@/glossary/quality-dna.md) -- Per-application quality state tracking
 
 ## See Also
 
-- [Technologies](/technologies/) -- Technology stack details
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Complete directory of all 115 umbrella applications
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Complete directory of all 115 umbrella applications
 
 ---
 
@@ -545,4 +545,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

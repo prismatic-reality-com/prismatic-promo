@@ -394,27 +394,27 @@ The Prismatic Platform combines BEAM/OTP for application-level infrastructure wi
 
 Infrastructure intersects with numerous other platform concepts:
 
-- [Containerization](/glossary/containerization/) -- packaging applications and dependencies into portable, reproducible container images that run consistently across environments
-- [CI/CD](/glossary/ci-cd/) -- continuous integration and deployment pipelines that automate building, testing, and releasing infrastructure changes
-- [Monitoring](/glossary/monitoring/) -- collecting, aggregating, and alerting on infrastructure metrics to ensure operational health
-- [Observability](/glossary/observability/) -- the ability to understand internal system state from external outputs including metrics, logs, and traces
-- [Docker](/glossary/docker/) -- the container runtime and image format that serves as the foundation for modern deployment infrastructure
-- [Fly.io](/glossary/fly-io/) -- the platform-as-a-service provider hosting the Prismatic Platform with edge computing and automatic scaling
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the ability of infrastructure to continue operating correctly despite component failures
-- [Scalability](/glossary/scalability/) -- the capacity of infrastructure to handle increasing workload by adding resources
-- [Load Balancing](/glossary/load-balancing/) -- distributing incoming requests across multiple infrastructure instances to maximize throughput
-- [Disaster Recovery](/glossary/disaster-recovery/) -- procedures and infrastructure for restoring operations after catastrophic failures
-- [Security](/glossary/security/) -- protecting infrastructure from unauthorized access, data breaches, and operational disruption
-- [Supervision Tree](/glossary/supervision-tree/) -- the OTP mechanism providing process-level infrastructure resilience within the BEAM
+- [Containerization](@/glossary/containerization.md) -- packaging applications and dependencies into portable, reproducible container images that run consistently across environments
+- [CI/CD](@/glossary/ci-cd.md) -- continuous integration and deployment pipelines that automate building, testing, and releasing infrastructure changes
+- [Monitoring](@/glossary/monitoring.md) -- collecting, aggregating, and alerting on infrastructure metrics to ensure operational health
+- [Observability](@/glossary/observability.md) -- the ability to understand internal system state from external outputs including metrics, logs, and traces
+- [Docker](@/glossary/docker.md) -- the container runtime and image format that serves as the foundation for modern deployment infrastructure
+- [Fly.io](@/glossary/fly-io.md) -- the platform-as-a-service provider hosting the Prismatic Platform with edge computing and automatic scaling
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the ability of infrastructure to continue operating correctly despite component failures
+- [Scalability](@/glossary/scalability.md) -- the capacity of infrastructure to handle increasing workload by adding resources
+- [Load Balancing](@/glossary/load-balancing.md) -- distributing incoming requests across multiple infrastructure instances to maximize throughput
+- [Disaster Recovery](@/glossary/disaster-recovery.md) -- procedures and infrastructure for restoring operations after catastrophic failures
+- [Security](@/glossary/security.md) -- protecting infrastructure from unauthorized access, data breaches, and operational disruption
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the OTP mechanism providing process-level infrastructure resilience within the BEAM
 
 ## See Also
 
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine providing the compute foundation for Elixir infrastructure
-- [PostgreSQL](/glossary/postgresql/) -- the primary relational database in the Prismatic Platform data infrastructure
-- [ETS](/glossary/ets/) -- Erlang Term Storage providing in-memory caching infrastructure
-- [Telemetry](/glossary/telemetry/) -- the instrumentation library powering Prismatic Platform observability infrastructure
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) -- a deployment strategy that maintains two identical production environments
-- [GitLab CI](/glossary/gitlab-ci/) -- the CI/CD platform automating Prismatic Platform build and deployment pipelines
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine providing the compute foundation for Elixir infrastructure
+- [PostgreSQL](@/glossary/postgresql.md) -- the primary relational database in the Prismatic Platform data infrastructure
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage providing in-memory caching infrastructure
+- [Telemetry](@/glossary/telemetry.md) -- the instrumentation library powering Prismatic Platform observability infrastructure
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) -- a deployment strategy that maintains two identical production environments
+- [GitLab CI](@/glossary/gitlab-ci.md) -- the CI/CD platform automating Prismatic Platform build and deployment pipelines
 
 ---
 

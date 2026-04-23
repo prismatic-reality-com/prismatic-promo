@@ -201,11 +201,11 @@ The Perimeter security rating explicitly communicates its confidence score to us
 
 ## Cross-References
 
-- [Confidence](/glossary/confidence/) - epistemic certainty framework
-- [Confidence Scoring](/glossary/confidence-scoring/) - scoring methodology detail
-- [Confidence Threshold](/glossary/confidence-threshold/) - action thresholds
+- [Confidence](@/glossary/confidence.md) - epistemic certainty framework
+- [Confidence Scoring](@/glossary/confidence-scoring.md) - scoring methodology detail
+- [Confidence Threshold](@/glossary/confidence-threshold.md) - action thresholds
 - **Correlation** - statistical relationships boosting confidence
-- [Accuracy](/glossary/accuracy/) - data correctness affecting scores
+- [Accuracy](@/glossary/accuracy.md) - data correctness affecting scores
 - **Livebooks**: `livebooks/domains/osint_intelligence/` - confidence scoring labs
 - **Academy**: OSINT Signal Synthesis (GRACE framework) teaches confidence scoring
 

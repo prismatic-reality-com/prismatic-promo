@@ -24,9 +24,9 @@ image_alt = "/quality-unified - Prismatic Platform"
 
 ## Overview
 
-**/quality-unified** is a production command in the **Quality** category of the Prismatic Platform. It serves as the single entry point for all quality assessment operations, unifying the platform's 13 quality domains under one command with multiple execution modes optimized for different contexts. Instead of remembering and running separate commands for compilation checks, [Credo](/glossary/credo/) analysis, Dialyzer verification, test execution, and pattern verification, developers invoke `/quality-unified` with the appropriate mode and receive a comprehensive quality report.
+**/quality-unified** is a production command in the **Quality** category of the Prismatic Platform. It serves as the single entry point for all quality assessment operations, unifying the platform's 13 quality domains under one command with multiple execution modes optimized for different contexts. Instead of remembering and running separate commands for compilation checks, [Credo](@/glossary/credo.md) analysis, Dialyzer verification, test execution, and pattern verification, developers invoke `/quality-unified` with the appropriate mode and receive a comprehensive quality report.
 
-This command operates under the **L3** authority level and is executed by the `quality-unified-supreme` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The quality-unified-supreme agent coordinates with domain-specific quality agents to execute checks in parallel where possible, minimizing total execution time.
+This command operates under the **L3** authority level and is executed by the `quality-unified-supreme` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The quality-unified-supreme agent coordinates with domain-specific quality agents to execute checks in parallel where possible, minimizing total execution time.
 
 The unified approach eliminates the common problem of partial quality checking. When quality is fragmented across multiple commands, developers tend to run only the checks relevant to their immediate concern, missing cross-domain regressions. `/quality-unified` ensures comprehensive coverage every time, with mode-based optimization to keep execution times practical for each development context.
 
@@ -200,15 +200,15 @@ The final report includes: overall score, per-domain scores, violation details, 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/quality-gates](/commands/quality-gates/) | Delegation | Unified delegates to gate infrastructure |
-| [/quality-evolve](/commands/quality-evolve/) | Consumer | Evolution uses unified scores as fitness metrics |
-| [/quality-hbfs](/commands/quality-hbfs/) | Peer | HBFS rankings inform unified priority display |
-| [/regression-check](/commands/regression-check/) | Component | Regression checks run as part of unified pipeline |
-| [/verify-patterns](/commands/verify-patterns/) | Component | Pattern verification is a unified domain |
-| [Pre-commit Hook](/glossary/pre-commit-hooks/) | Caller | Hook invokes `--mode pre-commit` |
-| [CI/CD Pipeline](/glossary/gitlab-ci/) | Caller | Pipeline invokes `--mode ci` |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Quality metrics and execution timing |
-| [Quality DNA](/glossary/quality-dna/) | State | Cross-session quality continuity |
+| [/quality-gates](@/commands/quality-gates.md) | Delegation | Unified delegates to gate infrastructure |
+| [/quality-evolve](@/commands/quality-evolve.md) | Consumer | Evolution uses unified scores as fitness metrics |
+| [/quality-hbfs](@/commands/quality-hbfs.md) | Peer | HBFS rankings inform unified priority display |
+| [/regression-check](@/commands/regression-check.md) | Component | Regression checks run as part of unified pipeline |
+| [/verify-patterns](@/commands/verify-patterns.md) | Component | Pattern verification is a unified domain |
+| [Pre-commit Hook](@/glossary/pre-commit-hooks.md) | Caller | Hook invokes `--mode pre-commit` |
+| [CI/CD Pipeline](@/glossary/gitlab-ci.md) | Caller | Pipeline invokes `--mode ci` |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Quality metrics and execution timing |
+| [Quality DNA](@/glossary/quality-dna.md) | State | Cross-session quality continuity |
 
 ## Best Practices
 
@@ -268,21 +268,21 @@ Compare quality scores across umbrella applications:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every mode runs its full domain set without shortcuts.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Scores are computed from objective tool outputs, not estimates.
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-evolve](/commands/quality-evolve/) - Quality-focused evolution targeting specific quality domains
-- [/quality-hbfs](/commands/quality-hbfs/) - Hottest-bug-first search for quality assessment prioritization
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/verify-patterns](/commands/verify-patterns/) - Pattern matching audit for file, module or entire codebase
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-evolve](@/commands/quality-evolve.md) - Quality-focused evolution targeting specific quality domains
+- [/quality-hbfs](@/commands/quality-hbfs.md) - Hottest-bug-first search for quality assessment prioritization
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/verify-patterns](@/commands/verify-patterns.md) - Pattern matching audit for file, module or entire codebase
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -291,4 +291,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

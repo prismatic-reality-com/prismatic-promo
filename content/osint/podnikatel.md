@@ -25,7 +25,7 @@ image_alt = "Podnikatel.cz - Prismatic Platform"
 
 ## Overview
 
-Podnikatel.cz is a prominent Czech business information aggregator that compiles company profiles from multiple public registers into a user-friendly format. It aggregates data from [ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/), [RZP](/osint/rzp/), the [DPH](/osint/dph/) [registry](/glossary/registry-otp/), and other public sources into unified company profile pages. While not an official government register, Podnikatel.cz serves as a convenient single-access-point for Czech business intelligence, saving investigators the effort of querying multiple separate registers individually.
+Podnikatel.cz is a prominent Czech business information aggregator that compiles company profiles from multiple public registers into a user-friendly format. It aggregates data from [ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md), [RZP](@/osint/rzp.md), the [DPH](@/osint/dph.md) [registry](@/glossary/registry-otp.md), and other public sources into unified company profile pages. While not an official government register, Podnikatel.cz serves as a convenient single-access-point for Czech business intelligence, saving investigators the effort of querying multiple separate registers individually.
 
 The platform covers approximately 2.7 million economic subjects registered in the Czech Republic, including companies (s.r.o., a.s.), sole proprietors (OSVČ), and other legal entities. For each entity, Podnikatel.cz presents a consolidated profile page that combines identification data (ICO, DIC), registered address, business activities (NACE codes and trade licenses), statutory body composition, VAT registration status, and basic financial indicators. The aggregation is performed by periodically pulling data from underlying government registers and presenting it in a normalized web interface.
 
@@ -37,25 +37,25 @@ Podnikatel.cz aggregates data from six primary Czech public registers, combining
 
 | Data Type | Description | Source Register |
 |-----------|-------------|-----------------|
-| **Company Details** | Name, ICO, DIC, legal form, date of incorporation | [ARES](/osint/ares/) |
-| **Registered Address** | Current and historical addresses | [ARES](/osint/ares/) |
-| **Business Activities** | NACE codes and trade license descriptions | [RZP](/osint/rzp/) |
-| **Statutory Bodies** | Directors, board members (from Justice.cz) | [Justice.cz](/osint/justice-cz/) |
+| **Company Details** | Name, ICO, DIC, legal form, date of incorporation | [ARES](@/osint/ares.md) |
+| **Registered Address** | Current and historical addresses | [ARES](@/osint/ares.md) |
+| **Business Activities** | NACE codes and trade license descriptions | [RZP](@/osint/rzp.md) |
+| **Statutory Bodies** | Directors, board members (from Justice.cz) | [Justice.cz](@/osint/justice-cz.md) |
 | **Financial Summary** | Revenue range, employee count | Aggregated sources |
-| **Trade Licenses** | Active licenses from RZP | [RZP](/osint/rzp/) |
-| **VAT Status** | Registration status from DPH | [DPH](/osint/dph/) |
+| **Trade Licenses** | Active licenses from RZP | [RZP](@/osint/rzp.md) |
+| **VAT Status** | Registration status from DPH | [DPH](@/osint/dph.md) |
 | **Contact Information** | Phone, email, website (where available) | Multiple sources |
 
 ### Data Sources Aggregated
 
 | Source | Data Provided |
 |--------|---------------|
-| **[ARES](/osint/ares/)** | ICO, DIC, NACE codes, legal form |
-| **[Justice.cz](/osint/justice-cz/)** | Statutory bodies, shareholders |
-| **[RZP](/osint/rzp/)** | Trade licenses |
-| **[DPH](/osint/dph/)** | VAT registration status |
-| **[RES](/osint/res/)** | Statistical classification |
-| **[Datove Schranky](/osint/datove-schranky/)** | Data box existence |
+| **[ARES](@/osint/ares.md)** | ICO, DIC, NACE codes, legal form |
+| **[Justice.cz](@/osint/justice-cz.md)** | Statutory bodies, shareholders |
+| **[RZP](@/osint/rzp.md)** | Trade licenses |
+| **[DPH](@/osint/dph.md)** | VAT registration status |
+| **[RES](@/osint/res.md)** | Statistical classification |
+| **[Datove Schranky](@/osint/datove-schranky.md)** | Data box existence |
 
 ### Coverage Characteristics
 
@@ -169,7 +169,7 @@ Podnikatel.cz data quality is derivative -- it inherits the quality characterist
 |--------|---------|
 | **Authentication** | None required for basic access |
 | **API** | No public API; web scraping required |
-| **Rate Limit** | [Rate limiting](/glossary/rate-limiting/) on heavy scraping |
+| **Rate Limit** | [Rate limiting](@/glossary/rate-limiting.md) on heavy scraping |
 | **Data Format** | HTML (web only) |
 | **Cost** | Free basic access; premium features available |
 | **Coverage** | ~2.7 million Czech economic subjects |
@@ -198,13 +198,13 @@ Signal Plurality is inherently supported by the aggregation model, but the platf
 
 ## Related Resources
 
-- [ARES](/osint/ares/) - Authoritative business register (primary source)
-- [Justice.cz](/osint/justice-cz/) - Commercial register (statutory body data)
-- [RZP](/osint/rzp/) - Trade licensing register
-- [DPH](/osint/dph/) - VAT registration verification
-- [RES](/osint/res/) - Statistical register data
-- [Datove Schranky](/osint/datove-schranky/) - Data box verification
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
+- [ARES](@/osint/ares.md) - Authoritative business register (primary source)
+- [Justice.cz](@/osint/justice-cz.md) - Commercial register (statutory body data)
+- [RZP](@/osint/rzp.md) - Trade licensing register
+- [DPH](@/osint/dph.md) - VAT registration verification
+- [RES](@/osint/res.md) - Statistical register data
+- [Datove Schranky](@/osint/datove-schranky.md) - Data box verification
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
 
 ---
 
@@ -213,4 +213,4 @@ Signal Plurality is inherently supported by the aggregation model, but the platf
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

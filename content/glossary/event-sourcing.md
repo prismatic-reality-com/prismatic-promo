@@ -24,13 +24,13 @@ Event sourcing is an architectural pattern where application state is not stored
 
 The pattern was formally articulated by Martin Fowler and popularized through Greg Young's work on CQRS (Command Query Responsibility Segregation), with which event sourcing is most naturally paired. In an event-sourced system, commands produce events, and events are the single source of truth. The current state is a projection -- a computed view derived from the event stream. Multiple projections can be maintained from the same event stream, each optimized for a different query pattern. This separation of recording (events) from presentation (projections) gives event-sourced systems remarkable flexibility: adding a new dashboard or report requires only creating a new projection and replaying existing events through it, without modifying the write path.
 
-The Prismatic Platform employs event-sourcing principles across its evolution tracking, quality enforcement, and intelligence processing subsystems. The SEADF evolution framework records every generation transition, quality mutation, and healing cycle as immutable events, enabling full lineage from Generation 1 through 18. The [epistemic pipeline](/glossary/epistemic-pipeline/) treats evidence signals as events that flow through processing stages, each stage producing its own events that are appended to the pipeline's event log.
+The Prismatic Platform employs event-sourcing principles across its evolution tracking, quality enforcement, and intelligence processing subsystems. The SEADF evolution framework records every generation transition, quality mutation, and healing cycle as immutable events, enabling full lineage from Generation 1 through 18. The [epistemic pipeline](@/glossary/epistemic-pipeline.md) treats evidence signals as events that flow through processing stages, each stage producing its own events that are appended to the pipeline's event log.
 
 ## Core Concepts
 
 ### Events as First-Class Citizens
 
-In an event-sourced system, events are not side effects of state changes -- they are the state changes. An event represents something that happened in the domain, expressed in past tense using the ubiquitous language of the [bounded context](/glossary/bounded-context/).
+In an event-sourced system, events are not side effects of state changes -- they are the state changes. An event represents something that happened in the domain, expressed in past tense using the ubiquitous language of the [bounded context](@/glossary/bounded-context.md).
 
 | Event Property | Description | Example |
 |----------------|-------------|---------|
@@ -44,7 +44,7 @@ In an event-sourced system, events are not side effects of state changes -- they
 
 ### Event Store Architecture
 
-The event store is an append-only database optimized for two operations: appending events to a stream and reading events from a stream in order. It never updates or deletes events -- [immutability](/glossary/immutability/) is the defining property.
+The event store is an append-only database optimized for two operations: appending events to a stream and reading events from a stream in order. It never updates or deletes events -- [immutability](@/glossary/immutability.md) is the defining property.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -127,7 +127,7 @@ historical_state = SecurityRating.Aggregate.from_events(events)
 
 ### Causal Analysis
 
-Event streams enable causal analysis: "what event caused the rating to drop from B to C?" By examining the event immediately preceding a state change, the exact cause is always identifiable. This traceability satisfies the [provenance-mandatory](/glossary/provenance-mandatory/) axiom of [NABLA Infinity](/glossary/nabla-infinity/).
+Event streams enable causal analysis: "what event caused the rating to drop from B to C?" By examining the event immediately preceding a state change, the exact cause is always identifiable. This traceability satisfies the [provenance-mandatory](@/glossary/provenance-mandatory.md) axiom of [NABLA Infinity](@/glossary/nabla-infinity.md).
 
 ## Snapshotting
 
@@ -172,7 +172,7 @@ end
 
 ## CQRS Integration
 
-Event sourcing and [CQRS](/glossary/cqrs/) are natural companions. Events produced by the write side (command handlers) feed into projections that build the read side (query models).
+Event sourcing and [CQRS](@/glossary/cqrs.md) are natural companions. Events produced by the write side (command handlers) feed into projections that build the read side (query models).
 
 ```
 Command ──► Validate ──► Produce Events ──► Event Store
@@ -189,10 +189,10 @@ Each read model is a projection that subscribes to the event stream and maintain
 
 In the Prismatic Platform, this pattern manifests as:
 
-- **Write path**: Commands validated through quality gates, events persisted to [PostgreSQL](/glossary/postgresql/)
-- **Dashboard projection**: Events projected into [ETS](/glossary/ets/) for [LiveView](/glossary/liveview/) real-time dashboards
+- **Write path**: Commands validated through quality gates, events persisted to [PostgreSQL](@/glossary/postgresql.md)
+- **Dashboard projection**: Events projected into [ETS](@/glossary/ets.md) for [LiveView](@/glossary/liveview.md) real-time dashboards
 - **Search projection**: Events projected into Meilisearch for full-text and semantic search
-- **Analytics projection**: Events projected into [TimescaleDB](/glossary/timescaledb/) for time-series analysis
+- **Analytics projection**: Events projected into [TimescaleDB](@/glossary/timescaledb.md) for time-series analysis
 
 ## Event Versioning and Schema Evolution
 
@@ -239,7 +239,7 @@ The SEADF framework records platform evolution as an event stream spanning Gener
 
 ### Telemetry as Events
 
-The platform's [structured logging](/glossary/structured-logging/) and telemetry system follows event-sourcing principles. Every telemetry event is a timestamped, immutable record with a defined schema. The [Broadway](/glossary/broadway/) pipeline consumes these events for real-time processing, while the event log provides historical analysis.
+The platform's [structured logging](@/glossary/structured-logging.md) and telemetry system follows event-sourcing principles. Every telemetry event is a timestamped, immutable record with a defined schema. The [Broadway](@/glossary/broadway.md) pipeline consumes these events for real-time processing, while the event log provides historical analysis.
 
 ## Benefits and Trade-offs
 
@@ -249,7 +249,7 @@ The platform's [structured logging](/glossary/structured-logging/) and telemetry
 | **Temporal queries** | Reconstruct state at any point in history |
 | **Debug-friendly** | Replay events to reproduce exact conditions of a bug |
 | **Projection flexibility** | Add new read models without write-path changes |
-| **Event-driven integration** | Natural boundary for [stream processing](/glossary/stream-processing/) pipelines |
+| **Event-driven integration** | Natural boundary for [stream processing](@/glossary/stream-processing.md) pipelines |
 
 | Trade-off | Mitigation |
 |-----------|------------|
@@ -261,23 +261,23 @@ The platform's [structured logging](/glossary/structured-logging/) and telemetry
 
 ## Related Terms
 
-- [CQRS](/glossary/cqrs/) -- Natural companion pattern separating command and query responsibilities
-- [Immutability](/glossary/immutability/) -- Core property of the append-only event log
-- [Stream Processing](/glossary/stream-processing/) -- Real-time consumption and transformation of event streams
-- [Broadway](/glossary/broadway/) -- Elixir library for concurrent, fault-tolerant event pipeline processing
-- [Data Pipeline](/glossary/data-pipeline/) -- Infrastructure for moving events through processing stages
-- [ETL](/glossary/etl/) -- Extract-Transform-Load patterns applied to event streams
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Strategic design approach providing the ubiquitous language for events
-- [Ecto](/glossary/ecto/) -- Elixir database layer used for event persistence and projections
-- [Structured Logging](/glossary/structured-logging/) -- Logging pattern aligned with event sourcing principles
-- [Eventual Consistency](/glossary/eventual-consistency/) -- Consistency model between event store and read projections
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- NABLA axiom satisfied by event sourcing's complete causation tracking
-- [TimescaleDB](/glossary/timescaledb/) -- Time-series database for event analytics projections
+- [CQRS](@/glossary/cqrs.md) -- Natural companion pattern separating command and query responsibilities
+- [Immutability](@/glossary/immutability.md) -- Core property of the append-only event log
+- [Stream Processing](@/glossary/stream-processing.md) -- Real-time consumption and transformation of event streams
+- [Broadway](@/glossary/broadway.md) -- Elixir library for concurrent, fault-tolerant event pipeline processing
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Infrastructure for moving events through processing stages
+- [ETL](@/glossary/etl.md) -- Extract-Transform-Load patterns applied to event streams
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Strategic design approach providing the ubiquitous language for events
+- [Ecto](@/glossary/ecto.md) -- Elixir database layer used for event persistence and projections
+- [Structured Logging](@/glossary/structured-logging.md) -- Logging pattern aligned with event sourcing principles
+- [Eventual Consistency](@/glossary/eventual-consistency.md) -- Consistency model between event store and read projections
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- NABLA axiom satisfied by event sourcing's complete causation tracking
+- [TimescaleDB](@/glossary/timescaledb.md) -- Time-series database for event analytics projections
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architectural patterns and event-driven design
-- [Technologies](/technologies/) -- Implementation technologies for event sourcing
+- [Architecture](@/architecture/_index.md) -- Platform architectural patterns and event-driven design
+- [Technologies](@/technologies/_index.md) -- Implementation technologies for event sourcing
 
 ---
 
@@ -286,4 +286,4 @@ The platform's [structured logging](/glossary/structured-logging/) and telemetry
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

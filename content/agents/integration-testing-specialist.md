@@ -28,13 +28,13 @@ image_alt = "integration-testing-specialist - Prismatic Platform"
 
 ## Overview
 
-The Integration Testing Specialist operates as an L3 strategic command agent within the Quality domain of the Prismatic Platform. This agent designs, executes, and maintains end-to-end integration tests that verify correct behavior across system boundaries -- between umbrella applications, external services, database layers, and inter-process communication channels. In a platform with 90 [umbrella application](/glossary/umbrella-application/)s that communicate through [GenServer](/glossary/genserver/) calls, [PubSub](/glossary/pubsub/) events, and database operations, integration testing is the primary defense against cross-boundary regression.
+The Integration Testing Specialist operates as an L3 strategic command agent within the Quality domain of the Prismatic Platform. This agent designs, executes, and maintains end-to-end integration tests that verify correct behavior across system boundaries -- between umbrella applications, external services, database layers, and inter-process communication channels. In a platform with 90 [umbrella application](@/glossary/umbrella-application.md)s that communicate through [GenServer](@/glossary/genserver.md) calls, [PubSub](@/glossary/pubsub.md) events, and database operations, integration testing is the primary defense against cross-boundary regression.
 
 Unit tests verify individual module behavior; integration tests verify that modules work together correctly. The Integration Testing Specialist focuses on the boundaries between components where assumptions break down: API contract mismatches, data format inconsistencies, timing-dependent interactions, and state management across process boundaries. This agent produces test suites that exercise real interaction paths, using actual database connections and process communication rather than mocks.
 
 ## Operational Domain
 
-The Quality domain encompasses all testing, static analysis, and quality assurance activities within the Prismatic Platform. The Integration Testing Specialist specifically targets cross-boundary testing that other testing agents cannot cover. It works alongside the [test-specialist](/agents/test-specialist/) (unit testing), the [cascade-quality-specialist](/agents/cascade-quality-specialist/) (quality pattern enforcement), and the [mandatory-regression-prevention-commander](/agents/mandatory-regression-prevention-commander/) (regression test enforcement).
+The Quality domain encompasses all testing, static analysis, and quality assurance activities within the Prismatic Platform. The Integration Testing Specialist specifically targets cross-boundary testing that other testing agents cannot cover. It works alongside the [test-specialist](@/agents/test-specialist.md) (unit testing), the [cascade-quality-specialist](@/agents/cascade-quality-specialist.md) (quality pattern enforcement), and the [mandatory-regression-prevention-commander](@/agents/mandatory-regression-prevention-commander.md) (regression test enforcement).
 
 ## Integration Test Categories
 
@@ -43,10 +43,10 @@ The specialist maintains test suites across five distinct integration categories
 | Category | Boundary Tested | Test Strategy | Typical Test Count |
 |---|---|---|---|
 | Application-to-Application | Inter-app function calls | Contract testing with real modules | High |
-| Database Integration | [Ecto](/glossary/ecto/) queries across schemas | Sandbox mode with real PostgreSQL | High |
-| Process Communication | GenServer, PubSub, [GenStage](/glossary/genstage/) | Real process spawning | Medium |
+| Database Integration | [Ecto](@/glossary/ecto.md) queries across schemas | Sandbox mode with real PostgreSQL | High |
+| Process Communication | GenServer, PubSub, [GenStage](@/glossary/genstage.md) | Real process spawning | Medium |
 | External Service | API clients, webhooks | Recorded responses (VCR pattern) | Medium |
-| LiveView Integration | [Phoenix](/glossary/phoenix/) LiveView components | Connected LiveView tests | Medium |
+| LiveView Integration | [Phoenix](@/glossary/phoenix.md) LiveView components | Connected LiveView tests | Medium |
 
 ## Test Architecture
 
@@ -143,37 +143,37 @@ end
 ## Key Capabilities
 
 - **Cross-application contract testing** verifying that inter-application interfaces maintain backward compatibility and type correctness across all 90 umbrella applications
-- **Database integration testing** executing tests against real [PostgreSQL](/glossary/postgresql/) instances in sandbox mode, testing complex queries, transactions, and migration correctness
+- **Database integration testing** executing tests against real [PostgreSQL](@/glossary/postgresql.md) instances in sandbox mode, testing complex queries, transactions, and migration correctness
 - **Process communication testing** verifying GenServer call/cast/info handling, PubSub event propagation, and GenStage producer-consumer contracts with real OTP processes
-- **LiveView integration testing** testing [LiveView](/glossary/liveview/) components with connected test fixtures that exercise real-time update paths, event handling, and state management
-- **[Property-based testing](/glossary/property-based-testing/)** using StreamData to generate random inputs that test integration boundaries under unexpected conditions
+- **LiveView integration testing** testing [LiveView](@/glossary/liveview.md) components with connected test fixtures that exercise real-time update paths, event handling, and state management
+- **[Property-based testing](@/glossary/property-based-testing.md)** using StreamData to generate random inputs that test integration boundaries under unexpected conditions
 - **Test dependency management** automatically detecting and ordering tests based on their infrastructure dependencies to prevent flaky failures from missing prerequisites
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/). Multi-domain coordination and specialized operational command. The Integration Testing Specialist has authority to define integration test requirements for any application boundary and block releases that fail integration test suites.
+**L3** - [Strategic Command](@/glossary/strategic-command.md). Multi-domain coordination and specialized operational command. The Integration Testing Specialist has authority to define integration test requirements for any application boundary and block releases that fail integration test suites.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [test-specialist](/agents/test-specialist/) | Unit Test Partner | Coordinates unit vs integration test boundary definition |
-| [cascade-quality-specialist](/agents/cascade-quality-specialist/) | Quality Patterns | Ensures integration tests cover CASCADE pattern scenarios |
-| [mandatory-regression-prevention-commander](/agents/mandatory-regression-prevention-commander/) | Regression Tests | Ensures bug fixes include integration-level regression tests |
-| [database-specialist](/agents/database-specialist/) | Database Tests | Coordinates database-specific integration test design |
+| [test-specialist](@/agents/test-specialist.md) | Unit Test Partner | Coordinates unit vs integration test boundary definition |
+| [cascade-quality-specialist](@/agents/cascade-quality-specialist.md) | Quality Patterns | Ensures integration tests cover CASCADE pattern scenarios |
+| [mandatory-regression-prevention-commander](@/agents/mandatory-regression-prevention-commander.md) | Regression Tests | Ensures bug fixes include integration-level regression tests |
+| [database-specialist](@/agents/database-specialist.md) | Database Tests | Coordinates database-specific integration test design |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [Quality Gates](/glossary/quality-gates/) | Integration tests as mandatory quality gate |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Automated integration test execution in pipelines |
-| [ETS](/glossary/ets/) | Test state management for cross-process test coordination |
-| Platform [Telemetry](/glossary/telemetry/) | Test execution metrics and flakiness detection |
+| [Quality Gates](@/glossary/quality-gates.md) | Integration tests as mandatory quality gate |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Automated integration test execution in pipelines |
+| [ETS](@/glossary/ets.md) | Test state management for cross-process test coordination |
+| Platform [Telemetry](@/glossary/telemetry.md) | Test execution metrics and flakiness detection |
 
 ## Enforcement
 
-All integration testing operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No application boundary may exist without corresponding integration tests. Failed integration tests block merge requests without exception. Integration test suites must achieve deterministic results -- flaky tests are treated as bugs requiring immediate investigation. The [Trinity Gate](/glossary/trinity-gate/) validation requires that integration test coverage claims are verified through actual test execution evidence, not estimated from code analysis.
+All integration testing operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No application boundary may exist without corresponding integration tests. Failed integration tests block merge requests without exception. Integration test suites must achieve deterministic results -- flaky tests are treated as bugs requiring immediate investigation. The [Trinity Gate](@/glossary/trinity-gate.md) validation requires that integration test coverage claims are verified through actual test execution evidence, not estimated from code analysis.
 
 ---
 
@@ -182,4 +182,4 @@ All integration testing operates under the [NO MERCY, NO DOUBTS](/glossary/no-me
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

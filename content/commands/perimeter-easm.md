@@ -24,11 +24,11 @@ image_alt = "/perimeter-easm - Prismatic Platform"
 
 ## Overview
 
-**/perimeter-easm** is a production command in the **Perimeter** category of the Prismatic Platform that provides an advanced External Attack Surface Management dashboard with comprehensive [security rating](/glossary/security-rating/)s on an A-F grading scale. This command serves as the primary interface for organizations seeking to understand, monitor, and improve their external cybersecurity posture through continuous, automated assessment of all internet-facing assets and services.
+**/perimeter-easm** is a production command in the **Perimeter** category of the Prismatic Platform that provides an advanced External Attack Surface Management dashboard with comprehensive [security rating](@/glossary/security-rating.md)s on an A-F grading scale. This command serves as the primary interface for organizations seeking to understand, monitor, and improve their external cybersecurity posture through continuous, automated assessment of all internet-facing assets and services.
 
-The [EASM](/glossary/easm/) dashboard aggregates data from multiple reconnaissance and analysis engines within the [Prismatic Perimeter](/apps/prismatic-perimeter/) application to produce a unified view of an organization's external [attack surface](/glossary/attack-surface/). The security rating system evaluates assets across multiple dimensions -- including TLS configuration, DNS hygiene, email security, web application security headers, exposed services, and known vulnerability correlation -- to produce a numeric score between 300 and 900 that maps to a letter grade from A (excellent) to F (critical risk).
+The [EASM](@/glossary/easm.md) dashboard aggregates data from multiple reconnaissance and analysis engines within the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) application to produce a unified view of an organization's external [attack surface](@/glossary/attack-surface.md). The security rating system evaluates assets across multiple dimensions -- including TLS configuration, DNS hygiene, email security, web application security headers, exposed services, and known vulnerability correlation -- to produce a numeric score between 300 and 900 that maps to a letter grade from A (excellent) to F (critical risk).
 
-This command operates under the **L3** authority level, reflecting the elevated privileges required to access and interpret comprehensive attack surface data. It is executed by the `perimeter-scanner` agent and is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level ensures that only operators with sufficient security clearance can access the full scope of EASM intelligence, which may reveal sensitive information about organizational vulnerabilities.
+This command operates under the **L3** authority level, reflecting the elevated privileges required to access and interpret comprehensive attack surface data. It is executed by the `perimeter-scanner` agent and is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level ensures that only operators with sufficient security clearance can access the full scope of EASM intelligence, which may reveal sensitive information about organizational vulnerabilities.
 
 The Prismatic EASM capability competes directly with commercial offerings from BitSight, SecurityScorecard, and Black Kite, but with the critical advantage of operating within a unified intelligence platform. Rather than existing as an isolated scoring service, `/perimeter-easm` feeds directly into compliance assessment, risk management, and incident response workflows across the Prismatic ecosystem.
 
@@ -165,14 +165,14 @@ The EASM assessment follows a comprehensive multi-phase pipeline designed for th
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Core Application | Asset discovery, scanning, and rating engine |
-| [/perimeter-compliance](/commands/perimeter-compliance/) | Downstream | Security ratings feed compliance scoring |
-| [/perimeter-assets](/commands/perimeter-assets/) | Data Sharing | Shared asset inventory and finding database |
-| [Prismatic Web](/apps/prismatic-web/) | Dashboard | LiveView EASM dashboard at `/perimeter/easm` |
-| [Prismatic Storage](/apps/prismatic-storage/) | Persistence | Historical ratings, trends, asset data |
-| [Telemetry](/glossary/telemetry/) | Observability | Scan timing, asset counts, rating distributions |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Scan completeness and accuracy checks |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command specification and routing |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Core Application | Asset discovery, scanning, and rating engine |
+| [/perimeter-compliance](@/commands/perimeter-compliance.md) | Downstream | Security ratings feed compliance scoring |
+| [/perimeter-assets](@/commands/perimeter-assets.md) | Data Sharing | Shared asset inventory and finding database |
+| [Prismatic Web](@/apps/prismatic-web.md) | Dashboard | LiveView EASM dashboard at `/perimeter/easm` |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Persistence | Historical ratings, trends, asset data |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Scan timing, asset counts, rating distributions |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Scan completeness and accuracy checks |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command specification and routing |
 
 ## Best Practices
 
@@ -184,7 +184,7 @@ The EASM assessment follows a comprehensive multi-phase pipeline designed for th
 
 **Address F-Grade Domains First**: When managing multiple domains, prioritize remediation on F-grade assets. These represent the highest risk and typically indicate critical misconfigurations (expired certificates, unpatched services, missing security headers) that can be remediated quickly.
 
-**Integrate with Compliance**: Use the EASM rating data as input to [/perimeter-compliance](/commands/perimeter-compliance/) for regulatory framework alignment. Security ratings provide the technical evidence that compliance assessments require.
+**Integrate with Compliance**: Use the EASM rating data as input to [/perimeter-compliance](@/commands/perimeter-compliance.md) for regulatory framework alignment. Security ratings provide the technical evidence that compliance assessments require.
 
 ## Error Handling
 
@@ -225,19 +225,19 @@ curl -H "Authorization: Bearer $TOKEN" \
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every security domain must be evaluated for a rating to be issued. Partial assessments are clearly marked with confidence indicators and are never presented as definitive ratings.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Security ratings are derived exclusively from observed technical evidence. The [NABLA](/glossary/nabla-infinity/) axiom of Provenance Mandatory ensures every rating component is traceable to specific scan results and evidence artifacts.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Security ratings are derived exclusively from observed technical evidence. The [NABLA](@/glossary/nabla-infinity.md) axiom of Provenance Mandatory ensures every rating component is traceable to specific scan results and evidence artifacts.
 
 ## Related Commands
 
-- [/perimeter](/commands/perimeter/) - External [attack surface](/glossary/attack-surface/) management dashboard and overview
-- [/perimeter-assets](/commands/perimeter-assets/) - Asset inventory with domain, IP, certificate discovery
-- [/perimeter-compliance](/commands/perimeter-compliance/) - [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) compliance assessment with gap analysis
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/perimeter](@/commands/perimeter.md) - External [attack surface](@/glossary/attack-surface.md) management dashboard and overview
+- [/perimeter-assets](@/commands/perimeter-assets.md) - Asset inventory with domain, IP, certificate discovery
+- [/perimeter-compliance](@/commands/perimeter-compliance.md) - [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) compliance assessment with gap analysis
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -246,4 +246,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

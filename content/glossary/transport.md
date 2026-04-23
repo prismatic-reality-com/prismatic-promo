@@ -226,10 +226,10 @@ end
 
 ## Cross-References
 
-- [MCP](/glossary/mcp/) - Model Context Protocol
-- [Tool](/glossary/tool/) - MCP-exposed capabilities
-- [Protocol](/glossary/protocol/) - Communication standard
-- [WebSocket](/glossary/websocket/) - Alternative bidirectional transport
+- [MCP](@/glossary/mcp.md) - Model Context Protocol
+- [Tool](@/glossary/tool.md) - MCP-exposed capabilities
+- [Protocol](@/glossary/protocol.md) - Communication standard
+- [WebSocket](@/glossary/websocket.md) - Alternative bidirectional transport
 - **Webhook** - HTTP callback mechanism
 
 ---

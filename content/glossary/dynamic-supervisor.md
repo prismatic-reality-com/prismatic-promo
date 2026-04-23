@@ -38,7 +38,7 @@ image_alt = "DynamicSupervisor - Prismatic Platform"
 
 ## Definition
 
-DynamicSupervisor is an [OTP](/glossary/supervisor/) behavior for supervising processes that are started dynamically at runtime rather than declared statically in a supervision tree. Unlike a standard Supervisor that starts a fixed set of children at boot time and maintains that set for the lifetime of the application, DynamicSupervisor begins with zero children and spawns them on demand via `DynamicSupervisor.start_child/2`. Children can be started, stopped, and restarted independently throughout the system's lifetime.
+DynamicSupervisor is an [OTP](@/glossary/supervisor.md) behavior for supervising processes that are started dynamically at runtime rather than declared statically in a supervision tree. Unlike a standard Supervisor that starts a fixed set of children at boot time and maintains that set for the lifetime of the application, DynamicSupervisor begins with zero children and spawns them on demand via `DynamicSupervisor.start_child/2`. Children can be started, stopped, and restarted independently throughout the system's lifetime.
 
 This pattern addresses a fundamental challenge in concurrent systems: the number of concurrent activities is often unknown at compile time and changes continuously during operation. Web socket connections arrive and depart. User sessions begin and end. Background jobs are enqueued and completed. Agent instances are spawned for specific tasks and terminated when those tasks finish. In all of these cases, the system needs a supervisor that can manage a variable number of child processes, providing the same fault-tolerance guarantees as a static supervisor while accommodating dynamic workloads.
 
@@ -237,10 +237,10 @@ The choice of child restart strategy is critical for DynamicSupervisor performan
 
 DynamicSupervisors are used throughout the Prismatic Platform for runtime process management across multiple architectural layers:
 
-- **Agent Execution Layer**: The platform's 530 AIAD [agents](/glossary/agent/) are spawned under DynamicSupervisors. When an agent task is triggered, a new agent worker process is started under the DynamicSupervisor. When the task completes, the process terminates cleanly. If the agent crashes mid-task, the DynamicSupervisor restarts it according to its child spec.
-- **Session Management**: Each user session (including [LiveView](/glossary/liveview/) connections) runs as a process under a DynamicSupervisor. Session count scales from zero to thousands based on active users.
+- **Agent Execution Layer**: The platform's 530 AIAD [agents](@/glossary/agent.md) are spawned under DynamicSupervisors. When an agent task is triggered, a new agent worker process is started under the DynamicSupervisor. When the task completes, the process terminates cleanly. If the agent crashes mid-task, the DynamicSupervisor restarts it according to its child spec.
+- **Session Management**: Each user session (including [LiveView](@/glossary/liveview.md) connections) runs as a process under a DynamicSupervisor. Session count scales from zero to thousands based on active users.
 - **Investigation Workflows**: OSINT investigation workflows spawn parallel worker processes for concurrent intelligence gathering. Each data source query runs as an independent child of a DynamicSupervisor.
-- **[Broadway](/glossary/broadway/) Processing**: Broadway's internal architecture uses DynamicSupervisors for managing processor and batcher processes that scale with message volume.
+- **[Broadway](@/glossary/broadway.md) Processing**: Broadway's internal architecture uses DynamicSupervisors for managing processor and batcher processes that scale with message volume.
 - **PrismaticSupervisor**: The `prismatic_supervisor` app uses DynamicSupervisors with pluggable backends (ETS for development, Horde for production clustering) to manage domain-specific supervision trees.
 - **Task Workers**: Parallel quality gate checks, security scans, and compliance assessments spawn task processes under DynamicSupervisors for concurrent execution.
 
@@ -270,7 +270,7 @@ PrismaticPlatform.Application
 
 ## Integration with Registry
 
-DynamicSupervisors commonly pair with an OTP [Registry](/glossary/registry-otp/) for named process lookup:
+DynamicSupervisors commonly pair with an OTP [Registry](@/glossary/registry-otp.md) for named process lookup:
 
 ```elixir
 defmodule AgentManager do
@@ -335,7 +335,7 @@ DynamicSupervisors provide built-in mechanisms for controlling resource consumpt
 
 ### Backpressure Through max_children
 
-When `max_children` is set and the limit is reached, `start_child/2` returns `{:error, :max_children}`. This provides natural [backpressure](/glossary/backpressure/) -- callers must handle the rejection and either wait, queue, or shed load:
+When `max_children` is set and the limit is reached, `start_child/2` returns `{:error, :max_children}`. This provides natural [backpressure](@/glossary/backpressure.md) -- callers must handle the rejection and either wait, queue, or shed load:
 
 ```elixir
 defmodule AgentPool do
@@ -366,7 +366,7 @@ end
 
 ## Distributed DynamicSupervisor (Horde)
 
-For [clustered](/glossary/cluster/) deployments, the Horde library provides a distributed DynamicSupervisor that distributes children across cluster nodes:
+For [clustered](@/glossary/cluster.md) deployments, the Horde library provides a distributed DynamicSupervisor that distributes children across cluster nodes:
 
 ```elixir
 defmodule DistributedAgentSupervisor do
@@ -483,22 +483,22 @@ end
 
 ## Related Concepts
 
-- [Supervisor](/glossary/supervisor/) - Static supervisor for fixed child sets; parent concept
-- [Fault Tolerance](/glossary/fault-tolerance/) - System property enabled by supervised process restart
-- [Agent](/glossary/agent/) - AIAD agents spawned under DynamicSupervisors
-- [Process Isolation](/glossary/process-isolation/) - BEAM isolation enabling safe independent restart
-- [Registry (OTP)](/glossary/registry-otp/) - Named process lookup complementing dynamic spawning
-- [Let It Crash](/glossary/let-it-crash/) - Philosophy enabled by supervisor-based recovery
-- [Cluster](/glossary/cluster/) - Distributed DynamicSupervisors via Horde for cluster deployments
-- [Broadway](/glossary/broadway/) - Data pipeline using DynamicSupervisors for worker management
-- [Circuit Breaker](/glossary/circuit-breaker/) - Pattern protecting DynamicSupervisors from cascade failures
-- [Load Balancing](/glossary/load-balancing/) - Distributing work across dynamically supervised processes
+- [Supervisor](@/glossary/supervisor.md) - Static supervisor for fixed child sets; parent concept
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - System property enabled by supervised process restart
+- [Agent](@/glossary/agent.md) - AIAD agents spawned under DynamicSupervisors
+- [Process Isolation](@/glossary/process-isolation.md) - BEAM isolation enabling safe independent restart
+- [Registry (OTP)](@/glossary/registry-otp.md) - Named process lookup complementing dynamic spawning
+- [Let It Crash](@/glossary/let-it-crash.md) - Philosophy enabled by supervisor-based recovery
+- [Cluster](@/glossary/cluster.md) - Distributed DynamicSupervisors via Horde for cluster deployments
+- [Broadway](@/glossary/broadway.md) - Data pipeline using DynamicSupervisors for worker management
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Pattern protecting DynamicSupervisors from cascade failures
+- [Load Balancing](@/glossary/load-balancing.md) - Distributing work across dynamically supervised processes
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform supervision architecture
-- [Technologies](/technologies/) - OTP behaviors and patterns
-- [Agents](/agents/) - Agent lifecycle managed through DynamicSupervisors
+- [Architecture](@/architecture/_index.md) - Platform supervision architecture
+- [Technologies](@/technologies/_index.md) - OTP behaviors and patterns
+- [Agents](@/agents/_index.md) - Agent lifecycle managed through DynamicSupervisors
 
 ---
 
@@ -507,4 +507,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

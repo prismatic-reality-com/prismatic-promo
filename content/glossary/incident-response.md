@@ -825,20 +825,20 @@ end
 
 ## Related Concepts
 
-- [Disaster Recovery](/glossary/disaster-recovery/) - Extended recovery from catastrophic incidents beyond IR scope
-- [Self-Healing](/glossary/self-healing/) - Automated recovery reducing incident response burden
-- [Blue Team](/glossary/blue-team/) - Defensive agents detecting and responding to incidents
-- [Observability](/glossary/observability/) - Detection capabilities enabling rapid incident identification
-- [Circuit Breaker](/glossary/circuit-breaker/) - Containment pattern preventing cascade failures
-- [Violation Protocol](/glossary/violation-protocol/) - L1-L4 escalation levels for doctrine violations
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) - Autonomous monitoring triggering incident response
-- [SEADF](/glossary/seadf/) - Self-healing framework providing automated remediation
+- [Disaster Recovery](@/glossary/disaster-recovery.md) - Extended recovery from catastrophic incidents beyond IR scope
+- [Self-Healing](@/glossary/self-healing.md) - Automated recovery reducing incident response burden
+- [Blue Team](@/glossary/blue-team.md) - Defensive agents detecting and responding to incidents
+- [Observability](@/glossary/observability.md) - Detection capabilities enabling rapid incident identification
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Containment pattern preventing cascade failures
+- [Violation Protocol](@/glossary/violation-protocol.md) - L1-L4 escalation levels for doctrine violations
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) - Autonomous monitoring triggering incident response
+- [SEADF](@/glossary/seadf.md) - Self-healing framework providing automated remediation
 
 ## See Also
 
-- [Architecture](/architecture/) - Incident response architecture and integration patterns
-- [Technologies](/technologies/) - Detection and response technology stack
-- [Capabilities](/capabilities/) - Security operations capabilities
+- [Architecture](@/architecture/_index.md) - Incident response architecture and integration patterns
+- [Technologies](@/technologies/_index.md) - Detection and response technology stack
+- [Capabilities](@/capabilities/_index.md) - Security operations capabilities
 
 ---
 
@@ -847,4 +847,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

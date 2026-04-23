@@ -36,8 +36,8 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Building Your First Autonomous Agent](/academy/first-agent/)
-- Completed [OTP Design Patterns for Prismatic](/academy/otp-fundamentals/)
+- Completed [Building Your First Autonomous Agent](@/academy/first-agent.md)
+- Completed [OTP Design Patterns for Prismatic](@/academy/otp-fundamentals.md)
 - Understanding of GenServer, supervision trees, and process communication
 
 ## Core Concepts
@@ -395,36 +395,36 @@ Phoenix.PubSub.subscribe(Prismatic.PubSub, "color_team:red:findings")
 ## See Also
 
 ### Related Applications
-- [prismatic_agents](/apps/prismatic-agents/) -- Agent runtime with orchestration infrastructure
-- [prismatic_perimeter](/apps/prismatic-perimeter/) -- EASM orchestrator coordinating security assessment agents
-- [prismatic_dd](/apps/prismatic-dd/) -- DD investigation orchestrator with 122 OSINT source adapters
-- [prismatic_dark](/apps/prismatic-dark/) -- 20 agents across 6 color teams demonstrating complex orchestration
+- [prismatic_agents](@/apps/prismatic-agents.md) -- Agent runtime with orchestration infrastructure
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) -- EASM orchestrator coordinating security assessment agents
+- [prismatic_dd](@/apps/prismatic-dd.md) -- DD investigation orchestrator with 122 OSINT source adapters
+- [prismatic_dark](@/apps/prismatic-dark.md) -- 20 agents across 6 color teams demonstrating complex orchestration
 
 ### Glossary
-- [Agent Tier](/glossary/agent-tier/) -- L1-L4 classification hierarchy for agent authority
-- [Agent Registry](/glossary/agent-registry/) -- Process discovery infrastructure
-- [AIAD](/glossary/aiad/) -- Standard governing agent specifications and interactions
-- [PubSub](/glossary/pubsub/) -- Broadcast communication pattern for agent events
-- [Strategic Command](/glossary/strategic-command/) -- L3 agent authority level
-- [Supreme Commander](/glossary/supreme-commander/) -- L4 platform-wide orchestration
-- [Tactical Execution](/glossary/tactical-execution/) -- L2 agent coordination role
+- [Agent Tier](@/glossary/agent-tier.md) -- L1-L4 classification hierarchy for agent authority
+- [Agent Registry](@/glossary/agent-registry.md) -- Process discovery infrastructure
+- [AIAD](@/glossary/aiad.md) -- Standard governing agent specifications and interactions
+- [PubSub](@/glossary/pubsub.md) -- Broadcast communication pattern for agent events
+- [Strategic Command](@/glossary/strategic-command.md) -- L3 agent authority level
+- [Supreme Commander](@/glossary/supreme-commander.md) -- L4 platform-wide orchestration
+- [Tactical Execution](@/glossary/tactical-execution.md) -- L2 agent coordination role
 
 ### Architecture
-- [PubSub](/architecture/pubsub/) -- Phoenix PubSub architecture for agent communication
-- [Supervision Trees](/architecture/supervision-trees/) -- Process topology for orchestrated agents
-- [Telemetry](/architecture/telemetry/) -- Observability events from orchestrator operations
+- [PubSub](@/architecture/pubsub.md) -- Phoenix PubSub architecture for agent communication
+- [Supervision Trees](@/architecture/supervision-trees.md) -- Process topology for orchestrated agents
+- [Telemetry](@/architecture/telemetry.md) -- Observability events from orchestrator operations
 
 ### Related Academy Topics
-- [The AIAD Standard](/academy/aiad-standard/) -- Formal agent interaction specifications
-- [Color Team Security](/academy/color-team-security/) -- Orchestration applied to adversarial-defensive teams
-- [Self-Evolving Ecosystems](/academy/evolution-patterns/) -- How agent teams improve autonomously
-- [OTP Design Patterns](/academy/otp-fundamentals/) -- GenServer and Supervisor patterns underlying orchestration
+- [The AIAD Standard](@/academy/aiad-standard.md) -- Formal agent interaction specifications
+- [Color Team Security](@/academy/color-team-security.md) -- Orchestration applied to adversarial-defensive teams
+- [Self-Evolving Ecosystems](@/academy/evolution-patterns.md) -- How agent teams improve autonomously
+- [OTP Design Patterns](@/academy/otp-fundamentals.md) -- GenServer and Supervisor patterns underlying orchestration
 
 ## Next Steps
 
-- [The AIAD Standard Explained](/academy/aiad-standard/) -- formal specification for agent interactions
-- [Color Team Security Operations](/academy/color-team-security/) -- see orchestration applied to adversarial-defensive teams
-- [Self-Evolving Agent Ecosystems](/academy/evolution-patterns/) -- how agent teams improve autonomously
+- [The AIAD Standard Explained](@/academy/aiad-standard.md) -- formal specification for agent interactions
+- [Color Team Security Operations](@/academy/color-team-security.md) -- see orchestration applied to adversarial-defensive teams
+- [Self-Evolving Agent Ecosystems](@/academy/evolution-patterns.md) -- how agent teams improve autonomously
 
 ---
 
@@ -433,4 +433,4 @@ Phoenix.PubSub.subscribe(Prismatic.PubSub, "color_team:red:findings")
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

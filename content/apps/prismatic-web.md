@@ -24,7 +24,7 @@ image_alt = "Prismatic Web - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Web is the primary user-facing application of the Prismatic Platform, delivering real-time interactive dashboards through [Phoenix LiveView](/glossary/phoenix-liveview/) with server-rendered reactivity, styled exclusively with [TailwindCSS](/glossary/tailwindcss/) utilities and [Flowbite](/glossary/flowbite/) components. The application hosts four major dashboard modules -- [HAWKEYE](/glossary/hawkeye/) (visitor intelligence), Perimeter (external [attack surface](/glossary/attack-surface/) management), Quality (platform health), and Agents (AI agent management) -- each implemented as a self-contained LiveView module with independent state management, [PubSub](/glossary/pubsub/)-driven data updates, and component-level memoization. The architecture enforces a strict design system: no inline styles, no custom CSS, and no client-side JavaScript frameworks. All interactivity is managed through LiveView's [WebSocket](/glossary/websocket/)-based communication, achieving sub-100ms initial page loads and sub-10ms incremental updates through minimal DOM diffing. The application serves as the operational command center for security analysts, compliance officers, and platform operators.
+Prismatic Web is the primary user-facing application of the Prismatic Platform, delivering real-time interactive dashboards through [Phoenix LiveView](@/glossary/phoenix-liveview.md) with server-rendered reactivity, styled exclusively with [TailwindCSS](@/glossary/tailwindcss.md) utilities and [Flowbite](@/glossary/flowbite.md) components. The application hosts four major dashboard modules -- [HAWKEYE](@/glossary/hawkeye.md) (visitor intelligence), Perimeter (external [attack surface](@/glossary/attack-surface.md) management), Quality (platform health), and Agents (AI agent management) -- each implemented as a self-contained LiveView module with independent state management, [PubSub](@/glossary/pubsub.md)-driven data updates, and component-level memoization. The architecture enforces a strict design system: no inline styles, no custom CSS, and no client-side JavaScript frameworks. All interactivity is managed through LiveView's [WebSocket](@/glossary/websocket.md)-based communication, achieving sub-100ms initial page loads and sub-10ms incremental updates through minimal DOM diffing. The application serves as the operational command center for security analysts, compliance officers, and platform operators.
 
 ## 1. Introduction
 
@@ -76,11 +76,11 @@ Browser (WebSocket)
 |--------|----------------|
 | `PrismaticWeb.Endpoint` | Phoenix endpoint: HTTP listener, WebSocket transport, static asset serving |
 | `PrismaticWeb.Router` | Route definitions mapping URL paths to LiveView modules |
-| `PrismaticWeb.DashboardLive` | Main dashboard LiveView with platform overview [metrics](/glossary/metrics/) |
-| `PrismaticWeb.PerimeterLive` | [EASM](/glossary/easm/) dashboard: [security rating](/glossary/security-rating/)s, asset inventory, compliance |
+| `PrismaticWeb.DashboardLive` | Main dashboard LiveView with platform overview [metrics](@/glossary/metrics.md) |
+| `PrismaticWeb.PerimeterLive` | [EASM](@/glossary/easm.md) dashboard: [security rating](@/glossary/security-rating.md)s, asset inventory, compliance |
 | `PrismaticWeb.HawkeyeLive` | Visitor intelligence: live feed, geographic map, risk distribution |
 | `PrismaticWeb.QualityLive` | Platform health: quality score, domain violations, trend charts |
-| `PrismaticWeb.AgentsLive` | Agent management: [registry](/glossary/registry-otp/) browser, execution history, circuit states |
+| `PrismaticWeb.AgentsLive` | Agent management: [registry](@/glossary/registry-otp.md) browser, execution history, circuit states |
 | `PrismaticWeb.Components` | Reusable function components: cards, tables, charts, metrics |
 | `PrismaticWeb.Layouts` | Application and root layouts with navigation and theme support |
 
@@ -97,7 +97,7 @@ PrismaticWeb.Application (Supervisor, :one_for_one)
       Tracks connected users for real-time collaboration indicators
 ```
 
-Each LiveView module spawns a server-side process per connected client. These processes subscribe to relevant PubSub topics and push DOM diffs when backend state changes. Process lifecycle is managed by the endpoint [supervisor](/glossary/supervisor/), with automatic cleanup on WebSocket disconnection.
+Each LiveView module spawns a server-side process per connected client. These processes subscribe to relevant PubSub topics and push DOM diffs when backend state changes. Process lifecycle is managed by the endpoint [supervisor](@/glossary/supervisor.md), with automatic cleanup on WebSocket disconnection.
 
 ### 2.4 Data Flow
 
@@ -210,24 +210,24 @@ config :prismatic_web,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Auth](/apps/prismatic-auth/) | Session authentication and [RBAC](/glossary/rbac/) permission checks |
-| [Prismatic HAWKEYE](/apps/prismatic-hawkeye/) | Visitor intelligence data for HAWKEYE dashboard |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Security ratings and asset data for Perimeter dashboard |
-| [Prismatic Safety](/apps/prismatic-safety/) | Quality metrics for Quality dashboard |
-| [Prismatic Agents](/apps/prismatic-agents/) | [Agent registry](/glossary/agent-registry/) and execution data for Agents dashboard |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Request and LiveView performance metrics |
+| [Prismatic Auth](@/apps/prismatic-auth.md) | Session authentication and [RBAC](@/glossary/rbac.md) permission checks |
+| [Prismatic HAWKEYE](@/apps/prismatic-hawkeye.md) | Visitor intelligence data for HAWKEYE dashboard |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Security ratings and asset data for Perimeter dashboard |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Quality metrics for Quality dashboard |
+| [Prismatic Agents](@/apps/prismatic-agents.md) | [Agent registry](@/glossary/agent-registry.md) and execution data for Agents dashboard |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Request and LiveView performance metrics |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic HAWKEYE](/apps/prismatic-hawkeye/) | Dashboard hosting for visitor intelligence LiveView |
-| [Prismatic Perimeter Web](/apps/prismatic-perimeter-web/) | EASM dashboard components |
-| [Prismatic API](/apps/prismatic-api/) | SwaggerUI hosting and API documentation |
+| [Prismatic HAWKEYE](@/apps/prismatic-hawkeye.md) | Dashboard hosting for visitor intelligence LiveView |
+| [Prismatic Perimeter Web](@/apps/prismatic-perimeter-web.md) | EASM dashboard components |
+| [Prismatic API](@/apps/prismatic-api.md) | SwaggerUI hosting and API documentation |
 
 ### 4.3 Inter-Process Communication
 
-LiveView processes communicate with backend services through direct function calls for initial data loading and through Phoenix PubSub for real-time updates. No [GenServer](/glossary/genserver/) [message passing](/glossary/message-passing/) is used in the rendering path, minimizing latency. Presence tracking uses Phoenix.Presence for connected user visibility.
+LiveView processes communicate with backend services through direct function calls for initial data loading and through Phoenix PubSub for real-time updates. No [GenServer](@/glossary/genserver.md) [message passing](@/glossary/message-passing.md) is used in the rendering path, minimizing latency. Presence tracking uses Phoenix.Presence for connected user visibility.
 
 ### 4.4 External Integrations
 
@@ -247,7 +247,7 @@ The asset pipeline integrates with esbuild for JavaScript bundling and the Tailw
 
 ### 5.2 Scalability
 
-Each connected client maintains one LiveView server process. Memory per LiveView process is approximately 50-100KB depending on dashboard state. A single node supports thousands of concurrent LiveView connections. Horizontal scaling is achieved through [load balancing](/glossary/load-balancing/) with session affinity for WebSocket connections.
+Each connected client maintains one LiveView server process. Memory per LiveView process is approximately 50-100KB depending on dashboard state. A single node supports thousands of concurrent LiveView connections. Horizontal scaling is achieved through [load balancing](@/glossary/load-balancing.md) with session affinity for WebSocket connections.
 
 ### 5.3 Resource Requirements
 
@@ -279,17 +279,17 @@ Cross-site scripting is the primary web application threat. Phoenix LiveView mit
 
 ### 7.2 Access Control
 
-All routes pass through the `:require_auth` pipeline, which validates the user session via [Prismatic Auth](/apps/prismatic-auth/). Individual dashboard sections enforce additional permissions: HAWKEYE requires `hawkeye_read`, Perimeter requires `perimeter_read`, and Agents requires `agents_read`. Unauthorized access renders a 403 error page.
+All routes pass through the `:require_auth` pipeline, which validates the user session via [Prismatic Auth](@/apps/prismatic-auth.md). Individual dashboard sections enforce additional permissions: HAWKEYE requires `hawkeye_read`, Perimeter requires `perimeter_read`, and Agents requires `agents_read`. Unauthorized access renders a 403 error page.
 
 ## 8. Operational Considerations
 
 ### 8.1 Deployment
 
-Prismatic Web deploys as part of the umbrella [release](/glossary/release/), listening on port 4000. Static assets are compiled during the release build process with `mix assets.deploy`. The application requires no external services beyond the backend applications it renders data from.
+Prismatic Web deploys as part of the umbrella [release](@/glossary/release.md), listening on port 4000. Static assets are compiled during the release build process with `mix assets.deploy`. The application requires no external services beyond the backend applications it renders data from.
 
 ### 8.2 Monitoring
 
-[Telemetry](/glossary/telemetry/) events cover HTTP request latency (`[:phoenix, :endpoint, :stop]`), LiveView mount time (`[:phoenix, :live_view, :mount, :stop]`), and WebSocket message processing (`[:phoenix, :live_view, :handle_event, :stop]`). Metrics are exported to the [Prismatic Telemetry](/apps/prismatic-telemetry/) pipeline.
+[Telemetry](@/glossary/telemetry.md) events cover HTTP request latency (`[:phoenix, :endpoint, :stop]`), LiveView mount time (`[:phoenix, :live_view, :mount, :stop]`), and WebSocket message processing (`[:phoenix, :live_view, :handle_event, :stop]`). Metrics are exported to the [Prismatic Telemetry](@/apps/prismatic-telemetry.md) pipeline.
 
 ### 8.3 Troubleshooting
 
@@ -309,21 +309,21 @@ Planned enhancements include server-side chart rendering with SVG components, mu
 - [Phoenix LiveView](https://hexdocs.pm/phoenix_live_view/) -- Server-rendered reactive interfaces
 - [TailwindCSS](https://tailwindcss.com/) -- Utility-first CSS framework
 - [Flowbite](https://flowbite.com/) -- Component library for TailwindCSS
-- [Prismatic HAWKEYE](/apps/prismatic-hawkeye/) -- Visitor intelligence system
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- EASM and security ratings
-- [Prismatic Auth](/apps/prismatic-auth/) -- Authentication and access control
+- [Prismatic HAWKEYE](@/apps/prismatic-hawkeye.md) -- Visitor intelligence system
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- EASM and security ratings
+- [Prismatic Auth](@/apps/prismatic-auth.md) -- Authentication and access control
 
 ## Related Agents
 
-- [Elixir Architect](/agents/elixir-architect/) -- Designs the LiveView process topology, PubSub subscription patterns, and component memoization strategies
-- [API Design Specialist Agent](/agents/api-design-specialist-agent/) -- Ensures dashboard data interfaces and route structures follow consistent API design patterns
-- [Deployment Commander Agent](/agents/deployment-commander-agent/) -- Orchestrates asset pipeline builds, static file deployment, and production release configuration
+- [Elixir Architect](@/agents/elixir-architect.md) -- Designs the LiveView process topology, PubSub subscription patterns, and component memoization strategies
+- [API Design Specialist Agent](@/agents/api-design-specialist-agent.md) -- Ensures dashboard data interfaces and route structures follow consistent API design patterns
+- [Deployment Commander Agent](@/agents/deployment-commander-agent.md) -- Orchestrates asset pipeline builds, static file deployment, and production release configuration
 
 ## Related Capabilities
 
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- LiveView WebSocket connections delivering sub-10ms incremental DOM updates across all dashboards
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Request latency, LiveView mount time, and WebSocket message processing metrics
-- [Quality Gates](/capabilities/quality-gates/) -- TailwindCSS-first design system enforcement with zero inline styles and WCAG 2.1 AA compliance
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- LiveView WebSocket connections delivering sub-10ms incremental DOM updates across all dashboards
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Request latency, LiveView mount time, and WebSocket message processing metrics
+- [Quality Gates](@/capabilities/quality-gates.md) -- TailwindCSS-first design system enforcement with zero inline styles and WCAG 2.1 AA compliance
 
 ---
 
@@ -332,4 +332,4 @@ Planned enhancements include server-side chart rendering with SVG components, mu
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

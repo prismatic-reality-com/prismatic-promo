@@ -229,19 +229,19 @@ The Prismatic Platform's 530+ AIAD agents operate under a strict authority hiera
 
 ### Quality Gate Enforcement
 
-The [Quality Gate](/glossary/quality-gate/) system makes automated pass/fail decisions across 13 quality domains. When `mix quality.gates` runs, it evaluates each domain independently and makes a composite decision: either all domains pass (merge allowed) or any domain fails (merge blocked). There is no human override -- the decision is final.
+The [Quality Gate](@/glossary/quality-gate.md) system makes automated pass/fail decisions across 13 quality domains. When `mix quality.gates` runs, it evaluates each domain independently and makes a composite decision: either all domains pass (merge allowed) or any domain fails (merge blocked). There is no human override -- the decision is final.
 
 ### Autoevolve Decision Engine
 
-The [Autoevolve](/glossary/autoevolve/) system makes decisions about platform evolution. It scans the codebase for optimization opportunities, evaluates the risk/reward ratio of each candidate change, and decides which improvements to apply. Decisions with risk scores above a threshold are escalated for human review rather than applied automatically.
+The [Autoevolve](@/glossary/autoevolve.md) system makes decisions about platform evolution. It scans the codebase for optimization opportunities, evaluates the risk/reward ratio of each candidate change, and decides which improvements to apply. Decisions with risk scores above a threshold are escalated for human review rather than applied automatically.
 
 ### NABLA Infinity Integration
 
-The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework governs the most critical decisions on the platform. It requires signal plurality (minimum 2 independent signals), contradiction preservation (no smoothing over conflicting evidence), and mandatory provenance (every belief must be traceable to its source). Decisions that violate these axioms are blocked by the framework itself.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework governs the most critical decisions on the platform. It requires signal plurality (minimum 2 independent signals), contradiction preservation (no smoothing over conflicting evidence), and mandatory provenance (every belief must be traceable to its source). Decisions that violate these axioms are blocked by the framework itself.
 
 ### Session Lifecycle Decisions
 
-The [Session Discipline](/glossary/session-discipline/) protocol automates decisions about session workflow: whether to run full or fast quality checks, when to trigger autoevolve scans, and whether session outputs meet completeness criteria before session close.
+The [Session Discipline](@/glossary/session-discipline.md) protocol automates decisions about session workflow: whether to run full or fast quality checks, when to trigger autoevolve scans, and whether session outputs meet completeness criteria before session close.
 
 ## Comparison with Alternatives
 
@@ -281,7 +281,7 @@ The Prismatic approach combines the consistency of rule-based systems with the n
 
 4. **Audit trail as afterthought**: Designing the decision system first and adding auditing later results in incomplete audit trails that miss critical context. Audit logging must be integral to the decision architecture.
 
-5. **Single-signal decisions**: Making automated decisions based on a single data source or evaluation method. The [NABLA Infinity](/glossary/nabla-infinity/) framework's signal plurality axiom exists precisely to prevent this failure mode.
+5. **Single-signal decisions**: Making automated decisions based on a single data source or evaluation method. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's signal plurality axiom exists precisely to prevent this failure mode.
 
 6. **Ignoring time decay**: Evidence becomes less reliable over time. A security scan from last week may not reflect today's vulnerability landscape. Decision systems must account for evidence freshness.
 
@@ -296,7 +296,7 @@ Every code commit triggers automated decisions across 13 quality domains. The sy
 When a new task enters the platform, the orchestration system automatically decides which agent is best suited to handle it based on the task's domain, required authority level, agent availability, and historical performance. This decision is made in milliseconds, enabling real-time task routing across 530+ agents.
 
 ### Security Threat Assessment
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM system automatically assesses the security posture of discovered assets. It computes security ratings (A-F), identifies compliance gaps, and decides which findings warrant immediate attention based on severity, exploitability, and business impact.
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) EASM system automatically assesses the security posture of discovered assets. It computes security ratings (A-F), identifies compliance gaps, and decides which findings warrant immediate attention based on severity, exploitability, and business impact.
 
 ### Platform Evolution
 The autoevolve system automatically decides which platform improvements to apply. It evaluates candidate optimizations against risk criteria, performance benchmarks, and quality standards. Low-risk, high-value improvements are applied automatically; higher-risk changes are queued for human review.
@@ -306,25 +306,25 @@ The Trinity Gate makes automated decisions about belief validity. Every claim th
 
 ## Related Concepts
 
-- [Algorithmic Decision Making](/glossary/algorithmic-decision-making/) -- the broader field encompassing all algorithmic approaches to decisions
-- [Autonomous Agent](/glossary/autonomous-agent/) -- software entities that embody automated decision-making capability
-- [NABLA Infinity](/glossary/nabla-infinity/) -- the epistemic framework governing critical platform decisions
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- the processing pipeline for evidence-based decisions
-- [Confidence Threshold](/glossary/confidence-threshold/) -- numeric boundaries that gate decision authorization
-- [Trinity Gate](/glossary/trinity-gate/) -- three-layer verification checkpoint for epistemic decisions
-- [Agent Tier](/glossary/agent-tier/) -- authority levels that bound agent decision-making scope
-- [Authority Level](/glossary/authority-level/) -- the hierarchical permission system for decisions
-- [Rule-Based Reasoning](/glossary/rule-based-reasoning/) -- deterministic decision logic via if-then rules
-- [Quality Gate](/glossary/quality-gate/) -- automated pass/fail decisions for code quality
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- maintaining conflicting signals rather than resolving prematurely
+- [Algorithmic Decision Making](@/glossary/algorithmic-decision-making.md) -- the broader field encompassing all algorithmic approaches to decisions
+- [Autonomous Agent](@/glossary/autonomous-agent.md) -- software entities that embody automated decision-making capability
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- the epistemic framework governing critical platform decisions
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- the processing pipeline for evidence-based decisions
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- numeric boundaries that gate decision authorization
+- [Trinity Gate](@/glossary/trinity-gate.md) -- three-layer verification checkpoint for epistemic decisions
+- [Agent Tier](@/glossary/agent-tier.md) -- authority levels that bound agent decision-making scope
+- [Authority Level](@/glossary/authority-level.md) -- the hierarchical permission system for decisions
+- [Rule-Based Reasoning](@/glossary/rule-based-reasoning.md) -- deterministic decision logic via if-then rules
+- [Quality Gate](@/glossary/quality-gate.md) -- automated pass/fail decisions for code quality
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- maintaining conflicting signals rather than resolving prematurely
 
 ## See Also
 
-- [Autonomous Decision Making](/glossary/autonomous-decision-making/) for decisions made by fully autonomous systems
-- [Autoevolve](/glossary/autoevolve/) for automated platform evolution decisions
-- [Quality Gates](/glossary/quality-gates/) for the 13-domain quality enforcement system
-- [GDPR](/glossary/gdpr/) for regulatory constraints on automated decision making (Article 22)
-- [Audit Trail](/glossary/audit-trail/) for decision logging and compliance
+- [Autonomous Decision Making](@/glossary/autonomous-decision-making.md) for decisions made by fully autonomous systems
+- [Autoevolve](@/glossary/autoevolve.md) for automated platform evolution decisions
+- [Quality Gates](@/glossary/quality-gates.md) for the 13-domain quality enforcement system
+- [GDPR](@/glossary/gdpr.md) for regulatory constraints on automated decision making (Article 22)
+- [Audit Trail](@/glossary/audit-trail.md) for decision logging and compliance
 
 ---
 
@@ -333,4 +333,4 @@ The Trinity Gate makes automated decisions about belief validity. Every claim th
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

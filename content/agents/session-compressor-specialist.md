@@ -28,7 +28,7 @@ image_alt = "session-compressor-specialist - Prismatic Platform"
 
 ## Overview
 
-The session-compressor-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's session-context-compression-intelligence domain, responsible for analyzing session context artifacts, identifying compression opportunities, and reducing the storage and transmission overhead of session data while preserving its informational value. In a platform where every development session generates structured context files that accumulate over hundreds of sessions, uncompressed context storage becomes both a storage burden and a retrieval performance bottleneck. This agent applies intelligent compression that maintains semantic completeness while reducing data volume.
+The session-compressor-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's session-context-compression-intelligence domain, responsible for analyzing session context artifacts, identifying compression opportunities, and reducing the storage and transmission overhead of session data while preserving its informational value. In a platform where every development session generates structured context files that accumulate over hundreds of sessions, uncompressed context storage becomes both a storage burden and a retrieval performance bottleneck. This agent applies intelligent compression that maintains semantic completeness while reducing data volume.
 
 The challenge of session compression extends beyond simple text compression algorithms. Session context files contain heterogeneous content: structured metadata, prose descriptions of decisions, code snippets, file path lists, quality metrics, and cross-references to previous sessions. Different content types benefit from different compression strategies, and some content (such as key decisions and architectural rationale) must never be lossy-compressed because it represents irreplaceable institutional knowledge. The session-compressor-specialist navigates these requirements through content-aware compression that applies appropriate strategies to each content type.
 
@@ -44,8 +44,8 @@ The domain includes analysis of session content to identify redundancy between s
 - **Semantic deduplication** -- Identifies information that is repeated across multiple session contexts (such as platform statistics, architecture descriptions, or repeated quality metrics) and consolidates these into shared reference points rather than duplicating storage
 - **Lossless decision preservation** -- Ensures that all key decisions, architectural rationale, and irreversible actions are preserved at full fidelity regardless of compression applied to surrounding context. Decision records are tagged as compression-exempt
 - **Progressive summarization** -- Implements a tiered retention policy where recent sessions maintain full detail, intermediate sessions retain structured summaries, and older sessions are compressed to essential decisions and outcomes only
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with automatic compression triggered when session context volume exceeds configured thresholds
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing compression metrics under the `:prismatic, :session_compression` namespace
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with automatic compression triggered when session context volume exceeds configured thresholds
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing compression metrics under the `:prismatic, :session_compression` namespace
 
 ## Compression Strategy Framework
 
@@ -88,7 +88,7 @@ The agent tracks compression effectiveness across multiple dimensions to optimiz
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority for session context compression with the ability to modify session storage strategies and manage the retention lifecycle across all session artifacts.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority for session context compression with the ability to modify session storage strategies and manage the retention lifecycle across all session artifacts.
 
 ## Command Interface
 
@@ -104,10 +104,10 @@ The agent tracks compression effectiveness across multiple dimensions to optimiz
 
 | Agent | Relationship |
 |-------|-------------|
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Produces the session context artifacts that this agent compresses |
-| [session-context-coordinator](/agents/session-context-coordinator/) | Coordinates context loading where compression affects retrieval paths |
-| [session-context-synthesizer](/agents/session-context-synthesizer/) | Synthesis operations consume compressed context and may require decompression |
-| [session-pattern-analyzer](/agents/session-pattern-analyzer/) | Pattern analysis benefits from compressed views that highlight structural patterns |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Produces the session context artifacts that this agent compresses |
+| [session-context-coordinator](@/agents/session-context-coordinator.md) | Coordinates context loading where compression affects retrieval paths |
+| [session-context-synthesizer](@/agents/session-context-synthesizer.md) | Synthesis operations consume compressed context and may require decompression |
+| [session-pattern-analyzer](@/agents/session-pattern-analyzer.md) | Pattern analysis benefits from compressed views that highlight structural patterns |
 
 ## Quality Assurance
 
@@ -123,7 +123,7 @@ Compression operations must maintain complete fidelity for critical content type
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that compression never compromises the platform's ability to maintain cross-session continuity. Any compression that would result in decision loss, context ambiguity, or broken cross-references is rejected. Compression operations maintain full audit trails per [NABLA Infinity](/glossary/nabla-infinity/) provenance requirements, enabling verification that compressed content remains equivalent to its original for all critical use cases.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that compression never compromises the platform's ability to maintain cross-session continuity. Any compression that would result in decision loss, context ambiguity, or broken cross-references is rejected. Compression operations maintain full audit trails per [NABLA Infinity](@/glossary/nabla-infinity.md) provenance requirements, enabling verification that compressed content remains equivalent to its original for all critical use cases.
 
 ## Related Agents
 
@@ -136,4 +136,4 @@ Agents in the **session-context-compression-intelligence** domain work together 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

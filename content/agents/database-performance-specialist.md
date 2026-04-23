@@ -28,9 +28,9 @@ image_alt = "database-performance-specialist - Prismatic Platform"
 
 ## Overview
 
-The Database Performance Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent monitors, analyzes, and optimizes [PostgreSQL](/glossary/postgresql/) database performance across all platform applications, ensuring that query execution times, connection pool utilization, and storage efficiency meet production-grade requirements. With a 90-app umbrella architecture generating diverse query patterns, continuous performance monitoring is essential to prevent database bottlenecks from degrading platform responsiveness.
+The Database Performance Specialist is an L3 strategic authority operating within the Infrastructure domain of the Prismatic Platform. This agent monitors, analyzes, and optimizes [PostgreSQL](@/glossary/postgresql.md) database performance across all platform applications, ensuring that query execution times, connection pool utilization, and storage efficiency meet production-grade requirements. With a 90-app umbrella architecture generating diverse query patterns, continuous performance monitoring is essential to prevent database bottlenecks from degrading platform responsiveness.
 
-Database performance in the Prismatic ecosystem involves more than simple query optimization. The specialist manages [ETS](/glossary/ets/) caching strategies that reduce database load, [Ecto](/glossary/ecto/) query plan analysis that identifies N+1 query patterns, connection pool sizing that balances throughput against resource consumption, and index management that keeps query performance optimal as data volumes grow. Every optimization recommendation is backed by EXPLAIN ANALYZE evidence and measured before-and-after benchmarks.
+Database performance in the Prismatic ecosystem involves more than simple query optimization. The specialist manages [ETS](@/glossary/ets.md) caching strategies that reduce database load, [Ecto](@/glossary/ecto.md) query plan analysis that identifies N+1 query patterns, connection pool sizing that balances throughput against resource consumption, and index management that keeps query performance optimal as data volumes grow. Every optimization recommendation is backed by EXPLAIN ANALYZE evidence and measured before-and-after benchmarks.
 
 The specialist operates as the performance guardian for the entire data layer, ensuring that the platform's strict page load requirements (total page load under 250ms, server-side render under 100ms) are supported by a data layer that responds within its allocated time budget.
 
@@ -98,19 +98,19 @@ Regression detection compares current performance metrics against baselines usin
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to mandate query optimization, require index changes, and block deployments that introduce known performance regressions.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to mandate query optimization, require index changes, and block deployments that introduce known performance regressions.
 
 ## Coordination
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [database-architecture-specialist](/agents/database-architecture-specialist/) | Coordinates on schema design decisions that impact query performance | Infrastructure |
-| [database-migration-specialist](/agents/database-migration-specialist/) | Reviews migration scripts for performance impact before execution | Infrastructure |
-| [database-core-specialist](/agents/database-core-specialist/) | Collaborates on core database operations and storage engine optimization | Infrastructure |
+| [database-architecture-specialist](@/agents/database-architecture-specialist.md) | Coordinates on schema design decisions that impact query performance | Infrastructure |
+| [database-migration-specialist](@/agents/database-migration-specialist.md) | Reviews migration scripts for performance impact before execution | Infrastructure |
+| [database-core-specialist](@/agents/database-core-specialist.md) | Collaborates on core database operations and storage engine optimization | Infrastructure |
 
 ## Enforcement
 
-The Database Performance Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No query optimization is claimed without EXPLAIN ANALYZE evidence. No index is added without measured query improvement. Performance regressions detected in CI are blocking -- the responsible changes must be fixed before merge. Database operations exceeding SLA thresholds trigger immediate investigation with zero tolerance for unaddressed slow queries. N+1 query patterns detected in new code are blocking violations that must be resolved before the code is approved for merge.
+The Database Performance Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No query optimization is claimed without EXPLAIN ANALYZE evidence. No index is added without measured query improvement. Performance regressions detected in CI are blocking -- the responsible changes must be fixed before merge. Database operations exceeding SLA thresholds trigger immediate investigation with zero tolerance for unaddressed slow queries. N+1 query patterns detected in new code are blocking violations that must be resolved before the code is approved for merge.
 
 ---
 
@@ -119,4 +119,4 @@ The Database Performance Specialist operates under the [NO MERCY, NO DOUBTS](/gl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

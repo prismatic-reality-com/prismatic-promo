@@ -28,9 +28,9 @@ image_alt = "monte-carlo-simulation-specialist - Prismatic Platform"
 
 ## Overview
 
-The monte-carlo-simulation-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's simulation-analysis domain, responsible for designing, executing, and interpreting probabilistic simulations that inform decision-making across the platform's evolutionary, epistemic, and intelligence operations. This agent integrates Monte Carlo methods with the platform's MENDEL genetic evolution framework, [mycelial network](/glossary/mycelial-network/) propagation patterns, and [AIAD](/glossary/aiad/) agent societies to provide statistically rigorous uncertainty quantification for complex system behaviors.
+The monte-carlo-simulation-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's simulation-analysis domain, responsible for designing, executing, and interpreting probabilistic simulations that inform decision-making across the platform's evolutionary, epistemic, and intelligence operations. This agent integrates Monte Carlo methods with the platform's MENDEL genetic evolution framework, [mycelial network](@/glossary/mycelial-network.md) propagation patterns, and [AIAD](@/glossary/aiad.md) agent societies to provide statistically rigorous uncertainty quantification for complex system behaviors.
 
-Unlike deterministic analysis, this agent embraces uncertainty as a first-class concern. By running thousands to millions of randomized simulation trials, it produces probability distributions rather than point estimates, enabling the platform to make decisions with quantified confidence levels that align with [NABLA Infinity](/glossary/nabla-infinity/) epistemic standards. Every simulation output carries provenance chains and confidence intervals that pass through the [Trinity Gate](/glossary/trinity-gate/) validation framework.
+Unlike deterministic analysis, this agent embraces uncertainty as a first-class concern. By running thousands to millions of randomized simulation trials, it produces probability distributions rather than point estimates, enabling the platform to make decisions with quantified confidence levels that align with [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic standards. Every simulation output carries provenance chains and confidence intervals that pass through the [Trinity Gate](@/glossary/trinity-gate.md) validation framework.
 
 ## Operational Domain
 
@@ -48,11 +48,11 @@ The simulation-analysis domain spans probabilistic modeling of platform dynamics
 ## Key Capabilities
 
 - **Stochastic evolutionary modeling** -- Simulates population dynamics of the platform's genetic evolution, modeling mutation effects, selection pressures, and drift to predict fitness trajectories under proposed parameter changes
-- **[Property-based testing](/glossary/property-based-testing/) integration** -- Generates statistically principled test inputs through Monte Carlo sampling, complementing deterministic property-based tests with probabilistic coverage guarantees
+- **[Property-based testing](@/glossary/property-based-testing.md) integration** -- Generates statistically principled test inputs through Monte Carlo sampling, complementing deterministic property-based tests with probabilistic coverage guarantees
 - **Importance sampling for rare events** -- Applies variance reduction techniques to efficiently estimate probabilities of rare but critical events (security breaches, cascade failures, quality collapse)
-- **Bayesian uncertainty quantification** -- Produces posterior probability distributions for platform parameters, enabling calibrated confidence statements that satisfy [NABLA Infinity](/glossary/nabla-infinity/) provenance requirements
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed simulation campaigns triggered by decision-support requests
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing simulation execution metrics, convergence diagnostics, and result distributions
+- **Bayesian uncertainty quantification** -- Produces posterior probability distributions for platform parameters, enabling calibrated confidence statements that satisfy [NABLA Infinity](@/glossary/nabla-infinity.md) provenance requirements
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed simulation campaigns triggered by decision-support requests
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing simulation execution metrics, convergence diagnostics, and result distributions
 
 ## Simulation Engine
 
@@ -143,7 +143,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to execute simulation campaigns and publish probabilistic decision-support products.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to execute simulation campaigns and publish probabilistic decision-support products.
 
 ## Command Interface
 
@@ -157,10 +157,10 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [evolution-analyzer-specialist](/agents/evolution-analyzer-specialist/) | Provides evolutionary data for fitness trajectory modeling |
-| [code-quality-commander](/agents/code-quality-commander/) | Receives quality prediction simulations for planning |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Consumes risk probability distributions for intelligence products |
-| [security-audit-specialist](/agents/security-audit-specialist/) | Uses rare-event simulations for security scenario analysis |
+| [evolution-analyzer-specialist](@/agents/evolution-analyzer-specialist.md) | Provides evolutionary data for fitness trajectory modeling |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Receives quality prediction simulations for planning |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Consumes risk probability distributions for intelligence products |
+| [security-audit-specialist](@/agents/security-audit-specialist.md) | Uses rare-event simulations for security scenario analysis |
 
 ## Convergence Diagnostics
 
@@ -186,15 +186,15 @@ The specialist maintains a library of pre-calibrated simulation models that addr
 | Cascade Failure | Component count, dependency depth, failure probability | System-wide failure probability | Architecture dependency graph |
 | Resource Saturation | Request rate, service time, capacity | Queue depth and response time distributions | Production telemetry |
 
-Each model in the library includes validation benchmarks: known analytical solutions or empirical measurements that the model must reproduce within specified tolerance before being approved for decision-support use. The [SEADF](/glossary/seadf/) evolutionary framework periodically recalibrates models against fresh platform data, ensuring that simulation accuracy does not degrade as the platform evolves.
+Each model in the library includes validation benchmarks: known analytical solutions or empirical measurements that the model must reproduce within specified tolerance before being approved for decision-support use. The [SEADF](@/glossary/seadf.md) evolutionary framework periodically recalibrates models against fresh platform data, ensuring that simulation accuracy does not degrade as the platform evolves.
 
 ## NABLA Infinity Compliance
 
-All simulation outputs comply with [NABLA Infinity](/glossary/nabla-infinity/) axioms. Signal plurality is satisfied by running multiple independent simulation campaigns. Time decay is applied to simulation inputs derived from historical data. Provenance chains track every simulation from input parameters through random seed to final result. The [Trinity Gate](/glossary/trinity-gate/) validates that simulation conclusions maintain structural and logical consistency before entering decision-support products.
+All simulation outputs comply with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms. Signal plurality is satisfied by running multiple independent simulation campaigns. Time decay is applied to simulation inputs derived from historical data. Provenance chains track every simulation from input parameters through random seed to final result. The [Trinity Gate](@/glossary/trinity-gate.md) validates that simulation conclusions maintain structural and logical consistency before entering decision-support products.
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that all simulation-based decisions include explicit confidence intervals and convergence diagnostics. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that simulations are validated against known analytical solutions where available, and that convergence is demonstrated before results are published. No simulation result enters a decision pipeline without quantified uncertainty bounds.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that all simulation-based decisions include explicit confidence intervals and convergence diagnostics. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that simulations are validated against known analytical solutions where available, and that convergence is demonstrated before results are published. No simulation result enters a decision pipeline without quantified uncertainty bounds.
 
 ---
 
@@ -203,4 +203,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that all simulation-based 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

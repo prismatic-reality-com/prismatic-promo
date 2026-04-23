@@ -58,7 +58,7 @@ RFC 7519 defines a set of registered claim names with standardized semantics. Wh
 | `iat` | Issued At | NumericDate | Token creation timestamp | Automatic, used for age calculations |
 | `jti` | JWT ID | String | Unique token identifier | UUID, used for revocation list |
 
-Beyond registered claims, Prismatic extends the payload with private claims for [RBAC](/glossary/rbac/) enforcement:
+Beyond registered claims, Prismatic extends the payload with private claims for [RBAC](@/glossary/rbac.md) enforcement:
 
 ```json
 {
@@ -145,11 +145,11 @@ Proactive refresh -- requesting a new token before expiration, typically 5 minut
 
 ## Context in Prismatic
 
-The Prismatic Platform uses JWT as the primary authentication mechanism for both human users and AI agents. The `PrismaticWeb.Plugs.APIAuth` plug validates JWTs on every incoming request, extracting claims for [RBAC](/glossary/rbac/) enforcement without database lookups. The [API Gateway](/glossary/api-gateway/) serves as the single validation point, ensuring consistent token verification across all backend services.
+The Prismatic Platform uses JWT as the primary authentication mechanism for both human users and AI agents. The `PrismaticWeb.Plugs.APIAuth` plug validates JWTs on every incoming request, extracting claims for [RBAC](@/glossary/rbac.md) enforcement without database lookups. The [API Gateway](@/glossary/api-gateway.md) serves as the single validation point, ensuring consistent token verification across all backend services.
 
-Token issuance occurs through two paths: direct authentication (username/password with MFA) produces a JWT with full user claims, while [OAuth2](/glossary/oauth2/) provider authentication (GitHub, Google, GitLab) produces a JWT after successful callback processing. Both paths result in identical JWT structures, making downstream authorization agnostic to the authentication method.
+Token issuance occurs through two paths: direct authentication (username/password with MFA) produces a JWT with full user claims, while [OAuth2](@/glossary/oauth2.md) provider authentication (GitHub, Google, GitLab) produces a JWT after successful callback processing. Both paths result in identical JWT structures, making downstream authorization agnostic to the authentication method.
 
-For agent-to-agent communication within the platform, JWTs carry [agent tier](/glossary/agent-tier/) claims (L1 through L5) alongside standard role claims. This enables the AIAD authority model to function as a JWT-verified permission hierarchy, where higher-tier agents can issue commands to lower-tier agents by presenting tokens with superior authority claims.
+For agent-to-agent communication within the platform, JWTs carry [agent tier](@/glossary/agent-tier.md) claims (L1 through L5) alongside standard role claims. This enables the AIAD authority model to function as a JWT-verified permission hierarchy, where higher-tier agents can issue commands to lower-tier agents by presenting tokens with superior authority claims.
 
 ```elixir
 # JWT validation plug pipeline
@@ -200,22 +200,22 @@ end
 
 ## Related Terms
 
-- [OAuth2](/glossary/oauth2/) - Authorization framework that issues JWTs as access tokens
-- [RBAC](/glossary/rbac/) - Role-based access control with roles carried in JWT claims
-- [REST API](/glossary/rest-api/) - Stateless HTTP interface authenticated with JWTs
-- [API Gateway](/glossary/api-gateway/) - Entry point validating JWT tokens for all backend services
-- [TLS](/glossary/tls/) - Transport encryption protecting JWT tokens in transit
-- [Encryption at Rest](/glossary/encryption-at-rest/) - Protection of stored refresh tokens and signing keys
-- [Plug](/glossary/plug/) - Elixir middleware executing JWT validation in request pipeline
-- [Agent Tier](/glossary/agent-tier/) - Agent authority claims embedded in JWTs
-- [Rate Limiting](/glossary/rate-limiting/) - Per-token throttling using JWT `sub` claim
-- [Observability](/glossary/observability/) - Monitoring JWT validation failures and token metrics
+- [OAuth2](@/glossary/oauth2.md) - Authorization framework that issues JWTs as access tokens
+- [RBAC](@/glossary/rbac.md) - Role-based access control with roles carried in JWT claims
+- [REST API](@/glossary/rest-api.md) - Stateless HTTP interface authenticated with JWTs
+- [API Gateway](@/glossary/api-gateway.md) - Entry point validating JWT tokens for all backend services
+- [TLS](@/glossary/tls.md) - Transport encryption protecting JWT tokens in transit
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) - Protection of stored refresh tokens and signing keys
+- [Plug](@/glossary/plug.md) - Elixir middleware executing JWT validation in request pipeline
+- [Agent Tier](@/glossary/agent-tier.md) - Agent authority claims embedded in JWTs
+- [Rate Limiting](@/glossary/rate-limiting.md) - Per-token throttling using JWT `sub` claim
+- [Observability](@/glossary/observability.md) - Monitoring JWT validation failures and token metrics
 
 ## See Also
 
-- [Architecture](/architecture/) - Security architecture and token flow
-- [Apps](/apps/) - Prismatic API and Web authentication
-- [Technologies](/technologies/) - Guardian, JOSE, and cryptographic libraries
+- [Architecture](@/architecture/_index.md) - Security architecture and token flow
+- [Apps](@/apps/_index.md) - Prismatic API and Web authentication
+- [Technologies](@/technologies/_index.md) - Guardian, JOSE, and cryptographic libraries
 
 ---
 
@@ -224,4 +224,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

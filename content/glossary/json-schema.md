@@ -491,24 +491,24 @@ UI frameworks use JSON Schema to automatically generate form fields, validation 
 
 JSON Schema integrates with many technologies and concepts across the software development ecosystem:
 
-- [OpenAPI](/glossary/openapi/) -- the API specification standard that uses JSON Schema for request/response body definitions
-- [REST API](/glossary/rest-api/) -- the architectural style whose data contracts JSON Schema formalizes
-- [Validation](/glossary/validation/) -- the broader concept of verifying data correctness that JSON Schema implements for JSON documents
-- [Schema](/glossary/schema/) -- the general concept of structured data definitions that JSON Schema specializes for JSON
-- [API Gateway](/glossary/api-gateway/) -- infrastructure that applies JSON Schema validation at the API boundary
-- [TypeSpec](/glossary/typespec/) -- Elixir's type specification system that maps to JSON Schema types in the auto-introspecting API
-- [Machine Readable](/glossary/machine-readable/) -- the property of JSON Schema that enables automated tooling and validation
-- [Ecto](/glossary/ecto/) -- Elixir's database layer providing complementary changeset validation alongside JSON Schema API validation
-- [Specification](/glossary/specification/) -- the broader concept of formal system descriptions that JSON Schema exemplifies
-- [Documentation](/glossary/documentation/) -- JSON Schema serves as living, executable documentation for data structures
+- [OpenAPI](@/glossary/openapi.md) -- the API specification standard that uses JSON Schema for request/response body definitions
+- [REST API](@/glossary/rest-api.md) -- the architectural style whose data contracts JSON Schema formalizes
+- [Validation](@/glossary/validation.md) -- the broader concept of verifying data correctness that JSON Schema implements for JSON documents
+- [Schema](@/glossary/schema.md) -- the general concept of structured data definitions that JSON Schema specializes for JSON
+- [API Gateway](@/glossary/api-gateway.md) -- infrastructure that applies JSON Schema validation at the API boundary
+- [TypeSpec](@/glossary/typespec.md) -- Elixir's type specification system that maps to JSON Schema types in the auto-introspecting API
+- [Machine Readable](@/glossary/machine-readable.md) -- the property of JSON Schema that enables automated tooling and validation
+- [Ecto](@/glossary/ecto.md) -- Elixir's database layer providing complementary changeset validation alongside JSON Schema API validation
+- [Specification](@/glossary/specification.md) -- the broader concept of formal system descriptions that JSON Schema exemplifies
+- [Documentation](@/glossary/documentation.md) -- JSON Schema serves as living, executable documentation for data structures
 
 ## See Also
 
-- [OpenAPI Spec](/glossary/openapi-spec/) -- the specific OpenAPI specification version used in the Prismatic API gateway
-- [Swagger UI](/glossary/swagger-ui/) -- interactive API documentation powered by OpenAPI schemas derived from JSON Schema
-- [Prismatic API](/glossary/prismatic-api/) -- the auto-introspecting API gateway that generates JSON Schema from Elixir type specs
-- [Introspection](/glossary/introspection/) -- the mechanism by which Elixir types are discovered and mapped to JSON Schema
-- [GraphQL](/glossary/graphql/) -- an alternative API paradigm with its own type system comparable to JSON Schema
+- [OpenAPI Spec](@/glossary/openapi-spec.md) -- the specific OpenAPI specification version used in the Prismatic API gateway
+- [Swagger UI](@/glossary/swagger-ui.md) -- interactive API documentation powered by OpenAPI schemas derived from JSON Schema
+- [Prismatic API](@/glossary/prismatic-api.md) -- the auto-introspecting API gateway that generates JSON Schema from Elixir type specs
+- [Introspection](@/glossary/introspection.md) -- the mechanism by which Elixir types are discovered and mapped to JSON Schema
+- [GraphQL](@/glossary/graphql.md) -- an alternative API paradigm with its own type system comparable to JSON Schema
 
 ---
 

@@ -24,7 +24,7 @@ image_alt = "Prismatic HAWKEYE - Prismatic Platform"
 
 ## Abstract
 
-[HAWKEYE](/glossary/hawkeye/) is the Prismatic Platform's Visitor Intelligence system, providing real-time behavioral analysis, device fingerprinting, geolocation intelligence, and dynamic risk scoring for every visitor interacting with monitored web properties. The system correlates browser-side behavioral signals (mouse movement, scroll patterns, click cadence, navigation flow) with server-side intelligence from external threat feeds -- AbuseIPDB, [GreyNoise](/glossary/greynoise/), and [Shodan](/glossary/shodan/) -- to classify visitors on a 0-100 risk scale across five threat levels. HAWKEYE's architecture employs a [GenStage](/glossary/genstage/)-based processing pipeline that handles visitor profiling in under 100 milliseconds per request, with bot detection accuracy exceeding 98%. The system delivers its intelligence through a real-time [Phoenix LiveView](/glossary/phoenix-liveview/) dashboard and programmatic APIs, enabling both human analysts and automated systems to act on visitor threat assessments.
+[HAWKEYE](@/glossary/hawkeye.md) is the Prismatic Platform's Visitor Intelligence system, providing real-time behavioral analysis, device fingerprinting, geolocation intelligence, and dynamic risk scoring for every visitor interacting with monitored web properties. The system correlates browser-side behavioral signals (mouse movement, scroll patterns, click cadence, navigation flow) with server-side intelligence from external threat feeds -- AbuseIPDB, [GreyNoise](@/glossary/greynoise.md), and [Shodan](@/glossary/shodan.md) -- to classify visitors on a 0-100 risk scale across five threat levels. HAWKEYE's architecture employs a [GenStage](@/glossary/genstage.md)-based processing pipeline that handles visitor profiling in under 100 milliseconds per request, with bot detection accuracy exceeding 98%. The system delivers its intelligence through a real-time [Phoenix LiveView](@/glossary/phoenix-liveview.md) dashboard and programmatic APIs, enabling both human analysts and automated systems to act on visitor threat assessments.
 
 ## 1. Introduction
 
@@ -32,16 +32,16 @@ image_alt = "Prismatic HAWKEYE - Prismatic Platform"
 
 Web-facing applications receive traffic from a spectrum of actors ranging from legitimate users to automated scanners, credential stuffers, web scrapers, and targeted attack tools. Traditional web analytics tools measure page views and session durations but lack the security intelligence needed to distinguish benign visitors from threats. Conversely, Web Application Firewalls (WAFs) operate on static rule sets that miss behavioral anomalies and context-dependent threats. The gap between analytics and security creates blind spots where sophisticated automated attacks succeed precisely because they mimic human behavior.
 
-HAWKEYE bridges this gap by combining behavioral analysis with external [threat intelligence](/glossary/threat-intelligence/), producing a contextual risk assessment that adapts in real time as visitor behavior evolves throughout a session.
+HAWKEYE bridges this gap by combining behavioral analysis with external [threat intelligence](@/glossary/threat-intelligence.md), producing a contextual risk assessment that adapts in real time as visitor behavior evolves throughout a session.
 
 ### 1.2 Design Goals
 
 1. **Sub-100ms profiling latency** -- visitor risk assessment must complete within the HTTP request lifecycle to enable inline blocking decisions.
-2. **Multi-signal correlation** -- combine browser fingerprints, geolocation, behavioral patterns, and external threat feeds into a unified [risk score](/glossary/risk-score/).
+2. **Multi-signal correlation** -- combine browser fingerprints, geolocation, behavioral patterns, and external threat feeds into a unified [risk score](@/glossary/risk-score.md).
 3. **Adaptive bot detection** -- detect automated behavior through behavioral analysis rather than static signatures, achieving over 98% accuracy.
 4. **Real-time dashboard** -- provide a LiveView interface showing live visitor feeds, geographic distribution, and threat indicators.
 5. **Privacy compliance** -- minimize data collection to what is necessary for security assessment, with configurable retention policies.
-6. **Integration with platform intelligence** -- share threat assessments with [Prismatic Perimeter](/apps/prismatic-perimeter/) and the broader [OSINT](/glossary/osint/) pipeline.
+6. **Integration with platform intelligence** -- share threat assessments with [Prismatic Perimeter](@/apps/prismatic-perimeter.md) and the broader [OSINT](@/glossary/osint.md) pipeline.
 
 ### 1.3 Scope
 
@@ -101,7 +101,7 @@ Browser                                           Server
 
 | Module | Responsibility |
 |--------|----------------|
-| `PrismaticVisitorIntelligence.Collector` | [WebSocket](/glossary/websocket/)/HTTP event ingestion from browser-side JavaScript collector |
+| `PrismaticVisitorIntelligence.Collector` | [WebSocket](@/glossary/websocket.md)/HTTP event ingestion from browser-side JavaScript collector |
 | `PrismaticVisitorIntelligence.Fingerprinter` | Device fingerprinting from canvas, WebGL, font, and browser attributes |
 | `PrismaticVisitorIntelligence.Geolocator` | IP geolocation, ASN resolution, VPN/Tor/proxy detection |
 | `PrismaticVisitorIntelligence.Enrichment` | Parallel external intelligence queries (AbuseIPDB, GreyNoise, Shodan) |
@@ -109,7 +109,7 @@ Browser                                           Server
 | `PrismaticVisitorIntelligence.BotDetector` | Automated behavior detection with ML-assisted classification |
 | `PrismaticVisitorIntelligence.RiskEngine` | Dynamic 0-100 risk scoring and five-level classification |
 | `PrismaticVisitorIntelligence.SessionTracker` | Cross-request session management with visitor identity correlation |
-| `PrismaticVisitorIntelligence.Dashboard` | LiveView components for [real-time monitoring](/capabilities/real-time-monitoring/) |
+| `PrismaticVisitorIntelligence.Dashboard` | LiveView components for [real-time monitoring](@/capabilities/real-time-monitoring.md) |
 
 ### 2.3 Process Topology
 
@@ -129,7 +129,7 @@ PrismaticVisitorIntelligence.Application (Supervisor, :one_for_one)
 
 ### 2.4 Data Flow
 
-Visitor data enters through the browser-side JavaScript collector, which transmits behavioral events over a WebSocket connection. The Collector [GenServer](/glossary/genserver/) ingests these events and routes them through a sequential pipeline: fingerprinting, geolocation, external enrichment (parallel), behavioral analysis, and risk scoring. The final risk assessment is stored in [ETS](/glossary/ets/) and broadcast via [PubSub](/glossary/pubsub/) to the LiveView dashboard.
+Visitor data enters through the browser-side JavaScript collector, which transmits behavioral events over a WebSocket connection. The Collector [GenServer](@/glossary/genserver.md) ingests these events and routes them through a sequential pipeline: fingerprinting, geolocation, external enrichment (parallel), behavioral analysis, and risk scoring. The final risk assessment is stored in [ETS](@/glossary/ets.md) and broadcast via [PubSub](@/glossary/pubsub.md) to the LiveView dashboard.
 
 ## 3. Implementation
 
@@ -216,20 +216,20 @@ config :prismatic_visitor_intelligence,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Web](/apps/prismatic-web/) | Dashboard hosting and LiveView components |
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | AbuseIPDB, GreyNoise, Shodan intelligence feeds |
-| [Prismatic Cache](/apps/prismatic-cache/) | Intelligence query caching (reduces API costs) |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Visitor [metrics](/glossary/metrics/) and performance monitoring |
-| [Prismatic Storage](/apps/prismatic-storage/) | Visitor data persistence |
-| [Prismatic Auth](/apps/prismatic-auth/) | Dashboard access control |
+| [Prismatic Web](@/apps/prismatic-web.md) | Dashboard hosting and LiveView components |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | AbuseIPDB, GreyNoise, Shodan intelligence feeds |
+| [Prismatic Cache](@/apps/prismatic-cache.md) | Intelligence query caching (reduces API costs) |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Visitor [metrics](@/glossary/metrics.md) and performance monitoring |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Visitor data persistence |
+| [Prismatic Auth](@/apps/prismatic-auth.md) | Dashboard access control |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Threat intelligence sharing |
-| [Prismatic Signals](/apps/prismatic-signals/) | Visitor threat signals feed |
-| [Prismatic Detection Engine](/apps/prismatic-detection-engine/) | Behavioral anomaly findings |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Threat intelligence sharing |
+| [Prismatic Signals](@/apps/prismatic-signals.md) | Visitor threat signals feed |
+| [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) | Behavioral anomaly findings |
 
 ### 4.3 Inter-Process Communication
 
@@ -237,7 +237,7 @@ The dashboard receives updates via Phoenix PubSub on the `"hawkeye:visitor_updat
 
 ### 4.4 External Integrations
 
-Three real-time threat intelligence feeds: AbuseIPDB (IP reputation scoring), GreyNoise (mass scanner identification), and Shodan (infrastructure fingerprinting). All queries pass through [Prismatic Resilience](/apps/prismatic-resilience/) [circuit breaker](/glossary/circuit-breaker/)s and [Prismatic Cache](/apps/prismatic-cache/).
+Three real-time threat intelligence feeds: AbuseIPDB (IP reputation scoring), GreyNoise (mass scanner identification), and Shodan (infrastructure fingerprinting). All queries pass through [Prismatic Resilience](@/apps/prismatic-resilience.md) [circuit breaker](@/glossary/circuit-breaker.md)s and [Prismatic Cache](@/apps/prismatic-cache.md).
 
 ## 5. Performance
 
@@ -248,7 +248,7 @@ Three real-time threat intelligence feeds: AbuseIPDB (IP reputation scoring), Gr
 | Fingerprint computation | < 5ms | Server-side hash of browser attributes |
 | Geolocation lookup | < 2ms | Local MaxMind database |
 | External enrichment (parallel) | 50-200ms | AbuseIPDB + GreyNoise + Shodan in parallel |
-| Behavioral analysis | < 10ms | [Pattern matching](/glossary/pattern-matching/) on session events |
+| Behavioral analysis | < 10ms | [Pattern matching](@/glossary/pattern-matching.md) on session events |
 | Total profiling pipeline | < 100ms | End-to-end per request |
 | Bot detection accuracy | 98.5% | Validated against labeled test set |
 
@@ -286,7 +286,7 @@ Adversaries may attempt to evade detection by mimicking human behavioral pattern
 
 ### 7.2 Access Control
 
-Dashboard access requires `dashboard_access` and `hawkeye_read` permissions through [Prismatic Auth](/apps/prismatic-auth/). Visitor data is subject to configurable retention policies. No personally identifiable information beyond IP addresses is collected, and IPs are hashed after the retention period.
+Dashboard access requires `dashboard_access` and `hawkeye_read` permissions through [Prismatic Auth](@/apps/prismatic-auth.md). Visitor data is subject to configurable retention policies. No personally identifiable information beyond IP addresses is collected, and IPs are hashed after the retention period.
 
 ## 8. Operational Considerations
 
@@ -313,24 +313,24 @@ Planned enhancements include machine learning model integration for behavioral c
 
 ## References
 
-- [Prismatic Visitor Intelligence](/apps/prismatic-visitor-intelligence/) -- Extended implementation with code examples
-- [Prismatic Hawkeye Web](/apps/prismatic-hawkeye-web/) -- Dashboard web interface
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Intelligence source layer
+- [Prismatic Visitor Intelligence](@/apps/prismatic-visitor-intelligence.md) -- Extended implementation with code examples
+- [Prismatic Hawkeye Web](@/apps/prismatic-hawkeye-web.md) -- Dashboard web interface
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Intelligence source layer
 - [AbuseIPDB](https://www.abuseipdb.com/) -- IP reputation database
 - [GreyNoise](https://www.greynoise.io/) -- Internet noise and scanner identification
 - [Shodan](https://www.shodan.io/) -- Internet-connected device search engine
 
 ## Related Agents
 
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Manages threat alert routing, deduplication, and escalation for HAWKEYE visitor risk notifications
-- [Competitor Researcher](/agents/competitor-researcher/) -- Provides competitive intelligence analysis that enriches visitor profiling with organizational context
-- [Evolution Analyzer Specialist](/agents/evolution-analyzer-specialist/) -- Analyzes behavioral pattern evolution in visitor intelligence data over time
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Manages threat alert routing, deduplication, and escalation for HAWKEYE visitor risk notifications
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Provides competitive intelligence analysis that enriches visitor profiling with organizational context
+- [Evolution Analyzer Specialist](@/agents/evolution-analyzer-specialist.md) -- Analyzes behavioral pattern evolution in visitor intelligence data over time
 
 ## Related Capabilities
 
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Foundation for HAWKEYE's sub-100ms visitor profiling and live dashboard updates
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source intelligence fusion combining behavioral signals with external threat feeds
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Comprehensive event coverage for visitor profiling latency and bot detection metrics
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Foundation for HAWKEYE's sub-100ms visitor profiling and live dashboard updates
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source intelligence fusion combining behavioral signals with external threat feeds
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Comprehensive event coverage for visitor profiling latency and bot detection metrics
 
 ---
 
@@ -339,4 +339,4 @@ Planned enhancements include machine learning model integration for behavioral c
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

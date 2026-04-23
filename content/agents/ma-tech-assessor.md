@@ -28,9 +28,9 @@ image_alt = "ma-tech-assessor - Prismatic Platform"
 
 ## Overview
 
-The ma-tech-assessor agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's primary domain, specializing in comprehensive technology stack analysis for mergers and acquisitions (M&A) due diligence operations. This agent evaluates target company technology infrastructure, assessing architecture maturity, technical debt levels, scalability characteristics, security posture, and integration complexity. Its assessments provide quantified risk and value indicators that inform acquisition decisions with evidence-based technical intelligence.
+The ma-tech-assessor agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's primary domain, specializing in comprehensive technology stack analysis for mergers and acquisitions (M&A) due diligence operations. This agent evaluates target company technology infrastructure, assessing architecture maturity, technical debt levels, scalability characteristics, security posture, and integration complexity. Its assessments provide quantified risk and value indicators that inform acquisition decisions with evidence-based technical intelligence.
 
-Built on the [AIAD](/glossary/aiad/) standard, the ma-tech-assessor applies the [NO DOUBTS](/glossary/no-doubts/) principle to every evaluation: no technology assessment is finalized without multi-source validation, and all findings carry explicit confidence scores. The agent leverages the platform's [OSINT](/glossary/osint/) capabilities to correlate publicly available technical indicators -- job postings, open-source contributions, conference presentations, technology blog posts -- with direct infrastructure analysis to build comprehensive technology profiles of acquisition targets.
+Built on the [AIAD](@/glossary/aiad.md) standard, the ma-tech-assessor applies the [NO DOUBTS](@/glossary/no-doubts.md) principle to every evaluation: no technology assessment is finalized without multi-source validation, and all findings carry explicit confidence scores. The agent leverages the platform's [OSINT](@/glossary/osint.md) capabilities to correlate publicly available technical indicators -- job postings, open-source contributions, conference presentations, technology blog posts -- with direct infrastructure analysis to build comprehensive technology profiles of acquisition targets.
 
 Technology is increasingly the primary value driver in modern acquisitions, yet technology due diligence remains one of the least standardized assessment domains. The ma-tech-assessor addresses this gap by providing structured, repeatable technology evaluations that quantify both the opportunities (proprietary technology, engineering talent, scalable architecture) and risks (technical debt, vendor lock-in, security vulnerabilities, integration complexity) associated with target technology assets.
 
@@ -73,7 +73,7 @@ The ma-tech-assessor provides comprehensive technology intelligence through seve
 
 **Scalability Analysis** assesses whether target technology architectures can support projected growth, identifying capacity constraints, single points of failure, and architectural bottlenecks. The analysis evaluates horizontal and vertical scaling capabilities, caching strategies, database sharding readiness, and load distribution characteristics.
 
-**Security Posture Evaluation** reviews target security practices against industry standards (OWASP, CIS, ISO 27001), leveraging [EASM](/glossary/easm/) techniques for external [attack surface](/glossary/attack-surface/) assessment when internal access is not available. Security evaluation covers vulnerability management, encryption practices, access control maturity, incident response readiness, and compliance posture.
+**Security Posture Evaluation** reviews target security practices against industry standards (OWASP, CIS, ISO 27001), leveraging [EASM](@/glossary/easm.md) techniques for external [attack surface](@/glossary/attack-surface.md) assessment when internal access is not available. Security evaluation covers vulnerability management, encryption practices, access control maturity, incident response readiness, and compliance posture.
 
 **Team Capability Assessment** evaluates the target's engineering team capabilities through OSINT analysis of professional profiles, open-source contributions, conference participation, and hiring patterns. Team assessment identifies key person dependencies, skill concentration risks, and retention factors.
 
@@ -139,13 +139,13 @@ end
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [ma-risk-assessor](/agents/ma-risk-assessor/) | Technology risk scores feed risk assessment models | Outbound |
-| [ma-integration-planner](/agents/ma-integration-planner/) | Technology profiles inform migration planning | Outbound |
-| [ma-enforcement-commander](/agents/ma-enforcement-commander/) | Integration safety verification through Lean4 theorems | Outbound |
-| [ma-financial-analyst](/agents/ma-financial-analyst/) | Technology investment correlation with financial data | Bidirectional |
-| [OSINT](/glossary/osint/) Agents | Technical intelligence from open-source channels | Inbound |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
-| Prismatic Telemetry | Assessment pipeline [metrics](/glossary/metrics/) and event tracking | Outbound |
+| [ma-risk-assessor](@/agents/ma-risk-assessor.md) | Technology risk scores feed risk assessment models | Outbound |
+| [ma-integration-planner](@/agents/ma-integration-planner.md) | Technology profiles inform migration planning | Outbound |
+| [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) | Integration safety verification through Lean4 theorems | Outbound |
+| [ma-financial-analyst](@/agents/ma-financial-analyst.md) | Technology investment correlation with financial data | Bidirectional |
+| [OSINT](@/glossary/osint.md) Agents | Technical intelligence from open-source channels | Inbound |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
+| Prismatic Telemetry | Assessment pipeline [metrics](@/glossary/metrics.md) and event tracking | Outbound |
 
 ## Operational Workflow
 
@@ -197,14 +197,14 @@ config :prismatic_ma, Prismatic.MA.TechAssessor,
 
 ## Related Resources
 
-- [ma-risk-assessor](/agents/ma-risk-assessor/) -- Technology risk integration
-- [ma-integration-planner](/agents/ma-integration-planner/) -- Migration planning from tech profiles
-- [ma-enforcement-commander](/agents/ma-enforcement-commander/) -- Integration safety verification
-- [ma-financial-analyst](/agents/ma-financial-analyst/) -- Technology investment correlation
-- [ma-market-analyst](/agents/ma-market-analyst/) -- Technology market positioning
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for evidence-based assessment
-- [EASM](/glossary/easm/) -- External attack surface methodology
+- [ma-risk-assessor](@/agents/ma-risk-assessor.md) -- Technology risk integration
+- [ma-integration-planner](@/agents/ma-integration-planner.md) -- Migration planning from tech profiles
+- [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) -- Integration safety verification
+- [ma-financial-analyst](@/agents/ma-financial-analyst.md) -- Technology investment correlation
+- [ma-market-analyst](@/agents/ma-market-analyst.md) -- Technology market positioning
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for evidence-based assessment
+- [EASM](@/glossary/easm.md) -- External attack surface methodology
 
 ---
 
@@ -213,4 +213,4 @@ config :prismatic_ma, Prismatic.MA.TechAssessor,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

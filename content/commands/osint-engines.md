@@ -24,11 +24,11 @@ image_alt = "/osint-engines - Prismatic Platform"
 
 ## Overview
 
-**/osint-engines** is a production command in the **Intelligence** category of the Prismatic Platform. It coordinates multiple [OSINT](/glossary/osint/) (Open Source Intelligence) engines to execute parallel queries across diverse data sources, aggregating results into unified intelligence reports. The command manages 250+ OSINT providers spanning public records, social media, domain registries, certificate transparency logs, breach databases, and specialized intelligence feeds, orchestrating them through a priority-based scheduling system that maximizes coverage while respecting rate limits and API quotas.
+**/osint-engines** is a production command in the **Intelligence** category of the Prismatic Platform. It coordinates multiple [OSINT](@/glossary/osint.md) (Open Source Intelligence) engines to execute parallel queries across diverse data sources, aggregating results into unified intelligence reports. The command manages 250+ OSINT providers spanning public records, social media, domain registries, certificate transparency logs, breach databases, and specialized intelligence feeds, orchestrating them through a priority-based scheduling system that maximizes coverage while respecting rate limits and API quotas.
 
-This command operates under the **L3** authority level and is executed by the `osint-engine-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the sensitivity of intelligence operations: while results are derived entirely from publicly available sources, the coordination of multiple engines against a target requires operational awareness and appropriate authorization.
+This command operates under the **L3** authority level and is executed by the `osint-engine-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the sensitivity of intelligence operations: while results are derived entirely from publicly available sources, the coordination of multiple engines against a target requires operational awareness and appropriate authorization.
 
-The multi-engine architecture provides resilience through redundancy and accuracy through cross-validation. When multiple engines return information about the same entity, the system applies source independence analysis from the [NABLA Infinity](/glossary/nabla-infinity/) framework to weight the results. Corroborating information from independent sources receives higher confidence scores than single-source findings, directly implementing the Signal Plurality axiom.
+The multi-engine architecture provides resilience through redundancy and accuracy through cross-validation. When multiple engines return information about the same entity, the system applies source independence analysis from the [NABLA Infinity](@/glossary/nabla-infinity.md) framework to weight the results. Corroborating information from independent sources receives higher confidence scores than single-source findings, directly implementing the Signal Plurality axiom.
 
 ## Architecture
 
@@ -187,14 +187,14 @@ The final report aggregates all findings, organized by category and confidence l
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/investigate](/commands/investigate/) | Upstream | Full investigation workflow uses engines as data layer |
-| [/email-osint](/commands/email-osint/) | Peer | Specialized email intelligence sharing |
-| [/google-hacking](/commands/google-hacking/) | Peer | Google dorking engine integration |
-| [/web-crawler](/commands/web-crawler/) | Peer | Web crawling results feed into engine data |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Downstream | Attack surface data from OSINT engines |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Framework | Source plurality and confidence scoring |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Engine performance and query statistics |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Result quality validation |
+| [/investigate](@/commands/investigate.md) | Upstream | Full investigation workflow uses engines as data layer |
+| [/email-osint](@/commands/email-osint.md) | Peer | Specialized email intelligence sharing |
+| [/google-hacking](@/commands/google-hacking.md) | Peer | Google dorking engine integration |
+| [/web-crawler](@/commands/web-crawler.md) | Peer | Web crawling results feed into engine data |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Downstream | Attack surface data from OSINT engines |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Framework | Source plurality and confidence scoring |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Engine performance and query statistics |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Result quality validation |
 
 ## Best Practices
 
@@ -264,19 +264,19 @@ Set up periodic monitoring of targets for changes:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. All queried engines must return results or explicit errors.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Multi-source corroboration enforced through NABLA Signal Plurality axiom.
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive OSINT investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/web-crawler](/commands/web-crawler/) - Automated web crawling and structured data extraction
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/investigate](@/commands/investigate.md) - Launch comprehensive OSINT investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/web-crawler](@/commands/web-crawler.md) - Automated web crawling and structured data extraction
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -285,4 +285,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

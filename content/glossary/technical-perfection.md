@@ -59,18 +59,18 @@ The Prismatic Platform's quality score is a weighted aggregate of thirteen domai
 
 | Domain | Weight | Measurement | Current |
 |--------|--------|-------------|---------|
-| [Dialyzer](/glossary/dialyzer/) | 8% | Type safety violations | 0 |
-| [Credo](/glossary/credo/) | 8% | Code consistency issues | 0 |
-| [Compilation](/glossary/compilation/) | 10% | Compiler warnings | 0 |
+| [Dialyzer](@/glossary/dialyzer.md) | 8% | Type safety violations | 0 |
+| [Credo](@/glossary/credo.md) | 8% | Code consistency issues | 0 |
+| [Compilation](@/glossary/compilation.md) | 10% | Compiler warnings | 0 |
 | DateTime Precision | 5% | Microsecond enforcement | 0 |
 | Guard Functions | 5% | Proper guard usage | 0 |
 | @impl Coverage | 8% | Callback annotations | 709/709 |
 | Memory Safety | 8% | Resource leak patterns | 0 |
-| [Performance](/glossary/performance/) | 8% | Anti-pattern detection | 0 |
-| [Regression Prevention](/glossary/regression-testing/) | 10% | Bug fix test coverage | 100% |
+| [Performance](@/glossary/performance.md) | 8% | Anti-pattern detection | 0 |
+| [Regression Prevention](@/glossary/regression-testing.md) | 10% | Bug fix test coverage | 100% |
 | Timing Patterns | 5% | Process.sleep detection | 0 |
 | TODO Management | 5% | Tracked elimination | 0 |
-| [Typespec](/glossary/typespec/) Coverage | 10% | Function specifications | 100% |
+| [Typespec](@/glossary/typespec.md) Coverage | 10% | Function specifications | 100% |
 | Unsafe Map Access | 10% | Map.fetch! prevention | 0 |
 
 Each domain contributes proportionally to the aggregate score. A score of 100/100 means zero violations across all domains simultaneously -- not historically, not on average, but at the current moment.
@@ -97,7 +97,7 @@ As each domain achieved compliance, its quality gate was permanently locked at z
 
 ### Phase 5: Continuous Monitoring
 
-With all 13 domains at zero violations, the [Quality Floor Guardian](/glossary/quality-floor-guardian/) was activated to monitor quality metrics in real-time and respond to any regression attempt with immediate blocking action.
+With all 13 domains at zero violations, the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) was activated to monitor quality metrics in real-time and respond to any regression attempt with immediate blocking action.
 
 ## Implementation: The Quality Gate Architecture
 
@@ -369,15 +369,15 @@ Achieving perfection is a milestone; maintaining it is a practice. The Prismatic
 
 ### Autonomous Healing
 
-The [AutoHeal](/glossary/autoheal/) system automatically detects and remediates quality degradation before it can accumulate. When a quality metric dips, AutoHeal diagnoses the cause and applies corrections without human intervention.
+The [AutoHeal](@/glossary/autoheal.md) system automatically detects and remediates quality degradation before it can accumulate. When a quality metric dips, AutoHeal diagnoses the cause and applies corrections without human intervention.
 
 ### Evolution-Driven Improvement
 
-The [AutoEvolve](/glossary/autoevolve/) system uses quality analysis to identify improvement opportunities that go beyond maintaining the current standard. While perfection means zero violations, evolution means finding new domains to measure and new standards to enforce.
+The [AutoEvolve](@/glossary/autoevolve.md) system uses quality analysis to identify improvement opportunities that go beyond maintaining the current standard. While perfection means zero violations, evolution means finding new domains to measure and new standards to enforce.
 
 ### Quality DNA Continuity
 
-[Quality DNA](/glossary/quality-dna/) provides cross-session quality state persistence, ensuring that quality context is never lost between development sessions. This continuity prevents the "fresh eyes" problem where returning to a codebase after an absence leads to quality regression.
+[Quality DNA](@/glossary/quality-dna.md) provides cross-session quality state persistence, ensuring that quality context is never lost between development sessions. This continuity prevents the "fresh eyes" problem where returning to a codebase after an absence leads to quality regression.
 
 ## Industry Comparison
 
@@ -396,22 +396,22 @@ The Prismatic Platform's approach to technical perfection stands apart from indu
 
 ## Relationship to the NO MERCY Doctrine
 
-Technical perfection is the natural outcome of the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine applied consistently over time. The doctrine provides the philosophical framework; the quality infrastructure provides the enforcement mechanism; and technical perfection is the resulting state.
+Technical perfection is the natural outcome of the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine applied consistently over time. The doctrine provides the philosophical framework; the quality infrastructure provides the enforcement mechanism; and technical perfection is the resulting state.
 
 The doctrine states: "No incomplete implementations, no quality violations, no untested code." When this standard is enforced without exception through automated gates, the resulting codebase is, by definition, technically perfect.
 
 ## Related Concepts
 
-- [Technical Mediocrity](/glossary/technical-mediocrity/) -- The anti-pattern that perfection eliminates
-- [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) -- The doctrine that demands perfection
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- The policy that enables perfection
-- [Zero Tolerance Quality](/glossary/zero-tolerance-quality/) -- The enforcement posture that maintains perfection
-- [Quality Gates](/glossary/quality-gates/) -- The automated barriers that enforce perfection
-- [Quality DNA](/glossary/quality-dna/) -- The persistence mechanism for quality state
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- The monitor that protects perfection
-- [AutoEvolve](/glossary/autoevolve/) -- The system that evolves beyond perfection
-- [Autonomous Quality](/glossary/autonomous-quality/) -- Self-maintaining quality without human intervention
-- [Code Quality](/glossary/code-quality/) -- The multi-dimensional measure that constitutes perfection
+- [Technical Mediocrity](@/glossary/technical-mediocrity.md) -- The anti-pattern that perfection eliminates
+- [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) -- The doctrine that demands perfection
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- The policy that enables perfection
+- [Zero Tolerance Quality](@/glossary/zero-tolerance-quality.md) -- The enforcement posture that maintains perfection
+- [Quality Gates](@/glossary/quality-gates.md) -- The automated barriers that enforce perfection
+- [Quality DNA](@/glossary/quality-dna.md) -- The persistence mechanism for quality state
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- The monitor that protects perfection
+- [AutoEvolve](@/glossary/autoevolve.md) -- The system that evolves beyond perfection
+- [Autonomous Quality](@/glossary/autonomous-quality.md) -- Self-maintaining quality without human intervention
+- [Code Quality](@/glossary/code-quality.md) -- The multi-dimensional measure that constitutes perfection
 
 See the Glossary index for the complete taxonomy of Prismatic Platform concepts.
 
@@ -422,4 +422,4 @@ See the Glossary index for the complete taxonomy of Prismatic Platform concepts.
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

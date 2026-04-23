@@ -224,9 +224,9 @@ scope = %PrismaticPerimeter.Scope{
 
 ## Cross-References
 
-- [Permission](/glossary/permission/) - Access rights that scope enforcement relies on
-- [Sanctions](/glossary/sanctions/) - Screening operations requiring defined scope
-- [PEP](/glossary/pep/) - PEP investigations conducted within authorized scope
+- [Permission](@/glossary/permission.md) - Access rights that scope enforcement relies on
+- [Sanctions](@/glossary/sanctions.md) - Screening operations requiring defined scope
+- [PEP](@/glossary/pep.md) - PEP investigations conducted within authorized scope
 - **Secrets** - Credentials governing access to scoped resources
 - **Self-Registration** - OSINT tools declaring scope requirements at registration
 

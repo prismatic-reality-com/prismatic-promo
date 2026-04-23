@@ -28,9 +28,9 @@ image_alt = "consolidation-architect-v2 - Prismatic Platform"
 
 ## Overview
 
-The Consolidation Architect V2 is an L3 strategic authority operating within the Consolidation domain of the Prismatic Platform. This agent represents the second generation of consolidation intelligence, delivering a proven 9.4x efficiency improvement over manual consolidation approaches through its living evolution methodology. Where the original consolidation architect operated on individual modules, V2 coordinates parallel squads of specialist agents to execute large-scale deduplication and restructuring campaigns across the entire [umbrella application](/glossary/umbrella-application/) ecosystem.
+The Consolidation Architect V2 is an L3 strategic authority operating within the Consolidation domain of the Prismatic Platform. This agent represents the second generation of consolidation intelligence, delivering a proven 9.4x efficiency improvement over manual consolidation approaches through its living evolution methodology. Where the original consolidation architect operated on individual modules, V2 coordinates parallel squads of specialist agents to execute large-scale deduplication and restructuring campaigns across the entire [umbrella application](@/glossary/umbrella-application.md) ecosystem.
 
-The platform's 90-app umbrella architecture inevitably produces code duplication, overlapping abstractions, and fragmented shared logic. As the platform evolved through 18 generations of autonomous development, similar patterns emerged independently in multiple applications -- identical [GenServer](/glossary/genserver/) lifecycle patterns, repeated [Ecto](/glossary/ecto/) schema definitions, equivalent [LiveView](/glossary/liveview/) component implementations, and common utility functions scattered across dozens of applications. The Consolidation Architect V2 addresses this systematically by analyzing cross-module patterns, identifying consolidation opportunities, and executing transformations that reduce complexity while preserving behavioral correctness.
+The platform's 90-app umbrella architecture inevitably produces code duplication, overlapping abstractions, and fragmented shared logic. As the platform evolved through 18 generations of autonomous development, similar patterns emerged independently in multiple applications -- identical [GenServer](@/glossary/genserver.md) lifecycle patterns, repeated [Ecto](@/glossary/ecto.md) schema definitions, equivalent [LiveView](@/glossary/liveview.md) component implementations, and common utility functions scattered across dozens of applications. The Consolidation Architect V2 addresses this systematically by analyzing cross-module patterns, identifying consolidation opportunities, and executing transformations that reduce complexity while preserving behavioral correctness.
 
 Every consolidation operation is validated through comprehensive test suites before and after the transformation, ensuring zero functional regression. The living evolution methodology means consolidation is not a one-time cleanup but a continuous process that operates alongside active development, incrementally reducing entropy as the codebase grows.
 
@@ -73,11 +73,11 @@ The Campaign Planner assigns consolidation targets to independent squads that op
 
 **Parallel Squad Coordination** enables multiple consolidation streams to operate simultaneously with automated conflict detection and resolution between squads. Each squad operates on an isolated branch, and the coordination layer monitors for file-level conflicts, dependency ordering issues, and test suite interactions between concurrent consolidation operations.
 
-**Cross-Module Pattern Extraction** identifies shared abstractions across umbrella applications and consolidates them into dedicated shared libraries with proper dependency management. The extraction process generates [behaviour](/glossary/behaviour/) specifications for the consolidated module, updates all callers to use the new shared implementation, and verifies that the consolidated API matches the union of all original interfaces.
+**Cross-Module Pattern Extraction** identifies shared abstractions across umbrella applications and consolidates them into dedicated shared libraries with proper dependency management. The extraction process generates [behaviour](@/glossary/behaviour.md) specifications for the consolidated module, updates all callers to use the new shared implementation, and verifies that the consolidated API matches the union of all original interfaces.
 
-**Technical Debt Quantification** uses [QDP](/glossary/qdp/) metrics to measure consolidation impact, providing concrete before-and-after measurements for every transformation applied. Each consolidation is tracked with lines-of-code reduction, module count reduction, dependency graph simplification, and test coverage impact.
+**Technical Debt Quantification** uses [QDP](@/glossary/qdp.md) metrics to measure consolidation impact, providing concrete before-and-after measurements for every transformation applied. Each consolidation is tracked with lines-of-code reduction, module count reduction, dependency graph simplification, and test coverage impact.
 
-**Behavioral Preservation Verification** through [property-based testing](/glossary/property-based-testing/) proves that consolidated code maintains identical semantics to the original distributed implementations. The verification generates property tests from the original module's type specifications and runs them against both the original and consolidated implementations.
+**Behavioral Preservation Verification** through [property-based testing](@/glossary/property-based-testing.md) proves that consolidated code maintains identical semantics to the original distributed implementations. The verification generates property tests from the original module's type specifications and runs them against both the original and consolidated implementations.
 
 **Systematic Automation** of repetitive refactoring patterns including module extraction, function delegation, import path updating, and alias rewriting across all dependent files.
 
@@ -147,7 +147,7 @@ defmodule PrismaticConsolidation.ArchitectV2 do
 end
 ```
 
-Each squad runs as a child process under a [DynamicSupervisor](/glossary/dynamic-supervisor/), providing fault isolation between concurrent consolidation streams. If one squad encounters an error, the others continue operating independently.
+Each squad runs as a child process under a [DynamicSupervisor](@/glossary/dynamic-supervisor.md), providing fault isolation between concurrent consolidation streams. If one squad encounters an error, the others continue operating independently.
 
 ## Integration Points
 
@@ -156,15 +156,15 @@ Each squad runs as a child process under a [DynamicSupervisor](/glossary/dynamic
 | Git Repository | CLI commands | Branch management, diff analysis, commit coordination |
 | Mix Compiler | Mix tasks | AST analysis, dependency graph extraction |
 | ExUnit | Test execution | Pre- and post-consolidation test validation |
-| [Credo](/glossary/credo/) | Mix task | Code quality verification after consolidation |
-| [Dialyzer](/glossary/dialyzer/) | PLT analysis | Type contract verification for consolidated modules |
-| [Telemetry](/glossary/telemetry/) | Events | Consolidation metrics and progress reporting |
+| [Credo](@/glossary/credo.md) | Mix task | Code quality verification after consolidation |
+| [Dialyzer](@/glossary/dialyzer.md) | PLT analysis | Type contract verification for consolidated modules |
+| [Telemetry](@/glossary/telemetry.md) | Events | Consolidation metrics and progress reporting |
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [consolidation-architect](/agents/consolidation-architect/) | Original architect providing baseline patterns and proven strategies | Consolidation |
-| [dependency-optimization-specialist](/agents/dependency-optimization-specialist/) | Coordinates dependency graph updates after consolidation operations | Architecture |
-| [code-specialist](/agents/code-specialist/) | Executes code transformations under consolidation directives | Development |
+| [consolidation-architect](@/agents/consolidation-architect.md) | Original architect providing baseline patterns and proven strategies | Consolidation |
+| [dependency-optimization-specialist](@/agents/dependency-optimization-specialist.md) | Coordinates dependency graph updates after consolidation operations | Architecture |
+| [code-specialist](@/agents/code-specialist.md) | Executes code transformations under consolidation directives | Development |
 
 ## Operational Workflow
 
@@ -217,12 +217,12 @@ config :prismatic_consolidation, PrismaticConsolidation.ArchitectV2,
 
 ## Related Resources
 
-- [consolidation-architect](/agents/consolidation-architect/) -- Original consolidation agent (V1 baseline)
-- [dependency-optimization-specialist](/agents/dependency-optimization-specialist/) -- Dependency graph optimization
-- [code-specialist](/agents/code-specialist/) -- Code transformation execution
-- [QDP](/glossary/qdp/) -- Quality Debt Points measurement system
-- [Property-Based Testing](/glossary/property-based-testing/) -- Behavioral equivalence verification
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [consolidation-architect](@/agents/consolidation-architect.md) -- Original consolidation agent (V1 baseline)
+- [dependency-optimization-specialist](@/agents/dependency-optimization-specialist.md) -- Dependency graph optimization
+- [code-specialist](@/agents/code-specialist.md) -- Code transformation execution
+- [QDP](@/glossary/qdp.md) -- Quality Debt Points measurement system
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Behavioral equivalence verification
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -231,4 +231,4 @@ config :prismatic_consolidation, PrismaticConsolidation.ArchitectV2,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

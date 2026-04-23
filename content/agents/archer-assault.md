@@ -28,13 +28,13 @@ image_alt = "archer-assault - Prismatic Platform"
 
 ## Overview
 
-The **ARCHER Assault Agent** is an L4 autonomous agent within the Prismatic Platform's [AIAD ecosystem](/agents/). Operating in the **command** domain, this agent delivers specialized capabilities that integrate with the platform's multi-agent orchestration framework under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine.
+The **ARCHER Assault Agent** is an L4 autonomous agent within the Prismatic Platform's [AIAD ecosystem](@/agents/_index.md). Operating in the **command** domain, this agent delivers specialized capabilities that integrate with the platform's multi-agent orchestration framework under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine.
 
 Tactical assault specialist within the ARCHER commando framework. Delivers overwhelming force projection with decisive tactical dominance and surgical accuracy. Executes focused tactical operations within assigned domain with maximum force and zero c
 
 ## Operational Domain
 
-This agent operates within the **command** domain of the Prismatic Platform, contributing to the platform's comprehensive coverage of enterprise intelligence, security, and development automation. All operations comply with the [AIAD standard](/glossary/aiad/), ensuring vendor-neutral interoperability across the agent ecosystem.
+This agent operates within the **command** domain of the Prismatic Platform, contributing to the platform's comprehensive coverage of enterprise intelligence, security, and development automation. All operations comply with the [AIAD standard](@/glossary/aiad.md), ensuring vendor-neutral interoperability across the agent ecosystem.
 
 The agent coordinates with peer agents through the platform's mycelial network, enabling emergent behaviors and collaborative problem-solving that exceed the capabilities of any individual agent. Communication follows structured protocols with typed message passing and priority-based routing.
 
@@ -69,10 +69,10 @@ Operating at **L4** authority, this agent has:
 
 All operations enforce the platform's core doctrines:
 
-- **[NO MERCY](/glossary/no-mercy/)**: Zero tolerance for incomplete implementations, untested code, or quality violations
-- **[NO DOUBTS](/glossary/no-doubts/)**: Full investigation before action, decisive execution, evidence-based decisions
-- **[NABLA Infinity](/glossary/nabla-infinity/)**: Signal plurality, contradiction preservation, provenance mandatory
-- **[Trinity Gate](/glossary/trinity-gate/)**: Structural, logical, and formal verification of all claims
+- **[NO MERCY](@/glossary/no-mercy.md)**: Zero tolerance for incomplete implementations, untested code, or quality violations
+- **[NO DOUBTS](@/glossary/no-doubts.md)**: Full investigation before action, decisive execution, evidence-based decisions
+- **[NABLA Infinity](@/glossary/nabla-infinity.md)**: Signal plurality, contradiction preservation, provenance mandatory
+- **[Trinity Gate](@/glossary/trinity-gate.md)**: Structural, logical, and formal verification of all claims
 
 ## Configuration
 
@@ -90,11 +90,11 @@ agent-spec:
 
 This agent operates within a broader ecosystem of 1,090+ AIAD agents. Related agents in the **command** domain share communication channels and can be coordinated through the platform's orchestration layer.
 
-For the complete agent catalog, see the [Agent Ecosystem](/agents/) index.
+For the complete agent catalog, see the [Agent Ecosystem](@/agents/_index.md) index.
 
 ## See Also
 
-- [AIAD Standard](/glossary/aiad/) -- Vendor-neutral AI-assisted development specification
-- [Agent Ecosystem](/agents/) -- Complete platform agent catalog
-- [NO MERCY, NO DOUBTS Doctrine](/glossary/no-mercy-no-doubts/) -- Governing execution doctrine
-- [Mycelial Network](/glossary/mycelial-network/) -- Agent communication infrastructure
+- [AIAD Standard](@/glossary/aiad.md) -- Vendor-neutral AI-assisted development specification
+- [Agent Ecosystem](@/agents/_index.md) -- Complete platform agent catalog
+- [NO MERCY, NO DOUBTS Doctrine](@/glossary/no-mercy-no-doubts.md) -- Governing execution doctrine
+- [Mycelial Network](@/glossary/mycelial-network.md) -- Agent communication infrastructure

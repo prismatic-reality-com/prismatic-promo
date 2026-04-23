@@ -27,7 +27,7 @@ Prismatic Quality Intelligence is a self-evolving, self-healing quality manageme
 
 Quality Intelligence operates at the intersection of static analysis, pattern recognition, and autonomous evolution. Every commit, every compilation, and every test run feeds data into the quality scoring engine, which computes a composite score from 13 independent domain assessments. When quality dips below configured thresholds, the Quality Floor Guardian triggers automatic remediation cycles. When quality holds steady, the evolution scanner proactively identifies improvement opportunities that would further strengthen the codebase. The system has eliminated over 905 Quality Debt Points (QDP) through automated CASCADE patterns including Type Mismatch, Dead Code, Empty Check, Timer Replacement, and Nuclear Cache remediation.
 
-The system embodies the platform's [NO MERCY](/glossary/no-mercy/) doctrine: zero tolerance for incomplete implementations, untested code, or deferred [quality debt](/glossary/quality-debt/). Every [Quality Debt Point](/glossary/qdp/) is tracked individually and targeted for elimination through automated healing cycles, with the genetic algorithm continuously evolving rule fitness to improve detection accuracy over generations.
+The system embodies the platform's [NO MERCY](@/glossary/no-mercy.md) doctrine: zero tolerance for incomplete implementations, untested code, or deferred [quality debt](@/glossary/quality-debt.md). Every [Quality Debt Point](@/glossary/qdp.md) is tracked individually and targeted for elimination through automated healing cycles, with the genetic algorithm continuously evolving rule fitness to improve detection accuracy over generations.
 
 ## Architecture
 
@@ -67,8 +67,8 @@ The architecture comprises four major subsystems: the 3NL Intelligence Core prov
 
 | Module | Purpose | Lines |
 |--------|---------|-------|
-| `PrismaticQualityIntelligence` | Main orchestrator [GenServer](/glossary/genserver/) coordinating all subsystems | Core |
-| `PrismaticQualityIntelligence.Application` | [OTP](/glossary/otp/) Application with [supervision tree](/glossary/supervision-tree/) | Boot |
+| `PrismaticQualityIntelligence` | Main orchestrator [GenServer](@/glossary/genserver.md) coordinating all subsystems | Core |
+| `PrismaticQualityIntelligence.Application` | [OTP](@/glossary/otp.md) Application with [supervision tree](@/glossary/supervision-tree.md) | Boot |
 | `PrismaticQualityIntelligence.ThreeNLCore` | 3NL Intelligence Core with fusion engine | Analysis |
 | `PrismaticQualityIntelligence.L1Logic` | Prolog-based rule inference and constraint checking | L1 |
 | `PrismaticQualityIntelligence.L2Neural` | Pattern recognition and anomaly detection | L2 |
@@ -174,16 +174,16 @@ cd apps/prismatic_quality_intelligence && mix quality.ci
 
 ## Integration Points
 
-- **[Prismatic Safety](/apps/prismatic-safety/)** -- Quality floor enforcement; Guardian triggers healing when score drops below 95%
-- **[Prismatic 3NL](/apps/prismatic-3nl/)** -- Provides the 3NL framework for multi-layer NLP and logic processing
-- **[Prismatic Core](/apps/prismatic-core/)** -- Core platform utilities and shared infrastructure
-- **[Prismatic Tooling](/apps/prismatic-tooling/)** -- [Mix task](/glossary/mix-task/)s (`mix quality.gates`, `mix autoheal.cycle`) powered by Quality Intelligence
-- **[Prismatic Telemetry](/apps/prismatic-telemetry/)** -- Quality [metrics](/glossary/metrics/) emitted as telemetry events for monitoring
-- **[Prismatic Claude](/apps/prismatic-claude/)** -- Session lifecycle hooks trigger quality checks automatically at session boundaries
+- **[Prismatic Safety](@/apps/prismatic-safety.md)** -- Quality floor enforcement; Guardian triggers healing when score drops below 95%
+- **[Prismatic 3NL](@/apps/prismatic-3nl.md)** -- Provides the 3NL framework for multi-layer NLP and logic processing
+- **[Prismatic Core](@/apps/prismatic-core.md)** -- Core platform utilities and shared infrastructure
+- **[Prismatic Tooling](@/apps/prismatic-tooling.md)** -- [Mix task](@/glossary/mix-task.md)s (`mix quality.gates`, `mix autoheal.cycle`) powered by Quality Intelligence
+- **[Prismatic Telemetry](@/apps/prismatic-telemetry.md)** -- Quality [metrics](@/glossary/metrics.md) emitted as telemetry events for monitoring
+- **[Prismatic Claude](@/apps/prismatic-claude.md)** -- Session lifecycle hooks trigger quality checks automatically at session boundaries
 
 ## NABLA Compliance
 
-Quality Intelligence operates under full [NABLA Infinity](/glossary/nabla-infinity/) epistemic compliance. Every quality score maintains provenance traceability -- scores are derived from specific tool outputs (Dialyzer, Credo, compilation) with timestamps and version metadata. The Signal Plurality axiom is satisfied because quality assessment draws from 13 independent analysis domains, preventing single-source bias. Contradiction Preservation is maintained when domain scores conflict (e.g., high Credo score but low Dialyzer score) by preserving both signals rather than averaging them away. The Unknown Valid axiom is respected by the predictive analyzer, which explicitly reports uncertainty ranges rather than manufacturing false confidence about future quality trajectories.
+Quality Intelligence operates under full [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic compliance. Every quality score maintains provenance traceability -- scores are derived from specific tool outputs (Dialyzer, Credo, compilation) with timestamps and version metadata. The Signal Plurality axiom is satisfied because quality assessment draws from 13 independent analysis domains, preventing single-source bias. Contradiction Preservation is maintained when domain scores conflict (e.g., high Credo score but low Dialyzer score) by preserving both signals rather than averaging them away. The Unknown Valid axiom is respected by the predictive analyzer, which explicitly reports uncertainty ranges rather than manufacturing false confidence about future quality trajectories.
 
 ## Performance
 
@@ -200,10 +200,10 @@ Quality scoring is optimized for pre-commit gate integration with sub-300ms exec
 
 ## Related Resources
 
-- [Prismatic Credo](/apps/prismatic-credo/) -- Custom [Credo](/glossary/credo/) checks specific to platform conventions
-- [Prismatic Testing](/apps/prismatic-testing/) -- Test infrastructure feeding coverage data to quality scoring
-- [Prismatic Traits](/apps/prismatic-traits/) -- Conceptual parallel: trait-based profiling applied to code quality
-- [Prismatic Transcendence](/apps/prismatic-transcendence/) -- Quality metrics serve as fitness inputs for consciousness evolution
+- [Prismatic Credo](@/apps/prismatic-credo.md) -- Custom [Credo](@/glossary/credo.md) checks specific to platform conventions
+- [Prismatic Testing](@/apps/prismatic-testing.md) -- Test infrastructure feeding coverage data to quality scoring
+- [Prismatic Traits](@/apps/prismatic-traits.md) -- Conceptual parallel: trait-based profiling applied to code quality
+- [Prismatic Transcendence](@/apps/prismatic-transcendence.md) -- Quality metrics serve as fitness inputs for consciousness evolution
 
 ---
 
@@ -212,4 +212,4 @@ Quality scoring is optimized for pre-commit gate integration with sub-300ms exec
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

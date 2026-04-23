@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-Epistemic trauma resilience testing — An academic treatment of computational psychology and psychiatric modeling within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **epistemic trauma resilience testing** as implemented within the Prismatic Platform's computational psychology and psychiatric modeling domain. We formalize the problem space through the lens of cognitive behavioral therapy and psychometrics, propose a multi-agent architecture leveraging [OTP](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates ecological momentary assessment, computational phenotyping, network analysis of symptoms to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for computational psychology and psychiatric modeling.
+Epistemic trauma resilience testing — An academic treatment of computational psychology and psychiatric modeling within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **epistemic trauma resilience testing** as implemented within the Prismatic Platform's computational psychology and psychiatric modeling domain. We formalize the problem space through the lens of cognitive behavioral therapy and psychometrics, propose a multi-agent architecture leveraging [OTP](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates ecological momentary assessment, computational phenotyping, network analysis of symptoms to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for computational psychology and psychiatric modeling.
 
 **Keywords:** Epistemic, trauma, resilience, testing, Prismatic-native, Psychology
 
@@ -115,7 +115,7 @@ The epistemic trauma resilience testing system is implemented as a Prismatic-nat
 
 ### 3.2 OTP Process Topology
 
-The system leverages [Elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [Elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule EpistemicTraumaResilienceTesting.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -216,7 +216,7 @@ The implementation leverages the Prismatic Platform's technology stack:
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
 | Runtime | Elixir 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
-| Web Layer | Phoenix [LiveView](/glossary/liveview/) | Real-time interactive dashboards |
+| Web Layer | Phoenix [LiveView](@/glossary/liveview.md) | Real-time interactive dashboards |
 | Storage | PostgreSQL + ETS | Persistent + in-memory storage |
 | Search | Meilisearch | Full-text search and indexing |
 | Styling | TailwindCSS + Flowbite | Consistent UI component library |
@@ -464,19 +464,19 @@ config :prismatic, EpistemicTraumaResilienceTesting,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [Educational resilience testing](/applications/education-adaptive-tutoring/educational-resilience-testing/) — *Education Adaptive Tutoring*
-- [Replay visualization of epistemic trajectories](/applications/consciousness-research/replay-visualization-of-epistemic-trajectories/) — *Consciousness Research*
-- [Philosophical override testing](/applications/consciousness-research/philosophical-override-testing/) — *Consciousness Research*
-- [Epistemic collapse in philosophy class](/applications/education-adaptive-tutoring/epistemic-collapse-in-philosophy-class/) — *Education Adaptive Tutoring*
+- [Educational resilience testing](@/applications/education-adaptive-tutoring/educational-resilience-testing.md) — *Education Adaptive Tutoring*
+- [Replay visualization of epistemic trajectories](@/applications/consciousness-research/replay-visualization-of-epistemic-trajectories.md) — *Consciousness Research*
+- [Philosophical override testing](@/applications/consciousness-research/philosophical-override-testing.md) — *Consciousness Research*
+- [Epistemic collapse in philosophy class](@/applications/education-adaptive-tutoring/epistemic-collapse-in-philosophy-class.md) — *Education Adaptive Tutoring*
 
 
 ## Further Reading
 
-- [Psychology Psychiatry — All Applications](/applications/psychology-psychiatry/)
-- [Neuroscience Neurobiology](/applications/neuroscience-neurobiology/)
-- [Consciousness Research](/applications/consciousness-research/)
-- [Medical Healthcare Systems](/applications/medical-healthcare-systems/)
-- [Prismatic Application Catalogue](/applications/)
+- [Psychology Psychiatry — All Applications](@/applications/psychology-psychiatry/_index.md)
+- [Neuroscience Neurobiology](@/applications/neuroscience-neurobiology/_index.md)
+- [Consciousness Research](@/applications/consciousness-research/_index.md)
+- [Medical Healthcare Systems](@/applications/medical-healthcare-systems/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

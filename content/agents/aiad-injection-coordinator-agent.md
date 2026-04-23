@@ -28,9 +28,9 @@ image_alt = "AIAD Injection Coordinator Agent - Prismatic Platform"
 
 ## Overview
 
-The [AIAD](/glossary/aiad/) Injection Coordinator Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent responsible for orchestrating the complete knowledge transfer pipeline from the Prismatic Platform to external projects. This agent coordinates the end-to-end process of exporting the platform's battle-tested AI-assisted development infrastructure -- agents, commands, workflows, protocols, and quality gates -- to target projects of any language or framework. The injection process is not a simple copy operation; it is an intelligent, multi-stage pipeline that analyzes the target, selects relevant components, adapts them for the target environment, deploys with safe merge strategies, and verifies installation success with rollback capability.
+The [AIAD](@/glossary/aiad.md) Injection Coordinator Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent responsible for orchestrating the complete knowledge transfer pipeline from the Prismatic Platform to external projects. This agent coordinates the end-to-end process of exporting the platform's battle-tested AI-assisted development infrastructure -- agents, commands, workflows, protocols, and quality gates -- to target projects of any language or framework. The injection process is not a simple copy operation; it is an intelligent, multi-stage pipeline that analyzes the target, selects relevant components, adapts them for the target environment, deploys with safe merge strategies, and verifies installation success with rollback capability.
 
-The knowledge transfer challenge is significant. The Prismatic Platform's AIAD infrastructure is deeply integrated with Elixir, [OTP](/glossary/otp/), and the platform's specific architecture. Exporting this infrastructure to a Python Django project, a Node.js Express application, or a Rust CLI tool requires more than file copying -- it requires intelligent adaptation that preserves the intent and value of each component while expressing it in the target's native idioms. The Injection Coordinator orchestrates this multi-agent pipeline, delegating analysis, selection, adaptation, and deployment to specialized sub-agents while maintaining overall pipeline coherence.
+The knowledge transfer challenge is significant. The Prismatic Platform's AIAD infrastructure is deeply integrated with Elixir, [OTP](@/glossary/otp.md), and the platform's specific architecture. Exporting this infrastructure to a Python Django project, a Node.js Express application, or a Rust CLI tool requires more than file copying -- it requires intelligent adaptation that preserves the intent and value of each component while expressing it in the target's native idioms. The Injection Coordinator orchestrates this multi-agent pipeline, delegating analysis, selection, adaptation, and deployment to specialized sub-agents while maintaining overall pipeline coherence.
 
 The safe deployment mechanism is critical. External projects may already have partial AIAD installations, conflicting configurations, or sensitive files that must not be overwritten. The coordinator implements a backup-first merge strategy: existing files are backed up before any modification, conflicts are detected and resolved through configurable merge strategies, and the entire installation can be rolled back if verification detects problems.
 
@@ -95,12 +95,12 @@ The pipeline's error handling follows the fail-fast principle with automatic rol
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [AIAD Project Analyzer Agent](/agents/aiad-project-analyzer-agent/) | Pipeline Stage 1 | Analyzes target project language, framework, and structure |
-| [AIAD Intelligence Selector Agent](/agents/aiad-intelligence-selector-agent/) | Pipeline Stage 2 | Selects relevant components based on project analysis |
-| [AIAD Adaptation Engine Agent](/agents/aiad-adaptation-engine-agent/) | Pipeline Stage 3 | Removes Prismatic references and adapts for target |
-| [AIAD Template Generator Agent](/agents/aiad-template-generator-agent/) | Pipeline Stage 4 | Generates tailored configurations and templates |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Post-deploy Gate | Validates installation integrity |
-| [aiad-backup-manager](/agents/aiad-backup-manager/) | Safety Net | Manages pre-deployment backups for rollback |
+| [AIAD Project Analyzer Agent](@/agents/aiad-project-analyzer-agent.md) | Pipeline Stage 1 | Analyzes target project language, framework, and structure |
+| [AIAD Intelligence Selector Agent](@/agents/aiad-intelligence-selector-agent.md) | Pipeline Stage 2 | Selects relevant components based on project analysis |
+| [AIAD Adaptation Engine Agent](@/agents/aiad-adaptation-engine-agent.md) | Pipeline Stage 3 | Removes Prismatic references and adapts for target |
+| [AIAD Template Generator Agent](@/agents/aiad-template-generator-agent.md) | Pipeline Stage 4 | Generates tailored configurations and templates |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Post-deploy Gate | Validates installation integrity |
+| [aiad-backup-manager](@/agents/aiad-backup-manager.md) | Safety Net | Manages pre-deployment backups for rollback |
 
 ## Performance Characteristics
 
@@ -115,16 +115,16 @@ The pipeline's error handling follows the fail-fast principle with automatic rol
 
 ## Enforcement
 
-All injection operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No injection deploys components with residual Prismatic-specific references -- the Adaptation Engine's zero-tolerance scan is a blocking gate. Pre-deployment backups are mandatory and verified before any target directory modification. Post-deployment verification must pass before the injection is considered complete. Failed injections trigger automatic rollback with no manual intervention required. Every injection produces an immutable installation report documenting all changes for audit purposes. The target project's existing files are never silently overwritten -- conflicts are detected, reported, and resolved through explicit merge strategies.
+All injection operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No injection deploys components with residual Prismatic-specific references -- the Adaptation Engine's zero-tolerance scan is a blocking gate. Pre-deployment backups are mandatory and verified before any target directory modification. Post-deployment verification must pass before the injection is considered complete. Failed injections trigger automatic rollback with no manual intervention required. Every injection produces an immutable installation report documenting all changes for audit purposes. The target project's existing files are never silently overwritten -- conflicts are detected, reported, and resolved through explicit merge strategies.
 
 ## Related Resources
 
-- [AIAD Standard](/capabilities/aiad-standard/) -- Specification standard defining injectable components
-- [AIAD Adaptation Engine Agent](/agents/aiad-adaptation-engine-agent/) -- Adaptation pipeline for reference removal
-- [AIAD Intelligence Selector Agent](/agents/aiad-intelligence-selector-agent/) -- Relevance-based component selection
-- [Commands](/commands/) -- Includes the `/inject` knowledge transfer command
-- [Technologies](/technologies/) -- Platform technology stack including supported target languages
-- [Architecture Overview](/architecture/) -- Platform architecture and knowledge transfer patterns
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Specification standard defining injectable components
+- [AIAD Adaptation Engine Agent](@/agents/aiad-adaptation-engine-agent.md) -- Adaptation pipeline for reference removal
+- [AIAD Intelligence Selector Agent](@/agents/aiad-intelligence-selector-agent.md) -- Relevance-based component selection
+- [Commands](@/commands/_index.md) -- Includes the `/inject` knowledge transfer command
+- [Technologies](@/technologies/_index.md) -- Platform technology stack including supported target languages
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture and knowledge transfer patterns
 
 ---
 
@@ -133,4 +133,4 @@ All injection operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

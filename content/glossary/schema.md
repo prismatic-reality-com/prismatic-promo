@@ -47,7 +47,7 @@ Different kinds of schemas serve different purposes across the software stack:
 
 ## Ecto Schemas in Elixir
 
-The Prismatic Platform uses [Ecto](/glossary/database/) as its primary schema definition and data mapping library. Ecto schemas define the structure of data as Elixir structs with typed fields, associations, and validation rules:
+The Prismatic Platform uses [Ecto](@/glossary/database.md) as its primary schema definition and data mapping library. Ecto schemas define the structure of data as Elixir structs with typed fields, associations, and validation rules:
 
 ```elixir
 defmodule PrismaticPerimeter.Schema.Asset do
@@ -103,7 +103,7 @@ end
 
 ### Changeset Validation
 
-Ecto changesets are the [validation](/glossary/validation/) layer that enforces schema constraints at the application level. Every data mutation flows through a changeset, which validates the data before it reaches the database:
+Ecto changesets are the [validation](@/glossary/validation.md) layer that enforces schema constraints at the application level. Every data mutation flows through a changeset, which validates the data before it reaches the database:
 
 ```elixir
 defmodule PrismaticPerimeter.Assets do
@@ -142,7 +142,7 @@ The changeset pattern separates validation from persistence: you can validate da
 
 ## Database Schema Design
 
-Database schemas in the Prismatic Platform follow [PostgreSQL](/glossary/postgresql/) best practices with explicit types, constraints, and indexes:
+Database schemas in the Prismatic Platform follow [PostgreSQL](@/glossary/postgresql.md) best practices with explicit types, constraints, and indexes:
 
 | Design Principle | Implementation | Benefit |
 |-----------------|---------------|---------|
@@ -189,7 +189,7 @@ Migrations are the only sanctioned way to modify the database schema. Direct DDL
 
 ## API Schema (OpenApiSpex)
 
-The Prismatic [API gateway](/glossary/api-gateway/) uses OpenApiSpex to define API schemas that serve as the contract between API clients and the server:
+The Prismatic [API gateway](@/glossary/api-gateway.md) uses OpenApiSpex to define API schemas that serve as the contract between API clients and the server:
 
 ```elixir
 defmodule PrismaticApi.Schemas.AssetResponse do
@@ -362,7 +362,7 @@ Embedded schemas are stored as JSONB in PostgreSQL, providing flexibility for se
 
 ## Graph Schema (KuzuDB)
 
-The Prismatic Platform also uses graph schemas for knowledge representation in [KuzuDB](/glossary/database/):
+The Prismatic Platform also uses graph schemas for knowledge representation in [KuzuDB](@/glossary/database.md):
 
 ```elixir
 defmodule PrismaticStorageKuzu.Schema do
@@ -457,31 +457,31 @@ This approach ensures that all layers of the application agree on data structure
 
 ## Context in Prismatic
 
-Schemas are the structural foundation of the Prismatic Platform's data architecture. Every persistent entity -- from [Perimeter](/glossary/prismatic-perimeter/) assets and vulnerability findings to agent configurations and quality metrics -- is defined through Ecto schemas with typed fields, validated through changesets, and persisted to [PostgreSQL](/glossary/postgresql/) through migrations. The [API gateway](/glossary/api-gateway/) auto-generates OpenAPI schemas from Elixir [type specifications](/glossary/typespec/), ensuring that API contracts stay synchronized with database structure without manual duplication.
+Schemas are the structural foundation of the Prismatic Platform's data architecture. Every persistent entity -- from [Perimeter](@/glossary/prismatic-perimeter.md) assets and vulnerability findings to agent configurations and quality metrics -- is defined through Ecto schemas with typed fields, validated through changesets, and persisted to [PostgreSQL](@/glossary/postgresql.md) through migrations. The [API gateway](@/glossary/api-gateway.md) auto-generates OpenAPI schemas from Elixir [type specifications](@/glossary/typespec.md), ensuring that API contracts stay synchronized with database structure without manual duplication.
 
-The platform's schema design enforces data quality at multiple levels: type checking at compile time through [Dialyzer](/glossary/dialyzer/) and `@spec` annotations, [validation](/glossary/validation/) at runtime through Ecto changesets, and constraint enforcement at the database level through PostgreSQL constraints and indexes. This defense-in-depth approach to data integrity aligns with the NO MERCY doctrine: invalid data is rejected at the earliest possible point, never allowed to propagate through the system.
+The platform's schema design enforces data quality at multiple levels: type checking at compile time through [Dialyzer](@/glossary/dialyzer.md) and `@spec` annotations, [validation](@/glossary/validation.md) at runtime through Ecto changesets, and constraint enforcement at the database level through PostgreSQL constraints and indexes. This defense-in-depth approach to data integrity aligns with the NO MERCY doctrine: invalid data is rejected at the earliest possible point, never allowed to propagate through the system.
 
 ## Related Terms
 
-- [Database](/glossary/database/) -- Storage systems that schemas define structure for
-- [PostgreSQL](/glossary/postgresql/) -- Primary relational database with schema enforcement
-- [Validation](/glossary/validation/) -- Data validation implemented through schema changesets
-- [Typespec](/glossary/typespec/) -- Elixir type specifications complementing Ecto schemas
-- [API Gateway](/glossary/api-gateway/) -- Generates API schemas from Ecto definitions
-- [REST API](/glossary/rest-api/) -- Interface layer consuming schema-defined data
-- [Swagger UI](/glossary/swagger-ui/) -- Interactive documentation powered by API schemas
-- [Protocol](/glossary/protocol/) -- Elixir protocols defining behavior contracts alongside schemas
-- [Relational Database](/glossary/relational-database/) -- Database paradigm built on schema-defined tables
-- [Dialyzer](/glossary/dialyzer/) -- Type checker validating schema type annotations
-- [Prismatic Storage](/glossary/prismatic-storage/) -- Storage layer built on schema definitions
-- [Property-Based Testing](/glossary/property-based-testing/) -- Testing approach generating data from schemas
+- [Database](@/glossary/database.md) -- Storage systems that schemas define structure for
+- [PostgreSQL](@/glossary/postgresql.md) -- Primary relational database with schema enforcement
+- [Validation](@/glossary/validation.md) -- Data validation implemented through schema changesets
+- [Typespec](@/glossary/typespec.md) -- Elixir type specifications complementing Ecto schemas
+- [API Gateway](@/glossary/api-gateway.md) -- Generates API schemas from Ecto definitions
+- [REST API](@/glossary/rest-api.md) -- Interface layer consuming schema-defined data
+- [Swagger UI](@/glossary/swagger-ui.md) -- Interactive documentation powered by API schemas
+- [Protocol](@/glossary/protocol.md) -- Elixir protocols defining behavior contracts alongside schemas
+- [Relational Database](@/glossary/relational-database.md) -- Database paradigm built on schema-defined tables
+- [Dialyzer](@/glossary/dialyzer.md) -- Type checker validating schema type annotations
+- [Prismatic Storage](@/glossary/prismatic-storage.md) -- Storage layer built on schema definitions
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Testing approach generating data from schemas
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform data architecture and schema design
-- [Apps](/apps/) -- Application schemas across umbrella apps
-- [Technologies](/technologies/) -- Ecto, PostgreSQL, and OpenApiSpex
-- [Capabilities](/capabilities/) -- Data modeling and validation capabilities
+- [Architecture](@/architecture/_index.md) -- Platform data architecture and schema design
+- [Apps](@/apps/_index.md) -- Application schemas across umbrella apps
+- [Technologies](@/technologies/_index.md) -- Ecto, PostgreSQL, and OpenApiSpex
+- [Capabilities](@/capabilities/_index.md) -- Data modeling and validation capabilities
 
 ---
 
@@ -490,4 +490,4 @@ The platform's schema design enforces data quality at multiple levels: type chec
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

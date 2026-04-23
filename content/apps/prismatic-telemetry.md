@@ -24,9 +24,9 @@ image_alt = "Prismatic Telemetry - Prismatic Platform"
 
 ## Overview
 
-Prismatic [Telemetry](/glossary/telemetry/) provides the platform's [observability](/glossary/observability/) infrastructure, built on the Erlang `:telemetry` library. It captures [metrics](/glossary/metrics/), events, and traces across all 90 applications in the umbrella, enabling [real-time monitoring](/capabilities/real-time-monitoring/), performance analysis, and operational intelligence.
+Prismatic [Telemetry](@/glossary/telemetry.md) provides the platform's [observability](@/glossary/observability.md) infrastructure, built on the Erlang `:telemetry` library. It captures [metrics](@/glossary/metrics.md), events, and traces across all 90 applications in the umbrella, enabling [real-time monitoring](@/capabilities/real-time-monitoring.md), performance analysis, and operational intelligence.
 
-Every significant operation in the platform emits telemetry events -- from [storage adapter](/apps/prismatic-storage/) operations to [agent executions](/apps/prismatic-agents/), [session lifecycle](/apps/prismatic-claude/) hooks, and [security team](/apps/prismatic-dark/) simulations. This creates a comprehensive observability layer without coupling application code to specific monitoring backends. The decoupled event model means that new monitoring backends can be added by registering handlers, without modifying any application code that emits events.
+Every significant operation in the platform emits telemetry events -- from [storage adapter](@/apps/prismatic-storage.md) operations to [agent executions](@/apps/prismatic-agents.md), [session lifecycle](@/apps/prismatic-claude.md) hooks, and [security team](@/apps/prismatic-dark.md) simulations. This creates a comprehensive observability layer without coupling application code to specific monitoring backends. The decoupled event model means that new monitoring backends can be added by registering handlers, without modifying any application code that emits events.
 
 The telemetry infrastructure serves as the nervous system of the platform, providing the feedback loops that enable autonomous evolution, quality monitoring, performance optimization, and anomaly detection. Without comprehensive observability, the platform's self-healing and auto-evolution capabilities would operate blind.
 
@@ -76,12 +76,12 @@ The event model distinguishes between three types of telemetry data: measurement
 
 | Namespace | Events | Examples |
 |-----------|--------|---------|
-| `prismatic.osint.*` | [OSINT](/glossary/osint/) queries, results, errors | query duration, result count |
+| `prismatic.osint.*` | [OSINT](@/glossary/osint.md) queries, results, errors | query duration, result count |
 | `prismatic.storage.*` | Adapter operations | read/write latency, cache hits |
 | `prismatic.agents.*` | Agent execution lifecycle | dispatch, completion, errors |
 | `prismatic.claude.*` | Session and stack events | frame creation, hook execution |
 | `prismatic.safety.*` | Quality monitoring | score changes, gate results |
-| `prismatic.perimeter.*` | [EASM](/glossary/easm/) operations | discovery, rating, compliance |
+| `prismatic.perimeter.*` | [EASM](@/glossary/easm.md) operations | discovery, rating, compliance |
 | `prismatic.dark.*` | Security simulations | scenario execution, findings |
 | `prismatic.web.*` | HTTP request lifecycle | latency, status codes |
 
@@ -219,9 +219,9 @@ mix test apps/prismatic_telemetry/test --cover
 | Application | Relationship |
 |-------------|-------------|
 | All 90 apps | Event emission from every application |
-| [Prismatic Web](/apps/prismatic-web/) | Dashboard metric visualization |
-| [Prismatic Safety](/apps/prismatic-safety/) | Quality score monitoring |
-| [Prismatic Claude](/apps/prismatic-claude/) | Session lifecycle telemetry |
+| [Prismatic Web](@/apps/prismatic-web.md) | Dashboard metric visualization |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Quality score monitoring |
+| [Prismatic Claude](@/apps/prismatic-claude.md) | Session lifecycle telemetry |
 
 ## NABLA Compliance
 
@@ -229,15 +229,15 @@ The telemetry system is the primary mechanism for satisfying the Provenance Mand
 
 ## Related Agents
 
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Manages metric-based alerting rules and anomaly detection
-- [CI/CD Guardrails Enforcer](/agents/cicd-guardrails-enforcer/) -- Enforces telemetry coverage requirements in CI/CD pipelines
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews telemetry event design and reporter backend topology
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Manages metric-based alerting rules and anomaly detection
+- [CI/CD Guardrails Enforcer](@/agents/cicd-guardrails-enforcer.md) -- Enforces telemetry coverage requirements in CI/CD pipelines
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews telemetry event design and reporter backend topology
 
 ## Related Capabilities
 
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Platform-wide observability infrastructure spanning all 90 applications
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Sub-second event processing with multi-backend reporter integration
-- [Quality Gates](/capabilities/quality-gates/) -- Quality score monitoring and performance regression detection via telemetry
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Platform-wide observability infrastructure spanning all 90 applications
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Sub-second event processing with multi-backend reporter integration
+- [Quality Gates](@/capabilities/quality-gates.md) -- Quality score monitoring and performance regression detection via telemetry
 
 ## Production Status
 
@@ -254,4 +254,4 @@ The telemetry system is the primary mechanism for satisfying the Provenance Mand
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

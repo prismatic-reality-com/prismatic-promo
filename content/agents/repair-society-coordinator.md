@@ -28,15 +28,15 @@ image_alt = "repair-society-coordinator - Prismatic Platform"
 
 ## Overview
 
-The repair-society-coordinator operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's mycelium domain, coordinating distributed repair operations across the [mycelial network](/glossary/mycelial-network/) to maintain the platform's self-healing infrastructure. In biological ecosystems, mycorrhizal networks enable trees and plants to share resources and signal distress, allowing the forest to respond collectively to damage. The Prismatic Platform's mycelial network implements an analogous pattern for software infrastructure: a distributed communication and resource-sharing substrate through which agents detect, diagnose, and repair system degradation collaboratively.
+The repair-society-coordinator operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's mycelium domain, coordinating distributed repair operations across the [mycelial network](@/glossary/mycelial-network.md) to maintain the platform's self-healing infrastructure. In biological ecosystems, mycorrhizal networks enable trees and plants to share resources and signal distress, allowing the forest to respond collectively to damage. The Prismatic Platform's mycelial network implements an analogous pattern for software infrastructure: a distributed communication and resource-sharing substrate through which agents detect, diagnose, and repair system degradation collaboratively.
 
 The repair-society-coordinator manages the collective repair behavior of the agent ecosystem. When a component experiences degradation -- performance decline, data quality reduction, process failure, or configuration drift -- the mycelial network propagates distress signals to the repair society. The coordinator evaluates these signals, diagnoses root causes, and orchestrates repair actions across the affected agents, ensuring that repairs are coordinated rather than competing and that the repair process itself does not introduce instability.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the [SEADF](/glossary/seadf/) evolutionary framework, this agent applies [Lean4](/glossary/lean4/) theorems to guarantee that repair operations preserve system invariants. The five core theorems ensure that repair actions maintain semantic equivalence, type safety, termination properties, resource bounds, and compositional safety -- critical guarantees when autonomous repair agents modify running systems.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the [SEADF](@/glossary/seadf.md) evolutionary framework, this agent applies [Lean4](@/glossary/lean4.md) theorems to guarantee that repair operations preserve system invariants. The five core theorems ensure that repair actions maintain semantic equivalence, type safety, termination properties, resource bounds, and compositional safety -- critical guarantees when autonomous repair agents modify running systems.
 
 ## Mycelial Network Architecture
 
-The mycelial network provides the communication substrate through which repair operations are coordinated. The network is implemented as a distributed [PubSub](/glossary/pubsub/) system with topic-based routing, allowing agents to subscribe to repair-related event channels and publish distress signals to specific repair domains.
+The mycelial network provides the communication substrate through which repair operations are coordinated. The network is implemented as a distributed [PubSub](@/glossary/pubsub.md) system with topic-based routing, allowing agents to subscribe to repair-related event channels and publish distress signals to specific repair domains.
 
 **Distress signal propagation** operates through a multi-hop broadcast mechanism where agents that detect anomalies publish structured distress signals containing the affected component, symptom description, severity classification, and diagnostic context. The mycelial network routes these signals to the repair-society-coordinator and any repair-capable agents in the affected domain.
 
@@ -49,15 +49,15 @@ The mycelial network provides the communication substrate through which repair o
 - **Distress signal triage** -- Evaluates incoming distress signals from the mycelial network, classifying severity, identifying root causes, and prioritizing repair actions based on system impact
 - **Repair orchestration** -- Coordinates multi-agent repair operations, ensuring that repair actions are sequenced correctly, do not conflict, and collectively address the root cause rather than individual symptoms
 - **Root cause analysis** -- Applies diagnostic reasoning to correlate distress signals from multiple sources, distinguishing between primary failures and secondary symptoms to direct repair at root causes
-- **[Supervision tree](/glossary/supervision-tree/) repair** -- Manages repair of [OTP](/glossary/otp/) supervision tree degradation, including process restart escalation, supervisor reconfiguration, and [dynamic supervisor](/glossary/dynamic-supervisor/) child management
+- **[Supervision tree](@/glossary/supervision-tree.md) repair** -- Manages repair of [OTP](@/glossary/otp.md) supervision tree degradation, including process restart escalation, supervisor reconfiguration, and [dynamic supervisor](@/glossary/dynamic-supervisor.md) child management
 - **Configuration drift repair** -- Detects and corrects configuration drift where runtime configuration diverges from intended state, restoring correct configuration through the mycelial network
 - **Formal safety guarantees** -- Applies Lean4 theorems to verify that repair operations preserve system invariants, preventing repair actions from introducing new failures
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous distress signal monitoring and self-directed repair prioritization
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for repair operation monitoring and system health tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous distress signal monitoring and self-directed repair prioritization
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for repair operation monitoring and system health tracking
 
 ## Repair Protocol
 
-The repair protocol follows a structured lifecycle. The **detection phase** receives distress signals from the mycelial network and the platform's [telemetry](/glossary/telemetry/) infrastructure. Signals are correlated to identify patterns that indicate systemic issues versus isolated incidents.
+The repair protocol follows a structured lifecycle. The **detection phase** receives distress signals from the mycelial network and the platform's [telemetry](@/glossary/telemetry.md) infrastructure. Signals are correlated to identify patterns that indicate systemic issues versus isolated incidents.
 
 The **diagnosis phase** applies root cause analysis to correlated signals, building a causal model of the detected degradation. The coordinator distinguishes between symptoms (observable effects) and causes (underlying failures), ensuring that repair actions address causes rather than merely suppressing symptoms.
 
@@ -69,7 +69,7 @@ The **verification phase** confirms that the repair achieved its objective by re
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to orchestrate repair operations across the mycelial network, claim repair authority for affected components, and coordinate multi-agent repair campaigns.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to orchestrate repair operations across the mycelial network, claim repair authority for affected components, and coordinate multi-agent repair campaigns.
 
 ## Command Interface
 
@@ -83,14 +83,14 @@ The **verification phase** confirms that the repair achieved its objective by re
 
 | Agent | Relationship |
 |-------|-------------|
-| [recursive-optimizer](/agents/recursive-optimizer/) | Optimization recommendations that affect repair-relevant components require coordination |
-| [registry-auto](/agents/registry-auto/) | Registry corruption triggers repair operations |
-| [quality-assurance-commander](/agents/archer-supreme/) | Quality metric degradation triggers repair investigation |
-| [refactoring-coordinator-agent](/agents/refactoring-coordinator-agent/) | Formal safety verification shared between refactoring and repair operations |
+| [recursive-optimizer](@/agents/recursive-optimizer.md) | Optimization recommendations that affect repair-relevant components require coordination |
+| [registry-auto](@/agents/registry-auto.md) | Registry corruption triggers repair operations |
+| [quality-assurance-commander](@/agents/archer-supreme.md) | Quality metric degradation triggers repair investigation |
+| [refactoring-coordinator-agent](@/agents/refactoring-coordinator-agent.md) | Formal safety verification shared between refactoring and repair operations |
 
 ## Enforcement
 
-Repair operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: system degradation is addressed immediately and completely, not deferred or partially mitigated. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that repair actions are validated through formal safety verification before execution, and repair outcomes are verified through measurement rather than assumption. The [SEADF](/glossary/seadf/) framework ensures that repair operations contribute to the platform's evolutionary fitness rather than merely restoring previous state.
+Repair operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: system degradation is addressed immediately and completely, not deferred or partially mitigated. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that repair actions are validated through formal safety verification before execution, and repair outcomes are verified through measurement rather than assumption. The [SEADF](@/glossary/seadf.md) framework ensures that repair operations contribute to the platform's evolutionary fitness rather than merely restoring previous state.
 
 ---
 
@@ -99,4 +99,4 @@ Repair operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: syst
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

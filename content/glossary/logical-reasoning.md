@@ -38,15 +38,15 @@ image_alt = "Logical Reasoning - Prismatic Platform"
 
 Logical reasoning is the systematic process of deriving conclusions from premises using well-defined rules of inference. It encompasses the formal methods by which agents, systems, and humans move from known facts and assumptions to new knowledge while preserving truth. A logically valid argument guarantees that if the premises are true, the conclusion must be true. A logically sound argument is both valid and has true premises.
 
-In the Prismatic Platform, logical reasoning is not an abstract philosophical concern -- it is an engineered subsystem. The [Trinity Gate](/glossary/trinity-gate/)'s second gate (Logical Consistency) validates that all reasoning chains produced by the platform's 530+ [agents](/glossary/agent/) follow valid logical rules. No claim passes through the Trinity Gate without demonstrating that its reasoning chain is free of logical fallacies, circular arguments, and unsupported jumps. This enforcement ensures that the platform's epistemic foundation -- the [NABLA Infinity](/glossary/nabla-infinity/) framework -- rests on sound logical ground rather than on persuasive but invalid reasoning.
+In the Prismatic Platform, logical reasoning is not an abstract philosophical concern -- it is an engineered subsystem. The [Trinity Gate](@/glossary/trinity-gate.md)'s second gate (Logical Consistency) validates that all reasoning chains produced by the platform's 530+ [agents](@/glossary/agent.md) follow valid logical rules. No claim passes through the Trinity Gate without demonstrating that its reasoning chain is free of logical fallacies, circular arguments, and unsupported jumps. This enforcement ensures that the platform's epistemic foundation -- the [NABLA Infinity](@/glossary/nabla-infinity.md) framework -- rests on sound logical ground rather than on persuasive but invalid reasoning.
 
 ## Overview
 
 Logical reasoning divides into three primary categories, each with distinct characteristics and applications in the Prismatic Platform:
 
-**Deductive Reasoning** proceeds from general premises to specific conclusions with certainty. If "all AIAD agents have a tier classification" and "Archer Supreme is an AIAD agent," then "Archer Supreme has a tier classification." The conclusion is guaranteed by the premises. Deductive reasoning powers the platform's [rule-based reasoning](/glossary/rule-based-reasoning/) systems, authority validation, and formal compliance checks.
+**Deductive Reasoning** proceeds from general premises to specific conclusions with certainty. If "all AIAD agents have a tier classification" and "Archer Supreme is an AIAD agent," then "Archer Supreme has a tier classification." The conclusion is guaranteed by the premises. Deductive reasoning powers the platform's [rule-based reasoning](@/glossary/rule-based-reasoning.md) systems, authority validation, and formal compliance checks.
 
-**Inductive Reasoning** proceeds from specific observations to general conclusions with probability, not certainty. If "the last 1,000 requests to /api/v1/health completed in under 5ms," then "the next request will probably complete in under 5ms." The conclusion is supported but not guaranteed. Inductive reasoning powers the platform's [Bayesian reasoning](/glossary/bayesian-reasoning/) systems, anomaly detection, and predictive analytics.
+**Inductive Reasoning** proceeds from specific observations to general conclusions with probability, not certainty. If "the last 1,000 requests to /api/v1/health completed in under 5ms," then "the next request will probably complete in under 5ms." The conclusion is supported but not guaranteed. Inductive reasoning powers the platform's [Bayesian reasoning](@/glossary/bayesian-reasoning.md) systems, anomaly detection, and predictive analytics.
 
 **Abductive Reasoning** infers the best explanation for observed facts. If "the deployment pipeline failed" and "the most common cause of pipeline failure is a compilation warning," then "a compilation warning probably caused the failure." The conclusion is the most likely explanation, not a guaranteed one. Abductive reasoning powers the platform's diagnostic systems, root cause analysis, and autoheal mechanisms.
 
@@ -58,7 +58,7 @@ The relationship between these three forms is complementary, not competing. The 
 | Inductive | Medium (probabilistic) | Gate 1: Structural + Gate 2: Logical | Anomaly detection, prediction |
 | Abductive | Lowest (best guess) | All 3 Gates recommended | Diagnostics, root cause analysis |
 
-Formal logic provides the mathematical foundation for all three forms. Propositional logic deals with statements that are true or false and their combinations through logical connectives (AND, OR, NOT, IMPLIES). Predicate logic extends propositional logic with variables, quantifiers (for all, there exists), and predicates that express properties and relationships. [Modal logic](/glossary/modal-logic/) adds operators for necessity and possibility, which the Trinity Gate's third gate (Formal Necessity) uses to verify claims that must hold across all possible states.
+Formal logic provides the mathematical foundation for all three forms. Propositional logic deals with statements that are true or false and their combinations through logical connectives (AND, OR, NOT, IMPLIES). Predicate logic extends propositional logic with variables, quantifiers (for all, there exists), and predicates that express properties and relationships. [Modal logic](@/glossary/modal-logic.md) adds operators for necessity and possibility, which the Trinity Gate's third gate (Formal Necessity) uses to verify claims that must hold across all possible states.
 
 The platform's commitment to logical reasoning reflects a core architectural decision: autonomous agents making decisions that affect a production platform must reason correctly, not just persuasively. An LLM can generate plausible-sounding justifications for incorrect conclusions. Logical reasoning provides the formal tools to detect and reject such failures before they propagate through the system.
 
@@ -111,7 +111,7 @@ The Trinity Gate's logical consistency check verifies reasoning chains against a
 
 ### Formal Methods Integration
 
-For high-confidence decisions (confidence threshold >= 0.95), the platform integrates with [Lean4](/glossary/lean4/) for machine-checked proofs:
+For high-confidence decisions (confidence threshold >= 0.95), the platform integrates with [Lean4](@/glossary/lean4.md) for machine-checked proofs:
 
 ```
 -- Lean4 proof that L5 agents can override all lower tiers
@@ -346,7 +346,7 @@ end
 
 ### Logical Reasoning vs. Statistical Reasoning
 
-| Aspect | Logical Reasoning | Statistical/[Bayesian Reasoning](/glossary/bayesian-reasoning/) |
+| Aspect | Logical Reasoning | Statistical/[Bayesian Reasoning](@/glossary/bayesian-reasoning.md) |
 |--------|------------------|-----------------------------------|
 | **Certainty** | Absolute (given true premises) | Probabilistic (confidence intervals) |
 | **Premises** | Binary (true/false) | Continuous (probability distributions) |
@@ -379,11 +379,11 @@ Fuzzy logic extends classical logic by allowing truth values between 0 and 1, ha
 
 3. **Premise Validation**: Validate premises against ground truth before constructing reasoning chains. A valid argument with false premises produces a false conclusion -- logical validity does not guarantee truth.
 
-4. **Contradiction as Signal**: When the reasoning engine detects a contradiction, treat it as valuable information rather than an error to suppress. Per [NABLA Infinity](/glossary/nabla-infinity/) Axiom 2 (Contradiction Preservation), contradictions reveal gaps in understanding.
+4. **Contradiction as Signal**: When the reasoning engine detects a contradiction, treat it as valuable information rather than an error to suppress. Per [NABLA Infinity](@/glossary/nabla-infinity.md) Axiom 2 (Contradiction Preservation), contradictions reveal gaps in understanding.
 
 5. **Separate Reasoning Types**: Do not mix deductive and inductive reasoning in the same chain without clearly marking the transition. Inductive steps reduce the overall chain's certainty even if the deductive steps are valid.
 
-6. **Formal Proofs for Critical Paths**: Use [Lean4](/glossary/lean4/) formal proofs for security-critical and safety-critical reasoning chains. Machine-checked proofs eliminate human error in proof validation.
+6. **Formal Proofs for Critical Paths**: Use [Lean4](@/glossary/lean4.md) formal proofs for security-critical and safety-critical reasoning chains. Machine-checked proofs eliminate human error in proof validation.
 
 7. **Audit Trail Preservation**: Preserve the complete reasoning chain, including rejected branches and intermediate steps, in the audit log. Future analysis may reveal patterns in reasoning failures.
 
@@ -397,7 +397,7 @@ Fuzzy logic extends classical logic by allowing truth values between 0 and 1, ha
 
 4. **Composition Fallacy**: Assuming that what is true of parts must be true of the whole. "Each individual module compiles without warnings" does not guarantee "the entire system compiles without warnings" (cross-module dependencies can introduce warnings).
 
-5. **Equivocation**: Using the same term with different meanings in different premises. The platform's [ontology](/glossary/ontology/) system mitigates this by enforcing consistent term definitions across reasoning chains.
+5. **Equivocation**: Using the same term with different meanings in different premises. The platform's [ontology](@/glossary/ontology.md) system mitigates this by enforcing consistent term definitions across reasoning chains.
 
 6. **Appeal to Complexity**: Accepting a conclusion because the reasoning chain is complex and therefore "must be right." The reasoning engine treats all chains equally regardless of length or complexity.
 
@@ -419,7 +419,7 @@ The Perimeter EASM system derives security ratings through multi-step logical re
 
 ### Epistemic Conflict Resolution
 
-When the [epistemic reasoning](/glossary/epistemic-reasoning/) system detects conflicting evidence from multiple sources, logical reasoning helps resolve the conflict by examining whether the conflict is genuine (contradictory premises) or apparent (different premises leading to different but compatible conclusions). The contradiction detection module distinguishes between these cases.
+When the [epistemic reasoning](@/glossary/epistemic-reasoning.md) system detects conflicting evidence from multiple sources, logical reasoning helps resolve the conflict by examining whether the conflict is genuine (contradictory premises) or apparent (different premises leading to different but compatible conclusions). The contradiction detection module distinguishes between these cases.
 
 ### Compliance Verification
 
@@ -427,27 +427,27 @@ NIS2 and ZKB compliance assessment requires chains of regulatory reasoning: "Art
 
 ## Related Concepts
 
-- [Logical Consistency](/glossary/logical-consistency/) -- The property of a reasoning chain being free of contradictions and valid in form
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- Broader reasoning about knowledge, belief, and justified claims
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- Probabilistic reasoning that complements logical deduction under uncertainty
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof methods that provide the highest assurance of reasoning correctness
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-gate verification system where Gate 2 enforces logical consistency
-- [Rule-Based Reasoning](/glossary/rule-based-reasoning/) -- Applying predefined rules to derive conclusions, a specific form of deductive reasoning
-- [Modal Logic](/glossary/modal-logic/) -- Logic of necessity and possibility used in Trinity Gate's third gate
-- [Lean4](/glossary/lean4/) -- Interactive theorem prover for machine-checked logical proofs
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework requiring provenance and logical grounding for all beliefs
-- [Theorem Proving](/glossary/theorem-proving/) -- Automated and interactive proof construction for formal verification
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Structured representation of facts that serve as premises for reasoning
-- [Ontology](/glossary/ontology/) -- Formal domain models ensuring consistent term definitions in reasoning chains
-- [Consciousness Traits](/glossary/consciousness-traits/) -- Emergent behaviors in L5 agents that include novel reasoning patterns
-- [Agent](/glossary/agent/) -- Autonomous entities whose reasoning chains are validated by the logical engine
+- [Logical Consistency](@/glossary/logical-consistency.md) -- The property of a reasoning chain being free of contradictions and valid in form
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- Broader reasoning about knowledge, belief, and justified claims
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- Probabilistic reasoning that complements logical deduction under uncertainty
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof methods that provide the highest assurance of reasoning correctness
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-gate verification system where Gate 2 enforces logical consistency
+- [Rule-Based Reasoning](@/glossary/rule-based-reasoning.md) -- Applying predefined rules to derive conclusions, a specific form of deductive reasoning
+- [Modal Logic](@/glossary/modal-logic.md) -- Logic of necessity and possibility used in Trinity Gate's third gate
+- [Lean4](@/glossary/lean4.md) -- Interactive theorem prover for machine-checked logical proofs
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework requiring provenance and logical grounding for all beliefs
+- [Theorem Proving](@/glossary/theorem-proving.md) -- Automated and interactive proof construction for formal verification
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Structured representation of facts that serve as premises for reasoning
+- [Ontology](@/glossary/ontology.md) -- Formal domain models ensuring consistent term definitions in reasoning chains
+- [Consciousness Traits](@/glossary/consciousness-traits.md) -- Emergent behaviors in L5 agents that include novel reasoning patterns
+- [Agent](@/glossary/agent.md) -- Autonomous entities whose reasoning chains are validated by the logical engine
 
 ## See Also
 
-- [Agent Tier](/glossary/agent-tier/) -- Authority levels where higher tiers require stronger logical justification
-- [AIAD](/glossary/aiad/) -- Agent standard specifying reasoning requirements per agent type
-- [Quality Gate](/glossary/quality-gate/) -- Enforcement system using logical reasoning for merge decisions
-- [Observability](/glossary/observability/) -- Monitoring of reasoning engine performance and rejection rates
+- [Agent Tier](@/glossary/agent-tier.md) -- Authority levels where higher tiers require stronger logical justification
+- [AIAD](@/glossary/aiad.md) -- Agent standard specifying reasoning requirements per agent type
+- [Quality Gate](@/glossary/quality-gate.md) -- Enforcement system using logical reasoning for merge decisions
+- [Observability](@/glossary/observability.md) -- Monitoring of reasoning engine performance and rejection rates
 
 ---
 
@@ -456,4 +456,4 @@ NIS2 and ZKB compliance assessment requires chains of regulatory reasoning: "Art
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

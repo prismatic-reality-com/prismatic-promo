@@ -26,7 +26,7 @@ image_alt = "/stack - Prismatic Platform"
 
 **/stack** is a production command in the **Stack Mode** category of the Prismatic Platform. It displays the complete conversation stack showing all frames, their summaries, key decisions, assumptions, and checkpoint markers. The stack is the fundamental data structure for conversation state management on the Prismatic Platform, and this command provides the primary interface for inspecting that state. Every Claude interaction creates an immutable frame, and `/stack` reveals the full history of the current conversation branch.
 
-This command operates under the **Universal** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The Universal authority level means every operator, regardless of privilege level, can inspect the conversation stack. Transparency of conversation state is a foundational principle of the stack-based conversation mode.
+This command operates under the **Universal** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The Universal authority level means every operator, regardless of privilege level, can inspect the conversation stack. Transparency of conversation state is a foundational principle of the stack-based conversation mode.
 
 Stack-based conversation mode is a P0 absolute enforcement requirement for all Claude interactions on the Prismatic Platform. The stack paradigm replaces traditional linear conversation history with a structured, branching, checkpointed model. Each frame captures the user input summary, assistant output summary, key assumptions, and key decisions. This structure enables precise state management: operators can pop frames to undo decisions, fork branches to explore alternatives, and checkpoint important milestones for later restoration. `/stack` is the window into this system.
 
@@ -179,14 +179,14 @@ The filtered content is rendered in the requested format. Text format uses struc
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/frame](/commands/frame/) | Drill-down | Frame inspection for detailed view of single frame |
-| [/pop](/commands/pop/) | State modification | Remove frames from stack (DESTRUCTIVE) |
-| [/fork](/commands/fork/) | State modification | Create conversation branch (DESTRUCTIVE) |
-| [/checkpoint](/commands/checkpoint/) | State annotation | Mark frames as named checkpoints |
-| [/goto](/commands/goto/) | State restoration | Restore to named checkpoint |
-| [/stack-utils](/commands/stack-utils/) | Administration | Advanced maintenance and debugging |
-| [StackConversation GenServer](/glossary/genserver/) | Runtime | OTP GenServer providing stack infrastructure |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Stack display operations tracked |
+| [/frame](@/commands/frame.md) | Drill-down | Frame inspection for detailed view of single frame |
+| [/pop](@/commands/pop.md) | State modification | Remove frames from stack (DESTRUCTIVE) |
+| [/fork](@/commands/fork.md) | State modification | Create conversation branch (DESTRUCTIVE) |
+| [/checkpoint](@/commands/checkpoint.md) | State annotation | Mark frames as named checkpoints |
+| [/goto](@/commands/goto.md) | State restoration | Restore to named checkpoint |
+| [/stack-utils](@/commands/stack-utils.md) | Administration | Advanced maintenance and debugging |
+| [StackConversation GenServer](@/glossary/genserver.md) | Runtime | OTP GenServer providing stack infrastructure |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Stack display operations tracked |
 
 ## Best Practices
 
@@ -245,20 +245,20 @@ Display quantitative metrics about the conversation:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Stack display is always accurate and complete; no frames are hidden or summarized without explicit request.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Stack state is read directly from the authoritative GenServer, never from stale caches or approximations.
 
 ## Related Commands
 
-- [/frame](/commands/frame/) - Inspect specific conversation frame by ID
-- [/pop](/commands/pop/) - Remove last N frames from conversation stack (DESTRUCTIVE)
-- [/fork](/commands/fork/) - Branch conversation from specific frame (DESTRUCTIVE)
-- [/checkpoint](/commands/checkpoint/) - Mark current frame as named checkpoint
-- [/goto](/commands/goto/) - Restore conversation to named checkpoint
-- [/stack-utils](/commands/stack-utils/) - Advanced Stack Mode utility commands for maintenance and debugging
-- [/ramon-mode](/commands/ramon-mode/) - Ramon mode guardian for specialized help and assistance
+- [/frame](@/commands/frame.md) - Inspect specific conversation frame by ID
+- [/pop](@/commands/pop.md) - Remove last N frames from conversation stack (DESTRUCTIVE)
+- [/fork](@/commands/fork.md) - Branch conversation from specific frame (DESTRUCTIVE)
+- [/checkpoint](@/commands/checkpoint.md) - Mark current frame as named checkpoint
+- [/goto](@/commands/goto.md) - Restore conversation to named checkpoint
+- [/stack-utils](@/commands/stack-utils.md) - Advanced Stack Mode utility commands for maintenance and debugging
+- [/ramon-mode](@/commands/ramon-mode.md) - Ramon mode guardian for specialized help and assistance
 
 ---
 
@@ -267,4 +267,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

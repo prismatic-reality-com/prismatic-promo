@@ -28,9 +28,9 @@ image_alt = "financial-intelligence-commander - Prismatic Platform"
 
 ## Overview
 
-The Financial Intelligence Commander operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Financial domain of the Prismatic Platform. This agent provides strategic financial intelligence synthesis, covering market analysis, economic indicators, corporate intelligence, and comprehensive financial risk assessment. Unlike the transaction-level focus of the [financial-forensics-specialist](/agents/financial-forensics-specialist/) or the criminal detection mandate of the [financial-crimes-detection-commander](/agents/financial-crimes-detection-commander/), the Financial Intelligence Commander operates at the strategic level, producing intelligence products that inform decision-making about financial risks, opportunities, and threats.
+The Financial Intelligence Commander operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Financial domain of the Prismatic Platform. This agent provides strategic financial intelligence synthesis, covering market analysis, economic indicators, corporate intelligence, and comprehensive financial risk assessment. Unlike the transaction-level focus of the [financial-forensics-specialist](@/agents/financial-forensics-specialist.md) or the criminal detection mandate of the [financial-crimes-detection-commander](@/agents/financial-crimes-detection-commander.md), the Financial Intelligence Commander operates at the strategic level, producing intelligence products that inform decision-making about financial risks, opportunities, and threats.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, this agent serves as the strategic brain of the Financial domain, orchestrating intelligence collection and analysis across multiple financial data sources while maintaining compliance with the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine's requirement for evidence-based, uncompromising analytical rigor.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, this agent serves as the strategic brain of the Financial domain, orchestrating intelligence collection and analysis across multiple financial data sources while maintaining compliance with the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine's requirement for evidence-based, uncompromising analytical rigor.
 
 ## Strategic Financial Intelligence
 
@@ -42,7 +42,7 @@ Each intelligence domain employs specialized collection strategies and analytica
 
 ## Collection Architecture
 
-The agent's collection architecture leverages the platform's multi-source [OSINT](/glossary/osint/) infrastructure to gather financial intelligence from diverse data categories.
+The agent's collection architecture leverages the platform's multi-source [OSINT](@/glossary/osint.md) infrastructure to gather financial intelligence from diverse data categories.
 
 Corporate registry data forms the foundational layer, providing verified information about company structures, ownership, financial statements, and registered activities. The platform integrates with Czech registries including the Commercial Register (Justice.cz), Trade Register, and beneficial ownership registers, as well as international corporate information providers for cross-border investigations.
 
@@ -69,7 +69,7 @@ Financial health analysis applies ratio analysis, trend analysis, and peer compa
 
 Corporate governance analysis evaluates the quality and integrity of a company's governance arrangements. Indicators include board composition and independence, audit committee effectiveness, related party transaction patterns, executive compensation structures, and compliance history. Governance quality is a significant predictor of financial risk and operational integrity.
 
-Network analysis leverages the platform's [entity resolution](/glossary/entity-resolution/) and graph database capabilities to map corporate relationship networks, identifying common ownership patterns, shared directors, intercompany transaction flows, and potential conflicts of interest. The graph structure reveals hidden connections that may not be apparent from examination of individual entities in isolation.
+Network analysis leverages the platform's [entity resolution](@/glossary/entity-resolution.md) and graph database capabilities to map corporate relationship networks, identifying common ownership patterns, shared directors, intercompany transaction flows, and potential conflicts of interest. The graph structure reveals hidden connections that may not be apparent from examination of individual entities in isolation.
 
 ## Risk Assessment Methodology
 
@@ -95,9 +95,9 @@ Periodic reviews provide regular updates on monitored portfolios, highlighting m
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework governs the agent's analytical practices. The Signal Plurality axiom requires that intelligence assessments draw on multiple independent sources, preventing single-source dependency. The Time Decay axiom ensures that assessments are flagged for refresh when underlying evidence ages beyond configured thresholds.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs the agent's analytical practices. The Signal Plurality axiom requires that intelligence assessments draw on multiple independent sources, preventing single-source dependency. The Time Decay axiom ensures that assessments are flagged for refresh when underlying evidence ages beyond configured thresholds.
 
-The [Trinity Gate](/glossary/trinity-gate/) validation applies to all finalized intelligence products. Financial assessments that fail any gate are returned for additional analysis or explicitly downgraded in confidence.
+The [Trinity Gate](@/glossary/trinity-gate.md) validation applies to all finalized intelligence products. Financial assessments that fail any gate are returned for additional analysis or explicitly downgraded in confidence.
 
 The Contradiction Preservation axiom is particularly important in financial intelligence, where market participants frequently hold opposing views about the same entity or market. The agent preserves these contradictions in its assessments rather than artificially resolving them, presenting both bullish and bearish cases with their supporting evidence.
 
@@ -105,17 +105,17 @@ The Contradiction Preservation axiom is particularly important in financial inte
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| Prismatic [OSINT](/glossary/osint/) | Collection infrastructure | Multi-source financial data acquisition |
+| Prismatic [OSINT](@/glossary/osint.md) | Collection infrastructure | Multi-source financial data acquisition |
 | Czech Registries | Corporate data | Company records, financial statements, ownership |
 | Risk Scoring Pipeline | Analytical processing | Quantitative risk model execution |
-| [KuzuDB](/glossary/kuzudb/) | Graph analysis | Corporate network structure analysis |
-| [GenStage](/glossary/genstage/) Pipeline | Data processing | Backpressure-managed data enrichment |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph analysis | Corporate network structure analysis |
+| [GenStage](@/glossary/genstage.md) Pipeline | Data processing | Backpressure-managed data enrichment |
 | Report Synthesis | Product generation | Formatted intelligence product creation |
 
 ## Related Agents
 
-- [**financial-crimes-detection-commander**](/agents/financial-crimes-detection-commander/) (L3) - Criminal activity detection providing referrals for entities requiring enhanced financial intelligence assessment
-- [**financial-forensics-specialist**](/agents/financial-forensics-specialist/) (L3) - Transaction-level forensic analysis providing detailed evidence for specific investigative threads
+- [**financial-crimes-detection-commander**](@/agents/financial-crimes-detection-commander.md) (L3) - Criminal activity detection providing referrals for entities requiring enhanced financial intelligence assessment
+- [**financial-forensics-specialist**](@/agents/financial-forensics-specialist.md) (L3) - Transaction-level forensic analysis providing detailed evidence for specific investigative threads
 
 ---
 
@@ -124,4 +124,4 @@ The Contradiction Preservation axiom is particularly important in financial inte
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

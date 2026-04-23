@@ -24,11 +24,11 @@ image_alt = "/prismatic-api-status - Prismatic Platform"
 
 ## Overview
 
-**/prismatic-api-status** is a production command in the **API** category of the Prismatic Platform that provides comprehensive health and operational status reporting for the auto-introspecting REST gateway. The command queries the running [Prismatic API](/glossary/prismatic-api/) application to aggregate endpoint discovery statistics, scanner health, registry cache status, request throughput metrics, and error rates into a unified dashboard view.
+**/prismatic-api-status** is a production command in the **API** category of the Prismatic Platform that provides comprehensive health and operational status reporting for the auto-introspecting REST gateway. The command queries the running [Prismatic API](@/glossary/prismatic-api.md) application to aggregate endpoint discovery statistics, scanner health, registry cache status, request throughput metrics, and error rates into a unified dashboard view.
 
 The Prismatic API gateway is unique in that it discovers its own endpoints at boot time by introspecting all `Prismatic*` facade modules. This means the API surface is dynamic -- it changes as new modules are added or existing ones are modified. The status command provides visibility into this dynamic surface, reporting exactly how many modules were discovered, how many functions are exposed, and whether any modules failed introspection due to type mapping issues or missing documentation.
 
-This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command is used frequently during development and deployment cycles to verify that the API gateway is fully operational and that all expected endpoints are accessible.
+This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command is used frequently during development and deployment cycles to verify that the API gateway is fully operational and that all expected endpoints are accessible.
 
 Beyond simple health checks, the status command provides deep diagnostic information including per-endpoint latency percentiles, connection pool utilization, authentication success rates, and rate limiter state. This makes it an essential tool for both operational monitoring and troubleshooting API-related issues in production environments.
 
@@ -145,7 +145,7 @@ The status command executes a multi-phase data collection and aggregation pipeli
 
 3. **Registry Metrics** -- ETS table statistics are collected from the endpoint registry, including total entries, memory consumption, and cache hit/miss ratios since the last restart.
 
-4. **Request Metrics** -- [Telemetry](/glossary/telemetry/) event aggregations are retrieved for the specified time window. These include total request count, success/error breakdown, and latency distribution across percentiles.
+4. **Request Metrics** -- [Telemetry](@/glossary/telemetry.md) event aggregations are retrieved for the specified time window. These include total request count, success/error breakdown, and latency distribution across percentiles.
 
 5. **Authentication Metrics** -- Auth plug statistics are collected, including token validation counts, expired token rejections, and unauthorized access attempts.
 
@@ -161,13 +161,13 @@ The status command executes a multi-phase data collection and aggregation pipeli
 
 | System | Integration | Purpose |
 |--------|-------------|---------|
-| [Prismatic API](/apps/prismatic-api/) | Primary target -- reports on this application | Status source |
-| [Telemetry](/glossary/telemetry/) | Consumes `[:prismatic_api, :request, :*]` events | Metrics source |
-| [Quality Gates](/glossary/quality-gates/) | API health as a quality gate prerequisite | Gate input |
+| [Prismatic API](@/apps/prismatic-api.md) | Primary target -- reports on this application | Status source |
+| [Telemetry](@/glossary/telemetry.md) | Consumes `[:prismatic_api, :request, :*]` events | Metrics source |
+| [Quality Gates](@/glossary/quality-gates.md) | API health as a quality gate prerequisite | Gate input |
 | CI/CD Pipeline | Health check in deployment verification | Deployment gate |
-| [Prismatic Web](/apps/prismatic-web/) | API status widget on admin dashboard | Display |
+| [Prismatic Web](@/apps/prismatic-web.md) | API status widget on admin dashboard | Display |
 | Monitoring/Alerting | Structured JSON output for log aggregation | Observability |
-| [AIAD Registry](/glossary/aiad/) | Command registration and discovery | Infrastructure |
+| [AIAD Registry](@/glossary/aiad.md) | Command registration and discovery | Infrastructure |
 
 ## Best Practices
 
@@ -233,21 +233,21 @@ diff <(jq -S . /tmp/api-baseline.json) <(jq -S . /tmp/api-current.json)
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The status command reports all subsystem states without omission. An unhealthy gateway is reported unambiguously with actionable diagnostic information.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Status data is collected directly from running processes and telemetry events, never estimated or cached beyond the specified window.
 
-The command upholds [NABLA](/glossary/nabla-infinity/) Signal Plurality by aggregating status from multiple independent subsystems rather than relying on a single health indicator.
+The command upholds [NABLA](@/glossary/nabla-infinity.md) Signal Plurality by aggregating status from multiple independent subsystems rather than relying on a single health indicator.
 
 ## Related Commands
 
-- [/prismatic-api-endpoints](/commands/prismatic-api-endpoints/) - List all auto-discovered API endpoints from facade modules
-- [/prismatic-api-rescan](/commands/prismatic-api-rescan/) - Trigger endpoint re-scan of all Prismatic facade modules
-- [/prismatic-api-spec](/commands/prismatic-api-spec/) - Generate and view [OpenAPI](/glossary/openapi/) 3.0 specification
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/prismatic-api-endpoints](@/commands/prismatic-api-endpoints.md) - List all auto-discovered API endpoints from facade modules
+- [/prismatic-api-rescan](@/commands/prismatic-api-rescan.md) - Trigger endpoint re-scan of all Prismatic facade modules
+- [/prismatic-api-spec](@/commands/prismatic-api-spec.md) - Generate and view [OpenAPI](@/glossary/openapi.md) 3.0 specification
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -256,4 +256,4 @@ The command upholds [NABLA](/glossary/nabla-infinity/) Signal Plurality by aggre
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

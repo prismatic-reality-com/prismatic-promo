@@ -28,11 +28,11 @@ image_alt = "Biometric Verification Specialist - Prismatic Platform"
 
 ## Overview
 
-The Biometric Verification Specialist is an L3 [strategic command](/glossary/strategic-command/) agent operating within the Biometric domain of the Prismatic Platform. This agent provides comprehensive biometric verification and identity validation capabilities, managing the integration, evaluation, and application of biometric modalities for entity authentication and identity confirmation within the platform's intelligence operations.
+The Biometric Verification Specialist is an L3 [strategic command](@/glossary/strategic-command.md) agent operating within the Biometric domain of the Prismatic Platform. This agent provides comprehensive biometric verification and identity validation capabilities, managing the integration, evaluation, and application of biometric modalities for entity authentication and identity confirmation within the platform's intelligence operations.
 
 Biometric verification serves a dual purpose in the Prismatic Platform. First, it supports identity confirmation in due diligence and intelligence investigations where traditional identifier-based entity matching is insufficient or unreliable. Second, it provides a technical evaluation framework for assessing biometric systems encountered during security assessments and compliance audits. The specialist understands the capabilities, limitations, and failure modes of biometric technologies across multiple modalities.
 
-In an intelligence platform that performs [entity resolution](/glossary/entity-resolution/) across multiple data sources, biometric data provides high-confidence identity linkage that textual identifiers (names, addresses, identification numbers) cannot match. A name can be misspelled, an address can change, an identification number can be recycled -- but biometric characteristics provide persistent, unique identity signals that resist these data quality challenges.
+In an intelligence platform that performs [entity resolution](@/glossary/entity-resolution.md) across multiple data sources, biometric data provides high-confidence identity linkage that textual identifiers (names, addresses, identification numbers) cannot match. A name can be misspelled, an address can change, an identification number can be recycled -- but biometric characteristics provide persistent, unique identity signals that resist these data quality challenges.
 
 ## Operational Domain
 
@@ -74,7 +74,7 @@ The specialist integrates biometric analysis into the platform's entity resoluti
 
 **Cross-Source Biometric Correlation.** The specialist identifies opportunities for biometric-based entity linkage across data sources that lack common textual identifiers. When Source A contains a facial image and Source B contains a different facial image, biometric comparison can establish or refute whether both images depict the same individual.
 
-**Confidence Calibration.** Biometric confidence scores are calibrated against the platform's [NABLA Infinity](/glossary/nabla-infinity/) confidence framework, ensuring that biometric evidence is weighted appropriately alongside other evidence types. The specialist maintains calibration data specific to each biometric modality and matching algorithm.
+**Confidence Calibration.** Biometric confidence scores are calibrated against the platform's [NABLA Infinity](@/glossary/nabla-infinity.md) confidence framework, ensuring that biometric evidence is weighted appropriately alongside other evidence types. The specialist maintains calibration data specific to each biometric modality and matching algorithm.
 
 ## Privacy and Compliance Framework
 
@@ -90,15 +90,15 @@ Biometric data is classified as sensitive personal data under GDPR and equivalen
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to evaluate biometric systems, set biometric confidence thresholds, and enforce biometric data protection policies.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to evaluate biometric systems, set biometric confidence thresholds, and enforce biometric data protection policies.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [blue-auth-sentinel](/agents/blue-auth-sentinel/) | Authentication Security | Provides biometric expertise for authentication system evaluation |
-| [compliance-auditing-specialist](/agents/compliance-auditing-specialist/) | Privacy Compliance | Coordinates biometric data protection compliance assessments |
-| [l2-entity-resolver](/agents/l2-entity-resolver/) | Identity Linkage | Provides biometric matching signals for entity resolution decisions |
+| [blue-auth-sentinel](@/agents/blue-auth-sentinel.md) | Authentication Security | Provides biometric expertise for authentication system evaluation |
+| [compliance-auditing-specialist](@/agents/compliance-auditing-specialist.md) | Privacy Compliance | Coordinates biometric data protection compliance assessments |
+| [l2-entity-resolver](@/agents/l2-entity-resolver.md) | Identity Linkage | Provides biometric matching signals for entity resolution decisions |
 
 ## Performance Metrics
 
@@ -112,7 +112,7 @@ Biometric data is classified as sensitive personal data under GDPR and equivalen
 
 ## Enforcement
 
-The Biometric Verification Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with enhanced privacy protection requirements. No biometric data is processed without documented purpose, consent status, and retention limits. Biometric confidence scores must be calibrated and documented with methodology. The [Trinity Gate](/glossary/trinity-gate/) validates that biometric analysis conclusions maintain structural consistency with the entity resolution model, logical consistency with available evidence, and formal correctness of statistical matching methods. The NABLA [Signal Plurality](/glossary/signal-plurality/) axiom requires that biometric evidence is not used as the sole basis for identity determination -- it must be corroborated by at least one independent non-biometric signal.
+The Biometric Verification Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with enhanced privacy protection requirements. No biometric data is processed without documented purpose, consent status, and retention limits. Biometric confidence scores must be calibrated and documented with methodology. The [Trinity Gate](@/glossary/trinity-gate.md) validates that biometric analysis conclusions maintain structural consistency with the entity resolution model, logical consistency with available evidence, and formal correctness of statistical matching methods. The NABLA [Signal Plurality](@/glossary/signal-plurality.md) axiom requires that biometric evidence is not used as the sole basis for identity determination -- it must be corroborated by at least one independent non-biometric signal.
 
 ---
 
@@ -121,4 +121,4 @@ The Biometric Verification Specialist operates under the [NO MERCY, NO DOUBTS](/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

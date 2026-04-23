@@ -194,9 +194,9 @@ changes = PrismaticSecurity.ChangePointDetector.detect_changes(latency_history)
 
 ## Cross-References
 
-- [Standard Deviation](/glossary/standard-deviation/) - Core statistical measure used in detection
-- [Statistics](/glossary/statistics/) - Mathematical foundation for detection methods
-- [Monitoring](/glossary/monitoring/) - Infrastructure providing data for detection
+- [Standard Deviation](@/glossary/standard-deviation.md) - Core statistical measure used in detection
+- [Statistics](@/glossary/statistics.md) - Mathematical foundation for detection methods
+- [Monitoring](@/glossary/monitoring.md) - Infrastructure providing data for detection
 - **Threshold** - Decision boundaries used in detection rules
 
 ---

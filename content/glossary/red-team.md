@@ -35,7 +35,7 @@ image_alt = "Red Team - Prismatic Platform"
 
 The Red Team is a specialized security operations unit within the Prismatic Platform's six-team Color Team architecture that conducts adversarial simulation exercises to identify vulnerabilities, weaknesses, and failure modes in systems, processes, and epistemic defenses. Originating from Cold War military exercises where a dedicated "red" force simulated enemy tactics against defending "blue" forces, the concept has evolved into a cornerstone of modern cybersecurity, AI safety, and epistemic security practices. In the Prismatic Platform, the Red Team extends this tradition into the domain of epistemic security, targeting the integrity of knowledge systems, reasoning pipelines, and decision-making processes rather than just network infrastructure.
 
-The Prismatic Platform's Red Team operates as one of six color teams -- alongside [Gray Team](/glossary/gray-team/), [Blue Team](/glossary/blue-team/), [Purple Team](/glossary/purple-team/), [White Team](/glossary/white-team/), and [Black Team](/glossary/black-team/) -- forming a comprehensive adversarial-defensive synthesis architecture governed by the [NO MERCY, NO DOUBTS](/glossary/nm-nd/) doctrine. The Red Team consists of 4 agents operating in a hierarchical command structure, simulating epistemic attacks using five defined primitives and generating adversarial scenarios from a comprehensive 329-entry attack taxonomy. All operations are sandboxed with synthetic data and zero network access, ensuring that adversarial simulations cannot affect production systems or real data.
+The Prismatic Platform's Red Team operates as one of six color teams -- alongside [Gray Team](@/glossary/gray-team.md), [Blue Team](@/glossary/blue-team.md), [Purple Team](@/glossary/purple-team.md), [White Team](@/glossary/white-team.md), and [Black Team](@/glossary/black-team.md) -- forming a comprehensive adversarial-defensive synthesis architecture governed by the [NO MERCY, NO DOUBTS](@/glossary/nm-nd.md) doctrine. The Red Team consists of 4 agents operating in a hierarchical command structure, simulating epistemic attacks using five defined primitives and generating adversarial scenarios from a comprehensive 329-entry attack taxonomy. All operations are sandboxed with synthetic data and zero network access, ensuring that adversarial simulations cannot affect production systems or real data.
 
 The distinction between traditional Red Teaming and epistemic Red Teaming is fundamental to understanding the platform's security model. Traditional Red Teams target network infrastructure, applications, and physical security perimeters. Epistemic Red Teams target the integrity of belief formation, evidence evaluation, and confidence calibration -- areas where subtle manipulation can have outsized impact on system behavior without triggering conventional security alarms.
 
@@ -55,9 +55,9 @@ The Red Team's operations are structured around five fundamental attack primitiv
 
 **1. Truth Distortion**: Modifying the factual content of information sources to introduce inaccuracies. This includes subtle alterations that pass surface-level verification but corrupt downstream reasoning. The `red-epistemic-attacker` agent specializes in crafting distortions that exploit the gap between syntactic validity and semantic correctness. For example, modifying a security rating calculation by 2% -- small enough to avoid threshold alerts but sufficient to change a grade boundary from B to C when aggregated across multiple data points.
 
-**2. Confidence Manipulation**: Inflating or deflating confidence scores associated with beliefs or evidence without changing the underlying facts. This attack exploits systems that use confidence thresholds for decision-making, pushing marginal decisions across threshold boundaries. In the context of [NABLA Infinity](/glossary/nabla-infinity/), confidence manipulation targets the transition point between exploration (confidence < 0.95) and execution (confidence >= 0.95), potentially causing premature commitment or indefinite deferral.
+**2. Confidence Manipulation**: Inflating or deflating confidence scores associated with beliefs or evidence without changing the underlying facts. This attack exploits systems that use confidence thresholds for decision-making, pushing marginal decisions across threshold boundaries. In the context of [NABLA Infinity](@/glossary/nabla-infinity.md), confidence manipulation targets the transition point between exploration (confidence < 0.95) and execution (confidence >= 0.95), potentially causing premature commitment or indefinite deferral.
 
-**3. Signal Poisoning**: Injecting false or misleading signals into evidence streams to corrupt the [Signal Plurality](/glossary/signal-plurality/) axiom that requires minimum two independent signals for belief formation. Poisoned signals appear to originate from independent sources, undermining the plurality requirement by creating the appearance of multi-source corroboration from a single adversarial origin.
+**3. Signal Poisoning**: Injecting false or misleading signals into evidence streams to corrupt the [Signal Plurality](@/glossary/signal-plurality.md) axiom that requires minimum two independent signals for belief formation. Poisoned signals appear to originate from independent sources, undermining the plurality requirement by creating the appearance of multi-source corroboration from a single adversarial origin.
 
 **4. Drift Induction**: Introducing sub-threshold changes that individually pass detection but collectively shift system behavior over time. The `red-drift-inducer` agent specializes in cascade propagation analysis, identifying how small perturbations compound through interconnected systems. Drift induction is particularly dangerous because each individual change is within normal variance, making detection dependent on tracking cumulative divergence rather than individual anomalies.
 
@@ -144,11 +144,11 @@ defmodule PrismaticDark.RedTeam.Taxonomy do
 end
 ```
 
-The taxonomy is not static. The `red-scenario-generator` agent continuously expands it based on emerging threats, new platform capabilities, findings from [Black Team](/glossary/black-team/) theoretical threat models, and real-world epistemic attack patterns observed in the cybersecurity and AI safety communities. Each new scenario undergoes validation through the [Trinity Gate](/glossary/trinity-gate/) before inclusion.
+The taxonomy is not static. The `red-scenario-generator` agent continuously expands it based on emerging threats, new platform capabilities, findings from [Black Team](@/glossary/black-team.md) theoretical threat models, and real-world epistemic attack patterns observed in the cybersecurity and AI safety communities. Each new scenario undergoes validation through the [Trinity Gate](@/glossary/trinity-gate.md) before inclusion.
 
 ## Agent Architecture
 
-The Red Team consists of four agents operating in a hierarchical command structure defined by the [AIAD](/glossary/aiad/) standard. Each agent has a specific role, authority level, and specialization that determines its operational scope and interaction patterns.
+The Red Team consists of four agents operating in a hierarchical command structure defined by the [AIAD](@/glossary/aiad.md) standard. Each agent has a specific role, authority level, and specialization that determines its operational scope and interaction patterns.
 
 | Agent | Role | Level | Specialization | Primary Output |
 |-------|------|-------|----------------|----------------|
@@ -157,11 +157,11 @@ The Red Team consists of four agents operating in a hierarchical command structu
 | `red-drift-inducer` | Tactical Specialist | L2 | Sub-threshold drift attacks, cascade propagation | Drift traces, cascade analysis |
 | `red-scenario-generator` | Tactical Specialist | L2 | Multi-technique scenario composition from taxonomy | New scenarios, taxonomy updates |
 
-The `red-commander` operates at L3 (Strategic Commander) level, orchestrating multi-scenario campaigns and routing findings to the [Purple Team](/glossary/purple-team/) for synthesis and the [Blue Team](/glossary/blue-team/) for defensive posture updates. The three L2 tactical specialists execute specific attack primitives under the commander's direction, each producing structured finding artifacts that feed into the platform's adversarial-defensive synthesis loop.
+The `red-commander` operates at L3 (Strategic Commander) level, orchestrating multi-scenario campaigns and routing findings to the [Purple Team](@/glossary/purple-team.md) for synthesis and the [Blue Team](@/glossary/blue-team.md) for defensive posture updates. The three L2 tactical specialists execute specific attack primitives under the commander's direction, each producing structured finding artifacts that feed into the platform's adversarial-defensive synthesis loop.
 
 ## Signal Flow Architecture
 
-Red Team operations follow a defined signal flow within the broader [Color Teams](/glossary/color-teams/) architecture. Understanding this flow is essential for comprehending how adversarial findings drive defensive improvements.
+Red Team operations follow a defined signal flow within the broader [Color Teams](@/glossary/color-teams.md) architecture. Understanding this flow is essential for comprehending how adversarial findings drive defensive improvements.
 
 ```
 Gray Team (boundary seeds) --> Red Team (adversarial scenarios)
@@ -173,7 +173,7 @@ Gray Team (boundary seeds) --> Red Team (adversarial scenarios)
                               Black Team (theoretical threat models feed Red scenarios)
 ```
 
-The [Gray Team](/glossary/gray-team/) provides boundary exploration seeds -- specification gaps, edge cases, and ambiguity zones -- that the Red Team transforms into concrete adversarial scenarios. The [Black Team](/glossary/black-team/) provides theoretical threat models that inform Red Team strategy at the abstract level. Red Team findings flow to both the Purple Team (for synthesis with Blue Team defensive findings) and directly to the Blue Team (for immediate defensive posture updates). The [White Team](/glossary/white-team/) subsequently validates that remediation efforts have actually addressed the vulnerabilities the Red Team identified.
+The [Gray Team](@/glossary/gray-team.md) provides boundary exploration seeds -- specification gaps, edge cases, and ambiguity zones -- that the Red Team transforms into concrete adversarial scenarios. The [Black Team](@/glossary/black-team.md) provides theoretical threat models that inform Red Team strategy at the abstract level. Red Team findings flow to both the Purple Team (for synthesis with Blue Team defensive findings) and directly to the Blue Team (for immediate defensive posture updates). The [White Team](@/glossary/white-team.md) subsequently validates that remediation efforts have actually addressed the vulnerabilities the Red Team identified.
 
 ## Sandbox Isolation Architecture
 
@@ -246,7 +246,7 @@ The sandbox isolation is not merely a best practice -- it is a non-negotiable sa
 
 ## Campaign Execution
 
-Red Team operations are organized into campaigns -- structured sequences of adversarial scenarios designed to test specific aspects of platform defenses. Campaigns provide the organizational structure for multi-scenario testing, producing structured findings that the [Purple Team](/glossary/purple-team/) uses for adversarial-defensive synthesis.
+Red Team operations are organized into campaigns -- structured sequences of adversarial scenarios designed to test specific aspects of platform defenses. Campaigns provide the organizational structure for multi-scenario testing, producing structured findings that the [Purple Team](@/glossary/purple-team.md) uses for adversarial-defensive synthesis.
 
 ```elixir
 defmodule PrismaticDark.RedTeam.Campaign do
@@ -340,13 +340,13 @@ end
 
 Within the Prismatic Platform, the Red Team serves several critical functions that directly support the platform's security posture and epistemic integrity.
 
-**Epistemic Security Validation**: Red Team scenarios test the [NABLA Infinity](/glossary/nabla-infinity/) framework's seven axioms under adversarial conditions. Signal poisoning attacks validate that the Signal Plurality requirement genuinely prevents single-source epistemic failures. Confidence manipulation attacks verify that [Trinity Gate](/glossary/trinity-gate/) catches artificially inflated confidence scores. Truth distortion attacks test the Provenance Mandatory axiom's ability to trace beliefs back to their origins and detect tampering.
+**Epistemic Security Validation**: Red Team scenarios test the [NABLA Infinity](@/glossary/nabla-infinity.md) framework's seven axioms under adversarial conditions. Signal poisoning attacks validate that the Signal Plurality requirement genuinely prevents single-source epistemic failures. Confidence manipulation attacks verify that [Trinity Gate](@/glossary/trinity-gate.md) catches artificially inflated confidence scores. Truth distortion attacks test the Provenance Mandatory axiom's ability to trace beliefs back to their origins and detect tampering.
 
-**Defense Posture Assessment**: Findings from Red Team campaigns flow to the [Blue Team](/glossary/blue-team/) for defensive posture updates and to the [Purple Team](/glossary/purple-team/) for synthesis. This creates a continuous improvement loop where adversarial discoveries drive defensive enhancements. The Purple Team's closure analyst tracks whether each Red Team finding has been adequately addressed, preventing findings from being acknowledged but not remediated.
+**Defense Posture Assessment**: Findings from Red Team campaigns flow to the [Blue Team](@/glossary/blue-team.md) for defensive posture updates and to the [Purple Team](@/glossary/purple-team.md) for synthesis. This creates a continuous improvement loop where adversarial discoveries drive defensive enhancements. The Purple Team's closure analyst tracks whether each Red Team finding has been adequately addressed, preventing findings from being acknowledged but not remediated.
 
 **Drift Detection Calibration**: The `red-drift-inducer` agent generates sub-threshold drift scenarios that calibrate the Blue Team's `blue-drift-detector` sensitivity. By knowing exactly what drift was introduced, the platform can measure detection accuracy and adjust thresholds. This calibration is critical because drift detection sensitivity involves a trade-off: too sensitive causes false positives, too insensitive misses real drift.
 
-**Scenario Library Maintenance**: The `red-scenario-generator` maintains and expands the 329-entry taxonomy based on emerging threats, new platform capabilities, and findings from [Black Team](/glossary/black-team/) theoretical threat models. Each new scenario is classified by primitive, complexity, target subsystem, and detection difficulty, ensuring comprehensive coverage of the adversarial landscape.
+**Scenario Library Maintenance**: The `red-scenario-generator` maintains and expands the 329-entry taxonomy based on emerging threats, new platform capabilities, and findings from [Black Team](@/glossary/black-team.md) theoretical threat models. Each new scenario is classified by primitive, complexity, target subsystem, and detection difficulty, ensuring comprehensive coverage of the adversarial landscape.
 
 **NABLA Axiom Stress Testing**: Each of the seven NABLA axioms (Signal Plurality, Contradiction Preservation, Absence Informative, Time Decay, Unknown Valid, Source Independence, Provenance Mandatory) has dedicated Red Team scenarios designed to probe its enforcement boundaries. This systematic coverage ensures that the epistemic framework is not merely theoretically sound but practically resilient under adversarial pressure.
 
@@ -405,7 +405,7 @@ The Red Team operates under strict safety protocols that are non-negotiable and 
 | **Duration Limits** | Maximum 1-hour campaign duration | Timer-based enforcement with automatic termination |
 | **Authorized Context Only** | CTF, defensive research, authorized testing | Context validation at campaign initialization |
 
-The safety protocols are designed with the assumption that adversarial thinking creates cognitive risks even in simulation contexts. The ethics check cadence (every 10 seconds) is deliberately frequent to prevent the gradual normalization of increasingly aggressive attack patterns. The [Gray Team](/glossary/gray-team/) escalation guard has independent authority to halt any Red Team operation that shows signs of scope creep beyond the boundaries of epistemic security testing.
+The safety protocols are designed with the assumption that adversarial thinking creates cognitive risks even in simulation contexts. The ethics check cadence (every 10 seconds) is deliberately frequent to prevent the gradual normalization of increasingly aggressive attack patterns. The [Gray Team](@/glossary/gray-team.md) escalation guard has independent authority to halt any Red Team operation that shows signs of scope creep beyond the boundaries of epistemic security testing.
 
 ## Best Practices
 
@@ -415,7 +415,7 @@ The safety protocols are designed with the assumption that adversarial thinking 
 
 3. **Structured Findings**: Document every finding with scenario ID, evidence, impact assessment, detection time, and actionable recommendations. Unstructured findings create noise without driving improvement.
 
-4. **Purple Team Integration**: Route all findings through [Purple Team](/glossary/purple-team/) synthesis rather than directly to engineering. Purple Team contextualizes findings against existing defenses and prevents duplicate remediation efforts.
+4. **Purple Team Integration**: Route all findings through [Purple Team](@/glossary/purple-team.md) synthesis rather than directly to engineering. Purple Team contextualizes findings against existing defenses and prevents duplicate remediation efforts.
 
 5. **Ethics Check Cadence**: Maintain automated ethics validation every 10-15 seconds during active operations. This prevents scope creep from adversarial thinking into genuinely harmful territory.
 
@@ -427,7 +427,7 @@ The safety protocols are designed with the assumption that adversarial thinking 
 
 ## Common Pitfalls
 
-- **Scope Creep**: Adversarial thinking can drift from testing defenses to developing actual attack capabilities. Strict escalation guards and the [Gray Team](/glossary/gray-team/) escalation guard prevent this transition. The boundary between "testing a defense" and "developing an attack" requires constant vigilance.
+- **Scope Creep**: Adversarial thinking can drift from testing defenses to developing actual attack capabilities. Strict escalation guards and the [Gray Team](@/glossary/gray-team.md) escalation guard prevent this transition. The boundary between "testing a defense" and "developing an attack" requires constant vigilance.
 
 - **False Confidence from Defended Results**: A scenario classified as "defended" only proves the specific attack vector was blocked. Variations may succeed. Composite scenarios test defense robustness against novel combinations that individual basic scenarios cannot reveal.
 
@@ -447,24 +447,24 @@ The extension of Red Teaming to epistemic security represents the Prismatic Plat
 
 ## Related Concepts
 
-- [Blue Team](/glossary/blue-team/) - Defensive counterpart receiving Red findings for posture assessment
-- [Purple Team](/glossary/purple-team/) - Synthesis hub for Red-Blue loop closure and regression monitoring
-- [Black Team](/glossary/black-team/) - Theoretical threat modeling feeding Red Team scenarios
-- [Gray Team](/glossary/gray-team/) - Boundary exploration providing seeds for Red Team campaigns
-- [White Team](/glossary/white-team/) - Constructive verification validating Red Team finding remediation
-- [Color Teams](/glossary/color-teams/) - Full overview of all six color team operations
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework tested through adversarial simulation
-- [Trinity Gate](/glossary/trinity-gate/) - Three-layer validation gate tested by confidence manipulation attacks
-- [Signal Plurality](/glossary/signal-plurality/) - Axiom tested by signal poisoning attacks
-- [Tactical Execution](/glossary/tactical-execution/) - L2 tier of Red Team specialists
-- [AIAD](/glossary/aiad/) - Agent standard governing Red Team agent definitions
+- [Blue Team](@/glossary/blue-team.md) - Defensive counterpart receiving Red findings for posture assessment
+- [Purple Team](@/glossary/purple-team.md) - Synthesis hub for Red-Blue loop closure and regression monitoring
+- [Black Team](@/glossary/black-team.md) - Theoretical threat modeling feeding Red Team scenarios
+- [Gray Team](@/glossary/gray-team.md) - Boundary exploration providing seeds for Red Team campaigns
+- [White Team](@/glossary/white-team.md) - Constructive verification validating Red Team finding remediation
+- [Color Teams](@/glossary/color-teams.md) - Full overview of all six color team operations
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework tested through adversarial simulation
+- [Trinity Gate](@/glossary/trinity-gate.md) - Three-layer validation gate tested by confidence manipulation attacks
+- [Signal Plurality](@/glossary/signal-plurality.md) - Axiom tested by signal poisoning attacks
+- [Tactical Execution](@/glossary/tactical-execution.md) - L2 tier of Red Team specialists
+- [AIAD](@/glossary/aiad.md) - Agent standard governing Red Team agent definitions
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Agents](/agents/) - Full agent catalog including Red Team agents
-- [Technologies](/technologies/) - Technology stack details
-- [Capabilities](/capabilities/) - Security capabilities powered by Color Team operations
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Agents](@/agents/_index.md) - Full agent catalog including Red Team agents
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Capabilities](@/capabilities/_index.md) - Security capabilities powered by Color Team operations
 
 ---
 
@@ -473,4 +473,4 @@ The extension of Red Teaming to epistemic security represents the Prismatic Plat
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

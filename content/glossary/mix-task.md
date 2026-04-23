@@ -38,7 +38,7 @@ image_alt = "Mix Task - Prismatic Platform"
 
 A Mix Task is a command-line operation defined within the Elixir Mix build tool that provides a standardized mechanism for executing development workflows, build processes, code generation, testing, and custom platform operations. Tasks are implemented as Elixir modules that adopt the `Mix.Task` behaviour, requiring a `run/1` callback that receives command-line arguments as a list of strings. Mix tasks have full access to the compiled application runtime, can invoke other tasks for composition, and serve as the primary interface between developers, CI/CD pipelines, and the platform's operational infrastructure.
 
-The Mix build tool itself is Elixir's equivalent of Make, npm scripts, or Gradle -- but with a critical difference: Mix tasks execute within the same BEAM virtual machine that hosts the application, giving them direct access to all compiled modules, OTP applications, and runtime state. This means a Mix task can start a [supervision tree](/glossary/supervision-tree/), query a database, invoke a [GenServer](/glossary/genserver/), or introspect module metadata -- capabilities that external build tools achieve only through subprocesses and inter-process communication. This deep integration makes Mix tasks the natural mechanism for platform operations that bridge development tooling and application logic.
+The Mix build tool itself is Elixir's equivalent of Make, npm scripts, or Gradle -- but with a critical difference: Mix tasks execute within the same BEAM virtual machine that hosts the application, giving them direct access to all compiled modules, OTP applications, and runtime state. This means a Mix task can start a [supervision tree](@/glossary/supervision-tree.md), query a database, invoke a [GenServer](@/glossary/genserver.md), or introspect module metadata -- capabilities that external build tools achieve only through subprocesses and inter-process communication. This deep integration makes Mix tasks the natural mechanism for platform operations that bridge development tooling and application logic.
 
 Mix includes approximately 40 built-in tasks covering compilation (`mix compile`), testing (`mix test`), dependency management (`mix deps.get`, `mix deps.update`), documentation (`mix docs`), release building (`mix release`), and code generation. The Elixir ecosystem extends this with tasks from libraries: Ecto provides `mix ecto.migrate`, Phoenix provides `mix phx.server`, and Credo provides `mix credo`. Custom tasks follow the same conventions, appearing seamlessly alongside built-in and library tasks in `mix help` output.
 
@@ -380,7 +380,7 @@ Mix ensures that each task runs only once per invocation by default. Calling `Mi
 
 ## SessionLifecycle Integration
 
-The SessionLifecycle GenServer executes Mix tasks with timeout protection and [circuit breaker](/glossary/circuit-breaker/) patterns, ensuring that hung or failing tasks do not block the development session:
+The SessionLifecycle GenServer executes Mix tasks with timeout protection and [circuit breaker](@/glossary/circuit-breaker.md) patterns, ensuring that hung or failing tasks do not block the development session:
 
 ```elixir
 defmodule PrismaticClaude.SessionHooks do
@@ -501,7 +501,7 @@ end
 
 4. **Parse Arguments with OptionParser**: Use Elixir's `OptionParser` for consistent argument handling. Define `@switches` with types for type-safe parsing and automatic validation.
 
-5. **Emit Telemetry**: Custom platform tasks should emit [telemetry](/glossary/telemetry/) events for monitoring task execution duration, success/failure rates, and resource consumption. The SessionLifecycle system tracks task execution through telemetry.
+5. **Emit Telemetry**: Custom platform tasks should emit [telemetry](@/glossary/telemetry.md) events for monitoring task execution duration, success/failure rates, and resource consumption. The SessionLifecycle system tracks task execution through telemetry.
 
 6. **Handle Errors Gracefully**: Use `with` chains for multi-step tasks. Provide actionable error messages that help users fix the issue rather than just reporting failure.
 
@@ -525,22 +525,22 @@ end
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) - Mix task-based quality enforcement pipeline
-- [Elixir](/glossary/elixir/) - Language providing the Mix build tool
-- [OTP](/glossary/otp/) - Framework providing application lifecycle that tasks interact with
-- [BEAM](/glossary/beam/) - Virtual machine providing the runtime environment for Mix tasks
-- [SEADF](/glossary/seadf/) - Evolution framework accessed through Mix tasks
-- [Zero Warning Policy](/glossary/zero-warning-policy/) - Compilation policy enforced via Mix tasks
-- [Autoheal](/glossary/autoheal/) - Self-healing operations implemented as Mix tasks
-- [Autoevolve](/glossary/autoevolve/) - Autonomous evolution triggered through Mix tasks
-- [GenServer](/glossary/genserver/) - Process abstraction accessible from within Mix tasks
-- [Supervisor](/glossary/supervisor/) - OTP supervision started by tasks requiring runtime access
+- [Quality Gates](@/glossary/quality-gates.md) - Mix task-based quality enforcement pipeline
+- [Elixir](@/glossary/elixir.md) - Language providing the Mix build tool
+- [OTP](@/glossary/otp.md) - Framework providing application lifecycle that tasks interact with
+- [BEAM](@/glossary/beam.md) - Virtual machine providing the runtime environment for Mix tasks
+- [SEADF](@/glossary/seadf.md) - Evolution framework accessed through Mix tasks
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) - Compilation policy enforced via Mix tasks
+- [Autoheal](@/glossary/autoheal.md) - Self-healing operations implemented as Mix tasks
+- [Autoevolve](@/glossary/autoevolve.md) - Autonomous evolution triggered through Mix tasks
+- [GenServer](@/glossary/genserver.md) - Process abstraction accessible from within Mix tasks
+- [Supervisor](@/glossary/supervisor.md) - OTP supervision started by tasks requiring runtime access
 
 ## See Also
 
-- [Technologies](/technologies/) - Build tooling and development workflow technology
-- [Architecture](/architecture/) - Platform operations architecture
-- [Commands](/commands/) - Full command registry including Mix task-based commands
+- [Technologies](@/technologies/_index.md) - Build tooling and development workflow technology
+- [Architecture](@/architecture/_index.md) - Platform operations architecture
+- [Commands](@/commands/_index.md) - Full command registry including Mix task-based commands
 
 ---
 
@@ -549,4 +549,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

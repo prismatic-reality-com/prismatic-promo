@@ -30,7 +30,7 @@ see_also = ["capabilities", "architecture", "quality-floor"]
 
 ## Definition
 
-**Readability** refers to the ease with which a developer can comprehend code's purpose, logic, and behavior. Readable code communicates intent clearly through meaningful names, consistent structure, appropriate abstractions, and sufficient documentation. In the Prismatic Platform, readability is not optional -- it is enforced through automated tooling ([Credo](/glossary/credo/) strict mode), naming conventions, and the NO MERCY doctrine that rejects code requiring excessive mental effort to understand.
+**Readability** refers to the ease with which a developer can comprehend code's purpose, logic, and behavior. Readable code communicates intent clearly through meaningful names, consistent structure, appropriate abstractions, and sufficient documentation. In the Prismatic Platform, readability is not optional -- it is enforced through automated tooling ([Credo](@/glossary/credo.md) strict mode), naming conventions, and the NO MERCY doctrine that rejects code requiring excessive mental effort to understand.
 
 Readability differs from mere syntactic correctness. Code can compile and pass all tests while being nearly impossible for a human to maintain. The cost of unreadable code compounds over time: every developer who reads it spends cognitive resources parsing intent instead of solving problems. In a large umbrella codebase with 94+ apps and 14,978+ source files, readability is a survival requirement -- not a nice-to-have.
 
@@ -184,7 +184,7 @@ end
 
 ### Credo Configuration
 
-[Credo](/glossary/credo/), Elixir's [static analysis](/glossary/static-analysis/) tool, evaluates readability through 50+ checks. The Prismatic Platform runs Credo in `--strict` mode, which flags issues the default mode ignores:
+[Credo](@/glossary/credo.md), Elixir's [static analysis](@/glossary/static-analysis.md) tool, evaluates readability through 50+ checks. The Prismatic Platform runs Credo in `--strict` mode, which flags issues the default mode ignores:
 
 ```elixir
 # .credo.exs - Platform configuration
@@ -348,7 +348,7 @@ mix credo --strict --mute-exit-status  # Static analysis (advisory)
 
 ### Quality Floor Guardian
 
-The [Quality Floor Guardian](/glossary/quality-floor/) monitors readability metrics across sessions and blocks commits when readability standards regress. It tracks:
+The [Quality Floor Guardian](@/glossary/quality-floor.md) monitors readability metrics across sessions and blocks commits when readability standards regress. It tracks:
 
 - **Module documentation coverage** -- percentage of modules with `@moduledoc`
 - **Function documentation coverage** -- percentage of public functions with `@doc`
@@ -465,21 +465,21 @@ end
 
 ## Related Terms
 
-- [Static Analysis](/glossary/static-analysis/) -- automated tooling that catches readability issues
-- [Refactoring](/glossary/refactoring/) -- improving readability without changing behavior
-- [Credo](/glossary/credo/) -- Elixir static analysis tool enforcing readability rules
-- [Test Suite](/glossary/test-suite/) -- tests that serve as executable documentation
-- [Typespec](/glossary/typespec/) -- type specifications that improve readability through contracts
+- [Static Analysis](@/glossary/static-analysis.md) -- automated tooling that catches readability issues
+- [Refactoring](@/glossary/refactoring.md) -- improving readability without changing behavior
+- [Credo](@/glossary/credo.md) -- Elixir static analysis tool enforcing readability rules
+- [Test Suite](@/glossary/test-suite.md) -- tests that serve as executable documentation
+- [Typespec](@/glossary/typespec.md) -- type specifications that improve readability through contracts
 - [Cognitive Complexity](/glossary/cognitive-complexity/) -- quantitative readability measure
-- [Quality Floor](/glossary/quality-floor/) -- minimum quality threshold including readability
+- [Quality Floor](@/glossary/quality-floor.md) -- minimum quality threshold including readability
 - [Forbidden Pattern](/glossary/forbidden-pattern/) -- banned patterns that harm readability
-- [Quality Debt](/glossary/quality-debt/) -- accumulated readability degradation over time
+- [Quality Debt](@/glossary/quality-debt.md) -- accumulated readability degradation over time
 
 ## See Also
 
-- [Quality Gates](/capabilities/) -- automated readability enforcement
-- [Elixir Best Practices](/architecture/) -- platform coding standards
-- [DOCS Doctrine](/architecture/) -- documentation completeness standard
+- [Quality Gates](@/capabilities/_index.md) -- automated readability enforcement
+- [Elixir Best Practices](@/architecture/_index.md) -- platform coding standards
+- [DOCS Doctrine](@/architecture/_index.md) -- documentation completeness standard
 - [Credo Documentation](https://hexdocs.pm/credo/)
 
 ---
@@ -489,4 +489,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

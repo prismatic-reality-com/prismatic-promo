@@ -35,7 +35,7 @@ The formalization of OSINT as a recognized intelligence discipline traces to the
 
 The 2004 publication of the US 9/11 Commission Report highlighted the intelligence community's failure to synthesize publicly available information that could have provided warning of the attacks. This catalyzed institutional investment in OSINT capabilities. The creation of the Open Source Center (OSC) in 2005 and its successor, the Open Source Enterprise (OSE), formalized OSINT's role within the US intelligence community.
 
-In the private sector, OSINT techniques gained prominence through cybersecurity research, competitive intelligence, and due diligence investigations. The Prismatic Platform's OSINT capabilities draw from over 20 years of practical intelligence work captured in the [GARDEN](/glossary/garden/) knowledge base, particularly the `sig` repository containing 250+ OSINT provider integrations.
+In the private sector, OSINT techniques gained prominence through cybersecurity research, competitive intelligence, and due diligence investigations. The Prismatic Platform's OSINT capabilities draw from over 20 years of practical intelligence work captured in the [GARDEN](@/glossary/garden.md) knowledge base, particularly the `sig` repository containing 250+ OSINT provider integrations.
 
 ## Technical Deep Dive
 
@@ -160,7 +160,7 @@ end
 
 ### Entity Resolution
 
-A core challenge in OSINT is [entity resolution](/glossary/entity-resolution/) -- determining whether references from different sources refer to the same real-world entity. Names vary (John Smith, J. Smith, John R. Smith), addresses change, organizations use multiple names, and individuals appear in different contexts:
+A core challenge in OSINT is [entity resolution](@/glossary/entity-resolution.md) -- determining whether references from different sources refer to the same real-world entity. Names vary (John Smith, J. Smith, John R. Smith), addresses change, organizations use multiple names, and individuals appear in different contexts:
 
 ```elixir
 defmodule PrismaticOSINT.EntityResolution do
@@ -285,13 +285,13 @@ end
 
 ## NABLA Compliance for OSINT
 
-All OSINT findings in the Prismatic Platform must comply with [NABLA Infinity](/glossary/nabla-infinity/) epistemic axioms:
+All OSINT findings in the Prismatic Platform must comply with [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic axioms:
 
 | Axiom | OSINT Application | Enforcement |
 |-------|-------------------|-------------|
 | **Signal Plurality** | Minimum 2 independent sources for any claim | HARD -- single-source findings marked "unverified" |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Conflicting records preserved, not resolved | HARD -- both versions stored with provenance |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | Every finding traces to its source | HARD -- source URL, timestamp, and method recorded |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Conflicting records preserved, not resolved | HARD -- both versions stored with provenance |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | Every finding traces to its source | HARD -- source URL, timestamp, and method recorded |
 | **Time Decay** | Findings have freshness timestamps | HARD -- stale findings downgraded automatically |
 | **Source Independence** | Cross-verify across independent providers | SOFT -- independent corroboration weighted higher |
 
@@ -359,7 +359,7 @@ end
 
 ## OSINT Toolbox UI
 
-The Prismatic Platform exposes 120 OSINT tools through a [LiveView](/glossary/phoenix-liveview/) interface at `/osint/toolbox`, organized into 7 categories:
+The Prismatic Platform exposes 120 OSINT tools through a [LiveView](@/glossary/phoenix-liveview.md) interface at `/osint/toolbox`, organized into 7 categories:
 
 | Category | Tools | Key Sources |
 |----------|-------|-------------|
@@ -371,7 +371,7 @@ The Prismatic Platform exposes 120 OSINT tools through a [LiveView](/glossary/ph
 | **US** | 1 | SEC EDGAR |
 | **Universal** | 2 | EmailIntelligence, EmailIntelligenceRateLimited |
 
-Each tool exposes a consistent interface through the LiveView dashboard: input parameters, execution control, results display, and export capabilities. The UI integrates with the platform's [telemetry](/glossary/telemetry/) infrastructure for performance monitoring and rate limit visibility.
+Each tool exposes a consistent interface through the LiveView dashboard: input parameters, execution control, results display, and export capabilities. The UI integrates with the platform's [telemetry](@/glossary/telemetry.md) infrastructure for performance monitoring and rate limit visibility.
 
 ## Usage in Prismatic Platform
 
@@ -385,7 +385,7 @@ The Prismatic Platform has deep OSINT roots extending back to the GARDEN knowled
 | **Visitor Intelligence** | `prismatic_hawkeye` | IP geolocation, organization mapping, threat correlation |
 | **Sanctions Screening** | `prismatic_osint` | EU/US/UN sanctions lists, PEP databases |
 | **Business Intelligence** | `prismatic_osint` | Czech registry, ARES, commercial register |
-| **[Threat Intelligence](/glossary/threat-intelligence/)** | `prismatic_osint` | IOC feeds, malware databases, vulnerability correlation |
+| **[Threat Intelligence](@/glossary/threat-intelligence.md)** | `prismatic_osint` | IOC feeds, malware databases, vulnerability correlation |
 
 ### GARDEN OSINT Heritage
 
@@ -417,7 +417,7 @@ The GARDEN knowledge base contributes 250+ OSINT provider integrations from the 
 
 **Verify through multiple independent sources.** Never rely on a single OSINT source for critical intelligence. Cross-reference findings across at least two independent sources. A domain registration record corroborated by certificate transparency logs and DNS records provides much higher confidence than any single source alone.
 
-**Track provenance meticulously.** Every finding must include its source URL, retrieval timestamp, and collection method. [Provenance](/glossary/provenance-mandatory/) enables verification, freshness assessment, and legal defensibility. Without provenance, intelligence is indistinguishable from rumor.
+**Track provenance meticulously.** Every finding must include its source URL, retrieval timestamp, and collection method. [Provenance](@/glossary/provenance-mandatory.md) enables verification, freshness assessment, and legal defensibility. Without provenance, intelligence is indistinguishable from rumor.
 
 **Respect rate limits and terms of service.** Aggressive scraping or API abuse damages the OSINT community by causing providers to restrict access. Implement proper rate limiting, honor robots.txt, and comply with API terms of service. Sustainable collection ensures long-term access.
 
@@ -439,22 +439,22 @@ The GARDEN knowledge base contributes 250+ OSINT provider integrations from the 
 
 ## Related Concepts
 
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Multi-source correlation methodology for OSINT data
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Structured threat information derived from OSINT sources
-- [EASM](/glossary/easm/) -- OSINT-powered external attack surface management
-- [Entity Resolution](/glossary/entity-resolution/) -- Fuzzy matching across OSINT source variations
-- [GARDEN](/glossary/garden/) -- Legacy knowledge base with 250+ OSINT providers
-- [Sanctions Screening](/glossary/sanctions-screening/) -- Regulatory compliance using OSINT data sources
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- EASM application consuming OSINT intelligence
-- [DNS Enumeration](/glossary/dns-enumeration/) -- Domain intelligence collection technique
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Security assessment powered by OSINT data
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Multi-source correlation methodology for OSINT data
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Structured threat information derived from OSINT sources
+- [EASM](@/glossary/easm.md) -- OSINT-powered external attack surface management
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Fuzzy matching across OSINT source variations
+- [GARDEN](@/glossary/garden.md) -- Legacy knowledge base with 250+ OSINT providers
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- Regulatory compliance using OSINT data sources
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- EASM application consuming OSINT intelligence
+- [DNS Enumeration](@/glossary/dns-enumeration.md) -- Domain intelligence collection technique
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Security assessment powered by OSINT data
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Agents](/agents/) -- OSINT-specialized AIAD agents
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- OSINT applications in the umbrella
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Agents](@/agents/_index.md) -- OSINT-specialized AIAD agents
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- OSINT applications in the umbrella
 
 ---
 
@@ -463,4 +463,4 @@ The GARDEN knowledge base contributes 250+ OSINT provider integrations from the 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

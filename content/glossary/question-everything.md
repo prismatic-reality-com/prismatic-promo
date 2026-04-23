@@ -463,15 +463,15 @@ The deepest application of Question Everything is questioning the evidence used 
 
 ### Red Team Application
 
-The [Red Team](/glossary/red-team/) operationalizes Question Everything through adversarial simulation. By actively trying to break system assumptions, the Red Team discovers failure modes that passive monitoring misses.
+The [Red Team](@/glossary/red-team.md) operationalizes Question Everything through adversarial simulation. By actively trying to break system assumptions, the Red Team discovers failure modes that passive monitoring misses.
 
 ### Blue Team Application
 
-The [Blue Team](/glossary/blue-team/) applies Question Everything defensively, questioning whether security assumptions hold under observed conditions and whether defensive measures are actually effective.
+The [Blue Team](@/glossary/blue-team.md) applies Question Everything defensively, questioning whether security assumptions hold under observed conditions and whether defensive measures are actually effective.
 
 ### Purple Team Synthesis
 
-The [Purple Team](/glossary/purple-team/) synthesizes questioning from both Red and Blue perspectives, identifying gaps where neither adversarial attack nor defensive monitoring has challenged a critical assumption.
+The [Purple Team](@/glossary/purple-team.md) synthesizes questioning from both Red and Blue perspectives, identifying gaps where neither adversarial attack nor defensive monitoring has challenged a critical assumption.
 
 ## Usage in Prismatic Platform
 
@@ -550,22 +550,22 @@ The Question Everything principle has been operationalized progressively through
 
 ## Related Concepts
 
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Preserving conflicting evidence rather than resolving prematurely
-- [Signal Plurality](/glossary/signal-plurality/) -- Requiring multiple independent evidence sources
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-pass verification for claim validation
-- [Proves Before Claiming](/glossary/proves-before-claiming/) -- Evidence-first approach to assertions
-- [Truth Over Convenience](/glossary/truth-over-convenience/) -- Prioritizing accuracy over comfortable falsehoods
-- [Scientific Rigor](/glossary/scientific-rigor/) -- Systematic methodology in engineering
-- [Code as Hypothesis](/glossary/code-as-hypothesis/) -- Treating code as testable claims
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- Evidence-weighted belief updating
-- [Cherry Picking](/glossary/cherry-picking/) -- Anti-pattern of selective evidence use
-- [Addiction Recovery](/glossary/addiction-recovery/) -- Epistemic vigilance against comfortable falsehoods
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Preserving conflicting evidence rather than resolving prematurely
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Requiring multiple independent evidence sources
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-pass verification for claim validation
+- [Proves Before Claiming](@/glossary/proves-before-claiming.md) -- Evidence-first approach to assertions
+- [Truth Over Convenience](@/glossary/truth-over-convenience.md) -- Prioritizing accuracy over comfortable falsehoods
+- [Scientific Rigor](@/glossary/scientific-rigor.md) -- Systematic methodology in engineering
+- [Code as Hypothesis](@/glossary/code-as-hypothesis.md) -- Treating code as testable claims
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- Evidence-weighted belief updating
+- [Cherry Picking](@/glossary/cherry-picking.md) -- Anti-pattern of selective evidence use
+- [Addiction Recovery](@/glossary/addiction-recovery.md) -- Epistemic vigilance against comfortable falsehoods
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture shaped by epistemic rigor
-- [Technologies](/technologies/) -- Technology choices validated through questioning
-- [Apps](/apps/) -- Applications built on verified assumptions
+- [Architecture](@/architecture/_index.md) -- Platform architecture shaped by epistemic rigor
+- [Technologies](@/technologies/_index.md) -- Technology choices validated through questioning
+- [Apps](@/apps/_index.md) -- Applications built on verified assumptions
 
 ---
 
@@ -574,4 +574,4 @@ The Question Everything principle has been operationalized progressively through
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

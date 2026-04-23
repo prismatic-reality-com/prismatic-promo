@@ -37,7 +37,7 @@ Modern AI-assisted development platforms face a fundamental discoverability chal
 
 The Agent Registry solves this problem by maintaining a structured, searchable index of every agent's capabilities, authority boundaries, and operational domain. Queries like "find all agents capable of formal verification" or "which L2 commanders operate in the security domain" resolve to concrete, deployable components with full metadata. The registry eliminates knowledge silos by making every agent's purpose, constraints, and coordination graph explicit and queryable -- by both human operators and automated orchestration systems.
 
-The registry is built on the [AIAD Standard](/capabilities/aiad-standard/), a vendor-neutral specification for describing AI agents, commands, workflows, and policies. AIAD provides the schema language (`agent-spec`) that gives each registry entry a consistent structure. This consistency enables cross-platform support: the same agent definitions work with Claude Code, ChatGPT, Gemini, and other LLM systems because AIAD does not depend on any single provider's API or prompt format.
+The registry is built on the [AIAD Standard](@/capabilities/aiad-standard.md), a vendor-neutral specification for describing AI agents, commands, workflows, and policies. AIAD provides the schema language (`agent-spec`) that gives each registry entry a consistent structure. This consistency enables cross-platform support: the same agent definitions work with Claude Code, ChatGPT, Gemini, and other LLM systems because AIAD does not depend on any single provider's API or prompt format.
 
 ## Domain Architecture
 
@@ -60,11 +60,11 @@ The 14 operational domains provide the primary organizational taxonomy for the r
 | **Compliance** | ~15 | GDPR, NIS2, ZKB, regulatory framework enforcement | `cer-compliance-commander`, `compliance-auditing-specialist` |
 | **ChatGPT Integration** | ~10 | Cross-LLM coordination, context synchronization | `chatgpt-bridge-commander`, `chatgpt-workflow-orchestrator` |
 
-Domain membership is not exclusive. An agent may operate across multiple domains. For example, `gate-sentinel` belongs to both Quality and Evolution because it enforces [Quality Gates](/capabilities/quality-gates/) during evolution cycles. The security color-team agents span Security, Epistemic, and Quality domains because adversarial simulation requires expertise across all three areas.
+Domain membership is not exclusive. An agent may operate across multiple domains. For example, `gate-sentinel` belongs to both Quality and Evolution because it enforces [Quality Gates](@/capabilities/quality-gates.md) during evolution cycles. The security color-team agents span Security, Epistemic, and Quality domains because adversarial simulation requires expertise across all three areas.
 
 ## Agent Hierarchy
 
-The agent hierarchy establishes a clear chain of command with four distinct authority levels. Each level has defined responsibilities, escalation paths, and coordination patterns that prevent conflicts and ensure decisive action under the [NO MERCY](/capabilities/no-mercy/) doctrine.
+The agent hierarchy establishes a clear chain of command with four distinct authority levels. Each level has defined responsibilities, escalation paths, and coordination patterns that prevent conflicts and ensure decisive action under the [NO MERCY](@/capabilities/no-mercy.md) doctrine.
 
 ### L1 -- Strategic Supreme (5 agents)
 
@@ -133,7 +133,7 @@ agent-spec:
     aiad_version: "1.0.0"
 ```
 
-The specification schema enforces several invariants. Every agent must declare a unique `id`, a valid hierarchy level (L1 through L4), at least one operational domain, and the mandatory enforcement block referencing the [NO MERCY](/capabilities/no-mercy/) [NO DOUBTS](/capabilities/no-doubts/) doctrine. The `coordination.coordinates_with` field creates a graph of inter-agent dependencies that the orchestration layer uses when assembling agent teams.
+The specification schema enforces several invariants. Every agent must declare a unique `id`, a valid hierarchy level (L1 through L4), at least one operational domain, and the mandatory enforcement block referencing the [NO MERCY](@/capabilities/no-mercy.md) [NO DOUBTS](@/capabilities/no-doubts.md) doctrine. The `coordination.coordinates_with` field creates a graph of inter-agent dependencies that the orchestration layer uses when assembling agent teams.
 
 Key fields and their semantics:
 
@@ -151,7 +151,7 @@ Key fields and their semantics:
 
 ## Discovery and Search
 
-The registry supports multiple query patterns for locating agents, from interactive slash commands to programmatic [Elixir](/technologies/elixir/) API calls.
+The registry supports multiple query patterns for locating agents, from interactive slash commands to programmatic [Elixir](@/technologies/elixir.md) API calls.
 
 ### Slash Command Interface
 
@@ -227,7 +227,7 @@ When an agent is superseded by a more capable replacement or its domain is restr
 
 ## Quality Standards
 
-Every agent in the registry must meet the platform's zero-tolerance quality requirements enforced by the [NO MERCY](/capabilities/no-mercy/) doctrine and validated through the [Quality Gates](/capabilities/quality-gates/) pipeline.
+Every agent in the registry must meet the platform's zero-tolerance quality requirements enforced by the [NO MERCY](@/capabilities/no-mercy.md) doctrine and validated through the [Quality Gates](@/capabilities/quality-gates.md) pipeline.
 
 ### Mandatory Requirements
 
@@ -261,7 +261,7 @@ Agents are evaluated on operational fitness metrics that feed back into the evol
 
 ## AIAD Integration
 
-The Agent Registry is a core component of the [AIAD Standard](/capabilities/aiad-standard/) ecosystem. The integration operates at three levels.
+The Agent Registry is a core component of the [AIAD Standard](@/capabilities/aiad-standard.md) ecosystem. The integration operates at three levels.
 
 ### Specification Level
 
@@ -273,7 +273,7 @@ The AIAD CLI (`./aiad/bin/aiad`) provides the operational interface for registry
 
 ### Enforcement Level
 
-The mandatory enforcement block in every agent specification connects individual agents to the platform's doctrine system. The [NO MERCY](/capabilities/no-mercy/) doctrine requires complete execution with zero tolerance for incomplete implementations. The [NO DOUBTS](/capabilities/no-doubts/) doctrine requires full investigation before action and evidence-based verification of results. The [Trinity Gate](/capabilities/trinity-gate/) provides the formal verification layer that validates agent outputs meet structural, logical, and formal consistency requirements.
+The mandatory enforcement block in every agent specification connects individual agents to the platform's doctrine system. The [NO MERCY](@/capabilities/no-mercy.md) doctrine requires complete execution with zero tolerance for incomplete implementations. The [NO DOUBTS](@/capabilities/no-doubts.md) doctrine requires full investigation before action and evidence-based verification of results. The [Trinity Gate](@/capabilities/trinity-gate.md) provides the formal verification layer that validates agent outputs meet structural, logical, and formal consistency requirements.
 
 ## Statistics and Metrics
 
@@ -319,17 +319,17 @@ Every operational capability of the platform is covered by at least one agent. T
 
 The Agent Registry integrates with and is referenced by numerous platform components:
 
-- **[AIAD Standard](/capabilities/aiad-standard/)** -- The specification framework that defines agent schemas
-- **[NO MERCY](/capabilities/no-mercy/)** -- The execution doctrine enforced by every agent's enforcement block
-- **[NO DOUBTS](/capabilities/no-doubts/)** -- The investigation doctrine requiring evidence-based action
-- **[Trinity Gate](/capabilities/trinity-gate/)** -- The formal verification gate that validates agent outputs
-- **[Quality Gates](/capabilities/quality-gates/)** -- The quality pipeline that validates agent specifications
-- **[Color Teams](/capabilities/color-teams/)** -- The security operations framework with 20 specialized agents
-- **[NABLA Axioms](/capabilities/nabla-axioms/)** -- The epistemic framework grounding agent reasoning
-- **[Elixir](/technologies/elixir/)** -- The implementation language for runtime agent infrastructure
-- **[ETS](/technologies/ets/)** -- The in-memory storage backend for the runtime registry
-- **[GenServer](/technologies/genserver/)** -- The OTP pattern used by the agent runtime system
-- **[Command Registry](/registry/commands/)** -- The companion catalog of slash commands that invoke agents
+- **[AIAD Standard](@/capabilities/aiad-standard.md)** -- The specification framework that defines agent schemas
+- **[NO MERCY](@/capabilities/no-mercy.md)** -- The execution doctrine enforced by every agent's enforcement block
+- **[NO DOUBTS](@/capabilities/no-doubts.md)** -- The investigation doctrine requiring evidence-based action
+- **[Trinity Gate](@/capabilities/trinity-gate.md)** -- The formal verification gate that validates agent outputs
+- **[Quality Gates](@/capabilities/quality-gates.md)** -- The quality pipeline that validates agent specifications
+- **[Color Teams](@/capabilities/color-teams.md)** -- The security operations framework with 20 specialized agents
+- **[NABLA Axioms](@/capabilities/nabla-axioms.md)** -- The epistemic framework grounding agent reasoning
+- **[Elixir](@/technologies/elixir.md)** -- The implementation language for runtime agent infrastructure
+- **[ETS](@/technologies/ets.md)** -- The in-memory storage backend for the runtime registry
+- **[GenServer](@/technologies/genserver.md)** -- The OTP pattern used by the agent runtime system
+- **[Command Registry](@/registry/commands.md)** -- The companion catalog of slash commands that invoke agents
 
 ---
 
@@ -338,4 +338,4 @@ The Agent Registry integrates with and is referenced by numerous platform compon
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

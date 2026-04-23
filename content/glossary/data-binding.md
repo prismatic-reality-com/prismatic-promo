@@ -35,9 +35,9 @@ see_also = ["capabilities", "architecture", "technologies"]
 
 ## Definition
 
-Data binding is the mechanism that creates a live connection between a data source and a consumer (typically a user interface), ensuring that changes to the underlying data are automatically propagated to the presentation layer and, in bidirectional binding, that user interactions update the data source. In traditional client-side frameworks (React, Vue, Angular), data binding operates through observer patterns, virtual DOM diffing, or reactive streams. In the Prismatic Platform's [Phoenix](/glossary/phoenix/) [LiveView](/glossary/liveview/) architecture, data binding is implemented server-side through socket assigns, where state changes on the server trigger minimal DOM patches sent over [WebSocket](/glossary/websocket/) connections.
+Data binding is the mechanism that creates a live connection between a data source and a consumer (typically a user interface), ensuring that changes to the underlying data are automatically propagated to the presentation layer and, in bidirectional binding, that user interactions update the data source. In traditional client-side frameworks (React, Vue, Angular), data binding operates through observer patterns, virtual DOM diffing, or reactive streams. In the Prismatic Platform's [Phoenix](@/glossary/phoenix.md) [LiveView](@/glossary/liveview.md) architecture, data binding is implemented server-side through socket assigns, where state changes on the server trigger minimal DOM patches sent over [WebSocket](@/glossary/websocket.md) connections.
 
-This server-side approach eliminates the need for client-side state management libraries, [API](/glossary/api/) serialization layers, and complex synchronization logic. The server holds the canonical state and pushes diffs to the browser, creating a fundamentally simpler architecture that retains real-time responsiveness. The tradeoff: server memory usage scales with connected users, and network latency affects interaction responsiveness.
+This server-side approach eliminates the need for client-side state management libraries, [API](@/glossary/api.md) serialization layers, and complex synchronization logic. The server holds the canonical state and pushes diffs to the browser, creating a fundamentally simpler architecture that retains real-time responsiveness. The tradeoff: server memory usage scales with connected users, and network latency affects interaction responsiveness.
 
 ## Overview
 
@@ -86,7 +86,7 @@ The bandwidth cost is surprisingly low. LiveView's diffing engine sends only cha
 
 ### Socket Assigns: The Core Mechanism
 
-[Phoenix](/glossary/phoenix/) LiveView's data binding operates through three interconnected mechanisms:
+[Phoenix](@/glossary/phoenix.md) LiveView's data binding operates through three interconnected mechanisms:
 
 1. **Socket assigns** (`assign/3`): Key-value state stored on the server socket
 2. **[HEEx](/glossary/heex/) templates**: Declarative rendering that reads assigns
@@ -121,7 +121,7 @@ When a socket assign changes, LiveView:
 
 ### PubSub-Driven Binding
 
-The most powerful binding pattern in the Prismatic Platform: external events (OSINT results, DD pipeline updates, security alerts) flow through [PubSub](/glossary/pubsub/) into LiveView assigns:
+The most powerful binding pattern in the Prismatic Platform: external events (OSINT results, DD pipeline updates, security alerts) flow through [PubSub](@/glossary/pubsub.md) into LiveView assigns:
 
 ```mermaid
 flowchart LR
@@ -424,7 +424,7 @@ end
 
 1. **Minimize assign sizes** -- only store data the template actually renders. Derive computed values in render callbacks rather than storing them in assigns.
 2. **Use temporary assigns for large lists** -- `temporary_assigns: [results: []]` prevents memory accumulation for streaming data.
-3. **Subscribe to [PubSub](/glossary/pubsub/) only when connected** -- the `connected?(socket)` guard prevents duplicate subscriptions during static mount.
+3. **Subscribe to [PubSub](@/glossary/pubsub.md) only when connected** -- the `connected?(socket)` guard prevents duplicate subscriptions during static mount.
 4. **Avoid unnecessary re-renders** -- assigning the same value to a key does not trigger a re-render, but computing and assigning derived data on every event does.
 5. **Use `assign_new/3` for data that should not change** -- prevents re-fetching on reconnection.
 6. **Prefer streams over temporary assigns** for collections with CRUD operations.
@@ -445,26 +445,26 @@ end
 
 ## Related Terms
 
-- [LiveView](/glossary/liveview/) -- Phoenix's server-side rendering framework implementing data binding
-- [Phoenix](/glossary/phoenix/) -- web framework providing the data binding infrastructure
-- [PubSub](/glossary/pubsub/) -- publish-subscribe system for external event binding
-- [WebSocket](/glossary/websocket/) -- transport protocol for real-time binding updates
+- [LiveView](@/glossary/liveview.md) -- Phoenix's server-side rendering framework implementing data binding
+- [Phoenix](@/glossary/phoenix.md) -- web framework providing the data binding infrastructure
+- [PubSub](@/glossary/pubsub.md) -- publish-subscribe system for external event binding
+- [WebSocket](@/glossary/websocket.md) -- transport protocol for real-time binding updates
 - [HEEx](/glossary/heex/) -- template engine that renders bound data
-- [GenServer](/glossary/genserver/) -- OTP behaviour managing stateful data that binds to LiveView
-- [ETS](/glossary/ets/) -- in-memory storage providing sub-millisecond data access for binding sources
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour managing stateful data that binds to LiveView
+- [ETS](@/glossary/ets.md) -- in-memory storage providing sub-millisecond data access for binding sources
 - [Assigns](/glossary/assigns/) -- the key-value state mechanism underlying LiveView binding
 - [Reactive Programming](/glossary/reactive-programming/) -- paradigm that data binding implements
-- [Event Sourcing](/glossary/event-sourcing/) -- pattern where data changes drive binding updates
+- [Event Sourcing](@/glossary/event-sourcing.md) -- pattern where data changes drive binding updates
 - [Immutable Data](/glossary/immutable-data/) -- functional principle enabling reliable diff computation
-- [Pattern Matching](/glossary/pattern-matching/) -- Elixir feature used in handle_event/handle_info binding handlers
-- [Telemetry](/glossary/telemetry/) -- observability for binding performance metrics
-- [Plug](/glossary/plug/) -- request pipeline that initializes LiveView connections
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Elixir feature used in handle_event/handle_info binding handlers
+- [Telemetry](@/glossary/telemetry.md) -- observability for binding performance metrics
+- [Plug](@/glossary/plug.md) -- request pipeline that initializes LiveView connections
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform data flow and binding architecture
-- [Capabilities](/capabilities/) -- real-time dashboard capabilities
-- [Technologies](/technologies/) -- Phoenix LiveView and real-time web technologies
+- [Architecture](@/architecture/_index.md) -- platform data flow and binding architecture
+- [Capabilities](@/capabilities/_index.md) -- real-time dashboard capabilities
+- [Technologies](@/technologies/_index.md) -- Phoenix LiveView and real-time web technologies
 
 ---
 
@@ -473,4 +473,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

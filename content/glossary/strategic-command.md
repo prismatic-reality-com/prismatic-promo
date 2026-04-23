@@ -33,11 +33,11 @@ image_alt = "Strategic Command - Prismatic Platform"
 
 ## Definition and Overview
 
-Strategic Command is the L4 agent tier responsible for multi-domain coordination and cross-cutting operational management within the Prismatic Platform's [AIAD](/glossary/aiad/) agent hierarchy. L4 agents bridge the gap between L2-L3 domain specialists who operate within focused areas and L5 Supreme agents who provide platform-wide authority. They manage complex workflows that span application boundaries, coordinate between specialist teams, and serve as the escalation gateway to Supreme authority when operations exceed their defined scope.
+Strategic Command is the L4 agent tier responsible for multi-domain coordination and cross-cutting operational management within the Prismatic Platform's [AIAD](@/glossary/aiad.md) agent hierarchy. L4 agents bridge the gap between L2-L3 domain specialists who operate within focused areas and L5 Supreme agents who provide platform-wide authority. They manage complex workflows that span application boundaries, coordinate between specialist teams, and serve as the escalation gateway to Supreme authority when operations exceed their defined scope.
 
 In military and organizational theory, strategic command sits between tactical execution (the hands-on specialists) and supreme command (the ultimate authority). This middle tier is critical because most real-world operations cross domain boundaries: a security improvement involves quality gates, code changes, testing, deployment, and monitoring -- no single specialist domain covers all these aspects. Without strategic coordination, domain specialists optimize locally but fail to deliver integrated outcomes.
 
-The Prismatic Platform's agent hierarchy consists of five tiers, with L4 Strategic Command serving as the coordination hub that transforms high-level objectives from [Supreme Commander](/glossary/supreme-commander/) into actionable multi-phase plans executed by L2-L3 specialists:
+The Prismatic Platform's agent hierarchy consists of five tiers, with L4 Strategic Command serving as the coordination hub that transforms high-level objectives from [Supreme Commander](@/glossary/supreme-commander.md) into actionable multi-phase plans executed by L2-L3 specialists:
 
 | Tier | Level | Count | Role | Scope |
 |------|-------|-------|------|-------|
@@ -224,7 +224,7 @@ end
 
 ## Escalation Protocol
 
-L4 agents follow a defined escalation protocol for operations exceeding their authority. The protocol is implemented as a first-class module with [telemetry](/glossary/telemetry/) instrumentation for audit trail compliance:
+L4 agents follow a defined escalation protocol for operations exceeding their authority. The protocol is implemented as a first-class module with [telemetry](@/glossary/telemetry.md) instrumentation for audit trail compliance:
 
 ```elixir
 defmodule PrismaticAgents.StrategicCommand.EscalationProtocol do
@@ -275,7 +275,7 @@ end
 
 ## Cross-Team Synthesis
 
-L4 agents coordinate between [Color Teams](/glossary/color-teams/) when operations require input from multiple security perspectives. This is the most complex coordination pattern because it involves adversarial-cooperative dynamics:
+L4 agents coordinate between [Color Teams](@/glossary/color-teams.md) when operations require input from multiple security perspectives. This is the most complex coordination pattern because it involves adversarial-cooperative dynamics:
 
 ```elixir
 defmodule PrismaticAgents.StrategicCommand.CrossTeamSynthesis do
@@ -435,7 +435,7 @@ L5 Supreme Commander / Archer Supreme (4 agents)
 
 4. **Communicate across teams through structured interfaces**. L4 agents should not reach into L2-L3 agent internals. Use the defined command interfaces for all cross-team communication, preserving encapsulation and enabling independent evolution of specialist agents.
 
-5. **Log coordination decisions for audit**. Strategic decisions about domain coordination, resource allocation, and escalation are logged via [telemetry](/glossary/telemetry/) for post-operation review and compliance evidence.
+5. **Log coordination decisions for audit**. Strategic decisions about domain coordination, resource allocation, and escalation are logged via [telemetry](@/glossary/telemetry.md) for post-operation review and compliance evidence.
 
 6. **Implement rollback strategies**. Multi-domain operations can fail partway through. L4 agents must define rollback strategies (compensate, abort, or manual) for each coordination plan to maintain system consistency.
 
@@ -453,21 +453,21 @@ L5 Supreme Commander / Archer Supreme (4 agents)
 
 ## Related Concepts
 
-- [Agent Tier](/glossary/agent-tier/) - Full L1-L5 classification system
-- [Tactical Execution](/glossary/tactical-execution/) - L2 specialists coordinated by L4
-- [Supreme Commander](/glossary/supreme-commander/) - L5 authority receiving L4 escalations
-- [Archer Supreme](/glossary/archer-supreme/) - Crisis-focused L5 agent
-- [AIAD](/glossary/aiad/) - Agent definition standard for all tiers
-- [Purple Team](/glossary/purple-team/) - Cross-team synthesis at L3
-- [Color Teams](/glossary/color-teams/) - Six-team security operations framework coordinated by L4
-- [GenServer](/glossary/genserver/) - OTP process model backing agent coordination
-- [Telemetry](/glossary/telemetry/) - Instrumentation for coordination monitoring
+- [Agent Tier](@/glossary/agent-tier.md) - Full L1-L5 classification system
+- [Tactical Execution](@/glossary/tactical-execution.md) - L2 specialists coordinated by L4
+- [Supreme Commander](@/glossary/supreme-commander.md) - L5 authority receiving L4 escalations
+- [Archer Supreme](@/glossary/archer-supreme.md) - Crisis-focused L5 agent
+- [AIAD](@/glossary/aiad.md) - Agent definition standard for all tiers
+- [Purple Team](@/glossary/purple-team.md) - Cross-team synthesis at L3
+- [Color Teams](@/glossary/color-teams.md) - Six-team security operations framework coordinated by L4
+- [GenServer](@/glossary/genserver.md) - OTP process model backing agent coordination
+- [Telemetry](@/glossary/telemetry.md) - Instrumentation for coordination monitoring
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Agents](/agents/) - Full agent catalog
-- [Commands](/commands/) - Command catalog including strategic operations
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Agents](@/agents/_index.md) - Full agent catalog
+- [Commands](@/commands/_index.md) - Command catalog including strategic operations
 
 ---
 
@@ -476,4 +476,4 @@ L5 Supreme Commander / Archer Supreme (4 agents)
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

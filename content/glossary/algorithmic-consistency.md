@@ -308,14 +308,14 @@ The Quality DNA system tracks quality metrics across sessions. For these metrics
 
 ## Related Concepts
 
-- [Formal Verification](/glossary/formal-verification/) - Mathematical proof techniques that establish algorithmic consistency with absolute certainty through tools like Lean4 and TLA+
-- [Property-Based Testing](/glossary/property-based-testing/) - Automated testing methodology that validates consistency properties across thousands of randomly generated inputs
-- [Idempotency](/glossary/idempotency/) - The specific consistency property where applying an operation multiple times produces the same result as applying it once
-- [Trinity Gate](/glossary/trinity-gate/) - The platform's three-layer verification system that enforces consistency at structural, logical, and formal levels
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework requiring consistent evidence evaluation and reproducible reasoning chains
-- [Quality Gates](/glossary/quality-gates/) - Automated checkpoints that enforce consistent quality standards across all platform code
-- [Pure Function](/glossary/pure-function/) - Functions with no side effects that are inherently algorithmically consistent by construction
-- [Determinism](/glossary/determinism/) - The foundational property that identical causes produce identical effects, underpinning all algorithmic consistency
+- [Formal Verification](@/glossary/formal-verification.md) - Mathematical proof techniques that establish algorithmic consistency with absolute certainty through tools like Lean4 and TLA+
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Automated testing methodology that validates consistency properties across thousands of randomly generated inputs
+- [Idempotency](@/glossary/idempotency.md) - The specific consistency property where applying an operation multiple times produces the same result as applying it once
+- [Trinity Gate](@/glossary/trinity-gate.md) - The platform's three-layer verification system that enforces consistency at structural, logical, and formal levels
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework requiring consistent evidence evaluation and reproducible reasoning chains
+- [Quality Gates](@/glossary/quality-gates.md) - Automated checkpoints that enforce consistent quality standards across all platform code
+- [Pure Function](@/glossary/pure-function.md) - Functions with no side effects that are inherently algorithmically consistent by construction
+- [Determinism](@/glossary/determinism.md) - The foundational property that identical causes produce identical effects, underpinning all algorithmic consistency
 
 ## See Also
 
@@ -331,4 +331,4 @@ The Quality DNA system tracks quality metrics across sessions. For these metrics
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

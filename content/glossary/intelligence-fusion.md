@@ -253,20 +253,20 @@ end
 
 ## Related Concepts
 
-- [Signal Plurality](/glossary/signal-plurality/) - NABLA axiom requiring multiple independent sources for any belief
-- [NABLA Infinity](/glossary/nabla-infinity/) - Governing epistemic framework defining fusion rules and axioms
-- [OSINT](/glossary/osint/) - Primary source methodology providing raw intelligence for fusion
-- [Confidence Threshold](/glossary/confidence-threshold/) - Tau scoring system for fused intelligence products
-- [Entity Resolution](/glossary/entity-resolution/) - Identity disambiguation within fused intelligence
-- [Threat Intelligence](/glossary/threat-intelligence/) - Security intelligence domain leveraging fusion methodology
-- [Knowledge Graph](/glossary/knowledge-graph/) - Graph representation storing fused intelligence relationships
-- [Contradiction Preservation](/glossary/contradiction-preservation/) - NABLA axiom governing conflicting evidence handling
+- [Signal Plurality](@/glossary/signal-plurality.md) - NABLA axiom requiring multiple independent sources for any belief
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Governing epistemic framework defining fusion rules and axioms
+- [OSINT](@/glossary/osint.md) - Primary source methodology providing raw intelligence for fusion
+- [Confidence Threshold](@/glossary/confidence-threshold.md) - Tau scoring system for fused intelligence products
+- [Entity Resolution](@/glossary/entity-resolution.md) - Identity disambiguation within fused intelligence
+- [Threat Intelligence](@/glossary/threat-intelligence.md) - Security intelligence domain leveraging fusion methodology
+- [Knowledge Graph](@/glossary/knowledge-graph.md) - Graph representation storing fused intelligence relationships
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) - NABLA axiom governing conflicting evidence handling
 
 ## See Also
 
-- [Architecture](/architecture/) - Intelligence fusion architecture and data flow
-- [Technologies](/technologies/) - Fusion processing technology stack
-- [Capabilities](/capabilities/) - Intelligence and analysis capabilities
+- [Architecture](@/architecture/_index.md) - Intelligence fusion architecture and data flow
+- [Technologies](@/technologies/_index.md) - Fusion processing technology stack
+- [Capabilities](@/capabilities/_index.md) - Intelligence and analysis capabilities
 
 ---
 
@@ -275,4 +275,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

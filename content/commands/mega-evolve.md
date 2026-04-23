@@ -26,9 +26,9 @@ image_alt = "/mega-evolve - Prismatic Platform"
 
 **/mega-evolve** is a production command in the **Evolution** category of the Prismatic Platform. It serves as the unified evolution orchestrator that combines all of the platform's evolution mechanisms -- genetic algorithms, mycelial pattern propagation, meta-evolution, quality debt elimination, and autonomous healing -- into a single comprehensive evolution cycle. Where individual evolution commands operate on specific subsystems, `/mega-evolve` orchestrates them all in concert, ensuring coordinated improvement across the entire platform in one atomic operation.
 
-The concept behind mega-evolution is that platform improvement is most effective when all evolution mechanisms operate synergistically rather than independently. A quality improvement discovered by the autoheal system may create opportunities for pattern propagation via [mycelialize](/commands/mycelialize/), which in turn may unlock new genetic recombination opportunities detected by [mendelize](/commands/mendelize/). By running all mechanisms in a single coordinated cycle, `/mega-evolve` captures these cross-mechanism synergies that would be lost when running evolution commands independently.
+The concept behind mega-evolution is that platform improvement is most effective when all evolution mechanisms operate synergistically rather than independently. A quality improvement discovered by the autoheal system may create opportunities for pattern propagation via [mycelialize](@/commands/mycelialize.md), which in turn may unlock new genetic recombination opportunities detected by [mendelize](@/commands/mendelize.md). By running all mechanisms in a single coordinated cycle, `/mega-evolve` captures these cross-mechanism synergies that would be lost when running evolution commands independently.
 
-This command operates under the **SUPREME** authority level -- the highest operational authority in the platform -- reflecting the scope and impact of a full mega-evolution cycle. It is executed by the `evolution-orchestrator` agent, a supreme-level agent with authority to invoke any subordinate evolution agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **SUPREME** authority level -- the highest operational authority in the platform -- reflecting the scope and impact of a full mega-evolution cycle. It is executed by the `evolution-orchestrator` agent, a supreme-level agent with authority to invoke any subordinate evolution agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 A complete mega-evolution cycle is typically executed at the end of each development session as part of the platform's mandatory session lifecycle protocol. The session-end mega-evolution ensures that all improvements discovered during the session are propagated, validated, and integrated before the session state is persisted. This discipline has driven the platform from Generation 1 to Generation 18 over the course of its evolution, achieving a fitness score of 0.999.
 
@@ -160,16 +160,16 @@ The **Baseline Phase** captures a snapshot of the platform's current quality met
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Orchestration | Orchestrates multiple evolution agents through the `evolution-orchestrator` |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Orchestration | Orchestrates multiple evolution agents through the `evolution-orchestrator` |
 | AutoHeal | Phase Integration | AutoHeal cycle as Phase 2 |
 | AutoEvolve | Phase Integration | AutoEvolve scan as Phase 3 |
-| [Mycelialize](/commands/mycelialize/) | Phase Integration | Pattern propagation as Phase 4 |
-| [Mendelize](/commands/mendelize/) | Phase Integration | Genetic operations as Phase 5 |
-| [Meta-Evolve](/commands/meta-evolve/) | Phase Integration | Meta-evolution as Phase 7 |
-| [Quality Gates](/glossary/quality-gates/) | Validation Gate | Quality gate validation as Phase 6 |
-| [Telemetry](/glossary/telemetry/) | Observability | Comprehensive evolution cycle telemetry |
-| [Quality DNA](/glossary/quality-dna/) | State Persistence | Evolution state persisted in Quality DNA |
-| [GitLab](/glossary/gitlab-ci/) | Tracking | Optional GitLab issue tracking for evolution cycles |
+| [Mycelialize](@/commands/mycelialize.md) | Phase Integration | Pattern propagation as Phase 4 |
+| [Mendelize](@/commands/mendelize.md) | Phase Integration | Genetic operations as Phase 5 |
+| [Meta-Evolve](@/commands/meta-evolve.md) | Phase Integration | Meta-evolution as Phase 7 |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation Gate | Quality gate validation as Phase 6 |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Comprehensive evolution cycle telemetry |
+| [Quality DNA](@/glossary/quality-dna.md) | State Persistence | Evolution state persisted in Quality DNA |
+| [GitLab](@/glossary/gitlab-ci.md) | Tracking | Optional GitLab issue tracking for evolution cycles |
 
 ## Best Practices
 
@@ -228,19 +228,19 @@ Configure mega-evolution to run on a schedule for continuous improvement:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for evolution regressions. The quality gate phase is non-optional and non-bypassable. Any evolution that reduces platform quality is automatically rolled back. Every phase must produce measurable improvement or maintain the current baseline -- degradation is not an acceptable outcome.
 - **NO DOUBTS**: Full measurement and verification at every phase boundary. The baseline phase establishes evidence-based starting metrics; the validation phase provides evidence-based confirmation of improvement. Evolution reports include provenance for every change, supporting audit and reproducibility.
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -249,4 +249,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

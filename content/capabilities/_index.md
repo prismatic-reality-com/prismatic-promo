@@ -70,16 +70,16 @@ Modern autonomous platforms face three critical challenges:
 2. **Security Vulnerabilities**: Autonomous systems can inadvertently create attack surfaces
 3. **Strategic Drift**: Without doctrinal anchors, systems deviate from original objectives
 
-The Prismatic Platform solves these through **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine, enforced by automated systems with human-level strategic oversight.
+The Prismatic Platform solves these through **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine, enforced by automated systems with human-level strategic oversight.
 
 ### Scope and Objectives
 
 This documentation covers:
 
-- **Core Doctrines**: NO MERCY, NO DOUBTS, [NABLA Infinity](/glossary/nabla-infinity/) [epistemic framework](/glossary/epistemic-pipeline/)
+- **Core Doctrines**: NO MERCY, NO DOUBTS, [NABLA Infinity](@/glossary/nabla-infinity.md) [epistemic framework](@/glossary/epistemic-pipeline.md)
 - **Quality Systems**: Automated quality gates, regression prevention, technical debt elimination
-- **Security Framework**: [Color-team](/glossary/color-teams/) operations, [threat modeling](/glossary/threat-intelligence/), compliance automation
-- **Evolution Mechanisms**: [Self-healing](/glossary/self-healing/) systems, autonomous improvement, strategic adaptation
+- **Security Framework**: [Color-team](@/glossary/color-teams.md) operations, [threat modeling](@/glossary/threat-intelligence.md), compliance automation
+- **Evolution Mechanisms**: [Self-healing](@/glossary/self-healing.md) systems, autonomous improvement, strategic adaptation
 - **Governance Structures**: Authority levels, escalation protocols, decision frameworks
 
 ## Core Doctrines
@@ -106,22 +106,22 @@ The foundational principle governing all platform operations with two complement
 
 ### NABLA Infinity (∇∞): Epistemic Framework
 
-Advanced epistemic system ensuring [cognitive reliability](/glossary/epistemic-robustness/) through seven non-negotiable axioms:
+Advanced epistemic system ensuring [cognitive reliability](@/glossary/epistemic-robustness.md) through seven non-negotiable axioms:
 
-1. **[Signal Plurality](/glossary/signal-plurality/)**: Minimum 2 independent signals required for belief formation
-2. **[Contradiction Preservation](/glossary/contradiction-preservation/)**: Both sides of contradictions preserved, never discarded
+1. **[Signal Plurality](@/glossary/signal-plurality.md)**: Minimum 2 independent signals required for belief formation
+2. **[Contradiction Preservation](@/glossary/contradiction-preservation.md)**: Both sides of contradictions preserved, never discarded
 3. **Absence Informative**: Missing signals tracked as meaningful information
-4. **[Time Decay](/glossary/time-decay/)**: Mandatory timestamps on all epistemic entities
+4. **[Time Decay](@/glossary/time-decay.md)**: Mandatory timestamps on all epistemic entities
 5. **Unknown Valid**: "I don't know" recognized as legitimate epistemic state
 6. **Source Independence**: Independent sources weighted appropriately
-7. **[Provenance Mandatory](/glossary/provenance-mandatory/)**: All beliefs must be traceable to sources
+7. **[Provenance Mandatory](@/glossary/provenance-mandatory.md)**: All beliefs must be traceable to sources
 
-#### [Trinity Gate](/glossary/trinity-gate/) Validation
+#### [Trinity Gate](@/glossary/trinity-gate.md) Validation
 
 All decisions must pass three consistency checks:
 1. **Structural Consistency**: Graph theory validation of logical structure
 2. **Logical Consistency**: Rule-based consistency verification
-3. **Formal Necessity**: [Modal logic](/glossary/modal-logic/) and [Lean4](/glossary/lean4/) [formal proof](/glossary/formal-verification/) requirements
+3. **Formal Necessity**: [Modal logic](@/glossary/modal-logic.md) and [Lean4](@/glossary/lean4.md) [formal proof](@/glossary/formal-verification.md) requirements
 
 ### Mandatory Session Discipline
 
@@ -187,8 +187,8 @@ Current quality status across all measurement domains:
 
 | Domain | Status | Violations | Enforcement |
 |--------|--------|------------|-------------|
-| **[Dialyzer](/glossary/dialyzer/)** | ✅ PERFECT | 0 | Type safety analysis |
-| **[Credo](/glossary/credo/)** | ✅ PERFECT | 0 | Code quality analysis |
+| **[Dialyzer](@/glossary/dialyzer.md)** | ✅ PERFECT | 0 | Type safety analysis |
+| **[Credo](@/glossary/credo.md)** | ✅ PERFECT | 0 | Code quality analysis |
 | **Compilation** | ✅ PERFECT | 0 | Zero-warning compilation |
 | **DateTime Precision** | ✅ PERFECT | 0 | Temporal accuracy |
 | **Guard Functions** | ✅ PERFECT | 0 | Pattern matching safety |
@@ -198,7 +198,7 @@ Current quality status across all measurement domains:
 | **Regression Prevention** | ✅ PERFECT | 0 | Test coverage |
 | **Timing Patterns** | ✅ PERFECT | 0 | Temporal consistency |
 | **TODO Management** | ✅ PERFECT | 0 | Task completion |
-| **[Typespec](/glossary/typespec/) Coverage** | ✅ PERFECT | 0 | Type annotation coverage |
+| **[Typespec](@/glossary/typespec.md) Coverage** | ✅ PERFECT | 0 | Type annotation coverage |
 | **Unsafe Map Access** | ✅ PERFECT | 0 | Safe data access |
 
 ### Regression Prevention Protocol (P0 - ABSOLUTE)
@@ -207,7 +207,7 @@ Current quality status across all measurement domains:
 
 Every bug fix operation MUST:
 1. **Identify root cause** and failure mode before fixing
-2. **Create [regression tests](/glossary/regression-test/)** that would have caught the bug
+2. **Create [regression tests](@/glossary/regression-test.md)** that would have caught the bug
 3. **Verify test failure** with unfixed code (test validity proof)
 4. **Apply the fix** and verify test passes (fix validation)
 5. **Report completion** with mandatory summary format
@@ -224,12 +224,12 @@ Advanced security framework with **20 agents** across **6 color teams** for epis
 
 | Team | Role | Agents | Authority Level |
 |------|------|--------|----------------|
-| **[Gray](/glossary/gray-team/)** | Boundary Exploration | 3 | L3-L4 (Read-only) |
-| **[Red](/glossary/red-team/)** | [Adversarial](/glossary/adversarial-architecture/) Simulation | 4 | L2-L3 (Sandboxed) |
-| **[Blue](/glossary/blue-team/)** | Defense Operations | 4 | L2-L3 (Evidence synthesis) |
-| **[Purple](/glossary/purple-team/)** | Synthesis Hub | 4 | L3 (Closure authority) |
-| **[White](/glossary/white-team/)** | Verification | 3 | L3-L4 (Proof generation) |
-| **[Black](/glossary/black-team/)** | Threat Modeling | 2 | L3 (MAXIMUM isolation) |
+| **[Gray](@/glossary/gray-team.md)** | Boundary Exploration | 3 | L3-L4 (Read-only) |
+| **[Red](@/glossary/red-team.md)** | [Adversarial](@/glossary/adversarial-architecture.md) Simulation | 4 | L2-L3 (Sandboxed) |
+| **[Blue](@/glossary/blue-team.md)** | Defense Operations | 4 | L2-L3 (Evidence synthesis) |
+| **[Purple](@/glossary/purple-team.md)** | Synthesis Hub | 4 | L3 (Closure authority) |
+| **[White](@/glossary/white-team.md)** | Verification | 3 | L3-L4 (Proof generation) |
+| **[Black](@/glossary/black-team.md)** | Threat Modeling | 2 | L3 (MAXIMUM isolation) |
 
 #### Security Protocols
 
@@ -257,7 +257,7 @@ Multi-level authority structure with defined escalation protocols:
 
 ### Self-Healing Ecosystem (SEADF)
 
-**7-subsystem [SEADF](/glossary/seadf/) framework** for continuous platform improvement:
+**7-subsystem [SEADF](@/glossary/seadf.md) framework** for continuous platform improvement:
 
 1. **Scanner**: Automated detection of improvement opportunities
 2. **Pipeline**: Orchestrated improvement workflows
@@ -276,7 +276,7 @@ mix seadf heal quality_guardian     # Heal quality protection systems
 
 ### Quality DNA System
 
-Cross-session continuity system preserving platform evolution ([Quality DNA](/glossary/quality-dna/)):
+Cross-session continuity system preserving platform evolution ([Quality DNA](@/glossary/quality-dna.md)):
 
 - **Persistent State**: `.claude/quality-dna/current-state.json`
 - **Evolution Tracking**: Generation-by-generation improvement metrics
@@ -287,7 +287,7 @@ Current evolution status: **Generation 18** with **0.999 apex fitness** achieved
 
 ### Technical Debt Elimination
 
-**Automated [Quality Debt](/glossary/quality-debt/) Elimination** with zero-tolerance enforcement:
+**Automated [Quality Debt](@/glossary/quality-debt.md) Elimination** with zero-tolerance enforcement:
 
 - **Pre-commit Blocking**: Commits blocked unless QDP quota met
 - **Quality Gates**: All gates must pass before merge
@@ -300,7 +300,7 @@ Current technical debt: **0 QDP** (Complete elimination achieved)
 
 ### Agent Coordination System
 
-**434+ [AIAD](/glossary/aiad/) [agents](/glossary/agent/)** organized across **14 domains**:
+**434+ [AIAD](@/glossary/aiad.md) [agents](@/glossary/agent.md)** organized across **14 domains**:
 
 | Domain | Agents | Authority | Primary Function |
 |--------|---------|-----------|------------------|
@@ -349,11 +349,11 @@ end
 
 ### 3NL Framework Integration
 
-All capabilities operate within the **[Three Nested Levels](/glossary/three-nl/)** architectural framework:
+All capabilities operate within the **[Three Nested Levels](@/glossary/three-nl.md)** architectural framework:
 
 - **Level 1 (Strategic)**: Public interfaces, high-level orchestration
 - **Level 2 (Tactical)**: Inter-component coordination, agent messaging
-- **Level 3 (Operational)**: Implementation details, [OTP](/glossary/otp/) processes
+- **Level 3 (Operational)**: Implementation details, [OTP](@/glossary/otp.md) processes
 
 ### Cross-Domain Coordination
 
@@ -411,9 +411,9 @@ end
 
 Platform capabilities ensure compliance with relevant standards:
 
-- **[GDPR](/glossary/gdpr/)**: Data protection and privacy compliance
-- **[SOC 2](/glossary/soc2/)**: Security and availability controls
-- **[ISO 27001](/glossary/iso-27001/)**: Information security management
+- **[GDPR](@/glossary/gdpr.md)**: Data protection and privacy compliance
+- **[SOC 2](@/glossary/soc2.md)**: Security and availability controls
+- **[ISO 27001](@/glossary/iso-27001.md)**: Information security management
 - **NIST Cybersecurity Framework**: Security best practices
 
 ### Internal Standards
@@ -451,19 +451,19 @@ These capabilities position the Prismatic Platform as a foundational technology 
 
 ### Internal Documentation
 
-- [Quality Gates System](/capabilities/quality-gates/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Quality Gates System](/capabilities/quality-gates/)
-- [Session Discipline Protocol](/capabilities/session-discipline/)
-- [AIAD Standard](/capabilities/aiad-standard/)
-- [Color-Team Security](/teams/)
+- [Quality Gates System](@/capabilities/quality-gates.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Quality Gates System](@/capabilities/quality-gates.md)
+- [Session Discipline Protocol](@/capabilities/session-discipline.md)
+- [AIAD Standard](@/capabilities/aiad-standard.md)
+- [Color-Team Security](@/teams/_index.md)
 
 ### Architecture References
 
-- [3NL Framework](/glossary/3nl/)
-- [Agent Architecture](/agents/)
-- [Platform Architecture](/architecture/)
-- [Platform Architecture](/architecture/)
+- [3NL Framework](@/glossary/3nl.md)
+- [Agent Architecture](@/agents/_index.md)
+- [Platform Architecture](@/architecture/_index.md)
+- [Platform Architecture](@/architecture/_index.md)
 
 ### External Standards
 
@@ -483,4 +483,4 @@ These capabilities position the Prismatic Platform as a foundational technology 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

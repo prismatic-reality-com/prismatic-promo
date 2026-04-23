@@ -28,7 +28,7 @@ image_alt = "/pattern - Prismatic Platform"
 
 The command serves two primary functions. First, it enables developers and agents to query the pattern library by name, category, problem description, or architectural context, retrieving structured pattern definitions that guide implementation decisions. Second, it performs pattern detection against existing code, identifying where established patterns are already in use and where they could be beneficially applied. This dual capability -- lookup and detection -- bridges the gap between documented architectural knowledge and live codebase practice.
 
-This command operates under the **L2+** authority level and is executed by the `pattern-lookup-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The pattern lookup specialist agent maintains an in-memory index of all patterns, enabling sub-millisecond lookups by name and rapid semantic search by description.
+This command operates under the **L2+** authority level and is executed by the `pattern-lookup-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The pattern lookup specialist agent maintains an in-memory index of all patterns, enabling sub-millisecond lookups by name and rapid semantic search by description.
 
 The pattern library represents the platform's accumulated architectural wisdom -- lessons learned across two decades of software development, encoded in a form that is both human-readable and machine-queryable. Patterns are not merely documentation; they are active knowledge assets that influence code generation, quality assessment, and architectural decision-making throughout the platform. The /pattern command is the primary access point to this knowledge.
 
@@ -180,15 +180,15 @@ Pattern detection operates at the Elixir AST level, analyzing module structures,
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `pattern-lookup-specialist` | Pattern expertise |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `pattern-lookup-specialist` | Pattern expertise |
 | AIAD Registry | Pattern catalog | Patterns registered as AIAD components |
-| [GARDEN](/glossary/garden/) | Legacy patterns | 55+ patterns from 20+ years |
-| [/inject](/commands/inject/) | Pattern deployment | Inject applies patterns to code |
-| [/mycelialize](/commands/mycelialize/) | Pattern propagation | Biological-inspired pattern spreading |
-| [/analyze](/commands/analyze/) | Architecture analysis | Pattern detection informs analysis |
-| [Telemetry](/glossary/telemetry/) | Usage metrics | Pattern lookup and detection tracking |
-| [/architect](/commands/architect/) | Architecture design | Patterns guide design recommendations |
-| [/quality-evolve](/commands/quality-evolve/) | Quality improvement | Anti-patterns drive evolution targets |
+| [GARDEN](@/glossary/garden.md) | Legacy patterns | 55+ patterns from 20+ years |
+| [/inject](@/commands/inject.md) | Pattern deployment | Inject applies patterns to code |
+| [/mycelialize](@/commands/mycelialize.md) | Pattern propagation | Biological-inspired pattern spreading |
+| [/analyze](@/commands/analyze.md) | Architecture analysis | Pattern detection informs analysis |
+| [Telemetry](@/glossary/telemetry.md) | Usage metrics | Pattern lookup and detection tracking |
+| [/architect](@/commands/architect.md) | Architecture design | Patterns guide design recommendations |
+| [/quality-evolve](@/commands/quality-evolve.md) | Quality improvement | Anti-patterns drive evolution targets |
 
 ## Workflow Integration
 
@@ -198,15 +198,15 @@ The `/pattern` command plays a central role in the platform's knowledge-driven d
 
 2. **Code Review**: In the code review workflow, `/pattern --detect` identifies which patterns are used in submitted code, enabling reviewers to verify that patterns are correctly implemented and consistently applied. The detection capability also supports the platform's quality evolution by identifying areas where beneficial patterns could be applied but are currently absent.
 
-3. **SEADF Evolution**: During [SEADF](/glossary/seadf/) evolution cycles, the pattern library is consulted to evaluate proposed changes against established architectural conventions. Changes that introduce patterns not present in the library trigger a review process to determine whether a new pattern should be added or whether the change represents an architectural deviation that requires justification.
+3. **SEADF Evolution**: During [SEADF](@/glossary/seadf.md) evolution cycles, the pattern library is consulted to evaluate proposed changes against established architectural conventions. Changes that introduce patterns not present in the library trigger a review process to determine whether a new pattern should be added or whether the change represents an architectural deviation that requires justification.
 
 4. **Onboarding**: New team members use `/pattern --list` and `/pattern --category` to build understanding of the platform's architectural vocabulary. Each pattern's known uses section provides concrete examples from the codebase, connecting abstract concepts to real implementations.
 
-5. **Quality Campaigns**: Anti-pattern detection via `/pattern --detect` with focus on known problematic patterns identifies code that should be refactored. These findings feed directly into [/quality-evolve](/commands/quality-evolve/) campaigns.
+5. **Quality Campaigns**: Anti-pattern detection via `/pattern --detect` with focus on known problematic patterns identifies code that should be refactored. These findings feed directly into [/quality-evolve](@/commands/quality-evolve.md) campaigns.
 
 ## NABLA Compliance
 
-The pattern library adheres to [NABLA](/glossary/nabla-infinity/) epistemic axioms throughout its operation:
+The pattern library adheres to [NABLA](@/glossary/nabla-infinity.md) epistemic axioms throughout its operation:
 
 | Axiom | Enforcement |
 |-------|-------------|
@@ -235,14 +235,14 @@ The sub-millisecond exact lookup time is achieved through ETS-backed indexing. S
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec
-- [/pack](/commands/pack/) - Unified source archive command for AI/LLM context sharing
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
-- [/architect](/commands/architect/) - Architecture design and recommendation generation
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec
+- [/pack](@/commands/pack.md) - Unified source archive command for AI/LLM context sharing
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
+- [/architect](@/commands/architect.md) - Architecture design and recommendation generation
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
 
 ---
 
@@ -251,4 +251,4 @@ The sub-millisecond exact lookup time is achieved through ETS-backed indexing. S
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

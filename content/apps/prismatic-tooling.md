@@ -23,11 +23,11 @@ image_alt = "Prismatic Tooling - Prismatic Platform"
 
 ## Overview
 
-Prismatic Tooling provides developer productivity tools that accelerate development across all platform applications. It includes custom [mix task](/glossary/mix-task/)s for codebase exploration, code generators for scaffolding new components, debugging utilities for runtime inspection, and the platform CLI for operational control. The tooling module reduces boilerplate, enforces code standards, and ensures that developers can navigate and modify a 90-application umbrella with confidence.
+Prismatic Tooling provides developer productivity tools that accelerate development across all platform applications. It includes custom [mix task](@/glossary/mix-task.md)s for codebase exploration, code generators for scaffolding new components, debugging utilities for runtime inspection, and the platform CLI for operational control. The tooling module reduces boilerplate, enforces code standards, and ensures that developers can navigate and modify a 90-application umbrella with confidence.
 
-The cornerstone tool is `mix git_trees`, which provides codebase exploration approximately 100x faster than traditional `find` or `ls -R` commands by leveraging Git's internal tree data structures. For a repository with 37,000+ files, this translates to sub-100ms response times for file searches, [pattern matching](/glossary/pattern-matching/), and repository statistics -- making it practical to explore the codebase interactively during development.
+The cornerstone tool is `mix git_trees`, which provides codebase exploration approximately 100x faster than traditional `find` or `ls -R` commands by leveraging Git's internal tree data structures. For a repository with 37,000+ files, this translates to sub-100ms response times for file searches, [pattern matching](@/glossary/pattern-matching.md), and repository statistics -- making it practical to explore the codebase interactively during development.
 
-Code generators ensure that new applications, adapters, and test suites follow established platform patterns. Rather than copying and modifying existing code, generators produce standards-compliant scaffolds with proper [supervision tree](/glossary/supervision-tree/)s, [quality DNA](/glossary/quality-dna/) files, CLAUDE.md documentation, and test infrastructure pre-configured. This eliminates the "drift" that occurs when manually created components subtly deviate from platform conventions.
+Code generators ensure that new applications, adapters, and test suites follow established platform patterns. Rather than copying and modifying existing code, generators produce standards-compliant scaffolds with proper [supervision tree](@/glossary/supervision-tree.md)s, [quality DNA](@/glossary/quality-dna.md) files, CLAUDE.md documentation, and test infrastructure pre-configured. This eliminates the "drift" that occurs when manually created components subtly deviate from platform conventions.
 
 ## Architecture
 
@@ -48,7 +48,7 @@ Prismatic Tooling
     +-- ets_browser        # ETS table inspection
 ```
 
-All mix tasks follow the standard Mix.Task [behaviour](/glossary/behaviour/) and integrate with the platform's [telemetry](/glossary/telemetry/) system for execution tracking.
+All mix tasks follow the standard Mix.Task [behaviour](@/glossary/behaviour.md) and integrate with the platform's [telemetry](@/glossary/telemetry.md) system for execution tracking.
 
 ## Git Trees: High-Performance Codebase Exploration
 
@@ -76,7 +76,7 @@ The application scaffold generator creates a new umbrella application with the c
 
 ### Storage Adapter Generator
 
-The storage adapter generator creates a new storage backend implementation that conforms to the [Prismatic Storage Core](/apps/prismatic-storage-core/) contract. It generates the adapter module with trait declarations, callback implementations with TODO markers for backend-specific logic, and a complete contract test suite that verifies protocol compliance.
+The storage adapter generator creates a new storage backend implementation that conforms to the [Prismatic Storage Core](@/apps/prismatic-storage-core.md) contract. It generates the adapter module with trait declarations, callback implementations with TODO markers for backend-specific logic, and a complete contract test suite that verifies protocol compliance.
 
 ### OSINT Adapter Generator
 
@@ -89,12 +89,12 @@ The OSINT adapter generator scaffolds a new intelligence source integration with
 - `mix quality.gates` -- Run all quality checks across 13 domains
 - `mix autoheal.cycle` -- Automatic quality issue remediation
 - `mix autoevolve.scan` -- Detect evolution and improvement opportunities
-- `mix seadf status` -- [SEADF](/glossary/seadf/) framework health and status
+- `mix seadf status` -- [SEADF](@/glossary/seadf.md) framework health and status
 
 ### Debugging Utilities
-- [Supervision tree](/glossary/supervision-tree/) visualization and health inspection
+- [Supervision tree](@/glossary/supervision-tree.md) visualization and health inspection
 - Process tree rendering with memory and message queue stats
-- [ETS](/glossary/ets/) table browser for runtime state inspection
+- [ETS](@/glossary/ets.md) table browser for runtime state inspection
 - Message queue inspection for detecting mailbox buildup
 
 ## Key Commands
@@ -153,10 +153,10 @@ mix test apps/prismatic_tooling/test --cover
 
 ## Integration Points
 
-- **[Prismatic Quality Intelligence](/apps/prismatic-quality-intelligence/)** -- Quality tasks powered by Quality Intelligence scoring
-- **[Prismatic Claude](/apps/prismatic-claude/)** -- Session lifecycle hooks invoke tooling tasks automatically
-- **[Prismatic Testing](/apps/prismatic-testing/)** -- Test generators produce testing infrastructure
-- **[Prismatic Telemetry](/apps/prismatic-telemetry/)** -- Task execution [metrics](/glossary/metrics/) emitted as telemetry events
+- **[Prismatic Quality Intelligence](@/apps/prismatic-quality-intelligence.md)** -- Quality tasks powered by Quality Intelligence scoring
+- **[Prismatic Claude](@/apps/prismatic-claude.md)** -- Session lifecycle hooks invoke tooling tasks automatically
+- **[Prismatic Testing](@/apps/prismatic-testing.md)** -- Test generators produce testing infrastructure
+- **[Prismatic Telemetry](@/apps/prismatic-telemetry.md)** -- Task execution [metrics](@/glossary/metrics.md) emitted as telemetry events
 
 ## NABLA Compliance
 
@@ -164,21 +164,21 @@ Tooling tasks emit provenance metadata through telemetry events that record task
 
 ## Related Components
 
-- [Prismatic Credo](/apps/prismatic-credo/) -- Custom Credo checks invoked through [quality gates](/glossary/quality-gates/)
-- [Prismatic Core](/apps/prismatic-core/) -- Core platform utilities used by tooling implementations
-- [Prismatic Safety](/apps/prismatic-safety/) -- Safety constraints on automated healing and evolution actions
+- [Prismatic Credo](@/apps/prismatic-credo.md) -- Custom Credo checks invoked through [quality gates](@/glossary/quality-gates.md)
+- [Prismatic Core](@/apps/prismatic-core.md) -- Core platform utilities used by tooling implementations
+- [Prismatic Safety](@/apps/prismatic-safety.md) -- Safety constraints on automated healing and evolution actions
 
 ## Related Agents
 
-- [CI/CD Guardrails Enforcer](/agents/cicd-guardrails-enforcer/) -- Enforces quality gates within the CI/CD pipeline using tooling tasks
-- [Evolution Analyzer Specialist](/agents/evolution-analyzer-specialist/) -- Analyzes quality metrics produced by tooling mix tasks
-- [DX Brutalist Analyst](/agents/dx-brutalist-analyst/) -- Evaluates developer experience with platform tooling and identifies friction
+- [CI/CD Guardrails Enforcer](@/agents/cicd-guardrails-enforcer.md) -- Enforces quality gates within the CI/CD pipeline using tooling tasks
+- [Evolution Analyzer Specialist](@/agents/evolution-analyzer-specialist.md) -- Analyzes quality metrics produced by tooling mix tasks
+- [DX Brutalist Analyst](@/agents/dx-brutalist-analyst.md) -- Evaluates developer experience with platform tooling and identifies friction
 
 ## Related Capabilities
 
-- [Quality Gates](/capabilities/quality-gates/) -- Mix tasks implementing the 13-domain quality gate validation pipeline
-- [Regression Tests](/capabilities/regression-tests/) -- Test generators producing regression test infrastructure for bug fixes
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Autoheal mix tasks performing automatic quality remediation
+- [Quality Gates](@/capabilities/quality-gates.md) -- Mix tasks implementing the 13-domain quality gate validation pipeline
+- [Regression Tests](@/capabilities/regression-tests.md) -- Test generators producing regression test infrastructure for bug fixes
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Autoheal mix tasks performing automatic quality remediation
 
 ---
 
@@ -187,4 +187,4 @@ Tooling tasks emit provenance metadata through telemetry events that record task
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

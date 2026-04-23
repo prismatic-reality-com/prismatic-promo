@@ -24,13 +24,13 @@ image_alt = "/czech-autocrawler-supreme - Prismatic Platform"
 
 ## Overview
 
-The **/czech-autocrawler-supreme** command orchestrates autonomous business intelligence gathering from Czech government registries using a [3NL](/glossary/three-nl/) (3-Layer Neural Learning) architecture with [AIAD](/glossary/aiad/) agent coordination. Czech Republic business registries -- ARES (Administrative Register of Economic Subjects), Justice.cz (Commercial Register), and CUZK (Czech Office for Surveying, Mapping and Cadastre) -- contain authoritative data on corporate entities, ownership structures, property holdings, and business relationships. This command automates the systematic extraction, cross-referencing, and indexing of that intelligence.
+The **/czech-autocrawler-supreme** command orchestrates autonomous business intelligence gathering from Czech government registries using a [3NL](@/glossary/three-nl.md) (3-Layer Neural Learning) architecture with [AIAD](@/glossary/aiad.md) agent coordination. Czech Republic business registries -- ARES (Administrative Register of Economic Subjects), Justice.cz (Commercial Register), and CUZK (Czech Office for Surveying, Mapping and Cadastre) -- contain authoritative data on corporate entities, ownership structures, property holdings, and business relationships. This command automates the systematic extraction, cross-referencing, and indexing of that intelligence.
 
 The 3NL architecture provides three processing layers: L1 Pattern Recognition handles Czech-specific data validation, HTML parsing, and quality assessment; L2 Knowledge Synthesis performs entity resolution, deduplication, and relationship mapping across registries; L3 Meta-Learning optimizes crawling strategies, predicts performance, and detects data anomalies. Together, these layers transform raw registry data into structured, searchable business intelligence with measurable quality metrics.
 
-This command operates under the **L3** authority level and is executed by the `czech-autocrawler` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the AIAD (Autonomous Intelligence Agent Design) standard. The command coordinates multiple specialized agents across all three neural layers and integrates with [Meilisearch](/glossary/meilisearch/) for real-time search indexing of discovered entities.
+This command operates under the **L3** authority level and is executed by the `czech-autocrawler` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the AIAD (Autonomous Intelligence Agent Design) standard. The command coordinates multiple specialized agents across all three neural layers and integrates with [Meilisearch](@/glossary/meilisearch.md) for real-time search indexing of discovered entities.
 
-Business intelligence gathered through this command feeds into the broader [OSINT](/glossary/osint/) capability of the Prismatic Platform, providing corporate structure analysis, beneficial ownership investigations, and regulatory compliance verification. All operations comply with GDPR data protection requirements and respect each registry's terms of service and rate limiting policies.
+Business intelligence gathered through this command feeds into the broader [OSINT](@/glossary/osint.md) capability of the Prismatic Platform, providing corporate structure analysis, beneficial ownership investigations, and regulatory compliance verification. All operations comply with GDPR data protection requirements and respect each registry's terms of service and rate limiting policies.
 
 ## Architecture
 
@@ -215,13 +215,13 @@ PHASE 4: COMPLETION
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Multi-agent coordination | 4 agents across 3NL layers |
-| [AIAD](/glossary/aiad/) Registry | Command specification | Supreme coordination category |
-| [Meilisearch](/glossary/meilisearch/) | Real-time search indexing | `czech_business_entities` index |
-| [Quality Gates](/glossary/quality-gates/) | Data quality enforcement | Quality threshold gating |
-| [Telemetry](/glossary/telemetry/) | Performance [metrics](/glossary/metrics/) | Throughput and error rate tracking |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Multi-agent coordination | 4 agents across 3NL layers |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification | Supreme coordination category |
+| [Meilisearch](@/glossary/meilisearch.md) | Real-time search indexing | `czech_business_entities` index |
+| [Quality Gates](@/glossary/quality-gates.md) | Data quality enforcement | Quality threshold gating |
+| [Telemetry](@/glossary/telemetry.md) | Performance [metrics](@/glossary/metrics.md) | Throughput and error rate tracking |
 | GitLab Milestones | Project management | Milestone MS-6250279 progress tracking |
-| [OSINT](/glossary/osint/) Pipeline | Intelligence integration | Feeds into broader OSINT capability |
+| [OSINT](@/glossary/osint.md) Pipeline | Intelligence integration | Feeds into broader OSINT capability |
 
 ### Registry Integration Details
 
@@ -338,19 +338,19 @@ config :prismatic_intelligence, PrismaticIntelligence.Scheduler,
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for data quality below threshold. Entities failing quality checks are rejected, not approximated. Complete crawl execution or documented partial results -- no silent failures.
 - **NO DOUBTS**: Multi-source cross-verification through L2 entity resolution. Quality metrics measured, not estimated. NABLA signal plurality enforced through multi-registry confirmation of entity identity.
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/deploy-meilisearch](/commands/deploy-meilisearch/) - Meilisearch instance deployment and configuration
-- [/delta-force](/commands/delta-force/) - Precision strike intelligence with targeted collection and analysis
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/deploy-meilisearch](@/commands/deploy-meilisearch.md) - Meilisearch instance deployment and configuration
+- [/delta-force](@/commands/delta-force.md) - Precision strike intelligence with targeted collection and analysis
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
 
 ---
 
@@ -359,4 +359,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

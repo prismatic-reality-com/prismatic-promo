@@ -28,9 +28,9 @@ image_alt = "issue-tracking-specialist - Prismatic Platform"
 
 ## Overview
 
-The issue-tracking-specialist is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the domain expertise area of the Prismatic Platform. This agent automates the extraction, classification, prioritization, and lifecycle management of issues from diverse input sources including raw text, specifications, conversation transcripts, code review comments, and error logs. It transforms unstructured problem descriptions into structured, actionable issue records compatible with the platform's GitLab-based project management workflow.
+The issue-tracking-specialist is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the domain expertise area of the Prismatic Platform. This agent automates the extraction, classification, prioritization, and lifecycle management of issues from diverse input sources including raw text, specifications, conversation transcripts, code review comments, and error logs. It transforms unstructured problem descriptions into structured, actionable issue records compatible with the platform's GitLab-based project management workflow.
 
-Built on the [AIAD](/glossary/aiad/) standard, the issue-tracking-specialist addresses a persistent challenge in software development: the gap between problem identification and problem tracking. Developers encounter issues during code review, testing, conversation, and specification analysis, but the cognitive overhead of creating properly classified, prioritized, and contextualized issue records often leads to informal tracking (notes, messages, mental lists) that creates organizational knowledge loss. This agent eliminates that gap by automatically detecting issue-worthy content in text streams and producing fully formed issue records with classification, priority, acceptance criteria, and relationship metadata.
+Built on the [AIAD](@/glossary/aiad.md) standard, the issue-tracking-specialist addresses a persistent challenge in software development: the gap between problem identification and problem tracking. Developers encounter issues during code review, testing, conversation, and specification analysis, but the cognitive overhead of creating properly classified, prioritized, and contextualized issue records often leads to informal tracking (notes, messages, mental lists) that creates organizational knowledge loss. This agent eliminates that gap by automatically detecting issue-worthy content in text streams and producing fully formed issue records with classification, priority, acceptance criteria, and relationship metadata.
 
 ## Issue Extraction Engine
 
@@ -53,8 +53,8 @@ Risk identification detects expressions of concern about potential future proble
 - **Duplicate detection** -- Compares extracted issues against existing issue databases to identify potential duplicates, linking new extractions to existing issues when appropriate
 - **Relationship mapping** -- Identifies and records relationships between issues including blocks/blocked-by, relates-to, duplicates, and parent/child hierarchies
 - **GitLab integration** -- Creates, updates, and manages GitLab issues with full metadata including labels, milestones, assignee suggestions, and time estimates
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous monitoring of text streams for issue extraction
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for extraction accuracy and pipeline performance monitoring
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous monitoring of text streams for issue extraction
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for extraction accuracy and pipeline performance monitoring
 
 ## Classification Framework
 
@@ -72,18 +72,18 @@ The lifecycle management system integrates with the platform's GitLab CI/CD pipe
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the agent to access text streams across platform components, create and modify GitLab issues, and coordinate with development workflow agents for lifecycle management.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the agent to access text streams across platform components, create and modify GitLab issues, and coordinate with development workflow agents for lifecycle management.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Domain agent runtime and lifecycle management |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Issue creation, modification, and pipeline status integration |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification, component registry, and application mapping |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Domain agent runtime and lifecycle management |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Issue creation, modification, and pipeline status integration |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification, component registry, and application mapping |
 | Prismatic Telemetry | Extraction accuracy metrics and lifecycle event tracking |
 | LLM Client | Natural language processing for issue extraction and classification |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Issue record persistence and duplicate detection indexing |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Issue record persistence and duplicate detection indexing |
 
 ## Command Interface
 
@@ -99,19 +99,19 @@ The lifecycle management system integrates with the platform's GitLab CI/CD pipe
 
 | Agent | Relationship |
 |-------|-------------|
-| [**gitlab-issue-sync-specialist**](/agents/gitlab-issue-sync-specialist/) (L3) | Synchronizes issue state between platform tracking and GitLab |
-| [**documentation-verifier**](/agents/documentation-verifier/) (L3) | Extracts documentation-related issues from verification findings |
-| [**cascade-quality-specialist**](/agents/cascade-quality-specialist/) (L3) | Technical debt issues feed into CASCADE quality elimination campaigns |
+| [**gitlab-issue-sync-specialist**](@/agents/gitlab-issue-sync-specialist.md) (L3) | Synchronizes issue state between platform tracking and GitLab |
+| [**documentation-verifier**](@/agents/documentation-verifier.md) (L3) | Extracts documentation-related issues from verification findings |
+| [**cascade-quality-specialist**](@/agents/cascade-quality-specialist.md) (L3) | Technical debt issues feed into CASCADE quality elimination campaigns |
 
 ## Quality Metrics
 
 The issue-tracking-specialist tracks extraction quality through several key metrics. Extraction precision measures the percentage of extracted items that are genuine issues (true positives versus false positives). Extraction recall measures the percentage of actual issues in the input that were successfully extracted (detected versus missed). Classification accuracy measures the percentage of correctly classified issue types and priorities. Duplicate detection accuracy measures the percentage of correctly identified duplicates versus missed duplicates and false duplicate matches.
 
-These metrics feed into continuous improvement of the extraction and classification algorithms through the [SEADF](/glossary/seadf/) evolution framework.
+These metrics feed into continuous improvement of the extraction and classification algorithms through the [SEADF](@/glossary/seadf.md) evolution framework.
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that extracted issues are complete and actionable. Every extracted issue includes a clear description, a classification, a priority assignment, and at minimum one acceptance criterion. The [NO DOUBTS](/glossary/no-doubts/) principle requires that extraction confidence is explicitly stated -- when the agent is uncertain whether a text segment represents a genuine issue or an informational observation, it flags the ambiguity rather than making an unsupported classification decision.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that extracted issues are complete and actionable. Every extracted issue includes a clear description, a classification, a priority assignment, and at minimum one acceptance criterion. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that extraction confidence is explicitly stated -- when the agent is uncertain whether a text segment represents a genuine issue or an informational observation, it flags the ambiguity rather than making an unsupported classification decision.
 
 ---
 
@@ -120,4 +120,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that extracted issues are 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

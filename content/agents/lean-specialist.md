@@ -28,9 +28,9 @@ image_alt = "lean-specialist - Prismatic Platform"
 
 ## Overview
 
-The lean-specialist is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the Prismatic Platform's formal verification domain. This agent specializes in writing, verifying, and maintaining [Lean 4](/glossary/lean4/) formal proofs that establish mathematical guarantees about platform behavior, data integrity invariants, and algorithmic correctness. Lean 4 serves as the platform's formal verification language of choice, providing a dependent type system and interactive theorem prover that enables machine-checked proofs of properties that testing alone cannot guarantee.
+The lean-specialist is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the Prismatic Platform's formal verification domain. This agent specializes in writing, verifying, and maintaining [Lean 4](@/glossary/lean4.md) formal proofs that establish mathematical guarantees about platform behavior, data integrity invariants, and algorithmic correctness. Lean 4 serves as the platform's formal verification language of choice, providing a dependent type system and interactive theorem prover that enables machine-checked proofs of properties that testing alone cannot guarantee.
 
-Built on the [AIAD](/glossary/aiad/) standard, the lean-specialist plays a critical role in the platform's [Trinity Gate](/glossary/trinity-gate/) validation system, specifically the third gate (Formal Necessity) which requires that critical claims be proven in formal systems. While property-based testing and static analysis can increase confidence in system correctness, formal proofs provide mathematical certainty that specified properties hold for all possible inputs, not just the inputs covered by tests. This distinction is essential for the platform's high-assurance components including entity resolution correctness, epistemic framework axiom compliance, and security-critical access control properties.
+Built on the [AIAD](@/glossary/aiad.md) standard, the lean-specialist plays a critical role in the platform's [Trinity Gate](@/glossary/trinity-gate.md) validation system, specifically the third gate (Formal Necessity) which requires that critical claims be proven in formal systems. While property-based testing and static analysis can increase confidence in system correctness, formal proofs provide mathematical certainty that specified properties hold for all possible inputs, not just the inputs covered by tests. This distinction is essential for the platform's high-assurance components including entity resolution correctness, epistemic framework axiom compliance, and security-critical access control properties.
 
 ## Formal Verification Scope
 
@@ -51,9 +51,9 @@ The lean-specialist's verification scope covers several categories of platform p
 - **Proof maintenance** -- Updates and extends existing proofs when platform specifications change, ensuring that the formal verification base remains current with the evolving codebase
 - **Counter-example generation** -- When a proposed property cannot be proven, identifies concrete counter-examples that demonstrate the property's violation, guiding implementation fixes
 - **Proof documentation** -- Produces human-readable documentation of formal proofs, explaining the proof strategy, key lemmas, and the practical significance of the proven property
-- **[SEADF](/glossary/seadf/) integration** -- Publishes verification results to the autonomous evolution framework, enabling proof-guided system evolution
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous verification of platform invariants
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for proof verification performance tracking
+- **[SEADF](@/glossary/seadf.md) integration** -- Publishes verification results to the autonomous evolution framework, enabling proof-guided system evolution
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous verification of platform invariants
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for proof verification performance tracking
 
 ## Lean 4 Integration Architecture
 
@@ -65,23 +65,23 @@ Proof compilation results are published to the platform's quality tracking syste
 
 ## QEVE Framework Integration
 
-The lean-specialist operates within the QEVE (Quantum Epistemic Verification Engine) framework that combines [Lean4](/glossary/lean4/) formal proofs with [NABLA Infinity](/glossary/nabla-infinity/) epistemic validation and Monte Carlo simulation. In this framework, Lean 4 proofs establish deterministic correctness guarantees, NABLA axiom compliance provides epistemic validity, and Monte Carlo simulation estimates the probability of property violations under realistic operating conditions. The lean-specialist contributes the formal proof component, producing machine-checked certainty that complements the probabilistic assurance provided by the other QEVE components.
+The lean-specialist operates within the QEVE (Quantum Epistemic Verification Engine) framework that combines [Lean4](@/glossary/lean4.md) formal proofs with [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic validation and Monte Carlo simulation. In this framework, Lean 4 proofs establish deterministic correctness guarantees, NABLA axiom compliance provides epistemic validity, and Monte Carlo simulation estimates the probability of property violations under realistic operating conditions. The lean-specialist contributes the formal proof component, producing machine-checked certainty that complements the probabilistic assurance provided by the other QEVE components.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the lean-specialist to access specifications from any platform domain, request implementation details from domain-specific agents, and publish verification results that affect quality gate decisions across the platform.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the lean-specialist to access specifications from any platform domain, request implementation details from domain-specific agents, and publish verification results that affect quality gate decisions across the platform.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
 | Lean 4 Toolchain | Proof compilation, type checking, and tactic execution |
-| [Trinity Gate](/glossary/trinity-gate/) | Formal Necessity gate contribution |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Formal Necessity gate contribution |
 | Quality Gates | Verification results feed quality score computation |
-| Prismatic Telemetry | Proof verification [metrics](/glossary/metrics/) and performance tracking |
-| [SEADF](/glossary/seadf/) | Autonomous evolution guided by verification results |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery |
+| Prismatic Telemetry | Proof verification [metrics](@/glossary/metrics.md) and performance tracking |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution guided by verification results |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
 
 ## Command Interface
 
@@ -96,9 +96,9 @@ The lean-specialist operates within the QEVE (Quantum Epistemic Verification Eng
 
 | Agent | Relationship |
 |-------|-------------|
-| [**white-verifier-commander**](/agents/white-verifier-commander/) (L3) | Orchestrates verification campaigns that include formal proof tasks |
-| [**white-invariant-prover**](/agents/white-invariant-prover/) (L4) | Collaborates on property-based testing that complements formal proofs |
-| [**white-contract-validator**](/agents/white-contract-validator/) (L4) | Validates interface contracts that formal proofs reference |
+| [**white-verifier-commander**](@/agents/white-verifier-commander.md) (L3) | Orchestrates verification campaigns that include formal proof tasks |
+| [**white-invariant-prover**](@/agents/white-invariant-prover.md) (L4) | Collaborates on property-based testing that complements formal proofs |
+| [**white-contract-validator**](@/agents/white-contract-validator.md) (L4) | Validates interface contracts that formal proofs reference |
 
 ## Proof Coverage Metrics
 
@@ -106,7 +106,7 @@ The lean-specialist tracks verification coverage across the platform, measuring 
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that formal proofs are complete and machine-verified. No theorem is reported as proven without successful Lean 4 type checking. No proof is accepted with admitted axioms (sorry/admit tactics) in production verification. The [NO DOUBTS](/glossary/no-doubts/) principle requires that the practical significance of each proven theorem is documented, connecting abstract mathematical properties to concrete system behaviors that users and developers can understand.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that formal proofs are complete and machine-verified. No theorem is reported as proven without successful Lean 4 type checking. No proof is accepted with admitted axioms (sorry/admit tactics) in production verification. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that the practical significance of each proven theorem is documented, connecting abstract mathematical properties to concrete system behaviors that users and developers can understand.
 
 ---
 
@@ -115,4 +115,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that formal proofs are com
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

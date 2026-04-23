@@ -24,11 +24,11 @@ image_alt = "/auto-ultimate - Prismatic Platform"
 
 ## Overview
 
-The **/auto-ultimate** command represents the apex of the Prismatic Platform's autonomous development hierarchy, combining MENDEL genetic optimization, mycelial collective intelligence, Lean4 formal theorem proving, and Prolog logical reasoning into a unified [intelligence fusion](/glossary/intelligence-fusion/) engine. Where [/auto](/commands/auto/) provides deterministic improvement cycles and [/auto-pro](/commands/auto-pro/) adds genetic exploration with pattern propagation, /auto-ultimate elevates autonomous evolution to a mathematically rigorous discipline by requiring machine-checkable proof certificates for every change it produces.
+The **/auto-ultimate** command represents the apex of the Prismatic Platform's autonomous development hierarchy, combining MENDEL genetic optimization, mycelial collective intelligence, Lean4 formal theorem proving, and Prolog logical reasoning into a unified [intelligence fusion](@/glossary/intelligence-fusion.md) engine. Where [/auto](@/commands/auto.md) provides deterministic improvement cycles and [/auto-pro](@/commands/auto-pro.md) adds genetic exploration with pattern propagation, /auto-ultimate elevates autonomous evolution to a mathematically rigorous discipline by requiring machine-checkable proof certificates for every change it produces.
 
 The fundamental innovation of /auto-ultimate is the integration of formal verification into the evolutionary process itself. Rather than treating verification as a post-hoc gate (as /auto and /auto-pro do), /auto-ultimate weaves correctness proofs into each generation of the genetic algorithm. Candidate improvements that cannot be formally proven to preserve system semantics are eliminated from the population before they can propagate. This produces evolution results that are not merely tested but mathematically proven to maintain the invariants of the system, a property that no amount of testing can guarantee.
 
-Operating at the COSMIC++ authority level (the highest in the platform hierarchy), /auto-ultimate is executed by the `auto-ultimate-orchestrator` agent. Its experimental status and low usage frequency reflect the computational cost of formal verification and the specialized nature of its output. The command is reserved for scenarios where the stakes justify the investment: critical infrastructure changes, security-sensitive modifications, and architectural transformations where correctness is paramount. It is part of the platform's 216-command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) standard.
+Operating at the COSMIC++ authority level (the highest in the platform hierarchy), /auto-ultimate is executed by the `auto-ultimate-orchestrator` agent. Its experimental status and low usage frequency reflect the computational cost of formal verification and the specialized nature of its output. The command is reserved for scenarios where the stakes justify the investment: critical infrastructure changes, security-sensitive modifications, and architectural transformations where correctness is paramount. It is part of the platform's 216-command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) standard.
 
 ## Usage
 
@@ -180,10 +180,10 @@ Common workflow patterns include:
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `auto-ultimate-orchestrator` with COSMIC++ authority |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `auto-ultimate-orchestrator` with COSMIC++ authority |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Per-generation formal verification with Lean4 proof compilation |
-| [Telemetry](/glossary/telemetry/) | Genetic fitness [metrics](/glossary/metrics/), proof generation timing, verification events |
+| [Quality Gates](@/glossary/quality-gates.md) | Per-generation formal verification with Lean4 proof compilation |
+| [Telemetry](@/glossary/telemetry.md) | Genetic fitness [metrics](@/glossary/metrics.md), proof generation timing, verification events |
 | MENDEL Engine | Genetic algorithm operations with proof-guided selection pressure |
 | Mycelial Network | Cross-domain pattern propagation with proof certificate transfer |
 | Lean4 Theorem Prover | Formal correctness verification and proof certificate generation |
@@ -193,7 +193,7 @@ Common workflow patterns include:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: /auto-ultimate enforces the strictest quality standards in the platform. Beyond the 100/100 quality floor, every change must be accompanied by a machine-checkable formal proof. Genetic mutations that cannot be proven correct are eliminated from the population immediately. Proof certificates that fail Lean4 compilation are treated as quality violations with automatic rollback. There are no exceptions and no bypass mechanisms.
 - **NO DOUBTS**: Every claim about correctness, safety, and semantic preservation is backed by formal mathematical proof. The Lean4 theorem prover provides the highest level of evidence possible in software engineering. Prolog constraint satisfaction ensures that logical requirements are met. The combination of genetic exploration with formal verification means that /auto-ultimate achieves both creative discovery and rigorous correctness in a single unified process.
@@ -206,18 +206,18 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 3. **Start from /auto-pro results**: Feed proven-successful /auto-pro patterns as the initial population for /auto-ultimate to reduce the search space for formal verification
 4. **Use cached proofs in CI**: For regression testing, use `--proofs=cached` to verify that existing proofs still hold without re-generating them from scratch
 5. **Monitor proof compilation time**: Track the time spent in Lean4 proof compilation to identify opportunities for proof optimization or library reorganization
-6. **Combine with architecture analysis**: Run [/architect](/commands/architect/) before /auto-ultimate to identify the formal properties that should be preserved during evolution
+6. **Combine with architecture analysis**: Run [/architect](@/commands/architect.md) before /auto-ultimate to identify the formal properties that should be preserved during evolution
 
 ## Related Commands
 
-- [/orchestrate](/commands/orchestrate/) - Revolutionary AI-powered task orchestration with 10x development efficiency
-- [/auto](/commands/auto/) - Intelligent autonomous evolution engine for zero-human-intervention improvements
-- [/auto-pro](/commands/auto-pro/) - Steroids edition with genetic optimization, swarm intelligence and quantum decisions
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/architect](/commands/architect/) - Architecture design and recommendation generation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/orchestrate](@/commands/orchestrate.md) - Revolutionary AI-powered task orchestration with 10x development efficiency
+- [/auto](@/commands/auto.md) - Intelligent autonomous evolution engine for zero-human-intervention improvements
+- [/auto-pro](@/commands/auto-pro.md) - Steroids edition with genetic optimization, swarm intelligence and quantum decisions
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/architect](@/commands/architect.md) - Architecture design and recommendation generation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
 
 ---
 
@@ -226,4 +226,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

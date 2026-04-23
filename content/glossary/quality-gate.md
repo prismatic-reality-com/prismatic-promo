@@ -444,24 +444,24 @@ Quality gates serve as automated mentors for new team members. When a new develo
 
 Quality gates connect to the broader quality and CI/CD infrastructure in the Prismatic Platform:
 
-- [Quality Gates](/glossary/quality-gates/) -- The collective system of all quality gates operating together
-- [Quality DNA](/glossary/quality-dna/) -- The persistence system that maintains quality state across sessions
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- The autonomous monitor that triggers gates on quality degradation
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- The Git mechanism that enforces quality gates at commit time
-- [Continuous Integration](/glossary/continuous-integration/) -- The pipeline infrastructure that runs quality gates on shared code
-- [Static Analysis](/glossary/static-analysis/) -- The analysis technique that powers several quality gates
-- [Dialyzer](/glossary/dialyzer/) -- The type analysis tool that implements the Dialyzer quality gate
-- [Credo](/glossary/credo/) -- The linting tool that implements the Credo quality gate
-- [Code Coverage](/glossary/code-coverage/) -- The metric that the coverage quality gate enforces
-- [Clean Run](/glossary/clean-run/) -- The zero-warning state that the compilation gate enforces
+- [Quality Gates](@/glossary/quality-gates.md) -- The collective system of all quality gates operating together
+- [Quality DNA](@/glossary/quality-dna.md) -- The persistence system that maintains quality state across sessions
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- The autonomous monitor that triggers gates on quality degradation
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- The Git mechanism that enforces quality gates at commit time
+- [Continuous Integration](@/glossary/continuous-integration.md) -- The pipeline infrastructure that runs quality gates on shared code
+- [Static Analysis](@/glossary/static-analysis.md) -- The analysis technique that powers several quality gates
+- [Dialyzer](@/glossary/dialyzer.md) -- The type analysis tool that implements the Dialyzer quality gate
+- [Credo](@/glossary/credo.md) -- The linting tool that implements the Credo quality gate
+- [Code Coverage](@/glossary/code-coverage.md) -- The metric that the coverage quality gate enforces
+- [Clean Run](@/glossary/clean-run.md) -- The zero-warning state that the compilation gate enforces
 
 ## See Also
 
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- The principle that gate results must be visible and auditable
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) -- The epistemic framework that treats gate results as evidence
-- [Quality Measurement System](/glossary/quality-measurement-system/) -- The infrastructure for quantifying gate results
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- The specific policy enforced by the compilation gate
-- [Regression Testing](/glossary/regression-testing/) -- The testing approach that prevents reintroduction of fixed bugs
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- The principle that gate results must be visible and auditable
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) -- The epistemic framework that treats gate results as evidence
+- [Quality Measurement System](@/glossary/quality-measurement-system.md) -- The infrastructure for quantifying gate results
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- The specific policy enforced by the compilation gate
+- [Regression Testing](@/glossary/regression-testing.md) -- The testing approach that prevents reintroduction of fixed bugs
 
 ---
 

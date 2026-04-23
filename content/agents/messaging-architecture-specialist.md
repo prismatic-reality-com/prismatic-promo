@@ -28,13 +28,13 @@ image_alt = "messaging-architecture-specialist - Prismatic Platform"
 
 ## Overview
 
-The messaging-architecture-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's architecture domain, responsible for designing, implementing, and maintaining asynchronous messaging infrastructure that enables decoupled, resilient communication between platform components. This agent governs the full spectrum of messaging patterns -- from simple point-to-point [message passing](/glossary/message-passing/) between [GenServer](/glossary/genserver/) processes to complex event-driven architectures built on [PubSub](/glossary/pubsub/) topologies and [GenStage](/glossary/genstage/) data pipelines.
+The messaging-architecture-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's architecture domain, responsible for designing, implementing, and maintaining asynchronous messaging infrastructure that enables decoupled, resilient communication between platform components. This agent governs the full spectrum of messaging patterns -- from simple point-to-point [message passing](@/glossary/message-passing.md) between [GenServer](@/glossary/genserver.md) processes to complex event-driven architectures built on [PubSub](@/glossary/pubsub.md) topologies and [GenStage](@/glossary/genstage.md) data pipelines.
 
-Built on the [AIAD](/glossary/aiad/) standard and deeply integrated with [OTP](/glossary/otp/) supervision primitives, the messaging-architecture-specialist ensures that every message flow within the platform operates with guaranteed delivery semantics, proper [backpressure](/glossary/backpressure/) management, and fault-tolerant routing. The agent enforces the [NO MERCY](/glossary/no-mercy/) doctrine on messaging reliability: no message channel is deployed without dead-letter handling, retry policies, and comprehensive [telemetry](/glossary/telemetry/) instrumentation.
+Built on the [AIAD](@/glossary/aiad.md) standard and deeply integrated with [OTP](@/glossary/otp.md) supervision primitives, the messaging-architecture-specialist ensures that every message flow within the platform operates with guaranteed delivery semantics, proper [backpressure](@/glossary/backpressure.md) management, and fault-tolerant routing. The agent enforces the [NO MERCY](@/glossary/no-mercy.md) doctrine on messaging reliability: no message channel is deployed without dead-letter handling, retry policies, and comprehensive [telemetry](@/glossary/telemetry.md) instrumentation.
 
 ## Operational Domain
 
-The messaging architecture domain encompasses all asynchronous communication patterns within the Prismatic Platform's [umbrella application](/glossary/umbrella-application/) structure. This includes inter-process message passing within the [BEAM](/glossary/beam/) virtual machine, distributed PubSub for multi-node deployments, event sourcing pipelines, and command-query responsibility segregation (CQRS) implementations. The agent maintains a messaging topology registry that maps all active channels, their subscribers, message schemas, and throughput characteristics across the platform's 90+ applications.
+The messaging architecture domain encompasses all asynchronous communication patterns within the Prismatic Platform's [umbrella application](@/glossary/umbrella-application.md) structure. This includes inter-process message passing within the [BEAM](@/glossary/beam.md) virtual machine, distributed PubSub for multi-node deployments, event sourcing pipelines, and command-query responsibility segregation (CQRS) implementations. The agent maintains a messaging topology registry that maps all active channels, their subscribers, message schemas, and throughput characteristics across the platform's 90+ applications.
 
 | Communication Pattern | Implementation | Use Case |
 |----------------------|----------------|----------|
@@ -48,11 +48,11 @@ The messaging architecture domain encompasses all asynchronous communication pat
 ## Key Capabilities
 
 - **Message topology design** -- Architects optimal messaging patterns for inter-application communication within the umbrella structure, selecting appropriate patterns based on latency requirements, ordering guarantees, and failure tolerance needs
-- **Backpressure management** -- Implements [GenStage](/glossary/genstage/)-based demand-driven pipelines that prevent fast producers from overwhelming slow consumers, with adaptive rate limiting and overflow strategies
+- **Backpressure management** -- Implements [GenStage](@/glossary/genstage.md)-based demand-driven pipelines that prevent fast producers from overwhelming slow consumers, with adaptive rate limiting and overflow strategies
 - **Dead-letter channel implementation** -- Designs and maintains dead-letter queues for messages that cannot be processed, enabling offline analysis and manual retry of failed deliveries
 - **Message schema evolution** -- Manages versioned message contracts that allow producers and consumers to evolve independently without breaking compatibility
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-healing message channel recovery and automatic topology rebalancing
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing message throughput, latency, and error metrics under messaging-specific namespaces
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-healing message channel recovery and automatic topology rebalancing
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing message throughput, latency, and error metrics under messaging-specific namespaces
 
 ## Architecture Patterns
 
@@ -150,7 +150,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to define messaging standards, approve new channel topologies, and enforce schema compatibility across all platform applications.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to define messaging standards, approve new channel topologies, and enforce schema compatibility across all platform applications.
 
 ## Command Interface
 
@@ -164,10 +164,10 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [event-driven-architecture-specialist](/agents/event-driven-architecture-specialist/) | Collaborates on event sourcing patterns and CQRS implementations |
-| [service-mesh-specialist](/agents/service-mesh-specialist/) | Coordinates on inter-service communication routing and load balancing |
-| [performance-benchmarking-agent](/agents/performance-benchmarking-agent/) | Validates messaging throughput and latency characteristics |
-| [code-quality-commander](/agents/code-quality-commander/) | Enforces quality standards on messaging infrastructure code |
+| [event-driven-architecture-specialist](@/agents/event-driven-architecture-specialist.md) | Collaborates on event sourcing patterns and CQRS implementations |
+| [service-mesh-specialist](@/agents/service-mesh-specialist.md) | Coordinates on inter-service communication routing and load balancing |
+| [performance-benchmarking-agent](@/agents/performance-benchmarking-agent.md) | Validates messaging throughput and latency characteristics |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Enforces quality standards on messaging infrastructure code |
 
 ## Message Delivery Guarantees
 
@@ -180,13 +180,13 @@ end
 
 ## Telemetry and Observability
 
-The messaging-architecture-specialist instruments all message flows with comprehensive telemetry events under the `[:prismatic, :messaging, *]` namespace. Key metrics include message throughput (messages per second per channel), end-to-end latency (producer to consumer acknowledgment), dead-letter queue depth, backpressure activation frequency, and schema validation failure rates. These metrics feed into the platform's [SEADF](/glossary/seadf/) evolutionary framework, enabling data-driven optimization of messaging topologies over time.
+The messaging-architecture-specialist instruments all message flows with comprehensive telemetry events under the `[:prismatic, :messaging, *]` namespace. Key metrics include message throughput (messages per second per channel), end-to-end latency (producer to consumer acknowledgment), dead-letter queue depth, backpressure activation frequency, and schema validation failure rates. These metrics feed into the platform's [SEADF](@/glossary/seadf.md) evolutionary framework, enabling data-driven optimization of messaging topologies over time.
 
 Observable events are organized into three categories: operational events (message sent, received, acknowledged), error events (delivery failure, schema validation error, timeout), and performance events (queue depth threshold, backpressure activation, throughput saturation). Each event carries structured metadata including the originating application, target application, message schema version, and correlation identifier that enables end-to-end trace reconstruction across multi-hop messaging chains.
 
 ## Design Philosophy
 
-The messaging architecture within the Prismatic Platform follows a set of principles that distinguish it from conventional message queue implementations. The first principle is **process-native messaging**: rather than introducing external message brokers (RabbitMQ, Kafka), the platform leverages the [BEAM](/glossary/beam/) virtual machine's built-in message passing as the primary transport. This eliminates the operational complexity of managing separate broker infrastructure while preserving the fault tolerance guarantees that come with [OTP](/glossary/otp/) supervision.
+The messaging architecture within the Prismatic Platform follows a set of principles that distinguish it from conventional message queue implementations. The first principle is **process-native messaging**: rather than introducing external message brokers (RabbitMQ, Kafka), the platform leverages the [BEAM](@/glossary/beam.md) virtual machine's built-in message passing as the primary transport. This eliminates the operational complexity of managing separate broker infrastructure while preserving the fault tolerance guarantees that come with [OTP](@/glossary/otp.md) supervision.
 
 The second principle is **schema-first contracts**. Every message channel defines a schema for its messages using a versioned contract registry. Producers validate outgoing messages against the schema before dispatch, and consumers validate incoming messages on receipt. Schema evolution follows backward-compatible rules: new fields may be added with defaults, existing fields may not be removed or have their types changed, and consumers must tolerate unknown fields. This enables independent evolution of producers and consumers without coordination.
 
@@ -196,13 +196,13 @@ The fourth principle is **observable by default**. Every message dispatch, recei
 
 ## Multi-Node Distribution
 
-For distributed deployments where the platform runs across multiple [BEAM](/glossary/beam/) nodes, the messaging architecture extends Phoenix.PubSub with a distributed adapter that ensures messages reach subscribers on all connected nodes. The distribution layer handles network partitions gracefully through a buffer-and-retry mechanism: messages published during a partition are buffered locally and re-broadcast when connectivity is restored. Partition detection relies on [OTP](/glossary/otp/) node monitoring, and the messaging specialist configures appropriate timeout and retry parameters based on network topology characteristics.
+For distributed deployments where the platform runs across multiple [BEAM](@/glossary/beam.md) nodes, the messaging architecture extends Phoenix.PubSub with a distributed adapter that ensures messages reach subscribers on all connected nodes. The distribution layer handles network partitions gracefully through a buffer-and-retry mechanism: messages published during a partition are buffered locally and re-broadcast when connectivity is restored. Partition detection relies on [OTP](@/glossary/otp.md) node monitoring, and the messaging specialist configures appropriate timeout and retry parameters based on network topology characteristics.
 
 The distributed messaging layer also supports topic-based routing that allows messages to be directed to specific node subsets rather than broadcast to all nodes. This is essential for workloads where geographic affinity or data locality determines which nodes should process specific message types. Topic routing rules are maintained in the messaging topology configuration and validated by the specialist during topology audits.
 
 ## Enforcement
 
-All messaging infrastructure must comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no message channel is deployed without dead-letter handling, retry policies with exponential backoff, schema validation, and comprehensive telemetry instrumentation. The [NO DOUBTS](/glossary/no-doubts/) principle requires that message delivery guarantees are explicitly documented and tested for every channel. Backpressure thresholds are validated through load testing before any pipeline reaches production.
+All messaging infrastructure must comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no message channel is deployed without dead-letter handling, retry policies with exponential backoff, schema validation, and comprehensive telemetry instrumentation. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that message delivery guarantees are explicitly documented and tested for every channel. Backpressure thresholds are validated through load testing before any pipeline reaches production.
 
 ---
 
@@ -211,4 +211,4 @@ All messaging infrastructure must comply with the [NO MERCY](/glossary/no-mercy/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

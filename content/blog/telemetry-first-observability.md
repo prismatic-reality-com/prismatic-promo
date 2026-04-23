@@ -18,7 +18,7 @@ see_also = ["telemetry", "observability", "metrics", "monitoring", "structured-l
 image_alt = "Telemetry-First Observability"
 +++
 
-The wrong order is: build the dashboard, then scatter events to fill it. The right order is: define the events that describe what the system actually does, *then* consume them into dashboards, logs, and alerts. [Telemetry](/glossary/telemetry)-first observability is the difference between metrics that survive refactors and metrics that drift into lies.
+The wrong order is: build the dashboard, then scatter events to fill it. The right order is: define the events that describe what the system actually does, *then* consume them into dashboards, logs, and alerts. [Telemetry](@/glossary/telemetry.md)-first observability is the difference between metrics that survive refactors and metrics that drift into lies.
 
 ## The contract
 
@@ -61,7 +61,7 @@ This gives you start, stop, duration, and exception events for free. No manual t
 
 ## Metrics from events, not from logs
 
-Logs are for humans. [Metrics](/glossary/metrics) are for time-series databases. Scraping metrics out of logs is an anti-pattern — you end up with a pipeline that breaks every time a log line changes. Instead:
+Logs are for humans. [Metrics](@/glossary/metrics.md) are for time-series databases. Scraping metrics out of logs is an anti-pattern — you end up with a pipeline that breaks every time a log line changes. Instead:
 
 ```elixir
 defmodule PrismaticWeb.Telemetry do
@@ -82,7 +82,7 @@ The exporter reads the list and generates Prometheus metrics. Add a new event to
 
 ## Structured logs attach, not replace
 
-Every event handler that logs also attaches structured metadata ([structured logging](/glossary/structured-logging) is non-negotiable):
+Every event handler that logs also attaches structured metadata ([structured logging](@/glossary/structured-logging.md) is non-negotiable):
 
 ```elixir
 :telemetry.attach("osint-slow-search", [:osint, :search, :stop], fn _, meas, meta, _ ->
@@ -108,6 +108,6 @@ New code that would be hard to debug in production starts with the event contrac
 
 - **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — consume telemetry in real time
 - **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — where the boundaries to instrument live
-- **Glossary**: [Telemetry](/glossary/telemetry), [Observability](/glossary/observability), [Metrics](/glossary/metrics), [Monitoring](/glossary/monitoring), [Structured Logging](/glossary/structured-logging)
+- **Glossary**: [Telemetry](@/glossary/telemetry.md), [Observability](@/glossary/observability.md), [Metrics](@/glossary/metrics.md), [Monitoring](@/glossary/monitoring.md), [Structured Logging](@/glossary/structured-logging.md)
 
 Events before dashboards. Always.

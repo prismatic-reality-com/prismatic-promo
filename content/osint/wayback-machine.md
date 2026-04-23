@@ -30,7 +30,7 @@ image_alt = "Wayback Machine - Prismatic Platform"
 
 The Wayback Machine is a digital archive of the World Wide Web operated by the Internet Archive, a non-profit library. Since 1996, it has been capturing snapshots of web pages, accumulating over 850 billion web pages across hundreds of millions of websites. The Wayback Machine allows users to browse historical versions of any archived website, revealing content that has since been changed, deleted, or taken offline.
 
-For [OSINT](/glossary/osint/) analysts, the Wayback Machine is an invaluable tool for historical research. It enables recovery of deleted web content, identification of changes in organizational messaging, discovery of previously published information that subjects attempted to remove, and tracking the evolution of web infrastructure over time.
+For [OSINT](@/glossary/osint.md) analysts, the Wayback Machine is an invaluable tool for historical research. It enables recovery of deleted web content, identification of changes in organizational messaging, discovery of previously published information that subjects attempted to remove, and tracking the evolution of web infrastructure over time.
 
 The archival depth varies by website -- high-traffic sites may have thousands of snapshots per year, while smaller sites might have only a handful. The crawling frequency depends on site popularity, external link volume, and explicit requests through the SavePageNow feature. Understanding this sampling behavior is important for investigators because the absence of a snapshot at a particular date does not mean the content did not exist, only that it was not captured at that moment.
 
@@ -102,7 +102,7 @@ GET https://web.archive.org/cdx/search/cdx?url=example.com&output=json
 
 ## Integration with Prismatic
 
-Prismatic Platform integrates the Wayback Machine as a historical intelligence source for investigation and [attack surface](/glossary/attack-surface/) analysis.
+Prismatic Platform integrates the Wayback Machine as a historical intelligence source for investigation and [attack surface](@/glossary/attack-surface.md) analysis.
 
 ```elixir
 # Check availability of a URL
@@ -281,22 +281,22 @@ While no official limits exist, the Internet Archive may throttle aggressive cra
 - Track historical DNS and hosting changes through archived headers
 - Discover previously used CDNs, analytics, and third-party services
 - Map the evolution of web infrastructure for attribution analysis
-- Correlate with [SecurityTrails](/osint/securitytrails/) DNS history data
+- Correlate with [SecurityTrails](@/osint/securitytrails.md) DNS history data
 
 ## Related Sources
 
-- [SecurityTrails](/osint/securitytrails/) - Historical DNS data complementing web archives
-- [BuiltWith](/osint/builtwith/) - Technology profiling for archived and current sites
-- [Hunter.io](/osint/hunter/) - Email finding from current and historical pages
-- [URLScan](/osint/urlscan/) - Current URL analysis and screenshot capture
-- [DNSDumpster](/osint/dnsdumpster/) - Current DNS infrastructure mapping
-- [ViewDNS](/osint/viewdns/) - DNS history and reverse lookups
-- [Common Crawl](/osint/common-crawl/) - Alternative web archive with structured data
+- [SecurityTrails](@/osint/securitytrails.md) - Historical DNS data complementing web archives
+- [BuiltWith](@/osint/builtwith.md) - Technology profiling for archived and current sites
+- [Hunter.io](@/osint/hunter.md) - Email finding from current and historical pages
+- [URLScan](@/osint/urlscan.md) - Current URL analysis and screenshot capture
+- [DNSDumpster](@/osint/dnsdumpster.md) - Current DNS infrastructure mapping
+- [ViewDNS](@/osint/viewdns.md) - DNS history and reverse lookups
+- [Common Crawl](@/osint/common-crawl.md) - Alternative web archive with structured data
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Historical data in [EASM](/glossary/easm/) assessment
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Historical data in [EASM](@/glossary/easm.md) assessment
 
 ---
 
@@ -305,4 +305,4 @@ While no official limits exist, the Internet Archive may throttle aggressive cra
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

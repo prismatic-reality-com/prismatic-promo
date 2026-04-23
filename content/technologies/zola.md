@@ -26,7 +26,7 @@ image_alt = "Zola - Prismatic Platform"
 
 Zola is the static site generator that powers the Prismatic Platform's promotional website and documentation site. Written in Rust, Zola compiles Markdown content with TOML frontmatter into a complete static website in seconds, supporting custom templates, Sass compilation, syntax highlighting for 100+ programming languages, and search index generation. The platform's promotional site contains over 1,050 Markdown files across 12 content sections, and Zola builds the entire site in under 10 seconds.
 
-The Prismatic Platform's promotional site uses Zola with a custom template system built on [TailwindCSS](/technologies/tailwindcss/), [Flowbite](/technologies/flowbite/), and [Alpine.js](/technologies/alpinejs/). Zola's section/page model maps naturally to the platform's content organization -- each technology, agent, command, and OSINT source has its own Markdown page with structured frontmatter metadata that drives both page rendering and section-level filtering, search, and navigation.
+The Prismatic Platform's promotional site uses Zola with a custom template system built on [TailwindCSS](@/technologies/tailwindcss.md), [Flowbite](@/technologies/flowbite.md), and [Alpine.js](@/technologies/alpinejs.md). Zola's section/page model maps naturally to the platform's content organization -- each technology, agent, command, and OSINT source has its own Markdown page with structured frontmatter metadata that drives both page rendering and section-level filtering, search, and navigation.
 
 Zola's single-binary architecture and zero runtime dependencies make it ideal for CI/CD pipelines -- the GitLab CI and GitHub Actions pipelines build and deploy the promotional site in seconds without managing Node.js, Ruby, or other runtime dependencies. The binary runs on Linux, macOS, and Windows, enabling local development on any platform without environment configuration.
 
@@ -85,7 +85,7 @@ reading_time = "8 min"
 +++
 
 ## Overview
-Content here with cross-references like [Phoenix](/technologies/phoenix/)...
+Content here with cross-references like [Phoenix](@/technologies/phoenix.md)...
 ```
 
 Templates use Tera's template inheritance for consistent layout across all 1,050+ pages:
@@ -240,11 +240,11 @@ Understanding the distinction between section indexes and regular pages is criti
 
 ## Related Technologies
 
-- [TailwindCSS](/technologies/tailwindcss/) - Site styling through utility classes in Zola templates
-- [Alpine.js](/technologies/alpinejs/) - Client-side interactivity for filtering, search, and navigation
-- [Flowbite](/technologies/flowbite/) - UI component library used in Zola templates
-- [Git](/technologies/git/) - Version control for content and templates
-- [Docker](/technologies/docker/) - Container-based CI/CD build environment
+- [TailwindCSS](@/technologies/tailwindcss.md) - Site styling through utility classes in Zola templates
+- [Alpine.js](@/technologies/alpinejs.md) - Client-side interactivity for filtering, search, and navigation
+- [Flowbite](@/technologies/flowbite.md) - UI component library used in Zola templates
+- [Git](@/technologies/git.md) - Version control for content and templates
+- [Docker](@/technologies/docker.md) - Container-based CI/CD build environment
 
 ## Related Apps
 
@@ -258,4 +258,4 @@ Understanding the distinction between section indexes and regular pages is criti
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

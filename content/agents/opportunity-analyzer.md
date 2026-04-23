@@ -30,7 +30,7 @@ image_alt = "Opportunity Analyzer - Prismatic Platform"
 
 The Opportunity Analyzer operates as an L2 Tactical Operations authority within the Prismatic Platform's primary-producer domain, specializing in the identification, qualification, and prioritization of business opportunities through systematic intelligence analysis. This agent evaluates potential engagements across multiple dimensions -- market fit, technical feasibility, competitive positioning, resource requirements, and risk-adjusted return -- to produce structured opportunity assessments that support strategic decision-making. Its analytical framework ensures that opportunity evaluation is evidence-driven rather than intuition-based.
 
-Built on the [AIAD](/glossary/aiad/) standard, the Opportunity Analyzer applies the [NO DOUBTS](/glossary/no-doubts/) principle to every assessment: no opportunity is qualified without multi-dimensional evidence, and all scoring carries explicit confidence intervals. The agent leverages platform [OSINT](/glossary/osint/) capabilities to enrich opportunity profiles with market intelligence, competitive landscape data, and prospect technology stack analysis. The [NABLA Infinity](/glossary/nabla-infinity/) framework governs information handling, ensuring that contradictory signals about opportunity viability are preserved and surfaced rather than averaged into misleading composite scores.
+Built on the [AIAD](@/glossary/aiad.md) standard, the Opportunity Analyzer applies the [NO DOUBTS](@/glossary/no-doubts.md) principle to every assessment: no opportunity is qualified without multi-dimensional evidence, and all scoring carries explicit confidence intervals. The agent leverages platform [OSINT](@/glossary/osint.md) capabilities to enrich opportunity profiles with market intelligence, competitive landscape data, and prospect technology stack analysis. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs information handling, ensuring that contradictory signals about opportunity viability are preserved and surfaced rather than averaged into misleading composite scores.
 
 ## Theoretical Foundations
 
@@ -42,7 +42,7 @@ Risk assessment follows a Monte Carlo simulation approach where uncertainty in i
 
 ## Operational Domain
 
-The opportunity analysis domain covers lead qualification, market sizing, competitive analysis, technical feasibility assessment, and deal scoring across business development workflows. The agent maintains qualification criteria matrices that adapt to different market segments and engagement types. Opportunity scoring models incorporate both quantitative [metrics](/glossary/metrics/) (market size, win probability, resource cost) and qualitative indicators (strategic fit, relationship strength, reference potential).
+The opportunity analysis domain covers lead qualification, market sizing, competitive analysis, technical feasibility assessment, and deal scoring across business development workflows. The agent maintains qualification criteria matrices that adapt to different market segments and engagement types. Opportunity scoring models incorporate both quantitative [metrics](@/glossary/metrics.md) (market size, win probability, resource cost) and qualitative indicators (strategic fit, relationship strength, reference potential).
 
 The domain maintains an opportunity pipeline that tracks opportunities through lifecycle stages: identification, initial qualification, deep analysis, proposal, negotiation, and decision. Each stage transition requires the opportunity to meet stage-specific qualification thresholds, preventing low-quality opportunities from consuming analysis resources in later stages.
 
@@ -54,12 +54,12 @@ The domain maintains an opportunity pipeline that tracks opportunities through l
 - **Competitive landscape mapping** -- Identifies and profiles competing solutions and vendors in opportunity contexts, assessing competitive strengths and vulnerabilities through systematic intelligence collection
 - **Risk-adjusted valuation** -- Applies Monte Carlo simulation to propagate uncertainty through opportunity valuation models, producing probability-weighted expected value distributions
 - **Pipeline analytics** -- Maintains comprehensive pipeline analytics including conversion rates per stage, average cycle times, and qualification model calibration metrics
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed opportunity monitoring and re-qualification when new intelligence emerges
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for pipeline analytics, conversion tracking, and qualification model calibration
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed opportunity monitoring and re-qualification when new intelligence emerges
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for pipeline analytics, conversion tracking, and qualification model calibration
 
 ## Authority Level
 
-**L2** - Tactical Operations - Domain-specific [tactical execution](/glossary/tactical-execution/) authority for opportunity analysis and qualification workflows.
+**L2** - Tactical Operations - Domain-specific [tactical execution](@/glossary/tactical-execution.md) authority for opportunity analysis and qualification workflows.
 
 ## Qualification Framework
 
@@ -80,11 +80,11 @@ Each stage narrows the confidence intervals on qualification scores as additiona
 
 | Agent | Relationship |
 |-------|-------------|
-| [ma-tech-assessor](/agents/ma-tech-assessor/) | Provides technology assessment data for technical feasibility evaluation |
-| [risk-assessment-commander](/agents/risk-assessment-commander/) | Supplies risk context for opportunity risk-adjusted return modeling |
-| [marksman-jtac](/agents/marksman-jtac/) | High-value opportunities are designated as targets for precision engagement |
-| [linkedin-intelligence-specialist](/agents/linkedin-intelligence-specialist/) | Professional network data enriches prospect relationship mapping |
-| [osint-intelligence-operative](/agents/osint-intelligence-operative/) | OSINT collection provides market intelligence for opportunity enrichment |
+| [ma-tech-assessor](@/agents/ma-tech-assessor.md) | Provides technology assessment data for technical feasibility evaluation |
+| [risk-assessment-commander](@/agents/risk-assessment-commander.md) | Supplies risk context for opportunity risk-adjusted return modeling |
+| [marksman-jtac](@/agents/marksman-jtac.md) | High-value opportunities are designated as targets for precision engagement |
+| [linkedin-intelligence-specialist](@/agents/linkedin-intelligence-specialist.md) | Professional network data enriches prospect relationship mapping |
+| [osint-intelligence-operative](@/agents/osint-intelligence-operative.md) | OSINT collection provides market intelligence for opportunity enrichment |
 
 ## Model Calibration
 
@@ -92,7 +92,7 @@ The qualification model is continuously calibrated against historical outcomes. 
 
 ## Enforcement
 
-Opportunity assessments must comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no incomplete analyses are published, every score includes full factor attribution, and over-optimistic qualification without supporting evidence is rejected. All assessments carry mandatory [NABLA Infinity](/glossary/nabla-infinity/) provenance chains, and the [Trinity Gate](/glossary/trinity-gate/) validates structural, logical, and formal consistency of all published assessments.
+Opportunity assessments must comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no incomplete analyses are published, every score includes full factor attribution, and over-optimistic qualification without supporting evidence is rejected. All assessments carry mandatory [NABLA Infinity](@/glossary/nabla-infinity.md) provenance chains, and the [Trinity Gate](@/glossary/trinity-gate.md) validates structural, logical, and formal consistency of all published assessments.
 
 ---
 
@@ -101,4 +101,4 @@ Opportunity assessments must comply with the [NO MERCY](/glossary/no-mercy/) doc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

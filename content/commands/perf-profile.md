@@ -28,7 +28,7 @@ image_alt = "/perf-profile - Prismatic Platform"
 
 Performance profiling in the Prismatic Platform context presents unique challenges due to the concurrent, distributed nature of OTP applications. A single user request may traverse multiple GenServers, Task processes, and supervision trees across several umbrella applications. The `/perf-profile` command addresses this complexity by supporting both focused (single-function) and systemic (cross-process) profiling modes, with automatic correlation of profiling data across process boundaries.
 
-This command operates under the **L3** authority level and is executed by the `performance-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the performance impact of profiling operations, which can introduce observable overhead in production-like environments.
+This command operates under the **L3** authority level and is executed by the `performance-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the performance impact of profiling operations, which can introduce observable overhead in production-like environments.
 
 The platform enforces strict performance standards: all pages must load under 250ms, server-side rendering must complete within 100ms, and LiveView mount operations must finish within 150ms. The `/perf-profile` command is the primary diagnostic tool for identifying violations of these standards and guiding their resolution. It transforms abstract performance requirements into concrete, file-level, function-level optimization targets.
 
@@ -190,14 +190,14 @@ The analysis engine processes raw profiling data to identify actionable hotspots
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `performance-specialist` | Performance domain expertise |
-| [Quality Gates](/glossary/quality-gates/) | Performance gate enforcement | 250ms page load, 100ms render limits |
-| [Telemetry](/glossary/telemetry/) | Profiling data source | Custom telemetry-based profiler |
-| [/benchmark](/commands/benchmark/) | Benchmarking backend | Benchee integration for comparative analysis |
-| [/quality-gates](/commands/quality-gates/) | Performance validation | Profile results feed gate decisions |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `performance-specialist` | Performance domain expertise |
+| [Quality Gates](@/glossary/quality-gates.md) | Performance gate enforcement | 250ms page load, 100ms render limits |
+| [Telemetry](@/glossary/telemetry.md) | Profiling data source | Custom telemetry-based profiler |
+| [/benchmark](@/commands/benchmark.md) | Benchmarking backend | Benchee integration for comparative analysis |
+| [/quality-gates](@/commands/quality-gates.md) | Performance validation | Profile results feed gate decisions |
 | BEAM VM | Profiling backends | :fprof, :eprof, :cprof native tools |
-| [/fix](/commands/fix/) | Optimization workflow | Profile -> identify -> fix -> re-profile |
-| [/deploy](/commands/deploy/) | Post-deployment validation | Performance regression detection |
+| [/fix](@/commands/fix.md) | Optimization workflow | Profile -> identify -> fix -> re-profile |
+| [/deploy](@/commands/deploy.md) | Post-deployment validation | Performance regression detection |
 
 ## Workflow Integration
 
@@ -207,7 +207,7 @@ The `/perf-profile` command integrates into the platform's performance managemen
 
 2. **Pre-Commit Validation**: Before commits affecting performance-sensitive paths, `:eprof` time distribution analysis validates that changes do not introduce bottlenecks. The page load performance standard (P0 ABSOLUTE) mandates all pages load under 250ms.
 
-3. **Performance Regression Investigation**: When a performance regression is detected, the typical workflow is: `/perf-profile --liveview=<route>` to identify the bottleneck, then [/fix](/commands/fix/) to implement the optimization, then `/perf-profile` again to verify the improvement, and finally [/quality-gates](/commands/quality-gates/) to confirm the fix meets all performance thresholds.
+3. **Performance Regression Investigation**: When a performance regression is detected, the typical workflow is: `/perf-profile --liveview=<route>` to identify the bottleneck, then [/fix](@/commands/fix.md) to implement the optimization, then `/perf-profile` again to verify the improvement, and finally [/quality-gates](@/commands/quality-gates.md) to confirm the fix meets all performance thresholds.
 
 4. **Benchmarking**: Before and after optimization work, the Benchee integration provides statistically rigorous performance comparisons with P50/P95/P99 latency metrics.
 
@@ -215,7 +215,7 @@ The `/perf-profile` command integrates into the platform's performance managemen
 
 ## NABLA Compliance
 
-Profiling results adhere to [NABLA](/glossary/nabla-infinity/) epistemic standards:
+Profiling results adhere to [NABLA](@/glossary/nabla-infinity.md) epistemic standards:
 
 | Axiom | Enforcement |
 |-------|-------------|
@@ -242,13 +242,13 @@ The overhead figures represent the performance impact of the profiling itself on
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/benchmark](/commands/benchmark/) - Comprehensive performance benchmarking with P95/P99 analysis
-- [/deploy](/commands/deploy/) - Deployment to staging environment via GitLab CI/CD
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/benchmark](@/commands/benchmark.md) - Comprehensive performance benchmarking with P95/P99 analysis
+- [/deploy](@/commands/deploy.md) - Deployment to staging environment via GitLab CI/CD
 
 ---
 
@@ -257,4 +257,4 @@ The overhead figures represent the performance impact of the profiling itself on
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

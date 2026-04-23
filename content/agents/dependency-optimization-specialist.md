@@ -28,7 +28,7 @@ image_alt = "dependency-optimization-specialist - Prismatic Platform"
 
 ## Overview
 
-The Dependency Optimization Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Consolidation domain of the Prismatic Platform. This agent manages dependency optimization across the platform's 90-app [umbrella application](/glossary/umbrella-application/) architecture, including version consolidation, supply chain security assessment, transitive dependency analysis, and technical debt elimination through systematic dependency graph optimization.
+The Dependency Optimization Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Consolidation domain of the Prismatic Platform. This agent manages dependency optimization across the platform's 90-app [umbrella application](@/glossary/umbrella-application.md) architecture, including version consolidation, supply chain security assessment, transitive dependency analysis, and technical debt elimination through systematic dependency graph optimization.
 
 In an umbrella architecture of this scale, dependency management is a significant engineering challenge. Each application declares its own dependencies in its mix.exs file, but the umbrella resolver must find a single version of each dependency that satisfies all applications' constraints simultaneously. Conflicts between applications' version requirements, accumulation of unused dependencies, security vulnerabilities in transitive dependencies, and version drift across the dependency graph all require active management to prevent technical debt accumulation.
 
@@ -88,19 +88,19 @@ Periodic dependency review schedules regular audits of the entire dependency gra
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to approve or reject dependency additions, mandate version updates, and enforce supply chain security requirements across all platform applications.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to approve or reject dependency additions, mandate version updates, and enforce supply chain security requirements across all platform applications.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [consolidation-architect-v2](/agents/consolidation-architect-v2/) | Architecture Partner | Coordinates dependency consolidation with broader platform consolidation efforts |
-| [quality-floor-guardian](/agents/archer-supreme/) | Quality Monitoring | Monitors dependency quality metrics as part of overall platform quality |
-| [deployment-commander-agent](/agents/deployment-commander-agent/) | Deployment Partner | Coordinates dependency updates with deployment scheduling |
+| [consolidation-architect-v2](@/agents/consolidation-architect-v2.md) | Architecture Partner | Coordinates dependency consolidation with broader platform consolidation efforts |
+| [quality-floor-guardian](@/agents/archer-supreme.md) | Quality Monitoring | Monitors dependency quality metrics as part of overall platform quality |
+| [deployment-commander-agent](@/agents/deployment-commander-agent.md) | Deployment Partner | Coordinates dependency updates with deployment scheduling |
 
 ## Enforcement
 
-All dependency operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No new dependency is added without approval and documented justification. Security vulnerabilities in dependencies must be addressed within severity-appropriate timelines. Version conflicts are blocking -- the platform must have a consistent dependency resolution at all times. Supply chain security assessments are mandatory for all dependencies. Dependency governance policies cannot be bypassed for convenience.
+All dependency operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No new dependency is added without approval and documented justification. Security vulnerabilities in dependencies must be addressed within severity-appropriate timelines. Version conflicts are blocking -- the platform must have a consistent dependency resolution at all times. Supply chain security assessments are mandatory for all dependencies. Dependency governance policies cannot be bypassed for convenience.
 
 ---
 
@@ -109,4 +109,4 @@ All dependency operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

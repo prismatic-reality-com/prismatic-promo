@@ -28,9 +28,9 @@ image_alt = "regulatory-compliance-risk-specialist - Prismatic Platform"
 
 ## Overview
 
-The regulatory-compliance-risk-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's regulatory domain, dedicated to assessing and quantifying compliance risk exposure against applicable regulatory frameworks. This agent evaluates entity compliance posture across jurisdictional requirements including the [NIS2](/glossary/nis2/) Directive (EU 2022/2555 on network and information security), [ZKB](/glossary/zkb/) 264/2025 Sb. (Czech cybersecurity regulation), [GDPR](/glossary/gdpr/) data protection requirements, and industry-specific regulatory mandates. Its outputs quantify the gap between current compliance state and regulatory requirements, producing actionable intelligence that enables proactive compliance management.
+The regulatory-compliance-risk-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's regulatory domain, dedicated to assessing and quantifying compliance risk exposure against applicable regulatory frameworks. This agent evaluates entity compliance posture across jurisdictional requirements including the [NIS2](@/glossary/nis2.md) Directive (EU 2022/2555 on network and information security), [ZKB](@/glossary/zkb.md) 264/2025 Sb. (Czech cybersecurity regulation), [GDPR](@/glossary/gdpr.md) data protection requirements, and industry-specific regulatory mandates. Its outputs quantify the gap between current compliance state and regulatory requirements, producing actionable intelligence that enables proactive compliance management.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO DOUBTS](/glossary/no-doubts/) principle, this agent produces compliance risk assessments backed by regulatory text analysis, control mapping evidence, and gap identification data. Every compliance determination carries explicit references to specific regulatory provisions, and all [risk score](/glossary/risk-score/)s include confidence intervals reflecting assessment coverage completeness. The [NABLA Infinity](/glossary/nabla-infinity/) framework's provenance axiom ensures that every compliance claim traces back to its regulatory source.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO DOUBTS](@/glossary/no-doubts.md) principle, this agent produces compliance risk assessments backed by regulatory text analysis, control mapping evidence, and gap identification data. Every compliance determination carries explicit references to specific regulatory provisions, and all [risk score](@/glossary/risk-score.md)s include confidence intervals reflecting assessment coverage completeness. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's provenance axiom ensures that every compliance claim traces back to its regulatory source.
 
 In the evolving European regulatory landscape, compliance risk assessment requires continuous monitoring and re-evaluation. The transposition of EU directives like NIS2 into national legislation across member states creates a complex web of overlapping requirements with jurisdictional variations. This agent navigates this complexity by maintaining structured mappings between regulatory frameworks and translating abstract regulatory requirements into assessable compliance controls.
 
@@ -48,8 +48,8 @@ The agent's multi-framework approach recognizes that entities typically face sim
 - **Regulatory change monitoring** -- Tracks regulatory updates, enforcement actions, and interpretive guidance that affect compliance obligations, flagging changes that require assessment updates
 - **Remediation prioritization** -- Ranks compliance gaps by risk-weighted priority, considering enforcement probability, penalty magnitude, and remediation implementation complexity to optimize compliance investment
 - **Cross-framework requirement mapping** -- Identifies shared requirements across regulatory frameworks, enabling control consolidation and reducing redundant compliance effort
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with triggered compliance re-assessment when regulatory changes are detected
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for compliance assessment pipeline monitoring and coverage tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with triggered compliance re-assessment when regulatory changes are detected
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for compliance assessment pipeline monitoring and coverage tracking
 
 ## Regulatory Framework Coverage
 
@@ -76,10 +76,10 @@ The agent maintains detailed requirement databases for each supported regulatory
 
 | Agent | Relationship |
 |-------|-------------|
-| [regulatory-intelligence-commander](/agents/regulatory-intelligence-commander/) | Receives regulatory landscape intelligence for compliance context |
-| [risk-assessment-commander](/agents/risk-assessment-commander/) | Compliance risk scores feed into aggregate risk assessment models |
-| [regional-court-specialist](/agents/regional-court-specialist/) | Court enforcement data informs compliance risk assessment |
-| [report-synthesis-specialist](/agents/report-synthesis-specialist/) | Compliance assessments are integrated into comprehensive intelligence reports |
+| [regulatory-intelligence-commander](@/agents/regulatory-intelligence-commander.md) | Receives regulatory landscape intelligence for compliance context |
+| [risk-assessment-commander](@/agents/risk-assessment-commander.md) | Compliance risk scores feed into aggregate risk assessment models |
+| [regional-court-specialist](@/agents/regional-court-specialist.md) | Court enforcement data informs compliance risk assessment |
+| [report-synthesis-specialist](@/agents/report-synthesis-specialist.md) | Compliance assessments are integrated into comprehensive intelligence reports |
 
 ## Assessment Methodology
 
@@ -89,7 +89,7 @@ The **evidence collection phase** gathers available information about the entity
 
 ## Enforcement
 
-Compliance assessments are held to the highest standard under the [NO MERCY](/glossary/no-mercy/) doctrine: no assessment is published without complete regulatory citation, gap evidence, and confidence qualification. The [Trinity Gate](/glossary/trinity-gate/) validates all compliance determinations before they enter decision-support workflows. The [NABLA Infinity](/glossary/nabla-infinity/) framework ensures that compliance claims are traceable, and contradictory compliance signals between frameworks are preserved rather than editorially resolved.
+Compliance assessments are held to the highest standard under the [NO MERCY](@/glossary/no-mercy.md) doctrine: no assessment is published without complete regulatory citation, gap evidence, and confidence qualification. The [Trinity Gate](@/glossary/trinity-gate.md) validates all compliance determinations before they enter decision-support workflows. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework ensures that compliance claims are traceable, and contradictory compliance signals between frameworks are preserved rather than editorially resolved.
 
 ---
 
@@ -98,4 +98,4 @@ Compliance assessments are held to the highest standard under the [NO MERCY](/gl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

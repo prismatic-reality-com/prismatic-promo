@@ -449,24 +449,24 @@ end
 
 ## Related Terms
 
-- [Digraph](/glossary/digraph/) -- Erlang's directed graph implementation with in-memory edge storage
-- [Graph Database](/glossary/graph-database/) -- persistent storage optimized for edge-centric queries and traversals
-- [KuzuDB](/glossary/kuzudb/) -- the Prismatic Platform's graph database storing DD entity relationships
-- [Graph Theory](/glossary/graph-theory/) -- mathematical foundations of edge properties, traversal algorithms, and graph metrics
+- [Digraph](@/glossary/digraph.md) -- Erlang's directed graph implementation with in-memory edge storage
+- [Graph Database](@/glossary/graph-database.md) -- persistent storage optimized for edge-centric queries and traversals
+- [KuzuDB](@/glossary/kuzudb.md) -- the Prismatic Platform's graph database storing DD entity relationships
+- [Graph Theory](@/glossary/graph-theory.md) -- mathematical foundations of edge properties, traversal algorithms, and graph metrics
 - [Vertex](/glossary/vertex/) -- the nodes connected by edges in a graph structure
-- [Fly.io](/glossary/fly-io/) -- edge deployment platform providing multi-region infrastructure
-- [Distributed Erlang](/glossary/distributed-erlang/) -- BEAM clustering enabling communication between edge-deployed nodes
-- [Latency](/glossary/latency/) -- the primary metric optimized by edge deployment strategies
-- [LiveView](/glossary/liveview/) -- Phoenix LiveView requiring low-latency WebSocket connections to edge servers
+- [Fly.io](@/glossary/fly-io.md) -- edge deployment platform providing multi-region infrastructure
+- [Distributed Erlang](@/glossary/distributed-erlang.md) -- BEAM clustering enabling communication between edge-deployed nodes
+- [Latency](@/glossary/latency.md) -- the primary metric optimized by edge deployment strategies
+- [LiveView](@/glossary/liveview.md) -- Phoenix LiveView requiring low-latency WebSocket connections to edge servers
 - [CDN](/glossary/cdn/) -- content delivery networks serving static assets from edge locations
-- [WebSocket](/glossary/websocket/) -- persistent connections between browsers and edge servers for real-time updates
+- [WebSocket](@/glossary/websocket.md) -- persistent connections between browsers and edge servers for real-time updates
 - [Relationship](/glossary/relationship/) -- the semantic meaning carried by edges in knowledge graphs
 
 ## See Also
 
-- [Technologies](/technologies/) -- graph and edge computing technologies in the platform stack
-- [Architecture](/architecture/) -- platform graph database and multi-region deployment architecture
-- [Capabilities](/capabilities/) -- intelligence analysis and edge deployment capabilities
+- [Technologies](@/technologies/_index.md) -- graph and edge computing technologies in the platform stack
+- [Architecture](@/architecture/_index.md) -- platform graph database and multi-region deployment architecture
+- [Capabilities](@/capabilities/_index.md) -- intelligence analysis and edge deployment capabilities
 
 ---
 
@@ -475,4 +475,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

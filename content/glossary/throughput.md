@@ -364,18 +364,18 @@ When throughput optimization is needed (identified through measurement, not assu
 
 ## Cross-References
 
-- [Latency](/glossary/latency/) -- Complementary performance metric measuring individual operation duration
-- [Backpressure](/glossary/backpressure/) -- Flow control mechanism for sustaining throughput under load
-- [BEAM VM](/glossary/beam-vm/) -- Virtual machine architecture enabling high-throughput concurrent systems
-- [Broadway](/glossary/broadway/) -- Production-ready data pipeline framework built on GenStage
-- [Scalability](/glossary/scalability/) -- System capacity to increase throughput with additional resources
-- [Performance](/glossary/performance/) -- Umbrella term for system speed, efficiency, and resource utilization
-- [Telemetry](/glossary/telemetry/) -- Observability framework for measuring and reporting throughput metrics
-- [Connection Pooling](/glossary/connection-pooling/) -- Resource management pattern for database and network throughput
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern preventing cascade throughput failures
-- [Load Balancing](/glossary/load-balancing/) -- Request distribution for aggregate throughput scaling
-- [Stream Processing](/glossary/stream-processing/) -- Continuous data processing with throughput guarantees
-- [GenStage](/glossary/genstage/) -- Demand-driven data flow for pipeline throughput management
+- [Latency](@/glossary/latency.md) -- Complementary performance metric measuring individual operation duration
+- [Backpressure](@/glossary/backpressure.md) -- Flow control mechanism for sustaining throughput under load
+- [BEAM VM](@/glossary/beam-vm.md) -- Virtual machine architecture enabling high-throughput concurrent systems
+- [Broadway](@/glossary/broadway.md) -- Production-ready data pipeline framework built on GenStage
+- [Scalability](@/glossary/scalability.md) -- System capacity to increase throughput with additional resources
+- [Performance](@/glossary/performance.md) -- Umbrella term for system speed, efficiency, and resource utilization
+- [Telemetry](@/glossary/telemetry.md) -- Observability framework for measuring and reporting throughput metrics
+- [Connection Pooling](@/glossary/connection-pooling.md) -- Resource management pattern for database and network throughput
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern preventing cascade throughput failures
+- [Load Balancing](@/glossary/load-balancing.md) -- Request distribution for aggregate throughput scaling
+- [Stream Processing](@/glossary/stream-processing.md) -- Continuous data processing with throughput guarantees
+- [GenStage](@/glossary/genstage.md) -- Demand-driven data flow for pipeline throughput management
 
 ---
 
@@ -384,4 +384,4 @@ When throughput optimization is needed (identified through measurement, not assu
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

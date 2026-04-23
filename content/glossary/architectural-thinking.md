@@ -46,7 +46,7 @@ Architectural thinking is not a role-specific skill. While software architects e
 
 The emergence of architectural thinking as a recognized discipline parallels the increasing complexity of software systems. In the era of single-process, single-machine applications, system structure was relatively constrained. Modern distributed systems -- with their microservices, event-driven architectures, multi-cloud deployments, and global user bases -- present a combinatorial explosion of structural choices. Architectural thinking provides the cognitive framework for navigating this complexity systematically rather than reactively.
 
-In the Prismatic Platform, architectural thinking is embedded in the development culture through several mechanisms: the NO MERCY, NO DOUBTS doctrine demands that every significant decision be thoroughly analyzed before execution; the NABLA Infinity framework requires evidence-based reasoning with explicit confidence levels; the [architectural decision](/glossary/architectural-decision/) process mandates documentation of alternatives and trade-offs; and the generational evolution model (Gen 1 through Gen 19) provides a long-term perspective on system evolution.
+In the Prismatic Platform, architectural thinking is embedded in the development culture through several mechanisms: the NO MERCY, NO DOUBTS doctrine demands that every significant decision be thoroughly analyzed before execution; the NABLA Infinity framework requires evidence-based reasoning with explicit confidence levels; the [architectural decision](@/glossary/architectural-decision.md) process mandates documentation of alternatives and trade-offs; and the generational evolution model (Gen 1 through Gen 19) provides a long-term perspective on system evolution.
 
 ### The Four Pillars of Architectural Thinking
 
@@ -278,7 +278,7 @@ Effective architectural thinking requires awareness of cognitive biases that dis
 
 ### Architecture Fitness Functions
 
-[Architectural thinking](/glossary/architectural-insights/) is operationalized through fitness functions that continuously validate architectural properties:
+[Architectural thinking](@/glossary/architectural-insights.md) is operationalized through fitness functions that continuously validate architectural properties:
 
 ```elixir
 defmodule PrismaticArchitecture.FitnessSuite do
@@ -363,7 +363,7 @@ The decision to use Elixir behaviours and protocols as the primary abstraction m
 
 ### Umbrella App Decomposition
 
-The 115-app umbrella structure reflects careful [domain-driven design](/glossary/domain-driven-design/) thinking. Each app represents a [bounded context](/glossary/bounded-context/) with explicit dependencies, enabling independent development and testing while maintaining the operational simplicity of a single deployment unit. This structure emerged from architectural thinking about the tension between modularity and operational complexity.
+The 115-app umbrella structure reflects careful [domain-driven design](@/glossary/domain-driven-design.md) thinking. Each app represents a [bounded context](@/glossary/bounded-context.md) with explicit dependencies, enabling independent development and testing while maintaining the operational simplicity of a single deployment unit. This structure emerged from architectural thinking about the tension between modularity and operational complexity.
 
 ## Comparison with Alternatives
 
@@ -426,14 +426,14 @@ Architectural thinking subsumes elements of all these approaches while adding th
 
 ## Related Concepts
 
-- [Architectural Decision](/glossary/architectural-decision/) -- the formal output of architectural thinking, recorded as ADRs
-- [System Design Principle](/glossary/system-design-principle/) -- guiding principles that constrain architectural reasoning
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- methodology providing strategic design vocabulary for bounded contexts
-- [Software Architecture](/glossary/software-architecture/) -- the discipline within which architectural thinking is practiced
-- [Architectural Pattern](/glossary/architectural-pattern/) -- reusable solutions that architectural thinking selects and combines
-- [Architectural Insights](/glossary/architectural-insights/) -- deep understanding generated through sustained architectural thinking
-- [Bounded Context](/glossary/bounded-context/) -- DDD concept central to decomposition reasoning
-- [System Analysis](/glossary/system-analysis/) -- systematic investigation that feeds architectural reasoning
+- [Architectural Decision](@/glossary/architectural-decision.md) -- the formal output of architectural thinking, recorded as ADRs
+- [System Design Principle](@/glossary/system-design-principle.md) -- guiding principles that constrain architectural reasoning
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- methodology providing strategic design vocabulary for bounded contexts
+- [Software Architecture](@/glossary/software-architecture.md) -- the discipline within which architectural thinking is practiced
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- reusable solutions that architectural thinking selects and combines
+- [Architectural Insights](@/glossary/architectural-insights.md) -- deep understanding generated through sustained architectural thinking
+- [Bounded Context](@/glossary/bounded-context.md) -- DDD concept central to decomposition reasoning
+- [System Analysis](@/glossary/system-analysis.md) -- systematic investigation that feeds architectural reasoning
 
 ## See Also
 
@@ -449,4 +449,4 @@ Architectural thinking subsumes elements of all these approaches while adding th
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

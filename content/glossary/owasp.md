@@ -222,17 +222,17 @@ end
 
 ### Control Implementation Details
 
-**A01 - Broken Access Control**: [RBAC](/glossary/rbac/) authorization plugs enforce role-based access on every route. The `RequireAdmin` plug protects administrative routes. LiveView mounts verify session authentication before rendering sensitive data. The platform implements both coarse-grained route-level authorization (via plug pipelines) and fine-grained component-level authorization (via LiveView assign checks).
+**A01 - Broken Access Control**: [RBAC](@/glossary/rbac.md) authorization plugs enforce role-based access on every route. The `RequireAdmin` plug protects administrative routes. LiveView mounts verify session authentication before rendering sensitive data. The platform implements both coarse-grained route-level authorization (via plug pipelines) and fine-grained component-level authorization (via LiveView assign checks).
 
-**A02 - Cryptographic Failures**: [Encryption at rest](/glossary/encryption-at-rest/) protects stored sensitive data using AES-256-GCM through Cloak.Ecto. [TLS](/glossary/tls/) 1.3 is enforced for all transport encryption. Secret management uses environment variables with no hardcoded credentials in source code. Key rotation policies ensure that encryption keys are replaced on a defined schedule.
+**A02 - Cryptographic Failures**: [Encryption at rest](@/glossary/encryption-at-rest.md) protects stored sensitive data using AES-256-GCM through Cloak.Ecto. [TLS](@/glossary/tls.md) 1.3 is enforced for all transport encryption. Secret management uses environment variables with no hardcoded credentials in source code. Key rotation policies ensure that encryption keys are replaced on a defined schedule.
 
-**A03 - Injection**: [Ecto](/glossary/ecto/)'s parameterized queries prevent SQL injection by construction. All database queries pass through Ecto's query builder, which separates query structure from user-supplied values at the protocol level. Phoenix's HEEx templates automatically escape output to prevent XSS injection. The platform's pre-commit hooks scan for raw SQL string interpolation patterns.
+**A03 - Injection**: [Ecto](@/glossary/ecto.md)'s parameterized queries prevent SQL injection by construction. All database queries pass through Ecto's query builder, which separates query structure from user-supplied values at the protocol level. Phoenix's HEEx templates automatically escape output to prevent XSS injection. The platform's pre-commit hooks scan for raw SQL string interpolation patterns.
 
-**A05 - Security Misconfiguration**: The `put_secure_browser_headers` plug sets Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, Strict-Transport-Security, and other security headers. Production configuration disables debug endpoints and error detail exposure. The [Quality Gates](/glossary/quality-gates/) system verifies that production configurations do not expose development-only features.
+**A05 - Security Misconfiguration**: The `put_secure_browser_headers` plug sets Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, Strict-Transport-Security, and other security headers. Production configuration disables debug endpoints and error detail exposure. The [Quality Gates](@/glossary/quality-gates.md) system verifies that production configurations do not expose development-only features.
 
-**A07 - Authentication Failures**: Bearer token authentication with configurable expiration, [rate limiting](/glossary/rate-limiting/) on authentication endpoints to prevent credential stuffing, and session management with secure cookie attributes (HttpOnly, Secure, SameSite). Failed authentication attempts are logged with structured metadata for forensic analysis.
+**A07 - Authentication Failures**: Bearer token authentication with configurable expiration, [rate limiting](@/glossary/rate-limiting.md) on authentication endpoints to prevent credential stuffing, and session management with secure cookie attributes (HttpOnly, Secure, SameSite). Failed authentication attempts are logged with structured metadata for forensic analysis.
 
-**A09 - Security Logging Failures**: Structured JSON logging with request metadata, authentication events, and authorization decisions. The audit logger creates immutable records of administrative actions for forensic analysis. All security-relevant events emit telemetry that feeds into the platform's [metrics](/glossary/metrics/) and alerting infrastructure.
+**A09 - Security Logging Failures**: Structured JSON logging with request metadata, authentication events, and authorization decisions. The audit logger creates immutable records of administrative actions for forensic analysis. All security-relevant events emit telemetry that feeds into the platform's [metrics](@/glossary/metrics.md) and alerting infrastructure.
 
 ### Perimeter OWASP Assessment
 
@@ -295,7 +295,7 @@ end
 
 ### Color-Team OWASP Integration
 
-The [Red Team](/glossary/red-team/) generates adversarial scenarios based on the OWASP testing guide taxonomy. Each of the 329 entries in the Red Team's attack taxonomy maps to one or more OWASP categories, ensuring comprehensive coverage of known web application security risks. [Blue Team](/glossary/blue-team/) defensive posture assessments reference OWASP ASVS requirements as verification criteria. The [Purple Team](/glossary/purple-team/) synthesizes Red-Blue findings through OWASP-mapped closure criteria, ensuring that every identified OWASP risk has a corresponding defensive control validated through adversarial testing.
+The [Red Team](@/glossary/red-team.md) generates adversarial scenarios based on the OWASP testing guide taxonomy. Each of the 329 entries in the Red Team's attack taxonomy maps to one or more OWASP categories, ensuring comprehensive coverage of known web application security risks. [Blue Team](@/glossary/blue-team.md) defensive posture assessments reference OWASP ASVS requirements as verification criteria. The [Purple Team](@/glossary/purple-team.md) synthesizes Red-Blue findings through OWASP-mapped closure criteria, ensuring that every identified OWASP risk has a corresponding defensive control validated through adversarial testing.
 
 ## Comparison with Alternatives
 
@@ -305,11 +305,11 @@ The [Red Team](/glossary/red-team/) generates adversarial scenarios based on the
 | **SANS Top 25 (CWE)** | Software weakness enumeration | Annual | Voluntary | Free |
 | **NIST SP 800-53** | Federal information systems | Continuous | Mandatory (US federal) | Free |
 | **PCI DSS** | Payment card data | Every 3 years | Mandatory (card processors) | Assessment costs |
-| **[ISO 27001](/glossary/iso-27001/)** | Information security management | Periodic revision | Voluntary certification | Certification costs |
+| **[ISO 27001](@/glossary/iso-27001.md)** | Information security management | Periodic revision | Voluntary certification | Certification costs |
 | **SOC 2** | Service organization controls | Annual audit | Market-driven requirement | Audit costs |
 | **NIST CSF** | Cybersecurity framework | Periodic revision | Voluntary | Free |
 
-OWASP is unique in being completely free, community-driven, and focused specifically on application-layer security rather than organizational or infrastructure controls. It complements broader standards like NIST and ISO by providing detailed technical guidance that those frameworks reference but do not themselves specify. The combination of OWASP (application security) with [ISO 27001](/glossary/iso-27001/) (information security management) and [NIS2](/glossary/nis2/) (regulatory compliance) provides comprehensive security coverage across technical, organizational, and regulatory dimensions.
+OWASP is unique in being completely free, community-driven, and focused specifically on application-layer security rather than organizational or infrastructure controls. It complements broader standards like NIST and ISO by providing detailed technical guidance that those frameworks reference but do not themselves specify. The combination of OWASP (application security) with [ISO 27001](@/glossary/iso-27001.md) (information security management) and [NIS2](@/glossary/nis2.md) (regulatory compliance) provides comprehensive security coverage across technical, organizational, and regulatory dimensions.
 
 ## OWASP Top 10 Evolution
 
@@ -331,11 +331,11 @@ The 2021 edition introduced "Insecure Design" (A04) as a new category, acknowled
 
 ## Best Practices
 
-**Risk-Based Prioritization**: Address OWASP categories in order of risk to your specific application. A public-facing API serving financial data should prioritize A01 (Access Control) and A02 (Cryptographic Failures) over A10 (SSRF) if the application makes no outbound requests. Use the platform's [risk score](/glossary/risk-score/) calculations to quantify the relative importance of each category.
+**Risk-Based Prioritization**: Address OWASP categories in order of risk to your specific application. A public-facing API serving financial data should prioritize A01 (Access Control) and A02 (Cryptographic Failures) over A10 (SSRF) if the application makes no outbound requests. Use the platform's [risk score](@/glossary/risk-score.md) calculations to quantify the relative importance of each category.
 
-**Defense in Depth**: Never rely on a single control for any OWASP category. Injection prevention should combine parameterized queries, input validation, output encoding, and least-privilege database accounts. Each layer catches what the previous layer misses. The Prismatic Platform implements this through multiple security [plug](/glossary/plug/) layers in the Phoenix pipeline.
+**Defense in Depth**: Never rely on a single control for any OWASP category. Injection prevention should combine parameterized queries, input validation, output encoding, and least-privilege database accounts. Each layer catches what the previous layer misses. The Prismatic Platform implements this through multiple security [plug](@/glossary/plug.md) layers in the Phoenix pipeline.
 
-**Automated Verification**: Integrate OWASP ZAP or similar DAST tools into CI/CD pipelines for continuous security regression testing. Static analysis tools (SAST) like Sobelow for Elixir catch common security patterns at compile time. The platform's pre-commit hooks and [quality gates](/glossary/quality-gates/) automate verification of OWASP-relevant controls.
+**Automated Verification**: Integrate OWASP ZAP or similar DAST tools into CI/CD pipelines for continuous security regression testing. Static analysis tools (SAST) like Sobelow for Elixir catch common security patterns at compile time. The platform's pre-commit hooks and [quality gates](@/glossary/quality-gates.md) automate verification of OWASP-relevant controls.
 
 **Security Headers as Code**: Define security headers in plug pipelines rather than web server configuration. This keeps security controls version-controlled, testable, and consistent across environments. The platform's `SecureHeaders` plug centralizes all OWASP-recommended HTTP security headers.
 
@@ -345,11 +345,11 @@ The 2021 edition introduced "Insecure Design" (A04) as a new category, acknowled
 
 ## Use Cases
 
-**Regulatory Compliance**: Organizations subject to PCI DSS, HIPAA, or GDPR reference OWASP standards as evidence of technical security controls. An OWASP-aligned security program satisfies the technical requirement component of these regulations. The Prismatic Platform's [compliance framework](/glossary/compliance-framework/) maps OWASP controls to regulatory requirements automatically.
+**Regulatory Compliance**: Organizations subject to PCI DSS, HIPAA, or GDPR reference OWASP standards as evidence of technical security controls. An OWASP-aligned security program satisfies the technical requirement component of these regulations. The Prismatic Platform's [compliance framework](@/glossary/compliance-framework.md) maps OWASP controls to regulatory requirements automatically.
 
-**Security Rating Assessment**: Prismatic Perimeter uses OWASP criteria when evaluating external [attack surfaces](/glossary/attack-surface/), checking for security header presence, TLS configuration quality, and known vulnerability exposure. Each OWASP-relevant finding contributes to the organization's A-F security rating.
+**Security Rating Assessment**: Prismatic Perimeter uses OWASP criteria when evaluating external [attack surfaces](@/glossary/attack-surface.md), checking for security header presence, TLS configuration quality, and known vulnerability exposure. Each OWASP-relevant finding contributes to the organization's A-F security rating.
 
-**Penetration Testing Scope**: OWASP WSTG provides the methodology and test case catalog for authorized [penetration testing](/glossary/penetration-testing/) engagements, ensuring comprehensive and reproducible security assessments. The platform's Red Team maps its adversarial scenarios to WSTG test identifiers for traceability.
+**Penetration Testing Scope**: OWASP WSTG provides the methodology and test case catalog for authorized [penetration testing](@/glossary/penetration-testing.md) engagements, ensuring comprehensive and reproducible security assessments. The platform's Red Team maps its adversarial scenarios to WSTG test identifiers for traceability.
 
 **Developer Training**: OWASP's WebGoat and Juice Shop provide hands-on vulnerable applications for training developers to recognize and prevent common security flaws in their own code. These training tools complement the platform's secure coding guidelines and pre-commit enforcement.
 
@@ -369,23 +369,23 @@ The 2021 edition introduced "Insecure Design" (A04) as a new category, acknowled
 
 ## Related Concepts
 
-- [Penetration Testing](/glossary/penetration-testing/) - Security testing methodology guided by OWASP standards
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) - Evaluation process using OWASP risk categories
-- [RBAC](/glossary/rbac/) - Access control addressing OWASP broken access control risk
-- [Rate Limiting](/glossary/rate-limiting/) - Protection against OWASP brute force and DoS risks
-- [Compliance Framework](/glossary/compliance-framework/) - Regulatory standards that reference OWASP guidelines
-- [Red Team](/glossary/red-team/) - Adversarial simulation using OWASP testing taxonomy
-- [TLS](/glossary/tls/) - Transport security addressing OWASP cryptographic failures
-- [Attack Surface](/glossary/attack-surface/) - Exposure points assessed against OWASP criteria
-- [Encryption at Rest](/glossary/encryption-at-rest/) - Data protection addressing A02 cryptographic failures
-- [Quality Gates](/glossary/quality-gates/) - Automated enforcement of OWASP security controls
-- [ISO 27001](/glossary/iso-27001/) - Information security standard referencing OWASP controls
+- [Penetration Testing](@/glossary/penetration-testing.md) - Security testing methodology guided by OWASP standards
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) - Evaluation process using OWASP risk categories
+- [RBAC](@/glossary/rbac.md) - Access control addressing OWASP broken access control risk
+- [Rate Limiting](@/glossary/rate-limiting.md) - Protection against OWASP brute force and DoS risks
+- [Compliance Framework](@/glossary/compliance-framework.md) - Regulatory standards that reference OWASP guidelines
+- [Red Team](@/glossary/red-team.md) - Adversarial simulation using OWASP testing taxonomy
+- [TLS](@/glossary/tls.md) - Transport security addressing OWASP cryptographic failures
+- [Attack Surface](@/glossary/attack-surface.md) - Exposure points assessed against OWASP criteria
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) - Data protection addressing A02 cryptographic failures
+- [Quality Gates](@/glossary/quality-gates.md) - Automated enforcement of OWASP security controls
+- [ISO 27001](@/glossary/iso-27001.md) - Information security standard referencing OWASP controls
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform security architecture
-- [Technologies](/technologies/) - Security tooling and frameworks
-- [Capabilities](/capabilities/) - Security and compliance capabilities
+- [Architecture](@/architecture/_index.md) - Platform security architecture
+- [Technologies](@/technologies/_index.md) - Security tooling and frameworks
+- [Capabilities](@/capabilities/_index.md) - Security and compliance capabilities
 
 ---
 
@@ -394,4 +394,4 @@ The 2021 edition introduced "Insecure Design" (A04) as a new category, acknowled
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

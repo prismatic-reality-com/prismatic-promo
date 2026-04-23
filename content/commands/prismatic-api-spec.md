@@ -24,11 +24,11 @@ image_alt = "/prismatic-api-spec - Prismatic Platform"
 
 ## Overview
 
-**/prismatic-api-spec** is a production command in the **API** category of the Prismatic Platform that generates, validates, and serves the complete [OpenAPI](/glossary/openapi/) 3.0 specification for the auto-introspecting REST gateway. The command introspects all `Prismatic*` facade modules at runtime, extracts function signatures via `Code.Typespec.fetch_specs/1` and documentation via `Code.fetch_docs/1`, then maps Elixir type specifications to JSON Schema definitions that conform to the OpenAPI 3.0.3 standard.
+**/prismatic-api-spec** is a production command in the **API** category of the Prismatic Platform that generates, validates, and serves the complete [OpenAPI](@/glossary/openapi.md) 3.0 specification for the auto-introspecting REST gateway. The command introspects all `Prismatic*` facade modules at runtime, extracts function signatures via `Code.Typespec.fetch_specs/1` and documentation via `Code.fetch_docs/1`, then maps Elixir type specifications to JSON Schema definitions that conform to the OpenAPI 3.0.3 standard.
 
 The specification generation process is fully automatic and requires zero manual annotation. Every public function that meets the facade discovery criteria is represented as an endpoint in the resulting specification document, complete with request schemas, response schemas, parameter descriptions, and example payloads. This eliminates the traditional burden of maintaining API documentation separately from implementation -- the specification is always an accurate reflection of what the platform actually exposes.
 
-This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The generated specification powers the interactive SwaggerUI available at `/api/swaggerui` and serves as the canonical contract for all API consumers.
+This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The generated specification powers the interactive SwaggerUI available at `/api/swaggerui` and serves as the canonical contract for all API consumers.
 
 The command supports multiple output formats including JSON, YAML, and direct browser rendering through SwaggerUI. It integrates with [OpenApiSpex](https://hexdocs.pm/open_api_spex/) for schema validation, ensuring that the generated specification is not merely syntactically correct but semantically valid against the OpenAPI 3.0 meta-schema.
 
@@ -157,11 +157,11 @@ The specification generation follows a deterministic pipeline that ensures consi
 
 | System | Integration | Direction |
 |--------|-------------|-----------|
-| [Prismatic API](/apps/prismatic-api/) | Primary consumer -- serves spec at `/api/openapi` | Outbound |
-| [SwaggerUI](/glossary/openapi/) | Interactive documentation at `/api/swaggerui` | Outbound |
-| [Quality Gates](/glossary/quality-gates/) | Spec validation as a quality gate checkpoint | Bidirectional |
-| [Telemetry](/glossary/telemetry/) | Emits `[:prismatic_api, :spec, :generated]` events | Outbound |
-| [AIAD Registry](/glossary/aiad/) | Command discovery and execution routing | Inbound |
+| [Prismatic API](@/apps/prismatic-api.md) | Primary consumer -- serves spec at `/api/openapi` | Outbound |
+| [SwaggerUI](@/glossary/openapi.md) | Interactive documentation at `/api/swaggerui` | Outbound |
+| [Quality Gates](@/glossary/quality-gates.md) | Spec validation as a quality gate checkpoint | Bidirectional |
+| [Telemetry](@/glossary/telemetry.md) | Emits `[:prismatic_api, :spec, :generated]` events | Outbound |
+| [AIAD Registry](@/glossary/aiad.md) | Command discovery and execution routing | Inbound |
 | CI/CD Pipeline | Spec diff detection for breaking change prevention | Outbound |
 | Client SDK Generation | Input for `openapi-generator` and similar tools | Outbound |
 
@@ -231,21 +231,21 @@ endpoints = PrismaticApi.Registry.list_endpoints()
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The specification must be valid OpenAPI 3.0 or the command fails with explicit error messages. No partial specifications are emitted.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every endpoint in the specification is verified against its source module's actual type annotations before inclusion.
 
-The command enforces [NABLA](/glossary/nabla-infinity/) axioms by maintaining provenance -- every schema definition traces back to its originating Elixir module and function, satisfying the Provenance Mandatory axiom.
+The command enforces [NABLA](@/glossary/nabla-infinity.md) axioms by maintaining provenance -- every schema definition traces back to its originating Elixir module and function, satisfying the Provenance Mandatory axiom.
 
 ## Related Commands
 
-- [/prismatic-api-status](/commands/prismatic-api-status/) - [Prismatic API](/glossary/prismatic-api/) auto-introspecting REST gateway status
-- [/prismatic-api-endpoints](/commands/prismatic-api-endpoints/) - List all auto-discovered API endpoints from facade modules
-- [/prismatic-api-rescan](/commands/prismatic-api-rescan/) - Trigger endpoint re-scan of all Prismatic facade modules
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/prismatic-api-status](@/commands/prismatic-api-status.md) - [Prismatic API](@/glossary/prismatic-api.md) auto-introspecting REST gateway status
+- [/prismatic-api-endpoints](@/commands/prismatic-api-endpoints.md) - List all auto-discovered API endpoints from facade modules
+- [/prismatic-api-rescan](@/commands/prismatic-api-rescan.md) - Trigger endpoint re-scan of all Prismatic facade modules
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -254,4 +254,4 @@ The command enforces [NABLA](/glossary/nabla-infinity/) axioms by maintaining pr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

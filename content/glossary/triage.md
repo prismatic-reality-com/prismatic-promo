@@ -211,11 +211,11 @@ The triage system ensures that the platform's NO MERCY doctrine is enforced prop
 
 ## Cross-References
 
-- [Incident Response](/glossary/incident-response/) - Full response lifecycle
-- [Monitoring](/glossary/monitoring/) - Alert source systems
+- [Incident Response](@/glossary/incident-response.md) - Full response lifecycle
+- [Monitoring](@/glossary/monitoring.md) - Alert source systems
 - **Severity** - Classification levels
-- [Throttling](/glossary/throttling/) - Rate control during incident response
-- [Trace](/glossary/trace/) - Request tracking for incident investigation
+- [Throttling](@/glossary/throttling.md) - Rate control during incident response
+- [Trace](@/glossary/trace.md) - Request tracking for incident investigation
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

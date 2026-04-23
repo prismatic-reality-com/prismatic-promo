@@ -430,24 +430,24 @@ The Prismatic Platform favors allowlisting combined with Ecto changesets for str
 
 Input sanitization connects to many security and software quality concepts:
 
-- [Security](/glossary/security/) -- the overarching discipline of protecting systems from unauthorized access, data breaches, and operational disruption
-- [Validation](/glossary/validation/) -- verifying that data conforms to expected formats, types, and constraints before processing
-- [Injection Vulnerability](/glossary/injection-vulnerability/) -- a class of attacks that exploit insufficient input sanitization to execute unauthorized commands
-- [OWASP](/glossary/owasp/) -- the Open Web Application Security Project that maintains the authoritative list of web application security risks
-- [Authentication](/glossary/authentication/) -- verifying user identity, which itself requires careful input handling for credentials
-- [Authorization](/glossary/authorization/) -- controlling access to resources based on authenticated identity and permissions
-- [Encryption](/glossary/encryption/) -- protecting data confidentiality, complementing sanitization's focus on data integrity
-- [Data Protection](/glossary/data-protection/) -- regulatory and technical measures for safeguarding personal and sensitive data
-- [Error Handling](/glossary/error-handling/) -- gracefully handling validation failures without leaking internal system details
-- [Ecto](/glossary/ecto/) -- the Elixir database library providing changeset-based input validation and parameterized queries
+- [Security](@/glossary/security.md) -- the overarching discipline of protecting systems from unauthorized access, data breaches, and operational disruption
+- [Validation](@/glossary/validation.md) -- verifying that data conforms to expected formats, types, and constraints before processing
+- [Injection Vulnerability](@/glossary/injection-vulnerability.md) -- a class of attacks that exploit insufficient input sanitization to execute unauthorized commands
+- [OWASP](@/glossary/owasp.md) -- the Open Web Application Security Project that maintains the authoritative list of web application security risks
+- [Authentication](@/glossary/authentication.md) -- verifying user identity, which itself requires careful input handling for credentials
+- [Authorization](@/glossary/authorization.md) -- controlling access to resources based on authenticated identity and permissions
+- [Encryption](@/glossary/encryption.md) -- protecting data confidentiality, complementing sanitization's focus on data integrity
+- [Data Protection](@/glossary/data-protection.md) -- regulatory and technical measures for safeguarding personal and sensitive data
+- [Error Handling](@/glossary/error-handling.md) -- gracefully handling validation failures without leaking internal system details
+- [Ecto](@/glossary/ecto.md) -- the Elixir database library providing changeset-based input validation and parameterized queries
 
 ## See Also
 
-- [Phoenix](/glossary/phoenix/) -- the web framework providing Plug-based request pipeline and auto-escaping templates
-- [Rate Limiting](/glossary/rate-limiting/) -- throttling request volume to prevent abuse and denial-of-service attacks
-- [RBAC](/glossary/rbac/) -- role-based access control complementing input sanitization for defense-in-depth
-- [Credential Management](/glossary/credential-management/) -- securely handling authentication tokens and secrets
-- [Compliance Framework](/glossary/compliance-framework/) -- regulatory requirements that mandate input validation and data protection
+- [Phoenix](@/glossary/phoenix.md) -- the web framework providing Plug-based request pipeline and auto-escaping templates
+- [Rate Limiting](@/glossary/rate-limiting.md) -- throttling request volume to prevent abuse and denial-of-service attacks
+- [RBAC](@/glossary/rbac.md) -- role-based access control complementing input sanitization for defense-in-depth
+- [Credential Management](@/glossary/credential-management.md) -- securely handling authentication tokens and secrets
+- [Compliance Framework](@/glossary/compliance-framework.md) -- regulatory requirements that mandate input validation and data protection
 
 ---
 

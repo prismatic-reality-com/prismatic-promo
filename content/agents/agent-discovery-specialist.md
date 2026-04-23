@@ -28,15 +28,15 @@ image_alt = "agent-discovery-specialist - Prismatic Platform"
 
 ## Overview
 
-The Agent Discovery Specialist operates as an L2 [tactical execution](/glossary/tactical-execution/) agent within the Primary domain of the Prismatic Platform. This agent is responsible for discovering, cataloging, validating, and maintaining the registry of all [AIAD](/glossary/aiad/) agents across the platform ecosystem. With over 404 autonomous agents defined in `.aiad/agents/` specifications, the ability to programmatically discover, index, and query the agent population is a foundational infrastructure capability that enables every other coordination and orchestration function in the platform.
+The Agent Discovery Specialist operates as an L2 [tactical execution](@/glossary/tactical-execution.md) agent within the Primary domain of the Prismatic Platform. This agent is responsible for discovering, cataloging, validating, and maintaining the registry of all [AIAD](@/glossary/aiad.md) agents across the platform ecosystem. With over 404 autonomous agents defined in `.aiad/agents/` specifications, the ability to programmatically discover, index, and query the agent population is a foundational infrastructure capability that enables every other coordination and orchestration function in the platform.
 
-The discovery process is not a one-time scan. The Agent Discovery Specialist runs continuous monitoring that detects newly created agent specifications, identifies modifications to existing agents, flags deprecated or removed agents, and maintains a real-time registry index that reflects the current state of the agent ecosystem. This continuous discovery is essential because the AIAD ecosystem evolves through autonomous evolution cycles (driven by the [AIAD Auto-Evolution Supreme](/agents/aiad-auto-evolution-supreme/)) that can create, modify, or retire agent specifications without manual intervention.
+The discovery process is not a one-time scan. The Agent Discovery Specialist runs continuous monitoring that detects newly created agent specifications, identifies modifications to existing agents, flags deprecated or removed agents, and maintains a real-time registry index that reflects the current state of the agent ecosystem. This continuous discovery is essential because the AIAD ecosystem evolves through autonomous evolution cycles (driven by the [AIAD Auto-Evolution Supreme](@/agents/aiad-auto-evolution-supreme.md)) that can create, modify, or retire agent specifications without manual intervention.
 
-The registry maintained by this agent serves as the authoritative source of truth for all agent-related queries. When the 3NL Coordinator needs to identify which agents can handle a specific task, when the AIAD Dashboard Commander needs to display ecosystem health, or when the [SEADF](/glossary/seadf/) Scanner needs to correlate code quality with agent specifications, they all query the registry maintained by this specialist. The registry is not merely a list of agent files -- it is a structured index with parsed metadata, capability mappings, authority hierarchies, domain classifications, and inter-agent dependency graphs.
+The registry maintained by this agent serves as the authoritative source of truth for all agent-related queries. When the 3NL Coordinator needs to identify which agents can handle a specific task, when the AIAD Dashboard Commander needs to display ecosystem health, or when the [SEADF](@/glossary/seadf.md) Scanner needs to correlate code quality with agent specifications, they all query the registry maintained by this specialist. The registry is not merely a list of agent files -- it is a structured index with parsed metadata, capability mappings, authority hierarchies, domain classifications, and inter-agent dependency graphs.
 
 ## Architecture
 
-The Agent Discovery Specialist is implemented as a [GenServer](/glossary/genserver/) that maintains the agent registry in [ETS](/glossary/ets/) for high-performance concurrent reads. The registry is rebuilt from filesystem state at startup and maintained incrementally through filesystem monitoring during runtime.
+The Agent Discovery Specialist is implemented as a [GenServer](@/glossary/genserver.md) that maintains the agent registry in [ETS](@/glossary/ets.md) for high-performance concurrent reads. The registry is rebuilt from filesystem state at startup and maintained incrementally through filesystem monitoring during runtime.
 
 The ETS table uses `:set` type keyed by agent ID, enabling O(1) lookups by agent identifier. Secondary indices for capability-based queries, domain-based queries, and authority-level queries are maintained as additional ETS tables with bag semantics, enabling efficient multi-criteria searches across the 404-agent registry.
 
@@ -47,11 +47,11 @@ The discovery pipeline processes specifications through three stages: parsing (Y
 ## Core Capabilities
 
 - **Filesystem-based specification discovery** scanning the `.aiad/agents/` directory for agent specification files, parsing YAML frontmatter, and extracting structured metadata including authority level, domain, capabilities, dependencies, and enforcement compliance
-- **Runtime agent detection** querying the platform's [DynamicSupervisor](/glossary/dynamic-supervisor/) to identify which agent specifications have corresponding runtime processes, enabling health status correlation between specification and execution layers
+- **Runtime agent detection** querying the platform's [DynamicSupervisor](@/glossary/dynamic-supervisor.md) to identify which agent specifications have corresponding runtime processes, enabling health status correlation between specification and execution layers
 - **Capability indexing** building and maintaining a searchable index of agent capabilities, enabling query-based agent selection where consuming systems can request agents by capability rather than by name
 - **Dependency graph construction** parsing inter-agent dependency declarations and building a directed acyclic graph of agent relationships, enabling impact analysis when an agent specification changes
 - **Registry consistency validation** verifying that every registered agent has a valid specification file, that every specification file is registered, and that cross-references between agents resolve correctly
-- **Change detection and notification** monitoring the agent specification directory for filesystem changes and emitting [telemetry](/glossary/telemetry/) events that notify interested systems of agent additions, modifications, and removals
+- **Change detection and notification** monitoring the agent specification directory for filesystem changes and emitting [telemetry](@/glossary/telemetry.md) events that notify interested systems of agent additions, modifications, and removals
 
 ## Implementation
 
@@ -120,12 +120,12 @@ The change detection algorithm computes a content hash of each specification fil
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [AIAD Adaptation Engine Agent](/agents/aiad-adaptation-engine-agent/) | Specification Consumer | Consumes registry data to identify Prismatic-specific patterns for adaptation |
-| [AIAD Intelligence Selector Agent](/agents/aiad-intelligence-selector-agent/) | Capability Query | Queries registry to match project capabilities with available agents |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Validation Partner | Cross-validates registry consistency with specification integrity checks |
-| [aiad-dashboard-commander](/agents/aiad-dashboard-commander/) | Display Consumer | Consumes registry data for ecosystem health dashboard visualization |
-| [aiad-auto-evolution-supreme](/agents/aiad-auto-evolution-supreme/) | Evolution Source | Detects specification changes from autonomous evolution cycles |
-| [mycelial-network](/glossary/mycelial-network/) | Propagation | Announces agent capabilities across the platform network |
+| [AIAD Adaptation Engine Agent](@/agents/aiad-adaptation-engine-agent.md) | Specification Consumer | Consumes registry data to identify Prismatic-specific patterns for adaptation |
+| [AIAD Intelligence Selector Agent](@/agents/aiad-intelligence-selector-agent.md) | Capability Query | Queries registry to match project capabilities with available agents |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Validation Partner | Cross-validates registry consistency with specification integrity checks |
+| [aiad-dashboard-commander](@/agents/aiad-dashboard-commander.md) | Display Consumer | Consumes registry data for ecosystem health dashboard visualization |
+| [aiad-auto-evolution-supreme](@/agents/aiad-auto-evolution-supreme.md) | Evolution Source | Detects specification changes from autonomous evolution cycles |
+| [mycelial-network](@/glossary/mycelial-network.md) | Propagation | Announces agent capabilities across the platform network |
 
 ## Operational Workflow
 
@@ -183,12 +183,12 @@ The AIAD specification at `.aiad/agents/agent-discovery-specialist.agent.md` def
 
 ## Related Resources
 
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard defining discoverable agent formats
-- [Agent Registry](/registry/) -- Public registry of all platform agents
-- [SEADF](/glossary/seadf/) -- Self-Evolving Autonomous Development Framework consuming discovery data
-- [Mycelial Network](/glossary/mycelial-network/) -- Cross-domain pattern propagation using agent capability data
-- [Applications](/apps/) -- 90+ platform applications hosting agent runtime processes
-- [Commands](/commands/) -- 210+ commands that reference agent specifications
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard defining discoverable agent formats
+- [Agent Registry](@/registry/_index.md) -- Public registry of all platform agents
+- [SEADF](@/glossary/seadf.md) -- Self-Evolving Autonomous Development Framework consuming discovery data
+- [Mycelial Network](@/glossary/mycelial-network.md) -- Cross-domain pattern propagation using agent capability data
+- [Applications](@/apps/_index.md) -- 90+ platform applications hosting agent runtime processes
+- [Commands](@/commands/_index.md) -- 210+ commands that reference agent specifications
 
 ---
 
@@ -197,4 +197,4 @@ The AIAD specification at `.aiad/agents/agent-discovery-specialist.agent.md` def
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

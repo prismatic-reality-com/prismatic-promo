@@ -28,11 +28,11 @@ image_alt = "scalability-architect - Prismatic Platform"
 
 ## Overview
 
-The Scalability Architect is an L3 agent operating in the **architecture** domain of the Prismatic Platform. This agent specializes in designing and enforcing horizontal and vertical scaling strategies, [load balancing](/glossary/load-balancing/) configurations, and capacity planning models that ensure the platform can handle increasing workloads without degradation in performance or reliability.
+The Scalability Architect is an L3 agent operating in the **architecture** domain of the Prismatic Platform. This agent specializes in designing and enforcing horizontal and vertical scaling strategies, [load balancing](@/glossary/load-balancing.md) configurations, and capacity planning models that ensure the platform can handle increasing workloads without degradation in performance or reliability.
 
-Built on the [BEAM](/glossary/beam/) virtual machine's inherent concurrency capabilities, the Scalability Architect leverages [OTP](/glossary/otp/) design patterns to create systems that scale naturally through process multiplication rather than requiring fundamental architectural changes. The agent continuously monitors resource utilization patterns, identifies bottlenecks before they impact users, and recommends or autonomously applies scaling adjustments within its authority boundaries.
+Built on the [BEAM](@/glossary/beam.md) virtual machine's inherent concurrency capabilities, the Scalability Architect leverages [OTP](@/glossary/otp.md) design patterns to create systems that scale naturally through process multiplication rather than requiring fundamental architectural changes. The agent continuously monitors resource utilization patterns, identifies bottlenecks before they impact users, and recommends or autonomously applies scaling adjustments within its authority boundaries.
 
-As part of the platform's 434-strong autonomous agent ecosystem, the Scalability Architect contributes to the self-evolving infrastructure by ensuring that architectural decisions made today do not become tomorrow's scalability constraints. Every scaling recommendation passes through the [Trinity Gate](/glossary/trinity-gate/) verification framework before implementation, guaranteeing that improvements are evidence-based and formally validated.
+As part of the platform's 434-strong autonomous agent ecosystem, the Scalability Architect contributes to the self-evolving infrastructure by ensuring that architectural decisions made today do not become tomorrow's scalability constraints. Every scaling recommendation passes through the [Trinity Gate](@/glossary/trinity-gate.md) verification framework before implementation, guaranteeing that improvements are evidence-based and formally validated.
 
 ## Scaling Strategy Framework
 
@@ -42,11 +42,11 @@ The Scalability Architect operates with a comprehensive framework that addresses
 |----------|------|-----------|----------|
 | **Process Multiplication** | Horizontal | Spawn additional worker processes | CPU-bound workloads |
 | **Node Distribution** | Horizontal | Distribute across BEAM nodes | Geographic scaling |
-| **ETS Partitioning** | Horizontal | Shard [ETS](/glossary/ets/) tables across processes | Read-heavy data |
-| **Connection Pooling** | Vertical | Optimize [connection pools](/glossary/connection-pooling/) | Database connections |
-| **GenStage Backpressure** | Vertical | Apply [backpressure](/glossary/backpressure/) to pipelines | Stream processing |
+| **ETS Partitioning** | Horizontal | Shard [ETS](@/glossary/ets.md) tables across processes | Read-heavy data |
+| **Connection Pooling** | Vertical | Optimize [connection pools](@/glossary/connection-pooling.md) | Database connections |
+| **GenStage Backpressure** | Vertical | Apply [backpressure](@/glossary/backpressure.md) to pipelines | Stream processing |
 | **Cache Tiering** | Hybrid | Multi-level caching with eviction | Latency-sensitive paths |
-| **Supervision Partitioning** | Horizontal | Split [supervision trees](/glossary/supervision-tree/) | Fault isolation |
+| **Supervision Partitioning** | Horizontal | Split [supervision trees](@/glossary/supervision-tree.md) | Fault isolation |
 
 ## Horizontal Scaling Architecture
 
@@ -175,7 +175,7 @@ The Scalability Architect maintains a capacity planning model that projects reso
 
 | Planning Horizon | Data Source | Confidence Level | Update Frequency |
 |-----------------|-------------|------------------|------------------|
-| **1 week** | Real-time [telemetry](/glossary/telemetry/) | High (>0.95) | Continuous |
+| **1 week** | Real-time [telemetry](@/glossary/telemetry.md) | High (>0.95) | Continuous |
 | **1 month** | Aggregated metrics | Medium (>0.80) | Daily |
 | **3 months** | Trend analysis | Medium (>0.70) | Weekly |
 | **6 months** | Growth modeling | Low-Medium (>0.60) | Bi-weekly |
@@ -188,10 +188,10 @@ The agent manages load balancing at multiple layers of the architecture. Each la
 | Layer | Strategy | Implementation | Failover |
 |-------|----------|----------------|----------|
 | **HTTP** | Round-robin with health checks | Fly.io edge routing | Automatic region failover |
-| **WebSocket** | Sticky sessions for LiveView | [Phoenix](/glossary/phoenix/) PubSub affinity | Session migration |
-| **Database** | Read replicas with write routing | [Ecto](/glossary/ecto/) multi-repo | Automatic promotion |
+| **WebSocket** | Sticky sessions for LiveView | [Phoenix](@/glossary/phoenix.md) PubSub affinity | Session migration |
+| **Database** | Read replicas with write routing | [Ecto](@/glossary/ecto.md) multi-repo | Automatic promotion |
 | **Background Jobs** | Work stealing across nodes | GenStage demand-driven | Re-queue on failure |
-| **Agent Tasks** | Capability-based routing | [AIAD](/glossary/aiad/) agent registry | Agent pool failover |
+| **Agent Tasks** | Capability-based routing | [AIAD](@/glossary/aiad.md) agent registry | Agent pool failover |
 
 ## Cluster Topology Management
 
@@ -238,7 +238,7 @@ end
 
 ## Scaling Decision Framework
 
-The Scalability Architect does not apply scaling changes arbitrarily. Every scaling decision follows a rigorous framework that requires evidence-based justification and formal verification through the [Trinity Gate](/glossary/trinity-gate/).
+The Scalability Architect does not apply scaling changes arbitrarily. Every scaling decision follows a rigorous framework that requires evidence-based justification and formal verification through the [Trinity Gate](@/glossary/trinity-gate.md).
 
 | Decision Criteria | Threshold | Action | Verification |
 |------------------|-----------|--------|-------------|
@@ -253,10 +253,10 @@ The Scalability Architect does not apply scaling changes arbitrarily. Every scal
 
 The Scalability Architect integrates with the broader platform infrastructure to ensure scaling decisions are coordinated and consistent.
 
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Resource utilization metrics feed scaling analysis
-- [**Quality Gates**](/capabilities/quality-gates/) -- Performance benchmarks gate deployments
-- [**Real-time Monitoring**](/capabilities/real-time-monitoring/) -- Live dashboards display cluster topology and resource usage
-- [**Autonomous Self-Healing**](/capabilities/autonomous-self-healing/) -- Automatic scaling responses to resource pressure
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Resource utilization metrics feed scaling analysis
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Performance benchmarks gate deployments
+- [**Real-time Monitoring**](@/capabilities/real-time-monitoring.md) -- Live dashboards display cluster topology and resource usage
+- [**Autonomous Self-Healing**](@/capabilities/autonomous-self-healing.md) -- Automatic scaling responses to resource pressure
 
 ## AIAD Specification Compliance
 
@@ -265,21 +265,21 @@ The Scalability Architect integrates with the broader platform infrastructure to
 | Agent specification file | Compliant |
 | Behavioral rules | 15 rules defined |
 | Telemetry integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [Property-based testing](/glossary/property-based-testing/) | 38 properties verified |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [Property-based testing](@/glossary/property-based-testing.md) | 38 properties verified |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Related Agents
 
 Agents in the **architecture** domain collaborate to ensure the platform's technical foundations remain sound under growing demands.
 
-- [**Strangler Pattern Specialist**](/agents/strangler-pattern-specialist/) -- Coordinates legacy system migration without scaling regression
-- [**UI Flowbite Specialist**](/agents/ui-flowbite-specialist/) -- Ensures frontend performance scales with backend capacity
-- [**Unified Orchestrator**](/agents/unified-orchestrator/) -- Routes tasks to appropriately scaled agent pools
+- [**Strangler Pattern Specialist**](@/agents/strangler-pattern-specialist.md) -- Coordinates legacy system migration without scaling regression
+- [**UI Flowbite Specialist**](@/agents/ui-flowbite-specialist.md) -- Ensures frontend performance scales with backend capacity
+- [**Unified Orchestrator**](@/agents/unified-orchestrator.md) -- Routes tasks to appropriately scaled agent pools
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to recommend and enforce scaling policies across umbrella applications.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to recommend and enforce scaling policies across umbrella applications.
 
 ---
 
@@ -288,4 +288,4 @@ Agents in the **architecture** domain collaborate to ensure the platform's techn
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

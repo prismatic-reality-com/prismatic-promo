@@ -99,7 +99,7 @@ The Curry-Howard correspondence is the foundational insight connecting logic and
 | Existential quantifier | Dependent pair | `(n, proof)` |
 | False | Empty type | `Empty` |
 
-For the Prismatic Platform, this correspondence means that verified Lean4 code is simultaneously a program and a proof of its specification. When the [QEVE](/glossary/qeve/) framework validates an epistemic property, the Lean4 proof term is both executable verification logic and a mathematical certificate of correctness.
+For the Prismatic Platform, this correspondence means that verified Lean4 code is simultaneously a program and a proof of its specification. When the [QEVE](@/glossary/qeve.md) framework validates an epistemic property, the Lean4 proof term is both executable verification logic and a mathematical certificate of correctness.
 
 ## Proof Tactics and Strategies
 
@@ -131,7 +131,7 @@ The art of interactive theorem proving lies in decomposing complex goals into su
 
 ## Lean4 in the Prismatic Platform
 
-The Prismatic Platform integrates [Lean4](/glossary/lean4/) as its primary theorem prover within the [QEVE](/glossary/qeve/) (Quantitative Epistemic Verification Engine) framework. Lean4 was chosen for its combination of expressiveness, performance (compiled tactics), metaprogramming capabilities, and active development momentum.
+The Prismatic Platform integrates [Lean4](@/glossary/lean4.md) as its primary theorem prover within the [QEVE](@/glossary/qeve.md) (Quantitative Epistemic Verification Engine) framework. Lean4 was chosen for its combination of expressiveness, performance (compiled tactics), metaprogramming capabilities, and active development momentum.
 
 Prismatic's Lean4 integration covers three verification domains:
 
@@ -139,7 +139,7 @@ Prismatic's Lean4 integration covers three verification domains:
 
 **Security Policy Correctness**: Formal proofs that RBAC policies correctly enforce access control, that authentication flows cannot be bypassed, and that information flow constraints prevent unauthorized data exposure.
 
-**Epistemic Axiom Compliance**: Verification that the [NABLA Infinity](/glossary/nabla-infinity/) framework's seven axioms are satisfied by the platform's reasoning pipelines. This includes proving that signal plurality requirements are met, that contradiction preservation is maintained, and that provenance chains are complete.
+**Epistemic Axiom Compliance**: Verification that the [NABLA Infinity](@/glossary/nabla-infinity.md) framework's seven axioms are satisfied by the platform's reasoning pipelines. This includes proving that signal plurality requirements are met, that contradiction preservation is maintained, and that provenance chains are complete.
 
 ```lean
 -- Simplified epistemic axiom: signal plurality
@@ -154,7 +154,7 @@ theorem signal_plurality_preserved
 
 ## Trinity Gate Formal Necessity Layer
 
-The [Trinity Gate](/glossary/trinity-gate/) is the Prismatic Platform's three-layer verification gate through which all epistemic claims must pass before being established as platform knowledge. Theorem proving provides the third and most rigorous layer: **formal necessity**.
+The [Trinity Gate](@/glossary/trinity-gate.md) is the Prismatic Platform's three-layer verification gate through which all epistemic claims must pass before being established as platform knowledge. Theorem proving provides the third and most rigorous layer: **formal necessity**.
 
 | Layer | Method | What It Verifies | Tool |
 |-------|--------|-----------------|------|
@@ -164,11 +164,11 @@ The [Trinity Gate](/glossary/trinity-gate/) is the Prismatic Platform's three-la
 
 The formal necessity layer ensures that critical claims are not merely consistent or logically sound but are mathematically proven. This is particularly important for security-critical properties (where a single counterexample could represent an exploitable vulnerability) and for epistemic properties (where reasoning correctness determines the trustworthiness of all downstream conclusions).
 
-The [QEVE](/glossary/qeve/) framework orchestrates the interaction between these layers: when a claim reaches the formal necessity check, QEVE translates the claim into a Lean4 proposition, invokes the prover, and either accepts the resulting proof certificate or reports the unprovable obligation back to the [epistemic pipeline](/glossary/epistemic-pipeline/) for further investigation.
+The [QEVE](@/glossary/qeve.md) framework orchestrates the interaction between these layers: when a claim reaches the formal necessity check, QEVE translates the claim into a Lean4 proposition, invokes the prover, and either accepts the resulting proof certificate or reports the unprovable obligation back to the [epistemic pipeline](@/glossary/epistemic-pipeline.md) for further investigation.
 
 ## Theorem Proving vs Property-Based Testing
 
-Theorem proving and [property-based testing](/glossary/property-based-testing/) are complementary verification techniques that occupy different points on the assurance-effort tradeoff.
+Theorem proving and [property-based testing](@/glossary/property-based-testing.md) are complementary verification techniques that occupy different points on the assurance-effort tradeoff.
 
 | Dimension | Theorem Proving | Property-Based Testing |
 |-----------|----------------|----------------------|
@@ -180,7 +180,7 @@ Theorem proving and [property-based testing](/glossary/property-based-testing/) 
 | **Maintenance** | Proofs must track specification changes | Tests adapt more easily to changes |
 | **Tool maturity** | Lean4, Coq (academic roots, growing adoption) | StreamData, PropEr (mature, widely adopted) |
 
-The Prismatic Platform uses both: property-based testing with StreamData provides rapid feedback during development, while Lean4 proofs provide the highest assurance for critical invariants that survive into the [Trinity Gate](/glossary/trinity-gate/) formal necessity layer. The [Monte Carlo verification](/glossary/monte-carlo-verification/) component of QEVE bridges the gap by using statistical methods to build confidence before investing in full formal proofs.
+The Prismatic Platform uses both: property-based testing with StreamData provides rapid feedback during development, while Lean4 proofs provide the highest assurance for critical invariants that survive into the [Trinity Gate](@/glossary/trinity-gate.md) formal necessity layer. The [Monte Carlo verification](@/glossary/monte-carlo-verification.md) component of QEVE bridges the gap by using statistical methods to build confidence before investing in full formal proofs.
 
 ## Practical Considerations
 
@@ -196,22 +196,22 @@ Deploying theorem proving in a production platform introduces engineering challe
 
 ## Related Terms
 
-- [Formal Verification](/glossary/formal-verification/) - Broader discipline encompassing theorem proving, model checking, and abstract interpretation
-- [Lean4](/glossary/lean4/) - Interactive theorem prover used by the platform for QEVE proofs
-- [QEVE](/glossary/qeve/) - Verification engine orchestrating Lean4, NABLA, and Monte Carlo verification
-- [Trinity Gate](/glossary/trinity-gate/) - Three-layer verification gate where theorem proving provides formal necessity
-- [Property-Based Testing](/glossary/property-based-testing/) - Probabilistic complement to formal proofs using random input generation
-- [Monte Carlo Verification](/glossary/monte-carlo-verification/) - Statistical verification bridging testing and formal proof
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) - 16-level pipeline where proven properties feed confidence scoring
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework whose axioms are formally verified
-- [Consciousness Traits](/glossary/consciousness-traits/) - Platform traits whose invariants are proven in Lean4
-- [Typespec](/glossary/typespec/) - Elixir type annotations complementing formal proofs at the implementation level
+- [Formal Verification](@/glossary/formal-verification.md) - Broader discipline encompassing theorem proving, model checking, and abstract interpretation
+- [Lean4](@/glossary/lean4.md) - Interactive theorem prover used by the platform for QEVE proofs
+- [QEVE](@/glossary/qeve.md) - Verification engine orchestrating Lean4, NABLA, and Monte Carlo verification
+- [Trinity Gate](@/glossary/trinity-gate.md) - Three-layer verification gate where theorem proving provides formal necessity
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Probabilistic complement to formal proofs using random input generation
+- [Monte Carlo Verification](@/glossary/monte-carlo-verification.md) - Statistical verification bridging testing and formal proof
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) - 16-level pipeline where proven properties feed confidence scoring
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework whose axioms are formally verified
+- [Consciousness Traits](@/glossary/consciousness-traits.md) - Platform traits whose invariants are proven in Lean4
+- [Typespec](@/glossary/typespec.md) - Elixir type annotations complementing formal proofs at the implementation level
 
 ## See Also
 
-- [Architecture](/architecture/) - Verification architecture and Trinity Gate integration
-- [Technologies](/technologies/) - Proof assistant tooling and formal methods stack
-- [Agents](/agents/) - White Team invariant-prover agent specification
+- [Architecture](@/architecture/_index.md) - Verification architecture and Trinity Gate integration
+- [Technologies](@/technologies/_index.md) - Proof assistant tooling and formal methods stack
+- [Agents](@/agents/_index.md) - White Team invariant-prover agent specification
 
 ---
 
@@ -220,4 +220,4 @@ Deploying theorem proving in a production platform introduces engineering challe
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

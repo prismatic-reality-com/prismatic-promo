@@ -21,11 +21,11 @@ image_alt = "Prismatic Czech Courts - Prismatic Platform"
 
 ## Overview
 
-Prismatic Czech Courts is an [OSINT](/glossary/osint/) component of the Prismatic Platform's [umbrella](/glossary/umbrella-application/) architecture. It extracts and structures data from Czech judicial sources including court decisions, insolvency proceedings, and enforcement records for intelligence analysis and compliance screening. The application connects to public judicial data sources through configurable provider adapters with [rate limiting](/glossary/rate-limiting/), caching, and error recovery built in.
+Prismatic Czech Courts is an [OSINT](@/glossary/osint.md) component of the Prismatic Platform's [umbrella](@/glossary/umbrella-application.md) architecture. It extracts and structures data from Czech judicial sources including court decisions, insolvency proceedings, and enforcement records for intelligence analysis and compliance screening. The application connects to public judicial data sources through configurable provider adapters with [rate limiting](@/glossary/rate-limiting.md), caching, and error recovery built in.
 
-Czech courts publish a substantial volume of structured and semi-structured data through public portals. This application transforms that raw judicial data into normalized, searchable intelligence that feeds into the platform's broader [intelligence synthesis](/capabilities/intelligence-synthesis/) pipeline. Every extracted record carries full [provenance](/glossary/provenance-mandatory/) metadata, enabling traceability from any intelligence product back to its original judicial source.
+Czech courts publish a substantial volume of structured and semi-structured data through public portals. This application transforms that raw judicial data into normalized, searchable intelligence that feeds into the platform's broader [intelligence synthesis](@/capabilities/intelligence-synthesis.md) pipeline. Every extracted record carries full [provenance](@/glossary/provenance-mandatory.md) metadata, enabling traceability from any intelligence product back to its original judicial source.
 
-The module implements NLP extraction for unstructured court documents, identifying parties, dates, amounts, legal references, and outcome classifications with high accuracy. An [entity resolution](/glossary/entity-resolution/) engine links court party references to canonical entity records across all Czech legal sources. The ISIR (Insolvency Register) monitoring subsystem provides continuous monitoring with configurable alert policies for new filings, status changes, creditor deadlines, and cross-entity proceedings detection.
+The module implements NLP extraction for unstructured court documents, identifying parties, dates, amounts, legal references, and outcome classifications with high accuracy. An [entity resolution](@/glossary/entity-resolution.md) engine links court party references to canonical entity records across all Czech legal sources. The ISIR (Insolvency Register) monitoring subsystem provides continuous monitoring with configurable alert policies for new filings, status changes, creditor deadlines, and cross-entity proceedings detection.
 
 ## Architecture
 
@@ -45,7 +45,7 @@ ISIR API --> Polling Worker --> Change Detector --> Alert Engine --> Notificatio
  + RSS       interval (5min)    last known state    evaluation      webhook
 ```
 
-Each source has a dedicated adapter implementing the OSINT provider [protocol](/glossary/protocol/), ensuring consistent behavior across all judicial data sources. The [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/) manages court crawlers, ISIR monitors, and entity linkers as independent supervised processes.
+Each source has a dedicated adapter implementing the OSINT provider [protocol](@/glossary/protocol.md), ensuring consistent behavior across all judicial data sources. The [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md) manages court crawlers, ISIR monitors, and entity linkers as independent supervised processes.
 
 ## Key Modules
 
@@ -109,7 +109,7 @@ end
 
 The Insolvency Register monitoring system is one of the most operationally critical components of Czech Courts. Insolvency proceedings in the Czech Republic follow strict deadlines -- creditors must file claims within specified periods, and missing these deadlines results in permanent loss of claim rights. The monitoring system tracks these deadlines and generates proactive alerts.
 
-The system maintains a watchlist of monitored entities (identified by ICO or name) and polls ISIR at configurable intervals. When a new insolvency proceeding is filed against a monitored entity, or when an existing proceeding transitions to a new stage, the alert engine evaluates configured policies and generates notifications through [PubSub](/glossary/pubsub/) and webhook channels.
+The system maintains a watchlist of monitored entities (identified by ICO or name) and polls ISIR at configurable intervals. When a new insolvency proceeding is filed against a monitored entity, or when an existing proceeding transitions to a new stage, the alert engine evaluates configured policies and generates notifications through [PubSub](@/glossary/pubsub.md) and webhook channels.
 
 ```elixir
 # ISIR monitoring configuration
@@ -203,12 +203,12 @@ Integration tests exercise the full pipeline from source portal through extracti
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Core OSINT framework protocols and provider abstractions |
-| [Prismatic OSINT Czech Legal](/apps/prismatic-osint-czech-legal/) | Czech legal registry integration for cross-source correlation |
-| [Prismatic Storage Core](/apps/prismatic-storage-core/) | Persistent storage for court records and monitoring state |
-| [Prismatic Nabla](/apps/prismatic-nabla/) | [Confidence scoring](/glossary/confidence-scoring/) for entity resolution and risk assessment |
-| [Prismatic](/apps/prismatic/) | Investigation workflow integration for legal intelligence |
-| [Prismatic Czech Autocrawler](/apps/prismatic-czech-autocrawler/) | Cross-referencing court data with business registry records |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Core OSINT framework protocols and provider abstractions |
+| [Prismatic OSINT Czech Legal](@/apps/prismatic-osint-czech-legal.md) | Czech legal registry integration for cross-source correlation |
+| [Prismatic Storage Core](@/apps/prismatic-storage-core.md) | Persistent storage for court records and monitoring state |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | [Confidence scoring](@/glossary/confidence-scoring.md) for entity resolution and risk assessment |
+| [Prismatic](@/apps/prismatic.md) | Investigation workflow integration for legal intelligence |
+| [Prismatic Czech Autocrawler](@/apps/prismatic-czech-autocrawler.md) | Cross-referencing court data with business registry records |
 
 ## NABLA Compliance
 
@@ -231,19 +231,19 @@ Integration tests exercise the full pipeline from source portal through extracti
 | Watchlist evaluation | < 50ms | ETS-backed watchlist lookup |
 | Full court search | 2-10s | Depends on query scope and portal response |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :czech_courts, :extraction]`, `[:prismatic, :czech_courts, :isir_alert]`, `[:prismatic, :czech_courts, :entity_resolved]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :czech_courts, :extraction]`, `[:prismatic, :czech_courts, :isir_alert]`, `[:prismatic, :czech_courts, :entity_resolved]`.
 
 ## Related Resources
 
-- [Prismatic OSINT Czech Legal](/apps/prismatic-osint-czech-legal/) -- Czech legal registry adapters
-- [Prismatic Czech Autocrawler](/apps/prismatic-czech-autocrawler/) -- Automated Czech registry crawling
-- [Prismatic DD](/apps/prismatic-dd/) -- Due diligence workflows
-- [Competitor Researcher](/agents/competitor-researcher/) -- Court intelligence for competitive due diligence
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Insolvency register monitoring alerts
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Judicial provenance metadata enforcement
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-source legal intelligence fusion
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Continuous insolvency register monitoring
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Provenance mandatory enforcement on court records
+- [Prismatic OSINT Czech Legal](@/apps/prismatic-osint-czech-legal.md) -- Czech legal registry adapters
+- [Prismatic Czech Autocrawler](@/apps/prismatic-czech-autocrawler.md) -- Automated Czech registry crawling
+- [Prismatic DD](@/apps/prismatic-dd.md) -- Due diligence workflows
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Court intelligence for competitive due diligence
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Insolvency register monitoring alerts
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Judicial provenance metadata enforcement
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-source legal intelligence fusion
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Continuous insolvency register monitoring
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Provenance mandatory enforcement on court records
 
 ---
 
@@ -252,4 +252,4 @@ Integration tests exercise the full pipeline from source portal through extracti
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

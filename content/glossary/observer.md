@@ -53,17 +53,17 @@ image_alt = "Observer - Prismatic Platform"
 
 ## Definition
 
-Observer is a graphical monitoring and debugging tool included in the Erlang/OTP standard library that provides real-time visibility into the internals of a running [BEAM](/glossary/beam/) virtual machine. Launched via `:observer.start()` in an IEx session, Observer displays live information about system resources (CPU, memory, I/O), individual processes (state, message queue length, memory usage, reductions), ETS tables (size, memory, access patterns), application supervision trees (hierarchical process view), and network connections to other BEAM nodes. It is the primary tool for understanding what a BEAM system is doing at runtime without adding instrumentation to application code.
+Observer is a graphical monitoring and debugging tool included in the Erlang/OTP standard library that provides real-time visibility into the internals of a running [BEAM](@/glossary/beam.md) virtual machine. Launched via `:observer.start()` in an IEx session, Observer displays live information about system resources (CPU, memory, I/O), individual processes (state, message queue length, memory usage, reductions), ETS tables (size, memory, access patterns), application supervision trees (hierarchical process view), and network connections to other BEAM nodes. It is the primary tool for understanding what a BEAM system is doing at runtime without adding instrumentation to application code.
 
-Observer provides what no logging or [metrics](/glossary/metrics/) system can: a complete, live view of every process in the system, its current state, and its relationships to other processes. In a system like Prismatic with hundreds of concurrent agent processes, Observer reveals which processes consume the most memory, which have growing message queues (indicating potential bottlenecks), which are linked or monitored by which [supervisors](/glossary/supervisor/), and whether the scheduler is distributing work evenly across CPU cores. This level of introspection is unique to the BEAM platform -- no equivalent tool exists for JVM, V8, or CPython runtimes.
+Observer provides what no logging or [metrics](@/glossary/metrics.md) system can: a complete, live view of every process in the system, its current state, and its relationships to other processes. In a system like Prismatic with hundreds of concurrent agent processes, Observer reveals which processes consume the most memory, which have growing message queues (indicating potential bottlenecks), which are linked or monitored by which [supervisors](@/glossary/supervisor.md), and whether the scheduler is distributing work evenly across CPU cores. This level of introspection is unique to the BEAM platform -- no equivalent tool exists for JVM, V8, or CPython runtimes.
 
-For production systems where a graphical desktop is unavailable, Phoenix LiveDashboard provides a web-based alternative with similar capabilities, accessible through a browser. LiveDashboard integrates with Telemetry events and [Ecto](/glossary/ecto/) query logging, providing production-safe [observability](/glossary/observability/) without the overhead or security implications of exposing Observer remotely. Both tools complement [structured logging](/glossary/structured-logging/) and [distributed tracing](/glossary/distributed-tracing/) in the platform's observability stack.
+For production systems where a graphical desktop is unavailable, Phoenix LiveDashboard provides a web-based alternative with similar capabilities, accessible through a browser. LiveDashboard integrates with Telemetry events and [Ecto](@/glossary/ecto.md) query logging, providing production-safe [observability](@/glossary/observability.md) without the overhead or security implications of exposing Observer remotely. Both tools complement [structured logging](@/glossary/structured-logging.md) and [distributed tracing](@/glossary/distributed-tracing.md) in the platform's observability stack.
 
 ## Context in Prismatic
 
-In the Prismatic Platform, Observer serves as the primary debugging and performance analysis tool during development and staging. With 90 umbrella applications, 434 agent processes, and complex supervision hierarchies, Observer provides the only practical way to visualize the entire system's process architecture in real-time. Developers use Observer to identify memory leaks in long-running agent processes, detect message queue buildup in [Broadway](/glossary/broadway/) pipelines, verify that [Dynamic Supervisors](/glossary/dynamic-supervisor/) are correctly managing agent lifecycles, and ensure that ETS table memory usage remains within expected bounds.
+In the Prismatic Platform, Observer serves as the primary debugging and performance analysis tool during development and staging. With 90 umbrella applications, 434 agent processes, and complex supervision hierarchies, Observer provides the only practical way to visualize the entire system's process architecture in real-time. Developers use Observer to identify memory leaks in long-running agent processes, detect message queue buildup in [Broadway](@/glossary/broadway.md) pipelines, verify that [Dynamic Supervisors](@/glossary/dynamic-supervisor.md) are correctly managing agent lifecycles, and ensure that ETS table memory usage remains within expected bounds.
 
-In production on [Fly.io](/glossary/fly-io/), Phoenix LiveDashboard replaces Observer as the primary monitoring interface. LiveDashboard is configured on the `PrismaticWeb.Endpoint` (port 4000) behind admin authentication, providing process inspection, ETS monitoring, and system metrics through a web interface. The platform's Telemetry events feed both LiveDashboard and external [metrics](/glossary/metrics/) collectors for comprehensive [observability](/glossary/observability/).
+In production on [Fly.io](@/glossary/fly-io.md), Phoenix LiveDashboard replaces Observer as the primary monitoring interface. LiveDashboard is configured on the `PrismaticWeb.Endpoint` (port 4000) behind admin authentication, providing process inspection, ETS monitoring, and system metrics through a web interface. The platform's Telemetry events feed both LiveDashboard and external [metrics](@/glossary/metrics.md) collectors for comprehensive [observability](@/glossary/observability.md).
 
 ## Observer Interface Tabs
 
@@ -524,21 +524,21 @@ While Observer itself should not be used in production, the diagnostic technique
 
 ## Related Terms
 
-- [Observability](/glossary/observability/) - Broader discipline of system monitoring and understanding
-- [Metrics](/glossary/metrics/) - Quantitative measurements collected from running systems
-- [BEAM](/glossary/beam/) - Virtual machine that Observer introspects
-- [Supervisor](/glossary/supervisor/) - Process hierarchy visualized by Observer
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) - Runtime process management inspectable in Observer
-- [Structured Logging](/glossary/structured-logging/) - Complementary text-based diagnostics
-- [Distributed Tracing](/glossary/distributed-tracing/) - Cross-service request tracking
-- [Process Isolation](/glossary/process-isolation/) - BEAM property enabling per-process monitoring
-- [Broadway](/glossary/broadway/) - Data pipeline whose stages are visible in Observer
-- [Connection Pooling](/glossary/connection-pooling/) - Database pools monitorable through Observer
+- [Observability](@/glossary/observability.md) - Broader discipline of system monitoring and understanding
+- [Metrics](@/glossary/metrics.md) - Quantitative measurements collected from running systems
+- [BEAM](@/glossary/beam.md) - Virtual machine that Observer introspects
+- [Supervisor](@/glossary/supervisor.md) - Process hierarchy visualized by Observer
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) - Runtime process management inspectable in Observer
+- [Structured Logging](@/glossary/structured-logging.md) - Complementary text-based diagnostics
+- [Distributed Tracing](@/glossary/distributed-tracing.md) - Cross-service request tracking
+- [Process Isolation](@/glossary/process-isolation.md) - BEAM property enabling per-process monitoring
+- [Broadway](@/glossary/broadway.md) - Data pipeline whose stages are visible in Observer
+- [Connection Pooling](@/glossary/connection-pooling.md) - Database pools monitorable through Observer
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform observability architecture
-- [Technologies](/technologies/) - Monitoring and debugging tools
+- [Architecture](@/architecture/_index.md) - Platform observability architecture
+- [Technologies](@/technologies/_index.md) - Monitoring and debugging tools
 
 ---
 
@@ -547,4 +547,4 @@ While Observer itself should not be used in production, the diagnostic technique
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

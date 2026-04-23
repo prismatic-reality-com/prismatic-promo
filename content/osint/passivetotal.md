@@ -25,11 +25,11 @@ image_alt = "PassiveTotal - Prismatic Platform"
 
 ## Overview
 
-PassiveTotal, originally built by RiskIQ and now part of Microsoft Defender [Threat Intelligence](/glossary/threat-intelligence/) (MDTI), is a threat intelligence platform specializing in passive DNS resolution data, [WHOIS](/glossary/whois/) history, SSL certificate intelligence, and web component analysis. PassiveTotal excels at mapping Internet infrastructure relationships, making it the go-to tool for tracking threat actor infrastructure, identifying malicious campaigns, and understanding how domains, IPs, and certificates connect across the global Internet.
+PassiveTotal, originally built by RiskIQ and now part of Microsoft Defender [Threat Intelligence](@/glossary/threat-intelligence.md) (MDTI), is a threat intelligence platform specializing in passive DNS resolution data, [WHOIS](@/glossary/whois.md) history, SSL certificate intelligence, and web component analysis. PassiveTotal excels at mapping Internet infrastructure relationships, making it the go-to tool for tracking threat actor infrastructure, identifying malicious campaigns, and understanding how domains, IPs, and certificates connect across the global Internet.
 
 The platform collects passive DNS data from a global network of sensors, recording every DNS resolution observed without performing active queries. This creates a comprehensive historical record of which domains pointed to which IPs, enabling investigators to trace infrastructure changes, identify shared hosting, and discover related threat actor domains. Unlike active DNS scanning tools that query authoritative nameservers, passive DNS captures actual resolution behavior as seen by recursive resolvers worldwide, providing a ground-truth view of the Internet's name resolution history.
 
-Within the Prismatic Platform, PassiveTotal provides historical DNS and infrastructure relationship intelligence for the [Prismatic Perimeter](/apps/prismatic-perimeter/) [EASM](/glossary/easm/) module and the [OSINT Core](/apps/prismatic-osint-core/) investigation framework. The platform's unique host pair analysis and tracker correlation capabilities enable infrastructure pivoting techniques that are essential for both defensive attack surface management and offensive threat infrastructure tracking.
+Within the Prismatic Platform, PassiveTotal provides historical DNS and infrastructure relationship intelligence for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [EASM](@/glossary/easm.md) module and the [OSINT Core](@/apps/prismatic-osint-core.md) investigation framework. The platform's unique host pair analysis and tracker correlation capabilities enable infrastructure pivoting techniques that are essential for both defensive attack surface management and offensive threat infrastructure tracking.
 
 ## Data Sources and Coverage
 
@@ -160,13 +160,13 @@ end
 ### Attack Surface Discovery
 - Discover shadow IT through passive DNS correlation with organizational IP ranges
 - Identify all domains sharing infrastructure with the target organization
-- Feed infrastructure relationships into [Perimeter](/apps/prismatic-perimeter/) EASM for comprehensive asset discovery
+- Feed infrastructure relationships into [Perimeter](@/apps/prismatic-perimeter.md) EASM for comprehensive asset discovery
 - Detect forgotten or abandoned domains still pointing to organizational infrastructure
 
 ### Brand Protection
 - Discover phishing sites via host pair analysis (redirects to legitimate sites indicate credential harvesting)
 - Track shared tracking codes across legitimate and fraudulent sites to identify threat actors
-- Correlate with [SecurityTrails](/osint/securitytrails/) for comprehensive historical DNS context
+- Correlate with [SecurityTrails](@/osint/securitytrails.md) for comprehensive historical DNS context
 - Monitor for typosquatting domains through certificate transparency and passive DNS correlation
 
 ### Incident Response
@@ -219,14 +219,14 @@ Time Decay is naturally supported by passive DNS temporal metadata (first_seen/l
 
 ## Related Resources
 
-- [SecurityTrails](/osint/securitytrails/) - Historical DNS and WHOIS intelligence
-- [DNSDumpster](/osint/dnsdumpster/) - DNS reconnaissance and mapping
-- [crt.sh](/osint/crtsh/) - [Certificate Transparency](/glossary/certificate-transparency/) for domain discovery
-- [Censys](/osint/censys/) - Internet scanning with certificate intelligence
-- [ONYPHE](/osint/onyphe/) - European cyber defense with passive DNS
-- [BuiltWith](/osint/builtwith/) - Technology profiling for component correlation
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - EASM with infrastructure intelligence
+- [SecurityTrails](@/osint/securitytrails.md) - Historical DNS and WHOIS intelligence
+- [DNSDumpster](@/osint/dnsdumpster.md) - DNS reconnaissance and mapping
+- [crt.sh](@/osint/crtsh.md) - [Certificate Transparency](@/glossary/certificate-transparency.md) for domain discovery
+- [Censys](@/osint/censys.md) - Internet scanning with certificate intelligence
+- [ONYPHE](@/osint/onyphe.md) - European cyber defense with passive DNS
+- [BuiltWith](@/osint/builtwith.md) - Technology profiling for component correlation
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - EASM with infrastructure intelligence
 
 ---
 
@@ -235,4 +235,4 @@ Time Decay is naturally supported by passive DNS temporal metadata (first_seen/l
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,11 +24,11 @@ image_alt = "PostgreSQL + KuzuDB - Prismatic Platform"
 
 ## Overview
 
-Prismatic Platform employs a hybrid database architecture that combines [PostgreSQL](/glossary/postgresql/) for structured relational data with [KuzuDB](/glossary/kuzudb/) for graph-based entity relationship traversal. This is not a compromise between two paradigms -- it is a deliberate architectural decision that leverages the distinct strengths of each system for the workloads they handle best.
+Prismatic Platform employs a hybrid database architecture that combines [PostgreSQL](@/glossary/postgresql.md) for structured relational data with [KuzuDB](@/glossary/kuzudb.md) for graph-based entity relationship traversal. This is not a compromise between two paradigms -- it is a deliberate architectural decision that leverages the distinct strengths of each system for the workloads they handle best.
 
-The fundamental insight driving this design is that intelligence platforms must handle two fundamentally different data access patterns. The first is transactional: creating, reading, updating, and deleting structured records with ACID guarantees -- assets, findings, sessions, audit logs. [PostgreSQL](/glossary/postgresql/) excels at this, with decades of battle-tested reliability, rich indexing, and the [Elixir](/glossary/elixir/) ecosystem's mature [Ecto](/glossary/ecto/) integration. The second pattern is relational traversal: "find all companies owned by Jan Novak through any ownership chain" or "identify all entities within 3 relationship hops of a sanctioned entity." These queries require recursive path traversal that, while possible in PostgreSQL via recursive CTEs, becomes prohibitively expensive at scale. KuzuDB handles these queries natively with graph-optimized storage and Cypher query language.
+The fundamental insight driving this design is that intelligence platforms must handle two fundamentally different data access patterns. The first is transactional: creating, reading, updating, and deleting structured records with ACID guarantees -- assets, findings, sessions, audit logs. [PostgreSQL](@/glossary/postgresql.md) excels at this, with decades of battle-tested reliability, rich indexing, and the [Elixir](@/glossary/elixir.md) ecosystem's mature [Ecto](@/glossary/ecto.md) integration. The second pattern is relational traversal: "find all companies owned by Jan Novak through any ownership chain" or "identify all entities within 3 relationship hops of a sanctioned entity." These queries require recursive path traversal that, while possible in PostgreSQL via recursive CTEs, becomes prohibitively expensive at scale. KuzuDB handles these queries natively with graph-optimized storage and Cypher query language.
 
-The hybrid architecture is implemented through the platform's [storage adapter system](/architecture/storage-adapters/), with dedicated adapters for each database ([Ecto adapter](/apps/prismatic-storage-ecto/), [KuzuDB adapter](/apps/prismatic-storage-kuzudb/)) and a synchronization layer that keeps the two systems consistent.
+The hybrid architecture is implemented through the platform's [storage adapter system](@/architecture/storage-adapters.md), with dedicated adapters for each database ([Ecto adapter](@/apps/prismatic-storage-ecto.md), [KuzuDB adapter](@/apps/prismatic-storage-kuzudb.md)) and a synchronization layer that keeps the two systems consistent.
 
 ## Why a Hybrid Approach
 
@@ -57,7 +57,7 @@ WITH RECURSIVE ownership_chain AS (
 SELECT DISTINCT company, ico, depth FROM ownership_chain ORDER BY depth;
 ```
 
-This works for small graphs but degrades rapidly. With 100,000 companies and 500,000 ownership relationships, the recursive CTE scans the entire ownership table at each recursion level. Measured performance on the platform's Czech corporate [registry](/glossary/registry-otp/) dataset:
+This works for small graphs but degrades rapidly. With 100,000 companies and 500,000 ownership relationships, the recursive CTE scans the entire ownership table at each recursion level. Measured performance on the platform's Czech corporate [registry](@/glossary/registry-otp.md) dataset:
 
 | Depth | PostgreSQL CTE | KuzuDB Cypher | Speedup |
 |-------|---------------|---------------|---------|
@@ -71,7 +71,7 @@ The performance gap grows super-linearly because PostgreSQL must re-scan and joi
 
 ### The Graph Limitation
 
-Conversely, KuzuDB is not suitable for all workloads. It lacks PostgreSQL's ACID transaction support across complex multi-table operations, its query planner is optimized for traversal rather than aggregation, and it has no equivalent to PostgreSQL's rich ecosystem of extensions (PostGIS, [TimescaleDB](/glossary/timescaledb/), pg_trgm). The platform needs both.
+Conversely, KuzuDB is not suitable for all workloads. It lacks PostgreSQL's ACID transaction support across complex multi-table operations, its query planner is optimized for traversal rather than aggregation, and it has no equivalent to PostgreSQL's rich ecosystem of extensions (PostGIS, [TimescaleDB](@/glossary/timescaledb.md), pg_trgm). The platform needs both.
 
 | Capability | PostgreSQL | KuzuDB | Winner |
 |-----------|-----------|--------|--------|
@@ -79,7 +79,7 @@ Conversely, KuzuDB is not suitable for all workloads. It lacks PostgreSQL's ACID
 | Complex aggregations | Excellent | Basic | PostgreSQL |
 | Recursive traversal | Slow (CTE) | Native (Cypher) | KuzuDB |
 | Path finding | Very slow | O(V+E) BFS/DFS | KuzuDB |
-| [Pattern matching](/glossary/pattern-matching/) | regex/LIKE | Graph patterns | KuzuDB |
+| [Pattern matching](@/glossary/pattern-matching.md) | regex/LIKE | Graph patterns | KuzuDB |
 | Schema evolution | Migrations | Flexible | PostgreSQL |
 | Ecosystem maturity | 30+ years | Emerging | PostgreSQL |
 | Concurrent writes | Excellent (MVCC) | Limited | PostgreSQL |
@@ -90,7 +90,7 @@ Conversely, KuzuDB is not suitable for all workloads. It lacks PostgreSQL's ACID
 
 ### Schema Design
 
-The PostgreSQL schema follows a [domain-driven design](/glossary/domain-driven-design/) aligned with the platform's [umbrella application structure](/architecture/umbrella-apps/). Each domain owns its tables, and cross-domain references use foreign keys with explicit naming conventions.
+The PostgreSQL schema follows a [domain-driven design](@/glossary/domain-driven-design.md) aligned with the platform's [umbrella application structure](@/architecture/umbrella-apps.md). Each domain owns its tables, and cross-domain references use foreign keys with explicit naming conventions.
 
 ```elixir
 defmodule PrismaticPerimeter.Schema.Asset do
@@ -176,7 +176,7 @@ The platform applies several PostgreSQL optimization techniques, each chosen bas
 | **GIN indexes** | JSONB metadata columns | 5-20x for containment queries |
 | **Partial indexes** | `WHERE risk_score > 700` for high-risk assets | 3-5x for filtered queries |
 | **Table partitioning** | Time-based for audit logs (monthly) | 10-50x for time-range scans |
-| **[Connection pooling](/glossary/connection-pooling/)** | DBConnection + 10 connections default | Eliminates connection overhead |
+| **[Connection pooling](@/glossary/connection-pooling.md)** | DBConnection + 10 connections default | Eliminates connection overhead |
 | **Prepared statements** | Ecto default via DBConnection | 2-3x for repeated queries |
 | **Read replicas** | Ecto multi-repo for read-heavy paths | 2x throughput for reads |
 
@@ -319,7 +319,7 @@ KuzuDB operates as an embedded database -- it runs in-process with the applicati
 
 ## Synchronization Architecture
 
-The two databases must remain consistent. The synchronization layer ensures that changes to relational data are reflected in the graph and vice versa. The design follows an event-driven pattern integrated with the platform's [PubSub system](/architecture/pubsub/).
+The two databases must remain consistent. The synchronization layer ensures that changes to relational data are reflected in the graph and vice versa. The design follows an event-driven pattern integrated with the platform's [PubSub system](@/architecture/pubsub.md).
 
 ```elixir
 defmodule Prismatic.Sync.GraphSynchronizer do
@@ -398,7 +398,7 @@ end
 
 ### Consistency Guarantees
 
-The synchronization is eventually consistent, not strongly consistent. PostgreSQL is the source of truth for all structured data. KuzuDB is a derived view optimized for graph traversal. If the synchronization process crashes (and is restarted by the [supervisor](/architecture/supervision-trees/)), a full reconciliation runs on restart.
+The synchronization is eventually consistent, not strongly consistent. PostgreSQL is the source of truth for all structured data. KuzuDB is a derived view optimized for graph traversal. If the synchronization process crashes (and is restarted by the [supervisor](@/architecture/supervision-trees.md)), a full reconciliation runs on restart.
 
 ```elixir
 defmodule Prismatic.Sync.Reconciler do
@@ -438,12 +438,12 @@ The application layer must decide which database to query for each operation. Th
 | CRUD on single entity | PostgreSQL | ACID, indexed lookup |
 | Aggregation (COUNT, SUM, AVG) | PostgreSQL | Optimized query planner |
 | Time-range filtering | PostgreSQL | Partitioned tables |
-| Full-text search | PostgreSQL + [Meilisearch](/architecture/meilisearch/) | pg_trgm + dedicated search |
+| Full-text search | PostgreSQL + [Meilisearch](@/architecture/meilisearch.md) | pg_trgm + dedicated search |
 | Single-hop relationship | Either (context-dependent) | Both perform well |
 | Multi-hop traversal (3+) | KuzuDB | Native graph traversal |
 | Path finding (shortest path) | KuzuDB | BFS/DFS algorithms |
 | Pattern matching (subgraph) | KuzuDB | Cypher pattern expressions |
-| Compliance [audit trail](/glossary/audit-trail/) | PostgreSQL | Immutable, time-ordered |
+| Compliance [audit trail](@/glossary/audit-trail.md) | PostgreSQL | Immutable, time-ordered |
 | Network topology analysis | KuzuDB | Graph centrality, clustering |
 
 ```elixir
@@ -485,7 +485,7 @@ Using only PostgreSQL simplifies operations (one database to manage, backup, mon
 
 ### Single-Database (Neo4j or Dedicated Graph DB)
 
-Using only a graph database is tempting for an intelligence platform but creates problems for transactional workloads. Graph databases typically lack PostgreSQL's ACID guarantees for complex multi-entity transactions, their aggregation performance is poor compared to columnar/relational engines, and their ecosystem tooling (migrations, ORM, monitoring) is less mature. Neo4j specifically was evaluated and rejected due to its licensing model (enterprise features behind commercial license) and its JVM-based architecture (poor fit for an Elixir/[BEAM](/glossary/beam/) ecosystem).
+Using only a graph database is tempting for an intelligence platform but creates problems for transactional workloads. Graph databases typically lack PostgreSQL's ACID guarantees for complex multi-entity transactions, their aggregation performance is poor compared to columnar/relational engines, and their ecosystem tooling (migrations, ORM, monitoring) is less mature. Neo4j specifically was evaluated and rejected due to its licensing model (enterprise features behind commercial license) and its JVM-based architecture (poor fit for an Elixir/[BEAM](@/glossary/beam.md) ecosystem).
 
 ### PostgreSQL + Graph Extension (Apache AGE)
 
@@ -493,11 +493,11 @@ Apache AGE adds graph query capabilities directly to PostgreSQL, eliminating the
 
 ### The Prismatic Approach: Best Tool for Each Job
 
-The hybrid architecture adds synchronization complexity but delivers optimal performance for each workload type. PostgreSQL handles the 80% of queries that are transactional, and KuzuDB handles the 20% that are graph-intensive. The [storage adapter pattern](/architecture/storage-adapters/) abstracts the routing, so application code does not need to know which database serves a given query.
+The hybrid architecture adds synchronization complexity but delivers optimal performance for each workload type. PostgreSQL handles the 80% of queries that are transactional, and KuzuDB handles the 20% that are graph-intensive. The [storage adapter pattern](@/architecture/storage-adapters.md) abstracts the routing, so application code does not need to know which database serves a given query.
 
 ## Integration with Platform Storage Layer
 
-The PostgreSQL and KuzuDB adapters are both implementations of the platform's [storage adapter trait](/apps/prismatic-storage-core/). This provides a unified interface for the application layer.
+The PostgreSQL and KuzuDB adapters are both implementations of the platform's [storage adapter trait](@/apps/prismatic-storage-core.md). This provides a unified interface for the application layer.
 
 ```elixir
 defmodule PrismaticStorage.Adapters.Ecto do
@@ -545,11 +545,11 @@ defmodule PrismaticStorage.Adapters.KuzuDB do
 end
 ```
 
-The [ETS adapter](/apps/prismatic-storage-ets/) provides an additional in-memory caching layer for frequently accessed graph query results, reducing the load on both databases for hot-path queries. The [telemetry system](/architecture/telemetry/) tracks query latency and routing decisions across all adapters, enabling data-driven optimization of the routing strategy.
+The [ETS adapter](@/apps/prismatic-storage-ets.md) provides an additional in-memory caching layer for frequently accessed graph query results, reducing the load on both databases for hot-path queries. The [telemetry system](@/architecture/telemetry.md) tracks query latency and routing decisions across all adapters, enabling data-driven optimization of the routing strategy.
 
 ## Future Directions
 
-Current development focuses on three areas: real-time graph change streaming (using PostgreSQL logical replication to feed KuzuDB updates without application-layer synchronization), graph-powered [LiveView](/architecture/phoenix-liveview/) dashboards for interactive ownership chain visualization, and integration with the [NABLA framework](/architecture/nabla-framework/) for graph-based belief provenance tracking. The long-term vision is a unified query interface where the application expresses intent and the platform automatically selects the optimal execution strategy across both databases.
+Current development focuses on three areas: real-time graph change streaming (using PostgreSQL logical replication to feed KuzuDB updates without application-layer synchronization), graph-powered [LiveView](@/architecture/phoenix-liveview.md) dashboards for interactive ownership chain visualization, and integration with the [NABLA framework](@/architecture/nabla-framework.md) for graph-based belief provenance tracking. The long-term vision is a unified query interface where the application expresses intent and the platform automatically selects the optimal execution strategy across both databases.
 
 ---
 
@@ -558,4 +558,4 @@ Current development focuses on three areas: real-time graph change streaming (us
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -23,11 +23,11 @@ image_alt = "Prismatic OSINT Monitoring - Prismatic Platform"
 
 ## Overview
 
-Prismatic [OSINT](/glossary/osint/) Monitoring provides comprehensive observability infrastructure for the platform's intelligence collection operations. The application implements health monitoring, telemetry aggregation, distributed tracing, alert management, and Prometheus metrics export -- ensuring that the platform's 121+ OSINT source adapters, processing pipelines, and storage systems operate reliably under production conditions. In a system that continuously collects, processes, and stores intelligence data from dozens of external sources, operational visibility is not a convenience but a fundamental requirement for maintaining data quality and system reliability.
+Prismatic [OSINT](@/glossary/osint.md) Monitoring provides comprehensive observability infrastructure for the platform's intelligence collection operations. The application implements health monitoring, telemetry aggregation, distributed tracing, alert management, and Prometheus metrics export -- ensuring that the platform's 121+ OSINT source adapters, processing pipelines, and storage systems operate reliably under production conditions. In a system that continuously collects, processes, and stores intelligence data from dozens of external sources, operational visibility is not a convenience but a fundamental requirement for maintaining data quality and system reliability.
 
-The application is structured around three core subsystems: health checking, telemetry, and distributed tracing. The Health Check subsystem periodically probes all platform services, aggregates health status across components, and exposes a unified health endpoint for load balancer integration and operator dashboards. The Telemetry subsystem implements custom handlers that transform raw [Elixir telemetry](/glossary/telemetry/) events into structured metrics suitable for Prometheus scraping and dashboard visualization. The Distributed Tracing subsystem provides request-level observability across the platform's microservice-style umbrella applications, enabling operators to trace a single intelligence query from initial API request through OSINT source collection, data normalization, and storage -- identifying bottlenecks and failure points along the way.
+The application is structured around three core subsystems: health checking, telemetry, and distributed tracing. The Health Check subsystem periodically probes all platform services, aggregates health status across components, and exposes a unified health endpoint for load balancer integration and operator dashboards. The Telemetry subsystem implements custom handlers that transform raw [Elixir telemetry](@/glossary/telemetry.md) events into structured metrics suitable for Prometheus scraping and dashboard visualization. The Distributed Tracing subsystem provides request-level observability across the platform's microservice-style umbrella applications, enabling operators to trace a single intelligence query from initial API request through OSINT source collection, data normalization, and storage -- identifying bottlenecks and failure points along the way.
 
-The Alert Manager provides severity-based alert classification, deduplication, correlation, and multi-channel notification delivery. When health checks detect degraded services, latency thresholds are exceeded, or error rates spike, the Alert Manager classifies the situation by severity and routes notifications through configured channels (email, webhook, [PubSub](/glossary/pubsub/), Slack) with automatic escalation for unacknowledged critical alerts.
+The Alert Manager provides severity-based alert classification, deduplication, correlation, and multi-channel notification delivery. When health checks detect degraded services, latency thresholds are exceeded, or error rates spike, the Alert Manager classifies the situation by severity and routes notifications through configured channels (email, webhook, [PubSub](@/glossary/pubsub.md), Slack) with automatic escalation for unacknowledged critical alerts.
 
 ## Architecture
 
@@ -81,7 +81,7 @@ Platform Events --> Telemetry Handlers --> Metrics Registry --> Prometheus Expor
                    Alert Manager --> Notification Channels --> Escalation
 ```
 
-The architecture follows [OTP](/glossary/otp/) supervision principles with each subsystem isolated under its own supervisor. Telemetry handlers are attached at application startup and process events asynchronously, ensuring zero impact on the critical path of intelligence operations. The Prometheus exporter runs as a Plug endpoint that Prometheus instances scrape at configured intervals, decoupling metric collection from metric storage.
+The architecture follows [OTP](@/glossary/otp.md) supervision principles with each subsystem isolated under its own supervisor. Telemetry handlers are attached at application startup and process events asynchronously, ensuring zero impact on the critical path of intelligence operations. The Prometheus exporter runs as a Plug endpoint that Prometheus instances scrape at configured intervals, decoupling metric collection from metric storage.
 
 ## Key Modules
 
@@ -220,12 +220,12 @@ Testing covers health check scheduling and aggregation logic, telemetry handler 
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Core OSINT collection framework emitting telemetry events for monitoring |
-| [Prismatic OSINT Network](/apps/prismatic-osint-network/) | Network intelligence source health tracking and quota monitoring |
-| [Prismatic Detection Engine](/apps/prismatic-detection-engine/) | Alert events feed into threat detection rule evaluation |
-| [Prismatic Signals](/apps/prismatic-signals/) | Monitoring alerts emitted as signals for platform-wide consumption |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Platform-wide telemetry infrastructure that OSINT monitoring extends |
-| [Prismatic Web](/apps/prismatic-web/) | LiveView dashboards consuming health and metric data for visualization |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Core OSINT collection framework emitting telemetry events for monitoring |
+| [Prismatic OSINT Network](@/apps/prismatic-osint-network.md) | Network intelligence source health tracking and quota monitoring |
+| [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) | Alert events feed into threat detection rule evaluation |
+| [Prismatic Signals](@/apps/prismatic-signals.md) | Monitoring alerts emitted as signals for platform-wide consumption |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Platform-wide telemetry infrastructure that OSINT monitoring extends |
+| [Prismatic Web](@/apps/prismatic-web.md) | LiveView dashboards consuming health and metric data for visualization |
 
 ## NABLA Compliance
 
@@ -250,12 +250,12 @@ Testing covers health check scheduling and aggregation logic, telemetry handler 
 
 ## Related Resources
 
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- [EASM](/glossary/easm/) uses monitoring for continuous attack surface tracking
-- [Prismatic Crawler Core](/apps/prismatic-crawler-core/) -- Web crawling infrastructure health monitored by this application
-- [Prismatic Telemetry](/apps/prismatic-telemetry/) -- Platform-wide telemetry infrastructure
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Continuous surveillance and adaptive frequency adjustment
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Semantic change significance scoring and cross-source alert correlation
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Collection health metrics and source performance monitoring
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- [EASM](@/glossary/easm.md) uses monitoring for continuous attack surface tracking
+- [Prismatic Crawler Core](@/apps/prismatic-crawler-core.md) -- Web crawling infrastructure health monitored by this application
+- [Prismatic Telemetry](@/apps/prismatic-telemetry.md) -- Platform-wide telemetry infrastructure
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Continuous surveillance and adaptive frequency adjustment
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Semantic change significance scoring and cross-source alert correlation
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Collection health metrics and source performance monitoring
 
 ---
 
@@ -264,4 +264,4 @@ Testing covers health check scheduling and aggregation logic, telemetry handler 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

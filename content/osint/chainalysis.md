@@ -29,7 +29,7 @@ Chainalysis is the leading cryptocurrency investigation and compliance platform,
 
 At its core, Chainalysis maintains a proprietary attribution database that maps cryptocurrency addresses to real-world entities: exchanges, darknet markets, ransomware operators, sanctioned entities, DeFi protocols, mixers, and more. This attribution data, built over years of law enforcement collaboration, independent research, and partnerships with virtual asset service providers, transforms the pseudonymous nature of blockchain transactions into a transparent intelligence layer. The attribution database covers billions of addresses across all supported blockchains, with new attributions added continuously through both automated clustering algorithms and manual analyst verification.
 
-Chainalysis offers three primary products: **Reactor** for investigation (visual transaction tracing, graph analysis, and case management), **KYT (Know Your Transaction)** for compliance (real-time transaction screening, risk scoring, and regulatory reporting), and **Kryptos** for market intelligence (institutional-grade research and portfolio risk assessment). For the Prismatic platform, Chainalysis provides the gold standard for cryptocurrency compliance screening, far exceeding what raw blockchain explorer data from [Blockchain.com](/osint/blockchain-com/) or [Etherscan](/osint/etherscan/) can provide alone. The platform's intelligence enables the critical distinction between legitimate cryptocurrency activity and illicit fund flows that characterize money laundering, sanctions evasion, ransomware payments, and terrorist financing.
+Chainalysis offers three primary products: **Reactor** for investigation (visual transaction tracing, graph analysis, and case management), **KYT (Know Your Transaction)** for compliance (real-time transaction screening, risk scoring, and regulatory reporting), and **Kryptos** for market intelligence (institutional-grade research and portfolio risk assessment). For the Prismatic platform, Chainalysis provides the gold standard for cryptocurrency compliance screening, far exceeding what raw blockchain explorer data from [Blockchain.com](@/osint/blockchain-com.md) or [Etherscan](@/osint/etherscan.md) can provide alone. The platform's intelligence enables the critical distinction between legitimate cryptocurrency activity and illicit fund flows that characterize money laundering, sanctions evasion, ransomware payments, and terrorist financing.
 
 ## Data Sources and Coverage
 
@@ -38,11 +38,11 @@ Chainalysis aggregates intelligence from blockchain data, law enforcement partne
 | Data Type | Description | Coverage Depth |
 |-----------|-------------|----------------|
 | **Entity Attribution** | Address-to-entity mapping (exchanges, darknet, ransomware, etc.) | Billions of addresses |
-| **[Risk Score](/glossary/risk-score/)s** | Address and transaction risk ratings (low, medium, high, severe) | All supported chains |
+| **[Risk Score](@/glossary/risk-score.md)s** | Address and transaction risk ratings (low, medium, high, severe) | All supported chains |
 | **Cluster Analysis** | Address clustering identifying wallets controlled by same entity | Heuristic + manual |
 | **Transaction Flows** | Visual fund flow tracing across hops and chains | Unlimited depth |
-| **[Sanctions Screening](/glossary/sanctions-screening/)** | Real-time screening against OFAC, EU, UN, and other sanctions lists | Global coverage |
-| **DeFi Interactions** | [Protocol](/glossary/protocol/)-level tracking (Uniswap, Aave, Tornado Cash, etc.) | 100+ protocols |
+| **[Sanctions Screening](@/glossary/sanctions-screening.md)** | Real-time screening against OFAC, EU, UN, and other sanctions lists | Global coverage |
+| **DeFi Interactions** | [Protocol](@/glossary/protocol.md)-level tracking (Uniswap, Aave, Tornado Cash, etc.) | 100+ protocols |
 | **Cross-Chain** | Tracing across bridge transactions (BTC to ETH, L2 bridges) | Major bridges |
 | **Historical Data** | Full historical coverage since each blockchain's genesis | Complete |
 | **Counterparty Intelligence** | VASP-reported transaction counterparty data | KYT participants |
@@ -210,7 +210,7 @@ end
 
 ### Regulatory Compliance
 
-Chainalysis provides the compliance infrastructure required for Virtual Asset Service Providers (VASPs) operating under global anti-money laundering regulations. Key compliance workflows include real-time transaction screening for all incoming and outgoing cryptocurrency transfers, automated sanctions screening against [OFAC](/osint/ofac/), [EU](/osint/eu-sanctions/), UN, and national sanctions lists, Travel Rule compliance for cross-border cryptocurrency transfers exceeding regulatory thresholds, Suspicious Activity Report (SAR) preparation with supporting blockchain evidence, and customer risk profiling based on transaction history and counterparty exposure.
+Chainalysis provides the compliance infrastructure required for Virtual Asset Service Providers (VASPs) operating under global anti-money laundering regulations. Key compliance workflows include real-time transaction screening for all incoming and outgoing cryptocurrency transfers, automated sanctions screening against [OFAC](@/osint/ofac.md), [EU](@/osint/eu-sanctions.md), UN, and national sanctions lists, Travel Rule compliance for cross-border cryptocurrency transfers exceeding regulatory thresholds, Suspicious Activity Report (SAR) preparation with supporting blockchain evidence, and customer risk profiling based on transaction history and counterparty exposure.
 
 ### Financial Crime Investigation
 
@@ -238,19 +238,19 @@ Risk scores undergo periodic backtesting against known-outcome cases (confirmed 
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, Chainalysis provides enterprise-grade cryptocurrency compliance integrated with the dual-jurisdiction sanctions screening pipeline alongside [OFAC](/osint/ofac/) and [EU Sanctions](/osint/eu-sanctions/).
+Within the Prismatic ecosystem, Chainalysis provides enterprise-grade cryptocurrency compliance integrated with the dual-jurisdiction sanctions screening pipeline alongside [OFAC](@/osint/ofac.md) and [EU Sanctions](@/osint/eu-sanctions.md).
 
 The compliance screening pipeline routes all cryptocurrency address screenings through Chainalysis KYT as the primary risk assessment source, with OFAC SDN list and EU Consolidated Sanctions List checked in parallel. Results are aggregated into a composite risk score that considers both the Chainalysis risk rating and direct sanctions list matches.
 
-The investigation workflow integrates Chainalysis Reactor capabilities with other Prismatic intelligence sources, enabling analysts to begin with a cryptocurrency address and expand the investigation to include entity identification, beneficial ownership through [ARES](/osint/ares/) and [Justice.cz](/osint/justice-cz/), and media intelligence through [GDELT](/osint/gdelt/).
+The investigation workflow integrates Chainalysis Reactor capabilities with other Prismatic intelligence sources, enabling analysts to begin with a cryptocurrency address and expand the investigation to include entity identification, beneficial ownership through [ARES](@/osint/ares.md) and [Justice.cz](@/osint/justice-cz.md), and media intelligence through [GDELT](@/osint/gdelt.md).
 
-The [Prismatic Perimeter](/apps/prismatic-perimeter/) security rating engine incorporates cryptocurrency compliance posture as a factor in organizational security ratings, penalizing entities that interact with high-risk cryptocurrency addresses or operate VASPs without adequate compliance programs.
+The [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security rating engine incorporates cryptocurrency compliance posture as a factor in organizational security ratings, penalizing entities that interact with high-risk cryptocurrency addresses or operate VASPs without adequate compliance programs.
 
 ## NABLA Compliance
 
 The Chainalysis integration adheres to NABLA epistemic framework requirements for reliable intelligence assessment.
 
-**Signal Plurality**: Cryptocurrency risk assessments are never based on Chainalysis alone. The platform cross-validates against independent analytics providers ([Elliptic](/osint/elliptic/), [Crystal Blockchain](/osint/crystal-blockchain/)), direct sanctions list checks, and raw blockchain data. Critical screening decisions require consensus from at least two independent providers.
+**Signal Plurality**: Cryptocurrency risk assessments are never based on Chainalysis alone. The platform cross-validates against independent analytics providers ([Elliptic](@/osint/elliptic.md), [Crystal Blockchain](@/osint/crystal-blockchain.md)), direct sanctions list checks, and raw blockchain data. Critical screening decisions require consensus from at least two independent providers.
 
 **Contradiction Preservation**: When Chainalysis and alternative providers disagree on risk classification, both assessments are preserved and presented to analysts with supporting evidence. The platform does not automatically resolve contradictions but flags them for manual review.
 
@@ -277,14 +277,14 @@ Typical API rate limits are contract-dependent, with standard enterprise agreeme
 
 ## Related Resources
 
-- [Blockchain.com](/osint/blockchain-com/) - Bitcoin blockchain explorer for raw data
-- [Etherscan](/osint/etherscan/) - Ethereum blockchain explorer and analytics
-- [Elliptic](/osint/elliptic/) - Crypto risk management and compliance
-- [Crystal Blockchain](/osint/crystal-blockchain/) - Blockchain analytics and visualization
-- [OFAC](/osint/ofac/) - US sanctions including cryptocurrency addresses
-- [EU Sanctions](/osint/eu-sanctions/) - European Union sanctions compliance
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Cryptocurrency compliance in security ratings
+- [Blockchain.com](@/osint/blockchain-com.md) - Bitcoin blockchain explorer for raw data
+- [Etherscan](@/osint/etherscan.md) - Ethereum blockchain explorer and analytics
+- [Elliptic](@/osint/elliptic.md) - Crypto risk management and compliance
+- [Crystal Blockchain](@/osint/crystal-blockchain.md) - Blockchain analytics and visualization
+- [OFAC](@/osint/ofac.md) - US sanctions including cryptocurrency addresses
+- [EU Sanctions](@/osint/eu-sanctions.md) - European Union sanctions compliance
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Cryptocurrency compliance in security ratings
 
 ---
 
@@ -293,4 +293,4 @@ Typical API rate limits are contract-dependent, with standard enterprise agreeme
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

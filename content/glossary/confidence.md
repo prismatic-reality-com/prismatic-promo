@@ -206,11 +206,11 @@ The Color Team operations use confidence thresholds to determine when findings t
 
 ## Cross-References
 
-- [Confidence Score](/glossary/confidence-score/) - numerical OSINT reliability metric
-- [Confidence Threshold](/glossary/confidence-threshold/) - context-dependent action thresholds
-- [Confidence Scoring](/glossary/confidence-scoring/) - scoring methodology
-- [Contradiction Preservation](/glossary/contradiction-preservation/) - axiom affecting confidence
-- [Axiom Enforcement](/glossary/axiom-enforcement/) - NABLA axiom compliance
+- [Confidence Score](@/glossary/confidence-score.md) - numerical OSINT reliability metric
+- [Confidence Threshold](@/glossary/confidence-threshold.md) - context-dependent action thresholds
+- [Confidence Scoring](@/glossary/confidence-scoring.md) - scoring methodology
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) - axiom affecting confidence
+- [Axiom Enforcement](@/glossary/axiom-enforcement.md) - NABLA axiom compliance
 - **Livebooks**: `livebooks/domains/ai_agents/` - confidence calibration experiments
 - **Academy**: NABLA framework and epistemic reasoning topics
 

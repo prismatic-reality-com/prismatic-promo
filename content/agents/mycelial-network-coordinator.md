@@ -28,9 +28,9 @@ image_alt = "Mycelial Network Coordinator - Prismatic Platform"
 
 ## Overview
 
-The Mycelial Network Coordinator operates as an L1 Supreme Authority within the Prismatic Platform's orchestration domain, serving as the apex coordinator for all [mycelial network](/glossary/mycelial-network/) operations including pattern propagation, emergence detection, network healing, and evolutionary improvements. The mycelial network forms the communication backbone of the platform's 400+ autonomous agent ecosystem, and this coordinator ensures that the network's various subsystems -- each managed by specialized L3 agents -- operate in harmony toward the collective objective of efficient, resilient, and adaptive inter-agent communication.
+The Mycelial Network Coordinator operates as an L1 Supreme Authority within the Prismatic Platform's orchestration domain, serving as the apex coordinator for all [mycelial network](@/glossary/mycelial-network.md) operations including pattern propagation, emergence detection, network healing, and evolutionary improvements. The mycelial network forms the communication backbone of the platform's 400+ autonomous agent ecosystem, and this coordinator ensures that the network's various subsystems -- each managed by specialized L3 agents -- operate in harmony toward the collective objective of efficient, resilient, and adaptive inter-agent communication.
 
-As an L1 authority, the coordinator holds platform-wide strategic and tactical control over all mycelial operations. This position in the authority hierarchy reflects the critical nature of the communication network: degradation of the mycelial network impacts every agent and every operation across all domains. Built on the [AIAD](/glossary/aiad/) standard and implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) within a dedicated [supervision tree](/glossary/supervision-tree/), the coordinator maintains a real-time model of network state, coordinates interventions across subsystems, resolves conflicts between competing optimization objectives, and ensures that network operations align with platform-wide strategic priorities established by higher-level governance processes.
+As an L1 authority, the coordinator holds platform-wide strategic and tactical control over all mycelial operations. This position in the authority hierarchy reflects the critical nature of the communication network: degradation of the mycelial network impacts every agent and every operation across all domains. Built on the [AIAD](@/glossary/aiad.md) standard and implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) within a dedicated [supervision tree](@/glossary/supervision-tree.md), the coordinator maintains a real-time model of network state, coordinates interventions across subsystems, resolves conflicts between competing optimization objectives, and ensures that network operations align with platform-wide strategic priorities established by higher-level governance processes.
 
 The coordination mandate extends to the full lifecycle of the mycelial network: from initial topology establishment through ongoing optimization, healing, and evolutionary adaptation. The coordinator is the single authority responsible for ensuring that subsystem agents -- the healer, topology optimizer, evolution specialist, emergence sentinel, and propagation engine -- work together coherently rather than pursuing contradictory local objectives.
 
@@ -120,8 +120,8 @@ end
 - **Strategic objective setting** -- Translates platform-wide performance goals into network management objectives, decomposing global targets into subsystem-specific directives with measurable success criteria
 - **Resource allocation** -- Distributes computational resources, bandwidth budgets, and operational windows across mycelial subsystems based on current priorities and historical effectiveness
 - **Emergency intervention** -- Exercises supreme authority to override subsystem decisions during network emergencies, directly commanding topology changes, healing priorities, or evolution freezes when network stability is threatened
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed coordination cycles and adaptive response to changing platform conditions
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing coordination metrics including subsystem synchronization status, conflict resolution counts, resource allocation distributions, and network-wide health summaries
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed coordination cycles and adaptive response to changing platform conditions
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing coordination metrics including subsystem synchronization status, conflict resolution counts, resource allocation distributions, and network-wide health summaries
 
 ## Authority Level
 
@@ -141,16 +141,16 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [mycelial-healer-specialist](/agents/mycelial-healer-specialist/) | Directs healing priorities and coordinates repair operations with other subsystems |
-| [mycelial-evolution-specialist](/agents/mycelial-evolution-specialist/) | Sets evolution objectives and manages deployment windows for evolved configurations |
-| [mycelial-topology-optimizer-agent](/agents/mycelial-topology-optimizer-agent/) | Coordinates topology optimization with healing and evolution subsystems |
-| [mycelial-emergence-sentinel-agent](/agents/mycelial-emergence-sentinel-agent/) | Receives emergence alerts and integrates them into coordination decisions |
-| [mycelial-propagation-engine](/agents/mycelial-propagation-engine/) | Manages propagation scheduling and bandwidth allocation |
-| [mycelial-network-supreme](/agents/mycelial-network-supreme/) | Delegates cross-domain pattern distribution management |
+| [mycelial-healer-specialist](@/agents/mycelial-healer-specialist.md) | Directs healing priorities and coordinates repair operations with other subsystems |
+| [mycelial-evolution-specialist](@/agents/mycelial-evolution-specialist.md) | Sets evolution objectives and manages deployment windows for evolved configurations |
+| [mycelial-topology-optimizer-agent](@/agents/mycelial-topology-optimizer-agent.md) | Coordinates topology optimization with healing and evolution subsystems |
+| [mycelial-emergence-sentinel-agent](@/agents/mycelial-emergence-sentinel-agent.md) | Receives emergence alerts and integrates them into coordination decisions |
+| [mycelial-propagation-engine](@/agents/mycelial-propagation-engine.md) | Manages propagation scheduling and bandwidth allocation |
+| [mycelial-network-supreme](@/agents/mycelial-network-supreme.md) | Delegates cross-domain pattern distribution management |
 
 ## Enforcement
 
-The coordinator enforces compliance with the [NO MERCY](/glossary/no-mercy/) doctrine across all mycelial subsystems: no subsystem is permitted to leave degraded conditions unaddressed, no optimization is accepted without measurable improvement evidence, and no coordination conflict is resolved by compromise that degrades either subsystem's effectiveness. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all coordination decisions are traceable to specific network state observations and strategic objective evaluations. The [Trinity Gate](/glossary/trinity-gate/) validates coordination plans for structural, logical, and formal consistency before execution. The [NABLA Infinity](/glossary/nabla-infinity/) framework ensures that contradictory subsystem signals are preserved and analyzed rather than averaged, maintaining epistemic integrity in coordination decisions.
+The coordinator enforces compliance with the [NO MERCY](@/glossary/no-mercy.md) doctrine across all mycelial subsystems: no subsystem is permitted to leave degraded conditions unaddressed, no optimization is accepted without measurable improvement evidence, and no coordination conflict is resolved by compromise that degrades either subsystem's effectiveness. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all coordination decisions are traceable to specific network state observations and strategic objective evaluations. The [Trinity Gate](@/glossary/trinity-gate.md) validates coordination plans for structural, logical, and formal consistency before execution. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework ensures that contradictory subsystem signals are preserved and analyzed rather than averaged, maintaining epistemic integrity in coordination decisions.
 
 ---
 
@@ -159,4 +159,4 @@ The coordinator enforces compliance with the [NO MERCY](/glossary/no-mercy/) doc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

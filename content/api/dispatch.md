@@ -51,7 +51,7 @@ All dispatch endpoints require authentication. The `PrismaticWeb.Plugs.APIAuth` 
 Authorization: Bearer <api_token>
 ```
 
-See [Authentication](/api/authentication/) for token lifecycle management.
+See [Authentication](@/api/authentication.md) for token lifecycle management.
 
 ## Request
 
@@ -298,7 +298,7 @@ print(f"Execution time: {result['meta']['execution_time_ms']}ms")
 | 429 | `rate_limited` | Per-endpoint rate limit exceeded |
 | 500 | `dispatch_error` | Unhandled exception in the dispatched function |
 
-See [Error Handling](/api/error-handling/) for the complete error taxonomy.
+See [Error Handling](@/api/error-handling.md) for the complete error taxonomy.
 
 ## Rate Limits
 
@@ -310,21 +310,21 @@ Rate limits are configured per endpoint in the registry. Default limits apply wh
 | Global per endpoint | 600/min | Aggregate limit across all consumers |
 | Burst | 10/sec | Maximum burst rate |
 
-Individual endpoints may override these defaults. Check the `rate_limit` field in the [Endpoint Discovery](/api/endpoints/) response for per-endpoint limits.
+Individual endpoints may override these defaults. Check the `rate_limit` field in the [Endpoint Discovery](@/api/endpoints.md) response for per-endpoint limits.
 
 ## Related Endpoints
 
-- [Endpoint Discovery](/api/endpoints/) -- Find available dispatch targets
-- [Health Check](/api/health/) -- Verify dispatch infrastructure is healthy
-- [OpenAPI Specification](/api/openapi-spec/) -- Machine-readable dispatch schemas
-- [Error Handling](/api/error-handling/) -- Error response format for failed dispatches
-- [Batch Operations](/api/batch-operations/) -- Dispatch multiple calls in a single request
+- [Endpoint Discovery](@/api/endpoints.md) -- Find available dispatch targets
+- [Health Check](@/api/health.md) -- Verify dispatch infrastructure is healthy
+- [OpenAPI Specification](@/api/openapi-spec.md) -- Machine-readable dispatch schemas
+- [Error Handling](@/api/error-handling.md) -- Error response format for failed dispatches
+- [Batch Operations](@/api/batch-operations.md) -- Dispatch multiple calls in a single request
 
 ## Design Philosophy
 
-The generic dispatch architecture embodies the [No Mercy](/glossary/no-mercy/) principle: every function exposed through the API must have a complete `@spec`, proper `@doc`, and pass through the [Trinity Gate](/glossary/trinity-gate/) verification. Functions without type specifications are excluded from discovery. Functions without documentation are flagged for correction. There are no half-measures in API exposure.
+The generic dispatch architecture embodies the [No Mercy](@/glossary/no-mercy.md) principle: every function exposed through the API must have a complete `@spec`, proper `@doc`, and pass through the [Trinity Gate](@/glossary/trinity-gate.md) verification. Functions without type specifications are excluded from discovery. Functions without documentation are flagged for correction. There are no half-measures in API exposure.
 
-The `safe_apply/3` wrapper ensures that no single API call can destabilize the platform. Process isolation through `Task.async` means a crashing function kills only its own process, not the dispatch controller. The timeout mechanism prevents long-running operations from consuming connection pool resources. The [AIAD](/glossary/aiad/) agent framework monitors dispatch telemetry and automatically flags endpoints with high error rates or degrading performance.
+The `safe_apply/3` wrapper ensures that no single API call can destabilize the platform. Process isolation through `Task.async` means a crashing function kills only its own process, not the dispatch controller. The timeout mechanism prevents long-running operations from consuming connection pool resources. The [AIAD](@/glossary/aiad.md) agent framework monitors dispatch telemetry and automatically flags endpoints with high error rates or degrading performance.
 
 ---
 
@@ -333,4 +333,4 @@ The `safe_apply/3` wrapper ensures that no single API call can destabilize the p
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -569,25 +569,25 @@ end
 
 ## Related Terms
 
-- [Throttling](/glossary/throttling/) -- the enforcement mechanism for request rate limits
-- [Sliding Window](/glossary/sliding-window/) -- time-based window for rate calculation
-- [SLA](/glossary/sla/) -- service level agreements defining acceptable request rates
-- [Status Code](/glossary/status-code/) -- HTTP 429 indicates rate limit exceeded
-- [Throughput](/glossary/throughput/) -- the capacity metric that rate limits protect
-- [API Gateway](/glossary/api-gateway/) -- entry point where rate limits are enforced
-- [Telemetry](/glossary/telemetry/) -- monitoring infrastructure for rate metrics
-- [GenServer](/glossary/genserver/) -- BEAM process model for rate limiter state
-- [ETS](/glossary/ets/) -- in-memory storage for rate limit counters
-- [Plug](/glossary/plug/) -- middleware framework for HTTP rate limiting
-- [Performance](/glossary/performance/) -- platform performance standards
+- [Throttling](@/glossary/throttling.md) -- the enforcement mechanism for request rate limits
+- [Sliding Window](@/glossary/sliding-window.md) -- time-based window for rate calculation
+- [SLA](@/glossary/sla.md) -- service level agreements defining acceptable request rates
+- [Status Code](@/glossary/status-code.md) -- HTTP 429 indicates rate limit exceeded
+- [Throughput](@/glossary/throughput.md) -- the capacity metric that rate limits protect
+- [API Gateway](@/glossary/api-gateway.md) -- entry point where rate limits are enforced
+- [Telemetry](@/glossary/telemetry.md) -- monitoring infrastructure for rate metrics
+- [GenServer](@/glossary/genserver.md) -- BEAM process model for rate limiter state
+- [ETS](@/glossary/ets.md) -- in-memory storage for rate limit counters
+- [Plug](@/glossary/plug.md) -- middleware framework for HTTP rate limiting
+- [Performance](@/glossary/performance.md) -- platform performance standards
 - [DDoS](/glossary/ddos/) -- attack vector mitigated by rate limiting
 
 ## See Also
 
-- [API Gateway](/architecture/) -- request rate monitoring and enforcement architecture
-- [Performance Standards](/capabilities/) -- platform throughput requirements
-- [Architecture](/architecture/) -- system architecture with rate limiting layers
-- [Capabilities](/capabilities/) -- platform capabilities and SLA targets
+- [API Gateway](@/architecture/_index.md) -- request rate monitoring and enforcement architecture
+- [Performance Standards](@/capabilities/_index.md) -- platform throughput requirements
+- [Architecture](@/architecture/_index.md) -- system architecture with rate limiting layers
+- [Capabilities](@/capabilities/_index.md) -- platform capabilities and SLA targets
 
 ---
 
@@ -596,4 +596,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

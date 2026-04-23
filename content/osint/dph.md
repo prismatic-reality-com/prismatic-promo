@@ -28,7 +28,7 @@ image_alt = "DPH - Prismatic Platform"
 
 ## Overview
 
-The DPH [registry](/glossary/registry-otp/) (Dan z pridane hodnoty -- Value Added Tax) is the authoritative public register of VAT-registered entities in the Czech Republic, maintained and operated by the Czech Financial Administration (Financni sprava Ceske republiky) under the Ministry of Finance. The registry operates under the legal framework established by Act No. 235/2004 Coll., on Value Added Tax (Zakon o dani z pridane hodnoty), as amended, and provides real-time verification of VAT registration status for all taxable persons operating within the Czech tax jurisdiction.
+The DPH [registry](@/glossary/registry-otp.md) (Dan z pridane hodnoty -- Value Added Tax) is the authoritative public register of VAT-registered entities in the Czech Republic, maintained and operated by the Czech Financial Administration (Financni sprava Ceske republiky) under the Ministry of Finance. The registry operates under the legal framework established by Act No. 235/2004 Coll., on Value Added Tax (Zakon o dani z pridane hodnoty), as amended, and provides real-time verification of VAT registration status for all taxable persons operating within the Czech tax jurisdiction.
 
 The DPH registry serves a dual purpose in Czech business intelligence. First, it provides standard VAT number validation, confirming whether a given DIC (Danove identifikacni cislo -- Tax Identification Number, format CZxxxxxxxx) corresponds to a valid, active VAT registration. Second, and more critically for risk assessment purposes, it maintains the "Nespolehlivy platce DPH" (Unreliable VAT Payer) designation -- a publicly accessible flag indicating that a taxpayer has committed serious VAT compliance failures as defined in Section 106a of the VAT Act.
 
@@ -247,7 +247,7 @@ During acquisition due diligence, the target company's complete supplier and cus
 
 ### Credit Risk Assessment
 
-An entity's DPH status is a strong signal in credit risk models. Entities designated as unreliable VAT payers have demonstrated inability or unwillingness to meet tax obligations, which correlates strongly with broader financial distress. Combined with [Insolvency Register](/osint/insolvencni-rejstrik/) data and [Executors](/osint/executors/) enforcement proceedings, DPH status provides a comprehensive credit risk profile.
+An entity's DPH status is a strong signal in credit risk models. Entities designated as unreliable VAT payers have demonstrated inability or unwillingness to meet tax obligations, which correlates strongly with broader financial distress. Combined with [Insolvency Register](@/osint/insolvencni-rejstrik.md) data and [Executors](@/osint/executors.md) enforcement proceedings, DPH status provides a comprehensive credit risk profile.
 
 ### Bank Account Verification for Payment Security
 
@@ -272,7 +272,7 @@ The DPH registry provides current-state data only. To determine whether an entit
 
 Within the Prismatic Platform, the DPH registry is a core compliance verification source integrated into the Czech entity analysis pipeline. Every Czech company profile is automatically enriched with VAT status and unreliable payer flags during the standard entity resolution workflow.
 
-The DPH adapter cross-references published bank accounts with payment records and triggers real-time alerts when a business partner's status changes to unreliable. Integration with [ARES](/osint/ares/) provides the entity resolution layer (mapping ICO to DIC), while integration with [Hlidac statu](/osint/hlidac-statu/) provides additional analytics on entities with compliance concerns.
+The DPH adapter cross-references published bank accounts with payment records and triggers real-time alerts when a business partner's status changes to unreliable. Integration with [ARES](@/osint/ares.md) provides the entity resolution layer (mapping ICO to DIC), while integration with [Hlidac statu](@/osint/hlidac-statu.md) provides additional analytics on entities with compliance concerns.
 
 ## NABLA Compliance
 
@@ -300,13 +300,13 @@ The DPH adapter cross-references published bank accounts with payment records an
 
 ## Related Resources
 
-- [ARES](/osint/ares/) - Czech business registry that aggregates DPH data alongside company information
-- [RZP](/osint/rzp/) - Trade Licensing Register for complementary entity verification
-- [CNB](/osint/cnb/) - Czech National Bank regulated entities registry
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog with company analytics and risk scoring
-- [Justice.cz](/osint/justice-cz/) - Commercial Register for company details and beneficial ownership
-- [EU Sanctions](/osint/eu-sanctions/) - EU sanctions screening complementing VAT compliance checks
-- [Insolvencni rejstrik](/osint/insolvencni-rejstrik/) - Insolvency data for entities with VAT compliance issues
+- [ARES](@/osint/ares.md) - Czech business registry that aggregates DPH data alongside company information
+- [RZP](@/osint/rzp.md) - Trade Licensing Register for complementary entity verification
+- [CNB](@/osint/cnb.md) - Czech National Bank regulated entities registry
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog with company analytics and risk scoring
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register for company details and beneficial ownership
+- [EU Sanctions](@/osint/eu-sanctions.md) - EU sanctions screening complementing VAT compliance checks
+- [Insolvencni rejstrik](@/osint/insolvencni-rejstrik.md) - Insolvency data for entities with VAT compliance issues
 
 ---
 
@@ -315,4 +315,4 @@ The DPH adapter cross-references published bank accounts with payment records an
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

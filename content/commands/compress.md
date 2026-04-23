@@ -28,7 +28,7 @@ image_alt = "/compress - Prismatic Platform"
 
 The compression system addresses a fundamental challenge in large-scale platform management: context documents, session files, and reports grow continuously, consuming storage and degrading retrieval speed. The `/compress` command reduces document sizes by ratios from 2:1 (light) to 20:1 (extreme) while preserving the essential information content, enabling efficient storage of historical context and rapid loading of session state.
 
-This command operates under the **L2+** authority level and is executed by the `compressor` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command features a self-referential capability -- it can compress its own specification as a demonstration of effectiveness -- and supports batch processing for compressing entire directories of documents in parallel.
+This command operates under the **L2+** authority level and is executed by the `compressor` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command features a self-referential capability -- it can compress its own specification as a demonstration of effectiveness -- and supports batch processing for compressing entire directories of documents in parallel.
 
 Every compression operation is validated against three quality thresholds: information retention must exceed 80%, processing time must be under 500ms for typical documents, and the actual compression ratio must be within 10% of the target ratio. If any threshold is violated, the compression is rejected with detailed diagnostics.
 
@@ -210,10 +210,10 @@ SAVED TO:
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `compressor` agent | Primary compression agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `compressor` agent | Primary compression agent |
 | AIAD Registry | Command specification and discovery | Standard AIAD interface |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation | Retention and ratio gates |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) | Compression event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation | Retention and ratio gates |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) | Compression event tracking |
 | MCP Integration | File read/write operations | Storage adapter integration |
 | PrismaticCompression | Core compression module | `apps/prismatic_compression/` |
 | Session Context | Session file compression | `.claude/session-context/` management |
@@ -291,19 +291,19 @@ The command specification itself can be compressed as a demonstration:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for quality violations. Compression operations that fail retention, ratio, or performance thresholds are rejected entirely rather than delivering degraded output.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every compression includes a detailed metrics report with validation status for all quality thresholds.
 
 ## Related Commands
 
-- [/chronic](/commands/chronic/) - Chronic documentation scan and technical hygiene maintenance
-- [/find-lowfruit](/commands/find-lowfruit/) - Identify low-hanging fruit improvements across codebase
-- [/debrief](/commands/debrief/) - Comprehensive session debrief with platform state analysis
-- [/session-compress](/commands/session-compress/) - Advanced session context compression with multi-session pattern detection
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/optimize](/commands/optimize/) - Performance optimization with measurement validation
+- [/chronic](@/commands/chronic.md) - Chronic documentation scan and technical hygiene maintenance
+- [/find-lowfruit](@/commands/find-lowfruit.md) - Identify low-hanging fruit improvements across codebase
+- [/debrief](@/commands/debrief.md) - Comprehensive session debrief with platform state analysis
+- [/session-compress](@/commands/session-compress.md) - Advanced session context compression with multi-session pattern detection
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/optimize](@/commands/optimize.md) - Performance optimization with measurement validation
 
 ---
 
@@ -312,4 +312,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

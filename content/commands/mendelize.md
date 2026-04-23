@@ -28,7 +28,7 @@ image_alt = "/mendelize - Prismatic Platform"
 
 The biological metaphor is not merely decorative. The platform's 400+ agents each possess a set of quantifiable traits: response latency, accuracy, resource efficiency, error rate, and specialization depth. These traits behave analogously to biological phenotypes -- they are expressed (measurable in production) and heritable (new agents can inherit trait combinations from existing high-performing agents). The `/mendelize` command manages the genetic lifecycle: trait assessment, parent selection, crossover recombination, controlled mutation, offspring evaluation, and population management.
 
-This command operates under the **L3** authority level and is executed by the `mendelian-genetics-coordinator` agent, a specialized evolution agent that maintains the platform's genetic trait registry and population fitness metrics. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority requirement ensures that genetic operations, which can significantly alter agent behavior through trait recombination, are performed under appropriate oversight.
+This command operates under the **L3** authority level and is executed by the `mendelian-genetics-coordinator` agent, a specialized evolution agent that maintains the platform's genetic trait registry and population fitness metrics. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority requirement ensures that genetic operations, which can significantly alter agent behavior through trait recombination, are performed under appropriate oversight.
 
 The genetic approach to platform evolution has proven particularly effective at exploring large optimization spaces where gradient-based or exhaustive approaches are impractical. By maintaining a diverse population of trait combinations and applying selection pressure through fitness evaluation, the platform discovers effective configurations that might never be found through manual tuning or deterministic optimization.
 
@@ -176,13 +176,13 @@ The **Mutation Operator** introduces controlled random perturbations to offsprin
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Population Source | Agent population provides individuals for genetic operations |
-| [Telemetry](/glossary/telemetry/) | Trait Measurement | Production telemetry provides trait values |
-| [Quality Gates](/glossary/quality-gates/) | Offspring Validation | Quality gates validate offspring fitness |
-| [Mega-Evolve](/commands/mega-evolve/) | Phase Integration | Genetic operations as Phase 5 of mega-evolution |
-| [Quality DNA](/glossary/quality-dna/) | State Persistence | Genetic state persisted across sessions |
-| [Mycelialize](/commands/mycelialize/) | Pattern Source | Beneficial trait patterns can be propagated via mycelial network |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic Framework | Fitness claims validated through evidence-based assessment |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Population Source | Agent population provides individuals for genetic operations |
+| [Telemetry](@/glossary/telemetry.md) | Trait Measurement | Production telemetry provides trait values |
+| [Quality Gates](@/glossary/quality-gates.md) | Offspring Validation | Quality gates validate offspring fitness |
+| [Mega-Evolve](@/commands/mega-evolve.md) | Phase Integration | Genetic operations as Phase 5 of mega-evolution |
+| [Quality DNA](@/glossary/quality-dna.md) | State Persistence | Genetic state persisted across sessions |
+| [Mycelialize](@/commands/mycelialize.md) | Pattern Source | Beneficial trait patterns can be propagated via mycelial network |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic Framework | Fitness claims validated through evidence-based assessment |
 
 ## Best Practices
 
@@ -231,19 +231,19 @@ Combine traits from different agent subpopulations:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for fitness degradation. Offspring that fail quality gates are eliminated without exception. The elitism mechanism ensures that proven high-performers are never lost to evolutionary noise. Every generation must maintain or improve the population's aggregate fitness.
 - **NO DOUBTS**: Full measurement-based evaluation of all genetic operations. Fitness scores are derived from production telemetry, not theoretical estimates. Trait genealogy provides complete provenance for every trait value in the population, supporting reproducibility and audit.
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -252,4 +252,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

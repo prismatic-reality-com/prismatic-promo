@@ -28,9 +28,9 @@ image_alt = "czech-autocrawler-supreme - Prismatic Platform"
 
 ## Overview
 
-The Czech Autocrawler Supreme operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Czech Business Intelligence domain of the Prismatic Platform. This agent autonomously discovers, crawls, and ingests data from Czech public registries including the Commercial Register (ARES), Trade Register, Insolvency Register, Land [Registry](/glossary/registry-otp/) (CUZK), and other government data sources. It serves as the automated data acquisition backbone for all Czech-focused intelligence and compliance operations.
+The Czech Autocrawler Supreme operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Czech Business Intelligence domain of the Prismatic Platform. This agent autonomously discovers, crawls, and ingests data from Czech public registries including the Commercial Register (ARES), Trade Register, Insolvency Register, Land [Registry](@/glossary/registry-otp.md) (CUZK), and other government data sources. It serves as the automated data acquisition backbone for all Czech-focused intelligence and compliance operations.
 
-Czech public registries present unique challenges for automated crawling: varied data formats, inconsistent API availability, [rate limiting](/glossary/rate-limiting/), and periodic structural changes to web interfaces. The Czech Autocrawler Supreme handles these complexities through adaptive crawling strategies that adjust to each registry's specific constraints. The agent maintains registry-specific adapters that are continuously evolved through the [AIAD](/glossary/aiad/) ecosystem, ensuring resilience against registry format changes.
+Czech public registries present unique challenges for automated crawling: varied data formats, inconsistent API availability, [rate limiting](@/glossary/rate-limiting.md), and periodic structural changes to web interfaces. The Czech Autocrawler Supreme handles these complexities through adaptive crawling strategies that adjust to each registry's specific constraints. The agent maintains registry-specific adapters that are continuously evolved through the [AIAD](@/glossary/aiad.md) ecosystem, ensuring resilience against registry format changes.
 
 The agent's importance to the platform cannot be overstated. Every Czech-focused intelligence product -- whether a company profile, person investigation, compliance assessment, or due diligence report -- ultimately depends on data collected by the Autocrawler Supreme. The quality, freshness, and completeness of this data directly determines the quality of all downstream intelligence operations.
 
@@ -82,7 +82,7 @@ Freshness guarantees define maximum acceptable staleness for each data category.
 
 ## GARDEN Pattern Integration
 
-The Autocrawler Supreme leverages the [GARDEN](/glossary/garden/) pattern library, which contains over 20 years of accumulated [OSINT](/glossary/osint/) knowledge from the platform's legacy projects, to inform its crawling strategies.
+The Autocrawler Supreme leverages the [GARDEN](@/glossary/garden.md) pattern library, which contains over 20 years of accumulated [OSINT](@/glossary/osint.md) knowledge from the platform's legacy projects, to inform its crawling strategies.
 
 Proven crawling patterns from the GARDEN library provide battle-tested approaches to common challenges such as handling pagination, managing sessions, dealing with CAPTCHA challenges, and extracting data from complex nested page structures. These patterns reduce the development time for new registry adapters and increase their reliability by building on proven approaches rather than developing solutions from scratch.
 
@@ -96,14 +96,14 @@ Historical registry knowledge from GARDEN includes documentation of past registr
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) | Intelligence Consumer | Receives crawled data for business intelligence analysis and entity profiling |
-| [czech-registry-person-investigator](/agents/czech-registry-person-investigator/) | Person Intelligence | Uses crawled registry data for person-level investigations and screening |
-| [czech-legal-extraction-specialist](/agents/czech-legal-extraction-specialist/) | Legal Data | Extracts legal document data from court registries alongside commercial data |
-| [crawler-development-specialist](/agents/crawler-development-specialist/) | Crawler Infrastructure | Provides shared crawler infrastructure and development patterns |
+| [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) | Intelligence Consumer | Receives crawled data for business intelligence analysis and entity profiling |
+| [czech-registry-person-investigator](@/agents/czech-registry-person-investigator.md) | Person Intelligence | Uses crawled registry data for person-level investigations and screening |
+| [czech-legal-extraction-specialist](@/agents/czech-legal-extraction-specialist.md) | Legal Data | Extracts legal document data from court registries alongside commercial data |
+| [crawler-development-specialist](@/agents/crawler-development-specialist.md) | Crawler Infrastructure | Provides shared crawler infrastructure and development patterns |
 
 ## Enforcement
 
-All crawling operations execute under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No data is ingested without provenance tracking that records the source registry, extraction timestamp, and adapter version used. Data quality checks validate every ingested record against expected schema constraints. Failed crawl operations trigger automatic retry with exponential backoff, and persistent failures are escalated for registry adapter investigation. Freshness guarantees are monitored continuously and violations trigger immediate escalation. Rate limiting compliance is mandatory and cannot be overridden regardless of data freshness urgency.
+All crawling operations execute under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No data is ingested without provenance tracking that records the source registry, extraction timestamp, and adapter version used. Data quality checks validate every ingested record against expected schema constraints. Failed crawl operations trigger automatic retry with exponential backoff, and persistent failures are escalated for registry adapter investigation. Freshness guarantees are monitored continuously and violations trigger immediate escalation. Rate limiting compliance is mandatory and cannot be overridden regardless of data freshness urgency.
 
 ---
 
@@ -112,4 +112,4 @@ All crawling operations execute under [NO MERCY, NO DOUBTS](/glossary/no-mercy-n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

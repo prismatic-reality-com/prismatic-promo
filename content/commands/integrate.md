@@ -26,7 +26,7 @@ image_alt = "/integrate - Prismatic Platform"
 
 **/integrate** is a production command in the **Architecture** category of the Prismatic Platform that designs and implements cross-system integrations between platform components, external services, and third-party APIs. In a platform with nearly 100 umbrella applications, the integration surface is vast: applications must communicate through well-defined interfaces, external services must be connected through adapters, and data must flow reliably between systems with different schemas, protocols, and availability characteristics.
 
-This command operates under the **L3** authority level and is executed by the `integration-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the architectural significance of integration work: poorly designed integrations can introduce coupling, data inconsistency, and cascading failure modes that undermine the entire platform.
+This command operates under the **L3** authority level and is executed by the `integration-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the architectural significance of integration work: poorly designed integrations can introduce coupling, data inconsistency, and cascading failure modes that undermine the entire platform.
 
 The integration-specialist agent approaches every integration through the lens of OTP principles: supervision trees for fault tolerance, GenServer patterns for state management, and behaviour contracts for interface definition. Integrations are never ad-hoc HTTP calls scattered throughout the codebase; they are structured components with defined contracts, error handling, retry policies, and circuit breakers. This disciplined approach to integration design reflects a core platform conviction: the boundaries between systems are where most failures originate, and therefore where the most rigorous engineering practices must be applied.
 
@@ -201,14 +201,14 @@ This generates a saga orchestrator that manages the multi-step transaction with 
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `integration-specialist` | Designs and implements integrations |
-| [/analyze](/commands/analyze/) | Architecture analysis | Integration dependency mapping |
-| [/architect](/commands/architect/) | Architecture design | Integration fits within architecture |
-| [/code](/commands/code/) | Implementation | Adapter code generation |
-| [/test](/commands/test/) | Testing | Integration test generation |
-| [Quality Gates](/glossary/quality-gates/) | Quality validation | Integration code quality |
-| [Telemetry](/glossary/telemetry/) | Health monitoring | Integration health [metrics](/glossary/metrics/) |
-| [OTP Supervision](/glossary/otp/) | Fault tolerance | Supervision tree management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `integration-specialist` | Designs and implements integrations |
+| [/analyze](@/commands/analyze.md) | Architecture analysis | Integration dependency mapping |
+| [/architect](@/commands/architect.md) | Architecture design | Integration fits within architecture |
+| [/code](@/commands/code.md) | Implementation | Adapter code generation |
+| [/test](@/commands/test.md) | Testing | Integration test generation |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality validation | Integration code quality |
+| [Telemetry](@/glossary/telemetry.md) | Health monitoring | Integration health [metrics](@/glossary/metrics.md) |
+| [OTP Supervision](@/glossary/otp.md) | Fault tolerance | Supervision tree management |
 | Circuit Breaker | Fault isolation | Per-integration circuit breaker GenServers |
 
 ## Workflow Integration
@@ -227,7 +227,7 @@ The /integrate command participates in several platform workflows:
 
 ## NABLA Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every integration must have error handling, circuit breakers, and tests. No ad-hoc integrations permitted. Adapters without health checks are rejected.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Integration design is based on thorough analysis of both source and target system characteristics. Retry policies and timeout values are derived from measured behavior, not assumptions.
@@ -256,13 +256,13 @@ NABLA axiom compliance for integrations:
 
 ## Related Commands
 
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/architect](/commands/architect/) - Architecture design and recommendation generation
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/migrate](/commands/migrate/) - Safe migration planning with rollback strategies
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/pattern](/commands/pattern/) - AI pattern lookup and pattern library access
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/architect](@/commands/architect.md) - Architecture design and recommendation generation
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/migrate](@/commands/migrate.md) - Safe migration planning with rollback strategies
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/pattern](@/commands/pattern.md) - AI pattern lookup and pattern library access
 
 ---
 
@@ -271,4 +271,4 @@ NABLA axiom compliance for integrations:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

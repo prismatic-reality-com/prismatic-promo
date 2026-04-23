@@ -39,9 +39,9 @@ image_alt = "Censys - Prismatic Platform"
 
 Censys is a security intelligence platform that performs continuous internet-wide scans, cataloging hosts, services, certificates, and software across the public internet. Founded in 2013 by Zakir Durumeric, David Adrian, and J. Alex Halderman at the University of Michigan, Censys emerged from academic research on internet-wide network scanning and built upon the ZMap scanner -- a tool capable of scanning the entire IPv4 address space in under 45 minutes. This academic pedigree distinguishes Censys from commercial-first alternatives, bringing rigorous methodology and reproducible scanning practices to the security intelligence domain.
 
-Censys differentiates itself through its deep focus on TLS/SSL certificate transparency, its structured and strongly-typed data model, and its comprehensive coverage of the X.509 certificate ecosystem. While [Shodan](/glossary/shodan/) excels at service and device discovery through banner grabbing, Censys provides superior visibility into the certificate landscape -- tracking certificate issuance, expiration, chain validity, and compliance with certificate transparency (CT) requirements. This complementary focus makes Censys an essential corroborating data source for multi-signal security assessments.
+Censys differentiates itself through its deep focus on TLS/SSL certificate transparency, its structured and strongly-typed data model, and its comprehensive coverage of the X.509 certificate ecosystem. While [Shodan](@/glossary/shodan.md) excels at service and device discovery through banner grabbing, Censys provides superior visibility into the certificate landscape -- tracking certificate issuance, expiration, chain validity, and compliance with certificate transparency (CT) requirements. This complementary focus makes Censys an essential corroborating data source for multi-signal security assessments.
 
-The platform offers both a web interface for interactive exploration and a RESTful API for programmatic integration. Censys continuously refreshes its dataset through regular full-internet scans, maintaining a historical record of how the internet's infrastructure evolves over time. This longitudinal data enables trend analysis, tracking how an organization's [attack surface](/glossary/attack-surface/) changes across weeks, months, and years.
+The platform offers both a web interface for interactive exploration and a RESTful API for programmatic integration. Censys continuously refreshes its dataset through regular full-internet scans, maintaining a historical record of how the internet's infrastructure evolves over time. This longitudinal data enables trend analysis, tracking how an organization's [attack surface](@/glossary/attack-surface.md) changes across weeks, months, and years.
 
 ## Scanning Methodology
 
@@ -154,7 +154,7 @@ Censys has one of the most comprehensive Certificate Transparency (CT) datasets,
 | **SAN enumeration** | Extract Subject Alternative Names | Discover subdomains and related infrastructure |
 | **Historical certificates** | Archived expired and revoked certificates | Investigate past infrastructure configurations |
 
-Certificate transparency data is particularly valuable for [EASM](/glossary/easm/) because it reveals infrastructure that may not be discoverable through port scanning alone. A certificate issued for `internal-staging.example.com` reveals the existence of that subdomain even if the server is not currently accessible.
+Certificate transparency data is particularly valuable for [EASM](@/glossary/easm.md) because it reveals infrastructure that may not be discoverable through port scanning alone. A certificate issued for `internal-staging.example.com` reveals the existence of that subdomain even if the server is not currently accessible.
 
 ### CT Log Processing Pipeline
 
@@ -311,7 +311,7 @@ end
 
 ## Context in Prismatic
 
-Censys serves as a complementary data source alongside [Shodan](/glossary/shodan/) in the Prismatic Perimeter module. The platform queries Censys for certificate data, host services, and autonomous system information during [attack surface](/glossary/attack-surface/) discovery. As required by the [Signal Plurality](/glossary/signal-plurality/) axiom, Censys findings corroborate or contradict Shodan data, providing the independent second signal needed for confident security assessments.
+Censys serves as a complementary data source alongside [Shodan](@/glossary/shodan.md) in the Prismatic Perimeter module. The platform queries Censys for certificate data, host services, and autonomous system information during [attack surface](@/glossary/attack-surface.md) discovery. As required by the [Signal Plurality](@/glossary/signal-plurality.md) axiom, Censys findings corroborate or contradict Shodan data, providing the independent second signal needed for confident security assessments.
 
 The integration leverages Censys's specific strengths in the multi-source discovery pipeline:
 
@@ -320,10 +320,10 @@ The integration leverages Censys's specific strengths in the multi-source discov
 | **Certificate discovery** | Deep CT integration, comprehensive cert database | Primary source for certificate-based asset discovery |
 | **TLS assessment** | Detailed cipher suite and protocol analysis | Corroboration of Shodan TLS findings |
 | **Subdomain enumeration** | SAN field extraction from certificates | Complementary to DNS-based enumeration |
-| **Historical analysis** | Longitudinal data on host changes | [Time decay](/glossary/time-decay/) calibration |
+| **Historical analysis** | Longitudinal data on host changes | [Time decay](@/glossary/time-decay.md) calibration |
 | **ASN mapping** | Accurate autonomous system attribution | Organization boundary definition |
 
-When Shodan and Censys agree on a finding (e.g., both detect an expired TLS certificate on the same host), the finding receives a high confidence score. When they disagree, the platform preserves both signals per the [Contradiction Preservation](/glossary/contradiction-preservation/) axiom and flags the finding for analyst review.
+When Shodan and Censys agree on a finding (e.g., both detect an expired TLS certificate on the same host), the finding receives a high confidence score. When they disagree, the platform preserves both signals per the [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom and flags the finding for analyst review.
 
 ## Multi-Source Correlation Pipeline
 
@@ -381,7 +381,7 @@ end
 
 ## Censys vs. Shodan Comparison
 
-| Dimension | Censys | [Shodan](/glossary/shodan/) |
+| Dimension | Censys | [Shodan](@/glossary/shodan.md) |
 |-----------|--------|--------|
 | **Origin** | Academic (University of Michigan) | Independent (John Matherly) |
 | **Scan engine** | ZMap + ZGrab2 (open source) | Proprietary crawlers |
@@ -405,7 +405,7 @@ end
 | **Teams** | 250,000 | 10,000 | Team access, advanced analytics |
 | **Enterprise** | Custom | Unlimited | Dedicated infrastructure, SLA |
 
-The Prismatic Platform implements [rate limiting](/glossary/rate-limiting/) for Censys API calls using a sliding window algorithm calibrated to the subscription tier. Failed requests due to rate limiting are automatically retried with exponential backoff.
+The Prismatic Platform implements [rate limiting](@/glossary/rate-limiting.md) for Censys API calls using a sliding window algorithm calibrated to the subscription tier. Failed requests due to rate limiting are automatically retried with exponential backoff.
 
 ```elixir
 defmodule PrismaticPerimeter.Sources.Censys.RateLimiter do
@@ -462,7 +462,7 @@ When integrating Censys data into security assessments, several considerations a
 
 When building integrations with the Censys API, the following practices ensure reliable and efficient operation within the Prismatic Platform:
 
-1. **Prefer certificate-based discovery over host scanning** -- Censys's CT log integration provides the most unique value compared to other OSINT sources. Use Censys primarily for certificate intelligence and leverage [Shodan](/glossary/shodan/) for service discovery.
+1. **Prefer certificate-based discovery over host scanning** -- Censys's CT log integration provides the most unique value compared to other OSINT sources. Use Censys primarily for certificate intelligence and leverage [Shodan](@/glossary/shodan.md) for service discovery.
 
 2. **Use aggregate queries for broad analysis** -- The aggregation API provides statistical summaries without consuming per-result quota. Use aggregates to understand the distribution of services, ASNs, or software versions before drilling into individual hosts.
 
@@ -470,28 +470,28 @@ When building integrations with the Censys API, the following practices ensure r
 
 4. **Implement circuit breakers for API failures** -- Network issues and rate limiting can cause cascade failures in the discovery pipeline. Use circuit breaker patterns to gracefully degrade when Censys is unavailable.
 
-5. **Always validate confidence with [Signal Plurality](/glossary/signal-plurality/)** -- Never rely on Censys alone for security assertions. Every finding must be corroborated by at least one independent source.
+5. **Always validate confidence with [Signal Plurality](@/glossary/signal-plurality.md)** -- Never rely on Censys alone for security assertions. Every finding must be corroborated by at least one independent source.
 
 ## Related Terms
 
-- [Shodan](/glossary/shodan/) - Complementary internet scanning platform for service discovery
-- [EASM](/glossary/easm/) - Attack surface management consuming Censys data
-- [Signal Plurality](/glossary/signal-plurality/) - Axiom requiring Censys as corroborating source
-- [Attack Surface](/glossary/attack-surface/) - External infrastructure Censys helps discover
-- [GreyNoise](/glossary/greynoise/) - Noise classification complementing Censys findings
-- [TLS](/glossary/tls/) - Certificate and protocol analysis from Censys scans
-- [Risk Score](/glossary/risk-score/) - Ratings informed by Censys-validated findings
-- [Rate Limiting](/glossary/rate-limiting/) - API quota management for Censys integration
-- [Time Decay](/glossary/time-decay/) - Historical Censys data calibrated for recency
-- [Contradiction Preservation](/glossary/contradiction-preservation/) - Handling Shodan/Censys disagreements
-- [Knowledge Graph](/glossary/knowledge-graph/) - Graph database storing correlated Censys findings
-- [Entity Resolution](/glossary/entity-resolution/) - Linking Censys host data to organizational entities
+- [Shodan](@/glossary/shodan.md) - Complementary internet scanning platform for service discovery
+- [EASM](@/glossary/easm.md) - Attack surface management consuming Censys data
+- [Signal Plurality](@/glossary/signal-plurality.md) - Axiom requiring Censys as corroborating source
+- [Attack Surface](@/glossary/attack-surface.md) - External infrastructure Censys helps discover
+- [GreyNoise](@/glossary/greynoise.md) - Noise classification complementing Censys findings
+- [TLS](@/glossary/tls.md) - Certificate and protocol analysis from Censys scans
+- [Risk Score](@/glossary/risk-score.md) - Ratings informed by Censys-validated findings
+- [Rate Limiting](@/glossary/rate-limiting.md) - API quota management for Censys integration
+- [Time Decay](@/glossary/time-decay.md) - Historical Censys data calibrated for recency
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) - Handling Shodan/Censys disagreements
+- [Knowledge Graph](@/glossary/knowledge-graph.md) - Graph database storing correlated Censys findings
+- [Entity Resolution](@/glossary/entity-resolution.md) - Linking Censys host data to organizational entities
 
 ## See Also
 
-- [Architecture](/architecture/) - EASM data source architecture
-- [Apps](/apps/) - Prismatic Perimeter application
-- [OSINT](/osint/) - Open-source intelligence collection methodology
+- [Architecture](@/architecture/_index.md) - EASM data source architecture
+- [Apps](@/apps/_index.md) - Prismatic Perimeter application
+- [OSINT](@/osint/_index.md) - Open-source intelligence collection methodology
 
 ---
 
@@ -500,4 +500,4 @@ When building integrations with the Censys API, the following practices ensure r
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

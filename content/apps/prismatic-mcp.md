@@ -23,7 +23,7 @@ image_alt = "Prismatic MCP - Prismatic Platform"
 
 ## Overview
 
-Prismatic MCP implements the Model Context [Protocol](/glossary/protocol/), providing a standardized interface for AI models (Claude, GPT, local [Ollama](/glossary/ollama/) models) to interact with the Prismatic Platform. It exposes 27 tools covering [OSINT](/glossary/osint/) queries, security operations, entity management, and platform administration through the MCP specification.
+Prismatic MCP implements the Model Context [Protocol](@/glossary/protocol.md), providing a standardized interface for AI models (Claude, GPT, local [Ollama](@/glossary/ollama.md) models) to interact with the Prismatic Platform. It exposes 27 tools covering [OSINT](@/glossary/osint.md) queries, security operations, entity management, and platform administration through the MCP specification.
 
 The Model Context Protocol is an open standard that enables AI assistants to interact with external tools and data sources in a structured, validated, and auditable manner. Prismatic MCP transforms the platform's capabilities into MCP-compliant tool definitions, allowing any MCP-capable AI client to query OSINT sources, run security scans, manage entities, and monitor platform health through a single standardized interface.
 
@@ -59,7 +59,7 @@ MCP Client (Claude/GPT) --> Transport Layer --> Router --> Tool Handler --> Plat
 | **Transport** | stdio (local), SSE (remote) | Client-server communication |
 | **Router** | Pattern-matched tool dispatch | Route requests to correct handler |
 | **Validator** | JSON Schema parameter validation (ex_json_schema) | Input sanitization and type checking |
-| **Auth Layer** | [RBAC](/glossary/rbac/)-based tool access | Role-based tool authorization |
+| **Auth Layer** | [RBAC](@/glossary/rbac.md)-based tool access | Role-based tool authorization |
 | **Handlers** | Per-tool implementation modules | Tool logic and platform API calls |
 | **Serializer** | Structured result formatting | Convert Elixir results to MCP format |
 
@@ -83,7 +83,7 @@ MCP Client (Claude/GPT) --> Transport Layer --> Router --> Tool Handler --> Plat
 
 | Tool | Parameters | Returns |
 |------|-----------|---------|
-| **`search_entity`** | query, sources, max_results | Entity matches with [confidence scores](/glossary/confidence-scoring/) |
+| **`search_entity`** | query, sources, max_results | Entity matches with [confidence scores](@/glossary/confidence-scoring.md) |
 | **`query_source`** | source, query, params | Raw source results |
 | **`collect_intelligence`** | target, domains, depth | Multi-domain intelligence report |
 | **`entity_profile`** | identifier, type | Comprehensive entity profile |
@@ -196,12 +196,12 @@ Testing covers tool invocation with parameter validation, RBAC permission enforc
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic](/apps/prismatic/) | Core platform API for OSINT and investigation tools |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Security rating and EASM tools |
-| [Prismatic Storage Core](/apps/prismatic-storage-core/) | Entity storage and graph query tools |
-| [Prismatic Nabla](/apps/prismatic-nabla/) | Confidence assessment and epistemic tools |
-| [Prismatic Ollama](/apps/prismatic-ollama/) | Local AI inference for analysis tools |
-| [Prismatic Agents](/apps/prismatic-agents/) | Agent listing and status tools |
+| [Prismatic](@/apps/prismatic.md) | Core platform API for OSINT and investigation tools |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Security rating and EASM tools |
+| [Prismatic Storage Core](@/apps/prismatic-storage-core.md) | Entity storage and graph query tools |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | Confidence assessment and epistemic tools |
+| [Prismatic Ollama](@/apps/prismatic-ollama.md) | Local AI inference for analysis tools |
+| [Prismatic Agents](@/apps/prismatic-agents.md) | Agent listing and status tools |
 
 ## NABLA Compliance
 
@@ -224,12 +224,12 @@ Testing covers tool invocation with parameter validation, RBAC permission enforc
 
 ## Related Resources
 
-- [Prismatic Ollama](/apps/prismatic-ollama/) -- Local AI inference
-- [Prismatic Claude](/apps/prismatic-claude/) -- Claude AI integration
-- [Prismatic API](/apps/prismatic-api/) -- REST API gateway
-- [AIAD Standard](/capabilities/aiad-standard/) -- MCP tool definitions follow AIAD specifications
-- [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) -- 27 tools spanning 5 domains
-- [Quality Gates](/capabilities/quality-gates/) -- Validation, rate limiting, and audit logging gates
+- [Prismatic Ollama](@/apps/prismatic-ollama.md) -- Local AI inference
+- [Prismatic Claude](@/apps/prismatic-claude.md) -- Claude AI integration
+- [Prismatic API](@/apps/prismatic-api.md) -- REST API gateway
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- MCP tool definitions follow AIAD specifications
+- [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) -- 27 tools spanning 5 domains
+- [Quality Gates](@/capabilities/quality-gates.md) -- Validation, rate limiting, and audit logging gates
 
 ---
 
@@ -238,4 +238,4 @@ Testing covers tool invocation with parameter validation, RBAC permission enforc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

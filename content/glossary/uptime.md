@@ -264,10 +264,10 @@ end
 
 ## Cross-References
 
-- [Monitoring](/glossary/monitoring/) - Observation systems tracking uptime
+- [Monitoring](@/glossary/monitoring.md) - Observation systems tracking uptime
 - **Health Check** - Endpoint for availability verification
-- [SLA](/glossary/sla/) - Service Level Agreement defining uptime targets
-- [Time to First Byte](/glossary/time-to-first-byte/) - Performance metric during uptime
+- [SLA](@/glossary/sla.md) - Service Level Agreement defining uptime targets
+- [Time to First Byte](@/glossary/time-to-first-byte.md) - Performance metric during uptime
 - **Warmup** - Initialization affecting availability after restart
 
 ---

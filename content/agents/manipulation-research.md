@@ -28,9 +28,9 @@ image_alt = "manipulation-research - Prismatic Platform"
 
 ## Overview
 
-The manipulation-research agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's research domain, specializing in the systematic study and cataloging of information manipulation techniques. This agent conducts deep analytical research into narrative manipulation methodologies, disinformation propagation patterns, and influence operation structures. Its research outputs feed directly into the platform's epistemic defense infrastructure, providing the foundational knowledge required by detection and forensics agents to identify live manipulation campaigns.
+The manipulation-research agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's research domain, specializing in the systematic study and cataloging of information manipulation techniques. This agent conducts deep analytical research into narrative manipulation methodologies, disinformation propagation patterns, and influence operation structures. Its research outputs feed directly into the platform's epistemic defense infrastructure, providing the foundational knowledge required by detection and forensics agents to identify live manipulation campaigns.
 
-Operating under the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine, the manipulation-research agent produces evidence-backed research artifacts that meet [Trinity Gate](/glossary/trinity-gate/) validation requirements. Every research finding carries full provenance metadata, ensuring traceability from raw source material through analysis to final classification. The agent applies the [NABLA Infinity](/glossary/nabla-infinity/) framework's [signal plurality](/glossary/signal-plurality/) axiom, requiring multiple independent sources before establishing any manipulation technique classification.
+Operating under the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine, the manipulation-research agent produces evidence-backed research artifacts that meet [Trinity Gate](@/glossary/trinity-gate.md) validation requirements. Every research finding carries full provenance metadata, ensuring traceability from raw source material through analysis to final classification. The agent applies the [NABLA Infinity](@/glossary/nabla-infinity.md) framework's [signal plurality](@/glossary/signal-plurality.md) axiom, requiring multiple independent sources before establishing any manipulation technique classification.
 
 The research function is foundational to the platform's epistemic defense strategy because it produces the knowledge artifacts that every other agent in the manipulation defense chain depends on. Detection agents need technique signatures to identify active campaigns. Forensics agents need taxonomies to classify observed patterns. Red-team agents need technique intelligence to design realistic adversarial simulations. Without rigorous, continuously updated research, the entire defense chain operates on stale knowledge against an evolving adversary.
 
@@ -139,13 +139,13 @@ end
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [manipulation-detection](/agents/manipulation-detection/) | Consumes research outputs for real-time detection rule generation | Outbound |
-| [manipulation-forensics](/agents/manipulation-forensics/) | Uses technique taxonomy for incident classification and attribution | Outbound |
-| [manipulation-detector](/agents/manipulation-detector/) | Research outputs update artifact-level detection models | Outbound |
-| [red-epistemic-attacker](/agents/red-epistemic-attacker/) | Receives technique intelligence for adversarial simulation scenarios | Outbound |
-| [blue-signal-aggregator](/agents/blue-signal-aggregator/) | Research findings inform defensive signal correlation models | Outbound |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
-| Prismatic Telemetry | Research pipeline [metrics](/glossary/metrics/) and progress tracking | Outbound |
+| [manipulation-detection](@/agents/manipulation-detection.md) | Consumes research outputs for real-time detection rule generation | Outbound |
+| [manipulation-forensics](@/agents/manipulation-forensics.md) | Uses technique taxonomy for incident classification and attribution | Outbound |
+| [manipulation-detector](@/agents/manipulation-detector.md) | Research outputs update artifact-level detection models | Outbound |
+| [red-epistemic-attacker](@/agents/red-epistemic-attacker.md) | Receives technique intelligence for adversarial simulation scenarios | Outbound |
+| [blue-signal-aggregator](@/agents/blue-signal-aggregator.md) | Research findings inform defensive signal correlation models | Outbound |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
+| Prismatic Telemetry | Research pipeline [metrics](@/glossary/metrics.md) and progress tracking | Outbound |
 
 ## Operational Workflow
 
@@ -173,7 +173,7 @@ end
 | Source Independence | Academic, operational, and forensic sources provide independent validation |
 | Provenance Mandatory | Every taxonomy entry traces to specific source material with full attribution |
 
-All research outputs are validated through the [NO DOUBTS](/glossary/no-doubts/) principle and must pass [Trinity Gate](/glossary/trinity-gate/) structural consistency checks.
+All research outputs are validated through the [NO DOUBTS](@/glossary/no-doubts.md) principle and must pass [Trinity Gate](@/glossary/trinity-gate.md) structural consistency checks.
 
 ## Configuration
 
@@ -207,14 +207,14 @@ config :prismatic_research, Prismatic.Research.ManipulationResearch,
 
 ## Related Resources
 
-- [manipulation-detection](/agents/manipulation-detection/) -- Primary consumer of detection signatures
-- [manipulation-forensics](/agents/manipulation-forensics/) -- Primary consumer of technique taxonomy
-- [manipulation-detector](/agents/manipulation-detector/) -- Artifact detection model updates
-- [red-epistemic-attacker](/agents/red-epistemic-attacker/) -- Adversarial simulation inputs
-- [blue-signal-aggregator](/agents/blue-signal-aggregator/) -- Defensive correlation model inputs
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for evidence-based research
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation for research conclusions
+- [manipulation-detection](@/agents/manipulation-detection.md) -- Primary consumer of detection signatures
+- [manipulation-forensics](@/agents/manipulation-forensics.md) -- Primary consumer of technique taxonomy
+- [manipulation-detector](@/agents/manipulation-detector.md) -- Artifact detection model updates
+- [red-epistemic-attacker](@/agents/red-epistemic-attacker.md) -- Adversarial simulation inputs
+- [blue-signal-aggregator](@/agents/blue-signal-aggregator.md) -- Defensive correlation model inputs
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for evidence-based research
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation for research conclusions
 
 ---
 
@@ -223,4 +223,4 @@ config :prismatic_research, Prismatic.Research.ManipulationResearch,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

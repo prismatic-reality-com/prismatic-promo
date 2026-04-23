@@ -28,19 +28,19 @@ image_alt = "catch-quality-feedback-coordinator - Prismatic Platform"
 
 ## Overview
 
-The Catch Quality Feedback Coordinator operates as an L3 [strategic command](/glossary/strategic-command/) agent within the General domain of the Prismatic Platform. This agent serves as a centralized aggregation point for quality feedback signals originating from multiple platform subsystems, including [OSINT](/glossary/osint/) intelligence quality metrics, [NABLA Infinity](/glossary/nabla-infinity/) cognitive processing outputs, and [CASCADE](/glossary/cascade/) pattern detection results. By consolidating quality signals from disparate sources into a unified feedback stream, the coordinator enables the platform to maintain comprehensive situational awareness of its quality posture across all operational domains.
+The Catch Quality Feedback Coordinator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the General domain of the Prismatic Platform. This agent serves as a centralized aggregation point for quality feedback signals originating from multiple platform subsystems, including [OSINT](@/glossary/osint.md) intelligence quality metrics, [NABLA Infinity](@/glossary/nabla-infinity.md) cognitive processing outputs, and [CASCADE](@/glossary/cascade.md) pattern detection results. By consolidating quality signals from disparate sources into a unified feedback stream, the coordinator enables the platform to maintain comprehensive situational awareness of its quality posture across all operational domains.
 
-Quality feedback in a large-scale autonomous platform is inherently distributed. Each subsystem -- static analysis, intelligence gathering, cognitive processing, evolutionary optimization -- generates quality signals in its own format, at its own cadence, and with its own severity classification. Without a dedicated coordination layer, these signals remain siloed, preventing the cross-domain correlation that reveals systemic quality trends. The Catch Quality Feedback Coordinator bridges this gap by implementing a normalized quality signal protocol that accepts feedback from any platform subsystem, enriches it with contextual metadata, and routes it to the appropriate remediation pipelines. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard, operating under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine.
+Quality feedback in a large-scale autonomous platform is inherently distributed. Each subsystem -- static analysis, intelligence gathering, cognitive processing, evolutionary optimization -- generates quality signals in its own format, at its own cadence, and with its own severity classification. Without a dedicated coordination layer, these signals remain siloed, preventing the cross-domain correlation that reveals systemic quality trends. The Catch Quality Feedback Coordinator bridges this gap by implementing a normalized quality signal protocol that accepts feedback from any platform subsystem, enriches it with contextual metadata, and routes it to the appropriate remediation pipelines. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard, operating under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine.
 
 ## Architecture
 
 The Catch Quality Feedback Coordinator implements a three-layer signal processing architecture designed for high-throughput quality event handling with minimal latency.
 
-**Signal Ingestion Layer** -- The outermost layer accepts quality feedback events from all platform subsystems through a standardized [telemetry](/glossary/telemetry/) interface. Each event carries a mandatory metadata envelope containing the originating subsystem identifier, signal severity classification (informational, warning, critical, emergency), timestamp with microsecond precision, and provenance chain linking the signal to its root evidence. The ingestion layer validates envelope completeness before accepting any signal, rejecting malformed events at the boundary rather than allowing them to contaminate downstream processing.
+**Signal Ingestion Layer** -- The outermost layer accepts quality feedback events from all platform subsystems through a standardized [telemetry](@/glossary/telemetry.md) interface. Each event carries a mandatory metadata envelope containing the originating subsystem identifier, signal severity classification (informational, warning, critical, emergency), timestamp with microsecond precision, and provenance chain linking the signal to its root evidence. The ingestion layer validates envelope completeness before accepting any signal, rejecting malformed events at the boundary rather than allowing them to contaminate downstream processing.
 
 **Signal Normalization Layer** -- Quality signals from different subsystems arrive in heterogeneous formats. OSINT quality metrics use numerical scoring with confidence intervals. NABLA cognitive processing outputs use epistemic confidence levels with Trinity Gate validation status. CASCADE pattern detections use categorical severity with remediation priority rankings. The normalization layer transforms all incoming signals into a unified quality event format that preserves the original signal fidelity while enabling cross-domain comparison and correlation. This normalization is implemented through a protocol-based adapter pattern, where each source subsystem registers a normalization adapter at startup.
 
-**Signal Routing Layer** -- Once normalized, quality events are classified by urgency and domain, then routed to the appropriate consumers. Critical quality regressions are dispatched immediately to the Quality Floor Guardian for threshold evaluation. Pattern-level feedback accumulates in [ETS](/glossary/ets/) tables for batch processing by the evolutionary optimization subsystem. Cross-domain correlations are forwarded to the [3NL](/glossary/3nl/) coordinator for multi-level analysis that may reveal systemic quality trends invisible at the individual subsystem level.
+**Signal Routing Layer** -- Once normalized, quality events are classified by urgency and domain, then routed to the appropriate consumers. Critical quality regressions are dispatched immediately to the Quality Floor Guardian for threshold evaluation. Pattern-level feedback accumulates in [ETS](@/glossary/ets.md) tables for batch processing by the evolutionary optimization subsystem. Cross-domain correlations are forwarded to the [3NL](@/glossary/3nl.md) coordinator for multi-level analysis that may reveal systemic quality trends invisible at the individual subsystem level.
 
 ## Core Capabilities
 
@@ -53,7 +53,7 @@ The Catch Quality Feedback Coordinator implements a three-layer signal processin
 
 ## Implementation
 
-The coordinator is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) within the platform's supervision hierarchy, maintaining quality feedback state in ETS for high-throughput concurrent access.
+The coordinator is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) within the platform's supervision hierarchy, maintaining quality feedback state in ETS for high-throughput concurrent access.
 
 ```elixir
 defmodule Prismatic.Quality.FeedbackCoordinator do
@@ -127,13 +127,13 @@ The Catch Quality Feedback Coordinator integrates with multiple platform subsyst
 
 | Component | Integration Type | Function |
 |-----------|-----------------|----------|
-| [OSINT](/glossary/osint/) Intelligence Pipeline | Signal Source | Provides intelligence quality metrics including source reliability scores, data freshness indicators, and collection coverage assessments |
-| [NABLA Infinity](/glossary/nabla-infinity/) Cognitive Engine | Signal Source | Supplies epistemic confidence levels, Trinity Gate validation outcomes, and axiom compliance assessments for cognitive processing operations |
-| [CASCADE](/glossary/cascade/) Pattern Detector | Signal Source | Reports detected anti-pattern instances with categorical severity, remediation priority, and pattern family classification |
+| [OSINT](@/glossary/osint.md) Intelligence Pipeline | Signal Source | Provides intelligence quality metrics including source reliability scores, data freshness indicators, and collection coverage assessments |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) Cognitive Engine | Signal Source | Supplies epistemic confidence levels, Trinity Gate validation outcomes, and axiom compliance assessments for cognitive processing operations |
+| [CASCADE](@/glossary/cascade.md) Pattern Detector | Signal Source | Reports detected anti-pattern instances with categorical severity, remediation priority, and pattern family classification |
 | Quality Floor Guardian | Signal Consumer | Receives critical quality signals for threshold evaluation and enforcement level transitions |
-| [SEADF](/glossary/seadf/) Evolutionary Engine | Signal Consumer | Consumes aggregated quality trend data to adjust evolutionary fitness functions and selection pressure |
-| [3NL](/glossary/3nl/) Coordinator | Analysis Partner | Processes cross-domain quality correlations through multi-level linguistic, logical, and neural analysis |
-| [Prismatic Telemetry](/glossary/telemetry/) | Observability | Emits quality feedback processing events for platform-wide monitoring and dashboarding |
+| [SEADF](@/glossary/seadf.md) Evolutionary Engine | Signal Consumer | Consumes aggregated quality trend data to adjust evolutionary fitness functions and selection pressure |
+| [3NL](@/glossary/3nl.md) Coordinator | Analysis Partner | Processes cross-domain quality correlations through multi-level linguistic, logical, and neural analysis |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Observability | Emits quality feedback processing events for platform-wide monitoring and dashboarding |
 
 ## Operational Workflow
 
@@ -202,12 +202,12 @@ Performance is monitored through telemetry events emitted at each processing sta
 
 ## Related Resources
 
-- [**3nl-coordinator**](/agents/3nl-coordinator/) (L3) -- Multi-level analysis partner for cross-domain quality correlations
-- [**code-quality-commander**](/agents/code-quality-commander/) (L1) -- Supreme quality enforcement authority that consumes aggregated quality feedback
+- [**3nl-coordinator**](@/agents/3nl-coordinator.md) (L3) -- Multi-level analysis partner for cross-domain quality correlations
+- [**code-quality-commander**](@/agents/code-quality-commander.md) (L1) -- Supreme quality enforcement authority that consumes aggregated quality feedback
 - **cascade-pattern-detector** -- CASCADE anti-pattern detection engine providing quality signal input
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Real-time quality threshold monitoring and enforcement
-- [SEADF](/glossary/seadf/) -- Evolutionary framework that uses quality feedback for fitness evaluation
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing quality signal validation and processing
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Real-time quality threshold monitoring and enforcement
+- [SEADF](@/glossary/seadf.md) -- Evolutionary framework that uses quality feedback for fitness evaluation
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing quality signal validation and processing
 
 ---
 
@@ -216,4 +216,4 @@ Performance is monitored through telemetry events emitted at each processing sta
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

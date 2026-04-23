@@ -18,7 +18,7 @@ see_also = ["nabla-infinity", "epistemic-reasoning", "epistemic-validation", "ev
 image_alt = "Nabla Infinity Epistemic Engine"
 +++
 
-Most intelligence platforms are maximum-likelihood machines. They tell you *what* they think. [Nabla Infinity](/glossary/nabla-infinity) (∇∞) is different: it also tells you *how* it knows, what would change its mind, and which parts of its answer are load-bearing. That is [epistemic reasoning](/glossary/epistemic-reasoning), and it is the difference between an analyst tool and an opinion generator.
+Most intelligence platforms are maximum-likelihood machines. They tell you *what* they think. [Nabla Infinity](@/glossary/nabla-infinity.md) (∇∞) is different: it also tells you *how* it knows, what would change its mind, and which parts of its answer are load-bearing. That is [epistemic reasoning](@/glossary/epistemic-reasoning.md), and it is the difference between an analyst tool and an opinion generator.
 
 ## Axioms, not heuristics
 
@@ -26,7 +26,7 @@ Most intelligence platforms are maximum-likelihood machines. They tell you *what
 
 1. **Provenance is mandatory.** Every claim carries the source(s) that produced it. A claim with no provenance is not a claim; it is a guess.
 2. **Uncertainty is decomposed.** Epistemic (reducible by more data) is separated from aleatoric (irreducible noise). A single "confidence" number is a bug.
-3. **Retraction is cheap.** When new [evidence](/glossary/evidence) contradicts an earlier claim, the older claim is *retracted*, not overwritten. The history survives.
+3. **Retraction is cheap.** When new [evidence](@/glossary/evidence.md) contradicts an earlier claim, the older claim is *retracted*, not overwritten. The history survives.
 
 These axioms are enforced by `mix nabla.verify`, which walks the call graph and fails CI if any decision path produces a claim that violates them.
 
@@ -72,6 +72,6 @@ LLM outputs are a firehose of confidence-free claims. Running them through ∇�
 
 - **Academy**: [Nabla Infinity Guide](/academy/learn/nabla-infinity-guide) — the full axiom set + runnable examples
 - **Academy**: [Monte Carlo Fundamentals](/academy/learn/monte-carlo-fundamentals) — how uncertainty is estimated
-- **Glossary**: [Nabla Infinity](/glossary/nabla-infinity), [Epistemic Reasoning](/glossary/epistemic-reasoning), [Epistemic Validation](/glossary/epistemic-validation), [Evidence](/glossary/evidence), [Confidence](/glossary/confidence)
+- **Glossary**: [Nabla Infinity](@/glossary/nabla-infinity.md), [Epistemic Reasoning](@/glossary/epistemic-reasoning.md), [Epistemic Validation](@/glossary/epistemic-validation.md), [Evidence](@/glossary/evidence.md), [Confidence](@/glossary/confidence.md)
 
 Know what you know. Know what you don't. Track both. Everything else is noise.

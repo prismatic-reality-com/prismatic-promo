@@ -26,7 +26,7 @@ image_alt = "Mermaid.js - Prismatic Platform"
 
 Mermaid.js is the diagramming library used throughout the Prismatic Platform for generating architecture diagrams, flowcharts, sequence diagrams, and entity relationship diagrams directly from markdown-style text definitions. It enables developers and documentation systems to create and maintain diagrams as code, ensuring they stay synchronized with the actual system architecture. This diagrams-as-code approach is essential for a platform with 90 applications and 404 agents, where manually maintained visual diagrams would become stale within days.
 
-The Prismatic Platform uses Mermaid.js extensively in its documentation, CLAUDE.md files, and promotional site to visualize supervision trees, data flow architectures, agent interaction patterns, and deployment topologies. By defining diagrams as text, they can be version-controlled alongside code in [Git](/technologies/git/) and automatically rendered on the platform's web interfaces. When a supervision tree changes, the corresponding Mermaid diagram in the app's CLAUDE.md is updated in the same commit, maintaining documentation accuracy as a natural part of the development workflow.
+The Prismatic Platform uses Mermaid.js extensively in its documentation, CLAUDE.md files, and promotional site to visualize supervision trees, data flow architectures, agent interaction patterns, and deployment topologies. By defining diagrams as text, they can be version-controlled alongside code in [Git](@/technologies/git.md) and automatically rendered on the platform's web interfaces. When a supervision tree changes, the corresponding Mermaid diagram in the app's CLAUDE.md is updated in the same commit, maintaining documentation accuracy as a natural part of the development workflow.
 
 Mermaid's support for multiple diagram types -- flowcharts, sequence diagrams, class diagrams, state diagrams, Gantt charts, and git graphs -- covers all the visualization needs of the platform's comprehensive documentation system spanning 90 applications and 404 agents. The library renders diagrams client-side in the browser, requiring no server-side image generation infrastructure.
 
@@ -37,7 +37,7 @@ Mermaid's support for multiple diagram types -- flowcharts, sequence diagrams, c
 - **Theming**: Dark and light themes with customizable styles, matching the platform's dark-mode-first design
 - **Auto-Layout**: Automatic node positioning with the Dagre layout engine, no manual coordinate placement
 - **Interactive**: Click events and link support for navigable diagrams that link to platform documentation
-- **SSR Support**: Server-side rendering capability for static site generation with [Zola](/technologies/zola/)
+- **SSR Support**: Server-side rendering capability for static site generation with [Zola](@/technologies/zola.md)
 - **Security**: Strict security level prevents script injection through diagram definitions
 - **Responsive**: Diagrams scale to container width, adapting to different viewport sizes
 
@@ -105,7 +105,7 @@ Mermaid.js operates at the documentation and visualization layer of the platform
 |---------------|--------------|------------------|
 | CLAUDE.md files | Flowchart, sequence | Browser-side rendering on promo site |
 | App documentation | Architecture, ER, state | Browser-side in documentation viewer |
-| [Phoenix LiveView](/technologies/phoenix-liveview/) dashboards | Flowchart, sequence | Client-side with re-init hook |
+| [Phoenix LiveView](@/technologies/phoenix-liveview.md) dashboards | Flowchart, sequence | Client-side with re-init hook |
 | Promo site | All types | Zola build + browser rendering |
 | Agent specifications | State, sequence | Static documentation |
 | Architecture docs | Flowchart, class, ER | Version-controlled markdown |
@@ -115,8 +115,8 @@ The diagram rendering pipeline integrates with the platform's existing frontend 
 | Component | Role |
 |-----------|------|
 | Mermaid.js library | Text-to-SVG rendering engine |
-| [TailwindCSS](/technologies/tailwindcss/) | Styling containers around diagrams |
-| [Flowbite](/technologies/flowbite/) | Card and panel components holding diagrams |
+| [TailwindCSS](@/technologies/tailwindcss.md) | Styling containers around diagrams |
+| [Flowbite](@/technologies/flowbite.md) | Card and panel components holding diagrams |
 | Dark theme | `theme: 'dark'` matching platform colors |
 | LiveView hooks | Re-render diagrams after DOM patches |
 
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-For [Phoenix LiveView](/technologies/phoenix-liveview/) pages where the DOM is dynamically updated, Mermaid is re-run via a Phoenix hook to render diagrams inserted after the initial page load.
+For [Phoenix LiveView](@/technologies/phoenix-liveview.md) pages where the DOM is dynamically updated, Mermaid is re-run via a Phoenix hook to render diagrams inserted after the initial page load.
 
 ```javascript
 // LiveView hook for Mermaid re-rendering
@@ -217,21 +217,21 @@ Hooks.MermaidDiagram = {
 | Diagram types | 12+ | 8+ | 15+ | Graphs only | All |
 | Learning curve | Low | Low | Medium | High | Low |
 
-Mermaid.js was chosen for its browser-native rendering (no server dependencies), dark theme support, and ease of integration with [Phoenix LiveView](/technologies/phoenix-liveview/) through JavaScript hooks.
+Mermaid.js was chosen for its browser-native rendering (no server dependencies), dark theme support, and ease of integration with [Phoenix LiveView](@/technologies/phoenix-liveview.md) through JavaScript hooks.
 
 ## Related Technologies
 
-- [TailwindCSS](/technologies/tailwindcss/) - Styling for diagram container elements and responsive layout
-- [Flowbite](/technologies/flowbite/) - Card and panel components that hold diagram visualizations
-- [Zola](/technologies/zola/) - Static site generator that renders pages containing Mermaid diagrams
-- [Alpine.js](/technologies/alpinejs/) - Client-side interactivity for diagram toggle controls
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Server-rendered pages requiring Mermaid re-initialization
+- [TailwindCSS](@/technologies/tailwindcss.md) - Styling for diagram container elements and responsive layout
+- [Flowbite](@/technologies/flowbite.md) - Card and panel components that hold diagram visualizations
+- [Zola](@/technologies/zola.md) - Static site generator that renders pages containing Mermaid diagrams
+- [Alpine.js](@/technologies/alpinejs.md) - Client-side interactivity for diagram toggle controls
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Server-rendered pages requiring Mermaid re-initialization
 
 ## Related Apps
 
 - Documentation across all 90 Prismatic Platform applications uses Mermaid diagrams
-- [prismatic_web](/apps/prismatic-web/) - LiveView dashboards with embedded Mermaid architecture diagrams
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - EASM pipeline visualization using sequence diagrams
+- [prismatic_web](@/apps/prismatic-web.md) - LiveView dashboards with embedded Mermaid architecture diagrams
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - EASM pipeline visualization using sequence diagrams
 
 ---
 
@@ -240,4 +240,4 @@ Mermaid.js was chosen for its browser-native rendering (no server dependencies),
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

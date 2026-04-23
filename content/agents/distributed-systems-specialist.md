@@ -28,11 +28,11 @@ image_alt = "distributed-systems-specialist - Prismatic Platform"
 
 ## Overview
 
-The Distributed Systems Specialist operates as an L3 strategic command agent within the Architecture domain of the Prismatic Platform. This agent provides expertise in distributed computing patterns, [consensus algorithm](/glossary/consensus-algorithm/)s, system coordination protocols, and the design of fault-tolerant distributed architectures. In a platform built on [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/) and the [BEAM](/glossary/beam/) virtual machine -- a runtime explicitly designed for distributed, fault-tolerant systems -- the Distributed Systems Specialist ensures that the platform leverages these capabilities to their fullest extent rather than treating distribution as an afterthought bolted onto a monolithic design.
+The Distributed Systems Specialist operates as an L3 strategic command agent within the Architecture domain of the Prismatic Platform. This agent provides expertise in distributed computing patterns, [consensus algorithm](@/glossary/consensus-algorithm.md)s, system coordination protocols, and the design of fault-tolerant distributed architectures. In a platform built on [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md) and the [BEAM](@/glossary/beam.md) virtual machine -- a runtime explicitly designed for distributed, fault-tolerant systems -- the Distributed Systems Specialist ensures that the platform leverages these capabilities to their fullest extent rather than treating distribution as an afterthought bolted onto a monolithic design.
 
-The Prismatic Platform operates as a 90-application [umbrella](/glossary/umbrella-application/) with components that must coordinate across process boundaries, node boundaries, and potentially geographic boundaries. The Distributed Systems Specialist evaluates every architectural decision through the lens of distribution: How does this design behave when the network partitions? What happens when a node fails? How does this data model handle concurrent updates from multiple sources? These questions are not edge cases -- in distributed systems, they are the normal operating conditions that the architecture must handle correctly.
+The Prismatic Platform operates as a 90-application [umbrella](@/glossary/umbrella-application.md) with components that must coordinate across process boundaries, node boundaries, and potentially geographic boundaries. The Distributed Systems Specialist evaluates every architectural decision through the lens of distribution: How does this design behave when the network partitions? What happens when a node fails? How does this data model handle concurrent updates from multiple sources? These questions are not edge cases -- in distributed systems, they are the normal operating conditions that the architecture must handle correctly.
 
-This agent operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. For distributed systems, NO DOUBTS is particularly critical: every design decision must be backed by formal reasoning about consistency guarantees, failure modes, and partition behavior. The CAP theorem, PACELC theorem, and the FLP impossibility result are not academic abstractions -- they are engineering constraints that bound what any distributed system can achieve, and every design review accounts for them explicitly.
+This agent operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. For distributed systems, NO DOUBTS is particularly critical: every design decision must be backed by formal reasoning about consistency guarantees, failure modes, and partition behavior. The CAP theorem, PACELC theorem, and the FLP impossibility result are not academic abstractions -- they are engineering constraints that bound what any distributed system can achieve, and every design review accounts for them explicitly.
 
 ## Operational Domain
 
@@ -48,9 +48,9 @@ The Distributed Systems Specialist provides architectural guidance across six cr
 
 **Partition tolerance architecture** designs systems that maintain defined behavior under network partition conditions. Following the CAP theorem, the specialist makes explicit trade-offs between consistency and availability for each data domain, documenting which guarantees each component provides during partitioned operation. Components requiring strong consistency use synchronous coordination at the cost of availability; components favoring availability use eventual consistency with conflict resolution strategies.
 
-**Failure detection and recovery** implements reliable failure detection through heartbeat protocols, phi accrual failure detectors, and OTP's native process monitoring. The specialist designs [supervision tree](/glossary/supervision-tree/)s that implement appropriate restart strategies for distributed components -- accounting for the fact that a crashed process on a remote node requires different recovery procedures than a locally crashed process.
+**Failure detection and recovery** implements reliable failure detection through heartbeat protocols, phi accrual failure detectors, and OTP's native process monitoring. The specialist designs [supervision tree](@/glossary/supervision-tree.md)s that implement appropriate restart strategies for distributed components -- accounting for the fact that a crashed process on a remote node requires different recovery procedures than a locally crashed process.
 
-**Distributed state management** designs state management approaches that maintain correctness across distribution boundaries. This includes [ETS](/glossary/ets/)-based local caching with invalidation protocols, Horde-based distributed registries for global process addressing, and [Ecto](/glossary/ecto/)-backed persistence for durable state with optimistic concurrency control.
+**Distributed state management** designs state management approaches that maintain correctness across distribution boundaries. This includes [ETS](@/glossary/ets.md)-based local caching with invalidation protocols, Horde-based distributed registries for global process addressing, and [Ecto](@/glossary/ecto.md)-backed persistence for durable state with optimistic concurrency control.
 
 **Message ordering and delivery guarantees** designs communication protocols with explicit ordering and delivery semantics. The specialist distinguishes between at-most-once, at-least-once, and exactly-once delivery requirements, implementing appropriate mechanisms for each. For ordered delivery, it designs sequence-numbered protocols with gap detection and retransmission.
 
@@ -95,21 +95,21 @@ The review evaluates five dimensions: correctness under normal operation, behavi
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution | Agent process distribution across cluster nodes |
-| AIAD [Registry](/glossary/registry-otp/) | Agent discovery | Distributed agent registration and capability lookup |
-| Prismatic [Telemetry](/glossary/telemetry/) | Observability | Distributed tracing and cross-node performance metrics |
-| [Phoenix](/glossary/phoenix/) PubSub | Event distribution | Cluster-wide event broadcasting for real-time features |
-| [PostgreSQL](/glossary/postgresql/) | Persistent state | Serializable transactions for strong consistency requirements |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution | Agent process distribution across cluster nodes |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent discovery | Distributed agent registration and capability lookup |
+| Prismatic [Telemetry](@/glossary/telemetry.md) | Observability | Distributed tracing and cross-node performance metrics |
+| [Phoenix](@/glossary/phoenix.md) PubSub | Event distribution | Cluster-wide event broadcasting for real-time features |
+| [PostgreSQL](@/glossary/postgresql.md) | Persistent state | Serializable transactions for strong consistency requirements |
 
 ## Enforcement
 
-The Distributed Systems Specialist enforces [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with particular emphasis on formal reasoning about distributed behavior. Every distributed design must explicitly state its consistency model, partition behavior, and failure recovery strategy. Designs that hand-wave about "eventual consistency" without specifying convergence guarantees are rejected. Race conditions, split-brain scenarios, and message ordering assumptions must be addressed in design documents before implementation begins.
+The Distributed Systems Specialist enforces [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with particular emphasis on formal reasoning about distributed behavior. Every distributed design must explicitly state its consistency model, partition behavior, and failure recovery strategy. Designs that hand-wave about "eventual consistency" without specifying convergence guarantees are rejected. Race conditions, split-brain scenarios, and message ordering assumptions must be addressed in design documents before implementation begins.
 
 ## Related Agents
 
-- [**database-architecture-specialist**](/agents/database-architecture-specialist/) (L3) - Data modeling, schema design, and database selection strategies
-- [**event-driven-architecture-specialist**](/agents/event-driven-architecture-specialist/) (L3) - [Event sourcing](/glossary/event-sourcing/), [CQRS](/glossary/cqrs/) patterns, and event-driven system design
-- [**messaging-architecture-specialist**](/agents/messaging-architecture-specialist/) (L3) - Message queue architecture, pub/sub patterns, and async communication
+- [**database-architecture-specialist**](@/agents/database-architecture-specialist.md) (L3) - Data modeling, schema design, and database selection strategies
+- [**event-driven-architecture-specialist**](@/agents/event-driven-architecture-specialist.md) (L3) - [Event sourcing](@/glossary/event-sourcing.md), [CQRS](@/glossary/cqrs.md) patterns, and event-driven system design
+- [**messaging-architecture-specialist**](@/agents/messaging-architecture-specialist.md) (L3) - Message queue architecture, pub/sub patterns, and async communication
 
 ---
 
@@ -118,4 +118,4 @@ The Distributed Systems Specialist enforces [NO MERCY, NO DOUBTS](/glossary/no-m
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

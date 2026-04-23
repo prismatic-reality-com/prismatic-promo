@@ -32,7 +32,7 @@ BuiltWith is the leading technology profiling platform that identifies the softw
 
 The technology detection engine operates through multiple analysis layers. First-pass detection examines HTTP response headers for server identification (Apache, Nginx, IIS), framework signatures (X-Powered-By), and security headers. Second-pass analysis downloads and parses HTML content, identifying CMS fingerprints, JavaScript library includes, meta tags, and link elements that reveal technology choices. Third-pass JavaScript execution detects dynamically loaded resources, analytics snippets, advertising networks, and client-side frameworks. Finally, infrastructure analysis examines DNS records, IP geolocation, SSL certificates, and CDN signatures to identify hosting and content delivery providers.
 
-For [OSINT](/glossary/osint/) investigations, BuiltWith reveals the technical infrastructure decisions of target organizations, intelligence that supports multiple analytical objectives. [Vulnerability assessment](/glossary/vulnerability-assessment/) benefits from identifying outdated software versions -- a WordPress site running version 5.2 when the current release is 6.4 indicates poor patch management. Competitive intelligence analysts use BuiltWith to understand competitor technology investments, migration patterns, and vendor relationships. Supply chain risk assessment leverages technology profiles to identify third-party dependencies that could introduce vulnerabilities or compliance obligations. And for red team operations, understanding the target's technology stack enables targeted reconnaissance and attack vector selection.
+For [OSINT](@/glossary/osint.md) investigations, BuiltWith reveals the technical infrastructure decisions of target organizations, intelligence that supports multiple analytical objectives. [Vulnerability assessment](@/glossary/vulnerability-assessment.md) benefits from identifying outdated software versions -- a WordPress site running version 5.2 when the current release is 6.4 indicates poor patch management. Competitive intelligence analysts use BuiltWith to understand competitor technology investments, migration patterns, and vendor relationships. Supply chain risk assessment leverages technology profiles to identify third-party dependencies that could introduce vulnerabilities or compliance obligations. And for red team operations, understanding the target's technology stack enables targeted reconnaissance and attack vector selection.
 
 BuiltWith's historical tracking capability adds a temporal dimension to technology intelligence. Analysts can observe when an organization adopted or abandoned specific technologies, tracking migrations from on-premises to cloud, legacy CMS to modern frameworks, or changes in analytics and advertising partnerships that may signal strategic shifts.
 
@@ -240,7 +240,7 @@ Organizations assess their digital supply chain by profiling the technologies us
 
 ### Web Application Firewall and Security Posture Assessment
 
-BuiltWith detects the presence (or absence) of security technologies including WAFs, bot protection, CAPTCHA services, and security headers. This intelligence feeds into [security rating](/glossary/security-rating/) calculations and helps organizations benchmark their security technology adoption against industry peers.
+BuiltWith detects the presence (or absence) of security technologies including WAFs, bot protection, CAPTCHA services, and security headers. This intelligence feeds into [security rating](@/glossary/security-rating.md) calculations and helps organizations benchmark their security technology adoption against industry peers.
 
 ## Limitations
 
@@ -262,11 +262,11 @@ Organizations using BuiltWith for competitive intelligence should be aware that 
 
 When using BuiltWith data for vulnerability assessment, organizations should ensure they have authorization to investigate the target domains. While BuiltWith's passive detection does not constitute scanning or testing, acting on identified vulnerabilities without authorization would violate computer fraud laws.
 
-Data from BuiltWith's meta fields (emails, phone numbers, social media profiles) is subject to [GDPR](/glossary/gdpr/) and privacy regulations when it pertains to identifiable individuals. Automated processing of this personal data requires a lawful basis and appropriate data protection measures.
+Data from BuiltWith's meta fields (emails, phone numbers, social media profiles) is subject to [GDPR](@/glossary/gdpr.md) and privacy regulations when it pertains to identifiable individuals. Automated processing of this personal data requires a lawful basis and appropriate data protection measures.
 
 ## Integration with Prismatic Platform
 
-Prismatic Platform integrates BuiltWith as a technology intelligence source in the [Prismatic Perimeter](/glossary/prismatic-perimeter/) [EASM](/glossary/easm/) module, providing passive technology profiling that complements active scanning data from Shodan, Censys, and BinaryEdge.
+Prismatic Platform integrates BuiltWith as a technology intelligence source in the [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) [EASM](@/glossary/easm.md) module, providing passive technology profiling that complements active scanning data from Shodan, Censys, and BinaryEdge.
 
 ### Vulnerability Cross-Reference Pipeline
 
@@ -316,12 +316,12 @@ The platform periodically re-profiles monitored domains, comparing current techn
 
 ## Related Providers
 
-- [SecurityTrails](/osint/securitytrails/) - DNS and domain infrastructure intelligence for hosting analysis
-- [Shodan](/osint/shodan/) - Service detection from the network perspective
-- [NVD](/osint/nvd/) - Vulnerability data for detected software versions
-- [Exploit-DB](/osint/exploit-db/) - Exploits for identified technologies
-- [Censys](/osint/censys/) - Certificate and service data for cross-validation
-- [FullHunt](/osint/fullhunt/) - Attack surface discovery with technology detection
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and domain infrastructure intelligence for hosting analysis
+- [Shodan](@/osint/shodan.md) - Service detection from the network perspective
+- [NVD](@/osint/nvd.md) - Vulnerability data for detected software versions
+- [Exploit-DB](@/osint/exploit-db.md) - Exploits for identified technologies
+- [Censys](@/osint/censys.md) - Certificate and service data for cross-validation
+- [FullHunt](@/osint/fullhunt.md) - Attack surface discovery with technology detection
 - Wappalyzer - Alternative technology detection platform
 
 ---
@@ -331,4 +331,4 @@ The platform periodically re-profiles monitored domains, comparing current techn
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

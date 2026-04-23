@@ -40,7 +40,7 @@ image_alt = "GraphQL - Prismatic Platform"
 
 ## Definition
 
-GraphQL is a query language for APIs and a server-side runtime for executing those queries, developed internally at Facebook in 2012 and released as an open-source specification in 2015. Unlike [REST APIs](/glossary/rest-api/) where the server defines fixed endpoint-specific response shapes, GraphQL inverts the control by allowing clients to declare exactly which fields they need in a single request, and the server returns precisely that data---no more, no less. This client-driven data fetching eliminates the two most common inefficiencies of REST: over-fetching (receiving unnecessary fields) and under-fetching (requiring multiple sequential requests to assemble the needed data).
+GraphQL is a query language for APIs and a server-side runtime for executing those queries, developed internally at Facebook in 2012 and released as an open-source specification in 2015. Unlike [REST APIs](@/glossary/rest-api.md) where the server defines fixed endpoint-specific response shapes, GraphQL inverts the control by allowing clients to declare exactly which fields they need in a single request, and the server returns precisely that data---no more, no less. This client-driven data fetching eliminates the two most common inefficiencies of REST: over-fetching (receiving unnecessary fields) and under-fetching (requiring multiple sequential requests to assemble the needed data).
 
 The GraphQL specification defines three operation types: queries (read operations), mutations (write operations), and subscriptions (real-time streaming operations). All operations are validated against a strongly-typed schema that serves as the contract between client and server. The schema defines every type, field, relationship, and argument available in the API, and the runtime ensures that queries are syntactically and semantically valid before execution. This type system enables powerful tooling---autocompletion in IDEs, automatic documentation generation, compile-time query validation, and type-safe client code generation.
 
@@ -187,7 +187,7 @@ end
 
 ## Subscriptions for Real-Time Data
 
-GraphQL subscriptions provide a declarative mechanism for real-time data delivery, where the server pushes updates to connected clients whenever specified events occur. In Elixir, Absinthe integrates subscriptions with [Phoenix Channels](/glossary/channel/) and [PubSub](/glossary/pubsub/):
+GraphQL subscriptions provide a declarative mechanism for real-time data delivery, where the server pushes updates to connected clients whenever specified events occur. In Elixir, Absinthe integrates subscriptions with [Phoenix Channels](@/glossary/channel.md) and [PubSub](@/glossary/pubsub.md):
 
 ```elixir
 # Subscription definition
@@ -210,7 +210,7 @@ subscription do
 end
 ```
 
-Subscriptions use [WebSocket](/glossary/websocket/) connections (through Phoenix Channels) for persistent bidirectional communication, enabling real-time dashboards that update automatically when security events occur, asset discoveries complete, or compliance scores change.
+Subscriptions use [WebSocket](@/glossary/websocket.md) connections (through Phoenix Channels) for persistent bidirectional communication, enabling real-time dashboards that update automatically when security events occur, asset discoveries complete, or compliance scores change.
 
 ## GraphQL vs REST Comparison
 
@@ -224,13 +224,13 @@ Subscriptions use [WebSocket](/glossary/websocket/) connections (through Phoenix
 | **Caching** | Complex (POST requests, query-level) | Simple (HTTP caching, ETags) |
 | **Error Handling** | Partial responses with errors | HTTP status codes |
 | **Real-Time** | Built-in subscriptions | Requires separate WebSocket setup |
-| **Tooling** | Schema-driven (introspection) | Spec-driven ([OpenAPI](/glossary/openapi/)) |
+| **Tooling** | Schema-driven (introspection) | Spec-driven ([OpenAPI](@/glossary/openapi.md)) |
 | **Learning Curve** | Higher (query language, schema) | Lower (HTTP conventions) |
 | **File Uploads** | Not natively supported | Standard multipart/form-data |
 
 ## Absinthe - Elixir GraphQL
 
-Absinthe is the premier GraphQL toolkit for Elixir, providing a complete implementation of the GraphQL specification with deep [Phoenix](/glossary/phoenix/) integration:
+Absinthe is the premier GraphQL toolkit for Elixir, providing a complete implementation of the GraphQL specification with deep [Phoenix](@/glossary/phoenix.md) integration:
 
 | Feature | Description |
 |---------|-------------|
@@ -246,13 +246,13 @@ Absinthe's middleware system enables cross-cutting concerns like authentication,
 
 ## Context in Prismatic
 
-The Prismatic Platform primarily uses REST via [OpenAPI](/glossary/openapi/) for its API layer (`prismatic_api` on port 4004), but GraphQL through Absinthe is positioned for client-facing query interfaces where flexible data retrieval is essential.
+The Prismatic Platform primarily uses REST via [OpenAPI](@/glossary/openapi.md) for its API layer (`prismatic_api` on port 4004), but GraphQL through Absinthe is positioned for client-facing query interfaces where flexible data retrieval is essential.
 
 **Current Architecture**: The auto-introspecting REST API provides broad coverage of all `Prismatic*` facade modules through automatic endpoint discovery. This approach is optimal for server-to-server communication and simple CRUD operations where response shapes are predictable.
 
 **GraphQL Use Cases**: GraphQL becomes advantageous for dashboard interfaces that need to compose data from multiple domains (security ratings + compliance scores + asset metadata) in a single request, reducing round-trips and enabling the frontend to request exactly the data needed for each view.
 
-**Subscription Alignment**: GraphQL's subscription model integrates naturally with the platform's existing [PubSub](/glossary/pubsub/) and [Channel](/glossary/channel/) infrastructure. Security alerts, asset discovery progress, and quality metric updates can be delivered through GraphQL subscriptions using the same Phoenix PubSub backbone that powers [LiveView](/glossary/liveview/) real-time updates.
+**Subscription Alignment**: GraphQL's subscription model integrates naturally with the platform's existing [PubSub](@/glossary/pubsub.md) and [Channel](@/glossary/channel.md) infrastructure. Security alerts, asset discovery progress, and quality metric updates can be delivered through GraphQL subscriptions using the same Phoenix PubSub backbone that powers [LiveView](@/glossary/liveview.md) real-time updates.
 
 **Complementary Approach**: Rather than replacing REST, GraphQL complements it---REST handles server-to-server integration and simple queries, while GraphQL serves complex client-facing data needs where the flexibility of client-specified queries reduces frontend complexity.
 
@@ -1006,38 +1006,38 @@ end
 
 ## Related Terms
 
-- [REST API](/glossary/rest-api/) - Alternative API architectural style with fixed endpoint responses
-- [OpenAPI](/glossary/openapi/) - REST API specification standard, complementary to GraphQL's introspection
-- [Phoenix](/glossary/phoenix/) - Framework providing GraphQL hosting via Absinthe library
-- [PubSub](/glossary/pubsub/) - Messaging backbone powering GraphQL subscriptions
-- [Channel](/glossary/channel/) - WebSocket transport layer for GraphQL subscription delivery
-- [WebSocket](/glossary/websocket/) - Protocol enabling persistent connections for subscriptions
-- [API Gateway](/glossary/api-gateway/) - Entry point routing requests to GraphQL and REST endpoints
-- [Ecto](/glossary/ecto/) - Database layer accessed by GraphQL resolvers through DataLoader
-- [LiveView](/glossary/liveview/) - Server-rendered alternative for real-time UI that shares PubSub infrastructure
-- [Connection Pooling](/glossary/connection-pooling/) - Database pool management for resolver data fetching
-- [Phoenix](/glossary/phoenix/) - Elixir web framework with built-in GraphQL support via Absinthe
-- [Ecto](/glossary/ecto/) - Database wrapper providing query composition for GraphQL resolvers
-- [Schema](/glossary/schema/) - Best practices for GraphQL schema architecture and design
+- [REST API](@/glossary/rest-api.md) - Alternative API architectural style with fixed endpoint responses
+- [OpenAPI](@/glossary/openapi.md) - REST API specification standard, complementary to GraphQL's introspection
+- [Phoenix](@/glossary/phoenix.md) - Framework providing GraphQL hosting via Absinthe library
+- [PubSub](@/glossary/pubsub.md) - Messaging backbone powering GraphQL subscriptions
+- [Channel](@/glossary/channel.md) - WebSocket transport layer for GraphQL subscription delivery
+- [WebSocket](@/glossary/websocket.md) - Protocol enabling persistent connections for subscriptions
+- [API Gateway](@/glossary/api-gateway.md) - Entry point routing requests to GraphQL and REST endpoints
+- [Ecto](@/glossary/ecto.md) - Database layer accessed by GraphQL resolvers through DataLoader
+- [LiveView](@/glossary/liveview.md) - Server-rendered alternative for real-time UI that shares PubSub infrastructure
+- [Connection Pooling](@/glossary/connection-pooling.md) - Database pool management for resolver data fetching
+- [Phoenix](@/glossary/phoenix.md) - Elixir web framework with built-in GraphQL support via Absinthe
+- [Ecto](@/glossary/ecto.md) - Database wrapper providing query composition for GraphQL resolvers
+- [Schema](@/glossary/schema.md) - Best practices for GraphQL schema architecture and design
 
 ## Related Terms
 
-- [REST API](/glossary/rest-api/) - Alternative API architectural style with fixed endpoint responses
-- [OpenAPI](/glossary/openapi/) - REST API specification standard, complementary to GraphQL's introspection
-- [Phoenix](/glossary/phoenix/) - Framework providing GraphQL hosting via Absinthe library
-- [PubSub](/glossary/pubsub/) - Messaging backbone powering GraphQL subscriptions
-- [Channel](/glossary/channel/) - WebSocket transport layer for GraphQL subscription delivery
-- [WebSocket](/glossary/websocket/) - Protocol enabling persistent connections for subscriptions
-- [API Gateway](/glossary/api-gateway/) - Entry point routing requests to GraphQL and REST endpoints
-- [Ecto](/glossary/ecto/) - Database layer accessed by GraphQL resolvers through DataLoader
-- [LiveView](/glossary/liveview/) - Server-rendered alternative for real-time UI that shares PubSub infrastructure
-- [Connection Pooling](/glossary/connection-pooling/) - Database pool management for resolver data fetching
+- [REST API](@/glossary/rest-api.md) - Alternative API architectural style with fixed endpoint responses
+- [OpenAPI](@/glossary/openapi.md) - REST API specification standard, complementary to GraphQL's introspection
+- [Phoenix](@/glossary/phoenix.md) - Framework providing GraphQL hosting via Absinthe library
+- [PubSub](@/glossary/pubsub.md) - Messaging backbone powering GraphQL subscriptions
+- [Channel](@/glossary/channel.md) - WebSocket transport layer for GraphQL subscription delivery
+- [WebSocket](@/glossary/websocket.md) - Protocol enabling persistent connections for subscriptions
+- [API Gateway](@/glossary/api-gateway.md) - Entry point routing requests to GraphQL and REST endpoints
+- [Ecto](@/glossary/ecto.md) - Database layer accessed by GraphQL resolvers through DataLoader
+- [LiveView](@/glossary/liveview.md) - Server-rendered alternative for real-time UI that shares PubSub infrastructure
+- [Connection Pooling](@/glossary/connection-pooling.md) - Database pool management for resolver data fetching
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform API architecture and data access patterns
-- [Technologies](/technologies/) - Technology stack including API layer
-- [Apps](/apps/) - Applications exposing GraphQL interfaces
+- [Architecture](@/architecture/_index.md) - Platform API architecture and data access patterns
+- [Technologies](@/technologies/_index.md) - Technology stack including API layer
+- [Apps](@/apps/_index.md) - Applications exposing GraphQL interfaces
 
 ---
 
@@ -1046,4 +1046,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

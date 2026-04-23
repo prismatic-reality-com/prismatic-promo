@@ -28,7 +28,7 @@ image_alt = "czech-business-intelligence-specialist - Prismatic Platform"
 
 ## Overview
 
-The Czech Business Intelligence Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Czech domain of the Prismatic Platform. This agent performs comprehensive Czech business entity research, including entity profiling, ownership chain reconstruction, beneficial ownership analysis, corporate governance assessment, and multi-registry due diligence. It transforms raw registry data collected by the Czech Autocrawler Supreme into structured intelligence products that support investment due diligence, compliance screening, risk assessment, and investigative operations.
+The Czech Business Intelligence Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Czech domain of the Prismatic Platform. This agent performs comprehensive Czech business entity research, including entity profiling, ownership chain reconstruction, beneficial ownership analysis, corporate governance assessment, and multi-registry due diligence. It transforms raw registry data collected by the Czech Autocrawler Supreme into structured intelligence products that support investment due diligence, compliance screening, risk assessment, and investigative operations.
 
 Czech business intelligence requires deep understanding of the Czech legal and regulatory framework. The specialist encodes knowledge of Czech corporate forms (s.r.o., a.s., k.s., v.o.s., druzstvo), governance requirements for each form, statutory obligations including financial statement filing deadlines, and the significance of various registry entries such as prokura, registered pledge notices, and insolvency annotations. This domain expertise enables the specialist to identify anomalies and risk indicators that a generic business intelligence system would miss.
 
@@ -56,7 +56,7 @@ Multi-level chain construction follows ownership links through intermediate enti
 
 Beneficial ownership analysis identifies the natural persons who ultimately control the entity through direct or indirect ownership. Czech law (Act No. 37/2021 on the register of beneficial owners) requires entities to register their beneficial owners, and the specialist cross-references this registry data against its computed ownership chains to identify discrepancies that may indicate inaccurate beneficial ownership declarations.
 
-Cross-border ownership tracking coordinates with the [cross-border-identity-specialist](/agents/cross-border-identity-specialist/) when ownership chains cross Czech borders. Foreign corporate shareholders are flagged for international registry lookup, enabling the specialist to continue the ownership chain reconstruction in foreign jurisdictions.
+Cross-border ownership tracking coordinates with the [cross-border-identity-specialist](@/agents/cross-border-identity-specialist.md) when ownership chains cross Czech borders. Foreign corporate shareholders are flagged for international registry lookup, enabling the specialist to continue the ownership chain reconstruction in foreign jurisdictions.
 
 ## Risk Assessment Framework
 
@@ -68,7 +68,7 @@ Governance risk assessment evaluates management stability, board composition qua
 
 Legal risk assessment monitors for adverse legal events including insolvency filings, court judgments, tax liens, and registered pledges on company assets. The specialist tracks these events through ISIR and court registry monitoring, providing early warning of legal issues that may affect the entity's reliability or solvency.
 
-Compliance risk assessment evaluates the entity's regulatory compliance status across applicable Czech regulations including the [ZKB](/glossary/zkb/) (Act No. 264/2025 on cybersecurity) for relevant entities and [NIS2](/glossary/nis2/) directive obligations. Entities in regulated sectors (financial services, energy, healthcare) receive additional compliance screening relevant to their sector-specific requirements.
+Compliance risk assessment evaluates the entity's regulatory compliance status across applicable Czech regulations including the [ZKB](@/glossary/zkb.md) (Act No. 264/2025 on cybersecurity) for relevant entities and [NIS2](@/glossary/nis2.md) directive obligations. Entities in regulated sectors (financial services, energy, healthcare) receive additional compliance screening relevant to their sector-specific requirements.
 
 Reputational risk assessment incorporates OSINT data including media mentions, online reviews, and social media presence to identify potential reputational issues that may not appear in official registry data. Adverse media screening uses the platform's OSINT providers to detect negative coverage that contextualizes the entity's public perception.
 
@@ -84,20 +84,20 @@ Temporal correlation aligns events across registries to detect meaningful patter
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to direct Czech business intelligence operations, set entity monitoring priorities, and coordinate with downstream intelligence consumers.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to direct Czech business intelligence operations, set entity monitoring priorities, and coordinate with downstream intelligence consumers.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [czech-autocrawler-supreme](/agents/czech-autocrawler-supreme/) | Data Source | Provides crawled registry data for analysis |
-| [czech-financial-forensics-expert](/agents/czech-financial-forensics-expert/) | Financial Analysis | Provides deep financial analysis for complex investigations |
-| [czech-legal-intelligence-operative](/agents/czech-legal-intelligence-operative/) | Legal Context | Provides legal system context for compliance and risk assessments |
-| [cross-border-identity-specialist](/agents/cross-border-identity-specialist/) | International Extension | Extends ownership chain analysis across borders |
+| [czech-autocrawler-supreme](@/agents/czech-autocrawler-supreme.md) | Data Source | Provides crawled registry data for analysis |
+| [czech-financial-forensics-expert](@/agents/czech-financial-forensics-expert.md) | Financial Analysis | Provides deep financial analysis for complex investigations |
+| [czech-legal-intelligence-operative](@/agents/czech-legal-intelligence-operative.md) | Legal Context | Provides legal system context for compliance and risk assessments |
+| [cross-border-identity-specialist](@/agents/cross-border-identity-specialist.md) | International Extension | Extends ownership chain analysis across borders |
 
 ## Enforcement
 
-All Czech business intelligence operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No entity profile is released without cross-registry validation. Ownership chain reconstructions must include confidence scores at each level and explicitly flag incomplete chains. Risk assessments must document the evidence basis for each risk indicator. Financial analysis requires verification against filed financial statements rather than relying solely on aggregated data. Intelligence products that affect regulatory compliance decisions must pass [Trinity Gate](/glossary/trinity-gate/) validation before distribution.
+All Czech business intelligence operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No entity profile is released without cross-registry validation. Ownership chain reconstructions must include confidence scores at each level and explicitly flag incomplete chains. Risk assessments must document the evidence basis for each risk indicator. Financial analysis requires verification against filed financial statements rather than relying solely on aggregated data. Intelligence products that affect regulatory compliance decisions must pass [Trinity Gate](@/glossary/trinity-gate.md) validation before distribution.
 
 ---
 
@@ -106,4 +106,4 @@ All Czech business intelligence operations are governed by the [NO MERCY, NO DOU
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

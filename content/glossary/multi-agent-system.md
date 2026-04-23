@@ -39,7 +39,7 @@ The theoretical foundations of multi-agent systems draw from distributed artific
 
 Multi-agent systems offer several advantages over single-agent architectures: they naturally decompose complex problems into manageable sub-problems, they provide fault tolerance through redundancy and graceful degradation, they scale horizontally by adding agents, and they can incorporate heterogeneous capabilities (different agents can use different algorithms, data sources, or reasoning methods). These properties make MAS particularly suitable for large-scale, real-world applications where centralized solutions are impractical.
 
-The Prismatic Platform implements one of the largest production multi-agent systems in the Elixir ecosystem, with 530+ specialized agents operating across 16 domains, coordinated through [OTP](/glossary/otp/) supervision trees and communicating via [BEAM](/glossary/beam/) message passing. This is not a research prototype but a production system demonstrating that multi-agent architectures can operate at scale with the reliability guarantees required for real-world deployment.
+The Prismatic Platform implements one of the largest production multi-agent systems in the Elixir ecosystem, with 530+ specialized agents operating across 16 domains, coordinated through [OTP](@/glossary/otp.md) supervision trees and communicating via [BEAM](@/glossary/beam.md) message passing. This is not a research prototype but a production system demonstrating that multi-agent architectures can operate at scale with the reliability guarantees required for real-world deployment.
 
 ## Agent Properties and Taxonomy
 
@@ -48,12 +48,12 @@ Agents in a multi-agent system exhibit properties that distinguish them from sim
 | Property | Description | Prismatic Implementation |
 |----------|-------------|--------------------------|
 | **Autonomy** | Operates without direct human intervention | Agents execute commands independently |
-| **Reactivity** | Perceives environment and responds to changes | Event-driven through [telemetry](/glossary/telemetry/) |
+| **Reactivity** | Perceives environment and responds to changes | Event-driven through [telemetry](@/glossary/telemetry.md) |
 | **Proactivity** | Takes initiative toward goals | Auto-evolution and self-healing agents |
 | **Social Ability** | Interacts with other agents through protocols | AIAD-compliant message passing |
 | **Adaptability** | Modifies behavior based on experience | Quality DNA and pattern learning |
 | **Bounded Rationality** | Makes decisions within knowledge limits | Domain specialization and authority levels |
-| **Veracity** | Does not intentionally communicate false information | [NABLA Infinity](/glossary/nabla-infinity/) axiom enforcement |
+| **Veracity** | Does not intentionally communicate false information | [NABLA Infinity](@/glossary/nabla-infinity.md) axiom enforcement |
 
 ### Agent Classification
 
@@ -393,7 +393,7 @@ One of the most powerful properties of multi-agent systems is emergence: the sys
 | **Cross-Domain Intelligence** | OSINT + Security + Development | Findings from one domain inform decisions in others |
 | **Self-Healing** | Quality + Evolution + Testing | Quality agents detect issues, evolution agents fix them |
 | **Adversarial Resilience** | Red + Blue + Purple teams | Attacks strengthen defenses through synthesis |
-| **Knowledge Synthesis** | All domain specialists | Multiple perspectives combined through [NABLA Infinity](/glossary/nabla-infinity/) |
+| **Knowledge Synthesis** | All domain specialists | Multiple perspectives combined through [NABLA Infinity](@/glossary/nabla-infinity.md) |
 | **Predictive Maintenance** | Performance + Analytics + Infrastructure | Pattern detection across subsystems |
 | **Autonomous Evolution** | Evolution + Quality + Testing | Platform improves itself between sessions |
 
@@ -460,20 +460,20 @@ end
 
 ## OTP as MAS Foundation
 
-The [BEAM](/glossary/beam/) virtual machine and [OTP](/glossary/otp/) provide an ideal foundation for multi-agent systems that no other mainstream platform can match.
+The [BEAM](@/glossary/beam.md) virtual machine and [OTP](@/glossary/otp.md) provide an ideal foundation for multi-agent systems that no other mainstream platform can match.
 
 | OTP Feature | MAS Benefit |
 |-------------|-------------|
 | **Process per Agent** | Each agent runs as an isolated BEAM process (~2KB memory) |
-| **[Supervision Trees](/glossary/supervision-tree/)** | Hierarchical fault tolerance for agent populations |
-| **[Message Passing](/glossary/message-passing/)** | Native asynchronous communication between agents |
+| **[Supervision Trees](@/glossary/supervision-tree.md)** | Hierarchical fault tolerance for agent populations |
+| **[Message Passing](@/glossary/message-passing.md)** | Native asynchronous communication between agents |
 | **Hot Code Upgrade** | Agents can be upgraded without system downtime |
 | **Distribution** | Agents can span multiple nodes in a cluster |
-| **[GenServer](/glossary/genserver/)** | Standard behavior for stateful agents |
+| **[GenServer](@/glossary/genserver.md)** | Standard behavior for stateful agents |
 | **Registry** | Agent discovery and name resolution |
 | **DynamicSupervisor** | Runtime agent creation and destruction |
 
-The key insight is that OTP behaviors (GenServer, Supervisor, GenStage) are themselves formalizations of agent patterns. A GenServer is an agent that maintains state and processes messages. A Supervisor is a meta-agent that manages agent lifecycles. A DynamicSupervisor enables runtime agent creation, the "Create" capability of the [actor model](/glossary/actor-model/).
+The key insight is that OTP behaviors (GenServer, Supervisor, GenStage) are themselves formalizations of agent patterns. A GenServer is an agent that maintains state and processes messages. A Supervisor is a meta-agent that manages agent lifecycles. A DynamicSupervisor enables runtime agent creation, the "Create" capability of the [actor model](@/glossary/actor-model.md).
 
 ## Agent Lifecycle Management
 
@@ -596,7 +596,7 @@ The multi-agent architecture enables capabilities that no single agent possesses
 |-----------|-------------|---------------------|
 | **Coordination Overhead** | More agents means more communication | Hierarchical delegation reduces message volume |
 | **Emergent Failures** | Unexpected interactions between agents | Color-team adversarial testing |
-| **State Consistency** | Distributed state can diverge | [NABLA Infinity](/glossary/nabla-infinity/) provenance tracking |
+| **State Consistency** | Distributed state can diverge | [NABLA Infinity](@/glossary/nabla-infinity.md) provenance tracking |
 | **Agent Conflicts** | Agents with competing objectives | Authority levels and domain boundaries |
 | **Debugging Complexity** | Hard to trace causality in MAS | Structured logging with correlation IDs |
 | **Resource Contention** | Agents competing for shared resources | Backpressure and rate limiting |
@@ -618,16 +618,16 @@ The multi-agent architecture enables capabilities that no single agent possesses
 
 ## Related Concepts
 
-- [Agent](/glossary/agent/) -- Individual autonomous entity in MAS
-- [AIAD](/glossary/aiad/) -- Agent specification standard
-- [Actor Model](/glossary/actor-model/) -- Computational model underlying MAS
-- [OTP](/glossary/otp/) -- Framework supporting agent lifecycle
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for agent reasoning
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchical fault tolerance for agents
-- [GenServer](/glossary/genserver/) -- Standard behavior for stateful agents
-- [Message Passing](/glossary/message-passing/) -- Inter-agent communication
-- [BEAM](/glossary/beam/) -- Runtime platform for multi-agent systems
-- [Concurrent Programming](/glossary/concurrent-programming/) -- Foundation for MAS execution
+- [Agent](@/glossary/agent.md) -- Individual autonomous entity in MAS
+- [AIAD](@/glossary/aiad.md) -- Agent specification standard
+- [Actor Model](@/glossary/actor-model.md) -- Computational model underlying MAS
+- [OTP](@/glossary/otp.md) -- Framework supporting agent lifecycle
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for agent reasoning
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchical fault tolerance for agents
+- [GenServer](@/glossary/genserver.md) -- Standard behavior for stateful agents
+- [Message Passing](@/glossary/message-passing.md) -- Inter-agent communication
+- [BEAM](@/glossary/beam.md) -- Runtime platform for multi-agent systems
+- [Concurrent Programming](@/glossary/concurrent-programming.md) -- Foundation for MAS execution
 
 ---
 
@@ -636,4 +636,4 @@ The multi-agent architecture enables capabilities that no single agent possesses
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

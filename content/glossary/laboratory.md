@@ -38,17 +38,17 @@ image_alt = "Laboratory - Prismatic Platform"
 
 A Laboratory in the Prismatic Platform context is a controlled, isolated environment designed for experimentation, hypothesis validation, simulation execution, and concept verification before changes reach production systems. Accessible through the `/labs` route, the laboratory provides interactive workspaces where developers and agents can test ideas against real platform infrastructure without risking production stability. It is the bridge between theoretical design and production deployment -- every significant platform feature passes through the laboratory before it becomes part of the production codebase.
 
-The laboratory is not a simple staging environment or a test suite runner. It is a first-class platform component with its own [supervision tree](/glossary/supervision-tree/), resource isolation, state management, and [telemetry](/glossary/telemetry/) integration. Experiments running in the laboratory produce structured results that can be reviewed, compared, and used as evidence in the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. When an experiment produces results that meet the confidence threshold for the [Trinity Gate](/glossary/trinity-gate/), its outputs become eligible for production integration.
+The laboratory is not a simple staging environment or a test suite runner. It is a first-class platform component with its own [supervision tree](@/glossary/supervision-tree.md), resource isolation, state management, and [telemetry](@/glossary/telemetry.md) integration. Experiments running in the laboratory produce structured results that can be reviewed, compared, and used as evidence in the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. When an experiment produces results that meet the confidence threshold for the [Trinity Gate](@/glossary/trinity-gate.md), its outputs become eligible for production integration.
 
 ## Overview
 
 The concept of a laboratory in software engineering extends beyond traditional test environments. While test suites verify that existing code behaves correctly, laboratories enable exploration of unknown territories -- new algorithms, architectural patterns, integration approaches, and performance characteristics. The distinction is between verification (does the code do what we specified?) and exploration (what should the code do?).
 
-In the Prismatic Platform, the laboratory serves multiple constituencies. Developers use it to prototype [LiveView](/glossary/liveview/) interfaces and test new [Phoenix](/glossary/phoenix/) features. [Agents](/glossary/agent/) use it to run [simulations](/glossary/simulation/) of adversarial scenarios, test [chaos engineering](/glossary/chaos-engineering/) hypotheses, and validate [property-based testing](/glossary/property-based-testing/) strategies. The quality system uses it to evaluate candidate improvements before they pass through [quality gates](/glossary/quality-gate/). The evolutionary system uses it to test fitness improvements across generations.
+In the Prismatic Platform, the laboratory serves multiple constituencies. Developers use it to prototype [LiveView](@/glossary/liveview.md) interfaces and test new [Phoenix](@/glossary/phoenix.md) features. [Agents](@/glossary/agent.md) use it to run [simulations](@/glossary/simulation.md) of adversarial scenarios, test [chaos engineering](@/glossary/chaos-engineering.md) hypotheses, and validate [property-based testing](@/glossary/property-based-testing.md) strategies. The quality system uses it to evaluate candidate improvements before they pass through [quality gates](@/glossary/quality-gate.md). The evolutionary system uses it to test fitness improvements across generations.
 
 The laboratory architecture follows the scientific method as a software pattern: form a hypothesis, design an experiment, execute under controlled conditions, collect results, analyze, and draw conclusions. Each of these steps is represented as a distinct phase in the experiment lifecycle, with clear state transitions and rollback capabilities.
 
-The `/labs` route in the Prismatic web interface provides an interactive dashboard for managing experiments. Users can create new experiments from templates, monitor running experiments in real-time through [LiveView](/glossary/liveview/) streams, compare results across experiment runs, and promote successful experiments to production candidates. The interface is built entirely with TailwindCSS and Flowbite components, following the platform's UI standards.
+The `/labs` route in the Prismatic web interface provides an interactive dashboard for managing experiments. Users can create new experiments from templates, monitor running experiments in real-time through [LiveView](@/glossary/liveview.md) streams, compare results across experiment runs, and promote successful experiments to production candidates. The interface is built entirely with TailwindCSS and Flowbite components, following the platform's UI standards.
 
 ## Technical Details
 
@@ -83,15 +83,15 @@ Every experiment in the laboratory follows a well-defined lifecycle with explici
 
 Laboratory experiments execute within isolated resource boundaries to prevent interference with production systems and with each other:
 
-- **Process Isolation**: Each experiment runs in its own [OTP](/glossary/otp/) supervision subtree. A crash in one experiment cannot propagate to another or to the platform.
-- **Data Isolation**: Experiments use dedicated [ETS](/glossary/ets/) tables or sandboxed database transactions. Production data is accessible read-only through controlled views.
+- **Process Isolation**: Each experiment runs in its own [OTP](@/glossary/otp.md) supervision subtree. A crash in one experiment cannot propagate to another or to the platform.
+- **Data Isolation**: Experiments use dedicated [ETS](@/glossary/ets.md) tables or sandboxed database transactions. Production data is accessible read-only through controlled views.
 - **Network Isolation**: Experiments that require external network access go through a rate-limited proxy that prevents accidental DoS of external services.
 - **Time Isolation**: Experiments can use virtual clocks for time-dependent scenarios, decoupled from wall clock time.
 - **Memory Isolation**: Each experiment supervision tree has configurable memory limits enforced through BEAM process monitoring.
 
 ### Telemetry Integration
 
-Laboratories emit structured [telemetry](/glossary/telemetry/) events at every lifecycle transition, enabling real-time [observability](/glossary/observability/) and post-hoc analysis:
+Laboratories emit structured [telemetry](@/glossary/telemetry.md) events at every lifecycle transition, enabling real-time [observability](@/glossary/observability.md) and post-hoc analysis:
 
 ```elixir
 # Events emitted by the laboratory system
@@ -361,7 +361,7 @@ end
 
 ### Laboratory vs. Feature Flags
 
-[Feature flags](/glossary/feature-flag/) enable gradual rollout of completed features to production users. Laboratories enable exploration of incomplete or speculative features in controlled environments. Feature flags assume the feature works and control who sees it. Laboratories assume the feature might not work and provide the tools to find out. The two are complementary: a successful laboratory experiment often leads to a feature-flagged production rollout.
+[Feature flags](@/glossary/feature-flag.md) enable gradual rollout of completed features to production users. Laboratories enable exploration of incomplete or speculative features in controlled environments. Feature flags assume the feature works and control who sees it. Laboratories assume the feature might not work and provide the tools to find out. The two are complementary: a successful laboratory experiment often leads to a feature-flagged production rollout.
 
 ### Laboratory vs. Jupyter Notebooks
 
@@ -369,7 +369,7 @@ Jupyter notebooks provide interactive exploration for data science workflows. Pr
 
 ### Laboratory vs. Chaos Engineering Frameworks
 
-[Chaos engineering](/glossary/chaos-engineering/) tools like Netflix's Chaos Monkey introduce controlled failures into production systems. Prismatic laboratories can run chaos experiments but in isolated environments rather than production. The laboratory approach trades real-world fidelity for safety -- experiments that prove stable in the laboratory can then be promoted to production chaos testing with higher confidence.
+[Chaos engineering](@/glossary/chaos-engineering.md) tools like Netflix's Chaos Monkey introduce controlled failures into production systems. Prismatic laboratories can run chaos experiments but in isolated environments rather than production. The laboratory approach trades real-world fidelity for safety -- experiments that prove stable in the laboratory can then be promoted to production chaos testing with higher confidence.
 
 ## Best Practices
 
@@ -379,13 +379,13 @@ Jupyter notebooks provide interactive exploration for data science workflows. Pr
 
 3. **Baseline Comparison**: Always run a baseline experiment with no changes before testing the experimental condition. The laboratory stores baseline results for comparison across runs.
 
-4. **Result Persistence**: Do not discard experiment results, even negative ones. Failed experiments provide valuable evidence for the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. The absence of a result is informative (Axiom 3: Absence Informative).
+4. **Result Persistence**: Do not discard experiment results, even negative ones. Failed experiments provide valuable evidence for the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. The absence of a result is informative (Axiom 3: Absence Informative).
 
 5. **Resource Limits**: Configure memory and time limits for experiments. An experiment that consumes unbounded resources is not useful -- it reveals that resource consumption is a variable that needs to be tested, not ignored.
 
 6. **Reproducibility**: Ensure experiments can be repeated with identical results. Use deterministic seeds for randomized experiments. Pin dependency versions. Record the exact platform state at experiment start.
 
-7. **Promotion Criteria**: Define clear criteria for promoting an experiment to production before running it. Post-hoc rationalization of what constitutes "success" is a form of [epistemic reasoning](/glossary/epistemic-reasoning/) failure.
+7. **Promotion Criteria**: Define clear criteria for promoting an experiment to production before running it. Post-hoc rationalization of what constitutes "success" is a form of [epistemic reasoning](@/glossary/epistemic-reasoning.md) failure.
 
 ## Common Pitfalls
 
@@ -409,15 +409,15 @@ A developer wants to compare three different sorting algorithms for a specific d
 
 ### LiveView Performance Testing
 
-Before deploying a new [LiveView](/glossary/liveview/) page, the laboratory runs load simulations with varying numbers of concurrent WebSocket connections to verify the page meets the platform's <250ms page load and <50ms handle_event requirements. The experiments produce latency distribution data at P50, P95, and P99 that feeds directly into the [performance](/glossary/performance/) quality gate.
+Before deploying a new [LiveView](@/glossary/liveview.md) page, the laboratory runs load simulations with varying numbers of concurrent WebSocket connections to verify the page meets the platform's <250ms page load and <50ms handle_event requirements. The experiments produce latency distribution data at P50, P95, and P99 that feeds directly into the [performance](@/glossary/performance.md) quality gate.
 
 ### Agent Strategy Validation
 
-When developing a new [agent](/glossary/agent/) strategy, the laboratory provides a [sandbox](/glossary/sandbox/) where the agent can operate against simulated platform state. The agent's decisions are recorded, analyzed for consistency with [NABLA Infinity](/glossary/nabla-infinity/) axioms, and compared against the decisions of existing agents facing the same scenarios.
+When developing a new [agent](@/glossary/agent.md) strategy, the laboratory provides a [sandbox](@/glossary/sandbox.md) where the agent can operate against simulated platform state. The agent's decisions are recorded, analyzed for consistency with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms, and compared against the decisions of existing agents facing the same scenarios.
 
 ### Chaos Engineering Dry Runs
 
-Before running chaos experiments in production, teams use the laboratory to simulate failure scenarios. Process crashes, network partitions, and resource exhaustion can be injected into the experiment's supervision tree to verify that the system under test handles failures correctly -- testing [fault tolerance](/glossary/fault-tolerance/) and [circuit breaker](/glossary/circuit-breaker/) behaviors.
+Before running chaos experiments in production, teams use the laboratory to simulate failure scenarios. Process crashes, network partitions, and resource exhaustion can be injected into the experiment's supervision tree to verify that the system under test handles failures correctly -- testing [fault tolerance](@/glossary/fault-tolerance.md) and [circuit breaker](@/glossary/circuit-breaker.md) behaviors.
 
 ### Migration Validation
 
@@ -425,26 +425,26 @@ Database schema migrations are tested in the laboratory against snapshots of pro
 
 ## Related Concepts
 
-- [Proof of Concept](/glossary/proof-of-concept/) -- A specific type of laboratory experiment focused on validating feasibility
-- [Simulation](/glossary/simulation/) -- Running models of system behavior within the laboratory environment
-- [Property-Based Testing](/glossary/property-based-testing/) -- Generating random inputs to test properties, often run as laboratory experiments
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Controlled failure injection that can be safely prototyped in laboratories
-- [Sandbox](/glossary/sandbox/) -- The isolation mechanism that underlies laboratory resource boundaries
-- [Feature Flag](/glossary/feature-flag/) -- Graduated rollout mechanism for experiments promoted from the laboratory
-- [LiveView](/glossary/liveview/) -- Technology powering the interactive laboratory dashboard at `/labs`
-- [Phoenix](/glossary/phoenix/) -- Web framework hosting the laboratory routes and real-time updates
-- [Telemetry](/glossary/telemetry/) -- Instrumentation system collecting experiment metrics
-- [Observability](/glossary/observability/) -- Platform-wide visibility into laboratory experiment execution
-- [Quality Gate](/glossary/quality-gate/) -- Gates that laboratory results can inform and satisfy
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proofs that complement laboratory empirical validation
+- [Proof of Concept](@/glossary/proof-of-concept.md) -- A specific type of laboratory experiment focused on validating feasibility
+- [Simulation](@/glossary/simulation.md) -- Running models of system behavior within the laboratory environment
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Generating random inputs to test properties, often run as laboratory experiments
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Controlled failure injection that can be safely prototyped in laboratories
+- [Sandbox](@/glossary/sandbox.md) -- The isolation mechanism that underlies laboratory resource boundaries
+- [Feature Flag](@/glossary/feature-flag.md) -- Graduated rollout mechanism for experiments promoted from the laboratory
+- [LiveView](@/glossary/liveview.md) -- Technology powering the interactive laboratory dashboard at `/labs`
+- [Phoenix](@/glossary/phoenix.md) -- Web framework hosting the laboratory routes and real-time updates
+- [Telemetry](@/glossary/telemetry.md) -- Instrumentation system collecting experiment metrics
+- [Observability](@/glossary/observability.md) -- Platform-wide visibility into laboratory experiment execution
+- [Quality Gate](@/glossary/quality-gate.md) -- Gates that laboratory results can inform and satisfy
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proofs that complement laboratory empirical validation
 
 ## See Also
 
-- [Monitoring](/glossary/monitoring/) -- Real-time observation of experiment execution
-- [Fault Tolerance](/glossary/fault-tolerance/) -- Resilience patterns tested and validated in laboratories
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Protection pattern verified through laboratory chaos experiments
-- [OTP](/glossary/otp/) -- The supervision framework enabling laboratory process isolation
-- [ETS](/glossary/ets/) -- In-memory storage used for experiment state within laboratories
+- [Monitoring](@/glossary/monitoring.md) -- Real-time observation of experiment execution
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- Resilience patterns tested and validated in laboratories
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Protection pattern verified through laboratory chaos experiments
+- [OTP](@/glossary/otp.md) -- The supervision framework enabling laboratory process isolation
+- [ETS](@/glossary/ets.md) -- In-memory storage used for experiment state within laboratories
 
 ---
 
@@ -453,4 +453,4 @@ Database schema migrations are tested in the laboratory against snapshots of pro
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

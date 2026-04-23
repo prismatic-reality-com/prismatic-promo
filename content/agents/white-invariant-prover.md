@@ -28,11 +28,11 @@ image_alt = "white-invariant-prover - Prismatic Platform"
 
 ## Overview
 
-The white-invariant-prover operates as an L4 Specialist authority within the Prismatic Platform's [White Team](/glossary/white-team/) verification domain, responsible for constructing and maintaining formal proofs of system invariants. While the [white-contract-validator](/agents/white-contract-validator/) verifies that interface contracts are honored, the invariant prover establishes deeper mathematical guarantees -- proving that fundamental system properties hold under all possible execution paths, not just the paths exercised by testing.
+The white-invariant-prover operates as an L4 Specialist authority within the Prismatic Platform's [White Team](@/glossary/white-team.md) verification domain, responsible for constructing and maintaining formal proofs of system invariants. While the [white-contract-validator](@/agents/white-contract-validator.md) verifies that interface contracts are honored, the invariant prover establishes deeper mathematical guarantees -- proving that fundamental system properties hold under all possible execution paths, not just the paths exercised by testing.
 
-System invariants are properties that must hold true at every point during system execution: data consistency guarantees, ordering constraints, resource bounds, safety properties, and liveness conditions. The white-invariant-prover uses a progressive verification methodology spanning five levels: L0 (type checking), L1 (property-based testing), L2 (model checking), L3 (abstract interpretation), and L4 (formal proof in [Lean4](/glossary/lean4/)). Each level provides stronger guarantees than the previous, with L4 providing mathematical certainty that the invariant holds for all inputs and all execution paths.
+System invariants are properties that must hold true at every point during system execution: data consistency guarantees, ordering constraints, resource bounds, safety properties, and liveness conditions. The white-invariant-prover uses a progressive verification methodology spanning five levels: L0 (type checking), L1 (property-based testing), L2 (model checking), L3 (abstract interpretation), and L4 (formal proof in [Lean4](@/glossary/lean4.md)). Each level provides stronger guarantees than the previous, with L4 providing mathematical certainty that the invariant holds for all inputs and all execution paths.
 
-Built on the [AIAD](/glossary/aiad/) standard, the agent produces immutable proof artifacts that pass through [Trinity Gate](/glossary/trinity-gate/) validation before being accepted into the platform's verification corpus. The agent coordinates with the [white-verifier-commander](/agents/white-verifier-commander/) for strategic proof planning and with the [verification-integrity-commander](/agents/verification-integrity-commander/) for integration with the five core evolution theorems. All verification activities comply with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework and the [NO MERCY](/glossary/no-mercy/) doctrine's absolute requirement for evidence-based claims.
+Built on the [AIAD](@/glossary/aiad.md) standard, the agent produces immutable proof artifacts that pass through [Trinity Gate](@/glossary/trinity-gate.md) validation before being accepted into the platform's verification corpus. The agent coordinates with the [white-verifier-commander](@/agents/white-verifier-commander.md) for strategic proof planning and with the [verification-integrity-commander](@/agents/verification-integrity-commander.md) for integration with the five core evolution theorems. All verification activities comply with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework and the [NO MERCY](@/glossary/no-mercy.md) doctrine's absolute requirement for evidence-based claims.
 
 ## Architecture
 
@@ -51,27 +51,27 @@ WhiteInvariantProver.Supervisor
 
 The InvariantRegistry maintains the canonical catalog of system invariants, each annotated with its current verification level, proof status, and the affected system components. The verification workers implement each level of the progressive methodology, from lightweight type checking through full formal proof. The ProofArtifact store maintains immutable proof evidence, ensuring that verification results cannot be altered after production.
 
-The architecture uses a [Dynamic Supervisor](/glossary/dynamic-supervisor/) pattern for the verification workers, allowing the system to spawn additional workers when proof construction requires parallelism (particularly for L2 model checking and L4 Lean4 proof construction). Each worker communicates with the InvariantRegistry through [GenServer](/glossary/genserver/) calls, and proof artifacts are stored through the ProofArtifact module's write-once interface.
+The architecture uses a [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) pattern for the verification workers, allowing the system to spawn additional workers when proof construction requires parallelism (particularly for L2 model checking and L4 Lean4 proof construction). Each worker communicates with the InvariantRegistry through [GenServer](@/glossary/genserver.md) calls, and proof artifacts are stored through the ProofArtifact module's write-once interface.
 
 ## Core Capabilities
 
 The white-invariant-prover provides five primary capabilities organized around the progressive verification methodology.
 
-**Type-Level Invariant Verification (L0)** leverages [Dialyzer](/glossary/dialyzer/) and the Elixir type system to verify invariants that can be expressed as type constraints. This includes data structure shape invariants (a configuration map always contains required keys), numeric bound invariants (a score is always between 0 and 100), and state machine type invariants (a process state is always one of a defined set of atoms).
+**Type-Level Invariant Verification (L0)** leverages [Dialyzer](@/glossary/dialyzer.md) and the Elixir type system to verify invariants that can be expressed as type constraints. This includes data structure shape invariants (a configuration map always contains required keys), numeric bound invariants (a score is always between 0 and 100), and state machine type invariants (a process state is always one of a defined set of atoms).
 
-**Property-Based Invariant Testing (L1)** uses [property-based testing](/glossary/property-based-testing/) to verify invariants through randomized exploration. The agent generates property specifications from invariant declarations and executes thousands of randomized test cases, searching for counterexamples that violate the invariant. While not providing mathematical certainty, L1 verification catches the majority of invariant violations through extensive domain coverage.
+**Property-Based Invariant Testing (L1)** uses [property-based testing](@/glossary/property-based-testing.md) to verify invariants through randomized exploration. The agent generates property specifications from invariant declarations and executes thousands of randomized test cases, searching for counterexamples that violate the invariant. While not providing mathematical certainty, L1 verification catches the majority of invariant violations through extensive domain coverage.
 
-**Model Checking (L2)** performs exhaustive exploration of finite state spaces to verify invariants over all reachable states. This is particularly effective for [GenServer](/glossary/genserver/) state machine invariants where the state space is bounded. The agent constructs finite models of OTP process behavior and uses breadth-first exploration to verify that the invariant holds at every reachable state.
+**Model Checking (L2)** performs exhaustive exploration of finite state spaces to verify invariants over all reachable states. This is particularly effective for [GenServer](@/glossary/genserver.md) state machine invariants where the state space is bounded. The agent constructs finite models of OTP process behavior and uses breadth-first exploration to verify that the invariant holds at every reachable state.
 
 **Abstract Interpretation (L3)** applies abstract domain analysis to verify invariants over infinite state spaces without exhaustive enumeration. The agent computes abstract representations of system behavior and verifies that the invariant holds in the abstract domain, which guarantees it holds in the concrete domain. This technique is particularly effective for numeric invariants and resource bound verification.
 
-**Formal Proof Construction (L4)** produces machine-checked [Lean4](/glossary/lean4/) proofs for the most critical system invariants. This level provides mathematical certainty -- a Lean4 proof that an invariant holds is as reliable as the Lean4 proof checker itself. The agent translates Elixir system specifications into Lean4 formalizations and constructs proofs using Lean4's tactic framework.
+**Formal Proof Construction (L4)** produces machine-checked [Lean4](@/glossary/lean4.md) proofs for the most critical system invariants. This level provides mathematical certainty -- a Lean4 proof that an invariant holds is as reliable as the Lean4 proof checker itself. The agent translates Elixir system specifications into Lean4 formalizations and constructs proofs using Lean4's tactic framework.
 
 **Fault Injection Analysis** complements the positive verification levels by actively attempting to violate invariants through targeted fault injection. The agent introduces simulated failures (process crashes, message losses, timeout expirations) and verifies that invariants are maintained even under adversarial conditions.
 
 ## Implementation
 
-The core invariant prover is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that coordinates progressive verification across all levels.
+The core invariant prover is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that coordinates progressive verification across all levels.
 
 ```elixir
 defmodule Prismatic.Agents.WhiteInvariantProver do
@@ -225,14 +225,14 @@ The `progressive_verify/2` function implements the core methodology: starting fr
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [white-verifier-commander](/agents/white-verifier-commander/) | Outbound | Reports proof results to White Team commander for composite proof construction |
-| [white-contract-validator](/agents/white-contract-validator/) | Bidirectional | Collaborates on interface invariant verification; receives contract specifications |
-| [verification-integrity-commander](/agents/verification-integrity-commander/) | Outbound | Provides proof artifacts for core evolution theorem maintenance |
-| [purple-coordinator](/agents/purple-coordinator/) | Outbound | Proof results feed Purple Team synthesis and closure assessment |
-| [Trinity Gate](/glossary/trinity-gate/) | Enforcement | All proof artifacts pass through three-layer validation |
-| [SEADF](/glossary/seadf/) Evolution Pipeline | Outbound | Invariant status informs evolution safety assessment |
+| [white-verifier-commander](@/agents/white-verifier-commander.md) | Outbound | Reports proof results to White Team commander for composite proof construction |
+| [white-contract-validator](@/agents/white-contract-validator.md) | Bidirectional | Collaborates on interface invariant verification; receives contract specifications |
+| [verification-integrity-commander](@/agents/verification-integrity-commander.md) | Outbound | Provides proof artifacts for core evolution theorem maintenance |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Outbound | Proof results feed Purple Team synthesis and closure assessment |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Enforcement | All proof artifacts pass through three-layer validation |
+| [SEADF](@/glossary/seadf.md) Evolution Pipeline | Outbound | Invariant status informs evolution safety assessment |
 | Lean4 Runtime | External | Formal proof construction and checking |
-| [Dialyzer](/glossary/dialyzer/) | L0 | Type-level invariant verification |
+| [Dialyzer](@/glossary/dialyzer.md) | L0 | Type-level invariant verification |
 
 ## Operational Workflow
 
@@ -248,7 +248,7 @@ The proof construction workflow follows a six-phase process: (1) invariant speci
 
 ## NABLA Compliance
 
-The white-invariant-prover operates under strict [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance.
+The white-invariant-prover operates under strict [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance.
 
 **Signal Plurality**: Every invariant verification combines evidence from multiple levels. An L4-verified invariant has evidence from L0 (type checking), L1 (property testing), L2 (model checking), L3 (abstract interpretation), and L4 (formal proof) -- five independent signals confirming the invariant.
 
@@ -297,14 +297,14 @@ The progressive methodology is designed for performance: L0 and L1 verification 
 
 ## Related Resources
 
-- [White Team](/glossary/white-team/) -- Constructive verification team overview
-- [white-verifier-commander](/agents/white-verifier-commander/) -- White Team strategic commander
-- [white-contract-validator](/agents/white-contract-validator/) -- Interface contract verification specialist
-- [Lean4](/glossary/lean4/) -- Formal theorem prover for L4 verification
-- [Property-Based Testing](/glossary/property-based-testing/) -- L1 probabilistic verification methodology
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation for proof artifacts
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing invariant claims
-- [Dialyzer](/glossary/dialyzer/) -- Erlang type analysis used for L0 verification
+- [White Team](@/glossary/white-team.md) -- Constructive verification team overview
+- [white-verifier-commander](@/agents/white-verifier-commander.md) -- White Team strategic commander
+- [white-contract-validator](@/agents/white-contract-validator.md) -- Interface contract verification specialist
+- [Lean4](@/glossary/lean4.md) -- Formal theorem prover for L4 verification
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- L1 probabilistic verification methodology
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation for proof artifacts
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing invariant claims
+- [Dialyzer](@/glossary/dialyzer.md) -- Erlang type analysis used for L0 verification
 
 ---
 
@@ -313,4 +313,4 @@ The progressive methodology is designed for performance: L0 and L1 verification 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

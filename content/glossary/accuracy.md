@@ -205,18 +205,18 @@ end
 ## Related Terms
 
 - **Confidence Score** -- certainty level for individual assessments
-- [Anomaly Detection](/glossary/anomaly-detection/) -- accuracy-dependent detection of deviations
+- [Anomaly Detection](@/glossary/anomaly-detection.md) -- accuracy-dependent detection of deviations
 - **Completeness** -- data coverage complementing accuracy
 - **Correlation** -- statistical relationship strength between variables
-- [Benchmark](/glossary/benchmark/) -- reference standards for accuracy measurement
-- [Assertion](/glossary/assertion/) -- programmatic accuracy verification in tests
-- [Aggregation](/glossary/aggregation/) -- data combination that can affect accuracy
+- [Benchmark](@/glossary/benchmark.md) -- reference standards for accuracy measurement
+- [Assertion](@/glossary/assertion.md) -- programmatic accuracy verification in tests
+- [Aggregation](@/glossary/aggregation.md) -- data combination that can affect accuracy
 
 ## See Also
 
 - [NIST Data Quality Framework](https://www.nist.gov/data) -- federal data quality standards
-- [Prismatic Quality Gates](/glossary/quality-gates/) -- platform quality enforcement mechanisms
-- [Academy Data Analysis Livebook](/academy/) -- interactive accuracy analysis exercises
+- [Prismatic Quality Gates](@/glossary/quality-gates.md) -- platform quality enforcement mechanisms
+- [Academy Data Analysis Livebook](@/academy/_index.md) -- interactive accuracy analysis exercises
 
 ---
 
@@ -225,4 +225,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

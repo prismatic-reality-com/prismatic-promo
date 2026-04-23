@@ -39,13 +39,13 @@ image_alt = "GenStatem - Prismatic Platform"
 
 ## Definition
 
-GenStatem (`:gen_statem`) is an OTP behaviour for building finite state machines (FSMs) and event-driven state processes on the [BEAM](/glossary/beam/) virtual machine. While [GenServer](/glossary/genserver/) manages arbitrary state through a uniform callback interface, GenStatem enforces explicit state transitions with dedicated callback functions per state, making complex protocols, handshakes, multi-phase workflows, and connection management type-safe and auditable. Every state transition is explicit, documented, and verifiable -- there are no hidden state changes or implicit transitions.
+GenStatem (`:gen_statem`) is an OTP behaviour for building finite state machines (FSMs) and event-driven state processes on the [BEAM](@/glossary/beam.md) virtual machine. While [GenServer](@/glossary/genserver.md) manages arbitrary state through a uniform callback interface, GenStatem enforces explicit state transitions with dedicated callback functions per state, making complex protocols, handshakes, multi-phase workflows, and connection management type-safe and auditable. Every state transition is explicit, documented, and verifiable -- there are no hidden state changes or implicit transitions.
 
 GenStatem was introduced in Erlang/OTP 19 as a replacement for the older `gen_fsm` behaviour, which it supersedes with a more powerful and flexible API. The key improvement over `gen_fsm` is the introduction of two callback modes (`:state_functions` and `:handle_event_function`) and state-enter callbacks, which execute automatically when transitioning into a state. These features address common shortcomings of ad hoc state machine implementations: forgotten state transitions, missing cleanup on state exit, and the difficulty of reasoning about valid state sequences.
 
 ## Overview
 
-The fundamental design principle of GenStatem is that state machines should make illegal states unrepresentable. By defining explicit callback functions for each state, the compiler and [Dialyzer](/glossary/dialyzer/) can verify that all states have handlers and that transitions follow the declared patterns. This is a significant improvement over tracking state in a GenServer's state map, where nothing prevents an invalid state value from being set.
+The fundamental design principle of GenStatem is that state machines should make illegal states unrepresentable. By defining explicit callback functions for each state, the compiler and [Dialyzer](@/glossary/dialyzer.md) can verify that all states have handlers and that transitions follow the declared patterns. This is a significant improvement over tracking state in a GenServer's state map, where nothing prevents an invalid state value from being set.
 
 In the Prismatic Platform, GenStatem models complex multi-phase workflows where explicit state transitions are critical for correctness and auditability. The EASM scanning lifecycle, compliance assessment workflows, agent state management, and connection pool management all use GenStatem to ensure that every phase transition is deliberate and every possible event in every possible state has a defined handler.
 
@@ -474,7 +474,7 @@ The platform's OTP-first mandate favors GenStatem over ad hoc state tracking in 
 
 4. **Use state timeouts for deadlines.** State timeouts automatically cancel when leaving the state, preventing stale timeout events from arriving in the wrong state.
 
-5. **Log all state transitions.** State machine debugging requires understanding the sequence of transitions. Emit telemetry events on every transition for [observability](/glossary/observability/).
+5. **Log all state transitions.** State machine debugging requires understanding the sequence of transitions. Emit telemetry events on every transition for [observability](@/glossary/observability.md).
 
 6. **Handle all events in all states.** An unhandled event causes the process to crash. For events that should be ignored in certain states, add explicit handlers returning `{:keep_state_and_data, []}`.
 
@@ -492,22 +492,22 @@ The platform's OTP-first mandate favors GenStatem over ad hoc state tracking in 
 
 ## Related Concepts
 
-- [GenServer](/glossary/genserver/) -- Simpler stateful process behaviour for non-FSM use cases
-- [OTP](/glossary/otp/) -- Framework providing GenStatem and other standard behaviours
-- [Behaviour](/glossary/behaviour/) -- Callback mechanism that GenStatem implements
-- [Supervision Tree](/glossary/supervision-tree/) -- Process monitoring ensuring state machine fault tolerance
-- [BEAM](/glossary/beam/) -- Virtual machine executing GenStatem processes
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- EASM scanning using GenStatem for multi-phase workflows
-- [Dialyzer](/glossary/dialyzer/) -- Type analysis verifying state machine callback contracts
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Fault tolerance pattern naturally modeled as a state machine
-- [Agent](/glossary/agent/) -- Platform agents using GenStatem for lifecycle management
-- [Observability](/glossary/observability/) -- Telemetry integration for state transition monitoring
+- [GenServer](@/glossary/genserver.md) -- Simpler stateful process behaviour for non-FSM use cases
+- [OTP](@/glossary/otp.md) -- Framework providing GenStatem and other standard behaviours
+- [Behaviour](@/glossary/behaviour.md) -- Callback mechanism that GenStatem implements
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Process monitoring ensuring state machine fault tolerance
+- [BEAM](@/glossary/beam.md) -- Virtual machine executing GenStatem processes
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- EASM scanning using GenStatem for multi-phase workflows
+- [Dialyzer](@/glossary/dialyzer.md) -- Type analysis verifying state machine callback contracts
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Fault tolerance pattern naturally modeled as a state machine
+- [Agent](@/glossary/agent.md) -- Platform agents using GenStatem for lifecycle management
+- [Observability](@/glossary/observability.md) -- Telemetry integration for state transition monitoring
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Applications using GenStatem for protocol modeling
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Applications using GenStatem for protocol modeling
 
 ---
 
@@ -516,4 +516,4 @@ The platform's OTP-first mandate favors GenStatem over ad hoc state tracking in 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

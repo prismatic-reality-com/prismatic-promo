@@ -28,9 +28,9 @@ image_alt = "osint-quality-feedback-coordinator - Prismatic Platform"
 
 ## Overview
 
-The osint-quality-feedback-coordinator operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform, serving as the bridge between [OSINT](/glossary/osint/) intelligence quality [metrics](/glossary/metrics/) and the platform's broader quality management infrastructure. This agent monitors the accuracy, completeness, timeliness, and relevance of intelligence outputs produced by OSINT collection agents, feeding quality signals back into the evolutionary pipeline to drive continuous improvement. Without this feedback loop, OSINT agents would operate without awareness of whether their outputs meet consumer expectations.
+The osint-quality-feedback-coordinator operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform, serving as the bridge between [OSINT](@/glossary/osint.md) intelligence quality [metrics](@/glossary/metrics.md) and the platform's broader quality management infrastructure. This agent monitors the accuracy, completeness, timeliness, and relevance of intelligence outputs produced by OSINT collection agents, feeding quality signals back into the evolutionary pipeline to drive continuous improvement. Without this feedback loop, OSINT agents would operate without awareness of whether their outputs meet consumer expectations.
 
-Built on the [AIAD](/glossary/aiad/) standard, this agent propagates quality patterns across the OSINT agent ecosystem through the [mycelial network](/glossary/mycelial-network/). When a quality pattern is identified -- whether positive (a collection technique that consistently produces high-value intelligence) or negative (a source that exhibits systematic accuracy degradation) -- the coordinator disseminates this knowledge to all relevant agents through [SEADF](/glossary/seadf/) feedback channels. The [NO MERCY](/glossary/no-mercy/) doctrine applies to quality standards: OSINT agents that consistently produce below-threshold quality trigger mandatory remediation cycles.
+Built on the [AIAD](@/glossary/aiad.md) standard, this agent propagates quality patterns across the OSINT agent ecosystem through the [mycelial network](@/glossary/mycelial-network.md). When a quality pattern is identified -- whether positive (a collection technique that consistently produces high-value intelligence) or negative (a source that exhibits systematic accuracy degradation) -- the coordinator disseminates this knowledge to all relevant agents through [SEADF](@/glossary/seadf.md) feedback channels. The [NO MERCY](@/glossary/no-mercy.md) doctrine applies to quality standards: OSINT agents that consistently produce below-threshold quality trigger mandatory remediation cycles.
 
 ## Operational Domain
 
@@ -48,11 +48,11 @@ The quality feedback domain spans all OSINT collection, analysis, and reporting 
 ## Key Capabilities
 
 - **Quality metric collection** -- Aggregates quality signals from intelligence consumers, validation pipelines, and automated accuracy checks to build comprehensive quality profiles for each OSINT agent and source
-- **Pattern propagation** -- Disseminates identified quality patterns (both positive best practices and negative anti-patterns) across the OSINT agent ecosystem through [CASCADE](/glossary/cascade/) channels
+- **Pattern propagation** -- Disseminates identified quality patterns (both positive best practices and negative anti-patterns) across the OSINT agent ecosystem through [CASCADE](@/glossary/cascade.md) channels
 - **Source reliability scoring** -- Maintains dynamic reliability scores for intelligence sources based on historical accuracy, consistency, and timeliness, informing source selection priorities
 - **Remediation trigger** -- Initiates mandatory quality improvement cycles for OSINT agents whose output quality falls below defined thresholds, escalating persistent degradation
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed quality monitoring cycles and adaptive threshold management
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing quality metrics under OSINT-specific telemetry namespaces
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed quality monitoring cycles and adaptive threshold management
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing quality metrics under OSINT-specific telemetry namespaces
 
 ## Quality Feedback Pipeline
 
@@ -117,7 +117,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to trigger quality remediation across OSINT agents and adjust source reliability weights.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to trigger quality remediation across OSINT agents and adjust source reliability weights.
 
 ## Command Interface
 
@@ -140,11 +140,11 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [code-quality-commander](/agents/code-quality-commander/) | Aligns OSINT quality standards with platform-wide quality governance |
-| [linkedin-intelligence-specialist](/agents/linkedin-intelligence-specialist/) | Monitors and scores LinkedIn intelligence output quality |
-| [reddit-intelligence-specialist](/agents/reddit-intelligence-specialist/) | Monitors and scores Reddit intelligence output quality |
-| [osint-pattern-propagator](/agents/osint-pattern-propagator/) | Quality signals inform pattern effectiveness evaluation |
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Quality observations are captured in session debrief artifacts |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Aligns OSINT quality standards with platform-wide quality governance |
+| [linkedin-intelligence-specialist](@/agents/linkedin-intelligence-specialist.md) | Monitors and scores LinkedIn intelligence output quality |
+| [reddit-intelligence-specialist](@/agents/reddit-intelligence-specialist.md) | Monitors and scores Reddit intelligence output quality |
+| [osint-pattern-propagator](@/agents/osint-pattern-propagator.md) | Quality signals inform pattern effectiveness evaluation |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Quality observations are captured in session debrief artifacts |
 
 ## Source Reliability Model
 
@@ -168,11 +168,11 @@ Threshold calibration also accounts for source quality variability. Agents that 
 
 The quality feedback coordinator implements a closed-loop feedback architecture that connects intelligence consumers back to intelligence producers. Consumer feedback is collected through structured evaluation forms that rate intelligence products on each quality dimension. This feedback flows through the coordinator to the producing agent as a quality signal, enabling the agent to adjust its collection and analysis techniques. The feedback loop has a typical latency of 24-48 hours from product delivery to producer feedback receipt, enabling rapid quality correction.
 
-The feedback loop also connects to the [SEADF](/glossary/seadf/) evolutionary framework. Quality trends over time -- whether an agent's output quality is improving, stable, or degrading -- feed into the evolutionary fitness function for OSINT agents. Agents with consistently improving quality receive higher fitness scores, which influences resource allocation and task priority decisions in the platform's evolutionary cycle.
+The feedback loop also connects to the [SEADF](@/glossary/seadf.md) evolutionary framework. Quality trends over time -- whether an agent's output quality is improving, stable, or degrading -- feed into the evolutionary fitness function for OSINT agents. Agents with consistently improving quality receive higher fitness scores, which influences resource allocation and task priority decisions in the platform's evolutionary cycle.
 
 ## Enforcement
 
-Quality standards are enforced under the [NO MERCY](/glossary/no-mercy/) doctrine. OSINT agents operating below quality thresholds receive mandatory remediation directives. Source reliability scores are evidence-based per [NO DOUBTS](/glossary/no-doubts/), and all quality assessments carry [NABLA Infinity](/glossary/nabla-infinity/) provenance chains with [time decay](/glossary/time-decay/) applied to historical quality metrics. Quality scoring algorithms are validated through the [Trinity Gate](/glossary/trinity-gate/) to ensure structural, logical, and formal consistency.
+Quality standards are enforced under the [NO MERCY](@/glossary/no-mercy.md) doctrine. OSINT agents operating below quality thresholds receive mandatory remediation directives. Source reliability scores are evidence-based per [NO DOUBTS](@/glossary/no-doubts.md), and all quality assessments carry [NABLA Infinity](@/glossary/nabla-infinity.md) provenance chains with [time decay](@/glossary/time-decay.md) applied to historical quality metrics. Quality scoring algorithms are validated through the [Trinity Gate](@/glossary/trinity-gate.md) to ensure structural, logical, and formal consistency.
 
 ---
 
@@ -181,4 +181,4 @@ Quality standards are enforced under the [NO MERCY](/glossary/no-mercy/) doctrin
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,9 +24,9 @@ image_alt = "/mycelialize - Prismatic Platform"
 
 ## Overview
 
-**/mycelialize** is a production command in the **Evolution** category of the Prismatic Platform. It implements biological-inspired pattern propagation through a simulated [mycelial network](/glossary/mycelial-network/), achieving throughput of 500,000 patterns per second while detecting emergent behaviors that arise from pattern interactions. The mycelial metaphor is not merely decorative: the system models pattern relationships as a network topology analogous to fungal mycelium, where knowledge nutrients flow along established pathways and new connections form dynamically in response to environmental signals.
+**/mycelialize** is a production command in the **Evolution** category of the Prismatic Platform. It implements biological-inspired pattern propagation through a simulated [mycelial network](@/glossary/mycelial-network.md), achieving throughput of 500,000 patterns per second while detecting emergent behaviors that arise from pattern interactions. The mycelial metaphor is not merely decorative: the system models pattern relationships as a network topology analogous to fungal mycelium, where knowledge nutrients flow along established pathways and new connections form dynamically in response to environmental signals.
 
-This command operates under the **Strategic Operational** authority level and is executed by the `mycelial-network-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The Strategic Operational authority reflects the command's role as a production workhorse: it processes high volumes of patterns but operates within well-defined safety boundaries.
+This command operates under the **Strategic Operational** authority level and is executed by the `mycelial-network-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The Strategic Operational authority reflects the command's role as a production workhorse: it processes high volumes of patterns but operates within well-defined safety boundaries.
 
 The mycelial propagation system serves as the foundation for the platform's knowledge distribution infrastructure. When a quality pattern is discovered in one area of the codebase, `/mycelialize` propagates it to all applicable locations, transforming local improvements into platform-wide enhancements. The emergence detection subsystem monitors for unexpected positive interactions between patterns, flagging them for human review and potential promotion to first-class patterns.
 
@@ -147,7 +147,7 @@ The system implements three propagation strategies, selected automatically based
 
 ### Phase 1: Pattern Collection
 
-The command collects patterns from the specified source. The default source is the mycelial network registry, which contains all known patterns indexed by domain, type, and applicability criteria. Alternative sources include [GARDEN](/glossary/garden/) repositories, ad-hoc scans, or direct file input.
+The command collects patterns from the specified source. The default source is the mycelial network registry, which contains all known patterns indexed by domain, type, and applicability criteria. Alternative sources include [GARDEN](@/glossary/garden.md) repositories, ad-hoc scans, or direct file input.
 
 ### Phase 2: Classification and Routing
 
@@ -179,20 +179,20 @@ When enabled, the emergence detector analyzes propagation results for unexpected
 
 ### Phase 6: Result Aggregation and Reporting
 
-Final statistics are aggregated: patterns propagated, sites affected, emergence events detected, failures encountered. Results are written to the [telemetry](/glossary/telemetry/) system and optionally displayed to the user.
+Final statistics are aggregated: patterns propagated, sites affected, emergence events detected, failures encountered. Results are written to the [telemetry](@/glossary/telemetry.md) system and optionally displayed to the user.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/mycelialize-formal](/commands/mycelialize-formal/) | Verification | Formally verifies critical patterns before propagation |
-| [/mycelialize-living](/commands/mycelialize-living/) | Evolution | Supplies evolved pattern variants for propagation |
-| [/scan-mycelium](/commands/scan-mycelium/) | Discovery | Scans for new patterns to add to the network |
-| [/evolve](/commands/evolve/) | Framework | Part of the broader ecosystem evolution cycle |
-| [/propagate-pattern](/commands/propagate-pattern/) | Downstream | Low-level pattern propagation primitive |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Propagated patterns must pass quality gates |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Throughput, latency, emergence events |
-| [ETS](/glossary/ets/) | Cache | Fast-path pattern cache |
+| [/mycelialize-formal](@/commands/mycelialize-formal.md) | Verification | Formally verifies critical patterns before propagation |
+| [/mycelialize-living](@/commands/mycelialize-living.md) | Evolution | Supplies evolved pattern variants for propagation |
+| [/scan-mycelium](@/commands/scan-mycelium.md) | Discovery | Scans for new patterns to add to the network |
+| [/evolve](@/commands/evolve.md) | Framework | Part of the broader ecosystem evolution cycle |
+| [/propagate-pattern](@/commands/propagate-pattern.md) | Downstream | Low-level pattern propagation primitive |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Propagated patterns must pass quality gates |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Throughput, latency, emergence events |
+| [ETS](@/glossary/ets.md) | Cache | Fast-path pattern cache |
 
 ## Best Practices
 
@@ -261,21 +261,21 @@ Integrate with the platform scheduler for automated periodic propagation:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Failed propagations are rolled back, not silently ignored.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Propagation decisions are based on pattern classification and applicability analysis.
 
 ## Related Commands
 
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/mycelialize-living](/commands/mycelialize-living/) - Living self-evolving intelligence with introspection, AST manipulation and agent swarms
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
-- [/swarm-evolve](/commands/swarm-evolve/) - Multi-agent swarm coordination for intelligent autonomous platform evolution
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/mycelialize-living](@/commands/mycelialize-living.md) - Living self-evolving intelligence with introspection, AST manipulation and agent swarms
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
+- [/swarm-evolve](@/commands/swarm-evolve.md) - Multi-agent swarm coordination for intelligent autonomous platform evolution
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -284,4 +284,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

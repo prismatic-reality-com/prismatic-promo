@@ -20,7 +20,7 @@ image_alt = "Risk Score - Prismatic Platform"
 
 ## Definition
 
-A Risk Score is a numeric value quantifying the security risk associated with a specific asset, finding, or vulnerability. Unlike an aggregate Security Rating (which scores an entire organization on a letter grade from A to F), risk scores apply to individual items: a specific open port, a misconfigured service, an expired certificate, a DNS zone transfer vulnerability. Each score includes a confidence level indicating how certain the assessment is, and an evidence chain linking the score to specific observable data through [provenance mandatory](/glossary/provenance-mandatory/) compliance.
+A Risk Score is a numeric value quantifying the security risk associated with a specific asset, finding, or vulnerability. Unlike an aggregate Security Rating (which scores an entire organization on a letter grade from A to F), risk scores apply to individual items: a specific open port, a misconfigured service, an expired certificate, a DNS zone transfer vulnerability. Each score includes a confidence level indicating how certain the assessment is, and an evidence chain linking the score to specific observable data through [provenance mandatory](@/glossary/provenance-mandatory.md) compliance.
 
 Risk scores serve as the atomic building blocks of the Prismatic Perimeter's security assessment system. They are computed from observable evidence using methodology aligned with CVSS (Common Vulnerability Scoring System) principles, adapted for external-only observation. The scores are then aggregated, weighted by asset criticality and finding severity, to produce the overall A-F Security Rating that organizations, compliance officers, and due diligence analysts consume.
 
@@ -118,7 +118,7 @@ end
 
 ## EASM Security Ratings
 
-In the context of [External Attack Surface Management](/glossary/easm/), risk scores aggregate into Security Ratings that provide a holistic view of an organization's external security posture. The aggregation follows a hierarchical structure:
+In the context of [External Attack Surface Management](@/glossary/easm.md), risk scores aggregate into Security Ratings that provide a holistic view of an organization's external security posture. The aggregation follows a hierarchical structure:
 
 ```
 Organization Security Rating (A-F)
@@ -146,15 +146,15 @@ The aggregation applies asset criticality weighting: a finding on a primary doma
 
 ## NABLA-Backed Confidence
 
-Every risk score in the Prismatic Platform satisfies [NABLA Infinity](/glossary/nabla-infinity/) axiom requirements, which fundamentally distinguishes Prismatic's risk scoring from conventional security rating services:
+Every risk score in the Prismatic Platform satisfies [NABLA Infinity](@/glossary/nabla-infinity.md) axiom requirements, which fundamentally distinguishes Prismatic's risk scoring from conventional security rating services:
 
 | NABLA Axiom | Application to Risk Scoring | Enforcement |
 |-------------|---------------------------|-------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Minimum 2 independent sources must confirm a finding before it affects the score | HARD -- single-source findings quarantined |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | If one scanner finds a vulnerability and another does not, both results are preserved | HARD -- contradiction reduces confidence |
-| **[Time Decay](/glossary/time-decay/)** | Scan results older than 30 days receive progressively reduced weight | HARD -- stale findings decay toward neutral |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | Every score traces back to specific scan data through documented evidence chain | HARD -- unprovenanced scores rejected |
-| **Source Independence** | Scores from [Shodan](/glossary/shodan/), [Censys](/glossary/censys/), and [GreyNoise](/glossary/greynoise/) are weighted by source independence | SOFT -- correlated sources discounted |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Minimum 2 independent sources must confirm a finding before it affects the score | HARD -- single-source findings quarantined |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | If one scanner finds a vulnerability and another does not, both results are preserved | HARD -- contradiction reduces confidence |
+| **[Time Decay](@/glossary/time-decay.md)** | Scan results older than 30 days receive progressively reduced weight | HARD -- stale findings decay toward neutral |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | Every score traces back to specific scan data through documented evidence chain | HARD -- unprovenanced scores rejected |
+| **Source Independence** | Scores from [Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md), and [GreyNoise](@/glossary/greynoise.md) are weighted by source independence | SOFT -- correlated sources discounted |
 
 The confidence calculation incorporates all axiom compliance factors:
 
@@ -170,7 +170,7 @@ This approach means that a risk score's confidence naturally degrades over time,
 
 ## Monte Carlo Validation
 
-For critical risk assessments (organizations being evaluated for acquisition, regulatory compliance, or strategic partnership), the platform applies [Monte Carlo verification](/glossary/monte-carlo-verification/) to validate risk score distributions. Rather than producing a single point estimate, Monte Carlo simulation produces a probability distribution of likely risk scores.
+For critical risk assessments (organizations being evaluated for acquisition, regulatory compliance, or strategic partnership), the platform applies [Monte Carlo verification](@/glossary/monte-carlo-verification.md) to validate risk score distributions. Rather than producing a single point estimate, Monte Carlo simulation produces a probability distribution of likely risk scores.
 
 The simulation process:
 
@@ -294,21 +294,21 @@ This classification directly informs deal structuring: critical findings may blo
 
 ## Relationship to Confidence Scoring
 
-[Confidence scoring](/glossary/confidence-scoring/) and risk scoring are related but distinct concepts in the Prismatic Platform:
+[Confidence scoring](@/glossary/confidence-scoring.md) and risk scoring are related but distinct concepts in the Prismatic Platform:
 
 | Dimension | Risk Score | Confidence Score |
 |-----------|-----------|-----------------|
 | **What it measures** | How risky is this asset/finding? | How certain are we about this claim? |
 | **Scale** | 0-100 (higher = more secure) | 0.0-1.0 (higher = more certain) |
 | **Subject** | An asset, finding, or organization | A belief, claim, or assessment |
-| **Governed by** | Security rating methodology | [NABLA Infinity](/glossary/nabla-infinity/) axioms |
+| **Governed by** | Security rating methodology | [NABLA Infinity](@/glossary/nabla-infinity.md) axioms |
 | **Can be uncertain?** | Yes -- that is what the confidence score indicates | No -- confidence is itself the measure of uncertainty |
 
 Every risk score carries a confidence score. The risk score says "this port is dangerous" (how risky). The confidence score says "we are 87% certain of this assessment" (how sure). Together, they provide both the assessment and the meta-assessment of that assessment's reliability.
 
 ## Relationship to Epistemic Robustness
 
-[Epistemic robustness](/glossary/epistemic-robustness/) measures how well a risk score withstands adversarial challenge. A risk score is epistemically robust if it would survive [Red Team](/glossary/red-team/) epistemic attacks: truth distortion, confidence manipulation, signal poisoning, drift induction, and salience hijacking.
+[Epistemic robustness](@/glossary/epistemic-robustness.md) measures how well a risk score withstands adversarial challenge. A risk score is epistemically robust if it would survive [Red Team](@/glossary/red-team.md) epistemic attacks: truth distortion, confidence manipulation, signal poisoning, drift induction, and salience hijacking.
 
 ### Robustness Validation Framework
 
@@ -366,7 +366,7 @@ defmodule PrismaticPerimeter.EpistemicValidation do
 end
 ```
 
-The [Blue Team](/glossary/blue-team/) continuously validates risk score robustness through:
+The [Blue Team](@/glossary/blue-team.md) continuously validates risk score robustness through:
 
 - **Signal aggregation**: Verifying that multiple independent sources support each finding, cross-correlating findings across Shodan, Censys, and GreyNoise to detect inconsistencies
 - **Drift detection**: Monitoring for gradual, sub-threshold changes that could manipulate scores, using statistical process control to identify baseline shifts
@@ -386,29 +386,29 @@ Risk scores that fail epistemic robustness checks are subject to graduated respo
 | **0.60-0.74** | Hold for Purple Team synthesis | Purple Team | 4-24 hours |
 | **Below 0.60** | Quarantine pending investigation | Red-Blue-Purple Triad | Manual review |
 
-Risk scores that fail epistemic robustness checks are flagged with reduced confidence and routed to [Purple Team](/glossary/purple-team/) for synthesis and verification before being published. The Purple Team conducts bidirectional mapping between Red Team attack scenarios and Blue Team defensive evidence to determine if the robustness failure represents genuine uncertainty or systematic attack.
+Risk scores that fail epistemic robustness checks are flagged with reduced confidence and routed to [Purple Team](@/glossary/purple-team.md) for synthesis and verification before being published. The Purple Team conducts bidirectional mapping between Red Team attack scenarios and Blue Team defensive evidence to determine if the robustness failure represents genuine uncertainty or systematic attack.
 
 ## Related Terms
 
-- [EASM](/glossary/easm/) -- External Attack Surface Management producing items to score
-- [Attack Surface](/glossary/attack-surface/) -- The total collection of assets being scored
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Meta-assessment of risk score reliability
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom requiring multiple evidence sources
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- NABLA axiom requiring traceable evidence chains
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing risk score evidence quality
-- [Monte Carlo Verification](/glossary/monte-carlo-verification/) -- Statistical validation of score distributions
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- Measure of score resilience to epistemic attack
-- [Blue Team](/glossary/blue-team/) -- Defensive team validating risk score integrity
-- [Shodan](/glossary/shodan/) -- External scanner providing network exposure evidence
-- [Censys](/glossary/censys/) -- External scanner providing certificate and service evidence
-- [GreyNoise](/glossary/greynoise/) -- External scanner providing internet noise context
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- NABLA axiom handling conflicting scan results
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management producing items to score
+- [Attack Surface](@/glossary/attack-surface.md) -- The total collection of assets being scored
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Meta-assessment of risk score reliability
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom requiring multiple evidence sources
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- NABLA axiom requiring traceable evidence chains
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing risk score evidence quality
+- [Monte Carlo Verification](@/glossary/monte-carlo-verification.md) -- Statistical validation of score distributions
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- Measure of score resilience to epistemic attack
+- [Blue Team](@/glossary/blue-team.md) -- Defensive team validating risk score integrity
+- [Shodan](@/glossary/shodan.md) -- External scanner providing network exposure evidence
+- [Censys](@/glossary/censys.md) -- External scanner providing certificate and service evidence
+- [GreyNoise](@/glossary/greynoise.md) -- External scanner providing internet noise context
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- NABLA axiom handling conflicting scan results
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform security architecture
-- [Technologies](/technologies/) -- Scanning and assessment technology details
-- [Capabilities](/capabilities/) -- Platform risk assessment capabilities
+- [Architecture](@/architecture/_index.md) -- Platform security architecture
+- [Technologies](@/technologies/_index.md) -- Scanning and assessment technology details
+- [Capabilities](@/capabilities/_index.md) -- Platform risk assessment capabilities
 
 ---
 
@@ -417,4 +417,4 @@ Risk scores that fail epistemic robustness checks are flagged with reduced confi
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

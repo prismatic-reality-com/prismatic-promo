@@ -28,13 +28,13 @@ image_alt = "linkedin-intelligence-specialist - Prismatic Platform"
 
 ## Overview
 
-The linkedin-intelligence-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's social intelligence domain, dedicated to extracting structured intelligence from professional network data on LinkedIn. This agent analyzes professional profiles, organizational structures, career trajectories, skill distributions, and professional relationship networks to produce actionable intelligence for identity verification, organizational mapping, and talent assessment workflows. LinkedIn data represents one of the highest-value open-source intelligence channels for professional and corporate entity analysis, providing structured data about employment history, educational background, professional certifications, and interpersonal connections that is largely self-reported but highly detailed.
+The linkedin-intelligence-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's social intelligence domain, dedicated to extracting structured intelligence from professional network data on LinkedIn. This agent analyzes professional profiles, organizational structures, career trajectories, skill distributions, and professional relationship networks to produce actionable intelligence for identity verification, organizational mapping, and talent assessment workflows. LinkedIn data represents one of the highest-value open-source intelligence channels for professional and corporate entity analysis, providing structured data about employment history, educational background, professional certifications, and interpersonal connections that is largely self-reported but highly detailed.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the platform's [OSINT](/glossary/osint/) pipeline, this agent applies [entity resolution](/glossary/entity-resolution/) techniques to match LinkedIn profiles against known entities in the platform's [KuzuDB](/glossary/kuzudb/) graph database. The [NABLA Infinity](/glossary/nabla-infinity/) [signal plurality](/glossary/signal-plurality/) axiom governs all profile-derived intelligence: LinkedIn data is treated as one signal source among many, never as sole evidence for identity or organizational claims. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all intelligence derived from professional network data carries explicit confidence scores reflecting profile completeness, verification indicators, and temporal currency.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the platform's [OSINT](@/glossary/osint.md) pipeline, this agent applies [entity resolution](@/glossary/entity-resolution.md) techniques to match LinkedIn profiles against known entities in the platform's [KuzuDB](@/glossary/kuzudb.md) graph database. The [NABLA Infinity](@/glossary/nabla-infinity.md) [signal plurality](@/glossary/signal-plurality.md) axiom governs all profile-derived intelligence: LinkedIn data is treated as one signal source among many, never as sole evidence for identity or organizational claims. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all intelligence derived from professional network data carries explicit confidence scores reflecting profile completeness, verification indicators, and temporal currency.
 
 ## Operational Domain
 
-The LinkedIn intelligence domain covers individual professional profiling, organizational structure mapping, talent flow analysis, and professional network topology exploration. The agent extracts intelligence from publicly accessible professional data while maintaining strict compliance with platform terms of service and applicable data protection regulations. Intelligence outputs are stored in [KuzuDB](/glossary/kuzudb/) graph structures for relationship-aware querying, with provenance metadata linking every data point to its source observation.
+The LinkedIn intelligence domain covers individual professional profiling, organizational structure mapping, talent flow analysis, and professional network topology exploration. The agent extracts intelligence from publicly accessible professional data while maintaining strict compliance with platform terms of service and applicable data protection regulations. Intelligence outputs are stored in [KuzuDB](@/glossary/kuzudb.md) graph structures for relationship-aware querying, with provenance metadata linking every data point to its source observation.
 
 The operational scope includes several analytical disciplines. Individual profiling constructs comprehensive professional dossiers from career history, educational background, skill endorsements, certifications, and publication records. Organizational mapping reconstructs corporate hierarchies from employee profile data, identifying reporting relationships, departmental boundaries, and key personnel concentrations. Competitive intelligence identifies talent movement patterns between organizations that may indicate strategic shifts, technology adoption trends, or competitive dynamics. Network topology analysis maps professional relationship graphs to identify influence centers, community structures, and bridging connections between otherwise separate professional clusters.
 
@@ -46,8 +46,8 @@ The operational scope includes several analytical disciplines. Individual profil
 - **Professional network topology** -- Maps connection networks between individuals and organizations, revealing informal influence channels and professional community structures
 - **Skill distribution analysis** -- Aggregates skill and technology endorsements across organizational units to assess team capabilities, technology stack adoption, and expertise concentrations
 - **Temporal change detection** -- Monitors profile updates to detect role changes, organizational exits, new certifications, and other career events that may signal strategic significance
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed intelligence collection cycles and adaptive source prioritization
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for intelligence pipeline monitoring and collection coverage [metrics](/glossary/metrics/)
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed intelligence collection cycles and adaptive source prioritization
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for intelligence pipeline monitoring and collection coverage [metrics](@/glossary/metrics.md)
 
 ## Intelligence Analysis Methodology
 
@@ -65,23 +65,23 @@ Professional network data presents specific data quality challenges that the age
 
 The agent addresses these challenges through multi-source corroboration. LinkedIn-derived claims about employment are cross-referenced against corporate registry data, company website team pages, and other professional network sources. Role claims are validated against organizational context (is the claimed title consistent with the organization's known structure and size?). Education claims are cross-referenced against institution records where available.
 
-When corroboration is not available, the intelligence output explicitly notes the single-source nature of the claim with an appropriately reduced confidence score. The [NABLA Infinity](/glossary/nabla-infinity/) provenance mandatory axiom ensures that every data point is traceable to its source observation, enabling downstream consumers to assess the reliability of individual claims.
+When corroboration is not available, the intelligence output explicitly notes the single-source nature of the claim with an appropriately reduced confidence score. The [NABLA Infinity](@/glossary/nabla-infinity.md) provenance mandatory axiom ensures that every data point is traceable to its source observation, enabling downstream consumers to assess the reliability of individual claims.
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to orchestrate professional network intelligence collection and publish structured intelligence products to authorized consumers.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to orchestrate professional network intelligence collection and publish structured intelligence products to authorized consumers.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| [KuzuDB](/glossary/kuzudb/) | Graph-based entity and relationship storage for professional network data |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph-based entity and relationship storage for professional network data |
 | Prismatic OSINT | Source data collection pipeline integration |
-| [Entity Resolution](/glossary/entity-resolution/) | Profile-to-entity matching and deduplication |
-| Prismatic Telemetry | Collection coverage [metrics](/glossary/metrics/) and analysis pipeline monitoring |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of analysis heuristics |
-| [Trinity Gate](/glossary/trinity-gate/) | Epistemic validation of professional intelligence claims |
+| [Entity Resolution](@/glossary/entity-resolution.md) | Profile-to-entity matching and deduplication |
+| Prismatic Telemetry | Collection coverage [metrics](@/glossary/metrics.md) and analysis pipeline monitoring |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of analysis heuristics |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Epistemic validation of professional intelligence claims |
 
 ## Command Interface
 
@@ -97,11 +97,11 @@ When corroboration is not available, the intelligence output explicitly notes th
 
 | Agent | Relationship |
 |-------|-------------|
-| [**primary-identity-verification-commander**](/agents/primary-identity-verification-commander/) (L3) | Professional profile data serves as identity corroboration signal |
-| [**political-network-intelligence-specialist**](/agents/political-network-intelligence-specialist/) (L3) | Professional affiliations enrich political network models |
-| [**reputation-risk-specialist**](/agents/reputation-risk-specialist/) (L3) | Professional reputation signals feed reputation risk assessment |
-| [**ma-tech-assessor**](/agents/ma-tech-assessor/) (L3) | Team capability indicators inform technology assessment |
-| [**investigate-coordinator**](/agents/investigate-coordinator/) (L3) | Routes investigations requiring professional network intelligence |
+| [**primary-identity-verification-commander**](@/agents/primary-identity-verification-commander.md) (L3) | Professional profile data serves as identity corroboration signal |
+| [**political-network-intelligence-specialist**](@/agents/political-network-intelligence-specialist.md) (L3) | Professional affiliations enrich political network models |
+| [**reputation-risk-specialist**](@/agents/reputation-risk-specialist.md) (L3) | Professional reputation signals feed reputation risk assessment |
+| [**ma-tech-assessor**](@/agents/ma-tech-assessor.md) (L3) | Team capability indicators inform technology assessment |
+| [**investigate-coordinator**](@/agents/investigate-coordinator.md) (L3) | Routes investigations requiring professional network intelligence |
 
 ## Privacy and Compliance
 
@@ -109,7 +109,7 @@ The linkedin-intelligence-specialist operates within strict privacy and complian
 
 ## Enforcement
 
-All LinkedIn-derived intelligence complies with [NABLA Infinity](/glossary/nabla-infinity/) provenance requirements. The [NO MERCY](/glossary/no-mercy/) doctrine requires that profile-derived claims are never presented without confidence qualifiers reflecting data quality, verification status, and temporal currency. Source independence is enforced -- LinkedIn data corroborates but cannot self-validate identity claims. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that uncertainty in professional intelligence is explicitly quantified rather than masked by false precision.
+All LinkedIn-derived intelligence complies with [NABLA Infinity](@/glossary/nabla-infinity.md) provenance requirements. The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that profile-derived claims are never presented without confidence qualifiers reflecting data quality, verification status, and temporal currency. Source independence is enforced -- LinkedIn data corroborates but cannot self-validate identity claims. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that uncertainty in professional intelligence is explicitly quantified rather than masked by false precision.
 
 ---
 
@@ -118,4 +118,4 @@ All LinkedIn-derived intelligence complies with [NABLA Infinity](/glossary/nabla
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

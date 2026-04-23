@@ -246,7 +246,7 @@ end
 
 ## Context in Prismatic Platform
 
-The Prismatic Platform integrates Ollama as its local AI inference layer through the Ollama Coordinator [Agent](/glossary/agent/), which manages model selection, health monitoring, quality assessment, and automatic fallback behavior. The integration operates at multiple levels:
+The Prismatic Platform integrates Ollama as its local AI inference layer through the Ollama Coordinator [Agent](@/glossary/agent.md), which manages model selection, health monitoring, quality assessment, and automatic fallback behavior. The integration operates at multiple levels:
 
 **Model Portfolio**: Three models are deployed for different workload profiles -- qwen3-coder (7B) for fast code generation queries under 3 seconds, deepseek-coder (6.7B) for code analysis and completion tasks, and gpt-oss:20b (20B) for complex reasoning tasks requiring deeper analysis at up to 5 seconds per response.
 
@@ -261,13 +261,13 @@ export ANTHROPIC_BASE_URL=http://localhost:11434
 claude --model qwen3-coder "Generate REST API endpoint"
 ```
 
-**Quality Gates**: All Ollama-generated outputs pass through the platform's quality gate infrastructure before being applied to the codebase. The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework validates LLM outputs against the seven axioms, ensuring that locally generated code and analysis meet the same standards as cloud-generated outputs.
+**Quality Gates**: All Ollama-generated outputs pass through the platform's quality gate infrastructure before being applied to the codebase. The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework validates LLM outputs against the seven axioms, ensuring that locally generated code and analysis meet the same standards as cloud-generated outputs.
 
-**Health Monitoring**: The Coordinator Agent tracks response latency, error rates, and output quality metrics. If Ollama's health degrades (process crash, memory exhaustion, model corruption), the agent triggers [self-healing](/glossary/self-healing/) procedures including model reloading, process restart, and temporary cloud failover.
+**Health Monitoring**: The Coordinator Agent tracks response latency, error rates, and output quality metrics. If Ollama's health degrades (process crash, memory exhaustion, model corruption), the agent triggers [self-healing](@/glossary/self-healing.md) procedures including model reloading, process restart, and temporary cloud failover.
 
 ## Coordinator Agent Architecture
 
-The Ollama Coordinator Agent is a specialized [AIAD agent](/glossary/aiad/) that manages the full lifecycle of local AI inference within the platform:
+The Ollama Coordinator Agent is a specialized [AIAD agent](@/glossary/aiad.md) that manages the full lifecycle of local AI inference within the platform:
 
 ```elixir
 defmodule PrismaticOllama.Coordinator do
@@ -387,7 +387,7 @@ Ollama's local execution model guarantees that all inference data -- prompts, co
 | **Customization** | Modelfile-based customization | Limited to API parameters |
 | **Compliance** | Full control over data residency | Depends on provider's DPA |
 
-The platform's hybrid approach leverages both: Ollama handles routine code generation and analysis tasks where 7-20B parameter models perform adequately, while cloud providers handle complex reasoning, planning, and tasks requiring the capabilities of larger frontier models. The [circuit breaker](/glossary/circuit-breaker/) pattern manages the transition between local and cloud inference, preventing cascading failures when either path degrades.
+The platform's hybrid approach leverages both: Ollama handles routine code generation and analysis tasks where 7-20B parameter models perform adequately, while cloud providers handle complex reasoning, planning, and tasks requiring the capabilities of larger frontier models. The [circuit breaker](@/glossary/circuit-breaker.md) pattern manages the transition between local and cloud inference, preventing cascading failures when either path degrades.
 
 ## Best Practices
 
@@ -399,7 +399,7 @@ The platform's hybrid approach leverages both: Ollama handles routine code gener
 
 4. **Use Modelfiles for Specialization**: Create domain-specific Modelfiles with tailored system prompts, temperature settings, and context windows for different workload types rather than configuring these per-request.
 
-5. **Monitor Inference Quality**: Implement automated quality checks on Ollama outputs using the platform's [quality gates](/glossary/quality-gates/) infrastructure. Track quality metrics over time to detect model degradation.
+5. **Monitor Inference Quality**: Implement automated quality checks on Ollama outputs using the platform's [quality gates](@/glossary/quality-gates.md) infrastructure. Track quality metrics over time to detect model degradation.
 
 6. **Implement Health Checks**: Regularly verify Ollama's responsiveness and model availability. Use the `/api/tags` endpoint as a lightweight health probe.
 
@@ -407,25 +407,25 @@ The platform's hybrid approach leverages both: Ollama handles routine code gener
 
 ## Related Terms
 
-- [Agent](/glossary/agent/) - AIAD agents that consume Ollama inference for autonomous operations
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework validating LLM output quality and correctness
-- [Autoevolve](/glossary/autoevolve/) - Platform evolution system using AI-driven code improvements
-- [Consciousness Traits](/glossary/consciousness-traits/) - Agent capabilities enhanced through local AI inference
-- [Self-Healing](/glossary/self-healing/) - Automatic recovery procedures for Ollama service failures
-- [Autoheal](/glossary/autoheal/) - Healing system that may use Ollama for diagnostic analysis
-- [Circuit Breaker](/glossary/circuit-breaker/) - Fault tolerance pattern managing Ollama connection failures
-- [BEAM](/glossary/beam/) - Virtual machine hosting the Ollama client processes
-- [Supervisor](/glossary/supervisor/) - OTP supervision tree managing Ollama coordinator lifecycle
-- [Encryption at Rest](/glossary/encryption-at-rest/) - Protection for locally stored model files
-- [Quality Gates](/glossary/quality-gates/) - Validation pipeline for AI-generated outputs
-- [GenServer](/glossary/genserver/) - Process abstraction implementing the Coordinator Agent
+- [Agent](@/glossary/agent.md) - AIAD agents that consume Ollama inference for autonomous operations
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework validating LLM output quality and correctness
+- [Autoevolve](@/glossary/autoevolve.md) - Platform evolution system using AI-driven code improvements
+- [Consciousness Traits](@/glossary/consciousness-traits.md) - Agent capabilities enhanced through local AI inference
+- [Self-Healing](@/glossary/self-healing.md) - Automatic recovery procedures for Ollama service failures
+- [Autoheal](@/glossary/autoheal.md) - Healing system that may use Ollama for diagnostic analysis
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Fault tolerance pattern managing Ollama connection failures
+- [BEAM](@/glossary/beam.md) - Virtual machine hosting the Ollama client processes
+- [Supervisor](@/glossary/supervisor.md) - OTP supervision tree managing Ollama coordinator lifecycle
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) - Protection for locally stored model files
+- [Quality Gates](@/glossary/quality-gates.md) - Validation pipeline for AI-generated outputs
+- [GenServer](@/glossary/genserver.md) - Process abstraction implementing the Coordinator Agent
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform AI integration architecture
-- [Agents](/agents/) -- Agent catalog consuming Ollama inference
-- [Technologies](/technologies/) -- Technology stack including AI infrastructure
-- [Capabilities](/capabilities/) -- AI-enhanced platform capabilities
+- [Architecture](@/architecture/_index.md) -- Platform AI integration architecture
+- [Agents](@/agents/_index.md) -- Agent catalog consuming Ollama inference
+- [Technologies](@/technologies/_index.md) -- Technology stack including AI infrastructure
+- [Capabilities](@/capabilities/_index.md) -- AI-enhanced platform capabilities
 
 ---
 
@@ -434,4 +434,4 @@ The platform's hybrid approach leverages both: Ollama handles routine code gener
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

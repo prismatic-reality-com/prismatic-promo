@@ -28,25 +28,25 @@ image_alt = "aiad-dashboard-commander - Prismatic Platform"
 
 ## Overview
 
-The [AIAD](/glossary/aiad/) Dashboard Commander operates as an L3 [strategic command](/glossary/strategic-command/) agent providing visual monitoring and operational oversight for the entire AIAD agent ecosystem within the Prismatic Platform. This agent manages real-time dashboards that display agent health status, execution [metrics](/glossary/metrics/), quality gate compliance, and inter-agent communication patterns. Operators use these dashboards to maintain situational awareness across 400+ autonomous agents operating simultaneously.
+The [AIAD](@/glossary/aiad.md) Dashboard Commander operates as an L3 [strategic command](@/glossary/strategic-command.md) agent providing visual monitoring and operational oversight for the entire AIAD agent ecosystem within the Prismatic Platform. This agent manages real-time dashboards that display agent health status, execution [metrics](@/glossary/metrics.md), quality gate compliance, and inter-agent communication patterns. Operators use these dashboards to maintain situational awareness across 400+ autonomous agents operating simultaneously.
 
-Effective monitoring of an autonomous agent ecosystem requires more than simple uptime checks. The AIAD Dashboard Commander aggregates [telemetry](/glossary/telemetry/) data from every active agent, correlates execution patterns across domains, and surfaces anomalies that indicate emerging issues before they escalate into failures. The dashboards render through [Phoenix LiveView](/glossary/phoenix-liveview/), providing real-time updates without page refreshes, and support drill-down navigation from ecosystem-wide overviews to individual agent execution traces.
+Effective monitoring of an autonomous agent ecosystem requires more than simple uptime checks. The AIAD Dashboard Commander aggregates [telemetry](@/glossary/telemetry.md) data from every active agent, correlates execution patterns across domains, and surfaces anomalies that indicate emerging issues before they escalate into failures. The dashboards render through [Phoenix LiveView](@/glossary/phoenix-liveview.md), providing real-time updates without page refreshes, and support drill-down navigation from ecosystem-wide overviews to individual agent execution traces.
 
 ## Operational Domain
 
-The Dashboard Commander operates across all AIAD domains, serving as the primary [observability](/glossary/observability/) interface for the agent ecosystem. It collects metrics from agent registries, execution pipelines, [quality gates](/glossary/quality-gates/), and the [mycelial network](/glossary/mycelial-network/) to present a unified operational picture. This cross-cutting visibility makes it essential for both routine monitoring and [incident response](/glossary/incident-response/) coordination.
+The Dashboard Commander operates across all AIAD domains, serving as the primary [observability](@/glossary/observability.md) interface for the agent ecosystem. It collects metrics from agent registries, execution pipelines, [quality gates](@/glossary/quality-gates.md), and the [mycelial network](@/glossary/mycelial-network.md) to present a unified operational picture. This cross-cutting visibility makes it essential for both routine monitoring and [incident response](@/glossary/incident-response.md) coordination.
 
 ## Key Capabilities
 
 - **Real-time agent health monitoring** displaying status, uptime, and execution metrics for all registered agents with automatic anomaly highlighting when agents deviate from baseline performance
 - **Cross-domain correlation views** that map relationships between agent executions, showing how triggers in one domain propagate effects through the mycelial network to other domains
-- **Quality gate compliance dashboards** tracking compilation warnings, test coverage, [Credo](/glossary/credo/) violations, and [Dialyzer](/glossary/dialyzer/) results across all platform applications in real-time
+- **Quality gate compliance dashboards** tracking compilation warnings, test coverage, [Credo](@/glossary/credo.md) violations, and [Dialyzer](@/glossary/dialyzer.md) results across all platform applications in real-time
 - **Historical trend analysis** with configurable time windows that reveal performance degradation patterns, quality drift, and resource utilization trends across evolution generations
 - **Incident response coordination** providing focused views during crisis situations that filter noise and highlight only the agents and metrics relevant to the current incident
 
 ## Technical Architecture
 
-The Dashboard Commander is implemented as a [Phoenix LiveView](/glossary/phoenix-liveview/) application backed by a [GenServer](/glossary/genserver/) that aggregates [telemetry](/glossary/telemetry/) events from across the agent ecosystem. The architecture separates data collection (telemetry subscription and aggregation) from data presentation (LiveView rendering), enabling the aggregation layer to operate independently of whether any dashboard clients are connected.
+The Dashboard Commander is implemented as a [Phoenix LiveView](@/glossary/phoenix-liveview.md) application backed by a [GenServer](@/glossary/genserver.md) that aggregates [telemetry](@/glossary/telemetry.md) events from across the agent ecosystem. The architecture separates data collection (telemetry subscription and aggregation) from data presentation (LiveView rendering), enabling the aggregation layer to operate independently of whether any dashboard clients are connected.
 
 ```elixir
 defmodule PrismaticWeb.Live.DashboardLive do
@@ -74,7 +74,7 @@ defmodule PrismaticWeb.Live.DashboardLive do
 end
 ```
 
-The telemetry aggregation layer subscribes to events under the `[:prismatic_agents, :*, :*]` namespace pattern, capturing agent lifecycle events, execution metrics, quality gate results, and error conditions. Events are aggregated into rolling time windows (1 minute, 5 minutes, 1 hour) using [ETS](/glossary/ets/)-backed counters for O(1) increment operations. The aggregation layer maintains per-agent state maps that track health status, execution counts, error rates, and last-seen timestamps.
+The telemetry aggregation layer subscribes to events under the `[:prismatic_agents, :*, :*]` namespace pattern, capturing agent lifecycle events, execution metrics, quality gate results, and error conditions. Events are aggregated into rolling time windows (1 minute, 5 minutes, 1 hour) using [ETS](@/glossary/ets.md)-backed counters for O(1) increment operations. The aggregation layer maintains per-agent state maps that track health status, execution counts, error rates, and last-seen timestamps.
 
 The LiveView rendering layer uses server-sent updates to push dashboard changes to connected clients without polling. When the aggregation layer detects a significant state change (agent health transition, quality gate failure, error spike), it broadcasts to all connected LiveView processes, ensuring real-time visibility across all monitoring consoles.
 
@@ -101,9 +101,9 @@ Stale data detection activates automatically when a telemetry feed lapses beyond
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [aiad-hot-reload-coordinator](/agents/aiad-hot-reload-coordinator/) | Reload Monitor | Displays hot reload events and validates post-reload agent health |
-| [alert-management-specialist](/agents/alert-management-specialist/) | Alert Visualizer | Renders alert timelines and escalation status on monitoring dashboards |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Verification Display | Shows verification results and specification compliance status |
+| [aiad-hot-reload-coordinator](@/agents/aiad-hot-reload-coordinator.md) | Reload Monitor | Displays hot reload events and validates post-reload agent health |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Alert Visualizer | Renders alert timelines and escalation status on monitoring dashboards |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Verification Display | Shows verification results and specification compliance status |
 
 ## Performance Characteristics
 
@@ -118,7 +118,7 @@ Stale data detection activates automatically when a telemetry feed lapses beyond
 
 ## Enforcement
 
-All dashboard operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Dashboard data must reflect actual system state with no smoothing or averaging that could mask problems. Stale data indicators activate automatically when telemetry feeds lag beyond acceptable thresholds. No dashboard view may suppress error states, and all critical metric breaches trigger visual alerts that persist until the underlying condition is acknowledged and resolved. The dashboard code itself is subject to the same quality standards as any platform code: zero compilation warnings, comprehensive typespecs, and full test coverage of LiveView event handling.
+All dashboard operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Dashboard data must reflect actual system state with no smoothing or averaging that could mask problems. Stale data indicators activate automatically when telemetry feeds lag beyond acceptable thresholds. No dashboard view may suppress error states, and all critical metric breaches trigger visual alerts that persist until the underlying condition is acknowledged and resolved. The dashboard code itself is subject to the same quality standards as any platform code: zero compilation warnings, comprehensive typespecs, and full test coverage of LiveView event handling.
 
 ## Command Interface
 
@@ -131,12 +131,12 @@ All dashboard operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-
 
 ## Related Resources
 
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Platform-wide telemetry powering dashboard data
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard displayed on dashboards
-- [Phoenix LiveView](/glossary/phoenix-liveview/) -- Technology powering real-time dashboard rendering
-- [Architecture Overview](/architecture/) -- Platform architecture including observability layer
-- [Applications](/apps/) -- Platform applications monitored on dashboards
-- [Color Teams](/teams/) -- Security teams with dedicated dashboard views
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Platform-wide telemetry powering dashboard data
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard displayed on dashboards
+- [Phoenix LiveView](@/glossary/phoenix-liveview.md) -- Technology powering real-time dashboard rendering
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including observability layer
+- [Applications](@/apps/_index.md) -- Platform applications monitored on dashboards
+- [Color Teams](@/teams/_index.md) -- Security teams with dedicated dashboard views
 
 ---
 
@@ -145,4 +145,4 @@ All dashboard operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

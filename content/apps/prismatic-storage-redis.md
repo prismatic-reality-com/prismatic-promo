@@ -23,11 +23,11 @@ image_alt = "Prismatic Storage Redis - Prismatic Platform"
 
 ## Overview
 
-[Prismatic Storage](/glossary/prismatic-storage/) [Redis](/glossary/redis/) implements the storage adapter [protocol](/glossary/protocol/) using Redis for distributed caching, cross-node state coordination, and real-time pub/sub messaging. It provides sub-millisecond access to frequently used data, distributed locks for singleton process coordination, and [message passing](/glossary/message-passing/) between platform components running on separate [BEAM](/glossary/beam/) nodes.
+[Prismatic Storage](@/glossary/prismatic-storage.md) [Redis](@/glossary/redis.md) implements the storage adapter [protocol](@/glossary/protocol.md) using Redis for distributed caching, cross-node state coordination, and real-time pub/sub messaging. It provides sub-millisecond access to frequently used data, distributed locks for singleton process coordination, and [message passing](@/glossary/message-passing.md) between platform components running on separate [BEAM](@/glossary/beam.md) nodes.
 
-Within the platform's multi-level caching architecture, Redis serves as the L2 (second-level) cache. Hot data lives in [ETS](/apps/prismatic-storage-ets/) for microsecond access within a single node, while Redis provides millisecond access across all nodes in a cluster. When data is not found in either cache layer, it is fetched from [PostgreSQL](/apps/prismatic-storage-ecto/) and populated back through both cache levels.
+Within the platform's multi-level caching architecture, Redis serves as the L2 (second-level) cache. Hot data lives in [ETS](@/apps/prismatic-storage-ets.md) for microsecond access within a single node, while Redis provides millisecond access across all nodes in a cluster. When data is not found in either cache layer, it is fetched from [PostgreSQL](@/apps/prismatic-storage-ecto.md) and populated back through both cache levels.
 
-The adapter manages [connection pooling](/glossary/connection-pooling/), automatic reconnection, and pipeline batching to maximize throughput. All Redis operations are instrumented with [telemetry events](/apps/prismatic-telemetry/) for latency monitoring and cache hit rate analysis.
+The adapter manages [connection pooling](@/glossary/connection-pooling.md), automatic reconnection, and pipeline batching to maximize throughput. All Redis operations are instrumented with [telemetry events](@/apps/prismatic-telemetry.md) for latency monitoring and cache hit rate analysis.
 
 ## Architecture
 
@@ -50,11 +50,11 @@ Manager   Coordination  Engine
   Redis Server
 ```
 
-The Cache Manager handles TTL-based caching with stampede prevention. The Distributed Coordination module provides locks, counters, and leader election primitives. The Pub/Sub Engine manages [channel](/glossary/channel/) subscriptions and message routing. All three subsystems share a connection pool managed by the Redix library with configurable pool size and overflow.
+The Cache Manager handles TTL-based caching with stampede prevention. The Distributed Coordination module provides locks, counters, and leader election primitives. The Pub/Sub Engine manages [channel](@/glossary/channel.md) subscriptions and message routing. All three subsystems share a connection pool managed by the Redix library with configurable pool size and overflow.
 
 ## Adapter Pattern and PrismaticStorageCore.Behaviour
 
-The Redis adapter implements the [Prismatic Storage Core](/apps/prismatic-storage-core/) contract with traits suited for distributed caching and coordination: Storable, Identifiable, Queryable, Cacheable, Batchable, and Subscribable. The combination of Cacheable and Subscribable traits makes Redis the only adapter in the platform capable of both TTL-managed caching and real-time change notifications across distributed nodes.
+The Redis adapter implements the [Prismatic Storage Core](@/apps/prismatic-storage-core.md) contract with traits suited for distributed caching and coordination: Storable, Identifiable, Queryable, Cacheable, Batchable, and Subscribable. The combination of Cacheable and Subscribable traits makes Redis the only adapter in the platform capable of both TTL-managed caching and real-time change notifications across distributed nodes.
 
 The Storable trait implementation handles serialization between Elixir terms and Redis's string-based storage. Unlike ETS, which stores native Erlang terms, Redis requires all values to be serialized to binary strings. The adapter supports three serialization formats: JSON (for interoperability with non-Elixir clients), Erlang External Term Format (ETF, for maximum fidelity of Elixir types), and Protocol Buffers (for space-efficient serialization of known schemas). The format is configurable per key namespace, allowing different serialization strategies for different data types.
 
@@ -72,14 +72,14 @@ Contract compliance is verified through `PrismaticStorageCore.ContractTest` with
 - Automatic cache population on miss with configurable loaders
 - TTL-based expiration with per-key and per-namespace policies
 - Cache stampede prevention using probabilistic early expiration and lock-based recomputation
-- Multi-level caching integration: L1 [ETS](/apps/prismatic-storage-ets/) + L2 Redis
+- Multi-level caching integration: L1 [ETS](@/apps/prismatic-storage-ets.md) + L2 Redis
 - Cache invalidation via pub/sub for cross-node consistency
 
 ### Distributed Coordination
-- Distributed locks with automatic [release](/glossary/release/) on process crash (Redlock algorithm)
-- Sliding window [rate limiting](/glossary/rate-limiting/) with atomic Lua script execution
-- Distributed counters and gauges for shared [metrics](/glossary/metrics/) across nodes
-- Leader election for singleton [GenServer](/glossary/genserver/) processes in clustered deployments
+- Distributed locks with automatic [release](@/glossary/release.md) on process crash (Redlock algorithm)
+- Sliding window [rate limiting](@/glossary/rate-limiting.md) with atomic Lua script execution
+- Distributed counters and gauges for shared [metrics](@/glossary/metrics.md) across nodes
+- Leader election for singleton [GenServer](@/glossary/genserver.md) processes in clustered deployments
 
 ### Pub/Sub
 - Channel-based real-time messaging for cross-node event propagation
@@ -141,7 +141,7 @@ mix test apps/prismatic_storage_redis/test --cover
 
 ## Integration Points
 
-[Prismatic Auth](/apps/prismatic-auth/) uses Redis-backed rate limiting to enforce per-user and per-API-key request quotas across all nodes in the cluster. [Prismatic HAWKEYE](/apps/prismatic-hawkeye/) shares visitor [threat intelligence](/glossary/threat-intelligence/) between nodes via Redis pub/sub, ensuring all instances have current risk assessments. The [Prismatic API](/apps/prismatic-api/) gateway uses Redis for response caching with ETag support, reducing redundant computation for frequently requested endpoints.
+[Prismatic Auth](@/apps/prismatic-auth.md) uses Redis-backed rate limiting to enforce per-user and per-API-key request quotas across all nodes in the cluster. [Prismatic HAWKEYE](@/apps/prismatic-hawkeye.md) shares visitor [threat intelligence](@/glossary/threat-intelligence.md) between nodes via Redis pub/sub, ensuring all instances have current risk assessments. The [Prismatic API](@/apps/prismatic-api.md) gateway uses Redis for response caching with ETag support, reducing redundant computation for frequently requested endpoints.
 
 ## NABLA Compliance
 
@@ -160,22 +160,22 @@ Redis operations carry provenance metadata through key namespacing and telemetry
 
 ## Related Components
 
-- [Prismatic Storage Core](/apps/prismatic-storage-core/) -- Adapter protocol definition
-- [Prismatic Storage ETS](/apps/prismatic-storage-ets/) -- L1 in-memory cache layer
-- [Prismatic Storage Ecto](/apps/prismatic-storage-ecto/) -- Durable PostgreSQL persistence
-- [Prismatic Telemetry](/apps/prismatic-telemetry/) -- Cache performance metrics
+- [Prismatic Storage Core](@/apps/prismatic-storage-core.md) -- Adapter protocol definition
+- [Prismatic Storage ETS](@/apps/prismatic-storage-ets.md) -- L1 in-memory cache layer
+- [Prismatic Storage Ecto](@/apps/prismatic-storage-ecto.md) -- Durable PostgreSQL persistence
+- [Prismatic Telemetry](@/apps/prismatic-telemetry.md) -- Cache performance metrics
 
 ## Related Agents
 
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Ensures Redis adapter conforms to the PrismaticStorageCore protocol contract
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews distributed cache topology and connection pooling strategies
-- [Deployment Commander](/agents/deployment-commander-agent/) -- Coordinates Redis cluster deployment and failover configuration
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Ensures Redis adapter conforms to the PrismaticStorageCore protocol contract
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews distributed cache topology and connection pooling strategies
+- [Deployment Commander](@/agents/deployment-commander-agent.md) -- Coordinates Redis cluster deployment and failover configuration
 
 ## Related Capabilities
 
-- [Cross-Domain Flexibility](/capabilities/cross-domain-flexibility/) -- Redis adapter provides cross-node state coordination for all platform domains
-- [Quality Gates](/capabilities/quality-gates/) -- Contract tests verify adapter protocol compliance and concurrency safety
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Cache hit rates and latency metrics emitted for performance monitoring
+- [Cross-Domain Flexibility](@/capabilities/cross-domain-flexibility.md) -- Redis adapter provides cross-node state coordination for all platform domains
+- [Quality Gates](@/capabilities/quality-gates.md) -- Contract tests verify adapter protocol compliance and concurrency safety
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Cache hit rates and latency metrics emitted for performance monitoring
 
 ---
 
@@ -184,4 +184,4 @@ Redis operations carry provenance metadata through key namespacing and telemetry
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

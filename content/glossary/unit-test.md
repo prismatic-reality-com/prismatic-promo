@@ -263,11 +263,11 @@ end
 
 ## Cross-References
 
-- [Testing](/glossary/testing/) - Broader testing methodology
-- [ExUnit](/glossary/exunit/) - Elixir test framework
-- [Property-Based Testing](/glossary/property-based-testing/) - Generative testing approach
+- [Testing](@/glossary/testing.md) - Broader testing methodology
+- [ExUnit](@/glossary/exunit.md) - Elixir test framework
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Generative testing approach
 - **Coverage** - Test coverage measurement
-- [Triage](/glossary/triage/) - Test failure prioritization
+- [Triage](@/glossary/triage.md) - Test failure prioritization
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

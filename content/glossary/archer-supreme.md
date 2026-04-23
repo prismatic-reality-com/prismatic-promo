@@ -53,7 +53,7 @@ A third notable mission involved resolving a critical conflict between the Red T
 
 ### Authority Model
 
-Archer Supreme operates at L5, the highest authority level in the [AIAD](/glossary/aiad/) classification system. This grants capabilities that no other agent possesses:
+Archer Supreme operates at L5, the highest authority level in the [AIAD](@/glossary/aiad.md) classification system. This grants capabilities that no other agent possesses:
 
 | Capability | Scope | Constraints |
 |-----------|-------|-------------|
@@ -109,7 +109,7 @@ Archer Supreme follows a rigorous four-phase execution protocol for every missio
 
 ### Confidence Framework
 
-Archer Supreme operates with a confidence framework that maps directly to the [NABLA infinity](/glossary/nabla-infinity/) epistemic system, ensuring that decisions are evidence-based and uncertainty is explicitly quantified:
+Archer Supreme operates with a confidence framework that maps directly to the [NABLA infinity](@/glossary/nabla-infinity.md) epistemic system, ensuring that decisions are evidence-based and uncertainty is explicitly quantified:
 
 ```elixir
 defmodule PrismaticAgents.ArcherSupreme.Confidence do
@@ -457,22 +457,22 @@ end
 
 ## Related Concepts
 
-- [Agent Tier](/glossary/agent-tier/) -- L5 Supreme classification level
-- [Supreme Commander](/glossary/supreme-commander/) -- Platform-wide strategic coordination L5 agent
-- [AIAD](/glossary/aiad/) -- Agent definition standard governing Archer Supreme
-- [Violation Protocol](/glossary/violation-protocol/) -- L4 violations escalate to Supreme Review
-- [NM/ND Doctrine](/glossary/nm-nd/) -- Enforcement framework for all supreme operations
-- [Strategic Command](/glossary/strategic-command/) -- L4 coordination tier managed by L5 agents
-- [Agent Registry](/glossary/agent-registry/) -- Central catalog where Archer Supreme is registered
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework backing confidence assessment
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Monitoring system that escalates to Archer Supreme
+- [Agent Tier](@/glossary/agent-tier.md) -- L5 Supreme classification level
+- [Supreme Commander](@/glossary/supreme-commander.md) -- Platform-wide strategic coordination L5 agent
+- [AIAD](@/glossary/aiad.md) -- Agent definition standard governing Archer Supreme
+- [Violation Protocol](@/glossary/violation-protocol.md) -- L4 violations escalate to Supreme Review
+- [NM/ND Doctrine](@/glossary/nm-nd.md) -- Enforcement framework for all supreme operations
+- [Strategic Command](@/glossary/strategic-command.md) -- L4 coordination tier managed by L5 agents
+- [Agent Registry](@/glossary/agent-registry.md) -- Central catalog where Archer Supreme is registered
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework backing confidence assessment
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Monitoring system that escalates to Archer Supreme
 
 ## Further Reading
 
-- [Agents](/agents/) -- Full agent catalog
-- [Commands](/commands/) -- Command invocation reference
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Agents](@/agents/_index.md) -- Full agent catalog
+- [Commands](@/commands/_index.md) -- Command invocation reference
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -481,4 +481,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

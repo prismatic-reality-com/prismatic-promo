@@ -53,7 +53,7 @@ In merge-request-driven workflows, CI runs on the proposed merge result rather t
 
 ### Caching and Incremental Analysis
 
-Production CI systems rely heavily on caching to avoid redundant work across pipeline runs. Common caching strategies include dependency caching (preserving `_build/` and `deps/` directories between runs), persistent lookup table (PLT) caching for [Dialyzer](/glossary/dialyzer/) analysis, and test result caching for unchanged modules. Without effective caching, CI pipeline duration grows linearly with codebase size, eventually becoming a bottleneck that discourages frequent commits.
+Production CI systems rely heavily on caching to avoid redundant work across pipeline runs. Common caching strategies include dependency caching (preserving `_build/` and `deps/` directories between runs), persistent lookup table (PLT) caching for [Dialyzer](@/glossary/dialyzer.md) analysis, and test result caching for unchanged modules. Without effective caching, CI pipeline duration grows linearly with codebase size, eventually becoming a bottleneck that discourages frequent commits.
 
 ## Architecture and Implementation
 
@@ -132,7 +132,7 @@ end
 
 ## Usage in Prismatic Platform
 
-The Prismatic Platform employs one of the most rigorous CI configurations in the Elixir ecosystem, enforcing quality across 13 domains with zero tolerance for violations. Every commit to the repository triggers a comprehensive validation pipeline through [GitLab CI/CD](/glossary/gitlab-ci/).
+The Prismatic Platform employs one of the most rigorous CI configurations in the Elixir ecosystem, enforcing quality across 13 domains with zero tolerance for violations. Every commit to the repository triggers a comprehensive validation pipeline through [GitLab CI/CD](@/glossary/gitlab-ci.md).
 
 ### Pipeline Configuration
 
@@ -199,8 +199,8 @@ The platform maintains zero violations across all 13 quality domains. The curren
 | Domain | Current Violations | Enforcement |
 |--------|-------------------|-------------|
 | Compilation Warnings | 0 | `--warnings-as-errors` |
-| [Credo](/glossary/credo/) | 0 | `--strict` mode |
-| [Dialyzer](/glossary/dialyzer/) | 0 | Full PLT analysis |
+| [Credo](@/glossary/credo.md) | 0 | `--strict` mode |
+| [Dialyzer](@/glossary/dialyzer.md) | 0 | Full PLT analysis |
 | Test Coverage | 100% | `--cover` flag |
 | Typespec Coverage | 0 gaps | `@spec` on all public functions |
 | `@impl` Coverage | 709+ verified | Dialyzer validation |
@@ -318,20 +318,20 @@ end
 
 ## Related Concepts
 
-- [Continuous Deployment](/glossary/continuous-deployment/) -- Automated deployment following successful CI validation
-- [GitLab CI/CD](/glossary/gitlab-ci/) -- The CI/CD platform executing the Prismatic pipeline
-- [Quality Gates](/glossary/quality-gates/) -- Automated checks enforced during CI pipeline stages
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Local validation forming the first layer of CI
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Compilation standard enforced through CI
-- [Credo](/glossary/credo/) -- Static analysis tool integrated as a CI quality gate
-- [Dialyzer](/glossary/dialyzer/) -- Type analysis tool running in the CI analyze stage
-- [GitOps](/glossary/gitops/) -- Operational framework where CI drives infrastructure changes
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- Automated deployment following successful CI validation
+- [GitLab CI/CD](@/glossary/gitlab-ci.md) -- The CI/CD platform executing the Prismatic pipeline
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated checks enforced during CI pipeline stages
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Local validation forming the first layer of CI
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Compilation standard enforced through CI
+- [Credo](@/glossary/credo.md) -- Static analysis tool integrated as a CI quality gate
+- [Dialyzer](@/glossary/dialyzer.md) -- Type analysis tool running in the CI analyze stage
+- [GitOps](@/glossary/gitops.md) -- Operational framework where CI drives infrastructure changes
 
 ## See Also
 
-- [Architecture](/architecture/) -- CI/CD architecture within the platform
-- [Technologies](/technologies/) -- CI tooling stack details
-- [Apps](/apps/) -- Umbrella applications validated by the CI pipeline
+- [Architecture](@/architecture/_index.md) -- CI/CD architecture within the platform
+- [Technologies](@/technologies/_index.md) -- CI tooling stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications validated by the CI pipeline
 
 ---
 
@@ -340,4 +340,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

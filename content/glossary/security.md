@@ -23,9 +23,9 @@ image_alt = "Security - Prismatic Platform"
 
 ## Definition and Overview
 
-Security in software engineering is the discipline of protecting systems, data, and infrastructure from unauthorized access, modification, disruption, and destruction. It encompasses everything from cryptographic primitives to organizational processes, from network perimeter defense to individual function input validation. In the Prismatic Platform, security is not an afterthought or an add-on layer -- it is a foundational architectural principle enforced through the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, validated by [Color Teams](/glossary/color-teams/), and verified through the [Trinity Gate](/glossary/trinity-gate/) framework.
+Security in software engineering is the discipline of protecting systems, data, and infrastructure from unauthorized access, modification, disruption, and destruction. It encompasses everything from cryptographic primitives to organizational processes, from network perimeter defense to individual function input validation. In the Prismatic Platform, security is not an afterthought or an add-on layer -- it is a foundational architectural principle enforced through the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, validated by [Color Teams](@/glossary/color-teams.md), and verified through the [Trinity Gate](@/glossary/trinity-gate.md) framework.
 
-The platform's approach to security is distinguished by three characteristics. First, it is adversarial by design: security claims are not accepted until they have survived active attack by the [Red Team](/glossary/red-team/). Second, it is formally verified: critical security invariants are proven correct through [formal verification](/glossary/formal-verification/) rather than merely tested. Third, it is continuously synthesized: individual security signals from diverse sources are combined through [Security Synthesis](/glossary/security-synthesis/) into a unified, confidence-scored posture rather than treated as isolated findings.
+The platform's approach to security is distinguished by three characteristics. First, it is adversarial by design: security claims are not accepted until they have survived active attack by the [Red Team](@/glossary/red-team.md). Second, it is formally verified: critical security invariants are proven correct through [formal verification](@/glossary/formal-verification.md) rather than merely tested. Third, it is continuously synthesized: individual security signals from diverse sources are combined through [Security Synthesis](@/glossary/security-synthesis.md) into a unified, confidence-scored posture rather than treated as isolated findings.
 
 Security in the context of the BEAM virtual machine and OTP has unique characteristics that differentiate it from security in other runtime environments. The actor model, process isolation, immutable data, pattern matching, and supervision trees provide a fundamentally different security substrate than the shared-memory, mutable-state models of conventional platforms.
 
@@ -97,7 +97,7 @@ end
 
 ### Zero Trust Architecture
 
-[Zero Trust](/glossary/zero-trust/) assumes that no request, user, or component is trustworthy by default, regardless of its network location or previous authentication status. Every request must be authenticated, authorized, and validated:
+[Zero Trust](@/glossary/zero-trust.md) assumes that no request, user, or component is trustworthy by default, regardless of its network location or previous authentication status. Every request must be authenticated, authorized, and validated:
 
 ```elixir
 defmodule PrismaticSecurity.ZeroTrust do
@@ -249,7 +249,7 @@ end
 
 ### Authentication and Authorization
 
-The platform implements [Authentication](/glossary/authentication/) (verifying identity) and [Authorization](/glossary/authorization/) (verifying permissions) as distinct, composable layers:
+The platform implements [Authentication](@/glossary/authentication.md) (verifying identity) and [Authorization](@/glossary/authorization.md) (verifying permissions) as distinct, composable layers:
 
 ```elixir
 defmodule PrismaticSecurity.RBAC do
@@ -378,16 +378,16 @@ The Prismatic Platform implements security across five architectural layers:
 
 ### Color Team Security Operations
 
-The platform's security posture is continuously challenged and validated by 20 agents across 6 [Color Teams](/glossary/color-teams/):
+The platform's security posture is continuously challenged and validated by 20 agents across 6 [Color Teams](@/glossary/color-teams.md):
 
 | Team | Agents | Security Role |
 |------|--------|---------------|
-| [Gray Team](/glossary/gray-team/) | 3 | Boundary exploration, edge case discovery |
-| [Red Team](/glossary/red-team/) | 4 | Adversarial attack simulation |
-| [Blue Team](/glossary/blue-team/) | 4 | Defensive posture, drift detection |
-| [Purple Team](/glossary/purple-team/) | 4 | Synthesis, closure, regression guarding |
-| [White Team](/glossary/white-team/) | 3 | Formal verification, contract validation |
-| [Black Team](/glossary/black-team/) | 2 | Theoretical threat modeling (maximum isolation) |
+| [Gray Team](@/glossary/gray-team.md) | 3 | Boundary exploration, edge case discovery |
+| [Red Team](@/glossary/red-team.md) | 4 | Adversarial attack simulation |
+| [Blue Team](@/glossary/blue-team.md) | 4 | Defensive posture, drift detection |
+| [Purple Team](@/glossary/purple-team.md) | 4 | Synthesis, closure, regression guarding |
+| [White Team](@/glossary/white-team.md) | 3 | Formal verification, contract validation |
+| [Black Team](@/glossary/black-team.md) | 2 | Theoretical threat modeling (maximum isolation) |
 
 ### Security Monitoring and Telemetry
 
@@ -448,7 +448,7 @@ end
 
 ### Prismatic Perimeter (EASM)
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) module implements External Attack Surface Management, providing:
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) module implements External Attack Surface Management, providing:
 
 - **Asset Discovery**: Domains, IPs, certificates, cloud resources, services
 - **Security Ratings**: A-F grades with numeric scores (300-900)
@@ -457,7 +457,7 @@ The [Prismatic Perimeter](/glossary/prismatic-perimeter/) module implements Exte
 
 ### OSINT Security Intelligence
 
-The platform integrates 120 [OSINT](/glossary/osint/) tools across 7 categories for security intelligence gathering, including Shodan, Censys, VirusTotal, GreyNoise, and specialized Czech registry adapters.
+The platform integrates 120 [OSINT](@/glossary/osint.md) tools across 7 categories for security intelligence gathering, including Shodan, Censys, VirusTotal, GreyNoise, and specialized Czech registry adapters.
 
 ### Security in the CI/CD Pipeline
 
@@ -498,7 +498,7 @@ Security checks are integrated into every stage of the development lifecycle:
 
 **Security through obscurity.** Relying on attackers not knowing your system architecture is not security. Assume the attacker knows everything about your system except your cryptographic keys.
 
-**Ignoring the human factor.** The most sophisticated technical security is worthless if an operator can be socially engineered into bypassing it. Security awareness, process discipline, and the [Session Discipline](/glossary/session-discipline/) protocol are as important as cryptographic controls.
+**Ignoring the human factor.** The most sophisticated technical security is worthless if an operator can be socially engineered into bypassing it. Security awareness, process discipline, and the [Session Discipline](@/glossary/session-discipline.md) protocol are as important as cryptographic controls.
 
 ## Security Standards and Compliance
 
@@ -506,34 +506,34 @@ The platform targets compliance with multiple security frameworks:
 
 | Standard | Scope | Status |
 |----------|-------|--------|
-| [OWASP Top 10](/glossary/owasp/) | Application security | Active enforcement |
-| [NIS2](/glossary/nis2/) | EU cybersecurity directive | Compliance mapped |
-| [ZKB](/glossary/zkb/) | Czech cybersecurity law | Compliance mapped |
-| [GDPR](/glossary/gdpr/) | Data protection | Active enforcement |
-| [ISO 27001](/glossary/iso-27001/) | ISMS | Framework aligned |
-| [SOC 2](/glossary/soc2/) | Service organization controls | Audit trail ready |
+| [OWASP Top 10](@/glossary/owasp.md) | Application security | Active enforcement |
+| [NIS2](@/glossary/nis2.md) | EU cybersecurity directive | Compliance mapped |
+| [ZKB](@/glossary/zkb.md) | Czech cybersecurity law | Compliance mapped |
+| [GDPR](@/glossary/gdpr.md) | Data protection | Active enforcement |
+| [ISO 27001](@/glossary/iso-27001.md) | ISMS | Framework aligned |
+| [SOC 2](@/glossary/soc2.md) | Service organization controls | Audit trail ready |
 
 ## Related Concepts
 
-- [Security Synthesis](/glossary/security-synthesis/) -- Combining security signals into unified posture
-- [Security Verification](/glossary/security-verification/) -- Proving security properties hold
-- [Authentication](/glossary/authentication/) -- Identity verification
-- [Authorization](/glossary/authorization/) -- Permission enforcement
-- [Zero Trust](/glossary/zero-trust/) -- Never-trust, always-verify architecture
-- [Attack Surface](/glossary/attack-surface/) -- Total exposure area for potential attacks
-- [OWASP](/glossary/owasp/) -- Web application security standards
-- [Encryption](/glossary/encryption/) -- Data protection through cryptography
-- [Color Teams](/glossary/color-teams/) -- Adversarial-defensive security organization
-- [Trinity Gate](/glossary/trinity-gate/) -- Multi-gate validation for security claims
-- [Penetration Testing](/glossary/penetration-testing/) -- Active vulnerability discovery
+- [Security Synthesis](@/glossary/security-synthesis.md) -- Combining security signals into unified posture
+- [Security Verification](@/glossary/security-verification.md) -- Proving security properties hold
+- [Authentication](@/glossary/authentication.md) -- Identity verification
+- [Authorization](@/glossary/authorization.md) -- Permission enforcement
+- [Zero Trust](@/glossary/zero-trust.md) -- Never-trust, always-verify architecture
+- [Attack Surface](@/glossary/attack-surface.md) -- Total exposure area for potential attacks
+- [OWASP](@/glossary/owasp.md) -- Web application security standards
+- [Encryption](@/glossary/encryption.md) -- Data protection through cryptography
+- [Color Teams](@/glossary/color-teams.md) -- Adversarial-defensive security organization
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Multi-gate validation for security claims
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Active vulnerability discovery
 
 ## See Also
 
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- External Attack Surface Management
-- [EASM](/glossary/easm/) -- External attack surface management concepts
-- [Vulnerability](/glossary/vulnerability/) -- Security weakness classification
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Umbrella applications with security controls
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- External Attack Surface Management
+- [EASM](@/glossary/easm.md) -- External attack surface management concepts
+- [Vulnerability](@/glossary/vulnerability.md) -- Security weakness classification
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Umbrella applications with security controls
 
 ---
 
@@ -542,4 +542,4 @@ The platform targets compliance with multiple security frameworks:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

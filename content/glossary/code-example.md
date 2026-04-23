@@ -442,7 +442,7 @@ Elixir's doctest system is the primary example verification mechanism in the Pri
 
 2. **Use doctests for verification**: Every inline example should be a doctest that runs automatically in CI. An unverified example will inevitably drift from the actual behavior.
 
-3. **Version your examples**: When API changes break examples, update them immediately. Stale examples are a [code quality](/glossary/code-quality/) issue that the quality gate system should detect.
+3. **Version your examples**: When API changes break examples, update them immediately. Stale examples are a [code quality](@/glossary/code-quality.md) issue that the quality gate system should detect.
 
 4. **Cross-reference between examples**: Complex features should link between related examples, guiding developers through a learning path that builds understanding incrementally.
 
@@ -476,7 +476,7 @@ When a developer encounters a Prismatic Platform API for the first time, code ex
 
 ### Code Review Context
 
-During [code reviews](/glossary/code-reviews/), examples in documentation help reviewers understand the intended usage of new APIs. Reviewing a function without seeing how it is meant to be called is like reviewing a door without knowing which direction it opens.
+During [code reviews](@/glossary/code-reviews.md), examples in documentation help reviewers understand the intended usage of new APIs. Reviewing a function without seeing how it is meant to be called is like reviewing a door without knowing which direction it opens.
 
 ### Regression Detection
 
@@ -490,23 +490,23 @@ Code examples capture institutional knowledge about how systems are meant to be 
 
 Code examples connect to numerous aspects of software development:
 
-- [Documentation](/glossary/documentation/) -- Code examples are the most impactful component of software documentation, providing concrete demonstrations of abstract descriptions
-- [Developer Experience](/glossary/developer-experience/) -- The quality and availability of code examples directly impacts developer onboarding time and satisfaction
-- [Code Quality](/glossary/code-quality/) -- Maintaining accurate, well-structured examples is a code quality discipline enforced by the platform's quality gates
-- [Testing](/glossary/testing/) -- Doctests transform code examples into executable tests, unifying documentation and verification
-- [ExUnit](/glossary/exunit/) -- Elixir's test framework that executes doctests and validates code examples automatically
-- [Typespec](/glossary/typespec/) -- Type specifications complement code examples by formally describing the types that examples demonstrate in practice
-- [Code Coverage](/glossary/code-coverage/) -- Doctest execution contributes to code coverage metrics, ensuring that documented usage paths are tested
-- [Reference Documentation](/glossary/reference-documentation/) -- Code examples are the practical counterpart to formal reference documentation
-- [Learning Resource](/glossary/learning-resource/) -- Curated code examples form the foundation of effective learning materials and tutorials
-- [Code Reviews](/glossary/code-reviews/) -- Examples in documentation provide context during code review, helping reviewers understand intended API usage
+- [Documentation](@/glossary/documentation.md) -- Code examples are the most impactful component of software documentation, providing concrete demonstrations of abstract descriptions
+- [Developer Experience](@/glossary/developer-experience.md) -- The quality and availability of code examples directly impacts developer onboarding time and satisfaction
+- [Code Quality](@/glossary/code-quality.md) -- Maintaining accurate, well-structured examples is a code quality discipline enforced by the platform's quality gates
+- [Testing](@/glossary/testing.md) -- Doctests transform code examples into executable tests, unifying documentation and verification
+- [ExUnit](@/glossary/exunit.md) -- Elixir's test framework that executes doctests and validates code examples automatically
+- [Typespec](@/glossary/typespec.md) -- Type specifications complement code examples by formally describing the types that examples demonstrate in practice
+- [Code Coverage](@/glossary/code-coverage.md) -- Doctest execution contributes to code coverage metrics, ensuring that documented usage paths are tested
+- [Reference Documentation](@/glossary/reference-documentation.md) -- Code examples are the practical counterpart to formal reference documentation
+- [Learning Resource](@/glossary/learning-resource.md) -- Curated code examples form the foundation of effective learning materials and tutorials
+- [Code Reviews](@/glossary/code-reviews.md) -- Examples in documentation provide context during code review, helping reviewers understand intended API usage
 
 ## See Also
 
-- [Code Generation](/glossary/code-generation/) -- Automated code generation produces examples as part of scaffold and template output
-- [Credo](/glossary/credo/) -- Static analysis tool that can detect documentation quality issues including missing examples
-- [Compilation](/glossary/compilation/) -- Code examples must compile successfully, verified through the CI pipeline
-- [Mix](/glossary/mix/) -- Build tool that executes doctests as part of the test suite
+- [Code Generation](@/glossary/code-generation.md) -- Automated code generation produces examples as part of scaffold and template output
+- [Credo](@/glossary/credo.md) -- Static analysis tool that can detect documentation quality issues including missing examples
+- [Compilation](@/glossary/compilation.md) -- Code examples must compile successfully, verified through the CI pipeline
+- [Mix](@/glossary/mix.md) -- Build tool that executes doctests as part of the test suite
 
 ---
 
@@ -515,4 +515,4 @@ Code examples connect to numerous aspects of software development:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

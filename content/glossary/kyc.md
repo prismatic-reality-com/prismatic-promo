@@ -510,7 +510,7 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform implements KYC as an integrated compliance capability within the [intelligence platform](/glossary/intelligence-platform/) architecture. KYC verification is not a standalone feature but operates within the broader [due diligence](/glossary/due-diligence/) framework, leveraging the platform's 120+ [OSINT](/glossary/osint/) adapters for multi-source identity verification.
+The Prismatic Platform implements KYC as an integrated compliance capability within the [intelligence platform](@/glossary/intelligence-platform.md) architecture. KYC verification is not a standalone feature but operates within the broader [due diligence](@/glossary/due-diligence.md) framework, leveraging the platform's 120+ [OSINT](@/glossary/osint.md) adapters for multi-source identity verification.
 
 ### Czech Registry Integration
 
@@ -529,11 +529,11 @@ The platform's strongest KYC capability is Czech entity verification through 28 
 
 ### Triple-Check Verification
 
-Following the [triple-check](/glossary/triple-check/) pattern, KYC identity claims are validated against a minimum of three independent sources before being marked as verified. This exceeds the FATF minimum requirement and provides robust evidence for regulatory examination.
+Following the [triple-check](@/glossary/triple-check.md) pattern, KYC identity claims are validated against a minimum of three independent sources before being marked as verified. This exceeds the FATF minimum requirement and provides robust evidence for regulatory examination.
 
 ### Workflow Integration
 
-KYC checks integrate with the platform's [entity resolution](/glossary/entity-resolution/) engine: when an entity is submitted for KYC verification, the system first resolves the entity against the existing knowledge graph to leverage previously collected intelligence, then supplements with fresh collection from authoritative sources.
+KYC checks integrate with the platform's [entity resolution](@/glossary/entity-resolution.md) engine: when an entity is submitted for KYC verification, the system first resolves the entity against the existing knowledge graph to leverage previously collected intelligence, then supplements with fresh collection from authoritative sources.
 
 ## Comparison with Alternatives
 
@@ -547,7 +547,7 @@ KYC checks integrate with the platform's [entity resolution](/glossary/entity-re
 | **Onfido** | AI document verification | None | Usage-based | Real-time ID verification |
 | **ComplyAdvantage** | ML-powered screening | Limited Czech | $10K+/yr | Real-time sanctions + PEP |
 
-Prismatic's unique advantage: unmatched Czech Republic registry coverage (28 adapters) combined with automated [beneficial ownership](/glossary/beneficial-ownership/) chain resolution and integrated [sanctions screening](/glossary/sanctions-screening/).
+Prismatic's unique advantage: unmatched Czech Republic registry coverage (28 adapters) combined with automated [beneficial ownership](@/glossary/beneficial-ownership.md) chain resolution and integrated [sanctions screening](@/glossary/sanctions-screening.md).
 
 ## Best Practices
 
@@ -575,7 +575,7 @@ Prismatic's unique advantage: unmatched Czech Republic registry coverage (28 ada
 
 ### Czech Company Onboarding
 
-When onboarding a Czech legal entity, the platform queries ARES for basic company data, Justice.cz for beneficial ownership and board composition, the Commercial Register for founding documents, and ISIR for insolvency history. All three sanctions lists are screened simultaneously. The [risk score](/glossary/risk-score/) engine produces a composite score that determines the CDD level.
+When onboarding a Czech legal entity, the platform queries ARES for basic company data, Justice.cz for beneficial ownership and board composition, the Commercial Register for founding documents, and ISIR for insolvency history. All three sanctions lists are screened simultaneously. The [risk score](@/glossary/risk-score.md) engine produces a composite score that determines the CDD level.
 
 ### Cross-Border Corporate Structure
 
@@ -591,25 +591,25 @@ Post-onboarding, the platform continuously monitors for changes: new insolvency 
 
 ## Related Concepts
 
-- [AML](/glossary/aml/) -- Anti-Money Laundering regulations that drive KYC requirements
-- [Due Diligence](/glossary/due-diligence/) -- Broader investigative framework encompassing KYC
-- [Beneficial Ownership](/glossary/beneficial-ownership/) -- UBO identification critical to KYC compliance
-- [Sanctions Screening](/glossary/sanctions-screening/) -- Regulatory list checking as a KYC component
-- [Entity Resolution](/glossary/entity-resolution/) -- Identity consolidation across multiple source records
-- [Compliance Framework](/glossary/compliance-framework/) -- Organizational compliance structure within which KYC operates
-- [Risk Score](/glossary/risk-score/) -- Quantified risk assessment output from KYC analysis
-- [Triple Check](/glossary/triple-check/) -- Three-source corroboration pattern used in identity verification
-- [Intelligence Analysis](/glossary/intelligence-analysis/) -- Analytic methodology applied to KYC assessments
-- [OSINT](/glossary/osint/) -- Open source intelligence collection powering automated KYC
+- [AML](@/glossary/aml.md) -- Anti-Money Laundering regulations that drive KYC requirements
+- [Due Diligence](@/glossary/due-diligence.md) -- Broader investigative framework encompassing KYC
+- [Beneficial Ownership](@/glossary/beneficial-ownership.md) -- UBO identification critical to KYC compliance
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- Regulatory list checking as a KYC component
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Identity consolidation across multiple source records
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Organizational compliance structure within which KYC operates
+- [Risk Score](@/glossary/risk-score.md) -- Quantified risk assessment output from KYC analysis
+- [Triple Check](@/glossary/triple-check.md) -- Three-source corroboration pattern used in identity verification
+- [Intelligence Analysis](@/glossary/intelligence-analysis.md) -- Analytic methodology applied to KYC assessments
+- [OSINT](@/glossary/osint.md) -- Open source intelligence collection powering automated KYC
 
 ## See Also
 
-- [AML](/glossary/aml/) -- Anti-Money Laundering regulatory companion to KYC
-- [Due Diligence](/glossary/due-diligence/) -- Investigative workflow incorporating KYC
-- [Beneficial Ownership](/glossary/beneficial-ownership/) -- UBO resolution for KYC
-- [Sanctions Screening](/glossary/sanctions-screening/) -- List screening component
-- [Intelligence Platform](/glossary/intelligence-platform/) -- Platform architecture hosting KYC capabilities
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- Security compliance intersecting with KYC obligations
+- [AML](@/glossary/aml.md) -- Anti-Money Laundering regulatory companion to KYC
+- [Due Diligence](@/glossary/due-diligence.md) -- Investigative workflow incorporating KYC
+- [Beneficial Ownership](@/glossary/beneficial-ownership.md) -- UBO resolution for KYC
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- List screening component
+- [Intelligence Platform](@/glossary/intelligence-platform.md) -- Platform architecture hosting KYC capabilities
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- Security compliance intersecting with KYC obligations
 
 ---
 
@@ -618,4 +618,4 @@ Post-onboarding, the platform continuously monitors for changes: new insolvency 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -38,7 +38,7 @@ Role-Based Access Control (RBAC) is an authorization model that restricts system
 
 RBAC follows the principle of least privilege by default -- users receive only the permissions their assigned roles require and nothing more. The model supports role hierarchies, where senior roles inherit permissions from junior roles; separation of duties, which prevents a single user from accumulating conflicting privileges; and permission inheritance, which enables DRY role composition. These properties make RBAC suitable for both simple applications with a handful of roles and complex enterprise systems requiring hundreds of permission combinations.
 
-In the context of modern web applications built with frameworks like [Phoenix](/glossary/phoenix/), RBAC is typically enforced at the request-handling layer through middleware or plugs that inspect the authenticated user's role before granting access to protected resources. When combined with token-based authentication such as [JWT](/glossary/jwt/), RBAC claims can be embedded directly in the authentication token, enabling stateless authorization decisions without database lookups on every request.
+In the context of modern web applications built with frameworks like [Phoenix](@/glossary/phoenix.md), RBAC is typically enforced at the request-handling layer through middleware or plugs that inspect the authenticated user's role before granting access to protected resources. When combined with token-based authentication such as [JWT](@/glossary/jwt.md), RBAC claims can be embedded directly in the authentication token, enabling stateless authorization decisions without database lookups on every request.
 
 ## Core RBAC Model
 
@@ -195,7 +195,7 @@ end
 
 ## Plug-Based RBAC Enforcement
 
-The Prismatic Platform implements RBAC enforcement in the Phoenix request pipeline using [Plug](/glossary/plug/) middleware. This ensures that authorization checks occur before any controller logic executes.
+The Prismatic Platform implements RBAC enforcement in the Phoenix request pipeline using [Plug](@/glossary/plug.md) middleware. This ensures that authorization checks occur before any controller logic executes.
 
 ```elixir
 defmodule PrismaticWeb.Plugs.RequireRole do
@@ -248,7 +248,7 @@ end
 
 ## Guardian and JWT Integration
 
-The Prismatic Platform uses the Guardian library for [JWT](/glossary/jwt/)-based authentication with RBAC claims embedded in tokens. When a user authenticates, their role assignments are serialized into the JWT payload alongside standard claims, enabling stateless authorization decisions.
+The Prismatic Platform uses the Guardian library for [JWT](@/glossary/jwt.md)-based authentication with RBAC claims embedded in tokens. When a user authenticates, their role assignments are serialized into the JWT payload alongside standard claims, enabling stateless authorization decisions.
 
 | JWT Claim | Purpose | Example Value |
 |-----------|---------|---------------|
@@ -262,7 +262,7 @@ Token refresh preserves role information, and role changes take effect at next t
 
 ## Agent Authority System
 
-Beyond traditional user RBAC, the [AIAD](/glossary/agent-tier/) agent level system (L1 through L5) functions as a parallel RBAC hierarchy for autonomous agents. This dual RBAC model -- one for human users, one for AI agents -- is a distinguishing architectural feature of the Prismatic Platform.
+Beyond traditional user RBAC, the [AIAD](@/glossary/agent-tier.md) agent level system (L1 through L5) functions as a parallel RBAC hierarchy for autonomous agents. This dual RBAC model -- one for human users, one for AI agents -- is a distinguishing architectural feature of the Prismatic Platform.
 
 | Agent Level | Authority | Equivalent User Role | Capabilities |
 |------------|-----------|---------------------|--------------|
@@ -276,7 +276,7 @@ Higher-level agents possess broader operational authority: an L3 Strategic Comma
 
 ## Color Team RBAC
 
-The [Color Teams](/glossary/color-teams/) security framework leverages RBAC principles to enforce operational boundaries between adversarial and defensive teams.
+The [Color Teams](@/glossary/color-teams.md) security framework leverages RBAC principles to enforce operational boundaries between adversarial and defensive teams.
 
 | Team | Permission Set | Restrictions |
 |------|---------------|-------------|
@@ -304,7 +304,7 @@ Prismatic uses RBAC as the primary model, supplemented by attribute-based checks
 
 ## Audit and Compliance
 
-RBAC provides strong auditability properties that support compliance with regulations like [GDPR](/glossary/gdpr/), [NIS2](/glossary/nis2/), and [ISO 27001](/glossary/iso-27001/). Every authorization decision can be traced through the role hierarchy to the specific permission grant.
+RBAC provides strong auditability properties that support compliance with regulations like [GDPR](@/glossary/gdpr.md), [NIS2](@/glossary/nis2.md), and [ISO 27001](@/glossary/iso-27001.md). Every authorization decision can be traced through the role hierarchy to the specific permission grant.
 
 ```elixir
 defmodule PrismaticWeb.AuthorizationAudit do
@@ -350,8 +350,8 @@ RBAC implementation requires attention to several security concerns that go beyo
 - **Least privilege enforcement**: Roles should be defined with minimum necessary permissions. Regular audits should identify and remove unused permission grants.
 - **Role assignment governance**: Role assignment should require approval workflows, especially for privileged roles. The Prismatic Platform logs all role changes with immutable audit trails.
 - **Token-based RBAC caveats**: When roles are embedded in JWTs, changes do not take effect until token refresh. Critical role revocations need a server-side revocation mechanism.
-- **Cross-system consistency**: In distributed systems, RBAC policies must be consistent across all services. The Prismatic [API Gateway](/glossary/api-gateway/) serves as the single enforcement point, preventing policy drift.
-- **[Encryption at rest](/glossary/encryption-at-rest/)**: Role definitions and user-role mappings stored in [PostgreSQL](/glossary/postgresql/) should be protected by encryption at rest to prevent unauthorized access to authorization metadata.
+- **Cross-system consistency**: In distributed systems, RBAC policies must be consistent across all services. The Prismatic [API Gateway](@/glossary/api-gateway.md) serves as the single enforcement point, preventing policy drift.
+- **[Encryption at rest](@/glossary/encryption-at-rest.md)**: Role definitions and user-role mappings stored in [PostgreSQL](@/glossary/postgresql.md) should be protected by encryption at rest to prevent unauthorized access to authorization metadata.
 - **Session management**: Token expiration and refresh cycles must balance security (short-lived tokens) with usability (not requiring frequent re-authentication).
 
 ## Best Practices
@@ -368,23 +368,23 @@ RBAC implementation requires attention to several security concerns that go beyo
 
 ## Related Terms
 
-- [JWT](/glossary/jwt/) - Token format carrying RBAC claims for stateless authorization
-- [OAuth2](/glossary/oauth2/) - Authorization framework mapping scopes to RBAC roles
-- [API Gateway](/glossary/api-gateway/) - Centralized enforcement point for RBAC policies
-- [Plug](/glossary/plug/) - Elixir middleware implementing RBAC checks in the request pipeline
-- [Encryption at Rest](/glossary/encryption-at-rest/) - Protects stored role and permission data
-- [Agent Tier](/glossary/agent-tier/) - AIAD agent authority levels functioning as agent RBAC
-- [Color Teams](/glossary/color-teams/) - Security teams with role-based operational authority
-- [Rate Limiting](/glossary/rate-limiting/) - Per-role rate limit policies at the API gateway
-- [TLS](/glossary/tls/) - Transport encryption protecting RBAC token exchange
-- [Observability](/glossary/observability/) - Monitoring and auditing authorization decisions
-- [GDPR](/glossary/gdpr/) - Regulation requiring access control for personal data
+- [JWT](@/glossary/jwt.md) - Token format carrying RBAC claims for stateless authorization
+- [OAuth2](@/glossary/oauth2.md) - Authorization framework mapping scopes to RBAC roles
+- [API Gateway](@/glossary/api-gateway.md) - Centralized enforcement point for RBAC policies
+- [Plug](@/glossary/plug.md) - Elixir middleware implementing RBAC checks in the request pipeline
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) - Protects stored role and permission data
+- [Agent Tier](@/glossary/agent-tier.md) - AIAD agent authority levels functioning as agent RBAC
+- [Color Teams](@/glossary/color-teams.md) - Security teams with role-based operational authority
+- [Rate Limiting](@/glossary/rate-limiting.md) - Per-role rate limit policies at the API gateway
+- [TLS](@/glossary/tls.md) - Transport encryption protecting RBAC token exchange
+- [Observability](@/glossary/observability.md) - Monitoring and auditing authorization decisions
+- [GDPR](@/glossary/gdpr.md) - Regulation requiring access control for personal data
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform security architecture
-- [Apps](/apps/) - Prismatic API and Web applications
-- [OSINT](/osint/) - OSINT access control and data scoping
+- [Architecture](@/architecture/_index.md) - Platform security architecture
+- [Apps](@/apps/_index.md) - Prismatic API and Web applications
+- [OSINT](@/osint/_index.md) - OSINT access control and data scoping
 
 ---
 
@@ -393,4 +393,4 @@ RBAC implementation requires attention to several security concerns that go beyo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

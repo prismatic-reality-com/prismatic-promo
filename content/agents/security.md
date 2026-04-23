@@ -22,38 +22,38 @@ image_alt = "Security Operations Agents - Prismatic Platform"
 
 ## Overview
 
-Security Operations agents handle defensive security, compliance assessment, and external [attack surface](/glossary/attack-surface/) management within the Prismatic Platform. These agents integrate with the Color-Team framework for adversarial-defensive synthesis, forming a comprehensive security operations center that protects the platform while simultaneously providing security assessment capabilities as a core product offering through [Prismatic Perimeter](/glossary/prismatic-perimeter/).
+Security Operations agents handle defensive security, compliance assessment, and external [attack surface](@/glossary/attack-surface.md) management within the Prismatic Platform. These agents integrate with the Color-Team framework for adversarial-defensive synthesis, forming a comprehensive security operations center that protects the platform while simultaneously providing security assessment capabilities as a core product offering through [Prismatic Perimeter](@/glossary/prismatic-perimeter.md).
 
 The security domain is unique within the Prismatic agent ecosystem because it serves a dual purpose: protecting the platform itself from security threats while also providing security intelligence and assessment services to external targets. This duality demands that security agents maintain impeccable operational security -- the tools used to assess external attack surfaces must not themselves become attack vectors, and the intelligence gathered through OSINT operations must be handled with appropriate classification and access controls.
 
-With 38 agents spanning vulnerability assessment, compliance verification, incident response, and attack surface management, the security domain represents one of the largest specialized agent groups in the platform. These agents operate under the strictest enforcement of the [NO MERCY](/glossary/no-mercy/) doctrine, where security violations receive zero tolerance regardless of development velocity pressures.
+With 38 agents spanning vulnerability assessment, compliance verification, incident response, and attack surface management, the security domain represents one of the largest specialized agent groups in the platform. These agents operate under the strictest enforcement of the [NO MERCY](@/glossary/no-mercy.md) doctrine, where security violations receive zero tolerance regardless of development velocity pressures.
 
 ## Agent Roster
 
 | Agent | Level | Role | Specialization |
 |-------|-------|------|----------------|
-| **perimeter-scanner** | L3 | [EASM](/glossary/easm/) | External attack surface discovery |
-| **compliance-auditor** | L3 | Compliance | [NIS2](/glossary/nis2/), [ZKB](/glossary/zkb/), [GDPR](/glossary/gdpr/) assessment |
-| **vulnerability-analyst** | L3 | Vuln Assessment | [CVE](/glossary/cve/) correlation, risk scoring |
+| **perimeter-scanner** | L3 | [EASM](@/glossary/easm.md) | External attack surface discovery |
+| **compliance-auditor** | L3 | Compliance | [NIS2](@/glossary/nis2.md), [ZKB](@/glossary/zkb.md), [GDPR](@/glossary/gdpr.md) assessment |
+| **vulnerability-analyst** | L3 | Vuln Assessment | [CVE](@/glossary/cve.md) correlation, risk scoring |
 | **cer-vetter** | L2 | Supplier Risk | CER/NIS2 supplier vetting |
 | **security-rater** | L2 | Scoring | A-F security grade calculation |
-| **[security-audit-specialist](/agents/security-audit-specialist/)** | L3 | Code Security | OWASP compliance, vulnerability analysis |
-| **[security-operations-specialist](/agents/security-operations-specialist/)** | L3 | SecOps | Monitoring, threat detection, incident response |
-| **[secrets-management-specialist](/agents/secrets-management-specialist/)** | L3 | Secrets | Credential management, vault integration, rotation |
+| **[security-audit-specialist](@/agents/security-audit-specialist.md)** | L3 | Code Security | OWASP compliance, vulnerability analysis |
+| **[security-operations-specialist](@/agents/security-operations-specialist.md)** | L3 | SecOps | Monitoring, threat detection, incident response |
+| **[secrets-management-specialist](@/agents/secrets-management-specialist.md)** | L3 | Secrets | Credential management, vault integration, rotation |
 
 ## Key Capabilities
 
 ### External Attack Surface Management (EASM)
 
-[Prismatic Perimeter](/glossary/prismatic-perimeter/) provides comprehensive EASM capabilities that compete with industry leaders such as BitSight, Black Kite, and SecurityScorecard. The EASM module discovers, catalogs, and continuously monitors an organization's externally visible digital assets.
+[Prismatic Perimeter](@/glossary/prismatic-perimeter.md) provides comprehensive EASM capabilities that compete with industry leaders such as BitSight, Black Kite, and SecurityScorecard. The EASM module discovers, catalogs, and continuously monitors an organization's externally visible digital assets.
 
 | Component | Function | Output |
 |-----------|----------|--------|
 | **Asset Discovery** | Enumerate domains, subdomains, IPs | Full asset inventory |
-| **Certificate Analysis** | SSL/[TLS](/glossary/tls/) certificate validation | Expiry alerts, misconfigs |
+| **Certificate Analysis** | SSL/[TLS](@/glossary/tls.md) certificate validation | Expiry alerts, misconfigs |
 | **Service Detection** | Port scanning, service fingerprinting | Service inventory |
 | **Vulnerability Scanning** | CVE detection, misconfig finding | Risk-prioritized vulns |
-| **[Security Rating](/glossary/security-rating/)** | Aggregate scoring (A-F) | Comparable industry benchmark |
+| **[Security Rating](@/glossary/security-rating.md)** | Aggregate scoring (A-F) | Comparable industry benchmark |
 | **Cloud Asset Discovery** | Cloud resource enumeration | Cloud asset inventory |
 
 ### Security Rating Methodology
@@ -79,7 +79,7 @@ Grade Mapping:
   F: 300-399 (Critical)
 ```
 
-Each domain score is computed from multiple individual factors, weighted by their reliability and relevance. The methodology emphasizes evidence-based scoring per [NABLA Infinity](/glossary/nabla-infinity/) axioms -- every score component traces back to observable, verifiable evidence collected through automated scanning.
+Each domain score is computed from multiple individual factors, weighted by their reliability and relevance. The methodology emphasizes evidence-based scoring per [NABLA Infinity](@/glossary/nabla-infinity.md) axioms -- every score component traces back to observable, verifiable evidence collected through automated scanning.
 
 ### Compliance Frameworks
 
@@ -90,7 +90,7 @@ Security agents assess compliance against multiple regulatory frameworks relevan
 | **NIS2** | EU | Critical infrastructure security | Full assessment |
 | **ZKB 264/2025** | Czech Republic | Cybersecurity obligations | Full assessment |
 | **GDPR** | EU | Data protection and privacy | Data handling audit |
-| **[ISO 27001](/glossary/iso-27001/)** | International | ISMS certification | Control mapping |
+| **[ISO 27001](@/glossary/iso-27001.md)** | International | ISMS certification | Control mapping |
 | **OWASP Top 10** | International | Web application security | Continuous monitoring |
 
 ### Color-Team Integration
@@ -108,12 +108,12 @@ Security operations agents integrate deeply with the platform's six-team Color-T
 
 ## Integration Points
 
-- **[Color Teams](/glossary/color-teams/)**: [Blue Team](/glossary/blue-team/) defensive posture feeds, Red Team validation
-- **Perimeter Dashboard**: [LiveView](/glossary/liveview/) [real-time monitoring](/capabilities/real-time-monitoring/) at `/perimeter`
+- **[Color Teams](@/glossary/color-teams.md)**: [Blue Team](@/glossary/blue-team.md) defensive posture feeds, Red Team validation
+- **Perimeter Dashboard**: [LiveView](@/glossary/liveview.md) [real-time monitoring](@/capabilities/real-time-monitoring.md) at `/perimeter`
 - **Alert System**: Automated notification on rating changes and security events
 - **Report Generation**: Compliance documentation and executive summaries
 - **Quality Gates**: Security checks integrated into CI/CD deployment pipeline
-- **[Telemetry](/glossary/telemetry/)**: Security metrics published under `:prismatic, :security` namespace
+- **[Telemetry](@/glossary/telemetry.md)**: Security metrics published under `:prismatic, :security` namespace
 
 ## Commands
 
@@ -129,7 +129,7 @@ Security operations agents integrate deeply with the platform's six-team Color-T
 
 ## Operational Security
 
-Security agents themselves are subject to stringent operational security requirements. All security scanning operations are logged with full audit trails. Intelligence gathered through OSINT and EASM operations is classified and access-controlled. Security agent configurations are reviewed under the same security audit process applied to application code. No security agent operates outside the [AIAD](/glossary/aiad/) standard's behavioral rules, and all security operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine's zero-tolerance enforcement.
+Security agents themselves are subject to stringent operational security requirements. All security scanning operations are logged with full audit trails. Intelligence gathered through OSINT and EASM operations is classified and access-controlled. Security agent configurations are reviewed under the same security audit process applied to application code. No security agent operates outside the [AIAD](@/glossary/aiad.md) standard's behavioral rules, and all security operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine's zero-tolerance enforcement.
 
 ---
 
@@ -138,4 +138,4 @@ Security agents themselves are subject to stringent operational security require
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

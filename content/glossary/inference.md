@@ -264,13 +264,13 @@ end
 
 ## Related Concepts
 
-- [Ollama](/glossary/ollama/) - Local AI runtime executing inference for platform models
-- [Backpressure](/glossary/backpressure/) - Flow control preventing inference request overload
-- [Rate Limiting](/glossary/rate-limiting/) - Request throttling protecting inference resources
-- [Telemetry](/glossary/telemetry/) - Metrics system monitoring inference performance
-- [Observability](/glossary/observability/) - Monitoring infrastructure tracking inference health
-- [BEAM](/glossary/beam/) - Virtual machine providing concurrent inference request processing
-- [GenServer](/glossary/genserver/) - OTP behaviour implementing the inference coordinator
+- [Ollama](@/glossary/ollama.md) - Local AI runtime executing inference for platform models
+- [Backpressure](@/glossary/backpressure.md) - Flow control preventing inference request overload
+- [Rate Limiting](@/glossary/rate-limiting.md) - Request throttling protecting inference resources
+- [Telemetry](@/glossary/telemetry.md) - Metrics system monitoring inference performance
+- [Observability](@/glossary/observability.md) - Monitoring infrastructure tracking inference health
+- [BEAM](@/glossary/beam.md) - Virtual machine providing concurrent inference request processing
+- [GenServer](@/glossary/genserver.md) - OTP behaviour implementing the inference coordinator
 
 ## See Also
 
@@ -279,8 +279,8 @@ end
 - [app_ai_safety](../../../apps/app_ai_safety/README.md) -- Safety monitoring for inference outputs
 - [app_ai_interpretability](../../../apps/app_ai_interpretability/README.md) -- Interpretability analysis of inference results
 - [prismatic_telemetry](../../../apps/prismatic_telemetry/README.md) -- Telemetry tracking inference performance metrics
-- [Architecture](/architecture/) -- AI inference architecture and integration patterns
-- [Capabilities](/capabilities/) -- AI and machine learning capabilities
+- [Architecture](@/architecture/_index.md) -- AI inference architecture and integration patterns
+- [Capabilities](@/capabilities/_index.md) -- AI and machine learning capabilities
 
 ---
 
@@ -289,4 +289,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

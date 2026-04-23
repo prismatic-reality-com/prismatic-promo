@@ -26,7 +26,7 @@ image_alt = "/hygiene - Prismatic Platform"
 
 **/hygiene** is a production command in the **Quality** category of the Prismatic Platform that performs ultra-fast, dependency-free static analysis to detect code hygiene violations across the platform's 6,600+ Elixir source files. Unlike compilation-dependent tools like Dialyzer or Credo that require the full project to be compiled, the hygiene system operates directly on source text using pattern-based analysis, enabling sub-second execution times that make it practical as a pre-commit check, real-time editor integration, and continuous background monitor.
 
-This command operates under the **L2+** authority level and is executed by the `quality-hygiene-specialist` agent, which maintains the platform's code hygiene standards through 25+ custom pattern checks that have collectively prevented over 700 quality violations from entering the codebase. The agent detects anti-patterns specific to the Prismatic Platform's Elixir/OTP architecture, including unsafe atom creation, naive `length() > 0` checks, missing `@spec` annotations, unsafe `Map.get` without default values, `Process.sleep` usage in production code, missing `@impl` annotations on callback implementations, and dozens of other patterns that indicate code quality issues. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `quality-hygiene-specialist` agent, which maintains the platform's code hygiene standards through 25+ custom pattern checks that have collectively prevented over 700 quality violations from entering the codebase. The agent detects anti-patterns specific to the Prismatic Platform's Elixir/OTP architecture, including unsafe atom creation, naive `length() > 0` checks, missing `@spec` annotations, unsafe `Map.get` without default values, `Process.sleep` usage in production code, missing `@impl` annotations on callback implementations, and dozens of other patterns that indicate code quality issues. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 The dependency-free nature of the hygiene system is a deliberate architectural choice. In a 89+ application umbrella project, compilation can take minutes, making compilation-dependent tools impractical for rapid feedback loops. The hygiene system achieves sub-second analysis of the entire codebase by operating on the raw source text, using optimized regular expressions and AST-free pattern matching to detect issues that would otherwise require full compilation to identify. This speed enables its integration into pre-commit hooks, where developers receive immediate feedback on hygiene violations before their code leaves the local development environment.
 
@@ -176,20 +176,20 @@ The Pattern Engine processes files in parallel using Elixir's Task.async_stream 
 
 6. **Report Generation**: Format violations according to the requested output format. Include summary statistics (total files analyzed, violations found, violations by category, violations by severity). Generate fix suggestions for non-auto-fixable violations.
 
-7. **Telemetry Emission**: Report hygiene metrics to the [telemetry](/glossary/telemetry/) subsystem including files analyzed, violations found by category, analysis duration, and auto-fix counts.
+7. **Telemetry Emission**: Report hygiene metrics to the [telemetry](@/glossary/telemetry.md) subsystem including files analyzed, violations found by category, analysis duration, and auto-fix counts.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by `quality-hygiene-specialist` at L2+ authority |
-| [Quality Gates](/glossary/quality-gates/) | Direct Enforcement | Hygiene check is a mandatory quality gate component |
-| [/quality-gates](/commands/quality-gates/) | Gate Integration | Hygiene results feed into quality gate pass/fail decisions |
-| [/quality-enforce](/commands/quality-enforce/) | Enforcement Pipeline | Hygiene violations included in enforcement scoring |
-| [/regression-check](/commands/regression-check/) | Regression Prevention | 25 custom Credo checks overlap with hygiene patterns |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by `quality-hygiene-specialist` at L2+ authority |
+| [Quality Gates](@/glossary/quality-gates.md) | Direct Enforcement | Hygiene check is a mandatory quality gate component |
+| [/quality-gates](@/commands/quality-gates.md) | Gate Integration | Hygiene results feed into quality gate pass/fail decisions |
+| [/quality-enforce](@/commands/quality-enforce.md) | Enforcement Pipeline | Hygiene violations included in enforcement scoring |
+| [/regression-check](@/commands/regression-check.md) | Regression Prevention | 25 custom Credo checks overlap with hygiene patterns |
 | Pre-commit Hooks | Local Enforcement | Hygiene runs as a pre-commit phase in `.githooks/pre-commit` |
-| [Telemetry](/glossary/telemetry/) | Metrics | Analysis metrics tracked for quality trend analysis |
-| [Credo](/glossary/credo/) | Complementary Tool | Hygiene detects patterns Credo does not cover |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Analysis metrics tracked for quality trend analysis |
+| [Credo](@/glossary/credo.md) | Complementary Tool | Hygiene detects patterns Credo does not cover |
 | CI/CD Pipeline | Pipeline Stage | Hygiene analysis runs as an early pipeline stage |
 
 ## Best Practices
@@ -247,7 +247,7 @@ Hygiene results are stored in the Quality DNA system (`.claude/quality-dna/curre
 
 ## Doctrine Compliance
 
-All hygiene operations enforce the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine.
+All hygiene operations enforce the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine.
 
 - **NO MERCY**: Zero tolerance for detected anti-patterns. Hygiene violations in pre-commit hooks block the commit. There are no severity thresholds that would allow "minor" violations to pass -- every detected pattern is reported and must be addressed.
 - **NO DOUBTS**: Pattern matching is deterministic -- the same code always produces the same hygiene results. Auto-fix suggestions are verified against the pattern definition to ensure semantic equivalence. Fix previews (`--dry-run`) enable full investigation before action.
@@ -256,14 +256,14 @@ The command contributes directly to the platform's Quality Score (currently 100/
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/guardrails](/commands/guardrails/) - CI/CD guardrails enforcement for deployment safety
-- [/health](/commands/health/) - System health check with component-level status reporting
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/guardrails](@/commands/guardrails.md) - CI/CD guardrails enforcement for deployment safety
+- [/health](@/commands/health.md) - System health check with component-level status reporting
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -272,4 +272,4 @@ The command contributes directly to the platform's Quality Score (currently 100/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

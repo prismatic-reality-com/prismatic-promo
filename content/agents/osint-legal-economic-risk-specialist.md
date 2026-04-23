@@ -28,9 +28,9 @@ image_alt = "osint-legal-economic-risk-specialist - Prismatic Platform"
 
 ## Overview
 
-The osint-legal-economic-risk-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's [OSINT](/glossary/osint/) domain, responsible for assessing legal and economic risks associated with target entities through systematic analysis of publicly available legal records, financial filings, regulatory actions, and economic indicators. This agent bridges the gap between raw OSINT collection and actionable risk intelligence by applying structured analytical frameworks to legal and economic data, producing risk scores, compliance assessments, and due diligence reports that inform business decisions.
+The osint-legal-economic-risk-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's [OSINT](@/glossary/osint.md) domain, responsible for assessing legal and economic risks associated with target entities through systematic analysis of publicly available legal records, financial filings, regulatory actions, and economic indicators. This agent bridges the gap between raw OSINT collection and actionable risk intelligence by applying structured analytical frameworks to legal and economic data, producing risk scores, compliance assessments, and due diligence reports that inform business decisions.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the platform's [entity resolution](/glossary/entity-resolution/) engine, the legal-economic risk specialist correlates legal findings across jurisdictions, tracks financial exposure patterns, and maps regulatory compliance postures. All risk assessments comply with [NABLA Infinity](/glossary/nabla-infinity/) axioms: every risk rating requires evidence from multiple independent sources, and all confidence scores pass [Trinity Gate](/glossary/trinity-gate/) validation before publication.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the platform's [entity resolution](@/glossary/entity-resolution.md) engine, the legal-economic risk specialist correlates legal findings across jurisdictions, tracks financial exposure patterns, and maps regulatory compliance postures. All risk assessments comply with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms: every risk rating requires evidence from multiple independent sources, and all confidence scores pass [Trinity Gate](@/glossary/trinity-gate.md) validation before publication.
 
 ## Operational Domain
 
@@ -51,8 +51,8 @@ The legal-economic risk domain encompasses corporate legal standing, litigation 
 - **Sanctions and watchlist screening** -- Screens entities against global sanctions lists (OFAC SDN, EU Consolidated, UN Security Council) and PEP databases, including fuzzy matching for name variations and transliterations
 - **Financial health assessment** -- Analyzes publicly available financial data including company filings, credit indicators, and insolvency records to produce financial risk scores with trend analysis
 - **Beneficial ownership mapping** -- Traces corporate ownership chains through multiple layers to identify ultimate beneficial owners, shell company structures, and potential concealment patterns
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed risk monitoring and alert generation for entity portfolio changes
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing risk scoring metrics, screening volumes, and data source freshness indicators
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed risk monitoring and alert generation for entity portfolio changes
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing risk scoring metrics, screening volumes, and data source freshness indicators
 
 ## Risk Assessment Engine
 
@@ -131,7 +131,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to produce entity risk assessments and trigger enhanced due diligence investigations.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to produce entity risk assessments and trigger enhanced due diligence investigations.
 
 ## Command Interface
 
@@ -145,14 +145,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [osint-intelligence-operative](/agents/osint-intelligence-operative/) | Provides investigative support for detailed entity research |
-| [municipal-court-specialist](/agents/municipal-court-specialist/) | Supplies Czech court data for jurisdiction-specific legal analysis |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Legal-economic risk feeds into strategic risk intelligence products |
-| [regulatory-intelligence-commander](/agents/regulatory-intelligence-commander/) | Coordinates on regulatory compliance assessment methodologies |
+| [osint-intelligence-operative](@/agents/osint-intelligence-operative.md) | Provides investigative support for detailed entity research |
+| [municipal-court-specialist](@/agents/municipal-court-specialist.md) | Supplies Czech court data for jurisdiction-specific legal analysis |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Legal-economic risk feeds into strategic risk intelligence products |
+| [regulatory-intelligence-commander](@/agents/regulatory-intelligence-commander.md) | Coordinates on regulatory compliance assessment methodologies |
 
 ## GARDEN and KuzuDB Integration
 
-Legal and economic risk data is stored in [KuzuDB](/glossary/kuzudb/) graph structures, with entities, legal proceedings, regulatory actions, and ownership relationships represented as nodes and edges. This enables complex graph queries such as "find all entities within 2 hops of a sanctioned entity through ownership chains." The [GARDEN](/glossary/garden/) legacy knowledge base provides established patterns for multi-jurisdictional legal data processing refined over 20+ years of OSINT operations.
+Legal and economic risk data is stored in [KuzuDB](@/glossary/kuzudb.md) graph structures, with entities, legal proceedings, regulatory actions, and ownership relationships represented as nodes and edges. This enables complex graph queries such as "find all entities within 2 hops of a sanctioned entity through ownership chains." The [GARDEN](@/glossary/garden.md) legacy knowledge base provides established patterns for multi-jurisdictional legal data processing refined over 20+ years of OSINT operations.
 
 ## Sanctions Screening Architecture
 
@@ -168,7 +168,7 @@ Sanctions evasion frequently involves name variations, transliterations, and ali
 
 ### Beneficial Ownership Traversal
 
-Direct name screening is insufficient because sanctioned entities frequently operate through corporate layers. The specialist traverses beneficial ownership chains stored in [KuzuDB](/glossary/kuzudb/) to identify entities that are indirectly connected to sanctioned persons or organizations through ownership, control, or directorship relationships. Traversal depth is configurable (typically 3-5 levels) and follows the regulatory guidance on "owned or controlled" definitions from relevant jurisdictions.
+Direct name screening is insufficient because sanctioned entities frequently operate through corporate layers. The specialist traverses beneficial ownership chains stored in [KuzuDB](@/glossary/kuzudb.md) to identify entities that are indirectly connected to sanctioned persons or organizations through ownership, control, or directorship relationships. Traversal depth is configurable (typically 3-5 levels) and follows the regulatory guidance on "owned or controlled" definitions from relevant jurisdictions.
 
 ## Multi-Jurisdictional Analysis
 
@@ -178,7 +178,7 @@ Cross-jurisdictional analysis is particularly valuable for identifying entities 
 
 ## Enforcement
 
-All risk assessments comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no risk rating is published without meeting minimum evidence thresholds, critical findings trigger mandatory escalation, and risk scores are recalculated when new evidence emerges. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every risk indicator is traceable to its source data with quantified confidence. The [Trinity Gate](/glossary/trinity-gate/) validates risk assessment consistency across all analyzed dimensions before publication.
+All risk assessments comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no risk rating is published without meeting minimum evidence thresholds, critical findings trigger mandatory escalation, and risk scores are recalculated when new evidence emerges. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every risk indicator is traceable to its source data with quantified confidence. The [Trinity Gate](@/glossary/trinity-gate.md) validates risk assessment consistency across all analyzed dimensions before publication.
 
 ---
 
@@ -187,4 +187,4 @@ All risk assessments comply with the [NO MERCY](/glossary/no-mercy/) doctrine: n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

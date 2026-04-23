@@ -25,9 +25,9 @@ image_alt = "FullHunt - Prismatic Platform"
 
 ## Overview
 
-FullHunt is an [attack surface](/glossary/attack-surface/) intelligence platform that continuously discovers and monitors internet-exposed assets belonging to organizations. It combines subdomain enumeration, port scanning, service identification, technology fingerprinting, and vulnerability detection into a unified platform purpose-built for external attack surface management (EASM). Unlike active scanning tools that require explicit authorization and generate network traffic, FullHunt maintains a continuously updated passive database of internet assets, enabling rapid discovery and assessment without directly probing target infrastructure.
+FullHunt is an [attack surface](@/glossary/attack-surface.md) intelligence platform that continuously discovers and monitors internet-exposed assets belonging to organizations. It combines subdomain enumeration, port scanning, service identification, technology fingerprinting, and vulnerability detection into a unified platform purpose-built for external attack surface management (EASM). Unlike active scanning tools that require explicit authorization and generate network traffic, FullHunt maintains a continuously updated passive database of internet assets, enabling rapid discovery and assessment without directly probing target infrastructure.
 
-For [OSINT](/glossary/osint/) analysts and security professionals, FullHunt provides a comprehensive view of an organization's internet-facing footprint from the attacker's perspective. The platform indexes billions of assets across the internet, associating them with their parent organizations through domain ownership, DNS resolution, certificate transparency logs, and other passive discovery techniques. This enables analysts to answer fundamental questions about what an organization exposes to the internet, what technologies they run, and what vulnerabilities may be present in their external infrastructure.
+For [OSINT](@/glossary/osint.md) analysts and security professionals, FullHunt provides a comprehensive view of an organization's internet-facing footprint from the attacker's perspective. The platform indexes billions of assets across the internet, associating them with their parent organizations through domain ownership, DNS resolution, certificate transparency logs, and other passive discovery techniques. This enables analysts to answer fundamental questions about what an organization exposes to the internet, what technologies they run, and what vulnerabilities may be present in their external infrastructure.
 
 FullHunt occupies a specific niche in the attack surface intelligence landscape alongside platforms like Shodan, Censys, and BinaryEdge. Its differentiator is the focus on organization-centric attack surface mapping rather than general-purpose internet search, providing pre-correlated views of all assets belonging to a domain rather than requiring analysts to manually assemble findings from individual host queries. This organization-centric approach aligns well with EASM workflows and makes FullHunt particularly valuable for security teams managing large, distributed internet footprints.
 
@@ -236,7 +236,7 @@ The organization-centric approach enables security teams to move beyond reactive
 
 ### Vulnerability Prioritization
 
-FullHunt's correlation of discovered services with known vulnerabilities from the [CVE](/glossary/cve/) database enables risk-based vulnerability prioritization. Rather than treating all vulnerabilities equally, analysts can prioritize based on internet exposure (directly reachable from the internet), service criticality (business importance of the affected system), exploit availability (whether public exploits exist for the CVE), and environmental context (what other assets and data may be at risk).
+FullHunt's correlation of discovered services with known vulnerabilities from the [CVE](@/glossary/cve.md) database enables risk-based vulnerability prioritization. Rather than treating all vulnerabilities equally, analysts can prioritize based on internet exposure (directly reachable from the internet), service criticality (business importance of the affected system), exploit availability (whether public exploits exist for the CVE), and environmental context (what other assets and data may be at risk).
 
 This prioritization is critical for organizations with large attack surfaces where remediating all vulnerabilities simultaneously is infeasible. FullHunt data enables data-driven triage decisions that maximize security impact per remediation effort.
 
@@ -281,7 +281,7 @@ Discovered vulnerabilities are handled in accordance with responsible disclosure
 
 ## Platform Integration
 
-FullHunt integrates into the [Prismatic Perimeter](/apps/prismatic-perimeter/) EASM module as one of multiple attack surface intelligence sources, contributing to comprehensive external exposure assessment.
+FullHunt integrates into the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) EASM module as one of multiple attack surface intelligence sources, contributing to comprehensive external exposure assessment.
 
 ```elixir
 defmodule Prismatic.Pipeline.AttackSurfaceIntelligence do
@@ -316,19 +316,19 @@ end
 
 For effective attack surface intelligence using FullHunt, establish a baseline scan of all organizational domains during initial deployment and then monitor for changes over time. Use the subdomain enumeration endpoint as a starting point, then drill into host details for assets that appear high-risk based on exposed ports or outdated technologies.
 
-Cross-validate FullHunt findings with at least one additional scanning platform such as [Shodan](/osint/shodan/) or [Censys](/osint/censys/) for critical assessments. Different scanners have different scanning schedules, port coverage, and fingerprinting capabilities, so multi-source correlation provides more complete and reliable intelligence.
+Cross-validate FullHunt findings with at least one additional scanning platform such as [Shodan](@/osint/shodan.md) or [Censys](@/osint/censys.md) for critical assessments. Different scanners have different scanning schedules, port coverage, and fingerprinting capabilities, so multi-source correlation provides more complete and reliable intelligence.
 
-Integrate FullHunt data with vulnerability management workflows by mapping discovered services to [NVD](/osint/nvd/) vulnerability data and prioritizing remediation based on internet exposure, exploit availability, and business criticality. Automate alerting for new subdomains and newly discovered services to ensure rapid response to attack surface expansion.
+Integrate FullHunt data with vulnerability management workflows by mapping discovered services to [NVD](@/osint/nvd.md) vulnerability data and prioritizing remediation based on internet exposure, exploit availability, and business criticality. Automate alerting for new subdomains and newly discovered services to ensure rapid response to attack surface expansion.
 
 ## Related Sources
 
-- [Shodan](/osint/shodan/) - Internet-connected device search engine with deep service fingerprinting
-- [Censys](/osint/censys/) - Internet-wide scanning with certificate and host intelligence
-- [SecurityTrails](/osint/securitytrails/) - DNS and domain history for infrastructure tracking
-- [BinaryEdge](/osint/binaryedge/) - Internet scanning with data leak and vulnerability detection
-- [ZoomEye](/osint/zoomeye/) - Cyberspace search engine with Asia-Pacific coverage
-- [WhoisXML](/osint/whoisxml/) - WHOIS and DNS intelligence for domain attribution
-- [crt.sh](/osint/crtsh/) - Certificate transparency log search for subdomain discovery
+- [Shodan](@/osint/shodan.md) - Internet-connected device search engine with deep service fingerprinting
+- [Censys](@/osint/censys.md) - Internet-wide scanning with certificate and host intelligence
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and domain history for infrastructure tracking
+- [BinaryEdge](@/osint/binaryedge.md) - Internet scanning with data leak and vulnerability detection
+- [ZoomEye](@/osint/zoomeye.md) - Cyberspace search engine with Asia-Pacific coverage
+- [WhoisXML](@/osint/whoisxml.md) - WHOIS and DNS intelligence for domain attribution
+- [crt.sh](@/osint/crtsh.md) - Certificate transparency log search for subdomain discovery
 
 ---
 
@@ -337,4 +337,4 @@ Integrate FullHunt data with vulnerability management workflows by mapping disco
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

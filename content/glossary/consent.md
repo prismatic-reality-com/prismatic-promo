@@ -93,9 +93,9 @@ flowchart LR
 | **Freely Given** | Art. 7(4) | Not a condition for service, no power imbalance | Unbundled consent checks |
 | **Specific** | Art. 6(1)(a) | Per-purpose consent, not blanket | Purpose limitation audit |
 | **Informed** | Art. 13/14 | Clear, plain language, identity of controller | Readability analysis (Flesch score) |
-| **Unambiguous** | Art. 4(11) | Clear affirmative action, no pre-ticked boxes | UI [pattern](/glossary/pattern-matching/) analysis |
+| **Unambiguous** | Art. 4(11) | Clear affirmative action, no pre-ticked boxes | UI [pattern](@/glossary/pattern-matching.md) analysis |
 | **Withdrawable** | Art. 7(3) | Easy withdrawal mechanism, as easy as granting | Withdrawal flow test |
-| **Documented** | Art. 7(1) | Demonstrable consent record with timestamp | [Audit trail](/glossary/audit-trail/) verification |
+| **Documented** | Art. 7(1) | Demonstrable consent record with timestamp | [Audit trail](@/glossary/audit-trail.md) verification |
 | **Age-verified** | Art. 8 | Parental consent for children (<16 in most EU states) | Age gate validation |
 
 ### Special Categories (Article 9)
@@ -109,7 +109,7 @@ Processing of sensitive data (health, biometrics, political opinions, ethnic ori
 
 ### Consent Record Architecture
 
-The consent management architecture follows an append-only, [event-sourced](/glossary/event-sourcing/) pattern. Every consent action produces an immutable record. Current consent state is derived from the latest record per (subject, purpose) pair.
+The consent management architecture follows an append-only, [event-sourced](@/glossary/event-sourcing.md) pattern. Every consent action produces an immutable record. Current consent state is derived from the latest record per (subject, purpose) pair.
 
 ```elixir
 defmodule PrismaticPrivacy.ConsentRecord do
@@ -356,7 +356,7 @@ Both follow the append-only pattern with versioned consent text, ensuring that i
 
 ### External Compliance Assessment (Perimeter)
 
-The [Perimeter](/glossary/perimeter/) [compliance](/glossary/compliance/) engine evaluates external organizations' consent mechanisms as part of GDPR scoring:
+The [Perimeter](/glossary/perimeter/) [compliance](@/glossary/compliance.md) engine evaluates external organizations' consent mechanisms as part of GDPR scoring:
 
 ```mermaid
 flowchart TD
@@ -385,7 +385,7 @@ flowchart TD
 
 ### OSINT Consent Boundaries
 
-The [OSINT](/glossary/osint/) toolbox's operations must respect consent boundaries when processing personal data. Tools that return personal information include consent-relevance metadata:
+The [OSINT](@/glossary/osint.md) toolbox's operations must respect consent boundaries when processing personal data. Tools that return personal information include consent-relevance metadata:
 
 ```elixir
 defmodule PrismaticOsintCore.ConsentClassifier do
@@ -416,7 +416,7 @@ end
 
 ### NIS2 Consent Requirements
 
-The Czech NIS2 implementation adds additional consent requirements for critical infrastructure entities. The [CER compliance](/glossary/nis2/) module tracks these alongside GDPR requirements.
+The Czech NIS2 implementation adds additional consent requirements for critical infrastructure entities. The [CER compliance](@/glossary/nis2.md) module tracks these alongside GDPR requirements.
 
 ## Cookie Consent Patterns
 
@@ -485,25 +485,25 @@ The Czech NIS2 implementation adds additional consent requirements for critical 
 
 ## Related Terms
 
-- [Compliance](/glossary/compliance/) -- regulatory framework including GDPR consent requirements
-- [GDPR](/glossary/gdpr/) -- the regulation defining consent requirements
-- [NIS2](/glossary/nis2/) -- EU directive with additional data protection requirements
-- [Audit Trail](/glossary/audit-trail/) -- immutable record of consent actions
-- [Authentication](/glossary/authentication/) -- identity verification prerequisite to consent
-- [Authorization](/glossary/authorization/) -- access control informed by consent status
-- [Data Breach](/glossary/data-breach/) -- security incident requiring consent-aware notification
-- [Encryption](/glossary/encryption/) -- technical measure protecting consented data
-- [Credential](/glossary/credential/) -- authentication tokens subject to consent for analytics
+- [Compliance](@/glossary/compliance.md) -- regulatory framework including GDPR consent requirements
+- [GDPR](@/glossary/gdpr.md) -- the regulation defining consent requirements
+- [NIS2](@/glossary/nis2.md) -- EU directive with additional data protection requirements
+- [Audit Trail](@/glossary/audit-trail.md) -- immutable record of consent actions
+- [Authentication](@/glossary/authentication.md) -- identity verification prerequisite to consent
+- [Authorization](@/glossary/authorization.md) -- access control informed by consent status
+- [Data Breach](@/glossary/data-breach.md) -- security incident requiring consent-aware notification
+- [Encryption](@/glossary/encryption.md) -- technical measure protecting consented data
+- [Credential](@/glossary/credential.md) -- authentication tokens subject to consent for analytics
 - [Perimeter](/glossary/perimeter/) -- EASM module assessing external consent mechanisms
-- [OSINT](/glossary/osint/) -- intelligence gathering with consent boundary awareness
-- [Changeset](/glossary/changeset/) -- [Ecto](/glossary/ecto/) validation enforcing consent record integrity
-- [Event Sourcing](/glossary/event-sourcing/) -- architectural pattern underlying consent management
-- [Data Quality](/glossary/data-quality/) -- quality of consent records and audit completeness
+- [OSINT](@/glossary/osint.md) -- intelligence gathering with consent boundary awareness
+- [Changeset](/glossary/changeset/) -- [Ecto](@/glossary/ecto.md) validation enforcing consent record integrity
+- [Event Sourcing](@/glossary/event-sourcing.md) -- architectural pattern underlying consent management
+- [Data Quality](@/glossary/data-quality.md) -- quality of consent records and audit completeness
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- compliance and privacy capabilities
-- [Architecture](/architecture/) -- consent management architecture
+- [Capabilities](@/capabilities/_index.md) -- compliance and privacy capabilities
+- [Architecture](@/architecture/_index.md) -- consent management architecture
 - [Perimeter](/perimeter/) -- GDPR compliance assessment dashboard
 
 ---
@@ -513,4 +513,4 @@ The Czech NIS2 implementation adds additional consent requirements for critical 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

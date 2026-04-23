@@ -28,13 +28,13 @@ image_alt = "performance-monitoring-specialist - Prismatic Platform"
 
 ## Overview
 
-The Performance Monitoring Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's infrastructure domain, providing continuous application performance monitoring with comprehensive latency and throughput analysis across the platform's 90 [umbrella application](/glossary/umbrella-application/)s. Unlike benchmarking agents that measure performance under controlled conditions, this specialist monitors live production performance, detecting anomalies, degradation trends, and capacity constraints in real-time operational environments.
+The Performance Monitoring Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's infrastructure domain, providing continuous application performance monitoring with comprehensive latency and throughput analysis across the platform's 90 [umbrella application](@/glossary/umbrella-application.md)s. Unlike benchmarking agents that measure performance under controlled conditions, this specialist monitors live production performance, detecting anomalies, degradation trends, and capacity constraints in real-time operational environments.
 
-Built on the [AIAD](/glossary/aiad/) standard and deeply integrated with the platform's [telemetry](/glossary/telemetry/) infrastructure, the agent ingests telemetry events from every platform subsystem, computing rolling performance statistics, maintaining historical baselines, and triggering alerts when metrics breach defined thresholds. The [NO DOUBTS](/glossary/no-doubts/) principle governs alert accuracy: alerts are issued only when statistical analysis confirms that observed anomalies represent genuine performance changes rather than transient variance, minimizing alert fatigue while ensuring that real issues are detected promptly.
+Built on the [AIAD](@/glossary/aiad.md) standard and deeply integrated with the platform's [telemetry](@/glossary/telemetry.md) infrastructure, the agent ingests telemetry events from every platform subsystem, computing rolling performance statistics, maintaining historical baselines, and triggering alerts when metrics breach defined thresholds. The [NO DOUBTS](@/glossary/no-doubts.md) principle governs alert accuracy: alerts are issued only when statistical analysis confirms that observed anomalies represent genuine performance changes rather than transient variance, minimizing alert fatigue while ensuring that real issues are detected promptly.
 
 ## Theoretical Foundations
 
-Application performance monitoring in a [BEAM](/glossary/beam/) runtime environment requires understanding of the runtime's distinctive performance characteristics. The BEAM scheduler's preemptive model based on reduction counts creates different performance profiles than thread-based runtimes: latency is generally more consistent under load due to fair scheduling, but garbage collection pauses and process mailbox buildup can create latency spikes that are unique to the BEAM ecosystem.
+Application performance monitoring in a [BEAM](@/glossary/beam.md) runtime environment requires understanding of the runtime's distinctive performance characteristics. The BEAM scheduler's preemptive model based on reduction counts creates different performance profiles than thread-based runtimes: latency is generally more consistent under load due to fair scheduling, but garbage collection pauses and process mailbox buildup can create latency spikes that are unique to the BEAM ecosystem.
 
 The agent's anomaly detection system employs multiple complementary statistical methods. Exponentially weighted moving averages (EWMA) provide baseline tracking that adapts to gradual legitimate performance changes while flagging sudden deviations. Seasonal decomposition separates periodic performance patterns (daily traffic cycles, batch job effects) from genuine anomalies. Quartile-based outlier detection identifies individual measurements that fall far outside normal distributions, while change-point detection algorithms identify systematic shifts in performance characteristics.
 
@@ -42,9 +42,9 @@ Alert suppression logic implements hysteresis to prevent flapping alerts when me
 
 ## Operational Domain
 
-The infrastructure domain for performance monitoring encompasses all platform components that produce measurable performance signals. This includes [Phoenix](/glossary/phoenix/) HTTP endpoint response times, [LiveView](/glossary/liveview/) mount and event handling durations, [GenServer](/glossary/genserver/) call latencies, [ETS](/glossary/ets/) table operation times, [PostgreSQL](/glossary/postgresql/) query execution times, inter-application message passing delays, and external service integration response times.
+The infrastructure domain for performance monitoring encompasses all platform components that produce measurable performance signals. This includes [Phoenix](@/glossary/phoenix.md) HTTP endpoint response times, [LiveView](@/glossary/liveview.md) mount and event handling durations, [GenServer](@/glossary/genserver.md) call latencies, [ETS](@/glossary/ets.md) table operation times, [PostgreSQL](@/glossary/postgresql.md) query execution times, inter-application message passing delays, and external service integration response times.
 
-The monitoring scope extends to infrastructure-level metrics including [BEAM](/glossary/beam/) scheduler utilization, process count trends, memory consumption patterns, I/O throughput, and network latency. These infrastructure metrics provide context for application-level performance observations, enabling root cause analysis that connects application slowdowns to underlying resource constraints.
+The monitoring scope extends to infrastructure-level metrics including [BEAM](@/glossary/beam.md) scheduler utilization, process count trends, memory consumption patterns, I/O throughput, and network latency. These infrastructure metrics provide context for application-level performance observations, enabling root cause analysis that connects application slowdowns to underlying resource constraints.
 
 ## Key Capabilities
 
@@ -58,9 +58,9 @@ The monitoring scope extends to infrastructure-level metrics including [BEAM](/g
 
 - **Correlation analysis** -- Cross-correlates performance anomalies across different metrics and services to identify root causes, detecting when latency increases in one service are caused by throughput changes in upstream dependencies
 
-- **[Circuit breaker](/glossary/circuit-breaker/) monitoring** -- Tracks circuit breaker state transitions across all platform services, alerting when breakers trip and providing context for the triggering conditions
+- **[Circuit breaker](@/glossary/circuit-breaker.md) monitoring** -- Tracks circuit breaker state transitions across all platform services, alerting when breakers trip and providing context for the triggering conditions
 
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous monitoring that requires no manual intervention
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous monitoring that requires no manual intervention
 
 ## Authority Level
 
@@ -70,11 +70,11 @@ The monitoring scope extends to infrastructure-level metrics including [BEAM](/g
 
 The monitoring infrastructure follows a three-layer architecture:
 
-1. **Collection Layer** -- [Telemetry](/glossary/telemetry/) event handlers attached to all platform subsystems capture raw performance measurements with microsecond precision timestamps
-2. **Aggregation Layer** -- Raw measurements are aggregated into time-windowed statistics (1-second, 1-minute, 5-minute, 1-hour windows) using [ETS](/glossary/ets/)-backed sliding window data structures
+1. **Collection Layer** -- [Telemetry](@/glossary/telemetry.md) event handlers attached to all platform subsystems capture raw performance measurements with microsecond precision timestamps
+2. **Aggregation Layer** -- Raw measurements are aggregated into time-windowed statistics (1-second, 1-minute, 5-minute, 1-hour windows) using [ETS](@/glossary/ets.md)-backed sliding window data structures
 3. **Analysis Layer** -- Statistical analysis algorithms process aggregated data to detect anomalies, compute trends, and generate alerts
 
-Each layer operates independently with its own [supervision tree](/glossary/supervision-tree/), ensuring that analysis failures do not impact data collection and that collection failures degrade gracefully with documented data gaps rather than silent metric loss.
+Each layer operates independently with its own [supervision tree](@/glossary/supervision-tree.md), ensuring that analysis failures do not impact data collection and that collection failures degrade gracefully with documented data gaps rather than silent metric loss.
 
 ## Alert Configuration
 
@@ -101,19 +101,19 @@ Each layer operates independently with its own [supervision tree](/glossary/supe
 
 | Agent | Relationship |
 |-------|-------------|
-| [Performance Benchmarking Agent](/agents/performance-benchmarking-agent/) | Benchmark baselines inform monitoring thresholds |
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Monitoring alerts trigger profiling investigations |
-| [performance-optimization-conductor](/agents/performance-optimization-conductor/) | Monitoring data drives optimization prioritization |
-| [service-mesh-specialist](/agents/service-mesh-specialist/) | Infrastructure health context for cross-service correlation |
-| [penetration-testing-specialist](/agents/penetration-testing-specialist/) | Performance impact monitoring during security assessments |
+| [Performance Benchmarking Agent](@/agents/performance-benchmarking-agent.md) | Benchmark baselines inform monitoring thresholds |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Monitoring alerts trigger profiling investigations |
+| [performance-optimization-conductor](@/agents/performance-optimization-conductor.md) | Monitoring data drives optimization prioritization |
+| [service-mesh-specialist](@/agents/service-mesh-specialist.md) | Infrastructure health context for cross-service correlation |
+| [penetration-testing-specialist](@/agents/penetration-testing-specialist.md) | Performance impact monitoring during security assessments |
 
 ## Dashboard and Visualization
 
-The agent publishes real-time performance data to [LiveView](/glossary/liveview/)-powered dashboards that provide at-a-glance visibility into platform performance health. Dashboard panels include latency distribution heatmaps, throughput time-series graphs, alert status indicators, and capacity utilization gauges. Dashboard updates are pushed through Phoenix PubSub at configurable intervals, providing near-real-time visibility without polling overhead.
+The agent publishes real-time performance data to [LiveView](@/glossary/liveview.md)-powered dashboards that provide at-a-glance visibility into platform performance health. Dashboard panels include latency distribution heatmaps, throughput time-series graphs, alert status indicators, and capacity utilization gauges. Dashboard updates are pushed through Phoenix PubSub at configurable intervals, providing near-real-time visibility without polling overhead.
 
 ## Enforcement
 
-Performance monitoring enforcement follows the [NO MERCY](/glossary/no-mercy/) doctrine: the platform's P0 page load performance standard (all pages under 250ms, server-side render under 100ms) is continuously verified through production monitoring. Sustained violations trigger automatic escalation through the platform's incident response workflow. The [NO DOUBTS](/glossary/no-doubts/) principle ensures that all alerts include sufficient diagnostic context to enable rapid root cause analysis without requiring additional investigation steps.
+Performance monitoring enforcement follows the [NO MERCY](@/glossary/no-mercy.md) doctrine: the platform's P0 page load performance standard (all pages under 250ms, server-side render under 100ms) is continuously verified through production monitoring. Sustained violations trigger automatic escalation through the platform's incident response workflow. The [NO DOUBTS](@/glossary/no-doubts.md) principle ensures that all alerts include sufficient diagnostic context to enable rapid root cause analysis without requiring additional investigation steps.
 
 ## Related Agents
 
@@ -126,4 +126,4 @@ Agents in the **infrastructure** domain collaborate to maintain platform health 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

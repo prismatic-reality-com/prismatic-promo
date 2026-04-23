@@ -253,15 +253,15 @@ The Prismatic Platform integrates CTI through its multi-source intelligence fusi
 
 ### OSINT-CTI Integration
 
-The [OSINT](/glossary/osint/) subsystem provides the primary collection layer for CTI, with providers including Shodan, Censys, GreyNoise, Certificate Transparency logs, and DNS enumeration tools. Raw OSINT data flows through Broadway pipelines where it is enriched, correlated, and scored into CTI products.
+The [OSINT](@/glossary/osint.md) subsystem provides the primary collection layer for CTI, with providers including Shodan, Censys, GreyNoise, Certificate Transparency logs, and DNS enumeration tools. Raw OSINT data flows through Broadway pipelines where it is enriched, correlated, and scored into CTI products.
 
 ### Perimeter Threat Contextualization
 
-[Prismatic Perimeter](/glossary/prismatic-perimeter/) uses CTI to contextualize discovered assets against known threat landscapes. When the discovery pipeline identifies an exposed service, CTI correlation checks whether that service's technology fingerprint matches current threat actor targeting patterns.
+[Prismatic Perimeter](@/glossary/prismatic-perimeter.md) uses CTI to contextualize discovered assets against known threat landscapes. When the discovery pipeline identifies an exposed service, CTI correlation checks whether that service's technology fingerprint matches current threat actor targeting patterns.
 
 ### Color Team Operations
 
-The [Color Team](/glossary/color-teams/) security operations leverage CTI at multiple levels:
+The [Color Team](@/glossary/color-teams.md) security operations leverage CTI at multiple levels:
 
 | Team | CTI Usage |
 |------|-----------|
@@ -272,7 +272,7 @@ The [Color Team](/glossary/color-teams/) security operations leverage CTI at mul
 
 ### NABLA Compliance
 
-All CTI findings must comply with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework:
+All CTI findings must comply with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework:
 
 ```elixir
 defmodule PrismaticIntelligence.NABLAValidator do
@@ -339,19 +339,19 @@ end
 
 ## Related Concepts
 
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Broader intelligence discipline encompassing CTI
-- [OSINT](/glossary/osint/) -- Open-source intelligence feeding CTI analysis
-- [CVE](/glossary/cve/) -- Standardized vulnerability identifiers used in CTI
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- CTI-informed evaluation of system weaknesses
-- [EASM](/glossary/easm/) -- External attack surface mapped against CTI threat data
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- Platform component consuming CTI for security assessment
-- [Gray Team](/glossary/gray-team/) -- Boundary exploration team exploring CTI data quality gaps
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Broader intelligence discipline encompassing CTI
+- [OSINT](@/glossary/osint.md) -- Open-source intelligence feeding CTI analysis
+- [CVE](@/glossary/cve.md) -- Standardized vulnerability identifiers used in CTI
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- CTI-informed evaluation of system weaknesses
+- [EASM](@/glossary/easm.md) -- External attack surface mapped against CTI threat data
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- Platform component consuming CTI for security assessment
+- [Gray Team](@/glossary/gray-team.md) -- Boundary exploration team exploring CTI data quality gaps
 
 ## See Also
 
-- [Architecture](/architecture/) -- Intelligence architecture
-- [Technologies](/technologies/) -- Intelligence processing stack
-- [Agents](/agents/) -- AIAD agents involved in CTI processing
+- [Architecture](@/architecture/_index.md) -- Intelligence architecture
+- [Technologies](@/technologies/_index.md) -- Intelligence processing stack
+- [Agents](@/agents/_index.md) -- AIAD agents involved in CTI processing
 
 ---
 
@@ -360,4 +360,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

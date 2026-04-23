@@ -34,7 +34,7 @@ Research partnerships are structured, sustained collaborations between a technol
 
 Unlike conventional vendor-university relationships that produce papers without production impact, Prismatic research partnerships are structured around a **knowledge transfer pipeline** that transforms research outputs (proofs, algorithms, methodologies) into deployable platform capabilities (quality gates, verification frameworks, analysis tools). Conversely, the pipeline flows in the other direction as well: production challenges and real-world data inform research directions, ensuring that academic work remains grounded in practical needs.
 
-Research partnerships are governed by the same quality principles as the platform itself. Research code that enters the platform must pass the same [quality gates](/glossary/quality-gates/) as any other contribution. Research claims must satisfy the [Trinity Gate](/glossary/trinity-gate/) verification requirements. And research methodology must comply with the platform's commitment to [transparency](/glossary/quality-and-transparency/) -- all methods, data, and results are documented and reproducible.
+Research partnerships are governed by the same quality principles as the platform itself. Research code that enters the platform must pass the same [quality gates](@/glossary/quality-gates.md) as any other contribution. Research claims must satisfy the [Trinity Gate](@/glossary/trinity-gate.md) verification requirements. And research methodology must comply with the platform's commitment to [transparency](@/glossary/quality-and-transparency.md) -- all methods, data, and results are documented and reproducible.
 
 ## The Case for Research Partnerships
 
@@ -46,7 +46,7 @@ The Prismatic Platform's architecture includes several components that originate
 
 2. **Quality Floor Guardian** -- The autonomous quality monitoring agent implements concepts from control theory research, particularly threshold-based escalation models and hysteresis-aware state machines.
 
-3. **Graph-Based Knowledge Representation** -- The platform's use of KuzuDB for [knowledge graphs](/glossary/knowledge-graph/) and relationship modeling builds on graph database research, particularly property graph theory and query optimization for OLAP workloads.
+3. **Graph-Based Knowledge Representation** -- The platform's use of KuzuDB for [knowledge graphs](@/glossary/knowledge-graph.md) and relationship modeling builds on graph database research, particularly property graph theory and query optimization for OLAP workloads.
 
 4. **Formal Verification Integration** -- The platform's use of Lean4 for formal proofs in the White Team verification pipeline reflects active research in proof-assistant-based software verification.
 
@@ -259,7 +259,7 @@ The Prismatic Platform engages in research partnerships across several key domai
 Formal verification research focuses on proving correctness properties of platform components using mathematical proof assistants. The White Team's verification pipeline uses Lean4 for formal proofs, and research partnerships in this domain aim to:
 
 - Prove invariants of critical OTP supervision hierarchies
-- Verify correctness of the [Trinity Gate](/glossary/trinity-gate/) logic
+- Verify correctness of the [Trinity Gate](@/glossary/trinity-gate.md) logic
 - Formalize the NABLA Infinity axiom system
 - Develop automated proof strategies for Elixir code
 
@@ -392,7 +392,7 @@ end
 
 ## Open Source as Research Infrastructure
 
-The Prismatic Platform's [open-source strategy](/glossary/open-source-strategy/) serves as a force multiplier for research partnerships. By publishing the SDK, Plugin Kit, Security, and UI packages as open source, the platform enables:
+The Prismatic Platform's [open-source strategy](@/glossary/open-source-strategy.md) serves as a force multiplier for research partnerships. By publishing the SDK, Plugin Kit, Security, and UI packages as open source, the platform enables:
 
 - **External validation** -- Research partners can independently verify claims about platform capabilities
 - **Community contributions** -- Open-source contributors may identify research opportunities that internal teams miss
@@ -413,7 +413,7 @@ Research partnerships are evaluated against concrete metrics:
 | Publication output | 2+ papers per year per active partnership | Publication tracking |
 | Reproducibility compliance | 100% of research artifacts | ReproducibilityGuard checks |
 
-These metrics are themselves subject to the platform's [quality transparency](/glossary/quality-and-transparency/) principles -- they are visible to all stakeholders and reported through the standard quality reporting pipeline.
+These metrics are themselves subject to the platform's [quality transparency](@/glossary/quality-and-transparency.md) principles -- they are visible to all stakeholders and reported through the standard quality reporting pipeline.
 
 ## Challenges and Mitigations
 
@@ -436,17 +436,17 @@ The Prismatic Platform's research partnership program is expanding in several di
 
 ## Related Concepts
 
-- [Open Source](/glossary/open-source/) -- Foundation for transparent collaboration
-- [Open Source Strategy](/glossary/open-source-strategy/) -- Platform approach to open-source engagement
-- [Open Source Leadership](/glossary/open-source-leadership/) -- Leading through open contribution
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Structured knowledge representation
-- [Knowledge Representation](/glossary/knowledge-representation/) -- Encoding knowledge formally
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification framework
-- [Architecture Excellence](/glossary/architecture-excellence/) -- Architectural quality standards
-- [Artificial Intelligence](/glossary/artificial-intelligence/) -- AI capabilities and research
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- Probabilistic inference methods
-- [3NL](/glossary/3nl/) -- Three-level knowledge framework
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- Transparent quality metrics
+- [Open Source](@/glossary/open-source.md) -- Foundation for transparent collaboration
+- [Open Source Strategy](@/glossary/open-source-strategy.md) -- Platform approach to open-source engagement
+- [Open Source Leadership](@/glossary/open-source-leadership.md) -- Leading through open contribution
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Structured knowledge representation
+- [Knowledge Representation](@/glossary/knowledge-representation.md) -- Encoding knowledge formally
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification framework
+- [Architecture Excellence](@/glossary/architecture-excellence.md) -- Architectural quality standards
+- [Artificial Intelligence](@/glossary/artificial-intelligence.md) -- AI capabilities and research
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- Probabilistic inference methods
+- [3NL](@/glossary/3nl.md) -- Three-level knowledge framework
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- Transparent quality metrics
 
 ---
 
@@ -455,4 +455,4 @@ The Prismatic Platform's research partnership program is expanding in several di
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

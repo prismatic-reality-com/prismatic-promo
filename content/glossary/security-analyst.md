@@ -40,7 +40,7 @@ Security analysts are typically organized into tiered structures within a SOC:
 | **Tier 3** | Threat Hunting | Proactive search for undetected threats, hypothesis-driven investigation | Custom queries, threat intel, OSINT |
 | **Tier 4** | Threat Intelligence | Strategic analysis, adversary profiling, intelligence production | Intel platforms, dark web monitoring |
 
-Within the Prismatic Platform, the security analyst role is augmented by automated [OSINT](/glossary/osint/) collection, AI-assisted [threat intelligence](/glossary/threat-intelligence/) correlation, and the [Color Teams](/glossary/color-teams/) framework that provides structured adversarial-defensive analysis workflows.
+Within the Prismatic Platform, the security analyst role is augmented by automated [OSINT](@/glossary/osint.md) collection, AI-assisted [threat intelligence](@/glossary/threat-intelligence.md) correlation, and the [Color Teams](@/glossary/color-teams.md) framework that provides structured adversarial-defensive analysis workflows.
 
 The relationship between security analysts and the broader security organization is bidirectional. Analysts produce intelligence that informs security architecture decisions, and security architects define the monitoring requirements and detection logic that analysts operate. This feedback loop -- analyst observations driving architectural improvements, architectural changes requiring updated monitoring -- is central to a mature security program.
 
@@ -314,7 +314,7 @@ When alerts escalate to incidents, security analysts follow structured investiga
 
 ### Color Teams and the Security Analyst
 
-The Prismatic Platform's [Color Teams](/glossary/color-teams/) framework provides structured roles that map to different security analyst specializations:
+The Prismatic Platform's [Color Teams](@/glossary/color-teams.md) framework provides structured roles that map to different security analyst specializations:
 
 | Color Team | Analyst Analogue | Function |
 |-----------|-----------------|----------|
@@ -327,7 +327,7 @@ The Prismatic Platform's [Color Teams](/glossary/color-teams/) framework provide
 
 ### OSINT Integration for Analyst Workflows
 
-Security analysts in the Prismatic Platform leverage the 120+ [OSINT](/glossary/osint/) tools for threat investigation:
+Security analysts in the Prismatic Platform leverage the 120+ [OSINT](@/glossary/osint.md) tools for threat investigation:
 
 | OSINT Category | Analyst Use Case | Example Tools |
 |---------------|-----------------|---------------|
@@ -455,20 +455,20 @@ The security analyst role is being reshaped by several forces:
 - **Threat intelligence operationalization**: Moving from intelligence reports to automated indicator feeds integrated directly into detection pipelines
 - **Cross-domain expertise**: Security analysts increasingly need expertise in adjacent domains -- cloud architecture, software development, data engineering, regulatory compliance
 
-The Prismatic Platform's approach -- providing analysts with automated [OSINT](/glossary/osint/) enrichment, structured [Color Team](/glossary/color-teams/) workflows, [SIEM](/glossary/siem/) integration, and AI-augmented recommendations while preserving human decision authority -- represents the direction the industry is heading: augmented intelligence rather than replacement.
+The Prismatic Platform's approach -- providing analysts with automated [OSINT](@/glossary/osint.md) enrichment, structured [Color Team](@/glossary/color-teams.md) workflows, [SIEM](@/glossary/siem.md) integration, and AI-augmented recommendations while preserving human decision authority -- represents the direction the industry is heading: augmented intelligence rather than replacement.
 
 ## Related Concepts
 
 The security analyst role connects to numerous Prismatic Platform concepts:
 
-- [Security Operations](/glossary/security-operations/) -- The organizational framework within which analysts operate
-- [Security Modeling](/glossary/security-modeling/) -- Formal methods for reasoning about security that analysts apply
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Intelligence that feeds analyst decision-making
-- [Incident Response](/glossary/incident-response/) -- The structured process analysts follow during security events
-- [OSINT](/glossary/osint/) -- Open source intelligence gathering techniques analysts employ
-- [SIEM](/glossary/siem/) -- The primary monitoring platform analysts use daily
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Systematic identification of weaknesses that analysts analyze
-- [Penetration Testing](/glossary/penetration-testing/) -- Offensive testing that validates defensive analyst capabilities
+- [Security Operations](@/glossary/security-operations.md) -- The organizational framework within which analysts operate
+- [Security Modeling](@/glossary/security-modeling.md) -- Formal methods for reasoning about security that analysts apply
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Intelligence that feeds analyst decision-making
+- [Incident Response](@/glossary/incident-response.md) -- The structured process analysts follow during security events
+- [OSINT](@/glossary/osint.md) -- Open source intelligence gathering techniques analysts employ
+- [SIEM](@/glossary/siem.md) -- The primary monitoring platform analysts use daily
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Systematic identification of weaknesses that analysts analyze
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Offensive testing that validates defensive analyst capabilities
 
 ## Summary
 

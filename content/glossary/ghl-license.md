@@ -356,24 +356,24 @@ Developers using the standalone Prismatic SDK (MIT licensed) in their projects o
 
 The GHL license connects to numerous aspects of the Prismatic Platform's governance and strategy:
 
-- [Open Source](/glossary/open-source/) is the philosophical foundation that the GHL builds upon while adding sustainability mechanisms
-- [Community Ownership](/glossary/community-ownership/) describes the governance model that the GHL's contribution terms support
-- [Developer Portal](/glossary/developer-portal/) provides the public-facing interface for developers operating under any GHL tier
-- [Ecosystem Expansion](/glossary/ecosystem-expansion/) (Gen 19) introduced the dual-track licensing strategy with MIT-licensed standalone packages
-- [SDK](/glossary/sdk/) is the first package released under MIT license as part of the ecosystem expansion
-- [Open Source Strategy](/glossary/open-source-strategy/) covers the broader strategic thinking behind the GHL's design
-- [Open Source Leadership](/glossary/open-source-leadership/) describes the leadership model that the GHL enables
-- [Sustainable Funding Models](/glossary/sustainable-funding-models/) explores the economics that the GHL's tiered structure supports
-- [Community Building](/glossary/community-building/) covers the community practices enabled by the GHL's permissive community tier
-- [Complete Transparency](/glossary/complete-transparency/) is the value that drives the GHL's source-available approach across all tiers
+- [Open Source](@/glossary/open-source.md) is the philosophical foundation that the GHL builds upon while adding sustainability mechanisms
+- [Community Ownership](@/glossary/community-ownership.md) describes the governance model that the GHL's contribution terms support
+- [Developer Portal](@/glossary/developer-portal.md) provides the public-facing interface for developers operating under any GHL tier
+- [Ecosystem Expansion](@/glossary/ecosystem-expansion.md) (Gen 19) introduced the dual-track licensing strategy with MIT-licensed standalone packages
+- [SDK](@/glossary/sdk.md) is the first package released under MIT license as part of the ecosystem expansion
+- [Open Source Strategy](@/glossary/open-source-strategy.md) covers the broader strategic thinking behind the GHL's design
+- [Open Source Leadership](@/glossary/open-source-leadership.md) describes the leadership model that the GHL enables
+- [Sustainable Funding Models](@/glossary/sustainable-funding-models.md) explores the economics that the GHL's tiered structure supports
+- [Community Building](@/glossary/community-building.md) covers the community practices enabled by the GHL's permissive community tier
+- [Complete Transparency](@/glossary/complete-transparency.md) is the value that drives the GHL's source-available approach across all tiers
 
 ## See Also
 
-- [Open Source Advocacy](/glossary/open-source-advocacy/) -- the broader movement that the GHL participates in
-- [Community Contributions](/glossary/community-contributions/) -- how contributions flow under the GHL's CLA
-- [Open Source Superiority](/glossary/open-source-superiority/) -- the platform's thesis on open source as a competitive advantage
-- [Perfection Over Profit](/glossary/perfection-over-profit/) -- the value that prioritizes quality over commercial extraction
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- the twin values that the GHL is designed to protect
+- [Open Source Advocacy](@/glossary/open-source-advocacy.md) -- the broader movement that the GHL participates in
+- [Community Contributions](@/glossary/community-contributions.md) -- how contributions flow under the GHL's CLA
+- [Open Source Superiority](@/glossary/open-source-superiority.md) -- the platform's thesis on open source as a competitive advantage
+- [Perfection Over Profit](@/glossary/perfection-over-profit.md) -- the value that prioritizes quality over commercial extraction
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- the twin values that the GHL is designed to protect
 
 ---
 

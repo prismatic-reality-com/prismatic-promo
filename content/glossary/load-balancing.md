@@ -43,13 +43,13 @@ Load balancing is the practice of distributing incoming network traffic, computa
 
 The core challenge of load balancing is the selection algorithm -- how to choose which instance receives the next unit of work. Simple algorithms like round-robin distribute work evenly but ignore instance health and current load. Weighted algorithms account for heterogeneous instance capacities. Least-connections algorithms route to the instance handling the fewest active requests. Consistent hashing maps requests to instances deterministically, enabling cache affinity. Health-check-aware algorithms remove unhealthy instances from the pool and reintroduce them after recovery. The optimal algorithm depends on the workload characteristics: stateless HTTP APIs benefit from round-robin, WebSocket connections require sticky sessions or consistent hashing, and CPU-intensive tasks benefit from least-connections.
 
-Modern cloud platforms provide load balancing as a managed service with global reach. Geographic load balancing routes users to the nearest healthy instance across multiple regions, minimizing network latency. Edge networks like Cloudflare, AWS CloudFront, and [Fly.io](/glossary/fly-io/)'s Anycast routing distribute traffic at the network edge, often before it reaches application servers. Within the [BEAM](/glossary/beam/) virtual machine, the scheduler itself acts as an internal load balancer, distributing process execution across available CPU cores through preemptive scheduling with reduction-based time budgets.
+Modern cloud platforms provide load balancing as a managed service with global reach. Geographic load balancing routes users to the nearest healthy instance across multiple regions, minimizing network latency. Edge networks like Cloudflare, AWS CloudFront, and [Fly.io](@/glossary/fly-io.md)'s Anycast routing distribute traffic at the network edge, often before it reaches application servers. Within the [BEAM](@/glossary/beam.md) virtual machine, the scheduler itself acts as an internal load balancer, distributing process execution across available CPU cores through preemptive scheduling with reduction-based time budgets.
 
 ## Context in Prismatic
 
-The Prismatic Platform employs load balancing at three distinct layers. At the edge, [Fly.io](/glossary/fly-io/)'s Anycast network provides geographic load balancing, routing users to the nearest healthy instance across deployment regions for minimum latency. At the application layer, the [BEAM](/glossary/beam/) scheduler naturally load-balances work across available CPU cores through its preemptive process scheduling -- each of the 434 agent processes receives fair CPU time regardless of workload. At the infrastructure layer, [connection pooling](/glossary/connection-pooling/) distributes database queries across PostgreSQL connection pools, and the PrismaticSupervisor coordinates process placement for optimal resource utilization across [cluster](/glossary/cluster/) nodes.
+The Prismatic Platform employs load balancing at three distinct layers. At the edge, [Fly.io](@/glossary/fly-io.md)'s Anycast network provides geographic load balancing, routing users to the nearest healthy instance across deployment regions for minimum latency. At the application layer, the [BEAM](@/glossary/beam.md) scheduler naturally load-balances work across available CPU cores through its preemptive process scheduling -- each of the 434 agent processes receives fair CPU time regardless of workload. At the infrastructure layer, [connection pooling](@/glossary/connection-pooling.md) distributes database queries across PostgreSQL connection pools, and the PrismaticSupervisor coordinates process placement for optimal resource utilization across [cluster](@/glossary/cluster.md) nodes.
 
-The platform's [API Gateway](/glossary/api-gateway/) (`PrismaticApi.Endpoint` on port 4004) handles request routing to the appropriate internal service, while [rate limiting](/glossary/rate-limiting/) prevents any single client from monopolizing capacity. The [backpressure](/glossary/backpressure/) mechanisms in [Broadway](/glossary/broadway/) pipelines provide internal load balancing for data processing, ensuring that producer speed does not overwhelm consumer capacity.
+The platform's [API Gateway](@/glossary/api-gateway.md) (`PrismaticApi.Endpoint` on port 4004) handles request routing to the appropriate internal service, while [rate limiting](@/glossary/rate-limiting.md) prevents any single client from monopolizing capacity. The [backpressure](@/glossary/backpressure.md) mechanisms in [Broadway](@/glossary/broadway.md) pipelines provide internal load balancing for data processing, ensuring that producer speed does not overwhelm consumer capacity.
 
 ## Load Balancing Algorithms
 
@@ -115,7 +115,7 @@ end
 
 ## Geographic Load Balancing
 
-[Fly.io](/glossary/fly-io/)'s Anycast network provides geographic load balancing for the Prismatic Platform:
+[Fly.io](@/glossary/fly-io.md)'s Anycast network provides geographic load balancing for the Prismatic Platform:
 
 ```
 User (Prague) ----> Fly.io Edge (Frankfurt) ----> Prismatic Instance (EU)
@@ -134,7 +134,7 @@ User (Tokyo)  ----> Fly.io Edge (Tokyo)     ----> Prismatic Instance (APAC)
 
 ## Connection Pooling as Load Balancing
 
-[Connection pooling](/glossary/connection-pooling/) distributes database queries across a pool of persistent connections:
+[Connection pooling](@/glossary/connection-pooling.md) distributes database queries across a pool of persistent connections:
 
 ```elixir
 # Ecto connection pool configuration
@@ -204,7 +204,7 @@ Within the platform, services communicate through internal load balancing:
 
 | Communication | Balancing Mechanism | Protocol |
 |--------------|-----------------------|----------|
-| **Agent-to-Agent** | Registry-based routing | [Message Passing](/glossary/message-passing/) |
+| **Agent-to-Agent** | Registry-based routing | [Message Passing](@/glossary/message-passing.md) |
 | **App-to-Database** | Connection pool (DBConnection) | PostgreSQL protocol |
 | **App-to-Cache** | ETS partitioning | Direct memory access |
 | **App-to-Search** | Finch connection pool | HTTP |
@@ -792,21 +792,21 @@ end
 
 ## Related Terms
 
-- [Distributed System](/glossary/distributed-system/) - Systems requiring load distribution across nodes
-- [Cluster](/glossary/cluster/) - BEAM cluster with distributed process scheduling
-- [Fly.io](/glossary/fly-io/) - Edge network providing geographic load balancing
-- [Rate Limiting](/glossary/rate-limiting/) - Complementary traffic control preventing overload
-- [API Gateway](/glossary/api-gateway/) - Entry point where application-level routing decisions occur
-- [Fault Tolerance](/glossary/fault-tolerance/) - Resilience enabled by multi-instance distribution
-- [BEAM](/glossary/beam/) - VM with built-in scheduler-based load balancing
-- [Backpressure](/glossary/backpressure/) - Flow control complementing load balancing
-- [Connection Pooling](/glossary/connection-pooling/) - Database load distribution across connections
-- [Consensus Algorithm](/glossary/consensus-algorithm/) - Leader election for load balancer coordination
+- [Distributed System](@/glossary/distributed-system.md) - Systems requiring load distribution across nodes
+- [Cluster](@/glossary/cluster.md) - BEAM cluster with distributed process scheduling
+- [Fly.io](@/glossary/fly-io.md) - Edge network providing geographic load balancing
+- [Rate Limiting](@/glossary/rate-limiting.md) - Complementary traffic control preventing overload
+- [API Gateway](@/glossary/api-gateway.md) - Entry point where application-level routing decisions occur
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - Resilience enabled by multi-instance distribution
+- [BEAM](@/glossary/beam.md) - VM with built-in scheduler-based load balancing
+- [Backpressure](@/glossary/backpressure.md) - Flow control complementing load balancing
+- [Connection Pooling](@/glossary/connection-pooling.md) - Database load distribution across connections
+- [Consensus Algorithm](@/glossary/consensus-algorithm.md) - Leader election for load balancer coordination
 
 ## See Also
 
-- [Architecture](/architecture/) - Infrastructure and deployment architecture
-- [Technologies](/technologies/) - Deployment and hosting infrastructure
+- [Architecture](@/architecture/_index.md) - Infrastructure and deployment architecture
+- [Technologies](@/technologies/_index.md) - Deployment and hosting infrastructure
 
 ---
 
@@ -815,4 +815,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

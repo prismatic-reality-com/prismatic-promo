@@ -30,7 +30,7 @@ The command addresses a fundamental challenge in AI-assisted development: contex
 
 Context compression in the Prismatic Platform is not simple truncation. The context-compression-enforcer agent applies semantic compression algorithms that preserve the information density of technical content while reducing token count by 40-70%. This includes structural deduplication, reference collapsing, priority-weighted content selection, and adaptive summarization based on the specific task context.
 
-This command operates under the **MANDATORY** authority level, meaning it cannot be bypassed or downgraded by any agent or operator. Every AI provider integration -- whether Anthropic Claude, local [Ollama](/glossary/ollama/) models, or future providers -- must comply with compression enforcement. The command is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **MANDATORY** authority level, meaning it cannot be bypassed or downgraded by any agent or operator. Every AI provider integration -- whether Anthropic Claude, local [Ollama](@/glossary/ollama.md) models, or future providers -- must comply with compression enforcement. The command is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -132,13 +132,13 @@ The `/enforce-compression` command follows a structured 6-phase execution flow:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | All agent context passes through compression enforcement |
-| [Prismatic Claude](/apps/prismatic-claude/) | Provider | Claude-specific compression policies and token budgets |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Pre/post compression quality verification |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Compression ratio [metrics](/glossary/metrics/), token savings tracking |
-| [Session Lifecycle](/glossary/session-discipline/) | Hook | Automatic compression enforcement at session start |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | All agent context passes through compression enforcement |
+| [Prismatic Claude](@/apps/prismatic-claude.md) | Provider | Claude-specific compression policies and token budgets |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Pre/post compression quality verification |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Compression ratio [metrics](@/glossary/metrics.md), token savings tracking |
+| [Session Lifecycle](@/glossary/session-discipline.md) | Hook | Automatic compression enforcement at session start |
 | AIAD Registry | Discovery | Command specification, policy resolution, agent binding |
-| [Ollama](/glossary/ollama/) Integration | Provider | Local model compression with tighter token budgets |
+| [Ollama](@/glossary/ollama.md) Integration | Provider | Local model compression with tighter token budgets |
 
 ## Best Practices
 
@@ -146,7 +146,7 @@ The `/enforce-compression` command follows a structured 6-phase execution flow:
 
 **Run dry-run before emergency compression**: Emergency compression mode can aggressively reduce context, potentially removing information needed for the current task. Always preview the impact with `--dry-run` first.
 
-**Monitor compression metrics over time**: Use [telemetry](/glossary/telemetry/) dashboards to track compression ratios and token savings. Consistently high compression ratios may indicate that upstream agents are generating unnecessarily verbose context that should be addressed at the source.
+**Monitor compression metrics over time**: Use [telemetry](@/glossary/telemetry.md) dashboards to track compression ratios and token savings. Consistently high compression ratios may indicate that upstream agents are generating unnecessarily verbose context that should be addressed at the source.
 
 **Prefer structural deduplication**: The highest-fidelity compression strategy. If your context contains repeated module definitions, import blocks, or boilerplate sections, structural deduplication can achieve 30-50% reduction with zero information loss.
 
@@ -162,7 +162,7 @@ The `/enforce-compression` command follows a structured 6-phase execution flow:
 | `POLICY_CONFLICT` | Multiple conflicting compression policies active | Resolve policy conflicts in AIAD policy registry |
 | `COMPRESSION_ENGINE_TIMEOUT` | Context too large for compression within timeout | Increase timeout or pre-filter context before compression |
 
-When errors occur, the command follows the platform's standard error handling protocol: errors are logged with full context to [telemetry](/glossary/telemetry/), the operator receives a structured error report, and the pre-compression context is preserved for retry. No context is silently dropped.
+When errors occur, the command follows the platform's standard error handling protocol: errors are logged with full context to [telemetry](@/glossary/telemetry.md), the operator receives a structured error report, and the pre-compression context is preserved for retry. No context is silently dropped.
 
 ## Advanced Usage
 
@@ -194,11 +194,11 @@ Advanced operators can define custom compression strategies for domain-specific 
 
 ### Integration with Evolution System
 
-The compression enforcement system participates in the platform's [evolution](/commands/evolve/) cycle. Compression policies are treated as evolvable artifacts -- the evolution-orchestrator can propose policy adjustments based on observed compression effectiveness metrics.
+The compression enforcement system participates in the platform's [evolution](@/commands/evolve.md) cycle. Compression policies are treated as evolvable artifacts -- the evolution-orchestrator can propose policy adjustments based on observed compression effectiveness metrics.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for uncompressed context reaching AI providers. Every byte of context must pass through the compression enforcement layer. No bypass mechanisms, no exceptions for "small" payloads.
 - **NO DOUBTS**: Compression decisions are evidence-based. Token savings are measured and reported. Quality degradation is detected and prevented through semantic similarity scoring.
@@ -207,13 +207,13 @@ The MANDATORY authority level means this command operates at the highest enforce
 
 ## Related Commands
 
-- [/chronic](/commands/chronic/) - Chronic documentation scan and technical hygiene maintenance
-- [/find-lowfruit](/commands/find-lowfruit/) - Identify low-hanging fruit improvements across codebase
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/optimize](/commands/optimize/) - Performance optimization with measurement validation
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle
+- [/chronic](@/commands/chronic.md) - Chronic documentation scan and technical hygiene maintenance
+- [/find-lowfruit](@/commands/find-lowfruit.md) - Identify low-hanging fruit improvements across codebase
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/optimize](@/commands/optimize.md) - Performance optimization with measurement validation
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle
 
 ---
 
@@ -222,4 +222,4 @@ The MANDATORY authority level means this command operates at the highest enforce
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

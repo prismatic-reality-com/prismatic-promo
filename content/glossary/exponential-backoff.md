@@ -334,24 +334,24 @@ While both exponential backoff and rate limiting control request flow, they oper
 
 Exponential backoff integrates with several resilience patterns in the Prismatic Platform:
 
-- [Circuit Breaker](/glossary/circuit-breaker/) works in tandem with backoff to prevent requests to known-failing services
-- [Retry Pattern](/glossary/retry-pattern/) is the broader category of which exponential backoff is the most common implementation
-- [Fault Tolerance](/glossary/fault-tolerance/) describes the system property that backoff strategies help achieve
-- [Backpressure](/glossary/backpressure/) is a complementary flow control mechanism that operates at the producer-consumer boundary
-- [Rate Limiting](/glossary/rate-limiting/) is the server-side counterpart to client-side exponential backoff
-- [Self-Healing](/glossary/self-healing/) uses backoff timing to pace recovery attempts in autonomous systems
-- [Error Handling](/glossary/error-handling/) provides the error classification that determines whether backoff should be applied
-- [Distributed Systems](/glossary/distributed-systems/) is the architectural context where exponential backoff is most critical
-- [Reliability](/glossary/reliability/) is the quality attribute that exponential backoff directly supports
-- [Bulkhead Pattern](/glossary/bulkhead-pattern/) provides isolation that prevents backoff in one service from affecting others
+- [Circuit Breaker](@/glossary/circuit-breaker.md) works in tandem with backoff to prevent requests to known-failing services
+- [Retry Pattern](@/glossary/retry-pattern.md) is the broader category of which exponential backoff is the most common implementation
+- [Fault Tolerance](@/glossary/fault-tolerance.md) describes the system property that backoff strategies help achieve
+- [Backpressure](@/glossary/backpressure.md) is a complementary flow control mechanism that operates at the producer-consumer boundary
+- [Rate Limiting](@/glossary/rate-limiting.md) is the server-side counterpart to client-side exponential backoff
+- [Self-Healing](@/glossary/self-healing.md) uses backoff timing to pace recovery attempts in autonomous systems
+- [Error Handling](@/glossary/error-handling.md) provides the error classification that determines whether backoff should be applied
+- [Distributed Systems](@/glossary/distributed-systems.md) is the architectural context where exponential backoff is most critical
+- [Reliability](@/glossary/reliability.md) is the quality attribute that exponential backoff directly supports
+- [Bulkhead Pattern](@/glossary/bulkhead-pattern.md) provides isolation that prevents backoff in one service from affecting others
 
 ## See Also
 
-- [Let It Crash](/glossary/let-it-crash/) -- the Erlang/OTP philosophy that complements backoff-based recovery
-- [GenServer](/glossary/genserver/) -- the OTP behavior commonly used to implement backoff workers
-- [Telemetry](/glossary/telemetry/) -- the instrumentation layer for monitoring backoff behavior
-- [Connection Pooling](/glossary/connection-pooling/) -- pool-level backoff for database connection recovery
-- [Chaos Engineering](/glossary/chaos-engineering/) -- testing backoff behavior under controlled failure conditions
+- [Let It Crash](@/glossary/let-it-crash.md) -- the Erlang/OTP philosophy that complements backoff-based recovery
+- [GenServer](@/glossary/genserver.md) -- the OTP behavior commonly used to implement backoff workers
+- [Telemetry](@/glossary/telemetry.md) -- the instrumentation layer for monitoring backoff behavior
+- [Connection Pooling](@/glossary/connection-pooling.md) -- pool-level backoff for database connection recovery
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- testing backoff behavior under controlled failure conditions
 
 ---
 

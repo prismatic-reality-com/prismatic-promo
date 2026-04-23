@@ -28,9 +28,9 @@ image_alt = "pattern-propagator-specialist - Prismatic Platform"
 
 ## Overview
 
-The Pattern Propagator Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's pattern-propagation domain, responsible for the systematic dissemination of verified successful patterns across the platform's 90 umbrella applications and 434 agent ecosystem. When a quality improvement, architectural pattern, performance optimization, or coding convention proves successful in one domain, this agent manages its controlled propagation to all applicable contexts, ensuring that localized improvements benefit the entire platform.
+The Pattern Propagator Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's pattern-propagation domain, responsible for the systematic dissemination of verified successful patterns across the platform's 90 umbrella applications and 434 agent ecosystem. When a quality improvement, architectural pattern, performance optimization, or coding convention proves successful in one domain, this agent manages its controlled propagation to all applicable contexts, ensuring that localized improvements benefit the entire platform.
 
-The propagation process is not a simple copy-paste operation but a sophisticated adaptive process that accounts for contextual differences between target domains, resolves conflicts with existing patterns, and verifies that propagated patterns maintain their beneficial properties in each new context. Built on the [AIAD](/glossary/aiad/) standard and the [mycelial network](/glossary/mycelial-network/) communication infrastructure, the agent implements high-throughput pattern distribution with [backpressure](/glossary/backpressure/) control to prevent propagation storms from overwhelming target systems.
+The propagation process is not a simple copy-paste operation but a sophisticated adaptive process that accounts for contextual differences between target domains, resolves conflicts with existing patterns, and verifies that propagated patterns maintain their beneficial properties in each new context. Built on the [AIAD](@/glossary/aiad.md) standard and the [mycelial network](@/glossary/mycelial-network.md) communication infrastructure, the agent implements high-throughput pattern distribution with [backpressure](@/glossary/backpressure.md) control to prevent propagation storms from overwhelming target systems.
 
 ## Theoretical Foundations
 
@@ -44,7 +44,7 @@ Conflict resolution follows a deterministic priority system. When a propagated p
 
 The pattern-propagation domain operates as a cross-cutting concern that interfaces with every other domain in the platform. The agent maintains a pattern registry that catalogs all verified patterns, their source domains, applicability conditions, and propagation history. The registry supports pattern discovery queries that enable other agents to find relevant patterns for their domains.
 
-Propagation channels follow the platform's [supervision tree](/glossary/supervision-tree/) hierarchy, with domain-level propagation coordinators that manage local pattern application. Each propagation channel implements flow control using [GenStage](/glossary/genstage/)-based [backpressure](/glossary/backpressure/) mechanisms, ensuring that pattern application proceeds at a rate that target domains can absorb without disrupting their primary operations.
+Propagation channels follow the platform's [supervision tree](@/glossary/supervision-tree.md) hierarchy, with domain-level propagation coordinators that manage local pattern application. Each propagation channel implements flow control using [GenStage](@/glossary/genstage.md)-based [backpressure](@/glossary/backpressure.md) mechanisms, ensuring that pattern application proceeds at a rate that target domains can absorb without disrupting their primary operations.
 
 ## Key Capabilities
 
@@ -52,15 +52,15 @@ Propagation channels follow the platform's [supervision tree](/glossary/supervis
 
 - **Conflict detection and resolution** -- Identifies when propagated patterns conflict with existing local patterns in target domains, applying a deterministic resolution protocol that considers evidence quality, pattern maturity, and domain-specific constraints
 
-- **High-throughput distribution** -- Manages parallel pattern propagation across multiple domains simultaneously, with [backpressure](/glossary/backpressure/)-controlled flow rates that prevent target domain overload during large-scale propagation campaigns
+- **High-throughput distribution** -- Manages parallel pattern propagation across multiple domains simultaneously, with [backpressure](@/glossary/backpressure.md)-controlled flow rates that prevent target domain overload during large-scale propagation campaigns
 
 - **Propagation verification** -- Validates that each propagated pattern maintains its beneficial properties in the target context, running automated verification tests after application to confirm positive outcomes
 
 - **Rollback coordination** -- Maintains rollback capability for all propagated patterns, enabling rapid reversal of propagation campaigns that produce unexpected negative effects in target domains
 
-- **[Mycelial network](/glossary/mycelial-network/) integration** -- Leverages the platform's biologically-inspired communication network for efficient pattern distribution with natural fan-out and acknowledgment tracking
+- **[Mycelial network](@/glossary/mycelial-network.md) integration** -- Leverages the platform's biologically-inspired communication network for efficient pattern distribution with natural fan-out and acknowledgment tracking
 
-- **[SEADF](/glossary/seadf/) evolutionary learning** -- Improves propagation strategies over time based on success/failure data from previous propagation campaigns
+- **[SEADF](@/glossary/seadf.md) evolutionary learning** -- Improves propagation strategies over time based on success/failure data from previous propagation campaigns
 
 ## Authority Level
 
@@ -91,10 +91,10 @@ Pattern propagation follows a structured lifecycle that ensures quality and safe
 
 | Agent | Relationship |
 |-------|-------------|
-| [pattern-matching-auditor](/agents/pattern-matching-auditor/) | Verified fix patterns from auditing feed into propagation pipeline |
-| [pattern-quality-analyst](/agents/pattern-quality-analyst/) | Quality scoring determines propagation priority and confidence |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality domain coordination for pattern application in code quality contexts |
-| [Mycelial Genetic Evolver Agent](/agents/mycelial-genetic-evolver-agent/) | Evolutionary improvements to propagation strategies based on outcome data |
+| [pattern-matching-auditor](@/agents/pattern-matching-auditor.md) | Verified fix patterns from auditing feed into propagation pipeline |
+| [pattern-quality-analyst](@/agents/pattern-quality-analyst.md) | Quality scoring determines propagation priority and confidence |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality domain coordination for pattern application in code quality contexts |
+| [Mycelial Genetic Evolver Agent](@/agents/mycelial-genetic-evolver-agent.md) | Evolutionary improvements to propagation strategies based on outcome data |
 
 ## Performance Characteristics
 
@@ -104,7 +104,7 @@ Historical metrics show a 94% successful adoption rate for propagated patterns, 
 
 ## Enforcement
 
-Pattern propagation operates under the [NO MERCY](/glossary/no-mercy/) doctrine: beneficial patterns identified in one domain are propagated platform-wide without exception. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all propagated patterns carry evidence of their beneficial effects from the origin domain, and verification results from each target domain are recorded in the propagation audit trail. No pattern is considered fully propagated until verification passes in all applicable target contexts.
+Pattern propagation operates under the [NO MERCY](@/glossary/no-mercy.md) doctrine: beneficial patterns identified in one domain are propagated platform-wide without exception. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all propagated patterns carry evidence of their beneficial effects from the origin domain, and verification results from each target domain are recorded in the propagation audit trail. No pattern is considered fully propagated until verification passes in all applicable target contexts.
 
 ## Related Agents
 
@@ -117,4 +117,4 @@ Agents in the **pattern-propagation** domain work as the connective tissue of th
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

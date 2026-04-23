@@ -148,4 +148,4 @@ A professional dataroom is table stakes for sell-side M&A. By combining a standa
 
 ---
 
-*Explore the [DD Dashboard](/hub/dd/cases) or learn about [Automated Due Diligence](/blog/automating-ma-due-diligence/) for the buy-side perspective.*
+*Explore the [DD Dashboard](/hub/dd/cases) or learn about [Automated Due Diligence](@/blog/automating-ma-due-diligence.md) for the buy-side perspective.*

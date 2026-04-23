@@ -158,16 +158,16 @@ end
 | Component | Protocol | Purpose |
 |-----------|----------|---------|
 | NALUS Database | HTTP crawling | Constitutional Court decision retrieval |
-| [KuzuDB](/glossary/kuzudb/) | Graph queries | Citation network and entity relationship storage |
-| [PostgreSQL](/glossary/postgresql/) | [Ecto](/glossary/ecto/) | Decision analysis persistence and historical queries |
-| [OSINT](/glossary/osint/) Pipeline | Internal API | Intelligence product distribution |
-| [Meilisearch](/glossary/meilisearch/) | REST API | Full-text search across decision corpus |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph queries | Citation network and entity relationship storage |
+| [PostgreSQL](@/glossary/postgresql.md) | [Ecto](@/glossary/ecto.md) | Decision analysis persistence and historical queries |
+| [OSINT](@/glossary/osint.md) Pipeline | Internal API | Intelligence product distribution |
+| [Meilisearch](@/glossary/meilisearch.md) | REST API | Full-text search across decision corpus |
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) | Receives entity impact assessments for business intelligence context | Czech |
-| [czech-financial-forensics-expert](/agents/czech-financial-forensics-expert/) | Correlates constitutional proceedings with financial regulatory changes | Czech |
-| [czech-legal-intelligence-operative](/agents/czech-legal-intelligence-operative/) | Provides broader legal system context for constitutional analysis | Czech |
+| [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) | Receives entity impact assessments for business intelligence context | Czech |
+| [czech-financial-forensics-expert](@/agents/czech-financial-forensics-expert.md) | Correlates constitutional proceedings with financial regulatory changes | Czech |
+| [czech-legal-intelligence-operative](@/agents/czech-legal-intelligence-operative.md) | Provides broader legal system context for constitutional analysis | Czech |
 
 ## Operational Workflow
 
@@ -217,13 +217,13 @@ config :prismatic_czech, PrismaticCzech.ConstitutionalCourtSpecialist,
 
 ## Related Resources
 
-- [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) -- Czech business registry intelligence
-- [czech-financial-forensics-expert](/agents/czech-financial-forensics-expert/) -- Czech financial records analysis
-- [czech-legal-intelligence-operative](/agents/czech-legal-intelligence-operative/) -- Czech court hierarchy navigation
-- [czech-legal-extraction-specialist](/agents/czech-legal-extraction-specialist/) -- Legal document data extraction
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework
-- [OSINT](/glossary/osint/) -- Open Source Intelligence methodology
-- [GARDEN](/glossary/garden/) -- Legacy knowledge integration
+- [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) -- Czech business registry intelligence
+- [czech-financial-forensics-expert](@/agents/czech-financial-forensics-expert.md) -- Czech financial records analysis
+- [czech-legal-intelligence-operative](@/agents/czech-legal-intelligence-operative.md) -- Czech court hierarchy navigation
+- [czech-legal-extraction-specialist](@/agents/czech-legal-extraction-specialist.md) -- Legal document data extraction
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework
+- [OSINT](@/glossary/osint.md) -- Open Source Intelligence methodology
+- [GARDEN](@/glossary/garden.md) -- Legacy knowledge integration
 
 ---
 
@@ -232,4 +232,4 @@ config :prismatic_czech, PrismaticCzech.ConstitutionalCourtSpecialist,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

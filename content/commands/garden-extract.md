@@ -24,9 +24,9 @@ image_alt = "/garden-extract - Prismatic Platform"
 
 ## Overview
 
-**/garden-extract** is a production command in the **Infrastructure** category of the Prismatic Platform that extracts reusable patterns, components, and knowledge from [GARDEN](/glossary/garden/) (Growing Archive of Reusable Development and Engineering Nuggets) repositories and integrates them into the active platform codebase. While [/garden-explore](/commands/garden-explore/) discovers what exists in the GARDEN ecosystem, `/garden-extract` performs the actual knowledge transfer -- transforming historical implementations into production-ready components that conform to current platform standards.
+**/garden-extract** is a production command in the **Infrastructure** category of the Prismatic Platform that extracts reusable patterns, components, and knowledge from [GARDEN](@/glossary/garden.md) (Growing Archive of Reusable Development and Engineering Nuggets) repositories and integrates them into the active platform codebase. While [/garden-explore](@/commands/garden-explore.md) discovers what exists in the GARDEN ecosystem, `/garden-extract` performs the actual knowledge transfer -- transforming historical implementations into production-ready components that conform to current platform standards.
 
-The command operates under the **L2+** authority level and is executed by the `garden-cultivator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The garden-cultivator agent manages the complex process of adapting code from diverse technology stacks and coding conventions into the platform's standardized Elixir/OTP architecture, ensuring that extracted components meet all quality gates and doctrine requirements.
+The command operates under the **L2+** authority level and is executed by the `garden-cultivator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The garden-cultivator agent manages the complex process of adapting code from diverse technology stacks and coding conventions into the platform's standardized Elixir/OTP architecture, ensuring that extracted components meet all quality gates and doctrine requirements.
 
 The GARDEN ecosystem contains 116 repositories with over 3,050 files spanning 20+ years of engineering practice. Much of this knowledge exists in older technology stacks (Python, JavaScript, Ruby) or in Elixir code that predates the platform's current quality standards. The `/garden-extract` command handles the translation layer, converting patterns into idiomatic Elixir that passes compilation with zero warnings, Credo strict mode, Dialyzer analysis, and the full battery of quality gates.
 
@@ -144,18 +144,18 @@ Source Repo --> Pattern Analyzer --> Transformer --> Generator --> Quality Gate 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Invoked by `garden-cultivator` agent |
-| [GARDEN Ecosystem](/glossary/garden/) | Source | Reads from 116 GARDEN repositories |
-| [/garden-explore](/commands/garden-explore/) | Workflow | Exploration typically precedes extraction |
-| [/garden-search](/commands/garden-search/) | Discovery | Search results identify extraction targets |
-| [/garden-sync](/commands/garden-sync/) | Prerequisite | Sync ensures source repositories are current |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Extracted code must pass all quality gates |
-| [Credo](/glossary/credo/) | Static Analysis | Generated code checked for Credo compliance |
-| [Telemetry](/glossary/telemetry/) | Metrics | Extraction events and success rates tracked |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Invoked by `garden-cultivator` agent |
+| [GARDEN Ecosystem](@/glossary/garden.md) | Source | Reads from 116 GARDEN repositories |
+| [/garden-explore](@/commands/garden-explore.md) | Workflow | Exploration typically precedes extraction |
+| [/garden-search](@/commands/garden-search.md) | Discovery | Search results identify extraction targets |
+| [/garden-sync](@/commands/garden-sync.md) | Prerequisite | Sync ensures source repositories are current |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Extracted code must pass all quality gates |
+| [Credo](@/glossary/credo.md) | Static Analysis | Generated code checked for Credo compliance |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Extraction events and success rates tracked |
 
 ## Best Practices
 
-**Always explore before extracting.** Use [/garden-explore](/commands/garden-explore/) to understand what a pattern contains and which repositories implement it before running extraction. Blind extraction may pull in inappropriate patterns or miss better alternatives.
+**Always explore before extracting.** Use [/garden-explore](@/commands/garden-explore.md) to understand what a pattern contains and which repositories implement it before running extraction. Blind extraction may pull in inappropriate patterns or miss better alternatives.
 
 **Use dry-run for complex extractions.** Cross-language extractions and large pattern sets benefit from `--dry-run` to preview the generated code before it is written to disk. This prevents quality issues from reaching the codebase.
 
@@ -169,7 +169,7 @@ Source Repo --> Pattern Analyzer --> Transformer --> Generator --> Quality Gate 
 
 | Error | Cause | Resolution |
 |-------|-------|------------|
-| `{:error, :repo_not_found}` | Source repository does not exist in GARDEN | Verify repository name; run [/garden-explore](/commands/garden-explore/) to list available repos |
+| `{:error, :repo_not_found}` | Source repository does not exist in GARDEN | Verify repository name; run [/garden-explore](@/commands/garden-explore.md) to list available repos |
 | `{:error, :pattern_not_found}` | Specified pattern does not exist in the repository | Check pattern name; use `--verbose` to see available patterns |
 | `{:error, :translation_failed}` | Cross-language translation encountered unsupported constructs | Use `--source-lang` to hint the correct language; some patterns require manual adaptation |
 | `{:error, :quality_gate_failed}` | Generated code did not pass quality validation | Use `--quality-level relaxed` for initial extraction, then fix violations manually |
@@ -221,7 +221,7 @@ Extract documentation and knowledge without code:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Extracted code must pass all quality gates before integration. No stubs, no TODOs, no incomplete implementations.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The analysis phase ensures that the essential pattern is fully understood before translation begins. Extraction never proceeds on partial understanding.
@@ -230,12 +230,12 @@ The command enforces the platform's meta-rule: if the extracted code could be wr
 
 ## Related Commands
 
-- [/gardener](/commands/gardener/) - GARDEN legacy knowledge repository management across 116 repos
-- [/garden-explore](/commands/garden-explore/) - Explore GARDEN repositories for patterns and knowledge
-- [/garden-search](/commands/garden-search/) - Fast pattern search across all GARDEN reference repositories
-- [/garden-sync](/commands/garden-sync/) - Synchronize GARDEN submodules to latest remote commits
-- [/propagate-pattern](/commands/propagate-pattern/) - Propagate successful patterns across the ecosystem
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/gardener](@/commands/gardener.md) - GARDEN legacy knowledge repository management across 116 repos
+- [/garden-explore](@/commands/garden-explore.md) - Explore GARDEN repositories for patterns and knowledge
+- [/garden-search](@/commands/garden-search.md) - Fast pattern search across all GARDEN reference repositories
+- [/garden-sync](@/commands/garden-sync.md) - Synchronize GARDEN submodules to latest remote commits
+- [/propagate-pattern](@/commands/propagate-pattern.md) - Propagate successful patterns across the ecosystem
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
 
 ---
 
@@ -244,4 +244,4 @@ The command enforces the platform's meta-rule: if the extracted code could be wr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

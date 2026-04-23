@@ -368,19 +368,19 @@ Leading indicators are more valuable for preventive quality management because t
 
 ### Quality DNA Persistence
 
-Every quantitative measure collected during a session is persisted into [Quality DNA](/glossary/quality-dna/) records, creating the historical dataset that enables trend analysis and cross-session continuity. The DNA stores both current values and historical snapshots.
+Every quantitative measure collected during a session is persisted into [Quality DNA](@/glossary/quality-dna.md) records, creating the historical dataset that enables trend analysis and cross-session continuity. The DNA stores both current values and historical snapshots.
 
 ### Quality Gate Evaluation
 
-[Quality Gates](/glossary/quality-gates/) consume quantitative measures to make binary pass/fail decisions. Each gate defines which measures it evaluates and what thresholds must be met. Gate evaluation is fully deterministic -- given the same measure values, the gate always produces the same result.
+[Quality Gates](@/glossary/quality-gates.md) consume quantitative measures to make binary pass/fail decisions. Each gate defines which measures it evaluates and what thresholds must be met. Gate evaluation is fully deterministic -- given the same measure values, the gate always produces the same result.
 
 ### NABLA Infinity Confidence Scoring
 
-The [confidence scoring](/glossary/confidence-scoring/) system within the NABLA infinity framework uses quantitative measures as evidence for belief strength. Higher-quality measures (more data points, lower variance, independent sources) produce higher confidence scores.
+The [confidence scoring](@/glossary/confidence-scoring.md) system within the NABLA infinity framework uses quantitative measures as evidence for belief strength. Higher-quality measures (more data points, lower variance, independent sources) produce higher confidence scores.
 
 ### Trinity Gate Verification
 
-The [Trinity Gate](/glossary/trinity-gate/) uses quantitative measures as inputs to its three verification passes: structural consistency (measures form a valid DAG), logical consistency (measure values follow logical rules), and formal necessity (measures satisfy formal proofs).
+The [Trinity Gate](@/glossary/trinity-gate.md) uses quantitative measures as inputs to its three verification passes: structural consistency (measures form a valid DAG), logical consistency (measure values follow logical rules), and formal necessity (measures satisfy formal proofs).
 
 ## Usage in Prismatic Platform
 
@@ -473,22 +473,22 @@ end
 
 ## Related Concepts
 
-- [Quality Monitoring](/glossary/quality-monitoring/) -- System that collects quantitative measures
-- [Quality DNA](/glossary/quality-dna/) -- Persistence layer for measure history
-- [Quality Gates](/glossary/quality-gates/) -- Decision points consuming measures
-- [Telemetry](/glossary/telemetry/) -- Infrastructure for measure collection
-- [Code Coverage](/glossary/code-coverage/) -- Specific coverage measure
-- [Test Coverage](/glossary/test-coverage/) -- Test extent measurement
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Epistemic confidence quantification
-- [Static Analysis](/glossary/static-analysis/) -- Source of correctness measures
-- [Quality Measurement System](/glossary/quality-measurement-system/) -- The broader measurement framework
-- [System Monitoring](/glossary/system-monitoring/) -- Production-level measure collection
+- [Quality Monitoring](@/glossary/quality-monitoring.md) -- System that collects quantitative measures
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistence layer for measure history
+- [Quality Gates](@/glossary/quality-gates.md) -- Decision points consuming measures
+- [Telemetry](@/glossary/telemetry.md) -- Infrastructure for measure collection
+- [Code Coverage](@/glossary/code-coverage.md) -- Specific coverage measure
+- [Test Coverage](@/glossary/test-coverage.md) -- Test extent measurement
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Epistemic confidence quantification
+- [Static Analysis](@/glossary/static-analysis.md) -- Source of correctness measures
+- [Quality Measurement System](@/glossary/quality-measurement-system.md) -- The broader measurement framework
+- [System Monitoring](@/glossary/system-monitoring.md) -- Production-level measure collection
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory with measure integration
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory with measure integration
 
 ---
 
@@ -497,4 +497,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

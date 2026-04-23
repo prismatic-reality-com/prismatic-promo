@@ -28,11 +28,11 @@ image_alt = "route_testing_specialist - Prismatic Platform"
 
 ## Overview
 
-The Route Testing Specialist is an L3 agent operating in the **quality-assurance** domain of the Prismatic Platform. This agent is responsible for systematically validating all HTTP routing paths, [Phoenix](/glossary/phoenix/) LiveView route definitions, and API endpoint configurations across the platform's umbrella application architecture. By applying formal verification principles derived from five core [Lean4](/glossary/lean4/) theorems, the Route Testing Specialist guarantees that route evolution -- additions, modifications, and deprecations -- never introduces regressions or unreachable paths into production systems.
+The Route Testing Specialist is an L3 agent operating in the **quality-assurance** domain of the Prismatic Platform. This agent is responsible for systematically validating all HTTP routing paths, [Phoenix](@/glossary/phoenix.md) LiveView route definitions, and API endpoint configurations across the platform's umbrella application architecture. By applying formal verification principles derived from five core [Lean4](@/glossary/lean4.md) theorems, the Route Testing Specialist guarantees that route evolution -- additions, modifications, and deprecations -- never introduces regressions or unreachable paths into production systems.
 
-Route testing is a critical concern in large-scale [OTP](/glossary/otp/) applications where dozens of umbrella apps expose hundreds of endpoints. A single misconfigured route can cascade into user-facing failures, broken navigation flows, or security vulnerabilities where authentication guards are inadvertently bypassed. The Route Testing Specialist addresses this through exhaustive automated verification that runs as part of the platform's [quality gates](/glossary/quality-gates/) pipeline.
+Route testing is a critical concern in large-scale [OTP](@/glossary/otp.md) applications where dozens of umbrella apps expose hundreds of endpoints. A single misconfigured route can cascade into user-facing failures, broken navigation flows, or security vulnerabilities where authentication guards are inadvertently bypassed. The Route Testing Specialist addresses this through exhaustive automated verification that runs as part of the platform's [quality gates](@/glossary/quality-gates.md) pipeline.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, contributing to the self-evolving, deterministic intelligence infrastructure that enforces the [NO MERCY](/glossary/no-mercy/) doctrine across all quality domains.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, contributing to the self-evolving, deterministic intelligence infrastructure that enforces the [NO MERCY](@/glossary/no-mercy.md) doctrine across all quality domains.
 
 ## Core Responsibilities
 
@@ -70,11 +70,11 @@ Route modifications preserve all previously reachable paths unless explicitly de
 
 ### Theorem 5: Type Soundness
 
-Path parameters extracted from route patterns must satisfy their declared [typespec](/glossary/typespec/) constraints at compile time, preventing runtime type coercion failures.
+Path parameters extracted from route patterns must satisfy their declared [typespec](@/glossary/typespec.md) constraints at compile time, preventing runtime type coercion failures.
 
 ## Architecture and Implementation
 
-The Route Testing Specialist operates as a [GenServer](/glossary/genserver/) process within the Prismatic Agents [supervision tree](/glossary/supervision-tree/), executing route validation sweeps on configurable intervals and in response to code change events.
+The Route Testing Specialist operates as a [GenServer](@/glossary/genserver.md) process within the Prismatic Agents [supervision tree](@/glossary/supervision-tree.md), executing route validation sweeps on configurable intervals and in response to code change events.
 
 ```elixir
 defmodule PrismaticAgents.RouteTestingSpecialist do
@@ -157,7 +157,7 @@ Route Collection -> Completeness Check -> Uniqueness Check -> Guard Audit -> Evo
 
 ## Integration with Quality Gates
 
-The Route Testing Specialist integrates directly with the platform's [quality gates](/glossary/quality-gates/) infrastructure, emitting structured [telemetry](/glossary/telemetry/) events that feed into the pre-commit validation pipeline and CI/CD deployment gates.
+The Route Testing Specialist integrates directly with the platform's [quality gates](@/glossary/quality-gates.md) infrastructure, emitting structured [telemetry](@/glossary/telemetry.md) events that feed into the pre-commit validation pipeline and CI/CD deployment gates.
 
 ```elixir
 # Telemetry events emitted by the Route Testing Specialist
@@ -168,7 +168,7 @@ The Route Testing Specialist integrates directly with the platform's [quality ga
 )
 ```
 
-Route validation results are published under the `:prismatic, :quality, :routes` telemetry namespace, enabling the [Quality Floor Guardian](/glossary/quality-gates/) to incorporate routing health into its composite quality score. A single route violation immediately drops the quality score below the deployment threshold, enforcing the zero-tolerance policy mandated by the [NO MERCY](/glossary/no-mercy/) doctrine.
+Route validation results are published under the `:prismatic, :quality, :routes` telemetry namespace, enabling the [Quality Floor Guardian](@/glossary/quality-gates.md) to incorporate routing health into its composite quality score. A single route violation immediately drops the quality score below the deployment threshold, enforcing the zero-tolerance policy mandated by the [NO MERCY](@/glossary/no-mercy.md) doctrine.
 
 ## Route Coverage by Application
 
@@ -252,7 +252,7 @@ Route deprecation is a critical process that the Route Testing Specialist manage
 
 ## AIAD Specification Compliance
 
-The Route Testing Specialist conforms to the [AIAD](/glossary/aiad/) agent specification standard, including full behavioral rule definitions, telemetry integration, and [Trinity Gate](/glossary/trinity-gate/) compliance for all verification claims.
+The Route Testing Specialist conforms to the [AIAD](@/glossary/aiad.md) agent specification standard, including full behavioral rule definitions, telemetry integration, and [Trinity Gate](@/glossary/trinity-gate.md) compliance for all verification claims.
 
 | AIAD Component | Status |
 |----------------|--------|
@@ -260,21 +260,21 @@ The Route Testing Specialist conforms to the [AIAD](/glossary/aiad/) agent speci
 | Behavioral rules | 12 rules defined |
 | Telemetry integration | Full coverage |
 | NM/ND doctrine enforcement | Active |
-| [Property-based testing](/glossary/property-based-testing/) | 47 properties verified |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [Property-based testing](@/glossary/property-based-testing.md) | 47 properties verified |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Related Agents
 
 The Route Testing Specialist collaborates with several other agents in the quality-assurance domain to provide comprehensive coverage.
 
-- [**Type Annotation Analyst**](/agents/type-annotation-analyst/) -- Validates that route handler typespecs are complete and correct
-- [**Type Inference Debugger**](/agents/type-inference-debugger/) -- Resolves Dialyzer warnings triggered by route parameter type conflicts
-- [**Trinity Bridge Commander**](/agents/trinity-bridge-commander/) -- Coordinates formal verification proofs for route safety theorems
-- [**Six Sigma Psycho Coordinator**](/agents/six-sigma-psycho-coordinator/) -- Enforces quality thresholds on route validation metrics
+- [**Type Annotation Analyst**](@/agents/type-annotation-analyst.md) -- Validates that route handler typespecs are complete and correct
+- [**Type Inference Debugger**](@/agents/type-inference-debugger.md) -- Resolves Dialyzer warnings triggered by route parameter type conflicts
+- [**Trinity Bridge Commander**](@/agents/trinity-bridge-commander.md) -- Coordinates formal verification proofs for route safety theorems
+- [**Six Sigma Psycho Coordinator**](@/agents/six-sigma-psycho-coordinator.md) -- Enforces quality thresholds on route validation metrics
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to block deployments when route violations are detected.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to block deployments when route violations are detected.
 
 ---
 
@@ -283,4 +283,4 @@ The Route Testing Specialist collaborates with several other agents in the quali
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

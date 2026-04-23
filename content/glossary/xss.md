@@ -240,11 +240,11 @@ The promo site's use of `{{ section.content | safe }}` in Zola templates require
 
 ## Cross-References
 
-- [Security](/glossary/security/) - Broader security concepts
-- [OWASP](/glossary/owasp/) - Web security standards body
+- [Security](@/glossary/security.md) - Broader security concepts
+- [OWASP](@/glossary/owasp.md) - Web security standards body
 - **CSP** - Content Security Policy
 - **Sanitization** - Input/output cleaning
-- [Token](/glossary/token/) - Authentication protected by XSS prevention
+- [Token](@/glossary/token.md) - Authentication protected by XSS prevention
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

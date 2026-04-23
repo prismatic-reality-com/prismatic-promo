@@ -28,9 +28,9 @@ image_alt = "cicd-tooling-specialist - Prismatic Platform"
 
 ## Executive Summary
 
-The CI/CD Tooling Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the CI/CD Workflow Unification domain of the Prismatic Platform. This agent specializes in unifying CI/CD workflows across local development, Git hooks, [GitLab CI](/glossary/gitlab-ci/), and GitHub Actions through canonical command delegation. The core principle is that every quality check, build step, and deployment action should be executable through a single canonical command regardless of the execution environment -- a developer running checks locally should invoke the same underlying command that runs in CI.
+The CI/CD Tooling Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the CI/CD Workflow Unification domain of the Prismatic Platform. This agent specializes in unifying CI/CD workflows across local development, Git hooks, [GitLab CI](@/glossary/gitlab-ci.md), and GitHub Actions through canonical command delegation. The core principle is that every quality check, build step, and deployment action should be executable through a single canonical command regardless of the execution environment -- a developer running checks locally should invoke the same underlying command that runs in CI.
 
-In many software platforms, CI/CD tooling diverges over time: local development uses one set of scripts, CI uses another, and deployment uses yet another. This divergence creates "works on my machine" failures, makes debugging CI issues difficult (because local reproduction is unreliable), and increases maintenance burden (three sets of scripts to update for every tooling change). The CI/CD Tooling Specialist eliminates this divergence by establishing canonical [Mix task](/glossary/mix-task/)s as the single source of truth for all operations, with environment-specific wrappers that invoke these canonical commands.
+In many software platforms, CI/CD tooling diverges over time: local development uses one set of scripts, CI uses another, and deployment uses yet another. This divergence creates "works on my machine" failures, makes debugging CI issues difficult (because local reproduction is unreliable), and increases maintenance burden (three sets of scripts to update for every tooling change). The CI/CD Tooling Specialist eliminates this divergence by establishing canonical [Mix task](@/glossary/mix-task.md)s as the single source of truth for all operations, with environment-specific wrappers that invoke these canonical commands.
 
 ## Architecture
 
@@ -141,10 +141,10 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [cicd-coordinator-agent](/agents/cicd-coordinator-agent/) | Pipeline Authority | Integrates canonical commands into pipeline stage definitions |
-| [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) | Enforcement Partner | Validates that all environments implement the complete canonical command set |
-| [ci-yaml-validator-agent](/agents/ci-yaml-validator-agent/) | YAML Compliance | Validates generated CI YAML wrappers against platform standards |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality Commands | Provides quality-related canonical command definitions |
+| [cicd-coordinator-agent](@/agents/cicd-coordinator-agent.md) | Pipeline Authority | Integrates canonical commands into pipeline stage definitions |
+| [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) | Enforcement Partner | Validates that all environments implement the complete canonical command set |
+| [ci-yaml-validator-agent](@/agents/ci-yaml-validator-agent.md) | YAML Compliance | Validates generated CI YAML wrappers against platform standards |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality Commands | Provides quality-related canonical command definitions |
 
 ## Operational Workflow
 
@@ -177,15 +177,15 @@ end
 
 ## Enforcement
 
-CI/CD tooling operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. All operations must execute through canonical commands with no environment-specific bypasses. Tool version parity is mandatory across all environments. Generated wrappers must pass validation before deployment. Any environment-specific divergence from canonical commands is treated as a configuration defect requiring immediate correction.
+CI/CD tooling operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. All operations must execute through canonical commands with no environment-specific bypasses. Tool version parity is mandatory across all environments. Generated wrappers must pass validation before deployment. Any environment-specific divergence from canonical commands is treated as a configuration defect requiring immediate correction.
 
 ## Related Resources
 
-- [cicd-coordinator-agent](/agents/cicd-coordinator-agent/) -- Pipeline orchestration
-- [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) -- Guardrail enforcement
-- [ci-yaml-validator-agent](/agents/ci-yaml-validator-agent/) -- YAML validation
-- [Quality Gates](/capabilities/quality-gates/) -- Platform quality enforcement
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [cicd-coordinator-agent](@/agents/cicd-coordinator-agent.md) -- Pipeline orchestration
+- [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) -- Guardrail enforcement
+- [ci-yaml-validator-agent](@/agents/ci-yaml-validator-agent.md) -- YAML validation
+- [Quality Gates](@/capabilities/quality-gates.md) -- Platform quality enforcement
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -194,4 +194,4 @@ CI/CD tooling operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -23,11 +23,11 @@ image_alt = "Prismatic Perimeter Core - Prismatic Platform"
 
 ## Overview
 
-[Prismatic Perimeter](/glossary/prismatic-perimeter/) Core contains the business logic for [External Attack Surface Management](/glossary/easm/). It implements [security rating](/glossary/security-rating/) algorithms, compliance assessment engines, and risk scoring models as pure computational modules, independent of any web interface or API layer. This separation enables the same scoring logic to serve the [LiveView dashboard](/apps/prismatic-perimeter-web/), the [REST API](/apps/prismatic-api/), and CLI tooling without duplication.
+[Prismatic Perimeter](@/glossary/prismatic-perimeter.md) Core contains the business logic for [External Attack Surface Management](@/glossary/easm.md). It implements [security rating](@/glossary/security-rating.md) algorithms, compliance assessment engines, and risk scoring models as pure computational modules, independent of any web interface or API layer. This separation enables the same scoring logic to serve the [LiveView dashboard](@/apps/prismatic-perimeter-web.md), the [REST API](@/apps/prismatic-api.md), and CLI tooling without duplication.
 
-The security rating engine evaluates entities across 12 security dimensions -- including [TLS](/glossary/tls/) configuration, DNS security, email authentication, vulnerability exposure, and network hygiene -- to compute a composite grade from A (excellent) to F (critical risk) backed by a numeric score on a 300-900 scale. Each dimension produces an evidence-based sub-score with confidence weights aligned to the platform's [NABLA epistemic framework](/glossary/nabla-infinity/), ensuring that ratings reflect verified observations rather than assumptions.
+The security rating engine evaluates entities across 12 security dimensions -- including [TLS](@/glossary/tls.md) configuration, DNS security, email authentication, vulnerability exposure, and network hygiene -- to compute a composite grade from A (excellent) to F (critical risk) backed by a numeric score on a 300-900 scale. Each dimension produces an evidence-based sub-score with confidence weights aligned to the platform's [NABLA epistemic framework](@/glossary/nabla-infinity.md), ensuring that ratings reflect verified observations rather than assumptions.
 
-Compliance assessment engines implement full evaluation logic for the [NIS2](/glossary/nis2/) Directive (EU 2022/2555) and [ZKB](/glossary/zkb/) 264/2025 Sb. (Czech Republic cybersecurity regulation). The framework is extensible, allowing new compliance standards to be added through configuration-driven rule definitions without code changes. This positions the platform to rapidly support emerging regulations across EU member states.
+Compliance assessment engines implement full evaluation logic for the [NIS2](@/glossary/nis2.md) Directive (EU 2022/2555) and [ZKB](@/glossary/zkb.md) 264/2025 Sb. (Czech Republic cybersecurity regulation). The framework is extensible, allowing new compliance standards to be added through configuration-driven rule definitions without code changes. This positions the platform to rapidly support emerging regulations across EU member states.
 
 ## Architecture
 
@@ -43,7 +43,7 @@ Evidence Collection --> Evidence Store --> Rating Engine --> Grade + Score
   NIS2 Evaluator                        ZKB Evaluator
 ```
 
-All computation follows functional programming principles with [pure function](/glossary/pure-function/)s at the core. Side effects (database writes, event emission) occur only at the boundary layer, making the rating algorithms fully testable and deterministic.
+All computation follows functional programming principles with [pure function](@/glossary/pure-function.md)s at the core. Side effects (database writes, event emission) occur only at the boundary layer, making the rating algorithms fully testable and deterministic.
 
 ## Key Modules
 
@@ -171,7 +171,7 @@ end
 
 - Evidence-weighted risk aggregation across all intelligence sources
 - Temporal risk trajectory analysis with configurable time windows
-- Confidence-adjusted [risk score](/glossary/risk-score/)s integrated with [NABLA axioms](/capabilities/nabla-axioms/)
+- Confidence-adjusted [risk score](@/glossary/risk-score.md)s integrated with [NABLA axioms](@/capabilities/nabla-axioms.md)
 - Multi-source evidence fusion with contradiction detection
 
 ## Usage
@@ -220,12 +220,12 @@ Dimension scorer tests verify per-dimension evidence evaluation and confidence c
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Perimeter Web](/apps/prismatic-perimeter-web/) | LiveView dashboard rendering core rating and compliance data |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Orchestration layer coordinating discovery and rating workflows |
-| [Prismatic Traits](/apps/prismatic-traits/) | Entity trait vectors feed into security dimension scoring |
-| [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) | Probabilistic risk modeling for uncertainty quantification |
-| [Prismatic OSINT Core](/apps/prismatic-osint-core/) | Primary evidence source for rating computation |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | High-level [compliance framework](/glossary/compliance-framework/) management |
+| [Prismatic Perimeter Web](@/apps/prismatic-perimeter-web.md) | LiveView dashboard rendering core rating and compliance data |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Orchestration layer coordinating discovery and rating workflows |
+| [Prismatic Traits](@/apps/prismatic-traits.md) | Entity trait vectors feed into security dimension scoring |
+| [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) | Probabilistic risk modeling for uncertainty quantification |
+| [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) | Primary evidence source for rating computation |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | High-level [compliance framework](@/glossary/compliance-framework.md) management |
 
 ## Performance
 
@@ -238,17 +238,17 @@ Dimension scorer tests verify per-dimension evidence evaluation and confidence c
 | Risk trajectory computation | < 1s | 90-day window with trend analysis |
 | Grade computation | < 1ms | Numeric to letter mapping |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :perimeter_core, :rating_computed]`, `[:prismatic, :perimeter_core, :compliance_assessed]`, `[:prismatic, :perimeter_core, :dimension_scored]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :perimeter_core, :rating_computed]`, `[:prismatic, :perimeter_core, :compliance_assessed]`, `[:prismatic, :perimeter_core, :dimension_scored]`.
 
 ## Related Resources
 
-- [Prismatic Detection Engine](/apps/prismatic-detection-engine/) -- Detection findings influence security rating adjustments
-- [CER Compliance Commander](/agents/cer-compliance-commander/) -- Drives NIS2 and ZKB compliance assessment logic and regulatory control mapping
-- [Competitor Researcher](/agents/competitor-researcher/) -- Provides industry benchmarking intelligence for peer comparison in security rating percentiles
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Designs the extensible compliance engine framework enabling new standards through configuration
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Confidence-adjusted risk scores and evidence-weighted ratings grounded in epistemic axioms
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source evidence fusion across 12 security dimensions with contradiction detection
-- [Quality Gates](/capabilities/quality-gates/) -- Scoring algorithm invariant verification ensuring grades remain monotonically ordered and bounded
+- [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) -- Detection findings influence security rating adjustments
+- [CER Compliance Commander](@/agents/cer-compliance-commander.md) -- Drives NIS2 and ZKB compliance assessment logic and regulatory control mapping
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Provides industry benchmarking intelligence for peer comparison in security rating percentiles
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Designs the extensible compliance engine framework enabling new standards through configuration
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Confidence-adjusted risk scores and evidence-weighted ratings grounded in epistemic axioms
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source evidence fusion across 12 security dimensions with contradiction detection
+- [Quality Gates](@/capabilities/quality-gates.md) -- Scoring algorithm invariant verification ensuring grades remain monotonically ordered and bounded
 
 ---
 
@@ -257,4 +257,4 @@ Dimension scorer tests verify per-dimension evidence evaluation and confidence c
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

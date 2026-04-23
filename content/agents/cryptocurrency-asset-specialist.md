@@ -28,11 +28,11 @@ image_alt = "cryptocurrency-asset-specialist - Prismatic Platform"
 
 ## Overview
 
-The Cryptocurrency Asset Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Cryptocurrency domain of the Prismatic Platform. This agent provides comprehensive intelligence gathering and analysis for cryptocurrency assets, including blockchain transaction analysis, wallet attribution, token tracking, DeFi protocol monitoring, and digital asset valuation across multiple blockchain networks. The specialist transforms raw blockchain data into actionable intelligence products that support due diligence, compliance, and investigative operations.
+The Cryptocurrency Asset Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Cryptocurrency domain of the Prismatic Platform. This agent provides comprehensive intelligence gathering and analysis for cryptocurrency assets, including blockchain transaction analysis, wallet attribution, token tracking, DeFi protocol monitoring, and digital asset valuation across multiple blockchain networks. The specialist transforms raw blockchain data into actionable intelligence products that support due diligence, compliance, and investigative operations.
 
 Cryptocurrency asset intelligence requires fundamentally different approaches than traditional financial asset analysis. Blockchain data is publicly available but requires specialized parsing and interpretation. Wallet addresses are pseudonymous, requiring attribution techniques to connect on-chain activity to real-world entities. Transaction semantics vary between blockchain platforms, with smart contract interactions on Ethereum requiring different analysis than UTXO-based Bitcoin transactions. The Cryptocurrency Asset Specialist abstracts these technical differences, providing unified asset intelligence regardless of the underlying blockchain platform.
 
-The specialist integrates with the platform's [OSINT](/glossary/osint/) infrastructure to combine on-chain intelligence with off-chain data sources, creating comprehensive asset profiles that include both the blockchain forensic analysis and the traditional intelligence context necessary for informed decision-making.
+The specialist integrates with the platform's [OSINT](@/glossary/osint.md) infrastructure to combine on-chain intelligence with off-chain data sources, creating comprehensive asset profiles that include both the blockchain forensic analysis and the traditional intelligence context necessary for informed decision-making.
 
 ## Multi-Chain Asset Tracking
 
@@ -50,7 +50,7 @@ Layer 2 monitoring extends tracking to second-layer scaling solutions including 
 
 Wallet attribution connects pseudonymous blockchain addresses to real-world entities, which is the foundational capability that transforms blockchain data from abstract transaction flows into intelligence products with real-world significance.
 
-Direct attribution occurs when an entity publicly associates an address with their identity, such as publishing a donation address on a website, registering an ENS domain, or being identified through regulatory filings. The specialist continuously monitors OSINT sources for direct attribution signals and links discovered associations to the entity graph in [KuzuDB](/glossary/kuzudb/).
+Direct attribution occurs when an entity publicly associates an address with their identity, such as publishing a donation address on a website, registering an ENS domain, or being identified through regulatory filings. The specialist continuously monitors OSINT sources for direct attribution signals and links discovered associations to the entity graph in [KuzuDB](@/glossary/kuzudb.md).
 
 Indirect attribution uses behavioral analysis and transactional patterns to infer address ownership. Addresses that consistently transact with known attributed addresses, display transaction patterns consistent with a specific entity type (exchange hot wallet, mining pool, merchant processor), or exhibit timing patterns that correlate with known entity activities receive attribution hypotheses with explicit confidence scores.
 
@@ -88,19 +88,19 @@ Anomaly reports highlight unusual asset activity that deviates from established 
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to manage blockchain analysis operations, set attribution confidence thresholds, and coordinate multi-chain asset tracking.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to manage blockchain analysis operations, set attribution confidence thresholds, and coordinate multi-chain asset tracking.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [crypto-compliance-commander](/agents/crypto-compliance-commander/) | Compliance Partner | Provides compliance context for asset intelligence and receives asset data for regulatory assessment |
-| [cross-border-identity-specialist](/agents/cross-border-identity-specialist/) | Identity Resolution | Links blockchain addresses to cross-border entity identities |
-| [cross-domain-intelligence-coordinator](/agents/cross-domain-intelligence-coordinator/) | Intelligence Consumer | Integrates cryptocurrency asset intelligence into cross-domain assessments |
+| [crypto-compliance-commander](@/agents/crypto-compliance-commander.md) | Compliance Partner | Provides compliance context for asset intelligence and receives asset data for regulatory assessment |
+| [cross-border-identity-specialist](@/agents/cross-border-identity-specialist.md) | Identity Resolution | Links blockchain addresses to cross-border entity identities |
+| [cross-domain-intelligence-coordinator](@/agents/cross-domain-intelligence-coordinator.md) | Intelligence Consumer | Integrates cryptocurrency asset intelligence into cross-domain assessments |
 
 ## Enforcement
 
-All cryptocurrency asset intelligence operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine and validated through the [Trinity Gate](/glossary/trinity-gate/). No wallet attribution is published without explicit confidence scoring and methodology documentation. Asset valuations must include liquidity adjustment and risk metrics. Multi-chain tracking must maintain provenance records for cross-chain correlation claims. The [NABLA](/glossary/nabla-infinity/) Signal Plurality axiom requires that attribution assertions draw from multiple independent evidence sources before reaching verified status. Attribution confidence scores are calibrated against validation data and must maintain documented accuracy metrics.
+All cryptocurrency asset intelligence operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine and validated through the [Trinity Gate](@/glossary/trinity-gate.md). No wallet attribution is published without explicit confidence scoring and methodology documentation. Asset valuations must include liquidity adjustment and risk metrics. Multi-chain tracking must maintain provenance records for cross-chain correlation claims. The [NABLA](@/glossary/nabla-infinity.md) Signal Plurality axiom requires that attribution assertions draw from multiple independent evidence sources before reaching verified status. Attribution confidence scores are calibrated against validation data and must maintain documented accuracy metrics.
 
 ---
 
@@ -109,4 +109,4 @@ All cryptocurrency asset intelligence operations are governed by the [NO MERCY, 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

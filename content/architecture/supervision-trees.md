@@ -25,20 +25,20 @@ image_alt = "Supervision Trees - Prismatic Platform"
 
 ## Overview
 
-[Supervision tree](/glossary/supervision-tree/)s represent the foundational fault-tolerance mechanism of the Prismatic Platform. Rooted in the Erlang/[OTP](/glossary/otp/) tradition that has powered telecommunications systems achieving 99.9999999% (nine nines) uptime since the 1980s, supervision trees provide a hierarchical process management structure where every running process is monitored by a parent [supervisor](/glossary/supervisor/). When a child process fails -- whether from an unexpected exception, a corrupted state, or a resource exhaustion scenario -- the supervisor detects the failure and applies a predefined restart strategy. This design eliminates the need for pervasive defensive error handling and instead embraces the principle that failure is not exceptional but routine, and that recovery should be automated, deterministic, and fast.
+[Supervision tree](@/glossary/supervision-tree.md)s represent the foundational fault-tolerance mechanism of the Prismatic Platform. Rooted in the Erlang/[OTP](@/glossary/otp.md) tradition that has powered telecommunications systems achieving 99.9999999% (nine nines) uptime since the 1980s, supervision trees provide a hierarchical process management structure where every running process is monitored by a parent [supervisor](@/glossary/supervisor.md). When a child process fails -- whether from an unexpected exception, a corrupted state, or a resource exhaustion scenario -- the supervisor detects the failure and applies a predefined restart strategy. This design eliminates the need for pervasive defensive error handling and instead embraces the principle that failure is not exceptional but routine, and that recovery should be automated, deterministic, and fast.
 
-In the Prismatic Platform, which manages over 400 [AIAD agents](/glossary/aiad/) across 90 [umbrella applications](/architecture/umbrella-apps/), supervision trees are not merely an implementation detail but an architectural cornerstone. Every stateful process -- from agent executors to storage connection pools to [telemetry](/architecture/telemetry/) handlers -- lives within a supervision hierarchy. This architecture ensures that a single agent crash never cascades into a platform-wide failure, that storage connections are automatically re-established after network partitions, and that the system self-heals without human intervention.
+In the Prismatic Platform, which manages over 400 [AIAD agents](@/glossary/aiad.md) across 90 [umbrella applications](@/architecture/umbrella-apps.md), supervision trees are not merely an implementation detail but an architectural cornerstone. Every stateful process -- from agent executors to storage connection pools to [telemetry](@/architecture/telemetry.md) handlers -- lives within a supervision hierarchy. This architecture ensures that a single agent crash never cascades into a platform-wide failure, that storage connections are automatically re-established after network partitions, and that the system self-heals without human intervention.
 
 ## The "Let It Crash" Philosophy and Its Rationale
 
-The "[let it crash](/glossary/let-it-crash/)" philosophy, pioneered by Joe Armstrong in his 2003 PhD thesis on reliable [distributed system](/glossary/distributed-system/)s, represents a fundamental departure from defensive programming. Traditional approaches attempt to anticipate every possible error condition and handle it inline, leading to code where error handling logic often exceeds the business logic it protects. This approach suffers from three critical weaknesses: it cannot anticipate truly unexpected errors, it conflates error detection with error recovery, and it makes code harder to reason about.
+The "[let it crash](@/glossary/let-it-crash.md)" philosophy, pioneered by Joe Armstrong in his 2003 PhD thesis on reliable [distributed system](@/glossary/distributed-system.md)s, represents a fundamental departure from defensive programming. Traditional approaches attempt to anticipate every possible error condition and handle it inline, leading to code where error handling logic often exceeds the business logic it protects. This approach suffers from three critical weaknesses: it cannot anticipate truly unexpected errors, it conflates error detection with error recovery, and it makes code harder to reason about.
 
-The [OTP](/glossary/otp/) approach inverts this pattern. Business logic is written for the "happy path" only. When an unexpected condition arises, the process crashes -- a clean, deterministic termination that releases all resources. The supervisor, running in a separate process with separate memory, detects the crash and restarts the child with a clean initial state. This separation of concerns yields several advantages:
+The [OTP](@/glossary/otp.md) approach inverts this pattern. Business logic is written for the "happy path" only. When an unexpected condition arises, the process crashes -- a clean, deterministic termination that releases all resources. The supervisor, running in a separate process with separate memory, detects the crash and restarts the child with a clean initial state. This separation of concerns yields several advantages:
 
 1. **Simplicity**: Business logic remains uncluttered by error handling for conditions that cannot be meaningfully recovered from inline.
-2. **Isolation**: The crash is contained to a single process. Other processes continue operating unaffected, thanks to [process isolation](/glossary/process-isolation/) guaranteed by the [BEAM virtual machine](/glossary/beam/).
+2. **Isolation**: The crash is contained to a single process. Other processes continue operating unaffected, thanks to [process isolation](@/glossary/process-isolation.md) guaranteed by the [BEAM virtual machine](@/glossary/beam.md).
 3. **Recovery correctness**: Restarting with a known-good initial state is provably safer than attempting to repair corrupted state in-place.
-4. **[Observability](/glossary/observability/)**: Every crash generates a crash report with full stack trace, making debugging straightforward via [telemetry](/architecture/telemetry/) integration.
+4. **[Observability](@/glossary/observability.md)**: Every crash generates a crash report with full stack trace, making debugging straightforward via [telemetry](@/architecture/telemetry.md) integration.
 
 The alternative -- defensive programming in languages without process isolation -- requires every function to handle every possible failure mode of its dependencies. In practice, this leads to "swallowed" exceptions, partially corrupted state, and systems that limp along in degraded modes that are harder to debug than clean crashes. Erlang's per-process garbage collection and share-nothing architecture make the "let it crash" approach both safe and efficient.
 
@@ -140,11 +140,11 @@ Supervisor.init(children,
 )
 ```
 
-The Prismatic Platform uses conservative restart limits (3 restarts in 30 seconds) for infrastructure processes like database connections and liberal limits (10 restarts in 60 seconds) for agent workers where transient failures from network timeouts or [rate limiting](/glossary/rate-limiting/) are expected and recoverable.
+The Prismatic Platform uses conservative restart limits (3 restarts in 30 seconds) for infrastructure processes like database connections and liberal limits (10 restarts in 60 seconds) for agent workers where transient failures from network timeouts or [rate limiting](@/glossary/rate-limiting.md) are expected and recoverable.
 
 ## Dynamic Supervision and Runtime Process Management
 
-Static supervision trees defined at compile time handle processes with known, fixed lifecycles. However, [agents](/apps/prismatic-agents/) in the Prismatic Platform are spawned dynamically in response to user requests, scheduled tasks, or [event-sourced](/architecture/event-sourcing/) commands. `DynamicSupervisor` addresses this requirement by allowing children to be added and removed at runtime.
+Static supervision trees defined at compile time handle processes with known, fixed lifecycles. However, [agents](@/apps/prismatic-agents.md) in the Prismatic Platform are spawned dynamically in response to user requests, scheduled tasks, or [event-sourced](@/architecture/event-sourcing.md) commands. `DynamicSupervisor` addresses this requirement by allowing children to be added and removed at runtime.
 
 ```elixir
 defmodule PrismaticAgents.DynamicPool do
@@ -188,11 +188,11 @@ defmodule PrismaticAgents.DynamicPool do
 end
 ```
 
-The `max_children` option provides [backpressure](/glossary/backpressure/), preventing the system from spawning unbounded processes during traffic spikes. This is critical in the Prismatic Platform where a single [EASM](/glossary/easm/) discovery operation on [Prismatic Perimeter](/apps/prismatic-perimeter/) might trigger hundreds of concurrent scan agents.
+The `max_children` option provides [backpressure](@/glossary/backpressure.md), preventing the system from spawning unbounded processes during traffic spikes. This is critical in the Prismatic Platform where a single [EASM](@/glossary/easm.md) discovery operation on [Prismatic Perimeter](@/apps/prismatic-perimeter.md) might trigger hundreds of concurrent scan agents.
 
 ## Process Registry and Service Discovery
 
-In a system with thousands of dynamic processes, locating a specific process by name is essential. The Prismatic Platform uses the built-in `Registry` module, which provides O(1) lookups backed by [ETS tables](/glossary/ets/), supporting both unique and duplicate key registrations.
+In a system with thousands of dynamic processes, locating a specific process by name is essential. The Prismatic Platform uses the built-in `Registry` module, which provides O(1) lookups backed by [ETS tables](@/glossary/ets.md), supporting both unique and duplicate key registrations.
 
 ```elixir
 # Registration with metadata at agent startup
@@ -270,7 +270,7 @@ end
 
 ### Circuit Breaker Pattern
 
-For external dependencies that may experience prolonged outages, the Prismatic Platform implements the [circuit breaker](/glossary/circuit-breaker/) pattern as a complement to supervision. While supervision handles transient failures through restarts, the [circuit breaker](/glossary/circuit-breaker/) prevents repeated calls to a known-failing dependency, reducing latency and resource waste.
+For external dependencies that may experience prolonged outages, the Prismatic Platform implements the [circuit breaker](@/glossary/circuit-breaker.md) pattern as a complement to supervision. While supervision handles transient failures through restarts, the [circuit breaker](@/glossary/circuit-breaker.md) prevents repeated calls to a known-failing dependency, reducing latency and resource waste.
 
 ```elixir
 defmodule PrismaticAgents.CircuitBreaker do
@@ -321,7 +321,7 @@ end
 
 ## Monitoring and Observability
 
-Supervision trees integrate tightly with the [telemetry subsystem](/architecture/telemetry/) to provide [real-time monitoring](/capabilities/real-time-monitoring/) of process health. The Prismatic Platform emits telemetry events for every supervisor action, enabling dashboards that display restart rates, process counts, and memory consumption per supervision subtree.
+Supervision trees integrate tightly with the [telemetry subsystem](@/architecture/telemetry.md) to provide [real-time monitoring](@/capabilities/real-time-monitoring.md) of process health. The Prismatic Platform emits telemetry events for every supervisor action, enabling dashboards that display restart rates, process counts, and memory consumption per supervision subtree.
 
 ```elixir
 :telemetry.attach_many(
@@ -354,12 +354,12 @@ The overhead of supervision is minimal. Process spawning on the BEAM takes appro
 |-----------|---------|--------|
 | Process spawn | 2-5 us | ~2.5 KB initial |
 | Crash detection | < 1 us | 0 (kernel signal) |
-| Restart (simple [GenServer](/glossary/genserver/)) | < 1 ms | ~2.5 KB |
+| Restart (simple [GenServer](@/glossary/genserver.md)) | < 1 ms | ~2.5 KB |
 | Restart (with ETS state recovery) | 1-5 ms | Varies |
-| [Registry](/glossary/registry-otp/) lookup | < 1 us | O(1) ETS |
+| [Registry](@/glossary/registry-otp.md) lookup | < 1 us | O(1) ETS |
 | DynamicSupervisor.start_child | 5-10 us | ~2.5 KB |
 
-These numbers mean that the Prismatic Platform can sustain a restart rate of thousands of processes per second without measurable impact on overall system throughput. In practice, the [quality gates](/capabilities/quality-gates/) ensure restart rates stay well below these theoretical limits.
+These numbers mean that the Prismatic Platform can sustain a restart rate of thousands of processes per second without measurable impact on overall system throughput. In practice, the [quality gates](@/capabilities/quality-gates.md) ensure restart rates stay well below these theoretical limits.
 
 ## Comparison with Alternative Approaches
 
@@ -373,11 +373,11 @@ Languages without process isolation must use try/catch for error recovery. This 
 
 ### Supervision Trees vs. Actor Frameworks (Akka, Orleans)
 
-Actor frameworks in the JVM and .NET ecosystems provide similar supervision capabilities. However, they operate within a shared-memory runtime where a single corrupted pointer can crash the entire VM. The BEAM's per-process heap and immutable [message passing](/glossary/message-passing/) provide stronger isolation guarantees, making supervision restarts truly safe rather than merely hopeful.
+Actor frameworks in the JVM and .NET ecosystems provide similar supervision capabilities. However, they operate within a shared-memory runtime where a single corrupted pointer can crash the entire VM. The BEAM's per-process heap and immutable [message passing](@/glossary/message-passing.md) provide stronger isolation guarantees, making supervision restarts truly safe rather than merely hopeful.
 
 ## Summary
 
-Supervision trees in the Prismatic Platform provide the foundation for [fault tolerance](/glossary/fault-tolerance/) that scales from individual agent processes to platform-wide resilience. By embracing the [let it crash](/glossary/let-it-crash/) philosophy, separating error detection from error recovery, and using hierarchical restart strategies matched to dependency patterns, the platform achieves [self-healing](/glossary/self-healing/) behavior that requires zero human intervention. Combined with [dynamic supervision](/glossary/dynamic-supervisor/) for runtime process management, [circuit breakers](/glossary/circuit-breaker/) for external dependency protection, and deep [telemetry integration](/architecture/telemetry/) for observability, the supervision tree architecture ensures that the Prismatic Platform's 400+ agents and 90 applications operate with the reliability expected of mission-critical intelligence systems.
+Supervision trees in the Prismatic Platform provide the foundation for [fault tolerance](@/glossary/fault-tolerance.md) that scales from individual agent processes to platform-wide resilience. By embracing the [let it crash](@/glossary/let-it-crash.md) philosophy, separating error detection from error recovery, and using hierarchical restart strategies matched to dependency patterns, the platform achieves [self-healing](@/glossary/self-healing.md) behavior that requires zero human intervention. Combined with [dynamic supervision](@/glossary/dynamic-supervisor.md) for runtime process management, [circuit breakers](@/glossary/circuit-breaker.md) for external dependency protection, and deep [telemetry integration](@/architecture/telemetry.md) for observability, the supervision tree architecture ensures that the Prismatic Platform's 400+ agents and 90 applications operate with the reliability expected of mission-critical intelligence systems.
 
 ---
 
@@ -386,4 +386,4 @@ Supervision trees in the Prismatic Platform provide the foundation for [fault to
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

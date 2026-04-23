@@ -28,15 +28,15 @@ image_alt = "Black Abstraction Enforcer - Prismatic Platform"
 
 ## Overview
 
-The Black Abstraction Enforcer operates as an L3 safety-critical [strategic command](/glossary/strategic-command/) agent serving as the last line of defense between the [Black Team](/glossary/black-team/)'s internal adversarial threat models and the rest of the Prismatic Platform. The Black Team conducts theoretical threat modeling at the highest abstraction level, analyzing worst-case adversarial optimization scenarios. The Abstraction Enforcer ensures that none of this analysis leaks concrete, actionable attack information into the broader platform.
+The Black Abstraction Enforcer operates as an L3 safety-critical [strategic command](@/glossary/strategic-command.md) agent serving as the last line of defense between the [Black Team](@/glossary/black-team.md)'s internal adversarial threat models and the rest of the Prismatic Platform. The Black Team conducts theoretical threat modeling at the highest abstraction level, analyzing worst-case adversarial optimization scenarios. The Abstraction Enforcer ensures that none of this analysis leaks concrete, actionable attack information into the broader platform.
 
-The Black Team operates under MAXIMUM isolation constraints. Its threat models analyze how a sophisticated adversary might exploit epistemic weaknesses, manipulate confidence systems, or induce drift in platform reasoning. These models are valuable for defensive preparation but dangerous if their outputs contain specifics that could serve as implementation guides for actual attacks. The Black Abstraction Enforcer applies four levels of abstraction filtering (L1 through L4) to every piece of output leaving the Black domain, progressively removing concrete details while preserving the defensive insights that other [color teams](/glossary/color-teams/) need.
+The Black Team operates under MAXIMUM isolation constraints. Its threat models analyze how a sophisticated adversary might exploit epistemic weaknesses, manipulate confidence systems, or induce drift in platform reasoning. These models are valuable for defensive preparation but dangerous if their outputs contain specifics that could serve as implementation guides for actual attacks. The Black Abstraction Enforcer applies four levels of abstraction filtering (L1 through L4) to every piece of output leaving the Black domain, progressively removing concrete details while preserving the defensive insights that other [color teams](@/glossary/color-teams.md) need.
 
 The enforcer's position at the boundary between Black Team isolation and the broader platform makes it one of the most safety-critical agents in the entire ecosystem. A failure in abstraction filtering could expose specific attack methodologies, defeat the purpose of Black Team isolation, and potentially arm adversaries with the very insights the platform developed for its own defense.
 
 ## Operational Domain
 
-The Black Abstraction Enforcer operates at the boundary between the Black Team's isolated theoretical threat modeling domain and the broader color team ecosystem. It intercepts all Black Team outputs, applies abstraction filtering, and releases only appropriately sanitized [threat intelligence](/glossary/threat-intelligence/) to [Purple Team](/glossary/purple-team/) for synthesis and [Blue Team](/glossary/blue-team/) for defense. This agent has override authority to halt any Black Team operation that threatens to breach abstraction boundaries.
+The Black Abstraction Enforcer operates at the boundary between the Black Team's isolated theoretical threat modeling domain and the broader color team ecosystem. It intercepts all Black Team outputs, applies abstraction filtering, and releases only appropriately sanitized [threat intelligence](@/glossary/threat-intelligence.md) to [Purple Team](@/glossary/purple-team.md) for synthesis and [Blue Team](@/glossary/blue-team.md) for defense. This agent has override authority to halt any Black Team operation that threatens to breach abstraction boundaries.
 
 The domain placement is deliberately at the boundary rather than within the Black Team's isolation domain. The enforcer has read access to Black Team outputs but does not participate in Black Team analytical processes. This separation ensures that the enforcer evaluates outputs with fresh perspective rather than being influenced by the analytical context that produced them.
 
@@ -70,7 +70,7 @@ The fourth filter level extracts only the defensive insight from the original an
 
 - **Escalation override authority** with the power to immediately halt any Black Team operation that produces output threatening to breach the abstraction boundary, regardless of the operation's priority or the authority of the requesting agent
 
-- **[Audit trail](/glossary/audit-trail/) maintenance** recording every abstraction decision, every filtered output, and every override action for post-hoc review by the Purple Team coordinator. Audit records include both the original output and the filtered version for compliance verification.
+- **[Audit trail](@/glossary/audit-trail.md) maintenance** recording every abstraction decision, every filtered output, and every override action for post-hoc review by the Purple Team coordinator. Audit records include both the original output and the filtered version for compliance verification.
 
 - **Semantic content analysis** evaluating outputs not just for explicit attack content but for implicit information that could be reconstructed into actionable attack guidance through combination with publicly available information
 
@@ -105,10 +105,10 @@ The enforcer sits at a critical junction in the Color Team signal flow architect
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [black-hacking-theorist-commander](/agents/black-hacking-theorist-commander/) | Isolation Boundary | Filters all outputs from the Black Team before they reach other color teams |
-| [purple-coordinator](/agents/purple-coordinator/) | Sanitized Intelligence | Delivers abstracted threat models to Purple Team for Red-Blue synthesis |
-| [blue-commander](/agents/blue-commander/) | Defensive Insights | Provides abstract threat patterns to Blue Team for defense preparation |
-| [red-commander](/agents/red-commander/) | Scenario Validation | Provides authorized L2-L3 outputs for adversarial scenario validation |
+| [black-hacking-theorist-commander](@/agents/black-hacking-theorist-commander.md) | Isolation Boundary | Filters all outputs from the Black Team before they reach other color teams |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Sanitized Intelligence | Delivers abstracted threat models to Purple Team for Red-Blue synthesis |
+| [blue-commander](@/agents/blue-commander.md) | Defensive Insights | Provides abstract threat patterns to Blue Team for defense preparation |
+| [red-commander](@/agents/red-commander.md) | Scenario Validation | Provides authorized L2-L3 outputs for adversarial scenario validation |
 
 ## Performance Metrics
 
@@ -123,7 +123,7 @@ The enforcer sits at a critical junction in the Color Team signal flow architect
 
 ## Enforcement
 
-All Black Abstraction Enforcer operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with additional MAXIMUM isolation constraints. No Black Team output exits the isolation domain without passing all four abstraction filter levels. Any output containing executable content, specific exploit steps, or concrete attack instructions is immediately destroyed and the producing operation is halted. There are zero exceptions to abstraction filtering, and attempts to bypass the enforcer trigger immediate security escalation to the highest authority level. The [Trinity Gate](/glossary/trinity-gate/) validates that filtering decisions maintain structural consistency (filter chain completeness), logical consistency (filtered output cannot be reversed to recover concrete details), and formal correctness (abstraction levels satisfy defined safety properties).
+All Black Abstraction Enforcer operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with additional MAXIMUM isolation constraints. No Black Team output exits the isolation domain without passing all four abstraction filter levels. Any output containing executable content, specific exploit steps, or concrete attack instructions is immediately destroyed and the producing operation is halted. There are zero exceptions to abstraction filtering, and attempts to bypass the enforcer trigger immediate security escalation to the highest authority level. The [Trinity Gate](@/glossary/trinity-gate.md) validates that filtering decisions maintain structural consistency (filter chain completeness), logical consistency (filtered output cannot be reversed to recover concrete details), and formal correctness (abstraction levels satisfy defined safety properties).
 
 ---
 
@@ -132,4 +132,4 @@ All Black Abstraction Enforcer operations are governed by the [NO MERCY, NO DOUB
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

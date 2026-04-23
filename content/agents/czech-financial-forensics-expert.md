@@ -28,7 +28,7 @@ image_alt = "czech-financial-forensics-expert - Prismatic Platform"
 
 ## Overview
 
-The Czech Financial Forensics Expert operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Czech domain of the Prismatic Platform. This agent specializes in forensic analysis of Czech financial records, investigating financial anomalies, detecting fraudulent patterns, analyzing corporate financial health, and providing expert financial intelligence for due diligence, compliance, and investigative operations. The expert combines deep knowledge of Czech accounting standards (CAS) and IFRS with advanced analytical techniques to extract actionable intelligence from financial data.
+The Czech Financial Forensics Expert operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Czech domain of the Prismatic Platform. This agent specializes in forensic analysis of Czech financial records, investigating financial anomalies, detecting fraudulent patterns, analyzing corporate financial health, and providing expert financial intelligence for due diligence, compliance, and investigative operations. The expert combines deep knowledge of Czech accounting standards (CAS) and IFRS with advanced analytical techniques to extract actionable intelligence from financial data.
 
 Financial forensics in the Czech context requires understanding the specific regulatory framework governing Czech corporate financial reporting. Czech companies must file financial statements according to Czech Accounting Standards or IFRS (for publicly traded entities), and these statements are publicly accessible through the Commercial Register's collection of documents (sbirka listin). The expert extracts, normalizes, and analyzes these financial statements, identifying patterns that indicate financial health, distress, or potential fraud.
 
@@ -94,20 +94,20 @@ Comparative financial intelligence benchmarks entity financial performance again
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to direct Czech financial forensic analysis, request additional data collection, and coordinate with compliance and legal intelligence operations.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to direct Czech financial forensic analysis, request additional data collection, and coordinate with compliance and legal intelligence operations.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) | Entity Context | Provides entity profile context for financial analysis |
-| [czech-legal-intelligence-operative](/agents/czech-legal-intelligence-operative/) | Legal Context | Provides legal proceedings context relevant to financial analysis |
-| [czech-autocrawler-supreme](/agents/czech-autocrawler-supreme/) | Data Source | Provides crawled financial document data from Czech registries |
-| [crypto-compliance-commander](/agents/crypto-compliance-commander/) | Crypto Finance | Collaborates on cases involving cryptocurrency financial flows |
+| [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) | Entity Context | Provides entity profile context for financial analysis |
+| [czech-legal-intelligence-operative](@/agents/czech-legal-intelligence-operative.md) | Legal Context | Provides legal proceedings context relevant to financial analysis |
+| [czech-autocrawler-supreme](@/agents/czech-autocrawler-supreme.md) | Data Source | Provides crawled financial document data from Czech registries |
+| [crypto-compliance-commander](@/agents/crypto-compliance-commander.md) | Crypto Finance | Collaborates on cases involving cryptocurrency financial flows |
 
 ## Enforcement
 
-All financial forensic operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No financial assessment is released without documented methodology and evidence chain. Forensic findings must be reproducible from the underlying financial data. Anomaly claims must include statistical significance measures and alternative explanations. Financial intelligence products that support regulatory or legal decisions must pass [Trinity Gate](/glossary/trinity-gate/) validation. Peer comparison benchmarks must use current, verified industry data. The NABLA Contradiction Preservation axiom ensures that conflicting financial signals are preserved and presented rather than prematurely resolved.
+All financial forensic operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No financial assessment is released without documented methodology and evidence chain. Forensic findings must be reproducible from the underlying financial data. Anomaly claims must include statistical significance measures and alternative explanations. Financial intelligence products that support regulatory or legal decisions must pass [Trinity Gate](@/glossary/trinity-gate.md) validation. Peer comparison benchmarks must use current, verified industry data. The NABLA Contradiction Preservation axiom ensures that conflicting financial signals are preserved and presented rather than prematurely resolved.
 
 ---
 
@@ -116,4 +116,4 @@ All financial forensic operations are governed by the [NO MERCY, NO DOUBTS](/glo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

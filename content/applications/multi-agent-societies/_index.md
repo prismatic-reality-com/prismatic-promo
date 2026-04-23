@@ -53,17 +53,17 @@ tags = ["applications", "multi-agent-societies", "prismatic", "research-framewor
 
 ## Abstract
 
-This document provides a comprehensive overview of the Prismatic Platform's multi-agent societies research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](/glossary/multi-agent-systems/), [epistemic verification](/glossary/epistemic-validation/), and social [simulation](/glossary/simulation/) to problems in emergent social behavior, collective intelligence, democratic governance, trust dynamics, and urban ecological planning. The domain spans five primary research areas: governance and democratic process, trust and alliance dynamics, collective intelligence, social network dynamics, and urban and ecological societies.
+This document provides a comprehensive overview of the Prismatic Platform's multi-agent societies research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](@/glossary/multi-agent-systems.md), [epistemic verification](@/glossary/epistemic-validation.md), and social [simulation](@/glossary/simulation.md) to problems in emergent social behavior, collective intelligence, democratic governance, trust dynamics, and urban ecological planning. The domain spans five primary research areas: governance and democratic process, trust and alliance dynamics, collective intelligence, social network dynamics, and urban and ecological societies.
 
-Each framework leverages the platform's [agent orchestration](/glossary/agent-orchestration/) infrastructure, [signal plurality](/glossary/signal-plurality/) axioms, [blackboard](/glossary/blackboard/) coordination, and [graph database](/glossary/graph-database/) capabilities to model the complexity, emergent dynamics, and often counterintuitive behaviors that arise when autonomous agents with individual goals, beliefs, and social relationships interact within shared environments.
+Each framework leverages the platform's [agent orchestration](@/glossary/agent-orchestration.md) infrastructure, [signal plurality](@/glossary/signal-plurality.md) axioms, [blackboard](@/glossary/blackboard.md) coordination, and [graph database](@/glossary/graph-database.md) capabilities to model the complexity, emergent dynamics, and often counterintuitive behaviors that arise when autonomous agents with individual goals, beliefs, and social relationships interact within shared environments.
 
 ## Introduction
 
 ### Context and Motivation
 
-Multi-agent societies represent the foundational research domain of the Prismatic Platform. The core question driving this domain is: how do social order, collective intelligence, and governance structures emerge from the interaction of autonomous [agents](/glossary/agent/) with individual goals, limited information, and diverse cognitive architectures? This question connects computer science to sociology, political science, economics, and ecology -- disciplines that all study the emergence of macro-level patterns from micro-level interactions.
+Multi-agent societies represent the foundational research domain of the Prismatic Platform. The core question driving this domain is: how do social order, collective intelligence, and governance structures emerge from the interaction of autonomous [agents](@/glossary/agent.md) with individual goals, limited information, and diverse cognitive architectures? This question connects computer science to sociology, political science, economics, and ecology -- disciplines that all study the emergence of macro-level patterns from micro-level interactions.
 
-The Prismatic Platform's multi-agent societies domain was conceived as a computational laboratory for studying emergent social phenomena using the platform's full [multi-agent](/glossary/multi-agent-system/) infrastructure. The platform's emphasis on [contradiction preservation](/glossary/contradiction-preservation/) is essential in social simulation contexts, where conflicting agent beliefs and competing social norms are not bugs to be resolved but the fundamental mechanism through which social dynamics emerge. A society where all agents agree is not a society -- it is a monoculture.
+The Prismatic Platform's multi-agent societies domain was conceived as a computational laboratory for studying emergent social phenomena using the platform's full [multi-agent](@/glossary/multi-agent-system.md) infrastructure. The platform's emphasis on [contradiction preservation](@/glossary/contradiction-preservation.md) is essential in social simulation contexts, where conflicting agent beliefs and competing social norms are not bugs to be resolved but the fundamental mechanism through which social dynamics emerge. A society where all agents agree is not a society -- it is a monoculture.
 
 ### Problem Definition
 
@@ -83,12 +83,12 @@ Multi-agent society research faces several interconnected theoretical challenges
 
 | Platform Component | Social Simulation Application | Research Purpose |
 |-------------------|-------------------------------|------------------|
-| **[Agent Orchestration](/glossary/agent-orchestration/)** | Society-level agent coordination | Study emergent social behavior at scale |
-| **[Blackboard](/glossary/blackboard/) Coordination** | Shared social knowledge space | Study collective memory and cultural transmission |
-| **[Graph Theory](/glossary/graph-theory/)** | Social network topology | Study network effects on information flow and influence |
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multi-perspective social assessment | Study information aggregation in groups |
-| **[Supervision Tree](/glossary/supervision-tree/)** | Hierarchical social organization | Study organizational structures and governance |
-| **[Simulation](/glossary/simulation/) Engine** | Social dynamics modeling | Study long-term societal evolution |
+| **[Agent Orchestration](@/glossary/agent-orchestration.md)** | Society-level agent coordination | Study emergent social behavior at scale |
+| **[Blackboard](@/glossary/blackboard.md) Coordination** | Shared social knowledge space | Study collective memory and cultural transmission |
+| **[Graph Theory](@/glossary/graph-theory.md)** | Social network topology | Study network effects on information flow and influence |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multi-perspective social assessment | Study information aggregation in groups |
+| **[Supervision Tree](@/glossary/supervision-tree.md)** | Hierarchical social organization | Study organizational structures and governance |
+| **[Simulation](@/glossary/simulation.md) Engine** | Social dynamics modeling | Study long-term societal evolution |
 
 ## Research Domain Taxonomy
 
@@ -98,11 +98,11 @@ Research into governance structures, democratic mechanisms, and collective decis
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Agent parliament simulation](/applications/multi-agent-societies/agent-parliament-simulation/) | Legislative process modeling | Parliamentary procedure formalization |
-| [Consensus formation models](/applications/multi-agent-societies/consensus-formation-models/) | Group consensus dynamics | Consensus theory and deliberation models |
-| [Ethical voting system simulation](/applications/multi-agent-societies/ethical-voting-system-simulation/) | Voting system fairness analysis | Social choice theory (Arrow, Gibbard-Satterthwaite) |
-| [Agent-based governance](/applications/multi-agent-societies/agent-based-governance/) | Governance structure evolution | Institutional economics and governance theory |
-| [Distributed decision protocols](/applications/multi-agent-societies/distributed-decision-protocols/) | Decentralized decision-making | Distributed consensus algorithms |
+| [Agent parliament simulation](@/applications/multi-agent-societies/agent-parliament-simulation.md) | Legislative process modeling | Parliamentary procedure formalization |
+| [Consensus formation models](@/applications/multi-agent-societies/consensus-formation-models.md) | Group consensus dynamics | Consensus theory and deliberation models |
+| [Ethical voting system simulation](@/applications/multi-agent-societies/ethical-voting-system-simulation.md) | Voting system fairness analysis | Social choice theory (Arrow, Gibbard-Satterthwaite) |
+| [Agent-based governance](@/applications/multi-agent-societies/agent-based-governance.md) | Governance structure evolution | Institutional economics and governance theory |
+| [Distributed decision protocols](@/applications/multi-agent-societies/distributed-decision-protocols.md) | Decentralized decision-making | Distributed consensus algorithms |
 
 The agent parliament simulation framework is particularly notable for modeling legislative dynamics as a multi-agent negotiation problem where representatives balance constituent interests, party loyalty, and personal convictions -- enabling study of coalition formation, logrolling, and legislative deadlock as emergent phenomena rather than predetermined scenarios.
 
@@ -112,11 +112,11 @@ Theoretical models for studying trust formation, betrayal mechanics, and allianc
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Trust erosion in societies](/applications/multi-agent-societies/trust-erosion-in-societies/) | Trust degradation dynamics | Social capital theory and trust erosion models |
-| [Betrayal & alliance dynamics](/applications/multi-agent-societies/betrayal-alliance-dynamics/) | Alliance formation and betrayal | Game-theoretic alliance stability analysis |
-| [Negotiation between factions](/applications/multi-agent-societies/negotiation-between-factions/) | Multi-faction negotiation | Multi-party negotiation with power asymmetry |
-| [Agent personality clashes](/applications/multi-agent-societies/agent-personality-clashes/) | Personality-driven conflict | Big Five personality interaction modeling |
-| [Leader-follower dynamics](/applications/multi-agent-societies/leaderfollower-dynamics/) | Leadership emergence and follower behavior | Emergent leadership theory |
+| [Trust erosion in societies](@/applications/multi-agent-societies/trust-erosion-in-societies.md) | Trust degradation dynamics | Social capital theory and trust erosion models |
+| [Betrayal & alliance dynamics](@/applications/multi-agent-societies/betrayal-alliance-dynamics.md) | Alliance formation and betrayal | Game-theoretic alliance stability analysis |
+| [Negotiation between factions](@/applications/multi-agent-societies/negotiation-between-factions.md) | Multi-faction negotiation | Multi-party negotiation with power asymmetry |
+| [Agent personality clashes](@/applications/multi-agent-societies/agent-personality-clashes.md) | Personality-driven conflict | Big Five personality interaction modeling |
+| [Leader-follower dynamics](@/applications/multi-agent-societies/leaderfollower-dynamics.md) | Leadership emergence and follower behavior | Emergent leadership theory |
 
 ### Domain 3: Collective Intelligence (5 frameworks)
 
@@ -124,11 +124,11 @@ Frameworks for studying swarm intelligence, distributed problem-solving, and eme
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Swarm intelligence experiments](/applications/multi-agent-societies/swarm-intelligence-experiments/) | Swarm-based collective behavior | Swarm intelligence theory (Bonabeau et al.) |
-| [Collaborative problem solving](/applications/multi-agent-societies/collaborative-problem-solving/) | Multi-agent problem decomposition | Distributed problem solving frameworks |
-| [Emergent group intelligence](/applications/multi-agent-societies/emergent-group-intelligence/) | Conditions for collective intelligence | Wisdom of crowds theory (Surowiecki) |
-| [Collective epistemic resonance](/applications/multi-agent-societies/collective-epistemic-resonance/) | Group-level epistemic states | Collective epistemology and group belief |
-| [Distributed memory blackboard](/applications/multi-agent-societies/distributed-memory-blackboard/) | Shared memory architectures | [Blackboard](/glossary/blackboard/) system theory and distributed cognition |
+| [Swarm intelligence experiments](@/applications/multi-agent-societies/swarm-intelligence-experiments.md) | Swarm-based collective behavior | Swarm intelligence theory (Bonabeau et al.) |
+| [Collaborative problem solving](@/applications/multi-agent-societies/collaborative-problem-solving.md) | Multi-agent problem decomposition | Distributed problem solving frameworks |
+| [Emergent group intelligence](@/applications/multi-agent-societies/emergent-group-intelligence.md) | Conditions for collective intelligence | Wisdom of crowds theory (Surowiecki) |
+| [Collective epistemic resonance](@/applications/multi-agent-societies/collective-epistemic-resonance.md) | Group-level epistemic states | Collective epistemology and group belief |
+| [Distributed memory blackboard](@/applications/multi-agent-societies/distributed-memory-blackboard.md) | Shared memory architectures | [Blackboard](@/glossary/blackboard.md) system theory and distributed cognition |
 
 The collective epistemic resonance framework represents the most theoretically ambitious project in this domain, studying how group-level epistemic states -- collective beliefs, shared uncertainties, and social knowledge -- emerge from the interaction of individual agent belief systems, and whether groups can achieve epistemic states that no individual member possesses.
 
@@ -138,11 +138,11 @@ Research into information propagation, social influence, and network-based socia
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Populism detection](/applications/multi-agent-societies/populism-detection/) | Populist rhetoric identification | Political communication theory |
-| [Social network infiltration models](/applications/multi-agent-societies/social-network-infiltration-models/) | Network influence analysis | Social network analysis and influence maximization |
-| [Misinformation propagation modeling](/applications/multi-agent-societies/misinformation-propagation-modeling/) | False information spread dynamics | Epidemiological models for information spread |
-| [Cross-agent empathy testing](/applications/multi-agent-societies/cross-agent-empathy-testing/) | Empathic response modeling | Empathy theory and perspective-taking models |
-| [Group conflict replay](/applications/multi-agent-societies/group-conflict-replay/) | Conflict escalation analysis | Conflict escalation theory and de-escalation |
+| [Populism detection](@/applications/multi-agent-societies/populism-detection.md) | Populist rhetoric identification | Political communication theory |
+| [Social network infiltration models](@/applications/multi-agent-societies/social-network-infiltration-models.md) | Network influence analysis | Social network analysis and influence maximization |
+| [Misinformation propagation modeling](@/applications/multi-agent-societies/misinformation-propagation-modeling.md) | False information spread dynamics | Epidemiological models for information spread |
+| [Cross-agent empathy testing](@/applications/multi-agent-societies/cross-agent-empathy-testing.md) | Empathic response modeling | Empathy theory and perspective-taking models |
+| [Group conflict replay](@/applications/multi-agent-societies/group-conflict-replay.md) | Conflict escalation analysis | Conflict escalation theory and de-escalation |
 
 ### Domain 5: Urban and Ecological Societies (5 frameworks)
 
@@ -150,11 +150,11 @@ Frameworks for studying agent societies in spatial environments with resource co
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Agent-based urban planning](/applications/multi-agent-societies/agent-based-urban-planning/) | Urban development simulation | Agent-based urban modeling (Batty) |
-| [Crowd simulation with modalities](/applications/multi-agent-societies/crowd-simulation-with-modalities/) | Multi-modal crowd dynamics | Social force model and crowd simulation |
-| [Adaptive hierarchies](/applications/multi-agent-societies/adaptive-hierarchies/) | Self-organizing hierarchical structures | Self-organization and hierarchy theory |
-| [Multi-room agent societies](/applications/multi-agent-societies/multi-room-agent-societies/) | Spatial agent interaction patterns | Spatial agent-based modeling |
-| [Multi-species agent societies](/applications/multi-agent-societies/multi-species-agent-societies/) | Inter-species interaction modeling | Ecological modeling and co-evolutionary dynamics |
+| [Agent-based urban planning](@/applications/multi-agent-societies/agent-based-urban-planning.md) | Urban development simulation | Agent-based urban modeling (Batty) |
+| [Crowd simulation with modalities](@/applications/multi-agent-societies/crowd-simulation-with-modalities.md) | Multi-modal crowd dynamics | Social force model and crowd simulation |
+| [Adaptive hierarchies](@/applications/multi-agent-societies/adaptive-hierarchies.md) | Self-organizing hierarchical structures | Self-organization and hierarchy theory |
+| [Multi-room agent societies](@/applications/multi-agent-societies/multi-room-agent-societies.md) | Spatial agent interaction patterns | Spatial agent-based modeling |
+| [Multi-species agent societies](@/applications/multi-agent-societies/multi-species-agent-societies.md) | Inter-species interaction modeling | Ecological modeling and co-evolutionary dynamics |
 
 ## Theoretical Foundations
 
@@ -162,55 +162,55 @@ Frameworks for studying agent societies in spatial environments with resource co
 
 | NABLA Axiom | Social Simulation Interpretation | Research Application |
 |-------------|----------------------------------|---------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple independent social signals required before group assessment | Models information aggregation in social groups |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Contradictory social norms and beliefs preserved as analytically significant | Prevents premature consensus modeling; captures real social tension |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple independent social signals required before group assessment | Models information aggregation in social groups |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Contradictory social norms and beliefs preserved as analytically significant | Prevents premature consensus modeling; captures real social tension |
 | **Absence Informative** | Social silence and non-participation carry analytical weight | Models the spiral of silence and social pressure effects |
-| **[Time Decay](/glossary/time-decay/)** | Social trust and collective memory decay over time | Models institutional forgetting and trust erosion |
+| **[Time Decay](@/glossary/time-decay.md)** | Social trust and collective memory decay over time | Models institutional forgetting and trust erosion |
 | **Unknown Valid** | Acknowledging irreducible uncertainty in social prediction | Prevents deterministic social engineering fantasies |
 | **Source Independence** | Independent agent observations weighted higher than herding | Models independent thinking vs. information cascades |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | All social beliefs traceable to interaction sources | Supports attribution of influence and cultural transmission tracking |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | All social beliefs traceable to interaction sources | Supports attribution of influence and cultural transmission tracking |
 
 ## Contents
 
 ### Governance and Democratic Process
 
-- [Agent parliament simulation](/applications/multi-agent-societies/agent-parliament-simulation/) -- Legislative process modeling
-- [Consensus formation models](/applications/multi-agent-societies/consensus-formation-models/) -- Group consensus dynamics
-- [Ethical voting system simulation](/applications/multi-agent-societies/ethical-voting-system-simulation/) -- Voting system fairness analysis
-- [Agent-based governance](/applications/multi-agent-societies/agent-based-governance/) -- Governance structure evolution
-- [Distributed decision protocols](/applications/multi-agent-societies/distributed-decision-protocols/) -- Decentralized decision-making
+- [Agent parliament simulation](@/applications/multi-agent-societies/agent-parliament-simulation.md) -- Legislative process modeling
+- [Consensus formation models](@/applications/multi-agent-societies/consensus-formation-models.md) -- Group consensus dynamics
+- [Ethical voting system simulation](@/applications/multi-agent-societies/ethical-voting-system-simulation.md) -- Voting system fairness analysis
+- [Agent-based governance](@/applications/multi-agent-societies/agent-based-governance.md) -- Governance structure evolution
+- [Distributed decision protocols](@/applications/multi-agent-societies/distributed-decision-protocols.md) -- Decentralized decision-making
 
 ### Trust and Alliance Dynamics
 
-- [Trust erosion in societies](/applications/multi-agent-societies/trust-erosion-in-societies/) -- Trust degradation dynamics
-- [Betrayal & alliance dynamics](/applications/multi-agent-societies/betrayal-alliance-dynamics/) -- Alliance formation and betrayal
-- [Negotiation between factions](/applications/multi-agent-societies/negotiation-between-factions/) -- Multi-faction negotiation
-- [Agent personality clashes](/applications/multi-agent-societies/agent-personality-clashes/) -- Personality-driven conflict
-- [Leader-follower dynamics](/applications/multi-agent-societies/leaderfollower-dynamics/) -- Leadership emergence
+- [Trust erosion in societies](@/applications/multi-agent-societies/trust-erosion-in-societies.md) -- Trust degradation dynamics
+- [Betrayal & alliance dynamics](@/applications/multi-agent-societies/betrayal-alliance-dynamics.md) -- Alliance formation and betrayal
+- [Negotiation between factions](@/applications/multi-agent-societies/negotiation-between-factions.md) -- Multi-faction negotiation
+- [Agent personality clashes](@/applications/multi-agent-societies/agent-personality-clashes.md) -- Personality-driven conflict
+- [Leader-follower dynamics](@/applications/multi-agent-societies/leaderfollower-dynamics.md) -- Leadership emergence
 
 ### Collective Intelligence
 
-- [Swarm intelligence experiments](/applications/multi-agent-societies/swarm-intelligence-experiments/) -- Swarm-based collective behavior
-- [Collaborative problem solving](/applications/multi-agent-societies/collaborative-problem-solving/) -- Multi-agent problem decomposition
-- [Emergent group intelligence](/applications/multi-agent-societies/emergent-group-intelligence/) -- Conditions for collective intelligence
-- [Collective epistemic resonance](/applications/multi-agent-societies/collective-epistemic-resonance/) -- Group-level epistemic states
-- [Distributed memory blackboard](/applications/multi-agent-societies/distributed-memory-blackboard/) -- Shared memory architectures
+- [Swarm intelligence experiments](@/applications/multi-agent-societies/swarm-intelligence-experiments.md) -- Swarm-based collective behavior
+- [Collaborative problem solving](@/applications/multi-agent-societies/collaborative-problem-solving.md) -- Multi-agent problem decomposition
+- [Emergent group intelligence](@/applications/multi-agent-societies/emergent-group-intelligence.md) -- Conditions for collective intelligence
+- [Collective epistemic resonance](@/applications/multi-agent-societies/collective-epistemic-resonance.md) -- Group-level epistemic states
+- [Distributed memory blackboard](@/applications/multi-agent-societies/distributed-memory-blackboard.md) -- Shared memory architectures
 
 ### Social Network Dynamics
 
-- [Populism detection](/applications/multi-agent-societies/populism-detection/) -- Populist rhetoric identification
-- [Social network infiltration models](/applications/multi-agent-societies/social-network-infiltration-models/) -- Network influence analysis
-- [Misinformation propagation modeling](/applications/multi-agent-societies/misinformation-propagation-modeling/) -- False information spread
-- [Cross-agent empathy testing](/applications/multi-agent-societies/cross-agent-empathy-testing/) -- Empathic response modeling
-- [Group conflict replay](/applications/multi-agent-societies/group-conflict-replay/) -- Conflict escalation analysis
+- [Populism detection](@/applications/multi-agent-societies/populism-detection.md) -- Populist rhetoric identification
+- [Social network infiltration models](@/applications/multi-agent-societies/social-network-infiltration-models.md) -- Network influence analysis
+- [Misinformation propagation modeling](@/applications/multi-agent-societies/misinformation-propagation-modeling.md) -- False information spread
+- [Cross-agent empathy testing](@/applications/multi-agent-societies/cross-agent-empathy-testing.md) -- Empathic response modeling
+- [Group conflict replay](@/applications/multi-agent-societies/group-conflict-replay.md) -- Conflict escalation analysis
 
 ### Urban and Ecological Societies
 
-- [Agent-based urban planning](/applications/multi-agent-societies/agent-based-urban-planning/) -- Urban development simulation
-- [Crowd simulation with modalities](/applications/multi-agent-societies/crowd-simulation-with-modalities/) -- Multi-modal crowd dynamics
-- [Adaptive hierarchies](/applications/multi-agent-societies/adaptive-hierarchies/) -- Self-organizing hierarchical structures
-- [Multi-room agent societies](/applications/multi-agent-societies/multi-room-agent-societies/) -- Spatial agent interaction
-- [Multi-species agent societies](/applications/multi-agent-societies/multi-species-agent-societies/) -- Inter-species interaction modeling
+- [Agent-based urban planning](@/applications/multi-agent-societies/agent-based-urban-planning.md) -- Urban development simulation
+- [Crowd simulation with modalities](@/applications/multi-agent-societies/crowd-simulation-with-modalities.md) -- Multi-modal crowd dynamics
+- [Adaptive hierarchies](@/applications/multi-agent-societies/adaptive-hierarchies.md) -- Self-organizing hierarchical structures
+- [Multi-room agent societies](@/applications/multi-agent-societies/multi-room-agent-societies.md) -- Spatial agent interaction
+- [Multi-species agent societies](@/applications/multi-agent-societies/multi-species-agent-societies.md) -- Inter-species interaction modeling
 
 ## Future Research Directions
 
@@ -224,12 +224,12 @@ Frameworks for studying agent societies in spatial environments with resource co
 
 ### Internal Documentation
 
-- [Platform Capabilities](/capabilities/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Blackboard](/glossary/blackboard/)
-- [Agent Orchestration](/glossary/agent-orchestration/)
-- [Graph Theory](/glossary/graph-theory/)
+- [Platform Capabilities](@/capabilities/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Blackboard](@/glossary/blackboard.md)
+- [Agent Orchestration](@/glossary/agent-orchestration.md)
+- [Graph Theory](@/glossary/graph-theory.md)
 
 ### External Standards and Literature
 
@@ -249,4 +249,4 @@ Frameworks for studying agent societies in spatial environments with resource co
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

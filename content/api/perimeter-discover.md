@@ -25,11 +25,11 @@ image_alt = "Attack Surface Discovery - Prismatic Platform"
 
 ## Overview
 
-The Attack Surface Discovery endpoint is the primary entry point for the Prismatic Perimeter [EASM](/glossary/easm/) (External Attack Surface Management) system. Given a target domain, it performs comprehensive enumeration of the organization's externally visible digital assets: subdomains, IP addresses, SSL/TLS certificates, cloud resources, open services, and technology fingerprints.
+The Attack Surface Discovery endpoint is the primary entry point for the Prismatic Perimeter [EASM](@/glossary/easm.md) (External Attack Surface Management) system. Given a target domain, it performs comprehensive enumeration of the organization's externally visible digital assets: subdomains, IP addresses, SSL/TLS certificates, cloud resources, open services, and technology fingerprints.
 
 Discovery operates in layers. The first pass performs passive reconnaissance using DNS records, certificate transparency logs, and WHOIS data. Subsequent passes perform active probing of discovered assets to identify open ports, running services, HTTP headers, and technology stacks. The entire process is orchestrated by the Perimeter domain's agent pipeline, which coordinates multiple specialized discovery agents working in parallel.
 
-The endpoint returns structured asset data that feeds into the [Security Rating](/api/perimeter-rating/) and [Compliance Assessment](/api/perimeter-compliance/) systems. Every discovered asset is assigned a risk score based on its exposure characteristics, known vulnerabilities, and configuration quality.
+The endpoint returns structured asset data that feeds into the [Security Rating](@/api/perimeter-rating.md) and [Compliance Assessment](@/api/perimeter-compliance.md) systems. Every discovered asset is assigned a risk score based on its exposure characteristics, known vulnerabilities, and configuration quality.
 
 This endpoint competes directly with commercial EASM platforms like BitSight, Black Kite, and SecurityScorecard, providing equivalent functionality within the Prismatic Platform ecosystem.
 
@@ -52,7 +52,7 @@ Requires a valid API token with `perimeter:read` scope. Discovery operations are
 Authorization: Bearer <api_token>
 ```
 
-See [Authentication](/api/authentication/) for scope management.
+See [Authentication](@/api/authentication.md) for scope management.
 
 ## Request
 
@@ -342,7 +342,7 @@ for asset in data["assets"]:
 | 422 | `invalid_options` | Invalid scan option value (e.g., max_depth > 10) |
 | 429 | `rate_limited` | Discovery rate limit exceeded |
 
-See [Error Handling](/api/error-handling/) for the standard error response format.
+See [Error Handling](@/api/error-handling.md) for the standard error response format.
 
 ## Rate Limits
 
@@ -358,17 +358,17 @@ Repeated scans of the same domain within the rate window return cached results. 
 
 ## Related Endpoints
 
-- [Security Rating](/api/perimeter-rating/) -- Get the A-F grade derived from discovery results
-- [Compliance Assessment](/api/perimeter-compliance/) -- Assess compliance against NIS2 and ZKB frameworks
-- [Endpoint Discovery](/api/endpoints/) -- Find all available Perimeter endpoints
-- [Batch Operations](/api/batch-operations/) -- Scan multiple domains in a single request
-- [Webhooks](/api/webhooks/) -- Get notified when scan results change
+- [Security Rating](@/api/perimeter-rating.md) -- Get the A-F grade derived from discovery results
+- [Compliance Assessment](@/api/perimeter-compliance.md) -- Assess compliance against NIS2 and ZKB frameworks
+- [Endpoint Discovery](@/api/endpoints.md) -- Find all available Perimeter endpoints
+- [Batch Operations](@/api/batch-operations.md) -- Scan multiple domains in a single request
+- [Webhooks](@/api/webhooks.md) -- Get notified when scan results change
 
 ## Security and Ethics
 
 Discovery scans are limited to assets that are publicly observable from the internet. The platform does not perform vulnerability exploitation, credential testing, or any form of active intrusion. All scanning follows responsible disclosure principles and complies with applicable laws.
 
-The [Color Teams](/glossary/color-teams/) security framework reviews discovery methodologies to ensure they remain within ethical boundaries. The Red Team validates that discovery techniques are comprehensive, while the Blue Team verifies that the platform's own assets are properly defended against the same techniques.
+The [Color Teams](@/glossary/color-teams.md) security framework reviews discovery methodologies to ensure they remain within ethical boundaries. The Red Team validates that discovery techniques are comprehensive, while the Blue Team verifies that the platform's own assets are properly defended against the same techniques.
 
 ---
 
@@ -377,4 +377,4 @@ The [Color Teams](/glossary/color-teams/) security framework reviews discovery m
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

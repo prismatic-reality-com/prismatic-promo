@@ -27,9 +27,9 @@ image_alt = "Unit Testing - Prismatic Platform"
 
 ## Definition and Overview
 
-Unit testing is the practice of verifying that individual functions and modules behave correctly in isolation from external dependencies. In the Prismatic Platform, unit tests are the first line of defense in a multi-layered quality strategy that includes [property-based testing](/glossary/property-based-testing/), integration tests, [regression tests](/glossary/regression-testing/), [static analysis](/glossary/static-analysis/) via [Dialyzer](/glossary/dialyzer/), and style enforcement via [Credo](/glossary/credo/). Every piece of code in the platform must have comprehensive tests -- this is not a guideline but a blocking requirement enforced by [pre-commit hooks](/glossary/pre-commit-hooks/) and [quality gates](/glossary/quality-gates/).
+Unit testing is the practice of verifying that individual functions and modules behave correctly in isolation from external dependencies. In the Prismatic Platform, unit tests are the first line of defense in a multi-layered quality strategy that includes [property-based testing](@/glossary/property-based-testing.md), integration tests, [regression tests](@/glossary/regression-testing.md), [static analysis](@/glossary/static-analysis.md) via [Dialyzer](@/glossary/dialyzer.md), and style enforcement via [Credo](@/glossary/credo.md). Every piece of code in the platform must have comprehensive tests -- this is not a guideline but a blocking requirement enforced by [pre-commit hooks](@/glossary/pre-commit-hooks.md) and [quality gates](@/glossary/quality-gates.md).
 
-[ExUnit](/glossary/exunit/) is Elixir's built-in test framework and the only test framework used in the Prismatic Platform. It provides assertion macros, test organization through `describe` blocks, setup callbacks, async execution, and integration with Mix for test discovery and execution. ExUnit's design philosophy aligns with OTP principles: tests are processes, test isolation is achieved through process isolation, and test state is managed through the same mechanisms (GenServers, ETS, supervision) used in production code.
+[ExUnit](@/glossary/exunit.md) is Elixir's built-in test framework and the only test framework used in the Prismatic Platform. It provides assertion macros, test organization through `describe` blocks, setup callbacks, async execution, and integration with Mix for test discovery and execution. ExUnit's design philosophy aligns with OTP principles: tests are processes, test isolation is achieved through process isolation, and test state is managed through the same mechanisms (GenServers, ETS, supervision) used in production code.
 
 The Prismatic Platform's testing mandate is absolute: zero stubs, zero mocks in production code, zero placeholders, zero TODOs in test files, and 100% coverage of business logic. The NO MERCY doctrine applies to testing with the same force it applies to production code. A test that passes but does not actually verify the behavior under test (a "green lie") is worse than no test at all because it creates false confidence. Every test must assert something meaningful about the system's behavior.
 
@@ -265,7 +265,7 @@ end
 
 ## Mocking at Boundaries
 
-The Prismatic Platform forbids mock libraries (Mox, Mock, etc.) in production code. Instead, mocking is achieved through [behaviours](/glossary/behaviour/) -- Elixir's native interface mechanism. A behaviour defines a callback specification. The production module implements the behaviour. The test module provides a lightweight test implementation.
+The Prismatic Platform forbids mock libraries (Mox, Mock, etc.) in production code. Instead, mocking is achieved through [behaviours](@/glossary/behaviour.md) -- Elixir's native interface mechanism. A behaviour defines a callback specification. The production module implements the behaviour. The test module provides a lightweight test implementation.
 
 ### Behaviour-Based Dependency Injection
 
@@ -378,7 +378,7 @@ end
 
 ## Property-Based Testing
 
-[Property-based testing](/glossary/property-based-testing/) complements unit testing by generating hundreds of random inputs and verifying that invariants hold for all of them. Where unit tests verify specific examples, property tests verify universal truths.
+[Property-based testing](@/glossary/property-based-testing.md) complements unit testing by generating hundreds of random inputs and verifying that invariants hold for all of them. Where unit tests verify specific examples, property tests verify universal truths.
 
 ```elixir
 defmodule PrismaticPerimeter.ScoreCalculatorPropertyTest do
@@ -606,22 +606,22 @@ end
 
 ## Related Concepts
 
-- [ExUnit](/glossary/exunit/) -- Elixir's built-in test framework
-- [Test Coverage](/glossary/test-coverage/) -- Metrics measuring code execution during tests
-- [Property-Based Testing](/glossary/property-based-testing/) -- Generative testing with random inputs
-- [Regression Testing](/glossary/regression-testing/) -- Tests preventing previously fixed bugs from recurring
-- [Quality Gates](/glossary/quality-gates/) -- Automated checks enforcing test requirements
-- [Behaviour](/glossary/behaviour/) -- Interface mechanism enabling boundary mocking
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis complementing runtime testing
-- [Credo](/glossary/credo/) -- Code quality analysis alongside test verification
-- [Typespec](/glossary/typespec/) -- Type specifications verified by Dialyzer
-- [Pattern Matching](/glossary/pattern-matching/) -- Elixir feature enabling precise test assertions
+- [ExUnit](@/glossary/exunit.md) -- Elixir's built-in test framework
+- [Test Coverage](@/glossary/test-coverage.md) -- Metrics measuring code execution during tests
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Generative testing with random inputs
+- [Regression Testing](@/glossary/regression-testing.md) -- Tests preventing previously fixed bugs from recurring
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated checks enforcing test requirements
+- [Behaviour](@/glossary/behaviour.md) -- Interface mechanism enabling boundary mocking
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis complementing runtime testing
+- [Credo](@/glossary/credo.md) -- Code quality analysis alongside test verification
+- [Typespec](@/glossary/typespec.md) -- Type specifications verified by Dialyzer
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Elixir feature enabling precise test assertions
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Umbrella applications with their test suites
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications with their test suites
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -631,4 +631,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,11 +24,11 @@ image_alt = "/garden-sync - Prismatic Platform"
 
 ## Overview
 
-**/garden-sync** is a production command in the **Infrastructure** category of the Prismatic Platform that synchronizes [GARDEN](/glossary/garden/) (Growing Archive of Reusable Development and Engineering Nuggets) submodules to their latest commits from remote repositories. The GARDEN ecosystem comprises 116 Git submodules, each representing an independent repository with its own commit history and remote origin. The `/garden-sync` command ensures that the local copies of these submodules reflect the most current state of their upstream sources.
+**/garden-sync** is a production command in the **Infrastructure** category of the Prismatic Platform that synchronizes [GARDEN](@/glossary/garden.md) (Growing Archive of Reusable Development and Engineering Nuggets) submodules to their latest commits from remote repositories. The GARDEN ecosystem comprises 116 Git submodules, each representing an independent repository with its own commit history and remote origin. The `/garden-sync` command ensures that the local copies of these submodules reflect the most current state of their upstream sources.
 
-The command operates under the **L2+** authority level and is executed by the `garden-explorer` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The garden-explorer agent manages the synchronization process with careful attention to network efficiency, conflict detection, and index rebuilding, ensuring that the GARDEN ecosystem remains current without disrupting ongoing development work.
+The command operates under the **L2+** authority level and is executed by the `garden-explorer` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The garden-explorer agent manages the synchronization process with careful attention to network efficiency, conflict detection, and index rebuilding, ensuring that the GARDEN ecosystem remains current without disrupting ongoing development work.
 
-Synchronization is a prerequisite for accurate [/garden-explore](/commands/garden-explore/) and [/garden-search](/commands/garden-search/) operations. When GARDEN submodules are outdated, exploration and search may miss recently added patterns, updated implementations, or new repositories. The `/garden-sync` command addresses this by pulling the latest changes from all configured remote origins and rebuilding the GARDEN index to reflect the updated content.
+Synchronization is a prerequisite for accurate [/garden-explore](@/commands/garden-explore.md) and [/garden-search](@/commands/garden-search.md) operations. When GARDEN submodules are outdated, exploration and search may miss recently added patterns, updated implementations, or new repositories. The `/garden-sync` command addresses this by pulling the latest changes from all configured remote origins and rebuilding the GARDEN index to reflect the updated content.
 
 The command is designed for efficiency over the heterogeneous GARDEN ecosystem. Not all 116 repositories are actively maintained -- T4 Archive and T5 R&D repositories may not have changed in years. The sync process detects which repositories have upstream changes and only fetches those that are out of date, minimizing network traffic and execution time. For a typical sync operation where only a handful of repositories have changed, the entire process completes in under 30 seconds.
 
@@ -157,14 +157,14 @@ GARDEN Index --> Change Detector --> Parallel Fetcher --> Conflict Resolver --> 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Invoked by `garden-explorer` agent |
-| [GARDEN Ecosystem](/glossary/garden/) | Core | Manages the 116-repository submodule ecosystem |
-| [/garden-explore](/commands/garden-explore/) | Consumer | Exploration accuracy depends on sync currency |
-| [/garden-search](/commands/garden-search/) | Consumer | Search index is rebuilt after sync |
-| [/garden-extract](/commands/garden-extract/) | Consumer | Extraction requires current source repositories |
-| [/gardener](/commands/gardener/) | Parent | Gardener coordinates all GARDEN operations |
-| [Git Trees](/commands/git-trees/) | Infrastructure | Uses git operations for efficient submodule management |
-| [Telemetry](/glossary/telemetry/) | Metrics | Sync operations, durations, and failures tracked |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Invoked by `garden-explorer` agent |
+| [GARDEN Ecosystem](@/glossary/garden.md) | Core | Manages the 116-repository submodule ecosystem |
+| [/garden-explore](@/commands/garden-explore.md) | Consumer | Exploration accuracy depends on sync currency |
+| [/garden-search](@/commands/garden-search.md) | Consumer | Search index is rebuilt after sync |
+| [/garden-extract](@/commands/garden-extract.md) | Consumer | Extraction requires current source repositories |
+| [/gardener](@/commands/gardener.md) | Parent | Gardener coordinates all GARDEN operations |
+| [Git Trees](@/commands/git-trees.md) | Infrastructure | Uses git operations for efficient submodule management |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Sync operations, durations, and failures tracked |
 
 ## Best Practices
 
@@ -227,21 +227,21 @@ git submodule deinit garden/old-repo
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Sync failures are reported immediately and do not silently degrade the GARDEN index. Every repository is either successfully synced or explicitly flagged as failed.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The change detection phase ensures that only repositories with actual upstream changes are fetched, preventing unnecessary operations and providing clear evidence of what changed.
 
-The command supports the [NABLA](/glossary/nabla-infinity/) time decay axiom by maintaining temporal metadata for all GARDEN content. Each sync operation timestamps the repository state, enabling other GARDEN commands to assess the freshness of their data.
+The command supports the [NABLA](@/glossary/nabla-infinity.md) time decay axiom by maintaining temporal metadata for all GARDEN content. Each sync operation timestamps the repository state, enabling other GARDEN commands to assess the freshness of their data.
 
 ## Related Commands
 
-- [/gardener](/commands/gardener/) - GARDEN legacy knowledge repository management across 116 repos
-- [/garden-explore](/commands/garden-explore/) - Explore GARDEN repositories for patterns and knowledge
-- [/garden-extract](/commands/garden-extract/) - Extract and integrate patterns from GARDEN repositories
-- [/garden-search](/commands/garden-search/) - Fast pattern search across all GARDEN reference repositories
-- [/git-trees](/commands/git-trees/) - Git tree-based codebase exploration at ~100x speed improvement
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/gardener](@/commands/gardener.md) - GARDEN legacy knowledge repository management across 116 repos
+- [/garden-explore](@/commands/garden-explore.md) - Explore GARDEN repositories for patterns and knowledge
+- [/garden-extract](@/commands/garden-extract.md) - Extract and integrate patterns from GARDEN repositories
+- [/garden-search](@/commands/garden-search.md) - Fast pattern search across all GARDEN reference repositories
+- [/git-trees](@/commands/git-trees.md) - Git tree-based codebase exploration at ~100x speed improvement
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -250,4 +250,4 @@ The command supports the [NABLA](/glossary/nabla-infinity/) time decay axiom by 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

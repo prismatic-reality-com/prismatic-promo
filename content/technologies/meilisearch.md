@@ -28,7 +28,7 @@ Meilisearch is the full-text search engine that powers the Prismatic Platform's 
 
 The Prismatic Platform indexes its 404 agents, 211 commands, 121+ OSINT sources, and thousands of intelligence records into Meilisearch for instant search and discovery. Meilisearch's typo tolerance means users find what they need even with imprecise queries (searching "perimitr" still returns Perimeter-related results), while its faceted search enables filtering by category, status, domain, and other attributes simultaneously. This combination of fuzzy matching and structured filtering is essential for a security platform where operators need to locate resources quickly under pressure.
 
-Meilisearch's simple HTTP API and the platform's [Elixir](/technologies/elixir/) client wrapper make integration straightforward, with real-time index synchronization through PubSub-triggered updates whenever data changes. When a new agent is registered or a security finding is created, a PubSub event triggers an immediate index update so the resource becomes searchable within seconds.
+Meilisearch's simple HTTP API and the platform's [Elixir](@/technologies/elixir.md) client wrapper make integration straightforward, with real-time index synchronization through PubSub-triggered updates whenever data changes. When a new agent is registered or a security finding is created, a PubSub event triggers an immediate index update so the resource becomes searchable within seconds.
 
 ## Key Features
 
@@ -165,8 +165,8 @@ The data flow from source of truth to search index follows a publish-subscribe p
 
 | Step | Component | Action |
 |------|-----------|--------|
-| 1 | Domain Service | Creates/updates record in [PostgreSQL](/technologies/postgresql/) |
-| 2 | PubSub | Broadcasts change event via [Phoenix PubSub](/technologies/pubsub/) |
+| 1 | Domain Service | Creates/updates record in [PostgreSQL](@/technologies/postgresql.md) |
+| 2 | PubSub | Broadcasts change event via [Phoenix PubSub](@/technologies/pubsub.md) |
 | 3 | IndexSync | Receives event, transforms to search document |
 | 4 | Meilisearch | Indexes document, available for search within ~50ms |
 | 5 | LiveView | Search UI shows updated results on next query |
@@ -239,21 +239,21 @@ config :prismatic, :meilisearch_indexes,
 
 Meilisearch was chosen for its combination of low operational complexity (single binary, minimal configuration), excellent typo tolerance, and fast search performance without requiring the resource overhead of Elasticsearch.
 
-The platform also benefits from Meilisearch's multi-search capability, which allows a single HTTP request to query multiple indexes simultaneously. This enables the unified search bar in the web interface to return results across agents, commands, findings, and glossary entries in a single round-trip, reducing perceived latency and simplifying the client-side search implementation in [Phoenix LiveView](/technologies/phoenix-liveview/).
+The platform also benefits from Meilisearch's multi-search capability, which allows a single HTTP request to query multiple indexes simultaneously. This enables the unified search bar in the web interface to return results across agents, commands, findings, and glossary entries in a single round-trip, reducing perceived latency and simplifying the client-side search implementation in [Phoenix LiveView](@/technologies/phoenix-liveview.md).
 
 ## Related Technologies
 
-- [PostgreSQL](/technologies/postgresql/) - Primary persistent storage, source of truth for indexed data
-- [ETS](/technologies/ets/) - In-memory caching complement for frequently accessed search results
-- [Redis](/technologies/redis/) - Distributed caching for search result pages across cluster nodes
-- [KuzuDB](/technologies/kuzudb/) - Graph database complementing text search with relationship traversal
-- [Elixir](/technologies/elixir/) - Host language providing the HTTP client wrapper for Meilisearch
+- [PostgreSQL](@/technologies/postgresql.md) - Primary persistent storage, source of truth for indexed data
+- [ETS](@/technologies/ets.md) - In-memory caching complement for frequently accessed search results
+- [Redis](@/technologies/redis.md) - Distributed caching for search result pages across cluster nodes
+- [KuzuDB](@/technologies/kuzudb.md) - Graph database complementing text search with relationship traversal
+- [Elixir](@/technologies/elixir.md) - Host language providing the HTTP client wrapper for Meilisearch
 
 ## Related Apps
 
-- [prismatic_storage_meilisearch](/apps/prismatic-storage-meilisearch/) - Meilisearch storage adapter implementing the search behaviour
-- [prismatic_web](/apps/prismatic-web/) - Search UI components and [Phoenix LiveView](/technologies/phoenix-liveview/) search integration
-- [prismatic_meilisearch](/apps/prismatic-meilisearch/) - Meilisearch client and index management
+- [prismatic_storage_meilisearch](@/apps/prismatic-storage-meilisearch.md) - Meilisearch storage adapter implementing the search behaviour
+- [prismatic_web](@/apps/prismatic-web.md) - Search UI components and [Phoenix LiveView](@/technologies/phoenix-liveview.md) search integration
+- [prismatic_meilisearch](@/apps/prismatic-meilisearch.md) - Meilisearch client and index management
 
 ---
 
@@ -262,4 +262,4 @@ The platform also benefits from Meilisearch's multi-search capability, which all
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

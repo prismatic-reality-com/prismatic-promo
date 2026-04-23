@@ -25,9 +25,9 @@ image_alt = "Telemetry & Metrics - Prismatic Platform"
 
 ## Overview
 
-[Observability](/glossary/observability/) in the Prismatic Platform is built on Erlang's `:telemetry` library -- a lightweight, dynamic dispatching library for [metrics](/glossary/metrics/) and instrumentation. Unlike traditional logging-based observability that relies on parsing unstructured text, telemetry provides structured, typed events that are emitted at specific points in the code and consumed by pluggable handlers. This architecture decouples instrumentation (what to measure) from reporting (where to send measurements), enabling the platform to simultaneously feed Prometheus for metrics, OpenTelemetry for distributed traces, and [Phoenix LiveView](/architecture/phoenix-liveview/) dashboards for real-time visualization -- all from the same instrumentation points.
+[Observability](@/glossary/observability.md) in the Prismatic Platform is built on Erlang's `:telemetry` library -- a lightweight, dynamic dispatching library for [metrics](@/glossary/metrics.md) and instrumentation. Unlike traditional logging-based observability that relies on parsing unstructured text, telemetry provides structured, typed events that are emitted at specific points in the code and consumed by pluggable handlers. This architecture decouples instrumentation (what to measure) from reporting (where to send measurements), enabling the platform to simultaneously feed Prometheus for metrics, OpenTelemetry for distributed traces, and [Phoenix LiveView](@/architecture/phoenix-liveview.md) dashboards for real-time visualization -- all from the same instrumentation points.
 
-The Prismatic Platform emits telemetry events from every significant operation across its 90 [umbrella applications](/architecture/umbrella-apps/): agent executions, storage queries, [EASM](/glossary/easm/) discovery scans, [security rating](/glossary/security-rating/) calculations, [supervision tree](/architecture/supervision-trees/) restarts, and [event store](/architecture/event-sourcing/) operations. This comprehensive instrumentation enables the platform to maintain its [quality gates](/capabilities/quality-gates/) with evidence-based performance budgets rather than guesswork.
+The Prismatic Platform emits telemetry events from every significant operation across its 90 [umbrella applications](@/architecture/umbrella-apps.md): agent executions, storage queries, [EASM](@/glossary/easm.md) discovery scans, [security rating](@/glossary/security-rating.md) calculations, [supervision tree](@/architecture/supervision-trees.md) restarts, and [event store](@/architecture/event-sourcing.md) operations. This comprehensive instrumentation enables the platform to maintain its [quality gates](@/capabilities/quality-gates.md) with evidence-based performance budgets rather than guesswork.
 
 ## Why Telemetry Over Traditional Logging
 
@@ -80,7 +80,7 @@ Prometheus  OTLP  PagerDuty LiveView  Event Store
 
 ### Event Naming Convention
 
-The Prismatic Platform follows a hierarchical naming convention for telemetry events that mirrors the [umbrella application](/glossary/umbrella-application/) structure:
+The Prismatic Platform follows a hierarchical naming convention for telemetry events that mirrors the [umbrella application](@/glossary/umbrella-application.md) structure:
 
 ```
 [:prismatic, <app_domain>, <operation>, <lifecycle_stage>]
@@ -173,7 +173,7 @@ end
 
 ### Supervision Tree Instrumentation
 
-The [supervision trees](/architecture/supervision-trees/) emit telemetry events for every lifecycle action, enabling monitoring of restart rates and process health.
+The [supervision trees](@/architecture/supervision-trees.md) emit telemetry events for every lifecycle action, enabling monitoring of restart rates and process health.
 
 ```elixir
 defmodule PrismaticTelemetry.SupervisorHandler do
@@ -383,7 +383,7 @@ end
 
 ## Distributed Tracing with OpenTelemetry
 
-While `:telemetry` provides metrics, OpenTelemetry provides [distributed tracing](/glossary/distributed-tracing/) -- the ability to follow a single request as it traverses multiple processes and services. The Prismatic Platform integrates both, using `:telemetry` events as span boundaries within OpenTelemetry traces.
+While `:telemetry` provides metrics, OpenTelemetry provides [distributed tracing](@/glossary/distributed-tracing.md) -- the ability to follow a single request as it traverses multiple processes and services. The Prismatic Platform integrates both, using `:telemetry` events as span boundaries within OpenTelemetry traces.
 
 ### Trace Context Architecture
 
@@ -483,7 +483,7 @@ end
 
 ## Real-Time Dashboard Integration
 
-The [telemetry](/glossary/telemetry/) system feeds directly into [Phoenix LiveView](/glossary/liveview/) dashboards, providing real-time visualization without polling external metric stores.
+The [telemetry](@/glossary/telemetry.md) system feeds directly into [Phoenix LiveView](@/glossary/liveview.md) dashboards, providing real-time visualization without polling external metric stores.
 
 ```elixir
 defmodule PrismaticWeb.MetricsLive do
@@ -612,13 +612,13 @@ The telemetry system is designed for negligible overhead. Measurements from the 
 | `:telemetry.execute/3` (no handlers) | < 100 ns | Empty list pattern match |
 | `:telemetry.execute/3` (1 handler) | < 500 ns | Single function call |
 | `:telemetry.execute/3` (5 handlers) | < 1 us | Linear in handler count |
-| Prometheus metric update | < 500 ns | [ETS](/glossary/ets/) atomic counter |
+| Prometheus metric update | < 500 ns | [ETS](@/glossary/ets.md) atomic counter |
 | Prometheus scrape (10K metrics) | ~100 ms | HTTP endpoint |
 | OpenTelemetry span creation | < 2 us | Including context propagation |
 | VM metrics poll (full) | < 100 us | System info + ETS writes |
-| LiveView metric push | < 1 ms | [PubSub](/glossary/pubsub/) broadcast |
+| LiveView metric push | < 1 ms | [PubSub](@/glossary/pubsub.md) broadcast |
 
-The key design constraint is that telemetry handlers must not perform blocking I/O. Handlers that need to send data to external systems (Prometheus, Jaeger, PagerDuty) do so through dedicated processes with buffering and [backpressure](/glossary/backpressure/), ensuring that a slow external system never impacts application latency.
+The key design constraint is that telemetry handlers must not perform blocking I/O. Handlers that need to send data to external systems (Prometheus, Jaeger, PagerDuty) do so through dedicated processes with buffering and [backpressure](@/glossary/backpressure.md), ensuring that a slow external system never impacts application latency.
 
 ## Comparison with Alternative Observability Approaches
 
@@ -626,7 +626,7 @@ The key design constraint is that telemetry handlers must not perform blocking I
 |----------|-------------|-----------|-------------|---------|-----------|
 | Logger-based | High (string format) | No | External | No | Universal |
 | StatsD | Medium (UDP) | Partially | Server-side | No | DevOps |
-| `:telemetry` | Very low | Yes | Handler-side | Via OTEL | [Elixir](/glossary/elixir/)/Erlang |
+| `:telemetry` | Very low | Yes | Handler-side | Via OTEL | [Elixir](@/glossary/elixir.md)/Erlang |
 | OpenTelemetry (standalone) | Low | Yes | Collector | Native | Polyglot |
 | `:telemetry` + OTEL | Very low | Yes | Both | Native | Best of both |
 
@@ -634,7 +634,7 @@ The Prismatic Platform uses the `:telemetry` + OpenTelemetry combination, gettin
 
 ## Summary
 
-The [telemetry](/glossary/telemetry/) and [metrics](/glossary/metrics/) architecture of the Prismatic Platform provides comprehensive [observability](/glossary/observability/) with sub-microsecond emission overhead. By building on Erlang's `:telemetry` library for structured event dispatch, Prometheus for metric aggregation and alerting, OpenTelemetry for distributed tracing, and [Phoenix LiveView](/glossary/phoenix-liveview/) for [real-time dashboards](/capabilities/real-time-monitoring/), the platform achieves visibility into every operation without sacrificing performance. The hierarchical event naming convention, aligned with the [umbrella application](/architecture/umbrella-apps/) structure, enables both surgical investigation of specific subsystems and platform-wide health monitoring. Combined with the [supervision tree](/architecture/supervision-trees/) instrumentation and [event store](/architecture/event-sourcing/) metrics, the telemetry system ensures that every aspect of the platform's behavior is measurable, alertable, and debuggable in production.
+The [telemetry](@/glossary/telemetry.md) and [metrics](@/glossary/metrics.md) architecture of the Prismatic Platform provides comprehensive [observability](@/glossary/observability.md) with sub-microsecond emission overhead. By building on Erlang's `:telemetry` library for structured event dispatch, Prometheus for metric aggregation and alerting, OpenTelemetry for distributed tracing, and [Phoenix LiveView](@/glossary/phoenix-liveview.md) for [real-time dashboards](@/capabilities/real-time-monitoring.md), the platform achieves visibility into every operation without sacrificing performance. The hierarchical event naming convention, aligned with the [umbrella application](@/architecture/umbrella-apps.md) structure, enables both surgical investigation of specific subsystems and platform-wide health monitoring. Combined with the [supervision tree](@/architecture/supervision-trees.md) instrumentation and [event store](@/architecture/event-sourcing.md) metrics, the telemetry system ensures that every aspect of the platform's behavior is measurable, alertable, and debuggable in production.
 
 ---
 
@@ -643,4 +643,4 @@ The [telemetry](/glossary/telemetry/) and [metrics](/glossary/metrics/) architec
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -27,7 +27,7 @@ image_alt = "Webhook Events - Prismatic Platform"
 
 The Webhook Events system enables real-time push notifications for platform events. Instead of polling API endpoints for changes, consumers register webhook URLs that receive HTTP POST callbacks when specific events occur. This is particularly valuable for security operations where timely notification of new findings, rating changes, or compliance status shifts can trigger automated response workflows.
 
-Webhooks are organized into event categories that correspond to the platform's operational domains: perimeter events for [EASM](/glossary/easm/) changes, agent events for fleet status changes, quality events for platform health shifts, and compliance events for regulatory assessment updates. Consumers subscribe to specific event types and receive only the notifications they care about.
+Webhooks are organized into event categories that correspond to the platform's operational domains: perimeter events for [EASM](@/glossary/easm.md) changes, agent events for fleet status changes, quality events for platform health shifts, and compliance events for regulatory assessment updates. Consumers subscribe to specific event types and receive only the notifications they care about.
 
 Each webhook delivery includes a cryptographic signature that allows the receiver to verify the payload authenticity. Failed deliveries are retried with exponential backoff for up to 24 hours. The delivery status for each webhook is tracked and queryable through the management API.
 
@@ -366,12 +366,12 @@ A delivery is considered failed when the receiver returns a non-2xx status code 
 
 ## Related Endpoints
 
-- [Attack Surface Discovery](/api/perimeter-discover/) -- Source of perimeter events
-- [Security Rating](/api/perimeter-rating/) -- Source of rating change events
-- [Agent Status](/api/agents-status/) -- Source of agent health events
-- [Compliance Assessment](/api/perimeter-compliance/) -- Source of compliance events
-- [Authentication](/api/authentication/) -- Scope management for webhook access
-- [Error Handling](/api/error-handling/) -- Standard error response format
+- [Attack Surface Discovery](@/api/perimeter-discover.md) -- Source of perimeter events
+- [Security Rating](@/api/perimeter-rating.md) -- Source of rating change events
+- [Agent Status](@/api/agents-status.md) -- Source of agent health events
+- [Compliance Assessment](@/api/perimeter-compliance.md) -- Source of compliance events
+- [Authentication](@/api/authentication.md) -- Scope management for webhook access
+- [Error Handling](@/api/error-handling.md) -- Standard error response format
 
 ---
 
@@ -380,4 +380,4 @@ A delivery is considered failed when the receiver returns a non-2xx status code 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

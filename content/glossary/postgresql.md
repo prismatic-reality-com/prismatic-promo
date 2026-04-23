@@ -42,9 +42,9 @@ PostgreSQL is an advanced, open-source object-relational database management sys
 
 PostgreSQL's architecture is built on Multi-Version Concurrency Control (MVCC), which enables high-throughput concurrent access by maintaining multiple versions of each row rather than using read locks. Writers never block readers, and readers never block writers, making PostgreSQL suitable for both OLTP (Online Transaction Processing) workloads with many concurrent short transactions and OLAP (Online Analytical Processing) workloads with complex long-running queries. The sophisticated query planner uses cost-based optimization with extensive statistics to choose execution strategies across nested loops, hash joins, merge joins, and parallel query execution.
 
-The extension ecosystem is one of PostgreSQL's most distinguishing features. Extensions like PostGIS (geospatial), [TimescaleDB](/glossary/timescaledb/) (time-series), pg_trgm (trigram matching), pgvector (vector similarity search), and Citus (distributed tables) transform PostgreSQL into a specialized database for virtually any domain without sacrificing the core relational guarantees. This extensibility allows organizations to consolidate multiple specialized databases into a single PostgreSQL deployment, reducing operational complexity.
+The extension ecosystem is one of PostgreSQL's most distinguishing features. Extensions like PostGIS (geospatial), [TimescaleDB](@/glossary/timescaledb.md) (time-series), pg_trgm (trigram matching), pgvector (vector similarity search), and Citus (distributed tables) transform PostgreSQL into a specialized database for virtually any domain without sacrificing the core relational guarantees. This extensibility allows organizations to consolidate multiple specialized databases into a single PostgreSQL deployment, reducing operational complexity.
 
-Within the Prismatic Platform, PostgreSQL is the authoritative data store for all persistent state, accessed through [Ecto](/glossary/ecto/) repositories in the `prismatic_storage_ecto` adapter. The platform leverages PostgreSQL's JSONB capabilities for semi-structured metadata, its full-text search for intelligence queries, its ACID transactions for data integrity, and its extension ecosystem -- particularly [TimescaleDB](/glossary/timescaledb/) -- for time-series telemetry storage.
+Within the Prismatic Platform, PostgreSQL is the authoritative data store for all persistent state, accessed through [Ecto](@/glossary/ecto.md) repositories in the `prismatic_storage_ecto` adapter. The platform leverages PostgreSQL's JSONB capabilities for semi-structured metadata, its full-text search for intelligence queries, its ACID transactions for data integrity, and its extension ecosystem -- particularly [TimescaleDB](@/glossary/timescaledb.md) -- for time-series telemetry storage.
 
 ## Historical Context and Significance
 
@@ -52,7 +52,7 @@ PostgreSQL's lineage traces back to 1986, when Michael Stonebraker at UC Berkele
 
 The decision to open-source PostgreSQL proved transformative. A global community of contributors emerged, driving development at a pace that commercial database vendors could not match. Major milestones included MVCC (1999), point-in-time recovery (2004), hot standby and streaming replication (2010), JSONB (2014), logical replication (2017), and declarative partitioning (2017). Each release added capabilities that expanded PostgreSQL from a pure relational database into a multi-model database supporting relational, document, key-value, time-series, graph, and vector workloads.
 
-PostgreSQL's significance in the Elixir ecosystem is particularly pronounced. The Postgrex driver and Ecto ORM provide first-class PostgreSQL support, and many Elixir libraries are designed with PostgreSQL-specific features in mind. The [BEAM](/glossary/beam/) concurrency model (many lightweight processes sharing connections through a pool) aligns naturally with PostgreSQL's connection-based architecture, making the combination highly efficient for concurrent workloads.
+PostgreSQL's significance in the Elixir ecosystem is particularly pronounced. The Postgrex driver and Ecto ORM provide first-class PostgreSQL support, and many Elixir libraries are designed with PostgreSQL-specific features in mind. The [BEAM](@/glossary/beam.md) concurrency model (many lightweight processes sharing connections through a pool) aligns naturally with PostgreSQL's connection-based architecture, making the combination highly efficient for concurrent workloads.
 
 ## Advanced Query Features
 
@@ -167,7 +167,7 @@ INCLUDE (score, grade);
 
 ## Migration Strategy
 
-Database schema changes in PostgreSQL-backed applications require careful migration management to ensure zero-downtime deployments and reversibility. [Ecto](/glossary/ecto/) provides a migration framework that tracks applied migrations and executes them in order.
+Database schema changes in PostgreSQL-backed applications require careful migration management to ensure zero-downtime deployments and reversibility. [Ecto](@/glossary/ecto.md) provides a migration framework that tracks applied migrations and executes them in order.
 
 ```elixir
 defmodule PrismaticStorage.Repo.Migrations.AddSecurityRatings do
@@ -205,7 +205,7 @@ Key migration principles for zero-downtime deployments:
 
 ## Elixir Integration via Ecto
 
-The Prismatic Platform accesses PostgreSQL exclusively through [Ecto](/glossary/ecto/), which provides a composable query DSL, schema definitions, changesets for data validation, and migration management:
+The Prismatic Platform accesses PostgreSQL exclusively through [Ecto](@/glossary/ecto.md), which provides a composable query DSL, schema definitions, changesets for data validation, and migration management:
 
 ```elixir
 defmodule PrismaticStorage.Ecto.AssetRepository do
@@ -264,7 +264,7 @@ end
 
 ## Context in Prismatic Platform
 
-PostgreSQL is the Prismatic Platform's primary persistent data store, accessed through [Ecto](/glossary/ecto/) repositories in the `prismatic_storage_ecto` adapter. The platform employs PostgreSQL across multiple domains:
+PostgreSQL is the Prismatic Platform's primary persistent data store, accessed through [Ecto](@/glossary/ecto.md) repositories in the `prismatic_storage_ecto` adapter. The platform employs PostgreSQL across multiple domains:
 
 **Structured Intelligence Data**: All intelligence records, agent state snapshots, compliance assessments, security ratings (A-F grades with numeric scores 300-900), user accounts, and immutable audit logs reside in PostgreSQL tables with strict schema enforcement.
 
@@ -272,9 +272,9 @@ PostgreSQL is the Prismatic Platform's primary persistent data store, accessed t
 
 **Full-Text Search**: Content queries across intelligence reports, vulnerability descriptions, and compliance documentation use PostgreSQL's native full-text search with GIN indexes, avoiding the operational complexity of a separate search infrastructure.
 
-**Time-Series Telemetry**: The [TimescaleDB](/glossary/timescaledb/) extension partitions [telemetry](/glossary/telemetry/) data (security score histories, agent performance metrics, system health measurements) into time-based hypertables with automatic chunk management and compression.
+**Time-Series Telemetry**: The [TimescaleDB](@/glossary/timescaledb.md) extension partitions [telemetry](@/glossary/telemetry.md) data (security score histories, agent performance metrics, system health measurements) into time-based hypertables with automatic chunk management and compression.
 
-**Multi-Repository Architecture**: The platform uses multiple Ecto repositories for workload isolation -- separating transactional OLTP queries from analytical OLAP queries and background job processing, each with its own [connection pool](/glossary/connection-pooling/) configuration.
+**Multi-Repository Architecture**: The platform uses multiple Ecto repositories for workload isolation -- separating transactional OLTP queries from analytical OLAP queries and background job processing, each with its own [connection pool](@/glossary/connection-pooling.md) configuration.
 
 ## Performance Tuning
 
@@ -303,7 +303,7 @@ LIMIT 100;
 
 ## PostgreSQL vs Redis
 
-PostgreSQL and [Redis](/glossary/redis/) serve complementary roles in the Prismatic Platform:
+PostgreSQL and [Redis](@/glossary/redis.md) serve complementary roles in the Prismatic Platform:
 
 | Aspect | PostgreSQL | Redis |
 |--------|------------|-------|
@@ -325,7 +325,7 @@ The platform follows the principle that PostgreSQL is the source of truth for al
 
 3. **Leverage JSONB for Flexible Metadata**: Use JSONB columns for data that varies by record type, but always define a schema for the critical, queryable fields. Do not store everything in JSONB -- use proper columns for frequently filtered or joined fields.
 
-4. **Connection Pooling is Mandatory**: PostgreSQL creates a new process for each connection. Use [connection pooling](/glossary/connection-pooling/) (DBConnection/Postgrex pool) to limit connection count and reuse connections efficiently.
+4. **Connection Pooling is Mandatory**: PostgreSQL creates a new process for each connection. Use [connection pooling](@/glossary/connection-pooling.md) (DBConnection/Postgrex pool) to limit connection count and reuse connections efficiently.
 
 5. **Use Prepared Statements**: Ecto uses prepared statements by default through Postgrex, eliminating SQL injection risk and improving query planning cache hit rates.
 
@@ -345,16 +345,16 @@ The platform follows the principle that PostgreSQL is the source of truth for al
 
 ## Related Terms
 
-- [Ecto](/glossary/ecto/) - Elixir database wrapper providing the query DSL and migration framework for PostgreSQL
-- [TimescaleDB](/glossary/timescaledb/) - Time-series extension adding hypertables, compression, and continuous aggregates
-- [Connection Pooling](/glossary/connection-pooling/) - Pool management for PostgreSQL connections via DBConnection
-- [Redis](/glossary/redis/) - In-memory cache complementing PostgreSQL for ephemeral data
-- [BEAM](/glossary/beam/) - Virtual machine hosting Ecto processes that connect to PostgreSQL
-- [Adapter Pattern](/glossary/adapter-pattern/) - Storage adapter abstraction allowing PostgreSQL swap with other backends
-- [Data Pipeline](/glossary/data-pipeline/) - ETL processes loading data into PostgreSQL
-- [Encryption at Rest](/glossary/encryption-at-rest/) - Data protection for PostgreSQL storage volumes
-- [Event Sourcing](/glossary/event-sourcing/) - Pattern storing events in PostgreSQL append-only tables
-- [Telemetry](/glossary/telemetry/) - Observability events tracked in TimescaleDB hypertables
+- [Ecto](@/glossary/ecto.md) - Elixir database wrapper providing the query DSL and migration framework for PostgreSQL
+- [TimescaleDB](@/glossary/timescaledb.md) - Time-series extension adding hypertables, compression, and continuous aggregates
+- [Connection Pooling](@/glossary/connection-pooling.md) - Pool management for PostgreSQL connections via DBConnection
+- [Redis](@/glossary/redis.md) - In-memory cache complementing PostgreSQL for ephemeral data
+- [BEAM](@/glossary/beam.md) - Virtual machine hosting Ecto processes that connect to PostgreSQL
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Storage adapter abstraction allowing PostgreSQL swap with other backends
+- [Data Pipeline](@/glossary/data-pipeline.md) - ETL processes loading data into PostgreSQL
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) - Data protection for PostgreSQL storage volumes
+- [Event Sourcing](@/glossary/event-sourcing.md) - Pattern storing events in PostgreSQL append-only tables
+- [Telemetry](@/glossary/telemetry.md) - Observability events tracked in TimescaleDB hypertables
 
 ## See Also
 
@@ -363,8 +363,8 @@ The platform follows the principle that PostgreSQL is the source of truth for al
 - [prismatic_perimeter](../../../apps/prismatic_perimeter/README.md) -- EASM data persisted in PostgreSQL
 - [prismatic_osint_core](../../../apps/prismatic_osint_core/README.md) -- OSINT records stored in PostgreSQL
 - [prismatic_audit](../../../apps/prismatic_audit/README.md) -- Audit trail stored in PostgreSQL
-- [Architecture](/architecture/) -- Platform data architecture and storage patterns
-- [Apps](/apps/) -- Applications using PostgreSQL storage
+- [Architecture](@/architecture/_index.md) -- Platform data architecture and storage patterns
+- [Apps](@/apps/_index.md) -- Applications using PostgreSQL storage
 
 ---
 
@@ -373,4 +373,4 @@ The platform follows the principle that PostgreSQL is the source of truth for al
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

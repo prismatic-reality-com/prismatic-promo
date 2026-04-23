@@ -28,9 +28,9 @@ image_alt = "chatgpt-prompt-engineer - Prismatic Platform"
 
 ## Executive Summary
 
-The ChatGPT Prompt Engineer operates as an L3 [strategic command](/glossary/strategic-command/) agent within the LLM Operations domain of the Prismatic Platform. This agent designs, optimizes, and maintains prompt templates used across all ChatGPT interactions within the platform. By treating [prompt engineering](/glossary/prompt-engineering/) as a systematic discipline rather than ad-hoc experimentation, the agent ensures that every ChatGPT interaction extracts maximum value per token spent while producing structured, actionable outputs that downstream agents can consume without manual transformation.
+The ChatGPT Prompt Engineer operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the LLM Operations domain of the Prismatic Platform. This agent designs, optimizes, and maintains prompt templates used across all ChatGPT interactions within the platform. By treating [prompt engineering](@/glossary/prompt-engineering.md) as a systematic discipline rather than ad-hoc experimentation, the agent ensures that every ChatGPT interaction extracts maximum value per token spent while producing structured, actionable outputs that downstream agents can consume without manual transformation.
 
-Prompt quality directly determines the quality of AI-generated outputs. A poorly structured prompt produces verbose, unfocused, or incorrectly formatted responses that require post-processing and waste tokens. An optimized prompt elicits precise, structured outputs that slot directly into the platform's processing pipelines. The ChatGPT Prompt Engineer maintains a library of tested, versioned prompt templates optimized for specific use cases: code analysis, architectural review, [intelligence synthesis](/capabilities/intelligence-synthesis/), compliance assessment, and strategic planning. Each template undergoes A/B testing against quality [metrics](/glossary/metrics/), with high-performing templates promoted and underperforming ones evolved or retired.
+Prompt quality directly determines the quality of AI-generated outputs. A poorly structured prompt produces verbose, unfocused, or incorrectly formatted responses that require post-processing and waste tokens. An optimized prompt elicits precise, structured outputs that slot directly into the platform's processing pipelines. The ChatGPT Prompt Engineer maintains a library of tested, versioned prompt templates optimized for specific use cases: code analysis, architectural review, [intelligence synthesis](@/capabilities/intelligence-synthesis.md), compliance assessment, and strategic planning. Each template undergoes A/B testing against quality [metrics](@/glossary/metrics.md), with high-performing templates promoted and underperforming ones evolved or retired.
 
 ## Architecture
 
@@ -75,7 +75,7 @@ The LLM Operations domain manages all aspects of large language model integratio
 
 Prompt engineering within the Prismatic ecosystem is a quantitative discipline, not an art. Every prompt template has measurable performance characteristics: average output quality score, token consumption per unit of useful output, structural compliance rate, and downstream processing success rate. These metrics drive template evolution decisions, ensuring that the prompt library continuously improves based on empirical evidence rather than subjective preference.
 
-The domain must also account for model-specific prompt optimization. Different LLM providers (ChatGPT models, [Ollama](/glossary/ollama/) local models, OpenRouter endpoints) respond differently to identical prompts. The Prompt Engineer maintains model-specific template variants that exploit each model's strengths while mitigating its weaknesses, ensuring consistent output quality regardless of the underlying model.
+The domain must also account for model-specific prompt optimization. Different LLM providers (ChatGPT models, [Ollama](@/glossary/ollama.md) local models, OpenRouter endpoints) respond differently to identical prompts. The Prompt Engineer maintains model-specific template variants that exploit each model's strengths while mitigating its weaknesses, ensuring consistent output quality regardless of the underlying model.
 
 ## Core Capabilities
 
@@ -150,10 +150,10 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [chatgpt-bridge-commander](/agents/chatgpt-bridge-commander/) | Bridge Operations | Provides API-level feedback on prompt performance and token consumption metrics |
-| [chatgpt-context-manager](/agents/chatgpt-context-manager/) | Context Optimization | Coordinates context inclusion strategy with prompt design token allocation |
-| [chatgpt-integration-commander](/agents/chatgpt-integration-commander/) | Integration Authority | Provides model capability information that informs prompt design decisions |
-| [chatgpt-consultation-coordinator](/agents/chatgpt-consultation-coordinator/) | Consultation Templates | Designs multi-turn prompt sequences for consultation workflows |
+| [chatgpt-bridge-commander](@/agents/chatgpt-bridge-commander.md) | Bridge Operations | Provides API-level feedback on prompt performance and token consumption metrics |
+| [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) | Context Optimization | Coordinates context inclusion strategy with prompt design token allocation |
+| [chatgpt-integration-commander](@/agents/chatgpt-integration-commander.md) | Integration Authority | Provides model capability information that informs prompt design decisions |
+| [chatgpt-consultation-coordinator](@/agents/chatgpt-consultation-coordinator.md) | Consultation Templates | Designs multi-turn prompt sequences for consultation workflows |
 
 ## Operational Workflow
 
@@ -188,15 +188,15 @@ end
 
 ## Enforcement
 
-Prompt engineering operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No prompt template is deployed to production without measured quality metrics from testing. Prompts that consistently produce low-quality or unstructured outputs are immediately retired. The NABLA Evidence axioms require all prompt performance claims to be backed by quantitative A/B test results rather than subjective assessment.
+Prompt engineering operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No prompt template is deployed to production without measured quality metrics from testing. Prompts that consistently produce low-quality or unstructured outputs are immediately retired. The NABLA Evidence axioms require all prompt performance claims to be backed by quantitative A/B test results rather than subjective assessment.
 
 ## Related Resources
 
-- [chatgpt-integration-commander](/agents/chatgpt-integration-commander/) -- API integration management
-- [chatgpt-context-manager](/agents/chatgpt-context-manager/) -- Context window optimization
-- [chatgpt-consultation-coordinator](/agents/chatgpt-consultation-coordinator/) -- Consultation workflow management
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Performance monitoring
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [chatgpt-integration-commander](@/agents/chatgpt-integration-commander.md) -- API integration management
+- [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) -- Context window optimization
+- [chatgpt-consultation-coordinator](@/agents/chatgpt-consultation-coordinator.md) -- Consultation workflow management
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Performance monitoring
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -205,4 +205,4 @@ Prompt engineering operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-do
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

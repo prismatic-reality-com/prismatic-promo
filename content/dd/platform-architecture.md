@@ -30,7 +30,7 @@ keywords = ["Platform", "Architecture", "Technical", "Implementation", "Intellig
 
 ## Abstract
 
-The Prismatic DD Intelligence platform is implemented as a set of [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/) applications within the Prismatic umbrella, leveraging the [BEAM](/glossary/beam/) virtual machine's strengths in concurrent processing, fault tolerance, and distributed state management. The architecture comprises six primary application modules coordinated through OTP [supervision trees](/glossary/supervision-tree/), message passing, and [PubSub](/glossary/pubsub/) event distribution. This document describes the technical architecture, the role of each application module, the concurrency model, the polyglot persistence strategy, the real-time interface layer, and the deployment infrastructure that supports production DD investigations.
+The Prismatic DD Intelligence platform is implemented as a set of [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md) applications within the Prismatic umbrella, leveraging the [BEAM](@/glossary/beam.md) virtual machine's strengths in concurrent processing, fault tolerance, and distributed state management. The architecture comprises six primary application modules coordinated through OTP [supervision trees](@/glossary/supervision-tree.md), message passing, and [PubSub](@/glossary/pubsub.md) event distribution. This document describes the technical architecture, the role of each application module, the concurrency model, the polyglot persistence strategy, the real-time interface layer, and the deployment infrastructure that supports production DD investigations.
 
 ## Introduction
 
@@ -42,11 +42,11 @@ Due diligence platforms impose specific technical requirements that align well w
 
 2. **Fault Tolerance**: Individual OSINT source failures must not crash the investigation. OTP supervision trees automatically restart failed processes, and the "let it crash" philosophy enables graceful degradation when external sources are unavailable.
 
-3. **Real-Time Updates**: Analysts need to see investigation progress in real-time as sources return data. [Phoenix LiveView](/glossary/liveview/) provides server-rendered real-time UI updates over WebSockets without JavaScript framework complexity.
+3. **Real-Time Updates**: Analysts need to see investigation progress in real-time as sources return data. [Phoenix LiveView](@/glossary/liveview.md) provides server-rendered real-time UI updates over WebSockets without JavaScript framework complexity.
 
-4. **Long-Running Processes**: Investigations may span hours or days, with data collection happening in the background. OTP [GenServer](/glossary/genserver/) processes maintain investigation state across long-lived operations.
+4. **Long-Running Processes**: Investigations may span hours or days, with data collection happening in the background. OTP [GenServer](@/glossary/genserver.md) processes maintain investigation state across long-lived operations.
 
-5. **Hot Code Upgrades**: Production investigations must not be interrupted by platform updates. The BEAM VM supports [hot code reloading](/glossary/hot-code-reload/), enabling zero-downtime deployments.
+5. **Hot Code Upgrades**: Production investigations must not be interrupted by platform updates. The BEAM VM supports [hot code reloading](@/glossary/hot-code-reload.md), enabling zero-downtime deployments.
 
 ### Architecture Overview
 
@@ -113,11 +113,11 @@ Each active investigation case is represented by a GenServer process that mainta
 
 ### prismatic_osint_core -- OSINT Framework
 
-The [OSINT integration framework](/dd/osint-integration/) providing the source behaviour contract, collection engine, and normalization pipeline.
+The [OSINT integration framework](@/dd/osint-integration.md) providing the source behaviour contract, collection engine, and normalization pipeline.
 
 **Key Responsibilities**:
 - Source adapter registration and discovery
-- [Broadway](/glossary/broadway/)-based parallel collection engine
+- [Broadway](@/glossary/broadway.md)-based parallel collection engine
 - Per-source rate limiting through token bucket algorithms
 - Response normalization and Finding struct construction
 - Source health monitoring and degradation handling
@@ -188,11 +188,11 @@ prismatic_osint_sources/
         ...
 ```
 
-Each adapter module implements the `PrismaticOsintCore.Behaviours.Source` [behaviour](/glossary/behaviour/) and contains all source-specific logic: API client, response parser, schema mapper, and rate limit configuration.
+Each adapter module implements the `PrismaticOsintCore.Behaviours.Source` [behaviour](@/glossary/behaviour.md) and contains all source-specific logic: API client, response parser, schema mapper, and rate limit configuration.
 
 ### prismatic_storage_kuzudb -- Graph Engine
 
-The [KuzuDB](/glossary/kuzudb/) integration providing graph storage and traversal for entity relationships.
+The [KuzuDB](@/glossary/kuzudb.md) integration providing graph storage and traversal for entity relationships.
 
 **Key Capabilities**:
 - Property graph storage for entities and relationships
@@ -233,7 +233,7 @@ end
 
 ### prismatic_storage_meilisearch -- Search Engine
 
-[Meilisearch](/glossary/meilisearch/) integration providing full-text search across entity data.
+[Meilisearch](@/glossary/meilisearch.md) integration providing full-text search across entity data.
 
 **Key Capabilities**:
 - Typo-tolerant, real-time search across entity names, addresses, and descriptions
@@ -243,7 +243,7 @@ end
 
 ### prismatic_web -- LiveView Interface
 
-The [Phoenix LiveView](/glossary/liveview/) interface providing real-time investigative dashboards.
+The [Phoenix LiveView](@/glossary/liveview.md) interface providing real-time investigative dashboards.
 
 **Key Pages**:
 
@@ -258,7 +258,7 @@ The [Phoenix LiveView](/glossary/liveview/) interface providing real-time invest
 
 **Real-Time Updates**:
 
-LiveView components subscribe to [PubSub](/glossary/pubsub/) events from the DD subsystem, receiving real-time notifications when:
+LiveView components subscribe to [PubSub](@/glossary/pubsub.md) events from the DD subsystem, receiving real-time notifications when:
 
 - Entity enrichment completes (new source data available)
 - Cross-validation produces new confidence scores
@@ -274,9 +274,9 @@ The platform's data storage architecture leverages three specialized storage eng
 
 | Engine | Role | Access Pattern | Data |
 |--------|------|---------------|------|
-| **[PostgreSQL](/glossary/postgresql/)** | System of record | Transactional CRUD, complex queries | Entity records, case data, audit trail |
-| **[KuzuDB](/glossary/kuzudb/)** | Graph traversal | Multi-hop relationship queries | Entity relationships, ownership chains |
-| **[Meilisearch](/glossary/meilisearch/)** | Full-text search | Typo-tolerant search, faceted filtering | Entity names, addresses, descriptions |
+| **[PostgreSQL](@/glossary/postgresql.md)** | System of record | Transactional CRUD, complex queries | Entity records, case data, audit trail |
+| **[KuzuDB](@/glossary/kuzudb.md)** | Graph traversal | Multi-hop relationship queries | Entity relationships, ownership chains |
+| **[Meilisearch](@/glossary/meilisearch.md)** | Full-text search | Typo-tolerant search, faceted filtering | Entity names, addresses, descriptions |
 
 Data flows from PostgreSQL (primary) to KuzuDB and Meilisearch (secondary) through asynchronous event propagation:
 
@@ -333,14 +333,14 @@ The system implements back-pressure at multiple levels to prevent resource exhau
 
 1. **Broadway pipeline**: Automatically throttles query production when processors are saturated
 2. **Per-source rate limiters**: Prevent exceeding external API limits
-3. **Database connection pools**: [Connection pooling](/glossary/connection-pooling/) prevents database connection exhaustion
-4. **Memory monitoring**: [Telemetry](/glossary/telemetry/)-based alerts when memory consumption approaches limits
+3. **Database connection pools**: [Connection pooling](@/glossary/connection-pooling.md) prevents database connection exhaustion
+4. **Memory monitoring**: [Telemetry](@/glossary/telemetry.md)-based alerts when memory consumption approaches limits
 
 ## Deployment Infrastructure
 
 ### Production Deployment
 
-The DD platform deploys as part of the Prismatic umbrella on [Fly.io](/glossary/fly-io/):
+The DD platform deploys as part of the Prismatic umbrella on [Fly.io](@/glossary/fly-io.md):
 
 | Component | Infrastructure | Configuration |
 |-----------|---------------|---------------|
@@ -363,10 +363,10 @@ The DD platform deploys as part of the Prismatic umbrella on [Fly.io](/glossary/
 
 ### Observability
 
-The platform provides comprehensive [observability](/glossary/observability/) through:
+The platform provides comprehensive [observability](@/glossary/observability.md) through:
 
-- **[Telemetry](/glossary/telemetry/)**: Structured metrics for every subsystem (collection latency, validation throughput, risk computation time)
-- **[Structured logging](/glossary/structured-logging/)**: JSON-formatted logs with investigation context (case ID, entity ID, source)
+- **[Telemetry](@/glossary/telemetry.md)**: Structured metrics for every subsystem (collection latency, validation throughput, risk computation time)
+- **[Structured logging](@/glossary/structured-logging.md)**: JSON-formatted logs with investigation context (case ID, entity ID, source)
 - **Health endpoints**: `/health` and `/readiness` for infrastructure monitoring
 - **LiveView dashboards**: Real-time operational dashboards for platform operators
 
@@ -377,10 +377,10 @@ The platform provides comprehensive [observability](/glossary/observability/) th
 | Layer | Protection |
 |-------|-----------|
 | **Transport** | TLS 1.3 for all external communications |
-| **Storage** | [Encryption at rest](/glossary/encryption-at-rest/) for PostgreSQL and Meilisearch |
-| **Application** | [RBAC](/glossary/rbac/) for case-level access control |
+| **Storage** | [Encryption at rest](@/glossary/encryption-at-rest.md) for PostgreSQL and Meilisearch |
+| **Application** | [RBAC](@/glossary/rbac.md) for case-level access control |
 | **API credentials** | Encrypted credential storage, per-source rotation |
-| **Audit** | Immutable [audit trail](/glossary/audit-trail/) for all operations |
+| **Audit** | Immutable [audit trail](@/glossary/audit-trail.md) for all operations |
 
 ### Multi-Tenancy Isolation
 
@@ -392,13 +392,13 @@ Investigation data is isolated at the case level through:
 
 ## Quality Assurance
 
-The DD platform follows the platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) quality doctrine:
+The DD platform follows the platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) quality doctrine:
 
 - **Zero compilation warnings**: `mix compile --warnings-as-errors` across all DD modules
 - **Comprehensive test coverage**: Unit tests, integration tests, and property-based tests for all adapters
-- **[Dialyzer](/glossary/dialyzer/) type checking**: Full type specification coverage
-- **[Credo](/glossary/credo/) compliance**: All static analysis checks passing
-- **[Quality gates](/capabilities/quality-gates/)**: Automated quality gates block non-compliant code
+- **[Dialyzer](@/glossary/dialyzer.md) type checking**: Full type specification coverage
+- **[Credo](@/glossary/credo.md) compliance**: All static analysis checks passing
+- **[Quality gates](@/capabilities/quality-gates.md)**: Automated quality gates block non-compliant code
 
 ## Conclusion
 
@@ -406,17 +406,17 @@ The Elixir/OTP architecture provides the ideal foundation for a due diligence pl
 
 ## References
 
-- [Elixir Programming Language](/glossary/elixir/)
-- [OTP Framework](/glossary/otp/)
-- [BEAM Virtual Machine](/glossary/beam/)
-- [Phoenix LiveView](/glossary/liveview/)
-- [PostgreSQL](/glossary/postgresql/)
-- [KuzuDB](/glossary/kuzudb/)
-- [Meilisearch](/glossary/meilisearch/)
-- [Supervision Trees](/glossary/supervision-tree/)
-- [Broadway Pipeline](/glossary/broadway/)
-- [Platform Architecture](/architecture/)
-- [Umbrella Applications](/glossary/umbrella/)
+- [Elixir Programming Language](@/glossary/elixir.md)
+- [OTP Framework](@/glossary/otp.md)
+- [BEAM Virtual Machine](@/glossary/beam.md)
+- [Phoenix LiveView](@/glossary/liveview.md)
+- [PostgreSQL](@/glossary/postgresql.md)
+- [KuzuDB](@/glossary/kuzudb.md)
+- [Meilisearch](@/glossary/meilisearch.md)
+- [Supervision Trees](@/glossary/supervision-tree.md)
+- [Broadway Pipeline](@/glossary/broadway.md)
+- [Platform Architecture](@/architecture/_index.md)
+- [Umbrella Applications](@/glossary/umbrella.md)
 
 ---
 
@@ -425,4 +425,4 @@ The Elixir/OTP architecture provides the ideal foundation for a due diligence pl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

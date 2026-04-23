@@ -23,11 +23,11 @@ image_alt = "Prismatic Hawkeye Web - Prismatic Platform"
 
 ## Overview
 
-Prismatic [Hawkeye](/glossary/hawkeye/) Web provides the [LiveView](/glossary/liveview/)-based dashboard for the HAWKEYE visitor intelligence system. It renders real-time visitor analytics, behavioral pattern visualizations, threat indicator alerts, and entity intelligence gathered from web traffic analysis -- all delivered through server-rendered HTML with [WebSocket](/glossary/websocket/)-driven live updates that require zero client-side JavaScript frameworks.
+Prismatic [Hawkeye](@/glossary/hawkeye.md) Web provides the [LiveView](@/glossary/liveview.md)-based dashboard for the HAWKEYE visitor intelligence system. It renders real-time visitor analytics, behavioral pattern visualizations, threat indicator alerts, and entity intelligence gathered from web traffic analysis -- all delivered through server-rendered HTML with [WebSocket](@/glossary/websocket.md)-driven live updates that require zero client-side JavaScript frameworks.
 
-The dashboard transforms raw visitor data from [Prismatic Hawkeye](/apps/prismatic-hawkeye/) into actionable intelligence views. Operators can drill down from aggregate traffic patterns to individual visitor sessions, examining technology fingerprints, geographic origins, and behavioral classifications. The threat view surfaces bot activity, credential stuffing attempts, and reconnaissance patterns in real time, enabling immediate response to active threats.
+The dashboard transforms raw visitor data from [Prismatic Hawkeye](@/apps/prismatic-hawkeye.md) into actionable intelligence views. Operators can drill down from aggregate traffic patterns to individual visitor sessions, examining technology fingerprints, geographic origins, and behavioral classifications. The threat view surfaces bot activity, credential stuffing attempts, and reconnaissance patterns in real time, enabling immediate response to active threats.
 
-Built entirely with [TailwindCSS](/glossary/tailwindcss/) and [Flowbite](/glossary/flowbite/) components, the interface follows the platform's design standards for consistency across all dashboard applications. Every component leverages [Phoenix LiveView](/glossary/phoenix-liveview/)'s efficient DOM diffing to minimize bandwidth usage while maintaining sub-second update latency. The architecture ensures that no sensitive visitor intelligence data is exposed in client-side JavaScript state -- the server computes HTML diffs and pushes only changed bytes over the WebSocket connection, maintaining both performance and security.
+Built entirely with [TailwindCSS](@/glossary/tailwindcss.md) and [Flowbite](@/glossary/flowbite.md) components, the interface follows the platform's design standards for consistency across all dashboard applications. Every component leverages [Phoenix LiveView](@/glossary/phoenix-liveview.md)'s efficient DOM diffing to minimize bandwidth usage while maintaining sub-second update latency. The architecture ensures that no sensitive visitor intelligence data is exposed in client-side JavaScript state -- the server computes HTML diffs and pushes only changed bytes over the WebSocket connection, maintaining both performance and security.
 
 ## Architecture
 
@@ -41,7 +41,7 @@ Browser Dashboard (Server-Rendered HTML)
 TailwindCSS + Flowbite Components
 ```
 
-Each connected dashboard session runs as an independent LiveView process supervised under [OTP](/glossary/otp/). The [PubSub](/glossary/pubsub/) system broadcasts visitor events to all connected sessions, ensuring every operator sees identical real-time data without polling overhead.
+Each connected dashboard session runs as an independent LiveView process supervised under [OTP](@/glossary/otp.md). The [PubSub](@/glossary/pubsub.md) system broadcasts visitor events to all connected sessions, ensuring every operator sees identical real-time data without polling overhead.
 
 The LiveView architecture provides several advantages for an intelligence dashboard. Server-side rendering means that no visitor data needs to be serialized to JSON and sent to a client-side framework -- the server computes the HTML diff and pushes only the changed bytes over the WebSocket connection. This reduces both bandwidth consumption and the risk of sensitive intelligence data being exposed in client-side JavaScript state.
 
@@ -162,14 +162,14 @@ The visitor detail view provides comprehensive session reconstruction, showing e
 
 | Route | View |
 |-------|------|
-| `/hawkeye` | Main intelligence dashboard with summary [metrics](/glossary/metrics/) |
+| `/hawkeye` | Main intelligence dashboard with summary [metrics](@/glossary/metrics.md) |
 | `/hawkeye/visitors` | Visitor details, session history, and fingerprints |
 | `/hawkeye/threats` | Active threat indicators and bot detection |
 | `/hawkeye/analytics` | Analytics, reporting, and trend analysis |
 
 ## Usage
 
-The web interface is served via Phoenix LiveView with real-time [WebSocket](/glossary/websocket/) updates. Access is controlled through the platform's authentication and [RBAC](/glossary/rbac/) system.
+The web interface is served via Phoenix LiveView with real-time [WebSocket](@/glossary/websocket.md) updates. Access is controlled through the platform's authentication and [RBAC](@/glossary/rbac.md) system.
 
 ```elixir
 # LiveView mount with real-time subscription
@@ -216,11 +216,11 @@ Integration tests exercise the full pipeline from backend event emission through
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Hawkeye](/apps/prismatic-hawkeye/) | Backend intelligence engine providing all visitor data |
-| [Prismatic Web](/apps/prismatic-web/) | Host Phoenix application and shared layout components |
-| [Prismatic Visitor Intelligence](/apps/prismatic-visitor-intelligence/) | Deep visitor analysis and classification |
-| [Prismatic Detection Engine](/apps/prismatic-detection-engine/) | Rule-based threat detection driving alert views |
-| [Prismatic Auth](/apps/prismatic-auth/) | Authentication and RBAC for dashboard access control |
+| [Prismatic Hawkeye](@/apps/prismatic-hawkeye.md) | Backend intelligence engine providing all visitor data |
+| [Prismatic Web](@/apps/prismatic-web.md) | Host Phoenix application and shared layout components |
+| [Prismatic Visitor Intelligence](@/apps/prismatic-visitor-intelligence.md) | Deep visitor analysis and classification |
+| [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) | Rule-based threat detection driving alert views |
+| [Prismatic Auth](@/apps/prismatic-auth.md) | Authentication and RBAC for dashboard access control |
 
 ## Performance
 
@@ -233,18 +233,18 @@ Integration tests exercise the full pipeline from backend event emission through
 | Threat alert display | < 50ms | From detection to visual indicator |
 | Visitor detail load | < 120ms | Session history with fingerprints |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :hawkeye_web, :page_load]`, `[:prismatic, :hawkeye_web, :event_processed]`, `[:prismatic, :hawkeye_web, :threat_displayed]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :hawkeye_web, :page_load]`, `[:prismatic, :hawkeye_web, :event_processed]`, `[:prismatic, :hawkeye_web, :threat_displayed]`.
 
 ## Related Resources
 
-- [Prismatic Perimeter Web](/apps/prismatic-perimeter-web/) -- Sibling dashboard for [EASM](/glossary/easm/), sharing design patterns
-- [Prismatic Telemetry](/apps/prismatic-telemetry/) -- Metrics collection powering dashboard performance monitoring
-- [Elixir Architect](/agents/elixir-architect/) -- Ensures LiveView processes follow OTP supervision patterns
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Configures threat indicator alerting and notification delivery
-- [API Design Specialist Agent](/agents/api-design-specialist-agent/) -- Reviews PubSub event interface between backend and dashboard
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Powers live visitor analytics with sub-second update latency
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Tracks dashboard performance metrics
-- [Quality Gates](/capabilities/quality-gates/) -- Validates LiveView component rendering and design consistency
+- [Prismatic Perimeter Web](@/apps/prismatic-perimeter-web.md) -- Sibling dashboard for [EASM](@/glossary/easm.md), sharing design patterns
+- [Prismatic Telemetry](@/apps/prismatic-telemetry.md) -- Metrics collection powering dashboard performance monitoring
+- [Elixir Architect](@/agents/elixir-architect.md) -- Ensures LiveView processes follow OTP supervision patterns
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Configures threat indicator alerting and notification delivery
+- [API Design Specialist Agent](@/agents/api-design-specialist-agent.md) -- Reviews PubSub event interface between backend and dashboard
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Powers live visitor analytics with sub-second update latency
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Tracks dashboard performance metrics
+- [Quality Gates](@/capabilities/quality-gates.md) -- Validates LiveView component rendering and design consistency
 
 ---
 
@@ -253,4 +253,4 @@ Integration tests exercise the full pipeline from backend event emission through
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

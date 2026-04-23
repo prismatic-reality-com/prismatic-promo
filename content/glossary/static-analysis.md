@@ -40,7 +40,7 @@ image_alt = "Static Analysis - Prismatic Platform"
 
 Static analysis occupies a unique position in the software quality spectrum: it finds categories of defects that testing cannot, operates at compile-time speed rather than runtime cost, and scales to millions of lines of code without requiring test infrastructure. However, it is subject to fundamental theoretical limitations -- Rice's theorem proves that no static analyzer can perfectly determine all non-trivial runtime properties -- making the balance between false positives and false negatives a central design challenge.
 
-In the Prismatic Platform, static analysis forms the backbone of the [quality gate](/glossary/quality-gate/) enforcement pipeline. Three complementary static analysis systems -- [Credo](/glossary/credo/) for linting and style enforcement, [Dialyzer](/glossary/dialyzer/) for type-based analysis via success typings, and custom forbidden pattern detection with O(1) AST-indexed pattern matching -- collectively enforce [zero tolerance](/glossary/zero-tolerance/) for [code quality](/glossary/code-quality/) violations across the platform's 115 umbrella applications and approximately 2.8 million lines of code.
+In the Prismatic Platform, static analysis forms the backbone of the [quality gate](@/glossary/quality-gate.md) enforcement pipeline. Three complementary static analysis systems -- [Credo](@/glossary/credo.md) for linting and style enforcement, [Dialyzer](@/glossary/dialyzer.md) for type-based analysis via success typings, and custom forbidden pattern detection with O(1) AST-indexed pattern matching -- collectively enforce [zero tolerance](@/glossary/zero-tolerance.md) for [code quality](@/glossary/code-quality.md) violations across the platform's 115 umbrella applications and approximately 2.8 million lines of code.
 
 ## Overview
 
@@ -70,7 +70,7 @@ Elixir's static analysis story is distinctive because of three language characte
 
 ### Abstract Syntax Tree Analysis
 
-The foundation of most static analysis is the [AST](/glossary/ast/) -- the tree representation of source code's syntactic structure. In Elixir, the AST is accessible through the `quote` special form and the `Code.string_to_quoted/2` function:
+The foundation of most static analysis is the [AST](@/glossary/ast.md) -- the tree representation of source code's syntactic structure. In Elixir, the AST is accessible through the `quote` special form and the `Code.string_to_quoted/2` function:
 
 ```elixir
 defmodule PrismaticAnalysis.ASTAnalyzer do
@@ -296,7 +296,7 @@ end
 
 ### Dialyzer Integration
 
-[Dialyzer](/glossary/dialyzer/) performs success typing analysis, a form of type inference that identifies code that is guaranteed to fail at runtime. Unlike traditional type checkers that may produce false positives, Dialyzer's success typings guarantee that every warning represents a genuine defect:
+[Dialyzer](@/glossary/dialyzer.md) performs success typing analysis, a form of type inference that identifies code that is guaranteed to fail at runtime. Unlike traditional type checkers that may produce false positives, Dialyzer's success typings guarantee that every warning represents a genuine defect:
 
 ```elixir
 defmodule PrismaticAnalysis.DialyzerRunner do
@@ -514,7 +514,7 @@ mix quality.gates                          # Unified gate check
 | **mypy** | Python | Type checking | Low | Medium | L3-L4 |
 | **Clippy** | Rust | Lint passes | Low | Fast | L1-L3 |
 
-The Prismatic approach differentiates by combining three complementary analysis tools (Credo, Dialyzer, forbidden patterns) into a unified pipeline with [zero tolerance](/glossary/zero-tolerance/) enforcement. The O(1) AST-indexed pattern detection is unique to the platform and provides a performance advantage that scales with codebase size.
+The Prismatic approach differentiates by combining three complementary analysis tools (Credo, Dialyzer, forbidden patterns) into a unified pipeline with [zero tolerance](@/glossary/zero-tolerance.md) enforcement. The O(1) AST-indexed pattern detection is unique to the platform and provides a performance advantage that scales with codebase size.
 
 ## Best Practices
 
@@ -526,9 +526,9 @@ The Prismatic approach differentiates by combining three complementary analysis 
 
 4. **Enforce in CI, not just locally** -- Local pre-commit hooks can be bypassed. The CI/CD pipeline is the authoritative enforcement point. The platform enforces at both levels: pre-commit for fast feedback, CI for authoritative blocking.
 
-5. **Write custom rules** -- Generic static analysis rules miss domain-specific issues. The platform's custom [Credo](/glossary/credo/) checks and forbidden pattern rules encode domain knowledge that commercial tools cannot provide.
+5. **Write custom rules** -- Generic static analysis rules miss domain-specific issues. The platform's custom [Credo](@/glossary/credo.md) checks and forbidden pattern rules encode domain knowledge that commercial tools cannot provide.
 
-6. **Maintain type annotations** -- [Typespecs](/glossary/typespec/) enable deeper analysis. Every public function in the platform requires a `@spec` annotation, which both documents intent and enables Dialyzer to perform more precise analysis.
+6. **Maintain type annotations** -- [Typespecs](@/glossary/typespec.md) enable deeper analysis. Every public function in the platform requires a `@spec` annotation, which both documents intent and enables Dialyzer to perform more precise analysis.
 
 7. **Track trends, not just violations** -- The number of findings over time reveals whether code quality is improving or degrading. The platform tracks static analysis metrics through the Quality DNA system.
 
@@ -540,9 +540,9 @@ The Prismatic approach differentiates by combining three complementary analysis 
 
 2. **Ignoring Dialyzer PLT maintenance** -- Stale PLT files produce incorrect results. The nuclear cache fix (`rm -rf _build/dev/lib/prismatic_claude/ebin && rm -rf priv/plts/dialyzer.plt`) is documented as a recovery procedure for corrupted PLT state.
 
-3. **Custom rules without tests** -- Custom static analysis rules are code that can have bugs. The platform tests all custom [Credo](/glossary/credo/) checks in `apps/prismatic_credo/test/`.
+3. **Custom rules without tests** -- Custom static analysis rules are code that can have bugs. The platform tests all custom [Credo](@/glossary/credo.md) checks in `apps/prismatic_credo/test/`.
 
-4. **Over-suppressing warnings** -- Suppressing static analysis findings to achieve a "clean" report defeats the purpose. The [no-mercy-no-doubts](/glossary/no-mercy-no-doubts/) doctrine forbids suppression without documented justification.
+4. **Over-suppressing warnings** -- Suppressing static analysis findings to achieve a "clean" report defeats the purpose. The [no-mercy-no-doubts](@/glossary/no-mercy-no-doubts.md) doctrine forbids suppression without documented justification.
 
 5. **Neglecting incremental analysis** -- Running full analysis on every change is wasteful. Dialyzer's incremental mode and the AST index's delta updates ensure that analysis time scales with change size, not codebase size.
 
@@ -552,7 +552,7 @@ The Prismatic approach differentiates by combining three complementary analysis 
 
 ### Pre-Commit Quality Enforcement
 
-Every commit to the Prismatic Platform triggers the 11-phase pre-commit hook. Phases 2 through 7 perform static analysis: [compilation](/glossary/compilation/) warnings check (zero tolerance), Credo strict analysis, Dialyzer type checking, forbidden pattern scan, and unified quality gate verification. Any finding at severity "block" halts the commit.
+Every commit to the Prismatic Platform triggers the 11-phase pre-commit hook. Phases 2 through 7 perform static analysis: [compilation](@/glossary/compilation.md) warnings check (zero tolerance), Credo strict analysis, Dialyzer type checking, forbidden pattern scan, and unified quality gate verification. Any finding at severity "block" halts the commit.
 
 ### Continuous Codebase Health Monitoring
 
@@ -560,11 +560,11 @@ The Quality Floor Guardian runs daily full-platform static analysis and tracks t
 
 ### Automated Refactoring Validation
 
-When performing large-scale [refactoring](/glossary/refactoring/), static analysis validates that the transformation preserves correctness. Dialyzer verifies that type contracts are maintained, Credo ensures style consistency is preserved, and forbidden patterns confirm that no anti-patterns were introduced during the refactoring process.
+When performing large-scale [refactoring](@/glossary/refactoring.md), static analysis validates that the transformation preserves correctness. Dialyzer verifies that type contracts are maintained, Credo ensures style consistency is preserved, and forbidden patterns confirm that no anti-patterns were introduced during the refactoring process.
 
 ### Security Vulnerability Detection
 
-Static analysis identifies security-relevant code patterns: SQL injection vectors (string interpolation in queries), hardcoded credentials, unsafe deserialization, and missing input validation. These findings feed into the [security audit](/glossary/security-audit/) evidence pipeline.
+Static analysis identifies security-relevant code patterns: SQL injection vectors (string interpolation in queries), hardcoded credentials, unsafe deserialization, and missing input validation. These findings feed into the [security audit](@/glossary/security-audit.md) evidence pipeline.
 
 ### Onboarding and Code Review
 
@@ -572,18 +572,18 @@ Static analysis reports provide objective, automated code review feedback. New c
 
 ## Related Concepts
 
-- [Credo](/glossary/credo/) -- Elixir static analysis tool for code consistency, readability, and refactoring opportunities
-- [Dialyzer](/glossary/dialyzer/) -- BEAM static analysis tool using success typings for type-based defect detection
-- [Code Quality](/glossary/code-quality/) -- Broader quality discipline that static analysis serves as a primary measurement tool
-- [Quality Gate](/glossary/quality-gate/) -- Enforcement checkpoints where static analysis findings block or permit progression
-- [Typespec](/glossary/typespec/) -- Elixir type annotations that enable deeper static analysis by Dialyzer
-- [Compilation](/glossary/compilation/) -- Source code transformation that produces the first layer of static analysis (warnings)
-- [AST](/glossary/ast/) -- Abstract Syntax Tree, the data structure that most static analysis operates on
-- [Pre-commit Hooks](/glossary/pre-commit-hooks/) -- Git hooks that execute static analysis before code is committed
-- [Refactoring](/glossary/refactoring/) -- Code transformation practice validated by static analysis to preserve correctness
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Platform doctrine requiring zero compilation warnings, enforced by static analysis
-- [Security Assessment](/glossary/security-assessment/) -- Security evaluation that includes static analysis as a code-level assessment technique
-- [Technical Debt](/glossary/technical-debt/) -- Quality deficit that static analysis helps identify, quantify, and prevent
+- [Credo](@/glossary/credo.md) -- Elixir static analysis tool for code consistency, readability, and refactoring opportunities
+- [Dialyzer](@/glossary/dialyzer.md) -- BEAM static analysis tool using success typings for type-based defect detection
+- [Code Quality](@/glossary/code-quality.md) -- Broader quality discipline that static analysis serves as a primary measurement tool
+- [Quality Gate](@/glossary/quality-gate.md) -- Enforcement checkpoints where static analysis findings block or permit progression
+- [Typespec](@/glossary/typespec.md) -- Elixir type annotations that enable deeper static analysis by Dialyzer
+- [Compilation](@/glossary/compilation.md) -- Source code transformation that produces the first layer of static analysis (warnings)
+- [AST](@/glossary/ast.md) -- Abstract Syntax Tree, the data structure that most static analysis operates on
+- [Pre-commit Hooks](@/glossary/pre-commit-hooks.md) -- Git hooks that execute static analysis before code is committed
+- [Refactoring](@/glossary/refactoring.md) -- Code transformation practice validated by static analysis to preserve correctness
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Platform doctrine requiring zero compilation warnings, enforced by static analysis
+- [Security Assessment](@/glossary/security-assessment.md) -- Security evaluation that includes static analysis as a code-level assessment technique
+- [Technical Debt](@/glossary/technical-debt.md) -- Quality deficit that static analysis helps identify, quantify, and prevent
 
 ## See Also
 
@@ -600,4 +600,4 @@ Static analysis reports provide objective, automated code review feedback. New c
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

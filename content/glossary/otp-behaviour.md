@@ -40,7 +40,7 @@ An **OTP Behaviour** is a formalized design pattern in the Open Telecom Platform
 
 In practical terms, when a developer writes `use GenServer` in an Elixir module, they are adopting the GenServer behaviour. The GenServer behaviour handles process spawning, message reception, synchronous/asynchronous call dispatch, timeout management, code change handling, and graceful termination. The developer's module provides only the callbacks that define what the process actually does: `init/1` for initialization, `handle_call/3` for synchronous requests, `handle_cast/2` for asynchronous messages, and `handle_info/2` for system messages.
 
-The [Prismatic Platform](/glossary/elixir/) builds its entire 530+ agent architecture on OTP behaviours. Every agent, every storage adapter, every rate limiter, and every monitoring process implements one or more OTP behaviours. The platform also defines its own custom behaviours for domain-specific patterns like `PrismaticStorage.AdapterBehaviour`, which ensures all storage backends implement a consistent interface.
+The [Prismatic Platform](@/glossary/elixir.md) builds its entire 530+ agent architecture on OTP behaviours. Every agent, every storage adapter, every rate limiter, and every monitoring process implements one or more OTP behaviours. The platform also defines its own custom behaviours for domain-specific patterns like `PrismaticStorage.AdapterBehaviour`, which ensures all storage backends implement a consistent interface.
 
 ## Overview
 
@@ -533,7 +533,7 @@ OTP behaviours and Elixir protocols both define contracts, but they serve differ
 | **Concurrency** | Built-in process management | None |
 | **Use Case** | Servers, supervisors, state machines | String.Chars, Enumerable, Jason.Encoder |
 
-The [Protocol](/glossary/protocol/) concept is complementary to behaviours: protocols dispatch on data types, while behaviours dispatch on module implementations. The Prismatic Platform uses both extensively.
+The [Protocol](@/glossary/protocol.md) concept is complementary to behaviours: protocols dispatch on data types, while behaviours dispatch on module implementations. The Prismatic Platform uses both extensively.
 
 ## Best Practices
 
@@ -591,23 +591,23 @@ Every application in the Prismatic Platform uses the Supervisor behaviour to cre
 
 OTP behaviours connect to the foundational concurrency and architecture concepts in the Prismatic Platform:
 
-- [OTP Application](/glossary/otp-application/) -- the packaging unit that contains processes implementing behaviours
-- [GenServer](/glossary/genserver/) -- the most widely used OTP behaviour for client-server processes
-- [Supervision Tree](/glossary/supervision-tree/) -- the fault-tolerance hierarchy built from Supervisor behaviours
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine that provides the process model behaviours abstract over
-- [Behaviour Pattern](/glossary/behaviour-pattern/) -- the general design pattern concept behind OTP behaviours
-- [Supervisor](/glossary/supervisor/) -- the OTP behaviour for process monitoring and restart
-- [Process Isolation](/glossary/process-isolation/) -- the BEAM feature that makes per-process state in behaviours safe
-- [Elixir](/glossary/elixir/) -- the language providing the `@behaviour` and `@impl` annotations
-- [Erlang](/glossary/erlang/) -- the language that originated the OTP behaviour concept
-- [Protocol](/glossary/protocol/) -- Elixir's complementary polymorphism mechanism for data types
+- [OTP Application](@/glossary/otp-application.md) -- the packaging unit that contains processes implementing behaviours
+- [GenServer](@/glossary/genserver.md) -- the most widely used OTP behaviour for client-server processes
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the fault-tolerance hierarchy built from Supervisor behaviours
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine that provides the process model behaviours abstract over
+- [Behaviour Pattern](@/glossary/behaviour-pattern.md) -- the general design pattern concept behind OTP behaviours
+- [Supervisor](@/glossary/supervisor.md) -- the OTP behaviour for process monitoring and restart
+- [Process Isolation](@/glossary/process-isolation.md) -- the BEAM feature that makes per-process state in behaviours safe
+- [Elixir](@/glossary/elixir.md) -- the language providing the `@behaviour` and `@impl` annotations
+- [Erlang](@/glossary/erlang.md) -- the language that originated the OTP behaviour concept
+- [Protocol](@/glossary/protocol.md) -- Elixir's complementary polymorphism mechanism for data types
 
 ## See Also
 
-- [OTP](/glossary/otp/) -- the broader framework that defines standard behaviours
-- [Concurrency](/glossary/concurrency/) -- the fundamental BEAM capability that behaviours abstract
-- [Adapter Pattern](/glossary/adapter-pattern/) -- the design pattern often implemented using custom behaviours
-- [State Machine](/glossary/state-machine/) -- the pattern implemented by GenStateMachine behaviour
+- [OTP](@/glossary/otp.md) -- the broader framework that defines standard behaviours
+- [Concurrency](@/glossary/concurrency.md) -- the fundamental BEAM capability that behaviours abstract
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- the design pattern often implemented using custom behaviours
+- [State Machine](@/glossary/state-machine.md) -- the pattern implemented by GenStateMachine behaviour
 
 ---
 

@@ -38,11 +38,11 @@ image_alt = "OpenAPI Specification - Prismatic Platform"
 
 The OpenAPI Specification (OAS), formerly known as the Swagger Specification, is a standard, language-agnostic interface description format for RESTful APIs. Version 3.0, the current major release, defines a comprehensive structure for describing API endpoints, request and response schemas, authentication methods, server configurations, and operational metadata in machine-readable JSON or YAML format. The specification is maintained by the OpenAPI Initiative under the Linux Foundation and has become the de facto industry standard for API documentation and lifecycle management.
 
-OpenAPI serves multiple critical purposes in modern software engineering ecosystems. First, it provides **human-readable documentation** through tools like [Swagger UI](/glossary/swagger-ui/) and Redoc that render interactive API explorers from the specification. Second, it enables **automated code generation** of client SDKs, server stubs, and test harnesses across dozens of programming languages through tools like OpenAPI Generator. Third, it serves as a **contract** between API producers and consumers, enabling independent development and validation of both sides against the same specification. Fourth, it enables **automated testing** through contract testing frameworks that verify implementations against the specification.
+OpenAPI serves multiple critical purposes in modern software engineering ecosystems. First, it provides **human-readable documentation** through tools like [Swagger UI](@/glossary/swagger-ui.md) and Redoc that render interactive API explorers from the specification. Second, it enables **automated code generation** of client SDKs, server stubs, and test harnesses across dozens of programming languages through tools like OpenAPI Generator. Third, it serves as a **contract** between API producers and consumers, enabling independent development and validation of both sides against the same specification. Fourth, it enables **automated testing** through contract testing frameworks that verify implementations against the specification.
 
 The specification describes every aspect of an API comprehensively: available endpoints (paths), HTTP methods supported by each endpoint, request parameters (path, query, header, cookie), request body schemas with detailed validation rules, response schemas for each status code including error conditions, authentication and authorization schemes, server URLs and environments, and rich metadata including API version, contact information, license, and external documentation links. This exhaustive description enables sophisticated tooling to validate requests and responses at runtime, generate comprehensive test cases, produce accurate documentation automatically, and maintain API contracts across distributed teams and services.
 
-For enterprise platforms that expose programmatic interfaces, OpenAPI is not merely a documentation format -- it is a critical architectural component that ensures API contracts are explicit, versioned, machine-verifiable, and evolution-friendly. When combined with auto-introspection capabilities from modern language ecosystems like [Elixir](/glossary/elixir/), OpenAPI eliminates the common and expensive problem of documentation drift, where the specification diverges from the actual implementation over time, leading to integration failures and developer frustration.
+For enterprise platforms that expose programmatic interfaces, OpenAPI is not merely a documentation format -- it is a critical architectural component that ensures API contracts are explicit, versioned, machine-verifiable, and evolution-friendly. When combined with auto-introspection capabilities from modern language ecosystems like [Elixir](@/glossary/elixir.md), OpenAPI eliminates the common and expensive problem of documentation drift, where the specification diverges from the actual implementation over time, leading to integration failures and developer frustration.
 
 ## Historical Context & Evolution
 
@@ -264,7 +264,7 @@ end
 
 ### Authentication Schemes
 
-OpenAPI 3.0 supports multiple authentication schemes, properly integrated with the Prismatic Platform's [RBAC](/glossary/rbac/) system:
+OpenAPI 3.0 supports multiple authentication schemes, properly integrated with the Prismatic Platform's [RBAC](@/glossary/rbac.md) system:
 
 ```elixir
 defmodule PrismaticApi.ApiSpec do
@@ -540,7 +540,7 @@ end
 
 ## Usage in Prismatic Platform
 
-The [Prismatic API](/glossary/prismatic-api/) (`prismatic_api`) auto-generates a complete OpenAPI 3.0 specification by introspecting all `Prismatic*` facade modules at boot time. Using Elixir introspection (`Code.fetch_docs/1`, `Code.Typespec.fetch_specs/1`, `Module.__info__/1`), the scanner builds an ETS-cached endpoint registry with zero manual configuration.
+The [Prismatic API](@/glossary/prismatic-api.md) (`prismatic_api`) auto-generates a complete OpenAPI 3.0 specification by introspecting all `Prismatic*` facade modules at boot time. Using Elixir introspection (`Code.fetch_docs/1`, `Code.Typespec.fetch_specs/1`, `Module.__info__/1`), the scanner builds an ETS-cached endpoint registry with zero manual configuration.
 
 ### Available Endpoints
 
@@ -924,7 +924,7 @@ end
 
 ### Documentation Excellence
 
-1. **Keep Typespecs Accurate**: Since the OpenAPI specification is generated from `@spec` annotations, inaccurate typespecs produce inaccurate API documentation. Maintain typespecs as part of the implementation, not as an afterthought. Use [Dialyzer](/glossary/dialyzer/) to verify typespec correctness.
+1. **Keep Typespecs Accurate**: Since the OpenAPI specification is generated from `@spec` annotations, inaccurate typespecs produce inaccurate API documentation. Maintain typespecs as part of the implementation, not as an afterthought. Use [Dialyzer](@/glossary/dialyzer.md) to verify typespec correctness.
 
 2. **Document with @doc**: The `@doc` attribute provides the description field in the OpenAPI operation. Write clear, concise documentation that serves both Elixir developers reading the source and API consumers reading the Swagger UI. Include usage examples and parameter descriptions.
 
@@ -948,7 +948,7 @@ end
 
 10. **Optimize for Large APIs**: For APIs with hundreds of endpoints, consider splitting the specification into multiple documents or using OpenAPI's `$ref` mechanism to reduce duplication.
 
-11. **Monitor Performance**: Track specification generation time, endpoint discovery duration, and validation performance using [Telemetry](/glossary/telemetry/) events.
+11. **Monitor Performance**: Track specification generation time, endpoint discovery duration, and validation performance using [Telemetry](@/glossary/telemetry.md) events.
 
 ### Development Workflow
 
@@ -972,7 +972,7 @@ end
 
 ### Missing Specifications
 - **Problem**: Functions without `@spec` annotations cannot be type-mapped, reducing documentation quality
-- **Solution**: Enforce `@spec` annotations through [Credo](/glossary/credo/) rules and pre-commit hooks
+- **Solution**: Enforce `@spec` annotations through [Credo](@/glossary/credo.md) rules and pre-commit hooks
 - **Detection**: Add telemetry to track endpoints with missing type information
 
 ### Performance at Scale
@@ -1138,19 +1138,19 @@ end
 
 ## Related Concepts
 
-- [Prismatic API](/glossary/prismatic-api/) - The application that auto-generates OpenAPI specifications
-- [Umbrella Application](/glossary/umbrella-application/) - Architecture hosting the API application
-- [Adapter Pattern](/glossary/adapter-pattern/) - Storage abstraction behind API endpoints
-- [Elixir](/glossary/elixir/) - Language providing `@spec` annotations for auto-generation
-- [Phoenix LiveView](/glossary/phoenix-liveview/) - Web framework complementing the REST API
-- [RBAC](/glossary/rbac/) - Role-based access control enforced on API endpoints
-- [Plug](/glossary/plug/) - Request pipeline handling API middleware
+- [Prismatic API](@/glossary/prismatic-api.md) - The application that auto-generates OpenAPI specifications
+- [Umbrella Application](@/glossary/umbrella-application.md) - Architecture hosting the API application
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Storage abstraction behind API endpoints
+- [Elixir](@/glossary/elixir.md) - Language providing `@spec` annotations for auto-generation
+- [Phoenix LiveView](@/glossary/phoenix-liveview.md) - Web framework complementing the REST API
+- [RBAC](@/glossary/rbac.md) - Role-based access control enforced on API endpoints
+- [Plug](@/glossary/plug.md) - Request pipeline handling API middleware
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Prismatic API App](/apps/prismatic-api/) - API application documentation
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Prismatic API App](@/apps/prismatic-api.md) - API application documentation
 
 ---
 
@@ -1159,4 +1159,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

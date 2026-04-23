@@ -34,7 +34,7 @@ In software engineering, complexity manifests at multiple levels: algorithmic co
 
 Chaos, in the mathematical and engineering sense, refers to deterministic systems that exhibit extreme sensitivity to initial conditions -- the "butterfly effect" where small perturbations cascade into dramatically different outcomes. In distributed software systems, chaos manifests when minor failures (a single slow database query, a brief network partition, a memory spike on one node) cascade through interconnected components to produce system-wide outages that no individual component failure would predict.
 
-The [Prismatic Platform](/glossary/prismatic-perimeter/) addresses system complexity through layered fault isolation (115 umbrella applications under hierarchical [supervision](/glossary/supervision-tree/)), continuous quality monitoring (13 domains at 100/100), and the philosophical commitment that complexity is not eliminated but managed -- embraced through the [let-it-crash](/glossary/let-it-crash/) philosophy and contained through architectural boundaries.
+The [Prismatic Platform](@/glossary/prismatic-perimeter.md) addresses system complexity through layered fault isolation (115 umbrella applications under hierarchical [supervision](@/glossary/supervision-tree.md)), continuous quality monitoring (13 domains at 100/100), and the philosophical commitment that complexity is not eliminated but managed -- embraced through the [let-it-crash](@/glossary/let-it-crash.md) philosophy and contained through architectural boundaries.
 
 ## Complexity Theory Foundations
 
@@ -50,7 +50,7 @@ Non-linear systems exhibit disproportionate responses to inputs. A 10% increase 
 
 ### Feedback Loops
 
-Positive feedback loops amplify deviations (retry storms: failure -> retry -> more load -> more failure). Negative feedback loops dampen deviations ([backpressure](/glossary/backpressure/): queue growth -> producer slowdown -> queue stabilization). Effective architecture leverages negative feedback loops and guards against positive ones.
+Positive feedback loops amplify deviations (retry storms: failure -> retry -> more load -> more failure). Negative feedback loops dampen deviations ([backpressure](@/glossary/backpressure.md): queue growth -> producer slowdown -> queue stabilization). Effective architecture leverages negative feedback loops and guards against positive ones.
 
 ### Edge of Chaos
 
@@ -154,11 +154,11 @@ High coupling (tight inter-module dependencies) amplifies complexity by creating
 
 ### State Space Explosion
 
-Concurrent systems exhibit state space explosion: a system with N processes, each having M possible states, has M^N possible system states. With thousands of Erlang processes, the state space is astronomically large, making exhaustive testing impossible. This is why property-based testing and formal verification (the platform's [Trinity Gate](/glossary/trinity-gate/)) become essential.
+Concurrent systems exhibit state space explosion: a system with N processes, each having M possible states, has M^N possible system states. With thousands of Erlang processes, the state space is astronomically large, making exhaustive testing impossible. This is why property-based testing and formal verification (the platform's [Trinity Gate](@/glossary/trinity-gate.md)) become essential.
 
 ## Chaos Engineering Principles
 
-[Chaos engineering](/glossary/chaos-engineering/) is the discipline of experimenting on a distributed system to build confidence in its ability to withstand turbulent conditions in production. Rather than waiting for failures to reveal weaknesses, chaos engineering proactively injects failures to discover them:
+[Chaos engineering](@/glossary/chaos-engineering.md) is the discipline of experimenting on a distributed system to build confidence in its ability to withstand turbulent conditions in production. Rather than waiting for failures to reveal weaknesses, chaos engineering proactively injects failures to discover them:
 
 ```elixir
 defmodule Prismatic.ChaosEngineering.ExperimentRunner do
@@ -344,7 +344,7 @@ Every Erlang process runs in its own heap with independent garbage collection. A
 
 ### Supervision as Complexity Containment
 
-[Supervision trees](/glossary/supervision-tree/) provide hierarchical complexity containment. Each supervisor defines a "blast radius" for failures within its subtree:
+[Supervision trees](@/glossary/supervision-tree.md) provide hierarchical complexity containment. Each supervisor defines a "blast radius" for failures within its subtree:
 
 ```elixir
 defmodule Prismatic.Complexity.SupervisionStrategy do
@@ -400,7 +400,7 @@ end
 
 ### Circuit Breakers as Chaos Dampeners
 
-[Circuit breakers](/glossary/circuit-breaker/) prevent cascading failures by detecting repeated failures and short-circuiting subsequent calls:
+[Circuit breakers](@/glossary/circuit-breaker.md) prevent cascading failures by detecting repeated failures and short-circuiting subsequent calls:
 
 ```elixir
 defmodule Prismatic.Complexity.CircuitBreaker do
@@ -498,7 +498,7 @@ end
 
 ## Entropy and Technical Debt
 
-Software entropy -- the natural tendency of systems to become more disordered over time -- is a manifestation of complexity. Every change introduces the possibility of unintended interactions. Without active countermeasures, entropy accumulates as [technical debt](/glossary/technical-debt/):
+Software entropy -- the natural tendency of systems to become more disordered over time -- is a manifestation of complexity. Every change introduces the possibility of unintended interactions. Without active countermeasures, entropy accumulates as [technical debt](@/glossary/technical-debt.md):
 
 The Prismatic Platform combats entropy through:
 
@@ -532,11 +532,11 @@ Nassim Nicholas Taleb's concept of anti-fragility -- systems that grow stronger 
 
 **The Prismatic Platform's Evolution System**: The platform's Gen 1-19 evolution demonstrates anti-fragility. Each quality failure, each bug discovered, each performance regression triggers not just a fix but a systemic improvement (regression test, quality gate, monitoring enhancement) that makes the system stronger than before.
 
-**OTP's Let-It-Crash**: The [let-it-crash](/glossary/let-it-crash/) philosophy is inherently anti-fragile. Rather than building complex error recovery logic that adds complexity and may itself fail, OTP systems crash and restart from known good states. The system improves through failure -- each crash exercises and validates the recovery path.
+**OTP's Let-It-Crash**: The [let-it-crash](@/glossary/let-it-crash.md) philosophy is inherently anti-fragile. Rather than building complex error recovery logic that adds complexity and may itself fail, OTP systems crash and restart from known good states. The system improves through failure -- each crash exercises and validates the recovery path.
 
 ## Observability in Complex Systems
 
-[Observability](/glossary/observability/) is the ability to understand a system's internal state from its external outputs. In complex systems, observability is not optional -- it is the primary mechanism for understanding emergent behavior:
+[Observability](@/glossary/observability.md) is the ability to understand a system's internal state from its external outputs. In complex systems, observability is not optional -- it is the primary mechanism for understanding emergent behavior:
 
 **Distributed Tracing**: Follows requests across process boundaries, revealing how complexity manifests in request latency, error propagation, and resource utilization patterns.
 
@@ -558,16 +558,16 @@ Beyond architectural patterns, practical strategies help teams manage daily comp
 
 ## Related Concepts
 
-- [Chaos Engineering](/glossary/chaos-engineering/) -- deliberate failure injection to verify resilience
-- [Distributed Systems](/glossary/distributed-systems/) -- multi-node systems exhibiting emergent complexity
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP's hierarchical fault containment
-- [Circuit Breaker](/glossary/circuit-breaker/) -- pattern preventing cascading failures
-- [Let-It-Crash](/glossary/let-it-crash/) -- OTP philosophy embracing controlled failure
-- [Observability](/glossary/observability/) -- understanding complex system internal state
-- [Resilience](/glossary/reliability/) -- system ability to maintain function under stress
-- [Backpressure](/glossary/backpressure/) -- negative feedback loop preventing overload
-- [Self-Healing](/glossary/self-healing/) -- autonomous recovery from failures
-- [Monitoring](/glossary/monitoring/) -- continuous observation of system health
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- deliberate failure injection to verify resilience
+- [Distributed Systems](@/glossary/distributed-systems.md) -- multi-node systems exhibiting emergent complexity
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP's hierarchical fault containment
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- pattern preventing cascading failures
+- [Let-It-Crash](@/glossary/let-it-crash.md) -- OTP philosophy embracing controlled failure
+- [Observability](@/glossary/observability.md) -- understanding complex system internal state
+- [Resilience](@/glossary/reliability.md) -- system ability to maintain function under stress
+- [Backpressure](@/glossary/backpressure.md) -- negative feedback loop preventing overload
+- [Self-Healing](@/glossary/self-healing.md) -- autonomous recovery from failures
+- [Monitoring](@/glossary/monitoring.md) -- continuous observation of system health
 
 ---
 
@@ -576,4 +576,4 @@ Beyond architectural patterns, practical strategies help teams manage daily comp
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

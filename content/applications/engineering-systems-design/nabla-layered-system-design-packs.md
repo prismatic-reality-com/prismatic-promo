@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-Nabla-layered system design packs — An academic treatment of systems engineering and reliability design within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **nabla-layered system design packs** as implemented within the Prismatic Platform's systems engineering and reliability design domain. We formalize the problem space through the lens of fault tolerance and graceful degradation, propose a multi-agent architecture leveraging [OTP](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates failure mode and effects analysis (FMEA), fault tree analysis, reliability block diagrams to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for systems engineering and reliability design.
+Nabla-layered system design packs — An academic treatment of systems engineering and reliability design within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **nabla-layered system design packs** as implemented within the Prismatic Platform's systems engineering and reliability design domain. We formalize the problem space through the lens of fault tolerance and graceful degradation, propose a multi-agent architecture leveraging [OTP](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates failure mode and effects analysis (FMEA), fault tree analysis, reliability block diagrams to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for systems engineering and reliability design.
 
 **Keywords:** Nabla-layered, system, design, packs, Prismatic-native, Engineering
 
@@ -115,7 +115,7 @@ The nabla-layered system design packs system is implemented as a Prismatic-nativ
 
 ### 3.2 OTP Process Topology
 
-The system leverages [Elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [Elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule NablaLayeredSystemDesignPacks.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -216,7 +216,7 @@ The implementation leverages the Prismatic Platform's technology stack:
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
 | Runtime | Elixir 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
-| Web Layer | Phoenix [LiveView](/glossary/liveview/) | Real-time interactive dashboards |
+| Web Layer | Phoenix [LiveView](@/glossary/liveview.md) | Real-time interactive dashboards |
 | Storage | PostgreSQL + ETS | Persistent + in-memory storage |
 | Search | Meilisearch | Full-text search and indexing |
 | Styling | TailwindCSS + Flowbite | Consistent UI component library |
@@ -464,19 +464,19 @@ config :prismatic, NablaLayeredSystemDesignPacks,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [Renewable energy adoption packs](/applications/sustainability-ecology/renewable-energy-adoption-packs/) — *Sustainability Ecology*
-- [Cross-cultural bedside manner packs](/applications/medical-healthcare-systems/cross-cultural-bedside-manner-packs/) — *Medical Healthcare Systems*
-- [Ocean plastic reduction packs](/applications/sustainability-ecology/ocean-plastic-reduction-packs/) — *Sustainability Ecology*
-- [LiveView UI testing packs](/applications/developer-tooling-runtime/liveview-ui-testing-packs/) — *Developer Tooling Runtime*
+- [Renewable energy adoption packs](@/applications/sustainability-ecology/renewable-energy-adoption-packs.md) — *Sustainability Ecology*
+- [Cross-cultural bedside manner packs](@/applications/medical-healthcare-systems/cross-cultural-bedside-manner-packs.md) — *Medical Healthcare Systems*
+- [Ocean plastic reduction packs](@/applications/sustainability-ecology/ocean-plastic-reduction-packs.md) — *Sustainability Ecology*
+- [LiveView UI testing packs](@/applications/developer-tooling-runtime/liveview-ui-testing-packs.md) — *Developer Tooling Runtime*
 
 
 ## Further Reading
 
-- [Engineering Systems Design — All Applications](/applications/engineering-systems-design/)
-- [Developer Tooling Runtime](/applications/developer-tooling-runtime/)
-- [Defense Security](/applications/defense-security/)
-- [Algorithmic Trading Finance](/applications/algorithmic-trading-finance/)
-- [Prismatic Application Catalogue](/applications/)
+- [Engineering Systems Design — All Applications](@/applications/engineering-systems-design/_index.md)
+- [Developer Tooling Runtime](@/applications/developer-tooling-runtime/_index.md)
+- [Defense Security](@/applications/defense-security/_index.md)
+- [Algorithmic Trading Finance](@/applications/algorithmic-trading-finance/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

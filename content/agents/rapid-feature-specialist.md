@@ -32,7 +32,7 @@ The rapid-feature-specialist operates as an L2 Tactical Operations authority wit
 
 Speed without quality is not speed -- it is technical debt creation. The rapid-feature-specialist achieves its execution velocity not by cutting corners but by applying deep knowledge of the platform's architecture, conventions, and patterns to minimize decision-making time during implementation. The agent knows exactly which modules to create, which patterns to apply, which tests to write, and which configuration to add for any standard feature type. This pattern expertise transforms implementation from a creative problem-solving exercise into a disciplined execution protocol.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, this agent delivers features that pass all quality gates immediately. The 5-15 minute delivery target includes not just code writing but also test creation, quality gate verification, and commit preparation. Delivery is not counted as complete until the feature compiles with zero warnings, passes all tests, and satisfies Dialyzer and Credo in strict mode.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, this agent delivers features that pass all quality gates immediately. The 5-15 minute delivery target includes not just code writing but also test creation, quality gate verification, and commit preparation. Delivery is not counted as complete until the feature compiles with zero warnings, passes all tests, and satisfies Dialyzer and Credo in strict mode.
 
 ## Rapid Delivery Methodology
 
@@ -54,8 +54,8 @@ The agent's delivery methodology is structured around four compressed phases tha
 - **Targeted verification** -- Runs focused quality gate checks on affected modules only, achieving full confidence in seconds rather than minutes
 - **Zero-rework delivery** -- Features pass all quality gates on first verification, eliminating fix-recheck cycles that dominate conventional development timelines
 - **Multi-application features** -- Implements features that span multiple umbrella applications, coordinating cross-application dependencies during the compressed delivery window
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed feature implementation from specification to commit
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for delivery time tracking and quality compliance rate monitoring
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed feature implementation from specification to commit
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for delivery time tracking and quality compliance rate monitoring
 
 ## Delivery Time Breakdown
 
@@ -123,7 +123,7 @@ end
 
 ## Authority Level
 
-**L2** - Tactical Operations - Domain-specific [tactical execution](/glossary/tactical-execution/) with authority to implement features, create modules, generate tests, and prepare production-ready commits within the delivery window.
+**L2** - Tactical Operations - Domain-specific [tactical execution](@/glossary/tactical-execution.md) with authority to implement features, create modules, generate tests, and prepare production-ready commits within the delivery window.
 
 ## Command Interface
 
@@ -137,14 +137,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [quickstart-specialist](/agents/quickstart-specialist/) | Scaffolding templates used as generation foundations |
-| [quality-gates-specialist](/agents/quality-gates-specialist/) | Targeted verification delegates to quality gate execution |
-| [refactor-specialist-coordinator](/agents/refactor-specialist-coordinator/) | Rapid features follow refactoring-friendly patterns for future maintenance |
-| [quality-enforcement-commander](/agents/quality-enforcement-commander/) | Delivered features must pass full enforcement pipeline |
+| [quickstart-specialist](@/agents/quickstart-specialist.md) | Scaffolding templates used as generation foundations |
+| [quality-gates-specialist](@/agents/quality-gates-specialist.md) | Targeted verification delegates to quality gate execution |
+| [refactor-specialist-coordinator](@/agents/refactor-specialist-coordinator.md) | Rapid features follow refactoring-friendly patterns for future maintenance |
+| [quality-enforcement-commander](@/agents/quality-enforcement-commander.md) | Delivered features must pass full enforcement pipeline |
 
 ## Enforcement
 
-Rapid feature delivery operates under strict [NO MERCY](/glossary/no-mercy/) enforcement: speed never justifies quality compromise. Every delivered feature must pass all 13 quality domains with zero violations. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that delivery claims are verified through actual gate execution, not assumed from template compliance. The [Trinity Gate](/glossary/trinity-gate/) validates that delivered features maintain structural consistency with the existing codebase architecture.
+Rapid feature delivery operates under strict [NO MERCY](@/glossary/no-mercy.md) enforcement: speed never justifies quality compromise. Every delivered feature must pass all 13 quality domains with zero violations. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that delivery claims are verified through actual gate execution, not assumed from template compliance. The [Trinity Gate](@/glossary/trinity-gate.md) validates that delivered features maintain structural consistency with the existing codebase architecture.
 
 ---
 
@@ -153,4 +153,4 @@ Rapid feature delivery operates under strict [NO MERCY](/glossary/no-mercy/) enf
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

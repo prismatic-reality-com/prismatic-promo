@@ -22,9 +22,9 @@ image_alt = "Development Agents - Prismatic Platform"
 
 ## Overview
 
-Development agents constitute the largest and most actively utilized agent cohort within the Prismatic Platform, handling all software engineering tasks from code generation to testing, refactoring, documentation, and debugging. These 58 specialized agents collectively form an autonomous software engineering pipeline that produces production-ready code meeting the platform's exacting quality standards. Every agent in this domain operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, meaning zero tolerance for incomplete implementations, untested code, or quality shortcuts. The development domain is not a code suggestion engine -- it is a complete software engineering team operating as a coordinated autonomous system.
+Development agents constitute the largest and most actively utilized agent cohort within the Prismatic Platform, handling all software engineering tasks from code generation to testing, refactoring, documentation, and debugging. These 58 specialized agents collectively form an autonomous software engineering pipeline that produces production-ready code meeting the platform's exacting quality standards. Every agent in this domain operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, meaning zero tolerance for incomplete implementations, untested code, or quality shortcuts. The development domain is not a code suggestion engine -- it is a complete software engineering team operating as a coordinated autonomous system.
 
-The Prismatic Platform's codebase spans over 6,600 [Elixir](/glossary/elixir/) source files across 90 [umbrella application](/glossary/umbrella-application/)s, totaling approximately 2.8 million lines of code. Managing a codebase of this scale requires development agents that understand not just syntax but architectural context, dependency graphs, naming conventions, [OTP](/glossary/otp/) patterns, and cross-application interfaces. Development agents maintain deep contextual awareness of the entire codebase through the platform's Git Tree indexing system, enabling them to generate code that is consistent with existing patterns and correctly integrated with surrounding modules.
+The Prismatic Platform's codebase spans over 6,600 [Elixir](@/glossary/elixir.md) source files across 90 [umbrella application](@/glossary/umbrella-application.md)s, totaling approximately 2.8 million lines of code. Managing a codebase of this scale requires development agents that understand not just syntax but architectural context, dependency graphs, naming conventions, [OTP](@/glossary/otp.md) patterns, and cross-application interfaces. Development agents maintain deep contextual awareness of the entire codebase through the platform's Git Tree indexing system, enabling them to generate code that is consistent with existing patterns and correctly integrated with surrounding modules.
 
 ## Agent Roster
 
@@ -55,7 +55,7 @@ Specification --> Analysis --> Generation --> Verification --> Delivery
                  Git Trees    OTP            Coverage
 ```
 
-The specification stage captures user intent through structured requirement analysis. The analysis stage examines the existing codebase for relevant patterns, interfaces, and constraints using Git Tree indexing for rapid file discovery. Generation produces code following [OTP](/glossary/otp/) principles, functional programming patterns, and platform naming conventions. Verification runs the complete quality gate suite. Only code that passes all gates reaches delivery.
+The specification stage captures user intent through structured requirement analysis. The analysis stage examines the existing codebase for relevant patterns, interfaces, and constraints using Git Tree indexing for rapid file discovery. Generation produces code following [OTP](@/glossary/otp.md) principles, functional programming patterns, and platform naming conventions. Verification runs the complete quality gate suite. Only code that passes all gates reaches delivery.
 
 Every generated module includes `@moduledoc`, `@doc`, and `@spec` annotations. Every public function has explicit type specifications. Every module compiles with `--warnings-as-errors`. This is not optional -- it is enforced at the pipeline level.
 
@@ -120,16 +120,16 @@ Development agents integrate with every layer of the Prismatic Platform, serving
 
 | Integration | Purpose | Mechanism |
 |-------------|---------|-----------|
-| [AIAD](/glossary/aiad/) Commands | Direct agent invocation | Command dispatch through AIAD registry |
-| [Quality Gates](/glossary/quality-gates/) | Automatic verification | Pre-commit hooks and CI pipeline |
+| [AIAD](@/glossary/aiad.md) Commands | Direct agent invocation | Command dispatch through AIAD registry |
+| [Quality Gates](@/glossary/quality-gates.md) | Automatic verification | Pre-commit hooks and CI pipeline |
 | Git Integration | Atomic commits | Co-authored commits with conventional format |
 | Git Trees | Codebase navigation | Rapid file discovery and pattern matching |
-| [Telemetry](/glossary/telemetry/) | Performance tracking | Code generation metrics and timing |
-| [SEADF](/glossary/seadf/) | Ecosystem evolution | Quality improvements feeding evolutionary cycles |
+| [Telemetry](@/glossary/telemetry.md) | Performance tracking | Code generation metrics and timing |
+| [SEADF](@/glossary/seadf.md) | Ecosystem evolution | Quality improvements feeding evolutionary cycles |
 
 ## Commands
 
-Development agents are invoked through the [AIAD](/glossary/aiad/) command system, providing a consistent interface for all software engineering operations.
+Development agents are invoked through the [AIAD](@/glossary/aiad.md) command system, providing a consistent interface for all software engineering operations.
 
 | Command | Description | Authority | Typical Duration |
 |---------|-------------|-----------|-----------------|
@@ -155,9 +155,9 @@ Development agent effectiveness is measured through quantitative metrics that tr
 
 ## Related Domains
 
-- [**Architecture**](/agents/architecture-decision-specialist/) - Provides architectural constraints that guide code generation decisions
-- [**Quality**](/agents/cascade-quality-specialist/) - Monitors quality metrics and triggers development agent interventions
-- [**Evolution**](/agents/evolution-orchestrator-supreme/) - Feeds development patterns into evolutionary improvement cycles
+- [**Architecture**](@/agents/architecture-decision-specialist.md) - Provides architectural constraints that guide code generation decisions
+- [**Quality**](@/agents/cascade-quality-specialist.md) - Monitors quality metrics and triggers development agent interventions
+- [**Evolution**](@/agents/evolution-orchestrator-supreme.md) - Feeds development patterns into evolutionary improvement cycles
 
 ---
 
@@ -166,4 +166,4 @@ Development agent effectiveness is measured through quantitative metrics that tr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

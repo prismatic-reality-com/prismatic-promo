@@ -24,13 +24,13 @@ image_alt = "/person-investigate - Prismatic Platform"
 
 ## Overview
 
-**/person-investigate** is a production command in the **Intelligence** category of the Prismatic Platform that performs comprehensive person investigations leveraging Czech public registry data with [ARCHER SUPREME](/glossary/archer-supreme/) tactical protocols. This command automates the process of gathering, correlating, and analyzing publicly available information about individuals from Czech business registries, trade registers, insolvency records, and related official data sources to produce structured intelligence reports.
+**/person-investigate** is a production command in the **Intelligence** category of the Prismatic Platform that performs comprehensive person investigations leveraging Czech public registry data with [ARCHER SUPREME](@/glossary/archer-supreme.md) tactical protocols. This command automates the process of gathering, correlating, and analyzing publicly available information about individuals from Czech business registries, trade registers, insolvency records, and related official data sources to produce structured intelligence reports.
 
 The investigation engine operates by querying multiple Czech public registries -- including the Commercial Register (OR), Trade Register (RZP), Insolvency Register (ISIR), and the Register of Economic Subjects (ARES) -- and correlating results across these sources to build a comprehensive profile of an individual's business activities, corporate roles, and financial status. The cross-referencing capability is particularly valuable for due diligence, compliance verification, and risk assessment in business contexts where understanding an individual's full corporate footprint is essential.
 
-This command operates under the **L3** authority level, reflecting the sensitivity of person-related intelligence operations, and is executed by the `czech-registry-person-investigator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The elevated authority level ensures that person investigations are conducted only by operators with appropriate clearance, maintaining ethical standards and regulatory compliance.
+This command operates under the **L3** authority level, reflecting the sensitivity of person-related intelligence operations, and is executed by the `czech-registry-person-investigator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The elevated authority level ensures that person investigations are conducted only by operators with appropriate clearance, maintaining ethical standards and regulatory compliance.
 
-The [ARCHER SUPREME](/glossary/archer-supreme/) protocol integration means that person investigations follow the platform's tactical excellence framework: thorough reconnaissance, decisive analysis, and confident reporting. The investigation results include confidence scores for each data point, source provenance tracking, and temporal context showing when information was last verified against registry sources.
+The [ARCHER SUPREME](@/glossary/archer-supreme.md) protocol integration means that person investigations follow the platform's tactical excellence framework: thorough reconnaissance, decisive analysis, and confident reporting. The investigation results include confidence scores for each data point, source provenance tracking, and temporal context showing when information was last verified against registry sources.
 
 ## Architecture
 
@@ -165,14 +165,14 @@ The person investigation follows a structured multi-phase pipeline that ensures 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `czech-registry-person-investigator` orchestration |
-| [/investigate](/commands/investigate/) | Cross-domain | Person data feeds into broader OSINT investigations |
-| [/presales](/commands/presales/) | Downstream | Person intelligence informs presales due diligence |
-| [Prismatic Storage](/apps/prismatic-storage/) | Persistence | Investigation results, cached registry data |
-| [ARCHER SUPREME](/glossary/archer-supreme/) | Protocol | Tactical investigation framework |
-| [Telemetry](/glossary/telemetry/) | Observability | Query timing, registry availability, result quality |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Result completeness and accuracy checks |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command specification and routing |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `czech-registry-person-investigator` orchestration |
+| [/investigate](@/commands/investigate.md) | Cross-domain | Person data feeds into broader OSINT investigations |
+| [/presales](@/commands/presales.md) | Downstream | Person intelligence informs presales due diligence |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Persistence | Investigation results, cached registry data |
+| [ARCHER SUPREME](@/glossary/archer-supreme.md) | Protocol | Tactical investigation framework |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Query timing, registry availability, result quality |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Result completeness and accuracy checks |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command specification and routing |
 
 ## Best Practices
 
@@ -232,21 +232,21 @@ The person investigation follows a structured multi-phase pipeline that ensures 
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every configured registry is queried. Missing or unreachable data sources are explicitly reported rather than silently omitted. Correlation confidence is calculated rigorously without artificial inflation.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every data point in the intelligence report includes source provenance and timestamp. The [NABLA](/glossary/nabla-infinity/) axiom of Signal Plurality is enforced: person profiles require corroboration from multiple independent registry sources before high-confidence assertions are made.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every data point in the intelligence report includes source provenance and timestamp. The [NABLA](@/glossary/nabla-infinity.md) axiom of Signal Plurality is enforced: person profiles require corroboration from multiple independent registry sources before high-confidence assertions are made.
 
-The [ARCHER SUPREME](/glossary/archer-supreme/) protocol adds tactical discipline to investigations: thorough reconnaissance across all available sources, decisive analysis that draws clear conclusions from available evidence, and confident reporting that clearly distinguishes between confirmed facts, probable associations, and speculative connections.
+The [ARCHER SUPREME](@/glossary/archer-supreme.md) protocol adds tactical discipline to investigations: thorough reconnaissance across all available sources, decisive analysis that draws clear conclusions from available evidence, and confident reporting that clearly distinguishes between confirmed facts, probable associations, and speculative connections.
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -255,4 +255,4 @@ The [ARCHER SUPREME](/glossary/archer-supreme/) protocol adds tactical disciplin
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

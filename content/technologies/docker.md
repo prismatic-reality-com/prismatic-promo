@@ -24,11 +24,11 @@ image_alt = "Docker - Prismatic Platform"
 
 ## Overview
 
-Docker provides containerization for the Prismatic Platform, ensuring consistent environments across development, testing, staging, and production. The platform uses multi-stage Docker builds to create minimal production images that include only the compiled [BEAM](/technologies/beam/) release, significantly reducing attack surface and deployment size. Docker eliminates the environment parity problem that plagues complex multi-service applications by packaging the entire runtime -- from operating system libraries to compiled application code -- into reproducible, immutable containers.
+Docker provides containerization for the Prismatic Platform, ensuring consistent environments across development, testing, staging, and production. The platform uses multi-stage Docker builds to create minimal production images that include only the compiled [BEAM](@/technologies/beam.md) release, significantly reducing attack surface and deployment size. Docker eliminates the environment parity problem that plagues complex multi-service applications by packaging the entire runtime -- from operating system libraries to compiled application code -- into reproducible, immutable containers.
 
-The Prismatic Platform's Docker configuration handles the complexity of building an [Elixir](/technologies/elixir/) umbrella application with 90 apps, native NIF dependencies (including KuzuDB bindings), and multiple service integrations. Multi-stage builds separate compilation (with dev tools, compilers, and build dependencies) from the final runtime image (Alpine Linux with only the BEAM runtime and system libraries), resulting in production images under 100MB despite the platform's scale. This separation ensures that build tools, source code, and development dependencies never appear in production containers.
+The Prismatic Platform's Docker configuration handles the complexity of building an [Elixir](@/technologies/elixir.md) umbrella application with 90 apps, native NIF dependencies (including KuzuDB bindings), and multiple service integrations. Multi-stage builds separate compilation (with dev tools, compilers, and build dependencies) from the final runtime image (Alpine Linux with only the BEAM runtime and system libraries), resulting in production images under 100MB despite the platform's scale. This separation ensures that build tools, source code, and development dependencies never appear in production containers.
 
-Docker Compose orchestrates the platform's local development environment, spinning up [PostgreSQL](/technologies/postgresql/), Redis, Meilisearch, KuzuDB, and [Ollama](/technologies/ollama/) alongside the Elixir application for a complete development stack that mirrors production. A single `docker compose up` gives any developer a fully operational platform instance with all dependencies running and properly configured.
+Docker Compose orchestrates the platform's local development environment, spinning up [PostgreSQL](@/technologies/postgresql.md), Redis, Meilisearch, KuzuDB, and [Ollama](@/technologies/ollama.md) alongside the Elixir application for a complete development stack that mirrors production. A single `docker compose up` gives any developer a fully operational platform instance with all dependencies running and properly configured.
 
 ## Key Features
 
@@ -258,18 +258,18 @@ Docker was chosen as the platform's containerization technology for its ecosyste
 
 ## Related Technologies
 
-- [Elixir](/technologies/elixir/) - Application language compiled inside Docker build stages
-- [BEAM](/technologies/beam/) - Runtime included in the production Docker image
-- [PostgreSQL](/technologies/postgresql/) - Database container in both development and production stacks
-- [Git](/technologies/git/) - Source control triggering Docker builds through CI/CD
-- [Erlang/OTP](/technologies/erlang-otp/) - OTP release system (`mix release`) that Docker packages
+- [Elixir](@/technologies/elixir.md) - Application language compiled inside Docker build stages
+- [BEAM](@/technologies/beam.md) - Runtime included in the production Docker image
+- [PostgreSQL](@/technologies/postgresql.md) - Database container in both development and production stacks
+- [Git](@/technologies/git.md) - Source control triggering Docker builds through CI/CD
+- [Erlang/OTP](@/technologies/erlang-otp.md) - OTP release system (`mix release`) that Docker packages
 
 ## Related Apps
 
 - All 90 Prismatic Platform applications are containerized in a single umbrella release Docker image
-- [prismatic_api](/apps/prismatic-api/) - API gateway exposed on port 4004 in the container
-- [prismatic_web](/apps/prismatic-web/) - Main web application exposed on port 4000 in the container
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security scanning services running within the containerized environment
+- [prismatic_api](@/apps/prismatic-api.md) - API gateway exposed on port 4004 in the container
+- [prismatic_web](@/apps/prismatic-web.md) - Main web application exposed on port 4000 in the container
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security scanning services running within the containerized environment
 
 ---
 
@@ -278,4 +278,4 @@ Docker was chosen as the platform's containerization technology for its ecosyste
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

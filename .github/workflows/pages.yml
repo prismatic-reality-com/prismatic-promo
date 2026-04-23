@@ -39,16 +39,11 @@ jobs:
         env:
           BASE_URL: ${{ steps.pages.outputs.base_url }}
         run: |
-          zola build --base-url "${BASE_URL}" --output-dir public --force
+          zola build --base-url "${BASE_URL}" --output-dir public
 
-      - name: Post-build patches (subpath prefix + glossary-hover JS guard)
+      - name: Post-build glossary-hover guard
         run: |
-          # 1. Prefix root-relative href/src with /prismatic-promo/ (Zola templates use literal paths)
-          find public -name '*.html' -print0 | xargs -0 perl -i -pe 's/\b(href|src)=(\/)(?!prismatic-promo\/)(?!\/)/\1=\/prismatic-promo\//g; s/\b(href|src)="(\/)(?!prismatic-promo\/)(?!\/)/\1="\/prismatic-promo\//g'
-          find public -name '*.css'  -print0 | xargs -0 perl -i -pe 's/url\(\/(?!prismatic-promo\/)/url(\/prismatic-promo\//g'
-          # 2. Guard glossary-hover JS against text-node e.target
           find public -name '*.html' -print0 | xargs -0 perl -i -pe "s{const link = e\.target\.closest}{const el = e.target.nodeType === 1 ? e.target : e.target.parentElement; const link = el \&\& el.closest}g"
-          echo "Post-build patches applied."
 
       - name: Guard against Jekyll processing
         run: touch public/.nojekyll

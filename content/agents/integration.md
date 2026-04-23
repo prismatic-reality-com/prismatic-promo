@@ -24,7 +24,7 @@ image_alt = "Integration Agents - Prismatic Platform"
 
 ## Overview
 
-Integration agents manage connections between Prismatic and external systems, MCP (Model Context [Protocol](/glossary/protocol/)) servers, and legacy codebase migration. They ensure seamless data flow and system interoperability across the platform's 90 [umbrella application](/glossary/umbrella-application/)s, 14+ MCP server integrations, and 116 GARDEN legacy repositories.
+Integration agents manage connections between Prismatic and external systems, MCP (Model Context [Protocol](@/glossary/protocol.md)) servers, and legacy codebase migration. They ensure seamless data flow and system interoperability across the platform's 90 [umbrella application](@/glossary/umbrella-application.md)s, 14+ MCP server integrations, and 116 GARDEN legacy repositories.
 
 The integration domain addresses one of the most challenging aspects of large-scale platform development: maintaining reliable communication between heterogeneous systems with different data formats, communication protocols, error handling conventions, and lifecycle management requirements. Integration agents provide a uniform abstraction layer that normalizes these differences while preserving the semantic richness of each system's native capabilities.
 
@@ -34,7 +34,7 @@ The integration domain addresses one of the most challenging aspects of large-sc
 |---|---|---|---|
 | **integration-architect** | L3 | Integration Design | Cross-system architecture and contract definition |
 | **mcp-coordinator** | L3 | MCP Management | MCP server orchestration and health monitoring |
-| **gardener** | L3 | [GARDEN](/glossary/garden/) Sync | Legacy knowledge integration and pattern extraction |
+| **gardener** | L3 | [GARDEN](@/glossary/garden.md) Sync | Legacy knowledge integration and pattern extraction |
 | **inject-specialist** | L2 | Code Injection | Cross-platform code adaptation and modernization |
 | **migrate-expert** | L2 | Migration | Legacy system migration with rollback capability |
 
@@ -50,7 +50,7 @@ The Model Context Protocol (MCP) integration layer connects the Prismatic Platfo
 | **github** | P2 | 15 | GitHub integration and repository operations | API health check |
 | **postgres** | P2 | 6 | Database operations and query execution | Connection pool check |
 | **memory** | P3 | 4 | Persistent memory and knowledge storage | Read/write probe |
-| **[meilisearch](/glossary/meilisearch/)** | P3 | 5 | Full-text search integration | Index health check |
+| **[meilisearch](@/glossary/meilisearch.md)** | P3 | 5 | Full-text search integration | Index health check |
 
 ### MCP Architecture
 
@@ -93,7 +93,7 @@ GARDEN manages 116 legacy repositories with 20+ years of accumulated knowledge, 
 
 | Tier | Repos | Example | Value | Integration Status |
 |---|---|---|---|---|
-| T1 Production | 8 | sig, prismatic | Core [OSINT](/glossary/osint/), AI | Active extraction |
+| T1 Production | 8 | sig, prismatic | Core [OSINT](@/glossary/osint.md), AI | Active extraction |
 | T2 Active | 12 | kuzu-ex, crisstal | Graph DB, ML | Pattern mining |
 | T3 Libraries | 25 | simple_geocoder | Utilities | Selective migration |
 | T4 Archive | 45 | prismatic-legacy | 1,302 files | Knowledge indexing |
@@ -128,18 +128,18 @@ The integration domain employs established patterns for reliable cross-system co
 
 | Pattern | Use Case | Implementation | Failure Handling |
 |---|---|---|---|
-| [Circuit Breaker](/glossary/circuit-breaker/) | External API calls | Fuse library | Fallback response |
+| [Circuit Breaker](@/glossary/circuit-breaker.md) | External API calls | Fuse library | Fallback response |
 | Retry with Backoff | Transient failures | Exponential backoff | Max retry limit |
-| [Adapter Pattern](/glossary/adapter-pattern/) | Multi-backend support | Behaviour callbacks | Backend switching |
-| Event Sourcing | State synchronization | [Broadway](/glossary/broadway/) pipelines | Dead letter queue |
-| [Backpressure](/glossary/backpressure/) | Rate-limited APIs | [GenStage](/glossary/genstage/) demand | Buffered queue |
+| [Adapter Pattern](@/glossary/adapter-pattern.md) | Multi-backend support | Behaviour callbacks | Backend switching |
+| Event Sourcing | State synchronization | [Broadway](@/glossary/broadway.md) pipelines | Dead letter queue |
+| [Backpressure](@/glossary/backpressure.md) | Rate-limited APIs | [GenStage](@/glossary/genstage.md) demand | Buffered queue |
 
 ## Integration Points
 
-- **External APIs**: [Rate limiting](/glossary/rate-limiting/), retry logic, circuit breakers for all outbound API calls
-- **Databases**: [PostgreSQL](/glossary/postgresql/), [KuzuDB](/glossary/kuzudb/), Meilisearch adapters with connection pooling
+- **External APIs**: [Rate limiting](@/glossary/rate-limiting.md), retry logic, circuit breakers for all outbound API calls
+- **Databases**: [PostgreSQL](@/glossary/postgresql.md), [KuzuDB](@/glossary/kuzudb.md), Meilisearch adapters with connection pooling
 - **Message Queues**: Broadway and GenStage for asynchronous processing pipelines
-- **Cache**: [ETS](/glossary/ets/) for hot data, [Redis](/glossary/redis/) for distributed cache with TTL management
+- **Cache**: [ETS](@/glossary/ets.md) for hot data, [Redis](@/glossary/redis.md) for distributed cache with TTL management
 
 ## Commands
 
@@ -165,7 +165,7 @@ All integration points are continuously monitored with automatic degradation det
 
 ## Enforcement
 
-All integration operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Integration contracts are defined before implementation begins. All external communication uses circuit breakers with defined fallback behavior. MCP server failures are handled gracefully with automatic retry and fallback routing. No integration is deployed without comprehensive contract tests that verify both success and failure paths.
+All integration operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Integration contracts are defined before implementation begins. All external communication uses circuit breakers with defined fallback behavior. MCP server failures are handled gracefully with automatic retry and fallback routing. No integration is deployed without comprehensive contract tests that verify both success and failure paths.
 
 ---
 
@@ -174,4 +174,4 @@ All integration operations are governed by the [NO MERCY, NO DOUBTS](/glossary/n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -192,10 +192,10 @@ gaps = SkillMatrix.identify_gaps(matrix, [:osint, :security, :compliance, :graph
 
 ## Cross-References
 
-- [Agent Orchestration](/glossary/agent-orchestration/) - Task routing that consumes skill matrix data
+- [Agent Orchestration](@/glossary/agent-orchestration.md) - Task routing that consumes skill matrix data
 - **Academy** - Learning system that addresses skill matrix gaps
 - **Capability** - Individual competency domain tracked in the matrix
-- [AIAD](/glossary/aiad/) - Agent specification standard defining capabilities
+- [AIAD](@/glossary/aiad.md) - Agent specification standard defining capabilities
 
 ---
 

@@ -38,7 +38,7 @@ image_alt = "Reliability - Prismatic Platform"
 
 **Reliability** is a quantitative measure of a system's ability to perform its required functions under stated conditions for a specified period of time. In formal reliability engineering, this is expressed as R(t) -- the probability that a system operates without failure from time 0 to time t. For software systems, reliability encompasses correctness (producing the right outputs), availability (being operational when needed), durability (not losing committed data), and consistency (maintaining valid state through failures).
 
-In the [Prismatic Platform](/glossary/elixir/), reliability is not merely a desirable quality but a foundational engineering constraint enforced at every layer: the [BEAM VM](/glossary/beam/) provides process-level [fault isolation](/glossary/fault-tolerance/), [OTP](/glossary/otp/) [supervision trees](/glossary/supervision-tree/) implement automatic restart policies, [circuit breakers](/glossary/circuit-breaker/) prevent cascade failures, and the [autoheal](/glossary/autoheal/) system repairs quality degradation autonomously. The platform targets 99.95% availability (approximately 4.4 hours of downtime per year), achieved through the BEAM's "let it crash" philosophy combined with systematic redundancy and automated recovery.
+In the [Prismatic Platform](@/glossary/elixir.md), reliability is not merely a desirable quality but a foundational engineering constraint enforced at every layer: the [BEAM VM](@/glossary/beam.md) provides process-level [fault isolation](@/glossary/fault-tolerance.md), [OTP](@/glossary/otp.md) [supervision trees](@/glossary/supervision-tree.md) implement automatic restart policies, [circuit breakers](@/glossary/circuit-breaker.md) prevent cascade failures, and the [autoheal](@/glossary/autoheal.md) system repairs quality degradation autonomously. The platform targets 99.95% availability (approximately 4.4 hours of downtime per year), achieved through the BEAM's "let it crash" philosophy combined with systematic redundancy and automated recovery.
 
 ## Overview
 
@@ -77,7 +77,7 @@ Reliability engineering originated in the electronics and aerospace industries i
 
 ### BEAM Reliability Model
 
-The [BEAM VM](/glossary/beam/) was designed from its inception for reliability in telecommunications systems (the original Ericsson AXD 301 ATM switch achieved 99.9999999% availability -- nine nines). The BEAM achieves this through several architectural decisions:
+The [BEAM VM](@/glossary/beam.md) was designed from its inception for reliability in telecommunications systems (the original Ericsson AXD 301 ATM switch achieved 99.9999999% availability -- nine nines). The BEAM achieves this through several architectural decisions:
 
 ```
 +------------------------------------------------------------+
@@ -112,7 +112,7 @@ The [BEAM VM](/glossary/beam/) was designed from its inception for reliability i
 
 ### Supervision Tree Reliability Patterns
 
-[Supervision trees](/glossary/supervision-tree/) are the primary reliability mechanism in [OTP](/glossary/otp/). Each supervisor monitors its children and applies a restart strategy when a child process dies:
+[Supervision trees](@/glossary/supervision-tree.md) are the primary reliability mechanism in [OTP](@/glossary/otp.md). Each supervisor monitors its children and applies a restart strategy when a child process dies:
 
 ```elixir
 defmodule Prismatic.Reliability.PlatformSupervisor do
@@ -154,7 +154,7 @@ end
 
 ### Circuit Breaker Pattern
 
-[Circuit breakers](/glossary/circuit-breaker/) prevent cascade failures when external dependencies become unreliable. When a dependency's failure rate exceeds a threshold, the circuit opens and requests fail immediately rather than queueing:
+[Circuit breakers](@/glossary/circuit-breaker.md) prevent cascade failures when external dependencies become unreliable. When a dependency's failure rate exceeds a threshold, the circuit opens and requests fail immediately rather than queueing:
 
 ```elixir
 defmodule Prismatic.Reliability.CircuitBreaker do
@@ -404,7 +404,7 @@ end
 
 ### Reliability Metrics Collection
 
-The platform collects reliability metrics through [telemetry](/glossary/telemetry/) events and aggregates them for dashboard display and alerting:
+The platform collects reliability metrics through [telemetry](@/glossary/telemetry.md) events and aggregates them for dashboard display and alerting:
 
 ```elixir
 defmodule Prismatic.Reliability.MetricsCollector do
@@ -528,11 +528,11 @@ The Prismatic Platform implements reliability at five distinct layers:
 
 | Layer | Mechanism | Scope | Recovery Time |
 |-------|-----------|-------|---------------|
-| **Process** | [Supervision trees](/glossary/supervision-tree/) | Individual process crash | < 1 ms (restart) |
-| **Component** | [Circuit breakers](/glossary/circuit-breaker/) | External dependency failure | < 100 ms (fast fail) |
-| **Application** | [Autoheal](/glossary/autoheal/) | Quality degradation | < 5 minutes (auto-fix) |
-| **Infrastructure** | [Fly.io](/glossary/fly-io/) multi-region | Node failure | < 30 seconds (failover) |
-| **Data** | [PostgreSQL](/glossary/postgresql/) replication | Data corruption | < 1 minute (replica promotion) |
+| **Process** | [Supervision trees](@/glossary/supervision-tree.md) | Individual process crash | < 1 ms (restart) |
+| **Component** | [Circuit breakers](@/glossary/circuit-breaker.md) | External dependency failure | < 100 ms (fast fail) |
+| **Application** | [Autoheal](@/glossary/autoheal.md) | Quality degradation | < 5 minutes (auto-fix) |
+| **Infrastructure** | [Fly.io](@/glossary/fly-io.md) multi-region | Node failure | < 30 seconds (failover) |
+| **Data** | [PostgreSQL](@/glossary/postgresql.md) replication | Data corruption | < 1 minute (replica promotion) |
 
 ### Failure Domain Isolation
 
@@ -568,13 +568,13 @@ A failure in the OSINT domain (external API timeout) does not affect the Web dom
 
 **Monitor leading indicators, not just lagging ones.** Error rate (lagging) tells you something already broke. Queue depth, response time percentiles, and resource utilization (leading) tell you something is about to break. Set alerts on leading indicators.
 
-**Test failure scenarios explicitly.** Use property-based testing to generate unexpected inputs, chaos engineering to simulate infrastructure failures, and integration tests that verify supervisor restart behavior. The [regression testing](/glossary/regression-testing/) suite must cover failure recovery paths.
+**Test failure scenarios explicitly.** Use property-based testing to generate unexpected inputs, chaos engineering to simulate infrastructure failures, and integration tests that verify supervisor restart behavior. The [regression testing](@/glossary/regression-testing.md) suite must cover failure recovery paths.
 
 ## Common Pitfalls
 
 **Restart loops without backoff.** A supervisor that restarts a child immediately, which crashes immediately, which restarts immediately, creates a tight restart loop consuming CPU. Use `max_restarts` and `max_seconds` to detect loops and escalate.
 
-**Shared state across failure domains.** If two independent processes share an ETS table, a crash that corrupts the table affects both domains. Use separate [ETS](/glossary/ets/) tables per failure domain.
+**Shared state across failure domains.** If two independent processes share an ETS table, a crash that corrupts the table affects both domains. Use separate [ETS](@/glossary/ets.md) tables per failure domain.
 
 **Ignoring partial failures.** A system can be "up" but degraded. If 3 of 120 OSINT adapters are failing, the system is 97.5% operational. Track and alert on partial failure rates, not just total system status.
 
@@ -584,39 +584,39 @@ A failure in the OSINT domain (external API timeout) does not affect the Web dom
 
 ### Continuous Platform Operation
 
-The 530+ [AIAD agents](/glossary/aiad/) run continuously with zero planned downtime. Hot code reloading enables deployments without service interruption, and the supervision tree automatically recovers any agent that crashes during operation.
+The 530+ [AIAD agents](@/glossary/aiad.md) run continuously with zero planned downtime. Hot code reloading enables deployments without service interruption, and the supervision tree automatically recovers any agent that crashes during operation.
 
 ### OSINT Resilience
 
-[OSINT](/glossary/osint/) operations depend on 120 external APIs, each with its own reliability characteristics. Circuit breakers prevent a single API's outage from degrading the entire intelligence pipeline, while retry patterns with exponential backoff handle transient failures.
+[OSINT](@/glossary/osint.md) operations depend on 120 external APIs, each with its own reliability characteristics. Circuit breakers prevent a single API's outage from degrading the entire intelligence pipeline, while retry patterns with exponential backoff handle transient failures.
 
 ### Quality Gate Enforcement
 
-The platform's [quality monitoring](/glossary/quality/) system is itself designed for reliability. If the quality monitoring process crashes, its supervisor restarts it, and it resumes monitoring from the last known state. Quality enforcement never silently stops.
+The platform's [quality monitoring](@/glossary/quality.md) system is itself designed for reliability. If the quality monitoring process crashes, its supervisor restarts it, and it resumes monitoring from the last known state. Quality enforcement never silently stops.
 
 ## Related Concepts
 
-- [Fault Tolerance](/glossary/fault-tolerance/) -- The mechanism through which the BEAM achieves reliability
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchical process management for automatic recovery
-- [Process Isolation](/glossary/process-isolation/) -- Per-process failure boundaries preventing cascade
-- [Self-Healing](/glossary/self-healing/) -- Autonomous system repair extending reliability
-- [Monitoring](/glossary/monitoring/) -- Continuous observation of reliability metrics
-- [Observability](/glossary/observability/) -- Understanding internal system state for reliability analysis
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Preventing cascade failures from unreliable dependencies
-- [Health Monitoring](/glossary/health-monitoring/) -- Active verification of component availability
-- [Autoheal](/glossary/autoheal/) -- Automated quality repair for sustained reliability
-- [Telemetry](/glossary/telemetry/) -- Metrics pipeline feeding reliability dashboards
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- The mechanism through which the BEAM achieves reliability
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchical process management for automatic recovery
+- [Process Isolation](@/glossary/process-isolation.md) -- Per-process failure boundaries preventing cascade
+- [Self-Healing](@/glossary/self-healing.md) -- Autonomous system repair extending reliability
+- [Monitoring](@/glossary/monitoring.md) -- Continuous observation of reliability metrics
+- [Observability](@/glossary/observability.md) -- Understanding internal system state for reliability analysis
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Preventing cascade failures from unreliable dependencies
+- [Health Monitoring](@/glossary/health-monitoring.md) -- Active verification of component availability
+- [Autoheal](@/glossary/autoheal.md) -- Automated quality repair for sustained reliability
+- [Telemetry](@/glossary/telemetry.md) -- Metrics pipeline feeding reliability dashboards
 
 ## See Also
 
-- [BEAM](/glossary/beam/) -- Runtime providing the foundation for platform reliability
-- [OTP](/glossary/otp/) -- Framework of reliability patterns and behaviours
-- [Performance](/glossary/performance/) -- Performance characteristics that affect reliability
-- [Quality](/glossary/quality/) -- Code quality contributing to system reliability
-- [Regression Testing](/glossary/regression-testing/) -- Testing that verifies reliability is maintained
-- [Scalability](/glossary/scalability/) -- Scaling strategies that preserve reliability
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- 115 umbrella applications with reliability guarantees
+- [BEAM](@/glossary/beam.md) -- Runtime providing the foundation for platform reliability
+- [OTP](@/glossary/otp.md) -- Framework of reliability patterns and behaviours
+- [Performance](@/glossary/performance.md) -- Performance characteristics that affect reliability
+- [Quality](@/glossary/quality.md) -- Code quality contributing to system reliability
+- [Regression Testing](@/glossary/regression-testing.md) -- Testing that verifies reliability is maintained
+- [Scalability](@/glossary/scalability.md) -- Scaling strategies that preserve reliability
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- 115 umbrella applications with reliability guarantees
 
 ---
 
@@ -625,4 +625,4 @@ The platform's [quality monitoring](/glossary/quality/) system is itself designe
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

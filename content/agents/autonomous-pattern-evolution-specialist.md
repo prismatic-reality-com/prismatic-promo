@@ -28,9 +28,9 @@ image_alt = "autonomous-pattern-evolution-specialist - Prismatic Platform"
 
 ## Overview
 
-The Autonomous Pattern Evolution Specialist is an L3 [strategic command](/glossary/strategic-command/) agent operating within the Strategic domain of the Prismatic Platform. This agent functions as a meta-intelligence system that discovers, codifies, and evolves successful patterns from autonomous development cycles. While other agents operate within patterns, this specialist operates on patterns themselves -- treating the platform's accumulated development practices as a population subject to evolutionary pressure.
+The Autonomous Pattern Evolution Specialist is an L3 [strategic command](@/glossary/strategic-command.md) agent operating within the Strategic domain of the Prismatic Platform. This agent functions as a meta-intelligence system that discovers, codifies, and evolves successful patterns from autonomous development cycles. While other agents operate within patterns, this specialist operates on patterns themselves -- treating the platform's accumulated development practices as a population subject to evolutionary pressure.
 
-Every autonomous development session produces implicit patterns: sequences of decisions that lead to successful outcomes, code structures that prove maintainable, testing approaches that catch regressions effectively, and architectural choices that scale well. Most of these patterns remain implicit, embedded in specific code changes without being abstracted into reusable knowledge. The Autonomous Pattern Evolution Specialist makes these implicit patterns explicit by analyzing development cycle outcomes, extracting recurring successful practices, codifying them as formal pattern specifications, and propagating them through the [mycelial network](/glossary/mycelial-network/) for platform-wide adoption.
+Every autonomous development session produces implicit patterns: sequences of decisions that lead to successful outcomes, code structures that prove maintainable, testing approaches that catch regressions effectively, and architectural choices that scale well. Most of these patterns remain implicit, embedded in specific code changes without being abstracted into reusable knowledge. The Autonomous Pattern Evolution Specialist makes these implicit patterns explicit by analyzing development cycle outcomes, extracting recurring successful practices, codifying them as formal pattern specifications, and propagating them through the [mycelial network](@/glossary/mycelial-network.md) for platform-wide adoption.
 
 The specialist's evolutionary approach means that patterns are not static. Each codified pattern carries fitness metrics based on its adoption rate, defect reduction impact, and developer productivity effects. Patterns that prove effective evolve through refinement. Patterns that fail to demonstrate value are retired. This continuous evolutionary pressure ensures that the platform's pattern library remains relevant and effective rather than accumulating stale guidance.
 
@@ -38,7 +38,7 @@ The specialist's evolutionary approach means that patterns are not static. Each 
 
 The Strategic domain provides the long-term planning perspective necessary for pattern evolution work. Unlike tactical agents that focus on immediate outcomes, the Pattern Evolution Specialist evaluates patterns across multiple development cycles and platform generations. This temporal scope enables detection of patterns that only become apparent over extended observation periods: architectural decisions whose benefits compound over months, testing strategies whose regression prevention value accumulates gradually, and code organization approaches whose maintainability advantages emerge as the codebase grows.
 
-The agent coordinates with strategic planning systems including GitLab milestone tracking, AIAD ecosystem governance, and the [SEADF](/glossary/seadf/) framework's Knowledge Sync subsystem to align pattern evolution with platform strategic direction.
+The agent coordinates with strategic planning systems including GitLab milestone tracking, AIAD ecosystem governance, and the [SEADF](@/glossary/seadf.md) framework's Knowledge Sync subsystem to align pattern evolution with platform strategic direction.
 
 ## Key Capabilities
 
@@ -58,7 +58,7 @@ The agent coordinates with strategic planning systems including GitLab milestone
 
 Each pattern progresses through a defined lifecycle from initial discovery through active use to eventual retirement.
 
-**Discovery Phase.** The specialist analyzes development cycle data to identify candidate patterns. A candidate pattern must demonstrate correlation with positive outcomes across at least three independent development cycles before advancing to codification. The [NABLA Infinity](/glossary/nabla-infinity/) [Signal Plurality](/glossary/signal-plurality/) axiom requires multiple independent evidence sources for pattern candidacy.
+**Discovery Phase.** The specialist analyzes development cycle data to identify candidate patterns. A candidate pattern must demonstrate correlation with positive outcomes across at least three independent development cycles before advancing to codification. The [NABLA Infinity](@/glossary/nabla-infinity.md) [Signal Plurality](@/glossary/signal-plurality.md) axiom requires multiple independent evidence sources for pattern candidacy.
 
 **Codification Phase.** Validated pattern candidates are formalized into structured specifications. Each specification includes: the pattern's applicability conditions (when to use it), the implementation approach (how to apply it), the expected outcomes (what benefits to expect), the success criteria (how to measure effectiveness), and counter-indicators (when not to use it).
 
@@ -88,23 +88,23 @@ The specialist manages patterns across five primary categories.
 |-----------|-------------|-----------|
 | GitLab Milestones | Strategic planning and tracking | Pattern evolution aligned with milestone objectives |
 | AIAD Ecosystem | Cross-domain coordination hub | Pattern specifications stored as AIAD artifacts |
-| [Prismatic Web](/glossary/prismatic-web/) | Strategic dashboard and reporting | Pattern library visualization and adoption tracking |
-| [Mycelial Network](/glossary/mycelial-network/) | Pattern propagation | Codified patterns distributed to consuming agents |
-| [SEADF](/glossary/seadf/) | Knowledge Sync subsystem | Pattern lifecycle management and evolutionary framework |
-| [Telemetry](/glossary/telemetry/) Infrastructure | Fitness signal collection | Pattern adoption and effectiveness metrics |
+| [Prismatic Web](@/glossary/prismatic-web.md) | Strategic dashboard and reporting | Pattern library visualization and adoption tracking |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Pattern propagation | Codified patterns distributed to consuming agents |
+| [SEADF](@/glossary/seadf.md) | Knowledge Sync subsystem | Pattern lifecycle management and evolutionary framework |
+| [Telemetry](@/glossary/telemetry.md) Infrastructure | Fitness signal collection | Pattern adoption and effectiveness metrics |
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to codify patterns, mandate adoption evaluation, and retire ineffective patterns.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to codify patterns, mandate adoption evaluation, and retire ineffective patterns.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [GitLab Full Circle Coordinator](/agents/gitlab-full-circle-coordinator/) | Strategic Planning | Aligns pattern evolution with GitLab milestone strategic objectives |
-| [gitlab-mcp-orchestrator](/agents/gitlab-mcp-orchestrator/) | MCP Integration | Coordinates pattern data flow through Model Context Protocol |
-| [Planner Agent](/agents/planner-agent/) | Roadmap Coordination | Integrates pattern evolution milestones into project roadmaps |
-| [auto-evolution-engine](/agents/auto-evolution-engine/) | Evolution Integration | Shares pattern fitness data with platform evolution engine |
+| [GitLab Full Circle Coordinator](@/agents/gitlab-full-circle-coordinator.md) | Strategic Planning | Aligns pattern evolution with GitLab milestone strategic objectives |
+| [gitlab-mcp-orchestrator](@/agents/gitlab-mcp-orchestrator.md) | MCP Integration | Coordinates pattern data flow through Model Context Protocol |
+| [Planner Agent](@/agents/planner-agent.md) | Roadmap Coordination | Integrates pattern evolution milestones into project roadmaps |
+| [auto-evolution-engine](@/agents/auto-evolution-engine.md) | Evolution Integration | Shares pattern fitness data with platform evolution engine |
 
 ## Performance Metrics
 
@@ -119,7 +119,7 @@ The specialist manages patterns across five primary categories.
 
 ## Enforcement
 
-The Autonomous Pattern Evolution Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Pattern codification requires evidence-based validation, not subjective preference. Pattern fitness evaluations must use measurable criteria with documented methodology. Pattern retirement is mandatory when fitness drops below threshold -- no pattern receives lifetime tenure. The [Trinity Gate](/glossary/trinity-gate/) validates all pattern specifications for structural consistency (pattern does not contradict existing patterns), logical consistency (pattern's claimed benefits follow from its implementation), and formal correctness (pattern's success criteria are measurable and testable).
+The Autonomous Pattern Evolution Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Pattern codification requires evidence-based validation, not subjective preference. Pattern fitness evaluations must use measurable criteria with documented methodology. Pattern retirement is mandatory when fitness drops below threshold -- no pattern receives lifetime tenure. The [Trinity Gate](@/glossary/trinity-gate.md) validates all pattern specifications for structural consistency (pattern does not contradict existing patterns), logical consistency (pattern's claimed benefits follow from its implementation), and formal correctness (pattern's success criteria are measurable and testable).
 
 ---
 
@@ -128,4 +128,4 @@ The Autonomous Pattern Evolution Specialist operates under the [NO MERCY, NO DOU
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,7 +26,7 @@ image_alt = "/validate - Prismatic Platform"
 
 **/validate** is a production command in the **Development** category of the Prismatic Platform. It performs comprehensive validation of inputs, data structures, configurations, and system state, enforcing data integrity rules across the umbrella codebase. The command validates everything from individual function inputs and Ecto changeset rules to cross-application configuration consistency and deployment readiness. It serves as both a development tool (validating code correctness) and an operational tool (validating system state before critical operations).
 
-This command operates under the **L2+** authority level and is executed by the `validation-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The validation-specialist agent has expertise in Ecto changeset patterns, Phoenix parameter validation, schema verification, and cross-application consistency checking.
+This command operates under the **L2+** authority level and is executed by the `validation-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The validation-specialist agent has expertise in Ecto changeset patterns, Phoenix parameter validation, schema verification, and cross-application consistency checking.
 
 In a platform with 90+ umbrella applications sharing data through defined interfaces, validation failures at boundaries are a primary source of runtime errors. `/validate` addresses this by providing systematic validation at every boundary: function inputs against @spec types, Ecto changesets against schema constraints, API parameters against OpenApiSpex schemas, configuration values against expected types and ranges, and system state against operational invariants. The command can also generate validation code for modules that lack it, producing Ecto changeset functions, parameter validation plugs, and input sanitization logic.
 
@@ -181,14 +181,14 @@ Results are aggregated into a validation report showing: total checks run, pass/
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/test](/commands/test/) | Peer | Tests verify validation behavior |
-| [/code](/commands/code/) | Upstream | Code generation includes validation |
-| [/quality-gates](/commands/quality-gates/) | Enforcement | Validation results affect gate passage |
-| [/security-audit](/commands/security-audit/) | Peer | Input validation is a security concern |
-| [/route-test](/commands/route-test/) | Peer | Route tests include parameter validation |
-| [Ecto](/glossary/ecto/) | Framework | Changeset validation infrastructure |
-| [OpenApiSpex](/glossary/openapi-spec/) | Framework | API parameter validation |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Validation execution metrics |
+| [/test](@/commands/test.md) | Peer | Tests verify validation behavior |
+| [/code](@/commands/code.md) | Upstream | Code generation includes validation |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | Validation results affect gate passage |
+| [/security-audit](@/commands/security-audit.md) | Peer | Input validation is a security concern |
+| [/route-test](@/commands/route-test.md) | Peer | Route tests include parameter validation |
+| [Ecto](@/glossary/ecto.md) | Framework | Changeset validation infrastructure |
+| [OpenApiSpex](@/glossary/openapi-spec.md) | Framework | API parameter validation |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Validation execution metrics |
 
 ## Best Practices
 
@@ -249,20 +249,20 @@ Set up continuous validation during development:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every public function must validate its inputs. Every Ecto schema must have changeset validation. No unvalidated data crosses application boundaries.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every validation failure includes the specific rule violated, the invalid value, and a remediation suggestion.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/security-audit](/commands/security-audit/) - Comprehensive application security audit and vulnerability scan
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/route-test](/commands/route-test/) - Route testing and HTTP endpoint verification
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/security-audit](@/commands/security-audit.md) - Comprehensive application security audit and vulnerability scan
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/route-test](@/commands/route-test.md) - Route testing and HTTP endpoint verification
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -271,4 +271,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

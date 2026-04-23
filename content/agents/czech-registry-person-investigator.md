@@ -28,7 +28,7 @@ image_alt = "czech-registry-person-investigator - Prismatic Platform"
 
 ## Overview
 
-The Czech [Registry](/glossary/registry-otp/) Person Investigator is an L3 strategic authority operating within the Czech Republic Legal Intelligence domain of the Prismatic Platform. This agent conducts comprehensive person-centric investigations across Czech public registries, combining data from business registries, insolvency records, property records, and court filings to build complete profiles of natural persons for due diligence, compliance screening, and intelligence operations. Operating with [ARCHER SUPREME](/glossary/archer-supreme/) authority, it delivers investigation-grade reports that meet regulatory standards for CER and AML compliance.
+The Czech [Registry](@/glossary/registry-otp.md) Person Investigator is an L3 strategic authority operating within the Czech Republic Legal Intelligence domain of the Prismatic Platform. This agent conducts comprehensive person-centric investigations across Czech public registries, combining data from business registries, insolvency records, property records, and court filings to build complete profiles of natural persons for due diligence, compliance screening, and intelligence operations. Operating with [ARCHER SUPREME](@/glossary/archer-supreme.md) authority, it delivers investigation-grade reports that meet regulatory standards for CER and AML compliance.
 
 Person investigations in the Czech context require navigating multiple interconnected registries with different data formats, access methods, and update frequencies. The Czech Registry Person Investigator automates this complex cross-registry correlation, searching for a person's name across ARES (business roles and ownership), Justice.cz (court proceedings), ISIR (insolvency filings), CUZK (property ownership), and additional specialized registries. It handles Czech naming conventions, diacritics, and common name variants to minimize false negatives while managing false positives through multi-source validation. The comprehensive nature of this cross-registry approach distinguishes it from single-registry lookup tools, providing an integrated intelligence picture that reveals connections invisible in any individual data source.
 
@@ -66,7 +66,7 @@ The Czech Registry Person Investigator employs a fan-out / fan-in architecture w
                      +------------------------+
 ```
 
-The fan-out pattern enables parallel registry queries that reduce total investigation time from the sequential sum of individual registry lookups to the duration of the slowest single registry plus correlation overhead. Each adapter operates as an independent [OTP](/glossary/otp/) process with its own [circuit breaker](/glossary/circuit-breaker/) to prevent a single unresponsive registry from blocking the entire investigation.
+The fan-out pattern enables parallel registry queries that reduce total investigation time from the sequential sum of individual registry lookups to the duration of the slowest single registry plus correlation overhead. Each adapter operates as an independent [OTP](@/glossary/otp.md) process with its own [circuit breaker](@/glossary/circuit-breaker.md) to prevent a single unresponsive registry from blocking the entire investigation.
 
 ## Core Capabilities
 
@@ -223,12 +223,12 @@ config :prismatic_czech, Prismatic.Czech.PersonInvestigator,
 
 ## Related Resources
 
-- [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) -- Business registry context
-- [czech-property-intelligence-analyst](/agents/czech-property-intelligence-analyst/) -- Property registry data
-- [czech-legal-extraction-specialist](/agents/czech-legal-extraction-specialist/) -- Legal document extraction
-- [ARCHER SUPREME](/glossary/archer-supreme/) -- Supreme authority framework
-- [NABLA Infinity Framework](/glossary/nabla-infinity/) -- Epistemic quality framework
-- [ZKB Compliance](/glossary/zkb/) -- Czech cybersecurity regulatory framework
+- [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) -- Business registry context
+- [czech-property-intelligence-analyst](@/agents/czech-property-intelligence-analyst.md) -- Property registry data
+- [czech-legal-extraction-specialist](@/agents/czech-legal-extraction-specialist.md) -- Legal document extraction
+- [ARCHER SUPREME](@/glossary/archer-supreme.md) -- Supreme authority framework
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md) -- Epistemic quality framework
+- [ZKB Compliance](@/glossary/zkb.md) -- Czech cybersecurity regulatory framework
 
 ---
 
@@ -237,4 +237,4 @@ config :prismatic_czech, Prismatic.Czech.PersonInvestigator,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

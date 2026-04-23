@@ -24,7 +24,7 @@ image_alt = "Building EASM Features - Prismatic Platform"
 
 ## Overview
 
-Prismatic Perimeter is the platform's External Attack Surface Management ([EASM](/glossary/easm/)) module -- a system that discovers, monitors, and scores the security posture of organizations' internet-facing assets. It competes with commercial products like BitSight, Black Kite, and SecurityScorecard. This guide teaches you to build EASM features from asset discovery through security rating to compliance assessment.
+Prismatic Perimeter is the platform's External Attack Surface Management ([EASM](@/glossary/easm.md)) module -- a system that discovers, monitors, and scores the security posture of organizations' internet-facing assets. It competes with commercial products like BitSight, Black Kite, and SecurityScorecard. This guide teaches you to build EASM features from asset discovery through security rating to compliance assessment.
 
 You will learn:
 
@@ -36,9 +36,9 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Multi-Agent Orchestration Patterns](/academy/agent-orchestration/)
-- Completed [Storage Architecture & Adapters](/academy/storage-patterns/)
-- Completed [Building LiveView Dashboards](/academy/liveview-dashboards/)
+- Completed [Multi-Agent Orchestration Patterns](@/academy/agent-orchestration.md)
+- Completed [Storage Architecture & Adapters](@/academy/storage-patterns.md)
+- Completed [Building LiveView Dashboards](@/academy/liveview-dashboards.md)
 - Understanding of network security concepts (DNS, TLS, HTTP headers)
 
 ## Core Concepts
@@ -528,37 +528,37 @@ end
 ## See Also
 
 ### Related Applications
-- [prismatic_perimeter](/apps/prismatic-perimeter/) -- Core EASM engine
-- [prismatic_perimeter_core](/apps/prismatic-perimeter-core/) -- Shared EASM types and schemas
-- [prismatic_perimeter_web](/apps/prismatic-perimeter-web/) -- EASM LiveView dashboards
-- [prismatic_compliance](/apps/prismatic-compliance/) -- NIS2 and ZKB compliance engine
-- [prismatic_api](/apps/prismatic-api/) -- Auto-introspecting REST API exposing EASM endpoints
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) -- Core EASM engine
+- [prismatic_perimeter_core](@/apps/prismatic-perimeter-core.md) -- Shared EASM types and schemas
+- [prismatic_perimeter_web](@/apps/prismatic-perimeter-web.md) -- EASM LiveView dashboards
+- [prismatic_compliance](@/apps/prismatic-compliance.md) -- NIS2 and ZKB compliance engine
+- [prismatic_api](@/apps/prismatic-api.md) -- Auto-introspecting REST API exposing EASM endpoints
 
 ### Glossary
-- [EASM](/glossary/easm/) -- External Attack Surface Management
-- [Security Rating](/glossary/security-rating/) -- A-F grade with 300-900 numeric score
-- [Attack Surface](/glossary/attack-surface/) -- Internet-facing assets of an organization
-- [Certificate Transparency](/glossary/certificate-transparency/) -- CT log monitoring for certificate discovery
-- [TLS](/glossary/tls/) -- Transport Layer Security assessment
-- [Risk Score](/glossary/risk-score/) -- Evidence-based scoring with confidence levels
-- [ZKB](/glossary/zkb/) -- Czech cybersecurity regulation 264/2025 Sb.
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Security finding evaluation
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management
+- [Security Rating](@/glossary/security-rating.md) -- A-F grade with 300-900 numeric score
+- [Attack Surface](@/glossary/attack-surface.md) -- Internet-facing assets of an organization
+- [Certificate Transparency](@/glossary/certificate-transparency.md) -- CT log monitoring for certificate discovery
+- [TLS](@/glossary/tls.md) -- Transport Layer Security assessment
+- [Risk Score](@/glossary/risk-score.md) -- Evidence-based scoring with confidence levels
+- [ZKB](@/glossary/zkb.md) -- Czech cybersecurity regulation 264/2025 Sb.
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Security finding evaluation
 
 ### Architecture
-- [Storage Adapters](/architecture/storage-adapters/) -- PostgreSQL storage for findings and ratings
-- [Phoenix LiveView](/architecture/phoenix-liveview/) -- Dashboard architecture for Perimeter UI
+- [Storage Adapters](@/architecture/storage-adapters.md) -- PostgreSQL storage for findings and ratings
+- [Phoenix LiveView](@/architecture/phoenix-liveview.md) -- Dashboard architecture for Perimeter UI
 
 ### Related Academy Topics
-- [Color Team Security](/academy/color-team-security/) -- Adversarial testing of EASM features
-- [API Integration](/academy/api-integration/) -- Exposing EASM features through REST API
-- [Formal Verification](/academy/formal-verification-guide/) -- Proving rating calculations are correct
-- [DD Investigation Techniques](/academy/dd-investigation/) -- Complementary due diligence capabilities
+- [Color Team Security](@/academy/color-team-security.md) -- Adversarial testing of EASM features
+- [API Integration](@/academy/api-integration.md) -- Exposing EASM features through REST API
+- [Formal Verification](@/academy/formal-verification-guide.md) -- Proving rating calculations are correct
+- [DD Investigation Techniques](@/academy/dd-investigation.md) -- Complementary due diligence capabilities
 
 ## Next Steps
 
-- [Color Team Security Operations](/academy/color-team-security/) -- adversarial testing of EASM features
-- [API Integration Guide](/academy/api-integration/) -- exposing EASM features through the REST API
-- [Formal Verification with Lean4](/academy/formal-verification-guide/) -- proving rating calculations are correct
+- [Color Team Security Operations](@/academy/color-team-security.md) -- adversarial testing of EASM features
+- [API Integration Guide](@/academy/api-integration.md) -- exposing EASM features through the REST API
+- [Formal Verification with Lean4](@/academy/formal-verification-guide.md) -- proving rating calculations are correct
 
 ---
 
@@ -567,4 +567,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

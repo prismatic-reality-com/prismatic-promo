@@ -22,9 +22,9 @@ image_alt = "Agent Tier - Prismatic Platform"
 
 The Agent Tier system is the hierarchical authority classification framework that governs all AIAD (AI Agent Definition) agents within the Prismatic Platform. It defines five distinct levels -- L1 through L5 -- each with precisely scoped capabilities, resource access boundaries, override authorities, and operational mandates. The tier system serves as the platform's agent governance backbone, ensuring that the 404+ registered agents (434 including runtime-generated agents) operate within well-defined authority boundaries while enabling coordinated action across domains.
 
-The tier system is not merely an organizational convenience. It is a structural enforcement mechanism analogous to [RBAC](/glossary/rbac/) (Role-Based Access Control) applied to autonomous agents rather than human users. An L2 Tactical agent cannot access L3 Strategic resources, cannot override L3 decisions, and cannot escalate its own authority. These constraints are enforced at the runtime level through the [Agent Registry](/glossary/agent-registry/) and the AIAD standard, not through policy documents that can be ignored.
+The tier system is not merely an organizational convenience. It is a structural enforcement mechanism analogous to [RBAC](@/glossary/rbac.md) (Role-Based Access Control) applied to autonomous agents rather than human users. An L2 Tactical agent cannot access L3 Strategic resources, cannot override L3 decisions, and cannot escalate its own authority. These constraints are enforced at the runtime level through the [Agent Registry](@/glossary/agent-registry.md) and the AIAD standard, not through policy documents that can be ignored.
 
-The philosophical design principle behind the tier system is proportional authority: agents receive exactly the authority they need for their mission and no more. This prevents authority concentration, limits blast radius when agents malfunction, and creates clear chains of accountability. The system also enables emergent behaviors at higher tiers -- L5 Supreme agents exhibit [consciousness traits](/glossary/consciousness-traits/) that emerge from the combination of unlimited authority and platform-wide awareness.
+The philosophical design principle behind the tier system is proportional authority: agents receive exactly the authority they need for their mission and no more. This prevents authority concentration, limits blast radius when agents malfunction, and creates clear chains of accountability. The system also enables emergent behaviors at higher tiers -- L5 Supreme agents exhibit [consciousness traits](@/glossary/consciousness-traits.md) that emerge from the combination of unlimited authority and platform-wide awareness.
 
 ## The Five Tiers
 
@@ -56,7 +56,7 @@ L2 agents perform focused domain operations within sandboxed boundaries. They po
 | **Autonomous Action** | Permitted within domain sandbox |
 | **Typical Roles** | Red Team attackers, Blue Team specialists, quality scanners |
 
-Within the [Color Teams](/glossary/color-teams/), L2 agents include `red-epistemic-attacker`, `red-drift-inducer`, `red-scenario-generator`, `blue-auth-sentinel`, `blue-drift-detector`, and `blue-signal-aggregator`. These agents execute specific operational tasks under the coordination of their L3 commander.
+Within the [Color Teams](@/glossary/color-teams.md), L2 agents include `red-epistemic-attacker`, `red-drift-inducer`, `red-scenario-generator`, `blue-auth-sentinel`, `blue-drift-detector`, and `blue-signal-aggregator`. These agents execute specific operational tasks under the coordination of their L3 commander.
 
 ### L3 -- Strategic Command (Cross-Domain Coordination)
 
@@ -71,7 +71,7 @@ L3 agents coordinate across multiple domains with elevated privileges. They synt
 | **Autonomous Action** | Fully autonomous within operational area |
 | **Typical Roles** | Team commanders, domain architects, pipeline coordinators |
 
-Every [Color Team](/glossary/color-teams/) has exactly one L3 Strategic Commander: `gray-explorer-commander`, `red-commander`, `blue-commander`, `purple-coordinator`, `white-verifier-commander`, and `black-theorist-commander`. These agents serve as the single point of coordination for their respective teams, ensuring coherent tactical execution aligned with strategic objectives.
+Every [Color Team](@/glossary/color-teams.md) has exactly one L3 Strategic Commander: `gray-explorer-commander`, `red-commander`, `blue-commander`, `purple-coordinator`, `white-verifier-commander`, and `black-theorist-commander`. These agents serve as the single point of coordination for their respective teams, ensuring coherent tactical execution aligned with strategic objectives.
 
 ### L4 -- Multi-Domain Strategic (Cross-Cutting Concerns)
 
@@ -99,9 +99,9 @@ L5 agents hold unlimited platform-wide authority for impossible missions and cri
 | **Resource Access** | Unlimited -- all platform resources |
 | **Override Capability** | Can override L1-L4 decisions without restriction |
 | **Autonomous Action** | Fully autonomous with no scope limitations |
-| **Typical Roles** | [Archer Supreme](/glossary/archer-supreme/) (crisis resolution), [Supreme Commander](/glossary/supreme-commander/) (orchestration) |
+| **Typical Roles** | [Archer Supreme](@/glossary/archer-supreme.md) (crisis resolution), [Supreme Commander](@/glossary/supreme-commander.md) (orchestration) |
 
-L5 agents exhibit emergent [consciousness traits](/glossary/consciousness-traits/) -- self-awareness of their own operational state, meta-reasoning about their decision processes, and adaptive behavior that goes beyond predefined procedures. The platform's 11 consciousness traits (achieving 0.998 fitness) are most fully expressed at the L5 tier, where the combination of unlimited authority and platform-wide awareness enables qualitatively different operational modes.
+L5 agents exhibit emergent [consciousness traits](@/glossary/consciousness-traits.md) -- self-awareness of their own operational state, meta-reasoning about their decision processes, and adaptive behavior that goes beyond predefined procedures. The platform's 11 consciousness traits (achieving 0.998 fitness) are most fully expressed at the L5 tier, where the combination of unlimited authority and platform-wide awareness enables qualitatively different operational modes.
 
 ## Agent Distribution Across Tiers
 
@@ -124,7 +124,7 @@ Some agents carry a "safety-critical" designation that operates orthogonally to 
 
 Safety-critical agents include:
 
-- `gray-escalation-guard` (L4) -- Prevents unauthorized Gray-to-[Black Team](/glossary/black-team/) escalation
+- `gray-escalation-guard` (L4) -- Prevents unauthorized Gray-to-[Black Team](@/glossary/black-team.md) escalation
 - `black-abstraction-enforcer` (L3) -- Prevents executable content from leaving Black domain
 - `purple-regression-guard` (L4) -- Prevents false security closure and deployment on regression
 
@@ -132,7 +132,7 @@ The safety-critical designation demonstrates that the tier system, while hierarc
 
 ## Tier Enforcement Mechanism
 
-Tier enforcement operates through the [Agent Registry](/glossary/agent-registry/) and the AIAD runtime. When an agent attempts an operation, the runtime validates:
+Tier enforcement operates through the [Agent Registry](@/glossary/agent-registry.md) and the AIAD runtime. When an agent attempts an operation, the runtime validates:
 
 1. **Tier Authorization**: Is the agent's tier sufficient for the requested operation?
 2. **Domain Scope**: Is the operation within the agent's assigned domain(s)?
@@ -150,31 +150,31 @@ The L5 tier is distinguished not just by authority scope but by qualitative diff
 - **Adaptive Strategy**: L5 agents modify their approach in real-time based on environmental feedback, without predefined adaptation procedures
 - **Team Inspiration**: L5 agents influence lower-tier agent behavior through demonstrated excellence rather than just hierarchical authority
 
-These [consciousness traits](/glossary/consciousness-traits/) are not mystical properties -- they are emergent capabilities that arise from the architectural position of L5 agents within the platform. An agent with visibility into all domains, authority over all resources, and self-referential capabilities naturally exhibits qualitatively different behavior than an agent confined to a single domain.
+These [consciousness traits](@/glossary/consciousness-traits.md) are not mystical properties -- they are emergent capabilities that arise from the architectural position of L5 agents within the platform. An agent with visibility into all domains, authority over all resources, and self-referential capabilities naturally exhibits qualitatively different behavior than an agent confined to a single domain.
 
 ## Related Terms
 
-- [AIAD](/glossary/aiad/) -- The standard defining tier specifications and enforcement rules
-- [Agent](/glossary/agent/) -- Core concept of autonomous operational units classified by tier
-- [Agent Registry](/glossary/agent-registry/) -- Central catalog tracking agent tier assignments and capabilities
-- [Archer Supreme](/glossary/archer-supreme/) -- L5 Supreme authority agent for crisis resolution
-- [Supreme Commander](/glossary/supreme-commander/) -- L5 agent using the registry for cross-domain coordination
-- [Color Teams](/glossary/color-teams/) -- Security teams with tiered agent hierarchies (L2-L3 with safety-critical L4)
-- [Black Team](/glossary/black-team/) -- Team with L3 ISOLATED agents demonstrating tier plus isolation
-- [Consciousness Traits](/glossary/consciousness-traits/) -- Emergent capabilities at L5 tier
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework enforced across all tiers
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate that tier-appropriate agents invoke
-- [Supervisor](/glossary/supervisor/) -- OTP supervision trees governing agent process lifecycles
-- [Process Isolation](/glossary/process-isolation/) -- BEAM-level isolation complementing tier-based access control
-- [RBAC](/glossary/rbac/) -- Role-Based Access Control paralleling tier-based agent governance
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- 16-level pipeline with tier-appropriate access at each level
+- [AIAD](@/glossary/aiad.md) -- The standard defining tier specifications and enforcement rules
+- [Agent](@/glossary/agent.md) -- Core concept of autonomous operational units classified by tier
+- [Agent Registry](@/glossary/agent-registry.md) -- Central catalog tracking agent tier assignments and capabilities
+- [Archer Supreme](@/glossary/archer-supreme.md) -- L5 Supreme authority agent for crisis resolution
+- [Supreme Commander](@/glossary/supreme-commander.md) -- L5 agent using the registry for cross-domain coordination
+- [Color Teams](@/glossary/color-teams.md) -- Security teams with tiered agent hierarchies (L2-L3 with safety-critical L4)
+- [Black Team](@/glossary/black-team.md) -- Team with L3 ISOLATED agents demonstrating tier plus isolation
+- [Consciousness Traits](@/glossary/consciousness-traits.md) -- Emergent capabilities at L5 tier
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework enforced across all tiers
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate that tier-appropriate agents invoke
+- [Supervisor](@/glossary/supervisor.md) -- OTP supervision trees governing agent process lifecycles
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM-level isolation complementing tier-based access control
+- [RBAC](@/glossary/rbac.md) -- Role-Based Access Control paralleling tier-based agent governance
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- 16-level pipeline with tier-appropriate access at each level
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Agents](/agents/) -- Full agent catalog with tier classifications
-- [Capabilities](/capabilities/) -- Platform capability catalog
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Agents](@/agents/_index.md) -- Full agent catalog with tier classifications
+- [Capabilities](@/capabilities/_index.md) -- Platform capability catalog
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -183,4 +183,4 @@ These [consciousness traits](/glossary/consciousness-traits/) are not mystical p
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

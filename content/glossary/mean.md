@@ -35,13 +35,13 @@ see_also = ["capabilities", "architecture", "performance-testing"]
 
 ## Definition
 
-The arithmetic mean (commonly called "average") is the sum of all observed values divided by the number of observations: mean = (sum of xi) / n. As a measure of central tendency, the mean represents the "center of mass" of a [distribution](/glossary/distribution/) -- the value around which data points are balanced. For symmetric, normally distributed data (CPU utilization, throughput rates), the mean accurately summarizes the typical value. For skewed distributions (response latency, file sizes, income), the mean can be misleading because extreme values pull it away from where most observations cluster.
+The arithmetic mean (commonly called "average") is the sum of all observed values divided by the number of observations: mean = (sum of xi) / n. As a measure of central tendency, the mean represents the "center of mass" of a [distribution](@/glossary/distribution.md) -- the value around which data points are balanced. For symmetric, normally distributed data (CPU utilization, throughput rates), the mean accurately summarizes the typical value. For skewed distributions (response latency, file sizes, income), the mean can be misleading because extreme values pull it away from where most observations cluster.
 
-This sensitivity to outliers is the mean's defining characteristic. A single 10-second timeout in 1000 requests with otherwise 50ms latency changes the mean from 50ms to 60ms -- a 20% increase from a single data point affecting 0.1% of users. This is why the software industry has shifted to percentile-based [monitoring](/glossary/monitoring/): the [median](/glossary/median/) (P50) and P95/P99 are resistant to outlier distortion and better represent user experience.
+This sensitivity to outliers is the mean's defining characteristic. A single 10-second timeout in 1000 requests with otherwise 50ms latency changes the mean from 50ms to 60ms -- a 20% increase from a single data point affecting 0.1% of users. This is why the software industry has shifted to percentile-based [monitoring](@/glossary/monitoring.md): the [median](@/glossary/median.md) (P50) and P95/P99 are resistant to outlier distortion and better represent user experience.
 
 ## Overview
 
-The mean is the most widely used and most misused statistical measure in software engineering. Its mathematical simplicity -- anyone can compute an average -- masks subtle properties that lead to incorrect conclusions when applied to the wrong type of data. Understanding when the mean is appropriate and when it misleads is fundamental to building reliable [telemetry](/glossary/telemetry/) and monitoring systems.
+The mean is the most widely used and most misused statistical measure in software engineering. Its mathematical simplicity -- anyone can compute an average -- masks subtle properties that lead to incorrect conclusions when applied to the wrong type of data. Understanding when the mean is appropriate and when it misleads is fundamental to building reliable [telemetry](@/glossary/telemetry.md) and monitoring systems.
 
 ### Types of Means
 
@@ -57,7 +57,7 @@ Using the wrong type of mean produces systematically biased results. For example
 
 ### The Outlier Problem in Detail
 
-Consider monitoring response times for an [API](/glossary/api/) endpoint:
+Consider monitoring response times for an [API](@/glossary/api.md) endpoint:
 
 ```
 Normal requests (999):  48ms, 52ms, 49ms, 51ms, 50ms, ...  (mean ≈ 50ms)
@@ -117,7 +117,7 @@ This algorithm is numerically stable -- unlike the naive approach of tracking a 
 
 ### Exponentially Weighted Moving Average (EWMA)
 
-EWMA gives recent observations exponentially higher weight than older ones, making it ideal for tracking trends in [time-series](/glossary/time-series/) metrics. The smoothing factor alpha (0 < alpha <= 1) controls responsiveness:
+EWMA gives recent observations exponentially higher weight than older ones, making it ideal for tracking trends in [time-series](@/glossary/time-series.md) metrics. The smoothing factor alpha (0 < alpha <= 1) controls responsiveness:
 
 ```
 EWMA_t = alpha * x_t + (1 - alpha) * EWMA_{t-1}
@@ -130,7 +130,7 @@ EWMA_t = alpha * x_t + (1 - alpha) * EWMA_{t-1}
 | 0.3 | Responsive, some smoothing | ~2 samples | Anomaly detection |
 | 0.5 | Highly responsive | ~1 sample | Real-time alerting |
 
-The BEAM's `:counters` module provides atomic increment operations suitable for maintaining running sums across concurrent [processes](/glossary/process/) without locks, making it ideal for high-throughput mean computation in [GenServer](/glossary/genserver/)-based metric collectors.
+The BEAM's `:counters` module provides atomic increment operations suitable for maintaining running sums across concurrent [processes](@/glossary/process.md) without locks, making it ideal for high-throughput mean computation in [GenServer](@/glossary/genserver.md)-based metric collectors.
 
 ### Trimmed and Winsorized Means
 
@@ -145,7 +145,7 @@ Both approaches are used in benchmark analysis where occasional system hiccups (
 
 ### Throughput Monitoring
 
-The Prismatic Platform uses arithmetic mean selectively: for throughput metrics (requests per second, events processed per minute) and batch operation statistics (average entity count per DD [pipeline](/glossary/pipeline/) run). Throughput is inherently additive -- total work divided by total time -- making the arithmetic mean appropriate.
+The Prismatic Platform uses arithmetic mean selectively: for throughput metrics (requests per second, events processed per minute) and batch operation statistics (average entity count per DD [pipeline](@/glossary/pipeline.md) run). Throughput is inherently additive -- total work divided by total time -- making the arithmetic mean appropriate.
 
 ```elixir
 # Telemetry handler for throughput mean computation
@@ -172,7 +172,7 @@ This illustrates a general principle: **means hide variation**. A system where a
 
 ### Latency Monitoring (Where Mean Fails)
 
-For latency monitoring, the platform explicitly avoids mean in favor of [percentiles](/glossary/percentile/) -- the Page Load [Performance](/glossary/performance-testing/) Standard defines limits in terms of P95, not average response time:
+For latency monitoring, the platform explicitly avoids mean in favor of [percentiles](@/glossary/percentile.md) -- the Page Load [Performance](@/glossary/performance-testing.md) Standard defines limits in terms of P95, not average response time:
 
 ```elixir
 # PERF doctrine: limits defined as percentiles, not means
@@ -454,7 +454,7 @@ The mean of a combined dataset can be computed from the means and sizes of subgr
 combined_mean = (n1 * mean1 + n2 * mean2) / (n1 + n2)
 ```
 
-This property is valuable in distributed systems where different nodes compute local means that must be aggregated. [ETS](/glossary/ets/) counters tracking sum and count enable distributed mean computation without centralizing raw data.
+This property is valuable in distributed systems where different nodes compute local means that must be aggregated. [ETS](@/glossary/ets.md) counters tracking sum and count enable distributed mean computation without centralizing raw data.
 
 ### Minimizes Squared Error
 
@@ -481,7 +481,7 @@ As sample size grows, the sample mean converges to the true population mean. The
 
 ## Best Practices
 
-Never use mean alone for latency monitoring -- always pair with [median](/glossary/median/) and P95/P99 to capture distribution shape. Use Welford's online algorithm for streaming mean computation to avoid storing all values. Apply Kahan summation when computing means over large floating-point datasets to prevent numerical drift. Report standard deviation alongside mean to indicate spread -- a mean of 100ms with std dev 5ms tells a different story than mean 100ms with std dev 200ms.
+Never use mean alone for latency monitoring -- always pair with [median](@/glossary/median.md) and P95/P99 to capture distribution shape. Use Welford's online algorithm for streaming mean computation to avoid storing all values. Apply Kahan summation when computing means over large floating-point datasets to prevent numerical drift. Report standard deviation alongside mean to indicate spread -- a mean of 100ms with std dev 5ms tells a different story than mean 100ms with std dev 200ms.
 
 Use geometric mean for comparing performance ratios across benchmarks (SPECint convention). Use harmonic mean for averaging rates where the denominator is constant (F1 score, average speed). Clearly label whether you report arithmetic, geometric, or harmonic mean -- the term "average" is ambiguous.
 
@@ -491,24 +491,24 @@ For dashboard displays, prefer EWMA over raw mean for time-series data. EWMA pro
 
 ## Related Terms
 
-- [Median](/glossary/median/) -- outlier-resistant central tendency measure, preferred for skewed data
-- [Percentile](/glossary/percentile/) -- distribution description immune to outlier distortion
-- [Standard Deviation](/glossary/standard-deviation/) -- spread measure that quantifies variation around the mean
-- [Variance](/glossary/variance/) -- squared average deviation, decomposable across subgroups
+- [Median](@/glossary/median.md) -- outlier-resistant central tendency measure, preferred for skewed data
+- [Percentile](@/glossary/percentile.md) -- distribution description immune to outlier distortion
+- [Standard Deviation](@/glossary/standard-deviation.md) -- spread measure that quantifies variation around the mean
+- [Variance](@/glossary/variance.md) -- squared average deviation, decomposable across subgroups
 - [Histogram](/glossary/histogram/) -- visual distribution representation that reveals what means hide
-- [Distribution](/glossary/distribution/) -- the full shape of data that a single mean summarizes
-- [Moving Average](/glossary/moving-average/) -- time-weighted mean for trend detection
-- [Outlier](/glossary/outlier/) -- extreme values that distort the arithmetic mean
-- [KPI](/glossary/kpi/) -- key performance indicators where mean selection matters
-- [Telemetry](/glossary/telemetry/) -- the BEAM telemetry system that feeds metric collectors
-- [Monitoring](/glossary/monitoring/) -- observability systems that consume mean statistics
+- [Distribution](@/glossary/distribution.md) -- the full shape of data that a single mean summarizes
+- [Moving Average](@/glossary/moving-average.md) -- time-weighted mean for trend detection
+- [Outlier](@/glossary/outlier.md) -- extreme values that distort the arithmetic mean
+- [KPI](@/glossary/kpi.md) -- key performance indicators where mean selection matters
+- [Telemetry](@/glossary/telemetry.md) -- the BEAM telemetry system that feeds metric collectors
+- [Monitoring](@/glossary/monitoring.md) -- observability systems that consume mean statistics
 - [Benchee](/glossary/benchee/) -- Elixir benchmarking library that reports multiple mean types
-- [Performance Testing](/glossary/performance-testing/) -- testing discipline where mean vs percentile choice matters
+- [Performance Testing](@/glossary/performance-testing.md) -- testing discipline where mean vs percentile choice matters
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- analytics and monitoring capabilities
-- [Architecture](/architecture/) -- metrics and telemetry architecture
+- [Capabilities](@/capabilities/_index.md) -- analytics and monitoring capabilities
+- [Architecture](@/architecture/_index.md) -- metrics and telemetry architecture
 - [Performance Standards](/performance/) -- PERF doctrine percentile-based limits
 
 ---
@@ -518,4 +518,4 @@ For dashboard displays, prefer EWMA over raw mean for time-series data. EWMA pro
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -19,11 +19,11 @@ see_also = ["decision-core", "evidence", "confidence", "provenance", "pipeline"]
 image_alt = "Decision Core Closed Loop"
 +++
 
-Most platforms produce outputs and move on. The [decision core](/glossary/decision-core) in Prismatic does something different: it remembers what it decided, waits for the outcome, and adjusts its own confidence whenever the outcome disagrees with the prediction. That is the difference between a pipeline and a system that learns.
+Most platforms produce outputs and move on. The [decision core](@/glossary/decision-core.md) in Prismatic does something different: it remembers what it decided, waits for the outcome, and adjusts its own confidence whenever the outcome disagrees with the prediction. That is the difference between a pipeline and a system that learns.
 
 ## The six stages
 
-The decision [pipeline](/glossary/pipeline) is deliberately boring: six stages, each with a single responsibility, each emitting telemetry at entry and exit.
+The decision [pipeline](@/glossary/pipeline.md) is deliberately boring: six stages, each with a single responsibility, each emitting telemetry at entry and exit.
 
 ```
 Ingest  →  Score  →  Hypothesize  →  Estimate Uncertainty  →  Recommend  →  Seal
@@ -33,8 +33,8 @@ Ingest  →  Score  →  Hypothesize  →  Estimate Uncertainty  →  Recommend 
 - **Score.** Apply calibrated scorers per claim type. Calibrated means the scorer has a learned history, not a hand-tuned weight.
 - **Hypothesize.** Generate alternative explanations for the evidence. A hypothesis nobody wrote down is a bias nobody caught.
 - **Estimate Uncertainty.** Decompose into epistemic and aleatoric. Bootstrap over the evidence, leave-one-out over the scorers.
-- **Recommend.** Produce the recommended action, with the top contributing [evidence](/glossary/evidence) items attached.
-- **Seal.** Freeze everything into an immutable envelope with full [provenance](/glossary/provenance).
+- **Recommend.** Produce the recommended action, with the top contributing [evidence](@/glossary/evidence.md) items attached.
+- **Seal.** Freeze everything into an immutable envelope with full [provenance](@/glossary/provenance.md).
 
 Each stage is a pure function from envelope to envelope. The pipeline is `Enum.reduce/3` over the stages. Failures short-circuit with an error envelope — never a silent partial result.
 
@@ -57,7 +57,7 @@ Over months, the calibration table becomes the most valuable asset in the platfo
 
 ## Hypotheses keep the model honest
 
-The hypothesize stage is what most pipelines skip. It forces the engine to produce *alternatives* to the leading interpretation and check whether the evidence actually rules them out. If it doesn't — if the evidence is consistent with two stories — the envelope ships with both, and the [confidence](/glossary/confidence) drops accordingly.
+The hypothesize stage is what most pipelines skip. It forces the engine to produce *alternatives* to the leading interpretation and check whether the evidence actually rules them out. If it doesn't — if the evidence is consistent with two stories — the envelope ships with both, and the [confidence](@/glossary/confidence.md) drops accordingly.
 
 The cost is a few extra milliseconds per decision. The benefit is that the engine stops confidently preferring whichever story happens to be ranked first.
 
@@ -69,6 +69,6 @@ The final stage is non-negotiable. Once sealed, an envelope is immutable. Any la
 
 - **Academy**: [Decision Core Fundamentals](/academy/learn/decision-core-fundamentals) — end-to-end walkthrough
 - **Academy**: [Monte Carlo Fundamentals](/academy/learn/monte-carlo-fundamentals) — the uncertainty math
-- **Glossary**: [Decision Core](/glossary/decision-core), [Evidence](/glossary/evidence), [Confidence](/glossary/confidence), [Provenance](/glossary/provenance), [Pipeline](/glossary/pipeline)
+- **Glossary**: [Decision Core](@/glossary/decision-core.md), [Evidence](@/glossary/evidence.md), [Confidence](@/glossary/confidence.md), [Provenance](@/glossary/provenance.md), [Pipeline](@/glossary/pipeline.md)
 
 Six boring stages. One sealed envelope. One learning loop. The whole game.

@@ -24,9 +24,9 @@ image_alt = "/nabla-status - Prismatic Platform"
 
 ## Overview
 
-**/nabla-status** is a production command in the **[Formal Verification](/glossary/formal-verification/)** category of the Prismatic Platform. It reports the current health, compliance state, and operational metrics of the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, which governs how the platform forms, evaluates, and maintains beliefs about its own state and the external systems it monitors. NABLA Infinity is the epistemic backbone of the Prismatic Platform, enforcing seven non-negotiable axioms that prevent the system from making unsupported claims, burying contradictions, or operating on stale information.
+**/nabla-status** is a production command in the **[Formal Verification](@/glossary/formal-verification.md)** category of the Prismatic Platform. It reports the current health, compliance state, and operational metrics of the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, which governs how the platform forms, evaluates, and maintains beliefs about its own state and the external systems it monitors. NABLA Infinity is the epistemic backbone of the Prismatic Platform, enforcing seven non-negotiable axioms that prevent the system from making unsupported claims, burying contradictions, or operating on stale information.
 
-This command operates under the **L2+** authority level and is executed by the `nabla-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority allows any operational team member to inspect the epistemic framework's health, recognizing that epistemic integrity is a shared responsibility across all platform operations.
+This command operates under the **L2+** authority level and is executed by the `nabla-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority allows any operational team member to inspect the epistemic framework's health, recognizing that epistemic integrity is a shared responsibility across all platform operations.
 
 Understanding the NABLA framework's status is essential for maintaining confidence in the platform's outputs. When NABLA axioms are fully satisfied, every claim the platform makes can be traced to its sources, every contradiction is preserved for investigation, and every belief carries a timestamp and confidence score. When axioms are violated, the platform's outputs may be unreliable, and corrective action is required.
 
@@ -151,7 +151,7 @@ Each of the seven axioms is evaluated against current subsystem state:
 
 ### Phase 3: Trinity Gate Health Assessment
 
-The [Trinity Gate](/glossary/trinity-gate/) is evaluated across its four layers:
+The [Trinity Gate](@/glossary/trinity-gate.md) is evaluated across its four layers:
 
 1. **Structural Consistency** -- Belief network forms a valid directed acyclic graph
 2. **Logical Consistency** -- No logical contradictions in active beliefs
@@ -178,14 +178,14 @@ The final status report is formatted according to the requested format and outpu
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/trinity](/commands/trinity/) | Peer | Shares Trinity Gate health data |
-| [/trinity-3nl-fusion](/commands/trinity-3nl-fusion/) | Peer | Fusion pipeline status feeds into NABLA health |
-| [/formal-verify](/commands/formal-verify/) | Upstream | Formal verification results update belief confidence |
-| [/lean](/commands/lean/) | Upstream | Lean4 proof results contribute to Trinity Gate formal layer |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | NABLA health is a quality gate check |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Epistemic metrics streamed to telemetry |
-| [Color Teams](/glossary/color-teams/) | Security | Blue team monitors epistemic defense posture via NABLA |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime | Agent decisions gated by NABLA confidence levels |
+| [/trinity](@/commands/trinity.md) | Peer | Shares Trinity Gate health data |
+| [/trinity-3nl-fusion](@/commands/trinity-3nl-fusion.md) | Peer | Fusion pipeline status feeds into NABLA health |
+| [/formal-verify](@/commands/formal-verify.md) | Upstream | Formal verification results update belief confidence |
+| [/lean](@/commands/lean.md) | Upstream | Lean4 proof results contribute to Trinity Gate formal layer |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | NABLA health is a quality gate check |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Epistemic metrics streamed to telemetry |
+| [Color Teams](@/glossary/color-teams.md) | Security | Blue team monitors epistemic defense posture via NABLA |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime | Agent decisions gated by NABLA confidence levels |
 
 ## Best Practices
 
@@ -270,7 +270,7 @@ Compare epistemic health across sessions:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Hard axiom violations block all downstream operations.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The status report provides evidence for every health assessment claim.
@@ -279,14 +279,14 @@ The `/nabla-status` command is itself a direct expression of the NO DOUBTS princ
 
 ## Related Commands
 
-- [/trinity](/commands/trinity/) - Trinity system status and rigidity score verification
-- [/trinity-3nl-fusion](/commands/trinity-3nl-fusion/) - Validate input through Trinity-3NL fusion pipeline
-- [/lean](/commands/lean/) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
-- [/prolog](/commands/prolog/) - Prolog-based logical reasoning and [inference](/glossary/inference/) operations
-- [/formal-verify](/commands/formal-verify/) - Formal verification of system properties and invariants
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/trinity](@/commands/trinity.md) - Trinity system status and rigidity score verification
+- [/trinity-3nl-fusion](@/commands/trinity-3nl-fusion.md) - Validate input through Trinity-3NL fusion pipeline
+- [/lean](@/commands/lean.md) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
+- [/prolog](@/commands/prolog.md) - Prolog-based logical reasoning and [inference](@/glossary/inference.md) operations
+- [/formal-verify](@/commands/formal-verify.md) - Formal verification of system properties and invariants
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -295,4 +295,4 @@ The `/nabla-status` command is itself a direct expression of the NO DOUBTS princ
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

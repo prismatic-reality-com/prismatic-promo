@@ -438,24 +438,24 @@ The 530+ AIAD agents have complex dependency relationships. The agent orchestrat
 
 Graph databases connect to numerous aspects of the Prismatic Platform:
 
-- [KuzuDB](/glossary/kuzudb/) is the specific graph database engine used by the platform, chosen for its embeddable architecture and MIT license
-- [Knowledge Graph](/glossary/knowledge-graph/) is the primary data structure built and queried using graph database technology
-- [Entity Resolution](/glossary/entity-resolution/) uses graph traversal to identify matching entities across disparate OSINT sources
-- [Graph Theory](/glossary/graph-theory/) provides the mathematical foundations for graph database operations and algorithms
-- [Polyglot Persistence](/glossary/polyglot-persistence/) is the architectural pattern that places graph databases alongside relational and other storage engines
-- [PostgreSQL](/glossary/postgresql/) serves as the relational database counterpart to KuzuDB in the polyglot persistence architecture
-- [ETS](/glossary/ets/) provides in-memory graph-adjacent caching for frequently accessed nodes and traversal results
-- [Entity Graph](/glossary/entity-graph/) describes the specific graph schema used for OSINT entity modeling
-- [OSINT](/glossary/osint/) is the primary intelligence domain that graph database capabilities serve
-- [Belief Graph](/glossary/belief-graph/) uses directed acyclic graph structures verified by the Trinity Gate
+- [KuzuDB](@/glossary/kuzudb.md) is the specific graph database engine used by the platform, chosen for its embeddable architecture and MIT license
+- [Knowledge Graph](@/glossary/knowledge-graph.md) is the primary data structure built and queried using graph database technology
+- [Entity Resolution](@/glossary/entity-resolution.md) uses graph traversal to identify matching entities across disparate OSINT sources
+- [Graph Theory](@/glossary/graph-theory.md) provides the mathematical foundations for graph database operations and algorithms
+- [Polyglot Persistence](@/glossary/polyglot-persistence.md) is the architectural pattern that places graph databases alongside relational and other storage engines
+- [PostgreSQL](@/glossary/postgresql.md) serves as the relational database counterpart to KuzuDB in the polyglot persistence architecture
+- [ETS](@/glossary/ets.md) provides in-memory graph-adjacent caching for frequently accessed nodes and traversal results
+- [Entity Graph](@/glossary/entity-graph.md) describes the specific graph schema used for OSINT entity modeling
+- [OSINT](@/glossary/osint.md) is the primary intelligence domain that graph database capabilities serve
+- [Belief Graph](@/glossary/belief-graph.md) uses directed acyclic graph structures verified by the Trinity Gate
 
 ## See Also
 
-- [Kuzu DB](/glossary/kuzu-db/) -- alternative reference for the platform's graph database engine
-- [Full Text Search](/glossary/full-text-search/) -- complementary search capability provided by Meilisearch
-- [Database](/glossary/database/) -- general database concepts and the platform's storage philosophy
-- [Relational Database](/glossary/relational-database/) -- the traditional alternative to graph databases for structured data
-- [Vector Database](/glossary/vector-database/) -- semantic similarity search complementing graph traversal
+- [Kuzu DB](@/glossary/kuzu-db.md) -- alternative reference for the platform's graph database engine
+- [Full Text Search](@/glossary/full-text-search.md) -- complementary search capability provided by Meilisearch
+- [Database](@/glossary/database.md) -- general database concepts and the platform's storage philosophy
+- [Relational Database](@/glossary/relational-database.md) -- the traditional alternative to graph databases for structured data
+- [Vector Database](@/glossary/vector-database.md) -- semantic similarity search complementing graph traversal
 
 ---
 

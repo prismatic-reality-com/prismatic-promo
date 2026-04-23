@@ -25,7 +25,7 @@ image_alt = "crt.sh - Prismatic Platform"
 
 ## Overview
 
-crt.sh is a web interface and API for searching [Certificate Transparency](/glossary/certificate-transparency/) (CT) logs, operated by Sectigo (formerly Comodo CA). Certificate Transparency is a framework defined in RFC 6962 that requires Certificate Authorities to publicly log every SSL/[TLS](/glossary/tls/) certificate they issue before browsers will trust them. This creates a comprehensive, append-only, cryptographically verifiable record of all publicly trusted certificates, forming one of the most valuable passive intelligence sources available to security researchers and OSINT practitioners.
+crt.sh is a web interface and API for searching [Certificate Transparency](@/glossary/certificate-transparency.md) (CT) logs, operated by Sectigo (formerly Comodo CA). Certificate Transparency is a framework defined in RFC 6962 that requires Certificate Authorities to publicly log every SSL/[TLS](@/glossary/tls.md) certificate they issue before browsers will trust them. This creates a comprehensive, append-only, cryptographically verifiable record of all publicly trusted certificates, forming one of the most valuable passive intelligence sources available to security researchers and OSINT practitioners.
 
 For security professionals, crt.sh is an indispensable tool for subdomain discovery, certificate monitoring, and detecting unauthorized certificate issuance. Since organizations must obtain certificates for their web services, CT logs effectively reveal the existence of subdomains and services that might otherwise be hidden from external observation. A single query to crt.sh can reveal internal hostnames, staging environments, development servers, and partner integration endpoints that would require extensive active scanning to discover through other means.
 
@@ -194,7 +194,7 @@ end
 
 ### Subdomain Discovery and Attack Surface Mapping
 
-crt.sh is the primary reconnaissance technique for [attack surface mapping](/apps/prismatic-perimeter/) through Certificate Transparency. Key applications include discovering internal hostnames inadvertently exposed in certificate SANs, finding staging, development, and test environments that may have weaker security controls, identifying partner integration endpoints and API gateways, enumerating all subdomains without active scanning or DNS brute-forcing, and detecting wildcard certificate usage that may indicate broad infrastructure deployments.
+crt.sh is the primary reconnaissance technique for [attack surface mapping](@/apps/prismatic-perimeter.md) through Certificate Transparency. Key applications include discovering internal hostnames inadvertently exposed in certificate SANs, finding staging, development, and test environments that may have weaker security controls, identifying partner integration endpoints and API gateways, enumerating all subdomains without active scanning or DNS brute-forcing, and detecting wildcard certificate usage that may indicate broad infrastructure deployments.
 
 ### Certificate Monitoring and Security Operations
 
@@ -218,7 +218,7 @@ Name matching should account for certificate SAN fields that may contain multipl
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, crt.sh serves as the primary subdomain discovery source for the [Prismatic Perimeter](/apps/prismatic-perimeter/) EASM pipeline. Certificate data from crt.sh is cross-referenced with [Censys](/osint/censys/) host data to correlate discovered subdomains with live services, [Shodan](/osint/shodan/) for service identification on discovered hosts, [GreyNoise](/osint/greynoise/) for traffic classification on discovered IP addresses, and [Common Crawl](/osint/common-crawl/) for historical web content on discovered subdomains.
+Within the Prismatic ecosystem, crt.sh serves as the primary subdomain discovery source for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) EASM pipeline. Certificate data from crt.sh is cross-referenced with [Censys](@/osint/censys.md) host data to correlate discovered subdomains with live services, [Shodan](@/osint/shodan.md) for service identification on discovered hosts, [GreyNoise](@/osint/greynoise.md) for traffic classification on discovered IP addresses, and [Common Crawl](@/osint/common-crawl.md) for historical web content on discovered subdomains.
 
 The security rating engine uses certificate intelligence to assess TLS configuration quality, certificate management practices, and shadow IT exposure.
 
@@ -241,7 +241,7 @@ The security rating engine uses certificate intelligence to assess TLS configura
 | **Authentication** | None required (fully public) |
 | **Rate Limit** | No official limit; recommended 1 request/second |
 | **Output Formats** | HTML, JSON (append `?output=json`) |
-| **Database** | [PostgreSQL](/glossary/postgresql/)-backed, direct SQL queries via Atom feed |
+| **Database** | [PostgreSQL](@/glossary/postgresql.md)-backed, direct SQL queries via Atom feed |
 | **Cost** | Completely free |
 | **Response Time** | 1-10 seconds depending on domain certificate volume |
 | **Cache** | Results are append-only; aggressive caching recommended |
@@ -254,13 +254,13 @@ The Prismatic adapter caches subdomain enumeration results with 24-hour TTL and 
 
 ## Related Resources
 
-- [Censys](/osint/censys/) - Certificate search with host correlation
-- [Common Crawl](/osint/common-crawl/) - Passive subdomain discovery from web crawls
-- [Shodan](/osint/shodan/) - SSL certificate analysis on discovered hosts
-- [URLScan](/osint/urlscan/) - Visual verification of discovered subdomains
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach data for discovered domains
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Certificate intelligence in EASM pipeline
+- [Censys](@/osint/censys.md) - Certificate search with host correlation
+- [Common Crawl](@/osint/common-crawl.md) - Passive subdomain discovery from web crawls
+- [Shodan](@/osint/shodan.md) - SSL certificate analysis on discovered hosts
+- [URLScan](@/osint/urlscan.md) - Visual verification of discovered subdomains
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach data for discovered domains
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Certificate intelligence in EASM pipeline
 
 ---
 
@@ -269,4 +269,4 @@ The Prismatic adapter caches subdomain enumeration results with 24-hour TTL and 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -36,11 +36,11 @@ image_alt = "Machine-Like Precision - Prismatic Platform"
 
 ## Definition
 
-Machine-like precision is an execution standard that demands every operation in a software system be exact, repeatable, and error-free, achieving the reliability and predictability of a mechanical system. In the context of the Prismatic Platform, it is not an aspirational goal but an enforced invariant -- the system's [quality gates](/glossary/quality-gates/), [pre-commit hooks](/glossary/pre-commit-hooks/), and automated enforcement mechanisms reject any output that deviates from this standard.
+Machine-like precision is an execution standard that demands every operation in a software system be exact, repeatable, and error-free, achieving the reliability and predictability of a mechanical system. In the context of the Prismatic Platform, it is not an aspirational goal but an enforced invariant -- the system's [quality gates](@/glossary/quality-gates.md), [pre-commit hooks](@/glossary/pre-commit-hooks.md), and automated enforcement mechanisms reject any output that deviates from this standard.
 
 The term "machine-like" is deliberate. Machines do not produce "almost correct" output. A CNC mill cuts to the specified tolerance or the part is rejected. A compiler either produces valid bytecode or reports an error. There is no "close enough" in mechanical systems. Machine-like precision applies this same intolerance for approximation to software development: zero warnings, zero violations, zero regressions, zero excuses.
 
-This principle directly implements the NO MERCY aspect of the platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. NO MERCY means no tolerance for incomplete implementations, no quality violations, no untested code. Machine-like precision is how NO MERCY manifests in daily operations -- every compilation, every test run, every quality check must produce a [clean run](/glossary/clean-run/) or the work is rejected.
+This principle directly implements the NO MERCY aspect of the platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. NO MERCY means no tolerance for incomplete implementations, no quality violations, no untested code. Machine-like precision is how NO MERCY manifests in daily operations -- every compilation, every test run, every quality check must produce a [clean run](@/glossary/clean-run.md) or the work is rejected.
 
 ## Overview
 
@@ -62,7 +62,7 @@ Different systems operate at different precision levels. Machine-like precision 
 | **Mechanical** | Zero-tolerance, deterministic | 10^-6 (0.0001%) | Avionics, medical devices |
 | **Machine-like** | Provably correct, formally verified | 0 (zero defects) | Prismatic Platform target |
 
-The distinction between "mechanical" and "machine-like" in software is important. Physical machines achieve precision through tight manufacturing tolerances. Software achieves precision through formal methods, exhaustive testing, type systems, and static analysis. The Prismatic Platform combines all four: [Dialyzer](/glossary/dialyzer/) for type checking, [ExUnit](/glossary/exunit/) for testing, [Credo](/glossary/credo/) for static analysis, and the [Trinity Gate](/glossary/trinity-gate/) for formal verification.
+The distinction between "mechanical" and "machine-like" in software is important. Physical machines achieve precision through tight manufacturing tolerances. Software achieves precision through formal methods, exhaustive testing, type systems, and static analysis. The Prismatic Platform combines all four: [Dialyzer](@/glossary/dialyzer.md) for type checking, [ExUnit](@/glossary/exunit.md) for testing, [Credo](@/glossary/credo.md) for static analysis, and the [Trinity Gate](@/glossary/trinity-gate.md) for formal verification.
 
 ## Technical Details
 
@@ -294,7 +294,7 @@ The `--force` flag ensures full recompilation, preventing stale BEAM files from 
 
 ### Typespec and Dialyzer Integration
 
-[Typespecs](/glossary/typespec/) declare the contract for every public function: what types it accepts and what types it returns. [Dialyzer](/glossary/dialyzer/) statically analyzes the codebase against these contracts, detecting type mismatches, unreachable code, and pattern match failures at compile time rather than runtime.
+[Typespecs](@/glossary/typespec.md) declare the contract for every public function: what types it accepts and what types it returns. [Dialyzer](@/glossary/dialyzer.md) statically analyzes the codebase against these contracts, detecting type mismatches, unreachable code, and pattern match failures at compile time rather than runtime.
 
 The combination provides a form of mechanical verification: if the code compiles and Dialyzer passes, certain classes of runtime errors are provably impossible. This is machine-like precision applied to type safety.
 
@@ -318,7 +318,7 @@ The platform's 100-point quality score aggregates 13 quality domains into a sing
 
 ### Machine-Like Precision vs. Formal Verification
 
-Formal verification (model checking, theorem proving, proof assistants like [Lean4](/glossary/lean4/)) provides mathematical certainty about program properties. Machine-like precision is a practical approximation of formal verification using industrial tools (type checkers, static analyzers, property-based testing). The Prismatic Platform uses both: the [Trinity Gate](/glossary/trinity-gate/) includes a formal verification layer (Lean4 proofs) for critical invariants, while Dialyzer and Credo provide broader but less rigorous coverage across the entire codebase.
+Formal verification (model checking, theorem proving, proof assistants like [Lean4](@/glossary/lean4.md)) provides mathematical certainty about program properties. Machine-like precision is a practical approximation of formal verification using industrial tools (type checkers, static analyzers, property-based testing). The Prismatic Platform uses both: the [Trinity Gate](@/glossary/trinity-gate.md) includes a formal verification layer (Lean4 proofs) for critical invariants, while Dialyzer and Credo provide broader but less rigorous coverage across the entire codebase.
 
 | Aspect | Formal Verification | Machine-Like Precision |
 |--------|--------------------|-----------------------|
@@ -338,7 +338,7 @@ TDD ensures that code meets its specifications (tests pass). Machine-like precis
 
 **Make the precise path the easy path**. If doing the right thing requires extra effort, people will cut corners. Code formatters, auto-fix tools, and clear error messages reduce the friction of precision. `mix format` automatically fixes formatting; `mix credo --strict` identifies issues with specific remediation guidance.
 
-**Track precision metrics over time**. A quality score of 100/100 today means nothing if it was 98/100 yesterday and you do not know why. Track all precision metrics in [quality DNA](/glossary/quality-dna/), visualize trends, and investigate any degradation immediately.
+**Track precision metrics over time**. A quality score of 100/100 today means nothing if it was 98/100 yesterday and you do not know why. Track all precision metrics in [quality DNA](@/glossary/quality-dna.md), visualize trends, and investigate any degradation immediately.
 
 **Reject "temporary" precision compromises**. There is no such thing as a temporary warning, a temporary test skip, or a temporary quality violation. "Temporary" imprecision becomes permanent imprecision the moment attention moves to the next task. The NO MERCY doctrine exists precisely to prevent this rationalization.
 
@@ -346,15 +346,15 @@ TDD ensures that code meets its specifications (tests pass). Machine-like precis
 
 ## Common Pitfalls
 
-**Confusing rigidity with precision**. Precision means exact, correct output. Rigidity means refusing to change. A precise system adapts to new requirements with the same exactness it applies to existing ones. The Prismatic Platform's [continuous evolution](/glossary/continuous-evolution/) demonstrates this: 19 generations of change, each executed with machine-like precision.
+**Confusing rigidity with precision**. Precision means exact, correct output. Rigidity means refusing to change. A precise system adapts to new requirements with the same exactness it applies to existing ones. The Prismatic Platform's [continuous evolution](@/glossary/continuous-evolution.md) demonstrates this: 19 generations of change, each executed with machine-like precision.
 
 **Applying precision to the wrong dimension**. Pixel-perfect UI layouts are not machine-like precision. Correct business logic with provable type safety is. Focus precision enforcement on dimensions where correctness matters -- data transformations, security boundaries, API contracts, state transitions.
 
 **Using precision as a justification for slow delivery**. Machine-like precision should not make delivery slower. Automation (formatters, linters, type checkers, pre-commit hooks) absorbs the precision cost. If precision is slowing you down, the automation is insufficient, not the standard.
 
-**Assuming precision is achieved once and maintained automatically**. Precision requires constant vigilance. New dependencies introduce new warning sources. New patterns create new anti-pattern risks. The [Quality Floor Guardian](/glossary/quality-floor-guardian/) continuously monitors for precision degradation, but the monitoring itself must be maintained and updated.
+**Assuming precision is achieved once and maintained automatically**. Precision requires constant vigilance. New dependencies introduce new warning sources. New patterns create new anti-pattern risks. The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) continuously monitors for precision degradation, but the monitoring itself must be maintained and updated.
 
-**Equating test count with precision**. A thousand tests that all check happy paths provide less precision than fifty tests that cover edge cases, error conditions, and invariant boundaries. Quality of tests matters more than quantity. [Property-based testing](/glossary/property-based-testing/) generates thousands of inputs automatically, providing more precision per test than hand-written example-based tests.
+**Equating test count with precision**. A thousand tests that all check happy paths provide less precision than fifty tests that cover edge cases, error conditions, and invariant boundaries. Quality of tests matters more than quantity. [Property-based testing](@/glossary/property-based-testing.md) generates thousands of inputs automatically, providing more precision per test than hand-written example-based tests.
 
 ## Use Cases
 
@@ -368,31 +368,31 @@ The 11-phase pre-commit hook applies machine-like precision to every commit atte
 
 ### API Contract Enforcement
 
-The [Prismatic API](/glossary/prismatic-api/) uses [OpenApiSpex](/glossary/openapi/) to enforce exact request/response schemas. Every API endpoint has a machine-verified contract. Requests that do not match the schema are rejected with precise error descriptions. Responses that do not match the schema cause test failures in CI.
+The [Prismatic API](@/glossary/prismatic-api.md) uses [OpenApiSpex](@/glossary/openapi.md) to enforce exact request/response schemas. Every API endpoint has a machine-verified contract. Requests that do not match the schema are rejected with precise error descriptions. Responses that do not match the schema cause test failures in CI.
 
 ### Security Posture Verification
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM system applies machine-like precision to security assessment. Security ratings are computed from discrete evidence points, not subjective judgment. Each finding is classified, scored, and tracked with full provenance. The [Trinity Gate](/glossary/trinity-gate/) ensures that security claims pass structural, logical, and formal verification.
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) EASM system applies machine-like precision to security assessment. Security ratings are computed from discrete evidence points, not subjective judgment. Each finding is classified, scored, and tracked with full provenance. The [Trinity Gate](@/glossary/trinity-gate.md) ensures that security claims pass structural, logical, and formal verification.
 
 ## Related Concepts
 
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- The doctrine that machine-like precision implements
-- [No Mercy](/glossary/no-mercy/) -- Zero tolerance for incomplete or imprecise work
-- [Zero Tolerance](/glossary/zero-tolerance/) -- The enforcement philosophy that rejects any deviation from standards
-- [Clean Run](/glossary/clean-run/) -- A compilation or test run with zero warnings, zero errors, zero violations
-- [Decisive Action](/glossary/decisive-action/) -- The NO DOUBTS complement to machine-like precision
-- [Quality Standard](/glossary/quality-standard/) -- The measurable benchmarks that define precision thresholds
-- [Determinism](/glossary/determinism/) -- The property of producing identical outputs for identical inputs
-- [Technical Perfection](/glossary/technical-perfection/) -- The aspiration that machine-like precision operationalizes
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proofs of program correctness
-- [Trinity Gate](/glossary/trinity-gate/) -- The 3-layer verification system ensuring claims are provably correct
-- [Quality Gates](/glossary/quality-gates/) -- Automated checkpoints enforcing precision at commit boundaries
-- [Dialyzer](/glossary/dialyzer/) -- Static type analysis providing machine-verified type contracts
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- The doctrine that machine-like precision implements
+- [No Mercy](@/glossary/no-mercy.md) -- Zero tolerance for incomplete or imprecise work
+- [Zero Tolerance](@/glossary/zero-tolerance.md) -- The enforcement philosophy that rejects any deviation from standards
+- [Clean Run](@/glossary/clean-run.md) -- A compilation or test run with zero warnings, zero errors, zero violations
+- [Decisive Action](@/glossary/decisive-action.md) -- The NO DOUBTS complement to machine-like precision
+- [Quality Standard](@/glossary/quality-standard.md) -- The measurable benchmarks that define precision thresholds
+- [Determinism](@/glossary/determinism.md) -- The property of producing identical outputs for identical inputs
+- [Technical Perfection](@/glossary/technical-perfection.md) -- The aspiration that machine-like precision operationalizes
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proofs of program correctness
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The 3-layer verification system ensuring claims are provably correct
+- [Quality Gates](@/glossary/quality-gates.md) -- Automated checkpoints enforcing precision at commit boundaries
+- [Dialyzer](@/glossary/dialyzer.md) -- Static type analysis providing machine-verified type contracts
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture designed for machine-like precision
-- [Capabilities](/capabilities/) -- Quality capabilities enforcing precision across domains
+- [Architecture](@/architecture/_index.md) -- Platform architecture designed for machine-like precision
+- [Capabilities](@/capabilities/_index.md) -- Quality capabilities enforcing precision across domains
 - Glossary Index -- Full glossary of platform terminology
 
 ---
@@ -402,4 +402,4 @@ The [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM system applies ma
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -373,28 +373,28 @@ The Self-Evolving Autonomous Development Framework (SEADF) implements 7 subsyste
 
 Living systems connect to numerous foundational concepts within the Prismatic Platform ecosystem:
 
-- [Self-Healing](/glossary/self-healing/) -- the core immune response mechanism that enables automatic recovery from failures
-- [Supervision Tree](/glossary/supervision-tree/) -- the hierarchical structure that implements layered defense and process management
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the ability to continue operating correctly despite component failures
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- the generational improvement mechanism that drives platform fitness
-- [Continuous Evolution](/glossary/continuous-evolution/) -- the ongoing adaptation process that responds to environmental changes
-- [Circuit Breaker](/glossary/circuit-breaker/) -- the protective mechanism that prevents cascade failures across subsystems
-- [Chaos Engineering](/glossary/chaos-engineering/) -- the practice of deliberately injecting failures to strengthen living system resilience
-- [Observability](/glossary/observability/) -- the sensory apparatus that enables living systems to perceive their own state
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the homeostatic regulator that maintains quality within acceptable bounds
-- [GenServer](/glossary/genserver/) -- the fundamental building block for stateful processes in living Elixir systems
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine substrate that provides process isolation and lightweight concurrency
-- [Telemetry](/glossary/telemetry/) -- the measurement infrastructure that feeds homeostatic feedback loops
+- [Self-Healing](@/glossary/self-healing.md) -- the core immune response mechanism that enables automatic recovery from failures
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the hierarchical structure that implements layered defense and process management
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the ability to continue operating correctly despite component failures
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- the generational improvement mechanism that drives platform fitness
+- [Continuous Evolution](@/glossary/continuous-evolution.md) -- the ongoing adaptation process that responds to environmental changes
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- the protective mechanism that prevents cascade failures across subsystems
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- the practice of deliberately injecting failures to strengthen living system resilience
+- [Observability](@/glossary/observability.md) -- the sensory apparatus that enables living systems to perceive their own state
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the homeostatic regulator that maintains quality within acceptable bounds
+- [GenServer](@/glossary/genserver.md) -- the fundamental building block for stateful processes in living Elixir systems
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine substrate that provides process isolation and lightweight concurrency
+- [Telemetry](@/glossary/telemetry.md) -- the measurement infrastructure that feeds homeostatic feedback loops
 
 ## See Also
 
-- [OTP](/glossary/otp/) -- the framework providing supervision, fault tolerance, and hot code reloading primitives
-- [SEADF](/glossary/seadf/) -- the Self-Evolving Autonomous Development Framework implementing living system subsystems
-- [Quality DNA](/glossary/quality-dna/) -- the genetic memory system that preserves quality characteristics across sessions
-- [AutoHeal](/glossary/autoheal/) -- the self-healing mix task that implements immune response cycles
-- [AutoEvolve](/glossary/autoevolve/) -- the evolutionary engine that drives generational platform improvement
-- [Let It Crash](/glossary/let-it-crash/) -- the philosophy of embracing failure as a natural part of living system operation
-- [Health Monitoring](/glossary/health-monitoring/) -- the continuous assessment of system vital signs
+- [OTP](@/glossary/otp.md) -- the framework providing supervision, fault tolerance, and hot code reloading primitives
+- [SEADF](@/glossary/seadf.md) -- the Self-Evolving Autonomous Development Framework implementing living system subsystems
+- [Quality DNA](@/glossary/quality-dna.md) -- the genetic memory system that preserves quality characteristics across sessions
+- [AutoHeal](@/glossary/autoheal.md) -- the self-healing mix task that implements immune response cycles
+- [AutoEvolve](@/glossary/autoevolve.md) -- the evolutionary engine that drives generational platform improvement
+- [Let It Crash](@/glossary/let-it-crash.md) -- the philosophy of embracing failure as a natural part of living system operation
+- [Health Monitoring](@/glossary/health-monitoring.md) -- the continuous assessment of system vital signs
 
 ---
 

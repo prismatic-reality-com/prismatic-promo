@@ -381,25 +381,25 @@ The Prismatic Perimeter EASM system uses ML patterns for security rating predict
 
 Machine learning connects to numerous intelligence and computation concepts across the platform:
 
-- [Artificial Intelligence](/glossary/artificial-intelligence/) -- the broader field encompassing machine learning as a primary methodology
-- [Neural Network](/glossary/neural-network/) -- the computational architecture underlying deep learning approaches
-- [LLM](/glossary/llm/) -- large language models built on transformer architecture and trained on massive text corpora
-- [Embedding](/glossary/embedding/) -- dense vector representations learned by ML models for semantic similarity
-- [Fine-Tuning](/glossary/fine-tuning/) -- adapting pre-trained models to specific domains or tasks
-- [Inference](/glossary/inference/) -- the process of running trained models to produce predictions
-- [Ollama](/glossary/ollama/) -- the local AI runtime enabling on-premise ML model serving
-- [RAG](/glossary/rag/) -- Retrieval-Augmented Generation combining ML with knowledge retrieval
-- [AI Agent](/glossary/ai-agent/) -- autonomous entities that use ML for perception and decision-making
-- [Bias Detection](/glossary/bias-detection/) -- identifying and mitigating unfair patterns in ML systems
+- [Artificial Intelligence](@/glossary/artificial-intelligence.md) -- the broader field encompassing machine learning as a primary methodology
+- [Neural Network](@/glossary/neural-network.md) -- the computational architecture underlying deep learning approaches
+- [LLM](@/glossary/llm.md) -- large language models built on transformer architecture and trained on massive text corpora
+- [Embedding](@/glossary/embedding.md) -- dense vector representations learned by ML models for semantic similarity
+- [Fine-Tuning](@/glossary/fine-tuning.md) -- adapting pre-trained models to specific domains or tasks
+- [Inference](@/glossary/inference.md) -- the process of running trained models to produce predictions
+- [Ollama](@/glossary/ollama.md) -- the local AI runtime enabling on-premise ML model serving
+- [RAG](@/glossary/rag.md) -- Retrieval-Augmented Generation combining ML with knowledge retrieval
+- [AI Agent](@/glossary/ai-agent.md) -- autonomous entities that use ML for perception and decision-making
+- [Bias Detection](@/glossary/bias-detection.md) -- identifying and mitigating unfair patterns in ML systems
 
 ## See Also
 
-- [Data Pipeline](/glossary/data-pipeline/) -- the infrastructure for preparing and delivering data to ML systems
-- [Cosine Similarity](/glossary/cosine-similarity/) -- a distance metric commonly used in ML for vector comparison
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- the probabilistic framework underlying many ML approaches
-- [Confidence Scoring](/glossary/confidence-scoring/) -- quantifying prediction certainty in ML outputs
-- [Analytics](/glossary/analytics/) -- the data analysis discipline that ML extends with predictive capabilities
-- [Explainability](/glossary/explainability/) -- making ML model decisions interpretable and auditable
+- [Data Pipeline](@/glossary/data-pipeline.md) -- the infrastructure for preparing and delivering data to ML systems
+- [Cosine Similarity](@/glossary/cosine-similarity.md) -- a distance metric commonly used in ML for vector comparison
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- the probabilistic framework underlying many ML approaches
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- quantifying prediction certainty in ML outputs
+- [Analytics](@/glossary/analytics.md) -- the data analysis discipline that ML extends with predictive capabilities
+- [Explainability](@/glossary/explainability.md) -- making ML model decisions interpretable and auditable
 
 ---
 

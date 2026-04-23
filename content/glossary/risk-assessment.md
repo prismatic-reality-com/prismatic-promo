@@ -29,7 +29,7 @@ Risk assessment is a systematic, evidence-based process of identifying threats a
 
 A risk assessment answers three fundamental questions: What can go wrong? How likely is it? How bad would it be? The answers are expressed as risk values that combine likelihood (probability of occurrence) and impact (consequence severity), producing a risk magnitude that can be compared, ranked, and tracked over time. This quantification transforms subjective security concerns into actionable, measurable data that supports rational decision-making.
 
-Modern risk assessment has evolved from periodic, manual exercises (annual risk assessments conducted by consultants) to continuous, automated processes that integrate with real-time threat intelligence, [vulnerability](/glossary/vulnerability-assessment/) scanning, and attack surface monitoring. The Prismatic Platform implements continuous risk assessment through its [Perimeter](/glossary/prismatic-perimeter/) module, which combines asset discovery, vulnerability detection, and evidence-based scoring to produce real-time [security ratings](/glossary/security-rating/) for monitored organizations.
+Modern risk assessment has evolved from periodic, manual exercises (annual risk assessments conducted by consultants) to continuous, automated processes that integrate with real-time threat intelligence, [vulnerability](@/glossary/vulnerability-assessment.md) scanning, and attack surface monitoring. The Prismatic Platform implements continuous risk assessment through its [Perimeter](@/glossary/prismatic-perimeter.md) module, which combines asset discovery, vulnerability detection, and evidence-based scoring to produce real-time [security ratings](@/glossary/security-rating.md) for monitored organizations.
 
 ## Risk Assessment Frameworks
 
@@ -83,7 +83,7 @@ Before assessing risks, the scope and criteria must be defined:
 | **Risk Appetite** | Acceptable risk level | Score above 700 (A-B rating) |
 | **Assessment Criteria** | How risks are measured | CVSS for vulnerabilities, EPSS for likelihood |
 | **Stakeholders** | Who consumes the results | CISO, compliance team, board |
-| **Regulatory Context** | Applicable regulations | [NIS2](/glossary/zkb/), ZKB 264/2025 Sb. |
+| **Regulatory Context** | Applicable regulations | [NIS2](@/glossary/zkb.md), ZKB 264/2025 Sb. |
 
 ### Phase 2: Risk Identification
 
@@ -93,7 +93,7 @@ Risk identification discovers what could go wrong by combining asset inventory w
 |--------|--------|--------|
 | **Asset Discovery** | DNS enumeration, certificate transparency, port scanning | Asset inventory |
 | **Vulnerability Scanning** | CVE detection, misconfiguration checks | Vulnerability list |
-| **Threat Intelligence** | [OSINT](/glossary/shodan/) feeds, breach databases, dark web monitoring | Threat indicators |
+| **Threat Intelligence** | [OSINT](@/glossary/shodan.md) feeds, breach databases, dark web monitoring | Threat indicators |
 | **Compliance Gaps** | Framework mapping, control assessment | Non-conformities |
 | **Historical Incidents** | Incident database, breach records | Pattern indicators |
 
@@ -122,7 +122,7 @@ Risk evaluation compares analyzed risks against acceptance criteria to determine
 
 ## Implementation in Elixir
 
-The Prismatic Platform implements risk assessment as a composable pipeline of assessment stages, each producing evidence artifacts with [confidence scores](/glossary/confidence-scoring/):
+The Prismatic Platform implements risk assessment as a composable pipeline of assessment stages, each producing evidence artifacts with [confidence scores](@/glossary/confidence-scoring.md):
 
 ```elixir
 defmodule PrismaticPerimeter.RiskAssessment do
@@ -243,7 +243,7 @@ end
 
 ## Compliance Assessment
 
-Risk assessment feeds directly into compliance evaluation. The Prismatic Platform maps risk findings to regulatory requirements for [NIS2](/glossary/compliance-framework/) Directive (EU 2022/2555) and ZKB 264/2025 Sb. (Czech cybersecurity law):
+Risk assessment feeds directly into compliance evaluation. The Prismatic Platform maps risk findings to regulatory requirements for [NIS2](@/glossary/compliance-framework.md) Directive (EU 2022/2555) and ZKB 264/2025 Sb. (Czech cybersecurity law):
 
 | Regulation | Scope | Key Requirements | Assessment Method |
 |-----------|-------|-----------------|------------------|
@@ -295,7 +295,7 @@ end
 
 ## Confidence Scoring
 
-Every risk assessment in the Prismatic Platform carries a [confidence score](/glossary/confidence-scoring/) that quantifies the reliability of the assessment. This aligns with the platform's NABLA epistemic framework, where claims require evidence provenance:
+Every risk assessment in the Prismatic Platform carries a [confidence score](@/glossary/confidence-scoring.md) that quantifies the reliability of the assessment. This aligns with the platform's NABLA epistemic framework, where claims require evidence provenance:
 
 | Confidence Level | Range | Interpretation | Action |
 |-----------------|-------|---------------|--------|
@@ -353,7 +353,7 @@ end
 
 ## Attack Surface Risk Assessment
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) module specializes in External Attack Surface Management (EASM), where risk assessment focuses on externally visible assets:
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) module specializes in External Attack Surface Management (EASM), where risk assessment focuses on externally visible assets:
 
 | Asset Type | Discovery Method | Risk Factors | Typical Findings |
 |-----------|----------------|-------------|-----------------|
@@ -439,7 +439,7 @@ end
 
 ## Dashboard Visualization
 
-Risk assessment results are presented through a [LiveView](/glossary/phoenix-liveview/) dashboard at `/perimeter`:
+Risk assessment results are presented through a [LiveView](@/glossary/phoenix-liveview.md) dashboard at `/perimeter`:
 
 | Widget | Data Source | Update Frequency |
 |--------|-----------|-----------------|
@@ -452,31 +452,31 @@ Risk assessment results are presented through a [LiveView](/glossary/phoenix-liv
 
 ## Context in Prismatic
 
-Risk assessment is a central capability of the [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM module. The platform combines automated [attack surface](/glossary/attack-surface/) discovery with evidence-based risk scoring to produce [security ratings](/glossary/security-rating/) (A-F grades, 300-900 numeric scores) that compete with commercial platforms like BitSight and SecurityScorecard. Every assessment carries [confidence scores](/glossary/confidence-scoring/) in compliance with the platform's NABLA epistemic framework, ensuring that risk decisions are backed by verifiable evidence with known reliability levels.
+Risk assessment is a central capability of the [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) EASM module. The platform combines automated [attack surface](@/glossary/attack-surface.md) discovery with evidence-based risk scoring to produce [security ratings](@/glossary/security-rating.md) (A-F grades, 300-900 numeric scores) that compete with commercial platforms like BitSight and SecurityScorecard. Every assessment carries [confidence scores](@/glossary/confidence-scoring.md) in compliance with the platform's NABLA epistemic framework, ensuring that risk decisions are backed by verifiable evidence with known reliability levels.
 
-The risk assessment engine integrates with 120+ [OSINT](/glossary/shodan/) tools and adapters for threat intelligence enrichment, and maps findings to regulatory frameworks including NIS2 Directive and ZKB 264/2025 Sb. for [compliance](/glossary/compliance-framework/) assessment.
+The risk assessment engine integrates with 120+ [OSINT](@/glossary/shodan.md) tools and adapters for threat intelligence enrichment, and maps findings to regulatory frameworks including NIS2 Directive and ZKB 264/2025 Sb. for [compliance](@/glossary/compliance-framework.md) assessment.
 
 ## Related Terms
 
-- [Security Rating](/glossary/security-rating/) -- Quantified output of the risk assessment process
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Technical scanning that feeds into risk analysis
-- [Threat Assessment](/glossary/threat-assessment/) -- Threat identification informing risk likelihood
-- [Attack Surface](/glossary/attack-surface/) -- Scope of assets subject to risk assessment
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory requirements evaluated through risk assessment
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Reliability measure for risk assessment findings
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- EASM module implementing continuous risk assessment
-- [Risk Score](/glossary/risk-score/) -- Numeric representation of assessed risk magnitude
-- [Sanctions Screening](/glossary/sanctions-screening/) -- Regulatory screening integrated with risk assessment
-- [Security Audit](/glossary/security-audit/) -- Formal review validating risk assessment accuracy
-- [Shodan](/glossary/shodan/) -- OSINT source enriching risk assessment with internet intelligence
-- [Trinity Gate](/glossary/trinity-gate/) -- Epistemic verification ensuring risk claims meet evidence standards
+- [Security Rating](@/glossary/security-rating.md) -- Quantified output of the risk assessment process
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Technical scanning that feeds into risk analysis
+- [Threat Assessment](@/glossary/threat-assessment.md) -- Threat identification informing risk likelihood
+- [Attack Surface](@/glossary/attack-surface.md) -- Scope of assets subject to risk assessment
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory requirements evaluated through risk assessment
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Reliability measure for risk assessment findings
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- EASM module implementing continuous risk assessment
+- [Risk Score](@/glossary/risk-score.md) -- Numeric representation of assessed risk magnitude
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- Regulatory screening integrated with risk assessment
+- [Security Audit](@/glossary/security-audit.md) -- Formal review validating risk assessment accuracy
+- [Shodan](@/glossary/shodan.md) -- OSINT source enriching risk assessment with internet intelligence
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Epistemic verification ensuring risk claims meet evidence standards
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform security architecture
-- [Capabilities](/capabilities/) -- EASM and risk assessment capabilities
-- [OSINT](/osint/) -- Intelligence tools feeding risk assessment
-- [Teams](/teams/) -- Security teams conducting risk assessment
+- [Architecture](@/architecture/_index.md) -- Platform security architecture
+- [Capabilities](@/capabilities/_index.md) -- EASM and risk assessment capabilities
+- [OSINT](@/osint/_index.md) -- Intelligence tools feeding risk assessment
+- [Teams](@/teams/_index.md) -- Security teams conducting risk assessment
 
 ---
 
@@ -485,4 +485,4 @@ The risk assessment engine integrates with 120+ [OSINT](/glossary/shodan/) tools
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

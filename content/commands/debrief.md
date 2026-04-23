@@ -28,7 +28,7 @@ image_alt = "/debrief - Prismatic Platform"
 
 In a platform with 90+ applications, 400+ agents, and continuous evolution across multiple development sessions, context loss between sessions is a critical productivity risk. The `/debrief` command systematically addresses this by analyzing five dimensions of platform state: current quality metrics, recent git activity, session history with achievements and deliverables, recommended next steps, and interactive action selection. The result is a concise briefing that restores full context in under 30 seconds.
 
-This command operates under the **L2+** authority level and is executed by the `session-debrief-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. Version 2.0.0 introduced changelog detection through git log analysis, an interactive next-steps selector using the AskUserQuestion tool, and a recommendation engine that cross-references platform state with session history to suggest optimal next actions.
+This command operates under the **L2+** authority level and is executed by the `session-debrief-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. Version 2.0.0 introduced changelog detection through git log analysis, an interactive next-steps selector using the AskUserQuestion tool, and a recommendation engine that cross-references platform state with session history to suggest optimal next actions.
 
 The debrief system treats session continuity as a first-class engineering concern. Without systematic debriefing, developers waste 10-15 minutes at the start of each session manually reconstructing context. With `/debrief`, this is reduced to a 30-second automated briefing followed by an interactive action selector.
 
@@ -261,10 +261,10 @@ PHASE 5: INTERACTIVE SELECTION (if --interactive)
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `session-debrief-specialist` | Primary debrief agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `session-debrief-specialist` | Primary debrief agent |
 | AIAD Registry | Command specification and discovery | Standard AIAD interface |
-| [Quality Gates](/glossary/quality-gates/) | Platform state assessment | Gate results for scoring |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) | Debrief event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Platform state assessment | Gate results for scoring |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) | Debrief event tracking |
 | Git Integration | Changelog detection | `git log`, `git status`, `git diff` |
 | Session Context | History loading | `.claude/session-context/` files |
 | AIAD Bootstrap | Auto-execution | Phase 6 (Activation) integration |
@@ -318,20 +318,20 @@ The `/debrief` command is automatically executed at the start of every Claude Co
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for context loss between sessions. Every session must begin with full situational awareness. Session context must be saved at session end without exception.
 - **NO DOUBTS**: Full investigation of platform state before action. The debrief provides evidence-based situational awareness across five dimensions before any development work begins.
 
 ## Related Commands
 
-- [/rebrief](/commands/rebrief/) - Retrospective analysis of development activity across multiple sessions
-- [/session-compress](/commands/session-compress/) - Advanced session context compression with multi-session pattern detection
-- [/session-track](/commands/session-track/) - Session tracking actions for GitLab integration and progress monitoring
-- [/check](/commands/check/) - Verification and integrity checking command
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/chronic](/commands/chronic/) - Chronic documentation scan and technical hygiene maintenance
-- [/compress](/commands/compress/) - Intelligent document compression with 4-level ratios
+- [/rebrief](@/commands/rebrief.md) - Retrospective analysis of development activity across multiple sessions
+- [/session-compress](@/commands/session-compress.md) - Advanced session context compression with multi-session pattern detection
+- [/session-track](@/commands/session-track.md) - Session tracking actions for GitLab integration and progress monitoring
+- [/check](@/commands/check.md) - Verification and integrity checking command
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/chronic](@/commands/chronic.md) - Chronic documentation scan and technical hygiene maintenance
+- [/compress](@/commands/compress.md) - Intelligent document compression with 4-level ratios
 
 ---
 
@@ -340,4 +340,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

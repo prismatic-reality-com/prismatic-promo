@@ -23,11 +23,11 @@ image_alt = "Prismatic Signals - Prismatic Platform"
 
 ## Overview
 
-Prismatic Signals processes real-time event streams for threat detection, anomaly identification, and pattern recognition across the entire platform. It provides a streaming pipeline that ingests signals from [OSINT](/glossary/osint/) sources, network monitoring, security tools, and internal platform events, applying rule-based and statistical detection to identify threats as they emerge. The signal processing pipeline is built on [GenStage](/glossary/genstage/), [Elixir](/glossary/elixir/)'s demand-driven data processing framework, providing automatic [backpressure](/glossary/backpressure/) management that naturally slows ingestion when downstream consumers cannot keep pace.
+Prismatic Signals processes real-time event streams for threat detection, anomaly identification, and pattern recognition across the entire platform. It provides a streaming pipeline that ingests signals from [OSINT](@/glossary/osint.md) sources, network monitoring, security tools, and internal platform events, applying rule-based and statistical detection to identify threats as they emerge. The signal processing pipeline is built on [GenStage](@/glossary/genstage.md), [Elixir](@/glossary/elixir.md)'s demand-driven data processing framework, providing automatic [backpressure](@/glossary/backpressure.md) management that naturally slows ingestion when downstream consumers cannot keep pace.
 
-Signals flow through a multi-stage pipeline: ingestion with [rate limiting](/glossary/rate-limiting/), normalization to a common schema, enrichment from context sources, detection through rule and anomaly engines, cross-source correlation, and alert generation for signals that exceed severity thresholds. Each stage runs as an independent supervised process, enabling horizontal scaling of bottleneck stages without redesigning the pipeline. The architecture leverages [OTP](/glossary/otp/) supervision for [fault tolerance](/glossary/fault-tolerance/) -- if any processing stage crashes, it restarts independently without affecting other stages.
+Signals flow through a multi-stage pipeline: ingestion with [rate limiting](@/glossary/rate-limiting.md), normalization to a common schema, enrichment from context sources, detection through rule and anomaly engines, cross-source correlation, and alert generation for signals that exceed severity thresholds. Each stage runs as an independent supervised process, enabling horizontal scaling of bottleneck stages without redesigning the pipeline. The architecture leverages [OTP](@/glossary/otp.md) supervision for [fault tolerance](@/glossary/fault-tolerance.md) -- if any processing stage crashes, it restarts independently without affecting other stages.
 
-The platform depends on `phoenix_pubsub` for internal event distribution, `circular_buffer` for fixed-size signal history windows, and the `statistics` library for anomaly detection computations. Signal state is checkpointed to [ETS](/glossary/ets/) for fast recovery, ensuring at-least-once processing guarantees. Integration with [Prismatic Bifurcation](/apps/prismatic-bifurcation/) and [Prismatic Blackboard](/apps/prismatic-blackboard/) enables cross-domain signal correlation through shared epistemic state.
+The platform depends on `phoenix_pubsub` for internal event distribution, `circular_buffer` for fixed-size signal history windows, and the `statistics` library for anomaly detection computations. Signal state is checkpointed to [ETS](@/glossary/ets.md) for fast recovery, ensuring at-least-once processing guarantees. Integration with [Prismatic Bifurcation](@/apps/prismatic-bifurcation.md) and [Prismatic Blackboard](@/apps/prismatic-blackboard.md) enables cross-domain signal correlation through shared epistemic state.
 
 ## Architecture
 
@@ -220,13 +220,13 @@ mix test apps/prismatic_signals/test --only property
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Detection Engine](/apps/prismatic-detection-engine/) | Detection rules applied during signal processing |
-| [Prismatic OSINT Monitoring](/apps/prismatic-osint-monitoring/) | OSINT change events ingested as signals |
-| [Prismatic Traits](/apps/prismatic-traits/) | Trait data used for signal enrichment and context |
-| [Prismatic Perimeter Core](/apps/prismatic-perimeter-core/) | Security-relevant signals feed rating adjustments |
-| [Prismatic Bifurcation](/apps/prismatic-bifurcation/) | Epistemic branching when contradictory signals arrive |
-| [Prismatic Blackboard](/apps/prismatic-blackboard/) | Shared state for cross-domain signal correlation |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Pipeline throughput and latency metrics |
+| [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) | Detection rules applied during signal processing |
+| [Prismatic OSINT Monitoring](@/apps/prismatic-osint-monitoring.md) | OSINT change events ingested as signals |
+| [Prismatic Traits](@/apps/prismatic-traits.md) | Trait data used for signal enrichment and context |
+| [Prismatic Perimeter Core](@/apps/prismatic-perimeter-core.md) | Security-relevant signals feed rating adjustments |
+| [Prismatic Bifurcation](@/apps/prismatic-bifurcation.md) | Epistemic branching when contradictory signals arrive |
+| [Prismatic Blackboard](@/apps/prismatic-blackboard.md) | Shared state for cross-domain signal correlation |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Pipeline throughput and latency metrics |
 
 ## NABLA Compliance
 
@@ -253,14 +253,14 @@ Signal processing operates under strict NABLA epistemic constraints. The Signal 
 
 ## Related Resources
 
-- [Prismatic Storage DuckDB](/apps/prismatic-storage-duckdb/) -- Analytical queries over historical signal data
-- [Prismatic Hawkeye](/apps/prismatic-hawkeye/) -- Visitor behavior signals from web traffic analysis
-- [Prismatic Suppression](/apps/prismatic-suppression/) -- Alert noise reduction for high-volume signal streams
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Manages severity-graded alerts from signal detection
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews GenStage pipeline topology for throughput
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Signal pipeline throughput and detection latency monitoring
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-source signal correlation for comprehensive threat assessment
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Signal plurality and provenance enforcement in the processing pipeline
+- [Prismatic Storage DuckDB](@/apps/prismatic-storage-duckdb.md) -- Analytical queries over historical signal data
+- [Prismatic Hawkeye](@/apps/prismatic-hawkeye.md) -- Visitor behavior signals from web traffic analysis
+- [Prismatic Suppression](@/apps/prismatic-suppression.md) -- Alert noise reduction for high-volume signal streams
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Manages severity-graded alerts from signal detection
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews GenStage pipeline topology for throughput
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Signal pipeline throughput and detection latency monitoring
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-source signal correlation for comprehensive threat assessment
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Signal plurality and provenance enforcement in the processing pipeline
 
 ---
 
@@ -269,4 +269,4 @@ Signal processing operates under strict NABLA epistemic constraints. The Signal 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

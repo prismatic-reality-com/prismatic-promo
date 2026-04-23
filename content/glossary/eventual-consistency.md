@@ -35,9 +35,9 @@ image_alt = "Eventual Consistency - Prismatic Platform"
 
 ## Definition
 
-Eventual consistency is a consistency model used in [distributed systems](/glossary/distributed-system/) where replicas are guaranteed to converge to the same state given sufficient time and no new updates. Unlike strong consistency -- which blocks operations until all replicas agree on the current state -- eventual consistency allows temporary divergence between replicas in exchange for higher availability and lower latency. A client reading from different replicas during the convergence window may observe different values, but once all updates have propagated and no new writes occur, every replica will return the same result.
+Eventual consistency is a consistency model used in [distributed systems](@/glossary/distributed-system.md) where replicas are guaranteed to converge to the same state given sufficient time and no new updates. Unlike strong consistency -- which blocks operations until all replicas agree on the current state -- eventual consistency allows temporary divergence between replicas in exchange for higher availability and lower latency. A client reading from different replicas during the convergence window may observe different values, but once all updates have propagated and no new writes occur, every replica will return the same result.
 
-The model was formalized in the context of the [CAP theorem](/glossary/cap-theorem/) (Brewer's theorem), which proves that a distributed system can provide at most two of three guarantees: Consistency, Availability, and Partition tolerance. Since network partitions are inevitable in real distributed systems, designers must choose between strong consistency (CP systems like ZooKeeper) and eventual consistency (AP systems like Cassandra, DynamoDB). Eventual consistency is not a compromise -- it is a deliberate architectural choice that enables systems to remain available and responsive during network partitions, accepting that some reads may return stale data during the convergence period.
+The model was formalized in the context of the [CAP theorem](@/glossary/cap-theorem.md) (Brewer's theorem), which proves that a distributed system can provide at most two of three guarantees: Consistency, Availability, and Partition tolerance. Since network partitions are inevitable in real distributed systems, designers must choose between strong consistency (CP systems like ZooKeeper) and eventual consistency (AP systems like Cassandra, DynamoDB). Eventual consistency is not a compromise -- it is a deliberate architectural choice that enables systems to remain available and responsive during network partitions, accepting that some reads may return stale data during the convergence period.
 
 The convergence time depends on the system's replication topology, network latency, conflict resolution strategy, and write volume. In practice, most eventually consistent systems converge within milliseconds to seconds under normal conditions. Conflict-free Replicated Data Types (CRDTs) provide a mathematical foundation for eventual consistency by defining data structures that can be updated independently at multiple replicas and merged deterministically without coordination, guaranteeing convergence regardless of update order.
 
@@ -177,9 +177,9 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform uses eventual consistency in its multi-store architecture as a deliberate design choice. The authoritative data store is [PostgreSQL](/glossary/postgresql/), which provides strong consistency for critical writes. Read-optimized stores -- ETS caches, Meilisearch search indices, [KuzuDB](/glossary/knowledge-graph/) graph projections, and [Redis](/glossary/redis/) caches -- are eventually consistent with PostgreSQL, accepting brief staleness in exchange for query performance and specialized access patterns.
+The Prismatic Platform uses eventual consistency in its multi-store architecture as a deliberate design choice. The authoritative data store is [PostgreSQL](@/glossary/postgresql.md), which provides strong consistency for critical writes. Read-optimized stores -- ETS caches, Meilisearch search indices, [KuzuDB](@/glossary/knowledge-graph.md) graph projections, and [Redis](@/glossary/redis.md) caches -- are eventually consistent with PostgreSQL, accepting brief staleness in exchange for query performance and specialized access patterns.
 
-The AIAD agent registry exemplifies this pattern: it is loaded from persistent storage into ETS at boot time and refreshed periodically, accepting that newly registered agents may not be discoverable for a brief window (typically under 1 second). Quality DNA state propagates eventually across session boundaries through file-based persistence, and the [autoevolve](/glossary/autoevolve/) system accepts eventual convergence of quality metrics across the umbrella. When running in distributed mode with Horde, agent process registrations use CRDT-based consensus for eventual consistency across [cluster](/glossary/cluster/) nodes.
+The AIAD agent registry exemplifies this pattern: it is loaded from persistent storage into ETS at boot time and refreshed periodically, accepting that newly registered agents may not be discoverable for a brief window (typically under 1 second). Quality DNA state propagates eventually across session boundaries through file-based persistence, and the [autoevolve](@/glossary/autoevolve.md) system accepts eventual convergence of quality metrics across the umbrella. When running in distributed mode with Horde, agent process registrations use CRDT-based consensus for eventual consistency across [cluster](@/glossary/cluster.md) nodes.
 
 ## Prismatic Multi-Store Consistency Architecture
 
@@ -200,7 +200,7 @@ Read Paths (Eventually Consistent):
 |-------|------|-----------------|-------------------|
 | **PostgreSQL** | Source of truth | 0 (strongly consistent) | N/A |
 | **ETS** | Fast local cache | < 1 second | Write-through + periodic refresh |
-| **Meilisearch** | Full-text search | < 5 seconds | [Broadway](/glossary/broadway/) indexing pipeline |
+| **Meilisearch** | Full-text search | < 5 seconds | [Broadway](@/glossary/broadway.md) indexing pipeline |
 | **KuzuDB** | Graph queries | < 30 seconds | Batch graph projection |
 | **Redis** | Distributed cache | TTL-based (configurable) | TTL expiration + explicit invalidation |
 
@@ -384,24 +384,24 @@ Several common mistakes arise when working with eventually consistent systems:
 
 ## Related Concepts
 
-- [Distributed System](/glossary/distributed-system/) - Systems where eventual consistency is a design choice
-- [CAP Theorem](/glossary/cap-theorem/) - Theoretical foundation for consistency trade-offs
-- [Consensus Algorithm](/glossary/consensus-algorithm/) - Protocols for achieving agreement in distributed systems
-- [Event Sourcing](/glossary/event-sourcing/) - Event replay enables consistency recovery
-- [CQRS](/glossary/cqrs/) - Read models are typically eventually consistent with write models
-- [Idempotency](/glossary/idempotency/) - Enables safe retry during convergence
-- [Cluster](/glossary/cluster/) - BEAM cluster nodes maintaining eventually consistent state
-- [PostgreSQL](/glossary/postgresql/) - Strongly consistent authoritative store
-- [Redis](/glossary/redis/) - Eventually consistent distributed cache
-- [Broadway](/glossary/broadway/) - Pipeline for propagating updates to read stores
-- [PubSub](/glossary/pubsub/) - Cache invalidation messaging for convergence acceleration
-- [ETS](/glossary/ets/) - In-memory cache with sub-millisecond read latency
+- [Distributed System](@/glossary/distributed-system.md) - Systems where eventual consistency is a design choice
+- [CAP Theorem](@/glossary/cap-theorem.md) - Theoretical foundation for consistency trade-offs
+- [Consensus Algorithm](@/glossary/consensus-algorithm.md) - Protocols for achieving agreement in distributed systems
+- [Event Sourcing](@/glossary/event-sourcing.md) - Event replay enables consistency recovery
+- [CQRS](@/glossary/cqrs.md) - Read models are typically eventually consistent with write models
+- [Idempotency](@/glossary/idempotency.md) - Enables safe retry during convergence
+- [Cluster](@/glossary/cluster.md) - BEAM cluster nodes maintaining eventually consistent state
+- [PostgreSQL](@/glossary/postgresql.md) - Strongly consistent authoritative store
+- [Redis](@/glossary/redis.md) - Eventually consistent distributed cache
+- [Broadway](@/glossary/broadway.md) - Pipeline for propagating updates to read stores
+- [PubSub](@/glossary/pubsub.md) - Cache invalidation messaging for convergence acceleration
+- [ETS](@/glossary/ets.md) - In-memory cache with sub-millisecond read latency
 
 ## See Also
 
-- [Architecture](/architecture/) - Distributed consistency design patterns
-- [Technologies](/technologies/) - Multi-store consistency approaches
-- [Capabilities](/capabilities/) - Platform resilience and availability capabilities
+- [Architecture](@/architecture/_index.md) - Distributed consistency design patterns
+- [Technologies](@/technologies/_index.md) - Multi-store consistency approaches
+- [Capabilities](@/capabilities/_index.md) - Platform resilience and availability capabilities
 
 ---
 
@@ -410,4 +410,4 @@ Several common mistakes arise when working with eventually consistent systems:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

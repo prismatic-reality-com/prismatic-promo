@@ -238,9 +238,9 @@ end
 ## Cross-References
 
 - **Scheduler** - BEAM scheduler that manages process execution across CPU cores
-- [Run Queue](/glossary/run-queue/) - Queue where processes wait for scheduler allocation
+- [Run Queue](@/glossary/run-queue.md) - Queue where processes wait for scheduler allocation
 - **Runtime** - BEAM runtime environment hosting process execution
-- [Profiling](/glossary/profiling/) - Performance measurement techniques for process behavior
+- [Profiling](@/glossary/profiling.md) - Performance measurement techniques for process behavior
 - **Self-Registration** - Metaprogramming pattern using GenServer processes for registries
 
 ---

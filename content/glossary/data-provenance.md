@@ -38,17 +38,17 @@ image_alt = "Data Provenance - Prismatic Platform"
 
 Data provenance refers to the comprehensive, machine-verifiable record of a data element's entire lifecycle: its origin, every transformation it has undergone, the agents or processes that acted upon it, the timestamps of each operation, and the chain of custody linking producers to consumers. Unlike simple logging, provenance captures the causal graph of data derivation, enabling any downstream consumer to trace a value back to its original source and understand exactly how it was produced.
 
-In the Prismatic Platform, data provenance is elevated from an operational concern to an epistemic axiom. [NABLA Axiom 7 (Provenance Mandatory)](/glossary/provenance-mandatory/) declares that no belief, evidence, or claim may exist in the system without a traceable provenance chain. This enforcement transforms provenance from a "nice to have" audit feature into a hard architectural constraint that gates all data flow through the platform's [Trinity Gate](/glossary/trinity-gate/) verification system.
+In the Prismatic Platform, data provenance is elevated from an operational concern to an epistemic axiom. [NABLA Axiom 7 (Provenance Mandatory)](@/glossary/provenance-mandatory.md) declares that no belief, evidence, or claim may exist in the system without a traceable provenance chain. This enforcement transforms provenance from a "nice to have" audit feature into a hard architectural constraint that gates all data flow through the platform's [Trinity Gate](@/glossary/trinity-gate.md) verification system.
 
 ## Overview
 
 Data provenance addresses a fundamental question in any data-intensive system: "Where did this data come from, and why should I trust it?" In traditional software architectures, data flows through pipelines without retaining memory of its transformations. A database record might have been imported, cleaned, enriched, aggregated, and filtered, but the final consumer sees only the end result with no visibility into the process that produced it.
 
-This opacity creates several critical problems. First, errors become difficult to diagnose because there is no trail to follow backward from a faulty output to its root cause. Second, trust becomes impossible to establish because consumers cannot assess the reliability of data whose origin they cannot verify. Third, compliance requirements from regulations like GDPR, NIS2, and SOX demand demonstrable [audit trails](/glossary/audit-trail/) that traditional architectures cannot provide without bolted-on solutions.
+This opacity creates several critical problems. First, errors become difficult to diagnose because there is no trail to follow backward from a faulty output to its root cause. Second, trust becomes impossible to establish because consumers cannot assess the reliability of data whose origin they cannot verify. Third, compliance requirements from regulations like GDPR, NIS2, and SOX demand demonstrable [audit trails](@/glossary/audit-trail.md) that traditional architectures cannot provide without bolted-on solutions.
 
 The Prismatic Platform addresses these challenges by making provenance a first-class architectural concern. Every piece of data that enters the system -- whether from an OSINT adapter, a user input, an API call, or an internal computation -- is assigned a provenance record that follows it through every subsequent transformation. This record is immutable, timestamped, and linked to the specific agent, process, or function that performed each operation.
 
-The provenance system integrates deeply with the platform's [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. Because NABLA requires all beliefs to be traceable (Axiom 7), the provenance system serves as the infrastructure backbone for epistemic validation. When the [Trinity Gate](/glossary/trinity-gate/) evaluates a claim, it examines the provenance chain to verify that the claim's supporting evidence has a valid, unbroken lineage from trusted sources.
+The provenance system integrates deeply with the platform's [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. Because NABLA requires all beliefs to be traceable (Axiom 7), the provenance system serves as the infrastructure backbone for epistemic validation. When the [Trinity Gate](@/glossary/trinity-gate.md) evaluates a claim, it examines the provenance chain to verify that the claim's supporting evidence has a valid, unbroken lineage from trusted sources.
 
 ## Technical Details
 
@@ -56,17 +56,17 @@ The provenance system integrates deeply with the platform's [NABLA Infinity](/gl
 
 A provenance record in the Prismatic Platform follows a directed acyclic graph (DAG) structure inspired by the W3C PROV Data Model (PROV-DM). Each node in the graph represents either an entity (a data artifact), an activity (a transformation or process), or an agent (a human, software agent, or system component). Edges represent three fundamental relationships: `wasGeneratedBy` (entity to activity), `used` (activity to entity), and `wasAttributedTo` (entity to agent).
 
-The platform extends PROV-DM with several domain-specific additions. Each provenance record includes a confidence score indicating the reliability of the source, a decay timestamp for the [Time Decay](/glossary/time-decay/) axiom, and a plurality flag tracking whether multiple independent sources have confirmed the same data. These extensions directly support the seven [NABLA Axioms](/glossary/nabla-axioms/).
+The platform extends PROV-DM with several domain-specific additions. Each provenance record includes a confidence score indicating the reliability of the source, a decay timestamp for the [Time Decay](@/glossary/time-decay.md) axiom, and a plurality flag tracking whether multiple independent sources have confirmed the same data. These extensions directly support the seven [NABLA Axioms](@/glossary/nabla-axioms.md).
 
 ### Storage Architecture
 
-Provenance records are stored across multiple backends depending on the access pattern. Hot provenance (recent, frequently accessed) lives in [ETS](/glossary/ets/) tables for sub-millisecond lookup. Warm provenance is persisted to [PostgreSQL](/glossary/postgresql/) via [Ecto](/glossary/ecto/) changesets with full indexing on entity ID, timestamp, and agent. Cold provenance for compliance and long-term audit is archived to immutable append-only storage.
+Provenance records are stored across multiple backends depending on the access pattern. Hot provenance (recent, frequently accessed) lives in [ETS](@/glossary/ets.md) tables for sub-millisecond lookup. Warm provenance is persisted to [PostgreSQL](@/glossary/postgresql.md) via [Ecto](@/glossary/ecto.md) changesets with full indexing on entity ID, timestamp, and agent. Cold provenance for compliance and long-term audit is archived to immutable append-only storage.
 
-The multi-tier storage approach ensures that provenance tracking does not become a performance bottleneck. ETS provides the speed needed for real-time provenance queries during [data pipeline](/glossary/data-pipeline/) execution, while PostgreSQL provides the durability and queryability needed for compliance reporting and forensic analysis.
+The multi-tier storage approach ensures that provenance tracking does not become a performance bottleneck. ETS provides the speed needed for real-time provenance queries during [data pipeline](@/glossary/data-pipeline.md) execution, while PostgreSQL provides the durability and queryability needed for compliance reporting and forensic analysis.
 
 ### Provenance Chain Integrity
 
-Every provenance record includes a cryptographic hash of its contents and a reference to its parent record's hash, forming a hash chain similar to a blockchain but optimized for read-heavy workloads. This chain ensures that any tampering with historical provenance records is detectable. The platform verifies chain integrity as part of its periodic health checks and during any [audit logging](/glossary/audit-logging/) review.
+Every provenance record includes a cryptographic hash of its contents and a reference to its parent record's hash, forming a hash chain similar to a blockchain but optimized for read-heavy workloads. This chain ensures that any tampering with historical provenance records is detectable. The platform verifies chain integrity as part of its periodic health checks and during any [audit logging](@/glossary/audit-logging.md) review.
 
 ## Implementation in Prismatic Platform
 
@@ -357,7 +357,7 @@ end
 
 ### Data Provenance vs. Audit Logging
 
-[Audit logging](/glossary/audit-logging/) records discrete events (who did what, when) as a flat sequence. Data provenance captures the causal relationships between data transformations as a graph. Audit logs answer "what happened?" while provenance answers "how was this value derived?" The Prismatic Platform uses both: audit logging for operational monitoring and provenance for epistemic validation.
+[Audit logging](@/glossary/audit-logging.md) records discrete events (who did what, when) as a flat sequence. Data provenance captures the causal relationships between data transformations as a graph. Audit logs answer "what happened?" while provenance answers "how was this value derived?" The Prismatic Platform uses both: audit logging for operational monitoring and provenance for epistemic validation.
 
 ### Data Provenance vs. Version Control
 
@@ -373,13 +373,13 @@ Data lineage is often used interchangeably with provenance but typically refers 
 
 ### W3C PROV vs. Prismatic Provenance
 
-The W3C PROV standard (PROV-DM, PROV-O, PROV-N) provides a general-purpose provenance data model. Prismatic extends PROV with domain-specific attributes: confidence scoring (for NABLA [Signal Plurality](/glossary/signal-plurality/)), temporal decay (for [Time Decay](/glossary/time-decay/) axiom), and cryptographic chain verification. The platform's model is a strict superset of PROV-DM.
+The W3C PROV standard (PROV-DM, PROV-O, PROV-N) provides a general-purpose provenance data model. Prismatic extends PROV with domain-specific attributes: confidence scoring (for NABLA [Signal Plurality](@/glossary/signal-plurality.md)), temporal decay (for [Time Decay](@/glossary/time-decay.md) axiom), and cryptographic chain verification. The platform's model is a strict superset of PROV-DM.
 
 ## Best Practices
 
 **Record at source boundaries.** Always create a provenance origin record when data enters the system, whether from an API call, a file import, an OSINT adapter, or user input. The origin record is the foundation of the entire chain; without it, downstream provenance is meaningless.
 
-**Include confidence metadata.** Every provenance record should include a confidence score reflecting the reliability of the source and the fidelity of the transformation. Confidence naturally degrades through transformations (especially inference and aggregation), and this degradation must be tracked for [NABLA](/glossary/nabla-infinity/) compliance.
+**Include confidence metadata.** Every provenance record should include a confidence score reflecting the reliability of the source and the fidelity of the transformation. Confidence naturally degrades through transformations (especially inference and aggregation), and this degradation must be tracked for [NABLA](@/glossary/nabla-infinity.md) compliance.
 
 **Use immutable records.** Provenance records must never be modified after creation. If a correction is needed, append a new record with a `correction` activity type that references the original. This immutability is essential for audit compliance and chain integrity verification.
 
@@ -399,7 +399,7 @@ The W3C PROV standard (PROV-DM, PROV-O, PROV-N) provides a general-purpose prove
 
 **Ignoring cross-system provenance.** Data often flows between subsystems (OSINT adapters to storage, storage to analysis, analysis to presentation). Provenance must be maintained across these boundaries, not just within a single subsystem. The Prismatic Platform uses entity IDs that are globally unique to enable cross-system lineage tracking.
 
-**Treating provenance as optional.** In systems where provenance is advisory rather than mandatory, it inevitably degrades as developers skip instrumentation for convenience. The Prismatic Platform avoids this by making provenance a hard requirement at the [Trinity Gate](/glossary/trinity-gate/) level -- data without provenance simply cannot pass validation.
+**Treating provenance as optional.** In systems where provenance is advisory rather than mandatory, it inevitably degrades as developers skip instrumentation for convenience. The Prismatic Platform avoids this by making provenance a hard requirement at the [Trinity Gate](@/glossary/trinity-gate.md) level -- data without provenance simply cannot pass validation.
 
 **Hash chain breaks from concurrent writes.** When multiple processes record provenance for the same entity simultaneously, hash chain integrity can be compromised. Use the centralized GenServer approach (as shown above) or implement optimistic concurrency control with retry logic.
 
@@ -415,7 +415,7 @@ Regulatory frameworks like NIS2 (EU) and ZKB 264/2025 (Czech Republic) require o
 
 ### Epistemic Validation (Trinity Gate)
 
-The [Trinity Gate](/glossary/trinity-gate/) verification system uses provenance chains as a prerequisite for claim validation. Before evaluating the structural, logical, and formal consistency of a claim, the gate first verifies that all supporting evidence has valid provenance. Claims backed by evidence with broken or missing provenance chains are automatically rejected, regardless of their logical validity.
+The [Trinity Gate](@/glossary/trinity-gate.md) verification system uses provenance chains as a prerequisite for claim validation. Before evaluating the structural, logical, and formal consistency of a claim, the gate first verifies that all supporting evidence has valid provenance. Claims backed by evidence with broken or missing provenance chains are automatically rejected, regardless of their logical validity.
 
 ### Security Incident Forensics
 
@@ -423,30 +423,30 @@ During security incident investigation, provenance records enable analysts to tr
 
 ### Data Quality Assessment
 
-Provenance records enable automated data quality scoring based on the characteristics of the derivation chain. Data with short chains from high-confidence sources scores higher than data derived through long chains of low-confidence transformations. This scoring feeds into the platform's [belief graph](/glossary/belief-graph/) and influences decision-making priorities.
+Provenance records enable automated data quality scoring based on the characteristics of the derivation chain. Data with short chains from high-confidence sources scores higher than data derived through long chains of low-confidence transformations. This scoring feeds into the platform's [belief graph](@/glossary/belief-graph.md) and influences decision-making priorities.
 
 ## Related Concepts
 
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- NABLA Axiom 7 that makes provenance a hard requirement for all platform data
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework whose seven axioms include provenance as a foundational requirement
-- [Audit Trail](/glossary/audit-trail/) -- Complementary system recording discrete operational events alongside provenance graphs
-- [Audit Logging](/glossary/audit-logging/) -- The operational logging infrastructure that works alongside provenance tracking
-- [Data Pipeline](/glossary/data-pipeline/) -- The transformation infrastructure through which provenance-tracked data flows
-- [Belief Graph](/glossary/belief-graph/) -- The graph structure where provenance-backed evidence supports platform beliefs
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- The processing pipeline that validates provenance as part of epistemic evaluation
-- [Trinity Gate](/glossary/trinity-gate/) -- The three-part verification gate that requires valid provenance for all claims
-- [Time Decay](/glossary/time-decay/) -- NABLA axiom requiring temporal metadata that provenance records include
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- NABLA axiom for maintaining conflicting evidence, supported by provenance-based source tracking
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom requiring multiple independent sources, verified through provenance chains
-- [Ecto](/glossary/ecto/) -- The database toolkit through which provenance is persisted to PostgreSQL
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- NABLA Axiom 7 that makes provenance a hard requirement for all platform data
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework whose seven axioms include provenance as a foundational requirement
+- [Audit Trail](@/glossary/audit-trail.md) -- Complementary system recording discrete operational events alongside provenance graphs
+- [Audit Logging](@/glossary/audit-logging.md) -- The operational logging infrastructure that works alongside provenance tracking
+- [Data Pipeline](@/glossary/data-pipeline.md) -- The transformation infrastructure through which provenance-tracked data flows
+- [Belief Graph](@/glossary/belief-graph.md) -- The graph structure where provenance-backed evidence supports platform beliefs
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- The processing pipeline that validates provenance as part of epistemic evaluation
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The three-part verification gate that requires valid provenance for all claims
+- [Time Decay](@/glossary/time-decay.md) -- NABLA axiom requiring temporal metadata that provenance records include
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- NABLA axiom for maintaining conflicting evidence, supported by provenance-based source tracking
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom requiring multiple independent sources, verified through provenance chains
+- [Ecto](@/glossary/ecto.md) -- The database toolkit through which provenance is persisted to PostgreSQL
 
 ## See Also
 
 - [W3C PROV Data Model](https://www.w3.org/TR/prov-dm/) -- The standard that inspired Prismatic's provenance architecture
-- [NABLA Axioms](/glossary/nabla-axioms/) -- All seven epistemic axioms, of which provenance is Axiom 7
-- [PostgreSQL](/glossary/postgresql/) -- Primary persistence backend for warm and cold provenance records
-- [ETS](/glossary/ets/) -- In-memory storage for hot provenance records
-- [Security Assessment](/glossary/security-assessment/) -- Uses provenance data for threat analysis and compliance reporting
+- [NABLA Axioms](@/glossary/nabla-axioms.md) -- All seven epistemic axioms, of which provenance is Axiom 7
+- [PostgreSQL](@/glossary/postgresql.md) -- Primary persistence backend for warm and cold provenance records
+- [ETS](@/glossary/ets.md) -- In-memory storage for hot provenance records
+- [Security Assessment](@/glossary/security-assessment.md) -- Uses provenance data for threat analysis and compliance reporting
 
 ---
 
@@ -455,4 +455,4 @@ Provenance records enable automated data quality scoring based on the characteri
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

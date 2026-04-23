@@ -216,10 +216,10 @@ SSRF protection is transparent to OSINT tool developers. The secure client handl
 
 ## Cross-References
 
-- [OWASP](/glossary/owasp/) - Security standard that categorizes SSRF as A10
+- [OWASP](@/glossary/owasp.md) - Security standard that categorizes SSRF as A10
 - **Input Validation** - Defense technique preventing SSRF
-- [Vulnerability](/glossary/vulnerability/) - Broader category encompassing SSRF
-- [Security Rating](/glossary/security-rating/) - Perimeter score affected by SSRF findings
+- [Vulnerability](@/glossary/vulnerability.md) - Broader category encompassing SSRF
+- [Security Rating](@/glossary/security-rating.md) - Perimeter score affected by SSRF findings
 
 ---
 

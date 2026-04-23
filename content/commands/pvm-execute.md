@@ -24,11 +24,11 @@ image_alt = "/pvm-execute - Prismatic Platform"
 
 ## Overview
 
-**/pvm-execute** is a production command in the **PVM** category of the Prismatic Platform that executes compiled [PVM](/glossary/pvm/) (Prismatic Virtual Machine) bytecode programs with built-in [fault tolerance](/glossary/fault-tolerance/), [real-time monitoring](/capabilities/real-time-monitoring/), and deterministic replay capabilities. The executor is the runtime component of the PVM toolchain, taking compiled `.pvmb` bytecode files and running them within a supervised OTP process environment that provides automatic crash recovery, resource limiting, and comprehensive execution telemetry.
+**/pvm-execute** is a production command in the **PVM** category of the Prismatic Platform that executes compiled [PVM](@/glossary/pvm.md) (Prismatic Virtual Machine) bytecode programs with built-in [fault tolerance](@/glossary/fault-tolerance.md), [real-time monitoring](@/capabilities/real-time-monitoring.md), and deterministic replay capabilities. The executor is the runtime component of the PVM toolchain, taking compiled `.pvmb` bytecode files and running them within a supervised OTP process environment that provides automatic crash recovery, resource limiting, and comprehensive execution telemetry.
 
 The PVM executor implements a register-based virtual machine that runs within an Erlang process, leveraging the BEAM VM's preemptive scheduling, garbage collection, and distribution capabilities. Each PVM program executes in its own isolated process with configurable memory limits, execution timeouts, and I/O permissions. This isolation ensures that a misbehaving program cannot affect other running programs or the platform itself.
 
-This command operates under the **L2+** authority level and is executed by the `pvm-executor` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The executor integrates with the platform's supervision tree, meaning crashed PVM programs are automatically restarted according to configurable restart strategies.
+This command operates under the **L2+** authority level and is executed by the `pvm-executor` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The executor integrates with the platform's supervision tree, meaning crashed PVM programs are automatically restarted according to configurable restart strategies.
 
 A distinguishing feature of the PVM executor is deterministic replay. Every execution is logged with sufficient detail that it can be exactly replayed later for debugging, auditing, or testing purposes. The replay log captures all external interactions (network calls, file I/O, random number generation) as recorded values, allowing the replayed execution to produce identical results without repeating side effects. This capability is essential for debugging intermittent failures and for formal verification of execution correctness.
 
@@ -178,12 +178,12 @@ PrismaticSupervisor
 
 | System | Integration | Purpose |
 |--------|-------------|---------|
-| [/pvm-compile](/commands/pvm-compile/) | Produces bytecode consumed by executor | Compilation |
-| [/pvm-trace](/commands/pvm-trace/) | Traces execution in real-time | Debugging |
-| [OTP Supervision](/glossary/otp/) | Runtime processes managed by supervisor | Fault tolerance |
-| [Telemetry](/glossary/telemetry/) | Execution metrics and events | Observability |
-| [Quality Gates](/glossary/quality-gates/) | Execution success as quality checkpoint | Quality |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent workflows compiled and executed as PVM programs | Agent runtime |
+| [/pvm-compile](@/commands/pvm-compile.md) | Produces bytecode consumed by executor | Compilation |
+| [/pvm-trace](@/commands/pvm-trace.md) | Traces execution in real-time | Debugging |
+| [OTP Supervision](@/glossary/otp.md) | Runtime processes managed by supervisor | Fault tolerance |
+| [Telemetry](@/glossary/telemetry.md) | Execution metrics and events | Observability |
+| [Quality Gates](@/glossary/quality-gates.md) | Execution success as quality checkpoint | Quality |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent workflows compiled and executed as PVM programs | Agent runtime |
 
 ## Best Practices
 
@@ -244,19 +244,19 @@ PrismaticSupervisor
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Programs that exceed resource limits are terminated cleanly. Bytecode integrity is verified before every execution. No partial results are emitted from crashed programs unless checkpoints are enabled.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Deterministic replay enables complete post-mortem analysis of any execution. All external interactions are logged with full context for audit and verification purposes.
 
 ## Related Commands
 
-- [/pvm-compile](/commands/pvm-compile/) - Compile validated IR to optimized PVM bytecode
-- [/pvm-trace](/commands/pvm-trace/) - Real-time execution tracing and debugging for PVM programs
-- [/ir-generate](/commands/ir-generate/) - Generate Information Retrieval workflows from natural language descriptions
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/doc](/commands/doc/) - Technical documentation and API reference generation
+- [/pvm-compile](@/commands/pvm-compile.md) - Compile validated IR to optimized PVM bytecode
+- [/pvm-trace](@/commands/pvm-trace.md) - Real-time execution tracing and debugging for PVM programs
+- [/ir-generate](@/commands/ir-generate.md) - Generate Information Retrieval workflows from natural language descriptions
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/doc](@/commands/doc.md) - Technical documentation and API reference generation
 
 ---
 
@@ -265,4 +265,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

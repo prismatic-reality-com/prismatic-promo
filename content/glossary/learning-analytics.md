@@ -558,26 +558,26 @@ end
 
 ## Related Terms
 
-- [Knowledge Check](/glossary/knowledge-check/) -- assessment mechanism that generates analytics data
-- [Prerequisite](/glossary/prerequisite/) -- dependency that analytics helps optimize and validate
-- [Progress](/glossary/progress/) -- learner advancement measured and tracked by analytics
-- [Learning Path](/glossary/learning-path/) -- sequence of topics optimized using analytics data
-- [KPI](/glossary/kpi/) -- key performance indicators derived from learning analytics
-- [Telemetry](/glossary/telemetry/) -- event streaming infrastructure powering analytics data capture
-- [ETS](/glossary/ets/) -- in-memory storage for real-time analytics caching
-- [GenServer](/glossary/genserver/) -- process model for ProgressTracker and InterconnectionEngine
+- [Knowledge Check](@/glossary/knowledge-check.md) -- assessment mechanism that generates analytics data
+- [Prerequisite](@/glossary/prerequisite.md) -- dependency that analytics helps optimize and validate
+- [Progress](@/glossary/progress.md) -- learner advancement measured and tracked by analytics
+- [Learning Path](@/glossary/learning-path.md) -- sequence of topics optimized using analytics data
+- [KPI](@/glossary/kpi.md) -- key performance indicators derived from learning analytics
+- [Telemetry](@/glossary/telemetry.md) -- event streaming infrastructure powering analytics data capture
+- [ETS](@/glossary/ets.md) -- in-memory storage for real-time analytics caching
+- [GenServer](@/glossary/genserver.md) -- process model for ProgressTracker and InterconnectionEngine
 - [Academy](/glossary/academy/) -- the learning platform generating and consuming analytics
 - [Adaptive Learning](/glossary/adaptive-learning/) -- personalization approach driven by analytics insights
 - [Interconnection Engine](/glossary/interconnection-engine/) -- semantic linking system weighted by analytics
-- [Topic Registry](/glossary/topic-registry/) -- self-registering topic metadata used in analytics context
+- [Topic Registry](@/glossary/topic-registry.md) -- self-registering topic metadata used in analytics context
 
 ## See Also
 
-- [Academy](/academy/) -- the learning platform generating analytics data
-- [Capabilities](/capabilities/) -- platform analytical capabilities
-- [Architecture](/architecture/) -- telemetry and event streaming architecture
+- [Academy](@/academy/_index.md) -- the learning platform generating analytics data
+- [Capabilities](@/capabilities/_index.md) -- platform analytical capabilities
+- [Architecture](@/architecture/_index.md) -- telemetry and event streaming architecture
 - [Telemetry](/telemetry/) -- event infrastructure powering analytics
-- [OSINT Toolbox](/osint/) -- cross-subsystem analytics correlation
+- [OSINT Toolbox](@/osint/_index.md) -- cross-subsystem analytics correlation
 
 ---
 
@@ -586,4 +586,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

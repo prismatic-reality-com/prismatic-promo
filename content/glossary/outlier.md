@@ -234,11 +234,11 @@ Outlier detection transforms raw data into actionable intelligence by automatica
 
 ## Cross-References
 
-- [IQR](/glossary/iqr/) - Primary statistical measure for outlier detection
-- [P95](/glossary/p95/) - Percentile metric affected by outlier presence
-- [P99](/glossary/p99/) - Tail metric most sensitive to outliers
-- [Moving Average](/glossary/moving-average/) - Baseline estimation for adaptive outlier detection
-- [Pearson](/glossary/pearson/) - Correlation measure affected by outlier presence
+- [IQR](@/glossary/iqr.md) - Primary statistical measure for outlier detection
+- [P95](@/glossary/p95.md) - Percentile metric affected by outlier presence
+- [P99](@/glossary/p99.md) - Tail metric most sensitive to outliers
+- [Moving Average](@/glossary/moving-average.md) - Baseline estimation for adaptive outlier detection
+- [Pearson](@/glossary/pearson.md) - Correlation measure affected by outlier presence
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

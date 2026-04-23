@@ -347,24 +347,24 @@ Conceptual frameworks provide a shared vocabulary for cross-team communication. 
 
 Conceptual frameworks connect deeply to many other platform concepts:
 
-- [Architecture](/glossary/architecture/) -- The concrete realization of conceptual frameworks in system structure
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- A methodology that heavily relies on conceptual frameworks for domain modeling
-- [Architectural Pattern](/glossary/architectural-pattern/) -- Reusable solutions that operate within conceptual frameworks
-- [System Design Principle](/glossary/system-design-principle/) -- Individual principles that form the building blocks of frameworks
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- The reasoning methodology formalized by the NABLA Infinity framework
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The primary epistemic conceptual framework of the Prismatic Platform
-- [Trinity Gate](/glossary/trinity-gate/) -- The verification system that validates claims against framework axioms
-- [Doctrine](/glossary/doctrine/) -- The axiological conceptual framework governing quality decisions
-- [Knowledge Representation](/glossary/knowledge-representation/) -- How framework concepts are encoded in machine-processable form
-- [Ontology](/glossary/ontology/) -- The formal specification of concepts and relationships within a framework
+- [Architecture](@/glossary/architecture.md) -- The concrete realization of conceptual frameworks in system structure
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- A methodology that heavily relies on conceptual frameworks for domain modeling
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- Reusable solutions that operate within conceptual frameworks
+- [System Design Principle](@/glossary/system-design-principle.md) -- Individual principles that form the building blocks of frameworks
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- The reasoning methodology formalized by the NABLA Infinity framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The primary epistemic conceptual framework of the Prismatic Platform
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The verification system that validates claims against framework axioms
+- [Doctrine](@/glossary/doctrine.md) -- The axiological conceptual framework governing quality decisions
+- [Knowledge Representation](@/glossary/knowledge-representation.md) -- How framework concepts are encoded in machine-processable form
+- [Ontology](@/glossary/ontology.md) -- The formal specification of concepts and relationships within a framework
 
 ## See Also
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework with seven non-negotiable axioms
-- [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) -- The quality doctrine framework
-- [AIAD](/glossary/aiad/) -- The agent intelligence and design framework standard
-- [Graph Theory](/glossary/graph-theory/) -- Mathematical foundation for framework validation
-- [Formal Verification](/glossary/formal-verification/) -- Techniques for proving framework consistency
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework with seven non-negotiable axioms
+- [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) -- The quality doctrine framework
+- [AIAD](@/glossary/aiad.md) -- The agent intelligence and design framework standard
+- [Graph Theory](@/glossary/graph-theory.md) -- Mathematical foundation for framework validation
+- [Formal Verification](@/glossary/formal-verification.md) -- Techniques for proving framework consistency
 - Glossary Index -- Complete listing of all platform concepts
 
 ---
@@ -374,4 +374,4 @@ Conceptual frameworks connect deeply to many other platform concepts:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

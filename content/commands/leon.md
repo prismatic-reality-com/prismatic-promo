@@ -28,7 +28,7 @@ image_alt = "/leon - Prismatic Platform"
 
 Codebase maintenance in a platform with 99 umbrella applications and 2.8 million lines of code is not an occasional activity but a continuous discipline. Technical debt, dead code, stale dependencies, orphaned configuration, and accumulated artifacts degrade platform health if left unaddressed. The `/leon` command automates the detection, analysis, and remediation of these maintenance concerns through a structured operational workflow.
 
-This command operates under the **L2+** authority level and is executed by the `leon-cleaner` agent, a specialist maintenance agent with deep knowledge of Elixir project structures, OTP conventions, and the Prismatic Platform's specific organizational patterns. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `leon-cleaner` agent, a specialist maintenance agent with deep knowledge of Elixir project structures, OTP conventions, and the Prismatic Platform's specific organizational patterns. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 The leon-cleaner agent maintains an evolving knowledge base of maintenance patterns derived from the platform's quality history. Each maintenance operation produces structured findings that feed back into the knowledge base, continuously improving detection accuracy and remediation strategies. The agent also tracks maintenance debt over time, providing trend analysis that reveals whether the codebase is improving or degrading.
 
@@ -203,14 +203,14 @@ The maintenance system operates through a pipeline of five operational phases, e
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Executed by the `leon-cleaner` agent |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Maintenance findings feed quality gate decisions |
-| [Telemetry](/glossary/telemetry/) | Observability | Maintenance metrics tracked as platform telemetry |
-| [Credo](/glossary/credo/) | Protection | Custom Credo rules generated for protection |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command registered via AIAD standard |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Executed by the `leon-cleaner` agent |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Maintenance findings feed quality gate decisions |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Maintenance metrics tracked as platform telemetry |
+| [Credo](@/glossary/credo.md) | Protection | Custom Credo rules generated for protection |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command registered via AIAD standard |
 | Git Hooks | Protection | Pre-commit hooks for recurrence prevention |
 | Mix Compiler | Analysis | Compilation analysis for dead code detection |
-| [ETS](/glossary/ets/) | Storage | Maintenance findings and trend data storage |
+| [ETS](@/glossary/ets.md) | Storage | Maintenance findings and trend data storage |
 
 ## Best Practices
 
@@ -236,19 +236,19 @@ The maintenance system operates through a pipeline of five operational phases, e
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The leon-cleaner agent pursues maintenance targets with methodical thoroughness. Dead code is eliminated, not commented out. Unused dependencies are removed, not deprecated. Anti-patterns are fixed, not suppressed. The protection phase ensures that remediated issues cannot recur.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The scout phase performs exhaustive analysis before any remediation action. Every target identification includes evidence (reference counts, usage patterns, dependency analysis) that justifies the remediation. Hit operations use `--dry-run` by default for destructive actions.
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/code](/commands/code/) - Core coding implementation and feature development
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/code](@/commands/code.md) - Core coding implementation and feature development
 
 ---
 
@@ -257,4 +257,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

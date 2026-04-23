@@ -36,7 +36,7 @@ image_alt = "Simulation - Prismatic Platform"
 
 ## Definition
 
-**Simulation** is the process of creating a computational model that represents a real-world system, process, or environment, enabling systematic study of its behavior under controlled, repeatable conditions. In computer science and software engineering, simulation encompasses a spectrum from discrete-event simulation and Monte Carlo methods to full-system emulation and adversarial scenario modeling. Within the Prismatic Platform, simulation is a first-class operational concept that drives [Red Team](/glossary/red-team/) adversarial exercises, [chaos engineering](/glossary/chaos-engineering/) fault injection, [synthetic data](/glossary/synthetic-data/) generation, and epistemic attack modeling -- all executed within strictly sandboxed environments using only synthetic data.
+**Simulation** is the process of creating a computational model that represents a real-world system, process, or environment, enabling systematic study of its behavior under controlled, repeatable conditions. In computer science and software engineering, simulation encompasses a spectrum from discrete-event simulation and Monte Carlo methods to full-system emulation and adversarial scenario modeling. Within the Prismatic Platform, simulation is a first-class operational concept that drives [Red Team](@/glossary/red-team.md) adversarial exercises, [chaos engineering](@/glossary/chaos-engineering.md) fault injection, [synthetic data](@/glossary/synthetic-data.md) generation, and epistemic attack modeling -- all executed within strictly sandboxed environments using only synthetic data.
 
 ## Overview
 
@@ -44,11 +44,11 @@ Simulation stands as one of the most powerful tools in software engineering beca
 
 In the Prismatic Platform, simulation serves three distinct but interconnected purposes:
 
-1. **Adversarial Simulation** -- The [Red Team](/glossary/red-team/) uses five epistemic attack primitives (truth distortion, confidence manipulation, signal poisoning, drift induction, salience hijacking) to test the platform's epistemic defenses. Every scenario executes in a sandboxed environment with [synthetic data](/glossary/synthetic-data/) only.
+1. **Adversarial Simulation** -- The [Red Team](@/glossary/red-team.md) uses five epistemic attack primitives (truth distortion, confidence manipulation, signal poisoning, drift induction, salience hijacking) to test the platform's epistemic defenses. Every scenario executes in a sandboxed environment with [synthetic data](@/glossary/synthetic-data.md) only.
 
-2. **Chaos Engineering** -- Controlled [fault injection](/glossary/fault-tolerance/) into production-like environments to validate that supervision trees, [circuit breakers](/glossary/circuit-breaker/), and recovery mechanisms function correctly under stress.
+2. **Chaos Engineering** -- Controlled [fault injection](@/glossary/fault-tolerance.md) into production-like environments to validate that supervision trees, [circuit breakers](@/glossary/circuit-breaker.md), and recovery mechanisms function correctly under stress.
 
-3. **Synthetic Data Generation** -- Creating realistic but artificial datasets that mirror production characteristics for testing, training, and validation without exposing real user data or [GDPR](/glossary/gdpr/)-protected information.
+3. **Synthetic Data Generation** -- Creating realistic but artificial datasets that mirror production characteristics for testing, training, and validation without exposing real user data or [GDPR](@/glossary/gdpr.md)-protected information.
 
 The Elixir/OTP runtime is uniquely suited to simulation workloads because of its lightweight process model, message-passing architecture, and built-in supervision trees. A single BEAM node can simulate thousands of concurrent actors, each with isolated state, communicating through well-defined message protocols -- effectively modeling distributed systems at scale within a single machine.
 
@@ -56,7 +56,7 @@ The Elixir/OTP runtime is uniquely suited to simulation workloads because of its
 
 ### Discrete-Event Simulation
 
-Discrete-event simulation (DES) models systems as sequences of events occurring at specific points in time. Each event triggers state transitions that may generate further events. In Elixir, DES maps naturally to the [GenServer](/glossary/genserver/) pattern where each simulated entity is an independent process maintaining its own state:
+Discrete-event simulation (DES) models systems as sequences of events occurring at specific points in time. Each event triggers state transitions that may generate further events. In Elixir, DES maps naturally to the [GenServer](@/glossary/genserver.md) pattern where each simulated entity is an independent process maintaining its own state:
 
 ```elixir
 defmodule Prismatic.Simulation.DiscreteEventEngine do
@@ -262,7 +262,7 @@ end
 
 ### Adversarial Simulation Architecture
 
-The Prismatic Platform's adversarial simulation system follows a layered architecture where the [Red Team](/glossary/red-team/) operates within strict sandbox boundaries:
+The Prismatic Platform's adversarial simulation system follows a layered architecture where the [Red Team](@/glossary/red-team.md) operates within strict sandbox boundaries:
 
 ```
                     ┌─────────────────────────────┐
@@ -294,9 +294,9 @@ The Prismatic Platform's adversarial simulation system follows a layered archite
 
 All simulation code executes within strict isolation boundaries enforced at the BEAM level:
 
-- **Process Isolation**: Each simulation scenario runs in its own supervision tree with a dedicated [DynamicSupervisor](/glossary/dynamic-supervisor/), preventing any cross-contamination between scenarios.
-- **Data Isolation**: Only [synthetic data](/glossary/synthetic-data/) enters the simulation boundary. No production data, no PII, no real credentials.
-- **Network Isolation**: Zero network connectivity for Red and [Black Team](/glossary/black-team/) operations. All external calls are mocked or stubbed within the simulation layer.
+- **Process Isolation**: Each simulation scenario runs in its own supervision tree with a dedicated [DynamicSupervisor](@/glossary/dynamic-supervisor.md), preventing any cross-contamination between scenarios.
+- **Data Isolation**: Only [synthetic data](@/glossary/synthetic-data.md) enters the simulation boundary. No production data, no PII, no real credentials.
+- **Network Isolation**: Zero network connectivity for Red and [Black Team](@/glossary/black-team.md) operations. All external calls are mocked or stubbed within the simulation layer.
 - **Time Isolation**: Simulation runs with a virtual clock that can be advanced, paused, or rewound independently of wall-clock time.
 - **Resource Limits**: Each simulation process operates under memory and CPU constraints enforced through BEAM process limits.
 
@@ -304,7 +304,7 @@ All simulation code executes within strict isolation boundaries enforced at the 
 
 ### Red Team Adversarial Simulation
 
-The [Red Team](/glossary/red-team/) simulation subsystem models five epistemic attack primitives drawn from a 329-entry attack taxonomy. Each primitive targets a specific aspect of the platform's decision-making pipeline:
+The [Red Team](@/glossary/red-team.md) simulation subsystem models five epistemic attack primitives drawn from a 329-entry attack taxonomy. Each primitive targets a specific aspect of the platform's decision-making pipeline:
 
 ```elixir
 defmodule Prismatic.Simulation.Adversarial.ScenarioRunner do
@@ -417,7 +417,7 @@ end
 
 ### Chaos Engineering Integration
 
-The platform's [chaos engineering](/glossary/chaos-engineering/) framework injects controlled faults into supervision trees to verify recovery behavior:
+The platform's [chaos engineering](@/glossary/chaos-engineering.md) framework injects controlled faults into supervision trees to verify recovery behavior:
 
 ```elixir
 defmodule Prismatic.Simulation.Chaos.FaultInjector do
@@ -522,7 +522,7 @@ end
 
 ### Synthetic Data Generation
 
-The simulation infrastructure generates realistic [synthetic data](/glossary/synthetic-data/) for testing without exposing real-world data:
+The simulation infrastructure generates realistic [synthetic data](@/glossary/synthetic-data.md) for testing without exposing real-world data:
 
 ```elixir
 defmodule Prismatic.Simulation.SyntheticData do
@@ -593,13 +593,13 @@ The Prismatic Platform's approach is distinct in combining adversarial epistemic
 
 1. **Deterministic Replay** -- Always seed random number generators so that simulation runs can be reproduced exactly. Store the seed alongside results for auditability. Use `:rand.seed/2` with explicit state threading rather than global RNG.
 
-2. **Strict Sandbox Boundaries** -- Never allow simulation code to reach production data or external services. The sandbox boundary must be enforced at the process level, not merely by convention. Use dedicated [supervision trees](/glossary/supervision/) that are isolated from production trees.
+2. **Strict Sandbox Boundaries** -- Never allow simulation code to reach production data or external services. The sandbox boundary must be enforced at the process level, not merely by convention. Use dedicated [supervision trees](@/glossary/supervision.md) that are isolated from production trees.
 
 3. **Incremental Complexity** -- Start with simple scenarios and add complexity incrementally. A simulation that cannot be understood cannot be trusted. Build from single-entity, single-event scenarios up to multi-agent, multi-event cascades.
 
-4. **Metric-Driven Validation** -- Every simulation must produce quantifiable metrics (detection time, false positive rate, coverage score) that can be compared across runs and tracked over time through [telemetry](/glossary/telemetry/).
+4. **Metric-Driven Validation** -- Every simulation must produce quantifiable metrics (detection time, false positive rate, coverage score) that can be compared across runs and tracked over time through [telemetry](@/glossary/telemetry.md).
 
-5. **Immutable Audit Trails** -- Every simulation action must be logged to an immutable [audit trail](/glossary/audit-trail/). This enables post-hoc analysis, regulatory compliance, and scenario debugging.
+5. **Immutable Audit Trails** -- Every simulation action must be logged to an immutable [audit trail](@/glossary/audit-trail.md). This enables post-hoc analysis, regulatory compliance, and scenario debugging.
 
 6. **Resource Budgeting** -- Set explicit memory and CPU limits on simulation processes. A runaway simulation should never degrade production system performance.
 
@@ -624,11 +624,11 @@ Using `System.system_time/0` or `:rand.uniform/0` without explicit seeding makes
 
 ### 3. Oversimplified Models
 
-Simulation models that omit critical real-world dynamics (network latency, process scheduling jitter, GC pauses) produce misleading results. Calibrate your model against observed production behavior using [telemetry](/glossary/telemetry/) data.
+Simulation models that omit critical real-world dynamics (network latency, process scheduling jitter, GC pauses) produce misleading results. Calibrate your model against observed production behavior using [telemetry](@/glossary/telemetry.md) data.
 
 ### 4. Confirmation Bias in Scenario Design
 
-Designing scenarios that only test known attack vectors provides false confidence. The [Red Team](/glossary/red-team/) must explore the unknown space through the [Gray Team](/glossary/gray-team/)'s boundary exploration findings, not just replay documented attacks.
+Designing scenarios that only test known attack vectors provides false confidence. The [Red Team](@/glossary/red-team.md) must explore the unknown space through the [Gray Team](@/glossary/gray-team.md)'s boundary exploration findings, not just replay documented attacks.
 
 ### 5. Ignoring Statistical Significance
 
@@ -640,17 +640,17 @@ Attack taxonomies and failure modes evolve. Running year-old scenarios against t
 
 ### 7. Resource Exhaustion
 
-Simulations that spawn thousands of processes without resource limits can crash the host BEAM node. Always wrap simulation supervisors with `:max_children` limits and implement [backpressure](/glossary/backpressure/) on event queues.
+Simulations that spawn thousands of processes without resource limits can crash the host BEAM node. Always wrap simulation supervisors with `:max_children` limits and implement [backpressure](@/glossary/backpressure.md) on event queues.
 
 ## Use Cases
 
 ### Epistemic Security Validation
 
-The [Color Teams](/glossary/color-teams/) use simulation to validate the platform's resistance to epistemic attacks. The [Red Team](/glossary/red-team/) designs scenarios from the 329-entry attack taxonomy, the [Blue Team](/glossary/blue-team/) monitors defenses in real-time, and the [Purple Team](/glossary/purple-team/) synthesizes findings into closure reports. This continuous Red-Blue loop ensures that the platform's [belief graph](/glossary/belief-graph/) and [confidence scoring](/glossary/confidence-scoring/) remain robust against adversarial manipulation.
+The [Color Teams](@/glossary/color-teams.md) use simulation to validate the platform's resistance to epistemic attacks. The [Red Team](@/glossary/red-team.md) designs scenarios from the 329-entry attack taxonomy, the [Blue Team](@/glossary/blue-team.md) monitors defenses in real-time, and the [Purple Team](@/glossary/purple-team.md) synthesizes findings into closure reports. This continuous Red-Blue loop ensures that the platform's [belief graph](@/glossary/belief-graph.md) and [confidence scoring](@/glossary/confidence-scoring.md) remain robust against adversarial manipulation.
 
 ### Compliance Testing
 
-Simulation enables repeatable compliance validation without requiring access to live regulatory systems. For NIS2 and ZKB compliance in the [Perimeter](/glossary/easm/) module, simulation models the entire assessment pipeline with synthetic organization data, validating that scoring algorithms, threshold calculations, and report generation function correctly across all compliance frameworks.
+Simulation enables repeatable compliance validation without requiring access to live regulatory systems. For NIS2 and ZKB compliance in the [Perimeter](@/glossary/easm.md) module, simulation models the entire assessment pipeline with synthetic organization data, validating that scoring algorithms, threshold calculations, and report generation function correctly across all compliance frameworks.
 
 ### Performance Characterization
 
@@ -658,37 +658,37 @@ Before deploying new features to production, simulation characterizes performanc
 
 ### Disaster Recovery Validation
 
-Simulation exercises verify that the platform can recover from catastrophic failures. This includes simulating node failures, database corruption, and network partitions to validate that the [PrismaticSupervisor](/glossary/supervision/) correctly restarts all services in dependency order and that data integrity is maintained throughout the recovery process.
+Simulation exercises verify that the platform can recover from catastrophic failures. This includes simulating node failures, database corruption, and network partitions to validate that the [PrismaticSupervisor](@/glossary/supervision.md) correctly restarts all services in dependency order and that data integrity is maintained throughout the recovery process.
 
 ### Agent Behavior Modeling
 
-With 530+ AIAD agents operating across the platform, simulation models agent interactions to detect emergent behaviors, deadlocks, and resource contention patterns that would be impossible to identify through unit testing alone. Multi-agent simulation verifies that the agent [taxonomy](/glossary/taxonomy/) hierarchy (L1-L5) correctly delegates tasks and that escalation paths function under load.
+With 530+ AIAD agents operating across the platform, simulation models agent interactions to detect emergent behaviors, deadlocks, and resource contention patterns that would be impossible to identify through unit testing alone. Multi-agent simulation verifies that the agent [taxonomy](@/glossary/taxonomy.md) hierarchy (L1-L5) correctly delegates tasks and that escalation paths function under load.
 
 ## Related Concepts
 
-- [Red Team](/glossary/red-team/) -- Adversarial simulation operators executing epistemic attack scenarios
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Controlled fault injection to validate system resilience
-- [Synthetic Data](/glossary/synthetic-data/) -- Artificial datasets generated for simulation and testing
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System ability to continue operating despite failures
-- [Black Team](/glossary/black-team/) -- Theoretical threat modeling providing abstract attack models
-- [Color Teams](/glossary/color-teams/) -- Full adversarial-defensive security organization
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern for preventing cascade failures validated through simulation
-- [Event Sourcing](/glossary/event-sourcing/) -- Event-driven architecture enabling simulation replay
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof of system properties complementing simulation
-- [Proof of Concept](/glossary/proof-of-concept/) -- Validating ideas through minimal simulated implementations
-- [Telemetry](/glossary/telemetry/) -- Instrumentation providing simulation metrics and observability
-- [Supervision](/glossary/supervision/) -- OTP supervision trees that simulation validates for recovery
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation operators executing epistemic attack scenarios
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Controlled fault injection to validate system resilience
+- [Synthetic Data](@/glossary/synthetic-data.md) -- Artificial datasets generated for simulation and testing
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System ability to continue operating despite failures
+- [Black Team](@/glossary/black-team.md) -- Theoretical threat modeling providing abstract attack models
+- [Color Teams](@/glossary/color-teams.md) -- Full adversarial-defensive security organization
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern for preventing cascade failures validated through simulation
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Event-driven architecture enabling simulation replay
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof of system properties complementing simulation
+- [Proof of Concept](@/glossary/proof-of-concept.md) -- Validating ideas through minimal simulated implementations
+- [Telemetry](@/glossary/telemetry.md) -- Instrumentation providing simulation metrics and observability
+- [Supervision](@/glossary/supervision.md) -- OTP supervision trees that simulation validates for recovery
 
 ## See Also
 
-- [BEAM](/glossary/beam/) -- The virtual machine enabling lightweight process-based simulation
-- [GenServer](/glossary/genserver/) -- The OTP behaviour underlying simulation entity processes
-- [DynamicSupervisor](/glossary/dynamic-supervisor/) -- Dynamic process management for simulation entities
-- [Distributed System](/glossary/distributed-system/) -- Systems that simulation models and validates
-- [Gray Team](/glossary/gray-team/) -- Boundary exploration feeding novel scenarios to simulation
-- [Purple Team](/glossary/purple-team/) -- Synthesis and closure analysis of simulation results
-- [Attack Surface](/glossary/attack-surface/) -- The target domain that adversarial simulation exercises
-- [Risk Score](/glossary/risk-score/) -- Quantified risk metrics computed from simulation outputs
+- [BEAM](@/glossary/beam.md) -- The virtual machine enabling lightweight process-based simulation
+- [GenServer](@/glossary/genserver.md) -- The OTP behaviour underlying simulation entity processes
+- [DynamicSupervisor](@/glossary/dynamic-supervisor.md) -- Dynamic process management for simulation entities
+- [Distributed System](@/glossary/distributed-system.md) -- Systems that simulation models and validates
+- [Gray Team](@/glossary/gray-team.md) -- Boundary exploration feeding novel scenarios to simulation
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis and closure analysis of simulation results
+- [Attack Surface](@/glossary/attack-surface.md) -- The target domain that adversarial simulation exercises
+- [Risk Score](@/glossary/risk-score.md) -- Quantified risk metrics computed from simulation outputs
 
 ---
 
@@ -697,4 +697,4 @@ With 530+ AIAD agents operating across the platform, simulation models agent int
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

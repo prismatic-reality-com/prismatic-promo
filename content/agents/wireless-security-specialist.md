@@ -28,15 +28,15 @@ image_alt = "wireless-security-specialist - Prismatic Platform"
 
 ## Overview
 
-The Wireless Security Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's infrastructure domain, responsible for assessing and validating the security posture of wireless network infrastructure, encryption protocols, and wireless communication channels that the platform's deployment environments depend on. This agent evaluates Wi-Fi security configurations, wireless access point hardening, encryption protocol strength, and wireless-specific attack surface exposure.
+The Wireless Security Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's infrastructure domain, responsible for assessing and validating the security posture of wireless network infrastructure, encryption protocols, and wireless communication channels that the platform's deployment environments depend on. This agent evaluates Wi-Fi security configurations, wireless access point hardening, encryption protocol strength, and wireless-specific attack surface exposure.
 
 In enterprise deployment environments, the Prismatic Platform operates within network infrastructures that include wireless components -- from Wi-Fi networks providing connectivity for administrative access to wireless backhaul links and IoT sensor networks feeding data into the platform's intelligence pipelines. The Wireless Security Specialist ensures that these wireless components do not introduce security vulnerabilities that could compromise the platform's overall security posture.
 
-Built on the [AIAD](/glossary/aiad/) standard, the agent integrates with the [vulnerability-scanning-specialist](/agents/vulnerability-scanning-specialist/) for platform-wide vulnerability correlation and the [Prismatic Perimeter](/apps/prismatic-perimeter/) External Attack Surface Management system for external wireless exposure assessment. All security claims comply with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, requiring multi-source confirmation and formal provenance. The agent enforces the [NO MERCY](/glossary/no-mercy/) doctrine's zero-tolerance policy for wireless security vulnerabilities that could enable unauthorized network access.
+Built on the [AIAD](@/glossary/aiad.md) standard, the agent integrates with the [vulnerability-scanning-specialist](@/agents/vulnerability-scanning-specialist.md) for platform-wide vulnerability correlation and the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) External Attack Surface Management system for external wireless exposure assessment. All security claims comply with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, requiring multi-source confirmation and formal provenance. The agent enforces the [NO MERCY](@/glossary/no-mercy.md) doctrine's zero-tolerance policy for wireless security vulnerabilities that could enable unauthorized network access.
 
 ## Architecture
 
-The Wireless Security Specialist is built on a modular assessment architecture that separates wireless protocol analysis, encryption validation, configuration auditing, and threat detection into distinct [OTP](/glossary/otp/) processes.
+The Wireless Security Specialist is built on a modular assessment architecture that separates wireless protocol analysis, encryption validation, configuration auditing, and threat detection into distinct [OTP](@/glossary/otp.md) processes.
 
 ```
 WirelessSecurity.Supervisor
@@ -70,7 +70,7 @@ The Wireless Security Specialist provides six primary capabilities forming a com
 
 ## Implementation
 
-The core wireless security assessment coordinator is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that orchestrates assessment operations.
+The core wireless security assessment coordinator is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that orchestrates assessment operations.
 
 ```elixir
 defmodule Prismatic.Agents.WirelessSecurity do
@@ -207,12 +207,12 @@ The `assess/0` function orchestrates parallel assessment across all wireless sec
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [vulnerability-scanning-specialist](/agents/vulnerability-scanning-specialist/) | Outbound | Reports wireless vulnerabilities for platform-wide correlation |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Outbound | Contributes wireless security posture to EASM security ratings |
-| [web-application-security-specialist](/agents/web-application-security-specialist/) | Bidirectional | Coordinates on network-layer security affecting web applications |
-| [blue-commander](/agents/blue-commander/) | Outbound | Feeds wireless threat intelligence to Blue Team defensive posture |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Outbound | Reports wireless security metrics for platform quality scoring |
-| [ETS](/glossary/ets/) Finding Cache | Internal | Local finding storage with sub-millisecond lookup |
+| [vulnerability-scanning-specialist](@/agents/vulnerability-scanning-specialist.md) | Outbound | Reports wireless vulnerabilities for platform-wide correlation |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Outbound | Contributes wireless security posture to EASM security ratings |
+| [web-application-security-specialist](@/agents/web-application-security-specialist.md) | Bidirectional | Coordinates on network-layer security affecting web applications |
+| [blue-commander](@/agents/blue-commander.md) | Outbound | Feeds wireless threat intelligence to Blue Team defensive posture |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Outbound | Reports wireless security metrics for platform quality scoring |
+| [ETS](@/glossary/ets.md) Finding Cache | Internal | Local finding storage with sub-millisecond lookup |
 
 ## Operational Workflow
 
@@ -228,7 +228,7 @@ The assessment workflow proceeds through five phases: (1) wireless environment d
 
 ## NABLA Compliance
 
-The Wireless Security Specialist operates under [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance for all security claims.
+The Wireless Security Specialist operates under [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance for all security claims.
 
 **Signal Plurality**: Every wireless security finding requires confirmation from at least two independent signals. A protocol vulnerability requires both protocol version identification and cipher suite analysis. A rogue access point detection requires both signal detection and authorized inventory comparison.
 
@@ -238,7 +238,7 @@ The Wireless Security Specialist operates under [NABLA Infinity](/glossary/nabla
 
 **Time Decay**: Wireless environment assessments include timestamps and are periodically re-validated. The wireless environment is inherently dynamic (devices come and go, configurations change), so findings are flagged for re-assessment on a shorter cycle than static infrastructure findings.
 
-All security claims pass through [Trinity Gate](/glossary/trinity-gate/) validation before classification as confirmed vulnerabilities.
+All security claims pass through [Trinity Gate](@/glossary/trinity-gate.md) validation before classification as confirmed vulnerabilities.
 
 ## Configuration
 
@@ -274,18 +274,18 @@ config :prismatic_agents, Prismatic.Agents.WirelessSecurity,
 | Certificate validation | < 2 minutes | 30-90 seconds |
 | Memory footprint | < 80 MB | 30-60 MB |
 
-The agent parallelizes assessment across security domains and caches environment discovery results in [ETS](/glossary/ets/) for incremental re-assessment. Threat detection runs as a continuous background process with configurable sensitivity to balance detection latency against resource consumption.
+The agent parallelizes assessment across security domains and caches environment discovery results in [ETS](@/glossary/ets.md) for incremental re-assessment. Threat detection runs as a continuous background process with configurable sensitivity to balance detection latency against resource consumption.
 
 ## Related Resources
 
-- [vulnerability-scanning-specialist](/agents/vulnerability-scanning-specialist/) -- Platform-wide vulnerability detection
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) -- External Attack Surface Management
-- [web-application-security-specialist](/agents/web-application-security-specialist/) -- Web security assessment
-- [Blue Team](/glossary/blue-team/) -- Epistemic defense team consuming wireless intelligence
-- [NO MERCY Doctrine](/glossary/no-mercy/) -- Zero-tolerance enforcement for security violations
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern for scanner failure isolation
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing security claims
-- [AIAD Standard](/glossary/aiad/) -- Agent specification standard
+- [vulnerability-scanning-specialist](@/agents/vulnerability-scanning-specialist.md) -- Platform-wide vulnerability detection
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) -- External Attack Surface Management
+- [web-application-security-specialist](@/agents/web-application-security-specialist.md) -- Web security assessment
+- [Blue Team](@/glossary/blue-team.md) -- Epistemic defense team consuming wireless intelligence
+- [NO MERCY Doctrine](@/glossary/no-mercy.md) -- Zero-tolerance enforcement for security violations
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern for scanner failure isolation
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing security claims
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification standard
 
 ---
 
@@ -294,4 +294,4 @@ The agent parallelizes assessment across security domains and caches environment
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -196,11 +196,11 @@ MVCC is invisible to most application code when using Ecto, but understanding it
 
 ## Cross-References
 
-- [PostgreSQL](/glossary/postgresql/) - Primary database using MVCC
+- [PostgreSQL](@/glossary/postgresql.md) - Primary database using MVCC
 - **Transaction** - ACID unit of work managed by MVCC
 - **Isolation Level** - Controls MVCC snapshot behavior
-- [Index Scan](/glossary/index-scan/) - Query execution affected by MVCC visibility checks
-- [Ecto](/glossary/ecto/) - Elixir database layer abstracting MVCC details
+- [Index Scan](@/glossary/index-scan.md) - Query execution affected by MVCC visibility checks
+- [Ecto](@/glossary/ecto.md) - Elixir database layer abstracting MVCC details
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

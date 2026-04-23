@@ -28,7 +28,7 @@ The **/cer-report** command is the Prismatic Platform's primary compliance repor
 
 The regulatory landscape for critical infrastructure compliance in the Czech Republic underwent a fundamental transformation with the passage of Laws 264/2025 and 266/2025, which transposed the European Union's NIS2 Directive and CER Directive into national legislation. These laws impose rigorous documentation and reporting obligations on designated critical entities, including annual compliance summaries, incident reports within strict notification windows, and comprehensive due diligence documentation for supply chain participants. The **/cer-report** command automates the generation of all mandated report types, ensuring that organizations can meet their regulatory obligations with minimal manual effort while maintaining the evidentiary rigor demanded by Czech regulatory authorities such as NUKIB (the National Cyber and Information Security Agency).
 
-As a member of the Prismatic Platform's Compliance command family, **/cer-report** operates in concert with [/cer-screen](/commands/cer-screen/) and [/cer-vet](/commands/cer-vet/) to form a complete compliance lifecycle. While `/cer-screen` handles employee background verification and `/cer-vet` performs supplier due diligence, `/cer-report` aggregates findings from both subsystems -- along with risk assessment data and monitoring telemetry -- into publication-ready reports. This command is executed by the `cer-compliance-commander` agent, which coordinates data retrieval across multiple Czech legal [registries](/glossary/registry-otp/), [OSINT](/glossary/osint/) sources, and internal compliance databases to produce comprehensive documentation. The command is part of the platform's 216-command slash command registry, built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+As a member of the Prismatic Platform's Compliance command family, **/cer-report** operates in concert with [/cer-screen](@/commands/cer-screen.md) and [/cer-vet](@/commands/cer-vet.md) to form a complete compliance lifecycle. While `/cer-screen` handles employee background verification and `/cer-vet` performs supplier due diligence, `/cer-report` aggregates findings from both subsystems -- along with risk assessment data and monitoring telemetry -- into publication-ready reports. This command is executed by the `cer-compliance-commander` agent, which coordinates data retrieval across multiple Czech legal [registries](@/glossary/registry-otp.md), [OSINT](@/glossary/osint.md) sources, and internal compliance databases to produce comprehensive documentation. The command is part of the platform's 216-command slash command registry, built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Usage
 
@@ -153,22 +153,22 @@ The command also supports integration with CI/CD pipelines through its JSON outp
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `cer-compliance-commander` agent |
-| [/cer-screen](/commands/cer-screen/) | Aggregates employee screening results into reports |
-| [/cer-vet](/commands/cer-vet/) | Aggregates supplier vetting results into reports |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `cer-compliance-commander` agent |
+| [/cer-screen](@/commands/cer-screen.md) | Aggregates employee screening results into reports |
+| [/cer-vet](@/commands/cer-vet.md) | Aggregates supplier vetting results into reports |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and event tracking |
 | Prismatic REST API | Programmatic access via `POST /api/cer/reports` |
 | Czech Legal Registries | ISIR, ARES, Commercial Register data sourcing |
 | NUKIB Reporting | Report format compatibility with regulatory submissions |
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete report generation. Every report section must contain verified data or explicitly declare data unavailability. No placeholder content, no estimated values without confidence markers, no partial reports delivered as complete. Report generation either succeeds with full compliance data or fails explicitly with actionable error diagnostics.
-- **NO DOUBTS**: Full investigation of all data sources before report assembly. Every claim in a generated report is backed by traceable evidence with provenance metadata. The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework ensures signal plurality -- compliance determinations are never based on a single data source. Contradiction preservation is enforced: if screening data conflicts with vetting data, both signals are preserved in the report with explicit uncertainty markers rather than arbitrarily resolving the conflict.
+- **NO DOUBTS**: Full investigation of all data sources before report assembly. Every claim in a generated report is backed by traceable evidence with provenance metadata. The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework ensures signal plurality -- compliance determinations are never based on a single data source. Contradiction preservation is enforced: if screening data conflicts with vetting data, both signals are preserved in the report with explicit uncertainty markers rather than arbitrarily resolving the conflict.
 - **Regression Protection**: All report templates include automated validation against reference outputs. Any change to the report generation pipeline triggers regression tests that verify output structure, data completeness, and format compliance.
 
 ## Best Practices
@@ -182,11 +182,11 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Related Commands
 
-- [/cer-screen](/commands/cer-screen/) - Employee screening for compliance and background verification
-- [/cer-vet](/commands/cer-vet/) - Czech company vetting using 8-digit ICO identifier
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/cer-screen](@/commands/cer-screen.md) - Employee screening for compliance and background verification
+- [/cer-vet](@/commands/cer-vet.md) - Czech company vetting using 8-digit ICO identifier
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 - /risk-assess - Enterprise risk posture analysis and scoring
 
 ---
@@ -196,4 +196,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -273,18 +273,18 @@ The platform's technical vocabulary spans several distinct domains, each with it
 | Term | Definition | Used In |
 |------|-----------|---------|
 | Quality Debt Point (QDP) | Quantified unit of quality violation | Quality gates, reports |
-| [Quality Floor](/glossary/quality-floor-guardian/) | Minimum acceptable quality threshold | Guardian monitoring |
+| [Quality Floor](@/glossary/quality-floor-guardian.md) | Minimum acceptable quality threshold | Guardian monitoring |
 | Domain Compliance | Per-domain zero-violation status | Quality scoring |
 | Ratcheting | Permanently locking quality gains | Pre-commit enforcement |
-| [Quality DNA](/glossary/quality-dna/) | Persistent cross-session quality state | Session continuity |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistent cross-session quality state | Session continuity |
 
 ### Agent Domain Vocabulary
 
 | Term | Definition | Used In |
 |------|-----------|---------|
-| [AIAD](/glossary/aiad/) | AI Agent Definition standard | Agent specifications |
-| [Agent Tier](/glossary/agent-tier/) | L1-L4 authority hierarchy | Agent configuration |
-| [Agent Orchestration](/glossary/agent-orchestration/) | Multi-agent coordination | Workflow execution |
+| [AIAD](@/glossary/aiad.md) | AI Agent Definition standard | Agent specifications |
+| [Agent Tier](@/glossary/agent-tier.md) | L1-L4 authority hierarchy | Agent configuration |
+| [Agent Orchestration](@/glossary/agent-orchestration.md) | Multi-agent coordination | Workflow execution |
 | Supreme Agent | Highest authority agent class | Strategic operations |
 | Color Team | Adversarial-defensive security group | Security operations |
 
@@ -293,9 +293,9 @@ The platform's technical vocabulary spans several distinct domains, each with it
 | Term | Definition | Used In |
 |------|-----------|---------|
 | Umbrella Application | Independent OTP app in the monorepo | Project structure |
-| [Supervision Tree](/glossary/supervision-tree/) | OTP process hierarchy | Reliability design |
-| [Bounded Context](/glossary/domain-driven-design/) | Domain boundary with local terminology | Architecture design |
-| [Behaviour](/glossary/behaviour/) | Elixir callback contract | Interface design |
+| [Supervision Tree](@/glossary/supervision-tree.md) | OTP process hierarchy | Reliability design |
+| [Bounded Context](@/glossary/domain-driven-design.md) | Domain boundary with local terminology | Architecture design |
+| [Behaviour](@/glossary/behaviour.md) | Elixir callback contract | Interface design |
 | Trait | Cross-cutting capability pattern | Storage abstraction |
 
 ### Evolution Domain Vocabulary
@@ -303,9 +303,9 @@ The platform's technical vocabulary spans several distinct domains, each with it
 | Term | Definition | Used In |
 |------|-----------|---------|
 | Generation | Major platform evolution milestone | Evolution tracking |
-| [Fitness Score](/glossary/evolution/) | Composite adaptability measure (0.0-1.0) | AutoEvolve |
-| [AutoHeal](/glossary/autoheal/) | Autonomous remediation cycle | Quality maintenance |
-| [AutoEvolve](/glossary/autoevolve/) | Autonomous improvement cycle | Platform evolution |
+| [Fitness Score](@/glossary/evolution.md) | Composite adaptability measure (0.0-1.0) | AutoEvolve |
+| [AutoHeal](@/glossary/autoheal.md) | Autonomous remediation cycle | Quality maintenance |
+| [AutoEvolve](@/glossary/autoevolve.md) | Autonomous improvement cycle | Platform evolution |
 | Trinity Gate | 3-condition validation protocol | Claim verification |
 
 ## Vocabulary Governance
@@ -353,7 +353,7 @@ Research in software engineering has consistently shown that communication failu
 
 ## Vocabulary in the AIAD Standard
 
-The [AIAD](/glossary/aiad/) (AI Agent Definition) standard relies heavily on formalized vocabulary. Each agent definition uses standardized terms for:
+The [AIAD](@/glossary/aiad.md) (AI Agent Definition) standard relies heavily on formalized vocabulary. Each agent definition uses standardized terms for:
 
 - **Authority Levels**: L1 (Specialist), L2 (Tactical), L3 (Strategic), L4 (Safety-Critical)
 - **Agent Roles**: Commander, Specialist, Guard, Coordinator, Analyzer
@@ -382,16 +382,16 @@ Each term in the glossary follows the same structure: formal definition, platfor
 
 ## Related Concepts
 
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- The methodology that formalizes ubiquitous language
-- [Domain](/glossary/domain/) -- The bounded area where vocabulary has specific meaning
-- [Specification](/glossary/specification/) -- Formal description using domain vocabulary
-- [AIAD](/glossary/aiad/) -- The agent standard that relies on standardized vocabulary
-- [Architecture](/glossary/architecture/) -- Structural design described through architectural vocabulary
-- [Code Quality](/glossary/code-quality/) -- Quality dimension that includes naming precision
-- [Quality Standard](/glossary/quality-standard/) -- Standards that define vocabulary compliance
-- [Domain Specialization](/glossary/domain-specialization/) -- Specialized vocabulary within domain boundaries
-- [Documentation](/glossary/quality-and-transparency/) -- The written artifacts that depend on vocabulary
-- [Architectural Thinking](/glossary/architectural-thinking/) -- Design reasoning expressed through vocabulary
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- The methodology that formalizes ubiquitous language
+- [Domain](@/glossary/domain.md) -- The bounded area where vocabulary has specific meaning
+- [Specification](@/glossary/specification.md) -- Formal description using domain vocabulary
+- [AIAD](@/glossary/aiad.md) -- The agent standard that relies on standardized vocabulary
+- [Architecture](@/glossary/architecture.md) -- Structural design described through architectural vocabulary
+- [Code Quality](@/glossary/code-quality.md) -- Quality dimension that includes naming precision
+- [Quality Standard](@/glossary/quality-standard.md) -- Standards that define vocabulary compliance
+- [Domain Specialization](@/glossary/domain-specialization.md) -- Specialized vocabulary within domain boundaries
+- [Documentation](@/glossary/quality-and-transparency.md) -- The written artifacts that depend on vocabulary
+- [Architectural Thinking](@/glossary/architectural-thinking.md) -- Design reasoning expressed through vocabulary
 
 See the Glossary index for the complete taxonomy of Prismatic Platform concepts.
 
@@ -402,4 +402,4 @@ See the Glossary index for the complete taxonomy of Prismatic Platform concepts.
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

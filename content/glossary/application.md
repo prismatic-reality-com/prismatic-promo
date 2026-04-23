@@ -1086,21 +1086,21 @@ end
 
 ## Related Concepts
 
-- [OTP](/glossary/otp/) -- Framework defining the Application behaviour and lifecycle
-- [Supervision Tree](/glossary/supervision-tree/) -- Process hierarchy rooted in each application
-- [Umbrella Application](/glossary/umbrella-application/) -- Multi-app project structure hosting 89 applications
-- [Mix](/glossary/mix/) -- Build tool managing application compilation and dependencies
-- [Supervisor](/glossary/supervisor/) -- Top-level process tree root within each application
-- [BEAM](/glossary/beam/) -- Virtual machine providing the application runtime
-- [Elixir](/glossary/elixir/) -- Language providing Application behaviour integration
+- [OTP](@/glossary/otp.md) -- Framework defining the Application behaviour and lifecycle
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Process hierarchy rooted in each application
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Multi-app project structure hosting 89 applications
+- [Mix](@/glossary/mix.md) -- Build tool managing application compilation and dependencies
+- [Supervisor](@/glossary/supervisor.md) -- Top-level process tree root within each application
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing the application runtime
+- [Elixir](@/glossary/elixir.md) -- Language providing Application behaviour integration
 
 ## Further Reading
 
 - [Elixir Application Documentation](https://hexdocs.pm/elixir/Application.html) -- Official API reference
 - [OTP Design Principles](https://www.erlang.org/doc/design_principles/applications.html) -- Erlang application design guide
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Full catalog of Prismatic umbrella applications
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Full catalog of Prismatic umbrella applications
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -1109,4 +1109,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

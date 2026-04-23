@@ -29,7 +29,7 @@ Reference documentation is the authoritative, comprehensive technical specificat
 
 Reference documentation answers the question "what does this function accept, return, and do?" -- not "why does this function exist?" or "how should I use this function in practice?" It is the dictionary of a codebase: consulted when you need to know the exact signature, the precise behavior in edge cases, the complete list of options, or the specific error conditions.
 
-In the Prismatic Platform, reference documentation is not a separate artifact maintained alongside the code but is generated directly from the code itself. [Typespecs](/glossary/typespec/), `@moduledoc` and `@doc` annotations, [OpenAPI](/glossary/openapi-spec/) specifications, and runtime [introspection](/glossary/introspection/) produce documentation that is always synchronized with the actual implementation. The platform's [quality gates](/glossary/quality-gate/) enforce that every public function has a typespec and every public module has a moduledoc.
+In the Prismatic Platform, reference documentation is not a separate artifact maintained alongside the code but is generated directly from the code itself. [Typespecs](@/glossary/typespec.md), `@moduledoc` and `@doc` annotations, [OpenAPI](@/glossary/openapi-spec.md) specifications, and runtime [introspection](@/glossary/introspection.md) produce documentation that is always synchronized with the actual implementation. The platform's [quality gates](@/glossary/quality-gate.md) enforce that every public function has a typespec and every public module has a moduledoc.
 
 ## The Documentation Quadrant
 
@@ -163,7 +163,7 @@ The Prismatic Platform enforces documentation standards for all public functions
 |-------------|-------------|------|
 | `@moduledoc` on every public module | BLOCKING | Credo `Credo.Check.Readability.ModuleDoc` |
 | `@doc` on every public function | WARNING | Credo custom check |
-| `@spec` on every public function | BLOCKING | [Dialyzer](/glossary/dialyzer/) + custom check |
+| `@spec` on every public function | BLOCKING | [Dialyzer](@/glossary/dialyzer.md) + custom check |
 | `@typedoc` on every public type | WARNING | Credo custom check |
 | `## Examples` section in `@doc` | RECOMMENDED | Code review |
 | `## Parameters` section for multi-arg functions | RECOMMENDED | Code review |
@@ -206,7 +206,7 @@ ExDoc extracts:
 
 ## OpenAPI Reference Documentation
 
-The [Prismatic API](/glossary/prismatic-api/) generates [OpenAPI](/glossary/openapi-spec/) 3.0 reference documentation automatically by introspecting facade modules at boot time. This reference documentation describes every REST endpoint with:
+The [Prismatic API](@/glossary/prismatic-api.md) generates [OpenAPI](@/glossary/openapi-spec.md) 3.0 reference documentation automatically by introspecting facade modules at boot time. This reference documentation describes every REST endpoint with:
 
 - HTTP method and URL pattern
 - Request parameters with types and validation rules
@@ -279,7 +279,7 @@ This dual-purpose approach ensures that reference documentation is useful for bo
 
 ## Typespec as Executable Reference Documentation
 
-[Typespecs](/glossary/typespec/) serve as reference documentation that is checked by [Dialyzer](/glossary/dialyzer/). Unlike comments or markdown documentation, typespecs are verified against the actual implementation:
+[Typespecs](@/glossary/typespec.md) serve as reference documentation that is checked by [Dialyzer](@/glossary/dialyzer.md). Unlike comments or markdown documentation, typespecs are verified against the actual implementation:
 
 ```elixir
 defmodule PrismaticStorage.Adapter do
@@ -416,13 +416,13 @@ The Prismatic Platform's documentation architecture has three layers:
 
 - ExDoc HTML output
 - OpenAPI/Swagger specifications
-- [Git Trees](/glossary/git-trees/) codebase indexes
+- [Git Trees](@/glossary/git-trees.md) codebase indexes
 
 ### Layer 3: Curated Reference (Human-Maintained)
 
 - This glossary
 - Architecture decision records
-- [AIAD](/glossary/aiad/) agent and command specifications
+- [AIAD](@/glossary/aiad.md) agent and command specifications
 - Session context documents
 
 Each layer serves different needs: Layer 1 is for developers reading source code, Layer 2 is for developers using APIs, and Layer 3 is for understanding the platform at a conceptual level.
@@ -448,21 +448,21 @@ The glossary's cross-referencing system (using `@/glossary/<name>.md` links) cre
 
 ## Related Terms
 
-- [Documentation](/glossary/documentation/) -- Broader category encompassing all documentation types
-- [OpenAPI Spec](/glossary/openapi-spec/) -- REST API reference documentation standard
-- [Typespec](/glossary/typespec/) -- Elixir type annotations serving as executable reference
-- [Credo](/glossary/credo/) -- Static analysis enforcing documentation standards
-- [Developer Experience](/glossary/developer-experience/) -- Quality of developer interaction with documentation
-- [API](/glossary/api/) -- Interfaces described by reference documentation
-- [Modularity](/glossary/modularity/) -- Architecture enabling focused, modular documentation
-- [Introspection](/glossary/introspection/) -- Runtime capability enabling auto-generated documentation
-- [Developer Portal](/glossary/developer-portal/) -- Platform hub hosting reference documentation
-- [Code Quality](/glossary/code-quality/) -- Measurable outcome of well-documented code
+- [Documentation](@/glossary/documentation.md) -- Broader category encompassing all documentation types
+- [OpenAPI Spec](@/glossary/openapi-spec.md) -- REST API reference documentation standard
+- [Typespec](@/glossary/typespec.md) -- Elixir type annotations serving as executable reference
+- [Credo](@/glossary/credo.md) -- Static analysis enforcing documentation standards
+- [Developer Experience](@/glossary/developer-experience.md) -- Quality of developer interaction with documentation
+- [API](@/glossary/api.md) -- Interfaces described by reference documentation
+- [Modularity](@/glossary/modularity.md) -- Architecture enabling focused, modular documentation
+- [Introspection](@/glossary/introspection.md) -- Runtime capability enabling auto-generated documentation
+- [Developer Portal](@/glossary/developer-portal.md) -- Platform hub hosting reference documentation
+- [Code Quality](@/glossary/code-quality.md) -- Measurable outcome of well-documented code
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture documentation
-- [Capabilities](/capabilities/) -- Platform documentation capabilities
+- [Architecture](@/architecture/_index.md) -- Platform architecture documentation
+- [Capabilities](@/capabilities/_index.md) -- Platform documentation capabilities
 - Glossary -- Complete glossary index
 
 ---
@@ -472,4 +472,4 @@ The glossary's cross-referencing system (using `@/glossary/<name>.md` links) cre
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

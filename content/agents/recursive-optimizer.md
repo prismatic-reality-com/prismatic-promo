@@ -28,15 +28,15 @@ image_alt = "recursive-optimizer - Prismatic Platform"
 
 ## Overview
 
-The recursive-optimizer operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's meta-evolution domain, performing deep pattern recognition across [AIAD](/glossary/aiad/) execution traces to identify optimization opportunities that span multiple agent interactions, pipeline executions, and evolutionary cycles. While individual agents optimize their own operational parameters, the recursive-optimizer examines the emergent patterns that arise from agent interactions at scale -- identifying systemic inefficiencies, redundant computation chains, and optimization opportunities invisible to any single agent's perspective.
+The recursive-optimizer operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's meta-evolution domain, performing deep pattern recognition across [AIAD](@/glossary/aiad.md) execution traces to identify optimization opportunities that span multiple agent interactions, pipeline executions, and evolutionary cycles. While individual agents optimize their own operational parameters, the recursive-optimizer examines the emergent patterns that arise from agent interactions at scale -- identifying systemic inefficiencies, redundant computation chains, and optimization opportunities invisible to any single agent's perspective.
 
 The "recursive" designation reflects this agent's core methodology: it applies optimization analysis not just to platform operations but to the optimization process itself. By analyzing its own previous optimization recommendations and their measured outcomes, the recursive-optimizer refines its pattern recognition heuristics over successive evolutionary generations. This meta-optimization capability ensures that the platform's self-improvement mechanisms themselves improve over time, preventing the stagnation that occurs when optimization strategies remain static.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Development Framework), this agent operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Every optimization recommendation is backed by quantitative evidence from execution trace analysis, and optimization outcomes are measured against predicted improvements to validate recommendation quality.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the [SEADF](@/glossary/seadf.md) (Self-Evolving Autonomous Development Framework), this agent operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Every optimization recommendation is backed by quantitative evidence from execution trace analysis, and optimization outcomes are measured against predicted improvements to validate recommendation quality.
 
 ## Execution Trace Analysis
 
-The recursive-optimizer consumes execution traces produced by the platform's [telemetry](/glossary/telemetry/) infrastructure. These traces capture the complete execution path of agent operations, including inter-agent message passing, pipeline stage transitions, resource consumption profiles, and timing measurements. The agent applies multiple analysis layers to these traces.
+The recursive-optimizer consumes execution traces produced by the platform's [telemetry](@/glossary/telemetry.md) infrastructure. These traces capture the complete execution path of agent operations, including inter-agent message passing, pipeline stage transitions, resource consumption profiles, and timing measurements. The agent applies multiple analysis layers to these traces.
 
 **Temporal pattern analysis** identifies recurring sequences in execution traces that indicate systematic behavior patterns. Repeated sequences of agent interactions that produce similar outcomes suggest opportunities for caching, memoization, or pipeline restructuring. The agent distinguishes between intentional repetition (deliberate redundancy for reliability) and wasteful repetition (computation that could be eliminated without functional impact).
 
@@ -47,13 +47,13 @@ The recursive-optimizer consumes execution traces produced by the platform's [te
 ## Key Capabilities
 
 - **Cross-agent pattern recognition** -- Identifies emergent patterns across multi-agent execution traces that reveal systemic optimization opportunities invisible to individual agents
-- **Pipeline optimization recommendations** -- Analyzes [GenStage](/glossary/genstage/) pipeline execution traces to recommend stage reordering, parallelization, and [backpressure](/glossary/backpressure/) tuning that improve end-to-end throughput
-- **[CASCADE](/glossary/cascade/) pattern detection** -- Identifies CASCADE anti-patterns (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) in execution traces before they manifest as quality issues
+- **Pipeline optimization recommendations** -- Analyzes [GenStage](@/glossary/genstage.md) pipeline execution traces to recommend stage reordering, parallelization, and [backpressure](@/glossary/backpressure.md) tuning that improve end-to-end throughput
+- **[CASCADE](@/glossary/cascade.md) pattern detection** -- Identifies CASCADE anti-patterns (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) in execution traces before they manifest as quality issues
 - **Meta-optimization feedback loops** -- Tracks the outcomes of previous optimization recommendations to refine future recommendation quality, creating a self-improving optimization capability
 - **Evolutionary fitness analysis** -- Measures the fitness impact of optimization changes across evolutionary generations, ensuring that optimizations improve the platform's overall fitness score
 - **Redundancy identification** -- Detects computation chains that produce identical or equivalent results through different paths, recommending consolidation strategies that eliminate waste without reducing reliability
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous execution trace monitoring and periodic optimization analysis cycles
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for optimization impact measurement and recommendation tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous execution trace monitoring and periodic optimization analysis cycles
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for optimization impact measurement and recommendation tracking
 
 ## Optimization Methodology
 
@@ -65,7 +65,7 @@ The optimizer maintains a **diminishing returns detector** that identifies when 
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to analyze execution traces across all platform domains and recommend optimization changes to agent behaviors and pipeline configurations.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to analyze execution traces across all platform domains and recommend optimization changes to agent behaviors and pipeline configurations.
 
 ## Command Interface
 
@@ -79,20 +79,20 @@ The optimizer maintains a **diminishing returns detector** that identifies when 
 
 | Agent | Relationship |
 |-------|-------------|
-| [reasoning-coordinator](/agents/reasoning-coordinator/) | Reasoning pipeline optimization is a high-value target for recursive analysis |
-| [performance-optimization-conductor](/agents/performance-optimization-conductor/) | Implementation coordination for performance-focused optimization recommendations |
-| [repair-society-coordinator](/agents/repair-society-coordinator/) | Optimization recommendations that affect mycelial network operations require coordination |
-| [code-quality-commander](/agents/code-quality-commander/) | Optimization changes must maintain quality floor standards |
+| [reasoning-coordinator](@/agents/reasoning-coordinator.md) | Reasoning pipeline optimization is a high-value target for recursive analysis |
+| [performance-optimization-conductor](@/agents/performance-optimization-conductor.md) | Implementation coordination for performance-focused optimization recommendations |
+| [repair-society-coordinator](@/agents/repair-society-coordinator.md) | Optimization recommendations that affect mycelial network operations require coordination |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Optimization changes must maintain quality floor standards |
 
 ## Integration with SEADF
 
-The recursive-optimizer integrates deeply with the [SEADF](/glossary/seadf/) framework's evolutionary cycle. During each evolutionary generation, the optimizer contributes optimization-related fitness signals that influence the platform's evolutionary direction. Optimizations that demonstrably improve platform fitness are reinforced in subsequent generations, while optimizations with neutral or negative outcomes are deprecated.
+The recursive-optimizer integrates deeply with the [SEADF](@/glossary/seadf.md) framework's evolutionary cycle. During each evolutionary generation, the optimizer contributes optimization-related fitness signals that influence the platform's evolutionary direction. Optimizations that demonstrably improve platform fitness are reinforced in subsequent generations, while optimizations with neutral or negative outcomes are deprecated.
 
-The [mycelial network](/glossary/mycelial-network/) provides the communication substrate through which optimization recommendations propagate to affected agents. The network's eventual-consistency semantics ensure that optimization changes are applied gradually, allowing the platform to detect adverse effects before they propagate to all nodes.
+The [mycelial network](@/glossary/mycelial-network.md) provides the communication substrate through which optimization recommendations propagate to affected agents. The network's eventual-consistency semantics ensure that optimization changes are applied gradually, allowing the platform to detect adverse effects before they propagate to all nodes.
 
 ## Enforcement
 
-Optimization recommendations are held to the [NO MERCY](/glossary/no-mercy/) standard: every recommendation must include quantitative evidence from execution trace analysis, predicted impact with confidence intervals, and a validation plan for measuring actual outcomes. The [NO DOUBTS](/glossary/no-doubts/) principle requires that optimization claims are verified through measurement rather than assumption. The [Trinity Gate](/glossary/trinity-gate/) validates that optimization changes maintain structural consistency, logical correctness, and formal safety properties before they are applied to production systems.
+Optimization recommendations are held to the [NO MERCY](@/glossary/no-mercy.md) standard: every recommendation must include quantitative evidence from execution trace analysis, predicted impact with confidence intervals, and a validation plan for measuring actual outcomes. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that optimization claims are verified through measurement rather than assumption. The [Trinity Gate](@/glossary/trinity-gate.md) validates that optimization changes maintain structural consistency, logical correctness, and formal safety properties before they are applied to production systems.
 
 ---
 
@@ -101,4 +101,4 @@ Optimization recommendations are held to the [NO MERCY](/glossary/no-mercy/) sta
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

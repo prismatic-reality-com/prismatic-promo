@@ -28,9 +28,9 @@ image_alt = "/ir-validate - Prismatic Platform"
 
 Validation is the critical gate between IR authoring and PVM compilation. An invalid IR workflow that reaches the compiler can produce unpredictable behavior, compilation failures with cryptic error messages, or -- in the worst case -- silently incorrect bytecode. The `/ir-validate` command eliminates these risks by performing exhaustive checks at every level of the IR structure, from individual token syntax through global DAG topology analysis.
 
-This command operates under the **L2+** authority level and is executed by the `ir-validator` agent, a specialist agent with deep knowledge of the IR specification, DAG theory, and type system semantics. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The validator agent applies formal verification techniques where practical, including cycle detection algorithms, type unification, and reachability analysis.
+This command operates under the **L2+** authority level and is executed by the `ir-validator` agent, a specialist agent with deep knowledge of the IR specification, DAG theory, and type system semantics. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The validator agent applies formal verification techniques where practical, including cycle detection algorithms, type unification, and reachability analysis.
 
-Unlike [/ir-lint](/commands/ir-lint/), which focuses on style and best practices, `/ir-validate` is concerned exclusively with correctness. A workflow that passes validation is guaranteed to be compilable and semantically well-defined. A workflow that fails validation will not compile correctly and must be corrected before proceeding.
+Unlike [/ir-lint](@/commands/ir-lint.md), which focuses on style and best practices, `/ir-validate` is concerned exclusively with correctness. A workflow that passes validation is guaranteed to be compilable and semantically well-defined. A workflow that fails validation will not compile correctly and must be corrected before proceeding.
 
 ## Architecture
 
@@ -172,13 +172,13 @@ The **Syntax Validator** ensures lexical and grammatical correctness against the
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Executed by the `ir-validator` agent |
-| [IR Linter](/commands/ir-lint/) | Complementary | Validation checks correctness; linting checks quality |
-| [IR Generate](/commands/ir-generate/) | Post-Processing | Generated IR is automatically validated |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Executed by the `ir-validator` agent |
+| [IR Linter](@/commands/ir-lint.md) | Complementary | Validation checks correctness; linting checks quality |
+| [IR Generate](@/commands/ir-generate.md) | Post-Processing | Generated IR is automatically validated |
 | PVM Compiler | Gate | Validation is required before compilation |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Validation results feed quality gate decisions |
-| [Telemetry](/glossary/telemetry/) | Observability | Validation pass/fail rates tracked as platform metrics |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command registered via AIAD standard |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Validation results feed quality gate decisions |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Validation pass/fail rates tracked as platform metrics |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command registered via AIAD standard |
 
 ## Best Practices
 
@@ -205,24 +205,24 @@ The **Syntax Validator** ensures lexical and grammatical correctness against the
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Validation is a blocking gate -- no IR workflow proceeds to compilation without passing all validation passes. There are no "soft" validation failures. Every diagnostic at error severity must be resolved.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The validator performs exhaustive analysis across all validation passes rather than stopping at the first error. Diagnostic messages include full context (source location, inference chains, constraint values) to eliminate guesswork in error resolution.
 
-The command enforces the [Trinity Gate](/glossary/trinity-gate/) requirements for structural consistency (valid DAG), logical consistency (type safety), and formal necessity (constraint satisfiability).
+The command enforces the [Trinity Gate](@/glossary/trinity-gate.md) requirements for structural consistency (valid DAG), logical consistency (type safety), and formal necessity (constraint satisfiability).
 
 ## Related Commands
 
-- [/ir-lint](/commands/ir-lint/) - Static analysis and code quality enforcement for IR workflows
-- [/ir-generate](/commands/ir-generate/) - Generate IR workflows from natural language descriptions
-- [/ir-benchmark](/commands/ir-benchmark/) - Comprehensive performance benchmarking with Benchee integration for IR workflows
-- [/ir-examples](/commands/ir-examples/) - Interactive examples, templates and learning resources for IR workflows
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
+- [/ir-lint](@/commands/ir-lint.md) - Static analysis and code quality enforcement for IR workflows
+- [/ir-generate](@/commands/ir-generate.md) - Generate IR workflows from natural language descriptions
+- [/ir-benchmark](@/commands/ir-benchmark.md) - Comprehensive performance benchmarking with Benchee integration for IR workflows
+- [/ir-examples](@/commands/ir-examples.md) - Interactive examples, templates and learning resources for IR workflows
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
 
 ---
 
@@ -231,4 +231,4 @@ The command enforces the [Trinity Gate](/glossary/trinity-gate/) requirements fo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

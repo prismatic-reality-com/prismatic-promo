@@ -24,11 +24,11 @@ image_alt = "/ir-lint - Prismatic Platform"
 
 ## Overview
 
-**/ir-lint** is a production command in the **Quality** category of the Prismatic Platform that performs static analysis and code quality enforcement on Intermediate Representation (IR) workflow files. Unlike [/ir-validate](/commands/ir-validate/), which checks structural correctness and type safety, `/ir-lint` focuses on stylistic consistency, idiomatic patterns, performance anti-patterns, and maintainability concerns that do not affect correctness but significantly impact long-term code quality.
+**/ir-lint** is a production command in the **Quality** category of the Prismatic Platform that performs static analysis and code quality enforcement on Intermediate Representation (IR) workflow files. Unlike [/ir-validate](@/commands/ir-validate.md), which checks structural correctness and type safety, `/ir-lint` focuses on stylistic consistency, idiomatic patterns, performance anti-patterns, and maintainability concerns that do not affect correctness but significantly impact long-term code quality.
 
 Static analysis of IR workflows is essential in the Prismatic Platform because IR serves as the primary specification language for agent workflows, data pipelines, and operational automation. As the IR codebase grows, maintaining consistent style and avoiding anti-patterns becomes increasingly important for developer productivity, code review efficiency, and onboarding speed. The `/ir-lint` command codifies the platform's IR coding standards into an automated enforcement mechanism.
 
-This command operates under the **L2+** authority level and is executed by the `ir-linter` agent, a specialist agent focused exclusively on IR code quality. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The linter agent maintains an evolving rule set that incorporates lessons learned from production incidents, performance regressions, and code review feedback.
+This command operates under the **L2+** authority level and is executed by the `ir-linter` agent, a specialist agent focused exclusively on IR code quality. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The linter agent maintains an evolving rule set that incorporates lessons learned from production incidents, performance regressions, and code review feedback.
 
 The linter operates at multiple levels of analysis: lexical (naming conventions, formatting), structural (DAG patterns, node organization), semantic (redundant operations, dead paths), and performance (inefficient patterns, missing parallelization opportunities). Each rule is categorized by severity (error, warning, info) and can be individually enabled, disabled, or configured through project-level and file-level configuration.
 
@@ -178,13 +178,13 @@ The **IR Parser** tokenizes the input and produces a token stream that feeds int
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Executed by the `ir-linter` agent |
-| [IR Validator](/commands/ir-validate/) | Complementary | Lint checks complement validation checks |
-| [IR Generate](/commands/ir-generate/) | Post-Processing | Generated IR is automatically linted |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Lint results feed into quality gate pass/fail decisions |
-| [Telemetry](/glossary/telemetry/) | Observability | Lint run metrics and issue trends tracked |
-| [Credo](/glossary/credo/) | Analogous | IR linter follows similar patterns to Elixir's Credo |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command registered via AIAD standard |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Executed by the `ir-linter` agent |
+| [IR Validator](@/commands/ir-validate.md) | Complementary | Lint checks complement validation checks |
+| [IR Generate](@/commands/ir-generate.md) | Post-Processing | Generated IR is automatically linted |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Lint results feed into quality gate pass/fail decisions |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Lint run metrics and issue trends tracked |
+| [Credo](@/glossary/credo.md) | Analogous | IR linter follows similar patterns to Elixir's Credo |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command registered via AIAD standard |
 | CI/CD Pipeline | Automation | Lint checks enforced in merge request gates |
 
 ## Best Practices
@@ -203,7 +203,7 @@ The **IR Parser** tokenizes the input and produces a token stream that feeds int
 
 | Error Condition | Response | Recovery |
 |----------------|----------|----------|
-| IR parse error | Reports parse error and skips file | Fix syntax errors with [/ir-validate](/commands/ir-validate/) first |
+| IR parse error | Reports parse error and skips file | Fix syntax errors with [/ir-validate](@/commands/ir-validate.md) first |
 | Invalid configuration | Reports config error with valid options | Fix `.ir-lint.exs` or use `--init-config` |
 | Auto-fix conflict | Skips conflicting fix with explanation | Apply fix manually |
 | Cache corruption | Clears cache and performs full re-lint | Automatic recovery |
@@ -211,22 +211,22 @@ The **IR Parser** tokenizes the input and produces a token stream that feeds int
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The linter enforces the platform's IR coding standards without exception. In `--strict` mode, even minor style inconsistencies prevent pipeline progression. Auto-fix transforms are verified to preserve semantic correctness -- no "fix" is permitted to change program behavior.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every lint rule is documented with rationale, examples of violations, and examples of compliant code. Diagnostic messages include actionable fix suggestions. The `--verbose` flag traces rule evaluation logic for full transparency.
 
 ## Related Commands
 
-- [/ir-validate](/commands/ir-validate/) - Comprehensive validation of IR workflows with DAG analysis and type safety
-- [/ir-generate](/commands/ir-generate/) - Generate IR workflows from natural language descriptions
-- [/ir-benchmark](/commands/ir-benchmark/) - Comprehensive performance benchmarking with Benchee integration for IR workflows
-- [/ir-examples](/commands/ir-examples/) - Interactive examples, templates and learning resources for IR workflows
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
+- [/ir-validate](@/commands/ir-validate.md) - Comprehensive validation of IR workflows with DAG analysis and type safety
+- [/ir-generate](@/commands/ir-generate.md) - Generate IR workflows from natural language descriptions
+- [/ir-benchmark](@/commands/ir-benchmark.md) - Comprehensive performance benchmarking with Benchee integration for IR workflows
+- [/ir-examples](@/commands/ir-examples.md) - Interactive examples, templates and learning resources for IR workflows
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
 
 ---
 
@@ -235,4 +235,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

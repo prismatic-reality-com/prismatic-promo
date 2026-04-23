@@ -28,9 +28,9 @@ image_alt = "osint-engines-specialist - Prismatic Platform"
 
 ## Overview
 
-The osint-engines-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's intelligence domain, responsible for orchestrating parallel [OSINT](/glossary/osint/) searches across multiple search engines, specialty databases, and indexed archives with query optimization and result deduplication. This agent abstracts away the complexity of multi-engine search by providing a unified query interface that automatically translates intelligence requirements into engine-specific queries, manages rate limiting across providers, and synthesizes results into coherent intelligence products.
+The osint-engines-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's intelligence domain, responsible for orchestrating parallel [OSINT](@/glossary/osint.md) searches across multiple search engines, specialty databases, and indexed archives with query optimization and result deduplication. This agent abstracts away the complexity of multi-engine search by providing a unified query interface that automatically translates intelligence requirements into engine-specific queries, manages rate limiting across providers, and synthesizes results into coherent intelligence products.
 
-Built on the [AIAD](/glossary/aiad/) standard, this agent manages a registry of search engine adapters -- each implementing a common behaviour contract -- that can be dynamically added, removed, or reconfigured without modifying the orchestration logic. The [NO MERCY](/glossary/no-mercy/) doctrine ensures comprehensive search coverage: no intelligence query is considered complete until all relevant engines have been queried and results have been deduplicated and scored for relevance.
+Built on the [AIAD](@/glossary/aiad.md) standard, this agent manages a registry of search engine adapters -- each implementing a common behaviour contract -- that can be dynamically added, removed, or reconfigured without modifying the orchestration logic. The [NO MERCY](@/glossary/no-mercy.md) doctrine ensures comprehensive search coverage: no intelligence query is considered complete until all relevant engines have been queried and results have been deduplicated and scored for relevance.
 
 ## Operational Domain
 
@@ -51,8 +51,8 @@ The search engine orchestration domain covers general-purpose search engines, sp
 - **Query optimization** -- Applies search engine-specific operators (Google dorks, Bing advanced operators, Shodan filters) to maximize result relevance and minimize noise
 - **Rate limit management** -- Tracks per-engine rate limit budgets, implements adaptive throttling, and distributes query load across engines to prevent blocking while maintaining search velocity
 - **Result deduplication** -- Identifies duplicate results returned by multiple engines using URL normalization, content fingerprinting, and fuzzy matching to produce clean, non-redundant result sets
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed search campaigns that expand queries based on initial findings
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing query throughput, engine response times, result quality scores, and rate limit utilization
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed search campaigns that expand queries based on initial findings
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing query throughput, engine response times, result quality scores, and rate limit utilization
 
 ## Search Engine Orchestration
 
@@ -131,7 +131,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to orchestrate multi-engine search campaigns and manage search engine adapter registry.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to orchestrate multi-engine search campaigns and manage search engine adapter registry.
 
 ## Command Interface
 
@@ -145,14 +145,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [osint-digital-profile-specialist](/agents/osint-digital-profile-specialist/) | Provides search results for digital profile construction |
-| [osint-intelligence-operative](/agents/osint-intelligence-operative/) | Supplies engine results for tactical intelligence operations |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Search findings feed into risk assessment intelligence products |
-| [code-quality-commander](/agents/code-quality-commander/) | Enforces quality standards on search engine adapter implementations |
+| [osint-digital-profile-specialist](@/agents/osint-digital-profile-specialist.md) | Provides search results for digital profile construction |
+| [osint-intelligence-operative](@/agents/osint-intelligence-operative.md) | Supplies engine results for tactical intelligence operations |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Search findings feed into risk assessment intelligence products |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Enforces quality standards on search engine adapter implementations |
 
 ## Result Storage
 
-Search results are persisted in [PostgreSQL](/glossary/postgresql/) for historical query replay and trend analysis, with entity linkages stored in [KuzuDB](/glossary/kuzudb/) graph structures for relationship traversal. The dual-storage architecture enables both efficient keyword-based result retrieval and graph-based intelligence correlation across multiple search campaigns.
+Search results are persisted in [PostgreSQL](@/glossary/postgresql.md) for historical query replay and trend analysis, with entity linkages stored in [KuzuDB](@/glossary/kuzudb.md) graph structures for relationship traversal. The dual-storage architecture enables both efficient keyword-based result retrieval and graph-based intelligence correlation across multiple search campaigns.
 
 ## Engine Adapter Architecture
 
@@ -180,7 +180,7 @@ The specialist implements adaptive query routing that learns which engines produ
 
 ## Enforcement
 
-All search operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no search campaign is marked complete without querying all relevant engines, results include mandatory source attribution, and rate limits are strictly respected to maintain long-term access. The [NO DOUBTS](/glossary/no-doubts/) principle requires that search results carry accuracy indicators and are validated against [NABLA Infinity](/glossary/nabla-infinity/) provenance requirements. Deduplication algorithms are tested against known benchmark datasets to verify correctness.
+All search operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no search campaign is marked complete without querying all relevant engines, results include mandatory source attribution, and rate limits are strictly respected to maintain long-term access. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that search results carry accuracy indicators and are validated against [NABLA Infinity](@/glossary/nabla-infinity.md) provenance requirements. Deduplication algorithms are tested against known benchmark datasets to verify correctness.
 
 ---
 
@@ -189,4 +189,4 @@ All search operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

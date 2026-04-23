@@ -27,9 +27,9 @@ image_alt = "Clearbit - Prismatic Platform"
 
 Clearbit (now part of HubSpot) is a data enrichment platform that transforms minimal input -- an email address, a domain name, or an IP address -- into comprehensive company and person profiles in real time. The platform maintains enriched profiles on over 44 million companies and 350 million contacts, built from a combination of public web data, social media profiles, government filings, technology detection, and proprietary data partnerships. Since its acquisition by HubSpot in 2023, Clearbit's enrichment capabilities have been deeply integrated into the HubSpot CRM ecosystem while maintaining its standalone API for programmatic access.
 
-The core value proposition for [OSINT](/glossary/osint/) is Clearbit's ability to resolve partial identifiers into full entity profiles. Given only an email address, Clearbit returns the person's full name, job title, employer, social profiles, and the employer's complete company profile including industry classification, employee count, revenue estimates, technology stack, and corporate headquarters location. This enrichment capability is invaluable for transforming sparse data points encountered during investigations into actionable intelligence with minimal manual research effort.
+The core value proposition for [OSINT](@/glossary/osint.md) is Clearbit's ability to resolve partial identifiers into full entity profiles. Given only an email address, Clearbit returns the person's full name, job title, employer, social profiles, and the employer's complete company profile including industry classification, employee count, revenue estimates, technology stack, and corporate headquarters location. This enrichment capability is invaluable for transforming sparse data points encountered during investigations into actionable intelligence with minimal manual research effort.
 
-Clearbit's Reveal product is particularly noteworthy for visitor intelligence applications. Reveal maps IP addresses to companies by maintaining a proprietary database of corporate IP ranges, identifying which organizations are visiting a website without requiring any form submission or user identification. This technology underpins many de-anonymization products in the B2B marketing space and is directly relevant for security-focused visitor intelligence systems such as the Prismatic [HAWKEYE](/apps/prismatic-hawkeye/) module.
+Clearbit's Reveal product is particularly noteworthy for visitor intelligence applications. Reveal maps IP addresses to companies by maintaining a proprietary database of corporate IP ranges, identifying which organizations are visiting a website without requiring any form submission or user identification. This technology underpins many de-anonymization products in the B2B marketing space and is directly relevant for security-focused visitor intelligence systems such as the Prismatic [HAWKEYE](@/apps/prismatic-hawkeye.md) module.
 
 The platform's data freshness is maintained through continuous crawling and re-enrichment cycles. Company profiles are updated as new information becomes available through web crawling, social media monitoring, financial filings, and technology detection scans. This ensures that enrichment results reflect current organizational state rather than stale historical data.
 
@@ -207,11 +207,11 @@ Clearbit's primary commercial use case centers on B2B sales intelligence. For th
 
 ### Visitor Intelligence
 
-The Reveal product enables de-anonymization of website visitors at the organizational level, which is directly relevant to the [HAWKEYE](/apps/prismatic-hawkeye/) visitor intelligence system. Specific capabilities include mapping anonymous website visitors to companies via IP-to-company resolution, feeding identified company profiles into visitor behavior analysis, tracking organizational interest patterns based on page views and engagement metrics, correlating visitor identity with CRM records for account-based intelligence, and identifying high-value visitors for prioritized engagement.
+The Reveal product enables de-anonymization of website visitors at the organizational level, which is directly relevant to the [HAWKEYE](@/apps/prismatic-hawkeye.md) visitor intelligence system. Specific capabilities include mapping anonymous website visitors to companies via IP-to-company resolution, feeding identified company profiles into visitor behavior analysis, tracking organizational interest patterns based on page views and engagement metrics, correlating visitor identity with CRM records for account-based intelligence, and identifying high-value visitors for prioritized engagement.
 
 ### OSINT Enrichment and Investigation
 
-Clearbit's enrichment capabilities transform minimal identifiers into comprehensive entity profiles for investigation workflows. Key applications include transforming email addresses into full person and company profiles with social media linkage, building comprehensive entity dossiers from a single domain name or email, cross-referencing enriched data with Czech registries such as [ARES](/osint/ares/) for local entity verification, mapping technology stacks to identify security tool adoption and potential exposure, and identifying corporate hierarchies and subsidiary relationships for complex investigation targets.
+Clearbit's enrichment capabilities transform minimal identifiers into comprehensive entity profiles for investigation workflows. Key applications include transforming email addresses into full person and company profiles with social media linkage, building comprehensive entity dossiers from a single domain name or email, cross-referencing enriched data with Czech registries such as [ARES](@/osint/ares.md) for local entity verification, mapping technology stacks to identify security tool adoption and potential exposure, and identifying corporate hierarchies and subsidiary relationships for complex investigation targets.
 
 ### Security Posture Assessment
 
@@ -223,19 +223,19 @@ Clearbit maintains data quality through continuous re-enrichment cycles and mult
 
 Enrichment confidence scores are provided for all results, with scores reflecting the strength of the match between the input identifier and the returned profile. High-confidence matches (90%+) indicate strong signals from multiple independent sources. Medium-confidence matches (70-90%) suggest a probable match with some uncertainty. Low-confidence matches (below 70%) indicate weak or contradictory signals and should be manually verified.
 
-Data coverage varies by geography. North American and Western European companies have the highest coverage rates (85%+ for companies with web presence). Coverage for Central and Eastern European entities, including Czech companies, may be supplemented by cross-referencing with local registries such as [ARES](/osint/ares/) and [Justice.cz](/osint/justice-cz/).
+Data coverage varies by geography. North American and Western European companies have the highest coverage rates (85%+ for companies with web presence). Coverage for Central and Eastern European entities, including Czech companies, may be supplemented by cross-referencing with local registries such as [ARES](@/osint/ares.md) and [Justice.cz](@/osint/justice-cz.md).
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, Clearbit serves as the primary commercial entity enrichment source, integrated at multiple levels. The [OSINT Core](/apps/prismatic-osint-core/) framework uses Clearbit as the default enrichment adapter for person and company resolution. The [HAWKEYE](/apps/prismatic-hawkeye/) visitor intelligence system uses Clearbit Reveal for IP-to-company mapping, correlating identified visitors with security intelligence from [Shodan](/osint/shodan/) and [Censys](/osint/censys/).
+Within the Prismatic ecosystem, Clearbit serves as the primary commercial entity enrichment source, integrated at multiple levels. The [OSINT Core](@/apps/prismatic-osint-core.md) framework uses Clearbit as the default enrichment adapter for person and company resolution. The [HAWKEYE](@/apps/prismatic-hawkeye.md) visitor intelligence system uses Clearbit Reveal for IP-to-company mapping, correlating identified visitors with security intelligence from [Shodan](@/osint/shodan.md) and [Censys](@/osint/censys.md).
 
-The [Prismatic Perimeter](/apps/prismatic-perimeter/) security rating engine uses Clearbit technology detection data to assess whether organizations have appropriate security controls deployed. The enrichment pipeline maintains a local cache of enrichment results with configurable TTL (default 7 days for person data, 30 days for company data) to minimize API usage and ensure consistent results across concurrent queries.
+The [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security rating engine uses Clearbit technology detection data to assess whether organizations have appropriate security controls deployed. The enrichment pipeline maintains a local cache of enrichment results with configurable TTL (default 7 days for person data, 30 days for company data) to minimize API usage and ensure consistent results across concurrent queries.
 
 ## NABLA Compliance
 
 The Clearbit integration within Prismatic adheres to the NABLA epistemic framework axioms.
 
-**Signal Plurality**: Clearbit enrichment results are cross-validated against at least one independent source. Person profiles are verified against social media platforms and professional networks. Company profiles are cross-referenced with [ARES](/osint/ares/) for Czech entities, [Companies House](/osint/companies-house/) for UK entities, and [Crunchbase](/osint/crunchbase/) for funding data.
+**Signal Plurality**: Clearbit enrichment results are cross-validated against at least one independent source. Person profiles are verified against social media platforms and professional networks. Company profiles are cross-referenced with [ARES](@/osint/ares.md) for Czech entities, [Companies House](@/osint/companies-house.md) for UK entities, and [Crunchbase](@/osint/crunchbase.md) for funding data.
 
 **Contradiction Preservation**: When Clearbit data conflicts with registry data (for example, different employee counts or industry classifications), both data points are preserved with source attribution. The platform presents contradictions transparently rather than silently selecting one source.
 
@@ -264,13 +264,13 @@ Synchronous enrichment endpoints (person-stream, company-stream) return results 
 
 ## Related Resources
 
-- [Crunchbase](/osint/crunchbase/) - Startup funding and investor intelligence
-- [ZoomInfo](/osint/zoominfo/) - B2B contact and organizational data
-- [ARES](/osint/ares/) - Czech business register for entity verification
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach exposure for enriched email addresses
-- [FullContact](/osint/fullcontact/) - Person identity resolution and social enrichment
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Entity enrichment for security ratings
+- [Crunchbase](@/osint/crunchbase.md) - Startup funding and investor intelligence
+- [ZoomInfo](@/osint/zoominfo.md) - B2B contact and organizational data
+- [ARES](@/osint/ares.md) - Czech business register for entity verification
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach exposure for enriched email addresses
+- [FullContact](@/osint/fullcontact.md) - Person identity resolution and social enrichment
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Entity enrichment for security ratings
 
 ---
 
@@ -279,4 +279,4 @@ Synchronous enrichment endpoints (person-stream, company-stream) return results 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

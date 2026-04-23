@@ -25,11 +25,11 @@ image_alt = "ViewDNS - Prismatic Platform"
 
 ## Overview
 
-ViewDNS provides a comprehensive suite of DNS and IP intelligence tools widely used for domain research, infrastructure mapping, and digital forensics. The platform aggregates over 20 individual tools into a single API, making it a versatile resource for [OSINT](/glossary/osint/) investigations that require DNS-level intelligence.
+ViewDNS provides a comprehensive suite of DNS and IP intelligence tools widely used for domain research, infrastructure mapping, and digital forensics. The platform aggregates over 20 individual tools into a single API, making it a versatile resource for [OSINT](@/glossary/osint.md) investigations that require DNS-level intelligence.
 
 The reverse IP lookup capability is particularly valuable -- it reveals all domains hosted on a single IP address, which is essential for identifying shared hosting relationships, mapping threat actor infrastructure, and discovering related domains. The IP history feature tracks how a domain's hosting has changed over time, creating a timeline of infrastructure moves that can reveal organizational changes, migrations, or efforts to evade detection.
 
-ViewDNS also maintains historical [Whois](/glossary/whois/) data, enabling investigators to track domain ownership changes and identify patterns across multiple domains registered by the same entity. This makes it a key tool in the intelligence chain between DNS-level discovery and deeper entity investigation.
+ViewDNS also maintains historical [Whois](@/glossary/whois.md) data, enabling investigators to track domain ownership changes and identify patterns across multiple domains registered by the same entity. This makes it a key tool in the intelligence chain between DNS-level discovery and deeper entity investigation.
 
 ## Data Coverage
 
@@ -67,7 +67,7 @@ Cross-reference with Shodan, Censys, crt.sh
 
 ## Integration with Prismatic
 
-ViewDNS provides critical DNS-layer intelligence for the [Prismatic Perimeter](/apps/prismatic-perimeter/) [attack surface](/glossary/attack-surface/) discovery and feeds into the [OSINT Core](/apps/prismatic-osint-core/) multi-source enrichment pipeline.
+ViewDNS provides critical DNS-layer intelligence for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [attack surface](@/glossary/attack-surface.md) discovery and feeds into the [OSINT Core](@/apps/prismatic-osint-core.md) multi-source enrichment pipeline.
 
 ```elixir
 # Reverse IP lookup - find all domains on an IP
@@ -168,7 +168,7 @@ API key required for all programmatic access. Free web interface available witho
 ### Threat Actor Infrastructure Analysis
 - Identify co-hosted malicious domains on the same IP
 - Track domain-to-IP changes to follow threat actor infrastructure pivots
-- Cross-reference with [Shodan](/osint/shodan/) port data for full infrastructure profiles
+- Cross-reference with [Shodan](@/osint/shodan.md) port data for full infrastructure profiles
 
 ### Digital Forensics
 - Build historical timelines of domain infrastructure changes
@@ -177,11 +177,11 @@ API key required for all programmatic access. Free web interface available witho
 
 ## Related Sources
 
-- [Censys](/osint/censys/) - Internet-wide scanning with certificate and host data
-- [Shodan](/osint/shodan/) - Port scanning and service banner analysis
-- [crt.sh](/osint/crtsh/) - [Certificate Transparency](/glossary/certificate-transparency/) for subdomain discovery
-- [Spyse](/osint/spyse/) - DNS, certificate, and domain intelligence
-- [URLScan](/osint/urlscan/) - URL-level analysis for discovered domains
+- [Censys](@/osint/censys.md) - Internet-wide scanning with certificate and host data
+- [Shodan](@/osint/shodan.md) - Port scanning and service banner analysis
+- [crt.sh](@/osint/crtsh.md) - [Certificate Transparency](@/glossary/certificate-transparency.md) for subdomain discovery
+- [Spyse](@/osint/spyse.md) - DNS, certificate, and domain intelligence
+- [URLScan](@/osint/urlscan.md) - URL-level analysis for discovered domains
 
 ## Tool Inventory
 
@@ -221,8 +221,8 @@ ViewDNS data enables identification of several DNS-level risk factors:
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - [EASM](/glossary/easm/) with DNS-layer discovery
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - [EASM](@/glossary/easm.md) with DNS-layer discovery
 
 ---
 
@@ -231,4 +231,4 @@ ViewDNS data enables identification of several DNS-level risk factors:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

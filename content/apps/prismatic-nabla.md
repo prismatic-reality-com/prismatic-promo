@@ -23,9 +23,9 @@ image_alt = "Prismatic Nabla - Prismatic Platform"
 
 ## Overview
 
-Prismatic Nabla implements the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, the platform's core system for managing knowledge, confidence, and truth. It enforces 7 non-negotiable axioms that govern how the platform forms, maintains, and revises beliefs. Every intelligence assessment, [security rating](/glossary/security-rating/), and analytical conclusion passes through Nabla's verification pipeline.
+Prismatic Nabla implements the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, the platform's core system for managing knowledge, confidence, and truth. It enforces 7 non-negotiable axioms that govern how the platform forms, maintains, and revises beliefs. Every intelligence assessment, [security rating](@/glossary/security-rating.md), and analytical conclusion passes through Nabla's verification pipeline.
 
-With 410 source files, Prismatic Nabla is one of the most substantial applications in the [umbrella](/glossary/umbrella-application/). This reflects the reality that epistemic management pervades every domain: [OSINT](/glossary/osint/) intelligence requires confidence scoring, [EASM](/glossary/easm/) ratings require evidence-based assessment, compliance claims require provenance verification, and threat intelligence requires contradiction-preserving analysis. Nabla is not a utility library -- it is the epistemic foundation on which all platform intelligence products rest.
+With 410 source files, Prismatic Nabla is one of the most substantial applications in the [umbrella](@/glossary/umbrella-application.md). This reflects the reality that epistemic management pervades every domain: [OSINT](@/glossary/osint.md) intelligence requires confidence scoring, [EASM](@/glossary/easm.md) ratings require evidence-based assessment, compliance claims require provenance verification, and threat intelligence requires contradiction-preserving analysis. Nabla is not a utility library -- it is the epistemic foundation on which all platform intelligence products rest.
 
 ## 7 Non-Negotiable Axioms
 
@@ -35,13 +35,13 @@ Each axiom is implemented as an enforcement module with configurable severity (H
 
 | # | Axiom | Enforcement | Implementation | Violation Response |
 |---|-------|-------------|---------------|-------------------|
-| 1 | **[Signal Plurality](/glossary/signal-plurality/)** | HARD | `PrismaticNabla.Axiom.SignalPlurality` | BLOCKED until 2+ signals provided |
-| 2 | **[Contradiction Preservation](/glossary/contradiction-preservation/)** | HARD | `PrismaticNabla.Axiom.ContradictionPreservation` | BLOCKED -- conflicting signals must be preserved |
+| 1 | **[Signal Plurality](@/glossary/signal-plurality.md)** | HARD | `PrismaticNabla.Axiom.SignalPlurality` | BLOCKED until 2+ signals provided |
+| 2 | **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | HARD | `PrismaticNabla.Axiom.ContradictionPreservation` | BLOCKED -- conflicting signals must be preserved |
 | 3 | **Absence Informative** | SOFT | `PrismaticNabla.Axiom.AbsenceInformative` | WARNING -- missing signal tracked as evidence |
-| 4 | **[Time Decay](/glossary/time-decay/)** | HARD | `PrismaticNabla.Axiom.TimeDecay` | BLOCKED until timestamps provided |
+| 4 | **[Time Decay](@/glossary/time-decay.md)** | HARD | `PrismaticNabla.Axiom.TimeDecay` | BLOCKED until timestamps provided |
 | 5 | **Unknown Valid** | HARD | `PrismaticNabla.Axiom.UnknownValid` | BLOCKED -- "I don't know" must be accepted |
 | 6 | **Source Independence** | SOFT | `PrismaticNabla.Axiom.SourceIndependence` | WARNING -- independent sources weighted higher |
-| 7 | **[Provenance Mandatory](/glossary/provenance-mandatory/)** | HARD | `PrismaticNabla.Axiom.ProvenanceMandatory` | BLOCKED until provenance chain provided |
+| 7 | **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | HARD | `PrismaticNabla.Axiom.ProvenanceMandatory` | BLOCKED until provenance chain provided |
 
 ### Axiom Enforcement Pipeline
 
@@ -111,7 +111,7 @@ end
 
 ## Belief Graph
 
-The [Belief Graph](/glossary/belief-graph/) is Nabla's core data structure -- a directed acyclic graph where nodes represent claims, evidence, or meta-beliefs, and edges represent support, contradiction, or derivation relationships.
+The [Belief Graph](@/glossary/belief-graph.md) is Nabla's core data structure -- a directed acyclic graph where nodes represent claims, evidence, or meta-beliefs, and edges represent support, contradiction, or derivation relationships.
 
 ### Graph Structure
 
@@ -147,7 +147,7 @@ The [Belief Graph](/glossary/belief-graph/) is Nabla's core data structure -- a 
 
 ## Confidence Scoring
 
-[Confidence scoring](/glossary/confidence-scoring/) in Nabla is Bayesian-inspired with domain-specific adjustments:
+[Confidence scoring](@/glossary/confidence-scoring.md) in Nabla is Bayesian-inspired with domain-specific adjustments:
 
 ### Scoring Model
 
@@ -169,7 +169,7 @@ Confidence(claim) = base_confidence
 
 ### Confidence Thresholds by Domain
 
-| Domain | Minimum Confidence | [Trinity Gate](/capabilities/trinity-gate/) Required |
+| Domain | Minimum Confidence | [Trinity Gate](@/capabilities/trinity-gate.md) Required |
 |--------|-------------------|-------------------------|
 | **Critical Decisions** | 0.95 | MANDATORY |
 | **Security Ratings** | 0.80 | MANDATORY |
@@ -199,7 +199,7 @@ The Trinity Gate is the platform's multi-layer verification system. All claims m
 |-------|--------|-------------------|-------------|
 | **Layer 1: Structural** | Graph Theory | Belief graph forms valid DAG, no cycles | `PrismaticNabla.TrinityGate.Structural` |
 | **Layer 2: Logical** | Rule-Based | Propositions satisfy logical consistency | `PrismaticNabla.TrinityGate.Logical` |
-| **Layer 3: Formal** | [Modal Logic](/glossary/modal-logic/) + [Lean4](/glossary/lean4/) | Claims proven in formal system | `PrismaticNabla.TrinityGate.Formal` |
+| **Layer 3: Formal** | [Modal Logic](@/glossary/modal-logic.md) + [Lean4](@/glossary/lean4.md) | Claims proven in formal system | `PrismaticNabla.TrinityGate.Formal` |
 | **Layer 4: Consciousness** | Meta-verification | Reasoning process itself is sound | `PrismaticNabla.TrinityGate.Consciousness` |
 
 ### Gate Execution
@@ -262,11 +262,11 @@ Raw Evidence --> Signal Collection --> Axiom Enforcement --> Trinity Gate --> Ve
 | Component | Implementation |
 |-----------|---------------|
 | **Axiom Pipeline** | GenServer chain with sequential enforcement |
-| **Belief Graph** | [KuzuDB](/glossary/kuzudb/) for persistence, [ETS](/glossary/ets/) for hot access |
+| **Belief Graph** | [KuzuDB](@/glossary/kuzudb.md) for persistence, [ETS](@/glossary/ets.md) for hot access |
 | **Trinity Gate** | 4-stage pipeline with parallel Layer 1-2 and sequential Layer 3-4 |
 | **Confidence Engine** | Pure functional module with Bayesian update |
 | **Time Decay** | Background GenServer applying periodic decay to all beliefs |
-| **[Telemetry](/glossary/telemetry/)** | Full event coverage for axiom checks, gate passages, confidence updates |
+| **[Telemetry](@/glossary/telemetry.md)** | Full event coverage for axiom checks, gate passages, confidence updates |
 
 ## Integration Points
 
@@ -274,32 +274,32 @@ All platform modules that make assessments or form conclusions integrate with Na
 
 | Consumer | Integration Type | Primary Use |
 |----------|-----------------|-------------|
-| **[Prismatic Perimeter](/apps/prismatic-perimeter/)** | Security rating confidence | Evidence-based A-F grades |
-| **[Prismatic](/apps/prismatic/)** | OSINT assessment confidence | Investigation conclusion validation |
-| **[Prismatic Lean4](/apps/prismatic-lean4/)** | Trinity Gate Layer 3 | Formal proof integration |
-| **[Prismatic Monte Carlo](/apps/prismatic-monte-carlo/)** | [QEVE](/glossary/qeve/) probabilistic component | Statistical confidence bounds |
-| **[Prismatic Agents](/apps/prismatic-agents/)** | Agent decision confidence | Epistemic-aware agent operations |
-| **[Prismatic OSINT Czech Legal](/apps/prismatic-osint-czech-legal/)** | Entity resolution confidence | Cross-source entity matching |
+| **[Prismatic Perimeter](@/apps/prismatic-perimeter.md)** | Security rating confidence | Evidence-based A-F grades |
+| **[Prismatic](@/apps/prismatic.md)** | OSINT assessment confidence | Investigation conclusion validation |
+| **[Prismatic Lean4](@/apps/prismatic-lean4.md)** | Trinity Gate Layer 3 | Formal proof integration |
+| **[Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md)** | [QEVE](@/glossary/qeve.md) probabilistic component | Statistical confidence bounds |
+| **[Prismatic Agents](@/apps/prismatic-agents.md)** | Agent decision confidence | Epistemic-aware agent operations |
+| **[Prismatic OSINT Czech Legal](@/apps/prismatic-osint-czech-legal.md)** | Entity resolution confidence | Cross-source entity matching |
 
 ## Related Components
 
-- [Prismatic Lean4](/apps/prismatic-lean4/) - Formal proof engine for Trinity Gate Layer 3
-- [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) - Probabilistic verification
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - EASM security ratings
-- [Prismatic Web](/apps/prismatic-web/) - [LiveView](/glossary/liveview/) dashboards
-- [Prismatic API](/apps/prismatic-api/) - REST [API gateway](/glossary/api-gateway/)
+- [Prismatic Lean4](@/apps/prismatic-lean4.md) - Formal proof engine for Trinity Gate Layer 3
+- [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) - Probabilistic verification
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - EASM security ratings
+- [Prismatic Web](@/apps/prismatic-web.md) - [LiveView](@/glossary/liveview.md) dashboards
+- [Prismatic API](@/apps/prismatic-api.md) - REST [API gateway](@/glossary/api-gateway.md)
 
 ## Related Agents
 
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Enforces the 7 NABLA axioms across all platform intelligence assessments and belief assertions
-- [Evolution Orchestrator Supreme](/agents/evolution-orchestrator-supreme/) -- Drives epistemic framework evolution ensuring axiom compliance scales with platform growth
-- [Cross-Pollination Specialist](/agents/cross-pollination-specialist/) -- Transfers epistemic verification patterns across security, compliance, and intelligence domains
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Enforces the 7 NABLA axioms across all platform intelligence assessments and belief assertions
+- [Evolution Orchestrator Supreme](@/agents/evolution-orchestrator-supreme.md) -- Drives epistemic framework evolution ensuring axiom compliance scales with platform growth
+- [Cross-Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Transfers epistemic verification patterns across security, compliance, and intelligence domains
 
 ## Related Capabilities
 
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- The 7 non-negotiable axioms implemented and enforced by the Prismatic Nabla framework
-- [Trinity Gate](/capabilities/trinity-gate/) -- The 4-layer verification system (structural, logical, formal, consciousness) managed by Nabla
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Belief graph construction and confidence scoring for multi-source intelligence fusion
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- The 7 non-negotiable axioms implemented and enforced by the Prismatic Nabla framework
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- The 4-layer verification system (structural, logical, formal, consciousness) managed by Nabla
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Belief graph construction and confidence scoring for multi-source intelligence fusion
 
 ---
 
@@ -308,4 +308,4 @@ All platform modules that make assessments or form conclusions integrate with Na
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

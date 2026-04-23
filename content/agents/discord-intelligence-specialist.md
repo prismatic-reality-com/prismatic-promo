@@ -28,9 +28,9 @@ image_alt = "discord-intelligence-specialist - Prismatic Platform"
 
 ## Overview
 
-The Discord Intelligence Specialist operates as an L3 strategic command agent within the Social Intelligence domain of the Prismatic Platform. This agent performs structured intelligence gathering and analysis from Discord-based communication platforms, extracting actionable insights from server structures, channel activity patterns, user interaction graphs, and content analysis. Discord has evolved from a gaming communication tool into a significant platform for communities spanning cryptocurrency projects, open-source development, corporate communications, and political organizing, making it a valuable source for [OSINT](/glossary/osint/) (Open Source Intelligence) investigations.
+The Discord Intelligence Specialist operates as an L3 strategic command agent within the Social Intelligence domain of the Prismatic Platform. This agent performs structured intelligence gathering and analysis from Discord-based communication platforms, extracting actionable insights from server structures, channel activity patterns, user interaction graphs, and content analysis. Discord has evolved from a gaming communication tool into a significant platform for communities spanning cryptocurrency projects, open-source development, corporate communications, and political organizing, making it a valuable source for [OSINT](@/glossary/osint.md) (Open Source Intelligence) investigations.
 
-The agent is part of the platform's 430-strong autonomous agent ecosystem, built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. It operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, ensuring that intelligence products are comprehensive, evidence-based, and produced with full provenance tracking. Every finding from Discord analysis carries explicit confidence scores, source attribution, and temporal markers consistent with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework.
+The agent is part of the platform's 430-strong autonomous agent ecosystem, built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. It operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, ensuring that intelligence products are comprehensive, evidence-based, and produced with full provenance tracking. Every finding from Discord analysis carries explicit confidence scores, source attribution, and temporal markers consistent with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework.
 
 Discord intelligence collection is conducted exclusively through authorized channels -- public server analysis, API-compliant data access, and open-source intelligence methodologies. The agent does not perform unauthorized access, credential harvesting, or privacy-violating surveillance. All operations conform to the platform's ethical intelligence collection policies and applicable data protection regulations.
 
@@ -46,7 +46,7 @@ The Discord Intelligence Specialist provides six core intelligence capabilities 
 
 **Server structure analysis** maps the organizational hierarchy of Discord servers, including channel categories, role structures, permission hierarchies, and bot configurations. This structural analysis reveals how communities organize themselves, which channels concentrate the most significant discussions, and how information flows between different segments of the community.
 
-**User interaction graph construction** builds network graphs from message interactions, reactions, mentions, and voice channel co-presence patterns. These graphs identify key communicators, information brokers, community bridges (users active across multiple servers), and isolated clusters. Graph analysis uses [KuzuDB](/glossary/kuzudb/) for efficient graph storage and traversal, enabling complex relationship queries across large interaction datasets.
+**User interaction graph construction** builds network graphs from message interactions, reactions, mentions, and voice channel co-presence patterns. These graphs identify key communicators, information brokers, community bridges (users active across multiple servers), and isolated clusters. Graph analysis uses [KuzuDB](@/glossary/kuzudb.md) for efficient graph storage and traversal, enabling complex relationship queries across large interaction datasets.
 
 **Content pattern analysis** examines message content across channels for thematic patterns, sentiment trends, emerging narratives, and coordinated messaging indicators. The analysis identifies topic clusters, tracks narrative evolution over time, and flags content patterns that suggest coordinated inauthentic behavior or organized information campaigns.
 
@@ -54,7 +54,7 @@ The Discord Intelligence Specialist provides six core intelligence capabilities 
 
 **Bot ecosystem analysis** catalogs and characterizes the bots operating within Discord servers, identifying their capabilities, permissions, and interaction patterns. Bot configurations reveal community management priorities, automation sophistication, and potential security risks from over-privileged or malicious bot integrations.
 
-**Cross-platform correlation** links Discord identities and activity patterns with information from other social platforms through [entity resolution](/glossary/entity-resolution/) techniques. Username similarity, content cross-posting patterns, and temporal activity correlations enable the construction of unified identity profiles that span multiple platforms.
+**Cross-platform correlation** links Discord identities and activity patterns with information from other social platforms through [entity resolution](@/glossary/entity-resolution.md) techniques. Username similarity, content cross-posting patterns, and temporal activity correlations enable the construction of unified identity profiles that span multiple platforms.
 
 ## Intelligence Collection Methodology
 
@@ -77,7 +77,7 @@ Each collection phase produces structured output that feeds into downstream anal
 
 ## Evidence Standards
 
-All Discord intelligence products adhere to the platform's [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework requirements.
+All Discord intelligence products adhere to the platform's [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework requirements.
 
 | Standard | Requirement | Enforcement |
 |----------|-------------|-------------|
@@ -99,12 +99,12 @@ The agent integrates with the platform's intelligence infrastructure and cross-d
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution | Agent lifecycle management and process supervision |
-| AIAD [Registry](/glossary/registry-otp/) | Agent discovery | Specification registration and capability advertisement |
-| Prismatic [Telemetry](/glossary/telemetry/) | Performance tracking | Collection metrics, analysis timing, and resource usage |
-| [KuzuDB](/glossary/kuzudb/) | Graph storage | User interaction graphs and relationship networks |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Evidence persistence | Intelligence product storage with provenance metadata |
-| [Entity Resolution](/glossary/entity-resolution/) | Identity correlation | Cross-platform identity matching and unification |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution | Agent lifecycle management and process supervision |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent discovery | Specification registration and capability advertisement |
+| Prismatic [Telemetry](@/glossary/telemetry.md) | Performance tracking | Collection metrics, analysis timing, and resource usage |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph storage | User interaction graphs and relationship networks |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Evidence persistence | Intelligence product storage with provenance metadata |
+| [Entity Resolution](@/glossary/entity-resolution.md) | Identity correlation | Cross-platform identity matching and unification |
 
 ## Operational Constraints
 
@@ -133,13 +133,13 @@ Intelligence products from Discord analysis are delivered in structured formats 
 
 ## Enforcement
 
-The Discord Intelligence Specialist operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Intelligence products without provenance chains are rejected. Findings based on single sources are flagged as unverified. Collection operations that risk ethical boundary violations are halted immediately. All intelligence products pass through the [Trinity Gate](/glossary/trinity-gate/) validation framework before distribution, ensuring structural consistency, logical coherence, and formal necessity.
+The Discord Intelligence Specialist operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Intelligence products without provenance chains are rejected. Findings based on single sources are flagged as unverified. Collection operations that risk ethical boundary violations are halted immediately. All intelligence products pass through the [Trinity Gate](@/glossary/trinity-gate.md) validation framework before distribution, ensuring structural consistency, logical coherence, and formal necessity.
 
 ## Related Agents
 
-- [**facebook-intelligence-specialist**](/agents/facebook-intelligence-specialist/) (L3) - Facebook platform intelligence operations and cross-platform correlation
-- [**email-intelligence-specialist**](/agents/email-intelligence-specialist/) (L3) - Email-based digital profile construction and intelligence mesh expansion
-- [**ghost-recon-specialist**](/agents/ghost-recon-specialist/) (L3) - Stealth intelligence collection with maximum operational security
+- [**facebook-intelligence-specialist**](@/agents/facebook-intelligence-specialist.md) (L3) - Facebook platform intelligence operations and cross-platform correlation
+- [**email-intelligence-specialist**](@/agents/email-intelligence-specialist.md) (L3) - Email-based digital profile construction and intelligence mesh expansion
+- [**ghost-recon-specialist**](@/agents/ghost-recon-specialist.md) (L3) - Stealth intelligence collection with maximum operational security
 
 ---
 
@@ -148,4 +148,4 @@ The Discord Intelligence Specialist operates under [NO MERCY, NO DOUBTS](/glossa
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

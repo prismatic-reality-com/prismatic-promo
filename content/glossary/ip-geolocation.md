@@ -170,10 +170,10 @@ This adapter is automatically discovered by the ToolRegistry, exposed in the OSI
 
 ## Cross-References
 
-- [OSINT](/glossary/osint/) - Intelligence discipline using IP geolocation
+- [OSINT](@/glossary/osint.md) - Intelligence discipline using IP geolocation
 - **IP Address** - The input to geolocation lookups
 - **Network Intelligence** - Broader network analysis context
-- [Shodan](/glossary/shodan/) - OSINT tool providing enriched geolocation data
+- [Shodan](@/glossary/shodan.md) - OSINT tool providing enriched geolocation data
 - **Perimeter** - Attack surface module using geolocation for asset mapping
 
 ---

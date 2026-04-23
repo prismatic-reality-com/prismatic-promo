@@ -78,11 +78,11 @@ The platform combines comprehensive development toolkits with production-ready i
 
 ### Quick Navigation
 
-- **[SDK Documentation](/api/)** - Complete API reference and integration guides
-- **[Architecture Overview](/architecture/)** - System design and component relationships
-- **[Agent System](/agents/)** - 1,090 autonomous agents and development patterns
-- **[OSINT Framework](/osint/)** - 121+ intelligence source adapters
-- **[Platform Capabilities](/capabilities/)** - Core features and technical specifications
+- **[SDK Documentation](@/api/_index.md)** - Complete API reference and integration guides
+- **[Architecture Overview](@/architecture/_index.md)** - System design and component relationships
+- **[Agent System](@/agents/_index.md)** - 1,090 autonomous agents and development patterns
+- **[OSINT Framework](@/osint/_index.md)** - 121+ intelligence source adapters
+- **[Platform Capabilities](@/capabilities/_index.md)** - Core features and technical specifications
 
 ---
 
@@ -111,15 +111,15 @@ The platform combines comprehensive development toolkits with production-ready i
 ## 🔗 Essential Developer Resources
 
 **Platform Deep Dive**:
-- **🏗️ [Architecture Overview](/architecture/)** - System design and component relationships
-- **🤖 [Agent System](/agents/)** - 1,090 autonomous agents and their capabilities
-- **📊 [OSINT Sources](/osint/)** - 121+ intelligence collection adapters
-- **⚡ [Performance & Quality](/capabilities/)** - 100/100 quality score methodology
+- **🏗️ [Architecture Overview](@/architecture/_index.md)** - System design and component relationships
+- **🤖 [Agent System](@/agents/_index.md)** - 1,090 autonomous agents and their capabilities
+- **📊 [OSINT Sources](@/osint/_index.md)** - 121+ intelligence collection adapters
+- **⚡ [Performance & Quality](@/capabilities/_index.md)** - 100/100 quality score methodology
 
 **Author's Insights**:
-- **👤 [Meet the Creator](/about/author/)** - Tomáš Korcak's vision and philosophy
-- **📝 [Technical Blog](/blog/)** - Architectural decisions and platform evolution
-- **❓ [FAQ](/faq/)** - Common questions about the platform and its creator
+- **👤 [Meet the Creator](@/about/author.md)** - Tomáš Korcak's vision and philosophy
+- **📝 [Technical Blog](@/blog/_index.md)** - Architectural decisions and platform evolution
+- **❓ [FAQ](@/faq/_index.md)** - Common questions about the platform and its creator
 
 **Community & Support**:
 - **📧 [Direct Support](mailto:korczis@gmail.com)** - Email Tomáš directly with technical questions
@@ -688,10 +688,10 @@ Contact our Enterprise team for:
 
 **Ready to build the future of AI-orchestrated intelligence?**
 
-[**Get Started with the SDK →**](/developers/sdk/)
-[**Explore Plugin Development →**](/developers/plugins/)
-[**Browse UI Components →**](/developers/ui-components/)
-[**Join Our Community →**](/developers/community/)
+[**Get Started with the SDK →**](@/developers/sdk/_index.md)
+[**Explore Plugin Development →**](@/developers/plugins/_index.md)
+[**Browse UI Components →**](@/developers/ui-components/_index.md)
+[**Join Our Community →**](@/developers/community/_index.md)
 
 ---
 

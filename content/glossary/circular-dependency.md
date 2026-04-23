@@ -38,7 +38,7 @@ image_alt = "Circular Dependency - Prismatic Platform"
 
 A **Circular Dependency** (also called a dependency cycle or cyclic dependency) is a relationship between two or more software modules where each module directly or transitively depends on the others, forming a cycle in the dependency graph. In a circular dependency between modules A and B, module A depends on module B and module B depends on module A -- neither can be compiled, loaded, or tested independently. In larger systems, cycles can span three or more modules (A depends on B, B depends on C, C depends on A), making them harder to detect and resolve.
 
-In the Prismatic Platform's 115-app [umbrella application](/glossary/umbrella-application/) architecture, circular dependencies are treated as critical architectural violations. They are detected by the AIAD indexer, blocked by the [pre-commit hooks](/glossary/pre-commit-hooks/), and prevented by design through protocols, behaviours, and the [adapter pattern](/glossary/adapter-pattern/). The dependency graph of all umbrella applications must form a Directed Acyclic Graph (DAG) -- any cycle is an immediate build failure.
+In the Prismatic Platform's 115-app [umbrella application](@/glossary/umbrella-application.md) architecture, circular dependencies are treated as critical architectural violations. They are detected by the AIAD indexer, blocked by the [pre-commit hooks](@/glossary/pre-commit-hooks.md), and prevented by design through protocols, behaviours, and the [adapter pattern](@/glossary/adapter-pattern.md). The dependency graph of all umbrella applications must form a Directed Acyclic Graph (DAG) -- any cycle is an immediate build failure.
 
 ## Overview
 
@@ -52,7 +52,7 @@ In the Elixir/OTP ecosystem, circular dependencies manifest at two levels:
 The Prismatic Platform addresses both levels:
 
 - **Application-level cycles** are prevented by Mix's built-in dependency resolution and additionally validated by `mix supervisor deps --cycles` which analyzes the full dependency graph.
-- **Module-level cycles** are detected by static analysis through [Credo](/glossary/credo/) rules and the AIAD indexer, which builds a complete call graph across all 115 applications.
+- **Module-level cycles** are detected by static analysis through [Credo](@/glossary/credo.md) rules and the AIAD indexer, which builds a complete call graph across all 115 applications.
 
 The fundamental insight is that a well-designed system's dependency graph should form a DAG (Directed Acyclic Graph). In a DAG, you can always find a topological ordering -- a sequence in which modules can be compiled, tested, and deployed one at a time, each depending only on modules that come before it. Circular dependencies destroy this property, making the system irreducible.
 
@@ -370,7 +370,7 @@ Circular dependency prevention is enforced at multiple levels in the Prismatic P
 
 **AIAD Indexer**: The `.aiad/bin/aiad index` command builds a complete dependency graph across all 115 umbrella applications and 530+ agents. It detects both direct and transitive cycles, reporting them as critical violations.
 
-**Pre-Commit Phase 9**: The [quality gates](/glossary/quality-gate/) phase of the pre-commit hooks includes dependency graph validation. Any commit that introduces a circular dependency is blocked.
+**Pre-Commit Phase 9**: The [quality gates](@/glossary/quality-gate.md) phase of the pre-commit hooks includes dependency graph validation. Any commit that introduces a circular dependency is blocked.
 
 **PrismaticSupervisor Integration**: The `DependencyResolver` module in `prismatic_supervisor` uses topological sorting to determine application startup order. If a cycle exists, the resolver reports the cycle and refuses to produce a startup order -- preventing runtime failures from circular dependencies.
 
@@ -438,23 +438,23 @@ Every commit triggers dependency graph analysis through the pre-commit hooks. Th
 
 ## Related Concepts
 
-- [Dependency Injection](/glossary/dependency-injection/) -- Pattern for inverting dependencies to break cycles
-- [Modularity](/glossary/modularity/) -- Design principle that circular dependencies violate
-- [Bounded Context](/glossary/bounded-context/) -- Domain boundary that prevents cross-domain cycles
-- [Compilation](/glossary/compilation/) -- Process that fails when circular dependencies exist
-- [Umbrella Application](/glossary/umbrella-application/) -- Architecture where cycles are detected at the app level
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Pattern used to break cycles through abstraction
-- [Behaviour](/glossary/behaviour/) -- OTP mechanism for defining contracts that prevent tight coupling
-- [Supervision Tree](/glossary/supervision-tree/) -- Tree structure that requires acyclic dependencies
-- [Graph Theory](/glossary/graph-theory/) -- Mathematical foundation for dependency analysis
-- [OTP](/glossary/otp/) -- Framework whose design principles prevent circular dependencies
+- [Dependency Injection](@/glossary/dependency-injection.md) -- Pattern for inverting dependencies to break cycles
+- [Modularity](@/glossary/modularity.md) -- Design principle that circular dependencies violate
+- [Bounded Context](@/glossary/bounded-context.md) -- Domain boundary that prevents cross-domain cycles
+- [Compilation](@/glossary/compilation.md) -- Process that fails when circular dependencies exist
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Architecture where cycles are detected at the app level
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Pattern used to break cycles through abstraction
+- [Behaviour](@/glossary/behaviour.md) -- OTP mechanism for defining contracts that prevent tight coupling
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Tree structure that requires acyclic dependencies
+- [Graph Theory](@/glossary/graph-theory.md) -- Mathematical foundation for dependency analysis
+- [OTP](@/glossary/otp.md) -- Framework whose design principles prevent circular dependencies
 
 ## See Also
 
-- [Quality Gate](/glossary/quality-gate/) -- Gates that enforce acyclic dependency graphs
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Hooks that block circular dependency introduction
-- [Credo](/glossary/credo/) -- Static analysis tool that detects coupling patterns
-- [AIAD](/glossary/aiad/) -- Framework with dependency indexing capabilities
+- [Quality Gate](@/glossary/quality-gate.md) -- Gates that enforce acyclic dependency graphs
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Hooks that block circular dependency introduction
+- [Credo](@/glossary/credo.md) -- Static analysis tool that detects coupling patterns
+- [AIAD](@/glossary/aiad.md) -- Framework with dependency indexing capabilities
 
 ---
 
@@ -463,4 +463,4 @@ Every commit triggers dependency graph analysis through the pre-commit hooks. Th
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

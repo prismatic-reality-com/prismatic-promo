@@ -241,11 +241,11 @@ OFAC screening is a critical compliance capability that transforms the Prismatic
 
 ## Cross-References
 
-- [Sanctions](/glossary/sanctions/) - Broader sanctions framework context
-- [Compliance](/glossary/compliance/) - Regulatory compliance requirements
-- [Due Diligence](/glossary/due-diligence/) - Investigation process using OFAC screening
-- [OSINT](/glossary/osint/) - Intelligence gathering including sanctions data
-- [AML](/glossary/aml/) - Anti-money laundering compliance requiring OFAC checks
+- [Sanctions](@/glossary/sanctions.md) - Broader sanctions framework context
+- [Compliance](@/glossary/compliance.md) - Regulatory compliance requirements
+- [Due Diligence](@/glossary/due-diligence.md) - Investigation process using OFAC screening
+- [OSINT](@/glossary/osint.md) - Intelligence gathering including sanctions data
+- [AML](@/glossary/aml.md) - Anti-money laundering compliance requiring OFAC checks
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

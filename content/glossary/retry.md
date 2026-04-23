@@ -614,23 +614,23 @@ end
 
 ## Related Terms
 
-- [Throttling](/glossary/throttling/) -- the server-side mechanism that triggers client retries via 429 responses
-- [Status Code](/glossary/status-code/) -- HTTP status codes that indicate retryable vs. permanent failures
-- [SLA](/glossary/sla/) -- service level agreements that account for retry-masked failures and latency
-- [Supervision Strategy](/glossary/supervision-strategy/) -- OTP's process-level restart mechanism that complements operation-level retries
-- [Circuit Breaker](/glossary/circuit-breaker/) -- pattern that stops retries when a service is clearly down
+- [Throttling](@/glossary/throttling.md) -- the server-side mechanism that triggers client retries via 429 responses
+- [Status Code](@/glossary/status-code.md) -- HTTP status codes that indicate retryable vs. permanent failures
+- [SLA](@/glossary/sla.md) -- service level agreements that account for retry-masked failures and latency
+- [Supervision Strategy](@/glossary/supervision-strategy.md) -- OTP's process-level restart mechanism that complements operation-level retries
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- pattern that stops retries when a service is clearly down
 - [Timeout](/glossary/timeout/) -- operation deadline that interacts with retry delay budgets
-- [Cache Eviction](/glossary/cache-eviction/) -- cached responses reduce the need for retryable external calls
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the broader resilience discipline encompassing retry, circuit breaker, and fallback
-- [Telemetry](/glossary/telemetry/) -- the event system for monitoring retry rates and circuit breaker transitions
-- [Logging](/glossary/logging/) -- retry attempts should be logged for operational visibility
-- [Response Distribution](/glossary/response-distribution/) -- retry delays affect the tail of response time distributions
-- [Request Rate](/glossary/request-rate/) -- rate at which requests are sent, affected by retry amplification
+- [Cache Eviction](@/glossary/cache-eviction.md) -- cached responses reduce the need for retryable external calls
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the broader resilience discipline encompassing retry, circuit breaker, and fallback
+- [Telemetry](@/glossary/telemetry.md) -- the event system for monitoring retry rates and circuit breaker transitions
+- [Logging](@/glossary/logging.md) -- retry attempts should be logged for operational visibility
+- [Response Distribution](@/glossary/response-distribution.md) -- retry delays affect the tail of response time distributions
+- [Request Rate](@/glossary/request-rate.md) -- rate at which requests are sent, affected by retry amplification
 
 ## See Also
 
-- [OSINT Tool Adapters](/osint/) -- retry-enabled external API integration across 157 adapters
-- [Resilience Patterns](/architecture/) -- comprehensive fault tolerance strategies
+- [OSINT Tool Adapters](@/osint/_index.md) -- retry-enabled external API integration across 157 adapters
+- [Resilience Patterns](@/architecture/_index.md) -- comprehensive fault tolerance strategies
 - [Tesla Middleware](https://hexdocs.pm/tesla/Tesla.Middleware.Retry.html) -- retry middleware used in Prismatic Platform
 - [AWS Architecture Blog: Exponential Backoff and Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/) -- canonical reference for jitter strategies
 - [Circuit Breaker Pattern](https://martinfowler.com/bliki/CircuitBreaker.html) -- Martin Fowler's circuit breaker description
@@ -642,4 +642,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

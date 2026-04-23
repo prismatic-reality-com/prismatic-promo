@@ -24,9 +24,9 @@ image_alt = "/livebook - Prismatic Platform"
 
 ## Overview
 
-**/livebook** is a production command in the **Operations** category of the Prismatic Platform that manages the integration between the platform and [Livebook](https://livebook.dev), the interactive notebook environment for [Elixir](/glossary/elixir/). Livebook provides a web-based interface for writing and executing Elixir code in an interactive, cell-by-cell fashion with rich output rendering, Mermaid diagram support, and real-time collaboration. The `/livebook` command handles Livebook server lifecycle management, notebook generation from platform data, and bidirectional synchronization between Livebook notebooks and platform components.
+**/livebook** is a production command in the **Operations** category of the Prismatic Platform that manages the integration between the platform and [Livebook](https://livebook.dev), the interactive notebook environment for [Elixir](@/glossary/elixir.md). Livebook provides a web-based interface for writing and executing Elixir code in an interactive, cell-by-cell fashion with rich output rendering, Mermaid diagram support, and real-time collaboration. The `/livebook` command handles Livebook server lifecycle management, notebook generation from platform data, and bidirectional synchronization between Livebook notebooks and platform components.
 
-This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. Livebook integration is particularly valuable for exploratory data analysis, interactive debugging, documentation with executable examples, and training materials that combine explanation with live code.
+This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. Livebook integration is particularly valuable for exploratory data analysis, interactive debugging, documentation with executable examples, and training materials that combine explanation with live code.
 
 In the context of the Prismatic Platform's nearly 100 umbrella applications, Livebook serves as an interactive exploration tool that allows developers to experiment with modules, test hypotheses about system behavior, and visualize data flows without the overhead of writing full test suites or Mix tasks. The `/livebook` command streamlines this workflow by managing server instances, generating contextual notebooks, and ensuring that Livebook sessions have access to the platform's compiled modules.
 
@@ -176,14 +176,14 @@ Produces a series of progressive training notebooks that walk new team members t
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `elixir-core-specialist` | Server management and notebook generation |
-| [Elixir Runtime](/glossary/elixir/) | BEAM attachment | Direct access to compiled modules |
-| [OTP Supervision](/glossary/otp/) | Process management | Livebook runs under supervision |
-| [Quality Gates](/glossary/quality-gates/) | Documentation quality | Notebooks validated for completeness |
-| [Telemetry](/glossary/telemetry/) | Usage [metrics](/glossary/metrics/) | Server uptime and notebook activity |
-| [/code](/commands/code/) | Development workflow | Interactive prototyping before formal implementation |
-| [/test](/commands/test/) | Test exploration | Interactive test development and debugging |
-| [/analyze](/commands/analyze/) | Data analysis | Interactive analysis workflows |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `elixir-core-specialist` | Server management and notebook generation |
+| [Elixir Runtime](@/glossary/elixir.md) | BEAM attachment | Direct access to compiled modules |
+| [OTP Supervision](@/glossary/otp.md) | Process management | Livebook runs under supervision |
+| [Quality Gates](@/glossary/quality-gates.md) | Documentation quality | Notebooks validated for completeness |
+| [Telemetry](@/glossary/telemetry.md) | Usage [metrics](@/glossary/metrics.md) | Server uptime and notebook activity |
+| [/code](@/commands/code.md) | Development workflow | Interactive prototyping before formal implementation |
+| [/test](@/commands/test.md) | Test exploration | Interactive test development and debugging |
+| [/analyze](@/commands/analyze.md) | Data analysis | Interactive analysis workflows |
 | VegaLite | Visualization | Chart rendering in notebook cells |
 | Kino | Interactive widgets | Dynamic UI components in notebooks |
 
@@ -191,7 +191,7 @@ Produces a series of progressive training notebooks that walk new team members t
 
 The /livebook command integrates into several platform workflows:
 
-1. **Exploratory Development**: Before implementing a new feature, developers use Livebook to explore existing module APIs, test hypotheses about data structures, and prototype algorithms. Successful prototypes are then formalized through [/code](/commands/code/).
+1. **Exploratory Development**: Before implementing a new feature, developers use Livebook to explore existing module APIs, test hypotheses about data structures, and prototype algorithms. Successful prototypes are then formalized through [/code](@/commands/code.md).
 
 2. **Interactive Debugging**: When investigating complex issues, attached-mode Livebook provides direct access to running processes, enabling real-time state inspection and message tracing without restarting the application.
 
@@ -203,7 +203,7 @@ The /livebook command integrates into several platform workflows:
 
 ## NABLA Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Generated notebooks contain working, tested code examples. Non-functional examples are not permitted. Every generated notebook must execute cleanly from start to finish.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Notebooks provide interactive verification of claims through executable code cells. Assertions in validation cells provide empirical evidence for documented behavior.
@@ -234,13 +234,13 @@ The server startup time includes BEAM node connection (attached mode) or compila
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/quickstart](/commands/quickstart/) - Project quickstart scaffolding and boilerplate generation
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/quickstart](@/commands/quickstart.md) - Project quickstart scaffolding and boilerplate generation
 
 ---
 
@@ -249,4 +249,4 @@ The server startup time includes BEAM node connection (attached mode) or compila
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

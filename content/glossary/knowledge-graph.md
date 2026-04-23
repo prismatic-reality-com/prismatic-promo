@@ -41,7 +41,7 @@ A knowledge graph is a structured representation of real-world entities and thei
 
 The concept has roots in artificial intelligence research dating to the 1960s (semantic networks) and was popularized in its modern form by Google's 2012 Knowledge Graph, which structured factual knowledge to enhance search results. In the security and intelligence domain, knowledge graphs serve a different purpose: they represent observed relationships between infrastructure elements, organizational connections, and threat indicators, enabling analysts to discover indirect exposure paths and hidden connections that no single data source reveals.
 
-The Prismatic Platform uses KuzuDB as its graph database for building intelligence knowledge graphs. OSINT data from multiple providers -- [Shodan](/glossary/shodan/), [Censys](/glossary/censys/), [GreyNoise](/glossary/greynoise/), DNS records, certificate transparency logs, WHOIS data -- is fused into a unified knowledge graph where entities are connected through discovered relationships. The Prismatic Perimeter maps [attack surfaces](/glossary/attack-surface/) as knowledge graphs, enabling relationship traversal to discover indirect exposure paths and supply chain risks that are invisible in isolated data views.
+The Prismatic Platform uses KuzuDB as its graph database for building intelligence knowledge graphs. OSINT data from multiple providers -- [Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md), [GreyNoise](@/glossary/greynoise.md), DNS records, certificate transparency logs, WHOIS data -- is fused into a unified knowledge graph where entities are connected through discovered relationships. The Prismatic Perimeter maps [attack surfaces](@/glossary/attack-surface.md) as knowledge graphs, enabling relationship traversal to discover indirect exposure paths and supply chain risks that are invisible in isolated data views.
 
 ## Graph Data Model
 
@@ -161,7 +161,7 @@ CT Logs -------+
 
 ### Entity Resolution
 
-[Entity resolution](/glossary/entity-resolution/) is the process of determining when entities from different sources refer to the same real-world thing. An IP address appearing in Shodan, Censys, and DNS records should be merged into a single node with properties from all sources.
+[Entity resolution](@/glossary/entity-resolution.md) is the process of determining when entities from different sources refer to the same real-world thing. An IP address appearing in Shodan, Censys, and DNS records should be merged into a single node with properties from all sources.
 
 | Resolution Strategy | Description | Confidence |
 |--------------------|-------------|------------|
@@ -170,19 +170,19 @@ CT Logs -------+
 | **Behavioral correlation** | Similar services, timing, configuration | 0.70-0.85 |
 | **Organizational linkage** | WHOIS, ASN, hosting provider match | 0.60-0.80 |
 
-Each resolved entity carries a [confidence score](/glossary/confidence-scoring/) reflecting the certainty of the resolution, satisfying [NABLA Infinity](/glossary/nabla-infinity/)'s [signal plurality](/glossary/signal-plurality/) axiom -- entities confirmed by multiple independent sources receive higher confidence.
+Each resolved entity carries a [confidence score](@/glossary/confidence-scoring.md) reflecting the certainty of the resolution, satisfying [NABLA Infinity](@/glossary/nabla-infinity.md)'s [signal plurality](@/glossary/signal-plurality.md) axiom -- entities confirmed by multiple independent sources receive higher confidence.
 
 ## Relationship to Belief Graphs
 
-The [belief graph](/glossary/belief-graph/) is a specialized knowledge graph within the Prismatic Platform's epistemic infrastructure. While the EASM knowledge graph models factual observations (domains, IPs, certificates), the belief graph models epistemic states -- what the platform believes to be true, with what confidence, based on what evidence.
+The [belief graph](@/glossary/belief-graph.md) is a specialized knowledge graph within the Prismatic Platform's epistemic infrastructure. While the EASM knowledge graph models factual observations (domains, IPs, certificates), the belief graph models epistemic states -- what the platform believes to be true, with what confidence, based on what evidence.
 
 | Dimension | Knowledge Graph (EASM) | Belief Graph (Epistemic) |
 |-----------|----------------------|------------------------|
 | **Content** | Observed infrastructure facts | Beliefs with confidence levels |
 | **Edges** | Infrastructure relationships | Evidential support relationships |
-| **Mutation** | Updated on new observations | Updated through [epistemic pipeline](/glossary/epistemic-pipeline/) |
+| **Mutation** | Updated on new observations | Updated through [epistemic pipeline](@/glossary/epistemic-pipeline.md) |
 | **Confidence** | Source-level confidence per edge | System-level confidence per belief |
-| **Verification** | Cross-source corroboration | [Trinity Gate](/glossary/trinity-gate/) passage |
+| **Verification** | Cross-source corroboration | [Trinity Gate](@/glossary/trinity-gate.md) passage |
 | **Provenance** | Source attribution per node/edge | Full inference chain per belief |
 
 The two graphs are complementary: the knowledge graph provides the factual foundation from which beliefs are derived, and the belief graph provides the epistemic framework for reasoning about those facts.
@@ -225,7 +225,7 @@ end
 
 ## Provenance and Time Decay
 
-Every node and edge in the knowledge graph carries [provenance](/glossary/provenance-mandatory/) metadata -- the source that reported it, the time of observation, and the confidence level. This provenance enables [time decay](/glossary/time-decay/): observations that have not been confirmed recently receive decreasing confidence, reflecting the reality that internet infrastructure changes constantly.
+Every node and edge in the knowledge graph carries [provenance](@/glossary/provenance-mandatory.md) metadata -- the source that reported it, the time of observation, and the confidence level. This provenance enables [time decay](@/glossary/time-decay.md): observations that have not been confirmed recently receive decreasing confidence, reflecting the reality that internet infrastructure changes constantly.
 
 ```elixir
 # Edge with provenance and temporal metadata
@@ -306,7 +306,7 @@ end
 
 ## Integration with Belief Systems
 
-The knowledge graph serves as the foundational layer for [epistemic reasoning](/glossary/epistemic-robustness/) within the Prismatic Platform. Raw observations are transformed into beliefs through a structured pipeline that maintains [provenance](/glossary/provenance-mandatory/) and confidence tracking:
+The knowledge graph serves as the foundational layer for [epistemic reasoning](@/glossary/epistemic-robustness.md) within the Prismatic Platform. Raw observations are transformed into beliefs through a structured pipeline that maintains [provenance](@/glossary/provenance-mandatory.md) and confidence tracking:
 
 ```elixir
 defmodule PrismaticIntelligence.BeliefDerivation do
@@ -508,23 +508,23 @@ Compliance frameworks like NIS2 and SOC 2 require organizations to understand th
 
 ## Related Terms
 
-- [Ontology](/glossary/ontology/) -- Formal schema defining entity types and relationship semantics for the graph
-- [Entity Resolution](/glossary/entity-resolution/) -- Deduplication of entities across multiple data sources
-- [Belief Graph](/glossary/belief-graph/) -- Epistemic specialized graph for reasoning under uncertainty
-- [Vector Database](/glossary/vector-database/) -- Complementary storage for semantic similarity search
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Design methodology informing graph ontology boundaries
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Numeric confidence attached to graph nodes and edges
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom requiring multiple sources for graph entity confirmation
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- NABLA axiom requiring source tracking on every graph element
-- [Time Decay](/glossary/time-decay/) -- Temporal confidence degradation for graph observations
-- [Attack Surface](/glossary/attack-surface/) -- The security domain modeled by the EASM knowledge graph
-- [Shodan](/glossary/shodan/) -- OSINT source feeding infrastructure observations into the graph
-- [Censys](/glossary/censys/) -- OSINT source providing certificate and host intelligence
+- [Ontology](@/glossary/ontology.md) -- Formal schema defining entity types and relationship semantics for the graph
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Deduplication of entities across multiple data sources
+- [Belief Graph](@/glossary/belief-graph.md) -- Epistemic specialized graph for reasoning under uncertainty
+- [Vector Database](@/glossary/vector-database.md) -- Complementary storage for semantic similarity search
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Design methodology informing graph ontology boundaries
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Numeric confidence attached to graph nodes and edges
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom requiring multiple sources for graph entity confirmation
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- NABLA axiom requiring source tracking on every graph element
+- [Time Decay](@/glossary/time-decay.md) -- Temporal confidence degradation for graph observations
+- [Attack Surface](@/glossary/attack-surface.md) -- The security domain modeled by the EASM knowledge graph
+- [Shodan](@/glossary/shodan.md) -- OSINT source feeding infrastructure observations into the graph
+- [Censys](@/glossary/censys.md) -- OSINT source providing certificate and host intelligence
 
 ## See Also
 
-- [Architecture](/architecture/) -- Graph intelligence architecture and knowledge representation
-- [Technologies](/technologies/) -- Graph database technology stack (KuzuDB)
+- [Architecture](@/architecture/_index.md) -- Graph intelligence architecture and knowledge representation
+- [Technologies](@/technologies/_index.md) -- Graph database technology stack (KuzuDB)
 
 ---
 
@@ -533,4 +533,4 @@ Compliance frameworks like NIS2 and SOC 2 require organizations to understand th
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

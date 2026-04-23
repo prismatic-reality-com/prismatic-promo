@@ -32,7 +32,7 @@ Most "AI-powered" development tools have one model behind the scenes. You ask it
 
 Prismatic has 434 specialized agents organized across 14 domains. They are not interchangeable. Each one has:
 
-- A formal specification written in the [AIAD standard](/glossary/aiad/) (Agent Intelligence & Autonomous Decision-making)
+- A formal specification written in the [AIAD standard](@/glossary/aiad.md) (Agent Intelligence & Autonomous Decision-making)
 - A defined authority level (L1 operational through COSMIC CLEARANCE supreme)
 - A specific competency domain (quality analysis, security simulation, architecture verification, etc.)
 - Behavioral contracts that define what the agent can and cannot do
@@ -45,7 +45,7 @@ When you trigger an operation -- say, fixing a bug -- it is not one agent workin
 4. You apply the fix
 5. The **verification agent** confirms the test passes after the fix
 6. The **quality gate agent** validates the change meets all 13 quality domains
-7. The [Trinity Gate](/glossary/trinity-gate/) validates logical and structural consistency
+7. The [Trinity Gate](@/glossary/trinity-gate.md) validates logical and structural consistency
 
 This is not optional. This is the mandatory regression test protocol. Every bug fix. No exceptions. No bypass.
 
@@ -84,7 +84,7 @@ The same applies to Credo violations (`mix credo --strict`), missing `@spec` ann
 
 ### Quality DNA Tracks You Across Sessions
 
-The [Quality DNA](/glossary/quality-dna/) system maintains a persistent state file (`.claude/quality-dna/current-state.json`) that tracks quality metrics across sessions. It knows the platform's quality trajectory. If your change moves the trajectory downward -- even slightly -- it triggers investigation.
+The [Quality DNA](@/glossary/quality-dna.md) system maintains a persistent state file (`.claude/quality-dna/current-state.json`) that tracks quality metrics across sessions. It knows the platform's quality trajectory. If your change moves the trajectory downward -- even slightly -- it triggers investigation.
 
 The Quality Floor Guardian monitors quality autonomously:
 
@@ -126,7 +126,7 @@ The result: bugs that are fixed stay fixed. The regression test suite grows with
 
 ## Code That Passes Trinity Gate
 
-The [Trinity Gate](/glossary/trinity-gate/) is the final verification layer. Every established claim in the system must pass three independent checks:
+The [Trinity Gate](@/glossary/trinity-gate.md) is the final verification layer. Every established claim in the system must pass three independent checks:
 
 1. **Structural Consistency** (Graph Theory): The belief network forms a valid directed acyclic graph. No circular reasoning. No orphaned claims.
 2. **Logical Consistency** (Rule-Based): Propositions follow established logical rules. No contradictions without explicit acknowledgment.
@@ -173,11 +173,11 @@ There is a Czech phrase that captures the Prismatic philosophy: "It will not let
 
 Traditional development tools trust you. You say the code works? Ship it. You say the test covers the edge case? Sure. You say the security implications were considered? Okay.
 
-Prismatic does not trust you. It does not trust the AI agents either. It trusts verified evidence. The [NO MERCY doctrine](/glossary/no-mercy/) is not about being harsh -- it is about being honest. The [NO DOUBTS doctrine](/glossary/no-doubts/) is not about being arrogant -- it is about having evidence before acting.
+Prismatic does not trust you. It does not trust the AI agents either. It trusts verified evidence. The [NO MERCY doctrine](@/glossary/no-mercy.md) is not about being harsh -- it is about being honest. The [NO DOUBTS doctrine](@/glossary/no-doubts.md) is not about being arrogant -- it is about having evidence before acting.
 
-The platform preserves contradictions instead of resolving them prematurely. If two signals disagree, both are kept. The [NABLA Infinity](/glossary/nabla-infinity/) framework requires minimum two independent signals for any belief, mandatory timestamps on all claims, and explicit tracking of missing data as informative. "I don't know" is a valid state. Pretending to know is not.
+The platform preserves contradictions instead of resolving them prematurely. If two signals disagree, both are kept. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework requires minimum two independent signals for any belief, mandatory timestamps on all claims, and explicit tracking of missing data as informative. "I don't know" is a valid state. Pretending to know is not.
 
-When the confidence threshold is met (0.95 for critical decisions, 0.80 for standard operations) and Trinity Gate passes, then and only then does the system transition from exploration to execution. And execution means [NO MERCY](/glossary/no-mercy/): complete delivery, zero tolerance for incomplete implementations, production-ready from the first line.
+When the confidence threshold is met (0.95 for critical decisions, 0.80 for standard operations) and Trinity Gate passes, then and only then does the system transition from exploration to execution. And execution means [NO MERCY](@/glossary/no-mercy.md): complete delivery, zero tolerance for incomplete implementations, production-ready from the first line.
 
 ## Getting Started
 
@@ -195,11 +195,11 @@ If you are a developer evaluating Prismatic, here is what to expect:
 
 ## Next Steps
 
-- [For Architects](/about/for-architects/) -- How Prismatic handles contradictions, signal plurality, and the 16-level epistemic pipeline
-- [QEVE Deep Dive](/about/qeve-deep-dive/) -- The formal verification engine behind Trinity Gate
-- [Platform Capabilities](/capabilities/) -- The full doctrinal framework
-- [Agent Ecosystem](/agents/) -- Browse all 434 agents
-- [Glossary](/glossary/) -- Precise definitions for platform terminology
+- [For Architects](@/about/for-architects.md) -- How Prismatic handles contradictions, signal plurality, and the 16-level epistemic pipeline
+- [QEVE Deep Dive](@/about/qeve-deep-dive.md) -- The formal verification engine behind Trinity Gate
+- [Platform Capabilities](@/capabilities/_index.md) -- The full doctrinal framework
+- [Agent Ecosystem](@/agents/_index.md) -- Browse all 434 agents
+- [Glossary](@/glossary/_index.md) -- Precise definitions for platform terminology
 
 ---
 
@@ -208,4 +208,4 @@ If you are a developer evaluating Prismatic, here is what to expect:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

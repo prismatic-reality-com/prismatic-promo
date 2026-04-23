@@ -26,11 +26,11 @@ image_alt = "/gitlab-mr - Prismatic Platform"
 
 **/gitlab-mr** is a production command in the **GitLab** category of the Prismatic Platform that provides comprehensive merge request creation, management, and lifecycle orchestration. The command automates the entire merge request workflow from branch analysis through description generation, reviewer assignment, label application, milestone linking, and post-merge cleanup, ensuring every merge request meets the platform's rigorous quality and documentation standards.
 
-This command operates under the **L2+** authority level and is executed by the `gitlab-mr-specialist` agent, which has deep understanding of the platform's branching strategy, conventional commit format, and quality gate requirements. The agent analyzes commit history, detects modified applications within the umbrella structure, generates appropriate descriptions with test plans, and assigns labels based on the nature of the changes. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `gitlab-mr-specialist` agent, which has deep understanding of the platform's branching strategy, conventional commit format, and quality gate requirements. The agent analyzes commit history, detects modified applications within the umbrella structure, generates appropriate descriptions with test plans, and assigns labels based on the nature of the changes. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 Merge requests within the Prismatic Platform are not simple code review containers. They serve as the primary quality enforcement boundary where all platform standards must be verified before code enters the main branch. The `/gitlab-mr` command ensures that every merge request includes a complete description of changes, links to relevant GitLab issues, passes all CI/CD pipeline stages, maintains zero compilation warnings, achieves required test coverage, and receives appropriate reviewer approval. The command also enforces the platform's mandatory session discipline protocol by ensuring that all work items are tracked through GitLab issues before merge requests are created.
 
-The command supports the full merge request lifecycle: creation from feature branches, draft/ready state management, reviewer assignment and reassignment, conflict resolution guidance, rebase operations, and post-merge branch cleanup. It integrates with the [/gitlab-enforce](/commands/gitlab-enforce/) command to verify that merge request configurations comply with the platform's compliance policies before submission.
+The command supports the full merge request lifecycle: creation from feature branches, draft/ready state management, reviewer assignment and reassignment, conflict resolution guidance, rebase operations, and post-merge branch cleanup. It integrates with the [/gitlab-enforce](@/commands/gitlab-enforce.md) command to verify that merge request configurations comply with the platform's compliance policies before submission.
 
 ## Architecture
 
@@ -164,18 +164,18 @@ The Branch Analyzer examines the current feature branch's commit history relativ
 
 6. **MR Creation**: Submit the merge request to GitLab via the API. Apply labels, assign reviewers, link to milestones, and set merge options. Configure pipeline-based auto-merge if requested.
 
-7. **Post-Creation**: Emit [telemetry](/glossary/telemetry/) events for MR tracking. Update session context with the MR URL and details. Monitor the pipeline triggered by the MR creation.
+7. **Post-Creation**: Emit [telemetry](@/glossary/telemetry.md) events for MR tracking. Update session context with the MR URL and details. Monitor the pipeline triggered by the MR creation.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by `gitlab-mr-specialist` agent with L2+ authority |
-| [/gitlab-enforce](/commands/gitlab-enforce/) | Compliance Check | Verifies MR compliance before creation |
-| [/gitlab-ci](/commands/gitlab-ci/) | Pipeline Monitoring | Tracks pipeline status for auto-merge decisions |
-| [Quality Gates](/glossary/quality-gates/) | Pre-creation Check | Blocks MR creation when quality gates fail |
-| [Telemetry](/glossary/telemetry/) | Metrics Tracking | Reports MR lifecycle metrics for process optimization |
-| [/commit](/commands/commit/) | Commit Format | Relies on conventional commit format for title generation |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by `gitlab-mr-specialist` agent with L2+ authority |
+| [/gitlab-enforce](@/commands/gitlab-enforce.md) | Compliance Check | Verifies MR compliance before creation |
+| [/gitlab-ci](@/commands/gitlab-ci.md) | Pipeline Monitoring | Tracks pipeline status for auto-merge decisions |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre-creation Check | Blocks MR creation when quality gates fail |
+| [Telemetry](@/glossary/telemetry.md) | Metrics Tracking | Reports MR lifecycle metrics for process optimization |
+| [/commit](@/commands/commit.md) | Commit Format | Relies on conventional commit format for title generation |
 | GitLab API | External Service | Full CRUD operations on merge request resources |
 | Session Context | State Tracking | Records MR details for session continuity |
 
@@ -236,7 +236,7 @@ The MR generator automatically creates test plans based on modified files.
 
 ## Doctrine Compliance
 
-All merge request operations enforce the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine.
+All merge request operations enforce the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine.
 
 - **NO MERCY**: Merge requests that fail quality gates are blocked from creation. Incomplete descriptions, missing test plans, and unlinked issues trigger warnings or blocks depending on severity. No MR is permitted to merge without passing all mandatory pipeline stages.
 - **NO DOUBTS**: MR descriptions are evidence-based, generated from actual commit analysis and file modification data. Reviewer assignments are informed by file ownership patterns. All decisions are traceable through the GitLab API audit trail.
@@ -245,14 +245,14 @@ The command enforces the Mandatory Regression Test Protocol by checking that bug
 
 ## Related Commands
 
-- [/gitlab-api](/commands/gitlab-api/) - GitLab API operations for project and repository management
-- [/gitlab-auto-sync](/commands/gitlab-auto-sync/) - Automatic GitLab integration for all AIAD workflows
-- [/gitlab-ci](/commands/gitlab-ci/) - [GitLab CI](/glossary/gitlab-ci/)/CD pipeline management and configuration
-- [/gitlab-enforce](/commands/gitlab-enforce/) - GitLab enforcement for compliance and workflow standards
-- [/gitlab-sync](/commands/gitlab-sync/) - GitLab issue synchronization and tracking operations
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/gitlab-api](@/commands/gitlab-api.md) - GitLab API operations for project and repository management
+- [/gitlab-auto-sync](@/commands/gitlab-auto-sync.md) - Automatic GitLab integration for all AIAD workflows
+- [/gitlab-ci](@/commands/gitlab-ci.md) - [GitLab CI](@/glossary/gitlab-ci.md)/CD pipeline management and configuration
+- [/gitlab-enforce](@/commands/gitlab-enforce.md) - GitLab enforcement for compliance and workflow standards
+- [/gitlab-sync](@/commands/gitlab-sync.md) - GitLab issue synchronization and tracking operations
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -261,4 +261,4 @@ The command enforces the Mandatory Regression Test Protocol by checking that bug
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

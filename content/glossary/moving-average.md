@@ -214,10 +214,10 @@ The EMA-based approach provides lightweight, adaptive monitoring that tracks tre
 
 ## Cross-References
 
-- [Time Series](/glossary/time-series/) - Data type analyzed with moving averages
-- [Telemetry](/glossary/telemetry/) - Platform metric collection feeding moving average calculations
+- [Time Series](@/glossary/time-series.md) - Data type analyzed with moving averages
+- [Telemetry](@/glossary/telemetry.md) - Platform metric collection feeding moving average calculations
 - **Outlier** - Anomalies detected relative to moving average baselines
-- [IQR](/glossary/iqr/) - Complementary statistical measure for variability
+- [IQR](@/glossary/iqr.md) - Complementary statistical measure for variability
 - **P95** - Percentile metric often tracked alongside moving averages
 
 ---

@@ -208,17 +208,17 @@ Financial compliance workflows such as sanctions screening require saga coordina
 
 ## Related Concepts
 
-- [Event Sourcing](/glossary/event-sourcing/) - Event log enabling saga replay and compensation tracking
-- [CQRS](/glossary/cqrs/) - Command-query separation complementing saga write coordination
-- [Eventual Consistency](/glossary/eventual-consistency/) - Consistency model that sagas achieve across services
-- [Circuit Breaker](/glossary/circuit-breaker/) - Failure detection triggering saga compensation paths
-- [GenServer](/glossary/genserver/) - Process abstraction implementing saga orchestrator logic
-- [Supervision Tree](/glossary/supervision-tree/) - Fault-tolerant process hierarchy hosting saga orchestrators
+- [Event Sourcing](@/glossary/event-sourcing.md) - Event log enabling saga replay and compensation tracking
+- [CQRS](@/glossary/cqrs.md) - Command-query separation complementing saga write coordination
+- [Eventual Consistency](@/glossary/eventual-consistency.md) - Consistency model that sagas achieve across services
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Failure detection triggering saga compensation paths
+- [GenServer](@/glossary/genserver.md) - Process abstraction implementing saga orchestrator logic
+- [Supervision Tree](@/glossary/supervision-tree.md) - Fault-tolerant process hierarchy hosting saga orchestrators
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
 
 ---
 
@@ -227,4 +227,4 @@ Financial compliance workflows such as sanctions screening require saga coordina
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,13 +28,13 @@ image_alt = "Performance Benchmarking Agent - Prismatic Platform"
 
 ## Overview
 
-The Performance Benchmarking Agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's performance domain, responsible for establishing, maintaining, and enforcing performance baselines across all platform subsystems. This agent executes systematic benchmarking campaigns that measure throughput (iterations per second), latency distributions, memory consumption, and [BEAM](/glossary/beam/) scheduler utilization across the platform's 90 [umbrella application](/glossary/umbrella-application/)s. Its benchmark results serve as the authoritative reference against which all performance changes are evaluated.
+The Performance Benchmarking Agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's performance domain, responsible for establishing, maintaining, and enforcing performance baselines across all platform subsystems. This agent executes systematic benchmarking campaigns that measure throughput (iterations per second), latency distributions, memory consumption, and [BEAM](@/glossary/beam.md) scheduler utilization across the platform's 90 [umbrella application](@/glossary/umbrella-application.md)s. Its benchmark results serve as the authoritative reference against which all performance changes are evaluated.
 
-Built on the [AIAD](/glossary/aiad/) standard, this agent applies the [NO DOUBTS](/glossary/no-doubts/) principle to performance claims: no performance characterization is accepted without reproducible benchmark evidence, and all measurements include statistical confidence intervals rather than single-point estimates. Benchmarks are executed under controlled conditions with variance analysis to ensure that reported [metrics](/glossary/metrics/) reflect genuine performance characteristics rather than measurement noise. The agent publishes results through [telemetry](/glossary/telemetry/) events for platform-wide [observability](/glossary/observability/).
+Built on the [AIAD](@/glossary/aiad.md) standard, this agent applies the [NO DOUBTS](@/glossary/no-doubts.md) principle to performance claims: no performance characterization is accepted without reproducible benchmark evidence, and all measurements include statistical confidence intervals rather than single-point estimates. Benchmarks are executed under controlled conditions with variance analysis to ensure that reported [metrics](@/glossary/metrics.md) reflect genuine performance characteristics rather than measurement noise. The agent publishes results through [telemetry](@/glossary/telemetry.md) events for platform-wide [observability](@/glossary/observability.md).
 
 ## Theoretical Foundations
 
-Performance benchmarking in the [BEAM](/glossary/beam/) ecosystem requires particular attention to the runtime's unique characteristics. The BEAM scheduler employs preemptive scheduling based on reduction counts rather than wall-clock time, meaning that CPU-bound and I/O-bound workloads exhibit different performance profiles than in conventional runtime environments. The agent's benchmarking methodology accounts for scheduler behavior, garbage collection pauses, and the impact of process mailbox sizes on message passing latency.
+Performance benchmarking in the [BEAM](@/glossary/beam.md) ecosystem requires particular attention to the runtime's unique characteristics. The BEAM scheduler employs preemptive scheduling based on reduction counts rather than wall-clock time, meaning that CPU-bound and I/O-bound workloads exhibit different performance profiles than in conventional runtime environments. The agent's benchmarking methodology accounts for scheduler behavior, garbage collection pauses, and the impact of process mailbox sizes on message passing latency.
 
 Statistical rigor is foundational to the benchmarking methodology. Each benchmark execution produces multiple measurement samples from which the agent computes descriptive statistics (mean, median, standard deviation), percentile distributions (p50, p95, p99, p99.9), and confidence intervals. Outlier detection using interquartile range analysis filters measurement artifacts from genuine performance data. Regression detection employs two-sample hypothesis testing (Welch's t-test) to distinguish statistically significant performance changes from natural variance.
 
@@ -42,9 +42,9 @@ The agent also maintains awareness of the "benchmarking observer effect" -- the 
 
 ## Operational Domain
 
-The performance domain covers CPU-bound computation benchmarks, I/O throughput measurement, [ETS](/glossary/ets/) table operation latency, [GenServer](/glossary/genserver/) message processing rates, database query performance, and HTTP endpoint response time distributions. The agent maintains a benchmark suite that covers critical hot paths across the platform, with historical trend tracking that detects gradual performance regression that individual benchmarks might miss. Benchmark execution schedules balance measurement freshness against resource consumption.
+The performance domain covers CPU-bound computation benchmarks, I/O throughput measurement, [ETS](@/glossary/ets.md) table operation latency, [GenServer](@/glossary/genserver.md) message processing rates, database query performance, and HTTP endpoint response time distributions. The agent maintains a benchmark suite that covers critical hot paths across the platform, with historical trend tracking that detects gradual performance regression that individual benchmarks might miss. Benchmark execution schedules balance measurement freshness against resource consumption.
 
-The domain also encompasses cross-application performance characteristics, including inter-application message passing latency within the [umbrella application](/glossary/umbrella-application/) structure, shared [ETS](/glossary/ets/) table access contention patterns, and the aggregate impact of concurrent benchmark execution on scheduler fairness.
+The domain also encompasses cross-application performance characteristics, including inter-application message passing latency within the [umbrella application](@/glossary/umbrella-application.md) structure, shared [ETS](@/glossary/ets.md) table access contention patterns, and the aggregate impact of concurrent benchmark execution on scheduler fairness.
 
 ## Key Capabilities
 
@@ -54,13 +54,13 @@ The domain also encompasses cross-application performance characteristics, inclu
 
 - **Statistical regression detection** -- Compares current benchmark results against established baselines with statistical significance testing (Welch's t-test, Mann-Whitney U), flagging regressions that exceed defined tolerance thresholds with quantified confidence
 
-- **[CASCADE](/glossary/cascade/) performance patterns** -- Identifies performance anti-patterns including O(n) operations replaceable with O(1) alternatives, excessive memory allocation, unnecessary process serialization, and list operations on large collections
+- **[CASCADE](@/glossary/cascade.md) performance patterns** -- Identifies performance anti-patterns including O(n) operations replaceable with O(1) alternatives, excessive memory allocation, unnecessary process serialization, and list operations on large collections
 
 - **Trend analysis and prediction** -- Tracks benchmark results over time to identify gradual performance trends that individual measurements might miss, projecting when current trends will breach performance budgets
 
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with scheduled benchmark campaigns and triggered re-benchmarking after significant code changes
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with scheduled benchmark campaigns and triggered re-benchmarking after significant code changes
 
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing benchmark results and trend metrics for dashboard consumption and alerting
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing benchmark results and trend metrics for dashboard consumption and alerting
 
 ## Authority Level
 
@@ -91,11 +91,11 @@ The domain also encompasses cross-application performance characteristics, inclu
 
 | Agent | Relationship |
 |-------|-------------|
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Profiling results identify hot spots for targeted benchmarking |
-| [performance-optimization-conductor](/agents/performance-optimization-conductor/) | Benchmark data drives optimization priority decisions |
-| [code-quality-commander](/agents/code-quality-commander/) | Performance metrics contribute to the platform's quality domain assessment |
-| [service-mesh-specialist](/agents/service-mesh-specialist/) | Validates that service mesh overhead stays within benchmarked budgets |
-| [Mycelial Genetic Evolver Agent](/agents/mycelial-genetic-evolver-agent/) | Benchmark data provides fitness metrics for network evolution |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Profiling results identify hot spots for targeted benchmarking |
+| [performance-optimization-conductor](@/agents/performance-optimization-conductor.md) | Benchmark data drives optimization priority decisions |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Performance metrics contribute to the platform's quality domain assessment |
+| [service-mesh-specialist](@/agents/service-mesh-specialist.md) | Validates that service mesh overhead stays within benchmarked budgets |
+| [Mycelial Genetic Evolver Agent](@/agents/mycelial-genetic-evolver-agent.md) | Benchmark data provides fitness metrics for network evolution |
 
 ## Benchmarking Infrastructure
 
@@ -105,7 +105,7 @@ Benchmark reproducibility is enforced through environment fingerprinting: each b
 
 ## Enforcement
 
-Performance baselines are enforced under the [NO MERCY](/glossary/no-mercy/) doctrine. Code changes that produce statistically significant performance regression beyond tolerance thresholds are flagged for remediation before merge. All benchmark results carry reproducibility metadata and statistical confidence bounds per [NO DOUBTS](/glossary/no-doubts/) requirements. The platform's page load performance standard (P0) mandates that all pages load under 250ms with server-side render time under 100ms, and the benchmarking agent is the authoritative source for verifying compliance with these standards.
+Performance baselines are enforced under the [NO MERCY](@/glossary/no-mercy.md) doctrine. Code changes that produce statistically significant performance regression beyond tolerance thresholds are flagged for remediation before merge. All benchmark results carry reproducibility metadata and statistical confidence bounds per [NO DOUBTS](@/glossary/no-doubts.md) requirements. The platform's page load performance standard (P0) mandates that all pages load under 250ms with server-side render time under 100ms, and the benchmarking agent is the authoritative source for verifying compliance with these standards.
 
 ---
 
@@ -114,4 +114,4 @@ Performance baselines are enforced under the [NO MERCY](/glossary/no-mercy/) doc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

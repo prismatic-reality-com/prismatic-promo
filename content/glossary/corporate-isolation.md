@@ -363,23 +363,23 @@ HIPAA and other healthcare regulations require strict separation of patient data
 
 Corporate isolation connects to multiple architectural and operational concepts within the Prismatic Platform:
 
-- [Process Isolation](/glossary/process-isolation/) -- the BEAM-level mechanism that underlies corporate isolation
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision trees that partition failure domains per tenant
-- [Bounded Context](/glossary/bounded-context/) -- DDD concept that defines logical boundaries between domains
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the platform's ability to contain failures within isolation boundaries
-- [Bulkhead Pattern](/glossary/bulkhead-pattern/) -- the specific pattern for resource isolation between tenants
-- [Zero Trust](/glossary/zero-trust/) -- security model that assumes no implicit trust across isolation boundaries
-- [Data Protection](/glossary/data-protection/) -- regulatory and technical requirements for protecting isolated data
-- [Let It Crash](/glossary/let-it-crash/) -- OTP philosophy that isolation boundaries enable safe failure recovery
-- [Security](/glossary/security/) -- the broader security framework within which corporate isolation operates
-- [Distributed System](/glossary/distributed-system/) -- the distributed context where corporate isolation is most challenging
+- [Process Isolation](@/glossary/process-isolation.md) -- the BEAM-level mechanism that underlies corporate isolation
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision trees that partition failure domains per tenant
+- [Bounded Context](@/glossary/bounded-context.md) -- DDD concept that defines logical boundaries between domains
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the platform's ability to contain failures within isolation boundaries
+- [Bulkhead Pattern](@/glossary/bulkhead-pattern.md) -- the specific pattern for resource isolation between tenants
+- [Zero Trust](@/glossary/zero-trust.md) -- security model that assumes no implicit trust across isolation boundaries
+- [Data Protection](@/glossary/data-protection.md) -- regulatory and technical requirements for protecting isolated data
+- [Let It Crash](@/glossary/let-it-crash.md) -- OTP philosophy that isolation boundaries enable safe failure recovery
+- [Security](@/glossary/security.md) -- the broader security framework within which corporate isolation operates
+- [Distributed System](@/glossary/distributed-system.md) -- the distributed context where corporate isolation is most challenging
 
 ## See Also
 
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine providing process-level isolation primitives
-- [Rate Limiting](/glossary/rate-limiting/) -- resource control mechanism for enforcing isolation quotas
-- [Encryption](/glossary/encryption/) -- cryptographic isolation of tenant data
-- [Audit Logging](/glossary/audit-logging/) -- tracking cross-boundary access attempts
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine providing process-level isolation primitives
+- [Rate Limiting](@/glossary/rate-limiting.md) -- resource control mechanism for enforcing isolation quotas
+- [Encryption](@/glossary/encryption.md) -- cryptographic isolation of tenant data
+- [Audit Logging](@/glossary/audit-logging.md) -- tracking cross-boundary access attempts
 
 ## Historical Context
 
@@ -389,7 +389,7 @@ The mainframe era introduced hardware-enforced isolation through virtual memory 
 
 The BEAM virtual machine, developed at Ericsson in the 1990s for telecommunications infrastructure, introduced a novel point in the isolation design space. BEAM processes provide memory isolation comparable to OS processes but with resource overhead comparable to coroutines. This makes per-tenant process trees practical at scales where per-tenant containers or virtual machines would be prohibitively expensive.
 
-The Prismatic Platform's corporate isolation architecture leverages this BEAM advantage to provide strong tenant isolation without the operational complexity of container orchestration or the cost of hardware virtualization. Each tenant gets a complete [supervision tree](/glossary/supervision-tree/), dedicated [ETS tables](/glossary/ets-table/), independent failure domains, and per-tenant rate limiting -- all within a single BEAM node.
+The Prismatic Platform's corporate isolation architecture leverages this BEAM advantage to provide strong tenant isolation without the operational complexity of container orchestration or the cost of hardware virtualization. Each tenant gets a complete [supervision tree](@/glossary/supervision-tree.md), dedicated [ETS tables](@/glossary/ets-table.md), independent failure domains, and per-tenant rate limiting -- all within a single BEAM node.
 
 ## Metrics and Monitoring
 
@@ -412,4 +412,4 @@ The platform implements automated isolation verification through periodic synthe
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

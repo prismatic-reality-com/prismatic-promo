@@ -24,11 +24,11 @@ image_alt = "/quality-evolve - Prismatic Platform"
 
 ## Overview
 
-**/quality-evolve** is a production command in the **Evolution** category of the Prismatic Platform. It drives targeted evolution cycles focused on improving specific [quality domains](/glossary/quality-dna/), systematically identifying quality deficiencies, generating improvement candidates, validating their effectiveness through automated testing, and promoting successful improvements into the production codebase. Unlike general-purpose evolution commands such as [/evolve](/commands/evolve/), which operate across the entire platform, `/quality-evolve` concentrates its efforts on a single quality domain per execution cycle, enabling deeper analysis and more effective improvements.
+**/quality-evolve** is a production command in the **Evolution** category of the Prismatic Platform. It drives targeted evolution cycles focused on improving specific [quality domains](@/glossary/quality-dna.md), systematically identifying quality deficiencies, generating improvement candidates, validating their effectiveness through automated testing, and promoting successful improvements into the production codebase. Unlike general-purpose evolution commands such as [/evolve](@/commands/evolve.md), which operate across the entire platform, `/quality-evolve` concentrates its efforts on a single quality domain per execution cycle, enabling deeper analysis and more effective improvements.
 
-This command operates under the **L3** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level grants the command permission to modify source code, update quality configurations, and trigger compilation and test cycles as part of the evolution process.
+This command operates under the **L3** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level grants the command permission to modify source code, update quality configurations, and trigger compilation and test cycles as part of the evolution process.
 
-The Prismatic Platform tracks quality across 13 domains: Dialyzer, [Credo](/glossary/credo/), Compilation, DateTime Precision, Guard Functions, `@impl` Coverage, Memory Safety, Performance, Regression Prevention, Timing Patterns, TODO Management, Typespec Coverage, and Unsafe Map Access. Each domain has specific metrics, detection rules, and improvement strategies. `/quality-evolve` encapsulates the domain-specific knowledge needed to improve any of these 13 areas.
+The Prismatic Platform tracks quality across 13 domains: Dialyzer, [Credo](@/glossary/credo.md), Compilation, DateTime Precision, Guard Functions, `@impl` Coverage, Memory Safety, Performance, Regression Prevention, Timing Patterns, TODO Management, Typespec Coverage, and Unsafe Map Access. Each domain has specific metrics, detection rules, and improvement strategies. `/quality-evolve` encapsulates the domain-specific knowledge needed to improve any of these 13 areas.
 
 The evolutionary approach to quality improvement represents a fundamental shift from manual code review and ad-hoc fixing to systematic, automated, and validated quality enhancement. Each evolution cycle follows a measure-analyze-improve-validate loop that ensures improvements are real (validated by tests), safe (no regressions introduced), and permanent (committed to the codebase with quality DNA updates).
 
@@ -192,15 +192,15 @@ The quality evolution system operates as a feedback loop: measure, analyze, gene
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/quality-gates](/commands/quality-gates/) | Enforcement | Improvements validated against quality gates |
-| [/quality-unified](/commands/quality-unified/) | Peer | Unified quality assessment feeds into evolution targets |
-| [/quality-hbfs](/commands/quality-hbfs/) | Peer | Hottest-bug-first prioritization guides evolution |
-| [/evolve](/commands/evolve/) | Framework | Part of broader ecosystem evolution |
-| [/regression-check](/commands/regression-check/) | Validation | Regression checks validate improvements |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Gate compliance required for promotion |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Evolution metrics and quality trends |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic | Evidence-based improvement decisions |
-| [Quality DNA](/glossary/quality-dna/) | State tracking | Cross-session quality state persistence |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | Improvements validated against quality gates |
+| [/quality-unified](@/commands/quality-unified.md) | Peer | Unified quality assessment feeds into evolution targets |
+| [/quality-hbfs](@/commands/quality-hbfs.md) | Peer | Hottest-bug-first prioritization guides evolution |
+| [/evolve](@/commands/evolve.md) | Framework | Part of broader ecosystem evolution |
+| [/regression-check](@/commands/regression-check.md) | Validation | Regression checks validate improvements |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Gate compliance required for promotion |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Evolution metrics and quality trends |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic | Evidence-based improvement decisions |
+| [Quality DNA](@/glossary/quality-dna.md) | State tracking | Cross-session quality state persistence |
 
 ## Workflow Integration
 
@@ -212,13 +212,13 @@ The /quality-evolve command integrates into the platform's quality management wo
 
 3. **Post-Incident Quality Response**: After quality regressions are detected, targeted evolution cycles address the specific domain that regressed. The rollback-on-regression safeguard prevents further degradation.
 
-4. **New Application Bootstrap**: When new umbrella applications are created via [/quickstart](/commands/quickstart/), quality evolution establishes baseline quality by running all domains against the new application.
+4. **New Application Bootstrap**: When new umbrella applications are created via [/quickstart](@/commands/quickstart.md), quality evolution establishes baseline quality by running all domains against the new application.
 
 5. **Cross-Domain Awareness**: Quality domains are interconnected. Improving Dialyzer compliance often requires adding typespecs (affecting the Typespec Coverage domain). Using `--domains` to evolve related domains together produces better results than treating them independently.
 
 ## NABLA Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Improvements that degrade any quality domain are rejected. Every evolution cycle must leave the codebase in a better or equal state -- never worse.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every improvement is validated through compilation, testing, and quality scoring. No speculative improvements are promoted without empirical validation.
@@ -249,13 +249,13 @@ The validation phase dominates execution time, as it requires full compilation a
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-unified](/commands/quality-unified/) - Unified quality command with quick, full, pre-commit and CI modes
-- [/quality-hbfs](/commands/quality-hbfs/) - Hottest-bug-first search for quality assessment prioritization
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-unified](@/commands/quality-unified.md) - Unified quality command with quick, full, pre-commit and CI modes
+- [/quality-hbfs](@/commands/quality-hbfs.md) - Hottest-bug-first search for quality assessment prioritization
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -264,4 +264,4 @@ The validation phase dominates execution time, as it requires full compilation a
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

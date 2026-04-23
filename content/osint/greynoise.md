@@ -38,7 +38,7 @@ The platform maintains behavioral profiles for millions of IP addresses, tagging
 | **Noise Classification** | Mass scanner, benign service, malicious, unknown |
 | **RIOT (Rule It Out)** | Known benign services (CDNs, DNS, SaaS) |
 | **Tags** | Behavioral tags (e.g., "Mirai", "SSH Bruteforcer", "Struts Scanner") |
-| **[CVE](/glossary/cve/) Tracking** | IPs actively exploiting specific CVEs |
+| **[CVE](@/glossary/cve.md) Tracking** | IPs actively exploiting specific CVEs |
 | **Metadata** | ASN, organization, OS, ports, protocols |
 | **Timeline** | First/last seen timestamps, activity patterns |
 | **Sensor Coverage** | Global honeypot network visibility |
@@ -50,7 +50,7 @@ GreyNoise classifies every observed IP into one of these categories:
 
 | Classification | Meaning | Action Guidance |
 |---------------|---------|-----------------|
-| **benign** | Known legitimate scanner ([Shodan](/osint/shodan/), [Censys](/osint/censys/), search engines) | Safe to suppress alerts |
+| **benign** | Known legitimate scanner ([Shodan](@/osint/shodan.md), [Censys](@/osint/censys.md), search engines) | Safe to suppress alerts |
 | **malicious** | Actively attacking (exploiting vulnerabilities, brute forcing) | Investigate if targeted |
 | **unknown** | Scanning but intent unclear | Monitor and correlate |
 | **RIOT** | Known benign service IP (not a scanner) | Safe to allow |
@@ -69,7 +69,7 @@ The Rule It Out (RIOT) dataset is a curated collection of IP addresses belonging
 
 ## Integration with Prismatic
 
-GreyNoise is integrated into the Prismatic [threat intelligence](/glossary/threat-intelligence/) pipeline, feeding into both the [HAWKEYE](/apps/prismatic-hawkeye/) visitor intelligence system and the [Prismatic Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/) engine.
+GreyNoise is integrated into the Prismatic [threat intelligence](@/glossary/threat-intelligence.md) pipeline, feeding into both the [HAWKEYE](@/apps/prismatic-hawkeye.md) visitor intelligence system and the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md) engine.
 
 ```elixir
 # Quick IP classification
@@ -217,36 +217,36 @@ API key required for all tiers. Community tier available with free registration.
 ### Threat Intelligence
 - Track mass exploitation campaigns (Log4Shell, MOVEit, etc.)
 - Identify scanning infrastructure operated by threat actors
-- Correlate with [AbuseIPDB](/osint/abuseipdb/) for abuse context
+- Correlate with [AbuseIPDB](@/osint/abuseipdb.md) for abuse context
 - Monitor CVE exploitation velocity for patch prioritization
 
 ### Attack Surface Monitoring
 - Identify which scanners are probing your infrastructure
-- Distinguish [Shodan](/osint/shodan/)/[Censys](/osint/censys/) scans from malicious reconnaissance
-- Feed intelligence into [Perimeter](/apps/prismatic-perimeter/) security ratings
+- Distinguish [Shodan](@/osint/shodan.md)/[Censys](@/osint/censys.md) scans from malicious reconnaissance
+- Feed intelligence into [Perimeter](@/apps/prismatic-perimeter.md) security ratings
 - Track scanning trends against organizational IP space over time
 
 ### Incident Response
 - Rapidly determine if an attacking IP is part of a mass campaign or targeted operation
 - Identify related infrastructure through shared behavioral tags
 - Build timeline of attacker scanning activity from sensor data
-- Correlate with [IPinfo](/osint/ipinfo/) for geographic and organizational attribution
+- Correlate with [IPinfo](@/osint/ipinfo.md) for geographic and organizational attribution
 
 ## Related Sources
 
-- [AbuseIPDB](/osint/abuseipdb/) - Community-driven IP abuse reporting
-- [Shodan](/osint/shodan/) - Internet device search and port scanning
-- [Censys](/osint/censys/) - Internet-wide scanning and certificate intelligence
-- [VirusTotal](/osint/virustotal/) - Multi-engine threat analysis
-- [URLScan](/osint/urlscan/) - URL-level threat analysis
-- [IPinfo](/osint/ipinfo/) - IP geolocation and ASN intelligence
-- [IPQualityScore](/osint/ipqualityscore/) - Fraud scoring and proxy detection
+- [AbuseIPDB](@/osint/abuseipdb.md) - Community-driven IP abuse reporting
+- [Shodan](@/osint/shodan.md) - Internet device search and port scanning
+- [Censys](@/osint/censys.md) - Internet-wide scanning and certificate intelligence
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine threat analysis
+- [URLScan](@/osint/urlscan.md) - URL-level threat analysis
+- [IPinfo](@/osint/ipinfo.md) - IP geolocation and ASN intelligence
+- [IPQualityScore](@/osint/ipqualityscore.md) - Fraud scoring and proxy detection
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Noise-filtered [EASM](/glossary/easm/) intelligence
-- [HAWKEYE](/apps/prismatic-hawkeye/) - Visitor intelligence with noise classification
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Noise-filtered [EASM](@/glossary/easm.md) intelligence
+- [HAWKEYE](@/apps/prismatic-hawkeye.md) - Visitor intelligence with noise classification
 
 ---
 
@@ -255,4 +255,4 @@ API key required for all tiers. Community tier available with free registration.
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

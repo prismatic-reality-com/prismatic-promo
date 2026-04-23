@@ -243,7 +243,7 @@ end
 
 ## Usage in Prismatic Platform
 
-The Prismatic Platform leverages Certificate Transparency logs as a primary data source within [Prismatic Perimeter's](/apps/) EASM asset discovery pipeline.
+The Prismatic Platform leverages Certificate Transparency logs as a primary data source within [Prismatic Perimeter's](@/apps/_index.md) EASM asset discovery pipeline.
 
 ### EASM Integration
 
@@ -327,20 +327,20 @@ end
 
 ## Related Concepts
 
-- [TLS](/glossary/tls/) -- Transport security protocol whose certificates CT logs monitor
-- [EASM](/glossary/easm/) -- Attack surface management consuming CT log data for asset discovery
-- [Attack Surface](/glossary/attack-surface/) -- Total exposure area that CT data helps map
-- [Censys](/glossary/censys/) -- Internet scanner that indexes CT log data for certificate search
-- [OSINT](/glossary/osint/) -- Intelligence discipline that uses CT logs as a data source
-- [DNS Enumeration](/glossary/dns-enumeration/) -- Complementary discovery technique combined with CT data
-- [Security Rating](/glossary/security-rating/) -- A-F grade incorporating certificate hygiene metrics
+- [TLS](@/glossary/tls.md) -- Transport security protocol whose certificates CT logs monitor
+- [EASM](@/glossary/easm.md) -- Attack surface management consuming CT log data for asset discovery
+- [Attack Surface](@/glossary/attack-surface.md) -- Total exposure area that CT data helps map
+- [Censys](@/glossary/censys.md) -- Internet scanner that indexes CT log data for certificate search
+- [OSINT](@/glossary/osint.md) -- Intelligence discipline that uses CT logs as a data source
+- [DNS Enumeration](@/glossary/dns-enumeration.md) -- Complementary discovery technique combined with CT data
+- [Security Rating](@/glossary/security-rating.md) -- A-F grade incorporating certificate hygiene metrics
 
 ## Further Reading
 
 - [RFC 6962: Certificate Transparency](https://datatracker.ietf.org/doc/html/rfc6962) -- Original CT specification
 - [RFC 9162: Certificate Transparency Version 2.0](https://datatracker.ietf.org/doc/html/rfc9162) -- Updated specification
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -349,4 +349,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "/openrouter - Prismatic Platform"
 
 OpenRouter serves as a meta-provider in the Prismatic LLM infrastructure, offering access to models from OpenAI, Anthropic, Google, Meta, Mistral, and dozens of other providers through a single API endpoint. The `/openrouter` command manages this integration, handling model discovery, routing configuration, usage tracking, and cost optimization. It enables the platform to dynamically select the optimal model for each task based on quality requirements, latency constraints, and budget parameters.
 
-The command plays a critical role in the platform's multi-provider LLM strategy. While Claude serves as the primary AI engine and [Ollama](/commands/ollama/) provides local model capabilities, OpenRouter fills the gap for specialized models, experimental providers, and cost-sensitive bulk operations. The routing intelligence ensures that each request reaches the most appropriate model without manual provider management.
+The command plays a critical role in the platform's multi-provider LLM strategy. While Claude serves as the primary AI engine and [Ollama](@/commands/ollama.md) provides local model capabilities, OpenRouter fills the gap for specialized models, experimental providers, and cost-sensitive bulk operations. The routing intelligence ensures that each request reaches the most appropriate model without manual provider management.
 
-This command operates under the **L2+** authority level and is executed by the `openrouter-llm-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. Its low usage frequency reflects its management-oriented nature -- configuration happens infrequently while the configured routing operates continuously.
+This command operates under the **L2+** authority level and is executed by the `openrouter-llm-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. Its low usage frequency reflects its management-oriented nature -- configuration happens infrequently while the configured routing operates continuously.
 
 ## Architecture
 
@@ -178,13 +178,13 @@ The `/openrouter` command interfaces with the OpenRouter API through a provider 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Managed by `openrouter-llm-specialist` agent |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Registered command with AIAD metadata |
-| [Telemetry](/glossary/telemetry/) | Observability | Request latency, cost, and quality [metrics](/glossary/metrics/) |
-| [Ollama](/commands/ollama/) | Fallback partner | Local models as fallback when cloud unavailable |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Managed by `openrouter-llm-specialist` agent |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Registered command with AIAD metadata |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Request latency, cost, and quality [metrics](@/glossary/metrics.md) |
+| [Ollama](@/commands/ollama.md) | Fallback partner | Local models as fallback when cloud unavailable |
 | LLM Router | Routing system | OpenRouter models as routing targets |
-| [Quality Gates](/glossary/quality-gates/) | Quality validation | Output quality gates for model responses |
-| [ETS Storage](/glossary/ets/) | Caching | Model catalog and routing table cached in ETS |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality validation | Output quality gates for model responses |
+| [ETS Storage](@/glossary/ets.md) | Caching | Model catalog and routing table cached in ETS |
 | Budget Manager | Cost control | Budget enforcement and alert system |
 
 ## Best Practices
@@ -250,19 +250,19 @@ Project future costs based on usage patterns:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. API interactions must complete or fail explicitly. Budget limits are hard limits, not suggestions. Quality thresholds are enforced without exception.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Model selection decisions are backed by benchmark data. Cost projections are based on measured usage patterns. Routing configurations are validated before activation.
 
 ## Related Commands
 
-- [/llm](/commands/llm/) - Primary LLM operation management and orchestration
-- [/local-llm](/commands/local-llm/) - Execute LLM requests using local providers with zero API cost
-- [/ollama](/commands/ollama/) - Local AI Ollama model management, installation and optimization
-- [/chatgpt-bridge](/commands/chatgpt-bridge/) - ChatGPT bridge operations for cross-LLM coordination
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
+- [/llm](@/commands/llm.md) - Primary LLM operation management and orchestration
+- [/local-llm](@/commands/local-llm.md) - Execute LLM requests using local providers with zero API cost
+- [/ollama](@/commands/ollama.md) - Local AI Ollama model management, installation and optimization
+- [/chatgpt-bridge](@/commands/chatgpt-bridge.md) - ChatGPT bridge operations for cross-LLM coordination
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
 
 ---
 
@@ -271,4 +271,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

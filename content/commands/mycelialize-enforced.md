@@ -24,9 +24,9 @@ image_alt = "/mycelialize-enforced - Prismatic Platform"
 
 ## Overview
 
-**/mycelialize-enforced** is a production command in the **Evolution** category of the Prismatic Platform that executes mycelial pattern propagation operations with mandatory Quality Debt Point ([QDP](/glossary/qdp/)) reduction enforcement. While the standard [/mycelialize](/commands/mycelialize/) command propagates patterns across the codebase using biologically-inspired network algorithms, the enforced variant adds a non-bypassable requirement that every mycelial operation must simultaneously reduce the platform's quality debt. This coupling of pattern propagation with quality improvement ensures that the platform's codebase becomes healthier with every evolution cycle.
+**/mycelialize-enforced** is a production command in the **Evolution** category of the Prismatic Platform that executes mycelial pattern propagation operations with mandatory Quality Debt Point ([QDP](@/glossary/qdp.md)) reduction enforcement. While the standard [/mycelialize](@/commands/mycelialize.md) command propagates patterns across the codebase using biologically-inspired network algorithms, the enforced variant adds a non-bypassable requirement that every mycelial operation must simultaneously reduce the platform's quality debt. This coupling of pattern propagation with quality improvement ensures that the platform's codebase becomes healthier with every evolution cycle.
 
-This command operates under the **P0 ABSOLUTE** authority level and is executed by the `mycelial-network-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The P0 ABSOLUTE authority level is the highest enforcement priority in the platform, meaning that QDP reduction requirements cannot be overridden, bypassed, or deferred under any circumstances.
+This command operates under the **P0 ABSOLUTE** authority level and is executed by the `mycelial-network-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The P0 ABSOLUTE authority level is the highest enforcement priority in the platform, meaning that QDP reduction requirements cannot be overridden, bypassed, or deferred under any circumstances.
 
 The mycelial metaphor comes from the biological mycelium networks that connect plants in forests, enabling nutrient transfer and communication across vast distances. In the Prismatic Platform, mycelial operations propagate proven patterns -- code structures, architectural decisions, quality improvements -- from one part of the codebase to all other applicable locations. When a pattern is proven effective in one umbrella application, mycelial propagation identifies all locations across the 90+ umbrella apps where that pattern could be applied and executes the transformation.
 
@@ -175,16 +175,16 @@ The enforced mycelial system operates as a dual-objective optimization engine th
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `mycelial-network-coordinator` | Orchestrates propagation and enforcement |
-| [/mycelialize](/commands/mycelialize/) | Standard variant | Non-enforced pattern propagation |
-| [/mycelialize-formal](/commands/mycelialize-formal/) | Formal variant | Lean4-verified propagation |
-| [/evolve](/commands/evolve/) | Evolution system | Broader ecosystem evolution |
-| [/quality-gates](/commands/quality-gates/) | Quality verification | Pre/post quality gate checking |
-| [/quality-enforce](/commands/quality-enforce/) | QDP tracking | Quality debt inventory |
-| [/regression-check](/commands/regression-check/) | Regression prevention | Ensures no regressions from propagation |
-| [Quality Gates](/glossary/quality-gates/) | Gate enforcement | Quality criteria validation |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Propagation speed, QDP elimination rate |
-| [SEADF](/glossary/seadf/) | Evolution framework | Mycelial system within SEADF ecosystem |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `mycelial-network-coordinator` | Orchestrates propagation and enforcement |
+| [/mycelialize](@/commands/mycelialize.md) | Standard variant | Non-enforced pattern propagation |
+| [/mycelialize-formal](@/commands/mycelialize-formal.md) | Formal variant | Lean4-verified propagation |
+| [/evolve](@/commands/evolve.md) | Evolution system | Broader ecosystem evolution |
+| [/quality-gates](@/commands/quality-gates.md) | Quality verification | Pre/post quality gate checking |
+| [/quality-enforce](@/commands/quality-enforce.md) | QDP tracking | Quality debt inventory |
+| [/regression-check](@/commands/regression-check.md) | Regression prevention | Ensures no regressions from propagation |
+| [Quality Gates](@/glossary/quality-gates.md) | Gate enforcement | Quality criteria validation |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Propagation speed, QDP elimination rate |
+| [SEADF](@/glossary/seadf.md) | Evolution framework | Mycelial system within SEADF ecosystem |
 
 ## Best Practices
 
@@ -273,19 +273,19 @@ Define custom patterns for organization-specific propagation.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The enforced variant is the doctrine made operational -- quality debt must decrease with every execution. No bypass, no exceptions, no deferrals. If quality regresses, the entire operation is rolled back.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every QDP elimination is verified through compilation and static analysis. Every pattern propagation is validated through quality gates. Results include complete before/after metrics.
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -294,4 +294,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

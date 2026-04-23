@@ -36,17 +36,17 @@ image_alt = "Observability - Prismatic Platform"
 
 Observability is the degree to which a system's internal state can be inferred from its external outputs. Originating from control theory, where Rudolf Kalman formalized the concept in 1960 for linear dynamical systems, the term was adopted by software engineering to describe systems that emit sufficient telemetry data to enable operators to diagnose novel, previously unseen problems without deploying new instrumentation. An observable system does not merely report known failure modes; it provides the raw data necessary to investigate unknown failure modes, performance anomalies, and emergent behaviors that were not anticipated during design. The distinction between observability and monitoring is not one of degree but of kind: monitoring asks known questions about a system ("is CPU above 90%?"), while observability provides the data and tools to ask arbitrary questions that were never predefined.
 
-The three pillars of observability are [metrics](/glossary/metrics/) (numeric measurements aggregated over time), [structured logs](/glossary/structured-logging/) (discrete event records with machine-parseable metadata), and [distributed traces](/glossary/distributed-tracing/) (request flow graphs across services and processes). Each pillar provides a different lens through which to understand system behavior: metrics answer "what is happening at an aggregate level," logs answer "what happened in this specific event," and traces answer "what was the complete path of this specific request." Together, they enable operators to navigate from high-level anomaly detection (metrics alerting on elevated error rates) to specific diagnosis (traces showing which service is slow) to root cause analysis (logs revealing the exact error in the failing component). Modern observability practice increasingly recognizes a fourth dimension -- profiling -- which provides continuous runtime sampling of CPU, memory, and allocation behavior, bridging the gap between aggregate metrics and individual event traces.
+The three pillars of observability are [metrics](@/glossary/metrics.md) (numeric measurements aggregated over time), [structured logs](@/glossary/structured-logging.md) (discrete event records with machine-parseable metadata), and [distributed traces](@/glossary/distributed-tracing.md) (request flow graphs across services and processes). Each pillar provides a different lens through which to understand system behavior: metrics answer "what is happening at an aggregate level," logs answer "what happened in this specific event," and traces answer "what was the complete path of this specific request." Together, they enable operators to navigate from high-level anomaly detection (metrics alerting on elevated error rates) to specific diagnosis (traces showing which service is slow) to root cause analysis (logs revealing the exact error in the failing component). Modern observability practice increasingly recognizes a fourth dimension -- profiling -- which provides continuous runtime sampling of CPU, memory, and allocation behavior, bridging the gap between aggregate metrics and individual event traces.
 
-In complex distributed systems like the Prismatic Platform, the space of possible failure modes is combinatorially explosive and cannot be enumerated in advance. A platform with 115 umbrella applications, 530 AIAD agents, distributed [BEAM](/glossary/beam/) clustering, multiple storage backends ([ETS](/glossary/ets/), [Ecto](/glossary/ecto/)/PostgreSQL, Meilisearch, KuzuDB), and real-time [LiveView](/glossary/liveview/) dashboards creates an enormous state space where failures can emerge from interactions between components that function correctly in isolation. Observability provides the general-purpose diagnostic capability needed to navigate this complexity without predicting every possible failure scenario.
+In complex distributed systems like the Prismatic Platform, the space of possible failure modes is combinatorially explosive and cannot be enumerated in advance. A platform with 115 umbrella applications, 530 AIAD agents, distributed [BEAM](@/glossary/beam.md) clustering, multiple storage backends ([ETS](@/glossary/ets.md), [Ecto](@/glossary/ecto.md)/PostgreSQL, Meilisearch, KuzuDB), and real-time [LiveView](@/glossary/liveview.md) dashboards creates an enormous state space where failures can emerge from interactions between components that function correctly in isolation. Observability provides the general-purpose diagnostic capability needed to navigate this complexity without predicting every possible failure scenario.
 
 ## The Three Pillars
 
 | Pillar | Data Type | Granularity | Storage Cost | Best For |
 |--------|----------|-------------|-------------|---------|
-| **[Metrics](/glossary/metrics/)** | Numeric time series (counters, gauges, histograms) | Aggregated | Low | Alerting, dashboards, trend analysis, capacity planning |
-| **[Structured Logs](/glossary/structured-logging/)** | Discrete event records (JSON/key-value) | Per-event | Medium | Event investigation, audit trails, debugging specific occurrences |
-| **[Distributed Traces](/glossary/distributed-tracing/)** | Span trees with timing and metadata | Per-request | High | Request path analysis, latency debugging, dependency mapping |
+| **[Metrics](@/glossary/metrics.md)** | Numeric time series (counters, gauges, histograms) | Aggregated | Low | Alerting, dashboards, trend analysis, capacity planning |
+| **[Structured Logs](@/glossary/structured-logging.md)** | Discrete event records (JSON/key-value) | Per-event | Medium | Event investigation, audit trails, debugging specific occurrences |
+| **[Distributed Traces](@/glossary/distributed-tracing.md)** | Span trees with timing and metadata | Per-request | High | Request path analysis, latency debugging, dependency mapping |
 
 ### How the Pillars Connect
 
@@ -287,7 +287,7 @@ The Prismatic Platform achieves deep observability through a multi-layered instr
 
 - **Session Lifecycle Telemetry**: The SessionLifecycle GenServer emits events at `[:prismatic_claude, :session_lifecycle, *]`, providing visibility into session start, hook execution timing, circuit breaker state, and session end operations. This creates observability into the development process itself.
 
-- **[NABLA](/glossary/nabla-infinity/) Epistemic Observability**: The epistemic framework provides observability into the platform's reasoning processes -- [belief graph](/glossary/belief-graph/) state, [confidence scores](/glossary/confidence-scoring/), [Trinity Gate](/glossary/trinity-gate/) verdicts, and axiom compliance. This is a unique dimension of observability that monitors not just system health but reasoning integrity.
+- **[NABLA](@/glossary/nabla-infinity.md) Epistemic Observability**: The epistemic framework provides observability into the platform's reasoning processes -- [belief graph](@/glossary/belief-graph.md) state, [confidence scores](@/glossary/confidence-scoring.md), [Trinity Gate](@/glossary/trinity-gate.md) verdicts, and axiom compliance. This is a unique dimension of observability that monitors not just system health but reasoning integrity.
 
 ## Observability Maturity Model
 
@@ -302,7 +302,7 @@ Organizations progress through observability maturity levels, each building on t
 | **L4: Predictive Observability** | Anomaly detection, trend-based alerting, SLO tracking | Quality Floor Guardian, trend analysis | Active |
 | **L5: Self-Healing Observability** | Automatic remediation based on observed state | Autoheal/Autoevolve, Quality DNA | Active |
 
-The Prismatic Platform operates primarily at L4-L5, where observability data feeds directly into automated remediation systems. The Quality Floor Guardian detects quality regression and triggers [autoheal](/glossary/autoheal/) cycles, while the [autoevolve](/glossary/autoevolve/) system uses quality trend data to drive autonomous platform improvement. This closed-loop approach transforms observability from a passive diagnostic tool into an active quality enforcement mechanism.
+The Prismatic Platform operates primarily at L4-L5, where observability data feeds directly into automated remediation systems. The Quality Floor Guardian detects quality regression and triggers [autoheal](@/glossary/autoheal.md) cycles, while the [autoevolve](@/glossary/autoevolve.md) system uses quality trend data to drive autonomous platform improvement. This closed-loop approach transforms observability from a passive diagnostic tool into an active quality enforcement mechanism.
 
 ## Observability vs. Monitoring
 
@@ -368,7 +368,7 @@ defmodule PrismaticObservability.ProcessInspector do
 end
 ```
 
-In a [clustered](/glossary/cluster/) BEAM deployment, observability must span multiple nodes. The Prismatic Platform uses distributed telemetry aggregation where each node emits telemetry events locally, and a centralized collector aggregates metrics across the cluster. The `:pg` process group module enables cluster-wide process discovery, allowing observability tools to query any node's process state from any other node.
+In a [clustered](@/glossary/cluster.md) BEAM deployment, observability must span multiple nodes. The Prismatic Platform uses distributed telemetry aggregation where each node emits telemetry events locally, and a centralized collector aggregates metrics across the cluster. The `:pg` process group module enables cluster-wide process discovery, allowing observability tools to query any node's process state from any other node.
 
 ## OpenTelemetry Integration
 
@@ -431,24 +431,24 @@ Observability data volume grows with system complexity. Effective cost managemen
 
 ## Related Terms
 
-- [Structured Logging](/glossary/structured-logging/) - Machine-parseable event records forming the logging pillar
-- [Distributed Tracing](/glossary/distributed-tracing/) - Request flow tracking forming the tracing pillar
-- [Metrics](/glossary/metrics/) - Numeric measurements forming the metrics pillar
-- [Autoheal](/glossary/autoheal/) - Self-healing triggered by observability data
-- [Autoevolve](/glossary/autoevolve/) - Autonomous evolution driven by quality observability
-- [QDP](/glossary/qdp/) - Quality debt metric tracked through observability infrastructure
-- [Circuit Breaker](/glossary/circuit-breaker/) - Pattern using observability signals to prevent cascade failures
-- [Broadway](/glossary/broadway/) - Pipeline with built-in telemetry for observability
-- [Ecto](/glossary/ecto/) - Database layer with query-level telemetry instrumentation
-- [Cluster](/glossary/cluster/) - Distributed observability across cluster nodes
-- [BEAM](/glossary/beam/) - Virtual machine providing unique per-process observability primitives
-- [ETS](/glossary/ets/) - In-memory store used for telemetry handler state and metric caching
+- [Structured Logging](@/glossary/structured-logging.md) - Machine-parseable event records forming the logging pillar
+- [Distributed Tracing](@/glossary/distributed-tracing.md) - Request flow tracking forming the tracing pillar
+- [Metrics](@/glossary/metrics.md) - Numeric measurements forming the metrics pillar
+- [Autoheal](@/glossary/autoheal.md) - Self-healing triggered by observability data
+- [Autoevolve](@/glossary/autoevolve.md) - Autonomous evolution driven by quality observability
+- [QDP](@/glossary/qdp.md) - Quality debt metric tracked through observability infrastructure
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Pattern using observability signals to prevent cascade failures
+- [Broadway](@/glossary/broadway.md) - Pipeline with built-in telemetry for observability
+- [Ecto](@/glossary/ecto.md) - Database layer with query-level telemetry instrumentation
+- [Cluster](@/glossary/cluster.md) - Distributed observability across cluster nodes
+- [BEAM](@/glossary/beam.md) - Virtual machine providing unique per-process observability primitives
+- [ETS](@/glossary/ets.md) - In-memory store used for telemetry handler state and metric caching
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform observability architecture
-- [Technologies](/technologies/) - Telemetry and monitoring technology stack
-- [Capabilities](/capabilities/) - Operational visibility and self-healing capabilities
+- [Architecture](@/architecture/_index.md) - Platform observability architecture
+- [Technologies](@/technologies/_index.md) - Telemetry and monitoring technology stack
+- [Capabilities](@/capabilities/_index.md) - Operational visibility and self-healing capabilities
 
 ---
 
@@ -457,4 +457,4 @@ Observability data volume grows with system complexity. Effective cost managemen
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -36,9 +36,9 @@ image_alt = "Authorization - Prismatic Platform"
 
 ## Definition
 
-Authorization is the process of determining whether an authenticated entity has permission to perform a specific action on a specific resource. While [authentication](/glossary/authentication/) answers "Who are you?", authorization answers "Are you allowed to do this?" It is the second critical gate in the security pipeline: after identity is established, the authorization system evaluates the entity's roles, permissions, scopes, and contextual attributes against the access requirements of the requested operation.
+Authorization is the process of determining whether an authenticated entity has permission to perform a specific action on a specific resource. While [authentication](@/glossary/authentication.md) answers "Who are you?", authorization answers "Are you allowed to do this?" It is the second critical gate in the security pipeline: after identity is established, the authorization system evaluates the entity's roles, permissions, scopes, and contextual attributes against the access requirements of the requested operation.
 
-In the Prismatic Platform, authorization operates at two distinct levels: **human authorization** through [RBAC](/glossary/rbac/) (role-based access control) for users and API consumers, and **agent authorization** through [authority levels](/glossary/authority-level/) for AIAD agents. Both systems share the same architectural principles -- explicit permission checks, deny-by-default, and immutable audit trails -- but differ in their policy evaluation mechanisms.
+In the Prismatic Platform, authorization operates at two distinct levels: **human authorization** through [RBAC](@/glossary/rbac.md) (role-based access control) for users and API consumers, and **agent authorization** through [authority levels](@/glossary/authority-level.md) for AIAD agents. Both systems share the same architectural principles -- explicit permission checks, deny-by-default, and immutable audit trails -- but differ in their policy evaluation mechanisms.
 
 ## Overview
 
@@ -49,7 +49,7 @@ Authorization is the enforcement layer that translates security policy into runt
 - **Deny by default**: Any action not explicitly permitted is denied
 - **Auditability**: Every authorization decision is logged with full context
 
-The Prismatic Platform's authorization architecture processes thousands of authorization decisions per second across its 115-application umbrella. Performance is critical: authorization checks must complete in microseconds to meet the platform's 250ms page load target. This is achieved through ETS-cached [policy](/glossary/policy/) evaluation, compile-time permission resolution where possible, and scope-based short-circuit evaluation.
+The Prismatic Platform's authorization architecture processes thousands of authorization decisions per second across its 115-application umbrella. Performance is critical: authorization checks must complete in microseconds to meet the platform's 250ms page load target. This is achieved through ETS-cached [policy](@/glossary/policy.md) evaluation, compile-time permission resolution where possible, and scope-based short-circuit evaluation.
 
 ### Authorization Decision Flow
 
@@ -332,7 +332,7 @@ end
 
 ### Agent Authorization
 
-AIAD agents use a distinct authorization mechanism based on [authority levels](/glossary/authority-level/):
+AIAD agents use a distinct authorization mechanism based on [authority levels](@/glossary/authority-level.md):
 
 ```elixir
 defmodule Prismatic.AIAD.AgentAuthorization do
@@ -499,7 +499,7 @@ The Prismatic Platform uses RBAC for human users because roles map naturally to 
 
 2. **Inconsistent authorization across channels**: A resource that requires admin access via the REST API but is unrestricted via LiveView WebSocket is a vulnerability. Apply consistent authorization across all access channels.
 
-3. **[Privilege escalation](/glossary/privilege-escalation/) through role assignment**: If a user can assign roles to themselves, they can escalate to admin. Role assignment must itself be an authorized operation requiring higher privilege.
+3. **[Privilege escalation](@/glossary/privilege-escalation.md) through role assignment**: If a user can assign roles to themselves, they can escalate to admin. Role assignment must itself be an authorized operation requiring higher privilege.
 
 4. **Stale permission cache**: When roles or permissions change, cached effective permissions must be invalidated. Serving stale permissions after a role revocation is a security breach window.
 
@@ -531,16 +531,16 @@ New users start with `viewer` role (read-only dashboard access). As they complet
 
 ## Related Concepts
 
-- [Authentication](/glossary/authentication/) -- identity verification that precedes authorization
-- [RBAC](/glossary/rbac/) -- role-based access control, the primary human authorization model
-- [Authority Level](/glossary/authority-level/) -- hierarchical agent authorization (L1-L5)
-- [Privilege Escalation](/glossary/privilege-escalation/) -- unauthorized authority increase
-- [Policy](/glossary/policy/) -- governance rules evaluated during authorization
-- [Security Operations](/glossary/security-operations/) -- monitoring authorization events for threats
-- [Plug](/glossary/plug/) -- composable pipeline where authorization checks are enforced
-- [AIAD](/glossary/aiad/) -- agent framework with built-in authorization model
-- [Agent Tier](/glossary/agent-tier/) -- functional classification informing authorization scope
-- [Credential Management](/glossary/credential-management/) -- managing credentials that carry authorization claims
+- [Authentication](@/glossary/authentication.md) -- identity verification that precedes authorization
+- [RBAC](@/glossary/rbac.md) -- role-based access control, the primary human authorization model
+- [Authority Level](@/glossary/authority-level.md) -- hierarchical agent authorization (L1-L5)
+- [Privilege Escalation](@/glossary/privilege-escalation.md) -- unauthorized authority increase
+- [Policy](@/glossary/policy.md) -- governance rules evaluated during authorization
+- [Security Operations](@/glossary/security-operations.md) -- monitoring authorization events for threats
+- [Plug](@/glossary/plug.md) -- composable pipeline where authorization checks are enforced
+- [AIAD](@/glossary/aiad.md) -- agent framework with built-in authorization model
+- [Agent Tier](@/glossary/agent-tier.md) -- functional classification informing authorization scope
+- [Credential Management](@/glossary/credential-management.md) -- managing credentials that carry authorization claims
 
 ## See Also
 
@@ -556,4 +556,4 @@ New users start with `viewer` role (read-only dashboard access). As they complet
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -27,7 +27,7 @@ image_alt = "NBU / Czech Security Authority - Prismatic Platform"
 
 The National Security Authority (NBU -- Narodni bezpecnostni urad) is the Czech Republic's central government body responsible for administering and enforcing the national security clearance framework, protecting classified information, and establishing cybersecurity governance standards across both public and private sector entities. Established under Act No. 412/2005 Sb. on the protection of classified information and security clearance, the NBU operates as an independent authority with broad regulatory powers over the entire lifecycle of classified information handling.
 
-For [OSINT](/glossary/osint/) analysts, the NBU represents a unique intelligence source that reveals which companies and individuals have been vetted by the state to handle sensitive information. The presence or absence of a facility security clearance is a strong signal in defense and critical infrastructure investigations, as it indicates both the trustworthiness assessment by the state and the entity's involvement in classified contracts. Understanding the NBU's role and data is essential for anyone conducting due diligence on Czech defense contractors, critical infrastructure operators, or government technology suppliers.
+For [OSINT](@/glossary/osint.md) analysts, the NBU represents a unique intelligence source that reveals which companies and individuals have been vetted by the state to handle sensitive information. The presence or absence of a facility security clearance is a strong signal in defense and critical infrastructure investigations, as it indicates both the trustworthiness assessment by the state and the entity's involvement in classified contracts. Understanding the NBU's role and data is essential for anyone conducting due diligence on Czech defense contractors, critical infrastructure operators, or government technology suppliers.
 
 The NBU also serves as the Czech national authority for NATO and EU classified information, manages the national CERT (GovCERT.CZ), and certifies cryptographic products and information systems for classified use. Its scope expanded significantly with the implementation of the Czech Cybersecurity Act (Act No. 181/2014 Sb.), making it the primary cybersecurity regulator for critical information infrastructure and essential service operators.
 
@@ -196,7 +196,7 @@ Analysts can map the cleared entity landscape by clearance level to understand w
 
 ### Cybersecurity Compliance Assessment
 
-Since the implementation of the Czech Cybersecurity Act, the NBU has become the primary regulator for cybersecurity across critical information infrastructure and essential services. Understanding NBU cybersecurity standards and their alignment with European frameworks such as [NIS2](/glossary/nis2/) is essential for compliance assessment and regulatory risk evaluation.
+Since the implementation of the Czech Cybersecurity Act, the NBU has become the primary regulator for cybersecurity across critical information infrastructure and essential services. Understanding NBU cybersecurity standards and their alignment with European frameworks such as [NIS2](@/glossary/nis2.md) is essential for compliance assessment and regulatory risk evaluation.
 
 The Prismatic Platform maps NBU cybersecurity requirements against NIS2 directive provisions and ZKB 264/2025 Sb. requirements, enabling organizations to assess their compliance posture against multiple overlapping regulatory frameworks simultaneously.
 
@@ -259,23 +259,23 @@ defmodule Prismatic.Pipeline.NbuEnrichment do
 end
 ```
 
-The NBU enrichment pipeline integrates with the broader entity intelligence system, contributing to composite risk scores and compliance assessments used in the [Prismatic Perimeter](/apps/prismatic-perimeter/) EASM module.
+The NBU enrichment pipeline integrates with the broader entity intelligence system, contributing to composite risk scores and compliance assessments used in the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) EASM module.
 
 ## Best Practices for NBU Intelligence
 
-Effective use of NBU data in OSINT operations requires understanding both the authoritative nature of the source and its inherent limitations. Clearance data should always be cross-referenced with [ARES](/osint/ares/) business registry records to ensure correct entity identification through ICO matching. Procurement data from [Verejne zakazky](/osint/verejne-zakazky/) provides contextual evidence of the types of classified work an entity performs. Temporal analysis of clearance grants and revocations, correlated with financial data from [Justice.cz](/osint/justice-cz/), can reveal early warning signals of organizational instability.
+Effective use of NBU data in OSINT operations requires understanding both the authoritative nature of the source and its inherent limitations. Clearance data should always be cross-referenced with [ARES](@/osint/ares.md) business registry records to ensure correct entity identification through ICO matching. Procurement data from [Verejne zakazky](@/osint/verejne-zakazky.md) provides contextual evidence of the types of classified work an entity performs. Temporal analysis of clearance grants and revocations, correlated with financial data from [Justice.cz](@/osint/justice-cz.md), can reveal early warning signals of organizational instability.
 
 Analysts should maintain awareness that the public clearance registry represents a snapshot, and recent changes may not yet be reflected. Building a longitudinal dataset through periodic collection enables trend analysis and anomaly detection that point-in-time queries cannot provide. The Prismatic Platform's automated collection scheduling ensures continuous monitoring of NBU sources with configurable alerting on detected changes.
 
 ## Related Sources
 
-- [ARES](/osint/ares/) - Business [registry](/glossary/registry-otp/) for entity identification via ICO
-- [Verejne zakazky](/osint/verejne-zakazky/) - Defense and government procurement contracts
-- [EU Sanctions](/osint/eu-sanctions/) - [Sanctions screening](/glossary/sanctions-screening/) for cleared entities
-- [Justice.cz](/osint/justice-cz/) - Commercial register for ownership and financial data
-- [UOHS](/osint/uohs/) - Competition authority decisions on defense sector mergers
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog analytics on public spending
-- [Registr smluv](/osint/registr-smluv/) - Contract registry for classified contract metadata
+- [ARES](@/osint/ares.md) - Business [registry](@/glossary/registry-otp.md) for entity identification via ICO
+- [Verejne zakazky](@/osint/verejne-zakazky.md) - Defense and government procurement contracts
+- [EU Sanctions](@/osint/eu-sanctions.md) - [Sanctions screening](@/glossary/sanctions-screening.md) for cleared entities
+- [Justice.cz](@/osint/justice-cz.md) - Commercial register for ownership and financial data
+- [UOHS](@/osint/uohs.md) - Competition authority decisions on defense sector mergers
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog analytics on public spending
+- [Registr smluv](@/osint/registr-smluv.md) - Contract registry for classified contract metadata
 
 ---
 
@@ -284,4 +284,4 @@ Analysts should maintain awareness that the public clearance registry represents
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

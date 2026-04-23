@@ -26,7 +26,7 @@ image_alt = "Claude (Anthropic) - Prismatic Platform"
 
 Claude is the primary frontier AI model powering the Prismatic Platform's most sophisticated operations. Developed by Anthropic, Claude Opus 4.6 provides the reasoning, code generation, and analysis capabilities that drive the platform's autonomous agent system, quality enforcement, and self-evolution mechanisms. Claude is not merely an API integration -- it is the cognitive engine behind the platform's most ambitious capabilities, from autonomous code generation to epistemic verification.
 
-The Prismatic Platform integrates Claude through its Agent SDK for interactive development sessions, code review and generation, architecture analysis, and complex problem-solving. Claude serves as the "brain" behind the platform's most advanced operations -- from the ARCHER SUPREME tactical commander to the quality DNA evolution system. Every line of platform code written with Claude assistance passes through the same [NO MERCY](/capabilities/no-mercy/) quality gates as manually written code, ensuring AI-generated output meets production standards.
+The Prismatic Platform integrates Claude through its Agent SDK for interactive development sessions, code review and generation, architecture analysis, and complex problem-solving. Claude serves as the "brain" behind the platform's most advanced operations -- from the ARCHER SUPREME tactical commander to the quality DNA evolution system. Every line of platform code written with Claude assistance passes through the same [NO MERCY](@/capabilities/no-mercy.md) quality gates as manually written code, ensuring AI-generated output meets production standards.
 
 Claude's integration extends beyond simple API calls -- the platform maintains sophisticated session context management, stack-based conversation tracking, and quality-aware prompting that ensures every Claude interaction adheres to the platform's doctrines and standards. The session lifecycle system tracks conversation state, enforces quality gates before and after each interaction, and maintains persistent context across development sessions for continuity.
 
@@ -35,7 +35,7 @@ Claude's integration extends beyond simple API calls -- the platform maintains s
 Claude provides a comprehensive set of AI capabilities that the platform leverages across code generation, analysis, and autonomous agent operations.
 
 - **Advanced Reasoning**: Multi-step logical reasoning for complex architecture decisions and debugging scenarios
-- **Code Generation**: Production-quality [Elixir](/technologies/elixir/), TypeScript, SQL, and infrastructure code with type specifications
+- **Code Generation**: Production-quality [Elixir](@/technologies/elixir.md), TypeScript, SQL, and infrastructure code with type specifications
 - **Long Context**: 200K+ token context window enabling analysis of entire application modules and cross-module dependencies
 - **Tool Use**: Function calling for structured agent interactions, enabling Claude to invoke platform tools and APIs
 - **Vision**: Image and document analysis capabilities for UI review, architecture diagrams, and security screenshot analysis
@@ -164,7 +164,7 @@ Claude integration performance is optimized for interactive development sessions
 | Conversation frame creation | < 10ms | Local GenServer operation |
 | Session context save | < 100ms | File write to disk |
 
-The platform caches Claude responses in [ETS](/technologies/ets/) for repeated queries (e.g., module documentation lookups) to reduce API calls and improve responsiveness during iterative development cycles.
+The platform caches Claude responses in [ETS](@/technologies/ets.md) for repeated queries (e.g., module documentation lookups) to reduce API calls and improve responsiveness during iterative development cycles.
 
 ## Configuration
 
@@ -193,14 +193,14 @@ config :prismatic_claude,
 
 The platform enforces specific practices for Claude integration to ensure AI-assisted development maintains the same quality standards as manual development.
 
-- **Always run quality gates on generated code** -- Claude output passes through the same Credo, [Dialyzer](/technologies/dialyzer/), and compilation checks as manually written code
+- **Always run quality gates on generated code** -- Claude output passes through the same Credo, [Dialyzer](@/technologies/dialyzer.md), and compilation checks as manually written code
 - **Maintain session context** -- save and load session context files to maintain continuity across development sessions
 - **Use the stack conversation system** -- track assumptions and decisions in immutable frames for audit trail and context recovery
 - **Never bypass quality hooks** -- the SessionLifecycle hooks enforce quality standards at every interaction point
 - **Provide sufficient context** -- leverage the 200K+ token window to include relevant module source, test files, and documentation
 - **Review all generated code** -- AI-generated code requires the same review rigor as human-written code before committing
 - **Monitor API costs** -- track token usage per session to optimize prompt engineering and reduce unnecessary API calls
-- **Use local AI as fallback** -- the platform supports [Ollama](/technologies/ollama/) as a local fallback for non-critical operations
+- **Use local AI as fallback** -- the platform supports [Ollama](@/technologies/ollama.md) as a local fallback for non-critical operations
 
 ## Comparison
 
@@ -219,18 +219,18 @@ Claude was selected as the platform's primary AI model after evaluating multiple
 
 ## Related Technologies
 
-- [Ollama](/technologies/ollama/) - Local AI alternative for offline development and non-critical operations
-- [Elixir](/technologies/elixir/) - Primary language that Claude generates and analyzes
-- [BEAM](/technologies/beam/) - Runtime hosting the Claude integration GenServers
-- [ETS](/technologies/ets/) - Response caching for repeated queries
-- [Credo](/technologies/credo/) - Code quality validation applied to Claude-generated code
-- [Dialyzer](/technologies/dialyzer/) - Type safety verification for AI-generated functions
+- [Ollama](@/technologies/ollama.md) - Local AI alternative for offline development and non-critical operations
+- [Elixir](@/technologies/elixir.md) - Primary language that Claude generates and analyzes
+- [BEAM](@/technologies/beam.md) - Runtime hosting the Claude integration GenServers
+- [ETS](@/technologies/ets.md) - Response caching for repeated queries
+- [Credo](@/technologies/credo.md) - Code quality validation applied to Claude-generated code
+- [Dialyzer](@/technologies/dialyzer.md) - Type safety verification for AI-generated functions
 
 ## Related Apps
 
-- [prismatic_claude](/apps/prismatic-claude/) - Claude integration layer with SessionLifecycle and StackConversation
-- [prismatic_agents](/apps/prismatic-agents/) - Claude-powered autonomous agent behaviors and decision making
-- [prismatic_safety](/apps/prismatic-safety/) - Quality enforcement applied to all Claude-generated output
+- [prismatic_claude](@/apps/prismatic-claude.md) - Claude integration layer with SessionLifecycle and StackConversation
+- [prismatic_agents](@/apps/prismatic-agents.md) - Claude-powered autonomous agent behaviors and decision making
+- [prismatic_safety](@/apps/prismatic-safety.md) - Quality enforcement applied to all Claude-generated output
 
 ---
 
@@ -239,4 +239,4 @@ Claude was selected as the platform's primary AI model after evaluating multiple
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

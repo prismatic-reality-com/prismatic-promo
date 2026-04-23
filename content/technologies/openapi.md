@@ -24,7 +24,7 @@ image_alt = "OpenAPI/Swagger - Prismatic Platform"
 
 ## Overview
 
-OpenAPI (formerly Swagger) is the API documentation standard used by the Prismatic Platform's auto-introspecting REST API. The platform generates a complete OpenAPI 3.0 specification automatically by scanning all Prismatic facade modules at boot time, mapping [Elixir](/technologies/elixir/) `@spec` type annotations to JSON Schema, and exposing the result through Swagger UI for interactive API exploration. This approach represents a fundamental shift from traditional API documentation workflows where specifications are authored manually and inevitably drift from the actual implementation.
+OpenAPI (formerly Swagger) is the API documentation standard used by the Prismatic Platform's auto-introspecting REST API. The platform generates a complete OpenAPI 3.0 specification automatically by scanning all Prismatic facade modules at boot time, mapping [Elixir](@/technologies/elixir.md) `@spec` type annotations to JSON Schema, and exposing the result through Swagger UI for interactive API exploration. This approach represents a fundamental shift from traditional API documentation workflows where specifications are authored manually and inevitably drift from the actual implementation.
 
 The Prismatic API's auto-introspection approach means the OpenAPI specification is always synchronized with the actual codebase. When a module's `@spec` changes, the API documentation updates automatically on the next application restart. This eliminates the common problem of documentation drift and ensures that API consumers always have accurate, up-to-date documentation without any manual authoring. The specification serves as both documentation and a runtime validation contract -- incoming requests are validated against the schema before reaching handler code, preventing malformed data from propagating through the system.
 
@@ -35,7 +35,7 @@ The [OpenApiSpex](https://hex.pm/packages/open_api_spex) library generates schem
 - **Auto-Introspection**: Elixir module scanning discovers all public functions and maps `@spec` AST to JSON Schema automatically, eliminating manual specification authoring
 - **Schema Definition**: JSON Schema types for request/response validation, derived directly from Elixir typespecs with support for nested structures, enums, and union types
 - **Path Documentation**: Endpoint descriptions, parameters, and examples generated from module `@doc` annotations and function signatures
-- **Authentication Schemes**: Security scheme documentation covering API keys, [JWT](/technologies/jose/) tokens, and OAuth flows with per-endpoint authorization requirements
+- **Authentication Schemes**: Security scheme documentation covering API keys, [JWT](@/technologies/jose.md) tokens, and OAuth flows with per-endpoint authorization requirements
 - **Runtime Validation**: Request parameters validated against the OpenAPI schema before reaching handler code, providing early rejection of malformed requests
 - **Interactive UI**: Swagger UI at `/api/swaggerui` for exploring and testing every endpoint interactively with authentication support
 - **Code Generation**: Clients can generate SDKs in any language from the exported specification using OpenAPI Generator or similar tools
@@ -126,7 +126,7 @@ The OpenAPI infrastructure occupies a specific position in the platform's reques
 | **Dispatch** | `PrismaticApi.DispatchController` | Generic function dispatch after validation |
 | **Documentation** | `OpenApiSpex.Plug.SwaggerUI` | Interactive API explorer at `/api/swaggerui` |
 
-The scanner runs once at application startup and caches results in [ETS](/technologies/ets/). Subsequent requests serve the cached specification without re-scanning, ensuring sub-millisecond spec retrieval even with hundreds of discovered endpoints.
+The scanner runs once at application startup and caches results in [ETS](@/technologies/ets.md). Subsequent requests serve the cached specification without re-scanning, ensuring sub-millisecond spec retrieval even with hundreds of discovered endpoints.
 
 ## Performance Characteristics
 
@@ -198,24 +198,24 @@ config :prismatic_api, PrismaticApi.Scanner,
 | Code Generation | 50+ language targets | Limited | Excellent | Limited |
 | Caching | HTTP native (ETags, 304) | Complex (POST-based) | N/A | HTTP native |
 | Learning Curve | Low (REST familiarity) | Medium | High | Medium |
-| Platform Usage | Primary API gateway | Via [Absinthe](/technologies/absinthe/) | Not used | Not used |
+| Platform Usage | Primary API gateway | Via [Absinthe](@/technologies/absinthe.md) | Not used | Not used |
 
 The Prismatic Platform chose OpenAPI as the primary API specification because its auto-introspection capability eliminates manual specification authoring, and REST's simplicity reduces the cognitive load for API consumers who may not be familiar with the platform's internals.
 
 ## Related Technologies
 
-- [GraphQL](/technologies/graphql/) - Alternative API paradigm via [Absinthe](/technologies/absinthe/) for flexible queries
-- [Phoenix Framework](/technologies/phoenix/) - Web framework hosting the API endpoints and routing
-- [Plug](/technologies/plug/) - Middleware pipeline for request validation and authentication
-- [JOSE](/technologies/jose/) - JWT authentication documented in the security schemes
-- [Elixir](/technologies/elixir/) - Source language whose typespecs drive the schema generation
-- [ETS](/technologies/ets/) - In-memory cache for the endpoint registry
+- [GraphQL](@/technologies/graphql.md) - Alternative API paradigm via [Absinthe](@/technologies/absinthe.md) for flexible queries
+- [Phoenix Framework](@/technologies/phoenix.md) - Web framework hosting the API endpoints and routing
+- [Plug](@/technologies/plug.md) - Middleware pipeline for request validation and authentication
+- [JOSE](@/technologies/jose.md) - JWT authentication documented in the security schemes
+- [Elixir](@/technologies/elixir.md) - Source language whose typespecs drive the schema generation
+- [ETS](@/technologies/ets.md) - In-memory cache for the endpoint registry
 
 ## Related Apps
 
-- [prismatic_api](/apps/prismatic-api/) - The auto-introspecting REST API gateway on port 4004
-- [prismatic_web](/apps/prismatic-web/) - The main web application whose facades are exposed through the API
-- [prismatic_storage_core](/apps/prismatic-storage-core/) - Storage abstractions whose traits are discoverable via the scanner
+- [prismatic_api](@/apps/prismatic-api.md) - The auto-introspecting REST API gateway on port 4004
+- [prismatic_web](@/apps/prismatic-web.md) - The main web application whose facades are exposed through the API
+- [prismatic_storage_core](@/apps/prismatic-storage-core.md) - Storage abstractions whose traits are discoverable via the scanner
 
 ---
 
@@ -224,4 +224,4 @@ The Prismatic Platform chose OpenAPI as the primary API specification because it
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

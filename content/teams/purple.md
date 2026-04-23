@@ -22,7 +22,7 @@ image_alt = "Purple Team - Prismatic Platform"
 
 ## Overview
 
-The Purple Team serves as the central synthesis hub of the Prismatic Platform's six-team color-team security architecture. As the sole authority for closure state transitions, Purple Team receives adversarial findings from [Red Team](/teams/red/), defensive assessments from [Blue Team](/teams/blue/), boundary discoveries from [Gray Team](/teams/gray/), formal verifications from [White Team](/teams/white/), and theoretical threat models from [Black Team](/teams/black/) — synthesizing these into actionable improvements and verified closure decisions. Purple Team is where the platform stops lying to itself.
+The Purple Team serves as the central synthesis hub of the Prismatic Platform's six-team color-team security architecture. As the sole authority for closure state transitions, Purple Team receives adversarial findings from [Red Team](@/teams/red.md), defensive assessments from [Blue Team](@/teams/blue.md), boundary discoveries from [Gray Team](@/teams/gray.md), formal verifications from [White Team](@/teams/white.md), and theoretical threat models from [Black Team](@/teams/black.md) — synthesizing these into actionable improvements and verified closure decisions. Purple Team is where the platform stops lying to itself.
 
 > "Purple is the property of the system when it stops lying to itself."
 
@@ -44,7 +44,7 @@ The Purple Team mission is to close the adversarial-defensive feedback loop by s
 | **Regression Prevention** | Maintains trap catalog of all resolved vulnerabilities | Automated regression checks |
 | **Deployment Veto** | Can block any deployment for security reasons | Binding authority |
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine governs Purple operations with dual emphasis: NO MERCY demands that closure is never premature — findings remain open until all four conditions are verified, regardless of timeline pressure. NO DOUBTS demands that every closure decision is evidence-based and documented, with complete provenance from initial finding through defense implementation and verification.
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine governs Purple operations with dual emphasis: NO MERCY demands that closure is never premature — findings remain open until all four conditions are verified, regardless of timeline pressure. NO DOUBTS demands that every closure decision is evidence-based and documented, with complete provenance from initial finding through defense implementation and verification.
 
 ## Team Composition
 
@@ -322,13 +322,13 @@ Purple Team has **binding veto authority** over all deployments. The deployment 
 
 | Component | Direction | Content | Purpose |
 |-----------|-----------|---------|---------|
-| [Red Team](/teams/red/) | Red → Purple | Attack findings, vulnerability reports | Input for synthesis |
-| [Blue Team](/teams/blue/) | Blue → Purple | Defensive posture, defense implementations | Input for synthesis |
-| [Gray Team](/teams/gray/) | Gray → Purple | Boundary findings, specification gaps | Context for closure |
-| [White Team](/teams/white/) | White → Purple | Formal verification results | Closure evidence |
-| [Black Team](/teams/black/) | Black → Purple (filtered) | Abstract threat models | Strategic context |
+| [Red Team](@/teams/red.md) | Red → Purple | Attack findings, vulnerability reports | Input for synthesis |
+| [Blue Team](@/teams/blue.md) | Blue → Purple | Defensive posture, defense implementations | Input for synthesis |
+| [Gray Team](@/teams/gray.md) | Gray → Purple | Boundary findings, specification gaps | Context for closure |
+| [White Team](@/teams/white.md) | White → Purple | Formal verification results | Closure evidence |
+| [Black Team](@/teams/black.md) | Black → Purple (filtered) | Abstract threat models | Strategic context |
 | Deployment Pipeline | Purple → Deploy | Gate decisions | Release authority |
-| [Quality Gates](/capabilities/quality-gates/) | Purple → Quality | Security posture | Quality integration |
+| [Quality Gates](@/capabilities/quality-gates.md) | Purple → Quality | Security posture | Quality integration |
 
 ### Signal Flow
 
@@ -359,13 +359,13 @@ Gray Boundaries ───→  │ Closure │  ←──── Black Models (fil
 
 ## Related Resources
 
-- [Red Team](/teams/red/) — Adversarial findings that drive the synthesis process
-- [Blue Team](/teams/blue/) — Defensive implementations that Purple verifies
-- [Gray Team](/teams/gray/) — Boundary findings providing synthesis context
-- [White Team](/teams/white/) — Formal verification evidence for closure decisions
-- [Black Team](/teams/black/) — Theoretical threat models informing strategic synthesis
-- [Quality Gates](/capabilities/quality-gates/) — Quality enforcement incorporating Purple security posture
-- [Regression Testing](/capabilities/regression-tests/) — Testing infrastructure supporting regression detection
+- [Red Team](@/teams/red.md) — Adversarial findings that drive the synthesis process
+- [Blue Team](@/teams/blue.md) — Defensive implementations that Purple verifies
+- [Gray Team](@/teams/gray.md) — Boundary findings providing synthesis context
+- [White Team](@/teams/white.md) — Formal verification evidence for closure decisions
+- [Black Team](@/teams/black.md) — Theoretical threat models informing strategic synthesis
+- [Quality Gates](@/capabilities/quality-gates.md) — Quality enforcement incorporating Purple security posture
+- [Regression Testing](@/capabilities/regression-tests.md) — Testing infrastructure supporting regression detection
 
 ---
 
@@ -374,4 +374,4 @@ Gray Boundaries ───→  │ Closure │  ←──── Black Models (fil
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

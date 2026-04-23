@@ -28,7 +28,7 @@ The **/cer-screen** command executes comprehensive employee screening for Czech 
 
 Employee vetting is not merely a recommended practice under Czech CER law -- it is a statutory obligation. Section 15 of Law 266/2025 Sb. requires designated critical entities to implement personnel screening programs proportionate to the access level and risk exposure of each position. Failure to maintain adequate screening programs can result in regulatory sanctions, including financial penalties and, in severe cases, revocation of critical entity designation. The **/cer-screen** command automates this obligation by aggregating data from the ISIR (Insolvency Register), Czech court case databases, executor registries, the Commercial Register (OR.cz), and OSINT digital profile intelligence into a unified risk score with interpretable decision rationale.
 
-The command is executed by the `cer-screening-specialist` agent, a domain-expertise-level agent within the Prismatic Platform's [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) framework. It supports both individual screening -- where a single employee is assessed in real-time -- and batch screening via CSV file import, enabling organizations to process entire workforce populations efficiently. The epistemic intelligence layer applies the platform's [NABLA Infinity](/glossary/nabla-infinity/) framework to ensure that risk scores are grounded in signal plurality rather than single-source determinations, with full interpretability reporting available for audit and regulatory review purposes. As part of the 216-command slash command [registry](/glossary/registry-otp/), it integrates seamlessly with [/cer-report](/commands/cer-report/) for aggregated compliance reporting and [/cer-vet](/commands/cer-vet/) for supplier-side due diligence.
+The command is executed by the `cer-screening-specialist` agent, a domain-expertise-level agent within the Prismatic Platform's [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) framework. It supports both individual screening -- where a single employee is assessed in real-time -- and batch screening via CSV file import, enabling organizations to process entire workforce populations efficiently. The epistemic intelligence layer applies the platform's [NABLA Infinity](@/glossary/nabla-infinity.md) framework to ensure that risk scores are grounded in signal plurality rather than single-source determinations, with full interpretability reporting available for audit and regulatory review purposes. As part of the 216-command slash command [registry](@/glossary/registry-otp.md), it integrates seamlessly with [/cer-report](@/commands/cer-report.md) for aggregated compliance reporting and [/cer-vet](@/commands/cer-vet.md) for supplier-side due diligence.
 
 ## Usage
 
@@ -174,26 +174,26 @@ In the **continuous monitoring workflow**, batch screening is executed on a peri
 
 In the **ad-hoc investigation workflow**, individual employees are screened in response to specific triggers such as role changes, security incidents, or regulatory inquiries. The `--interpretable` and `--audit-trail` flags provide the detailed evidence documentation required for these investigative contexts.
 
-Screening results aggregate automatically into [/cer-report](/commands/cer-report/) compliance reports, providing the employee screening statistics required for the annual CER compliance submission.
+Screening results aggregate automatically into [/cer-report](@/commands/cer-report.md) compliance reports, providing the employee screening statistics required for the annual CER compliance submission.
 
 ## Integration Points
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `cer-screening-specialist` agent |
-| [/cer-report](/commands/cer-report/) | Screening results aggregate into compliance reports |
-| [/cer-vet](/commands/cer-vet/) | Supplier risk correlation via `--ico` parameter |
-| [/investigate](/commands/investigate/) | Deep OSINT investigation for flagged individuals |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `cer-screening-specialist` agent |
+| [/cer-report](@/commands/cer-report.md) | Screening results aggregate into compliance reports |
+| [/cer-vet](@/commands/cer-vet.md) | Supplier risk correlation via `--ico` parameter |
+| [/investigate](@/commands/investigate.md) | Deep OSINT investigation for flagged individuals |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and event tracking |
 | ISIR / Czech Courts / Executors | Czech legal registry data sources |
 | OSINT Intelligence | Breach exposure, digital footprint, dark web signals |
 | Prismatic REST API | Programmatic access via `POST /api/cer/screen` |
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete screenings. Every data source must return a definitive result or an explicit timeout/error status. No screening is marked as "passed" if any critical data source failed to respond. Batch screenings process every row or fail with a clear manifest of which employees were not screened and why.
 - **NO DOUBTS**: Full investigation across all configured data sources before rendering a compliance determination. The epistemic intelligence layer enforces signal plurality -- a `LOW` risk determination requires corroborating evidence from multiple independent sources. When data sources produce contradictory signals (for example, a clean ISIR record but breach exposure via OSINT), the contradiction is preserved in the screening result rather than suppressed, with explicit confidence adjustments.
@@ -210,11 +210,11 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Related Commands
 
-- [/cer-report](/commands/cer-report/) - Czech company compliance report generation from ICO identifier
-- [/cer-vet](/commands/cer-vet/) - Czech company vetting using 8-digit ICO identifier
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/cer-report](@/commands/cer-report.md) - Czech company compliance report generation from ICO identifier
+- [/cer-vet](@/commands/cer-vet.md) - Czech company vetting using 8-digit ICO identifier
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -223,4 +223,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,7 +26,7 @@ image_alt = "/svihadlo - Prismatic Platform"
 
 **/svihadlo** is a production command in the **Development** category of the Prismatic Platform. It implements visible, user-facing features with extreme speed, targeting a 5-15 minute delivery window from specification to working, tested, quality-gate-passing code. The name "svihadlo" (Czech for "jump rope") reflects the command's rapid, rhythmic execution style: quick iterations with tight feedback loops that produce visible results almost immediately. This is the platform's answer to the common development frustration of invisible backend work -- `/svihadlo` ensures every execution produces something a user can see and interact with.
 
-This command operates under the **L3** authority level and is executed by the `liveview-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level grants the LiveView specialist full access to Phoenix templates, LiveView modules, component libraries, routing configuration, and the [TailwindCSS](/glossary/tailwindcss/)/[Flowbite](/glossary/flowbite/) design system. This broad access enables the specialist to deliver complete features without coordination delays.
+This command operates under the **L3** authority level and is executed by the `liveview-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level grants the LiveView specialist full access to Phoenix templates, LiveView modules, component libraries, routing configuration, and the [TailwindCSS](@/glossary/tailwindcss.md)/[Flowbite](@/glossary/flowbite.md) design system. This broad access enables the specialist to deliver complete features without coordination delays.
 
 The command focuses on the visible layer of the platform: LiveView pages, interactive components, dashboard widgets, data visualizations, form interfaces, and navigation elements. It generates Phoenix LiveView modules with proper mount/3, handle_event/3, and handle_info/2 callbacks, HEEx templates with TailwindCSS styling and Flowbite components, and comprehensive tests. Every feature produced by `/svihadlo` must pass quality gates including zero-warning compilation, Credo strict compliance, and route accessibility verification.
 
@@ -180,14 +180,14 @@ The completed feature is reported with: file paths for all generated/modified fi
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/code](/commands/code/) | Peer | General coding for non-UI work |
-| [/ui-enhance](/commands/ui-enhance/) | Peer | UI enhancement for existing features |
-| [/test](/commands/test/) | Downstream | Test generation for edge cases beyond svihadlo scope |
-| [/route-test](/commands/route-test/) | Validation | Route verification after feature delivery |
-| [/quality-gates](/commands/quality-gates/) | Enforcement | All generated code passes quality gates |
-| [TailwindCSS](/glossary/tailwindcss/) | Design | Utility-first styling system |
-| [Flowbite](/glossary/flowbite/) | Components | Pre-built component library |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Feature delivery time tracking |
+| [/code](@/commands/code.md) | Peer | General coding for non-UI work |
+| [/ui-enhance](@/commands/ui-enhance.md) | Peer | UI enhancement for existing features |
+| [/test](@/commands/test.md) | Downstream | Test generation for edge cases beyond svihadlo scope |
+| [/route-test](@/commands/route-test.md) | Validation | Route verification after feature delivery |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | All generated code passes quality gates |
+| [TailwindCSS](@/glossary/tailwindcss.md) | Design | Utility-first styling system |
+| [Flowbite](@/glossary/flowbite.md) | Components | Pre-built component library |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Feature delivery time tracking |
 
 ## Best Practices
 
@@ -247,20 +247,20 @@ Generate a component with multiple visual variants:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every svihadlo feature must compile, pass Credo, and have tests before delivery. No partial features, no TODO placeholders.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Feature specifications are fully analyzed before generation begins, and all deliverables are verified through compilation and test execution.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/ui-enhance](/commands/ui-enhance/) - UI/UX enhancement with TailwindCSS and Flowbite
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/route-test](/commands/route-test/) - Route testing and HTTP endpoint verification
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quickstart](/commands/quickstart/) - Feature scaffolding and boilerplate generation
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/ui-enhance](@/commands/ui-enhance.md) - UI/UX enhancement with TailwindCSS and Flowbite
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/route-test](@/commands/route-test.md) - Route testing and HTTP endpoint verification
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quickstart](@/commands/quickstart.md) - Feature scaffolding and boilerplate generation
 
 ---
 
@@ -269,4 +269,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

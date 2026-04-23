@@ -24,17 +24,17 @@ image_alt = "Local vs Cloud LLM Quality Assessment - Prismatic Platform"
 
 ## Hypothesis
 
-We hypothesize that cloud LLMs (Claude Opus) will outperform local models (qwen3-coder 7B, deepseek-coder 6.7B) by at least 30% on complex reasoning and multi-file code generation, but that local models will achieve within 15% of cloud quality on single-function code generation while providing 3x lower latency for simple tasks, making a hybrid routing strategy optimal for the platform's 434 [AIAD](/glossary/aiad/) agents.
+We hypothesize that cloud LLMs (Claude Opus) will outperform local models (qwen3-coder 7B, deepseek-coder 6.7B) by at least 30% on complex reasoning and multi-file code generation, but that local models will achieve within 15% of cloud quality on single-function code generation while providing 3x lower latency for simple tasks, making a hybrid routing strategy optimal for the platform's 434 [AIAD](@/glossary/aiad.md) agents.
 
 ## Background
 
-The Prismatic Platform uses LLMs as the cognitive backbone for its 434 autonomous [agents](/glossary/agent/). These agents perform tasks ranging from simple code formatting to complex multi-step reasoning about security vulnerabilities and architectural decisions. The platform supports both cloud-based models (Claude Opus via Anthropic API) and local models ([Ollama](/glossary/ollama/)-hosted qwen3-coder 7B, deepseek-coder 6.7B, gpt-oss 20B) for local [inference](/glossary/inference/).
+The Prismatic Platform uses LLMs as the cognitive backbone for its 434 autonomous [agents](@/glossary/agent.md). These agents perform tasks ranging from simple code formatting to complex multi-step reasoning about security vulnerabilities and architectural decisions. The platform supports both cloud-based models (Claude Opus via Anthropic API) and local models ([Ollama](@/glossary/ollama.md)-hosted qwen3-coder 7B, deepseek-coder 6.7B, gpt-oss 20B) for local [inference](@/glossary/inference.md).
 
-The cost and latency characteristics of cloud vs local models create a fundamental trade-off. Cloud models offer superior quality but incur API costs ($15-75 per million tokens) and network latency (200-800ms round trip). Local models running through [Ollama](/glossary/ollama/) are free after hardware investment, run with sub-100ms [inference](/glossary/inference/) latency, and maintain data privacy, but their smaller parameter counts limit reasoning capability.
+The cost and latency characteristics of cloud vs local models create a fundamental trade-off. Cloud models offer superior quality but incur API costs ($15-75 per million tokens) and network latency (200-800ms round trip). Local models running through [Ollama](@/glossary/ollama.md) are free after hardware investment, run with sub-100ms [inference](@/glossary/inference.md) latency, and maintain data privacy, but their smaller parameter counts limit reasoning capability.
 
 The current platform configuration uses a static routing rule: all agent tasks are sent to Claude Opus. This ensures maximum quality but is expensive at scale (434 agents generating approximately 2 million tokens per hour during active sessions) and introduces a cloud dependency that violates the platform's resilience goals.
 
-This experiment systematically evaluates model quality across task categories to determine whether a hybrid routing strategy can maintain the platform's [No Mercy](/glossary/no-mercy/) [quality gates](/glossary/quality-gates/) standards while reducing cost and improving resilience.
+This experiment systematically evaluates model quality across task categories to determine whether a hybrid routing strategy can maintain the platform's [No Mercy](@/glossary/no-mercy.md) [quality gates](@/glossary/quality-gates.md) standards while reducing cost and improving resilience.
 
 ## Methodology
 
@@ -54,8 +54,8 @@ We evaluated three models across five task categories using a benchmark suite of
 
 **Evaluation**:
 - Each task was evaluated by 3 human reviewers on a 1-10 scale
-- Automated metrics: compilation success rate, test pass rate, code quality score ([Credo](/glossary/credo/) + [Dialyzer](/glossary/dialyzer/))
-- Latency measured end-to-end including network for cloud models via [telemetry](/glossary/telemetry/) instrumentation
+- Automated metrics: compilation success rate, test pass rate, code quality score ([Credo](@/glossary/credo.md) + [Dialyzer](@/glossary/dialyzer.md))
+- Latency measured end-to-end including network for cloud models via [telemetry](@/glossary/telemetry.md) instrumentation
 - Cost calculated at published API rates
 
 ## Setup
@@ -209,7 +209,7 @@ Hybrid router performance:
 
 The results confirm our hypothesis with nuance. For single-function generation, local models achieve within 12-18% of Claude Opus quality, validating the 15% threshold. For complex tasks (architecture reasoning, security analysis), Claude Opus's advantage is 62-119%, far exceeding the 30% hypothesis -- the gap is even larger than predicted.
 
-The most striking finding is the compilation rate gap: Claude Opus produces compilable [Elixir](/glossary/elixir/) 97.4% of the time, while local models achieve only 81-84%. For the Prismatic Platform's [No Mercy](/glossary/no-mercy/) standards (zero compilation warnings required per the [Zero Warning Policy](/glossary/zero-warning-policy/)), this means local model output requires an additional validation and correction step through [Credo](/glossary/credo/) and [Dialyzer](/glossary/dialyzer/).
+The most striking finding is the compilation rate gap: Claude Opus produces compilable [Elixir](@/glossary/elixir.md) 97.4% of the time, while local models achieve only 81-84%. For the Prismatic Platform's [No Mercy](@/glossary/no-mercy.md) standards (zero compilation warnings required per the [Zero Warning Policy](@/glossary/zero-warning-policy.md)), this means local model output requires an additional validation and correction step through [Credo](@/glossary/credo.md) and [Dialyzer](@/glossary/dialyzer.md).
 
 The hybrid router achieves 96.1% of cloud-only quality (8.71 vs 9.06) at 45% of the cost ($1,890 vs $4,200). It routes 38% of tasks to local models (primarily simple single-function generation) and 62% to Claude Opus (complex reasoning, multi-file, security). The latency improvement (684ms vs 1,240ms) comes from the fast local model responses for simple tasks.
 
@@ -218,25 +218,25 @@ The local models show a characteristic strength in pattern-matching tasks (forma
 ## Conclusions
 
 1. **Claude Opus is irreplaceable for complex reasoning** -- 60-120% quality advantage for architecture and security tasks.
-2. **Local [Ollama](/glossary/ollama/) models are viable for simple generation** -- within 12-18% quality for single-function tasks.
-3. **Hybrid routing saves 55% of cost** while maintaining 96% of all-cloud quality against [quality gates](/glossary/quality-gates/).
-4. **Compilation rate is the critical metric** -- local models need post-generation validation via [Dialyzer](/glossary/dialyzer/) and [typespec](/glossary/typespec/) checking.
-5. **Latency improvement is significant** -- 45% reduction for the hybrid approach on simple [inference](/glossary/inference/) tasks.
+2. **Local [Ollama](@/glossary/ollama.md) models are viable for simple generation** -- within 12-18% quality for single-function tasks.
+3. **Hybrid routing saves 55% of cost** while maintaining 96% of all-cloud quality against [quality gates](@/glossary/quality-gates.md).
+4. **Compilation rate is the critical metric** -- local models need post-generation validation via [Dialyzer](@/glossary/dialyzer.md) and [typespec](@/glossary/typespec.md) checking.
+5. **Latency improvement is significant** -- 45% reduction for the hybrid approach on simple [inference](@/glossary/inference.md) tasks.
 
 ## Next Steps
 
-- [Fine-tune](/glossary/fine-tuning/) local models on the platform's [Elixir](/glossary/elixir/) codebase for domain-specific accuracy improvement
-- Implement a cascading strategy: try local [Ollama](/glossary/ollama/) model first, fall back to cloud if [quality gates](/glossary/quality-gates/) validation fails
+- [Fine-tune](@/glossary/fine-tuning.md) local models on the platform's [Elixir](@/glossary/elixir.md) codebase for domain-specific accuracy improvement
+- Implement a cascading strategy: try local [Ollama](@/glossary/ollama.md) model first, fall back to cloud if [quality gates](@/glossary/quality-gates.md) validation fails
 - Evaluate gpt-oss 20B as a middle-tier option between 7B local and cloud
-- Build cost tracking dashboards in [LiveView](/glossary/liveview/) to monitor hybrid router economics with [telemetry](/glossary/telemetry/) integration
-- Test model quality degradation under high concurrency (100+ simultaneous [agent](/glossary/agent/) requests)
+- Build cost tracking dashboards in [LiveView](@/glossary/liveview.md) to monitor hybrid router economics with [telemetry](@/glossary/telemetry.md) integration
+- Test model quality degradation under high concurrency (100+ simultaneous [agent](@/glossary/agent.md) requests)
 
 ## Related Experiments
 
-- [Agent Prototyping](/lab/agent-prototyping/) -- Agents that consume LLM outputs
-- [Multi-Agent Coordination](/lab/multi-agent-coordination/) -- Coordinating agents with different model backends
-- [Session Lifecycle](/lab/session-lifecycle/) -- Session context management across model switches
-- [Quality Evolution](/lab/quality-evolution/) -- Quality gates that validate LLM outputs
+- [Agent Prototyping](@/lab/agent-prototyping.md) -- Agents that consume LLM outputs
+- [Multi-Agent Coordination](@/lab/multi-agent-coordination.md) -- Coordinating agents with different model backends
+- [Session Lifecycle](@/lab/session-lifecycle.md) -- Session context management across model switches
+- [Quality Evolution](@/lab/quality-evolution.md) -- Quality gates that validate LLM outputs
 
 ---
 
@@ -245,4 +245,4 @@ The local models show a characteristic strength in pattern-matching tasks (forma
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

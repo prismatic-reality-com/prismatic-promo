@@ -345,24 +345,24 @@ As an application grows, its facade must evolve without breaking consumers. Seve
 
 Facade modules connect to several architectural concepts in the Prismatic Platform:
 
-- [Adapter Pattern](/glossary/adapter-pattern/) converts between interfaces, often used internally by facade modules to integrate multiple data sources
-- [API Gateway](/glossary/api-gateway/) sits in front of facade modules, providing authentication, rate limiting, and routing for HTTP access
-- [Modularity](/glossary/modularity/) is the design principle that facades enforce by creating clear module boundaries
-- [Composability](/glossary/composability/) is enabled by facade modules that provide clean, composable function signatures
-- [Bounded Context](/glossary/bounded-context/) from Domain-Driven Design maps directly to facade module boundaries in the umbrella architecture
-- [Dependency Injection](/glossary/dependency-injection/) can be applied at the facade level to make subsystem dependencies configurable
-- [Protocol](/glossary/protocol/) defines polymorphic interfaces that facade modules can leverage for extensible dispatch
-- [Behaviour](/glossary/behaviour/) defines contracts that facade modules implement for compile-time verification
-- [Introspection](/glossary/introspection/) enables runtime discovery of facade module capabilities for auto-API generation
-- [OpenAPI](/glossary/openapi/) specifications are automatically generated from facade module typespecs
+- [Adapter Pattern](@/glossary/adapter-pattern.md) converts between interfaces, often used internally by facade modules to integrate multiple data sources
+- [API Gateway](@/glossary/api-gateway.md) sits in front of facade modules, providing authentication, rate limiting, and routing for HTTP access
+- [Modularity](@/glossary/modularity.md) is the design principle that facades enforce by creating clear module boundaries
+- [Composability](@/glossary/composability.md) is enabled by facade modules that provide clean, composable function signatures
+- [Bounded Context](@/glossary/bounded-context.md) from Domain-Driven Design maps directly to facade module boundaries in the umbrella architecture
+- [Dependency Injection](@/glossary/dependency-injection.md) can be applied at the facade level to make subsystem dependencies configurable
+- [Protocol](@/glossary/protocol.md) defines polymorphic interfaces that facade modules can leverage for extensible dispatch
+- [Behaviour](@/glossary/behaviour.md) defines contracts that facade modules implement for compile-time verification
+- [Introspection](@/glossary/introspection.md) enables runtime discovery of facade module capabilities for auto-API generation
+- [OpenAPI](@/glossary/openapi.md) specifications are automatically generated from facade module typespecs
 
 ## See Also
 
-- [Umbrella Application](/glossary/umbrella-application/) -- the project structure where facade modules are most critical
-- [Prismatic API](/glossary/prismatic-api/) -- the auto-introspecting REST API built on facade module conventions
-- [Typespec](/glossary/typespec/) -- the type specification system that powers facade API contracts
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- the architectural philosophy that motivates facade boundaries
-- [Layered Architecture](/glossary/layered-architecture/) -- the structural pattern where facades form the outermost layer
+- [Umbrella Application](@/glossary/umbrella-application.md) -- the project structure where facade modules are most critical
+- [Prismatic API](@/glossary/prismatic-api.md) -- the auto-introspecting REST API built on facade module conventions
+- [Typespec](@/glossary/typespec.md) -- the type specification system that powers facade API contracts
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- the architectural philosophy that motivates facade boundaries
+- [Layered Architecture](@/glossary/layered-architecture.md) -- the structural pattern where facades form the outermost layer
 
 ---
 

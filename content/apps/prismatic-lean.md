@@ -23,15 +23,15 @@ image_alt = "Prismatic Lean - Prismatic Platform"
 
 ## Overview
 
-Prismatic Lean provides a bridge between the [Elixir](/glossary/elixir/) platform and the [Lean 4](/glossary/lean4/) theorem prover, enabling formal mathematical verification of critical platform properties. It translates Elixir specifications into Lean 4 propositions, executes proof obligations, and integrates verification results into the platform's epistemic framework. This module serves as the formal necessity layer -- the third gate of the [Trinity Gate](/glossary/trinity-gate/) -- ensuring that critical claims are not merely consistent or logical but mathematically proven.
+Prismatic Lean provides a bridge between the [Elixir](@/glossary/elixir.md) platform and the [Lean 4](@/glossary/lean4.md) theorem prover, enabling formal mathematical verification of critical platform properties. It translates Elixir specifications into Lean 4 propositions, executes proof obligations, and integrates verification results into the platform's epistemic framework. This module serves as the formal necessity layer -- the third gate of the [Trinity Gate](@/glossary/trinity-gate.md) -- ensuring that critical claims are not merely consistent or logical but mathematically proven.
 
-The verification bridge addresses a fundamental challenge in complex systems: how to guarantee that [security rating](/glossary/security-rating/) algorithms are monotonic, that compliance scoring never produces contradictory results, and that epistemic axioms hold under all conditions. While [property-based testing](/glossary/property-based-testing/) can demonstrate that properties hold for many random inputs, [formal verification](/glossary/formal-verification/) proves they hold for all possible inputs -- a qualitative difference in assurance level that matters for safety-critical decisions.
+The verification bridge addresses a fundamental challenge in complex systems: how to guarantee that [security rating](@/glossary/security-rating.md) algorithms are monotonic, that compliance scoring never produces contradictory results, and that epistemic axioms hold under all conditions. While [property-based testing](@/glossary/property-based-testing.md) can demonstrate that properties hold for many random inputs, [formal verification](@/glossary/formal-verification.md) proves they hold for all possible inputs -- a qualitative difference in assurance level that matters for safety-critical decisions.
 
-Prismatic Lean operates as part of the platform's [QEVE](/glossary/qeve/) (Quantitative Epistemic Verification Engine) alongside [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) for probabilistic analysis. Where Monte Carlo quantifies uncertainty through simulation, Lean provides certainty through mathematical proof.
+Prismatic Lean operates as part of the platform's [QEVE](@/glossary/qeve.md) (Quantitative Epistemic Verification Engine) alongside [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) for probabilistic analysis. Where Monte Carlo quantifies uncertainty through simulation, Lean provides certainty through mathematical proof.
 
 ## Architecture
 
-The module runs as a supervised [OTP](/glossary/otp/) application with process-isolated Lean 4 toolchain management.
+The module runs as a supervised [OTP](@/glossary/otp.md) application with process-isolated Lean 4 toolchain management.
 
 ```
 PrismaticLean.Application
@@ -143,11 +143,11 @@ Tests cover specification translation accuracy, proof caching with invalidation,
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic Nabla](/apps/prismatic-nabla/) | Trinity Gate Layer 3 provider for formal necessity verification |
-| [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) | Complementary verification: proof (Lean) + simulation (Monte Carlo) |
-| [Prismatic Algorithms](/apps/prismatic-algorithms/) | Primary target for formal verification of algorithmic properties |
-| [Prismatic Safety](/apps/prismatic-safety/) | Safety-critical properties requiring formal proof guarantees |
-| [Prismatic Lean4](/apps/prismatic-lean4/) | Low-level Lean 4 toolchain integration and process management |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | Trinity Gate Layer 3 provider for formal necessity verification |
+| [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) | Complementary verification: proof (Lean) + simulation (Monte Carlo) |
+| [Prismatic Algorithms](@/apps/prismatic-algorithms.md) | Primary target for formal verification of algorithmic properties |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Safety-critical properties requiring formal proof guarantees |
+| [Prismatic Lean4](@/apps/prismatic-lean4.md) | Low-level Lean 4 toolchain integration and process management |
 
 ## NABLA Compliance
 
@@ -175,13 +175,13 @@ Trinity Gate Layer 3 passage requires at least one formal proof for each critica
 
 ## Related Resources
 
-- [Prismatic Lean4](/apps/prismatic-lean4/) -- Low-level Lean 4 toolchain integration and process management
-- [Prismatic Monte Carlo](/apps/prismatic-monte-carlo/) -- Probabilistic verification complementing formal proofs
-- [Prismatic Testing](/apps/prismatic-testing/) -- Property-based testing as a complement to formal proofs
-- [Prismatic Transcendence](/apps/prismatic-transcendence/) -- Consciousness axiom verification through formal methods
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Enforces evidence-based verification standards
-- [Trinity Gate](/capabilities/trinity-gate/) -- Prismatic Lean serves as the Layer 3 formal necessity provider
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Formal verification of the 7 epistemic axioms
+- [Prismatic Lean4](@/apps/prismatic-lean4.md) -- Low-level Lean 4 toolchain integration and process management
+- [Prismatic Monte Carlo](@/apps/prismatic-monte-carlo.md) -- Probabilistic verification complementing formal proofs
+- [Prismatic Testing](@/apps/prismatic-testing.md) -- Property-based testing as a complement to formal proofs
+- [Prismatic Transcendence](@/apps/prismatic-transcendence.md) -- Consciousness axiom verification through formal methods
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Enforces evidence-based verification standards
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Prismatic Lean serves as the Layer 3 formal necessity provider
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Formal verification of the 7 epistemic axioms
 
 ---
 
@@ -190,4 +190,4 @@ Trinity Gate Layer 3 passage requires at least one formal proof for each critica
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

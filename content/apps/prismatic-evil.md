@@ -21,11 +21,11 @@ image_alt = "Prismatic Evil - Prismatic Platform"
 
 ## Overview
 
-Prismatic Evil implements adversarial red-team simulation capabilities within the Prismatic Platform, modeling malicious actor behaviors and attack patterns in a strictly sandboxed environment to identify system vulnerabilities before they can be exploited. The application operates under the platform's [Color Teams](/capabilities/color-teams/) security architecture, serving as the computational engine for Red Team scenario execution with comprehensive [audit trail](/glossary/audit-trail/) logging and evidence-based [threat intelligence](/glossary/threat-intelligence/) assessment.
+Prismatic Evil implements adversarial red-team simulation capabilities within the Prismatic Platform, modeling malicious actor behaviors and attack patterns in a strictly sandboxed environment to identify system vulnerabilities before they can be exploited. The application operates under the platform's [Color Teams](@/capabilities/color-teams.md) security architecture, serving as the computational engine for Red Team scenario execution with comprehensive [audit trail](@/glossary/audit-trail.md) logging and evidence-based [threat intelligence](@/glossary/threat-intelligence.md) assessment.
 
-All adversarial simulations execute within the Prismatic Dark sandbox, ensuring complete [process isolation](/glossary/process-isolation/) from production systems. The [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/) enforces strict resource boundaries, preventing any simulation from accessing network resources, production databases, or real user data. Every attack scenario produces structured findings that feed into the Purple Team synthesis loop, where adversarial discoveries are matched against Blue Team defensive capabilities to identify coverage gaps.
+All adversarial simulations execute within the Prismatic Dark sandbox, ensuring complete [process isolation](@/glossary/process-isolation.md) from production systems. The [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md) enforces strict resource boundaries, preventing any simulation from accessing network resources, production databases, or real user data. Every attack scenario produces structured findings that feed into the Purple Team synthesis loop, where adversarial discoveries are matched against Blue Team defensive capabilities to identify coverage gaps.
 
-Prismatic Evil implements the five epistemic attack primitives defined by the platform's security taxonomy: truth distortion, confidence manipulation, signal poisoning, drift induction, and salience hijacking. Each primitive is modeled as a composable [behaviour](/glossary/behaviour/) that scenario generators combine into multi-step attack chains, enabling simulation of sophisticated adversary tactics while maintaining full auditability through the [NABLA epistemic framework](/glossary/nabla-infinity/). The platform's commitment to proactive security testing through Evil reflects a core design philosophy: defenses untested against realistic adversaries are defenses assumed -- and assumptions are the antithesis of evidence-based security.
+Prismatic Evil implements the five epistemic attack primitives defined by the platform's security taxonomy: truth distortion, confidence manipulation, signal poisoning, drift induction, and salience hijacking. Each primitive is modeled as a composable [behaviour](@/glossary/behaviour.md) that scenario generators combine into multi-step attack chains, enabling simulation of sophisticated adversary tactics while maintaining full auditability through the [NABLA epistemic framework](@/glossary/nabla-infinity.md). The platform's commitment to proactive security testing through Evil reflects a core design philosophy: defenses untested against realistic adversaries are defenses assumed -- and assumptions are the antithesis of evidence-based security.
 
 ## Architecture
 
@@ -42,7 +42,7 @@ Scenario Generator --> Attack Composer --> Sandbox Executor --> Finding Collecto
                               Purple Team --> Red-Blue Loop Closure
 ```
 
-All simulation logic follows [pure function](/glossary/pure-function/) principles. Attack primitives are deterministic transformations that produce structured output artifacts without modifying any external state. Side effects (sandbox provisioning, audit emission) occur only at the supervision boundary.
+All simulation logic follows [pure function](@/glossary/pure-function.md) principles. Attack primitives are deterministic transformations that produce structured output artifacts without modifying any external state. Side effects (sandbox provisioning, audit emission) occur only at the supervision boundary.
 
 ## Key Modules
 
@@ -109,7 +109,7 @@ end
 ### Red-Team Scenario Execution
 - Multi-step attack scenario composition from atomic primitives with configurable complexity and persistence levels
 - Temporal attack modeling simulating slow-and-low adversary tactics that evade threshold-based detection
-- Automated scenario generation from [vulnerability assessment](/glossary/vulnerability-assessment/) findings and [OSINT](/glossary/osint/) intelligence
+- Automated scenario generation from [vulnerability assessment](@/glossary/vulnerability-assessment.md) findings and [OSINT](@/glossary/osint.md) intelligence
 - Campaign simulation spanning days or weeks of simulated attacker activity compressed into minutes of execution
 
 ### Scenario Generation from Vulnerability Data
@@ -138,14 +138,14 @@ end
 
 ### Vulnerability Discovery
 - Automated mapping of discovered weaknesses to standardized vulnerability taxonomies
-- [Confidence scoring](/glossary/confidence-scoring/) on findings with [Trinity Gate](/glossary/trinity-gate/) validation before reporting
-- False positive reduction through multi-primitive confirmation and [property-based testing](/glossary/property-based-testing/)
+- [Confidence scoring](@/glossary/confidence-scoring.md) on findings with [Trinity Gate](@/glossary/trinity-gate.md) validation before reporting
+- False positive reduction through multi-primitive confirmation and [property-based testing](@/glossary/property-based-testing.md)
 - Weakness chain analysis identifying how individual low-severity vulnerabilities combine into critical attack paths
 
 ### Sandbox Enforcement
-- Strict [process isolation](/glossary/process-isolation/) ensuring all adversarial simulations operate within controlled boundaries
-- Resource consumption limits with [circuit breaker](/glossary/circuit-breaker/) patterns preventing runaway simulations
-- Zero network access policy enforced at the [BEAM](/glossary/beam/) runtime level
+- Strict [process isolation](@/glossary/process-isolation.md) ensuring all adversarial simulations operate within controlled boundaries
+- Resource consumption limits with [circuit breaker](@/glossary/circuit-breaker.md) patterns preventing runaway simulations
+- Zero network access policy enforced at the [BEAM](@/glossary/beam.md) runtime level
 - Immutable sandbox state snapshots enabling post-execution forensic analysis of simulation artifacts
 
 ### Safety Controls
@@ -216,12 +216,12 @@ Integration tests exercise multi-step scenarios from generation through executio
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Dark](/apps/prismatic-dark/) | Adversarial testing sandbox providing isolated execution |
-| [Prismatic Annihilation](/apps/prismatic-annihilation/) | Destructive testing patterns for system hardening |
-| [Prismatic Auth](/apps/prismatic-auth/) | Authentication boundary testing and privilege escalation targets |
-| [Prismatic Detection Engine](/apps/prismatic-detection-engine/) | Detection rule validation against simulated attacks |
-| [Prismatic Safety](/apps/prismatic-safety/) | Safety guardrails constraining simulation boundaries |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | [Compliance framework](/glossary/compliance-framework/) validation of security posture |
+| [Prismatic Dark](@/apps/prismatic-dark.md) | Adversarial testing sandbox providing isolated execution |
+| [Prismatic Annihilation](@/apps/prismatic-annihilation.md) | Destructive testing patterns for system hardening |
+| [Prismatic Auth](@/apps/prismatic-auth.md) | Authentication boundary testing and privilege escalation targets |
+| [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) | Detection rule validation against simulated attacks |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Safety guardrails constraining simulation boundaries |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | [Compliance framework](@/glossary/compliance-framework.md) validation of security posture |
 
 ## Performance
 
@@ -234,16 +234,16 @@ Integration tests exercise multi-step scenarios from generation through executio
 | Audit trail query | < 100ms | PostgreSQL indexed |
 | Campaign simulation (2 weeks) | 30-120s | Compressed temporal execution |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :evil, :scenario_started]`, `[:prismatic, :evil, :primitive_executed]`, `[:prismatic, :evil, :finding_collected]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :evil, :scenario_started]`, `[:prismatic, :evil, :primitive_executed]`, `[:prismatic, :evil, :finding_collected]`.
 
 ## Related Resources
 
-- [Red Commander](/agents/red-commander/) -- Orchestrates adversarial simulation campaigns
-- [Penetration Testing Specialist](/agents/penetration-testing-specialist/) -- Specialized penetration testing methodology
-- [Incident Response Specialist](/agents/incident-response-specialist/) -- Validates defensive response to simulated attacks
-- [Color Teams](/capabilities/color-teams/) -- Red-Blue-Purple adversarial-defensive security synthesis
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source evidence fusion for attack pattern analysis
-- [Quality Gates](/capabilities/quality-gates/) -- Simulation quality enforcement and finding validation
+- [Red Commander](@/agents/red-commander.md) -- Orchestrates adversarial simulation campaigns
+- [Penetration Testing Specialist](@/agents/penetration-testing-specialist.md) -- Specialized penetration testing methodology
+- [Incident Response Specialist](@/agents/incident-response-specialist.md) -- Validates defensive response to simulated attacks
+- [Color Teams](@/capabilities/color-teams.md) -- Red-Blue-Purple adversarial-defensive security synthesis
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source evidence fusion for attack pattern analysis
+- [Quality Gates](@/capabilities/quality-gates.md) -- Simulation quality enforcement and finding validation
 
 ---
 
@@ -252,4 +252,4 @@ Integration tests exercise multi-step scenarios from generation through executio
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

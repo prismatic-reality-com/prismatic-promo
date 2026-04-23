@@ -519,23 +519,23 @@ end
 
 ## Related Terms
 
-- [RPO](/glossary/rpo/) -- recovery point objective, the data loss companion to RTO; together they define the recovery envelope
-- [Rollback](/glossary/rollback/) -- the primary mechanism for application-level recovery within RTO targets
-- [Supervision Tree](/glossary/supervision-tree/) -- BEAM's hierarchical process recovery mechanism providing microsecond-level RTO
-- [GenServer](/glossary/genserver/) -- the process abstraction supervised for automatic restart on failure
-- [Health Check](/glossary/health-check/) -- the detection mechanism that triggers recovery actions
-- [Replication](/glossary/replication/) -- database infrastructure enabling rapid failover within RTO
-- [Circuit Breaker](/glossary/circuit-breaker/) -- pattern preventing cascade failures that would exceed RTO
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) -- deployment strategy minimizing RTO during releases
-- [SLA](/glossary/sla/) -- service level agreements that formalize RTO commitments
-- [Uptime](/glossary/uptime/) -- the availability metric that RTO directly impacts
-- [Chaos Engineering](/glossary/chaos-engineering/) -- testing discipline for validating RTO achievement
+- [RPO](@/glossary/rpo.md) -- recovery point objective, the data loss companion to RTO; together they define the recovery envelope
+- [Rollback](@/glossary/rollback.md) -- the primary mechanism for application-level recovery within RTO targets
+- [Supervision Tree](@/glossary/supervision-tree.md) -- BEAM's hierarchical process recovery mechanism providing microsecond-level RTO
+- [GenServer](@/glossary/genserver.md) -- the process abstraction supervised for automatic restart on failure
+- [Health Check](@/glossary/health-check.md) -- the detection mechanism that triggers recovery actions
+- [Replication](@/glossary/replication.md) -- database infrastructure enabling rapid failover within RTO
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- pattern preventing cascade failures that would exceed RTO
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) -- deployment strategy minimizing RTO during releases
+- [SLA](@/glossary/sla.md) -- service level agreements that formalize RTO commitments
+- [Uptime](@/glossary/uptime.md) -- the availability metric that RTO directly impacts
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- testing discipline for validating RTO achievement
 - [Failover](/glossary/failover/) -- the automated switchover process that executes within RTO constraints
 
 ## See Also
 
-- [Disaster Recovery](/architecture/) -- comprehensive recovery planning and RTO target setting
-- [Supervision Trees](/capabilities/) -- BEAM's process-level recovery mechanism
+- [Disaster Recovery](@/architecture/_index.md) -- comprehensive recovery planning and RTO target setting
+- [Supervision Trees](@/capabilities/_index.md) -- BEAM's process-level recovery mechanism
 - [Fly.io Health Checks](https://fly.io/docs/reference/configuration/#services-concurrency) -- platform health check configuration
 - [Erlang Supervisor Documentation](https://www.erlang.org/doc/man/supervisor.html) -- OTP supervisor restart strategies
 - [PostgreSQL Streaming Replication](https://www.postgresql.org/docs/current/warm-standby.html) -- database-level failover mechanism
@@ -547,4 +547,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

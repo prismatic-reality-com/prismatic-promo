@@ -41,13 +41,13 @@ The Retry Pattern is a resilience pattern that handles transient failures by aut
 
 The pattern is foundational to building reliable distributed systems where failures are expected rather than exceptional. In any system that communicates over a network, makes external API calls, or depends on shared resources, some percentage of operations will fail transiently. Without retry logic, each transient failure surfaces as a user-visible error, degrading perceived reliability far below the actual system reliability. A system with 99.9% single-request success rate that makes 10 sequential external calls has only a 99.0% end-to-end success rate without retries, but with a single retry per call, the effective success rate rises to 99.9999%.
 
-Effective retry implementations must balance several competing concerns: recovering from transient failures quickly (short delays, many attempts) versus avoiding overloading recovering services (long delays, few attempts) versus providing timely feedback to users (bounded total duration). The choice of retry strategy -- fixed delay, linear backoff, exponential backoff, or exponential backoff with jitter -- determines this balance. In the Prismatic Platform, retry patterns are deployed across every external interaction, from [Ollama](/glossary/ollama/) AI inference calls to [PostgreSQL](/glossary/postgresql/) database connections, governed by the platform's NO MERCY doctrine that demands complete resilience with zero compromise.
+Effective retry implementations must balance several competing concerns: recovering from transient failures quickly (short delays, many attempts) versus avoiding overloading recovering services (long delays, few attempts) versus providing timely feedback to users (bounded total duration). The choice of retry strategy -- fixed delay, linear backoff, exponential backoff, or exponential backoff with jitter -- determines this balance. In the Prismatic Platform, retry patterns are deployed across every external interaction, from [Ollama](@/glossary/ollama.md) AI inference calls to [PostgreSQL](@/glossary/postgresql.md) database connections, governed by the platform's NO MERCY doctrine that demands complete resilience with zero compromise.
 
 ## Historical Context and Motivation
 
 The Retry Pattern has roots in telecommunications engineering from the 1960s, where automatic retry mechanisms handled busy signals and connection failures in telephone switching systems. The pattern gained prominence in distributed computing through the work of Leslie Lamport and others who formalized failure models for networked systems. The exponential backoff algorithm was first described in the context of Ethernet collision resolution (the ALOHA protocol and subsequent IEEE 802.3 standard), where stations that detected collisions would wait an exponentially increasing random interval before retransmitting.
 
-In modern cloud-native architectures, the retry pattern has evolved from a simple loop into a sophisticated resilience primitive. Google's Site Reliability Engineering (SRE) practices formalized retry budgets. Amazon Web Services documented the advantages of decorrelated jitter through empirical analysis of their production systems. Netflix's Hystrix library (now succeeded by Resilience4j) popularized the integration of retries with [circuit breakers](/glossary/circuit-breaker/). The Elixir/OTP ecosystem brings a unique perspective through its supervision tree model, where process restarts serve as a form of system-level retry with clean state initialization.
+In modern cloud-native architectures, the retry pattern has evolved from a simple loop into a sophisticated resilience primitive. Google's Site Reliability Engineering (SRE) practices formalized retry budgets. Amazon Web Services documented the advantages of decorrelated jitter through empirical analysis of their production systems. Netflix's Hystrix library (now succeeded by Resilience4j) popularized the integration of retries with [circuit breakers](@/glossary/circuit-breaker.md). The Elixir/OTP ecosystem brings a unique perspective through its supervision tree model, where process restarts serve as a form of system-level retry with clean state initialization.
 
 ## Retry Strategy Mathematics
 
@@ -91,7 +91,7 @@ AWS's empirical analysis demonstrated that decorrelated jitter provides the best
 
 ### Idempotency Requirement
 
-Retry patterns fundamentally require idempotent operations -- operations that produce the same result regardless of how many times they are executed. Non-idempotent operations (such as incrementing a counter or processing a payment) can produce duplicated effects when retried. Systems must either make operations naturally idempotent or implement [idempotency](/glossary/idempotency/) keys to deduplicate retried requests.
+Retry patterns fundamentally require idempotent operations -- operations that produce the same result regardless of how many times they are executed. Non-idempotent operations (such as incrementing a counter or processing a payment) can produce duplicated effects when retried. Systems must either make operations naturally idempotent or implement [idempotency](@/glossary/idempotency.md) keys to deduplicate retried requests.
 
 ### Core Retry Implementation
 
@@ -207,7 +207,7 @@ end
 
 ### Circuit Breaker Integration
 
-The Retry Pattern works in conjunction with the [Circuit Breaker](/glossary/circuit-breaker/) pattern. While retries handle individual transient failures, circuit breakers detect sustained failures and stop retries entirely to prevent cascading overload:
+The Retry Pattern works in conjunction with the [Circuit Breaker](@/glossary/circuit-breaker.md) pattern. While retries handle individual transient failures, circuit breakers detect sustained failures and stop retries entirely to prevent cascading overload:
 
 ```elixir
 defmodule Prismatic.ResilientClient do
@@ -363,17 +363,17 @@ Not all errors should trigger retries. The retry system must classify errors int
 
 The Prismatic Platform implements retry patterns across all external service interactions, governed by the NO MERCY doctrine that demands every external call be protected by retry logic:
 
-**Ollama Inference**: AI inference requests to local [Ollama](/glossary/ollama/) models use exponential backoff with jitter, with a fallback chain to cloud providers after exhausting local retries. The retry budget limits total retry traffic to 10% of inference requests, preventing model overload during high-demand periods.
+**Ollama Inference**: AI inference requests to local [Ollama](@/glossary/ollama.md) models use exponential backoff with jitter, with a fallback chain to cloud providers after exhausting local retries. The retry budget limits total retry traffic to 10% of inference requests, preventing model overload during high-demand periods.
 
-**Database Connections**: [Ecto](/glossary/ecto/) database connections through [PostgreSQL](/glossary/postgresql/) use configurable retry with backoff on transient connection failures. The connection pool (DBConnection) implements its own retry layer for checkout timeouts, creating a two-tier retry architecture.
+**Database Connections**: [Ecto](@/glossary/ecto.md) database connections through [PostgreSQL](@/glossary/postgresql.md) use configurable retry with backoff on transient connection failures. The connection pool (DBConnection) implements its own retry layer for checkout timeouts, creating a two-tier retry architecture.
 
-**EASM Scanning**: [Prismatic Perimeter](/glossary/easm/)'s External Attack Surface Management scanner retries DNS queries, HTTP probes, and certificate fetches with per-target retry budgets. Each target maintains independent retry state, preventing one unresponsive target from consuming the retry budget for all targets.
+**EASM Scanning**: [Prismatic Perimeter](@/glossary/easm.md)'s External Attack Surface Management scanner retries DNS queries, HTTP probes, and certificate fetches with per-target retry budgets. Each target maintains independent retry state, preventing one unresponsive target from consuming the retry budget for all targets.
 
-**SessionLifecycle**: The [SessionLifecycle GenServer](/glossary/session-discipline/) integrates retry logic with its circuit breaker, opening after 3 consecutive failures and auto-resetting after 60 seconds for retry attempts.
+**SessionLifecycle**: The [SessionLifecycle GenServer](@/glossary/session-discipline.md) integrates retry logic with its circuit breaker, opening after 3 consecutive failures and auto-resetting after 60 seconds for retry attempts.
 
-**Meilisearch Indexing**: Document indexing to [Meilisearch](/glossary/meilisearch/) uses linear backoff with a maximum of 3 retries, as indexing operations are idempotent (re-indexing the same document produces the same result).
+**Meilisearch Indexing**: Document indexing to [Meilisearch](@/glossary/meilisearch.md) uses linear backoff with a maximum of 3 retries, as indexing operations are idempotent (re-indexing the same document produces the same result).
 
-**OSINT Provider Calls**: The [OSINT](/glossary/osint/) intelligence collection pipeline retries provider API calls with per-provider retry configurations. Rate-limited providers (HTTP 429) receive longer backoff delays to respect the provider's throttling signals.
+**OSINT Provider Calls**: The [OSINT](@/glossary/osint.md) intelligence collection pipeline retries provider API calls with per-provider retry configurations. Rate-limited providers (HTTP 429) receive longer backoff delays to respect the provider's throttling signals.
 
 ## Code Examples
 
@@ -414,7 +414,7 @@ end
 
 ## Observability and Monitoring
 
-Retry behavior is fully observable through [telemetry](/glossary/telemetry/) events emitted by the retry infrastructure. Every retry attempt, success after retry, and retry exhaustion emits structured telemetry that feeds into the platform's monitoring dashboards:
+Retry behavior is fully observable through [telemetry](@/glossary/telemetry.md) events emitted by the retry infrastructure. Every retry attempt, success after retry, and retry exhaustion emits structured telemetry that feeds into the platform's monitoring dashboards:
 
 | Event | Measurements | Metadata |
 |-------|-------------|----------|
@@ -427,7 +427,7 @@ These events enable alerting on retry rate spikes (indicating upstream degradati
 
 ## Best Practices
 
-1. **Default to Exponential Backoff with Jitter**: Full jitter provides the best characteristics for [distributed systems](/glossary/distributed-system/). Only use simpler strategies when profiling proves they are sufficient.
+1. **Default to Exponential Backoff with Jitter**: Full jitter provides the best characteristics for [distributed systems](@/glossary/distributed-system.md). Only use simpler strategies when profiling proves they are sufficient.
 
 2. **Classify Errors Explicitly**: Define a clear retryable/non-retryable classification for every error type your system can encounter. Never retry authentication failures, validation errors, or resource-not-found responses.
 
@@ -437,7 +437,7 @@ These events enable alerting on retry rate spikes (indicating upstream degradati
 
 5. **Log Every Retry**: Emit structured telemetry for every retry attempt including the attempt number, delay, error classification, and target service. This data is essential for tuning retry parameters.
 
-6. **Ensure Idempotency**: Before adding retry logic to any operation, verify that the operation is [idempotent](/glossary/idempotency/) or implement idempotency keys. Retrying non-idempotent operations causes data corruption.
+6. **Ensure Idempotency**: Before adding retry logic to any operation, verify that the operation is [idempotent](@/glossary/idempotency.md) or implement idempotency keys. Retrying non-idempotent operations causes data corruption.
 
 7. **Combine with Circuit Breakers**: Retries handle individual transient failures; circuit breakers handle sustained failures. Always use both patterns together for comprehensive resilience.
 
@@ -461,7 +461,7 @@ These events enable alerting on retry rate spikes (indicating upstream degradati
 
 ## Testing Retry Logic
 
-Retry logic requires dedicated testing strategies. Property-based testing with [StreamData](/glossary/property-based-testing/) can verify invariants like "total delay never exceeds max_delay * max_attempts" and "successful operations are never retried." Deterministic testing requires controlling the random number generator and time source:
+Retry logic requires dedicated testing strategies. Property-based testing with [StreamData](@/glossary/property-based-testing.md) can verify invariants like "total delay never exceeds max_delay * max_attempts" and "successful operations are never retried." Deterministic testing requires controlling the random number generator and time source:
 
 ```elixir
 defmodule Prismatic.RetryTest do
@@ -493,21 +493,21 @@ end
 
 ## Related Concepts
 
-- [Circuit Breaker](/glossary/circuit-breaker/) - Complementary pattern that stops retries when failure is sustained
-- [Idempotency](/glossary/idempotency/) - Property ensuring retry safety for repeated operations
-- [Fault Tolerance](/glossary/fault-tolerance/) - System resilience that retry patterns help achieve
-- [Backpressure](/glossary/backpressure/) - Flow control preventing retry-induced overload
-- [Rate Limiting](/glossary/rate-limiting/) - Request throttling that retry strategies must respect
-- [GenServer](/glossary/genserver/) - Process abstraction implementing retry state machines
-- [Supervision Tree](/glossary/supervision-tree/) - OTP hierarchy providing process-level retry via restart strategies
-- [Distributed System](/glossary/distributed-system/) - Architecture context where retry patterns are essential
-- [Telemetry](/glossary/telemetry/) - Observability framework for retry monitoring
-- [Property-Based Testing](/glossary/property-based-testing/) - Testing methodology for verifying retry invariants
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Complementary pattern that stops retries when failure is sustained
+- [Idempotency](@/glossary/idempotency.md) - Property ensuring retry safety for repeated operations
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - System resilience that retry patterns help achieve
+- [Backpressure](@/glossary/backpressure.md) - Flow control preventing retry-induced overload
+- [Rate Limiting](@/glossary/rate-limiting.md) - Request throttling that retry strategies must respect
+- [GenServer](@/glossary/genserver.md) - Process abstraction implementing retry state machines
+- [Supervision Tree](@/glossary/supervision-tree.md) - OTP hierarchy providing process-level retry via restart strategies
+- [Distributed System](@/glossary/distributed-system.md) - Architecture context where retry patterns are essential
+- [Telemetry](@/glossary/telemetry.md) - Observability framework for retry monitoring
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Testing methodology for verifying retry invariants
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
 
 ---
 
@@ -516,4 +516,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

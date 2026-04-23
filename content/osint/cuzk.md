@@ -28,11 +28,11 @@ image_alt = "CUZK - Prismatic Platform"
 
 ## Overview
 
-CUZK (Cesky urad zememericky a katastralni -- Czech Office for Surveying, Mapping, and Cadastre) is the central state administration authority responsible for maintaining the official land [registry](/glossary/registry-otp/) (katastr nemovitosti) of the Czech Republic. The cadastral system represents one of the most comprehensive and authoritative property registries in Central Europe, containing records of all real estate ownership, encumbrances, liens, easements, mortgages, and other rights and obligations attached to approximately 23 million parcels across the entire territory of the Czech Republic.
+CUZK (Cesky urad zememericky a katastralni -- Czech Office for Surveying, Mapping, and Cadastre) is the central state administration authority responsible for maintaining the official land [registry](@/glossary/registry-otp.md) (katastr nemovitosti) of the Czech Republic. The cadastral system represents one of the most comprehensive and authoritative property registries in Central Europe, containing records of all real estate ownership, encumbrances, liens, easements, mortgages, and other rights and obligations attached to approximately 23 million parcels across the entire territory of the Czech Republic.
 
 The Czech cadastral system traces its origins to the Austrian Empress Maria Theresa's 1749 land registry reforms, making it one of the oldest continuously maintained property registries in Europe. The modern system was significantly reformed after 1989 during the property restitution process following the end of communist rule, when millions of property rights were re-established, creating one of the most complex cadastral transitions in European history. Today, the cadastre operates under Act No. 256/2013 Sb. (the Cadastral Act) and is maintained by 14 regional cadastral offices (katastralni urady) coordinated by CUZK.
 
-For [OSINT](/glossary/osint/) investigations, CUZK is an indispensable resource for asset tracing, wealth profiling, beneficial ownership analysis, and financial crime investigation. Property ownership records reveal the real estate holdings of individuals and companies, enabling investigators to assess declared wealth against observable asset positions, identify property transfers that may indicate asset hiding or money laundering, and discover undisclosed connections between entities through shared property ownership or co-located addresses.
+For [OSINT](@/glossary/osint.md) investigations, CUZK is an indispensable resource for asset tracing, wealth profiling, beneficial ownership analysis, and financial crime investigation. Property ownership records reveal the real estate holdings of individuals and companies, enabling investigators to assess declared wealth against observable asset positions, identify property transfers that may indicate asset hiding or money laundering, and discover undisclosed connections between entities through shared property ownership or co-located addresses.
 
 The cadastral system provides two complementary views of property data. The descriptive component (popisne udaje) records ownership, rights, restrictions, and property attributes in structured database form. The geodetic component (geometricky plan) provides precise spatial definitions of parcel boundaries, building footprints, and geographic context through digital cadastral maps available through the CUZK geoportal.
 
@@ -266,7 +266,7 @@ Property developers and environmental consultants use CUZK parcel data (land use
 
 CUZK cadastral data is public information under Czech law (Act No. 256/2013 Sb.). Anyone can access basic ownership information for any property in the Czech Republic without restriction. However, several legal considerations apply to the use of cadastral data for intelligence purposes.
 
-Personal data in cadastral records (owner names, addresses, birth numbers) is subject to [GDPR](/glossary/gdpr/) protection. While the data is publicly available, its systematic collection, aggregation, and profiling constitute processing of personal data that requires a lawful basis under Article 6 GDPR. Birth numbers (rodna cisla) are particularly sensitive identifiers under Czech law and their processing requires specific justification.
+Personal data in cadastral records (owner names, addresses, birth numbers) is subject to [GDPR](@/glossary/gdpr.md) protection. While the data is publicly available, its systematic collection, aggregation, and profiling constitute processing of personal data that requires a lawful basis under Article 6 GDPR. Birth numbers (rodna cisla) are particularly sensitive identifiers under Czech law and their processing requires specific justification.
 
 The DPMR service terms of use prohibit bulk downloading for the purpose of creating competing databases and restrict redistribution of detailed title deed data. Users must agree to use data for legitimate purposes related to property transactions, legal proceedings, or authorized investigations.
 
@@ -274,7 +274,7 @@ Property investigations involving politically exposed persons (PEPs) should foll
 
 ## Integration with Prismatic Platform
 
-Prismatic Platform integrates CUZK data for asset intelligence and property-based [entity resolution](/glossary/entity-resolution/), enabling comprehensive wealth profiling and financial crime investigation.
+Prismatic Platform integrates CUZK data for asset intelligence and property-based [entity resolution](@/glossary/entity-resolution.md), enabling comprehensive wealth profiling and financial crime investigation.
 
 ### Asset Intelligence Pipeline
 
@@ -330,13 +330,13 @@ CUZK cadastral maps are integrated with the platform's geospatial analysis capab
 
 ## Related Providers
 
-- [ARES](/osint/ares/) - Czech business registry for owner company identification
-- [Justice.cz](/osint/justice-cz/) - Commercial Register with beneficial ownership data
-- [Insolvencni rejstrik](/osint/insolvencni-rejstrik/) - Insolvency proceedings affecting property
-- [Registr smluv](/osint/registr-smluv/) - Public contracts related to property transactions
-- [VR.cz](/osint/vr-cz/) - Czech public registers with beneficial owners
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog for contract and subsidy analytics
-- [CNB](/osint/cnb/) - Czech National Bank for mortgage creditor verification
+- [ARES](@/osint/ares.md) - Czech business registry for owner company identification
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register with beneficial ownership data
+- [Insolvencni rejstrik](@/osint/insolvencni-rejstrik.md) - Insolvency proceedings affecting property
+- [Registr smluv](@/osint/registr-smluv.md) - Public contracts related to property transactions
+- [VR.cz](@/osint/vr-cz.md) - Czech public registers with beneficial owners
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog for contract and subsidy analytics
+- [CNB](@/osint/cnb.md) - Czech National Bank for mortgage creditor verification
 
 ---
 
@@ -345,4 +345,4 @@ CUZK cadastral maps are integrated with the platform's geospatial analysis capab
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

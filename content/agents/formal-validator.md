@@ -28,9 +28,9 @@ image_alt = "formal-validator - Prismatic Platform"
 
 ## Overview
 
-The Formal Validator operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Domain domain of the Prismatic Platform. This agent implements [formal verification](/glossary/formal-verification/) through [Lean4](/glossary/lean4/)-based [theorem proving](/glossary/theorem-proving/), type-theoretic validation, and mathematical proof generation for the [NABLA](/capabilities/nabla-axioms/) Reasoning System. It provides the mathematical certainty required by the [Trinity Gate](/glossary/trinity-gate/)'s Formal Necessity criterion, ensuring that platform claims are not merely empirically supported but provably correct.
+The Formal Validator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Domain domain of the Prismatic Platform. This agent implements [formal verification](@/glossary/formal-verification.md) through [Lean4](@/glossary/lean4.md)-based [theorem proving](@/glossary/theorem-proving.md), type-theoretic validation, and mathematical proof generation for the [NABLA](@/capabilities/nabla-axioms.md) Reasoning System. It provides the mathematical certainty required by the [Trinity Gate](@/glossary/trinity-gate.md)'s Formal Necessity criterion, ensuring that platform claims are not merely empirically supported but provably correct.
 
-While the [formal-reasoning-specialist](/agents/formal-reasoning-specialist/) focuses on integrating formal reasoning systems with the platform's epistemic framework, the Formal Validator concentrates specifically on validation -- the act of confirming that implementations satisfy their formal specifications. Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, this distinction is critical: reasoning explores what can be proven, while validation confirms what must be proven.
+While the [formal-reasoning-specialist](@/agents/formal-reasoning-specialist.md) focuses on integrating formal reasoning systems with the platform's epistemic framework, the Formal Validator concentrates specifically on validation -- the act of confirming that implementations satisfy their formal specifications. Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, this distinction is critical: reasoning explores what can be proven, while validation confirms what must be proven.
 
 ## Type-Theoretic Foundation
 
@@ -56,7 +56,7 @@ Each proof category employs different verification techniques. Safety proofs typ
 
 ## NABLA Axiom Verification
 
-The Formal Validator provides formal verification of the [NABLA Infinity](/glossary/nabla-infinity/) axioms, ensuring that these epistemic principles are not merely policy statements but mathematically enforced properties.
+The Formal Validator provides formal verification of the [NABLA Infinity](@/glossary/nabla-infinity.md) axioms, ensuring that these epistemic principles are not merely policy statements but mathematically enforced properties.
 
 For the Signal Plurality axiom, the validator proves that no belief establishment function can return a confidence above the threshold without receiving evidence from at least two distinct sources. This proof involves constructing a type that encodes the source-count requirement and demonstrating that the belief establishment function's type signature enforces it.
 
@@ -66,7 +66,7 @@ For the Provenance Mandatory axiom, the validator proves that every belief in th
 
 ## Trinity Gate Validation Service
 
-The Formal Validator serves as the validation engine for the [Trinity Gate](/glossary/trinity-gate/)'s third gate: Formal Necessity. When claims are submitted for Trinity Gate review, they pass through three sequential validation stages.
+The Formal Validator serves as the validation engine for the [Trinity Gate](@/glossary/trinity-gate.md)'s third gate: Formal Necessity. When claims are submitted for Trinity Gate review, they pass through three sequential validation stages.
 
 The Structural Consistency gate verifies that the evidence network supporting a claim forms a valid directed acyclic graph without circular dependencies. The Logical Consistency gate checks that the claim follows from its premises through valid logical inference. The Formal Necessity gate, served by the Formal Validator, attempts to construct a formal proof of the claim.
 
@@ -81,7 +81,7 @@ The Formal Validator implements the Formal Necessity check through a multi-strat
 
 ## Hot Code Reload Verification
 
-The platform's [hot code reload](/glossary/hot-code-reload/) capability presents a unique verification challenge: how to ensure that upgrading running code preserves system properties without requiring system restart. The Formal Validator addresses this challenge by verifying state migration functions and interface compatibility between module versions.
+The platform's [hot code reload](@/glossary/hot-code-reload.md) capability presents a unique verification challenge: how to ensure that upgrading running code preserves system properties without requiring system restart. The Formal Validator addresses this challenge by verifying state migration functions and interface compatibility between module versions.
 
 State migration verification proves that the function transforming old state to new state preserves essential properties. If a GenServer's state invariant states that a counter is always non-negative, the migration function must provably maintain this invariant.
 
@@ -93,14 +93,14 @@ The Formal Validator operates within a continuous verification pipeline that re-
 
 Incremental verification identifies which proofs are affected by code changes and re-verifies only those proofs, avoiding full re-verification on every change. Dependency tracking between proofs and code enables efficient identification of affected proofs.
 
-Proof regression detection monitors for proofs that previously succeeded but now fail, indicating that code changes have broken formal properties. These regressions are treated with the same severity as test regressions under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine.
+Proof regression detection monitors for proofs that previously succeeded but now fail, indicating that code changes have broken formal properties. These regressions are treated with the same severity as test regressions under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime | Agent lifecycle management |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Specification and lookup |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime | Agent lifecycle management |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Specification and lookup |
 | Prismatic Telemetry | Monitoring | Verification performance metrics |
 | Trinity Gate | Validation service | Formal Necessity gate implementation |
 | NABLA Framework | Axiom verification | Mathematical enforcement of epistemic axioms |
@@ -108,9 +108,9 @@ Proof regression detection monitors for proofs that previously succeeded but now
 
 ## Related Agents
 
-- [**formal-reasoning-specialist**](/agents/formal-reasoning-specialist/) (L3) - Broader formal reasoning integration including Prolog and exploratory proof strategies
-- [**aiad-hot-reload-coordinator**](/agents/aiad-hot-reload-coordinator/) (L3) - Hot reload coordination consuming formal compatibility proofs for safe upgrades
-- [**cer-screening-specialist**](/agents/cer-screening-specialist/) (L3) - Critical infrastructure compliance verification benefiting from formal property proofs
+- [**formal-reasoning-specialist**](@/agents/formal-reasoning-specialist.md) (L3) - Broader formal reasoning integration including Prolog and exploratory proof strategies
+- [**aiad-hot-reload-coordinator**](@/agents/aiad-hot-reload-coordinator.md) (L3) - Hot reload coordination consuming formal compatibility proofs for safe upgrades
+- [**cer-screening-specialist**](@/agents/cer-screening-specialist.md) (L3) - Critical infrastructure compliance verification benefiting from formal property proofs
 
 ---
 
@@ -119,4 +119,4 @@ Proof regression detection monitors for proofs that previously succeeded but now
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

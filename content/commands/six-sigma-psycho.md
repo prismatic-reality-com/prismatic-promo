@@ -28,7 +28,7 @@ image_alt = "/six-sigma-psycho - Prismatic Platform"
 
 Where standard quality gates check for compilation warnings, Credo violations, and test coverage, PSYCHO MODE adds layers of analysis that most development teams never consider: function complexity scoring with mandatory refactoring thresholds, module coupling analysis with maximum dependency limits, naming convention enforcement across the entire 6,652-file codebase, performance regression detection through historical benchmarks, and even aesthetic code quality metrics like function length distribution and comment-to-code ratios.
 
-This command operates under the **SUPREME** authority level -- the highest authority tier in the platform -- and is executed by the `quality-unified-supreme` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The SUPREME authority requirement means this command can override any other quality assessment, block any merge regardless of who authored it, and escalate violations directly to the highest review level.
+This command operates under the **SUPREME** authority level -- the highest authority tier in the platform -- and is executed by the `quality-unified-supreme` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The SUPREME authority requirement means this command can override any other quality assessment, block any merge regardless of who authored it, and escalate violations directly to the highest review level.
 
 The "PSYCHO" designation is not hyperbole -- it reflects a quality enforcement philosophy that treats every deviation from perfection as a defect worthy of investigation. The platform's current quality score of 100/100 across 13 domains with zero violations in every category is a direct result of PSYCHO MODE enforcement eliminating the 905 quality debt patterns (QDPs) that existed before its activation.
 
@@ -177,13 +177,13 @@ Source Code Input
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Supersedes standard quality gates with PSYCHO-level strictness |
-| [Pre-commit Hooks](/glossary/quality-gates/) | Prevention | Can be configured as pre-commit check (expensive, use for critical branches) |
-| [Quality DNA](/glossary/quality-dna/) | Baseline | Reads and updates quality DNA state after each run |
-| [Credo](/glossary/credo/) | Analysis Engine | Leverages Credo with 25+ custom checks for Layer 2 |
-| [Dialyzer](/glossary/dialyzer/) | Type Checking | Dialyzer integration for Layer 3 type analysis |
-| [Telemetry](/glossary/telemetry/) | Observability | Emits detailed metrics for quality dashboards |
-| [GitLab CI/CD](/glossary/gitlab-ci/) | Pipeline | Integrated as CI pipeline stage for merge request validation |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Supersedes standard quality gates with PSYCHO-level strictness |
+| [Pre-commit Hooks](@/glossary/quality-gates.md) | Prevention | Can be configured as pre-commit check (expensive, use for critical branches) |
+| [Quality DNA](@/glossary/quality-dna.md) | Baseline | Reads and updates quality DNA state after each run |
+| [Credo](@/glossary/credo.md) | Analysis Engine | Leverages Credo with 25+ custom checks for Layer 2 |
+| [Dialyzer](@/glossary/dialyzer.md) | Type Checking | Dialyzer integration for Layer 3 type analysis |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Emits detailed metrics for quality dashboards |
+| [GitLab CI/CD](@/glossary/gitlab-ci.md) | Pipeline | Integrated as CI pipeline stage for merge request validation |
 
 ## Best Practices
 
@@ -238,19 +238,19 @@ PSYCHO MODE includes specialized detection for CASCADE patterns -- classes of qu
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: PSYCHO MODE is the ultimate expression of NO MERCY in quality enforcement. Zero violations across all six layers, zero regressions from baseline, zero tolerance for "minor" quality issues. The platform's perfect 100/100 quality score exists because PSYCHO MODE treats every defect as unacceptable.
 - **NO DOUBTS**: Every violation report includes the specific file, line number, violation type, and suggested remediation. Quality verdicts are evidence-based, backed by static analysis, type checking, and test coverage metrics. There is no ambiguity in PSYCHO MODE results -- code either passes or it does not.
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/spec-coverage](/commands/spec-coverage/) - Analyze @spec coverage for typespec completeness
-- [/verify-patterns](/commands/verify-patterns/) - Pattern matching audit for file, module or entire codebase
-- [/code](/commands/code/) - Core coding implementation and feature development
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/spec-coverage](@/commands/spec-coverage.md) - Analyze @spec coverage for typespec completeness
+- [/verify-patterns](@/commands/verify-patterns.md) - Pattern matching audit for file, module or entire codebase
+- [/code](@/commands/code.md) - Core coding implementation and feature development
 
 ---
 
@@ -259,4 +259,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

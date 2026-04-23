@@ -31,11 +31,11 @@ image_alt = "BEAM - Prismatic Platform"
 
 ## Definition
 
-BEAM (Bogdan/Bjorn's Erlang Abstract Machine) is the virtual machine at the heart of the Erlang and Elixir ecosystems. Originally developed at Ericsson in the late 1990s as a successor to the earlier JAM (Joe's Abstract Machine), BEAM provides the runtime environment that makes the entire [OTP](/glossary/otp/) framework possible. It was designed from the ground up for concurrency, fault tolerance, and soft real-time operation in telecommunications systems where downtime was measured in minutes per year, not hours.
+BEAM (Bogdan/Bjorn's Erlang Abstract Machine) is the virtual machine at the heart of the Erlang and Elixir ecosystems. Originally developed at Ericsson in the late 1990s as a successor to the earlier JAM (Joe's Abstract Machine), BEAM provides the runtime environment that makes the entire [OTP](@/glossary/otp.md) framework possible. It was designed from the ground up for concurrency, fault tolerance, and soft real-time operation in telecommunications systems where downtime was measured in minutes per year, not hours.
 
-BEAM's defining characteristic is its process model: it can run millions of lightweight, isolated processes simultaneously, each with its own heap and garbage collector. These processes communicate exclusively through [message passing](/glossary/message-passing/), eliminating shared-state concurrency bugs that plague thread-based runtimes. The scheduler is preemptive and reduction-based, ensuring no single process can monopolize CPU time -- a property that makes BEAM uniquely suited to building systems where responsiveness matters more than raw throughput.
+BEAM's defining characteristic is its process model: it can run millions of lightweight, isolated processes simultaneously, each with its own heap and garbage collector. These processes communicate exclusively through [message passing](@/glossary/message-passing.md), eliminating shared-state concurrency bugs that plague thread-based runtimes. The scheduler is preemptive and reduction-based, ensuring no single process can monopolize CPU time -- a property that makes BEAM uniquely suited to building systems where responsiveness matters more than raw throughput.
 
-Unlike the JVM or CPython, BEAM was never designed to be a general-purpose computing platform. Its architecture embodies a specific philosophy: processes are cheap, failures are expected, and the system must continue operating even when individual components crash. This philosophy, formalized in the [let it crash](/glossary/let-it-crash/) doctrine, means that BEAM applications are structured around [supervision trees](/glossary/supervision-tree/) that automatically restart failed processes rather than attempting to handle every possible error condition defensively.
+Unlike the JVM or CPython, BEAM was never designed to be a general-purpose computing platform. Its architecture embodies a specific philosophy: processes are cheap, failures are expected, and the system must continue operating even when individual components crash. This philosophy, formalized in the [let it crash](@/glossary/let-it-crash.md) doctrine, means that BEAM applications are structured around [supervision trees](@/glossary/supervision-tree.md) that automatically restart failed processes rather than attempting to handle every possible error condition defensively.
 
 ## Historical Background
 
@@ -43,7 +43,7 @@ The story of BEAM begins at Ericsson's Computer Science Laboratory in the mid-19
 
 The first Erlang implementation ran on a Prolog interpreter, which was far too slow for production use. The JAM (Joe's Abstract Machine) followed as the first compiled bytecode VM for Erlang. In 1998, Bogdan Hausman created BEAM as a complete reimplementation, incorporating a threaded code interpreter and native code compilation via HiPE (High Performance Erlang). The name "BEAM" originally stood for "Bogdan's Erlang Abstract Machine," later humorously reinterpreted as "Bjorn's Erlang Abstract Machine" after Bjorn Gustavsson took over its maintenance.
 
-Ericsson deployed BEAM-based systems in production throughout the late 1990s, most famously in the AXD 301 ATM switch, which achieved nine nines of reliability (99.9999999% uptime). When Ericsson briefly banned Erlang internally in 1998, the language was open-sourced, enabling its adoption beyond telecommunications into messaging systems (WhatsApp, RabbitMQ), databases (CouchDB, Riak), and ultimately web applications through [Phoenix](/glossary/phoenix/) and Elixir.
+Ericsson deployed BEAM-based systems in production throughout the late 1990s, most famously in the AXD 301 ATM switch, which achieved nine nines of reliability (99.9999999% uptime). When Ericsson briefly banned Erlang internally in 1998, the language was open-sourced, enabling its adoption beyond telecommunications into messaging systems (WhatsApp, RabbitMQ), databases (CouchDB, Riak), and ultimately web applications through [Phoenix](@/glossary/phoenix.md) and Elixir.
 
 The emergence of Elixir in 2012, created by Jose Valim, brought modern language features (macros, protocols, Mix tooling) to the BEAM while preserving full compatibility with Erlang libraries. This revitalized the BEAM ecosystem, attracting a new generation of developers and spawning frameworks like Phoenix, LiveView, and Broadway that exploit BEAM's concurrency model for web applications, real-time dashboards, and data processing pipelines.
 
@@ -131,7 +131,7 @@ BEAM's memory model is built around per-process heaps. Each process has its own 
 | **Large Binary Optimization** | Binaries over 64 bytes are stored in a shared reference-counted heap |
 | **Process Termination** | All memory reclaimed instantly when a process terminates |
 
-The copy-on-send semantics mean that processes truly share nothing. While this introduces a copying overhead for message passing, it eliminates an entire class of concurrency bugs and enables the [fault isolation](/glossary/process-isolation/) that BEAM is famous for: when a process crashes, only its own heap is affected.
+The copy-on-send semantics mean that processes truly share nothing. While this introduces a copying overhead for message passing, it eliminates an entire class of concurrency bugs and enables the [fault isolation](@/glossary/process-isolation.md) that BEAM is famous for: when a process crashes, only its own heap is affected.
 
 ### Memory Architecture Diagram
 
@@ -205,7 +205,7 @@ defmodule PrismaticCluster.NodeManager do
 end
 ```
 
-Distribution is foundational for BEAM [clustering](/glossary/cluster/). In a cluster, [Phoenix PubSub](/glossary/pubsub/) messages propagate across nodes, [supervisors](/glossary/supervisor/) can manage processes on remote nodes, and libraries like Horde provide distributed process registries for automatic failover. The Prismatic Platform exploits this capability for multi-node deployments on [Fly.io](/glossary/fly-io/), where the WireGuard mesh network provides the transport layer for Erlang distribution.
+Distribution is foundational for BEAM [clustering](@/glossary/cluster.md). In a cluster, [Phoenix PubSub](@/glossary/pubsub.md) messages propagate across nodes, [supervisors](@/glossary/supervisor.md) can manage processes on remote nodes, and libraries like Horde provide distributed process registries for automatic failover. The Prismatic Platform exploits this capability for multi-node deployments on [Fly.io](@/glossary/fly-io.md), where the WireGuard mesh network provides the transport layer for Erlang distribution.
 
 ## Hot Code Loading
 
@@ -242,7 +242,7 @@ defmodule PrismaticRuntime.CodeLoader do
 end
 ```
 
-This mechanism was originally designed for telecommunications systems that could never go offline. While modern deployment practices (blue-green deployments, rolling restarts) have reduced the need for in-place [hot code loading](/glossary/hot-code-reload/), it remains valuable for long-running BEAM processes that maintain important state, such as connection handlers or stateful [GenServer](/glossary/genserver/) agents.
+This mechanism was originally designed for telecommunications systems that could never go offline. While modern deployment practices (blue-green deployments, rolling restarts) have reduced the need for in-place [hot code loading](@/glossary/hot-code-reload.md), it remains valuable for long-running BEAM processes that maintain important state, such as connection handlers or stateful [GenServer](@/glossary/genserver.md) agents.
 
 ## Why Prismatic Chose BEAM
 
@@ -252,10 +252,10 @@ The Prismatic Platform runs entirely on BEAM, which hosts all 115 umbrella appli
 |-------------|---------------|
 | **530+ concurrent agents** | Each agent is a BEAM process; millions possible without resource contention |
 | **Fault isolation** | Agent crashes cannot corrupt other agents or the platform core |
-| **Real-time dashboards** | [LiveView](/glossary/liveview/) processes maintain WebSocket connections with sub-millisecond event handling |
+| **Real-time dashboards** | [LiveView](@/glossary/liveview.md) processes maintain WebSocket connections with sub-millisecond event handling |
 | **Zero-downtime deploys** | Hot code reload and rolling restarts via OTP releases |
-| **Multi-node clustering** | Native distribution for [Fly.io](/glossary/fly-io/) edge deployment |
-| **OSINT pipeline processing** | [GenStage](/glossary/genstage/) and [Broadway](/glossary/broadway/) pipelines with backpressure |
+| **Multi-node clustering** | Native distribution for [Fly.io](@/glossary/fly-io.md) edge deployment |
+| **OSINT pipeline processing** | [GenStage](@/glossary/genstage.md) and [Broadway](@/glossary/broadway.md) pipelines with backpressure |
 | **Soft real-time guarantees** | Preemptive scheduling ensures consistent response times under load |
 | **120 OSINT tool integration** | Concurrent HTTP connections to external providers without thread exhaustion |
 
@@ -340,7 +340,7 @@ defmodule PrismaticRuntime.Diagnostics do
 end
 ```
 
-The [Observer](/glossary/observer/) tool provides a graphical interface for examining process hierarchies, message queues, ETS tables, and memory allocation in real-time. The `:recon` library (often included in production deployments) adds advanced diagnostics including process leak detection, port analysis, and scheduler utilization tracking.
+The [Observer](@/glossary/observer.md) tool provides a graphical interface for examining process hierarchies, message queues, ETS tables, and memory allocation in real-time. The `:recon` library (often included in production deployments) adds advanced diagnostics including process leak detection, port analysis, and scheduler utilization tracking.
 
 ## BEAM Performance Tuning
 
@@ -380,27 +380,27 @@ While BEAM prioritizes latency and fault tolerance over raw throughput, several 
 
 ## Related Terms
 
-- [OTP](/glossary/otp/) - Framework of behaviors and design principles built on BEAM
-- [GenServer](/glossary/genserver/) - Primary OTP behavior running as a BEAM process
-- [Supervision Tree](/glossary/supervision-tree/) - Hierarchical process management on BEAM
-- [PVM](/glossary/pvm/) - Prismatic's platform VM layer built atop BEAM
-- [Process Isolation](/glossary/process-isolation/) - BEAM's per-process crash containment
-- [Hot Code Reload](/glossary/hot-code-reload/) - Runtime module replacement without restart
-- [Message Passing](/glossary/message-passing/) - Inter-process communication mechanism
-- [Phoenix](/glossary/phoenix/) - Web framework leveraging BEAM's concurrency model
-- [Cluster](/glossary/cluster/) - Multi-node BEAM deployment
-- [Broadway](/glossary/broadway/) - Data processing pipelines on BEAM
-- [GenStage](/glossary/genstage/) - Demand-driven pipeline stages on BEAM
-- [Let It Crash](/glossary/let-it-crash/) - Error handling philosophy enabled by BEAM
-- [LiveView](/glossary/liveview/) - Real-time UI leveraging BEAM process model
-- [ETS](/glossary/ets/) - In-memory storage integrated with BEAM runtime
+- [OTP](@/glossary/otp.md) - Framework of behaviors and design principles built on BEAM
+- [GenServer](@/glossary/genserver.md) - Primary OTP behavior running as a BEAM process
+- [Supervision Tree](@/glossary/supervision-tree.md) - Hierarchical process management on BEAM
+- [PVM](@/glossary/pvm.md) - Prismatic's platform VM layer built atop BEAM
+- [Process Isolation](@/glossary/process-isolation.md) - BEAM's per-process crash containment
+- [Hot Code Reload](@/glossary/hot-code-reload.md) - Runtime module replacement without restart
+- [Message Passing](@/glossary/message-passing.md) - Inter-process communication mechanism
+- [Phoenix](@/glossary/phoenix.md) - Web framework leveraging BEAM's concurrency model
+- [Cluster](@/glossary/cluster.md) - Multi-node BEAM deployment
+- [Broadway](@/glossary/broadway.md) - Data processing pipelines on BEAM
+- [GenStage](@/glossary/genstage.md) - Demand-driven pipeline stages on BEAM
+- [Let It Crash](@/glossary/let-it-crash.md) - Error handling philosophy enabled by BEAM
+- [LiveView](@/glossary/liveview.md) - Real-time UI leveraging BEAM process model
+- [ETS](@/glossary/ets.md) - In-memory storage integrated with BEAM runtime
 
 ## See Also
 
-- [Technologies](/technologies/) - Full technology stack
-- [Architecture](/architecture/) - Platform architecture
-- [Fault Tolerance](/glossary/fault-tolerance/) - System reliability through BEAM primitives
-- [Distributed System](/glossary/distributed-system/) - Multi-node system design
+- [Technologies](@/technologies/_index.md) - Full technology stack
+- [Architecture](@/architecture/_index.md) - Platform architecture
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - System reliability through BEAM primitives
+- [Distributed System](@/glossary/distributed-system.md) - Multi-node system design
 
 ---
 
@@ -409,4 +409,4 @@ While BEAM prioritizes latency and fault tolerance over raw throughput, several 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

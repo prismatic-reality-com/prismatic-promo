@@ -24,13 +24,13 @@ image_alt = "NABLA Infinity Axiom Enforcement - Prismatic Platform"
 
 ## Hypothesis
 
-We hypothesize that systematic enforcement of the 7 [NABLA Infinity](/glossary/nabla-infinity/) axioms across all platform operations will maintain epistemic quality above 0.95 confidence, that [Trinity Gate](/glossary/trinity-gate/) passage rates will stabilize above 92% for production claims after a 30-day calibration period, and that axiom violations correlate with downstream quality defects at r > 0.8.
+We hypothesize that systematic enforcement of the 7 [NABLA Infinity](@/glossary/nabla-infinity.md) axioms across all platform operations will maintain epistemic quality above 0.95 confidence, that [Trinity Gate](@/glossary/trinity-gate.md) passage rates will stabilize above 92% for production claims after a 30-day calibration period, and that axiom violations correlate with downstream quality defects at r > 0.8.
 
 ## Background
 
 The NABLA Infinity framework is the epistemic foundation of the Prismatic Platform. It defines 7 non-negotiable axioms that govern how beliefs are formed, maintained, and retired: Signal Plurality, Contradiction Preservation, Absence Informative, Time Decay, Unknown Valid, Source Independence, and Provenance Mandatory. These axioms were not arbitrary design choices but emerged from systematic analysis of epistemic failures in previous intelligence platform generations.
 
-The Trinity Gate provides the verification layer: every claim that enters the platform's belief system must pass through three independent checks -- Structural Consistency (belief network forms a valid DAG), Logical Consistency (propositions follow formal rules), and Formal Necessity (claims proven in [Lean4](/technologies/lean4/) or equivalent formal systems).
+The Trinity Gate provides the verification layer: every claim that enters the platform's belief system must pass through three independent checks -- Structural Consistency (belief network forms a valid DAG), Logical Consistency (propositions follow formal rules), and Formal Necessity (claims proven in [Lean4](@/technologies/lean4.md) or equivalent formal systems).
 
 Previous platform generations suffered from three categories of epistemic failure. First, single-source beliefs that were later proven false by contradictory evidence that had been silently discarded. Second, stale beliefs that remained active long after their supporting evidence had expired. Third, beliefs with circular provenance chains that appeared well-supported but were actually self-referential.
 
@@ -42,13 +42,13 @@ The challenge of managing beliefs in automated intelligence systems has a longer
 
 Bayesian epistemology, the philosophical counterpart to Bayesian statistics, holds that rational belief should be modeled as probability distributions updated via Bayes' theorem as new evidence arrives. This is mathematically elegant and well-understood, but it carries assumptions that break down in practice. It requires prior distributions, which in intelligence analysis are frequently unavailable or politically loaded. It assumes evidence arrives from known distributions, which fails when adversaries deliberately manipulate information channels. And it has no native mechanism for representing "I don't know" as distinct from "I believe with 50% confidence" -- a distinction that is critical when the cost of false certainty exceeds the cost of acknowledged ignorance.
 
-The NABLA Infinity axioms were designed to address these specific failures. Rather than adopting a single mathematical framework, NABLA operates at a higher level of abstraction: it defines constraints that any belief-forming process must satisfy, regardless of the underlying inference mechanism. [Signal Plurality](/glossary/signal-plurality/) prevents the single-source fragility that plagued expert systems. [Contradiction Preservation](/glossary/contradiction-preservation/) rejects the Bayesian assumption that all evidence can be smoothly integrated into a single posterior. The Unknown Valid axiom provides the "I don't know" state that probability theory lacks. Time Decay enforces the staleness detection that neither Bayesian nor Dempster-Shafer frameworks mandate. And [Provenance Mandatory](/glossary/provenance-mandatory/) ensures that the circular reasoning chains which undermined earlier systems are structurally impossible. In this sense, NABLA is not a replacement for Bayesian inference or Dempster-Shafer combination -- it is a meta-framework that constrains how those tools may be applied, ensuring that their known failure modes are caught before they propagate into the platform's [belief graph](/glossary/belief-graph/).
+The NABLA Infinity axioms were designed to address these specific failures. Rather than adopting a single mathematical framework, NABLA operates at a higher level of abstraction: it defines constraints that any belief-forming process must satisfy, regardless of the underlying inference mechanism. [Signal Plurality](@/glossary/signal-plurality.md) prevents the single-source fragility that plagued expert systems. [Contradiction Preservation](@/glossary/contradiction-preservation.md) rejects the Bayesian assumption that all evidence can be smoothly integrated into a single posterior. The Unknown Valid axiom provides the "I don't know" state that probability theory lacks. Time Decay enforces the staleness detection that neither Bayesian nor Dempster-Shafer frameworks mandate. And [Provenance Mandatory](@/glossary/provenance-mandatory.md) ensures that the circular reasoning chains which undermined earlier systems are structurally impossible. In this sense, NABLA is not a replacement for Bayesian inference or Dempster-Shafer combination -- it is a meta-framework that constrains how those tools may be applied, ensuring that their known failure modes are caught before they propagate into the platform's [belief graph](@/glossary/belief-graph.md).
 
 ### Why Traditional Belief Management Fails at Scale
 
 Traditional belief management approaches -- whether rule-based, probabilistic, or hybrid -- share a common failure mode at scale: they optimize for internal consistency at the expense of external validity. A Bayesian network with 10,000 nodes will produce a globally consistent posterior distribution, but if 200 of those nodes encode beliefs that were formed from a single source with no cross-validation, the consistency is illusory. The system is not wrong in any locally detectable way, yet its aggregate reliability is far lower than its confidence scores suggest. This is the epistemic equivalent of technical debt: invisible, compounding, and catastrophic when it finally manifests.
 
-In intelligence platforms specifically, scale introduces three additional failure modes. First, evidence velocity: when hundreds of OSINT sources produce thousands of signals per hour, the time between evidence arrival and belief formation must be minimized, creating pressure to skip validation steps. Second, source correlation: at scale, nominally independent sources often share upstream data providers, making apparent [signal plurality](/glossary/signal-plurality/) illusory. Third, contradiction volume: as the number of monitored entities grows, contradictions become the norm rather than the exception, and any system that attempts to resolve all contradictions will either freeze (waiting for resolution) or silently discard evidence (introducing bias). NABLA's axiom-based approach addresses all three: hard enforcement gates operate in constant time per belief (no scaling penalty), source independence checks detect correlated sources, and contradiction preservation treats unresolved contradictions as first-class data rather than errors to be eliminated.
+In intelligence platforms specifically, scale introduces three additional failure modes. First, evidence velocity: when hundreds of OSINT sources produce thousands of signals per hour, the time between evidence arrival and belief formation must be minimized, creating pressure to skip validation steps. Second, source correlation: at scale, nominally independent sources often share upstream data providers, making apparent [signal plurality](@/glossary/signal-plurality.md) illusory. Third, contradiction volume: as the number of monitored entities grows, contradictions become the norm rather than the exception, and any system that attempts to resolve all contradictions will either freeze (waiting for resolution) or silently discard evidence (introducing bias). NABLA's axiom-based approach addresses all three: hard enforcement gates operate in constant time per belief (no scaling penalty), source independence checks detect correlated sources, and contradiction preservation treats unresolved contradictions as first-class data rather than errors to be eliminated.
 
 ## Methodology
 
@@ -58,7 +58,7 @@ We instrumented every belief-forming operation in the platform with axiom compli
 
 2. **Trinity Gate passage metrics** -- Every claim submitted to the Trinity Gate is tracked through all three checks, with pass/fail status and failure reasons recorded.
 
-3. **Quality defect correlation** -- Every quality defect detected by the [Quality DNA](/glossary/quality-dna/) system is correlated with axiom violations in the same module within the preceding 48 hours.
+3. **Quality defect correlation** -- Every quality defect detected by the [Quality DNA](@/glossary/quality-dna.md) system is correlated with axiom violations in the same module within the preceding 48 hours.
 
 4. **Epistemic drift measurement** -- The platform's aggregate confidence level is sampled every 5 minutes and analyzed for drift patterns using CUSUM change detection.
 
@@ -211,7 +211,7 @@ defmodule PrismaticNabla.AxiomEnforcer do
 end
 ```
 
-The axiom enforcement system is instrumented with [telemetry](/technologies/erlang-otp/) events that feed into the platform's observability layer. This monitoring module emits structured events for every validation, enabling the dashboards and correlation analysis described in the Results section:
+The axiom enforcement system is instrumented with [telemetry](@/technologies/erlang-otp.md) events that feed into the platform's observability layer. This monitoring module emits structured events for every validation, enabling the dashboards and correlation analysis described in the Results section:
 
 ```elixir
 defmodule PrismaticNabla.AxiomTelemetry do
@@ -357,7 +357,7 @@ Quality defect correlation with axiom violations (Pearson r):
 
 ## Performance Characteristics
 
-Epistemic enforcement must not become a bottleneck for belief processing. A framework that guarantees correctness but halves throughput would be impractical for a platform ingesting thousands of OSINT signals per minute. The following benchmarks were collected over the 60-day experiment period using [Erlang/OTP](/technologies/erlang-otp/) monotonic time measurements, with each metric representing the median across all 2,847,391 processed beliefs.
+Epistemic enforcement must not become a bottleneck for belief processing. A framework that guarantees correctness but halves throughput would be impractical for a platform ingesting thousands of OSINT signals per minute. The following benchmarks were collected over the 60-day experiment period using [Erlang/OTP](@/technologies/erlang-otp.md) monotonic time measurements, with each metric representing the median across all 2,847,391 processed beliefs.
 
 ### Axiom Validation Latency
 
@@ -367,7 +367,7 @@ Per-belief axiom validation overhead is the critical metric. Each belief passes 
 |-------------|---------------|-------------|-------|
 | Signal Plurality | 1.2 us | 3.8 us | List length check, constant time for typical signal counts |
 | Contradiction Preservation | 4.7 us | 18.3 us | Requires contradiction lookup against belief store |
-| Absence Informative | 6.1 us | 22.7 us | Set difference against expected sources ([ETS](/technologies/ets/) lookup) |
+| Absence Informative | 6.1 us | 22.7 us | Set difference against expected sources ([ETS](@/technologies/ets.md) lookup) |
 | Time Decay | 0.4 us | 1.1 us | Simple field presence check |
 | Unknown Valid | 0.3 us | 0.9 us | Enum membership check |
 | Source Independence | 8.2 us | 31.4 us | Upstream provider deduplication and comparison |
@@ -387,7 +387,7 @@ Trinity Gate evaluation is more expensive than axiom validation because it invol
 | Formal Necessity | 12.3 ms | 89.4 ms | 81 |
 | **Full Trinity Gate** | **14.5 ms** | **98.3 ms** | **69** |
 
-Formal Necessity is the dominant cost, as expected -- proof verification against the [Lean4](/technologies/lean4/) kernel is fundamentally more expensive than graph or logic checks. The 69 claims/second throughput for the full gate is sufficient for the current platform workload (peak: 42 claims/second during bulk OSINT ingestion), with headroom for approximately 60% growth before scaling interventions are needed.
+Formal Necessity is the dominant cost, as expected -- proof verification against the [Lean4](@/technologies/lean4.md) kernel is fundamentally more expensive than graph or logic checks. The 69 claims/second throughput for the full gate is sufficient for the current platform workload (peak: 42 claims/second during bulk OSINT ingestion), with headroom for approximately 60% growth before scaling interventions are needed.
 
 ### Memory Footprint
 
@@ -395,7 +395,7 @@ Provenance tracking is the primary memory consumer in the axiom enforcement subs
 
 | Component | Per-Belief Memory | Aggregate (2.8M beliefs) | Storage Backend |
 |-----------|------------------|--------------------------|-----------------|
-| Provenance chain | 384 bytes (avg) | ~1.04 GB | [PostgreSQL](/technologies/postgresql/) + ETS cache |
+| Provenance chain | 384 bytes (avg) | ~1.04 GB | [PostgreSQL](@/technologies/postgresql.md) + ETS cache |
 | Signal metadata | 128 bytes (avg) | ~347 MB | ETS |
 | Contradiction records | 96 bytes (avg) | ~52 MB (only for beliefs with contradictions) | PostgreSQL |
 | Absence tracking | 64 bytes (avg) | ~18 MB | ETS |
@@ -484,7 +484,7 @@ During the experiment, 847 cross-belief circular dependencies were detected that
 
 ### Time Decay Race Conditions
 
-The Time Decay axiom requires that every belief carry a timestamp and a TTL. When a belief's TTL expires, it should be flagged for re-validation or retirement. However, in a concurrent system running on the [BEAM](/technologies/beam/) virtual machine, a race condition arises: a belief can expire between the moment it is read from the store and the moment it is used in a downstream computation. The downstream computation then operates on a belief that was valid when read but stale when applied.
+The Time Decay axiom requires that every belief carry a timestamp and a TTL. When a belief's TTL expires, it should be flagged for re-validation or retirement. However, in a concurrent system running on the [BEAM](@/technologies/beam.md) virtual machine, a race condition arises: a belief can expire between the moment it is read from the store and the moment it is used in a downstream computation. The downstream computation then operates on a belief that was valid when read but stale when applied.
 
 The platform handles this through optimistic validation with a staleness buffer:
 
@@ -563,7 +563,7 @@ end
 
 **Pair every OSINT adapter with at least one cross-validation source.** The 79,614 Signal Plurality violations were concentrated in 12 modules. After pairing each with a secondary source, violations in those modules dropped to zero. The cost of adding a secondary source is typically low -- many public registries and databases overlap in coverage.
 
-**Preserve contradictions explicitly rather than resolving them silently.** Entity resolution modules should store both conflicting values with their respective source attributions, using a resolution strategy field that documents how the conflict was handled (e.g., "majority vote", "recency preference", "unresolved -- both preserved"). This satisfies [Contradiction Preservation](/glossary/contradiction-preservation/) and provides an audit trail for downstream consumers.
+**Preserve contradictions explicitly rather than resolving them silently.** Entity resolution modules should store both conflicting values with their respective source attributions, using a resolution strategy field that documents how the conflict was handled (e.g., "majority vote", "recency preference", "unresolved -- both preserved"). This satisfies [Contradiction Preservation](@/glossary/contradiction-preservation.md) and provides an audit trail for downstream consumers.
 
 ### Common Anti-Patterns
 
@@ -585,7 +585,7 @@ Axiom compliance is enforced at three points in the development lifecycle, integ
 
 2. **CI pipeline.** The continuous integration pipeline runs the full axiom enforcement suite against all modified modules. Any hard axiom violation fails the pipeline. Soft violations are reported but do not block merging, unless the module's accumulated soft violation count exceeds a configurable threshold.
 
-3. **Runtime monitoring.** Production telemetry continuously tracks axiom compliance rates per module. If a module's compliance rate drops below 95% over a rolling 24-hour window, an alert is generated and the module is flagged for review in the [Quality DNA](/glossary/quality-dna/) dashboard. Sustained non-compliance triggers automatic quality gate tightening for that module's next deployment.
+3. **Runtime monitoring.** Production telemetry continuously tracks axiom compliance rates per module. If a module's compliance rate drops below 95% over a rolling 24-hour window, an alert is generated and the module is flagged for review in the [Quality DNA](@/glossary/quality-dna.md) dashboard. Sustained non-compliance triggers automatic quality gate tightening for that module's next deployment.
 
 ## Conclusions
 
@@ -601,9 +601,9 @@ Axiom compliance is enforced at three points in the development lifecycle, integ
 ## Next Steps
 
 - Develop automated proof template generation for common claim patterns
-- Implement real-time axiom compliance dashboards in [Phoenix LiveView](/technologies/phoenix-liveview/)
+- Implement real-time axiom compliance dashboards in [Phoenix LiveView](@/technologies/phoenix-liveview.md)
 - Test adaptive enforcement thresholds that tighten as teams mature
-- Integrate epistemic metrics into the [Quality DNA](/glossary/quality-dna/) scoring system
+- Integrate epistemic metrics into the [Quality DNA](@/glossary/quality-dna.md) scoring system
 - Explore machine learning approaches for predicting Trinity Gate failures before submission
 - Extend cross-belief provenance checking beyond depth 3 with performance profiling
 - Develop contradiction clustering benchmarks for entities monitored by 100+ sources
@@ -611,11 +611,11 @@ Axiom compliance is enforced at three points in the development lifecycle, integ
 
 ## Related Experiments
 
-- [Drift Detection](/lab/drift-detection/) -- Epistemic drift is a specific category detected here
-- [Formal Verification](/lab/formal-verification/) -- The Lean4 pipeline that powers Trinity Gate's formal check
-- [Color Team Simulation](/lab/color-team-simulation/) -- Adversarial testing of epistemic defenses
-- [Quality Evolution](/lab/quality-evolution/) -- Quality metrics that correlate with axiom compliance
-- [Storage Benchmarks](/lab/storage-benchmarks/) -- ETS and PostgreSQL performance baselines underlying provenance storage
+- [Drift Detection](@/lab/drift-detection.md) -- Epistemic drift is a specific category detected here
+- [Formal Verification](@/lab/formal-verification.md) -- The Lean4 pipeline that powers Trinity Gate's formal check
+- [Color Team Simulation](@/lab/color-team-simulation.md) -- Adversarial testing of epistemic defenses
+- [Quality Evolution](@/lab/quality-evolution.md) -- Quality metrics that correlate with axiom compliance
+- [Storage Benchmarks](@/lab/storage-benchmarks.md) -- ETS and PostgreSQL performance baselines underlying provenance storage
 
 ---
 
@@ -624,4 +624,4 @@ Axiom compliance is enforced at three points in the development lifecycle, integ
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

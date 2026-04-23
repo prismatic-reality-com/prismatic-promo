@@ -25,11 +25,11 @@ image_alt = "RES - Prismatic Platform"
 
 ## Overview
 
-RES (Registr ekonomickych subjektu) is the statistical register of all economic subjects in the Czech Republic, maintained by the Czech Statistical Office (Cesky statisticky urad, CSU) under Act No. 89/1995 Coll., on the State Statistical Service, as amended. Unlike administrative registers such as [ARES](/osint/ares/) that aggregate data from business registries, RES provides the statistical classification view of the Czech economy. Every entity assigned an ICO (Identification Number of a Person) is recorded in RES with standardized statistical classifications including CZ-NACE economic activity codes, institutional sector classification, organizational form, and employee count categories.
+RES (Registr ekonomickych subjektu) is the statistical register of all economic subjects in the Czech Republic, maintained by the Czech Statistical Office (Cesky statisticky urad, CSU) under Act No. 89/1995 Coll., on the State Statistical Service, as amended. Unlike administrative registers such as [ARES](@/osint/ares.md) that aggregate data from business registries, RES provides the statistical classification view of the Czech economy. Every entity assigned an ICO (Identification Number of a Person) is recorded in RES with standardized statistical classifications including CZ-NACE economic activity codes, institutional sector classification, organizational form, and employee count categories.
 
 The register contains approximately 2.8 million economic subjects, encompassing both active and inactive entities across all sectors of the Czech economy. RES serves as the authoritative national source for economic activity classification and forms the foundation of the Czech Republic's statistical reporting obligations to Eurostat. For OSINT analysts, RES provides intelligence that no other Czech register delivers: the precise industry classification of entities, their employee count ranges, and their institutional sector positioning within the European System of Accounts (ESA 2010) framework. This data is essential for sector-level competitive analysis, industry mapping, economic research, and due diligence verification of claimed business activities.
 
-The legal basis for RES is established in Section 20 of Act No. 89/1995 Coll., which mandates the CSU to maintain a register of economic subjects for statistical purposes. Data flows into RES from administrative sources including the Commercial Register ([Justice.cz](/osint/justice-cz/)), the Trade Licensing Register ([RZP](/osint/rzp/)), the Tax Administration, and sector-specific registries. The CSU enriches this data with statistical classifications that are standardized across the European Union.
+The legal basis for RES is established in Section 20 of Act No. 89/1995 Coll., which mandates the CSU to maintain a register of economic subjects for statistical purposes. Data flows into RES from administrative sources including the Commercial Register ([Justice.cz](@/osint/justice-cz.md)), the Trade Licensing Register ([RZP](@/osint/rzp.md)), the Tax Administration, and sector-specific registries. The CSU enriches this data with statistical classifications that are standardized across the European Union.
 
 ## Data Sources and Coverage
 
@@ -237,7 +237,7 @@ RES enables systematic identification and analysis of all competitors within a d
 - Identify all competitors in a NACE sector and region
 - Analyze sector size distribution and concentration indices
 - Track new entrants and exits in specific industries over time
-- Combine with [ARES](/osint/ares/) for financial details on sector leaders
+- Combine with [ARES](@/osint/ares.md) for financial details on sector leaders
 
 ### Economic Research and Statistical Analysis
 
@@ -246,7 +246,7 @@ RES is the primary data source for economic research at the sector and regional 
 - Sector-level employment analysis using employee count categories
 - Regional economic structure mapping across CZ-NUTS regions
 - Entity creation and dissolution trend tracking for economic cycle analysis
-- Cross-reference with [CEDR](/osint/cedr/) subsidy data for sector-specific public support analysis
+- Cross-reference with [CEDR](@/osint/cedr.md) subsidy data for sector-specific public support analysis
 
 ### Due Diligence and Compliance Verification
 
@@ -254,7 +254,7 @@ RES provides independent verification of business activity claims. If an entity 
 
 - Verify claimed business activities against registered NACE codes
 - Compare entity size claims with registered employee category
-- Cross-reference legal form with [Justice.cz](/osint/justice-cz/) commercial register data
+- Cross-reference legal form with [Justice.cz](@/osint/justice-cz.md) commercial register data
 - Support KYC/AML processes with verified industry classification
 
 ## Data Quality and Reliability
@@ -344,22 +344,22 @@ Caching strategy: Entity-level data cached with 24-hour TTL. Sector-level aggreg
 ## Related Resources
 
 ### Czech Administrative Registers
-- [ARES](/osint/ares/) - Administrative entity register with financial data (primary RES access path)
-- [Justice.cz](/osint/justice-cz/) - Commercial register details and corporate filings
-- [RZP](/osint/rzp/) - Trade licensing register for license verification
-- [VR.cz](/osint/vr-cz/) - Unified public registry portal
+- [ARES](@/osint/ares.md) - Administrative entity register with financial data (primary RES access path)
+- [Justice.cz](@/osint/justice-cz.md) - Commercial register details and corporate filings
+- [RZP](@/osint/rzp.md) - Trade licensing register for license verification
+- [VR.cz](@/osint/vr-cz.md) - Unified public registry portal
 
 ### Financial and Subsidy Intelligence
-- [CEDR](/osint/cedr/) - Central subsidy register for sector-level subsidy analysis
-- [SZIF](/osint/szif/) - Agricultural subsidy data for primary sector analysis
+- [CEDR](@/osint/cedr.md) - Central subsidy register for sector-level subsidy analysis
+- [SZIF](@/osint/szif.md) - Agricultural subsidy data for primary sector analysis
 
 ### Entity Verification
-- [Datove Schranky](/osint/datove-schranky/) - Entity existence verification via data boxes
-- [Insolvencni rejstrik](/osint/insolvencni-rejstrik/) - Insolvency status cross-reference
+- [Datove Schranky](@/osint/datove-schranky.md) - Entity existence verification via data boxes
+- [Insolvencni rejstrik](@/osint/insolvencni-rejstrik.md) - Insolvency status cross-reference
 
 ### Platform Components
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - EASM with sector-aware security ratings
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - EASM with sector-aware security ratings
 
 ---
 
@@ -368,4 +368,4 @@ Caching strategy: Entity-level data cached with 24-hour TTL. Sector-level aggreg
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -23,7 +23,7 @@ image_alt = "Share Openly - Prismatic Platform"
 
 ## Definition and Overview
 
-Share Openly is a foundational philosophy of the Prismatic Platform that mandates transparent knowledge sharing, active open-source contribution, and community-first development practices. It is not merely a suggestion or a nice-to-have aspiration -- it is a deliberate architectural and organizational decision rooted in the empirical observation that open systems consistently outperform closed ones in security, quality, reliability, and innovation velocity. The philosophy extends from code (every line of the platform is open source under the [GHL License](/glossary/ghl-license/)) to knowledge (documentation, architectural decisions, quality metrics, and even failure analyses are published openly) to process (development workflows, CI/CD pipelines, and quality gates are transparent and reproducible).
+Share Openly is a foundational philosophy of the Prismatic Platform that mandates transparent knowledge sharing, active open-source contribution, and community-first development practices. It is not merely a suggestion or a nice-to-have aspiration -- it is a deliberate architectural and organizational decision rooted in the empirical observation that open systems consistently outperform closed ones in security, quality, reliability, and innovation velocity. The philosophy extends from code (every line of the platform is open source under the [GHL License](@/glossary/ghl-license.md)) to knowledge (documentation, architectural decisions, quality metrics, and even failure analyses are published openly) to process (development workflows, CI/CD pipelines, and quality gates are transparent and reproducible).
 
 The phrase "Share Openly" encompasses three distinct but interrelated commitments:
 
@@ -52,11 +52,11 @@ The case for sharing openly is not ideological -- it is empirical. Open systems 
 
 ### Relationship to NO MERCY, NO DOUBTS
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine and Share Openly are complementary. NO MERCY demands zero tolerance for incomplete implementations and quality violations. Share Openly makes every implementation visible to the world, which naturally enforces NO MERCY standards: you cannot hide shortcuts when everyone can read your code. The public accountability of open source is one of the most effective quality enforcement mechanisms ever devised.
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine and Share Openly are complementary. NO MERCY demands zero tolerance for incomplete implementations and quality violations. Share Openly makes every implementation visible to the world, which naturally enforces NO MERCY standards: you cannot hide shortcuts when everyone can read your code. The public accountability of open source is one of the most effective quality enforcement mechanisms ever devised.
 
 ### Relationship to NABLA Axioms
 
-The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework's axiom of [Provenance Mandatory](/glossary/provenance-mandatory/) directly supports Share Openly. When all code and decisions are publicly traceable, provenance is automatically satisfied. The axiom of [Contradiction Preservation](/glossary/contradiction-preservation/) also benefits: open discussion of design trade-offs and acknowledged limitations is more honest than marketing-driven documentation that hides inconvenient truths.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework's axiom of [Provenance Mandatory](@/glossary/provenance-mandatory.md) directly supports Share Openly. When all code and decisions are publicly traceable, provenance is automatically satisfied. The axiom of [Contradiction Preservation](@/glossary/contradiction-preservation.md) also benefits: open discussion of design trade-offs and acknowledged limitations is more honest than marketing-driven documentation that hides inconvenient truths.
 
 ## Technical Implementation
 
@@ -395,7 +395,7 @@ Open source serves as both portfolio and interview. Potential contributors can e
 
 **Maintain a single source of truth.** Do not maintain separate public and private versions of documentation. If information cannot be shared (e.g., credentials, customer data), it should not be in the repository at all, not in a private branch.
 
-**License explicitly.** The [GHL License](/glossary/ghl-license/) makes the terms of sharing unambiguous. Every file in the repository is covered by the license, and every contributor understands the terms.
+**License explicitly.** The [GHL License](@/glossary/ghl-license.md) makes the terms of sharing unambiguous. Every file in the repository is covered by the license, and every contributor understands the terms.
 
 ## Common Pitfalls
 
@@ -409,25 +409,25 @@ Open source serves as both portfolio and interview. Potential contributors can e
 
 ## Related Concepts
 
-- [Open Source](/glossary/open-source/) -- The broader movement of publicly available software
-- [Community Building](/glossary/community-building/) -- Growing a contributor and user community
-- [GHL License](/glossary/ghl-license/) -- The platform's open source license
-- [Community Ownership](/glossary/community-ownership/) -- Community governance of shared resources
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- Trust through verifiable openness
-- [Complete Transparency](/glossary/complete-transparency/) -- Full disclosure philosophy
-- [Open Source Advocacy](/glossary/open-source-advocacy/) -- Promoting open source adoption
-- [Collaborative Development](/glossary/collaborative-development/) -- Multi-contributor engineering
-- [Developer Community](/glossary/developer-community/) -- The ecosystem of platform developers
-- [Developer Portal](/glossary/developer-portal/) -- Central hub for developer resources
-- [Community Contributions](/glossary/community-contributions/) -- Community-submitted improvements
+- [Open Source](@/glossary/open-source.md) -- The broader movement of publicly available software
+- [Community Building](@/glossary/community-building.md) -- Growing a contributor and user community
+- [GHL License](@/glossary/ghl-license.md) -- The platform's open source license
+- [Community Ownership](@/glossary/community-ownership.md) -- Community governance of shared resources
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- Trust through verifiable openness
+- [Complete Transparency](@/glossary/complete-transparency.md) -- Full disclosure philosophy
+- [Open Source Advocacy](@/glossary/open-source-advocacy.md) -- Promoting open source adoption
+- [Collaborative Development](@/glossary/collaborative-development.md) -- Multi-contributor engineering
+- [Developer Community](@/glossary/developer-community.md) -- The ecosystem of platform developers
+- [Developer Portal](@/glossary/developer-portal.md) -- Central hub for developer resources
+- [Community Contributions](@/glossary/community-contributions.md) -- Community-submitted improvements
 
 ## See Also
 
-- [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) -- Quality doctrine enforced by open accountability
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework supporting open provenance
-- [Documentation](/glossary/documentation/) -- Documentation practices and standards
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Umbrella applications shared openly
+- [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) -- Quality doctrine enforced by open accountability
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework supporting open provenance
+- [Documentation](@/glossary/documentation.md) -- Documentation practices and standards
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Umbrella applications shared openly
 
 ---
 
@@ -436,4 +436,4 @@ Open source serves as both portfolio and interview. Potential contributors can e
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

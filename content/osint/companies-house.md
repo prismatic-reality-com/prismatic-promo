@@ -25,9 +25,9 @@ image_alt = "Companies House - Prismatic Platform"
 
 ## Overview
 
-Companies House is the official UK company [registry](/glossary/registry-otp/), maintaining records of over 5 million companies incorporated in England, Wales, Scotland, and Northern Ireland. Under the Companies Act 2006, all limited companies, limited liability partnerships (LLPs), and certain other business entities must register with Companies House and file annual returns, accounts, and notification of changes including director appointments, share transfers, and registered office moves. The registry serves as the primary source of truth for UK corporate entity data and is legally authoritative.
+Companies House is the official UK company [registry](@/glossary/registry-otp.md), maintaining records of over 5 million companies incorporated in England, Wales, Scotland, and Northern Ireland. Under the Companies Act 2006, all limited companies, limited liability partnerships (LLPs), and certain other business entities must register with Companies House and file annual returns, accounts, and notification of changes including director appointments, share transfers, and registered office moves. The registry serves as the primary source of truth for UK corporate entity data and is legally authoritative.
 
-For [OSINT](/glossary/osint/) purposes, Companies House provides one of the most comprehensive and accessible company registries globally. Its free [REST API](/glossary/rest-api/) and bulk data downloads make it a model for open corporate data. The registry includes company details, director appointments and resignations, filing histories, annual accounts, Persons with Significant Control (PSC) data, and insolvency indicators. This makes it indispensable for due diligence on UK entities, cross-border investigations, and beneficial ownership tracing.
+For [OSINT](@/glossary/osint.md) purposes, Companies House provides one of the most comprehensive and accessible company registries globally. Its free [REST API](@/glossary/rest-api.md) and bulk data downloads make it a model for open corporate data. The registry includes company details, director appointments and resignations, filing histories, annual accounts, Persons with Significant Control (PSC) data, and insolvency indicators. This makes it indispensable for due diligence on UK entities, cross-border investigations, and beneficial ownership tracing.
 
 The PSC (Persons with Significant Control) register is particularly valuable for OSINT investigations. Introduced in 2016, it requires companies to disclose individuals who hold more than 25% of shares or voting rights, have the right to appoint or remove the majority of directors, or otherwise exercise significant influence or control. This beneficial ownership data is publicly searchable, making the UK one of the most transparent jurisdictions for ownership intelligence.
 
@@ -219,15 +219,15 @@ end
 
 ### Cross-Border Due Diligence
 
-Companies House is essential for any investigation involving UK entities or individuals with UK corporate connections. Key workflows include verifying UK entities referenced in Czech business relationships by cross-referencing with [ARES](/osint/ares/), tracing beneficial ownership through PSC data to identify ultimate controllers of UK-registered companies, screening directors against the disqualified directors register to identify individuals banned from acting as company officers, combining Companies House data with [EU Sanctions](/osint/eu-sanctions/) and [OFAC](/osint/ofac/) for comprehensive sanctions screening, and identifying UK subsidiaries or branches of Czech companies through overseas company registrations.
+Companies House is essential for any investigation involving UK entities or individuals with UK corporate connections. Key workflows include verifying UK entities referenced in Czech business relationships by cross-referencing with [ARES](@/osint/ares.md), tracing beneficial ownership through PSC data to identify ultimate controllers of UK-registered companies, screening directors against the disqualified directors register to identify individuals banned from acting as company officers, combining Companies House data with [EU Sanctions](@/osint/eu-sanctions.md) and [OFAC](@/osint/ofac.md) for comprehensive sanctions screening, and identifying UK subsidiaries or branches of Czech companies through overseas company registrations.
 
 ### Corporate Structure Analysis
 
-Companies House data enables comprehensive mapping of corporate structures and director networks. Analysts can map multi-jurisdictional corporate groups by tracing director appointments across companies, identify dormant and shell company patterns through analysis of filing history and account type, trace director networks across companies to identify common control patterns, cross-reference with [EBR](/osint/ebr/) for European group structures extending beyond the UK, and analyze PSC data to identify complex beneficial ownership chains involving trusts and corporate vehicles.
+Companies House data enables comprehensive mapping of corporate structures and director networks. Analysts can map multi-jurisdictional corporate groups by tracing director appointments across companies, identify dormant and shell company patterns through analysis of filing history and account type, trace director networks across companies to identify common control patterns, cross-reference with [EBR](@/osint/ebr.md) for European group structures extending beyond the UK, and analyze PSC data to identify complex beneficial ownership chains involving trusts and corporate vehicles.
 
 ### Financial Intelligence
 
-The financial data available through Companies House supports detailed financial analysis of UK entities. Applications include accessing filed annual accounts for ratio analysis, trend assessment, and benchmarking, tracking charge registrations (mortgages, debentures) for secured lending intelligence, monitoring insolvency indicators for early warning of financial distress, cross-referencing with [SEC EDGAR](/osint/sec-edgar/) for US-listed UK entities with dual reporting obligations, and analyzing filing patterns (late filings, missing accounts) as indicators of governance quality.
+The financial data available through Companies House supports detailed financial analysis of UK entities. Applications include accessing filed annual accounts for ratio analysis, trend assessment, and benchmarking, tracking charge registrations (mortgages, debentures) for secured lending intelligence, monitoring insolvency indicators for early warning of financial distress, cross-referencing with [SEC EDGAR](@/osint/sec-edgar.md) for US-listed UK entities with dual reporting obligations, and analyzing filing patterns (late filings, missing accounts) as indicators of governance quality.
 
 ### Scottish Limited Partnerships
 
@@ -247,11 +247,11 @@ Address data for directors and PSCs may use service addresses rather than reside
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, Companies House provides the UK entity intelligence layer, integrated with the cross-border due diligence pipeline alongside Czech registries ([ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/)) and sanctions databases ([EU Sanctions](/osint/eu-sanctions/), [OFAC](/osint/ofac/)).
+Within the Prismatic ecosystem, Companies House provides the UK entity intelligence layer, integrated with the cross-border due diligence pipeline alongside Czech registries ([ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md)) and sanctions databases ([EU Sanctions](@/osint/eu-sanctions.md), [OFAC](@/osint/ofac.md)).
 
 The director network analysis capability maps individuals across multiple UK companies and cross-references with Czech registry data to identify connections between UK and Czech corporate structures. This is particularly valuable for tracing beneficial ownership across jurisdictions.
 
-The [Prismatic Perimeter](/apps/prismatic-perimeter/) security rating engine uses Companies House data to verify the corporate identity of UK entities in security assessments, validate organizational claims, and check for adverse indicators such as insolvency history or disqualified directors.
+The [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security rating engine uses Companies House data to verify the corporate identity of UK entities in security assessments, validate organizational claims, and check for adverse indicators such as insolvency history or disqualified directors.
 
 Filing monitoring enables continuous tracking of target UK entities, with automated alerts for new filings, officer changes, PSC updates, charges, and insolvency events.
 
@@ -259,7 +259,7 @@ Filing monitoring enables continuous tracking of target UK entities, with automa
 
 The Companies House integration adheres to the NABLA epistemic framework.
 
-**Signal Plurality**: Companies House data is cross-validated against at least one independent source. Company existence is verified through both the API and public web search. Director information is cross-referenced with LinkedIn, [FullContact](/osint/fullcontact/), and relevant national registries.
+**Signal Plurality**: Companies House data is cross-validated against at least one independent source. Company existence is verified through both the API and public web search. Director information is cross-referenced with LinkedIn, [FullContact](@/osint/fullcontact.md), and relevant national registries.
 
 **Contradiction Preservation**: When Companies House data conflicts with other registry data (for example, different director names or addresses between UK and Czech records), both records are preserved with source attribution for analyst review.
 
@@ -297,14 +297,14 @@ The Prismatic adapter implements response caching with 24-hour TTL for company p
 
 ## Related Resources
 
-- [EBR](/osint/ebr/) - European Business Registry for cross-EU lookups
-- [SEC EDGAR](/osint/sec-edgar/) - US filings for dual-listed UK companies
-- [ARES](/osint/ares/) - Czech entity cross-referencing
-- [EU Sanctions](/osint/eu-sanctions/) - Sanctions screening for UK entities
-- [OFAC](/osint/ofac/) - US sanctions for UK entities with US exposure
-- [Justice.cz](/osint/justice-cz/) - Czech corporate details for UK-CZ connections
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Corporate entity verification in security ratings
+- [EBR](@/osint/ebr.md) - European Business Registry for cross-EU lookups
+- [SEC EDGAR](@/osint/sec-edgar.md) - US filings for dual-listed UK companies
+- [ARES](@/osint/ares.md) - Czech entity cross-referencing
+- [EU Sanctions](@/osint/eu-sanctions.md) - Sanctions screening for UK entities
+- [OFAC](@/osint/ofac.md) - US sanctions for UK entities with US exposure
+- [Justice.cz](@/osint/justice-cz.md) - Czech corporate details for UK-CZ connections
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Corporate entity verification in security ratings
 
 ---
 
@@ -313,4 +313,4 @@ The Prismatic adapter implements response caching with 24-hour TTL for company p
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

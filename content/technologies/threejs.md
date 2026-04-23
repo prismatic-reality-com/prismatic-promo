@@ -28,7 +28,7 @@ Three.js is the 3D graphics library used in the Prismatic Platform for creating 
 
 The Prismatic Platform uses Three.js for its hero animations on the promotional site, 3D network topology views in the Perimeter EASM dashboard, and interactive agent constellation visualizations where each of the platform's 404 agents is represented as a node in a force-directed 3D graph. These 3D representations help users understand complex relationships between agents, data sources, and security entities that would be difficult to convey in traditional 2D charts or tables. A security analyst can rotate the attack surface graph to discover clusters of related assets, zoom into specific threat vectors, and click on individual nodes for detailed intelligence.
 
-Three.js's scene graph architecture and extensive geometry, material, and lighting systems provide the flexibility needed to create both decorative visual elements (the animated particle background on the landing page) and functional data exploration interfaces (the rotatable, zoomable intelligence graph). The library integrates with [Phoenix LiveView](/technologies/phoenix-liveview/) through JavaScript hooks that manage the scene lifecycle and receive data updates from the server without full page reloads.
+Three.js's scene graph architecture and extensive geometry, material, and lighting systems provide the flexibility needed to create both decorative visual elements (the animated particle background on the landing page) and functional data exploration interfaces (the rotatable, zoomable intelligence graph). The library integrates with [Phoenix LiveView](@/technologies/phoenix-liveview.md) through JavaScript hooks that manage the scene lifecycle and receive data updates from the server without full page reloads.
 
 ## Key Features
 
@@ -140,7 +140,7 @@ Three.js integrates with the platform's LiveView architecture through a hook-bas
 | **Raycaster** | Object selection by mouse position | Click-to-select agent details |
 | **Animation Loop** | requestAnimationFrame render cycle | 60fps continuous rendering |
 
-For [Phoenix LiveView](/technologies/phoenix-liveview/) integration, Three.js scenes are managed through hooks that handle initialization, data updates, and cleanup:
+For [Phoenix LiveView](@/technologies/phoenix-liveview.md) integration, Three.js scenes are managed through hooks that handle initialization, data updates, and cleanup:
 
 ```javascript
 Hooks.AgentConstellation = {
@@ -222,7 +222,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 - **Use `InstancedMesh` for many similar objects** -- rendering 404 agent nodes individually would be far too slow; instanced rendering batches them into a single draw call
 - **Dispose resources in `destroyed` hooks** -- Three.js geometries, materials, and textures must be explicitly disposed to prevent WebGL memory leaks
 - **Enable damping on OrbitControls** -- damped controls feel more natural and prevent disorienting sudden camera jumps during user interaction
-- **Detect WebGL support** -- fall back to a 2D [Chart.js](/technologies/chartjs/) visualization on devices without WebGL or with insufficient GPU capabilities
+- **Detect WebGL support** -- fall back to a 2D [Chart.js](@/technologies/chartjs.md) visualization on devices without WebGL or with insufficient GPU capabilities
 - **Keep polygon counts low** -- use `SphereGeometry(0.3, 16, 16)` not `(0.3, 64, 64)` for data nodes that do not need high geometric detail
 - **Cap pixel ratio at 2x** -- `Math.min(window.devicePixelRatio, 2)` prevents excessive rendering on 3x+ displays, maintaining performance
 - **Traverse and dispose on cleanup** -- walk the scene graph to dispose every geometry, material, and texture when the component unmounts
@@ -243,17 +243,17 @@ Three.js was chosen for the platform's 3D visualizations because it provides the
 
 ## Related Technologies
 
-- [Chart.js](/technologies/chartjs/) - 2D chart visualizations and fallback for non-WebGL devices
-- [Alpine.js](/technologies/alpinejs/) - UI interaction handling alongside 3D scenes for menus and overlays
-- [KuzuDB](/technologies/kuzudb/) - Graph data source for entity relationship visualization
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Server-side data delivery via hooks for real-time 3D updates
-- [TailwindCSS](/technologies/tailwindcss/) - Styling for the canvas container and overlay elements
+- [Chart.js](@/technologies/chartjs.md) - 2D chart visualizations and fallback for non-WebGL devices
+- [Alpine.js](@/technologies/alpinejs.md) - UI interaction handling alongside 3D scenes for menus and overlays
+- [KuzuDB](@/technologies/kuzudb.md) - Graph data source for entity relationship visualization
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Server-side data delivery via hooks for real-time 3D updates
+- [TailwindCSS](@/technologies/tailwindcss.md) - Styling for the canvas container and overlay elements
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - 3D visualizations on LiveView dashboards including the agent constellation
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Attack surface topology visualization with 3D network graphs
-- [prismatic_agents](/apps/prismatic-agents/) - Agent data source for the constellation visualization
+- [prismatic_web](@/apps/prismatic-web.md) - 3D visualizations on LiveView dashboards including the agent constellation
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Attack surface topology visualization with 3D network graphs
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent data source for the constellation visualization
 
 ---
 
@@ -262,4 +262,4 @@ Three.js was chosen for the platform's 3D visualizations because it provides the
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

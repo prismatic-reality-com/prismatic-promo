@@ -28,11 +28,11 @@ image_alt = "Quality Bypass Enforcer Agent - Prismatic Platform"
 
 ## Overview
 
-The Quality Bypass Enforcer Agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform, serving as a Generation 15 apex security enforcement agent responsible for detecting and preventing any attempt to bypass the platform's quality enforcement mechanisms. In a system governed by the [NO MERCY](/glossary/no-mercy/) doctrine where quality compliance is mandatory, the bypass enforcer is the agent that ensures the enforcement infrastructure itself cannot be circumvented, disabled, or degraded.
+The Quality Bypass Enforcer Agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform, serving as a Generation 15 apex security enforcement agent responsible for detecting and preventing any attempt to bypass the platform's quality enforcement mechanisms. In a system governed by the [NO MERCY](@/glossary/no-mercy.md) doctrine where quality compliance is mandatory, the bypass enforcer is the agent that ensures the enforcement infrastructure itself cannot be circumvented, disabled, or degraded.
 
 Quality bypass attempts can take many forms: direct flag usage (`--no-verify`), environment variable manipulation, configuration file modification, hook script disabling, or subtle code changes that effectively neutralize quality checks while appearing to comply. This agent monitors all pathways through which quality enforcement could be weakened and blocks bypass attempts before they compromise the platform's quality guarantees.
 
-Built on the [AIAD](/glossary/aiad/) standard, the bypass enforcer operates with strategic command authority specifically because bypass prevention requires cross-domain visibility. A bypass attempt in one domain may exploit a weakness in another domain's enforcement infrastructure. The agent applies the [NO DOUBTS](/glossary/no-doubts/) principle to bypass detection: every flagged bypass attempt is backed by specific evidence of the enforcement circumvention mechanism, preventing false positives from disrupting legitimate development workflows.
+Built on the [AIAD](@/glossary/aiad.md) standard, the bypass enforcer operates with strategic command authority specifically because bypass prevention requires cross-domain visibility. A bypass attempt in one domain may exploit a weakness in another domain's enforcement infrastructure. The agent applies the [NO DOUBTS](@/glossary/no-doubts.md) principle to bypass detection: every flagged bypass attempt is backed by specific evidence of the enforcement circumvention mechanism, preventing false positives from disrupting legitimate development workflows.
 
 ## Bypass Detection Architecture
 
@@ -53,8 +53,8 @@ The enforcement architecture operates through continuous monitoring of multiple 
 - **Configuration drift prevention** -- Tracks quality-related configuration values across the entire platform, blocking changes that would weaken enforcement without proper authorization
 - **False positive prevention** -- Applies evidence-based bypass classification to distinguish between legitimate development activities and actual bypass attempts, minimizing workflow disruption
 - **Escalation protocols** -- Bypasses are classified by severity and escalated through appropriate channels, from automated warnings for minor deviations to supreme-level alerts for deliberate circumvention attempts
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous monitoring and automatic remediation of detected bypass conditions
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for bypass attempt frequency tracking and enforcement health metrics
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous monitoring and automatic remediation of detected bypass conditions
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for bypass attempt frequency tracking and enforcement health metrics
 
 ## Bypass Classification Matrix
 
@@ -159,7 +159,7 @@ Continuous Monitoring Loop
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to block commits, restore enforcement hooks, and escalate bypass attempts to supreme authority levels.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to block commits, restore enforcement hooks, and escalate bypass attempts to supreme authority levels.
 
 ## Command Interface
 
@@ -173,14 +173,14 @@ Continuous Monitoring Loop
 
 | Agent | Relationship |
 |-------|-------------|
-| [quality-enforcement-commander](/agents/quality-enforcement-commander/) | Enforces quality standards that the bypass enforcer protects |
-| [quality-gate-enforcer-agent](/agents/quality-gate-enforcer-agent/) | Quality gates that must not be bypassed |
-| [prismatic-supreme-commander](/agents/prismatic-supreme-commander/) | Escalation target for critical bypass attempts |
-| [quality-gates-specialist](/agents/quality-gates-specialist/) | Static analysis checks protected from circumvention |
+| [quality-enforcement-commander](@/agents/quality-enforcement-commander.md) | Enforces quality standards that the bypass enforcer protects |
+| [quality-gate-enforcer-agent](@/agents/quality-gate-enforcer-agent.md) | Quality gates that must not be bypassed |
+| [prismatic-supreme-commander](@/agents/prismatic-supreme-commander.md) | Escalation target for critical bypass attempts |
+| [quality-gates-specialist](@/agents/quality-gates-specialist.md) | Static analysis checks protected from circumvention |
 
 ## Enforcement
 
-The bypass enforcer applies [NO MERCY](/glossary/no-mercy/) at the meta-enforcement level: there is zero tolerance for any weakening of the platform's quality enforcement infrastructure. The [NO DOUBTS](/glossary/no-doubts/) principle requires that bypass detections are evidence-based, preventing false accusations while ensuring genuine bypasses are caught. The [Trinity Gate](/glossary/trinity-gate/) validates the integrity of the enforcement system itself, ensuring that the enforcer's own detection mechanisms have not been compromised.
+The bypass enforcer applies [NO MERCY](@/glossary/no-mercy.md) at the meta-enforcement level: there is zero tolerance for any weakening of the platform's quality enforcement infrastructure. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that bypass detections are evidence-based, preventing false accusations while ensuring genuine bypasses are caught. The [Trinity Gate](@/glossary/trinity-gate.md) validates the integrity of the enforcement system itself, ensuring that the enforcer's own detection mechanisms have not been compromised.
 
 ---
 
@@ -189,4 +189,4 @@ The bypass enforcer applies [NO MERCY](/glossary/no-mercy/) at the meta-enforcem
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,7 +24,7 @@ image_alt = "Formal Verification with Lean4 - Prismatic Platform"
 
 ## Overview
 
-Formal verification is the third layer of the [Trinity Gate](/glossary/trinity-gate/) -- the gate that ensures critical claims are not just structurally and logically consistent but mathematically proven. The Prismatic Platform uses QEVE (Quality Evidence Verification Engine) which combines Lean4 formal proofs, [NABLA Infinity](/glossary/nabla-infinity/) axiom checking, and Monte Carlo simulation to verify system properties. This guide teaches you to write property-based tests, construct formal proofs, and verify invariants.
+Formal verification is the third layer of the [Trinity Gate](@/glossary/trinity-gate.md) -- the gate that ensures critical claims are not just structurally and logically consistent but mathematically proven. The Prismatic Platform uses QEVE (Quality Evidence Verification Engine) which combines Lean4 formal proofs, [NABLA Infinity](@/glossary/nabla-infinity.md) axiom checking, and Monte Carlo simulation to verify system properties. This guide teaches you to write property-based tests, construct formal proofs, and verify invariants.
 
 You will learn:
 
@@ -36,8 +36,8 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Applying NABLA Infinity Axioms](/academy/nabla-infinity-guide/)
-- Completed [Understanding NO MERCY, NO DOUBTS](/academy/quality-standards/)
+- Completed [Applying NABLA Infinity Axioms](@/academy/nabla-infinity-guide.md)
+- Completed [Understanding NO MERCY, NO DOUBTS](@/academy/quality-standards.md)
 - Basic understanding of mathematical logic (propositions, proofs)
 - Familiarity with property-based testing concepts
 
@@ -458,33 +458,33 @@ end
 ## See Also
 
 ### Related Applications
-- [prismatic_lean4](/apps/prismatic-lean4/) -- Lean4 proof infrastructure and deduction verification
-- [prismatic_deduction](/apps/prismatic-deduction/) -- Logical deduction engine
-- [prismatic_monte_carlo](/apps/prismatic-monte-carlo/) -- Monte Carlo simulation for probabilistic verification
-- [prismatic_nabla](/apps/prismatic-nabla/) -- NABLA axiom enforcement integrated with QEVE
+- [prismatic_lean4](@/apps/prismatic-lean4.md) -- Lean4 proof infrastructure and deduction verification
+- [prismatic_deduction](@/apps/prismatic-deduction.md) -- Logical deduction engine
+- [prismatic_monte_carlo](@/apps/prismatic-monte-carlo.md) -- Monte Carlo simulation for probabilistic verification
+- [prismatic_nabla](@/apps/prismatic-nabla.md) -- NABLA axiom enforcement integrated with QEVE
 - **prismatic_trinity_nexus** (`apps/prismatic_trinity_nexus/`) -- Trinity Gate formal necessity delegation
 
 ### Glossary
-- [Trinity Gate](/glossary/trinity-gate/) -- 3-layer validation requiring formal proofs for critical claims
-- [QEVE](/glossary/qeve/) -- Quality Evidence Verification Engine
-- [Property-Based Testing](/glossary/property-based-testing/) -- Statistical confidence through random input generation
-- [Theorem Proving](/glossary/theorem-proving/) -- Mathematical verification of system properties
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework requiring formal verification
+- [Trinity Gate](@/glossary/trinity-gate.md) -- 3-layer validation requiring formal proofs for critical claims
+- [QEVE](@/glossary/qeve.md) -- Quality Evidence Verification Engine
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Statistical confidence through random input generation
+- [Theorem Proving](@/glossary/theorem-proving.md) -- Mathematical verification of system properties
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework requiring formal verification
 
 ### Architecture
-- [NABLA Framework](/architecture/nabla-framework/) -- Epistemic framework architecture including QEVE
+- [NABLA Framework](@/architecture/nabla-framework.md) -- Epistemic framework architecture including QEVE
 
 ### Related Academy Topics
-- [Self-Evolving Ecosystems](/academy/evolution-patterns/) -- Formal verification of fitness functions
-- [Color Team Security](/academy/color-team-security/) -- White Team verification methods
-- [The AIAD Standard](/academy/aiad-standard/) -- How verification requirements are specified in agent definitions
-- [NABLA Infinity Axioms](/academy/nabla-infinity-guide/) -- Axioms that formal verification proves
+- [Self-Evolving Ecosystems](@/academy/evolution-patterns.md) -- Formal verification of fitness functions
+- [Color Team Security](@/academy/color-team-security.md) -- White Team verification methods
+- [The AIAD Standard](@/academy/aiad-standard.md) -- How verification requirements are specified in agent definitions
+- [NABLA Infinity Axioms](@/academy/nabla-infinity-guide.md) -- Axioms that formal verification proves
 
 ## Next Steps
 
-- [Self-Evolving Agent Ecosystems](/academy/evolution-patterns/) -- formal verification of evolutionary fitness functions
-- [Color Team Security Operations](/academy/color-team-security/) -- White Team verification methods
-- [The AIAD Standard Explained](/academy/aiad-standard/) -- how verification requirements are specified in agent definitions
+- [Self-Evolving Agent Ecosystems](@/academy/evolution-patterns.md) -- formal verification of evolutionary fitness functions
+- [Color Team Security Operations](@/academy/color-team-security.md) -- White Team verification methods
+- [The AIAD Standard Explained](@/academy/aiad-standard.md) -- how verification requirements are specified in agent definitions
 
 ---
 
@@ -493,4 +493,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

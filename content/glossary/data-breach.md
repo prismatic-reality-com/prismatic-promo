@@ -35,11 +35,11 @@ see_also = ["capabilities", "osint", "architecture"]
 
 ## Definition
 
-A **data breach** is a security incident in which sensitive, protected, or confidential data is accessed, disclosed, or acquired by unauthorized parties. Breaches can result from external attacks (exploitation of vulnerabilities, phishing, [credential](/glossary/credential-management/) stuffing), insider threats (malicious or negligent employees), or third-party compromise (supply chain attacks). Under [GDPR](/glossary/gdpr/) Article 4(12), a personal data breach is defined as "a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data."
+A **data breach** is a security incident in which sensitive, protected, or confidential data is accessed, disclosed, or acquired by unauthorized parties. Breaches can result from external attacks (exploitation of vulnerabilities, phishing, [credential](@/glossary/credential-management.md) stuffing), insider threats (malicious or negligent employees), or third-party compromise (supply chain attacks). Under [GDPR](@/glossary/gdpr.md) Article 4(12), a personal data breach is defined as "a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data."
 
-Data breaches are distinct from [data leaks](/glossary/data-leak/) in that breaches imply a security boundary was actively violated, while leaks may result from misconfiguration or unintentional exposure. Both require detection, assessment, containment, and potentially regulatory notification within strict timelines (72 hours under GDPR, 24 hours for early warning under [NIS2](/glossary/nis2/)).
+Data breaches are distinct from [data leaks](@/glossary/data-leak.md) in that breaches imply a security boundary was actively violated, while leaks may result from misconfiguration or unintentional exposure. Both require detection, assessment, containment, and potentially regulatory notification within strict timelines (72 hours under GDPR, 24 hours for early warning under [NIS2](@/glossary/nis2.md)).
 
-In the context of the Prismatic Platform, data breach detection and response operates across multiple integrated modules: [OSINT](/glossary/osint/) sources for breach database monitoring, [Perimeter](/glossary/attack-surface/) EASM for external exposure detection, [compliance](/glossary/gdpr/) frameworks for notification workflows, and [DD](/glossary/due-diligence/) risk assessment for M&A target evaluation.
+In the context of the Prismatic Platform, data breach detection and response operates across multiple integrated modules: [OSINT](@/glossary/osint.md) sources for breach database monitoring, [Perimeter](@/glossary/attack-surface.md) EASM for external exposure detection, [compliance](@/glossary/gdpr.md) frameworks for notification workflows, and [DD](@/glossary/due-diligence.md) risk assessment for M&A target evaluation.
 
 ## Overview
 
@@ -49,7 +49,7 @@ Data breaches vary significantly in their nature, scope, and impact. Understandi
 
 | Breach Type | Description | Common Vectors | Typical Data Exposed |
 |------------|-------------|----------------|---------------------|
-| **Credential Breach** | Theft of authentication credentials | Phishing, [credential](/glossary/credential-management/) stuffing, keyloggers | Usernames, passwords, API keys, tokens |
+| **Credential Breach** | Theft of authentication credentials | Phishing, [credential](@/glossary/credential-management.md) stuffing, keyloggers | Usernames, passwords, API keys, tokens |
 | **PII Breach** | Exposure of personally identifiable information | [SQL injection](/glossary/sql-injection/), application exploits, insider access | Names, addresses, SSNs, dates of birth |
 | **Financial Breach** | Theft of financial records or payment data | POS malware, card skimming, database compromise | Credit card numbers, bank accounts, transactions |
 | **Intellectual Property Breach** | Exfiltration of proprietary information | APT campaigns, insider theft, supply chain | Source code, trade secrets, research data |
@@ -58,7 +58,7 @@ Data breaches vary significantly in their nature, scope, and impact. Understandi
 
 ### Breach Lifecycle
 
-Every breach follows a predictable lifecycle from initial compromise through detection and response. The gap between compromise and detection -- known as "dwell time" -- is the critical metric that determines breach severity. The mean dwell time was 204 days in 2023, though organizations with continuous [monitoring](/glossary/monitoring/) and [OSINT](/glossary/osint/) capabilities reduce this to hours or days.
+Every breach follows a predictable lifecycle from initial compromise through detection and response. The gap between compromise and detection -- known as "dwell time" -- is the critical metric that determines breach severity. The mean dwell time was 204 days in 2023, though organizations with continuous [monitoring](@/glossary/monitoring.md) and [OSINT](@/glossary/osint.md) capabilities reduce this to hours or days.
 
 ```mermaid
 graph LR
@@ -86,16 +86,16 @@ graph LR
 
 #### GDPR Breach Notification (Articles 33-34)
 
-The [GDPR](/glossary/gdpr/) imposes strict breach notification obligations on [data controllers](/glossary/data-controller/):
+The [GDPR](@/glossary/gdpr.md) imposes strict breach notification obligations on [data controllers](@/glossary/data-controller.md):
 
 - **72-hour notification**: Controllers must notify the supervisory authority within 72 hours of becoming aware of a personal data breach, unless the breach is unlikely to result in a risk to individuals.
 - **Data subject notification**: When a breach is likely to result in high risk to the rights and freedoms of natural persons, controllers must communicate the breach to affected individuals "without undue delay."
 - **Documentation obligation**: All breaches must be documented, including the facts, effects, and remedial actions taken, regardless of whether notification is required.
-- **Processor obligations**: [Data processors](/glossary/data-controller/) must notify the controller "without undue delay" after becoming aware of a breach.
+- **Processor obligations**: [Data processors](@/glossary/data-controller.md) must notify the controller "without undue delay" after becoming aware of a breach.
 
 #### NIS2 Directive Requirements
 
-The [NIS2](/glossary/nis2/) Directive, effective October 2024, introduces additional breach reporting obligations for essential and important entities:
+The [NIS2](@/glossary/nis2.md) Directive, effective October 2024, introduces additional breach reporting obligations for essential and important entities:
 
 - **24-hour early warning**: Entities must submit an early warning to the competent authority within 24 hours of becoming aware of a significant incident.
 - **72-hour incident notification**: A full incident notification, including initial assessment of severity and impact, must follow within 72 hours.
@@ -120,9 +120,9 @@ Breach detection operates across multiple intelligence domains, each providing d
 
 | Detection Domain | Sources | Latency | Confidence | Prismatic Module |
 |-----------------|---------|---------|------------|------------------|
-| **Network Monitoring** | IDS/IPS, NetFlow, DNS logs | Real-time | High | [Perimeter](/glossary/attack-surface/) |
+| **Network Monitoring** | IDS/IPS, NetFlow, DNS logs | Real-time | High | [Perimeter](@/glossary/attack-surface.md) |
 | **Endpoint Detection** | EDR agents, system logs | Minutes | High | External integration |
-| **[Dark Web](/glossary/dark-web/) Monitoring** | Tor forums, paste sites, marketplaces | Hours-Days | Medium | [OSINT](/glossary/osint/) adapters |
+| **[Dark Web](@/glossary/dark-web.md) Monitoring** | Tor forums, paste sites, marketplaces | Hours-Days | Medium | [OSINT](@/glossary/osint.md) adapters |
 | **OSINT Collection** | Breach databases, leak aggregators, HIBP | Hours-Weeks | Medium | OSINT ToolRegistry |
 | **Third-Party Notification** | Vendor alerts, CERT advisories | Days-Weeks | High | Compliance module |
 | **Regulatory Disclosure** | Public breach notifications | Weeks-Months | High | DD risk assessment |
@@ -138,7 +138,7 @@ The most effective proactive breach detection leverages open-source intelligence
 1. **Domain monitoring** -- Continuously check organizational domains against breach databases
 2. **Credential exposure scanning** -- Identify exposed credentials matching organizational email patterns
 3. **Paste site monitoring** -- Detect organizational data appearing on paste sites and code repositories
-4. **[Dark web](/glossary/dark-web/) scanning** -- Monitor dark web marketplaces for corporate data listings
+4. **[Dark web](@/glossary/dark-web.md) scanning** -- Monitor dark web marketplaces for corporate data listings
 5. **Combo list analysis** -- Detect organizational credentials in aggregated credential dumps
 
 ### Breach Detection Flow
@@ -180,17 +180,17 @@ flowchart TD
 
 ### Indicator of Compromise (IOC) Correlation
 
-Breach detection generates [Indicators of Compromise](/glossary/ioc/) that must be correlated across multiple sources to reduce false positives and determine breach scope:
+Breach detection generates [Indicators of Compromise](@/glossary/ioc.md) that must be correlated across multiple sources to reduce false positives and determine breach scope:
 
 - **Email-based IOCs**: Organizational email addresses found in breach databases, paste sites, or combo lists
 - **Domain-based IOCs**: Corporate domains appearing in DNS exfiltration logs or phishing infrastructure
 - **IP-based IOCs**: Organizational IP ranges communicating with known C2 infrastructure
 - **Credential-based IOCs**: Leaked credentials matching organizational authentication systems
-- **Certificate-based IOCs**: Unauthorized certificates issued for organizational domains (via [certificate transparency](/glossary/certificate-transparency/) monitoring)
+- **Certificate-based IOCs**: Unauthorized certificates issued for organizational domains (via [certificate transparency](@/glossary/certificate-transparency.md) monitoring)
 
 ## Usage in Prismatic Platform
 
-The Prismatic Platform provides automated breach detection through its [OSINT](/glossary/osint/) tool registry, [Perimeter](/glossary/attack-surface/) EASM module, and DD risk assessment pipeline. The platform continuously monitors for organizational exposure across breach databases, [dark web](/glossary/dark-web/) marketplaces, and paste sites, correlating findings with asset inventories.
+The Prismatic Platform provides automated breach detection through its [OSINT](@/glossary/osint.md) tool registry, [Perimeter](@/glossary/attack-surface.md) EASM module, and DD risk assessment pipeline. The platform continuously monitors for organizational exposure across breach databases, [dark web](@/glossary/dark-web.md) marketplaces, and paste sites, correlating findings with asset inventories.
 
 ### OSINT Breach-Checking Adapters
 
@@ -583,25 +583,25 @@ end
 
 ### Prevention
 
-1. **Implement [encryption](/glossary/encryption/) at rest and in transit** -- All sensitive data must be encrypted using industry-standard algorithms. Use [TLS](/glossary/tls/) for network communication and AES-256 for stored data.
-2. **Enforce strong [authentication](/glossary/authentication/)** -- Multi-factor authentication, strong password policies, and regular credential rotation reduce credential-based breach vectors.
+1. **Implement [encryption](@/glossary/encryption.md) at rest and in transit** -- All sensitive data must be encrypted using industry-standard algorithms. Use [TLS](@/glossary/tls.md) for network communication and AES-256 for stored data.
+2. **Enforce strong [authentication](@/glossary/authentication.md)** -- Multi-factor authentication, strong password policies, and regular credential rotation reduce credential-based breach vectors.
 3. **Maintain minimal data retention** -- Collect only necessary data and delete it when no longer required. Data that does not exist cannot be breached.
 4. **Apply the principle of least privilege** -- Restrict access to sensitive data to only those who need it, and audit access regularly.
 5. **Secure the supply chain** -- Evaluate third-party vendor security practices, require contractual security obligations, and monitor vendor breach exposure.
 
 ### Detection
 
-1. **Implement continuous [OSINT](/glossary/osint/) [monitoring](/glossary/monitoring/)** -- Automated breach detection across OSINT sources reduces mean time to detection from months to hours.
-2. **Maintain comprehensive asset inventories** -- Breach detection is only effective when you know what assets to monitor; integrate with the Perimeter EASM module for [attack surface](/glossary/attack-surface/) visibility.
+1. **Implement continuous [OSINT](@/glossary/osint.md) [monitoring](@/glossary/monitoring.md)** -- Automated breach detection across OSINT sources reduces mean time to detection from months to hours.
+2. **Maintain comprehensive asset inventories** -- Breach detection is only effective when you know what assets to monitor; integrate with the Perimeter EASM module for [attack surface](@/glossary/attack-surface.md) visibility.
 3. **Deploy network and endpoint detection** -- IDS/IPS and EDR provide real-time visibility into active compromise attempts.
-4. **Monitor [dark web](/glossary/dark-web/) and paste sites** -- Proactive monitoring of underground markets and paste sites catches breaches that have not yet been publicly disclosed.
-5. **Implement [DMARC](/glossary/dmarc/) and email authentication** -- Prevents phishing campaigns that are the most common breach vector.
+4. **Monitor [dark web](@/glossary/dark-web.md) and paste sites** -- Proactive monitoring of underground markets and paste sites catches breaches that have not yet been publicly disclosed.
+5. **Implement [DMARC](@/glossary/dmarc.md) and email authentication** -- Prevents phishing campaigns that are the most common breach vector.
 
 ### Response
 
 1. **Maintain and test incident response plans** -- Regular tabletop exercises using simulated breach scenarios improve response effectiveness and reduce MTTR.
-2. **Automate notification workflows** -- [GDPR](/glossary/gdpr/) requires 72-hour notification and [NIS2](/glossary/nis2/) requires 24-hour early warning; automated workflows prevent compliance violations.
-3. **Preserve forensic evidence** -- Use immutable logging and [audit trails](/glossary/audit-trail/) to maintain chain of custody for breach evidence.
+2. **Automate notification workflows** -- [GDPR](@/glossary/gdpr.md) requires 72-hour notification and [NIS2](@/glossary/nis2.md) requires 24-hour early warning; automated workflows prevent compliance violations.
+3. **Preserve forensic evidence** -- Use immutable logging and [audit trails](@/glossary/audit-trail.md) to maintain chain of custody for breach evidence.
 4. **Classify data sensitivity** -- Not all breaches carry equal risk; classify data types to prioritize response efforts and determine notification requirements.
 5. **Coordinate cross-functional response** -- Breach response requires coordination between security, legal, communications, and executive teams.
 
@@ -622,27 +622,27 @@ end
 
 ## Related Terms
 
-- [Data Leak](/glossary/data-leak/) -- Unintentional exposure of data without active security boundary violation
-- [Incident Response](/glossary/incident-response/) -- Structured response procedures following breach detection
-- [GDPR](/glossary/gdpr/) -- EU regulation governing personal data breach notification requirements
-- [NIS2](/glossary/nis2/) -- EU directive imposing breach reporting on essential and important entities
-- [Dark Web](/glossary/dark-web/) -- Encrypted networks where breach data is frequently traded and sold
-- [DMARC](/glossary/dmarc/) -- Email authentication preventing phishing-based breach vectors
-- [Encryption](/glossary/encryption/) -- Data protection mechanism reducing breach impact through confidentiality
-- [OSINT](/glossary/osint/) -- Open-source intelligence for proactive breach detection and monitoring
-- [Credential Management](/glossary/credential-management/) -- Secure handling of authentication credentials to prevent exposure
+- [Data Leak](@/glossary/data-leak.md) -- Unintentional exposure of data without active security boundary violation
+- [Incident Response](@/glossary/incident-response.md) -- Structured response procedures following breach detection
+- [GDPR](@/glossary/gdpr.md) -- EU regulation governing personal data breach notification requirements
+- [NIS2](@/glossary/nis2.md) -- EU directive imposing breach reporting on essential and important entities
+- [Dark Web](@/glossary/dark-web.md) -- Encrypted networks where breach data is frequently traded and sold
+- [DMARC](@/glossary/dmarc.md) -- Email authentication preventing phishing-based breach vectors
+- [Encryption](@/glossary/encryption.md) -- Data protection mechanism reducing breach impact through confidentiality
+- [OSINT](@/glossary/osint.md) -- Open-source intelligence for proactive breach detection and monitoring
+- [Credential Management](@/glossary/credential-management.md) -- Secure handling of authentication credentials to prevent exposure
 - [SQL Injection](/glossary/sql-injection/) -- Common attack vector leading to database breaches
-- [Attack Surface](/glossary/attack-surface/) -- External exposure points that create breach entry vectors
-- [Monitoring](/glossary/monitoring/) -- Continuous observation for breach indicators and anomalous activity
-- [IOC](/glossary/ioc/) -- Indicators of compromise associated with breach activity
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Contextual intelligence about breach actors and campaigns
-- [Data Controller](/glossary/data-controller/) -- Entity responsible for breach notification under GDPR
+- [Attack Surface](@/glossary/attack-surface.md) -- External exposure points that create breach entry vectors
+- [Monitoring](@/glossary/monitoring.md) -- Continuous observation for breach indicators and anomalous activity
+- [IOC](@/glossary/ioc.md) -- Indicators of compromise associated with breach activity
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Contextual intelligence about breach actors and campaigns
+- [Data Controller](@/glossary/data-controller.md) -- Entity responsible for breach notification under GDPR
 
 ## See Also
 
-- [OSINT Tools](/osint/) -- Intelligence collection tools for breach monitoring
-- [Capabilities](/capabilities/) -- Platform security monitoring capabilities
-- [Architecture](/architecture/) -- Security architecture and monitoring infrastructure
+- [OSINT Tools](@/osint/_index.md) -- Intelligence collection tools for breach monitoring
+- [Capabilities](@/capabilities/_index.md) -- Platform security monitoring capabilities
+- [Architecture](@/architecture/_index.md) -- Security architecture and monitoring infrastructure
 
 ---
 
@@ -651,4 +651,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

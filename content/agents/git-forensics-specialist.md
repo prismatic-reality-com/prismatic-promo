@@ -28,9 +28,9 @@ image_alt = "git-forensics-specialist - Prismatic Platform"
 
 ## Overview
 
-The Git Forensics Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Intelligence domain of the Prismatic Platform. This agent analyzes git repository history with a forensic perspective, extracting intelligence value from contributor patterns, code evolution trajectories, security implications, and organizational behavior insights embedded in version control metadata. Git repositories contain a wealth of intelligence information beyond their code contents -- commit histories, contributor identities, work patterns, communication artifacts, and evolutionary decisions are all preserved in the version control record and susceptible to systematic analysis.
+The Git Forensics Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Intelligence domain of the Prismatic Platform. This agent analyzes git repository history with a forensic perspective, extracting intelligence value from contributor patterns, code evolution trajectories, security implications, and organizational behavior insights embedded in version control metadata. Git repositories contain a wealth of intelligence information beyond their code contents -- commit histories, contributor identities, work patterns, communication artifacts, and evolutionary decisions are all preserved in the version control record and susceptible to systematic analysis.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Git Forensics Specialist applies intelligence tradecraft to software development artifacts. While development domain agents like the [git-specialist](/agents/git-specialist/) use git for operational purposes (branching, merging, workflow management), the Git Forensics Specialist treats git repositories as intelligence targets, extracting actionable insights from patterns that most observers overlook.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Git Forensics Specialist applies intelligence tradecraft to software development artifacts. While development domain agents like the [git-specialist](@/agents/git-specialist.md) use git for operational purposes (branching, merging, workflow management), the Git Forensics Specialist treats git repositories as intelligence targets, extracting actionable insights from patterns that most observers overlook.
 
 ## Forensic Analysis Methodology
 
@@ -38,7 +38,7 @@ The agent's forensic methodology applies intelligence analysis principles to git
 
 Temporal analysis examines commit timing patterns to reveal working schedules, development rhythms, and deadline pressures. Regular commit patterns during business hours suggest professional development teams, while irregular patterns may indicate personal projects, distributed teams across time zones, or deadline-driven rush periods. Temporal clustering of commits around specific dates may correlate with external events, product launches, or organizational changes.
 
-Contributor analysis examines commit author information, email addresses, and contribution patterns to map the individuals and organizations involved in repository development. [Entity resolution](/glossary/entity-resolution/) techniques merge multiple identities that may belong to the same person (different email addresses, name variations, corporate versus personal accounts). Contributor network analysis maps collaboration patterns, identifying core developers, peripheral contributors, and organizational affiliations.
+Contributor analysis examines commit author information, email addresses, and contribution patterns to map the individuals and organizations involved in repository development. [Entity resolution](@/glossary/entity-resolution.md) techniques merge multiple identities that may belong to the same person (different email addresses, name variations, corporate versus personal accounts). Contributor network analysis maps collaboration patterns, identifying core developers, peripheral contributors, and organizational affiliations.
 
 Content evolution analysis traces how specific files, functions, and architectural decisions evolved over the repository's lifetime. Patterns of change concentration (which areas of code change most frequently), change correlation (which files tend to change together), and change velocity (how quickly code stabilizes after introduction) all provide intelligence about development quality, architectural stability, and potential vulnerability areas.
 
@@ -77,33 +77,33 @@ The Git Forensics Specialist extends analysis beyond individual repositories to 
 
 Fork and clone analysis maps the propagation of code across repositories, identifying forks, clones, and derived works. This analysis reveals how code spreads through ecosystems and identifies cases where proprietary code may have been improperly shared or where open source license obligations may be violated.
 
-Cross-repository contributor analysis maps individuals who contribute to multiple repositories, building contributor networks that reveal professional relationships, organizational affiliations, and areas of technical expertise. The platform's [KuzuDB](/glossary/kuzudb/) graph database stores these relationships for efficient network traversal and pattern matching.
+Cross-repository contributor analysis maps individuals who contribute to multiple repositories, building contributor networks that reveal professional relationships, organizational affiliations, and areas of technical expertise. The platform's [KuzuDB](@/glossary/kuzudb.md) graph database stores these relationships for efficient network traversal and pattern matching.
 
 Dependency chain analysis traces transitive dependencies across repository ecosystems, identifying supply chain risks where a compromise in an upstream repository could affect downstream consumers. This analysis directly supports software supply chain security assessments.
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework governs the agent's analytical practices. The Signal Plurality axiom requires that behavioral assessments draw on multiple data points rather than single observations. A single unusual commit does not establish suspicious behavior; patterns across multiple dimensions are required for elevated risk assessments.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs the agent's analytical practices. The Signal Plurality axiom requires that behavioral assessments draw on multiple data points rather than single observations. A single unusual commit does not establish suspicious behavior; patterns across multiple dimensions are required for elevated risk assessments.
 
 The Contradiction Preservation axiom maintains alternative explanations for observed patterns. Unusual commit timing might indicate a compromised account or might indicate a developer working from a different time zone. Both possibilities are preserved until evidence resolves the ambiguity.
 
-The [Trinity Gate](/glossary/trinity-gate/) validation applies to forensic conclusions that may inform security decisions or investigative actions. Structural Consistency ensures the evidence network is coherent. Logical Consistency verifies that conclusions follow from premises. [Confidence scoring](/glossary/confidence-scoring/) accompanies all assessments.
+The [Trinity Gate](@/glossary/trinity-gate.md) validation applies to forensic conclusions that may inform security decisions or investigative actions. Structural Consistency ensures the evidence network is coherent. Logical Consistency verifies that conclusions follow from premises. [Confidence scoring](@/glossary/confidence-scoring.md) accompanies all assessments.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
 | Prismatic OSINT | Collection | Repository data acquisition and metadata extraction |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Persistence | Forensic analysis results and evidence storage |
-| [KuzuDB](/glossary/kuzudb/) | Graph analysis | Contributor and repository network mapping |
-| [PostgreSQL](/glossary/postgresql/) | Structured data | Commit metadata, contributor records, analysis results |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Persistence | Forensic analysis results and evidence storage |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph analysis | Contributor and repository network mapping |
+| [PostgreSQL](@/glossary/postgresql.md) | Structured data | Commit metadata, contributor records, analysis results |
 | Report Synthesis | Output | Forensic intelligence reports with evidence linking |
 
 ## Related Agents
 
-- [**delta-force-specialist**](/agents/delta-force-specialist/) (L3) - Precision intelligence operations consuming git forensics for targeted investigations
-- [**falcon-strike-specialist**](/agents/falcon-strike-specialist/) (L3) - Rapid intelligence deployment leveraging git forensic insights for fast assessment
-- [**ghost-recon-specialist**](/agents/ghost-recon-specialist/) (L3) - Stealth collection applying git forensic techniques with operational security constraints
+- [**delta-force-specialist**](@/agents/delta-force-specialist.md) (L3) - Precision intelligence operations consuming git forensics for targeted investigations
+- [**falcon-strike-specialist**](@/agents/falcon-strike-specialist.md) (L3) - Rapid intelligence deployment leveraging git forensic insights for fast assessment
+- [**ghost-recon-specialist**](@/agents/ghost-recon-specialist.md) (L3) - Stealth collection applying git forensic techniques with operational security constraints
 
 ---
 
@@ -112,4 +112,4 @@ The [Trinity Gate](/glossary/trinity-gate/) validation applies to forensic concl
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

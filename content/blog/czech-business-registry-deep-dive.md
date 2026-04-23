@@ -187,4 +187,4 @@ Or use the interactive toolbox at `/hub/osint/tools` to explore all Czech adapte
 
 ---
 
-*Browse all 157 OSINT adapters at [OSINT Sources](/osint/) or learn adapter development in the [Interactive Academy](/academy/).*
+*Browse all 157 OSINT adapters at [OSINT Sources](@/osint/_index.md) or learn adapter development in the [Interactive Academy](@/academy/_index.md).*

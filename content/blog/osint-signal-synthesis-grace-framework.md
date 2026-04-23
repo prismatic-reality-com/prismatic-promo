@@ -23,14 +23,14 @@ Raw OSINT output is noise until it is fused. A Czech ARES hit, a Shodan banner, 
 
 ## Why fusion, not aggregation
 
-Aggregation stacks results. Fusion reconciles them. When two [OSINT](/glossary/osint) adapters disagree about an entity's registered address, the pipeline must decide which signal to trust, by how much, and for how long. That decision has to be auditable — otherwise every downstream call is guessing.
+Aggregation stacks results. Fusion reconciles them. When two [OSINT](@/glossary/osint.md) adapters disagree about an entity's registered address, the pipeline must decide which signal to trust, by how much, and for how long. That decision has to be auditable — otherwise every downstream call is guessing.
 
 GRACE gives each stage a contract:
 
 - **Gather** — pull from registered adapters, record provenance.
-- **Rank** — assign a [confidence tier](/glossary/confidence-score) per source × query-type.
+- **Rank** — assign a [confidence tier](@/glossary/confidence-score.md) per source × query-type.
 - **Attribute** — tag every field with source + timestamp.
-- **Correlate** — merge identities via [entity resolution](/glossary/entity-resolution).
+- **Correlate** — merge identities via [entity resolution](@/glossary/entity-resolution.md).
 - **Evidence** — emit a sealed envelope the decision engine can consume.
 
 ## The pipeline in Elixir
@@ -46,7 +46,7 @@ def synthesize(query, opts \\ []) do
 end
 ```
 
-Each stage emits [telemetry](/glossary/telemetry) — `[:osint, :grace, :stage, :stop]` — so latency regressions show up in the dashboard before users see them.
+Each stage emits [telemetry](@/glossary/telemetry.md) — `[:osint, :grace, :stage, :stop]` — so latency regressions show up in the dashboard before users see them.
 
 ## Confidence tiers are not optional
 
@@ -75,7 +75,7 @@ The output of GRACE is not a map — it is a sealed envelope:
 }
 ```
 
-Sealed means immutable. Once an envelope is produced, it is the audit record. The decision engine can reject it, but it cannot silently rewrite it — which is exactly the property [No Mercy, No Doubts](/glossary/no-mercy-no-doubts) requires.
+Sealed means immutable. Once an envelope is produced, it is the audit record. The decision engine can reject it, but it cannot silently rewrite it — which is exactly the property [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) requires.
 
 ## Where to go next
 
@@ -83,6 +83,6 @@ GRACE is a framework, not a library. The Academy walks through it end-to-end wit
 
 - **Academy**: [First Agent](/academy/learn/first-agent) — build your first GRACE-compatible adapter
 - **Academy**: [DD Investigation](/academy/learn/dd-investigation) — apply GRACE to a real case
-- **Glossary**: [OSINT](/glossary/osint), [Entity Resolution](/glossary/entity-resolution), [Confidence Score](/glossary/confidence-score)
+- **Glossary**: [OSINT](@/glossary/osint.md), [Entity Resolution](@/glossary/entity-resolution.md), [Confidence Score](@/glossary/confidence-score.md)
 
 Fusion is the hard part. Adapters are the easy part. Get the fusion contract right and every new adapter you add compounds in value instead of adding noise.

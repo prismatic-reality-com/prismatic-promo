@@ -252,10 +252,10 @@ The current platform state maintains 100/100 quality across all 13 domains, repr
 
 ## Cross-References
 
-- [Placeholder](/glossary/placeholder/) - Forbidden pattern that the quality floor eliminates
-- [PLT](/glossary/plt/) - Dialyzer's type analysis contributing to the quality floor score
-- [Property Test](/glossary/property-test/) - Testing methodology supporting quality floor maintenance
-- [Provenance](/glossary/provenance/) - Origin tracing for quality metric measurements
+- [Placeholder](@/glossary/placeholder.md) - Forbidden pattern that the quality floor eliminates
+- [PLT](@/glossary/plt.md) - Dialyzer's type analysis contributing to the quality floor score
+- [Property Test](@/glossary/property-test.md) - Testing methodology supporting quality floor maintenance
+- [Provenance](@/glossary/provenance.md) - Origin tracing for quality metric measurements
 - **Semver** - Versioning discipline that quality floor enforcement protects
 
 ---

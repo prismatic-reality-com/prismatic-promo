@@ -28,7 +28,7 @@ image_alt = "GitLab Issue Sync Specialist - Prismatic Platform"
 
 ## Overview
 
-The GitLab Issue Sync Specialist is an L3 strategic authority operating within the Synchronization, Issue Tracking, and GitLab domain of the Prismatic Platform. This agent provides specialized expertise in bidirectional issue synchronization between GitLab's issue tracking system and the platform's internal task management representations. While the [GitLab Auto-Sync Orchestrator](/agents/gitlab-auto-sync-orchestrator/) manages broad synchronization across all GitLab resource types, the Issue Sync Specialist focuses exclusively on the complexities unique to issue data, including rich text content synchronization, discussion thread tracking, label taxonomy mapping, and milestone association management.
+The GitLab Issue Sync Specialist is an L3 strategic authority operating within the Synchronization, Issue Tracking, and GitLab domain of the Prismatic Platform. This agent provides specialized expertise in bidirectional issue synchronization between GitLab's issue tracking system and the platform's internal task management representations. While the [GitLab Auto-Sync Orchestrator](@/agents/gitlab-auto-sync-orchestrator.md) manages broad synchronization across all GitLab resource types, the Issue Sync Specialist focuses exclusively on the complexities unique to issue data, including rich text content synchronization, discussion thread tracking, label taxonomy mapping, and milestone association management.
 
 Issues represent the primary unit of work tracking in the Prismatic Platform's development process. Each issue carries structured metadata (priority, weight, milestone, assignee, labels) alongside unstructured content (description, discussion threads, linked resources) that must be synchronized accurately to support strategic planning, velocity measurement, and audit compliance. The Issue Sync Specialist manages this synchronization with attention to the semantic nuances of issue data, ensuring that label name changes are propagated through all historical references, that discussion thread ordering is preserved across synchronization boundaries, and that issue relationships (blocks, is blocked by, relates to) maintain their referential integrity.
 
@@ -54,7 +54,7 @@ The Issue Sync Specialist implements three complementary synchronization mechani
 
 **Incremental Reconciliation.** Periodic comparison of issue state between GitLab and the platform's internal cache detects drift introduced by missed webhook events, API failures, or manual GitLab modifications that bypass webhook triggers. Incremental reconciliation uses ETag-based conditional requests and last-modified timestamps to minimize API calls, fetching full issue data only when changes are detected.
 
-**Deep Integrity Verification.** Less frequent full-scan operations verify referential integrity across the entire issue corpus, detecting orphaned relationships, inconsistent label references, and milestone association discrepancies. Deep verification produces integrity reports that are reviewed by the [gitlab-auto-sync-orchestrator](/agents/gitlab-auto-sync-orchestrator/) for systemic issue identification.
+**Deep Integrity Verification.** Less frequent full-scan operations verify referential integrity across the entire issue corpus, detecting orphaned relationships, inconsistent label references, and milestone association discrepancies. Deep verification produces integrity reports that are reviewed by the [gitlab-auto-sync-orchestrator](@/agents/gitlab-auto-sync-orchestrator.md) for systemic issue identification.
 
 ## Conflict Resolution
 
@@ -68,20 +68,20 @@ Concurrent modifications to the same issue from both GitLab and platform systems
 
 ## Technical Implementation
 
-The Issue Sync Specialist is implemented as a dedicated [GenServer](/glossary/genserver/) process within the GitLab synchronization [supervision tree](/glossary/supervision-tree/). The process maintains an in-memory issue state cache in [ETS](/glossary/ets/) tables partitioned by project, providing sub-millisecond read access for platform agents that query issue state frequently.
+The Issue Sync Specialist is implemented as a dedicated [GenServer](@/glossary/genserver.md) process within the GitLab synchronization [supervision tree](@/glossary/supervision-tree.md). The process maintains an in-memory issue state cache in [ETS](@/glossary/ets.md) tables partitioned by project, providing sub-millisecond read access for platform agents that query issue state frequently.
 
-Persistent storage uses [Ecto](/glossary/ecto/) schemas with [PostgreSQL](/glossary/postgresql/) backing that model the full issue data model including relationships, activity streams, and synchronization metadata. The database schema includes temporal columns that track when each attribute was last synchronized, enabling targeted reconciliation queries that fetch only issues with potentially stale attributes.
+Persistent storage uses [Ecto](@/glossary/ecto.md) schemas with [PostgreSQL](@/glossary/postgresql.md) backing that model the full issue data model including relationships, activity streams, and synchronization metadata. The database schema includes temporal columns that track when each attribute was last synchronized, enabling targeted reconciliation queries that fetch only issues with potentially stale attributes.
 
-The synchronization pipeline processes webhook events through a [GenStage](/glossary/genstage/) consumer chain with configurable concurrency limits. The pipeline stages include event validation, conflict detection, state transformation, persistence, and notification. Each stage emits [telemetry](/glossary/telemetry/) events that enable performance monitoring and bottleneck identification.
+The synchronization pipeline processes webhook events through a [GenStage](@/glossary/genstage.md) consumer chain with configurable concurrency limits. The pipeline stages include event validation, conflict detection, state transformation, persistence, and notification. Each stage emits [telemetry](@/glossary/telemetry.md) events that enable performance monitoring and bottleneck identification.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [gitlab-auto-sync-orchestrator](/agents/gitlab-auto-sync-orchestrator/) | Receives synchronization directives and reports issue-specific sync status | Synchronization |
-| [issue-tracking-specialist](/agents/issue-tracking-specialist/) | Provides issue management capabilities that complement synchronization operations | Project Management |
-| [gitlab-strategic-coordinator](/agents/gitlab-strategic-coordinator/) | Consumes synchronized issue data for strategic planning and velocity analysis | Strategic |
-| [gitlab-api-specialist-agent](/agents/gitlab-api-specialist-agent/) | Provides underlying API access for issue CRUD operations | Integration |
+| [gitlab-auto-sync-orchestrator](@/agents/gitlab-auto-sync-orchestrator.md) | Receives synchronization directives and reports issue-specific sync status | Synchronization |
+| [issue-tracking-specialist](@/agents/issue-tracking-specialist.md) | Provides issue management capabilities that complement synchronization operations | Project Management |
+| [gitlab-strategic-coordinator](@/agents/gitlab-strategic-coordinator.md) | Consumes synchronized issue data for strategic planning and velocity analysis | Strategic |
+| [gitlab-api-specialist-agent](@/agents/gitlab-api-specialist-agent.md) | Provides underlying API access for issue CRUD operations | Integration |
 
 ## Performance Optimization
 
@@ -95,7 +95,7 @@ The Specialist's synchronization correctness is validated through property-based
 
 ## Enforcement
 
-The GitLab Issue Sync Specialist operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Issue state inconsistencies are treated as L2 violations requiring immediate corrective action. No issue is considered synchronized until post-synchronization state comparison confirms attribute-level consistency. Conflict resolution outcomes are logged with full provenance for audit review. Synchronization SLAs require event-driven updates to complete within 5 seconds and reconciliation cycles to complete within 60 seconds for the full issue corpus.
+The GitLab Issue Sync Specialist operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Issue state inconsistencies are treated as L2 violations requiring immediate corrective action. No issue is considered synchronized until post-synchronization state comparison confirms attribute-level consistency. Conflict resolution outcomes are logged with full provenance for audit review. Synchronization SLAs require event-driven updates to complete within 5 seconds and reconciliation cycles to complete within 60 seconds for the full issue corpus.
 
 ---
 
@@ -104,4 +104,4 @@ The GitLab Issue Sync Specialist operates under the [NO MERCY, NO DOUBTS](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

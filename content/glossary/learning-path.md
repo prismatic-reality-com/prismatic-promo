@@ -406,24 +406,24 @@ Individual contributors use learning paths to develop expertise in areas adjacen
 
 Learning paths intersect with numerous concepts in education, knowledge management, and platform engineering:
 
-- [Learning Resource](/glossary/learning-resource/) -- the atomic building blocks (tutorials, docs, videos) that compose a learning path
-- [Curriculum](/glossary/curriculum/) -- the broader educational program of which individual learning paths are components
-- [Developer Experience](/glossary/developer-experience/) -- the overall quality of a developer's interaction with a platform, heavily influenced by available learning paths
-- [Mentorship](/glossary/mentorship/) -- human-guided learning that complements structured paths with personalized advice and feedback
-- [Progressive Disclosure](/glossary/progressive-disclosure/) -- the UX principle of revealing complexity gradually, directly applicable to learning path design
-- [Documentation](/glossary/documentation/) -- reference material that learning paths curate and sequence for pedagogical effectiveness
-- [Certification Programs](/glossary/certification-programs/) -- formal credential programs that learning paths can prepare learners for
-- [Knowledge Graph](/glossary/knowledge-graph/) -- the underlying concept network from which learning paths extract ordered traversals
-- [Developer Community](/glossary/developer-community/) -- the social context in which learning paths are created, shared, and improved
-- [Community Building](/glossary/community-building/) -- strategic efforts that leverage learning paths as tools for growing contributor engagement
+- [Learning Resource](@/glossary/learning-resource.md) -- the atomic building blocks (tutorials, docs, videos) that compose a learning path
+- [Curriculum](@/glossary/curriculum.md) -- the broader educational program of which individual learning paths are components
+- [Developer Experience](@/glossary/developer-experience.md) -- the overall quality of a developer's interaction with a platform, heavily influenced by available learning paths
+- [Mentorship](@/glossary/mentorship.md) -- human-guided learning that complements structured paths with personalized advice and feedback
+- [Progressive Disclosure](@/glossary/progressive-disclosure.md) -- the UX principle of revealing complexity gradually, directly applicable to learning path design
+- [Documentation](@/glossary/documentation.md) -- reference material that learning paths curate and sequence for pedagogical effectiveness
+- [Certification Programs](@/glossary/certification-programs.md) -- formal credential programs that learning paths can prepare learners for
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- the underlying concept network from which learning paths extract ordered traversals
+- [Developer Community](@/glossary/developer-community.md) -- the social context in which learning paths are created, shared, and improved
+- [Community Building](@/glossary/community-building.md) -- strategic efforts that leverage learning paths as tools for growing contributor engagement
 
 ## See Also
 
-- [Workshop Facilitation](/glossary/workshop-facilitation/) -- live instructional sessions that can complement self-paced learning paths
-- [Office Hours](/glossary/office-hours/) -- scheduled availability for learners to ask questions about path content
-- [Reference Documentation](/glossary/reference-documentation/) -- comprehensive API and module documentation that paths reference as resources
-- [Elixir OTP Training](/glossary/elixir-otp-training/) -- specific training programs focused on Elixir and OTP concepts
-- [Conference Speaking](/glossary/conference-speaking/) -- public presentations that can introduce learning paths to broader audiences
+- [Workshop Facilitation](@/glossary/workshop-facilitation.md) -- live instructional sessions that can complement self-paced learning paths
+- [Office Hours](@/glossary/office-hours.md) -- scheduled availability for learners to ask questions about path content
+- [Reference Documentation](@/glossary/reference-documentation.md) -- comprehensive API and module documentation that paths reference as resources
+- [Elixir OTP Training](@/glossary/elixir-otp-training.md) -- specific training programs focused on Elixir and OTP concepts
+- [Conference Speaking](@/glossary/conference-speaking.md) -- public presentations that can introduce learning paths to broader audiences
 
 ---
 

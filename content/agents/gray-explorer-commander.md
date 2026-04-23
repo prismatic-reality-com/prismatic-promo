@@ -28,7 +28,7 @@ image_alt = "Gray Explorer Commander - Prismatic Platform"
 
 ## Overview
 
-The Gray Explorer Commander is an L3 [strategic command](/glossary/strategic-command/) agent operating within the Boundary Exploration domain of the Prismatic Platform's [Color Team](/glossary/color-teams/) framework. This agent serves as the supreme commander for all Gray Team operations, orchestrating campaigns that systematically explore specification gaps, edge cases, system ambiguities, and affordance drift across the platform. The Gray Team occupies a unique position in the Color Team hierarchy: it operates between the structured analysis of Blue (defensive) and Red (adversarial) teams, surfacing the ambiguities and boundary conditions that both teams need to understand but neither team is specifically chartered to discover.
+The Gray Explorer Commander is an L3 [strategic command](@/glossary/strategic-command.md) agent operating within the Boundary Exploration domain of the Prismatic Platform's [Color Team](@/glossary/color-teams.md) framework. This agent serves as the supreme commander for all Gray Team operations, orchestrating campaigns that systematically explore specification gaps, edge cases, system ambiguities, and affordance drift across the platform. The Gray Team occupies a unique position in the Color Team hierarchy: it operates between the structured analysis of Blue (defensive) and Red (adversarial) teams, surfacing the ambiguities and boundary conditions that both teams need to understand but neither team is specifically chartered to discover.
 
 Gray Team boundary exploration is grounded in the recognition that complex systems accumulate specification gaps -- areas where behavior is not explicitly defined and where the system's actual behavior may diverge from reasonable expectations. These gaps represent both potential vulnerability surfaces and potential improvement opportunities. The Gray Explorer Commander ensures that boundary exploration is conducted systematically rather than ad hoc, with defined campaigns that target specific system areas, measurable outcomes that quantify discovery effectiveness, and structured output formats that feed directly into Red Team adversarial scenarios and Blue Team defensive postures.
 
@@ -68,27 +68,27 @@ The Commander employs a structured exploration methodology that combines systema
 
 **Multi-Technique Synthesis.** Individual exploration techniques (boundary value analysis, specification review, behavioral probing) are combined to provide comprehensive coverage. The Commander orchestrates technique sequencing to maximize discovery while minimizing redundant exploration.
 
-**Evidence Grading.** Discovered findings are graded by evidence quality using the [NABLA Infinity](/glossary/nabla-infinity/) framework. Findings supported by multiple independent observations receive higher confidence grades than single-observation findings. The evidence grading ensures that downstream consumers (Red, Blue, Purple teams) can appropriately weight Gray Team findings in their own assessments.
+**Evidence Grading.** Discovered findings are graded by evidence quality using the [NABLA Infinity](@/glossary/nabla-infinity.md) framework. Findings supported by multiple independent observations receive higher confidence grades than single-observation findings. The evidence grading ensures that downstream consumers (Red, Blue, Purple teams) can appropriately weight Gray Team findings in their own assessments.
 
 ## Technical Implementation
 
-The Commander is implemented as a supervised [OTP](/glossary/otp/) application that manages campaign lifecycle, EDGE agent coordination, and finding aggregation. Campaign state is maintained in [ETS](/glossary/ets/) tables for rapid access during active campaigns, with completed campaign data persisted to [PostgreSQL](/glossary/postgresql/) for historical analysis.
+The Commander is implemented as a supervised [OTP](@/glossary/otp.md) application that manages campaign lifecycle, EDGE agent coordination, and finding aggregation. Campaign state is maintained in [ETS](@/glossary/ets.md) tables for rapid access during active campaigns, with completed campaign data persisted to [PostgreSQL](@/glossary/postgresql.md) for historical analysis.
 
-EDGE agents are spawned as supervised processes for each campaign, with the Commander monitoring their operation and the [gray-escalation-guard](/agents/gray-escalation-guard/) enforcing safety boundaries. Communication between the Commander and EDGE agents uses structured message protocols that enforce exploration scope constraints at the protocol level.
+EDGE agents are spawned as supervised processes for each campaign, with the Commander monitoring their operation and the [gray-escalation-guard](@/agents/gray-escalation-guard.md) enforcing safety boundaries. Communication between the Commander and EDGE agents uses structured message protocols that enforce exploration scope constraints at the protocol level.
 
 Finding aggregation uses a deduplication engine that identifies when multiple EDGE agents discover the same or overlapping boundary conditions, merging findings to eliminate redundancy while preserving distinct observations that contribute to evidence quality.
 
-[Telemetry](/glossary/telemetry/) events track campaign progress, discovery rates, exploration coverage, and safety compliance. These metrics feed dashboards that provide real-time visibility into Gray Team operations for Color Team oversight.
+[Telemetry](@/glossary/telemetry.md) events track campaign progress, discovery rates, exploration coverage, and safety compliance. These metrics feed dashboards that provide real-time visibility into Gray Team operations for Color Team oversight.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [gray-escalation-guard](/agents/gray-escalation-guard/) | Safety boundary enforcement for all Gray Team operations | Safety |
-| [EDGE-{campaign}-{sequence}](/agents/edge-campaign-sequence/) | Executes boundary exploration under Commander direction | Exploration |
-| [purple-coordinator](/agents/purple-coordinator/) | Receives findings for synthesis with Red/Blue team intelligence | Synthesis |
-| [red-commander](/agents/red-commander/) | Provides Gray findings as input for adversarial scenario development | Adversarial |
-| [blue-commander](/agents/blue-commander/) | Provides Gray findings for defensive posture assessment | Defensive |
+| [gray-escalation-guard](@/agents/gray-escalation-guard.md) | Safety boundary enforcement for all Gray Team operations | Safety |
+| [EDGE-{campaign}-{sequence}](@/agents/edge-campaign-sequence.md) | Executes boundary exploration under Commander direction | Exploration |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Receives findings for synthesis with Red/Blue team intelligence | Synthesis |
+| [red-commander](@/agents/red-commander.md) | Provides Gray findings as input for adversarial scenario development | Adversarial |
+| [blue-commander](@/agents/blue-commander.md) | Provides Gray findings for defensive posture assessment | Defensive |
 
 ## Signal Flow
 
@@ -100,7 +100,7 @@ This flow ensures that findings are safety-reviewed before distribution and that
 
 ## Enforcement
 
-The Gray Explorer Commander operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with strict boundary enforcement. All exploration must occur within defined campaign scopes. Read-only exploration is the default mode; active probing requires explicit campaign authorization. The [gray-escalation-guard](/agents/gray-escalation-guard/) maintains override authority to halt any operation. All findings undergo [Trinity Gate](/glossary/trinity-gate/) validation for structural, logical, and formal consistency before distribution. Evidence grading follows [NABLA](/glossary/nabla-infinity/) axioms with signal plurality and provenance tracking for every finding.
+The Gray Explorer Commander operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with strict boundary enforcement. All exploration must occur within defined campaign scopes. Read-only exploration is the default mode; active probing requires explicit campaign authorization. The [gray-escalation-guard](@/agents/gray-escalation-guard.md) maintains override authority to halt any operation. All findings undergo [Trinity Gate](@/glossary/trinity-gate.md) validation for structural, logical, and formal consistency before distribution. Evidence grading follows [NABLA](@/glossary/nabla-infinity.md) axioms with signal plurality and provenance tracking for every finding.
 
 ---
 
@@ -109,4 +109,4 @@ The Gray Explorer Commander operates under the [NO MERCY, NO DOUBTS](/glossary/n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

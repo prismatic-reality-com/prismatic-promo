@@ -35,9 +35,9 @@ see_also = ["technologies", "architecture", "capabilities"]
 
 ## Definition
 
-Deployment is the process of making a software application available in a target environment by building release artifacts, provisioning infrastructure, executing the release, and verifying system health. Modern deployment practices emphasize automation, reproducibility, and safety mechanisms including rolling deployments, canary releases, blue-green strategies, and automatic rollback on failure. The [BEAM](/glossary/beam/) virtual machine adds unique deployment capabilities through hot code upgrades, where running systems can be updated without restarting processes or dropping connections.
+Deployment is the process of making a software application available in a target environment by building release artifacts, provisioning infrastructure, executing the release, and verifying system health. Modern deployment practices emphasize automation, reproducibility, and safety mechanisms including rolling deployments, canary releases, blue-green strategies, and automatic rollback on failure. The [BEAM](@/glossary/beam.md) virtual machine adds unique deployment capabilities through hot code upgrades, where running systems can be updated without restarting processes or dropping connections.
 
-Deployment is the final stage of the delivery [pipeline](/glossary/pipeline/), where compiled, tested, and validated code transitions from the development environment to production. The quality of deployment automation directly determines two of the four DORA metrics: deployment frequency and lead time for changes. The Prismatic Platform's deployment pipeline embodies the NMND doctrine -- every deployment is fully automated, health-verified, and rollback-capable.
+Deployment is the final stage of the delivery [pipeline](@/glossary/pipeline.md), where compiled, tested, and validated code transitions from the development environment to production. The quality of deployment automation directly determines two of the four DORA metrics: deployment frequency and lead time for changes. The Prismatic Platform's deployment pipeline embodies the NMND doctrine -- every deployment is fully automated, health-verified, and rollback-capable.
 
 ## Overview
 
@@ -99,7 +99,7 @@ The four DORA metrics measure deployment effectiveness:
 
 ### Elixir Releases
 
-[Elixir](/glossary/elixir/) releases, built with `mix release`, produce self-contained packages that include the Erlang runtime, compiled BEAM files, and boot scripts. These releases do not require Elixir or Erlang to be installed on the target system.
+[Elixir](@/glossary/elixir.md) releases, built with `mix release`, produce self-contained packages that include the Erlang runtime, compiled BEAM files, and boot scripts. These releases do not require Elixir or Erlang to be installed on the target system.
 
 ```elixir
 # mix.exs release configuration
@@ -160,7 +160,7 @@ CMD ["bin/prismatic", "start"]
 
 ### Fly.io Deployment
 
-The Prismatic Platform deploys to [Fly.io](/glossary/fly-io/), which provides globally distributed edge hosting with built-in TLS, auto-scaling, and rolling deployments:
+The Prismatic Platform deploys to [Fly.io](@/glossary/fly-io.md), which provides globally distributed edge hosting with built-in TLS, auto-scaling, and rolling deployments:
 
 ```toml
 # fly.toml
@@ -486,12 +486,12 @@ flowchart TD
 
 1. **Automate the entire deployment pipeline** -- manual steps introduce inconsistency and risk. Every deployment should be a single command (`just deploy-production`).
 2. **Run database migrations before application deployment** -- ensures the schema is ready before new code attempts to use it. Make migrations backwards-compatible.
-3. **Implement health checks** -- every deployed instance must pass health verification before receiving traffic. Check database, [ETS](/glossary/ets/), PubSub, and critical [GenServers](/glossary/genserver/).
+3. **Implement health checks** -- every deployed instance must pass health verification before receiving traffic. Check database, [ETS](@/glossary/ets.md), PubSub, and critical [GenServers](@/glossary/genserver.md).
 4. **Use rolling deployments** -- update instances one at a time to maintain availability during releases.
 5. **Maintain deployment parity** -- staging and production environments should be identical in configuration and infrastructure.
 6. **Tag every deployment** -- associate Git SHAs with deployed versions for traceability and rollback.
 7. **Make migrations reversible** -- every `up` migration should have a corresponding `down` for safe rollback.
-8. **Monitor post-deploy** -- watch error rates, latency percentiles, and [telemetry](/glossary/telemetry/) dashboards for 30 minutes after deploy.
+8. **Monitor post-deploy** -- watch error rates, latency percentiles, and [telemetry](@/glossary/telemetry.md) dashboards for 30 minutes after deploy.
 9. **Limit blast radius** -- deploy to staging first, canary to a subset of production, then full rollout.
 10. **Never deploy on Fridays** -- unless the fix is more critical than the risk of weekend incidents.
 
@@ -508,25 +508,25 @@ flowchart TD
 
 ## Related Terms
 
-- [Docker](/glossary/docker/) -- containerization for reproducible deployment artifacts
-- [Fly.io](/glossary/fly-io/) -- platform hosting Prismatic production deployments
-- [CI/CD](/glossary/cicd/) -- continuous integration and delivery pipeline
-- [GitLab CI](/glossary/gitlab-ci/) -- CI/CD system driving automated deployments
-- [Hot Code Upgrade](/glossary/hot-code-upgrade/) -- BEAM capability for zero-downtime updates
-- [Health Check](/glossary/health-check/) -- verification that deployed instances are functional
-- [Delivery](/glossary/delivery/) -- complete pipeline from commit to production
-- [Release](/glossary/release/) -- self-contained deployment artifact
-- [Migration](/glossary/schema-migration/) -- database schema changes run during deployment
-- [Supervision Tree](/glossary/supervision-tree/) -- fault tolerance structure that survives deployments
-- [Configuration](/glossary/configuration/) -- runtime settings applied during deployment
-- [Telemetry](/glossary/telemetry/) -- observability for post-deploy monitoring
-- [Rollback](/glossary/rollback/) -- reverting to a previous deployment version
-- [GitOps](/glossary/gitops/) -- Git-driven deployment automation
+- [Docker](@/glossary/docker.md) -- containerization for reproducible deployment artifacts
+- [Fly.io](@/glossary/fly-io.md) -- platform hosting Prismatic production deployments
+- [CI/CD](@/glossary/cicd.md) -- continuous integration and delivery pipeline
+- [GitLab CI](@/glossary/gitlab-ci.md) -- CI/CD system driving automated deployments
+- [Hot Code Upgrade](@/glossary/hot-code-upgrade.md) -- BEAM capability for zero-downtime updates
+- [Health Check](@/glossary/health-check.md) -- verification that deployed instances are functional
+- [Delivery](@/glossary/delivery.md) -- complete pipeline from commit to production
+- [Release](@/glossary/release.md) -- self-contained deployment artifact
+- [Migration](@/glossary/schema-migration.md) -- database schema changes run during deployment
+- [Supervision Tree](@/glossary/supervision-tree.md) -- fault tolerance structure that survives deployments
+- [Configuration](@/glossary/configuration.md) -- runtime settings applied during deployment
+- [Telemetry](@/glossary/telemetry.md) -- observability for post-deploy monitoring
+- [Rollback](@/glossary/rollback.md) -- reverting to a previous deployment version
+- [GitOps](@/glossary/gitops.md) -- Git-driven deployment automation
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform deployment architecture
-- [Technologies](/technologies/) -- deployment infrastructure and tooling
+- [Architecture](@/architecture/_index.md) -- platform deployment architecture
+- [Technologies](@/technologies/_index.md) -- deployment infrastructure and tooling
 - [Production Validation](/deploy/) -- three-phase deploy pipeline doctrine
 
 ---
@@ -536,4 +536,4 @@ flowchart TD
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

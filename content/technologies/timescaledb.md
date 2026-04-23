@@ -24,7 +24,7 @@ image_alt = "TimescaleDB - Prismatic Platform"
 
 ## Overview
 
-TimescaleDB is the time-series database extension used in the Prismatic Platform for storing and querying temporal data -- agent performance metrics, security scan histories, compliance score trends, and system telemetry. As a [PostgreSQL](/technologies/postgresql/) extension, it integrates seamlessly with [Ecto](/technologies/ecto/) and the platform's existing PostgreSQL infrastructure, requiring no separate database server, no new query language, and no additional operational overhead.
+TimescaleDB is the time-series database extension used in the Prismatic Platform for storing and querying temporal data -- agent performance metrics, security scan histories, compliance score trends, and system telemetry. As a [PostgreSQL](@/technologies/postgresql.md) extension, it integrates seamlessly with [Ecto](@/technologies/ecto.md) and the platform's existing PostgreSQL infrastructure, requiring no separate database server, no new query language, and no additional operational overhead.
 
 The Prismatic Platform generates vast amounts of time-series data: agent activity logs, security rating changes over time, vulnerability discovery timelines, API response latencies, and system resource utilization. Without specialized time-series handling, these tables would grow to hundreds of millions of rows and become increasingly expensive to query. TimescaleDB's hypertables automatically partition this data by time, enabling both high-speed ingestion (thousands of rows per second) and efficient range queries across months of historical data with consistent performance regardless of table size.
 
@@ -43,7 +43,7 @@ TimescaleDB's continuous aggregates pre-compute common rollups (hourly, daily, w
 
 ## Platform Integration
 
-TimescaleDB stores all time-series metrics and telemetry data. The platform uses [Ecto](/technologies/ecto/) queries with PostgreSQL-specific fragments to access TimescaleDB functions.
+TimescaleDB stores all time-series metrics and telemetry data. The platform uses [Ecto](@/technologies/ecto.md) queries with PostgreSQL-specific fragments to access TimescaleDB functions.
 
 ```elixir
 defmodule PrismaticStorage.Metrics.TimeSeriesRepo do
@@ -249,16 +249,16 @@ TimescaleDB was chosen because it runs as a PostgreSQL extension within the exis
 
 ## Related Technologies
 
-- [PostgreSQL](/technologies/postgresql/) - The base database that TimescaleDB extends
-- [Ecto](/technologies/ecto/) - Query interface for accessing TimescaleDB through fragments
-- [Chart.js](/technologies/chartjs/) - Time-series visualization in dashboards
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Real-time dashboards displaying time-series data
+- [PostgreSQL](@/technologies/postgresql.md) - The base database that TimescaleDB extends
+- [Ecto](@/technologies/ecto.md) - Query interface for accessing TimescaleDB through fragments
+- [Chart.js](@/technologies/chartjs.md) - Time-series visualization in dashboards
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Real-time dashboards displaying time-series data
 
 ## Related Apps
 
-- [prismatic_storage_ecto](/apps/prismatic-storage-ecto/) - TimescaleDB queries via Ecto repository
-- [prismatic_telemetry](/apps/prismatic-telemetry/) - System telemetry data stored in TimescaleDB hypertables
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security rating history stored as time-series data
+- [prismatic_storage_ecto](@/apps/prismatic-storage-ecto.md) - TimescaleDB queries via Ecto repository
+- [prismatic_telemetry](@/apps/prismatic-telemetry.md) - System telemetry data stored in TimescaleDB hypertables
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security rating history stored as time-series data
 
 ---
 
@@ -267,4 +267,4 @@ TimescaleDB was chosen because it runs as a PostgreSQL extension within the exis
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

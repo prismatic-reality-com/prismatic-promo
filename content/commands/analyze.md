@@ -24,11 +24,11 @@ image_alt = "/analyze - Prismatic Platform"
 
 ## Overview
 
-The **/analyze** command provides deep system architecture analysis with comprehensive dependency mapping for the Prismatic Platform. As an [Elixir](/glossary/elixir/)/OTP umbrella application comprising over 100 applications, understanding the dependency relationships, module boundaries, and architectural patterns across the codebase is essential for maintaining system integrity and planning architectural evolution. The `/analyze` command delivers this understanding through automated static analysis, dependency graph construction, and pattern recognition across the entire platform.
+The **/analyze** command provides deep system architecture analysis with comprehensive dependency mapping for the Prismatic Platform. As an [Elixir](@/glossary/elixir.md)/OTP umbrella application comprising over 100 applications, understanding the dependency relationships, module boundaries, and architectural patterns across the codebase is essential for maintaining system integrity and planning architectural evolution. The `/analyze` command delivers this understanding through automated static analysis, dependency graph construction, and pattern recognition across the entire platform.
 
 The command goes beyond simple dependency listing. It constructs a complete architectural model of the system, identifying circular dependencies, coupling hotspots, module boundary violations, and architectural drift from intended design patterns. In an OTP application, where supervision trees, GenServer hierarchies, and inter-application message flows define the runtime architecture, static code analysis alone is insufficient. The `/analyze` command combines static analysis of module dependencies with OTP-aware analysis that understands supervision tree topology, process communication patterns, and application startup order dependencies.
 
-Operating at the L3 (Strategic) authority level, the command is executed by the `architecture-analyst` agent. This elevated authority level reflects the command's access to cross-application analysis capabilities and its role in informing architectural decisions that affect the entire platform. The agent brings expertise in [Elixir](/glossary/elixir/)/OTP architectural patterns, distributed systems design, and the Prismatic Platform's specific architectural conventions to produce analysis outputs that are both technically precise and architecturally meaningful.
+Operating at the L3 (Strategic) authority level, the command is executed by the `architecture-analyst` agent. This elevated authority level reflects the command's access to cross-application analysis capabilities and its role in informing architectural decisions that affect the entire platform. The agent brings expertise in [Elixir](@/glossary/elixir.md)/OTP architectural patterns, distributed systems design, and the Prismatic Platform's specific architectural conventions to produce analysis outputs that are both technically precise and architecturally meaningful.
 
 ## Usage
 
@@ -172,7 +172,7 @@ Output can be generated in multiple formats. The text format provides human-read
 
 The `/analyze` command occupies a central position in the platform's architectural governance workflow. It is invoked in three primary contexts. First, during architectural reviews and design sessions, where the full analysis provides a shared understanding of current system structure. Second, as part of the CI/CD pipeline, where circular dependency detection and coupling threshold checks act as architectural quality gates. Third, during refactoring campaigns, where before-and-after analysis demonstrates the architectural impact of changes.
 
-The command integrates naturally with the [/adr](/commands/adr/) command. When the analysis reveals architectural issues, operators create ADRs documenting the identified problem, the proposed resolution, and the expected improvement in analysis metrics. This creates a traceable link between automated analysis findings and architectural decisions.
+The command integrates naturally with the [/adr](@/commands/adr.md) command. When the analysis reveals architectural issues, operators create ADRs documenting the identified problem, the proposed resolution, and the expected improvement in analysis metrics. This creates a traceable link between automated analysis findings and architectural decisions.
 
 For large-scale refactoring efforts, the `--format json` output enables scripted analysis that tracks coupling metrics and dependency counts over time. Teams can establish architectural fitness functions that monitor these metrics and alert when they drift beyond acceptable thresholds.
 
@@ -180,25 +180,25 @@ For large-scale refactoring efforts, the `--format json` output enables scripted
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `architecture-analyst` agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `architecture-analyst` agent |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Architecture analysis feeds quality gate assessments |
-| [Telemetry](/glossary/telemetry/) | Analysis execution [metrics](/glossary/metrics/) and event tracking |
-| [/adr](/commands/adr/) | Analysis findings documented as Architecture Decision Records |
-| [/architect](/commands/architect/) | Architecture design recommendations informed by analysis |
-| [/refactor](/commands/refactor/) | Refactoring campaigns guided by analysis outputs |
+| [Quality Gates](@/glossary/quality-gates.md) | Architecture analysis feeds quality gate assessments |
+| [Telemetry](@/glossary/telemetry.md) | Analysis execution [metrics](@/glossary/metrics.md) and event tracking |
+| [/adr](@/commands/adr.md) | Analysis findings documented as Architecture Decision Records |
+| [/architect](@/commands/architect.md) | Architecture design recommendations informed by analysis |
+| [/refactor](@/commands/refactor.md) | Refactoring campaigns guided by analysis outputs |
 | Git Trees | High-performance file discovery for 37,000+ file codebase |
 | Mix Xref | Underlying Elixir cross-reference analysis tool |
-| [Session Context](/glossary/session-discipline/) | Analysis results persisted for cross-session reference |
+| [Session Context](@/glossary/session-discipline.md) | Analysis results persisted for cross-session reference |
 
 ## Doctrine Compliance
 
-All architecture analysis operations are governed by the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All architecture analysis operations are governed by the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Every circular dependency is reported. Every coupling violation above the threshold is surfaced. Architectural anti-patterns are identified without exception or excuse. The analysis does not suppress findings because they are inconvenient or difficult to resolve. Zero tolerance for known architectural violations -- identified issues must be addressed or explicitly accepted via ADR.
 - **NO DOUBTS**: All analysis findings are backed by concrete evidence in the form of specific module paths, dependency chains, and coupling metrics. The command does not report suspected issues -- only issues with traceable proof in the codebase. Recommendations are generated from established architectural principles and OTP best practices, not speculation. Each finding includes the specific files and modules involved, enabling immediate verification.
 
-The command also supports the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework through the Provenance Mandatory axiom: every architectural claim produced by the analysis is traceable to specific code paths and dependency relationships.
+The command also supports the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework through the Provenance Mandatory axiom: every architectural claim produced by the analysis is traceable to specific code paths and dependency relationships.
 
 ## Best Practices
 
@@ -212,18 +212,18 @@ The command also supports the [NABLA Infinity](/glossary/nabla-infinity/) episte
 
 5. **Integrate with CI/CD**: Add `/analyze --circular --format json` to the CI/CD pipeline as an architectural quality gate. This prevents new circular dependencies from being introduced and catches coupling violations early.
 
-6. **Combine with ADR documentation**: When analysis reveals issues, document them immediately using [/adr](/commands/adr/). This creates an auditable link between automated findings and architectural decisions.
+6. **Combine with ADR documentation**: When analysis reveals issues, document them immediately using [/adr](@/commands/adr.md). This creates an auditable link between automated findings and architectural decisions.
 
 ## Related Commands
 
-- [/architect](/commands/architect/) - Architecture design and recommendation generation
-- [/adr](/commands/adr/) - Create and manage Architecture Decision Records
-- [/migrate](/commands/migrate/) - Safe migration planning with rollback strategies
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/3nl](/commands/3nl/) - Three-layer neural linguistic processing for deep analysis
+- [/architect](@/commands/architect.md) - Architecture design and recommendation generation
+- [/adr](@/commands/adr.md) - Create and manage Architecture Decision Records
+- [/migrate](@/commands/migrate.md) - Safe migration planning with rollback strategies
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/3nl](@/commands/3nl.md) - Three-layer neural linguistic processing for deep analysis
 
 ---
 
@@ -232,4 +232,4 @@ The command also supports the [NABLA Infinity](/glossary/nabla-infinity/) episte
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "Ollama Coordinator - Prismatic Platform"
 
 ## Overview
 
-The [Ollama](/glossary/ollama/) Coordinator operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's infrastructure domain, managing the lifecycle, deployment, and quality assurance of local AI models through the Ollama runtime. In a platform built on autonomous agent intelligence, access to large language models (LLMs) is a foundational capability. The Ollama Coordinator ensures that local models are available, performant, and meeting quality standards, while providing transparent fallback to cloud-based models when local capabilities are insufficient. This hybrid local-cloud architecture provides cost efficiency, latency reduction, privacy preservation, and operational resilience.
+The [Ollama](@/glossary/ollama.md) Coordinator operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's infrastructure domain, managing the lifecycle, deployment, and quality assurance of local AI models through the Ollama runtime. In a platform built on autonomous agent intelligence, access to large language models (LLMs) is a foundational capability. The Ollama Coordinator ensures that local models are available, performant, and meeting quality standards, while providing transparent fallback to cloud-based models when local capabilities are insufficient. This hybrid local-cloud architecture provides cost efficiency, latency reduction, privacy preservation, and operational resilience.
 
-Built on the [AIAD](/glossary/aiad/) standard and implemented as an [OTP](/glossary/otp/) application with a [GenServer](/glossary/genserver/) core and [supervision tree](/glossary/supervision-tree/) for fault tolerance, the coordinator manages three primary model tiers: **qwen3-coder** (7B parameters, sub-3-second response, optimized for code generation), **gpt-oss:20b** (20B parameters, sub-5-second response, balanced general capability), and **deepseek-coder** (6.7B parameters, sub-3-second response, specialized for code analysis). Each model is continuously monitored for availability, response quality, and resource consumption. The [NO DOUBTS](/glossary/no-doubts/) principle governs model selection: the coordinator selects models based on measured quality metrics for the specific task type rather than static preference orderings.
+Built on the [AIAD](@/glossary/aiad.md) standard and implemented as an [OTP](@/glossary/otp.md) application with a [GenServer](@/glossary/genserver.md) core and [supervision tree](@/glossary/supervision-tree.md) for fault tolerance, the coordinator manages three primary model tiers: **qwen3-coder** (7B parameters, sub-3-second response, optimized for code generation), **gpt-oss:20b** (20B parameters, sub-5-second response, balanced general capability), and **deepseek-coder** (6.7B parameters, sub-3-second response, specialized for code analysis). Each model is continuously monitored for availability, response quality, and resource consumption. The [NO DOUBTS](@/glossary/no-doubts.md) principle governs model selection: the coordinator selects models based on measured quality metrics for the specific task type rather than static preference orderings.
 
 ## Theoretical Foundations
 
@@ -44,19 +44,19 @@ The fallback architecture follows a cascade pattern: requests first attempt the 
 
 The infrastructure domain for Ollama coordination covers all aspects of local LLM lifecycle management. The coordinator handles model download and installation, version management, GPU/CPU resource allocation, context window configuration, and runtime performance monitoring. The domain also encompasses the routing logic that dispatches LLM requests from platform agents to appropriate models and the quality gate infrastructure that validates model outputs.
 
-Model state is maintained in [ETS](/glossary/ets/) tables that track per-model health metrics including availability status, current load, average response latency, error rate, and quality score history. The coordinator publishes model status through the platform's [telemetry](/glossary/telemetry/) infrastructure, enabling other agents to factor model availability into their operational planning.
+Model state is maintained in [ETS](@/glossary/ets.md) tables that track per-model health metrics including availability status, current load, average response latency, error rate, and quality score history. The coordinator publishes model status through the platform's [telemetry](@/glossary/telemetry.md) infrastructure, enabling other agents to factor model availability into their operational planning.
 
 ## Key Capabilities
 
 - **Model lifecycle management** -- Manages the complete lifecycle of local Ollama models including installation, version updates, configuration tuning, and decommissioning, ensuring that available models meet current platform requirements
 - **Quality-aware routing** -- Routes LLM requests to the model best suited for the specific task type based on measured quality metrics, response latency, and current availability, optimizing for output quality within latency constraints
-- **Cloud fallback management** -- Implements transparent fallback to cloud-based models (via Anthropic API) when local models cannot meet quality or availability requirements, with [circuit breaker](/glossary/circuit-breaker/) protection against cloud service failures
+- **Cloud fallback management** -- Implements transparent fallback to cloud-based models (via Anthropic API) when local models cannot meet quality or availability requirements, with [circuit breaker](@/glossary/circuit-breaker.md) protection against cloud service failures
 - **Resource optimization** -- Monitors and optimizes GPU/CPU resource allocation across active models, managing memory consumption below 8GB target, ensuring greater than 99% uptime, and maintaining sub-3-second response times
 - **Quality gate enforcement** -- Validates model outputs against task-specific quality criteria before delivering results to requesting agents, rejecting outputs that fall below accuracy thresholds
 - **Performance benchmarking** -- Runs periodic benchmark suites against all active models, tracking quality and performance trends that inform routing decisions and identify model degradation
 - **Model configuration optimization** -- Tunes model parameters including temperature, top-p, context window size, and batch configuration based on observed performance characteristics and task requirements
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed model health monitoring and automatic remediation for degraded models
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing model metrics including availability, latency distributions, quality scores, resource utilization, and fallback frequency
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed model health monitoring and automatic remediation for degraded models
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing model metrics including availability, latency distributions, quality scores, resource utilization, and fallback frequency
 
 ## Authority Level
 
@@ -66,7 +66,7 @@ Model state is maintained in [ETS](/glossary/ets/) tables that track per-model h
 
 The routing architecture implements a three-stage decision pipeline. The **classification stage** analyzes the incoming request to determine the task type (code generation, code analysis, natural language processing, structured data extraction) and quality requirements. The **selection stage** evaluates available models against the classified requirements, considering quality history for the specific task type, current load, and response latency. The **execution stage** dispatches the request to the selected model, monitors execution, and validates the output against quality gates.
 
-If the selected model's output fails quality validation, the request is automatically re-routed to the next-best model. If all local models fail, cloud fallback is activated. The [circuit breaker](/glossary/circuit-breaker/) pattern prevents repeated attempts against models that are consistently failing, automatically routing around degraded models until health checks confirm recovery.
+If the selected model's output fails quality validation, the request is automatically re-routed to the next-best model. If all local models fail, cloud fallback is activated. The [circuit breaker](@/glossary/circuit-breaker.md) pattern prevents repeated attempts against models that are consistently failing, automatically routing around degraded models until health checks confirm recovery.
 
 ## Command Interface
 
@@ -83,10 +83,10 @@ If the selected model's output fails quality validation, the request is automati
 
 | Agent | Relationship |
 |-------|-------------|
-| [openrouter-llm-specialist](/agents/openrouter-llm-specialist/) | Cloud model routing partner for hybrid local-cloud architecture |
-| [network-security-specialist](/agents/network-security-specialist/) | Ensures Ollama API endpoint security and access control |
-| [performance-benchmarking-agent](/agents/performance-benchmarking-agent/) | Model benchmarks contribute to platform-wide performance tracking |
-| [neuroevolution-coordinator](/agents/neuroevolution-coordinator/) | Model quality trends inform evolutionary fitness criteria |
+| [openrouter-llm-specialist](@/agents/openrouter-llm-specialist.md) | Cloud model routing partner for hybrid local-cloud architecture |
+| [network-security-specialist](@/agents/network-security-specialist.md) | Ensures Ollama API endpoint security and access control |
+| [performance-benchmarking-agent](@/agents/performance-benchmarking-agent.md) | Model benchmarks contribute to platform-wide performance tracking |
+| [neuroevolution-coordinator](@/agents/neuroevolution-coordinator.md) | Model quality trends inform evolutionary fitness criteria |
 
 ## Resource Management
 
@@ -94,7 +94,7 @@ The coordinator manages resource allocation to prevent local models from impacti
 
 ## Enforcement
 
-Model management follows the [NO MERCY](/glossary/no-mercy/) doctrine: no model output is delivered without quality validation, no degraded model remains in the routing pool without remediation, and quality metrics are enforced without exception. The [NO DOUBTS](/glossary/no-doubts/) principle ensures that routing decisions are grounded in measured quality data, and the [Trinity Gate](/glossary/trinity-gate/) validates that model outputs maintain structural, logical, and formal consistency with platform requirements.
+Model management follows the [NO MERCY](@/glossary/no-mercy.md) doctrine: no model output is delivered without quality validation, no degraded model remains in the routing pool without remediation, and quality metrics are enforced without exception. The [NO DOUBTS](@/glossary/no-doubts.md) principle ensures that routing decisions are grounded in measured quality data, and the [Trinity Gate](@/glossary/trinity-gate.md) validates that model outputs maintain structural, logical, and formal consistency with platform requirements.
 
 ---
 
@@ -103,4 +103,4 @@ Model management follows the [NO MERCY](/glossary/no-mercy/) doctrine: no model 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

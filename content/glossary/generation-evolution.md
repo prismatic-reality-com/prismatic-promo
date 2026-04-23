@@ -440,24 +440,24 @@ The platform's growth from a handful of agents to 530+ was driven by generation 
 
 Generation evolution intersects with many aspects of the Prismatic Platform:
 
-- [AutoEvolve](/glossary/autoevolve/) is the primary mechanism that drives generation transitions and scans for improvement opportunities
-- [AutoHeal](/glossary/autoheal/) provides the repair infrastructure that maintains platform health between generations
-- [Fitness Score](/glossary/fitness-score/) quantifies platform health and determines readiness for generation transitions
-- [Quality DNA](/glossary/quality-dna/) persists evolutionary state across sessions for cross-session continuity
-- [SEADF](/glossary/seadf/) is the self-evolving framework that implements the generation evolution infrastructure
-- [Autonomous Evolution](/glossary/autonomous-evolution/) describes the broader principle of systems that improve themselves
-- [Quality Gates](/glossary/quality-gates/) enforce quality standards that each generation must meet or exceed
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) is the doctrine that ensures evolutionary changes meet absolute quality standards
-- [Trinity Gate](/glossary/trinity-gate/) verifies generation transition claims through structural, logical, and formal consistency
-- [Ecosystem Expansion](/glossary/ecosystem-expansion/) describes Gen 19's specific focus on growing the platform's external footprint
+- [AutoEvolve](@/glossary/autoevolve.md) is the primary mechanism that drives generation transitions and scans for improvement opportunities
+- [AutoHeal](@/glossary/autoheal.md) provides the repair infrastructure that maintains platform health between generations
+- [Fitness Score](@/glossary/fitness-score.md) quantifies platform health and determines readiness for generation transitions
+- [Quality DNA](@/glossary/quality-dna.md) persists evolutionary state across sessions for cross-session continuity
+- [SEADF](@/glossary/seadf.md) is the self-evolving framework that implements the generation evolution infrastructure
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) describes the broader principle of systems that improve themselves
+- [Quality Gates](@/glossary/quality-gates.md) enforce quality standards that each generation must meet or exceed
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) is the doctrine that ensures evolutionary changes meet absolute quality standards
+- [Trinity Gate](@/glossary/trinity-gate.md) verifies generation transition claims through structural, logical, and formal consistency
+- [Ecosystem Expansion](@/glossary/ecosystem-expansion.md) describes Gen 19's specific focus on growing the platform's external footprint
 
 ## See Also
 
-- [Continuous Evolution](/glossary/continuous-evolution/) -- the principle that platforms should never stop improving
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the autonomous monitor that prevents quality regressions during evolution
-- [Generation](/glossary/generation/) -- the discrete unit of evolutionary progress in the platform
-- [Evolution](/glossary/evolution/) -- the broader concept of system change over time
-- [Cascade Pattern](/glossary/cascade-pattern/) -- architectural pattern that enables coordinated evolution across subsystems
+- [Continuous Evolution](@/glossary/continuous-evolution.md) -- the principle that platforms should never stop improving
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the autonomous monitor that prevents quality regressions during evolution
+- [Generation](@/glossary/generation.md) -- the discrete unit of evolutionary progress in the platform
+- [Evolution](@/glossary/evolution.md) -- the broader concept of system change over time
+- [Cascade Pattern](@/glossary/cascade-pattern.md) -- architectural pattern that enables coordinated evolution across subsystems
 
 ---
 

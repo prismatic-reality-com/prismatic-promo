@@ -43,7 +43,7 @@ GitLab CI/CD is a continuous integration and continuous deployment platform inte
 
 GitLab CI/CD distinguishes itself from standalone CI tools (Jenkins, CircleCI, GitHub Actions) through its tight integration with GitLab's version control, merge request workflow, issue tracking, and project management features. A single platform handles code hosting, code review, CI/CD execution, artifact storage, container registry, and deployment management. This integration eliminates the configuration complexity and synchronization challenges that arise when using separate tools for each function.
 
-The pipeline is defined as code in `.gitlab-ci.yml`, stored in the repository root and versioned alongside the application code it validates. This approach ensures that pipeline configuration evolves with the codebase, enabling GitOps workflows where every aspect of the delivery process is tracked, reviewed, and auditable through git history. For the Prismatic Platform, GitLab CI serves as the authoritative enforcement layer for the [Clean Run](/glossary/clean-run/) standard, [quality gates](/glossary/quality-gates/), and production deployment.
+The pipeline is defined as code in `.gitlab-ci.yml`, stored in the repository root and versioned alongside the application code it validates. This approach ensures that pipeline configuration evolves with the codebase, enabling GitOps workflows where every aspect of the delivery process is tracked, reviewed, and auditable through git history. For the Prismatic Platform, GitLab CI serves as the authoritative enforcement layer for the [Clean Run](@/glossary/clean-run.md) standard, [quality gates](@/glossary/quality-gates.md), and production deployment.
 
 ## Historical Context and Evolution
 
@@ -53,7 +53,7 @@ The evolution of GitLab CI reflects broader industry trends. Early CI systems we
 
 The Prismatic Platform adopted GitLab CI as its primary CI/CD platform during the project's early stages, leveraging the platform's tight integration between issue tracking, merge requests, and pipeline execution. The choice was reinforced by the Session Discipline Protocol, which mandates GitLab issue tracking for every work session and requires continuous pipeline validation of all commits.
 
-The platform's CI pipeline has evolved through multiple generations, from simple compile-and-test configurations to the current multi-stage pipeline that enforces zero-warning compilation, Credo static analysis, Dialyzer type checking, comprehensive test suites, quality gate validation, and staged deployment to [Fly.io](/glossary/fly-io/).
+The platform's CI pipeline has evolved through multiple generations, from simple compile-and-test configurations to the current multi-stage pipeline that enforces zero-warning compilation, Credo static analysis, Dialyzer type checking, comprehensive test suites, quality gate validation, and staged deployment to [Fly.io](@/glossary/fly-io.md).
 
 ## Technical Deep Dive
 
@@ -313,7 +313,7 @@ The Prismatic Platform uses GitLab CI as its primary CI/CD platform, enforcing q
 
 | Stage | Jobs | Duration | Purpose |
 |-------|------|----------|---------|
-| **compile** | `mix compile --warnings-as-errors` | 60-120s | Zero-warning compilation ([Clean Run](/glossary/clean-run/)) |
+| **compile** | `mix compile --warnings-as-errors` | 60-120s | Zero-warning compilation ([Clean Run](@/glossary/clean-run.md)) |
 | **analyze** | `mix credo --strict`, `mix dialyzer` | 120-300s | Static analysis (parallel) |
 | **test** | `mix test --cover` | 60-180s | Full test suite with coverage |
 | **quality** | `mix quality.gates` | 30-60s | 13-domain quality validation |
@@ -492,21 +492,21 @@ trigger_child:
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement pipeline executed within CI on every commit
-- [Clean Run](/glossary/clean-run/) -- Zero-warning compilation standard enforced in CI pipeline
-- [Credo](/glossary/credo/) -- Static analysis tool running in the CI analyze stage
-- [Dialyzer](/glossary/dialyzer/) -- Type analysis tool running in the CI analyze stage
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Local enforcement complementing server-side CI checks
-- [Docker](/glossary/docker/) -- Container technology powering CI runners and deployment images
-- [Fly.io](/glossary/fly-io/) -- Deployment target for staging and production environments
-- [Continuous Integration](/glossary/continuous-integration/) -- Development practice that GitLab CI implements
-- [GitOps](/glossary/gitops/) -- Operational framework using git-driven CI/CD pipelines
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement pipeline executed within CI on every commit
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning compilation standard enforced in CI pipeline
+- [Credo](@/glossary/credo.md) -- Static analysis tool running in the CI analyze stage
+- [Dialyzer](@/glossary/dialyzer.md) -- Type analysis tool running in the CI analyze stage
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Local enforcement complementing server-side CI checks
+- [Docker](@/glossary/docker.md) -- Container technology powering CI runners and deployment images
+- [Fly.io](@/glossary/fly-io.md) -- Deployment target for staging and production environments
+- [Continuous Integration](@/glossary/continuous-integration.md) -- Development practice that GitLab CI implements
+- [GitOps](@/glossary/gitops.md) -- Operational framework using git-driven CI/CD pipelines
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Umbrella applications validated by the CI pipeline
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications validated by the CI pipeline
 
 ---
 
@@ -515,4 +515,4 @@ trigger_child:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

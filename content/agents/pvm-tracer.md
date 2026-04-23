@@ -28,13 +28,13 @@ image_alt = "pvm-tracer - Prismatic Platform"
 
 ## Overview
 
-The [pvm](/glossary/pvm/)-tracer operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's execution-intelligence domain, providing comprehensive [real-time monitoring](/capabilities/real-time-monitoring/) and tracing of the Prismatic Virtual Machine ([PVM](/glossary/pvm/)) execution environment. This agent captures and analyzes execution traces across all platform operations, recording function invocations, data transformations, decision points, and inter-agent coordination events. PVM tracing provides the [observability](/glossary/observability/) foundation that enables debugging, performance analysis, and behavioral verification across the platform's autonomous agent ecosystem.
+The [pvm](@/glossary/pvm.md)-tracer operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's execution-intelligence domain, providing comprehensive [real-time monitoring](@/capabilities/real-time-monitoring.md) and tracing of the Prismatic Virtual Machine ([PVM](@/glossary/pvm.md)) execution environment. This agent captures and analyzes execution traces across all platform operations, recording function invocations, data transformations, decision points, and inter-agent coordination events. PVM tracing provides the [observability](@/glossary/observability.md) foundation that enables debugging, performance analysis, and behavioral verification across the platform's autonomous agent ecosystem.
 
-Built on the [AIAD](/glossary/aiad/) standard, the pvm-tracer implements structured trace capture with full causal ordering -- every traced event carries a vector clock timestamp enabling precise reconstruction of execution sequences across concurrent processes. The agent applies the [NO DOUBTS](/glossary/no-doubts/) principle to trace analysis: execution behavior claims are derived exclusively from measured trace data, never from architectural assumptions. Trace data is stored in [PostgreSQL](/glossary/postgresql/) for long-term analysis and [KuzuDB](/glossary/kuzudb/) for graph-based execution flow queries.
+Built on the [AIAD](@/glossary/aiad.md) standard, the pvm-tracer implements structured trace capture with full causal ordering -- every traced event carries a vector clock timestamp enabling precise reconstruction of execution sequences across concurrent processes. The agent applies the [NO DOUBTS](@/glossary/no-doubts.md) principle to trace analysis: execution behavior claims are derived exclusively from measured trace data, never from architectural assumptions. Trace data is stored in [PostgreSQL](@/glossary/postgresql.md) for long-term analysis and [KuzuDB](@/glossary/kuzudb.md) for graph-based execution flow queries.
 
 ## Operational Domain
 
-The execution-intelligence domain encompasses real-time trace capture, trace storage and indexing, execution pattern analysis, and anomaly detection across all PVM-managed operations. The tracer monitors agent lifecycle events, pipeline stage transitions, data transformation operations, and [NABLA Infinity](/glossary/nabla-infinity/) epistemic state changes. Trace data volume is managed through configurable sampling rates and intelligent trace filtering that prioritizes high-value execution paths.
+The execution-intelligence domain encompasses real-time trace capture, trace storage and indexing, execution pattern analysis, and anomaly detection across all PVM-managed operations. The tracer monitors agent lifecycle events, pipeline stage transitions, data transformation operations, and [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic state changes. Trace data volume is managed through configurable sampling rates and intelligent trace filtering that prioritizes high-value execution paths.
 
 ## Trace Capture Architecture
 
@@ -56,7 +56,7 @@ Causal ordering enables several critical analysis capabilities. **Happened-Befor
 
 ## Execution Graph Construction
 
-Raw trace data is continuously processed into execution graphs -- directed acyclic graphs where nodes represent operations and edges represent data flow or causal dependencies. Execution graphs are stored in [KuzuDB](/glossary/kuzudb/), enabling graph queries that answer structural questions about execution behavior.
+Raw trace data is continuously processed into execution graphs -- directed acyclic graphs where nodes represent operations and edges represent data flow or causal dependencies. Execution graphs are stored in [KuzuDB](@/glossary/kuzudb.md), enabling graph queries that answer structural questions about execution behavior.
 
 Graph-based analysis supports pattern detection across execution traces. Common patterns include fan-out structures (one operation triggering many concurrent operations), bottleneck convergence (many operations waiting for a single resource), and cascade failure propagation (one failure triggering a chain of dependent failures). Pattern detection runs as a continuous background process, alerting operators when unusual patterns emerge.
 
@@ -68,7 +68,7 @@ The pvm-tracer implements statistical anomaly detection across multiple executio
 
 **Behavioral Anomalies** detect operations that follow unexpected execution paths -- code branches that have not been previously observed, unusual operation ordering, and unexpected inter-agent communication patterns. Behavioral detection uses Markov chain models of normal execution behavior and flags transitions with near-zero historical probability.
 
-**Resource Anomalies** detect unusual resource consumption patterns -- memory allocation spikes, database connection exhaustion, and message queue depth increases that deviate from normal operation. Resource anomaly detection integrates with the [pvm-adaptive-scheduler](/agents/pvm-adaptive-scheduler/) to trigger preemptive resource reallocation before exhaustion occurs.
+**Resource Anomalies** detect unusual resource consumption patterns -- memory allocation spikes, database connection exhaustion, and message queue depth increases that deviate from normal operation. Resource anomaly detection integrates with the [pvm-adaptive-scheduler](@/agents/pvm-adaptive-scheduler.md) to trigger preemptive resource reallocation before exhaustion occurs.
 
 ## Key Capabilities
 
@@ -76,8 +76,8 @@ The pvm-tracer implements statistical anomaly detection across multiple executio
 - **Execution graph construction** -- Builds directed acyclic graphs of execution flows from raw trace data, enabling visual and programmatic analysis of operation sequences and data dependencies
 - **Anomaly detection** -- Identifies unusual execution patterns including unexpected code paths, abnormal latency distributions, and behavioral deviations from established execution baselines
 - **Historical trace analysis** -- Queries archived trace data for post-incident investigation, regression analysis, and long-term execution pattern trend detection
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with adaptive trace sampling rates based on current system load and investigation priorities
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing trace summary [metrics](/glossary/metrics/) and anomaly detection alerts
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with adaptive trace sampling rates based on current system load and investigation priorities
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing trace summary [metrics](@/glossary/metrics.md) and anomaly detection alerts
 
 ## Authority Level
 
@@ -95,15 +95,15 @@ The pvm-tracer implements statistical anomaly detection across multiple executio
 
 | Agent | Relationship |
 |-------|-------------|
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Trace data provides execution context for profiling investigations |
-| [service-mesh-specialist](/agents/service-mesh-specialist/) | [Distributed tracing](/glossary/distributed-tracing/) integrates with service mesh observability |
-| [white-contract-validator](/agents/white-contract-validator/) | Execution traces verify that runtime behavior matches contract specifications |
-| [pvm-executor](/agents/pvm-executor/) | Source of execution events for trace capture |
-| [pvm-adaptive-scheduler](/agents/pvm-adaptive-scheduler/) | Trace analysis informs scheduling optimization decisions |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Trace data provides execution context for profiling investigations |
+| [service-mesh-specialist](@/agents/service-mesh-specialist.md) | [Distributed tracing](@/glossary/distributed-tracing.md) integrates with service mesh observability |
+| [white-contract-validator](@/agents/white-contract-validator.md) | Execution traces verify that runtime behavior matches contract specifications |
+| [pvm-executor](@/agents/pvm-executor.md) | Source of execution events for trace capture |
+| [pvm-adaptive-scheduler](@/agents/pvm-adaptive-scheduler.md) | Trace analysis informs scheduling optimization decisions |
 
 ## Enforcement
 
-Trace data integrity is enforced under the [NO MERCY](/glossary/no-mercy/) doctrine. Trace records are immutable once captured, and causal ordering guarantees are maintained through vector clock validation. The [NABLA Infinity](/glossary/nabla-infinity/) provenance axiom applies to all trace-derived analysis: every behavioral claim references specific trace evidence with timestamps and execution context. Anomaly detection thresholds are evidence-based, calibrated from historical execution data rather than arbitrary configuration values.
+Trace data integrity is enforced under the [NO MERCY](@/glossary/no-mercy.md) doctrine. Trace records are immutable once captured, and causal ordering guarantees are maintained through vector clock validation. The [NABLA Infinity](@/glossary/nabla-infinity.md) provenance axiom applies to all trace-derived analysis: every behavioral claim references specific trace evidence with timestamps and execution context. Anomaly detection thresholds are evidence-based, calibrated from historical execution data rather than arbitrary configuration values.
 
 ---
 
@@ -112,4 +112,4 @@ Trace data integrity is enforced under the [NO MERCY](/glossary/no-mercy/) doctr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

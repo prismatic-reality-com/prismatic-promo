@@ -24,11 +24,11 @@ image_alt = "/siege-master - Prismatic Platform"
 
 ## Overview
 
-**/siege-master** is a production command in the **Intelligence** category of the Prismatic Platform that executes comprehensive intelligence siege operations with full-spectrum coverage. Unlike targeted intelligence commands such as [/investigate](/commands/investigate/) or [/email-osint](/commands/email-osint/) that focus on specific data types, `/siege-master` orchestrates a coordinated multi-vector intelligence collection campaign that simultaneously queries all available data sources, cross-correlates findings in real time, and produces a unified intelligence product that would require dozens of individual queries to assemble manually.
+**/siege-master** is a production command in the **Intelligence** category of the Prismatic Platform that executes comprehensive intelligence siege operations with full-spectrum coverage. Unlike targeted intelligence commands such as [/investigate](@/commands/investigate.md) or [/email-osint](@/commands/email-osint.md) that focus on specific data types, `/siege-master` orchestrates a coordinated multi-vector intelligence collection campaign that simultaneously queries all available data sources, cross-correlates findings in real time, and produces a unified intelligence product that would require dozens of individual queries to assemble manually.
 
 The "siege" metaphor reflects the command's operational philosophy: rather than probing a target through a single vector and hoping for results, it surrounds the target with overlapping collection methodologies that leave no information gap unexplored. DNS records, WHOIS data, certificate transparency logs, web archives, social media footprints, code repositories, breach databases, dark web mentions, and infrastructure fingerprints are all queried in parallel, with findings from each source used to generate new queries for other sources in a recursive enrichment loop.
 
-This command operates under the **L3** authority level and is executed by the `siege-master-operator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority requirement ensures that siege operations, which can be resource-intensive and produce large volumes of data, are initiated only by operators with strategic command authority.
+This command operates under the **L3** authority level and is executed by the `siege-master-operator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority requirement ensures that siege operations, which can be resource-intensive and produce large volumes of data, are initiated only by operators with strategic command authority.
 
 The command produces structured intelligence reports in multiple formats, suitable for security assessments, competitive intelligence briefings, due diligence investigations, and attack surface mapping. All operations are conducted through publicly available and authorized data sources, with strict adherence to ethical intelligence collection standards and applicable privacy regulations.
 
@@ -154,13 +154,13 @@ Target Specification
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/investigate](/commands/investigate/) | Collection Vector | Leverages the investigation engine for deep-dive queries |
-| [/email-osint](/commands/email-osint/) | Collection Vector | Email-specific intelligence gathering |
-| [/google-hacking](/commands/google-hacking/) | Collection Vector | Advanced search engine intelligence |
-| [/web-crawler](/commands/web-crawler/) | Collection Vector | Automated web content extraction |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Attack Surface | Feeds findings into EASM asset inventory |
-| [Telemetry](/glossary/telemetry/) | Observability | Collection progress and performance metrics |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Report quality validation before delivery |
+| [/investigate](@/commands/investigate.md) | Collection Vector | Leverages the investigation engine for deep-dive queries |
+| [/email-osint](@/commands/email-osint.md) | Collection Vector | Email-specific intelligence gathering |
+| [/google-hacking](@/commands/google-hacking.md) | Collection Vector | Advanced search engine intelligence |
+| [/web-crawler](@/commands/web-crawler.md) | Collection Vector | Automated web content extraction |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Attack Surface | Feeds findings into EASM asset inventory |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Collection progress and performance metrics |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Report quality validation before delivery |
 
 ## Best Practices
 
@@ -224,19 +224,19 @@ Target Specification
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Intelligence siege operations execute against all selected vectors without skipping difficult or slow sources. Every vector must complete or explicitly time out. Partial results are clearly marked as incomplete so that consumers know where coverage gaps exist.
-- **NO DOUBTS**: All findings include confidence scores, source attribution, and collection timestamps. The [NABLA Infinity](/glossary/nabla-infinity/) axioms of Signal Plurality and Provenance Mandatory are enforced -- no finding is reported without source attribution, and high-confidence assessments require corroboration from multiple independent sources.
+- **NO DOUBTS**: All findings include confidence scores, source attribution, and collection timestamps. The [NABLA Infinity](@/glossary/nabla-infinity.md) axioms of Signal Plurality and Provenance Mandatory are enforced -- no finding is reported without source attribution, and high-confidence assessments require corroboration from multiple independent sources.
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/web-crawler](/commands/web-crawler/) - Automated web crawling and structured data extraction
-- [/ghost-recon](/commands/ghost-recon/) - Stealth reconnaissance and passive intelligence collection
-- [/delta-force](/commands/delta-force/) - Precision tactical intelligence operations
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/web-crawler](@/commands/web-crawler.md) - Automated web crawling and structured data extraction
+- [/ghost-recon](@/commands/ghost-recon.md) - Stealth reconnaissance and passive intelligence collection
+- [/delta-force](@/commands/delta-force.md) - Precision tactical intelligence operations
 
 ---
 
@@ -245,4 +245,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

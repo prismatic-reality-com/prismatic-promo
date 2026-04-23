@@ -209,10 +209,10 @@ end
 
 ## Cross-References
 
-- [OSINT](/glossary/osint/) -- Open source intelligence collection
-- [Epistemic Confidence](/glossary/epistemic-confidence/) -- Confidence scoring at Conclude phase
-- [Entity Resolution](/glossary/entity-resolution/) -- Relationship mapping at Relate phase
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Intelligence production using GRACE
+- [OSINT](@/glossary/osint.md) -- Open source intelligence collection
+- [Epistemic Confidence](@/glossary/epistemic-confidence.md) -- Confidence scoring at Conclude phase
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Relationship mapping at Relate phase
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Intelligence production using GRACE
 - **Livebooks**: `osint_intelligence/` notebooks provide interactive GRACE exercises
 - **Academy**: OSINTSignalSynthesis topic teaches GRACE with the graceWizard component
 
@@ -223,4 +223,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

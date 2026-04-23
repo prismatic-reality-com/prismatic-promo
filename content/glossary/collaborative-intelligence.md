@@ -36,7 +36,7 @@ image_alt = "Collaborative Intelligence - Prismatic Platform"
 
 ## Definition
 
-Collaborative Intelligence is the emergent intelligence that arises from the structured, coordinated action of multiple agents, systems, or human participants working together through defined protocols and synthesis mechanisms. Unlike [Collective Intelligence](/glossary/collective-intelligence/), which emerges spontaneously from undirected group behavior, collaborative intelligence is deliberately designed and orchestrated. It requires explicit coordination protocols, defined roles, structured information flow, and synthesis mechanisms that combine diverse perspectives into coherent, higher-order insights that no single participant could produce alone.
+Collaborative Intelligence is the emergent intelligence that arises from the structured, coordinated action of multiple agents, systems, or human participants working together through defined protocols and synthesis mechanisms. Unlike [Collective Intelligence](@/glossary/collective-intelligence.md), which emerges spontaneously from undirected group behavior, collaborative intelligence is deliberately designed and orchestrated. It requires explicit coordination protocols, defined roles, structured information flow, and synthesis mechanisms that combine diverse perspectives into coherent, higher-order insights that no single participant could produce alone.
 
 In artificial intelligence and multi-agent systems, collaborative intelligence represents the transition from individual agent capability to system-level cognitive capacity -- where the whole demonstrably exceeds the sum of its parts through structured interaction rather than mere aggregation.
 
@@ -225,7 +225,7 @@ end
 
 ### Signal Aggregation and Fusion
 
-Collaborative intelligence depends on sophisticated signal aggregation that respects source independence and preserves contradictions -- core tenets of the [NABLA Infinity](/glossary/nabla-infinity/) framework:
+Collaborative intelligence depends on sophisticated signal aggregation that respects source independence and preserves contradictions -- core tenets of the [NABLA Infinity](@/glossary/nabla-infinity.md) framework:
 
 ```elixir
 defmodule PrismaticAgents.SignalFusion do
@@ -325,12 +325,12 @@ The most powerful form of collaborative intelligence uses adversarial-cooperativ
 
 ### Color Team Architecture
 
-Prismatic Platform's [Color Teams](/glossary/color-teams/) represent the most sophisticated implementation of collaborative intelligence in the platform. Twenty agents across six color teams produce intelligence through structured adversarial-cooperative collaboration:
+Prismatic Platform's [Color Teams](@/glossary/color-teams.md) represent the most sophisticated implementation of collaborative intelligence in the platform. Twenty agents across six color teams produce intelligence through structured adversarial-cooperative collaboration:
 
-- **[Red Team](/glossary/red-team/)** (4 agents): Adversarial simulation using five epistemic attack primitives (truth distortion, confidence manipulation, signal poisoning, drift induction, salience hijacking)
-- **[Blue Team](/glossary/blue-team/)** (4 agents): Epistemic defense through evidence synthesis grounded in NABLA axioms
-- **[Purple Team](/glossary/purple-team/)** (4 agents): Central synthesis hub with sole closure authority. Purple is "the property of the system when it stops lying to itself"
-- **[White Team](/glossary/white-team/)** (3 agents): Constructive verification through progressive proof methodology (L0-L5)
+- **[Red Team](@/glossary/red-team.md)** (4 agents): Adversarial simulation using five epistemic attack primitives (truth distortion, confidence manipulation, signal poisoning, drift induction, salience hijacking)
+- **[Blue Team](@/glossary/blue-team.md)** (4 agents): Epistemic defense through evidence synthesis grounded in NABLA axioms
+- **[Purple Team](@/glossary/purple-team.md)** (4 agents): Central synthesis hub with sole closure authority. Purple is "the property of the system when it stops lying to itself"
+- **[White Team](@/glossary/white-team.md)** (3 agents): Constructive verification through progressive proof methodology (L0-L5)
 - **Gray Team** (3 agents): Boundary exploration surfacing specification gaps and edge cases
 - **Black Team** (2 agents): Theoretical threat modeling under maximum isolation constraints
 
@@ -348,7 +348,7 @@ Gray (boundary seeds) --> Red (adversarial scenarios) --> Purple (synthesis)
 
 ### Multi-Agent Orchestration
 
-The platform's [orchestration](/glossary/orchestration/) system coordinates 530+ agents through hierarchical command structures. The Supreme Coordinator manages strategic objectives, while domain-specific agents handle tactical execution:
+The platform's [orchestration](@/glossary/orchestration.md) system coordinates 530+ agents through hierarchical command structures. The Supreme Coordinator manages strategic objectives, while domain-specific agents handle tactical execution:
 
 ```elixir
 defmodule PrismaticAgents.CollaborativeOrchestrator do
@@ -418,7 +418,7 @@ end
 
 ### Trinity Gate Integration
 
-Every output of the collaborative intelligence system must pass the [Trinity Gate](/glossary/trinity-gate/) -- three independent consistency checks that must all pass before any claim is established:
+Every output of the collaborative intelligence system must pass the [Trinity Gate](@/glossary/trinity-gate.md) -- three independent consistency checks that must all pass before any claim is established:
 
 1. **Structural Consistency** (Graph Theory): The belief network forms a valid directed acyclic graph
 2. **Logical Consistency** (Rule-Based): Propositions follow logical inference rules without contradiction
@@ -500,24 +500,24 @@ Complex architectural decisions benefit from collaborative intelligence where di
 
 ## Related Concepts
 
-- [Collective Intelligence](/glossary/collective-intelligence/) -- emergent intelligence from undirected group behavior, contrasted with directed collaborative intelligence
-- [Multi-Agent System](/glossary/multi-agent-system/) -- the computational framework enabling collaborative intelligence implementations
-- [Purple Team](/glossary/purple-team/) -- the synthesis hub with sole closure authority in Prismatic's color team architecture
-- [Orchestration](/glossary/orchestration/) -- the coordination mechanism managing multi-agent collaborative workflows
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- the technical process of combining signals from multiple intelligence sources
-- [Color Teams](/glossary/color-teams/) -- the adversarial-cooperative team structure implementing collaborative intelligence
-- [Agent Orchestration](/glossary/agent-orchestration/) -- the technical infrastructure for coordinating agent collaboration
-- [Signal Plurality](/glossary/signal-plurality/) -- the NABLA axiom requiring multiple independent signals for valid beliefs
-- [Trinity Gate](/glossary/trinity-gate/) -- the three-gate verification system validating collaborative intelligence outputs
-- [NABLA Infinity](/glossary/nabla-infinity/) -- the epistemic framework governing how collaborative intelligence handles uncertainty
+- [Collective Intelligence](@/glossary/collective-intelligence.md) -- emergent intelligence from undirected group behavior, contrasted with directed collaborative intelligence
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- the computational framework enabling collaborative intelligence implementations
+- [Purple Team](@/glossary/purple-team.md) -- the synthesis hub with sole closure authority in Prismatic's color team architecture
+- [Orchestration](@/glossary/orchestration.md) -- the coordination mechanism managing multi-agent collaborative workflows
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- the technical process of combining signals from multiple intelligence sources
+- [Color Teams](@/glossary/color-teams.md) -- the adversarial-cooperative team structure implementing collaborative intelligence
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- the technical infrastructure for coordinating agent collaboration
+- [Signal Plurality](@/glossary/signal-plurality.md) -- the NABLA axiom requiring multiple independent signals for valid beliefs
+- [Trinity Gate](@/glossary/trinity-gate.md) -- the three-gate verification system validating collaborative intelligence outputs
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- the epistemic framework governing how collaborative intelligence handles uncertainty
 
 ## See Also
 
 - Glossary Index -- complete listing of all platform terminology
-- [Red Team](/glossary/red-team/) -- adversarial simulation team in the color team architecture
-- [Blue Team](/glossary/blue-team/) -- epistemic defense team producing structured evidence
-- [White Team](/glossary/white-team/) -- constructive verification team producing formal proofs
-- [Adversarial Testing](/glossary/adversarial-testing/) -- the methodology underlying Red Team operations
+- [Red Team](@/glossary/red-team.md) -- adversarial simulation team in the color team architecture
+- [Blue Team](@/glossary/blue-team.md) -- epistemic defense team producing structured evidence
+- [White Team](@/glossary/white-team.md) -- constructive verification team producing formal proofs
+- [Adversarial Testing](@/glossary/adversarial-testing.md) -- the methodology underlying Red Team operations
 
 ---
 
@@ -526,4 +526,4 @@ Complex architectural decisions benefit from collaborative intelligence where di
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

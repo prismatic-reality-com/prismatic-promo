@@ -29,9 +29,9 @@ Etherscan is the dominant blockchain explorer for the Ethereum network, providin
 
 Unlike Bitcoin's relatively simple UTXO transaction model, Ethereum's smart contract platform creates a far more complex analytical surface. Every token transfer (ERC-20), NFT transaction (ERC-721/ERC-1155), DeFi interaction (swaps, lending, staking), and smart contract execution is recorded on-chain and indexed by Etherscan. This complexity means that Ethereum address analysis reveals not just fund flows but programmatic interactions: which smart contracts an address has interacted with, what tokens it holds, which DeFi protocols it has used, and what NFTs it owns.
 
-For [OSINT](/glossary/osint/) investigators, Etherscan provides a rich behavioral profile that goes beyond simple value transfers. The platform's smart contract source code verification feature allows investigators to understand the logic of contracts involved in scams, hacks, or money laundering operations. Token holder analysis reveals ownership distribution and whale activity. Event log search enables detection of specific on-chain events across the entire Ethereum network.
+For [OSINT](@/glossary/osint.md) investigators, Etherscan provides a rich behavioral profile that goes beyond simple value transfers. The platform's smart contract source code verification feature allows investigators to understand the logic of contracts involved in scams, hacks, or money laundering operations. Token holder analysis reveals ownership distribution and whale activity. Event log search enables detection of specific on-chain events across the entire Ethereum network.
 
-Etherscan also operates explorers for major EVM-compatible chains including Polygon (Polygonscan), BNB Chain (BscScan), Arbitrum (Arbiscan), and Optimism, providing a unified interface paradigm across the broader Ethereum ecosystem. For the Prismatic platform, Etherscan complements Bitcoin analysis from [Blockchain.com](/osint/blockchain-com/) with Ethereum-specific intelligence and feeds into the cryptocurrency compliance pipeline alongside [Chainalysis](/osint/chainalysis/) risk assessments.
+Etherscan also operates explorers for major EVM-compatible chains including Polygon (Polygonscan), BNB Chain (BscScan), Arbitrum (Arbiscan), and Optimism, providing a unified interface paradigm across the broader Ethereum ecosystem. For the Prismatic platform, Etherscan complements Bitcoin analysis from [Blockchain.com](@/osint/blockchain-com.md) with Ethereum-specific intelligence and feeds into the cryptocurrency compliance pipeline alongside [Chainalysis](@/osint/chainalysis.md) risk assessments.
 
 ## Data Sources and Coverage
 
@@ -236,7 +236,7 @@ Ethereum's DeFi ecosystem creates complex fund flows that require specialized an
 
 ### Cryptocurrency Compliance and Sanctions Screening
 
-Etherscan data supports Ethereum-specific compliance workflows. Applications include screening Ethereum addresses against [OFAC](/osint/ofac/) sanctioned addresses including Tornado Cash-related addresses, monitoring stablecoin (USDT, USDC, DAI) transfers for suspicious activity and large movements, tracking funds through privacy protocols and mixers for potential sanctions violations, analyzing token holder distributions to identify concentration risk, and monitoring newly deployed contracts for known malicious patterns.
+Etherscan data supports Ethereum-specific compliance workflows. Applications include screening Ethereum addresses against [OFAC](@/osint/ofac.md) sanctioned addresses including Tornado Cash-related addresses, monitoring stablecoin (USDT, USDC, DAI) transfers for suspicious activity and large movements, tracking funds through privacy protocols and mixers for potential sanctions violations, analyzing token holder distributions to identify concentration risk, and monitoring newly deployed contracts for known malicious patterns.
 
 ### Smart Contract Security Analysis
 
@@ -254,9 +254,9 @@ However, several considerations apply to OSINT usage. Smart contract verificatio
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, Etherscan provides Ethereum-specific blockchain intelligence that complements Bitcoin analysis from [Blockchain.com](/osint/blockchain-com/). Etherscan data feeds into the cryptocurrency compliance pipeline alongside enterprise analytics from [Chainalysis](/osint/chainalysis/), [Elliptic](/osint/elliptic/), and [Crystal Blockchain](/osint/crystal-blockchain/).
+Within the Prismatic ecosystem, Etherscan provides Ethereum-specific blockchain intelligence that complements Bitcoin analysis from [Blockchain.com](@/osint/blockchain-com.md). Etherscan data feeds into the cryptocurrency compliance pipeline alongside enterprise analytics from [Chainalysis](@/osint/chainalysis.md), [Elliptic](@/osint/elliptic.md), and [Crystal Blockchain](@/osint/crystal-blockchain.md).
 
-The [Prismatic Perimeter](/apps/prismatic-perimeter/) security rating engine uses Etherscan data to assess cryptocurrency-related risk factors for organizations with Ethereum exposure.
+The [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security rating engine uses Etherscan data to assess cryptocurrency-related risk factors for organizations with Ethereum exposure.
 
 ## NABLA Compliance
 
@@ -277,7 +277,7 @@ The [Prismatic Perimeter](/apps/prismatic-perimeter/) security rating engine use
 | **Free** | 5 calls/sec, 100K calls/day | Basic API, standard endpoints |
 | **Standard** | 10 calls/sec, 200K calls/day | All endpoints, higher limits |
 | **Advanced** | 20 calls/sec, 500K calls/day | Premium endpoints, priority |
-| **Pro** | 30 calls/sec, Unlimited | Bulk data, [WebSocket](/glossary/websocket/), archive access |
+| **Pro** | 30 calls/sec, Unlimited | Bulk data, [WebSocket](@/glossary/websocket.md), archive access |
 
 ### Authentication
 
@@ -285,13 +285,13 @@ API key required for all requests. Free tier available with email registration. 
 
 ## Related Resources
 
-- [Blockchain.com](/osint/blockchain-com/) - Bitcoin blockchain explorer
-- [Chainalysis](/osint/chainalysis/) - Enterprise cryptocurrency compliance
-- [Elliptic](/osint/elliptic/) - Crypto risk management and screening
-- [Crystal Blockchain](/osint/crystal-blockchain/) - Blockchain analytics platform
-- [OFAC](/osint/ofac/) - US sanctions including cryptocurrency addresses
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Cryptocurrency risk assessment
+- [Blockchain.com](@/osint/blockchain-com.md) - Bitcoin blockchain explorer
+- [Chainalysis](@/osint/chainalysis.md) - Enterprise cryptocurrency compliance
+- [Elliptic](@/osint/elliptic.md) - Crypto risk management and screening
+- [Crystal Blockchain](@/osint/crystal-blockchain.md) - Blockchain analytics platform
+- [OFAC](@/osint/ofac.md) - US sanctions including cryptocurrency addresses
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Cryptocurrency risk assessment
 
 ---
 
@@ -300,4 +300,4 @@ API key required for all requests. Free tier available with email registration. 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

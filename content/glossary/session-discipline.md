@@ -364,19 +364,19 @@ glab issue close 1290 --comment "Session complete. All changes pushed and tested
 
 ## Related Concepts
 
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Enforcement mechanism within sessions
-- [Quality Gates](/glossary/quality-gates/) -- Gates enforced at every commit during sessions
-- [NM/ND Doctrine](/glossary/nm-nd/) -- Governing framework mandating session standards
-- [Violation Protocol](/glossary/violation-protocol/) -- Escalation for session discipline breaches
-- [AIAD](/glossary/aiad/) -- Agent standard with session discipline compliance
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality persistence enabled by discipline
-- [GitLab CI](/glossary/gitlab-ci/) -- CI/CD pipeline integration with session tracking
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Enforcement mechanism within sessions
+- [Quality Gates](@/glossary/quality-gates.md) -- Gates enforced at every commit during sessions
+- [NM/ND Doctrine](@/glossary/nm-nd.md) -- Governing framework mandating session standards
+- [Violation Protocol](@/glossary/violation-protocol.md) -- Escalation for session discipline breaches
+- [AIAD](@/glossary/aiad.md) -- Agent standard with session discipline compliance
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality persistence enabled by discipline
+- [GitLab CI](@/glossary/gitlab-ci.md) -- CI/CD pipeline integration with session tracking
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Commands](/commands/) -- Session-related command catalog
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Commands](@/commands/_index.md) -- Session-related command catalog
 
 ---
 
@@ -385,4 +385,4 @@ glab issue close 1290 --comment "Session complete. All changes pushed and tested
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

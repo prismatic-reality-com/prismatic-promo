@@ -184,11 +184,11 @@ The Hex package manager, used for Elixir dependency distribution, requires semve
 
 ## Cross-References
 
-- [Schema Migration](/glossary/schema-migration/) - Database changes coordinated with version bumps
-- [Quality Floor](/glossary/quality-floor/) - Quality standards versioned alongside the platform
-- [Placeholder](/glossary/placeholder/) - Forbidden patterns tracked by version
-- [Runtime](/glossary/runtime/) - Version information available at runtime for diagnostics
-- [Self-Registration](/glossary/self-registration/) - Registered components carrying version metadata
+- [Schema Migration](@/glossary/schema-migration.md) - Database changes coordinated with version bumps
+- [Quality Floor](@/glossary/quality-floor.md) - Quality standards versioned alongside the platform
+- [Placeholder](@/glossary/placeholder.md) - Forbidden patterns tracked by version
+- [Runtime](@/glossary/runtime.md) - Version information available at runtime for diagnostics
+- [Self-Registration](@/glossary/self-registration.md) - Registered components carrying version metadata
 
 ---
 

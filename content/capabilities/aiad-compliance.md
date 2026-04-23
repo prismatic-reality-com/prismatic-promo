@@ -26,7 +26,7 @@ Autonomous Intelligence Agent Design (AIAD) Compliance is the enforcement backbo
 
 The compliance framework addresses a fundamental challenge in large-scale multi-agent systems: how to maintain coherent interoperability, auditable behavior, and verifiable quality when hundreds of autonomous components evolve independently. Without enforceable standards, agent ecosystems degrade into collections of incompatible, untestable, and unauditable tools. AIAD Compliance prevents this by binding every agent to a machine-readable contract that specifies its capabilities, authority boundaries, integration points, and doctrine obligations.
 
-AIAD Compliance is not merely a documentation standard. It is an enforceable contract system that binds agents to behavioral guarantees. An agent that declares specific capabilities in its AIAD specification is tested against those capabilities. An agent that declares [NO MERCY](/capabilities/no-mercy/) compliance has its outputs verified against zero-tolerance quality requirements. This contract-based approach transforms the agent ecosystem from a collection of independent tools into a verifiable, composable, and self-auditing intelligence infrastructure integrated with the [Trinity Gate](/capabilities/trinity-gate/) verification pipeline.
+AIAD Compliance is not merely a documentation standard. It is an enforceable contract system that binds agents to behavioral guarantees. An agent that declares specific capabilities in its AIAD specification is tested against those capabilities. An agent that declares [NO MERCY](@/capabilities/no-mercy.md) compliance has its outputs verified against zero-tolerance quality requirements. This contract-based approach transforms the agent ecosystem from a collection of independent tools into a verifiable, composable, and self-auditing intelligence infrastructure integrated with the [Trinity Gate](@/capabilities/trinity-gate.md) verification pipeline.
 
 ## Core Architecture
 
@@ -53,7 +53,7 @@ During execution, agents are monitored against their declared capabilities. If a
 
 ### Continuous Audit Layer
 
-The audit layer performs daily and on-demand compliance scans across the entire agent registry. Cross-reference integrity, version compatibility, and doctrine adherence are verified automatically. Results feed into the [Quality Gates](/capabilities/quality-gates/) pipeline and contribute to the platform's overall quality score.
+The audit layer performs daily and on-demand compliance scans across the entire agent registry. Cross-reference integrity, version compatibility, and doctrine adherence are verified automatically. Results feed into the [Quality Gates](@/capabilities/quality-gates.md) pipeline and contribute to the platform's overall quality score.
 
 ## Agent Specification Format
 
@@ -165,7 +165,7 @@ The Agent Registry maintains a live index of all AIAD-compliant agents. The regi
 
 ## Platform Integration with Elixir/OTP
 
-AIAD Compliance integrates deeply with the platform's [Elixir](/technologies/elixir/) runtime through a dedicated compliance checking module that validates agent specifications programmatically.
+AIAD Compliance integrates deeply with the platform's [Elixir](@/technologies/elixir.md) runtime through a dedicated compliance checking module that validates agent specifications programmatically.
 
 ```elixir
 defmodule PrismaticAiad.ComplianceChecker do
@@ -325,17 +325,17 @@ The compliance system itself is held to strict performance standards to avoid be
 
 AIAD Compliance is a foundational capability that connects to virtually every other platform subsystem.
 
-- [NO MERCY](/capabilities/no-mercy/) doctrine enforced on all agents through mandatory enforcement blocks
-- [NO DOUBTS](/capabilities/no-doubts/) evidence requirements validated in capability declarations
-- [Trinity Gate](/capabilities/trinity-gate/) validation required for all epistemic agent outputs
-- [NABLA Axioms](/capabilities/nabla-axioms/) compliance mandatory for epistemic domain agents
-- [Quality Gates](/capabilities/quality-gates/) integrated into the validation pipeline
-- [Telemetry Integration](/capabilities/telemetry-integration/) tracks agent operation metrics against declared capabilities
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) detects and repairs compliance regressions automatically
-- [Color Teams](/capabilities/color-teams/) organized under the AIAD tier structure with full specification coverage
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) powers the compliance dashboard for operational visibility
-- [AIAD Standard](/capabilities/aiad-standard/) defines the underlying specification format that compliance enforces
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) agents validated for NABLA axiom adherence
+- [NO MERCY](@/capabilities/no-mercy.md) doctrine enforced on all agents through mandatory enforcement blocks
+- [NO DOUBTS](@/capabilities/no-doubts.md) evidence requirements validated in capability declarations
+- [Trinity Gate](@/capabilities/trinity-gate.md) validation required for all epistemic agent outputs
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) compliance mandatory for epistemic domain agents
+- [Quality Gates](@/capabilities/quality-gates.md) integrated into the validation pipeline
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) tracks agent operation metrics against declared capabilities
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) detects and repairs compliance regressions automatically
+- [Color Teams](@/capabilities/color-teams.md) organized under the AIAD tier structure with full specification coverage
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) powers the compliance dashboard for operational visibility
+- [AIAD Standard](@/capabilities/aiad-standard.md) defines the underlying specification format that compliance enforces
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) agents validated for NABLA axiom adherence
 
 ---
 
@@ -344,4 +344,4 @@ AIAD Compliance is a foundational capability that connects to virtually every ot
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

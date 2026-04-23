@@ -28,7 +28,7 @@ image_alt = "custom-credo-quality-commander - Prismatic Platform"
 
 ## Overview
 
-The Custom [Credo](/glossary/credo/) Quality Commander operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Prismatic Specific domain of the Prismatic Platform. This agent develops, maintains, and enforces custom Credo checks that encode platform-specific quality rules not covered by the standard Credo rule set. These custom checks are backed by five core [Lean4](/glossary/lean4/) theorems that formally guarantee safe evolution, ensuring that quality rules do not introduce false positives, do not miss known anti-patterns, and maintain consistency across platform updates.
+The Custom [Credo](@/glossary/credo.md) Quality Commander operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Prismatic Specific domain of the Prismatic Platform. This agent develops, maintains, and enforces custom Credo checks that encode platform-specific quality rules not covered by the standard Credo rule set. These custom checks are backed by five core [Lean4](@/glossary/lean4.md) theorems that formally guarantee safe evolution, ensuring that quality rules do not introduce false positives, do not miss known anti-patterns, and maintain consistency across platform updates.
 
 Static analysis through Credo is a cornerstone of the platform's quality enforcement strategy. While standard Credo checks address general Elixir code quality, the Prismatic Platform's 90-app umbrella architecture, OTP-heavy design patterns, and domain-specific conventions require additional rules that understand the platform's unique patterns and anti-patterns. The Custom Credo Quality Commander fills this gap by creating checks that enforce platform-specific conventions such as proper supervision tree structure, correct telemetry event naming, mandatory typespec coverage, and safe map access patterns.
 
@@ -88,7 +88,7 @@ The custom Credo checks integrate with the broader quality infrastructure to pro
 
 CI/CD pipeline integration runs custom checks as part of the `mix credo --strict` phase, ensuring that every code change is evaluated against the full custom rule set before merge. Check failures produce clear, actionable error messages that explain the violation, reference the relevant documentation, and suggest the correct pattern.
 
-[Dialyzer](/glossary/dialyzer/) coordination ensures that custom Credo checks and Dialyzer type analysis provide complementary rather than redundant coverage. The commander maintains a coverage map that identifies which quality aspects are handled by Credo checks, which by Dialyzer, and which require both. This coordination prevents gap and overlap in the quality analysis.
+[Dialyzer](@/glossary/dialyzer.md) coordination ensures that custom Credo checks and Dialyzer type analysis provide complementary rather than redundant coverage. The commander maintains a coverage map that identifies which quality aspects are handled by Credo checks, which by Dialyzer, and which require both. This coordination prevents gap and overlap in the quality analysis.
 
 Quality gate integration connects custom check results to the platform's quality gate system, which aggregates quality metrics from multiple sources into composite quality scores. Custom check pass rates contribute to the overall quality score that determines deployment eligibility.
 
@@ -96,19 +96,19 @@ Pre-commit hook integration runs the most critical custom checks during local de
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to define custom quality rules, manage the custom check library, and mandate check compliance across all platform applications.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to define custom quality rules, manage the custom check library, and mandate check compliance across all platform applications.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [quality-floor-guardian](/glossary/quality-floor-guardian/) | Quality Monitoring | Monitors aggregate check pass rates and triggers alerts on quality regression |
-| [cross-domain-quality-propagator](/agents/cross-domain-quality-propagator/) | Quality Propagation | Ensures quality standards propagate consistently across domain boundaries |
-| [elixir-architect](/agents/elixir-architect/) | Architecture Review | Provides architectural context for design-level quality checks |
+| [quality-floor-guardian](@/glossary/quality-floor-guardian.md) | Quality Monitoring | Monitors aggregate check pass rates and triggers alerts on quality regression |
+| [cross-domain-quality-propagator](@/agents/cross-domain-quality-propagator.md) | Quality Propagation | Ensures quality standards propagate consistently across domain boundaries |
+| [elixir-architect](@/agents/elixir-architect.md) | Architecture Review | Provides architectural context for design-level quality checks |
 
 ## Enforcement
 
-All custom Credo quality operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No custom check is deployed without formal specification, comprehensive testing, and graduated rollout. Lean4 theorems must be maintained as the check library evolves -- any change that would invalidate a theorem is rejected. Check bypass mechanisms are forbidden. False positive reports are investigated within 24 hours and resolved through check refinement or documented exception. The quality rule set is treated as safety-critical infrastructure and receives the same change management rigor as production code.
+All custom Credo quality operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No custom check is deployed without formal specification, comprehensive testing, and graduated rollout. Lean4 theorems must be maintained as the check library evolves -- any change that would invalidate a theorem is rejected. Check bypass mechanisms are forbidden. False positive reports are investigated within 24 hours and resolved through check refinement or documented exception. The quality rule set is treated as safety-critical infrastructure and receives the same change management rigor as production code.
 
 ---
 
@@ -117,4 +117,4 @@ All custom Credo quality operations are governed by the [NO MERCY, NO DOUBTS](/g
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

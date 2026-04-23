@@ -35,15 +35,15 @@ see_also = ["osint", "capabilities", "architecture", "perimeter"]
 
 ## Definition
 
-DMARC (Domain-based Message Authentication, Reporting and Conformance) is an email authentication protocol that enables domain owners to protect their domains from unauthorized use in email messages (spoofing). Published as an open standard in [RFC 7489](https://datatracker.ietf.org/doc/html/rfc7489), DMARC builds on two existing authentication mechanisms -- [SPF](/glossary/spf/) (Sender Policy Framework) and [DKIM](/glossary/dkim/) (DomainKeys Identified Mail) -- and adds a critical alignment check and reporting capability. A DMARC policy, published as a [DNS](/glossary/dns/) TXT record at `_dmarc.domain.com`, instructs receiving mail servers on how to handle messages that fail authentication: monitor only (`p=none`), quarantine (`p=quarantine`), or reject (`p=reject`).
+DMARC (Domain-based Message Authentication, Reporting and Conformance) is an email authentication protocol that enables domain owners to protect their domains from unauthorized use in email messages (spoofing). Published as an open standard in [RFC 7489](https://datatracker.ietf.org/doc/html/rfc7489), DMARC builds on two existing authentication mechanisms -- [SPF](@/glossary/spf.md) (Sender Policy Framework) and [DKIM](/glossary/dkim/) (DomainKeys Identified Mail) -- and adds a critical alignment check and reporting capability. A DMARC policy, published as a [DNS](@/glossary/dns.md) TXT record at `_dmarc.domain.com`, instructs receiving mail servers on how to handle messages that fail authentication: monitor only (`p=none`), quarantine (`p=quarantine`), or reject (`p=reject`).
 
-In [OSINT](/glossary/osint/) investigations, DMARC record analysis reveals an organization's [email](/glossary/email/) security maturity. Domains without DMARC or with `p=none` policies are vulnerable to spoofing attacks, making them targets for [phishing](/glossary/phishing/) campaigns. This makes DMARC analysis an essential component of [attack surface](/glossary/attack-surface/) assessment and organizational [security posture](/glossary/security-posture/) evaluation.
+In [OSINT](@/glossary/osint.md) investigations, DMARC record analysis reveals an organization's [email](/glossary/email/) security maturity. Domains without DMARC or with `p=none` policies are vulnerable to spoofing attacks, making them targets for [phishing](/glossary/phishing/) campaigns. This makes DMARC analysis an essential component of [attack surface](@/glossary/attack-surface.md) assessment and organizational [security posture](/glossary/security-posture/) evaluation.
 
 ## Overview: The Email Authentication Triangle
 
 Email authentication relies on three complementary protocols that work together to verify message legitimacy. Each protocol addresses a different aspect of email forgery, and DMARC ties them together into a coherent policy framework.
 
-**SPF (Sender Policy Framework)** verifies that the sending server's IP address is authorized to send email on behalf of the domain. It works at the envelope level (the SMTP `MAIL FROM` address), checking against a list of authorized IPs published in [DNS](/glossary/dns/) TXT records. SPF alone cannot prevent display-name spoofing because it does not check the `From:` header visible to the recipient.
+**SPF (Sender Policy Framework)** verifies that the sending server's IP address is authorized to send email on behalf of the domain. It works at the envelope level (the SMTP `MAIL FROM` address), checking against a list of authorized IPs published in [DNS](@/glossary/dns.md) TXT records. SPF alone cannot prevent display-name spoofing because it does not check the `From:` header visible to the recipient.
 
 **DKIM (DomainKeys Identified Mail)** uses public-key cryptography to sign email messages, allowing recipients to verify that the message was not tampered with in transit and that the signing domain is authentic. DKIM signatures are added as headers and validated against public keys published in DNS. However, DKIM alone does not specify what to do with messages that fail verification.
 
@@ -90,7 +90,7 @@ flowchart TD
 
 ### DMARC Record Syntax
 
-A DMARC record is a [DNS](/glossary/dns/) TXT record published at the `_dmarc` subdomain of the organizational domain. The record contains semicolon-separated tag-value pairs that define the domain's authentication policy.
+A DMARC record is a [DNS](@/glossary/dns.md) TXT record published at the `_dmarc` subdomain of the organizational domain. The record contains semicolon-separated tag-value pairs that define the domain's authentication policy.
 
 | Tag | Required | Purpose | Example Values |
 |-----|----------|---------|----------------|
@@ -142,7 +142,7 @@ Strict alignment provides stronger protection against subdomain-based attacks bu
 
 ### DMARC Reporting
 
-DMARC's reporting mechanism is one of its most valuable features for both domain administrators and [OSINT](/glossary/osint/) investigators.
+DMARC's reporting mechanism is one of its most valuable features for both domain administrators and [OSINT](@/glossary/osint.md) investigators.
 
 **Aggregate Reports (RUA)** are XML documents sent periodically (typically daily) by receiving mail servers. They contain:
 - Sending IP addresses and volumes
@@ -174,13 +174,13 @@ Without an explicit `sp` tag, subdomains inherit the organizational domain's `p`
 
 ### Perimeter EASM DMARC Checking
 
-The Prismatic [Perimeter](/glossary/perimeter/) module (External Attack Surface Management) includes DMARC analysis as a core component of domain security assessment. When scanning a target organization's external attack surface, Perimeter automatically queries DMARC, [SPF](/glossary/spf/), and [DKIM](/glossary/dkim/) records and scores the email authentication posture.
+The Prismatic [Perimeter](/glossary/perimeter/) module (External Attack Surface Management) includes DMARC analysis as a core component of domain security assessment. When scanning a target organization's external attack surface, Perimeter automatically queries DMARC, [SPF](@/glossary/spf.md), and [DKIM](/glossary/dkim/) records and scores the email authentication posture.
 
 DMARC policy strength directly influences the Perimeter security rating. Domains with `p=reject` and strict alignment receive the highest email security scores, while domains missing DMARC entirely are flagged as high-risk for [phishing](/glossary/phishing/) and [social engineering](/glossary/social-engineering/) attacks.
 
 ### OSINT Email Investigation Adapter
 
-The [OSINT](/glossary/osint/) tool registry includes a dedicated DMARC analysis adapter (`dmarc-analyzer`) that feeds into the broader email investigation pipeline. This adapter performs recursive DNS lookups, parses DMARC records, evaluates policy strength, and generates actionable security recommendations.
+The [OSINT](@/glossary/osint.md) tool registry includes a dedicated DMARC analysis adapter (`dmarc-analyzer`) that feeds into the broader email investigation pipeline. This adapter performs recursive DNS lookups, parses DMARC records, evaluates policy strength, and generates actionable security recommendations.
 
 The DMARC analyzer integrates with the email-osint investigation flow: when an investigator examines a domain through the [email](/glossary/email/) OSINT pipeline, DMARC analysis runs automatically alongside MX record inspection, SPF evaluation, and DKIM selector discovery.
 
@@ -548,7 +548,7 @@ end
 
 1. **Start with `p=none` and rua reporting** -- monitor DMARC reports for at least 2-4 weeks before enabling enforcement to avoid blocking legitimate [email](/glossary/email/). Analyze aggregate reports to identify all authorized senders.
 
-2. **Implement SPF, DKIM, and DMARC together** -- DMARC requires at least one of [SPF](/glossary/spf/) or [DKIM](/glossary/dkim/) to pass with alignment. Deploying all three provides defense-in-depth against [phishing](/glossary/phishing/) attacks.
+2. **Implement SPF, DKIM, and DMARC together** -- DMARC requires at least one of [SPF](@/glossary/spf.md) or [DKIM](/glossary/dkim/) to pass with alignment. Deploying all three provides defense-in-depth against [phishing](/glossary/phishing/) attacks.
 
 3. **Use gradual policy escalation** -- progress from `p=none` to `p=quarantine; pct=10`, then increase `pct` gradually to 100, and finally move to `p=reject`. This staged approach minimizes the risk of blocking legitimate mail.
 
@@ -558,7 +558,7 @@ end
 
 6. **Monitor aggregate reports continuously** -- regular review reveals unauthorized email sources, misconfigured legitimate senders, and attempted spoofing campaigns. Automate report ingestion and alerting.
 
-7. **Use DMARC analysis in security ratings** -- email authentication is a reliable indicator of organizational security maturity for [OSINT](/glossary/osint/) assessment and [compliance](/glossary/compliance/) evaluation.
+7. **Use DMARC analysis in security ratings** -- email authentication is a reliable indicator of organizational security maturity for [OSINT](@/glossary/osint.md) assessment and [compliance](@/glossary/compliance.md) evaluation.
 
 8. **Include DMARC in attack surface scans** -- the [Perimeter](/glossary/perimeter/) module should check DMARC as part of every domain security assessment, flagging missing or weak policies as vulnerabilities.
 
@@ -583,25 +583,25 @@ end
 
 ## Related Terms
 
-- [DNS](/glossary/dns/) -- Infrastructure hosting DMARC, SPF, and DKIM records as TXT entries
-- [SPF](/glossary/spf/) -- Sender Policy Framework authenticating sending server IP addresses
+- [DNS](@/glossary/dns.md) -- Infrastructure hosting DMARC, SPF, and DKIM records as TXT entries
+- [SPF](@/glossary/spf.md) -- Sender Policy Framework authenticating sending server IP addresses
 - [DKIM](/glossary/dkim/) -- DomainKeys Identified Mail providing cryptographic message signing
 - [Email](/glossary/email/) -- Communication protocol protected by DMARC authentication
 - [Phishing](/glossary/phishing/) -- Social engineering attack vector prevented by DMARC enforcement
-- [OSINT](/glossary/osint/) -- Intelligence methodology using DMARC analysis for domain assessment
+- [OSINT](@/glossary/osint.md) -- Intelligence methodology using DMARC analysis for domain assessment
 - [Perimeter](/glossary/perimeter/) -- External Attack Surface Management integrating DMARC checking
-- [Attack Surface](/glossary/attack-surface/) -- Email authentication gaps as exploitable attack surface components
-- [Compliance](/glossary/compliance/) -- Regulatory frameworks requiring email authentication controls
+- [Attack Surface](@/glossary/attack-surface.md) -- Email authentication gaps as exploitable attack surface components
+- [Compliance](@/glossary/compliance.md) -- Regulatory frameworks requiring email authentication controls
 - [Security Posture](/glossary/security-posture/) -- Organizational security maturity indicated by DMARC policy strength
 - [Social Engineering](/glossary/social-engineering/) -- Human-targeted attacks that DMARC helps prevent
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Intelligence feeds enriched by DMARC failure analysis
-- [Data Breach](/glossary/data-breach/) -- Phishing-enabled breaches prevented by DMARC enforcement
-- [Disposable Email](/glossary/disposable-email/) -- Temporary email services typically lacking DMARC compliance
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Intelligence feeds enriched by DMARC failure analysis
+- [Data Breach](@/glossary/data-breach.md) -- Phishing-enabled breaches prevented by DMARC enforcement
+- [Disposable Email](@/glossary/disposable-email.md) -- Temporary email services typically lacking DMARC compliance
 
 ## See Also
 
-- [OSINT Tools](/osint/) -- Email security analysis tools including the DMARC analyzer
-- [Capabilities](/capabilities/) -- Domain security assessment capabilities
+- [OSINT Tools](@/osint/_index.md) -- Email security analysis tools including the DMARC analyzer
+- [Capabilities](@/capabilities/_index.md) -- Domain security assessment capabilities
 - [Perimeter Module](/glossary/perimeter/) -- EASM integration with DMARC policy checking
 - [RFC 7489: DMARC](https://datatracker.ietf.org/doc/html/rfc7489) -- The DMARC protocol specification
 - [RFC 7208: SPF](https://datatracker.ietf.org/doc/html/rfc7208) -- Sender Policy Framework specification
@@ -614,4 +614,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

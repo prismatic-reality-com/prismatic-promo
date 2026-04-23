@@ -32,7 +32,7 @@ image_alt = "Conflicting Signals - Prismatic Platform"
 
 Conflicting signals occur when two or more evidence sources produce contradictory, incompatible, or mutually exclusive conclusions about the same phenomenon or entity. In intelligence analysis, software systems, and epistemic reasoning frameworks, conflicting signals represent one of the most challenging and most valuable categories of information. They are challenging because they resist simple resolution and demand sophisticated handling. They are valuable because they frequently indicate either incomplete understanding, active deception, rapidly changing conditions, or boundary cases where simple models break down.
 
-The Prismatic Platform treats conflicting signals as a first-class concern through its [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. Rather than forcing premature resolution or silently discarding contradictory evidence, the platform's architecture mandates the preservation, tracking, and structured analysis of all conflicting signals through the [Contradiction Preservation](/glossary/contradiction-preservation/) axiom. This approach, termed "addiction preservation," reflects the platform's commitment to maintaining uncomfortable truths rather than rationalizing them away.
+The Prismatic Platform treats conflicting signals as a first-class concern through its [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. Rather than forcing premature resolution or silently discarding contradictory evidence, the platform's architecture mandates the preservation, tracking, and structured analysis of all conflicting signals through the [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom. This approach, termed "addiction preservation," reflects the platform's commitment to maintaining uncomfortable truths rather than rationalizing them away.
 
 ## The Nature of Contradiction in Complex Systems
 
@@ -48,13 +48,13 @@ Conflicting signals arise from several distinct mechanisms, each requiring diffe
 
 **Source Reliability Variance**: Not all information sources are equally reliable. A highly reliable source contradicting a less reliable one is qualitatively different from two equally reliable sources in disagreement. The platform's confidence scoring system assigns source reliability weights to disambiguate these cases.
 
-**Active Deception**: In adversarial environments, [malicious actors](/glossary/malicious-actors/) may deliberately inject false signals to confuse analysis. Honeypots, planted evidence, and disinformation campaigns specifically aim to create conflicting signals that waste analyst resources or drive incorrect conclusions.
+**Active Deception**: In adversarial environments, [malicious actors](@/glossary/malicious-actors.md) may deliberately inject false signals to confuse analysis. Honeypots, planted evidence, and disinformation campaigns specifically aim to create conflicting signals that waste analyst resources or drive incorrect conclusions.
 
 **Model Inadequacy**: Sometimes signals conflict because the model used to interpret them is incomplete or incorrect. The conflict itself is evidence of model failure, making it invaluable for improving the analytical framework.
 
 ## NABLA Infinity and Contradiction Preservation
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework establishes seven non-negotiable axioms for epistemic integrity. Three of these axioms directly govern the handling of conflicting signals.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework establishes seven non-negotiable axioms for epistemic integrity. Three of these axioms directly govern the handling of conflicting signals.
 
 ### Axiom 1: Signal Plurality
 
@@ -70,7 +70,7 @@ Independent sources carry more epistemic weight than correlated sources. When ev
 
 ## Implementation Architecture
 
-The Prismatic Platform implements conflicting signal detection and management through a dedicated subsystem that integrates with the broader [epistemic reasoning](/glossary/epistemic-reasoning/) infrastructure.
+The Prismatic Platform implements conflicting signal detection and management through a dedicated subsystem that integrates with the broader [epistemic reasoning](@/glossary/epistemic-reasoning.md) infrastructure.
 
 ```elixir
 defmodule Prismatic.Epistemics.SignalConflictDetector do
@@ -189,7 +189,7 @@ end
 
 ## The Addiction Preservation Doctrine
 
-The platform's handling of conflicting signals is governed by the [Addiction Preservation](/glossary/addiction-recovery/) doctrine, which uses a deliberate metaphor from addiction recovery. Just as a person recovering from addiction must maintain constant vigilance against rationalization and denial, a reasoning system must maintain constant vigilance against the natural tendency to "smooth over" conflicting evidence.
+The platform's handling of conflicting signals is governed by the [Addiction Preservation](@/glossary/addiction-recovery.md) doctrine, which uses a deliberate metaphor from addiction recovery. Just as a person recovering from addiction must maintain constant vigilance against rationalization and denial, a reasoning system must maintain constant vigilance against the natural tendency to "smooth over" conflicting evidence.
 
 ### Anti-Patterns in Conflict Handling
 
@@ -206,7 +206,7 @@ The doctrine identifies and prohibits several common anti-patterns in conflictin
 
 ## OSINT Intelligence and Conflicting Signals
 
-In the Prismatic Platform's [OSINT](/glossary/osint/) intelligence pipeline, conflicting signals are a daily occurrence. Entity resolution across multiple registries, sanctions lists, and public databases routinely produces contradictory information about the same legal entity.
+In the Prismatic Platform's [OSINT](@/glossary/osint.md) intelligence pipeline, conflicting signals are a daily occurrence. Entity resolution across multiple registries, sanctions lists, and public databases routinely produces contradictory information about the same legal entity.
 
 ### Real-World Conflict Scenarios
 
@@ -214,33 +214,33 @@ In the Prismatic Platform's [OSINT](/glossary/osint/) intelligence pipeline, con
 
 **Sanctions Cross-Reference**: An entity appears on the EU sanctions list but not on the OFAC SDN list. This is not necessarily an error -- different jurisdictions maintain independent sanctions regimes with different criteria. The conflicting signal (sanctioned vs. not sanctioned) is accurate for both contexts.
 
-**Security Assessment Divergence**: The [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM system may receive conflicting signals about a target's security posture. A TLS certificate scan shows proper configuration while a header analysis reveals missing security headers. Both findings are accurate and must coexist in the security rating calculation.
+**Security Assessment Divergence**: The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) EASM system may receive conflicting signals about a target's security posture. A TLS certificate scan shows proper configuration while a header analysis reveals missing security headers. Both findings are accurate and must coexist in the security rating calculation.
 
 ## Color-Team Security and Adversarial Signals
 
-The platform's [Color Teams](/glossary/color-teams/) security architecture specifically generates and analyzes conflicting signals as part of its adversarial testing methodology.
+The platform's [Color Teams](@/glossary/color-teams.md) security architecture specifically generates and analyzes conflicting signals as part of its adversarial testing methodology.
 
 ### Red Team Signal Injection
 
-The [Red Team](/glossary/red-team/) deliberately creates conflicting signals to test the [Blue Team](/glossary/blue-team/)'s detection and handling capabilities. By injecting false positives alongside true positives, the Red Team evaluates whether the defensive systems maintain epistemic integrity under adversarial conditions.
+The [Red Team](@/glossary/red-team.md) deliberately creates conflicting signals to test the [Blue Team](@/glossary/blue-team.md)'s detection and handling capabilities. By injecting false positives alongside true positives, the Red Team evaluates whether the defensive systems maintain epistemic integrity under adversarial conditions.
 
 ### Purple Team Synthesis
 
-The [Purple Team](/glossary/purple-team/) serves as the synthesis hub for Red-Blue signal conflicts. Its primary function is to determine whether apparent conflicts between Red findings and Blue defenses represent genuine gaps or expected behavior. The Purple Team's closure analysis must satisfy all four closure conditions before a conflict can be marked as resolved.
+The [Purple Team](@/glossary/purple-team.md) serves as the synthesis hub for Red-Blue signal conflicts. Its primary function is to determine whether apparent conflicts between Red findings and Blue defenses represent genuine gaps or expected behavior. The Purple Team's closure analysis must satisfy all four closure conditions before a conflict can be marked as resolved.
 
 ### Gray Team Boundary Exploration
 
-The [Gray Team](/glossary/gray-team/) specifically seeks out boundary conditions where signals are most likely to conflict. By exploring specification gaps and edge cases, Gray operations surface the ambiguities that create conflicting interpretations.
+The [Gray Team](@/glossary/gray-team.md) specifically seeks out boundary conditions where signals are most likely to conflict. By exploring specification gaps and edge cases, Gray operations surface the ambiguities that create conflicting interpretations.
 
 ## Trinity Gate and Conflict Resolution
 
-The [Trinity Gate](/glossary/trinity-gate/) provides the formal framework for resolving conflicting signals when resolution is required for decision-making. All three gates must pass before a conflict can be considered resolved.
+The [Trinity Gate](@/glossary/trinity-gate.md) provides the formal framework for resolving conflicting signals when resolution is required for decision-making. All three gates must pass before a conflict can be considered resolved.
 
 1. **Structural Consistency** (Graph Theory): The resolution must not introduce cycles or inconsistencies into the belief graph.
 2. **Logical Consistency** (Rule-Based): The resolved claim must follow from the evidence through valid logical inference.
 3. **Formal Necessity** (Modal Logic): The resolution must be provable in the formal system, not merely plausible.
 
-If any gate fails, the conflict remains unresolved and the [confidence threshold](/glossary/confidence-threshold/) prevents the system from acting on the disputed claim in high-stakes contexts. This is by design: the system explicitly acknowledges its uncertainty rather than pretending certainty.
+If any gate fails, the conflict remains unresolved and the [confidence threshold](@/glossary/confidence-threshold.md) prevents the system from acting on the disputed claim in high-stakes contexts. This is by design: the system explicitly acknowledges its uncertainty rather than pretending certainty.
 
 ## Temporal Dynamics of Conflicting Signals
 
@@ -316,7 +316,7 @@ The platform tracks several quantitative metrics related to conflicting signals 
 
 ## Bayesian Reasoning Under Contradiction
 
-The platform applies [Bayesian reasoning](/glossary/bayesian-reasoning/) to update beliefs when conflicting signals arrive. Rather than simple majority voting, the Bayesian approach weights each signal by its source reliability, temporal freshness, and independence from other sources.
+The platform applies [Bayesian reasoning](@/glossary/bayesian-reasoning.md) to update beliefs when conflicting signals arrive. Rather than simple majority voting, the Bayesian approach weights each signal by its source reliability, temporal freshness, and independence from other sources.
 
 When two signals conflict, the posterior probability of each claim is computed using:
 
@@ -344,16 +344,16 @@ Where H is the hypothesis, E1 is the supporting signal, and E2 is the contradict
 
 ## Related Concepts
 
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- The NABLA axiom mandating conflict retention
-- [Signal Plurality](/glossary/signal-plurality/) -- The requirement for multiple independent evidence sources
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework governing all evidence handling
-- [Confidence Scoring](/glossary/confidence-scoring/) -- How confidence degrades under contradictory evidence
-- [Trinity Gate](/glossary/trinity-gate/) -- The formal verification framework for resolving conflicts
-- [Cherry Picking](/glossary/cherry-picking/) -- The prohibited anti-pattern of selective evidence usage
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- The probabilistic framework for belief updating
-- [Evidence](/glossary/evidence/) -- The raw material from which signals and conflicts derive
-- [Bias Detection](/glossary/bias-detection/) -- Identifying systematic distortions in signal interpretation
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Combining signals from disparate sources
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- The NABLA axiom mandating conflict retention
+- [Signal Plurality](@/glossary/signal-plurality.md) -- The requirement for multiple independent evidence sources
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework governing all evidence handling
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- How confidence degrades under contradictory evidence
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The formal verification framework for resolving conflicts
+- [Cherry Picking](@/glossary/cherry-picking.md) -- The prohibited anti-pattern of selective evidence usage
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- The probabilistic framework for belief updating
+- [Evidence](@/glossary/evidence.md) -- The raw material from which signals and conflicts derive
+- [Bias Detection](@/glossary/bias-detection.md) -- Identifying systematic distortions in signal interpretation
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Combining signals from disparate sources
 
 ## Further Reading
 

@@ -24,13 +24,13 @@ image_alt = "/nmnd-status - Prismatic Platform"
 
 ## Overview
 
-**/nmnd-status** is a production command in the **Documentation** category of the Prismatic Platform. It performs [NO MERCY](/glossary/no-mercy/) [NO DOUBTS](/glossary/no-doubts/) doctrine compliance verification, scanning the entire platform codebase, agent ecosystem, and operational processes to assess adherence to the foundational NM/ND governance framework.
+**/nmnd-status** is a production command in the **Documentation** category of the Prismatic Platform. It performs [NO MERCY](@/glossary/no-mercy.md) [NO DOUBTS](@/glossary/no-doubts.md) doctrine compliance verification, scanning the entire platform codebase, agent ecosystem, and operational processes to assess adherence to the foundational NM/ND governance framework.
 
 The NO MERCY, NO DOUBTS doctrine is the universal enforcement framework governing all Prismatic Platform operations. Every agent, command, policy, and code artifact must comply with its requirements: zero tolerance for incomplete implementations, evidence-based decision making, full investigation before action, and verified results without exception. The `/nmnd-status` command provides the authoritative compliance assessment, identifying violations, measuring adherence metrics, and generating remediation guidance.
 
 Unlike ad-hoc quality checks that examine specific technical domains, `/nmnd-status` evaluates compliance at the doctrine level -- a higher abstraction that encompasses code quality, test coverage, documentation completeness, agent behavior conformance, and operational procedure adherence. It answers the fundamental question: "Is the platform operating according to its governing principles?"
 
-This command operates under the **L2+** authority level and is executed by the `nmnd-status-checker` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level grants read access across all platform components for comprehensive compliance assessment.
+This command operates under the **L2+** authority level and is executed by the `nmnd-status-checker` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level grants read access across all platform components for comprehensive compliance assessment.
 
 ## Architecture
 
@@ -151,13 +151,13 @@ Command Invocation --> Domain Scanner Registry
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Managed by `nmnd-status-checker` agent |
-| [Quality Gates](/glossary/quality-gates/) | Data source | Reads quality gate results as compliance input |
-| [Telemetry](/glossary/telemetry/) | Observability | Compliance [metrics](/glossary/metrics/) and violation events |
-| [AIAD Registry](/glossary/aiad/) | Scanning target | Validates all AIAD component compliance |
-| [Quality DNA](/glossary/quality-dna/) | Persistence | Stores compliance snapshots for trend analysis |
-| [GitLab CI](/glossary/gitlab-ci/) | Pipeline gate | JSON output consumed by CI pipeline for gating |
-| [Pre-commit hooks](/glossary/pre-commit-hooks/) | Enforcement | Triggers on commit to verify compliance |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Managed by `nmnd-status-checker` agent |
+| [Quality Gates](@/glossary/quality-gates.md) | Data source | Reads quality gate results as compliance input |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Compliance [metrics](@/glossary/metrics.md) and violation events |
+| [AIAD Registry](@/glossary/aiad.md) | Scanning target | Validates all AIAD component compliance |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | Stores compliance snapshots for trend analysis |
+| [GitLab CI](@/glossary/gitlab-ci.md) | Pipeline gate | JSON output consumed by CI pipeline for gating |
+| [Pre-commit hooks](@/glossary/pre-commit-hooks.md) | Enforcement | Triggers on commit to verify compliance |
 
 ## Best Practices
 
@@ -210,7 +210,7 @@ The command can generate data for real-time compliance monitoring:
 
 ### Cross-Session Compliance Tracking
 
-Compliance data persists across sessions through the [Quality DNA](/glossary/quality-dna/) system:
+Compliance data persists across sessions through the [Quality DNA](@/glossary/quality-dna.md) system:
 
 ```bash
 # Compare compliance between sessions
@@ -222,7 +222,7 @@ Compliance data persists across sessions through the [Quality DNA](/glossary/qua
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The `/nmnd-status` command itself must produce complete, accurate compliance reports. No partial scans without explicit scope limitation. No unreported violations.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every compliance finding is backed by concrete file references, line numbers, and violation descriptions. No subjective assessments. All metrics are reproducible and verifiable.
@@ -231,13 +231,13 @@ As the doctrine's own compliance verification tool, `/nmnd-status` operates unde
 
 ## Related Commands
 
-- [/nmnd](/commands/nmnd/) - NO MERCY NO DOUBTS doctrine activation and enforcement
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/chronic](/commands/chronic/) - Chronic documentation scan and technical hygiene maintenance
-- [/find-lowfruit](/commands/find-lowfruit/) - Identify low-hanging fruit improvements across codebase
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/nmnd](@/commands/nmnd.md) - NO MERCY NO DOUBTS doctrine activation and enforcement
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/chronic](@/commands/chronic.md) - Chronic documentation scan and technical hygiene maintenance
+- [/find-lowfruit](@/commands/find-lowfruit.md) - Identify low-hanging fruit improvements across codebase
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -246,4 +246,4 @@ As the doctrine's own compliance verification tool, `/nmnd-status` operates unde
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

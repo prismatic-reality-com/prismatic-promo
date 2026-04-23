@@ -21,9 +21,9 @@ image_alt = "Prismatic - Prismatic Platform"
 
 ## Overview
 
-Prismatic is the core component of the Prismatic Platform's [umbrella](/glossary/umbrella-application/) architecture. As the main application with 1,640 source files, it serves as the central coordination hub for [OSINT](/glossary/osint/) operations, investigation workflows, [agent](/glossary/agent/) orchestration, and cross-domain [intelligence fusion](/glossary/intelligence-fusion/). Every other application in the 99-app umbrella either depends on Prismatic for foundational services or coordinates through its public API.
+Prismatic is the core component of the Prismatic Platform's [umbrella](@/glossary/umbrella-application.md) architecture. As the main application with 1,640 source files, it serves as the central coordination hub for [OSINT](@/glossary/osint.md) operations, investigation workflows, [agent](@/glossary/agent.md) orchestration, and cross-domain [intelligence fusion](@/glossary/intelligence-fusion.md). Every other application in the 99-app umbrella either depends on Prismatic for foundational services or coordinates through its public API.
 
-The application embodies the platform's core philosophy: [OTP](/glossary/otp/)-first design with stateful processes, [supervision trees](/glossary/supervision-tree/) for fault tolerance, and pure functions at the computational boundaries. It houses the primary Mix tasks that drive platform operations, the facade modules that external applications consume, and the coordination logic that ties the entire ecosystem together.
+The application embodies the platform's core philosophy: [OTP](@/glossary/otp.md)-first design with stateful processes, [supervision trees](@/glossary/supervision-tree.md) for fault tolerance, and pure functions at the computational boundaries. It houses the primary Mix tasks that drive platform operations, the facade modules that external applications consume, and the coordination logic that ties the entire ecosystem together.
 
 As the largest application in the umbrella, Prismatic bears a unique architectural responsibility. It must provide stable, well-documented public APIs that dozens of downstream applications depend on, while continuously evolving to support new intelligence capabilities and operational workflows. This tension between stability and evolution is managed through a strict facade module pattern where public APIs are versioned and backward-compatible, while internal implementation details can change freely.
 
@@ -31,10 +31,10 @@ As the largest application in the umbrella, Prismatic bears a unique architectur
 
 | Component | Description |
 |-----------|-------------|
-| **[Supervision Tree](/glossary/supervision-tree/)** | OTP [supervisor](/glossary/supervisor/) managing investigation workers, OSINT coordinators, and agent dispatchers |
-| **Public API** | Facade modules exposing core functionality with [typespec](/glossary/typespec/) contracts |
+| **[Supervision Tree](@/glossary/supervision-tree.md)** | OTP [supervisor](@/glossary/supervisor.md) managing investigation workers, OSINT coordinators, and agent dispatchers |
+| **Public API** | Facade modules exposing core functionality with [typespec](@/glossary/typespec.md) contracts |
 | **Configuration** | Runtime configuration via `config/runtime.exs` with environment-specific overrides |
-| **Tests** | Comprehensive test suite with [property-based testing](/glossary/property-based-testing/) and contract tests |
+| **Tests** | Comprehensive test suite with [property-based testing](@/glossary/property-based-testing.md) and contract tests |
 | **Quality DNA** | `.claude/quality-dna/current-state.json` for cross-session quality tracking |
 
 ## Core Responsibilities
@@ -45,11 +45,11 @@ Prismatic orchestrates open-source intelligence operations across 250+ providers
 
 | Component | Purpose | Implementation |
 |-----------|---------|---------------|
-| **Provider Registry** | Catalog of all OSINT sources | [ETS](/glossary/ets/)-backed with hot reload |
-| **Priority Scheduler** | Query prioritization and rate management | [GenServer](/glossary/behaviour/) with configurable policies |
+| **Provider Registry** | Catalog of all OSINT sources | [ETS](@/glossary/ets.md)-backed with hot reload |
+| **Priority Scheduler** | Query prioritization and rate management | [GenServer](@/glossary/behaviour.md) with configurable policies |
 | **Deduplication Engine** | Prevents redundant queries across providers | Content-hash based with TTL |
-| **Result Aggregator** | Merges results from parallel provider queries | [NABLA](/glossary/nabla-infinity/)-compliant confidence fusion |
-| **[Rate Limiter](/glossary/rate-limiting/)** | Per-provider request throttling | Token bucket with burst allowance |
+| **Result Aggregator** | Merges results from parallel provider queries | [NABLA](@/glossary/nabla-infinity.md)-compliant confidence fusion |
+| **[Rate Limiter](@/glossary/rate-limiting.md)** | Per-provider request throttling | Token bucket with burst allowance |
 
 The OSINT coordination layer manages the complexity of querying hundreds of intelligence sources with varying rate limits, response formats, and reliability characteristics. The Priority Scheduler uses a weighted scoring system that considers query urgency (investigation priority), source quality (historical accuracy and relevance), and cost (API credits or rate limit budget) to determine query ordering. This ensures that high-priority investigations receive intelligence data first, while routine monitoring operates within sustainable rate limit budgets.
 
@@ -92,8 +92,8 @@ Multi-agent task coordination with dependency resolution, parallel execution, an
 |----------------------|-------------|-------|
 | **Task Decomposition** | Complex objectives split into agent-sized tasks | Unlimited depth |
 | **Dependency Resolution** | DAG-based task ordering with cycle detection | Cross-domain |
-| **Parallel Dispatch** | Concurrent [Task](/glossary/task-module/) execution with timeouts | Limited by system resources |
-| **Result Aggregation** | Typed result merging with conflict resolution | [NABLA](/glossary/nabla-infinity/)-compliant |
+| **Parallel Dispatch** | Concurrent [Task](@/glossary/task-module.md) execution with timeouts | Limited by system resources |
+| **Result Aggregation** | Typed result merging with conflict resolution | [NABLA](@/glossary/nabla-infinity.md)-compliant |
 | **Failure Recovery** | Retry, fallback, and graceful degradation | Per-task configurable |
 
 ### Cross-Domain Fusion
@@ -118,11 +118,11 @@ Prismatic exposes its functionality through well-defined facade modules that ser
 |--------|---------|---------------------|
 | **`Prismatic`** | Top-level coordination and investigation | All umbrella apps |
 | **`Prismatic.OSINT`** | OSINT provider orchestration | Intelligence apps |
-| **`Prismatic.Agents`** | Agent discovery and dispatch | [Prismatic Agents](/apps/prismatic-agents/) |
+| **`Prismatic.Agents`** | Agent discovery and dispatch | [Prismatic Agents](@/apps/prismatic-agents.md) |
 | **`Prismatic.Quality`** | Quality scoring and gate checking | Quality infrastructure |
 | **`Prismatic.Config`** | Platform configuration access | All umbrella apps |
 
-The [Prismatic API](/apps/prismatic-api/) auto-discovers these facade modules at boot time using [Elixir](/glossary/elixir/) introspection (`Code.fetch_docs/1`, `Module.__info__/1`) and exposes them as REST endpoints. This means that every function added to a facade module automatically becomes available through the REST API without additional configuration.
+The [Prismatic API](@/apps/prismatic-api.md) auto-discovers these facade modules at boot time using [Elixir](@/glossary/elixir.md) introspection (`Code.fetch_docs/1`, `Module.__info__/1`) and exposes them as REST endpoints. This means that every function added to a facade module automatically becomes available through the REST API without additional configuration.
 
 ## Mix Tasks
 
@@ -157,12 +157,12 @@ mix test apps/prismatic/test --cover
 
 | Integrates With | Purpose |
 |----------------|---------|
-| **[Prismatic Storage Core](/apps/prismatic-storage-core/)** | Data persistence through the unified storage adapter layer |
-| **[Prismatic Agents](/apps/prismatic-agents/)** | Agent runtime for autonomous task execution |
-| **[Prismatic OSINT Core](/apps/prismatic-osint-core/)** | OSINT provider framework for intelligence gathering |
-| **[Prismatic Nabla](/apps/prismatic-nabla/)** | Epistemic framework for confidence-scored intelligence |
-| **[Prismatic API](/apps/prismatic-api/)** | REST gateway that auto-discovers Prismatic facade modules |
-| **[Prismatic Web](/apps/prismatic-web/)** | [LiveView](/glossary/liveview/) dashboards for platform operations |
+| **[Prismatic Storage Core](@/apps/prismatic-storage-core.md)** | Data persistence through the unified storage adapter layer |
+| **[Prismatic Agents](@/apps/prismatic-agents.md)** | Agent runtime for autonomous task execution |
+| **[Prismatic OSINT Core](@/apps/prismatic-osint-core.md)** | OSINT provider framework for intelligence gathering |
+| **[Prismatic Nabla](@/apps/prismatic-nabla.md)** | Epistemic framework for confidence-scored intelligence |
+| **[Prismatic API](@/apps/prismatic-api.md)** | REST gateway that auto-discovers Prismatic facade modules |
+| **[Prismatic Web](@/apps/prismatic-web.md)** | [LiveView](@/glossary/liveview.md) dashboards for platform operations |
 
 ## NABLA Compliance
 
@@ -170,24 +170,24 @@ As the central coordination hub, Prismatic enforces NABLA compliance across all 
 
 ## Related Components
 
-- [Prismatic Web](/apps/prismatic-web/) - [LiveView](/glossary/liveview/) dashboards and user interface
-- [Prismatic API](/apps/prismatic-api/) - REST [API gateway](/glossary/api-gateway/) with auto-discovery
-- [Prismatic Storage](/apps/prismatic-storage/) - Data persistence layer
-- [Prismatic Claude](/apps/prismatic-claude/) - Claude AI session management
-- [Prismatic Safety](/apps/prismatic-safety/) - Quality floor guardian and autoheal
+- [Prismatic Web](@/apps/prismatic-web.md) - [LiveView](@/glossary/liveview.md) dashboards and user interface
+- [Prismatic API](@/apps/prismatic-api.md) - REST [API gateway](@/glossary/api-gateway.md) with auto-discovery
+- [Prismatic Storage](@/apps/prismatic-storage.md) - Data persistence layer
+- [Prismatic Claude](@/apps/prismatic-claude.md) - Claude AI session management
+- [Prismatic Safety](@/apps/prismatic-safety.md) - Quality floor guardian and autoheal
 
 ## Related Agents
 
-- [Elixir Architect](/agents/elixir-architect/) -- Ensures the core application follows OTP-first design with proper supervision topology
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews cross-domain coordination architecture and facade module design
-- [Consolidation Architect](/agents/consolidation-architect/) -- Data deduplication and entity resolution across OSINT provider results
-- [GitLab Strategic Coordinator](/agents/gitlab-strategic-coordinator/) -- Strategic coordination of development efforts across the core application
+- [Elixir Architect](@/agents/elixir-architect.md) -- Ensures the core application follows OTP-first design with proper supervision topology
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews cross-domain coordination architecture and facade module design
+- [Consolidation Architect](@/agents/consolidation-architect.md) -- Data deduplication and entity resolution across OSINT provider results
+- [GitLab Strategic Coordinator](@/agents/gitlab-strategic-coordinator.md) -- Strategic coordination of development efforts across the core application
 
 ## Related Capabilities
 
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-domain intelligence fusion engine combining network, financial, legal, and social data
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Confidence-scored result aggregation compliant with epistemic axioms
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Autoheal and autoevolve cycles maintaining platform health
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-domain intelligence fusion engine combining network, financial, legal, and social data
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Confidence-scored result aggregation compliant with epistemic axioms
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Autoheal and autoevolve cycles maintaining platform health
 
 ---
 
@@ -196,4 +196,4 @@ As the central coordination hub, Prismatic enforces NABLA compliance across all 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

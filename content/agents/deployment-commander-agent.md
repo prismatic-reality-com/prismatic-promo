@@ -28,9 +28,9 @@ image_alt = "Deployment Commander Agent - Prismatic Platform"
 
 ## Overview
 
-The Deployment Commander Agent is an L3 strategic authority responsible for orchestrating production deployment operations across the Prismatic Platform. This agent manages the complete deployment lifecycle from build artifact verification through staging validation to production [release](/glossary/release/), ensuring that every deployment adheres to the platform's five core [Lean4](/glossary/lean4/) theorems that formally guarantee safe evolutionary transitions. No code reaches production without passing the Deployment Commander's comprehensive verification chain.
+The Deployment Commander Agent is an L3 strategic authority responsible for orchestrating production deployment operations across the Prismatic Platform. This agent manages the complete deployment lifecycle from build artifact verification through staging validation to production [release](@/glossary/release.md), ensuring that every deployment adheres to the platform's five core [Lean4](@/glossary/lean4.md) theorems that formally guarantee safe evolutionary transitions. No code reaches production without passing the Deployment Commander's comprehensive verification chain.
 
-Deploying a 90-app [umbrella application](/glossary/umbrella-application/) with complex interdependencies demands precise coordination. The Deployment Commander manages deployment sequencing to respect inter-application dependencies, coordinates [blue-green deployment](/glossary/blue-green-deployment/) strategies to maintain zero-downtime availability, and orchestrates rollback procedures when post-deployment health checks detect anomalies. Every deployment decision is traceable through the NABLA provenance chain, ensuring full accountability for production changes.
+Deploying a 90-app [umbrella application](@/glossary/umbrella-application.md) with complex interdependencies demands precise coordination. The Deployment Commander manages deployment sequencing to respect inter-application dependencies, coordinates [blue-green deployment](@/glossary/blue-green-deployment.md) strategies to maintain zero-downtime availability, and orchestrates rollback procedures when post-deployment health checks detect anomalies. Every deployment decision is traceable through the NABLA provenance chain, ensuring full accountability for production changes.
 
 The commander represents the critical boundary between development and production, serving as the final authority that determines whether a release candidate is fit for production service. This authority carries significant responsibility: every deployment decision affects the platform's availability, data integrity, and intelligence operations.
 
@@ -40,11 +40,11 @@ The deployment pipeline implements a multi-stage progression from development to
 
 Build stage produces release artifacts from the committed codebase. The commander verifies that build artifacts match the exact commit that was tested in CI, preventing environment-specific build contamination. Build reproducibility is enforced through deterministic build configurations and artifact checksumming that enables verification at every subsequent stage.
 
-Quality gate stage evaluates the release candidate against the platform's quality requirements. This includes compilation with zero warnings, full test suite pass, [Credo](/glossary/credo/) strict compliance, [Dialyzer](/glossary/dialyzer/) typecheck pass, and custom quality gate evaluation. Release candidates that fail any quality gate are rejected automatically with detailed failure reports.
+Quality gate stage evaluates the release candidate against the platform's quality requirements. This includes compilation with zero warnings, full test suite pass, [Credo](@/glossary/credo.md) strict compliance, [Dialyzer](@/glossary/dialyzer.md) typecheck pass, and custom quality gate evaluation. Release candidates that fail any quality gate are rejected automatically with detailed failure reports.
 
 Staging stage deploys the release candidate to the staging environment for integration testing and performance validation. The commander executes the full health check suite against the staging deployment, verifies that database migrations execute correctly, and validates that the application behavior matches expectations under simulated production load.
 
-Production stage executes the deployment to production using the configured deployment strategy (blue-green, canary, or rolling). The commander coordinates with [Fly.io](/glossary/fly-io/) for container orchestration, manages traffic shifting between old and new versions, and monitors health metrics throughout the deployment window.
+Production stage executes the deployment to production using the configured deployment strategy (blue-green, canary, or rolling). The commander coordinates with [Fly.io](@/glossary/fly-io.md) for container orchestration, manages traffic shifting between old and new versions, and monitors health metrics throughout the deployment window.
 
 ## Zero-Downtime Deployment Strategies
 
@@ -72,7 +72,7 @@ Feature flag coordination manages the activation of new features that span multi
 
 Post-deployment health checks verify that the deployed version is operating correctly before the deployment is considered complete.
 
-Application health checks verify that each application in the umbrella starts successfully, establishes required database connections, initializes its [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/), and responds to health check endpoints. Failed application health checks trigger immediate investigation and potential rollback.
+Application health checks verify that each application in the umbrella starts successfully, establishes required database connections, initializes its [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md), and responds to health check endpoints. Failed application health checks trigger immediate investigation and potential rollback.
 
 Integration health checks verify that cross-application communication is functioning correctly. API endpoints respond with expected results, event processing pipelines are operating, and cross-application data flows are active. These checks catch integration issues that application-level health checks would miss.
 
@@ -96,20 +96,20 @@ Every deployment decision is recorded with the decision-maker (commander agent),
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to approve or reject production deployments, trigger rollbacks, and halt deployment pipelines across the entire platform.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to approve or reject production deployments, trigger rollbacks, and halt deployment pipelines across the entire platform.
 
 ## Coordination
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [deployment-rollback-specialist](/agents/deployment-rollback-specialist/) | Executes rollback procedures under Commander directives | Infrastructure |
-| [deployment-health-monitor](/agents/deployment-health-monitor/) | Provides real-time health signals during deployment windows | Monitoring |
-| [flyio-deployment-specialist](/agents/flyio-deployment-specialist/) | Manages Fly.io-specific deployment mechanics and edge configuration | Infrastructure |
-| [database-migration-specialist](/agents/database-migration-specialist/) | Coordinates database migration execution within deployment sequences | Infrastructure |
+| [deployment-rollback-specialist](@/agents/deployment-rollback-specialist.md) | Executes rollback procedures under Commander directives | Infrastructure |
+| [deployment-health-monitor](@/agents/deployment-health-monitor.md) | Provides real-time health signals during deployment windows | Monitoring |
+| [flyio-deployment-specialist](@/agents/flyio-deployment-specialist.md) | Manages Fly.io-specific deployment mechanics and edge configuration | Infrastructure |
+| [database-migration-specialist](@/agents/database-migration-specialist.md) | Coordinates database migration execution within deployment sequences | Infrastructure |
 
 ## Enforcement
 
-The Deployment Commander Agent operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No deployment proceeds without verified [quality gates](/glossary/quality-gates/). No untested code reaches production. Failed health checks trigger immediate automated rollback with no manual intervention required. Every deployment is fully reversible, fully auditable, and fully accountable. Deployment bypasses are forbidden regardless of urgency -- quality gates cannot be skipped for expediency.
+The Deployment Commander Agent operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No deployment proceeds without verified [quality gates](@/glossary/quality-gates.md). No untested code reaches production. Failed health checks trigger immediate automated rollback with no manual intervention required. Every deployment is fully reversible, fully auditable, and fully accountable. Deployment bypasses are forbidden regardless of urgency -- quality gates cannot be skipped for expediency.
 
 ---
 
@@ -118,4 +118,4 @@ The Deployment Commander Agent operates under the [NO MERCY, NO DOUBTS](/glossar
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

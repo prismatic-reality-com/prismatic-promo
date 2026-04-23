@@ -28,7 +28,7 @@ see_also = ["capabilities", "quality-floor", "mutation-testing"]
 
 ## Definition
 
-In [mutation testing](/glossary/mutation-testing/), every syntactic change (mutant) introduced into source code is classified as either **killed** or **survived** after the test suite executes against it. A **killed** mutant is one where at least one test failed -- proving that the test suite detected the defect introduced by the mutation. A **survived** mutant is one where all tests still passed despite the code change -- indicating that no test validates the behavior altered by the mutation. The ratio of killed to total mutants produces the [mutation score](/glossary/mutation-score/), a precise metric of test suite effectiveness that goes beyond simple [code coverage](/glossary/code-coverage/).
+In [mutation testing](@/glossary/mutation-testing.md), every syntactic change (mutant) introduced into source code is classified as either **killed** or **survived** after the test suite executes against it. A **killed** mutant is one where at least one test failed -- proving that the test suite detected the defect introduced by the mutation. A **survived** mutant is one where all tests still passed despite the code change -- indicating that no test validates the behavior altered by the mutation. The ratio of killed to total mutants produces the [mutation score](@/glossary/mutation-score.md), a precise metric of test suite effectiveness that goes beyond simple [code coverage](@/glossary/code-coverage.md).
 
 The killed/survived classification is binary and unambiguous: either the test suite rejects the mutant or it does not. This binary nature makes mutation testing a more rigorous quality metric than line or branch coverage, which can show 100% even when tests make no meaningful assertions. A test that exercises a code path without asserting anything useful produces high coverage but zero mutation kills.
 
@@ -234,7 +234,7 @@ end
 
 ### Quality DNA Integration
 
-The Prismatic Platform's NO MERCY doctrine demands 100% test coverage, but goes further by tracking mutation scores through [Quality DNA](/glossary/quality-debt/). The [Quality Floor Guardian](/glossary/quality-floor/) monitors killed/survived ratios across all umbrella apps:
+The Prismatic Platform's NO MERCY doctrine demands 100% test coverage, but goes further by tracking mutation scores through [Quality DNA](@/glossary/quality-debt.md). The [Quality Floor Guardian](@/glossary/quality-floor.md) monitors killed/survived ratios across all umbrella apps:
 
 ```elixir
 defmodule PrismaticQuality.MutationTracker do
@@ -282,7 +282,7 @@ end
 
 ### Property-Based Testing as Mutation Killer
 
-The platform's [property-based testing](/glossary/property-based-testing/) (using [StreamData](/glossary/streamdata/)) is particularly effective at killing mutants because property tests generate hundreds of random inputs that exercise boundary conditions -- exactly the conditions that mutation operators target:
+The platform's [property-based testing](@/glossary/property-based-testing.md) (using [StreamData](/glossary/streamdata/)) is particularly effective at killing mutants because property tests generate hundreds of random inputs that exercise boundary conditions -- exactly the conditions that mutation operators target:
 
 ```elixir
 defmodule PrismaticTest.MutationKillerProperties do
@@ -463,7 +463,7 @@ end
 ## Best Practices
 
 1. **Prioritize killing survived mutants in business-critical modules first** -- not all survived mutants carry equal risk.
-2. **Use [property-based testing](/glossary/property-based-testing/)** to achieve high kill rates with minimal test code.
+2. **Use [property-based testing](@/glossary/property-based-testing.md)** to achieve high kill rates with minimal test code.
 3. **Track mutation scores per module over time** through Quality DNA to detect test quality regression.
 4. **When a survived mutant is found, write a targeted test** that fails on the specific mutation before adding assertions.
 5. **Never ignore survived mutants in security, financial, or OSINT data validation modules**.
@@ -471,26 +471,26 @@ end
 7. **Use pattern matching liberally** -- Elixir's pattern matching is the most effective mutation defense.
 8. **Assert specific values, not types** -- `assert score == 0.85` kills more mutants than `assert is_float(score)`.
 9. **Test boundary conditions explicitly** -- boundary mutations are the most commonly survived.
-10. **Combine with [code coverage](/glossary/code-coverage/)** -- coverage identifies untested code, mutation score identifies weakly tested code.
+10. **Combine with [code coverage](@/glossary/code-coverage.md)** -- coverage identifies untested code, mutation score identifies weakly tested code.
 
 ## Related Terms
 
-- [Mutation Testing](/glossary/mutation-testing/) -- the testing methodology that produces killed/survived classifications
-- [Mutation Score](/glossary/mutation-score/) -- the quantitative metric derived from killed/survived ratios
-- [Mutant](/glossary/mutant/) -- the modified code variant being classified
-- [Property-Based Testing](/glossary/property-based-testing/) -- testing approach highly effective at killing mutants
-- [Quality Floor](/glossary/quality-floor/) -- minimum quality threshold enforced by mutation analysis
-- [Code Coverage](/glossary/code-coverage/) -- complementary metric that mutation score surpasses
-- [Test Suite](/glossary/test-suite/) -- the collection of tests whose effectiveness mutation testing measures
-- [ExUnit](/glossary/exunit/) -- Elixir's test framework that executes against mutants
+- [Mutation Testing](@/glossary/mutation-testing.md) -- the testing methodology that produces killed/survived classifications
+- [Mutation Score](@/glossary/mutation-score.md) -- the quantitative metric derived from killed/survived ratios
+- [Mutant](@/glossary/mutant.md) -- the modified code variant being classified
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- testing approach highly effective at killing mutants
+- [Quality Floor](@/glossary/quality-floor.md) -- minimum quality threshold enforced by mutation analysis
+- [Code Coverage](@/glossary/code-coverage.md) -- complementary metric that mutation score surpasses
+- [Test Suite](@/glossary/test-suite.md) -- the collection of tests whose effectiveness mutation testing measures
+- [ExUnit](@/glossary/exunit.md) -- Elixir's test framework that executes against mutants
 - [StreamData](/glossary/streamdata/) -- property-based testing library effective at killing boundary mutants
-- [Quality Debt](/glossary/quality-debt/) -- accumulated test gaps revealed by survived mutants
+- [Quality Debt](@/glossary/quality-debt.md) -- accumulated test gaps revealed by survived mutants
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- platform quality capabilities including mutation analysis
-- [Architecture](/architecture/) -- quality enforcement architecture
-- [Testing Guide](/developers/) -- comprehensive testing strategy documentation
+- [Capabilities](@/capabilities/_index.md) -- platform quality capabilities including mutation analysis
+- [Architecture](@/architecture/_index.md) -- quality enforcement architecture
+- [Testing Guide](@/developers/_index.md) -- comprehensive testing strategy documentation
 
 ---
 
@@ -499,4 +499,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

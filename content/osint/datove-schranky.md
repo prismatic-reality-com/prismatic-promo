@@ -27,11 +27,11 @@ image_alt = "Datove Schranky - Prismatic Platform"
 
 Datove Schranky (Data Boxes, formally ISDS - Informacni system datovych schranek) is the Czech Republic's mandatory electronic communication system established by Act No. 300/2008 Coll. Every legal entity registered in the Czech Republic is required to have a data box, and all official communication with public authorities must flow through this system. Since 2009, data boxes have replaced registered mail for official communications between legal entities and the state, making this register a uniquely reliable indicator of entity existence, activity, and legitimacy.
 
-For [OSINT](/glossary/osint/) purposes, the data box register provides an independent verification [channel](/glossary/channel/) that is difficult to manipulate. If a legal entity claims to exist and operate in the Czech Republic, it must have an active data box. The register reveals entity type classification (legal entity, public authority, natural person in business), registered address, and box status (active, inactive, made inaccessible). The absence of a data box for a claimed legal entity is an immediate red flag indicating either that the entity does not exist, has been dissolved, or is operating irregularly.
+For [OSINT](@/glossary/osint.md) purposes, the data box register provides an independent verification [channel](@/glossary/channel.md) that is difficult to manipulate. If a legal entity claims to exist and operate in the Czech Republic, it must have an active data box. The register reveals entity type classification (legal entity, public authority, natural person in business), registered address, and box status (active, inactive, made inaccessible). The absence of a data box for a claimed legal entity is an immediate red flag indicating either that the entity does not exist, has been dissolved, or is operating irregularly.
 
 The data box system is deeply integrated into Czech administrative processes. Court documents, tax notifications, social security communications, and licensing decisions are all delivered through data boxes. A message delivered to a data box is considered legally received after 10 days regardless of whether the recipient actually opens it. This legal significance means that data box status directly impacts an entity's ability to receive and respond to official communications, making it a proxy indicator for operational capacity.
 
-Within the Prismatic platform, the Data Box Register provides an independent entity existence verification layer that complements [ARES](/osint/ares/) registration data and [Justice.cz](/osint/justice-cz/) commercial register information. The independence of the data box system from company registration processes makes it particularly valuable for detecting anomalies such as entities registered in the commercial register but without active data boxes, or vice versa.
+Within the Prismatic platform, the Data Box Register provides an independent entity existence verification layer that complements [ARES](@/osint/ares.md) registration data and [Justice.cz](@/osint/justice-cz.md) commercial register information. The independence of the data box system from company registration processes makes it particularly valuable for detecting anomalies such as entities registered in the commercial register but without active data boxes, or vice versa.
 
 ## Data Sources and Coverage
 
@@ -221,7 +221,7 @@ end
 
 ### Entity Verification and Existence Confirmation
 
-The Data Box Register provides an independent confirmation channel for Czech entity existence. Key applications include independent confirmation of legal entity existence beyond company registry data, cross-verification of company data from [ARES](/osint/ares/) and [Justice.cz](/osint/justice-cz/) for consistency, detecting shell companies that are registered but have no active data box indicating operational inactivity, verifying address consistency across the data box register and company registries, and identifying entities that have been administratively dissolved through data box deactivation.
+The Data Box Register provides an independent confirmation channel for Czech entity existence. Key applications include independent confirmation of legal entity existence beyond company registry data, cross-verification of company data from [ARES](@/osint/ares.md) and [Justice.cz](@/osint/justice-cz.md) for consistency, detecting shell companies that are registered but have no active data box indicating operational inactivity, verifying address consistency across the data box register and company registries, and identifying entities that have been administratively dissolved through data box deactivation.
 
 ### Anomaly Detection for Due Diligence
 
@@ -247,9 +247,9 @@ Box status transitions provide temporal intelligence. A box transitioning from a
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, the Data Box Register provides an independent entity verification layer integrated into the multi-source entity existence verification pipeline. Verification results from the data box register are combined with [ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/), and [RZP](/osint/rzp/) data to produce a confidence-weighted entity existence score.
+Within the Prismatic ecosystem, the Data Box Register provides an independent entity verification layer integrated into the multi-source entity existence verification pipeline. Verification results from the data box register are combined with [ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md), and [RZP](@/osint/rzp.md) data to produce a confidence-weighted entity existence score.
 
-Anomaly detection across data sources feeds into the [Prismatic Perimeter](/apps/prismatic-perimeter/) risk assessment, where registry inconsistencies contribute negatively to entity security ratings.
+Anomaly detection across data sources feeds into the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) risk assessment, where registry inconsistencies contribute negatively to entity security ratings.
 
 ## NABLA Compliance
 
@@ -278,13 +278,13 @@ The Prismatic adapter caches entity verification results with 7-day TTL and batc
 
 ## Related Resources
 
-- [ARES](/osint/ares/) - Primary entity identification register
-- [Justice.cz](/osint/justice-cz/) - Commercial register cross-reference
-- [RZP](/osint/rzp/) - Trade license verification
-- [VR.cz](/osint/vr-cz/) - Unified public register portal
-- [RES](/osint/res/) - Register of Economic Subjects
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Entity verification in security ratings
+- [ARES](@/osint/ares.md) - Primary entity identification register
+- [Justice.cz](@/osint/justice-cz.md) - Commercial register cross-reference
+- [RZP](@/osint/rzp.md) - Trade license verification
+- [VR.cz](@/osint/vr-cz.md) - Unified public register portal
+- [RES](@/osint/res.md) - Register of Economic Subjects
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Entity verification in security ratings
 
 ---
 
@@ -293,4 +293,4 @@ The Prismatic adapter caches entity verification results with 7-day TTL and batc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -38,7 +38,7 @@ image_alt = "Epistemic Attack - Prismatic Platform"
 
 An **epistemic attack** is an adversarial action that targets the integrity, consistency, or reliability of a system's knowledge base, belief structures, or decision-making processes. Unlike conventional security attacks that target data confidentiality, availability, or integrity at the storage or transport level, epistemic attacks operate at the cognitive level -- corrupting the processes by which a system acquires, validates, maintains, and acts upon knowledge. The goal of an epistemic attack is not to steal data or crash services, but to cause the target system to reason incorrectly, hold false beliefs with high confidence, or make decisions based on manipulated information.
 
-In the Prismatic Platform, epistemic attacks are studied, simulated, and defended against through the Color Team security architecture. The [Red Team](/glossary/red-team/) simulates five attack primitives (truth distortion, confidence manipulation, signal poisoning, drift induction, and salience hijacking), the [Blue Team](/glossary/blue-team/) develops defensive postures, and the [Purple Team](/glossary/color-teams/) synthesizes findings into actionable platform defenses. All simulations operate exclusively with synthetic data in sandboxed environments.
+In the Prismatic Platform, epistemic attacks are studied, simulated, and defended against through the Color Team security architecture. The [Red Team](@/glossary/red-team.md) simulates five attack primitives (truth distortion, confidence manipulation, signal poisoning, drift induction, and salience hijacking), the [Blue Team](@/glossary/blue-team.md) develops defensive postures, and the [Purple Team](@/glossary/color-teams.md) synthesizes findings into actionable platform defenses. All simulations operate exclusively with synthetic data in sandboxed environments.
 
 ## Overview
 
@@ -373,7 +373,7 @@ end
 
 ### NABLA Axiom Defense Mapping
 
-Each epistemic attack primitive is countered by specific [NABLA Infinity](/glossary/nabla-infinity/) axioms. This mapping ensures that the platform's epistemic foundations provide systematic defense:
+Each epistemic attack primitive is countered by specific [NABLA Infinity](@/glossary/nabla-infinity.md) axioms. This mapping ensures that the platform's epistemic foundations provide systematic defense:
 
 | Attack Primitive | Primary Defense Axiom | Mechanism |
 |-----------------|----------------------|-----------|
@@ -385,7 +385,7 @@ Each epistemic attack primitive is countered by specific [NABLA Infinity](/gloss
 
 ### Trinity Gate as Epistemic Firewall
 
-The [Trinity Gate](/glossary/trinity-gate/) serves as the ultimate defense against epistemic attacks. All three gates must pass before any claim is established:
+The [Trinity Gate](@/glossary/trinity-gate.md) serves as the ultimate defense against epistemic attacks. All three gates must pass before any claim is established:
 
 1. **Structural Consistency Gate**: Verifies that the belief network forms a valid directed acyclic graph (DAG). Truth distortion that creates contradictions fails this gate.
 
@@ -457,7 +457,7 @@ The Red Team maintains a 329-entry attack taxonomy that classifies known epistem
 
 4. **Monitor for Drift**: Implement continuous monitoring of belief distributions, confidence levels, and attention patterns. Drift induction is the most insidious attack because each individual change is invisible.
 
-5. **Preserve Contradictions**: Do not resolve contradictions prematurely. The [addiction preservation](/glossary/addiction-recovery/) doctrine requires maintaining both sides of a contradiction until sufficient evidence establishes which is correct. Premature resolution is exactly what epistemic attacks exploit.
+5. **Preserve Contradictions**: Do not resolve contradictions prematurely. The [addiction preservation](@/glossary/addiction-recovery.md) doctrine requires maintaining both sides of a contradiction until sufficient evidence establishes which is correct. Premature resolution is exactly what epistemic attacks exploit.
 
 ### Simulation Practice
 
@@ -507,30 +507,30 @@ Prismatic Perimeter's security ratings and compliance assessments must be trustw
 
 ### Supply Chain Trust
 
-Software supply chain attacks are epistemic attacks on the trust infrastructure. The platform's dependency management and [provenance](/glossary/provenance-mandatory/) tracking ensure that compromised packages are detected before they corrupt platform reasoning.
+Software supply chain attacks are epistemic attacks on the trust infrastructure. The platform's dependency management and [provenance](@/glossary/provenance-mandatory.md) tracking ensure that compromised packages are detected before they corrupt platform reasoning.
 
 ## Related Concepts
 
 Epistemic attacks connect to the platform's security, intelligence, and epistemological infrastructure:
 
-- [Red Team](/glossary/red-team/) -- The adversarial simulation team that models epistemic attacks
-- [Adversarial Simulation](/glossary/adversarial-simulation/) -- The practice of simulating attacks to improve defenses
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- A system's resilience against epistemic attacks
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework whose axioms defend against attack primitives
-- [Color Teams](/glossary/color-teams/) -- The organizational structure for epistemic security operations
-- [Adversarial Drift](/glossary/adversarial-drift/) -- Gradual belief corruption through the drift induction primitive
-- [Trinity Gate](/glossary/trinity-gate/) -- The three-layer verification system that blocks epistemic attacks
-- [Blue Team](/glossary/blue-team/) -- The defensive team that develops epistemic defense postures
-- [Signal Plurality](/glossary/signal-plurality/) -- The NABLA axiom requiring multiple independent sources
-- [Belief Graph](/glossary/belief-graph/) -- The data structure representing the system's epistemic state
+- [Red Team](@/glossary/red-team.md) -- The adversarial simulation team that models epistemic attacks
+- [Adversarial Simulation](@/glossary/adversarial-simulation.md) -- The practice of simulating attacks to improve defenses
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- A system's resilience against epistemic attacks
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework whose axioms defend against attack primitives
+- [Color Teams](@/glossary/color-teams.md) -- The organizational structure for epistemic security operations
+- [Adversarial Drift](@/glossary/adversarial-drift.md) -- Gradual belief corruption through the drift induction primitive
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The three-layer verification system that blocks epistemic attacks
+- [Blue Team](@/glossary/blue-team.md) -- The defensive team that develops epistemic defense postures
+- [Signal Plurality](@/glossary/signal-plurality.md) -- The NABLA axiom requiring multiple independent sources
+- [Belief Graph](@/glossary/belief-graph.md) -- The data structure representing the system's epistemic state
 
 ## See Also
 
 - Glossary Index -- Complete glossary of Prismatic Platform terminology
-- [Black Team](/glossary/black-team/) -- Theoretical threat modeling under maximum isolation
-- [Confidence Threshold](/glossary/confidence-threshold/) -- The minimum confidence required before acting on beliefs
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- The axiom requiring traceability for all beliefs
-- [Formal Verification](/glossary/formal-verification/) -- Proving system properties through mathematical methods
+- [Black Team](@/glossary/black-team.md) -- Theoretical threat modeling under maximum isolation
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- The minimum confidence required before acting on beliefs
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- The axiom requiring traceability for all beliefs
+- [Formal Verification](@/glossary/formal-verification.md) -- Proving system properties through mathematical methods
 
 ---
 
@@ -539,4 +539,4 @@ Epistemic attacks connect to the platform's security, intelligence, and epistemo
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

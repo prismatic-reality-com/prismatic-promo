@@ -22,11 +22,11 @@ image_alt = "NO MERCY - Prismatic Platform"
 
 ## Overview
 
-NO MERCY is the enforcement arm of the Prismatic Platform doctrine. It establishes absolute, non-negotiable quality standards that apply to every line of code, every agent operation, and every platform decision across the entire 2.8 million line codebase. Where [NO DOUBTS](/capabilities/no-doubts/) governs the epistemology of decision-making, NO MERCY governs the execution standard: complete delivery or no delivery.
+NO MERCY is the enforcement arm of the Prismatic Platform doctrine. It establishes absolute, non-negotiable quality standards that apply to every line of code, every agent operation, and every platform decision across the entire 2.8 million line codebase. Where [NO DOUBTS](@/capabilities/no-doubts.md) governs the epistemology of decision-making, NO MERCY governs the execution standard: complete delivery or no delivery.
 
 The doctrine emerged from a pragmatic observation: technical debt compounds faster than financial debt. A single TODO comment becomes ten. A stub function becomes a pattern. An untested module becomes an untestable subsystem. NO MERCY prevents the first crack from forming by enforcing absolute quality standards at every checkpoint in the development lifecycle, from the first keystroke to production deployment.
 
-NO MERCY is not aspirational. It is enforced through automated pre-commit hooks, CI pipeline gates, [Quality Gates](/capabilities/quality-gates/), and agent operational constraints. The platform's current quality score of 100/100 across all 13 quality domains with zero warnings, zero debt, and zero violations is the direct result of NO MERCY enforcement applied consistently across 99 umbrella applications.
+NO MERCY is not aspirational. It is enforced through automated pre-commit hooks, CI pipeline gates, [Quality Gates](@/capabilities/quality-gates.md), and agent operational constraints. The platform's current quality score of 100/100 across all 13 quality domains with zero warnings, zero debt, and zero violations is the direct result of NO MERCY enforcement applied consistently across 99 umbrella applications.
 
 ## Core Principles
 
@@ -136,7 +136,7 @@ Every line of code must have corresponding test coverage. The platform enforces 
 | Line coverage | 100% | HARD - commit blocked |
 | Branch coverage | 100% | HARD - commit blocked |
 | Function coverage | 100% | HARD - commit blocked |
-| [Regression tests](/capabilities/regression-tests/) per bug fix | Mandatory | HARD - commit blocked |
+| [Regression tests](@/capabilities/regression-tests.md) per bug fix | Mandatory | HARD - commit blocked |
 | Property-based tests for business logic | Required | HARD - PR blocked |
 | Integration tests for cross-module flows | Required | HARD - PR blocked |
 
@@ -226,13 +226,13 @@ end
 
 ### Principle 4: Zero Warnings in Production
 
-The codebase compiles and runs with zero warnings across all analysis tools. Warnings are treated as errors at every level, from the [Elixir](/technologies/elixir/) compiler to [Dialyzer](/technologies/dialyzer/) static analysis to [Credo](/technologies/credo/) code quality checks.
+The codebase compiles and runs with zero warnings across all analysis tools. Warnings are treated as errors at every level, from the [Elixir](@/technologies/elixir.md) compiler to [Dialyzer](@/technologies/dialyzer.md) static analysis to [Credo](@/technologies/credo.md) code quality checks.
 
 | Warning Source | Enforcement Mode | Current Status |
 |----------------|------------------|----------------|
 | Compiler warnings | `--warnings-as-errors` flag | 0 violations |
-| [Dialyzer](/technologies/dialyzer/) type warnings | Zero tolerance, PLT cached | 0 violations |
-| [Credo](/technologies/credo/) issues | `--strict` mode | 0 violations |
+| [Dialyzer](@/technologies/dialyzer.md) type warnings | Zero tolerance, PLT cached | 0 violations |
+| [Credo](@/technologies/credo.md) issues | `--strict` mode | 0 violations |
 | Runtime warnings | Logged, investigated, fixed | 0 violations |
 | Deprecation warnings | Immediate migration required | 0 violations |
 | Unused variable warnings | Compilation blocked | 0 violations |
@@ -282,8 +282,8 @@ The platform maintains a comprehensive quality score that aggregates all NO MERC
 | Domain | Weight | Current Score | Enforcement |
 |--------|--------|---------------|-------------|
 | Compilation (zero warnings) | 10% | 100% | `--warnings-as-errors` |
-| [Dialyzer](/technologies/dialyzer/) (zero type errors) | 10% | 100% | PLT analysis |
-| [Credo](/technologies/credo/) (zero issues) | 10% | 100% | `--strict` mode |
+| [Dialyzer](@/technologies/dialyzer.md) (zero type errors) | 10% | 100% | PLT analysis |
+| [Credo](@/technologies/credo.md) (zero issues) | 10% | 100% | `--strict` mode |
 | Test coverage (line + branch) | 15% | 100% | ExCoveralls |
 | Regression test compliance | 10% | 100% | Mandatory protocol |
 | @impl annotation coverage | 5% | 100% | 709 verified |
@@ -321,17 +321,17 @@ mix compile --warnings-as-errors --force
 
 NO MERCY integrates with every enforcement layer of the Prismatic Platform to create a defense-in-depth quality assurance system:
 
-- **[NO DOUBTS](/capabilities/no-doubts/)**: Complementary doctrine -- NO DOUBTS ensures correct decisions; NO MERCY ensures complete execution
-- **[Quality Gates](/capabilities/quality-gates/)**: Technical enforcement of NO MERCY standards at every commit
-- **[Trinity Gate](/capabilities/trinity-gate/)**: Formal verification layer for critical claims and decisions
-- **[NABLA Axioms](/capabilities/nabla-axioms/)**: Evidence requirements grounded in epistemic axioms
-- **[Regression Tests](/capabilities/regression-tests/)**: Mandatory regression protocol prevents bug recurrence
-- **[Session Discipline](/capabilities/session-discipline/)**: Continuous commit and push enforcement prevents work loss
-- **[Telemetry Integration](/capabilities/telemetry-integration/)**: Monitoring ensures NO MERCY standards maintained in production
-- **[Real-Time Monitoring](/capabilities/real-time-monitoring/)**: Quality Floor Guardian tracks score continuously
-- **[Autonomous Self-Healing](/capabilities/autonomous-self-healing/)**: Automated correction when violations detected
-- **[AIAD Standard](/capabilities/aiad-standard/)**: All 400+ agents operate under NO MERCY constraints
-- **[Color Teams](/capabilities/color-teams/)**: Adversarial testing validates enforcement effectiveness
+- **[NO DOUBTS](@/capabilities/no-doubts.md)**: Complementary doctrine -- NO DOUBTS ensures correct decisions; NO MERCY ensures complete execution
+- **[Quality Gates](@/capabilities/quality-gates.md)**: Technical enforcement of NO MERCY standards at every commit
+- **[Trinity Gate](@/capabilities/trinity-gate.md)**: Formal verification layer for critical claims and decisions
+- **[NABLA Axioms](@/capabilities/nabla-axioms.md)**: Evidence requirements grounded in epistemic axioms
+- **[Regression Tests](@/capabilities/regression-tests.md)**: Mandatory regression protocol prevents bug recurrence
+- **[Session Discipline](@/capabilities/session-discipline.md)**: Continuous commit and push enforcement prevents work loss
+- **[Telemetry Integration](@/capabilities/telemetry-integration.md)**: Monitoring ensures NO MERCY standards maintained in production
+- **[Real-Time Monitoring](@/capabilities/real-time-monitoring.md)**: Quality Floor Guardian tracks score continuously
+- **[Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md)**: Automated correction when violations detected
+- **[AIAD Standard](@/capabilities/aiad-standard.md)**: All 400+ agents operate under NO MERCY constraints
+- **[Color Teams](@/capabilities/color-teams.md)**: Adversarial testing validates enforcement effectiveness
 
 ## Metrics and Results
 
@@ -366,4 +366,4 @@ The NO MERCY doctrine has produced measurable, auditable results across the plat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

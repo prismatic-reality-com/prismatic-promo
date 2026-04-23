@@ -24,9 +24,9 @@ image_alt = "Credo - Prismatic Platform"
 
 ## Overview
 
-Credo is the code quality analysis tool that enforces consistent style, design, and readability standards across the Prismatic Platform's 13,000+ [Elixir](/technologies/elixir/) files. It performs static analysis to identify code smells, complexity issues, naming violations, and consistency problems -- ensuring that the platform's codebase maintains professional quality standards at scale. Where [Dialyzer](/technologies/dialyzer/) finds type-level bugs that guarantee runtime failures, Credo focuses on the human-readable qualities of code: clarity, consistency, and maintainability.
+Credo is the code quality analysis tool that enforces consistent style, design, and readability standards across the Prismatic Platform's 13,000+ [Elixir](@/technologies/elixir.md) files. It performs static analysis to identify code smells, complexity issues, naming violations, and consistency problems -- ensuring that the platform's codebase maintains professional quality standards at scale. Where [Dialyzer](@/technologies/dialyzer.md) finds type-level bugs that guarantee runtime failures, Credo focuses on the human-readable qualities of code: clarity, consistency, and maintainability.
 
-The Prismatic Platform runs Credo in strict mode as a mandatory quality gate. Zero Credo warnings are tolerated -- every issue must be resolved before code can be merged. This enforcement is part of the platform's [NO MERCY](/capabilities/no-mercy/) doctrine and is checked at three levels: in the pre-commit hook on the developer's machine, in the CI/CD pipeline on every push, and in the quality gate system (`mix quality.gates`). The result is a uniformly clean, readable codebase that any developer can navigate and understand immediately, regardless of which team member authored a particular module.
+The Prismatic Platform runs Credo in strict mode as a mandatory quality gate. Zero Credo warnings are tolerated -- every issue must be resolved before code can be merged. This enforcement is part of the platform's [NO MERCY](@/capabilities/no-mercy.md) doctrine and is checked at three levels: in the pre-commit hook on the developer's machine, in the CI/CD pipeline on every push, and in the quality gate system (`mix quality.gates`). The result is a uniformly clean, readable codebase that any developer can navigate and understand immediately, regardless of which team member authored a particular module.
 
 Credo's checks cover design principles (function length, cyclomatic complexity, nesting depth), consistency (naming conventions, alias ordering, module structure), readability (pipe chain formatting, string interpolation, operator spacing), and refactoring opportunities (duplicated code, unused variables, unnecessary conditions). The platform extends Credo's default checks with custom rules specific to the Prismatic Platform's coding standards, including forbidden naming patterns (no Manager, Handler, Utils modules) and mandatory documentation requirements.
 
@@ -112,14 +112,14 @@ fi
 
 ## Architecture
 
-Credo fits into the platform's quality enforcement pipeline alongside [Dialyzer](/technologies/dialyzer/), [ExUnit](/technologies/exunit/), and the compilation warning system. Each tool addresses a different dimension of code quality, and together they provide comprehensive coverage.
+Credo fits into the platform's quality enforcement pipeline alongside [Dialyzer](@/technologies/dialyzer.md), [ExUnit](@/technologies/exunit.md), and the compilation warning system. Each tool addresses a different dimension of code quality, and together they provide comprehensive coverage.
 
 | Quality Layer | Tool | What It Catches | Enforcement |
 |--------------|------|-----------------|-------------|
-| Type Safety | [Dialyzer](/technologies/dialyzer/) | Type mismatches, unreachable code | `mix dialyzer` (CI blocking) |
+| Type Safety | [Dialyzer](@/technologies/dialyzer.md) | Type mismatches, unreachable code | `mix dialyzer` (CI blocking) |
 | Code Quality | **Credo** | **Style, design, readability issues** | **`mix credo --strict` (CI blocking)** |
 | Compilation | `mix compile` | Unused variables, undefined functions | `--warnings-as-errors` (CI blocking) |
-| Runtime Correctness | [ExUnit](/technologies/exunit/) | Logic errors, edge cases | `mix test` (CI blocking) |
+| Runtime Correctness | [ExUnit](@/technologies/exunit.md) | Logic errors, edge cases | `mix test` (CI blocking) |
 | Coverage | ExCoveralls | Untested code paths | Coverage threshold (CI blocking) |
 
 Credo operates at the AST (Abstract Syntax Tree) level, analyzing the parsed representation of Elixir source code. This means it can reason about code structure (function nesting, module organization) beyond what simple pattern-matching tools like linters can detect. Each check receives the AST and returns a list of issues with file locations, descriptions, and priorities.
@@ -185,18 +185,18 @@ Credo was chosen as the Elixir code quality tool for its comprehensive check cov
 
 ## Related Technologies
 
-- [Dialyzer](/technologies/dialyzer/) - Type-level static analysis complementing Credo's style and design analysis
-- [ExUnit](/technologies/exunit/) - Runtime testing that complements Credo's static analysis
-- [Elixir](/technologies/elixir/) - The language that Credo analyzes, leveraging its AST representation
-- [Git](/technologies/git/) - Pre-commit hooks that enforce Credo compliance before code enters the repository
-- [BEAM](/technologies/beam/) - Runtime where Credo executes as a Mix task
+- [Dialyzer](@/technologies/dialyzer.md) - Type-level static analysis complementing Credo's style and design analysis
+- [ExUnit](@/technologies/exunit.md) - Runtime testing that complements Credo's static analysis
+- [Elixir](@/technologies/elixir.md) - The language that Credo analyzes, leveraging its AST representation
+- [Git](@/technologies/git.md) - Pre-commit hooks that enforce Credo compliance before code enters the repository
+- [BEAM](@/technologies/beam.md) - Runtime where Credo executes as a Mix task
 
 ## Related Apps
 
 - All 90 Prismatic Platform applications enforce Credo strict mode with zero violations as a mandatory quality gate
-- [prismatic_safety](/apps/prismatic-safety/) - Quality Floor Guardian that monitors Credo compliance across the platform
-- [prismatic_web](/apps/prismatic-web/) - LiveView modules held to strict readability standards by Credo
-- [prismatic_agents](/apps/prismatic-agents/) - Agent modules validated for design quality and naming conventions
+- [prismatic_safety](@/apps/prismatic-safety.md) - Quality Floor Guardian that monitors Credo compliance across the platform
+- [prismatic_web](@/apps/prismatic-web.md) - LiveView modules held to strict readability standards by Credo
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent modules validated for design quality and naming conventions
 
 ---
 
@@ -205,4 +205,4 @@ Credo was chosen as the Elixir code quality tool for its comprehensive check cov
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

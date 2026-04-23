@@ -28,9 +28,9 @@ image_alt = "Garden Cultivator - Prismatic Platform"
 
 ## Overview
 
-The [Garden](/glossary/garden/) Cultivator operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Domain domain of the Prismatic Platform. This agent handles routine garden maintenance tasks essential for keeping the 116-repository GARDEN (Growing Autonomous Repository for Development Evolution and Navigation) ecosystem healthy, synchronized, and ready for analysis and extraction operations. Repository synchronization, health monitoring, dependency tracking, and content freshness management all fall within the Cultivator's operational mandate.
+The [Garden](@/glossary/garden.md) Cultivator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Domain domain of the Prismatic Platform. This agent handles routine garden maintenance tasks essential for keeping the 116-repository GARDEN (Growing Autonomous Repository for Development Evolution and Navigation) ecosystem healthy, synchronized, and ready for analysis and extraction operations. Repository synchronization, health monitoring, dependency tracking, and content freshness management all fall within the Cultivator's operational mandate.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Garden Cultivator serves as the operational maintenance backbone of the GARDEN subsystem. While strategic agents like the [gardener-supreme](/agents/gardener-supreme/) set priorities and analytical agents like the [garden-analyzer](/agents/garden-analyzer/) evaluate repository value, the Cultivator performs the continuous maintenance work that keeps the garden infrastructure functional and current.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Garden Cultivator serves as the operational maintenance backbone of the GARDEN subsystem. While strategic agents like the [gardener-supreme](@/agents/gardener-supreme.md) set priorities and analytical agents like the [garden-analyzer](@/agents/garden-analyzer.md) evaluate repository value, the Cultivator performs the continuous maintenance work that keeps the garden infrastructure functional and current.
 
 ## Repository Synchronization
 
@@ -48,7 +48,7 @@ The synchronization process operates on a tiered schedule aligned with the GARDE
 
 Synchronization includes not just code updates but also metadata updates: issue tracker status, pull request states, CI/CD results, and dependency declaration changes. This comprehensive synchronization ensures that analytical agents have complete context when evaluating repository status.
 
-Conflict resolution handles cases where local modifications (annotations, analysis metadata, integration patches) conflict with upstream changes. The Cultivator maintains a separation between upstream content and platform-added metadata, enabling clean merges in most cases. When conflicts require manual resolution, the Cultivator generates conflict reports with sufficient context for the [gardener-supreme](/agents/gardener-supreme/) to make resolution decisions.
+Conflict resolution handles cases where local modifications (annotations, analysis metadata, integration patches) conflict with upstream changes. The Cultivator maintains a separation between upstream content and platform-added metadata, enabling clean merges in most cases. When conflicts require manual resolution, the Cultivator generates conflict reports with sufficient context for the [gardener-supreme](@/agents/gardener-supreme.md) to make resolution decisions.
 
 ## Health Monitoring
 
@@ -58,7 +58,7 @@ Build health tracks whether repositories can be built successfully with their de
 
 Dependency health monitors the security and maintenance status of repository dependencies. Vulnerable dependencies are flagged immediately, unmaintained dependencies are tracked for future risk, and dependency version conflicts between repositories are recorded for integration planning.
 
-Documentation health assesses the completeness and accuracy of repository documentation. README files, API documentation, configuration guides, and architecture notes are evaluated for currency and completeness. Documentation health scores inform the [garden-analyzer](/agents/garden-analyzer/)'s repository assessments.
+Documentation health assesses the completeness and accuracy of repository documentation. README files, API documentation, configuration guides, and architecture notes are evaluated for currency and completeness. Documentation health scores inform the [garden-analyzer](@/agents/garden-analyzer.md)'s repository assessments.
 
 Test health evaluates the status of repository test suites. Test pass rates, coverage metrics, and test freshness (whether tests exercise current functionality) provide indicators of code reliability and maintainability.
 
@@ -88,7 +88,7 @@ The Cultivator executes several categories of automated maintenance tasks that k
 
 Index maintenance updates the searchable indexes that other GARDEN agents use to locate repositories, patterns, and code components. Indexes are rebuilt when repository contents change, ensuring that search results reflect current repository states.
 
-Cache management maintains cached analysis results from the [garden-analyzer](/agents/garden-analyzer/), invalidating cached entries when underlying repository contents change and triggering re-analysis as needed. Cache management balances analysis freshness against computational cost, avoiding unnecessary re-analysis of unchanged content.
+Cache management maintains cached analysis results from the [garden-analyzer](@/agents/garden-analyzer.md), invalidating cached entries when underlying repository contents change and triggering re-analysis as needed. Cache management balances analysis freshness against computational cost, avoiding unnecessary re-analysis of unchanged content.
 
 Storage optimization manages the disk space consumed by 116 repositories and their associated analysis artifacts. Large binary files, obsolete build artifacts, and redundant cached data are identified for cleanup while preserving all content with potential analytical or historical value.
 
@@ -102,23 +102,23 @@ Health monitoring telemetry records health assessment results over time, enablin
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework's Time Decay axiom directly governs the Cultivator's content freshness management. All content assessments carry timestamps, and content-based decisions respect temporal validity windows. The Provenance Mandatory axiom requires that maintenance actions are traceable to their triggering conditions and execution results.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's Time Decay axiom directly governs the Cultivator's content freshness management. All content assessments carry timestamps, and content-based decisions respect temporal validity windows. The Provenance Mandatory axiom requires that maintenance actions are traceable to their triggering conditions and execution results.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime | Agent lifecycle management |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Agent specification and lookup |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime | Agent lifecycle management |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Agent specification and lookup |
 | Prismatic Telemetry | Monitoring | Maintenance operation tracking |
 | GARDEN Repositories | Data target | 116 repositories under maintenance |
-| [Ecto](/glossary/ecto/) | Data access | Maintenance metadata persistence |
+| [Ecto](@/glossary/ecto.md) | Data access | Maintenance metadata persistence |
 
 ## Related Agents
 
-- [**gardener-supreme**](/agents/gardener-supreme/) (L3) - Strategic oversight directing the Cultivator's maintenance priorities
-- [**garden-analyzer**](/agents/garden-analyzer/) (L3) - Analytical assessment consuming Cultivator health and freshness data
-- [**garden-explorer-agent**](/agents/garden-explorer-agent/) (L3) - Navigation capabilities operating on synchronized and maintained repository content
+- [**gardener-supreme**](@/agents/gardener-supreme.md) (L3) - Strategic oversight directing the Cultivator's maintenance priorities
+- [**garden-analyzer**](@/agents/garden-analyzer.md) (L3) - Analytical assessment consuming Cultivator health and freshness data
+- [**garden-explorer-agent**](@/agents/garden-explorer-agent.md) (L3) - Navigation capabilities operating on synchronized and maintained repository content
 
 ---
 
@@ -127,4 +127,4 @@ The [NABLA Infinity](/glossary/nabla-infinity/) framework's Time Decay axiom dir
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

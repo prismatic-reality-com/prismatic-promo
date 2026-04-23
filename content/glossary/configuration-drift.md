@@ -159,11 +159,11 @@ The Perimeter compliance engine treats configuration drift as a compliance risk 
 
 ## Cross-References
 
-- [Configuration](/glossary/configuration/) - system settings that drift from baseline
+- [Configuration](@/glossary/configuration.md) - system settings that drift from baseline
 - **Consistency** - state coherence that drift undermines
-- [Compliance](/glossary/compliance/) - regulatory conformance affected by drift
+- [Compliance](@/glossary/compliance.md) - regulatory conformance affected by drift
 - **Containment** - incident response when drift causes incidents
-- [Continuous Validation](/glossary/continuous-validation/) - ongoing drift monitoring
+- [Continuous Validation](@/glossary/continuous-validation.md) - ongoing drift monitoring
 - **Livebooks**: `livebooks/domains/security_compliance/` - drift detection exercises
 - **Academy**: Security monitoring and drift detection topics
 

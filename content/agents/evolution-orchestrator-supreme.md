@@ -28,9 +28,9 @@ image_alt = "evolution-orchestrator-supreme - Prismatic Platform"
 
 ## Overview
 
-The Evolution Orchestrator Supreme operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Evolutionary and Mycelial Propagation domain of the Prismatic Platform. This agent serves as the supreme orchestrator for comprehensive [AIAD](/glossary/aiad/) ecosystem evolution, coordinating continuous intelligent enhancement through graph-diff analysis, cross-domain mycelial propagation, and genetic algorithm optimization across all platform generations.
+The Evolution Orchestrator Supreme operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Evolutionary and Mycelial Propagation domain of the Prismatic Platform. This agent serves as the supreme orchestrator for comprehensive [AIAD](@/glossary/aiad.md) ecosystem evolution, coordinating continuous intelligent enhancement through graph-diff analysis, cross-domain mycelial propagation, and genetic algorithm optimization across all platform generations.
 
-Platform evolution at scale requires more than incremental improvements. The Evolution Orchestrator Supreme manages the full evolutionary lifecycle: identifying mutation candidates through ecosystem-wide analysis, evaluating fitness through multi-criteria scoring, selecting survivors through tournament selection, and propagating successful adaptations through the [mycelial network](/glossary/mycelial-network/). Each evolutionary cycle produces measurable fitness improvements that compound across generations, driving the platform from Generation 1 to its current Generation 18 apex fitness of 0.999.
+Platform evolution at scale requires more than incremental improvements. The Evolution Orchestrator Supreme manages the full evolutionary lifecycle: identifying mutation candidates through ecosystem-wide analysis, evaluating fitness through multi-criteria scoring, selecting survivors through tournament selection, and propagating successful adaptations through the [mycelial network](@/glossary/mycelial-network.md). Each evolutionary cycle produces measurable fitness improvements that compound across generations, driving the platform from Generation 1 to its current Generation 18 apex fitness of 0.999.
 
 The orchestrator's authority spans the entire evolutionary pipeline: from trigger detection (identifying improvement opportunities) through candidate generation (proposing mutations), fitness evaluation (measuring mutation impact), selection (choosing which mutations to promote), propagation (distributing successful mutations), and verification (confirming post-propagation ecosystem health). This end-to-end orchestration ensures that evolution is directed, measured, and reversible rather than random, unmeasured, and irreversible.
 
@@ -50,11 +50,11 @@ The Evolution Orchestrator Supreme provides six core capabilities for evolutiona
 
 **Mycelial propagation coordination** routes successful adaptations through the biological-inspired network to reach all affected domains. When an evolutionary improvement is validated in one domain, the orchestrator decomposes it into propagation-ready pattern descriptors and distributes them through the mycelial network to all applicable sites. Propagation is monitored for success rates and conflict detection, with failed propagations triggering investigation.
 
-**[GenStage](/glossary/genstage/) [backpressure](/glossary/backpressure/) management** ensures evolutionary operations respect system capacity limits and do not overwhelm processing pipelines. Evolution is resource-intensive -- fitness evaluation requires running quality gates, propagation requires applying changes across 90 applications, and verification requires comprehensive testing. The orchestrator uses GenStage demand-driven processing to throttle evolutionary throughput when system resources are constrained.
+**[GenStage](@/glossary/genstage.md) [backpressure](@/glossary/backpressure.md) management** ensures evolutionary operations respect system capacity limits and do not overwhelm processing pipelines. Evolution is resource-intensive -- fitness evaluation requires running quality gates, propagation requires applying changes across 90 applications, and verification requires comprehensive testing. The orchestrator uses GenStage demand-driven processing to throttle evolutionary throughput when system resources are constrained.
 
 **Cross-generational fitness tracking** maintains detailed records of fitness improvements across all 18 platform generations. These records enable long-term trend analysis, identification of diminishing returns in specific fitness dimensions, and calibration of evolutionary strategies based on historical effectiveness. The tracking data also supports the Evolution Analyzer's forecasting models.
 
-**[CASCADE pattern](/glossary/cascade-pattern/) integration** incorporates proven quality patterns (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) into evolutionary selection criteria. CASCADE patterns represent codified improvement templates that have been proven effective through repeated application. The orchestrator prioritizes evolutionary cycles that align with these patterns, leveraging proven improvement strategies rather than relying solely on novel mutation.
+**[CASCADE pattern](@/glossary/cascade-pattern.md) integration** incorporates proven quality patterns (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache) into evolutionary selection criteria. CASCADE patterns represent codified improvement templates that have been proven effective through repeated application. The orchestrator prioritizes evolutionary cycles that align with these patterns, leveraging proven improvement strategies rather than relying solely on novel mutation.
 
 ## Evolutionary Cycle
 
@@ -109,31 +109,31 @@ The orchestrator evaluates mutations across five weighted fitness dimensions.
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [evolution-analyzer-specialist](/agents/evolution-analyzer-specialist/) | Diagnostic Input | Provides ecosystem health data that drives evolutionary decisions |
-| [evolution-executor-specialist](/agents/evolution-executor-specialist/) | Execution Engine | Performs the actual mutation application and verification |
-| [darwinian-evolution-coordinator](/agents/darwinian-evolution-coordinator/) | Selection Authority | Applies survival-of-the-fittest principles to mutation candidates |
-| [autonomous-pattern-evolution-specialist](/agents/autonomous-pattern-evolution-specialist/) | Pattern Discovery | Codifies successful patterns for evolutionary propagation |
-| [evolution-mycelial-fusion-commander](/agents/evolution-mycelial-fusion-commander/) | Propagation Bridge | Coordinates evolution-to-mycelial pattern distribution |
+| [evolution-analyzer-specialist](@/agents/evolution-analyzer-specialist.md) | Diagnostic Input | Provides ecosystem health data that drives evolutionary decisions |
+| [evolution-executor-specialist](@/agents/evolution-executor-specialist.md) | Execution Engine | Performs the actual mutation application and verification |
+| [darwinian-evolution-coordinator](@/agents/darwinian-evolution-coordinator.md) | Selection Authority | Applies survival-of-the-fittest principles to mutation candidates |
+| [autonomous-pattern-evolution-specialist](@/agents/autonomous-pattern-evolution-specialist.md) | Pattern Discovery | Codifies successful patterns for evolutionary propagation |
+| [evolution-mycelial-fusion-commander](@/agents/evolution-mycelial-fusion-commander.md) | Propagation Bridge | Coordinates evolution-to-mycelial pattern distribution |
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [SEADF](/glossary/seadf/) | Framework integration | 7-subsystem integration for autonomous evolution |
-| [Mycelial Network](/glossary/mycelial-network/) | Propagation substrate | Cross-domain pattern distribution |
-| [Quality Gates](/glossary/quality-gates/) | Fitness measurement | Quality-based fitness evaluation |
-| [GenStage](/glossary/genstage/) | Pipeline architecture | Backpressure-aware evolutionary processing |
-| [Telemetry](/glossary/telemetry/) | Metrics collection | Fitness measurement data collection |
+| [SEADF](@/glossary/seadf.md) | Framework integration | 7-subsystem integration for autonomous evolution |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Propagation substrate | Cross-domain pattern distribution |
+| [Quality Gates](@/glossary/quality-gates.md) | Fitness measurement | Quality-based fitness evaluation |
+| [GenStage](@/glossary/genstage.md) | Pipeline architecture | Backpressure-aware evolutionary processing |
+| [Telemetry](@/glossary/telemetry.md) | Metrics collection | Fitness measurement data collection |
 
 ## Enforcement
 
-All evolutionary operations execute under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No mutation is promoted without demonstrated fitness improvement over the parent generation. Evolutionary regressions trigger immediate rollback and L3 investigation. The NABLA [Time Decay](/glossary/time-decay/) axiom ensures that fitness measurements carry timestamps, preventing stale data from influencing evolutionary selection decisions. Every evolutionary cycle produces a complete audit trail documenting what was attempted, what was measured, and what was accepted or rejected.
+All evolutionary operations execute under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No mutation is promoted without demonstrated fitness improvement over the parent generation. Evolutionary regressions trigger immediate rollback and L3 investigation. The NABLA [Time Decay](@/glossary/time-decay.md) axiom ensures that fitness measurements carry timestamps, preventing stale data from influencing evolutionary selection decisions. Every evolutionary cycle produces a complete audit trail documenting what was attempted, what was measured, and what was accepted or rejected.
 
 ## Related Agents
 
-- [**evolution-analyzer-specialist**](/agents/evolution-analyzer-specialist/) (L3) - Ecosystem health assessment driving evolutionary strategy
-- [**evolution-executor-specialist**](/agents/evolution-executor-specialist/) (L3) - Mutation execution and verification
-- [**evolution-mycelial-fusion-commander**](/agents/evolution-mycelial-fusion-commander/) (L1) - Evolution-to-mycelial pattern distribution
+- [**evolution-analyzer-specialist**](@/agents/evolution-analyzer-specialist.md) (L3) - Ecosystem health assessment driving evolutionary strategy
+- [**evolution-executor-specialist**](@/agents/evolution-executor-specialist.md) (L3) - Mutation execution and verification
+- [**evolution-mycelial-fusion-commander**](@/agents/evolution-mycelial-fusion-commander.md) (L1) - Evolution-to-mycelial pattern distribution
 
 ---
 
@@ -142,4 +142,4 @@ All evolutionary operations execute under [NO MERCY, NO DOUBTS](/glossary/no-mer
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

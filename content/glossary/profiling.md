@@ -240,10 +240,10 @@ end
 
 ## Cross-References
 
-- [Process](/glossary/process/) - BEAM execution unit that profiling measures
+- [Process](@/glossary/process.md) - BEAM execution unit that profiling measures
 - **Scheduler** - BEAM scheduler whose behavior profiling reveals
 - **Run Queue** - Scheduler queue depth indicating process contention
-- [Percentile](/glossary/percentile/) - Statistical measure used to summarize profiling results
+- [Percentile](@/glossary/percentile.md) - Statistical measure used to summarize profiling results
 - **Runtime** - Execution environment providing profiling infrastructure
 
 ---

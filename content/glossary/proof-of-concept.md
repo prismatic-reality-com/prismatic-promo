@@ -359,23 +359,23 @@ The Prismatic Perimeter EASM module was preceded by a PoC that validated the fea
 
 Proof of Concept methodology connects to numerous engineering practices within the Prismatic Platform:
 
-- [Architecture](/glossary/architecture/) -- PoCs validate architectural hypotheses before they become load-bearing decisions in the system's structure
-- [Validation](/glossary/validation/) -- PoC evaluation is a specific form of validation applied to technical feasibility rather than data correctness
-- [Testing](/glossary/testing/) -- while tests verify that implemented code behaves correctly, PoCs verify that an approach is viable before implementation begins
-- [Quality Gate](/glossary/quality-gate/) -- the PoC evaluation checkpoint functions as a quality gate for architectural decisions
-- [Risk Assessment](/glossary/risk-assessment/) -- PoCs are the primary mechanism for reducing technical risk before committing to an implementation path
-- [Verification](/glossary/verification/) -- PoC results provide verification evidence that informs the platform's formal verification processes
-- [Technical Debt](/glossary/technical-debt/) -- well-executed PoCs prevent technical debt by validating approaches before they become entrenched
-- [Continuous Integration](/glossary/continuous-integration/) -- the PoC lifecycle integrates with CI pipelines for automated measurement and evaluation
-- [Property-Based Testing](/glossary/property-based-testing/) -- PoCs often use property-based testing to explore edge cases in the hypothesis domain
-- [Scalability](/glossary/scalability/) -- performance PoCs specifically validate scalability hypotheses under realistic load conditions
+- [Architecture](@/glossary/architecture.md) -- PoCs validate architectural hypotheses before they become load-bearing decisions in the system's structure
+- [Validation](@/glossary/validation.md) -- PoC evaluation is a specific form of validation applied to technical feasibility rather than data correctness
+- [Testing](@/glossary/testing.md) -- while tests verify that implemented code behaves correctly, PoCs verify that an approach is viable before implementation begins
+- [Quality Gate](@/glossary/quality-gate.md) -- the PoC evaluation checkpoint functions as a quality gate for architectural decisions
+- [Risk Assessment](@/glossary/risk-assessment.md) -- PoCs are the primary mechanism for reducing technical risk before committing to an implementation path
+- [Verification](@/glossary/verification.md) -- PoC results provide verification evidence that informs the platform's formal verification processes
+- [Technical Debt](@/glossary/technical-debt.md) -- well-executed PoCs prevent technical debt by validating approaches before they become entrenched
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the PoC lifecycle integrates with CI pipelines for automated measurement and evaluation
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- PoCs often use property-based testing to explore edge cases in the hypothesis domain
+- [Scalability](@/glossary/scalability.md) -- performance PoCs specifically validate scalability hypotheses under realistic load conditions
 
 ## See Also
 
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- the epistemic principle that underpins PoC methodology: decisions based on measurement, not intuition
-- [Formal Verification](/glossary/formal-verification/) -- the rigorous end of the verification spectrum, where PoC findings feed into formal proofs
-- [Quality DNA](/glossary/quality-dna/) -- the platform's quality continuity system that preserves PoC findings across sessions
-- [Regression Testing](/glossary/regression-testing/) -- ensures that validated PoC findings remain true as the system evolves
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- the epistemic principle that underpins PoC methodology: decisions based on measurement, not intuition
+- [Formal Verification](@/glossary/formal-verification.md) -- the rigorous end of the verification spectrum, where PoC findings feed into formal proofs
+- [Quality DNA](@/glossary/quality-dna.md) -- the platform's quality continuity system that preserves PoC findings across sessions
+- [Regression Testing](@/glossary/regression-testing.md) -- ensures that validated PoC findings remain true as the system evolves
 
 ---
 

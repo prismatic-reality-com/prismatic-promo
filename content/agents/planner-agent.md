@@ -28,9 +28,9 @@ image_alt = "Planner Agent - Prismatic Platform"
 
 ## Overview
 
-The Planner Agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's strategic domain, responsible for creating detailed project roadmaps, dependency graphs, and execution plans that coordinate work across the platform's 90+ applications and 400+ agents. This agent transforms high-level objectives into structured, executable plans with explicit dependency ordering, resource allocation, risk assessment, and milestone tracking. Every plan integrates across all [AIAD](/glossary/aiad/) features -- agents, commands, pipelines, and policies -- ensuring that execution pathways leverage the full capability of the platform.
+The Planner Agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's strategic domain, responsible for creating detailed project roadmaps, dependency graphs, and execution plans that coordinate work across the platform's 90+ applications and 400+ agents. This agent transforms high-level objectives into structured, executable plans with explicit dependency ordering, resource allocation, risk assessment, and milestone tracking. Every plan integrates across all [AIAD](@/glossary/aiad.md) features -- agents, commands, pipelines, and policies -- ensuring that execution pathways leverage the full capability of the platform.
 
-Built on the [AIAD](/glossary/aiad/) standard and deeply integrated with the [SEADF](/glossary/seadf/) evolutionary framework, the Planner Agent leverages meta-evolutionary patterns to optimize planning strategies over time. Plans are not static artifacts -- they are living documents that adapt as execution progresses, incorporating feedback from completed tasks and adjusting timelines based on actual velocity. The [NABLA Infinity](/glossary/nabla-infinity/) framework ensures that planning assumptions are explicitly stated and tracked, with confidence levels assigned to timeline estimates.
+Built on the [AIAD](@/glossary/aiad.md) standard and deeply integrated with the [SEADF](@/glossary/seadf.md) evolutionary framework, the Planner Agent leverages meta-evolutionary patterns to optimize planning strategies over time. Plans are not static artifacts -- they are living documents that adapt as execution progresses, incorporating feedback from completed tasks and adjusting timelines based on actual velocity. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework ensures that planning assumptions are explicitly stated and tracked, with confidence levels assigned to timeline estimates.
 
 ## Operational Domain
 
@@ -50,8 +50,8 @@ The strategic planning domain covers all project coordination activities from in
 - **Resource allocation optimization** -- Assigns agents and computational resources to tasks based on capability matching, availability, and historical velocity data
 - **Risk-adjusted timeline estimation** -- Produces timeline estimates with confidence intervals based on task complexity, dependency depth, and historical completion velocity
 - **Plan adaptation** -- Continuously adjusts plans based on execution feedback, automatically rescheduling downstream tasks when upstream work completes ahead of or behind schedule
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed plan monitoring and proactive bottleneck detection
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing planning velocity metrics, dependency resolution times, and plan accuracy scores
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed plan monitoring and proactive bottleneck detection
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing planning velocity metrics, dependency resolution times, and plan accuracy scores
 
 ## Planning Engine
 
@@ -134,7 +134,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to create execution plans, assign tasks to agents, and adjust priorities across all platform work streams.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to create execution plans, assign tasks to agents, and adjust priorities across all platform work streams.
 
 ## Command Interface
 
@@ -148,14 +148,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Aligns plans with evolutionary priorities and fitness goals |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality gates integrated into plan milestones |
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Session outcomes feed plan velocity and estimation models |
-| [service-mesh-specialist](/agents/service-mesh-specialist/) | Infrastructure capacity informs resource allocation decisions |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Aligns plans with evolutionary priorities and fitness goals |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality gates integrated into plan milestones |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Session outcomes feed plan velocity and estimation models |
+| [service-mesh-specialist](@/agents/service-mesh-specialist.md) | Infrastructure capacity informs resource allocation decisions |
 
 ## NABLA Infinity Integration
 
-All planning assumptions comply with [NABLA Infinity](/glossary/nabla-infinity/) axioms. Timeline estimates carry explicit confidence intervals and provenance chains linking estimates to historical velocity data. The [Trinity Gate](/glossary/trinity-gate/) validates that plan structures maintain consistency -- no circular dependencies, no unresolvable resource conflicts, and no missing prerequisite tasks. Planning decisions based on uncertain information are explicitly marked with their confidence levels.
+All planning assumptions comply with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms. Timeline estimates carry explicit confidence intervals and provenance chains linking estimates to historical velocity data. The [Trinity Gate](@/glossary/trinity-gate.md) validates that plan structures maintain consistency -- no circular dependencies, no unresolvable resource conflicts, and no missing prerequisite tasks. Planning decisions based on uncertain information are explicitly marked with their confidence levels.
 
 ## Dependency Graph Analysis
 
@@ -185,7 +185,7 @@ Plans are living documents that adapt as execution progresses. The Planner Agent
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that all plans include measurable success criteria, explicit dependency ordering, and quality gates at every milestone. No task is marked complete without satisfying its acceptance criteria. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that planning decisions are based on evidence (historical velocity, measured capacity, verified dependencies) rather than optimistic assumptions.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that all plans include measurable success criteria, explicit dependency ordering, and quality gates at every milestone. No task is marked complete without satisfying its acceptance criteria. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that planning decisions are based on evidence (historical velocity, measured capacity, verified dependencies) rather than optimistic assumptions.
 
 ---
 
@@ -194,4 +194,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that all plans include mea
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

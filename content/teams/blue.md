@@ -22,11 +22,11 @@ image_alt = "Blue Team - Prismatic Platform"
 
 ## Overview
 
-The Blue Team serves as the defensive backbone of the Prismatic Platform's six-team color-team security architecture. Through continuous monitoring, multi-domain signal aggregation, and four-type drift detection, Blue Team maintains the epistemic integrity of the platform's knowledge systems against both external adversarial pressure and internal degradation. While [Red Team](/teams/red/) probes for vulnerabilities through offensive simulation, Blue Team builds and operates the defensive infrastructure that detects, contains, and responds to threats in real time.
+The Blue Team serves as the defensive backbone of the Prismatic Platform's six-team color-team security architecture. Through continuous monitoring, multi-domain signal aggregation, and four-type drift detection, Blue Team maintains the epistemic integrity of the platform's knowledge systems against both external adversarial pressure and internal degradation. While [Red Team](@/teams/red.md) probes for vulnerabilities through offensive simulation, Blue Team builds and operates the defensive infrastructure that detects, contains, and responds to threats in real time.
 
-The Blue Team's approach to defense is fundamentally evidence-based, grounded in the [NABLA Infinity](/glossary/nabla-infinity/) framework's requirement for signal plurality and contradiction preservation. Rather than operating on binary alert/no-alert logic, Blue produces structured defensive posture assessments that quantify confidence levels, track signal provenance, and preserve contradictory indicators for [Purple Team](/teams/purple/) synthesis. This evidence-centric approach distinguishes the platform's defensive posture from traditional SIEM-based security operations, which often reduce complex signal landscapes to binary classifications.
+The Blue Team's approach to defense is fundamentally evidence-based, grounded in the [NABLA Infinity](@/glossary/nabla-infinity.md) framework's requirement for signal plurality and contradiction preservation. Rather than operating on binary alert/no-alert logic, Blue produces structured defensive posture assessments that quantify confidence levels, track signal provenance, and preserve contradictory indicators for [Purple Team](@/teams/purple.md) synthesis. This evidence-centric approach distinguishes the platform's defensive posture from traditional SIEM-based security operations, which often reduce complex signal landscapes to binary classifications.
 
-The defensive posture maintained by Blue Team spans four detection domains — behavioral drift, configuration drift, dependency drift, and performance drift — each with dedicated detection pipelines, baseline management, and response protocols. These four domains provide comprehensive coverage of the attack surface that [Red Team](/teams/red/) tests through its five epistemic attack primitives, creating the adversarial-defensive feedback loop that Purple Team synthesizes into continuous improvement.
+The defensive posture maintained by Blue Team spans four detection domains — behavioral drift, configuration drift, dependency drift, and performance drift — each with dedicated detection pipelines, baseline management, and response protocols. These four domains provide comprehensive coverage of the attack surface that [Red Team](@/teams/red.md) tests through its five epistemic attack primitives, creating the adversarial-defensive feedback loop that Purple Team synthesizes into continuous improvement.
 
 ## Mission and Doctrine
 
@@ -42,7 +42,7 @@ The Blue Team mission is to maintain a continuously accurate defensive posture a
 | **Contradiction Preserved** | Conflicting signals documented, not suppressed | NABLA Axiom 2 |
 | **Provenance Mandatory** | Every defensive finding traceable to source data | Complete audit trail |
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine applies to Blue Team operations with emphasis on NO DOUBTS: every defensive assessment must be evidence-based, every signal must be traceable, and every conclusion must be supported by multiple independent sources. NO MERCY manifests in the zero-tolerance approach to detection gaps — if a Red Team simulation reveals a blind spot, Blue Team addresses it immediately.
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine applies to Blue Team operations with emphasis on NO DOUBTS: every defensive assessment must be evidence-based, every signal must be traceable, and every conclusion must be supported by multiple independent sources. NO MERCY manifests in the zero-tolerance approach to detection gaps — if a Red Team simulation reveals a blind spot, Blue Team addresses it immediately.
 
 ## Team Composition
 
@@ -57,7 +57,7 @@ The Blue Team comprises four specialized agents organized around the defensive l
 
 ### blue-commander
 
-The Blue Commander operates at L3 strategic authority, synthesizing evidence streams from all three specialist agents into unified defensive posture assessments. The commander maintains the master posture state, coordinates response priorities, and manages the handoff of defensive findings to [Purple Team](/teams/purple/) for Red-Blue loop closure. The commander also manages detection threshold calibration, ensuring that sensitivity levels balance detection capability against false positive rates.
+The Blue Commander operates at L3 strategic authority, synthesizing evidence streams from all three specialist agents into unified defensive posture assessments. The commander maintains the master posture state, coordinates response priorities, and manages the handoff of defensive findings to [Purple Team](@/teams/purple.md) for Red-Blue loop closure. The commander also manages detection threshold calibration, ensuring that sensitivity levels balance detection capability against false positive rates.
 
 ### blue-auth-sentinel
 
@@ -69,7 +69,7 @@ The Drift Detector operates across all four drift detection domains, maintaining
 
 ### blue-signal-aggregator
 
-The Signal Aggregator performs cross-domain correlation, combining signals from authentication events, drift detections, platform [telemetry](/capabilities/telemetry-integration/), external threat feeds, and agent reports into correlated intelligence products. The aggregator enforces NABLA signal plurality requirements, refusing to elevate any assessment that depends on a single signal source.
+The Signal Aggregator performs cross-domain correlation, combining signals from authentication events, drift detections, platform [telemetry](@/capabilities/telemetry-integration.md), external threat feeds, and agent reports into correlated intelligence products. The aggregator enforces NABLA signal plurality requirements, refusing to elevate any assessment that depends on a single signal source.
 
 ## Defensive Domains
 
@@ -287,12 +287,12 @@ end
 
 | Component | Direction | Content | Purpose |
 |-----------|-----------|---------|---------|
-| [Red Team](/teams/red/) | Red → Blue | Attack scenarios, vulnerability reports | Defense development |
-| [Purple Team](/teams/purple/) | Blue → Purple | Defensive posture, evidence | Red-Blue loop closure |
-| [Gray Team](/teams/gray/) | Gray → Blue | Boundary findings, spec gaps | Defensive gap awareness |
-| [White Team](/teams/white/) | Blue ↔ White | Defense specifications for formal verification | Proof of defense correctness |
-| Platform [Telemetry](/capabilities/telemetry-integration/) | Platform → Blue | Raw telemetry events | Signal source |
-| [Quality Gates](/capabilities/quality-gates/) | Blue → Quality | Security posture status | Deployment gate input |
+| [Red Team](@/teams/red.md) | Red → Blue | Attack scenarios, vulnerability reports | Defense development |
+| [Purple Team](@/teams/purple.md) | Blue → Purple | Defensive posture, evidence | Red-Blue loop closure |
+| [Gray Team](@/teams/gray.md) | Gray → Blue | Boundary findings, spec gaps | Defensive gap awareness |
+| [White Team](@/teams/white.md) | Blue ↔ White | Defense specifications for formal verification | Proof of defense correctness |
+| Platform [Telemetry](@/capabilities/telemetry-integration.md) | Platform → Blue | Raw telemetry events | Signal source |
+| [Quality Gates](@/capabilities/quality-gates.md) | Blue → Quality | Security posture status | Deployment gate input |
 
 ### Signal Flow
 
@@ -325,14 +325,14 @@ Purple Team (Synthesis & Closure)
 
 ## Related Resources
 
-- [Red Team](/teams/red/) — Adversarial simulation that drives Blue defensive development
-- [Purple Team](/teams/purple/) — Synthesis hub that closes the Red-Blue feedback loop
-- [Gray Team](/teams/gray/) — Boundary exploration that surfaces defensive gaps
-- [White Team](/teams/white/) — Formal verification of Blue defensive implementations
-- [Black Team](/teams/black/) — Theoretical threat models informing defensive strategy
-- [Telemetry Integration](/capabilities/telemetry-integration/) — Foundational signal source for all detection
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) — Monitoring infrastructure Blue Team operates within
-- [Quality Gates](/capabilities/quality-gates/) — Deployment gates incorporating Blue posture assessments
+- [Red Team](@/teams/red.md) — Adversarial simulation that drives Blue defensive development
+- [Purple Team](@/teams/purple.md) — Synthesis hub that closes the Red-Blue feedback loop
+- [Gray Team](@/teams/gray.md) — Boundary exploration that surfaces defensive gaps
+- [White Team](@/teams/white.md) — Formal verification of Blue defensive implementations
+- [Black Team](@/teams/black.md) — Theoretical threat models informing defensive strategy
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) — Foundational signal source for all detection
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) — Monitoring infrastructure Blue Team operates within
+- [Quality Gates](@/capabilities/quality-gates.md) — Deployment gates incorporating Blue posture assessments
 
 ---
 
@@ -341,4 +341,4 @@ Purple Team (Synthesis & Closure)
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

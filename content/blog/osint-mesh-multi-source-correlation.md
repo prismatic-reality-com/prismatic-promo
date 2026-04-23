@@ -165,4 +165,4 @@ The OSINT mesh transforms Prismatic from a collection of adapters into an intell
 
 ---
 
-*Try the OSINT mesh at [Interactive Labs](/lab/) or explore all [157 OSINT Adapters](/osint/) for available data sources.*
+*Try the OSINT mesh at [Interactive Labs](@/lab/_index.md) or explore all [157 OSINT Adapters](@/osint/_index.md) for available data sources.*

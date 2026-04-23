@@ -28,9 +28,9 @@ image_alt = "Pulsedive - Prismatic Platform"
 
 ## Overview
 
-Pulsedive is a community-driven [threat intelligence](/glossary/threat-intelligence/) platform that aggregates indicators of compromise from dozens of open-source threat feeds and enriches them with contextual data including passive DNS, [WHOIS](/glossary/whois/), port scans, and web content analysis. Unlike raw feed aggregators, Pulsedive assigns [risk score](/glossary/risk-score/)s to indicators based on multiple data points and maintains bidirectional links between related indicators, enabling analysts to pivot from one IOC to discover connected infrastructure.
+Pulsedive is a community-driven [threat intelligence](@/glossary/threat-intelligence.md) platform that aggregates indicators of compromise from dozens of open-source threat feeds and enriches them with contextual data including passive DNS, [WHOIS](@/glossary/whois.md), port scans, and web content analysis. Unlike raw feed aggregators, Pulsedive assigns [risk score](@/glossary/risk-score.md)s to indicators based on multiple data points and maintains bidirectional links between related indicators, enabling analysts to pivot from one IOC to discover connected infrastructure.
 
-For [OSINT](/glossary/osint/) analysts, Pulsedive provides a unified view of threat intelligence that combines data from numerous feeds with automated enrichment. Its linking capability is particularly valuable for mapping the infrastructure of threat actors across IPs, domains, and URLs.
+For [OSINT](@/glossary/osint.md) analysts, Pulsedive provides a unified view of threat intelligence that combines data from numerous feeds with automated enrichment. Its linking capability is particularly valuable for mapping the infrastructure of threat actors across IPs, domains, and URLs.
 
 Pulsedive's risk scoring algorithm considers multiple factors when assessing an indicator: the number and credibility of threat feeds listing it, passive DNS patterns, WHOIS registration characteristics, hosting infrastructure reputation, web content analysis, and historical behavior. This multi-factor scoring provides more nuanced risk assessment than simple blocklist presence, reducing both false positives and false negatives compared to single-source intelligence.
 
@@ -60,7 +60,7 @@ The platform's indicator linking engine automatically discovers relationships be
 
 ## API Integration
 
-Pulsedive provides a [REST API](/glossary/rest-api/) at `https://pulsedive.com/api/` with JSON responses. Authentication uses API key passed as a parameter.
+Pulsedive provides a [REST API](@/glossary/rest-api.md) at `https://pulsedive.com/api/` with JSON responses. Authentication uses API key passed as a parameter.
 
 ### API Endpoints
 
@@ -242,13 +242,13 @@ Pulsedive organizes indicators into threat campaigns and associates them with th
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), Pulsedive serves as a complementary threat intelligence source alongside [AlienVault OTX](/osint/alienvault-otx/), [VirusTotal](/osint/virustotal/), and [AbuseIPDB](/osint/abuseipdb/).
+Within the [Prismatic Platform](@/apps/prismatic.md), Pulsedive serves as a complementary threat intelligence source alongside [AlienVault OTX](@/osint/alienvault-otx.md), [VirusTotal](@/osint/virustotal.md), and [AbuseIPDB](@/osint/abuseipdb.md).
 
 - **Risk Score Normalization**: Pulsedive risk scores are normalized into the platform's unified risk scoring framework alongside scores from other providers.
 - **Indicator Linking**: Pulsedive's linking capability feeds the platform's infrastructure mapping, automatically expanding investigations from single IOCs to related networks.
 - **Feed Aggregation**: The platform uses Pulsedive as a pre-aggregated threat feed source, reducing the complexity of managing individual feed subscriptions.
 - **Alert Enrichment**: Security alerts are automatically enriched with Pulsedive context, providing risk scores and feed matches for triaging.
-- **Cross-Source Validation**: Pulsedive findings are cross-referenced with [ThreatFox](/osint/threatfox/), [MISP](/osint/misp/), and [VirusTotal](/osint/virustotal/) for multi-source validation.
+- **Cross-Source Validation**: Pulsedive findings are cross-referenced with [ThreatFox](@/osint/threatfox.md), [MISP](@/osint/misp.md), and [VirusTotal](@/osint/virustotal.md) for multi-source validation.
 
 ## Best Practices
 
@@ -268,13 +268,13 @@ Within the [Prismatic Platform](/apps/prismatic/), Pulsedive serves as a complem
 
 ## Related Providers
 
-- [AlienVault OTX](/osint/alienvault-otx/) - Community threat intelligence with pulses
-- [VirusTotal](/osint/virustotal/) - Multi-engine malware analysis
-- [ThreatFox](/osint/threatfox/) - IOC sharing by abuse.ch
-- [AbuseIPDB](/osint/abuseipdb/) - IP abuse reporting and reputation
-- [GreyNoise](/osint/greynoise/) - Scanner and noise identification
-- [MISP](/osint/misp/) - Structured threat intelligence sharing
-- [Shodan](/osint/shodan/) - Infrastructure intelligence for IP context
+- [AlienVault OTX](@/osint/alienvault-otx.md) - Community threat intelligence with pulses
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine malware analysis
+- [ThreatFox](@/osint/threatfox.md) - IOC sharing by abuse.ch
+- [AbuseIPDB](@/osint/abuseipdb.md) - IP abuse reporting and reputation
+- [GreyNoise](@/osint/greynoise.md) - Scanner and noise identification
+- [MISP](@/osint/misp.md) - Structured threat intelligence sharing
+- [Shodan](@/osint/shodan.md) - Infrastructure intelligence for IP context
 
 ---
 
@@ -283,4 +283,4 @@ Within the [Prismatic Platform](/apps/prismatic/), Pulsedive serves as a complem
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

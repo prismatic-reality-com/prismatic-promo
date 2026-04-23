@@ -24,9 +24,9 @@ image_alt = "/mycelialize-living - Prismatic Platform"
 
 ## Overview
 
-**/mycelialize-living** is an experimental command in the **Evolution** category of the Prismatic Platform. It operates the living intelligence layer of the [mycelial network](/glossary/mycelial-network/), enabling patterns to introspect their own structure, rewrite their Abstract Syntax Trees at runtime, and coordinate through agent swarms that exhibit emergent collective behavior. Unlike the deterministic propagation of [/mycelialize](/commands/mycelialize/) or the proof-based verification of [/mycelialize-formal](/commands/mycelialize-formal/), this command manages a genuinely self-evolving system where patterns adapt, mutate, and optimize themselves based on runtime feedback.
+**/mycelialize-living** is an experimental command in the **Evolution** category of the Prismatic Platform. It operates the living intelligence layer of the [mycelial network](@/glossary/mycelial-network.md), enabling patterns to introspect their own structure, rewrite their Abstract Syntax Trees at runtime, and coordinate through agent swarms that exhibit emergent collective behavior. Unlike the deterministic propagation of [/mycelialize](@/commands/mycelialize.md) or the proof-based verification of [/mycelialize-formal](@/commands/mycelialize-formal.md), this command manages a genuinely self-evolving system where patterns adapt, mutate, and optimize themselves based on runtime feedback.
 
-This command operates under the **COSMIC** authority level and is executed by the `mycelial-network-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The COSMIC authority level is necessary because the command can modify pattern behavior at the AST level, fundamentally altering how the platform processes and propagates knowledge.
+This command operates under the **COSMIC** authority level and is executed by the `mycelial-network-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The COSMIC authority level is necessary because the command can modify pattern behavior at the AST level, fundamentally altering how the platform processes and propagates knowledge.
 
 The living mycelial system draws inspiration from biological neural networks and fungal mycelium. Individual pattern agents communicate through chemical-signal-like messages, form temporary coalitions to solve complex problems, and evolve their strategies through a fitness-based selection mechanism. The system maintains a population of pattern variants, evaluates their effectiveness against real platform metrics, and promotes successful adaptations while pruning underperformers.
 
@@ -200,14 +200,14 @@ After each generation, the system checks for convergence (fitness plateau across
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/mycelialize](/commands/mycelialize/) | Upstream/Downstream | Receives patterns for evolution, returns improved variants |
-| [/mycelialize-formal](/commands/mycelialize-formal/) | Verification | Formally verifies evolved patterns before promotion |
-| [/swarm-evolve](/commands/swarm-evolve/) | Peer | Shares swarm coordination infrastructure |
-| [/evolve](/commands/evolve/) | Framework | Participates in broader AIAD ecosystem evolution |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime | Agent swarm execution environment |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Evolved patterns must pass gates before promotion |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Fitness metrics, generation stats, convergence data |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic | Evolution decisions backed by epistemic framework |
+| [/mycelialize](@/commands/mycelialize.md) | Upstream/Downstream | Receives patterns for evolution, returns improved variants |
+| [/mycelialize-formal](@/commands/mycelialize-formal.md) | Verification | Formally verifies evolved patterns before promotion |
+| [/swarm-evolve](@/commands/swarm-evolve.md) | Peer | Shares swarm coordination infrastructure |
+| [/evolve](@/commands/evolve.md) | Framework | Participates in broader AIAD ecosystem evolution |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime | Agent swarm execution environment |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Evolved patterns must pass gates before promotion |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Fitness metrics, generation stats, convergence data |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic | Evolution decisions backed by epistemic framework |
 
 ## Best Practices
 
@@ -283,20 +283,20 @@ When running on a cluster, agent swarms can distribute across nodes for parallel
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Evolved patterns that fail quality gates are rejected regardless of fitness score.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every evolution decision is logged with fitness evidence and statistical significance.
 
 ## Related Commands
 
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for mathematically proven pattern propagation
-- [/swarm-evolve](/commands/swarm-evolve/) - Multi-agent swarm coordination for intelligent autonomous platform evolution
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for mathematically proven pattern propagation
+- [/swarm-evolve](@/commands/swarm-evolve.md) - Multi-agent swarm coordination for intelligent autonomous platform evolution
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -305,4 +305,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

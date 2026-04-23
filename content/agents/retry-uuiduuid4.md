@@ -28,11 +28,11 @@ image_alt = "retry-#{UUID.uuid4()} - Prismatic Platform"
 
 ## Overview
 
-The retry agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's LLM Operations domain, implementing intelligent retry logic for Large Language Model (LLM) API calls with exponential backoff, [circuit breaker](/glossary/circuit-breaker/) protection, and multi-provider failover. LLM operations are inherently unreliable -- API rate limits, transient network errors, model overload conditions, and provider outages make robust retry strategies essential for production intelligence pipelines that depend on LLM-generated analysis.
+The retry agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's LLM Operations domain, implementing intelligent retry logic for Large Language Model (LLM) API calls with exponential backoff, [circuit breaker](@/glossary/circuit-breaker.md) protection, and multi-provider failover. LLM operations are inherently unreliable -- API rate limits, transient network errors, model overload conditions, and provider outages make robust retry strategies essential for production intelligence pipelines that depend on LLM-generated analysis.
 
-This agent implements the [OTP](/glossary/otp/) "let it crash" philosophy for LLM interactions: rather than attempting to handle every possible failure condition inline, the retry agent provides a supervised retry wrapper that handles transient failures automatically while escalating persistent failures through the platform's standard error handling pipeline. The retry strategy adapts dynamically based on failure patterns, distinguishing between rate-limit errors (which require backoff), network errors (which require retry), model errors (which may require provider switching), and content errors (which should not be retried).
+This agent implements the [OTP](@/glossary/otp.md) "let it crash" philosophy for LLM interactions: rather than attempting to handle every possible failure condition inline, the retry agent provides a supervised retry wrapper that handles transient failures automatically while escalating persistent failures through the platform's standard error handling pipeline. The retry strategy adapts dynamically based on failure patterns, distinguishing between rate-limit errors (which require backoff), network errors (which require retry), model errors (which may require provider switching), and content errors (which should not be retried).
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, the retry agent ensures that LLM operation failures are handled deterministically with explicit success/failure outcomes. No LLM call silently fails, no retry loop runs indefinitely, and no failure is swallowed without logging. The [NABLA Infinity](/glossary/nabla-infinity/) framework applies to retry decision-making: the agent considers multiple signals (error type, failure history, provider health, queue depth) before choosing a retry strategy.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, the retry agent ensures that LLM operation failures are handled deterministically with explicit success/failure outcomes. No LLM call silently fails, no retry loop runs indefinitely, and no failure is swallowed without logging. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework applies to retry decision-making: the agent considers multiple signals (error type, failure history, provider health, queue depth) before choosing a retry strategy.
 
 ## Retry Strategy Architecture
 
@@ -42,19 +42,19 @@ The retry system implements a multi-layer strategy that adapts to the specific f
 
 **Circuit breaker protection** prevents cascading failures when an LLM provider experiences sustained outages. The circuit breaker monitors failure rates over a sliding window and transitions to "open" state when the failure rate exceeds the configured threshold. In open state, all requests are rejected immediately without contacting the provider, reducing load on a struggling service and providing fast failure feedback. After a configurable timeout, the circuit transitions to "half-open" state, allowing a single probe request to test provider recovery.
 
-**Multi-provider failover** routes requests to alternative LLM providers when the primary provider is unavailable. The agent maintains a prioritized list of providers (Claude, [Ollama](/glossary/ollama/) local models, OpenRouter) and routes requests to the next available provider when the current provider's circuit breaker is open. Provider selection considers model capability requirements, latency targets, and cost constraints.
+**Multi-provider failover** routes requests to alternative LLM providers when the primary provider is unavailable. The agent maintains a prioritized list of providers (Claude, [Ollama](@/glossary/ollama.md) local models, OpenRouter) and routes requests to the next available provider when the current provider's circuit breaker is open. Provider selection considers model capability requirements, latency targets, and cost constraints.
 
 **Adaptive strategy selection** analyzes the error response to choose the appropriate retry behavior. HTTP 429 (rate limit) errors trigger backoff with the provider's suggested retry-after delay. HTTP 5xx errors trigger standard exponential backoff. HTTP 4xx errors (except 429) are not retried as they indicate request-level issues. Connection timeouts trigger immediate retry on an alternative provider.
 
 ## Key Capabilities
 
 - **Intelligent retry with exponential backoff** -- Implements exponential backoff with jitter for transient failures, respecting provider rate-limit headers and configurable maximum attempts
-- **[Circuit breaker](/glossary/circuit-breaker/) per provider** -- Maintains independent circuit breakers for each LLM provider, preventing cascading load on failing providers while allowing healthy providers to continue serving requests
+- **[Circuit breaker](@/glossary/circuit-breaker.md) per provider** -- Maintains independent circuit breakers for each LLM provider, preventing cascading load on failing providers while allowing healthy providers to continue serving requests
 - **Multi-provider failover** -- Routes requests to alternative providers when primary providers are unavailable, considering capability compatibility, latency, and cost in provider selection
 - **Error classification** -- Analyzes error responses to distinguish retryable transient errors from permanent failures, preventing wasted retry attempts on non-recoverable errors
 - **Request deduplication** -- Detects and prevents duplicate LLM requests during retry windows, avoiding redundant API costs and inconsistent results
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with automatic provider health monitoring and circuit breaker management
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for retry rate, failure classification, and provider health metric tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with automatic provider health monitoring and circuit breaker management
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for retry rate, failure classification, and provider health metric tracking
 
 ## Implementation Architecture
 
@@ -146,7 +146,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to manage LLM provider connections, implement retry strategies, and orchestrate multi-provider failover.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to manage LLM provider connections, implement retry strategies, and orchestrate multi-provider failover.
 
 ## Command Interface
 
@@ -160,13 +160,13 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [chatgpt-bridge-commander](/agents/chatgpt-bridge-commander/) | Bridge operations use retry agent for API resilience |
-| [chatgpt-context-manager](/agents/chatgpt-context-manager/) | Context management depends on reliable LLM communication |
-| [chatgpt-prompt-engineer](/agents/chatgpt-prompt-engineer/) | Prompt engineering operations routed through retry infrastructure |
+| [chatgpt-bridge-commander](@/agents/chatgpt-bridge-commander.md) | Bridge operations use retry agent for API resilience |
+| [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) | Context management depends on reliable LLM communication |
+| [chatgpt-prompt-engineer](@/agents/chatgpt-prompt-engineer.md) | Prompt engineering operations routed through retry infrastructure |
 
 ## Enforcement
 
-LLM retry operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no LLM call silently fails, every failure is logged with classification details, and retry exhaustion triggers explicit error propagation. The [NO DOUBTS](/glossary/no-doubts/) principle requires that retry decisions are based on error classification evidence, not arbitrary retry counts. The [Trinity Gate](/glossary/trinity-gate/) validates retry configuration consistency, ensuring that timeout values, retry limits, and circuit breaker thresholds are coherent across the LLM operations pipeline.
+LLM retry operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no LLM call silently fails, every failure is logged with classification details, and retry exhaustion triggers explicit error propagation. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that retry decisions are based on error classification evidence, not arbitrary retry counts. The [Trinity Gate](@/glossary/trinity-gate.md) validates retry configuration consistency, ensuring that timeout values, retry limits, and circuit breaker thresholds are coherent across the LLM operations pipeline.
 
 ---
 
@@ -175,4 +175,4 @@ LLM retry operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

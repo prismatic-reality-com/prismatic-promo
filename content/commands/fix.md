@@ -24,13 +24,13 @@ image_alt = "/fix - Prismatic Platform"
 
 ## Overview
 
-**/fix** is a production command in the **Development** category of the Prismatic Platform. It implements bug fixes with mandatory [regression tests](/capabilities/regression-tests/), ensuring that every bug fix is accompanied by tests that would have caught the bug and will prevent its recurrence. This command embodies the platform's absolute commitment to quality through the P0 Mandatory Regression Test Protocol.
+**/fix** is a production command in the **Development** category of the Prismatic Platform. It implements bug fixes with mandatory [regression tests](@/capabilities/regression-tests.md), ensuring that every bug fix is accompanied by tests that would have caught the bug and will prevent its recurrence. This command embodies the platform's absolute commitment to quality through the P0 Mandatory Regression Test Protocol.
 
 Bug fixing without regression testing is a recipe for recurring failures. Studies consistently show that bugs fixed without corresponding tests recur at a rate of 15-30% within 6 months. The `/fix` command eliminates this recurrence by enforcing a strict protocol: identify the root cause, write a test that reproduces the bug, verify the test fails against unfixed code, apply the fix, verify the test passes, and report the complete fix-test cycle.
 
-The [elixir-core-specialist](/agents/elixir-core-specialist/) agent executes this command, bringing deep expertise in Elixir/OTP patterns, Phoenix conventions, and the platform's architectural idioms. The agent follows a methodical debugging approach: reproduce the issue, isolate the root cause, develop the fix with minimal scope, create comprehensive regression tests, and validate through the full quality gate pipeline.
+The [elixir-core-specialist](@/agents/elixir-core-specialist.md) agent executes this command, bringing deep expertise in Elixir/OTP patterns, Phoenix conventions, and the platform's architectural idioms. The agent follows a methodical debugging approach: reproduce the issue, isolate the root cause, develop the fix with minimal scope, create comprehensive regression tests, and validate through the full quality gate pipeline.
 
-This command operates under the **L2+** authority level and has **high** usage frequency, reflecting its critical role in day-to-day development. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and has **high** usage frequency, reflecting its critical role in day-to-day development. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -151,14 +151,14 @@ Coverage: [what scenarios the test covers]
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Elixir-core-specialist agent drives the fix |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Full quality gate pipeline post-fix |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Fix [metrics](/glossary/metrics/), regression test counts |
-| [Credo](/glossary/credo/) | Analysis | Static analysis validation of fix |
-| [Dialyzer](/glossary/dialyzer/) | Analysis | Type safety validation of fix |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Elixir-core-specialist agent drives the fix |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Full quality gate pipeline post-fix |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Fix [metrics](@/glossary/metrics.md), regression test counts |
+| [Credo](@/glossary/credo.md) | Analysis | Static analysis validation of fix |
+| [Dialyzer](@/glossary/dialyzer.md) | Analysis | Type safety validation of fix |
 | Pre-commit Hooks | Enforcement | Regression test requirement at commit time |
 | GitLab API | Tracking | Issue updates, fix commit linkage |
-| [Quality DNA](/glossary/quality-dna/) | History | Fix history and regression prevention records |
+| [Quality DNA](@/glossary/quality-dna.md) | History | Fix history and regression prevention records |
 | AIAD Registry | Discovery | Command specification and agent binding |
 
 ## Best Practices
@@ -167,7 +167,7 @@ Coverage: [what scenarios the test covers]
 
 **Write the test before the fix**: The regression test protocol is "test-first" by design. Writing the test before the fix ensures that the test actually tests the bug. Tests written after the fix risk passing trivially without truly exercising the failure condition.
 
-**Minimize fix scope**: Every line of changed code is a potential source of new bugs. The `/fix` command enforces minimal scope by default -- fix the root cause and nothing else. Use [/refactor](/commands/refactor/) for broader improvements discovered during debugging.
+**Minimize fix scope**: Every line of changed code is a potential source of new bugs. The `/fix` command enforces minimal scope by default -- fix the root cause and nothing else. Use [/refactor](@/commands/refactor.md) for broader improvements discovered during debugging.
 
 **Use property-based testing for edge cases**: When a bug involves unexpected input combinations, property-based testing (via `--test-strategy=property-based`) is more effective than unit testing because it explores the input space systematically.
 
@@ -224,7 +224,7 @@ Coverage: [what scenarios the test covers]
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Every bug fix MUST include regression tests. No exceptions. No bypass. The Mandatory Regression Test Protocol is enforced at P0 ABSOLUTE level. Bug fixes without regression tests are BLOCKED at commit time.
 - **NO DOUBTS**: Full root cause investigation before applying fixes. No guessing, no "try this and see." The elixir-core-specialist agent traces every bug to its root cause with evidence before proposing a fix.
@@ -233,13 +233,13 @@ The `/fix` command's mandatory regression test protocol is the operational enfor
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/explain](/commands/explain/) - Code explanation and architecture walkthrough
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/explain](@/commands/explain.md) - Code explanation and architecture walkthrough
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -248,4 +248,4 @@ The `/fix` command's mandatory regression test protocol is the operational enfor
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

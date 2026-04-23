@@ -28,9 +28,9 @@ image_alt = "git-specialist - Prismatic Platform"
 
 ## Overview
 
-The Git Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Development domain of the Prismatic Platform. This agent provides comprehensive Git version control expertise covering branching strategies, commit hygiene enforcement, merge conflict resolution, workflow management, and repository maintenance. For a platform with 37,486 files across 89 umbrella applications, disciplined version control is not a convenience but a structural necessity -- the Git Specialist ensures that the platform's development workflow scales effectively without introducing the chaos that large, multi-contributor codebases are prone to.
+The Git Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Development domain of the Prismatic Platform. This agent provides comprehensive Git version control expertise covering branching strategies, commit hygiene enforcement, merge conflict resolution, workflow management, and repository maintenance. For a platform with 37,486 files across 89 umbrella applications, disciplined version control is not a convenience but a structural necessity -- the Git Specialist ensures that the platform's development workflow scales effectively without introducing the chaos that large, multi-contributor codebases are prone to.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Git Specialist works alongside the [code-specialist](/agents/code-specialist/) and [fix-specialist](/agents/fix-specialist/) to maintain the development domain's operational integrity. While the code specialist generates code and the fix specialist resolves defects, the Git Specialist manages the version control layer that tracks, organizes, and protects all code changes.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Git Specialist works alongside the [code-specialist](@/agents/code-specialist.md) and [fix-specialist](@/agents/fix-specialist.md) to maintain the development domain's operational integrity. While the code specialist generates code and the fix specialist resolves defects, the Git Specialist manages the version control layer that tracks, organizes, and protects all code changes.
 
 ## Branching Strategy
 
@@ -88,7 +88,7 @@ The Git Specialist integrates with the platform's multi-phase pre-commit hook in
 
 The platform's pre-commit system runs through multiple phases: compilation checks, Credo analysis, test verification, template validation, and design consistency checks. The Git Specialist ensures that these hooks execute correctly, maintains their configurations, and troubleshoots hook failures.
 
-Hook bypass prevention enforces the platform's absolute prohibition on `--no-verify` flag usage. The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine classifies hook bypass as an L4 Supreme Review violation. The Git Specialist monitors for bypass attempts and ensures that all agents and processes comply with this requirement.
+Hook bypass prevention enforces the platform's absolute prohibition on `--no-verify` flag usage. The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine classifies hook bypass as an L4 Supreme Review violation. The Git Specialist monitors for bypass attempts and ensures that all agents and processes comply with this requirement.
 
 ## Workflow Management
 
@@ -102,29 +102,29 @@ GitLab integration connects version control operations with the platform's GitLa
 
 ## Quality Gates Integration
 
-The Git Specialist participates in the platform's [quality gates](/glossary/quality-gates/) as the version control layer of the quality enforcement pipeline.
+The Git Specialist participates in the platform's [quality gates](@/glossary/quality-gates.md) as the version control layer of the quality enforcement pipeline.
 
 Pre-commit quality gates prevent substandard code from entering the repository. Pre-push quality gates verify that pushed code meets distribution standards. Merge request quality gates ensure that merged code passes comprehensive validation including tests, type checking, and performance benchmarks.
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework's Provenance Mandatory axiom aligns directly with version control's fundamental purpose: maintaining provenance for every line of code. Git provides the provenance infrastructure that enables traceability from current code back through its entire development history.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's Provenance Mandatory axiom aligns directly with version control's fundamental purpose: maintaining provenance for every line of code. Git provides the provenance infrastructure that enables traceability from current code back through its entire development history.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Phoenix](/glossary/phoenix/) Framework | Development target | Web application version control |
-| [Elixir](/glossary/elixir/)/OTP | Platform codebase | Umbrella application repository management |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement pipeline | Pre-commit and merge request validation |
+| [Phoenix](@/glossary/phoenix.md) Framework | Development target | Web application version control |
+| [Elixir](@/glossary/elixir.md)/OTP | Platform codebase | Umbrella application repository management |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement pipeline | Pre-commit and merge request validation |
 | GitLab CI/CD | Automation | Pipeline triggering and merge request management |
 | Git Trees | Performance | Optimized repository traversal infrastructure |
 
 ## Related Agents
 
-- [**code-specialist**](/agents/code-specialist/) (L3) - Code generation coordinating with version control for committed code management
-- [**fix-specialist**](/agents/fix-specialist/) (L3) - Bug fix implementation coordinating commit and branch management for fix delivery
-- [**doc-specialist**](/agents/doc-specialist/) (L3) - Documentation maintenance coordinating version control for documentation updates
+- [**code-specialist**](@/agents/code-specialist.md) (L3) - Code generation coordinating with version control for committed code management
+- [**fix-specialist**](@/agents/fix-specialist.md) (L3) - Bug fix implementation coordinating commit and branch management for fix delivery
+- [**doc-specialist**](@/agents/doc-specialist.md) (L3) - Documentation maintenance coordinating version control for documentation updates
 
 ---
 
@@ -133,4 +133,4 @@ The [NABLA Infinity](/glossary/nabla-infinity/) framework's Provenance Mandatory
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

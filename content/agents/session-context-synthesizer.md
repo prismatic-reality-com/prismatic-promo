@@ -28,9 +28,9 @@ image_alt = "session-context-synthesizer - Prismatic Platform"
 
 ## Overview
 
-The session-context-synthesizer operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's [AIAD](/glossary/aiad/)-enhanced domain, responsible for combining knowledge from multiple session contexts into unified synthesis artifacts that provide comprehensive understanding of platform evolution, recurring patterns, and strategic decision trajectories. While individual session context records capture the decisions and outcomes of single sessions, synthesis reveals the emergent patterns, progressive trends, and cumulative effects that only become visible when viewing multiple sessions together.
+The session-context-synthesizer operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's [AIAD](@/glossary/aiad.md)-enhanced domain, responsible for combining knowledge from multiple session contexts into unified synthesis artifacts that provide comprehensive understanding of platform evolution, recurring patterns, and strategic decision trajectories. While individual session context records capture the decisions and outcomes of single sessions, synthesis reveals the emergent patterns, progressive trends, and cumulative effects that only become visible when viewing multiple sessions together.
 
-Governed by the [AIAD](/glossary/aiad/) standard and the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, the synthesizer applies rigorous epistemological discipline to knowledge combination. When synthesizing across sessions, the agent must distinguish between corroborated findings (multiple sessions arriving at the same conclusion independently), evolving understanding (where later sessions revise earlier conclusions), and contradictory evidence (where sessions contain conflicting claims). The [Trinity Gate](/glossary/trinity-gate/) verification ensures that synthesized knowledge maintains structural consistency, logical coherence, and formal validity.
+Governed by the [AIAD](@/glossary/aiad.md) standard and the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, the synthesizer applies rigorous epistemological discipline to knowledge combination. When synthesizing across sessions, the agent must distinguish between corroborated findings (multiple sessions arriving at the same conclusion independently), evolving understanding (where later sessions revise earlier conclusions), and contradictory evidence (where sessions contain conflicting claims). The [Trinity Gate](@/glossary/trinity-gate.md) verification ensures that synthesized knowledge maintains structural consistency, logical coherence, and formal validity.
 
 ## Operational Domain
 
@@ -44,13 +44,13 @@ The domain includes synthesis across different session categories: feature devel
 - **Contradiction detection and preservation** -- Identifies conflicting claims across sessions and preserves both perspectives per the Addiction Preservation doctrine, rather than arbitrarily selecting one claim over another. Contradictions are flagged for explicit resolution
 - **Trend extraction** -- Analyzes sequences of session contexts to identify trends in quality metrics, development velocity, architectural drift, and recurring problem patterns that individual sessions cannot reveal
 - **Decision genealogy construction** -- Traces architectural and design decisions through their evolution across sessions, building a genealogy that shows how early decisions influenced later ones and when decisions were revised or reversed
-- **[Trinity Gate](/glossary/trinity-gate/) validation** of synthesized knowledge ensuring structural consistency, logical coherence, and formal validity
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with triggered synthesis when session context volume exceeds analysis thresholds
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing synthesis metrics under the `:prismatic_claude, :session_synthesis` namespace
+- **[Trinity Gate](@/glossary/trinity-gate.md) validation** of synthesized knowledge ensuring structural consistency, logical coherence, and formal validity
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with triggered synthesis when session context volume exceeds analysis thresholds
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing synthesis metrics under the `:prismatic_claude, :session_synthesis` namespace
 
 ## Synthesis Methodology
 
-The synthesizer follows a structured methodology adapted from formal knowledge synthesis techniques and aligned with [NABLA Infinity](/glossary/nabla-infinity/) axioms.
+The synthesizer follows a structured methodology adapted from formal knowledge synthesis techniques and aligned with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms.
 
 | Phase | Activities | NABLA Axiom Compliance |
 |-------|-----------|----------------------|
@@ -76,7 +76,7 @@ The agent produces several types of synthesis artifacts depending on the scope a
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority for cross-session knowledge synthesis. The synthesizer can access context from any domain's sessions and produce synthesis artifacts that inform platform-wide strategic decisions.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority for cross-session knowledge synthesis. The synthesizer can access context from any domain's sessions and produce synthesis artifacts that inform platform-wide strategic decisions.
 
 ## Command Interface
 
@@ -92,11 +92,11 @@ The agent produces several types of synthesis artifacts depending on the scope a
 
 | Agent | Relationship |
 |-------|-------------|
-| [session-context-coordinator](/agents/session-context-coordinator/) | Provides coordinated context data as input to synthesis operations |
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Produces the individual session records that synthesis combines |
-| [session-pattern-analyzer](/agents/session-pattern-analyzer/) | Pattern analysis and synthesis share analytical techniques and feed each other's outputs |
-| [session-compressor-specialist](/agents/session-compressor-specialist/) | Compressed context may require decompression before synthesis |
-| [seadf-ecosystem-commander](/agents/seadf-ecosystem-commander/) | Synthesis outputs inform SEADF evolution priorities |
+| [session-context-coordinator](@/agents/session-context-coordinator.md) | Provides coordinated context data as input to synthesis operations |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Produces the individual session records that synthesis combines |
+| [session-pattern-analyzer](@/agents/session-pattern-analyzer.md) | Pattern analysis and synthesis share analytical techniques and feed each other's outputs |
+| [session-compressor-specialist](@/agents/session-compressor-specialist.md) | Compressed context may require decompression before synthesis |
+| [seadf-ecosystem-commander](@/agents/seadf-ecosystem-commander.md) | Synthesis outputs inform SEADF evolution priorities |
 
 ## Epistemic Quality Assurance
 
@@ -112,11 +112,11 @@ Synthesis operations are subject to rigorous quality controls that prevent the i
 
 ## Integration with Platform Evolution
 
-Synthesis outputs serve as strategic inputs to the platform's evolutionary processes. When trend analysis reveals declining quality in a specific domain, the [SEADF](/glossary/seadf/) ecosystem commander can prioritize healing cycles for that domain. When decision genealogy reveals architectural drift from original design intent, architectural review can be triggered. When the contradiction register accumulates unresolved conflicts, epistemic resolution sessions can be scheduled.
+Synthesis outputs serve as strategic inputs to the platform's evolutionary processes. When trend analysis reveals declining quality in a specific domain, the [SEADF](@/glossary/seadf.md) ecosystem commander can prioritize healing cycles for that domain. When decision genealogy reveals architectural drift from original design intent, architectural review can be triggered. When the contradiction register accumulates unresolved conflicts, epistemic resolution sessions can be scheduled.
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that synthesis operations maintain absolute epistemic honesty. No synthesis artifact may present uncertain conclusions as established facts. No contradiction may be resolved by silently discarding one side. No trend may be extrapolated beyond the evidence. The [NABLA Infinity](/glossary/nabla-infinity/) framework's seven axioms provide the formal foundation for these requirements, and the [Trinity Gate](/glossary/trinity-gate/) provides the verification mechanism.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that synthesis operations maintain absolute epistemic honesty. No synthesis artifact may present uncertain conclusions as established facts. No contradiction may be resolved by silently discarding one side. No trend may be extrapolated beyond the evidence. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's seven axioms provide the formal foundation for these requirements, and the [Trinity Gate](@/glossary/trinity-gate.md) provides the verification mechanism.
 
 ## Related Agents
 
@@ -129,4 +129,4 @@ Agents in the **AIAD-enhanced** domain collaborate with the session-context-synt
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -195,10 +195,10 @@ PrismaticDd.Repo.all(from e in EntityRecord, where: e.source_slug == "forbes-cz"
 
 ## Cross-References
 
-- [ETS](/glossary/ets/) - In-memory table implementation for high-speed access
-- [PostgreSQL](/glossary/postgresql/) - Relational database providing persistent tables
-- [Ecto](/glossary/ecto/) - Database wrapper defining table schemas and migrations
-- [Storage Adapter](/glossary/storage-adapter/) - Abstraction layer over both table types
+- [ETS](@/glossary/ets.md) - In-memory table implementation for high-speed access
+- [PostgreSQL](@/glossary/postgresql.md) - Relational database providing persistent tables
+- [Ecto](@/glossary/ecto.md) - Database wrapper defining table schemas and migrations
+- [Storage Adapter](@/glossary/storage-adapter.md) - Abstraction layer over both table types
 
 ---
 

@@ -193,15 +193,15 @@ Sandboxed processes can only access designated temporary directories. All filesy
 
 ## Color Team Sandbox Architecture
 
-The Prismatic Platform's [Color Teams](/glossary/color-teams/) rely heavily on sandboxing to maintain safety during security operations. Each team operates within specific sandbox configurations matched to their threat level and operational requirements.
+The Prismatic Platform's [Color Teams](@/glossary/color-teams.md) rely heavily on sandboxing to maintain safety during security operations. Each team operates within specific sandbox configurations matched to their threat level and operational requirements.
 
 ### Red Team Sandbox
 
-The [Red Team](/glossary/red-team/) sandbox is the primary environment for adversarial simulation. It provides access to synthetic data sets, simulated network topologies, and mock service endpoints. All five adversarial primitives (truth distortion, confidence manipulation, signal poisoning, drift induction, salience hijacking) execute within this boundary. The sandbox prevents any simulation from affecting production systems while providing enough fidelity for meaningful security analysis.
+The [Red Team](@/glossary/red-team.md) sandbox is the primary environment for adversarial simulation. It provides access to synthetic data sets, simulated network topologies, and mock service endpoints. All five adversarial primitives (truth distortion, confidence manipulation, signal poisoning, drift induction, salience hijacking) execute within this boundary. The sandbox prevents any simulation from affecting production systems while providing enough fidelity for meaningful security analysis.
 
 ### Black Team Sandbox
 
-The [Black Team](/glossary/black-team/) operates under MAXIMUM isolation -- the most restrictive sandbox configuration in the platform. Black Team sandboxes have no network access, no filesystem access beyond in-memory temporary storage, and strict memory limits. All output passes through the AbstractionFilter before leaving the sandbox, ensuring that no executable content or specific exploit instructions can escape the theoretical modeling environment.
+The [Black Team](@/glossary/black-team.md) operates under MAXIMUM isolation -- the most restrictive sandbox configuration in the platform. Black Team sandboxes have no network access, no filesystem access beyond in-memory temporary storage, and strict memory limits. All output passes through the AbstractionFilter before leaving the sandbox, ensuring that no executable content or specific exploit instructions can escape the theoretical modeling environment.
 
 ### Gray Team Boundaries
 
@@ -209,7 +209,7 @@ Gray Team operations use read-only sandboxes that can examine production code an
 
 ## Supervision Tree Integration
 
-Sandbox lifecycle management is handled through [OTP supervision trees](/glossary/supervision-tree/), ensuring proper cleanup even when sandboxed code crashes or exceeds resource limits.
+Sandbox lifecycle management is handled through [OTP supervision trees](@/glossary/supervision-tree.md), ensuring proper cleanup even when sandboxed code crashes or exceeds resource limits.
 
 ```elixir
 defmodule PrismaticDark.Sandbox.Supervisor do
@@ -245,11 +245,11 @@ The `:temporary` restart strategy is critical for sandbox processes. Unlike prod
 
 Every sandbox operation generates an immutable audit record. These records capture the sandbox creation parameters, all operations executed within the sandbox, resource consumption metrics, and termination details. The audit trail serves both security compliance requirements and provides data for improving sandbox policies.
 
-The [Trinity Gate](/glossary/trinity-gate/) validates that sandbox-derived findings meet structural, logical, and formal consistency requirements before they can influence platform security decisions. This prevents adversarial simulation artifacts from being treated as genuine security findings without proper validation.
+The [Trinity Gate](@/glossary/trinity-gate.md) validates that sandbox-derived findings meet structural, logical, and formal consistency requirements before they can influence platform security decisions. This prevents adversarial simulation artifacts from being treated as genuine security findings without proper validation.
 
 ## Testing and Verification
 
-Sandbox implementations are verified through property-based testing that attempts to violate isolation boundaries. These tests systematically probe for memory leaks between sandboxes, timing side channels, resource exhaustion attacks, and privilege escalation paths. The testing suite runs as part of the platform's [quality gates](/glossary/quality-gates/) to ensure sandbox integrity across releases.
+Sandbox implementations are verified through property-based testing that attempts to violate isolation boundaries. These tests systematically probe for memory leaks between sandboxes, timing side channels, resource exhaustion attacks, and privilege escalation paths. The testing suite runs as part of the platform's [quality gates](@/glossary/quality-gates.md) to ensure sandbox integrity across releases.
 
 ```elixir
 defmodule PrismaticDark.Sandbox.PropertyTest do
@@ -293,7 +293,7 @@ end
 
 Sandbox creation and teardown introduce overhead that must be managed carefully. BEAM process spawning is lightweight (microseconds), but the full sandbox initialization -- including resource limit configuration, audit logging, and policy validation -- takes 1-5 milliseconds depending on the sandbox configuration. For high-frequency operations, sandbox pooling can amortize this cost by reusing cleaned sandbox instances.
 
-The platform maintains a pool of pre-initialized sandboxes for common configurations, reducing the latency of sandbox acquisition to sub-millisecond levels. Pool management is handled by a dedicated [GenServer](/glossary/genserver/) that maintains sandbox readiness and performs background cleanup.
+The platform maintains a pool of pre-initialized sandboxes for common configurations, reducing the latency of sandbox acquisition to sub-millisecond levels. Pool management is handled by a dedicated [GenServer](@/glossary/genserver.md) that maintains sandbox readiness and performs background cleanup.
 
 ## Industry Comparison
 
@@ -307,20 +307,20 @@ Several anti-patterns can undermine sandbox security. Sharing ETS tables between
 
 ## Relationship to Platform Security Model
 
-Sandboxing integrates with the platform's broader security architecture. The [evidence-based](/glossary/evidence/) security model uses sandbox-derived findings as one input to security assessments, but all sandbox outputs must pass through the [Trinity Gate](/glossary/trinity-gate/) before influencing decisions. The [Purple Team](/glossary/purple-team/) synthesis process correlates Red Team sandbox findings with Blue Team defensive analysis, using sandbox isolation as a trust boundary in the analysis pipeline. The [NABLA Infinity](/glossary/nabla-infinity/) framework's provenance tracking extends into sandboxes, ensuring that every finding can be traced back to its simulation context.
+Sandboxing integrates with the platform's broader security architecture. The [evidence-based](@/glossary/evidence.md) security model uses sandbox-derived findings as one input to security assessments, but all sandbox outputs must pass through the [Trinity Gate](@/glossary/trinity-gate.md) before influencing decisions. The [Purple Team](@/glossary/purple-team.md) synthesis process correlates Red Team sandbox findings with Blue Team defensive analysis, using sandbox isolation as a trust boundary in the analysis pipeline. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's provenance tracking extends into sandboxes, ensuring that every finding can be traced back to its simulation context.
 
 ## Related Concepts
 
-- [Process Isolation](/glossary/process-isolation/) -- BEAM VM memory isolation between processes
-- [Red Team](/glossary/red-team/) -- Adversarial simulation team operating within sandboxes
-- [Black Team](/glossary/black-team/) -- Theoretical threat modeling under MAXIMUM isolation
-- [Purple Team](/glossary/purple-team/) -- Synthesis of Red-Blue findings from sandboxed operations
-- [Color Teams](/glossary/color-teams/) -- Full Color Team security operations framework
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP process supervision for sandbox lifecycle
-- [Trinity Gate](/glossary/trinity-gate/) -- Validation gate for sandbox-derived security findings
-- [Quality Gates](/glossary/quality-gates/) -- Platform quality enforcement including sandbox testing
-- [Adversarial Simulation](/glossary/adversarial-simulation/) -- Simulated attacks within sandbox boundaries
-- [OTP](/glossary/otp/) -- Open Telecom Platform providing supervision primitives
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM VM memory isolation between processes
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation team operating within sandboxes
+- [Black Team](@/glossary/black-team.md) -- Theoretical threat modeling under MAXIMUM isolation
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis of Red-Blue findings from sandboxed operations
+- [Color Teams](@/glossary/color-teams.md) -- Full Color Team security operations framework
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP process supervision for sandbox lifecycle
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Validation gate for sandbox-derived security findings
+- [Quality Gates](@/glossary/quality-gates.md) -- Platform quality enforcement including sandbox testing
+- [Adversarial Simulation](@/glossary/adversarial-simulation.md) -- Simulated attacks within sandbox boundaries
+- [OTP](@/glossary/otp.md) -- Open Telecom Platform providing supervision primitives
 
 ---
 

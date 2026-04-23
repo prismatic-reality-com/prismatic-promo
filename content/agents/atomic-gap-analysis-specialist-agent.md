@@ -28,11 +28,11 @@ image_alt = "Atomic Gap Analysis Specialist Agent - Prismatic Platform"
 
 ## Overview
 
-The Atomic Gap Analysis Specialist Agent is an L3 [strategic command](/glossary/strategic-command/) agent responsible for identifying and closing operational coverage gaps across all domains of the Prismatic Platform. Operating under the SUPREME Gap Analysis Mission designation, this agent systematically decomposes platform capabilities into atomic units and evaluates each unit for completeness, correctness, and coverage depth. When gaps are found, the agent produces structured remediation plans with prioritized action items.
+The Atomic Gap Analysis Specialist Agent is an L3 [strategic command](@/glossary/strategic-command.md) agent responsible for identifying and closing operational coverage gaps across all domains of the Prismatic Platform. Operating under the SUPREME Gap Analysis Mission designation, this agent systematically decomposes platform capabilities into atomic units and evaluates each unit for completeness, correctness, and coverage depth. When gaps are found, the agent produces structured remediation plans with prioritized action items.
 
-In a platform spanning 90 [umbrella application](/glossary/umbrella-application/)s, 430+ autonomous agents, and 210+ commands, coverage gaps are inevitable unless actively hunted. A missing [OSINT](/glossary/osint/) provider for a critical data source, an untested edge case in [entity resolution](/glossary/entity-resolution/), or a compliance framework without automated validation -- each represents an atomic gap that degrades the platform's overall operational completeness. The Atomic Gap Analysis Specialist applies systematic decomposition to transform vague concerns about completeness into precise, actionable gap inventories.
+In a platform spanning 90 [umbrella application](@/glossary/umbrella-application.md)s, 430+ autonomous agents, and 210+ commands, coverage gaps are inevitable unless actively hunted. A missing [OSINT](@/glossary/osint.md) provider for a critical data source, an untested edge case in [entity resolution](@/glossary/entity-resolution.md), or a compliance framework without automated validation -- each represents an atomic gap that degrades the platform's overall operational completeness. The Atomic Gap Analysis Specialist applies systematic decomposition to transform vague concerns about completeness into precise, actionable gap inventories.
 
-The agent's methodology is grounded in the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, treating absence as informative data rather than noise. A missing capability is not simply "not yet built" -- it represents a specific failure mode that must be documented, scored for impact, and scheduled for remediation with the same rigor applied to bug fixes.
+The agent's methodology is grounded in the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, treating absence as informative data rather than noise. A missing capability is not simply "not yet built" -- it represents a specific failure mode that must be documented, scored for impact, and scheduled for remediation with the same rigor applied to bug fixes.
 
 ## Operational Domain
 
@@ -46,7 +46,7 @@ The agent maintains a comprehensive capability map that represents every documen
 
 - **Multi-registry data collection** across Czech, EU, and global sources including ARES, Justice.cz, ISIR, and CUZK integration, with gap detection for missing registry adapters or incomplete data field coverage within existing adapters
 
-- **[Entity resolution](/capabilities/intelligence-synthesis/) gap detection** evaluating cross-reference validation and deduplication pipelines for scenarios where entity matching fails, including edge cases in name normalization, address parsing, and identifier format variations
+- **[Entity resolution](@/capabilities/intelligence-synthesis.md) gap detection** evaluating cross-reference validation and deduplication pipelines for scenarios where entity matching fails, including edge cases in name normalization, address parsing, and identifier format variations
 
 - **Coverage matrix generation** producing structured matrices that map capabilities against test coverage, documentation status, error handling completeness, and production usage patterns to reveal systematic coverage weaknesses
 
@@ -85,22 +85,22 @@ The agent's cross-domain mandate enables detection of gap patterns that emerge a
 |-----------|-------------|-----------|
 | Czech Registries | ARES, Justice.cz, ISIR, CUZK integration | Coverage analysis of registry adapter completeness |
 | Prismatic OSINT | Provider orchestration and data collection | Gap detection across 121+ OSINT providers |
-| [KuzuDB](/glossary/kuzudb/) | Graph-based entity relationship storage | Relationship coverage and query completeness analysis |
-| [AIAD](/glossary/aiad/) Registry | Agent specification and discovery | Agent capability coverage assessment |
-| [Quality Gates](/glossary/quality-gates/) | Static analysis and test enforcement | Gap findings feed into quality gate decisions |
-| [Telemetry](/glossary/telemetry/) Infrastructure | Performance and event tracking | Production usage data for coverage validation |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph-based entity relationship storage | Relationship coverage and query completeness analysis |
+| [AIAD](@/glossary/aiad.md) Registry | Agent specification and discovery | Agent capability coverage assessment |
+| [Quality Gates](@/glossary/quality-gates.md) | Static analysis and test enforcement | Gap findings feed into quality gate decisions |
+| [Telemetry](@/glossary/telemetry.md) Infrastructure | Performance and event tracking | Production usage data for coverage validation |
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to flag coverage gaps, request remediation from domain specialists, and escalate critical gaps to supreme authority.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to flag coverage gaps, request remediation from domain specialists, and escalate critical gaps to supreme authority.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [cross-domain-quality-propagator](/agents/cross-domain-quality-propagator/) | Quality Propagation | Ensures gap remediation standards propagate across all domains |
-| [architecture-review-specialist](/agents/architecture-review-specialist/) | Structural Analysis | Provides architectural context for domain boundary gaps |
-| [cascade-quality-specialist](/agents/cascade-quality-specialist/) | Pattern Quality | Coordinates CASCADE pattern gaps with broader coverage analysis |
+| [cross-domain-quality-propagator](@/agents/cross-domain-quality-propagator.md) | Quality Propagation | Ensures gap remediation standards propagate across all domains |
+| [architecture-review-specialist](@/agents/architecture-review-specialist.md) | Structural Analysis | Provides architectural context for domain boundary gaps |
+| [cascade-quality-specialist](@/agents/cascade-quality-specialist.md) | Pattern Quality | Coordinates CASCADE pattern gaps with broader coverage analysis |
 
 ## Performance Metrics
 
@@ -116,7 +116,7 @@ Gap analysis effectiveness is measured through quantitative coverage indicators.
 
 ## Enforcement
 
-All gap analysis operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Identified gaps are not suggestions -- they are mandatory remediation targets with assigned priority and deadline. Critical gaps (security exposure, compliance risk) block deployment until resolved. The NABLA Absence Informative axiom is the foundational principle: what is missing matters as much as what is present, and missing coverage is treated as actionable intelligence rather than background noise. Every gap finding must include verifiable evidence, impact assessment, and remediation path before being published.
+All gap analysis operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Identified gaps are not suggestions -- they are mandatory remediation targets with assigned priority and deadline. Critical gaps (security exposure, compliance risk) block deployment until resolved. The NABLA Absence Informative axiom is the foundational principle: what is missing matters as much as what is present, and missing coverage is treated as actionable intelligence rather than background noise. Every gap finding must include verifiable evidence, impact assessment, and remediation path before being published.
 
 ---
 
@@ -125,4 +125,4 @@ All gap analysis operations are governed by the [NO MERCY, NO DOUBTS](/glossary/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

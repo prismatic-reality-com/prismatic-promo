@@ -491,23 +491,23 @@ The Trinity Gate verification system includes structural, logical, and formal ve
 
 Comprehensive security modeling connects to many security and verification concepts in the Prismatic Platform:
 
-- [Security](/glossary/security/) -- the overarching discipline that comprehensive security modeling serves
-- [Attack Surface](/glossary/attack-surface/) -- the set of all points where an adversary can interact with the system
-- [Threat Assessment](/glossary/threat-assessment/) -- the process of evaluating specific threats against specific assets
-- [Red Team](/glossary/red-team/) -- adversarial simulation that tests the security model against realistic attacks
-- [Blue Team](/glossary/blue-team/) -- defensive monitoring that verifies security controls remain effective
-- [Purple Team](/glossary/purple-team/) -- synthesis team that closes the loop between attack findings and defensive improvements
-- [Color Teams](/glossary/color-teams/) -- the full color team system that operationalizes the security model
-- [Security Audit](/glossary/security-audit/) -- formal assessment of security controls against standards and requirements
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- systematic identification of security weaknesses in system components
-- [Zero Trust](/glossary/zero-trust/) -- the architectural principle of never trusting, always verifying
+- [Security](@/glossary/security.md) -- the overarching discipline that comprehensive security modeling serves
+- [Attack Surface](@/glossary/attack-surface.md) -- the set of all points where an adversary can interact with the system
+- [Threat Assessment](@/glossary/threat-assessment.md) -- the process of evaluating specific threats against specific assets
+- [Red Team](@/glossary/red-team.md) -- adversarial simulation that tests the security model against realistic attacks
+- [Blue Team](@/glossary/blue-team.md) -- defensive monitoring that verifies security controls remain effective
+- [Purple Team](@/glossary/purple-team.md) -- synthesis team that closes the loop between attack findings and defensive improvements
+- [Color Teams](@/glossary/color-teams.md) -- the full color team system that operationalizes the security model
+- [Security Audit](@/glossary/security-audit.md) -- formal assessment of security controls against standards and requirements
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- systematic identification of security weaknesses in system components
+- [Zero Trust](@/glossary/zero-trust.md) -- the architectural principle of never trusting, always verifying
 
 ## See Also
 
 - Glossary Index -- complete listing of all platform terminology
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- the platform's external attack surface management implementation
-- [Security Rating](/glossary/security-rating/) -- quantified security posture scores derived from the security model
-- [Audit Logging](/glossary/audit-logging/) -- immutable event recording that supports security model verification
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- the platform's external attack surface management implementation
+- [Security Rating](@/glossary/security-rating.md) -- quantified security posture scores derived from the security model
+- [Audit Logging](@/glossary/audit-logging.md) -- immutable event recording that supports security model verification
 
 ---
 
@@ -516,4 +516,4 @@ Comprehensive security modeling connects to many security and verification conce
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

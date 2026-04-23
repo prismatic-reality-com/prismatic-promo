@@ -218,10 +218,10 @@ Sources are consumed through the SourceRegistry, which provides sub-millisecond 
 
 ## Cross-References
 
-- [Source Registry](/glossary/source-registry/) - ETS-backed catalog of self-registered sources
-- [OSINT](/glossary/osint/) - Intelligence discipline defining source categories
+- [Source Registry](@/glossary/source-registry.md) - ETS-backed catalog of self-registered sources
+- [OSINT](@/glossary/osint.md) - Intelligence discipline defining source categories
 - **Tool Registry** - OSINT-specific source/tool catalog
-- [Signal](/glossary/signal/) - Evidence unit produced by source execution
+- [Signal](@/glossary/signal.md) - Evidence unit produced by source execution
 
 ---
 

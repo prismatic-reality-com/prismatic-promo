@@ -32,7 +32,7 @@ The TikTok Intelligence Specialist is an L3 agent operating in the **TikTok** pl
 
 TikTok presents unique intelligence challenges compared to text-based social platforms. Its content is primarily video-based, making traditional text analysis insufficient. The platform's recommendation algorithm creates distinctive engagement patterns that can reveal coordinated behavior, influence operations, and network structures that differ fundamentally from those observed on platforms like Twitter/X or Facebook. The TikTok Intelligence Specialist addresses these challenges with specialized analysis techniques tailored to TikTok's unique characteristics.
 
-This agent operates as part of the social intelligence domain within the platform's 434-strong autonomous agent ecosystem, feeding intelligence products to the [Social Media Network Analyst](/agents/social-media-network-analyst/) for cross-platform synthesis under [NABLA Infinity](/glossary/nabla-infinity/) epistemic standards.
+This agent operates as part of the social intelligence domain within the platform's 434-strong autonomous agent ecosystem, feeding intelligence products to the [Social Media Network Analyst](@/agents/social-media-network-analyst.md) for cross-platform synthesis under [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic standards.
 
 ## Intelligence Collection Capabilities
 
@@ -141,7 +141,7 @@ TikTok's duet and stitch features create explicit content collaboration chains t
 
 ## Graph Storage
 
-TikTok intelligence data is stored in [KuzuDB](/glossary/kuzudb/) for efficient graph traversal, enabling complex network queries such as influence path analysis and community detection.
+TikTok intelligence data is stored in [KuzuDB](@/glossary/kuzudb.md) for efficient graph traversal, enabling complex network queries such as influence path analysis and community detection.
 
 | Node Type | Attributes | Connections |
 |-----------|------------|-------------|
@@ -214,7 +214,7 @@ end
 
 ## NABLA Infinity Compliance
 
-All intelligence products generated from TikTok data must comply with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework before they can be published or consumed by downstream agents. This compliance requirement ensures that TikTok intelligence is never treated as ground truth without corroboration.
+All intelligence products generated from TikTok data must comply with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework before they can be published or consumed by downstream agents. This compliance requirement ensures that TikTok intelligence is never treated as ground truth without corroboration.
 
 | Axiom | TikTok-Specific Application | Enforcement |
 |-------|---------------------------|-------------|
@@ -242,22 +242,22 @@ All intelligence products generated from TikTok data must comply with the [NABLA
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 14 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Integration Points
 
-- [**Intelligence Synthesis**](/capabilities/intelligence-synthesis/) -- Feeds TikTok intelligence to cross-platform analysis
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Collection performance metrics
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
-- [**Real-time Monitoring**](/capabilities/real-time-monitoring/) -- Live collection dashboards
+- [**Intelligence Synthesis**](@/capabilities/intelligence-synthesis.md) -- Feeds TikTok intelligence to cross-platform analysis
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Collection performance metrics
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
+- [**Real-time Monitoring**](@/capabilities/real-time-monitoring.md) -- Live collection dashboards
 
 ## Related Agents
 
-- [**Social Media Network Analyst**](/agents/social-media-network-analyst/) -- Cross-platform intelligence synthesis hub
-- [**Twitter/X Intelligence Specialist**](/agents/twitter-x-intelligence-specialist/) -- Parallel social platform intelligence
-- [**Siege Master Specialist**](/agents/siege-master-specialist/) -- Long-term persistent operations
+- [**Social Media Network Analyst**](@/agents/social-media-network-analyst.md) -- Cross-platform intelligence synthesis hub
+- [**Twitter/X Intelligence Specialist**](@/agents/twitter-x-intelligence-specialist.md) -- Parallel social platform intelligence
+- [**Siege Master Specialist**](@/agents/siege-master-specialist.md) -- Long-term persistent operations
 
 ## Platform-Specific Challenges
 
@@ -274,7 +274,7 @@ TikTok presents several unique challenges that distinguish it from other social 
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority over TikTok-specific intelligence collection and analysis operations.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority over TikTok-specific intelligence collection and analysis operations.
 
 ---
 
@@ -283,4 +283,4 @@ TikTok presents several unique challenges that distinguish it from other social 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

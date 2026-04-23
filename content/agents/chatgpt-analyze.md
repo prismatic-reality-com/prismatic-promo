@@ -30,33 +30,33 @@ image_alt = "chatgpt-analyze - Prismatic Platform"
 
 The ChatGPT Analyze agent operates as an L4 domain specialist within the Code Analysis and Architecture domain of the Prismatic Platform. This agent bridges the Prismatic ecosystem with external large language model capabilities, specifically leveraging ChatGPT for deep code analysis, architectural pattern recognition, and system design review. It serves as a specialized interface that translates platform-internal code structures into prompts optimized for external AI analysis, then validates and integrates the resulting insights back into the platform's knowledge base under strict evidence standards.
 
-The agent was designed to augment the platform's native static analysis capabilities with the broader pattern recognition strengths of general-purpose language models. While Prismatic's internal tools excel at [Elixir](/glossary/elixir/)-specific analysis ([Credo](/glossary/credo/), [Dialyzer](/glossary/dialyzer/), custom [quality gates](/glossary/quality-gates/)), the ChatGPT Analyze agent brings cross-language architectural awareness, enabling it to identify design patterns, anti-patterns, and optimization opportunities that draw from the entire software engineering knowledge base rather than being limited to Elixir conventions. Every external analysis result undergoes validation against platform evidence standards before acceptance, ensuring that external AI insights meet the same rigor as internally generated analysis. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+The agent was designed to augment the platform's native static analysis capabilities with the broader pattern recognition strengths of general-purpose language models. While Prismatic's internal tools excel at [Elixir](@/glossary/elixir.md)-specific analysis ([Credo](@/glossary/credo.md), [Dialyzer](@/glossary/dialyzer.md), custom [quality gates](@/glossary/quality-gates.md)), the ChatGPT Analyze agent brings cross-language architectural awareness, enabling it to identify design patterns, anti-patterns, and optimization opportunities that draw from the entire software engineering knowledge base rather than being limited to Elixir conventions. Every external analysis result undergoes validation against platform evidence standards before acceptance, ensuring that external AI insights meet the same rigor as internally generated analysis. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
 The ChatGPT Analyze agent implements a four-layer architecture that separates code extraction, prompt engineering, API interaction, and result validation into distinct processing stages.
 
-**Code Context Extractor** -- The first layer is responsible for extracting relevant code context from the platform's codebase. For a targeted analysis request, the extractor identifies not just the specified module but its dependency graph, its position within the [supervision tree](/glossary/supervision-tree/), its test coverage profile, and its recent change history. This enriched context enables the external AI to provide analysis that accounts for the module's role within the larger system rather than analyzing code in isolation.
+**Code Context Extractor** -- The first layer is responsible for extracting relevant code context from the platform's codebase. For a targeted analysis request, the extractor identifies not just the specified module but its dependency graph, its position within the [supervision tree](@/glossary/supervision-tree.md), its test coverage profile, and its recent change history. This enriched context enables the external AI to provide analysis that accounts for the module's role within the larger system rather than analyzing code in isolation.
 
 **Prompt Assembly Engine** -- The second layer transforms extracted code context into optimized analysis prompts. The engine selects from a library of tested prompt templates based on the analysis type (architecture review, performance analysis, security audit, refactoring recommendation) and assembles the prompt with the extracted context. Token budget management ensures that the assembled prompt fits within model context limits while preserving the most analytically relevant information.
 
-**API Interaction Layer** -- The third layer manages the actual ChatGPT API communication through the platform's bridge infrastructure. This includes request queuing, priority ordering, response streaming for large analyses, and error handling for transient API failures. The interaction layer is stateless, delegating all connection management to the [chatgpt-bridge-commander](/agents/chatgpt-bridge-commander/).
+**API Interaction Layer** -- The third layer manages the actual ChatGPT API communication through the platform's bridge infrastructure. This includes request queuing, priority ordering, response streaming for large analyses, and error handling for transient API failures. The interaction layer is stateless, delegating all connection management to the [chatgpt-bridge-commander](@/agents/chatgpt-bridge-commander.md).
 
 **Result Validation Engine** -- The fourth and most critical layer validates external AI analysis results against platform evidence standards. Architectural recommendations are checked against the platform's established patterns. Performance suggestions are benchmarked against actual telemetry data. Security findings are verified against the platform's threat model. Only validated insights propagate into the platform's knowledge base.
 
 ## Core Capabilities
 
-- **Architectural pattern recognition** identifying design patterns, anti-patterns, and structural issues across the [umbrella application](/glossary/umbrella-application/) ecosystem through cross-language AI analysis that draws from broader software engineering knowledge
-- **System design review** evaluating scalability characteristics, performance bottlenecks, and [fault tolerance](/glossary/fault-tolerance/) properties of proposed architectural changes before implementation commits resources
+- **Architectural pattern recognition** identifying design patterns, anti-patterns, and structural issues across the [umbrella application](@/glossary/umbrella-application.md) ecosystem through cross-language AI analysis that draws from broader software engineering knowledge
+- **System design review** evaluating scalability characteristics, performance bottlenecks, and [fault tolerance](@/glossary/fault-tolerance.md) properties of proposed architectural changes before implementation commits resources
 - **Technology stack evaluation** providing trade-off analysis and evidence-based recommendations for library selection, framework adoption, and infrastructure decisions through comparative AI analysis
-- **Code complexity analysis** measuring cyclomatic complexity, coupling [metrics](/glossary/metrics/), and cohesion indicators to identify modules that would benefit from refactoring or consolidation
-- **Cross-language insight synthesis** translating proven patterns from other language ecosystems (Rust ownership patterns, Go concurrency patterns, Haskell type system patterns) into Elixir-idiomatic implementations that leverage [OTP](/glossary/otp/) strengths
+- **Code complexity analysis** measuring cyclomatic complexity, coupling [metrics](@/glossary/metrics.md), and cohesion indicators to identify modules that would benefit from refactoring or consolidation
+- **Cross-language insight synthesis** translating proven patterns from other language ecosystems (Rust ownership patterns, Go concurrency patterns, Haskell type system patterns) into Elixir-idiomatic implementations that leverage [OTP](@/glossary/otp.md) strengths
 - **Refactoring impact assessment** analyzing proposed code changes to predict their impact on system stability, test coverage, and downstream dependencies before the changes are implemented
 - **Technical debt quantification** using AI analysis to estimate the maintenance cost of existing code patterns compared to recommended alternatives, providing economic justification for refactoring investments
 
 ## Implementation
 
-The analysis pipeline is implemented as a supervised [GenServer](/glossary/genserver/) that manages concurrent analysis requests with configurable parallelism.
+The analysis pipeline is implemented as a supervised [GenServer](@/glossary/genserver.md) that manages concurrent analysis requests with configurable parallelism.
 
 ```elixir
 defmodule Prismatic.AI.ChatGPT.Analyzer do
@@ -129,13 +129,13 @@ end
 
 | Component | Integration Type | Function |
 |-----------|-----------------|----------|
-| [architecture-review-specialist](/agents/architecture-review-specialist/) | Analysis Consumer | Receives architectural analysis results for review decisions and pattern enforcement |
-| [code-review-specialist-agent-v20](/agents/code-review-specialist-agent-v20/) | Quality Partner | Collaborates on code quality assessment combining AI-generated insights with rule-based analysis |
-| [chatgpt-bridge-commander](/agents/chatgpt-bridge-commander/) | Transport Layer | Provides API communication, connection pooling, and rate limiting for ChatGPT interactions |
-| [chatgpt-prompt-engineer](/agents/chatgpt-prompt-engineer/) | Prompt Optimization | Supplies optimized prompt templates and manages A/B testing for analysis prompt effectiveness |
-| [chatgpt-context-manager](/agents/chatgpt-context-manager/) | Context Management | Coordinates context window optimization and cross-session context preservation |
-| [ETS](/glossary/ets/) Analysis Cache | Performance | Caches recent analysis results to avoid redundant API calls for unchanged code |
-| [Prismatic Telemetry](/glossary/telemetry/) | Observability | Emits analysis metrics including duration, token consumption, finding counts, and validation rates |
+| [architecture-review-specialist](@/agents/architecture-review-specialist.md) | Analysis Consumer | Receives architectural analysis results for review decisions and pattern enforcement |
+| [code-review-specialist-agent-v20](@/agents/code-review-specialist-agent-v20.md) | Quality Partner | Collaborates on code quality assessment combining AI-generated insights with rule-based analysis |
+| [chatgpt-bridge-commander](@/agents/chatgpt-bridge-commander.md) | Transport Layer | Provides API communication, connection pooling, and rate limiting for ChatGPT interactions |
+| [chatgpt-prompt-engineer](@/agents/chatgpt-prompt-engineer.md) | Prompt Optimization | Supplies optimized prompt templates and manages A/B testing for analysis prompt effectiveness |
+| [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) | Context Management | Coordinates context window optimization and cross-session context preservation |
+| [ETS](@/glossary/ets.md) Analysis Cache | Performance | Caches recent analysis results to avoid redundant API calls for unchanged code |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Observability | Emits analysis metrics including duration, token consumption, finding counts, and validation rates |
 
 ## Operational Workflow
 
@@ -195,11 +195,11 @@ config :prismatic_ai, Prismatic.AI.ChatGPT.Analyzer,
 
 ## Related Resources
 
-- [**chatgpt-bridge-commander**](/agents/chatgpt-bridge-commander/) (L2) -- API transport layer for ChatGPT communication
-- [**chatgpt-prompt-engineer**](/agents/chatgpt-prompt-engineer/) (L3) -- Prompt template management and optimization
-- [**architecture-review-specialist**](/agents/architecture-review-specialist/) -- Architectural analysis consumer and enforcement
-- [**code-review-specialist-agent-v20**](/agents/code-review-specialist-agent-v20/) (L3) -- Collaborative code quality assessment
-- [Quality Gates](/glossary/quality-gates/) -- Platform quality validation framework
+- [**chatgpt-bridge-commander**](@/agents/chatgpt-bridge-commander.md) (L2) -- API transport layer for ChatGPT communication
+- [**chatgpt-prompt-engineer**](@/agents/chatgpt-prompt-engineer.md) (L3) -- Prompt template management and optimization
+- [**architecture-review-specialist**](@/agents/architecture-review-specialist.md) -- Architectural analysis consumer and enforcement
+- [**code-review-specialist-agent-v20**](@/agents/code-review-specialist-agent-v20.md) (L3) -- Collaborative code quality assessment
+- [Quality Gates](@/glossary/quality-gates.md) -- Platform quality validation framework
 
 ---
 
@@ -208,4 +208,4 @@ config :prismatic_ai, Prismatic.AI.ChatGPT.Analyzer,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

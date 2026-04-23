@@ -28,7 +28,7 @@ image_alt = "commit-orchestrator - Prismatic Platform"
 
 ## Executive Summary
 
-The Commit Orchestrator operates as an L3 [strategic command](/glossary/strategic-command/) agent within the [AIAD](/glossary/aiad/) Enhanced domain of the Prismatic Platform. This agent manages strategic commit workflow policies, coordinating commit batching strategies, branch protection enforcement, merge request automation, and the integration between Git operations and the platform's evolutionary development lifecycle. While the [commit-coordinator](/agents/commit-coordinator/) handles individual commit validation, the Commit Orchestrator operates at the strategic level, governing how commits flow from development branches through review to integration.
+The Commit Orchestrator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the [AIAD](@/glossary/aiad.md) Enhanced domain of the Prismatic Platform. This agent manages strategic commit workflow policies, coordinating commit batching strategies, branch protection enforcement, merge request automation, and the integration between Git operations and the platform's evolutionary development lifecycle. While the [commit-coordinator](@/agents/commit-coordinator.md) handles individual commit validation, the Commit Orchestrator operates at the strategic level, governing how commits flow from development branches through review to integration.
 
 The Prismatic Platform's development velocity -- with 434 agents potentially generating code changes and multiple human developers working concurrently -- requires strategic commit flow management. Without orchestration, concurrent changes can create merge conflicts, quality gate bottlenecks, and integration failures. The Commit Orchestrator manages this complexity by coordinating commit timing, enforcing branch protection policies, automating merge request creation, and ensuring that the platform's evolutionary development lifecycle is properly reflected in the Git history.
 
@@ -137,9 +137,9 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [commit-coordinator](/agents/commit-coordinator/) | Tactical Executor | Handles individual commit validation and quality gate enforcement |
-| [cicd-coordinator-agent](/agents/cicd-coordinator-agent/) | Pipeline Integration | Coordinates CI pipeline triggers for branch operations |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality Standards | Defines quality thresholds for merge readiness |
+| [commit-coordinator](@/agents/commit-coordinator.md) | Tactical Executor | Handles individual commit validation and quality gate enforcement |
+| [cicd-coordinator-agent](@/agents/cicd-coordinator-agent.md) | Pipeline Integration | Coordinates CI pipeline triggers for branch operations |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality Standards | Defines quality thresholds for merge readiness |
 
 ## Operational Workflow
 
@@ -166,15 +166,15 @@ end
 
 ## Enforcement
 
-Commit orchestration operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Branch protection rules are non-negotiable. Direct pushes to protected branches are blocked without exception. Merge readiness requirements must be fully satisfied before integration proceeds. The [Trinity Gate](/glossary/trinity-gate/) validation ensures that major integration decisions pass structural, logical, and formal consistency checks.
+Commit orchestration operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Branch protection rules are non-negotiable. Direct pushes to protected branches are blocked without exception. Merge readiness requirements must be fully satisfied before integration proceeds. The [Trinity Gate](@/glossary/trinity-gate.md) validation ensures that major integration decisions pass structural, logical, and formal consistency checks.
 
 ## Related Resources
 
-- [commit-coordinator](/agents/commit-coordinator/) -- Individual commit validation
-- [cicd-coordinator-agent](/agents/cicd-coordinator-agent/) -- Pipeline orchestration
-- [code-quality-commander](/agents/code-quality-commander/) -- Quality enforcement
-- [SEADF](/glossary/seadf/) -- Ecosystem evolution
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [commit-coordinator](@/agents/commit-coordinator.md) -- Individual commit validation
+- [cicd-coordinator-agent](@/agents/cicd-coordinator-agent.md) -- Pipeline orchestration
+- [code-quality-commander](@/agents/code-quality-commander.md) -- Quality enforcement
+- [SEADF](@/glossary/seadf.md) -- Ecosystem evolution
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -183,4 +183,4 @@ Commit orchestration operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,9 +24,9 @@ image_alt = "Prismatic Testing - Prismatic Platform"
 
 ## Overview
 
-Prismatic Testing provides the platform's comprehensive testing infrastructure, including unit test utilities, [property-based testing](/glossary/property-based-testing/) generators, integration test harnesses, contract testing for storage adapters, and end-to-end test orchestration across the 90-application umbrella.
+Prismatic Testing provides the platform's comprehensive testing infrastructure, including unit test utilities, [property-based testing](@/glossary/property-based-testing.md) generators, integration test harnesses, contract testing for storage adapters, and end-to-end test orchestration across the 90-application umbrella.
 
-The framework enforces the [NO MERCY](/glossary/no-mercy/) doctrine requirement of 100% test coverage with zero stubs, mocks, or placeholder implementations. Every test validates real behavior against real (or in-memory) backends. This principle ensures that tests provide genuine confidence in system correctness rather than merely verifying that mocks return expected values. The result is a test suite that catches integration issues, race conditions, and behavioral regressions that mock-based testing would miss entirely.
+The framework enforces the [NO MERCY](@/glossary/no-mercy.md) doctrine requirement of 100% test coverage with zero stubs, mocks, or placeholder implementations. Every test validates real behavior against real (or in-memory) backends. This principle ensures that tests provide genuine confidence in system correctness rather than merely verifying that mocks return expected values. The result is a test suite that catches integration issues, race conditions, and behavioral regressions that mock-based testing would miss entirely.
 
 The testing framework serves three distinct audiences: individual module developers who need fast unit feedback, integration teams who need cross-application verification, and the platform's autonomous evolution system which uses test results as fitness signals for generation-based improvement. Each audience requires different test characteristics -- speed, isolation, and coverage respectively -- and the framework's phased execution model accommodates all three.
 
@@ -56,7 +56,7 @@ The phased execution model ensures that fast tests run first, providing rapid fe
 
 ## Contract Testing
 
-The adapter contract test framework is the most architecturally significant component of Prismatic Testing. It verifies that every [storage adapter](/apps/prismatic-storage/) correctly implements the required protocols and behaviors defined by [Prismatic Storage Core](/apps/prismatic-storage-core/).
+The adapter contract test framework is the most architecturally significant component of Prismatic Testing. It verifies that every [storage adapter](@/apps/prismatic-storage.md) correctly implements the required protocols and behaviors defined by [Prismatic Storage Core](@/apps/prismatic-storage-core.md).
 
 ```elixir
 # Use the contract test macro in any adapter test
@@ -181,12 +181,12 @@ Factories differ from generators in their purpose: generators produce random dat
 ### NO MERCY Test Requirements
 - 100% coverage on business logic
 - Zero stubs or mocks in production test suites
-- Every bug fix requires a [regression test](/glossary/regression-test/)
+- Every bug fix requires a [regression test](@/glossary/regression-test.md)
 - Property-based tests for all data transformation functions
 - Contract tests for every storage adapter
 
 ### Pre-Commit Integration
-Tests run automatically via the [Prismatic Safety](/apps/prismatic-safety/) pre-commit hook:
+Tests run automatically via the [Prismatic Safety](@/apps/prismatic-safety.md) pre-commit hook:
 ```bash
 # Pre-commit test gate (automatic)
 mix test --warnings-as-errors
@@ -198,10 +198,10 @@ mix dialyzer
 
 | Application | Relationship |
 |-------------|-------------|
-| [Prismatic Storage](/apps/prismatic-storage/) | Contract testing for all adapters |
-| [Prismatic Safety](/apps/prismatic-safety/) | Quality gate verification |
-| [Prismatic Agents](/apps/prismatic-agents/) | Agent behavior testing |
-| [Prismatic Web](/apps/prismatic-web/) | [LiveView](/glossary/liveview/) integration tests |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Contract testing for all adapters |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Quality gate verification |
+| [Prismatic Agents](@/apps/prismatic-agents.md) | Agent behavior testing |
+| [Prismatic Web](@/apps/prismatic-web.md) | [LiveView](@/glossary/liveview.md) integration tests |
 
 ## Usage
 
@@ -228,15 +228,15 @@ The testing framework satisfies the Provenance Mandatory axiom by requiring that
 
 ## Related Agents
 
-- [CI/CD Guardrails Enforcer](/agents/cicd-guardrails-enforcer/) -- Enforces test coverage thresholds and quality gates in CI/CD pipelines
-- [Evolution Analyzer Specialist](/agents/evolution-analyzer-specialist/) -- Analyzes test coverage trends and identifies testing gaps
-- [Elixir Architect](/agents/elixir-architect/) -- Reviews test infrastructure patterns for OTP compliance
+- [CI/CD Guardrails Enforcer](@/agents/cicd-guardrails-enforcer.md) -- Enforces test coverage thresholds and quality gates in CI/CD pipelines
+- [Evolution Analyzer Specialist](@/agents/evolution-analyzer-specialist.md) -- Analyzes test coverage trends and identifies testing gaps
+- [Elixir Architect](@/agents/elixir-architect.md) -- Reviews test infrastructure patterns for OTP compliance
 
 ## Related Capabilities
 
-- [Quality Gates](/capabilities/quality-gates/) -- Test execution integrated into the 13-domain quality gate validation pipeline
-- [Regression Tests](/capabilities/regression-tests/) -- Mandatory regression test protocol enforced for every bug fix
-- [No Mercy](/capabilities/no-mercy/) -- Zero-tolerance policy requiring 100% test coverage with no stubs or mocks
+- [Quality Gates](@/capabilities/quality-gates.md) -- Test execution integrated into the 13-domain quality gate validation pipeline
+- [Regression Tests](@/capabilities/regression-tests.md) -- Mandatory regression test protocol enforced for every bug fix
+- [No Mercy](@/capabilities/no-mercy.md) -- Zero-tolerance policy requiring 100% test coverage with no stubs or mocks
 
 ## Production Status
 
@@ -244,7 +244,7 @@ The testing framework satisfies the Provenance Mandatory axiom by requiring that
 **Total Tests**: 121+ across 3 phases
 **Coverage**: 100% on business logic
 **Property Tests**: StreamData generators for all core types
-**Contract Tests**: Full adapter [protocol](/glossary/protocol/) verification
+**Contract Tests**: Full adapter [protocol](@/glossary/protocol.md) verification
 
 ---
 
@@ -253,4 +253,4 @@ The testing framework satisfies the Provenance Mandatory axiom by requiring that
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

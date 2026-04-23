@@ -28,9 +28,9 @@ image_alt = "pattern-quality-analyst - Prismatic Platform"
 
 ## Overview
 
-The Pattern Quality Analyst operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's quality-analysis domain, providing comprehensive quality assessment for patterns that flow through the platform's [mycelial network](/glossary/mycelial-network/). Every pattern in the platform -- whether a code quality fix, an architectural decision, a performance optimization, or an intelligence correlation rule -- must be evaluated for quality before it is propagated, stored, or acted upon. This agent serves as the central quality gatekeeper for the platform's pattern ecosystem.
+The Pattern Quality Analyst operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's quality-analysis domain, providing comprehensive quality assessment for patterns that flow through the platform's [mycelial network](@/glossary/mycelial-network.md). Every pattern in the platform -- whether a code quality fix, an architectural decision, a performance optimization, or an intelligence correlation rule -- must be evaluated for quality before it is propagated, stored, or acted upon. This agent serves as the central quality gatekeeper for the platform's pattern ecosystem.
 
-The analyst applies a multi-dimensional quality framework that evaluates patterns across [confidence scoring](/glossary/confidence-scoring/), structural consistency, empirical impact assessment, and contextual appropriateness. Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO DOUBTS](/glossary/no-doubts/) principle, the agent ensures that quality assessments are themselves evidence-based rather than heuristic, producing quantified quality scores backed by traceable evaluation criteria. The [Trinity Gate](/glossary/trinity-gate/) validation framework provides the formal backbone for quality gate enforcement.
+The analyst applies a multi-dimensional quality framework that evaluates patterns across [confidence scoring](@/glossary/confidence-scoring.md), structural consistency, empirical impact assessment, and contextual appropriateness. Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO DOUBTS](@/glossary/no-doubts.md) principle, the agent ensures that quality assessments are themselves evidence-based rather than heuristic, producing quantified quality scores backed by traceable evaluation criteria. The [Trinity Gate](@/glossary/trinity-gate.md) validation framework provides the formal backbone for quality gate enforcement.
 
 ## Theoretical Foundations
 
@@ -38,11 +38,11 @@ Pattern quality in a self-evolving system requires a formal definition that goes
 
 Each dimension is evaluated using quantified metrics that produce scores on a normalized scale. The aggregate quality score is computed as a weighted combination of dimensional scores, with weights that vary by pattern type and application context. Critical infrastructure patterns, for example, weight behavioral correctness and compositional safety more heavily than contextual fitness, while intelligence correlation patterns weight temporal stability and contextual fitness more highly.
 
-The formal quality model is grounded in [NABLA Infinity](/glossary/nabla-infinity/) axioms. The signal plurality axiom requires that quality assessments draw on multiple independent evaluation signals rather than relying on a single metric. The contradiction preservation axiom ensures that conflicting quality indicators are preserved and flagged rather than averaged into a misleading composite score.
+The formal quality model is grounded in [NABLA Infinity](@/glossary/nabla-infinity.md) axioms. The signal plurality axiom requires that quality assessments draw on multiple independent evaluation signals rather than relying on a single metric. The contradiction preservation axiom ensures that conflicting quality indicators are preserved and flagged rather than averaged into a misleading composite score.
 
 ## Operational Domain
 
-The quality-analysis domain spans all pattern types within the Prismatic Platform, making it one of the broadest operational domains in the agent ecosystem. Pattern types evaluated include code quality patterns (identified by the [pattern-matching-auditor](/agents/pattern-matching-auditor/) and related quality agents), architectural patterns (structural decisions about module organization, process topology, and data flow), performance patterns (optimization strategies and resource utilization approaches), intelligence patterns (OSINT correlation rules, entity resolution heuristics, and confidence scoring models), and evolutionary patterns (genetic programming outcomes from the [SEADF](/glossary/seadf/) framework).
+The quality-analysis domain spans all pattern types within the Prismatic Platform, making it one of the broadest operational domains in the agent ecosystem. Pattern types evaluated include code quality patterns (identified by the [pattern-matching-auditor](@/agents/pattern-matching-auditor.md) and related quality agents), architectural patterns (structural decisions about module organization, process topology, and data flow), performance patterns (optimization strategies and resource utilization approaches), intelligence patterns (OSINT correlation rules, entity resolution heuristics, and confidence scoring models), and evolutionary patterns (genetic programming outcomes from the [SEADF](@/glossary/seadf.md) framework).
 
 The agent maintains a quality history database that tracks the evolution of pattern quality over time, supporting trend analysis that detects gradual quality degradation before it reaches critical thresholds. Quality history data also supports the identification of patterns that improve with evolutionary refinement versus those that plateau or degrade.
 
@@ -58,9 +58,9 @@ The agent maintains a quality history database that tracks the evolution of patt
 
 - **Temporal quality tracking** -- Monitors pattern quality over time, detecting degradation trends and triggering re-evaluation or deprecation of patterns whose quality falls below maintenance thresholds
 
-- **[Property-based testing](/glossary/property-based-testing/) integration** -- Generates property-based test suites for behavioral correctness evaluation, testing patterns against randomized inputs to discover edge-case quality issues
+- **[Property-based testing](@/glossary/property-based-testing.md) integration** -- Generates property-based test suites for behavioral correctness evaluation, testing patterns against randomized inputs to discover edge-case quality issues
 
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing quality assessment results for dashboard visualization and trend monitoring
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing quality assessment results for dashboard visualization and trend monitoring
 
 ## Authority Level
 
@@ -78,7 +78,7 @@ The quality assessment pipeline processes patterns through a structured sequence
 6. **Confidence Computation** -- All evaluation signals are combined into dimensional and aggregate quality scores
 7. **Gate Decision** -- Quality scores are compared against applicable gate thresholds to produce pass/fail decisions
 
-Each pipeline stage produces structured output that feeds into subsequent stages, creating a comprehensive quality dossier for every evaluated pattern. Pipeline execution is instrumented with [telemetry](/glossary/telemetry/) events for performance monitoring and diagnostic analysis.
+Each pipeline stage produces structured output that feeds into subsequent stages, creating a comprehensive quality dossier for every evaluated pattern. Pipeline execution is instrumented with [telemetry](@/glossary/telemetry.md) events for performance monitoring and diagnostic analysis.
 
 ## Command Interface
 
@@ -93,10 +93,10 @@ Each pipeline stage produces structured output that feeds into subsequent stages
 
 | Agent | Relationship |
 |-------|-------------|
-| [pattern-matching-auditor](/agents/pattern-matching-auditor/) | Provides patterns for quality evaluation from code auditing |
-| [pattern-propagator-specialist](/agents/pattern-propagator-specialist/) | Quality scores determine propagation eligibility and priority |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality assessment results feed into platform quality score |
-| [Mycelial Genetic Evolver Agent](/agents/mycelial-genetic-evolver-agent/) | Quality fitness metrics drive evolutionary selection pressure |
+| [pattern-matching-auditor](@/agents/pattern-matching-auditor.md) | Provides patterns for quality evaluation from code auditing |
+| [pattern-propagator-specialist](@/agents/pattern-propagator-specialist.md) | Quality scores determine propagation eligibility and priority |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality assessment results feed into platform quality score |
+| [Mycelial Genetic Evolver Agent](@/agents/mycelial-genetic-evolver-agent.md) | Quality fitness metrics drive evolutionary selection pressure |
 
 ## Quality Gate Configuration
 
@@ -114,7 +114,7 @@ Hard block gates prevent pattern progression until the quality score meets the t
 
 ## Enforcement
 
-Quality analysis enforcement follows the [NO MERCY](/glossary/no-mercy/) doctrine: patterns that fail quality gates are not propagated, deployed, or acted upon regardless of urgency. The [NO DOUBTS](/glossary/no-doubts/) principle governs the assessment process itself, requiring that all quality scores are backed by traceable evaluation evidence and that assessment methodology is auditable. Quality gate decisions pass through [Trinity Gate](/glossary/trinity-gate/) validation to ensure structural, logical, and formal consistency.
+Quality analysis enforcement follows the [NO MERCY](@/glossary/no-mercy.md) doctrine: patterns that fail quality gates are not propagated, deployed, or acted upon regardless of urgency. The [NO DOUBTS](@/glossary/no-doubts.md) principle governs the assessment process itself, requiring that all quality scores are backed by traceable evaluation evidence and that assessment methodology is auditable. Quality gate decisions pass through [Trinity Gate](@/glossary/trinity-gate.md) validation to ensure structural, logical, and formal consistency.
 
 ## Related Agents
 
@@ -127,4 +127,4 @@ Agents in the **quality-analysis** domain collaborate with pattern management ag
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

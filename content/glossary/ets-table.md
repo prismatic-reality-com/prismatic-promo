@@ -20,7 +20,7 @@ image_alt = "ETS Table - Prismatic Platform"
 
 ## Definition and Overview
 
-ETS (Erlang Term Storage) tables are in-memory key-value stores built directly into the BEAM virtual machine, providing O(1) average-case lookup time for arbitrary Erlang and Elixir terms. Unlike process-based state management (such as [GenServer](/glossary/genserver/) state), ETS tables allow concurrent read access from multiple processes without serialization bottlenecks, making them the standard solution for shared read-heavy data on the BEAM. ETS tables store data as tuples where one element serves as the key, and they support four table types (set, ordered_set, bag, duplicate_bag) to accommodate different access patterns.
+ETS (Erlang Term Storage) tables are in-memory key-value stores built directly into the BEAM virtual machine, providing O(1) average-case lookup time for arbitrary Erlang and Elixir terms. Unlike process-based state management (such as [GenServer](@/glossary/genserver.md) state), ETS tables allow concurrent read access from multiple processes without serialization bottlenecks, making them the standard solution for shared read-heavy data on the BEAM. ETS tables store data as tuples where one element serves as the key, and they support four table types (set, ordered_set, bag, duplicate_bag) to accommodate different access patterns.
 
 ETS was introduced in early versions of Erlang/OTP as a response to the fundamental tension between BEAM's process isolation model and the need for shared state. In the actor model, each process owns its state exclusively, and all inter-process communication happens through message passing. While this model provides excellent fault isolation and concurrency safety, it creates a bottleneck when many processes need to read the same data: all reads must be serialized through the owning process's mailbox. ETS resolves this by providing a shared memory region that any process can read without sending messages, while still maintaining the BEAM's safety guarantees through atomic operations and copy semantics.
 
@@ -313,19 +313,19 @@ The platform uses `read_concurrency: true` and `write_concurrency: true` options
 
 ## Related Concepts
 
-- [GenServer](/glossary/genserver/) -- Stateful processes that commonly own and manage ETS tables
-- [BEAM](/glossary/beam/) -- Virtual machine providing native ETS table support
-- [OTP](/glossary/otp/) -- Framework providing supervision for ETS table lifecycle management
-- [Registry (OTP)](/glossary/registry-otp/) -- Process registry built on top of ETS tables
-- [Process Isolation](/glossary/process-isolation/) -- Isolation model that ETS tables bridge for shared data
-- [Prismatic Storage](/glossary/prismatic-storage/) -- Storage layer with ETS as a backend adapter
-- [Prismatic API](/glossary/prismatic-api/) -- API gateway caching endpoint metadata in ETS
+- [GenServer](@/glossary/genserver.md) -- Stateful processes that commonly own and manage ETS tables
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing native ETS table support
+- [OTP](@/glossary/otp.md) -- Framework providing supervision for ETS table lifecycle management
+- [Registry (OTP)](@/glossary/registry-otp.md) -- Process registry built on top of ETS tables
+- [Process Isolation](@/glossary/process-isolation.md) -- Isolation model that ETS tables bridge for shared data
+- [Prismatic Storage](@/glossary/prismatic-storage.md) -- Storage layer with ETS as a backend adapter
+- [Prismatic API](@/glossary/prismatic-api.md) -- API gateway caching endpoint metadata in ETS
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Umbrella applications using ETS tables
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications using ETS tables
 
 ---
 
@@ -334,4 +334,4 @@ The platform uses `read_concurrency: true` and `write_concurrency: true` options
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

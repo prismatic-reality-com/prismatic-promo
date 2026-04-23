@@ -484,24 +484,24 @@ end
 
 ## Related Terms
 
-- [Mutant](/glossary/mutant/) -- the altered code produced from a mark by applying a mutation operator
-- [Mutation](/glossary/mutation/) -- the specific change applied at a mark location
-- [Mutation Testing](/glossary/mutation-testing/) -- the methodology using marks for test quality assessment
-- [Killed/Survived](/glossary/killed-survived/) -- outcome classification of mutants generated from marks
-- [Mutation Score](/glossary/mutation-score/) -- the ratio of killed mutants to total non-equivalent mutants
-- [AST](/glossary/ast/) -- Abstract Syntax Tree used for mark identification via pattern matching
-- [Code Coverage](/glossary/code-coverage/) -- line-level execution tracking that marks complement with verification measurement
-- [Quality Floor](/glossary/quality-floor/) -- minimum quality thresholds enforced by the Quality Floor Guardian
+- [Mutant](@/glossary/mutant.md) -- the altered code produced from a mark by applying a mutation operator
+- [Mutation](@/glossary/mutation.md) -- the specific change applied at a mark location
+- [Mutation Testing](@/glossary/mutation-testing.md) -- the methodology using marks for test quality assessment
+- [Killed/Survived](@/glossary/killed-survived.md) -- outcome classification of mutants generated from marks
+- [Mutation Score](@/glossary/mutation-score.md) -- the ratio of killed mutants to total non-equivalent mutants
+- [AST](@/glossary/ast.md) -- Abstract Syntax Tree used for mark identification via pattern matching
+- [Code Coverage](@/glossary/code-coverage.md) -- line-level execution tracking that marks complement with verification measurement
+- [Quality Floor](@/glossary/quality-floor.md) -- minimum quality thresholds enforced by the Quality Floor Guardian
 - [Cyclomatic Complexity](/glossary/cyclomatic-complexity/) -- complexity metric correlated with mark density
 - [Property Testing](/glossary/property-testing/) -- ExUnitProperties-based testing particularly effective at killing mutants
-- [Macro](/glossary/macro/) -- Elixir metaprogramming constructs that may generate additional marks
-- [Test Coverage](/glossary/test-coverage/) -- the broader test adequacy measurement that mutation testing strengthens
+- [Macro](@/glossary/macro.md) -- Elixir metaprogramming constructs that may generate additional marks
+- [Test Coverage](@/glossary/test-coverage.md) -- the broader test adequacy measurement that mutation testing strengthens
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- quality assurance and mutation testing capabilities
-- [Architecture](/architecture/) -- testing architecture and quality infrastructure patterns
-- [Quality Floor Guardian](/architecture/) -- the system that tracks mark counts and mutation scores
+- [Capabilities](@/capabilities/_index.md) -- quality assurance and mutation testing capabilities
+- [Architecture](@/architecture/_index.md) -- testing architecture and quality infrastructure patterns
+- [Quality Floor Guardian](@/architecture/_index.md) -- the system that tracks mark counts and mutation scores
 
 ---
 
@@ -510,4 +510,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

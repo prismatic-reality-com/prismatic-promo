@@ -24,13 +24,13 @@ image_alt = "/evidence-enforcement - Prismatic Platform"
 
 ## Overview
 
-**/evidence-enforcement** is a production command in the **Framework** category of the Prismatic Platform. It provides rigorous evidence-based enforcement for claims and assertions validation, ensuring that every decision, belief, and technical claim within the platform ecosystem is backed by verifiable evidence. This command is a direct operational expression of the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework and its seven non-negotiable axioms.
+**/evidence-enforcement** is a production command in the **Framework** category of the Prismatic Platform. It provides rigorous evidence-based enforcement for claims and assertions validation, ensuring that every decision, belief, and technical claim within the platform ecosystem is backed by verifiable evidence. This command is a direct operational expression of the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework and its seven non-negotiable axioms.
 
 In complex AI-assisted development platforms, epistemic drift is a persistent threat. Claims propagate through agent chains, confidence levels are asserted without validation, and decisions accumulate on foundations of unverified assumptions. The `/evidence-enforcement` command systematically prevents this degradation by requiring that every assertion pass through structured evidence validation before being accepted as a basis for action.
 
-The evidence-enforcement-specialist agent implements the full [Trinity Gate](/glossary/trinity-gate/) validation protocol: structural consistency (belief network forms a valid DAG), logical consistency (propositions follow logical rules), and formal necessity (claims proven in formal systems). Claims that fail any gate are blocked from propagation, and the operator receives detailed diagnostics explaining the specific validation failure.
+The evidence-enforcement-specialist agent implements the full [Trinity Gate](@/glossary/trinity-gate.md) validation protocol: structural consistency (belief network forms a valid DAG), logical consistency (propositions follow logical rules), and formal necessity (claims proven in formal systems). Claims that fail any gate are blocked from propagation, and the operator receives detailed diagnostics explaining the specific validation failure.
 
-This command operates under the **L3** authority level, reflecting its role as a strategic governance mechanism. L3 authority is required because evidence enforcement can block decisions and escalate violations to supreme review. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level, reflecting its role as a strategic governance mechanism. L3 authority is required because evidence enforcement can block decisions and escalate violations to supreme review. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -53,7 +53,7 @@ Claim Input --> Provenance Checker --> Plurality Validator --> Trinity Gate
 
 **Plurality Validator**: Enforces signal plurality (Axiom 1). Claims backed by a single source receive reduced confidence. The validator requires minimum two independent signals for belief establishment, with source independence scoring (Axiom 6) applied to weight corroborating evidence.
 
-**Trinity Gate**: The final three-layer validation barrier. Structural consistency ensures the belief network remains a valid DAG. Logical consistency validates propositional coherence. Formal necessity optionally invokes [Lean4](/glossary/lean4/) proof verification for critical claims.
+**Trinity Gate**: The final three-layer validation barrier. Structural consistency ensures the belief network remains a valid DAG. Logical consistency validates propositional coherence. Formal necessity optionally invokes [Lean4](@/glossary/lean4.md) proof verification for critical claims.
 
 **Evidence Verdict Registry**: Stores all validation verdicts with full audit trails. Verdicts are immutable once issued, preserving the complete evidence history for later review and contradiction detection.
 
@@ -144,14 +144,14 @@ The `/evidence-enforcement` command follows a structured 7-phase validation pipe
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [NABLA Infinity](/glossary/nabla-infinity/) | Framework | Direct enforcement of 7 epistemic axioms |
-| [Trinity Gate](/glossary/trinity-gate/) | Validation | 3-layer formal verification for critical claims |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Agent claims subject to evidence enforcement |
-| [Quality Gates](/glossary/quality-gates/) | Governance | Evidence compliance as a quality gate prerequisite |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Evidence validation [metrics](/glossary/metrics/) and axiom violation tracking |
-| [Lean4](/glossary/lean4/) | Formal Verification | Formal necessity proofs for critical claims |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Framework | Direct enforcement of 7 epistemic axioms |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Validation | 3-layer formal verification for critical claims |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Agent claims subject to evidence enforcement |
+| [Quality Gates](@/glossary/quality-gates.md) | Governance | Evidence compliance as a quality gate prerequisite |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Evidence validation [metrics](@/glossary/metrics.md) and axiom violation tracking |
+| [Lean4](@/glossary/lean4.md) | Formal Verification | Formal necessity proofs for critical claims |
 | AIAD Registry | Discovery | Command specification and policy binding |
-| [Color Teams](/glossary/color-teams/) | Security | Red/Blue team claims require evidence enforcement |
+| [Color Teams](@/glossary/color-teams.md) | Security | Red/Blue team claims require evidence enforcement |
 
 ## Best Practices
 
@@ -203,11 +203,11 @@ The `/evidence-enforcement` command follows a structured 7-phase validation pipe
 
 ### Cross-Session Evidence Continuity
 
-Evidence verdicts persist across sessions through the [Quality DNA](/glossary/quality-dna/) system. When a new session starts, previously validated claims retain their verdict status unless time decay or new contradictory evidence triggers revalidation.
+Evidence verdicts persist across sessions through the [Quality DNA](@/glossary/quality-dna.md) system. When a new session starts, previously validated claims retain their verdict status unless time decay or new contradictory evidence triggers revalidation.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unsubstantiated claims. Every assertion that influences platform decisions must pass evidence validation. No exceptions for "obvious" truths or "common knowledge."
 - **NO DOUBTS**: Full investigation before accepting any claim. The evidence enforcement system embodies the NO DOUBTS principle by requiring verifiable evidence chains before claims can influence actions.
@@ -216,13 +216,13 @@ Evidence enforcement is the operational bridge between the NABLA Infinity episte
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/rc1-orchestrate](/commands/rc1-orchestrate/) - Complete RC1 delivery pipeline execution with ROC optimization
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/migrate](/commands/migrate/) - Safe migration planning with rollback strategies
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/rc1-orchestrate](@/commands/rc1-orchestrate.md) - Complete RC1 delivery pipeline execution with ROC optimization
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/migrate](@/commands/migrate.md) - Safe migration planning with rollback strategies
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle
 
 ---
 
@@ -231,4 +231,4 @@ Evidence enforcement is the operational bridge between the NABLA Infinity episte
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

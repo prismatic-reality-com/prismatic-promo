@@ -42,7 +42,7 @@ The Purple Team is a specialized security operations unit that serves as the cen
 
 In the broader cybersecurity industry, Purple Teaming emerged as a recognition that Red and Blue teams operating in isolation often fail to transfer knowledge effectively. Findings get lost, defenses remain untested against known attacks, and organizations develop blind spots. The Purple Team model solves this by creating a dedicated synthesis function that bridges offensive and defensive perspectives, ensuring that every attack scenario maps to a verified defense and every defense is validated against realistic threats.
 
-The Prismatic Platform elevates the Purple Team concept beyond human-mediated workshops into a permanent, autonomous agent-driven synthesis layer. Within Prismatic, the Purple Team consists of four specialized agents operating at L3-L4 classification levels, continuously monitoring the Red-Blue loop and enforcing rigorous closure conditions that prevent false resolution of security findings. The team operates under the [NO MERCY](/glossary/no-mercy/) doctrine, applying zero-tolerance standards to finding closure and regression prevention.
+The Prismatic Platform elevates the Purple Team concept beyond human-mediated workshops into a permanent, autonomous agent-driven synthesis layer. Within Prismatic, the Purple Team consists of four specialized agents operating at L3-L4 classification levels, continuously monitoring the Red-Blue loop and enforcing rigorous closure conditions that prevent false resolution of security findings. The team operates under the [NO MERCY](@/glossary/no-mercy.md) doctrine, applying zero-tolerance standards to finding closure and regression prevention.
 
 ## Historical Context and Industry Evolution
 
@@ -73,17 +73,17 @@ The `purple-coordinator` holds L3 (Strategic Commander) classification, giving i
 
 No security finding can be closed without meeting all four conditions simultaneously. This model prevents the common industry problem of premature closure where organizations mark vulnerabilities as "resolved" without adequate verification.
 
-1. **Red Confirmation**: The [Red Team](/glossary/red-team/) confirms that their original attack vector has been neutralized by the proposed defense. This is not a theoretical assessment but a re-execution of the attack scenario against the patched system. If the Red Team can still achieve the attack objective through the original vector, the finding remains open regardless of Blue Team's assessment.
+1. **Red Confirmation**: The [Red Team](@/glossary/red-team.md) confirms that their original attack vector has been neutralized by the proposed defense. This is not a theoretical assessment but a re-execution of the attack scenario against the patched system. If the Red Team can still achieve the attack objective through the original vector, the finding remains open regardless of Blue Team's assessment.
 
-2. **Blue Verification**: The [Blue Team](/glossary/blue-team/) verifies that the defensive measure is operational, monitored, and producing the expected telemetry signals. A defense that exists but is not actively monitored provides false confidence. Blue Verification requires evidence that defensive telemetry is flowing, alert rules are configured, and the defense would trigger notification if an attack were detected.
+2. **Blue Verification**: The [Blue Team](@/glossary/blue-team.md) verifies that the defensive measure is operational, monitored, and producing the expected telemetry signals. A defense that exists but is not actively monitored provides false confidence. Blue Verification requires evidence that defensive telemetry is flowing, alert rules are configured, and the defense would trigger notification if an attack were detected.
 
-3. **White Proof**: The [White Team](/glossary/white-team/) provides formal or semi-formal verification that the fix addresses the root cause rather than merely the symptom. This prevents surface-level patches that leave underlying vulnerabilities exploitable through variant techniques. White Proof may involve property-based testing, contract validation, or formal Lean4 proofs depending on the finding's criticality.
+3. **White Proof**: The [White Team](@/glossary/white-team.md) provides formal or semi-formal verification that the fix addresses the root cause rather than merely the symptom. This prevents surface-level patches that leave underlying vulnerabilities exploitable through variant techniques. White Proof may involve property-based testing, contract validation, or formal Lean4 proofs depending on the finding's criticality.
 
-4. **Regression Lock**: The Purple Regression Guard confirms that automated regression tests exist to detect any future recurrence. Without this condition, previously-fixed vulnerabilities can silently reappear during refactoring or dependency updates. The [regression test](/glossary/regression-test/) must fail without the fix and pass with it, demonstrating both the test's validity and the fix's effectiveness.
+4. **Regression Lock**: The Purple Regression Guard confirms that automated regression tests exist to detect any future recurrence. Without this condition, previously-fixed vulnerabilities can silently reappear during refactoring or dependency updates. The [regression test](@/glossary/regression-test.md) must fail without the fix and pass with it, demonstrating both the test's validity and the fix's effectiveness.
 
 ### Signal Flow Architecture
 
-The Purple Team sits at the intersection of all [color team](/glossary/color-teams/) signal flows.
+The Purple Team sits at the intersection of all [color team](@/glossary/color-teams.md) signal flows.
 
 ```
 Gray (boundary seeds) --> Red (adversarial scenarios) --> Purple (synthesis) --> Blue (defense)
@@ -92,7 +92,7 @@ Gray (boundary seeds) --> Red (adversarial scenarios) --> Purple (synthesis) -->
                                Black (threat models)     White (proofs)    Platform Defense
 ```
 
-Purple receives inputs from Red Team findings, Blue Team defensive posture assessments, White Team verification proofs, and [Gray Team](/glossary/gray-team/) boundary exploration reports. It produces closure decisions, regression requirements, and deployment gate enforcement actions.
+Purple receives inputs from Red Team findings, Blue Team defensive posture assessments, White Team verification proofs, and [Gray Team](@/glossary/gray-team.md) boundary exploration reports. It produces closure decisions, regression requirements, and deployment gate enforcement actions.
 
 The signal flow is designed to be unidirectional with feedback loops. Red Team findings flow into Purple for synthesis. Purple produces defense requirements that flow to Blue. Blue's implementation evidence flows back to Purple for verification. White Team proofs flow into Purple to satisfy the formal verification closure condition. This circular flow ensures that no finding can be "lost" in the system -- every finding has an explicit state in the closure state machine and every state transition requires evidence.
 
@@ -433,13 +433,13 @@ end
 
 | System | Integration | Purpose |
 |--------|------------|---------|
-| [Red Team](/glossary/red-team/) | Finding ingestion | Receives adversarial scenarios for defense mapping |
-| [Blue Team](/glossary/blue-team/) | Defense posture data | Receives defensive capability assessments |
-| [White Team](/glossary/white-team/) | Verification proofs | Receives formal proofs for closure conditions |
-| [Quality Gates](/glossary/quality-gates/) | Deployment blocking | Blocks deployments with unclosed critical findings |
+| [Red Team](@/glossary/red-team.md) | Finding ingestion | Receives adversarial scenarios for defense mapping |
+| [Blue Team](@/glossary/blue-team.md) | Defense posture data | Receives defensive capability assessments |
+| [White Team](@/glossary/white-team.md) | Verification proofs | Receives formal proofs for closure conditions |
+| [Quality Gates](@/glossary/quality-gates.md) | Deployment blocking | Blocks deployments with unclosed critical findings |
 | AIAD Registry | Agent coordination | Manages Purple agent lifecycle and communication |
 | Telemetry | Event emission | Emits closure events for platform-wide monitoring |
-| [Trinity Gate](/glossary/trinity-gate/) | Verification alignment | Closure proofs pass through Trinity Gate validation |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Verification alignment | Closure proofs pass through Trinity Gate validation |
 
 ## Best Practices
 
@@ -471,23 +471,23 @@ end
 
 ## Related Concepts
 
-- [Red Team](/glossary/red-team/) -- Adversarial simulation team producing findings for Purple synthesis
-- [Blue Team](/glossary/blue-team/) -- Defensive evidence team providing defense posture data
-- [White Team](/glossary/white-team/) -- Verification team whose proofs feed into closure decisions
-- [Black Team](/glossary/black-team/) -- Theoretical threat modeling informing Purple's risk assessment
-- [Gray Team](/glossary/gray-team/) -- Boundary exploration feeding edge cases to Purple mapping
-- [Color Teams](/glossary/color-teams/) -- Full overview of all six color team operations
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate complementing Purple closure requirements
-- [Regression Test](/glossary/regression-test/) -- Code-level pattern for preventing recurrence
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing Purple Team evidence standards
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of all closure decisions and evidence
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation team producing findings for Purple synthesis
+- [Blue Team](@/glossary/blue-team.md) -- Defensive evidence team providing defense posture data
+- [White Team](@/glossary/white-team.md) -- Verification team whose proofs feed into closure decisions
+- [Black Team](@/glossary/black-team.md) -- Theoretical threat modeling informing Purple's risk assessment
+- [Gray Team](@/glossary/gray-team.md) -- Boundary exploration feeding edge cases to Purple mapping
+- [Color Teams](@/glossary/color-teams.md) -- Full overview of all six color team operations
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate complementing Purple closure requirements
+- [Regression Test](@/glossary/regression-test.md) -- Code-level pattern for preventing recurrence
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing Purple Team evidence standards
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of all closure decisions and evidence
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Agents](/agents/) -- Full agent catalog including Purple Team agents
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Agents](@/agents/_index.md) -- Full agent catalog including Purple Team agents
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory
 
 ---
 
@@ -496,4 +496,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

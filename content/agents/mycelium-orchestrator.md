@@ -28,9 +28,9 @@ image_alt = "Mycelium Orchestrator - Prismatic Platform"
 
 ## Overview
 
-The Mycelium Orchestrator operates as an L2 Tactical Operations authority within the Prismatic Platform's orchestration domain, providing advanced multi-agent coordination for Incident Response (IR) and Process Virtual Machine ([PVM](/glossary/pvm/)) workflows. While the Mycelial Network Coordinator manages the communication infrastructure itself, the Mycelium Orchestrator utilizes that infrastructure to coordinate complex, multi-step operational workflows that require the participation of agents across multiple domains. This agent translates high-level workflow definitions into distributed execution plans, assigns tasks to qualified agents, manages execution dependencies, and aggregates results into coherent workflow outputs.
+The Mycelium Orchestrator operates as an L2 Tactical Operations authority within the Prismatic Platform's orchestration domain, providing advanced multi-agent coordination for Incident Response (IR) and Process Virtual Machine ([PVM](@/glossary/pvm.md)) workflows. While the Mycelial Network Coordinator manages the communication infrastructure itself, the Mycelium Orchestrator utilizes that infrastructure to coordinate complex, multi-step operational workflows that require the participation of agents across multiple domains. This agent translates high-level workflow definitions into distributed execution plans, assigns tasks to qualified agents, manages execution dependencies, and aggregates results into coherent workflow outputs.
 
-Built on the [AIAD](/glossary/aiad/) standard and implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) within the platform's [supervision tree](/glossary/supervision-tree/), the orchestrator manages workflow execution as a directed acyclic graph (DAG) of tasks with dependency relationships. Each task in a workflow specifies its agent requirements (domain expertise, authority level, capability set), input dependencies (outputs from prior tasks that must be available), and execution constraints (timeout limits, quality thresholds, parallelism rules). The [NO DOUBTS](/glossary/no-doubts/) principle governs task assignment: agents are selected for tasks based on measured capability profiles rather than static role assignments, ensuring that each task is handled by the agent best qualified to execute it.
+Built on the [AIAD](@/glossary/aiad.md) standard and implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) within the platform's [supervision tree](@/glossary/supervision-tree.md), the orchestrator manages workflow execution as a directed acyclic graph (DAG) of tasks with dependency relationships. Each task in a workflow specifies its agent requirements (domain expertise, authority level, capability set), input dependencies (outputs from prior tasks that must be available), and execution constraints (timeout limits, quality thresholds, parallelism rules). The [NO DOUBTS](@/glossary/no-doubts.md) principle governs task assignment: agents are selected for tasks based on measured capability profiles rather than static role assignments, ensuring that each task is handled by the agent best qualified to execute it.
 
 ## Theoretical Foundations
 
@@ -44,7 +44,7 @@ Distributed execution introduces coordination challenges including partial failu
 
 The orchestration domain covers all multi-agent workflow execution within the platform. The orchestrator manages concurrent execution of multiple workflows, each progressing independently through their task DAGs. Resource management ensures that workflow execution does not monopolize agent capacity, with configurable concurrency limits per agent and per domain that prevent individual workflows from starving other operations.
 
-Workflow definitions are stored in a registry and can be instantiated with specific parameters. The orchestrator maintains a workflow execution log that records every task assignment, execution result, timing measurement, and state transition for audit and debugging purposes. This log is persisted to [ETS](/glossary/ets/) for immediate access and periodically checkpointed to durable storage for historical analysis.
+Workflow definitions are stored in a registry and can be instantiated with specific parameters. The orchestrator maintains a workflow execution log that records every task assignment, execution result, timing measurement, and state transition for audit and debugging purposes. This log is persisted to [ETS](@/glossary/ets.md) for immediate access and periodically checkpointed to durable storage for historical analysis.
 
 ## Key Capabilities
 
@@ -52,21 +52,21 @@ Workflow definitions are stored in a registry and can be instantiated with speci
 - **Intelligent task assignment** -- Selects executing agents based on measured capability profiles, current availability, historical performance, and domain expertise, optimizing for earliest expected completion across the workflow DAG
 - **PVM workflow support** -- Executes workflows defined in the Process Virtual Machine abstraction, supporting state machine-based workflow definitions with guards, transitions, and composable sub-workflows
 - **IR playbook execution** -- Manages incident response workflows that follow established playbooks, coordinating evidence collection, analysis, containment, and remediation tasks across specialized agents
-- **Distributed execution management** -- Coordinates task execution across agents running on different [BEAM](/glossary/beam/) nodes, handling network partitions, agent failures, and result aggregation in distributed environments
+- **Distributed execution management** -- Coordinates task execution across agents running on different [BEAM](@/glossary/beam.md) nodes, handling network partitions, agent failures, and result aggregation in distributed environments
 - **Saga-pattern rollback** -- Implements compensating transactions for long-running workflows, enabling graceful rollback when task failures make workflow completion impossible
 - **Deadline management** -- Tracks workflow and task-level deadlines, escalating or reassigning tasks that risk missing their time constraints
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed workflow monitoring and automatic intervention for stalled or failing executions
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing workflow metrics including execution duration, parallelism utilization, task success rates, and agent utilization
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed workflow monitoring and automatic intervention for stalled or failing executions
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing workflow metrics including execution duration, parallelism utilization, task success rates, and agent utilization
 
 ## Authority Level
 
-**L2** - Tactical Operations - Domain-specific [tactical execution](/glossary/tactical-execution/) authority for workflow orchestration with the ability to assign tasks to L3 and L4 agents within their operational domains.
+**L2** - Tactical Operations - Domain-specific [tactical execution](@/glossary/tactical-execution.md) authority for workflow orchestration with the ability to assign tasks to L3 and L4 agents within their operational domains.
 
 ## Orchestration Architecture
 
-The orchestrator implements a three-layer architecture. The **workflow layer** manages the lifecycle of workflow instances -- creation, scheduling, execution, completion, and archival. Each workflow instance maintains its own state machine that tracks progress through the task DAG. The **task layer** manages individual task execution -- assignment to agents, input preparation, execution monitoring, result collection, and output validation. The **agent layer** interfaces with the platform's agent infrastructure, querying agent availability and capabilities, dispatching task assignments through [message passing](/glossary/message-passing/), and collecting execution results.
+The orchestrator implements a three-layer architecture. The **workflow layer** manages the lifecycle of workflow instances -- creation, scheduling, execution, completion, and archival. Each workflow instance maintains its own state machine that tracks progress through the task DAG. The **task layer** manages individual task execution -- assignment to agents, input preparation, execution monitoring, result collection, and output validation. The **agent layer** interfaces with the platform's agent infrastructure, querying agent availability and capabilities, dispatching task assignments through [message passing](@/glossary/message-passing.md), and collecting execution results.
 
-A [Dynamic Supervisor](/glossary/dynamic-supervisor/) manages per-workflow execution processes, enabling the orchestrator to scale with concurrent workflow count. [Process isolation](/glossary/process-isolation/) ensures that a workflow execution failure does not affect other concurrent workflows. The orchestrator itself runs as a singleton [GenServer](/glossary/genserver/) that manages the global workflow queue and agent assignment state.
+A [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) manages per-workflow execution processes, enabling the orchestrator to scale with concurrent workflow count. [Process isolation](@/glossary/process-isolation.md) ensures that a workflow execution failure does not affect other concurrent workflows. The orchestrator itself runs as a singleton [GenServer](@/glossary/genserver.md) that manages the global workflow queue and agent assignment state.
 
 ## Command Interface
 
@@ -82,10 +82,10 @@ A [Dynamic Supervisor](/glossary/dynamic-supervisor/) manages per-workflow execu
 
 | Agent | Relationship |
 |-------|-------------|
-| [mycelial-network-coordinator](/agents/mycelial-network-coordinator/) | Uses network infrastructure for distributed task communication |
-| [supreme-coordinator](/agents/supreme-coordinator/) | Receives high-level workflow definitions and strategic execution directives |
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Workflow execution outcomes inform session debrief and learning |
-| [performance-benchmarking-agent](/agents/performance-benchmarking-agent/) | Benchmark data calibrates task duration estimates for scheduling |
+| [mycelial-network-coordinator](@/agents/mycelial-network-coordinator.md) | Uses network infrastructure for distributed task communication |
+| [supreme-coordinator](@/agents/supreme-coordinator.md) | Receives high-level workflow definitions and strategic execution directives |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Workflow execution outcomes inform session debrief and learning |
+| [performance-benchmarking-agent](@/agents/performance-benchmarking-agent.md) | Benchmark data calibrates task duration estimates for scheduling |
 
 ## Failure Handling
 
@@ -93,7 +93,7 @@ The orchestrator implements comprehensive failure handling at multiple levels. *
 
 ## Enforcement
 
-Workflow execution complies with the [NO MERCY](/glossary/no-mercy/) doctrine: no incomplete workflow is marked as successful, every task output must meet defined quality thresholds, and workflow deadlines are enforced without exception. The [NO DOUBTS](/glossary/no-doubts/) principle requires that task assignments are evidence-based (grounded in measured agent capabilities), workflow results carry full execution provenance, and all quality claims are verifiable through the execution log. The [Trinity Gate](/glossary/trinity-gate/) validates workflow outputs for structural, logical, and formal consistency.
+Workflow execution complies with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no incomplete workflow is marked as successful, every task output must meet defined quality thresholds, and workflow deadlines are enforced without exception. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that task assignments are evidence-based (grounded in measured agent capabilities), workflow results carry full execution provenance, and all quality claims are verifiable through the execution log. The [Trinity Gate](@/glossary/trinity-gate.md) validates workflow outputs for structural, logical, and formal consistency.
 
 ---
 
@@ -102,4 +102,4 @@ Workflow execution complies with the [NO MERCY](/glossary/no-mercy/) doctrine: n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -235,10 +235,10 @@ Stages govern every path from code change to production deployment:
 
 ## Cross-References
 
-- [CI/CD](/glossary/ci-cd/) - Continuous integration/delivery system using stages
-- [Quality Gates](/glossary/quality-gates/) - Automated checks enforced at stage boundaries
-- [Pipeline](/glossary/pipeline/) - Multi-stage execution flow
-- [Deployment](/glossary/deployment/) - Final stage delivering code to production
+- [CI/CD](@/glossary/ci-cd.md) - Continuous integration/delivery system using stages
+- [Quality Gates](@/glossary/quality-gates.md) - Automated checks enforced at stage boundaries
+- [Pipeline](@/glossary/pipeline.md) - Multi-stage execution flow
+- [Deployment](@/glossary/deployment.md) - Final stage delivering code to production
 
 ---
 

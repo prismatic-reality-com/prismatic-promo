@@ -25,9 +25,9 @@ image_alt = "Prismatic Monte Carlo - Prismatic Platform"
 
 Prismatic Monte Carlo provides a comprehensive probabilistic simulation engine for risk analysis, uncertainty quantification, and evidence-based decision support across the Prismatic Platform. By running thousands to millions of simulations with varying parameters sampled from configurable probability distributions, the engine models outcome distributions that capture the full range of possible results -- enabling the platform to express security assessments and threat probabilities with statistical rigor rather than point estimates.
 
-In security and intelligence contexts, uncertainty is not a weakness but a fundamental property of the problem domain. A [security rating](/glossary/security-rating/) of "B" is far more informative when accompanied by a confidence interval showing the 95th percentile range. Monte Carlo simulation makes this possible by sampling from probability distributions that model real-world variability in vulnerability discovery rates, patch deployment times, attacker capabilities, and defensive effectiveness. The difference between a rating with a narrow confidence interval and one with a wide interval fundamentally changes the risk management response.
+In security and intelligence contexts, uncertainty is not a weakness but a fundamental property of the problem domain. A [security rating](@/glossary/security-rating.md) of "B" is far more informative when accompanied by a confidence interval showing the 95th percentile range. Monte Carlo simulation makes this possible by sampling from probability distributions that model real-world variability in vulnerability discovery rates, patch deployment times, attacker capabilities, and defensive effectiveness. The difference between a rating with a narrow confidence interval and one with a wide interval fundamentally changes the risk management response.
 
-The engine operates as part of the platform's [QEVE](/glossary/qeve/) (Quantitative Epistemic Verification Engine) alongside [Prismatic Lean](/apps/prismatic-lean/) for formal proof. Where Lean verifies that properties hold with mathematical certainty, Monte Carlo quantifies the likelihood of outcomes under uncertainty -- complementary approaches that together provide both rigor and practical utility. This duality is central to the platform's [Trinity Gate](/glossary/trinity-gate/) verification architecture.
+The engine operates as part of the platform's [QEVE](@/glossary/qeve.md) (Quantitative Epistemic Verification Engine) alongside [Prismatic Lean](@/apps/prismatic-lean.md) for formal proof. Where Lean verifies that properties hold with mathematical certainty, Monte Carlo quantifies the likelihood of outcomes under uncertainty -- complementary approaches that together provide both rigor and practical utility. This duality is central to the platform's [Trinity Gate](@/glossary/trinity-gate.md) verification architecture.
 
 ## Architecture
 
@@ -57,7 +57,7 @@ PrismaticMonteCarlo.Application
     +-- Evolutionary distribution fitting
 ```
 
-The simulation engine leverages [Elixir](/glossary/elixir/)'s concurrency model to distribute iterations across all available CPU cores through [OTP](/glossary/otp/) task supervision. The [GenStage](/glossary/genstage/) pipeline provides demand-driven [backpressure](/glossary/backpressure/) management, ensuring that result collection does not fall behind simulation execution. Early convergence detection monitors result stability and terminates simulation runs once statistical significance thresholds are met, avoiding unnecessary computation.
+The simulation engine leverages [Elixir](@/glossary/elixir.md)'s concurrency model to distribute iterations across all available CPU cores through [OTP](@/glossary/otp.md) task supervision. The [GenStage](@/glossary/genstage.md) pipeline provides demand-driven [backpressure](@/glossary/backpressure.md) management, ensuring that result collection does not fall behind simulation execution. Early convergence detection monitors result stability and terminates simulation runs once statistical significance thresholds are met, avoiding unnecessary computation.
 
 ### Data Flow
 
@@ -351,13 +351,13 @@ Monte Carlo does not operate in isolation. Its power comes from composition with
 
 | Subsystem | Integration |
 |-----------|-------------|
-| **[Prismatic Algorithms](/apps/prismatic-algorithms/)** | Calibration algorithms (Platt, isotonic) consume Monte Carlo confidence intervals |
-| **[Prismatic Core Bifurcation](/apps/prismatic-core/)** | Bifurcation analysis uses Monte Carlo to model parameter uncertainty around critical transitions |
+| **[Prismatic Algorithms](@/apps/prismatic-algorithms.md)** | Calibration algorithms (Platt, isotonic) consume Monte Carlo confidence intervals |
+| **[Prismatic Core Bifurcation](@/apps/prismatic-core.md)** | Bifurcation analysis uses Monte Carlo to model parameter uncertainty around critical transitions |
 | **Quantum Optimizer** | Stochastic objective function evaluation via Monte Carlo sampling |
 | **Mycelial Network** | Convergence signals propagated across domains |
-| **[Prismatic Nabla](/apps/prismatic-nabla/)** | Epistemic confidence scoring informed by simulation provenance |
-| **[Prismatic Lean](/apps/prismatic-lean/)** | Formal proofs complement probabilistic guarantees in QEVE |
-| **[Prismatic Perimeter](/apps/prismatic-perimeter/)** | Security rating confidence intervals and breach probability models |
+| **[Prismatic Nabla](@/apps/prismatic-nabla.md)** | Epistemic confidence scoring informed by simulation provenance |
+| **[Prismatic Lean](@/apps/prismatic-lean.md)** | Formal proofs complement probabilistic guarantees in QEVE |
+| **[Prismatic Perimeter](@/apps/prismatic-perimeter.md)** | Security rating confidence intervals and breach probability models |
 
 ## Configuration
 
@@ -448,13 +448,13 @@ mix monte_carlo simulate -d normal -n 10000 -o json
 
 ## Related Resources
 
-- [Prismatic Core](/apps/prismatic-core/) -- Foundation library with Monte Carlo integration facade
-- [Prismatic Algorithms](/apps/prismatic-algorithms/) -- Calibration and drift detection algorithms consuming Monte Carlo outputs
-- [Prismatic Nabla](/apps/prismatic-nabla/) -- Epistemic confidence scoring informed by simulation results
-- [Prismatic Storage DuckDB](/apps/prismatic-storage-duckdb/) -- Analytical storage for simulation result datasets
-- [Trinity Gate](/capabilities/trinity-gate/) -- Monte Carlo provides probabilistic complement to Lean4 formal proofs in QEVE
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Simulation-based confidence intervals enrich intelligence assessments
-- [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) -- Statistical simulation combined with formal verification
+- [Prismatic Core](@/apps/prismatic-core.md) -- Foundation library with Monte Carlo integration facade
+- [Prismatic Algorithms](@/apps/prismatic-algorithms.md) -- Calibration and drift detection algorithms consuming Monte Carlo outputs
+- [Prismatic Nabla](@/apps/prismatic-nabla.md) -- Epistemic confidence scoring informed by simulation results
+- [Prismatic Storage DuckDB](@/apps/prismatic-storage-duckdb.md) -- Analytical storage for simulation result datasets
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Monte Carlo provides probabilistic complement to Lean4 formal proofs in QEVE
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Simulation-based confidence intervals enrich intelligence assessments
+- [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) -- Statistical simulation combined with formal verification
 
 ---
 
@@ -463,4 +463,4 @@ mix monte_carlo simulate -d normal -n 10000 -o json
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

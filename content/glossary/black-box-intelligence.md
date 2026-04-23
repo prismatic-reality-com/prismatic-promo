@@ -54,7 +54,7 @@ Black box intelligence manifests at multiple levels:
 - **Temporal opacity** -- Systems that evolve through online learning or model updates, where the current decision logic differs from the logic at the time of a specific decision
 - **Aggregation opacity** -- Ensemble or committee-based systems where individual model contributions are blended into a single score
 
-The Prismatic Platform takes an explicit architectural position against black box intelligence through the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, which mandates provenance chains for all intelligence assessments, preserves contradictory signals rather than smoothing them away, and requires Trinity Gate passage before any claim achieves established status.
+The Prismatic Platform takes an explicit architectural position against black box intelligence through the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, which mandates provenance chains for all intelligence assessments, preserves contradictory signals rather than smoothing them away, and requires Trinity Gate passage before any claim achieves established status.
 
 ### The Explainability-Performance Tradeoff
 
@@ -235,7 +235,7 @@ end
 
 ### Trinity Gate Integration for Black Box Sources
 
-When an intelligence source is classified as partially opaque or worse, the [NABLA Infinity](/glossary/nabla-infinity/) Trinity Gate applies additional scrutiny:
+When an intelligence source is classified as partially opaque or worse, the [NABLA Infinity](@/glossary/nabla-infinity.md) Trinity Gate applies additional scrutiny:
 
 1. **Structural Consistency** -- The claim must still form a valid node in the belief graph, even if the supporting reasoning is opaque
 2. **Logical Consistency** -- The conclusion must not contradict established facts in the knowledge base
@@ -247,13 +247,13 @@ Prismatic takes an architecturally defensive position against black box intellig
 
 ### Epistemic Pipeline Transparency
 
-Every intelligence assessment flowing through the [epistemic pipeline](/glossary/epistemic-pipeline/) carries a provenance chain documenting:
+Every intelligence assessment flowing through the [epistemic pipeline](@/glossary/epistemic-pipeline.md) carries a provenance chain documenting:
 
 - The source data that produced the assessment
 - The transformations applied at each pipeline stage
 - The models or reasoning processes invoked
 - The confidence scores at each stage
-- Any contradictions encountered and preserved per [addiction preservation](/glossary/addiction-recovery/) doctrine
+- Any contradictions encountered and preserved per [addiction preservation](@/glossary/addiction-recovery.md) doctrine
 
 ### NABLA Axiom Enforcement
 
@@ -283,7 +283,7 @@ The 530+ AIAD agents in the platform include opacity monitoring as part of their
 | **Prismatic (NABLA-gated)** | Provenance-mandatory pipeline | Full chain | High (pipeline) | Fully compliant |
 | **Hybrid (explain + gate)** | Best of both worlds | Layered | Balanced | Compliant with caveats |
 
-The Prismatic approach is distinctive in treating transparency not as a post-hoc add-on but as an architectural requirement. The [provenance mandatory](/glossary/provenance-mandatory/) axiom means that intelligence without traceable reasoning simply does not enter the pipeline, rather than being flagged after consumption.
+The Prismatic approach is distinctive in treating transparency not as a post-hoc add-on but as an architectural requirement. The [provenance mandatory](@/glossary/provenance-mandatory.md) axiom means that intelligence without traceable reasoning simply does not enter the pipeline, rather than being flagged after consumption.
 
 ## Best Practices
 
@@ -293,7 +293,7 @@ The Prismatic approach is distinctive in treating transparency not as a post-hoc
 4. **Implement confidence decay** -- Opaque intelligence should decay faster than transparent intelligence, reflecting epistemic uncertainty.
 5. **Audit regularly** -- Periodically re-evaluate the opacity classification of intelligence sources, as model updates may change transparency properties.
 6. **Separate model performance from model trust** -- A highly accurate black box may still be untrustworthy for regulated decisions.
-7. **Document mitigation decisions** -- When opaque sources are used despite limitations, document the justification in the [audit trail](/glossary/audit-trail/).
+7. **Document mitigation decisions** -- When opaque sources are used despite limitations, document the justification in the [audit trail](@/glossary/audit-trail.md).
 8. **Apply the Trinity Gate consistently** -- Do not create exceptions for "high-performing" opaque models.
 
 ## Common Pitfalls
@@ -331,16 +331,16 @@ When a decision based on intelligence is challenged legally, the organization mu
 
 ## Related Concepts
 
-- [AI Inference](/glossary/ai-inference/) -- The prediction process that may be opaque or transparent
-- [LLM](/glossary/llm/) -- Large language models as a primary source of black box intelligence
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- NABLA axiom requiring traceable reasoning
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- Transparent intelligence processing framework
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- Foundational principle opposing black box approaches
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework mandating transparency
-- [Belief Graph](/glossary/belief-graph/) -- Knowledge representation requiring provenance
-- [Epistemic Validation](/glossary/epistemic-validation/) -- Verification process for intelligence claims
-- [Audit Trail](/glossary/audit-trail/) -- Logging infrastructure for decision traceability
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- Reasoning processes that must remain inspectable
+- [AI Inference](@/glossary/ai-inference.md) -- The prediction process that may be opaque or transparent
+- [LLM](@/glossary/llm.md) -- Large language models as a primary source of black box intelligence
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- NABLA axiom requiring traceable reasoning
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- Transparent intelligence processing framework
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- Foundational principle opposing black box approaches
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework mandating transparency
+- [Belief Graph](@/glossary/belief-graph.md) -- Knowledge representation requiring provenance
+- [Epistemic Validation](@/glossary/epistemic-validation.md) -- Verification process for intelligence claims
+- [Audit Trail](@/glossary/audit-trail.md) -- Logging infrastructure for decision traceability
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- Reasoning processes that must remain inspectable
 
 ## See Also
 
@@ -356,4 +356,4 @@ When a decision based on intelligence is challenged legally, the organization mu
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

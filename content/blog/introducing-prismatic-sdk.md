@@ -19,7 +19,7 @@ see_also = ["sdk", "api", "rest-api", "openapi", "prismatic-api"]
 image_alt = "Introducing Prismatic SDK: Open Source Intelligence Development Kit - Prismatic Platform"
 +++
 
-We are excited to announce the general availability of [Prismatic SDK](/developers/sdk/) -- an open-source, MIT-licensed client library that makes it easy to integrate intelligence capabilities into any application.
+We are excited to announce the general availability of [Prismatic SDK](@/developers/sdk/_index.md) -- an open-source, MIT-licensed client library that makes it easy to integrate intelligence capabilities into any application.
 
 ## Why We Built the SDK
 
@@ -84,10 +84,10 @@ async for entity in prismatic.osint.stream_search("example.com"):
 ## What's Next
 
 - **Plugin Kit integration** -- Build custom adapters that plug directly into the SDK's type system
-- **Interactive Labs** -- Try SDK functions in our [sandboxed lab environment](/lab/)
-- **Academy courses** -- Structured [learning paths](/academy/) for SDK development
+- **Interactive Labs** -- Try SDK functions in our [sandboxed lab environment](@/lab/_index.md)
+- **Academy courses** -- Structured [learning paths](@/academy/_index.md) for SDK development
 
-Start building at [prismatic-reality.com/developers/sdk/](/developers/sdk/).
+Start building at [prismatic-reality.com/developers/sdk/](@/developers/sdk/_index.md).
 
 ---
 

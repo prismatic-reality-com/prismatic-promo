@@ -50,7 +50,7 @@ Requires a valid API token. The endpoint listing contains structural information
 Authorization: Bearer <api_token>
 ```
 
-See [Authentication](/api/authentication/) for token management details.
+See [Authentication](@/api/authentication.md) for token management details.
 
 ## Request
 
@@ -261,9 +261,9 @@ for endpoint in data["endpoints"]:
 |-------------|------------|-------------|
 | 401 | `unauthorized` | Missing or invalid authentication token |
 | 422 | `invalid_parameter` | Invalid filter parameter value (e.g., invalid method) |
-| 429 | `rate_limited` | Too many requests (see [Rate Limiting](/api/rate-limiting/)) |
+| 429 | `rate_limited` | Too many requests (see [Rate Limiting](@/api/rate-limiting.md)) |
 
-See [Error Handling](/api/error-handling/) for the standard error response format.
+See [Error Handling](@/api/error-handling.md) for the standard error response format.
 
 ## Rate Limits
 
@@ -276,10 +276,10 @@ The endpoint listing is cached in ETS and is computationally inexpensive to serv
 
 ## Related Endpoints
 
-- [Health Check](/api/health/) -- Verify the API is running before querying endpoints
-- [Generic Dispatch](/api/dispatch/) -- How discovered endpoints are called at runtime
-- [OpenAPI Specification](/api/openapi-spec/) -- Machine-readable schema generated from the same discovery data
-- [Swagger UI](/api/swagger-ui/) -- Interactive browser for discovered endpoints
+- [Health Check](@/api/health.md) -- Verify the API is running before querying endpoints
+- [Generic Dispatch](@/api/dispatch.md) -- How discovered endpoints are called at runtime
+- [OpenAPI Specification](@/api/openapi-spec.md) -- Machine-readable schema generated from the same discovery data
+- [Swagger UI](@/api/swagger-ui.md) -- Interactive browser for discovered endpoints
 
 ## Discovery Architecture
 
@@ -289,11 +289,11 @@ The endpoint discovery pipeline runs at application startup and consists of four
 
 2. **Function Extraction** -- For each module, calls `Module.__info__(:functions)` to get the exported function list, then filters to public facade functions (excluding callbacks, private helpers, and test utilities).
 
-3. **Type Mapping** -- Reads `@spec` annotations via `Code.Typespec.fetch_specs/1` and converts the Elixir type AST into [OpenAPI](/glossary/openapi/) JSON Schema objects. Supports primitive types, maps, lists, tuples (converted to arrays), and custom types (resolved recursively).
+3. **Type Mapping** -- Reads `@spec` annotations via `Code.Typespec.fetch_specs/1` and converts the Elixir type AST into [OpenAPI](@/glossary/openapi.md) JSON Schema objects. Supports primitive types, maps, lists, tuples (converted to arrays), and custom types (resolved recursively).
 
-4. **Registry Population** -- Inserts all discovered endpoint descriptors into an ETS table keyed by `{app, action}` tuples. The [Generic Dispatch](/api/dispatch/) controller reads from this same table at request time.
+4. **Registry Population** -- Inserts all discovered endpoint descriptors into an ETS table keyed by `{app, action}` tuples. The [Generic Dispatch](@/api/dispatch.md) controller reads from this same table at request time.
 
-The discovery results feed directly into the [Quality DNA](/glossary/quality-dna/) assessment, where endpoint coverage metrics contribute to the platform's overall quality score. The [Trinity Gate](/glossary/trinity-gate/) verification layer validates that all discovered endpoints have proper type specifications and documentation.
+The discovery results feed directly into the [Quality DNA](@/glossary/quality-dna.md) assessment, where endpoint coverage metrics contribute to the platform's overall quality score. The [Trinity Gate](@/glossary/trinity-gate.md) verification layer validates that all discovered endpoints have proper type specifications and documentation.
 
 ---
 
@@ -302,4 +302,4 @@ The discovery results feed directly into the [Quality DNA](/glossary/quality-dna
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -60,7 +60,7 @@ The 225+ glossary terms are organized into seven categories. Each category repre
 
 Terms describing the platform's structural design, runtime environment, and deployment topology. This category covers the foundational building blocks -- from the BEAM virtual machine and OTP supervision trees up through the umbrella application structure and storage adapter layer.
 
-**Representative terms**: [BEAM](/glossary/beam/), [OTP](/glossary/otp/), [Supervisor](/glossary/supervisor/), [GenServer](/glossary/genserver/), [ETS](/glossary/ets/), [3NL Framework](/glossary/three-nl/), [Adapter Pattern](/glossary/adapter-pattern/), [Umbrella Application](/glossary/umbrella/), [Process Isolation](/glossary/process-isolation/), [Message Passing](/glossary/message-passing/)
+**Representative terms**: [BEAM](@/glossary/beam.md), [OTP](@/glossary/otp.md), [Supervisor](@/glossary/supervisor.md), [GenServer](@/glossary/genserver.md), [ETS](@/glossary/ets.md), [3NL Framework](@/glossary/three-nl.md), [Adapter Pattern](@/glossary/adapter-pattern.md), [Umbrella Application](@/glossary/umbrella.md), [Process Isolation](@/glossary/process-isolation.md), [Message Passing](@/glossary/message-passing.md)
 
 Architecture terms form the vocabulary needed to understand how the platform's 90 OTP applications are organized, supervised, and interconnected. A reader who understands these terms can follow any architectural discussion in the platform documentation.
 
@@ -68,7 +68,7 @@ Architecture terms form the vocabulary needed to understand how the platform's 9
 
 Terms describing the platform's operational philosophy, quality enforcement, and governance principles. The doctrine category defines the rules under which all development, testing, and deployment occurs -- from the NO MERCY/NO DOUBTS quality mandate to the specific violation protocols that enforce it.
 
-**Representative terms**: [NM/ND (No Mercy, No Doubts)](/glossary/nm-nd/), [Clean Run](/glossary/clean-run/), [Zero-Warning Policy](/glossary/zero-warning-policy/), [Violation Protocol](/glossary/violation-protocol/), [Regression Test](/glossary/regression-test/), [Session Discipline](/glossary/session-discipline/), [Quality Debt](/glossary/quality-debt/), [QDP](/glossary/qdp/)
+**Representative terms**: [NM/ND (No Mercy, No Doubts)](@/glossary/nm-nd.md), [Clean Run](@/glossary/clean-run.md), [Zero-Warning Policy](@/glossary/zero-warning-policy.md), [Violation Protocol](@/glossary/violation-protocol.md), [Regression Test](@/glossary/regression-test.md), [Session Discipline](@/glossary/session-discipline.md), [Quality Debt](@/glossary/quality-debt.md), [QDP](@/glossary/qdp.md)
 
 Doctrine terms are essential for understanding why certain development practices are enforced. They describe not just what the platform does, but the principles that govern how it is built and maintained.
 
@@ -76,7 +76,7 @@ Doctrine terms are essential for understanding why certain development practices
 
 Terms describing the platform's autonomous agent ecosystem, including agent classification, orchestration patterns, and the AIAD specification standard. The Prismatic Platform operates 404+ agents across 14 domains, each defined by a formal AIAD specification that declares its authority level, capabilities, and operational constraints.
 
-**Representative terms**: [AIAD](/glossary/aiad/), [Agent](/glossary/agent/), [Agent Tier](/glossary/agent-tier/), [Agent Registry](/glossary/agent-registry/), [Archer Supreme](/glossary/archer-supreme/), [Supreme Commander](/glossary/supreme-commander/), [Strategic Command](/glossary/strategic-command/), [Tactical Execution](/glossary/tactical-execution/), [Autoevolve](/glossary/autoevolve/), [Autoheal](/glossary/autoheal/)
+**Representative terms**: [AIAD](@/glossary/aiad.md), [Agent](@/glossary/agent.md), [Agent Tier](@/glossary/agent-tier.md), [Agent Registry](@/glossary/agent-registry.md), [Archer Supreme](@/glossary/archer-supreme.md), [Supreme Commander](@/glossary/supreme-commander.md), [Strategic Command](@/glossary/strategic-command.md), [Tactical Execution](@/glossary/tactical-execution.md), [Autoevolve](@/glossary/autoevolve.md), [Autoheal](@/glossary/autoheal.md)
 
 Agent terms describe the platform's most distinctive capability: a hierarchical system of autonomous agents that range from L1 tactical specialists to L5 supreme authority commanders, all governed by a uniform specification standard.
 
@@ -84,7 +84,7 @@ Agent terms describe the platform's most distinctive capability: a hierarchical 
 
 Terms from the open-source intelligence (OSINT) and due diligence domains, covering data collection methodologies, source types, analytical techniques, and intelligence fusion patterns. These terms originate from the intelligence community but are adapted for the platform's automated OSINT operations.
 
-**Representative terms**: [OSINT](/glossary/osint/), [EASM](/glossary/easm/), [HAWKEYE](/glossary/hawkeye/), [Intelligence Fusion](/glossary/intelligence-fusion/), [Entity Resolution](/glossary/entity-resolution/), [Sanctions Screening](/glossary/sanctions-screening/), [Risk Score](/glossary/risk-score/), [Shodan](/glossary/shodan/), [Censys](/glossary/censys/), [GreyNoise](/glossary/greynoise/)
+**Representative terms**: [OSINT](@/glossary/osint.md), [EASM](@/glossary/easm.md), [HAWKEYE](@/glossary/hawkeye.md), [Intelligence Fusion](@/glossary/intelligence-fusion.md), [Entity Resolution](@/glossary/entity-resolution.md), [Sanctions Screening](@/glossary/sanctions-screening.md), [Risk Score](@/glossary/risk-score.md), [Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md), [GreyNoise](@/glossary/greynoise.md)
 
 Intelligence terms bridge the gap between traditional OSINT methodology and the platform's automated implementation. A reader familiar with intelligence analysis will recognize these terms; a reader from a software engineering background will find them defined in implementable terms.
 
@@ -92,7 +92,7 @@ Intelligence terms bridge the gap between traditional OSINT methodology and the 
 
 Terms describing the platform's security architecture, including the Color Team adversarial-defensive framework, role-based access control, attack surface analysis, and epistemic security concepts. Security terms in this glossary extend beyond traditional application security to include the epistemic dimension -- protecting the integrity of the platform's knowledge and belief systems.
 
-**Representative terms**: [Color Teams](/glossary/color-teams/), [Red Team](/glossary/red-team/), [Blue Team](/glossary/blue-team/), [Purple Team](/glossary/purple-team/), [Gray Team](/glossary/gray-team/), [White Team](/glossary/white-team/), [Black Team](/glossary/black-team/), [RBAC](/glossary/rbac/), [Attack Surface](/glossary/attack-surface/)
+**Representative terms**: [Color Teams](@/glossary/color-teams.md), [Red Team](@/glossary/red-team.md), [Blue Team](@/glossary/blue-team.md), [Purple Team](@/glossary/purple-team.md), [Gray Team](@/glossary/gray-team.md), [White Team](@/glossary/white-team.md), [Black Team](@/glossary/black-team.md), [RBAC](@/glossary/rbac.md), [Attack Surface](@/glossary/attack-surface.md)
 
 The Color Team terms deserve particular attention. While Red Team and Blue Team are established security concepts, the platform extends the model to six teams (Gray, Red, Blue, Purple, White, Black) with specific epistemic functions that go beyond traditional penetration testing and defense.
 
@@ -100,7 +100,7 @@ The Color Team terms deserve particular attention. While Red Team and Blue Team 
 
 Terms from the platform's epistemic framework, covering belief formation, knowledge validation, formal verification, and the NABLA Infinity axiom system. This category contains the most novel terminology in the glossary -- concepts that are specific to the Prismatic Platform's approach to computational epistemology.
 
-**Representative terms**: [NABLA Infinity](/glossary/nabla-infinity/), [Trinity Gate](/glossary/trinity-gate/), [Epistemic Pipeline](/glossary/epistemic-pipeline/), [Confidence Threshold](/glossary/confidence-threshold/), [Signal Plurality](/glossary/signal-plurality/), [Provenance Mandatory](/glossary/provenance-mandatory/), [Consciousness Traits](/glossary/consciousness-traits/), [QEVE](/glossary/qeve/), [Fitness Score](/glossary/fitness-score/)
+**Representative terms**: [NABLA Infinity](@/glossary/nabla-infinity.md), [Trinity Gate](@/glossary/trinity-gate.md), [Epistemic Pipeline](@/glossary/epistemic-pipeline.md), [Confidence Threshold](@/glossary/confidence-threshold.md), [Signal Plurality](@/glossary/signal-plurality.md), [Provenance Mandatory](@/glossary/provenance-mandatory.md), [Consciousness Traits](@/glossary/consciousness-traits.md), [QEVE](@/glossary/qeve.md), [Fitness Score](@/glossary/fitness-score.md)
 
 Epistemic terms are foundational for understanding how the platform differs from conventional software systems. Traditional platforms process data; the Prismatic Platform forms beliefs about data and subjects those beliefs to formal verification before acting on them.
 
@@ -108,7 +108,7 @@ Epistemic terms are foundational for understanding how the platform differs from
 
 Terms describing the specific technologies, libraries, tools, and external services that compose the platform's technology stack. This category covers everything from programming languages and frameworks to databases, search engines, and deployment infrastructure.
 
-**Representative terms**: [Elixir](/glossary/elixir/), [Phoenix](/glossary/phoenix/), [LiveView](/glossary/liveview/), [Ecto](/glossary/ecto/), [PostgreSQL](/glossary/postgresql/), [Meilisearch](/glossary/meilisearch/), [KuzuDB](/glossary/kuzudb/), [Redis](/glossary/redis/), [Docker](/glossary/docker/), [Lean4](/glossary/lean4/), [Ollama](/glossary/ollama/), [Hex](/glossary/hex/), [Mix](/glossary/mix/), [Credo](/glossary/credo/), [Dialyzer](/glossary/dialyzer/)
+**Representative terms**: [Elixir](@/glossary/elixir.md), [Phoenix](@/glossary/phoenix.md), [LiveView](@/glossary/liveview.md), [Ecto](@/glossary/ecto.md), [PostgreSQL](@/glossary/postgresql.md), [Meilisearch](@/glossary/meilisearch.md), [KuzuDB](@/glossary/kuzudb.md), [Redis](@/glossary/redis.md), [Docker](@/glossary/docker.md), [Lean4](@/glossary/lean4.md), [Ollama](@/glossary/ollama.md), [Hex](@/glossary/hex.md), [Mix](@/glossary/mix.md), [Credo](@/glossary/credo.md), [Dialyzer](@/glossary/dialyzer.md)
 
 Technology terms serve as a bridge between the platform's domain-specific vocabulary and the broader software engineering ecosystem. A developer joining the project can start with these familiar terms and navigate outward to the platform-specific concepts they connect to.
 
@@ -154,12 +154,12 @@ The **Color Teams** framework organizes security operations into six specialized
 
 | Team | Function | Glossary Entry |
 |------|----------|----------------|
-| **Gray** | Boundary exploration, edge case discovery | [Gray Team](/glossary/gray-team/) |
-| **Red** | Adversarial simulation, epistemic attacks | [Red Team](/glossary/red-team/) |
-| **Blue** | Defensive posture, signal aggregation | [Blue Team](/glossary/blue-team/) |
-| **Purple** | Red-Blue synthesis, closure analysis | [Purple Team](/glossary/purple-team/) |
-| **White** | Constructive verification, formal proofs | [White Team](/glossary/white-team/) |
-| **Black** | Theoretical threat modeling (maximum isolation) | [Black Team](/glossary/black-team/) |
+| **Gray** | Boundary exploration, edge case discovery | [Gray Team](@/glossary/gray-team.md) |
+| **Red** | Adversarial simulation, epistemic attacks | [Red Team](@/glossary/red-team.md) |
+| **Blue** | Defensive posture, signal aggregation | [Blue Team](@/glossary/blue-team.md) |
+| **Purple** | Red-Blue synthesis, closure analysis | [Purple Team](@/glossary/purple-team.md) |
+| **White** | Constructive verification, formal proofs | [White Team](@/glossary/white-team.md) |
+| **Black** | Theoretical threat modeling (maximum isolation) | [Black Team](@/glossary/black-team.md) |
 
 **RBAC** (Role-Based Access Control) governs API and dashboard access. **Attack Surface** refers to the totality of externally reachable endpoints, services, and assets that an adversary could target.
 
@@ -181,11 +181,11 @@ Every glossary term page includes a "See Also" section linking to 3-5 related te
 
 The cross-reference topology follows three patterns:
 
-**Hierarchical references** link terms to their parent concepts. For example, [GenServer](/glossary/genserver/) references [OTP](/glossary/otp/), which references [BEAM](/glossary/beam/). A reader can follow these links upward to broader concepts or downward to specific implementations.
+**Hierarchical references** link terms to their parent concepts. For example, [GenServer](@/glossary/genserver.md) references [OTP](@/glossary/otp.md), which references [BEAM](@/glossary/beam.md). A reader can follow these links upward to broader concepts or downward to specific implementations.
 
-**Lateral references** link terms at the same abstraction level. For example, [Red Team](/glossary/red-team/) references [Blue Team](/glossary/blue-team/) and [Purple Team](/glossary/purple-team/). These links help readers understand how peer concepts relate to and complement each other.
+**Lateral references** link terms at the same abstraction level. For example, [Red Team](@/glossary/red-team.md) references [Blue Team](@/glossary/blue-team.md) and [Purple Team](@/glossary/purple-team.md). These links help readers understand how peer concepts relate to and complement each other.
 
-**Cross-domain references** link terms across category boundaries. For example, [NABLA Infinity](/glossary/nabla-infinity/) (epistemic) references [Trinity Gate](/glossary/trinity-gate/) (epistemic) but also connects to [Color Teams](/glossary/color-teams/) (security) and [3NL Framework](/glossary/three-nl/) (architecture). These links reveal the integrative nature of the platform's design.
+**Cross-domain references** link terms across category boundaries. For example, [NABLA Infinity](@/glossary/nabla-infinity.md) (epistemic) references [Trinity Gate](@/glossary/trinity-gate.md) (epistemic) but also connects to [Color Teams](@/glossary/color-teams.md) (security) and [3NL Framework](@/glossary/three-nl.md) (architecture). These links reveal the integrative nature of the platform's design.
 
 ### Example Cross-Reference Network
 
@@ -292,9 +292,9 @@ The 225+ terms across seven categories represent the current state of the platfo
 
 ### Related Sections
 
-- [Architecture](/architecture/) -- Technical deep-dive using architecture terms
-- [Platform Capabilities](/capabilities/) -- Doctrine and quality enforcement terms in action
-- [Applications](/apps/) -- OTP application catalog referencing technology terms
+- [Architecture](@/architecture/_index.md) -- Technical deep-dive using architecture terms
+- [Platform Capabilities](@/capabilities/_index.md) -- Doctrine and quality enforcement terms in action
+- [Applications](@/apps/_index.md) -- OTP application catalog referencing technology terms
 
 ### External References
 
@@ -314,4 +314,4 @@ The 225+ terms across seven categories represent the current state of the platfo
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

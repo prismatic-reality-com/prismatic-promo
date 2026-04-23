@@ -175,8 +175,8 @@ The DD pipeline's entity resolution process uses Cypher extensively for merging 
 
 ## Cross-References
 
-- [Graph Database](/glossary/graph-database/) -- Database model Cypher queries against
-- [KuzuDB](/glossary/kuzudb/) -- Embedded graph database used by the platform
+- [Graph Database](@/glossary/graph-database.md) -- Database model Cypher queries against
+- [KuzuDB](@/glossary/kuzudb.md) -- Embedded graph database used by the platform
 - **Property Graph** -- Data model underlying Cypher
 - **SPARQL** -- Alternative graph query language for RDF
 - **Full-Text Index** -- Text search complementing graph queries
@@ -190,4 +190,4 @@ The DD pipeline's entity resolution process uses Cypher extensively for merging 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

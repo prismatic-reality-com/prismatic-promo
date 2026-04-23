@@ -306,7 +306,7 @@ end
 
 ### Red Team Drift Induction
 
-The [Red Team](/glossary/red-team/) includes a specialized `red-drift-inducer` agent that simulates adversarial drift scenarios to calibrate detection systems:
+The [Red Team](@/glossary/red-team.md) includes a specialized `red-drift-inducer` agent that simulates adversarial drift scenarios to calibrate detection systems:
 
 ```elixir
 defmodule PrismaticDark.RedTeam.DriftInducer do
@@ -399,7 +399,7 @@ end
 
 ### Blue Team Drift Detection
 
-The [Blue Team](/glossary/blue-team/) `blue-drift-detector` agent implements four complementary detection strategies:
+The [Blue Team](@/glossary/blue-team.md) `blue-drift-detector` agent implements four complementary detection strategies:
 
 | Strategy | Target Drift Type | Mechanism | Latency |
 |----------|------------------|-----------|---------|
@@ -412,7 +412,7 @@ The four strategies are complementary by design. Point deviation catches obvious
 
 ### Purple Team Drift Closure
 
-The [Purple Team](/glossary/purple-team/) `purple-closure-analyst` manages drift-related findings through a four-condition closure protocol:
+The [Purple Team](@/glossary/purple-team.md) `purple-closure-analyst` manages drift-related findings through a four-condition closure protocol:
 
 1. **Root Cause Identified**: The injection point (root component) has been identified through cascade trace-back
 2. **Drift Reversed**: The affected components have been returned to baseline values
@@ -423,7 +423,7 @@ A drift finding is not considered closed until all four conditions are satisfied
 
 ### Integration with Addiction Recovery
 
-Adversarial drift is the primary threat that the [Addiction Recovery](/glossary/addiction-recovery/) principle was designed to counter. The Vigilance Monitor's temporal pattern analysis specifically targets the cumulative effect of individually permissible operations that collectively constitute epistemic drift. The rationalization pattern taxonomy includes several drift-specific entries:
+Adversarial drift is the primary threat that the [Addiction Recovery](@/glossary/addiction-recovery.md) principle was designed to counter. The Vigilance Monitor's temporal pattern analysis specifically targets the cumulative effect of individually permissible operations that collectively constitute epistemic drift. The rationalization pattern taxonomy includes several drift-specific entries:
 
 - **Confidence Inflation**: Gradual upward drift of confidence scores
 - **Temporal Evasion**: Gradual degradation of time decay enforcement
@@ -485,7 +485,7 @@ In OSINT operations, an adversary gradually establishes a disinformation source 
 
 ### Use Case 3: Confidence Score Inflation
 
-An adversary manipulating input data introduces evidence that is just barely sufficient to nudge confidence scores upward for a specific hypothesis. Each individual evidence item produces a 0.02 confidence increase. After 25 evidence items, the confidence has increased by 0.50, potentially pushing a "low confidence" assessment across the decision threshold. The [Addiction Recovery](/glossary/addiction-recovery/) Vigilance Monitor detects the directional pattern in confidence movement.
+An adversary manipulating input data introduces evidence that is just barely sufficient to nudge confidence scores upward for a specific hypothesis. Each individual evidence item produces a 0.02 confidence increase. After 25 evidence items, the confidence has increased by 0.50, potentially pushing a "low confidence" assessment across the decision threshold. The [Addiction Recovery](@/glossary/addiction-recovery.md) Vigilance Monitor detects the directional pattern in confidence movement.
 
 ### Use Case 4: Security Rating Drift
 
@@ -493,25 +493,25 @@ Over several assessment cycles, an assessed entity gradually introduces improvem
 
 ## Related Concepts
 
-- [Blue Team](/glossary/blue-team/) -- Defensive team implementing drift detection through `blue-drift-detector`
-- [Red Team](/glossary/red-team/) -- Adversarial team simulating drift through `red-drift-inducer`
-- [Purple Team](/glossary/purple-team/) -- Synthesis team managing drift finding closure
-- [Adversarial Architecture](/glossary/adversarial-architecture/) -- Design methodology addressing drift as a primary threat category
-- [Adversarial Conditions](/glossary/adversarial-conditions/) -- Operating environments where drift attacks are expected
-- [Addiction Recovery](/glossary/addiction-recovery/) -- Vigilance principle specifically countering gradual epistemic drift
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Empirical resilience testing that can incorporate drift scenarios
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Quantitative system targeted by confidence drift attacks
-- [Belief Graph](/glossary/belief-graph/) -- Knowledge structure targeted by evidence drift attacks
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework providing structural defenses against drift
-- [Time Decay](/glossary/time-decay/) -- Temporal axiom that naturally counters some forms of evidence drift
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern that can trigger on cumulative drift detection
-- [Adversarial Simulation](/glossary/adversarial-simulation/) -- Controlled testing methodology that includes drift scenarios
+- [Blue Team](@/glossary/blue-team.md) -- Defensive team implementing drift detection through `blue-drift-detector`
+- [Red Team](@/glossary/red-team.md) -- Adversarial team simulating drift through `red-drift-inducer`
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis team managing drift finding closure
+- [Adversarial Architecture](@/glossary/adversarial-architecture.md) -- Design methodology addressing drift as a primary threat category
+- [Adversarial Conditions](@/glossary/adversarial-conditions.md) -- Operating environments where drift attacks are expected
+- [Addiction Recovery](@/glossary/addiction-recovery.md) -- Vigilance principle specifically countering gradual epistemic drift
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Empirical resilience testing that can incorporate drift scenarios
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Quantitative system targeted by confidence drift attacks
+- [Belief Graph](@/glossary/belief-graph.md) -- Knowledge structure targeted by evidence drift attacks
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework providing structural defenses against drift
+- [Time Decay](@/glossary/time-decay.md) -- Temporal axiom that naturally counters some forms of evidence drift
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern that can trigger on cumulative drift detection
+- [Adversarial Simulation](@/glossary/adversarial-simulation.md) -- Controlled testing methodology that includes drift scenarios
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Agents](/agents/) -- Full agent catalog including drift detection agents
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Agents](@/agents/_index.md) -- Full agent catalog including drift detection agents
 
 ---
 
@@ -520,4 +520,4 @@ Over several assessment cycles, an assessed entity gradually introduces improvem
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

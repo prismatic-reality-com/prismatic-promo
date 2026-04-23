@@ -41,7 +41,7 @@ Documentation quality has a compounding effect on engineering velocity. Poor doc
 
 Software documentation exists on a spectrum from low-level code artifacts to high-level strategic documents. Understanding these types and their intended audiences is essential for building a comprehensive documentation strategy.
 
-**API Documentation** provides detailed descriptions of endpoints, parameters, response formats, authentication methods, rate limits, and usage examples for programmatic interfaces. Modern API documentation is often generated from machine-readable specifications like [OpenAPI](/glossary/openapi/), ensuring accuracy and enabling tooling such as client code generation and automated testing.
+**API Documentation** provides detailed descriptions of endpoints, parameters, response formats, authentication methods, rate limits, and usage examples for programmatic interfaces. Modern API documentation is often generated from machine-readable specifications like [OpenAPI](@/glossary/openapi.md), ensuring accuracy and enabling tooling such as client code generation and automated testing.
 
 **Reference Documentation** consists of comprehensive listings of functions, modules, types, and their parameters. In Elixir, reference documentation is generated from `@moduledoc` and `@doc` attributes using ExDoc, producing browsable HTML documentation hosted on HexDocs. This documentation is inherently accurate because it is extracted directly from the source code.
 
@@ -360,7 +360,7 @@ Large platforms require documentation organized in hierarchies that mirror the s
 
 ### Documentation as Interface Contract
 
-In service-oriented architectures, documentation serves as the contract between service providers and consumers. [API](/glossary/api/) documentation defines not just the shape of requests and responses but also behavioral guarantees, error semantics, rate limits, and versioning policies. When documentation is treated as a contract, changes to documentation require the same rigor as changes to code.
+In service-oriented architectures, documentation serves as the contract between service providers and consumers. [API](@/glossary/api.md) documentation defines not just the shape of requests and responses but also behavioral guarantees, error semantics, rate limits, and versioning policies. When documentation is treated as a contract, changes to documentation require the same rigor as changes to code.
 
 ### Living Documentation
 
@@ -410,7 +410,7 @@ Modern documentation workflows rely on a rich ecosystem of tools that handle dif
 
 ## Documentation in Umbrella Applications
 
-Elixir [umbrella applications](/glossary/umbrella-application/) present unique documentation challenges. With 115+ applications in the Prismatic Platform, maintaining consistent documentation across all apps requires standardization and automation.
+Elixir [umbrella applications](@/glossary/umbrella-application.md) present unique documentation challenges. With 115+ applications in the Prismatic Platform, maintaining consistent documentation across all apps requires standardization and automation.
 
 Each umbrella application maintains its own CLAUDE.md file that describes the application's purpose, architecture, key modules, and integration points. A quality standard enforces that every application has documentation, and automated tooling measures documentation coverage across the entire umbrella.
 
@@ -434,11 +434,11 @@ The Prismatic Platform's session context system (`.claude/session-context/`) ser
 
 The Prismatic Platform employs a multi-layered documentation strategy that combines auto-generated and hand-written documentation at multiple levels of granularity.
 
-**Auto-Generated API Documentation**: The [API](/glossary/api/) gateway uses `Code.fetch_docs/1` and `Code.Typespec.fetch_specs/1` to automatically generate [OpenAPI](/glossary/openapi/) specifications with SwaggerUI, ensuring API documentation is always synchronized with implementation.
+**Auto-Generated API Documentation**: The [API](@/glossary/api.md) gateway uses `Code.fetch_docs/1` and `Code.Typespec.fetch_specs/1` to automatically generate [OpenAPI](@/glossary/openapi.md) specifications with SwaggerUI, ensuring API documentation is always synchronized with implementation.
 
 **CLAUDE.md Files**: Every umbrella application has a CLAUDE.md file that describes its purpose, architecture, key modules, and integration points. The platform-level CLAUDE.md serves as the master reference for the entire system.
 
-**Promo Site**: A public-facing documentation site built with Zola, containing over 1,800 pages of content across sections including [architecture](/glossary/architecture/), capabilities, agents, commands, glossary, and more.
+**Promo Site**: A public-facing documentation site built with Zola, containing over 1,800 pages of content across sections including [architecture](@/glossary/architecture.md), capabilities, agents, commands, glossary, and more.
 
 **AIAD Specifications**: Agent and command specifications in `.aiad/` serve as both documentation and machine-readable definitions that can be indexed, searched, and validated.
 
@@ -449,7 +449,7 @@ The Prismatic Platform employs a multi-layered documentation strategy that combi
 ### Best Practices
 
 - **Write for your audience**: Tailor language, examples, and depth to the intended readers' expertise level
-- **Include working examples**: Every [API](/glossary/api/) endpoint and major feature should have practical, tested code examples
+- **Include working examples**: Every [API](@/glossary/api.md) endpoint and major feature should have practical, tested code examples
 - **Structure logically**: Organize information hierarchically with clear navigation and cross-references
 - **Keep it current**: Implement automated processes to detect documentation drift when code changes
 - **Test documentation**: Verify that examples compile, instructions can be followed, and links resolve
@@ -483,15 +483,15 @@ The trend is clearly toward tighter integration between documentation and code, 
 
 ## Related Concepts
 
-- [API](/glossary/api/) -- Interfaces that require comprehensive documentation
-- [OpenAPI](/glossary/openapi/) -- Machine-readable API specification standard
-- [Architecture](/glossary/architecture/) -- System design documented through ADRs
-- [Typespec](/glossary/typespec/) -- Type annotations that serve as documentation
-- [Testing](/glossary/testing/) -- Doctests as living documentation
-- [Umbrella Application](/glossary/umbrella-application/) -- Multi-app documentation challenges
-- [Technical Debt](/glossary/technical-debt/) -- Documentation debt as a form of technical debt
-- [Telemetry](/glossary/telemetry/) -- Operational documentation for monitoring systems
-- [Validation](/glossary/validation/) -- Documentation quality validation
+- [API](@/glossary/api.md) -- Interfaces that require comprehensive documentation
+- [OpenAPI](@/glossary/openapi.md) -- Machine-readable API specification standard
+- [Architecture](@/glossary/architecture.md) -- System design documented through ADRs
+- [Typespec](@/glossary/typespec.md) -- Type annotations that serve as documentation
+- [Testing](@/glossary/testing.md) -- Doctests as living documentation
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Multi-app documentation challenges
+- [Technical Debt](@/glossary/technical-debt.md) -- Documentation debt as a form of technical debt
+- [Telemetry](@/glossary/telemetry.md) -- Operational documentation for monitoring systems
+- [Validation](@/glossary/validation.md) -- Documentation quality validation
 
 ---
 
@@ -500,4 +500,4 @@ The trend is clearly toward tighter integration between documentation and code, 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

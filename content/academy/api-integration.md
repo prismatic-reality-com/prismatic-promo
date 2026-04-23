@@ -36,8 +36,8 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Getting Started with Prismatic Platform](/academy/getting-started/)
-- Completed [Storage Architecture & Adapters](/academy/storage-patterns/)
+- Completed [Getting Started with Prismatic Platform](@/academy/getting-started.md)
+- Completed [Storage Architecture & Adapters](@/academy/storage-patterns.md)
 - Basic understanding of REST APIs and HTTP
 - `curl` or an HTTP client for testing
 
@@ -520,34 +520,34 @@ open http://localhost:4004/api/swaggerui
 ## See Also
 
 ### Related Applications
-- [prismatic_api](/apps/prismatic-api/) -- Auto-introspecting REST gateway
-- [prismatic_perimeter](/apps/prismatic-perimeter/) -- EASM facade exposed through API
-- [prismatic_dd](/apps/prismatic-dd/) -- DD facade exposed through API
-- [prismatic_auth](/apps/prismatic-auth/) -- Authentication and RBAC for API access
-- [prismatic_web](/apps/prismatic-web/) -- Main web application (separate from API)
+- [prismatic_api](@/apps/prismatic-api.md) -- Auto-introspecting REST gateway
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) -- EASM facade exposed through API
+- [prismatic_dd](@/apps/prismatic-dd.md) -- DD facade exposed through API
+- [prismatic_auth](@/apps/prismatic-auth.md) -- Authentication and RBAC for API access
+- [prismatic_web](@/apps/prismatic-web.md) -- Main web application (separate from API)
 
 ### Glossary
-- [API Gateway](/glossary/api-gateway/) -- API routing and management pattern
-- [OpenAPI](/glossary/openapi/) -- REST API specification standard
-- [REST API](/glossary/rest-api/) -- Representational State Transfer API design
-- [RBAC](/glossary/rbac/) -- Role-Based Access Control for API authorization
-- [Rate Limiting](/glossary/rate-limiting/) -- Request throttling for API protection
+- [API Gateway](@/glossary/api-gateway.md) -- API routing and management pattern
+- [OpenAPI](@/glossary/openapi.md) -- REST API specification standard
+- [REST API](@/glossary/rest-api.md) -- Representational State Transfer API design
+- [RBAC](@/glossary/rbac.md) -- Role-Based Access Control for API authorization
+- [Rate Limiting](@/glossary/rate-limiting.md) -- Request throttling for API protection
 
 ### Architecture
-- [Storage Adapters](/architecture/storage-adapters/) -- Data layer behind API responses
-- [Phoenix LiveView](/architecture/phoenix-liveview/) -- Alternative to API for real-time interfaces
+- [Storage Adapters](@/architecture/storage-adapters.md) -- Data layer behind API responses
+- [Phoenix LiveView](@/architecture/phoenix-liveview.md) -- Alternative to API for real-time interfaces
 
 ### Related Academy Topics
-- [Building EASM Features](/academy/easm-development/) -- Build features the API exposes
-- [Storage Architecture](/academy/storage-patterns/) -- Data layer behind API responses
-- [The AIAD Standard](/academy/aiad-standard/) -- How API endpoints map to AIAD commands
-- [LiveView Dashboards](/academy/liveview-dashboards/) -- Alternative UI approach to REST API
+- [Building EASM Features](@/academy/easm-development.md) -- Build features the API exposes
+- [Storage Architecture](@/academy/storage-patterns.md) -- Data layer behind API responses
+- [The AIAD Standard](@/academy/aiad-standard.md) -- How API endpoints map to AIAD commands
+- [LiveView Dashboards](@/academy/liveview-dashboards.md) -- Alternative UI approach to REST API
 
 ## Next Steps
 
-- [Building EASM Features](/academy/easm-development/) -- build features that the API exposes
-- [Storage Architecture & Adapters](/academy/storage-patterns/) -- understand the data layer behind API responses
-- [The AIAD Standard Explained](/academy/aiad-standard/) -- how API endpoints map to AIAD commands
+- [Building EASM Features](@/academy/easm-development.md) -- build features that the API exposes
+- [Storage Architecture & Adapters](@/academy/storage-patterns.md) -- understand the data layer behind API responses
+- [The AIAD Standard Explained](@/academy/aiad-standard.md) -- how API endpoints map to AIAD commands
 
 ---
 
@@ -556,4 +556,4 @@ open http://localhost:4004/api/swaggerui
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

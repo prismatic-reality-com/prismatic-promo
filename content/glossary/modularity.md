@@ -36,15 +36,15 @@ image_alt = "Modularity - Prismatic Platform"
 
 ## Definition
 
-Modularity is the design principle of decomposing a software system into discrete, independent, and interchangeable components -- called modules -- each encapsulating a coherent set of responsibilities behind well-defined interfaces. A modular system allows individual components to be developed, tested, deployed, and evolved independently while maintaining clear contracts for inter-component communication. In the context of the Prismatic Platform, modularity manifests as 115 [umbrella applications](/glossary/umbrella-application/) organized by domain, connected through [behaviours](/glossary/behaviour/), [protocols](/glossary/protocol/), and the [adapter pattern](/glossary/adapter-pattern/).
+Modularity is the design principle of decomposing a software system into discrete, independent, and interchangeable components -- called modules -- each encapsulating a coherent set of responsibilities behind well-defined interfaces. A modular system allows individual components to be developed, tested, deployed, and evolved independently while maintaining clear contracts for inter-component communication. In the context of the Prismatic Platform, modularity manifests as 115 [umbrella applications](@/glossary/umbrella-application.md) organized by domain, connected through [behaviours](@/glossary/behaviour.md), [protocols](@/glossary/protocol.md), and the [adapter pattern](@/glossary/adapter-pattern.md).
 
 ## Overview
 
 Modularity is not merely a structural convenience -- it is a foundational architectural decision that determines a system's capacity for growth, maintainability, and resilience. Systems that lack modularity suffer from tight coupling, where changes in one area cascade unpredictably into others. They resist testing because components cannot be isolated. They resist evolution because refactoring any single piece requires understanding the entire monolith.
 
-The Prismatic Platform embraces modularity at every level of its architecture. At the macro level, the Elixir [umbrella application](/glossary/umbrella-application/) structure divides the platform into 115 distinct applications, each with its own supervision tree, test suite, and dependency manifest. At the micro level, individual modules use [behaviours](/glossary/behaviour/) and [protocols](/glossary/protocol/) to define contracts that enable multiple implementations to coexist transparently. At the operational level, the [AIAD](/glossary/aiad/) standard organizes 530+ agents into modular hierarchies where each agent has a single, well-defined responsibility.
+The Prismatic Platform embraces modularity at every level of its architecture. At the macro level, the Elixir [umbrella application](@/glossary/umbrella-application.md) structure divides the platform into 115 distinct applications, each with its own supervision tree, test suite, and dependency manifest. At the micro level, individual modules use [behaviours](@/glossary/behaviour.md) and [protocols](@/glossary/protocol.md) to define contracts that enable multiple implementations to coexist transparently. At the operational level, the [AIAD](@/glossary/aiad.md) standard organizes 530+ agents into modular hierarchies where each agent has a single, well-defined responsibility.
 
-The benefits compound over time. When the platform needed to add KuzuDB graph storage alongside existing PostgreSQL and ETS backends, modularity through the [adapter pattern](/glossary/adapter-pattern/) meant the new backend could be added without modifying a single line of existing storage code. When the OSINT toolbox grew from 20 to 120 tools, each tool was an independent module conforming to a shared [behaviour](/glossary/behaviour/), making the expansion trivial to manage.
+The benefits compound over time. When the platform needed to add KuzuDB graph storage alongside existing PostgreSQL and ETS backends, modularity through the [adapter pattern](@/glossary/adapter-pattern.md) meant the new backend could be added without modifying a single line of existing storage code. When the OSINT toolbox grew from 20 to 120 tools, each tool was an independent module conforming to a shared [behaviour](@/glossary/behaviour.md), making the expansion trivial to manage.
 
 ## Technical Details
 
@@ -321,17 +321,17 @@ Microservices take modularity to the extreme by running each module as an indepe
 
 ### Modularity vs. Plugin Architecture
 
-Plugin architectures provide extensibility through dynamic loading of components. While powerful for third-party extensibility, they sacrifice compile-time guarantees. Prismatic's [behaviour](/glossary/behaviour/)-based modularity provides both extensibility and compile-time contract verification -- a stronger guarantee than most plugin systems offer.
+Plugin architectures provide extensibility through dynamic loading of components. While powerful for third-party extensibility, they sacrifice compile-time guarantees. Prismatic's [behaviour](@/glossary/behaviour.md)-based modularity provides both extensibility and compile-time contract verification -- a stronger guarantee than most plugin systems offer.
 
 ## Best Practices
 
 ### 1. Define Boundaries Before Writing Code
 
-Start by identifying [bounded contexts](/glossary/bounded-context/) in your domain. Each context becomes a separate umbrella application with its own supervision tree and public API. This prevents the common failure mode of splitting modules after a monolith has already formed.
+Start by identifying [bounded contexts](@/glossary/bounded-context.md) in your domain. Each context becomes a separate umbrella application with its own supervision tree and public API. This prevents the common failure mode of splitting modules after a monolith has already formed.
 
 ### 2. Depend on Abstractions, Not Implementations
 
-All inter-module communication should flow through [behaviours](/glossary/behaviour/) or [protocols](/glossary/protocol/), never through direct calls to internal functions. This is the Dependency Inversion Principle applied to Elixir -- high-level modules should not depend on low-level modules; both should depend on abstractions.
+All inter-module communication should flow through [behaviours](@/glossary/behaviour.md) or [protocols](@/glossary/protocol.md), never through direct calls to internal functions. This is the Dependency Inversion Principle applied to Elixir -- high-level modules should not depend on low-level modules; both should depend on abstractions.
 
 ### 3. Enforce One-Way Dependencies
 
@@ -347,7 +347,7 @@ Group related functions, types, and tests within the same module or application.
 
 ### 6. Design for Independent Testability
 
-Every module should be testable in complete isolation. If testing a module requires starting the entire application, it is too tightly coupled. Use [dependency injection](/glossary/dependency-injection/) to replace collaborators with test doubles during testing.
+Every module should be testable in complete isolation. If testing a module requires starting the entire application, it is too tightly coupled. Use [dependency injection](@/glossary/dependency-injection.md) to replace collaborators with test doubles during testing.
 
 ### 7. Version Module Interfaces
 
@@ -357,7 +357,7 @@ When a module's public API changes, treat it as a contract change. Use semantic 
 
 ### 1. Over-Modularization
 
-Creating too many tiny modules with trivial responsibilities leads to "module soup" -- a system where understanding any feature requires tracing through dozens of files. Each module should represent a meaningful abstraction, not just a single function. The Prismatic Platform avoids this by anchoring modularity at the [bounded context](/glossary/bounded-context/) level.
+Creating too many tiny modules with trivial responsibilities leads to "module soup" -- a system where understanding any feature requires tracing through dozens of files. Each module should represent a meaningful abstraction, not just a single function. The Prismatic Platform avoids this by anchoring modularity at the [bounded context](@/glossary/bounded-context.md) level.
 
 ### 2. Shared Mutable State Across Modules
 
@@ -383,7 +383,7 @@ In Elixir, compile-time dependencies (macros, `use`, `import`) create stronger c
 
 ### 1. Storage Backend Evolution
 
-When the platform needed to add [KuzuDB](/glossary/kuzudb/) graph storage for entity relationships, the modular adapter pattern meant creating a new `PrismaticStorageKuzu` application that implemented the existing `PrismaticStorageCore.Adapter` behaviour. Zero changes were required in any consuming module.
+When the platform needed to add [KuzuDB](@/glossary/kuzudb.md) graph storage for entity relationships, the modular adapter pattern meant creating a new `PrismaticStorageKuzu` application that implemented the existing `PrismaticStorageCore.Adapter` behaviour. Zero changes were required in any consuming module.
 
 ### 2. OSINT Tool Expansion
 
@@ -399,29 +399,29 @@ The platform evolved through 19 generations without requiring full rewrites. Mod
 
 ### 5. Quality Gate Isolation
 
-The [quality gates](/glossary/quality-gates/) system (`mix quality.gates`) can analyze and enforce quality standards on a per-application basis. Failing quality in one module does not block development in unrelated modules, enabling parallel quality improvement.
+The [quality gates](@/glossary/quality-gates.md) system (`mix quality.gates`) can analyze and enforce quality standards on a per-application basis. Failing quality in one module does not block development in unrelated modules, enabling parallel quality improvement.
 
 ## Related Concepts
 
-- [Composability](/glossary/composability/) -- the ability to combine modular components into larger structures, building on modularity's independent units
-- [Adapter Pattern](/glossary/adapter-pattern/) -- a specific design pattern enabling modularity through interface-based backend swapping
-- [Bounded Context](/glossary/bounded-context/) -- Domain-Driven Design concept that informs where module boundaries should be drawn
-- [Umbrella Application](/glossary/umbrella-application/) -- Elixir's primary mechanism for structural modularity in large codebases
-- [Dependency Injection](/glossary/dependency-injection/) -- technique for decoupling modules by injecting dependencies rather than hardcoding them
-- [Behaviour](/glossary/behaviour/) -- Elixir's compile-time contract mechanism that enforces modular interface compliance
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- strategic design approach that uses bounded contexts to guide modular decomposition
-- [OTP Application](/glossary/otp-application/) -- the runtime unit of modularity in Erlang/OTP systems, with its own supervision tree
-- [Microservices](/glossary/microservices/) -- an alternative modularity strategy using network-separated services
-- [Protocol](/glossary/protocol/) -- Elixir's data-type-based polymorphism mechanism complementing behaviour-based modularity
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP's hierarchical fault isolation structure that reinforces module independence
+- [Composability](@/glossary/composability.md) -- the ability to combine modular components into larger structures, building on modularity's independent units
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- a specific design pattern enabling modularity through interface-based backend swapping
+- [Bounded Context](@/glossary/bounded-context.md) -- Domain-Driven Design concept that informs where module boundaries should be drawn
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Elixir's primary mechanism for structural modularity in large codebases
+- [Dependency Injection](@/glossary/dependency-injection.md) -- technique for decoupling modules by injecting dependencies rather than hardcoding them
+- [Behaviour](@/glossary/behaviour.md) -- Elixir's compile-time contract mechanism that enforces modular interface compliance
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- strategic design approach that uses bounded contexts to guide modular decomposition
+- [OTP Application](@/glossary/otp-application.md) -- the runtime unit of modularity in Erlang/OTP systems, with its own supervision tree
+- [Microservices](@/glossary/microservices.md) -- an alternative modularity strategy using network-separated services
+- [Protocol](@/glossary/protocol.md) -- Elixir's data-type-based polymorphism mechanism complementing behaviour-based modularity
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP's hierarchical fault isolation structure that reinforces module independence
 
 ## See Also
 
-- [Architecture Overview](/architecture/) -- how modularity shapes the platform's overall structure
-- [AIAD Standard](/glossary/aiad/) -- modular agent specification framework
-- [Composability](/glossary/composability/) -- building larger systems from modular primitives
-- [Fault Tolerance](/glossary/fault-tolerance/) -- how modular isolation enables graceful degradation
-- [PrismaticSupervisor](/glossary/supervisor/) -- compositional supervision leveraging modular application boundaries
+- [Architecture Overview](@/architecture/_index.md) -- how modularity shapes the platform's overall structure
+- [AIAD Standard](@/glossary/aiad.md) -- modular agent specification framework
+- [Composability](@/glossary/composability.md) -- building larger systems from modular primitives
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- how modular isolation enables graceful degradation
+- [PrismaticSupervisor](@/glossary/supervisor.md) -- compositional supervision leveraging modular application boundaries
 
 ---
 
@@ -430,4 +430,4 @@ The [quality gates](/glossary/quality-gates/) system (`mix quality.gates`) can a
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

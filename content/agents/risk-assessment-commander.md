@@ -28,13 +28,13 @@ image_alt = "risk-assessment-commander - Prismatic Platform"
 
 ## Overview
 
-The risk-assessment-commander operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's risk intelligence domain, serving as the central orchestrator for multi-dimensional risk evaluation across entities, assets, and operational scenarios. This agent synthesizes risk signals from specialized domain agents -- financial, reputational, regulatory, technical, and geopolitical -- into unified risk assessments with composite scores, confidence intervals, and actionable mitigation recommendations. Its outputs provide decision-makers with quantified risk intelligence that spans the full threat landscape.
+The risk-assessment-commander operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's risk intelligence domain, serving as the central orchestrator for multi-dimensional risk evaluation across entities, assets, and operational scenarios. This agent synthesizes risk signals from specialized domain agents -- financial, reputational, regulatory, technical, and geopolitical -- into unified risk assessments with composite scores, confidence intervals, and actionable mitigation recommendations. Its outputs provide decision-makers with quantified risk intelligence that spans the full threat landscape.
 
-Governed by the [AIAD](/glossary/aiad/) standard and the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, the risk-assessment-commander enforces [signal plurality](/glossary/signal-plurality/) on all risk determinations: no [risk score](/glossary/risk-score/) relies on a single source domain. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that every risk factor carries traceable provenance and quantified uncertainty. [Contradiction preservation](/glossary/contradiction-preservation/) is critical in risk assessment -- when domain specialists produce conflicting risk signals, both perspectives are maintained and surfaced to ensure that inconvenient risks are not inadvertently smoothed away.
+Governed by the [AIAD](@/glossary/aiad.md) standard and the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, the risk-assessment-commander enforces [signal plurality](@/glossary/signal-plurality.md) on all risk determinations: no [risk score](@/glossary/risk-score.md) relies on a single source domain. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that every risk factor carries traceable provenance and quantified uncertainty. [Contradiction preservation](@/glossary/contradiction-preservation.md) is critical in risk assessment -- when domain specialists produce conflicting risk signals, both perspectives are maintained and surfaced to ensure that inconvenient risks are not inadvertently smoothed away.
 
 ## Operational Domain
 
-The risk domain encompasses financial risk, operational risk, compliance risk, reputational risk, technological risk, and geopolitical risk evaluation. The commander maintains a unified risk model that aggregates inputs from domain-specific specialists, applies weighting models appropriate to the assessment context, and produces consolidated risk profiles. Risk assessments are temporal -- they carry validity windows and are subject to the [NABLA Infinity](/glossary/nabla-infinity/) [time decay](/glossary/time-decay/) axiom, requiring periodic re-evaluation as conditions evolve.
+The risk domain encompasses financial risk, operational risk, compliance risk, reputational risk, technological risk, and geopolitical risk evaluation. The commander maintains a unified risk model that aggregates inputs from domain-specific specialists, applies weighting models appropriate to the assessment context, and produces consolidated risk profiles. Risk assessments are temporal -- they carry validity windows and are subject to the [NABLA Infinity](@/glossary/nabla-infinity.md) [time decay](@/glossary/time-decay.md) axiom, requiring periodic re-evaluation as conditions evolve.
 
 ## Key Capabilities
 
@@ -42,8 +42,8 @@ The risk domain encompasses financial risk, operational risk, compliance risk, r
 - **Risk scoring with confidence intervals** -- Produces quantified risk scores that include explicit confidence bounds, reflecting the quality and diversity of underlying evidence
 - **Scenario-based risk modeling** -- Evaluates risk under multiple scenarios including baseline, stress, and extreme conditions, providing decision-makers with range-based risk intelligence
 - **Mitigation recommendation generation** -- Identifies actionable risk mitigation strategies ranked by effectiveness, cost, and implementation complexity
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with triggered risk re-assessment when new intelligence signals arrive
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for risk model performance monitoring and assessment latency tracking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with triggered risk re-assessment when new intelligence signals arrive
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for risk model performance monitoring and assessment latency tracking
 
 ## Authority Level
 
@@ -61,15 +61,15 @@ The risk domain encompasses financial risk, operational risk, compliance risk, r
 
 | Agent | Relationship |
 |-------|-------------|
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Provides strategic risk intelligence context for assessment framing |
-| [reputation-risk-specialist](/agents/reputation-risk-specialist/) | Supplies reputational risk domain scores |
-| [regulatory-compliance-risk-specialist](/agents/regulatory-compliance-risk-specialist/) | Provides regulatory and compliance risk evaluations |
-| [real-estate-valuation-specialist](/agents/real-estate-valuation-specialist/) | Asset valuations feed into collateral and financial risk models |
-| [ma-tech-assessor](/agents/ma-tech-assessor/) | Technology risk scores inform technical risk dimension |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Provides strategic risk intelligence context for assessment framing |
+| [reputation-risk-specialist](@/agents/reputation-risk-specialist.md) | Supplies reputational risk domain scores |
+| [regulatory-compliance-risk-specialist](@/agents/regulatory-compliance-risk-specialist.md) | Provides regulatory and compliance risk evaluations |
+| [real-estate-valuation-specialist](@/agents/real-estate-valuation-specialist.md) | Asset valuations feed into collateral and financial risk models |
+| [ma-tech-assessor](@/agents/ma-tech-assessor.md) | Technology risk scores inform technical risk dimension |
 
 ## Enforcement
 
-Risk assessments must pass [Trinity Gate](/glossary/trinity-gate/) validation before publication. The [NO MERCY](/glossary/no-mercy/) doctrine prohibits delivery of risk assessments that lack complete factor attribution or that suppress contradictory signals. All risk scores carry mandatory provenance chains and validity windows.
+Risk assessments must pass [Trinity Gate](@/glossary/trinity-gate.md) validation before publication. The [NO MERCY](@/glossary/no-mercy.md) doctrine prohibits delivery of risk assessments that lack complete factor attribution or that suppress contradictory signals. All risk scores carry mandatory provenance chains and validity windows.
 
 ---
 
@@ -78,4 +78,4 @@ Risk assessments must pass [Trinity Gate](/glossary/trinity-gate/) validation be
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

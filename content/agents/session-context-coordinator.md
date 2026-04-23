@@ -28,15 +28,15 @@ image_alt = "session-context-coordinator - Prismatic Platform"
 
 ## Overview
 
-The session-context-coordinator operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's session-intelligence domain, responsible for managing the loading, validation, and coordination of session context data that enables cross-session development continuity. Every development session in the platform builds upon work performed in previous sessions, and the session-context-coordinator ensures that this accumulated knowledge is available, consistent, and properly scoped for each new session's requirements.
+The session-context-coordinator operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's session-intelligence domain, responsible for managing the loading, validation, and coordination of session context data that enables cross-session development continuity. Every development session in the platform builds upon work performed in previous sessions, and the session-context-coordinator ensures that this accumulated knowledge is available, consistent, and properly scoped for each new session's requirements.
 
 In a platform where hundreds of development sessions have generated structured context records, coordinating which context to load, how to resolve conflicts between overlapping session records, and when to trigger context refresh becomes a non-trivial orchestration challenge. The agent manages this coordination through a context lifecycle model that tracks context from creation through active use to eventual archival, ensuring that each session has access to the most relevant and current information while avoiding information overload from loading irrelevant historical context.
 
 ## Operational Domain
 
-The session-intelligence domain for context coordination encompasses the management of context files stored in `.claude/session-context/`, the [Quality DNA](/glossary/quality-dna/) persistence layer at `.claude/quality-dna/current-state.json`, and the Stack-Based Conversation Mode infrastructure that maintains frame-level context within individual sessions. The agent coordinates across these three context sources to provide a unified view of platform state at session start and to manage context updates during session execution.
+The session-intelligence domain for context coordination encompasses the management of context files stored in `.claude/session-context/`, the [Quality DNA](@/glossary/quality-dna.md) persistence layer at `.claude/quality-dna/current-state.json`, and the Stack-Based Conversation Mode infrastructure that maintains frame-level context within individual sessions. The agent coordinates across these three context sources to provide a unified view of platform state at session start and to manage context updates during session execution.
 
-The domain extends to context conflict resolution. When multiple sessions modify overlapping areas of the platform, their context records may contain contradictory information about the current state. The coordinator applies temporal ordering and [NABLA Infinity](/glossary/nabla-infinity/) provenance tracking to resolve these conflicts, preferring the most recent context with the highest confidence level.
+The domain extends to context conflict resolution. When multiple sessions modify overlapping areas of the platform, their context records may contain contradictory information about the current state. The coordinator applies temporal ordering and [NABLA Infinity](@/glossary/nabla-infinity.md) provenance tracking to resolve these conflicts, preferring the most recent context with the highest confidence level.
 
 ## Key Capabilities
 
@@ -44,9 +44,9 @@ The domain extends to context conflict resolution. When multiple sessions modify
 - **Cross-session continuity management** -- Maintains a continuity graph that tracks relationships between sessions, enabling the coordinator to identify when a new session depends on outcomes from specific previous sessions and to load those dependencies automatically
 - **Context validation** -- Verifies that loaded context is consistent with the current platform state, detecting stale information that may have been superseded by changes made outside the session context system
 - **Quality DNA synchronization** -- Coordinates between session context records and the Quality DNA persistence layer, ensuring that quality state changes made during sessions are properly propagated to the canonical quality record
-- **Conflict resolution** -- Applies deterministic conflict resolution when multiple context sources contain contradictory information, using timestamp-based ordering with [NABLA Infinity](/glossary/nabla-infinity/) provenance tiebreaking
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with automatic context refresh when staleness is detected
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing context lifecycle events under the `:prismatic_claude, :session_context` namespace
+- **Conflict resolution** -- Applies deterministic conflict resolution when multiple context sources contain contradictory information, using timestamp-based ordering with [NABLA Infinity](@/glossary/nabla-infinity.md) provenance tiebreaking
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with automatic context refresh when staleness is detected
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing context lifecycle events under the `:prismatic_claude, :session_context` namespace
 
 ## Context Lifecycle Model
 
@@ -73,7 +73,7 @@ The coordinator employs a tiered loading strategy that balances completeness aga
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority for session context management with the ability to determine context loading priorities and resolve inter-session conflicts across all platform domains.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority for session context management with the ability to determine context loading priorities and resolve inter-session conflicts across all platform domains.
 
 ## Command Interface
 
@@ -89,15 +89,15 @@ The coordinator employs a tiered loading strategy that balances completeness aga
 
 | Agent | Relationship |
 |-------|-------------|
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Produces context artifacts that the coordinator manages |
-| [session-compressor-specialist](/agents/session-compressor-specialist/) | Provides compressed context that requires decompression during loading |
-| [session-context-synthesizer](/agents/session-context-synthesizer/) | Consumes coordinated context for synthesis operations |
-| [session-pattern-analyzer](/agents/session-pattern-analyzer/) | Pattern analysis operates on coordinated context views |
-| [stack-mode-coordinator](/agents/stack-mode-coordinator/) | Stack frame management integrates with session context loading |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Produces context artifacts that the coordinator manages |
+| [session-compressor-specialist](@/agents/session-compressor-specialist.md) | Provides compressed context that requires decompression during loading |
+| [session-context-synthesizer](@/agents/session-context-synthesizer.md) | Consumes coordinated context for synthesis operations |
+| [session-pattern-analyzer](@/agents/session-pattern-analyzer.md) | Pattern analysis operates on coordinated context views |
+| [stack-mode-coordinator](@/agents/stack-mode-coordinator.md) | Stack frame management integrates with session context loading |
 
 ## Integration with Session Lifecycle
 
-The session-context-coordinator integrates with the Session Lifecycle [GenServer](/glossary/genserver/) (`PrismaticClaude.SessionLifecycle`) to participate in session lifecycle events. At the `:session_start` phase, the coordinator triggers context loading and validation. During the session, the coordinator monitors for context-invalidating changes. At `:session_end`, the coordinator ensures that the session's contributions to the context store are properly committed and linked.
+The session-context-coordinator integrates with the Session Lifecycle [GenServer](@/glossary/genserver.md) (`PrismaticClaude.SessionLifecycle`) to participate in session lifecycle events. At the `:session_start` phase, the coordinator triggers context loading and validation. During the session, the coordinator monitors for context-invalidating changes. At `:session_end`, the coordinator ensures that the session's contributions to the context store are properly committed and linked.
 
 | Lifecycle Event | Coordinator Action |
 |----------------|-------------------|
@@ -108,7 +108,7 @@ The session-context-coordinator integrates with the Session Lifecycle [GenServer
 
 ## Context Integrity Guarantees
 
-The coordinator maintains several integrity guarantees that are enforced by the [NO MERCY](/glossary/no-mercy/) doctrine.
+The coordinator maintains several integrity guarantees that are enforced by the [NO MERCY](@/glossary/no-mercy.md) doctrine.
 
 | Guarantee | Description | Enforcement |
 |-----------|-------------|-------------|
@@ -120,7 +120,7 @@ The coordinator maintains several integrity guarantees that are enforced by the 
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine and the Mandatory Session Discipline Protocol require that every session begins with proper context loading and ends with proper context persistence. No session may begin without the coordinator confirming that essential context is loaded and validated. No session may end without the coordinator confirming that session outcomes are committed to the context store. Violations trigger L2 blocks that prevent session progression until context obligations are fulfilled.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine and the Mandatory Session Discipline Protocol require that every session begins with proper context loading and ends with proper context persistence. No session may begin without the coordinator confirming that essential context is loaded and validated. No session may end without the coordinator confirming that session outcomes are committed to the context store. Violations trigger L2 blocks that prevent session progression until context obligations are fulfilled.
 
 ## Related Agents
 
@@ -133,4 +133,4 @@ Agents in the **session-intelligence** domain collaborate with the session-conte
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

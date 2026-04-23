@@ -26,7 +26,7 @@ image_alt = "/quality-hbfs - Prismatic Platform"
 
 **/quality-hbfs** is a production command in the **Quality** category of the Prismatic Platform. It implements a Hottest-Bug-First Search algorithm that prioritizes quality issues based on their impact, frequency, recency, and interconnectedness, ensuring that the most damaging defects receive attention first. Rather than addressing quality violations in arbitrary order or by simple severity classification, HBFS applies a multi-factor scoring model that considers how "hot" each issue is in terms of its effect on the overall platform health.
 
-This command operates under the **L3** authority level and is executed by the `quality-unified-supreme` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level allows the command to read quality data across all platform applications and compute cross-domain priority scores.
+This command operates under the **L3** authority level and is executed by the `quality-unified-supreme` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level allows the command to read quality data across all platform applications and compute cross-domain priority scores.
 
 The HBFS algorithm draws from graph-theoretic search strategies and heat-equation models. Each quality issue is modeled as a node in a dependency graph, with edges representing causal relationships (issue A causes or exacerbates issue B). The "heat" of each node combines its intrinsic severity with the propagated heat from its downstream effects, similar to how PageRank aggregates link authority. Issues that directly or indirectly affect many other parts of the system receive the highest heat scores, ensuring that root causes are addressed before symptoms.
 
@@ -195,14 +195,14 @@ The final output is formatted according to the requested format. Each issue incl
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/quality-gates](/commands/quality-gates/) | Data Source | Gate results feed into issue collection |
-| [/quality-evolve](/commands/quality-evolve/) | Consumer | Evolution uses HBFS to prioritize improvement targets |
-| [/quality-unified](/commands/quality-unified/) | Peer | Unified quality view includes HBFS rankings |
-| [/quality-enforce](/commands/quality-enforce/) | Policy | Enforcement policies define intrinsic severity weights |
-| [/tech-debt](/commands/tech-debt/) | Peer | Technical debt items overlap with quality issues |
-| [/verify-patterns](/commands/verify-patterns/) | Data Source | Pattern verification results contribute to issue graph |
-| [Telemetry](/glossary/telemetry/) | Monitoring | HBFS computation metrics |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | HBFS scores influence gate strictness |
+| [/quality-gates](@/commands/quality-gates.md) | Data Source | Gate results feed into issue collection |
+| [/quality-evolve](@/commands/quality-evolve.md) | Consumer | Evolution uses HBFS to prioritize improvement targets |
+| [/quality-unified](@/commands/quality-unified.md) | Peer | Unified quality view includes HBFS rankings |
+| [/quality-enforce](@/commands/quality-enforce.md) | Policy | Enforcement policies define intrinsic severity weights |
+| [/tech-debt](@/commands/tech-debt.md) | Peer | Technical debt items overlap with quality issues |
+| [/verify-patterns](@/commands/verify-patterns.md) | Data Source | Pattern verification results contribute to issue graph |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | HBFS computation metrics |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | HBFS scores influence gate strictness |
 
 ## Best Practices
 
@@ -262,22 +262,22 @@ Pipe HBFS output into quality-evolve for automated fix prioritization:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. HBFS ensures the most impactful issues are addressed first.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Heat scores are computed from objective metrics, not subjective assessment.
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-unified](/commands/quality-unified/) - Unified quality command with quick, full, pre-commit and CI modes
-- [/quality-evolve](/commands/quality-evolve/) - Quality-focused evolution targeting specific quality domains
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/tech-debt](/commands/tech-debt/) - Technical debt analysis and elimination planning
-- [/verify-patterns](/commands/verify-patterns/) - Pattern matching audit for file, module or entire codebase
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-unified](@/commands/quality-unified.md) - Unified quality command with quick, full, pre-commit and CI modes
+- [/quality-evolve](@/commands/quality-evolve.md) - Quality-focused evolution targeting specific quality domains
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/tech-debt](@/commands/tech-debt.md) - Technical debt analysis and elimination planning
+- [/verify-patterns](@/commands/verify-patterns.md) - Pattern matching audit for file, module or entire codebase
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
 
 ---
 
@@ -286,4 +286,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,7 +28,7 @@ image_alt = "/mcp-autoboot - Prismatic Platform"
 
 The Prismatic Platform integrates with 14 or more MCP servers, each providing specialized capabilities: filesystem access, GitHub integration, PostgreSQL connectivity, semantic memory, context management, and more. These servers have interdependencies -- some must be available before others can initialize. The `/mcp-autoboot` command encodes these dependency relationships and executes the startup sequence in topologically sorted order, ensuring that each server finds its dependencies already available when it starts.
 
-This command operates under the **L2+** authority level and is executed by the `mcp-evolution-coordinator` agent, the same agent responsible for the broader MCP lifecycle management across the platform. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command is typically invoked at session start or after infrastructure recovery events, making reliability and idempotency critical design properties.
+This command operates under the **L2+** authority level and is executed by the `mcp-evolution-coordinator` agent, the same agent responsible for the broader MCP lifecycle management across the platform. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command is typically invoked at session start or after infrastructure recovery events, making reliability and idempotency critical design properties.
 
 Beyond simple startup, the autoboot process includes comprehensive health verification for each server, connection validation with retry logic, capability negotiation, and registration of available tools in the platform's tool registry. If any server fails to start or pass health checks, the command provides detailed diagnostics and can optionally proceed with degraded mode, making available only the servers that successfully initialized.
 
@@ -154,13 +154,13 @@ The **Tool Registration** phase enumerates the tools exposed by each successfull
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by the `mcp-evolution-coordinator` agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by the `mcp-evolution-coordinator` agent |
 | MCP Protocol | Core Protocol | Manages the full MCP server lifecycle |
-| [Prismatic MCP](/apps/prismatic-mcp/) | Primary Server | The platform's own MCP server with 27+ tools |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Post-boot quality gate verification |
-| [Telemetry](/glossary/telemetry/) | Observability | Boot timing, health, and failure metrics |
+| [Prismatic MCP](@/apps/prismatic-mcp.md) | Primary Server | The platform's own MCP server with 27+ tools |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Post-boot quality gate verification |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Boot timing, health, and failure metrics |
 | Session Lifecycle | Auto-trigger | Can be triggered automatically at session start |
-| [Supervision Trees](/glossary/supervision-tree/) | Process Management | All MCP servers run under OTP supervision |
+| [Supervision Trees](@/glossary/supervision-tree.md) | Process Management | All MCP servers run under OTP supervision |
 
 ## Best Practices
 
@@ -219,19 +219,19 @@ After a system-wide failure, use autoboot for structured recovery:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for partially booted infrastructure. Every configured MCP server must either pass health checks or be explicitly flagged as failed with diagnostic details. Silent failures are not permitted -- every server's status is accounted for in the boot report.
 - **NO DOUBTS**: Full dependency verification before launch sequencing. The startup order is deterministically computed from the dependency graph, with cycle detection and topological validation ensuring correctness. Health checks provide evidence-based confirmation of server readiness rather than relying on process startup alone.
 
 ## Related Commands
 
-- [/mcp](/commands/mcp/) - Complete Model Context Protocol operations and management
-- [/mcp-service](/commands/mcp-service/) - Manage Prismatic MCP server as macOS service for persistent operation
-- [/ollama](/commands/ollama/) - Local AI Ollama model management, installation and optimization
-- [/gardener](/commands/gardener/) - [GARDEN](/glossary/garden/) legacy knowledge repository management across 116 repos
-- [/garden-explore](/commands/garden-explore/) - Explore GARDEN repositories for patterns and knowledge
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/mcp](@/commands/mcp.md) - Complete Model Context Protocol operations and management
+- [/mcp-service](@/commands/mcp-service.md) - Manage Prismatic MCP server as macOS service for persistent operation
+- [/ollama](@/commands/ollama.md) - Local AI Ollama model management, installation and optimization
+- [/gardener](@/commands/gardener.md) - [GARDEN](@/glossary/garden.md) legacy knowledge repository management across 116 repos
+- [/garden-explore](@/commands/garden-explore.md) - Explore GARDEN repositories for patterns and knowledge
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -240,4 +240,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

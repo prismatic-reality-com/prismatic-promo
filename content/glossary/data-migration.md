@@ -148,17 +148,17 @@ end
 
 ## Related Terms
 
-- [Ecto](/glossary/ecto/) -- Database wrapper providing the migration DSL
-- [Data Quality](/glossary/data-quality/) -- Validation ensuring migration correctness
-- [ETL](/glossary/etl/) -- Extract-Transform-Load pattern used in complex migrations
-- [Data Pipeline](/glossary/data-pipeline/) -- Automated data processing workflows including migrations
-- [Deployment](/glossary/deployment/) -- Release process incorporating database migrations
+- [Ecto](@/glossary/ecto.md) -- Database wrapper providing the migration DSL
+- [Data Quality](@/glossary/data-quality.md) -- Validation ensuring migration correctness
+- [ETL](@/glossary/etl.md) -- Extract-Transform-Load pattern used in complex migrations
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Automated data processing workflows including migrations
+- [Deployment](@/glossary/deployment.md) -- Release process incorporating database migrations
 
 ## See Also
 
-- [Technologies](/technologies/) -- Database technologies and migration tools
-- [Architecture](/architecture/) -- Platform data architecture
-- [Apps](/apps/) -- Umbrella applications with migration requirements
+- [Technologies](@/technologies/_index.md) -- Database technologies and migration tools
+- [Architecture](@/architecture/_index.md) -- Platform data architecture
+- [Apps](@/apps/_index.md) -- Umbrella applications with migration requirements
 
 ---
 
@@ -167,4 +167,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

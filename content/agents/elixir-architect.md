@@ -28,15 +28,15 @@ image_alt = "elixir-architect - Prismatic Platform"
 
 ## Overview
 
-The [Elixir](/glossary/elixir/) Architect operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Elixir [OTP](/glossary/otp/) domain of the Prismatic Platform. This agent enforces production-grade patterns, OTP principles, and functional programming discipline across the entire codebase. With zero tolerance for shortcuts, hacks, or imperative mindsets, the Elixir Architect ensures that every module, process, and [supervision tree](/glossary/supervision-tree/) adheres to the standards that make [BEAM](/glossary/beam/)-based systems reliable at scale.
+The [Elixir](@/glossary/elixir.md) Architect operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Elixir [OTP](@/glossary/otp.md) domain of the Prismatic Platform. This agent enforces production-grade patterns, OTP principles, and functional programming discipline across the entire codebase. With zero tolerance for shortcuts, hacks, or imperative mindsets, the Elixir Architect ensures that every module, process, and [supervision tree](@/glossary/supervision-tree.md) adheres to the standards that make [BEAM](@/glossary/beam.md)-based systems reliable at scale.
 
-The Prismatic Platform runs on Elixir 1.19+ with a 90-application [umbrella](/glossary/umbrella-application/) architecture spanning over 6,600 source files and approximately 2.8 million lines of code. At this scale, architectural discipline is not optional -- it is the difference between a system that runs reliably for years and one that collapses under its own complexity. The Elixir Architect reviews every structural decision against OTP principles: proper [process isolation](/glossary/process-isolation/), supervision tree design, message-passing patterns, and functional purity. Code that could be written identically in Node.js is rejected on principle, because if the solution does not leverage OTP and BEAM capabilities, it is the wrong solution for this platform.
+The Prismatic Platform runs on Elixir 1.19+ with a 90-application [umbrella](@/glossary/umbrella-application.md) architecture spanning over 6,600 source files and approximately 2.8 million lines of code. At this scale, architectural discipline is not optional -- it is the difference between a system that runs reliably for years and one that collapses under its own complexity. The Elixir Architect reviews every structural decision against OTP principles: proper [process isolation](@/glossary/process-isolation.md), supervision tree design, message-passing patterns, and functional purity. Code that could be written identically in Node.js is rejected on principle, because if the solution does not leverage OTP and BEAM capabilities, it is the wrong solution for this platform.
 
 The meta-rule -- "if the same solution could be written identically in Node.js, it is WRONG" -- captures the Elixir Architect's core philosophy. The BEAM runtime provides capabilities that no other runtime offers: lightweight processes, preemptive scheduling, fault isolation through process boundaries, hot code reloading, and location-transparent messaging. Code that ignores these capabilities wastes the platform's most significant architectural advantage.
 
 ## Operational Domain
 
-The Elixir OTP domain encompasses all aspects of Elixir language usage, OTP design patterns, and BEAM runtime optimization within the platform. This includes [GenServer](/glossary/genserver/) design, supervision hierarchies, [ETS](/glossary/ets/) usage patterns, [hot code reload](/glossary/hot-code-reload/)ing strategies, and [Phoenix](/glossary/phoenix/)/[LiveView](/glossary/liveview/) architectural decisions. Every line of Elixir code in the platform falls within the Elixir Architect's review authority.
+The Elixir OTP domain encompasses all aspects of Elixir language usage, OTP design patterns, and BEAM runtime optimization within the platform. This includes [GenServer](@/glossary/genserver.md) design, supervision hierarchies, [ETS](@/glossary/ets.md) usage patterns, [hot code reload](@/glossary/hot-code-reload.md)ing strategies, and [Phoenix](@/glossary/phoenix.md)/[LiveView](@/glossary/liveview.md) architectural decisions. Every line of Elixir code in the platform falls within the Elixir Architect's review authority.
 
 The domain requires deep understanding of both Elixir's high-level abstractions and the underlying BEAM primitives they compile to. The Elixir Architect understands how pattern matching compiles to instruction sequences, how GenServer calls translate to synchronous message exchanges, how supervision strategies map to process monitoring semantics, and how ETS tables implement concurrent data access. This understanding enables architectural guidance that is grounded in runtime behavior, not just language-level abstractions.
 
@@ -46,9 +46,9 @@ The Elixir Architect provides six core architectural review and enforcement capa
 
 **OTP pattern enforcement** ensures that every stateful entity has its own process, supervision trees are documented before implementation, and process isolation is maintained. The architect reviews process boundaries to verify that failures in one component cannot cascade to others, that message protocols are well-defined, and that process lifetimes align with the data they manage. GenServer state is reviewed for size (large state should use ETS), access patterns (concurrent reads should use ETS or Agent), and lifecycle management.
 
-**Functional purity review** verifies that side effects occur only at system edges and business logic remains in [pure function](/glossary/pure-function/)s with explicit inputs and outputs. The architect enforces a clear separation between pure computation and effectful operations: data transformation, validation, and business rules are implemented as pure functions; database access, API calls, and file I/O happen at module boundaries through explicit function calls. This separation makes code testable, composable, and reasonably predictable.
+**Functional purity review** verifies that side effects occur only at system edges and business logic remains in [pure function](@/glossary/pure-function.md)s with explicit inputs and outputs. The architect enforces a clear separation between pure computation and effectful operations: data transformation, validation, and business rules are implemented as pure functions; database access, API calls, and file I/O happen at module boundaries through explicit function calls. This separation makes code testable, composable, and reasonably predictable.
 
-**Supervision tree architecture** designs and validates hierarchical process structures that provide [fault tolerance](/glossary/fault-tolerance/) through proper restart strategies. The architect evaluates supervision tree depth, restart intensity configuration, process dependency ordering, and the choice between static and dynamic supervision. Each supervision tree must be documented with a visual representation before implementation begins, showing process relationships, restart strategies, and failure propagation paths.
+**Supervision tree architecture** designs and validates hierarchical process structures that provide [fault tolerance](@/glossary/fault-tolerance.md) through proper restart strategies. The architect evaluates supervision tree depth, restart intensity configuration, process dependency ordering, and the choice between static and dynamic supervision. Each supervision tree must be documented with a visual representation before implementation begins, showing process relationships, restart strategies, and failure propagation paths.
 
 **ETS and state management review** examines concurrent data access patterns, table ownership models, and read/write optimization strategies. The architect distinguishes between appropriate ETS usage (shared read-heavy data, caching, agent registries) and inappropriate usage (primary data storage that should use a database, small data that fits in GenServer state). ETS table configuration is reviewed for access type (set, ordered_set, bag), read/write concurrency settings, and heir configuration for crash recovery.
 
@@ -101,10 +101,10 @@ The Elixir Architect's enforcement integrates with the platform's automated qual
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [code-review-specialist-agent-v20](/agents/code-review-specialist-agent-v20/) | Review Partner | Coordinates on code-level review with Elixir-specific architectural focus |
-| [database-architecture-specialist](/agents/database-architecture-specialist/) | Data Layer | Ensures [Ecto](/glossary/ecto/) schemas and database interactions follow OTP principles |
-| [fix-specialist](/agents/fix-specialist/) | Remediation | Handles fixes for identified architectural violations |
-| [elixir-core-specialist](/agents/elixir-core-specialist/) | Implementation | Translates architectural decisions into production implementations |
+| [code-review-specialist-agent-v20](@/agents/code-review-specialist-agent-v20.md) | Review Partner | Coordinates on code-level review with Elixir-specific architectural focus |
+| [database-architecture-specialist](@/agents/database-architecture-specialist.md) | Data Layer | Ensures [Ecto](@/glossary/ecto.md) schemas and database interactions follow OTP principles |
+| [fix-specialist](@/agents/fix-specialist.md) | Remediation | Handles fixes for identified architectural violations |
+| [elixir-core-specialist](@/agents/elixir-core-specialist.md) | Implementation | Translates architectural decisions into production implementations |
 
 ## The Meta-Rule
 
@@ -114,7 +114,7 @@ This meta-rule is not about language chauvinism. It is about ensuring that the p
 
 ## Enforcement
 
-The Elixir Architect enforces [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with particular severity. Every Elixir module must use `{:ok, _}` / `{:error, _}` return patterns. No magic macros beyond boilerplate reduction. All code must compile with `--warnings-as-errors` and pass `mix credo --strict`. Violations trigger immediate L2 blocking with mandatory correction before any merge is permitted. There are no exceptions, no deferrals, and no "we will fix it later" concessions.
+The Elixir Architect enforces [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with particular severity. Every Elixir module must use `{:ok, _}` / `{:error, _}` return patterns. No magic macros beyond boilerplate reduction. All code must compile with `--warnings-as-errors` and pass `mix credo --strict`. Violations trigger immediate L2 blocking with mandatory correction before any merge is permitted. There are no exceptions, no deferrals, and no "we will fix it later" concessions.
 
 ---
 
@@ -123,4 +123,4 @@ The Elixir Architect enforces [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

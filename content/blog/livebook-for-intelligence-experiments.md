@@ -18,7 +18,7 @@ see_also = ["livebook", "elixir", "intelligence", "exploration", "investigation"
 image_alt = "Livebook for Intelligence Experiments"
 +++
 
-Intelligence work has a bad feedback loop. You have a hypothesis, you want to run a query across three adapters, plot the results, and see if the pattern holds. Doing that in an IDE is slow; doing it in `iex` loses history; doing it in a one-off script loses context. [Livebook](/glossary/livebook) is exactly the tool for this shape — and when it is connected to a running node, the loop collapses to "type, shift-enter, see."
+Intelligence work has a bad feedback loop. You have a hypothesis, you want to run a query across three adapters, plot the results, and see if the pattern holds. Doing that in an IDE is slow; doing it in `iex` loses history; doing it in a one-off script loses context. [Livebook](@/glossary/livebook.md) is exactly the tool for this shape — and when it is connected to a running node, the loop collapses to "type, shift-enter, see."
 
 ## Attaching to a live node
 
@@ -72,6 +72,6 @@ Paste that into `lib/`, write a test, ship.
 
 - **Academy**: [DD Investigation](/academy/learn/dd-investigation) — the workflow notebooks support
 - **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — the dashboards notebooks prototype
-- **Glossary**: [Livebook](/glossary/livebook), [Elixir](/glossary/elixir), [Intelligence](/glossary/intelligence), [Investigation](/glossary/investigation)
+- **Glossary**: [Livebook](@/glossary/livebook.md), [Elixir](@/glossary/elixir.md), [Intelligence](@/glossary/intelligence.md), [Investigation](/glossary/investigation)
 
 The fastest feedback loop Elixir ever had. Use it.

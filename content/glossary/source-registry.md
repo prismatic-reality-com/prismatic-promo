@@ -228,11 +228,11 @@ due_sources = Enum.filter(all_sources, &source_due_for_refresh?/1)
 
 ## Cross-References
 
-- [Source](/glossary/source/) - Individual data provider registered in the catalog
-- [ETS](/glossary/ets/) - In-memory storage backing the registry
-- [GenServer](/glossary/genserver/) - OTP abstraction owning the registry table
+- [Source](@/glossary/source.md) - Individual data provider registered in the catalog
+- [ETS](@/glossary/ets.md) - In-memory storage backing the registry
+- [GenServer](@/glossary/genserver.md) - OTP abstraction owning the registry table
 - **Tool Registry** - OSINT equivalent of the source registry
-- [Metaprogramming](/glossary/metaprogramming/) - Technique enabling self-registration
+- [Metaprogramming](@/glossary/metaprogramming.md) - Technique enabling self-registration
 
 ---
 

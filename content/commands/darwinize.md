@@ -28,7 +28,7 @@ image_alt = "/darwinize - Prismatic Platform"
 
 The Darwinian evolution mechanism is one of three complementary evolution strategies in the Prismatic Evolution Framework, alongside Mendelian (genetic crossover and mutation) and Mycelial (network-based pattern propagation). While Mendelian evolution operates on genetic recombination and Mycelial evolution spreads successful patterns through network connections, Darwinian evolution focuses on environmental fitness selection -- the survival and reproduction of individuals best adapted to their environmental context.
 
-This command operates under the **L3** authority level and is executed by the `darwinian-evolution-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command supports six operations (adapt, compete, speciate, radiate, analyze, status) across four environmental contexts (production, development, testing, research), each applying distinct selection pressures optimized for that environment's priorities.
+This command operates under the **L3** authority level and is executed by the `darwinian-evolution-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command supports six operations (adapt, compete, speciate, radiate, analyze, status) across four environmental contexts (production, development, testing, research), each applying distinct selection pressures optimized for that environment's priorities.
 
 The evolution system maintains population viability through mandatory quality gates that prevent genetic bottlenecks, enforce diversity preservation, and ensure that at least two active ecological niches are maintained at all times. Extinction events are documented and analyzed to prevent loss of valuable genetic diversity.
 
@@ -215,10 +215,10 @@ PHASE 6: REPORTING
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `darwinian-evolution-coordinator` | Multi-agent evolution |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `darwinian-evolution-coordinator` | Multi-agent evolution |
 | AIAD Registry | Command specification and discovery | Standard AIAD interface |
-| [Quality Gates](/glossary/quality-gates/) | Population viability enforcement | Diversity and niche gates |
-| [Telemetry](/glossary/telemetry/) | Evolution event tracking | `[:prismatic, :evolution, :darwinian, *]` |
+| [Quality Gates](@/glossary/quality-gates.md) | Population viability enforcement | Diversity and niche gates |
+| [Telemetry](@/glossary/telemetry.md) | Evolution event tracking | `[:prismatic, :evolution, :darwinian, *]` |
 | Evolution Framework | Unified evolution engine | `Prismatic.Evolution.Engine` |
 | Mendelian Mechanism | Genetic crossover complement | `Prismatic.Evolution.Mechanisms.Mendelian` |
 | Mycelial Mechanism | Pattern propagation complement | `Prismatic.Evolution.Mechanisms.Mycelial` |
@@ -297,19 +297,19 @@ alias Prismatic.Evolution.{Engine, Mechanisms.Darwinian}
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Quality gates are non-negotiable. Populations that violate viability or diversity thresholds trigger automatic intervention. No evolution cycle completes without gate validation.
 - **NO DOUBTS**: Full investigation through multi-generation analysis before conclusions. Evolution results are evidence-based through fitness tracking, diversity metrics, and speciation event documentation.
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/mycelialize](/commands/mycelialize/) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
-- [/mycelialize-formal](/commands/mycelialize-formal/) - [Lean4](/glossary/lean4/) + Prolog [formal verification](/glossary/formal-verification/) for pattern propagation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/cascade](/commands/cascade/) - Execute CASCADE pattern fix for systematic anti-pattern removal
-- [/coordinate](/commands/coordinate/) - Orchestrate complex multi-agent operations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/mycelialize](@/commands/mycelialize.md) - Biological-inspired pattern propagation at 500K patterns/sec with emergence detection
+- [/mycelialize-formal](@/commands/mycelialize-formal.md) - [Lean4](@/glossary/lean4.md) + Prolog [formal verification](@/glossary/formal-verification.md) for pattern propagation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/cascade](@/commands/cascade.md) - Execute CASCADE pattern fix for systematic anti-pattern removal
+- [/coordinate](@/commands/coordinate.md) - Orchestrate complex multi-agent operations
 
 ---
 
@@ -318,4 +318,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

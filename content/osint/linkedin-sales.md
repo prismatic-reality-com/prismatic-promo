@@ -27,9 +27,9 @@ image_alt = "LinkedIn Sales Navigator - Prismatic Platform"
 
 LinkedIn Sales Navigator is the premium intelligence product built on LinkedIn's professional network of over 900 million members worldwide. While standard LinkedIn provides basic profile search, Sales Navigator unlocks advanced filtering, extended network visibility, and real-time alerts that make it the most comprehensive source of professional network intelligence available. The platform is maintained by LinkedIn Corporation, a subsidiary of Microsoft, and represents the gold standard in professional identity verification and organizational mapping for intelligence practitioners globally.
 
-For [OSINT](/glossary/osint/) practitioners, Sales Navigator provides capabilities that no other data source can replicate: verified professional identities, self-reported employment histories, organizational structures, professional endorsements, and network connections. People actively maintain their LinkedIn profiles, making it one of the most current and accurate sources of employment and organizational data available. The self-reported nature of the data introduces both strengths (currency, detail, voluntary disclosure) and limitations (potential embellishment, incomplete histories) that must be factored into any analytical workflow.
+For [OSINT](@/glossary/osint.md) practitioners, Sales Navigator provides capabilities that no other data source can replicate: verified professional identities, self-reported employment histories, organizational structures, professional endorsements, and network connections. People actively maintain their LinkedIn profiles, making it one of the most current and accurate sources of employment and organizational data available. The self-reported nature of the data introduces both strengths (currency, detail, voluntary disclosure) and limitations (potential embellishment, incomplete histories) that must be factored into any analytical workflow.
 
-The platform's advanced search allows filtering by company, title, seniority level, function, geography, industry, company size, and years in position. Combined with Boolean operators, this enables precision targeting that is essential for corporate intelligence, due diligence, and organizational mapping. When correlated with data from [ZoomInfo](/osint/zoominfo/) and [Pipl](/osint/pipl/), LinkedIn data provides the professional identity layer in a comprehensive person profile. The depth of professional context available through Sales Navigator -- including endorsements, recommendations, shared group memberships, and published content -- enables analysts to build nuanced profiles of individuals and their professional ecosystems.
+The platform's advanced search allows filtering by company, title, seniority level, function, geography, industry, company size, and years in position. Combined with Boolean operators, this enables precision targeting that is essential for corporate intelligence, due diligence, and organizational mapping. When correlated with data from [ZoomInfo](@/osint/zoominfo.md) and [Pipl](@/osint/pipl.md), LinkedIn data provides the professional identity layer in a comprehensive person profile. The depth of professional context available through Sales Navigator -- including endorsements, recommendations, shared group memberships, and published content -- enables analysts to build nuanced profiles of individuals and their professional ecosystems.
 
 ## Data Sources and Coverage
 
@@ -174,7 +174,7 @@ end
 ### Corporate Due Diligence
 - Verify executive claims and employment history against self-reported professional data
 - Assess organizational stability through turnover analysis, tracking the ratio of new hires to departures
-- Cross-reference leadership with [Justice.cz](/osint/justice-cz/) for Czech company directors to identify undisclosed roles
+- Cross-reference leadership with [Justice.cz](@/osint/justice-cz.md) for Czech company directors to identify undisclosed roles
 - Evaluate management team depth and experience by analyzing aggregate career histories
 
 ### Personnel Intelligence
@@ -243,13 +243,13 @@ The adapter implements connection pooling with a configurable pool size (default
 
 ## Related Resources
 
-- [ZoomInfo](/osint/zoominfo/) - B2B contact data and organizational charts
-- [Clearbit](/osint/clearbit/) - Person and company enrichment from identifiers
-- [Pipl](/osint/pipl/) - Deep people search across social platforms
-- [Crunchbase](/osint/crunchbase/) - Company financial and funding intelligence
-- [Justice.cz](/osint/justice-cz/) - Czech Commercial Register for director verification
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Organizational risk intelligence
+- [ZoomInfo](@/osint/zoominfo.md) - B2B contact data and organizational charts
+- [Clearbit](@/osint/clearbit.md) - Person and company enrichment from identifiers
+- [Pipl](@/osint/pipl.md) - Deep people search across social platforms
+- [Crunchbase](@/osint/crunchbase.md) - Company financial and funding intelligence
+- [Justice.cz](@/osint/justice-cz.md) - Czech Commercial Register for director verification
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Organizational risk intelligence
 
 ---
 
@@ -258,4 +258,4 @@ The adapter implements connection pooling with a configurable pool size (default
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

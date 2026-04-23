@@ -27,9 +27,9 @@ image_alt = "Common Crawl - Prismatic Platform"
 
 Common Crawl is a non-profit organization that maintains an open repository of web crawl data, freely accessible to anyone for research, analysis, and intelligence purposes. The corpus contains petabytes of web content collected over more than a decade, with monthly crawls capturing billions of pages from across the global Internet. Each crawl cycle produces three primary data formats: raw page content stored as WARC (Web ARChive) files, structured metadata as WAT (Web Archive Transformation) files, and extracted plain text as WET (Web Archive Extraction Text) files. All data is stored on Amazon S3 for public access, with no authentication required for the index API and only standard AWS egress costs for raw data retrieval.
 
-For [OSINT](/glossary/osint/) purposes, Common Crawl provides massive-scale domain intelligence without requiring active scanning. This passive nature is a critical advantage: analysts can discover subdomains, map website technology stacks, find exposed content, and analyze link relationships entirely from historical crawl data, leaving no fingerprints on target infrastructure. The columnar index enables efficient searching by domain, URL pattern, or content type without downloading the full multi-petabyte dataset.
+For [OSINT](@/glossary/osint.md) purposes, Common Crawl provides massive-scale domain intelligence without requiring active scanning. This passive nature is a critical advantage: analysts can discover subdomains, map website technology stacks, find exposed content, and analyze link relationships entirely from historical crawl data, leaving no fingerprints on target infrastructure. The columnar index enables efficient searching by domain, URL pattern, or content type without downloading the full multi-petabyte dataset.
 
-Within the Prismatic platform, Common Crawl serves as a passive domain reconnaissance source, complementing active scanners like [Shodan](/osint/shodan/) and [Censys](/osint/censys/) with historical web content intelligence. The passive nature of Common Crawl data makes it particularly valuable for reconnaissance phases where active scanning might alert the target or violate engagement scope limitations.
+Within the Prismatic platform, Common Crawl serves as a passive domain reconnaissance source, complementing active scanners like [Shodan](@/osint/shodan.md) and [Censys](@/osint/censys.md) with historical web content intelligence. The passive nature of Common Crawl data makes it particularly valuable for reconnaissance phases where active scanning might alert the target or violate engagement scope limitations.
 
 Common Crawl data has been used extensively in academic research, natural language processing training (including large language model pre-training), web science studies, and commercial intelligence applications. Its open nature and massive scale make it a foundational resource for any web-based intelligence operation.
 
@@ -237,9 +237,9 @@ Deduplication is handled at the content level using SHA-1 digests. Pages with id
 
 ## Platform Integration
 
-Within the Prismatic ecosystem, Common Crawl provides passive domain intelligence for the [Prismatic Perimeter](/apps/prismatic-perimeter/) attack surface mapping pipeline. The integration operates alongside active scanning sources to provide a comprehensive view of target domains.
+Within the Prismatic ecosystem, Common Crawl provides passive domain intelligence for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) attack surface mapping pipeline. The integration operates alongside active scanning sources to provide a comprehensive view of target domains.
 
-The subdomain discovery pipeline combines Common Crawl passive data with [crt.sh](/osint/crtsh/) certificate transparency data and [DNSDumpster](/osint/dnsdumpster/) DNS intelligence. This multi-source approach ensures maximum coverage while maintaining the passive nature required for initial reconnaissance phases.
+The subdomain discovery pipeline combines Common Crawl passive data with [crt.sh](@/osint/crtsh.md) certificate transparency data and [DNSDumpster](@/osint/dnsdumpster.md) DNS intelligence. This multi-source approach ensures maximum coverage while maintaining the passive nature required for initial reconnaissance phases.
 
 Technology detection from Common Crawl feeds into the Prismatic Perimeter security rating engine, where outdated or vulnerable technologies identified in crawl data contribute to risk scoring. Historical crawl data enables trend analysis showing whether organizations are improving or degrading their technology security posture over time.
 
@@ -272,13 +272,13 @@ The Prismatic adapter implements result caching with 7-day TTL for subdomain enu
 
 ## Related Resources
 
-- [Wayback Machine](/osint/wayback-machine/) - Historical web page snapshots
-- [crt.sh](/osint/crtsh/) - Certificate transparency subdomain discovery
-- [DNSDumpster](/osint/dnsdumpster/) - DNS reconnaissance
-- [BuiltWith](/osint/builtwith/) - Technology profiling
-- [PassiveTotal](/osint/passivetotal/) - Passive DNS intelligence
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Passive domain intelligence in attack surface mapping
+- [Wayback Machine](@/osint/wayback-machine.md) - Historical web page snapshots
+- [crt.sh](@/osint/crtsh.md) - Certificate transparency subdomain discovery
+- [DNSDumpster](@/osint/dnsdumpster.md) - DNS reconnaissance
+- [BuiltWith](@/osint/builtwith.md) - Technology profiling
+- [PassiveTotal](@/osint/passivetotal.md) - Passive DNS intelligence
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Passive domain intelligence in attack surface mapping
 
 ---
 
@@ -287,4 +287,4 @@ The Prismatic adapter implements result caching with 7-day TTL for subdomain enu
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

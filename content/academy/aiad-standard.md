@@ -24,7 +24,7 @@ image_alt = "The AIAD Standard Explained - Prismatic Platform"
 
 ## Overview
 
-[AIAD](/glossary/aiad/) (AI Agent Directive) is the standard that governs every autonomous component in the Prismatic Platform. It defines how agents declare their capabilities, how commands expose operations, how pipelines process data, and how policies enforce rules. With 400+ agents, 210+ commands, and 100+ workflows all following this standard, understanding AIAD is essential for any platform contributor.
+[AIAD](@/glossary/aiad.md) (AI Agent Directive) is the standard that governs every autonomous component in the Prismatic Platform. It defines how agents declare their capabilities, how commands expose operations, how pipelines process data, and how policies enforce rules. With 400+ agents, 210+ commands, and 100+ workflows all following this standard, understanding AIAD is essential for any platform contributor.
 
 You will learn:
 
@@ -36,8 +36,8 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Building Your First Autonomous Agent](/academy/first-agent/)
-- Completed [Understanding NO MERCY, NO DOUBTS](/academy/quality-standards/)
+- Completed [Building Your First Autonomous Agent](@/academy/first-agent.md)
+- Completed [Understanding NO MERCY, NO DOUBTS](@/academy/quality-standards.md)
 - Familiarity with YAML syntax
 
 ## Core Concepts
@@ -484,31 +484,31 @@ enforcement:
 ## See Also
 
 ### Related Applications
-- [prismatic_agents](/apps/prismatic-agents/) -- Runtime AIAD agent registry and execution
-- [prismatic_api](/apps/prismatic-api/) -- AIAD commands exposed as REST endpoints
-- [prismatic_safety](/apps/prismatic-safety/) -- AIAD enforcement block validation
+- [prismatic_agents](@/apps/prismatic-agents.md) -- Runtime AIAD agent registry and execution
+- [prismatic_api](@/apps/prismatic-api.md) -- AIAD commands exposed as REST endpoints
+- [prismatic_safety](@/apps/prismatic-safety.md) -- AIAD enforcement block validation
 
 ### Glossary
-- [AIAD](/glossary/aiad/) -- AI Agent Directive standard
-- [Agent](/glossary/agent/) -- Autonomous entity performing work
-- [Agent Registry](/glossary/agent-registry/) -- Runtime specification lookup
-- [Agent Tier](/glossary/agent-tier/) -- L1-L4 authority classification
-- [NO MERCY](/glossary/no-mercy/) -- Execution quality doctrine referenced in enforcement blocks
-- [NO DOUBTS](/glossary/no-doubts/) -- Decision quality doctrine referenced in enforcement blocks
-- [Quality DNA](/glossary/quality-dna/) -- Evolutionary state tracking AIAD compliance
+- [AIAD](@/glossary/aiad.md) -- AI Agent Directive standard
+- [Agent](@/glossary/agent.md) -- Autonomous entity performing work
+- [Agent Registry](@/glossary/agent-registry.md) -- Runtime specification lookup
+- [Agent Tier](@/glossary/agent-tier.md) -- L1-L4 authority classification
+- [NO MERCY](@/glossary/no-mercy.md) -- Execution quality doctrine referenced in enforcement blocks
+- [NO DOUBTS](@/glossary/no-doubts.md) -- Decision quality doctrine referenced in enforcement blocks
+- [Quality DNA](@/glossary/quality-dna.md) -- Evolutionary state tracking AIAD compliance
 
 ### Related Academy Topics
-- [Multi-Agent Orchestration](/academy/agent-orchestration/) -- Coordinating agents defined by AIAD specs
-- [Self-Evolving Ecosystems](/academy/evolution-patterns/) -- How AIAD specs evolve over generations
-- [API Integration](/academy/api-integration/) -- Exposing AIAD components through REST API
-- [Building Your First Agent](/academy/first-agent/) -- Creating an AIAD-compliant agent from scratch
-- [Quality Standards](/academy/quality-standards/) -- The enforcement doctrine AIAD references
+- [Multi-Agent Orchestration](@/academy/agent-orchestration.md) -- Coordinating agents defined by AIAD specs
+- [Self-Evolving Ecosystems](@/academy/evolution-patterns.md) -- How AIAD specs evolve over generations
+- [API Integration](@/academy/api-integration.md) -- Exposing AIAD components through REST API
+- [Building Your First Agent](@/academy/first-agent.md) -- Creating an AIAD-compliant agent from scratch
+- [Quality Standards](@/academy/quality-standards.md) -- The enforcement doctrine AIAD references
 
 ## Next Steps
 
-- [Multi-Agent Orchestration Patterns](/academy/agent-orchestration/) -- coordinate agents defined by AIAD specs
-- [Self-Evolving Agent Ecosystems](/academy/evolution-patterns/) -- how AIAD specs evolve over generations
-- [API Integration Guide](/academy/api-integration/) -- exposing AIAD components through the REST API
+- [Multi-Agent Orchestration Patterns](@/academy/agent-orchestration.md) -- coordinate agents defined by AIAD specs
+- [Self-Evolving Agent Ecosystems](@/academy/evolution-patterns.md) -- how AIAD specs evolve over generations
+- [API Integration Guide](@/academy/api-integration.md) -- exposing AIAD components through the REST API
 
 ---
 
@@ -517,4 +517,4 @@ enforcement:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

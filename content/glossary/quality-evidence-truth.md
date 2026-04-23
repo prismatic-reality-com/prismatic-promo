@@ -404,24 +404,24 @@ After a production incident, QET's evidence chain enables precise root cause ana
 
 Quality Evidence Truth connects deeply with the epistemic and quality frameworks in the Prismatic Platform:
 
-- [Trinity Gate](/glossary/trinity-gate/) -- The three-gate verification system that elevates quality claims from hypothesis to established truth
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework providing the seven axioms that govern QET
-- [Quality Gate](/glossary/quality-gate/) -- The enforcement mechanism that produces the evidence consumed by QET
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- The principle that quality evidence must be openly visible and auditable
-- [Formal Verification](/glossary/formal-verification/) -- The mathematical proof techniques that provide the strongest form of quality evidence
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- The axiom requiring that conflicting evidence be maintained rather than suppressed
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- The axiom requiring complete traceability from evidence to verdict
-- [Evidence](/glossary/evidence/) -- The foundational concept of observable, verifiable data supporting claims
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- The system property of maintaining correct beliefs under adversarial conditions
-- [Proves Before Claiming](/glossary/proves-before-claiming/) -- The operational principle that evidence must precede assertion
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The three-gate verification system that elevates quality claims from hypothesis to established truth
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework providing the seven axioms that govern QET
+- [Quality Gate](@/glossary/quality-gate.md) -- The enforcement mechanism that produces the evidence consumed by QET
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- The principle that quality evidence must be openly visible and auditable
+- [Formal Verification](@/glossary/formal-verification.md) -- The mathematical proof techniques that provide the strongest form of quality evidence
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- The axiom requiring that conflicting evidence be maintained rather than suppressed
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- The axiom requiring complete traceability from evidence to verdict
+- [Evidence](@/glossary/evidence.md) -- The foundational concept of observable, verifiable data supporting claims
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- The system property of maintaining correct beliefs under adversarial conditions
+- [Proves Before Claiming](@/glossary/proves-before-claiming.md) -- The operational principle that evidence must precede assertion
 
 ## See Also
 
-- [Quality DNA](/glossary/quality-dna/) -- The evidence persistence system that maintains quality truth across sessions
-- [Quality Measurement System](/glossary/quality-measurement-system/) -- The infrastructure for quantifying quality evidence
-- [Property-Based Testing](/glossary/property-based-testing/) -- A testing technique that generates stronger quality evidence than example-based testing
-- [Dialyzer](/glossary/dialyzer/) -- The static analysis tool providing type-level quality evidence
-- [Credo](/glossary/credo/) -- The linting tool providing style and consistency quality evidence
+- [Quality DNA](@/glossary/quality-dna.md) -- The evidence persistence system that maintains quality truth across sessions
+- [Quality Measurement System](@/glossary/quality-measurement-system.md) -- The infrastructure for quantifying quality evidence
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- A testing technique that generates stronger quality evidence than example-based testing
+- [Dialyzer](@/glossary/dialyzer.md) -- The static analysis tool providing type-level quality evidence
+- [Credo](@/glossary/credo.md) -- The linting tool providing style and consistency quality evidence
 
 ---
 

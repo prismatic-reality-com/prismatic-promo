@@ -19,7 +19,7 @@ see_also = ["easm", "attack-surface", "nis2", "threat-intelligence", "risk-score
 image_alt = "EASM Closed Loop: Discover, Rate, Remediate"
 +++
 
-A vulnerability scan is not security. A report is not security. Security is the closed loop between *discovering* what you own, *rating* what matters, *remediating* what's broken, and *proving* it stayed fixed. [EASM](/glossary/easm) fails whenever any of those four edges break.
+A vulnerability scan is not security. A report is not security. Security is the closed loop between *discovering* what you own, *rating* what matters, *remediating* what's broken, and *proving* it stayed fixed. [EASM](@/glossary/easm.md) fails whenever any of those four edges break.
 
 ## The four edges
 
@@ -47,7 +47,7 @@ Most "EASM tools" are single-edge: they scan. They hand you a PDF. The remaining
 
 ## Discovery: assets you forgot you owned
 
-Discovery starts from a seed (domain, ASN, company name) and fans out across [DNS](/glossary/dns), certificate transparency, WHOIS, reverse-DNS, and passive-DNS sources. Each finding carries provenance so downstream stages know *how* it was discovered:
+Discovery starts from a seed (domain, ASN, company name) and fans out across [DNS](@/glossary/dns.md), certificate transparency, WHOIS, reverse-DNS, and passive-DNS sources. Each finding carries provenance so downstream stages know *how* it was discovered:
 
 ```elixir
 %Asset{
@@ -69,7 +69,7 @@ An expired cert on marketing.example.com is not the same problem as an open Redi
 - **Criticality** — does a business process depend on it?
 - **Context** — is the owning team on-call?
 
-The [risk score](/glossary/risk-score) is computed per finding and fed into the decision engine as a sealed envelope — so the operator dashboard can sort "what to fix first" in real time instead of arguing in a meeting.
+The [risk score](@/glossary/risk-score.md) is computed per finding and fed into the decision engine as a sealed envelope — so the operator dashboard can sort "what to fix first" in real time instead of arguing in a meeting.
 
 ## Remediation: tickets are a symptom
 
@@ -81,12 +81,12 @@ Every closed finding is re-tested on a cadence appropriate to its tier. T1 findi
 
 ## NIS2 and why this matters now
 
-Under [NIS2](/glossary/nis2), Czech critical-infrastructure entities owe regulators a defensible answer to "what do you own, and how do you know?" A closed-loop EASM is that answer. An Excel sheet is not.
+Under [NIS2](@/glossary/nis2.md), Czech critical-infrastructure entities owe regulators a defensible answer to "what do you own, and how do you know?" A closed-loop EASM is that answer. An Excel sheet is not.
 
 ## Where to go next
 
 - **Academy**: [EASM Development](/academy/learn/easm-development) — build the loop end-to-end
 - **Academy**: [Color Team Security](/academy/learn/color-team-security) — red/blue/purple workflows
-- **Glossary**: [EASM](/glossary/easm), [Attack Surface](/glossary/attack-surface), [NIS2](/glossary/nis2), [Threat Intelligence](/glossary/threat-intelligence), [Risk Score](/glossary/risk-score)
+- **Glossary**: [EASM](@/glossary/easm.md), [Attack Surface](@/glossary/attack-surface.md), [NIS2](@/glossary/nis2.md), [Threat Intelligence](@/glossary/threat-intelligence.md), [Risk Score](@/glossary/risk-score.md)
 
 Four edges. Close all of them or you do not have EASM — you have a scan.

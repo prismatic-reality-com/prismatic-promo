@@ -254,7 +254,7 @@ end
 
 ### Trinity Gate Integration
 
-The highest-level checkpoint in the Prismatic Platform is the [Trinity Gate](/glossary/trinity-gate/), which requires three independent verification passes before any claim or decision is accepted:
+The highest-level checkpoint in the Prismatic Platform is the [Trinity Gate](@/glossary/trinity-gate.md), which requires three independent verification passes before any claim or decision is accepted:
 
 1. **Structural Consistency** -- the belief graph forms a valid directed acyclic graph
 2. **Logical Consistency** -- propositions follow established logical rules
@@ -338,26 +338,26 @@ Regulatory frameworks (NIS2, GDPR, ZKB) require evidence of control effectivenes
 
 ## Related Concepts
 
-- [Quality Gate](/glossary/quality-gate/) -- the decision-point pattern that checkpoints implement
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- the Git mechanism used to trigger local checkpoints
-- [Continuous Integration](/glossary/continuous-integration/) -- the broader practice within which checkpoints operate
-- [Verification Gate](/glossary/verification-gate/) -- formal verification checkpoints in epistemic pipelines
-- [Clean Run](/glossary/clean-run/) -- the state achieved when all checkpoints pass with zero warnings
-- [Trinity Gate](/glossary/trinity-gate/) -- the three-layer epistemic checkpoint in Prismatic
-- [Static Analysis](/glossary/static-analysis/) -- automated code examination that powers many checkpoints
-- [Credo](/glossary/credo/) -- the Elixir static analysis tool used in Phase 3
-- [Dialyzer](/glossary/dialyzer/) -- the BEAM type checker used in Phase 2
-- [Regression Testing](/glossary/regression-testing/) -- tests that prevent previously fixed bugs from recurring
-- [Quality Gates](/glossary/quality-gates/) -- the platform's 13-domain quality enforcement system
-- [Telemetry](/glossary/telemetry/) -- the observability system that monitors checkpoint execution
+- [Quality Gate](@/glossary/quality-gate.md) -- the decision-point pattern that checkpoints implement
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- the Git mechanism used to trigger local checkpoints
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the broader practice within which checkpoints operate
+- [Verification Gate](@/glossary/verification-gate.md) -- formal verification checkpoints in epistemic pipelines
+- [Clean Run](@/glossary/clean-run.md) -- the state achieved when all checkpoints pass with zero warnings
+- [Trinity Gate](@/glossary/trinity-gate.md) -- the three-layer epistemic checkpoint in Prismatic
+- [Static Analysis](@/glossary/static-analysis.md) -- automated code examination that powers many checkpoints
+- [Credo](@/glossary/credo.md) -- the Elixir static analysis tool used in Phase 3
+- [Dialyzer](@/glossary/dialyzer.md) -- the BEAM type checker used in Phase 2
+- [Regression Testing](@/glossary/regression-testing.md) -- tests that prevent previously fixed bugs from recurring
+- [Quality Gates](@/glossary/quality-gates.md) -- the platform's 13-domain quality enforcement system
+- [Telemetry](@/glossary/telemetry.md) -- the observability system that monitors checkpoint execution
 
 ## See Also
 
-- [Continuous Integration](/glossary/continuous-integration/) for the broader CI/CD context
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) for autonomous quality monitoring
-- [Quality DNA](/glossary/quality-dna/) for cross-session quality continuity
-- [Autoevolve](/glossary/autoevolve/) for automated platform evolution checkpoints
-- [Session Discipline](/glossary/session-discipline/) for mandatory session checkpoint protocols
+- [Continuous Integration](@/glossary/continuous-integration.md) for the broader CI/CD context
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) for autonomous quality monitoring
+- [Quality DNA](@/glossary/quality-dna.md) for cross-session quality continuity
+- [Autoevolve](@/glossary/autoevolve.md) for automated platform evolution checkpoints
+- [Session Discipline](@/glossary/session-discipline.md) for mandatory session checkpoint protocols
 
 ---
 
@@ -366,4 +366,4 @@ Regulatory frameworks (NIS2, GDPR, ZKB) require evidence of control effectivenes
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -36,8 +36,8 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Getting Started with Prismatic Platform](/academy/getting-started/)
-- Completed [OTP Design Patterns for Prismatic](/academy/otp-fundamentals/)
+- Completed [Getting Started with Prismatic Platform](@/academy/getting-started.md)
+- Completed [OTP Design Patterns for Prismatic](@/academy/otp-fundamentals.md)
 - Basic understanding of database concepts (CRUD, indexing, transactions)
 
 ## Core Concepts
@@ -391,36 +391,36 @@ end
 ## See Also
 
 ### Related Applications
-- [prismatic_storage_core](/apps/prismatic-storage-core/) -- Core traits and contract test infrastructure
-- [prismatic_storage_ets](/apps/prismatic-storage-ets/) -- ETS adapter for volatile data
-- [prismatic_storage_ecto](/apps/prismatic-storage-ecto/) -- PostgreSQL adapter for persistent data
-- [prismatic_storage_meilisearch](/apps/prismatic-storage-meilisearch/) -- Full-text search adapter
-- [prismatic_storage_kuzudb](/apps/prismatic-storage-kuzudb/) -- Graph database adapter
-- [prismatic_storage_duckdb](/apps/prismatic-storage-duckdb/) -- Analytical/columnar database adapter
-- [prismatic_storage_redis](/apps/prismatic-storage-redis/) -- Redis caching adapter
+- [prismatic_storage_core](@/apps/prismatic-storage-core.md) -- Core traits and contract test infrastructure
+- [prismatic_storage_ets](@/apps/prismatic-storage-ets.md) -- ETS adapter for volatile data
+- [prismatic_storage_ecto](@/apps/prismatic-storage-ecto.md) -- PostgreSQL adapter for persistent data
+- [prismatic_storage_meilisearch](@/apps/prismatic-storage-meilisearch.md) -- Full-text search adapter
+- [prismatic_storage_kuzudb](@/apps/prismatic-storage-kuzudb.md) -- Graph database adapter
+- [prismatic_storage_duckdb](@/apps/prismatic-storage-duckdb.md) -- Analytical/columnar database adapter
+- [prismatic_storage_redis](@/apps/prismatic-storage-redis.md) -- Redis caching adapter
 
 ### Glossary
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Design pattern for pluggable implementations
-- [PostgreSQL](/glossary/postgresql/) -- Primary relational database
-- [Redis](/glossary/redis/) -- In-memory data structure store
-- [KuzuDB](/glossary/kuzudb/) -- Embedded graph database
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Design pattern for pluggable implementations
+- [PostgreSQL](@/glossary/postgresql.md) -- Primary relational database
+- [Redis](@/glossary/redis.md) -- In-memory data structure store
+- [KuzuDB](@/glossary/kuzudb.md) -- Embedded graph database
 
 ### Architecture
-- [Storage Adapters](/architecture/storage-adapters/) -- Architectural overview of the storage layer
-- [PostgreSQL & KuzuDB](/architecture/postgresql-kuzudb/) -- Relational and graph storage design
-- [Meilisearch](/architecture/meilisearch/) -- Search infrastructure architecture
+- [Storage Adapters](@/architecture/storage-adapters.md) -- Architectural overview of the storage layer
+- [PostgreSQL & KuzuDB](@/architecture/postgresql-kuzudb.md) -- Relational and graph storage design
+- [Meilisearch](@/architecture/meilisearch.md) -- Search infrastructure architecture
 
 ### Related Academy Topics
-- [DD Investigation Techniques](/academy/dd-investigation/) -- Multi-backend storage in due diligence
-- [Building EASM Features](/academy/easm-development/) -- Storage patterns for security assessments
-- [OTP Design Patterns](/academy/otp-fundamentals/) -- Process patterns behind storage adapters
-- [API Integration](/academy/api-integration/) -- Exposing storage operations via REST
+- [DD Investigation Techniques](@/academy/dd-investigation.md) -- Multi-backend storage in due diligence
+- [Building EASM Features](@/academy/easm-development.md) -- Storage patterns for security assessments
+- [OTP Design Patterns](@/academy/otp-fundamentals.md) -- Process patterns behind storage adapters
+- [API Integration](@/academy/api-integration.md) -- Exposing storage operations via REST
 
 ## Next Steps
 
-- [Building LiveView Dashboards](/academy/liveview-dashboards/) -- display storage data in real-time interfaces
-- [API Integration Guide](/academy/api-integration/) -- expose storage operations through the REST API
-- [OTP Design Patterns for Prismatic](/academy/otp-fundamentals/) -- understand the process patterns behind storage adapters
+- [Building LiveView Dashboards](@/academy/liveview-dashboards.md) -- display storage data in real-time interfaces
+- [API Integration Guide](@/academy/api-integration.md) -- expose storage operations through the REST API
+- [OTP Design Patterns for Prismatic](@/academy/otp-fundamentals.md) -- understand the process patterns behind storage adapters
 
 ---
 
@@ -429,4 +429,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

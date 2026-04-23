@@ -24,11 +24,11 @@ image_alt = "/3nl - Prismatic Platform"
 
 ## Overview
 
-The **/3nl** command provides strategic access to the Three-Layer Neural Learning (3NL) intelligence processing system within the Prismatic Platform. This framework orchestrates three distinct cognitive layers -- L1 (Logic), L2 (Neural), and L3 (Linguistic) -- to deliver unified intelligence analysis across the entire [AIAD](/glossary/aiad/) ecosystem. By decomposing complex analytical tasks into specialized processing domains and then fusing the results, the 3NL command enables a depth of analysis that no single processing paradigm can achieve in isolation.
+The **/3nl** command provides strategic access to the Three-Layer Neural Learning (3NL) intelligence processing system within the Prismatic Platform. This framework orchestrates three distinct cognitive layers -- L1 (Logic), L2 (Neural), and L3 (Linguistic) -- to deliver unified intelligence analysis across the entire [AIAD](@/glossary/aiad.md) ecosystem. By decomposing complex analytical tasks into specialized processing domains and then fusing the results, the 3NL command enables a depth of analysis that no single processing paradigm can achieve in isolation.
 
-The significance of the 3NL command lies in its role as the epistemic backbone of the platform's intelligence capabilities. Where traditional analysis tools operate through a single lens -- either rule-based reasoning, statistical pattern recognition, or natural language understanding -- the 3NL command synthesizes all three simultaneously. This multi-layered approach aligns with the platform's [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, which mandates signal plurality and contradiction preservation. Every query processed through the 3NL pipeline receives evaluation from multiple independent cognitive perspectives, ensuring that conclusions are robust, evidence-based, and resistant to single-point epistemic failures.
+The significance of the 3NL command lies in its role as the epistemic backbone of the platform's intelligence capabilities. Where traditional analysis tools operate through a single lens -- either rule-based reasoning, statistical pattern recognition, or natural language understanding -- the 3NL command synthesizes all three simultaneously. This multi-layered approach aligns with the platform's [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, which mandates signal plurality and contradiction preservation. Every query processed through the 3NL pipeline receives evaluation from multiple independent cognitive perspectives, ensuring that conclusions are robust, evidence-based, and resistant to single-point epistemic failures.
 
-Within the broader architecture of the Prismatic Platform, the 3NL command serves as a foundational intelligence primitive. It is invoked both directly by operators seeking deep analysis capabilities and indirectly by other platform commands that require multi-layered cognitive processing. The command integrates tightly with the [Trinity Gate](/glossary/trinity-gate/) validation system and the 16-level epistemic pipeline (L0 through L13, plus Meta and Consciousness levels), providing the analytical substrate upon which higher-order intelligence operations are built. The 3NL framework represents the convergence of symbolic AI, connectionist approaches, and natural language processing into a single, cohesive command interface -- a synthesis that reflects decades of research in hybrid AI architectures applied to the practical demands of intelligence analysis and platform evolution.
+Within the broader architecture of the Prismatic Platform, the 3NL command serves as a foundational intelligence primitive. It is invoked both directly by operators seeking deep analysis capabilities and indirectly by other platform commands that require multi-layered cognitive processing. The command integrates tightly with the [Trinity Gate](@/glossary/trinity-gate.md) validation system and the 16-level epistemic pipeline (L0 through L13, plus Meta and Consciousness levels), providing the analytical substrate upon which higher-order intelligence operations are built. The 3NL framework represents the convergence of symbolic AI, connectionist approaches, and natural language processing into a single, cohesive command interface -- a synthesis that reflects decades of research in hybrid AI architectures applied to the practical demands of intelligence analysis and platform evolution.
 
 ## Syntax and Usage
 
@@ -81,7 +81,7 @@ The command accepts a required subcommand that determines the processing mode, f
 | `subcommand` | -- | string | -- | Action to perform: `process`, `analyze`, `status`, `config` |
 | `--context` | `-c` | string | `general` | Processing context: `security`, `analysis`, `osint`, `general` |
 | `--fusion` | `-f` | string | `weighted` | Fusion strategy: `weighted`, `consensus`, `cascade`, `ensemble`, `attention` |
-| `--depth` | `-d` | integer | `7` | Analysis depth (1-14, corresponding to [NABLA](/glossary/nabla-infinity/) epistemic levels) |
+| `--depth` | `-d` | integer | `7` | Analysis depth (1-14, corresponding to [NABLA](@/glossary/nabla-infinity.md) epistemic levels) |
 | `--verbose` | `-v` | boolean | `false` | Verbose output with per-layer details and confidence scores |
 | `--format` | -- | string | `text` | Output format: `text`, `json`, `markdown` |
 | `--output` | `-o` | path | stdout | Write results to file |
@@ -94,7 +94,7 @@ The `--fusion` parameter selects the strategy for combining outputs from the thr
 
 ## Implementation Architecture
 
-The 3NL command is implemented as a multi-agent coordination pipeline. The `3nl-coordinator` agent orchestrates three specialized sub-agents, each responsible for one cognitive layer. Results from all three layers are combined through the selected fusion strategy before passing through [Trinity Gate](/glossary/trinity-gate/) validation.
+The 3NL command is implemented as a multi-agent coordination pipeline. The `3nl-coordinator` agent orchestrates three specialized sub-agents, each responsible for one cognitive layer. Results from all three layers are combined through the selected fusion strategy before passing through [Trinity Gate](@/glossary/trinity-gate.md) validation.
 
 ```elixir
 defmodule Prismatic3NL.Command do
@@ -176,35 +176,35 @@ Document analysis mode processes the entire file through each layer, extracting 
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Coordinated execution through `3nl-coordinator` and three layer agents |
-| [Trinity Gate](/glossary/trinity-gate/) | All 3NL outputs validated through 4-layer Trinity Gate |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Depth parameter maps directly to 16-level epistemic pipeline |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation enforced |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and layer performance tracking |
-| [Quality DNA](/glossary/quality-dna/) | Results persisted for cross-session continuity |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Coordinated execution through `3nl-coordinator` and three layer agents |
+| [Trinity Gate](@/glossary/trinity-gate.md) | All 3NL outputs validated through 4-layer Trinity Gate |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Depth parameter maps directly to 16-level epistemic pipeline |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation enforced |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and layer performance tracking |
+| [Quality DNA](@/glossary/quality-dna.md) | Results persisted for cross-session continuity |
 | AIAD Registry | Command specification discovery and versioning |
-| [Mycelial Network](/glossary/mycelial-network/) | Pattern propagation across agent ecosystem |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Pattern propagation across agent ecosystem |
 | Ollama Integration | Local AI model inference for L2 Neural layer |
 | Session Lifecycle | Automatic result persistence and cross-session recall |
 
-The 3NL command is also invoked programmatically by higher-order platform operations, including [/archer-supreme](/commands/archer-supreme/) missions and [/aiad-auto-evolution](/commands/aiad-auto-evolution/) cycles, where deep multi-layered analysis is required before making critical decisions. The command's output format is designed to be consumed by both human operators and downstream automated systems.
+The 3NL command is also invoked programmatically by higher-order platform operations, including [/archer-supreme](@/commands/archer-supreme.md) missions and [/aiad-auto-evolution](@/commands/aiad-auto-evolution.md) cycles, where deep multi-layered analysis is required before making critical decisions. The command's output format is designed to be consumed by both human operators and downstream automated systems.
 
 ## Workflow Integration
 
 The 3NL command is most effective in scenarios that demand multi-perspective analysis. Security assessments benefit from the combination of rule-based vulnerability checks (L1), anomaly pattern detection (L2), and natural language threat intelligence processing (L3). OSINT operations leverage all three layers to cross-validate intelligence from diverse sources.
 
-In a typical development workflow, the 3NL command is invoked during architectural reviews, security audits, and complex debugging sessions where surface-level analysis is insufficient. It integrates with the platform's [session lifecycle](/glossary/session-discipline/) system, meaning results are automatically persisted to session context for cross-session continuity.
+In a typical development workflow, the 3NL command is invoked during architectural reviews, security audits, and complex debugging sessions where surface-level analysis is insufficient. It integrates with the platform's [session lifecycle](@/glossary/session-discipline.md) system, meaning results are automatically persisted to session context for cross-session continuity.
 
 The command fits into several established workflow patterns:
 
 1. **Pre-Decision Analysis**: Before architectural decisions, security policy changes, or deployment approvals, run `/3nl process` with high depth to ensure multi-perspective evaluation.
 2. **Post-Incident Investigation**: After security incidents or quality regressions, use `/3nl analyze` on incident logs to identify root causes that single-perspective analysis might miss.
 3. **Continuous Intelligence**: Schedule periodic `/3nl process` runs against evolving threat landscapes to maintain current situational awareness.
-4. **Quality Evolution Support**: The 3NL analysis results feed into [/quality-evolve](/commands/quality-evolve/) cycles, providing the analytical foundation for targeted improvements.
+4. **Quality Evolution Support**: The 3NL analysis results feed into [/quality-evolve](@/commands/quality-evolve.md) cycles, providing the analytical foundation for targeted improvements.
 
 ## NABLA Compliance
 
-All 3NL command operations are governed by the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine with explicit enforcement at every processing stage:
+All 3NL command operations are governed by the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine with explicit enforcement at every processing stage:
 
 - **NO MERCY**: Zero tolerance for incomplete layer processing. All three cognitive layers must complete successfully before fusion. Partial results are never returned. Fusion strategies must produce validated outputs or fail explicitly. No approximate or degraded results are permitted.
 - **NO DOUBTS**: Full investigation before conclusions. Every 3NL output includes confidence scores from all three layers, provenance tracking for all reasoning chains, and explicit contradiction preservation when layers disagree. The NABLA axiom of Signal Plurality is enforced by requiring at minimum two independent layer signals before establishing any belief.
@@ -240,14 +240,14 @@ Performance scales with depth parameter. Depths 1-5 complete in under 3 seconds 
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/rc1-orchestrate](/commands/rc1-orchestrate/) - Complete RC1 delivery pipeline execution with ROC optimization
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
-- [/migrate](/commands/migrate/) - Safe migration planning with rollback strategies
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
-- [/aiad-auto-evolution](/commands/aiad-auto-evolution/) - Self-evolving command specification with meta-evolution capabilities
-- [/archer-supreme](/commands/archer-supreme/) - Supreme strategic coordination with multi-domain analysis
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/rc1-orchestrate](@/commands/rc1-orchestrate.md) - Complete RC1 delivery pipeline execution with ROC optimization
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
+- [/migrate](@/commands/migrate.md) - Safe migration planning with rollback strategies
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
+- [/aiad-auto-evolution](@/commands/aiad-auto-evolution.md) - Self-evolving command specification with meta-evolution capabilities
+- [/archer-supreme](@/commands/archer-supreme.md) - Supreme strategic coordination with multi-domain analysis
 
 ---
 
@@ -256,4 +256,4 @@ Performance scales with depth parameter. Depths 1-5 complete in under 3 seconds 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

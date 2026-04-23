@@ -37,7 +37,7 @@ image_alt = "Addiction Recovery - Prismatic Platform"
 
 ## Definition
 
-Addiction Recovery is a foundational epistemic discipline principle within the Prismatic Platform that mandates constant, automated vigilance against the human and systemic tendency to rationalize away inconvenient evidence, suppress contradictions, and cherry-pick data to support predetermined conclusions. The term draws a deliberate and precise analogy to addiction recovery programs: just as a person in recovery must maintain perpetual awareness that the impulse to relapse never fully disappears, an epistemic system must maintain perpetual awareness that the impulse to smooth over contradictions, dismiss outlier signals, and fabricate false certainty never fully disappears. The principle is encoded as a structural constraint in the [NABLA Infinity](/glossary/nabla-infinity/) framework and enforced through automated detection of rationalization patterns across all belief-forming operations.
+Addiction Recovery is a foundational epistemic discipline principle within the Prismatic Platform that mandates constant, automated vigilance against the human and systemic tendency to rationalize away inconvenient evidence, suppress contradictions, and cherry-pick data to support predetermined conclusions. The term draws a deliberate and precise analogy to addiction recovery programs: just as a person in recovery must maintain perpetual awareness that the impulse to relapse never fully disappears, an epistemic system must maintain perpetual awareness that the impulse to smooth over contradictions, dismiss outlier signals, and fabricate false certainty never fully disappears. The principle is encoded as a structural constraint in the [NABLA Infinity](@/glossary/nabla-infinity.md) framework and enforced through automated detection of rationalization patterns across all belief-forming operations.
 
 ## Overview
 
@@ -58,23 +58,23 @@ The Addiction Recovery metaphor is not decorative. It identifies specific struct
 | **Triggers** -- External cues that activate craving | **Rationalization triggers** -- Situations that tempt evidence suppression | Automated trigger detection in belief pipeline |
 | **Vigilance** -- Constant awareness of vulnerability | **Epistemic vigilance** -- Continuous monitoring for bias patterns | Real-time NABLA axiom compliance checking |
 | **Relapse prevention** -- Structured protocols against recurrence | **Anti-pattern enforcement** -- Hard blocks on known epistemic failures | E2/E3 enforcement levels with no bypass |
-| **Sponsor/accountability** -- External validation of decisions | **[Trinity Gate](/glossary/trinity-gate/)** -- Multi-layer independent verification | Structural, logical, and formal consistency gates |
+| **Sponsor/accountability** -- External validation of decisions | **[Trinity Gate](@/glossary/trinity-gate.md)** -- Multi-layer independent verification | Structural, logical, and formal consistency gates |
 | **One day at a time** -- Not permanent cure but continuous practice | **Continuous verification** -- Not one-time validation but ongoing compliance | Per-operation axiom checks, not periodic audits |
-| **Meetings/community** -- Shared vigilance structures | **[Color Teams](/glossary/color-teams/)** -- Adversarial-defensive team dynamics | 6-team continuous challenge and verification |
+| **Meetings/community** -- Shared vigilance structures | **[Color Teams](@/glossary/color-teams.md)** -- Adversarial-defensive team dynamics | 6-team continuous challenge and verification |
 
 The insight that ties these parallels together is that neither addiction recovery nor epistemic integrity can be "solved." There is no point at which the system can declare itself permanently immune to rationalization, just as there is no point at which a person in recovery can declare themselves permanently immune to relapse. The correct posture is perpetual, structured vigilance -- not paranoia, but disciplined awareness maintained through automated systems that do not suffer from the cognitive fatigue that degrades human vigilance over time.
 
 ### Significance Within the Platform
 
-Addiction Recovery is not a standalone principle but a meta-level framing that infuses the entire [NABLA Infinity](/glossary/nabla-infinity/) framework. Every NABLA axiom can be understood as a specific anti-relapse mechanism:
+Addiction Recovery is not a standalone principle but a meta-level framing that infuses the entire [NABLA Infinity](@/glossary/nabla-infinity.md) framework. Every NABLA axiom can be understood as a specific anti-relapse mechanism:
 
-- **[Signal Plurality](/glossary/signal-plurality/)**: Prevents the rationalization "this one source is authoritative enough"
-- **[Contradiction Preservation](/glossary/contradiction-preservation/)**: Prevents the minimization "this disagreement is probably just noise"
+- **[Signal Plurality](@/glossary/signal-plurality.md)**: Prevents the rationalization "this one source is authoritative enough"
+- **[Contradiction Preservation](@/glossary/contradiction-preservation.md)**: Prevents the minimization "this disagreement is probably just noise"
 - **Absence Informative**: Prevents the selective attention "if there's no evidence of a problem, there is no problem"
 - **Time Decay**: Prevents the staleness rationalization "this evidence is still good enough"
 - **Unknown Valid**: Prevents the false certainty "we need to give an answer even if we're not sure"
 - **Source Independence**: Prevents the correlation blindness "ten articles confirm this" (from the same source)
-- **[Provenance Mandatory](/glossary/provenance-mandatory/)**: Prevents the accountability evasion "everyone knows this"
+- **[Provenance Mandatory](@/glossary/provenance-mandatory.md)**: Prevents the accountability evasion "everyone knows this"
 
 ## Technical Details
 
@@ -326,7 +326,7 @@ end
 
 ### Integration with NABLA Infinity
 
-The Addiction Recovery principle is implemented as the enforcement meta-layer of the [NABLA Infinity](/glossary/nabla-infinity/) framework. While NABLA defines the seven axioms that govern belief formation, Addiction Recovery defines the monitoring and enforcement mechanisms that ensure those axioms are not gradually circumvented through accumulation of small compromises.
+The Addiction Recovery principle is implemented as the enforcement meta-layer of the [NABLA Infinity](@/glossary/nabla-infinity.md) framework. While NABLA defines the seven axioms that govern belief formation, Addiction Recovery defines the monitoring and enforcement mechanisms that ensure those axioms are not gradually circumvented through accumulation of small compromises.
 
 The integration operates at three levels:
 
@@ -338,13 +338,13 @@ The integration operates at three levels:
 
 ### Color Team Integration
 
-The [Red Team](/glossary/red-team/) specifically tests Addiction Recovery resilience through two attack primitives:
+The [Red Team](@/glossary/red-team.md) specifically tests Addiction Recovery resilience through two attack primitives:
 
 - **Confidence Manipulation**: Red Team scenarios attempt to inflate confidence scores through sequences of small, individually permissible adjustments. The Vigilance Monitor's temporal pattern detection is calibrated against these scenarios.
 
 - **Drift Induction**: Red Team drift scenarios introduce sub-threshold rationalization patterns to test whether the Vigilance Monitor detects the cumulative effect. The `red-drift-inducer` agent specializes in these attacks.
 
-The [Blue Team](/glossary/blue-team/) maintains the defensive posture against Addiction Recovery violations, with `blue-drift-detector` specifically monitoring for the gradual erosion patterns the principle targets. The [Purple Team](/glossary/purple-team/) synthesizes Red findings with Blue defensive data to calibrate detection thresholds and update the rationalization pattern taxonomy.
+The [Blue Team](@/glossary/blue-team.md) maintains the defensive posture against Addiction Recovery violations, with `blue-drift-detector` specifically monitoring for the gradual erosion patterns the principle targets. The [Purple Team](@/glossary/purple-team.md) synthesizes Red findings with Blue defensive data to calibrate detection thresholds and update the rationalization pattern taxonomy.
 
 ### Enforcement Escalation
 
@@ -388,11 +388,11 @@ The key distinction is that Addiction Recovery is a **preventive** mechanism, no
 
 - **Treating the principle as metaphorical rather than structural**: Addiction Recovery is not a philosophical stance or a team culture aspiration. It is a concrete set of automated checks, enforced at the code level, with no manual bypass. Teams that treat it as a "mindset" rather than an enforcement mechanism will find it degrading as organizational pressure increases.
 
-- **Optimizing for false positive reduction at the expense of detection**: Tuning thresholds to reduce false positives inevitably reduces true positive detection. The asymmetric cost analysis (Section 4 of [Contradiction Preservation](/glossary/contradiction-preservation/)) applies here: the cost of a false positive (one unnecessary investigation) is far lower than the cost of a missed rationalization pattern (corrupted belief graph).
+- **Optimizing for false positive reduction at the expense of detection**: Tuning thresholds to reduce false positives inevitably reduces true positive detection. The asymmetric cost analysis (Section 4 of [Contradiction Preservation](@/glossary/contradiction-preservation.md)) applies here: the cost of a false positive (one unnecessary investigation) is far lower than the cost of a missed rationalization pattern (corrupted belief graph).
 
 - **Assuming that smart people are immune to rationalization**: Research consistently shows that higher intelligence correlates with more sophisticated rationalization, not less. Smart people are better at constructing plausible-sounding justifications for biased conclusions. Automated enforcement is necessary precisely because human judgment, regardless of expertise, is vulnerable.
 
-- **Confusing epistemic vigilance with epistemic paralysis**: Addiction Recovery does not prevent conclusions or decisions. It prevents conclusions and decisions based on suppressed evidence, inflated confidence, or unresolved contradictions. A belief that passes all vigilance checks with a clean graph can proceed to execution with full [NM/ND](/glossary/nm-nd/) commitment.
+- **Confusing epistemic vigilance with epistemic paralysis**: Addiction Recovery does not prevent conclusions or decisions. It prevents conclusions and decisions based on suppressed evidence, inflated confidence, or unresolved contradictions. A belief that passes all vigilance checks with a clean graph can proceed to execution with full [NM/ND](@/glossary/nm-nd.md) commitment.
 
 - **Neglecting the temporal dimension**: Individual operations may appear clean in isolation. The Addiction Recovery principle specifically addresses the case where a sequence of individually clean operations collectively produces rationalization. Without the temporal pattern analysis provided by the Vigilance Monitor, this failure mode goes undetected.
 
@@ -410,7 +410,7 @@ In Open Source Intelligence operations, the Addiction Recovery principle guards 
 
 ### Use Case 3: Security Rating Calibration
 
-The [Prismatic Perimeter](/glossary/easm/) security rating system uses Addiction Recovery to prevent rating drift. When a company's security posture is assessed, the rating must reflect current evidence with proper time decay applied. The Temporal Evasion pattern detection prevents ratings from remaining artificially stable when their evidence base has decayed below reliability thresholds.
+The [Prismatic Perimeter](@/glossary/easm.md) security rating system uses Addiction Recovery to prevent rating drift. When a company's security posture is assessed, the rating must reflect current evidence with proper time decay applied. The Temporal Evasion pattern detection prevents ratings from remaining artificially stable when their evidence base has decayed below reliability thresholds.
 
 ### Use Case 4: Agent Reasoning Integrity
 
@@ -418,24 +418,24 @@ AI agents within the platform form beliefs through multi-step reasoning chains. 
 
 ## Related Concepts
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The parent epistemic framework whose seven axioms Addiction Recovery enforces through continuous vigilance
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- The specific axiom most directly protected by Addiction Recovery's anti-rationalization enforcement
-- [Cherry Picking](/glossary/cherry-picking/) -- The evidence selection anti-pattern that Addiction Recovery detects and blocks
-- [Signal Plurality](/glossary/signal-plurality/) -- The axiom preventing single-source beliefs, reinforced by source laundering detection
-- [Belief Graph](/glossary/belief-graph/) -- The data structure monitored by the Vigilance Monitor for structural rationalization patterns
-- [Confidence Scoring](/glossary/confidence-scoring/) -- The quantitative system protected from inflation through calibrated deviation monitoring
-- [Trinity Gate](/glossary/trinity-gate/) -- The verification gate that provides structural defense complementary to Addiction Recovery's temporal monitoring
-- [Red Team](/glossary/red-team/) -- The adversarial team that tests Addiction Recovery resilience through drift induction scenarios
-- [Blue Team](/glossary/blue-team/) -- The defensive team maintaining monitoring posture against rationalization patterns
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- The axiom enforcing traceability, preventing accountability evasion rationalization
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- The overall system property that Addiction Recovery protects from gradual erosion
-- [QEVE](/glossary/qeve/) -- The verification engine implementing NABLA axiom checks that Addiction Recovery monitors for bypass attempts
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The parent epistemic framework whose seven axioms Addiction Recovery enforces through continuous vigilance
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- The specific axiom most directly protected by Addiction Recovery's anti-rationalization enforcement
+- [Cherry Picking](@/glossary/cherry-picking.md) -- The evidence selection anti-pattern that Addiction Recovery detects and blocks
+- [Signal Plurality](@/glossary/signal-plurality.md) -- The axiom preventing single-source beliefs, reinforced by source laundering detection
+- [Belief Graph](@/glossary/belief-graph.md) -- The data structure monitored by the Vigilance Monitor for structural rationalization patterns
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- The quantitative system protected from inflation through calibrated deviation monitoring
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The verification gate that provides structural defense complementary to Addiction Recovery's temporal monitoring
+- [Red Team](@/glossary/red-team.md) -- The adversarial team that tests Addiction Recovery resilience through drift induction scenarios
+- [Blue Team](@/glossary/blue-team.md) -- The defensive team maintaining monitoring posture against rationalization patterns
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- The axiom enforcing traceability, preventing accountability evasion rationalization
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- The overall system property that Addiction Recovery protects from gradual erosion
+- [QEVE](@/glossary/qeve.md) -- The verification engine implementing NABLA axiom checks that Addiction Recovery monitors for bypass attempts
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Agents](/agents/) -- Full agent catalog including Vigilance Monitor agents
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Agents](@/agents/_index.md) -- Full agent catalog including Vigilance Monitor agents
 
 ---
 
@@ -444,4 +444,4 @@ AI agents within the platform form beliefs through multi-step reasoning chains. 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

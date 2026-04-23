@@ -38,7 +38,7 @@ image_alt = "Error Handling - Prismatic Platform"
 
 Error handling encompasses the techniques, patterns, and architectural decisions for detecting, reporting, classifying, and recovering from errors during program execution. It addresses the fundamental reality that software systems operate in imperfect environments: networks fail, disks fill, inputs are malformed, dependencies become unavailable, and logic contains bugs.
 
-In the Elixir/BEAM ecosystem that powers the Prismatic Platform, error handling follows a distinctive philosophy that differs fundamentally from mainstream languages. Rather than wrapping every operation in try/catch blocks and attempting to handle every possible error at the point of occurrence, Elixir embraces a layered approach: expected errors are handled with tagged tuples (`{:ok, value}` / `{:error, reason}`), unexpected errors are allowed to crash the process, and [Supervisor](/glossary/supervisor/) processes automatically restart failed processes in a known good state. This is the [Let It Crash](/glossary/let-it-crash/) philosophy.
+In the Elixir/BEAM ecosystem that powers the Prismatic Platform, error handling follows a distinctive philosophy that differs fundamentally from mainstream languages. Rather than wrapping every operation in try/catch blocks and attempting to handle every possible error at the point of occurrence, Elixir embraces a layered approach: expected errors are handled with tagged tuples (`{:ok, value}` / `{:error, reason}`), unexpected errors are allowed to crash the process, and [Supervisor](@/glossary/supervisor.md) processes automatically restart failed processes in a known good state. This is the [Let It Crash](@/glossary/let-it-crash.md) philosophy.
 
 ## Overview
 
@@ -48,7 +48,7 @@ Elixir and Erlang take a different position on this spectrum, distinguishing bet
 
 **Expected errors** (business logic failures): A user provides invalid input, a database record is not found, an API returns a 404. These are not bugs -- they are normal system behavior that the application logic must handle. In Elixir, these are represented as `{:error, reason}` tuples and handled with pattern matching, `case`, and `with` expressions.
 
-**Unexpected errors** (system failures): A database connection drops, a NIF segfaults, a process receives a malformed message. These are not anticipated by the application logic. Rather than writing speculative error handling code at the call site, Elixir allows the process to crash. The [Supervision Tree](/glossary/supervision-tree/) detects the crash and restarts the process.
+**Unexpected errors** (system failures): A database connection drops, a NIF segfaults, a process receives a malformed message. These are not anticipated by the application logic. Rather than writing speculative error handling code at the call site, Elixir allows the process to crash. The [Supervision Tree](@/glossary/supervision-tree.md) detects the crash and restarts the process.
 
 This separation is powerful because it focuses error handling effort where it matters (expected errors in business logic) while providing automatic recovery for unexpected failures (supervision). The result is less error handling code that handles more errors correctly.
 
@@ -155,9 +155,9 @@ Prismatic classifies errors into four categories with different handling strateg
 
 | Category | Examples | Strategy |
 |----------|----------|----------|
-| **Transient** | Network timeout, DB connection reset | Retry with [Exponential Backoff](/glossary/exponential-backoff/) |
+| **Transient** | Network timeout, DB connection reset | Retry with [Exponential Backoff](@/glossary/exponential-backoff.md) |
 | **Permanent** | Invalid input, missing resource | Return error, do not retry |
-| **Degraded** | External API down, cache miss | [Circuit Breaker](/glossary/circuit-breaker/), fallback |
+| **Degraded** | External API down, cache miss | [Circuit Breaker](@/glossary/circuit-breaker.md), fallback |
 | **Fatal** | Corrupted state, unrecoverable | Crash process, supervisor restarts |
 
 ## Implementation in Prismatic Platform
@@ -541,7 +541,7 @@ C relies on error codes, errno, and manual checking. Every function call must be
 
 4. **Use `with` for multi-step operations.** When a function chains multiple fallible operations, `with` provides clean short-circuiting. Avoid nested `case` expressions more than 2 levels deep.
 
-5. **Emit telemetry for all error categories.** Every error, whether handled or crashed, should emit a telemetry event. This provides the [Observability](/glossary/observability/) needed to detect patterns, measure error rates, and trigger alerts.
+5. **Emit telemetry for all error categories.** Every error, whether handled or crashed, should emit a telemetry event. This provides the [Observability](@/glossary/observability.md) needed to detect patterns, measure error rates, and trigger alerts.
 
 6. **Design for graceful degradation.** When a dependency fails, have a fallback path. Cached data, default values, or reduced functionality are better than complete failure. Circuit breakers formalize this pattern.
 
@@ -555,9 +555,9 @@ C relies on error codes, errno, and manual checking. Every function call must be
 
 3. **Catching exits.** `try do ... catch :exit, _ -> ... end` defeats the purpose of OTP supervision. If a process exits, the supervisor should handle it. Catching exits in application code prevents proper fault recovery.
 
-4. **Retry without backoff.** Retrying a failed operation immediately in a tight loop can overwhelm a recovering service. Always use [Exponential Backoff](/glossary/exponential-backoff/) with jitter to spread retry load.
+4. **Retry without backoff.** Retrying a failed operation immediately in a tight loop can overwhelm a recovering service. Always use [Exponential Backoff](@/glossary/exponential-backoff.md) with jitter to spread retry load.
 
-5. **Missing circuit breakers on external calls.** Every external dependency (HTTP APIs, databases, third-party services) should be protected by a [Circuit Breaker](/glossary/circuit-breaker/). Without one, a slow or failing dependency can consume all available connections and crash the entire system.
+5. **Missing circuit breakers on external calls.** Every external dependency (HTTP APIs, databases, third-party services) should be protected by a [Circuit Breaker](@/glossary/circuit-breaker.md). Without one, a slow or failing dependency can consume all available connections and crash the entire system.
 
 6. **Error handling in GenServer callbacks.** A crash in `handle_call/3` sends an exit signal to the caller. If the supervisor restarts the GenServer, any in-flight calls receive `{:error, {:exit, ...}}`. Design callers to handle this gracefully.
 
@@ -581,26 +581,26 @@ Long-running background jobs (compliance scans, security assessments) use layere
 
 ## Related Concepts
 
-- [Fault Tolerance](/glossary/fault-tolerance/) - The system-level property that error handling at the process level enables
-- [Let It Crash](/glossary/let-it-crash/) - The Erlang/Elixir philosophy of allowing process crashes for unexpected errors
-- [Supervisor](/glossary/supervisor/) - OTP behavior that monitors and restarts failed processes
-- [Circuit Breaker](/glossary/circuit-breaker/) - Pattern preventing cascading failures from unreliable dependencies
-- [Retry Pattern](/glossary/retry-pattern/) - Strategy for recovering from transient errors through repeated attempts
-- [Exponential Backoff](/glossary/exponential-backoff/) - Delay strategy that increases wait time between retry attempts
-- [Supervision Tree](/glossary/supervision-tree/) - Hierarchical process management providing fault containment
-- [Pattern Matching](/glossary/pattern-matching/) - Core mechanism for destructuring and handling error tuples
-- [GenServer](/glossary/genserver/) - Server behavior whose callbacks define process-level error boundaries
-- [BEAM](/glossary/beam/) - Virtual machine providing process isolation that enables safe crashing
-- [Observability](/glossary/observability/) - Monitoring and metrics essential for error pattern detection
-- [Telemetry](/glossary/telemetry/) - Event emission framework for tracking error rates and patterns
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - The system-level property that error handling at the process level enables
+- [Let It Crash](@/glossary/let-it-crash.md) - The Erlang/Elixir philosophy of allowing process crashes for unexpected errors
+- [Supervisor](@/glossary/supervisor.md) - OTP behavior that monitors and restarts failed processes
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Pattern preventing cascading failures from unreliable dependencies
+- [Retry Pattern](@/glossary/retry-pattern.md) - Strategy for recovering from transient errors through repeated attempts
+- [Exponential Backoff](@/glossary/exponential-backoff.md) - Delay strategy that increases wait time between retry attempts
+- [Supervision Tree](@/glossary/supervision-tree.md) - Hierarchical process management providing fault containment
+- [Pattern Matching](@/glossary/pattern-matching.md) - Core mechanism for destructuring and handling error tuples
+- [GenServer](@/glossary/genserver.md) - Server behavior whose callbacks define process-level error boundaries
+- [BEAM](@/glossary/beam.md) - Virtual machine providing process isolation that enables safe crashing
+- [Observability](@/glossary/observability.md) - Monitoring and metrics essential for error pattern detection
+- [Telemetry](@/glossary/telemetry.md) - Event emission framework for tracking error rates and patterns
 
 ## See Also
 
-- [Elixir](/glossary/elixir/) - The language implementing these error handling patterns
-- [OTP](/glossary/otp/) - The framework providing supervision and process management
-- [Erlang](/glossary/erlang/) - The language that originated the let-it-crash philosophy
-- [Distributed System](/glossary/distributed-system/) - Systems where network partitions add error handling complexity
-- [Concurrency](/glossary/concurrency/) - Concurrent execution contexts where error isolation is critical
+- [Elixir](@/glossary/elixir.md) - The language implementing these error handling patterns
+- [OTP](@/glossary/otp.md) - The framework providing supervision and process management
+- [Erlang](@/glossary/erlang.md) - The language that originated the let-it-crash philosophy
+- [Distributed System](@/glossary/distributed-system.md) - Systems where network partitions add error handling complexity
+- [Concurrency](@/glossary/concurrency.md) - Concurrent execution contexts where error isolation is critical
 
 ---
 
@@ -609,4 +609,4 @@ Long-running background jobs (compliance scans, security assessments) use layere
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

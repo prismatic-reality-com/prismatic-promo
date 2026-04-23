@@ -28,15 +28,15 @@ image_alt = "verification-integrity-commander - Prismatic Platform"
 
 ## Overview
 
-The Verification Integrity Commander operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's quality-assurance domain, responsible for maintaining the integrity of the platform's formal verification infrastructure. This agent ensures that the five core [Lean4](/glossary/lean4/) theorems -- which mathematically guarantee safe platform evolution -- remain valid, complete, and correctly integrated with the runtime verification pipeline.
+The Verification Integrity Commander operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's quality-assurance domain, responsible for maintaining the integrity of the platform's formal verification infrastructure. This agent ensures that the five core [Lean4](@/glossary/lean4.md) theorems -- which mathematically guarantee safe platform evolution -- remain valid, complete, and correctly integrated with the runtime verification pipeline.
 
 The five core theorems form the mathematical foundation of the platform's evolution safety guarantees: (1) the Quality Monotonicity Theorem, proving that quality scores never decrease across evolution generations; (2) the State Transition Safety Theorem, proving that all state transitions preserve system invariants; (3) the Convergence Theorem, proving that the autonomous evolution process converges to stable optima; (4) the Composition Preservation Theorem, proving that composed operations preserve individual component properties; and (5) the Rollback Completeness Theorem, proving that any evolution step can be fully reversed without information loss.
 
-The agent coordinates with the [white-verifier-commander](/agents/white-verifier-commander/) for proof artifact management, the [white-invariant-prover](/agents/white-invariant-prover/) for formal proof construction, and the [SEADF](/glossary/seadf/) evolution pipeline for integration of verification results into the autonomous evolution process. All verification activities comply with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework and the [NO MERCY](/glossary/no-mercy/) doctrine's zero-tolerance policy for unverified claims.
+The agent coordinates with the [white-verifier-commander](@/agents/white-verifier-commander.md) for proof artifact management, the [white-invariant-prover](@/agents/white-invariant-prover.md) for formal proof construction, and the [SEADF](@/glossary/seadf.md) evolution pipeline for integration of verification results into the autonomous evolution process. All verification activities comply with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework and the [NO MERCY](@/glossary/no-mercy.md) doctrine's zero-tolerance policy for unverified claims.
 
 ## Architecture
 
-The Verification Integrity Commander is built on a layered architecture that separates theorem management, proof validation, runtime integration, and reporting into distinct [OTP](/glossary/otp/) processes.
+The Verification Integrity Commander is built on a layered architecture that separates theorem management, proof validation, runtime integration, and reporting into distinct [OTP](@/glossary/otp.md) processes.
 
 ```
 VerificationIntegrity.Supervisor
@@ -49,7 +49,7 @@ VerificationIntegrity.Supervisor
 
 The TheoremRegistry maintains the canonical versions of all five core theorems along with their Lean4 proof artifacts, version history, and dependency graphs. The ProofValidator invokes Lean4 proof checking to verify that proofs remain valid after theorem modifications or dependency changes. The RuntimeBridge maps formal theorem statements to runtime assertions that are evaluated during platform operation, ensuring that mathematical guarantees translate to actual runtime behavior. The IntegrityMonitor continuously checks that the verification pipeline is healthy and that all theorems maintain valid proofs.
 
-The architecture follows the [supervision tree](/glossary/supervision-tree/) pattern with `rest_for_one` strategy, ensuring that the TheoremRegistry (the most critical component) is always available, while downstream components restart cleanly if they encounter failures.
+The architecture follows the [supervision tree](@/glossary/supervision-tree.md) pattern with `rest_for_one` strategy, ensuring that the TheoremRegistry (the most critical component) is always available, while downstream components restart cleanly if they encounter failures.
 
 ## Core Capabilities
 
@@ -63,11 +63,11 @@ The Verification Integrity Commander provides five primary capabilities that tog
 
 **Cross-Theorem Dependency Analysis** tracks dependencies between theorems, shared lemmas, and common definitions. When one theorem or lemma is modified, the agent determines which other theorems are affected and triggers re-verification of the affected dependency chain.
 
-**Evolution Gate Integration** provides a verification gate in the [SEADF](/glossary/seadf/) evolution pipeline. Before any autonomous evolution step is applied, the agent verifies that all five core theorems remain valid under the proposed change. If any theorem would be invalidated, the evolution step is blocked until the theorem can be updated and re-proven.
+**Evolution Gate Integration** provides a verification gate in the [SEADF](@/glossary/seadf.md) evolution pipeline. Before any autonomous evolution step is applied, the agent verifies that all five core theorems remain valid under the proposed change. If any theorem would be invalidated, the evolution step is blocked until the theorem can be updated and re-proven.
 
 ## Implementation
 
-The core theorem registry is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that manages theorem storage, versioning, and validation coordination.
+The core theorem registry is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that manages theorem storage, versioning, and validation coordination.
 
 ```elixir
 defmodule Prismatic.Agents.VerificationIntegrity do
@@ -193,13 +193,13 @@ The Verification Integrity Commander integrates with the platform's formal verif
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [white-verifier-commander](/agents/white-verifier-commander/) | Bidirectional | Coordinates proof artifact management and composite proof construction |
-| [white-invariant-prover](/agents/white-invariant-prover/) | Inbound | Receives proof artifacts for core theorem verification |
-| [SEADF](/glossary/seadf/) Evolution Pipeline | Enforcement | Provides evolution gate check; blocks unsafe evolution steps |
-| [Trinity Gate](/glossary/trinity-gate/) | Enforcement | All verification claims pass through three-layer validation |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Outbound | Reports verification health status for platform quality scoring |
+| [white-verifier-commander](@/agents/white-verifier-commander.md) | Bidirectional | Coordinates proof artifact management and composite proof construction |
+| [white-invariant-prover](@/agents/white-invariant-prover.md) | Inbound | Receives proof artifacts for core theorem verification |
+| [SEADF](@/glossary/seadf.md) Evolution Pipeline | Enforcement | Provides evolution gate check; blocks unsafe evolution steps |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Enforcement | All verification claims pass through three-layer validation |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Outbound | Reports verification health status for platform quality scoring |
 | Lean4 Runtime | External | Invokes Lean4 proof checker for formal verification |
-| [Prismatic Agents](/glossary/prismatic-agents/) Runtime | Bidirectional | Lifecycle management and telemetry integration |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) Runtime | Bidirectional | Lifecycle management and telemetry integration |
 
 ## Operational Workflow
 
@@ -209,13 +209,13 @@ The Verification Integrity Commander operates in three modes: scheduled integrit
 
 **On-Demand Verification** is triggered by explicit command invocation or by events that may affect theorem validity, such as changes to shared definitions, lemma updates, or platform dependency modifications. The agent performs targeted re-verification of affected theorems and their dependency chains.
 
-**Evolution Gate Enforcement** activates before every [SEADF](/glossary/seadf/) autonomous evolution step. The agent analyzes the proposed change, determines which theorems are affected, and checks whether their proofs remain valid under the change. If any theorem would be invalidated, the evolution step is blocked with a detailed report identifying the failing theorems and the specific proof steps that break.
+**Evolution Gate Enforcement** activates before every [SEADF](@/glossary/seadf.md) autonomous evolution step. The agent analyzes the proposed change, determines which theorems are affected, and checks whether their proofs remain valid under the change. If any theorem would be invalidated, the evolution step is blocked with a detailed report identifying the failing theorems and the specific proof steps that break.
 
 The full verification workflow proceeds through five phases: (1) theorem loading from the registry, (2) proof artifact retrieval and integrity checking, (3) Lean4 proof validation, (4) runtime assertion mapping verification, and (5) result publication and history recording.
 
 ## NABLA Compliance
 
-The Verification Integrity Commander operates under strict [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance.
+The Verification Integrity Commander operates under strict [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance.
 
 **Signal Plurality**: Every theorem verification requires at least two independent signals: the Lean4 formal proof check and the runtime assertion evaluation. A theorem is only marked as valid when both signals agree.
 
@@ -225,7 +225,7 @@ The Verification Integrity Commander operates under strict [NABLA Infinity](/glo
 
 **Unknown Valid**: When the Lean4 checker times out or encounters an internal error, the theorem status is set to `:checking` rather than `:invalid`. The agent acknowledges uncertainty rather than making false claims about proof validity.
 
-All verification claims pass through [Trinity Gate](/glossary/trinity-gate/): structural consistency (the theorem dependency graph forms a valid DAG), logical consistency (proof steps follow from their premises), and formal necessity (the Lean4 proof is machine-checked).
+All verification claims pass through [Trinity Gate](@/glossary/trinity-gate.md): structural consistency (the theorem dependency graph forms a valid DAG), logical consistency (proof steps follow from their premises), and formal necessity (the Lean4 proof is machine-checked).
 
 ## Configuration
 
@@ -266,14 +266,14 @@ The evolution gate check is optimized through dependency analysis: only theorems
 
 ## Related Resources
 
-- [Lean4](/glossary/lean4/) -- Formal theorem prover used for core theorem verification
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation gate for verification claims
-- [SEADF Framework](/glossary/seadf/) -- Autonomous evolution framework with verification gate integration
-- [white-verifier-commander](/agents/white-verifier-commander/) -- White Team commander for composite proof construction
-- [white-invariant-prover](/agents/white-invariant-prover/) -- Formal proof construction specialist
-- [Property-Based Testing](/glossary/property-based-testing/) -- Complementary probabilistic verification approach
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing verification claims
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Quality monitoring consuming verification health metrics
+- [Lean4](@/glossary/lean4.md) -- Formal theorem prover used for core theorem verification
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation gate for verification claims
+- [SEADF Framework](@/glossary/seadf.md) -- Autonomous evolution framework with verification gate integration
+- [white-verifier-commander](@/agents/white-verifier-commander.md) -- White Team commander for composite proof construction
+- [white-invariant-prover](@/agents/white-invariant-prover.md) -- Formal proof construction specialist
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Complementary probabilistic verification approach
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing verification claims
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Quality monitoring consuming verification health metrics
 
 ---
 
@@ -282,4 +282,4 @@ The evolution gate check is optimized through dependency analysis: only theorems
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

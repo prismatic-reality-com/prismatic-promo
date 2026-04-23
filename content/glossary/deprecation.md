@@ -475,26 +475,26 @@ end
 
 ## Related Terms
 
-- [API](/glossary/api/) -- primary surface where deprecation affects external consumers
+- [API](@/glossary/api.md) -- primary surface where deprecation affects external consumers
 - [Versioning](/glossary/versioning/) -- alternative approach to managing API evolution
-- [Deployment](/glossary/deployment/) -- release process where deprecation warnings surface
-- [Documentation](/glossary/documentation/) -- migration guides accompanying deprecation notices
-- [Elixir](/glossary/elixir/) -- language providing first-class `@deprecated` attribute support
-- [Mix](/glossary/mix/) -- build tool enforcing `--warnings-as-errors` for deprecation
-- [Compilation](/glossary/compilation/) -- phase where `@deprecated` warnings are emitted
-- [Behaviour](/glossary/behaviour/) -- contract system where callback deprecation applies
-- [Releases (Elixir)](/glossary/releases-elixir/) -- release lifecycle tied to deprecation timelines
-- [Gateway](/glossary/gateway/) -- API gateway managing deprecated endpoint routing
-- [Endpoint](/glossary/endpoint/) -- HTTP endpoints subject to deprecation headers
-- [Code Change](/glossary/code-change/) -- hot code upgrades interacting with deprecation
+- [Deployment](@/glossary/deployment.md) -- release process where deprecation warnings surface
+- [Documentation](@/glossary/documentation.md) -- migration guides accompanying deprecation notices
+- [Elixir](@/glossary/elixir.md) -- language providing first-class `@deprecated` attribute support
+- [Mix](@/glossary/mix.md) -- build tool enforcing `--warnings-as-errors` for deprecation
+- [Compilation](@/glossary/compilation.md) -- phase where `@deprecated` warnings are emitted
+- [Behaviour](@/glossary/behaviour.md) -- contract system where callback deprecation applies
+- [Releases (Elixir)](@/glossary/releases-elixir.md) -- release lifecycle tied to deprecation timelines
+- [Gateway](@/glossary/gateway.md) -- API gateway managing deprecated endpoint routing
+- [Endpoint](@/glossary/endpoint.md) -- HTTP endpoints subject to deprecation headers
+- [Code Change](@/glossary/code-change.md) -- hot code upgrades interacting with deprecation
 
 ---
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform evolution and API versioning strategies
-- [Apps](/apps/) -- umbrella applications subject to deprecation lifecycle
-- [Capabilities](/capabilities/) -- platform capabilities that may be deprecated over time
+- [Architecture](@/architecture/_index.md) -- platform evolution and API versioning strategies
+- [Apps](@/apps/_index.md) -- umbrella applications subject to deprecation lifecycle
+- [Capabilities](@/capabilities/_index.md) -- platform capabilities that may be deprecated over time
 - **Elixir Docs**: [Module attributes](https://hexdocs.pm/elixir/Module.html) -- official `@deprecated` documentation
 - **IETF**: [draft-ietf-httpapi-deprecation-header](https://datatracker.ietf.org/doc/draft-ietf-httpapi-deprecation-header/) -- HTTP deprecation header specification
 
@@ -505,4 +505,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

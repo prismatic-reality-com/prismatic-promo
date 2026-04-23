@@ -36,7 +36,7 @@ image_alt = "State Machine - Prismatic Platform"
 
 ## Definition
 
-A **State Machine** (formally, a finite-state machine or finite automaton) is a mathematical model of computation that consists of a finite set of states, a set of inputs (events), a transition function mapping (state, input) pairs to new states, an initial state, and optionally a set of accepting/final states. At any moment, the machine occupies exactly one state; upon receiving an input, it transitions to a new state determined by the transition function. In the Elixir/OTP ecosystem, state machines are implemented through the `gen_statem` [behaviour](/glossary/behaviour/) -- OTP's dedicated state machine abstraction that supersedes the older `gen_fsm`. Within the Prismatic Platform, state machines govern [circuit breaker](/glossary/circuit-breaker/) logic, agent lifecycle management, [workflow](/glossary/workflow/) orchestration, compliance assessment pipelines, and quality gate enforcement.
+A **State Machine** (formally, a finite-state machine or finite automaton) is a mathematical model of computation that consists of a finite set of states, a set of inputs (events), a transition function mapping (state, input) pairs to new states, an initial state, and optionally a set of accepting/final states. At any moment, the machine occupies exactly one state; upon receiving an input, it transitions to a new state determined by the transition function. In the Elixir/OTP ecosystem, state machines are implemented through the `gen_statem` [behaviour](@/glossary/behaviour.md) -- OTP's dedicated state machine abstraction that supersedes the older `gen_fsm`. Within the Prismatic Platform, state machines govern [circuit breaker](@/glossary/circuit-breaker.md) logic, agent lifecycle management, [workflow](@/glossary/workflow.md) orchestration, compliance assessment pipelines, and quality gate enforcement.
 
 ## Overview
 
@@ -50,13 +50,13 @@ Two classical variants define the landscape:
 
 In practice, Elixir developers work with state machines at three levels of abstraction:
 
-1. **Implicit State Machines** -- [GenServer](/glossary/genserver/) processes that encode state transitions in `handle_call`/`handle_cast` clauses using pattern matching on state fields. Simple but lacks formal transition validation.
+1. **Implicit State Machines** -- [GenServer](@/glossary/genserver.md) processes that encode state transitions in `handle_call`/`handle_cast` clauses using pattern matching on state fields. Simple but lacks formal transition validation.
 
-2. **Explicit gen_statem** -- OTP's [gen_statem](/glossary/gen-statem/) behaviour provides first-class state machine semantics: named states, typed transitions, state enter calls, timeouts, and postponement of events that cannot be handled in the current state.
+2. **Explicit gen_statem** -- OTP's [gen_statem](@/glossary/gen-statem.md) behaviour provides first-class state machine semantics: named states, typed transitions, state enter calls, timeouts, and postponement of events that cannot be handled in the current state.
 
 3. **Declarative State Machines** -- Libraries that allow defining state machines through data structures (transition tables, state charts) that are compiled into runtime behaviour. This enables visualization, formal verification, and automatic test generation.
 
-The Prismatic Platform uses all three levels depending on complexity: GenServer for simple two-state components, gen_statem for [circuit breakers](/glossary/circuit-breaker/) and workflow engines, and declarative machines for compliance assessment pipelines where audit traceability requires a formal state transition log.
+The Prismatic Platform uses all three levels depending on complexity: GenServer for simple two-state components, gen_statem for [circuit breakers](@/glossary/circuit-breaker.md) and workflow engines, and declarative machines for compliance assessment pipelines where audit traceability requires a formal state transition log.
 
 ## Technical Details
 
@@ -473,7 +473,7 @@ end
 
 ### Workflow Engine
 
-The platform's [workflow](/glossary/workflow/) engine uses state machines to manage multi-step processes such as OSINT investigation pipelines, compliance assessments, and quality gate evaluations:
+The platform's [workflow](@/glossary/workflow.md) engine uses state machines to manage multi-step processes such as OSINT investigation pipelines, compliance assessments, and quality gate evaluations:
 
 ```elixir
 defmodule Prismatic.StateMachine.Workflow do
@@ -555,7 +555,7 @@ end
 
 ### Compliance Assessment State Machine
 
-The [Perimeter](/glossary/easm/) module uses a state machine for compliance assessment workflows, tracking each assessment through defined phases:
+The [Perimeter](@/glossary/easm.md) module uses a state machine for compliance assessment workflows, tracking each assessment through defined phases:
 
 ```
                       ┌──────────────┐
@@ -589,7 +589,7 @@ The [Perimeter](/glossary/easm/) module uses a state machine for compliance asse
 | **GenServer with state field** | Simple, familiar, widely used | No formal transition validation | Simple two-state processes |
 | **Fsmx library** | Declarative, Ecto integration | External dependency, limited features | Not used -- prefer OTP native |
 | **Machinery library** | DSL for state machines, guard support | Macro-heavy, debugging difficulty | Not used -- prefer explicit code |
-| **Broadway stages** | Pipeline-oriented, backpressure | Not general-purpose state machines | [Data pipelines](/glossary/data-pipeline/) |
+| **Broadway stages** | Pipeline-oriented, backpressure | Not general-purpose state machines | [Data pipelines](@/glossary/data-pipeline.md) |
 | **Ecto Multi** | Database transaction state management | Limited to DB operations | Storage layer only |
 | **Oban job states** | Persistent, reliable, distributed | Coupled to job processing | Background job lifecycle |
 
@@ -599,7 +599,7 @@ The Prismatic Platform favors `gen_statem` for any process with more than two st
 
 ### Design Principles
 
-1. **Enumerate States Explicitly** -- Use a `@type state` union type to list all possible states. This enables [Dialyzer](/glossary/dialyzer/) to catch unhandled states at compile time and makes the machine self-documenting.
+1. **Enumerate States Explicitly** -- Use a `@type state` union type to list all possible states. This enables [Dialyzer](@/glossary/dialyzer.md) to catch unhandled states at compile time and makes the machine self-documenting.
 
 2. **Draw the Diagram First** -- Before writing code, draw the state transition diagram. If the diagram is too complex to fit on a single page, the machine needs decomposition into hierarchical or concurrent sub-machines.
 
@@ -607,7 +607,7 @@ The Prismatic Platform favors `gen_statem` for any process with more than two st
 
 4. **Prefer state_functions for Static Machines** -- When the set of states is known at compile time and each state has distinct behavior, use `:state_functions` mode. The Elixir compiler will warn about missing function clauses.
 
-5. **Log Every Transition** -- Emit a [telemetry](/glossary/telemetry/) event on every state transition with the old state, event, and new state. This creates an auditable trail for debugging and compliance.
+5. **Log Every Transition** -- Emit a [telemetry](@/glossary/telemetry.md) event on every state transition with the old state, event, and new state. This creates an auditable trail for debugging and compliance.
 
 6. **Guard Transitions, Not States** -- Place validation logic on transitions (guards) rather than in state entry handlers. This ensures invalid transitions are rejected before any side effects occur.
 
@@ -651,15 +651,15 @@ In concurrent systems, events may arrive in unexpected orders. gen_statem's `pos
 
 ### Circuit Breaker Pattern
 
-The [circuit breaker](/glossary/circuit-breaker/) is the canonical state machine use case in distributed systems. The three-state machine (closed/open/half_open) protects downstream services from cascade failures by tracking failure rates and temporarily blocking requests when a failure threshold is reached.
+The [circuit breaker](@/glossary/circuit-breaker.md) is the canonical state machine use case in distributed systems. The three-state machine (closed/open/half_open) protects downstream services from cascade failures by tracking failure rates and temporarily blocking requests when a failure threshold is reached.
 
 ### Agent Lifecycle Management
 
-Each of the 530+ AIAD agents in the Prismatic Platform follows a state machine lifecycle: initializing, idle, executing, awaiting_input, error_recovery, and terminated. The gen_statem implementation ensures that agents cannot receive tasks while in error recovery and that terminated agents are properly cleaned up by the [supervision](/glossary/supervision/) tree.
+Each of the 530+ AIAD agents in the Prismatic Platform follows a state machine lifecycle: initializing, idle, executing, awaiting_input, error_recovery, and terminated. The gen_statem implementation ensures that agents cannot receive tasks while in error recovery and that terminated agents are properly cleaned up by the [supervision](@/glossary/supervision.md) tree.
 
 ### Compliance Assessment Pipeline
 
-The [Perimeter](/glossary/easm/) module's compliance assessment (NIS2, ZKB) follows a state machine that tracks each assessment through discovery, analysis, scoring, and reporting phases. The formal state machine ensures that no assessment skips phases and that failures are handled with explicit retry or escalation paths.
+The [Perimeter](@/glossary/easm.md) module's compliance assessment (NIS2, ZKB) follows a state machine that tracks each assessment through discovery, analysis, scoring, and reporting phases. The formal state machine ensures that no assessment skips phases and that failures are handled with explicit retry or escalation paths.
 
 ### Quality Gate Enforcement
 
@@ -671,27 +671,27 @@ Multi-step OSINT investigations, where each step depends on results from previou
 
 ## Related Concepts
 
-- [gen_statem](/glossary/gen-statem/) -- OTP behaviour providing native state machine implementation
-- [GenServer](/glossary/genserver/) -- General-purpose server process, simpler alternative for basic state management
-- [OTP](/glossary/otp/) -- The framework providing gen_statem and supervision infrastructure
-- [Behaviour](/glossary/behaviour/) -- Elixir mechanism defining callback contracts for state machine implementations
-- [Event Sourcing](/glossary/event-sourcing/) -- Capturing state changes as append-only events, complementary to state machines
-- [Workflow](/glossary/workflow/) -- Multi-step processes managed through state machine orchestration
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Classic state machine pattern for resilience in distributed systems
-- [Supervision](/glossary/supervision/) -- OTP supervision trees managing state machine process lifecycles
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System resilience achieved through state machine recovery paths
-- [Backpressure](/glossary/backpressure/) -- Flow control mechanism interacting with state machine event processing
+- [gen_statem](@/glossary/gen-statem.md) -- OTP behaviour providing native state machine implementation
+- [GenServer](@/glossary/genserver.md) -- General-purpose server process, simpler alternative for basic state management
+- [OTP](@/glossary/otp.md) -- The framework providing gen_statem and supervision infrastructure
+- [Behaviour](@/glossary/behaviour.md) -- Elixir mechanism defining callback contracts for state machine implementations
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Capturing state changes as append-only events, complementary to state machines
+- [Workflow](@/glossary/workflow.md) -- Multi-step processes managed through state machine orchestration
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Classic state machine pattern for resilience in distributed systems
+- [Supervision](@/glossary/supervision.md) -- OTP supervision trees managing state machine process lifecycles
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System resilience achieved through state machine recovery paths
+- [Backpressure](@/glossary/backpressure.md) -- Flow control mechanism interacting with state machine event processing
 
 ## See Also
 
-- [Elixir](/glossary/elixir/) -- Programming language providing pattern matching for state machine implementation
-- [BEAM](/glossary/beam/) -- Virtual machine supporting lightweight stateful processes
-- [Pattern Matching](/glossary/pattern-matching/) -- Core mechanism for state machine transition dispatch
-- [Telemetry](/glossary/telemetry/) -- Observability framework for monitoring state transitions
-- [Distributed System](/glossary/distributed-system/) -- Context where state machines manage distributed coordination
-- [Data Pipeline](/glossary/data-pipeline/) -- Pipelines using state machines for stage management
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical validation of state machine properties
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- Dynamic process management for state machine instances
+- [Elixir](@/glossary/elixir.md) -- Programming language providing pattern matching for state machine implementation
+- [BEAM](@/glossary/beam.md) -- Virtual machine supporting lightweight stateful processes
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Core mechanism for state machine transition dispatch
+- [Telemetry](@/glossary/telemetry.md) -- Observability framework for monitoring state transitions
+- [Distributed System](@/glossary/distributed-system.md) -- Context where state machines manage distributed coordination
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Pipelines using state machines for stage management
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical validation of state machine properties
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- Dynamic process management for state machine instances
 
 ---
 
@@ -700,4 +700,4 @@ Multi-step OSINT investigations, where each step depends on results from previou
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

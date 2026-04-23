@@ -18,7 +18,7 @@ see_also = ["pubsub", "phoenix", "liveview", "observability", "performance"]
 image_alt = "Phoenix PubSub Fan-Out Patterns"
 +++
 
-`Phoenix.PubSub.broadcast(Prismatic.PubSub, "updates", msg)` is a one-liner. It is also how a careless change wakes every connected [LiveView](/glossary/liveview) on the platform. PubSub is trivially cheap per-subscriber, which means it is catastrophically expensive at the wrong fan-out. Three rules keep `/hub` responsive.
+`Phoenix.PubSub.broadcast(Prismatic.PubSub, "updates", msg)` is a one-liner. It is also how a careless change wakes every connected [LiveView](@/glossary/liveview.md) on the platform. PubSub is trivially cheap per-subscriber, which means it is catastrophically expensive at the wrong fan-out. Three rules keep `/hub` responsive.
 
 ## Rule 1: Topics are scoped, not global
 
@@ -68,17 +68,17 @@ For low-cardinality, high-frequency broadcasts (say, 50 subscribers), `Registry.
 
 ## Observability on every broadcast
 
-Every broadcast path emits [telemetry](/glossary/telemetry):
+Every broadcast path emits [telemetry](@/glossary/telemetry.md):
 
 ```elixir
 :telemetry.execute([:pubsub, :broadcast], %{bytes: payload_size}, %{topic: topic})
 ```
 
-The dashboard groups by topic. A topic that suddenly starts broadcasting 10× more bytes is a regression worth a ticket. [Observability](/glossary/observability) for PubSub is the only way to catch these before users notice.
+The dashboard groups by topic. A topic that suddenly starts broadcasting 10× more bytes is a regression worth a ticket. [Observability](@/glossary/observability.md) for PubSub is the only way to catch these before users notice.
 
 ## Where to go next
 
 - **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — consuming PubSub in LiveView
-- **Glossary**: [PubSub](/glossary/pubsub), [Phoenix](/glossary/phoenix), [LiveView](/glossary/liveview), [Observability](/glossary/observability), [Performance](/glossary/performance)
+- **Glossary**: [PubSub](@/glossary/pubsub.md), [Phoenix](@/glossary/phoenix.md), [LiveView](@/glossary/liveview.md), [Observability](@/glossary/observability.md), [Performance](@/glossary/performance.md)
 
 Topics are a contract. Payloads are copies. Broadcast accordingly.

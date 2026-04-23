@@ -166,10 +166,10 @@ IPS tracking ensures that the platform's performance characteristics are measura
 
 ## Cross-References
 
-- [Benchmark](/glossary/benchmark/) - Broader performance measurement context
+- [Benchmark](@/glossary/benchmark.md) - Broader performance measurement context
 - **P95** - Complementary latency percentile metric
 - **P99** - Tail latency metric paired with IPS
-- [Throughput](/glossary/throughput/) - System-level capacity metric
+- [Throughput](@/glossary/throughput.md) - System-level capacity metric
 - **Page Load** - User-facing performance target driven by IPS
 
 ---

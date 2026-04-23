@@ -28,9 +28,9 @@ image_alt = "ZoomEye - Prismatic Platform"
 
 ## Overview
 
-ZoomEye is a cyberspace search engine developed by Knownsec, a major Chinese cybersecurity firm headquartered in Beijing. Often described as the Chinese counterpart to [Shodan](/osint/shodan/), ZoomEye scans the entire IPv4 address space and indexes exposed services, web applications, and network devices. It uses two distinct scanning engines: Xmap for host-level port and service detection across the IP address space, and Wmap for web application fingerprinting that identifies CMS platforms, frameworks, server software, and application components. This dual-engine approach provides both infrastructure-level and application-level intelligence from a single platform.
+ZoomEye is a cyberspace search engine developed by Knownsec, a major Chinese cybersecurity firm headquartered in Beijing. Often described as the Chinese counterpart to [Shodan](@/osint/shodan.md), ZoomEye scans the entire IPv4 address space and indexes exposed services, web applications, and network devices. It uses two distinct scanning engines: Xmap for host-level port and service detection across the IP address space, and Wmap for web application fingerprinting that identifies CMS platforms, frameworks, server software, and application components. This dual-engine approach provides both infrastructure-level and application-level intelligence from a single platform.
 
-For [OSINT](/glossary/osint/) investigators, ZoomEye provides an additional scanning perspective that complements Shodan and [Censys](/osint/censys/). Its particular strengths lie in Asia-Pacific internet infrastructure coverage, web application component detection, and the granularity of its device classification system. For investigations involving Chinese, Southeast Asian, or broader APAC infrastructure, ZoomEye often provides coverage and detail that Western-focused scanning platforms miss.
+For [OSINT](@/glossary/osint.md) investigators, ZoomEye provides an additional scanning perspective that complements Shodan and [Censys](@/osint/censys.md). Its particular strengths lie in Asia-Pacific internet infrastructure coverage, web application component detection, and the granularity of its device classification system. For investigations involving Chinese, Southeast Asian, or broader APAC infrastructure, ZoomEye often provides coverage and detail that Western-focused scanning platforms miss.
 
 ZoomEye's web application fingerprinting capability (Wmap) is its key differentiator. While Shodan and Censys focus primarily on service-level identification through banner grabbing, ZoomEye's Wmap engine performs deep web application analysis, identifying the specific CMS, web framework, JavaScript libraries, server software, and other components that make up a web application's technology stack. This application-layer intelligence is valuable for vulnerability assessment, technology profiling, and targeted reconnaissance.
 
@@ -295,7 +295,7 @@ ZoomEye's Wmap engine provides detailed web application fingerprinting that goes
 
 ### Cross-Scanner Validation
 
-Using ZoomEye alongside [Shodan](/osint/shodan/) and [Censys](/osint/censys/) provides multi-source validation of internet scanning data. Findings that appear across multiple scanners have higher confidence, while discrepancies may indicate scanning evasion or timing differences. For comprehensive attack surface assessment, cross-scanner validation reduces both false positives and false negatives.
+Using ZoomEye alongside [Shodan](@/osint/shodan.md) and [Censys](@/osint/censys.md) provides multi-source validation of internet scanning data. Findings that appear across multiple scanners have higher confidence, while discrepancies may indicate scanning evasion or timing differences. For comprehensive attack surface assessment, cross-scanner validation reduces both false positives and false negatives.
 
 ### IoT and Device Discovery
 
@@ -332,12 +332,12 @@ ZoomEye matches detected software versions against the NVD vulnerability databas
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), ZoomEye serves as a supplementary internet scanning source providing geographic diversity and web application intelligence.
+Within the [Prismatic Platform](@/apps/prismatic.md), ZoomEye serves as a supplementary internet scanning source providing geographic diversity and web application intelligence.
 
-- **Cross-Scanner Validation**: ZoomEye results are merged with [Shodan](/osint/shodan/), [Censys](/osint/censys/), and [BinaryEdge](/osint/binaryedge/) data for comprehensive multi-source infrastructure intelligence.
-- **Web Application Intelligence**: ZoomEye's Wmap data feeds into technology profiling alongside [BuiltWith](/osint/builtwith/) for comprehensive web application stack identification.
+- **Cross-Scanner Validation**: ZoomEye results are merged with [Shodan](@/osint/shodan.md), [Censys](@/osint/censys.md), and [BinaryEdge](@/osint/binaryedge.md) data for comprehensive multi-source infrastructure intelligence.
+- **Web Application Intelligence**: ZoomEye's Wmap data feeds into technology profiling alongside [BuiltWith](@/osint/builtwith.md) for comprehensive web application stack identification.
 - **APAC Coverage**: For investigations with Asia-Pacific infrastructure components, ZoomEye provides primary scanning data that fills coverage gaps in Western-focused platforms.
-- **Perimeter EASM**: ZoomEye data contributes to [Prismatic Perimeter](/apps/prismatic-perimeter/) attack surface intelligence, particularly for organizations with APAC presence.
+- **Perimeter EASM**: ZoomEye data contributes to [Prismatic Perimeter](@/apps/prismatic-perimeter.md) attack surface intelligence, particularly for organizations with APAC presence.
 - **Device Classification**: ZoomEye's device type and brand identification feeds into the platform's IoT asset inventory for monitored networks.
 
 ## Best Practices
@@ -346,7 +346,7 @@ Within the [Prismatic Platform](/apps/prismatic/), ZoomEye serves as a supplemen
 
 2. **Leverage Wmap for technology profiling**: ZoomEye's web application fingerprinting is its strongest differentiator. Use Wmap searches for comprehensive technology stack identification.
 
-3. **Cross-validate with Shodan and Censys**: Never rely on a single scanner. Use ZoomEye alongside [Shodan](/osint/shodan/) and [Censys](/osint/censys/) for high-confidence infrastructure intelligence.
+3. **Cross-validate with Shodan and Censys**: Never rely on a single scanner. Use ZoomEye alongside [Shodan](@/osint/shodan.md) and [Censys](@/osint/censys.md) for high-confidence infrastructure intelligence.
 
 4. **Use device-specific searches**: ZoomEye's device classification and brand filtering enables targeted searches for specific device populations that are harder to perform on other platforms.
 
@@ -358,14 +358,14 @@ Within the [Prismatic Platform](/apps/prismatic/), ZoomEye serves as a supplemen
 
 ## Related Providers
 
-- [Shodan](/osint/shodan/) - Primary internet-connected device search engine
-- [Censys](/osint/censys/) - Internet-wide scanning with certificate focus
-- [BinaryEdge](/osint/binaryedge/) - Internet scanning with data leak detection
-- [ONYPHE](/osint/onyphe/) - French cyber defense search engine
-- [Netlas](/osint/netlas/) - Internet intelligence with response-level search
-- [BuiltWith](/osint/builtwith/) - Technology profiling for websites
-- [SecurityTrails](/osint/securitytrails/) - DNS and domain intelligence
-- [GreyNoise](/osint/greynoise/) - Scanner and noise identification
+- [Shodan](@/osint/shodan.md) - Primary internet-connected device search engine
+- [Censys](@/osint/censys.md) - Internet-wide scanning with certificate focus
+- [BinaryEdge](@/osint/binaryedge.md) - Internet scanning with data leak detection
+- [ONYPHE](@/osint/onyphe.md) - French cyber defense search engine
+- [Netlas](@/osint/netlas.md) - Internet intelligence with response-level search
+- [BuiltWith](@/osint/builtwith.md) - Technology profiling for websites
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and domain intelligence
+- [GreyNoise](@/osint/greynoise.md) - Scanner and noise identification
 
 ---
 
@@ -374,4 +374,4 @@ Within the [Prismatic Platform](/apps/prismatic/), ZoomEye serves as a supplemen
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

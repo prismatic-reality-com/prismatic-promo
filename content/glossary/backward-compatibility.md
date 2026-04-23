@@ -473,23 +473,23 @@ end
 
 ## Related Terms
 
-- [API Versioning](/glossary/api-versioning/) -- version management enabling controlled compatibility
-- [Compilation](/glossary/compilation/) -- build phase that catches compatibility breaks
-- [Compile-Time](/glossary/compile-time/) -- compile-time configuration validation
-- [Configuration](/glossary/configuration/) -- version-aware configuration management
-- [Contract](/glossary/contract/) -- formal agreements between API provider and consumer
-- [Deployment](/glossary/deployment/) -- release process where compatibility is validated
-- [Doctrine](/glossary/doctrine/) -- NWB doctrine governing compatibility decisions
-- [Ecto](/glossary/ecto/) -- database toolkit with migration-based schema evolution
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- enforcement doctrine prohibiting shims
-- [Releases (Elixir)](/glossary/releases-elixir/) -- self-contained deployable artifacts
-- [Schema](/glossary/schema/) -- data structure definitions requiring compatibility management
-- [Semver](/glossary/semver/) -- versioning standard signaling compatibility status
+- [API Versioning](@/glossary/api-versioning.md) -- version management enabling controlled compatibility
+- [Compilation](@/glossary/compilation.md) -- build phase that catches compatibility breaks
+- [Compile-Time](@/glossary/compile-time.md) -- compile-time configuration validation
+- [Configuration](@/glossary/configuration.md) -- version-aware configuration management
+- [Contract](@/glossary/contract.md) -- formal agreements between API provider and consumer
+- [Deployment](@/glossary/deployment.md) -- release process where compatibility is validated
+- [Doctrine](@/glossary/doctrine.md) -- NWB doctrine governing compatibility decisions
+- [Ecto](@/glossary/ecto.md) -- database toolkit with migration-based schema evolution
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- enforcement doctrine prohibiting shims
+- [Releases (Elixir)](@/glossary/releases-elixir.md) -- self-contained deployable artifacts
+- [Schema](@/glossary/schema.md) -- data structure definitions requiring compatibility management
+- [Semver](@/glossary/semver.md) -- versioning standard signaling compatibility status
 
 ## See Also
 
 - [Semantic Versioning](https://semver.org/) -- versioning standard for compatibility signaling
-- [Prismatic API](/glossary/prismatic-api/) -- platform REST gateway with versioning
+- [Prismatic API](@/glossary/prismatic-api.md) -- platform REST gateway with versioning
 - [Ecto Migration Documentation](https://hexdocs.pm/ecto_sql/Ecto.Migration.html) -- official migration reference
 - [BEAM Compatibility](https://www.erlang.org/doc/system/compatibility.html) -- OTP compatibility guarantees
 
@@ -500,4 +500,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

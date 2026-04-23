@@ -201,4 +201,4 @@ MCP transforms Prismatic from a platform you interact with through a web interfa
 
 ---
 
-*Configure MCP in your AI assistant using the [MCP Guide](/developers/mcp/) or browse available tools at [API Documentation](/api/).*
+*Configure MCP in your AI assistant using the [MCP Guide](/developers/mcp/) or browse available tools at [API Documentation](@/api/_index.md).*

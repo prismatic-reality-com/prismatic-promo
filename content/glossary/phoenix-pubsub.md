@@ -38,7 +38,7 @@ image_alt = "Phoenix PubSub - Prismatic Platform"
 
 Phoenix PubSub operates as a message router that maintains topic subscriptions and delivers published messages to all interested subscribers. It supports multiple adapters including PG2 (process groups), Redis, and custom implementations, allowing developers to choose the appropriate backend based on scalability and distribution requirements. The system integrates seamlessly with Phoenix Channels and LiveView for WebSocket communication with browser clients.
 
-In the [Prismatic Platform](/glossary/aiad/), Phoenix PubSub powers real-time features across all 141 umbrella applications, handling over 50,000 messages per second during peak loads. The platform uses PubSub for OSINT tool progress updates, security perimeter alerts, agent coordination messages, and LiveView UI synchronization across the distributed AIAD ecosystem.
+In the [Prismatic Platform](@/glossary/aiad.md), Phoenix PubSub powers real-time features across all 141 umbrella applications, handling over 50,000 messages per second during peak loads. The platform uses PubSub for OSINT tool progress updates, security perimeter alerts, agent coordination messages, and LiveView UI synchronization across the distributed AIAD ecosystem.
 
 ## Core Architecture
 
@@ -655,19 +655,19 @@ The platform handles peak loads of over 50,000 PubSub messages per second during
 
 ## Related Concepts
 
-- [Phoenix](/glossary/phoenix/) - Web framework providing the PubSub system
-- [LiveView](/glossary/liveview/) - Real-time UI framework leveraging PubSub
-- [WebSocket](/glossary/websocket/) - Transport protocol used by Phoenix Channels
-- [Distributed Systems](/glossary/distributed-systems/) - Architecture pattern supported by PubSub
-- [GenServer](/glossary/genserver/) - OTP behavior often combined with PubSub
+- [Phoenix](@/glossary/phoenix.md) - Web framework providing the PubSub system
+- [LiveView](@/glossary/liveview.md) - Real-time UI framework leveraging PubSub
+- [WebSocket](@/glossary/websocket.md) - Transport protocol used by Phoenix Channels
+- [Distributed Systems](@/glossary/distributed-systems.md) - Architecture pattern supported by PubSub
+- [GenServer](@/glossary/genserver.md) - OTP behavior often combined with PubSub
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture utilizing PubSub
-- [Apps](/apps/) - Applications demonstrating real-time features
-- [OSINT Core](/apps/prismatic-osint-core/) - OSINT system with progress broadcasting
-- [Perimeter](/apps/prismatic-perimeter/) - Security system with alert distribution
-- [LiveView UI](/apps/prismatic-web/) - Real-time user interface components
+- [Architecture](@/architecture/_index.md) - Platform architecture utilizing PubSub
+- [Apps](@/apps/_index.md) - Applications demonstrating real-time features
+- [OSINT Core](@/apps/prismatic-osint-core.md) - OSINT system with progress broadcasting
+- [Perimeter](@/apps/prismatic-perimeter.md) - Security system with alert distribution
+- [LiveView UI](@/apps/prismatic-web.md) - Real-time user interface components
 
 ---
 
@@ -676,4 +676,4 @@ The platform handles peak loads of over 50,000 PubSub messages per second during
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

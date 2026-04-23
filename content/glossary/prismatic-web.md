@@ -658,18 +658,18 @@ end
 
 ## Related Concepts
 
-- [Phoenix](/glossary/phoenix/) -- Web framework powering prismatic_web
-- [LiveView](/glossary/liveview/) -- Server-rendered interactive UI technology
-- [TailwindCSS](/glossary/tailwindcss/) -- Utility-first CSS framework mandated for all styling
-- [Flowbite](/glossary/flowbite/) -- Component library providing UI building blocks
-- [EASM](/glossary/easm/) -- External attack surface management dashboards
-- [Prismatic API](/glossary/prismatic-api/) -- Companion REST API application on port 4004
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- Backend providing security data for dashboards
-- [WebSocket](/glossary/websocket/) -- Real-time communication protocol for LiveView
-- [PubSub](/glossary/pubsub/) -- Message broadcasting for real-time updates
-- [RBAC](/glossary/rbac/) -- Role-based access control system
-- [Performance](/glossary/performance/) -- Performance engineering and optimization
-- [Telemetry](/glossary/telemetry/) -- Monitoring and observability framework
+- [Phoenix](@/glossary/phoenix.md) -- Web framework powering prismatic_web
+- [LiveView](@/glossary/liveview.md) -- Server-rendered interactive UI technology
+- [TailwindCSS](@/glossary/tailwindcss.md) -- Utility-first CSS framework mandated for all styling
+- [Flowbite](@/glossary/flowbite.md) -- Component library providing UI building blocks
+- [EASM](@/glossary/easm.md) -- External attack surface management dashboards
+- [Prismatic API](@/glossary/prismatic-api.md) -- Companion REST API application on port 4004
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- Backend providing security data for dashboards
+- [WebSocket](@/glossary/websocket.md) -- Real-time communication protocol for LiveView
+- [PubSub](@/glossary/pubsub.md) -- Message broadcasting for real-time updates
+- [RBAC](@/glossary/rbac.md) -- Role-based access control system
+- [Performance](@/glossary/performance.md) -- Performance engineering and optimization
+- [Telemetry](@/glossary/telemetry.md) -- Monitoring and observability framework
 
 ## See Also
 
@@ -679,8 +679,8 @@ end
 - [prismatic_hawkeye_web](../../../apps/prismatic_hawkeye_web/README.md) -- Visitor intelligence web interface
 - [prismatic_api](../../../apps/prismatic_api/README.md) -- Companion REST API on port 4004
 - [prismatic_auth](../../../apps/prismatic_auth/README.md) -- Authentication and RBAC for web routes
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Umbrella applications including prismatic_web
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Umbrella applications including prismatic_web
 
 ---
 
@@ -689,4 +689,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -23,11 +23,11 @@ image_alt = "Prismatic Property Intelligence - Prismatic Platform"
 
 ## Overview
 
-Prismatic Property Intelligence provides real estate analysis capabilities focused on the Czech market. It integrates with CUZK (Czech Office for Surveying, Mapping and Cadastre) land registry data, property databases, and market sources to enable property-based investigations, asset mapping, and real estate due diligence. In the context of [OSINT](/glossary/osint/) investigations, property records are among the most reliable public data sources because real estate transactions require legal registration that cannot be easily obscured. The Czech land registry (Katastr nemovitosti) provides a uniquely complete public dataset that Property Intelligence transforms into actionable intelligence through systematic extraction, correlation, and analysis.
+Prismatic Property Intelligence provides real estate analysis capabilities focused on the Czech market. It integrates with CUZK (Czech Office for Surveying, Mapping and Cadastre) land registry data, property databases, and market sources to enable property-based investigations, asset mapping, and real estate due diligence. In the context of [OSINT](@/glossary/osint.md) investigations, property records are among the most reliable public data sources because real estate transactions require legal registration that cannot be easily obscured. The Czech land registry (Katastr nemovitosti) provides a uniquely complete public dataset that Property Intelligence transforms into actionable intelligence through systematic extraction, correlation, and analysis.
 
-The module reconstructs ownership chains by traversing historical land registry entries, identifying when properties changed hands, through which legal entities, and at what declared valuations. This is particularly valuable for corporate due diligence where shell company structures may be used to obscure beneficial ownership of valuable real estate assets. By correlating property ownership data with corporate registry information from [Prismatic Czech Registry](/apps/prismatic-czech-autocrawler/), the module can reveal connections between seemingly unrelated entities -- a capability central to the platform's [entity resolution](/glossary/entity-resolution/) pipeline. The [NABLA](/glossary/nabla-infinity/) framework's [signal plurality](/glossary/signal-plurality/) axiom is enforced throughout: property ownership claims require corroboration from multiple registry sources before being established as facts.
+The module reconstructs ownership chains by traversing historical land registry entries, identifying when properties changed hands, through which legal entities, and at what declared valuations. This is particularly valuable for corporate due diligence where shell company structures may be used to obscure beneficial ownership of valuable real estate assets. By correlating property ownership data with corporate registry information from [Prismatic Czech Registry](@/apps/prismatic-czech-autocrawler.md), the module can reveal connections between seemingly unrelated entities -- a capability central to the platform's [entity resolution](@/glossary/entity-resolution.md) pipeline. The [NABLA](@/glossary/nabla-infinity.md) framework's [signal plurality](@/glossary/signal-plurality.md) axiom is enforced throughout: property ownership claims require corroboration from multiple registry sources before being established as facts.
 
-Property Intelligence also monitors the real estate market for anomalies -- properties sold significantly below market value, rapid ownership transfers suggesting money laundering patterns, or concentrated property acquisition by entities with opaque ownership structures. These anomalies are surfaced with [confidence scoring](/glossary/confidence-scoring/) that reflects the strength of the underlying evidence.
+Property Intelligence also monitors the real estate market for anomalies -- properties sold significantly below market value, rapid ownership transfers suggesting money laundering patterns, or concentrated property acquisition by entities with opaque ownership structures. These anomalies are surfaced with [confidence scoring](@/glossary/confidence-scoring.md) that reflects the strength of the underlying evidence.
 
 ## Architecture
 
@@ -40,9 +40,9 @@ Corp Reg  --> Entity Pipeline  --> Unified Schema    KuzuDB Storage    Anomaly D
                               Geocoding          Valuation Model    Report Output
 ```
 
-The module is structured around three [data pipeline](/glossary/data-pipeline/)s. The **Registry Pipeline** connects to CUZK's ISKN system to fetch parcel data, ownership records, and encumbrance information. The **Market Pipeline** aggregates listings, transaction prices, and valuation estimates from commercial real estate databases. The **Analysis Pipeline** combines both data sources with corporate registry data to produce enriched property intelligence graphs stored in [KuzuDB](/glossary/kuzudb/) for relationship traversal.
+The module is structured around three [data pipeline](@/glossary/data-pipeline.md)s. The **Registry Pipeline** connects to CUZK's ISKN system to fetch parcel data, ownership records, and encumbrance information. The **Market Pipeline** aggregates listings, transaction prices, and valuation estimates from commercial real estate databases. The **Analysis Pipeline** combines both data sources with corporate registry data to produce enriched property intelligence graphs stored in [KuzuDB](@/glossary/kuzudb.md) for relationship traversal.
 
-Each pipeline runs as a supervised [GenServer](/glossary/genserver/) with configurable polling intervals and [rate limiting](/glossary/rate-limiting/) to respect data source constraints. The [Elixir](/glossary/elixir/) [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/) ensures that pipeline failures are isolated and automatically recovered without affecting other active analyses.
+Each pipeline runs as a supervised [GenServer](@/glossary/genserver.md) with configurable polling intervals and [rate limiting](@/glossary/rate-limiting.md) to respect data source constraints. The [Elixir](@/glossary/elixir.md) [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md) ensures that pipeline failures are isolated and automatically recovered without affecting other active analyses.
 
 ## Key Modules
 
@@ -105,7 +105,7 @@ end
 - Ownership chain reconstruction across historical land registry entries with full transfer history
 - Property valuation estimation using comparable sales and location-based models
 - Encumbrance and lien tracking including mortgages, easements, and court orders
-- Transaction history analysis with price anomaly detection using [Monte Carlo verification](/glossary/monte-carlo-verification/)
+- Transaction history analysis with price anomaly detection using [Monte Carlo verification](@/glossary/monte-carlo-verification.md)
 
 ### Asset Mapping
 
@@ -120,8 +120,8 @@ Corporate real estate portfolio mapping connects company identifiers to all owne
 | Area-to-portfolio | Region boundary | All entities with holdings | Regional analysis |
 
 - Corporate real estate portfolio mapping from ICO (company ID) to all owned parcels
-- Beneficial ownership [inference](/glossary/inference/) through property chains and corporate structures
-- Shell company property detection using ownership pattern heuristics in the [knowledge graph](/glossary/knowledge-graph/)
+- Beneficial ownership [inference](@/glossary/inference.md) through property chains and corporate structures
+- Shell company property detection using ownership pattern heuristics in the [knowledge graph](@/glossary/knowledge-graph.md)
 - Cross-border property intelligence for entities with Czech and foreign holdings
 
 ### Market Intelligence
@@ -166,10 +166,10 @@ end
 
 ### Due Diligence Reporting
 
-- Automated due diligence report generation with [audit trail](/glossary/audit-trail/) for every finding
-- [GDPR](/glossary/gdpr/)-compliant data handling for personal property ownership records
-- [Compliance framework](/glossary/compliance-framework/) alignment with Czech AML regulations
-- Evidence packaging for regulatory submission through [Prismatic CER](/apps/prismatic-cer/)
+- Automated due diligence report generation with [audit trail](@/glossary/audit-trail.md) for every finding
+- [GDPR](@/glossary/gdpr.md)-compliant data handling for personal property ownership records
+- [Compliance framework](@/glossary/compliance-framework.md) alignment with Czech AML regulations
+- Evidence packaging for regulatory submission through [Prismatic CER](@/apps/prismatic-cer.md)
 
 ## Usage
 
@@ -224,12 +224,12 @@ Integration tests exercise the full pipeline from CUZK data fetching through nor
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Czech Registry](/apps/prismatic-czech-autocrawler/) | Corporate registry data for ownership correlation and [entity resolution](/glossary/entity-resolution/) |
-| [Prismatic Narrative](/apps/prismatic-narrative/) | Timeline generation from property transaction histories for investigation reports |
-| [Prismatic CER](/apps/prismatic-cer/) | Compliance evidence storage and regulatory submission for due diligence reports |
-| [Prismatic Deduction](/apps/prismatic-deduction/) | Rule-based [inference](/glossary/inference/) over property ownership patterns for shell company detection |
-| [Prismatic Graph](/apps/prismatic-graph/) | Property ownership graph stored in KuzuDB for relationship traversal |
-| [Prismatic DD](/apps/prismatic-dd/) | Due diligence case workflows consuming property intelligence findings |
+| [Prismatic Czech Registry](@/apps/prismatic-czech-autocrawler.md) | Corporate registry data for ownership correlation and [entity resolution](@/glossary/entity-resolution.md) |
+| [Prismatic Narrative](@/apps/prismatic-narrative.md) | Timeline generation from property transaction histories for investigation reports |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Compliance evidence storage and regulatory submission for due diligence reports |
+| [Prismatic Deduction](@/apps/prismatic-deduction.md) | Rule-based [inference](@/glossary/inference.md) over property ownership patterns for shell company detection |
+| [Prismatic Graph](@/apps/prismatic-graph.md) | Property ownership graph stored in KuzuDB for relationship traversal |
+| [Prismatic DD](@/apps/prismatic-dd.md) | Due diligence case workflows consuming property intelligence findings |
 
 ## Performance
 
@@ -242,20 +242,20 @@ Integration tests exercise the full pipeline from CUZK data fetching through nor
 | Corporate correlation | 500ms-2s | Cross-registry entity resolution |
 | Geocoding | < 200ms | Cached address normalization |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :property, :portfolio_mapped]`, `[:prismatic, :property, :chain_traced]`, `[:prismatic, :property, :anomaly_detected]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :property, :portfolio_mapped]`, `[:prismatic, :property, :chain_traced]`, `[:prismatic, :property, :anomaly_detected]`.
 
 ## Related Resources
 
-- [Prismatic Czech Registry](/apps/prismatic-czech-autocrawler/) -- Corporate registry data for ownership correlation
-- [Prismatic Narrative](/apps/prismatic-narrative/) -- Timeline generation from property transaction histories
-- [Prismatic CER](/apps/prismatic-cer/) -- Compliance evidence storage for due diligence reports
-- [Prismatic Deduction](/apps/prismatic-deduction/) -- Rule-based inference over property ownership patterns
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures property intelligence claims meet evidentiary standards
-- [Cross Pollination Specialist](/agents/cross-pollination-specialist/) -- Connects property insights with corporate and financial intelligence domains
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews data pipeline architecture for scalability and resilience
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source property data fusion for comprehensive ownership analysis
-- [Trinity Gate](/capabilities/trinity-gate/) -- Property ownership claims validated through structural, logical, and formal verification
-- [Nabla Axioms](/capabilities/nabla-axioms/) -- Signal plurality enforcement on property intelligence assertions
+- [Prismatic Czech Registry](@/apps/prismatic-czech-autocrawler.md) -- Corporate registry data for ownership correlation
+- [Prismatic Narrative](@/apps/prismatic-narrative.md) -- Timeline generation from property transaction histories
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Compliance evidence storage for due diligence reports
+- [Prismatic Deduction](@/apps/prismatic-deduction.md) -- Rule-based inference over property ownership patterns
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures property intelligence claims meet evidentiary standards
+- [Cross Pollination Specialist](@/agents/cross-pollination-specialist.md) -- Connects property insights with corporate and financial intelligence domains
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews data pipeline architecture for scalability and resilience
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source property data fusion for comprehensive ownership analysis
+- [Trinity Gate](@/capabilities/trinity-gate.md) -- Property ownership claims validated through structural, logical, and formal verification
+- [Nabla Axioms](@/capabilities/nabla-axioms.md) -- Signal plurality enforcement on property intelligence assertions
 
 ---
 
@@ -264,4 +264,4 @@ Integration tests exercise the full pipeline from CUZK data fetching through nor
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -36,7 +36,7 @@ Sanctions screening is the regulatory compliance process of systematically check
 
 Sanctions screening operates at the intersection of regulatory compliance, financial crime prevention, and national security. Organizations subject to sanctions regulations -- including financial institutions, insurance companies, trade facilitators, and increasingly technology companies -- must screen counterparties, customers, beneficial owners, and transactions against applicable lists before engaging in business relationships or processing payments. Failure to comply carries severe penalties including criminal prosecution, substantial fines (reaching billions of dollars for major violations), and reputational damage.
 
-The Prismatic Platform implements sanctions screening as an integrated component of its [OSINT](/glossary/osint/) and [intelligence fusion](/glossary/intelligence-fusion/) pipeline, leveraging Elixir's concurrency model to perform parallel multi-list screening with sub-second response times. The platform's screening results feed directly into [security ratings](/glossary/security-rating/) and [compliance assessments](/glossary/compliance-framework/), providing a unified view of entity risk across regulatory, security, and operational dimensions.
+The Prismatic Platform implements sanctions screening as an integrated component of its [OSINT](@/glossary/osint.md) and [intelligence fusion](@/glossary/intelligence-fusion.md) pipeline, leveraging Elixir's concurrency model to perform parallel multi-list screening with sub-second response times. The platform's screening results feed directly into [security ratings](@/glossary/security-rating.md) and [compliance assessments](@/glossary/compliance-framework.md), providing a unified view of entity risk across regulatory, security, and operational dimensions.
 
 ## Historical Context and Regulatory Landscape
 
@@ -329,12 +329,12 @@ The platform's screening results feed into multiple downstream systems:
 
 | Component | Integration | Purpose |
 |-----------|------------|---------|
-| [Security Rating](/glossary/security-rating/) | Risk level affects score | Sanctions exposure degrades organization rating |
-| [EASM](/glossary/easm/) | Supply chain screening | Identifies sanctioned entities in vendor networks |
-| [NIS2](/glossary/nis2/) Compliance | Supply chain risk | NIS2 requires supply chain security assessment |
-| [Intelligence Fusion](/glossary/intelligence-fusion/) | Multi-source correlation | Screening results correlated with other OSINT data |
-| [Audit Trail](/glossary/audit-trail/) | Compliance documentation | All screening decisions logged with full audit trail |
-| [SIEM](/glossary/siem/) | Security events | Screening results emitted as security telemetry events |
+| [Security Rating](@/glossary/security-rating.md) | Risk level affects score | Sanctions exposure degrades organization rating |
+| [EASM](@/glossary/easm.md) | Supply chain screening | Identifies sanctioned entities in vendor networks |
+| [NIS2](@/glossary/nis2.md) Compliance | Supply chain risk | NIS2 requires supply chain security assessment |
+| [Intelligence Fusion](@/glossary/intelligence-fusion.md) | Multi-source correlation | Screening results correlated with other OSINT data |
+| [Audit Trail](@/glossary/audit-trail.md) | Compliance documentation | All screening decisions logged with full audit trail |
+| [SIEM](@/glossary/siem.md) | Security events | Screening results emitted as security telemetry events |
 
 ## Comparison with Alternatives
 
@@ -409,21 +409,21 @@ end
 
 ## Related Concepts
 
-- [OSINT](/glossary/osint/) -- Source methodology for accessing public sanctions data
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Multi-source correlation of screening results
-- [NIS2 Directive](/glossary/nis2/) -- Compliance framework requiring supply chain screening
-- [EASM](/glossary/easm/) -- Attack surface context enriching screening results
-- [Security Rating](/glossary/security-rating/) -- Scores incorporating sanctions screening outcomes
-- [Entity Resolution](/glossary/entity-resolution/) -- Deduplication technology underlying screening accuracy
-- [Threat Intelligence](/glossary/threat-intelligence/) -- External feeds complementing sanctions data
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory requirements driving screening obligations
-- [Audit Trail](/glossary/audit-trail/) -- Immutable documentation of screening decisions
+- [OSINT](@/glossary/osint.md) -- Source methodology for accessing public sanctions data
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Multi-source correlation of screening results
+- [NIS2 Directive](@/glossary/nis2.md) -- Compliance framework requiring supply chain screening
+- [EASM](@/glossary/easm.md) -- Attack surface context enriching screening results
+- [Security Rating](@/glossary/security-rating.md) -- Scores incorporating sanctions screening outcomes
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Deduplication technology underlying screening accuracy
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- External feeds complementing sanctions data
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory requirements driving screening obligations
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable documentation of screening decisions
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory
 
 ---
 
@@ -432,4 +432,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

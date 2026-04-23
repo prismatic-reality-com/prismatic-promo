@@ -457,18 +457,18 @@ This stack provides sub-minute detection latency for most failure modes, histori
 
 ## Related Terms
 
-- [Monitoring](/glossary/monitoring/) -- general monitoring concepts and patterns
-- [Telemetry](/glossary/telemetry/) -- the Elixir telemetry event library
-- [Health Monitoring](/glossary/health-monitoring/) -- health check specific monitoring
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine providing native introspection
-- [BEAM](/glossary/beam/) -- broader BEAM ecosystem context
-- [Performance](/glossary/performance/) -- performance monitoring and optimization
-- [Performance Tracking](/glossary/performance-tracking/) -- tracking performance metrics over time
-- [Quality Monitoring](/glossary/quality-monitoring/) -- code quality dimension of monitoring
-- [Supervision Tree](/glossary/supervision-tree/) -- supervision topology informing monitoring hierarchy
-- [Fault Tolerance](/glossary/fault-tolerance/) -- failure detection through monitoring
-- [Circuit Breaker](/glossary/circuit-breaker/) -- monitoring-triggered circuit breaking
-- [GenServer](/glossary/genserver/) -- OTP behaviour for monitoring processes
+- [Monitoring](@/glossary/monitoring.md) -- general monitoring concepts and patterns
+- [Telemetry](@/glossary/telemetry.md) -- the Elixir telemetry event library
+- [Health Monitoring](@/glossary/health-monitoring.md) -- health check specific monitoring
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine providing native introspection
+- [BEAM](@/glossary/beam.md) -- broader BEAM ecosystem context
+- [Performance](@/glossary/performance.md) -- performance monitoring and optimization
+- [Performance Tracking](@/glossary/performance-tracking.md) -- tracking performance metrics over time
+- [Quality Monitoring](@/glossary/quality-monitoring.md) -- code quality dimension of monitoring
+- [Supervision Tree](@/glossary/supervision-tree.md) -- supervision topology informing monitoring hierarchy
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- failure detection through monitoring
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- monitoring-triggered circuit breaking
+- [GenServer](@/glossary/genserver.md) -- OTP behaviour for monitoring processes
 
 ## Further Reading
 
@@ -485,4 +485,4 @@ This stack provides sub-minute detection latency for most failure modes, histori
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -527,24 +527,24 @@ end
 
 ## Related Terms
 
-- [Faceted Search](/glossary/faceted-search/) -- Search refinement using dimensional filters
-- [Distribution](/glossary/distribution/) -- Statistical distribution of values within a dimension
-- [Data Quality](/glossary/data-quality/) -- Quality dimensions measuring software and data attributes
-- [DuckDB](/glossary/duckdb/) -- Analytical database optimized for multi-dimensional queries
-- [ETS](/glossary/ets/) -- In-memory storage for pre-aggregated dimension caches
-- [Meilisearch](/glossary/meilisearch/) -- Full-text search with faceted filtering on dimensions
+- [Faceted Search](@/glossary/faceted-search.md) -- Search refinement using dimensional filters
+- [Distribution](@/glossary/distribution.md) -- Statistical distribution of values within a dimension
+- [Data Quality](@/glossary/data-quality.md) -- Quality dimensions measuring software and data attributes
+- [DuckDB](@/glossary/duckdb.md) -- Analytical database optimized for multi-dimensional queries
+- [ETS](@/glossary/ets.md) -- In-memory storage for pre-aggregated dimension caches
+- [Meilisearch](@/glossary/meilisearch.md) -- Full-text search with faceted filtering on dimensions
 - [Star Schema](/glossary/star-schema/) -- Dimensional modeling pattern with central fact table
 - [OLAP](/glossary/olap/) -- Online Analytical Processing for multi-dimensional queries
-- [Aggregation](/glossary/aggregation/) -- Computing summary measures across dimension groups
-- [Telemetry](/glossary/telemetry/) -- Metric collection with dimensional metadata
-- [Data Pipeline](/glossary/data-pipeline/) -- Data flow with dimensional enrichment at each stage
-- [Analytics](/glossary/analytics/) -- Intelligence analysis leveraging dimensional classification
+- [Aggregation](@/glossary/aggregation.md) -- Computing summary measures across dimension groups
+- [Telemetry](@/glossary/telemetry.md) -- Metric collection with dimensional metadata
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Data flow with dimensional enrichment at each stage
+- [Analytics](@/glossary/analytics.md) -- Intelligence analysis leveraging dimensional classification
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- Analytics and intelligence capabilities
-- [Architecture](/architecture/) -- Data model architecture and dimensional design
-- [Technologies](/technologies/) -- Database technologies supporting dimensional analysis
+- [Capabilities](@/capabilities/_index.md) -- Analytics and intelligence capabilities
+- [Architecture](@/architecture/_index.md) -- Data model architecture and dimensional design
+- [Technologies](@/technologies/_index.md) -- Database technologies supporting dimensional analysis
 - **OSINT Toolbox** -- OSINT tools classified along categorical dimensions
 - **Prismatic Perimeter** -- Security ratings decomposed across quality dimensions
 - **Health Score** -- Platform health computed across multiple quality dimensions
@@ -556,4 +556,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

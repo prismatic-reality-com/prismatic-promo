@@ -24,9 +24,9 @@ image_alt = "/inject - Prismatic Platform"
 
 ## Overview
 
-**/inject** is a production command in the **Framework** category of the Prismatic Platform that coordinates the injection of [AIAD](/glossary/aiad/) components -- agents, commands, patterns, policies, and workflows -- into the platform ecosystem. Injection is the controlled process of introducing new or updated AIAD artifacts into the live system, ensuring that each artifact passes validation, integrates correctly with existing components, and is properly indexed in the AIAD registry.
+**/inject** is a production command in the **Framework** category of the Prismatic Platform that coordinates the injection of [AIAD](@/glossary/aiad.md) components -- agents, commands, patterns, policies, and workflows -- into the platform ecosystem. Injection is the controlled process of introducing new or updated AIAD artifacts into the live system, ensuring that each artifact passes validation, integrates correctly with existing components, and is properly indexed in the AIAD registry.
 
-This command operates under the **L2+** authority level and is executed by the `aiad-injection-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the AIAD (Autonomous Intelligence Agent Design) standard. The injection process is analogous to dependency injection in software architecture: new capabilities are introduced into the system through a controlled interface that validates compatibility and manages lifecycle.
+This command operates under the **L2+** authority level and is executed by the `aiad-injection-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the AIAD (Autonomous Intelligence Agent Design) standard. The injection process is analogous to dependency injection in software architecture: new capabilities are introduced into the system through a controlled interface that validates compatibility and manages lifecycle.
 
 With over 400 agents, 216 commands, and dozens of policies and patterns, the AIAD ecosystem requires careful coordination when adding or modifying components. The `/inject` command ensures that new artifacts do not conflict with existing ones, that naming conventions are followed, that required fields are present, and that the AIAD registry index is updated to reflect the new state.
 
@@ -142,14 +142,14 @@ Every artifact must pass a comprehensive validation before injection is permitte
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `aiad-injection-coordinator` | Manages injection lifecycle |
-| [AIAD Registry](/glossary/aiad/) | Target registry | All artifacts injected into AIAD registry |
-| [/ecosystem](/commands/ecosystem/) | Status reflection | Ecosystem view updated after injection |
-| [/seadf](/commands/seadf/) | Evolution integration | New artifacts feed SEADF evolution |
-| [Quality Gates](/glossary/quality-gates/) | Validation | Injection blocked if quality gates fail |
-| [Telemetry](/glossary/telemetry/) | Event tracking | Injection events tracked for audit |
-| [/agents](/commands/agents/) | Agent listing | New agents appear in agent listings |
-| [Git Trees](/commands/git-trees/) | File discovery | Used to locate artifact files |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `aiad-injection-coordinator` | Manages injection lifecycle |
+| [AIAD Registry](@/glossary/aiad.md) | Target registry | All artifacts injected into AIAD registry |
+| [/ecosystem](@/commands/ecosystem.md) | Status reflection | Ecosystem view updated after injection |
+| [/seadf](@/commands/seadf.md) | Evolution integration | New artifacts feed SEADF evolution |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation | Injection blocked if quality gates fail |
+| [Telemetry](@/glossary/telemetry.md) | Event tracking | Injection events tracked for audit |
+| [/agents](@/commands/agents.md) | Agent listing | New agents appear in agent listings |
+| [Git Trees](@/commands/git-trees.md) | File discovery | Used to locate artifact files |
 
 ## Best Practices
 
@@ -219,19 +219,19 @@ Migrate artifacts between schema versions.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every injected artifact must pass validation. No artifact enters the registry without schema compliance and doctrine enforcement.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Dry-run validation provides complete diagnostic output before any registry modification occurs.
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/ecosystem](/commands/ecosystem/) - Platform ecosystem overview and status monitoring
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
-- [/migrate](/commands/migrate/) - Safe migration planning with rollback strategies
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/ecosystem](@/commands/ecosystem.md) - Platform ecosystem overview and status monitoring
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
+- [/migrate](@/commands/migrate.md) - Safe migration planning with rollback strategies
 
 ---
 
@@ -240,4 +240,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

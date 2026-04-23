@@ -226,7 +226,7 @@ window.PrismaticNav.classifyLink(url)
 ## Visual Enhancement Examples
 
 ### Glossary Links
-Links to [glossary terms](/glossary/mcp/) are automatically enhanced with:
+Links to [glossary terms](@/glossary/mcp.md) are automatically enhanced with:
 - Dashed underline styling
 - Hover card previews (future enhancement)
 - High-priority prefetching
@@ -285,8 +285,8 @@ External links like [GitHub](https://github.com) automatically get:
 - [MCP Protocol Documentation](https://modelcontextprotocol.io/)
 - [Prefetch API Specification](https://w3c.github.io/resource-hints/)
 - [Navigation API Reference](https://developer.mozilla.org/docs/Web/API/Navigation_API)
-- [Architecture Overview](/architecture/)
-- [Academy Interactive Learning](/academy/)
+- [Architecture Overview](@/architecture/_index.md)
+- [Academy Interactive Learning](@/academy/_index.md)
 
 ---
 

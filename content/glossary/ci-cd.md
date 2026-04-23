@@ -36,9 +36,9 @@ image_alt = "CI/CD - Prismatic Platform"
 
 ## Definition
 
-**CI/CD** (Continuous Integration / Continuous Deployment) refers to the automated pipeline infrastructure that builds, tests, validates, and deploys software changes. In the Prismatic Platform, CI/CD encompasses an 11-phase local pre-commit hook system, GitLab CI/CD remote pipelines, comprehensive quality gates, and automated deployment to Fly.io staging and production environments. The system enforces the [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine by blocking any change that does not pass all quality, testing, and compliance checks -- with zero exceptions and no bypass flags permitted.
+**CI/CD** (Continuous Integration / Continuous Deployment) refers to the automated pipeline infrastructure that builds, tests, validates, and deploys software changes. In the Prismatic Platform, CI/CD encompasses an 11-phase local pre-commit hook system, GitLab CI/CD remote pipelines, comprehensive quality gates, and automated deployment to Fly.io staging and production environments. The system enforces the [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine by blocking any change that does not pass all quality, testing, and compliance checks -- with zero exceptions and no bypass flags permitted.
 
-The CI/CD pipeline is the enforcement backbone of the platform's [zero tolerance](/glossary/zero-tolerance/) quality standard, ensuring that every commit to the repository is production-ready from the moment of creation.
+The CI/CD pipeline is the enforcement backbone of the platform's [zero tolerance](@/glossary/zero-tolerance.md) quality standard, ensuring that every commit to the repository is production-ready from the moment of creation.
 
 ## Overview
 
@@ -50,7 +50,7 @@ The Prismatic Platform's CI/CD system is distinctive in several ways:
 
 2. **Zero Bypass Policy**: The `--no-verify` flag is absolutely forbidden. Every commit must pass all hooks. This is a P0 absolute enforcement -- violation triggers L4 Supreme Review.
 
-3. **Quality Gate Integration**: The CI/CD pipeline integrates with the platform's quality gate system (`mix quality.gates`), which checks compilation warnings, [Credo](/glossary/credo/) compliance, [Dialyzer](/glossary/dialyzer/) analysis, test coverage, and 13 additional quality domains.
+3. **Quality Gate Integration**: The CI/CD pipeline integrates with the platform's quality gate system (`mix quality.gates`), which checks compilation warnings, [Credo](@/glossary/credo.md) compliance, [Dialyzer](@/glossary/dialyzer.md) analysis, test coverage, and 13 additional quality domains.
 
 4. **Dual-Target Deployment**: The pipeline deploys to both staging (`prismatic-staging.fly.dev`) and production (`prismatic-prod.fly.dev`) on Fly.io, with mandatory staging validation before production promotion.
 
@@ -364,7 +364,7 @@ The CI/CD system is deeply integrated across the platform:
 
 **Telemetry Integration**: Pipeline events are emitted through `:telemetry` for monitoring: `[:prismatic_ci, :pipeline, :start | :complete | :failure]`, `[:prismatic_ci, :phase, :start | :complete | :failure]`, `[:prismatic_ci, :deploy, :start | :complete | :rollback]`.
 
-**Session Discipline**: The [Mandatory Session Discipline Protocol](/glossary/clean-run/) requires continuous commits pushed to remote during every work session. The CI/CD pipeline validates every push, ensuring no untested code accumulates.
+**Session Discipline**: The [Mandatory Session Discipline Protocol](@/glossary/clean-run.md) requires continuous commits pushed to remote during every work session. The CI/CD pipeline validates every push, ensuring no untested code accumulates.
 
 ## Comparison with Alternatives
 
@@ -424,28 +424,28 @@ The platform maintains zero Quality Debt Points (QDP). When a commit introduces 
 
 ### Multi-App Umbrella Changes
 
-When a change spans multiple umbrella applications, the CI pipeline validates cross-app compilation, runs integration tests, and checks for [circular dependencies](/glossary/circular-dependency/). The quality gates ensure that changes in one app do not degrade quality in dependent apps.
+When a change spans multiple umbrella applications, the CI pipeline validates cross-app compilation, runs integration tests, and checks for [circular dependencies](@/glossary/circular-dependency.md). The quality gates ensure that changes in one app do not degrade quality in dependent apps.
 
 ## Related Concepts
 
-- [Continuous Integration](/glossary/continuous-integration/) -- The "CI" half: frequent merging with automated validation
-- [Continuous Deployment](/glossary/continuous-deployment/) -- The "CD" half: automated deployment to production
-- [GitLab CI](/glossary/gitlab-ci/) -- The specific CI/CD platform used by Prismatic
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- Local enforcement mechanism for the 11-phase system
-- [Quality Gate](/glossary/quality-gate/) -- Automated quality checkpoints within the pipeline
-- [Clean Run](/glossary/clean-run/) -- Zero warnings, zero errors compilation standard
-- [Fly.io](/glossary/fly-io/) -- Production hosting platform for deployments
-- [Docker](/glossary/docker/) -- Container technology for reproducible builds
-- [Credo](/glossary/credo/) -- Static analysis tool enforced in Phase 3
-- [Dialyzer](/glossary/dialyzer/) -- Type checking tool enforced in Phase 5
-- [Zero Tolerance Quality](/glossary/zero-tolerance-quality/) -- The quality standard that CI/CD enforces
+- [Continuous Integration](@/glossary/continuous-integration.md) -- The "CI" half: frequent merging with automated validation
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- The "CD" half: automated deployment to production
+- [GitLab CI](@/glossary/gitlab-ci.md) -- The specific CI/CD platform used by Prismatic
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- Local enforcement mechanism for the 11-phase system
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated quality checkpoints within the pipeline
+- [Clean Run](@/glossary/clean-run.md) -- Zero warnings, zero errors compilation standard
+- [Fly.io](@/glossary/fly-io.md) -- Production hosting platform for deployments
+- [Docker](@/glossary/docker.md) -- Container technology for reproducible builds
+- [Credo](@/glossary/credo.md) -- Static analysis tool enforced in Phase 3
+- [Dialyzer](@/glossary/dialyzer.md) -- Type checking tool enforced in Phase 5
+- [Zero Tolerance Quality](@/glossary/zero-tolerance-quality.md) -- The quality standard that CI/CD enforces
 
 ## See Also
 
-- [Mix Task](/glossary/mix-task/) -- Elixir build tool tasks used in pipeline phases
-- [Compilation](/glossary/compilation/) -- Phase 1 of the pre-commit pipeline
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- Doctrine enforced through CI/CD
-- [Umbrella Application](/glossary/umbrella-application/) -- Architecture validated by the pipeline
+- [Mix Task](@/glossary/mix-task.md) -- Elixir build tool tasks used in pipeline phases
+- [Compilation](@/glossary/compilation.md) -- Phase 1 of the pre-commit pipeline
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- Doctrine enforced through CI/CD
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Architecture validated by the pipeline
 
 ---
 
@@ -454,4 +454,4 @@ When a change spans multiple umbrella applications, the CI pipeline validates cr
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

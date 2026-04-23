@@ -24,7 +24,7 @@ Backpressure is a flow control mechanism in which downstream consumers communica
 
 The term originates from fluid dynamics, where backpressure refers to the resistance that fluid encounters when flowing through a pipe. When a pipe narrows, pressure builds upstream, slowing the flow. In software systems, the "pipe" is a message queue or buffer, the "fluid" is data, and the "narrowing" is a slower consumer. Backpressure ensures that the software system behaves like a physical pipe rather than like an overflowing basin.
 
-In the Elixir ecosystem, backpressure is not an afterthought or a library addition -- it is built into the core concurrency model through [GenStage](/glossary/genstage/)'s demand-driven architecture. Consumers explicitly request a specific number of events from producers, and producers emit only what is demanded. This pull-based approach contrasts fundamentally with push-based systems (common in imperative languages) that rely on buffering, throttling, or hope to manage flow.
+In the Elixir ecosystem, backpressure is not an afterthought or a library addition -- it is built into the core concurrency model through [GenStage](@/glossary/genstage.md)'s demand-driven architecture. Consumers explicitly request a specific number of events from producers, and producers emit only what is demanded. This pull-based approach contrasts fundamentally with push-based systems (common in imperative languages) that rely on buffering, throttling, or hope to manage flow.
 
 ## The Demand-Driven Model
 
@@ -159,7 +159,7 @@ When a producer receives events (from an external source, a callback, or a timer
 
 ## Broadway: Production-Ready Backpressure
 
-[Broadway](/glossary/broadway/) builds on GenStage to provide a higher-level abstraction for concurrent, multi-stage data pipelines with built-in backpressure. Where GenStage is a building block, Broadway is a framework that handles many production concerns automatically:
+[Broadway](@/glossary/broadway.md) builds on GenStage to provide a higher-level abstraction for concurrent, multi-stage data pipelines with built-in backpressure. Where GenStage is a building block, Broadway is a framework that handles many production concerns automatically:
 
 | Concern | GenStage | Broadway |
 |---------|----------|---------|
@@ -174,7 +174,7 @@ Broadway is the recommended approach for production OSINT pipelines in the Prism
 
 ## Real-World OSINT Pipeline Example
 
-The Prismatic Platform's OSINT intelligence gathering demonstrates backpressure in a real-world context. The pipeline processes signals from multiple external sources ([Shodan](/glossary/shodan/), [Censys](/glossary/censys/), [GreyNoise](/glossary/greynoise/), DNS resolvers) through enrichment, validation, and storage stages.
+The Prismatic Platform's OSINT intelligence gathering demonstrates backpressure in a real-world context. The pipeline processes signals from multiple external sources ([Shodan](@/glossary/shodan.md), [Censys](@/glossary/censys.md), [GreyNoise](@/glossary/greynoise.md), DNS resolvers) through enrichment, validation, and storage stages.
 
 The challenge: external sources can produce data at highly variable rates. A Shodan scan might return thousands of results in seconds, while a DNS resolution stage processes records one at a time with network latency. Without backpressure, the Shodan producer would buffer thousands of results, exhausting memory while the DNS stage processes them slowly.
 
@@ -205,7 +205,7 @@ No stage accumulates unbounded data. No buffer grows without limit. Memory usage
 
 ## Backpressure vs. Rate Limiting
 
-Backpressure and [rate limiting](/glossary/rate-limiting/) both control the rate of data flow, but they differ in mechanism and purpose:
+Backpressure and [rate limiting](@/glossary/rate-limiting.md) both control the rate of data flow, but they differ in mechanism and purpose:
 
 | Dimension | Backpressure | Rate Limiting |
 |-----------|-------------|---------------|
@@ -220,7 +220,7 @@ In the Prismatic Platform, both patterns are used at different boundaries. Backp
 
 ## Monitoring and Observability
 
-Backpressure behavior is monitored through the platform's [observability](/glossary/observability/) infrastructure. Key metrics include:
+Backpressure behavior is monitored through the platform's [observability](@/glossary/observability.md) infrastructure. Key metrics include:
 
 | Metric | Indicates | Healthy Range | Alert Threshold |
 |--------|-----------|---------------|-----------------|
@@ -234,34 +234,34 @@ A sustained high buffer size with low demand indicates a bottleneck: the consume
 
 ## Relationship to Stream Processing
 
-Backpressure is one of three pillars of robust [stream processing](/glossary/stream-processing/) in the Prismatic Platform:
+Backpressure is one of three pillars of robust [stream processing](@/glossary/stream-processing.md) in the Prismatic Platform:
 
 1. **Backpressure** ensures flow control -- no stage is overwhelmed
-2. **[Fault tolerance](/glossary/fault-tolerance/)** ensures crash recovery -- failed stages are restarted by [supervisors](/glossary/supervisor/)
-3. **[Circuit breakers](/glossary/circuit-breaker/)** ensure external boundary protection -- degraded dependencies are isolated
+2. **[Fault tolerance](@/glossary/fault-tolerance.md)** ensures crash recovery -- failed stages are restarted by [supervisors](@/glossary/supervisor.md)
+3. **[Circuit breakers](@/glossary/circuit-breaker.md)** ensure external boundary protection -- degraded dependencies are isolated
 
 Together, these patterns create data pipelines that are resilient to load spikes (backpressure), internal failures (supervision), and external dependency degradation (circuit breakers). The combination is more robust than any individual pattern, and the Prismatic Platform applies all three in its production intelligence-gathering pipelines.
 
 ## Related Terms
 
-- [GenStage](/glossary/genstage/) -- Elixir library implementing the demand-driven backpressure model
-- [Broadway](/glossary/broadway/) -- Production framework building on GenStage with built-in backpressure
-- [Stream Processing](/glossary/stream-processing/) -- Processing paradigm where backpressure is essential
-- [Data Pipeline](/glossary/data-pipeline/) -- Architecture pattern using backpressure for flow control
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Complementary pattern protecting external boundaries
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property maintained alongside backpressure
-- [Supervisor](/glossary/supervisor/) -- Recovery mechanism for crashed pipeline stages
-- [Rate Limiting](/glossary/rate-limiting/) -- Related pattern controlling external access rates
-- [SEADF](/glossary/seadf/) -- Platform framework implementing backpressure in scanning pipelines
-- [OTP](/glossary/otp/) -- Runtime providing the process model for backpressure
-- [Observability](/glossary/observability/) -- Monitoring infrastructure tracking backpressure metrics
-- [Metrics](/glossary/metrics/) -- Measurements used to monitor backpressure health
+- [GenStage](@/glossary/genstage.md) -- Elixir library implementing the demand-driven backpressure model
+- [Broadway](@/glossary/broadway.md) -- Production framework building on GenStage with built-in backpressure
+- [Stream Processing](@/glossary/stream-processing.md) -- Processing paradigm where backpressure is essential
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Architecture pattern using backpressure for flow control
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Complementary pattern protecting external boundaries
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property maintained alongside backpressure
+- [Supervisor](@/glossary/supervisor.md) -- Recovery mechanism for crashed pipeline stages
+- [Rate Limiting](@/glossary/rate-limiting.md) -- Related pattern controlling external access rates
+- [SEADF](@/glossary/seadf.md) -- Platform framework implementing backpressure in scanning pipelines
+- [OTP](@/glossary/otp.md) -- Runtime providing the process model for backpressure
+- [Observability](@/glossary/observability.md) -- Monitoring infrastructure tracking backpressure metrics
+- [Metrics](@/glossary/metrics.md) -- Measurements used to monitor backpressure health
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform data pipeline architecture
-- [Technologies](/technologies/) -- GenStage, Broadway, and BEAM technology details
-- [Capabilities](/capabilities/) -- Platform data processing capabilities
+- [Architecture](@/architecture/_index.md) -- Platform data pipeline architecture
+- [Technologies](@/technologies/_index.md) -- GenStage, Broadway, and BEAM technology details
+- [Capabilities](@/capabilities/_index.md) -- Platform data processing capabilities
 
 ---
 
@@ -270,4 +270,4 @@ Together, these patterns create data pipelines that are resilient to load spikes
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

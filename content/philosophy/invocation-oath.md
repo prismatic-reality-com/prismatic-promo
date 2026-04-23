@@ -50,7 +50,7 @@ date_modified = "2026-02-23"
 
 ## Abstract
 
-The Oath of Licensed Invocation is the central ceremonial mechanism of the [General Honest License](/philosophy/ghl-framework/), transforming the act of software usage from casual consumption into **conscious, ritualized engagement**. This document describes the oath's structure, philosophical foundations, practical requirements, and the ongoing obligations it creates between user and creator.
+The Oath of Licensed Invocation is the central ceremonial mechanism of the [General Honest License](@/philosophy/ghl-framework.md), transforming the act of software usage from casual consumption into **conscious, ritualized engagement**. This document describes the oath's structure, philosophical foundations, practical requirements, and the ongoing obligations it creates between user and creator.
 
 The oath process encompasses four phases: **Preparation** (understanding and reflection), **Declaration** (formal sworn commitment), **Attestation** (witness verification), and **Binding** (cryptographic proof and registry entry). Together, these phases create a framework for respectful, conscious software relationships.
 
@@ -422,7 +422,7 @@ The oath is the **entry point** to the GHL permission system:
 
 ### Relationship to Intellectual Sovereignty
 
-The oath explicitly acknowledges [intellectual sovereignty](/philosophy/intellectual-sovereignty/):
+The oath explicitly acknowledges [intellectual sovereignty](@/philosophy/intellectual-sovereignty.md):
 
 - The author's absolute authority over interpretation
 - The user's subordinate but dignified role in the relationship
@@ -431,7 +431,7 @@ The oath explicitly acknowledges [intellectual sovereignty](/philosophy/intellec
 
 ### Connection to Boundary Ethics
 
-The oath creates the [boundary](/philosophy/boundary-ethics/) between authorized and unauthorized usage:
+The oath creates the [boundary](@/philosophy/boundary-ethics.md) between authorized and unauthorized usage:
 
 - **Inside the Boundary**: Oath-holders with specific permissions
 - **Outside the Boundary**: Non-oath-holders with no permissions
@@ -502,4 +502,4 @@ The oath does not diminish the user but **elevates** them from consumer to consc
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

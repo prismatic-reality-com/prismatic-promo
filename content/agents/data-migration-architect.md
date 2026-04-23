@@ -28,7 +28,7 @@ image_alt = "data-migration-architect - Prismatic Platform"
 
 ## Overview
 
-The Data Migration Architect is an L3 strategic authority operating within the Integration domain of the Prismatic Platform. This agent specializes in large-scale data migration planning, execution, and validation, providing multi-stage verification, pattern validation, and cross-system coordination for migration operations that span the platform's heterogeneous storage ecosystem. Data migrations in a 90-app [umbrella application](/glossary/umbrella-application/) with [PostgreSQL](/glossary/postgresql/), [ETS](/glossary/ets/), [Meilisearch](/glossary/meilisearch/), and [KuzuDB](/glossary/kuzudb/) storage backends represent some of the highest-risk operations the platform performs.
+The Data Migration Architect is an L3 strategic authority operating within the Integration domain of the Prismatic Platform. This agent specializes in large-scale data migration planning, execution, and validation, providing multi-stage verification, pattern validation, and cross-system coordination for migration operations that span the platform's heterogeneous storage ecosystem. Data migrations in a 90-app [umbrella application](@/glossary/umbrella-application.md) with [PostgreSQL](@/glossary/postgresql.md), [ETS](@/glossary/ets.md), [Meilisearch](@/glossary/meilisearch.md), and [KuzuDB](@/glossary/kuzudb.md) storage backends represent some of the highest-risk operations the platform performs.
 
 Unlike simple schema migrations that modify database structure, the Data Migration Architect handles full data lifecycle migrations: moving data between storage systems, transforming data formats during migration, validating data completeness and correctness at every stage, and coordinating the cutover from source to target systems with minimal service disruption. The agent applies genetic enhancement principles from the platform's evolutionary framework, using pattern-based validation that learns from historical migration outcomes to predict and prevent common failure modes in new migrations. Every migration is treated as a reversible, auditable operation with checkpointing that enables resume-from-failure rather than restart-from-scratch semantics.
 
@@ -131,13 +131,13 @@ end
 
 | Integration Target | Direction | Purpose |
 |---|---|---|
-| [data-integrity-specialist](/agents/data-integrity-specialist/) | Bidirectional | Validates data integrity before and after migration; provides integrity baselines |
-| [adapter-pattern-specialist](/agents/adapter-pattern-specialist/) | Inbound | Provides storage adapter implementations for source and target system access |
-| [cross-domain-integration-orchestrator](/agents/cross-domain-integration-orchestrator/) | Bidirectional | Coordinates migrations that span domain boundaries |
-| [anti-corruption-layer-specialist](/agents/anti-corruption-layer-specialist/) | Inbound | Provides legacy system isolation for migrations from legacy data sources |
-| [database-migration-specialist](/agents/database-migration-specialist/) | Bidirectional | Coordinates schema migrations that must accompany data migrations |
-| Platform [Telemetry](/glossary/telemetry/) | Outbound | Reports migration progress, throughput, and error metrics |
-| [Mycelial Network](/glossary/mycelial-network/) | Outbound | Propagates successful migration patterns for reuse |
+| [data-integrity-specialist](@/agents/data-integrity-specialist.md) | Bidirectional | Validates data integrity before and after migration; provides integrity baselines |
+| [adapter-pattern-specialist](@/agents/adapter-pattern-specialist.md) | Inbound | Provides storage adapter implementations for source and target system access |
+| [cross-domain-integration-orchestrator](@/agents/cross-domain-integration-orchestrator.md) | Bidirectional | Coordinates migrations that span domain boundaries |
+| [anti-corruption-layer-specialist](@/agents/anti-corruption-layer-specialist.md) | Inbound | Provides legacy system isolation for migrations from legacy data sources |
+| [database-migration-specialist](@/agents/database-migration-specialist.md) | Bidirectional | Coordinates schema migrations that must accompany data migrations |
+| Platform [Telemetry](@/glossary/telemetry.md) | Outbound | Reports migration progress, throughput, and error metrics |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Outbound | Propagates successful migration patterns for reuse |
 
 ## Operational Workflow
 
@@ -204,12 +204,12 @@ config :prismatic_integration, Prismatic.Integration.DataMigration.Architect,
 
 ## Related Resources
 
-- [adapter-pattern-specialist](/agents/adapter-pattern-specialist/) -- Integration adapter design
-- [anti-corruption-layer-specialist](/agents/anti-corruption-layer-specialist/) -- Legacy system isolation
-- [cross-domain-integration-orchestrator](/agents/cross-domain-integration-orchestrator/) -- Cross-domain coordination
-- [data-integrity-specialist](/agents/data-integrity-specialist/) -- Integrity validation
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [Mycelial Network](/glossary/mycelial-network/) -- Pattern propagation
+- [adapter-pattern-specialist](@/agents/adapter-pattern-specialist.md) -- Integration adapter design
+- [anti-corruption-layer-specialist](@/agents/anti-corruption-layer-specialist.md) -- Legacy system isolation
+- [cross-domain-integration-orchestrator](@/agents/cross-domain-integration-orchestrator.md) -- Cross-domain coordination
+- [data-integrity-specialist](@/agents/data-integrity-specialist.md) -- Integrity validation
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [Mycelial Network](@/glossary/mycelial-network.md) -- Pattern propagation
 
 ---
 
@@ -218,4 +218,4 @@ config :prismatic_integration, Prismatic.Integration.DataMigration.Architect,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

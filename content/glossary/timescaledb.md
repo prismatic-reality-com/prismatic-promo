@@ -20,7 +20,7 @@ image_alt = "TimescaleDB - Prismatic Platform"
 
 ## Definition
 
-TimescaleDB is an open-source [PostgreSQL](/glossary/postgresql/) extension that transforms PostgreSQL into a high-performance time-series database. It introduces hypertables -- automatically partitioned tables that split data by time intervals (called chunks) -- while maintaining full PostgreSQL compatibility. Applications interact with hypertables using standard SQL (INSERT, SELECT, JOIN, CTE, window functions), but the underlying storage engine is optimized for the write-heavy, time-ordered, range-query patterns that characterize time-series workloads.
+TimescaleDB is an open-source [PostgreSQL](@/glossary/postgresql.md) extension that transforms PostgreSQL into a high-performance time-series database. It introduces hypertables -- automatically partitioned tables that split data by time intervals (called chunks) -- while maintaining full PostgreSQL compatibility. Applications interact with hypertables using standard SQL (INSERT, SELECT, JOIN, CTE, window functions), but the underlying storage engine is optimized for the write-heavy, time-ordered, range-query patterns that characterize time-series workloads.
 
 The core insight behind TimescaleDB is that time-series data has different access patterns than transactional data. Writes are predominantly inserts (append-only, monotonically increasing timestamps). Reads are predominantly range scans (last hour, last day, last month). Old data is rarely modified but frequently aggregated. These patterns enable aggressive optimizations: automatic chunk-based partitioning eliminates index bloat on large tables, native columnar compression achieves 90%+ space savings on historical data, and continuous aggregates provide materialized views that auto-refresh without manual maintenance.
 
@@ -192,14 +192,14 @@ SELECT add_retention_policy('security_ratings_hourly', INTERVAL '2 years');
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform uses TimescaleDB for all time-series data workloads, integrated through [Ecto](/glossary/ecto/) and the platform's storage adapter layer:
+The Prismatic Platform uses TimescaleDB for all time-series data workloads, integrated through [Ecto](@/glossary/ecto.md) and the platform's storage adapter layer:
 
-- **Security Rating History**: The [Perimeter](/glossary/easm/) module stores historical security ratings (A-F grades with numeric 300-900 scores) as time-series data. Each domain's rating is tracked over time, enabling trend analysis ("has example.com's score improved this quarter?") and regression detection ("alert when a score drops more than 50 points").
+- **Security Rating History**: The [Perimeter](@/glossary/easm.md) module stores historical security ratings (A-F grades with numeric 300-900 scores) as time-series data. Each domain's rating is tracked over time, enabling trend analysis ("has example.com's score improved this quarter?") and regression detection ("alert when a score drops more than 50 points").
 - **Compliance Assessment Snapshots**: NIS2 and ZKB compliance assessment results are stored as time-series records, providing an audit trail for regulatory reporting and enabling compliance trend visualization.
-- **Quality [Metric](/glossary/metrics/) Trends**: Platform quality metrics (13 quality domains, QDP scores, test coverage) are stored in TimescaleDB for long-term trend analysis. Continuous aggregates power the quality dashboard's hourly, daily, and weekly trend views.
+- **Quality [Metric](@/glossary/metrics.md) Trends**: Platform quality metrics (13 quality domains, QDP scores, test coverage) are stored in TimescaleDB for long-term trend analysis. Continuous aggregates power the quality dashboard's hourly, daily, and weekly trend views.
 - **Telemetry Event Streams**: High-volume telemetry events (agent execution metrics, storage adapter latencies, API response times) are stored in hypertables with automatic compression for historical data.
 - **Asset Discovery Timelines**: Attack surface changes over time -- new domains discovered, certificates expiring, services appearing or disappearing -- are tracked as time-series events for change detection and alerting.
-- **[Observability](/glossary/observability/) Infrastructure**: TimescaleDB serves as the storage backend for the platform's metrics pillar, complementing [structured logging](/glossary/structured-logging/) (text-based) and [distributed tracing](/glossary/distributed-tracing/) (span-based) with efficient numeric time-series storage.
+- **[Observability](@/glossary/observability.md) Infrastructure**: TimescaleDB serves as the storage backend for the platform's metrics pillar, complementing [structured logging](@/glossary/structured-logging.md) (text-based) and [distributed tracing](@/glossary/distributed-tracing.md) (span-based) with efficient numeric time-series storage.
 
 ## Ecto Integration
 
@@ -328,22 +328,22 @@ end
 
 ## Related Terms
 
-- [PostgreSQL](/glossary/postgresql/) - Foundation database that TimescaleDB extends
-- [Metrics](/glossary/metrics/) - Numeric measurements stored in TimescaleDB time series
-- [Observability](/glossary/observability/) - TimescaleDB as metrics storage backend
-- [EASM](/glossary/easm/) - Security data with time-series storage requirements
-- [Ecto](/glossary/ecto/) - Elixir database library for TimescaleDB integration
-- [Structured Logging](/glossary/structured-logging/) - Complementary text-based event storage
-- [Distributed Tracing](/glossary/distributed-tracing/) - Complementary span-based request tracking
-- [QDP](/glossary/qdp/) - Quality metrics tracked as time series for trend analysis
-- [Autoheal](/glossary/autoheal/) - Healing operations informed by metric trends
-- [Broadway](/glossary/broadway/) - Data pipeline producing time-series events for storage
+- [PostgreSQL](@/glossary/postgresql.md) - Foundation database that TimescaleDB extends
+- [Metrics](@/glossary/metrics.md) - Numeric measurements stored in TimescaleDB time series
+- [Observability](@/glossary/observability.md) - TimescaleDB as metrics storage backend
+- [EASM](@/glossary/easm.md) - Security data with time-series storage requirements
+- [Ecto](@/glossary/ecto.md) - Elixir database library for TimescaleDB integration
+- [Structured Logging](@/glossary/structured-logging.md) - Complementary text-based event storage
+- [Distributed Tracing](@/glossary/distributed-tracing.md) - Complementary span-based request tracking
+- [QDP](@/glossary/qdp.md) - Quality metrics tracked as time series for trend analysis
+- [Autoheal](@/glossary/autoheal.md) - Healing operations informed by metric trends
+- [Broadway](@/glossary/broadway.md) - Data pipeline producing time-series events for storage
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform data storage architecture
-- [Technologies](/technologies/) - Database technology stack
-- [Capabilities](/capabilities/) - Time-series analysis and trend detection capabilities
+- [Architecture](@/architecture/_index.md) - Platform data storage architecture
+- [Technologies](@/technologies/_index.md) - Database technology stack
+- [Capabilities](@/capabilities/_index.md) - Time-series analysis and trend detection capabilities
 
 ---
 
@@ -352,4 +352,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

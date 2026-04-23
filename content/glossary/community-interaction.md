@@ -38,7 +38,7 @@ image_alt = "Community Interaction - Prismatic Platform"
 
 Community interaction encompasses the full spectrum of structured and organic communication patterns, protocols, and channels through which members of an open source community exchange knowledge, coordinate work, resolve conflicts, make collective decisions, and build the social infrastructure that sustains collaborative development. It includes synchronous interactions (real-time chat, video calls, pair programming), asynchronous interactions (issue discussions, pull request reviews, mailing list threads, RFC comments), and automated interactions (CI/CD notifications, bot messages, quality gate feedback).
 
-Community interaction is the connective tissue of open source development. While [community contributions](/glossary/community-contributions/) represent the tangible outputs and [community engagement](/glossary/community-engagement/) measures participation intensity, interaction defines the quality and character of the collaboration itself. The same contributors and the same engagement level can produce vastly different outcomes depending on whether interactions are constructive or hostile, clear or ambiguous, inclusive or exclusionary.
+Community interaction is the connective tissue of open source development. While [community contributions](@/glossary/community-contributions.md) represent the tangible outputs and [community engagement](@/glossary/community-engagement.md) measures participation intensity, interaction defines the quality and character of the collaboration itself. The same contributors and the same engagement level can produce vastly different outcomes depending on whether interactions are constructive or hostile, clear or ambiguous, inclusive or exclusionary.
 
 ## Overview
 
@@ -474,23 +474,23 @@ A contributor pushes a change that triggers the quality gate. Instead of waiting
 
 Community interaction connects to several foundational concepts in the Prismatic Platform ecosystem:
 
-- [Community Contributions](/glossary/community-contributions/) -- The tangible outputs that community interactions coordinate, review, and refine. Interaction quality directly affects contribution quality.
-- [Community Engagement](/glossary/community-engagement/) -- The participation patterns sustained by positive interaction experiences. Hostile interactions drive disengagement; constructive interactions deepen engagement.
-- [Code Reviews](/glossary/code-reviews/) -- The most technically dense interaction type, where reviewers and authors collaborate to ensure contribution quality.
-- [Collaborative Development](/glossary/collaborative-development/) -- The broader practice that community interaction enables. Without effective interaction, collaboration degrades into parallel solo development.
-- [Community Building](/glossary/community-building/) -- The deliberate creation of the social infrastructure (norms, channels, moderation) that shapes interaction quality.
-- [Developer Community](/glossary/developer-community/) -- The group of individuals whose interaction patterns define the community's culture and productivity.
-- [Open Source](/glossary/open-source/) -- The development model that requires effective stranger interaction, since contributors may never meet in person.
-- [Community Ownership](/glossary/community-ownership/) -- The governance structure where decision-making interactions determine the platform's direction.
-- [Collective Progress](/glossary/collective-progress/) -- The compounding advancement that effective interaction enables by coordinating contributions into coherent system evolution.
-- [Community Impact](/glossary/community-impact/) -- The measurable outcomes that high-quality interactions produce over time.
+- [Community Contributions](@/glossary/community-contributions.md) -- The tangible outputs that community interactions coordinate, review, and refine. Interaction quality directly affects contribution quality.
+- [Community Engagement](@/glossary/community-engagement.md) -- The participation patterns sustained by positive interaction experiences. Hostile interactions drive disengagement; constructive interactions deepen engagement.
+- [Code Reviews](@/glossary/code-reviews.md) -- The most technically dense interaction type, where reviewers and authors collaborate to ensure contribution quality.
+- [Collaborative Development](@/glossary/collaborative-development.md) -- The broader practice that community interaction enables. Without effective interaction, collaboration degrades into parallel solo development.
+- [Community Building](@/glossary/community-building.md) -- The deliberate creation of the social infrastructure (norms, channels, moderation) that shapes interaction quality.
+- [Developer Community](@/glossary/developer-community.md) -- The group of individuals whose interaction patterns define the community's culture and productivity.
+- [Open Source](@/glossary/open-source.md) -- The development model that requires effective stranger interaction, since contributors may never meet in person.
+- [Community Ownership](@/glossary/community-ownership.md) -- The governance structure where decision-making interactions determine the platform's direction.
+- [Collective Progress](@/glossary/collective-progress.md) -- The compounding advancement that effective interaction enables by coordinating contributions into coherent system evolution.
+- [Community Impact](@/glossary/community-impact.md) -- The measurable outcomes that high-quality interactions produce over time.
 
 ## See Also
 
-- [Mentorship](/glossary/mentorship/) -- The person-to-person interaction pattern that accelerates skill development and deepens community engagement.
-- [Office Hours](/glossary/office-hours/) -- A structured synchronous interaction format that provides regular access to maintainers.
-- [Conference Speaking](/glossary/conference-speaking/) -- A one-to-many interaction format that disseminates knowledge and builds community awareness.
-- [Documentation](/glossary/documentation/) -- The persistent, asynchronous interaction medium that scales community knowledge transfer beyond direct person-to-person exchange.
+- [Mentorship](@/glossary/mentorship.md) -- The person-to-person interaction pattern that accelerates skill development and deepens community engagement.
+- [Office Hours](@/glossary/office-hours.md) -- A structured synchronous interaction format that provides regular access to maintainers.
+- [Conference Speaking](@/glossary/conference-speaking.md) -- A one-to-many interaction format that disseminates knowledge and builds community awareness.
+- [Documentation](@/glossary/documentation.md) -- The persistent, asynchronous interaction medium that scales community knowledge transfer beyond direct person-to-person exchange.
 
 ---
 
@@ -499,4 +499,4 @@ Community interaction connects to several foundational concepts in the Prismatic
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

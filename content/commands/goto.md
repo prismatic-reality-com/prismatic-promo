@@ -26,7 +26,7 @@ image_alt = "/goto - Prismatic Platform"
 
 **/goto** is a production command in the **Stack Mode** category of the Prismatic Platform that restores the conversation state to a previously saved named checkpoint. The command is a critical component of the platform's stack-based conversation management system, enabling precise state navigation by allowing users to jump to any previously checkpointed frame in the conversation stack, effectively rewinding or branching the conversation to a known good state.
 
-This command operates under the **State Control** authority level and is executed by the `stack-conversation-manager` agent. The State Control authority is a specialized permission tier that grants the ability to modify conversation state -- a capability that requires careful handling since state transitions affect the entire active context of the conversation. Unlike read-only commands that inspect state, `/goto` actively modifies the conversation stack by truncating frames above the target checkpoint and restoring the context that was active when the checkpoint was created. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **State Control** authority level and is executed by the `stack-conversation-manager` agent. The State Control authority is a specialized permission tier that grants the ability to modify conversation state -- a capability that requires careful handling since state transitions affect the entire active context of the conversation. Unlike read-only commands that inspect state, `/goto` actively modifies the conversation stack by truncating frames above the target checkpoint and restoring the context that was active when the checkpoint was created. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 The stack-based conversation model treats each conversation exchange as an immutable frame pushed onto a stack data structure. Frames capture the user input, assistant response, key assumptions, key decisions, and any state changes that occurred during that exchange. Checkpoints are named markers attached to specific frames, serving as bookmarks that enable rapid navigation to significant conversation states. The `/goto` command uses these checkpoints as navigation targets, providing a mechanism analogous to `git checkout` for conversation state.
 
@@ -134,7 +134,7 @@ The architecture is centered around the `StackConversation` GenServer (`apps/pri
 
 6. **Context Restoration**: Recalculate the active conversation context from the remaining stack frames. Update the session's working assumptions, active decisions, and state dependencies based on the restored stack.
 
-7. **Audit Logging**: Log the state transition with the transition reason, affected frames, and resulting stack state. Emit [telemetry](/glossary/telemetry/) events for conversation state tracking.
+7. **Audit Logging**: Log the state transition with the transition reason, affected frames, and resulting stack state. Emit [telemetry](@/glossary/telemetry.md) events for conversation state tracking.
 
 8. **Confirmation**: Display the restored checkpoint information, new stack depth, and any context changes to the user.
 
@@ -142,16 +142,16 @@ The architecture is centered around the `StackConversation` GenServer (`apps/pri
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by `stack-conversation-manager` agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by `stack-conversation-manager` agent |
 | StackConversation GenServer | State Management | Atomic state transitions via OTP GenServer calls |
 | ETS Tables | Checkpoint Storage | O(1) checkpoint name lookup and frame data |
 | Disk Persistence | Durability | Checkpoint data persisted to `.claude/stack-conversation/` |
-| [Telemetry](/glossary/telemetry/) | Event Tracking | State transition events: `[:prismatic_claude, :stack_conversation, :goto]` |
-| [/checkpoint](/commands/checkpoint/) | Checkpoint Creation | Creates the named checkpoints that `/goto` navigates to |
-| [/stack](/commands/stack/) | Stack Inspection | Displays the full stack for context before navigation |
-| [/frame](/commands/frame/) | Frame Inspection | Examines specific frames before deciding to navigate |
-| [/pop](/commands/pop/) | Frame Removal | Alternative destructive operation for removing frames |
-| [/fork](/commands/fork/) | Branch Creation | Creates new branches from specific frames |
+| [Telemetry](@/glossary/telemetry.md) | Event Tracking | State transition events: `[:prismatic_claude, :stack_conversation, :goto]` |
+| [/checkpoint](@/commands/checkpoint.md) | Checkpoint Creation | Creates the named checkpoints that `/goto` navigates to |
+| [/stack](@/commands/stack.md) | Stack Inspection | Displays the full stack for context before navigation |
+| [/frame](@/commands/frame.md) | Frame Inspection | Examines specific frames before deciding to navigate |
+| [/pop](@/commands/pop.md) | Frame Removal | Alternative destructive operation for removing frames |
+| [/fork](@/commands/fork.md) | Branch Creation | Creates new branches from specific frames |
 
 ## Best Practices
 
@@ -217,7 +217,7 @@ The `/goto` command's functionality is available programmatically through the St
 
 ## Doctrine Compliance
 
-All state navigation operations enforce the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine.
+All state navigation operations enforce the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine.
 
 - **NO MERCY**: State transitions are atomic -- they either complete fully or not at all. There is no partial state restoration. The command enforces frame immutability: restored frames are identical to their state when originally created.
 - **NO DOUBTS**: Every goto operation produces a clear audit trail including the source state, target state, affected frames, and transition reason. The `--preview` option enables full investigation before action. No state modification occurs without explicit user intent.
@@ -226,13 +226,13 @@ The command enforces the Stack-Based Conversation Mode Protocol's behavioral rul
 
 ## Related Commands
 
-- [/stack](/commands/stack/) - Display complete conversation stack with all frames
-- [/frame](/commands/frame/) - Inspect specific conversation frame by ID
-- [/pop](/commands/pop/) - Remove last N frames from conversation stack (DESTRUCTIVE)
-- [/fork](/commands/fork/) - Branch from frame N (DESTRUCTIVE)
-- [/checkpoint](/commands/checkpoint/) - Mark current frame with a named checkpoint
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/stack](@/commands/stack.md) - Display complete conversation stack with all frames
+- [/frame](@/commands/frame.md) - Inspect specific conversation frame by ID
+- [/pop](@/commands/pop.md) - Remove last N frames from conversation stack (DESTRUCTIVE)
+- [/fork](@/commands/fork.md) - Branch from frame N (DESTRUCTIVE)
+- [/checkpoint](@/commands/checkpoint.md) - Mark current frame with a named checkpoint
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -241,4 +241,4 @@ The command enforces the Stack-Based Conversation Mode Protocol's behavioral rul
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

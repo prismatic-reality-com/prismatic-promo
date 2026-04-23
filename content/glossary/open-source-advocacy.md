@@ -455,24 +455,24 @@ Large companies release open-source projects that serve their strategic interest
 
 Open source advocacy connects to foundational principles and practices across the Prismatic Platform:
 
-- [Open Source](/glossary/open-source/) -- the fundamental concept of source code availability and collaborative development
-- [GHL License](/glossary/ghl-license/) -- the Prismatic Platform's custom open-source license
-- [Community Building](/glossary/community-building/) -- creating the social infrastructure that sustains open-source projects
-- [Community Ownership](/glossary/community-ownership/) -- governance models that give communities genuine authority over project direction
-- [Share Openly](/glossary/share-openly/) -- the principle of defaulting to openness in knowledge and code sharing
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- the connection between openness and community trust
-- [Community Over Corporation](/glossary/community-over-corporation/) -- prioritizing community interests over corporate interests
-- [Open Source Leadership](/glossary/open-source-leadership/) -- the practices and responsibilities of leading open-source projects
-- [Open Source Strategy](/glossary/open-source-strategy/) -- strategic approaches to open-source participation and publication
-- [Sustainable Funding Models](/glossary/sustainable-funding-models/) -- economic models that support ongoing open-source development
+- [Open Source](@/glossary/open-source.md) -- the fundamental concept of source code availability and collaborative development
+- [GHL License](@/glossary/ghl-license.md) -- the Prismatic Platform's custom open-source license
+- [Community Building](@/glossary/community-building.md) -- creating the social infrastructure that sustains open-source projects
+- [Community Ownership](@/glossary/community-ownership.md) -- governance models that give communities genuine authority over project direction
+- [Share Openly](@/glossary/share-openly.md) -- the principle of defaulting to openness in knowledge and code sharing
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- the connection between openness and community trust
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- prioritizing community interests over corporate interests
+- [Open Source Leadership](@/glossary/open-source-leadership.md) -- the practices and responsibilities of leading open-source projects
+- [Open Source Strategy](@/glossary/open-source-strategy.md) -- strategic approaches to open-source participation and publication
+- [Sustainable Funding Models](@/glossary/sustainable-funding-models.md) -- economic models that support ongoing open-source development
 
 ## See Also
 
-- [Developer Portal](/glossary/developer-portal/) -- the public-facing hub for contributors and users
-- [Open Source Superiority](/glossary/open-source-superiority/) -- the thesis that open-source development produces superior software
-- [Collaborative Intelligence](/glossary/collaborative-intelligence/) -- harnessing collective knowledge through open collaboration
-- [Office Hours](/glossary/office-hours/) -- structured community engagement sessions that embody advocacy principles
-- [Ecosystem Expansion](/glossary/ecosystem-expansion/) -- growing the platform's open-source package ecosystem
+- [Developer Portal](@/glossary/developer-portal.md) -- the public-facing hub for contributors and users
+- [Open Source Superiority](@/glossary/open-source-superiority.md) -- the thesis that open-source development produces superior software
+- [Collaborative Intelligence](@/glossary/collaborative-intelligence.md) -- harnessing collective knowledge through open collaboration
+- [Office Hours](@/glossary/office-hours.md) -- structured community engagement sessions that embody advocacy principles
+- [Ecosystem Expansion](@/glossary/ecosystem-expansion.md) -- growing the platform's open-source package ecosystem
 
 ---
 

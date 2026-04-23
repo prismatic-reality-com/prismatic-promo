@@ -28,9 +28,9 @@ image_alt = "llm-cost-manager - Prismatic Platform"
 
 ## Overview
 
-The llm-cost-manager is an L4 domain authority agent operating within the [AIAD](/glossary/aiad/)-enhanced domain of the Prismatic Platform. This agent manages the financial aspects of LLM operations, tracking real-time spending across all LLM interactions, enforcing budget limits at team and project levels, optimizing cost allocation across model tiers, and providing cost-benefit analysis for LLM usage patterns. In a platform with hundreds of autonomous agents making LLM calls, cost management is essential to prevent runaway spending while ensuring that high-value operations receive the model quality they require.
+The llm-cost-manager is an L4 domain authority agent operating within the [AIAD](@/glossary/aiad.md)-enhanced domain of the Prismatic Platform. This agent manages the financial aspects of LLM operations, tracking real-time spending across all LLM interactions, enforcing budget limits at team and project levels, optimizing cost allocation across model tiers, and providing cost-benefit analysis for LLM usage patterns. In a platform with hundreds of autonomous agents making LLM calls, cost management is essential to prevent runaway spending while ensuring that high-value operations receive the model quality they require.
 
-Built on the [AIAD](/glossary/aiad/) standard, the llm-cost-manager addresses the economic reality that LLM API calls carry direct financial costs that scale with usage volume and model selection. Without active cost management, autonomous agent operations can generate unexpectedly high API bills through prompt inflation (gradually increasing context sizes), unnecessary model escalation (using expensive models for simple tasks), retry storms (repeated failed requests that consume tokens without producing value), and abandoned conversations (multi-turn interactions that are initiated but not completed). The cost manager prevents these cost inflation patterns through monitoring, alerting, and automated intervention.
+Built on the [AIAD](@/glossary/aiad.md) standard, the llm-cost-manager addresses the economic reality that LLM API calls carry direct financial costs that scale with usage volume and model selection. Without active cost management, autonomous agent operations can generate unexpectedly high API bills through prompt inflation (gradually increasing context sizes), unnecessary model escalation (using expensive models for simple tasks), retry storms (repeated failed requests that consume tokens without producing value), and abandoned conversations (multi-turn interactions that are initiated but not completed). The cost manager prevents these cost inflation patterns through monitoring, alerting, and automated intervention.
 
 ## Cost Management Architecture
 
@@ -53,8 +53,8 @@ The reporting system produces cost visibility at all organizational levels. Real
 - **Retry cost monitoring** -- Tracks the cost of failed and retried requests, identifying retry patterns that consume budget without producing value
 - **Cost anomaly detection** -- Identifies unusual spending patterns that may indicate misconfigured agents, prompt injection attacks, or unintended recursive LLM calls
 - **Spend forecasting** -- Projects future LLM spending based on current usage trends and planned operations, enabling proactive budget adjustments
-- **[GenServer](/glossary/genserver/)-based state management** -- Maintains cost ledgers and budget state as [OTP](/glossary/otp/) GenServer state with persistence
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for cost event ingestion and dashboard publication
+- **[GenServer](@/glossary/genserver.md)-based state management** -- Maintains cost ledgers and budget state as [OTP](@/glossary/otp.md) GenServer state with persistence
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for cost event ingestion and dashboard publication
 
 ## Budget Enforcement Policies
 
@@ -68,7 +68,7 @@ The cost manager implements several optimization strategies that collectively re
 
 **Model right-sizing** ensures that each LLM task uses the least expensive model that meets its quality requirements. Simple tasks (formatting, extraction, classification) can often be handled by smaller, less expensive models. Complex tasks (reasoning, code generation, analysis) may require more capable and expensive models. The cost manager tracks task-model-quality relationships and recommends optimal model assignments.
 
-**Context compression** reduces token consumption by applying the [llm-context-optimizer](/agents/llm-context-optimizer/)'s compression capabilities with cost-weighted prioritization. When cost pressure is high, the cost manager requests more aggressive context compression.
+**Context compression** reduces token consumption by applying the [llm-context-optimizer](@/agents/llm-context-optimizer.md)'s compression capabilities with cost-weighted prioritization. When cost pressure is high, the cost manager requests more aggressive context compression.
 
 **Response caching** identifies LLM requests that are likely to produce responses similar to recent cached responses, serving cached results instead of making new API calls. Caching is applied only to deterministic queries where response freshness is not critical.
 
@@ -82,12 +82,12 @@ The cost manager implements several optimization strategies that collectively re
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
 | LLM Client Library | Cost event source through response metadata extraction |
-| [GenServer](/glossary/genserver/) | OTP-based cost ledger and budget state management |
-| Prismatic Telemetry | Cost event ingestion and dashboard [metrics](/glossary/metrics/) publication |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of cost optimization strategies |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery |
+| [GenServer](@/glossary/genserver.md) | OTP-based cost ledger and budget state management |
+| Prismatic Telemetry | Cost event ingestion and dashboard [metrics](@/glossary/metrics.md) publication |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of cost optimization strategies |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
 
 ## Command Interface
 
@@ -103,14 +103,14 @@ The cost manager implements several optimization strategies that collectively re
 
 | Agent | Relationship |
 |-------|-------------|
-| [**llm-model-selector**](/agents/llm-model-selector/) (L4) | Cost constraints inform model selection decisions |
-| [**llm-context-optimizer**](/agents/llm-context-optimizer/) (L4) | Cost pressure triggers more aggressive context compression |
-| [**llm-performance-optimizer**](/agents/llm-performance-optimizer/) (L3) | Performance-cost trade-offs inform optimization decisions |
-| [**llm-fallback-coordinator**](/agents/llm-fallback-coordinator/) (L3) | Fallback decisions consider cost implications of alternative models |
+| [**llm-model-selector**](@/agents/llm-model-selector.md) (L4) | Cost constraints inform model selection decisions |
+| [**llm-context-optimizer**](@/agents/llm-context-optimizer.md) (L4) | Cost pressure triggers more aggressive context compression |
+| [**llm-performance-optimizer**](@/agents/llm-performance-optimizer.md) (L3) | Performance-cost trade-offs inform optimization decisions |
+| [**llm-fallback-coordinator**](@/agents/llm-fallback-coordinator.md) (L3) | Fallback decisions consider cost implications of alternative models |
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that budget limits are enforced without exception. No agent bypasses budget controls regardless of its authority level. The [NO DOUBTS](/glossary/no-doubts/) principle requires that cost reporting is accurate and auditable, with every cost event traceable to its originating LLM request and the agent that initiated it.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that budget limits are enforced without exception. No agent bypasses budget controls regardless of its authority level. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that cost reporting is accurate and auditable, with every cost event traceable to its originating LLM request and the agent that initiated it.
 
 ---
 
@@ -119,4 +119,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that budget limits are enf
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

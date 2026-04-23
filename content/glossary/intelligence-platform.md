@@ -215,7 +215,7 @@ end
 
 ### Entity Resolution and Graph Model
 
-The correlation layer uses [entity resolution](/glossary/entity-resolution/) to unify records from different sources into a coherent entity graph:
+The correlation layer uses [entity resolution](@/glossary/entity-resolution.md) to unify records from different sources into a coherent entity graph:
 
 ```elixir
 defmodule PrismaticIntelligence.EntityGraph do
@@ -415,10 +415,10 @@ The intelligence platform runs as a supervision tree where each major subsystem 
 
 The platform integrates intelligence capabilities with:
 
-- **[Hawkeye](/glossary/hawkeye/)**: Visitor intelligence using OSINT analysis for website visitor profiling
-- **[Prismatic Perimeter](/glossary/prismatic-perimeter/)**: External attack surface management with security ratings (A-F grades)
-- **[EASM](/glossary/easm/)**: Continuous external attack surface discovery and monitoring
-- **[Due Diligence](/glossary/due-diligence/)**: Automated investigative workflows for KYC/AML compliance
+- **[Hawkeye](@/glossary/hawkeye.md)**: Visitor intelligence using OSINT analysis for website visitor profiling
+- **[Prismatic Perimeter](@/glossary/prismatic-perimeter.md)**: External attack surface management with security ratings (A-F grades)
+- **[EASM](@/glossary/easm.md)**: Continuous external attack surface discovery and monitoring
+- **[Due Diligence](@/glossary/due-diligence.md)**: Automated investigative workflows for KYC/AML compliance
 
 ## Comparison with Alternatives
 
@@ -432,7 +432,7 @@ The platform integrates intelligence capabilities with:
 | **MISP** | PHP/Python | Community feeds | Free/OSS | Indicator sharing, community standard |
 | **OpenCTI** | Node.js/Python | STIX/TAXII feeds | Free/OSS | STIX2 native, knowledge graph |
 
-Prismatic's unique position: an Elixir/OTP intelligence platform combining OSINT collection, [entity resolution](/glossary/entity-resolution/), compliance automation, and attack surface management in a single umbrella application with 530+ autonomous agents.
+Prismatic's unique position: an Elixir/OTP intelligence platform combining OSINT collection, [entity resolution](@/glossary/entity-resolution.md), compliance automation, and attack surface management in a single umbrella application with 530+ autonomous agents.
 
 ## Best Practices
 
@@ -464,11 +464,11 @@ An intelligence platform serves as the central nervous system for enterprise sec
 
 ### Regulatory Compliance
 
-Financial institutions use intelligence platforms to automate [KYC](/glossary/kyc/)/[AML](/glossary/aml/) compliance, screening entities against sanctions lists, assessing beneficial ownership structures, and monitoring for changes in risk profiles. The Prismatic Platform's Czech registry integration (28 adapters) enables comprehensive compliance for entities operating in the Czech Republic.
+Financial institutions use intelligence platforms to automate [KYC](@/glossary/kyc.md)/[AML](@/glossary/aml.md) compliance, screening entities against sanctions lists, assessing beneficial ownership structures, and monitoring for changes in risk profiles. The Prismatic Platform's Czech registry integration (28 adapters) enables comprehensive compliance for entities operating in the Czech Republic.
 
 ### Attack Surface Management
 
-Through [Prismatic Perimeter](/glossary/prismatic-perimeter/), the intelligence platform continuously discovers and monitors the organization's external attack surface, producing security ratings and NIS2/ZKB compliance assessments.
+Through [Prismatic Perimeter](@/glossary/prismatic-perimeter.md), the intelligence platform continuously discovers and monitors the organization's external attack surface, producing security ratings and NIS2/ZKB compliance assessments.
 
 ### Competitive Intelligence
 
@@ -476,25 +476,25 @@ Organizations use intelligence platforms to monitor competitors' digital footpri
 
 ## Related Concepts
 
-- [OSINT](/glossary/osint/) -- Open Source Intelligence collection discipline that provides the primary data source
-- [Intelligence Analysis](/glossary/intelligence-analysis/) -- The analytic processing layer within the platform
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Multi-source data integration methodology
-- [EASM](/glossary/easm/) -- External Attack Surface Management as a platform capability
-- [Entity Resolution](/glossary/entity-resolution/) -- Identity consolidation across sources within the entity graph
-- [Hawkeye](/glossary/hawkeye/) -- Visitor intelligence system built on the platform
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- Security rating system leveraging the platform
-- [Risk Score](/glossary/risk-score/) -- Quantified risk output from platform analysis
-- [Cyber Threat Intelligence](/glossary/cyber-threat-intelligence/) -- Specialized threat-focused intelligence discipline
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Graph-based knowledge representation underlying the entity model
+- [OSINT](@/glossary/osint.md) -- Open Source Intelligence collection discipline that provides the primary data source
+- [Intelligence Analysis](@/glossary/intelligence-analysis.md) -- The analytic processing layer within the platform
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Multi-source data integration methodology
+- [EASM](@/glossary/easm.md) -- External Attack Surface Management as a platform capability
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Identity consolidation across sources within the entity graph
+- [Hawkeye](@/glossary/hawkeye.md) -- Visitor intelligence system built on the platform
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- Security rating system leveraging the platform
+- [Risk Score](@/glossary/risk-score.md) -- Quantified risk output from platform analysis
+- [Cyber Threat Intelligence](@/glossary/cyber-threat-intelligence.md) -- Specialized threat-focused intelligence discipline
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Graph-based knowledge representation underlying the entity model
 
 ## See Also
 
-- [OSINT](/glossary/osint/) -- Core collection discipline
-- [Intelligence Analysis](/glossary/intelligence-analysis/) -- Analytic processing methodology
-- [Due Diligence](/glossary/due-diligence/) -- Investigative use case
-- [Sanctions Screening](/glossary/sanctions-screening/) -- Compliance use case
-- [Attack Surface](/glossary/attack-surface/) -- Security monitoring use case
-- [AIAD](/glossary/aiad/) -- Agent framework powering 530+ platform agents
+- [OSINT](@/glossary/osint.md) -- Core collection discipline
+- [Intelligence Analysis](@/glossary/intelligence-analysis.md) -- Analytic processing methodology
+- [Due Diligence](@/glossary/due-diligence.md) -- Investigative use case
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- Compliance use case
+- [Attack Surface](@/glossary/attack-surface.md) -- Security monitoring use case
+- [AIAD](@/glossary/aiad.md) -- Agent framework powering 530+ platform agents
 
 ---
 
@@ -503,4 +503,4 @@ Organizations use intelligence platforms to monitor competitors' digital footpri
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

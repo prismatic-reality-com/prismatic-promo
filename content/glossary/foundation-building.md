@@ -345,24 +345,24 @@ Releasing a platform as open source requires a clean, well-documented foundation
 
 Foundation building connects to many architectural and engineering concepts in the Prismatic Platform:
 
-- [Architecture](/glossary/architecture/) provides the broader context of system design decisions that foundation building establishes
-- [Supervision Tree](/glossary/supervision-tree/) is the OTP foundation for process management and fault tolerance
-- [OTP](/glossary/otp/) provides the foundational abstractions (GenServer, Supervisor, Application) that Elixir foundations are built upon
-- [Quality Gates](/glossary/quality-gates/) are the verification foundation ensuring code quality does not degrade
-- [Technical Debt](/glossary/technical-debt/) is the consequence of inadequate foundation building
-- [Scalability](/glossary/scalability/) is enabled by well-built foundations that can grow without structural changes
-- [Modularity](/glossary/modularity/) is a key property of well-built foundations
-- [Composability](/glossary/composability/) enables foundation components to be combined in flexible ways
-- [Layered Architecture](/glossary/layered-architecture/) is the structural pattern most commonly used in foundation building
-- [System Design Principle](/glossary/system-design-principle/) provides the guiding principles for foundation decisions
+- [Architecture](@/glossary/architecture.md) provides the broader context of system design decisions that foundation building establishes
+- [Supervision Tree](@/glossary/supervision-tree.md) is the OTP foundation for process management and fault tolerance
+- [OTP](@/glossary/otp.md) provides the foundational abstractions (GenServer, Supervisor, Application) that Elixir foundations are built upon
+- [Quality Gates](@/glossary/quality-gates.md) are the verification foundation ensuring code quality does not degrade
+- [Technical Debt](@/glossary/technical-debt.md) is the consequence of inadequate foundation building
+- [Scalability](@/glossary/scalability.md) is enabled by well-built foundations that can grow without structural changes
+- [Modularity](@/glossary/modularity.md) is a key property of well-built foundations
+- [Composability](@/glossary/composability.md) enables foundation components to be combined in flexible ways
+- [Layered Architecture](@/glossary/layered-architecture.md) is the structural pattern most commonly used in foundation building
+- [System Design Principle](@/glossary/system-design-principle.md) provides the guiding principles for foundation decisions
 
 ## See Also
 
-- [Umbrella Application](/glossary/umbrella-application/) for the Elixir project structure that the Prismatic Platform's foundation uses
-- [Adapter Pattern](/glossary/adapter-pattern/) for the foundational pattern enabling pluggable implementations
-- [Behaviour](/glossary/behaviour/) for the Elixir mechanism used to define foundational contracts
-- [Continuous Integration](/glossary/continuous-integration/) for the operational foundation of automated quality verification
-- [Domain-Driven Design](/glossary/domain-driven-design/) for the design methodology that guides domain-level foundation decisions
+- [Umbrella Application](@/glossary/umbrella-application.md) for the Elixir project structure that the Prismatic Platform's foundation uses
+- [Adapter Pattern](@/glossary/adapter-pattern.md) for the foundational pattern enabling pluggable implementations
+- [Behaviour](@/glossary/behaviour.md) for the Elixir mechanism used to define foundational contracts
+- [Continuous Integration](@/glossary/continuous-integration.md) for the operational foundation of automated quality verification
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) for the design methodology that guides domain-level foundation decisions
 
 ---
 

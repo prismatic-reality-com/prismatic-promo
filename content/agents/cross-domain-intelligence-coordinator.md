@@ -28,15 +28,15 @@ image_alt = "cross-domain-intelligence-coordinator - Prismatic Platform"
 
 ## Overview
 
-The Cross-Domain Intelligence Coordinator operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Advanced Intelligence Coordination domain of the Prismatic Platform. This agent synthesizes intelligence signals from multiple operational domains -- [OSINT](/glossary/osint/), compliance, financial, legal, and technical -- into unified intelligence products that provide decision-makers with cross-correlated, evidence-grade assessments.
+The Cross-Domain Intelligence Coordinator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Advanced Intelligence Coordination domain of the Prismatic Platform. This agent synthesizes intelligence signals from multiple operational domains -- [OSINT](@/glossary/osint.md), compliance, financial, legal, and technical -- into unified intelligence products that provide decision-makers with cross-correlated, evidence-grade assessments.
 
-Intelligence gathered in isolation often misses critical connections. A financial anomaly might correlate with a legal filing, which in turn connects to an OSINT signal from public records. The Cross-Domain Intelligence Coordinator specializes in discovering these cross-domain correlations by maintaining a unified entity graph backed by [KuzuDB](/glossary/kuzudb/) and [PostgreSQL](/glossary/postgresql/). By applying the NABLA [Signal Plurality](/glossary/signal-plurality/) axiom, the coordinator ensures that intelligence assessments draw from multiple independent sources before reaching [confidence threshold](/glossary/confidence-threshold/)s.
+Intelligence gathered in isolation often misses critical connections. A financial anomaly might correlate with a legal filing, which in turn connects to an OSINT signal from public records. The Cross-Domain Intelligence Coordinator specializes in discovering these cross-domain correlations by maintaining a unified entity graph backed by [KuzuDB](@/glossary/kuzudb.md) and [PostgreSQL](@/glossary/postgresql.md). By applying the NABLA [Signal Plurality](@/glossary/signal-plurality.md) axiom, the coordinator ensures that intelligence assessments draw from multiple independent sources before reaching [confidence threshold](@/glossary/confidence-threshold.md)s.
 
 The coordinator serves as the intelligence layer that sits above individual domain specialists, providing the synthesis capability that transforms domain-specific signals into actionable multi-dimensional intelligence. Without this synthesis layer, intelligence consumers would receive fragmented assessments from individual domains without the cross-domain correlation that often reveals the most significant insights.
 
 ## Operational Domain
 
-The Advanced Intelligence Coordination domain sits above individual intelligence specializations, providing the synthesis layer that transforms domain-specific signals into actionable multi-dimensional intelligence. The coordinator manages [intelligence fusion](/glossary/intelligence-fusion/) pipelines, [entity resolution](/glossary/entity-resolution/) across data sources, and [confidence scoring](/glossary/confidence-scoring/) models that weight evidence by source independence and temporal freshness.
+The Advanced Intelligence Coordination domain sits above individual intelligence specializations, providing the synthesis layer that transforms domain-specific signals into actionable multi-dimensional intelligence. The coordinator manages [intelligence fusion](@/glossary/intelligence-fusion.md) pipelines, [entity resolution](@/glossary/entity-resolution.md) across data sources, and [confidence scoring](@/glossary/confidence-scoring.md) models that weight evidence by source independence and temporal freshness.
 
 Intelligence coordination requires understanding not just the data from each domain but also the limitations, biases, and coverage gaps inherent in each domain's collection methods. OSINT data has broad coverage but variable quality. Financial records are highly structured but narrow in scope. Legal filings provide authoritative information but with significant time delays. The coordinator models these characteristics explicitly, adjusting the weight given to each domain's contributions based on the specific question being addressed.
 
@@ -94,15 +94,15 @@ Anomaly detection identifies entities and relationships that deviate significant
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [email-intelligence-specialist](/agents/email-intelligence-specialist/) | Signal Source | Provides email-derived intelligence signals for cross-domain correlation |
-| [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) | [Registry](/glossary/registry-otp/) Source | Feeds Czech business registry data into the intelligence fusion pipeline |
-| [intelligence-export-coordinator](/agents/intelligence-export-coordinator/) | Output [Channel](/glossary/channel/) | Manages export and distribution of synthesized intelligence products |
-| [cross-border-identity-specialist](/agents/cross-border-identity-specialist/) | Identity Resolution | Provides cross-jurisdictional identity matching for entity graph enrichment |
-| [delta-force-specialist](/agents/delta-force-specialist/) | Precision Operations | Executes targeted intelligence collection missions based on coordinator priorities |
+| [email-intelligence-specialist](@/agents/email-intelligence-specialist.md) | Signal Source | Provides email-derived intelligence signals for cross-domain correlation |
+| [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) | [Registry](@/glossary/registry-otp.md) Source | Feeds Czech business registry data into the intelligence fusion pipeline |
+| [intelligence-export-coordinator](@/agents/intelligence-export-coordinator.md) | Output [Channel](@/glossary/channel.md) | Manages export and distribution of synthesized intelligence products |
+| [cross-border-identity-specialist](@/agents/cross-border-identity-specialist.md) | Identity Resolution | Provides cross-jurisdictional identity matching for entity graph enrichment |
+| [delta-force-specialist](@/agents/delta-force-specialist.md) | Precision Operations | Executes targeted intelligence collection missions based on coordinator priorities |
 
 ## Enforcement
 
-All intelligence operations are governed by [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No intelligence assessment reaches consumers without meeting [Trinity Gate](/glossary/trinity-gate/) validation requirements: structural consistency of the evidence graph, logical consistency of inferences, and [formal verification](/glossary/formal-verification/) of critical claims. Single-source intelligence is flagged as preliminary and blocked from distribution as verified assessment. The NABLA Contradiction Preservation axiom prevents conflicting signals from being silently discarded. Intelligence products that fail confidence threshold requirements are returned to the fusion pipeline for additional evidence collection rather than released with inadequate support.
+All intelligence operations are governed by [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No intelligence assessment reaches consumers without meeting [Trinity Gate](@/glossary/trinity-gate.md) validation requirements: structural consistency of the evidence graph, logical consistency of inferences, and [formal verification](@/glossary/formal-verification.md) of critical claims. Single-source intelligence is flagged as preliminary and blocked from distribution as verified assessment. The NABLA Contradiction Preservation axiom prevents conflicting signals from being silently discarded. Intelligence products that fail confidence threshold requirements are returned to the fusion pipeline for additional evidence collection rather than released with inadequate support.
 
 ---
 
@@ -111,4 +111,4 @@ All intelligence operations are governed by [NO MERCY, NO DOUBTS](/glossary/no-m
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -32,7 +32,7 @@ image_alt = "Triple-Check Validation - Prismatic Platform"
 
 Triple-check validation is a cross-validation methodology that requires corroboration from at least three independent data sources before any investigative finding is marked as verified. The methodology addresses a fundamental challenge in intelligence analysis: single-source claims are inherently unreliable regardless of the source's individual reputation. By demanding convergent evidence from three or more independent origins, triple-check validation dramatically reduces the probability of accepting false positives while establishing a confidence level suitable for regulatory and legal scrutiny.
 
-The methodology goes beyond simple source counting. Three articles from the same news wire service citing the same press release count as one source, not three. Independence must be genuine -- different methodologies, different data collection mechanisms, different institutional contexts. The NABLA Infinity [Source Independence](/glossary/signal-plurality/) axiom provides the formal framework for assessing whether sources are truly independent, using independence grouping to track common origins and correlation patterns.
+The methodology goes beyond simple source counting. Three articles from the same news wire service citing the same press release count as one source, not three. Independence must be genuine -- different methodologies, different data collection mechanisms, different institutional contexts. The NABLA Infinity [Source Independence](@/glossary/signal-plurality.md) axiom provides the formal framework for assessing whether sources are truly independent, using independence grouping to track common origins and correlation patterns.
 
 The triple-check process operates at three distinct levels: **source-level validation** (individual source reliability assessment), **cross-source corroboration** (Bayesian confidence updating across independent sources), and **temporal consistency** (stability verification across time). These three levels create a layered validation architecture where each level catches different categories of false positives that the other levels might miss.
 
@@ -56,7 +56,7 @@ Source-level validation does not accept or reject evidence -- it assigns a relia
 
 ### Level 2: Cross-Source Corroboration
 
-Cross-source corroboration applies [Bayesian reasoning](/glossary/bayesian-reasoning/) to update confidence when multiple independent sources agree or disagree on the same claim. The corroboration model treats each independent source as an independent observation:
+Cross-source corroboration applies [Bayesian reasoning](@/glossary/bayesian-reasoning.md) to update confidence when multiple independent sources agree or disagree on the same claim. The corroboration model treats each independent source as an independent observation:
 
 **When three independent sources agree**:
 ```
@@ -73,9 +73,9 @@ P(true | 3 independent agreements) ≈ 0.994
 P(claim | S1_agrees, S2_agrees, S3_disagrees) = reduced
 ```
 
-Disagreement does not cancel agreement but reduces confidence. The [Contradiction Preservation](/glossary/contradiction-preservation/) axiom requires that the disagreeing source's evidence be preserved and annotated, not discarded.
+Disagreement does not cancel agreement but reduces confidence. The [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom requires that the disagreeing source's evidence be preserved and annotated, not discarded.
 
-The key insight of cross-source corroboration is that the independence of sources matters more than the number of sources. Two truly independent sources providing agreement are more valuable than ten correlated sources. The [Source Independence](/glossary/signal-plurality/) axiom's independence grouping mechanism tracks which sources share common data origins, preventing inflated confidence from correlated sources being counted as independent.
+The key insight of cross-source corroboration is that the independence of sources matters more than the number of sources. Two truly independent sources providing agreement are more valuable than ten correlated sources. The [Source Independence](@/glossary/signal-plurality.md) axiom's independence grouping mechanism tracks which sources share common data origins, preventing inflated confidence from correlated sources being counted as independent.
 
 ### Level 3: Temporal Consistency
 
@@ -85,7 +85,7 @@ Temporal consistency verifies whether findings remain stable across time, distin
 - **Low temporal consistency**: A company's beneficial ownership changed three times in the past year. This instability decreases confidence and triggers additional investigation.
 - **Temporal contradiction**: A source reported different information at different times. The most recent report may or may not be more accurate -- the contradiction is preserved per NABLA axioms.
 
-Temporal consistency also incorporates the [Time Decay](/glossary/nabla-infinity/) axiom. Evidence gathered 18 months ago carries less weight than evidence from last week. The decay rate is domain-specific: corporate registration data decays slowly (companies do not change their legal structure daily), while financial data decays faster (financial positions can change rapidly).
+Temporal consistency also incorporates the [Time Decay](@/glossary/nabla-infinity.md) axiom. Evidence gathered 18 months ago carries less weight than evidence from last week. The decay rate is domain-specific: corporate registration data decays slowly (companies do not change their legal structure daily), while financial data decays faster (financial positions can change rapidly).
 
 ## Mathematical Foundation
 
@@ -259,7 +259,7 @@ end
 
 ## Application in Due Diligence Investigations
 
-Triple-check validation is the core methodology driving the platform's [due diligence](/glossary/due-diligence/) investigations. When investigating a Czech company entity, the platform employs triple-check at every level of the investigation:
+Triple-check validation is the core methodology driving the platform's [due diligence](@/glossary/due-diligence.md) investigations. When investigating a Czech company entity, the platform employs triple-check at every level of the investigation:
 
 ### Entity Attribute Verification
 
@@ -292,7 +292,7 @@ Triple-check validation is designed to prevent specific failure modes that plagu
 
 **Problem**: Relying on a single authoritative source that happens to be wrong. Even government registries contain errors -- data entry mistakes, delayed updates, and systematic biases are well-documented.
 
-**Triple-check mitigation**: No finding is marked as verified based on a single source, regardless of how authoritative that source is. The NABLA [Signal Plurality](/glossary/signal-plurality/) axiom enforces minimum two signals; triple-check raises this to three.
+**Triple-check mitigation**: No finding is marked as verified based on a single source, regardless of how authoritative that source is. The NABLA [Signal Plurality](@/glossary/signal-plurality.md) axiom enforces minimum two signals; triple-check raises this to three.
 
 ### Failure Mode 2: Correlated Source Inflation
 
@@ -304,7 +304,7 @@ Triple-check validation is designed to prevent specific failure modes that plagu
 
 **Problem**: Investigators selectively querying sources that are likely to confirm their existing hypothesis while avoiding sources that might contradict it.
 
-**Triple-check mitigation**: The investigation pipeline queries all available sources for each attribute, not a selected subset. Source selection is determined by the adapter registry, not by the investigator's hypothesis. [Contradiction Preservation](/glossary/contradiction-preservation/) ensures that contradicting sources cannot be silently dropped.
+**Triple-check mitigation**: The investigation pipeline queries all available sources for each attribute, not a selected subset. Source selection is determined by the adapter registry, not by the investigator's hypothesis. [Contradiction Preservation](@/glossary/contradiction-preservation.md) ensures that contradicting sources cannot be silently dropped.
 
 ### Failure Mode 4: Temporal Inconsistency
 
@@ -329,16 +329,16 @@ Triple-check validation exceeds the validation standards used by most industry c
 | **Triple-check** | 3+ | Formal (independence groups) | Preserved per NABLA | Mandatory with decay |
 | **NABLA + Triple-check** | 3+ independent | NABLA Source Independence axiom | NABLA Contradiction Preservation | NABLA Time Decay |
 
-Most commercial due diligence platforms use dual-source verification at best, and many rely on single-source checks for non-critical attributes. The Prismatic Platform's triple-check standard, enforced through NABLA axioms and gated by [Trinity Gate](/glossary/trinity-gate/), provides a higher assurance level suitable for regulatory compliance, sanctions screening, and legal due diligence where false positives and false negatives both carry significant consequences.
+Most commercial due diligence platforms use dual-source verification at best, and many rely on single-source checks for non-critical attributes. The Prismatic Platform's triple-check standard, enforced through NABLA axioms and gated by [Trinity Gate](@/glossary/trinity-gate.md), provides a higher assurance level suitable for regulatory compliance, sanctions screening, and legal due diligence where false positives and false negatives both carry significant consequences.
 
 ## Triple-Check and Trinity Gate
 
-Triple-check validation feeds directly into the [Trinity Gate](/glossary/trinity-gate/) verification pipeline. The relationship is complementary:
+Triple-check validation feeds directly into the [Trinity Gate](@/glossary/trinity-gate.md) verification pipeline. The relationship is complementary:
 
 - **Triple-check** validates the evidence base: Are the individual findings supported by sufficient independent sources?
 - **Trinity Gate** validates the reasoning chain: Are the conclusions drawn from the evidence structurally sound, logically valid, and formally necessary?
 
-A finding that passes triple-check (three independent sources agree) but fails Trinity Gate (the conclusion drawn from those findings is logically unsound) is blocked. Conversely, a logically perfect conclusion based on single-source evidence fails triple-check and is rejected. Both validations must pass for a finding to achieve [Trinity Passage](/glossary/trinity-passage/).
+A finding that passes triple-check (three independent sources agree) but fails Trinity Gate (the conclusion drawn from those findings is logically unsound) is blocked. Conversely, a logically perfect conclusion based on single-source evidence fails triple-check and is rejected. Both validations must pass for a finding to achieve [Trinity Passage](@/glossary/trinity-passage.md).
 
 ## Performance and Scalability
 
@@ -356,25 +356,25 @@ The parallel querying architecture ensures that adding more sources does not lin
 
 ## Related Terms
 
-- [Due Diligence](/glossary/due-diligence/) -- Investigation framework using triple-check methodology
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework enforcing validation axioms
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification pipeline
-- [Trinity Passage](/glossary/trinity-passage/) -- Successful traversal of verification layers
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Calibrated confidence assignment
-- [Signal Plurality](/glossary/signal-plurality/) -- Minimum evidence requirement for beliefs
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Preserving contradictory evidence
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Traceability requirement for all evidence
-- [Entity Resolution](/glossary/entity-resolution/) -- Cross-source identity resolution leveraging triple-check
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- Principle prioritizing evidence over assertion
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- Statistical foundation for confidence updating
-- [Epistemic Validation](/glossary/epistemic-validation/) -- Broader validation framework
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) -- Quality through verified evidence
-- [Verification](/glossary/verification/) -- General verification concepts
+- [Due Diligence](@/glossary/due-diligence.md) -- Investigation framework using triple-check methodology
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework enforcing validation axioms
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification pipeline
+- [Trinity Passage](@/glossary/trinity-passage.md) -- Successful traversal of verification layers
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Calibrated confidence assignment
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Minimum evidence requirement for beliefs
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Preserving contradictory evidence
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Traceability requirement for all evidence
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Cross-source identity resolution leveraging triple-check
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- Principle prioritizing evidence over assertion
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- Statistical foundation for confidence updating
+- [Epistemic Validation](@/glossary/epistemic-validation.md) -- Broader validation framework
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) -- Quality through verified evidence
+- [Verification](@/glossary/verification.md) -- General verification concepts
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -384,4 +384,4 @@ The parallel querying architecture ensures that adding more sources does not lin
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

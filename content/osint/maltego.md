@@ -25,7 +25,7 @@ image_alt = "Maltego - Prismatic Platform"
 
 ## Overview
 
-Maltego is the premier visual link analysis tool used by law enforcement, intelligence agencies, and corporate investigators worldwide. It provides an interactive graph environment where entities (people, companies, domains, IPs, etc.) are connected through automated transforms that query hundreds of data sources. Maltego turns raw [OSINT](/glossary/osint/) data into actionable visual intelligence by revealing hidden relationships.
+Maltego is the premier visual link analysis tool used by law enforcement, intelligence agencies, and corporate investigators worldwide. It provides an interactive graph environment where entities (people, companies, domains, IPs, etc.) are connected through automated transforms that query hundreds of data sources. Maltego turns raw [OSINT](@/glossary/osint.md) data into actionable visual intelligence by revealing hidden relationships.
 
 Developed by Paterva in South Africa and now maintained by Maltego Technologies, the platform has become the industry standard for link analysis in digital investigations. Maltego's graph-based approach mirrors how intelligence analysts naturally think about relationships -- entities connected by edges that represent observed associations. This visual methodology enables pattern recognition that would be nearly impossible through text-based analysis of the same data.
 
@@ -221,11 +221,11 @@ Insurance, banking, and law enforcement investigators use Maltego to detect frau
 
 ## Integration with Prismatic Platform
 
-The [Prismatic Platform](/apps/prismatic/) integrates with Maltego through the Transform Distribution Server protocol, enabling bidirectional data flow between the platform's [knowledge graph](/glossary/knowledge-graph/) and Maltego investigation graphs.
+The [Prismatic Platform](@/apps/prismatic.md) integrates with Maltego through the Transform Distribution Server protocol, enabling bidirectional data flow between the platform's [knowledge graph](@/glossary/knowledge-graph.md) and Maltego investigation graphs.
 
 - **Custom Transforms**: Prismatic provides a suite of custom Maltego transforms that query the platform's aggregated intelligence data, including Czech business registries, threat intelligence feeds, and cross-source correlation results.
 - **Graph Synchronization**: Investigation graphs can be imported from Maltego into the Prismatic entity model and vice versa, enabling seamless transition between visual analysis and automated processing.
-- **[Entity Resolution](/glossary/entity-resolution/)**: Maltego entity types map to Prismatic's unified entity model, enabling entities discovered in Maltego to be resolved against the platform's existing knowledge base.
+- **[Entity Resolution](@/glossary/entity-resolution.md)**: Maltego entity types map to Prismatic's unified entity model, enabling entities discovered in Maltego to be resolved against the platform's existing knowledge base.
 - **Collaboration**: Maltego Server Edition integration enables team-based investigations with shared graphs and synchronized findings.
 
 ## Best Practices
@@ -248,13 +248,13 @@ The [Prismatic Platform](/apps/prismatic/) integrates with Maltego through the T
 
 ## Related Providers
 
-- [Shodan](/osint/shodan/) - Internet device scanning for infrastructure context
-- [Censys](/osint/censys/) - Certificate and host intelligence
-- [Open Corporates](/osint/open-corporates/) - Global corporate registry data
-- [Hunter.io](/osint/hunter-io/) - Email discovery and verification
-- [SecurityTrails](/osint/securitytrails/) - DNS and domain history
-- [SpiderFoot](/osint/spiderfoot/) - Automated OSINT collection framework
-- [VirusTotal](/osint/virustotal/) - Multi-engine threat analysis
+- [Shodan](@/osint/shodan.md) - Internet device scanning for infrastructure context
+- [Censys](@/osint/censys.md) - Certificate and host intelligence
+- [Open Corporates](@/osint/open-corporates.md) - Global corporate registry data
+- [Hunter.io](@/osint/hunter-io.md) - Email discovery and verification
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and domain history
+- [SpiderFoot](@/osint/spiderfoot.md) - Automated OSINT collection framework
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine threat analysis
 
 ---
 
@@ -263,4 +263,4 @@ The [Prismatic Platform](/apps/prismatic/) integrates with Maltego through the T
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

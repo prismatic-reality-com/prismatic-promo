@@ -347,20 +347,20 @@ end
 
 ## Related Concepts
 
-- [OSINT](/glossary/osint/) - 250+ providers originating from GARDEN's T1 `sig` repository
-- [Mycelial Network](/glossary/mycelial-network/) - Pattern propagation system distributing GARDEN knowledge across apps
-- [SEADF](/glossary/seadf/) - Evolution framework that integrates and evaluates GARDEN patterns
-- [Quality DNA](/glossary/quality-dna/) - Cross-session persistence inspired by GARDEN's knowledge preservation
-- [Blackboard](/glossary/blackboard/) - Multi-agent coordination pattern originating from GARDEN T1
-- [KuzuDB](/glossary/kuzudb/) - Graph database with SDK from GARDEN T2 `kuzu-ex` repository
-- [Umbrella Application](/glossary/umbrella-application/) - Modern architecture that GARDEN patterns feed into
+- [OSINT](@/glossary/osint.md) - 250+ providers originating from GARDEN's T1 `sig` repository
+- [Mycelial Network](@/glossary/mycelial-network.md) - Pattern propagation system distributing GARDEN knowledge across apps
+- [SEADF](@/glossary/seadf.md) - Evolution framework that integrates and evaluates GARDEN patterns
+- [Quality DNA](@/glossary/quality-dna.md) - Cross-session persistence inspired by GARDEN's knowledge preservation
+- [Blackboard](@/glossary/blackboard.md) - Multi-agent coordination pattern originating from GARDEN T1
+- [KuzuDB](@/glossary/kuzudb.md) - Graph database with SDK from GARDEN T2 `kuzu-ex` repository
+- [Umbrella Application](@/glossary/umbrella-application.md) - Modern architecture that GARDEN patterns feed into
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Agents](/agents/) - AIAD agents that consume GARDEN patterns
-- [Commands](/commands/) - GARDEN management commands (`/gardener`, `/garden-explore`)
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Agents](@/agents/_index.md) - AIAD agents that consume GARDEN patterns
+- [Commands](@/commands/_index.md) - GARDEN management commands (`/gardener`, `/garden-explore`)
 
 ---
 
@@ -369,4 +369,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

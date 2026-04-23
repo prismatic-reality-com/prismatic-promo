@@ -24,11 +24,11 @@ image_alt = "/blue-team - Prismatic Platform"
 
 ## Overview
 
-The **/blue-team** command provides epistemic defense posture assessment for the Prismatic Platform, evaluating the system's resilience against information manipulation, knowledge corruption, and trust boundary violations. As part of the platform's six-team [Color Teams](/glossary/color-teams/) security architecture, the Blue Team specializes in defensive operations: monitoring authentication boundaries, detecting behavioral drift, aggregating cross-domain security signals, and synthesizing these inputs into a unified defensive posture assessment.
+The **/blue-team** command provides epistemic defense posture assessment for the Prismatic Platform, evaluating the system's resilience against information manipulation, knowledge corruption, and trust boundary violations. As part of the platform's six-team [Color Teams](@/glossary/color-teams.md) security architecture, the Blue Team specializes in defensive operations: monitoring authentication boundaries, detecting behavioral drift, aggregating cross-domain security signals, and synthesizing these inputs into a unified defensive posture assessment.
 
 Epistemic security represents a paradigm shift from traditional application security. While conventional security focuses on preventing unauthorized access to systems and data, epistemic security addresses a more fundamental challenge: ensuring the integrity of the knowledge and decision-making processes that the platform relies upon. The Blue Team defends against threats such as truth distortion (where system state representations diverge from reality), confidence manipulation (where certainty levels are artificially inflated or deflated), signal poisoning (where trusted data sources are contaminated), and drift induction (where gradual, sub-threshold changes accumulate into significant deviations).
 
-Operating at the L3 authority level and executed by the `blue-commander` agent, /blue-team is a production command in the [Color Teams](/glossary/color-teams/) category. The Blue Team consists of four specialized agents: the `blue-commander` who synthesizes evidence into unified defensive posture, the `blue-auth-sentinel` who monitors authentication boundaries, the `blue-drift-detector` who identifies behavioral and configuration drift, and the `blue-signal-aggregator` who correlates cross-domain signals using NABLA plurality enforcement. Together, they form the defensive layer in the Red-Blue-Purple security synthesis loop within the platform's 216-command [registry](/glossary/registry-otp/).
+Operating at the L3 authority level and executed by the `blue-commander` agent, /blue-team is a production command in the [Color Teams](@/glossary/color-teams.md) category. The Blue Team consists of four specialized agents: the `blue-commander` who synthesizes evidence into unified defensive posture, the `blue-auth-sentinel` who monitors authentication boundaries, the `blue-drift-detector` who identifies behavioral and configuration drift, and the `blue-signal-aggregator` who correlates cross-domain signals using NABLA plurality enforcement. Together, they form the defensive layer in the Red-Blue-Purple security synthesis loop within the platform's 216-command [registry](@/glossary/registry-otp.md).
 
 ## Usage
 
@@ -143,7 +143,7 @@ The /blue-team command operates within the Color Teams signal flow architecture,
 Common workflow patterns include:
 
 1. **Regular Posture Assessment**: Run `/blue-team posture` on a regular cadence (daily or after significant changes) to maintain awareness of the defensive state
-2. **Post-Red-Team Response**: After the [Red Team](/glossary/red-team/) identifies new adversarial scenarios, run `/blue-team posture --depth comprehensive` to evaluate defensive readiness against the new threats
+2. **Post-Red-Team Response**: After the [Red Team](@/glossary/red-team.md) identifies new adversarial scenarios, run `/blue-team posture --depth comprehensive` to evaluate defensive readiness against the new threats
 3. **Authentication Audit**: Use `/blue-team auth-check` after changes to authentication or authorization logic to verify that trust boundaries remain intact
 4. **Drift Monitoring**: Run `/blue-team drift-scan --timeframe 7d` as part of weekly security reviews to detect gradual deviations that might indicate compromise
 5. **Pre-Deployment Validation**: Include `/blue-team posture --depth quick` in the deployment pipeline to catch security posture degradation before production releases
@@ -153,12 +153,12 @@ Common workflow patterns include:
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `blue-commander` with 3 specialist agents |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `blue-commander` with 3 specialist agents |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/), security event streams |
-| [Red Team](/glossary/red-team/) | Adversarial scenarios that inform defensive assessment |
-| [Purple Team](/glossary/purple-team/) | Synthesis of Red-Blue findings into closure analysis |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md), security event streams |
+| [Red Team](@/glossary/red-team.md) | Adversarial scenarios that inform defensive assessment |
+| [Purple Team](@/glossary/purple-team.md) | Synthesis of Red-Blue findings into closure analysis |
 | Gray Team | Boundary exploration seeds for defensive evaluation |
 | White Team | Constructive verification of defensive properties |
 | NABLA Framework | Plurality enforcement in signal aggregation |
@@ -167,7 +167,7 @@ Common workflow patterns include:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Defensive posture assessments are exhaustive. No domain is excluded from analysis, no signal is dismissed without investigation, and no drift is tolerated without explanation. When the Blue Team identifies a defensive gap, it is reported with full severity classification and remediation guidance. There are no acceptable weaknesses in epistemic defense posture.
 - **NO DOUBTS**: Every defensive assessment is grounded in observable evidence. The Blue Team produces structured evidence artifacts, not alerts. Signal correlation requires independent confirmation from multiple sources before conclusions are drawn. Drift detection is based on quantified deviation from established baselines, not subjective assessment. All findings include full provenance chains linking conclusions to their underlying observations.
@@ -175,7 +175,7 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Best Practices
 
-1. **Combine with Red Team**: The Blue Team is most effective when operating in concert with the Red Team through the Purple Team synthesis loop; always check recent [/red-team](/commands/red-team/) findings before running posture assessments
+1. **Combine with Red Team**: The Blue Team is most effective when operating in concert with the Red Team through the Purple Team synthesis loop; always check recent [/red-team](@/commands/red-team.md) findings before running posture assessments
 2. **Establish baselines first**: Drift detection requires behavioral baselines; ensure baselines are current before interpreting drift reports
 3. **Use appropriate timeframes**: Short timeframes (1h) for incident response, standard (24h) for daily checks, long (7d/30d) for trend analysis
 4. **Read posture cards for quick checks**: Use `--output posture-card` for rapid assessment; save `--output report` for detailed analysis
@@ -184,14 +184,14 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Related Commands
 
-- [/color-team](/commands/color-team/) - Color team status overview across all 6 teams
-- [/red-team](/commands/red-team/) - [Red team](/glossary/red-team/) adversarial simulation scenario execution
-- [/purple-team](/commands/purple-team/) - [Purple team](/glossary/purple-team/) Red-Blue synthesis and closure analysis
-- [/manipulation-detect](/commands/manipulation-detect/) - Detect manipulation attempts using epistemic analysis
-- [/manipulation-protect](/commands/manipulation-protect/) - Activate manipulation protection defenses
-- [/manipulation-techniques](/commands/manipulation-techniques/) - View manipulation technique taxonomy and counter-measures
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/architect](/commands/architect/) - Architecture design and recommendation generation
+- [/color-team](@/commands/color-team.md) - Color team status overview across all 6 teams
+- [/red-team](@/commands/red-team.md) - [Red team](@/glossary/red-team.md) adversarial simulation scenario execution
+- [/purple-team](@/commands/purple-team.md) - [Purple team](@/glossary/purple-team.md) Red-Blue synthesis and closure analysis
+- [/manipulation-detect](@/commands/manipulation-detect.md) - Detect manipulation attempts using epistemic analysis
+- [/manipulation-protect](@/commands/manipulation-protect.md) - Activate manipulation protection defenses
+- [/manipulation-techniques](@/commands/manipulation-techniques.md) - View manipulation technique taxonomy and counter-measures
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/architect](@/commands/architect.md) - Architecture design and recommendation generation
 
 ---
 
@@ -200,4 +200,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

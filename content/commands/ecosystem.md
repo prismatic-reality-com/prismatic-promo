@@ -24,9 +24,9 @@ image_alt = "/ecosystem - Prismatic Platform"
 
 ## Overview
 
-**/ecosystem** is a production command in the **Framework** category of the Prismatic Platform that provides a comprehensive real-time overview of the entire platform ecosystem, including all umbrella applications, agents, commands, quality metrics, and infrastructure status. The platform consists of nearly 100 OTP applications, over 400 [AIAD](/glossary/aiad/) agents, and 216 slash commands, making a unified visibility tool essential for understanding the health and state of the system at any point in time.
+**/ecosystem** is a production command in the **Framework** category of the Prismatic Platform that provides a comprehensive real-time overview of the entire platform ecosystem, including all umbrella applications, agents, commands, quality metrics, and infrastructure status. The platform consists of nearly 100 OTP applications, over 400 [AIAD](@/glossary/aiad.md) agents, and 216 slash commands, making a unified visibility tool essential for understanding the health and state of the system at any point in time.
 
-This command operates under the **L2+** authority level and is executed by the `ecosystem-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the AIAD (Autonomous Intelligence Agent Design) standard. The ecosystem coordinator agent aggregates status information from multiple sources, including OTP application supervisors, the AIAD registry, the quality gate system, and the [telemetry](/glossary/telemetry/) infrastructure.
+This command operates under the **L2+** authority level and is executed by the `ecosystem-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the AIAD (Autonomous Intelligence Agent Design) standard. The ecosystem coordinator agent aggregates status information from multiple sources, including OTP application supervisors, the AIAD registry, the quality gate system, and the [telemetry](@/glossary/telemetry.md) infrastructure.
 
 Understanding the ecosystem as a whole is critical for making informed decisions about where to invest development effort, which components are healthy, and where bottlenecks or degradation might be occurring. The `/ecosystem` command replaces the need to manually query multiple subsystems and synthesizes their outputs into a single coherent view.
 
@@ -143,13 +143,13 @@ The ecosystem health score is a weighted composite of individual subsystem healt
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `ecosystem-coordinator` | Aggregates status from all agents |
-| [AIAD Registry](/glossary/aiad/) | Agent and command inventory | Source of agent/command counts and status |
-| [Quality Gates](/glossary/quality-gates/) | Quality metrics source | 13 quality domains with scores |
-| [Telemetry](/glossary/telemetry/) | Metrics aggregation | Runtime performance and health metrics |
-| [SEADF](/glossary/seadf/) | Evolution status | Self-evolution subsystem health |
-| [Session Lifecycle](/glossary/session-discipline/) | Session tracking | Active session count and health |
-| [Git Trees](/commands/git-trees/) | Codebase metrics | File counts, LOC, recent changes |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `ecosystem-coordinator` | Aggregates status from all agents |
+| [AIAD Registry](@/glossary/aiad.md) | Agent and command inventory | Source of agent/command counts and status |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality metrics source | 13 quality domains with scores |
+| [Telemetry](@/glossary/telemetry.md) | Metrics aggregation | Runtime performance and health metrics |
+| [SEADF](@/glossary/seadf.md) | Evolution status | Self-evolution subsystem health |
+| [Session Lifecycle](@/glossary/session-discipline.md) | Session tracking | Active session count and health |
+| [Git Trees](@/commands/git-trees.md) | Codebase metrics | File counts, LOC, recent changes |
 | OTP Supervision | Process health | Supervisor tree status and restart counts |
 
 ## Best Practices
@@ -228,20 +228,20 @@ Feed ecosystem data directly into the SEADF evolution engine for autonomous impr
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Ecosystem monitoring exposes every quality gap without hiding uncomfortable truths.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. All health scores are computed from verifiable data sources with full provenance.
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/git-trees](/commands/git-trees/) - Git tree-based codebase exploration at ~100x speed improvement
-- [/inject](/commands/inject/) - AIAD injection coordination for pattern and agent deployment
-- [/integrate](/commands/integrate/) - Cross-system integration design and implementation
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/git-trees](@/commands/git-trees.md) - Git tree-based codebase exploration at ~100x speed improvement
+- [/inject](@/commands/inject.md) - AIAD injection coordination for pattern and agent deployment
+- [/integrate](@/commands/integrate.md) - Cross-system integration design and implementation
 
 ---
 
@@ -250,4 +250,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

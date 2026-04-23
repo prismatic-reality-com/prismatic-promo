@@ -220,10 +220,10 @@ end)
 
 ## Cross-References
 
-- [Monitoring](/glossary/monitoring/) - Infrastructure providing SLA measurement data
-- [Telemetry](/glossary/telemetry/) - Event system powering real-time SLA tracking
-- [Observability](/glossary/observability/) - Broader practice encompassing SLA monitoring
-- [Latency](/glossary/latency/) - Key SLA metric for response time targets
+- [Monitoring](@/glossary/monitoring.md) - Infrastructure providing SLA measurement data
+- [Telemetry](@/glossary/telemetry.md) - Event system powering real-time SLA tracking
+- [Observability](@/glossary/observability.md) - Broader practice encompassing SLA monitoring
+- [Latency](@/glossary/latency.md) - Key SLA metric for response time targets
 
 ---
 

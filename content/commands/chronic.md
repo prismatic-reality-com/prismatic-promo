@@ -28,7 +28,7 @@ image_alt = "/chronic - Prismatic Platform"
 
 Documentation drift is one of the most insidious forms of technical debt. Claims about agent counts, quality scores, file statistics, and architectural patterns become stale as the platform evolves, creating a growing gap between documented state and actual state. The `/chronic` command systematically detects and resolves this drift through automated validation intelligence that reduces manual verification time from 45+ minutes to under 5 minutes.
 
-This command operates under the **L2+** authority level and is executed by the `chronic-scanner` agent, coordinated by the `documentation-validation-commander` with support from the `session-context-coordinator` and `git-integration-specialist`. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. Version 2.0.0 introduced automated validation intelligence based on learnings from ARCHER SUPREME documentation alignment sessions.
+This command operates under the **L2+** authority level and is executed by the `chronic-scanner` agent, coordinated by the `documentation-validation-commander` with support from the `session-context-coordinator` and `git-integration-specialist`. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. Version 2.0.0 introduced automated validation intelligence based on learnings from ARCHER SUPREME documentation alignment sessions.
 
 The chronic scanning approach treats documentation as a first-class engineering artifact subject to the same quality standards as production code. Every statistic cited in documentation is verified against the codebase. Every cross-reference link is validated for existence. Every quality score is confirmed against the latest gate execution results. This ensures that platform documentation maintains forensic-grade accuracy.
 
@@ -197,10 +197,10 @@ PHASE 6: REPORTING
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `chronic-scanner` agent | Multi-agent validation |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `chronic-scanner` agent | Multi-agent validation |
 | AIAD Registry | Command specification and discovery | Registry as evidence source |
-| [Quality Gates](/glossary/quality-gates/) | Quality score verification | Gate results for claim validation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) | Scan event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality score verification | Gate results for claim validation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) | Scan event tracking |
 | Git Integration | Activity correlation | Change detection and verification |
 | Session Context | Session file analysis | `.claude/session-context/` scanning |
 | Mix Tasks | Metric verification | Various mix tasks for evidence |
@@ -281,7 +281,7 @@ PHASE 6: REPORTING
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for documentation drift. Discrepancies between documented and actual state are treated as defects that must be resolved immediately.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every validation is backed by concrete evidence from the codebase, git history, or runtime metrics.
@@ -290,13 +290,13 @@ The command implements the NABLA framework's Provenance Mandatory axiom: all doc
 
 ## Related Commands
 
-- [/find-lowfruit](/commands/find-lowfruit/) - Identify low-hanging fruit improvements across codebase
-- [/scan-mycelium](/commands/scan-mycelium/) - Mycelial pattern scanning across documentation and code
-- [/propagate-pattern](/commands/propagate-pattern/) - Propagate successful patterns across the ecosystem
-- [/check](/commands/check/) - Verification and integrity checking command
-- [/compress](/commands/compress/) - Intelligent document compression with 4-level ratios
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/find-lowfruit](@/commands/find-lowfruit.md) - Identify low-hanging fruit improvements across codebase
+- [/scan-mycelium](@/commands/scan-mycelium.md) - Mycelial pattern scanning across documentation and code
+- [/propagate-pattern](@/commands/propagate-pattern.md) - Propagate successful patterns across the ecosystem
+- [/check](@/commands/check.md) - Verification and integrity checking command
+- [/compress](@/commands/compress.md) - Intelligent document compression with 4-level ratios
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -305,4 +305,4 @@ The command implements the NABLA framework's Provenance Mandatory axiom: all doc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -236,10 +236,10 @@ Paste site monitoring provides the platform's users with early warning of data e
 
 ## Cross-References
 
-- [OSINT](/glossary/osint/) - Intelligence discipline encompassing paste site monitoring
-- [Threat Intelligence](/glossary/threat-intelligence/) - Broader intelligence context
-- [Data Breach](/glossary/data-breach/) - Security incident detected through paste monitoring
-- [IOC](/glossary/ioc/) - Indicators found in paste site content
+- [OSINT](@/glossary/osint.md) - Intelligence discipline encompassing paste site monitoring
+- [Threat Intelligence](@/glossary/threat-intelligence.md) - Broader intelligence context
+- [Data Breach](@/glossary/data-breach.md) - Security incident detected through paste monitoring
+- [IOC](@/glossary/ioc.md) - Indicators found in paste site content
 - **Perimeter** - Security rating affected by paste site exposures
 
 ---

@@ -52,7 +52,7 @@ GDPR is built on seven fundamental principles (Article 5) that govern all person
 | **Data Minimization** | Only data necessary for the purpose may be collected | Schema design, field-level collection controls |
 | **Accuracy** | Data must be kept accurate and up to date | Validation pipelines, correction mechanisms |
 | **Storage Limitation** | Data must not be kept longer than necessary | Retention policies, automated deletion schedules |
-| **Integrity and Confidentiality** | Appropriate security measures must protect data | [Encryption at rest](/glossary/encryption-at-rest/), access controls, audit logging |
+| **Integrity and Confidentiality** | Appropriate security measures must protect data | [Encryption at rest](@/glossary/encryption-at-rest.md), access controls, audit logging |
 | **Accountability** | Controllers must demonstrate compliance | Documentation, impact assessments, DPO appointment |
 
 Each principle translates into concrete engineering requirements. Data minimization means that database schemas should not include fields that are not strictly necessary for the declared processing purpose. Storage limitation means that every data table must have a defined retention period and automated deletion mechanism. Accountability means that every processing operation must produce an audit trail demonstrating compliance.
@@ -189,9 +189,9 @@ Data Ingestion ──> Classification ──> Purpose Binding ──> Storage
                    (field-level)       (immutable)      Scheduling
 ```
 
-**Encryption Strategy**: Personal data is encrypted at rest using AES-256 and in transit using [TLS](/glossary/tls/) 1.3. Field-level encryption is applied to special category data (Article 9), ensuring that even database administrators cannot access sensitive fields without explicit authorization.
+**Encryption Strategy**: Personal data is encrypted at rest using AES-256 and in transit using [TLS](@/glossary/tls.md) 1.3. Field-level encryption is applied to special category data (Article 9), ensuring that even database administrators cannot access sensitive fields without explicit authorization.
 
-**Breach Detection and Notification**: The platform monitors for data breach indicators and can initiate the 72-hour notification process required by Article 33. Breach detection integrates with the Blue Team's defensive monitoring capabilities and the [security rating](/glossary/security-rating/) system.
+**Breach Detection and Notification**: The platform monitors for data breach indicators and can initiate the 72-hour notification process required by Article 33. Breach detection integrates with the Blue Team's defensive monitoring capabilities and the [security rating](@/glossary/security-rating.md) system.
 
 ## Prismatic Perimeter Compliance Assessment
 
@@ -283,11 +283,11 @@ The Prismatic Platform implements GDPR compliance at multiple architectural leve
 
 **OSINT Data Boundaries**: Intelligence gathering operations process only publicly available information. Personal data encountered during OSINT operations is classified immediately, and processing is limited to purposes with established lawful bases (typically legitimate interests in security research). Data minimization ensures only information relevant to the intelligence objective is retained.
 
-**Platform-Internal Data Management**: The platform's own data handling follows GDPR principles with data minimization (collecting only what is necessary), purpose limitation (processing only for declared purposes), and [encryption at rest](/glossary/encryption-at-rest/) for any stored personal data.
+**Platform-Internal Data Management**: The platform's own data handling follows GDPR principles with data minimization (collecting only what is necessary), purpose limitation (processing only for declared purposes), and [encryption at rest](@/glossary/encryption-at-rest.md) for any stored personal data.
 
 **Visitor Intelligence (HAWKEYE)**: The HAWKEYE system implements privacy-by-design architecture with data minimization, anonymization where possible, and configurable retention controls that comply with GDPR storage limitation requirements.
 
-**Audit Logging**: All data processing operations are logged with immutable audit trails that can be presented to supervisory authorities on request. The [structured logging](/glossary/structured-logging/) infrastructure ensures that audit entries include full provenance metadata.
+**Audit Logging**: All data processing operations are logged with immutable audit trails that can be presented to supervisory authorities on request. The [structured logging](@/glossary/structured-logging.md) infrastructure ensures that audit entries include full provenance metadata.
 
 **Cross-Border Data Transfers**: When OSINT operations involve data sources in multiple jurisdictions, the platform tracks data provenance and ensures that appropriate transfer mechanisms (Standard Contractual Clauses, adequacy decisions) are in place.
 
@@ -302,7 +302,7 @@ GDPR's influence has catalyzed a global wave of data protection legislation. Und
 | **PIPA** | South Korea | Consent-based, cross-border controls | Stricter consent requirements |
 | **APPI** | Japan | Adequacy decision with EU | Different enforcement structure |
 | **PDPA** | Thailand | Similar principles and rights | Newer, evolving enforcement |
-| **[NIS2](/glossary/nis2/)** | EU | Complementary security directive | Focuses on network/information security |
+| **[NIS2](@/glossary/nis2.md)** | EU | Complementary security directive | Focuses on network/information security |
 
 ## Best Practices
 
@@ -318,7 +318,7 @@ GDPR's influence has catalyzed a global wave of data protection legislation. Und
 
 **Implement Data Subject Request Workflows**: Build automated workflows for handling access, erasure, portability, and rectification requests within the 30-day response deadline. Track request status and generate compliance reports.
 
-**Regular Access Reviews**: Implement periodic reviews of who has access to personal data and whether that access is still necessary. Remove access that is no longer justified, following the principle of least privilege enforced through [RBAC](/glossary/rbac/).
+**Regular Access Reviews**: Implement periodic reviews of who has access to personal data and whether that access is still necessary. Remove access that is no longer justified, following the principle of least privilege enforced through [RBAC](@/glossary/rbac.md).
 
 ## Common Pitfalls
 
@@ -326,7 +326,7 @@ GDPR's influence has catalyzed a global wave of data protection legislation. Und
 
 **Dark Patterns in Consent**: Designing consent interfaces that nudge users toward consent through confusing layouts, pre-checked boxes, or ambiguous language. Supervisory authorities actively enforce against these practices and have issued significant fines.
 
-**Incomplete Data Subject Responses**: Failing to search all storage backends when responding to access requests. Personal data may reside in databases, logs, backups, caches, [ETS tables](/glossary/ets-table/), and third-party systems. All sources must be included.
+**Incomplete Data Subject Responses**: Failing to search all storage backends when responding to access requests. Personal data may reside in databases, logs, backups, caches, [ETS tables](@/glossary/ets-table.md), and third-party systems. All sources must be included.
 
 **Ignoring Data Processor Obligations**: When using third-party services that process personal data, failing to establish Data Processing Agreements (Article 28) with appropriate security guarantees and audit rights.
 
@@ -349,22 +349,22 @@ Notable enforcement actions have established precedent: Amazon (746M EUR, 2021),
 
 ## Related Concepts
 
-- [Compliance Framework](/glossary/compliance-framework/) - Regulatory framework category including GDPR
-- [Encryption at Rest](/glossary/encryption-at-rest/) - Technical control satisfying GDPR data protection requirements
-- [NIS2](/glossary/nis2/) - Complementary EU directive for network and information security
-- [TLS](/glossary/tls/) - Transport encryption protecting personal data in transit
-- [ISO 27001](/glossary/iso-27001/) - Information security standard supporting GDPR compliance
-- [Security Rating](/glossary/security-rating/) - External assessment incorporating GDPR compliance indicators
-- [HAWKEYE](/glossary/hawkeye/) - Visitor intelligence system implementing privacy-by-design
-- [RBAC](/glossary/rbac/) - Access control model enforcing data access restrictions
-- [Structured Logging](/glossary/structured-logging/) - Audit trail infrastructure for compliance documentation
-- [ETS Table](/glossary/ets-table/) - In-memory storage that must be included in data subject requests
+- [Compliance Framework](@/glossary/compliance-framework.md) - Regulatory framework category including GDPR
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) - Technical control satisfying GDPR data protection requirements
+- [NIS2](@/glossary/nis2.md) - Complementary EU directive for network and information security
+- [TLS](@/glossary/tls.md) - Transport encryption protecting personal data in transit
+- [ISO 27001](@/glossary/iso-27001.md) - Information security standard supporting GDPR compliance
+- [Security Rating](@/glossary/security-rating.md) - External assessment incorporating GDPR compliance indicators
+- [HAWKEYE](@/glossary/hawkeye.md) - Visitor intelligence system implementing privacy-by-design
+- [RBAC](@/glossary/rbac.md) - Access control model enforcing data access restrictions
+- [Structured Logging](@/glossary/structured-logging.md) - Audit trail infrastructure for compliance documentation
+- [ETS Table](@/glossary/ets-table.md) - In-memory storage that must be included in data subject requests
 
 ## See Also
 
-- [Architecture](/architecture/) - Privacy architecture and data protection patterns
-- [Technologies](/technologies/) - Security and privacy technology stack
-- [Apps](/apps/) - Applications implementing GDPR compliance
+- [Architecture](@/architecture/_index.md) - Privacy architecture and data protection patterns
+- [Technologies](@/technologies/_index.md) - Security and privacy technology stack
+- [Apps](@/apps/_index.md) - Applications implementing GDPR compliance
 
 ---
 
@@ -373,4 +373,4 @@ Notable enforcement actions have established precedent: Amazon (746M EUR, 2021),
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

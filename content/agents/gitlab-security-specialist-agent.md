@@ -28,9 +28,9 @@ image_alt = "GitLab Security Specialist Agent - Prismatic Platform"
 
 ## Overview
 
-The GitLab Security Specialist Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Security, Compliance, and Vulnerability domain of the Prismatic Platform. This agent provides deep expertise in GitLab security features, including dependency scanning, secret detection, SAST/DAST pipeline integration, and [compliance framework](/glossary/compliance-framework/) enforcement through GitLab's native security tooling. As the DevSecOps bridge between development workflows and security requirements, the Specialist ensures that security is integrated into every stage of the development lifecycle rather than applied as a post-development checkpoint.
+The GitLab Security Specialist Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Security, Compliance, and Vulnerability domain of the Prismatic Platform. This agent provides deep expertise in GitLab security features, including dependency scanning, secret detection, SAST/DAST pipeline integration, and [compliance framework](@/glossary/compliance-framework.md) enforcement through GitLab's native security tooling. As the DevSecOps bridge between development workflows and security requirements, the Specialist ensures that security is integrated into every stage of the development lifecycle rather than applied as a post-development checkpoint.
 
-GitLab serves as the primary development infrastructure for the Prismatic Platform, making its security configuration a critical [attack surface](/glossary/attack-surface/). The GitLab Security Specialist ensures that every pipeline includes appropriate security scanning stages, that dependency vulnerabilities are tracked and remediated within SLA windows, and that secrets never persist in repository history. This agent bridges the gap between GitLab's security capabilities and the platform's compliance requirements under [NIS2](/glossary/nis2/), [ZKB](/glossary/zkb/), and [ISO 27001](/glossary/iso-27001/) frameworks, translating regulatory requirements into concrete, enforceable pipeline configurations.
+GitLab serves as the primary development infrastructure for the Prismatic Platform, making its security configuration a critical [attack surface](@/glossary/attack-surface.md). The GitLab Security Specialist ensures that every pipeline includes appropriate security scanning stages, that dependency vulnerabilities are tracked and remediated within SLA windows, and that secrets never persist in repository history. This agent bridges the gap between GitLab's security capabilities and the platform's compliance requirements under [NIS2](@/glossary/nis2.md), [ZKB](@/glossary/zkb.md), and [ISO 27001](@/glossary/iso-27001.md) frameworks, translating regulatory requirements into concrete, enforceable pipeline configurations.
 
 ## Security Scanning Architecture
 
@@ -52,12 +52,12 @@ The Specialist maintains explicit mappings between regulatory requirements and G
 
 | Framework | Requirement Domain | GitLab Implementation |
 |-----------|-------------------|----------------------|
-| [NIS2](/glossary/nis2/) | Incident reporting | Pipeline failure notifications, security event logging |
+| [NIS2](@/glossary/nis2.md) | Incident reporting | Pipeline failure notifications, security event logging |
 | NIS2 | Risk management | Dependency scanning, vulnerability triage |
-| [ZKB](/glossary/zkb/) | Critical infrastructure protection | Branch protection, access control enforcement |
+| [ZKB](@/glossary/zkb.md) | Critical infrastructure protection | Branch protection, access control enforcement |
 | ZKB | Security monitoring | Audit logging, access pattern analysis |
-| [GDPR](/glossary/gdpr/) | Data protection | Secret detection, data handling review |
-| [ISO 27001](/glossary/iso-27001/) | Access control | RBAC enforcement, least privilege validation |
+| [GDPR](@/glossary/gdpr.md) | Data protection | Secret detection, data handling review |
+| [ISO 27001](@/glossary/iso-27001.md) | Access control | RBAC enforcement, least privilege validation |
 | ISO 27001 | Change management | Merge request approval workflows |
 
 Compliance mappings are maintained as version-controlled configuration that undergoes the same review process as application code, ensuring that compliance implementation evolves alongside regulatory requirements.
@@ -90,19 +90,19 @@ The Specialist manages discovered vulnerabilities through a structured lifecycle
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [brutal-gitlab-enforcer](/agents/brutal-gitlab-enforcer/) | Enforcement Partner | Enforces GitLab configuration compliance with security policies |
-| [cloud-security-specialist](/agents/cloud-security-specialist/) | Infrastructure Security | Coordinates infrastructure-level security alongside GitLab pipeline security |
-| [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) | Pipeline Security | Ensures CI/CD guardrails include required security scanning stages |
-| [hawkeye-security-auditor](/agents/hawkeye-security-auditor/) | Security Audit | Provides comprehensive security assessment capabilities for the Hawkeye platform |
-| [incident-response-specialist](/agents/incident-response-specialist/) | Incident Handling | Coordinates response when security vulnerabilities are exploited in production |
+| [brutal-gitlab-enforcer](@/agents/brutal-gitlab-enforcer.md) | Enforcement Partner | Enforces GitLab configuration compliance with security policies |
+| [cloud-security-specialist](@/agents/cloud-security-specialist.md) | Infrastructure Security | Coordinates infrastructure-level security alongside GitLab pipeline security |
+| [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) | Pipeline Security | Ensures CI/CD guardrails include required security scanning stages |
+| [hawkeye-security-auditor](@/agents/hawkeye-security-auditor.md) | Security Audit | Provides comprehensive security assessment capabilities for the Hawkeye platform |
+| [incident-response-specialist](@/agents/incident-response-specialist.md) | Incident Handling | Coordinates response when security vulnerabilities are exploited in production |
 
 ## Color Team Integration
 
-Security operations are validated through the platform's [Color Team](/glossary/color-teams/) framework. Red Team agents simulate attacks against GitLab security configurations to identify bypass opportunities. Blue Team agents monitor security controls for drift or degradation. Purple Team agents synthesize findings from both teams to identify security gaps and recommend improvements. The GitLab Security Specialist provides security configuration data to all color teams and implements improvements identified through their adversarial-defensive synthesis.
+Security operations are validated through the platform's [Color Team](@/glossary/color-teams.md) framework. Red Team agents simulate attacks against GitLab security configurations to identify bypass opportunities. Blue Team agents monitor security controls for drift or degradation. Purple Team agents synthesize findings from both teams to identify security gaps and recommend improvements. The GitLab Security Specialist provides security configuration data to all color teams and implements improvements identified through their adversarial-defensive synthesis.
 
 ## Enforcement
 
-Security operations are governed by [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with zero-tolerance enforcement. No pipeline is permitted to execute without security scanning stages. Detected secrets trigger immediate pipeline failure and [incident response](/glossary/incident-response/). SLA violations for vulnerability remediation trigger automatic escalation. All security findings undergo [Trinity Gate](/glossary/trinity-gate/) validation before being classified as resolved, requiring structural, logical, and formal verification that the vulnerability has been genuinely eliminated rather than merely obscured.
+Security operations are governed by [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with zero-tolerance enforcement. No pipeline is permitted to execute without security scanning stages. Detected secrets trigger immediate pipeline failure and [incident response](@/glossary/incident-response.md). SLA violations for vulnerability remediation trigger automatic escalation. All security findings undergo [Trinity Gate](@/glossary/trinity-gate.md) validation before being classified as resolved, requiring structural, logical, and formal verification that the vulnerability has been genuinely eliminated rather than merely obscured.
 
 ---
 
@@ -111,4 +111,4 @@ Security operations are governed by [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

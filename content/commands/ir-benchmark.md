@@ -24,11 +24,11 @@ image_alt = "/ir-benchmark - Prismatic Platform"
 
 ## Overview
 
-**/ir-benchmark** is a production command in the **[PVM](/glossary/pvm/)** category of the Prismatic Platform that provides comprehensive performance benchmarking capabilities for Intermediate Representation (IR) workflows. By integrating directly with the [Benchee](https://github.com/bencheeorg/benchee) benchmarking library, this command delivers statistically rigorous performance measurements across the entire IR processing pipeline, from parsing and validation through compilation and execution phases.
+**/ir-benchmark** is a production command in the **[PVM](@/glossary/pvm.md)** category of the Prismatic Platform that provides comprehensive performance benchmarking capabilities for Intermediate Representation (IR) workflows. By integrating directly with the [Benchee](https://github.com/bencheeorg/benchee) benchmarking library, this command delivers statistically rigorous performance measurements across the entire IR processing pipeline, from parsing and validation through compilation and execution phases.
 
-Performance benchmarking of IR workflows is a critical concern in the Prismatic Platform because IR serves as the foundational layer between high-level workflow descriptions and low-level [PVM](/glossary/pvm/) bytecode execution. Any regression in IR processing performance directly impacts the throughput and latency of the entire agent execution pipeline. The `/ir-benchmark` command addresses this by providing repeatable, statistically sound benchmarks that can be integrated into continuous integration pipelines and quality gate enforcement.
+Performance benchmarking of IR workflows is a critical concern in the Prismatic Platform because IR serves as the foundational layer between high-level workflow descriptions and low-level [PVM](@/glossary/pvm.md) bytecode execution. Any regression in IR processing performance directly impacts the throughput and latency of the entire agent execution pipeline. The `/ir-benchmark` command addresses this by providing repeatable, statistically sound benchmarks that can be integrated into continuous integration pipelines and quality gate enforcement.
 
-This command operates under the **L2+** authority level and is executed by the `ir-pvm-profiler` agent, a specialist agent with deep knowledge of PVM internals and performance optimization patterns. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The profiler agent instruments IR workflows at multiple granularity levels, from coarse-grained phase timing to fine-grained instruction-level analysis.
+This command operates under the **L2+** authority level and is executed by the `ir-pvm-profiler` agent, a specialist agent with deep knowledge of PVM internals and performance optimization patterns. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The profiler agent instruments IR workflows at multiple granularity levels, from coarse-grained phase timing to fine-grained instruction-level analysis.
 
 The command produces structured benchmark reports that include statistical measures such as mean execution time, standard deviation, percentile distributions (P50, P95, P99), memory allocation profiles, and reduction counts. These reports can be output in multiple formats including human-readable tables, JSON for machine processing, and Markdown for documentation integration.
 
@@ -49,7 +49,7 @@ The `/ir-benchmark` command is built on a layered architecture that separates co
 +---------------------+     +--------------------+     +------------------+
 ```
 
-The **Benchmark Runner** wraps Benchee with Prismatic-specific configuration, handling warm-up cycles, measurement iterations, and garbage collection isolation. The **Measurement Engine** uses [ETS](/glossary/ets/)-backed collectors to capture fine-grained timing data without introducing measurement overhead. The **Scenario Builder** constructs benchmark scenarios from IR workflow specifications, allowing users to benchmark specific pipeline stages or entire workflows. The **Comparison Engine** supports baseline comparison, enabling detection of performance regressions against saved benchmark results.
+The **Benchmark Runner** wraps Benchee with Prismatic-specific configuration, handling warm-up cycles, measurement iterations, and garbage collection isolation. The **Measurement Engine** uses [ETS](@/glossary/ets.md)-backed collectors to capture fine-grained timing data without introducing measurement overhead. The **Scenario Builder** constructs benchmark scenarios from IR workflow specifications, allowing users to benchmark specific pipeline stages or entire workflows. The **Comparison Engine** supports baseline comparison, enabling detection of performance regressions against saved benchmark results.
 
 ## Usage
 
@@ -157,13 +157,13 @@ The `/ir-benchmark` command follows a structured execution flow designed to prod
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Executed by the `ir-pvm-profiler` agent with PVM expertise |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Executed by the `ir-pvm-profiler` agent with PVM expertise |
 | PVM Compiler | Data Source | Benchmarks the IR-to-PVM compilation pipeline |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Benchmark results feed into quality gate decisions |
-| [Telemetry](/glossary/telemetry/) | Observability | All benchmark events emitted as telemetry for monitoring |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command registered and discoverable via AIAD standard |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Benchmark results feed into quality gate decisions |
+| [Telemetry](@/glossary/telemetry.md) | Observability | All benchmark events emitted as telemetry for monitoring |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command registered and discoverable via AIAD standard |
 | Benchee | External Library | Statistical benchmarking engine providing measurement rigor |
-| [ETS](/glossary/ets/) | Storage | Baseline storage and measurement collection backing |
+| [ETS](@/glossary/ets.md) | Storage | Baseline storage and measurement collection backing |
 | CI/CD Pipeline | Automation | Benchmark regression checks integrated into merge gates |
 
 ## Best Practices
@@ -183,7 +183,7 @@ The `/ir-benchmark` command follows a structured execution flow designed to prod
 | Error Condition | Response | Recovery |
 |----------------|----------|----------|
 | IR file not found | Exits with file path suggestion | Verify file path and retry |
-| Invalid IR syntax | Reports parse errors before benchmarking | Fix IR syntax with [/ir-lint](/commands/ir-lint/) |
+| Invalid IR syntax | Reports parse errors before benchmarking | Fix IR syntax with [/ir-lint](@/commands/ir-lint.md) |
 | Baseline not found | Warning with available baselines listed | Save a baseline first with `--save-baseline` |
 | Insufficient measurements | Warning with recommendation for longer `--time` | Increase measurement duration |
 | Memory limit exceeded | Graceful abort with partial results | Reduce benchmark scope or increase system memory |
@@ -232,24 +232,24 @@ Create a `.ir-benchmark.exs` configuration file to define custom benchmark scena
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Benchmark results must be statistically significant -- insufficient sample sizes trigger warnings rather than producing misleading results. Regression detection uses strict thresholds with no allowance for "acceptable" degradation without explicit baseline updates.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. All performance claims are backed by Benchee's statistical analysis framework. Measurements include confidence intervals and standard deviations. No performance assertion is made without sufficient evidence.
 
-The command integrates with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework by ensuring that performance claims satisfy the Signal Plurality axiom (multiple measurement samples), Time Decay axiom (timestamped baselines), and Provenance Mandatory axiom (full measurement methodology documented in reports).
+The command integrates with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework by ensuring that performance claims satisfy the Signal Plurality axiom (multiple measurement samples), Time Decay axiom (timestamped baselines), and Provenance Mandatory axiom (full measurement methodology documented in reports).
 
 ## Related Commands
 
-- [/ir-generate](/commands/ir-generate/) - Generate IR workflows from natural language descriptions
-- [/ir-validate](/commands/ir-validate/) - Comprehensive validation of IR workflows with DAG analysis and type safety
-- [/ir-lint](/commands/ir-lint/) - Static analysis and code quality enforcement for IR workflows
-- [/ir-examples](/commands/ir-examples/) - Interactive examples, templates and learning resources for IR workflows
-- [/pvm-compile](/commands/pvm-compile/) - Compile validated IR to optimized PVM bytecode
-- [/pvm-execute](/commands/pvm-execute/) - Execute compiled PVM programs with [fault tolerance](/glossary/fault-tolerance/) and [real-time monitoring](/capabilities/real-time-monitoring/)
-- [/pvm-trace](/commands/pvm-trace/) - Real-time execution tracing and debugging for PVM programs
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/ir-generate](@/commands/ir-generate.md) - Generate IR workflows from natural language descriptions
+- [/ir-validate](@/commands/ir-validate.md) - Comprehensive validation of IR workflows with DAG analysis and type safety
+- [/ir-lint](@/commands/ir-lint.md) - Static analysis and code quality enforcement for IR workflows
+- [/ir-examples](@/commands/ir-examples.md) - Interactive examples, templates and learning resources for IR workflows
+- [/pvm-compile](@/commands/pvm-compile.md) - Compile validated IR to optimized PVM bytecode
+- [/pvm-execute](@/commands/pvm-execute.md) - Execute compiled PVM programs with [fault tolerance](@/glossary/fault-tolerance.md) and [real-time monitoring](@/capabilities/real-time-monitoring.md)
+- [/pvm-trace](@/commands/pvm-trace.md) - Real-time execution tracing and debugging for PVM programs
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -258,4 +258,4 @@ The command integrates with the [NABLA Infinity](/glossary/nabla-infinity/) epis
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

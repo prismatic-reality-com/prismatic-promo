@@ -24,11 +24,11 @@ image_alt = "/debug-types - Prismatic Platform"
 
 ## Overview
 
-**/debug-types** is a production command in the **Development** category of the Prismatic Platform that troubleshoots [Dialyzer](/glossary/dialyzer/) type [inference](/glossary/inference/) issues, detects conflicting typespecs, identifies vague type declarations, and optimizes type system usage across the codebase. The command automates what is traditionally one of the most time-consuming debugging tasks in Elixir development: understanding and resolving Dialyzer warnings that arise from conflicting or overly vague `@spec` declarations.
+**/debug-types** is a production command in the **Development** category of the Prismatic Platform that troubleshoots [Dialyzer](@/glossary/dialyzer.md) type [inference](@/glossary/inference.md) issues, detects conflicting typespecs, identifies vague type declarations, and optimizes type system usage across the codebase. The command automates what is traditionally one of the most time-consuming debugging tasks in Elixir development: understanding and resolving Dialyzer warnings that arise from conflicting or overly vague `@spec` declarations.
 
 Dialyzer warnings are notoriously difficult to interpret. A single vague typespec (`@spec run(term(), term(), term()) :: term()`) can mask the precise type information from a more specific typespec on the same function, causing Dialyzer to infer the least useful type. The `/debug-types` command systematically detects these conflicts, identifies the authoritative typespec (the most specific one), removes the conflicting vague spec, and verifies that Dialyzer produces zero warnings after the fix.
 
-This command operates under the **L2+** authority level and is executed by the `type-inference-debugger` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command was developed from the learnings of the Operation Type Inference Fix, where systematic type analysis resolved multiple Dialyzer warnings that had persisted across several development sessions.
+This command operates under the **L2+** authority level and is executed by the `type-inference-debugger` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command was developed from the learnings of the Operation Type Inference Fix, where systematic type analysis resolved multiple Dialyzer warnings that had persisted across several development sessions.
 
 The type debugging approach follows a five-phase pipeline: capture Dialyzer output, analyze conflicts, recommend fixes, implement changes, and verify results. Each phase produces structured output that documents the analysis decisions, ensuring that type system changes are transparent and auditable.
 
@@ -276,10 +276,10 @@ FIX SUMMARY:
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `type-inference-debugger` | Primary debugging agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `type-inference-debugger` | Primary debugging agent |
 | AIAD Registry | Command specification and discovery | Standard AIAD interface |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation | Dialyzer as quality gate |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) | Type fix event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation | Dialyzer as quality gate |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) | Type fix event tracking |
 | Dialyzer | Type analysis tool | Core analysis engine |
 | Mix Tasks | `mix dialyzer` | PLT building and analysis |
 
@@ -331,19 +331,19 @@ All type fixes must satisfy:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero Dialyzer warnings tolerated. Every type fix must result in zero warnings for the affected modules. Vague `term() :: term()` typespecs on public APIs are treated as quality violations.
 - **NO DOUBTS**: Full analysis of type inference chain before any fix. Conflicting specs are resolved based on specificity analysis, not arbitrary removal.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/debug-investigation](/commands/debug-investigation/) - Comprehensive debugging investigation
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/cascade](/commands/cascade/) - Execute CASCADE pattern fix for systematic anti-pattern removal
-- [/coordinate](/commands/coordinate/) - Orchestrate complex multi-agent operations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/debug-investigation](@/commands/debug-investigation.md) - Comprehensive debugging investigation
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/cascade](@/commands/cascade.md) - Execute CASCADE pattern fix for systematic anti-pattern removal
+- [/coordinate](@/commands/coordinate.md) - Orchestrate complex multi-agent operations
 
 ---
 
@@ -352,4 +352,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

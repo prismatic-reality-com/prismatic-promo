@@ -41,7 +41,7 @@ The axiom addresses a fundamental vulnerability in knowledge systems: dependence
 
 Signal Plurality is more rigorous than simple "second opinion" requirements found in traditional decision-making frameworks. The axiom requires not just multiple signals but genuinely independent signals -- signals from sources that do not share common upstream dependencies, methodologies, or data feeds. Two signals derived from the same underlying data source count as one signal, regardless of how differently they are presented. This independence requirement prevents the illusion of plurality where multiple nominally different sources all trace back to a single origin.
 
-Within the Prismatic Platform, Signal Plurality is enforced at the E2 level (block and rejection). Violations are not warnings -- they are hard blocks that prevent the violating claim from entering the belief system. This enforcement applies across all platform systems: OSINT intelligence fusion, [EASM](/glossary/easm/) security ratings, Color Team assessments, and quality evaluations.
+Within the Prismatic Platform, Signal Plurality is enforced at the E2 level (block and rejection). Violations are not warnings -- they are hard blocks that prevent the violating claim from entering the belief system. This enforcement applies across all platform systems: OSINT intelligence fusion, [EASM](@/glossary/easm.md) security ratings, Color Team assessments, and quality evaluations.
 
 ## Historical Context and Motivation
 
@@ -255,7 +255,7 @@ end
 
 ## Security Rating Enforcement
 
-The [EASM](/glossary/easm/) Security Rating system enforces signal plurality at the dimension level. No dimension score is accepted without at least two independent evidence sources:
+The [EASM](@/glossary/easm.md) Security Rating system enforces signal plurality at the dimension level. No dimension score is accepted without at least two independent evidence sources:
 
 ```elixir
 defmodule PrismaticPerimeter.Rating.PluralityEnforcer do
@@ -372,7 +372,7 @@ end
 
 ## Contradiction Handling with Plural Signals
 
-When plural signals contradict each other, the [Contradiction Preservation](/glossary/contradiction-preservation/) axiom takes precedence. Contradictions between valid signals are preserved as informative data points rather than being resolved by discarding one signal:
+When plural signals contradict each other, the [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom takes precedence. Contradictions between valid signals are preserved as informative data points rather than being resolved by discarding one signal:
 
 ```elixir
 defmodule Prismatic.Epistemic.ContradictionHandler do
@@ -477,10 +477,10 @@ end
 
 | Pattern | Implementation | Example |
 |---------|---------------|---------|
-| OSINT Fusion | Multiple provider queries | [Shodan](/glossary/shodan/) + [Censys](/glossary/censys/) for port scanning |
+| OSINT Fusion | Multiple provider queries | [Shodan](@/glossary/shodan.md) + [Censys](@/glossary/censys.md) for port scanning |
 | Certificate Validation | Multiple CT log queries | CT transparency + direct SSL scan |
 | DNS Verification | Multiple resolver queries | Public DNS + authoritative nameserver |
-| Reputation Check | Multiple reputation databases | [GreyNoise](/glossary/greynoise/) + AbuseIPDB |
+| Reputation Check | Multiple reputation databases | [GreyNoise](@/glossary/greynoise.md) + AbuseIPDB |
 | Compliance Assessment | Multiple compliance checks | NIS2 + ZKB independent assessments |
 
 ## Relationship to Other NABLA Axioms
@@ -489,12 +489,12 @@ Signal Plurality does not operate in isolation. It interacts with the other six 
 
 | Axiom | Relationship to Signal Plurality |
 |-------|----------------------------------|
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | When plural signals contradict, both are preserved |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | When plural signals contradict, both are preserved |
 | **Absence Informative** | Missing second signal is itself data -- investigated as potential gap |
-| **[Time Decay](/glossary/time-decay/)** | Plural signals must be temporally current; aged signals lose weight |
+| **[Time Decay](@/glossary/time-decay.md)** | Plural signals must be temporally current; aged signals lose weight |
 | **Unknown Valid** | "Insufficient signals" is a valid state; do not fabricate plurality |
 | **Source Independence** | Weighting favors independent sources; shared upstream degrades confidence |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | Independence verification requires provenance; signals without it are rejected |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | Independence verification requires provenance; signals without it are rejected |
 
 ## Best Practices
 
@@ -522,24 +522,24 @@ Signal Plurality does not operate in isolation. It interacts with the other six 
 
 ## Related Concepts
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Parent epistemic framework defining this axiom
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Multi-source correlation requiring signal plurality
-- [Blue Team](/glossary/blue-team/) -- Signal aggregation with plurality enforcement
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate complementing plurality requirements
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Scoring system for evaluating plural signals
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Handling contradictions between plural signals
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Traceability requirement enabling independence verification
-- [Time Decay](/glossary/time-decay/) -- Temporal weighting applied to plural signals
-- [Shodan](/glossary/shodan/) -- Primary discovery signal source in EASM
-- [Censys](/glossary/censys/) -- Secondary discovery signal source in EASM
-- [GreyNoise](/glossary/greynoise/) -- Threat context signal source complementing discovery signals
-- [EASM](/glossary/easm/) -- Security domain enforcing signal plurality per rating dimension
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Parent epistemic framework defining this axiom
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Multi-source correlation requiring signal plurality
+- [Blue Team](@/glossary/blue-team.md) -- Signal aggregation with plurality enforcement
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate complementing plurality requirements
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Scoring system for evaluating plural signals
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Handling contradictions between plural signals
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Traceability requirement enabling independence verification
+- [Time Decay](@/glossary/time-decay.md) -- Temporal weighting applied to plural signals
+- [Shodan](@/glossary/shodan.md) -- Primary discovery signal source in EASM
+- [Censys](@/glossary/censys.md) -- Secondary discovery signal source in EASM
+- [GreyNoise](@/glossary/greynoise.md) -- Threat context signal source complementing discovery signals
+- [EASM](@/glossary/easm.md) -- Security domain enforcing signal plurality per rating dimension
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Agents](/agents/) -- Agent catalog including Blue Team aggregators
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Agents](@/agents/_index.md) -- Agent catalog including Blue Team aggregators
 
 ---
 
@@ -548,4 +548,4 @@ Signal Plurality does not operate in isolation. It interacts with the other six 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

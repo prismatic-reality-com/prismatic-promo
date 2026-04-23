@@ -400,24 +400,24 @@ The PrismaticPerimeter application automates security assessment that would othe
 
 Understanding manual quality assurance connects to the Prismatic Platform's comprehensive quality architecture:
 
-- [Quality Assurance](/glossary/quality-assurance/) -- the overarching discipline encompassing both manual and automated quality activities
-- [Testing](/glossary/testing/) -- automated verification of software correctness and reliability
-- [Quality Gates](/glossary/quality-gates/) -- automated enforcement points that replace manual quality sign-off
-- [Regression Testing](/glossary/regression-testing/) -- automated tests that prevent previously fixed defects from recurring
-- [Code Reviews](/glossary/code-reviews/) -- the practice of peer review that combines manual judgment with automated assistance
-- [Credo](/glossary/credo/) -- Elixir's static analysis tool that automates code quality checking
-- [Dialyzer](/glossary/dialyzer/) -- the type checking system that automates type consistency verification
-- [Static Analysis](/glossary/static-analysis/) -- automated analysis that replaces manual code inspection for pattern detection
-- [Quality Debt](/glossary/quality-debt/) -- the accumulated cost of quality shortcuts that manual processes often create
-- [Continuous Validation](/glossary/continuous-validation/) -- ongoing automated verification that replaces periodic manual review
+- [Quality Assurance](@/glossary/quality-assurance.md) -- the overarching discipline encompassing both manual and automated quality activities
+- [Testing](@/glossary/testing.md) -- automated verification of software correctness and reliability
+- [Quality Gates](@/glossary/quality-gates.md) -- automated enforcement points that replace manual quality sign-off
+- [Regression Testing](@/glossary/regression-testing.md) -- automated tests that prevent previously fixed defects from recurring
+- [Code Reviews](@/glossary/code-reviews.md) -- the practice of peer review that combines manual judgment with automated assistance
+- [Credo](@/glossary/credo.md) -- Elixir's static analysis tool that automates code quality checking
+- [Dialyzer](@/glossary/dialyzer.md) -- the type checking system that automates type consistency verification
+- [Static Analysis](@/glossary/static-analysis.md) -- automated analysis that replaces manual code inspection for pattern detection
+- [Quality Debt](@/glossary/quality-debt.md) -- the accumulated cost of quality shortcuts that manual processes often create
+- [Continuous Validation](@/glossary/continuous-validation.md) -- ongoing automated verification that replaces periodic manual review
 
 ## See Also
 
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the autonomous system that monitors quality metrics
-- [Quality DNA](/glossary/quality-dna/) -- cross-session quality state tracking
-- [Quality Standard](/glossary/quality-standard/) -- the universal quality requirements for platform applications
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- automated checks that enforce quality before code enters the repository
-- [Automate Relentlessly](/glossary/automate-relentlessly/) -- the doctrine driving manual process elimination
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the autonomous system that monitors quality metrics
+- [Quality DNA](@/glossary/quality-dna.md) -- cross-session quality state tracking
+- [Quality Standard](@/glossary/quality-standard.md) -- the universal quality requirements for platform applications
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- automated checks that enforce quality before code enters the repository
+- [Automate Relentlessly](@/glossary/automate-relentlessly.md) -- the doctrine driving manual process elimination
 
 ---
 

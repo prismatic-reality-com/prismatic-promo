@@ -157,11 +157,11 @@ The Perimeter security rating system tracks consistency of external configuratio
 
 ## Cross-References
 
-- [Completeness](/glossary/completeness/) - complementary data quality dimension
-- [Accuracy](/glossary/accuracy/) - data correctness complementing consistency
-- [CAP Theorem](/glossary/cap-theorem/) - consistency-availability-partition tolerance trade-off
-- [ACID Transactions](/glossary/acid-transactions/) - transactional consistency guarantees
-- [Configuration Drift](/glossary/configuration-drift/) - consistency loss over time
+- [Completeness](@/glossary/completeness.md) - complementary data quality dimension
+- [Accuracy](@/glossary/accuracy.md) - data correctness complementing consistency
+- [CAP Theorem](@/glossary/cap-theorem.md) - consistency-availability-partition tolerance trade-off
+- [ACID Transactions](@/glossary/acid-transactions.md) - transactional consistency guarantees
+- [Configuration Drift](@/glossary/configuration-drift.md) - consistency loss over time
 - **Livebooks**: `livebooks/domains/storage_data/` - consistency model experiments
 - **Academy**: Distributed systems and data quality topics
 

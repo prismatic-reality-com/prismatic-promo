@@ -184,11 +184,11 @@ Page load performance is the most visible quality metric in the platform, direct
 
 ## Cross-References
 
-- [P95](/glossary/p95/) - Percentile at which page load is measured for SLA
-- [P99](/glossary/p99/) - Tail latency tracking for worst-case page loads
-- [LiveView](/glossary/liveview/) - Phoenix framework enabling real-time page updates
-- [ETS](/glossary/ets/) - In-memory storage enabling sub-millisecond data access
-- [IPS](/glossary/ips/) - Throughput metric related to page rendering capacity
+- [P95](@/glossary/p95.md) - Percentile at which page load is measured for SLA
+- [P99](@/glossary/p99.md) - Tail latency tracking for worst-case page loads
+- [LiveView](@/glossary/liveview.md) - Phoenix framework enabling real-time page updates
+- [ETS](@/glossary/ets.md) - In-memory storage enabling sub-millisecond data access
+- [IPS](@/glossary/ips.md) - Throughput metric related to page rendering capacity
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

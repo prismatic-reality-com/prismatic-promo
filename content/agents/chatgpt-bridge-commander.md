@@ -30,7 +30,7 @@ image_alt = "chatgpt-bridge-commander - Prismatic Platform"
 
 The ChatGPT Bridge Commander operates as an L2 tactical operations agent within the LLM Operations domain of the Prismatic Platform. This agent manages the low-level communication bridge between the Prismatic ecosystem and the ChatGPT API, handling HTTP connection management, request serialization, response deserialization, authentication, and comprehensive error handling. It serves as the foundational transport layer that all higher-level ChatGPT agents depend upon for reliable API access.
 
-Reliable external API communication requires more than simple HTTP requests. The Bridge Commander implements [connection pooling](/glossary/connection-pooling/) for efficient resource utilization, request queuing with priority ordering, response streaming for large outputs, and comprehensive error classification that distinguishes between transient failures (retryable) and permanent failures (escalation required). This infrastructure ensures that ChatGPT interactions are reliable, efficient, and properly instrumented for monitoring. The agent's [circuit breaker](/glossary/circuit-breaker/) implementation protects the platform from cascading failures when the external API experiences degradation, automatically switching to local [Ollama](/glossary/ollama/) models when the external service becomes unavailable. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+Reliable external API communication requires more than simple HTTP requests. The Bridge Commander implements [connection pooling](@/glossary/connection-pooling.md) for efficient resource utilization, request queuing with priority ordering, response streaming for large outputs, and comprehensive error classification that distinguishes between transient failures (retryable) and permanent failures (escalation required). This infrastructure ensures that ChatGPT interactions are reliable, efficient, and properly instrumented for monitoring. The agent's [circuit breaker](@/glossary/circuit-breaker.md) implementation protects the platform from cascading failures when the external API experiences degradation, automatically switching to local [Ollama](@/glossary/ollama.md) models when the external service becomes unavailable. This agent is part of the platform's 434-strong autonomous agent ecosystem, built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -42,11 +42,11 @@ The Bridge Commander implements a layered transport architecture with clear sepa
 
 **Circuit Breaker** -- The resilience layer implements a three-state circuit breaker (closed, open, half-open) that monitors API response health. After configurable failure thresholds, the circuit opens, redirecting all requests to the local Ollama fallback. Periodic probe requests test API recovery, transitioning the circuit to half-open state for gradual traffic restoration.
 
-**Response Processor** -- API responses undergo structural validation, deserialization, and metadata extraction before delivery to consuming agents. The processor captures token usage, response latency, model version, and finish reason for [telemetry](/glossary/telemetry/) reporting. Streaming responses are reassembled into complete response objects with progress callbacks for long-running interactions.
+**Response Processor** -- API responses undergo structural validation, deserialization, and metadata extraction before delivery to consuming agents. The processor captures token usage, response latency, model version, and finish reason for [telemetry](@/glossary/telemetry.md) reporting. Streaming responses are reassembled into complete response objects with progress callbacks for long-running interactions.
 
 ## Core Capabilities
 
-- **Connection lifecycle management** maintaining HTTP/2 connection pools with [TLS](/glossary/tls/) optimization, keep-alive management, health monitoring, and automatic connection replacement for ChatGPT API endpoints
+- **Connection lifecycle management** maintaining HTTP/2 connection pools with [TLS](@/glossary/tls.md) optimization, keep-alive management, health monitoring, and automatic connection replacement for ChatGPT API endpoints
 - **Request queuing and prioritization** ordering outgoing requests by urgency classification (emergency, standard, bulk) with configurable concurrency limits per priority tier to prevent resource starvation
 - **Error classification** distinguishing between transient network errors (automatic retry with exponential backoff), rate limit responses (backoff with jitter), authentication failures (credential refresh), and permanent failures (escalation to command authority)
 - **Response streaming** supporting streamed responses for long-running ChatGPT interactions with progress callbacks, partial result assembly, and timeout management for incomplete streams
@@ -56,7 +56,7 @@ The Bridge Commander implements a layered transport architecture with clear sepa
 
 ## Implementation
 
-The Bridge Commander is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) with a supervised connection pool and circuit breaker state machine.
+The Bridge Commander is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) with a supervised connection pool and circuit breaker state machine.
 
 ```elixir
 defmodule Prismatic.AI.ChatGPT.Bridge do
@@ -157,12 +157,12 @@ end
 
 | Component | Integration Type | Function |
 |-----------|-----------------|----------|
-| [chatgpt-integration-commander](/agents/chatgpt-integration-commander/) | Command Authority | Receives strategic directives for API configuration, model selection, and failover policy |
-| [chatgpt-context-manager](/agents/chatgpt-context-manager/) | Context Layer | Provides optimized conversation context that the bridge transports to the API |
-| [chatgpt-prompt-engineer](/agents/chatgpt-prompt-engineer/) | Request Content | Supplies optimized prompts assembled from templates and context for API delivery |
-| [chatgpt-archive-specialist](/agents/chatgpt-archive-specialist/) | Archive Consumer | Receives completed interaction records for archival processing and knowledge extraction |
-| [Ollama](/glossary/ollama/) Local Models | Fallback Provider | Provides local AI model access when the circuit breaker opens due to API degradation |
-| [Prismatic Telemetry](/glossary/telemetry/) | Observability | Receives comprehensive API interaction metrics for dashboarding and alerting |
+| [chatgpt-integration-commander](@/agents/chatgpt-integration-commander.md) | Command Authority | Receives strategic directives for API configuration, model selection, and failover policy |
+| [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) | Context Layer | Provides optimized conversation context that the bridge transports to the API |
+| [chatgpt-prompt-engineer](@/agents/chatgpt-prompt-engineer.md) | Request Content | Supplies optimized prompts assembled from templates and context for API delivery |
+| [chatgpt-archive-specialist](@/agents/chatgpt-archive-specialist.md) | Archive Consumer | Receives completed interaction records for archival processing and knowledge extraction |
+| [Ollama](@/glossary/ollama.md) Local Models | Fallback Provider | Provides local AI model access when the circuit breaker opens due to API degradation |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Observability | Receives comprehensive API interaction metrics for dashboarding and alerting |
 
 ## Operational Workflow
 
@@ -223,12 +223,12 @@ config :prismatic_ai, Prismatic.AI.ChatGPT.Bridge,
 
 ## Related Resources
 
-- [**chatgpt-integration-commander**](/agents/chatgpt-integration-commander/) (L3) -- Strategic integration management authority
-- [**chatgpt-context-manager**](/agents/chatgpt-context-manager/) (L3) -- Context optimization for API interactions
-- [**chatgpt-prompt-engineer**](/agents/chatgpt-prompt-engineer/) (L3) -- Prompt template management
-- [Ollama](/glossary/ollama/) -- Local AI model infrastructure for fallback operations
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern preventing cascading failures
-- [Lean4](/glossary/lean4/) -- Formal verification of bridge safety properties
+- [**chatgpt-integration-commander**](@/agents/chatgpt-integration-commander.md) (L3) -- Strategic integration management authority
+- [**chatgpt-context-manager**](@/agents/chatgpt-context-manager.md) (L3) -- Context optimization for API interactions
+- [**chatgpt-prompt-engineer**](@/agents/chatgpt-prompt-engineer.md) (L3) -- Prompt template management
+- [Ollama](@/glossary/ollama.md) -- Local AI model infrastructure for fallback operations
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern preventing cascading failures
+- [Lean4](@/glossary/lean4.md) -- Formal verification of bridge safety properties
 
 ---
 
@@ -237,4 +237,4 @@ config :prismatic_ai, Prismatic.AI.ChatGPT.Bridge,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

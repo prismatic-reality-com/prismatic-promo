@@ -28,11 +28,11 @@ image_alt = "SecurityTrails - Prismatic Platform"
 
 ## Overview
 
-SecurityTrails is a comprehensive DNS and domain intelligence platform that maintains one of the largest databases of historical DNS records, [WHOIS](/glossary/whois/) data, and domain intelligence. Acquired by Recorded Future in 2022, the platform continuously monitors DNS changes across the internet, indexing billions of DNS records and maintaining years of historical data. This enables analysts to track infrastructure changes, discover related domains through shared DNS infrastructure, and map the complete digital footprint of organizations over time.
+SecurityTrails is a comprehensive DNS and domain intelligence platform that maintains one of the largest databases of historical DNS records, [WHOIS](@/glossary/whois.md) data, and domain intelligence. Acquired by Recorded Future in 2022, the platform continuously monitors DNS changes across the internet, indexing billions of DNS records and maintaining years of historical data. This enables analysts to track infrastructure changes, discover related domains through shared DNS infrastructure, and map the complete digital footprint of organizations over time.
 
-For [OSINT](/glossary/osint/) investigations, SecurityTrails is essential for discovering the full domain and subdomain landscape of a target, identifying infrastructure relationships through shared IP addresses or nameservers, and tracing the historical evolution of an organization's online presence. The platform's subdomain enumeration capability alone makes it indispensable for [attack surface](/glossary/attack-surface/) mapping, revealing domains that may not be discoverable through certificate transparency or active scanning.
+For [OSINT](@/glossary/osint.md) investigations, SecurityTrails is essential for discovering the full domain and subdomain landscape of a target, identifying infrastructure relationships through shared IP addresses or nameservers, and tracing the historical evolution of an organization's online presence. The platform's subdomain enumeration capability alone makes it indispensable for [attack surface](@/glossary/attack-surface.md) mapping, revealing domains that may not be discoverable through certificate transparency or active scanning.
 
-SecurityTrails differentiates itself through the depth and breadth of its historical DNS database. While services like [DNSDumpster](/osint/dnsdumpster/) provide snapshots of current DNS state, SecurityTrails maintains a longitudinal record of how DNS configurations have changed over time. This temporal dimension is critical for investigations: DNS history reveals previous hosting providers, infrastructure migrations, and the timing of configuration changes that may correspond to organizational events or security incidents.
+SecurityTrails differentiates itself through the depth and breadth of its historical DNS database. While services like [DNSDumpster](@/osint/dnsdumpster.md) provide snapshots of current DNS state, SecurityTrails maintains a longitudinal record of how DNS configurations have changed over time. This temporal dimension is critical for investigations: DNS history reveals previous hosting providers, infrastructure migrations, and the timing of configuration changes that may correspond to organizational events or security incidents.
 
 The platform's Domain Search Language (DSL) enables complex queries across the entire database, supporting searches by registrant organization, nameserver, IP range, mail server, and more. This structured query capability transforms SecurityTrails from a simple lookup tool into a powerful intelligence platform for mapping infrastructure relationships at scale.
 
@@ -259,11 +259,11 @@ SecurityTrails' newly registered and dropped domain feeds enable proactive monit
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
 | **Free tier limits** | 50 queries/month severely limits investigation scope | Use paid plans for production; cache aggressively |
-| **Subdomain completeness** | Passive enumeration may miss some subdomains | Combine with [crt.sh](/osint/crtsh/), [DNSDumpster](/osint/dnsdumpster/), and active scanning |
+| **Subdomain completeness** | Passive enumeration may miss some subdomains | Combine with [crt.sh](@/osint/crtsh.md), [DNSDumpster](@/osint/dnsdumpster.md), and active scanning |
 | **WHOIS redaction** | GDPR-era WHOIS increasingly redacted | Use historical data; combine with reverse WHOIS techniques |
 | **DSL query limits** | Complex DSL queries may timeout on large result sets | Use pagination and narrowing filters |
 | **Real-time gaps** | DNS changes may take hours to appear in database | Use active DNS for real-time verification |
-| **No service detection** | DNS only, no port scanning or service identification | Combine with [Shodan](/osint/shodan/) or [Censys](/osint/censys/) for service data |
+| **No service detection** | DNS only, no port scanning or service identification | Combine with [Shodan](@/osint/shodan.md) or [Censys](@/osint/censys.md) for service data |
 
 ## Legal and Ethical Considerations
 
@@ -277,14 +277,14 @@ SecurityTrails' newly registered and dropped domain feeds enable proactive monit
 
 ## Integration with Prismatic Platform
 
-Within the [Prismatic Platform](/apps/prismatic/), SecurityTrails serves as the primary DNS intelligence source for attack surface discovery and infrastructure investigation.
+Within the [Prismatic Platform](@/apps/prismatic.md), SecurityTrails serves as the primary DNS intelligence source for attack surface discovery and infrastructure investigation.
 
-- **Perimeter EASM**: SecurityTrails provides the foundation for [Prismatic Perimeter](/apps/prismatic-perimeter/) domain discovery, feeding subdomain enumeration and DNS history into the attack surface model.
-- **Attack Surface Mapping**: Domain and subdomain data is correlated with [Shodan](/osint/shodan/), [Censys](/osint/censys/), and [crt.sh](/osint/crtsh/) for comprehensive infrastructure mapping.
-- **Infrastructure Graphing**: DNS relationships feed the platform's [knowledge graph](/glossary/knowledge-graph/), enabling visual exploration of domain-IP-nameserver relationships.
+- **Perimeter EASM**: SecurityTrails provides the foundation for [Prismatic Perimeter](@/apps/prismatic-perimeter.md) domain discovery, feeding subdomain enumeration and DNS history into the attack surface model.
+- **Attack Surface Mapping**: Domain and subdomain data is correlated with [Shodan](@/osint/shodan.md), [Censys](@/osint/censys.md), and [crt.sh](@/osint/crtsh.md) for comprehensive infrastructure mapping.
+- **Infrastructure Graphing**: DNS relationships feed the platform's [knowledge graph](@/glossary/knowledge-graph.md), enabling visual exploration of domain-IP-nameserver relationships.
 - **DSL-Powered Search**: The platform exposes SecurityTrails' DSL through its investigation interface, enabling structured queries across the DNS database.
 - **Change Monitoring**: DNS changes for monitored domains trigger alerts in the Perimeter dashboard, supporting continuous attack surface monitoring.
-- **Cross-Source Validation**: SecurityTrails findings are cross-referenced with [RiskIQ](/osint/riskiq/), [PassiveDNS](/osint/passivedns/), and [WhoisXML](/osint/whoisxml/) for multi-source DNS intelligence.
+- **Cross-Source Validation**: SecurityTrails findings are cross-referenced with [RiskIQ](@/osint/riskiq.md), [PassiveDNS](@/osint/passivedns.md), and [WhoisXML](@/osint/whoisxml.md) for multi-source DNS intelligence.
 
 ## Best Practices
 
@@ -296,7 +296,7 @@ Within the [Prismatic Platform](/apps/prismatic/), SecurityTrails serves as the 
 
 4. **Cache and reuse results**: SecurityTrails data changes relatively slowly. Cache results for days to weeks to maximize the value of limited API quotas.
 
-5. **Combine with certificate transparency**: SecurityTrails subdomain enumeration combined with [crt.sh](/osint/crtsh/) certificate searches provides the most comprehensive subdomain coverage available.
+5. **Combine with certificate transparency**: SecurityTrails subdomain enumeration combined with [crt.sh](@/osint/crtsh.md) certificate searches provides the most comprehensive subdomain coverage available.
 
 6. **Monitor new domain feeds**: Set up monitoring for newly registered domains matching target brand patterns to detect phishing campaigns early.
 
@@ -304,14 +304,14 @@ Within the [Prismatic Platform](/apps/prismatic/), SecurityTrails serves as the 
 
 ## Related Providers
 
-- [DNSDumpster](/osint/dnsdumpster/) - Free DNS reconnaissance tool
-- [ViewDNS](/osint/viewdns/) - Reverse IP and DNS toolkit
-- [WhoisXML API](/osint/whoisxml/) - WHOIS and DNS intelligence
-- [RiskIQ](/osint/riskiq/) - Passive DNS with host pairs and web crawling
-- [PassiveDNS](/osint/passivedns/) - Historical DNS resolution databases
-- [Censys](/osint/censys/) - Internet-wide scanning with certificate intelligence
-- [Shodan](/osint/shodan/) - Device and service discovery for discovered IPs
-- [crt.sh](/osint/crtsh/) - Certificate transparency for subdomain discovery
+- [DNSDumpster](@/osint/dnsdumpster.md) - Free DNS reconnaissance tool
+- [ViewDNS](@/osint/viewdns.md) - Reverse IP and DNS toolkit
+- [WhoisXML API](@/osint/whoisxml.md) - WHOIS and DNS intelligence
+- [RiskIQ](@/osint/riskiq.md) - Passive DNS with host pairs and web crawling
+- [PassiveDNS](@/osint/passivedns.md) - Historical DNS resolution databases
+- [Censys](@/osint/censys.md) - Internet-wide scanning with certificate intelligence
+- [Shodan](@/osint/shodan.md) - Device and service discovery for discovered IPs
+- [crt.sh](@/osint/crtsh.md) - Certificate transparency for subdomain discovery
 
 ---
 
@@ -320,4 +320,4 @@ Within the [Prismatic Platform](/apps/prismatic/), SecurityTrails serves as the 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

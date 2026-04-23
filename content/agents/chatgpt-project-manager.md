@@ -28,9 +28,9 @@ image_alt = "chatgpt-project-manager - Prismatic Platform"
 
 ## Executive Summary
 
-The ChatGPT Project Manager operates as an L3 [strategic command](/glossary/strategic-command/) agent within the AI Project Lifecycle Management domain of the Prismatic Platform. This agent leverages ChatGPT's capabilities to coordinate project planning, task decomposition, and milestone tracking for AI-related development initiatives across the platform. It translates high-level project objectives into structured work breakdowns that align with the platform's [AIAD](/glossary/aiad/) agent ecosystem and evolutionary development methodology.
+The ChatGPT Project Manager operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the AI Project Lifecycle Management domain of the Prismatic Platform. This agent leverages ChatGPT's capabilities to coordinate project planning, task decomposition, and milestone tracking for AI-related development initiatives across the platform. It translates high-level project objectives into structured work breakdowns that align with the platform's [AIAD](@/glossary/aiad.md) agent ecosystem and evolutionary development methodology.
 
-In a platform where AI development spans multiple concurrent workstreams -- from [OSINT](/glossary/osint/) intelligence pipelines to compliance automation to ecosystem evolution -- project coordination complexity exceeds what traditional project management tools can handle effectively. The ChatGPT Project Manager combines ChatGPT's broad knowledge of software project management practices with the platform's internal [telemetry](/glossary/telemetry/) and velocity data. This synthesis generates project plans that account for both industry best practices and platform-specific constraints such as OTP supervision tree dependencies, umbrella application build order requirements, and quality gate compliance timelines.
+In a platform where AI development spans multiple concurrent workstreams -- from [OSINT](@/glossary/osint.md) intelligence pipelines to compliance automation to ecosystem evolution -- project coordination complexity exceeds what traditional project management tools can handle effectively. The ChatGPT Project Manager combines ChatGPT's broad knowledge of software project management practices with the platform's internal [telemetry](@/glossary/telemetry.md) and velocity data. This synthesis generates project plans that account for both industry best practices and platform-specific constraints such as OTP supervision tree dependencies, umbrella application build order requirements, and quality gate compliance timelines.
 
 ## Architecture
 
@@ -149,11 +149,11 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [chatgpt-bridge-commander](/agents/chatgpt-bridge-commander/) | Integration Bridge | Manages ChatGPT API communication protocols and [rate limiting](/glossary/rate-limiting/) |
-| [chatgpt-workflow-orchestrator](/agents/chatgpt-workflow-orchestrator/) | Workflow Partner | Coordinates automated workflow execution for project task automation |
-| [chatgpt-context-manager](/agents/chatgpt-context-manager/) | Context Authority | Maintains project context across ChatGPT consultation interactions |
-| [chatgpt-consultation-coordinator](/agents/chatgpt-consultation-coordinator/) | Consultation Management | Manages multi-turn planning consultation sessions |
-| [supreme-coordinator](/agents/supreme-coordinator/) | Strategic Authority | Provides strategic priorities that guide project planning decisions |
+| [chatgpt-bridge-commander](@/agents/chatgpt-bridge-commander.md) | Integration Bridge | Manages ChatGPT API communication protocols and [rate limiting](@/glossary/rate-limiting.md) |
+| [chatgpt-workflow-orchestrator](@/agents/chatgpt-workflow-orchestrator.md) | Workflow Partner | Coordinates automated workflow execution for project task automation |
+| [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) | Context Authority | Maintains project context across ChatGPT consultation interactions |
+| [chatgpt-consultation-coordinator](@/agents/chatgpt-consultation-coordinator.md) | Consultation Management | Manages multi-turn planning consultation sessions |
+| [supreme-coordinator](@/agents/supreme-coordinator.md) | Strategic Authority | Provides strategic priorities that guide project planning decisions |
 
 ## Operational Workflow
 
@@ -180,7 +180,7 @@ end
 
 ## NABLA Compliance
 
-**Time Decay**: The [Time Decay](/glossary/time-decay/) axiom ensures that stale project data is flagged and refreshed before influencing planning decisions. Velocity data older than 90 days receives diminished weighting. Milestone forecasts are automatically refreshed when underlying data changes.
+**Time Decay**: The [Time Decay](@/glossary/time-decay.md) axiom ensures that stale project data is flagged and refreshed before influencing planning decisions. Velocity data older than 90 days receives diminished weighting. Milestone forecasts are automatically refreshed when underlying data changes.
 
 **Signal Plurality**: Project estimates draw from multiple signal sources: historical velocity data, ChatGPT cross-industry knowledge, developer capacity assessments, and quality gate historical passage rates. No single source dominates planning decisions.
 
@@ -188,15 +188,15 @@ end
 
 ## Enforcement
 
-All project management operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Project plans must be evidence-based, with estimates derived from historical velocity data rather than optimistic speculation. No milestone is declared complete without verified acceptance criteria. The NABLA Time Decay axiom ensures that stale project data is flagged and refreshed before influencing planning decisions.
+All project management operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Project plans must be evidence-based, with estimates derived from historical velocity data rather than optimistic speculation. No milestone is declared complete without verified acceptance criteria. The NABLA Time Decay axiom ensures that stale project data is flagged and refreshed before influencing planning decisions.
 
 ## Related Resources
 
-- [chatgpt-consultation-coordinator](/agents/chatgpt-consultation-coordinator/) -- Multi-turn consultation management
-- [chatgpt-workflow-orchestrator](/agents/chatgpt-workflow-orchestrator/) -- Workflow automation
-- [chatgpt-context-manager](/agents/chatgpt-context-manager/) -- Context optimization
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-domain intelligence
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [chatgpt-consultation-coordinator](@/agents/chatgpt-consultation-coordinator.md) -- Multi-turn consultation management
+- [chatgpt-workflow-orchestrator](@/agents/chatgpt-workflow-orchestrator.md) -- Workflow automation
+- [chatgpt-context-manager](@/agents/chatgpt-context-manager.md) -- Context optimization
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-domain intelligence
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -205,4 +205,4 @@ All project management operations are governed by the [NO MERCY, NO DOUBTS](/glo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

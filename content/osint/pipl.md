@@ -27,9 +27,9 @@ image_alt = "Pipl - Prismatic Platform"
 
 Pipl is the world's largest people search engine for identity verification and people intelligence, maintaining profiles on over 3 billion unique identity records. Unlike consumer people-search sites, Pipl is designed for professional investigators, compliance teams, and fraud analysts who need to resolve fragmented identity data into comprehensive person profiles. The platform serves as the gold standard for identity resolution in the intelligence and compliance industries.
 
-Pipl's core technology is id[entity resolution](/glossary/entity-resolution/) -- the ability to take a single data point (email, phone, name, username) and link it to a complete identity profile by correlating data across public records, social media, deep web sources, and proprietary data partnerships. The platform excels at connecting online identities (social media accounts, email addresses, usernames) with real-world identities (full names, addresses, phone numbers, employment records). This cross-domain linking capability is what distinguishes Pipl from simpler people search tools that operate within a single data domain.
+Pipl's core technology is id[entity resolution](@/glossary/entity-resolution.md) -- the ability to take a single data point (email, phone, name, username) and link it to a complete identity profile by correlating data across public records, social media, deep web sources, and proprietary data partnerships. The platform excels at connecting online identities (social media accounts, email addresses, usernames) with real-world identities (full names, addresses, phone numbers, employment records). This cross-domain linking capability is what distinguishes Pipl from simpler people search tools that operate within a single data domain.
 
-For [OSINT](/glossary/osint/) investigations, Pipl is particularly valuable when starting with minimal information. An email address or phone number can unlock an entire identity graph including social media profiles across multiple platforms, historical addresses, associated phone numbers, and employment history. This makes Pipl a critical first step in person-focused investigations before drilling into more specialized sources like [LinkedIn Sales Navigator](/osint/linkedin-sales/) for professional context or [Clearbit](/osint/clearbit/) for corporate enrichment.
+For [OSINT](@/glossary/osint.md) investigations, Pipl is particularly valuable when starting with minimal information. An email address or phone number can unlock an entire identity graph including social media profiles across multiple platforms, historical addresses, associated phone numbers, and employment history. This makes Pipl a critical first step in person-focused investigations before drilling into more specialized sources like [LinkedIn Sales Navigator](@/osint/linkedin-sales.md) for professional context or [Clearbit](@/osint/clearbit.md) for corporate enrichment.
 
 ## Data Sources and Coverage
 
@@ -75,7 +75,7 @@ The adapter implements privacy-aware processing that respects data minimization 
 
 ## API Integration
 
-Pipl provides deep person intelligence for the Prismatic platform's entity investigation pipeline, complementing corporate data from [Crunchbase](/osint/crunchbase/) and [ZoomInfo](/osint/zoominfo/) with personal identity context.
+Pipl provides deep person intelligence for the Prismatic platform's entity investigation pipeline, complementing corporate data from [Crunchbase](@/osint/crunchbase.md) and [ZoomInfo](@/osint/zoominfo.md) with personal identity context.
 
 ```elixir
 # Search by email address
@@ -172,7 +172,7 @@ end
 ### Identity Verification
 - Resolve email addresses to full person profiles for KYC compliance with confidence scoring
 - Verify identity claims against aggregated public records and social media data
-- Cross-reference with [ARES](/osint/ares/) for Czech business owner verification connecting personal and corporate identities
+- Cross-reference with [ARES](@/osint/ares.md) for Czech business owner verification connecting personal and corporate identities
 - Detect synthetic identities by analyzing profile consistency across multiple data sources
 
 ### Fraud Investigation
@@ -240,13 +240,13 @@ The Unknown Valid axiom is particularly relevant for identity resolution, where 
 
 ## Related Resources
 
-- [Clearbit](/osint/clearbit/) - Company and person enrichment from email/domain
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach exposure for discovered email addresses
-- [Social Searcher](/osint/social-searcher/) - Social media monitoring and search
-- [LinkedIn Sales Navigator](/osint/linkedin-sales/) - Professional network intelligence
-- [ZoomInfo](/osint/zoominfo/) - B2B contact and organizational data
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Person identity enrichment
+- [Clearbit](@/osint/clearbit.md) - Company and person enrichment from email/domain
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach exposure for discovered email addresses
+- [Social Searcher](@/osint/social-searcher.md) - Social media monitoring and search
+- [LinkedIn Sales Navigator](@/osint/linkedin-sales.md) - Professional network intelligence
+- [ZoomInfo](@/osint/zoominfo.md) - B2B contact and organizational data
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Person identity enrichment
 
 ---
 
@@ -255,4 +255,4 @@ The Unknown Valid axiom is particularly relevant for identity resolution, where 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

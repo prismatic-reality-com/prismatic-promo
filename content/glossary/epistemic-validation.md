@@ -390,24 +390,24 @@ Before the platform advances to a new generation (currently Gen 19), the evoluti
 
 ## Related Concepts
 
-- [Epistemic Development](/glossary/epistemic-development/) -- The broader methodology within which epistemic validation operates as the primary verification mechanism.
-- [Trinity Gate](/glossary/trinity-gate/) -- The three-layer verification gate (structural, logical, formal) that provides the highest level of epistemic validation.
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework defining the seven axioms enforced during validation.
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- The doctrine ensuring that contradicting evidence is never discarded during validation.
-- [Signal Plurality](/glossary/signal-plurality/) -- The axiom requiring minimum two independent evidence sources for validated beliefs.
-- [Confidence Threshold](/glossary/confidence-threshold/) -- The context-dependent minimum confidence levels enforced by the validation pipeline.
-- [Formal Verification](/glossary/formal-verification/) -- Mathematical proof techniques serving as one evidence source in the validation pipeline.
-- [Evidence](/glossary/evidence/) -- The fundamental data unit consumed and produced by the validation process.
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement mechanisms that integrate epistemic validation into the CI/CD pipeline.
-- [Proves Before Claiming](/glossary/proves-before-claiming/) -- The operational principle that epistemic validation must precede any system assertion.
+- [Epistemic Development](@/glossary/epistemic-development.md) -- The broader methodology within which epistemic validation operates as the primary verification mechanism.
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The three-layer verification gate (structural, logical, formal) that provides the highest level of epistemic validation.
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework defining the seven axioms enforced during validation.
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- The doctrine ensuring that contradicting evidence is never discarded during validation.
+- [Signal Plurality](@/glossary/signal-plurality.md) -- The axiom requiring minimum two independent evidence sources for validated beliefs.
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- The context-dependent minimum confidence levels enforced by the validation pipeline.
+- [Formal Verification](@/glossary/formal-verification.md) -- Mathematical proof techniques serving as one evidence source in the validation pipeline.
+- [Evidence](@/glossary/evidence.md) -- The fundamental data unit consumed and produced by the validation process.
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement mechanisms that integrate epistemic validation into the CI/CD pipeline.
+- [Proves Before Claiming](@/glossary/proves-before-claiming.md) -- The operational principle that epistemic validation must precede any system assertion.
 
 ## See Also
 
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- The concrete multi-stage implementation of the validation flow.
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- How well validated knowledge withstands adversarial challenges.
-- [Continuous Validation](/glossary/continuous-validation/) -- The practice of re-validating beliefs over time with fresh evidence.
-- [Verification](/glossary/verification/) -- General verification concepts and their relationship to epistemic validation.
-- [Property-Based Testing](/glossary/property-based-testing/) -- A statistical evidence source that feeds into the epistemic validation pipeline.
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- The concrete multi-stage implementation of the validation flow.
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- How well validated knowledge withstands adversarial challenges.
+- [Continuous Validation](@/glossary/continuous-validation.md) -- The practice of re-validating beliefs over time with fresh evidence.
+- [Verification](@/glossary/verification.md) -- General verification concepts and their relationship to epistemic validation.
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- A statistical evidence source that feeds into the epistemic validation pipeline.
 
 ---
 
@@ -416,4 +416,4 @@ Before the platform advances to a new generation (currently Gen 19), the evoluti
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** -- Building verifiable knowledge systems with rigorous epistemic foundations.
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | Glossary Index
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | Glossary Index

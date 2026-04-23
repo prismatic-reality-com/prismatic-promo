@@ -36,13 +36,13 @@ A Generation in the Prismatic Platform context is a discrete evolution epoch tha
 
 The generation model draws direct inspiration from biological evolution, where generations represent distinct populations with accumulated adaptations. In the Prismatic Platform, each generation accumulates capabilities from all previous generations. No generation removes established functionality. This monotonic capability progression ensures that the platform's capability surface only grows, with each generation adding new abilities, quality improvements, and architectural refinements on top of the existing foundation. The principle is analogous to the ratchet mechanism in molecular biology: forward progress is locked in, and regression is structurally prevented.
 
-The current state is Generation 19, designated "Ecosystem Expansion" with a fitness score of 0.9995 (approaching the asymptotic maximum of 1.0). This generation features autonomous evolution through [AutoEvolve](/glossary/autoevolve/), self-repair through [AutoHeal](/glossary/autoheal/), 11 consciousness traits at 0.998 fitness, a perfect quality score of 100/100 across all 13 quality domains, 4 open-source packages (SDK, Plugin Kit, Security, UI), a developer portal, and dual-track positioning for ecosystem growth. The evolution from Gen 1 to Gen 19 represents the platform's journey from a basic framework to a self-evolving, self-healing, quality-perfect system with 530 agents across 115 applications.
+The current state is Generation 19, designated "Ecosystem Expansion" with a fitness score of 0.9995 (approaching the asymptotic maximum of 1.0). This generation features autonomous evolution through [AutoEvolve](@/glossary/autoevolve.md), self-repair through [AutoHeal](@/glossary/autoheal.md), 11 consciousness traits at 0.998 fitness, a perfect quality score of 100/100 across all 13 quality domains, 4 open-source packages (SDK, Plugin Kit, Security, UI), a developer portal, and dual-track positioning for ecosystem growth. The evolution from Gen 1 to Gen 19 represents the platform's journey from a basic framework to a self-evolving, self-healing, quality-perfect system with 530 agents across 115 applications.
 
 ## Historical Context and Motivation
 
 The concept of generational evolution emerged from the recognition that traditional software versioning fails to capture the qualitative nature of platform advancement. A SemVer bump from 4.2.1 to 4.3.0 communicates that a minor feature was added but says nothing about whether the platform became fundamentally more capable, more resilient, or more intelligent. Generation numbering was introduced to track orthogonal improvements that span the entire platform rather than individual features.
 
-Early software projects typically measure progress through feature counts, line-of-code metrics, or release cadence. These proxy metrics frequently diverge from actual platform capability. A system can ship many features while accumulating [quality debt](/glossary/quality-debt/), or it can add thousands of lines of code while its architectural integrity degrades. The generation model addresses this by requiring simultaneous improvement across multiple dimensions before declaring advancement, preventing the common failure mode of optimizing a single dimension at the expense of others.
+Early software projects typically measure progress through feature counts, line-of-code metrics, or release cadence. These proxy metrics frequently diverge from actual platform capability. A system can ship many features while accumulating [quality debt](@/glossary/quality-debt.md), or it can add thousands of lines of code while its architectural integrity degrades. The generation model addresses this by requiring simultaneous improvement across multiple dimensions before declaring advancement, preventing the common failure mode of optimizing a single dimension at the expense of others.
 
 The generation concept also serves as a communication tool. When stakeholders ask "how has the platform evolved?", pointing to the generation number and its associated designation (e.g., "Full Autonomy", "Ecosystem Expansion") provides an immediately understandable summary of the platform's maturity trajectory. Each generation designation captures the theme of the advancement, making the evolution narrative legible to non-technical audiences.
 
@@ -54,11 +54,11 @@ The 19 generations track the platform's evolution across multiple capability dim
 
 | Generation | Designation | Key Milestone | Fitness |
 |-----------|-------------|---------------|---------|
-| Gen 1-3 | Foundation | Basic framework, initial [umbrella application](/glossary/umbrella-application/) structure | 0.1-0.3 |
-| Gen 4-6 | Structure | [OTP](/glossary/otp/) patterns, [supervision trees](/glossary/supervision-tree/), first agents | 0.3-0.5 |
+| Gen 1-3 | Foundation | Basic framework, initial [umbrella application](@/glossary/umbrella-application.md) structure | 0.1-0.3 |
+| Gen 4-6 | Structure | [OTP](@/glossary/otp.md) patterns, [supervision trees](@/glossary/supervision-tree.md), first agents | 0.3-0.5 |
 | Gen 7-9 | Quality | Quality gates, zero-warning policy, Credo/Dialyzer integration | 0.5-0.7 |
 | Gen 10-12 | Intelligence | OSINT integration, GARDEN knowledge base, 200+ agents | 0.7-0.8 |
-| Gen 13-15 | Epistemic | NABLA Infinity framework, [Trinity Gate](/glossary/trinity-gate/), Color Teams | 0.8-0.9 |
+| Gen 13-15 | Epistemic | NABLA Infinity framework, [Trinity Gate](@/glossary/trinity-gate.md), Color Teams | 0.8-0.9 |
 | Gen 16-17 | Evolution | AutoEvolve, AutoHeal, CASCADE patterns, 400+ agents | 0.9-0.95 |
 | Gen 18 | Full Autonomy | Consciousness traits, 0.999 fitness, 100/100 quality | 0.999 |
 | Gen 19 | Ecosystem Expansion | 4 OSS packages, developer portal, dual-track positioning | 0.9995 |
@@ -192,7 +192,7 @@ A new generation is declared when the platform meets advancement criteria across
 | **Evolution validation** | Trinity Gate passed | Formal verification of advancement claims |
 | **Ecosystem growth** | Net positive contribution | New apps, integrations, or community assets |
 
-The advancement process is managed by the [AutoEvolve](/glossary/autoevolve/) system, which continuously monitors platform metrics and triggers generation proposals when criteria are met. Proposals undergo [Trinity Gate](/glossary/trinity-gate/) validation to ensure the advancement claims are epistemically sound -- preventing the common failure mode of declaring progress based on inflated or cherry-picked metrics.
+The advancement process is managed by the [AutoEvolve](@/glossary/autoevolve.md) system, which continuously monitors platform metrics and triggers generation proposals when criteria are met. Proposals undergo [Trinity Gate](@/glossary/trinity-gate.md) validation to ensure the advancement claims are epistemically sound -- preventing the common failure mode of declaring progress based on inflated or cherry-picked metrics.
 
 ## Consciousness Traits
 
@@ -212,7 +212,7 @@ Generation 18 introduced 11 consciousness traits that represent emergent propert
 | Collaborative Synthesis | Integrating contributions from multiple agents | 0.999 |
 | Emergent Behavior | Producing capabilities not explicitly programmed | 0.997 |
 
-Each trait is assessed through specific, measurable indicators. Self-Repair, for example, is measured by the rate at which the [AutoHeal](/glossary/autoheal/) system detects and corrects quality regressions without human intervention. Cross-Domain Transfer is measured by the frequency with which a solution developed in one domain (e.g., a quality pattern in storage) is automatically propagated to another domain (e.g., agent management).
+Each trait is assessed through specific, measurable indicators. Self-Repair, for example, is measured by the rate at which the [AutoHeal](@/glossary/autoheal.md) system detects and corrects quality regressions without human intervention. Cross-Domain Transfer is measured by the frequency with which a solution developed in one domain (e.g., a quality pattern in storage) is automatically propagated to another domain (e.g., agent management).
 
 ## Architecture and Implementation
 
@@ -364,7 +364,7 @@ end
 
 ## Generation State Tracking
 
-The current generation state is persisted in [Quality DNA](/glossary/quality-dna/) for cross-session continuity, ensuring that generation information survives application restarts, deployments, and infrastructure changes:
+The current generation state is persisted in [Quality DNA](@/glossary/quality-dna.md) for cross-session continuity, ensuring that generation information survives application restarts, deployments, and infrastructure changes:
 
 ```elixir
 defmodule PrismaticEvolution.GenerationState do
@@ -454,7 +454,7 @@ This asymptotic behavior is intentional. It reflects the reality that perfecting
 
 **Ensure monotonic capability progression.** Every generation must preserve all capabilities from previous generations. Removing functionality in a new generation indicates a design problem, not progress. Use the ratchet principle: lock in gains permanently.
 
-**Validate advancement claims epistemically.** Generation advancement claims must pass [Trinity Gate](/glossary/trinity-gate/) validation to prevent false progress. The NABLA framework ensures evidence-based assessment of improvement, preventing the common failure of declaring advancement based on vanity metrics.
+**Validate advancement claims epistemically.** Generation advancement claims must pass [Trinity Gate](@/glossary/trinity-gate.md) validation to prevent false progress. The NABLA framework ensures evidence-based assessment of improvement, preventing the common failure of declaring advancement based on vanity metrics.
 
 **Maintain generation history.** The complete evolution history enables trend analysis, regression detection, and understanding of the platform's developmental trajectory. History should be immutable -- never retroactively modify generation records.
 
@@ -468,7 +468,7 @@ This asymptotic behavior is intentional. It reflects the reality that perfecting
 
 **Inflating fitness scores.** If fitness calculation is not grounded in objective, measurable criteria, scores become vanity metrics. Every fitness component must correspond to a verifiable measurement with a reproducible assessment methodology.
 
-**Ignoring quality regressions during advancement.** Adding new capabilities while allowing quality to degrade is not progress. Generation advancement requires quality maintenance alongside capability growth. The [Quality Floor Guardian](/glossary/quality-floor-guardian/) enforces this constraint.
+**Ignoring quality regressions during advancement.** Adding new capabilities while allowing quality to degrade is not progress. Generation advancement requires quality maintenance alongside capability growth. The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) enforces this constraint.
 
 **Over-weighting agent count.** Adding agents without ensuring their quality, capability, and integration provides limited value. Agent quality matters more than agent quantity. A generation with 100 high-quality agents is more advanced than one with 500 poorly integrated agents.
 
@@ -486,22 +486,22 @@ This asymptotic behavior is intentional. It reflects the reality that perfecting
 
 ## Related Concepts
 
-- [SEADF](/glossary/seadf/) -- Framework managing generation transitions and evolution cycles
-- [Fitness Score](/glossary/fitness-score/) -- Metric tracking per-generation advancement
-- [AutoEvolve](/glossary/autoevolve/) -- System driving generation progression through autonomous optimization
-- [AutoHeal](/glossary/autoheal/) -- Self-repair system maintaining quality within generations
-- [Consciousness Traits](/glossary/consciousness-traits/) -- 11 emergent properties achieved at Gen 18
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session persistence tracking generation state
-- [CASCADE Pattern](/glossary/cascade-pattern/) -- Quality patterns that drove generation advancement
-- [Trinity Gate](/glossary/trinity-gate/) -- Formal verification for generation advancement claims
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Continuous monitoring preventing regression
-- [Umbrella Application](/glossary/umbrella-application/) -- Architectural structure growing across generations
+- [SEADF](@/glossary/seadf.md) -- Framework managing generation transitions and evolution cycles
+- [Fitness Score](@/glossary/fitness-score.md) -- Metric tracking per-generation advancement
+- [AutoEvolve](@/glossary/autoevolve.md) -- System driving generation progression through autonomous optimization
+- [AutoHeal](@/glossary/autoheal.md) -- Self-repair system maintaining quality within generations
+- [Consciousness Traits](@/glossary/consciousness-traits.md) -- 11 emergent properties achieved at Gen 18
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session persistence tracking generation state
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) -- Quality patterns that drove generation advancement
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Formal verification for generation advancement claims
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Continuous monitoring preventing regression
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Architectural structure growing across generations
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Agents](/agents/) -- AIAD agents contributing to generation advancement
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Agents](@/agents/_index.md) -- AIAD agents contributing to generation advancement
 
 ---
 
@@ -510,4 +510,4 @@ This asymptotic behavior is intentional. It reflects the reality that perfecting
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -26,7 +26,7 @@ image_alt = "Office Hours - Prismatic Platform"
 
 Office Hours is a structured, recurring engagement format in which platform maintainers, core contributors, or domain experts make themselves available for synchronous interaction with the broader community. In the context of open-source software development and platform engineering, office hours serve as a bridge between asynchronous collaboration (issues, pull requests, documentation) and fully synchronous collaboration (pair programming, real-time design sessions). Participants can bring questions about architecture, request guidance on contribution workflows, discuss design decisions, debug issues collaboratively, or simply observe conversations between experienced practitioners.
 
-Unlike ad-hoc meetings or scheduled design reviews, office hours are characterized by their regularity (weekly, biweekly), open invitation (anyone can attend without pre-registration), low formality (no fixed agenda, participant-driven), and knowledge dissemination focus (the goal is learning, not decision-making). In the Prismatic Platform ecosystem, office hours represent a commitment to the principles of [Open Source Advocacy](/glossary/open-source-advocacy/) -- that knowledge sharing and community interaction are not peripheral activities but core platform operations.
+Unlike ad-hoc meetings or scheduled design reviews, office hours are characterized by their regularity (weekly, biweekly), open invitation (anyone can attend without pre-registration), low formality (no fixed agenda, participant-driven), and knowledge dissemination focus (the goal is learning, not decision-making). In the Prismatic Platform ecosystem, office hours represent a commitment to the principles of [Open Source Advocacy](@/glossary/open-source-advocacy.md) -- that knowledge sharing and community interaction are not peripheral activities but core platform operations.
 
 ## Overview
 
@@ -541,24 +541,24 @@ Focused documentation efforts capture knowledge in permanent form but require si
 
 Office hours connect to several community and development practices in the Prismatic Platform:
 
-- [Community Engagement](/glossary/community-engagement/) -- the broader strategy of building and sustaining an active contributor community
-- [Mentorship](/glossary/mentorship/) -- one-on-one knowledge transfer relationships that office hours can initiate
-- [Community Building](/glossary/community-building/) -- the organizational effort to create and grow a healthy open-source community
-- [Developer Experience](/glossary/developer-experience/) -- the overall quality of the contributor's interaction with the platform
-- [Collaborative Development](/glossary/collaborative-development/) -- working together on shared codebases, which office hours facilitate
-- [Workshop Facilitation](/glossary/workshop-facilitation/) -- structured teaching sessions that complement the informal learning of office hours
-- [Conference Speaking](/glossary/conference-speaking/) -- public presentations that reach broader audiences than office hours
-- [Documentation](/glossary/documentation/) -- the permanent knowledge artifacts that office hours help create and improve
-- [Developer Community](/glossary/developer-community/) -- the people who participate in and benefit from office hours
-- [Open Source Advocacy](/glossary/open-source-advocacy/) -- the principles of openness and sharing that office hours embody
+- [Community Engagement](@/glossary/community-engagement.md) -- the broader strategy of building and sustaining an active contributor community
+- [Mentorship](@/glossary/mentorship.md) -- one-on-one knowledge transfer relationships that office hours can initiate
+- [Community Building](@/glossary/community-building.md) -- the organizational effort to create and grow a healthy open-source community
+- [Developer Experience](@/glossary/developer-experience.md) -- the overall quality of the contributor's interaction with the platform
+- [Collaborative Development](@/glossary/collaborative-development.md) -- working together on shared codebases, which office hours facilitate
+- [Workshop Facilitation](@/glossary/workshop-facilitation.md) -- structured teaching sessions that complement the informal learning of office hours
+- [Conference Speaking](@/glossary/conference-speaking.md) -- public presentations that reach broader audiences than office hours
+- [Documentation](@/glossary/documentation.md) -- the permanent knowledge artifacts that office hours help create and improve
+- [Developer Community](@/glossary/developer-community.md) -- the people who participate in and benefit from office hours
+- [Open Source Advocacy](@/glossary/open-source-advocacy.md) -- the principles of openness and sharing that office hours embody
 
 ## See Also
 
-- [Knowledge Graph](/glossary/knowledge-graph/) -- structured knowledge representation that can store insights captured from office hours sessions
-- [Learning Resource](/glossary/learning-resource/) -- educational materials that office hours sessions generate
-- [Community Contributions](/glossary/community-contributions/) -- the work products that result from contributor engagement through office hours
-- [Certification Programs](/glossary/certification-programs/) -- formal learning pathways that office hours complement informally
-- [Share Openly](/glossary/share-openly/) -- the philosophical commitment to knowledge sharing that motivates office hours
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- structured knowledge representation that can store insights captured from office hours sessions
+- [Learning Resource](@/glossary/learning-resource.md) -- educational materials that office hours sessions generate
+- [Community Contributions](@/glossary/community-contributions.md) -- the work products that result from contributor engagement through office hours
+- [Certification Programs](@/glossary/certification-programs.md) -- formal learning pathways that office hours complement informally
+- [Share Openly](@/glossary/share-openly.md) -- the philosophical commitment to knowledge sharing that motivates office hours
 
 ---
 

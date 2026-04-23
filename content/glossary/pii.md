@@ -217,9 +217,9 @@ end
 
 ## Cross-References
 
-- [PEP](/glossary/pep/) - Politically exposed persons whose PII requires enhanced due diligence
+- [PEP](@/glossary/pep.md) - Politically exposed persons whose PII requires enhanced due diligence
 - **Sanctions** - Restrictive measures databases containing PII of designated individuals
-- [Permission](/glossary/permission/) - Access rights governing who can view PII fields
+- [Permission](@/glossary/permission.md) - Access rights governing who can view PII fields
 - **Secrets** - Encryption keys and credentials protecting PII at rest
 - **Provenance** - Origin tracking satisfying GDPR data lineage requirements
 

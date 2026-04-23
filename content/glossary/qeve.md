@@ -23,7 +23,7 @@ image_alt = "QEVE - Prismatic Platform"
 
 QEVE (Quantified Epistemic Verification Engine) is the Prismatic Platform's formal verification framework that synthesizes three complementary methodologies into a unified validation pipeline: Lean4 theorem proving for mathematical certainty, NABLA axiom enforcement for epistemic rigor, and Monte Carlo simulation for probabilistic robustness testing. Unlike conventional validation approaches that rely on a single method, QEVE produces auditable, formally grounded, robustness-tested conclusions with quantified confidence, uncertainty, and stability metrics.
 
-The engine occupies a critical position in the platform's epistemic infrastructure. Where [NABLA Infinity](/glossary/nabla-infinity/) governs how beliefs are formed and [Trinity Gate](/glossary/trinity-gate/) governs whether beliefs are accepted, QEVE provides the verification machinery that bridges the two. Every claim that passes through the epistemic pipeline undergoes QEVE validation before it can influence downstream decisions.
+The engine occupies a critical position in the platform's epistemic infrastructure. Where [NABLA Infinity](@/glossary/nabla-infinity.md) governs how beliefs are formed and [Trinity Gate](@/glossary/trinity-gate.md) governs whether beliefs are accepted, QEVE provides the verification machinery that bridges the two. Every claim that passes through the epistemic pipeline undergoes QEVE validation before it can influence downstream decisions.
 
 Most AI systems produce scores. QEVE produces conclusions that answer three questions simultaneously: **Is this logically necessary?** (formal layer), **Is this epistemically sound?** (NABLA layer), and **Is this robust under perturbation?** (Monte Carlo layer). The combination ensures that no conclusion rests on fragile assumptions, hidden contradictions, or untested edge cases.
 
@@ -56,7 +56,7 @@ The architecture ensures that formal proofs are never applied to structurally un
 
 ### Stage 1: Graph Build (NABLA Layer)
 
-The pipeline begins by constructing the belief graph from available evidence signals. This stage enforces the seven [NABLA Infinity](/glossary/nabla-infinity/) axioms directly:
+The pipeline begins by constructing the belief graph from available evidence signals. This stage enforces the seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms directly:
 
 - **Build the belief graph** from all available evidence, linking signals to hypotheses through weighted edges
 - **Compute signal plurality** by verifying that every belief node has at least two independent supporting signals (hard enforcement)
@@ -88,7 +88,7 @@ The logical check applies rule-based evaluation to the structurally valid belief
 
 ### Stage 4: Lean4 Formal Layer
 
-The formal layer uses [Lean4](/glossary/lean4/) theorem proving to establish mathematical certainty for the core claims:
+The formal layer uses [Lean4](@/glossary/lean4.md) theorem proving to establish mathematical certainty for the core claims:
 
 - **Theorem generation**: Translate the critical hypothesis and its supporting evidence chain into a Lean4 theorem statement
 - **Proof search**: Attempt to prove the theorem using Lean4's automated and interactive proving capabilities
@@ -236,25 +236,25 @@ QEVE distinguishes itself from conventional AI validation approaches in several 
 
 **Contradiction preservation over resolution**. QEVE does not attempt to resolve contradictions. It preserves them, quantifies their impact, and reports them to the decision-maker. Premature contradiction resolution is one of the most common failure modes in automated reasoning systems.
 
-**Composability with the epistemic pipeline**. QEVE is not a standalone tool. Its outputs feed directly into [Trinity Gate](/glossary/trinity-gate/) validation, and its inputs are governed by [NABLA Infinity](/glossary/nabla-infinity/) axioms. This integration ensures that verification is not an afterthought but a structural component of the platform's reasoning infrastructure.
+**Composability with the epistemic pipeline**. QEVE is not a standalone tool. Its outputs feed directly into [Trinity Gate](@/glossary/trinity-gate.md) validation, and its inputs are governed by [NABLA Infinity](@/glossary/nabla-infinity.md) axioms. This integration ensures that verification is not an afterthought but a structural component of the platform's reasoning infrastructure.
 
 ## Related Terms
 
-- [Lean4](/glossary/lean4/) -- Theorem prover powering QEVE's formal verification layer
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing QEVE's belief graph construction
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate consuming QEVE outputs for belief acceptance
-- [White Team](/glossary/white-team/) -- Constructive verification team that uses QEVE methods extensively
-- [Signal Plurality](/glossary/signal-plurality/) -- NABLA axiom enforced in QEVE's graph build stage
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Decision thresholds applied to QEVE confidence scores
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom ensuring QEVE evidence chains are fully traceable
-- [Property-Based Testing](/glossary/property-based-testing/) -- Complementary testing approach used alongside QEVE
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- The 16-level pipeline in which QEVE operates
-- [Color Teams](/glossary/color-teams/) -- Security teams whose outputs are validated through QEVE
+- [Lean4](@/glossary/lean4.md) -- Theorem prover powering QEVE's formal verification layer
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing QEVE's belief graph construction
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate consuming QEVE outputs for belief acceptance
+- [White Team](@/glossary/white-team.md) -- Constructive verification team that uses QEVE methods extensively
+- [Signal Plurality](@/glossary/signal-plurality.md) -- NABLA axiom enforced in QEVE's graph build stage
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Decision thresholds applied to QEVE confidence scores
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom ensuring QEVE evidence chains are fully traceable
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Complementary testing approach used alongside QEVE
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- The 16-level pipeline in which QEVE operates
+- [Color Teams](@/glossary/color-teams.md) -- Security teams whose outputs are validated through QEVE
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -263,4 +263,4 @@ QEVE distinguishes itself from conventional AI validation approaches in several 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

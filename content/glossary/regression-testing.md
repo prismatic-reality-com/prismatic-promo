@@ -38,7 +38,7 @@ image_alt = "Regression Testing - Prismatic Platform"
 
 **Regression testing** is a software testing methodology that verifies previously working functionality has not been broken, degraded, or altered in unintended ways by recent code changes -- including bug fixes, feature additions, refactoring, dependency upgrades, and configuration modifications. The term "regression" refers to the unwanted reversion of a system to a less capable state, where a function that previously worked correctly now fails. Regression testing detects these reversions before they reach users by re-executing existing tests and, critically, by adding new tests that specifically target the root cause of each fixed bug.
 
-In the [Prismatic Platform](/glossary/application/), regression testing is elevated from a best practice to a **mandatory, non-bypassable protocol (P0 - ABSOLUTE)**. The Mandatory Regression Test Protocol requires that every bug fix operation includes: (1) identifying the root cause, (2) creating regression tests that would have caught the bug, (3) verifying tests fail with unfixed code, (4) applying the fix, (5) verifying tests pass with fixed code, and (6) reporting completion. This protocol is enforced through [pre-commit hooks](/glossary/clean-run/), [CI/CD gates](/glossary/continuous-integration/), and the [NM/ND doctrine](/glossary/compliance-framework/), making it structurally impossible to merge a bug fix without corresponding regression tests.
+In the [Prismatic Platform](@/glossary/application.md), regression testing is elevated from a best practice to a **mandatory, non-bypassable protocol (P0 - ABSOLUTE)**. The Mandatory Regression Test Protocol requires that every bug fix operation includes: (1) identifying the root cause, (2) creating regression tests that would have caught the bug, (3) verifying tests fail with unfixed code, (4) applying the fix, (5) verifying tests pass with fixed code, and (6) reporting completion. This protocol is enforced through [pre-commit hooks](@/glossary/clean-run.md), [CI/CD gates](@/glossary/continuous-integration.md), and the [NM/ND doctrine](@/glossary/compliance-framework.md), making it structurally impossible to merge a bug fix without corresponding regression tests.
 
 ## Overview
 
@@ -50,9 +50,9 @@ The evolution of regression testing in the platform follows three maturity level
 
 **Level 2 - Proactive**: Every bug fix must include a test that reproduces the bug before the fix and verifies the fix works. This ensures that each specific bug can never recur undetected.
 
-**Level 3 - Predictive** (Prismatic's current state): Combine proactive regression tests with [property-based testing](/glossary/exunit/) that generates randomized inputs to discover failure modes that humans would not anticipate. This catches not just the specific bug but entire classes of related bugs.
+**Level 3 - Predictive** (Prismatic's current state): Combine proactive regression tests with [property-based testing](@/glossary/exunit.md) that generates randomized inputs to discover failure modes that humans would not anticipate. This catches not just the specific bug but entire classes of related bugs.
 
-The platform's regression testing infrastructure is built on [ExUnit](/glossary/exunit/) (Elixir's built-in test framework), StreamData (property-based testing), and custom enforcement tooling that integrates with the 11-phase pre-commit hook system and [CI/CD pipeline](/glossary/continuous-integration/).
+The platform's regression testing infrastructure is built on [ExUnit](@/glossary/exunit.md) (Elixir's built-in test framework), StreamData (property-based testing), and custom enforcement tooling that integrates with the 11-phase pre-commit hook system and [CI/CD pipeline](@/glossary/continuous-integration.md).
 
 ## Technical Details
 
@@ -591,11 +591,11 @@ Integration tests verify cross-module interactions. Regression tests may operate
 
 ### Regression Testing vs. Property-Based Testing
 
-[Property-based testing](/glossary/exunit/) generates random inputs to discover invariant violations. Regression testing targets specific known failure modes. The Prismatic Platform combines both: property-based tests catch novel bugs, and each discovered bug produces regression tests that prevent recurrence. This creates a ratchet effect where the test suite becomes strictly more capable over time.
+[Property-based testing](@/glossary/exunit.md) generates random inputs to discover invariant violations. Regression testing targets specific known failure modes. The Prismatic Platform combines both: property-based tests catch novel bugs, and each discovered bug produces regression tests that prevent recurrence. This creates a ratchet effect where the test suite becomes strictly more capable over time.
 
 ### Regression Testing vs. Chaos Engineering
 
-[Chaos engineering](/glossary/chaos-engineering/) introduces failures into a running system to test resilience. Regression testing verifies specific failure modes in controlled conditions. Chaos engineering discovers unknown weaknesses; regression testing prevents known weaknesses from recurring.
+[Chaos engineering](@/glossary/chaos-engineering.md) introduces failures into a running system to test resilience. Regression testing verifies specific failure modes in controlled conditions. Chaos engineering discovers unknown weaknesses; regression testing prevents known weaknesses from recurring.
 
 | Aspect | Regression Testing | Unit Testing | Property-Based | Integration |
 |--------|-------------------|--------------|----------------|-------------|
@@ -617,7 +617,7 @@ Integration tests verify cross-module interactions. Regression tests may operate
 
 5. **Include edge cases around the bug**: When creating a regression test for a specific input that caused a bug, also test nearby inputs. If `0` caused a division-by-zero, also test `-1`, `1`, and very large numbers. This catches related bugs in the same code path.
 
-6. **Run the full regression suite in CI/CD**: Every [CI/CD pipeline](/glossary/continuous-integration/) run should execute all regression tests. The suite is the platform's immune memory; skipping it is like suppressing the immune system.
+6. **Run the full regression suite in CI/CD**: Every [CI/CD pipeline](@/glossary/continuous-integration.md) run should execute all regression tests. The suite is the platform's immune memory; skipping it is like suppressing the immune system.
 
 7. **Document the bug in the test**: Include comments in the test file explaining what the original bug was, how it manifested, and why the specific test inputs trigger it. Future maintainers need this context to understand why the test exists.
 
@@ -649,34 +649,34 @@ When refactoring code (improving structure without changing behavior), regressio
 
 When upgrading Elixir, OTP, or library dependencies, the regression test suite verifies that the upgrade does not reintroduce previously fixed bugs. This is particularly important for major version upgrades where internal behavior may change.
 
-### [Quality Gate](/glossary/clean-run/) Enforcement
+### [Quality Gate](@/glossary/clean-run.md) Enforcement
 
-Regression tests are a required quality gate in the platform's [pre-commit hook](/glossary/continuous-integration/) system. Bug fix commits that do not include regression tests are automatically blocked, enforcing the protocol without human intervention.
+Regression tests are a required quality gate in the platform's [pre-commit hook](@/glossary/continuous-integration.md) system. Bug fix commits that do not include regression tests are automatically blocked, enforcing the protocol without human intervention.
 
 ### Platform Evolution Validation
 
-As the platform evolves through [generations](/glossary/generation/), regression tests ensure that foundational behaviors are preserved. The test suite acts as a behavioral specification that must hold across all evolutionary changes.
+As the platform evolves through [generations](@/glossary/generation.md), regression tests ensure that foundational behaviors are preserved. The test suite acts as a behavioral specification that must hold across all evolutionary changes.
 
 ## Related Concepts
 
-- [ExUnit](/glossary/exunit/) -- Elixir's built-in test framework used for writing and executing regression tests
-- [Code Coverage](/glossary/code-coverage/) -- metric tracking what percentage of code is exercised by tests including regressions
-- [Continuous Integration](/glossary/continuous-integration/) -- the CI/CD infrastructure that runs regression suites on every commit
-- [Quality Gate](/glossary/clean-run/) -- automated checkpoints that include regression test validation
-- [Dialyzer](/glossary/dialyzer/) -- static type analysis that catches type-level regressions at compile time
-- [Credo](/glossary/credo/) -- static analysis tool that catches style and pattern regressions
-- [Fitness Score](/glossary/fitness-score/) -- platform health metric that includes regression test coverage
-- [Chaos Engineering](/glossary/chaos-engineering/) -- complementary testing approach for discovering unknown failure modes
-- [Fault Tolerance](/glossary/fault-tolerance/) -- system property that regression tests help preserve across changes
-- [Clean Run](/glossary/clean-run/) -- zero-warning build requirement that regression tests contribute to
+- [ExUnit](@/glossary/exunit.md) -- Elixir's built-in test framework used for writing and executing regression tests
+- [Code Coverage](@/glossary/code-coverage.md) -- metric tracking what percentage of code is exercised by tests including regressions
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the CI/CD infrastructure that runs regression suites on every commit
+- [Quality Gate](@/glossary/clean-run.md) -- automated checkpoints that include regression test validation
+- [Dialyzer](@/glossary/dialyzer.md) -- static type analysis that catches type-level regressions at compile time
+- [Credo](@/glossary/credo.md) -- static analysis tool that catches style and pattern regressions
+- [Fitness Score](@/glossary/fitness-score.md) -- platform health metric that includes regression test coverage
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- complementary testing approach for discovering unknown failure modes
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- system property that regression tests help preserve across changes
+- [Clean Run](@/glossary/clean-run.md) -- zero-warning build requirement that regression tests contribute to
 
 ## See Also
 
-- [Circuit Breaker](/glossary/circuit-breaker/) -- runtime resilience pattern whose behavior is validated through regression tests
-- [Event Sourcing](/glossary/event-sourcing/) -- pattern where regression tests verify event processing correctness
-- [Feature Flag](/glossary/feature-flag/) -- mechanism for safely deploying changes with regression test coverage
-- [Autoevolve](/glossary/autoevolve/) -- autonomous evolution system that monitors regression test health
-- [Autoheal](/glossary/autoheal/) -- self-healing system triggered when regression tests detect quality degradation
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- runtime resilience pattern whose behavior is validated through regression tests
+- [Event Sourcing](@/glossary/event-sourcing.md) -- pattern where regression tests verify event processing correctness
+- [Feature Flag](@/glossary/feature-flag.md) -- mechanism for safely deploying changes with regression test coverage
+- [Autoevolve](@/glossary/autoevolve.md) -- autonomous evolution system that monitors regression test health
+- [Autoheal](@/glossary/autoheal.md) -- self-healing system triggered when regression tests detect quality degradation
 
 ---
 
@@ -685,4 +685,4 @@ As the platform evolves through [generations](/glossary/generation/), regression
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

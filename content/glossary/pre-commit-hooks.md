@@ -46,9 +46,9 @@ The practice of automated pre-commit validation has evolved significantly since 
 
 The Python ecosystem's `pre-commit` framework (2014) popularized the concept of declarative hook configuration, spawning equivalents in every major language ecosystem. Husky (JavaScript), Overcommit (Ruby), and Lefthook (Go) followed, each providing framework-level hook management. The common thread across all these tools is the recognition that code quality cannot be maintained through human discipline alone -- it requires mechanical enforcement.
 
-In Elixir ecosystems specifically, the combination of compilation warnings (`--warnings-as-errors`), [Credo](/glossary/credo/) static analysis, [Dialyzer](/glossary/dialyzer/) type checking, and ExUnit testing creates a particularly rich pre-commit validation surface. The BEAM's compilation model, where individual modules can be recompiled independently, makes incremental pre-commit checks efficient even in large codebases.
+In Elixir ecosystems specifically, the combination of compilation warnings (`--warnings-as-errors`), [Credo](@/glossary/credo.md) static analysis, [Dialyzer](@/glossary/dialyzer.md) type checking, and ExUnit testing creates a particularly rich pre-commit validation surface. The BEAM's compilation model, where individual modules can be recompiled independently, makes incremental pre-commit checks efficient even in large codebases.
 
-The Prismatic Platform has elevated pre-commit hooks from a development convenience to a governance mechanism. Under the [NO MERCY, NO DOUBTS doctrine](/glossary/nm-nd/), pre-commit hooks are not optional tooling -- they are mandatory enforcement infrastructure. The `--no-verify` flag, which Git provides as an escape hatch to skip hooks, is classified as a violation-level offense subject to L4 Supreme Review escalation.
+The Prismatic Platform has elevated pre-commit hooks from a development convenience to a governance mechanism. Under the [NO MERCY, NO DOUBTS doctrine](@/glossary/nm-nd.md), pre-commit hooks are not optional tooling -- they are mandatory enforcement infrastructure. The `--no-verify` flag, which Git provides as an escape hatch to skip hooks, is classified as a violation-level offense subject to L4 Supreme Review escalation.
 
 ## Overview
 
@@ -275,7 +275,7 @@ The total hook execution time for a typical change (3-5 Elixir files) is 20-40 s
 
 ## No-Verify Prohibition
 
-The `--no-verify` flag is **absolutely forbidden** by the [Session Discipline](/glossary/session-discipline/) protocol:
+The `--no-verify` flag is **absolutely forbidden** by the [Session Discipline](@/glossary/session-discipline.md) protocol:
 
 | Action | Status | Consequence |
 |--------|--------|-------------|
@@ -285,11 +285,11 @@ The `--no-verify` flag is **absolutely forbidden** by the [Session Discipline](/
 | Removing hooks directory | FORBIDDEN | L4 Supreme Review escalation |
 | Setting empty `core.hooksPath` | FORBIDDEN | L4 Supreme Review escalation |
 
-This prohibition is enforced at the doctrine level by the [NO MERCY, NO DOUBTS](/glossary/nm-nd/) framework. The rationale is that bypassing hooks means bypassing quality standards, which means accepting [quality debt](/glossary/quality-debt/) -- a direct violation of the platform's zero-QDP mandate. Every bypass represents a conscious decision to degrade platform integrity.
+This prohibition is enforced at the doctrine level by the [NO MERCY, NO DOUBTS](@/glossary/nm-nd.md) framework. The rationale is that bypassing hooks means bypassing quality standards, which means accepting [quality debt](@/glossary/quality-debt.md) -- a direct violation of the platform's zero-QDP mandate. Every bypass represents a conscious decision to degrade platform integrity.
 
 ## Integration with Quality Floor Guardian
 
-The pre-commit hooks integrate with the [Quality Floor Guardian](/glossary/quality-floor-guardian/) to form a continuous quality enforcement loop:
+The pre-commit hooks integrate with the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) to form a continuous quality enforcement loop:
 
 ```elixir
 defmodule PrismaticSafety.PreCommitGate do
@@ -335,7 +335,7 @@ end
 | **Code Review** | After push | Hours/days | Manual gate | Changed files | Human judgment layer |
 | **Pre-Push Hooks** | Before push | Moderate | Local, bypassable | Committed changes | Additional gate |
 | **Post-Commit Hooks** | After commit | N/A | Notification only | Committed changes | Telemetry emission |
-| **[Quality Gates](/glossary/quality-gates/)** | On demand | Variable | Mix task | Full codebase | Comprehensive scan |
+| **[Quality Gates](@/glossary/quality-gates.md)** | On demand | Variable | Mix task | Full codebase | Comprehensive scan |
 
 The optimal strategy combines pre-commit hooks (fast local checks), CI/CD (comprehensive remote checks), and code review (human judgment) -- each layer catching what the previous layer misses.
 
@@ -361,7 +361,7 @@ The optimal strategy combines pre-commit hooks (fast local checks), CI/CD (compr
 
 **Secret Prevention**: Detecting accidentally staged credentials, API keys, and private keys before they enter repository history, where they persist even after deletion from the working tree.
 
-**Regression Prevention**: Running tests for changed modules before commit, catching regressions at the earliest possible point in the development cycle. This is particularly effective when combined with the [mandatory regression test protocol](/glossary/regression-test/).
+**Regression Prevention**: Running tests for changed modules before commit, catching regressions at the earliest possible point in the development cycle. This is particularly effective when combined with the [mandatory regression test protocol](@/glossary/regression-test.md).
 
 **Standard Compliance**: Enforcing coding standards (formatting, naming conventions, documentation requirements) consistently across all contributors regardless of IDE configuration.
 
@@ -381,22 +381,22 @@ The optimal strategy combines pre-commit hooks (fast local checks), CI/CD (compr
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) - Full enforcement pipeline that hooks invoke
-- [Session Discipline](/glossary/session-discipline/) - Protocol forbidding hook bypass
-- [Violation Protocol](/glossary/violation-protocol/) - Escalation for hook bypass attempts
-- [Zero Warning Policy](/glossary/zero-warning-policy/) - Compilation standard enforced by hooks
-- [NM/ND Doctrine](/glossary/nm-nd/) - Governing framework mandating hook compliance
-- [Quality Debt](/glossary/quality-debt/) - QDP scanning performed by pre-commit hooks
-- [Regression Test](/glossary/regression-test/) - Test execution triggered by hooks
-- [Credo](/glossary/credo/) - Static analysis tool invoked in Phase 4
-- [Dialyzer](/glossary/dialyzer/) - Type checking deferred to CI but informed by hooks
-- [GitLab CI](/glossary/gitlab-ci/) - CI/CD pipeline providing comprehensive post-push checks
+- [Quality Gates](@/glossary/quality-gates.md) - Full enforcement pipeline that hooks invoke
+- [Session Discipline](@/glossary/session-discipline.md) - Protocol forbidding hook bypass
+- [Violation Protocol](@/glossary/violation-protocol.md) - Escalation for hook bypass attempts
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) - Compilation standard enforced by hooks
+- [NM/ND Doctrine](@/glossary/nm-nd.md) - Governing framework mandating hook compliance
+- [Quality Debt](@/glossary/quality-debt.md) - QDP scanning performed by pre-commit hooks
+- [Regression Test](@/glossary/regression-test.md) - Test execution triggered by hooks
+- [Credo](@/glossary/credo.md) - Static analysis tool invoked in Phase 4
+- [Dialyzer](@/glossary/dialyzer.md) - Type checking deferred to CI but informed by hooks
+- [GitLab CI](@/glossary/gitlab-ci.md) - CI/CD pipeline providing comprehensive post-push checks
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Capabilities](/capabilities/) - Quality enforcement capabilities
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Capabilities](@/capabilities/_index.md) - Quality enforcement capabilities
 
 ---
 
@@ -405,4 +405,4 @@ The optimal strategy combines pre-commit hooks (fast local checks), CI/CD (compr
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

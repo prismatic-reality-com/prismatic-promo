@@ -28,11 +28,11 @@ image_alt = "trinity-bridge-coordinator - Prismatic Platform"
 
 ## Overview
 
-The Trinity Bridge Coordinator is an L3 agent operating in the **general** domain of the Prismatic Platform. This agent coordinates [Trinity Bridge](/glossary/trinity-gate/) [formal verification](/glossary/formal-verification/) across all [AIAD](/glossary/aiad/) components, ensuring that the platform's 434 agents, 210 commands, and 101 workflows all maintain formal verification compliance throughout their lifecycle. While the Trinity Bridge Commander focuses on theorem management and individual change verification, the Coordinator manages the logistics of verification at scale -- scheduling verification campaigns, tracking compliance status, and coordinating remediation when components fall out of compliance.
+The Trinity Bridge Coordinator is an L3 agent operating in the **general** domain of the Prismatic Platform. This agent coordinates [Trinity Bridge](@/glossary/trinity-gate.md) [formal verification](@/glossary/formal-verification.md) across all [AIAD](@/glossary/aiad.md) components, ensuring that the platform's 434 agents, 210 commands, and 101 workflows all maintain formal verification compliance throughout their lifecycle. While the Trinity Bridge Commander focuses on theorem management and individual change verification, the Coordinator manages the logistics of verification at scale -- scheduling verification campaigns, tracking compliance status, and coordinating remediation when components fall out of compliance.
 
 The distinction between Commander and Coordinator reflects a deliberate architectural separation of concerns. The Commander makes verification decisions (approve or reject). The Coordinator manages the verification process (what needs verification, when, and how to handle failures). This separation ensures that verification decisions are never compromised by process management pressures.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, operating under the [NO MERCY](/glossary/no-mercy/) doctrine where verification compliance is mandatory and non-negotiable.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, operating under the [NO MERCY](@/glossary/no-mercy.md) doctrine where verification compliance is mandatory and non-negotiable.
 
 ## Coordination Scope
 
@@ -155,7 +155,7 @@ When a component fails verification, the coordinator initiates a structured reme
 
 ## Compliance Dashboard
 
-The coordinator maintains a real-time compliance dashboard that provides visibility into the verification status of all platform components. This dashboard is accessible through the platform's [LiveView](/glossary/liveview/) monitoring interface and provides drill-down capabilities from platform-wide compliance summaries to individual component verification histories.
+The coordinator maintains a real-time compliance dashboard that provides visibility into the verification status of all platform components. This dashboard is accessible through the platform's [LiveView](@/glossary/liveview.md) monitoring interface and provides drill-down capabilities from platform-wide compliance summaries to individual component verification histories.
 
 | Dashboard Metric | Visualization | Update Frequency |
 |-----------------|---------------|------------------|
@@ -234,10 +234,10 @@ The coordinator maintains a complete history of verification results, enabling t
 
 ## Integration Points
 
-- [**Trinity Gate**](/capabilities/trinity-gate/) -- Core verification infrastructure
-- [**Quality Gates**](/capabilities/quality-gates/) -- Verification feeds quality scoring
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Campaign and compliance metrics
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Component discovery and compliance tracking
+- [**Trinity Gate**](@/capabilities/trinity-gate.md) -- Core verification infrastructure
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Verification feeds quality scoring
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Campaign and compliance metrics
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Component discovery and compliance tracking
 
 ## Resource Management
 
@@ -259,19 +259,19 @@ The coordinator preferentially schedules large verification campaigns during off
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 14 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Related Agents
 
-- [**Trinity Bridge Commander**](/agents/trinity-bridge-commander/) -- Verification decision authority
-- [**Trinity Integration Coordinator**](/agents/trinity-integration-coordinator/) -- Integration of Trinity into platform workflows
-- [**Societies Quality Feedback Coordinator**](/agents/societies-quality-feedback-coordinator/) -- Cross-domain quality feedback
+- [**Trinity Bridge Commander**](@/agents/trinity-bridge-commander.md) -- Verification decision authority
+- [**Trinity Integration Coordinator**](@/agents/trinity-integration-coordinator.md) -- Integration of Trinity into platform workflows
+- [**Societies Quality Feedback Coordinator**](@/agents/societies-quality-feedback-coordinator.md) -- Cross-domain quality feedback
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to schedule verification campaigns and enforce compliance remediation across all AIAD components.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to schedule verification campaigns and enforce compliance remediation across all AIAD components.
 
 ---
 
@@ -280,4 +280,4 @@ The coordinator preferentially schedules large verification campaigns during off
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

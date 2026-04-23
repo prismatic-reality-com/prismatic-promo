@@ -622,23 +622,23 @@ end
 
 ## Related Terms
 
-- [RTO](/glossary/rto/) -- Recovery Time Objective, the companion metric measuring maximum acceptable downtime
-- [Replication](/glossary/replication/) -- the primary mechanism for achieving low RPO targets
-- [WAL](/glossary/wal/) -- Write-Ahead Log, the PostgreSQL mechanism enabling both replication and PITR
-- [Rollback](/glossary/rollback/) -- recovery mechanism that operates within the RPO window
+- [RTO](@/glossary/rto.md) -- Recovery Time Objective, the companion metric measuring maximum acceptable downtime
+- [Replication](@/glossary/replication.md) -- the primary mechanism for achieving low RPO targets
+- [WAL](@/glossary/wal.md) -- Write-Ahead Log, the PostgreSQL mechanism enabling both replication and PITR
+- [Rollback](@/glossary/rollback.md) -- recovery mechanism that operates within the RPO window
 - [Backup](/glossary/backup/) -- periodic data copies providing baseline RPO protection
 - [High Availability](/glossary/high-availability/) -- system design ensuring continuous operation
 - [Failover](/glossary/failover/) -- automatic switching to a standby when the primary fails
-- [Disaster Recovery](/glossary/disaster-recovery/) -- comprehensive planning for catastrophic failures
-- [Retention](/glossary/retention/) -- policies governing how long backups and archives are kept
+- [Disaster Recovery](@/glossary/disaster-recovery.md) -- comprehensive planning for catastrophic failures
+- [Retention](@/glossary/retention.md) -- policies governing how long backups and archives are kept
 - [Checkpoint](/glossary/checkpoint/) -- PostgreSQL process that flushes dirty pages to disk
 - [Snapshot](/glossary/snapshot/) -- point-in-time copy of storage for backup purposes
 - [Streaming Replication](/glossary/streaming-replication/) -- PostgreSQL's real-time WAL-based replication
 
 ## See Also
 
-- [Disaster Recovery Architecture](/architecture/) -- comprehensive recovery planning
-- [Infrastructure](/capabilities/) -- deployment and replication infrastructure
+- [Disaster Recovery Architecture](@/architecture/_index.md) -- comprehensive recovery planning
+- [Infrastructure](@/capabilities/_index.md) -- deployment and replication infrastructure
 - [PostgreSQL High Availability Documentation](https://www.postgresql.org/docs/current/high-availability.html) -- official PostgreSQL HA guide
 - [Fly.io PostgreSQL](https://fly.io/docs/postgres/) -- managed PostgreSQL on Fly.io
 
@@ -649,4 +649,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

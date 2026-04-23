@@ -399,23 +399,23 @@ While Kubernetes provides container-level restart and orchestration, OTP supervi
 
 ## Related Concepts
 
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the broader capability that enables continued operation
-- [Supervision Tree](/glossary/supervision-tree/) -- the hierarchical process monitoring structure
-- [Let It Crash](/glossary/let-it-crash/) -- the philosophy of allowing failures and recovering through supervision
-- [Circuit Breaker](/glossary/circuit-breaker/) -- preventing cascading failures from external dependencies
-- [Self-Healing](/glossary/self-healing/) -- automated recovery mechanisms that restore full operation
-- [Process Restart](/glossary/process-restart/) -- the fundamental mechanism for recovering from process crashes
-- [Health Monitoring](/glossary/health-monitoring/) -- observing system status to detect degradation
-- [Backpressure](/glossary/backpressure/) -- managing load to prevent continued operation failures
-- [Disaster Recovery](/glossary/disaster-recovery/) -- recovering from catastrophic failures that exceed continued operation capabilities
-- [Reliability](/glossary/reliability/) -- the overall quality attribute that continued operation supports
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the broader capability that enables continued operation
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the hierarchical process monitoring structure
+- [Let It Crash](@/glossary/let-it-crash.md) -- the philosophy of allowing failures and recovering through supervision
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- preventing cascading failures from external dependencies
+- [Self-Healing](@/glossary/self-healing.md) -- automated recovery mechanisms that restore full operation
+- [Process Restart](@/glossary/process-restart.md) -- the fundamental mechanism for recovering from process crashes
+- [Health Monitoring](@/glossary/health-monitoring.md) -- observing system status to detect degradation
+- [Backpressure](@/glossary/backpressure.md) -- managing load to prevent continued operation failures
+- [Disaster Recovery](@/glossary/disaster-recovery.md) -- recovering from catastrophic failures that exceed continued operation capabilities
+- [Reliability](@/glossary/reliability.md) -- the overall quality attribute that continued operation supports
 
 ## See Also
 
-- [BEAM VM](/glossary/beam-vm/) -- the runtime that provides lightweight processes and supervision
-- [Distributed System](/glossary/distributed-system/) -- continued operation across network boundaries
-- [Cascade Pattern](/glossary/cascade-pattern/) -- preventing failure propagation
-- [GenServer](/glossary/genserver/) -- the primary stateful process abstraction
+- [BEAM VM](@/glossary/beam-vm.md) -- the runtime that provides lightweight processes and supervision
+- [Distributed System](@/glossary/distributed-system.md) -- continued operation across network boundaries
+- [Cascade Pattern](@/glossary/cascade-pattern.md) -- preventing failure propagation
+- [GenServer](@/glossary/genserver.md) -- the primary stateful process abstraction
 
 ---
 

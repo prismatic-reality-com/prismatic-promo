@@ -20,11 +20,11 @@ image_alt = "Broadway - Prismatic Platform"
 
 ## Definition
 
-Broadway is an Elixir library for building concurrent, multi-stage data ingestion and processing pipelines with built-in fault tolerance, automatic batching, graceful shutdown, and demand-driven [backpressure](/glossary/backpressure/). Created by the team at Dashbit (including Jose Valim, the creator of Elixir), Broadway abstracts the complexity of concurrent data processing into a declarative pipeline definition, allowing developers to focus on business logic while the framework handles concurrency management, failure recovery, and throughput optimization.
+Broadway is an Elixir library for building concurrent, multi-stage data ingestion and processing pipelines with built-in fault tolerance, automatic batching, graceful shutdown, and demand-driven [backpressure](@/glossary/backpressure.md). Created by the team at Dashbit (including Jose Valim, the creator of Elixir), Broadway abstracts the complexity of concurrent data processing into a declarative pipeline definition, allowing developers to focus on business logic while the framework handles concurrency management, failure recovery, and throughput optimization.
 
-Broadway builds on top of [GenStage](/glossary/genstage/), the lower-level producer-consumer library, but provides a significantly higher-level API. Where GenStage requires manual management of demand, dispatcher configuration, and subscription setup, Broadway encapsulates these concerns into a single `use Broadway` declaration with a configuration DSL. The result is that teams can build production-grade data pipelines -- complete with batching, rate limiting, and dead-letter queues -- in under 100 lines of code.
+Broadway builds on top of [GenStage](@/glossary/genstage.md), the lower-level producer-consumer library, but provides a significantly higher-level API. Where GenStage requires manual management of demand, dispatcher configuration, and subscription setup, Broadway encapsulates these concerns into a single `use Broadway` declaration with a configuration DSL. The result is that teams can build production-grade data pipelines -- complete with batching, rate limiting, and dead-letter queues -- in under 100 lines of code.
 
-The library follows a three-stage architecture: producers emit messages from external sources (message queues, databases, APIs), processors transform messages individually with configurable concurrency, and batchers group processed messages for efficient bulk output operations. Each stage runs as a supervised [BEAM](/glossary/beam/) process, meaning individual failures are isolated and automatically recovered without affecting the rest of the pipeline.
+The library follows a three-stage architecture: producers emit messages from external sources (message queues, databases, APIs), processors transform messages individually with configurable concurrency, and batchers group processed messages for efficient bulk output operations. Each stage runs as a supervised [BEAM](@/glossary/beam.md) process, meaning individual failures are isolated and automatically recovered without affecting the rest of the pipeline.
 
 ## Overview
 
@@ -73,7 +73,7 @@ Broadway's acknowledgment system provides exactly-once processing semantics (or 
 
 ### Backpressure and Flow Control
 
-Broadway inherits GenStage's demand-driven [backpressure](/glossary/backpressure/) model, ensuring that no stage in the pipeline can overwhelm downstream stages. The flow control works as follows:
+Broadway inherits GenStage's demand-driven [backpressure](@/glossary/backpressure.md) model, ensuring that no stage in the pipeline can overwhelm downstream stages. The flow control works as follows:
 
 | Mechanism | Behavior |
 |-----------|----------|
@@ -133,7 +133,7 @@ Broadway supports multiple message sources through its producer ecosystem:
 
 ### Telemetry and Monitoring
 
-Broadway emits telemetry events at every stage of pipeline processing, enabling comprehensive [observability](/glossary/observability/):
+Broadway emits telemetry events at every stage of pipeline processing, enabling comprehensive [observability](@/glossary/observability.md):
 
 | Event | Measurements | Use Case |
 |-------|-------------|----------|
@@ -226,7 +226,7 @@ The platform uses Broadway for high-throughput data processing across multiple d
 | **Security Event Processing** | Event stream | 5 concurrent | events, notifications | Real-time security monitoring |
 | **Agent Telemetry** | Agent message bus | 4 concurrent | metrics, logs | Agent performance tracking |
 
-Broadway's backpressure mechanisms integrate naturally with the platform's [GenStage](/glossary/genstage/) infrastructure and [OTP](/glossary/otp/) supervision patterns. Each Broadway pipeline runs under its own supervisor, isolated from other platform components. The Prismatic Platform uses custom producers for its OSINT feed ingestion, security scan queue processing, and asset discovery pipelines, implementing the `Broadway.Producer` [behaviour](/glossary/behaviour/) to integrate with platform-specific data sources.
+Broadway's backpressure mechanisms integrate naturally with the platform's [GenStage](@/glossary/genstage.md) infrastructure and [OTP](@/glossary/otp.md) supervision patterns. Each Broadway pipeline runs under its own supervisor, isolated from other platform components. The Prismatic Platform uses custom producers for its OSINT feed ingestion, security scan queue processing, and asset discovery pipelines, implementing the `Broadway.Producer` [behaviour](@/glossary/behaviour.md) to integrate with platform-specific data sources.
 
 ## Comparison with Alternatives
 
@@ -269,24 +269,24 @@ Broadway is best suited for scenarios that involve continuous data ingestion fro
 
 ## Related Concepts
 
-- [GenStage](/glossary/genstage/) - Foundation library Broadway builds upon
-- [Backpressure](/glossary/backpressure/) - Flow control mechanism preventing pipeline overload
-- [OTP](/glossary/otp/) - Framework providing supervision for Broadway processes
-- [BEAM](/glossary/beam/) - Virtual machine running Broadway's concurrent processes
-- [Supervisor](/glossary/supervisor/) - Manages Broadway pipeline lifecycle and fault recovery
-- [Data Pipeline](/glossary/data-pipeline/) - General pattern Broadway implements
-- [Stream Processing](/glossary/stream-processing/) - Real-time data processing paradigm
-- [Behaviour](/glossary/behaviour/) - Interface pattern used by Broadway producers
-- [PubSub](/glossary/pubsub/) - Event broadcasting from batch handlers
-- [Observability](/glossary/observability/) - Telemetry-based pipeline monitoring
-- [EASM](/glossary/easm/) - Attack surface management using Broadway pipelines
+- [GenStage](@/glossary/genstage.md) - Foundation library Broadway builds upon
+- [Backpressure](@/glossary/backpressure.md) - Flow control mechanism preventing pipeline overload
+- [OTP](@/glossary/otp.md) - Framework providing supervision for Broadway processes
+- [BEAM](@/glossary/beam.md) - Virtual machine running Broadway's concurrent processes
+- [Supervisor](@/glossary/supervisor.md) - Manages Broadway pipeline lifecycle and fault recovery
+- [Data Pipeline](@/glossary/data-pipeline.md) - General pattern Broadway implements
+- [Stream Processing](@/glossary/stream-processing.md) - Real-time data processing paradigm
+- [Behaviour](@/glossary/behaviour.md) - Interface pattern used by Broadway producers
+- [PubSub](@/glossary/pubsub.md) - Event broadcasting from batch handlers
+- [Observability](@/glossary/observability.md) - Telemetry-based pipeline monitoring
+- [EASM](@/glossary/easm.md) - Attack surface management using Broadway pipelines
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture
-- [Technologies](/technologies/) - Technology stack
-- [Fault Tolerance](/glossary/fault-tolerance/) - Reliability through supervision and acknowledgment
-- [Rate Limiting](/glossary/rate-limiting/) - Throughput control in Broadway pipelines
+- [Architecture](@/architecture/_index.md) - Platform architecture
+- [Technologies](@/technologies/_index.md) - Technology stack
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - Reliability through supervision and acknowledgment
+- [Rate Limiting](@/glossary/rate-limiting.md) - Throughput control in Broadway pipelines
 
 ---
 
@@ -295,4 +295,4 @@ Broadway is best suited for scenarios that involve continuous data ingestion fro
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

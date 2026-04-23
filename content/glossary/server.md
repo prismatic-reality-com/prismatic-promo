@@ -199,11 +199,11 @@ mix phx.server  # port 4000
 
 ## Cross-References
 
-- [Process](/glossary/process/) - GenServer processes implementing server behavior
-- [Runtime](/glossary/runtime/) - Server configuration loaded at runtime
-- [Permission](/glossary/permission/) - Access control enforced at server endpoints
-- [Secrets](/glossary/secrets/) - Authentication credentials for server connections
-- [Server Render](/glossary/server-render/) - Server-side HTML generation by the web server
+- [Process](@/glossary/process.md) - GenServer processes implementing server behavior
+- [Runtime](@/glossary/runtime.md) - Server configuration loaded at runtime
+- [Permission](@/glossary/permission.md) - Access control enforced at server endpoints
+- [Secrets](@/glossary/secrets.md) - Authentication credentials for server connections
+- [Server Render](@/glossary/server-render.md) - Server-side HTML generation by the web server
 
 ---
 

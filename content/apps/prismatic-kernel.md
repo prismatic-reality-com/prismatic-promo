@@ -23,11 +23,11 @@ image_alt = "Prismatic Kernel - Prismatic Platform"
 
 ## Overview
 
-Prismatic Kernel is the platform's foundational process management layer. It orchestrates application startup across the entire umbrella, manages [supervision trees](/glossary/supervision-tree/), coordinates inter-application communication, and provides system-level services including health aggregation, resource monitoring, and graceful shutdown coordination. The Kernel ensures all 90+ applications start in the correct dependency order and maintain operational health throughout their lifecycle.
+Prismatic Kernel is the platform's foundational process management layer. It orchestrates application startup across the entire umbrella, manages [supervision trees](@/glossary/supervision-tree.md), coordinates inter-application communication, and provides system-level services including health aggregation, resource monitoring, and graceful shutdown coordination. The Kernel ensures all 90+ applications start in the correct dependency order and maintain operational health throughout their lifecycle.
 
-As the lowest layer of the platform stack, the Kernel embodies [OTP](/glossary/otp/) design principles at every level. Each stateful concern runs in its own supervised process, inter-application messaging flows through [PubSub](/glossary/pubsub/) channels rather than direct function calls, and failure isolation is guaranteed through supervision boundaries. The Kernel does not contain business logic -- it provides the infrastructure on which all business logic runs.
+As the lowest layer of the platform stack, the Kernel embodies [OTP](@/glossary/otp.md) design principles at every level. Each stateful concern runs in its own supervised process, inter-application messaging flows through [PubSub](@/glossary/pubsub.md) channels rather than direct function calls, and failure isolation is guaranteed through supervision boundaries. The Kernel does not contain business logic -- it provides the infrastructure on which all business logic runs.
 
-The application [registry](/glossary/registry-otp/) tracks the health status of every running application, enabling platform-wide health queries that aggregate individual application states into a unified status. When an application enters a degraded state, the Kernel can trigger remediation actions including restart sequences, resource reallocation, or alert escalation to operators. The Kernel's position as the first application to start and the last to stop gives it unique authority over the platform's operational lifecycle, making it the single point of coordination for deployment, scaling, and recovery operations.
+The application [registry](@/glossary/registry-otp.md) tracks the health status of every running application, enabling platform-wide health queries that aggregate individual application states into a unified status. When an application enters a degraded state, the Kernel can trigger remediation actions including restart sequences, resource reallocation, or alert escalation to operators. The Kernel's position as the first application to start and the last to stop gives it unique authority over the platform's operational lifecycle, making it the single point of coordination for deployment, scaling, and recovery operations.
 
 ## Architecture
 
@@ -127,7 +127,7 @@ end
 - PubSub message routing between applications with topic filtering and pattern matching
 - Request-reply patterns with configurable timeouts and fallbacks for synchronous operations
 - Event broadcasting for system-wide notifications and alerts
-- [Circuit breaker](/glossary/circuit-breaker/) protection for inter-app calls to failing services
+- [Circuit breaker](@/glossary/circuit-breaker.md) protection for inter-app calls to failing services
 
 ### System Services
 - Platform-wide health aggregation across all running applications with degradation detection
@@ -208,10 +208,10 @@ Integration tests exercise the full startup sequence with mock applications to v
 | Application | Relationship |
 |-------------|--------------|
 | Every platform application | All 90+ apps depend on Kernel for supervision and lifecycle |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | System [metrics](/glossary/metrics/) emitted through telemetry events |
-| [Prismatic Safety](/apps/prismatic-safety/) | Safety constraints on restart and shutdown operations |
-| [Prismatic Core](/apps/prismatic-core/) | Higher-level platform coordination built on Kernel primitives |
-| [Prismatic Resilience](/apps/prismatic-resilience/) | Resilience patterns coordinated with Kernel |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | System [metrics](@/glossary/metrics.md) emitted through telemetry events |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Safety constraints on restart and shutdown operations |
+| [Prismatic Core](@/apps/prismatic-core.md) | Higher-level platform coordination built on Kernel primitives |
+| [Prismatic Resilience](@/apps/prismatic-resilience.md) | Resilience patterns coordinated with Kernel |
 
 ## Performance
 
@@ -225,18 +225,18 @@ Integration tests exercise the full startup sequence with mock applications to v
 | Startup sequence (full) | 30-60s | 90+ apps with health verification |
 | Graceful shutdown | 30-65s | Drain + grace + cleanup |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :kernel, :app_started]`, `[:prismatic, :kernel, :health_changed]`, `[:prismatic, :kernel, :resource_alert]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :kernel, :app_started]`, `[:prismatic, :kernel, :health_changed]`, `[:prismatic, :kernel, :resource_alert]`.
 
 ## Related Resources
 
-- [Prismatic Storage Core](/apps/prismatic-storage-core/) -- Storage infrastructure managed through Kernel supervision
-- [Prismatic Agents](/apps/prismatic-agents/) -- Agent processes supervised by Kernel infrastructure
-- [Elixir Architect](/agents/elixir-architect/) -- Ensures Kernel supervision trees follow OTP best practices
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews platform-wide process topology
-- [Deployment Commander](/agents/deployment-commander-agent/) -- Coordinates deployment with Kernel startup ordering
-- [Autonomous Self-Healing](/capabilities/autonomous-self-healing/) -- Kernel-driven automatic restart and recovery
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- System-level metrics emitted through health aggregation
-- [Quality Gates](/capabilities/quality-gates/) -- Startup health verification gates enforced by Kernel
+- [Prismatic Storage Core](@/apps/prismatic-storage-core.md) -- Storage infrastructure managed through Kernel supervision
+- [Prismatic Agents](@/apps/prismatic-agents.md) -- Agent processes supervised by Kernel infrastructure
+- [Elixir Architect](@/agents/elixir-architect.md) -- Ensures Kernel supervision trees follow OTP best practices
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews platform-wide process topology
+- [Deployment Commander](@/agents/deployment-commander-agent.md) -- Coordinates deployment with Kernel startup ordering
+- [Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md) -- Kernel-driven automatic restart and recovery
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- System-level metrics emitted through health aggregation
+- [Quality Gates](@/capabilities/quality-gates.md) -- Startup health verification gates enforced by Kernel
 
 ---
 
@@ -245,4 +245,4 @@ Integration tests exercise the full startup sequence with mock applications to v
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

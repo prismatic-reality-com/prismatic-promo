@@ -260,11 +260,11 @@ Mutation testing is a cornerstone of the platform's quality assurance strategy, 
 
 ## Cross-References
 
-- [Mutant](/glossary/mutant/) - Individual code modifications generated during testing
-- [Mutation Score](/glossary/mutation-score/) - Aggregate metric measuring testing effectiveness
-- [Killed/Survived](/glossary/killedsurvived/) - Binary outcome of mutant evaluation
-- [Property-Based Testing](/glossary/property-based-testing/) - Complementary test quality technique
-- [Invariant](/glossary/invariant/) - Properties that mutation testing validates
+- [Mutant](@/glossary/mutant.md) - Individual code modifications generated during testing
+- [Mutation Score](@/glossary/mutation-score.md) - Aggregate metric measuring testing effectiveness
+- [Killed/Survived](@/glossary/killedsurvived.md) - Binary outcome of mutant evaluation
+- [Property-Based Testing](@/glossary/property-based-testing.md) - Complementary test quality technique
+- [Invariant](@/glossary/invariant.md) - Properties that mutation testing validates
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

@@ -343,16 +343,16 @@ config :prismatic_safety, PrismaticSafety.AutoHeal,
 
 ## Integration
 
-- Works with [Quality Gates](/capabilities/quality-gates/) for multi-stage validation at every healing level
-- Enforces [NO MERCY](/capabilities/no-mercy/) doctrine through zero-tolerance quality floor
-- Reports through [NABLA Axioms](/capabilities/nabla-axioms/) epistemic framework for evidence-based healing
-- Monitored by [Real-Time Monitoring](/capabilities/real-time-monitoring/) for healing operation tracking
-- Tracked by [Telemetry Integration](/capabilities/telemetry-integration/) for healing performance metrics
-- Supports [AIAD Compliance](/capabilities/aiad-compliance/) through automated compliance recovery
-- [Color Teams](/capabilities/color-teams/) Blue Team monitors for drift that triggers healing cycles
-- Validated through [Trinity Gate](/capabilities/trinity-gate/) for healing correctness verification
-- [AIAD Standard](/capabilities/aiad-standard/) specifications define healing agent contracts
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) benefits from quality-assured data pipelines
+- Works with [Quality Gates](@/capabilities/quality-gates.md) for multi-stage validation at every healing level
+- Enforces [NO MERCY](@/capabilities/no-mercy.md) doctrine through zero-tolerance quality floor
+- Reports through [NABLA Axioms](@/capabilities/nabla-axioms.md) epistemic framework for evidence-based healing
+- Monitored by [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) for healing operation tracking
+- Tracked by [Telemetry Integration](@/capabilities/telemetry-integration.md) for healing performance metrics
+- Supports [AIAD Compliance](@/capabilities/aiad-compliance.md) through automated compliance recovery
+- [Color Teams](@/capabilities/color-teams.md) Blue Team monitors for drift that triggers healing cycles
+- Validated through [Trinity Gate](@/capabilities/trinity-gate.md) for healing correctness verification
+- [AIAD Standard](@/capabilities/aiad-standard.md) specifications define healing agent contracts
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) benefits from quality-assured data pipelines
 
 ---
 
@@ -361,4 +361,4 @@ config :prismatic_safety, PrismaticSafety.AutoHeal,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

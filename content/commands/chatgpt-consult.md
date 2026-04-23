@@ -24,11 +24,11 @@ image_alt = "/chatgpt-consult - Prismatic Platform"
 
 ## Overview
 
-The **/chatgpt-consult** command initiates structured consultation sessions with ChatGPT for obtaining alternative perspectives, architectural guidance, problem-solving strategies, and planning assistance within the Prismatic Platform's development workflow. Unlike direct API calls through [/chatgpt-bridge](/commands/chatgpt-bridge/), the consult command wraps the interaction in a purpose-driven consultation framework that includes automatic context preparation, conversation type selection, output format management, and optional GitLab integration for tracking consultation outcomes as actionable issues.
+The **/chatgpt-consult** command initiates structured consultation sessions with ChatGPT for obtaining alternative perspectives, architectural guidance, problem-solving strategies, and planning assistance within the Prismatic Platform's development workflow. Unlike direct API calls through [/chatgpt-bridge](@/commands/chatgpt-bridge.md), the consult command wraps the interaction in a purpose-driven consultation framework that includes automatic context preparation, conversation type selection, output format management, and optional GitLab integration for tracking consultation outcomes as actionable issues.
 
-The value of multi-model consultation in complex software engineering cannot be overstated. When working within a system as architecturally dense as the Prismatic Platform -- with its 90 umbrella applications, 400+ agents, and multi-paradigm design patterns -- a single analytical perspective risks blind spots. The **/chatgpt-consult** command operationalizes the principle that different LLM architectures produce genuinely different analytical insights. ChatGPT's training distribution and reasoning patterns differ from Claude's, which means that routing specific categories of questions -- particularly architectural trade-off analysis, broad pattern recognition, and alternative solution exploration -- to ChatGPT can surface perspectives that would not emerge from a Claude-only workflow. This embodies the [NABLA Infinity](/glossary/nabla-infinity/) framework's Signal Plurality axiom: by deliberately seeking independent perspectives from a different AI system, the platform prevents single-source truth bias in architectural and strategic decisions.
+The value of multi-model consultation in complex software engineering cannot be overstated. When working within a system as architecturally dense as the Prismatic Platform -- with its 90 umbrella applications, 400+ agents, and multi-paradigm design patterns -- a single analytical perspective risks blind spots. The **/chatgpt-consult** command operationalizes the principle that different LLM architectures produce genuinely different analytical insights. ChatGPT's training distribution and reasoning patterns differ from Claude's, which means that routing specific categories of questions -- particularly architectural trade-off analysis, broad pattern recognition, and alternative solution exploration -- to ChatGPT can surface perspectives that would not emerge from a Claude-only workflow. This embodies the [NABLA Infinity](@/glossary/nabla-infinity.md) framework's Signal Plurality axiom: by deliberately seeking independent perspectives from a different AI system, the platform prevents single-source truth bias in architectural and strategic decisions.
 
-This command operates under the **L2+** authority level and is executed by the `chatgpt-bridge` agent, coordinated by the `chatgpt-consultation-coordinator` subsystem within the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) framework. It supports five consultation types (architecture, code-review, problem-solving, planning, and general), four interaction modes (rapid, interactive, deep, collaborative), and multiple context levels that automatically optimize the information package sent to ChatGPT based on the consultation topic. A distinctive feature is the GitLab integration via `Prismatic.Issues.ChatGPTGitLabBridge`, which can automatically extract action items from consultation responses and create corresponding GitLab issues with appropriate labels, priorities, and milestone assignments. The command is part of the platform's 216-command slash command [registry](/glossary/registry-otp/).
+This command operates under the **L2+** authority level and is executed by the `chatgpt-bridge` agent, coordinated by the `chatgpt-consultation-coordinator` subsystem within the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) framework. It supports five consultation types (architecture, code-review, problem-solving, planning, and general), four interaction modes (rapid, interactive, deep, collaborative), and multiple context levels that automatically optimize the information package sent to ChatGPT based on the consultation topic. A distinctive feature is the GitLab integration via `Prismatic.Issues.ChatGPTGitLabBridge`, which can automatically extract action items from consultation responses and create corresponding GitLab issues with appropriate labels, priorities, and milestone assignments. The command is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md).
 
 ## Usage
 
@@ -192,23 +192,23 @@ For **code review workflows**, targeted consultations with `--files` parameters 
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `chatgpt-bridge` agent via consultation coordinator |
-| [/chatgpt-bridge](/commands/chatgpt-bridge/) | Underlying ChatGPT API communication layer |
-| [/chatgpt-pack](/commands/chatgpt-pack/) | Context archive preparation for comprehensive consultations |
-| [/chatgpt-analyze](/commands/chatgpt-analyze/) | Code analysis feeds consultation context |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `chatgpt-bridge` agent via consultation coordinator |
+| [/chatgpt-bridge](@/commands/chatgpt-bridge.md) | Underlying ChatGPT API communication layer |
+| [/chatgpt-pack](@/commands/chatgpt-pack.md) | Context archive preparation for comprehensive consultations |
+| [/chatgpt-analyze](@/commands/chatgpt-analyze.md) | Code analysis feeds consultation context |
 | GitLab Issues API | Automatic issue creation from consultation action items |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Pre/post execution quality validation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre/post execution quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and event tracking |
 | Platform Knowledge Base | Context preparation draws on platform documentation |
 | Phoenix PubSub | Real-time consultation event broadcasting |
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Consultation sessions must produce actionable outcomes. No vague suggestions, no recommendations without implementation paths, no action items without priority classification. GitLab issue creation enforces completeness -- every created issue has a title, description, labels, and priority. Context preparation failures are reported explicitly rather than resulting in degraded consultations with incomplete information.
-- **NO DOUBTS**: Consultation recommendations are treated as advisory intelligence, not authoritative decisions. The [NABLA Infinity](/glossary/nabla-infinity/) framework applies -- ChatGPT's recommendations are one signal among many, subject to validation against platform constraints, existing architecture decisions, and other analytical sources. When consultation outputs conflict with established platform patterns, both perspectives are preserved with explicit annotation rather than one being silently discarded.
+- **NO DOUBTS**: Consultation recommendations are treated as advisory intelligence, not authoritative decisions. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework applies -- ChatGPT's recommendations are one signal among many, subject to validation against platform constraints, existing architecture decisions, and other analytical sources. When consultation outputs conflict with established platform patterns, both perspectives are preserved with explicit annotation rather than one being silently discarded.
 - **Regression Protection**: Consultation templates, context preparation logic, and GitLab bridge integration include test suites that validate the end-to-end consultation pipeline against reference scenarios.
 
 ## Best Practices
@@ -222,16 +222,16 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/chatgpt-bridge](/commands/chatgpt-bridge/) - ChatGPT bridge operations for cross-LLM coordination
-- [/chatgpt-analyze](/commands/chatgpt-analyze/) - Launch ChatGPT ANALYZE conversation for deep code analysis
-- [/chatgpt-pack](/commands/chatgpt-pack/) - Context packing for ChatGPT collaboration and knowledge transfer
-- [/chatgpt-sync](/commands/chatgpt-sync/) - Synchronize context and progress between Claude and ChatGPT
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/chatgpt-bridge](@/commands/chatgpt-bridge.md) - ChatGPT bridge operations for cross-LLM coordination
+- [/chatgpt-analyze](@/commands/chatgpt-analyze.md) - Launch ChatGPT ANALYZE conversation for deep code analysis
+- [/chatgpt-pack](@/commands/chatgpt-pack.md) - Context packing for ChatGPT collaboration and knowledge transfer
+- [/chatgpt-sync](@/commands/chatgpt-sync.md) - Synchronize context and progress between Claude and ChatGPT
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -240,4 +240,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

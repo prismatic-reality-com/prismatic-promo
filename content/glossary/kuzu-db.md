@@ -401,28 +401,28 @@ The 530+ AIAD agents produce knowledge artifacts that reference each other. Kuzu
 
 KuzuDB integrates with a rich ecosystem of platform components for graph-based intelligence:
 
-- [Graph Database](/glossary/graph-database/) -- the general category of databases that KuzuDB belongs to, optimized for relationship-centric data models
-- [Knowledge Graph](/glossary/knowledge-graph/) -- the higher-level knowledge structure built on top of KuzuDB's graph storage capabilities
-- [Entity Graph](/glossary/entity-graph/) -- the OSINT-specific graph model representing people, companies, domains, and their interconnections
-- [PostgreSQL](/glossary/postgresql/) -- the relational database that complements KuzuDB in the platform's polyglot persistence strategy
-- [ETS](/glossary/ets/) -- Erlang Term Storage providing high-speed key-value access alongside KuzuDB's graph queries
-- [Meilisearch](/glossary/meilisearch/) -- the search engine that indexes KuzuDB entities for full-text discovery
-- [OSINT](/glossary/osint/) -- open source intelligence operations that produce the entity data stored in KuzuDB
-- [EASM](/glossary/easm/) -- external attack surface management using KuzuDB for asset relationship modeling
-- [Polyglot Persistence](/glossary/polyglot-persistence/) -- the architectural strategy of using multiple storage engines, with KuzuDB as the graph tier
-- [Knowledge Representation](/glossary/knowledge-representation/) -- the broader field that KuzuDB's graph model instantiates
+- [Graph Database](@/glossary/graph-database.md) -- the general category of databases that KuzuDB belongs to, optimized for relationship-centric data models
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- the higher-level knowledge structure built on top of KuzuDB's graph storage capabilities
+- [Entity Graph](@/glossary/entity-graph.md) -- the OSINT-specific graph model representing people, companies, domains, and their interconnections
+- [PostgreSQL](@/glossary/postgresql.md) -- the relational database that complements KuzuDB in the platform's polyglot persistence strategy
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage providing high-speed key-value access alongside KuzuDB's graph queries
+- [Meilisearch](@/glossary/meilisearch.md) -- the search engine that indexes KuzuDB entities for full-text discovery
+- [OSINT](@/glossary/osint.md) -- open source intelligence operations that produce the entity data stored in KuzuDB
+- [EASM](@/glossary/easm.md) -- external attack surface management using KuzuDB for asset relationship modeling
+- [Polyglot Persistence](@/glossary/polyglot-persistence.md) -- the architectural strategy of using multiple storage engines, with KuzuDB as the graph tier
+- [Knowledge Representation](@/glossary/knowledge-representation.md) -- the broader field that KuzuDB's graph model instantiates
 
 ## See Also
 
-- [Prismatic Storage](/glossary/prismatic-storage/) -- the unified storage abstraction layer that KuzuDB integrates through
-- [Graph Theory](/glossary/graph-theory/) -- the mathematical foundations underlying KuzuDB's data model
-- [Prismatic Perimeter](/glossary/prismatic-perimeter/) -- the EASM application that is KuzuDB's primary consumer
-- [Entity Resolution](/glossary/entity-resolution/) -- the process of matching discovered entities to existing graph nodes
-- [Adapter Pattern](/glossary/adapter-pattern/) -- the software pattern used to integrate KuzuDB with the platform's storage core
+- [Prismatic Storage](@/glossary/prismatic-storage.md) -- the unified storage abstraction layer that KuzuDB integrates through
+- [Graph Theory](@/glossary/graph-theory.md) -- the mathematical foundations underlying KuzuDB's data model
+- [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) -- the EASM application that is KuzuDB's primary consumer
+- [Entity Resolution](@/glossary/entity-resolution.md) -- the process of matching discovered entities to existing graph nodes
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- the software pattern used to integrate KuzuDB with the platform's storage core
 
 ---
 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Part of the [Prismatic Platform](https://github.com/korczis/prismatic-platform) Glossary
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | Glossary Index
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | Glossary Index

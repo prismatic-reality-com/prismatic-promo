@@ -28,7 +28,7 @@ image_alt = "seadf-ecosystem-commander - Prismatic Platform"
 
 ## Overview
 
-The [seadf](/glossary/seadf/)-ecosystem-commander operates as an L3 Strategic Command authority within the Prismatic Platform, serving as the central coordinator for the Self-Evolving Autonomous Development Framework -- the platform's seven-subsystem engine for continuous autonomous improvement. [SEADF](/glossary/seadf/) represents a paradigm where software platforms do not merely execute predefined tasks but actively evolve their own capabilities, heal quality degradations, and adapt to changing requirements without human intervention. This agent commands the orchestration of these evolutionary processes across the entire ecosystem.
+The [seadf](@/glossary/seadf.md)-ecosystem-commander operates as an L3 Strategic Command authority within the Prismatic Platform, serving as the central coordinator for the Self-Evolving Autonomous Development Framework -- the platform's seven-subsystem engine for continuous autonomous improvement. [SEADF](@/glossary/seadf.md) represents a paradigm where software platforms do not merely execute predefined tasks but actively evolve their own capabilities, heal quality degradations, and adapt to changing requirements without human intervention. This agent commands the orchestration of these evolutionary processes across the entire ecosystem.
 
 In an autonomous development platform with over 430 agents, 90 applications, and 2.8 million lines of code, manual evolution management is fundamentally unscalable. The seadf-ecosystem-commander addresses this challenge by coordinating the seven SEADF subsystems -- Scanner, Pipeline, Quality Guardian, Knowledge Sync, Cross-Domain Innovator, Autonomous Reporter, and Enhanced Healing -- into a unified evolutionary engine. Each subsystem operates semi-independently but requires strategic coordination to prevent conflicting evolution paths, resource contention, and regression introduction.
 
@@ -58,8 +58,8 @@ The domain extends to evolution policy management, where the commander interpret
 - **Quality floor monitoring** -- Integrates with the Quality Floor Guardian to maintain the platform's 100/100 quality score, triggering evolution cycles when any quality domain shows degradation below threshold
 - **Cross-domain pattern propagation** -- Identifies successful patterns in one application domain and coordinates their propagation to applicable domains across the umbrella, using the Cross-Domain Innovator subsystem
 - **Healing cycle management** -- Orchestrates the five-level Enhanced Healing subsystem (`mix autoheal.baseline`, `mix autoheal.cycle`) to detect and repair quality degradations automatically
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed evolution scheduling based on platform health telemetry
-- **[NABLA Infinity](/glossary/nabla-infinity/) compliance** ensuring all evolution proposals pass [Trinity Gate](/glossary/trinity-gate/) verification before application
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed evolution scheduling based on platform health telemetry
+- **[NABLA Infinity](@/glossary/nabla-infinity.md) compliance** ensuring all evolution proposals pass [Trinity Gate](@/glossary/trinity-gate.md) verification before application
 
 ## Evolution Lifecycle
 
@@ -87,7 +87,7 @@ Verification (Quality Guardian)
 Reporting (Autonomous Reporter)
 ```
 
-Each stage has defined entry and exit criteria. No evolution progresses past the Validation stage without [Trinity Gate](/glossary/trinity-gate/) passage -- structural consistency, logical consistency, and formal necessity must all be satisfied. The ecosystem commander has authority to halt any evolution cycle at any stage if quality indicators suggest regression risk.
+Each stage has defined entry and exit criteria. No evolution progresses past the Validation stage without [Trinity Gate](@/glossary/trinity-gate.md) passage -- structural consistency, logical consistency, and formal necessity must all be satisfied. The ecosystem commander has authority to halt any evolution cycle at any stage if quality indicators suggest regression risk.
 
 ## Authority Level
 
@@ -107,11 +107,11 @@ Each stage has defined entry and exit criteria. No evolution progresses past the
 
 | Agent | Relationship |
 |-------|-------------|
-| [scripts-infrastructure-supreme](/agents/scripts-infrastructure-supreme/) | Infrastructure scripts execute evolution pipeline operations |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality metrics drive evolution priorities and validate outcomes |
-| [session-debrief-specialist](/agents/session-debrief-specialist/) | Session context feeds Knowledge Sync subsystem |
-| [session-pattern-analyzer](/agents/session-pattern-analyzer/) | Pattern analysis informs Cross-Domain Innovator proposals |
-| [societies-quality-feedback-coordinator](/agents/societies-quality-feedback-coordinator/) | Quality feedback from all domains aggregated for evolution targeting |
+| [scripts-infrastructure-supreme](@/agents/scripts-infrastructure-supreme.md) | Infrastructure scripts execute evolution pipeline operations |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality metrics drive evolution priorities and validate outcomes |
+| [session-debrief-specialist](@/agents/session-debrief-specialist.md) | Session context feeds Knowledge Sync subsystem |
+| [session-pattern-analyzer](@/agents/session-pattern-analyzer.md) | Pattern analysis informs Cross-Domain Innovator proposals |
+| [societies-quality-feedback-coordinator](@/agents/societies-quality-feedback-coordinator.md) | Quality feedback from all domains aggregated for evolution targeting |
 
 ## Quality Integration
 
@@ -132,7 +132,7 @@ This session-aware evolution ensures that the platform improves continuously wit
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine applies to evolution operations with the same rigor as feature development. Evolution proposals that fail [Trinity Gate](/glossary/trinity-gate/) verification are rejected without exception. Evolution cycles that introduce quality regressions trigger immediate rollback. The ecosystem commander maintains full audit trails for every evolution operation, satisfying [NABLA Infinity](/glossary/nabla-infinity/) provenance requirements and enabling forensic analysis of any evolution outcome.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine applies to evolution operations with the same rigor as feature development. Evolution proposals that fail [Trinity Gate](@/glossary/trinity-gate.md) verification are rejected without exception. Evolution cycles that introduce quality regressions trigger immediate rollback. The ecosystem commander maintains full audit trails for every evolution operation, satisfying [NABLA Infinity](@/glossary/nabla-infinity.md) provenance requirements and enabling forensic analysis of any evolution outcome.
 
 ## Related Agents
 
@@ -145,4 +145,4 @@ Agents in the **strategic** domain coordinate with the seadf-ecosystem-commander
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

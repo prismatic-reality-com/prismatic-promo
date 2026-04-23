@@ -36,7 +36,7 @@ image_alt = "Malicious Actors - Prismatic Platform"
 
 Malicious actors are individuals, groups, or automated systems that intentionally exploit vulnerabilities, manipulate data, or disrupt operations for unauthorized purposes. In cybersecurity, understanding malicious actors -- their motivations, capabilities, tactics, and organizational structures -- is foundational to building effective defenses. Unlike accidental failures or software bugs, malicious actors apply intelligent, adaptive pressure against systems, evolving their methods in response to defensive measures.
 
-Within the Prismatic Platform, the concept of malicious actors permeates multiple architectural layers. The platform's [Prismatic Perimeter](/glossary/prismatic-perimeter/) module performs External Attack Surface Management (EASM) to identify how an organization appears to potential attackers. The [Color Teams](/glossary/color-teams/) architecture simulates malicious actor behavior through [Red Team](/glossary/red-team/) adversarial exercises, while the [Blue Team](/glossary/blue-team/) develops and validates defensive postures. The [OSINT](/glossary/osint/) toolbox with 120+ adapters gathers open-source intelligence that real-world threat actors might also collect, enabling proactive identification of exposure before exploitation occurs.
+Within the Prismatic Platform, the concept of malicious actors permeates multiple architectural layers. The platform's [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) module performs External Attack Surface Management (EASM) to identify how an organization appears to potential attackers. The [Color Teams](@/glossary/color-teams.md) architecture simulates malicious actor behavior through [Red Team](@/glossary/red-team.md) adversarial exercises, while the [Blue Team](@/glossary/blue-team.md) develops and validates defensive postures. The [OSINT](@/glossary/osint.md) toolbox with 120+ adapters gathers open-source intelligence that real-world threat actors might also collect, enabling proactive identification of exposure before exploitation occurs.
 
 The Prismatic Platform treats malicious actor modeling not as an afterthought but as a first-class architectural concern. Every security decision -- from process isolation in the BEAM VM to the epistemic attack taxonomy used by the Red Team -- is informed by a clear understanding of who the adversaries are, what they want, and how they operate.
 
@@ -298,7 +298,7 @@ end
 
 ### OSINT-Driven Threat Intelligence
 
-The Prismatic Platform's [OSINT toolbox](/glossary/osint/) with 120+ adapters provides the intelligence foundation for understanding malicious actor activity. By monitoring the same open sources that threat actors use for reconnaissance, the platform can identify exposure before it is exploited.
+The Prismatic Platform's [OSINT toolbox](@/glossary/osint.md) with 120+ adapters provides the intelligence foundation for understanding malicious actor activity. By monitoring the same open sources that threat actors use for reconnaissance, the platform can identify exposure before it is exploited.
 
 Key intelligence capabilities include:
 
@@ -310,7 +310,7 @@ Key intelligence capabilities include:
 
 ### Prismatic Perimeter EASM
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) module implements External Attack Surface Management, which views the organization from the perspective of a malicious actor conducting reconnaissance.
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) module implements External Attack Surface Management, which views the organization from the perspective of a malicious actor conducting reconnaissance.
 
 ```elixir
 defmodule PrismaticPerimeter.AttackerView do
@@ -379,9 +379,9 @@ Operating in an environment where malicious actors are a constant presence requi
 
 **Security ratings** (A through F grades with numeric scores from 300 to 900) provide a quantitative measure of the organization's security posture from the perspective of a malicious actor. These ratings incorporate asset hygiene, vulnerability exposure, configuration quality, and compliance status.
 
-**Incident response integration** ensures that when malicious actor activity is detected, the platform can trigger automated response workflows including process isolation, circuit breaker activation, and alert escalation through the [incident response](/glossary/incident-response/) framework.
+**Incident response integration** ensures that when malicious actor activity is detected, the platform can trigger automated response workflows including process isolation, circuit breaker activation, and alert escalation through the [incident response](@/glossary/incident-response.md) framework.
 
-**Audit trail completeness** ensures that all security-relevant events are logged with sufficient detail for forensic analysis after a security incident. The platform's [audit logging](/glossary/audit-logging/) captures authentication events, authorization decisions, data access patterns, and configuration changes.
+**Audit trail completeness** ensures that all security-relevant events are logged with sufficient detail for forensic analysis after a security incident. The platform's [audit logging](@/glossary/audit-logging.md) captures authentication events, authorization decisions, data access patterns, and configuration changes.
 
 ## Security Implications
 
@@ -430,19 +430,19 @@ The Prismatic Platform's approach to malicious actor defense aligns with major i
 
 The malicious actor concept integrates deeply with multiple platform components, creating a comprehensive security ecosystem.
 
-The [Color Teams](/glossary/color-teams/) architecture provides the operational framework for malicious actor simulation and defense. The [Red Team](/glossary/red-team/) (4 agents) simulates adversarial scenarios, the [Blue Team](/glossary/blue-team/) (4 agents) develops and validates defenses, and the [Purple Team](/glossary/purple-team/) (4 agents) synthesizes findings into actionable improvements. The [Black Team](/glossary/black-team/) (2 agents) operates in maximum isolation to model theoretical worst-case threat scenarios.
+The [Color Teams](@/glossary/color-teams.md) architecture provides the operational framework for malicious actor simulation and defense. The [Red Team](@/glossary/red-team.md) (4 agents) simulates adversarial scenarios, the [Blue Team](@/glossary/blue-team.md) (4 agents) develops and validates defenses, and the [Purple Team](@/glossary/purple-team.md) (4 agents) synthesizes findings into actionable improvements. The [Black Team](@/glossary/black-team.md) (2 agents) operates in maximum isolation to model theoretical worst-case threat scenarios.
 
-The [OSINT](/glossary/osint/) intelligence layer feeds threat data into the platform through 120+ adapters spanning Czech registries (28 adapters), global intelligence sources (84 adapters), sanctions databases (3 adapters), and specialized regional sources.
+The [OSINT](@/glossary/osint.md) intelligence layer feeds threat data into the platform through 120+ adapters spanning Czech registries (28 adapters), global intelligence sources (84 adapters), sanctions databases (3 adapters), and specialized regional sources.
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) module translates malicious actor understanding into actionable security ratings, asset inventories, and compliance assessments.
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) module translates malicious actor understanding into actionable security ratings, asset inventories, and compliance assessments.
 
 Related glossary terms:
-- [Attack Surface](/glossary/attack-surface/) -- The sum of all points where a malicious actor can attempt access
-- [Red Team](/glossary/red-team/) -- Adversarial simulation team modeling malicious actor behavior
-- [Blue Team](/glossary/blue-team/) -- Defensive team protecting against malicious actor threats
-- [Cyber Threat Intelligence](/glossary/cyber-threat-intelligence/) -- Intelligence about malicious actor capabilities and activities
-- [Incident Response](/glossary/incident-response/) -- Procedures for responding to confirmed malicious actor activity
-- [Security Operations](/glossary/security-operations/) -- Ongoing operational security management
+- [Attack Surface](@/glossary/attack-surface.md) -- The sum of all points where a malicious actor can attempt access
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation team modeling malicious actor behavior
+- [Blue Team](@/glossary/blue-team.md) -- Defensive team protecting against malicious actor threats
+- [Cyber Threat Intelligence](@/glossary/cyber-threat-intelligence.md) -- Intelligence about malicious actor capabilities and activities
+- [Incident Response](@/glossary/incident-response.md) -- Procedures for responding to confirmed malicious actor activity
+- [Security Operations](@/glossary/security-operations.md) -- Ongoing operational security management
 
 ## Future Directions
 
@@ -469,4 +469,4 @@ Malicious actors represent the intelligent, adaptive adversary that security arc
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

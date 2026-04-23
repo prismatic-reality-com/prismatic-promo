@@ -29,7 +29,7 @@ The Office of Foreign Assets Control (OFAC) of the US Department of Treasury adm
 
 OFAC sanctions have extraterritorial reach: any transaction touching the US financial system, involving US-origin goods or technology, or conducted by US persons is subject to OFAC compliance. This extraterritorial jurisdiction makes the SDN list relevant for organizations worldwide, not just those based in the United States. European companies with US dollar transactions, US-manufactured components in their supply chains, or US person employees must all comply with OFAC regulations, making the SDN list a cornerstone of global sanctions compliance programs.
 
-For [OSINT](/glossary/osint/) investigators and compliance professionals, the SDN list provides authoritative sanctions designation data with rich identifying information including aliases, identity documents, addresses, vessel details, and cryptocurrency wallet addresses. The breadth of identifying data enables precise screening that goes beyond simple name matching, reducing false positives while maintaining comprehensive detection of sanctioned parties.
+For [OSINT](@/glossary/osint.md) investigators and compliance professionals, the SDN list provides authoritative sanctions designation data with rich identifying information including aliases, identity documents, addresses, vessel details, and cryptocurrency wallet addresses. The breadth of identifying data enables precise screening that goes beyond simple name matching, reducing false positives while maintaining comprehensive detection of sanctioned parties.
 
 ## Data Sources and Coverage
 
@@ -74,7 +74,7 @@ Batch screening operations process entity lists in parallel using configurable w
 
 ## API Integration
 
-OFAC screening is integrated into the Prismatic compliance pipeline alongside [EU Sanctions](/osint/eu-sanctions/), providing comprehensive dual-jurisdiction sanctions coverage.
+OFAC screening is integrated into the Prismatic compliance pipeline alongside [EU Sanctions](@/osint/eu-sanctions.md), providing comprehensive dual-jurisdiction sanctions coverage.
 
 ```elixir
 # Search SDN list by name
@@ -172,7 +172,7 @@ end
 ### KYC/AML Compliance
 - Customer and counterparty screening mandatory for US-connected transactions
 - Ongoing monitoring with periodic rescreening at configurable intervals
-- Combined with [EU Sanctions](/osint/eu-sanctions/) and [UN Sanctions](/osint/un-sanctions/) for comprehensive tri-jurisdiction coverage
+- Combined with [EU Sanctions](@/osint/eu-sanctions.md) and [UN Sanctions](@/osint/un-sanctions.md) for comprehensive tri-jurisdiction coverage
 - Audit trail generation for regulatory examination readiness
 
 ### Transaction Monitoring
@@ -184,8 +184,8 @@ end
 ### Corporate Due Diligence
 - M&A target sanctions exposure assessment including subsidiaries and beneficial owners
 - Board member and UBO screening against all OFAC programs
-- Cross-reference with [Czech registries](/osint/ares/) for CEE operations involving US-connected entities
-- Supply chain compliance for [NIS2](/apps/prismatic-compliance/) requirements and US export controls
+- Cross-reference with [Czech registries](@/osint/ares.md) for CEE operations involving US-connected entities
+- Supply chain compliance for [NIS2](@/apps/prismatic-compliance.md) requirements and US export controls
 
 ### Maritime and Aviation Compliance
 - Vessel screening using IMO numbers, vessel names, and flag state data
@@ -243,13 +243,13 @@ The local screening database with pre-computed fuzzy matching indices enables su
 
 ## Related Resources
 
-- [EU Sanctions](/osint/eu-sanctions/) - European Union sanctions list
-- [UN Sanctions](/osint/un-sanctions/) - United Nations Security Council sanctions
-- [ARES](/osint/ares/) - Czech business register for entity identification
-- [Justice.cz](/osint/justice-cz/) - Czech Commercial Register for UBO verification
-- [VR.cz](/osint/vr-cz/) - Czech public registers with beneficial ownership
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Sanctions in compliance ratings
+- [EU Sanctions](@/osint/eu-sanctions.md) - European Union sanctions list
+- [UN Sanctions](@/osint/un-sanctions.md) - United Nations Security Council sanctions
+- [ARES](@/osint/ares.md) - Czech business register for entity identification
+- [Justice.cz](@/osint/justice-cz.md) - Czech Commercial Register for UBO verification
+- [VR.cz](@/osint/vr-cz.md) - Czech public registers with beneficial ownership
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Sanctions in compliance ratings
 
 ---
 
@@ -258,4 +258,4 @@ The local screening database with pre-computed fuzzy matching indices enables su
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

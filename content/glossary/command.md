@@ -40,13 +40,13 @@ A command in the Prismatic Platform is a user-invocable operation defined accord
 
 ## Overview
 
-Commands represent the action layer of the AIAD standard -- while [agents](/glossary/agent/) define autonomous entities with capabilities and behaviors, commands define the specific operations those agents can perform when invoked by users or other systems. The relationship between agents and commands mirrors the relationship between objects and methods in object-oriented programming, or between modules and functions in functional programming: agents encapsulate capabilities, and commands expose those capabilities through well-defined interfaces.
+Commands represent the action layer of the AIAD standard -- while [agents](@/glossary/agent.md) define autonomous entities with capabilities and behaviors, commands define the specific operations those agents can perform when invoked by users or other systems. The relationship between agents and commands mirrors the relationship between objects and methods in object-oriented programming, or between modules and functions in functional programming: agents encapsulate capabilities, and commands expose those capabilities through well-defined interfaces.
 
 The command concept in Prismatic operates at multiple levels simultaneously. At the user interface level, commands appear as slash commands (e.g., `/orchestrate`, `/investigate`, `/fix`) that can be invoked during Claude sessions. At the build system level, commands manifest as Mix tasks (e.g., `mix quality.gates`, `mix autoheal.cycle`) that execute within the Elixir compilation and runtime environment. At the automation level, commands serve as pipeline steps that can be composed into complex workflows with conditional logic, parallel execution, and error handling.
 
 This multi-level nature is intentional. The AIAD standard recognizes that the same conceptual operation may need to be invoked through different mechanisms depending on context -- a developer at a terminal uses slash commands, a CI/CD pipeline uses mix tasks, and an orchestration agent uses programmatic APIs. The `.cmd.md` specification captures the operation's semantics independently of its invocation mechanism, enabling consistent behavior across all contexts.
 
-The design of the command system reflects several key principles from distributed systems and [OTP](/glossary/elixir/) design: commands are stateless (each invocation is independent), idempotent where possible (repeated invocations produce the same result), composable (commands can invoke other commands), and observable (every command execution produces structured telemetry).
+The design of the command system reflects several key principles from distributed systems and [OTP](@/glossary/elixir.md) design: commands are stateless (each invocation is independent), idempotent where possible (repeated invocations produce the same result), composable (commands can invoke other commands), and observable (every command execution produces structured telemetry).
 
 ## Technical Details
 
@@ -463,22 +463,22 @@ The `/orchestrate` command demonstrates command composition at its most powerful
 
 ## Related Concepts
 
-- [AIAD](/glossary/aiad/) -- The AI Agent Definition standard governing command specifications
-- [Slash Command](/glossary/slash-command/) -- User-facing invocation syntax for commands
-- [Agent](/glossary/agent/) -- Autonomous entities that implement command logic
-- [Orchestration](/glossary/orchestration/) -- Coordination of multiple agents and commands
-- [Agent Registry](/glossary/agent-registry/) -- Centralized catalog of available agents and commands
-- [Mix Task](/glossary/mix-task/) -- Elixir build tool tasks that implement many commands
-- [Agent Tier](/glossary/agent-tier/) -- Authorization hierarchy for agent and command access
-- [Authority Level](/glossary/authority-level/) -- Clearance requirements for command invocation
-- [Pipeline](/glossary/pipeline/) -- Composition mechanism for multi-step command workflows
-- [GenServer](/glossary/genserver/) -- OTP behavior underlying command dispatch
+- [AIAD](@/glossary/aiad.md) -- The AI Agent Definition standard governing command specifications
+- [Slash Command](@/glossary/slash-command.md) -- User-facing invocation syntax for commands
+- [Agent](@/glossary/agent.md) -- Autonomous entities that implement command logic
+- [Orchestration](@/glossary/orchestration.md) -- Coordination of multiple agents and commands
+- [Agent Registry](@/glossary/agent-registry.md) -- Centralized catalog of available agents and commands
+- [Mix Task](@/glossary/mix-task.md) -- Elixir build tool tasks that implement many commands
+- [Agent Tier](@/glossary/agent-tier.md) -- Authorization hierarchy for agent and command access
+- [Authority Level](@/glossary/authority-level.md) -- Clearance requirements for command invocation
+- [Pipeline](@/glossary/pipeline.md) -- Composition mechanism for multi-step command workflows
+- [GenServer](@/glossary/genserver.md) -- OTP behavior underlying command dispatch
 
 ## See Also
 
 - Glossary Index -- Complete glossary of Prismatic Platform terminology
-- [Agent Module](/glossary/agent-module/) -- Module-level agent implementation
-- [Mix](/glossary/mix/) -- Elixir's build tool for task execution
+- [Agent Module](@/glossary/agent-module.md) -- Module-level agent implementation
+- [Mix](@/glossary/mix.md) -- Elixir's build tool for task execution
 
 ---
 
@@ -487,4 +487,4 @@ The `/orchestrate` command demonstrates command composition at its most powerful
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

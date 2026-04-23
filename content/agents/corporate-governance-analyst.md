@@ -28,7 +28,7 @@ image_alt = "corporate-governance-analyst - Prismatic Platform"
 
 ## Overview
 
-The Corporate Governance Analyst operates as an L3 strategic command agent within the Corporate domain of the Prismatic Platform. This agent specializes in intelligence gathering and analysis of corporate governance structures, board compositions, ownership chains, and compliance postures for entities under investigation. By synthesizing data from public registries, regulatory filings, and [OSINT](/glossary/osint/) sources, the analyst produces comprehensive governance assessments that inform due diligence, risk scoring, and compliance evaluation workflows.
+The Corporate Governance Analyst operates as an L3 strategic command agent within the Corporate domain of the Prismatic Platform. This agent specializes in intelligence gathering and analysis of corporate governance structures, board compositions, ownership chains, and compliance postures for entities under investigation. By synthesizing data from public registries, regulatory filings, and [OSINT](@/glossary/osint.md) sources, the analyst produces comprehensive governance assessments that inform due diligence, risk scoring, and compliance evaluation workflows.
 
 Corporate governance analysis is a critical component of the platform's due diligence intelligence pipeline. Opaque ownership structures, undisclosed board relationships, and governance deficiencies are leading indicators of financial risk, regulatory exposure, and potential fraud. The Corporate Governance Analyst automates the labor-intensive process of mapping corporate hierarchies, identifying beneficial owners, detecting governance red flags, and assessing compliance with relevant regulatory frameworks including NIS2 Directive (EU 2022/2555) and Czech commercial law.
 
@@ -51,7 +51,7 @@ The analyst performs structured governance assessment across multiple dimensions
 
 ## Entity Resolution Pipeline
 
-The Corporate Governance Analyst leverages the platform's [entity resolution](/glossary/entity-resolution/) capabilities to connect governance data across disparate sources, resolving entity identities despite variations in naming, formatting, and jurisdictional conventions.
+The Corporate Governance Analyst leverages the platform's [entity resolution](@/glossary/entity-resolution.md) capabilities to connect governance data across disparate sources, resolving entity identities despite variations in naming, formatting, and jurisdictional conventions.
 
 ```elixir
 defmodule PrismaticAgents.CorporateGovernance do
@@ -145,29 +145,29 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/). Multi-domain coordination with authority to request intelligence from OSINT providers, trigger entity resolution operations, and produce governance assessments that feed into due diligence workflows.
+**L3** - [Strategic Command](@/glossary/strategic-command.md). Multi-domain coordination with authority to request intelligence from OSINT providers, trigger entity resolution operations, and produce governance assessments that feed into due diligence workflows.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [financial-intelligence-commander](/agents/financial-intelligence-commander/) | Intelligence Partner | Coordinates financial analysis with governance findings |
-| [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) | Czech Registries | Provides Czech commercial registry data and entity information |
-| [regulatory-intelligence-commander](/agents/regulatory-intelligence-commander/) | Compliance Data | Supplies regulatory filing and compliance intelligence |
-| [risk-assessment-commander](/agents/risk-assessment-commander/) | Risk Integration | Integrates governance scores into composite risk assessments |
+| [financial-intelligence-commander](@/agents/financial-intelligence-commander.md) | Intelligence Partner | Coordinates financial analysis with governance findings |
+| [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) | Czech Registries | Provides Czech commercial registry data and entity information |
+| [regulatory-intelligence-commander](@/agents/regulatory-intelligence-commander.md) | Compliance Data | Supplies regulatory filing and compliance intelligence |
+| [risk-assessment-commander](@/agents/risk-assessment-commander.md) | Risk Integration | Integrates governance scores into composite risk assessments |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [NABLA Infinity](/glossary/nabla-infinity/) | Signal plurality and provenance tracking for governance claims |
-| [Trinity Gate](/glossary/trinity-gate/) | Formal verification of governance risk conclusions |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Signal plurality and provenance tracking for governance claims |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Formal verification of governance risk conclusions |
 | Entity Resolution Engine | Cross-source entity identity resolution |
-| Platform [Telemetry](/glossary/telemetry/) | Analysis performance metrics and throughput tracking |
+| Platform [Telemetry](@/glossary/telemetry.md) | Analysis performance metrics and throughput tracking |
 
 ## Enforcement
 
-The Corporate Governance Analyst operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. All governance claims must be supported by evidence from at least two independent sources (NABLA Signal Plurality). Ownership chains that cannot be fully resolved are reported with explicit uncertainty markers rather than assumed structures. Governance risk scores include confidence intervals derived from source quality and coverage completeness. No governance assessment is finalized without [Trinity Gate](/glossary/trinity-gate/) passage verifying structural, logical, and formal consistency of the analysis.
+The Corporate Governance Analyst operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. All governance claims must be supported by evidence from at least two independent sources (NABLA Signal Plurality). Ownership chains that cannot be fully resolved are reported with explicit uncertainty markers rather than assumed structures. Governance risk scores include confidence intervals derived from source quality and coverage completeness. No governance assessment is finalized without [Trinity Gate](@/glossary/trinity-gate.md) passage verifying structural, logical, and formal consistency of the analysis.
 
 ---
 
@@ -176,4 +176,4 @@ The Corporate Governance Analyst operates under the [NO MERCY, NO DOUBTS](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

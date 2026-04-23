@@ -30,7 +30,7 @@ image_alt = "Swarm Evolution Coordinator Agent - Prismatic Platform"
 
 The Swarm Evolution Coordinator Agent is an L3 strategic command agent operating within the Prismatic Platform's general domain, responsible for orchestrating swarm-based evolutionary processes that drive the continuous improvement of the agent ecosystem. Drawing from swarm intelligence theory and evolutionary computation, this agent manages the population dynamics of over 430 agents, evaluates their fitness across multiple dimensions, and coordinates the propagation of beneficial genetic traits through formally verified evolution cycles.
 
-The platform has evolved through 18 generations, reaching a fitness level of 0.999, and the Swarm Evolution Coordinator plays a central role in maintaining this evolutionary trajectory. By applying [Lean4](/glossary/lean4/) theorem proving to evolution safety guarantees, the agent ensures that evolutionary changes preserve system correctness properties while advancing platform capabilities. It operates under the [AIAD](/glossary/aiad/) standard and enforces the [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, treating evolutionary regression as an unacceptable outcome that triggers immediate corrective action.
+The platform has evolved through 18 generations, reaching a fitness level of 0.999, and the Swarm Evolution Coordinator plays a central role in maintaining this evolutionary trajectory. By applying [Lean4](@/glossary/lean4.md) theorem proving to evolution safety guarantees, the agent ensures that evolutionary changes preserve system correctness properties while advancing platform capabilities. It operates under the [AIAD](@/glossary/aiad.md) standard and enforces the [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, treating evolutionary regression as an unacceptable outcome that triggers immediate corrective action.
 
 ## Theoretical Foundations
 
@@ -38,9 +38,9 @@ Swarm evolution draws from two convergent theoretical traditions: swarm intellig
 
 Evolutionary computation provides the genetic operators (selection, crossover, mutation) and population management strategies that govern how agent traits propagate across generations. The agent implements a multi-objective evolutionary algorithm (MOEA) that simultaneously optimizes for multiple fitness dimensions: task performance, resource efficiency, integration quality, and doctrinal compliance. Pareto frontier analysis identifies trait combinations that represent optimal trade-offs across these dimensions.
 
-The formal verification layer draws from constructive mathematics, where five core [Lean4](/glossary/lean4/) theorems guarantee the safety of evolutionary transitions. These theorems establish that evolution preserves type safety, maintains behavioral contracts, respects resource bounds, preserves inter-agent compatibility, and guarantees rollback capability. This formal foundation distinguishes the Prismatic evolution approach from conventional evolutionary computation, where safety properties are validated empirically rather than proven mathematically.
+The formal verification layer draws from constructive mathematics, where five core [Lean4](@/glossary/lean4.md) theorems guarantee the safety of evolutionary transitions. These theorems establish that evolution preserves type safety, maintains behavioral contracts, respects resource bounds, preserves inter-agent compatibility, and guarantees rollback capability. This formal foundation distinguishes the Prismatic evolution approach from conventional evolutionary computation, where safety properties are validated empirically rather than proven mathematically.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework governs the evaluation of evolutionary outcomes, requiring that fitness assessments are based on multiple independent measurement sources and that contradictions between fitness indicators are preserved and investigated rather than averaged away.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework governs the evaluation of evolutionary outcomes, requiring that fitness assessments are based on multiple independent measurement sources and that contradictions between fitness indicators are preserved and investigated rather than averaged away.
 
 ## Core Capabilities
 
@@ -50,13 +50,13 @@ The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework governs the 
 
 **Genetic Trait Propagation** manages the transfer of beneficial traits from high-fitness agents to the broader population. Traits include behavioral patterns, processing algorithms, integration protocols, and quality assurance mechanisms. The propagation process uses crossover and mutation operators adapted from evolutionary computation, with formal verification ensuring that trait combinations produce valid agent configurations.
 
-**Swarm Coordination** orchestrates collective behavior patterns across agent groups, enabling emergent intelligence that exceeds the capabilities of individual agents. Stigmergic communication through shared environmental markers (implemented as [ETS](/glossary/ets/) state) allows agents to coordinate without direct message passing, reducing communication overhead and improving scalability.
+**Swarm Coordination** orchestrates collective behavior patterns across agent groups, enabling emergent intelligence that exceeds the capabilities of individual agents. Stigmergic communication through shared environmental markers (implemented as [ETS](@/glossary/ets.md) state) allows agents to coordinate without direct message passing, reducing communication overhead and improving scalability.
 
 **Evolution Safety Verification** applies the five core Lean4 theorems to every proposed evolutionary change before it is applied to the production agent population. Changes that cannot be proven safe are rejected, ensuring that evolution never introduces regressions or safety violations.
 
 ## Architecture and Implementation
 
-The Swarm Evolution Coordinator operates as a supervised [OTP](/glossary/otp/) process with a complex internal architecture that manages the full evolutionary lifecycle.
+The Swarm Evolution Coordinator operates as a supervised [OTP](@/glossary/otp.md) process with a complex internal architecture that manages the full evolutionary lifecycle.
 
 | Component | Responsibility | Implementation |
 |-----------|---------------|---------------|
@@ -110,11 +110,11 @@ These theorems are machine-checked proofs, providing mathematical certainty that
 
 | System | Integration Role | Data Flow |
 |--------|-----------------|-----------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Population management target | Bidirectional |
-| [SEADF](/glossary/seadf/) | Evolution framework integration | Bidirectional |
-| [Trinity Gate](/glossary/trinity-gate/) | Evolution step verification | Mandatory check |
-| [Prismatic Telemetry](/glossary/telemetry/) | Fitness metrics and evolution events | Write |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification management | Read/Write |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Population management target | Bidirectional |
+| [SEADF](@/glossary/seadf.md) | Evolution framework integration | Bidirectional |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Evolution step verification | Mandatory check |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Fitness metrics and evolution events | Write |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification management | Read/Write |
 | Lean4 Prover | Safety theorem verification | External call |
 
 ## Performance and Fitness Metrics
@@ -123,7 +123,7 @@ The Swarm Evolution Coordinator tracks ecosystem-wide fitness metrics that quant
 
 ## Related Agents
 
-The Swarm Evolution Coordinator works under the strategic direction of the [supreme-commander](/agents/supreme-commander/) and [supreme-coordinator](/agents/supreme-coordinator/), which set evolutionary priorities and resource allocations. The [trinity-integration-coordinator](/agents/trinity-integration-coordinator/) provides formal verification support for evolution safety proofs. The [systematic-verifier](/agents/systematic-verifier/) validates that evolutionary changes do not introduce regressions in system behavior.
+The Swarm Evolution Coordinator works under the strategic direction of the [supreme-commander](@/agents/supreme-commander.md) and [supreme-coordinator](@/agents/supreme-coordinator.md), which set evolutionary priorities and resource allocations. The [trinity-integration-coordinator](@/agents/trinity-integration-coordinator.md) provides formal verification support for evolution safety proofs. The [systematic-verifier](@/agents/systematic-verifier.md) validates that evolutionary changes do not introduce regressions in system behavior.
 
 ---
 
@@ -132,4 +132,4 @@ The Swarm Evolution Coordinator works under the strategic direction of the [supr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

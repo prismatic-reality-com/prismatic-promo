@@ -24,9 +24,9 @@ image_alt = "/trinity - Prismatic Platform"
 
 ## Overview
 
-**/trinity** is a production command in the **[Formal Verification](/glossary/formal-verification/)** category of the Prismatic Platform. It displays the current status of the Trinity Gate verification system, reports rigidity scores across all verified entities, and provides health metrics for the three-layer verification infrastructure. The Trinity Gate is the platform's foundational epistemic barrier: no claim, belief, or system property is considered established without passing all three gates (Structural Consistency, Logical Consistency, Formal Necessity). `/trinity` provides visibility into this critical infrastructure.
+**/trinity** is a production command in the **[Formal Verification](@/glossary/formal-verification.md)** category of the Prismatic Platform. It displays the current status of the Trinity Gate verification system, reports rigidity scores across all verified entities, and provides health metrics for the three-layer verification infrastructure. The Trinity Gate is the platform's foundational epistemic barrier: no claim, belief, or system property is considered established without passing all three gates (Structural Consistency, Logical Consistency, Formal Necessity). `/trinity` provides visibility into this critical infrastructure.
 
-This command operates under the **L2+** authority level and is executed by the `trinity-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level enables any qualified operator to inspect the Trinity system's health without requiring the elevated L3 authority needed for active verification operations.
+This command operates under the **L2+** authority level and is executed by the `trinity-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level enables any qualified operator to inspect the Trinity system's health without requiring the elevated L3 authority needed for active verification operations.
 
 The platform currently maintains 629 Trinity-verified entities across agents, commands, policies, and system properties. Each entity has a rigidity score reflecting the strength of its verification: entities verified through all three gates with formal Lean4 proofs have the highest rigidity, while entities with only structural verification have lower rigidity. `/trinity` provides the dashboard for monitoring this verification estate, identifying entities with declining rigidity, and tracking the overall epistemic health of the platform.
 
@@ -181,14 +181,14 @@ All metrics are assembled into the requested output format. The dashboard shows:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/trinity-3nl-fusion](/commands/trinity-3nl-fusion/) | Active verification | Fusion pipeline for claim verification |
-| [/lean](/commands/lean/) | Engine | Lean4 backend for Gate 3 proofs |
-| [/prolog](/commands/prolog/) | Engine | Prolog backend for Gate 2 logic |
-| [/formal-verify](/commands/formal-verify/) | Peer | General formal verification operations |
-| [/nabla-status](/commands/nabla-status/) | Consumer | Trinity health feeds NABLA epistemic status |
-| [/white-verify](/commands/white-verify/) | Peer | White team verification uses Trinity infrastructure |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Framework | Epistemic framework requiring Trinity passage |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Verification performance metrics |
+| [/trinity-3nl-fusion](@/commands/trinity-3nl-fusion.md) | Active verification | Fusion pipeline for claim verification |
+| [/lean](@/commands/lean.md) | Engine | Lean4 backend for Gate 3 proofs |
+| [/prolog](@/commands/prolog.md) | Engine | Prolog backend for Gate 2 logic |
+| [/formal-verify](@/commands/formal-verify.md) | Peer | General formal verification operations |
+| [/nabla-status](@/commands/nabla-status.md) | Consumer | Trinity health feeds NABLA epistemic status |
+| [/white-verify](@/commands/white-verify.md) | Peer | White team verification uses Trinity infrastructure |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Framework | Epistemic framework requiring Trinity passage |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Verification performance metrics |
 
 ## Best Practices
 
@@ -247,20 +247,20 @@ Compare rigidity distributions across categories:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Trinity status reporting is exhaustive; no entity is omitted, no declining rigidity is hidden.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every rigidity score is traceable to specific gate results. No scores are estimated or interpolated.
 
 ## Related Commands
 
-- [/trinity-3nl-fusion](/commands/trinity-3nl-fusion/) - Validate input through Trinity-3NL fusion pipeline
-- [/lean](/commands/lean/) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
-- [/prolog](/commands/prolog/) - Prolog-based logical reasoning and [inference](/glossary/inference/) operations
-- [/formal-verify](/commands/formal-verify/) - Formal verification of system properties and invariants
-- [/nabla-status](/commands/nabla-status/) - NABLA Infinity epistemic framework health and status
-- [/white-verify](/commands/white-verify/) - White team constructive verification and formal proofs
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/trinity-3nl-fusion](@/commands/trinity-3nl-fusion.md) - Validate input through Trinity-3NL fusion pipeline
+- [/lean](@/commands/lean.md) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
+- [/prolog](@/commands/prolog.md) - Prolog-based logical reasoning and [inference](@/glossary/inference.md) operations
+- [/formal-verify](@/commands/formal-verify.md) - Formal verification of system properties and invariants
+- [/nabla-status](@/commands/nabla-status.md) - NABLA Infinity epistemic framework health and status
+- [/white-verify](@/commands/white-verify.md) - White team constructive verification and formal proofs
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
 
 ---
 
@@ -269,4 +269,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

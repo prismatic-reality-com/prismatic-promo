@@ -28,7 +28,7 @@ image_alt = "cross-border-identity-specialist - Prismatic Platform"
 
 ## Overview
 
-The Cross-Border Identity Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Cross domain of the Prismatic Platform. This agent resolves, verifies, and tracks identities of individuals and legal entities that operate across multiple national jurisdictions. In a globalized economy where companies maintain subsidiaries in dozens of countries, individuals hold multiple citizenships, and beneficial ownership structures span continents, accurate cross-border identity resolution is essential for due diligence, compliance, and intelligence operations.
+The Cross-Border Identity Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Cross domain of the Prismatic Platform. This agent resolves, verifies, and tracks identities of individuals and legal entities that operate across multiple national jurisdictions. In a globalized economy where companies maintain subsidiaries in dozens of countries, individuals hold multiple citizenships, and beneficial ownership structures span continents, accurate cross-border identity resolution is essential for due diligence, compliance, and intelligence operations.
 
 Identity resolution across borders presents challenges that do not exist within a single jurisdiction. Names transliterate differently between writing systems -- a Russian name rendered in Czech, German, and English will have distinct spellings. Date formats vary, address structures differ fundamentally between countries, and national identifier systems (tax IDs, registration numbers, social security equivalents) are incompatible. The Cross-Border Identity Specialist addresses these challenges through multi-script name matching algorithms, jurisdiction-aware data normalization, and probabilistic identity linking that quantifies match confidence rather than producing binary match/no-match decisions.
 
@@ -54,7 +54,7 @@ Within each block, the engine computes similarity scores across all available at
 
 The weighted attribute scores are combined into a composite match probability using a Bayesian framework that accounts for attribute dependencies. The resulting match probability is calibrated against labeled training data to ensure that reported confidence levels accurately reflect true match rates. A reported 95% confidence means that 95 out of 100 matches at that confidence level are true matches when validated against ground truth.
 
-Match results are stored in [KuzuDB](/glossary/kuzudb/) as identity graph nodes with weighted edges representing match relationships. This graph structure enables transitive identity resolution where A matches B and B matches C, suggesting that A and C may also be related even without direct evidence. The specialist applies transitivity cautiously, requiring that transitive chains maintain minimum confidence thresholds at each step.
+Match results are stored in [KuzuDB](@/glossary/kuzudb.md) as identity graph nodes with weighted edges representing match relationships. This graph structure enables transitive identity resolution where A matches B and B matches C, suggesting that A and C may also be related even without direct evidence. The specialist applies transitivity cautiously, requiring that transitive chains maintain minimum confidence thresholds at each step.
 
 ## Sanctions and Watchlist Screening
 
@@ -84,29 +84,29 @@ Cross-border data transfer restrictions are respected when moving personal data 
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to manage cross-border identity resolution operations, set matching thresholds, and coordinate multi-jurisdiction queries.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to manage cross-border identity resolution operations, set matching thresholds, and coordinate multi-jurisdiction queries.
 
 ## Integration
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification, discovery, and indexing |
-| Prismatic [Telemetry](/glossary/telemetry/) | Performance metrics and event tracking |
-| [KuzuDB](/glossary/kuzudb/) | Identity graph storage and traversal |
-| [OSINT](/glossary/osint/) Pipeline | Multi-source intelligence data feeding |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification, discovery, and indexing |
+| Prismatic [Telemetry](@/glossary/telemetry.md) | Performance metrics and event tracking |
+| [KuzuDB](@/glossary/kuzudb.md) | Identity graph storage and traversal |
+| [OSINT](@/glossary/osint.md) Pipeline | Multi-source intelligence data feeding |
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [czech-business-intelligence-specialist](/agents/czech-business-intelligence-specialist/) | Registry Source | Provides Czech entity data for cross-border correlation |
-| [email-intelligence-specialist](/agents/email-intelligence-specialist/) | Signal Source | Email-derived identity signals feed cross-border matching |
-| [cross-domain-intelligence-coordinator](/agents/cross-domain-intelligence-coordinator/) | Intelligence Consumer | Consumes cross-border identity products for multi-domain analysis |
+| [czech-business-intelligence-specialist](@/agents/czech-business-intelligence-specialist.md) | Registry Source | Provides Czech entity data for cross-border correlation |
+| [email-intelligence-specialist](@/agents/email-intelligence-specialist.md) | Signal Source | Email-derived identity signals feed cross-border matching |
+| [cross-domain-intelligence-coordinator](@/agents/cross-domain-intelligence-coordinator.md) | Intelligence Consumer | Consumes cross-border identity products for multi-domain analysis |
 
 ## Enforcement
 
-All cross-border identity operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine and validated through the [Trinity Gate](/glossary/trinity-gate/). No identity match is reported without explicit confidence scoring and source provenance. Sanctions screening must complete before any entity profile is released for downstream consumption. Privacy compliance is enforced at the infrastructure level with no override capability. Match confidence thresholds are calibrated against labeled data and must maintain documented accuracy metrics. The [NABLA](/glossary/nabla-infinity/) Signal Plurality axiom requires that cross-border identity assertions draw from at least two independent jurisdictional sources before reaching verified status.
+All cross-border identity operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine and validated through the [Trinity Gate](@/glossary/trinity-gate.md). No identity match is reported without explicit confidence scoring and source provenance. Sanctions screening must complete before any entity profile is released for downstream consumption. Privacy compliance is enforced at the infrastructure level with no override capability. Match confidence thresholds are calibrated against labeled data and must maintain documented accuracy metrics. The [NABLA](@/glossary/nabla-infinity.md) Signal Plurality axiom requires that cross-border identity assertions draw from at least two independent jurisdictional sources before reaching verified status.
 
 ---
 
@@ -115,4 +115,4 @@ All cross-border identity operations are governed by the [NO MERCY, NO DOUBTS](/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

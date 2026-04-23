@@ -18,7 +18,7 @@ see_also = ["otp", "supervision-tree", "dynamic-supervisor", "genserver", "fault
 image_alt = "Supervision Trees for OSINT Pipelines"
 +++
 
-When a Czech ARES lookup times out, or a Shodan rate-limit returns 429, or a scraped forum changes its HTML — you do not want the whole case to die. You want *that* adapter to die, the supervisor to log it, and every other adapter to keep working. This is [OTP](/glossary/otp) [supervision](/glossary/supervision-tree) used as intended.
+When a Czech ARES lookup times out, or a Shodan rate-limit returns 429, or a scraped forum changes its HTML — you do not want the whole case to die. You want *that* adapter to die, the supervisor to log it, and every other adapter to keep working. This is [OTP](@/glossary/otp.md) [supervision](@/glossary/supervision-tree.md) used as intended.
 
 ## The wrong shape
 
@@ -53,11 +53,11 @@ Task.Supervisor.async_stream_nolink(
 end)
 ```
 
-Every adapter is isolated. A crash in one is a `{:exit, reason}` in the result list — not an exception in the caller. The [GenServer](/glossary/genserver) driving the pipeline never dies.
+Every adapter is isolated. A crash in one is a `{:exit, reason}` in the result list — not an exception in the caller. The [GenServer](@/glossary/genserver.md) driving the pipeline never dies.
 
 ## DynamicSupervisor for long-lived monitors
 
-Short-lived fan-outs use `Task.Supervisor`. Long-lived monitors (continuous OSINT, domain watch) use [DynamicSupervisor](/glossary/dynamic-supervisor):
+Short-lived fan-outs use `Task.Supervisor`. Long-lived monitors (continuous OSINT, domain watch) use [DynamicSupervisor](@/glossary/dynamic-supervisor.md):
 
 ```elixir
 DynamicSupervisor.start_child(
@@ -92,6 +92,6 @@ A crashed adapter is fine. A crashed pipeline is a bug. A crashed envelope is a 
 
 - **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — runnable supervision tree exercises
 - **Academy**: [First Agent](/academy/learn/first-agent) — build your first supervised adapter
-- **Glossary**: [OTP](/glossary/otp), [Supervision Tree](/glossary/supervision-tree), [DynamicSupervisor](/glossary/dynamic-supervisor), [GenServer](/glossary/genserver), [Fault Tolerance](/glossary/fault-tolerance)
+- **Glossary**: [OTP](@/glossary/otp.md), [Supervision Tree](@/glossary/supervision-tree.md), [DynamicSupervisor](@/glossary/dynamic-supervisor.md), [GenServer](@/glossary/genserver.md), [Fault Tolerance](@/glossary/fault-tolerance.md)
 
 Let it crash. Just make sure the right thing crashes.

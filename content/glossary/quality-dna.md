@@ -36,9 +36,9 @@ image_alt = "Quality DNA - Prismatic Platform"
 
 Quality DNA is a persistence mechanism that encodes the complete quality state of every application in the Prismatic Platform into a structured, version-tracked format that survives session boundaries. Just as biological DNA encodes the genetic blueprint of an organism, Quality DNA encodes the quality blueprint of the platform -- recording scores, domain statuses, historical trends, elimination campaigns, and evolution metadata for every application. This enables continuous quality improvement that accumulates across development sessions rather than starting from scratch each time, creating an unbroken chain of quality evolution spanning hundreds of sessions.
 
-The fundamental problem Quality DNA solves is session amnesia. Without persistent quality state, each development session would need to rediscover the quality baseline, losing awareness of improvement trajectories, regression patterns, and strategic priorities established in previous sessions. A developer starting a new session would have no way of knowing that `prismatic_perimeter` had been trending toward a regression in its [Dialyzer](/glossary/dialyzer/) domain, or that `prismatic_agents` had just completed a successful CASCADE elimination campaign. Quality DNA transforms quality management from a series of disconnected snapshots into a continuous evolutionary narrative with full historical context.
+The fundamental problem Quality DNA solves is session amnesia. Without persistent quality state, each development session would need to rediscover the quality baseline, losing awareness of improvement trajectories, regression patterns, and strategic priorities established in previous sessions. A developer starting a new session would have no way of knowing that `prismatic_perimeter` had been trending toward a regression in its [Dialyzer](@/glossary/dialyzer.md) domain, or that `prismatic_agents` had just completed a successful CASCADE elimination campaign. Quality DNA transforms quality management from a series of disconnected snapshots into a continuous evolutionary narrative with full historical context.
 
-Quality DNA is stored in `.claude/quality-dna/current-state.json` at the project level, with per-application DNA records maintained alongside each application's `CLAUDE.md`. Every session loads the previous quality state at startup through the SessionLifecycle GenServer, applies changes during the session as quality checks run and violations are fixed, and persists the updated state at session end. This creates an unbroken chain of quality evolution that can be analyzed for patterns, regressions, and strategic insights. The mechanism is deeply integrated with the platform's [AutoEvolve](/glossary/autoevolve/) system, the [SEADF](/glossary/seadf/) framework, and the [Quality Floor Guardian](/glossary/quality-floor-guardian/) monitoring system.
+Quality DNA is stored in `.claude/quality-dna/current-state.json` at the project level, with per-application DNA records maintained alongside each application's `CLAUDE.md`. Every session loads the previous quality state at startup through the SessionLifecycle GenServer, applies changes during the session as quality checks run and violations are fixed, and persists the updated state at session end. This creates an unbroken chain of quality evolution that can be analyzed for patterns, regressions, and strategic insights. The mechanism is deeply integrated with the platform's [AutoEvolve](@/glossary/autoevolve.md) system, the [SEADF](@/glossary/seadf.md) framework, and the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) monitoring system.
 
 ## Biological Analogy and Design Philosophy
 
@@ -48,7 +48,7 @@ The biological DNA analogy is not merely cosmetic -- it reflects deep structural
 
 **Replication**: When a new session begins, Quality DNA is "replicated" from the persistent store into the session's working memory. When a new application is created, it receives an initialized DNA record based on the platform's quality standard template, analogous to inheriting a baseline genome.
 
-**Expression**: Quality DNA "expresses" through the decisions it informs. The [AutoEvolve](/glossary/autoevolve/) system reads DNA trend data to prioritize which domains to improve. The Quality Floor Guardian reads DNA scores to determine alert thresholds. The [quality gates](/glossary/quality-gates/) pipeline reads DNA baselines to detect regressions. DNA data does not just record state -- it actively shapes platform behavior.
+**Expression**: Quality DNA "expresses" through the decisions it informs. The [AutoEvolve](@/glossary/autoevolve.md) system reads DNA trend data to prioritize which domains to improve. The Quality Floor Guardian reads DNA scores to determine alert thresholds. The [quality gates](@/glossary/quality-gates.md) pipeline reads DNA baselines to detect regressions. DNA data does not just record state -- it actively shapes platform behavior.
 
 **Mutation**: As quality improvements are made, DNA records mutate -- scores change, trends shift, violations are eliminated. These mutations accumulate across sessions, driving the platform's quality evolution from its initial state toward the current 100/100 perfect score across all 13 domains.
 
@@ -338,7 +338,7 @@ Each of the 99 umbrella applications maintains its own Quality DNA record. This 
 
 ### Evolution Integration
 
-Quality DNA feeds into the [AutoEvolve](/glossary/autoevolve/) and [SEADF](/glossary/seadf/) systems for data-driven evolution, providing the empirical basis for prioritizing quality improvements:
+Quality DNA feeds into the [AutoEvolve](@/glossary/autoevolve.md) and [SEADF](@/glossary/seadf.md) systems for data-driven evolution, providing the empirical basis for prioritizing quality improvements:
 
 ```elixir
 defmodule Prismatic.Quality.EvolutionAdvisor do
@@ -569,21 +569,21 @@ end
 
 ## Related Concepts
 
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Real-time monitoring consuming DNA data
-- [Quality Gates](/glossary/quality-gates/) -- Enforcement pipeline producing DNA state updates
-- [Quality Debt](/glossary/quality-debt/) -- Tracked and eliminated via DNA history
-- [SEADF](/glossary/seadf/) -- Evolution framework using DNA for improvement decisions
-- [AutoEvolve](/glossary/autoevolve/) -- Automated evolution driven by DNA insights
-- [Mycelial Network](/glossary/mycelial-network/) -- Pattern propagation guided by DNA insights
-- [Session Discipline](/glossary/session-discipline/) -- Session protocol ensuring DNA persistence
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis domain tracked by DNA
-- [Credo](/glossary/credo/) -- Code style domain tracked by DNA
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Real-time monitoring consuming DNA data
+- [Quality Gates](@/glossary/quality-gates.md) -- Enforcement pipeline producing DNA state updates
+- [Quality Debt](@/glossary/quality-debt.md) -- Tracked and eliminated via DNA history
+- [SEADF](@/glossary/seadf.md) -- Evolution framework using DNA for improvement decisions
+- [AutoEvolve](@/glossary/autoevolve.md) -- Automated evolution driven by DNA insights
+- [Mycelial Network](@/glossary/mycelial-network.md) -- Pattern propagation guided by DNA insights
+- [Session Discipline](@/glossary/session-discipline.md) -- Session protocol ensuring DNA persistence
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis domain tracked by DNA
+- [Credo](@/glossary/credo.md) -- Code style domain tracked by DNA
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory with per-app DNA
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory with per-app DNA
 
 ---
 
@@ -592,4 +592,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

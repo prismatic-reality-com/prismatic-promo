@@ -28,17 +28,17 @@ image_alt = "ir-pvm-profiler - Prismatic Platform"
 
 ## Overview
 
-The ir-pvm-profiler is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the performance domain of the Prismatic Platform. It performs advanced performance profiling and optimization analysis for Information Retrieval (IR) workflow compilation and [PVM](/glossary/pvm/) (Platform Virtual Machine) execution, providing real-time performance monitoring, bottleneck identification, and data-driven optimization recommendations. This agent ensures that IR workflows meet the platform's stringent performance requirements by measuring execution characteristics at every stage of the pipeline and identifying optimization opportunities that human developers might overlook.
+The ir-pvm-profiler is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the performance domain of the Prismatic Platform. It performs advanced performance profiling and optimization analysis for Information Retrieval (IR) workflow compilation and [PVM](@/glossary/pvm.md) (Platform Virtual Machine) execution, providing real-time performance monitoring, bottleneck identification, and data-driven optimization recommendations. This agent ensures that IR workflows meet the platform's stringent performance requirements by measuring execution characteristics at every stage of the pipeline and identifying optimization opportunities that human developers might overlook.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the platform's [telemetry](/glossary/telemetry/) infrastructure, the ir-pvm-profiler operates as the performance-focused complement to the [ir-linter](/agents/ir-linter/) (quality) and [ir-validator](/agents/ir-validator/) (correctness) agents. While those agents analyze static workflow definitions, the profiler measures actual runtime behavior, capturing execution times, memory consumption, throughput rates, and resource utilization patterns during workflow execution. This empirical approach to performance analysis provides evidence-based optimization recommendations grounded in measured behavior rather than theoretical projections.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the platform's [telemetry](@/glossary/telemetry.md) infrastructure, the ir-pvm-profiler operates as the performance-focused complement to the [ir-linter](@/agents/ir-linter.md) (quality) and [ir-validator](@/agents/ir-validator.md) (correctness) agents. While those agents analyze static workflow definitions, the profiler measures actual runtime behavior, capturing execution times, memory consumption, throughput rates, and resource utilization patterns during workflow execution. This empirical approach to performance analysis provides evidence-based optimization recommendations grounded in measured behavior rather than theoretical projections.
 
 ## Profiling Architecture
 
 The profiling architecture consists of three interconnected subsystems: the instrumentation layer, the measurement engine, and the analysis framework.
 
-The instrumentation layer inserts lightweight measurement probes at strategic points in the IR compilation and PVM execution pipeline. Probes capture timestamps at stage entry and exit points, memory snapshots at materialization boundaries, message queue depths at [GenStage](/glossary/genstage/) boundaries, and I/O operation counts at source query stages. The instrumentation design prioritizes minimal observer effect -- probes are engineered to add less than 1% overhead to the measured operation, ensuring that profiling results accurately reflect uninstrumented performance.
+The instrumentation layer inserts lightweight measurement probes at strategic points in the IR compilation and PVM execution pipeline. Probes capture timestamps at stage entry and exit points, memory snapshots at materialization boundaries, message queue depths at [GenStage](@/glossary/genstage.md) boundaries, and I/O operation counts at source query stages. The instrumentation design prioritizes minimal observer effect -- probes are engineered to add less than 1% overhead to the measured operation, ensuring that profiling results accurately reflect uninstrumented performance.
 
-The measurement engine aggregates probe data into structured performance profiles. For each workflow execution, the engine produces a complete execution timeline showing wall-clock time, CPU time, and wait time for every stage. It calculates throughput rates (records per second) at each stage boundary, identifies [backpressure](/glossary/backpressure/) events where downstream stages throttle upstream producers, and measures memory high-water marks for each stage's processing buffer.
+The measurement engine aggregates probe data into structured performance profiles. For each workflow execution, the engine produces a complete execution timeline showing wall-clock time, CPU time, and wait time for every stage. It calculates throughput rates (records per second) at each stage boundary, identifies [backpressure](@/glossary/backpressure.md) events where downstream stages throttle upstream producers, and measures memory high-water marks for each stage's processing buffer.
 
 The analysis framework applies statistical and heuristic methods to raw measurements, producing actionable optimization recommendations. Statistical analysis identifies performance anomalies by comparing current execution metrics against historical baselines. Heuristic analysis applies domain-specific knowledge about IR workflow patterns to identify optimization opportunities that statistical methods alone would miss -- for example, recognizing that a filter stage placed after an expensive enrichment stage could be moved upstream to reduce the volume of data flowing through the enrichment pipeline.
 
@@ -47,11 +47,11 @@ The analysis framework applies statistical and heuristic methods to raw measurem
 - **Stage-level execution profiling** -- Measures wall-clock time, CPU time, and wait time for every stage in an IR workflow, producing flame-graph-compatible profiles for visual analysis
 - **Memory consumption analysis** -- Tracks memory allocation and deallocation patterns across workflow stages, identifying memory leaks, excessive intermediate materialization, and opportunities for streaming optimization
 - **Throughput rate measurement** -- Calculates records-per-second throughput at every stage boundary, identifying bottleneck stages that limit overall workflow performance
-- **[Backpressure](/glossary/backpressure/) event detection** -- Monitors GenStage demand/supply dynamics to identify stages where backpressure events indicate processing bottlenecks or resource contention
+- **[Backpressure](@/glossary/backpressure.md) event detection** -- Monitors GenStage demand/supply dynamics to identify stages where backpressure events indicate processing bottlenecks or resource contention
 - **Regression detection** -- Compares current profiling results against historical baselines to detect performance regressions introduced by workflow modifications or infrastructure changes
 - **Optimization recommendations** -- Generates specific, actionable optimization recommendations with estimated performance improvement based on historical data from similar optimizations
 - **Real-time monitoring dashboards** -- Publishes live profiling data to the platform's monitoring infrastructure for real-time workflow performance visibility
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with continuous profiling capability for production workflows
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with continuous profiling capability for production workflows
 
 ## Bottleneck Identification Methodology
 
@@ -67,18 +67,18 @@ The benchmark framework supports A/B testing of workflow optimizations. Two work
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the profiler to instrument workflow execution across all PVM stages, access historical performance data for baseline comparison, and publish optimization recommendations to workflow maintainers.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the profiler to instrument workflow execution across all PVM stages, access historical performance data for baseline comparison, and publish optimization recommendations to workflow maintainers.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
 | Prismatic Telemetry | Performance metric collection, aggregation, and historical storage |
-| [PVM](/glossary/pvm/) Runtime | Target execution environment for instrumented workflow profiling |
-| [PostgreSQL](/glossary/postgresql/) | Database query execution profiling and index utilization analysis |
-| [ETS](/glossary/ets/)/DETS | In-memory cache performance monitoring and hit-rate analysis |
-| [BEAM](/glossary/beam/) VM | Process-level resource utilization measurement |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of profiling heuristics and optimization rules |
+| [PVM](@/glossary/pvm.md) Runtime | Target execution environment for instrumented workflow profiling |
+| [PostgreSQL](@/glossary/postgresql.md) | Database query execution profiling and index utilization analysis |
+| [ETS](@/glossary/ets.md)/DETS | In-memory cache performance monitoring and hit-rate analysis |
+| [BEAM](@/glossary/beam.md) VM | Process-level resource utilization measurement |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of profiling heuristics and optimization rules |
 
 ## Command Interface
 
@@ -93,21 +93,21 @@ The benchmark framework supports A/B testing of workflow optimizations. Two work
 
 | Agent | Relationship |
 |-------|-------------|
-| [**ir-generator**](/agents/ir-generator/) (L3) | Receives profiling feedback to improve future workflow generation quality |
-| [**ir-linter**](/agents/ir-linter/) (L3) | Performance findings inform linter rule development for anti-pattern detection |
-| [**ir-validator**](/agents/ir-validator/) (L3) | Validates that optimization recommendations maintain workflow correctness |
-| [**Performance Benchmarking Agent**](/agents/performance-benchmarking-agent/) (L3) | Provides platform-wide benchmarking infrastructure and methodology |
-| [**performance-optimization-conductor-enhanced**](/agents/performance-optimization-conductor-enhanced/) (L3) | Coordinates cross-system performance optimization campaigns |
+| [**ir-generator**](@/agents/ir-generator.md) (L3) | Receives profiling feedback to improve future workflow generation quality |
+| [**ir-linter**](@/agents/ir-linter.md) (L3) | Performance findings inform linter rule development for anti-pattern detection |
+| [**ir-validator**](@/agents/ir-validator.md) (L3) | Validates that optimization recommendations maintain workflow correctness |
+| [**Performance Benchmarking Agent**](@/agents/performance-benchmarking-agent.md) (L3) | Provides platform-wide benchmarking infrastructure and methodology |
+| [**performance-optimization-conductor-enhanced**](@/agents/performance-optimization-conductor-enhanced.md) (L3) | Coordinates cross-system performance optimization campaigns |
 
 ## Historical Baseline Management
 
 The profiler maintains historical baselines for all profiled workflows, enabling trend analysis and regression detection over time. Baselines capture not just raw metrics but also the infrastructure context (BEAM VM version, available CPU cores, memory limits, concurrent load) under which measurements were taken. This contextual metadata enables meaningful comparison even when infrastructure changes between profiling runs.
 
-Baseline data is stored in [PostgreSQL](/glossary/postgresql/) with time-series indexing for efficient historical queries. The profiler supports configurable retention policies that balance storage costs against the analytical value of long-term performance trends.
+Baseline data is stored in [PostgreSQL](@/glossary/postgresql.md) with time-series indexing for efficient historical queries. The profiler supports configurable retention policies that balance storage costs against the analytical value of long-term performance trends.
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that profiling results are precise and actionable. Every optimization recommendation includes a quantitative estimate of expected improvement, a concrete implementation suggestion, and an assessment of remediation complexity. The [NO DOUBTS](/glossary/no-doubts/) principle requires that performance claims are backed by measured data with stated confidence intervals -- the profiler never presents estimated improvements without indicating the statistical reliability of the estimate.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that profiling results are precise and actionable. Every optimization recommendation includes a quantitative estimate of expected improvement, a concrete implementation suggestion, and an assessment of remediation complexity. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that performance claims are backed by measured data with stated confidence intervals -- the profiler never presents estimated improvements without indicating the statistical reliability of the estimate.
 
 ---
 
@@ -116,4 +116,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that profiling results are
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

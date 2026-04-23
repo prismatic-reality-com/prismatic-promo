@@ -28,9 +28,9 @@ image_alt = "ma-enforcement-commander - Prismatic Platform"
 
 ## Overview
 
-The ma-enforcement-commander agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's strategic-command domain, serving as the primary enforcement mechanism for mergers and acquisitions (M&A) governance policies across the entire deal lifecycle. This agent ensures that every M&A operation -- from initial screening through due diligence to post-acquisition integration -- complies with the platform's rigorous quality, compliance, and risk management standards. Its enforcement authority is backed by five core [Lean4](/glossary/lean4/) theorems that formally guarantee safe evolution of acquisition strategies without violating established regulatory or operational constraints.
+The ma-enforcement-commander agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's strategic-command domain, serving as the primary enforcement mechanism for mergers and acquisitions (M&A) governance policies across the entire deal lifecycle. This agent ensures that every M&A operation -- from initial screening through due diligence to post-acquisition integration -- complies with the platform's rigorous quality, compliance, and risk management standards. Its enforcement authority is backed by five core [Lean4](@/glossary/lean4.md) theorems that formally guarantee safe evolution of acquisition strategies without violating established regulatory or operational constraints.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine, the ma-enforcement-commander maintains zero tolerance for policy violations during M&A operations. The agent applies the [NABLA Infinity](/glossary/nabla-infinity/) framework to enforce [signal plurality](/glossary/signal-plurality/) in every enforcement decision, requiring corroboration from multiple independent assessment sources before approving or blocking any deal-related action. Enforcement decisions carry full provenance metadata, ensuring complete auditability of every gate passed or failed throughout the transaction lifecycle.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine, the ma-enforcement-commander maintains zero tolerance for policy violations during M&A operations. The agent applies the [NABLA Infinity](@/glossary/nabla-infinity.md) framework to enforce [signal plurality](@/glossary/signal-plurality.md) in every enforcement decision, requiring corroboration from multiple independent assessment sources before approving or blocking any deal-related action. Enforcement decisions carry full provenance metadata, ensuring complete auditability of every gate passed or failed throughout the transaction lifecycle.
 
 The five core Lean4 theorems formalize the critical invariants that must hold across all M&A operations: monotonic compliance progression (compliance scores cannot decrease without explicit remediation), risk containment bounds (aggregate risk exposure cannot exceed defined thresholds), information completeness requirements (decisions cannot proceed without minimum information thresholds), temporal consistency (deal timelines must satisfy dependency ordering), and integration safety guarantees (post-acquisition changes must preserve operational continuity). These formal proofs transform M&A governance from policy documents into mathematically verified constraints.
 
@@ -68,7 +68,7 @@ Deal Action Request
  (with conditions)   (with remediation path)
 ```
 
-The agent maintains an [ETS](/glossary/ets/)-backed enforcement state that tracks all active deals, their current compliance status, and pending enforcement actions. This state is replicated through the platform's [supervision tree](/glossary/supervision-tree/) for fault tolerance, ensuring that enforcement continuity is maintained even through process restarts.
+The agent maintains an [ETS](@/glossary/ets.md)-backed enforcement state that tracks all active deals, their current compliance status, and pending enforcement actions. This state is replicated through the platform's [supervision tree](@/glossary/supervision-tree.md) for fault tolerance, ensuring that enforcement continuity is maintained even through process restarts.
 
 ## Core Capabilities
 
@@ -78,7 +78,7 @@ The ma-enforcement-commander provides comprehensive M&A governance enforcement t
 
 **Policy Gate Management** implements configurable enforcement gates at each deal lifecycle phase. These gates evaluate actions against rule sets that cover regulatory requirements (antitrust, foreign investment screening, sector-specific regulations), financial thresholds (deal size limits, valuation range constraints, leverage ratio caps), and operational criteria (integration feasibility, technology compatibility, personnel retention). Gates operate in either blocking mode (action cannot proceed) or advisory mode (action proceeds with warnings).
 
-**Multi-Source Risk Aggregation** collects risk assessments from specialist agents across financial, legal, technical, operational, and cybersecurity domains, aggregating them into a unified risk profile for enforcement decisions. The aggregation applies [NABLA](/glossary/nabla-infinity/) signal plurality requirements, refusing to produce enforcement decisions based on single-source risk assessments.
+**Multi-Source Risk Aggregation** collects risk assessments from specialist agents across financial, legal, technical, operational, and cybersecurity domains, aggregating them into a unified risk profile for enforcement decisions. The aggregation applies [NABLA](@/glossary/nabla-infinity.md) signal plurality requirements, refusing to produce enforcement decisions based on single-source risk assessments.
 
 **Audit Trail Generation** produces immutable enforcement records for every gate evaluation, including the complete evidence chain, decision rationale, and applicable policy references. These records support both internal governance reviews and external regulatory examinations.
 
@@ -86,7 +86,7 @@ The ma-enforcement-commander provides comprehensive M&A governance enforcement t
 
 ## Implementation
 
-The enforcement commander is implemented as a [GenServer](/glossary/genserver/) process within the Prismatic Platform's [OTP](/glossary/otp/) supervision hierarchy, maintaining deal enforcement state and processing gate evaluation requests.
+The enforcement commander is implemented as a [GenServer](@/glossary/genserver.md) process within the Prismatic Platform's [OTP](@/glossary/otp.md) supervision hierarchy, maintaining deal enforcement state and processing gate evaluation requests.
 
 ```elixir
 defmodule Prismatic.MA.EnforcementCommander do
@@ -154,14 +154,14 @@ The ma-enforcement-commander integrates with multiple platform subsystems to pro
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [ma-financial-analyst](/agents/ma-financial-analyst/) | Receives financial compliance data for gate evaluation | Inbound |
-| [ma-risk-assessor](/agents/ma-risk-assessor/) | Consumes risk assessment outputs for risk bound verification | Inbound |
-| [ma-tech-assessor](/agents/ma-tech-assessor/) | Receives technology risk scores for integration safety checks | Inbound |
-| [ma-integration-planner](/agents/ma-integration-planner/) | Enforces integration plan compliance with safety theorems | Bidirectional |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
-| Prismatic Telemetry | Enforcement event publishing and [metrics](/glossary/metrics/) tracking | Outbound |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification, discovery, and compliance verification | Infrastructure |
-| [SEADF](/glossary/seadf/) | Self-healing triggers for enforcement pipeline degradation | Bidirectional |
+| [ma-financial-analyst](@/agents/ma-financial-analyst.md) | Receives financial compliance data for gate evaluation | Inbound |
+| [ma-risk-assessor](@/agents/ma-risk-assessor.md) | Consumes risk assessment outputs for risk bound verification | Inbound |
+| [ma-tech-assessor](@/agents/ma-tech-assessor.md) | Receives technology risk scores for integration safety checks | Inbound |
+| [ma-integration-planner](@/agents/ma-integration-planner.md) | Enforces integration plan compliance with safety theorems | Bidirectional |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
+| Prismatic Telemetry | Enforcement event publishing and [metrics](@/glossary/metrics.md) tracking | Outbound |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification, discovery, and compliance verification | Infrastructure |
+| [SEADF](@/glossary/seadf.md) | Self-healing triggers for enforcement pipeline degradation | Bidirectional |
 
 ## Operational Workflow
 
@@ -179,7 +179,7 @@ The enforcement commander follows a structured operational workflow for each M&A
 
 ## NABLA Compliance
 
-The ma-enforcement-commander enforces full compliance with all seven [NABLA Infinity](/glossary/nabla-infinity/) axioms in its enforcement operations.
+The ma-enforcement-commander enforces full compliance with all seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms in its enforcement operations.
 
 | Axiom | Enforcement Application |
 |-------|------------------------|
@@ -191,7 +191,7 @@ The ma-enforcement-commander enforces full compliance with all seven [NABLA Infi
 | Source Independence | Risk assessments from independent domains are weighted higher than correlated sources |
 | Provenance Mandatory | Every enforcement decision carries complete evidence chain traceability |
 
-All enforcement conclusions must pass [Trinity Gate](/glossary/trinity-gate/) validation: structural consistency of the enforcement decision graph, logical consistency of policy rule application, and formal necessity verified through Lean4 theorem proving.
+All enforcement conclusions must pass [Trinity Gate](@/glossary/trinity-gate.md) validation: structural consistency of the enforcement decision graph, logical consistency of policy rule application, and formal necessity verified through Lean4 theorem proving.
 
 ## Configuration
 
@@ -235,20 +235,20 @@ The enforcement commander is optimized for low-latency gate evaluation to avoid 
 | Concurrent deal capacity | 50+ | 100 tested |
 | Enforcement log write | < 10ms | 3ms (P95) |
 
-Performance is achieved through [ETS](/glossary/ets/) caching of frequently accessed policy rules, pre-compiled Lean4 theorem specifications, and asynchronous audit log persistence that does not block gate evaluation responses.
+Performance is achieved through [ETS](@/glossary/ets.md) caching of frequently accessed policy rules, pre-compiled Lean4 theorem specifications, and asynchronous audit log persistence that does not block gate evaluation responses.
 
 ## Related Resources
 
-- [ma-financial-analyst](/agents/ma-financial-analyst/) -- Financial compliance data provider
-- [ma-risk-assessor](/agents/ma-risk-assessor/) -- Risk assessment for bound verification
-- [ma-integration-planner](/agents/ma-integration-planner/) -- Integration plan enforcement target
-- [ma-tech-assessor](/agents/ma-tech-assessor/) -- Technology risk scoring
-- [ma-market-analyst](/agents/ma-market-analyst/) -- Market compliance intelligence
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NO MERCY, NO DOUBTS Doctrine](/glossary/no-mercy/) -- Enforcement doctrine
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for evidence-based enforcement
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation for enforcement decisions
-- [Lean4](/glossary/lean4/) -- Formal verification for M&A safety theorems
+- [ma-financial-analyst](@/agents/ma-financial-analyst.md) -- Financial compliance data provider
+- [ma-risk-assessor](@/agents/ma-risk-assessor.md) -- Risk assessment for bound verification
+- [ma-integration-planner](@/agents/ma-integration-planner.md) -- Integration plan enforcement target
+- [ma-tech-assessor](@/agents/ma-tech-assessor.md) -- Technology risk scoring
+- [ma-market-analyst](@/agents/ma-market-analyst.md) -- Market compliance intelligence
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NO MERCY, NO DOUBTS Doctrine](@/glossary/no-mercy.md) -- Enforcement doctrine
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for evidence-based enforcement
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation for enforcement decisions
+- [Lean4](@/glossary/lean4.md) -- Formal verification for M&A safety theorems
 
 ---
 
@@ -257,4 +257,4 @@ Performance is achieved through [ETS](/glossary/ets/) caching of frequently acce
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

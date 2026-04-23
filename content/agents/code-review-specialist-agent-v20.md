@@ -28,7 +28,7 @@ image_alt = "Code Review Specialist Agent v2.0 - Prismatic Platform"
 
 ## Executive Summary
 
-The Code Review Specialist Agent v2.0 operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Primary Producer domain of the Prismatic Platform. This agent provides comprehensive automated code review capabilities with multi-dimensional analysis spanning correctness verification, security vulnerability detection, performance assessment, maintainability evaluation, and [OTP](/glossary/otp/) pattern compliance checking. As the v2.0 evolution, this agent represents a significant advancement over basic lint-and-format review, incorporating semantic analysis that understands Elixir/OTP conventions, Prismatic Platform patterns, and the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) quality expectations.
+The Code Review Specialist Agent v2.0 operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Primary Producer domain of the Prismatic Platform. This agent provides comprehensive automated code review capabilities with multi-dimensional analysis spanning correctness verification, security vulnerability detection, performance assessment, maintainability evaluation, and [OTP](@/glossary/otp.md) pattern compliance checking. As the v2.0 evolution, this agent represents a significant advancement over basic lint-and-format review, incorporating semantic analysis that understands Elixir/OTP conventions, Prismatic Platform patterns, and the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) quality expectations.
 
 In a platform generating hundreds of code changes daily across 90 umbrella applications, automated code review is essential for maintaining quality velocity. Manual review cannot scale to the platform's change rate while providing the deep, consistent analysis that complex Elixir/OTP code requires. The Code Review Specialist v2.0 provides instant, comprehensive feedback on every code change, identifying issues that range from compilation warnings (caught by Credo) through type errors (caught by Dialyzer) to semantic problems (incorrect OTP patterns, missing supervision tree integration, unsafe map access) that require platform-specific knowledge.
 
@@ -78,7 +78,7 @@ The review domain understands the platform's unique quality requirements. The pl
 
 ## Core Capabilities
 
-**Correctness Verification** combines [Dialyzer](/glossary/dialyzer/) type analysis, [pattern matching](/glossary/pattern-matching/) coverage assessment, and edge case detection. Type analysis identifies type mismatches that would cause runtime errors. Pattern matching coverage ensures that function clause heads cover all expected input shapes. Edge case detection identifies boundary conditions (empty lists, nil values, large inputs) that are not handled.
+**Correctness Verification** combines [Dialyzer](@/glossary/dialyzer.md) type analysis, [pattern matching](@/glossary/pattern-matching.md) coverage assessment, and edge case detection. Type analysis identifies type mismatches that would cause runtime errors. Pattern matching coverage ensures that function clause heads cover all expected input shapes. Edge case detection identifies boundary conditions (empty lists, nil values, large inputs) that are not handled.
 
 **Security Vulnerability Detection** scans for common Elixir security issues including unsafe atom creation from user input, SQL injection through string interpolation in Ecto queries, secret material in source code, and insecure external HTTP calls. The security review layer maintains awareness of OWASP Top 10 vulnerabilities adapted to the Elixir ecosystem.
 
@@ -135,10 +135,10 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [code-quality-commander](/agents/code-quality-commander/) | Quality Authority | Defines quality standards that the review specialist enforces |
-| [code-specialist](/agents/code-specialist/) | Generation Partner | Reviews code produced by the code generation specialist |
-| [code-consolidation-specialist-agent](/agents/code-consolidation-specialist-agent/) | Consolidation Review | Reviews consolidation refactoring for correctness |
-| [code-reconnaissance-specialist](/agents/code-reconnaissance-specialist/) | Context Provider | Provides architectural context for review assessments |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality Authority | Defines quality standards that the review specialist enforces |
+| [code-specialist](@/agents/code-specialist.md) | Generation Partner | Reviews code produced by the code generation specialist |
+| [code-consolidation-specialist-agent](@/agents/code-consolidation-specialist-agent.md) | Consolidation Review | Reviews consolidation refactoring for correctness |
+| [code-reconnaissance-specialist](@/agents/code-reconnaissance-specialist.md) | Context Provider | Provides architectural context for review assessments |
 
 ## Operational Workflow
 
@@ -171,15 +171,15 @@ end
 
 ## Enforcement
 
-Code review operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. All code changes undergo review before acceptance. Security findings of medium severity or higher block code acceptance. OTP pattern violations require remediation before merge. No code enters the repository without passing all five review dimensions.
+Code review operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. All code changes undergo review before acceptance. Security findings of medium severity or higher block code acceptance. OTP pattern violations require remediation before merge. No code enters the repository without passing all five review dimensions.
 
 ## Related Resources
 
-- [code-quality-commander](/agents/code-quality-commander/) -- Quality enforcement
-- [code-specialist](/agents/code-specialist/) -- Code generation
-- [code-reconnaissance-specialist](/agents/code-reconnaissance-specialist/) -- Codebase intelligence
-- [Quality Gates](/capabilities/quality-gates/) -- Quality enforcement
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [code-quality-commander](@/agents/code-quality-commander.md) -- Quality enforcement
+- [code-specialist](@/agents/code-specialist.md) -- Code generation
+- [code-reconnaissance-specialist](@/agents/code-reconnaissance-specialist.md) -- Codebase intelligence
+- [Quality Gates](@/capabilities/quality-gates.md) -- Quality enforcement
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -188,4 +188,4 @@ Code review operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

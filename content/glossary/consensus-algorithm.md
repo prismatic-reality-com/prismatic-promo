@@ -39,7 +39,7 @@ A consensus algorithm is a protocol that enables a group of distributed nodes to
 
 Practical consensus algorithms work around this theoretical impossibility by introducing timing assumptions (partial synchrony), randomization, or failure detectors. The most widely deployed algorithms are Paxos (Lamport, 1989), Raft (Ongaro and Ousterhout, 2014), and PBFT (Castro and Liskov, 1999). Each makes different trade-offs between understandability, performance, and fault tolerance. Raft has largely displaced Paxos in modern systems due to its significantly clearer specification and equivalent correctness guarantees.
 
-Consensus algorithms guarantee three properties: **Agreement** (all non-faulty nodes decide on the same value), **Validity** (the decided value was proposed by some node), and **Termination** (all non-faulty nodes eventually decide). These guarantees hold as long as a majority of nodes (typically 2f+1 out of 3f for f failures) remain operational and can communicate. When a majority is unavailable, the system sacrifices availability to preserve consistency -- the "C" side of the [CAP theorem](/glossary/cap-theorem/) trade-off.
+Consensus algorithms guarantee three properties: **Agreement** (all non-faulty nodes decide on the same value), **Validity** (the decided value was proposed by some node), and **Termination** (all non-faulty nodes eventually decide). These guarantees hold as long as a majority of nodes (typically 2f+1 out of 3f for f failures) remain operational and can communicate. When a majority is unavailable, the system sacrifices availability to preserve consistency -- the "C" side of the [CAP theorem](@/glossary/cap-theorem.md) trade-off.
 
 ## Theoretical Foundations
 
@@ -57,15 +57,15 @@ The three common workarounds are:
 
 ### The CAP Theorem and Consensus
 
-The [CAP theorem](/glossary/cap-theorem/) (Brewer, 2000) states that a distributed system can provide at most two of three guarantees: Consistency, Availability, and Partition tolerance. Since network partitions are inevitable in real systems, the practical choice is between CP (consistent but may be unavailable during partitions) and AP (available but may return stale data during partitions).
+The [CAP theorem](@/glossary/cap-theorem.md) (Brewer, 2000) states that a distributed system can provide at most two of three guarantees: Consistency, Availability, and Partition tolerance. Since network partitions are inevitable in real systems, the practical choice is between CP (consistent but may be unavailable during partitions) and AP (available but may return stale data during partitions).
 
 Consensus algorithms are inherently CP -- they sacrifice availability during partitions to maintain consistency. CRDTs (Conflict-free Replicated Data Types) offer an AP alternative that avoids consensus entirely by using mathematical properties of data structures to guarantee convergence without coordination.
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform leverages consensus indirectly through its distributed infrastructure layers. [PostgreSQL](/glossary/postgresql/) uses write-ahead logging and synchronous replication for data durability, with Raft-based consensus in PostgreSQL HA configurations. When running in distributed mode with Horde, the platform uses CRDT-based (Conflict-free Replicated Data Type) convergence for distributed process registry and supervision -- a weaker form of consensus that trades strong consistency for availability and partition tolerance, aligning with the platform's AP design choice for non-critical state.
+The Prismatic Platform leverages consensus indirectly through its distributed infrastructure layers. [PostgreSQL](@/glossary/postgresql.md) uses write-ahead logging and synchronous replication for data durability, with Raft-based consensus in PostgreSQL HA configurations. When running in distributed mode with Horde, the platform uses CRDT-based (Conflict-free Replicated Data Type) convergence for distributed process registry and supervision -- a weaker form of consensus that trades strong consistency for availability and partition tolerance, aligning with the platform's AP design choice for non-critical state.
 
-The [BEAM](/glossary/beam/) VM's built-in `global` module provides leader election for distributed named processes across the [cluster](/glossary/cluster/), and Erlang's `pg` module (process groups) uses a gossip-based protocol for group membership consensus. The NABLA Infinity [Trinity Gate](/glossary/trinity-gate/) applies a form of consensus to epistemic claims -- three independent verification gates must agree before a claim is established, analogous to Byzantine fault tolerance requiring agreement from multiple independent validators.
+The [BEAM](@/glossary/beam.md) VM's built-in `global` module provides leader election for distributed named processes across the [cluster](@/glossary/cluster.md), and Erlang's `pg` module (process groups) uses a gossip-based protocol for group membership consensus. The NABLA Infinity [Trinity Gate](@/glossary/trinity-gate.md) applies a form of consensus to epistemic claims -- three independent verification gates must agree before a claim is established, analogous to Byzantine fault tolerance requiring agreement from multiple independent validators.
 
 ```elixir
 defmodule PrismaticCluster.ConsensusCoordinator do
@@ -182,7 +182,7 @@ end
 |---------|-------|------|------|-------|
 | **Failure Model** | Crash | Crash | Byzantine | None (coordination-free) |
 | **Nodes for f faults** | 2f+1 | 2f+1 | 3f+1 | Any |
-| **Consistency** | Strong | Strong | Strong | [Eventual](/glossary/eventual-consistency/) |
+| **Consistency** | Strong | Strong | Strong | [Eventual](@/glossary/eventual-consistency.md) |
 | **Availability** | Low during partition | Low during partition | Low during partition | High always |
 | **Latency** | 2 RTT | 1 RTT (leader write) | 3 RTT | 0 (local) |
 | **Complexity** | Very High | Medium | High | Low |
@@ -277,7 +277,7 @@ end
 
 ## Consensus in the Epistemic Domain
 
-The [Trinity Gate](/glossary/trinity-gate/) applies consensus principles to knowledge claims:
+The [Trinity Gate](@/glossary/trinity-gate.md) applies consensus principles to knowledge claims:
 
 | Trinity Gate | Consensus Analogy | Validates |
 |-------------|-------------------|-----------|
@@ -338,26 +338,26 @@ end
 - **Epistemic Verification**: Trinity Gate consensus requiring agreement from three independent verification gates before establishing claims
 - **Configuration Propagation**: Ensuring configuration changes are consistently applied across all cluster nodes
 - **Distributed Locking**: Coordinating exclusive access to shared resources during critical operations
-- **[Agent Registry](/glossary/agent-registry/) Synchronization**: Ensuring all nodes have a consistent view of the 530+ registered agents
+- **[Agent Registry](@/glossary/agent-registry.md) Synchronization**: Ensuring all nodes have a consistent view of the 530+ registered agents
 
 ## Related Concepts
 
-- [Distributed System](/glossary/distributed-system/) - Systems requiring consensus for coordination
-- [CAP Theorem](/glossary/cap-theorem/) - Theoretical constraints on consensus achievability
-- [Cluster](/glossary/cluster/) - Node group participating in consensus protocols
-- [Fault Tolerance](/glossary/fault-tolerance/) - Resilience property enabled by consensus
-- [Eventual Consistency](/glossary/eventual-consistency/) - Weaker alternative to consensus-based consistency
-- [Message Passing](/glossary/message-passing/) - Communication primitive underlying consensus protocols
-- [BEAM](/glossary/beam/) - VM providing distributed primitives for consensus
-- [Trinity Gate](/glossary/trinity-gate/) - Epistemic consensus mechanism in NABLA framework
-- [PostgreSQL](/glossary/postgresql/) - Database using consensus for HA replication
-- [Load Balancing](/glossary/load-balancing/) - Traffic distribution complementing consensus-elected leaders
-- [Supervisor](/glossary/supervisor/) - OTP behaviour managing distributed process lifecycle
+- [Distributed System](@/glossary/distributed-system.md) - Systems requiring consensus for coordination
+- [CAP Theorem](@/glossary/cap-theorem.md) - Theoretical constraints on consensus achievability
+- [Cluster](@/glossary/cluster.md) - Node group participating in consensus protocols
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - Resilience property enabled by consensus
+- [Eventual Consistency](@/glossary/eventual-consistency.md) - Weaker alternative to consensus-based consistency
+- [Message Passing](@/glossary/message-passing.md) - Communication primitive underlying consensus protocols
+- [BEAM](@/glossary/beam.md) - VM providing distributed primitives for consensus
+- [Trinity Gate](@/glossary/trinity-gate.md) - Epistemic consensus mechanism in NABLA framework
+- [PostgreSQL](@/glossary/postgresql.md) - Database using consensus for HA replication
+- [Load Balancing](@/glossary/load-balancing.md) - Traffic distribution complementing consensus-elected leaders
+- [Supervisor](@/glossary/supervisor.md) - OTP behaviour managing distributed process lifecycle
 
 ## See Also
 
-- [Architecture](/architecture/) - Distributed coordination design
-- [Technologies](/technologies/) - Consensus implementations in the stack
+- [Architecture](@/architecture/_index.md) - Distributed coordination design
+- [Technologies](@/technologies/_index.md) - Consensus implementations in the stack
 
 ---
 
@@ -366,4 +366,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

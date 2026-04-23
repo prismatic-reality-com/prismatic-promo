@@ -28,13 +28,13 @@ image_alt = "pvm-adaptive-scheduler - Prismatic Platform"
 
 ## Overview
 
-The [pvm](/glossary/pvm/)-adaptive-scheduler operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's execution infrastructure, providing intelligent workload scheduling for the Prismatic Virtual Machine (PVM) execution environment. This agent dynamically allocates computational resources across competing agent workflows, pipeline stages, and background operations based on real-time system load, task priority, deadline constraints, and resource availability. The adaptive scheduler ensures that the platform's finite computational resources are distributed optimally across its 400+ autonomous agents, preventing resource starvation for critical operations while maintaining fair allocation for routine workloads.
+The [pvm](@/glossary/pvm.md)-adaptive-scheduler operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's execution infrastructure, providing intelligent workload scheduling for the Prismatic Virtual Machine (PVM) execution environment. This agent dynamically allocates computational resources across competing agent workflows, pipeline stages, and background operations based on real-time system load, task priority, deadline constraints, and resource availability. The adaptive scheduler ensures that the platform's finite computational resources are distributed optimally across its 400+ autonomous agents, preventing resource starvation for critical operations while maintaining fair allocation for routine workloads.
 
-The scheduler's adaptive behavior is grounded in five core [Lean4](/glossary/lean4/) theorems that formally verify safety properties of scheduling decisions. These theorems guarantee that no scheduling decision can cause resource deadlock, that priority inversion is bounded and resolved within configurable time limits, that critical-path operations receive guaranteed minimum resource allocations, that the scheduler's own resource consumption is bounded and predictable, and that schedule transitions between steady states are smooth rather than oscillatory. These formal guarantees distinguish the PVM scheduler from heuristic-based approaches that may perform well empirically but lack provable safety properties.
+The scheduler's adaptive behavior is grounded in five core [Lean4](@/glossary/lean4.md) theorems that formally verify safety properties of scheduling decisions. These theorems guarantee that no scheduling decision can cause resource deadlock, that priority inversion is bounded and resolved within configurable time limits, that critical-path operations receive guaranteed minimum resource allocations, that the scheduler's own resource consumption is bounded and predictable, and that schedule transitions between steady states are smooth rather than oscillatory. These formal guarantees distinguish the PVM scheduler from heuristic-based approaches that may perform well empirically but lack provable safety properties.
 
 ## Adaptive Scheduling Architecture
 
-The scheduler operates as a continuously running [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) process that receives scheduling requests, evaluates resource availability, and produces scheduling decisions at configurable intervals (default: 100ms scheduling cycles).
+The scheduler operates as a continuously running [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) process that receives scheduling requests, evaluates resource availability, and produces scheduling decisions at configurable intervals (default: 100ms scheduling cycles).
 
 **Workload Classification** categorizes incoming tasks into scheduling classes based on their resource requirements, latency sensitivity, and priority level. Interactive tasks (LiveView page renders, API responses) receive the highest scheduling priority with strict latency bounds. Pipeline stages (quality gates, evolution cycles) receive medium priority with throughput optimization. Background operations (telemetry aggregation, cache maintenance) receive lowest priority with best-effort scheduling. Classification is automatic based on task metadata, with override capability for escalated operations.
 
@@ -81,23 +81,23 @@ The five Lean4 theorems provide mathematical guarantees for scheduling correctne
 
 | Agent | Relationship |
 |-------|-------------|
-| [pvm-executor](/agents/pvm-executor/) | Receives scheduling decisions for task execution dispatch |
-| [pvm-compiler](/agents/pvm-compiler/) | Compilation task scheduling with resource-aware batching |
-| [pvm-tracer](/agents/pvm-tracer/) | Execution tracing data for scheduling decision evaluation |
-| [performance-profiling-agent](/agents/performance-profiling-agent/) | Performance data informing resource model calibration |
+| [pvm-executor](@/agents/pvm-executor.md) | Receives scheduling decisions for task execution dispatch |
+| [pvm-compiler](@/agents/pvm-compiler.md) | Compilation task scheduling with resource-aware batching |
+| [pvm-tracer](@/agents/pvm-tracer.md) | Execution tracing data for scheduling decision evaluation |
+| [performance-profiling-agent](@/agents/performance-profiling-agent.md) | Performance data informing resource model calibration |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Scheduling [metrics](/glossary/metrics/), resource utilization, and decision latency tracking |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent priority and resource requirement specifications |
-| [SEADF](/glossary/seadf/) Pipeline | Evolution cycle scheduling with quality gate integration |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Scheduling [metrics](@/glossary/metrics.md), resource utilization, and decision latency tracking |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent priority and resource requirement specifications |
+| [SEADF](@/glossary/seadf.md) Pipeline | Evolution cycle scheduling with quality gate integration |
 
 ## Enforcement
 
-Scheduling decisions are governed by the [NO MERCY](/glossary/no-mercy/) doctrine -- resource overcommitment, deadline violations for critical-path operations, and scheduling decisions that violate formal safety theorems are rejected. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all scheduling decisions are based on measured resource availability and task requirements, not on assumptions about system capacity. The [Trinity Gate](/glossary/trinity-gate/) validates scheduling configuration changes through structural consistency (scheduling graph is valid), logical consistency (priority ordering is maintained), and formal necessity (Lean4 safety theorem satisfaction is preserved).
+Scheduling decisions are governed by the [NO MERCY](@/glossary/no-mercy.md) doctrine -- resource overcommitment, deadline violations for critical-path operations, and scheduling decisions that violate formal safety theorems are rejected. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all scheduling decisions are based on measured resource availability and task requirements, not on assumptions about system capacity. The [Trinity Gate](@/glossary/trinity-gate.md) validates scheduling configuration changes through structural consistency (scheduling graph is valid), logical consistency (priority ordering is maintained), and formal necessity (Lean4 safety theorem satisfaction is preserved).
 
 ---
 
@@ -106,4 +106,4 @@ Scheduling decisions are governed by the [NO MERCY](/glossary/no-mercy/) doctrin
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

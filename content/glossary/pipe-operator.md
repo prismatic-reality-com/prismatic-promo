@@ -37,7 +37,7 @@ image_alt = "Pipe Operator - Prismatic Platform"
 
 The pipe operator (`|>`) is an Elixir syntactic feature that passes the result of the expression on its left as the first argument to the function on its right. It transforms deeply nested function calls into readable, top-to-bottom data transformation pipelines. Rather than writing `output(transform(validate(parse(input))))` -- which must be read inside-out to understand data flow -- the pipe operator lets developers write `input |> parse() |> validate() |> transform() |> output()`, where data flow reads naturally from top to bottom, left to right.
 
-The pipe operator embodies the functional programming principle of transformation over mutation. Instead of modifying data in place through sequential imperative statements, piped code expresses computation as a series of pure transformations applied to [immutable](/glossary/immutability/) data. Each function in a pipe chain receives data, produces new data, and passes it forward. There are no side channels, no hidden state modifications, and no implicit dependencies between pipeline stages. This makes pipe chains inherently transparent: the data entering each stage and the data leaving it are both visible in the code structure.
+The pipe operator embodies the functional programming principle of transformation over mutation. Instead of modifying data in place through sequential imperative statements, piped code expresses computation as a series of pure transformations applied to [immutable](@/glossary/immutability.md) data. Each function in a pipe chain receives data, produces new data, and passes it forward. There are no side channels, no hidden state modifications, and no implicit dependencies between pipeline stages. This makes pipe chains inherently transparent: the data entering each stage and the data leaving it are both visible in the code structure.
 
 Beyond readability, the pipe operator has deep architectural implications. It encourages developers to design functions with a consistent "data-first" argument convention (the primary data structure is always the first argument), to keep functions small and focused on a single transformation, and to compose complex behavior from simple building blocks. In Elixir codebases, the pipe operator is not merely a convenience -- it is the primary code organization pattern, influencing how modules are designed, how APIs are structured, and how developers think about data flow through the system.
 
@@ -118,7 +118,7 @@ result = step_c(temp2)
 
 ### Data Transformation Pipeline
 
-The most common pattern chains [pure transformation functions](/glossary/pure-function/):
+The most common pattern chains [pure transformation functions](@/glossary/pure-function.md):
 
 ```elixir
 defmodule SecurityAssessment do
@@ -198,7 +198,7 @@ end
 
 ### Ecto Query Pipeline
 
-[Ecto](/glossary/ecto/) query building is one of the most powerful applications of the pipe operator. Queries are built incrementally, with each pipe adding a constraint:
+[Ecto](@/glossary/ecto.md) query building is one of the most powerful applications of the pipe operator. Queries are built incrementally, with each pipe adding a constraint:
 
 ```elixir
 defmodule PrismaticPerimeter.AssetQuery do
@@ -246,7 +246,7 @@ end
 
 ### Plug Pipeline
 
-[Phoenix](/glossary/phoenix/) request processing uses pipes through the [Plug](/glossary/plug/) architecture, where each plug transforms the connection struct:
+[Phoenix](@/glossary/phoenix.md) request processing uses pipes through the [Plug](@/glossary/plug.md) architecture, where each plug transforms the connection struct:
 
 ```elixir
 defmodule PrismaticWeb.Router do
@@ -286,14 +286,14 @@ This consistency means that virtually any function in the Elixir ecosystem can p
 
 The pipe operator is the dominant code style across the Prismatic Platform's source files. It appears in virtually every module and serves as the primary means of expressing data flow:
 
-- **Quality Gate Pipelines**: Validation chains: `code |> compile_check() |> credo_check() |> dialyzer_check() |> typespec_check()`. Each check is a [pure function](/glossary/pure-function/) that produces a report without side effects.
+- **Quality Gate Pipelines**: Validation chains: `code |> compile_check() |> credo_check() |> dialyzer_check() |> typespec_check()`. Each check is a [pure function](@/glossary/pure-function.md) that produces a report without side effects.
 - **Storage Adapter Chains**: Data normalization before persistence: `raw_data |> validate() |> normalize() |> encode() |> store()`.
 - **OSINT Processing**: Intelligence data flows through transformation pipelines: `raw_intel |> parse() |> deduplicate() |> correlate() |> score() |> classify()`.
-- **Security Rating Calculations**: The [Perimeter](/glossary/easm/) module computes ratings through piped scoring functions: `asset_data |> vulnerability_score() |> config_score() |> patch_score() |> combine() |> grade()`.
-- **[Ecto](/glossary/ecto/) Query Building**: Database queries are built through pipe chains: `Asset |> where(type: :domain) |> order_by(:score) |> limit(100) |> Repo.all()`.
-- **Phoenix Request Handling**: HTTP request processing flows through [plug](/glossary/plug/) pipelines composed with pipes.
-- **[Broadway](/glossary/broadway/) Message Processing**: Data pipeline stages use pipes for message transformation within each processing stage.
-- **Mix Task Composition**: Custom [Mix](/glossary/mix/) tasks compose operations through pipe chains for quality enforcement workflows.
+- **Security Rating Calculations**: The [Perimeter](@/glossary/easm.md) module computes ratings through piped scoring functions: `asset_data |> vulnerability_score() |> config_score() |> patch_score() |> combine() |> grade()`.
+- **[Ecto](@/glossary/ecto.md) Query Building**: Database queries are built through pipe chains: `Asset |> where(type: :domain) |> order_by(:score) |> limit(100) |> Repo.all()`.
+- **Phoenix Request Handling**: HTTP request processing flows through [plug](@/glossary/plug.md) pipelines composed with pipes.
+- **[Broadway](@/glossary/broadway.md) Message Processing**: Data pipeline stages use pipes for message transformation within each processing stage.
+- **Mix Task Composition**: Custom [Mix](@/glossary/mix.md) tasks compose operations through pipe chains for quality enforcement workflows.
 
 ## Pipe Operator vs. Alternatives
 
@@ -372,7 +372,7 @@ data
 
 ## Credo Enforcement
 
-The Prismatic Platform's [Credo](/glossary/clean-run/) configuration enforces consistent pipe operator usage:
+The Prismatic Platform's [Credo](@/glossary/clean-run.md) configuration enforces consistent pipe operator usage:
 
 ```elixir
 # Credo check: Prefer pipe chains over nested function calls
@@ -440,22 +440,22 @@ The success of Elixir's pipe operator has influenced other language ecosystems:
 
 ## Related Terms
 
-- [Pure Function](/glossary/pure-function/) - Functions composed through pipe chains must be pure for predictable behavior
-- [Pattern Matching](/glossary/pattern-matching/) - Complementary technique for handling pipeline outputs
-- [Immutability](/glossary/immutability/) - Pipe chains transform immutable data without mutation
-- [Data Pipeline](/glossary/data-pipeline/) - Architectural pattern embodied by pipe operator usage
-- [Ecto](/glossary/ecto/) - Database library with pipe-friendly query building API
-- [Broadway](/glossary/broadway/) - Data processing pipeline using pipe-style stage composition
-- [GenStage](/glossary/genstage/) - Producer-consumer pipeline stages composed through pipes
-- [Stream Processing](/glossary/stream-processing/) - Lazy evaluation pipelines using pipe operator with Stream module
-- [Plug](/glossary/plug/) - HTTP middleware composed through pipe-style function chains
-- [ETL](/glossary/etl/) - Extract-Transform-Load patterns implemented as pipe chains
+- [Pure Function](@/glossary/pure-function.md) - Functions composed through pipe chains must be pure for predictable behavior
+- [Pattern Matching](@/glossary/pattern-matching.md) - Complementary technique for handling pipeline outputs
+- [Immutability](@/glossary/immutability.md) - Pipe chains transform immutable data without mutation
+- [Data Pipeline](@/glossary/data-pipeline.md) - Architectural pattern embodied by pipe operator usage
+- [Ecto](@/glossary/ecto.md) - Database library with pipe-friendly query building API
+- [Broadway](@/glossary/broadway.md) - Data processing pipeline using pipe-style stage composition
+- [GenStage](@/glossary/genstage.md) - Producer-consumer pipeline stages composed through pipes
+- [Stream Processing](@/glossary/stream-processing.md) - Lazy evaluation pipelines using pipe operator with Stream module
+- [Plug](@/glossary/plug.md) - HTTP middleware composed through pipe-style function chains
+- [ETL](@/glossary/etl.md) - Extract-Transform-Load patterns implemented as pipe chains
 
 ## See Also
 
-- [Technologies](/technologies/) - Elixir language features and idioms
-- [Architecture](/architecture/) - Pipeline-oriented design patterns
-- [Capabilities](/capabilities/) - Platform capabilities built through function composition
+- [Technologies](@/technologies/_index.md) - Elixir language features and idioms
+- [Architecture](@/architecture/_index.md) - Pipeline-oriented design patterns
+- [Capabilities](@/capabilities/_index.md) - Platform capabilities built through function composition
 
 ---
 
@@ -464,4 +464,4 @@ The success of Elixir's pipe operator has influenced other language ecosystems:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

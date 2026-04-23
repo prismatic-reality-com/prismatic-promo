@@ -27,21 +27,21 @@ image_alt = "Verifiable Evidence - Prismatic Platform"
 
 ## Definition and Overview
 
-Verifiable evidence is information that can be independently confirmed, traced to its origin, and validated against multiple independent sources. In the Prismatic Platform, verifiable evidence is not a philosophical ideal but an engineering requirement: every belief, decision, and conclusion that enters the platform's knowledge base must pass through the [Trinity Gate](/glossary/trinity-gate/) verification mechanism, satisfy the seven [NABLA axioms](/glossary/nabla-axioms/), and maintain a complete [provenance](/glossary/provenance-mandatory/) chain from source to conclusion. No claim is accepted without verifiable evidence. No exceptions.
+Verifiable evidence is information that can be independently confirmed, traced to its origin, and validated against multiple independent sources. In the Prismatic Platform, verifiable evidence is not a philosophical ideal but an engineering requirement: every belief, decision, and conclusion that enters the platform's knowledge base must pass through the [Trinity Gate](@/glossary/trinity-gate.md) verification mechanism, satisfy the seven [NABLA axioms](@/glossary/nabla-axioms.md), and maintain a complete [provenance](@/glossary/provenance-mandatory.md) chain from source to conclusion. No claim is accepted without verifiable evidence. No exceptions.
 
 The demand for verifiable evidence arises from a specific failure mode in AI-assisted systems: the gap between confidence and truth. A language model can express high confidence in a statement that is factually incorrect. A statistical analysis can produce a p-value below 0.05 for a spurious correlation. A security scanner can report zero vulnerabilities in a system that is fundamentally compromised. In each case, the system produces an output that looks like evidence but lacks the properties required for reliable decision-making: traceability to independent sources, structural coherence with existing knowledge, and logical necessity given the premises.
 
-The Prismatic Platform's epistemic framework, [NABLA Infinity](/glossary/nabla-infinity/), addresses this gap by encoding the requirements for verifiable evidence into seven non-negotiable axioms. These axioms are not guidelines to be followed when convenient -- they are hard enforcement rules implemented in the platform's verification pipeline. Violations trigger blocking responses: operations halt, conclusions are rejected, and the system demands correction before proceeding.
+The Prismatic Platform's epistemic framework, [NABLA Infinity](@/glossary/nabla-infinity.md), addresses this gap by encoding the requirements for verifiable evidence into seven non-negotiable axioms. These axioms are not guidelines to be followed when convenient -- they are hard enforcement rules implemented in the platform's verification pipeline. Violations trigger blocking responses: operations halt, conclusions are rejected, and the system demands correction before proceeding.
 
 ## The Seven NABLA Axioms
 
-The [NABLA axioms](/glossary/nabla-axioms/) define the minimum requirements for any piece of evidence to be considered verifiable:
+The [NABLA axioms](@/glossary/nabla-axioms.md) define the minimum requirements for any piece of evidence to be considered verifiable:
 
 ### Axiom 1: Signal Plurality
 
 **Requirement**: Every belief must be supported by a minimum of two independent signals.
 
-[Signal Plurality](/glossary/signal-plurality/) prevents single-source trust. A claim supported by only one source -- no matter how authoritative that source appears -- cannot be verified because there is no independent confirmation. The platform requires at least two signals from independent origins before any belief transitions from hypothesis to accepted conclusion.
+[Signal Plurality](@/glossary/signal-plurality.md) prevents single-source trust. A claim supported by only one source -- no matter how authoritative that source appears -- cannot be verified because there is no independent confirmation. The platform requires at least two signals from independent origins before any belief transitions from hypothesis to accepted conclusion.
 
 ```elixir
 defmodule PrismaticNabla.SignalPlurality do
@@ -180,7 +180,7 @@ Two studies citing the same underlying dataset are not independent. A news artic
 
 **Requirement**: All beliefs must be traceable to their original sources. No untraceable claims.
 
-[Provenance Mandatory](/glossary/provenance-mandatory/) is the keystone axiom. Every piece of evidence in the platform must carry a complete provenance chain: who created it, when, from what sources, through what transformations. A conclusion without provenance is an assertion, not evidence. Assertions are inadmissible in the NABLA framework.
+[Provenance Mandatory](@/glossary/provenance-mandatory.md) is the keystone axiom. Every piece of evidence in the platform must carry a complete provenance chain: who created it, when, from what sources, through what transformations. A conclusion without provenance is an assertion, not evidence. Assertions are inadmissible in the NABLA framework.
 
 ```elixir
 defmodule PrismaticNabla.Provenance do
@@ -252,7 +252,7 @@ end
 
 ## Trinity Gate Verification
 
-The [Trinity Gate](/glossary/trinity-gate/) is where verifiable evidence is subjected to its most rigorous test. Every conclusion derived from evidence must pass three independent verification gates plus a meta-integrity layer.
+The [Trinity Gate](@/glossary/trinity-gate.md) is where verifiable evidence is subjected to its most rigorous test. Every conclusion derived from evidence must pass three independent verification gates plus a meta-integrity layer.
 
 ### Gate 1: Structural Consistency
 
@@ -260,7 +260,7 @@ Verifies that the evidence network forms a valid directed acyclic graph (DAG). C
 
 ### Gate 2: Logical Consistency
 
-Verifies that inference rules applied to the evidence are sound. Conclusions must follow from premises. [NABLA axioms](/glossary/nabla-axioms/) must not be violated at any inference step. Hidden assumptions are detected and flagged.
+Verifies that inference rules applied to the evidence are sound. Conclusions must follow from premises. [NABLA axioms](@/glossary/nabla-axioms.md) must not be violated at any inference step. Hidden assumptions are detected and flagged.
 
 ### Gate 3: Formal Necessity
 
@@ -374,7 +374,7 @@ end
 
 ## Confidence Scoring
 
-Verifiable evidence is not binary (verified/unverified) but graduated. The [confidence threshold](/glossary/confidence-threshold/) system assigns numeric scores to evidence quality and determines what actions are permitted at each confidence level.
+Verifiable evidence is not binary (verified/unverified) but graduated. The [confidence threshold](@/glossary/confidence-threshold.md) system assigns numeric scores to evidence quality and determines what actions are permitted at each confidence level.
 
 ### Confidence Levels
 
@@ -532,21 +532,21 @@ Violations of evidence verifiability requirements trigger escalating enforcement
 
 ## Related Concepts
 
-- [Evidence](/glossary/evidence/) -- General concept of evidence in the platform
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- Principle prioritizing evidence-backed claims
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom requiring complete evidence traceability
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing evidence standards
-- [NABLA Axioms](/glossary/nabla-axioms/) -- The seven non-negotiable axioms for evidence
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification mechanism for conclusions
-- [Signal Plurality](/glossary/signal-plurality/) -- Minimum two independent sources requirement
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Numeric confidence levels for evidence quality
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Computation of evidence confidence scores
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) -- Platform's truth-verification standards
+- [Evidence](@/glossary/evidence.md) -- General concept of evidence in the platform
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- Principle prioritizing evidence-backed claims
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom requiring complete evidence traceability
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing evidence standards
+- [NABLA Axioms](@/glossary/nabla-axioms.md) -- The seven non-negotiable axioms for evidence
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification mechanism for conclusions
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Minimum two independent sources requirement
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Numeric confidence levels for evidence quality
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Computation of evidence confidence scores
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) -- Platform's truth-verification standards
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 - Glossary Index -- Complete glossary of platform concepts
 
 ---
@@ -556,4 +556,4 @@ Violations of evidence verifiability requirements trigger escalating enforcement
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

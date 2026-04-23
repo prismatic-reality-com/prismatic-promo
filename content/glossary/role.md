@@ -502,24 +502,24 @@ end
 
 ## Related Terms
 
-- [RBAC](/glossary/rbac/) -- the access control model that roles implement
-- [Scope](/glossary/scope/) -- fine-grained permission boundaries within a role
-- [Session](/glossary/session/) -- the authenticated context carrying role information
-- [Token](/glossary/token/) -- the authentication artifact that carries role claims
-- [User](/glossary/user/) -- the entity to which roles are assigned
+- [RBAC](@/glossary/rbac.md) -- the access control model that roles implement
+- [Scope](@/glossary/scope.md) -- fine-grained permission boundaries within a role
+- [Session](@/glossary/session.md) -- the authenticated context carrying role information
+- [Token](@/glossary/token.md) -- the authentication artifact that carries role claims
+- [User](@/glossary/user.md) -- the entity to which roles are assigned
 - [Casbin](/glossary/casbin/) -- policy engine for complex authorization decisions
-- [Authorization](/glossary/authorization/) -- the broader concept of access control
-- [Authentication](/glossary/authentication/) -- identity verification that precedes role checks
-- [Permission](/glossary/permission/) -- individual access rights grouped into roles
-- [Policy](/glossary/policy/) -- declarative rules governing authorization decisions
-- [Plug](/glossary/plug/) -- Phoenix middleware for request pipeline processing
+- [Authorization](@/glossary/authorization.md) -- the broader concept of access control
+- [Authentication](@/glossary/authentication.md) -- identity verification that precedes role checks
+- [Permission](@/glossary/permission.md) -- individual access rights grouped into roles
+- [Policy](@/glossary/policy.md) -- declarative rules governing authorization decisions
+- [Plug](@/glossary/plug.md) -- Phoenix middleware for request pipeline processing
 - [Guardian](/glossary/guardian/) -- Elixir authentication library for token management
 
 ## See Also
 
-- [Security Architecture](/architecture/) -- platform authorization design
-- [AIAD Agent Tiers](/agents/) -- agent role hierarchy documentation
-- [Capabilities](/capabilities/) -- role-gated platform capabilities
+- [Security Architecture](@/architecture/_index.md) -- platform authorization design
+- [AIAD Agent Tiers](@/agents/_index.md) -- agent role hierarchy documentation
+- [Capabilities](@/capabilities/_index.md) -- role-gated platform capabilities
 - [NIST RBAC Standard](https://csrc.nist.gov/projects/role-based-access-control) -- formal RBAC model specification
 
 ---
@@ -529,4 +529,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

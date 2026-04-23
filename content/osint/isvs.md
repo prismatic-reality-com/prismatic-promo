@@ -29,7 +29,7 @@ ISVS (Informacni systemy verejne spravy -- Information Systems of Public Adminis
 
 The legal foundation for ISVS traces back to the broader Czech e-government reform initiated in the early 2000s. Act 365/2000 Coll. was among the first legislative instruments in Central Europe to impose systematic registration requirements on government IT systems. Subsequent amendments, particularly those aligned with the EU Regulation on electronic identification and trust services (eIDAS) and the Czech Act No. 111/2009 Coll. on Basic Registers, reinforced ISVS as the authoritative catalogue of the Czech digital government infrastructure. The registry is operated under the supervision of the Ministry of Interior (Ministerstvo vnitra CR), which also oversees the Basic Register system (ROB, ROS, RUIAN, RPP).
 
-For [OSINT](/glossary/osint/) practitioners, ISVS provides a unique intelligence layer that is absent in most other jurisdictions: a complete map of the digital infrastructure of an entire national public administration. Analysts can identify which systems exist, who operates them, what data they process, and how they interconnect. This is critical for understanding government data flows, identifying potential data sources for investigations, and assessing government digital maturity. For [NIS2](/glossary/nis2/) compliance purposes, ISVS reveals critical information infrastructure operated by essential government services, making it indispensable for supply chain security assessments involving Czech public sector entities.
+For [OSINT](@/glossary/osint.md) practitioners, ISVS provides a unique intelligence layer that is absent in most other jurisdictions: a complete map of the digital infrastructure of an entire national public administration. Analysts can identify which systems exist, who operates them, what data they process, and how they interconnect. This is critical for understanding government data flows, identifying potential data sources for investigations, and assessing government digital maturity. For [NIS2](@/glossary/nis2.md) compliance purposes, ISVS reveals critical information infrastructure operated by essential government services, making it indispensable for supply chain security assessments involving Czech public sector entities.
 
 The registry currently catalogs hundreds of information systems across all tiers of Czech public administration -- from central ministries to regional authorities and municipalities. Each entry provides structured metadata that enables systematic analysis of government data processing capabilities and dependencies.
 
@@ -56,7 +56,7 @@ The registry organizes systems into several broad categories that reflect the la
 | Category | Examples | OSINT Relevance |
 |----------|----------|-----------------|
 | **Core Basic Registers** | ROB (inhabitants), ROS (persons), RUIAN (addresses), RPP (rights/duties) | Foundation of Czech e-government, authoritative data |
-| **Sector-Specific Registers** | [ARES](/osint/ares/), Cadastre, ISIR, health registries | Primary OSINT data sources for domain investigations |
+| **Sector-Specific Registers** | [ARES](@/osint/ares.md), Cadastre, ISIR, health registries | Primary OSINT data sources for domain investigations |
 | **Administrative Systems** | Data boxes (Datove schranky), CzechPOINT | Government communication and service channels |
 | **Specialized Databases** | Education, health, transport, environment | Sector-specific intelligence sources |
 | **Infrastructure Systems** | PKI, identity management, security monitoring | Government cybersecurity posture assessment |
@@ -203,7 +203,7 @@ ISVS enables comprehensive mapping of Czech government digital infrastructure. A
 
 ### Data Source Discovery for Investigations
 
-When conducting investigations involving Czech entities, ISVS serves as the master index for identifying which government systems hold specific data types. Investigators can determine the legal basis for data access, distinguish between public and restricted systems, and plan data acquisition strategies. For example, an investigator seeking property ownership data would discover through ISVS that the Cadastral Information System (operated by CUZK) holds this data under Act 256/2013 Coll. with public access through the [Nahlizeni do KN](/osint/nahlizeni-kn/) interface.
+When conducting investigations involving Czech entities, ISVS serves as the master index for identifying which government systems hold specific data types. Investigators can determine the legal basis for data access, distinguish between public and restricted systems, and plan data acquisition strategies. For example, an investigator seeking property ownership data would discover through ISVS that the Cadastral Information System (operated by CUZK) holds this data under Act 256/2013 Coll. with public access through the [Nahlizeni do KN](@/osint/nahlizeni-kn.md) interface.
 
 ### NIS2 Critical Infrastructure Assessment
 
@@ -317,13 +317,13 @@ ISVS integration within the Prismatic Platform adheres to the NABLA epistemic fr
 
 ## Related Resources
 
-- [ARES](/osint/ares/) -- Czech business registry, one of the key systems registered in ISVS
-- [Datove Schranky](/osint/datove-schranky/) -- Government data box communication infrastructure
-- [CUZK](/osint/cuzk/) -- Land registry information system, major ISVS component
-- [Hlidac Statu](/osint/hlidac-statu/) -- Watchdog analytics including IT procurement contracts
-- [Verejne Zakazky](/osint/verejne-zakazky/) -- Public procurement portal for government IT systems
-- [Nahlizeni do KN](/osint/nahlizeni-kn/) -- Public interface to the cadastral information system
-- [Justice.cz](/osint/justice-cz/) -- Commercial register system within the ISVS catalogue
+- [ARES](@/osint/ares.md) -- Czech business registry, one of the key systems registered in ISVS
+- [Datove Schranky](@/osint/datove-schranky.md) -- Government data box communication infrastructure
+- [CUZK](@/osint/cuzk.md) -- Land registry information system, major ISVS component
+- [Hlidac Statu](@/osint/hlidac-statu.md) -- Watchdog analytics including IT procurement contracts
+- [Verejne Zakazky](@/osint/verejne-zakazky.md) -- Public procurement portal for government IT systems
+- [Nahlizeni do KN](@/osint/nahlizeni-kn.md) -- Public interface to the cadastral information system
+- [Justice.cz](@/osint/justice-cz.md) -- Commercial register system within the ISVS catalogue
 
 ---
 
@@ -332,4 +332,4 @@ ISVS integration within the Prismatic Platform adheres to the NABLA epistemic fr
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -27,9 +27,9 @@ image_alt = "Email Intelligence Hub - Prismatic Platform"
 
 The Email Intelligence Hub is Prismatic's aggregated email analysis capability that orchestrates parallel intelligence gathering across multiple specialized email data providers, fusing their results into a unified investigation interface. Rather than requiring analysts to query individual services sequentially, the hub dispatches concurrent requests across verification providers, breach databases, reputation services, and social profile resolvers, producing a comprehensive email address assessment in a single API call with millisecond-level latency overhead.
 
-Email addresses represent one of the most productive starting points in [OSINT](/glossary/osint/) investigations. A single professional email address can unlock the subject's full legal name, current employer, job title, social media presence across dozens of platforms, history of data breach exposure, domain registration patterns, and web activity footprint. The Email Intelligence Hub automates this entire enrichment workflow, transforming a single identifier into a comprehensive digital profile within seconds. This capability is foundational for due diligence, fraud detection, identity verification, phishing assessment, and security posture evaluation.
+Email addresses represent one of the most productive starting points in [OSINT](@/glossary/osint.md) investigations. A single professional email address can unlock the subject's full legal name, current employer, job title, social media presence across dozens of platforms, history of data breach exposure, domain registration patterns, and web activity footprint. The Email Intelligence Hub automates this entire enrichment workflow, transforming a single identifier into a comprehensive digital profile within seconds. This capability is foundational for due diligence, fraud detection, identity verification, phishing assessment, and security posture evaluation.
 
-The hub aggregates intelligence from a configurable set of underlying sources. [Have I Been Pwned](/osint/haveibeenpwned/) provides breach exposure data, revealing whether the email appears in known data breaches along with the specific data classes compromised. [EmailRep](/osint/emailrep/) delivers reputation scoring, disposable email detection, and social profile discovery across 100+ platforms. [Hunter.io](/osint/hunter/) contributes email verification, deliverability analysis, and organizational email pattern detection. [Pipl](/osint/pipl/) resolves social profiles and personal identity information from email addresses. [Clearbit](/osint/clearbit/) provides person and company enrichment data including job titles, company details, and professional context.
+The hub aggregates intelligence from a configurable set of underlying sources. [Have I Been Pwned](@/osint/haveibeenpwned.md) provides breach exposure data, revealing whether the email appears in known data breaches along with the specific data classes compromised. [EmailRep](@/osint/emailrep.md) delivers reputation scoring, disposable email detection, and social profile discovery across 100+ platforms. [Hunter.io](@/osint/hunter.md) contributes email verification, deliverability analysis, and organizational email pattern detection. [Pipl](@/osint/pipl.md) resolves social profiles and personal identity information from email addresses. [Clearbit](@/osint/clearbit.md) provides person and company enrichment data including job titles, company details, and professional context.
 
 The hub's signal fusion engine correlates data across these sources to generate unified confidence scores that are more reliable than any individual source. When multiple sources independently confirm a piece of information (e.g., the subject's employer), confidence increases. When sources contradict each other, the contradictions are preserved and flagged for analyst review in accordance with NABLA epistemic framework requirements. The engine also handles graceful degradation: if one source is unavailable, rate-limited, or returns an error, results from the remaining sources are returned with appropriate confidence adjustments.
 
@@ -41,7 +41,7 @@ The hub's signal fusion engine correlates data across these sources to generate 
 | **Breach History** | Known data breach appearances with dates and data classes | HIBP, DeHashed | High (authoritative source) |
 | **Domain Intelligence** | Domain age, registration, MX configuration, SPF/DKIM/DMARC | Hunter, SecurityTrails | High |
 | **Social Profiles** | Linked accounts across 200+ platforms | Pipl, FullContact | Moderate (may be stale) |
-| **Reputation Score** | Aggregate trust/[risk score](/glossary/risk-score/) (0-100) | EmailRep | Moderate (proprietary model) |
+| **Reputation Score** | Aggregate trust/[risk score](@/glossary/risk-score.md) (0-100) | EmailRep | Moderate (proprietary model) |
 | **Deliverability** | Inbox placement probability | Hunter | High (direct SMTP test) |
 | **Disposable Detection** | Temporary/throwaway email identification | EmailRep | High (database matching) |
 | **Role Detection** | Personal vs. role-based (info@, admin@) | Hunter | High (pattern matching) |
@@ -233,7 +233,7 @@ E-commerce platforms, financial institutions, and SaaS providers use the hub to 
 
 ### Organizational Breach Exposure Assessment
 
-By combining Hunter.io domain enumeration with HIBP breach data, the hub enables organization-wide breach exposure assessment. All publicly discoverable email addresses for a target domain are identified, then each is checked against breach databases to quantify the organization's credential exposure. This assessment feeds directly into [Prismatic Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/) calculations.
+By combining Hunter.io domain enumeration with HIBP breach data, the hub enables organization-wide breach exposure assessment. All publicly discoverable email addresses for a target domain are identified, then each is checked against breach databases to quantify the organization's credential exposure. This assessment feeds directly into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md) calculations.
 
 ### Phishing Target Identification
 
@@ -279,13 +279,13 @@ The Email Intelligence Hub serves as the primary email investigation interface w
 
 ## Related Resources
 
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach database for exposure checks
-- [EmailRep](/osint/emailrep/) - Email reputation scoring and social profile discovery
-- [Hunter.io](/osint/hunter/) - Email discovery, verification, and domain enumeration
-- [FullContact](/osint/fullcontact/) - Person and company enrichment from email addresses
-- [Pipl](/osint/pipl/) - Deep people search and social profile resolution
-- [Clearbit](/osint/clearbit/) - Person and company enrichment
-- [IPQualityScore](/osint/ipqualityscore/) - Email validation with fraud scoring integration
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach database for exposure checks
+- [EmailRep](@/osint/emailrep.md) - Email reputation scoring and social profile discovery
+- [Hunter.io](@/osint/hunter.md) - Email discovery, verification, and domain enumeration
+- [FullContact](@/osint/fullcontact.md) - Person and company enrichment from email addresses
+- [Pipl](@/osint/pipl.md) - Deep people search and social profile resolution
+- [Clearbit](@/osint/clearbit.md) - Person and company enrichment
+- [IPQualityScore](@/osint/ipqualityscore.md) - Email validation with fraud scoring integration
 
 ---
 
@@ -294,4 +294,4 @@ The Email Intelligence Hub serves as the primary email investigation interface w
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

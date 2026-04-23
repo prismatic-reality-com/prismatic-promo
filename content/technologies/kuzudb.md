@@ -24,11 +24,11 @@ image_alt = "KuzuDB - Prismatic Platform"
 
 ## Overview
 
-KuzuDB is the embedded graph database used in the Prismatic Platform for modeling and querying complex relationships between entities -- companies, people, IP addresses, domains, security findings, and agent interactions. Unlike relational databases that require expensive JOIN operations for relationship traversal, KuzuDB stores relationships as first-class citizens and traverses them in constant time per hop. This architectural property makes graph queries that would require multiple nested JOINs in [PostgreSQL](/technologies/postgresql/) execute in milliseconds on KuzuDB.
+KuzuDB is the embedded graph database used in the Prismatic Platform for modeling and querying complex relationships between entities -- companies, people, IP addresses, domains, security findings, and agent interactions. Unlike relational databases that require expensive JOIN operations for relationship traversal, KuzuDB stores relationships as first-class citizens and traverses them in constant time per hop. This architectural property makes graph queries that would require multiple nested JOINs in [PostgreSQL](@/technologies/postgresql.md) execute in milliseconds on KuzuDB.
 
 The Prismatic Platform leverages KuzuDB for its OSINT intelligence graph, where entity relationships (person-owns-company, company-uses-domain, domain-resolves-to-ip) form a knowledge graph that enables deep investigative queries. KuzuDB's Cypher query language allows analysts to express complex graph patterns naturally, such as finding all entities within three hops of a suspicious domain or identifying shared infrastructure between seemingly unrelated organizations. These queries are the foundation of the platform's intelligence synthesis capabilities.
 
-KuzuDB's embedded architecture means it runs in-process with the [Elixir](/technologies/elixir/) application via the custom `kuzu-ex` NIF library, eliminating network overhead and simplifying deployment. This is a key differentiator from external graph databases like Neo4j -- there is no separate service to manage, no network latency for queries, and the graph data lives alongside the application on the same host. The trade-off is that the graph data is local to a single node, which is acceptable for the platform's intelligence use case where graph queries are read-heavy and data is replicated from the relational source of truth.
+KuzuDB's embedded architecture means it runs in-process with the [Elixir](@/technologies/elixir.md) application via the custom `kuzu-ex` NIF library, eliminating network overhead and simplifying deployment. This is a key differentiator from external graph databases like Neo4j -- there is no separate service to manage, no network latency for queries, and the graph data lives alongside the application on the same host. The trade-off is that the graph data is local to a single node, which is acceptable for the platform's intelligence use case where graph queries are read-heavy and data is replicated from the relational source of truth.
 
 ## Key Features
 
@@ -100,7 +100,7 @@ defmodule PrismaticStorage.Graph.IntelligenceGraph do
 end
 ```
 
-The graph data feeds into the platform's [Three.js](/technologies/threejs/) 3D visualizations, where entity nodes and relationships are rendered as an interactive 3D graph that analysts can explore spatially.
+The graph data feeds into the platform's [Three.js](@/technologies/threejs.md) 3D visualizations, where entity nodes and relationships are rendered as an interactive 3D graph that analysts can explore spatially.
 
 ## Architecture
 
@@ -108,11 +108,11 @@ KuzuDB occupies the graph storage layer in the platform's polyglot persistence a
 
 | Storage Engine | Role | Data Type | Query Pattern |
 |---------------|------|-----------|---------------|
-| [PostgreSQL](/technologies/postgresql/) | Source of truth | Structured records | CRUD, aggregation, reporting |
+| [PostgreSQL](@/technologies/postgresql.md) | Source of truth | Structured records | CRUD, aggregation, reporting |
 | KuzuDB | Relationship graph | Entity relationships | Traversal, path finding, pattern matching |
-| [Meilisearch](/technologies/meilisearch/) | Full-text search | Indexed documents | Text search, faceted filtering |
-| [ETS](/technologies/ets/) | In-memory cache | Hot data | Key-value lookup, pattern matching |
-| [Redis](/technologies/redis/) | Distributed cache | Session and cache data | Key-value, pub/sub |
+| [Meilisearch](@/technologies/meilisearch.md) | Full-text search | Indexed documents | Text search, faceted filtering |
+| [ETS](@/technologies/ets.md) | In-memory cache | Hot data | Key-value lookup, pattern matching |
+| [Redis](@/technologies/redis.md) | Distributed cache | Session and cache data | Key-value, pub/sub |
 
 The graph schema is defined at database creation time with typed node and relationship tables.
 
@@ -191,7 +191,7 @@ config :prismatic, :kuzudb,
 - **Use Cypher for relationship-heavy queries** -- if a query involves more than two JOINs in SQL, it likely belongs in the graph
 - **Index lookup properties** -- always create indexes on properties used in `MATCH` node patterns for fast initial node lookups
 - **Limit traversal depth** -- unbounded variable-length paths can be expensive; always specify a maximum depth (e.g., `*1..3`)
-- **Keep [PostgreSQL](/technologies/postgresql/) as source of truth** -- use KuzuDB as a materialized graph view of relational data, not as the primary store
+- **Keep [PostgreSQL](@/technologies/postgresql.md) as source of truth** -- use KuzuDB as a materialized graph view of relational data, not as the primary store
 - **Batch graph updates** -- accumulate changes and apply them in transactions rather than issuing individual writes
 - **Use parameterized queries** -- always use `$parameter` syntax rather than string interpolation to prevent Cypher injection
 - **Profile expensive queries** -- use `EXPLAIN` to analyze query plans and identify optimization opportunities
@@ -214,17 +214,17 @@ KuzuDB was chosen for its embedded architecture (zero network latency), Cypher c
 
 ## Related Technologies
 
-- [PostgreSQL](/technologies/postgresql/) - Primary relational data store, source of truth for graph entities
-- [Meilisearch](/technologies/meilisearch/) - Full-text search complementing graph traversal for entity discovery
-- [Ecto](/technologies/ecto/) - Relational query interface for non-graph data access patterns
-- [ETS](/technologies/ets/) - In-memory cache for frequently accessed graph query results
-- [Elixir](/technologies/elixir/) - Host language providing the NIF interface to KuzuDB's C++ engine
+- [PostgreSQL](@/technologies/postgresql.md) - Primary relational data store, source of truth for graph entities
+- [Meilisearch](@/technologies/meilisearch.md) - Full-text search complementing graph traversal for entity discovery
+- [Ecto](@/technologies/ecto.md) - Relational query interface for non-graph data access patterns
+- [ETS](@/technologies/ets.md) - In-memory cache for frequently accessed graph query results
+- [Elixir](@/technologies/elixir.md) - Host language providing the NIF interface to KuzuDB's C++ engine
 
 ## Related Apps
 
-- [prismatic_storage_kuzudb](/apps/prismatic-storage-kuzudb/) - KuzuDB storage adapter with Elixir NIF bindings
-- [prismatic_osint_sources](/apps/prismatic-osint-sources/) - Intelligence graph population and querying
-- [prismatic_graph](/apps/prismatic-graph/) - Graph operations and visualization support
+- [prismatic_storage_kuzudb](@/apps/prismatic-storage-kuzudb.md) - KuzuDB storage adapter with Elixir NIF bindings
+- [prismatic_osint_sources](@/apps/prismatic-osint-sources.md) - Intelligence graph population and querying
+- [prismatic_graph](@/apps/prismatic-graph.md) - Graph operations and visualization support
 
 ---
 
@@ -233,4 +233,4 @@ KuzuDB was chosen for its embedded architecture (zero network latency), Cypher c
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

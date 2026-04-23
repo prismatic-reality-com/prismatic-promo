@@ -253,9 +253,9 @@ Task dispatch powers the `/orchestrate` command and internal agent coordination:
 
 ## Cross-References
 
-- [Agent Orchestration](/glossary/agent-orchestration/) - Higher-level coordination using dispatch
-- [AIAD](/glossary/aiad/) - Agent specification defining dispatch-relevant metadata
-- [Skill Matrix](/glossary/skill-matrix/) - Capability data driving dispatch decisions
+- [Agent Orchestration](@/glossary/agent-orchestration.md) - Higher-level coordination using dispatch
+- [AIAD](@/glossary/aiad.md) - Agent specification defining dispatch-relevant metadata
+- [Skill Matrix](@/glossary/skill-matrix.md) - Capability data driving dispatch decisions
 - **Task Supervisor** - OTP component executing dispatched tasks
 
 ---

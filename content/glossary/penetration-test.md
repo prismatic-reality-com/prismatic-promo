@@ -213,11 +213,11 @@ Penetration testing, whether automated through the platform's security checks or
 
 ## Cross-References
 
-- [Red Team](/glossary/red-team/) - Adversarial simulation team performing internal pentesting
-- [OWASP](/glossary/owasp/) - Standards body defining web application testing methodology
-- [Injection](/glossary/injection/) - Common vulnerability class tested during pentests
+- [Red Team](@/glossary/red-team.md) - Adversarial simulation team performing internal pentesting
+- [OWASP](@/glossary/owasp.md) - Standards body defining web application testing methodology
+- [Injection](@/glossary/injection.md) - Common vulnerability class tested during pentests
 - **Perimeter** - Security module incorporating pentest results
-- [IOC](/glossary/ioc/) - Indicators generated during pentest activities
+- [IOC](@/glossary/ioc.md) - Indicators generated during pentest activities
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

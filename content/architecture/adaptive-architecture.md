@@ -697,10 +697,10 @@ end
 
 ## Related Architecture
 
-- [Evolution Architecture](/architecture/adaptive-architecture/) - Complementary system evolution patterns
-- [Quantum Architecture](/architecture/adaptive-architecture/) - Quantum-inspired optimization integration
-- [Umbrella Apps](/architecture/umbrella-apps/) - Foundation OTP application patterns
-- [Supervision Tree Patterns](/architecture/supervision-trees/) - Core supervision design patterns
+- [Evolution Architecture](@/architecture/adaptive-architecture.md) - Complementary system evolution patterns
+- [Quantum Architecture](@/architecture/adaptive-architecture.md) - Quantum-inspired optimization integration
+- [Umbrella Apps](@/architecture/umbrella-apps.md) - Foundation OTP application patterns
+- [Supervision Tree Patterns](@/architecture/supervision-trees.md) - Core supervision design patterns
 
 ## Conclusion
 

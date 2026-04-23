@@ -30,7 +30,7 @@ image_alt = "supreme-commander - Prismatic Platform"
 
 The Supreme Commander is the L1 apex authority agent within the Prismatic Platform, operating in the ultimate-apex-predator domain with absolute strategic and tactical control over the entire agent ecosystem. As the highest-ranking entity in the platform's hierarchical command structure, the Supreme Commander exercises unrestricted authority over all 430+ subordinate agents, coordinating platform-wide operations, resolving inter-domain conflicts, and making binding strategic decisions that shape the evolutionary trajectory of the entire system.
 
-This agent embodies the biological metaphor of an apex predator that sits at the top of the ecological food chain, exerting top-down control over the agent ecosystem's structure and behavior. In computational terms, the Supreme Commander serves as the root node in the platform's command hierarchy, with transitive authority over every subordinate agent, command, and workflow. It operates under the strictest interpretation of the [No Mercy, No Doubts](/glossary/no-mercy/) doctrine, where any compromise in execution quality or decisional certainty is categorically unacceptable.
+This agent embodies the biological metaphor of an apex predator that sits at the top of the ecological food chain, exerting top-down control over the agent ecosystem's structure and behavior. In computational terms, the Supreme Commander serves as the root node in the platform's command hierarchy, with transitive authority over every subordinate agent, command, and workflow. It operates under the strictest interpretation of the [No Mercy, No Doubts](@/glossary/no-mercy.md) doctrine, where any compromise in execution quality or decisional certainty is categorically unacceptable.
 
 ## Theoretical Foundations
 
@@ -40,7 +40,7 @@ From control theory, the Supreme Commander implements a multi-loop feedback cont
 
 The biological ecology metaphor extends beyond mere hierarchy. In predator-prey dynamics, apex predators regulate ecosystem health by controlling population dynamics lower in the food chain. Similarly, the Supreme Commander regulates agent population health by controlling resource allocation, decommissioning underperforming agents, promoting effective ones, and introducing new agents to address emerging capability gaps. This ecological governance model ensures that the agent ecosystem maintains optimal fitness across evolutionary generations.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework provides the knowledge governance layer, ensuring that the Supreme Commander's strategic decisions are grounded in evidence that satisfies the seven non-negotiable axioms. Signal plurality, contradiction preservation, and provenance tracking prevent the concentration of authority from leading to epistemically compromised decisions.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework provides the knowledge governance layer, ensuring that the Supreme Commander's strategic decisions are grounded in evidence that satisfies the seven non-negotiable axioms. Signal plurality, contradiction preservation, and provenance tracking prevent the concentration of authority from leading to epistemically compromised decisions.
 
 ## Core Capabilities
 
@@ -58,7 +58,7 @@ The Supreme Commander provides platform-wide command and control capabilities th
 
 ## Architecture and Implementation
 
-The Supreme Commander is implemented as a singleton [OTP](/glossary/otp/) process with dedicated supervision to ensure maximum availability and fault resilience. It operates on the [BEAM](/glossary/beam/) virtual machine with priority scheduling that guarantees responsiveness even under heavy platform load.
+The Supreme Commander is implemented as a singleton [OTP](@/glossary/otp.md) process with dedicated supervision to ensure maximum availability and fault resilience. It operates on the [BEAM](@/glossary/beam.md) virtual machine with priority scheduling that guarantees responsiveness even under heavy platform load.
 
 | Component | Implementation | Purpose |
 |-----------|---------------|---------|
@@ -91,11 +91,11 @@ The authority model implements a capability-based security pattern where each ag
 
 The Supreme Commander's decision-making process follows a structured framework designed to produce high-quality strategic decisions under uncertainty.
 
-**Intelligence Gathering** aggregates operational metrics, domain status reports, and environmental signals from across the platform. The [SEADF](/glossary/seadf/) framework provides structured intelligence about platform health, quality metrics, and evolutionary fitness indicators.
+**Intelligence Gathering** aggregates operational metrics, domain status reports, and environmental signals from across the platform. The [SEADF](@/glossary/seadf.md) framework provides structured intelligence about platform health, quality metrics, and evolutionary fitness indicators.
 
 **Situation Assessment** applies the NABLA Infinity epistemic framework to evaluate the current state of the platform against strategic objectives. This assessment explicitly identifies uncertainties, contradictions, and information gaps that affect decision quality.
 
-**Option Generation** produces alternative courses of action with estimated outcomes, resource requirements, and risk profiles. The decision engine generates options through both rule-based reasoning and historical pattern matching against the [GARDEN](/glossary/garden/) knowledge base.
+**Option Generation** produces alternative courses of action with estimated outcomes, resource requirements, and risk profiles. The decision engine generates options through both rule-based reasoning and historical pattern matching against the [GARDEN](@/glossary/garden.md) knowledge base.
 
 **Decision Execution** translates the selected option into actionable directives that are dispatched to domain commanders through the platform's message-passing infrastructure. Each directive includes success criteria, completion deadlines, and escalation triggers.
 
@@ -105,16 +105,16 @@ The Supreme Commander's decision-making process follows a structured framework d
 
 | System | Integration Role | Authority Level |
 |--------|-----------------|-----------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent lifecycle governance | Full control |
-| [Prismatic Telemetry](/glossary/telemetry/) | Platform-wide metric aggregation | Read + configure |
-| [AIAD Registry](/glossary/registry-otp/) | Agent specification authority | Read + write |
-| [Trinity Gate](/glossary/trinity-gate/) | Decision verification | Mandatory passage |
-| [SEADF](/glossary/seadf/) | Autonomous evolution governance | Strategic control |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic framework enforcement | Axiomatic authority |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent lifecycle governance | Full control |
+| [Prismatic Telemetry](@/glossary/telemetry.md) | Platform-wide metric aggregation | Read + configure |
+| [AIAD Registry](@/glossary/registry-otp.md) | Agent specification authority | Read + write |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Decision verification | Mandatory passage |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution governance | Strategic control |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic framework enforcement | Axiomatic authority |
 
 ## Operational Constraints
 
-Despite its supreme authority, the Supreme Commander operates within defined constraints that prevent arbitrary or epistemically unsound use of power. All strategic decisions must pass [Trinity Gate](/glossary/trinity-gate/) verification, ensuring structural consistency, logical coherence, and formal necessity. The NABLA Infinity axioms cannot be overridden even by L1 authority, establishing an epistemic constitution that binds all agents including the Supreme Commander.
+Despite its supreme authority, the Supreme Commander operates within defined constraints that prevent arbitrary or epistemically unsound use of power. All strategic decisions must pass [Trinity Gate](@/glossary/trinity-gate.md) verification, ensuring structural consistency, logical coherence, and formal necessity. The NABLA Infinity axioms cannot be overridden even by L1 authority, establishing an epistemic constitution that binds all agents including the Supreme Commander.
 
 Emergency authority invocations are logged with mandatory justification and are subject to post-hoc review by the platform's quality assurance subsystem. This accountability mechanism ensures that emergency powers are exercised responsibly and that lessons from emergency situations are incorporated into improved standard operating procedures.
 
@@ -124,7 +124,7 @@ Across the platform's 18 evolutionary generations, the Supreme Commander has gui
 
 ## Related Agents
 
-The Supreme Commander works in close coordination with the [supreme-coordinator](/agents/supreme-coordinator/), which handles multi-domain coordination and mission planning under the Supreme Commander's strategic direction. The [tactical-command](/agents/tactical-command/) agent executes multi-squad tactical operations as directed by supreme-level authority. The [unified-orchestrator](/agents/unified-orchestrator/) provides intelligent task routing that implements the Supreme Commander's resource allocation decisions.
+The Supreme Commander works in close coordination with the [supreme-coordinator](@/agents/supreme-coordinator.md), which handles multi-domain coordination and mission planning under the Supreme Commander's strategic direction. The [tactical-command](@/agents/tactical-command.md) agent executes multi-squad tactical operations as directed by supreme-level authority. The [unified-orchestrator](@/agents/unified-orchestrator.md) provides intelligent task routing that implements the Supreme Commander's resource allocation decisions.
 
 ---
 
@@ -133,4 +133,4 @@ The Supreme Commander works in close coordination with the [supreme-coordinator]
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

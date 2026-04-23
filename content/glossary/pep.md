@@ -173,7 +173,7 @@ The self-registering pattern means PEP screening appears automatically in the OS
 
 - **Sanctions** - International restrictive measures often overlapping with PEP databases
 - **SDN List** - OFAC Specially Designated Nationals list used alongside PEP screening
-- [PII](/glossary/pii/) - Personally identifiable information processed during PEP screening
+- [PII](@/glossary/pii.md) - Personally identifiable information processed during PEP screening
 - **Self-Registration** - Metaprogramming pattern used to expose PEP tools in the OSINT toolbox
 - **Provenance** - Origin tracing required for PEP screening audit trails
 

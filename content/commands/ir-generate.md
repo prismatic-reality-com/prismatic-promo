@@ -24,11 +24,11 @@ image_alt = "/ir-generate - Prismatic Platform"
 
 ## Overview
 
-**/ir-generate** is a production command in the **[PVM](/glossary/pvm/)** category of the Prismatic Platform that transforms natural language descriptions into fully structured Intermediate Representation (IR) workflows. This command bridges the gap between human intent and machine-executable workflow specifications by leveraging the `ir-generator` agent's deep understanding of IR syntax, semantics, and optimization patterns.
+**/ir-generate** is a production command in the **[PVM](@/glossary/pvm.md)** category of the Prismatic Platform that transforms natural language descriptions into fully structured Intermediate Representation (IR) workflows. This command bridges the gap between human intent and machine-executable workflow specifications by leveraging the `ir-generator` agent's deep understanding of IR syntax, semantics, and optimization patterns.
 
 The ability to generate IR from natural language descriptions is a cornerstone of the Prismatic Platform's accessibility philosophy. Rather than requiring developers to learn the complete IR specification before building workflows, `/ir-generate` allows them to describe their desired data flow, processing steps, and error handling requirements in plain English and receive a valid, optimized IR workflow as output. The generated IR is not a rough draft -- it is production-quality code that passes all validation and linting checks.
 
-This command operates under the **L2+** authority level and is executed by the `ir-generator` agent, which combines natural language understanding capabilities with comprehensive knowledge of the IR specification, PVM execution semantics, and platform best practices. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `ir-generator` agent, which combines natural language understanding capabilities with comprehensive knowledge of the IR specification, PVM execution semantics, and platform best practices. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 The generation process is not a simple template fill -- it involves semantic analysis of the natural language input, identification of required processing stages, construction of an optimal DAG topology, type inference for all data flows, and insertion of appropriate error handling and retry logic. The result is a complete IR workflow that would be indistinguishable from one authored by an expert IR developer.
 
@@ -152,19 +152,19 @@ The **NL Parser** tokenizes and parses the natural language input, identifying k
 
 8. **IR Emission**: The complete IR workflow is emitted in the specified format. The `annotated` format includes inline comments explaining each generation decision.
 
-9. **Post-Processing**: If `--validate` and `--lint` are enabled (default), the generated IR is passed through [/ir-validate](/commands/ir-validate/) and [/ir-lint](/commands/ir-lint/). Any issues are reported, and in interactive mode, the user is offered the opportunity to refine.
+9. **Post-Processing**: If `--validate` and `--lint` are enabled (default), the generated IR is passed through [/ir-validate](@/commands/ir-validate.md) and [/ir-lint](@/commands/ir-lint.md). Any issues are reported, and in interactive mode, the user is offered the opportunity to refine.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Executed by the `ir-generator` agent |
-| [IR Validator](/commands/ir-validate/) | Post-Processing | Generated IR is validated automatically |
-| [IR Linter](/commands/ir-lint/) | Post-Processing | Generated IR is linted for quality |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Executed by the `ir-generator` agent |
+| [IR Validator](@/commands/ir-validate.md) | Post-Processing | Generated IR is validated automatically |
+| [IR Linter](@/commands/ir-lint.md) | Post-Processing | Generated IR is linted for quality |
 | PVM Compiler | Downstream | Generated IR feeds into the PVM compilation pipeline |
-| [AIAD Registry](/glossary/aiad/) | Entity Resolution | Platform entities referenced in descriptions are resolved |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Generated IR must pass all quality gates |
-| [Telemetry](/glossary/telemetry/) | Observability | Generation events and quality metrics tracked |
+| [AIAD Registry](@/glossary/aiad.md) | Entity Resolution | Platform entities referenced in descriptions are resolved |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Generated IR must pass all quality gates |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Generation events and quality metrics tracked |
 
 ## Best Practices
 
@@ -191,21 +191,21 @@ The **NL Parser** tokenizes and parses the natural language input, identifying k
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Generated IR must pass all validation and linting checks. The generator never produces "draft" or "skeleton" output -- every generated workflow is complete and production-ready. Incomplete generation due to ambiguity results in explicit error reporting rather than best-guess output.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The generator performs full semantic analysis before emitting any IR. All generation decisions are traceable through the `--verbose` flag, and the `annotated` format includes inline justification for each decision.
 
 ## Related Commands
 
-- [/ir-validate](/commands/ir-validate/) - Comprehensive validation of IR workflows with DAG analysis and type safety
-- [/ir-lint](/commands/ir-lint/) - Static analysis and code quality enforcement for IR workflows
-- [/ir-benchmark](/commands/ir-benchmark/) - Comprehensive performance benchmarking with Benchee integration for IR workflows
-- [/ir-examples](/commands/ir-examples/) - Interactive examples, templates and learning resources for IR workflows
-- [/pvm-compile](/commands/pvm-compile/) - Compile validated IR to optimized PVM bytecode
-- [/pvm-execute](/commands/pvm-execute/) - Execute compiled PVM programs with [fault tolerance](/glossary/fault-tolerance/) and [real-time monitoring](/capabilities/real-time-monitoring/)
-- [/pvm-trace](/commands/pvm-trace/) - Real-time execution tracing and debugging for PVM programs
-- [/doc](/commands/doc/) - Technical documentation and API reference generation
+- [/ir-validate](@/commands/ir-validate.md) - Comprehensive validation of IR workflows with DAG analysis and type safety
+- [/ir-lint](@/commands/ir-lint.md) - Static analysis and code quality enforcement for IR workflows
+- [/ir-benchmark](@/commands/ir-benchmark.md) - Comprehensive performance benchmarking with Benchee integration for IR workflows
+- [/ir-examples](@/commands/ir-examples.md) - Interactive examples, templates and learning resources for IR workflows
+- [/pvm-compile](@/commands/pvm-compile.md) - Compile validated IR to optimized PVM bytecode
+- [/pvm-execute](@/commands/pvm-execute.md) - Execute compiled PVM programs with [fault tolerance](@/glossary/fault-tolerance.md) and [real-time monitoring](@/capabilities/real-time-monitoring.md)
+- [/pvm-trace](@/commands/pvm-trace.md) - Real-time execution tracing and debugging for PVM programs
+- [/doc](@/commands/doc.md) - Technical documentation and API reference generation
 
 ---
 
@@ -214,4 +214,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

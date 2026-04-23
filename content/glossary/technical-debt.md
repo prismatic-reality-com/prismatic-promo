@@ -40,7 +40,7 @@ image_alt = "Technical Debt - Prismatic Platform"
 
 Technical debt manifests in many forms: duplicated code, missing tests, obsolete documentation, tightly coupled modules, hardcoded configuration, suppressed warnings, and architectural compromises. Its most insidious characteristic is invisibility -- unlike feature work, technical debt produces no visible output, making it easy to deprioritize until it becomes a crisis.
 
-In the Prismatic Platform, technical debt is treated as a first-class engineering concern through the [zero-compromise quality](/glossary/zero-compromise-quality/) doctrine. The platform maintains a **zero technical debt** policy enforced through Quality Debt Points ([QDP](/glossary/qdp/)) tracking and elimination, continuous [quality gate](/glossary/quality-gate/) enforcement, and the [no-mercy-no-doubts](/glossary/no-mercy-no-doubts/) doctrine that rejects incomplete implementations. As of the current platform state, all 905 identified QDP have been eliminated, achieving and maintaining zero [quality debt](/glossary/quality-debt/).
+In the Prismatic Platform, technical debt is treated as a first-class engineering concern through the [zero-compromise quality](@/glossary/zero-compromise-quality.md) doctrine. The platform maintains a **zero technical debt** policy enforced through Quality Debt Points ([QDP](@/glossary/qdp.md)) tracking and elimination, continuous [quality gate](@/glossary/quality-gate.md) enforcement, and the [no-mercy-no-doubts](@/glossary/no-mercy-no-doubts.md) doctrine that rejects incomplete implementations. As of the current platform state, all 905 identified QDP have been eliminated, achieving and maintaining zero [quality debt](@/glossary/quality-debt.md).
 
 ## Overview
 
@@ -64,7 +64,7 @@ Martin Fowler extended the metaphor with the Technical Debt Quadrant, classifyin
 | **Deliberate** | "We don't have time for design" | "We must ship now and will deal with consequences" |
 | **Inadvertent** | "What is layering?" | "Now we know how we should have done it" |
 
-The Prismatic Platform's [no-mercy](/glossary/no-mercy/) doctrine eliminates the reckless quadrant entirely and constrains the prudent-deliberate quadrant to documented, time-bounded exceptions with mandatory remediation plans.
+The Prismatic Platform's [no-mercy](@/glossary/no-mercy.md) doctrine eliminates the reckless quadrant entirely and constrains the prudent-deliberate quadrant to documented, time-bounded exceptions with mandatory remediation plans.
 
 ### The Compounding Problem
 
@@ -218,7 +218,7 @@ end
 
 ### Debt Prevention Through Quality Gates
 
-The most effective debt management strategy is prevention. The Prismatic Platform prevents debt introduction through blocking [quality gates](/glossary/quality-gate/) that reject any change introducing new violations:
+The most effective debt management strategy is prevention. The Prismatic Platform prevents debt introduction through blocking [quality gates](@/glossary/quality-gate.md) that reject any change introducing new violations:
 
 ```elixir
 defmodule PrismaticQuality.DebtPrevention do
@@ -389,7 +389,7 @@ The Prismatic approach is uniquely aggressive in its zero-tolerance stance. Most
 
 1. **Measure before managing** -- You cannot manage what you cannot measure. Establish quantifiable metrics (like QDP) before attempting systematic debt reduction. The platform's multi-dimensional measurement system provides the foundation for all debt management decisions.
 
-2. **Prevent before eliminating** -- Preventing new debt introduction is more cost-effective than eliminating existing debt. Blocking [quality gates](/glossary/quality-gate/) at the pre-commit and CI stages ensure that debt never enters the codebase.
+2. **Prevent before eliminating** -- Preventing new debt introduction is more cost-effective than eliminating existing debt. Blocking [quality gates](@/glossary/quality-gate.md) at the pre-commit and CI stages ensure that debt never enters the codebase.
 
 3. **Eliminate systematically** -- Target specific debt categories in focused campaigns rather than addressing debt opportunistically. The platform's category-based elimination (compilation warnings first, then Credo, then Dialyzer) enabled measurable progress tracking.
 
@@ -405,7 +405,7 @@ The Prismatic approach is uniquely aggressive in its zero-tolerance stance. Most
 
 ## Common Pitfalls
 
-1. **The "we'll fix it later" trap** -- Deferred cleanup is the primary mechanism of debt accumulation. The [no-mercy](/glossary/no-mercy/) doctrine forbids this pattern: fix immediately or do not deliver.
+1. **The "we'll fix it later" trap** -- Deferred cleanup is the primary mechanism of debt accumulation. The [no-mercy](@/glossary/no-mercy.md) doctrine forbids this pattern: fix immediately or do not deliver.
 
 2. **Measuring the wrong things** -- Lines of code, cyclomatic complexity, and code coverage are proxies for quality, not direct measures of debt. The QDP system measures actual violations against platform standards, not abstract metrics.
 
@@ -413,7 +413,7 @@ The Prismatic approach is uniquely aggressive in its zero-tolerance stance. Most
 
 4. **Invisible compounding** -- Debt that compounds silently (e.g., missing tests that cause other tests to become unreliable) is the most dangerous. The Quality DNA system detects subtle regression patterns that individual metrics might miss.
 
-5. **Debt normalization** -- Teams that live with debt long enough stop noticing it. The platform's [zero tolerance](/glossary/zero-tolerance/) policy and automated enforcement prevent normalization by making every violation immediately visible and blocking.
+5. **Debt normalization** -- Teams that live with debt long enough stop noticing it. The platform's [zero tolerance](@/glossary/zero-tolerance.md) policy and automated enforcement prevent normalization by making every violation immediately visible and blocking.
 
 6. **False economy of speed** -- Skipping quality to ship faster creates an illusion of velocity that reverses within weeks as the team spends increasing time on debt-related rework. The platform's quality-first approach may slow individual commits but accelerates sustained delivery velocity.
 
@@ -443,18 +443,18 @@ The Quality DNA system persists quality state in `.claude/quality-dna/current-st
 
 ## Related Concepts
 
-- [Quality Debt](/glossary/quality-debt/) -- Prismatic-specific formalization of technical debt as Quality Debt Points (QDP)
-- [QDP](/glossary/qdp/) -- Quality Debt Points, the quantifiable measurement unit for technical debt in the platform
-- [Refactoring](/glossary/refactoring/) -- Systematic code transformation to improve structure without changing behavior, the primary debt repayment mechanism
-- [Code Quality](/glossary/code-quality/) -- The measurable attributes of code that technical debt degrades
-- [Quality Gate](/glossary/quality-gate/) -- Enforcement checkpoints that prevent new technical debt introduction
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- Platform doctrine rejecting any quality compromise that would create debt
-- [Zero Tolerance](/glossary/zero-tolerance/) -- Principle of accepting no quality violations, the philosophical foundation of zero-debt policy
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- Platform doctrine mandating complete execution without shortcuts
-- [Clean Run](/glossary/clean-run/) -- Zero-warning, zero-error execution requirement that prevents warning-based debt
-- [Quality DNA](/glossary/quality-dna/) -- Persistent quality state system that prevents debt regression across sessions
-- [Static Analysis](/glossary/static-analysis/) -- Code examination that identifies and quantifies specific debt instances
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous monitoring system that detects and escalates debt introduction
+- [Quality Debt](@/glossary/quality-debt.md) -- Prismatic-specific formalization of technical debt as Quality Debt Points (QDP)
+- [QDP](@/glossary/qdp.md) -- Quality Debt Points, the quantifiable measurement unit for technical debt in the platform
+- [Refactoring](@/glossary/refactoring.md) -- Systematic code transformation to improve structure without changing behavior, the primary debt repayment mechanism
+- [Code Quality](@/glossary/code-quality.md) -- The measurable attributes of code that technical debt degrades
+- [Quality Gate](@/glossary/quality-gate.md) -- Enforcement checkpoints that prevent new technical debt introduction
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- Platform doctrine rejecting any quality compromise that would create debt
+- [Zero Tolerance](@/glossary/zero-tolerance.md) -- Principle of accepting no quality violations, the philosophical foundation of zero-debt policy
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- Platform doctrine mandating complete execution without shortcuts
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning, zero-error execution requirement that prevents warning-based debt
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistent quality state system that prevents debt regression across sessions
+- [Static Analysis](@/glossary/static-analysis.md) -- Code examination that identifies and quantifies specific debt instances
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous monitoring system that detects and escalates debt introduction
 
 ## See Also
 
@@ -470,4 +470,4 @@ The Quality DNA system persists quality state in `.claude/quality-dna/current-st
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

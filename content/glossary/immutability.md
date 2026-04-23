@@ -34,7 +34,7 @@ Immutability is the property of data structures that prevents modification after
 
 This design choice eliminates entire categories of bugs that plague systems built on mutable shared state: data races, temporal coupling, aliasing bugs, iterator invalidation, and the general difficulty of reasoning about code where any reference to data might change at any time from any thread. When data is immutable, a reference to a value is guaranteed to remain valid and unchanged for the lifetime of the reference. Functions that receive immutable data can reason about it locally without concern for concurrent modification by other threads, processes, or callbacks.
 
-Immutability operates synergistically with [process isolation](/glossary/process-isolation/) in the [BEAM](/glossary/beam/) virtual machine. Since each process has its own heap and data is copied during [message passing](/glossary/message-passing/), the combination of immutable data and isolated processes means that the BEAM provides the strongest possible concurrency safety guarantees: no process can observe or cause state changes in another process's data, and no piece of data can change after being created. This double guarantee is the foundation of Erlang/OTP's legendary reliability.
+Immutability operates synergistically with [process isolation](@/glossary/process-isolation.md) in the [BEAM](@/glossary/beam.md) virtual machine. Since each process has its own heap and data is copied during [message passing](@/glossary/message-passing.md), the combination of immutable data and isolated processes means that the BEAM provides the strongest possible concurrency safety guarantees: no process can observe or cause state changes in another process's data, and no piece of data can change after being created. This double guarantee is the foundation of Erlang/OTP's legendary reliability.
 
 In the Prismatic Platform, immutability is not merely a language feature but an architectural principle that permeates every design decision -- from the Stack Conversation system's frame immutability to the Quality DNA's append-only snapshot history.
 
@@ -131,7 +131,7 @@ In the BEAM context, immutability combines with process isolation to create an e
 
 ## Immutability in the Prismatic Platform
 
-Elixir's immutable-by-default semantics permeate the entire Prismatic Platform's architecture. All data flowing through [GenServer](/glossary/genserver/) processes, [Broadway](/glossary/broadway/) pipelines, and storage adapters is immutable. The platform leverages immutability at multiple levels:
+Elixir's immutable-by-default semantics permeate the entire Prismatic Platform's architecture. All data flowing through [GenServer](@/glossary/genserver.md) processes, [Broadway](@/glossary/broadway.md) pipelines, and storage adapters is immutable. The platform leverages immutability at multiple levels:
 
 ### Stack-Based Conversation Mode
 
@@ -196,15 +196,15 @@ end
 
 ### Security Rating History
 
-Compliance assessment results in the [Perimeter](/glossary/easm/) module are immutable snapshots. Historical ratings are never modified, enabling accurate trend reporting and regulatory audit trails required by [NIS2](/glossary/nis2/) compliance.
+Compliance assessment results in the [Perimeter](@/glossary/easm.md) module are immutable snapshots. Historical ratings are never modified, enabling accurate trend reporting and regulatory audit trails required by [NIS2](@/glossary/nis2.md) compliance.
 
 ### Event Logs
 
-All system events are stored as immutable records. [Quality gate](/glossary/quality-gates/) results, agent execution traces, and security scan findings are appended to event logs but never modified, providing tamper-evident history.
+All system events are stored as immutable records. [Quality gate](@/glossary/quality-gates.md) results, agent execution traces, and security scan findings are appended to event logs but never modified, providing tamper-evident history.
 
 ### Configuration State in GenServers
 
-[GenServer](/glossary/genserver/) state in the platform's agent processes is immutable at each point in time. State transitions create new state values via callbacks, with the previous state remaining valid until garbage collection:
+[GenServer](@/glossary/genserver.md) state in the platform's agent processes is immutable at each point in time. State transitions create new state values via callbacks, with the previous state remaining valid until garbage collection:
 
 ```elixir
 defmodule PrismaticAgents.AgentProcess do
@@ -360,9 +360,9 @@ For the Prismatic Platform's workloads -- agent coordination, security scanning,
 
 ## Performance Implications
 
-The BEAM virtual machine is optimized for immutable data. Per-process garbage collection means that when a process terminates, all its allocated data is reclaimed instantly without a global GC pause. For short-lived processes (like those handling individual HTTP requests in [Phoenix](/glossary/phoenix/)), this means zero GC overhead -- the process heap is simply deallocated when the request completes.
+The BEAM virtual machine is optimized for immutable data. Per-process garbage collection means that when a process terminates, all its allocated data is reclaimed instantly without a global GC pause. For short-lived processes (like those handling individual HTTP requests in [Phoenix](@/glossary/phoenix.md)), this means zero GC overhead -- the process heap is simply deallocated when the request completes.
 
-For long-lived processes (like [GenServer](/glossary/genserver/) agents in the platform), the BEAM's generational GC efficiently handles immutable data because structural sharing ensures that most data pointed to by the current state is in the old generation and does not need collection. Only the recently created "new" portions of the state are candidates for collection.
+For long-lived processes (like [GenServer](@/glossary/genserver.md) agents in the platform), the BEAM's generational GC efficiently handles immutable data because structural sharing ensures that most data pointed to by the current state is in the old generation and does not need collection. Only the recently created "new" portions of the state are candidates for collection.
 
 ```elixir
 # ETS tables provide mutable-semantics escape hatch when needed
@@ -371,7 +371,7 @@ For long-lived processes (like [GenServer](/glossary/genserver/) agents in the p
 :ets.update_counter(:metrics, :request_count, 1)
 ```
 
-[ETS](/glossary/ets/) tables are the platform's controlled exception to immutability. They provide concurrent read/write access to shared data using fine-grained locking managed by the VM. The platform uses ETS for performance-critical caches and counters where the overhead of message passing and immutable state updates would be unacceptable.
+[ETS](@/glossary/ets.md) tables are the platform's controlled exception to immutability. They provide concurrent read/write access to shared data using fine-grained locking managed by the VM. The platform uses ETS for performance-critical caches and counters where the overhead of message passing and immutable state updates would be unacceptable.
 
 ## Best Practices
 
@@ -387,22 +387,22 @@ For long-lived processes (like [GenServer](/glossary/genserver/) agents in the p
 
 ## Related Terms
 
-- [Pure Function](/glossary/pure-function/) -- Functions that depend only on immutable inputs and produce no side effects
-- [Pattern Matching](/glossary/pattern-matching/) -- Destructuring technique working with immutable data structures
-- [Pipe Operator](/glossary/pipe-operator/) -- Composition operator chaining immutable transformations
-- [Process Isolation](/glossary/process-isolation/) -- BEAM isolation that complements immutability for concurrency safety
-- [BEAM](/glossary/beam/) -- Virtual machine with immutable data as a foundational property
-- [Event Sourcing](/glossary/event-sourcing/) -- Pattern leveraging immutable event logs for state reconstruction
-- [Message Passing](/glossary/message-passing/) -- Communication mechanism using copy semantics over immutable data
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property enabled by immutable state and process isolation
-- [GenServer](/glossary/genserver/) -- OTP process with immutable state transitions
-- [Ecto](/glossary/ecto/) -- Database toolkit using immutable changesets
+- [Pure Function](@/glossary/pure-function.md) -- Functions that depend only on immutable inputs and produce no side effects
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Destructuring technique working with immutable data structures
+- [Pipe Operator](@/glossary/pipe-operator.md) -- Composition operator chaining immutable transformations
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM isolation that complements immutability for concurrency safety
+- [BEAM](@/glossary/beam.md) -- Virtual machine with immutable data as a foundational property
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Pattern leveraging immutable event logs for state reconstruction
+- [Message Passing](@/glossary/message-passing.md) -- Communication mechanism using copy semantics over immutable data
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property enabled by immutable state and process isolation
+- [GenServer](@/glossary/genserver.md) -- OTP process with immutable state transitions
+- [Ecto](@/glossary/ecto.md) -- Database toolkit using immutable changesets
 
 ## See Also
 
-- [Architecture](/architecture/) -- Immutability as a core platform design principle
-- [Technologies](/technologies/) -- Elixir's functional programming foundations
-- [Capabilities](/capabilities/) -- Platform capabilities built on immutable data guarantees
+- [Architecture](@/architecture/_index.md) -- Immutability as a core platform design principle
+- [Technologies](@/technologies/_index.md) -- Elixir's functional programming foundations
+- [Capabilities](@/capabilities/_index.md) -- Platform capabilities built on immutable data guarantees
 
 ---
 
@@ -411,4 +411,4 @@ For long-lived processes (like [GenServer](/glossary/genserver/) agents in the p
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

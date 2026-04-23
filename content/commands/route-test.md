@@ -26,7 +26,7 @@ image_alt = "/route-test - Prismatic Platform"
 
 **/route-test** is a production command in the **Development** category of the Prismatic Platform. It provides comprehensive HTTP route testing and endpoint verification for Phoenix applications within the umbrella, systematically exercising every defined route to verify correct responses, status codes, content types, and rendering behavior. The command catches routing regressions, dead endpoints, broken LiveView mounts, and misconfigured plugs before they reach production.
 
-This command operates under the **L2+** authority level and is executed by the `route-test-specialist` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The route-test-specialist has deep knowledge of Phoenix routing conventions, plug pipelines, and LiveView lifecycle, enabling it to generate meaningful test scenarios for each endpoint type.
+This command operates under the **L2+** authority level and is executed by the `route-test-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The route-test-specialist has deep knowledge of Phoenix routing conventions, plug pipelines, and LiveView lifecycle, enabling it to generate meaningful test scenarios for each endpoint type.
 
 In a platform with multiple Phoenix applications (prismatic_web on port 4000, prismatic_api on port 4004), each with dozens of routes including LiveView pages, REST endpoints, health checks, and static assets, manual route verification is impractical. `/route-test` automates this process, providing a single command that exercises the entire routing surface and reports any anomalies.
 
@@ -197,12 +197,12 @@ Results are aggregated into a test report showing: routes tested, pass/fail coun
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/test](/commands/test/) | Peer | Route tests complement unit/integration tests |
-| [/quality-gates](/commands/quality-gates/) | Enforcement | Route health is a quality gate check |
-| [/security-audit](/commands/security-audit/) | Peer | Security audit includes route analysis |
-| [/svihadlo](/commands/svihadlo/) | Downstream | New features validated through route tests |
-| [Prismatic API](/apps/prismatic-api/) | Target | API endpoints are primary test targets |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Route performance metrics |
+| [/test](@/commands/test.md) | Peer | Route tests complement unit/integration tests |
+| [/quality-gates](@/commands/quality-gates.md) | Enforcement | Route health is a quality gate check |
+| [/security-audit](@/commands/security-audit.md) | Peer | Security audit includes route analysis |
+| [/svihadlo](@/commands/svihadlo.md) | Downstream | New features validated through route tests |
+| [Prismatic API](@/apps/prismatic-api.md) | Target | API endpoints are primary test targets |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Route performance metrics |
 
 ## Best Practices
 
@@ -262,20 +262,20 @@ Set up periodic route testing for production monitoring:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every defined route must respond correctly or be reported as a failure.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Route health is verified through actual HTTP requests, not configuration inspection alone.
 
 ## Related Commands
 
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/svihadlo](/commands/svihadlo/) - Ultra-fast visible feature implementation in 5-15 minutes
-- [/security-audit](/commands/security-audit/) - Comprehensive application security audit and vulnerability scan
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/svihadlo](@/commands/svihadlo.md) - Ultra-fast visible feature implementation in 5-15 minutes
+- [/security-audit](@/commands/security-audit.md) - Comprehensive application security audit and vulnerability scan
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -284,4 +284,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -30,11 +30,11 @@ see_also = ["architecture", "capabilities", "supervisor"]
 
 ## Definition
 
-**Restart intensity** is an OTP [supervisor](/glossary/supervisor/) configuration parameter expressed as `max_restarts` within `max_seconds`. If the number of child process restarts exceeds `max_restarts` within the `max_seconds` window, the supervisor considers the situation unrecoverable and terminates itself. This termination propagates up the [supervision tree](/glossary/supervisor/), allowing higher-level supervisors to take corrective action or, ultimately, allowing the [application](/glossary/application/) to restart entirely.
+**Restart intensity** is an OTP [supervisor](@/glossary/supervisor.md) configuration parameter expressed as `max_restarts` within `max_seconds`. If the number of child process restarts exceeds `max_restarts` within the `max_seconds` window, the supervisor considers the situation unrecoverable and terminates itself. This termination propagates up the [supervision tree](@/glossary/supervisor.md), allowing higher-level supervisors to take corrective action or, ultimately, allowing the [application](@/glossary/application.md) to restart entirely.
 
-The restart intensity mechanism prevents infinite crash loops -- the single most dangerous failure mode in long-running systems. Without it, a child process with a persistent bug would crash, be restarted, crash again, and repeat indefinitely -- consuming CPU, filling logs, generating spurious [telemetry](/glossary/telemetry/) events, and providing no useful service. By capping the restart rate, OTP ensures that truly broken processes escalate to higher authority rather than spinning in futile restart cycles.
+The restart intensity mechanism prevents infinite crash loops -- the single most dangerous failure mode in long-running systems. Without it, a child process with a persistent bug would crash, be restarted, crash again, and repeat indefinitely -- consuming CPU, filling logs, generating spurious [telemetry](@/glossary/telemetry.md) events, and providing no useful service. By capping the restart rate, OTP ensures that truly broken processes escalate to higher authority rather than spinning in futile restart cycles.
 
-This is a direct implementation of the [let-it-crash](/glossary/let-it-crash/) philosophy: individual processes are expected to crash, but the system must bound the impact of sustained failure. Restart intensity is the quantitative boundary.
+This is a direct implementation of the [let-it-crash](@/glossary/let-it-crash.md) philosophy: individual processes are expected to crash, but the system must bound the impact of sustained failure. Restart intensity is the quantitative boundary.
 
 ## Core Concepts
 
@@ -76,7 +76,7 @@ Time: 0s    1s    2s    3s    4s    5s    6s    7s
 
 ### Interaction with Restart Strategies
 
-Restart intensity interacts critically with the chosen [supervision strategy](/glossary/supervision-strategy/):
+Restart intensity interacts critically with the chosen [supervision strategy](@/glossary/supervision-strategy.md):
 
 | Strategy | Effect on Restart Count | Risk |
 |----------|------------------------|------|
@@ -140,7 +140,7 @@ The correct intensity depends on understanding the child's failure modes:
 
 ### Monitoring Restart Intensity
 
-A supervisor hitting its restart intensity limit is a critical operational event. The platform monitors this through [telemetry](/glossary/telemetry/) and logging:
+A supervisor hitting its restart intensity limit is a critical operational event. The platform monitors this through [telemetry](@/glossary/telemetry.md) and logging:
 
 ```elixir
 defmodule PrismaticMonitoring.SupervisorWatcher do
@@ -426,7 +426,7 @@ end
 1. **Tune per supervisor, not globally** -- different subsystems have different expected failure rates and criticality levels.
 2. **Lower intensity for critical infrastructure** -- registries and storage supervisors should escalate quickly on repeated failures.
 3. **Higher intensity for external I/O** -- HTTP clients, API adapters, and network operations experience transient failures that resolve without escalation.
-4. **Monitor supervisor terminations** -- a supervisor hitting its restart intensity limit is a significant event that should trigger alerts via [telemetry](/glossary/telemetry/).
+4. **Monitor supervisor terminations** -- a supervisor hitting its restart intensity limit is a significant event that should trigger alerts via [telemetry](@/glossary/telemetry.md).
 5. **Test restart intensity in staging** -- simulate failure scenarios to verify that intensity settings produce the desired escalation behavior.
 6. **Account for strategy multiplier** -- `:one_for_all` multiplies effective restart count by child count.
 7. **Combine with exponential backoff** -- process-internal backoff prevents rapid restarts from consuming the intensity budget.
@@ -436,21 +436,21 @@ end
 
 ## Related Terms
 
-- [Supervisor](/glossary/supervisor/) -- the OTP process that enforces restart intensity
-- [Supervision Strategy](/glossary/supervision-strategy/) -- the restart strategy that works alongside restart intensity
-- [GenServer](/glossary/genserver/) -- the primary OTP behaviour supervised by intensity-limited supervisors
-- [Let It Crash](/glossary/let-it-crash/) -- the OTP philosophy that restart intensity implements
-- [Application](/glossary/application/) -- the top-level OTP container managing supervision trees
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the broader resilience goal restart intensity serves
-- [Circuit Breaker](/glossary/circuit-breaker/) -- application-level pattern complementing OTP restart intensity
-- [Telemetry](/glossary/telemetry/) -- observability for monitoring restart events
-- [Reductions](/glossary/reductions/) -- BEAM scheduler metric affected by crash-looping processes
+- [Supervisor](@/glossary/supervisor.md) -- the OTP process that enforces restart intensity
+- [Supervision Strategy](@/glossary/supervision-strategy.md) -- the restart strategy that works alongside restart intensity
+- [GenServer](@/glossary/genserver.md) -- the primary OTP behaviour supervised by intensity-limited supervisors
+- [Let It Crash](@/glossary/let-it-crash.md) -- the OTP philosophy that restart intensity implements
+- [Application](@/glossary/application.md) -- the top-level OTP container managing supervision trees
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the broader resilience goal restart intensity serves
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- application-level pattern complementing OTP restart intensity
+- [Telemetry](@/glossary/telemetry.md) -- observability for monitoring restart events
+- [Reductions](@/glossary/reductions.md) -- BEAM scheduler metric affected by crash-looping processes
 
 ## See Also
 
 - [OTP Supervisor Documentation](https://hexdocs.pm/elixir/Supervisor.html)
-- [PrismaticSupervisor Architecture](/architecture/)
-- [Fault Tolerance Patterns](/capabilities/)
+- [PrismaticSupervisor Architecture](@/architecture/_index.md)
+- [Fault Tolerance Patterns](@/capabilities/_index.md)
 
 ---
 
@@ -459,4 +459,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

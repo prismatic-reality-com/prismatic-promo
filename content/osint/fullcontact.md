@@ -25,11 +25,11 @@ image_alt = "FullContact - Prismatic Platform"
 
 ## Overview
 
-FullContact is an id[entity resolution](/glossary/entity-resolution/) and data enrichment platform that transforms fragmented contact information into complete person and company profiles. Given a single identifier -- an email address, phone number, social handle, or physical address -- FullContact returns a comprehensive profile including demographic information, social media accounts, employment history, and company affiliations.
+FullContact is an id[entity resolution](@/glossary/entity-resolution.md) and data enrichment platform that transforms fragmented contact information into complete person and company profiles. Given a single identifier -- an email address, phone number, social handle, or physical address -- FullContact returns a comprehensive profile including demographic information, social media accounts, employment history, and company affiliations.
 
-FullContact's identity graph connects over 3 billion person records with 200+ billion data points, resolving fragmented identities across multiple data sources. This makes it the industry standard for person enrichment in CRM systems, marketing platforms, and increasingly in [OSINT](/glossary/osint/) investigation workflows where building a complete profile from partial information is essential.
+FullContact's identity graph connects over 3 billion person records with 200+ billion data points, resolving fragmented identities across multiple data sources. This makes it the industry standard for person enrichment in CRM systems, marketing platforms, and increasingly in [OSINT](@/glossary/osint.md) investigation workflows where building a complete profile from partial information is essential.
 
-Within the Prismatic Platform, FullContact serves as the primary person enrichment engine, transforming email addresses discovered by [Hunter.io](/osint/hunter/) into complete identity profiles for organizational mapping and investigation workflows.
+Within the Prismatic Platform, FullContact serves as the primary person enrichment engine, transforming email addresses discovered by [Hunter.io](@/osint/hunter.md) into complete identity profiles for organizational mapping and investigation workflows.
 
 ## Data Coverage
 
@@ -72,7 +72,7 @@ Each data point in a FullContact profile carries a confidence score reflecting t
 
 ## Integration with Prismatic
 
-FullContact integrates with the [OSINT Core](/apps/prismatic-osint-core/) person enrichment pipeline, providing identity resolution for investigation and organizational mapping workflows.
+FullContact integrates with the [OSINT Core](@/apps/prismatic-osint-core.md) person enrichment pipeline, providing identity resolution for investigation and organizational mapping workflows.
 
 ```elixir
 # Enrich a person by email
@@ -161,7 +161,7 @@ end
 
 ### Organizational Mapping Workflow
 
-FullContact enables automated organizational mapping when combined with email discovery. The workflow discovers all email addresses for a target domain via [Hunter.io](/osint/hunter/), then enriches each contact with FullContact to build a complete organizational picture:
+FullContact enables automated organizational mapping when combined with email discovery. The workflow discovers all email addresses for a target domain via [Hunter.io](@/osint/hunter.md), then enriches each contact with FullContact to build a complete organizational picture:
 
 ```elixir
 defmodule PrismaticOsint.Enrichment.OrgChartBuilder do
@@ -226,20 +226,20 @@ FullContact processes personal data subject to various privacy regulations. Key 
 
 ### OSINT Investigation
 - Build complete profiles from partial identifiers (email, phone, name)
-- Map organizational structures by enriching [Hunter.io](/osint/hunter/) discovered emails
+- Map organizational structures by enriching [Hunter.io](@/osint/hunter.md) discovered emails
 - Identify key decision-makers for social engineering assessments
 - Correlate social media presence across platforms for subject profiling
 
 ### Due Diligence
 - Verify person identities for KYC/AML compliance
-- Cross-reference with [OpenCorporates](/osint/open-corporates/) for corporate role verification
+- Cross-reference with [OpenCorporates](@/osint/open-corporates.md) for corporate role verification
 - Validate executive profiles for M&A intelligence
 - Background checks for financial services onboarding
 
 ### Security Assessment
 - Map target organization personnel for phishing simulation planning
 - Identify high-value targets based on role and access level
-- Correlate with [DeHashed](/osint/dehashed/) for credential exposure of key personnel
+- Correlate with [DeHashed](@/osint/dehashed.md) for credential exposure of key personnel
 - Assess social media attack surface for executive protection
 
 ### Competitive Intelligence
@@ -250,18 +250,18 @@ FullContact processes personal data subject to various privacy regulations. Key 
 
 ## Related Sources
 
-- [Hunter.io](/osint/hunter/) - Email discovery feeding person enrichment
-- [EmailRep](/osint/emailrep/) - Email reputation scoring
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach exposure for discovered persons
-- [OpenCorporates](/osint/open-corporates/) - Corporate entity and officer verification
-- [Intelligence X](/osint/intelligencex/) - Deep search for person-related data exposure
-- [ZoomInfo](/osint/zoominfo/) - Enterprise B2B contact and company intelligence
-- [LinkedIn Sales Navigator](/osint/linkedin-sales/) - Professional network intelligence
+- [Hunter.io](@/osint/hunter.md) - Email discovery feeding person enrichment
+- [EmailRep](@/osint/emailrep.md) - Email reputation scoring
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach exposure for discovered persons
+- [OpenCorporates](@/osint/open-corporates.md) - Corporate entity and officer verification
+- [Intelligence X](@/osint/intelligencex.md) - Deep search for person-related data exposure
+- [ZoomInfo](@/osint/zoominfo.md) - Enterprise B2B contact and company intelligence
+- [LinkedIn Sales Navigator](@/osint/linkedin-sales.md) - Professional network intelligence
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Person data in organizational risk assessment
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Person data in organizational risk assessment
 
 ---
 
@@ -270,4 +270,4 @@ FullContact processes personal data subject to various privacy regulations. Key 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

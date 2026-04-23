@@ -406,24 +406,24 @@ Adversarial thinking extends to dependencies and third-party components: "What i
 
 ## Related Concepts
 
-- [Red Team](/glossary/red-team/) - The operational expression of adversarial thinking through dedicated attack simulation teams
-- [Threat Assessment](/glossary/threat-assessment/) - Structured evaluation of threats that adversarial thinking informs and enhances
-- [Security Modeling](/glossary/security-modeling/) - Formal representation of security architectures analyzed through adversarial reasoning
-- [Defensive Security](/glossary/defensive-security/) - The protective discipline that adversarial thinking strengthens by anticipating attack vectors
-- [Adversarial Testing](/glossary/adversarial-testing/) - The practical execution of adversarial thinking through systematic security testing
-- [Attack Surface](/glossary/attack-surface/) - The total exposure that adversarial thinking maps and analyzes
-- [Blue Team](/glossary/blue-team/) - Defensive team that applies adversarial thinking to anticipate and counter attacks
-- [Adversarial Simulation](/glossary/adversarial-simulation/) - Automated adversarial scenario execution driven by adversarial thinking
-- [Adversarial Architecture](/glossary/adversarial-architecture/) - System design principles derived from adversarial analysis
-- [Adversarial Conditions](/glossary/adversarial-conditions/) - Environmental states modeled by adversarial thinking frameworks
+- [Red Team](@/glossary/red-team.md) - The operational expression of adversarial thinking through dedicated attack simulation teams
+- [Threat Assessment](@/glossary/threat-assessment.md) - Structured evaluation of threats that adversarial thinking informs and enhances
+- [Security Modeling](@/glossary/security-modeling.md) - Formal representation of security architectures analyzed through adversarial reasoning
+- [Defensive Security](@/glossary/defensive-security.md) - The protective discipline that adversarial thinking strengthens by anticipating attack vectors
+- [Adversarial Testing](@/glossary/adversarial-testing.md) - The practical execution of adversarial thinking through systematic security testing
+- [Attack Surface](@/glossary/attack-surface.md) - The total exposure that adversarial thinking maps and analyzes
+- [Blue Team](@/glossary/blue-team.md) - Defensive team that applies adversarial thinking to anticipate and counter attacks
+- [Adversarial Simulation](@/glossary/adversarial-simulation.md) - Automated adversarial scenario execution driven by adversarial thinking
+- [Adversarial Architecture](@/glossary/adversarial-architecture.md) - System design principles derived from adversarial analysis
+- [Adversarial Conditions](@/glossary/adversarial-conditions.md) - Environmental states modeled by adversarial thinking frameworks
 
 ## See Also
 
-- [Security Assessment](/glossary/security-assessment/) - Broader evaluation framework incorporating adversarial cognitive methods
-- [Adversarial Drift](/glossary/adversarial-drift/) - Gradual security degradation that adversarial thinking aims to detect
-- [Black Team](/glossary/black-team/) - Theoretical threat modeling operating at the highest level of adversarial abstraction
-- [Defensive Posture](/glossary/defensive-posture/) - The defensive stance informed by adversarial analysis
-- [Security Verification](/glossary/security-verification/) - Formal verification of security properties through adversarial scrutiny
+- [Security Assessment](@/glossary/security-assessment.md) - Broader evaluation framework incorporating adversarial cognitive methods
+- [Adversarial Drift](@/glossary/adversarial-drift.md) - Gradual security degradation that adversarial thinking aims to detect
+- [Black Team](@/glossary/black-team.md) - Theoretical threat modeling operating at the highest level of adversarial abstraction
+- [Defensive Posture](@/glossary/defensive-posture.md) - The defensive stance informed by adversarial analysis
+- [Security Verification](@/glossary/security-verification.md) - Formal verification of security properties through adversarial scrutiny
 
 ---
 
@@ -432,4 +432,4 @@ Adversarial thinking extends to dependencies and third-party components: "What i
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

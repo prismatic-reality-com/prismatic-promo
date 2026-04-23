@@ -36,15 +36,15 @@ image_alt = "Monitoring - Prismatic Platform"
 
 ## Definition
 
-Monitoring is the continuous, systematic observation and recording of system metrics, events, behaviors, and resource utilization to maintain awareness of operational health and detect deviations from expected behavior. Unlike passive logging, monitoring is an active process that collects, aggregates, and evaluates data against thresholds and baselines in real time. In the Prismatic Platform, monitoring is deeply integrated through Erlang's [Telemetry](/glossary/telemetry/) library, the Quality Floor Guardian autonomous agent, per-application health monitors, and real-time [LiveView](/glossary/liveview/) dashboards that provide immediate visibility into the platform's 115 umbrella applications.
+Monitoring is the continuous, systematic observation and recording of system metrics, events, behaviors, and resource utilization to maintain awareness of operational health and detect deviations from expected behavior. Unlike passive logging, monitoring is an active process that collects, aggregates, and evaluates data against thresholds and baselines in real time. In the Prismatic Platform, monitoring is deeply integrated through Erlang's [Telemetry](@/glossary/telemetry.md) library, the Quality Floor Guardian autonomous agent, per-application health monitors, and real-time [LiveView](@/glossary/liveview.md) dashboards that provide immediate visibility into the platform's 115 umbrella applications.
 
 ## Overview
 
 Monitoring exists at the intersection of three concerns: knowing what is happening right now (real-time awareness), knowing when something goes wrong (anomaly detection), and knowing what happened in the past (historical analysis). A monitoring system that fails at any of these three dimensions leaves operators blind to some category of problems.
 
-The Prismatic Platform approaches monitoring with the same rigor it applies to code quality. The [Quality Floor Guardian](/glossary/quality-floor-guardian/) continuously evaluates 13 quality domains and enforces minimum thresholds. The [Telemetry](/glossary/telemetry/) infrastructure emits standardized events from every significant operation across all 115 applications. The [PrismaticSupervisor](/glossary/supervisor/) health monitor tracks application startup times, crash rates, and supervision tree health. And the [LiveView](/glossary/liveview/) dashboards render all of this data in real time, without polling, using server-pushed updates over WebSocket connections.
+The Prismatic Platform approaches monitoring with the same rigor it applies to code quality. The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) continuously evaluates 13 quality domains and enforces minimum thresholds. The [Telemetry](@/glossary/telemetry.md) infrastructure emits standardized events from every significant operation across all 115 applications. The [PrismaticSupervisor](@/glossary/supervisor.md) health monitor tracks application startup times, crash rates, and supervision tree health. And the [LiveView](@/glossary/liveview.md) dashboards render all of this data in real time, without polling, using server-pushed updates over WebSocket connections.
 
-The monitoring philosophy aligns with the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine: every operational anomaly is investigated, every metric drift is tracked, and every threshold violation triggers corrective action. There is no "acceptable" level of unmonitored behavior. The platform's [observability](/glossary/observability/) strategy treats monitoring data as first-class evidence subject to the same [NABLA axioms](/glossary/nabla-axioms/) that govern all belief formation.
+The monitoring philosophy aligns with the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine: every operational anomaly is investigated, every metric drift is tracked, and every threshold violation triggers corrective action. There is no "acceptable" level of unmonitored behavior. The platform's [observability](@/glossary/observability.md) strategy treats monitoring data as first-class evidence subject to the same [NABLA axioms](@/glossary/nabla-axioms.md) that govern all belief formation.
 
 ## Technical Details
 
@@ -58,7 +58,7 @@ Modern monitoring practice recognizes three complementary data types, each provi
 
 **Traces** are records of request flow through distributed components. They answer questions like "Which service caused the latency spike?" or "How do requests flow through the system?" Traces connect related events across service boundaries.
 
-The Prismatic Platform integrates all three pillars through a unified [Telemetry](/glossary/telemetry/) infrastructure:
+The Prismatic Platform integrates all three pillars through a unified [Telemetry](@/glossary/telemetry.md) infrastructure:
 
 | Pillar | Implementation | Storage | Query Interface |
 |--------|---------------|---------|----------------|
@@ -444,7 +444,7 @@ end
 
 ### Monitoring vs. Observability
 
-[Monitoring](/glossary/monitoring/) and [observability](/glossary/observability/) are related but distinct concepts. Monitoring answers predefined questions ("Is the system healthy?"), while observability enables answering questions that were not anticipated when the system was built ("Why is this specific user experiencing slow responses?"). Monitoring is a subset of observability -- a system can be monitored without being observable, but an observable system is inherently monitorable.
+[Monitoring](@/glossary/monitoring.md) and [observability](@/glossary/observability.md) are related but distinct concepts. Monitoring answers predefined questions ("Is the system healthy?"), while observability enables answering questions that were not anticipated when the system was built ("Why is this specific user experiencing slow responses?"). Monitoring is a subset of observability -- a system can be monitored without being observable, but an observable system is inherently monitorable.
 
 | Aspect | Monitoring | Observability |
 |--------|-----------|---------------|
@@ -456,7 +456,7 @@ end
 
 ### Monitoring vs. Logging
 
-[Structured logging](/glossary/structured-logging/) captures discrete events with full context, while monitoring aggregates numeric measurements over time. Logs tell you what happened; monitoring tells you how the system is performing. The Prismatic Platform uses both -- structured JSON logs for debugging and Telemetry metrics for dashboards and alerting.
+[Structured logging](@/glossary/structured-logging.md) captures discrete events with full context, while monitoring aggregates numeric measurements over time. Logs tell you what happened; monitoring tells you how the system is performing. The Prismatic Platform uses both -- structured JSON logs for debugging and Telemetry metrics for dashboards and alerting.
 
 ### Monitoring vs. APM (Application Performance Monitoring)
 
@@ -482,7 +482,7 @@ All monitoring data should be structured for automated processing. The Prismatic
 
 ### 5. Implement Circuit Breakers for Monitoring
 
-Monitoring systems that fail should not cascade into the monitored system. The platform's [circuit breaker](/glossary/circuit-breaker/) pattern protects monitoring pipelines -- if a metric collector fails 3 times consecutively, it is temporarily disabled rather than degrading the main application.
+Monitoring systems that fail should not cascade into the monitored system. The platform's [circuit breaker](@/glossary/circuit-breaker.md) pattern protects monitoring pipelines -- if a metric collector fails 3 times consecutively, it is temporarily disabled rather than degrading the main application.
 
 ### 6. Correlate Across Layers
 
@@ -518,7 +518,7 @@ The Quality Floor Guardian monitors the platform's quality score across 13 domai
 
 ### 2. EASM Security Dashboard
 
-The [Prismatic Perimeter](/glossary/prismatic-perimeter/) EASM module uses real-time monitoring to track discovered assets, security ratings, and compliance scores. Security analysts monitor the dashboard at `/perimeter` for changes in attack surface or rating degradation.
+The [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) EASM module uses real-time monitoring to track discovered assets, security ratings, and compliance scores. Security analysts monitor the dashboard at `/perimeter` for changes in attack surface or rating degradation.
 
 ### 3. Agent Performance Tracking
 
@@ -526,7 +526,7 @@ With 530+ agents, monitoring individual agent performance is critical. Telemetry
 
 ### 4. Deployment Health Verification
 
-After each deployment, monitoring verifies that the new release meets performance and reliability standards. The [canary release](/glossary/canary-release/) process uses monitoring data to decide whether to proceed with or roll back a deployment.
+After each deployment, monitoring verifies that the new release meets performance and reliability standards. The [canary release](@/glossary/canary-release.md) process uses monitoring data to decide whether to proceed with or roll back a deployment.
 
 ### 5. Session Lifecycle Tracking
 
@@ -534,23 +534,23 @@ The SessionLifecycle GenServer emits Telemetry events for session start, command
 
 ## Related Concepts
 
-- [Observability](/glossary/observability/) -- broader practice encompassing monitoring, tracing, and ad-hoc system introspection
-- [Telemetry](/glossary/telemetry/) -- the event emission library underlying all Prismatic Platform monitoring
-- [Health Monitoring](/glossary/health-monitoring/) -- specific focus on binary health/unhealthy status determination
-- [Metrics](/glossary/metrics/) -- numeric measurements that form the primary data source for monitoring
-- [Structured Logging](/glossary/structured-logging/) -- complementary data source providing event-level detail
-- [Distributed Tracing](/glossary/distributed-tracing/) -- request-flow tracking across distributed components
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- autonomous monitoring agent enforcing platform quality thresholds
-- [Circuit Breaker](/glossary/circuit-breaker/) -- fault tolerance pattern that monitoring detects and tracks
-- [LiveView](/glossary/liveview/) -- the real-time rendering technology powering monitoring dashboards
-- [System Monitoring](/glossary/system-monitoring/) -- infrastructure-level monitoring of compute resources
+- [Observability](@/glossary/observability.md) -- broader practice encompassing monitoring, tracing, and ad-hoc system introspection
+- [Telemetry](@/glossary/telemetry.md) -- the event emission library underlying all Prismatic Platform monitoring
+- [Health Monitoring](@/glossary/health-monitoring.md) -- specific focus on binary health/unhealthy status determination
+- [Metrics](@/glossary/metrics.md) -- numeric measurements that form the primary data source for monitoring
+- [Structured Logging](@/glossary/structured-logging.md) -- complementary data source providing event-level detail
+- [Distributed Tracing](@/glossary/distributed-tracing.md) -- request-flow tracking across distributed components
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- autonomous monitoring agent enforcing platform quality thresholds
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- fault tolerance pattern that monitoring detects and tracks
+- [LiveView](@/glossary/liveview.md) -- the real-time rendering technology powering monitoring dashboards
+- [System Monitoring](@/glossary/system-monitoring.md) -- infrastructure-level monitoring of compute resources
 
 ## See Also
 
-- [Observability](/glossary/observability/) -- the superset discipline that includes monitoring
-- [Quality Gates](/glossary/quality-gates/) -- enforcement layer that uses monitoring data for build decisions
-- [Continuous Integration](/glossary/continuous-integration/) -- build-time monitoring and quality enforcement
-- [Performance](/glossary/performance/) -- the metrics that monitoring tracks for optimization
+- [Observability](@/glossary/observability.md) -- the superset discipline that includes monitoring
+- [Quality Gates](@/glossary/quality-gates.md) -- enforcement layer that uses monitoring data for build decisions
+- [Continuous Integration](@/glossary/continuous-integration.md) -- build-time monitoring and quality enforcement
+- [Performance](@/glossary/performance.md) -- the metrics that monitoring tracks for optimization
 
 ---
 
@@ -559,4 +559,4 @@ The SessionLifecycle GenServer emits Telemetry events for session start, command
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

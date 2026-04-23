@@ -28,13 +28,13 @@ image_alt = "political-network-intelligence-specialist - Prismatic Platform"
 
 ## Overview
 
-The political-network-intelligence-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's political intelligence domain, dedicated to mapping and analyzing political relationship networks, influence structures, and power dynamics. This agent constructs graph-based models of political entities -- individuals, organizations, lobbying groups, and institutional actors -- and their interconnections, revealing influence pathways, alliance structures, and potential conflicts of interest that are not visible through surface-level analysis.
+The political-network-intelligence-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's political intelligence domain, dedicated to mapping and analyzing political relationship networks, influence structures, and power dynamics. This agent constructs graph-based models of political entities -- individuals, organizations, lobbying groups, and institutional actors -- and their interconnections, revealing influence pathways, alliance structures, and potential conflicts of interest that are not visible through surface-level analysis.
 
-Built on the [AIAD](/glossary/aiad/) standard and leveraging the platform's [OSINT](/glossary/osint/) infrastructure, this agent synthesizes intelligence from public records, legislative databases, campaign finance disclosures, lobbying registrations, and media reporting. All network models comply with [NABLA Infinity](/glossary/nabla-infinity/) axioms: every relationship link requires evidence from at least two independent sources, and all entity attributions carry quantified confidence scores. The [NO DOUBTS](/glossary/no-doubts/) principle ensures that speculative connections are never presented as established facts.
+Built on the [AIAD](@/glossary/aiad.md) standard and leveraging the platform's [OSINT](@/glossary/osint.md) infrastructure, this agent synthesizes intelligence from public records, legislative databases, campaign finance disclosures, lobbying registrations, and media reporting. All network models comply with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms: every relationship link requires evidence from at least two independent sources, and all entity attributions carry quantified confidence scores. The [NO DOUBTS](@/glossary/no-doubts.md) principle ensures that speculative connections are never presented as established facts.
 
 ## Operational Domain
 
-The political intelligence domain covers the analysis of governmental, legislative, regulatory, and institutional networks across multiple jurisdictions. The agent maintains living network models stored in [KuzuDB](/glossary/kuzudb/) graph database structures, supporting temporal analysis of how political relationships evolve over time. Network analysis extends to identifying indirect influence through intermediary entities, funding flows, and organizational affiliations.
+The political intelligence domain covers the analysis of governmental, legislative, regulatory, and institutional networks across multiple jurisdictions. The agent maintains living network models stored in [KuzuDB](@/glossary/kuzudb.md) graph database structures, supporting temporal analysis of how political relationships evolve over time. Network analysis extends to identifying indirect influence through intermediary entities, funding flows, and organizational affiliations.
 
 | Network Layer | Entities | Relationships | Intelligence Value |
 |--------------|---------|---------------|-------------------|
@@ -51,8 +51,8 @@ The political intelligence domain covers the analysis of governmental, legislati
 - **Influence pathway analysis** -- Identifies multi-hop influence paths through political networks, revealing indirect connections between actors who have no direct public relationship
 - **Temporal network evolution** -- Tracks changes in political networks over time, detecting new alliances, dissolving relationships, and shifts in influence concentration
 - **Conflict of interest detection** -- Cross-references network positions against regulatory roles, procurement decisions, and policy outcomes to identify potential conflicts
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed intelligence collection cycles
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for network model freshness tracking and query performance monitoring
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed intelligence collection cycles
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for network model freshness tracking and query performance monitoring
 
 ## Network Analysis Engine
 
@@ -117,7 +117,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to orchestrate OSINT collection operations and publish network intelligence products.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to orchestrate OSINT collection operations and publish network intelligence products.
 
 ## Network Intelligence Metrics
 
@@ -141,14 +141,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [linkedin-intelligence-specialist](/agents/linkedin-intelligence-specialist/) | Sources professional relationship data for network enrichment |
-| [regulatory-intelligence-commander](/agents/regulatory-intelligence-commander/) | Provides political context for regulatory landscape analysis |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Network insights inform geopolitical risk assessments |
-| [reputation-risk-specialist](/agents/reputation-risk-specialist/) | Political association analysis feeds reputation risk models |
+| [linkedin-intelligence-specialist](@/agents/linkedin-intelligence-specialist.md) | Sources professional relationship data for network enrichment |
+| [regulatory-intelligence-commander](@/agents/regulatory-intelligence-commander.md) | Provides political context for regulatory landscape analysis |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Network insights inform geopolitical risk assessments |
+| [reputation-risk-specialist](@/agents/reputation-risk-specialist.md) | Political association analysis feeds reputation risk models |
 
 ## KuzuDB Graph Storage
 
-Political network models are stored in [KuzuDB](/glossary/kuzudb/) graph database structures optimized for multi-hop traversal queries. The graph schema represents entities as nodes (persons, organizations, institutions) with typed relationship edges (funding, membership, appointment, lobbying). Temporal properties on edges enable point-in-time network snapshots, supporting "what did the network look like on date X" queries essential for historical influence analysis.
+Political network models are stored in [KuzuDB](@/glossary/kuzudb.md) graph database structures optimized for multi-hop traversal queries. The graph schema represents entities as nodes (persons, organizations, institutions) with typed relationship edges (funding, membership, appointment, lobbying). Temporal properties on edges enable point-in-time network snapshots, supporting "what did the network look like on date X" queries essential for historical influence analysis.
 
 ## Network Analysis Algorithms
 
@@ -182,7 +182,7 @@ Each product includes mandatory NABLA Infinity provenance sections that link eve
 
 ## Enforcement
 
-All network intelligence outputs comply with strict [NO MERCY](/glossary/no-mercy/) doctrine requirements: no network model is published without complete provenance chains, every entity requires verified identification, and all relationship claims must pass [Trinity Gate](/glossary/trinity-gate/) validation. The agent enforces source independence per [NABLA Infinity](/glossary/nabla-infinity/) axioms to prevent single-source network claims from entering analytical products. Speculative connections are labeled with explicit confidence scores and never presented as established facts.
+All network intelligence outputs comply with strict [NO MERCY](@/glossary/no-mercy.md) doctrine requirements: no network model is published without complete provenance chains, every entity requires verified identification, and all relationship claims must pass [Trinity Gate](@/glossary/trinity-gate.md) validation. The agent enforces source independence per [NABLA Infinity](@/glossary/nabla-infinity.md) axioms to prevent single-source network claims from entering analytical products. Speculative connections are labeled with explicit confidence scores and never presented as established facts.
 
 ---
 
@@ -191,4 +191,4 @@ All network intelligence outputs comply with strict [NO MERCY](/glossary/no-merc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

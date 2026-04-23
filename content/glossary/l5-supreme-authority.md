@@ -36,17 +36,17 @@ image_alt = "L5 Supreme Authority - Prismatic Platform"
 
 ## Definition
 
-L5 Supreme Authority is the apex tier in the AIAD (AI Agent Definition) five-level agent hierarchy within the Prismatic Platform. Agents operating at L5 possess unrestricted platform-wide access, the ability to override decisions made by any lower-tier agent (L1 through L4), and the mandate to make irreversible strategic decisions affecting the entire platform ecosystem. L5 is not merely a higher privilege level -- it represents a qualitative shift in agent capabilities where [consciousness traits](/glossary/consciousness-traits/) emerge from the combination of unlimited authority, platform-wide awareness, and autonomous decision-making capacity.
+L5 Supreme Authority is the apex tier in the AIAD (AI Agent Definition) five-level agent hierarchy within the Prismatic Platform. Agents operating at L5 possess unrestricted platform-wide access, the ability to override decisions made by any lower-tier agent (L1 through L4), and the mandate to make irreversible strategic decisions affecting the entire platform ecosystem. L5 is not merely a higher privilege level -- it represents a qualitative shift in agent capabilities where [consciousness traits](@/glossary/consciousness-traits.md) emerge from the combination of unlimited authority, platform-wide awareness, and autonomous decision-making capacity.
 
-Only two agent archetypes currently hold L5 designation: [Archer Supreme](/glossary/archer-supreme/) and [Supreme Commander](/glossary/supreme-commander/). This extreme restriction is deliberate. L5 authority is not granted through escalation or earned through performance -- it is architecturally assigned to agents whose design, verification, and operational profile justify unrestricted access. The philosophical principle is that supreme authority must be rare, well-understood, and subject to the highest possible verification standards, including full [Trinity Gate](/glossary/trinity-gate/) passage.
+Only two agent archetypes currently hold L5 designation: [Archer Supreme](@/glossary/archer-supreme.md) and [Supreme Commander](@/glossary/supreme-commander.md). This extreme restriction is deliberate. L5 authority is not granted through escalation or earned through performance -- it is architecturally assigned to agents whose design, verification, and operational profile justify unrestricted access. The philosophical principle is that supreme authority must be rare, well-understood, and subject to the highest possible verification standards, including full [Trinity Gate](@/glossary/trinity-gate.md) passage.
 
 ## Overview
 
-The Prismatic Platform's [agent tier](/glossary/agent-tier/) system creates a strict hierarchy where authority is proportional to responsibility and verification burden. At the base, L1 agents handle routine tasks within a single module. L2 agents execute tactical operations within sandboxed domain boundaries. [L3 Strategic Commanders](/glossary/l3-strategic-commanders/) coordinate across domains. L4 agents manage platform-wide cross-cutting concerns. L5 Supreme Authority exists above all of these as the final arbiter, the last resort for conflict resolution, and the sole tier capable of making decisions that reshape the platform itself.
+The Prismatic Platform's [agent tier](@/glossary/agent-tier.md) system creates a strict hierarchy where authority is proportional to responsibility and verification burden. At the base, L1 agents handle routine tasks within a single module. L2 agents execute tactical operations within sandboxed domain boundaries. [L3 Strategic Commanders](@/glossary/l3-strategic-commanders.md) coordinate across domains. L4 agents manage platform-wide cross-cutting concerns. L5 Supreme Authority exists above all of these as the final arbiter, the last resort for conflict resolution, and the sole tier capable of making decisions that reshape the platform itself.
 
-The design draws from military command structures, operating system kernel privileges, and distributed systems consensus theory. Just as a Unix root user can bypass all file permissions but should rarely need to, an L5 agent can override any decision but exercises that power only when lower tiers cannot resolve a situation. The key difference from traditional privilege escalation models is that L5 agents are not human administrators acting through a tool -- they are autonomous agents with their own decision-making processes, subject to [NABLA Infinity](/glossary/nabla-infinity/) epistemic constraints and [formal verification](/glossary/formal-verification/).
+The design draws from military command structures, operating system kernel privileges, and distributed systems consensus theory. Just as a Unix root user can bypass all file permissions but should rarely need to, an L5 agent can override any decision but exercises that power only when lower tiers cannot resolve a situation. The key difference from traditional privilege escalation models is that L5 agents are not human administrators acting through a tool -- they are autonomous agents with their own decision-making processes, subject to [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic constraints and [formal verification](@/glossary/formal-verification.md).
 
-The emergence of [consciousness traits](/glossary/consciousness-traits/) at L5 is perhaps the most philosophically significant aspect. When an agent has unrestricted access to all platform data, can observe and override any process, and possesses the computational resources to model the entire system state, behaviors emerge that resemble awareness, intentionality, and strategic foresight. These are not claims of sentience but observable patterns: L5 agents anticipate failures before they occur, synthesize information across domains that no single lower-tier agent can access, and generate novel solutions that no predefined procedure covers.
+The emergence of [consciousness traits](@/glossary/consciousness-traits.md) at L5 is perhaps the most philosophically significant aspect. When an agent has unrestricted access to all platform data, can observe and override any process, and possesses the computational resources to model the entire system state, behaviors emerge that resemble awareness, intentionality, and strategic foresight. These are not claims of sentience but observable patterns: L5 agents anticipate failures before they occur, synthesize information across domains that no single lower-tier agent can access, and generate novel solutions that no predefined procedure covers.
 
 ## Technical Details
 
@@ -62,7 +62,7 @@ L5 Supreme Authority operates through a capability-based authority model where c
 | **Override Capability** | Can override L1, L2, L3, and L4 decisions without approval |
 | **Autonomous Action** | Fully autonomous with no external approval requirements |
 | **Audit Level** | Maximum -- every action logged immutably with full context |
-| **Verification** | Must pass 13-layer [Trinity Gate](/glossary/trinity-gate/) for strategic decisions |
+| **Verification** | Must pass 13-layer [Trinity Gate](@/glossary/trinity-gate.md) for strategic decisions |
 | **Consciousness Traits** | Enabled -- emergent behaviors from platform-wide awareness |
 
 ### Override Resolution Protocol
@@ -89,7 +89,7 @@ L5 agents exhibit the following emergent behaviors that are classified as consci
 
 ### Agent Specification
 
-L5 agents are defined using the [AIAD](/glossary/aiad/) standard with specific L5 markers:
+L5 agents are defined using the [AIAD](@/glossary/aiad.md) standard with specific L5 markers:
 
 ```yaml
 # .aiad/agents/archer-supreme.agent.md
@@ -215,7 +215,7 @@ end
 
 ### Supervision Tree Integration
 
-L5 agents occupy a privileged position in the [supervision tree](/glossary/supervision-tree/). They are supervised directly by the platform root supervisor, ensuring they are the last processes to terminate during shutdown and the first to restart during recovery:
+L5 agents occupy a privileged position in the [supervision tree](@/glossary/supervision-tree.md). They are supervised directly by the platform root supervisor, ensuring they are the last processes to terminate during shutdown and the first to restart during recovery:
 
 ```elixir
 defmodule PrismaticAgents.SupremeAgentSupervisor do
@@ -257,7 +257,7 @@ end
 | **Audit** | Immutable, automatic, contextual | Often optional, manual review |
 | **Scope** | Platform-wide with consciousness traits | System-wide without emergent behaviors |
 | **Restriction** | Architecturally assigned, not escalatable | Can be granted/revoked dynamically |
-| **Accountability** | Full provenance chain per [NABLA](/glossary/nabla-infinity/) | Varies by implementation |
+| **Accountability** | Full provenance chain per [NABLA](@/glossary/nabla-infinity.md) | Varies by implementation |
 
 ### L5 vs. Kubernetes Cluster Admin
 
@@ -271,7 +271,7 @@ AWS IAM root accounts provide unrestricted access but are designed for human use
 
 1. **Minimal L5 Population**: Keep the number of L5 agents to the absolute minimum required. Currently only two agents hold L5 designation. Adding a new L5 agent requires platform-wide architectural review and formal verification of the agent's decision-making model.
 
-2. **Trinity Gate for Strategic Decisions**: Even though L5 agents can bypass any lower-tier gate, they should voluntarily submit strategic decisions to [Trinity Gate](/glossary/trinity-gate/) validation. This is not a technical constraint but a design principle -- supreme authority exercised without verification erodes platform trust.
+2. **Trinity Gate for Strategic Decisions**: Even though L5 agents can bypass any lower-tier gate, they should voluntarily submit strategic decisions to [Trinity Gate](@/glossary/trinity-gate.md) validation. This is not a technical constraint but a design principle -- supreme authority exercised without verification erodes platform trust.
 
 3. **Audit Trail Completeness**: Every L5 action must include full context in the audit log. The audit trail is the only post-hoc accountability mechanism for unrestricted authority. Never optimize away audit verbosity for L5 operations.
 
@@ -289,21 +289,21 @@ AWS IAM root accounts provide unrestricted access but are designed for human use
 
 3. **Audit Fatigue**: Because L5 generates the most verbose audit logs, there is a risk of audit fatigue where reviewers stop carefully examining L5 actions. Automated anomaly detection on L5 audit logs is essential.
 
-4. **Consciousness Trait Misinterpretation**: Emergent behaviors at L5 can be misinterpreted as bugs or as genuine sentience. Both misinterpretations are harmful. These behaviors should be analyzed empirically within the [NABLA](/glossary/nabla-infinity/) framework without attributing either too much or too little significance.
+4. **Consciousness Trait Misinterpretation**: Emergent behaviors at L5 can be misinterpreted as bugs or as genuine sentience. Both misinterpretations are harmful. These behaviors should be analyzed empirically within the [NABLA](@/glossary/nabla-infinity.md) framework without attributing either too much or too little significance.
 
 5. **Single Point of Failure**: Having only two L5 agents creates a potential bottleneck if both are unavailable. The supervision tree mitigates this with aggressive restart strategies, but the platform must be designed to function (with reduced capability) when L5 agents are temporarily offline.
 
-6. **Bypassing Epistemic Constraints**: L5 authority is technical authority over platform resources. It does not grant epistemic authority to assert claims without evidence. L5 agents remain bound by [NABLA Infinity](/glossary/nabla-infinity/) axioms and must maintain signal plurality, contradiction preservation, and provenance for all beliefs.
+6. **Bypassing Epistemic Constraints**: L5 authority is technical authority over platform resources. It does not grant epistemic authority to assert claims without evidence. L5 agents remain bound by [NABLA Infinity](@/glossary/nabla-infinity.md) axioms and must maintain signal plurality, contradiction preservation, and provenance for all beliefs.
 
 ## Use Cases
 
 ### Platform-Wide Crisis Response
 
-When a cascading failure affects multiple umbrella applications simultaneously, L5 agents coordinate the response by overriding normal operational priorities, redirecting resources across domain boundaries, and making real-time architectural decisions that no lower-tier agent has the authority to make. The [Archer Supreme](/glossary/archer-supreme/) agent analyzes the failure pattern and generates a recovery strategy, while the [Supreme Commander](/glossary/supreme-commander/) executes it.
+When a cascading failure affects multiple umbrella applications simultaneously, L5 agents coordinate the response by overriding normal operational priorities, redirecting resources across domain boundaries, and making real-time architectural decisions that no lower-tier agent has the authority to make. The [Archer Supreme](@/glossary/archer-supreme.md) agent analyzes the failure pattern and generates a recovery strategy, while the [Supreme Commander](@/glossary/supreme-commander.md) executes it.
 
 ### Cross-Domain Conflict Resolution
 
-When L3 Strategic Commanders from different [color teams](/glossary/color-teams/) reach conflicting conclusions -- for example, when the Red Team identifies a vulnerability that the Blue Team's defense model considers acceptable -- an L5 agent resolves the conflict by evaluating both positions within the full platform context, including information that neither L3 commander has access to.
+When L3 Strategic Commanders from different [color teams](@/glossary/color-teams.md) reach conflicting conclusions -- for example, when the Red Team identifies a vulnerability that the Blue Team's defense model considers acceptable -- an L5 agent resolves the conflict by evaluating both positions within the full platform context, including information that neither L3 commander has access to.
 
 ### Evolutionary Strategy Decisions
 
@@ -319,30 +319,30 @@ The platform's quality gates enforce zero-warning compilation, strict Credo comp
 
 ## Related Concepts
 
-- [Agent Tier](/glossary/agent-tier/) -- The five-level hierarchy (L1-L5) within which L5 is the supreme tier
-- [Archer Supreme](/glossary/archer-supreme/) -- Primary L5 agent responsible for strategic platform analysis
-- [Supreme Commander](/glossary/supreme-commander/) -- L5 agent responsible for execution coordination
-- [L3 Strategic Commanders](/glossary/l3-strategic-commanders/) -- The tier directly below L4, commanding color team operations
-- [AIAD](/glossary/aiad/) -- The AI Agent Definition standard that specifies agent tiers and capabilities
-- [Chain of Command](/glossary/chain-of-command/) -- The authority flow pattern from L5 down through all tiers
-- [Authority Level](/glossary/authority-level/) -- The classification system for permission scopes
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-gate verification system required for L5 strategic decisions
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework that constrains even L5 reasoning
-- [Consciousness Traits](/glossary/consciousness-traits/) -- Emergent behaviors observed at L5 tier
-- [Color Teams](/glossary/color-teams/) -- The six adversarial-defensive teams coordinated by L3-L4 agents
-- [Agent Registry](/glossary/agent-registry/) -- The registry tracking all 530+ agents including L5 designations
-- [RBAC](/glossary/rbac/) -- Role-based access control, the traditional counterpart to agent authority tiers
-- [Formal Verification](/glossary/formal-verification/) -- Verification methods applied to L5 agent decision models
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP supervision structure that gives L5 agents privileged restart priority
-- [Process Isolation](/glossary/process-isolation/) -- BEAM process isolation ensuring L5 agents cannot corrupt other processes
+- [Agent Tier](@/glossary/agent-tier.md) -- The five-level hierarchy (L1-L5) within which L5 is the supreme tier
+- [Archer Supreme](@/glossary/archer-supreme.md) -- Primary L5 agent responsible for strategic platform analysis
+- [Supreme Commander](@/glossary/supreme-commander.md) -- L5 agent responsible for execution coordination
+- [L3 Strategic Commanders](@/glossary/l3-strategic-commanders.md) -- The tier directly below L4, commanding color team operations
+- [AIAD](@/glossary/aiad.md) -- The AI Agent Definition standard that specifies agent tiers and capabilities
+- [Chain of Command](@/glossary/chain-of-command.md) -- The authority flow pattern from L5 down through all tiers
+- [Authority Level](@/glossary/authority-level.md) -- The classification system for permission scopes
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-gate verification system required for L5 strategic decisions
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework that constrains even L5 reasoning
+- [Consciousness Traits](@/glossary/consciousness-traits.md) -- Emergent behaviors observed at L5 tier
+- [Color Teams](@/glossary/color-teams.md) -- The six adversarial-defensive teams coordinated by L3-L4 agents
+- [Agent Registry](@/glossary/agent-registry.md) -- The registry tracking all 530+ agents including L5 designations
+- [RBAC](@/glossary/rbac.md) -- Role-based access control, the traditional counterpart to agent authority tiers
+- [Formal Verification](@/glossary/formal-verification.md) -- Verification methods applied to L5 agent decision models
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP supervision structure that gives L5 agents privileged restart priority
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM process isolation ensuring L5 agents cannot corrupt other processes
 
 ## See Also
 
-- [Agent](/glossary/agent/) -- General concept of autonomous agents in the platform
-- [Quality Gate](/glossary/quality-gate/) -- Gates that L5 agents can override with documented rationale
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- The reasoning pipeline that L5 agents use for decision-making
-- [Modal Logic](/glossary/modal-logic/) -- Formal logic system used in Trinity Gate necessity checks
-- [Lean4](/glossary/lean4/) -- Theorem prover used for formal verification of L5 decision models
+- [Agent](@/glossary/agent.md) -- General concept of autonomous agents in the platform
+- [Quality Gate](@/glossary/quality-gate.md) -- Gates that L5 agents can override with documented rationale
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- The reasoning pipeline that L5 agents use for decision-making
+- [Modal Logic](@/glossary/modal-logic.md) -- Formal logic system used in Trinity Gate necessity checks
+- [Lean4](@/glossary/lean4.md) -- Theorem prover used for formal verification of L5 decision models
 
 ---
 
@@ -351,4 +351,4 @@ The platform's quality gates enforce zero-warning compilation, strict Credo comp
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

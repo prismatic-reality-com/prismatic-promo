@@ -28,9 +28,9 @@ image_alt = "cicd-guardrails-enforcer - Prismatic Platform"
 
 ## Executive Summary
 
-The CI/CD Guardrails Enforcer is an L4 domain specialist operating within the CI/CD Enforcement domain of the Prismatic Platform. This agent ensures zero divergence between all layers of the unified developer workflow, from local [pre-commit hooks](/glossary/pre-commit-hooks/) through [GitLab CI](/glossary/gitlab-ci/) pipeline stages to production deployment gates. When a developer commits code locally, the guardrails enforced must be identical to those enforced in CI, ensuring that no change can bypass [quality gates](/glossary/quality-gates/) by exploiting differences between environments.
+The CI/CD Guardrails Enforcer is an L4 domain specialist operating within the CI/CD Enforcement domain of the Prismatic Platform. This agent ensures zero divergence between all layers of the unified developer workflow, from local [pre-commit hooks](@/glossary/pre-commit-hooks.md) through [GitLab CI](@/glossary/gitlab-ci.md) pipeline stages to production deployment gates. When a developer commits code locally, the guardrails enforced must be identical to those enforced in CI, ensuring that no change can bypass [quality gates](@/glossary/quality-gates.md) by exploiting differences between environments.
 
-This agent addresses one of the most insidious failure modes in software development: environment inconsistency allowing quality bypass. If local hooks check [Credo](/glossary/credo/) but CI checks [Dialyzer](/glossary/dialyzer/), or if CI enforces stricter compilation options than local development, developers can pass local validation only to fail in CI -- or worse, pass both but fail in production. The Guardrails Enforcer maintains a canonical specification of all quality gates and validates that every enforcement point implements the complete set, eliminating gaps that could allow defective code to progress.
+This agent addresses one of the most insidious failure modes in software development: environment inconsistency allowing quality bypass. If local hooks check [Credo](@/glossary/credo.md) but CI checks [Dialyzer](@/glossary/dialyzer.md), or if CI enforces stricter compilation options than local development, developers can pass local validation only to fail in CI -- or worse, pass both but fail in production. The Guardrails Enforcer maintains a canonical specification of all quality gates and validates that every enforcement point implements the complete set, eliminating gaps that could allow defective code to progress.
 
 ## Architecture
 
@@ -79,7 +79,7 @@ The enforcement domain spans three distinct execution environments, each with di
 
 **Pipeline Performance Optimization** analyzes CI stage execution times and parallelizes independent checks to minimize developer feedback loop latency. While maintaining comprehensive quality coverage, the optimizer identifies stages that can execute concurrently and restructures pipeline configurations to maximize parallelism without sacrificing validation completeness.
 
-**Environment Parity Validation** confirms that [Elixir](/glossary/elixir/)/[OTP](/glossary/otp/) versions, dependency versions, and tool configurations match between local development and CI environments. Version mismatches between environments are a common source of "works on my machine" failures, and the parity validator detects these before they cause wasted pipeline runs.
+**Environment Parity Validation** confirms that [Elixir](@/glossary/elixir.md)/[OTP](@/glossary/otp.md) versions, dependency versions, and tool configurations match between local development and CI environments. Version mismatches between environments are a common source of "works on my machine" failures, and the parity validator detects these before they cause wasted pipeline runs.
 
 **Configuration Drift Detection** continuously monitors all enforcement point configurations for unauthorized or accidental changes that would create gaps in quality coverage. Drift detection operates through periodic comparison of deployed configurations against the canonical specification, with alerts generated for any detected deviation.
 
@@ -131,10 +131,10 @@ end
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [cicd-coordinator-agent](/agents/cicd-coordinator-agent/) | Receives pipeline orchestration directives and reports enforcement status | CI/CD |
-| [ci-yaml-validator-agent](/agents/ci-yaml-validator-agent/) | Collaborates on YAML syntax and structure validation for GitLab pipelines | CI/CD |
-| [brutal-gitlab-enforcer](/agents/brutal-gitlab-enforcer/) | Escalation target for persistent guardrail violations requiring forceful correction | Enforcement |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality gate source providing canonical gate definitions | Quality |
+| [cicd-coordinator-agent](@/agents/cicd-coordinator-agent.md) | Receives pipeline orchestration directives and reports enforcement status | CI/CD |
+| [ci-yaml-validator-agent](@/agents/ci-yaml-validator-agent.md) | Collaborates on YAML syntax and structure validation for GitLab pipelines | CI/CD |
+| [brutal-gitlab-enforcer](@/agents/brutal-gitlab-enforcer.md) | Escalation target for persistent guardrail violations requiring forceful correction | Enforcement |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality gate source providing canonical gate definitions | Quality |
 
 ## Operational Workflow
 
@@ -169,15 +169,15 @@ end
 
 ## Enforcement
 
-The CI/CD Guardrails Enforcer operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. There are no acceptable divergences between enforcement layers. Every quality gate must be present at every enforcement point. The use of `--no-verify` or any bypass mechanism is absolutely forbidden and triggers immediate L4 escalation. No exceptions.
+The CI/CD Guardrails Enforcer operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. There are no acceptable divergences between enforcement layers. Every quality gate must be present at every enforcement point. The use of `--no-verify` or any bypass mechanism is absolutely forbidden and triggers immediate L4 escalation. No exceptions.
 
 ## Related Resources
 
-- [cicd-coordinator-agent](/agents/cicd-coordinator-agent/) -- Pipeline orchestration
-- [ci-yaml-validator-agent](/agents/ci-yaml-validator-agent/) -- YAML validation
-- [brutal-gitlab-enforcer](/agents/brutal-gitlab-enforcer/) -- Forceful enforcement
-- [Quality Gates](/capabilities/quality-gates/) -- Quality enforcement
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [cicd-coordinator-agent](@/agents/cicd-coordinator-agent.md) -- Pipeline orchestration
+- [ci-yaml-validator-agent](@/agents/ci-yaml-validator-agent.md) -- YAML validation
+- [brutal-gitlab-enforcer](@/agents/brutal-gitlab-enforcer.md) -- Forceful enforcement
+- [Quality Gates](@/capabilities/quality-gates.md) -- Quality enforcement
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -186,4 +186,4 @@ The CI/CD Guardrails Enforcer operates under the [NO MERCY, NO DOUBTS](/glossary
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

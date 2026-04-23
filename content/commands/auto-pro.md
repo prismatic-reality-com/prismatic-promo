@@ -24,11 +24,11 @@ image_alt = "/auto-pro - Prismatic Platform"
 
 ## Overview
 
-The **/auto-pro** command is the professional-grade autonomous development engine that extends the base [/auto](/commands/auto/) command with MENDEL genetic optimization, mycelial network pattern propagation, and multi-objective fitness optimization. Where /auto performs standard evolution cycles of scan-plan-implement-verify, /auto-pro introduces biologically-inspired algorithms that discover improvement patterns through genetic selection, crossover, and mutation operations, then propagate successful patterns across the entire platform through the mycelial intelligence network.
+The **/auto-pro** command is the professional-grade autonomous development engine that extends the base [/auto](@/commands/auto.md) command with MENDEL genetic optimization, mycelial network pattern propagation, and multi-objective fitness optimization. Where /auto performs standard evolution cycles of scan-plan-implement-verify, /auto-pro introduces biologically-inspired algorithms that discover improvement patterns through genetic selection, crossover, and mutation operations, then propagate successful patterns across the entire platform through the mycelial intelligence network.
 
 The distinction between /auto and /auto-pro is analogous to the difference between gradient descent and evolutionary algorithms in machine learning. Standard /auto follows a deterministic improvement path, addressing the most impactful opportunities first and working down the priority list. /auto-pro, by contrast, maintains a population of candidate improvements that compete, combine, and evolve over multiple generations. This approach excels at discovering non-obvious optimization paths that deterministic analysis would miss, particularly in complex domains where the interaction between multiple changes produces emergent benefits that no single change would achieve in isolation.
 
-Operating at the COSMIC+ authority level and executed by the `archer-supreme` agent, /auto-pro represents the second tier in the platform's autonomous development hierarchy. It is classified as experimental, reflecting the inherently exploratory nature of genetic optimization. The command is part of the platform's 216-command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard, and enforces a quality floor of 100/100 throughout all genetic operations, ensuring that evolutionary exploration never compromises platform stability.
+Operating at the COSMIC+ authority level and executed by the `archer-supreme` agent, /auto-pro represents the second tier in the platform's autonomous development hierarchy. It is classified as experimental, reflecting the inherently exploratory nature of genetic optimization. The command is part of the platform's 216-command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard, and enforces a quality floor of 100/100 throughout all genetic operations, ensuring that evolutionary exploration never compromises platform stability.
 
 ## Usage
 
@@ -147,7 +147,7 @@ Phase 1 (Genetic Initialization) creates the initial population of improvement c
 
 The /auto-pro command is designed for scenarios where standard /auto evolution has plateaued or where the improvement domain is complex enough to benefit from genetic exploration. It fits into the development workflow at several key points.
 
-The typical escalation pattern follows the autonomous development hierarchy: start with `/auto` for quick, deterministic improvements, then escalate to `/auto-pro` when deeper optimization is needed, and finally to [/auto-ultimate](/commands/auto-ultimate/) when formal verification of evolution results is required. Each tier builds on the previous one, ensuring that the simplest effective tool is always used first.
+The typical escalation pattern follows the autonomous development hierarchy: start with `/auto` for quick, deterministic improvements, then escalate to `/auto-pro` when deeper optimization is needed, and finally to [/auto-ultimate](@/commands/auto-ultimate.md) when formal verification of evolution results is required. Each tier builds on the previous one, ensuring that the simplest effective tool is always used first.
 
 Common workflow patterns include:
 
@@ -161,10 +161,10 @@ Common workflow patterns include:
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `archer-supreme` agent with COSMIC+ authority |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `archer-supreme` agent with COSMIC+ authority |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Per-generation quality validation with automatic rollback |
-| [Telemetry](/glossary/telemetry/) | Genetic fitness [metrics](/glossary/metrics/), generation tracking, propagation events |
+| [Quality Gates](@/glossary/quality-gates.md) | Per-generation quality validation with automatic rollback |
+| [Telemetry](@/glossary/telemetry.md) | Genetic fitness [metrics](@/glossary/metrics.md), generation tracking, propagation events |
 | MENDEL Engine | Genetic algorithm operations: selection, crossover, mutation |
 | Mycelial Network | Cross-domain pattern propagation and collective intelligence |
 | Quality DNA | Fitness trajectory persistence across sessions |
@@ -173,7 +173,7 @@ Common workflow patterns include:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Despite its experimental classification, /auto-pro enforces the same quality floor as production commands. Every generation in the genetic evolution must pass all quality gates. Mutations that introduce regressions are eliminated in the selection phase. The mycelial propagation system only distributes patterns that have been validated in their source domain. Zero tolerance for incomplete or quality-compromising evolution results.
 - **NO DOUBTS**: Genetic fitness functions are defined by measurable, evidence-based criteria (quality score, test coverage, static analysis results, performance metrics). The multi-objective optimization ensures that no single metric is improved at the expense of others without explicit awareness. Evolution reports include full provenance for every change, tracing it back to the specific generation, crossover, or mutation event that produced it.
@@ -190,14 +190,14 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 
 ## Related Commands
 
-- [/orchestrate](/commands/orchestrate/) - Revolutionary AI-powered task orchestration with 10x development efficiency
-- [/auto](/commands/auto/) - Intelligent autonomous evolution engine for zero-human-intervention improvements
-- [/auto-ultimate](/commands/auto-ultimate/) - Maximum [intelligence fusion](/glossary/intelligence-fusion/) combining MENDEL, MYCELIALIZE and AXON/EXLA neural computing
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/cascade](/commands/cascade/) - Execute [CASCADE pattern](/glossary/cascade-pattern/) fix for systematic anti-pattern removal
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/orchestrate](@/commands/orchestrate.md) - Revolutionary AI-powered task orchestration with 10x development efficiency
+- [/auto](@/commands/auto.md) - Intelligent autonomous evolution engine for zero-human-intervention improvements
+- [/auto-ultimate](@/commands/auto-ultimate.md) - Maximum [intelligence fusion](@/glossary/intelligence-fusion.md) combining MENDEL, MYCELIALIZE and AXON/EXLA neural computing
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/cascade](@/commands/cascade.md) - Execute [CASCADE pattern](@/glossary/cascade-pattern.md) fix for systematic anti-pattern removal
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
 
 ---
 
@@ -206,4 +206,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

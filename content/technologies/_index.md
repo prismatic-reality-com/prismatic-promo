@@ -39,9 +39,9 @@ date_modified = "2026-02-23"
 
 ## Perex
 
-The Prismatic Platform's production stack integrates 45+ carefully selected technologies into a unified [architecture](/glossary/software-architecture/) that serves [intelligence analysis](/glossary/intelligence-analysis/), [security assessment](/glossary/security-assessment/), [formal verification](/glossary/formal-verification/), and autonomous [AI](/glossary/artificial-intelligence/) operations. From the [BEAM](/glossary/beam-vm/) [virtual machine](/glossary/virtual-machine/) foundation through [Phoenix](/glossary/phoenix-framework/) [LiveView](/glossary/liveview/) interfaces to [AI model](/glossary/ai-model/) integration and graph-native storage, every technology was chosen through rigorous evaluation against [fault tolerance](/glossary/fault-tolerance/), developer productivity, and long-term maintainability.
+The Prismatic Platform's production stack integrates 45+ carefully selected technologies into a unified [architecture](@/glossary/software-architecture.md) that serves [intelligence analysis](@/glossary/intelligence-analysis.md), [security assessment](@/glossary/security-assessment.md), [formal verification](@/glossary/formal-verification.md), and autonomous [AI](@/glossary/artificial-intelligence.md) operations. From the [BEAM](@/glossary/beam-vm.md) [virtual machine](@/glossary/virtual-machine.md) foundation through [Phoenix](@/glossary/phoenix-framework.md) [LiveView](@/glossary/liveview.md) interfaces to [AI model](@/glossary/ai-model.md) integration and graph-native storage, every technology was chosen through rigorous evaluation against [fault tolerance](@/glossary/fault-tolerance.md), developer productivity, and long-term maintainability.
 
-This technology selection transforms platform capabilities into reliable, [scalable](/glossary/scalability/) infrastructure supporting 2.8M+ lines of code across 106 applications, delivering [enterprise-grade](/glossary/enterprise-architecture/) performance with academic research rigor.
+This technology selection transforms platform capabilities into reliable, [scalable](@/glossary/scalability.md) infrastructure supporting 2.8M+ lines of code across 106 applications, delivering [enterprise-grade](@/glossary/enterprise-architecture.md) performance with academic research rigor.
 
 ## Key Technology Resources
 
@@ -53,14 +53,14 @@ The platform combines proven open-source technologies with cutting-edge AI integ
 
 | Layer | Technologies | Focus Area | Key Components |
 |-------|-------------|------------|----------------|
-| **Runtime Foundation** | 8 techs | [BEAM](/glossary/beam-vm/) VM, [OTP](/glossary/otp/), [Elixir](/glossary/elixir/) | [Virtual machine](/glossary/virtual-machine/), [supervision trees](/glossary/supervision-tree/), [concurrency](/glossary/concurrency/) |
-| **Web Platform** | 6 techs | [Phoenix](/glossary/phoenix-framework/), [LiveView](/glossary/liveview/), HTTP | Real-time interfaces, [WebSocket](/glossary/websocket/) handling |
-| **Data Persistence** | 8 techs | [PostgreSQL](/glossary/postgresql/), [KuzuDB](/glossary/kuzu-db/), [ETS](/glossary/ets/) | Polyglot storage, [graph databases](/glossary/graph-database/), [caching](/glossary/caching/) |
-| **AI Integration** | 5 techs | [Claude](/glossary/claude-ai/), [Ollama](/glossary/ollama/), OpenAI | Frontier models, local inference, [agent](/glossary/agent/) coordination |
-| **Frontend & UI** | 4 techs | [TailwindCSS](/glossary/tailwindcss/), [Flowbite](/glossary/flowbite/), Alpine.js | Modern responsive interfaces |
-| **Security & Auth** | 3 techs | Guardian, [RBAC](/glossary/rbac/), [Encryption](/glossary/encryption/) | [Authentication](/glossary/authentication/), [authorization](/glossary/authorization/), [data protection](/glossary/data-protection/) |
-| **Development Tools** | 6 techs | [Credo](/glossary/credo/), [Dialyzer](/glossary/dialyzer/), Mix | [Code quality](/glossary/code-quality/), [static analysis](/glossary/static-analysis/), build tooling |
-| **Infrastructure** | 5 techs | Fly.io, GitLab CI, Docker | Deployment, [CI/CD](/glossary/ci-cd/), [containerization](/glossary/containerization/) |
+| **Runtime Foundation** | 8 techs | [BEAM](@/glossary/beam-vm.md) VM, [OTP](@/glossary/otp.md), [Elixir](@/glossary/elixir.md) | [Virtual machine](@/glossary/virtual-machine.md), [supervision trees](@/glossary/supervision-tree.md), [concurrency](@/glossary/concurrency.md) |
+| **Web Platform** | 6 techs | [Phoenix](@/glossary/phoenix-framework.md), [LiveView](@/glossary/liveview.md), HTTP | Real-time interfaces, [WebSocket](@/glossary/websocket.md) handling |
+| **Data Persistence** | 8 techs | [PostgreSQL](@/glossary/postgresql.md), [KuzuDB](@/glossary/kuzu-db.md), [ETS](@/glossary/ets.md) | Polyglot storage, [graph databases](@/glossary/graph-database.md), [caching](@/glossary/caching.md) |
+| **AI Integration** | 5 techs | [Claude](@/glossary/claude-ai.md), [Ollama](@/glossary/ollama.md), OpenAI | Frontier models, local inference, [agent](@/glossary/agent.md) coordination |
+| **Frontend & UI** | 4 techs | [TailwindCSS](@/glossary/tailwindcss.md), [Flowbite](@/glossary/flowbite.md), Alpine.js | Modern responsive interfaces |
+| **Security & Auth** | 3 techs | Guardian, [RBAC](@/glossary/rbac.md), [Encryption](@/glossary/encryption.md) | [Authentication](@/glossary/authentication.md), [authorization](@/glossary/authorization.md), [data protection](@/glossary/data-protection.md) |
+| **Development Tools** | 6 techs | [Credo](@/glossary/credo.md), [Dialyzer](@/glossary/dialyzer.md), Mix | [Code quality](@/glossary/code-quality.md), [static analysis](@/glossary/static-analysis.md), build tooling |
+| **Infrastructure** | 5 techs | Fly.io, GitLab CI, Docker | Deployment, [CI/CD](@/glossary/ci-cd.md), [containerization](@/glossary/containerization.md) |
 
 ### Platform Statistics
 
@@ -74,11 +74,11 @@ The platform combines proven open-source technologies with cutting-edge AI integ
 
 ### Quick Navigation
 
-- **[Architecture Overview](/architecture/)** - System design and technology integration patterns
-- **[Developer Portal](/developers/)** - SDK and development toolchain access
-- **[Platform Capabilities](/capabilities/)** - Technical specifications and performance
-- **[Applications Catalog](/applications/)** - 625+ applications powered by this stack
-- **[Agent System](/agents/)** - 530 agents built on the technology foundation
+- **[Architecture Overview](@/architecture/_index.md)** - System design and technology integration patterns
+- **[Developer Portal](@/developers/_index.md)** - SDK and development toolchain access
+- **[Platform Capabilities](@/capabilities/_index.md)** - Technical specifications and performance
+- **[Applications Catalog](@/applications/_index.md)** - 625+ applications powered by this stack
+- **[Agent System](@/agents/_index.md)** - 530 agents built on the technology foundation
 
 ### Explore Platform
 
@@ -92,7 +92,7 @@ The platform combines proven open-source technologies with cutting-edge AI integ
 
 ### Want to Know More?
 
-Dive deeper into specific technology layers, explore our [architecture patterns](/architecture/), or review the [development environment](/developers/) that leverages this comprehensive stack.
+Dive deeper into specific technology layers, explore our [architecture patterns](@/architecture/_index.md), or review the [development environment](@/developers/_index.md) that leverages this comprehensive stack.
 
 **About Technologies**: [Selection Philosophy](#selection-philosophy) • [Technology Layers](#technology-layers) • [Conclusion](#conclusion)
 
@@ -110,17 +110,17 @@ The stack is organized into eight layers, from the BEAM runtime at the foundatio
 
 ### Selection Philosophy
 
-The Prismatic Platform's technology choices reflect a pragmatic engineering philosophy: **select for operational characteristics first, [developer experience](/glossary/developer-experience/) second, and feature richness third**. A technology that is pleasant to use but unreliable under load, or feature-rich but poorly documented, will be rejected in favour of a simpler alternative that can be fully understood, [monitored](/glossary/monitoring/), and debugged in production.
+The Prismatic Platform's technology choices reflect a pragmatic engineering philosophy: **select for operational characteristics first, [developer experience](@/glossary/developer-experience.md) second, and feature richness third**. A technology that is pleasant to use but unreliable under load, or feature-rich but poorly documented, will be rejected in favour of a simpler alternative that can be fully understood, [monitored](@/glossary/monitoring.md), and debugged in production.
 
 This philosophy produces several observable patterns in the stack:
 
-1. **[BEAM](/glossary/beam-vm/)-native when possible**: If a capability can be implemented as an [Erlang](/glossary/erlang/)/[Elixir](/glossary/elixir/) library running on the [BEAM VM](/glossary/beam-vm/), that approach is preferred over introducing an external service. [ETS](/glossary/ets/) replaces [Redis](/glossary/redis/) for many [caching](/glossary/caching/) scenarios. [Phoenix PubSub](/glossary/pubsub/) replaces message brokers for intra-node event distribution. [GenServer](/glossary/genserver/)-based [state machines](/glossary/state-machine/) replace external workflow engines.
+1. **[BEAM](@/glossary/beam-vm.md)-native when possible**: If a capability can be implemented as an [Erlang](@/glossary/erlang.md)/[Elixir](@/glossary/elixir.md) library running on the [BEAM VM](@/glossary/beam-vm.md), that approach is preferred over introducing an external service. [ETS](@/glossary/ets.md) replaces [Redis](@/glossary/redis.md) for many [caching](@/glossary/caching.md) scenarios. [Phoenix PubSub](@/glossary/pubsub.md) replaces message brokers for intra-node event distribution. [GenServer](@/glossary/genserver.md)-based [state machines](@/glossary/state-machine.md) replace external workflow engines.
 
-2. **[Polyglot storage](/glossary/polyglot-persistence/)**: No single [database](/glossary/database/) technology optimally serves all access patterns. [PostgreSQL](/glossary/postgresql/) handles [relational data](/glossary/relational-database/) and [ACID transactions](/glossary/acid-transactions/). [ETS](/glossary/ets/) provides microsecond [key-value](/glossary/key-value-store/) lookups. [Meilisearch](/glossary/meilisearch/) powers [full-text search](/glossary/full-text-search/) with typo tolerance. [KuzuDB](/glossary/kuzu-db/) models [graph relationships](/glossary/graph-database/). DuckDB handles [analytical queries](/glossary/analytics/) on columnar data. Each storage engine is accessed through the platform's unified storage [adapter](/glossary/adapter-pattern/) layer, so application code never couples to a specific backend.
+2. **[Polyglot storage](@/glossary/polyglot-persistence.md)**: No single [database](@/glossary/database.md) technology optimally serves all access patterns. [PostgreSQL](@/glossary/postgresql.md) handles [relational data](@/glossary/relational-database.md) and [ACID transactions](@/glossary/acid-transactions.md). [ETS](@/glossary/ets.md) provides microsecond [key-value](@/glossary/key-value-store.md) lookups. [Meilisearch](@/glossary/meilisearch.md) powers [full-text search](@/glossary/full-text-search.md) with typo tolerance. [KuzuDB](@/glossary/kuzu-db.md) models [graph relationships](@/glossary/graph-database.md). DuckDB handles [analytical queries](@/glossary/analytics.md) on columnar data. Each storage engine is accessed through the platform's unified storage [adapter](@/glossary/adapter-pattern.md) layer, so application code never couples to a specific backend.
 
-3. **[AI](/glossary/artificial-intelligence/) as a tool, not a foundation**: [AI models](/glossary/ai-model/) ([Claude](/glossary/claude-ai/), [Ollama](/glossary/ollama/), OpenAI) are integrated as callable services with well-defined interfaces, not as load-bearing architectural components. If every AI endpoint became unavailable simultaneously, the platform's core [intelligence analysis](/glossary/intelligence-analysis/), storage, and web serving would continue operating. AI enhances; it does not define.
+3. **[AI](@/glossary/artificial-intelligence.md) as a tool, not a foundation**: [AI models](@/glossary/ai-model.md) ([Claude](@/glossary/claude-ai.md), [Ollama](@/glossary/ollama.md), OpenAI) are integrated as callable services with well-defined interfaces, not as load-bearing architectural components. If every AI endpoint became unavailable simultaneously, the platform's core [intelligence analysis](@/glossary/intelligence-analysis.md), storage, and web serving would continue operating. AI enhances; it does not define.
 
-4. **[Formal verification](/glossary/formal-verification/) as a peer**: [Lean 4](/glossary/lean4/) and [SWI-Prolog](/glossary/prolog/) are not afterthoughts or academic curiosities -- they are first-class components in the platform's [epistemic pipeline](/glossary/epistemic-pipeline/), providing [mathematical proof](/glossary/formal-proof/) [verification](/glossary/verification/) and [logical reasoning](/glossary/logical-reasoning/) that complement statistical [AI inference](/glossary/ai-inference/).
+4. **[Formal verification](@/glossary/formal-verification.md) as a peer**: [Lean 4](@/glossary/lean4.md) and [SWI-Prolog](@/glossary/prolog.md) are not afterthoughts or academic curiosities -- they are first-class components in the platform's [epistemic pipeline](@/glossary/epistemic-pipeline.md), providing [mathematical proof](@/glossary/formal-proof.md) [verification](@/glossary/verification.md) and [logical reasoning](@/glossary/logical-reasoning.md) that complement statistical [AI inference](@/glossary/ai-inference.md).
 
 ### Selection Criteria
 
@@ -128,34 +128,34 @@ Every technology in the stack was evaluated against five weighted criteria:
 
 | Criterion | Weight | Description |
 |-----------|--------|-------------|
-| **[Reliability](/glossary/reliability/)** | 30% | Proven stability in [production environments](/glossary/production-environment/) at scale |
-| **[Composability](/glossary/composability/)** | 25% | Clean integration with existing stack components |
-| **[Maintainability](/glossary/maintainability/)** | 20% | Documentation quality, community activity, update frequency |
-| **[Performance](/glossary/performance/)** | 15% | Meets [throughput](/glossary/throughput/) and [latency](/glossary/latency/) requirements for intended use |
-| **Security** | 10% | [Vulnerability](/glossary/vulnerability/) history, [security audit](/glossary/security-audit/) availability, hardening options |
+| **[Reliability](@/glossary/reliability.md)** | 30% | Proven stability in [production environments](@/glossary/production-environment.md) at scale |
+| **[Composability](@/glossary/composability.md)** | 25% | Clean integration with existing stack components |
+| **[Maintainability](@/glossary/maintainability.md)** | 20% | Documentation quality, community activity, update frequency |
+| **[Performance](@/glossary/performance.md)** | 15% | Meets [throughput](@/glossary/throughput.md) and [latency](@/glossary/latency.md) requirements for intended use |
+| **Security** | 10% | [Vulnerability](@/glossary/vulnerability.md) history, [security audit](@/glossary/security-audit.md) availability, hardening options |
 
 Technologies scoring below 70% aggregate are rejected. Technologies scoring above 85% are preferred candidates. The current stack represents the cumulative result of applying these criteria across four years of platform evolution.
 
 ## Technology Layers
 
-The complete stack is organized into eight [architectural layers](/glossary/layered-architecture/). Each layer depends only on layers below it; no upward or [circular dependencies](/glossary/circular-dependency/) exist.
+The complete stack is organized into eight [architectural layers](@/glossary/layered-architecture.md). Each layer depends only on layers below it; no upward or [circular dependencies](@/glossary/circular-dependency.md) exist.
 
 | Layer | Domain | Key Technologies | Purpose |
 |-------|--------|------------------|---------|
-| **L0 -- Runtime** | VM & Processes | [BEAM](/technologies/beam/), [Erlang/OTP 27](/technologies/erlang-otp/), [Elixir 1.19](/technologies/elixir/) | Fault-tolerant process runtime |
-| **L1 -- Framework** | Web & API | [Phoenix 1.7](/technologies/phoenix/), [LiveView](/technologies/phoenix-liveview/), [Plug](/technologies/plug/) | Request handling, real-time UI |
-| **L2 -- Data** | Persistence & Search | [PostgreSQL 16](/technologies/postgresql/), [Ecto](/technologies/ecto/), [ETS](/technologies/ets/), [Redis](/technologies/redis/) | Structured storage, caching |
-| **L3 -- Search & Graph** | Specialized Storage | [Meilisearch](/technologies/meilisearch/), [KuzuDB](/technologies/kuzudb/), [TimescaleDB](/technologies/timescaledb/) | Full-text, graph, time-series |
-| **L4 -- Intelligence** | AI & Reasoning | [Claude](/technologies/claude/), [Ollama](/technologies/ollama/), [Lean 4](/technologies/lean4/) | AI inference, formal proofs |
-| **L5 -- Frontend** | UI Rendering | [TailwindCSS](/technologies/tailwindcss/), [Flowbite](/technologies/flowbite/), [Alpine.js](/technologies/alpinejs/) | Styling, components, interactivity |
-| **L6 -- Security** | Hardening & Audit | [Argon2](/technologies/argon2/), [SSL/TLS](/technologies/ssl-tls/), [JOSE](/technologies/jose/) | Auth, encryption, vulnerability scanning |
-| **L7 -- DevOps** | Build & Deploy | [Docker](/technologies/docker/), [Fly.io](/technologies/flyio/), [GitLab CI](/technologies/gitlab-ci/), [Mix](/technologies/mix/) | Compilation, testing, deployment |
+| **L0 -- Runtime** | VM & Processes | [BEAM](@/technologies/beam.md), [Erlang/OTP 27](@/technologies/erlang-otp.md), [Elixir 1.19](@/technologies/elixir.md) | Fault-tolerant process runtime |
+| **L1 -- Framework** | Web & API | [Phoenix 1.7](@/technologies/phoenix.md), [LiveView](@/technologies/phoenix-liveview.md), [Plug](@/technologies/plug.md) | Request handling, real-time UI |
+| **L2 -- Data** | Persistence & Search | [PostgreSQL 16](@/technologies/postgresql.md), [Ecto](@/technologies/ecto.md), [ETS](@/technologies/ets.md), [Redis](@/technologies/redis.md) | Structured storage, caching |
+| **L3 -- Search & Graph** | Specialized Storage | [Meilisearch](@/technologies/meilisearch.md), [KuzuDB](@/technologies/kuzudb.md), [TimescaleDB](@/technologies/timescaledb.md) | Full-text, graph, time-series |
+| **L4 -- Intelligence** | AI & Reasoning | [Claude](@/technologies/claude.md), [Ollama](@/technologies/ollama.md), [Lean 4](@/technologies/lean4.md) | AI inference, formal proofs |
+| **L5 -- Frontend** | UI Rendering | [TailwindCSS](@/technologies/tailwindcss.md), [Flowbite](@/technologies/flowbite.md), [Alpine.js](@/technologies/alpinejs.md) | Styling, components, interactivity |
+| **L6 -- Security** | Hardening & Audit | [Argon2](@/technologies/argon2.md), [SSL/TLS](@/technologies/ssl-tls.md), [JOSE](@/technologies/jose.md) | Auth, encryption, vulnerability scanning |
+| **L7 -- DevOps** | Build & Deploy | [Docker](@/technologies/docker.md), [Fly.io](@/technologies/flyio.md), [GitLab CI](@/technologies/gitlab-ci.md), [Mix](@/technologies/mix.md) | Compilation, testing, deployment |
 
 The following sections examine each layer in detail.
 
 ## Core Runtime: Elixir, OTP, and the BEAM
 
-The platform's foundation is the [BEAM virtual machine](/technologies/beam/) -- the Erlang runtime system that has powered telecommunications infrastructure since 1986. On the BEAM, [Erlang/OTP 27](/technologies/erlang-otp/) provides the process model, supervision trees, and distribution protocols, while [Elixir 1.19](/technologies/elixir/) provides the developer-facing language with modern syntax, metaprogramming, and the Mix build tool.
+The platform's foundation is the [BEAM virtual machine](@/technologies/beam.md) -- the Erlang runtime system that has powered telecommunications infrastructure since 1986. On the BEAM, [Erlang/OTP 27](@/technologies/erlang-otp.md) provides the process model, supervision trees, and distribution protocols, while [Elixir 1.19](@/technologies/elixir.md) provides the developer-facing language with modern syntax, metaprogramming, and the Mix build tool.
 
 ### Why BEAM
 
@@ -200,7 +200,7 @@ defmodule Prismatic.Perimeter.DiscoveryService do
 end
 ```
 
-Every stateful component in the platform follows this pattern: a [GenServer](/technologies/genserver/) process managed by a [Supervisor](/technologies/supervisor/), with ETS for fast reads and message passing for coordination. There are no global variables, no shared mutable state, and no thread-safety concerns.
+Every stateful component in the platform follows this pattern: a [GenServer](@/technologies/genserver.md) process managed by a [Supervisor](@/technologies/supervisor.md), with ETS for fast reads and message passing for coordination. There are no global variables, no shared mutable state, and no thread-safety concerns.
 
 ### Runtime Characteristics
 
@@ -215,7 +215,7 @@ Every stateful component in the platform follows this pattern: a [GenServer](/te
 
 ## Web Platform: Phoenix and LiveView
 
-[Phoenix 1.7](/technologies/phoenix/) provides the HTTP layer, routing, and WebSocket infrastructure. [Phoenix LiveView 0.20](/technologies/phoenix-liveview/) extends this with server-rendered, real-time interactive interfaces that require zero custom JavaScript for the majority of UI interactions.
+[Phoenix 1.7](@/technologies/phoenix.md) provides the HTTP layer, routing, and WebSocket infrastructure. [Phoenix LiveView 0.20](@/technologies/phoenix-liveview.md) extends this with server-rendered, real-time interactive interfaces that require zero custom JavaScript for the majority of UI interactions.
 
 ### Real-Time Without Complexity
 
@@ -248,11 +248,11 @@ defmodule PrismaticWeb.Live.PerimeterDashboardLive do
 end
 ```
 
-When the perimeter scanner discovers a new asset or updates a security rating, it broadcasts through [Phoenix PubSub](/technologies/pubsub/). Every connected LiveView receives the event and updates its DOM -- no polling, no REST calls, no client-side state management libraries.
+When the perimeter scanner discovers a new asset or updates a security rating, it broadcasts through [Phoenix PubSub](@/technologies/pubsub.md). Every connected LiveView receives the event and updates its DOM -- no polling, no REST calls, no client-side state management libraries.
 
 ### Request Pipeline
 
-Phoenix's [Plug](/technologies/plug/)-based request pipeline provides composable middleware for authentication, rate limiting, CORS, and telemetry:
+Phoenix's [Plug](@/technologies/plug.md)-based request pipeline provides composable middleware for authentication, rate limiting, CORS, and telemetry:
 
 ```
 Request → Endpoint → Router → Pipeline (Plugs) → Controller/LiveView → Response
@@ -263,7 +263,7 @@ Request → Endpoint → Router → Pipeline (Plugs) → Controller/LiveView →
                                   └── CSRFProtection (form tokens)
 ```
 
-The platform serves two Phoenix applications simultaneously: `prismatic_web` on port 4000 (LiveView dashboards) and `prismatic_api` on port 4004 (REST API with [OpenAPI](/technologies/openapi/) spec generation via OpenApiSpex).
+The platform serves two Phoenix applications simultaneously: `prismatic_web` on port 4000 (LiveView dashboards) and `prismatic_api` on port 4004 (REST API with [OpenAPI](@/technologies/openapi.md) spec generation via OpenApiSpex).
 
 ## Data Layer: Polyglot Persistence
 
@@ -271,9 +271,9 @@ The platform's data layer implements the polyglot persistence pattern -- using t
 
 ### PostgreSQL -- Relational Core
 
-[PostgreSQL 16](/technologies/postgresql/) serves as the primary relational store for all structured, transactional data. Accessed through [Ecto](/technologies/ecto/) (Elixir's database wrapper and query DSL), PostgreSQL handles user data, audit logs, security ratings, compliance assessments, and configuration state.
+[PostgreSQL 16](@/technologies/postgresql.md) serves as the primary relational store for all structured, transactional data. Accessed through [Ecto](@/technologies/ecto.md) (Elixir's database wrapper and query DSL), PostgreSQL handles user data, audit logs, security ratings, compliance assessments, and configuration state.
 
-[TimescaleDB](/technologies/timescaledb/) extends PostgreSQL for time-series workloads -- particularly AI drift monitoring metrics that require efficient range queries and automatic data retention policies.
+[TimescaleDB](@/technologies/timescaledb.md) extends PostgreSQL for time-series workloads -- particularly AI drift monitoring metrics that require efficient range queries and automatic data retention policies.
 
 ```elixir
 defmodule Prismatic.Perimeter.SecurityRating do
@@ -292,7 +292,7 @@ end
 
 ### ETS -- In-Memory Speed
 
-[ETS (Erlang Term Storage)](/technologies/ets/) provides in-process, shared-nothing tables with microsecond read/write latency. The platform uses ETS extensively for caching, session state, and hot-path data that would suffer from the network round-trip overhead of an external cache:
+[ETS (Erlang Term Storage)](@/technologies/ets.md) provides in-process, shared-nothing tables with microsecond read/write latency. The platform uses ETS extensively for caching, session state, and hot-path data that would suffer from the network round-trip overhead of an external cache:
 
 | ETS Table | Purpose | Access Pattern |
 |-----------|---------|----------------|
@@ -305,15 +305,15 @@ ETS tables are owned by dedicated GenServer processes. If the owning process cra
 
 ### Redis -- External Caching and Queues
 
-[Redis](/technologies/redis/) handles caching scenarios that span multiple BEAM nodes (in clustered deployments) and provides the backing store for Oban job queues. While ETS serves single-node caching, Redis provides the shared state necessary for horizontal scaling.
+[Redis](@/technologies/redis.md) handles caching scenarios that span multiple BEAM nodes (in clustered deployments) and provides the backing store for Oban job queues. While ETS serves single-node caching, Redis provides the shared state necessary for horizontal scaling.
 
 ### Meilisearch -- Full-Text Search
 
-[Meilisearch](/technologies/meilisearch/) powers the platform's search capabilities with typo-tolerant, faceted full-text search. Entity search, document discovery, and asset inventory filtering all route through Meilisearch, which indexes data pushed from PostgreSQL through the storage adapter layer.
+[Meilisearch](@/technologies/meilisearch.md) powers the platform's search capabilities with typo-tolerant, faceted full-text search. Entity search, document discovery, and asset inventory filtering all route through Meilisearch, which indexes data pushed from PostgreSQL through the storage adapter layer.
 
 ### KuzuDB -- Graph Analytics
 
-[KuzuDB](/technologies/kuzudb/) provides embedded graph database capabilities for relationship-centric queries. Due diligence entity graphs, organizational ownership chains, and asset dependency maps are modeled as property graphs in KuzuDB, enabling traversal queries that would require expensive recursive CTEs in PostgreSQL.
+[KuzuDB](@/technologies/kuzudb.md) provides embedded graph database capabilities for relationship-centric queries. Due diligence entity graphs, organizational ownership chains, and asset dependency maps are modeled as property graphs in KuzuDB, enabling traversal queries that would require expensive recursive CTEs in PostgreSQL.
 
 ## AI and Intelligence Layer
 
@@ -321,11 +321,11 @@ The platform integrates three AI and formal reasoning systems, each serving a di
 
 ### Claude (Anthropic)
 
-[Claude](/technologies/claude/) serves as the primary frontier AI model for code generation, complex analysis, and autonomous agent operations. The platform's 434 AIAD agents leverage Claude for reasoning-intensive tasks through the Claude Agent SDK, with session context management ensuring continuity across interactions.
+[Claude](@/technologies/claude.md) serves as the primary frontier AI model for code generation, complex analysis, and autonomous agent operations. The platform's 434 AIAD agents leverage Claude for reasoning-intensive tasks through the Claude Agent SDK, with session context management ensuring continuity across interactions.
 
 ### Ollama -- Local AI
 
-[Ollama](/technologies/ollama/) provides local AI inference with models running entirely on-premises. This addresses three requirements that cloud AI cannot: **data sovereignty** (sensitive intelligence data never leaves the local network), **latency** (sub-3-second responses without network round-trips), and **availability** (operates independently of external API availability).
+[Ollama](@/technologies/ollama.md) provides local AI inference with models running entirely on-premises. This addresses three requirements that cloud AI cannot: **data sovereignty** (sensitive intelligence data never leaves the local network), **latency** (sub-3-second responses without network round-trips), and **availability** (operates independently of external API availability).
 
 The platform's Ollama integration supports automatic model selection based on task complexity and automatic fallback to cloud models when local inference quality is insufficient:
 
@@ -351,7 +351,7 @@ end
 
 ### Lean 4 -- Formal Verification
 
-[Lean 4](/technologies/lean4/) is an interactive theorem prover and programming language used for formal verification of the platform's critical deduction chains. When the epistemic pipeline produces a high-confidence conclusion, Lean 4 can verify the logical structure of the reasoning chain through machine-checked proofs.
+[Lean 4](@/technologies/lean4.md) is an interactive theorem prover and programming language used for formal verification of the platform's critical deduction chains. When the epistemic pipeline produces a high-confidence conclusion, Lean 4 can verify the logical structure of the reasoning chain through machine-checked proofs.
 
 This is not a theoretical capability -- the platform maintains thousands of Lean 4 verification files in `apps/prismatic_lean4/priv/deduction_verification/`, each encoding a specific deduction that has been formally verified. The combination of statistical AI inference (Claude/Ollama) with formal mathematical proof (Lean 4) is a distinguishing architectural feature.
 
@@ -361,7 +361,7 @@ The frontend layer follows a server-first philosophy: LiveView handles interacti
 
 ### TailwindCSS
 
-[TailwindCSS 3.4](/technologies/tailwindcss/) provides utility-first CSS styling. Every visual element is styled through Tailwind utility classes -- no custom CSS files, no BEM naming conventions, no specificity wars. This constraint (enforced as a platform policy) ensures visual consistency and makes style changes grep-able:
+[TailwindCSS 3.4](@/technologies/tailwindcss.md) provides utility-first CSS styling. Every visual element is styled through Tailwind utility classes -- no custom CSS files, no BEM naming conventions, no specificity wars. This constraint (enforced as a platform policy) ensures visual consistency and makes style changes grep-able:
 
 ```html
 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
@@ -377,29 +377,29 @@ The frontend layer follows a server-first philosophy: LiveView handles interacti
 
 ### Flowbite
 
-[Flowbite 2.3](/technologies/flowbite/) extends TailwindCSS with pre-built UI components: modals, dropdowns, data tables, navigation bars, and charts. Using Flowbite's component library rather than building custom components reduces frontend development time while maintaining visual consistency across the platform's dashboards.
+[Flowbite 2.3](@/technologies/flowbite.md) extends TailwindCSS with pre-built UI components: modals, dropdowns, data tables, navigation bars, and charts. Using Flowbite's component library rather than building custom components reduces frontend development time while maintaining visual consistency across the platform's dashboards.
 
 ### Alpine.js
 
-[Alpine.js](/technologies/alpinejs/) handles the small subset of client-side interactivity that cannot be served by LiveView -- primarily dropdown toggle states, tooltip positioning, and animation triggers that must respond to user input without a server round-trip.
+[Alpine.js](@/technologies/alpinejs.md) handles the small subset of client-side interactivity that cannot be served by LiveView -- primarily dropdown toggle states, tooltip positioning, and animation triggers that must respond to user input without a server round-trip.
 
 ## DevOps and Infrastructure
 
 ### Docker
 
-[Docker](/technologies/docker/) provides development/production parity through containerized builds. The platform uses multi-stage Dockerfiles that separate compilation (with the full Elixir/Erlang toolchain) from the runtime image (Alpine Linux with only the compiled release), producing production images under 100 MB.
+[Docker](@/technologies/docker.md) provides development/production parity through containerized builds. The platform uses multi-stage Dockerfiles that separate compilation (with the full Elixir/Erlang toolchain) from the runtime image (Alpine Linux with only the compiled release), producing production images under 100 MB.
 
 ### Fly.io
 
-[Fly.io](/technologies/flyio/) hosts the platform's staging and production deployments. Fly.io's edge-native architecture maps well to Elixir releases -- the platform deploys as a single BEAM VM per region, with Fly.io handling TLS termination, load balancing, and geographic routing.
+[Fly.io](@/technologies/flyio.md) hosts the platform's staging and production deployments. Fly.io's edge-native architecture maps well to Elixir releases -- the platform deploys as a single BEAM VM per region, with Fly.io handling TLS termination, load balancing, and geographic routing.
 
 ### GitLab CI/CD
 
-[GitLab CI/CD](/technologies/gitlab-ci/) orchestrates the platform's build pipeline: compilation with `--warnings-as-errors`, Credo static analysis, Dialyzer type checking, the full test suite, and deployment to Fly.io. The pipeline enforces the platform's quality gates -- a single warning, type error, or test failure blocks deployment.
+[GitLab CI/CD](@/technologies/gitlab-ci.md) orchestrates the platform's build pipeline: compilation with `--warnings-as-errors`, Credo static analysis, Dialyzer type checking, the full test suite, and deployment to Fly.io. The pipeline enforces the platform's quality gates -- a single warning, type error, or test failure blocks deployment.
 
 ### Mix and Hex
 
-[Mix](/technologies/mix/) is Elixir's build tool, managing compilation, dependency resolution, test execution, and custom task definition. The platform defines 30+ custom Mix tasks for quality enforcement, benchmarking, code generation, and operational automation. [Hex](https://hex.pm) serves as the package registry, providing access to the Elixir ecosystem's 14,000+ packages.
+[Mix](@/technologies/mix.md) is Elixir's build tool, managing compilation, dependency resolution, test execution, and custom task definition. The platform defines 30+ custom Mix tasks for quality enforcement, benchmarking, code generation, and operational automation. [Hex](https://hex.pm) serves as the package registry, providing access to the Elixir ecosystem's 14,000+ packages.
 
 ## Security Tooling
 
@@ -407,13 +407,13 @@ Security is enforced at multiple layers through specialized tools:
 
 | Tool | Function | Integration Point |
 |------|----------|-------------------|
-| **[Argon2](/technologies/argon2/)** | Password hashing (winner of PHC) | Authentication module |
+| **[Argon2](@/technologies/argon2.md)** | Password hashing (winner of PHC) | Authentication module |
 | **Sobelow** | Static security analysis for Phoenix | CI pipeline, pre-commit hooks |
 | **mix deps.audit** | Dependency vulnerability scanning | CI pipeline, weekly scheduled |
-| **[JOSE](/technologies/jose/)** | JWT creation, verification, encryption | API authentication |
-| **[SSL/TLS](/technologies/ssl-tls/)** | Transport encryption | All external connections |
-| **[Credo](/technologies/credo/)** | Code consistency and anti-pattern detection | CI pipeline, pre-commit hooks |
-| **[Dialyzer](/technologies/dialyzer/)** | Static type analysis via success typing | CI pipeline |
+| **[JOSE](@/technologies/jose.md)** | JWT creation, verification, encryption | API authentication |
+| **[SSL/TLS](@/technologies/ssl-tls.md)** | Transport encryption | All external connections |
+| **[Credo](@/technologies/credo.md)** | Code consistency and anti-pattern detection | CI pipeline, pre-commit hooks |
+| **[Dialyzer](@/technologies/dialyzer.md)** | Static type analysis via success typing | CI pipeline |
 
 The security toolchain runs automatically on every commit through GitLab CI and pre-commit hooks. No code reaches the main branch without passing Sobelow (zero findings), Credo (strict mode, zero warnings), and Dialyzer (zero type violations).
 
@@ -425,15 +425,15 @@ ExDoc generates the platform's 11,308 documentation files from inline `@doc` and
 
 ### ExUnit
 
-[ExUnit](/technologies/exunit/) is Elixir's built-in test framework, executing the platform's 5,864 test files. Tests run in parallel by default, with database sandboxing through Ecto's SQL sandbox for isolation. The platform uses property-based testing (StreamData) alongside example-based tests for critical business logic.
+[ExUnit](@/technologies/exunit.md) is Elixir's built-in test framework, executing the platform's 5,864 test files. Tests run in parallel by default, with database sandboxing through Ecto's SQL sandbox for isolation. The platform uses property-based testing (StreamData) alongside example-based tests for critical business logic.
 
 ### Zola
 
-[Zola](/technologies/zola/) generates the public-facing promotional site (the one you are reading now). Zola is a single-binary static site generator written in Rust, chosen for its compilation speed (sub-second builds for the entire site), zero runtime dependencies, and native Sass/SCSS compilation.
+[Zola](@/technologies/zola.md) generates the public-facing promotional site (the one you are reading now). Zola is a single-binary static site generator written in Rust, chosen for its compilation speed (sub-second builds for the entire site), zero runtime dependencies, and native Sass/SCSS compilation.
 
 ### Git
 
-[Git](/technologies/git/) provides version control with extensive platform-specific tooling. The platform's `git-trees.sh` script wraps `git ls-tree` for rapid codebase exploration (~80ms for 37,000+ files versus 500ms+ for `find`), and custom Git hooks enforce quality gates at commit, pre-push, and CI stages.
+[Git](@/technologies/git.md) provides version control with extensive platform-specific tooling. The platform's `git-trees.sh` script wraps `git ls-tree` for rapid codebase exploration (~80ms for 37,000+ files versus 500ms+ for `find`), and custom Git hooks enforce quality gates at commit, pre-push, and CI stages.
 
 ## Conclusion
 
@@ -450,4 +450,4 @@ For detailed documentation on any individual technology, select from the catalog
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

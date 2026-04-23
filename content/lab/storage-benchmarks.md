@@ -28,9 +28,9 @@ We hypothesize that a workload-aware storage routing strategy that directs opera
 
 ## Background
 
-The Prismatic Platform operates four distinct storage backends, each optimized for different access patterns: [ETS](/technologies/ets/) (in-memory key-value with sub-microsecond reads), [PostgreSQL](/technologies/postgresql/) (relational with ACID transactions and complex queries), [Meilisearch](/technologies/meilisearch/) (full-text search with typo tolerance), and [KuzuDB](/technologies/kuzudb/) (graph database for relationship traversal).
+The Prismatic Platform operates four distinct storage backends, each optimized for different access patterns: [ETS](@/technologies/ets.md) (in-memory key-value with sub-microsecond reads), [PostgreSQL](@/technologies/postgresql.md) (relational with ACID transactions and complex queries), [Meilisearch](@/technologies/meilisearch.md) (full-text search with typo tolerance), and [KuzuDB](@/technologies/kuzudb.md) (graph database for relationship traversal).
 
-The storage architecture uses a trait-based adapter system (`prismatic_storage_core`) that defines common behaviors, with each backend implementing the `PrismaticStorage.Adapter` behaviour. The [Sparkline](/glossary/sparkline/) contract system ensures interface compatibility across adapters. However, performance characteristics vary by orders of magnitude between backends depending on the operation type.
+The storage architecture uses a trait-based adapter system (`prismatic_storage_core`) that defines common behaviors, with each backend implementing the `PrismaticStorage.Adapter` behaviour. The [Sparkline](@/glossary/sparkline.md) contract system ensures interface compatibility across adapters. However, performance characteristics vary by orders of magnitude between backends depending on the operation type.
 
 Currently, the platform uses a static mapping: each application configures its preferred backend at compile time. This means an application that primarily reads (benefiting from ETS) but occasionally needs full-text search (requiring Meilisearch) must either use a suboptimal single backend or manually manage multi-backend routing.
 
@@ -242,15 +242,15 @@ Meilisearch's memory overhead (768 bytes per record vs ETS's 312 bytes) is the c
 - Implement write-through caching (ETS front, PostgreSQL durable) for the common read-heavy + durable pattern
 - Benchmark at 10M and 100M records to find scaling inflection points
 - Test concurrent multi-backend writes with consistency reconciliation
-- Evaluate [Redis](/technologies/redis/) as an intermediate caching layer between ETS and PostgreSQL
+- Evaluate [Redis](@/technologies/redis.md) as an intermediate caching layer between ETS and PostgreSQL
 - Measure cross-node ETS replication latency for distributed deployments
 
 ## Related Experiments
 
-- [Pipeline Experimentation](/lab/pipeline-experimentation/) -- Pipelines that write to these backends
-- [OSINT Pipeline](/lab/osint-pipeline/) -- OSINT data stored across multiple backends
-- [Session Lifecycle](/lab/session-lifecycle/) -- Session state persistence benchmarks
-- [EASM Discovery](/lab/easm-discovery/) -- Attack surface data storage requirements
+- [Pipeline Experimentation](@/lab/pipeline-experimentation.md) -- Pipelines that write to these backends
+- [OSINT Pipeline](@/lab/osint-pipeline.md) -- OSINT data stored across multiple backends
+- [Session Lifecycle](@/lab/session-lifecycle.md) -- Session state persistence benchmarks
+- [EASM Discovery](@/lab/easm-discovery.md) -- Attack surface data storage requirements
 
 ---
 
@@ -259,4 +259,4 @@ Meilisearch's memory overhead (768 bytes per record vs ETS's 312 bytes) is the c
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

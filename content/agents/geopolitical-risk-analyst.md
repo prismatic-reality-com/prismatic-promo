@@ -28,15 +28,15 @@ image_alt = "geopolitical-risk-analyst - Prismatic Platform"
 
 ## Overview
 
-The Geopolitical Risk Analyst operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Geopolitical domain of the Prismatic Platform. This agent provides specialized intelligence gathering and analysis focused on geopolitical risk assessment, international relations dynamics, sanctions regime monitoring, political stability evaluation, and cross-border regulatory landscape analysis. Geopolitical risk represents a critical dimension of the platform's comprehensive intelligence capabilities, as political developments directly influence economic conditions, regulatory environments, and security landscapes that affect investigative operations.
+The Geopolitical Risk Analyst operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Geopolitical domain of the Prismatic Platform. This agent provides specialized intelligence gathering and analysis focused on geopolitical risk assessment, international relations dynamics, sanctions regime monitoring, political stability evaluation, and cross-border regulatory landscape analysis. Geopolitical risk represents a critical dimension of the platform's comprehensive intelligence capabilities, as political developments directly influence economic conditions, regulatory environments, and security landscapes that affect investigative operations.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Geopolitical Risk Analyst occupies the intersection between open-source intelligence collection and strategic analysis. While the platform's financial agents focus on economic and corporate dimensions and intelligence agents focus on entity-level investigations, the Geopolitical Risk Analyst provides the macro-level political context that frames and enriches assessments across all domains.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Geopolitical Risk Analyst occupies the intersection between open-source intelligence collection and strategic analysis. While the platform's financial agents focus on economic and corporate dimensions and intelligence agents focus on entity-level investigations, the Geopolitical Risk Analyst provides the macro-level political context that frames and enriches assessments across all domains.
 
 ## Geopolitical Intelligence Framework
 
 The agent operates within a structured geopolitical intelligence framework that organizes political risk into analyzable categories with defined indicators, collection strategies, and assessment methodologies.
 
-Political stability analysis monitors governance indicators including regime stability, institutional strength, rule of law enforcement, corruption levels, democratic process integrity, and civil liberties status. These indicators draw from both quantitative indexes (governance indicators, corruption perception scores, press freedom rankings) and qualitative [OSINT](/glossary/osint/) collection (media analysis, expert commentary, official government communications).
+Political stability analysis monitors governance indicators including regime stability, institutional strength, rule of law enforcement, corruption levels, democratic process integrity, and civil liberties status. These indicators draw from both quantitative indexes (governance indicators, corruption perception scores, press freedom rankings) and qualitative [OSINT](@/glossary/osint.md) collection (media analysis, expert commentary, official government communications).
 
 Interstate relations analysis tracks bilateral and multilateral relationships between nations, monitoring for escalation patterns, diplomatic developments, treaty negotiations, alliance shifts, and conflict indicators. The analysis covers both traditional security relationships and emerging competition domains including technology, economic influence, and information operations.
 
@@ -50,7 +50,7 @@ The Geopolitical Risk Analyst produces structured risk assessments using a metho
 
 Country risk profiles maintain comprehensive assessments for countries relevant to the platform's operational scope. Each profile covers political risk (governance stability, regime change probability, policy predictability), economic risk (macroeconomic stability, fiscal sustainability, monetary policy credibility), security risk (conflict probability, terrorism threat, organized crime prevalence), and regulatory risk (legal system reliability, regulatory burden, enforcement consistency).
 
-Risk scoring aggregates individual indicators into composite risk scores that enable comparison across countries and tracking over time. Scores are decomposed into contributing factors, enabling users to understand which specific risk elements drive the overall assessment. [Confidence scoring](/glossary/confidence-scoring/) accompanies each assessment, reflecting the quality and recency of underlying evidence.
+Risk scoring aggregates individual indicators into composite risk scores that enable comparison across countries and tracking over time. Scores are decomposed into contributing factors, enabling users to understand which specific risk elements drive the overall assessment. [Confidence scoring](@/glossary/confidence-scoring.md) accompanies each assessment, reflecting the quality and recency of underlying evidence.
 
 Scenario analysis explores potential geopolitical developments and their consequences. The agent constructs scenarios ranging from baseline (most likely trajectory) through adverse (plausible negative developments) to extreme (low-probability high-impact events). Each scenario traces causal chains from triggering events through intermediate effects to ultimate consequences for the platform's operational environment.
 
@@ -63,11 +63,11 @@ Scenario analysis explores potential geopolitical developments and their consequ
 
 ## Collection Architecture
 
-The agent's collection architecture leverages the platform's [OSINT](/glossary/osint/) infrastructure to gather geopolitical intelligence from diverse sources with varying reliability levels.
+The agent's collection architecture leverages the platform's [OSINT](@/glossary/osint.md) infrastructure to gather geopolitical intelligence from diverse sources with varying reliability levels.
 
 Official source monitoring tracks government communications, legislative proceedings, diplomatic statements, and regulatory publications from relevant jurisdictions. These sources provide authoritative but potentially incomplete or biased information.
 
-Expert analysis monitoring tracks publications from think tanks, academic institutions, and specialist analysts who provide informed interpretation of geopolitical developments. Expert sources are valued for their analytical depth but are subject to the [NABLA Infinity](/glossary/nabla-infinity/) Source Independence axiom, requiring corroboration from independent sources.
+Expert analysis monitoring tracks publications from think tanks, academic institutions, and specialist analysts who provide informed interpretation of geopolitical developments. Expert sources are valued for their analytical depth but are subject to the [NABLA Infinity](@/glossary/nabla-infinity.md) Source Independence axiom, requiring corroboration from independent sources.
 
 Media monitoring applies natural language processing to news coverage across multiple languages and media environments, identifying developing situations, narrative shifts, and sentiment changes that may precede or accompany geopolitical developments.
 
@@ -85,27 +85,27 @@ Political exposure assessment evaluates connections between investigated entitie
 
 ## Epistemic Framework Compliance
 
-Geopolitical analysis presents acute epistemic challenges: information is frequently incomplete, sources are often biased, and predictions are inherently uncertain. The [NABLA Infinity](/glossary/nabla-infinity/) framework's axioms are essential for maintaining analytical integrity in this domain.
+Geopolitical analysis presents acute epistemic challenges: information is frequently incomplete, sources are often biased, and predictions are inherently uncertain. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's axioms are essential for maintaining analytical integrity in this domain.
 
 The Signal Plurality axiom prevents single-source analysis, particularly important when government sources may present self-serving narratives. The Contradiction Preservation axiom maintains competing analytical narratives when evidence supports multiple interpretations -- a common situation in geopolitical analysis. The Unknown Valid axiom legitimizes "I don't know" as an honest assessment when evidence is insufficient for confident conclusions.
 
-The [Trinity Gate](/glossary/trinity-gate/) validation applies to geopolitical assessments that inform platform decisions. While geopolitical predictions cannot achieve mathematical certainty, the Structural Consistency and Logical Consistency gates ensure that assessments are internally coherent and logically sound.
+The [Trinity Gate](@/glossary/trinity-gate.md) validation applies to geopolitical assessments that inform platform decisions. While geopolitical predictions cannot achieve mathematical certainty, the Structural Consistency and Logical Consistency gates ensure that assessments are internally coherent and logically sound.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution | Agent lifecycle management |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Specification and indexing |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution | Agent lifecycle management |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Specification and indexing |
 | Prismatic Telemetry | Monitoring | Assessment pipeline performance |
 | OSINT Infrastructure | Collection | Multi-source geopolitical data acquisition |
-| [Entity Resolution](/glossary/entity-resolution/) | Entity enrichment | Jurisdictional and exposure assessment |
+| [Entity Resolution](@/glossary/entity-resolution.md) | Entity enrichment | Jurisdictional and exposure assessment |
 
 ## Related Agents
 
-- [**financial-intelligence-commander**](/agents/financial-intelligence-commander/) (L3) - Financial intelligence synthesis consuming geopolitical context for risk assessment
-- [**financial-crimes-detection-commander**](/agents/financial-crimes-detection-commander/) (L3) - Sanctions and compliance detection leveraging geopolitical monitoring
-- [**ghost-recon-specialist**](/agents/ghost-recon-specialist/) (L3) - Covert intelligence collection benefiting from geopolitical operational context
+- [**financial-intelligence-commander**](@/agents/financial-intelligence-commander.md) (L3) - Financial intelligence synthesis consuming geopolitical context for risk assessment
+- [**financial-crimes-detection-commander**](@/agents/financial-crimes-detection-commander.md) (L3) - Sanctions and compliance detection leveraging geopolitical monitoring
+- [**ghost-recon-specialist**](@/agents/ghost-recon-specialist.md) (L3) - Covert intelligence collection benefiting from geopolitical operational context
 
 ---
 
@@ -114,4 +114,4 @@ The [Trinity Gate](/glossary/trinity-gate/) validation applies to geopolitical a
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

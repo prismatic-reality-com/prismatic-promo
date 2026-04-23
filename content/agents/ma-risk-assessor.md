@@ -28,9 +28,9 @@ image_alt = "ma-risk-assessor - Prismatic Platform"
 
 ## Overview
 
-The ma-risk-assessor agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's risk-management domain, providing comprehensive risk identification, assessment, and mitigation planning for mergers and acquisitions transactions. This agent evaluates risks across all categories -- financial, legal, operational, technical, regulatory, reputational, and cybersecurity -- quantifying each risk with probability and impact scores, analyzing risk correlations, and developing structured mitigation strategies that inform deal decisions and post-acquisition planning.
+The ma-risk-assessor agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's risk-management domain, providing comprehensive risk identification, assessment, and mitigation planning for mergers and acquisitions transactions. This agent evaluates risks across all categories -- financial, legal, operational, technical, regulatory, reputational, and cybersecurity -- quantifying each risk with probability and impact scores, analyzing risk correlations, and developing structured mitigation strategies that inform deal decisions and post-acquisition planning.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine, the ma-risk-assessor refuses to produce risk assessments based on incomplete evidence. Every risk identification requires corroboration from at least two independent intelligence sources per the [NABLA Infinity](/glossary/nabla-infinity/) framework's [signal plurality](/glossary/signal-plurality/) axiom. The agent applies the [contradiction preservation](/glossary/contradiction-preservation/) principle to ensure that conflicting risk signals from different assessment domains are surfaced rather than silently resolved, preserving the decision-maker's ability to evaluate ambiguous situations.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine, the ma-risk-assessor refuses to produce risk assessments based on incomplete evidence. Every risk identification requires corroboration from at least two independent intelligence sources per the [NABLA Infinity](@/glossary/nabla-infinity.md) framework's [signal plurality](@/glossary/signal-plurality.md) axiom. The agent applies the [contradiction preservation](@/glossary/contradiction-preservation.md) principle to ensure that conflicting risk signals from different assessment domains are surfaced rather than silently resolved, preserving the decision-maker's ability to evaluate ambiguous situations.
 
 Risk assessment is the connective tissue of M&A due diligence, integrating findings from financial, technical, market, and legal analysis into a unified risk picture that drives both go/no-go decisions and deal structuring. The ma-risk-assessor addresses the challenge of risk correlation -- the phenomenon where individually acceptable risks combine to create unacceptable aggregate exposure -- by modeling risk interactions across categories and computing portfolio-level risk metrics.
 
@@ -55,7 +55,7 @@ Risk Signal Inputs              Risk Engine                    Risk Outputs
                               +--------------------+         +------------------+
 ```
 
-The risk engine processes signals through four stages: identification (pattern matching against risk taxonomies), quantification (probability and impact scoring), correlation (cross-category interaction analysis), and aggregation (portfolio-level risk computation). Each stage publishes [telemetry](/glossary/telemetry/) events for pipeline monitoring and audit.
+The risk engine processes signals through four stages: identification (pattern matching against risk taxonomies), quantification (probability and impact scoring), correlation (cross-category interaction analysis), and aggregation (portfolio-level risk computation). Each stage publishes [telemetry](@/glossary/telemetry.md) events for pipeline monitoring and audit.
 
 ## Core Capabilities
 
@@ -75,7 +75,7 @@ The ma-risk-assessor provides comprehensive M&A risk intelligence through severa
 
 ## Implementation
 
-The risk assessor is implemented as a [GenServer](/glossary/genserver/) process managing risk assessment state for each deal.
+The risk assessor is implemented as a [GenServer](@/glossary/genserver.md) process managing risk assessment state for each deal.
 
 ```elixir
 defmodule Prismatic.MA.RiskAssessor do
@@ -138,14 +138,14 @@ end
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [ma-financial-analyst](/agents/ma-financial-analyst/) | Receives financial risk indicators and anomaly flags | Inbound |
-| [ma-tech-assessor](/agents/ma-tech-assessor/) | Consumes technology risk scores and technical debt indicators | Inbound |
-| [ma-market-analyst](/agents/ma-market-analyst/) | Market concentration risk and competitive threat intelligence | Inbound |
-| [ma-enforcement-commander](/agents/ma-enforcement-commander/) | Risk profiles inform enforcement gate evaluation | Outbound |
-| [ma-integration-planner](/agents/ma-integration-planner/) | Risk mitigations feed contingency planning | Outbound |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management | Infrastructure |
-| Prismatic Telemetry | Assessment pipeline [metrics](/glossary/metrics/) and event tracking | Outbound |
-| [SEADF](/glossary/seadf/) | Self-healing for assessment pipeline failures | Bidirectional |
+| [ma-financial-analyst](@/agents/ma-financial-analyst.md) | Receives financial risk indicators and anomaly flags | Inbound |
+| [ma-tech-assessor](@/agents/ma-tech-assessor.md) | Consumes technology risk scores and technical debt indicators | Inbound |
+| [ma-market-analyst](@/agents/ma-market-analyst.md) | Market concentration risk and competitive threat intelligence | Inbound |
+| [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) | Risk profiles inform enforcement gate evaluation | Outbound |
+| [ma-integration-planner](@/agents/ma-integration-planner.md) | Risk mitigations feed contingency planning | Outbound |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management | Infrastructure |
+| Prismatic Telemetry | Assessment pipeline [metrics](@/glossary/metrics.md) and event tracking | Outbound |
+| [SEADF](@/glossary/seadf.md) | Self-healing for assessment pipeline failures | Bidirectional |
 
 ## Operational Workflow
 
@@ -175,7 +175,7 @@ The risk assessor follows a structured assessment workflow for each acquisition 
 | Source Independence | Independent risk sources weighted higher than correlated assessments |
 | Provenance Mandatory | Every risk finding carries full evidence chain traceability |
 
-All risk conclusions must pass [Trinity Gate](/glossary/trinity-gate/) validation before informing deal decisions.
+All risk conclusions must pass [Trinity Gate](@/glossary/trinity-gate.md) validation before informing deal decisions.
 
 ## Configuration
 
@@ -210,14 +210,14 @@ config :prismatic_ma, Prismatic.MA.RiskAssessor,
 
 ## Related Resources
 
-- [ma-enforcement-commander](/agents/ma-enforcement-commander/) -- Consumes risk profiles for gate evaluation
-- [ma-financial-analyst](/agents/ma-financial-analyst/) -- Financial risk input provider
-- [ma-tech-assessor](/agents/ma-tech-assessor/) -- Technology risk input provider
-- [ma-market-analyst](/agents/ma-market-analyst/) -- Market risk input provider
-- [ma-integration-planner](/agents/ma-integration-planner/) -- Risk mitigation integration
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for evidence-based risk assessment
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation for risk conclusions
+- [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) -- Consumes risk profiles for gate evaluation
+- [ma-financial-analyst](@/agents/ma-financial-analyst.md) -- Financial risk input provider
+- [ma-tech-assessor](@/agents/ma-tech-assessor.md) -- Technology risk input provider
+- [ma-market-analyst](@/agents/ma-market-analyst.md) -- Market risk input provider
+- [ma-integration-planner](@/agents/ma-integration-planner.md) -- Risk mitigation integration
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for evidence-based risk assessment
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation for risk conclusions
 
 ---
 
@@ -226,4 +226,4 @@ config :prismatic_ma, Prismatic.MA.RiskAssessor,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

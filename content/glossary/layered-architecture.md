@@ -54,7 +54,7 @@ Robert Martin's clean architecture (2012) synthesized hexagonal, onion, and earl
 
 ### Elixir/OTP Evolution
 
-The Elixir ecosystem adopted its own layered architecture approach through umbrella applications. Rather than using package-level dependency injection common in object-oriented languages, Elixir enforces layers through application boundaries, compilation dependencies declared in `mix.exs`, and [behaviours](/glossary/behaviour/) and [protocols](/glossary/protocol/) that define layer interfaces. This approach provides compile-time verification of the dependency rule -- a layer violation causes a compilation error.
+The Elixir ecosystem adopted its own layered architecture approach through umbrella applications. Rather than using package-level dependency injection common in object-oriented languages, Elixir enforces layers through application boundaries, compilation dependencies declared in `mix.exs`, and [behaviours](@/glossary/behaviour.md) and [protocols](@/glossary/protocol.md) that define layer interfaces. This approach provides compile-time verification of the dependency rule -- a layer violation causes a compilation error.
 
 ## Prismatic Platform Layer Architecture
 
@@ -62,7 +62,7 @@ The Prismatic Platform organizes its 115 umbrella applications into seven archit
 
 ### Layer 0: Core Traits and Protocols
 
-The innermost layer defines abstract interfaces with zero concrete dependencies. These are pure Elixir [protocols](/glossary/protocol/), behaviours, and type specifications that establish contracts between layers.
+The innermost layer defines abstract interfaces with zero concrete dependencies. These are pure Elixir [protocols](@/glossary/protocol.md), behaviours, and type specifications that establish contracts between layers.
 
 ```elixir
 defmodule PrismaticStorageCore.Adapter do
@@ -215,7 +215,7 @@ end
 
 ### Layer 4: Web and API Presentation
 
-The outermost application layer handling HTTP requests, WebSocket connections, [LiveView](/glossary/liveview/) interactions, and API serialization. This layer depends on all inner layers but is never depended upon by them.
+The outermost application layer handling HTTP requests, WebSocket connections, [LiveView](@/glossary/liveview.md) interactions, and API serialization. This layer depends on all inner layers but is never depended upon by them.
 
 ```elixir
 defmodule PrismaticWeb.PerimeterLive do
@@ -295,7 +295,7 @@ If a Layer 3 application attempts to depend on a Layer 4 application, `mix compi
 
 ### Static Analysis Enforcement
 
-The platform's [Credo](/glossary/credo/) configuration and custom [static analysis](/glossary/static-analysis/) rules verify layer boundaries beyond compile-time checks. These rules detect runtime coupling (such as direct module references that bypass the declared dependency graph) and flag them as violations.
+The platform's [Credo](@/glossary/credo.md) configuration and custom [static analysis](@/glossary/static-analysis.md) rules verify layer boundaries beyond compile-time checks. These rules detect runtime coupling (such as direct module references that bypass the declared dependency graph) and flag them as violations.
 
 ### Architectural Decision Records
 
@@ -309,7 +309,7 @@ The most common pattern: a higher layer calls a function defined in a lower laye
 
 ### Upward Notifications (Event-Based)
 
-When a lower layer needs to inform a higher layer of a state change, it uses events rather than direct calls. The lower layer publishes an event through [PubSub](/glossary/pubsub/) or [telemetry](/glossary/telemetry/), and the higher layer subscribes to that event. This preserves the dependency rule because the lower layer has no knowledge of its subscribers.
+When a lower layer needs to inform a higher layer of a state change, it uses events rather than direct calls. The lower layer publishes an event through [PubSub](@/glossary/pubsub.md) or [telemetry](@/glossary/telemetry.md), and the higher layer subscribes to that event. This preserves the dependency rule because the lower layer has no knowledge of its subscribers.
 
 ### Cross-Layer Ports (Dependency Inversion)
 
@@ -366,7 +366,7 @@ When a single layer accumulates too many responsibilities. In the Prismatic Plat
 
 ## Layered Architecture in Practice: Performance Impact
 
-Layered architecture introduces function call overhead as data traverses layers. In the Prismatic Platform, this overhead is measured and kept within the [performance](/glossary/performance/) budget:
+Layered architecture introduces function call overhead as data traverses layers. In the Prismatic Platform, this overhead is measured and kept within the [performance](@/glossary/performance.md) budget:
 
 | Path | Layers Traversed | Overhead | Acceptable |
 |------|-------------------|----------|------------|
@@ -407,16 +407,16 @@ The Prismatic Platform's umbrella approach captures the best of layered and micr
 
 ## Related Concepts
 
-- [Architecture](/glossary/architecture/) -- The broader discipline encompassing layered design
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Strategic design methodology aligned with layered architecture
-- [Bounded Context](/glossary/bounded-context/) -- DDD concept mapping to application boundaries
-- [Adapter Pattern](/glossary/adapter-pattern/) -- The pattern connecting layers to external systems
-- [Umbrella Application](/glossary/umbrella-application/) -- Elixir's mechanism for implementing layered architecture
-- [Modularity](/glossary/modularity/) -- The design principle underlying layer separation
-- [Composability](/glossary/composability/) -- Building systems from independently layered components
-- [Protocol](/glossary/protocol/) -- Elixir's polymorphism mechanism for layer interfaces
-- [Behaviour](/glossary/behaviour/) -- Elixir's contract mechanism for layer boundaries
-- [Facade Modules](/glossary/facade-modules/) -- Public APIs exposing layer functionality
+- [Architecture](@/glossary/architecture.md) -- The broader discipline encompassing layered design
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Strategic design methodology aligned with layered architecture
+- [Bounded Context](@/glossary/bounded-context.md) -- DDD concept mapping to application boundaries
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- The pattern connecting layers to external systems
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Elixir's mechanism for implementing layered architecture
+- [Modularity](@/glossary/modularity.md) -- The design principle underlying layer separation
+- [Composability](@/glossary/composability.md) -- Building systems from independently layered components
+- [Protocol](@/glossary/protocol.md) -- Elixir's polymorphism mechanism for layer interfaces
+- [Behaviour](@/glossary/behaviour.md) -- Elixir's contract mechanism for layer boundaries
+- [Facade Modules](@/glossary/facade-modules.md) -- Public APIs exposing layer functionality
 
 ## Further Reading
 

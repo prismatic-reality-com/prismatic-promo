@@ -279,19 +279,19 @@ LiveView's primary advantage is eliminating the client-server state synchronizat
 
 ## Related Concepts
 
-- [TailwindCSS](/glossary/tailwindcss/) - Mandatory styling framework for LiveView templates
-- [Flowbite](/glossary/flowbite/) - Component library used in LiveView UIs
-- [Phoenix](/glossary/phoenix/) - Web framework providing LiveView's HTTP and WebSocket infrastructure
-- [GenServer](/glossary/genserver/) - OTP process backing each LiveView session
-- [PubSub](/glossary/pubsub/) - Real-time event distribution for live-updating dashboards
-- [Telemetry](/glossary/telemetry/) - Instrumentation for LiveView performance monitoring
-- [Elixir](/glossary/elixir/) - The language powering server-side LiveView logic
-- [Umbrella Application](/glossary/umbrella-application/) - Project structure housing the web application
+- [TailwindCSS](@/glossary/tailwindcss.md) - Mandatory styling framework for LiveView templates
+- [Flowbite](@/glossary/flowbite.md) - Component library used in LiveView UIs
+- [Phoenix](@/glossary/phoenix.md) - Web framework providing LiveView's HTTP and WebSocket infrastructure
+- [GenServer](@/glossary/genserver.md) - OTP process backing each LiveView session
+- [PubSub](@/glossary/pubsub.md) - Real-time event distribution for live-updating dashboards
+- [Telemetry](@/glossary/telemetry.md) - Instrumentation for LiveView performance monitoring
+- [Elixir](@/glossary/elixir.md) - The language powering server-side LiveView logic
+- [Umbrella Application](@/glossary/umbrella-application.md) - Project structure housing the web application
 
 ## See Also
 
-- [Technologies](/technologies/) - Technology stack details
-- [Architecture](/architecture/) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
 
 ---
 
@@ -300,4 +300,4 @@ LiveView's primary advantage is eliminating the client-server state synchronizat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

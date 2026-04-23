@@ -215,10 +215,10 @@ Quality variance analysis reveals whether platform quality is uniformly high or 
 ## Cross-References
 
 - **Z-Score** - Standard deviation distance measure
-- [Time Series](/glossary/time-series/) - Temporal data analyzed for variance
-- [Trend](/glossary/trend/) - Directional pattern analysis
-- [Monitoring](/glossary/monitoring/) - Source of variance data
-- [Anomaly Detection](/glossary/anomaly-detection/) - Variance-based outlier identification
+- [Time Series](@/glossary/time-series.md) - Temporal data analyzed for variance
+- [Trend](@/glossary/trend.md) - Directional pattern analysis
+- [Monitoring](@/glossary/monitoring.md) - Source of variance data
+- [Anomaly Detection](@/glossary/anomaly-detection.md) - Variance-based outlier identification
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

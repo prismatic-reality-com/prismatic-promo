@@ -26,9 +26,9 @@ image_alt = "PostgreSQL - Prismatic Platform"
 
 PostgreSQL is the primary persistent data store for the Prismatic Platform, handling all relational data including user accounts, security assessments, compliance records, agent configurations, and intelligence analysis results. PostgreSQL's advanced features -- JSONB columns, full-text search, window functions, CTEs, and its rich extension ecosystem -- make it the ideal foundation for the platform's complex data requirements that span structured relational data, semi-structured JSON documents, and time-series telemetry.
 
-The Prismatic Platform leverages PostgreSQL's ACID compliance and row-level security for multi-tenant data isolation, its LISTEN/NOTIFY mechanism for real-time event propagation to [Phoenix PubSub](/technologies/pubsub/), and its extensive indexing options (B-tree, GIN, GiST, BRIN) for query performance optimization across millions of intelligence records. The database serves as the single source of truth for all persistent platform state, with [ETS](/technologies/ets/) and [Redis](/technologies/redis/) serving as caching layers that derive their data from PostgreSQL.
+The Prismatic Platform leverages PostgreSQL's ACID compliance and row-level security for multi-tenant data isolation, its LISTEN/NOTIFY mechanism for real-time event propagation to [Phoenix PubSub](@/technologies/pubsub.md), and its extensive indexing options (B-tree, GIN, GiST, BRIN) for query performance optimization across millions of intelligence records. The database serves as the single source of truth for all persistent platform state, with [ETS](@/technologies/ets.md) and [Redis](@/technologies/redis.md) serving as caching layers that derive their data from PostgreSQL.
 
-PostgreSQL's extension ecosystem is critical to the platform: [TimescaleDB](/technologies/timescaledb/) adds time-series capabilities for metrics and telemetry, pgvector enables AI embedding storage for semantic search, and PostGIS supports geospatial intelligence operations. These extensions integrate transparently through the standard SQL interface, allowing [Ecto](/technologies/ecto/) to interact with them using native query fragments.
+PostgreSQL's extension ecosystem is critical to the platform: [TimescaleDB](@/technologies/timescaledb.md) adds time-series capabilities for metrics and telemetry, pgvector enables AI embedding storage for semantic search, and PostGIS supports geospatial intelligence operations. These extensions integrate transparently through the standard SQL interface, allowing [Ecto](@/technologies/ecto.md) to interact with them using native query fragments.
 
 ## Key Features
 
@@ -43,7 +43,7 @@ PostgreSQL's extension ecosystem is critical to the platform: [TimescaleDB](/tec
 
 ## Platform Integration
 
-PostgreSQL stores all persistent data through [Ecto](/technologies/ecto/) repositories. The platform uses both simple CRUD operations and complex analytical queries that leverage PostgreSQL-specific features.
+PostgreSQL stores all persistent data through [Ecto](@/technologies/ecto.md) repositories. The platform uses both simple CRUD operations and complex analytical queries that leverage PostgreSQL-specific features.
 
 ```elixir
 defmodule PrismaticPerimeter.Queries.AssetRisk do
@@ -127,16 +127,16 @@ PostgreSQL serves as the persistence foundation of the platform's data architect
 
 | Layer | Component | Access Pattern |
 |-------|-----------|----------------|
-| **Application** | [Ecto](/technologies/ecto/) queries | Structured queries via Ecto.Query DSL |
+| **Application** | [Ecto](@/technologies/ecto.md) queries | Structured queries via Ecto.Query DSL |
 | **Connection Pool** | DBConnection + Postgrex | Connection pooling with queue management |
-| **Cache** | [ETS](/technologies/ets/) / [Redis](/technologies/redis/) | Read-through cache for frequently accessed data |
+| **Cache** | [ETS](@/technologies/ets.md) / [Redis](@/technologies/redis.md) | Read-through cache for frequently accessed data |
 | **Database** | PostgreSQL 16 | Primary storage with ACID guarantees |
 | **Extensions** | TimescaleDB, pgvector | Specialized storage for time-series and embeddings |
 | **Replication** | Logical replication | Read replicas for analytics workloads |
 
 ## LISTEN/NOTIFY and Real-Time Events
 
-PostgreSQL's LISTEN/NOTIFY mechanism plays an important role in the platform's real-time architecture. When a security finding is inserted or a rating is updated, database triggers can emit notifications that the Elixir application receives through the Postgrex connection, bridging the gap between database changes and application-level event propagation via [Phoenix PubSub](/technologies/pubsub/).
+PostgreSQL's LISTEN/NOTIFY mechanism plays an important role in the platform's real-time architecture. When a security finding is inserted or a rating is updated, database triggers can emit notifications that the Elixir application receives through the Postgrex connection, bridging the gap between database changes and application-level event propagation via [Phoenix PubSub](@/technologies/pubsub.md).
 
 This database-driven event system ensures that changes made by background jobs, migrations, or direct SQL operations are captured and broadcast to connected dashboard clients, providing a comprehensive event stream that does not depend on the application layer for completeness.
 
@@ -267,22 +267,22 @@ end
 | ACID compliance | Full | Full (InnoDB) | Full | Per-document only | Full (distributed) |
 | Platform role | Primary data store | Not used | Not used | Not used | Not used |
 
-PostgreSQL was chosen as the platform's primary database because of its extension ecosystem (enabling TimescaleDB, pgvector, and PostGIS within the same database), its JSONB capabilities for semi-structured intelligence data, and its mature integration with [Ecto](/technologies/ecto/) through the Postgrex adapter.
+PostgreSQL was chosen as the platform's primary database because of its extension ecosystem (enabling TimescaleDB, pgvector, and PostGIS within the same database), its JSONB capabilities for semi-structured intelligence data, and its mature integration with [Ecto](@/technologies/ecto.md) through the Postgrex adapter.
 
 ## Related Technologies
 
-- [Ecto](/technologies/ecto/) - Database wrapper and query interface for all PostgreSQL access
-- [TimescaleDB](/technologies/timescaledb/) - Time-series extension for metrics and telemetry
-- [KuzuDB](/technologies/kuzudb/) - Graph database complement for entity relationship analysis
-- [Redis](/technologies/redis/) - Caching layer for frequently accessed PostgreSQL data
-- [ETS](/technologies/ets/) - In-process memory cache for hot data paths
-- [Docker](/technologies/docker/) - PostgreSQL container in the development stack
+- [Ecto](@/technologies/ecto.md) - Database wrapper and query interface for all PostgreSQL access
+- [TimescaleDB](@/technologies/timescaledb.md) - Time-series extension for metrics and telemetry
+- [KuzuDB](@/technologies/kuzudb.md) - Graph database complement for entity relationship analysis
+- [Redis](@/technologies/redis.md) - Caching layer for frequently accessed PostgreSQL data
+- [ETS](@/technologies/ets.md) - In-process memory cache for hot data paths
+- [Docker](@/technologies/docker.md) - PostgreSQL container in the development stack
 
 ## Related Apps
 
-- [prismatic_storage_ecto](/apps/prismatic-storage-ecto/) - PostgreSQL adapter implementing the storage trait
-- [prismatic_storage_core](/apps/prismatic-storage-core/) - Storage abstractions and repository protocols
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - Security data persistence for assets, ratings, and findings
+- [prismatic_storage_ecto](@/apps/prismatic-storage-ecto.md) - PostgreSQL adapter implementing the storage trait
+- [prismatic_storage_core](@/apps/prismatic-storage-core.md) - Storage abstractions and repository protocols
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - Security data persistence for assets, ratings, and findings
 
 ---
 
@@ -291,4 +291,4 @@ PostgreSQL was chosen as the platform's primary database because of its extensio
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

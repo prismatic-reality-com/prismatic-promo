@@ -28,15 +28,15 @@ image_alt = "regulatory-intelligence-commander - Prismatic Platform"
 
 ## Overview
 
-The regulatory-intelligence-commander operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's regulatory domain, serving as the strategic intelligence layer for regulatory landscape monitoring, legislative trend analysis, and enforcement pattern tracking. While the [regulatory-compliance-risk-specialist](/agents/regulatory-compliance-risk-specialist/) focuses on assessing specific entity compliance gaps, this commander provides the broader regulatory intelligence context -- tracking proposed legislation, enforcement priorities, regulatory body communications, and cross-jurisdictional harmonization trends that shape the future compliance landscape.
+The regulatory-intelligence-commander operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's regulatory domain, serving as the strategic intelligence layer for regulatory landscape monitoring, legislative trend analysis, and enforcement pattern tracking. While the [regulatory-compliance-risk-specialist](@/agents/regulatory-compliance-risk-specialist.md) focuses on assessing specific entity compliance gaps, this commander provides the broader regulatory intelligence context -- tracking proposed legislation, enforcement priorities, regulatory body communications, and cross-jurisdictional harmonization trends that shape the future compliance landscape.
 
-Built on the [AIAD](/glossary/aiad/) standard and leveraging the platform's [OSINT](/glossary/osint/) infrastructure, this agent monitors regulatory bodies, legislative proceedings, consultation documents, and enforcement databases across multiple jurisdictions. The [NO DOUBTS](/glossary/no-doubts/) principle governs all regulatory intelligence: legislative interpretations carry explicit confidence levels, and conflicting regulatory signals (such as divergent national implementations of EU directives like [NIS2](/glossary/nis2/)) are preserved per the [NABLA Infinity](/glossary/nabla-infinity/) [contradiction preservation](/glossary/contradiction-preservation/) axiom.
+Built on the [AIAD](@/glossary/aiad.md) standard and leveraging the platform's [OSINT](@/glossary/osint.md) infrastructure, this agent monitors regulatory bodies, legislative proceedings, consultation documents, and enforcement databases across multiple jurisdictions. The [NO DOUBTS](@/glossary/no-doubts.md) principle governs all regulatory intelligence: legislative interpretations carry explicit confidence levels, and conflicting regulatory signals (such as divergent national implementations of EU directives like [NIS2](@/glossary/nis2.md)) are preserved per the [NABLA Infinity](@/glossary/nabla-infinity.md) [contradiction preservation](@/glossary/contradiction-preservation.md) axiom.
 
 The distinction between compliance assessment and regulatory intelligence is fundamental to the platform's approach. Compliance assessment evaluates current state against current requirements. Regulatory intelligence anticipates future requirements, identifies enforcement trends, and provides the strategic context that transforms compliance from a reactive obligation into a proactive strategic capability.
 
 ## Operational Domain
 
-The regulatory intelligence domain covers legislative monitoring, enforcement trend analysis, regulatory body communication tracking, cross-jurisdictional comparison, and regulatory impact forecasting. The commander maintains current intelligence on regulatory developments relevant to [NIS2](/glossary/nis2/), [ZKB](/glossary/zkb/), [GDPR](/glossary/gdpr/), financial services regulations, and emerging technology governance frameworks. Intelligence products carry temporal validity markers reflecting the rapid pace of regulatory evolution.
+The regulatory intelligence domain covers legislative monitoring, enforcement trend analysis, regulatory body communication tracking, cross-jurisdictional comparison, and regulatory impact forecasting. The commander maintains current intelligence on regulatory developments relevant to [NIS2](@/glossary/nis2.md), [ZKB](@/glossary/zkb.md), [GDPR](@/glossary/gdpr.md), financial services regulations, and emerging technology governance frameworks. Intelligence products carry temporal validity markers reflecting the rapid pace of regulatory evolution.
 
 The agent monitors multiple intelligence channels for regulatory signals. Official gazettes and legislative databases provide definitive information on enacted legislation. Regulatory body communications -- including guidance documents, FAQ publications, and enforcement policy statements -- provide interpretive context. Consultation papers and regulatory impact assessments signal upcoming regulatory changes before they are enacted. Enforcement action databases reveal how regulatory bodies prioritize and interpret their mandates in practice.
 
@@ -48,8 +48,8 @@ The agent monitors multiple intelligence channels for regulatory signals. Offici
 - **Regulatory impact forecasting** -- Assesses the potential operational impact of proposed or recently adopted regulations on monitored entities, enabling proactive compliance preparation
 - **Regulatory body profiling** -- Maintains intelligence profiles on key regulatory bodies including their enforcement priorities, staffing trends, and communication patterns that indicate strategic direction
 - **Stakeholder consultation tracking** -- Monitors public consultation processes for proposed regulations, identifying opportunities for industry input and early intelligence on regulatory direction
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed regulatory monitoring cycles and adaptive jurisdictional coverage
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for intelligence pipeline freshness tracking and coverage gap alerting
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed regulatory monitoring cycles and adaptive jurisdictional coverage
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for intelligence pipeline freshness tracking and coverage gap alerting
 
 ## Intelligence Production Cycle
 
@@ -78,10 +78,10 @@ The **dissemination phase** produces structured intelligence products for downst
 
 | Agent | Relationship |
 |-------|-------------|
-| [regulatory-compliance-risk-specialist](/agents/regulatory-compliance-risk-specialist/) | Regulatory intelligence contextualizes compliance gap assessments |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Regulatory landscape data feeds strategic risk intelligence analysis |
-| [political-network-intelligence-specialist](/agents/political-network-intelligence-specialist/) | Political network insights inform regulatory influence analysis |
-| [regional-court-specialist](/agents/regional-court-specialist/) | Court enforcement data provides ground-truth for regulatory interpretation |
+| [regulatory-compliance-risk-specialist](@/agents/regulatory-compliance-risk-specialist.md) | Regulatory intelligence contextualizes compliance gap assessments |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Regulatory landscape data feeds strategic risk intelligence analysis |
+| [political-network-intelligence-specialist](@/agents/political-network-intelligence-specialist.md) | Political network insights inform regulatory influence analysis |
+| [regional-court-specialist](@/agents/regional-court-specialist.md) | Court enforcement data provides ground-truth for regulatory interpretation |
 
 ## Cross-Jurisdictional Analysis
 
@@ -91,7 +91,7 @@ Cross-jurisdictional analysis also identifies regulatory arbitrage opportunities
 
 ## Enforcement
 
-Regulatory intelligence products must pass [Trinity Gate](/glossary/trinity-gate/) validation before distribution. The [NO MERCY](/glossary/no-mercy/) doctrine requires complete source attribution on all regulatory claims. Interpretive intelligence carries explicit confidence levels, and the [NABLA Infinity](/glossary/nabla-infinity/) framework ensures that contradictory regulatory signals are preserved rather than editorially resolved. All intelligence products carry temporal validity markers and are subject to the [time decay](/glossary/time-decay/) axiom, reflecting the rapid pace of regulatory evolution.
+Regulatory intelligence products must pass [Trinity Gate](@/glossary/trinity-gate.md) validation before distribution. The [NO MERCY](@/glossary/no-mercy.md) doctrine requires complete source attribution on all regulatory claims. Interpretive intelligence carries explicit confidence levels, and the [NABLA Infinity](@/glossary/nabla-infinity.md) framework ensures that contradictory regulatory signals are preserved rather than editorially resolved. All intelligence products carry temporal validity markers and are subject to the [time decay](@/glossary/time-decay.md) axiom, reflecting the rapid pace of regulatory evolution.
 
 ---
 
@@ -100,4 +100,4 @@ Regulatory intelligence products must pass [Trinity Gate](/glossary/trinity-gate
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

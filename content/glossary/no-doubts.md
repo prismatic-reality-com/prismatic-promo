@@ -40,21 +40,21 @@ image_alt = "NO DOUBTS - Prismatic Platform"
 
 NO DOUBTS is the epistemic arm of the NM/ND Doctrine that establishes a rigorous two-phase approach to software development and platform operations. The first phase demands full investigation and complete understanding before any action is taken. The second phase requires decisive, fully committed execution once a decision has been made. Every claim must be backed by tests, benchmarks, or formal verification -- no unvalidated claims, unchecked outputs, or assumption-based decisions are permitted.
 
-The principle addresses a fundamental tension in engineering: the need for thoroughness versus the need for speed. Rather than compromising on either, NO DOUBTS separates them temporally. During the investigation phase, there is no pressure to act -- uncertainty is mapped, contradictions are preserved, and parallel hypotheses are explored using the [NABLA Infinity](/glossary/nabla-infinity/) framework. During the execution phase, there is no room for hesitation -- the decision has been made with sufficient evidence, and full commitment is required.
+The principle addresses a fundamental tension in engineering: the need for thoroughness versus the need for speed. Rather than compromising on either, NO DOUBTS separates them temporally. During the investigation phase, there is no pressure to act -- uncertainty is mapped, contradictions are preserved, and parallel hypotheses are explored using the [NABLA Infinity](@/glossary/nabla-infinity.md) framework. During the execution phase, there is no room for hesitation -- the decision has been made with sufficient evidence, and full commitment is required.
 
-NO DOUBTS prevents two of the most damaging failure modes in software engineering: **premature action** (committing to an approach before understanding the problem) and **analysis paralysis** (investigating indefinitely without ever committing to execution). The confidence threshold mechanism (0.95 with [Trinity Gate](/glossary/trinity-gate/) validation) provides a precise, measurable transition point between investigation and execution, eliminating subjective judgment about "when we know enough."
+NO DOUBTS prevents two of the most damaging failure modes in software engineering: **premature action** (committing to an approach before understanding the problem) and **analysis paralysis** (investigating indefinitely without ever committing to execution). The confidence threshold mechanism (0.95 with [Trinity Gate](@/glossary/trinity-gate.md) validation) provides a precise, measurable transition point between investigation and execution, eliminating subjective judgment about "when we know enough."
 
 ## Overview
 
 The principle is particularly important in the context of a platform with 530 autonomous agents, where each agent's decisions can cascade through the system. An agent acting without sufficient evidence can introduce subtle errors that compound across the agent network. The NO DOUBTS framework ensures that every agent decision is grounded in validated evidence before execution begins.
 
-The NO DOUBTS principle operates at every level of the platform: individual function implementations, module-level architectural decisions, cross-app integration patterns, and platform-wide governance. At the code level, it manifests as thorough test coverage before merging. At the agent level, it manifests as confidence scoring before action. At the platform level, it manifests as [quality gates](/glossary/quality-gates/) that accumulate evidence from multiple verification sources before authorizing deployment.
+The NO DOUBTS principle operates at every level of the platform: individual function implementations, module-level architectural decisions, cross-app integration patterns, and platform-wide governance. At the code level, it manifests as thorough test coverage before merging. At the agent level, it manifests as confidence scoring before action. At the platform level, it manifests as [quality gates](@/glossary/quality-gates.md) that accumulate evidence from multiple verification sources before authorizing deployment.
 
 The philosophical foundation draws from epistemic rigor: the discipline of distinguishing between what is known, what is believed, and what is unknown. Most engineering failures stem not from lack of knowledge but from treating beliefs as knowledge -- acting on assumptions that have not been verified. NO DOUBTS enforces a hard boundary between investigation (where beliefs are held provisionally) and execution (where verified knowledge drives action).
 
 ## Investigation Phase Architecture
 
-The investigation phase operates under [NABLA Infinity](/glossary/nabla-infinity/) governance with seven non-negotiable axioms that structure the evidence-gathering process:
+The investigation phase operates under [NABLA Infinity](@/glossary/nabla-infinity.md) governance with seven non-negotiable axioms that structure the evidence-gathering process:
 
 | Axiom | Role in NO DOUBTS | Enforcement |
 |-------|-------------------|-------------|
@@ -167,7 +167,7 @@ end
 
 ## Decisive Execution Phase
 
-Once the transition is authorized, the execution phase operates under [NO MERCY](/glossary/no-mercy/) governance with no room for second-guessing:
+Once the transition is authorized, the execution phase operates under [NO MERCY](@/glossary/no-mercy.md) governance with no room for second-guessing:
 
 | Principle | Description | Enforcement |
 |-----------|-------------|-------------|
@@ -210,7 +210,7 @@ NO DOUBTS is implemented across multiple system layers within the Prismatic Plat
 
 ### Agent Layer
 
-Each of the 530 agents evaluates confidence before taking action, using structured evidence accumulation against the threshold. The [Blue Team](/glossary/blue-team/) defensive agents accumulate evidence from multiple detection sources before raising alerts. The [Purple Team](/glossary/purple-team/) requires four closure conditions before accepting that a security finding is resolved. The [White Team](/glossary/white-team/) constructs formal proofs before declaring invariants verified.
+Each of the 530 agents evaluates confidence before taking action, using structured evidence accumulation against the threshold. The [Blue Team](@/glossary/blue-team.md) defensive agents accumulate evidence from multiple detection sources before raising alerts. The [Purple Team](@/glossary/purple-team.md) requires four closure conditions before accepting that a security finding is resolved. The [White Team](@/glossary/white-team.md) constructs formal proofs before declaring invariants verified.
 
 ```elixir
 defmodule PrismaticAgents.DecisionEngine do
@@ -331,7 +331,7 @@ Different operational contexts require different confidence levels, reflecting t
 
 **Perpetual Investigation**: Using NO DOUBTS as an excuse to never act. The principle requires decisive action once evidence is sufficient, not indefinite investigation. If investigation consistently fails to reach the threshold, the problem may be poorly defined rather than insufficiently investigated.
 
-**Ignoring Contradictions**: Discarding evidence that contradicts a preferred conclusion. The [Addiction Preservation](/glossary/contradiction-preservation/) doctrine requires preserving contradictions, not resolving them by selective evidence elimination. Contradictions that persist after thorough investigation indicate genuine complexity that must be addressed in the execution plan.
+**Ignoring Contradictions**: Discarding evidence that contradicts a preferred conclusion. The [Addiction Preservation](@/glossary/contradiction-preservation.md) doctrine requires preserving contradictions, not resolving them by selective evidence elimination. Contradictions that persist after thorough investigation indicate genuine complexity that must be addressed in the execution plan.
 
 **Executing Without Verification**: Skipping the post-execution verification step. NO DOUBTS is a complete cycle: investigate, decide, execute, verify. The verification step ensures the execution matched expectations and catches silent failures.
 
@@ -348,22 +348,22 @@ Different operational contexts require different confidence levels, reflecting t
 
 ## Related Concepts
 
-- [NO MERCY](/glossary/no-mercy/) - The enforcement counterpart requiring zero tolerance
-- [NM/ND Doctrine](/glossary/nm-nd/) - The combined governance framework
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework governing the investigation phase
-- [Trinity Gate](/glossary/trinity-gate/) - Verification gate for confidence validation before action
-- [Confidence Threshold](/glossary/confidence-threshold/) - The 0.95 threshold triggering action transition
-- [Violation Protocol](/glossary/violation-protocol/) - Escalation for NO DOUBTS violations
-- [Quality Gates](/glossary/quality-gates/) - Evidence accumulation pipeline
-- [Addiction Preservation](/glossary/contradiction-preservation/) - Contradiction preservation during investigation
-- [Blue Team](/glossary/blue-team/) - Defensive agents applying NO DOUBTS to threat detection
-- [Metrics](/glossary/metrics/) - Quantitative evidence feeding confidence accumulation
+- [NO MERCY](@/glossary/no-mercy.md) - The enforcement counterpart requiring zero tolerance
+- [NM/ND Doctrine](@/glossary/nm-nd.md) - The combined governance framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework governing the investigation phase
+- [Trinity Gate](@/glossary/trinity-gate.md) - Verification gate for confidence validation before action
+- [Confidence Threshold](@/glossary/confidence-threshold.md) - The 0.95 threshold triggering action transition
+- [Violation Protocol](@/glossary/violation-protocol.md) - Escalation for NO DOUBTS violations
+- [Quality Gates](@/glossary/quality-gates.md) - Evidence accumulation pipeline
+- [Addiction Preservation](@/glossary/contradiction-preservation.md) - Contradiction preservation during investigation
+- [Blue Team](@/glossary/blue-team.md) - Defensive agents applying NO DOUBTS to threat detection
+- [Metrics](@/glossary/metrics.md) - Quantitative evidence feeding confidence accumulation
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Agents Registry](/agents/) - Agents implementing NO DOUBTS decision making
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Agents Registry](@/agents/_index.md) - Agents implementing NO DOUBTS decision making
 
 ---
 
@@ -372,4 +372,4 @@ Different operational contexts require different confidence levels, reflecting t
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

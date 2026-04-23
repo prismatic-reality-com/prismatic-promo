@@ -28,9 +28,9 @@ image_alt = "/presales-research - Prismatic Platform"
 
 The research engine combines structured data sources (vendor websites, product documentation, analyst reports, pricing pages) with unstructured intelligence (customer reviews, social media mentions, job postings, patent filings, press releases) to build multi-dimensional competitor profiles. These profiles go beyond surface-level feature comparisons to reveal strategic insights about competitor direction, market share trends, customer satisfaction levels, and potential vulnerabilities that can be leveraged in competitive positioning.
 
-This command operates under the **L2+** authority level and is executed by the `competitor-researcher` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The competitor researcher agent specializes in open-source intelligence gathering techniques applied to commercial competitive analysis, leveraging the platform's [OSINT](/glossary/osint/) capabilities for business intelligence purposes.
+This command operates under the **L2+** authority level and is executed by the `competitor-researcher` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The competitor researcher agent specializes in open-source intelligence gathering techniques applied to commercial competitive analysis, leveraging the platform's [OSINT](@/glossary/osint.md) capabilities for business intelligence purposes.
 
-Within the presales workflow, `/presales-research` enriches the intelligence available for opportunity assessment and proposal positioning. Competitive insights inform pricing strategy via [/presales-price](/commands/presales-price/), shape technical differentiation in proposals via [/presales-propose](/commands/presales-propose/), and contribute to win probability estimation in case management via [/presales-case](/commands/presales-case/). The command transforms raw market data into structured competitive intelligence that directly improves win rates.
+Within the presales workflow, `/presales-research` enriches the intelligence available for opportunity assessment and proposal positioning. Competitive insights inform pricing strategy via [/presales-price](@/commands/presales-price.md), shape technical differentiation in proposals via [/presales-propose](@/commands/presales-propose.md), and contribute to win probability estimation in case management via [/presales-case](@/commands/presales-case.md). The command transforms raw market data into structured competitive intelligence that directly improves win rates.
 
 ## Architecture
 
@@ -58,7 +58,7 @@ Source Layer                Analysis Layer              Output Layer
 
 The Feature Extractor parses competitor documentation and marketing materials to construct a structured capability map. Each competitor feature is categorized, described, and compared against the Prismatic Platform's corresponding capability. The comparison identifies areas of parity, advantage, and disadvantage, providing the basis for competitive positioning statements.
 
-The Pricing Analyzer collects publicly available pricing information from competitor websites, review sites, and analyst reports. When exact pricing is unavailable, the analyzer estimates pricing ranges based on publicly disclosed deal sizes, customer references, and market positioning signals. This intelligence feeds directly into the pricing strategy formulated by [/presales-price](/commands/presales-price/).
+The Pricing Analyzer collects publicly available pricing information from competitor websites, review sites, and analyst reports. When exact pricing is unavailable, the analyzer estimates pricing ranges based on publicly disclosed deal sizes, customer references, and market positioning signals. This intelligence feeds directly into the pricing strategy formulated by [/presales-price](@/commands/presales-price.md).
 
 ## Usage
 
@@ -150,14 +150,14 @@ The research pipeline follows a structured intelligence gathering and synthesis 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/presales](/commands/presales/) | Parent Command | Top-level presales orchestration |
-| [/presales-analyze](/commands/presales-analyze/) | Complementary | Opportunity analysis enriched with competitive data |
-| [/presales-price](/commands/presales-price/) | Downstream | Competitive pricing feeds pricing strategy |
-| [/presales-propose](/commands/presales-propose/) | Downstream | Competitive positioning feeds proposals |
-| [/presales-case](/commands/presales-case/) | Case Management | Research linked to presales cases |
-| [/investigate](/commands/investigate/) | Cross-domain | OSINT capabilities for competitive intelligence |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | `competitor-researcher` agent |
-| [Telemetry](/glossary/telemetry/) | Observability | Research quality and freshness metrics |
+| [/presales](@/commands/presales.md) | Parent Command | Top-level presales orchestration |
+| [/presales-analyze](@/commands/presales-analyze.md) | Complementary | Opportunity analysis enriched with competitive data |
+| [/presales-price](@/commands/presales-price.md) | Downstream | Competitive pricing feeds pricing strategy |
+| [/presales-propose](@/commands/presales-propose.md) | Downstream | Competitive positioning feeds proposals |
+| [/presales-case](@/commands/presales-case.md) | Case Management | Research linked to presales cases |
+| [/investigate](@/commands/investigate.md) | Cross-domain | OSINT capabilities for competitive intelligence |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | `competitor-researcher` agent |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Research quality and freshness metrics |
 
 ## Best Practices
 
@@ -209,19 +209,19 @@ The research pipeline follows a structured intelligence gathering and synthesis 
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Competitive analysis covers all identified competitors -- none are omitted due to data collection difficulty. Feature comparisons are honest, acknowledging competitor strengths as well as weaknesses.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every competitive claim is backed by source evidence with provenance tracking. The [NABLA](/glossary/nabla-infinity/) axiom of Signal Plurality requires that competitive assessments be corroborated across multiple independent sources. The Contradiction Preservation axiom ensures that conflicting market signals (e.g., positive analyst reports vs. negative customer reviews) are both presented rather than selectively filtered.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every competitive claim is backed by source evidence with provenance tracking. The [NABLA](@/glossary/nabla-infinity.md) axiom of Signal Plurality requires that competitive assessments be corroborated across multiple independent sources. The Contradiction Preservation axiom ensures that conflicting market signals (e.g., positive analyst reports vs. negative customer reviews) are both presented rather than selectively filtered.
 
 ## Related Commands
 
-- [/presales](/commands/presales/) - Presales intelligence for company analysis and opportunity identification
-- [/presales-analyze](/commands/presales-analyze/) - Text, file and URL analysis for presales opportunity assessment
-- [/presales-assess](/commands/presales-assess/) - Technical assessment of opportunities and cases
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
+- [/presales](@/commands/presales.md) - Presales intelligence for company analysis and opportunity identification
+- [/presales-analyze](@/commands/presales-analyze.md) - Text, file and URL analysis for presales opportunity assessment
+- [/presales-assess](@/commands/presales-assess.md) - Technical assessment of opportunities and cases
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
 
 ---
 
@@ -230,4 +230,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -199,11 +199,11 @@ The Perimeter security rating factors authentication defense mechanisms into its
 
 ## Cross-References
 
-- [Credential](/glossary/credential/) - authentication artifacts targeted by stuffing
-- [Authentication](/glossary/authentication/) - identity verification attacked by stuffing
-- [Attack Surface](/glossary/attack-surface/) - authentication endpoints as attack surface
-- [Anomaly Detection](/glossary/anomaly-detection/) - detecting stuffing patterns
-- [Compliance](/glossary/compliance/) - regulatory requirements for breach response
+- [Credential](@/glossary/credential.md) - authentication artifacts targeted by stuffing
+- [Authentication](@/glossary/authentication.md) - identity verification attacked by stuffing
+- [Attack Surface](@/glossary/attack-surface.md) - authentication endpoints as attack surface
+- [Anomaly Detection](@/glossary/anomaly-detection.md) - detecting stuffing patterns
+- [Compliance](@/glossary/compliance.md) - regulatory requirements for breach response
 - **Livebooks**: `livebooks/domains/security_compliance/` - credential security labs
 - **Academy**: Threat intelligence and attack pattern analysis
 

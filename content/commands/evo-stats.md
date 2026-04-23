@@ -24,13 +24,13 @@ image_alt = "/evo-stats - Prismatic Platform"
 
 ## Overview
 
-**/evo-stats** is a production command in the **Framework** category of the Prismatic Platform. It provides comprehensive evolution statistics and [metrics](/glossary/metrics/) reporting, giving operators deep visibility into the platform's autonomous evolution trajectory across all 18 generations. The command aggregates data from every evolution cycle, quality gate checkpoint, and fitness evaluation to produce actionable intelligence about the platform's evolutionary health.
+**/evo-stats** is a production command in the **Framework** category of the Prismatic Platform. It provides comprehensive evolution statistics and [metrics](@/glossary/metrics.md) reporting, giving operators deep visibility into the platform's autonomous evolution trajectory across all 18 generations. The command aggregates data from every evolution cycle, quality gate checkpoint, and fitness evaluation to produce actionable intelligence about the platform's evolutionary health.
 
 The Prismatic Platform operates on a biological evolution metaphor where the codebase, agents, patterns, and quality standards undergo continuous generational improvement. Each generation represents a measurable fitness improvement across multiple dimensions: code quality, test coverage, agent capability, pattern diversity, and architectural coherence. The `/evo-stats` command is the primary observability tool for this evolutionary process, transforming raw evolution data into structured reports that inform strategic decisions.
 
 Understanding evolution statistics is essential for maintaining the platform's upward trajectory. Without visibility into fitness trends, mutation rates, and selection pressures, the evolution system risks stagnation or regression. The `/evo-stats` command surfaces early warning signals when fitness gains plateau, when specific quality domains lag behind others, or when evolution cycles are not producing meaningful improvements.
 
-This command operates under the **L2+** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `evolution-orchestrator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -50,7 +50,7 @@ Evolution Engine --> Fitness Evaluator --> Metrics Aggregator --> Report Generat
 
 **Fitness Evaluator**: Computes multi-dimensional fitness scores across the platform's 13 quality domains (Dialyzer, Credo, Compilation, DateTime Precision, Guard Functions, @impl Coverage, Memory Safety, Performance, Regression Prevention, Timing Patterns, TODO Management, Typespec Coverage, Unsafe Map Access). Each domain contributes a normalized score to the overall platform fitness.
 
-**Metrics Aggregator**: Collects evolution metrics from all subsystems including the [SEADF](/glossary/seadf/) framework, [quality gates](/glossary/quality-gates/), [mycelial network](/glossary/mycelial-network/), and [Quality DNA](/glossary/quality-dna/) persistence layer. Metrics are stored as time series for trend analysis.
+**Metrics Aggregator**: Collects evolution metrics from all subsystems including the [SEADF](@/glossary/seadf.md) framework, [quality gates](@/glossary/quality-gates.md), [mycelial network](@/glossary/mycelial-network.md), and [Quality DNA](@/glossary/quality-dna.md) persistence layer. Metrics are stored as time series for trend analysis.
 
 **Anomaly Detector**: Monitors evolution metrics for anomalous patterns -- fitness regressions, stalled evolution cycles, quality domain divergence, or unusual mutation rates. Anomalies trigger alerts that surface in the report.
 
@@ -125,7 +125,7 @@ Evolution Engine --> Fitness Evaluator --> Metrics Aggregator --> Report Generat
 
 The `/evo-stats` command follows a structured 5-phase reporting pipeline:
 
-1. **Data Collection**: The command queries all evolution data sources including the generation database, quality gate results, fitness evaluation history, and mutation logs. Data is collected from both the runtime system (ETS tables) and persistent storage ([Quality DNA](/glossary/quality-dna/) files).
+1. **Data Collection**: The command queries all evolution data sources including the generation database, quality gate results, fitness evaluation history, and mutation logs. Data is collected from both the runtime system (ETS tables) and persistent storage ([Quality DNA](@/glossary/quality-dna.md) files).
 
 2. **Metric Computation**: Raw data is transformed into computed metrics including fitness scores per domain, inter-generational deltas, moving averages, trend coefficients, and anomaly scores. All computations are deterministic and reproducible.
 
@@ -139,12 +139,12 @@ The `/evo-stats` command follows a structured 5-phase reporting pipeline:
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Evolution Engine](/glossary/autoevolve/) | Data Source | Generation data, mutation logs, selection results |
-| [Quality Gates](/glossary/quality-gates/) | Data Source | Gate pass/fail history, domain scores |
-| [Quality DNA](/glossary/quality-dna/) | Persistence | Cross-session evolution state continuity |
-| [SEADF](/glossary/seadf/) | Framework | Self-evolving framework status and metrics |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Evolution [metrics](/glossary/metrics/) event emission |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Evolution-orchestrator agent performs analysis |
+| [Evolution Engine](@/glossary/autoevolve.md) | Data Source | Generation data, mutation logs, selection results |
+| [Quality Gates](@/glossary/quality-gates.md) | Data Source | Gate pass/fail history, domain scores |
+| [Quality DNA](@/glossary/quality-dna.md) | Persistence | Cross-session evolution state continuity |
+| [SEADF](@/glossary/seadf.md) | Framework | Self-evolving framework status and metrics |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Evolution [metrics](@/glossary/metrics.md) event emission |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Evolution-orchestrator agent performs analysis |
 | GitLab API | Reporting | Evolution reports published to GitLab milestones |
 | AIAD Registry | Discovery | Command specification and agent binding |
 
@@ -197,26 +197,26 @@ The `/evo-stats` command follows a structured 5-phase reporting pipeline:
 
 ### Integration with Autoevolve
 
-The `/evo-stats` command is a critical input to the [autoevolve](/glossary/autoevolve/) system. Evolution statistics inform the `mix autoevolve.mega` command's strategy selection, helping it decide which quality domains to target and what mutation strategies to apply. When `/evo-stats` reports fitness stagnation in a domain, the autoevolve system increases mutation pressure in that domain.
+The `/evo-stats` command is a critical input to the [autoevolve](@/glossary/autoevolve.md) system. Evolution statistics inform the `mix autoevolve.mega` command's strategy selection, helping it decide which quality domains to target and what mutation strategies to apply. When `/evo-stats` reports fitness stagnation in a domain, the autoevolve system increases mutation pressure in that domain.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unmonitored evolution. Every evolution cycle must produce measurable, reported statistics. No blind evolution -- every generation must demonstrate its fitness contribution through quantified metrics.
 - **NO DOUBTS**: Full investigation before declaring fitness improvements. Statistics are computed from comprehensive data sources, not sampled or approximated. All reported metrics are deterministic and reproducible.
 
-The evolution statistics system embodies the [NABLA Infinity](/glossary/nabla-infinity/) principle of provenance mandatory -- every fitness claim is traceable to specific quality domain measurements, and every trend projection includes explicit confidence intervals and methodology attribution.
+The evolution statistics system embodies the [NABLA Infinity](@/glossary/nabla-infinity.md) principle of provenance mandatory -- every fitness claim is traceable to specific quality domain measurements, and every trend projection includes explicit confidence intervals and methodology attribution.
 
 ## Related Commands
 
-- [/evolve](/commands/evolve/) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](/glossary/observability/)
-- [/evolve-enforced](/commands/evolve-enforced/) - Evolution with mandatory QDP reduction
-- [/evolve-patterns](/commands/evolve-patterns/) - Pattern evolution through meta-evolution analysis
-- [/evolve-quality-gates](/commands/evolve-quality-gates/) - Quality gate evolution for warnings, tests and static analysis
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/evolve](@/commands/evolve.md) - Living AIAD ecosystem evolution with 5-phase cycle and GitLab [observability](@/glossary/observability.md)
+- [/evolve-enforced](@/commands/evolve-enforced.md) - Evolution with mandatory QDP reduction
+- [/evolve-patterns](@/commands/evolve-patterns.md) - Pattern evolution through meta-evolution analysis
+- [/evolve-quality-gates](@/commands/evolve-quality-gates.md) - Quality gate evolution for warnings, tests and static analysis
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -225,4 +225,4 @@ The evolution statistics system embodies the [NABLA Infinity](/glossary/nabla-in
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

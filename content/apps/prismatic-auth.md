@@ -24,13 +24,13 @@ image_alt = "Prismatic Auth - Prismatic Platform"
 
 ## Abstract
 
-Prismatic Auth provides the platform's authentication, authorization, and access control infrastructure, implementing role-based access control ([RBAC](/glossary/rbac/)) with four predefined roles, API key lifecycle management with per-key [rate limiting](/glossary/rate-limiting/), session handling with [JWT](/glossary/jwt/) token refresh, and fine-grained permission enforcement through a [Phoenix](/glossary/phoenix/) [Plug](/glossary/plug/) pipeline. Every HTTP request to the platform -- whether to the [Prismatic Web](/apps/prismatic-web/) dashboards or the [Prismatic API](/apps/prismatic-api/) endpoints -- passes through the Auth pipeline, which validates credentials, resolves permissions, enforces rate limits, and logs all authentication events to an immutable [audit trail](/glossary/audit-trail/). The system supports password authentication with bcrypt hashing (cost factor 12), TOTP-based multi-factor authentication, and API key authentication with configurable expiration and permission scoping. Security measures include brute force protection with account lockout after five failed attempts, HMAC-SHA256 token signing with rotating keys, and configurable session idle timeouts.
+Prismatic Auth provides the platform's authentication, authorization, and access control infrastructure, implementing role-based access control ([RBAC](@/glossary/rbac.md)) with four predefined roles, API key lifecycle management with per-key [rate limiting](@/glossary/rate-limiting.md), session handling with [JWT](@/glossary/jwt.md) token refresh, and fine-grained permission enforcement through a [Phoenix](@/glossary/phoenix.md) [Plug](@/glossary/plug.md) pipeline. Every HTTP request to the platform -- whether to the [Prismatic Web](@/apps/prismatic-web.md) dashboards or the [Prismatic API](@/apps/prismatic-api.md) endpoints -- passes through the Auth pipeline, which validates credentials, resolves permissions, enforces rate limits, and logs all authentication events to an immutable [audit trail](@/glossary/audit-trail.md). The system supports password authentication with bcrypt hashing (cost factor 12), TOTP-based multi-factor authentication, and API key authentication with configurable expiration and permission scoping. Security measures include brute force protection with account lockout after five failed attempts, HMAC-SHA256 token signing with rotating keys, and configurable session idle timeouts.
 
 ## 1. Introduction
 
 ### 1.1 Problem Statement
 
-A platform exposing sensitive intelligence data through web dashboards and [REST API](/glossary/rest-api/)s requires authentication and authorization that is both rigorous and ergonomic. Without centralized auth infrastructure, each application would implement its own credential validation, permission checking, and session management, leading to inconsistent security postures and potential bypass vulnerabilities. The intelligence domain demands that every data access is authenticated, authorized, and audited.
+A platform exposing sensitive intelligence data through web dashboards and [REST API](@/glossary/rest-api.md)s requires authentication and authorization that is both rigorous and ergonomic. Without centralized auth infrastructure, each application would implement its own credential validation, permission checking, and session management, leading to inconsistent security postures and potential bypass vulnerabilities. The intelligence domain demands that every data access is authenticated, authorized, and audited.
 
 Prismatic Auth centralizes all authentication and authorization into a single application that other platform components consume through a consistent Plug pipeline. Security is not bolted on -- it is foundational.
 
@@ -79,8 +79,8 @@ HTTP Request
 | `PrismaticAuth.RBAC.Permissions` | Permission catalog and hierarchical permission resolution |
 | `PrismaticAuth.RBAC.PolicyEngine` | Attribute-based access control for complex authorization rules |
 | `PrismaticAuth.Sessions.TokenManager` | JWT token creation, validation, and refresh |
-| `PrismaticAuth.Sessions.SessionStore` | Session persistence in [ETS](/glossary/ets/) with [PostgreSQL](/glossary/postgresql/) backup |
-| `PrismaticAuth.APIKeys.KeyManager` | API key CRUD operations with [encryption at rest](/glossary/encryption-at-rest/) |
+| `PrismaticAuth.Sessions.SessionStore` | Session persistence in [ETS](@/glossary/ets.md) with [PostgreSQL](@/glossary/postgresql.md) backup |
+| `PrismaticAuth.APIKeys.KeyManager` | API key CRUD operations with [encryption at rest](@/glossary/encryption-at-rest.md) |
 | `PrismaticAuth.APIKeys.KeyValidator` | Key validation, permission resolution, and rate limiting |
 | `PrismaticAuth.Audit.EventLogger` | Structured audit event logging for compliance |
 
@@ -205,22 +205,22 @@ config :prismatic_auth,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Storage](/apps/prismatic-storage/) | Session, API key, and user persistence |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Authentication event [metrics](/glossary/metrics/) |
-| [Prismatic Audit](/apps/prismatic-audit/) | Audit log persistence for compliance |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Session, API key, and user persistence |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Authentication event [metrics](@/glossary/metrics.md) |
+| [Prismatic Audit](@/apps/prismatic-audit.md) | Audit log persistence for compliance |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Web](/apps/prismatic-web/) | Dashboard authentication |
-| [Prismatic API](/apps/prismatic-api/) | API endpoint authorization |
-| [Prismatic HAWKEYE](/apps/prismatic-hawkeye/) | Dashboard access control |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | Audit log compliance data |
+| [Prismatic Web](@/apps/prismatic-web.md) | Dashboard authentication |
+| [Prismatic API](@/apps/prismatic-api.md) | API endpoint authorization |
+| [Prismatic HAWKEYE](@/apps/prismatic-hawkeye.md) | Dashboard access control |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | Audit log compliance data |
 
 ### 4.3 Inter-Process Communication
 
-The SessionStore [GenServer](/glossary/genserver/) owns the ETS table for session data; Plugs read from this table directly (lock-free concurrent reads). The Audit EventLogger buffers events asynchronously, preventing audit logging from blocking the request path. Rate limiter state is maintained in ETS with atomic update operations.
+The SessionStore [GenServer](@/glossary/genserver.md) owns the ETS table for session data; Plugs read from this table directly (lock-free concurrent reads). The Audit EventLogger buffers events asynchronously, preventing audit logging from blocking the request path. Rate limiter state is maintained in ETS with atomic update operations.
 
 ### 4.4 External Integrations
 
@@ -277,7 +277,7 @@ Security measures implemented: bcrypt with cost factor 12, HMAC-SHA256 with rota
 
 ### 8.1 Deployment
 
-Deploys as part of the umbrella [release](/glossary/release/). Requires PostgreSQL for persistent session and API key storage. Session state is ETS-backed with periodic PostgreSQL synchronization.
+Deploys as part of the umbrella [release](@/glossary/release.md). Requires PostgreSQL for persistent session and API key storage. Session state is ETS-backed with periodic PostgreSQL synchronization.
 
 ### 8.2 Monitoring
 
@@ -298,23 +298,23 @@ Planned enhancements include OAuth 2.0 provider integration for external identit
 
 ## References
 
-- [Prismatic Web](/apps/prismatic-web/) -- Dashboard authentication consumer
-- [Prismatic API](/apps/prismatic-api/) -- API authorization consumer
-- [Prismatic Audit](/apps/prismatic-audit/) -- Audit trail persistence
-- [Prismatic Compliance](/apps/prismatic-compliance/) -- Compliance reporting from auth data
+- [Prismatic Web](@/apps/prismatic-web.md) -- Dashboard authentication consumer
+- [Prismatic API](@/apps/prismatic-api.md) -- API authorization consumer
+- [Prismatic Audit](@/apps/prismatic-audit.md) -- Audit trail persistence
+- [Prismatic Compliance](@/apps/prismatic-compliance.md) -- Compliance reporting from auth data
 - [bcrypt_elixir](https://hexdocs.pm/bcrypt_elixir/) -- Password hashing library
 
 ## Related Agents
 
-- [GitLab Security Specialist Agent](/agents/gitlab-security-specialist-agent/) -- Audits authentication implementation for security vulnerabilities including credential storage and token management
-- [API Gateway Specialist Agent](/agents/api-gateway-specialist-agent/) -- Reviews API key lifecycle management, rate limiting configuration, and the Plug authentication pipeline
-- [Deployment Commander Agent](/agents/deployment-commander-agent/) -- Manages secure deployment of auth infrastructure including token signing key rotation and session store migration
+- [GitLab Security Specialist Agent](@/agents/gitlab-security-specialist-agent.md) -- Audits authentication implementation for security vulnerabilities including credential storage and token management
+- [API Gateway Specialist Agent](@/agents/api-gateway-specialist-agent.md) -- Reviews API key lifecycle management, rate limiting configuration, and the Plug authentication pipeline
+- [Deployment Commander Agent](@/agents/deployment-commander-agent.md) -- Manages secure deployment of auth infrastructure including token signing key rotation and session store migration
 
 ## Related Capabilities
 
-- [Color Teams](/capabilities/color-teams/) -- Red Team simulates credential attacks and privilege escalation while Blue Team validates defensive posture of the auth pipeline
-- [Quality Gates](/capabilities/quality-gates/) -- Enforces comprehensive test coverage for all authentication paths, permission checks, and brute force protection logic
-- [Session Discipline](/capabilities/session-discipline/) -- Governs session management standards including idle timeout enforcement and maximum concurrent session limits
+- [Color Teams](@/capabilities/color-teams.md) -- Red Team simulates credential attacks and privilege escalation while Blue Team validates defensive posture of the auth pipeline
+- [Quality Gates](@/capabilities/quality-gates.md) -- Enforces comprehensive test coverage for all authentication paths, permission checks, and brute force protection logic
+- [Session Discipline](@/capabilities/session-discipline.md) -- Governs session management standards including idle timeout enforcement and maximum concurrent session limits
 
 ---
 
@@ -323,4 +323,4 @@ Planned enhancements include OAuth 2.0 provider integration for external identit
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

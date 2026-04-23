@@ -40,13 +40,13 @@ image_alt = "Conclusions - Prismatic Platform"
 
 A **conclusion** is an evidence-based determination derived through a structured reasoning process, representing the synthesis of multiple signals, observations, and analyses into a definitive finding with a measured confidence level. In rigorous systems, conclusions are not opinions or guesses -- they are the products of disciplined epistemic processes that track provenance, weigh evidence, account for contradictions, and quantify uncertainty.
 
-Within the Prismatic Platform, conclusions are first-class entities in the epistemic pipeline. Every conclusion carries metadata about its evidence chain, confidence score, validation status, and the reasoning framework that produced it. The platform distinguishes sharply between conclusions (validated through the [Trinity Gate](/glossary/trinity-gate/)) and mere assertions (unvalidated claims).
+Within the Prismatic Platform, conclusions are first-class entities in the epistemic pipeline. Every conclusion carries metadata about its evidence chain, confidence score, validation status, and the reasoning framework that produced it. The platform distinguishes sharply between conclusions (validated through the [Trinity Gate](@/glossary/trinity-gate.md)) and mere assertions (unvalidated claims).
 
 ## Overview
 
 The concept of conclusions in software systems extends far beyond simple if-then logic. Modern platforms deal with ambiguous data, contradictory signals, incomplete information, and evolving contexts. Drawing sound conclusions in such environments requires formal methodology.
 
-The Prismatic Platform approaches conclusions through the lens of its [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework. Seven axioms govern how conclusions are formed:
+The Prismatic Platform approaches conclusions through the lens of its [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework. Seven axioms govern how conclusions are formed:
 
 1. **Signal Plurality** -- A conclusion requires at least two independent signals
 2. **Contradiction Preservation** -- Contradictory evidence is preserved alongside the conclusion, not discarded
@@ -66,7 +66,7 @@ The formal treatment of conclusions in the Prismatic Platform draws from multipl
 
 Traditional software systems treat conclusions as boolean outcomes: a test passes or fails, a threshold is exceeded or not, a condition is true or false. This binary model is adequate for deterministic domains but inadequate for the ambiguous, signal-rich environments where the Prismatic Platform operates. OSINT intelligence, security assessments, and due diligence investigations produce conclusions that exist on a continuum of certainty, not at binary endpoints.
 
-The platform's approach synthesizes three traditions: **deductive reasoning** (conclusions that follow necessarily from premises), **inductive reasoning** (conclusions that are probable given accumulated evidence), and **abductive reasoning** (conclusions that represent the best explanation for observed evidence). The [QEVE](/glossary/qeve/) verification engine operationalizes all three through its five-stage pipeline.
+The platform's approach synthesizes three traditions: **deductive reasoning** (conclusions that follow necessarily from premises), **inductive reasoning** (conclusions that are probable given accumulated evidence), and **abductive reasoning** (conclusions that represent the best explanation for observed evidence). The [QEVE](@/glossary/qeve.md) verification engine operationalizes all three through its five-stage pipeline.
 
 ## Technical Details
 
@@ -418,7 +418,7 @@ The 120 OSINT tools produce raw intelligence that is fed into the conclusion pip
 
 ### Quality Gate Verdicts
 
-Every [quality gate](/glossary/quality-gates/) produces a conclusion: the code either meets the quality standard or it does not. These conclusions are derived from multiple signals (compilation warnings, [Credo](/glossary/credo/) violations, [Dialyzer](/glossary/dialyzer/) errors, test coverage, performance benchmarks). The quality gate conclusion must pass the Trinity Gate, ensuring that the verdict is structurally consistent (no contradictory metrics), logically consistent (the reasoning from metrics to verdict follows valid inference), and formally necessary (the thresholds are properly calibrated).
+Every [quality gate](@/glossary/quality-gates.md) produces a conclusion: the code either meets the quality standard or it does not. These conclusions are derived from multiple signals (compilation warnings, [Credo](@/glossary/credo.md) violations, [Dialyzer](@/glossary/dialyzer.md) errors, test coverage, performance benchmarks). The quality gate conclusion must pass the Trinity Gate, ensuring that the verdict is structurally consistent (no contradictory metrics), logically consistent (the reasoning from metrics to verdict follows valid inference), and formally necessary (the thresholds are properly calibrated).
 
 ### Agent Decision Making
 
@@ -436,11 +436,11 @@ The 530 autonomous agents make thousands of decisions during platform operation.
 
 ## Best Practices
 
-1. **Never discard contradictory evidence** -- Contradictions are information. A conclusion that ignores contradictions is less trustworthy than one that explicitly acknowledges them. The [contradiction preservation](/glossary/contradiction-preservation/) axiom encodes this principle.
+1. **Never discard contradictory evidence** -- Contradictions are information. A conclusion that ignores contradictions is less trustworthy than one that explicitly acknowledges them. The [contradiction preservation](@/glossary/contradiction-preservation.md) axiom encodes this principle.
 
 2. **Track confidence decay** -- Conclusions based on old evidence should have reduced confidence. Implement explicit time-based decay models using exponential or linear decay functions.
 
-3. **Require signal plurality** -- A conclusion based on a single signal is a guess. Require at least two independent signals for any operational conclusion. The [signal plurality](/glossary/signal-plurality/) axiom is the foundation of sound conclusions.
+3. **Require signal plurality** -- A conclusion based on a single signal is a guess. Require at least two independent signals for any operational conclusion. The [signal plurality](@/glossary/signal-plurality.md) axiom is the foundation of sound conclusions.
 
 4. **Make conclusions immutable** -- Once derived, a conclusion should not be modified. Instead, derive a new conclusion with updated evidence and let the new one supersede the old. This preserves the audit trail.
 
@@ -456,7 +456,7 @@ The 530 autonomous agents make thousands of decisions during platform operation.
 
 1. **Premature conclusions** -- Reaching a conclusion before sufficient evidence has been gathered. This violates the signal plurality axiom and produces fragile conclusions.
 
-2. **Confirmation bias** -- Weighting evidence that supports the expected conclusion more heavily than contradictory evidence. The contradiction preservation axiom guards against this. See [Cherry Pick Evidence](/glossary/cherry-pick-evidence/) for the specific anti-pattern.
+2. **Confirmation bias** -- Weighting evidence that supports the expected conclusion more heavily than contradictory evidence. The contradiction preservation axiom guards against this. See [Cherry Pick Evidence](@/glossary/cherry-pick-evidence.md) for the specific anti-pattern.
 
 3. **Stale conclusions** -- Continuing to rely on conclusions whose evidence has aged beyond relevance. Time decay modeling prevents this.
 
@@ -482,7 +482,7 @@ Security ratings (A-F) are conclusions derived from attack surface analysis. The
 
 ### Automated Quality Verdicts
 
-The pre-commit quality gate produces a pass/fail conclusion for every code change. This conclusion is derived from compilation analysis, static analysis ([Credo](/glossary/credo/), [Dialyzer](/glossary/dialyzer/)), test results, coverage metrics, and performance benchmarks.
+The pre-commit quality gate produces a pass/fail conclusion for every code change. This conclusion is derived from compilation analysis, static analysis ([Credo](@/glossary/credo.md), [Dialyzer](@/glossary/dialyzer.md)), test results, coverage metrics, and performance benchmarks.
 
 ### Incident Root Cause Analysis
 
@@ -490,26 +490,26 @@ When a system incident occurs, the automated diagnostics pipeline gathers teleme
 
 ## Related Concepts
 
-- [Evidence](/glossary/evidence/) -- The raw input from which conclusions are derived
-- [Confidence Scoring](/glossary/confidence-scoring/) -- The quantification of conclusion certainty
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- The reasoning methodology that produces conclusions
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) -- A probabilistic approach influencing the platform's conclusion model
-- [Trinity Gate](/glossary/trinity-gate/) -- The three-layer verification system for conclusions
-- [Verification](/glossary/verification/) -- The process of confirming conclusion validity
-- [Validation](/glossary/validation/) -- The process of ensuring conclusions meet requirements
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Maintaining conflicting evidence alongside conclusions
-- [Signal Plurality](/glossary/signal-plurality/) -- The requirement for multiple independent signals
-- [Decisive Action](/glossary/decisive-action/) -- Acting on conclusions once confidence thresholds are met
+- [Evidence](@/glossary/evidence.md) -- The raw input from which conclusions are derived
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- The quantification of conclusion certainty
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- The reasoning methodology that produces conclusions
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) -- A probabilistic approach influencing the platform's conclusion model
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The three-layer verification system for conclusions
+- [Verification](@/glossary/verification.md) -- The process of confirming conclusion validity
+- [Validation](@/glossary/validation.md) -- The process of ensuring conclusions meet requirements
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Maintaining conflicting evidence alongside conclusions
+- [Signal Plurality](@/glossary/signal-plurality.md) -- The requirement for multiple independent signals
+- [Decisive Action](@/glossary/decisive-action.md) -- Acting on conclusions once confidence thresholds are met
 
 ## See Also
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework governing conclusion derivation
-- [Cherry Pick Evidence](/glossary/cherry-pick-evidence/) -- Anti-pattern of selective evidence that corrupts conclusions
-- [QEVE](/glossary/qeve/) -- Verification engine that validates conclusion robustness
-- [Conflicting Signals](/glossary/conflicting-signals/) -- How the platform handles contradictory evidence
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- The principle that conclusions must be evidence-based
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Minimum confidence levels for different contexts
-- [Audit Trail](/glossary/audit-trail/) -- How conclusion provenance is tracked
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework governing conclusion derivation
+- [Cherry Pick Evidence](@/glossary/cherry-pick-evidence.md) -- Anti-pattern of selective evidence that corrupts conclusions
+- [QEVE](@/glossary/qeve.md) -- Verification engine that validates conclusion robustness
+- [Conflicting Signals](@/glossary/conflicting-signals.md) -- How the platform handles contradictory evidence
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- The principle that conclusions must be evidence-based
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Minimum confidence levels for different contexts
+- [Audit Trail](@/glossary/audit-trail.md) -- How conclusion provenance is tracked
 - Glossary Index -- Complete listing of all platform concepts
 
 ---
@@ -519,4 +519,4 @@ When a system incident occurs, the automated diagnostics pipeline gathers teleme
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

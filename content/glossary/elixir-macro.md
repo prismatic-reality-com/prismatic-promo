@@ -38,7 +38,7 @@ An **Elixir Macro** is a compile-time code transformation mechanism that allows 
 
 Unlike functions which operate on values at runtime, macros operate on code structure at compile time. When the Elixir compiler encounters a macro call, it executes the macro immediately and replaces the call site with the generated AST. This means macros can inspect the structure of their arguments (variable names, operators, nested expressions) and generate entirely different code based on that structure.
 
-In the [Prismatic Platform](/glossary/aiad/), macros are extensively used for creating self-registering systems where modules automatically register themselves with central registries at compile time. The OSINT tool registration system, AIAD agent discovery, and Academy topic registration all use `@after_compile` hooks combined with macros to extract configuration from compiled bytecode and populate ETS registries during application startup.
+In the [Prismatic Platform](@/glossary/aiad.md), macros are extensively used for creating self-registering systems where modules automatically register themselves with central registries at compile time. The OSINT tool registration system, AIAD agent discovery, and Academy topic registration all use `@after_compile` hooks combined with macros to extract configuration from compiled bytecode and populate ETS registries during application startup.
 
 ## Technical Deep Dive
 
@@ -484,17 +484,17 @@ end
 
 ## Related Concepts
 
-- [Elixir](/glossary/elixir/) - Programming language providing the macro system
-- [Behaviour Pattern](/glossary/behaviour-pattern/) - Often combined with macros for interface generation
-- [AST](/glossary/ast/) - Abstract syntax tree that macros manipulate
+- [Elixir](@/glossary/elixir.md) - Programming language providing the macro system
+- [Behaviour Pattern](@/glossary/behaviour-pattern.md) - Often combined with macros for interface generation
+- [AST](@/glossary/ast.md) - Abstract syntax tree that macros manipulate
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture using macro patterns
-- [Apps](/apps/) - Applications using self-registering macro systems
-- [OSINT Core](/apps/prismatic-osint-core/) - Extensive macro-based tool registration
-- [Academy](/academy/) - Topic registration via macros
-- [AIAD](/glossary/aiad/) - Agent standard using macro-based discovery
+- [Architecture](@/architecture/_index.md) - Platform architecture using macro patterns
+- [Apps](@/apps/_index.md) - Applications using self-registering macro systems
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Extensive macro-based tool registration
+- [Academy](@/academy/_index.md) - Topic registration via macros
+- [AIAD](@/glossary/aiad.md) - Agent standard using macro-based discovery
 
 ---
 
@@ -503,4 +503,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

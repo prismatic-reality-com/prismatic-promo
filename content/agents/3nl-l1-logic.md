@@ -28,30 +28,30 @@ image_alt = "3nl-l1-logic - Prismatic Platform"
 
 ## Overview
 
-The [3NL](/glossary/three-nl/) L1 Logic agent operates as an L3 [strategic command](/glossary/strategic-command/) agent providing the symbolic reasoning layer of the Three-Layer Neural-Logical-Linguistic (3NL) framework within the Prismatic Platform. This agent implements formal logic, propositional calculus, predicate logic, and [theorem proving](/glossary/theorem-proving/) capabilities that enable the platform to derive conclusions through rigorous deductive reasoning. Where neural approaches rely on [pattern matching](/glossary/pattern-matching/) and linguistic approaches on semantic interpretation, L1 Logic provides mathematical certainty.
+The [3NL](@/glossary/three-nl.md) L1 Logic agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent providing the symbolic reasoning layer of the Three-Layer Neural-Logical-Linguistic (3NL) framework within the Prismatic Platform. This agent implements formal logic, propositional calculus, predicate logic, and [theorem proving](@/glossary/theorem-proving.md) capabilities that enable the platform to derive conclusions through rigorous deductive reasoning. Where neural approaches rely on [pattern matching](@/glossary/pattern-matching.md) and linguistic approaches on semantic interpretation, L1 Logic provides mathematical certainty.
 
-Symbolic reasoning is essential for domains where conclusions must be provably correct rather than probabilistically likely. The L1 Logic agent handles tasks such as verifying that [supervision tree](/glossary/supervision-tree/) configurations satisfy liveness properties, proving that data flow invariants hold across pipeline stages, and validating that access control policies enforce the intended authorization model. These proofs integrate with the [QEVE](/glossary/qeve/) (Quantum-Epistemic Verification Engine) framework, which combines [Lean4](/glossary/lean4/) [formal verification](/glossary/formal-verification/) with Monte Carlo simulation for comprehensive correctness assurance.
+Symbolic reasoning is essential for domains where conclusions must be provably correct rather than probabilistically likely. The L1 Logic agent handles tasks such as verifying that [supervision tree](@/glossary/supervision-tree.md) configurations satisfy liveness properties, proving that data flow invariants hold across pipeline stages, and validating that access control policies enforce the intended authorization model. These proofs integrate with the [QEVE](@/glossary/qeve.md) (Quantum-Epistemic Verification Engine) framework, which combines [Lean4](@/glossary/lean4.md) [formal verification](@/glossary/formal-verification.md) with Monte Carlo simulation for comprehensive correctness assurance.
 
 The distinction between the L1 Logic agent and probabilistic reasoning systems is fundamental. A probabilistic system can report that a property holds with 99.7% confidence. The L1 Logic agent, when it succeeds, reports that a property holds necessarily -- the conclusion follows from the premises with logical certainty, and no amount of additional evidence can overturn a valid proof. This certainty comes at a cost: the L1 Logic agent can only reason about domains that admit formal specification, and it will report "unprovable" rather than guessing when a proposition exceeds its deductive capacity. This epistemic honesty -- knowing the limits of what can be proven -- is itself a valuable output that other reasoning layers can act upon.
 
 ## Operational Domain
 
-The L1 Logic agent operates within the 3NL framework as the formal reasoning engine. It receives [inference](/glossary/inference/) requests from the 3NL Coordinator, applies symbolic reasoning techniques to derive conclusions, and returns results with proof certificates that establish the logical chain from premises to conclusions. This agent is particularly engaged for verification tasks, consistency checking, and any scenario where probabilistic reasoning is insufficient.
+The L1 Logic agent operates within the 3NL framework as the formal reasoning engine. It receives [inference](@/glossary/inference.md) requests from the 3NL Coordinator, applies symbolic reasoning techniques to derive conclusions, and returns results with proof certificates that establish the logical chain from premises to conclusions. This agent is particularly engaged for verification tasks, consistency checking, and any scenario where probabilistic reasoning is insufficient.
 
-The operational scope covers four primary reasoning modes. Forward-chaining inference derives new conclusions from existing facts by systematically applying inference rules until no new conclusions can be generated or a target conclusion is reached. Backward-chaining inference starts from a goal proposition and works backward to determine what premises would be required to establish it. Consistency checking evaluates a set of propositions for logical contradictions, supporting the NABLA [Contradiction Preservation](/glossary/contradiction-preservation/) axiom by detecting when contradictions exist without resolving them. Formal proof construction builds machine-verifiable proof artifacts through integration with Lean4, producing certificates that can be independently validated.
+The operational scope covers four primary reasoning modes. Forward-chaining inference derives new conclusions from existing facts by systematically applying inference rules until no new conclusions can be generated or a target conclusion is reached. Backward-chaining inference starts from a goal proposition and works backward to determine what premises would be required to establish it. Consistency checking evaluates a set of propositions for logical contradictions, supporting the NABLA [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom by detecting when contradictions exist without resolving them. Formal proof construction builds machine-verifiable proof artifacts through integration with Lean4, producing certificates that can be independently validated.
 
 ## Key Capabilities
 
 - **Propositional and predicate logic** implementing classical logical inference with support for quantifiers, modal operators, and temporal logic for reasoning about system behavior over time, enabling verification of invariants across state transitions
 - **Theorem proving integration** connecting with Lean4 formal verification for machine-checked proofs of platform invariants, supervision tree properties, and data flow correctness, with proof certificates stored as auditable artifacts
-- **Consistency checking** validating that sets of propositions derived from multiple sources do not contain logical contradictions, supporting the NABLA [Contradiction Preservation](/glossary/contradiction-preservation/) axiom by detecting and preserving contradictions rather than silently discarding conflicting evidence
-- **Rule-based inference** applying platform-specific rule sets to derive conclusions from facts, supporting the [Trinity Gate](/glossary/trinity-gate/)'s logical consistency check layer with configurable rule precedence and conflict resolution strategies
+- **Consistency checking** validating that sets of propositions derived from multiple sources do not contain logical contradictions, supporting the NABLA [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom by detecting and preserving contradictions rather than silently discarding conflicting evidence
+- **Rule-based inference** applying platform-specific rule sets to derive conclusions from facts, supporting the [Trinity Gate](@/glossary/trinity-gate.md)'s logical consistency check layer with configurable rule precedence and conflict resolution strategies
 - **Proof certificate generation** producing verifiable proof artifacts that document the complete reasoning chain from premises to conclusions, enabling independent verification by external auditors or automated validation systems
 - **Fact extraction and management** converting structured and semi-structured data into subject-predicate-object triplets suitable for logical reasoning, maintaining a knowledge base of extracted facts with provenance tracking
 
 ## Technical Architecture
 
-The L1 Logic agent is implemented as an [OTP](/glossary/otp/) application with a fact store backed by [ETS](/glossary/ets/) for high-performance lookups and a rule engine that applies configurable inference strategies. The agent exposes its capabilities through a [GenServer](/glossary/genserver/) interface that accepts inference requests and returns proof-backed conclusions.
+The L1 Logic agent is implemented as an [OTP](@/glossary/otp.md) application with a fact store backed by [ETS](@/glossary/ets.md) for high-performance lookups and a rule engine that applies configurable inference strategies. The agent exposes its capabilities through a [GenServer](@/glossary/genserver.md) interface that accepts inference requests and returns proof-backed conclusions.
 
 ```elixir
 defmodule Prismatic3NL.Layers.L1Logic do
@@ -116,12 +116,12 @@ The authority scope explicitly excludes write operations to fact stores maintain
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [3nl-coordinator](/agents/3nl-coordinator/) | Coordination Hub | Receives inference requests and returns proof-backed conclusions |
-| [3nl-l2-neural](/agents/3nl-l2-neural/) | Peer Layer | Provides pattern recognition where formal proof is insufficient |
-| [3nl-l3-linguistic](/agents/3nl-l3-linguistic/) | Peer Layer | Provides complementary linguistic reasoning for multi-layer synthesis |
-| [3nl-l7-transcendent](/agents/3nl-l7-transcendent/) | Transcendent Layer | Consciousness-guided logical reasoning integration |
-| [bayesian-analyst](/agents/bayesian-analyst/) | Probabilistic Complement | Supplies probabilistic reasoning where formal proof is not feasible |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Schema Validation | Validates specification consistency through logical constraint checking |
+| [3nl-coordinator](@/agents/3nl-coordinator.md) | Coordination Hub | Receives inference requests and returns proof-backed conclusions |
+| [3nl-l2-neural](@/agents/3nl-l2-neural.md) | Peer Layer | Provides pattern recognition where formal proof is insufficient |
+| [3nl-l3-linguistic](@/agents/3nl-l3-linguistic.md) | Peer Layer | Provides complementary linguistic reasoning for multi-layer synthesis |
+| [3nl-l7-transcendent](@/agents/3nl-l7-transcendent.md) | Transcendent Layer | Consciousness-guided logical reasoning integration |
+| [bayesian-analyst](@/agents/bayesian-analyst.md) | Probabilistic Complement | Supplies probabilistic reasoning where formal proof is not feasible |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Schema Validation | Validates specification consistency through logical constraint checking |
 
 ## Performance Characteristics
 
@@ -136,16 +136,16 @@ The authority scope explicitly excludes write operations to fact stores maintain
 
 ## Enforcement
 
-All L1 Logic operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Logical conclusions must include complete proof chains from premises to conclusions. Unsound reasoning or invalid proof steps are rejected immediately. The L1 Logic agent never produces conclusions without formal justification, and any claim labeled as "logically proven" must have a machine-verifiable proof certificate. Proof failures are reported transparently, never silenced. The [Trinity Gate](/glossary/trinity-gate/)'s logical consistency layer relies directly on this agent's output, making proof integrity a platform-critical concern. Any degradation in proof quality would compromise the entire epistemic validation pipeline.
+All L1 Logic operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Logical conclusions must include complete proof chains from premises to conclusions. Unsound reasoning or invalid proof steps are rejected immediately. The L1 Logic agent never produces conclusions without formal justification, and any claim labeled as "logically proven" must have a machine-verifiable proof certificate. Proof failures are reported transparently, never silenced. The [Trinity Gate](@/glossary/trinity-gate.md)'s logical consistency layer relies directly on this agent's output, making proof integrity a platform-critical concern. Any degradation in proof quality would compromise the entire epistemic validation pipeline.
 
 ## Related Resources
 
-- [3NL Framework](/glossary/three-nl/) -- The multi-paradigm reasoning architecture
-- [QEVE](/glossary/qeve/) -- Quantum-Epistemic Verification Engine combining Lean4 proofs with Monte Carlo simulation
-- [Lean4](/glossary/lean4/) -- Formal verification language used for machine-checked proofs
-- [Trinity Gate](/glossary/trinity-gate/) -- Four-layer validation system dependent on L1 logical consistency
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing axiom enforcement
-- [Architecture Overview](/architecture/) -- Platform architecture and design patterns
+- [3NL Framework](@/glossary/three-nl.md) -- The multi-paradigm reasoning architecture
+- [QEVE](@/glossary/qeve.md) -- Quantum-Epistemic Verification Engine combining Lean4 proofs with Monte Carlo simulation
+- [Lean4](@/glossary/lean4.md) -- Formal verification language used for machine-checked proofs
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Four-layer validation system dependent on L1 logical consistency
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing axiom enforcement
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture and design patterns
 
 ---
 
@@ -154,4 +154,4 @@ All L1 Logic operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-m
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

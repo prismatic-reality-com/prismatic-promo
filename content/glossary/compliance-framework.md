@@ -24,7 +24,7 @@ A compliance framework is a structured set of guidelines, regulations, and contr
 
 Compliance frameworks serve as the bridge between abstract security goals and concrete, measurable controls. They translate legislative intent ("organizations must protect personal data") into specific technical and organizational requirements ("implement encryption for data at rest and in transit, maintain access logs for 12 months, conduct annual penetration testing"). This translation is critical because it provides a clear, auditable standard against which an organization's security posture can be measured.
 
-The compliance landscape has grown increasingly complex as digital regulation expands globally. Organizations operating across jurisdictions must satisfy multiple overlapping frameworks simultaneously -- GDPR for EU data protection, NIS2 for network security, local regulations like the Czech ZKB, and industry standards like ISO 27001. This multi-framework reality demands automated assessment tools that can map technical findings to multiple regulatory requirements in parallel, which is precisely what [Prismatic Perimeter](/glossary/easm/) delivers.
+The compliance landscape has grown increasingly complex as digital regulation expands globally. Organizations operating across jurisdictions must satisfy multiple overlapping frameworks simultaneously -- GDPR for EU data protection, NIS2 for network security, local regulations like the Czech ZKB, and industry standards like ISO 27001. This multi-framework reality demands automated assessment tools that can map technical findings to multiple regulatory requirements in parallel, which is precisely what [Prismatic Perimeter](@/glossary/easm.md) delivers.
 
 ## Technical Deep Dive
 
@@ -305,7 +305,7 @@ curl -X POST http://localhost:4004/api/v1/perimeter/assess_compliance \
 
 ### Security Rating Contextualization
 
-[Security ratings](/glossary/security-rating/) (A-F) are contextualized against specific compliance frameworks:
+[Security ratings](@/glossary/security-rating.md) (A-F) are contextualized against specific compliance frameworks:
 
 | Rating | NIS2 Implication | ZKB Implication |
 |--------|-----------------|-----------------|
@@ -343,19 +343,19 @@ curl -X POST http://localhost:4004/api/v1/perimeter/assess_compliance \
 
 ## Related Concepts
 
-- [GDPR](/glossary/gdpr/) -- EU data protection regulation assessed by the platform
-- [NIS2](/glossary/nis2/) -- EU network and information security directive
-- [ZKB](/glossary/zkb/) -- Czech cybersecurity regulation
-- [Security Rating](/glossary/security-rating/) -- Technical score contextualized against compliance frameworks
-- [EASM](/glossary/easm/) -- External attack surface management providing compliance data
-- [CVE](/glossary/cve/) -- Vulnerability identifiers used in compliance assessments
+- [GDPR](@/glossary/gdpr.md) -- EU data protection regulation assessed by the platform
+- [NIS2](@/glossary/nis2.md) -- EU network and information security directive
+- [ZKB](@/glossary/zkb.md) -- Czech cybersecurity regulation
+- [Security Rating](@/glossary/security-rating.md) -- Technical score contextualized against compliance frameworks
+- [EASM](@/glossary/easm.md) -- External attack surface management providing compliance data
+- [CVE](@/glossary/cve.md) -- Vulnerability identifiers used in compliance assessments
 
 ## Further Reading
 
 - [NIS2 Directive Full Text](https://eur-lex.europa.eu/eli/dir/2022/2555) -- Official EU legislation
-- [Architecture](/architecture/) -- Compliance assessment architecture
-- [Apps](/apps/) -- Prismatic Perimeter compliance features
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Compliance assessment architecture
+- [Apps](@/apps/_index.md) -- Prismatic Perimeter compliance features
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -364,4 +364,4 @@ curl -X POST http://localhost:4004/api/v1/perimeter/assess_compliance \
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

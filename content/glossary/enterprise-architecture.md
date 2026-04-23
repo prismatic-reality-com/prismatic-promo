@@ -38,7 +38,7 @@ image_alt = "Enterprise Architecture - Prismatic Platform"
 
 **Enterprise architecture** (EA) is the discipline of designing, planning, and governing an organization's technology landscape to ensure alignment between business strategy, organizational capabilities, and technical implementation. It encompasses four interrelated domains: business architecture (processes, capabilities, organizational structure), data architecture (information models, data flows, storage strategies), application architecture (software systems, integration patterns, service boundaries), and technology architecture (infrastructure, platforms, deployment topology). Enterprise architecture provides the conceptual framework that prevents large-scale technology investments from becoming fragmented, duplicative, or misaligned with organizational goals.
 
-In the Prismatic Platform, enterprise architecture manifests as a 115-application [umbrella architecture](/glossary/umbrella-application/) organized through [domain-driven design](/glossary/domain-driven-design/) principles, governed by the [3NL framework](/glossary/3nl/), and evolved through generational planning that aligns technical capabilities with the platform's strategic mission of intelligence, security, and autonomous quality.
+In the Prismatic Platform, enterprise architecture manifests as a 115-application [umbrella architecture](@/glossary/umbrella-application.md) organized through [domain-driven design](@/glossary/domain-driven-design.md) principles, governed by the [3NL framework](@/glossary/3nl.md), and evolved through generational planning that aligns technical capabilities with the platform's strategic mission of intelligence, security, and autonomous quality.
 
 ## Overview
 
@@ -414,11 +414,11 @@ The Prismatic Platform's umbrella project structure is not merely a code organiz
 
 ### The 3NL Framework
 
-The [3NL framework](/glossary/3nl/) (3-Normalization Levels) provides the epistemological architecture layer -- governing how the platform reasons about knowledge, maintains belief consistency, and validates claims through the [Trinity Gate](/glossary/trinity-gate/). This is enterprise architecture applied not just to technical components but to the platform's cognitive infrastructure.
+The [3NL framework](@/glossary/3nl.md) (3-Normalization Levels) provides the epistemological architecture layer -- governing how the platform reasons about knowledge, maintains belief consistency, and validates claims through the [Trinity Gate](@/glossary/trinity-gate.md). This is enterprise architecture applied not just to technical components but to the platform's cognitive infrastructure.
 
 ### Domain-Driven Design in Practice
 
-Each domain in the Prismatic Platform follows [DDD](/glossary/domain-driven-design/) principles:
+Each domain in the Prismatic Platform follows [DDD](@/glossary/domain-driven-design.md) principles:
 
 - **Ubiquitous Language**: Each domain defines its own terminology. "Asset" means something different in Prismatic Perimeter (network-exposed resource) than in Prismatic Storage (persisted entity).
 - **Bounded Contexts**: Applications within a domain share a context map. Cross-domain communication happens through explicit anti-corruption layers.
@@ -431,7 +431,7 @@ The platform's architectural governance operates through multiple mechanisms:
 
 1. **Automated Dependency Analysis**: `mix supervisor deps --cycles` detects circular dependencies that violate the architectural layering.
 2. **Quality Gates**: `mix quality.gates` verifies that architectural constraints are maintained.
-3. **Pre-Commit Enforcement**: The [enforcement policy](/glossary/enforcement-policy/) system blocks commits that introduce architectural violations.
+3. **Pre-Commit Enforcement**: The [enforcement policy](@/glossary/enforcement-policy.md) system blocks commits that introduce architectural violations.
 4. **Generational Reviews**: Each generation includes an architectural review that assesses fitness function scores and identifies areas for improvement.
 
 ## Comparison with Alternatives
@@ -532,24 +532,24 @@ Enterprise architecture documentation -- maintained through ADRs, domain registr
 
 Enterprise architecture connects to foundational architectural and organizational concepts:
 
-- [Software Architecture](/glossary/software-architecture/) -- The technical subset of enterprise architecture focused on software system design
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- The methodology for decomposing complex domains into bounded contexts
-- [3NL](/glossary/3nl/) -- The epistemological architecture framework governing knowledge management
-- [Architectural Pattern](/glossary/architectural-pattern/) -- Reusable solutions to recurring architectural problems
-- [Layered Architecture](/glossary/layered-architecture/) -- Organizing system components into horizontal layers
-- [Microservices](/glossary/microservices/) -- An alternative decomposition strategy using network-isolated services
-- [Umbrella Application](/glossary/umbrella-application/) -- The Elixir mechanism for implementing EA domain boundaries
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP's architectural pattern for fault-tolerant process hierarchies
-- [OTP Application](/glossary/otp-application/) -- The BEAM's unit of architectural composition
-- [Ecosystem](/glossary/ecosystem/) -- The complete environment that enterprise architecture governs
+- [Software Architecture](@/glossary/software-architecture.md) -- The technical subset of enterprise architecture focused on software system design
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- The methodology for decomposing complex domains into bounded contexts
+- [3NL](@/glossary/3nl.md) -- The epistemological architecture framework governing knowledge management
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- Reusable solutions to recurring architectural problems
+- [Layered Architecture](@/glossary/layered-architecture.md) -- Organizing system components into horizontal layers
+- [Microservices](@/glossary/microservices.md) -- An alternative decomposition strategy using network-isolated services
+- [Umbrella Application](@/glossary/umbrella-application.md) -- The Elixir mechanism for implementing EA domain boundaries
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP's architectural pattern for fault-tolerant process hierarchies
+- [OTP Application](@/glossary/otp-application.md) -- The BEAM's unit of architectural composition
+- [Ecosystem](@/glossary/ecosystem.md) -- The complete environment that enterprise architecture governs
 
 ## See Also
 
 - Glossary Index -- Complete glossary of Prismatic Platform terminology
-- [Architecture Section](/architecture/) -- Detailed platform architecture documentation
-- [Enforcement Policy](/glossary/enforcement-policy/) -- How architectural standards are enforced
-- [Quality Gate](/glossary/quality-gate/) -- Automated architectural fitness verification
-- [Generation](/glossary/generation/) -- The evolutionary unit of architectural change
+- [Architecture Section](@/architecture/_index.md) -- Detailed platform architecture documentation
+- [Enforcement Policy](@/glossary/enforcement-policy.md) -- How architectural standards are enforced
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated architectural fitness verification
+- [Generation](@/glossary/generation.md) -- The evolutionary unit of architectural change
 
 ---
 
@@ -558,4 +558,4 @@ Enterprise architecture connects to foundational architectural and organizationa
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,17 +24,17 @@ image_alt = "Session Context Persistence - Prismatic Platform"
 
 ## Hypothesis
 
-We hypothesize that stack-based conversation state management with [ETS](/glossary/ets-table/)-backed persistence can achieve 99.5%+ context recovery accuracy across session boundaries, that the persistence overhead adds less than 5% to per-frame processing time, and that stack operations (push, pop, fork, checkpoint, goto) maintain sub-millisecond latency at conversation depths up to 500 frames.
+We hypothesize that stack-based conversation state management with [ETS](@/glossary/ets-table.md)-backed persistence can achieve 99.5%+ context recovery accuracy across session boundaries, that the persistence overhead adds less than 5% to per-frame processing time, and that stack operations (push, pop, fork, checkpoint, goto) maintain sub-millisecond latency at conversation depths up to 500 frames.
 
 ## Background
 
-The Prismatic Platform uses stack-based conversation mode for all Claude interactions, enforced as a P0 absolute requirement under the [Session Discipline](/glossary/session-discipline/) protocol. Every response creates an [immutable](/glossary/immutability/) frame containing the user input summary, assistant output summary, key assumptions, and key decisions. The active conversation state is defined exclusively by the current stack -- there is no ambient state or cross-branch contamination.
+The Prismatic Platform uses stack-based conversation mode for all Claude interactions, enforced as a P0 absolute requirement under the [Session Discipline](@/glossary/session-discipline.md) protocol. Every response creates an [immutable](@/glossary/immutability.md) frame containing the user input summary, assistant output summary, key assumptions, and key decisions. The active conversation state is defined exclusively by the current stack -- there is no ambient state or cross-branch contamination.
 
-The `StackConversation` [GenServer](/glossary/genserver/) (`apps/prismatic_claude/lib/prismatic_claude/stack_conversation.ex`, 1,128 lines) implements the [OTP](/glossary/otp/)-compliant stack infrastructure with [ETS](/glossary/ets-table/)-backed persistence to `.claude/stack-conversation/`. The `SessionLifecycle` [GenServer](/glossary/genserver/) (`apps/prismatic_claude/lib/prismatic_claude/session_lifecycle.ex`, 905 lines) manages session start/end hooks and triggers mandatory [autoevolve](/glossary/autoevolve/) evolution protocols.
+The `StackConversation` [GenServer](@/glossary/genserver.md) (`apps/prismatic_claude/lib/prismatic_claude/stack_conversation.ex`, 1,128 lines) implements the [OTP](@/glossary/otp.md)-compliant stack infrastructure with [ETS](@/glossary/ets-table.md)-backed persistence to `.claude/stack-conversation/`. The `SessionLifecycle` [GenServer](@/glossary/genserver.md) (`apps/prismatic_claude/lib/prismatic_claude/session_lifecycle.ex`, 905 lines) manages session start/end hooks and triggers mandatory [autoevolve](@/glossary/autoevolve.md) evolution protocols.
 
-The challenge is that LLM sessions are inherently stateless from the model's perspective -- each API call starts fresh. Context must be reconstructed from persisted state, and any reconstruction error compounds through subsequent interactions. A frame that records a wrong assumption will contaminate all downstream frames, violating the [provenance](/glossary/provenance-mandatory/) axiom of the [NABLA Infinity](/glossary/nabla-infinity/) framework.
+The challenge is that LLM sessions are inherently stateless from the model's perspective -- each API call starts fresh. Context must be reconstructed from persisted state, and any reconstruction error compounds through subsequent interactions. A frame that records a wrong assumption will contaminate all downstream frames, violating the [provenance](@/glossary/provenance-mandatory.md) axiom of the [NABLA Infinity](@/glossary/nabla-infinity.md) framework.
 
-This experiment measures the fidelity, performance, and reliability of the stack-based session management system under realistic conversation patterns, applying the [No Mercy](/glossary/no-mercy/) standard of zero tolerance for data loss or corruption.
+This experiment measures the fidelity, performance, and reliability of the stack-based session management system under realistic conversation patterns, applying the [No Mercy](@/glossary/no-mercy.md) standard of zero tolerance for data loss or corruption.
 
 ## Methodology
 
@@ -50,7 +50,7 @@ The test suite uses 200 synthetic conversations (average 87 frames each) generat
 
 ## Setup
 
-The stack persistence layer uses a [GenServer](/glossary/genserver/) with [ETS](/glossary/ets/) for fast in-memory access and asynchronous disk writes via [Task](/glossary/task-module/) processes for durability:
+The stack persistence layer uses a [GenServer](@/glossary/genserver.md) with [ETS](@/glossary/ets.md) for fast in-memory access and asynchronous disk writes via [Task](@/glossary/task-module.md) processes for durability:
 
 ```elixir
 defmodule PrismaticClaude.StackConversation do
@@ -258,7 +258,7 @@ Stack operation latency at varying depths:
 
 All three hypotheses were confirmed with significant margin. Context recovery accuracy of 99.97% (field-level) exceeds the 99.5% target. Persistence overhead of 0.0013% of total per-frame time is three orders of magnitude below the 5% threshold. All stack operations maintain sub-millisecond latency at 500 frames (maximum 108.7 microseconds for fork).
 
-The [ETS](/glossary/ets-table/)-backed design proves ideal for this use case. ETS provides O(1) read/write for individual frames (ordered_set with integer keys) and O(N) for stack scans (required only by fork and goto). The async disk persistence adds negligible overhead because it executes in a fire-and-forget [Task](/glossary/task-module/) process, following the [OTP](/glossary/otp/) principle of [process isolation](/glossary/process-isolation/) -- the persistence task's failure cannot crash the main [GenServer](/glossary/genserver/).
+The [ETS](@/glossary/ets-table.md)-backed design proves ideal for this use case. ETS provides O(1) read/write for individual frames (ordered_set with integer keys) and O(N) for stack scans (required only by fork and goto). The async disk persistence adds negligible overhead because it executes in a fire-and-forget [Task](@/glossary/task-module.md) process, following the [OTP](@/glossary/otp.md) principle of [process isolation](@/glossary/process-isolation.md) -- the persistence task's failure cannot crash the main [GenServer](@/glossary/genserver.md).
 
 The fork operation's linear scaling (O(N) where N is the fork depth) is the only operation that degrades with conversation length. At 500 frames, a fork to frame 1 requires scanning 500 frames (108.7 us). This is still far below the millisecond threshold and would only become problematic at conversation depths exceeding 10,000 frames, which is unrealistic for interactive sessions.
 
@@ -266,27 +266,27 @@ The DateTime microsecond truncation issue (affecting 0.03% of frames) was traced
 
 ## Conclusions
 
-1. **99.97% recovery accuracy is achievable** with [ETS](/glossary/ets-table/)-backed binary persistence.
+1. **99.97% recovery accuracy is achievable** with [ETS](@/glossary/ets-table.md)-backed binary persistence.
 2. **Persistence overhead is negligible** -- 0.0013% of total frame processing time.
-3. **All stack operations are sub-millisecond** at production conversation depths, validating the [BEAM](/glossary/beam/) VM's lightweight process model.
+3. **All stack operations are sub-millisecond** at production conversation depths, validating the [BEAM](@/glossary/beam.md) VM's lightweight process model.
 4. **Fork is the most expensive operation** but scales linearly and remains fast.
-5. **Async disk persistence is essential** -- synchronous writes would add 2-5ms per frame, confirming the value of [message-passing](/glossary/message-passing/) concurrency over shared-state approaches.
+5. **Async disk persistence is essential** -- synchronous writes would add 2-5ms per frame, confirming the value of [message-passing](@/glossary/message-passing.md) concurrency over shared-state approaches.
 
 ## Next Steps
 
 - Implement cross-session frame deduplication to reduce disk usage for repeated context
-- Add frame compression for conversations exceeding 200 frames, leveraging [Quality DNA](/glossary/quality-dna/) metrics to prioritize high-value frames
-- Build session replay tooling for debugging conversation flows within the [supervision tree](/glossary/supervision-tree/)
-- Evaluate [Redis](/glossary/redis/) as an alternative persistence backend for [distributed](/glossary/distributed-system/) sessions using [Horde](/glossary/cluster/) coordination
-- Implement frame-level [encryption at rest](/glossary/encryption-at-rest/) for sensitive conversation content
-- Integrate [telemetry](/glossary/telemetry/) events for frame lifecycle monitoring in the platform's [observability](/glossary/observability/) stack
+- Add frame compression for conversations exceeding 200 frames, leveraging [Quality DNA](@/glossary/quality-dna.md) metrics to prioritize high-value frames
+- Build session replay tooling for debugging conversation flows within the [supervision tree](@/glossary/supervision-tree.md)
+- Evaluate [Redis](@/glossary/redis.md) as an alternative persistence backend for [distributed](@/glossary/distributed-system.md) sessions using [Horde](@/glossary/cluster.md) coordination
+- Implement frame-level [encryption at rest](@/glossary/encryption-at-rest.md) for sensitive conversation content
+- Integrate [telemetry](@/glossary/telemetry.md) events for frame lifecycle monitoring in the platform's [observability](@/glossary/observability.md) stack
 
 ## Related Experiments
 
-- [Agent Prototyping](/lab/agent-prototyping/) -- Session context used during agent prototyping
-- [LLM Comparison](/lab/llm-comparison/) -- Context management across model switches
-- [Multi-Agent Coordination](/lab/multi-agent-coordination/) -- Multi-agent session coordination
-- [Quality Evolution](/lab/quality-evolution/) -- Quality DNA uses similar persistence patterns
+- [Agent Prototyping](@/lab/agent-prototyping.md) -- Session context used during agent prototyping
+- [LLM Comparison](@/lab/llm-comparison.md) -- Context management across model switches
+- [Multi-Agent Coordination](@/lab/multi-agent-coordination.md) -- Multi-agent session coordination
+- [Quality Evolution](@/lab/quality-evolution.md) -- Quality DNA uses similar persistence patterns
 
 ---
 
@@ -295,4 +295,4 @@ The DateTime microsecond truncation issue (affecting 0.03% of frames) was traced
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

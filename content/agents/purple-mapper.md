@@ -28,9 +28,9 @@ image_alt = "purple-mapper - Prismatic Platform"
 
 ## Overview
 
-The purple-mapper operates as an L4 Domain Authority within the Prismatic Platform's epistemic-synthesis domain, maintaining the critical bidirectional index between [Red](/teams/red/) team adversarial findings and [Blue](/teams/blue/) team defensive capabilities. This agent maps each Red team finding to the corresponding Blue defense that addresses it, and conversely maps each Blue defensive control to the Red findings it mitigates. This bidirectional mapping is the structural foundation of the Purple synthesis process -- without it, the platform cannot determine which attacks are defended, which defenses are exercised, or where coverage gaps exist. The purple-mapper detects unmapped findings (attacks without defenses) and unmapped controls (defenses without adversarial validation), ensuring that neither the adversarial nor defensive perspective contains blind spots.
+The purple-mapper operates as an L4 Domain Authority within the Prismatic Platform's epistemic-synthesis domain, maintaining the critical bidirectional index between [Red](@/teams/red.md) team adversarial findings and [Blue](@/teams/blue.md) team defensive capabilities. This agent maps each Red team finding to the corresponding Blue defense that addresses it, and conversely maps each Blue defensive control to the Red findings it mitigates. This bidirectional mapping is the structural foundation of the Purple synthesis process -- without it, the platform cannot determine which attacks are defended, which defenses are exercised, or where coverage gaps exist. The purple-mapper detects unmapped findings (attacks without defenses) and unmapped controls (defenses without adversarial validation), ensuring that neither the adversarial nor defensive perspective contains blind spots.
 
-The mapping function extends beyond simple one-to-one correspondence. A single Red finding may require multiple Blue defensive controls for complete mitigation, and a single Blue control may address aspects of multiple Red findings. The purple-mapper maintains these many-to-many relationships as a bipartite graph, enabling sophisticated coverage analysis that accounts for partial overlaps, defense-in-depth configurations, and interdependent control structures. Under the [NABLA Infinity](/glossary/nabla-infinity/) framework, the mapping is treated as an epistemic artifact subject to the same evidence standards as any platform belief -- mappings carry confidence scores, source attributions, and temporal validity windows.
+The mapping function extends beyond simple one-to-one correspondence. A single Red finding may require multiple Blue defensive controls for complete mitigation, and a single Blue control may address aspects of multiple Red findings. The purple-mapper maintains these many-to-many relationships as a bipartite graph, enabling sophisticated coverage analysis that accounts for partial overlaps, defense-in-depth configurations, and interdependent control structures. Under the [NABLA Infinity](@/glossary/nabla-infinity.md) framework, the mapping is treated as an epistemic artifact subject to the same evidence standards as any platform belief -- mappings carry confidence scores, source attributions, and temporal validity windows.
 
 ## Bidirectional Mapping Architecture
 
@@ -44,7 +44,7 @@ The core data structure maintained by the purple-mapper is a weighted bipartite 
 
 ## Mapping Methodology
 
-The purple-mapper applies a structured methodology for establishing and maintaining mappings that aligns with the [NO DOUBTS](/glossary/no-doubts/) principle.
+The purple-mapper applies a structured methodology for establishing and maintaining mappings that aligns with the [NO DOUBTS](@/glossary/no-doubts.md) principle.
 
 **Semantic Analysis** examines the technical substance of both findings and controls to determine whether a genuine mitigation relationship exists. The mapper goes beyond surface-level keyword matching to assess whether the defense actually addresses the mechanism of the attack. A defense that blocks one exploitation technique does not map to a finding about a different technique targeting the same vulnerability, even though both relate to the same system component.
 
@@ -56,7 +56,7 @@ The purple-mapper applies a structured methodology for establishing and maintain
 
 The purple-mapper's highest-value output is the identification and characterization of coverage gaps -- areas where the adversarial-defensive mapping reveals incomplete protection.
 
-**Unmapped Findings** are Red team discoveries with no corresponding defensive control. These represent known attack vectors against which the platform has no defense. The mapper classifies unmapped findings by severity (based on the original Red finding severity) and difficulty of remediation (based on the nature of the required defense). Critical unmapped findings are escalated to the [purple-coordinator](/agents/purple-coordinator/) for priority defensive action.
+**Unmapped Findings** are Red team discoveries with no corresponding defensive control. These represent known attack vectors against which the platform has no defense. The mapper classifies unmapped findings by severity (based on the original Red finding severity) and difficulty of remediation (based on the nature of the required defense). Critical unmapped findings are escalated to the [purple-coordinator](@/agents/purple-coordinator.md) for priority defensive action.
 
 **Unmapped Controls** are Blue team defensive measures with no corresponding Red team validation. These represent defenses whose effectiveness is unverified. The mapper distinguishes between controls that are genuinely untested (no relevant Red team activity has occurred) and controls that should have been exercised by existing Red campaigns but were not (indicating potential Red team blind spots). Untested controls are recommended for adversarial validation in future Red team campaigns.
 
@@ -79,24 +79,24 @@ The purple-mapper produces visualization outputs that communicate mapping status
 
 | Agent | Relationship |
 |-------|-------------|
-| [purple-coordinator](/agents/purple-coordinator/) | Receives mapping reports and gap analyses for strategic synthesis |
-| [purple-closure-analyst](/agents/purple-closure-analyst/) | Provides mapping data for closure coverage evaluation |
-| [purple-regression-guard](/agents/purple-regression-guard/) | Supplies mapping context for regression detection in closed findings |
-| [red-commander](/agents/red-commander/) | Receives unmapped control notifications for adversarial campaign planning |
-| [blue-commander](/agents/blue-commander/) | Receives unmapped finding notifications for defensive prioritization |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Receives mapping reports and gap analyses for strategic synthesis |
+| [purple-closure-analyst](@/agents/purple-closure-analyst.md) | Provides mapping data for closure coverage evaluation |
+| [purple-regression-guard](@/agents/purple-regression-guard.md) | Supplies mapping context for regression detection in closed findings |
+| [red-commander](@/agents/red-commander.md) | Receives unmapped control notifications for adversarial campaign planning |
+| [blue-commander](@/agents/blue-commander.md) | Receives unmapped finding notifications for defensive prioritization |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Mapping coverage [metrics](/glossary/metrics/) and gap trend tracking |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Color team agent capability and coverage registry |
-| [SEADF](/glossary/seadf/) Pipeline | Mapping quality assessment within epistemic evolution cycles |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Mapping coverage [metrics](@/glossary/metrics.md) and gap trend tracking |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Color team agent capability and coverage registry |
+| [SEADF](@/glossary/seadf.md) Pipeline | Mapping quality assessment within epistemic evolution cycles |
 
 ## Enforcement
 
-All mapping operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine -- mappings without evidence-based coverage assessments are rejected, and gap reports are never suppressed regardless of how unfavorable the coverage picture may be. The [NABLA Infinity](/glossary/nabla-infinity/) signal plurality axiom requires that mapping assessments draw on multiple evidence types (technical analysis, test results, architectural review) rather than relying on a single assessment methodology. The [Trinity Gate](/glossary/trinity-gate/) validates critical mapping determinations through structural consistency (mapping graph is acyclic and well-formed), logical consistency (coverage assessments are internally coherent), and formal necessity (gap conclusions follow from the mapping data).
+All mapping operations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine -- mappings without evidence-based coverage assessments are rejected, and gap reports are never suppressed regardless of how unfavorable the coverage picture may be. The [NABLA Infinity](@/glossary/nabla-infinity.md) signal plurality axiom requires that mapping assessments draw on multiple evidence types (technical analysis, test results, architectural review) rather than relying on a single assessment methodology. The [Trinity Gate](@/glossary/trinity-gate.md) validates critical mapping determinations through structural consistency (mapping graph is acyclic and well-formed), logical consistency (coverage assessments are internally coherent), and formal necessity (gap conclusions follow from the mapping data).
 
 ---
 
@@ -105,4 +105,4 @@ All mapping operations comply with the [NO MERCY](/glossary/no-mercy/) doctrine 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

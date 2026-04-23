@@ -23,11 +23,11 @@ image_alt = "Prismatic Perimeter Web - Prismatic Platform"
 
 ## Overview
 
-[Prismatic Perimeter](/glossary/prismatic-perimeter/) Web provides the [LiveView](/glossary/liveview/)-based dashboard for [External Attack Surface Management](/glossary/easm/). It presents [security rating](/glossary/security-rating/)s, asset inventories, compliance assessments, and risk trend visualizations through real-time interactive interfaces that update automatically as new intelligence is collected. The dashboard enables security teams to monitor their organization's external attack surface without manual refresh cycles.
+[Prismatic Perimeter](@/glossary/prismatic-perimeter.md) Web provides the [LiveView](@/glossary/liveview.md)-based dashboard for [External Attack Surface Management](@/glossary/easm.md). It presents [security rating](@/glossary/security-rating.md)s, asset inventories, compliance assessments, and risk trend visualizations through real-time interactive interfaces that update automatically as new intelligence is collected. The dashboard enables security teams to monitor their organization's external attack surface without manual refresh cycles.
 
-The interface is structured around four primary views: the overview dashboard with summary [metrics](/glossary/metrics/) and grade displays, the asset inventory with filtering, sorting, and drill-down capabilities, the compliance assessment view with framework-level and article-level detail, and the advanced EASM view for power users requiring full analytical access. Each view renders server-side through [Phoenix LiveView](/glossary/phoenix-liveview/), delivering a rich interactive experience without the complexity of a client-side JavaScript framework.
+The interface is structured around four primary views: the overview dashboard with summary [metrics](@/glossary/metrics.md) and grade displays, the asset inventory with filtering, sorting, and drill-down capabilities, the compliance assessment view with framework-level and article-level detail, and the advanced EASM view for power users requiring full analytical access. Each view renders server-side through [Phoenix LiveView](@/glossary/phoenix-liveview.md), delivering a rich interactive experience without the complexity of a client-side JavaScript framework.
 
-All visualization components are built with [TailwindCSS](/glossary/tailwindcss/) and [Flowbite](/glossary/flowbite/), following the platform's design system for consistent styling across dashboard applications. Security rating gauges, asset topology maps, compliance heatmaps, and risk trend charts are server-rendered with minimal JavaScript, ensuring fast load times and accessibility compliance.
+All visualization components are built with [TailwindCSS](@/glossary/tailwindcss.md) and [Flowbite](@/glossary/flowbite.md), following the platform's design system for consistent styling across dashboard applications. Security rating gauges, asset topology maps, compliance heatmaps, and risk trend charts are server-rendered with minimal JavaScript, ensuring fast load times and accessibility compliance.
 
 ## Architecture
 
@@ -41,9 +41,9 @@ Browser Dashboard (Server-Rendered HTML)
 TailwindCSS + Flowbite Components + Chart.js
 ```
 
-Each dashboard session runs as an independent LiveView process under [OTP](/glossary/otp/) supervision. Real-time updates flow through [PubSub](/glossary/pubsub/) subscriptions, so security rating changes, new asset discoveries, and compliance status updates appear instantly across all connected operator sessions.
+Each dashboard session runs as an independent LiveView process under [OTP](@/glossary/otp.md) supervision. Real-time updates flow through [PubSub](@/glossary/pubsub.md) subscriptions, so security rating changes, new asset discoveries, and compliance status updates appear instantly across all connected operator sessions.
 
-The server-side rendering architecture provides critical security advantages for an EASM dashboard. No sensitive security rating data needs to be serialized to JSON and sent to a client-side framework -- the server computes the HTML diff and pushes only changed bytes over the [WebSocket](/glossary/websocket/) connection, minimizing the risk of intelligence data exposure in client-side state.
+The server-side rendering architecture provides critical security advantages for an EASM dashboard. No sensitive security rating data needs to be serialized to JSON and sent to a client-side framework -- the server computes the HTML diff and pushes only changed bytes over the [WebSocket](@/glossary/websocket.md) connection, minimizing the risk of intelligence data exposure in client-side state.
 
 ## Key Modules
 
@@ -114,7 +114,7 @@ end
 | Compliance change | Compliance engine | < 150ms | Heatmap cell update, gap list refresh |
 | Vulnerability found | Detection engine | < 100ms | Risk indicator, vulnerability count |
 
-- LiveView [WebSocket](/glossary/websocket/) connections for sub-second update delivery
+- LiveView [WebSocket](@/glossary/websocket.md) connections for sub-second update delivery
 - Real-time asset discovery notifications as scanners complete
 - Live security rating changes reflected immediately on grade gauge
 - Compliance status change alerts with severity indicators
@@ -123,7 +123,7 @@ end
 
 - Security rating gauge with animated grade transitions and numeric score display
 - Asset topology map showing infrastructure relationships and service dependencies
-- [Compliance framework](/glossary/compliance-framework/) coverage heatmap with drill-down to article-level detail
+- [Compliance framework](@/glossary/compliance-framework.md) coverage heatmap with drill-down to article-level detail
 - Risk trend charts with configurable time windows and overlay comparison
 
 ### Compliance Assessment Views
@@ -191,7 +191,7 @@ Grade transitions are animated using CSS transitions on the gauge component, pro
 |-------|------|
 | `/perimeter` | Main dashboard overview with grade and summary metrics |
 | `/perimeter/assets` | Asset inventory with filtering and detail panels |
-| `/perimeter/compliance` | Compliance assessment with [NIS2](/glossary/nis2/) and [ZKB](/glossary/zkb/) detail |
+| `/perimeter/compliance` | Compliance assessment with [NIS2](@/glossary/nis2.md) and [ZKB](@/glossary/zkb.md) detail |
 | `/perimeter/easm` | Advanced EASM view with full analytical controls |
 
 ## Usage
@@ -236,19 +236,19 @@ end
 
 ## Testing
 
-LiveView tests verify component rendering, PubSub event handling, and WebSocket state management across all four dashboard views. Route tests verify authentication and [RBAC](/glossary/rbac/) enforcement on all perimeter paths. Component tests verify correct rendering of security rating gauges, compliance heatmaps, and risk trend charts with known data fixtures.
+LiveView tests verify component rendering, PubSub event handling, and WebSocket state management across all four dashboard views. Route tests verify authentication and [RBAC](@/glossary/rbac.md) enforcement on all perimeter paths. Component tests verify correct rendering of security rating gauges, compliance heatmaps, and risk trend charts with known data fixtures.
 
-Integration tests exercise the full pipeline from [Prismatic Perimeter Core](/apps/prismatic-perimeter-core/) rating computation through PubSub delivery to LiveView DOM updates. Performance tests verify that dashboard mount time stays under 150ms and event processing under 50ms.
+Integration tests exercise the full pipeline from [Prismatic Perimeter Core](@/apps/prismatic-perimeter-core.md) rating computation through PubSub delivery to LiveView DOM updates. Performance tests verify that dashboard mount time stays under 150ms and event processing under 50ms.
 
 ## Integration Points
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Perimeter Core](/apps/prismatic-perimeter-core/) | Business logic for rating computation and compliance assessment |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Orchestration layer for discovery and scanning workflows |
-| [Prismatic Web](/apps/prismatic-web/) | Host Phoenix application providing layout and authentication |
-| [Prismatic Auth](/apps/prismatic-auth/) | Authentication and [RBAC](/glossary/rbac/) enforcement for dashboard access |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Dashboard performance metrics and monitoring |
+| [Prismatic Perimeter Core](@/apps/prismatic-perimeter-core.md) | Business logic for rating computation and compliance assessment |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Orchestration layer for discovery and scanning workflows |
+| [Prismatic Web](@/apps/prismatic-web.md) | Host Phoenix application providing layout and authentication |
+| [Prismatic Auth](@/apps/prismatic-auth.md) | Authentication and [RBAC](@/glossary/rbac.md) enforcement for dashboard access |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Dashboard performance metrics and monitoring |
 
 ## Performance
 
@@ -261,18 +261,18 @@ Integration tests exercise the full pipeline from [Prismatic Perimeter Core](/ap
 | WebSocket round-trip | < 100ms | Server push to browser render |
 | Rating gauge animation | < 200ms | CSS transition on grade change |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :perimeter_web, :page_load]`, `[:prismatic, :perimeter_web, :event_processed]`, `[:prismatic, :perimeter_web, :compliance_viewed]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :perimeter_web, :page_load]`, `[:prismatic, :perimeter_web, :event_processed]`, `[:prismatic, :perimeter_web, :compliance_viewed]`.
 
 ## Related Resources
 
-- [Prismatic Hawkeye Web](/apps/prismatic-hawkeye-web/) -- Sibling dashboard for visitor intelligence, sharing design patterns
-- [Prismatic IR PVM Web](/apps/prismatic-ir-pvm-web/) -- [Incident response](/glossary/incident-response/) dashboard with similar architecture
-- [Elixir Architect](/agents/elixir-architect/) -- Designs the OTP process topology for LiveView dashboard sessions and PubSub event handling
-- [API Design Specialist Agent](/agents/api-design-specialist-agent/) -- Ensures dashboard data interfaces follow consistent API patterns
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Manages real-time alert notification delivery to connected dashboard sessions
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- LiveView WebSocket connections delivering sub-second security rating and asset discovery updates
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Dashboard performance metrics including mount time, WebSocket latency, and DOM diff size
-- [Quality Gates](/capabilities/quality-gates/) -- TailwindCSS-first design system enforcement and component accessibility compliance
+- [Prismatic Hawkeye Web](@/apps/prismatic-hawkeye-web.md) -- Sibling dashboard for visitor intelligence, sharing design patterns
+- [Prismatic IR PVM Web](@/apps/prismatic-ir-pvm-web.md) -- [Incident response](@/glossary/incident-response.md) dashboard with similar architecture
+- [Elixir Architect](@/agents/elixir-architect.md) -- Designs the OTP process topology for LiveView dashboard sessions and PubSub event handling
+- [API Design Specialist Agent](@/agents/api-design-specialist-agent.md) -- Ensures dashboard data interfaces follow consistent API patterns
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Manages real-time alert notification delivery to connected dashboard sessions
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- LiveView WebSocket connections delivering sub-second security rating and asset discovery updates
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Dashboard performance metrics including mount time, WebSocket latency, and DOM diff size
+- [Quality Gates](@/capabilities/quality-gates.md) -- TailwindCSS-first design system enforcement and component accessibility compliance
 
 ---
 
@@ -281,4 +281,4 @@ Integration tests exercise the full pipeline from [Prismatic Perimeter Core](/ap
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

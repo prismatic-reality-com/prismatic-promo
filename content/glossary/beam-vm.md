@@ -38,7 +38,7 @@ image_alt = "BEAM VM - Prismatic Platform"
 
 The **BEAM VM** (Bogdan/Bjorn's Erlang Abstract Machine) is the virtual machine that executes compiled Erlang and Elixir bytecode. Originally developed for the Erlang programming language by Ericsson in the 1980s for telecommunications systems, the BEAM provides a unique execution model built around massive concurrency through lightweight processes, preemptive scheduling with reduction-based fairness, per-process garbage collection, transparent distribution across networked nodes, and hot code reloading without service interruption.
 
-Unlike the JVM or CLR which were designed for general-purpose computation, the BEAM was purpose-built for systems that must run continuously, handle millions of concurrent connections, tolerate hardware and software failures, and be upgraded without downtime. These properties, originally required by telephone switches, are equally essential for modern distributed platforms like the [Prismatic Platform](/glossary/elixir/).
+Unlike the JVM or CLR which were designed for general-purpose computation, the BEAM was purpose-built for systems that must run continuously, handle millions of concurrent connections, tolerate hardware and software failures, and be upgraded without downtime. These properties, originally required by telephone switches, are equally essential for modern distributed platforms like the [Prismatic Platform](@/glossary/elixir.md).
 
 ## Overview
 
@@ -297,7 +297,7 @@ defmodule Prismatic.Beam.HotReload do
 end
 ```
 
-The transition mechanism works because the BEAM distinguishes between local calls (stay on current version) and fully-qualified calls (use latest loaded version). [GenServer](/glossary/genserver/) processes naturally transition to new code because the GenServer behaviour module dispatches callbacks via fully-qualified calls.
+The transition mechanism works because the BEAM distinguishes between local calls (stay on current version) and fully-qualified calls (use latest loaded version). [GenServer](@/glossary/genserver.md) processes naturally transition to new code because the GenServer behaviour module dispatches callbacks via fully-qualified calls.
 
 ### Distribution and Clustering
 
@@ -384,7 +384,7 @@ export ERL_FLAGS="+S 4:4 +SDcpu 4:4 +SDio 32 +sbwt very_long +swt very_low"
 
 ### Fault Isolation in Practice
 
-The BEAM's process isolation is central to the platform's reliability. When an OSINT adapter crashes (network timeout, malformed response, API rate limit), only that adapter's process dies. The [supervision tree](/glossary/supervision-tree/) restarts it, and all other platform operations continue unaffected:
+The BEAM's process isolation is central to the platform's reliability. When an OSINT adapter crashes (network timeout, malformed response, API rate limit), only that adapter's process dies. The [supervision tree](@/glossary/supervision-tree.md) restarts it, and all other platform operations continue unaffected:
 
 ```elixir
 defmodule Prismatic.Beam.FaultIsolation do
@@ -440,7 +440,7 @@ The BEAM's combination of preemptive scheduling, per-process GC, built-in distri
 
 **Design around processes, not threads.** Think of each independent activity as a process. The BEAM makes processes so cheap (~2 KB) that the correct design usually has more processes than you would initially expect. One process per connection, per agent, per monitored resource.
 
-**Use [OTP behaviours](/glossary/otp-behaviour/) instead of raw processes.** GenServer, GenStatem, and Supervisor encode decades of distributed systems experience. Raw `spawn` should be used only for fire-and-forget tasks; stateful processes should always use OTP behaviours.
+**Use [OTP behaviours](@/glossary/otp-behaviour.md) instead of raw processes.** GenServer, GenStatem, and Supervisor encode decades of distributed systems experience. Raw `spawn` should be used only for fire-and-forget tasks; stateful processes should always use OTP behaviours.
 
 **Leverage per-process GC for latency-sensitive paths.** Place latency-sensitive code in processes with small heaps. Large allocations (bulk data processing, report generation) should happen in separate processes where GC pauses do not affect user-facing latency.
 
@@ -452,7 +452,7 @@ The BEAM's combination of preemptive scheduling, per-process GC, built-in distri
 
 **Long-running NIFs blocking schedulers.** Native Implemented Functions (NIFs) that run for more than 1 millisecond without yielding block the scheduler, preventing other processes from running. Use dirty schedulers for long NIFs, or break NIFs into yielding segments.
 
-**Process mailbox overflow.** A process that receives messages faster than it can process them accumulates an unbounded mailbox, consuming memory until the system crashes. Monitor mailbox sizes and implement [backpressure](/glossary/backpressure/) mechanisms.
+**Process mailbox overflow.** A process that receives messages faster than it can process them accumulates an unbounded mailbox, consuming memory until the system crashes. Monitor mailbox sizes and implement [backpressure](@/glossary/backpressure.md) mechanisms.
 
 **Ignoring scheduler utilization.** An underloaded BEAM instance wastes resources; an overloaded one exhibits latency spikes. Monitor scheduler utilization and scale horizontally when sustained utilization exceeds 70%.
 
@@ -480,27 +480,27 @@ Each connected user's LiveView session is a BEAM process. The server can handle 
 
 ## Related Concepts
 
-- [BEAM](/glossary/beam/) -- The broader BEAM ecosystem and community
-- [Elixir](/glossary/elixir/) -- Primary language targeting the BEAM in Prismatic
-- [Erlang](/glossary/erlang/) -- Original language and runtime for the BEAM
-- [OTP](/glossary/otp/) -- Framework of behaviours and libraries built on the BEAM
-- [GenServer](/glossary/genserver/) -- Core OTP behaviour for stateful BEAM processes
-- [Process Isolation](/glossary/process-isolation/) -- BEAM's per-process fault boundaries
-- [Hot Code Reload](/glossary/hot-code-reload/) -- BEAM's ability to update running code
-- [Virtual Machine](/glossary/virtual-machine/) -- General concept of bytecode execution environments
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System resilience enabled by BEAM process model
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP restart strategy built on BEAM process monitoring
+- [BEAM](@/glossary/beam.md) -- The broader BEAM ecosystem and community
+- [Elixir](@/glossary/elixir.md) -- Primary language targeting the BEAM in Prismatic
+- [Erlang](@/glossary/erlang.md) -- Original language and runtime for the BEAM
+- [OTP](@/glossary/otp.md) -- Framework of behaviours and libraries built on the BEAM
+- [GenServer](@/glossary/genserver.md) -- Core OTP behaviour for stateful BEAM processes
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM's per-process fault boundaries
+- [Hot Code Reload](@/glossary/hot-code-reload.md) -- BEAM's ability to update running code
+- [Virtual Machine](@/glossary/virtual-machine.md) -- General concept of bytecode execution environments
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System resilience enabled by BEAM process model
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP restart strategy built on BEAM process monitoring
 
 ## See Also
 
-- [ETS](/glossary/ets/) -- BEAM-native in-memory storage outside process heaps
-- [GenStage](/glossary/genstage/) -- Demand-driven data processing on the BEAM
-- [Broadway](/glossary/broadway/) -- Production-ready data pipelines on the BEAM
-- [Backpressure](/glossary/backpressure/) -- Flow control for BEAM process mailboxes
-- [Cluster](/glossary/cluster/) -- Multi-node BEAM deployments
-- [Distributed System](/glossary/distributed-system/) -- Architecture patterns using BEAM distribution
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- 115 umbrella applications running on the BEAM
+- [ETS](@/glossary/ets.md) -- BEAM-native in-memory storage outside process heaps
+- [GenStage](@/glossary/genstage.md) -- Demand-driven data processing on the BEAM
+- [Broadway](@/glossary/broadway.md) -- Production-ready data pipelines on the BEAM
+- [Backpressure](@/glossary/backpressure.md) -- Flow control for BEAM process mailboxes
+- [Cluster](@/glossary/cluster.md) -- Multi-node BEAM deployments
+- [Distributed System](@/glossary/distributed-system.md) -- Architecture patterns using BEAM distribution
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- 115 umbrella applications running on the BEAM
 
 ---
 
@@ -509,4 +509,4 @@ Each connected user's LiveView session is a BEAM process. The server can handle 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

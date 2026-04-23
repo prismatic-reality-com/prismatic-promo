@@ -29,7 +29,7 @@ Rationalizing evidence is the cognitive anti-pattern of selectively interpreting
 
 In formal epistemology, rationalization violates Bayesian updating: instead of computing P(hypothesis | evidence), the rationalizer implicitly computes P(evidence is valid | hypothesis is true), discarding evidence that would lower posterior confidence. The result is a belief system that appears internally consistent but has been insulated from disconfirmation. The epistemic agent converges on a fixed point regardless of input, which is the hallmark of a broken inference system.
 
-The Prismatic Platform treats evidence rationalization as a first-class threat to system integrity. The [NABLA Infinity](/glossary/nabla-infinity/) framework, the [Addiction Preservation](/glossary/addiction-recovery/) doctrine, and the [Trinity Gate](/glossary/trinity-gate/) verification system all exist, in part, to detect and prevent rationalization in both automated reasoning and human decision-making within the platform ecosystem.
+The Prismatic Platform treats evidence rationalization as a first-class threat to system integrity. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework, the [Addiction Preservation](@/glossary/addiction-recovery.md) doctrine, and the [Trinity Gate](@/glossary/trinity-gate.md) verification system all exist, in part, to detect and prevent rationalization in both automated reasoning and human decision-making within the platform ecosystem.
 
 ## Why Rationalization Is Dangerous
 
@@ -219,7 +219,7 @@ end
 
 ## NABLA Infinity Anti-Rationalization Axioms
 
-The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework includes seven non-negotiable axioms, four of which directly address evidence rationalization:
+The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework includes seven non-negotiable axioms, four of which directly address evidence rationalization:
 
 | Axiom | Anti-Rationalization Role | Enforcement |
 |-------|--------------------------|-------------|
@@ -232,7 +232,7 @@ These axioms make rationalization structurally difficult rather than merely disc
 
 ## Addiction Preservation Doctrine
 
-The [Addiction Preservation](/glossary/addiction-recovery/) doctrine is the Prismatic Platform's explicit commitment to maintaining contradictory signals, preserving evidence plurality, and refusing to "smooth over" inconvenient truths. The doctrine's name draws an analogy to addiction recovery: just as recovery requires constant vigilance against the tendency to relapse into substance use, epistemic health requires constant vigilance against the tendency to rationalize away uncomfortable evidence.
+The [Addiction Preservation](@/glossary/addiction-recovery.md) doctrine is the Prismatic Platform's explicit commitment to maintaining contradictory signals, preserving evidence plurality, and refusing to "smooth over" inconvenient truths. The doctrine's name draws an analogy to addiction recovery: just as recovery requires constant vigilance against the tendency to relapse into substance use, epistemic health requires constant vigilance against the tendency to rationalize away uncomfortable evidence.
 
 The doctrine enforces:
 
@@ -245,7 +245,7 @@ This approach treats rationalization not as an occasional error but as the defau
 
 ## Trinity Gate Verification
 
-The [Trinity Gate](/glossary/trinity-gate/) is the final verification layer before any claim is established as platform knowledge. All three gates must pass, and each gate detects different forms of rationalization:
+The [Trinity Gate](@/glossary/trinity-gate.md) is the final verification layer before any claim is established as platform knowledge. All three gates must pass, and each gate detects different forms of rationalization:
 
 **Gate 1: Structural Consistency (Graph Theory)** -- Verifies that the belief network forms a valid directed acyclic graph. Rationalization often creates circular reasoning (A supports B, B supports A) which this gate detects as cycles in the belief graph.
 
@@ -257,23 +257,23 @@ The [Trinity Gate](/glossary/trinity-gate/) is the final verification layer befo
 
 ### The Sunk Cost Rationalization
 
-"We have invested six months in this architecture, so we should keep building on it." The evidence (architecture is causing problems) is reframed through the lens of past investment rather than future outcomes. The Prismatic Platform addresses this through its [refactoring](/glossary/refactoring/) culture: the cost of continuing with a bad design always exceeds the cost of fixing it, regardless of past investment.
+"We have invested six months in this architecture, so we should keep building on it." The evidence (architecture is causing problems) is reframed through the lens of past investment rather than future outcomes. The Prismatic Platform addresses this through its [refactoring](@/glossary/refactoring.md) culture: the cost of continuing with a bad design always exceeds the cost of fixing it, regardless of past investment.
 
 ### The Survivorship Rationalization
 
-"Our current approach works because we have not had any production incidents." This ignores the evidence that was never collected: the incidents that were narrowly avoided, the bugs caught by manual review that automated tests should have caught, the performance problems that users silently tolerated. [Quality gates](/glossary/quality-gate/) address this by measuring what is present (test coverage, type safety, static analysis) rather than what is absent (incidents).
+"Our current approach works because we have not had any production incidents." This ignores the evidence that was never collected: the incidents that were narrowly avoided, the bugs caught by manual review that automated tests should have caught, the performance problems that users silently tolerated. [Quality gates](@/glossary/quality-gate.md) address this by measuring what is present (test coverage, type safety, static analysis) rather than what is absent (incidents).
 
 ### The Complexity Rationalization
 
-"This code is complex because the problem is inherently complex." While some problems are genuinely complex, this rationalization is often used to justify unnecessary complexity that could be reduced through better abstractions, clearer separation of concerns, or simpler algorithms. The platform's [static analysis](/glossary/static-analysis/) tools measure complexity objectively through cyclomatic complexity, nesting depth, and function length.
+"This code is complex because the problem is inherently complex." While some problems are genuinely complex, this rationalization is often used to justify unnecessary complexity that could be reduced through better abstractions, clearer separation of concerns, or simpler algorithms. The platform's [static analysis](@/glossary/static-analysis.md) tools measure complexity objectively through cyclomatic complexity, nesting depth, and function length.
 
 ### The Authority Rationalization
 
-"The senior engineer approved this design, so it must be correct." Evidence-based reasoning does not have a hierarchy. The [evidence-over-opinion](/glossary/evidence-over-opinion/) principle requires that all claims, regardless of their source, be evaluated against the same evidentiary standards.
+"The senior engineer approved this design, so it must be correct." Evidence-based reasoning does not have a hierarchy. The [evidence-over-opinion](@/glossary/evidence-over-opinion.md) principle requires that all claims, regardless of their source, be evaluated against the same evidentiary standards.
 
 ## Confidence Scoring as Anti-Rationalization
 
-The platform's [confidence scoring](/glossary/confidence-scoring/) system provides a quantitative mechanism against rationalization. Every belief in the system carries an explicit confidence value between 0.0 and 1.0, computed from the available evidence using Bayesian methods.
+The platform's [confidence scoring](@/glossary/confidence-scoring.md) system provides a quantitative mechanism against rationalization. Every belief in the system carries an explicit confidence value between 0.0 and 1.0, computed from the available evidence using Bayesian methods.
 
 ```elixir
 defmodule PrismaticEpistemic.ConfidenceComputer do
@@ -330,9 +330,9 @@ The Prismatic Platform addresses this through several mechanisms:
 
 - **Structured output**: AI agents produce structured evidence objects, not free-text justifications
 - **Provenance tracking**: Every AI-generated claim must reference specific input data
-- **[Bias detection](/glossary/bias-detection/)**: Statistical analysis of AI output distributions identifies systematic biases
+- **[Bias detection](@/glossary/bias-detection.md)**: Statistical analysis of AI output distributions identifies systematic biases
 - **Human-in-the-loop**: Critical decisions require human review of the evidence, not just the conclusion
-- **Adversarial testing**: [Red team](/glossary/red-team/) agents specifically probe for rationalization patterns in AI output
+- **Adversarial testing**: [Red team](@/glossary/red-team.md) agents specifically probe for rationalization patterns in AI output
 
 ## Organizational Rationalization
 
@@ -343,7 +343,7 @@ Beyond individual cognition and automated systems, rationalization operates at t
 - "That is an edge case" (rationalization for not handling failure modes)
 - "It works on my machine" (rationalization for not testing in realistic environments)
 
-The Prismatic Platform's [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine is an explicit rejection of organizational rationalization. Zero tolerance means that rationalizations like "we do not have time" or "it is an edge case" are not accepted as valid reasons to skip quality requirements.
+The Prismatic Platform's [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine is an explicit rejection of organizational rationalization. Zero tolerance means that rationalizations like "we do not have time" or "it is an edge case" are not accepted as valid reasons to skip quality requirements.
 
 ## Measurement and Detection Strategies
 
@@ -375,31 +375,31 @@ Before establishing any platform-level claim or making architectural decisions, 
 
 Evidence rationalization prevention integrates with the broader platform quality infrastructure:
 
-- [Quality gates](/glossary/quality-gate/) enforce objective, measurable criteria that cannot be rationalized away
-- [Static analysis](/glossary/static-analysis/) provides automated evidence about code quality
-- [Test coverage](/glossary/test-coverage/) provides quantitative evidence about verification completeness
-- [Observability](/glossary/observability/) provides runtime evidence about system behavior
-- [Epistemic reasoning](/glossary/epistemic-reasoning/) provides the theoretical framework for correct inference
+- [Quality gates](@/glossary/quality-gate.md) enforce objective, measurable criteria that cannot be rationalized away
+- [Static analysis](@/glossary/static-analysis.md) provides automated evidence about code quality
+- [Test coverage](@/glossary/test-coverage.md) provides quantitative evidence about verification completeness
+- [Observability](@/glossary/observability.md) provides runtime evidence about system behavior
+- [Epistemic reasoning](@/glossary/epistemic-reasoning.md) provides the theoretical framework for correct inference
 
 Together, these systems create an environment where rationalization is detectable, measurable, and preventable -- not through willpower or good intentions, but through structural mechanisms that make irrational reasoning visible.
 
 ## Related Terms
 
-- [Cherry Picking](/glossary/cherry-picking/) -- Specific form of evidence rationalization: selecting only supporting data
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) -- Platform principle that directly opposes rationalization
-- [Addiction Recovery](/glossary/addiction-recovery/) -- Doctrine framework for maintaining epistemic vigilance
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework with axioms preventing rationalization
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Axiom forbidding dismissal of contradictory evidence
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer verification preventing rationalized claims
-- [Bias Detection](/glossary/bias-detection/) -- Automated identification of systematic reasoning errors
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- Formal framework for evidence-based inference
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Quantitative barrier requiring sufficient evidence
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom requiring multiple independent signals for belief
+- [Cherry Picking](@/glossary/cherry-picking.md) -- Specific form of evidence rationalization: selecting only supporting data
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) -- Platform principle that directly opposes rationalization
+- [Addiction Recovery](@/glossary/addiction-recovery.md) -- Doctrine framework for maintaining epistemic vigilance
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework with axioms preventing rationalization
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Axiom forbidding dismissal of contradictory evidence
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer verification preventing rationalized claims
+- [Bias Detection](@/glossary/bias-detection.md) -- Automated identification of systematic reasoning errors
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- Formal framework for evidence-based inference
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Quantitative barrier requiring sufficient evidence
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom requiring multiple independent signals for belief
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform epistemic architecture
-- [Capabilities](/capabilities/) -- Epistemic validation capabilities
+- [Architecture](@/architecture/_index.md) -- Platform epistemic architecture
+- [Capabilities](@/capabilities/_index.md) -- Epistemic validation capabilities
 - Glossary -- Complete glossary index
 
 ---
@@ -409,4 +409,4 @@ Together, these systems create an environment where rationalization is detectabl
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

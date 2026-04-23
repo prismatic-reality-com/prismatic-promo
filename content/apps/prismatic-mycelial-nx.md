@@ -23,7 +23,7 @@ image_alt = "Prismatic Mycelial Nx - Prismatic Platform"
 
 ## Overview
 
-Prismatic Mycelial Nx provides the platform's computational backbone for distributed data processing, dependency graph analysis, computational caching, and pipeline orchestration. Drawing its name from [mycelial network](/glossary/mycelial-network/)s in biology -- decentralized, resilient systems that propagate information and resources across distributed nodes -- the application implements a graph-based computation model where data flows through interconnected processing stages with automatic backpressure, caching, and fault recovery. Rather than focusing narrowly on tensor operations, Mycelial Nx provides the infrastructure for building composable, observable, and self-healing data pipelines that underpin the platform's intelligence processing capabilities.
+Prismatic Mycelial Nx provides the platform's computational backbone for distributed data processing, dependency graph analysis, computational caching, and pipeline orchestration. Drawing its name from [mycelial network](@/glossary/mycelial-network.md)s in biology -- decentralized, resilient systems that propagate information and resources across distributed nodes -- the application implements a graph-based computation model where data flows through interconnected processing stages with automatic backpressure, caching, and fault recovery. Rather than focusing narrowly on tensor operations, Mycelial Nx provides the infrastructure for building composable, observable, and self-healing data pipelines that underpin the platform's intelligence processing capabilities.
 
 The module implements a directed acyclic graph (DAG) execution model where computational stages are connected through typed edges with propagation semantics. Each node in the computation graph represents a processing stage that can cache intermediate results, detect affected downstream consumers when inputs change, and participate in distributed consensus protocols for cross-node coordination. This architecture enables the platform to efficiently re-process only the portions of an intelligence pipeline affected by new data, rather than recomputing entire workflows from scratch.
 
@@ -97,7 +97,7 @@ The architecture separates concerns into five distinct subsystems. The Pipeline 
 | Module | Purpose |
 |--------|---------|
 | `PrismaticMycelialNx` | Main API facade for pipeline construction and execution |
-| `PrismaticMycelialNx.Application` | [OTP](/glossary/otp/) application entry point with supervision tree |
+| `PrismaticMycelialNx.Application` | [OTP](@/glossary/otp.md) application entry point with supervision tree |
 | `PrismaticMycelialNx.Graph.DAG` | Directed acyclic graph engine with topological execution ordering |
 | `PrismaticMycelialNx.Graph.Node` | Computation node abstraction with lifecycle callbacks |
 | `PrismaticMycelialNx.Graph.Edge` | Typed edge with propagation semantics and data transformation |
@@ -233,12 +233,12 @@ Testing includes unit tests for each protocol and behaviour implementation, inte
 
 | Integrates With | Purpose |
 |----------------|---------|
-| [Prismatic Agents](/apps/prismatic-agents/) | Agent execution pipelines built on Mycelial Nx DAG infrastructure |
-| [Prismatic Storage ETS](/apps/prismatic-storage-ets/) | ETS-backed computational cache for sub-microsecond result retrieval |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Pipeline execution metrics and cache performance monitoring |
-| [Prismatic Modalities](/apps/prismatic-modalities/) | Multi-modal processing pipelines using DAG execution model |
-| [Prismatic Signals](/apps/prismatic-signals/) | Signal processing pipeline built on GenStage infrastructure |
-| [Prismatic Quality Intelligence](/apps/prismatic-quality-intelligence/) | Evolution subsystem informs quality rule optimization |
+| [Prismatic Agents](@/apps/prismatic-agents.md) | Agent execution pipelines built on Mycelial Nx DAG infrastructure |
+| [Prismatic Storage ETS](@/apps/prismatic-storage-ets.md) | ETS-backed computational cache for sub-microsecond result retrieval |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Pipeline execution metrics and cache performance monitoring |
+| [Prismatic Modalities](@/apps/prismatic-modalities.md) | Multi-modal processing pipelines using DAG execution model |
+| [Prismatic Signals](@/apps/prismatic-signals.md) | Signal processing pipeline built on GenStage infrastructure |
+| [Prismatic Quality Intelligence](@/apps/prismatic-quality-intelligence.md) | Evolution subsystem informs quality rule optimization |
 
 ## NABLA Compliance
 
@@ -263,12 +263,12 @@ Testing includes unit tests for each protocol and behaviour implementation, inte
 
 ## Related Resources
 
-- [Prismatic Agents](/apps/prismatic-agents/) -- Agent execution leveraging Mycelial Nx pipeline infrastructure
-- [Prismatic Storage ETS](/apps/prismatic-storage-ets/) -- ETS-backed computational cache backend
-- [Prismatic Telemetry](/apps/prismatic-telemetry/) -- Pipeline and cache performance metrics
-- [Multi-Paradigm Solving](/capabilities/multi-paradigm-solving/) -- Combines graph-based, stream-based, and evolutionary approaches
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Pipeline provenance tracking and cached result time decay
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Pipeline execution observability and performance monitoring
+- [Prismatic Agents](@/apps/prismatic-agents.md) -- Agent execution leveraging Mycelial Nx pipeline infrastructure
+- [Prismatic Storage ETS](@/apps/prismatic-storage-ets.md) -- ETS-backed computational cache backend
+- [Prismatic Telemetry](@/apps/prismatic-telemetry.md) -- Pipeline and cache performance metrics
+- [Multi-Paradigm Solving](@/capabilities/multi-paradigm-solving.md) -- Combines graph-based, stream-based, and evolutionary approaches
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Pipeline provenance tracking and cached result time decay
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Pipeline execution observability and performance monitoring
 
 ---
 
@@ -277,4 +277,4 @@ Testing includes unit tests for each protocol and behaviour implementation, inte
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

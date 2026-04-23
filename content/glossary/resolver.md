@@ -443,22 +443,22 @@ end
 
 ## Related Terms
 
-- [Query](/glossary/query/) -- the request specification that resolvers process
-- [Schema](/glossary/schema/) -- the type definitions that resolvers implement
-- [Scope](/glossary/scope/) -- authorization context available to resolvers
-- [API Gateway](/glossary/api-gateway/) -- the entry point that routes to resolvers
-- [GenServer](/glossary/genserver/) -- OTP abstraction used for stateful resolver caching
-- [ETS](/glossary/ets/) -- in-memory storage for endpoint registry and resolver caching
-- [PubSub](/glossary/pubsub/) -- event distribution for cache invalidation after mutations
-- [Latency](/glossary/latency/) -- key metric for resolver performance monitoring
-- [Backpressure](/glossary/backpressure/) -- flow control preventing resolver overload
-- [Process](/glossary/process/) -- BEAM processes that execute resolver functions
-- [Server](/glossary/server/) -- HTTP server hosting the resolver infrastructure
-- [Token](/glossary/token/) -- JWT tokens providing resolver authorization context
+- [Query](@/glossary/query.md) -- the request specification that resolvers process
+- [Schema](@/glossary/schema.md) -- the type definitions that resolvers implement
+- [Scope](@/glossary/scope.md) -- authorization context available to resolvers
+- [API Gateway](@/glossary/api-gateway.md) -- the entry point that routes to resolvers
+- [GenServer](@/glossary/genserver.md) -- OTP abstraction used for stateful resolver caching
+- [ETS](@/glossary/ets.md) -- in-memory storage for endpoint registry and resolver caching
+- [PubSub](@/glossary/pubsub.md) -- event distribution for cache invalidation after mutations
+- [Latency](@/glossary/latency.md) -- key metric for resolver performance monitoring
+- [Backpressure](@/glossary/backpressure.md) -- flow control preventing resolver overload
+- [Process](@/glossary/process.md) -- BEAM processes that execute resolver functions
+- [Server](@/glossary/server.md) -- HTTP server hosting the resolver infrastructure
+- [Token](@/glossary/token.md) -- JWT tokens providing resolver authorization context
 
 ## See Also
 
-- [Prismatic API Architecture](/architecture/) -- auto-introspecting resolver system
+- [Prismatic API Architecture](@/architecture/_index.md) -- auto-introspecting resolver system
 - [OSINT Toolbox](/hub/osint/tools) -- 157 OSINT tools as resolver endpoints
 - [API Documentation](/api/swaggerui) -- OpenAPI specs for all resolved endpoints
 - [Absinthe Documentation](https://hexdocs.pm/absinthe/) -- Elixir GraphQL framework
@@ -470,4 +470,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -27,9 +27,9 @@ image_alt = "Social Searcher - Prismatic Platform"
 
 Social Searcher is a social media monitoring and search platform that enables real-time searching across major social networks including Twitter/X, Facebook, Instagram, YouTube, Reddit, Tumblr, Flickr, VKontakte, and more. Unlike platform-native search tools that only index their own content, Social Searcher provides a unified search interface across multiple platforms simultaneously, eliminating the need for investigators to maintain accounts on each platform or navigate their individual search interfaces.
 
-The platform goes beyond simple keyword matching by providing sentiment analysis, trend detection, and user analytics for discovered content. Each search result is annotated with sentiment polarity (positive, neutral, negative), engagement [metrics](/glossary/metrics/), and temporal patterns. This makes Social Searcher valuable not just for finding content, but for understanding the context and impact of social media activity around specific topics, organizations, or individuals.
+The platform goes beyond simple keyword matching by providing sentiment analysis, trend detection, and user analytics for discovered content. Each search result is annotated with sentiment polarity (positive, neutral, negative), engagement [metrics](@/glossary/metrics.md), and temporal patterns. This makes Social Searcher valuable not just for finding content, but for understanding the context and impact of social media activity around specific topics, organizations, or individuals.
 
-For [OSINT](/glossary/osint/) investigators, Social Searcher fills a critical gap: searching across multiple social platforms from a single interface without requiring accounts on each platform. This is particularly valuable for brand monitoring, person investigation, and tracking public discussions about specific topics, organizations, or events. The cross-platform search capability enables comprehensive social media intelligence collection that would otherwise require manual querying of each platform individually.
+For [OSINT](@/glossary/osint.md) investigators, Social Searcher fills a critical gap: searching across multiple social platforms from a single interface without requiring accounts on each platform. This is particularly valuable for brand monitoring, person investigation, and tracking public discussions about specific topics, organizations, or events. The cross-platform search capability enables comprehensive social media intelligence collection that would otherwise require manual querying of each platform individually.
 
 ## Data Sources and Coverage
 
@@ -169,7 +169,7 @@ end
 ### Person Investigation
 - Discover social media presence from name or known username across multiple platforms simultaneously
 - Analyze posting patterns, sentiment, and engagement for behavioral profiling
-- Cross-reference with [Pipl](/osint/pipl/) for comprehensive person profiles connecting social accounts to real identities
+- Cross-reference with [Pipl](@/osint/pipl.md) for comprehensive person profiles connecting social accounts to real identities
 - Track subject activity across platforms for ongoing investigation monitoring
 
 ### Threat Intelligence
@@ -209,7 +209,7 @@ API key required for programmatic access. Free web search available without regi
 
 ## Platform Integration
 
-Within the Prismatic Platform, Social Searcher provides the social media intelligence layer that complements traditional news monitoring from [NewsAPI](/osint/newsapi/) and [GDELT](/osint/gdelt/). Together, these sources create a unified media intelligence capability spanning both traditional and social media.
+Within the Prismatic Platform, Social Searcher provides the social media intelligence layer that complements traditional news monitoring from [NewsAPI](@/osint/newsapi.md) and [GDELT](@/osint/gdelt.md). Together, these sources create a unified media intelligence capability spanning both traditional and social media.
 
 Social media sentiment data feeds into the Prismatic Perimeter security rating through the reputation component, where persistent negative sentiment or sudden sentiment shifts contribute to the overall entity risk assessment.
 
@@ -231,13 +231,13 @@ Contradiction Preservation is maintained when sentiment analysis shows mixed sig
 
 ## Related Resources
 
-- [Pipl](/osint/pipl/) - Deep people search with social profile aggregation
-- [Clearbit](/osint/clearbit/) - Person and company enrichment from identifiers
-- [LinkedIn Sales Navigator](/osint/linkedin-sales/) - Professional network intelligence
-- [GDELT](/osint/gdelt/) - Global news and event monitoring
-- [NewsAPI](/osint/newsapi/) - News article aggregation and search
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Social media reputation in [security rating](/glossary/security-rating/)s
+- [Pipl](@/osint/pipl.md) - Deep people search with social profile aggregation
+- [Clearbit](@/osint/clearbit.md) - Person and company enrichment from identifiers
+- [LinkedIn Sales Navigator](@/osint/linkedin-sales.md) - Professional network intelligence
+- [GDELT](@/osint/gdelt.md) - Global news and event monitoring
+- [NewsAPI](@/osint/newsapi.md) - News article aggregation and search
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Social media reputation in [security rating](@/glossary/security-rating.md)s
 
 ---
 
@@ -246,4 +246,4 @@ Contradiction Preservation is maintained when sentiment analysis shows mixed sig
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

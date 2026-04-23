@@ -26,11 +26,11 @@ image_alt = "/manipulation-detect - Prismatic Platform"
 
 **/manipulation-detect** is a production command in the **Defensive Security** category of the Prismatic Platform that performs active detection of manipulation attempts against the platform's epistemic systems using multi-layered analysis techniques. The command scans intelligence streams, agent behavior patterns, confidence distributions, and knowledge base integrity to identify attempts to distort truth, manipulate confidence, poison signals, induce drift, or hijack salience within the platform's decision-making infrastructure.
 
-This command operates under the **L3** authority level and is executed by the `manipulation-detector` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the sensitive nature of manipulation detection -- the command requires access to agent behavior data, intelligence streams, and confidence scoring internals to perform effective detection.
+This command operates under the **L3** authority level and is executed by the `manipulation-detector` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the sensitive nature of manipulation detection -- the command requires access to agent behavior data, intelligence streams, and confidence scoring internals to perform effective detection.
 
-Manipulation detection in the Prismatic Platform is grounded in the [NABLA](/glossary/nabla-infinity/) epistemic framework's seven non-negotiable axioms. Each axiom defines a property that must hold for the platform's knowledge to be trustworthy: signal plurality, contradiction preservation, absence informativeness, time decay, unknown validity, source independence, and provenance mandatoriness. The manipulation detection system monitors for violations of these axioms as indicators of manipulation. A sudden reduction in signal plurality may indicate source poisoning. Disappearing contradictions may indicate truth distortion. Confidence scores clustering around specific values may indicate confidence manipulation.
+Manipulation detection in the Prismatic Platform is grounded in the [NABLA](@/glossary/nabla-infinity.md) epistemic framework's seven non-negotiable axioms. Each axiom defines a property that must hold for the platform's knowledge to be trustworthy: signal plurality, contradiction preservation, absence informativeness, time decay, unknown validity, source independence, and provenance mandatoriness. The manipulation detection system monitors for violations of these axioms as indicators of manipulation. A sudden reduction in signal plurality may indicate source poisoning. Disappearing contradictions may indicate truth distortion. Confidence scores clustering around specific values may indicate confidence manipulation.
 
-The detection engine uses five primary analysis techniques that correspond to the five categories of epistemic attack identified by the [Red Team](/glossary/red-team/): fact verification (detects truth distortion), statistical analysis (detects confidence manipulation), source validation (detects signal poisoning), baseline comparison (detects drift induction), and attention analysis (detects salience hijacking). These techniques operate continuously in the background and can also be invoked on-demand for specific scope scanning.
+The detection engine uses five primary analysis techniques that correspond to the five categories of epistemic attack identified by the [Red Team](@/glossary/red-team.md): fact verification (detects truth distortion), statistical analysis (detects confidence manipulation), source validation (detects signal poisoning), baseline comparison (detects drift induction), and attention analysis (detects salience hijacking). These techniques operate continuously in the background and can also be invoked on-demand for specific scope scanning.
 
 ## Architecture
 
@@ -157,7 +157,7 @@ The detection system operates as a multi-technique analysis engine with continuo
 
 8. **Evidence Chain Construction**: For each detection, an evidence chain is constructed linking the detected anomaly to the specific signals, baseline deviations, and analysis results that support the detection. This chain provides full auditability.
 
-9. **Alert Generation**: Detections exceeding the confidence threshold generate alerts that are sent to [/manipulation-dashboard](/commands/manipulation-dashboard/) and, if configured, to [/manipulation-protect](/commands/manipulation-protect/) for automated defense activation.
+9. **Alert Generation**: Detections exceeding the confidence threshold generate alerts that are sent to [/manipulation-dashboard](@/commands/manipulation-dashboard.md) and, if configured, to [/manipulation-protect](@/commands/manipulation-protect.md) for automated defense activation.
 
 10. **Result Reporting**: Detection results are formatted and output according to the configured format and destination.
 
@@ -165,15 +165,15 @@ The detection system operates as a multi-technique analysis engine with continuo
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `manipulation-detector` | Detection analysis engine |
-| [/manipulation-protect](/commands/manipulation-protect/) | Defense activation | Detections trigger protection responses |
-| [/manipulation-dashboard](/commands/manipulation-dashboard/) | Visualization | Detection signals feed dashboard |
-| [/manipulation-techniques](/commands/manipulation-techniques/) | Classification | Taxonomy for detection classification |
-| [Color-Team](/glossary/color-teams/) | Red/Blue framework | Red Team validates, Blue Team defends |
-| [NABLA Framework](/glossary/nabla-infinity/) | Axiom monitoring | Detection based on NABLA axiom violations |
-| [Quality Gates](/glossary/quality-gates/) | Quality integration | Detection quality validation |
-| [Telemetry](/glossary/telemetry/) | Event tracking | Detection events logged for analysis |
-| [/emergency](/commands/emergency/) | Crisis escalation | Critical detections trigger emergency protocol |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `manipulation-detector` | Detection analysis engine |
+| [/manipulation-protect](@/commands/manipulation-protect.md) | Defense activation | Detections trigger protection responses |
+| [/manipulation-dashboard](@/commands/manipulation-dashboard.md) | Visualization | Detection signals feed dashboard |
+| [/manipulation-techniques](@/commands/manipulation-techniques.md) | Classification | Taxonomy for detection classification |
+| [Color-Team](@/glossary/color-teams.md) | Red/Blue framework | Red Team validates, Blue Team defends |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Axiom monitoring | Detection based on NABLA axiom violations |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality integration | Detection quality validation |
+| [Telemetry](@/glossary/telemetry.md) | Event tracking | Detection events logged for analysis |
+| [/emergency](@/commands/emergency.md) | Crisis escalation | Critical detections trigger emergency protocol |
 
 ## Best Practices
 
@@ -243,19 +243,19 @@ Incorporate external threat indicators into detection.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Detection scans complete fully or report exactly which components could not be scanned. No monitoring gap is silently accepted.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every detection includes a complete evidence chain, confidence scoring, and classification against the established taxonomy. Detections without evidence are not reported.
 
 ## Related Commands
 
-- [/manipulation-protect](/commands/manipulation-protect/) - Activate manipulation protection defenses
-- [/manipulation-techniques](/commands/manipulation-techniques/) - View manipulation technique taxonomy and counter-measures
-- [/manipulation-dashboard](/commands/manipulation-dashboard/) - Manipulation detection dashboard with threat indicators
-- [/emergency](/commands/emergency/) - Emergency response and crisis management activation
-- [/archer-supreme](/commands/archer-supreme/) - Supreme authority activation for platform-wide operations
-- [/dark-ops](/commands/dark-ops/) - NABLA structural crisis detection and dark operations analysis
+- [/manipulation-protect](@/commands/manipulation-protect.md) - Activate manipulation protection defenses
+- [/manipulation-techniques](@/commands/manipulation-techniques.md) - View manipulation technique taxonomy and counter-measures
+- [/manipulation-dashboard](@/commands/manipulation-dashboard.md) - Manipulation detection dashboard with threat indicators
+- [/emergency](@/commands/emergency.md) - Emergency response and crisis management activation
+- [/archer-supreme](@/commands/archer-supreme.md) - Supreme authority activation for platform-wide operations
+- [/dark-ops](@/commands/dark-ops.md) - NABLA structural crisis detection and dark operations analysis
 
 ---
 
@@ -264,4 +264,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

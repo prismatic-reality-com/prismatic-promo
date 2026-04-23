@@ -40,11 +40,11 @@ image_alt = "Bounded Context - Prismatic Platform"
 
 ## Definition
 
-A bounded context is a strategic [Domain-Driven Design](/glossary/domain-driven-design/) pattern that defines an explicit boundary around a domain model where all terms, rules, and relationships are internally consistent. Within the boundary, every concept has a precise, unambiguous meaning. Across boundaries, the same word may mean entirely different things -- and this is not a defect but a deliberate design choice that allows each context to model its domain with maximum fidelity without being constrained by the modeling decisions of other contexts. The bounded context is DDD's primary tool for managing complexity in large systems: rather than attempting a single unified model of an entire business (which inevitably becomes an inconsistent compromise), the system is decomposed into contexts that each own their piece of the domain.
+A bounded context is a strategic [Domain-Driven Design](@/glossary/domain-driven-design.md) pattern that defines an explicit boundary around a domain model where all terms, rules, and relationships are internally consistent. Within the boundary, every concept has a precise, unambiguous meaning. Across boundaries, the same word may mean entirely different things -- and this is not a defect but a deliberate design choice that allows each context to model its domain with maximum fidelity without being constrained by the modeling decisions of other contexts. The bounded context is DDD's primary tool for managing complexity in large systems: rather than attempting a single unified model of an entire business (which inevitably becomes an inconsistent compromise), the system is decomposed into contexts that each own their piece of the domain.
 
 The concept addresses a fundamental problem in software design: as systems grow, a single data model becomes a source of coupling and confusion. When the marketing team, the security team, and the infrastructure team all need to refer to a "customer," they mean different things. Marketing's customer has demographics and engagement scores. Security's customer has risk ratings and compliance postures. Infrastructure's customer has resource quotas and billing tiers. A bounded context allows each team (and each subsystem) to model "customer" as they understand it, with communication between contexts happening through well-defined interfaces rather than shared internal models.
 
-In the Prismatic Platform, each umbrella app functions as a bounded context. The `prismatic_perimeter` context defines "asset" as an external attack surface element (a domain, IP address, certificate, or service exposed to the internet), while `prismatic_storage_core` defines it as a storable entity conforming to the `Storable` trait. These are not competing definitions -- they are context-appropriate definitions. Communication between these contexts flows through Elixir [protocols](/glossary/plug/) and [behaviours](/glossary/behaviour/) defined in `prismatic_storage_core`, which acts as the shared kernel providing traits and contracts without imposing domain-specific semantics.
+In the Prismatic Platform, each umbrella app functions as a bounded context. The `prismatic_perimeter` context defines "asset" as an external attack surface element (a domain, IP address, certificate, or service exposed to the internet), while `prismatic_storage_core` defines it as a storable entity conforming to the `Storable` trait. These are not competing definitions -- they are context-appropriate definitions. Communication between these contexts flows through Elixir [protocols](@/glossary/plug.md) and [behaviours](@/glossary/behaviour.md) defined in `prismatic_storage_core`, which acts as the shared kernel providing traits and contracts without imposing domain-specific semantics.
 
 ## Context Boundaries in the Prismatic Platform
 
@@ -121,7 +121,7 @@ end
 
 ### Cross-Context Communication via PubSub
 
-Contexts communicate through [PubSub](/glossary/pubsub/) events rather than direct function calls, maintaining loose coupling:
+Contexts communicate through [PubSub](@/glossary/pubsub.md) events rather than direct function calls, maintaining loose coupling:
 
 ```elixir
 # prismatic_perimeter publishes an event when a rating changes
@@ -161,8 +161,8 @@ When consuming data from external systems (OSINT providers, third-party APIs), t
 
 | External Source | External Model | Internal Model | Translation |
 |----------------|---------------|----------------|-------------|
-| [Shodan](/glossary/shodan/) | Shodan host record | `PrismaticPerimeter.Domain.Asset` | `ShodanAdapter.to_asset/1` |
-| [Censys](/glossary/censys/) | Censys certificate | `PrismaticPerimeter.Domain.Certificate` | `CensysAdapter.to_certificate/1` |
+| [Shodan](@/glossary/shodan.md) | Shodan host record | `PrismaticPerimeter.Domain.Asset` | `ShodanAdapter.to_asset/1` |
+| [Censys](@/glossary/censys.md) | Censys certificate | `PrismaticPerimeter.Domain.Certificate` | `CensysAdapter.to_certificate/1` |
 | NIS2 regulation | Compliance framework spec | `PrismaticPerimeter.Domain.ComplianceFramework` | `NIS2Adapter.to_framework/1` |
 
 ```elixir
@@ -235,9 +235,9 @@ Each split follows a pattern: when a single context starts containing concepts w
 
 ## Process Isolation as Context Enforcement
 
-[Process isolation](/glossary/process-isolation/) in the [BEAM](/glossary/beam/) virtual machine provides a runtime enforcement mechanism for bounded context boundaries. Each context's processes run in isolation -- a crash in `prismatic_perimeter` cannot corrupt the state of `prismatic_agents`, because they are separate OTP applications with separate supervision trees.
+[Process isolation](@/glossary/process-isolation.md) in the [BEAM](@/glossary/beam.md) virtual machine provides a runtime enforcement mechanism for bounded context boundaries. Each context's processes run in isolation -- a crash in `prismatic_perimeter` cannot corrupt the state of `prismatic_agents`, because they are separate OTP applications with separate supervision trees.
 
-This is stronger than what most programming environments offer. In a typical microservices architecture, context boundaries are enforced by network calls (which can be bypassed with shared databases). In the BEAM, context boundaries are enforced by the VM itself -- processes cannot access each other's memory, and [message passing](/glossary/message-passing/) is the only communication mechanism.
+This is stronger than what most programming environments offer. In a typical microservices architecture, context boundaries are enforced by network calls (which can be bypassed with shared databases). In the BEAM, context boundaries are enforced by the VM itself -- processes cannot access each other's memory, and [message passing](@/glossary/message-passing.md) is the only communication mechanism.
 
 ## Advanced Context Design Patterns
 
@@ -959,25 +959,25 @@ end
 
 ## Related Terms
 
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Strategic methodology that defines bounded contexts
-- [CQRS](/glossary/cqrs/) -- Pattern applied within bounded contexts to separate read and write models
-- [Event Sourcing](/glossary/event-sourcing/) -- Persistence pattern aligned with domain events crossing context boundaries
-- [Message Passing](/glossary/message-passing/) -- Communication mechanism between contexts, enforced by BEAM process model
-- [PubSub](/glossary/pubsub/) -- Event distribution system for loose coupling between contexts
-- [Behaviour](/glossary/behaviour/) -- Callback-based contracts defining port interfaces at context boundaries
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Anti-corruption layer implementation for external system integration
-- [Process Isolation](/glossary/process-isolation/) -- BEAM runtime enforcement of context boundaries
-- [BEAM](/glossary/beam/) -- Virtual machine providing process-level isolation between contexts
-- [Ecto](/glossary/ecto/) -- Repository pattern implementation within storage contexts
-- [Agent](/glossary/agent/) -- AIAD agents operating within their respective bounded contexts
-- [Umbrella Application](/glossary/umbrella-application/) -- Technical mechanism for implementing bounded contexts
-- [Saga Pattern](/glossary/saga-pattern/) -- Cross-context workflow coordination pattern
-- [Adapter](/glossary/adapter/) -- Port/adapter architectural pattern within bounded contexts
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Strategic methodology that defines bounded contexts
+- [CQRS](@/glossary/cqrs.md) -- Pattern applied within bounded contexts to separate read and write models
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Persistence pattern aligned with domain events crossing context boundaries
+- [Message Passing](@/glossary/message-passing.md) -- Communication mechanism between contexts, enforced by BEAM process model
+- [PubSub](@/glossary/pubsub.md) -- Event distribution system for loose coupling between contexts
+- [Behaviour](@/glossary/behaviour.md) -- Callback-based contracts defining port interfaces at context boundaries
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Anti-corruption layer implementation for external system integration
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM runtime enforcement of context boundaries
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing process-level isolation between contexts
+- [Ecto](@/glossary/ecto.md) -- Repository pattern implementation within storage contexts
+- [Agent](@/glossary/agent.md) -- AIAD agents operating within their respective bounded contexts
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Technical mechanism for implementing bounded contexts
+- [Saga Pattern](@/glossary/saga-pattern.md) -- Cross-context workflow coordination pattern
+- [Adapter](@/glossary/adapter.md) -- Port/adapter architectural pattern within bounded contexts
 
 ## See Also
 
-- [Architecture](/architecture/) -- Context boundary design and platform decomposition strategy
-- [Apps](/apps/) -- Individual bounded context implementations across the umbrella
+- [Architecture](@/architecture/_index.md) -- Context boundary design and platform decomposition strategy
+- [Apps](@/apps/_index.md) -- Individual bounded context implementations across the umbrella
 
 ---
 
@@ -986,4 +986,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

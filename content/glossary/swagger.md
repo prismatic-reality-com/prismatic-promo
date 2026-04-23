@@ -221,10 +221,10 @@ curl -X POST http://localhost:4004/api/v1/osint/tools/ares-ico-lookup/execute \
 
 ## Cross-References
 
-- [OpenAPI Spec](/glossary/openapi-spec/) - Specification format rendered by SwaggerUI
-- [REST API](/glossary/rest-api/) - API architecture documented through Swagger
-- [API](/glossary/api/) - Broader concept of programmatic interfaces
-- [Status Code](/glossary/status-code/) - HTTP codes displayed in SwaggerUI responses
+- [OpenAPI Spec](@/glossary/openapi-spec.md) - Specification format rendered by SwaggerUI
+- [REST API](@/glossary/rest-api.md) - API architecture documented through Swagger
+- [API](@/glossary/api.md) - Broader concept of programmatic interfaces
+- [Status Code](@/glossary/status-code.md) - HTTP codes displayed in SwaggerUI responses
 
 ---
 

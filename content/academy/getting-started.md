@@ -32,7 +32,7 @@ You will learn:
 - Why OTP supervision trees form the backbone of platform reliability
 - How to set up your local development environment
 - How to navigate the codebase using Git Trees for fast file discovery
-- The role of the [AIAD standard](/glossary/aiad/) in governing all platform components
+- The role of the [AIAD standard](@/glossary/aiad.md) in governing all platform components
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ Each application declares its dependencies explicitly in its `mix.exs` file. The
 
 ### OTP as the Foundation
 
-Every stateful component in Prismatic runs inside an OTP process with proper supervision. The platform follows the [let-it-crash](/glossary/let-it-crash/) philosophy: individual processes can fail without bringing down the system, because [supervisors](/glossary/supervisor/) automatically restart them.
+Every stateful component in Prismatic runs inside an OTP process with proper supervision. The platform follows the [let-it-crash](@/glossary/let-it-crash.md) philosophy: individual processes can fail without bringing down the system, because [supervisors](@/glossary/supervisor.md) automatically restart them.
 
 ```elixir
 # Every domain has a supervision tree
@@ -135,7 +135,7 @@ mix quality.gates
 mix test
 ```
 
-If compilation produces warnings, you must fix them before proceeding. The [NO MERCY](/glossary/no-mercy/) doctrine enforces zero-warning builds across the entire platform.
+If compilation produces warnings, you must fix them before proceeding. The [NO MERCY](@/glossary/no-mercy.md) doctrine enforces zero-warning builds across the entire platform.
 
 ### Step 3: Navigate with Git Trees
 
@@ -171,7 +171,7 @@ Visit `http://localhost:4000` for the LiveView dashboard and `http://localhost:4
 
 ### Step 5: Explore the AIAD Standard
 
-Every agent, command, pipeline, and policy in the platform follows the [AIAD standard](/glossary/aiad/). Browse the registry:
+Every agent, command, pipeline, and policy in the platform follows the [AIAD standard](@/glossary/aiad.md). Browse the registry:
 
 ```bash
 # List all registered agents
@@ -314,36 +314,36 @@ mix git_trees find "agent"  # Find files matching pattern
 ## See Also
 
 ### Related Applications
-- [prismatic_claude](/apps/prismatic-claude/) -- Claude integration and session lifecycle management
-- [prismatic_storage_core](/apps/prismatic-storage-core/) -- Storage traits and protocols forming the data layer foundation
-- [prismatic_telemetry](/apps/prismatic-telemetry/) -- Observability infrastructure with structured telemetry events
+- [prismatic_claude](@/apps/prismatic-claude.md) -- Claude integration and session lifecycle management
+- [prismatic_storage_core](@/apps/prismatic-storage-core.md) -- Storage traits and protocols forming the data layer foundation
+- [prismatic_telemetry](@/apps/prismatic-telemetry.md) -- Observability infrastructure with structured telemetry events
 
 ### Glossary
-- [AIAD](/glossary/aiad/) -- AI Agent Directive standard governing all platform components
-- [NO MERCY](/glossary/no-mercy/) -- Execution quality enforcement doctrine
-- [NO DOUBTS](/glossary/no-doubts/) -- Decision quality enforcement doctrine
-- [Quality DNA](/glossary/quality-dna/) -- Persistent quality state tracked across sessions
-- [SEADF](/glossary/seadf/) -- Self-Evolving Autonomous Development Framework
-- [Umbrella Application](/glossary/umbrella-application/) -- Elixir project structure used by Prismatic
-- [OTP](/glossary/otp/) -- Open Telecom Platform foundational runtime
-- [Supervision Tree](/glossary/supervision-tree/) -- Fault tolerance through process hierarchies
+- [AIAD](@/glossary/aiad.md) -- AI Agent Directive standard governing all platform components
+- [NO MERCY](@/glossary/no-mercy.md) -- Execution quality enforcement doctrine
+- [NO DOUBTS](@/glossary/no-doubts.md) -- Decision quality enforcement doctrine
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistent quality state tracked across sessions
+- [SEADF](@/glossary/seadf.md) -- Self-Evolving Autonomous Development Framework
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Elixir project structure used by Prismatic
+- [OTP](@/glossary/otp.md) -- Open Telecom Platform foundational runtime
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Fault tolerance through process hierarchies
 
 ### Architecture
-- [Umbrella Apps](/architecture/umbrella-apps/) -- Deep dive into the umbrella architecture design
-- [Supervision Trees](/architecture/supervision-trees/) -- Process topology and fault tolerance patterns
-- [Telemetry](/architecture/telemetry/) -- Observability and metrics infrastructure
+- [Umbrella Apps](@/architecture/umbrella-apps.md) -- Deep dive into the umbrella architecture design
+- [Supervision Trees](@/architecture/supervision-trees.md) -- Process topology and fault tolerance patterns
+- [Telemetry](@/architecture/telemetry.md) -- Observability and metrics infrastructure
 
 ### Related Academy Topics
-- [OTP Design Patterns](/academy/otp-fundamentals/) -- GenServer, Supervisor, and process topology
-- [Storage Architecture](/academy/storage-patterns/) -- Trait-based storage layer with pluggable adapters
-- [Development Workflow](/academy/development-workflow/) -- CI/CD pipeline and Git hooks
+- [OTP Design Patterns](@/academy/otp-fundamentals.md) -- GenServer, Supervisor, and process topology
+- [Storage Architecture](@/academy/storage-patterns.md) -- Trait-based storage layer with pluggable adapters
+- [Development Workflow](@/academy/development-workflow.md) -- CI/CD pipeline and Git hooks
 
 ## Next Steps
 
-- [Building Your First Autonomous Agent](/academy/first-agent/) -- create an AIAD-compliant agent from scratch
-- [Understanding NO MERCY, NO DOUBTS](/academy/quality-standards/) -- deep dive into the quality enforcement system
-- [OTP Design Patterns for Prismatic](/academy/otp-fundamentals/) -- master GenServer, Supervisor, and process topology
-- [Development Workflow & CI/CD](/academy/development-workflow/) -- set up your complete development environment
+- [Building Your First Autonomous Agent](@/academy/first-agent.md) -- create an AIAD-compliant agent from scratch
+- [Understanding NO MERCY, NO DOUBTS](@/academy/quality-standards.md) -- deep dive into the quality enforcement system
+- [OTP Design Patterns for Prismatic](@/academy/otp-fundamentals.md) -- master GenServer, Supervisor, and process topology
+- [Development Workflow & CI/CD](@/academy/development-workflow.md) -- set up your complete development environment
 
 ---
 
@@ -352,4 +352,4 @@ mix git_trees find "agent"  # Find files matching pattern
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

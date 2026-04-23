@@ -28,15 +28,15 @@ image_alt = "anti-corruption-layer-specialist - Prismatic Platform"
 
 ## Overview
 
-The Anti-Corruption Layer Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Integration domain of the Prismatic Platform. This agent designs and maintains protective boundaries between the platform's clean domain models and external or legacy systems whose data structures, naming conventions, and semantic assumptions would otherwise contaminate the core architecture. The anti-corruption layer pattern ensures that integration with imperfect external systems never degrades internal code quality.
+The Anti-Corruption Layer Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Integration domain of the Prismatic Platform. This agent designs and maintains protective boundaries between the platform's clean domain models and external or legacy systems whose data structures, naming conventions, and semantic assumptions would otherwise contaminate the core architecture. The anti-corruption layer pattern ensures that integration with imperfect external systems never degrades internal code quality.
 
-Legacy system integration is one of the most persistent sources of technical debt in enterprise software. Without deliberate boundary management, foreign concepts leak into domain models, naming inconsistencies propagate through codebases, and external system limitations become permanent constraints on internal design. The Anti-Corruption Layer Specialist prevents this by establishing translation layers that map between external representations and internal domain language, keeping the Prismatic Platform's [Elixir](/glossary/elixir/) codebase free from external contamination.
+Legacy system integration is one of the most persistent sources of technical debt in enterprise software. Without deliberate boundary management, foreign concepts leak into domain models, naming inconsistencies propagate through codebases, and external system limitations become permanent constraints on internal design. The Anti-Corruption Layer Specialist prevents this by establishing translation layers that map between external representations and internal domain language, keeping the Prismatic Platform's [Elixir](@/glossary/elixir.md) codebase free from external contamination.
 
 The agent's scope extends beyond simple data transformation. It addresses semantic mapping (translating between different conceptual models), protocol normalization (wrapping legacy protocols behind modern interfaces), validation enforcement (rejecting malformed external data at the boundary), and migration planning (identifying opportunities to reduce anti-corruption layer complexity as legacy systems are modernized). This comprehensive approach ensures that external integrations remain isolated, testable, and replaceable.
 
 ## Architecture
 
-The Anti-Corruption Layer Specialist manages a library of translation modules organized by external system integration. Each translation module implements the platform's `AntiCorruptionLayer` [behaviour](/glossary/behaviour/), ensuring consistent interface patterns across all boundary translations.
+The Anti-Corruption Layer Specialist manages a library of translation modules organized by external system integration. Each translation module implements the platform's `AntiCorruptionLayer` [behaviour](@/glossary/behaviour.md), ensuring consistent interface patterns across all boundary translations.
 
 The architecture follows a layered structure. The outermost layer handles protocol normalization -- converting SOAP, REST, FTP, or proprietary binary protocols into a uniform internal message format. The middle layer handles semantic translation -- mapping external domain concepts to internal domain language with explicit transformation rules. The innermost layer handles validation -- ensuring that translated data conforms to internal type constraints and business rules before entering the domain model.
 
@@ -106,7 +106,7 @@ end
 
 - **Domain model protection** through translation layers that convert external data representations into internal domain structures, preventing foreign concepts from leaking into core business logic
 - **Semantic mapping management** maintaining bidirectional translation dictionaries between external system terminology and Prismatic domain language, with versioned mapping histories for audit purposes
-- **Legacy [protocol](/glossary/protocol/) normalization** that wraps outdated communication patterns like SOAP, FTP, or proprietary binary protocols behind modern Elixir [behaviour](/glossary/behaviour/)-based interfaces
+- **Legacy [protocol](@/glossary/protocol.md) normalization** that wraps outdated communication patterns like SOAP, FTP, or proprietary binary protocols behind modern Elixir [behaviour](@/glossary/behaviour.md)-based interfaces
 - **Boundary validation enforcement** with strict input validation at every anti-corruption layer entry point, rejecting malformed or semantically invalid data before it enters the domain
 - **Migration path planning** that identifies opportunities to gradually reduce anti-corruption layer complexity as legacy systems are modernized or replaced
 - **Translation test generation** automatically generating property-based tests for translation modules that verify bidirectional consistency (translate inbound then outbound produces equivalent data)
@@ -123,11 +123,11 @@ Translation modules are registered in an ETS-backed registry that enables runtim
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [adapter-pattern-specialist](/agents/adapter-pattern-specialist/) | Implementation Partner | Implements [adapter pattern](/glossary/adapter-pattern/)s within anti-corruption layer boundaries |
-| [cross-domain-integration-orchestrator](/agents/cross-domain-integration-orchestrator/) | Integration Authority | Coordinates anti-corruption requirements across domain boundaries |
-| [data-migration-architect](/agents/data-migration-architect/) | Migration Planner | Plans data migration strategies that respect anti-corruption boundaries |
-| [aiad-verification-engine](/agents/aiad-verification-engine/) | Validation Partner | Verifies translation module compliance with the ACL behaviour |
-| [alert-management-specialist](/agents/alert-management-specialist/) | Health Monitor | Routes translation failure alerts to integration teams |
+| [adapter-pattern-specialist](@/agents/adapter-pattern-specialist.md) | Implementation Partner | Implements [adapter pattern](@/glossary/adapter-pattern.md)s within anti-corruption layer boundaries |
+| [cross-domain-integration-orchestrator](@/agents/cross-domain-integration-orchestrator.md) | Integration Authority | Coordinates anti-corruption requirements across domain boundaries |
+| [data-migration-architect](@/agents/data-migration-architect.md) | Migration Planner | Plans data migration strategies that respect anti-corruption boundaries |
+| [aiad-verification-engine](@/agents/aiad-verification-engine.md) | Validation Partner | Verifies translation module compliance with the ACL behaviour |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Health Monitor | Routes translation failure alerts to integration teams |
 
 ## Operational Workflow
 
@@ -177,12 +177,12 @@ The AIAD specification at `.aiad/agents/anti-corruption-layer-specialist.agent.m
 
 ## Related Resources
 
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Implementation pattern used within anti-corruption layers
-- [Architecture Overview](/architecture/) -- Platform architecture including integration boundaries
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard for integration agents
-- [Technologies](/technologies/) -- Technology stack including external integration targets
-- [Applications](/apps/) -- Platform applications with external system integrations
-- [Glossary](/glossary/) -- Technical terminology and concepts
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Implementation pattern used within anti-corruption layers
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including integration boundaries
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard for integration agents
+- [Technologies](@/technologies/_index.md) -- Technology stack including external integration targets
+- [Applications](@/apps/_index.md) -- Platform applications with external system integrations
+- [Glossary](@/glossary/_index.md) -- Technical terminology and concepts
 
 ---
 
@@ -191,4 +191,4 @@ The AIAD specification at `.aiad/agents/anti-corruption-layer-specialist.agent.m
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

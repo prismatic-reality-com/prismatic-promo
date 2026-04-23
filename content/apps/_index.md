@@ -31,11 +31,11 @@ total_loc_millions = "2.8"
 date_modified = "2026-02-23"
 +++
 
-93 [OTP](/glossary/otp/) [umbrella](/glossary/umbrella-application/) applications forming the Prismatic Platform -- from core infrastructure and storage adapters through intelligence modules and autonomous evolution systems to production web interfaces. Each application is a self-contained OTP application with its own [supervision tree](/glossary/supervision-tree/), configuration, and test suite, communicating through well-defined public APIs following the [3NL](/glossary/three-nl/) architectural framework.
+93 [OTP](@/glossary/otp.md) [umbrella](@/glossary/umbrella-application.md) applications forming the Prismatic Platform -- from core infrastructure and storage adapters through intelligence modules and autonomous evolution systems to production web interfaces. Each application is a self-contained OTP application with its own [supervision tree](@/glossary/supervision-tree.md), configuration, and test suite, communicating through well-defined public APIs following the [3NL](@/glossary/three-nl.md) architectural framework.
 
 ## Abstract
 
-The Prismatic Platform's application architecture follows the Elixir/OTP umbrella pattern, organizing 93 distinct OTP applications into a cohesive, [fault-tolerant](/glossary/fault-tolerance/) ecosystem. Each application owns its supervision tree, isolates its [failure domain](/glossary/process-isolation/), and exposes functionality exclusively through a public facade module. This document catalogs the complete application landscape, explains the architectural rationale behind the umbrella structure, and provides guidance for understanding how applications compose into the platform's capabilities.
+The Prismatic Platform's application architecture follows the Elixir/OTP umbrella pattern, organizing 93 distinct OTP applications into a cohesive, [fault-tolerant](@/glossary/fault-tolerance.md) ecosystem. Each application owns its supervision tree, isolates its [failure domain](@/glossary/process-isolation.md), and exposes functionality exclusively through a public facade module. This document catalogs the complete application landscape, explains the architectural rationale behind the umbrella structure, and provides guidance for understanding how applications compose into the platform's capabilities.
 
 The umbrella approach delivers three critical properties that monolithic architectures cannot: **independent deployability** (applications can be compiled and tested in isolation), **fault isolation** (a crash in one application's supervision tree does not propagate to others), and **clear dependency graphs** (inter-application dependencies are explicit in `mix.exs` and enforced at compile time).
 
@@ -43,9 +43,9 @@ The umbrella approach delivers three critical properties that monolithic archite
 
 ### The Umbrella Architecture Decision
 
-The decision to structure Prismatic as an umbrella project rather than a monolith or [microservice](/glossary/microservices/) mesh reflects a deliberate architectural trade-off. [Elixir](/glossary/elixir/) umbrella projects provide the modularity benefits of microservices -- clear boundaries, independent testing, explicit dependencies -- without the operational complexity of distributed deployment, service discovery, and network-based inter-service communication.
+The decision to structure Prismatic as an umbrella project rather than a monolith or [microservice](@/glossary/microservices.md) mesh reflects a deliberate architectural trade-off. [Elixir](@/glossary/elixir.md) umbrella projects provide the modularity benefits of microservices -- clear boundaries, independent testing, explicit dependencies -- without the operational complexity of distributed deployment, service discovery, and network-based inter-service communication.
 
-Within a single [BEAM](/glossary/beam/) VM, all 93 applications share the same Erlang distribution node. They communicate via direct function calls, [message passing](/glossary/message-passing/) between named processes, and [PubSub](/glossary/pubsub/) events -- all happening in-process with microsecond latency rather than the millisecond-scale overhead of HTTP or gRPC between separate services.
+Within a single [BEAM](@/glossary/beam.md) VM, all 93 applications share the same Erlang distribution node. They communicate via direct function calls, [message passing](@/glossary/message-passing.md) between named processes, and [PubSub](@/glossary/pubsub.md) events -- all happening in-process with microsecond latency rather than the millisecond-scale overhead of HTTP or gRPC between separate services.
 
 ### Architectural Principles
 
@@ -97,12 +97,12 @@ The storage subsystem implements a pluggable adapter architecture through the `P
 
 | Application | Backend | Use Case |
 |-------------|---------|----------|
-| **prismatic_storage_core** | [Protocol](/glossary/protocol/) definitions | Traits, protocols, [behaviours](/glossary/behaviour/) for all adapters |
-| **prismatic_storage_ets** | [ETS](/glossary/ets/) | High-speed in-memory storage, session data, caches |
-| **prismatic_storage_ecto** | [PostgreSQL](/glossary/postgresql/) via [Ecto](/glossary/ecto/) | Persistent relational data, transactions, migrations |
-| **prismatic_storage_meilisearch** | [Meilisearch](/glossary/meilisearch/) | Full-text search, faceted filtering, typo-tolerant queries |
-| **prismatic_storage_kuzudb** | [KuzuDB](/glossary/kuzudb/) | Graph database, relationship queries, network analysis |
-| **prismatic_storage_redis** | [Redis](/glossary/redis/) | Distributed caching, pub/sub, [rate limiting](/glossary/rate-limiting/) counters |
+| **prismatic_storage_core** | [Protocol](@/glossary/protocol.md) definitions | Traits, protocols, [behaviours](@/glossary/behaviour.md) for all adapters |
+| **prismatic_storage_ets** | [ETS](@/glossary/ets.md) | High-speed in-memory storage, session data, caches |
+| **prismatic_storage_ecto** | [PostgreSQL](@/glossary/postgresql.md) via [Ecto](@/glossary/ecto.md) | Persistent relational data, transactions, migrations |
+| **prismatic_storage_meilisearch** | [Meilisearch](@/glossary/meilisearch.md) | Full-text search, faceted filtering, typo-tolerant queries |
+| **prismatic_storage_kuzudb** | [KuzuDB](@/glossary/kuzudb.md) | Graph database, relationship queries, network analysis |
+| **prismatic_storage_redis** | [Redis](@/glossary/redis.md) | Distributed caching, pub/sub, [rate limiting](@/glossary/rate-limiting.md) counters |
 
 ```elixir
 # Storage adapter contract -- all backends implement this
@@ -124,7 +124,7 @@ Applications providing intelligence gathering, analysis, and synthesis capabilit
 
 | Application | Domain | Key Capability |
 |-------------|--------|----------------|
-| **prismatic_osint_core** | [OSINT](/glossary/osint/) framework | [Adapter](/glossary/adapter-pattern/) layer for 250+ intelligence sources |
+| **prismatic_osint_core** | [OSINT](@/glossary/osint.md) framework | [Adapter](@/glossary/adapter-pattern.md) layer for 250+ intelligence sources |
 | **prismatic_osint_sources** | Source integrations | Provider implementations, rate limiting, credential management |
 | **prismatic_hawkeye** | Visitor intelligence | Browser fingerprinting, session analysis, threat detection |
 | **prismatic_dd** | Due diligence | Entity-centric investigation, multi-source verification |
@@ -138,8 +138,8 @@ Applications enforcing security policies, running adversarial simulations, and e
 
 | Application | Domain | Key Capability |
 |-------------|--------|----------------|
-| **prismatic_perimeter** | [EASM](/glossary/easm/) | [Security ratings](/glossary/security-rating/) (A-F), asset discovery, [NIS2](/glossary/nis2/)/[ZKB](/glossary/zkb/) compliance |
-| **prismatic_compliance** | Regulatory compliance | [GDPR](/glossary/gdpr/), [SOC2](/glossary/soc2/), [ISO 27001](/glossary/iso-27001/) compliance automation |
+| **prismatic_perimeter** | [EASM](@/glossary/easm.md) | [Security ratings](@/glossary/security-rating.md) (A-F), asset discovery, [NIS2](@/glossary/nis2.md)/[ZKB](@/glossary/zkb.md) compliance |
+| **prismatic_compliance** | Regulatory compliance | [GDPR](@/glossary/gdpr.md), [SOC2](@/glossary/soc2.md), [ISO 27001](@/glossary/iso-27001.md) compliance automation |
 | **prismatic_dark** | Security simulation sandbox | Isolated environment for Red/Black team operations |
 | **prismatic_cer** | CER compliance | Czech entity register verification, employee screening |
 | **prismatic_detection_engine** | Threat detection | Anomaly detection, pattern matching, alert generation |
@@ -151,11 +151,11 @@ Applications powering the platform's 434+ autonomous AI agents:
 
 | Application | Domain | Key Capability |
 |-------------|--------|----------------|
-| **prismatic_agents** | [Agent](/glossary/agent/) runtime | 370+ [AIAD](/glossary/aiad/) agent execution, coordination, lifecycle management |
+| **prismatic_agents** | [Agent](@/glossary/agent.md) runtime | 370+ [AIAD](@/glossary/aiad.md) agent execution, coordination, lifecycle management |
 | **prismatic_claude** | Claude integration | Session management, stack conversation, context preservation |
-| **prismatic_ollama** | Local AI [inference](/glossary/inference/) | [Ollama](/glossary/ollama/) model management, inference routing, fallback logic |
+| **prismatic_ollama** | Local AI [inference](@/glossary/inference.md) | [Ollama](@/glossary/ollama.md) model management, inference routing, fallback logic |
 | **prismatic_deduction** | Logical deduction | Formal reasoning, proof generation, hypothesis testing |
-| **prismatic_lean4** | [Formal verification](/glossary/formal-verification/) | [Lean4](/glossary/lean4/) proof integration, [theorem](/glossary/theorem-proving/) verification, [NABLA](/glossary/nabla-infinity/) proofs |
+| **prismatic_lean4** | [Formal verification](@/glossary/formal-verification.md) | [Lean4](@/glossary/lean4.md) proof integration, [theorem](@/glossary/theorem-proving.md) verification, [NABLA](@/glossary/nabla-infinity.md) proofs |
 | **prismatic_logic_prolog** | Prolog reasoning | Logic programming, rule evaluation, knowledge base queries |
 | **prismatic_bifurcation** | Decision branching | Scenario analysis, bifurcation detection, path evaluation |
 
@@ -165,8 +165,8 @@ Phoenix-based web applications providing dashboards, APIs, and user interfaces:
 
 | Application | Port | Interface |
 |-------------|------|-----------|
-| **prismatic_web** | 4000 | Main [LiveView](/glossary/liveview/) dashboard, DD cases, graph visualization |
-| **prismatic_api** | 4004 | Auto-introspecting [REST API](/glossary/rest-api/), [OpenAPI](/glossary/openapi/) 3.0, SwaggerUI |
+| **prismatic_web** | 4000 | Main [LiveView](@/glossary/liveview.md) dashboard, DD cases, graph visualization |
+| **prismatic_api** | 4004 | Auto-introspecting [REST API](@/glossary/rest-api.md), [OpenAPI](@/glossary/openapi.md) 3.0, SwaggerUI |
 | **prismatic_hawkeye_web** | 4001 | Visitor intelligence dashboard |
 | **prismatic_perimeter_web** | 4002 | EASM dashboard, security ratings, compliance views |
 | **ai_drift_web** | 4003 | AI drift monitoring, alert dashboard |
@@ -179,7 +179,7 @@ Applications driving the platform's autonomous quality enforcement and evolution
 | Application | Domain | Key Capability |
 |-------------|--------|----------------|
 | **prismatic_safety** | Quality floor guardian | Autonomous quality monitoring, regression prevention |
-| **prismatic_credo** | Code quality analysis | [Credo](/glossary/credo/) integration, custom checks, [quality scoring](/glossary/quality-gates/) |
+| **prismatic_credo** | Code quality analysis | [Credo](@/glossary/credo.md) integration, custom checks, [quality scoring](@/glossary/quality-gates.md) |
 | **prismatic_transcendence** | Evolutionary systems | Self-healing, autonomous improvement, fitness tracking |
 | **prismatic_annihilation** | Technical debt elimination | QDP scanning, automated debt removal, quality enforcement |
 
@@ -212,7 +212,7 @@ The simplest and most common pattern. One application calls another's facade mod
 
 ### 2. GenServer Calls/Casts (Process-Based)
 
-For stateful interactions where the target application manages state through a [GenServer](/glossary/genserver/):
+For stateful interactions where the target application manages state through a [GenServer](@/glossary/genserver.md):
 
 ```elixir
 # Requesting a cached result from the cache application
@@ -305,7 +305,7 @@ end
 | Incremental compilation | ~2-5s | Single file change |
 | Full test suite (`mix test`) | ~90s | 5,864 test files |
 | Single app tests | ~3-8s | Isolated app test suite |
-| [Dialyzer](/glossary/dialyzer/) analysis | ~120s | Full type analysis |
+| [Dialyzer](@/glossary/dialyzer.md) analysis | ~120s | Full type analysis |
 
 ### Runtime Performance
 
@@ -372,7 +372,7 @@ Applications handling sensitive data implement additional security measures:
 
 - **prismatic_auth**: Credential storage uses Argon2 hashing; tokens have configurable TTL
 - **prismatic_dark**: Operates in a sandboxed environment with no network access
-- **prismatic_suppression**: Implements [cryptographic erasure](/glossary/encryption-at-rest/) for GDPR right-to-erasure compliance
+- **prismatic_suppression**: Implements [cryptographic erasure](@/glossary/encryption-at-rest.md) for GDPR right-to-erasure compliance
 - **prismatic_compliance**: Maintains immutable audit trails with tamper detection
 
 ### Dependency Security
@@ -400,11 +400,11 @@ Planned application additions follow the platform's strategic roadmap:
 
 ### Internal Documentation
 
-- [Platform Architecture](/architecture/) -- Architectural overview and design patterns
-- [Umbrella Architecture](/architecture/umbrella-apps/) -- Detailed umbrella structure documentation
-- [Supervision Trees](/architecture/supervision-trees/) -- OTP supervision patterns
-- [Storage Adapters](/architecture/storage-adapters/) -- Storage layer architecture
-- [Agent Architecture](/agents/) -- AI agent system documentation
+- [Platform Architecture](@/architecture/_index.md) -- Architectural overview and design patterns
+- [Umbrella Architecture](@/architecture/umbrella-apps.md) -- Detailed umbrella structure documentation
+- [Supervision Trees](@/architecture/supervision-trees.md) -- OTP supervision patterns
+- [Storage Adapters](@/architecture/storage-adapters.md) -- Storage layer architecture
+- [Agent Architecture](@/agents/_index.md) -- AI agent system documentation
 
 ### External Resources
 
@@ -423,4 +423,4 @@ Planned application additions follow the platform's strategic roadmap:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

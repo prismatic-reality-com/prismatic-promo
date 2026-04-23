@@ -36,9 +36,9 @@ see_also = ["capabilities", "architecture", "agents", "anomaly-detection", "moni
 
 An **anomaly** is a data point, event, or behavioral pattern that deviates significantly from established norms or expected values within a given context. Anomalies may indicate errors in data collection, genuine unusual events, security threats, or system malfunctions. The significance of an anomaly depends on its magnitude of deviation, the context in which it occurs, and the consequences of the underlying cause.
 
-In [statistics](/glossary/distribution/), an anomaly is often identified when a value falls outside an expected [distribution](/glossary/distribution/) -- for example, beyond three [standard deviations](/glossary/standard-deviation/) from the [mean](/glossary/mean/). However, statistical distance alone does not determine whether a data point is truly anomalous; domain knowledge, temporal context, and the operational environment all play critical roles in classification.
+In [statistics](@/glossary/distribution.md), an anomaly is often identified when a value falls outside an expected [distribution](@/glossary/distribution.md) -- for example, beyond three [standard deviations](@/glossary/standard-deviation.md) from the [mean](@/glossary/mean.md). However, statistical distance alone does not determine whether a data point is truly anomalous; domain knowledge, temporal context, and the operational environment all play critical roles in classification.
 
-In the Prismatic Platform, anomalies are detected across multiple domains: [security](/glossary/security/) [monitoring](/glossary/monitoring/) (unusual access patterns), quality assurance (unexpected [KPI](/glossary/kpi/) changes), OSINT intelligence (atypical entity behaviors), and system performance (response time spikes detected via [telemetry](/glossary/telemetry/)).
+In the Prismatic Platform, anomalies are detected across multiple domains: [security](@/glossary/security.md) [monitoring](@/glossary/monitoring.md) (unusual access patterns), quality assurance (unexpected [KPI](@/glossary/kpi.md) changes), OSINT intelligence (atypical entity behaviors), and system performance (response time spikes detected via [telemetry](@/glossary/telemetry.md)).
 
 ## Overview
 
@@ -46,7 +46,7 @@ In the Prismatic Platform, anomalies are detected across multiple domains: [secu
 
 Understanding the three fundamental anomaly types is essential for selecting appropriate detection strategies and interpreting results correctly.
 
-**Point Anomalies** are the simplest form: a single observation that lies far from the rest of the data. A sudden spike in API response time from 50ms to 5,000ms is a point anomaly. These are typically detected through threshold-based methods or [standard deviation](/glossary/standard-deviation/) calculations against historical baselines.
+**Point Anomalies** are the simplest form: a single observation that lies far from the rest of the data. A sudden spike in API response time from 50ms to 5,000ms is a point anomaly. These are typically detected through threshold-based methods or [standard deviation](@/glossary/standard-deviation.md) calculations against historical baselines.
 
 **Contextual Anomalies** (also called conditional anomalies) are values that are normal in one context but anomalous in another. A login from Prague at 2pm is expected; the same login from a previously unseen IP in a different country at 3am is contextually anomalous. Detection requires understanding the context dimensions -- time, location, user history, and behavioral patterns.
 
@@ -60,7 +60,7 @@ Understanding the three fundamental anomaly types is essential for selecting app
 
 ### Statistical Foundations
 
-The mathematical basis for anomaly detection rests on understanding how data is [distributed](/glossary/distribution/). For normally distributed data, approximately 68% of values fall within one [standard deviation](/glossary/standard-deviation/) of the [mean](/glossary/mean/), 95% within two, and 99.7% within three. Values beyond three standard deviations are statistical [outliers](/glossary/outlier/) -- candidates for anomaly classification.
+The mathematical basis for anomaly detection rests on understanding how data is [distributed](@/glossary/distribution.md). For normally distributed data, approximately 68% of values fall within one [standard deviation](@/glossary/standard-deviation.md) of the [mean](@/glossary/mean.md), 95% within two, and 99.7% within three. Values beyond three standard deviations are statistical [outliers](@/glossary/outlier.md) -- candidates for anomaly classification.
 
 However, real-world data rarely follows a perfect normal distribution. Skewed distributions, multimodal patterns, and heavy-tailed distributions all require adapted detection methods. The Prismatic Platform employs multiple detection strategies to handle this diversity, selecting the appropriate method based on data characteristics.
 
@@ -70,7 +70,7 @@ However, real-world data rarely follows a perfect normal distribution. Skewed di
 
 #### Z-Score Method
 
-The z-score measures how many [standard deviations](/glossary/standard-deviation/) a value lies from the [mean](/glossary/mean/). It is the simplest and most widely used anomaly scoring method for univariate data.
+The z-score measures how many [standard deviations](@/glossary/standard-deviation.md) a value lies from the [mean](@/glossary/mean.md). It is the simplest and most widely used anomaly scoring method for univariate data.
 
 ```
 Z-Score = (observed - mean) / standard_deviation
@@ -81,15 +81,15 @@ Z-Score = (observed - mean) / standard_deviation
 | 0 - 1 | Normal | No action | 68.3% of data |
 | 1 - 2 | Acceptable | Log for reference | 27.2% of data |
 | 2 - 3 | Suspicious | Log and monitor | 4.3% of data |
-| 3 - 5 | Anomalous | Trigger [alert](/glossary/alert/) | 0.27% of data |
+| 3 - 5 | Anomalous | Trigger [alert](@/glossary/alert.md) | 0.27% of data |
 | > 5 | Extreme | Immediate investigation | < 0.00006% of data |
 
 **Strengths**: Simple to compute, well-understood statistical basis, works well for normally distributed data.
-**Weaknesses**: Sensitive to [outliers](/glossary/outlier/) in the baseline (mean and stddev are pulled by extreme values), assumes approximately normal [distribution](/glossary/distribution/).
+**Weaknesses**: Sensitive to [outliers](@/glossary/outlier.md) in the baseline (mean and stddev are pulled by extreme values), assumes approximately normal [distribution](@/glossary/distribution.md).
 
 #### Interquartile Range (IQR) Method
 
-The IQR method is more robust against [outliers](/glossary/outlier/) because it uses median-based statistics rather than mean-based. The IQR is the range between the 25th percentile (Q1) and 75th percentile (Q3).
+The IQR method is more robust against [outliers](@/glossary/outlier.md) because it uses median-based statistics rather than mean-based. The IQR is the range between the 25th percentile (Q1) and 75th percentile (Q3).
 
 ```
 IQR = Q3 - Q1
@@ -97,9 +97,9 @@ Lower Fence = Q1 - (1.5 * IQR)
 Upper Fence = Q3 + (1.5 * IQR)
 ```
 
-Values outside the fences are classified as anomalous. A multiplier of 3.0 instead of 1.5 identifies only extreme [outliers](/glossary/outlier/).
+Values outside the fences are classified as anomalous. A multiplier of 3.0 instead of 1.5 identifies only extreme [outliers](@/glossary/outlier.md).
 
-**Strengths**: Robust to extreme values, works for skewed [distributions](/glossary/distribution/), no normality assumption.
+**Strengths**: Robust to extreme values, works for skewed [distributions](@/glossary/distribution.md), no normality assumption.
 **Weaknesses**: Less granular scoring than z-score, may miss contextual anomalies, requires sufficient data for percentile calculation.
 
 #### ML-Based Detection
@@ -112,7 +112,7 @@ Machine learning approaches handle multivariate data and complex patterns that s
 
 ### Detection Pipeline Architecture
 
-The following diagram illustrates how raw data flows through the Prismatic Platform's anomaly detection pipeline, from ingestion to actionable [alerts](/glossary/alert/).
+The following diagram illustrates how raw data flows through the Prismatic Platform's anomaly detection pipeline, from ingestion to actionable [alerts](@/glossary/alert.md).
 
 ```mermaid
 flowchart TD
@@ -144,19 +144,19 @@ Anomaly scoring converts raw detection results into a normalized severity scale 
 
 | Component | Weight | Description |
 |-----------|--------|-------------|
-| Statistical distance | 40% | How far the value deviates from the baseline [distribution](/glossary/distribution/) |
+| Statistical distance | 40% | How far the value deviates from the baseline [distribution](@/glossary/distribution.md) |
 | Contextual relevance | 25% | Whether the context amplifies or diminishes the deviation |
 | Historical frequency | 20% | How often similar deviations have occurred previously |
 | Impact assessment | 15% | The potential operational consequences of the anomaly |
 
 ### False Positive Management
 
-One of the most critical challenges in anomaly detection is managing false positives -- values flagged as anomalous that are actually legitimate. High false positive rates lead to alert fatigue, where operators begin ignoring [alerts](/glossary/alert/) entirely.
+One of the most critical challenges in anomaly detection is managing false positives -- values flagged as anomalous that are actually legitimate. High false positive rates lead to alert fatigue, where operators begin ignoring [alerts](@/glossary/alert.md) entirely.
 
 Strategies for false positive reduction:
 
 1. **Adaptive baselines**: Continuously update the baseline model to account for legitimate changes in data patterns
-2. **Multi-method consensus**: Require multiple detection methods to agree before triggering an [alert](/glossary/alert/)
+2. **Multi-method consensus**: Require multiple detection methods to agree before triggering an [alert](@/glossary/alert.md)
 3. **Contextual enrichment**: Incorporate additional context (time of day, user history, system state) before classification
 4. **Feedback loops**: Allow operators to mark false positives, which are fed back into the detection model
 5. **Graduated response**: Use tiered thresholds (suspicious -> anomalous -> extreme) rather than binary classification
@@ -165,7 +165,7 @@ Strategies for false positive reduction:
 
 ### Security Rating Anomalies
 
-The [security](/glossary/security/) [monitoring](/glossary/monitoring/) subsystem tracks authentication patterns, access frequencies, and behavioral profiles to detect potential threats. Anomalies in security ratings trigger escalation workflows.
+The [security](@/glossary/security.md) [monitoring](@/glossary/monitoring.md) subsystem tracks authentication patterns, access frequencies, and behavioral profiles to detect potential threats. Anomalies in security ratings trigger escalation workflows.
 
 ```elixir
 defmodule PrismaticSecurity.RatingAnomalyDetector do
@@ -381,7 +381,7 @@ end
 
 ### Quality Score Deviations
 
-The quality assurance system monitors health scores and [KPI](/glossary/kpi/) metrics across the platform's umbrella apps. Anomalous deviations in quality scores can indicate regressions, dependency issues, or test coverage gaps.
+The quality assurance system monitors health scores and [KPI](@/glossary/kpi.md) metrics across the platform's umbrella apps. Anomalous deviations in quality scores can indicate regressions, dependency issues, or test coverage gaps.
 
 ```elixir
 defmodule PrismaticQuality.ScoreAnomalyMonitor do
@@ -465,15 +465,15 @@ end
 
 ### Performance Monitoring
 
-The [telemetry](/glossary/telemetry/) subsystem collects response times, throughput metrics, and resource utilization data. Anomalous performance degradation triggers automated investigation workflows.
+The [telemetry](@/glossary/telemetry.md) subsystem collects response times, throughput metrics, and resource utilization data. Anomalous performance degradation triggers automated investigation workflows.
 
 Performance anomaly detection in the Prismatic Platform uses sliding window analysis: the last N measurements are compared against a longer historical window. This captures both sudden spikes (point anomalies) and gradual degradation (collective anomalies).
 
-Key [telemetry](/glossary/telemetry/) events monitored for anomalies:
+Key [telemetry](@/glossary/telemetry.md) events monitored for anomalies:
 
 | Event | Normal Range | Anomaly Threshold | Response |
 |-------|-------------|-------------------|----------|
-| `[:phoenix, :endpoint, :stop]` | < 250ms | > 500ms (P95) | Performance [alert](/glossary/alert/) |
+| `[:phoenix, :endpoint, :stop]` | < 250ms | > 500ms (P95) | Performance [alert](@/glossary/alert.md) |
 | `[:prismatic, :repo, :query]` | < 50ms | > 200ms (P95) | Query analysis |
 | `[:prismatic, :health, :check]` | < 10ms | > 50ms | Infrastructure review |
 | `[:prismatic, :osint, :search]` | < 2,000ms | > 5,000ms | Adapter health check |
@@ -482,7 +482,7 @@ Key [telemetry](/glossary/telemetry/) events monitored for anomalies:
 
 1. **Establish baselines before detection**: Anomaly detection requires a reliable model of normal behavior. Collect at least 30 data points (ideally 100+) before activating detection. Premature activation with sparse baselines produces excessive false positives.
 
-2. **Tune sensitivity per domain**: [Security](/glossary/security/) anomalies require high sensitivity (low thresholds) because missed detections have severe consequences. Performance [monitoring](/glossary/monitoring/) can tolerate higher thresholds since transient spikes are often benign.
+2. **Tune sensitivity per domain**: [Security](@/glossary/security.md) anomalies require high sensitivity (low thresholds) because missed detections have severe consequences. Performance [monitoring](@/glossary/monitoring.md) can tolerate higher thresholds since transient spikes are often benign.
 
 3. **Combine detection methods**: Use both statistical (z-score, IQR) and rule-based detection for comprehensive coverage. Statistical methods catch unknown patterns; rules catch known threat signatures. ML-based methods add value when sufficient labeled training data exists.
 
@@ -492,7 +492,7 @@ Key [telemetry](/glossary/telemetry/) events monitored for anomalies:
 
 6. **Use sliding windows for baselines**: Static baselines become stale as systems evolve. Use exponential moving averages or sliding window statistics to keep baselines current while maintaining historical sensitivity.
 
-7. **Monitor the [monitoring](/glossary/monitoring/)**: Track detection system health metrics -- false positive rates, detection latency, baseline staleness -- to ensure the anomaly detection system itself remains reliable.
+7. **Monitor the [monitoring](@/glossary/monitoring.md)**: Track detection system health metrics -- false positive rates, detection latency, baseline staleness -- to ensure the anomaly detection system itself remains reliable.
 
 8. **Document threshold rationale**: Record why each threshold was chosen and under what conditions it should be revised. This prevents configuration drift and enables informed tuning.
 
@@ -500,38 +500,38 @@ Key [telemetry](/glossary/telemetry/) events monitored for anomalies:
 
 | Mistake | Problem | Solution |
 |---------|---------|----------|
-| Using global thresholds | Different data types have different [distributions](/glossary/distribution/) | Configure per-metric, per-domain thresholds |
+| Using global thresholds | Different data types have different [distributions](@/glossary/distribution.md) | Configure per-metric, per-domain thresholds |
 | Ignoring seasonality | Time-based patterns cause predictable "anomalies" | Incorporate temporal decomposition (hourly, daily, weekly cycles) |
 | Static baselines | System behavior evolves over time | Use adaptive baselines (EMA, sliding windows) |
 | Binary classification | Lose nuance between minor deviation and extreme anomaly | Use graduated severity levels with distinct response actions |
-| Alerting on every anomaly | [Alert](/glossary/alert/) fatigue from low-severity detections | Filter alerts by severity; log low-severity, alert high-severity |
+| Alerting on every anomaly | [Alert](@/glossary/alert.md) fatigue from low-severity detections | Filter alerts by severity; log low-severity, alert high-severity |
 | No baseline warmup period | Sparse data produces unreliable statistics | Require minimum data points before activating detection |
-| Mean-based stats on skewed data | [Mean](/glossary/mean/) and stddev are pulled by [outliers](/glossary/outlier/) | Use median-based methods (IQR) for non-normal [distributions](/glossary/distribution/) |
+| Mean-based stats on skewed data | [Mean](@/glossary/mean.md) and stddev are pulled by [outliers](@/glossary/outlier.md) | Use median-based methods (IQR) for non-normal [distributions](@/glossary/distribution.md) |
 | Missing feedback loops | False positives never get corrected | Implement operator feedback classification and model retraining |
 | Detecting without acting | Anomalies detected but no response workflow | Define clear escalation paths and response procedures per severity |
 | Single detection method | Each method has blind spots | Ensemble multiple methods for comprehensive coverage |
 
 ## Related Terms
 
-- [Anomaly Detection](/glossary/anomaly-detection/) -- automated systems and algorithms for identifying anomalies at scale
-- [Alert](/glossary/alert/) -- notifications triggered when anomalies exceed configured severity thresholds
-- [Behavioral Drift](/glossary/behavioral-drift/) -- gradual changes in system or entity behavior producing collective anomalies
-- [Benchmark](/glossary/benchmark/) -- reference baselines and performance standards for anomaly comparison
-- [Distribution](/glossary/distribution/) -- the statistical shape of data that defines what "normal" looks like
-- [Outlier](/glossary/outlier/) -- an extreme data point that may or may not constitute a meaningful anomaly
-- [Mean](/glossary/mean/) -- the arithmetic average used as the center point in z-score calculations
-- [Standard Deviation](/glossary/standard-deviation/) -- the measure of spread that defines anomaly boundaries
-- [Monitoring](/glossary/monitoring/) -- the continuous observation systems that feed anomaly detection pipelines
-- [Telemetry](/glossary/telemetry/) -- the instrumentation layer that collects metrics for anomaly analysis
-- [Security](/glossary/security/) -- the domain where anomaly detection provides threat identification capabilities
-- [KPI](/glossary/kpi/) -- key performance indicators whose anomalous deviations trigger quality alerts
-- [Confidence Score](/glossary/confidence-score/) -- the certainty measure assigned to anomaly classifications
-- [Correlation](/glossary/correlation/) -- relating anomalies across multiple data sources for root cause analysis
-- [Accuracy](/glossary/accuracy/) -- the measure of detection system correctness (precision, recall, F1)
+- [Anomaly Detection](@/glossary/anomaly-detection.md) -- automated systems and algorithms for identifying anomalies at scale
+- [Alert](@/glossary/alert.md) -- notifications triggered when anomalies exceed configured severity thresholds
+- [Behavioral Drift](@/glossary/behavioral-drift.md) -- gradual changes in system or entity behavior producing collective anomalies
+- [Benchmark](@/glossary/benchmark.md) -- reference baselines and performance standards for anomaly comparison
+- [Distribution](@/glossary/distribution.md) -- the statistical shape of data that defines what "normal" looks like
+- [Outlier](@/glossary/outlier.md) -- an extreme data point that may or may not constitute a meaningful anomaly
+- [Mean](@/glossary/mean.md) -- the arithmetic average used as the center point in z-score calculations
+- [Standard Deviation](@/glossary/standard-deviation.md) -- the measure of spread that defines anomaly boundaries
+- [Monitoring](@/glossary/monitoring.md) -- the continuous observation systems that feed anomaly detection pipelines
+- [Telemetry](@/glossary/telemetry.md) -- the instrumentation layer that collects metrics for anomaly analysis
+- [Security](@/glossary/security.md) -- the domain where anomaly detection provides threat identification capabilities
+- [KPI](@/glossary/kpi.md) -- key performance indicators whose anomalous deviations trigger quality alerts
+- [Confidence Score](@/glossary/confidence-score.md) -- the certainty measure assigned to anomaly classifications
+- [Correlation](@/glossary/correlation.md) -- relating anomalies across multiple data sources for root cause analysis
+- [Accuracy](@/glossary/accuracy.md) -- the measure of detection system correctness (precision, recall, F1)
 
 ## See Also
 
-- [OSINT Toolbox](/osint/) -- anomaly detection applied to intelligence gathering and entity monitoring
+- [OSINT Toolbox](@/osint/_index.md) -- anomaly detection applied to intelligence gathering and entity monitoring
 - [Perimeter EASM](/perimeter/) -- attack surface anomaly monitoring for external-facing assets
 - [Quality Dashboard](/hub/quality/) -- quality score anomaly tracking across umbrella apps
 - [Telemetry System](/admin/telemetry/) -- the instrumentation backbone for anomaly data collection
@@ -544,4 +544,4 @@ Key [telemetry](/glossary/telemetry/) events monitored for anomalies:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

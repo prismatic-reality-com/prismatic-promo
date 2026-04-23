@@ -187,11 +187,11 @@ end
 
 ## Cross-References
 
-- [REST](/glossary/rest/) -- Architectural style built on HTTP
-- [Gateway](/glossary/gateway/) -- API gateway handling HTTP traffic
-- [CSRF](/glossary/csrf/) -- HTTP-based security vulnerability
-- [Health Check](/glossary/health-check/) -- HTTP endpoint for service health
-- [Execution Time](/glossary/execution-time/) -- HTTP request timing measurement
+- [REST](@/glossary/rest.md) -- Architectural style built on HTTP
+- [Gateway](@/glossary/gateway.md) -- API gateway handling HTTP traffic
+- [CSRF](@/glossary/csrf.md) -- HTTP-based security vulnerability
+- [Health Check](@/glossary/health-check.md) -- HTTP endpoint for service health
+- [Execution Time](@/glossary/execution-time.md) -- HTTP request timing measurement
 - **Livebooks**: `api_integration/` notebooks demonstrate HTTP client usage
 - **Academy**: APISecurityAnalysis topic covers HTTP security
 
@@ -202,4 +202,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

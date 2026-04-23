@@ -20,11 +20,11 @@ image_alt = "White Team - Prismatic Platform"
 
 ## Definition & Overview
 
-The White Team is one of six specialized [Color Teams](/glossary/color-teams/) in the Prismatic Platform's epistemic security architecture. Comprising three agents operating at L3-L4 authority levels, the White Team is responsible for constructive verification---the discipline of proving that systems behave correctly through progressive verification methodology, formal mathematical proofs, contract validation, and invariant analysis. Unlike the [Red Team](/glossary/red-team/), which seeks to break systems through adversarial simulation, the White Team seeks to prove that systems hold.
+The White Team is one of six specialized [Color Teams](@/glossary/color-teams.md) in the Prismatic Platform's epistemic security architecture. Comprising three agents operating at L3-L4 authority levels, the White Team is responsible for constructive verification---the discipline of proving that systems behave correctly through progressive verification methodology, formal mathematical proofs, contract validation, and invariant analysis. Unlike the [Red Team](@/glossary/red-team.md), which seeks to break systems through adversarial simulation, the White Team seeks to prove that systems hold.
 
-The White Team occupies a unique position in the Color Team signal flow architecture. While Red Team generates adversarial findings and [Blue Team](/glossary/blue-team/) maintains defensive posture, White Team provides the constructive evidence that systems satisfy their specified properties. This evidence feeds into [Purple Team](/glossary/purple-team/) closure decisions, where the combination of adversarial findings (Red), defensive posture (Blue), and constructive proofs (White) determines whether a security question has been definitively answered.
+The White Team occupies a unique position in the Color Team signal flow architecture. While Red Team generates adversarial findings and [Blue Team](@/glossary/blue-team.md) maintains defensive posture, White Team provides the constructive evidence that systems satisfy their specified properties. This evidence feeds into [Purple Team](@/glossary/purple-team.md) closure decisions, where the combination of adversarial findings (Red), defensive posture (Blue), and constructive proofs (White) determines whether a security question has been definitively answered.
 
-All White Team output passes through the [Trinity Gate](/glossary/trinity-gate/) before being accepted as verified. This four-layer validation ensures that proofs are structurally consistent (valid DAG in the belief network), logically consistent (propositions follow logical rules), and formally necessary (claims proven in formal systems such as Lean4). The Trinity Gate requirement prevents the acceptance of superficially convincing but fundamentally flawed verification artifacts.
+All White Team output passes through the [Trinity Gate](@/glossary/trinity-gate.md) before being accepted as verified. This four-layer validation ensures that proofs are structurally consistent (valid DAG in the belief network), logically consistent (propositions follow logical rules), and formally necessary (claims proven in formal systems such as Lean4). The Trinity Gate requirement prevents the acceptance of superficially convincing but fundamentally flawed verification artifacts.
 
 The White Team's progressive verification methodology spans six levels (L0-L5), each representing increasing rigor and confidence:
 
@@ -292,11 +292,11 @@ White Team proofs flow into Purple Team, where they are combined with Red Team f
 
 ### SPARKLINE Contract Verification
 
-White Team plays a critical role in verifying [SPARKLINE](/glossary/sparkline/) contracts. The contract validator ensures that all interface contracts between platform modules are satisfied, preventing integration failures and behavioral regressions. Contract verification is mandatory before SPARKLINE canonicalization.
+White Team plays a critical role in verifying [SPARKLINE](@/glossary/sparkline.md) contracts. The contract validator ensures that all interface contracts between platform modules are satisfied, preventing integration failures and behavioral regressions. Contract verification is mandatory before SPARKLINE canonicalization.
 
 ### Trinity Gate Integration
 
-All White Team output must pass the [Trinity Gate](/glossary/trinity-gate/) before acceptance. This four-layer gate validates structural consistency, logical consistency, formal necessity, and consciousness alignment. The Trinity Gate requirement ensures that White Team proofs are not merely syntactically correct but semantically meaningful.
+All White Team output must pass the [Trinity Gate](@/glossary/trinity-gate.md) before acceptance. This four-layer gate validates structural consistency, logical consistency, formal necessity, and consciousness alignment. The Trinity Gate requirement ensures that White Team proofs are not merely syntactically correct but semantically meaningful.
 
 ## Best Practices
 
@@ -314,7 +314,7 @@ All White Team output must pass the [Trinity Gate](/glossary/trinity-gate/) befo
 
 ## Common Pitfalls
 
-- **Over-reliance on L0-L1 verification**: Smoke tests and unit contract tests provide limited confidence. Critical systems require L3+ verification to achieve confidence thresholds for [NM/ND doctrine](/glossary/nm-nd/) compliance.
+- **Over-reliance on L0-L1 verification**: Smoke tests and unit contract tests provide limited confidence. Critical systems require L3+ verification to achieve confidence thresholds for [NM/ND doctrine](@/glossary/nm-nd.md) compliance.
 
 - **Treating verification as one-time**: Systems evolve continuously. Proofs constructed against version N may not hold for version N+1. Verification must be re-executed when target systems change.
 
@@ -326,22 +326,22 @@ All White Team output must pass the [Trinity Gate](/glossary/trinity-gate/) befo
 
 ## Related Concepts
 
-- [Color Teams](/glossary/color-teams/) - Full overview of all six color team operations
-- [Trinity Gate](/glossary/trinity-gate/) - Four-layer verification gate validating all White Team output
-- [Purple Team](/glossary/purple-team/) - Consumes White Team proofs for closure decisions
-- [Red Team](/glossary/red-team/) - Adversarial counterpart to White Team's constructive approach
-- [Blue Team](/glossary/blue-team/) - Defensive posture team complementing White Team verification
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic axioms governing verification standards
-- [SPARKLINE](/glossary/sparkline/) - Contract system verified by White Team
-- [NM/ND Doctrine](/glossary/nm-nd/) - Doctrine requiring evidence-based verification
-- [Quality Gates](/glossary/quality-gates/) - Platform quality enforcement consuming White Team evidence
+- [Color Teams](@/glossary/color-teams.md) - Full overview of all six color team operations
+- [Trinity Gate](@/glossary/trinity-gate.md) - Four-layer verification gate validating all White Team output
+- [Purple Team](@/glossary/purple-team.md) - Consumes White Team proofs for closure decisions
+- [Red Team](@/glossary/red-team.md) - Adversarial counterpart to White Team's constructive approach
+- [Blue Team](@/glossary/blue-team.md) - Defensive posture team complementing White Team verification
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic axioms governing verification standards
+- [SPARKLINE](@/glossary/sparkline.md) - Contract system verified by White Team
+- [NM/ND Doctrine](@/glossary/nm-nd.md) - Doctrine requiring evidence-based verification
+- [Quality Gates](@/glossary/quality-gates.md) - Platform quality enforcement consuming White Team evidence
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Agents](/agents/) - Agent registry including White Team agents
-- [Apps](/apps/) - Application ecosystem verified by White Team
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Agents](@/agents/_index.md) - Agent registry including White Team agents
+- [Apps](@/apps/_index.md) - Application ecosystem verified by White Team
 
 ---
 
@@ -350,4 +350,4 @@ All White Team output must pass the [Trinity Gate](/glossary/trinity-gate/) befo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

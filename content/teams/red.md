@@ -26,7 +26,7 @@ The Red Team constitutes the adversarial simulation arm of the Prismatic Platfor
 
 The theoretical foundation of Red Team operations draws from adversarial machine learning, epistemic game theory, and red team/blue team methodologies established in military and cybersecurity domains. The Prismatic Platform extends these traditional approaches by focusing specifically on epistemic attacks — attacks that target the truthfulness, confidence, and reliability of the platform's knowledge rather than its infrastructure. This focus reflects the platform's recognition that for an intelligence and due diligence platform, the integrity of information is the primary attack surface.
 
-Red Team maintains a comprehensive 329-entry attack scenario taxonomy organized across six categories: information manipulation, confidence attacks, source spoofing, gradual drift, attention manipulation, and multi-vector composite attacks. Each scenario is documented with formal attack trees, expected impact models, and detection signatures that feed directly into [Blue Team](/teams/blue/) defensive development and [Purple Team](/teams/purple/) synthesis operations.
+Red Team maintains a comprehensive 329-entry attack scenario taxonomy organized across six categories: information manipulation, confidence attacks, source spoofing, gradual drift, attention manipulation, and multi-vector composite attacks. Each scenario is documented with formal attack trees, expected impact models, and detection signatures that feed directly into [Blue Team](@/teams/blue.md) defensive development and [Purple Team](@/teams/purple.md) synthesis operations.
 
 ## Mission and Doctrine
 
@@ -42,7 +42,7 @@ The Red Team mission is to systematically identify epistemic vulnerabilities thr
 | **Measurable Impact** | Every simulation produces quantifiable vulnerability metrics | Standardized reporting |
 | **Safety First** | Ethics checks every 10-15 seconds during operations | Automated enforcement |
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine governs Red Team operations with particular emphasis: NO MERCY demands that simulations are thorough and uncompromising in finding vulnerabilities — no attack surface is left unexplored due to convenience or comfort. NO DOUBTS requires that every vulnerability finding is evidence-based, reproducible, and documented with complete provenance.
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine governs Red Team operations with particular emphasis: NO MERCY demands that simulations are thorough and uncompromising in finding vulnerabilities — no attack surface is left unexplored due to convenience or comfort. NO DOUBTS requires that every vulnerability finding is evidence-based, reproducible, and documented with complete provenance.
 
 ## Team Composition
 
@@ -57,15 +57,15 @@ The Red Team comprises four specialized agents operating in a hierarchical comma
 
 ### red-commander
 
-The Red Commander operates at L3 strategic authority, orchestrating multi-phase adversarial campaigns that combine multiple attack primitives into realistic threat scenarios. The commander maintains the 329-entry scenario taxonomy, tracks vulnerability discovery rates across campaigns, and ensures that simulation priorities align with the platform's evolving threat landscape. Communication flows from Red Commander to [Purple Team](/teams/purple/) for synthesis and to [Blue Team](/teams/blue/) for defense development.
+The Red Commander operates at L3 strategic authority, orchestrating multi-phase adversarial campaigns that combine multiple attack primitives into realistic threat scenarios. The commander maintains the 329-entry scenario taxonomy, tracks vulnerability discovery rates across campaigns, and ensures that simulation priorities align with the platform's evolving threat landscape. Communication flows from Red Commander to [Purple Team](@/teams/purple.md) for synthesis and to [Blue Team](@/teams/blue.md) for defense development.
 
 ### red-epistemic-attacker
 
-The Epistemic Attacker specializes in the two most direct attack primitives: truth distortion (injecting false information into the platform's knowledge base) and signal poisoning (corrupting input data streams). This agent designs and executes simulations that test the platform's ability to detect and reject manipulated information, with particular focus on attacks that attempt to bypass the [NABLA Infinity](/glossary/nabla-infinity/) signal plurality requirements.
+The Epistemic Attacker specializes in the two most direct attack primitives: truth distortion (injecting false information into the platform's knowledge base) and signal poisoning (corrupting input data streams). This agent designs and executes simulations that test the platform's ability to detect and reject manipulated information, with particular focus on attacks that attempt to bypass the [NABLA Infinity](@/glossary/nabla-infinity.md) signal plurality requirements.
 
 ### red-drift-inducer
 
-The Drift Inducer specializes in the most subtle and dangerous attack category: gradual, sub-threshold drift that shifts the platform's beliefs over time without triggering detection thresholds. This agent models how small, individually insignificant perturbations can accumulate into significant epistemic compromise, testing the platform's baseline comparison and drift detection capabilities maintained by [Blue Team](/teams/blue/).
+The Drift Inducer specializes in the most subtle and dangerous attack category: gradual, sub-threshold drift that shifts the platform's beliefs over time without triggering detection thresholds. This agent models how small, individually insignificant perturbations can accumulate into significant epistemic compromise, testing the platform's baseline comparison and drift detection capabilities maintained by [Blue Team](@/teams/blue.md).
 
 ### red-scenario-generator
 
@@ -180,7 +180,7 @@ Red Team safety protocols ensure that adversarial simulation capability never tr
 | **Network** | Zero external connectivity | Real-time |
 | **Data** | Synthetic data only, no PII | Pre-simulation validation |
 | **State** | Ephemeral, destroyed after each simulation | Post-simulation cleanup |
-| **Logging** | Full [audit trail](/glossary/audit-trail/), immutable | Continuous |
+| **Logging** | Full [audit trail](@/glossary/audit-trail.md), immutable | Continuous |
 | **Tools** | Only approved simulation tools, no offensive tooling | Pre-session inventory |
 
 ### Ethics Enforcement
@@ -238,7 +238,7 @@ Red Commander (L3)
 
 ## NABLA Compliance
 
-Red Team operations both test and comply with the [NABLA Infinity](/glossary/nabla-infinity/) framework. Red simulations test the platform's adherence to NABLA axioms while the Red Team itself operates in compliance with all seven axioms.
+Red Team operations both test and comply with the [NABLA Infinity](@/glossary/nabla-infinity.md) framework. Red simulations test the platform's adherence to NABLA axioms while the Red Team itself operates in compliance with all seven axioms.
 
 | Axiom | Testing Role | Compliance Role |
 |-------|-------------|-----------------|
@@ -267,11 +267,11 @@ Red Team operations both test and comply with the [NABLA Infinity](/glossary/nab
 
 | Component | Direction | Content | Purpose |
 |-----------|-----------|---------|---------|
-| [Gray Team](/teams/gray/) | Gray → Red | Boundary exploration findings | Seeds for scenario development |
-| [Blue Team](/teams/blue/) | Red → Blue | Attack scenarios, vulnerability reports | Defense development |
-| [Purple Team](/teams/purple/) | Red → Purple | Findings for synthesis | Red-Blue loop closure |
-| [Black Team](/teams/black/) | Black → Red (filtered) | Theoretical threat models | Scenario inspiration |
-| [White Team](/teams/white/) | Red → White | Findings for formal verification | Defensive proof construction |
+| [Gray Team](@/teams/gray.md) | Gray → Red | Boundary exploration findings | Seeds for scenario development |
+| [Blue Team](@/teams/blue.md) | Red → Blue | Attack scenarios, vulnerability reports | Defense development |
+| [Purple Team](@/teams/purple.md) | Red → Purple | Findings for synthesis | Red-Blue loop closure |
+| [Black Team](@/teams/black.md) | Black → Red (filtered) | Theoretical threat models | Scenario inspiration |
+| [White Team](@/teams/white.md) | Red → White | Findings for formal verification | Defensive proof construction |
 | Platform Telemetry | Bidirectional | Metrics and events | Monitoring and analysis |
 
 ### Signal Flow
@@ -297,13 +297,13 @@ Black Team Models ────────┘    ├──→ Blue Team (Defense
 
 ## Related Resources
 
-- [Blue Team](/teams/blue/) — Primary consumer of Red Team findings for defense development
-- [Purple Team](/teams/purple/) — Synthesis hub for Red-Blue loop closure
-- [Gray Team](/teams/gray/) — Boundary exploration that seeds Red Team scenarios
-- [Black Team](/teams/black/) — Theoretical threat models that inspire Red simulations
-- [White Team](/teams/white/) — Formal verification of defenses against Red findings
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) — Detection infrastructure tested by Red Team
-- [Quality Gates](/capabilities/quality-gates/) — Quality enforcement validated against adversarial pressure
+- [Blue Team](@/teams/blue.md) — Primary consumer of Red Team findings for defense development
+- [Purple Team](@/teams/purple.md) — Synthesis hub for Red-Blue loop closure
+- [Gray Team](@/teams/gray.md) — Boundary exploration that seeds Red Team scenarios
+- [Black Team](@/teams/black.md) — Theoretical threat models that inspire Red simulations
+- [White Team](@/teams/white.md) — Formal verification of defenses against Red findings
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) — Detection infrastructure tested by Red Team
+- [Quality Gates](@/capabilities/quality-gates.md) — Quality enforcement validated against adversarial pressure
 
 ---
 
@@ -312,4 +312,4 @@ Black Team Models ────────┘    ├──→ Blue Team (Defense
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

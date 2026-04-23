@@ -30,9 +30,9 @@ image_alt = "social-media-network-analyst - Prismatic Platform"
 
 The Social Media Network Analyst is an L3 agent operating in the **social** domain of the Prismatic Platform. This agent specializes in cross-platform social media intelligence (SOCMINT) operations, performing comprehensive analysis of social network structures, influence patterns, and information propagation dynamics across multiple social media platforms simultaneously. The agent synthesizes data from platform-specific intelligence specialists into unified analytical products that reveal cross-platform behavioral patterns invisible to single-platform analysis.
 
-Social media intelligence has become a critical component of modern [OSINT](/glossary/osint/) operations. Individuals and organizations maintain presences across multiple platforms, and understanding the complete picture of their social network activity requires correlation of identities, content, and relationships across platform boundaries. The Social Media Network Analyst serves as the central hub for this cross-platform synthesis, coordinating with platform-specific specialists while maintaining the epistemic rigor demanded by the [NABLA Infinity](/glossary/nabla-infinity/) framework.
+Social media intelligence has become a critical component of modern [OSINT](@/glossary/osint.md) operations. Individuals and organizations maintain presences across multiple platforms, and understanding the complete picture of their social network activity requires correlation of identities, content, and relationships across platform boundaries. The Social Media Network Analyst serves as the central hub for this cross-platform synthesis, coordinating with platform-specific specialists while maintaining the epistemic rigor demanded by the [NABLA Infinity](@/glossary/nabla-infinity.md) framework.
 
-This agent is part of the platform's 434-strong autonomous agent ecosystem, contributing to the intelligence synthesis infrastructure under [AIAD](/glossary/aiad/) standard compliance.
+This agent is part of the platform's 434-strong autonomous agent ecosystem, contributing to the intelligence synthesis infrastructure under [AIAD](@/glossary/aiad.md) standard compliance.
 
 ## Cross-Platform Intelligence Architecture
 
@@ -40,8 +40,8 @@ The Social Media Network Analyst coordinates with multiple platform-specific int
 
 | Platform Specialist | Platform | Data Types | Integration |
 |--------------------|----------|------------|-------------|
-| [**TikTok Intelligence Specialist**](/agents/tiktok-intelligence-specialist/) | TikTok | Video metadata, hashtags, engagement | Direct feed |
-| [**Twitter/X Intelligence Specialist**](/agents/twitter-x-intelligence-specialist/) | Twitter/X | Tweets, followers, interactions | Direct feed |
+| [**TikTok Intelligence Specialist**](@/agents/tiktok-intelligence-specialist.md) | TikTok | Video metadata, hashtags, engagement | Direct feed |
+| [**Twitter/X Intelligence Specialist**](@/agents/twitter-x-intelligence-specialist.md) | Twitter/X | Tweets, followers, interactions | Direct feed |
 | **LinkedIn Intelligence Specialist** | LinkedIn | Professional networks, companies | API integration |
 | **Facebook Intelligence Specialist** | Facebook/Meta | Social graphs, groups, pages | API integration |
 | **Telegram Intelligence Specialist** | Telegram | Channels, groups, messages | Channel monitoring |
@@ -63,7 +63,7 @@ The Social Media Network Analyst applies graph theory and network science method
 
 ### Cross-Platform Entity Resolution
 
-The most critical capability of the Social Media Network Analyst is [entity resolution](/glossary/entity-resolution/) across platform boundaries -- determining when accounts on different platforms belong to the same real-world entity.
+The most critical capability of the Social Media Network Analyst is [entity resolution](@/glossary/entity-resolution.md) across platform boundaries -- determining when accounts on different platforms belong to the same real-world entity.
 
 ```elixir
 defmodule PrismaticAgents.SocialMediaNetworkAnalyst do
@@ -142,7 +142,7 @@ The Social Media Network Analyst produces several types of structured intelligen
 
 ## Graph Storage Architecture
 
-The Social Media Network Analyst stores social network graphs in [KuzuDB](/glossary/kuzudb/), the platform's graph database, which enables efficient traversal queries and pattern matching across large social networks.
+The Social Media Network Analyst stores social network graphs in [KuzuDB](@/glossary/kuzudb.md), the platform's graph database, which enables efficient traversal queries and pattern matching across large social networks.
 
 ```elixir
 defmodule PrismaticAgents.SocialMediaNetworkAnalyst.GraphStorage do
@@ -181,7 +181,7 @@ Cross-platform entity resolution is the most analytically valuable and technical
 | **Network Overlap** | Same connections across platform boundaries | High | Medium |
 | **Self-Declaration** | Explicit cross-platform links in profiles | Very High | Very Low |
 
-The entity resolution pipeline combines these signals using a Bayesian confidence aggregation model. A single high-confidence signal (such as an explicit cross-platform link) may be sufficient to establish entity equivalence, while multiple medium-confidence signals must agree to reach the confidence threshold required by the [NABLA Infinity](/glossary/nabla-infinity/) framework.
+The entity resolution pipeline combines these signals using a Bayesian confidence aggregation model. A single high-confidence signal (such as an explicit cross-platform link) may be sufficient to establish entity equivalence, while multiple medium-confidence signals must agree to reach the confidence threshold required by the [NABLA Infinity](@/glossary/nabla-infinity.md) framework.
 
 ```elixir
 defmodule PrismaticAgents.SocialMediaNetworkAnalyst.EntityMatcher do
@@ -228,7 +228,7 @@ end
 
 ## NABLA Infinity Compliance
 
-All intelligence products must satisfy the [NABLA Infinity](/glossary/nabla-infinity/) axioms before publication. Cross-platform intelligence is held to especially strict compliance standards because the synthesis of data from multiple sources creates additional risk of correlation errors and false confidence.
+All intelligence products must satisfy the [NABLA Infinity](@/glossary/nabla-infinity.md) axioms before publication. Cross-platform intelligence is held to especially strict compliance standards because the synthesis of data from multiple sources creates additional risk of correlation errors and false confidence.
 
 | Axiom | Application | Enforcement |
 |-------|-------------|-------------|
@@ -251,16 +251,16 @@ All intelligence products must satisfy the [NABLA Infinity](/glossary/nabla-infi
 
 ## Integration Points
 
-- [**Intelligence Synthesis**](/capabilities/intelligence-synthesis/) -- Feeds social intelligence into platform knowledge base
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Collection and analysis performance metrics
-- [**Real-time Monitoring**](/capabilities/real-time-monitoring/) -- Live dashboards for active social monitoring operations
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
+- [**Intelligence Synthesis**](@/capabilities/intelligence-synthesis.md) -- Feeds social intelligence into platform knowledge base
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Collection and analysis performance metrics
+- [**Real-time Monitoring**](@/capabilities/real-time-monitoring.md) -- Live dashboards for active social monitoring operations
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
 
 ## Related Agents
 
-- [**TikTok Intelligence Specialist**](/agents/tiktok-intelligence-specialist/) -- TikTok-specific intelligence collection
-- [**Twitter/X Intelligence Specialist**](/agents/twitter-x-intelligence-specialist/) -- Twitter/X platform intelligence
-- [**Siege Master Specialist**](/agents/siege-master-specialist/) -- Long-term persistent intelligence operations
+- [**TikTok Intelligence Specialist**](@/agents/tiktok-intelligence-specialist.md) -- TikTok-specific intelligence collection
+- [**Twitter/X Intelligence Specialist**](@/agents/twitter-x-intelligence-specialist.md) -- Twitter/X platform intelligence
+- [**Siege Master Specialist**](@/agents/siege-master-specialist.md) -- Long-term persistent intelligence operations
 
 ## Cross-Platform Analysis Challenges
 
@@ -277,7 +277,7 @@ Cross-platform social media intelligence presents unique analytical challenges t
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to initiate cross-platform intelligence collection and synthesis operations.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to initiate cross-platform intelligence collection and synthesis operations.
 
 ---
 
@@ -286,4 +286,4 @@ Cross-platform social media intelligence presents unique analytical challenges t
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

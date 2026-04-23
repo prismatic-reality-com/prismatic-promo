@@ -28,11 +28,11 @@ image_alt = "cross-domain-quality-propagator - Prismatic Platform"
 
 ## Overview
 
-The Cross-Domain Quality Propagator operates as an L3 [strategic command](/glossary/strategic-command/) agent within the General domain of the Prismatic Platform. This agent maintains the chain of custody for quality metrics, ensuring that cognitive accuracy and retrieval precision propagate consistently across all platform domains. In a system with 90 umbrella applications and hundreds of agents, quality cannot be enforced in isolation -- a quality improvement in one domain must propagate to dependent domains, and a quality regression in one area must be detected before it contaminates downstream consumers.
+The Cross-Domain Quality Propagator operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the General domain of the Prismatic Platform. This agent maintains the chain of custody for quality metrics, ensuring that cognitive accuracy and retrieval precision propagate consistently across all platform domains. In a system with 90 umbrella applications and hundreds of agents, quality cannot be enforced in isolation -- a quality improvement in one domain must propagate to dependent domains, and a quality regression in one area must be detected before it contaminates downstream consumers.
 
 The fundamental challenge this agent addresses is quality coherence across domain boundaries. Individual domains may achieve excellent internal quality metrics while their cross-domain interactions introduce subtle quality degradation. Data transformed as it crosses domain boundaries may lose precision, gain latency, or accumulate errors that compound through processing pipelines. The Cross-Domain Quality Propagator monitors these cross-boundary quality flows, detecting degradation at the boundary and ensuring that quality standards are maintained end-to-end rather than merely point-to-point.
 
-Quality propagation follows the [mycelial network](/glossary/mycelial-network/) architecture, using biological-inspired signal distribution to broadcast quality state changes throughout the platform ecosystem. When a domain's quality metrics change significantly -- whether through improvement or regression -- the quality signals propagate through the mycelial network, enabling dependent domains to adjust their behavior, recalibrate confidence scores, and trigger protective measures before degraded data reaches end users.
+Quality propagation follows the [mycelial network](@/glossary/mycelial-network.md) architecture, using biological-inspired signal distribution to broadcast quality state changes throughout the platform ecosystem. When a domain's quality metrics change significantly -- whether through improvement or regression -- the quality signals propagate through the mycelial network, enabling dependent domains to adjust their behavior, recalibrate confidence scores, and trigger protective measures before degraded data reaches end users.
 
 ## Quality Chain of Custody
 
@@ -66,7 +66,7 @@ Precision monitoring uses both automated testing with known-answer queries and s
 
 ## Quality Gate Integration
 
-The propagator integrates with the platform's [quality gate](/glossary/quality-gates/) infrastructure to enforce quality standards at domain boundaries. Quality gates are checkpoints that data must pass through when crossing domain boundaries, verifying that the data meets the receiving domain's quality requirements before it is admitted.
+The propagator integrates with the platform's [quality gate](@/glossary/quality-gates.md) infrastructure to enforce quality standards at domain boundaries. Quality gates are checkpoints that data must pass through when crossing domain boundaries, verifying that the data meets the receiving domain's quality requirements before it is admitted.
 
 Each quality gate implements domain-specific validation rules defined by the receiving domain. The OSINT domain requires source provenance metadata. The Intelligence domain requires minimum confidence scores. The Compliance domain requires data freshness within configurable thresholds. The propagator manages gate configuration, monitors gate pass rates, and reports on gate effectiveness.
 
@@ -82,19 +82,19 @@ Quality dashboards present these metrics to operators and domain owners, enablin
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to define cross-domain quality standards, manage quality gates, and mandate quality improvements across domain boundaries.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to define cross-domain quality standards, manage quality gates, and mandate quality improvements across domain boundaries.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [3nl-coordinator](/agents/3nl-coordinator/) | Quality Framework | Provides linguistic and logical quality analysis capabilities |
-| [cross-pollination-specialist](/agents/cross-pollination-specialist/) | Pattern Sharing | Propagates quality improvement patterns across domains |
-| [quality-floor-guardian](/glossary/quality-floor-guardian/) | Quality Monitoring | Monitors platform-wide quality floor and triggers alerts on regression |
+| [3nl-coordinator](@/agents/3nl-coordinator.md) | Quality Framework | Provides linguistic and logical quality analysis capabilities |
+| [cross-pollination-specialist](@/agents/cross-pollination-specialist.md) | Pattern Sharing | Propagates quality improvement patterns across domains |
+| [quality-floor-guardian](@/glossary/quality-floor-guardian.md) | Quality Monitoring | Monitors platform-wide quality floor and triggers alerts on regression |
 
 ## Enforcement
 
-All quality propagation operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Quality gate bypasses are forbidden. Quality metric manipulation is treated as a security incident. Cross-domain quality regressions detected by the propagator trigger immediate investigation with blocking severity. Quality chain of custody records are immutable and tamper-evident. Every quality measurement must include methodology documentation sufficient for independent reproduction. Domains that consistently fail quality gates are escalated for remediation with mandatory improvement timelines.
+All quality propagation operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Quality gate bypasses are forbidden. Quality metric manipulation is treated as a security incident. Cross-domain quality regressions detected by the propagator trigger immediate investigation with blocking severity. Quality chain of custody records are immutable and tamper-evident. Every quality measurement must include methodology documentation sufficient for independent reproduction. Domains that consistently fail quality gates are escalated for remediation with mandatory improvement timelines.
 
 ---
 
@@ -103,4 +103,4 @@ All quality propagation operates under the [NO MERCY, NO DOUBTS](/glossary/no-me
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,9 +24,9 @@ image_alt = "/quickstart - Prismatic Platform"
 
 ## Overview
 
-**/quickstart** is a production command in the **Development** category of the Prismatic Platform. It generates complete, production-ready scaffolding for new umbrella applications, modules, LiveView pages, API endpoints, and other common platform components. Every generated artifact complies with the platform's quality standards from the moment of creation: typespecs are present, tests are included, documentation is written, [Credo](/glossary/credo/) passes, and the code compiles with zero warnings. The command eliminates the gap between "new file created" and "file meets platform standards."
+**/quickstart** is a production command in the **Development** category of the Prismatic Platform. It generates complete, production-ready scaffolding for new umbrella applications, modules, LiveView pages, API endpoints, and other common platform components. Every generated artifact complies with the platform's quality standards from the moment of creation: typespecs are present, tests are included, documentation is written, [Credo](@/glossary/credo.md) passes, and the code compiles with zero warnings. The command eliminates the gap between "new file created" and "file meets platform standards."
 
-This command operates under the **L2+** authority level and is executed by the `quickstart-generator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L2+ authority level allows any developer to scaffold new components without elevated permissions, while the generated code automatically inherits platform-wide quality enforcement.
+This command operates under the **L2+** authority level and is executed by the `quickstart-generator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L2+ authority level allows any developer to scaffold new components without elevated permissions, while the generated code automatically inherits platform-wide quality enforcement.
 
 In a platform with 90+ umbrella applications and strict quality gates, manually creating new components requires knowledge of dozens of conventions: file locations, module naming, supervision tree integration, test structure, quality DNA initialization, and CLAUDE.md documentation. `/quickstart` encodes all of this institutional knowledge into templates that produce correct, complete scaffolding every time. This encoding of institutional knowledge into executable templates is a key productivity multiplier: it reduces the time from "I need a new component" to "I have a fully compliant component" from hours to seconds.
 
@@ -187,12 +187,12 @@ The quickstart system is template-driven with configurable generators for each c
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/code](/commands/code/) | Downstream | Scaffolded code is then developed via /code |
-| [/test](/commands/test/) | Downstream | Generated tests are run via /test |
-| [/quality-gates](/commands/quality-gates/) | Validation | Generated code must pass quality gates |
-| [Quality DNA](/glossary/quality-dna/) | Initialization | Quality DNA created for new applications |
-| [AIAD Registry](/glossary/aiad/) | Registration | Generated agents registered in AIAD index |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Generation metrics tracked |
+| [/code](@/commands/code.md) | Downstream | Scaffolded code is then developed via /code |
+| [/test](@/commands/test.md) | Downstream | Generated tests are run via /test |
+| [/quality-gates](@/commands/quality-gates.md) | Validation | Generated code must pass quality gates |
+| [Quality DNA](@/glossary/quality-dna.md) | Initialization | Quality DNA created for new applications |
+| [AIAD Registry](@/glossary/aiad.md) | Registration | Generated agents registered in AIAD index |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Generation metrics tracked |
 | Umbrella Mix.exs | Configuration | New applications added to umbrella deps |
 | Phoenix Router | Route registration | New LiveViews/controllers registered |
 
@@ -200,11 +200,11 @@ The quickstart system is template-driven with configurable generators for each c
 
 The /quickstart command serves as the starting point for all new component development:
 
-1. **New Feature Development**: Begin by scaffolding the required components (module, LiveView, context), then implement business logic using [/code](/commands/code/). The scaffold ensures the correct structure exists before development begins.
+1. **New Feature Development**: Begin by scaffolding the required components (module, LiveView, context), then implement business logic using [/code](@/commands/code.md). The scaffold ensures the correct structure exists before development begins.
 
 2. **New Application Creation**: When a feature set grows large enough to warrant its own umbrella application, `/quickstart --type app` creates the complete application structure with all platform conventions pre-applied.
 
-3. **API Expansion**: Adding new API endpoints follows the pattern: scaffold with `/quickstart --type api-endpoint`, implement business logic, verify with [/test](/commands/test/), then deploy.
+3. **API Expansion**: Adding new API endpoints follows the pattern: scaffold with `/quickstart --type api-endpoint`, implement business logic, verify with [/test](@/commands/test.md), then deploy.
 
 4. **Agent Registration**: New AIAD agents are scaffolded with `/quickstart --type agent`, ensuring they follow the standard specification format and are immediately discoverable by the agent registry.
 
@@ -212,7 +212,7 @@ The /quickstart command serves as the starting point for all new component devel
 
 ## NABLA Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Generated code meets 100% quality standards from creation. No placeholder implementations, no TODO stubs, no missing typespecs.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Generated scaffolding is validated through the quality gate pipeline before delivery. Any generation failure is rolled back completely.
@@ -241,13 +241,13 @@ The quality validation phase dominates execution time for new applications, as i
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/ui-enhance](/commands/ui-enhance/) - UI/UX enhancement with [TailwindCSS](/glossary/tailwindcss/) and [Flowbite](/glossary/flowbite/)
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/ui-enhance](@/commands/ui-enhance.md) - UI/UX enhancement with [TailwindCSS](@/glossary/tailwindcss.md) and [Flowbite](@/glossary/flowbite.md)
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -256,4 +256,4 @@ The quality validation phase dominates execution time for new applications, as i
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

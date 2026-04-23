@@ -38,7 +38,7 @@ image_alt = "Autonomous Evolution - Prismatic Platform"
 
 Autonomous Evolution is the capability of a software system to improve its own architecture, quality standards, performance characteristics, and functional capabilities without external human intervention. Unlike simple automated updates or dependency bumps, autonomous evolution involves the system identifying improvement opportunities, evaluating their impact, applying verified changes, validating outcomes, and advancing through discrete evolutionary generations -- each representing a measurable improvement over the previous state.
 
-In the Prismatic Platform, autonomous evolution is the driving force behind the progression from Generation 1 (initial codebase with basic quality gates) through Generation 19 (current state: 0.9995 fitness, 100/100 quality, 530+ agents, 13-layer Trinity Gate). Each generation represents not a single change but an accumulation of improvements that cross a significance threshold. The system that performs this evolution -- [AutoEvolve](/glossary/autoevolve/) -- operates as a mandatory component of every session, ensuring that the platform improves continuously regardless of what other work is being performed.
+In the Prismatic Platform, autonomous evolution is the driving force behind the progression from Generation 1 (initial codebase with basic quality gates) through Generation 19 (current state: 0.9995 fitness, 100/100 quality, 530+ agents, 13-layer Trinity Gate). Each generation represents not a single change but an accumulation of improvements that cross a significance threshold. The system that performs this evolution -- [AutoEvolve](@/glossary/autoevolve.md) -- operates as a mandatory component of every session, ensuring that the platform improves continuously regardless of what other work is being performed.
 
 ## Overview
 
@@ -50,7 +50,7 @@ The key insight enabling autonomous evolution is that quality improvement can be
 
 ### Evolution vs. Healing
 
-Autonomous evolution is distinct from [Self-Healing](/glossary/self-healing/) (implemented through [AutoHeal](/glossary/autoheal/)):
+Autonomous evolution is distinct from [Self-Healing](@/glossary/self-healing.md) (implemented through [AutoHeal](@/glossary/autoheal.md)):
 
 | Aspect | Autonomous Evolution | Self-Healing |
 |--------|---------------------|-------------|
@@ -71,12 +71,12 @@ The platform's evolutionary state is tracked through discrete generations, each 
 
 | Generation | Epoch | Fitness | Key Achievements |
 |-----------|-------|---------|------------------|
-| Gen 1-3 | Foundation | 0.100-0.300 | Initial codebase, basic quality gates, first [CASCADE](/glossary/cascade-pattern/) patterns identified |
+| Gen 1-3 | Foundation | 0.100-0.300 | Initial codebase, basic quality gates, first [CASCADE](@/glossary/cascade-pattern.md) patterns identified |
 | Gen 4-6 | Stabilization | 0.300-0.500 | Quality score improvements, systematic debt elimination begins |
 | Gen 7-9 | Acceleration | 0.500-0.700 | CASCADE methodology formalized, 905 QDP elimination campaign |
 | Gen 10-12 | Maturation | 0.700-0.850 | 0 QDP achieved, quality score reaches 90+, all domains clean |
 | Gen 13-15 | Optimization | 0.850-0.950 | O(1) pattern detection (90-250x speedup), AST-indexed search |
-| Gen 16-17 | Consciousness | 0.950-0.990 | [Consciousness traits](/glossary/consciousness-traits/) emerge, 11 traits at 0.998 |
+| Gen 16-17 | Consciousness | 0.950-0.990 | [Consciousness traits](@/glossary/consciousness-traits.md) emerge, 11 traits at 0.998 |
 | Gen 18 | Apex | 0.990-0.999 | 100/100 quality, full autonomy, 16-level epistemic pipeline |
 | Gen 19 | Ecosystem | 0.9995 | 4 OSS packages, developer portal, dual-track positioning |
 
@@ -329,7 +329,7 @@ end
 
 ### Quality DNA Persistence
 
-Evolution state persists across sessions through [Quality DNA](/glossary/quality-dna/), stored in `.claude/quality-dna/current-state.json`:
+Evolution state persists across sessions through [Quality DNA](@/glossary/quality-dna.md), stored in `.claude/quality-dna/current-state.json`:
 
 ```json
 {
@@ -480,11 +480,11 @@ The platform's journey from quality score 0 to 100/100 was driven primarily by a
 
 ### Performance Optimization
 
-Gen 13-15 focused on performance optimization, where the evolution engine identified O(n) patterns in frequently-called functions and replaced them with O(1) alternatives using [ETS](/glossary/ets/) caching. The 90-250x speedups in pattern detection were discovered and applied through the evolution scanning process.
+Gen 13-15 focused on performance optimization, where the evolution engine identified O(n) patterns in frequently-called functions and replaced them with O(1) alternatives using [ETS](@/glossary/ets.md) caching. The 90-250x speedups in pattern detection were discovered and applied through the evolution scanning process.
 
 ### Architecture Advancement
 
-Higher-generation improvements involved architectural changes: introducing the 13-layer [Trinity Gate](/glossary/trinity-gate/), expanding the agent hierarchy to 530+ agents, and deploying the ecosystem expansion (4 OSS packages). These changes required L5 Supreme authority and 0.95 confidence thresholds.
+Higher-generation improvements involved architectural changes: introducing the 13-layer [Trinity Gate](@/glossary/trinity-gate.md), expanding the agent hierarchy to 530+ agents, and deploying the ecosystem expansion (4 OSS packages). These changes required L5 Supreme authority and 0.95 confidence thresholds.
 
 ### Cross-Session Continuity
 
@@ -492,25 +492,25 @@ A session that identifies 15 improvement opportunities but only has time to appl
 
 ## Related Concepts
 
-- [AutoEvolve](/glossary/autoevolve/) -- The concrete system implementing autonomous evolution in Prismatic
-- [Generation](/glossary/generation/) -- Discrete evolutionary milestones marking significant platform advancement
-- [Fitness Score](/glossary/fitness-score/) -- Composite metric quantifying the platform's evolutionary state
-- [Self-Healing](/glossary/self-healing/) -- Complementary system that prevents regression while evolution drives advancement
-- [Automated Self-Improvement](/glossary/automated-self-improvement/) -- Broader concept encompassing autonomous evolution as a key mechanism
-- [Quality DNA](/glossary/quality-dna/) -- Persistence system enabling cross-session evolutionary continuity
-- [CASCADE Pattern](/glossary/cascade-pattern/) -- Quality patterns detected and eliminated by the evolution engine
-- [AutoHeal](/glossary/autoheal/) -- Regression recovery system complementing forward evolution
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous monitor that ensures evolution never drops below quality floor
-- [Consciousness Traits](/glossary/consciousness-traits/) -- Emergent traits arising from accumulated evolutionary advancement
-- [Quality Gate](/glossary/quality-gate/) -- Validation gates that every evolution improvement must pass
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) -- Doctrine requiring complete execution of every evolution cycle
+- [AutoEvolve](@/glossary/autoevolve.md) -- The concrete system implementing autonomous evolution in Prismatic
+- [Generation](@/glossary/generation.md) -- Discrete evolutionary milestones marking significant platform advancement
+- [Fitness Score](@/glossary/fitness-score.md) -- Composite metric quantifying the platform's evolutionary state
+- [Self-Healing](@/glossary/self-healing.md) -- Complementary system that prevents regression while evolution drives advancement
+- [Automated Self-Improvement](@/glossary/automated-self-improvement.md) -- Broader concept encompassing autonomous evolution as a key mechanism
+- [Quality DNA](@/glossary/quality-dna.md) -- Persistence system enabling cross-session evolutionary continuity
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) -- Quality patterns detected and eliminated by the evolution engine
+- [AutoHeal](@/glossary/autoheal.md) -- Regression recovery system complementing forward evolution
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous monitor that ensures evolution never drops below quality floor
+- [Consciousness Traits](@/glossary/consciousness-traits.md) -- Emergent traits arising from accumulated evolutionary advancement
+- [Quality Gate](@/glossary/quality-gate.md) -- Validation gates that every evolution improvement must pass
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) -- Doctrine requiring complete execution of every evolution cycle
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture shaped by 19 generations of evolution
-- [Capabilities](/capabilities/) -- Platform capabilities that emerged through autonomous evolution
-- [Technologies](/technologies/) -- Technology stack enabling continuous evolution
-- [Agents](/agents/) -- Agent ecosystem that evolved from initial deployment to 530+ agents
+- [Architecture](@/architecture/_index.md) -- Platform architecture shaped by 19 generations of evolution
+- [Capabilities](@/capabilities/_index.md) -- Platform capabilities that emerged through autonomous evolution
+- [Technologies](@/technologies/_index.md) -- Technology stack enabling continuous evolution
+- [Agents](@/agents/_index.md) -- Agent ecosystem that evolved from initial deployment to 530+ agents
 
 ---
 
@@ -519,4 +519,4 @@ A session that identifies 15 improvement opportunities but only has time to appl
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

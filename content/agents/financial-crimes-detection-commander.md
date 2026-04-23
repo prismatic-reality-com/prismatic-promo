@@ -28,9 +28,9 @@ image_alt = "financial-crimes-detection-commander - Prismatic Platform"
 
 ## Overview
 
-The Financial Crimes Detection Commander operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Financial domain of the Prismatic Platform. This agent serves as the central coordinator for detecting, analyzing, and reporting financial crimes across the platform's investigative capabilities, synthesizing intelligence from multiple data sources into comprehensive criminal activity assessments. Its mandate covers the full spectrum of financial crime typologies, from money laundering and fraud to sanctions evasion and illicit financing networks.
+The Financial Crimes Detection Commander operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Financial domain of the Prismatic Platform. This agent serves as the central coordinator for detecting, analyzing, and reporting financial crimes across the platform's investigative capabilities, synthesizing intelligence from multiple data sources into comprehensive criminal activity assessments. Its mandate covers the full spectrum of financial crime typologies, from money laundering and fraud to sanctions evasion and illicit financing networks.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Financial Crimes Detection Commander occupies a strategic orchestration role. It directs the activities of subordinate financial domain agents -- the [financial-forensics-specialist](/agents/financial-forensics-specialist/) for deep transaction analysis and the [financial-intelligence-commander](/agents/financial-intelligence-commander/) for broader intelligence synthesis -- while maintaining direct interfaces with the platform's [OSINT](/glossary/osint/) infrastructure and regulatory compliance frameworks.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Financial Crimes Detection Commander occupies a strategic orchestration role. It directs the activities of subordinate financial domain agents -- the [financial-forensics-specialist](@/agents/financial-forensics-specialist.md) for deep transaction analysis and the [financial-intelligence-commander](@/agents/financial-intelligence-commander.md) for broader intelligence synthesis -- while maintaining direct interfaces with the platform's [OSINT](@/glossary/osint.md) infrastructure and regulatory compliance frameworks.
 
 ## Financial Crime Typology Framework
 
@@ -50,7 +50,7 @@ Rule-based screening applies regulatory thresholds and known typological indicat
 
 Behavioral analytics extends detection beyond known patterns by establishing baseline behavioral profiles for entities and identifying statistically significant deviations. Transaction volume anomalies, geographic pattern changes, counterparty diversification shifts, and temporal regularity breaks all contribute to behavioral risk scores. The agent implements adaptive baselines that account for legitimate business cycle variations, seasonal patterns, and known corporate events.
 
-Network analysis leverages the platform's graph database capabilities through [KuzuDB](/glossary/kuzudb/) to identify structural patterns in financial relationship networks. Shell company networks, circular fund flows, rapid pass-through patterns, and hub-and-spoke structures are all detectable through graph traversal algorithms. Network analysis is particularly effective for detecting layered laundering schemes that may evade transaction-level monitoring.
+Network analysis leverages the platform's graph database capabilities through [KuzuDB](@/glossary/kuzudb.md) to identify structural patterns in financial relationship networks. Shell company networks, circular fund flows, rapid pass-through patterns, and hub-and-spoke structures are all detectable through graph traversal algorithms. Network analysis is particularly effective for detecting layered laundering schemes that may evade transaction-level monitoring.
 
 ## Regulatory Compliance Integration
 
@@ -68,11 +68,11 @@ Compliance mappings are version-controlled and updated when regulatory changes a
 
 ## Intelligence Synthesis Pipeline
 
-The intelligence synthesis pipeline processes raw financial data through multiple enrichment and analysis stages before producing actionable intelligence products. The pipeline architecture uses [GenStage](/glossary/genstage/) for [backpressure](/glossary/backpressure/) management, ensuring that high-volume data ingestion does not overwhelm analytical processing stages.
+The intelligence synthesis pipeline processes raw financial data through multiple enrichment and analysis stages before producing actionable intelligence products. The pipeline architecture uses [GenStage](@/glossary/genstage.md) for [backpressure](@/glossary/backpressure.md) management, ensuring that high-volume data ingestion does not overwhelm analytical processing stages.
 
-Data ingestion draws from multiple source categories: transactional data from financial institutions, corporate registry records from Czech and international registries, beneficial ownership databases, sanctions and watchlists, adverse media screening results, and court record searches. Each source is tagged with reliability and timeliness metadata to support subsequent [confidence scoring](/glossary/confidence-scoring/).
+Data ingestion draws from multiple source categories: transactional data from financial institutions, corporate registry records from Czech and international registries, beneficial ownership databases, sanctions and watchlists, adverse media screening results, and court record searches. Each source is tagged with reliability and timeliness metadata to support subsequent [confidence scoring](@/glossary/confidence-scoring.md).
 
-Entity resolution merges references to the same real-world entity across different data sources, handling name variations, transliteration differences, and intentional obfuscation. The platform's [entity resolution](/glossary/entity-resolution/) engine applies probabilistic matching with configurable thresholds, enabling investigators to tune the trade-off between precision and recall based on the specific investigative context.
+Entity resolution merges references to the same real-world entity across different data sources, handling name variations, transliteration differences, and intentional obfuscation. The platform's [entity resolution](@/glossary/entity-resolution.md) engine applies probabilistic matching with configurable thresholds, enabling investigators to tune the trade-off between precision and recall based on the specific investigative context.
 
 Risk scoring aggregates indicators across all available data sources into composite risk scores that quantify the likelihood of criminal activity. Risk scores are decomposed into contributing factors, enabling investigators to understand which specific indicators drive a high-risk assessment and to prioritize their investigative efforts accordingly.
 
@@ -86,11 +86,11 @@ The agent enforces documentation standards throughout the investigation lifecycl
 
 ## Epistemic Framework Compliance
 
-Financial crime detection presents significant epistemic challenges. The [NABLA Infinity](/glossary/nabla-infinity/) framework's axioms are directly relevant to maintaining analytical integrity in this domain.
+Financial crime detection presents significant epistemic challenges. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's axioms are directly relevant to maintaining analytical integrity in this domain.
 
 The Signal Plurality axiom prevents premature conclusions based on single indicators. A single suspicious transaction does not establish criminal activity; the agent requires corroborating evidence from independent sources before elevating risk assessments. The Contradiction Preservation axiom ensures that exculpatory evidence is maintained alongside incriminating indicators, preventing confirmation bias in investigations.
 
-The [Trinity Gate](/glossary/trinity-gate/) validation is particularly important for financial crime assessments that may result in regulatory reporting or law enforcement referrals. Structural Consistency ensures that the evidence network forms a coherent narrative. Logical Consistency verifies that conclusions follow from premises without logical gaps. Formal Necessity provides mathematical certainty for quantitative claims such as transaction volumes and risk scores.
+The [Trinity Gate](@/glossary/trinity-gate.md) validation is particularly important for financial crime assessments that may result in regulatory reporting or law enforcement referrals. Structural Consistency ensures that the evidence network forms a coherent narrative. Logical Consistency verifies that conclusions follow from premises without logical gaps. Formal Necessity provides mathematical certainty for quantitative claims such as transaction volumes and risk scores.
 
 ## Performance and Quality Metrics
 
@@ -109,17 +109,17 @@ The agent tracks operational metrics that balance detection effectiveness with i
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| Prismatic [OSINT](/glossary/osint/) | Data collection | Financial intelligence data providers |
+| Prismatic [OSINT](@/glossary/osint.md) | Data collection | Financial intelligence data providers |
 | Czech Registries | Corporate data | Company financial records and beneficial ownership |
 | Risk Scoring Pipeline | Analytical processing | Quantitative risk assessment and scoring |
-| [KuzuDB](/glossary/kuzudb/) | Graph analysis | Financial network structure analysis |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Evidence management | Case file persistence with audit trail |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph analysis | Financial network structure analysis |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Evidence management | Case file persistence with audit trail |
 | Telemetry | Operational monitoring | Detection pipeline performance tracking |
 
 ## Related Agents
 
-- [**financial-forensics-specialist**](/agents/financial-forensics-specialist/) (L3) - Deep transaction-level forensic analysis with evidence-grade documentation for regulatory proceedings
-- [**financial-intelligence-commander**](/agents/financial-intelligence-commander/) (L3) - Broad financial intelligence synthesis covering market analysis, economic indicators, and strategic financial risk assessment
+- [**financial-forensics-specialist**](@/agents/financial-forensics-specialist.md) (L3) - Deep transaction-level forensic analysis with evidence-grade documentation for regulatory proceedings
+- [**financial-intelligence-commander**](@/agents/financial-intelligence-commander.md) (L3) - Broad financial intelligence synthesis covering market analysis, economic indicators, and strategic financial risk assessment
 
 ---
 
@@ -128,4 +128,4 @@ The agent tracks operational metrics that balance detection effectiveness with i
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

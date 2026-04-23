@@ -38,7 +38,7 @@ image_alt = "OTP Application - Prismatic Platform"
 
 An **OTP Application** is a self-contained, reusable component in the Open Telecom Platform (OTP) framework that bundles related code modules, a supervision tree, configuration, and startup/shutdown logic into a single deployable unit. In the Erlang/Elixir ecosystem, an application is not merely a collection of source files -- it is a runtime entity with a defined lifecycle, a dependency graph against other applications, and a supervision hierarchy that ensures its processes are started, monitored, and restarted according to explicit strategies.
 
-Every Elixir project, whether a simple script or a complex distributed system, ultimately runs as one or more OTP applications. The [Prismatic Platform](/glossary/elixir/) leverages this architectural primitive to its fullest extent: its 115 umbrella applications each represent a distinct bounded context -- from `prismatic_storage_core` (storage traits and protocols) to `prismatic_perimeter` (External Attack Surface Management) to `prismatic_web` (LiveView dashboards). Each application has its own supervision tree, its own configuration namespace, its own dependencies, and its own lifecycle -- yet they compose seamlessly into a coherent platform through OTP's application dependency resolution and startup ordering.
+Every Elixir project, whether a simple script or a complex distributed system, ultimately runs as one or more OTP applications. The [Prismatic Platform](@/glossary/elixir.md) leverages this architectural primitive to its fullest extent: its 115 umbrella applications each represent a distinct bounded context -- from `prismatic_storage_core` (storage traits and protocols) to `prismatic_perimeter` (External Attack Surface Management) to `prismatic_web` (LiveView dashboards). Each application has its own supervision tree, its own configuration namespace, its own dependencies, and its own lifecycle -- yet they compose seamlessly into a coherent platform through OTP's application dependency resolution and startup ordering.
 
 ## Overview
 
@@ -465,7 +465,7 @@ The platform follows consistent patterns across all 115 applications:
 
 ### OTP Application vs. OTP Behaviour
 
-An [OTP application](/glossary/otp-application/) is a packaging and lifecycle mechanism -- it defines how code is organized, configured, and started as a runtime unit. An [OTP behaviour](/glossary/otp-behaviour/) is a design pattern implementation -- it defines how individual processes within an application are structured and interact. Applications contain processes that implement behaviours; behaviours provide the building blocks from which applications are constructed.
+An [OTP application](@/glossary/otp-application.md) is a packaging and lifecycle mechanism -- it defines how code is organized, configured, and started as a runtime unit. An [OTP behaviour](@/glossary/otp-behaviour.md) is a design pattern implementation -- it defines how individual processes within an application are structured and interact. Applications contain processes that implement behaviours; behaviours provide the building blocks from which applications are constructed.
 
 ## Best Practices
 
@@ -523,23 +523,23 @@ OTP applications serve as natural plugin boundaries. The Prismatic Platform's Pl
 
 OTP applications connect to fundamental BEAM and Elixir concepts throughout the Prismatic Platform:
 
-- [OTP Behaviour](/glossary/otp-behaviour/) -- the process design patterns used within applications
-- [Supervision Tree](/glossary/supervision-tree/) -- the fault-tolerance hierarchy started by each application
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine that manages application lifecycle
-- [GenServer](/glossary/genserver/) -- the most common process behaviour used in application implementations
-- [Umbrella Application](/glossary/umbrella-application/) -- the multi-application project structure used by the Prismatic Platform
-- [Supervisor](/glossary/supervisor/) -- the process that manages child processes within an application
-- [Process Isolation](/glossary/process-isolation/) -- the BEAM feature that enables application-level fault containment
-- [Elixir](/glossary/elixir/) -- the programming language built on OTP application primitives
-- [Erlang](/glossary/erlang/) -- the language that originally defined the OTP application concept
-- [Application](/glossary/application/) -- the general concept of software applications
+- [OTP Behaviour](@/glossary/otp-behaviour.md) -- the process design patterns used within applications
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the fault-tolerance hierarchy started by each application
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine that manages application lifecycle
+- [GenServer](@/glossary/genserver.md) -- the most common process behaviour used in application implementations
+- [Umbrella Application](@/glossary/umbrella-application.md) -- the multi-application project structure used by the Prismatic Platform
+- [Supervisor](@/glossary/supervisor.md) -- the process that manages child processes within an application
+- [Process Isolation](@/glossary/process-isolation.md) -- the BEAM feature that enables application-level fault containment
+- [Elixir](@/glossary/elixir.md) -- the programming language built on OTP application primitives
+- [Erlang](@/glossary/erlang.md) -- the language that originally defined the OTP application concept
+- [Application](@/glossary/application.md) -- the general concept of software applications
 
 ## See Also
 
-- [OTP](/glossary/otp/) -- the broader framework that defines the application model
-- [Phoenix Framework](/glossary/phoenix-framework/) -- a web framework structured as an OTP application
-- [Releases (Elixir)](/glossary/releases-elixir/) -- the deployment mechanism for OTP applications
-- [Supervision](/glossary/supervision/) -- the fault-tolerance strategy underlying OTP applications
+- [OTP](@/glossary/otp.md) -- the broader framework that defines the application model
+- [Phoenix Framework](@/glossary/phoenix-framework.md) -- a web framework structured as an OTP application
+- [Releases (Elixir)](@/glossary/releases-elixir.md) -- the deployment mechanism for OTP applications
+- [Supervision](@/glossary/supervision.md) -- the fault-tolerance strategy underlying OTP applications
 
 ---
 

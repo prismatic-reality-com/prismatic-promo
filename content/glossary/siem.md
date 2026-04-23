@@ -38,7 +38,7 @@ The fundamental value proposition of SIEM is correlation. Individual log entries
 
 Modern SIEM platforms have evolved significantly from their origins as log aggregation tools. Contemporary systems incorporate User and Entity Behavior Analytics (UEBA), Security Orchestration Automation and Response (SOAR), and threat intelligence integration. They process billions of events per day, store petabytes of historical data, and provide sub-second query performance for forensic investigation. Cloud-native SIEM platforms have further transformed the landscape by offering elastic scaling, managed infrastructure, and integration with cloud service provider security services.
 
-The Prismatic Platform generates structured [telemetry](/glossary/telemetry/) events across all 115 umbrella applications that are designed for SIEM consumption. The platform's approach to security event generation follows the principle that security observability should be built into the application rather than bolted on through external agents. Every security-relevant action -- authentication attempts, authorization decisions, configuration changes, data access, compliance assessments -- emits a structured event that can be consumed by external SIEM platforms or processed internally by the [Blue Team](/glossary/blue-team/) signal aggregation pipeline.
+The Prismatic Platform generates structured [telemetry](@/glossary/telemetry.md) events across all 115 umbrella applications that are designed for SIEM consumption. The platform's approach to security event generation follows the principle that security observability should be built into the application rather than bolted on through external agents. Every security-relevant action -- authentication attempts, authorization decisions, configuration changes, data access, compliance assessments -- emits a structured event that can be consumed by external SIEM platforms or processed internally by the [Blue Team](@/glossary/blue-team.md) signal aggregation pipeline.
 
 ## Historical Context and Evolution
 
@@ -48,7 +48,7 @@ First-generation SIEM systems (2005-2012) focused primarily on log collection an
 
 Second-generation SIEM systems (2012-2018) introduced behavioral analytics, machine learning-based anomaly detection, and threat intelligence integration. Products like Splunk Enterprise Security, IBM QRadar, and LogRhythm added UEBA capabilities that could detect anomalous behavior without predefined rules. This generation also saw the emergence of cloud-delivered SIEM (Microsoft Sentinel, Google Chronicle) that eliminated the infrastructure burden of on-premises deployments.
 
-Third-generation SIEM systems (2018-present) blur the boundaries between SIEM, SOAR, XDR (Extended Detection and Response), and cloud security posture management. Modern platforms provide automated response capabilities, native cloud workload monitoring, and API-driven integration with the broader security toolchain. The Prismatic Platform's approach to security telemetry is designed to interoperate with this third-generation landscape while providing internal SIEM-like capabilities through the [Color Teams](/glossary/color-teams/) framework.
+Third-generation SIEM systems (2018-present) blur the boundaries between SIEM, SOAR, XDR (Extended Detection and Response), and cloud security posture management. Modern platforms provide automated response capabilities, native cloud workload monitoring, and API-driven integration with the broader security toolchain. The Prismatic Platform's approach to security telemetry is designed to interoperate with this third-generation landscape while providing internal SIEM-like capabilities through the [Color Teams](@/glossary/color-teams.md) framework.
 
 ## Technical Deep Dive
 
@@ -63,8 +63,8 @@ A SIEM system consists of several core components working in concert:
 | Correlation Engine | Detect patterns across multiple events | Blue Team signal aggregator performs internal correlation |
 | Rule Engine | Apply detection rules to normalized events | Color Team policies define detection logic |
 | Alert Manager | Prioritize and route security alerts | Telemetry events with severity classification |
-| Storage Backend | Index and retain events for compliance | [TimescaleDB](/glossary/timescaledb/) for time-series security data |
-| Dashboard/UI | Visualize security posture and incidents | [LiveView](/glossary/liveview/) dashboards at `/perimeter` |
+| Storage Backend | Index and retain events for compliance | [TimescaleDB](@/glossary/timescaledb.md) for time-series security data |
+| Dashboard/UI | Visualize security posture and incidents | [LiveView](@/glossary/liveview.md) dashboards at `/perimeter` |
 | Forensic Search | Investigate historical events | Meilisearch for full-text log search |
 
 ### Structured Event Generation
@@ -308,18 +308,18 @@ end
 
 ### Blue Team as Internal SIEM
 
-The Prismatic Platform's [Blue Team](/glossary/blue-team/) performs SIEM-like functions internally through the `blue-signal-aggregator` agent, providing a first line of detection that operates independently of any external SIEM platform:
+The Prismatic Platform's [Blue Team](@/glossary/blue-team.md) performs SIEM-like functions internally through the `blue-signal-aggregator` agent, providing a first line of detection that operates independently of any external SIEM platform:
 
 | SIEM Function | Blue Team Implementation |
 |--------------|------------------------|
 | Log Aggregation | Telemetry event collection across all 115 apps |
 | Event Correlation | Cross-domain signal correlation with NABLA plurality |
 | Threat Detection | Drift detection, anomaly identification |
-| Compliance Monitoring | NIS2/ZKB posture assessment via [Perimeter](/glossary/easm/) |
-| Alert Generation | Structured evidence production for [Purple Team](/glossary/purple-team/) synthesis |
+| Compliance Monitoring | NIS2/ZKB posture assessment via [Perimeter](@/glossary/easm.md) |
+| Alert Generation | Structured evidence production for [Purple Team](@/glossary/purple-team.md) synthesis |
 | Incident Response | Automated escalation through Color Team chain |
 
-This internal SIEM capability means the platform detects security anomalies even when no external SIEM is configured. The Blue Team's signal aggregator applies [NABLA Axioms](/glossary/nabla-axioms/) to security evidence, requiring signal plurality (multiple independent sources confirming a finding) before establishing belief. This epistemic approach reduces false positives by requiring corroboration rather than treating any single signal as authoritative.
+This internal SIEM capability means the platform detects security anomalies even when no external SIEM is configured. The Blue Team's signal aggregator applies [NABLA Axioms](@/glossary/nabla-axioms.md) to security evidence, requiring signal plurality (multiple independent sources confirming a finding) before establishing belief. This epistemic approach reduces false positives by requiring corroboration rather than treating any single signal as authoritative.
 
 ### Event Pipeline Architecture
 
@@ -338,11 +338,11 @@ Purple Team Synthesis
 Closure Decisions --> Incident Response
 ```
 
-Each stage in the pipeline is implemented as a supervised [GenServer](/glossary/genserver/) process within the platform's [supervision tree](/glossary/supervision-tree/), providing fault tolerance and automatic recovery. If the SIEM adapter process crashes (due to network issues with the external SIEM endpoint, for example), the supervisor restarts it automatically, and buffered events are retransmitted.
+Each stage in the pipeline is implemented as a supervised [GenServer](@/glossary/genserver.md) process within the platform's [supervision tree](@/glossary/supervision-tree.md), providing fault tolerance and automatic recovery. If the SIEM adapter process crashes (due to network issues with the external SIEM endpoint, for example), the supervisor restarts it automatically, and buffered events are retransmitted.
 
 ### Event Buffering and Delivery Guarantees
 
-The SIEM adapter implements at-least-once delivery semantics using a buffer backed by [ETS](/glossary/ets/) tables:
+The SIEM adapter implements at-least-once delivery semantics using a buffer backed by [ETS](@/glossary/ets.md) tables:
 
 ```elixir
 defmodule Prismatic.Security.SIEMBuffer do
@@ -418,10 +418,10 @@ SIEM systems generate compliance reports required by regulatory frameworks. The 
 
 | Framework | Event Requirements | Prismatic Coverage | Retention |
 |-----------|-------------------|-------------------|-----------|
-| [NIS2](/glossary/nis2/) | Incident notification within 24 hours | Security alert events with timestamps | 18 months |
+| [NIS2](@/glossary/nis2.md) | Incident notification within 24 hours | Security alert events with timestamps | 18 months |
 | ZKB | Security measure documentation | Configuration change events | 5 years |
 | SOC 2 | Audit trail for all access | Authentication and authorization events | 7 years |
-| [GDPR](/glossary/gdpr/) | Data access logging | Data access events with actor tracking | Duration of processing |
+| [GDPR](@/glossary/gdpr.md) | Data access logging | Data access events with actor tracking | Duration of processing |
 | ISO 27001 | Information security event logging | Full security event taxonomy | 3 years |
 
 The platform's compliance event generation is automatic -- every authentication attempt, authorization decision, data access operation, and configuration change emits a structured event with actor identification, timestamp, outcome, and contextual metadata. This eliminates the manual evidence collection that consumes significant compliance team resources.
@@ -496,7 +496,7 @@ Prismatic.Security.EventEmitter.emit(
 | Behavioral Analytics | Drift detection | Splunk UBA | ML Jobs | UEBA |
 | Response | Color Team escalation | Phantom SOAR | Elastic Agent | Logic Apps |
 | Cost Model | Platform-integrated | Per-GB ingestion | Per-GB ingestion | Per-GB ingestion |
-| Deployment | [BEAM](/glossary/beam/) process | On-prem/Cloud | On-prem/Cloud | Cloud-only |
+| Deployment | [BEAM](@/glossary/beam.md) process | On-prem/Cloud | On-prem/Cloud | Cloud-only |
 | Latency | Sub-millisecond (in-process) | Seconds | Seconds | Seconds |
 
 The platform's internal SIEM capability provides near-zero-latency detection for platform-specific events, while external SIEM integration provides broader organizational context by correlating Prismatic events with events from other infrastructure components.
@@ -521,9 +521,9 @@ The platform's correlation rules map to MITRE ATT&CK techniques, enabling consis
 
 3. **Tune correlation rules to reduce false positives**. An overwhelming number of false alerts causes alert fatigue and missed real threats. Start with high-confidence rules and refine thresholds based on operational experience.
 
-4. **Integrate threat intelligence feeds**. SIEM correlation rules enriched with current [threat intelligence](/glossary/threat-intelligence/) detect known attack patterns more effectively than signature-only detection.
+4. **Integrate threat intelligence feeds**. SIEM correlation rules enriched with current [threat intelligence](@/glossary/threat-intelligence.md) detect known attack patterns more effectively than signature-only detection.
 
-5. **Test incident detection regularly**. Run simulated security scenarios via the [Red Team](/glossary/red-team/) and verify that SIEM correctly detects and alerts on them. Document detection gaps and create new correlation rules to close them.
+5. **Test incident detection regularly**. Run simulated security scenarios via the [Red Team](@/glossary/red-team.md) and verify that SIEM correctly detects and alerts on them. Document detection gaps and create new correlation rules to close them.
 
 6. **Monitor SIEM health metrics**. Track ingestion rate, correlation engine latency, storage utilization, and alert volume. A SIEM that is silently dropping events provides a dangerous false sense of security.
 
@@ -541,22 +541,22 @@ The platform's correlation rules map to MITRE ATT&CK techniques, enabling consis
 
 ## Related Concepts
 
-- [Observability](/glossary/observability/) -- Broader monitoring practice that SIEM specializes for security
-- [Structured Logging](/glossary/structured-logging/) -- JSON log format enabling SIEM ingestion
-- [Threat Intelligence](/glossary/threat-intelligence/) -- External feeds enriching SIEM correlation rules
-- [Telemetry](/glossary/telemetry/) -- Event system producing data consumed by SIEM platforms
-- [Blue Team](/glossary/blue-team/) -- Internal SIEM-like signal aggregation and correlation
-- [NIS2 Directive](/glossary/nis2/) -- Compliance framework requiring SIEM-level logging
-- [Incident Response](/glossary/incident-response/) -- Workflow triggered by SIEM alerts
-- [EASM](/glossary/easm/) -- Attack surface monitoring generating SIEM events
-- [Color Teams](/glossary/color-teams/) -- Security framework providing internal SIEM functions
-- [Security Rating](/glossary/security-rating/) -- Scores derived from SIEM-correlated evidence
+- [Observability](@/glossary/observability.md) -- Broader monitoring practice that SIEM specializes for security
+- [Structured Logging](@/glossary/structured-logging.md) -- JSON log format enabling SIEM ingestion
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- External feeds enriching SIEM correlation rules
+- [Telemetry](@/glossary/telemetry.md) -- Event system producing data consumed by SIEM platforms
+- [Blue Team](@/glossary/blue-team.md) -- Internal SIEM-like signal aggregation and correlation
+- [NIS2 Directive](@/glossary/nis2.md) -- Compliance framework requiring SIEM-level logging
+- [Incident Response](@/glossary/incident-response.md) -- Workflow triggered by SIEM alerts
+- [EASM](@/glossary/easm.md) -- Attack surface monitoring generating SIEM events
+- [Color Teams](@/glossary/color-teams.md) -- Security framework providing internal SIEM functions
+- [Security Rating](@/glossary/security-rating.md) -- Scores derived from SIEM-correlated evidence
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory
 
 ---
 
@@ -565,4 +565,4 @@ The platform's correlation rules map to MITRE ATT&CK techniques, enabling consis
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

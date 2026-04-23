@@ -163,17 +163,17 @@ end
 
 ## Related Terms
 
-- [Benchmark](/glossary/benchmark/) -- performance assertions against baselines
+- [Benchmark](@/glossary/benchmark.md) -- performance assertions against baselines
 - **Completeness** -- assertion coverage of requirements
 - **Contract** -- formal behavior agreements verified by assertions
-- [Axiom](/glossary/axiom/) -- foundational truths analogous to assertions in formal logic
+- [Axiom](@/glossary/axiom.md) -- foundational truths analogous to assertions in formal logic
 - **Code Smell** -- patterns indicating missing assertions
 
 ## See Also
 
 - [ExUnit Documentation](https://hexdocs.pm/ex_unit/ExUnit.html) -- Elixir test framework
-- [Quality Gates](/glossary/quality-gates/) -- assertion-based quality enforcement
-- [Regression Testing](/glossary/regression-testing/) -- assertion-based regression prevention
+- [Quality Gates](@/glossary/quality-gates.md) -- assertion-based quality enforcement
+- [Regression Testing](@/glossary/regression-testing.md) -- assertion-based regression prevention
 
 ---
 
@@ -182,4 +182,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

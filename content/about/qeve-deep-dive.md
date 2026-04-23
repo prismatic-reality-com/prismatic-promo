@@ -28,7 +28,7 @@ What does that number mean? What model produced it? What data went in? What assu
 
 These questions do not have satisfying answers with traditional AI scoring. The 87% is an opaque output of a model that may or may not be well-calibrated, trained on data that may or may not be representative, with assumptions that are implicit rather than explicit.
 
-Now imagine the same scenario with Prismatic's [QEVE](/glossary/qeve/):
+Now imagine the same scenario with Prismatic's [QEVE](@/glossary/qeve.md):
 
 > The security posture assessment yields a confidence of 0.87 with a 95% credible interval of [0.82, 0.91]. This conclusion is based on 23 independent evidence signals from 8 sources, verified through the Trinity Gate (structural consistency: PASSED, logical consistency: PASSED, formal proof: PASSED for 4 of 6 critical properties, deferred for 2 non-critical). Robustness analysis shows the conclusion is stable under 15% evidence degradation but sensitive to source S3 (if S3 reliability drops below 0.6, confidence drops to 0.71). Full provenance chain available. 2 preserved contradictions noted: [details with source attribution and timestamps].
 
@@ -40,7 +40,7 @@ The Quantified Epistemic Verification Engine combines three verification methodo
 
 ### Component 1: Lean4 Formal Proofs
 
-[Lean4](/glossary/lean4/) is a theorem prover and programming language developed at Microsoft Research. It allows expressing mathematical propositions and constructing machine-checked proofs of those propositions.
+[Lean4](@/glossary/lean4.md) is a theorem prover and programming language developed at Microsoft Research. It allows expressing mathematical propositions and constructing machine-checked proofs of those propositions.
 
 In QEVE, Lean4 serves as the formal verification backbone. Security properties, consistency invariants, and critical system claims are expressed as Lean4 propositions. Proofs are constructed either manually (for novel properties) or semi-automatically (for properties that follow established patterns). The proofs are machine-checked -- if the proof compiles, it is correct.
 
@@ -59,7 +59,7 @@ This is not pseudocode. It is a real Lean4 proof that the type checker verifies.
 
 ### Component 2: NABLA Epistemic Axioms
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework provides the epistemic infrastructure. Its 7 axioms govern how evidence is gathered, evaluated, and synthesized:
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework provides the epistemic infrastructure. Its 7 axioms govern how evidence is gathered, evaluated, and synthesized:
 
 | Axiom | Role in QEVE | Enforcement |
 |-------|-------------|-------------|
@@ -188,7 +188,7 @@ end
 
 ### Stage 5: Trinity Gate Validation
 
-The final stage. Every conclusion must pass the three-layer [Trinity Gate](/glossary/trinity-gate/):
+The final stage. Every conclusion must pass the three-layer [Trinity Gate](@/glossary/trinity-gate.md):
 
 **Layer 1: Structural Consistency (Graph Theory)**
 
@@ -349,13 +349,13 @@ QEVE does not replace human judgment. It makes human judgment **verifiable**. Th
 
 ## Next Steps
 
-- [For Security & Risk](/about/for-security/) -- The Color Team architecture that feeds into QEVE
-- [For Executives](/about/for-executives/) -- Business case and compliance positioning
-- [For Architects](/about/for-architects/) -- The epistemic pipeline that houses QEVE
-- [Glossary: QEVE](/glossary/qeve/) -- Concise definition and key concepts
-- [Glossary: Trinity Gate](/glossary/trinity-gate/) -- The three-layer verification gate
-- [Glossary: NABLA Infinity](/glossary/nabla-infinity/) -- The 7 epistemic axioms
-- [Glossary: Lean4](/glossary/lean4/) -- The theorem prover behind formal proofs
+- [For Security & Risk](@/about/for-security.md) -- The Color Team architecture that feeds into QEVE
+- [For Executives](@/about/for-executives.md) -- Business case and compliance positioning
+- [For Architects](@/about/for-architects.md) -- The epistemic pipeline that houses QEVE
+- [Glossary: QEVE](@/glossary/qeve.md) -- Concise definition and key concepts
+- [Glossary: Trinity Gate](@/glossary/trinity-gate.md) -- The three-layer verification gate
+- [Glossary: NABLA Infinity](@/glossary/nabla-infinity.md) -- The 7 epistemic axioms
+- [Glossary: Lean4](@/glossary/lean4.md) -- The theorem prover behind formal proofs
 
 ---
 
@@ -364,4 +364,4 @@ QEVE does not replace human judgment. It makes human judgment **verifiable**. Th
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

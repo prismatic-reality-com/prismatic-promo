@@ -32,7 +32,7 @@ The Strategic Command agent is an L1 Supreme Authority operating in the **large 
 
 As a "large predator" organism in the platform's ecological classification, Strategic Command occupies the apex of the agent food chain. It consumes intelligence products from lower-tier agents, synthesizes cross-domain insights, and directs platform-wide operations with authority that supersedes all other agents except the Supreme Commander. The predator metaphor reflects the agent's role in actively seeking out systemic issues, inefficiencies, and strategic opportunities rather than passively waiting for inputs.
 
-Strategic Command operates under the strictest application of the [NO MERCY](/glossary/no-mercy/) doctrine, where strategic decisions are made with absolute confidence after passing [Trinity Gate](/glossary/trinity-gate/) verification, and executed without hesitation or compromise. The agent's position at L1 gives it the authority to override any lower-tier agent's decisions when they conflict with platform-wide strategic objectives, a power exercised with full epistemic rigor under the [NABLA Infinity](/glossary/nabla-infinity/) framework.
+Strategic Command operates under the strictest application of the [NO MERCY](@/glossary/no-mercy.md) doctrine, where strategic decisions are made with absolute confidence after passing [Trinity Gate](@/glossary/trinity-gate.md) verification, and executed without hesitation or compromise. The agent's position at L1 gives it the authority to override any lower-tier agent's decisions when they conflict with platform-wide strategic objectives, a power exercised with full epistemic rigor under the [NABLA Infinity](@/glossary/nabla-infinity.md) framework.
 
 ## Authority Hierarchy
 
@@ -138,13 +138,13 @@ end
 
 ## Multi-Domain Coordination
 
-Strategic Command coordinates operations across all platform domains, resolving conflicts and ensuring coherent execution of strategic objectives. Each domain reports its operational status through structured [telemetry](/glossary/telemetry/) events, and Strategic Command synthesizes these signals into a unified operational picture that informs resource allocation and priority decisions.
+Strategic Command coordinates operations across all platform domains, resolving conflicts and ensuring coherent execution of strategic objectives. Each domain reports its operational status through structured [telemetry](@/glossary/telemetry.md) events, and Strategic Command synthesizes these signals into a unified operational picture that informs resource allocation and priority decisions.
 
 | Domain | Coordination Role | Strategic Concern | Key Agents |
 |--------|------------------|-------------------|------------|
 | **Quality** | Quality floor enforcement | 100/100 score maintenance | Six Sigma Psycho Coordinator, Type Annotation Analyst |
 | **Intelligence** | Collection priority management | Source reliability, coverage gaps | Siege Master, Social Media Network Analyst |
-| **Security** | Threat response coordination | [Attack surface](/glossary/attack-surface/) management | Color Team Commanders, Perimeter agents |
+| **Security** | Threat response coordination | [Attack surface](@/glossary/attack-surface.md) management | Color Team Commanders, Perimeter agents |
 | **Architecture** | Evolution planning | Technical debt, scalability | Scalability Architect, Strangler Pattern Specialist |
 | **Development** | Resource allocation | Velocity, quality balance | Shell Setup Specialist, UI Flowbite Specialist |
 | **Epistemic** | Knowledge consistency | Belief system coherence | Society Coordinator, Stack Mode Coordinator |
@@ -212,20 +212,20 @@ end
 
 ## Decision Framework
 
-Strategic Command decisions follow a rigorous framework that ensures all decisions are evidence-based and formally verified. No strategic decision is made based on single-source intelligence or unverified assumptions, in strict accordance with the [NABLA Infinity](/glossary/nabla-infinity/) axioms.
+Strategic Command decisions follow a rigorous framework that ensures all decisions are evidence-based and formally verified. No strategic decision is made based on single-source intelligence or unverified assumptions, in strict accordance with the [NABLA Infinity](@/glossary/nabla-infinity.md) axioms.
 
 | Decision Phase | Process | Gate | Required Evidence |
 |---------------|---------|------|-------------------|
 | **Intelligence Gathering** | Collect inputs from all relevant domains | Signal plurality required | Minimum 2 independent sources |
-| **Analysis** | [NABLA Infinity](/glossary/nabla-infinity/) compliant analysis | 7 axioms verified | Contradiction preservation documented |
+| **Analysis** | [NABLA Infinity](@/glossary/nabla-infinity.md) compliant analysis | 7 axioms verified | Contradiction preservation documented |
 | **Option Generation** | Generate strategic alternatives | Minimum 2 options | Each option with risk assessment |
 | **Evaluation** | Score options against strategic objectives | Quantitative scoring | Weighted criteria with confidence levels |
-| **Verification** | [Trinity Gate](/glossary/trinity-gate/) passage | All 3 layers must pass | Formal proof of decision safety |
+| **Verification** | [Trinity Gate](@/glossary/trinity-gate.md) passage | All 3 layers must pass | Formal proof of decision safety |
 | **Execution** | NO MERCY execution mode | Zero compromise | Full commitment, no partial delivery |
 
 ## Mycelial Network Integration
 
-Strategic Command operates through the platform's [mycelial network](/glossary/mycelial-network/), a biological computing metaphor for the inter-agent communication infrastructure that enables rapid signal propagation and distributed decision-making. The mycelial network provides Strategic Command with real-time visibility into the operational state of every agent and domain, enabling rapid response to changing conditions.
+Strategic Command operates through the platform's [mycelial network](@/glossary/mycelial-network.md), a biological computing metaphor for the inter-agent communication infrastructure that enables rapid signal propagation and distributed decision-making. The mycelial network provides Strategic Command with real-time visibility into the operational state of every agent and domain, enabling rapid response to changing conditions.
 
 | Network Function | Mechanism | Latency | Bandwidth |
 |-----------------|-----------|---------|-----------|
@@ -251,12 +251,12 @@ The mycelial network's design ensures that Strategic Command can communicate wit
 
 ## Integration Points
 
-- [**NABLA Axioms**](/capabilities/nabla-axioms/) -- Epistemic framework for strategic reasoning
-- [**Trinity Gate**](/capabilities/trinity-gate/) -- Verification of all strategic decisions
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Platform-wide metrics aggregation
-- [**Quality Gates**](/capabilities/quality-gates/) -- Quality enforcement governance
-- [**Real-time Monitoring**](/capabilities/real-time-monitoring/) -- Strategic situation awareness dashboards
-- [**Autonomous Self-Healing**](/capabilities/autonomous-self-healing/) -- Automated response to strategic-level threats
+- [**NABLA Axioms**](@/capabilities/nabla-axioms.md) -- Epistemic framework for strategic reasoning
+- [**Trinity Gate**](@/capabilities/trinity-gate.md) -- Verification of all strategic decisions
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Platform-wide metrics aggregation
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Quality enforcement governance
+- [**Real-time Monitoring**](@/capabilities/real-time-monitoring.md) -- Strategic situation awareness dashboards
+- [**Autonomous Self-Healing**](@/capabilities/autonomous-self-healing.md) -- Automated response to strategic-level threats
 
 ## AIAD Specification Compliance
 
@@ -264,18 +264,18 @@ The mycelial network's design ensures that Strategic Command can communicate wit
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 22 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | MAXIMUM |
-| [SEADF](/glossary/seadf/) integration | Registered |
-| [Property-based testing](/glossary/property-based-testing/) | 55 properties verified |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | MAXIMUM |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
+| [Property-based testing](@/glossary/property-based-testing.md) | 55 properties verified |
 
 ## Related Agents
 
-- [**Unified Orchestrator**](/agents/unified-orchestrator/) -- Task-level orchestration under strategic direction
-- [**Six Sigma Psycho Coordinator**](/agents/six-sigma-psycho-coordinator/) -- Quality enforcement execution
-- [**Society Coordinator**](/agents/society-coordinator/) -- Epistemic society management
-- [**Trinity Bridge Commander**](/agents/trinity-bridge-commander/) -- Formal verification authority
-- [**Scalability Architect**](/agents/scalability-architect/) -- Architecture scaling governance
+- [**Unified Orchestrator**](@/agents/unified-orchestrator.md) -- Task-level orchestration under strategic direction
+- [**Six Sigma Psycho Coordinator**](@/agents/six-sigma-psycho-coordinator.md) -- Quality enforcement execution
+- [**Society Coordinator**](@/agents/society-coordinator.md) -- Epistemic society management
+- [**Trinity Bridge Commander**](@/agents/trinity-bridge-commander.md) -- Formal verification authority
+- [**Scalability Architect**](@/agents/scalability-architect.md) -- Architecture scaling governance
 
 ## Authority Level
 
@@ -288,4 +288,4 @@ The mycelial network's design ensures that Strategic Command can communicate wit
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

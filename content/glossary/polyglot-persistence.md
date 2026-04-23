@@ -228,7 +228,7 @@ The platform leverages PostgreSQL extensions for specialized workloads: `pg_trgm
 
 ### Meilisearch: The Search Layer
 
-[Meilisearch](/glossary/meilisearch/) provides full-text search capabilities that complement PostgreSQL's `LIKE` and `ts_vector` functionality. Where PostgreSQL's full-text search is precise and SQL-integrated, Meilisearch offers typo tolerance, relevance ranking, faceted search, and sub-50ms query response times on large document collections.
+[Meilisearch](@/glossary/meilisearch.md) provides full-text search capabilities that complement PostgreSQL's `LIKE` and `ts_vector` functionality. Where PostgreSQL's full-text search is precise and SQL-integrated, Meilisearch offers typo tolerance, relevance ranking, faceted search, and sub-50ms query response times on large document collections.
 
 The Prismatic Platform indexes several content types in Meilisearch: OSINT intelligence reports (enabling natural language search across investigation findings), glossary content (the 600+ term glossary with cross-references), agent documentation (searchable agent capabilities and specifications), and command documentation (searchable command registry).
 
@@ -236,7 +236,7 @@ The Meilisearch adapter handles index synchronization with PostgreSQL as the sou
 
 ### KuzuDB: The Graph Engine
 
-[KuzuDB](/glossary/kuzudb/) provides graph storage and query capabilities for relationship-centric data. The Prismatic Platform uses KuzuDB for corporate ownership networks (beneficial ownership chains), OSINT entity relationship mapping, dependency graphs between umbrella applications, and agent interaction networks.
+[KuzuDB](@/glossary/kuzudb.md) provides graph storage and query capabilities for relationship-centric data. The Prismatic Platform uses KuzuDB for corporate ownership networks (beneficial ownership chains), OSINT entity relationship mapping, dependency graphs between umbrella applications, and agent interaction networks.
 
 Graph queries that would require recursive CTEs in PostgreSQL (expensive and complex to write) become natural Cypher traversals in KuzuDB. A query like "find all companies within three ownership hops of a sanctioned entity" is a straightforward path query in a graph database but a deeply nested recursive query in SQL.
 
@@ -352,7 +352,7 @@ Operating a polyglot persistence architecture requires managing multiple databas
 
 **Backup coordination** ensures that point-in-time recovery produces consistent state across all databases. PostgreSQL's WAL-based backup provides the authoritative snapshot; derived stores are rebuilt from PostgreSQL during recovery rather than restored independently.
 
-**Health monitoring** tracks the synchronization lag between PostgreSQL and derived stores. The platform's [health monitoring](/glossary/health-monitoring/) infrastructure checks Meilisearch index freshness and KuzuDB graph consistency as part of its regular health checks, alerting when lag exceeds configurable thresholds.
+**Health monitoring** tracks the synchronization lag between PostgreSQL and derived stores. The platform's [health monitoring](@/glossary/health-monitoring.md) infrastructure checks Meilisearch index freshness and KuzuDB graph consistency as part of its regular health checks, alerting when lag exceeds configurable thresholds.
 
 **Capacity planning** considers each engine's scaling characteristics independently. ETS scales with available memory on the BEAM node. PostgreSQL scales vertically (larger instances) or through read replicas. Meilisearch scales by index sharding. KuzuDB scales with available disk and memory for graph operations.
 
@@ -382,18 +382,18 @@ Integration tests verify cross-database consistency by writing data through the 
 
 ## Cross-References
 
-- [Database](/glossary/database/) -- General database concepts and terminology
-- [ETS](/glossary/ets/) -- Erlang Term Storage in-memory data store
-- [ETS Table](/glossary/ets-table/) -- ETS table types and configuration
-- [PostgreSQL](/glossary/postgresql/) -- Primary relational database
-- [Meilisearch](/glossary/meilisearch/) -- Full-text search engine
-- [KuzuDB](/glossary/kuzudb/) -- Embedded graph database
-- [Graph Database](/glossary/graph-database/) -- Graph storage concepts
-- [Relational Database](/glossary/relational-database/) -- Relational model fundamentals
-- [ACID Transactions](/glossary/acid-transactions/) -- Transactional consistency guarantees
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Design pattern for storage abstraction
-- [Adapter](/glossary/adapter/) -- Adapter implementation concepts
-- [Vector Database](/glossary/vector-database/) -- Vector storage for embeddings
+- [Database](@/glossary/database.md) -- General database concepts and terminology
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage in-memory data store
+- [ETS Table](@/glossary/ets-table.md) -- ETS table types and configuration
+- [PostgreSQL](@/glossary/postgresql.md) -- Primary relational database
+- [Meilisearch](@/glossary/meilisearch.md) -- Full-text search engine
+- [KuzuDB](@/glossary/kuzudb.md) -- Embedded graph database
+- [Graph Database](@/glossary/graph-database.md) -- Graph storage concepts
+- [Relational Database](@/glossary/relational-database.md) -- Relational model fundamentals
+- [ACID Transactions](@/glossary/acid-transactions.md) -- Transactional consistency guarantees
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Design pattern for storage abstraction
+- [Adapter](@/glossary/adapter.md) -- Adapter implementation concepts
+- [Vector Database](@/glossary/vector-database.md) -- Vector storage for embeddings
 
 ---
 

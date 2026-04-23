@@ -33,11 +33,11 @@ image_alt = "Behaviour - Prismatic Platform"
 
 ## Definition and Overview
 
-A Behaviour in Elixir is a module-level contract specification that defines a set of function signatures (callbacks) a conforming module must implement. Behaviours provide compile-time guarantees: when a module declares `@behaviour SomeBehaviour`, the compiler and [Dialyzer](/glossary/dialyzer/) verify that all required callbacks are implemented with the correct arity and type signatures. This mechanism enables polymorphism at the module level, where different modules can be used interchangeably as long as they satisfy the same behaviour contract.
+A Behaviour in Elixir is a module-level contract specification that defines a set of function signatures (callbacks) a conforming module must implement. Behaviours provide compile-time guarantees: when a module declares `@behaviour SomeBehaviour`, the compiler and [Dialyzer](@/glossary/dialyzer.md) verify that all required callbacks are implemented with the correct arity and type signatures. This mechanism enables polymorphism at the module level, where different modules can be used interchangeably as long as they satisfy the same behaviour contract.
 
-Behaviours serve a fundamentally different role from [protocols](/glossary/protocol/) in Elixir's type system. Protocols dispatch on the data type of their first argument (similar to type classes in Haskell or interfaces in Go), making them ideal for defining operations on different data shapes. Behaviours dispatch on the module itself, making them ideal for defining pluggable subsystem interfaces where the implementation is a module, not a data type. The choice between protocol and behaviour depends on whether "what varies" is the data (protocol) or the implementation strategy (behaviour).
+Behaviours serve a fundamentally different role from [protocols](@/glossary/protocol.md) in Elixir's type system. Protocols dispatch on the data type of their first argument (similar to type classes in Haskell or interfaces in Go), making them ideal for defining operations on different data shapes. Behaviours dispatch on the module itself, making them ideal for defining pluggable subsystem interfaces where the implementation is a module, not a data type. The choice between protocol and behaviour depends on whether "what varies" is the data (protocol) or the implementation strategy (behaviour).
 
-The [OTP](/glossary/otp/) framework is built on behaviours: [GenServer](/glossary/genserver/), [Supervisor](/glossary/supervisor/), Application, GenStage, and Broadway all define behaviours that application modules implement. This architecture separates the generic (process lifecycle management, message handling boilerplate, fault tolerance) from the specific (business logic, domain rules, application state). Custom behaviours extend this principle to domain-specific contracts, enabling the same separation of generic infrastructure from specific implementation across the entire platform.
+The [OTP](@/glossary/otp.md) framework is built on behaviours: [GenServer](@/glossary/genserver.md), [Supervisor](@/glossary/supervisor.md), Application, GenStage, and Broadway all define behaviours that application modules implement. This architecture separates the generic (process lifecycle management, message handling boilerplate, fault tolerance) from the specific (business logic, domain rules, application state). Custom behaviours extend this principle to domain-specific contracts, enabling the same separation of generic infrastructure from specific implementation across the entire platform.
 
 ## Historical Context and Design Rationale
 
@@ -132,7 +132,7 @@ end
 
 ## @callback Declarations
 
-The `@callback` attribute defines the function signature that implementing modules must provide. It uses the same [typespec](/glossary/typespec/) syntax as `@spec` but declares an expectation rather than a description.
+The `@callback` attribute defines the function signature that implementing modules must provide. It uses the same [typespec](@/glossary/typespec.md) syntax as `@spec` but declares an expectation rather than a description.
 
 | Attribute | Purpose | Enforcement |
 |-----------|---------|-------------|
@@ -172,7 +172,7 @@ end
 
 ## @impl Annotations
 
-The `@impl` attribute marks a function as a behaviour callback implementation. This serves three purposes: documentation (clearly signals which functions are callbacks), compile-time validation ([Dialyzer](/glossary/dialyzer/) verifies the function matches a declared callback), and error prevention (catches accidental callback name mismatches).
+The `@impl` attribute marks a function as a behaviour callback implementation. This serves three purposes: documentation (clearly signals which functions are callbacks), compile-time validation ([Dialyzer](@/glossary/dialyzer.md) verifies the function matches a declared callback), and error prevention (catches accidental callback name mismatches).
 
 ```elixir
 # Without @impl - works but fragile
@@ -220,7 +220,7 @@ With `--warnings-as-errors` (enforced across all Prismatic apps), this warning b
 
 ### Dialyzer Verification
 
-[Dialyzer](/glossary/dialyzer/) goes further, verifying that the implementation's typespec is compatible with the callback's declared type.
+[Dialyzer](@/glossary/dialyzer.md) goes further, verifying that the implementation's typespec is compatible with the callback's declared type.
 
 ```elixir
 # This would be caught by Dialyzer:
@@ -261,7 +261,7 @@ Beyond OTP's standard behaviours, the Prismatic Platform defines domain-specific
 
 ### Storage Adapter Behaviour
 
-The `PrismaticStorage.Core` behaviour (detailed in [Adapter Pattern](/glossary/adapter-pattern/)) defines the contract for all 7 storage backends. Each adapter implements this behaviour, enabling transparent backend switching and composition.
+The `PrismaticStorage.Core` behaviour (detailed in [Adapter Pattern](@/glossary/adapter-pattern.md)) defines the contract for all 7 storage backends. Each adapter implements this behaviour, enabling transparent backend switching and composition.
 
 ### Agent Behaviour
 
@@ -547,22 +547,22 @@ end
 
 ## Related Terms
 
-- [Protocol](/glossary/protocol/) -- Type-based dispatch complementing module-based behaviours
-- [GenServer](/glossary/genserver/) -- Core OTP behaviour for stateful server processes
-- [Supervisor](/glossary/supervisor/) -- OTP behaviour for process supervision and [fault tolerance](/glossary/fault-tolerance/)
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Storage pattern using behaviours for backend contracts
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis tool verifying behaviour compliance
-- [Typespec](/glossary/typespec/) -- Type annotations used in `@callback` definitions
-- [Plug](/glossary/plug/) -- HTTP middleware behaviour for composable request processing
-- [Broadway](/glossary/broadway/) -- Data pipeline behaviour for concurrent stream processing
-- [Process Isolation](/glossary/process-isolation/) -- BEAM property enabling independent behaviour implementations
-- [Let It Crash](/glossary/let-it-crash/) -- Philosophy enabled by behaviour-based supervision
+- [Protocol](@/glossary/protocol.md) -- Type-based dispatch complementing module-based behaviours
+- [GenServer](@/glossary/genserver.md) -- Core OTP behaviour for stateful server processes
+- [Supervisor](@/glossary/supervisor.md) -- OTP behaviour for process supervision and [fault tolerance](@/glossary/fault-tolerance.md)
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Storage pattern using behaviours for backend contracts
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis tool verifying behaviour compliance
+- [Typespec](@/glossary/typespec.md) -- Type annotations used in `@callback` definitions
+- [Plug](@/glossary/plug.md) -- HTTP middleware behaviour for composable request processing
+- [Broadway](@/glossary/broadway.md) -- Data pipeline behaviour for concurrent stream processing
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM property enabling independent behaviour implementations
+- [Let It Crash](@/glossary/let-it-crash.md) -- Philosophy enabled by behaviour-based supervision
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview and behaviour-based contracts
-- [Technologies](/technologies/) -- Technology stack details and OTP behaviour usage
-- [Agents](/agents/) -- Agent specifications implementing PrismaticAgents.AgentBehaviour
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview and behaviour-based contracts
+- [Technologies](@/technologies/_index.md) -- Technology stack details and OTP behaviour usage
+- [Agents](@/agents/_index.md) -- Agent specifications implementing PrismaticAgents.AgentBehaviour
 
 ---
 
@@ -571,4 +571,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

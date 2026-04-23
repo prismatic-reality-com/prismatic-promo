@@ -21,17 +21,17 @@ image_alt = "3NL - Prismatic Platform"
 
 ## Definition
 
-3NL (Three Nested Levels) is the Prismatic Platform's foundational architectural framework that organizes all platform components into three hierarchical levels of abstraction. Derived from systems theory and layered architecture principles, 3NL establishes a strict separation of concerns where each level encapsulates the complexity of the level below while exposing a clean, well-defined interface to the level above. The term "3NL" serves as the canonical shorthand for the full [Three Nested Levels](/glossary/three-nl/) framework, appearing throughout code, configuration files, agent specifications, and technical documentation. The etymological origin combines the numeral "3" with the abbreviation "NL" (Nested Levels), reflecting the framework's emphasis on exactly three tiers of nesting -- no more, no fewer -- as the structurally optimal decomposition for managing complexity at the scale of 90 umbrella applications, 434 agents, and over 2.8 million lines of code.
+3NL (Three Nested Levels) is the Prismatic Platform's foundational architectural framework that organizes all platform components into three hierarchical levels of abstraction. Derived from systems theory and layered architecture principles, 3NL establishes a strict separation of concerns where each level encapsulates the complexity of the level below while exposing a clean, well-defined interface to the level above. The term "3NL" serves as the canonical shorthand for the full [Three Nested Levels](@/glossary/three-nl.md) framework, appearing throughout code, configuration files, agent specifications, and technical documentation. The etymological origin combines the numeral "3" with the abbreviation "NL" (Nested Levels), reflecting the framework's emphasis on exactly three tiers of nesting -- no more, no fewer -- as the structurally optimal decomposition for managing complexity at the scale of 90 umbrella applications, 434 agents, and over 2.8 million lines of code.
 
-The three levels -- Strategic (L1), Tactical (L2), and Operational (L3) -- correspond to decreasing levels of abstraction and increasing levels of implementation detail. L1 defines what the system does (public APIs, agent commands, dashboard interfaces). L2 defines how components coordinate (inter-app protocols, pipeline orchestration, quality enforcement). L3 defines how things actually work (OTP processes, storage adapters, [BEAM](/glossary/beam/) primitives). This separation ensures that changes at one level do not cascade unnecessarily to others -- a storage adapter replacement at L3 does not affect the public API at L1.
+The three levels -- Strategic (L1), Tactical (L2), and Operational (L3) -- correspond to decreasing levels of abstraction and increasing levels of implementation detail. L1 defines what the system does (public APIs, agent commands, dashboard interfaces). L2 defines how components coordinate (inter-app protocols, pipeline orchestration, quality enforcement). L3 defines how things actually work (OTP processes, storage adapters, [BEAM](@/glossary/beam.md) primitives). This separation ensures that changes at one level do not cascade unnecessarily to others -- a storage adapter replacement at L3 does not affect the public API at L1.
 
 ## Overview
 
 The conceptual lineage of 3NL draws from several established traditions in software architecture. The OSI seven-layer networking model demonstrated that complex communication protocols could be decomposed into layers with well-defined interfaces. Alistair Cockburn's Hexagonal Architecture (Ports and Adapters) showed that separating application logic from external interfaces enables testability and flexibility. Domain-Driven Design's strategic patterns (Bounded Contexts, Anti-Corruption Layers) established that organizational boundaries should align with software boundaries. 3NL synthesizes these insights into a three-tier framework specifically optimized for the Erlang/OTP ecosystem, where processes, supervision trees, and message passing provide natural enforcement mechanisms for layer boundaries.
 
-The significance of 3NL within the Prismatic Platform cannot be overstated. It governs the structure of every umbrella application, the design of every agent, the flow of every quality check, and the propagation of every epistemic signal through the [NABLA Infinity](/glossary/nabla-infinity/) pipeline. Without 3NL, the platform's 90 applications would devolve into an unmanageable web of cross-cutting dependencies. With 3NL, each application exposes a clean facade at L1, coordinates through well-defined protocols at L2, and implements its internals freely at L3 -- enabling independent evolution without system-wide ripple effects.
+The significance of 3NL within the Prismatic Platform cannot be overstated. It governs the structure of every umbrella application, the design of every agent, the flow of every quality check, and the propagation of every epistemic signal through the [NABLA Infinity](@/glossary/nabla-infinity.md) pipeline. Without 3NL, the platform's 90 applications would devolve into an unmanageable web of cross-cutting dependencies. With 3NL, each application exposes a clean facade at L1, coordinates through well-defined protocols at L2, and implements its internals freely at L3 -- enabling independent evolution without system-wide ripple effects.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework operates at 3NL Level 3 integration, meaning it is embedded across all three levels with enforcement mechanisms at each. The [Epistemic Pipeline](/glossary/epistemic-pipeline/) (16 levels, L0-L13 + Meta + Consciousness) maps onto 3NL: lower epistemic levels (L0-L4) correspond to 3NL L3, middle levels (L5-L9) to 3NL L2, and upper levels (L10-L13 + Meta) to 3NL L1.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework operates at 3NL Level 3 integration, meaning it is embedded across all three levels with enforcement mechanisms at each. The [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) (16 levels, L0-L13 + Meta + Consciousness) maps onto 3NL: lower epistemic levels (L0-L4) correspond to 3NL L3, middle levels (L5-L9) to 3NL L2, and upper levels (L10-L13 + Meta) to 3NL L1.
 
 ## Technical Details
 
@@ -41,11 +41,11 @@ The outermost level visible to external consumers and high-level orchestration. 
 
 | Component | L1 Manifestation | Example |
 |-----------|-----------------|---------|
-| **API** | [REST](/glossary/rest-api/) and [GraphQL](/glossary/graphql/) endpoints | `POST /api/v1/perimeter/discover` |
+| **API** | [REST](@/glossary/rest-api.md) and [GraphQL](@/glossary/graphql.md) endpoints | `POST /api/v1/perimeter/discover` |
 | **Agents** | Command interfaces | `/archer-supreme`, `/orchestrate` |
-| **Dashboard** | [LiveView](/glossary/liveview/) pages | `/perimeter`, `/perimeter/assets` |
+| **Dashboard** | [LiveView](@/glossary/liveview.md) pages | `/perimeter`, `/perimeter/assets` |
 | **Quality** | Score display, grade output | Quality 100/100, 13/13 domains |
-| **Integration** | External system adapters | [OpenAPI](/glossary/openapi/) spec, webhook endpoints |
+| **Integration** | External system adapters | [OpenAPI](@/glossary/openapi.md) spec, webhook endpoints |
 
 ### Level 2: Tactical (Internal Coordination)
 
@@ -53,10 +53,10 @@ The middle level handling coordination between platform components. L2 defines t
 
 | Component | L2 Manifestation | Example |
 |-----------|-----------------|---------|
-| **Communication** | Inter-app messaging, [PubSub](/glossary/pubsub/) | Agent-to-agent event routing |
-| **Pipelines** | [Data pipeline](/glossary/data-pipeline/) orchestration | OSINT source aggregation flow |
+| **Communication** | Inter-app messaging, [PubSub](@/glossary/pubsub.md) | Agent-to-agent event routing |
+| **Pipelines** | [Data pipeline](@/glossary/data-pipeline.md) orchestration | OSINT source aggregation flow |
 | **Quality** | Gate enforcement, QDP tracking | `mix quality.gates` pipeline |
-| **Coordination** | [Domain-Driven Design](/glossary/domain-driven-design/) boundaries | [Bounded Context](/glossary/bounded-context/) protocols |
+| **Coordination** | [Domain-Driven Design](@/glossary/domain-driven-design.md) boundaries | [Bounded Context](@/glossary/bounded-context.md) protocols |
 | **Evolution** | Autoevolve and autoheal cycles | `mix autoevolve.scan` |
 
 ### Level 3: Operational (Implementation)
@@ -65,9 +65,9 @@ The innermost level containing implementation details. L3 is where the actual wo
 
 | Component | L3 Manifestation | Example |
 |-----------|-----------------|---------|
-| **Processes** | GenServers, [Supervisors](/glossary/supervisor/), Tasks | Agent runtime processes |
-| **Storage** | [Adapter pattern](/glossary/adapter-pattern/) implementations | ETS, Ecto, Meilisearch backends |
-| **BEAM** | Process scheduling, message passing | [Message Passing](/glossary/message-passing/) |
+| **Processes** | GenServers, [Supervisors](@/glossary/supervisor.md), Tasks | Agent runtime processes |
+| **Storage** | [Adapter pattern](@/glossary/adapter-pattern.md) implementations | ETS, Ecto, Meilisearch backends |
+| **BEAM** | Process scheduling, message passing | [Message Passing](@/glossary/message-passing.md) |
 | **Memory** | ETS tables, process heaps | O(1) pattern detection caches |
 | **System** | OS interaction, file I/O, networking | Certificate transparency log queries |
 
@@ -79,10 +79,10 @@ The following matrix shows how major platform subsystems manifest at each 3NL le
 |-----------|----------------|----------------|-------------------|
 | **Agents** | Command interface | Agent coordination | GenServer state |
 | **Quality** | Quality score API | Gate pipeline | Credo/Dialyzer checks |
-| **Storage** | Query API | [Adapter](/glossary/adapter-pattern/) routing | ETS/Ecto operations |
+| **Storage** | Query API | [Adapter](@/glossary/adapter-pattern.md) routing | ETS/Ecto operations |
 | **NABLA** | Confidence output | Axiom evaluation | Signal processing |
 | **Perimeter** | EASM dashboard | Scanner orchestration | DNS/TLS probing |
-| **Security** | Rating display (A-F) | [Color team](/glossary/color-teams/) coordination | Individual agent checks |
+| **Security** | Rating display (A-F) | [Color team](@/glossary/color-teams.md) coordination | Individual agent checks |
 | **Evolution** | Status reporting | Evolution pipeline | Mutation/selection ops |
 
 ## Implementation in Prismatic Platform
@@ -198,16 +198,16 @@ The key advantage of 3NL over alternatives is its alignment with OTP's natural p
 
 ## Related Concepts
 
-- [Three-NL](/glossary/three-nl/) - Full name of the Three Nested Levels framework
-- [PVM](/glossary/pvm/) - Platform Virtual Machine organized by 3NL
-- [NABLA Infinity](/glossary/nabla-infinity/) - Epistemic framework at 3NL Level 3 integration
-- [Bounded Context](/glossary/bounded-context/) - Domain boundaries aligned with 3NL levels
-- [Adapter Pattern](/glossary/adapter-pattern/) - L3 pattern for pluggable implementations
-- [Supervisor](/glossary/supervisor/) - OTP primitive at L3 providing process management
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) - Knowledge processing organized by 3NL
-- [Domain-Driven Design](/glossary/domain-driven-design/) - Design methodology complementing 3NL
-- [AIAD](/glossary/aiad/) - Agent standard following 3NL structure
-- [REST API](/glossary/rest-api/) - L1 interface pattern for external access
+- [Three-NL](@/glossary/three-nl.md) - Full name of the Three Nested Levels framework
+- [PVM](@/glossary/pvm.md) - Platform Virtual Machine organized by 3NL
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - Epistemic framework at 3NL Level 3 integration
+- [Bounded Context](@/glossary/bounded-context.md) - Domain boundaries aligned with 3NL levels
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - L3 pattern for pluggable implementations
+- [Supervisor](@/glossary/supervisor.md) - OTP primitive at L3 providing process management
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) - Knowledge processing organized by 3NL
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) - Design methodology complementing 3NL
+- [AIAD](@/glossary/aiad.md) - Agent standard following 3NL structure
+- [REST API](@/glossary/rest-api.md) - L1 interface pattern for external access
 
 ---
 
@@ -216,4 +216,4 @@ The key advantage of 3NL over alternatives is its alignment with OTP's natural p
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

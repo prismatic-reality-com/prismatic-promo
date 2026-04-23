@@ -201,10 +201,10 @@ end
 
 ## Cross-References
 
-- [Standard Deviation](/glossary/standard-deviation/) - Key dispersion measure in statistics
-- [Statistical Detection](/glossary/statistical-detection/) - Anomaly identification using statistical methods
-- [Monitoring](/glossary/monitoring/) - Infrastructure producing data for statistical analysis
-- [Telemetry](/glossary/telemetry/) - Event system that feeds statistical computations
+- [Standard Deviation](@/glossary/standard-deviation.md) - Key dispersion measure in statistics
+- [Statistical Detection](@/glossary/statistical-detection.md) - Anomaly identification using statistical methods
+- [Monitoring](@/glossary/monitoring.md) - Infrastructure producing data for statistical analysis
+- [Telemetry](@/glossary/telemetry.md) - Event system that feeds statistical computations
 
 ---
 

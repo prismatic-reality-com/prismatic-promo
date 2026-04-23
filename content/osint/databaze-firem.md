@@ -27,7 +27,7 @@ image_alt = "Databaze firem - Prismatic Platform"
 
 Databaze firem is a comprehensive Czech business directory that aggregates company information from official government registries, commercial databases, and publicly available sources into a unified searchable platform. It provides detailed profiles of Czech businesses including contact details, industry classification codes, financial summaries, organizational structure, and inter-company relationships. The platform serves as one of the most widely used commercial business directories in the Czech Republic, functioning as an aggregation layer that combines data points that would otherwise require querying multiple separate registries.
 
-For [OSINT](/glossary/osint/) analysts, Databaze firem occupies an important niche in the Czech intelligence collection ecosystem. While it is not an authoritative primary source like ARES or Justice.cz, its value lies in the consolidation of data from multiple registries into a single searchable interface, the inclusion of commercial contact information not available in government registries, and its structured presentation of inter-company relationships and group structures. It is particularly useful for rapid initial reconnaissance before deeper investigation through authoritative sources.
+For [OSINT](@/glossary/osint.md) analysts, Databaze firem occupies an important niche in the Czech intelligence collection ecosystem. While it is not an authoritative primary source like ARES or Justice.cz, its value lies in the consolidation of data from multiple registries into a single searchable interface, the inclusion of commercial contact information not available in government registries, and its structured presentation of inter-company relationships and group structures. It is particularly useful for rapid initial reconnaissance before deeper investigation through authoritative sources.
 
 The platform indexes hundreds of thousands of Czech business entities, ranging from sole proprietors to multinational subsidiaries. Its data is refreshed from source registries on a regular basis, though the exact update frequency varies by data type and source. Understanding the provenance and freshness of data within Databaze firem is essential for analysts who need to make reliability assessments about the intelligence they extract.
 
@@ -285,19 +285,19 @@ end
 
 ## Best Practices
 
-Effective use of Databaze firem in OSINT operations requires treating it as what it is: a useful aggregator and contact discovery tool, not an authoritative source. Always start queries with the ICO identifier rather than company name to avoid ambiguity. Cross-reference all findings with [ARES](/osint/ares/) for identity verification and [Justice.cz](/osint/justice-cz/) for ownership and management data. Use the financial indicators only for rough company sizing, never for precise financial analysis.
+Effective use of Databaze firem in OSINT operations requires treating it as what it is: a useful aggregator and contact discovery tool, not an authoritative source. Always start queries with the ICO identifier rather than company name to avoid ambiguity. Cross-reference all findings with [ARES](@/osint/ares.md) for identity verification and [Justice.cz](@/osint/justice-cz.md) for ownership and management data. Use the financial indicators only for rough company sizing, never for precise financial analysis.
 
 The directory's greatest unique value is in contact discovery and industry classification mapping. Prioritize these data types in collection planning and invest validation effort proportional to the intelligence value of each data point. Document the provenance of all data collected from Databaze firem, noting that it is a commercial aggregator with medium reliability.
 
 ## Related Sources
 
-- [ARES](/osint/ares/) - Authoritative Czech business [registry](/glossary/registry-otp/) for verification
-- [Justice.cz](/osint/justice-cz/) - Official commercial register with ownership data
-- [RZP](/osint/rzp/) - Czech trade licensing register for activity verification
-- [Open Corporates](/osint/open-corporates/) - Global company data for cross-border correlation
-- [Hlidac statu](/osint/hlidac-statu/) - Government watchdog analytics and risk ratings
-- [CEDR](/osint/cedr/) - Central Register of Subsidies for public funding data
-- [Verejne zakazky](/osint/verejne-zakazky/) - Public procurement data for government contracts
+- [ARES](@/osint/ares.md) - Authoritative Czech business [registry](@/glossary/registry-otp.md) for verification
+- [Justice.cz](@/osint/justice-cz.md) - Official commercial register with ownership data
+- [RZP](@/osint/rzp.md) - Czech trade licensing register for activity verification
+- [Open Corporates](@/osint/open-corporates.md) - Global company data for cross-border correlation
+- [Hlidac statu](@/osint/hlidac-statu.md) - Government watchdog analytics and risk ratings
+- [CEDR](@/osint/cedr.md) - Central Register of Subsidies for public funding data
+- [Verejne zakazky](@/osint/verejne-zakazky.md) - Public procurement data for government contracts
 
 ---
 
@@ -306,4 +306,4 @@ The directory's greatest unique value is in contact discovery and industry class
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

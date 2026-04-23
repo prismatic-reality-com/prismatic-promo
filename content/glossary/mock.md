@@ -35,9 +35,9 @@ see_also = ["capabilities", "architecture", "quality-floor"]
 
 ## Definition
 
-A mock is a test double -- an object or module that replaces a real dependency during testing with a controlled substitute that returns pre-programmed responses and optionally records how it was called. Mocks enable isolated [unit testing](/glossary/exunit/) by decoupling the code under test from its dependencies: a test for a service that calls an external [API](/glossary/api/) can use a mock API client that returns predictable responses without network access. This isolation makes tests faster, more deterministic, and independent of external system availability.
+A mock is a test double -- an object or module that replaces a real dependency during testing with a controlled substitute that returns pre-programmed responses and optionally records how it was called. Mocks enable isolated [unit testing](@/glossary/exunit.md) by decoupling the code under test from its dependencies: a test for a service that calls an external [API](@/glossary/api.md) can use a mock API client that returns predictable responses without network access. This isolation makes tests faster, more deterministic, and independent of external system availability.
 
-However, mocks carry significant risks. They can diverge from real implementation behavior, creating tests that pass against mocks but fail against real dependencies ("mock drift"). They couple tests to implementation details (verifying that specific methods were called in specific order) rather than behavior (verifying that the output is correct). Over-reliance on mocks can produce test suites with high [coverage](/glossary/test-coverage/) but low confidence -- tests that verify interactions with fakes rather than correctness of behavior.
+However, mocks carry significant risks. They can diverge from real implementation behavior, creating tests that pass against mocks but fail against real dependencies ("mock drift"). They couple tests to implementation details (verifying that specific methods were called in specific order) rather than behavior (verifying that the output is correct). Over-reliance on mocks can produce test suites with high [coverage](@/glossary/test-coverage.md) but low confidence -- tests that verify interactions with fakes rather than correctness of behavior.
 
 ## Overview
 
@@ -60,7 +60,7 @@ The distinction matters because each type creates different coupling between tes
 
 ### The Fundamental Critique
 
-The fundamental critique of mocking (articulated in "Mocks Aren't Stubs" by Martin Fowler and in the testing literature) is that mocks verify interactions (how code communicates with dependencies) while [assertions](/glossary/assertion/) verify outcomes (what code produces). Interaction testing is brittle: refactoring that changes how a result is computed (but not what result is produced) breaks mock-based tests unnecessarily.
+The fundamental critique of mocking (articulated in "Mocks Aren't Stubs" by Martin Fowler and in the testing literature) is that mocks verify interactions (how code communicates with dependencies) while [assertions](@/glossary/assertion.md) verify outcomes (what code produces). Interaction testing is brittle: refactoring that changes how a result is computed (but not what result is produced) breaks mock-based tests unnecessarily.
 
 Consider a function that fetches user data and formats a greeting:
 
@@ -82,7 +82,7 @@ This doesn't mean mocks are never appropriate -- they're valuable at system boun
 
 ### Mox: The Elixir Standard
 
-In the [Elixir](/glossary/elixir/) ecosystem, [Mox](https://hex.pm/packages/mox) is the standard mocking library, designed by Jose Valim. It enforces a critical constraint: **you can only mock [behaviours](/glossary/behaviour/)**. This "mock only what you own" principle ensures that mock boundaries align with architectural boundaries. You cannot mock arbitrary modules or functions -- you must first define a behaviour (callback specification), then mock that behaviour.
+In the [Elixir](@/glossary/elixir.md) ecosystem, [Mox](https://hex.pm/packages/mox) is the standard mocking library, designed by Jose Valim. It enforces a critical constraint: **you can only mock [behaviours](@/glossary/behaviour.md)**. This "mock only what you own" principle ensures that mock boundaries align with architectural boundaries. You cannot mock arbitrary modules or functions -- you must first define a behaviour (callback specification), then mock that behaviour.
 
 ```elixir
 # Step 1: Define the behaviour (the contract)
@@ -150,7 +150,7 @@ The testing literature offers several strategies that reduce or eliminate the ne
 
 #### 1. Behaviour-Based Dependency Injection
 
-The most common Prismatic Platform pattern. Define a [behaviour](/glossary/behaviour/), implement it with a real module and a test-friendly module, and swap via configuration:
+The most common Prismatic Platform pattern. Define a [behaviour](@/glossary/behaviour.md), implement it with a real module and a test-friendly module, and swap via configuration:
 
 ```elixir
 # The behaviour (contract)
@@ -219,7 +219,7 @@ config :prismatic_osint_core, :http_client, PrismaticOsintCore.HTTPClient.Sandbo
 
 #### 2. Property-Based Testing
 
-[Property-based testing](/glossary/property-test/) with StreamData generates hundreds of random inputs, providing stronger guarantees than mock-based scenario tests for pure functions:
+[Property-based testing](@/glossary/property-test.md) with StreamData generates hundreds of random inputs, providing stronger guarantees than mock-based scenario tests for pure functions:
 
 ```elixir
 property "JSON round-trip preserves data" do
@@ -231,7 +231,7 @@ end
 
 #### 3. Ecto Sandbox
 
-For database interactions, [Ecto](/glossary/ecto/)'s SQL Sandbox provides real database access in tests with automatic rollback, eliminating the need to mock the repository:
+For database interactions, [Ecto](@/glossary/ecto.md)'s SQL Sandbox provides real database access in tests with automatic rollback, eliminating the need to mock the repository:
 
 ```elixir
 setup do
@@ -247,7 +247,7 @@ end
 
 #### 4. Process-Based Isolation
 
-The BEAM's [process](/glossary/process/) model enables a unique testing pattern: start a real [GenServer](/glossary/genserver/) with test-specific configuration rather than mocking it:
+The BEAM's [process](@/glossary/process.md) model enables a unique testing pattern: start a real [GenServer](@/glossary/genserver.md) with test-specific configuration rather than mocking it:
 
 ```elixir
 test "worker processes messages correctly" do
@@ -267,7 +267,7 @@ end
 
 ### Zero-Mocks-in-Production Policy
 
-The Prismatic Platform's Forbidden Patterns Enforcement explicitly blocks `Mox.defmock` in production code (`lib/` directories). The pre-commit [pipeline](/glossary/pipeline/) scans for mock-related patterns and rejects commits that introduce them outside test directories. This policy reflects the platform's NMND doctrine: production code must use real implementations, not simulated substitutes.
+The Prismatic Platform's Forbidden Patterns Enforcement explicitly blocks `Mox.defmock` in production code (`lib/` directories). The pre-commit [pipeline](@/glossary/pipeline.md) scans for mock-related patterns and rejects commits that introduce them outside test directories. This policy reflects the platform's NMND doctrine: production code must use real implementations, not simulated substitutes.
 
 ```bash
 # Pre-commit check (Phase 8: Forbidden Patterns)
@@ -287,7 +287,7 @@ Instead of mocks, the platform uses three approved patterns:
 
 ### Where Mox Is Permitted
 
-In test code (`test/` directories), Mox usage is permitted for testing modules that interact with external systems where real [integration](/glossary/integration/) would be impractical:
+In test code (`test/` directories), Mox usage is permitted for testing modules that interact with external systems where real [integration](@/glossary/integration.md) would be impractical:
 
 - Third-party OSINT APIs with rate limits
 - Payment processors (no sandbox available)
@@ -299,7 +299,7 @@ Even in these cases, the platform requires contract tests that verify the mock's
 
 ### Quality Floor Enforcement
 
-The [Quality Floor](/glossary/quality-floor/) Guardian monitors mock usage across the test suite. A module with more than 50% of its tests relying on mocks triggers an advisory warning. The rationale: if most tests for a module need mocks, the module likely has too many external dependencies and should be refactored to separate pure logic from I/O.
+The [Quality Floor](@/glossary/quality-floor.md) Guardian monitors mock usage across the test suite. A module with more than 50% of its tests relying on mocks triggers an advisory warning. The rationale: if most tests for a module need mocks, the module likely has too many external dependencies and should be refactored to separate pure logic from I/O.
 
 ```elixir
 # Quality Floor mock ratio check
@@ -463,7 +463,7 @@ Despite the platform's strong anti-mock stance, there are legitimate cases where
 | Third-party API with rate limits | Can't hit real API in CI | Record/replay (VCR cassettes) |
 | Payment processor | Can't charge real cards | Processor's test mode |
 | Email delivery | Don't want to send real emails | [Bamboo](https://hex.pm/packages/bamboo) test adapter |
-| Clock/time | Need deterministic timestamps | `Clock` [behaviour](/glossary/behaviour/) |
+| Clock/time | Need deterministic timestamps | `Clock` [behaviour](@/glossary/behaviour.md) |
 | Random number generation | Need reproducible tests | Seeded PRNG |
 | External webhooks | Can't receive real webhooks | Local webhook receiver |
 | Government APIs (ARES, OR) | Rate-limited, occasionally down | Cached responses + contract tests |
@@ -484,11 +484,11 @@ The Prismatic Platform's anti-mock stance reflects the mature Elixir community c
 
 ## Best Practices
 
-Use [behaviour](/glossary/behaviour/)-based dependency injection as the primary mechanism for swappable dependencies -- this enables testing without mocks while maintaining clean architecture. When mocks are necessary in tests, mock only at architectural boundaries (HTTP clients, database adapters), never at internal module boundaries.
+Use [behaviour](@/glossary/behaviour.md)-based dependency injection as the primary mechanism for swappable dependencies -- this enables testing without mocks while maintaining clean architecture. When mocks are necessary in tests, mock only at architectural boundaries (HTTP clients, database adapters), never at internal module boundaries.
 
-Verify mock expectations with `verify_on_exit!` to ensure expected calls actually occur. Write contract tests that verify mock specifications match real implementation behavior. Prefer [property-based tests](/glossary/property-test/) over mock-based scenario tests for pure functions.
+Verify mock expectations with `verify_on_exit!` to ensure expected calls actually occur. Write contract tests that verify mock specifications match real implementation behavior. Prefer [property-based tests](@/glossary/property-test.md) over mock-based scenario tests for pure functions.
 
-Never mock time -- use a `Clock` behaviour with a real implementation and a controllable test implementation. Never mock the database -- use [Ecto](/glossary/ecto/) SQL Sandbox for real database access with automatic rollback.
+Never mock time -- use a `Clock` behaviour with a real implementation and a controllable test implementation. Never mock the database -- use [Ecto](@/glossary/ecto.md) SQL Sandbox for real database access with automatic rollback.
 
 Keep mock expectations minimal: specify only what the test needs to verify. Over-specified expectations (exact argument matching, call order assertions) make tests brittle. Prefer `stub/3` over `expect/3` when you don't need to verify the call was made.
 
@@ -496,25 +496,25 @@ Monitor your mock-to-real ratio: if more than 30% of your test assertions involv
 
 ## Related Terms
 
-- [Behaviour](/glossary/behaviour/) -- Elixir callback specification that defines mockable contracts
-- [Property Test](/glossary/property-test/) -- testing approach preferred over mocking for pure functions
-- [Mutation Testing](/glossary/mutation-testing/) -- test quality assessment that reveals mock-masking issues
-- [Quality Floor](/glossary/quality-floor/) -- quality standard that forbids production mocks
-- [ExUnit](/glossary/exunit/) -- Elixir's testing framework that integrates with Mox
-- [Test Coverage](/glossary/test-coverage/) -- metric that high-mock tests inflate artificially
-- [Integration Test](/glossary/integration-test/) -- tests that exercise real dependencies, catching what mocks miss
-- [Adapter Pattern](/glossary/adapter-pattern/) -- pattern that enables behaviour-based injection
-- [Dependency Injection](/glossary/dependency-injection/) -- design pattern that makes mocking possible
-- [GenServer](/glossary/genserver/) -- OTP pattern tested with process isolation rather than mocks
-- [Protocol](/glossary/protocol/) -- Elixir dispatch mechanism that serves as an alternative to behaviour-based mocking
-- [Assertion](/glossary/assertion/) -- the state-based verification alternative to mock-based interaction testing
-- [Sandbox](/glossary/sandbox/) -- test-friendly environment that replaces mocking for database access
-- [Ecto](/glossary/ecto/) -- database wrapper whose SQL Sandbox eliminates database mocking
+- [Behaviour](@/glossary/behaviour.md) -- Elixir callback specification that defines mockable contracts
+- [Property Test](@/glossary/property-test.md) -- testing approach preferred over mocking for pure functions
+- [Mutation Testing](@/glossary/mutation-testing.md) -- test quality assessment that reveals mock-masking issues
+- [Quality Floor](@/glossary/quality-floor.md) -- quality standard that forbids production mocks
+- [ExUnit](@/glossary/exunit.md) -- Elixir's testing framework that integrates with Mox
+- [Test Coverage](@/glossary/test-coverage.md) -- metric that high-mock tests inflate artificially
+- [Integration Test](@/glossary/integration-test.md) -- tests that exercise real dependencies, catching what mocks miss
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- pattern that enables behaviour-based injection
+- [Dependency Injection](@/glossary/dependency-injection.md) -- design pattern that makes mocking possible
+- [GenServer](@/glossary/genserver.md) -- OTP pattern tested with process isolation rather than mocks
+- [Protocol](@/glossary/protocol.md) -- Elixir dispatch mechanism that serves as an alternative to behaviour-based mocking
+- [Assertion](@/glossary/assertion.md) -- the state-based verification alternative to mock-based interaction testing
+- [Sandbox](@/glossary/sandbox.md) -- test-friendly environment that replaces mocking for database access
+- [Ecto](@/glossary/ecto.md) -- database wrapper whose SQL Sandbox eliminates database mocking
 
 ## See Also
 
-- [Architecture](/architecture/) -- dependency injection architecture
-- [Capabilities](/capabilities/) -- testing capabilities and strategies
+- [Architecture](@/architecture/_index.md) -- dependency injection architecture
+- [Capabilities](@/capabilities/_index.md) -- testing capabilities and strategies
 - [Quality Gates](/quality/) -- quality enforcement that monitors mock usage
 - [NMND Doctrine](/nmnd/) -- the doctrine behind zero-mocks-in-production policy
 
@@ -525,4 +525,4 @@ Monitor your mock-to-real ratio: if more than 30% of your test assertions involv
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -33,9 +33,9 @@ image_alt = "Throttling - Prismatic Platform"
 
 ## Definition
 
-Throttling is a flow-control mechanism that regulates the rate at which requests, operations, or events are processed within a system. Unlike simple [Rate Limiting](/glossary/rate-limiting/), which outright rejects excess requests with an immediate error response, throttling introduces deliberate delays, queuing, or token-based admission to smooth out traffic spikes while still eventually processing all legitimate requests. This distinction makes throttling a more graceful degradation strategy that preserves system stability without discarding valid work.
+Throttling is a flow-control mechanism that regulates the rate at which requests, operations, or events are processed within a system. Unlike simple [Rate Limiting](@/glossary/rate-limiting.md), which outright rejects excess requests with an immediate error response, throttling introduces deliberate delays, queuing, or token-based admission to smooth out traffic spikes while still eventually processing all legitimate requests. This distinction makes throttling a more graceful degradation strategy that preserves system stability without discarding valid work.
 
-In the context of the Prismatic Platform, throttling is a foundational concern. The platform coordinates 157+ self-registering [OSINT](/glossary/osint/) adapters, each communicating with external intelligence providers that impose their own rate constraints. Without coordinated throttling, concurrent user sessions running parallel investigations could exhaust API quotas within seconds, degrade response times across the entire platform, and trigger provider-side blocks that affect all users.
+In the context of the Prismatic Platform, throttling is a foundational concern. The platform coordinates 157+ self-registering [OSINT](@/glossary/osint.md) adapters, each communicating with external intelligence providers that impose their own rate constraints. Without coordinated throttling, concurrent user sessions running parallel investigations could exhaust API quotas within seconds, degrade response times across the entire platform, and trigger provider-side blocks that affect all users.
 
 Throttling operates across multiple system layers: at the edge (HTTP request admission), at the service layer (inter-process message flow), and at the external boundary (third-party API compliance). Each layer employs different algorithms and enforcement strategies suited to its specific constraints.
 
@@ -49,11 +49,11 @@ Throttling **delays or queues** excess requests rather than rejecting them. The 
 
 ### Rate Limiting
 
-[Rate Limiting](/glossary/rate-limiting/) **rejects** excess requests immediately, returning an error (typically HTTP 429) when a threshold is exceeded. This is appropriate at trust boundaries where some requests may be abusive or where the system must protect itself from unbounded demand. The Prismatic [API](/glossary/api/) [Gateway](/glossary/gateway/) applies rate limiting at the edge to prevent external abuse before requests reach business logic.
+[Rate Limiting](@/glossary/rate-limiting.md) **rejects** excess requests immediately, returning an error (typically HTTP 429) when a threshold is exceeded. This is appropriate at trust boundaries where some requests may be abusive or where the system must protect itself from unbounded demand. The Prismatic [API](@/glossary/api.md) [Gateway](@/glossary/gateway.md) applies rate limiting at the edge to prevent external abuse before requests reach business logic.
 
 ### Backpressure
 
-[Backpressure](/glossary/backpressure/) is a **demand-driven** flow control mechanism where downstream consumers signal upstream producers to slow down. Rather than the throttle layer making unilateral decisions, the system self-regulates based on actual processing capacity. In [OTP](/glossary/otp/) systems, [GenServer](/glossary/genserver/) mailbox depth is a natural backpressure signal, and GenStage/Flow provide explicit demand-based protocols.
+[Backpressure](@/glossary/backpressure.md) is a **demand-driven** flow control mechanism where downstream consumers signal upstream producers to slow down. Rather than the throttle layer making unilateral decisions, the system self-regulates based on actual processing capacity. In [OTP](@/glossary/otp.md) systems, [GenServer](@/glossary/genserver.md) mailbox depth is a natural backpressure signal, and GenStage/Flow provide explicit demand-based protocols.
 
 | Mechanism | Excess Behavior | Caller Experience | Best For |
 |-----------|----------------|-------------------|----------|
@@ -109,7 +109,7 @@ The leaky bucket trades burst tolerance for predictability. In the Prismatic Pla
 
 ### GenServer-Based Throttling
 
-In [OTP](/glossary/otp/) systems, a [GenServer](/glossary/genserver/) can serve as a centralized throttle coordinator. The GenServer maintains state (token counts, window timestamps) and serializes access decisions. For high-throughput scenarios, [ETS](/glossary/ets/) provides concurrent read access while the GenServer handles periodic refill operations.
+In [OTP](@/glossary/otp.md) systems, a [GenServer](@/glossary/genserver.md) can serve as a centralized throttle coordinator. The GenServer maintains state (token counts, window timestamps) and serializes access decisions. For high-throughput scenarios, [ETS](@/glossary/ets.md) provides concurrent read access while the GenServer handles periodic refill operations.
 
 The key design decision is whether to use the GenServer as a gatekeeper (all requests pass through it) or as a state manager (ETS serves reads, GenServer handles writes). The latter pattern avoids making the GenServer a bottleneck and is the approach used in the Prismatic Platform.
 
@@ -117,7 +117,7 @@ The key design decision is whether to use the GenServer as a gatekeeper (all req
 
 ### Token Bucket with ETS and GenServer
 
-The following implementation demonstrates a production-grade token bucket throttler using [ETS](/glossary/ets/) for sub-millisecond lookups and a [GenServer](/glossary/genserver/) for periodic refill. This pattern avoids the GenServer becoming a bottleneck under high concurrency.
+The following implementation demonstrates a production-grade token bucket throttler using [ETS](@/glossary/ets.md) for sub-millisecond lookups and a [GenServer](@/glossary/genserver.md) for periodic refill. This pattern avoids the GenServer becoming a bottleneck under high concurrency.
 
 ```elixir
 defmodule Prismatic.Throttle.TokenBucket do
@@ -318,7 +318,7 @@ end
 
 ### Plug-Based HTTP Throttling
 
-For edge-layer throttling in [Phoenix](/glossary/phoenix/), a [Plug](/glossary/plug/)-based approach integrates directly into the request pipeline:
+For edge-layer throttling in [Phoenix](@/glossary/phoenix.md), a [Plug](@/glossary/plug.md)-based approach integrates directly into the request pipeline:
 
 ```elixir
 defmodule PrismaticWeb.Plugs.Throttle do
@@ -392,7 +392,7 @@ end
 
 ### Telemetry Integration
 
-Throttling decisions produce valuable operational data. The Prismatic Platform emits [Telemetry](/glossary/telemetry/) events for every throttle acquisition and rejection, enabling real-time dashboards and alerting:
+Throttling decisions produce valuable operational data. The Prismatic Platform emits [Telemetry](@/glossary/telemetry.md) events for every throttle acquisition and rejection, enabling real-time dashboards and alerting:
 
 ```elixir
 defmodule Prismatic.Throttle.Telemetry do
@@ -515,7 +515,7 @@ end
 
 ### Gateway Rate Limiting
 
-The PrismaticAPI [Gateway](/glossary/gateway/) on port 4004 applies per-endpoint throttling that scales with the underlying operation's computational cost. Lightweight lookups receive generous limits while expensive operations like full attack surface discovery via Prismatic Perimeter receive stricter throttling:
+The PrismaticAPI [Gateway](@/glossary/gateway.md) on port 4004 applies per-endpoint throttling that scales with the underlying operation's computational cost. Lightweight lookups receive generous limits while expensive operations like full attack surface discovery via Prismatic Perimeter receive stricter throttling:
 
 | Endpoint Group | Requests/Minute | Burst | Algorithm |
 |---------------|----------------|-------|-----------|
@@ -531,15 +531,15 @@ The Due Diligence pipeline's Scheduler uses a form of temporal throttling when p
 
 ### GenServer Mailbox Monitoring
 
-[Backpressure](/glossary/backpressure/)-based throttling integrates with [OTP](/glossary/otp/)'s GenServer mailbox monitoring. When a process mailbox exceeds a configurable threshold, the [Supervision](/glossary/supervision/) layer signals upstream producers to slow down via [PubSub](/glossary/pubsub/) rather than continuing to enqueue messages that will only increase latency and risk an out-of-memory crash.
+[Backpressure](@/glossary/backpressure.md)-based throttling integrates with [OTP](@/glossary/otp.md)'s GenServer mailbox monitoring. When a process mailbox exceeds a configurable threshold, the [Supervision](@/glossary/supervision.md) layer signals upstream producers to slow down via [PubSub](@/glossary/pubsub.md) rather than continuing to enqueue messages that will only increase latency and risk an out-of-memory crash.
 
 ## Architecture Layers
 
 The Prismatic Platform implements throttling at three distinct layers, each serving a different architectural purpose:
 
-**Edge Layer**: The [Phoenix](/glossary/phoenix/) endpoint applies per-IP and per-API-key throttling using [Plug](/glossary/plug/)-based middleware. This protects the entire application from external abuse before requests reach business logic. The throttle state is stored in [ETS](/glossary/ets/) for sub-millisecond lookups, with configurable windows per route group.
+**Edge Layer**: The [Phoenix](@/glossary/phoenix.md) endpoint applies per-IP and per-API-key throttling using [Plug](@/glossary/plug.md)-based middleware. This protects the entire application from external abuse before requests reach business logic. The throttle state is stored in [ETS](@/glossary/ets.md) for sub-millisecond lookups, with configurable windows per route group.
 
-**Service Layer**: Internal [GenServer](/glossary/genserver/)-to-GenServer communication uses demand-driven throttling inspired by GenStage. When the OSINT ToolRegistry dispatches concurrent tool executions, it maintains a bounded [Concurrency](/glossary/concurrency/) pool that prevents any single category from monopolizing system resources.
+**Service Layer**: Internal [GenServer](@/glossary/genserver.md)-to-GenServer communication uses demand-driven throttling inspired by GenStage. When the OSINT ToolRegistry dispatches concurrent tool executions, it maintains a bounded [Concurrency](@/glossary/concurrency.md) pool that prevents any single category from monopolizing system resources.
 
 **External Layer**: Each OSINT adapter that communicates with third-party APIs (Shodan, VirusTotal, Censys) has provider-specific throttle configuration baked into its `register_tool/1` metadata. The throttle coordinator reads these declarations and enforces per-provider limits globally, even when multiple users trigger the same adapter simultaneously.
 
@@ -549,13 +549,13 @@ The Prismatic Platform implements throttling at three distinct layers, each serv
 
 2. **Store state in ETS, manage with GenServer**: Never route every request through a GenServer `call/3`. Use ETS for concurrent reads and atomic counter updates. Let the GenServer handle periodic refill only.
 
-3. **Emit telemetry on every decision**: Both acquisitions and rejections should emit [Telemetry](/glossary/telemetry/) events. This enables real-time dashboards showing throttle utilization per provider and alerting when providers are consistently saturated.
+3. **Emit telemetry on every decision**: Both acquisitions and rejections should emit [Telemetry](@/glossary/telemetry.md) events. This enables real-time dashboards showing throttle utilization per provider and alerting when providers are consistently saturated.
 
 4. **Return structured errors**: Never silently drop throttled requests. Return `{:error, :throttled}` with retry guidance so callers can make informed decisions about queuing, retrying, or displaying feedback.
 
 5. **Configure per-provider limits declaratively**: Embed throttle configuration in tool registration metadata rather than hardcoding limits in application logic. This makes limits discoverable and auditable.
 
-6. **Combine with circuit breakers**: When a provider is consistently returning errors, a [Circuit Breaker](/glossary/circuit-breaker/) should trip before the throttle layer wastes tokens on requests that will fail anyway.
+6. **Combine with circuit breakers**: When a provider is consistently returning errors, a [Circuit Breaker](@/glossary/circuit-breaker.md) should trip before the throttle layer wastes tokens on requests that will fail anyway.
 
 7. **Test under realistic concurrency**: Throttling bugs often only manifest under concurrent access. Use `Task.async_stream/3` in tests to simulate realistic multi-user load patterns.
 
@@ -569,29 +569,29 @@ The Prismatic Platform implements throttling at three distinct layers, each serv
 | Using `Process.sleep/1` to throttle | Blocks the entire process, wastes scheduler time | Use token bucket with `{:error, :throttled}` return |
 | Fixed-window counters without interpolation | Allows 2x burst at window boundaries | Use sliding window or token bucket instead |
 | Hardcoding provider rate limits | Limits become stale, not discoverable | Declare in tool registration metadata |
-| Ignoring throttle metrics | Cannot detect saturation or misconfiguration | Emit [Telemetry](/glossary/telemetry/) events for every decision |
+| Ignoring throttle metrics | Cannot detect saturation or misconfiguration | Emit [Telemetry](@/glossary/telemetry.md) events for every decision |
 | Single global bucket for all providers | Fast providers starved by slow provider limits | Per-provider buckets with independent configuration |
 | No retry guidance in error responses | Clients retry immediately, worsening congestion | Include `Retry-After` header or estimated wait time |
-| Throttling without [Circuit Breaker](/glossary/circuit-breaker/) | Tokens wasted on requests to failing providers | Combine throttle with circuit breaker pattern |
+| Throttling without [Circuit Breaker](@/glossary/circuit-breaker.md) | Tokens wasted on requests to failing providers | Combine throttle with circuit breaker pattern |
 | Using `String.to_atom/1` for throttle keys | Atom table exhaustion under high cardinality | Use string keys or `String.to_existing_atom/1` |
-| Unbounded retry queues | Memory grows without limit during sustained overload | Cap queue depth, apply [Backpressure](/glossary/backpressure/) to upstream |
+| Unbounded retry queues | Memory grows without limit during sustained overload | Cap queue depth, apply [Backpressure](@/glossary/backpressure.md) to upstream |
 
 ## Related Terms
 
-- [Rate Limiting](/glossary/rate-limiting/) - Request rejection mechanism that denies excess traffic at trust boundaries
-- [Backpressure](/glossary/backpressure/) - Demand-driven flow control where consumers signal producers to slow down
-- [GenServer](/glossary/genserver/) - OTP generic server used as throttle state manager and refill coordinator
-- [ETS](/glossary/ets/) - Erlang Term Storage providing sub-millisecond concurrent access for throttle state
-- [Telemetry](/glossary/telemetry/) - Instrumentation library used to emit throttle acquisition and rejection metrics
-- [Circuit Breaker](/glossary/circuit-breaker/) - Failure-based traffic control that complements throttling by stopping requests to failing providers
-- [API](/glossary/api/) - Application Programming Interface where throttling enforces rate compliance
-- [Gateway](/glossary/gateway/) - API gateway layer where per-endpoint throttling policies are enforced
-- [TTL](/glossary/ttl/) - Time-to-live used in throttle window expiration and bucket cleanup
-- [Plug](/glossary/plug/) - Phoenix middleware composable pipeline where HTTP throttling is applied
-- [OTP](/glossary/otp/) - Open Telecom Platform providing supervision and process primitives for throttle infrastructure
-- [PubSub](/glossary/pubsub/) - Publish-subscribe system used to broadcast throttle state changes and backpressure signals
-- [Concurrency](/glossary/concurrency/) - Parallel execution model that throttling regulates to prevent resource exhaustion
-- [Supervision](/glossary/supervision/) - OTP supervision trees ensuring throttle GenServers restart on failure
+- [Rate Limiting](@/glossary/rate-limiting.md) - Request rejection mechanism that denies excess traffic at trust boundaries
+- [Backpressure](@/glossary/backpressure.md) - Demand-driven flow control where consumers signal producers to slow down
+- [GenServer](@/glossary/genserver.md) - OTP generic server used as throttle state manager and refill coordinator
+- [ETS](@/glossary/ets.md) - Erlang Term Storage providing sub-millisecond concurrent access for throttle state
+- [Telemetry](@/glossary/telemetry.md) - Instrumentation library used to emit throttle acquisition and rejection metrics
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Failure-based traffic control that complements throttling by stopping requests to failing providers
+- [API](@/glossary/api.md) - Application Programming Interface where throttling enforces rate compliance
+- [Gateway](@/glossary/gateway.md) - API gateway layer where per-endpoint throttling policies are enforced
+- [TTL](@/glossary/ttl.md) - Time-to-live used in throttle window expiration and bucket cleanup
+- [Plug](@/glossary/plug.md) - Phoenix middleware composable pipeline where HTTP throttling is applied
+- [OTP](@/glossary/otp.md) - Open Telecom Platform providing supervision and process primitives for throttle infrastructure
+- [PubSub](@/glossary/pubsub.md) - Publish-subscribe system used to broadcast throttle state changes and backpressure signals
+- [Concurrency](@/glossary/concurrency.md) - Parallel execution model that throttling regulates to prevent resource exhaustion
+- [Supervision](@/glossary/supervision.md) - OTP supervision trees ensuring throttle GenServers restart on failure
 
 ## See Also
 
@@ -602,7 +602,7 @@ The Prismatic Platform implements throttling at three distinct layers, each serv
 - **GenStage** - Elixir library for demand-driven data processing pipelines
 - **Erlang `:counters` module** - Alternative to ETS for atomic counter operations in OTP 21.2+
 - [Resilience](/glossary/resilience/) - System property that throttling directly supports
-- [Observability](/glossary/observability/) - Monitoring discipline for tracking throttle health and utilization
+- [Observability](@/glossary/observability.md) - Monitoring discipline for tracking throttle health and utilization
 
 ---
 
@@ -611,4 +611,4 @@ The Prismatic Platform implements throttling at three distinct layers, each serv
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

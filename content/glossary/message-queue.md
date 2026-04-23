@@ -573,23 +573,23 @@ end
 
 ## Related Terms
 
-- [Process](/glossary/process/) -- BEAM processes that own message queues
-- [Memory](/glossary/memory/) -- heap memory consumed by message queue contents
-- [Memory Leak](/glossary/memory-leak/) -- unbounded queue growth as a primary leak vector
-- [PubSub](/glossary/pubsub/) -- publish-subscribe built on process mailboxes
-- [GenServer](/glossary/genserver/) -- OTP abstraction providing structured message handling
-- [Backpressure](/glossary/backpressure/) -- flow control preventing mailbox overflow
-- [ETS](/glossary/ets/) -- shared storage alternative to passing large messages
-- [Erlang](/glossary/erlang/) -- BEAM VM providing the mailbox implementation
-- [Actor Model](/glossary/actor-model/) -- concurrency model that message queues implement
-- [Binary](/glossary/binary/) -- binary data with shared-heap optimization reducing copy cost
-- [Latency](/glossary/latency/) -- message processing latency as a key performance metric
-- [Profiling](/glossary/profiling/) -- tools for analyzing message flow patterns
+- [Process](@/glossary/process.md) -- BEAM processes that own message queues
+- [Memory](@/glossary/memory.md) -- heap memory consumed by message queue contents
+- [Memory Leak](@/glossary/memory-leak.md) -- unbounded queue growth as a primary leak vector
+- [PubSub](@/glossary/pubsub.md) -- publish-subscribe built on process mailboxes
+- [GenServer](@/glossary/genserver.md) -- OTP abstraction providing structured message handling
+- [Backpressure](@/glossary/backpressure.md) -- flow control preventing mailbox overflow
+- [ETS](@/glossary/ets.md) -- shared storage alternative to passing large messages
+- [Erlang](@/glossary/erlang.md) -- BEAM VM providing the mailbox implementation
+- [Actor Model](@/glossary/actor-model.md) -- concurrency model that message queues implement
+- [Binary](@/glossary/binary.md) -- binary data with shared-heap optimization reducing copy cost
+- [Latency](@/glossary/latency.md) -- message processing latency as a key performance metric
+- [Profiling](@/glossary/profiling.md) -- tools for analyzing message flow patterns
 
 ## See Also
 
-- [Architecture](/architecture/) -- actor-based concurrency architecture
-- [Capabilities](/capabilities/) -- distributed communication capabilities
+- [Architecture](@/architecture/_index.md) -- actor-based concurrency architecture
+- [Capabilities](@/capabilities/_index.md) -- distributed communication capabilities
 - [DD Pipeline](/hub/dd/pipeline) -- real-time PubSub event streaming
 - [Erlang receive documentation](https://www.erlang.org/doc/reference_manual/expressions#receive) -- BEAM receive semantics
 
@@ -600,4 +600,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

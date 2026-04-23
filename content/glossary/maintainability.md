@@ -368,26 +368,26 @@ The 11-phase pre-commit hook system is the primary enforcement mechanism for mai
 
 Maintainability connects to fundamental software quality and engineering concepts:
 
-- [Code Quality](/glossary/code-quality/) -- the measurable attributes that determine code maintainability
-- [Technical Debt](/glossary/technical-debt/) -- the accumulated cost of deferred maintainability improvements
-- [Refactoring](/glossary/refactoring/) -- restructuring code to improve maintainability without changing behavior
-- [Modularity](/glossary/modularity/) -- the degree of component independence that enables isolated maintenance
-- [Testing](/glossary/testing/) -- the safety net that makes maintenance changes verifiable
-- [Documentation](/glossary/documentation/) -- the knowledge base that supports understanding for maintenance
-- [Quality Gates](/glossary/quality-gates/) -- the automated enforcement mechanism preventing maintainability regression
-- [Credo](/glossary/credo/) -- the static analysis tool enforcing Elixir code consistency and maintainability
-- [Static Analysis](/glossary/static-analysis/) -- automated code examination for maintainability issues
-- [Composability](/glossary/composability/) -- the ability to combine maintainable components into larger systems
+- [Code Quality](@/glossary/code-quality.md) -- the measurable attributes that determine code maintainability
+- [Technical Debt](@/glossary/technical-debt.md) -- the accumulated cost of deferred maintainability improvements
+- [Refactoring](@/glossary/refactoring.md) -- restructuring code to improve maintainability without changing behavior
+- [Modularity](@/glossary/modularity.md) -- the degree of component independence that enables isolated maintenance
+- [Testing](@/glossary/testing.md) -- the safety net that makes maintenance changes verifiable
+- [Documentation](@/glossary/documentation.md) -- the knowledge base that supports understanding for maintenance
+- [Quality Gates](@/glossary/quality-gates.md) -- the automated enforcement mechanism preventing maintainability regression
+- [Credo](@/glossary/credo.md) -- the static analysis tool enforcing Elixir code consistency and maintainability
+- [Static Analysis](@/glossary/static-analysis.md) -- automated code examination for maintainability issues
+- [Composability](@/glossary/composability.md) -- the ability to combine maintainable components into larger systems
 
 ## See Also
 
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the autonomous system preventing maintainability degradation
-- [Quality DNA](/glossary/quality-dna/) -- the persistence mechanism tracking maintainability metrics across sessions
-- [Quality Standard](/glossary/quality-standard/) -- the universal standard defining maintainability requirements
-- [Dialyzer](/glossary/dialyzer/) -- type-level maintainability verification through static analysis
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- the enforcement mechanism blocking maintainability violations
-- [Typespec](/glossary/typespec/) -- Elixir type annotations enabling maintainable interfaces
-- [Umbrella Application](/glossary/umbrella-application/) -- the architectural pattern enabling modular maintainability
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the autonomous system preventing maintainability degradation
+- [Quality DNA](@/glossary/quality-dna.md) -- the persistence mechanism tracking maintainability metrics across sessions
+- [Quality Standard](@/glossary/quality-standard.md) -- the universal standard defining maintainability requirements
+- [Dialyzer](@/glossary/dialyzer.md) -- type-level maintainability verification through static analysis
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- the enforcement mechanism blocking maintainability violations
+- [Typespec](@/glossary/typespec.md) -- Elixir type annotations enabling maintainable interfaces
+- [Umbrella Application](@/glossary/umbrella-application.md) -- the architectural pattern enabling modular maintainability
 
 ---
 

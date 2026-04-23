@@ -551,23 +551,23 @@ The audit trail of pre-commit hook executions provides evidence that quality gat
 
 ## Related Concepts
 
-- [Audit Trail](/glossary/audit-trail/) -- the sequential record of events produced by audit logging, serving as the evidence base for investigations
-- [Structured Logging](/glossary/structured-logging/) -- the practice of emitting log entries in a consistent, machine-parseable format that enables automated analysis
-- [Security](/glossary/security/) -- the broader discipline that audit logging supports through detection, investigation, and compliance capabilities
-- [Compliance Framework](/glossary/compliance-framework/) -- regulatory and industry standards (GDPR, NIS2, SOC2) that mandate audit logging
-- [Event Sourcing](/glossary/event-sourcing/) -- an architectural pattern where audit logging is a natural byproduct of storing state as a sequence of events
-- [Observability](/glossary/observability/) -- the broader practice of understanding system behavior through logs, metrics, and traces
-- [Telemetry](/glossary/telemetry/) -- the Elixir telemetry framework used to emit and process audit events across the platform
-- [GDPR](/glossary/gdpr/) -- the EU data protection regulation that mandates comprehensive audit logging for personal data processing
-- [NIS2](/glossary/nis2/) -- the EU cybersecurity directive requiring audit capabilities for critical infrastructure operators
-- [Color Teams](/glossary/color-teams/) -- the adversarial-defensive security teams whose operations are fully audit-logged
+- [Audit Trail](@/glossary/audit-trail.md) -- the sequential record of events produced by audit logging, serving as the evidence base for investigations
+- [Structured Logging](@/glossary/structured-logging.md) -- the practice of emitting log entries in a consistent, machine-parseable format that enables automated analysis
+- [Security](@/glossary/security.md) -- the broader discipline that audit logging supports through detection, investigation, and compliance capabilities
+- [Compliance Framework](@/glossary/compliance-framework.md) -- regulatory and industry standards (GDPR, NIS2, SOC2) that mandate audit logging
+- [Event Sourcing](@/glossary/event-sourcing.md) -- an architectural pattern where audit logging is a natural byproduct of storing state as a sequence of events
+- [Observability](@/glossary/observability.md) -- the broader practice of understanding system behavior through logs, metrics, and traces
+- [Telemetry](@/glossary/telemetry.md) -- the Elixir telemetry framework used to emit and process audit events across the platform
+- [GDPR](@/glossary/gdpr.md) -- the EU data protection regulation that mandates comprehensive audit logging for personal data processing
+- [NIS2](@/glossary/nis2.md) -- the EU cybersecurity directive requiring audit capabilities for critical infrastructure operators
+- [Color Teams](@/glossary/color-teams.md) -- the adversarial-defensive security teams whose operations are fully audit-logged
 
 ## See Also
 
-- [SOC2](/glossary/soc2/) -- the compliance framework that explicitly evaluates audit logging effectiveness
-- [ZKB](/glossary/zkb/) -- the Czech cybersecurity decree with specific audit logging requirements
-- [Incident Response](/glossary/incident-response/) -- the process that depends on audit logs for forensic investigation
-- [Monitoring](/glossary/monitoring/) -- real-time observation systems that complement historical audit logs
+- [SOC2](@/glossary/soc2.md) -- the compliance framework that explicitly evaluates audit logging effectiveness
+- [ZKB](@/glossary/zkb.md) -- the Czech cybersecurity decree with specific audit logging requirements
+- [Incident Response](@/glossary/incident-response.md) -- the process that depends on audit logs for forensic investigation
+- [Monitoring](@/glossary/monitoring.md) -- real-time observation systems that complement historical audit logs
 
 ---
 

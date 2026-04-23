@@ -323,11 +323,11 @@ The platform employs multiple anomaly detection approaches:
 
 ### Autoheal Baseline System
 
-The [Autoheal](/glossary/autoheal/) system establishes diagnostic baselines at session start via `mix autoheal.baseline`. This captures a snapshot of platform health metrics that serves as the reference point for all subsequent diagnostic comparisons during the session. At session end, `mix autoheal.cycle` runs a full diagnostic pass and applies any safe remediations it identifies.
+The [Autoheal](@/glossary/autoheal.md) system establishes diagnostic baselines at session start via `mix autoheal.baseline`. This captures a snapshot of platform health metrics that serves as the reference point for all subsequent diagnostic comparisons during the session. At session end, `mix autoheal.cycle` runs a full diagnostic pass and applies any safe remediations it identifies.
 
 ### Quality Floor Guardian
 
-The [Quality Floor Guardian](/glossary/quality-floor-guardian/) is a specialized diagnostic system focused exclusively on quality metrics. It monitors the platform's quality score (currently 100/100) and triggers increasingly aggressive responses as quality degrades:
+The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) is a specialized diagnostic system focused exclusively on quality metrics. It monitors the platform's quality score (currently 100/100) and triggers increasingly aggressive responses as quality degrades:
 
 | Quality Score | State | Response |
 |--------------|-------|----------|
@@ -338,15 +338,15 @@ The [Quality Floor Guardian](/glossary/quality-floor-guardian/) is a specialized
 
 ### Health Monitoring Integration
 
-The `HealthMonitor` module within [PrismaticSupervisor](/glossary/supervisor/) performs continuous diagnostic checks across all supervised applications. It tracks startup times, restart frequencies, and crash patterns to identify applications that are unhealthy or degrading.
+The `HealthMonitor` module within [PrismaticSupervisor](@/glossary/supervisor.md) performs continuous diagnostic checks across all supervised applications. It tracks startup times, restart frequencies, and crash patterns to identify applications that are unhealthy or degrading.
 
 ### Circuit Breaker Diagnostics
 
-The [Circuit Breaker](/glossary/circuit-breaker/) pattern integrates with diagnostics to detect when external dependencies are failing. When a circuit breaker opens, the diagnostic system records the event, tracks the duration, and monitors the half-open test calls to determine when the dependency recovers. This produces a timeline of dependency health that aids post-incident analysis.
+The [Circuit Breaker](@/glossary/circuit-breaker.md) pattern integrates with diagnostics to detect when external dependencies are failing. When a circuit breaker opens, the diagnostic system records the event, tracks the duration, and monitors the half-open test calls to determine when the dependency recovers. This produces a timeline of dependency health that aids post-incident analysis.
 
 ### Telemetry-Driven Diagnostics
 
-All diagnostic data flows through the [Telemetry](/glossary/telemetry/) system. The platform emits events for every significant operation, and the diagnostic engine subscribes to these events via `:telemetry.attach/4`. This decoupled architecture means diagnostic logic can be added, modified, or removed without changing the instrumented code.
+All diagnostic data flows through the [Telemetry](@/glossary/telemetry.md) system. The platform emits events for every significant operation, and the diagnostic engine subscribes to these events via `:telemetry.attach/4`. This decoupled architecture means diagnostic logic can be added, modified, or removed without changing the instrumented code.
 
 ### Risk Pattern Detection
 
@@ -421,24 +421,24 @@ Long-term diagnostic data reveals resource consumption trends that inform capaci
 
 ## Related Concepts
 
-- [Autoheal](/glossary/autoheal/) -- the self-healing system that acts on diagnostic findings
-- [Health Monitoring](/glossary/health-monitoring/) -- continuous health check infrastructure
-- [System Monitoring](/glossary/system-monitoring/) -- broader system observation practices
-- [Observability](/glossary/observability/) -- the ability to understand internal state from external outputs
-- [Telemetry](/glossary/telemetry/) -- the instrumentation system that provides diagnostic data
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- specialized quality diagnostics
-- [Circuit Breaker](/glossary/circuit-breaker/) -- fault isolation pattern that integrates with diagnostics
-- [Self-Healing](/glossary/self-healing/) -- systems that remediate issues found by diagnostics
-- [Distributed Tracing](/glossary/distributed-tracing/) -- cross-service request tracking for diagnostics
-- [Quality Gate](/glossary/quality-gate/) -- checkpoints that diagnostic findings can trigger
+- [Autoheal](@/glossary/autoheal.md) -- the self-healing system that acts on diagnostic findings
+- [Health Monitoring](@/glossary/health-monitoring.md) -- continuous health check infrastructure
+- [System Monitoring](@/glossary/system-monitoring.md) -- broader system observation practices
+- [Observability](@/glossary/observability.md) -- the ability to understand internal state from external outputs
+- [Telemetry](@/glossary/telemetry.md) -- the instrumentation system that provides diagnostic data
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- specialized quality diagnostics
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- fault isolation pattern that integrates with diagnostics
+- [Self-Healing](@/glossary/self-healing.md) -- systems that remediate issues found by diagnostics
+- [Distributed Tracing](@/glossary/distributed-tracing.md) -- cross-service request tracking for diagnostics
+- [Quality Gate](@/glossary/quality-gate.md) -- checkpoints that diagnostic findings can trigger
 
 ## See Also
 
-- [Autoheal](/glossary/autoheal/) for the remediation system that acts on diagnostic findings
-- [Autoevolve](/glossary/autoevolve/) for automated evolution driven by diagnostic insights
-- [Supervision Tree](/glossary/supervision-tree/) for OTP process health management
-- [Structured Logging](/glossary/structured-logging/) for machine-parseable log data
-- [Quality DNA](/glossary/quality-dna/) for cross-session quality state persistence
+- [Autoheal](@/glossary/autoheal.md) for the remediation system that acts on diagnostic findings
+- [Autoevolve](@/glossary/autoevolve.md) for automated evolution driven by diagnostic insights
+- [Supervision Tree](@/glossary/supervision-tree.md) for OTP process health management
+- [Structured Logging](@/glossary/structured-logging.md) for machine-parseable log data
+- [Quality DNA](@/glossary/quality-dna.md) for cross-session quality state persistence
 
 ---
 
@@ -447,4 +447,4 @@ Long-term diagnostic data reveals resource consumption trends that inform capaci
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

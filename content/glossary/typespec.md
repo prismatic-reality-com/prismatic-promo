@@ -20,7 +20,7 @@ image_alt = "Typespec - Prismatic Platform"
 
 ## Definition
 
-Typespecs are Elixir's annotation system for declaring types and function signatures at the module level. The `@spec` attribute documents a function's parameter types and return type; `@type` and `@typep` define public and private named types; `@callback` declares the type signatures required by a [Behaviour](/glossary/behaviour/). While Elixir remains dynamically typed at runtime -- the [BEAM](/glossary/beam/) virtual machine does not enforce type annotations during execution -- typespecs enable [Dialyzer](/glossary/dialyzer/) to perform static analysis at compile time, catching type mismatches, unreachable code, and contract violations without false positives through its "success typing" approach.
+Typespecs are Elixir's annotation system for declaring types and function signatures at the module level. The `@spec` attribute documents a function's parameter types and return type; `@type` and `@typep` define public and private named types; `@callback` declares the type signatures required by a [Behaviour](@/glossary/behaviour.md). While Elixir remains dynamically typed at runtime -- the [BEAM](@/glossary/beam.md) virtual machine does not enforce type annotations during execution -- typespecs enable [Dialyzer](@/glossary/dialyzer.md) to perform static analysis at compile time, catching type mismatches, unreachable code, and contract violations without false positives through its "success typing" approach.
 
 Typespecs serve a dual purpose: they are machine-readable contracts consumed by static analysis tools, and they are human-readable documentation rendered by ExDoc in generated API documentation. This dual role means that comprehensive typespec coverage simultaneously improves code safety (through Dialyzer analysis) and developer experience (through clear API documentation). Unlike type systems in languages like Haskell or Rust, Elixir typespecs are optional and advisory -- they guide tooling without constraining the runtime, providing a pragmatic middle ground between fully dynamic and fully static typing.
 
@@ -28,7 +28,7 @@ The typespec system supports a rich vocabulary of built-in types (atoms, integer
 
 ## Context in Prismatic
 
-Typespec coverage is one of the 13 quality domains tracked to zero violations in the Prismatic Platform. The NO MERCY doctrine mandates `@spec` annotations on all public functions across all 90 umbrella applications. Missing typespecs are counted as [QDP](/glossary/qdp/) (Quality Debt Points) and blocked by quality gates -- the platform currently maintains 0 QDP across all domains. The `mix quality.gates` command validates typespec coverage as part of the [Clean Run](/glossary/clean-run/) standard, and CI pipelines reject code that introduces public functions without corresponding `@spec` annotations.
+Typespec coverage is one of the 13 quality domains tracked to zero violations in the Prismatic Platform. The NO MERCY doctrine mandates `@spec` annotations on all public functions across all 90 umbrella applications. Missing typespecs are counted as [QDP](@/glossary/qdp.md) (Quality Debt Points) and blocked by quality gates -- the platform currently maintains 0 QDP across all domains. The `mix quality.gates` command validates typespec coverage as part of the [Clean Run](@/glossary/clean-run.md) standard, and CI pipelines reject code that introduces public functions without corresponding `@spec` annotations.
 
 Dialyzer analysis depends on comprehensive typespecs for accurate cross-module type checking. The platform's PLT (Persistent Lookup Table) cache includes type information for all 90 apps and their dependencies, enabling Dialyzer to detect type mismatches across module boundaries. Custom types defined in `prismatic_storage_core` (like `entity_id()`, `confidence_score()`, `risk_rating()`) propagate through the entire codebase, creating a consistent type vocabulary across all platform components.
 
@@ -141,7 +141,7 @@ defmodule PrismaticStorage.Adapter do
 end
 ```
 
-When a module uses `@behaviour PrismaticStorage.Adapter`, [Dialyzer](/glossary/dialyzer/) verifies that the implementing module's function specs are compatible with the callback declarations. Missing callbacks produce compilation warnings; incompatible types produce Dialyzer warnings.
+When a module uses `@behaviour PrismaticStorage.Adapter`, [Dialyzer](@/glossary/dialyzer.md) verifies that the implementing module's function specs are compatible with the callback declarations. Missing callbacks produce compilation warnings; incompatible types produce Dialyzer warnings.
 
 ## Built-in Type Reference
 
@@ -162,7 +162,7 @@ Elixir's typespec system provides a comprehensive set of built-in types:
 
 ## Dialyzer Integration
 
-Typespecs feed directly into [Dialyzer](/glossary/dialyzer/)'s static analysis pipeline. Dialyzer uses "success typing" -- rather than proving a program correct, it proves that certain call patterns will definitely fail. This eliminates false positives while still catching genuine type errors.
+Typespecs feed directly into [Dialyzer](@/glossary/dialyzer.md)'s static analysis pipeline. Dialyzer uses "success typing" -- rather than proving a program correct, it proves that certain call patterns will definitely fail. This eliminates false positives while still catching genuine type errors.
 
 ```
 Source Code + @spec annotations
@@ -240,21 +240,21 @@ The Prismatic Platform operates at Phase 5 -- every public function has a `@spec
 
 ## Related Terms
 
-- [Dialyzer](/glossary/dialyzer/) - Static analysis tool that consumes typespecs for type checking
-- [Behaviour](/glossary/behaviour/) - Module contracts using `@callback` type declarations
-- [QDP](/glossary/qdp/) - Quality metric tracking missing typespec annotations
-- [Clean Run](/glossary/clean-run/) - Zero-warning standard including typespec completeness
-- [ExUnit](/glossary/exunit/) - Test framework complementing typespec static analysis
-- [Code Coverage](/glossary/code-coverage/) - Runtime coverage complementing compile-time type analysis
-- [BEAM](/glossary/beam/) - Virtual machine whose bytecode Dialyzer analyzes
-- [Mix](/glossary/mix/) - Build tool running Dialyzer via `mix dialyzer`
-- [Pattern Matching](/glossary/pattern-matching/) - Runtime type discrimination complementing typespecs
-- [Immutability](/glossary/immutability/) - Data model enabling reliable type inference
+- [Dialyzer](@/glossary/dialyzer.md) - Static analysis tool that consumes typespecs for type checking
+- [Behaviour](@/glossary/behaviour.md) - Module contracts using `@callback` type declarations
+- [QDP](@/glossary/qdp.md) - Quality metric tracking missing typespec annotations
+- [Clean Run](@/glossary/clean-run.md) - Zero-warning standard including typespec completeness
+- [ExUnit](@/glossary/exunit.md) - Test framework complementing typespec static analysis
+- [Code Coverage](@/glossary/code-coverage.md) - Runtime coverage complementing compile-time type analysis
+- [BEAM](@/glossary/beam.md) - Virtual machine whose bytecode Dialyzer analyzes
+- [Mix](@/glossary/mix.md) - Build tool running Dialyzer via `mix dialyzer`
+- [Pattern Matching](@/glossary/pattern-matching.md) - Runtime type discrimination complementing typespecs
+- [Immutability](@/glossary/immutability.md) - Data model enabling reliable type inference
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform quality architecture
-- [Technologies](/technologies/) - Elixir type system and tooling
+- [Architecture](@/architecture/_index.md) - Platform quality architecture
+- [Technologies](@/technologies/_index.md) - Elixir type system and tooling
 
 ---
 
@@ -263,4 +263,4 @@ The Prismatic Platform operates at Phase 5 -- every public function has a `@spec
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

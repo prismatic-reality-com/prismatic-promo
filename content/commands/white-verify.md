@@ -24,9 +24,9 @@ image_alt = "/white-verify - Prismatic Platform"
 
 ## Overview
 
-**/white-verify** is a production command in the **[Color Teams](/glossary/color-teams/)** category of the Prismatic Platform. It executes constructive verification campaigns through the [White Team](/glossary/white-team/), the platform's verification-focused security team that proves systems hold rather than attempting to break them (which is the [Red Team](/glossary/red-team/)'s domain). The White Team produces formal proofs, contract validations, invariant verifications, and property-based evidence that system components satisfy their specified requirements. Unlike testing (which searches for failures), White Team verification constructs positive evidence of correctness.
+**/white-verify** is a production command in the **[Color Teams](@/glossary/color-teams.md)** category of the Prismatic Platform. It executes constructive verification campaigns through the [White Team](@/glossary/white-team.md), the platform's verification-focused security team that proves systems hold rather than attempting to break them (which is the [Red Team](@/glossary/red-team.md)'s domain). The White Team produces formal proofs, contract validations, invariant verifications, and property-based evidence that system components satisfy their specified requirements. Unlike testing (which searches for failures), White Team verification constructs positive evidence of correctness.
 
-This command operates under the **L3** authority level and is executed by the `white-verifier-commander` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The White Team is one of six [Color Teams](/glossary/color-teams/) in the platform's adversarial-defensive security architecture. The L3 authority level grants verification access across the entire codebase, including security-sensitive modules.
+This command operates under the **L3** authority level and is executed by the `white-verifier-commander` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The White Team is one of six [Color Teams](@/glossary/color-teams.md) in the platform's adversarial-defensive security architecture. The L3 authority level grants verification access across the entire codebase, including security-sensitive modules.
 
 The White Team operates with 3 agents: the `white-verifier-commander` (L3 Strategic Commander) who orchestrates verification campaigns, the `white-contract-validator` (L4 Specialist) who validates interface contracts and behavioral specifications, and the `white-invariant-prover` (L4 Specialist) who constructs property-based tests, Lean4 formal proofs, and fault injection analyses. All White Team output passes through the Trinity Gate before being accepted as verification evidence.
 
@@ -201,15 +201,15 @@ All evidence from the campaign is assembled into a composite verification report
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/color-team](/commands/color-team/) | Parent | White Team is part of the 6-team color infrastructure |
-| [/red-team](/commands/red-team/) | Counter | Red findings drive White verification priorities |
-| [/blue-team](/commands/blue-team/) | Consumer | Blue Team uses White evidence for defensive confidence |
-| [/purple-team](/commands/purple-team/) | Synthesis | Purple coordinates Red-Blue-White closure loops |
-| [/trinity](/commands/trinity/) | Consumer | Trinity Gate consumes White Team evidence |
-| [/trinity-3nl-fusion](/commands/trinity-3nl-fusion/) | Consumer | Fusion pipeline uses White evidence for Gate 3 |
-| [/lean](/commands/lean/) | Engine | Lean4 backend for formal proofs |
-| [/formal-verify](/commands/formal-verify/) | Peer | General formal verification operations |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Verification campaign metrics |
+| [/color-team](@/commands/color-team.md) | Parent | White Team is part of the 6-team color infrastructure |
+| [/red-team](@/commands/red-team.md) | Counter | Red findings drive White verification priorities |
+| [/blue-team](@/commands/blue-team.md) | Consumer | Blue Team uses White evidence for defensive confidence |
+| [/purple-team](@/commands/purple-team.md) | Synthesis | Purple coordinates Red-Blue-White closure loops |
+| [/trinity](@/commands/trinity.md) | Consumer | Trinity Gate consumes White Team evidence |
+| [/trinity-3nl-fusion](@/commands/trinity-3nl-fusion.md) | Consumer | Fusion pipeline uses White evidence for Gate 3 |
+| [/lean](@/commands/lean.md) | Engine | Lean4 backend for formal proofs |
+| [/formal-verify](@/commands/formal-verify.md) | Peer | General formal verification operations |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Verification campaign metrics |
 
 ## Best Practices
 
@@ -270,21 +270,21 @@ Verify properties that span multiple modules:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every verification level is executed completely. Evidence artifacts are never fabricated or approximated. Failed verifications are reported without exception.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. All White Team output passes Trinity Gate validation. Verification evidence includes methodology, inputs, outputs, and reproducibility instructions.
 
 ## Related Commands
 
-- [/color-team](/commands/color-team/) - Color team status overview across all 6 teams
-- [/red-team](/commands/red-team/) - [Red team](/glossary/red-team/) adversarial simulation scenario execution
-- [/blue-team](/commands/blue-team/) - [Blue team](/glossary/blue-team/) epistemic defense posture assessment
-- [/purple-team](/commands/purple-team/) - Purple team synthesis and Red-Blue closure coordination
-- [/trinity](/commands/trinity/) - Trinity system status and rigidity score verification
-- [/trinity-3nl-fusion](/commands/trinity-3nl-fusion/) - Validate input through Trinity-3NL fusion pipeline
-- [/lean](/commands/lean/) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
-- [/formal-verify](/commands/formal-verify/) - Formal verification of system properties and invariants
+- [/color-team](@/commands/color-team.md) - Color team status overview across all 6 teams
+- [/red-team](@/commands/red-team.md) - [Red team](@/glossary/red-team.md) adversarial simulation scenario execution
+- [/blue-team](@/commands/blue-team.md) - [Blue team](@/glossary/blue-team.md) epistemic defense posture assessment
+- [/purple-team](@/commands/purple-team.md) - Purple team synthesis and Red-Blue closure coordination
+- [/trinity](@/commands/trinity.md) - Trinity system status and rigidity score verification
+- [/trinity-3nl-fusion](@/commands/trinity-3nl-fusion.md) - Validate input through Trinity-3NL fusion pipeline
+- [/lean](@/commands/lean.md) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
+- [/formal-verify](@/commands/formal-verify.md) - Formal verification of system properties and invariants
 
 ---
 
@@ -293,4 +293,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

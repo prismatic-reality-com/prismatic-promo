@@ -22,13 +22,13 @@ image_alt = "CASCADE Pattern - Prismatic Platform"
 
 CASCADE Patterns are the five formalized categories of quality debt identified during the Prismatic Platform's systematic quality elimination campaign. Each pattern represents a specific class of recurring anti-pattern that was discovered, validated, codified into a detection rule and fix procedure, and then propagated across all 89+ umbrella applications. The five patterns are: Type Mismatch (correcting type annotation errors), Dead Code (removing unreachable code paths and unused definitions), Empty Check (replacing O(n) list emptiness checks with O(1) alternatives), Timer Replacement (substituting blocking sleep calls with proper OTP patterns), and Nuclear Cache (resolving corrupted build artifacts through cache invalidation).
 
-CASCADE Patterns differ from ad-hoc bug fixes in their systematic nature. Each pattern represents not a single fix but a category of fixes -- a structural class of quality debt that manifests across multiple files, modules, and applications. The pattern formalization process ensures that each instance is detected through the same mechanism, fixed through the same procedure, and validated through the same regression tests. This systematization is what enabled the elimination of 905 [Quality Debt Points](/glossary/qdp/) across the platform, compared to addressing each violation individually.
+CASCADE Patterns differ from ad-hoc bug fixes in their systematic nature. Each pattern represents not a single fix but a category of fixes -- a structural class of quality debt that manifests across multiple files, modules, and applications. The pattern formalization process ensures that each instance is detected through the same mechanism, fixed through the same procedure, and validated through the same regression tests. This systematization is what enabled the elimination of 905 [Quality Debt Points](@/glossary/qdp.md) across the platform, compared to addressing each violation individually.
 
 The patterns were discovered empirically through analysis of the platform's quality violations, then progressively formalized as the scope of each pattern became apparent. The Empty Check pattern, for instance, was first noticed as a performance issue in a single module, then found to be present in dozens of modules across multiple applications, and finally codified as a platform-wide detection rule with an automated fix procedure achieving 90-250x speedup on affected code paths.
 
 ## Pattern Type 1: Type Mismatch
 
-Type Mismatch is the most common CASCADE pattern, arising from drift between `@spec` type annotations and the actual types produced by function implementations. In Elixir, [typespecs](/glossary/typespec/) are optional metadata that enable static analysis through [Dialyzer](/glossary/dialyzer/) but are not enforced by the compiler. This creates a maintenance challenge: as implementations evolve, their specs may not be updated to match.
+Type Mismatch is the most common CASCADE pattern, arising from drift between `@spec` type annotations and the actual types produced by function implementations. In Elixir, [typespecs](@/glossary/typespec.md) are optional metadata that enable static analysis through [Dialyzer](@/glossary/dialyzer.md) but are not enforced by the compiler. This creates a maintenance challenge: as implementations evolve, their specs may not be updated to match.
 
 ### Detection Algorithm
 
@@ -123,7 +123,7 @@ The Empty Check pattern is the highest-impact CASCADE pattern in terms of perfor
 
 ### Detection Algorithm
 
-Empty Check detection uses AST [pattern matching](/glossary/pattern-matching/) to identify specific node structures:
+Empty Check detection uses AST [pattern matching](@/glossary/pattern-matching.md) to identify specific node structures:
 
 ```elixir
 # Detection targets these AST patterns:
@@ -158,7 +158,7 @@ The 90-250x figure reported in CASCADE results represents the measured speedup a
 
 ### Auto-Fix Capabilities
 
-Empty Check fixes are fully automated. The transformation is semantically equivalent for all cases (a list with `length > 0` is always `!= []`), and the fix preserves all edge case behavior including nil handling and non-list inputs. Each fix is validated through [property-based testing](/glossary/property-based-testing/) that verifies behavioral equivalence across randomly generated inputs.
+Empty Check fixes are fully automated. The transformation is semantically equivalent for all cases (a list with `length > 0` is always `!= []`), and the fix preserves all edge case behavior including nil handling and non-list inputs. Each fix is validated through [property-based testing](@/glossary/property-based-testing.md) that verifies behavioral equivalence across randomly generated inputs.
 
 ## Pattern Type 4: Timer Replacement
 
@@ -215,7 +215,7 @@ Timer Replacement fixes are semi-automated. The detection is fully automated, bu
 
 ## Pattern Type 5: Nuclear Cache
 
-Nuclear Cache is the only CASCADE pattern that targets build system artifacts rather than source code. It addresses the specific failure mode where stale BEAM bytecode files in the `_build` directory cause [Dialyzer](/glossary/dialyzer/) to report errors that do not correspond to any actual code issue.
+Nuclear Cache is the only CASCADE pattern that targets build system artifacts rather than source code. It addresses the specific failure mode where stale BEAM bytecode files in the `_build` directory cause [Dialyzer](@/glossary/dialyzer.md) to report errors that do not correspond to any actual code issue.
 
 ### Root Cause Analysis
 
@@ -250,7 +250,7 @@ mix dialyzer
 
 ### Auto-Fix Capabilities
 
-Nuclear Cache fixes are fully automated as part of the [AutoHeal](/glossary/autoheal/) cycle. When Dialyzer reports errors that cannot be traced to source code changes, the AutoHeal system automatically applies the Nuclear Cache fix sequence (cache invalidation, clean rebuild, re-analysis) and validates that the errors are resolved. This prevents phantom Dialyzer errors from blocking quality gates or causing unnecessary developer investigation.
+Nuclear Cache fixes are fully automated as part of the [AutoHeal](@/glossary/autoheal.md) cycle. When Dialyzer reports errors that cannot be traced to source code changes, the AutoHeal system automatically applies the Nuclear Cache fix sequence (cache invalidation, clean rebuild, re-analysis) and validates that the errors are resolved. This prevents phantom Dialyzer errors from blocking quality gates or causing unnecessary developer investigation.
 
 ## AST-Indexed Semantic Search
 
@@ -280,24 +280,24 @@ Each CASCADE Pattern follows a defined lifecycle from discovery to permanent pre
 
 ## Related Terms
 
-- [CASCADE](/glossary/cascade/) -- Parent methodology encompassing all five pattern types
-- [QDP](/glossary/qdp/) -- Quality Debt Points eliminated through CASCADE Pattern application
-- [Clean Run](/glossary/clean-run/) -- Zero-warning standard maintained by CASCADE prevention
-- [AutoEvolve](/glossary/autoevolve/) -- Evolution system that applies CASCADE detection in scanning cycles
-- [AutoHeal](/glossary/autoheal/) -- Self-repair system using CASCADE fix procedures (especially Nuclear Cache)
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis tool central to Type Mismatch and Nuclear Cache detection
-- [Typespec](/glossary/typespec/) -- Type annotations targeted by Type Mismatch pattern
-- [Pattern Matching](/glossary/pattern-matching/) -- Elixir capability used in Empty Check replacements
-- [Property-Based Testing](/glossary/property-based-testing/) -- Testing technique validating fix equivalence
-- [Supervisor](/glossary/supervisor/) -- OTP behavior involved in Timer Replacement corrections
-- [Pure Function](/glossary/pure-function/) -- Functional purity improved by Dead Code elimination
-- [Code Coverage](/glossary/code-coverage/) -- Metric improved by Dead Code removal
+- [CASCADE](@/glossary/cascade.md) -- Parent methodology encompassing all five pattern types
+- [QDP](@/glossary/qdp.md) -- Quality Debt Points eliminated through CASCADE Pattern application
+- [Clean Run](@/glossary/clean-run.md) -- Zero-warning standard maintained by CASCADE prevention
+- [AutoEvolve](@/glossary/autoevolve.md) -- Evolution system that applies CASCADE detection in scanning cycles
+- [AutoHeal](@/glossary/autoheal.md) -- Self-repair system using CASCADE fix procedures (especially Nuclear Cache)
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis tool central to Type Mismatch and Nuclear Cache detection
+- [Typespec](@/glossary/typespec.md) -- Type annotations targeted by Type Mismatch pattern
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Elixir capability used in Empty Check replacements
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Testing technique validating fix equivalence
+- [Supervisor](@/glossary/supervisor.md) -- OTP behavior involved in Timer Replacement corrections
+- [Pure Function](@/glossary/pure-function.md) -- Functional purity improved by Dead Code elimination
+- [Code Coverage](@/glossary/code-coverage.md) -- Metric improved by Dead Code removal
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Capabilities](/capabilities/) -- Platform quality and evolution capabilities
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Capabilities](@/capabilities/_index.md) -- Platform quality and evolution capabilities
 
 ---
 
@@ -306,4 +306,4 @@ Each CASCADE Pattern follows a defined lifecycle from discovery to permanent pre
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

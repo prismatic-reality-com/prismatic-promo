@@ -28,23 +28,23 @@ image_alt = "Specialized Variants - Prismatic Platform"
 
 Specialized Variants are domain-specific adaptations of general-purpose abstractions that maintain contractual compatibility with the base abstraction while tailoring behavior, data structures, performance characteristics, or operational semantics to the requirements of a particular use case. In software architecture, this pattern enables platforms to support diverse domains (storage, security, communication, analysis) through a unified interface layer while allowing each domain to optimize for its specific constraints.
 
-The concept draws from multiple traditions: polymorphism in object-oriented programming, [protocol](/glossary/protocol/) dispatch in Elixir, the Strategy pattern in design patterns literature, and parametric modules in ML-family languages. What distinguishes specialized variants from simple subclassing or implementation swapping is the emphasis on preserving the full behavioral contract of the base abstraction while introducing domain-specific extensions.
+The concept draws from multiple traditions: polymorphism in object-oriented programming, [protocol](@/glossary/protocol.md) dispatch in Elixir, the Strategy pattern in design patterns literature, and parametric modules in ML-family languages. What distinguishes specialized variants from simple subclassing or implementation swapping is the emphasis on preserving the full behavioral contract of the base abstraction while introducing domain-specific extensions.
 
-Within the Prismatic Platform, specialized variants are pervasive. The [storage layer](/glossary/storage-pattern/) provides ETS, Ecto, Meilisearch, and KuzuDB variants of a common storage contract. The [agent system](/glossary/agent/) provides 530+ variants of a common agent specification. The [security operations](/glossary/color-teams/) provide 6 color-team variants of a common security assessment model. Each variant is a specialization, not a deviation.
+Within the Prismatic Platform, specialized variants are pervasive. The [storage layer](@/glossary/storage-pattern.md) provides ETS, Ecto, Meilisearch, and KuzuDB variants of a common storage contract. The [agent system](@/glossary/agent.md) provides 530+ variants of a common agent specification. The [security operations](@/glossary/color-teams.md) provide 6 color-team variants of a common security assessment model. Each variant is a specialization, not a deviation.
 
 ## Theoretical Foundations
 
 ### The Liskov Substitution Principle
 
-Specialized variants must satisfy the Liskov Substitution Principle (LSP): any code that works with the base abstraction must work correctly with any variant. This means variants can extend but never contradict the base contract. In Elixir, [behaviours](/glossary/behaviour/) enforce this at compile time by requiring variant modules to implement all callback functions with the correct signatures.
+Specialized variants must satisfy the Liskov Substitution Principle (LSP): any code that works with the base abstraction must work correctly with any variant. This means variants can extend but never contradict the base contract. In Elixir, [behaviours](@/glossary/behaviour.md) enforce this at compile time by requiring variant modules to implement all callback functions with the correct signatures.
 
 ### Protocol Dispatch and Ad-Hoc Polymorphism
 
-Elixir [protocols](/glossary/protocol/) provide the language-level mechanism for specialized variants. A protocol defines a set of functions that any data type can implement, enabling polymorphic dispatch without inheritance hierarchies. This is ad-hoc polymorphism: the variant is associated with a type, not embedded in a class tree.
+Elixir [protocols](@/glossary/protocol.md) provide the language-level mechanism for specialized variants. A protocol defines a set of functions that any data type can implement, enabling polymorphic dispatch without inheritance hierarchies. This is ad-hoc polymorphism: the variant is associated with a type, not embedded in a class tree.
 
 ### Bounded Contexts and Domain-Driven Design
 
-In Domain-Driven Design (DDD), [bounded contexts](/glossary/bounded-context/) define the scope within which a model is valid. Specialized variants map naturally to bounded contexts: the same abstract concept (e.g., "storage") takes different concrete forms in different contexts (e.g., in-memory cache vs. persistent database vs. search index). Each variant is the authoritative implementation within its bounded context.
+In Domain-Driven Design (DDD), [bounded contexts](@/glossary/bounded-context.md) define the scope within which a model is valid. Specialized variants map naturally to bounded contexts: the same abstract concept (e.g., "storage") takes different concrete forms in different contexts (e.g., in-memory cache vs. persistent database vs. search index). Each variant is the authoritative implementation within its bounded context.
 
 ### Category Theory Perspective
 
@@ -79,7 +79,7 @@ Each variant implements the AIAD agent specification but specializes for its dom
 
 ### Security Variants
 
-The [Color Team](/glossary/color-teams/) system provides security assessment variants:
+The [Color Team](@/glossary/color-teams.md) system provides security assessment variants:
 
 - **Red Team**: Adversarial simulation (attack surface discovery, vulnerability exploitation)
 - **Blue Team**: Defensive posture (signal aggregation, drift detection, auth monitoring)
@@ -308,19 +308,19 @@ end
 
 ### The Adapter Contract Pattern
 
-Every family of variants shares a [behaviour](/glossary/behaviour/) (adapter contract) that defines the required interface. The contract includes both function signatures and semantic expectations documented in `@doc` and `@moduledoc`. Compile-time checking ensures all variants implement the full contract.
+Every family of variants shares a [behaviour](@/glossary/behaviour.md) (adapter contract) that defines the required interface. The contract includes both function signatures and semantic expectations documented in `@doc` and `@moduledoc`. Compile-time checking ensures all variants implement the full contract.
 
 ### The Registry Pattern
 
-A central [registry](/glossary/registry/) tracks all available variants for each domain. The registry supports runtime variant discovery, capability querying, and dynamic variant selection. The Prismatic Platform uses ETS-backed registries for microsecond lookup performance.
+A central [registry](@/glossary/registry.md) tracks all available variants for each domain. The registry supports runtime variant discovery, capability querying, and dynamic variant selection. The Prismatic Platform uses ETS-backed registries for microsecond lookup performance.
 
 ### The Fallback Chain Pattern
 
-When the preferred variant is unavailable (node down, service unreachable), a fallback chain selects the next-best variant automatically. This is critical for [resilience](/glossary/reliability/) in distributed systems. The chain preserves contract compatibility while degrading gracefully.
+When the preferred variant is unavailable (node down, service unreachable), a fallback chain selects the next-best variant automatically. This is critical for [resilience](@/glossary/reliability.md) in distributed systems. The chain preserves contract compatibility while degrading gracefully.
 
 ### The Composition Pattern
 
-Complex operations compose multiple variants. A search-and-store operation might use the Meilisearch variant for indexing and the Ecto variant for persistence, coordinated through a [pipeline](/glossary/pipeline/) that treats both as interchangeable storage operations with different characteristics.
+Complex operations compose multiple variants. A search-and-store operation might use the Meilisearch variant for indexing and the Ecto variant for persistence, coordinated through a [pipeline](@/glossary/pipeline.md) that treats both as interchangeable storage operations with different characteristics.
 
 ## Variant Selection Strategies
 
@@ -340,11 +340,11 @@ Creating variants for every minor difference leads to an unmaintainable explosio
 
 ### Contract Violation
 
-Variants that silently deviate from the base contract (e.g., returning different error types, ignoring timeout parameters, changing consistency guarantees) create subtle bugs that surface only under specific conditions. The platform's [property-based testing](/glossary/property-based-testing/) catches these violations by testing all variants against the shared contract.
+Variants that silently deviate from the base contract (e.g., returning different error types, ignoring timeout parameters, changing consistency guarantees) create subtle bugs that surface only under specific conditions. The platform's [property-based testing](@/glossary/property-based-testing.md) catches these violations by testing all variants against the shared contract.
 
 ### Leaky Abstractions
 
-When code that should work with any variant depends on implementation details of a specific variant, the abstraction leaks. This defeats the purpose of specialization. The platform enforces abstraction boundaries through strict module interfaces and [compilation](/glossary/compilation/) checks.
+When code that should work with any variant depends on implementation details of a specific variant, the abstraction leaks. This defeats the purpose of specialization. The platform enforces abstraction boundaries through strict module interfaces and [compilation](@/glossary/compilation.md) checks.
 
 ### Premature Specialization
 
@@ -373,14 +373,14 @@ Benchmarks show variant dispatch adds less than 1 microsecond of overhead in the
 
 ## Related Concepts
 
-- [Adapter Pattern](/glossary/adapter-pattern/) -- The structural pattern underlying variant implementation
-- [Behaviour](/glossary/behaviour/) -- Elixir's mechanism for defining variant contracts
-- [Protocol](/glossary/protocol/) -- Elixir's mechanism for type-based variant dispatch
-- [Composability](/glossary/composability/) -- Building complex systems from variant compositions
-- [Architectural Pattern](/glossary/architectural-pattern/) -- Higher-level patterns that leverage variants
-- [Pattern Matching](/glossary/pattern-matching/) -- The dispatch mechanism for variant selection
-- [Storage Pattern](/glossary/storage-pattern/) -- The most prominent variant family in the platform
-- [Modularity](/glossary/modularity/) -- The design principle that variants enforce
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- The structural pattern underlying variant implementation
+- [Behaviour](@/glossary/behaviour.md) -- Elixir's mechanism for defining variant contracts
+- [Protocol](@/glossary/protocol.md) -- Elixir's mechanism for type-based variant dispatch
+- [Composability](@/glossary/composability.md) -- Building complex systems from variant compositions
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- Higher-level patterns that leverage variants
+- [Pattern Matching](@/glossary/pattern-matching.md) -- The dispatch mechanism for variant selection
+- [Storage Pattern](@/glossary/storage-pattern.md) -- The most prominent variant family in the platform
+- [Modularity](@/glossary/modularity.md) -- The design principle that variants enforce
 
 See the Glossary index for the complete taxonomy of platform concepts.
 
@@ -391,4 +391,4 @@ See the Glossary index for the complete taxonomy of platform concepts.
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

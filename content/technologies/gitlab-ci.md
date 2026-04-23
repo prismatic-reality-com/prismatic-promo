@@ -24,7 +24,7 @@ image_alt = "GitLab CI/CD - Prismatic Platform"
 
 ## Overview
 
-GitLab CI/CD is the Prismatic Platform's automation backbone, running all testing, quality enforcement, and deployment pipelines. Every commit triggers a comprehensive pipeline that compiles with zero warnings, runs the full test suite, checks [Credo](/technologies/credo/) and [Dialyzer](/technologies/dialyzer/) compliance, and deploys to [Fly.io](/technologies/flyio/) -- all enforced by the platform's [NO MERCY](/capabilities/no-mercy/) quality doctrine. The pipeline serves as the final automated quality gate between development and production, ensuring that no code reaching the deployment stage has any known quality deficiency.
+GitLab CI/CD is the Prismatic Platform's automation backbone, running all testing, quality enforcement, and deployment pipelines. Every commit triggers a comprehensive pipeline that compiles with zero warnings, runs the full test suite, checks [Credo](@/technologies/credo.md) and [Dialyzer](@/technologies/dialyzer.md) compliance, and deploys to [Fly.io](@/technologies/flyio.md) -- all enforced by the platform's [NO MERCY](@/capabilities/no-mercy.md) quality doctrine. The pipeline serves as the final automated quality gate between development and production, ensuring that no code reaching the deployment stage has any known quality deficiency.
 
 The Prismatic Platform's GitLab pipeline implements a 9-phase quality gate system: compilation, formatting, Credo analysis, Dialyzer type checking, unit tests, integration tests, security scans, performance benchmarks, and deployment. Every phase must pass before the pipeline proceeds, creating a strict sequential guarantee that later phases can rely on the validation performed by earlier ones. A formatting violation blocks testing; a test failure blocks deployment. There are no overrides, no manual bypasses, and no exceptions.
 
@@ -43,7 +43,7 @@ GitLab's pipeline-as-code approach through `.gitlab-ci.yml` enables the platform
 
 ## Platform Integration
 
-GitLab CI/CD enforces the platform's [quality gates](/capabilities/quality-gates/) on every commit with a multi-stage pipeline that mirrors the local [Git](/technologies/git/) hook enforcement.
+GitLab CI/CD enforces the platform's [quality gates](@/capabilities/quality-gates.md) on every commit with a multi-stage pipeline that mirrors the local [Git](@/technologies/git.md) hook enforcement.
 
 ```yaml
 # .gitlab-ci.yml - Prismatic Platform CI/CD pipeline
@@ -297,21 +297,21 @@ GitLab CI/CD was chosen for the Prismatic Platform because it provides a unified
 
 ## Related Technologies
 
-- [Docker](/technologies/docker/) - Container builds and service containers in CI pipeline
-- [Fly.io](/technologies/flyio/) - Deployment target for staging and production environments
-- [Dialyzer](/technologies/dialyzer/) - Static type checking executed in the quality stage
-- [Credo](/technologies/credo/) - Code quality analysis executed in the quality stage
-- [Git](/technologies/git/) - Version control triggering pipeline execution
-- [PostgreSQL](/technologies/postgresql/) - Service container for test database
-- [Redis](/technologies/redis/) - Service container for cache testing
-- [Meilisearch](/technologies/meilisearch/) - Service container for search testing
+- [Docker](@/technologies/docker.md) - Container builds and service containers in CI pipeline
+- [Fly.io](@/technologies/flyio.md) - Deployment target for staging and production environments
+- [Dialyzer](@/technologies/dialyzer.md) - Static type checking executed in the quality stage
+- [Credo](@/technologies/credo.md) - Code quality analysis executed in the quality stage
+- [Git](@/technologies/git.md) - Version control triggering pipeline execution
+- [PostgreSQL](@/technologies/postgresql.md) - Service container for test database
+- [Redis](@/technologies/redis.md) - Service container for cache testing
+- [Meilisearch](@/technologies/meilisearch.md) - Service container for search testing
 
 ## Related Apps
 
 - All 90 Prismatic Platform applications share the unified CI/CD pipeline
-- [prismatic_safety](/apps/prismatic-safety/) - Quality gates enforced by pipeline stages
-- [prismatic_web](/apps/prismatic-web/) - Primary deployment target
-- [prismatic_api](/apps/prismatic-api/) - API gateway deployment target
+- [prismatic_safety](@/apps/prismatic-safety.md) - Quality gates enforced by pipeline stages
+- [prismatic_web](@/apps/prismatic-web.md) - Primary deployment target
+- [prismatic_api](@/apps/prismatic-api.md) - API gateway deployment target
 
 ---
 
@@ -320,4 +320,4 @@ GitLab CI/CD was chosen for the Prismatic Platform because it provides a unified
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -42,7 +42,7 @@ Claude Code is Anthropic's official command-line interface (CLI) for interacting
 
 The emergence of Claude Code represents a paradigm shift in how developers interact with AI systems. Traditional AI coding assistants operate through copy-paste workflows or IDE plugins that provide suggestions in isolation. Claude Code eliminates this friction by embedding the AI directly into the developer's primary workspace -- the terminal. The tool maintains persistent context across a session, understands the structure of the project it operates within, and can chain together multiple operations (reading files, running tests, making edits, committing changes) into coherent workflows.
 
-Claude Code's architecture centers on a tool-use model where the [LLM](/glossary/llm/) receives a set of available tools -- file reading, file writing, shell execution, web search, and others -- and decides which tools to invoke based on the developer's natural-language instructions. This approach allows Claude to handle tasks ranging from simple one-line fixes to complex multi-file refactoring operations that span hundreds of files. The tool supports extended thinking for complex reasoning, maintains conversation history within sessions, and can be configured with project-specific instructions through `CLAUDE.md` files at repository, directory, and user levels.
+Claude Code's architecture centers on a tool-use model where the [LLM](@/glossary/llm.md) receives a set of available tools -- file reading, file writing, shell execution, web search, and others -- and decides which tools to invoke based on the developer's natural-language instructions. This approach allows Claude to handle tasks ranging from simple one-line fixes to complex multi-file refactoring operations that span hundreds of files. The tool supports extended thinking for complex reasoning, maintains conversation history within sessions, and can be configured with project-specific instructions through `CLAUDE.md` files at repository, directory, and user levels.
 
 Key architectural characteristics include stateless shell execution (each command runs in a fresh shell context), persistent file system access, sandboxed execution with permission controls, and integration with the Model Context Protocol (MCP) for extending Claude's capabilities through external tool servers.
 
@@ -124,7 +124,7 @@ A Claude Code session follows a defined lifecycle:
 
 ### Model Context Protocol (MCP) Integration
 
-[MCP](/glossary/mcp/) extends Claude Code's capabilities beyond its built-in tools by connecting to external servers that expose additional functionality:
+[MCP](@/glossary/mcp.md) extends Claude Code's capabilities beyond its built-in tools by connecting to external servers that expose additional functionality:
 
 ```json
 {
@@ -271,7 +271,7 @@ Every Claude Code session on the Prismatic Platform triggers mandatory operation
 
 ### AIAD Agent Integration
 
-Claude Code sessions can invoke any of the platform's 530+ [AIAD](/glossary/aiad/) agents through slash commands and skill invocations. The [Agent Registry](/glossary/agent-registry/) maps command names to agent specifications:
+Claude Code sessions can invoke any of the platform's 530+ [AIAD](@/glossary/aiad.md) agents through slash commands and skill invocations. The [Agent Registry](@/glossary/agent-registry.md) maps command names to agent specifications:
 
 ```bash
 # Invoke specialized agents from Claude Code
@@ -388,27 +388,27 @@ When CI pipelines fail, developers can paste the error output and Claude Code wi
 
 ## Related Concepts
 
-- [Claude AI](/glossary/claude-ai/) -- the underlying large language model that powers Claude Code
-- [LLM](/glossary/llm/) -- the class of AI models that enable natural-language programming interfaces
-- [Development Workflow](/glossary/development-workflow/) -- the broader process that Claude Code integrates into
-- [MCP](/glossary/mcp/) -- Model Context Protocol for extending Claude Code's tool capabilities
-- [Slash Command](/glossary/slash-command/) -- the invocation mechanism for Claude Code skills and AIAD commands
-- [AIAD](/glossary/aiad/) -- the AI-Agent-Driven standard that structures agents invoked from Claude Code
-- [Code Generation](/glossary/code-generation/) -- one of the primary capabilities Claude Code provides
-- [Quality Gate](/glossary/quality-gate/) -- automated checks that Claude Code executes during development
-- [Pre-commit Hooks](/glossary/pre-commit-hooks/) -- the hook system that validates changes before commits
-- [Session Discipline](/glossary/session-discipline/) -- the mandatory protocol governing Claude Code sessions
-- [Autoevolve](/glossary/autoevolve/) -- platform evolution triggered at session boundaries
-- [Agent](/glossary/agent/) -- the autonomous entities orchestrated through Claude Code
+- [Claude AI](@/glossary/claude-ai.md) -- the underlying large language model that powers Claude Code
+- [LLM](@/glossary/llm.md) -- the class of AI models that enable natural-language programming interfaces
+- [Development Workflow](@/glossary/development-workflow.md) -- the broader process that Claude Code integrates into
+- [MCP](@/glossary/mcp.md) -- Model Context Protocol for extending Claude Code's tool capabilities
+- [Slash Command](@/glossary/slash-command.md) -- the invocation mechanism for Claude Code skills and AIAD commands
+- [AIAD](@/glossary/aiad.md) -- the AI-Agent-Driven standard that structures agents invoked from Claude Code
+- [Code Generation](@/glossary/code-generation.md) -- one of the primary capabilities Claude Code provides
+- [Quality Gate](@/glossary/quality-gate.md) -- automated checks that Claude Code executes during development
+- [Pre-commit Hooks](@/glossary/pre-commit-hooks.md) -- the hook system that validates changes before commits
+- [Session Discipline](@/glossary/session-discipline.md) -- the mandatory protocol governing Claude Code sessions
+- [Autoevolve](@/glossary/autoevolve.md) -- platform evolution triggered at session boundaries
+- [Agent](@/glossary/agent.md) -- the autonomous entities orchestrated through Claude Code
 
 ## See Also
 
-- [Agent Registry](/glossary/agent-registry/) -- catalog of all agents accessible from Claude Code
-- [Clean Run](/glossary/clean-run/) -- the zero-warning compilation standard enforced in sessions
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- the doctrine governing Claude Code session behavior
-- [Git Trees](/glossary/git-trees/) -- optimized codebase exploration used within sessions
-- [Static Analysis](/glossary/static-analysis/) -- quality checks executed by Claude Code workflows
-- [Continuous Integration](/glossary/continuous-integration/) -- the CI pipeline that validates Claude Code outputs
+- [Agent Registry](@/glossary/agent-registry.md) -- catalog of all agents accessible from Claude Code
+- [Clean Run](@/glossary/clean-run.md) -- the zero-warning compilation standard enforced in sessions
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- the doctrine governing Claude Code session behavior
+- [Git Trees](@/glossary/git-trees.md) -- optimized codebase exploration used within sessions
+- [Static Analysis](@/glossary/static-analysis.md) -- quality checks executed by Claude Code workflows
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the CI pipeline that validates Claude Code outputs
 
 ---
 
@@ -417,4 +417,4 @@ When CI pipelines fail, developers can paste the error output and Claude Code wi
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -518,25 +518,25 @@ end
 
 ## Related Terms
 
-- [OSINT](/glossary/osint/) -- Open source intelligence methodology encompassing dark web collection
-- [Threat Intelligence](/glossary/threat-intelligence/) -- Strategic and tactical intelligence derived from dark web monitoring
-- [Data Breach](/glossary/data-breach/) -- Unauthorized data exposure often traded on dark web marketplaces
-- [IOC](/glossary/ioc/) -- Indicators of compromise discovered through dark web monitoring
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Combining dark web findings with other intelligence sources
+- [OSINT](@/glossary/osint.md) -- Open source intelligence methodology encompassing dark web collection
+- [Threat Intelligence](@/glossary/threat-intelligence.md) -- Strategic and tactical intelligence derived from dark web monitoring
+- [Data Breach](@/glossary/data-breach.md) -- Unauthorized data exposure often traded on dark web marketplaces
+- [IOC](@/glossary/ioc.md) -- Indicators of compromise discovered through dark web monitoring
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Combining dark web findings with other intelligence sources
 - [Tor](/glossary/tor/) -- The Onion Router network providing dark web infrastructure
 - [Deep Web](/glossary/deep-web/) -- Unindexed web content distinct from encrypted dark web
 - [Threat Hunting](/glossary/threat-hunting/) -- Proactive threat detection incorporating dark web intelligence
-- [PubSub](/glossary/pubsub/) -- Event system for real-time dark web alert distribution
-- [GenServer](/glossary/genserver/) -- Process model for alert engine and monitoring services
-- [ETS](/glossary/ets/) -- In-memory storage for indicator deduplication sets
-- [Ensemble](/glossary/ensemble/) -- Multi-source scoring methods applied to dark web findings
+- [PubSub](@/glossary/pubsub.md) -- Event system for real-time dark web alert distribution
+- [GenServer](@/glossary/genserver.md) -- Process model for alert engine and monitoring services
+- [ETS](@/glossary/ets.md) -- In-memory storage for indicator deduplication sets
+- [Ensemble](@/glossary/ensemble.md) -- Multi-source scoring methods applied to dark web findings
 
 ## See Also
 
-- [OSINT Tools](/osint/) -- Platform OSINT tool registry including dark web adapters
-- [Capabilities](/capabilities/) -- Intelligence collection capabilities overview
-- [Architecture](/architecture/) -- Platform architecture supporting real-time intelligence
-- [Technologies](/technologies/) -- Technology stack details
+- [OSINT Tools](@/osint/_index.md) -- Platform OSINT tool registry including dark web adapters
+- [Capabilities](@/capabilities/_index.md) -- Intelligence collection capabilities overview
+- [Architecture](@/architecture/_index.md) -- Platform architecture supporting real-time intelligence
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 - [Security](/security/) -- Security architecture and operations
 
 ---
@@ -546,4 +546,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

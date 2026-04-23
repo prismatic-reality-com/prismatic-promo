@@ -28,7 +28,7 @@ total_agents = 20
 date_modified = "2026-02-23"
 +++
 
-Six color-coded [security teams](/glossary/color-teams/) with 20 specialized [agents](/glossary/agent/) implement [adversarial-defensive](/glossary/adversarial-architecture/) [epistemic security](/glossary/epistemic-robustness/) through simulation-based [threat modeling](/glossary/threat-intelligence/), [formal verification](/glossary/formal-verification/), and continuous synthesis. Every operation executes in [sandboxed](/glossary/process-isolation/) environments with synthetic data only -- no production access, no real data, no network connectivity for adversarial operations.
+Six color-coded [security teams](@/glossary/color-teams.md) with 20 specialized [agents](@/glossary/agent.md) implement [adversarial-defensive](@/glossary/adversarial-architecture.md) [epistemic security](@/glossary/epistemic-robustness.md) through simulation-based [threat modeling](@/glossary/threat-intelligence.md), [formal verification](@/glossary/formal-verification.md), and continuous synthesis. Every operation executes in [sandboxed](@/glossary/process-isolation.md) environments with synthetic data only -- no production access, no real data, no network connectivity for adversarial operations.
 
 <!-- more -->
 
@@ -36,9 +36,9 @@ Six color-coded [security teams](/glossary/color-teams/) with 20 specialized [ag
 
 The Prismatic Platform's color team architecture implements epistemic security through adversarial-defensive synthesis: a coordinated system of six specialized teams comprising 20 autonomous agents that continuously probe, defend, verify, and synthesize the platform's cognitive integrity. Unlike traditional security operations that focus on infrastructure vulnerabilities and network perimeters, the color team framework targets a deeper class of threats -- epistemic attacks that degrade the quality of beliefs, decisions, and inferences made by AI-driven systems.
 
-The six teams (Gray, Red, Blue, Purple, White, Black) form a closed-loop security cycle where boundary exploration seeds adversarial scenarios, which generate defensive evidence, which undergoes synthesis and closure verification, which feeds back into refined boundary exploration. This cycle operates continuously under the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, ensuring that every security assessment meets formal consistency requirements through the [Trinity Gate](/glossary/trinity-gate/) validation process.
+The six teams (Gray, Red, Blue, Purple, White, Black) form a closed-loop security cycle where boundary exploration seeds adversarial scenarios, which generate defensive evidence, which undergoes synthesis and closure verification, which feeds back into refined boundary exploration. This cycle operates continuously under the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, ensuring that every security assessment meets formal consistency requirements through the [Trinity Gate](@/glossary/trinity-gate.md) validation process.
 
-All color team operations are simulation-only, executing exclusively with synthetic data in [sandboxed](/glossary/process-isolation/) environments. No team has production access. No team processes real personally identifiable information. Authorization is limited to CTF challenges, defensive security research, and explicitly authorized [penetration testing](/glossary/penetration-testing/) scenarios.
+All color team operations are simulation-only, executing exclusively with synthetic data in [sandboxed](@/glossary/process-isolation.md) environments. No team has production access. No team processes real personally identifiable information. Authorization is limited to CTF challenges, defensive security research, and explicitly authorized [penetration testing](@/glossary/penetration-testing.md) scenarios.
 
 ## 1. Introduction
 
@@ -46,7 +46,7 @@ All color team operations are simulation-only, executing exclusively with synthe
 
 Traditional cybersecurity frameworks address well-understood threat categories: network intrusion, malware deployment, data exfiltration, privilege escalation. These threats operate at the infrastructure layer, targeting systems, data, and access controls. The Prismatic Platform faces an additional category of threats that traditional frameworks do not address: epistemic attacks.
 
-An epistemic attack degrades the quality of a system's beliefs without necessarily compromising its infrastructure. Consider a platform that makes decisions based on synthesized intelligence from multiple sources. An adversary need not breach the platform's network -- instead, they can poison upstream data sources, manipulate [confidence scores](/glossary/confidence-scoring/) through carefully crafted edge cases, or induce gradual drift in baseline assumptions until the system's decisions diverge from reality while all traditional security indicators remain green.
+An epistemic attack degrades the quality of a system's beliefs without necessarily compromising its infrastructure. Consider a platform that makes decisions based on synthesized intelligence from multiple sources. An adversary need not breach the platform's network -- instead, they can poison upstream data sources, manipulate [confidence scores](@/glossary/confidence-scoring.md) through carefully crafted edge cases, or induce gradual drift in baseline assumptions until the system's decisions diverge from reality while all traditional security indicators remain green.
 
 These threats are particularly dangerous for AI-driven platforms because they exploit the same cognitive mechanisms that provide the system's value. A system that synthesizes intelligence from diverse sources is inherently vulnerable to source manipulation. A system that adapts its behavior based on observed patterns can be led to adapt in adversary-favorable directions. A system that trusts its own confidence metrics can be deceived when those metrics are subtly corrupted.
 
@@ -76,12 +76,12 @@ The six-color framework draws from established security industry conventions whi
 
 | Color | Traditional Role | Prismatic Extension |
 |-------|-----------------|---------------------|
-| **[Gray](/glossary/gray-team/)** | Not standard | Boundary exploration -- probes the spaces between defined behaviors |
-| **[Red](/glossary/red-team/)** | Offensive security | Epistemic attack simulation -- targets belief formation, not infrastructure |
-| **[Blue](/glossary/blue-team/)** | Defensive security | Epistemic defense -- protects cognitive integrity through evidence synthesis |
-| **[Purple](/glossary/purple-team/)** | Red-Blue integration | Synthesis and closure -- ensures adversarial findings produce defensive improvements |
-| **[White](/glossary/white-team/)** | Neutral/referee | Constructive verification -- provides formal proofs that systems hold |
-| **[Black](/glossary/black-team/)** | Hostile/unknown | Theoretical threat modeling -- models worst-case adversarial optimization under MAXIMUM isolation |
+| **[Gray](@/glossary/gray-team.md)** | Not standard | Boundary exploration -- probes the spaces between defined behaviors |
+| **[Red](@/glossary/red-team.md)** | Offensive security | Epistemic attack simulation -- targets belief formation, not infrastructure |
+| **[Blue](@/glossary/blue-team.md)** | Defensive security | Epistemic defense -- protects cognitive integrity through evidence synthesis |
+| **[Purple](@/glossary/purple-team.md)** | Red-Blue integration | Synthesis and closure -- ensures adversarial findings produce defensive improvements |
+| **[White](@/glossary/white-team.md)** | Neutral/referee | Constructive verification -- provides formal proofs that systems hold |
+| **[Black](@/glossary/black-team.md)** | Hostile/unknown | Theoretical threat modeling -- models worst-case adversarial optimization under MAXIMUM isolation |
 
 The addition of Gray (boundary exploration) and White (constructive verification) teams reflects the platform's emphasis on proactive security. Gray identifies ambiguities before they become vulnerabilities. White proves that defenses hold through formal methods rather than relying solely on the absence of successful attacks.
 
@@ -103,7 +103,7 @@ This flow is not a rigid pipeline but a continuous cycle. Gray team findings see
 
 ### 2.3 Authority and Coordination
 
-Each team has a designated commander ([L3 authority](/glossary/agent-tier/)) who coordinates the team's specialists and interfaces with other team commanders. Cross-team coordination follows defined protocols:
+Each team has a designated commander ([L3 authority](@/glossary/agent-tier.md)) who coordinates the team's specialists and interfaces with other team commanders. Cross-team coordination follows defined protocols:
 
 ```elixir
 defmodule PrismaticDark.ColorTeam.Coordinator do
@@ -242,10 +242,10 @@ The Blue team maintains the platform's epistemic defensive posture through conti
 
 ### 5.3 NABLA Integration
 
-Blue team operations are deeply integrated with the [NABLA Infinity](/glossary/nabla-infinity/) [epistemic framework](/glossary/epistemic-pipeline/). Every defensive assessment must satisfy NABLA's seven non-negotiable axioms:
+Blue team operations are deeply integrated with the [NABLA Infinity](@/glossary/nabla-infinity.md) [epistemic framework](@/glossary/epistemic-pipeline.md). Every defensive assessment must satisfy NABLA's seven non-negotiable axioms:
 
-- **[Signal Plurality](/glossary/signal-plurality/)**: No defensive assessment based on a single signal source. Minimum two independent sources required.
-- **[Contradiction Preservation](/glossary/contradiction-preservation/)**: When defensive signals contradict each other (e.g., one metric shows health, another shows degradation), both signals are preserved and surfaced rather than one being discarded.
+- **[Signal Plurality](@/glossary/signal-plurality.md)**: No defensive assessment based on a single signal source. Minimum two independent sources required.
+- **[Contradiction Preservation](@/glossary/contradiction-preservation.md)**: When defensive signals contradict each other (e.g., one metric shows health, another shows degradation), both signals are preserved and surfaced rather than one being discarded.
 - **Absence Informative**: Missing expected signals are tracked as meaningful -- a sensor that stops reporting is itself a signal.
 - **Time Decay**: All defensive assessments carry timestamps and decay functions. A clean security assessment from last week carries less weight than a concerning assessment from today.
 - **Provenance Mandatory**: Every defensive claim traces back to originating evidence through a verifiable chain.
@@ -500,9 +500,9 @@ The 20 agents across six teams, operating under NABLA Infinity's epistemic frame
 
 ### Internal Documentation
 
-- [Agent Ecosystem](/agents/) -- Complete agent catalog including color team agent specifications
-- [Platform Capabilities](/capabilities/) -- Doctrines, quality enforcement, and governance framework
-- [Architecture](/architecture/) -- Technical infrastructure and NABLA epistemic pipeline
+- [Agent Ecosystem](@/agents/_index.md) -- Complete agent catalog including color team agent specifications
+- [Platform Capabilities](@/capabilities/_index.md) -- Doctrines, quality enforcement, and governance framework
+- [Architecture](@/architecture/_index.md) -- Technical infrastructure and NABLA epistemic pipeline
 
 ### Epistemic Security Resources
 
@@ -522,4 +522,4 @@ The 20 agents across six teams, operating under NABLA Infinity's epistemic frame
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

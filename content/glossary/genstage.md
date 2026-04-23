@@ -38,11 +38,11 @@ image_alt = "GenStage - Prismatic Platform"
 
 ## Definition
 
-GenStage is an Elixir library that provides a framework for building data processing pipelines with built-in demand-driven [backpressure](/glossary/backpressure/). It defines three fundamental roles -- producers (emit events), consumers (absorb events), and producer-consumers (both receive and emit events) -- that connect into directed acyclic graphs where data flows from producers to consumers at a rate the consumers can sustain. GenStage was created by Jose Valim and the Elixir core team as the foundation for all data-intensive processing in the Elixir ecosystem.
+GenStage is an Elixir library that provides a framework for building data processing pipelines with built-in demand-driven [backpressure](@/glossary/backpressure.md). It defines three fundamental roles -- producers (emit events), consumers (absorb events), and producer-consumers (both receive and emit events) -- that connect into directed acyclic graphs where data flows from producers to consumers at a rate the consumers can sustain. GenStage was created by Jose Valim and the Elixir core team as the foundation for all data-intensive processing in the Elixir ecosystem.
 
 The key innovation of GenStage is its demand model: consumers tell producers how many events they can handle, and producers never emit more events than the total demand from their subscribers. This inverted flow control eliminates buffer overflow and memory exhaustion issues common in naive pipeline architectures where producers push data regardless of consumer capacity. The demand propagates backwards through the pipeline -- if a downstream consumer slows down, its reduced demand automatically throttles all upstream stages.
 
-GenStage builds on the [GenServer](/glossary/genserver/) [behaviour](/glossary/behaviour/), meaning every stage is a supervised [BEAM](/glossary/beam/) process with all the fault isolation, monitoring, and hot code reloading properties that entails. A crashed stage is automatically restarted by its [supervisor](/glossary/supervisor/), and the demand-driven subscription model ensures that restarted stages re-integrate into the pipeline without message loss or duplication (depending on acknowledgment configuration).
+GenStage builds on the [GenServer](@/glossary/genserver.md) [behaviour](@/glossary/behaviour.md), meaning every stage is a supervised [BEAM](@/glossary/beam.md) process with all the fault isolation, monitoring, and hot code reloading properties that entails. A crashed stage is automatically restarted by its [supervisor](@/glossary/supervisor.md), and the demand-driven subscription model ensures that restarted stages re-integrate into the pipeline without message loss or duplication (depending on acknowledgment configuration).
 
 ## Historical Context and Motivation
 
@@ -50,7 +50,7 @@ Before GenStage, Elixir developers building data processing pipelines faced a re
 
 GenStage was released in 2016 as the official solution to this problem. Its design was informed by the Reactive Streams specification (which solved the same problem in the JVM ecosystem) and by decades of Erlang experience with demand-driven flow control in telecom systems. The key design decisions were: demand flows backwards (consumer to producer), events flow forwards (producer to consumer), every stage is a supervised process, and the demand model is pluggable through dispatcher strategies.
 
-GenStage quickly became the foundation for higher-level abstractions. [Broadway](/glossary/broadway/), released in 2019, provides a declarative API for common pipeline patterns (message queues, database polling, streaming) built entirely on GenStage. Flow, another library built on GenStage, provides lazy parallel data processing similar to Java's parallel streams. The Prismatic Platform uses GenStage both directly (for custom pipeline topologies) and indirectly (through Broadway for standard ingestion patterns).
+GenStage quickly became the foundation for higher-level abstractions. [Broadway](@/glossary/broadway.md), released in 2019, provides a declarative API for common pipeline patterns (message queues, database polling, streaming) built entirely on GenStage. Flow, another library built on GenStage, provides lazy parallel data processing similar to Java's parallel streams. The Prismatic Platform uses GenStage both directly (for custom pipeline topologies) and indirectly (through Broadway for standard ingestion patterns).
 
 ## The Producer-Consumer Model
 
@@ -395,7 +395,7 @@ end
 
 ## GenStage vs Broadway
 
-GenStage and [Broadway](/glossary/broadway/) serve different levels of abstraction:
+GenStage and [Broadway](@/glossary/broadway.md) serve different levels of abstraction:
 
 | Aspect | GenStage | Broadway |
 |--------|----------|---------|
@@ -413,9 +413,9 @@ For most data processing needs, Broadway is the preferred choice. GenStage is us
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform uses GenStage patterns in the [SEADF](/glossary/seadf/) pipeline for processing intelligence data, quality scan results, and agent telemetry streams. The scanner subsystem collects raw data (producer), normalizes and enriches it (producer-consumer stages), and delivers structured output to storage and analysis consumers.
+The Prismatic Platform uses GenStage patterns in the [SEADF](@/glossary/seadf.md) pipeline for processing intelligence data, quality scan results, and agent telemetry streams. The scanner subsystem collects raw data (producer), normalizes and enriches it (producer-consumer stages), and delivers structured output to storage and analysis consumers.
 
-GenStage also forms the foundation for all [Broadway](/glossary/broadway/) pipelines in the platform, including the Perimeter EASM asset discovery pipeline and the OSINT feed ingestion system. The platform's use of GenStage can be categorized into three tiers:
+GenStage also forms the foundation for all [Broadway](@/glossary/broadway.md) pipelines in the platform, including the Perimeter EASM asset discovery pipeline and the OSINT feed ingestion system. The platform's use of GenStage can be categorized into three tiers:
 
 | Tier | Usage | Pipeline Type | Example |
 |------|-------|--------------|---------|
@@ -425,7 +425,7 @@ GenStage also forms the foundation for all [Broadway](/glossary/broadway/) pipel
 
 ## Supervision and Fault Recovery
 
-GenStage pipelines are typically organized under a dedicated [supervisor](/glossary/supervisor/) that manages the lifecycle of all stages:
+GenStage pipelines are typically organized under a dedicated [supervisor](@/glossary/supervisor.md) that manages the lifecycle of all stages:
 
 ```elixir
 defmodule PrismaticPerimeter.Scanner.Supervisor do
@@ -490,25 +490,25 @@ end
 
 ## Related Terms
 
-- [Broadway](/glossary/broadway/) - High-level pipeline framework built on GenStage
-- [Backpressure](/glossary/backpressure/) - Demand-driven flow control mechanism
-- [GenServer](/glossary/genserver/) - Underlying process behavior for each stage
-- [OTP](/glossary/otp/) - GenStage builds on OTP behaviors and supervision
-- [Supervisor](/glossary/supervisor/) - Manages GenStage pipeline lifecycle
-- [Supervision Tree](/glossary/supervision-tree/) - Hierarchical management of pipeline stages
-- [BEAM](/glossary/beam/) - Virtual machine running GenStage processes
-- [SEADF](/glossary/seadf/) - Platform framework using GenStage patterns
-- [Stream Processing](/glossary/stream-processing/) - Real-time data processing paradigm
-- [Data Pipeline](/glossary/data-pipeline/) - General pipeline architecture pattern
-- [Behaviour](/glossary/behaviour/) - Interface specification GenStage implements
-- [Message Passing](/glossary/message-passing/) - Inter-process communication underlying GenStage
+- [Broadway](@/glossary/broadway.md) - High-level pipeline framework built on GenStage
+- [Backpressure](@/glossary/backpressure.md) - Demand-driven flow control mechanism
+- [GenServer](@/glossary/genserver.md) - Underlying process behavior for each stage
+- [OTP](@/glossary/otp.md) - GenStage builds on OTP behaviors and supervision
+- [Supervisor](@/glossary/supervisor.md) - Manages GenStage pipeline lifecycle
+- [Supervision Tree](@/glossary/supervision-tree.md) - Hierarchical management of pipeline stages
+- [BEAM](@/glossary/beam.md) - Virtual machine running GenStage processes
+- [SEADF](@/glossary/seadf.md) - Platform framework using GenStage patterns
+- [Stream Processing](@/glossary/stream-processing.md) - Real-time data processing paradigm
+- [Data Pipeline](@/glossary/data-pipeline.md) - General pipeline architecture pattern
+- [Behaviour](@/glossary/behaviour.md) - Interface specification GenStage implements
+- [Message Passing](@/glossary/message-passing.md) - Inter-process communication underlying GenStage
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture
-- [Technologies](/technologies/) - Technology stack
-- [Fault Tolerance](/glossary/fault-tolerance/) - Reliability through supervised stages
-- [Process Isolation](/glossary/process-isolation/) - Per-stage crash containment
+- [Architecture](@/architecture/_index.md) - Platform architecture
+- [Technologies](@/technologies/_index.md) - Technology stack
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - Reliability through supervised stages
+- [Process Isolation](@/glossary/process-isolation.md) - Per-stage crash containment
 
 ---
 
@@ -517,4 +517,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

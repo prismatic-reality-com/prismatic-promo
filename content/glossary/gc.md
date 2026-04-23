@@ -158,10 +158,10 @@ LiveView processes use the `:low_latency` profile to ensure consistent render ti
 ## Cross-References
 
 - **Heap** -- Process memory allocation area
-- [ETS Memory](/glossary/ets-memory/) -- Memory management outside GC scope
-- [Process Isolation](/glossary/process-isolation/) -- Isolation enabling per-process GC
-- [BEAM](/glossary/beam/) -- Virtual machine implementing the GC
-- [Execution Time](/glossary/execution-time/) -- GC impact on operation timing
+- [ETS Memory](@/glossary/ets-memory.md) -- Memory management outside GC scope
+- [Process Isolation](@/glossary/process-isolation.md) -- Isolation enabling per-process GC
+- [BEAM](@/glossary/beam.md) -- Virtual machine implementing the GC
+- [Execution Time](@/glossary/execution-time.md) -- GC impact on operation timing
 - **Livebooks**: `performance_monitoring/` notebooks include GC profiling tools
 - **Academy**: Topics on BEAM internals cover GC mechanics
 
@@ -172,4 +172,4 @@ LiveView processes use the `:low_latency` profile to ensure consistent render ti
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

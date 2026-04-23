@@ -28,9 +28,9 @@ image_alt = "presales-coordinator - Prismatic Platform"
 
 ## Overview
 
-The presales-coordinator operates as an L2 [tactical execution](/glossary/tactical-execution/) agent within the Prismatic Platform's medium-predator domain, responsible for coordinating presales activities including case study creation, demonstration preparation, proof-of-concept project management, and prospect-specific capability assessments. This agent bridges the gap between the platform's technical capabilities and prospect requirements, translating complex platform features into compelling narratives that demonstrate value for specific use cases.
+The presales-coordinator operates as an L2 [tactical execution](@/glossary/tactical-execution.md) agent within the Prismatic Platform's medium-predator domain, responsible for coordinating presales activities including case study creation, demonstration preparation, proof-of-concept project management, and prospect-specific capability assessments. This agent bridges the gap between the platform's technical capabilities and prospect requirements, translating complex platform features into compelling narratives that demonstrate value for specific use cases.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the [SEADF](/glossary/seadf/) evolutionary framework, the presales-coordinator continuously improves its effectiveness through feedback loops that track which presales approaches lead to successful engagements. Through the [mycelial network](/glossary/mycelial-network/), the agent shares successful presales patterns across the platform's business development ecosystem, enabling institutional learning about what resonates with different prospect profiles.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the [SEADF](@/glossary/seadf.md) evolutionary framework, the presales-coordinator continuously improves its effectiveness through feedback loops that track which presales approaches lead to successful engagements. Through the [mycelial network](@/glossary/mycelial-network.md), the agent shares successful presales patterns across the platform's business development ecosystem, enabling institutional learning about what resonates with different prospect profiles.
 
 ## Operational Domain
 
@@ -51,8 +51,8 @@ The presales coordination domain covers all pre-engagement activities that demon
 - **Demo environment management** -- Maintains pre-configured demonstration environments with realistic data sets that showcase platform capabilities relevant to prospect requirements
 - **POC project coordination** -- Manages proof-of-concept timelines, resource allocation, success criteria, and progress reporting, ensuring that POC results directly address prospect evaluation criteria
 - **Competitive positioning** -- Analyzes competitor capabilities against platform features to produce differentiation narratives that highlight unique platform strengths
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed presales asset maintenance and prospect research cycles
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing presales pipeline metrics, asset utilization rates, and engagement conversion statistics
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed presales asset maintenance and prospect research cycles
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing presales pipeline metrics, asset utilization rates, and engagement conversion statistics
 
 ## Presales Pipeline Management
 
@@ -129,7 +129,7 @@ end
 
 ## Authority Level
 
-**L2** - [Tactical Operations](/glossary/tactical-execution/) - Domain-specific tactical execution with authority to create presales assets, manage demonstration environments, and coordinate POC projects.
+**L2** - [Tactical Operations](@/glossary/tactical-execution.md) - Domain-specific tactical execution with authority to create presales assets, manage demonstration environments, and coordinate POC projects.
 
 ## Command Interface
 
@@ -143,10 +143,10 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [presales-intelligence-commander](/agents/presales-intelligence-commander/) | Receives strategic direction and priority prospect assignments |
-| [linkedin-intelligence-specialist](/agents/linkedin-intelligence-specialist/) | Provides prospect professional intelligence for engagement customization |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Supplies prospect risk profiles for engagement qualification |
-| [code-quality-commander](/agents/code-quality-commander/) | Ensures demo environments reflect production quality standards |
+| [presales-intelligence-commander](@/agents/presales-intelligence-commander.md) | Receives strategic direction and priority prospect assignments |
+| [linkedin-intelligence-specialist](@/agents/linkedin-intelligence-specialist.md) | Provides prospect professional intelligence for engagement customization |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Supplies prospect risk profiles for engagement qualification |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Ensures demo environments reflect production quality standards |
 
 ## Case Study Methodology
 
@@ -172,7 +172,7 @@ Demonstration environments are versioned and environment-specific configurations
 
 ## Competitive Differentiation Narratives
 
-The presales-coordinator produces differentiation narratives that articulate the platform's unique strengths relative to specific competitors in each engagement. These narratives are fact-based, drawing from the competitive intelligence maintained by the [presales-intelligence-commander](/agents/presales-intelligence-commander/). Each narrative is customized to the specific prospect's requirements, emphasizing the platform capabilities that most directly address the prospect's stated needs while acknowledging areas where competitors may have strengths. This honest, evidence-based approach builds credibility with technical evaluators who are likely to verify competitive claims independently.
+The presales-coordinator produces differentiation narratives that articulate the platform's unique strengths relative to specific competitors in each engagement. These narratives are fact-based, drawing from the competitive intelligence maintained by the [presales-intelligence-commander](@/agents/presales-intelligence-commander.md). Each narrative is customized to the specific prospect's requirements, emphasizing the platform capabilities that most directly address the prospect's stated needs while acknowledging areas where competitors may have strengths. This honest, evidence-based approach builds credibility with technical evaluators who are likely to verify competitive claims independently.
 
 ## Proof of Concept Management
 
@@ -182,7 +182,7 @@ During POC execution, the coordinator publishes weekly progress reports that doc
 
 ## Enforcement
 
-All presales activities comply with the [NO MERCY](/glossary/no-mercy/) doctrine: case studies include only verified outcomes with measurable metrics, demonstration environments maintain production-quality code standards, and POC results are transparently reported without selective presentation. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all capability claims in presales materials are verifiable against the actual platform, with [NABLA Infinity](/glossary/nabla-infinity/) provenance chains linking stated capabilities to implemented features.
+All presales activities comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: case studies include only verified outcomes with measurable metrics, demonstration environments maintain production-quality code standards, and POC results are transparently reported without selective presentation. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all capability claims in presales materials are verifiable against the actual platform, with [NABLA Infinity](@/glossary/nabla-infinity.md) provenance chains linking stated capabilities to implemented features.
 
 ---
 
@@ -191,4 +191,4 @@ All presales activities comply with the [NO MERCY](/glossary/no-mercy/) doctrine
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

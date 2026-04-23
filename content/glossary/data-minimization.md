@@ -36,9 +36,9 @@ image_alt = "Data Minimization - Prismatic Platform"
 
 ## Definition
 
-Data minimization is a foundational principle of the EU General Data Protection Regulation ([GDPR](/glossary/gdpr/)), codified in Article 5(1)(c), requiring that personal data collected and processed must be "adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed." It is not merely a suggestion to collect less data -- it is a legally binding obligation that demands organizations actively justify every data field they collect, process, or retain.
+Data minimization is a foundational principle of the EU General Data Protection Regulation ([GDPR](@/glossary/gdpr.md)), codified in Article 5(1)(c), requiring that personal data collected and processed must be "adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed." It is not merely a suggestion to collect less data -- it is a legally binding obligation that demands organizations actively justify every data field they collect, process, or retain.
 
-In the Prismatic Platform, data minimization is enforced programmatically across all data processing pipelines, with particular emphasis on [OSINT](/glossary/osint/) operations and [due diligence](/glossary/due-diligence/) workflows where the temptation to over-collect intelligence data is highest. The platform implements purpose-bound data collection, automatic field redaction, configurable retention policies with automated expiration, and comprehensive [audit trails](/glossary/audit-trail/) that prove compliance to regulators.
+In the Prismatic Platform, data minimization is enforced programmatically across all data processing pipelines, with particular emphasis on [OSINT](@/glossary/osint.md) operations and [due diligence](@/glossary/due-diligence.md) workflows where the temptation to over-collect intelligence data is highest. The platform implements purpose-bound data collection, automatic field redaction, configurable retention policies with automated expiration, and comprehensive [audit trails](@/glossary/audit-trail.md) that prove compliance to regulators.
 
 ## Overview
 
@@ -65,8 +65,8 @@ This approach treats data minimization not as an afterthought ("let's clean up t
 | **Purpose Limitation** | 5(1)(b) | Data collected for specified, explicit purposes only | Purpose declaration in adapter config |
 | **Data Minimization** | 5(1)(c) | Adequate, relevant, limited to necessary | Field-level filtering at ingestion |
 | **Storage Limitation** | 5(1)(e) | Retained only as long as necessary | Automated retention policy enforcement |
-| **Integrity** | 5(1)(f) | Protected against unauthorized processing | [Encryption at rest](/glossary/encryption-at-rest/) |
-| **Accountability** | 5(2) | Demonstrable compliance | [Audit trail](/glossary/audit-trail/) logging |
+| **Integrity** | 5(1)(f) | Protected against unauthorized processing | [Encryption at rest](@/glossary/encryption-at-rest.md) |
+| **Accountability** | 5(2) | Demonstrable compliance | [Audit trail](@/glossary/audit-trail.md) logging |
 
 ### Data Classification Model
 
@@ -388,7 +388,7 @@ end
 
 ### OSINT Data Minimization
 
-The platform's 120+ [OSINT](/glossary/osint/) adapters return varying amounts of data from external sources. Data minimization is enforced at the adapter boundary:
+The platform's 120+ [OSINT](@/glossary/osint.md) adapters return varying amounts of data from external sources. Data minimization is enforced at the adapter boundary:
 
 1. Each OSINT adapter declares its processing purpose (e.g., `osint_company_research`)
 2. The raw API response passes through the `DataMinimizer` before storage
@@ -400,11 +400,11 @@ For example, when querying the Czech ARES registry for company research, the ada
 
 ### Due Diligence Workflows
 
-[Due diligence](/glossary/due-diligence/) workflows operate under the `due_diligence_kyc` purpose, which has a broader field allowance (including personal data like name and date of birth) but a longer retention period (5 years) due to anti-money-laundering legal obligations. The `DataMinimizer` enforces that even within KYC, only the fields necessary for identity verification are retained.
+[Due diligence](@/glossary/due-diligence.md) workflows operate under the `due_diligence_kyc` purpose, which has a broader field allowance (including personal data like name and date of birth) but a longer retention period (5 years) due to anti-money-laundering legal obligations. The `DataMinimizer` enforces that even within KYC, only the fields necessary for identity verification are retained.
 
 ### Perimeter Scanning
 
-[EASM](/glossary/easm/) scanning through Prismatic Perimeter operates under the `perimeter_easm` purpose. While scanning discovers extensive technical data about target domains, only security-relevant fields (domains, IPs, ports, service banners, TLS certificates, DNS records) are retained. Administrative contact details from WHOIS records are filtered to organization-level only -- personal registrant details are automatically redacted.
+[EASM](@/glossary/easm.md) scanning through Prismatic Perimeter operates under the `perimeter_easm` purpose. While scanning discovers extensive technical data about target domains, only security-relevant fields (domains, IPs, ports, service banners, TLS certificates, DNS records) are retained. Administrative contact details from WHOIS records are filtered to organization-level only -- personal registrant details are automatically redacted.
 
 ### Compliance Reporting
 
@@ -482,18 +482,18 @@ The platform dashboard displays aggregate statistics about OSINT query volumes, 
 
 ## Related Concepts
 
-- [GDPR](/glossary/gdpr/) -- the regulatory framework that mandates data minimization
-- [Data Protection](/glossary/data-protection/) -- broader set of legal and technical measures for personal data
-- [Compliance Framework](/glossary/compliance-framework/) -- systematic approach to regulatory compliance
-- [Encryption](/glossary/encryption/) -- protecting data confidentiality during processing
-- [Encryption at Rest](/glossary/encryption-at-rest/) -- protecting stored personal data
-- [Audit Trail](/glossary/audit-trail/) -- immutable record proving minimization compliance
-- [OSINT](/glossary/osint/) -- open source intelligence operations subject to minimization rules
-- [Due Diligence](/glossary/due-diligence/) -- KYC workflows with specific minimization requirements
-- [NIS2](/glossary/nis2/) -- EU cybersecurity directive with data handling requirements
-- [ZKB](/glossary/zkb/) -- Czech cybersecurity regulation with data protection provisions
-- [EASM](/glossary/easm/) -- external attack surface management with data collection constraints
-- [Security Operations](/glossary/security-operations/) -- security monitoring subject to minimization rules
+- [GDPR](@/glossary/gdpr.md) -- the regulatory framework that mandates data minimization
+- [Data Protection](@/glossary/data-protection.md) -- broader set of legal and technical measures for personal data
+- [Compliance Framework](@/glossary/compliance-framework.md) -- systematic approach to regulatory compliance
+- [Encryption](@/glossary/encryption.md) -- protecting data confidentiality during processing
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) -- protecting stored personal data
+- [Audit Trail](@/glossary/audit-trail.md) -- immutable record proving minimization compliance
+- [OSINT](@/glossary/osint.md) -- open source intelligence operations subject to minimization rules
+- [Due Diligence](@/glossary/due-diligence.md) -- KYC workflows with specific minimization requirements
+- [NIS2](@/glossary/nis2.md) -- EU cybersecurity directive with data handling requirements
+- [ZKB](@/glossary/zkb.md) -- Czech cybersecurity regulation with data protection provisions
+- [EASM](@/glossary/easm.md) -- external attack surface management with data collection constraints
+- [Security Operations](@/glossary/security-operations.md) -- security monitoring subject to minimization rules
 
 ## See Also
 
@@ -510,4 +510,4 @@ The platform dashboard displays aggregate statistics about OSINT query volumes, 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

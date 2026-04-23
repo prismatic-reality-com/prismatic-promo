@@ -41,7 +41,7 @@ Command Query Responsibility Segregation (CQRS) is an architectural pattern that
 
 The motivation for CQRS arises from a fundamental tension in traditional CRUD architectures: the data model that is optimal for enforcing business rules during writes is rarely the model that is optimal for serving complex queries. A normalized relational schema with referential integrity constraints is excellent for maintaining consistency during writes but requires expensive joins for reads. Conversely, a denormalized view optimized for dashboard queries would be a nightmare to keep consistent during writes. CQRS resolves this tension by accepting that these are two different problems requiring two different solutions.
 
-The Prismatic Platform applies CQRS principles across its architecture. Write operations flow through validated command paths with full quality gate enforcement, while read-optimized views are served from [ETS](/glossary/ets/) caches and Meilisearch indices. The Prismatic API auto-discovers facade functions and routes GET requests to query paths and POST requests to command paths, embodying CQRS at the HTTP layer. The platform's multi-adapter storage layer -- spanning [PostgreSQL](/glossary/postgresql/), ETS, Redis, Meilisearch, and KuzuDB -- is itself a manifestation of CQRS, with each storage backend optimized for its specific read or write role.
+The Prismatic Platform applies CQRS principles across its architecture. Write operations flow through validated command paths with full quality gate enforcement, while read-optimized views are served from [ETS](@/glossary/ets.md) caches and Meilisearch indices. The Prismatic API auto-discovers facade functions and routes GET requests to query paths and POST requests to command paths, embodying CQRS at the HTTP layer. The platform's multi-adapter storage layer -- spanning [PostgreSQL](@/glossary/postgresql.md), ETS, Redis, Meilisearch, and KuzuDB -- is itself a manifestation of CQRS, with each storage backend optimized for its specific read or write role.
 
 ## Historical Context and Theoretical Foundations
 
@@ -49,7 +49,7 @@ The intellectual lineage of CQRS begins with Bertrand Meyer's 1988 book "Object-
 
 Greg Young, working in the domain-driven design community around 2010, recognized that CQS could be elevated from a method-level pattern to a system-level architecture. If commands and queries have fundamentally different requirements -- commands need validation, consistency, and business rule enforcement while queries need speed, denormalization, and flexible access patterns -- then they should have different models. This insight, combined with the event sourcing pattern, gave birth to CQRS as an architectural pattern.
 
-The connection to [Event Sourcing](/glossary/event-sourcing/) is important but not mandatory. Event sourcing stores the history of state changes as a sequence of events, and CQRS provides a natural way to project those events into read-optimized views. However, CQRS can be implemented without event sourcing (using traditional database writes on the command side) and event sourcing can be implemented without CQRS. The Prismatic Platform uses CQRS selectively, within bounded contexts where read/write characteristics justify the additional complexity, and combines it with event-driven synchronization rather than full event sourcing.
+The connection to [Event Sourcing](@/glossary/event-sourcing.md) is important but not mandatory. Event sourcing stores the history of state changes as a sequence of events, and CQRS provides a natural way to project those events into read-optimized views. However, CQRS can be implemented without event sourcing (using traditional database writes on the command side) and event sourcing can be implemented without CQRS. The Prismatic Platform uses CQRS selectively, within bounded contexts where read/write characteristics justify the additional complexity, and combines it with event-driven synchronization rather than full event sourcing.
 
 The pattern gained significant traction in the microservices era because it naturally aligns with service boundaries. A service can own its write model (the source of truth) while publishing events that allow other services to maintain their own read-optimized projections. This eliminates the need for shared databases between services, which is one of the most common coupling vectors in distributed systems.
 
@@ -115,9 +115,9 @@ end
 |----------|-------------|
 | **Normalized schema** | Third normal form for data integrity |
 | **Referential integrity** | Foreign keys enforce relationship constraints |
-| **Serializable transactions** | Strong consistency via [PostgreSQL](/glossary/postgresql/) |
+| **Serializable transactions** | Strong consistency via [PostgreSQL](@/glossary/postgresql.md) |
 | **Validation-heavy** | Business rules checked before every mutation |
-| **Audit trail** | Every write produces an [audit event](/glossary/audit-trail/) |
+| **Audit trail** | Every write produces an [audit event](@/glossary/audit-trail.md) |
 | **Low read optimization** | Not designed for complex queries |
 | **Event emission** | Every successful write emits an event for read model sync |
 
@@ -204,7 +204,7 @@ end
 
 | Projection | Storage Backend | Optimization | Staleness |
 |------------|----------------|--------------|-----------|
-| Dashboard metrics | [ETS](/glossary/ets/) | Sub-millisecond reads | 5 minutes |
+| Dashboard metrics | [ETS](@/glossary/ets.md) | Sub-millisecond reads | 5 minutes |
 | Full-text search | Meilisearch | Relevance ranking | Seconds |
 | Knowledge graph queries | KuzuDB | Relationship traversal | Minutes |
 | Time-series analytics | TimescaleDB | Continuous aggregates | Real-time |
@@ -235,7 +235,7 @@ Event Bus (PubSub / Broadway)
 
 ### Consistency Between Models
 
-The read models are [eventually consistent](/glossary/eventual-consistency/) with the write model. After a write completes, there is a brief window where the read models reflect the previous state. The platform manages this through several strategies.
+The read models are [eventually consistent](@/glossary/eventual-consistency.md) with the write model. After a write completes, there is a brief window where the read models reflect the previous state. The platform manages this through several strategies.
 
 | Strategy | Description | When Used |
 |----------|-------------|-----------|
@@ -293,7 +293,7 @@ end
 
 ## CQRS at the HTTP Layer
 
-The [Prismatic API](/glossary/rest-api/) embodies CQRS at the HTTP level. The auto-introspecting API gateway maps HTTP methods to the appropriate side of the CQRS boundary.
+The [Prismatic API](@/glossary/rest-api.md) embodies CQRS at the HTTP level. The auto-introspecting API gateway maps HTTP methods to the appropriate side of the CQRS boundary.
 
 | HTTP Method | CQRS Side | Behavior |
 |-------------|-----------|----------|
@@ -321,7 +321,7 @@ end
 
 ## Benefits for Complex Domains
 
-CQRS provides particular value for the Prismatic Platform's [domain-driven design](/glossary/domain-driven-design/) architecture.
+CQRS provides particular value for the Prismatic Platform's [domain-driven design](@/glossary/domain-driven-design.md) architecture.
 
 | Benefit | Description | Platform Example |
 |---------|-------------|-----------------|
@@ -329,7 +329,7 @@ CQRS provides particular value for the Prismatic Platform's [domain-driven desig
 | **Optimized storage** | Each side uses the best storage backend | PostgreSQL writes, ETS reads |
 | **Schema independence** | Read models can restructure without affecting writes | Dashboard redesign without migration |
 | **Multiple projections** | Same data projected into multiple optimized views | Dashboard + Search + Graph + Analytics |
-| **[Bounded context](/glossary/bounded-context/) clarity** | Clear separation of command and query responsibilities | Each umbrella app has distinct command/query modules |
+| **[Bounded context](@/glossary/bounded-context.md) clarity** | Clear separation of command and query responsibilities | Each umbrella app has distinct command/query modules |
 | **Testing clarity** | Commands and queries can be tested independently | Command validation isolated from projection logic |
 
 ## Trade-offs and Complexity
@@ -337,15 +337,15 @@ CQRS provides particular value for the Prismatic Platform's [domain-driven desig
 | Challenge | Mitigation |
 |-----------|------------|
 | **Eventual consistency** | Read-your-writes for critical paths; TTL-based caching elsewhere |
-| **Increased codebase** | Code generation for projections; [adapter pattern](/glossary/adapter-pattern/) for storage backends |
-| **Event ordering** | Monotonic event IDs; [Broadway](/glossary/broadway/) for ordered processing |
-| **Projection failure** | Projections are disposable; replay from [event source](/glossary/event-sourcing/) to rebuild |
+| **Increased codebase** | Code generation for projections; [adapter pattern](@/glossary/adapter-pattern.md) for storage backends |
+| **Event ordering** | Monotonic event IDs; [Broadway](@/glossary/broadway.md) for ordered processing |
+| **Projection failure** | Projections are disposable; replay from [event source](@/glossary/event-sourcing.md) to rebuild |
 | **Debugging complexity** | Correlation IDs across command and query paths; distributed tracing |
 | **Operational overhead** | Multiple storage backends to monitor and maintain |
 
 ## When to Apply CQRS
 
-CQRS adds complexity and should be applied selectively. The Prismatic Platform applies CQRS within [bounded contexts](/glossary/bounded-context/) that meet specific criteria.
+CQRS adds complexity and should be applied selectively. The Prismatic Platform applies CQRS within [bounded contexts](@/glossary/bounded-context.md) that meet specific criteria.
 
 | Criterion | CQRS Justified | Simple CRUD Sufficient |
 |-----------|---------------|----------------------|
@@ -416,7 +416,7 @@ end
 
 1. **Apply Selectively**: CQRS adds complexity and should only be applied within bounded contexts where read/write patterns are heavily skewed (100:1 or more), query complexity justifies separate models, or independent scaling is required.
 
-2. **Use Event-Driven Synchronization**: Keep read models synchronized through events rather than polling. [Broadway](/glossary/broadway/) pipelines provide ordered, concurrent event processing for updating projections.
+2. **Use Event-Driven Synchronization**: Keep read models synchronized through events rather than polling. [Broadway](@/glossary/broadway.md) pipelines provide ordered, concurrent event processing for updating projections.
 
 3. **Accept Eventual Consistency**: Design user interfaces to handle brief staleness windows between write confirmation and read model update. Use read-your-writes consistency for critical user-facing mutations.
 
@@ -446,23 +446,23 @@ end
 
 ## Related Concepts
 
-- [Event Sourcing](/glossary/event-sourcing/) -- Natural companion pattern providing the event log that feeds projections
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Strategic design approach that motivates CQRS boundaries
-- [Bounded Context](/glossary/bounded-context/) -- Scope within which CQRS separation is applied
-- [Eventual Consistency](/glossary/eventual-consistency/) -- Consistency model between write model and read projections
-- [REST API](/glossary/rest-api/) -- HTTP interface reflecting command/query separation
-- [Ecto](/glossary/ecto/) -- Elixir database layer powering the write model
-- [Adapter Pattern](/glossary/adapter-pattern/) -- Storage adapter abstraction for multiple read model backends
-- [Stream Processing](/glossary/stream-processing/) -- Pipeline processing connecting write events to read projections
-- [Data Pipeline](/glossary/data-pipeline/) -- Infrastructure moving events from write to read side
-- [Broadway](/glossary/broadway/) -- Elixir library for ordered, concurrent event processing
-- [PostgreSQL](/glossary/postgresql/) -- Write-side storage with strong consistency guarantees
-- [ETS](/glossary/ets/) -- Read-side in-memory cache for dashboard projections
+- [Event Sourcing](@/glossary/event-sourcing.md) -- Natural companion pattern providing the event log that feeds projections
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Strategic design approach that motivates CQRS boundaries
+- [Bounded Context](@/glossary/bounded-context.md) -- Scope within which CQRS separation is applied
+- [Eventual Consistency](@/glossary/eventual-consistency.md) -- Consistency model between write model and read projections
+- [REST API](@/glossary/rest-api.md) -- HTTP interface reflecting command/query separation
+- [Ecto](@/glossary/ecto.md) -- Elixir database layer powering the write model
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- Storage adapter abstraction for multiple read model backends
+- [Stream Processing](@/glossary/stream-processing.md) -- Pipeline processing connecting write events to read projections
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Infrastructure moving events from write to read side
+- [Broadway](@/glossary/broadway.md) -- Elixir library for ordered, concurrent event processing
+- [PostgreSQL](@/glossary/postgresql.md) -- Write-side storage with strong consistency guarantees
+- [ETS](@/glossary/ets.md) -- Read-side in-memory cache for dashboard projections
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform design patterns and CQRS implementation
-- [Apps](/apps/) -- Umbrella application structure reflecting CQRS boundaries
+- [Architecture](@/architecture/_index.md) -- Platform design patterns and CQRS implementation
+- [Apps](@/apps/_index.md) -- Umbrella application structure reflecting CQRS boundaries
 
 ---
 
@@ -471,4 +471,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

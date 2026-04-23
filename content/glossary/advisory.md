@@ -190,11 +190,11 @@ end
 ## Related Terms
 
 - **CSIRT** -- teams that publish and respond to advisories
-- [Alert](/glossary/alert/) -- automated notifications triggered by advisory conditions
+- [Alert](@/glossary/alert.md) -- automated notifications triggered by advisory conditions
 - **Compliance** -- regulatory frameworks mandating advisory response
-- [Anomaly Detection](/glossary/anomaly-detection/) -- detecting advisory-related exploitation attempts
+- [Anomaly Detection](@/glossary/anomaly-detection.md) -- detecting advisory-related exploitation attempts
 - **Containment** -- isolating systems affected by critical advisories
-- [ASN](/glossary/asn/) -- network context for advisory-affected infrastructure
+- [ASN](@/glossary/asn.md) -- network context for advisory-affected infrastructure
 
 ## See Also
 
@@ -209,4 +209,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

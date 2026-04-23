@@ -18,7 +18,7 @@ see_also = ["broadway", "genstage", "backpressure", "pipeline", "rate-limiting"]
 image_alt = "Broadway Pipelines for Continuous OSINT"
 +++
 
-Continuous OSINT is a pipeline, not a cron job. And pipelines without [backpressure](/glossary/backpressure) explode the first time one stage slows down. [Broadway](/glossary/broadway) — built on [GenStage](/glossary/genstage) — is how Prismatic's monitoring apps absorb spiky rate-limited upstreams without dropping messages or melting the database.
+Continuous OSINT is a pipeline, not a cron job. And pipelines without [backpressure](@/glossary/backpressure.md) explode the first time one stage slows down. [Broadway](@/glossary/broadway.md) — built on [GenStage](@/glossary/genstage.md) — is how Prismatic's monitoring apps absorb spiky rate-limited upstreams without dropping messages or melting the database.
 
 ## The spiky reality
 
@@ -72,7 +72,7 @@ Get those four right and the pipeline *pulls* work at a rate the slowest stage c
 
 ## Rate-limited adapters get their own pipeline
 
-Shodan and ARES do not belong in the CT firehose pipeline. They get their own Broadway with its own producer-level [rate limiting](/glossary/rate-limiting). Mixing them into a high-throughput pipeline means the high-throughput stages starve while the slow stages crawl.
+Shodan and ARES do not belong in the CT firehose pipeline. They get their own Broadway with its own producer-level [rate limiting](@/glossary/rate-limiting.md). Mixing them into a high-throughput pipeline means the high-throughput stages starve while the slow stages crawl.
 
 ## Dead letters are evidence
 
@@ -82,6 +82,6 @@ Every message that fails after retries ends up in a dead-letter Postgres table �
 
 - **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — the write side of the pipeline
 - **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — GenStage / Broadway foundations
-- **Glossary**: [Broadway](/glossary/broadway), [GenStage](/glossary/genstage), [Backpressure](/glossary/backpressure), [Pipeline](/glossary/pipeline), [Rate Limiting](/glossary/rate-limiting)
+- **Glossary**: [Broadway](@/glossary/broadway.md), [GenStage](@/glossary/genstage.md), [Backpressure](@/glossary/backpressure.md), [Pipeline](@/glossary/pipeline.md), [Rate Limiting](@/glossary/rate-limiting.md)
 
 The slowest stage sets the tempo. Plan for it. The pipeline will thank you at 3am.

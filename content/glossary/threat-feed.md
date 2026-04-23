@@ -239,10 +239,10 @@ PrismaticThreatIntel.FeedAggregator.ingest("commercial_feed_1", indicators)
 
 ## Cross-References
 
-- [STIX](/glossary/stix/) - Standard format for threat feed data
-- [TAXII](/glossary/taxii/) - Transport protocol for threat feed delivery
-- [Signal](/glossary/signal/) - Platform format produced from threat feed indicators
-- [OSINT](/glossary/osint/) - Intelligence discipline contributing to threat feeds
+- [STIX](@/glossary/stix.md) - Standard format for threat feed data
+- [TAXII](@/glossary/taxii.md) - Transport protocol for threat feed delivery
+- [Signal](@/glossary/signal.md) - Platform format produced from threat feed indicators
+- [OSINT](@/glossary/osint.md) - Intelligence discipline contributing to threat feeds
 
 ---
 

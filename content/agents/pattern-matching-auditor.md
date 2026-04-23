@@ -28,9 +28,9 @@ image_alt = "pattern-matching-auditor - Prismatic Platform"
 
 ## Overview
 
-The Pattern Matching Auditor operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's quality domain, providing automated static analysis of Elixir [pattern matching](/glossary/pattern-matching/) usage across the platform's 90 umbrella applications and approximately 6,600 Elixir source files. Pattern matching is the fundamental control flow mechanism in Elixir and the broader [BEAM](/glossary/beam/) ecosystem, and errors in pattern matching -- mismatched tuple arities, unreachable clauses, incomplete case coverage, and inconsistent return type patterns -- represent a significant class of defects that can cause runtime crashes in production.
+The Pattern Matching Auditor operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's quality domain, providing automated static analysis of Elixir [pattern matching](@/glossary/pattern-matching.md) usage across the platform's 90 umbrella applications and approximately 6,600 Elixir source files. Pattern matching is the fundamental control flow mechanism in Elixir and the broader [BEAM](@/glossary/beam.md) ecosystem, and errors in pattern matching -- mismatched tuple arities, unreachable clauses, incomplete case coverage, and inconsistent return type patterns -- represent a significant class of defects that can cause runtime crashes in production.
 
-This agent is genetically enhanced through the [SEADF](/glossary/seadf/) evolutionary framework, continuously improving its detection heuristics based on historical defect data. Unlike Dialyzer, which performs type-level analysis, the Pattern Matching Auditor focuses specifically on structural pattern correctness: ensuring that every pattern match in the codebase correctly handles the data shapes it will encounter at runtime. The [NO MERCY](/glossary/no-mercy/) doctrine requires zero tolerance for pattern matching defects -- every identified issue must be resolved before code reaches production.
+This agent is genetically enhanced through the [SEADF](@/glossary/seadf.md) evolutionary framework, continuously improving its detection heuristics based on historical defect data. Unlike Dialyzer, which performs type-level analysis, the Pattern Matching Auditor focuses specifically on structural pattern correctness: ensuring that every pattern match in the codebase correctly handles the data shapes it will encounter at runtime. The [NO MERCY](@/glossary/no-mercy.md) doctrine requires zero tolerance for pattern matching defects -- every identified issue must be resolved before code reaches production.
 
 ## Theoretical Foundations
 
@@ -56,9 +56,9 @@ The agent's scope extends beyond simple local analysis to cross-module pattern f
 
 - **Cross-module pattern flow tracking** -- Traces data flow across module boundaries to verify that consuming patterns handle all shapes produced by upstream functions, catching interface mismatches between collaborating modules
 
-- **[CASCADE](/glossary/cascade/) pattern detection** -- Identifies pattern matching anti-patterns that have been classified in the platform's [QDP](/glossary/qdp/) taxonomy, applying known fix patterns automatically where safe
+- **[CASCADE](@/glossary/cascade.md) pattern detection** -- Identifies pattern matching anti-patterns that have been classified in the platform's [QDP](@/glossary/qdp.md) taxonomy, applying known fix patterns automatically where safe
 
-- **[Property-based testing](/glossary/property-based-testing/) integration** -- Generates property-based test cases targeting identified pattern match sites to verify fix correctness under randomized inputs
+- **[Property-based testing](@/glossary/property-based-testing.md) integration** -- Generates property-based test cases targeting identified pattern match sites to verify fix correctness under randomized inputs
 
 ## Authority Level
 
@@ -83,10 +83,10 @@ Historical defect data from the platform's issue tracking system provides the fi
 
 | Agent | Relationship |
 |-------|-------------|
-| [code-quality-commander](/agents/code-quality-commander/) | Pattern audit results feed into the platform's aggregate quality score |
-| [pattern-quality-analyst](/agents/pattern-quality-analyst/) | Quality analysis of detected patterns informs audit prioritization |
-| [pattern-propagator-specialist](/agents/pattern-propagator-specialist/) | Verified fix patterns propagated across similar code sites platform-wide |
-| [performance-specialist](/agents/performance-specialist/) | Pattern matching efficiency analysis for performance-critical code paths |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Pattern audit results feed into the platform's aggregate quality score |
+| [pattern-quality-analyst](@/agents/pattern-quality-analyst.md) | Quality analysis of detected patterns informs audit prioritization |
+| [pattern-propagator-specialist](@/agents/pattern-propagator-specialist.md) | Verified fix patterns propagated across similar code sites platform-wide |
+| [performance-specialist](@/agents/performance-specialist.md) | Pattern matching efficiency analysis for performance-critical code paths |
 
 ## Detection Categories
 
@@ -102,7 +102,7 @@ The auditor classifies detected issues into severity categories that determine e
 
 ## Enforcement
 
-Pattern matching defects are enforced under the [NO MERCY](/glossary/no-mercy/) doctrine with zero tolerance for critical and error severity issues. All detected defects carry full diagnostic context including the exact code location, the conflicting patterns, example inputs that would trigger the defect, and suggested fixes. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every reported defect includes a concrete demonstration scenario proving the defect's reachability, preventing false positive noise from disrupting development velocity.
+Pattern matching defects are enforced under the [NO MERCY](@/glossary/no-mercy.md) doctrine with zero tolerance for critical and error severity issues. All detected defects carry full diagnostic context including the exact code location, the conflicting patterns, example inputs that would trigger the defect, and suggested fixes. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every reported defect includes a concrete demonstration scenario proving the defect's reachability, preventing false positive noise from disrupting development velocity.
 
 ## Related Agents
 
@@ -115,4 +115,4 @@ Agents in the **quality** domain collaborate to maintain the platform's perfect 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

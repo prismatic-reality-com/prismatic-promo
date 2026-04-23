@@ -24,11 +24,11 @@ image_alt = "Lean4 Proof Construction Pipeline - Prismatic Platform"
 
 ## Hypothesis
 
-We hypothesize that automated [Lean4](/technologies/lean4/) proof construction can verify 80% of platform invariants without human proof authoring, that proof construction time scales linearly with invariant complexity (measured in AST node count), and that the formal verification pipeline can sustain a throughput of 100+ proof verifications per hour for the standard invariant library.
+We hypothesize that automated [Lean4](@/technologies/lean4.md) proof construction can verify 80% of platform invariants without human proof authoring, that proof construction time scales linearly with invariant complexity (measured in AST node count), and that the formal verification pipeline can sustain a throughput of 100+ proof verifications per hour for the standard invariant library.
 
 ## Background
 
-Formal verification is the third and most rigorous gate of the [Trinity Gate](/glossary/trinity-gate/) system. While structural consistency and logical consistency can be checked algorithmically in polynomial time, formal necessity requires constructing mathematical proofs that platform claims hold under all possible conditions. This is fundamentally harder -- it involves translating Elixir behavioral specifications into Lean4 propositions and constructing valid proofs.
+Formal verification is the third and most rigorous gate of the [Trinity Gate](@/glossary/trinity-gate.md) system. While structural consistency and logical consistency can be checked algorithmically in polynomial time, formal necessity requires constructing mathematical proofs that platform claims hold under all possible conditions. This is fundamentally harder -- it involves translating Elixir behavioral specifications into Lean4 propositions and constructing valid proofs.
 
 ### Historical Context: From Hardware to Software Proofs
 
@@ -36,7 +36,7 @@ Formal verification has its roots in hardware design. In 1994, the Pentium FDIV 
 
 The transition from hardware to software verification proved substantially harder. Hardware operates in a finite state space with deterministic transitions. Software introduces unbounded recursion, dynamic memory allocation, concurrency, and non-determinism. Early efforts like the Verified Software Initiative (2005) and projects like CompCert (a formally verified C compiler) and seL4 (a formally verified microkernel) demonstrated feasibility but required person-years of proof effort for relatively small codebases.
 
-The Elixir ecosystem presents unique verification challenges. The [BEAM](/technologies/beam/) virtual machine supports millions of lightweight processes communicating via asynchronous message passing. Reasoning about such systems requires modeling not just sequential execution but the full space of possible message interleavings. Traditional verification approaches designed for imperative, single-threaded programs fall short. Our work builds on the lineage of process algebra (CSP, CCS, pi-calculus) and adapts these formalisms to the OTP supervision model.
+The Elixir ecosystem presents unique verification challenges. The [BEAM](@/technologies/beam.md) virtual machine supports millions of lightweight processes communicating via asynchronous message passing. Reasoning about such systems requires modeling not just sequential execution but the full space of possible message interleavings. Traditional verification approaches designed for imperative, single-threaded programs fall short. Our work builds on the lineage of process algebra (CSP, CCS, pi-calculus) and adapts these formalisms to the OTP supervision model.
 
 ### Why Lean4 Over Alternatives
 
@@ -48,7 +48,7 @@ The choice of proof assistant is consequential for both expressiveness and autom
 
 **Isabelle/HOL** (Cambridge/TU Munich, 1986) has the strongest automation via the Sledgehammer tool, which dispatches proof obligations to external ATPs (automated theorem provers). However, its type system is weaker than Lean4's dependent types, making it harder to express certain invariants about recursive data structures and indexed families.
 
-**Lean4** (Microsoft Research, 2021) combines dependent types with a powerful tactic framework (`simp`, `omega`, `decide`, `aesop`), a modern programming language (Lean4 is self-hosted), and active development with strong tooling (LSP, package manager Lake). Critically, Lean4's metaprogramming system allows us to write custom tactics tailored to [OTP](/technologies/erlang-otp/) patterns -- something no other proof assistant supports as cleanly. The `do` notation for monadic programming maps naturally to Elixir's `with` chains, reducing the translation gap.
+**Lean4** (Microsoft Research, 2021) combines dependent types with a powerful tactic framework (`simp`, `omega`, `decide`, `aesop`), a modern programming language (Lean4 is self-hosted), and active development with strong tooling (LSP, package manager Lake). Critically, Lean4's metaprogramming system allows us to write custom tactics tailored to [OTP](@/technologies/erlang-otp.md) patterns -- something no other proof assistant supports as cleanly. The `do` notation for monadic programming maps naturally to Elixir's `with` chains, reducing the translation gap.
 
 ### Bridging the Research-Industry Gap
 
@@ -56,13 +56,13 @@ The gap between formal methods research and industrial practice is well-document
 
 Our approach bridges this gap through three mechanisms:
 
-1. **Selective verification**: Not all code requires formal proofs. We target the [NABLA](/glossary/nabla-infinity/) axiom enforcement layer, the [Trinity Gate](/capabilities/trinity-gate/) decision points, and critical state machine transitions. This reduces the proof surface from 2.8M lines to approximately 15,000 lines of specification.
+1. **Selective verification**: Not all code requires formal proofs. We target the [NABLA](@/glossary/nabla-infinity.md) axiom enforcement layer, the [Trinity Gate](@/capabilities/trinity-gate.md) decision points, and critical state machine transitions. This reduces the proof surface from 2.8M lines to approximately 15,000 lines of specification.
 
 2. **Automated proof construction**: Rather than writing proofs manually, we translate Elixir specifications into Lean4 propositions and apply automated proof search. The translation layer handles the semantic gap between Elixir's dynamic types and Lean4's dependent types through a carefully designed type mapping and abstraction strategy.
 
 3. **Proof template libraries**: Common Elixir patterns (GenServer state transitions, pipeline compositions, reduce operations) have corresponding proof templates that can be instantiated with specific types and properties. This amortizes proof effort across hundreds of similar invariants.
 
-The QEVE (Quality Evidence Verification Engine) combines Lean4 formal proofs with NABLA axiom enforcement and [Monte Carlo simulation](/glossary/monte-carlo-verification/) to produce high-confidence verification results. Lean4 was chosen over alternatives (Coq, Agda, Isabelle) for its combination of dependent types, tactic-based proof automation, and active development by Microsoft Research.
+The QEVE (Quality Evidence Verification Engine) combines Lean4 formal proofs with NABLA axiom enforcement and [Monte Carlo simulation](@/glossary/monte-carlo-verification.md) to produce high-confidence verification results. Lean4 was chosen over alternatives (Coq, Agda, Isabelle) for its combination of dependent types, tactic-based proof automation, and active development by Microsoft Research.
 
 The primary challenge is the translation gap between Elixir's dynamic, actor-based semantics and Lean4's pure functional, statically-typed proof language. An Elixir GenServer maintaining state through message passing has no direct Lean4 equivalent. We developed a formal model that represents GenServer state transitions as state machines and message passing as function application on state, enabling formal reasoning about OTP behaviors.
 
@@ -80,7 +80,7 @@ The experiment evaluated the proof construction pipeline across four dimensions:
 
 **Dimension 4: Proof Quality** -- Do automated proofs cover the same logical space as human-authored proofs? Measured by comparing proof coverage metrics.
 
-The invariant library contains 1,247 invariants extracted from the platform's 90 umbrella applications, classified and prioritized by the [Quality DNA](/glossary/quality-dna/) system.
+The invariant library contains 1,247 invariants extracted from the platform's 90 umbrella applications, classified and prioritized by the [Quality DNA](@/glossary/quality-dna.md) system.
 
 ## Setup
 
@@ -444,7 +444,7 @@ Applicable to: safety invariants, protocol correctness, state machine properties
 
 ### Statistical Proofs (Confidence Intervals)
 
-For claims involving probabilistic systems (e.g., "the circuit breaker opens within 5 seconds of failure detection 99.9% of the time"), formal proofs are inappropriate. Instead, we use [Monte Carlo verification](/glossary/monte-carlo-verification/) to establish confidence intervals. A claim is statistically verified when the confidence interval at the 99.9% level contains only values satisfying the property.
+For claims involving probabilistic systems (e.g., "the circuit breaker opens within 5 seconds of failure detection 99.9% of the time"), formal proofs are inappropriate. Instead, we use [Monte Carlo verification](@/glossary/monte-carlo-verification.md) to establish confidence intervals. A claim is statistically verified when the confidence interval at the 99.9% level contains only values satisfying the property.
 
 Applicable to: latency bounds, throughput guarantees, availability claims, probabilistic scheduling.
 
@@ -461,7 +461,7 @@ Applicable to: latency bounds, throughput guarantees, availability claims, proba
 | Availability guarantees | Statistical | Monte Carlo | 99.9% CI |
 | Serialization correctness | Property-based | Formal proof | 99.99% or 100% |
 
-The [Quality Gates](/glossary/quality-gates/) system enforces minimum confidence levels per claim category. Safety-critical claims (concurrency, state machines) require formal proofs or statistical verification at the 99.9% level. Non-critical claims (serialization, performance) accept property-based testing.
+The [Quality Gates](@/glossary/quality-gates.md) system enforces minimum confidence levels per claim category. Safety-critical claims (concurrency, state machines) require formal proofs or statistical verification at the 99.9% level. Non-critical claims (serialization, performance) accept property-based testing.
 
 ## Verification Pipeline Architecture
 
@@ -515,7 +515,7 @@ When all automated strategies fail, the claim is routed to the failure handler, 
 
 Successful proofs are validated by compiling the generated Lean4 file with the Lean4 kernel. This is the ultimate soundness check -- the Lean4 kernel is a small, trusted codebase that has been extensively reviewed. If the kernel accepts the proof, the invariant is formally verified.
 
-Results are recorded in [PostgreSQL](/technologies/postgresql/) with full provenance: claim ID, proof strategy used, proof text, verification timestamp, elapsed time, and Lean4 kernel version. This audit trail satisfies the [NABLA provenance axiom](/glossary/nabla-infinity/).
+Results are recorded in [PostgreSQL](@/technologies/postgresql.md) with full provenance: claim ID, proof strategy used, proof text, verification timestamp, elapsed time, and Lean4 kernel version. This audit trail satisfies the [NABLA provenance axiom](@/glossary/nabla-infinity.md).
 
 ### Lemma Caching and Memoization
 
@@ -595,7 +595,7 @@ Concurrency safety invariants have the lowest automation rate (62.9%) for struct
 
 **Liveness properties**: Proving that a system eventually reaches a desired state (liveness) is fundamentally harder than proving it never reaches a bad state (safety). Lean4's logic is well-suited to safety proofs but requires additional axioms (typically fairness assumptions) for liveness. Our current pipeline handles safety but defers most liveness claims to statistical verification.
 
-**Dynamic process topology**: [Supervision trees](/architecture/supervision-trees/) in OTP create and destroy processes dynamically. Formally modeling a system where the set of participants changes at runtime requires dependent types over process identifiers -- possible in Lean4 but costly in proof complexity.
+**Dynamic process topology**: [Supervision trees](@/architecture/supervision-trees.md) in OTP create and destroy processes dynamically. Formally modeling a system where the set of participants changes at runtime requires dependent types over process identifiers -- possible in Lean4 but costly in proof complexity.
 
 ### The Proof Gap
 
@@ -627,7 +627,7 @@ In practice, 68% of human-assisted proofs require only a single hint (typically 
 
 ## Integration with Quality Gates
 
-Formal verification is not a standalone activity -- it is embedded into the platform's CI/CD pipeline through the [Quality Gates](/glossary/quality-gates/) system. Different verification obligations apply at different stages of the development workflow.
+Formal verification is not a standalone activity -- it is embedded into the platform's CI/CD pipeline through the [Quality Gates](@/glossary/quality-gates.md) system. Different verification obligations apply at different stages of the development workflow.
 
 ### Pre-Commit Verification
 
@@ -667,7 +667,7 @@ Additionally, the pre-deploy stage runs Monte Carlo simulation for all statistic
 | CI (full) | <15min | All (no cache) | Full formal |
 | Pre-deploy | <30min | All (re-verified) | Strict formal + Monte Carlo |
 
-The [telemetry](/architecture/telemetry/) system tracks verification times per stage, alerting when any stage approaches its time budget. Historical trends are stored in the [Quality DNA](/glossary/quality-dna/) system to detect gradual proof time regression.
+The [telemetry](@/architecture/telemetry.md) system tracks verification times per stage, alerting when any stage approaches its time budget. Historical trends are stored in the [Quality DNA](@/glossary/quality-dna.md) system to detect gradual proof time regression.
 
 ## Conclusions
 
@@ -685,20 +685,20 @@ The [telemetry](/architecture/telemetry/) system tracks verification times per s
 - Develop specialized concurrency proof tactics for OTP patterns (GenServer, Supervisor, Task)
 - Implement incremental proof construction that reuses lemmas across related invariants
 - Build a proof template library for common Elixir patterns (pipeline, reduce, map)
-- Explore integration with the [SEADF](/glossary/seadf/) evolution system for proof improvement
+- Explore integration with the [SEADF](@/glossary/seadf.md) evolution system for proof improvement
 - Investigate Lean4 4.x features for better tactic automation
 - Reduce the proof gap to <0.5% through improved specification extraction
 - Expand the human hint mechanism to support collaborative proof engineering across teams
-- Integrate proof metrics into the [Quality Floor Guardian](/glossary/quality-floor-guardian/) for automated regression alerts
+- Integrate proof metrics into the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) for automated regression alerts
 
 ## Related Experiments
 
-- [Epistemic Framework](/lab/epistemic-framework/) -- Trinity Gate formal necessity check uses this pipeline
-- [Color Team Simulation](/lab/color-team-simulation/) -- White Team uses formal proofs for closure verification
-- [Quality Evolution](/lab/quality-evolution/) -- Quality metrics that complement formal guarantees
-- [Drift Detection](/lab/drift-detection/) -- Formal proofs validate that invariants still hold after changes
-- [Architecture Validation](/lab/architecture-validation/) -- Structural verification of umbrella app dependencies
-- [Pipeline Experimentation](/lab/pipeline-experimentation/) -- Testing pipeline throughput under formal verification load
+- [Epistemic Framework](@/lab/epistemic-framework.md) -- Trinity Gate formal necessity check uses this pipeline
+- [Color Team Simulation](@/lab/color-team-simulation.md) -- White Team uses formal proofs for closure verification
+- [Quality Evolution](@/lab/quality-evolution.md) -- Quality metrics that complement formal guarantees
+- [Drift Detection](@/lab/drift-detection.md) -- Formal proofs validate that invariants still hold after changes
+- [Architecture Validation](@/lab/architecture-validation.md) -- Structural verification of umbrella app dependencies
+- [Pipeline Experimentation](@/lab/pipeline-experimentation.md) -- Testing pipeline throughput under formal verification load
 
 ---
 
@@ -707,4 +707,4 @@ The [telemetry](/architecture/telemetry/) system tracks verification times per s
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "code-specialist - Prismatic Platform"
 
 ## Overview
 
-The Code Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Development domain of the Prismatic Platform. This agent provides intelligent code generation with multi-phase requirement refinement, producing production-ready [Elixir](/glossary/elixir/) code that follows [OTP](/glossary/otp/) conventions, functional programming best practices, and the platform's established quality patterns. Every generated code artifact includes comprehensive typespecs, proper error handling with `{:ok, _}` / `{:error, _}` tuples, and accompanying test suites.
+The Code Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Development domain of the Prismatic Platform. This agent provides intelligent code generation with multi-phase requirement refinement, producing production-ready [Elixir](@/glossary/elixir.md) code that follows [OTP](@/glossary/otp.md) conventions, functional programming best practices, and the platform's established quality patterns. Every generated code artifact includes comprehensive typespecs, proper error handling with `{:ok, _}` / `{:error, _}` tuples, and accompanying test suites.
 
-Code generation in the Prismatic ecosystem is not template-based copy-paste. The Code Specialist implements a multi-phase refinement process: first analyzing the requirement to identify the appropriate OTP pattern ([GenServer](/glossary/genserver/), [Supervisor](/glossary/supervisor/), Task, Agent), then generating the implementation with proper [supervision tree](/glossary/supervision-tree/) integration, then producing property-based tests that verify behavioral correctness, and finally validating the output against [quality gates](/glossary/quality-gates/) including [Credo](/glossary/credo/), [Dialyzer](/glossary/dialyzer/), and compilation with warnings-as-errors. The generated code is indistinguishable from hand-written expert Elixir.
+Code generation in the Prismatic ecosystem is not template-based copy-paste. The Code Specialist implements a multi-phase refinement process: first analyzing the requirement to identify the appropriate OTP pattern ([GenServer](@/glossary/genserver.md), [Supervisor](@/glossary/supervisor.md), Task, Agent), then generating the implementation with proper [supervision tree](@/glossary/supervision-tree.md) integration, then producing property-based tests that verify behavioral correctness, and finally validating the output against [quality gates](@/glossary/quality-gates.md) including [Credo](@/glossary/credo.md), [Dialyzer](@/glossary/dialyzer.md), and compilation with warnings-as-errors. The generated code is indistinguishable from hand-written expert Elixir.
 
 ## Operational Domain
 
@@ -174,12 +174,12 @@ end
 
 ## Key Capabilities
 
-- **OTP-native code generation** producing GenServers, Supervisors, and process architectures that leverage [BEAM](/glossary/beam/) concurrency primitives, proper supervision strategies, and fault-tolerant design patterns
+- **OTP-native code generation** producing GenServers, Supervisors, and process architectures that leverage [BEAM](@/glossary/beam.md) concurrency primitives, proper supervision strategies, and fault-tolerant design patterns
 - **Multi-phase requirement refinement** that clarifies ambiguous requirements through structured analysis before generating code, preventing rework from misunderstood specifications
-- **Comprehensive test generation** including unit tests, integration tests, and [property-based tests](/glossary/property-based-testing/) using StreamData, ensuring generated code has complete coverage from the moment of creation
-- **Genetic quality pattern application** using platform-evolved quality patterns including [CASCADE pattern](/glossary/cascade-pattern/)s for common issues like type mismatch, dead code, and empty check elimination
-- **Safe refactoring execution** with three-stage verification: pre-refactor snapshot, incremental transformation with intermediate validation, and post-refactor [regression test](/glossary/regression-test/)ing with rollback capability
-- **[Typespec](/glossary/typespec/) and documentation generation** producing complete `@spec` annotations and `@doc` strings for every public function, maintaining the platform's 100% typespec coverage standard
+- **Comprehensive test generation** including unit tests, integration tests, and [property-based tests](@/glossary/property-based-testing.md) using StreamData, ensuring generated code has complete coverage from the moment of creation
+- **Genetic quality pattern application** using platform-evolved quality patterns including [CASCADE pattern](@/glossary/cascade-pattern.md)s for common issues like type mismatch, dead code, and empty check elimination
+- **Safe refactoring execution** with three-stage verification: pre-refactor snapshot, incremental transformation with intermediate validation, and post-refactor [regression test](@/glossary/regression-test.md)ing with rollback capability
+- **[Typespec](@/glossary/typespec.md) and documentation generation** producing complete `@spec` annotations and `@doc` strings for every public function, maintaining the platform's 100% typespec coverage standard
 
 ## Authority Level
 
@@ -189,14 +189,14 @@ end
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [database-specialist](/agents/database-specialist/) | Schema Partner | Coordinates on database-related code including [Ecto](/glossary/ecto/) schemas and migrations |
-| [code-review-specialist-agent-v20](/agents/code-review-specialist-agent-v20/) | Quality Reviewer | Reviews generated code for pattern compliance and quality standards |
-| [explain-specialist](/agents/explain-specialist/) | Documentation Partner | Provides code explanation and documentation for generated artifacts |
-| [test-specialist](/agents/test-specialist/) | Test Partner | Collaborates on comprehensive test generation strategies |
+| [database-specialist](@/agents/database-specialist.md) | Schema Partner | Coordinates on database-related code including [Ecto](@/glossary/ecto.md) schemas and migrations |
+| [code-review-specialist-agent-v20](@/agents/code-review-specialist-agent-v20.md) | Quality Reviewer | Reviews generated code for pattern compliance and quality standards |
+| [explain-specialist](@/agents/explain-specialist.md) | Documentation Partner | Provides code explanation and documentation for generated artifacts |
+| [test-specialist](@/agents/test-specialist.md) | Test Partner | Collaborates on comprehensive test generation strategies |
 
 ## Enforcement
 
-All code generation operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Generated code must compile with zero warnings, pass Credo strict mode, include complete typespecs, and have accompanying tests with full coverage. No generated code may contain stubs, mocks, placeholders, TODOs, or FIXMEs. Every artifact is production-ready from the moment of creation, with no deferred quality work permitted. The NABLA Evidence axioms require all generated patterns to have traceable provenance linking back to the genetic quality pattern that produced them.
+All code generation operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Generated code must compile with zero warnings, pass Credo strict mode, include complete typespecs, and have accompanying tests with full coverage. No generated code may contain stubs, mocks, placeholders, TODOs, or FIXMEs. Every artifact is production-ready from the moment of creation, with no deferred quality work permitted. The NABLA Evidence axioms require all generated patterns to have traceable provenance linking back to the genetic quality pattern that produced them.
 
 ---
 
@@ -205,4 +205,4 @@ All code generation operations are governed by the [NO MERCY, NO DOUBTS](/glossa
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

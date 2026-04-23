@@ -522,13 +522,13 @@ end
 
 ## Related Terms
 
-- [Remediation](/glossary/remediation/) -- the corrective actions that reduce identified risks to acceptable levels
-- [Triage](/glossary/triage/) -- the prioritization process within risk management for allocating limited resources
-- [Security Rating](/glossary/security-rating/) -- the aggregate risk score for an organization derived from finding analysis
-- [Threat Feed](/glossary/threat-feed/) -- external intelligence that informs risk likelihood assessment
-- [Compliance](/glossary/compliance/) -- regulatory frameworks that define mandatory risk management requirements
+- [Remediation](@/glossary/remediation.md) -- the corrective actions that reduce identified risks to acceptable levels
+- [Triage](@/glossary/triage.md) -- the prioritization process within risk management for allocating limited resources
+- [Security Rating](@/glossary/security-rating.md) -- the aggregate risk score for an organization derived from finding analysis
+- [Threat Feed](@/glossary/threat-feed.md) -- external intelligence that informs risk likelihood assessment
+- [Compliance](@/glossary/compliance.md) -- regulatory frameworks that define mandatory risk management requirements
 - [Scoring](/glossary/scoring/) -- the quantitative methods used to compute risk levels from multiple factors
-- [Vulnerability](/glossary/vulnerability/) -- specific weaknesses that risk assessment identifies and quantifies
+- [Vulnerability](@/glossary/vulnerability.md) -- specific weaknesses that risk assessment identifies and quantifies
 - [Perimeter](/glossary/perimeter/) -- the external attack surface where risk assessment discovers exposed assets
 - [Nabla](/glossary/nabla/) -- the epistemic engine providing calibrated confidence for risk assessments
 - [Decision Engine](/glossary/decision-engine/) -- the DD pipeline that integrates risk scoring into investigation workflows
@@ -537,10 +537,10 @@ end
 
 ## See Also
 
-- [Perimeter EASM](/capabilities/) -- external attack surface risk assessment and security rating computation
-- [Compliance Assessment](/architecture/) -- regulatory risk management with NIS2/ZKB/GDPR mapping
-- [Decision Engine Pipeline](/architecture/) -- DD risk scoring and recommendation engine
-- [Nabla Epistemic Framework](/architecture/) -- confidence calibration for risk assessments
+- [Perimeter EASM](@/capabilities/_index.md) -- external attack surface risk assessment and security rating computation
+- [Compliance Assessment](@/architecture/_index.md) -- regulatory risk management with NIS2/ZKB/GDPR mapping
+- [Decision Engine Pipeline](@/architecture/_index.md) -- DD risk scoring and recommendation engine
+- [Nabla Epistemic Framework](@/architecture/_index.md) -- confidence calibration for risk assessments
 
 ---
 
@@ -549,4 +549,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -465,10 +465,10 @@ AdaptiveArchitecture.set_resource_constraints(%{
 
 ## Related Technologies
 
-- [Zero-Downtime Evolution System](/technologies/zero-downtime-evolution/) - Complementary hot-swapping capabilities
-- [Quantum-Inspired Optimization](/technologies/quantum-inspired-optimization/) - Core optimization algorithms
-- [OTP GenServer](/technologies/genserver/) - Foundation OTP primitives
-- [PrismaticSupervisor](/technologies/supervisor/) - Enhanced supervision framework
+- [Zero-Downtime Evolution System](@/technologies/zero-downtime-evolution.md) - Complementary hot-swapping capabilities
+- [Quantum-Inspired Optimization](@/technologies/quantum-inspired-optimization.md) - Core optimization algorithms
+- [OTP GenServer](@/technologies/genserver.md) - Foundation OTP primitives
+- [PrismaticSupervisor](@/technologies/supervisor.md) - Enhanced supervision framework
 
 ## Conclusion
 

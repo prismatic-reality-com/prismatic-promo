@@ -28,7 +28,7 @@ image_alt = "AIAD Agent: session - Prismatic Platform"
 
 ## Overview
 
-The [AIAD](/glossary/aiad/) Session Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Critical domain of the Prismatic Platform. This agent enforces mandatory session discipline by creating GitLab issues for every Claude Code session, tracking progress automatically through step-by-step updates, and persisting session context to `.claude/session-context/` for cross-session continuity. In a development process where LLM-assisted coding sessions produce significant platform changes, untracked sessions represent an unacceptable governance gap.
+The [AIAD](@/glossary/aiad.md) Session Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Critical domain of the Prismatic Platform. This agent enforces mandatory session discipline by creating GitLab issues for every Claude Code session, tracking progress automatically through step-by-step updates, and persisting session context to `.claude/session-context/` for cross-session continuity. In a development process where LLM-assisted coding sessions produce significant platform changes, untracked sessions represent an unacceptable governance gap.
 
 The session tracking mandate addresses a fundamental challenge in LLM-assisted development: accountability and traceability. Every session that modifies the platform must have a corresponding GitLab issue that documents objectives, tracks progress, records decisions, and preserves the session context for future reference. This requirement is not bureaucratic overhead -- it is the mechanism by which the platform maintains an auditable record of its own evolution. When a decision made three months ago needs to be revisited, the session context provides the rationale, alternatives considered, and evidence evaluated at the time.
 
@@ -42,7 +42,7 @@ The hook system supports registration of custom session lifecycle hooks with pri
 
 A circuit breaker protects against cascading failures from flaky external services (GitLab API timeouts, mix task failures), automatically opening after 3 failures and resetting after 60 seconds. When the circuit breaker opens, the session can continue with degraded tracking capability rather than being completely blocked, but operators are alerted to the tracking gap.
 
-The session state machine tracks four phases: start (issue creation and context loading), active (progress tracking and commit discipline), pre-end (final quality checks and context persistence), and end (issue update and cleanup). Each phase transition emits [telemetry](/glossary/telemetry/) events under `[:prismatic_claude, :session_lifecycle, *]` for monitoring and audit purposes.
+The session state machine tracks four phases: start (issue creation and context loading), active (progress tracking and commit discipline), pre-end (final quality checks and context persistence), and end (issue update and cleanup). Each phase transition emits [telemetry](@/glossary/telemetry.md) events under `[:prismatic_claude, :session_lifecycle, *]` for monitoring and audit purposes.
 
 ## Core Capabilities
 
@@ -126,10 +126,10 @@ The implementation delegates hook execution to `PrismaticClaude.SessionHooks` wh
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [absolute-enforcement-commander-v6](/agents/absolute-enforcement-commander-v6/) | Quality Integration | Session commit discipline integrates with quality gate enforcement |
-| [aiad-auto-evolution-supreme](/agents/aiad-auto-evolution-supreme/) | Evolution Trigger | Sessions trigger platform evolution assessment at start and end |
-| [aiad-dashboard-commander](/agents/aiad-dashboard-commander/) | Visibility | Session status displayed on ecosystem monitoring dashboards |
-| [alert-management-specialist](/agents/alert-management-specialist/) | Compliance Alert | Routes session discipline violations to appropriate escalation paths |
+| [absolute-enforcement-commander-v6](@/agents/absolute-enforcement-commander-v6.md) | Quality Integration | Session commit discipline integrates with quality gate enforcement |
+| [aiad-auto-evolution-supreme](@/agents/aiad-auto-evolution-supreme.md) | Evolution Trigger | Sessions trigger platform evolution assessment at start and end |
+| [aiad-dashboard-commander](@/agents/aiad-dashboard-commander.md) | Visibility | Session status displayed on ecosystem monitoring dashboards |
+| [alert-management-specialist](@/agents/alert-management-specialist.md) | Compliance Alert | Routes session discipline violations to appropriate escalation paths |
 | GitLab API | External Service | Creates and updates issues for session tracking |
 
 ## Operational Workflow
@@ -187,12 +187,12 @@ The AIAD specification at `.aiad/agents/aiad-agent-session.agent.md` defines L3 
 
 ## Related Resources
 
-- [AIAD Standard](/capabilities/aiad-standard/) -- Agent specification standard governing session agents
-- [NO MERCY](/capabilities/no-mercy/) -- Quality enforcement doctrine with session discipline requirements
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Session lifecycle telemetry events
-- [Architecture Overview](/architecture/) -- Platform architecture including session lifecycle
-- [Commands](/commands/) -- Session-related commands and slash operations
-- [Glossary](/glossary/) -- Technical terminology and concepts
+- [AIAD Standard](@/capabilities/aiad-standard.md) -- Agent specification standard governing session agents
+- [NO MERCY](@/capabilities/no-mercy.md) -- Quality enforcement doctrine with session discipline requirements
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Session lifecycle telemetry events
+- [Architecture Overview](@/architecture/_index.md) -- Platform architecture including session lifecycle
+- [Commands](@/commands/_index.md) -- Session-related commands and slash operations
+- [Glossary](@/glossary/_index.md) -- Technical terminology and concepts
 
 ---
 
@@ -201,4 +201,4 @@ The AIAD specification at `.aiad/agents/aiad-agent-session.agent.md` defines L3 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

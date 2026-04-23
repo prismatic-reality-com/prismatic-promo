@@ -23,11 +23,11 @@ image_alt = "Prismatic Influence - Prismatic Platform"
 
 ## Overview
 
-Prismatic Influence provides tools for detecting and analyzing influence operations, disinformation campaigns, and information warfare tactics. It monitors information channels for coordinated inauthentic behavior, narrative manipulation, and sentiment engineering targeting organizations or public discourse. In an era where reputation attacks and disinformation campaigns can materially damage organizations, Influence provides the analytical foundation for understanding who is saying what, whether the behavior is coordinated, and what the likely objectives are. This module operates at the strategic level of [threat intelligence](/glossary/threat-intelligence/), analyzing campaigns as organized operations rather than individual messages.
+Prismatic Influence provides tools for detecting and analyzing influence operations, disinformation campaigns, and information warfare tactics. It monitors information channels for coordinated inauthentic behavior, narrative manipulation, and sentiment engineering targeting organizations or public discourse. In an era where reputation attacks and disinformation campaigns can materially damage organizations, Influence provides the analytical foundation for understanding who is saying what, whether the behavior is coordinated, and what the likely objectives are. This module operates at the strategic level of [threat intelligence](@/glossary/threat-intelligence.md), analyzing campaigns as organized operations rather than individual messages.
 
-The module models information flows as directed graphs where nodes represent accounts, publications, or platforms, and edges represent content propagation with temporal metadata. By analyzing the structural properties of these graphs -- clustering coefficients, propagation velocity, temporal synchronization -- Influence can distinguish organic information spread from coordinated campaigns with high confidence. The [NABLA](/glossary/nabla-infinity/) framework's [signal plurality](/glossary/signal-plurality/) axiom is enforced throughout: no single indicator is sufficient to classify behavior as inauthentic; multiple independent signals must converge. Graph analysis results are persisted in [KuzuDB](/glossary/kuzudb/) as a [knowledge graph](/glossary/knowledge-graph/), enabling relationship traversal across campaigns, actors, and narratives.
+The module models information flows as directed graphs where nodes represent accounts, publications, or platforms, and edges represent content propagation with temporal metadata. By analyzing the structural properties of these graphs -- clustering coefficients, propagation velocity, temporal synchronization -- Influence can distinguish organic information spread from coordinated campaigns with high confidence. The [NABLA](@/glossary/nabla-infinity.md) framework's [signal plurality](@/glossary/signal-plurality.md) axiom is enforced throughout: no single indicator is sufficient to classify behavior as inauthentic; multiple independent signals must converge. Graph analysis results are persisted in [KuzuDB](@/glossary/kuzudb.md) as a [knowledge graph](@/glossary/knowledge-graph.md), enabling relationship traversal across campaigns, actors, and narratives.
 
-Influence also provides counter-narrative effectiveness measurement, allowing organizations to evaluate whether their communications are successfully addressing disinformation. This closed-loop capability transforms Influence from a passive monitoring tool into an active defense system for organizational reputation -- directly supporting the platform's [EASM](/glossary/easm/) mission by covering the informational dimension of the [attack surface](/glossary/attack-surface/).
+Influence also provides counter-narrative effectiveness measurement, allowing organizations to evaluate whether their communications are successfully addressing disinformation. This closed-loop capability transforms Influence from a passive monitoring tool into an active defense system for organizational reputation -- directly supporting the platform's [EASM](@/glossary/easm.md) mission by covering the informational dimension of the [attack surface](@/glossary/attack-surface.md).
 
 ## Architecture
 
@@ -39,9 +39,9 @@ Telegram   -->   Rate Limiting       Dedup/Enrich   NLP Classify    Scoring
 Custom     -->   Backpressure        Entity Tag      Temporal Sync   KuzuDB Store
 ```
 
-The module is organized around three processing layers. The **Collection Layer** aggregates content from configured channels (social media APIs, news feeds, forum scrapers) into a normalized event stream. The **Analysis Layer** applies graph construction, temporal pattern detection, and NLP-based content classification using a pipeline of [GenStage](/glossary/genstage/) producers and consumers with [backpressure](/glossary/backpressure/) management. The **Assessment Layer** combines analytical outputs into structured influence assessments with [confidence scoring](/glossary/confidence-scoring/), stored in KuzuDB for relationship traversal and in [PostgreSQL](/glossary/postgresql/) for time-series querying.
+The module is organized around three processing layers. The **Collection Layer** aggregates content from configured channels (social media APIs, news feeds, forum scrapers) into a normalized event stream. The **Analysis Layer** applies graph construction, temporal pattern detection, and NLP-based content classification using a pipeline of [GenStage](@/glossary/genstage.md) producers and consumers with [backpressure](@/glossary/backpressure.md) management. The **Assessment Layer** combines analytical outputs into structured influence assessments with [confidence scoring](@/glossary/confidence-scoring.md), stored in KuzuDB for relationship traversal and in [PostgreSQL](@/glossary/postgresql.md) for time-series querying.
 
-Each analysis function runs as a supervised Task under a `TaskSupervisor` within the [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/), enabling parallel processing of multiple channels and campaigns simultaneously. [Telemetry](/glossary/telemetry/) events report processing latencies, detection rates, and false positive ratios for continuous calibration.
+Each analysis function runs as a supervised Task under a `TaskSupervisor` within the [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md), enabling parallel processing of multiple channels and campaigns simultaneously. [Telemetry](@/glossary/telemetry.md) events report processing latencies, detection rates, and false positive ratios for continuous calibration.
 
 ## Key Modules
 
@@ -62,7 +62,7 @@ Each analysis function runs as a supervised Task under a `TaskSupervisor` within
 ### Detection Capabilities
 - Coordinated inauthentic behavior identification through temporal synchronization analysis
 - Bot network detection using account creation patterns, posting frequency, and content similarity
-- Narrative tracking with semantic clustering to group related messaging across platforms using [embedding](/glossary/embedding/)s
+- Narrative tracking with semantic clustering to group related messaging across platforms using [embedding](@/glossary/embedding.md)s
 - Astroturfing and fake grassroots identification through account provenance analysis
 
 ### Analysis Tools
@@ -140,16 +140,16 @@ end
 ```
 
 ### Monitoring and Alerting
-- Real-time information [channel](/glossary/channel/) surveillance with configurable keyword and [entity resolution](/glossary/entity-resolution/) tracking
+- Real-time information [channel](@/glossary/channel.md) surveillance with configurable keyword and [entity resolution](@/glossary/entity-resolution.md) tracking
 - Trend divergence detection comparing observed narrative volume against baseline models
 - Cross-platform coordination identification linking accounts across social media services
 - Early warning system for emerging campaigns based on velocity and coordination indicators
 
 ### Evidence and Reporting
-- Campaign evidence packaging with full provenance chains for [audit trail](/glossary/audit-trail/) requirements
-- [GDPR](/glossary/gdpr/)-compliant personal data handling in influence analysis outputs
-- Structured evidence export for regulatory reporting on information security [incident response](/glossary/incident-response/)
-- Visualization of influence networks for executive briefings via [Phoenix LiveView](/glossary/phoenix-liveview/)
+- Campaign evidence packaging with full provenance chains for [audit trail](@/glossary/audit-trail.md) requirements
+- [GDPR](@/glossary/gdpr.md)-compliant personal data handling in influence analysis outputs
+- Structured evidence export for regulatory reporting on information security [incident response](@/glossary/incident-response.md)
+- Visualization of influence networks for executive briefings via [Phoenix LiveView](@/glossary/phoenix-liveview.md)
 
 ## Usage
 
@@ -204,11 +204,11 @@ Integration tests exercise the full pipeline from content collection through ana
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Manipulation](/apps/prismatic-manipulation/) | Tactical social engineering analysis complementing strategic detection |
-| [Prismatic Narrative](/apps/prismatic-narrative/) | Intelligence report generation from influence analysis findings |
-| [Prismatic Deduction](/apps/prismatic-deduction/) | Rule-based [inference](/glossary/inference/) over influence indicators |
-| [Prismatic CER](/apps/prismatic-cer/) | Campaign evidence storage for regulatory reporting |
-| [Prismatic Graph](/apps/prismatic-graph/) | Influence network graph stored in KuzuDB |
+| [Prismatic Manipulation](@/apps/prismatic-manipulation.md) | Tactical social engineering analysis complementing strategic detection |
+| [Prismatic Narrative](@/apps/prismatic-narrative.md) | Intelligence report generation from influence analysis findings |
+| [Prismatic Deduction](@/apps/prismatic-deduction.md) | Rule-based [inference](@/glossary/inference.md) over influence indicators |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Campaign evidence storage for regulatory reporting |
+| [Prismatic Graph](@/apps/prismatic-graph.md) | Influence network graph stored in KuzuDB |
 
 ## Performance
 
@@ -221,17 +221,17 @@ Integration tests exercise the full pipeline from content collection through ana
 | Graph construction | < 1s | Per campaign update |
 | Campaign phase assessment | < 200ms | Metric computation and classification |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :influence, :campaign_detected]`, `[:prismatic, :influence, :coordination_scored]`, `[:prismatic, :influence, :narrative_tracked]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :influence, :campaign_detected]`, `[:prismatic, :influence, :coordination_scored]`, `[:prismatic, :influence, :narrative_tracked]`.
 
 ## Related Resources
 
-- [Prismatic Suppression](/apps/prismatic-suppression/) -- Alert noise reduction for high-volume influence monitoring
-- [Evidence Enforcement Agent](/agents/evidence-enforcement-agent/) -- Ensures influence claims meet evidentiary thresholds
-- [Competitor Researcher](/agents/competitor-researcher/) -- Competitive intelligence overlapping with influence monitoring
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Routes influence campaign alerts to response teams
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-channel information fusion for campaign detection
-- [Nabla Axioms](/capabilities/nabla-axioms/) -- Signal plurality prevents single-indicator classification
-- [Color Teams](/capabilities/color-teams/) -- Red team simulates influence attacks while Blue validates detection
+- [Prismatic Suppression](@/apps/prismatic-suppression.md) -- Alert noise reduction for high-volume influence monitoring
+- [Evidence Enforcement Agent](@/agents/evidence-enforcement-agent.md) -- Ensures influence claims meet evidentiary thresholds
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Competitive intelligence overlapping with influence monitoring
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Routes influence campaign alerts to response teams
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-channel information fusion for campaign detection
+- [Nabla Axioms](@/capabilities/nabla-axioms.md) -- Signal plurality prevents single-indicator classification
+- [Color Teams](@/capabilities/color-teams.md) -- Red team simulates influence attacks while Blue validates detection
 
 ---
 
@@ -240,4 +240,4 @@ Integration tests exercise the full pipeline from content collection through ana
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

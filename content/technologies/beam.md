@@ -24,7 +24,7 @@ image_alt = "BEAM VM - Prismatic Platform"
 
 ## Overview
 
-The BEAM (Bogdan/Bjorn's Erlang Abstract Machine) is the virtual machine that executes both Erlang and [Elixir](/technologies/elixir/) code. It is the critical infrastructure layer that gives the Prismatic Platform its exceptional concurrency, fault tolerance, and real-time capabilities. Unlike the JVM or V8, the BEAM was purpose-built for massive concurrency with soft real-time guarantees, originally designed at Ericsson for telecommunications systems that demanded five-nines (99.999%) availability.
+The BEAM (Bogdan/Bjorn's Erlang Abstract Machine) is the virtual machine that executes both Erlang and [Elixir](@/technologies/elixir.md) code. It is the critical infrastructure layer that gives the Prismatic Platform its exceptional concurrency, fault tolerance, and real-time capabilities. Unlike the JVM or V8, the BEAM was purpose-built for massive concurrency with soft real-time guarantees, originally designed at Ericsson for telecommunications systems that demanded five-nines (99.999%) availability.
 
 The BEAM implements a preemptive scheduler that allocates CPU time fairly across all processes using reduction counting. Each BEAM process is extremely lightweight (~2KB initial heap) and fully isolated -- a crashing process cannot corrupt another process's memory. This isolation model is fundamental to the Prismatic Platform's architecture where 404+ agents operate independently, each as a supervised BEAM process that can fail and restart without affecting the rest of the system. The platform routinely runs tens of thousands of concurrent processes handling agent operations, web requests, background jobs, and real-time subscriptions simultaneously.
 
@@ -91,7 +91,7 @@ defmodule PrismaticAgents.ProcessMetrics do
 end
 ```
 
-The BEAM's scheduler is the reason the Prismatic Platform can handle thousands of concurrent WebSocket connections for [Phoenix LiveView](/technologies/phoenix-liveview/) dashboards while simultaneously running agent computations, database queries, and background processing -- all without explicit thread pool configuration or async/await boilerplate.
+The BEAM's scheduler is the reason the Prismatic Platform can handle thousands of concurrent WebSocket connections for [Phoenix LiveView](@/technologies/phoenix-liveview.md) dashboards while simultaneously running agent computations, database queries, and background processing -- all without explicit thread pool configuration or async/await boilerplate.
 
 ## Architecture
 
@@ -104,7 +104,7 @@ The BEAM's internal architecture is built around a set of cooperating schedulers
 | Run Queues | Per-scheduler work queues | Fair distribution of agent workload |
 | Distribution | Inter-node communication protocol | Cluster support for horizontal scaling |
 | Code Server | Module loading and versioning | Hot code deployment, version management |
-| [ETS](/technologies/ets/) | Shared in-memory term storage | Agent registries, caches, metrics |
+| [ETS](@/technologies/ets.md) | Shared in-memory term storage | Agent registries, caches, metrics |
 | Port Drivers | External program integration | NIF bindings, OS command execution |
 
 The scheduler architecture ensures that no single agent or request can starve others. Each BEAM process receives a budget of 4,000 reductions (roughly equivalent to 4,000 function calls) before being preempted, guaranteeing fair scheduling even when some processes are CPU-intensive. This is fundamentally different from Node.js's cooperative event loop or Go's goroutine scheduling, where a computationally expensive task can block others.
@@ -195,18 +195,18 @@ The BEAM was chosen as the Prismatic Platform's runtime because its design prope
 
 ## Related Technologies
 
-- [Elixir](/technologies/elixir/) - Primary language running on the BEAM, providing modern syntax and metaprogramming
-- [Erlang/OTP](/technologies/erlang-otp/) - Runtime system, standard library, and OTP behaviours
-- [ETS](/technologies/ets/) - BEAM's built-in in-memory term storage for high-speed data access
-- [GenServer](/technologies/genserver/) - OTP process abstraction built on the BEAM's process model
-- [Supervisor](/technologies/supervisor/) - Fault tolerance through BEAM process supervision trees
+- [Elixir](@/technologies/elixir.md) - Primary language running on the BEAM, providing modern syntax and metaprogramming
+- [Erlang/OTP](@/technologies/erlang-otp.md) - Runtime system, standard library, and OTP behaviours
+- [ETS](@/technologies/ets.md) - BEAM's built-in in-memory term storage for high-speed data access
+- [GenServer](@/technologies/genserver.md) - OTP process abstraction built on the BEAM's process model
+- [Supervisor](@/technologies/supervisor.md) - Fault tolerance through BEAM process supervision trees
 
 ## Related Apps
 
 - All 90 Prismatic Platform applications run on the BEAM virtual machine
-- [prismatic_agents](/apps/prismatic-agents/) - 404+ agents running as supervised BEAM processes
-- [prismatic_web](/apps/prismatic-web/) - Phoenix web server leveraging BEAM's concurrent connection handling
-- [prismatic_safety](/apps/prismatic-safety/) - Quality monitoring processes using BEAM's Observer integration
+- [prismatic_agents](@/apps/prismatic-agents.md) - 404+ agents running as supervised BEAM processes
+- [prismatic_web](@/apps/prismatic-web.md) - Phoenix web server leveraging BEAM's concurrent connection handling
+- [prismatic_safety](@/apps/prismatic-safety.md) - Quality monitoring processes using BEAM's Observer integration
 
 ---
 
@@ -215,4 +215,4 @@ The BEAM was chosen as the Prismatic Platform's runtime because its design prope
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

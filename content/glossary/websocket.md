@@ -44,7 +44,7 @@ The WebSocket protocol was designed to be complementary to HTTP rather than a re
 
 The protocol supports both text and binary message types, enabling applications to transmit structured data (JSON, MessagePack, Protocol Buffers) alongside raw binary payloads (images, audio, video) over the same connection. Built-in ping/pong frames provide connection health monitoring, and close frames enable graceful connection teardown with status codes and reason phrases.
 
-In the Elixir ecosystem, WebSocket is the foundational transport layer for [Phoenix Channels](/glossary/channel/) and [LiveView](/glossary/liveview/), enabling the real-time features that distinguish Phoenix applications from traditional request-response web frameworks.
+In the Elixir ecosystem, WebSocket is the foundational transport layer for [Phoenix Channels](@/glossary/channel.md) and [LiveView](@/glossary/liveview.md), enabling the real-time features that distinguish Phoenix applications from traditional request-response web frameworks.
 
 ## Handshake Process
 
@@ -176,13 +176,13 @@ end
 | **Heartbeat Timeout** | Server closes inactive connections | Client sends periodic heartbeats |
 | **Authentication Expiry** | Server closes with 4001 status | Client refreshes token, reconnects |
 | **Topic Leave** | Channel process terminates | Client can rejoin topic |
-| **Deployment** | Graceful drain during [blue-green](/glossary/blue-green-deployment/) switch | Client reconnects to new environment |
+| **Deployment** | Graceful drain during [blue-green](@/glossary/blue-green-deployment.md) switch | Client reconnects to new environment |
 
 Phoenix's WebSocket transport includes built-in heartbeat management (default 30-second intervals), automatic reconnection with exponential backoff in the JavaScript client, and topic rejoin on reconnection. This means temporary network disruptions are handled transparently without application-level reconnection logic.
 
 ## Phoenix Channel Implementation
 
-Phoenix provides a high-level abstraction over raw WebSocket connections through [Channels](/glossary/channel/), which multiplex multiple topic subscriptions over a single WebSocket connection:
+Phoenix provides a high-level abstraction over raw WebSocket connections through [Channels](@/glossary/channel.md), which multiplex multiple topic subscriptions over a single WebSocket connection:
 
 ```elixir
 defmodule PrismaticWeb.SecurityChannel do
@@ -241,13 +241,13 @@ end
 | Technology | Direction | Latency | Complexity | Connection | Use Case |
 |-----------|-----------|---------|------------|------------|----------|
 | **WebSocket** | Bidirectional | Lowest | Medium | Persistent | Real-time interactive apps |
-| **[SSE](/glossary/server-sent-events/)** | Server-to-client only | Low | Low | Persistent | Live feeds, notifications |
+| **[SSE](@/glossary/server-sent-events.md)** | Server-to-client only | Low | Low | Persistent | Live feeds, notifications |
 | **HTTP Polling** | Client-initiated | High (interval) | Low | Per-request | Simple status checks |
 | **HTTP Long-Polling** | Server-held | Medium | Medium | Held open | Fallback for WebSocket |
 | **gRPC Streaming** | Bidirectional | Low | High | Persistent | Microservice communication |
 | **HTTP/2 Server Push** | Server-initiated | Low | Medium | Multiplexed | Asset preloading |
 
-[Server-Sent Events](/glossary/server-sent-events/) (SSE) are a simpler alternative when only server-to-client push is needed, using standard HTTP with automatic reconnection and event IDs. WebSocket is necessary when the client also needs to send messages to the server (interactive dashboards, collaborative editing, bidirectional command channels).
+[Server-Sent Events](@/glossary/server-sent-events.md) (SSE) are a simpler alternative when only server-to-client push is needed, using standard HTTP with automatic reconnection and event IDs. WebSocket is necessary when the client also needs to send messages to the server (interactive dashboards, collaborative editing, bidirectional command channels).
 
 ## Security Considerations
 
@@ -256,8 +256,8 @@ end
 | **Authentication** | Validate tokens during handshake (`connect/3` callback) | `Phoenix.Token.verify/4` |
 | **Authorization** | Check permissions per-channel in `join/3` callback | RBAC checks per topic |
 | **Origin Validation** | Verify `Origin` header to prevent cross-site hijacking | Endpoint configuration |
-| **[TLS](/glossary/tls/)** | Use `wss://` (WebSocket Secure) for encryption | Mandatory in production |
-| **Rate Limiting** | Apply [rate limits](/glossary/rate-limiting/) per-connection and per-message | Custom Channel middleware |
+| **[TLS](@/glossary/tls.md)** | Use `wss://` (WebSocket Secure) for encryption | Mandatory in production |
+| **Rate Limiting** | Apply [rate limits](@/glossary/rate-limiting.md) per-connection and per-message | Custom Channel middleware |
 | **Message Size** | Configure maximum frame size to prevent memory exhaustion | Cowboy transport options |
 | **CSRF** | WebSocket handshake is not subject to CORS; use token-based auth | Token in connect params |
 | **Connection Limits** | Cap maximum concurrent connections per user | Socket `connect/3` callback |
@@ -307,13 +307,13 @@ end
 
 ## Context in Prismatic
 
-The Prismatic Platform leverages WebSockets extensively through [Phoenix Channels](/glossary/channel/) and [LiveView](/glossary/liveview/), making WebSocket the foundational transport for all real-time features.
+The Prismatic Platform leverages WebSockets extensively through [Phoenix Channels](@/glossary/channel.md) and [LiveView](@/glossary/liveview.md), making WebSocket the foundational transport for all real-time features.
 
-**Phoenix Channel Transport**: Phoenix manages WebSocket connections as the primary transport for its [Channel](/glossary/channel/) abstraction. Each WebSocket connection can multiplex multiple topic subscriptions, allowing a single connection to simultaneously receive security alerts, asset discovery updates, and quality metric changes. The Phoenix JavaScript client handles connection lifecycle (heartbeats, reconnection, topic rejoin) automatically.
+**Phoenix Channel Transport**: Phoenix manages WebSocket connections as the primary transport for its [Channel](@/glossary/channel.md) abstraction. Each WebSocket connection can multiplex multiple topic subscriptions, allowing a single connection to simultaneously receive security alerts, asset discovery updates, and quality metric changes. The Phoenix JavaScript client handles connection lifecycle (heartbeats, reconnection, topic rejoin) automatically.
 
-**LiveView Real-Time UI**: [LiveView](/glossary/liveview/) dashboards at `/perimeter`, `/perimeter/assets`, `/perimeter/compliance`, and `/perimeter/easm` use WebSocket connections to push server-rendered HTML diffs to the browser in real-time. When a security rating changes, an asset is discovered, or a compliance score updates, the server pushes only the changed DOM fragments over the existing WebSocket connection, providing real-time updates without page reloads or client-side state management.
+**LiveView Real-Time UI**: [LiveView](@/glossary/liveview.md) dashboards at `/perimeter`, `/perimeter/assets`, `/perimeter/compliance`, and `/perimeter/easm` use WebSocket connections to push server-rendered HTML diffs to the browser in real-time. When a security rating changes, an asset is discovered, or a compliance score updates, the server pushes only the changed DOM fragments over the existing WebSocket connection, providing real-time updates without page reloads or client-side state management.
 
-**Distributed Broadcasting**: WebSocket connections on individual nodes receive events through [PubSub](/glossary/pubsub/), which propagates messages across [cluster](/glossary/cluster/) nodes. A security alert generated on one node reaches all connected WebSocket clients across all nodes through PubSub-backed broadcasting.
+**Distributed Broadcasting**: WebSocket connections on individual nodes receive events through [PubSub](@/glossary/pubsub.md), which propagates messages across [cluster](@/glossary/cluster.md) nodes. A security alert generated on one node reaches all connected WebSocket clients across all nodes through PubSub-backed broadcasting.
 
 **Connection Architecture**:
 
@@ -412,22 +412,22 @@ end
 
 ## Related Terms
 
-- [Phoenix](/glossary/phoenix/) - Web framework managing WebSocket connections and transport layer
-- [LiveView](/glossary/liveview/) - Server-rendered UI using WebSocket for real-time DOM updates
-- [Channel](/glossary/channel/) - Phoenix abstraction for multiplexed topic-based communication over WebSocket
-- [PubSub](/glossary/pubsub/) - Distributed message broadcasting powering WebSocket event delivery
-- [Server-Sent Events](/glossary/server-sent-events/) - Simpler unidirectional alternative to WebSocket
-- [TLS](/glossary/tls/) - Encryption layer for secure WebSocket connections (wss://)
-- [Rate Limiting](/glossary/rate-limiting/) - Traffic control applied to WebSocket messages
-- [Cluster](/glossary/cluster/) - Multi-node deployment with distributed WebSocket broadcasting
-- [GraphQL](/glossary/graphql/) - API layer using WebSocket for subscription delivery
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) - Deployment strategy requiring graceful WebSocket connection handling
+- [Phoenix](@/glossary/phoenix.md) - Web framework managing WebSocket connections and transport layer
+- [LiveView](@/glossary/liveview.md) - Server-rendered UI using WebSocket for real-time DOM updates
+- [Channel](@/glossary/channel.md) - Phoenix abstraction for multiplexed topic-based communication over WebSocket
+- [PubSub](@/glossary/pubsub.md) - Distributed message broadcasting powering WebSocket event delivery
+- [Server-Sent Events](@/glossary/server-sent-events.md) - Simpler unidirectional alternative to WebSocket
+- [TLS](@/glossary/tls.md) - Encryption layer for secure WebSocket connections (wss://)
+- [Rate Limiting](@/glossary/rate-limiting.md) - Traffic control applied to WebSocket messages
+- [Cluster](@/glossary/cluster.md) - Multi-node deployment with distributed WebSocket broadcasting
+- [GraphQL](@/glossary/graphql.md) - API layer using WebSocket for subscription delivery
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) - Deployment strategy requiring graceful WebSocket connection handling
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform real-time communication architecture
-- [Technologies](/technologies/) - Communication technology stack
-- [Apps](/apps/) - Applications using WebSocket for real-time features
+- [Architecture](@/architecture/_index.md) - Platform real-time communication architecture
+- [Technologies](@/technologies/_index.md) - Communication technology stack
+- [Apps](@/apps/_index.md) - Applications using WebSocket for real-time features
 
 ---
 
@@ -436,4 +436,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -621,25 +621,25 @@ end
 
 ## Related Terms
 
-- [HTTP](/glossary/http/) -- protocol requiring proper content and transfer encoding
-- [Data Pipeline](/glossary/data-pipeline/) -- processing pipelines with encoding transformations at each stage
-- [Injection](/glossary/injection/) -- vulnerability class prevented by proper output encoding
-- [ETL](/glossary/etl/) -- extract-transform-load processes with encoding conversion
-- [Binary](/glossary/binary/) -- the fundamental data type underlying all encoding operations
-- [JSON](/glossary/json/) -- the primary serialization format for external API boundaries
-- [API](/glossary/api/) -- system interfaces requiring consistent encoding contracts
-- [XSS](/glossary/xss/) -- cross-site scripting prevented by HTML output encoding
-- [Erlang](/glossary/erlang/) -- the runtime providing ETF and native binary handling
-- [Ecto](/glossary/ecto/) -- database wrapper handling SQL encoding/decoding
-- [Security](/glossary/security/) -- encoding as a security defense layer
+- [HTTP](@/glossary/http.md) -- protocol requiring proper content and transfer encoding
+- [Data Pipeline](@/glossary/data-pipeline.md) -- processing pipelines with encoding transformations at each stage
+- [Injection](@/glossary/injection.md) -- vulnerability class prevented by proper output encoding
+- [ETL](@/glossary/etl.md) -- extract-transform-load processes with encoding conversion
+- [Binary](@/glossary/binary.md) -- the fundamental data type underlying all encoding operations
+- [JSON](@/glossary/json.md) -- the primary serialization format for external API boundaries
+- [API](@/glossary/api.md) -- system interfaces requiring consistent encoding contracts
+- [XSS](@/glossary/xss.md) -- cross-site scripting prevented by HTML output encoding
+- [Erlang](@/glossary/erlang.md) -- the runtime providing ETF and native binary handling
+- [Ecto](@/glossary/ecto.md) -- database wrapper handling SQL encoding/decoding
+- [Security](@/glossary/security.md) -- encoding as a security defense layer
 - [Compression](/glossary/compression/) -- content encoding for transfer efficiency
 
 ## See Also
 
-- [Technologies](/technologies/) -- serialization technologies used in the platform
-- [Architecture](/architecture/) -- platform encoding architecture and data flow
-- [Capabilities](/capabilities/) -- platform capabilities requiring encoding support
-- [Security](/glossary/security/) -- security implications of encoding decisions
+- [Technologies](@/technologies/_index.md) -- serialization technologies used in the platform
+- [Architecture](@/architecture/_index.md) -- platform encoding architecture and data flow
+- [Capabilities](@/capabilities/_index.md) -- platform capabilities requiring encoding support
+- [Security](@/glossary/security.md) -- security implications of encoding decisions
 
 ---
 
@@ -648,4 +648,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

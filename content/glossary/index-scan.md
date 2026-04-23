@@ -550,24 +550,24 @@ end
 
 ## Related Terms
 
-- [PostgreSQL](/glossary/postgresql/) -- primary database engine using B-tree, GIN, and BRIN indexes
-- [Ecto](/glossary/ecto/) -- Elixir database wrapper generating indexed queries via DSL
-- [Sequential Scan](/glossary/sequential-scan/) -- full table scan alternative to index scan
+- [PostgreSQL](@/glossary/postgresql.md) -- primary database engine using B-tree, GIN, and BRIN indexes
+- [Ecto](@/glossary/ecto.md) -- Elixir database wrapper generating indexed queries via DSL
+- [Sequential Scan](@/glossary/sequential-scan.md) -- full table scan alternative to index scan
 - [Query Optimization](/glossary/query-optimization/) -- broader optimization strategies including indexing
-- [ETS](/glossary/ets/) -- in-memory alternative for hot-path data access
-- [Performance](/glossary/performance/) -- platform-wide performance standards and gates
+- [ETS](@/glossary/ets.md) -- in-memory alternative for hot-path data access
+- [Performance](@/glossary/performance.md) -- platform-wide performance standards and gates
 - [B-tree](/glossary/b-tree/) -- balanced tree structure used by default PostgreSQL indexes
 - [JSONB](/glossary/jsonb/) -- binary JSON storage type indexed by GIN
-- [VACUUM](/glossary/vacuum/) -- maintenance operation enabling index-only scans
-- [Telemetry](/glossary/telemetry/) -- query performance monitoring and alerting
-- [Data Pipeline](/glossary/data-pipeline/) -- bulk data operations requiring index awareness
-- [OSINT](/glossary/osint/) -- intelligence data stored with optimized indexes
+- [VACUUM](@/glossary/vacuum.md) -- maintenance operation enabling index-only scans
+- [Telemetry](@/glossary/telemetry.md) -- query performance monitoring and alerting
+- [Data Pipeline](@/glossary/data-pipeline.md) -- bulk data operations requiring index awareness
+- [OSINT](@/glossary/osint.md) -- intelligence data stored with optimized indexes
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform database architecture and indexing strategy
-- [Capabilities](/capabilities/) -- platform capability performance requirements
-- [Performance](/glossary/performance/) -- platform performance standards (< 100ms server render)
+- [Architecture](@/architecture/_index.md) -- platform database architecture and indexing strategy
+- [Capabilities](@/capabilities/_index.md) -- platform capability performance requirements
+- [Performance](@/glossary/performance.md) -- platform performance standards (< 100ms server render)
 - [PostgreSQL Documentation: Indexes](https://www.postgresql.org/docs/current/indexes.html) -- official reference
 
 ---
@@ -577,4 +577,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

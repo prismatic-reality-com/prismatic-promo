@@ -136,10 +136,10 @@ window.ChartUtils.formatNumber(1234567) // "1.2M"
 
 ## Related Resources
 
-- [Creative Coding Platform](/developers/creative-coding/)
-- [Cross-Link Navigation](/developers/cross-link-navigation/)
-- [Architecture Overview](/architecture/)
-- [Academy Interactive Learning](/academy/)
+- [Creative Coding Platform](@/developers/creative-coding.md)
+- [Cross-Link Navigation](@/developers/cross-link-navigation.md)
+- [Architecture Overview](@/architecture/_index.md)
+- [Academy Interactive Learning](@/academy/_index.md)
 
 ---
 

@@ -28,11 +28,11 @@ image_alt = "trinity-integration-coordinator - Prismatic Platform"
 
 ## Overview
 
-The Trinity Integration Coordinator is an L3 agent operating in the **cosmic-supreme-authority** domain of the Prismatic Platform. This agent is responsible for integrating the [Trinity Gate](/glossary/trinity-gate/) formal verification framework into every operational workflow, CI/CD pipeline, and decision-making process across the platform. While the Trinity Bridge Commander handles individual verifications and the Trinity Bridge Coordinator manages verification campaigns, the Trinity Integration Coordinator ensures that Trinity verification is seamlessly woven into the fabric of daily platform operations.
+The Trinity Integration Coordinator is an L3 agent operating in the **cosmic-supreme-authority** domain of the Prismatic Platform. This agent is responsible for integrating the [Trinity Gate](@/glossary/trinity-gate.md) formal verification framework into every operational workflow, CI/CD pipeline, and decision-making process across the platform. While the Trinity Bridge Commander handles individual verifications and the Trinity Bridge Coordinator manages verification campaigns, the Trinity Integration Coordinator ensures that Trinity verification is seamlessly woven into the fabric of daily platform operations.
 
-The five core [Lean4](/glossary/lean4/) theorems that guarantee safe platform evolution are only effective if they are consistently applied at every decision point. The Integration Coordinator's role is to make verification so deeply integrated that it becomes invisible -- developers and agents interact with Trinity-verified systems without needing to explicitly invoke verification, because it happens automatically at every relevant touchpoint.
+The five core [Lean4](@/glossary/lean4.md) theorems that guarantee safe platform evolution are only effective if they are consistently applied at every decision point. The Integration Coordinator's role is to make verification so deeply integrated that it becomes invisible -- developers and agents interact with Trinity-verified systems without needing to explicitly invoke verification, because it happens automatically at every relevant touchpoint.
 
-This agent operates in the cosmic-supreme-authority domain, reflecting its platform-wide scope and the critical importance of its integration mission within the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework.
+This agent operates in the cosmic-supreme-authority domain, reflecting its platform-wide scope and the critical importance of its integration mission within the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework.
 
 ## Integration Points Map
 
@@ -251,10 +251,10 @@ When a bypass attempt is detected or an integration point becomes unavailable, t
 
 ## Integration Points
 
-- [**Trinity Gate**](/capabilities/trinity-gate/) -- Core verification framework being integrated
-- [**Quality Gates**](/capabilities/quality-gates/) -- Quality pipeline integration point
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Integration health monitoring
-- [**Session Discipline**](/capabilities/session-discipline/) -- Session-level verification enforcement
+- [**Trinity Gate**](@/capabilities/trinity-gate.md) -- Core verification framework being integrated
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Quality pipeline integration point
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Integration health monitoring
+- [**Session Discipline**](@/capabilities/session-discipline.md) -- Session-level verification enforcement
 
 ## AIAD Specification Compliance
 
@@ -262,20 +262,20 @@ When a bypass attempt is detected or an integration point becomes unavailable, t
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 16 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
-| [Lean4](/glossary/lean4/) proofs | 5 theorems integrated |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
+| [Lean4](@/glossary/lean4.md) proofs | 5 theorems integrated |
 
 ## Related Agents
 
-- [**Trinity Bridge Commander**](/agents/trinity-bridge-commander/) -- Verification decision authority
-- [**Trinity Bridge Coordinator**](/agents/trinity-bridge-coordinator/) -- Verification campaign management
-- [**Stack Mode Coordinator**](/agents/stack-mode-coordinator/) -- Stack-based session integration
+- [**Trinity Bridge Commander**](@/agents/trinity-bridge-commander.md) -- Verification decision authority
+- [**Trinity Bridge Coordinator**](@/agents/trinity-bridge-coordinator.md) -- Verification campaign management
+- [**Stack Mode Coordinator**](@/agents/stack-mode-coordinator.md) -- Stack-based session integration
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to enforce Trinity verification integration across all platform workflows and processes.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to enforce Trinity verification integration across all platform workflows and processes.
 
 ---
 
@@ -284,4 +284,4 @@ When a bypass attempt is detected or an integration point becomes unavailable, t
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

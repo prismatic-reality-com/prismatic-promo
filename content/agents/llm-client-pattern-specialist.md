@@ -28,9 +28,9 @@ image_alt = "llm-client-pattern-specialist - Prismatic Platform"
 
 ## Overview
 
-The llm-client-pattern-specialist is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the quality domain of the Prismatic Platform. This agent specializes in verifying and enforcing correct usage patterns for the platform's LLM client library, with particular focus on return type verification (ensuring 3-tuple response patterns are correctly handled), [pattern matching](/glossary/pattern-matching/) correctness across all LLM client call sites, usage tracking for API consumption monitoring, integration testing validation, and contract compliance between the LLM client and its consumers. The agent has been genetically enhanced through the platform's evolutionary optimization framework to achieve high-precision detection of LLM client misuse patterns.
+The llm-client-pattern-specialist is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the quality domain of the Prismatic Platform. This agent specializes in verifying and enforcing correct usage patterns for the platform's LLM client library, with particular focus on return type verification (ensuring 3-tuple response patterns are correctly handled), [pattern matching](@/glossary/pattern-matching.md) correctness across all LLM client call sites, usage tracking for API consumption monitoring, integration testing validation, and contract compliance between the LLM client and its consumers. The agent has been genetically enhanced through the platform's evolutionary optimization framework to achieve high-precision detection of LLM client misuse patterns.
 
-Built on the [AIAD](/glossary/aiad/) standard, this agent addresses a critical quality concern in platforms that integrate with LLM APIs. LLM client libraries typically return complex response structures (status tuples, nested maps, streaming responses) that are easily mishandled. Incorrect pattern matching on LLM responses can lead to silent data loss (ignoring error tuples), runtime crashes (matching on assumed response structure that varies by model), or degraded behavior (failing to handle rate limiting, token limits, or model-specific response variations). The llm-client-pattern-specialist systematically prevents these failure modes through static analysis and contract enforcement.
+Built on the [AIAD](@/glossary/aiad.md) standard, this agent addresses a critical quality concern in platforms that integrate with LLM APIs. LLM client libraries typically return complex response structures (status tuples, nested maps, streaming responses) that are easily mishandled. Incorrect pattern matching on LLM responses can lead to silent data loss (ignoring error tuples), runtime crashes (matching on assumed response structure that varies by model), or degraded behavior (failing to handle rate limiting, token limits, or model-specific response variations). The llm-client-pattern-specialist systematically prevents these failure modes through static analysis and contract enforcement.
 
 ## Architecture
 
@@ -75,12 +75,12 @@ The specialist detects several categories of misuse. Incomplete pattern matching
 
 - **3-tuple return type verification** -- Scans all LLM client call sites to verify correct handling of 3-tuple response patterns, flagging 2-tuple matches that discard metadata and incomplete pattern matches that miss error cases
 - **Cross-provider pattern validation** -- Verifies that response handling code is compatible with all configured LLM providers (Claude, GPT, Ollama, local models), accounting for provider-specific response structure variations
-- **Usage tracking enforcement** -- Ensures that token counts, latency measurements, and cost data from response metadata are correctly propagated to the platform's [telemetry](/glossary/telemetry/) and cost tracking systems
+- **Usage tracking enforcement** -- Ensures that token counts, latency measurements, and cost data from response metadata are correctly propagated to the platform's [telemetry](@/glossary/telemetry.md) and cost tracking systems
 - **Contract compliance testing** -- Validates that the LLM client's behavioral contract (response types, error conditions, metadata guarantees) is maintained across client library updates
 - **Integration test generation** -- Automatically generates integration tests that exercise all observed LLM client usage patterns against mock and live LLM endpoints
-- **[Property-based testing](/glossary/property-based-testing/) support** -- Generates property-based tests that verify LLM client response handling invariants across randomized input combinations
-- **[Quality gate integration](/capabilities/quality-gates/)** -- Blocks deployment when LLM client pattern violations are detected
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for pattern violation tracking and client usage monitoring
+- **[Property-based testing](@/glossary/property-based-testing.md) support** -- Generates property-based tests that verify LLM client response handling invariants across randomized input combinations
+- **[Quality gate integration](@/capabilities/quality-gates.md)** -- Blocks deployment when LLM client pattern violations are detected
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for pattern violation tracking and client usage monitoring
 
 ## Genetic Enhancement
 
@@ -98,7 +98,7 @@ Dynamic analysis monitors actual LLM client calls at runtime, tracking which res
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the specialist to analyze LLM client usage across all platform applications, enforce pattern compliance through quality gates, and coordinate with LLM infrastructure agents for contract evolution.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the specialist to analyze LLM client usage across all platform applications, enforce pattern compliance through quality gates, and coordinate with LLM infrastructure agents for contract evolution.
 
 ## Command Interface
 
@@ -113,14 +113,14 @@ Dynamic analysis monitors actual LLM client calls at runtime, tracking which res
 
 | Agent | Relationship |
 |-------|-------------|
-| [**llm-generic-bridge**](/agents/llm-generic-bridge/) (L4) | Maintains the LLM client contracts that the specialist enforces |
-| [**llm-cost-manager**](/agents/llm-cost-manager/) (L4) | Depends on correct metadata propagation for cost tracking accuracy |
-| [**llm-performance-optimizer**](/agents/llm-performance-optimizer/) (L3) | Depends on correct metadata propagation for latency tracking |
-| [**cascade-quality-specialist**](/agents/cascade-quality-specialist/) (L3) | LLM client pattern violations contribute to CASCADE quality tracking |
+| [**llm-generic-bridge**](@/agents/llm-generic-bridge.md) (L4) | Maintains the LLM client contracts that the specialist enforces |
+| [**llm-cost-manager**](@/agents/llm-cost-manager.md) (L4) | Depends on correct metadata propagation for cost tracking accuracy |
+| [**llm-performance-optimizer**](@/agents/llm-performance-optimizer.md) (L3) | Depends on correct metadata propagation for latency tracking |
+| [**cascade-quality-specialist**](@/agents/cascade-quality-specialist.md) (L3) | LLM client pattern violations contribute to CASCADE quality tracking |
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine prohibits deployment of code with known LLM client pattern violations. Every call site must correctly handle all documented response patterns including error cases and metadata. The [NO DOUBTS](/glossary/no-doubts/) principle requires that pattern analysis results include specific remediation guidance for each violation, enabling developers to resolve issues without consulting additional documentation. All pattern verification results pass through the [Trinity Gate](/glossary/trinity-gate/) validation framework, ensuring structural consistency of the analysis, logical consistency of violation classifications, and formal verification of contract compliance claims. The [NABLA Infinity](/glossary/nabla-infinity/) framework governs the epistemic rigor of pattern detection, requiring that violation claims are backed by concrete AST evidence with full provenance chains.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine prohibits deployment of code with known LLM client pattern violations. Every call site must correctly handle all documented response patterns including error cases and metadata. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that pattern analysis results include specific remediation guidance for each violation, enabling developers to resolve issues without consulting additional documentation. All pattern verification results pass through the [Trinity Gate](@/glossary/trinity-gate.md) validation framework, ensuring structural consistency of the analysis, logical consistency of violation classifications, and formal verification of contract compliance claims. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs the epistemic rigor of pattern detection, requiring that violation claims are backed by concrete AST evidence with full provenance chains.
 
 ---
 
@@ -129,4 +129,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine prohibits deployment of code with k
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

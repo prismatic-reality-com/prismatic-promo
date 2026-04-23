@@ -28,15 +28,15 @@ image_alt = "UnsafeMapAccess Specialist Agent - Prismatic Platform"
 
 ## Overview
 
-The UnsafeMapAccess Specialist Agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's quality specialist domain, dedicated to detecting and eliminating unsafe map access patterns across the entire [Elixir](/glossary/elixir/) codebase. Unsafe map access -- using `map.field` dot notation or `map[:key]` bracket syntax on potentially nil maps -- represents a critical memory safety concern in [OTP](/glossary/otp/) applications, as it produces runtime `KeyError` or `nil` propagation that can crash [GenServer](/glossary/genserver/) processes and cascade through [supervision tree](/glossary/supervision-tree/)s.
+The UnsafeMapAccess Specialist Agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's quality specialist domain, dedicated to detecting and eliminating unsafe map access patterns across the entire [Elixir](@/glossary/elixir.md) codebase. Unsafe map access -- using `map.field` dot notation or `map[:key]` bracket syntax on potentially nil maps -- represents a critical memory safety concern in [OTP](@/glossary/otp.md) applications, as it produces runtime `KeyError` or `nil` propagation that can crash [GenServer](@/glossary/genserver.md) processes and cascade through [supervision tree](@/glossary/supervision-tree.md)s.
 
-This agent enforces the platform's zero-tolerance policy for unsafe map access under the [NO MERCY](/glossary/no-mercy/) doctrine. The platform maintains 0 violations in the Unsafe Map Access quality domain as part of its 100/100 quality score. Every map access must use safe patterns: `Map.get/3` with explicit defaults, `Map.fetch/2` with `{:ok, value}` / `:error` handling, or [pattern matching](/glossary/pattern-matching/) in function heads. The agent scans the codebase's 6,652 `.ex` files using AST analysis to detect violations that static analysis tools like [Dialyzer](/glossary/dialyzer/) and [Credo](/glossary/credo/) cannot catch on their own.
+This agent enforces the platform's zero-tolerance policy for unsafe map access under the [NO MERCY](@/glossary/no-mercy.md) doctrine. The platform maintains 0 violations in the Unsafe Map Access quality domain as part of its 100/100 quality score. Every map access must use safe patterns: `Map.get/3` with explicit defaults, `Map.fetch/2` with `{:ok, value}` / `:error` handling, or [pattern matching](@/glossary/pattern-matching.md) in function heads. The agent scans the codebase's 6,652 `.ex` files using AST analysis to detect violations that static analysis tools like [Dialyzer](@/glossary/dialyzer.md) and [Credo](@/glossary/credo.md) cannot catch on their own.
 
-The agent is a core component of the [CASCADE](/glossary/cascade/) elimination pipeline, which systematically identifies and removes anti-patterns from the codebase. Unsafe map access was one of the original CASCADE pattern categories, and its complete elimination represents a milestone in the platform's journey to a 100/100 quality score. The agent maintains this achievement through continuous enforcement, preventing any regression in the Unsafe Map Access quality domain.
+The agent is a core component of the [CASCADE](@/glossary/cascade.md) elimination pipeline, which systematically identifies and removes anti-patterns from the codebase. Unsafe map access was one of the original CASCADE pattern categories, and its complete elimination represents a milestone in the platform's journey to a 100/100 quality score. The agent maintains this achievement through continuous enforcement, preventing any regression in the Unsafe Map Access quality domain.
 
 ## Architecture
 
-The UnsafeMapAccess Specialist Agent is implemented as a supervised [OTP](/glossary/otp/) process that integrates with the platform's quality infrastructure through multiple interfaces.
+The UnsafeMapAccess Specialist Agent is implemented as a supervised [OTP](@/glossary/otp.md) process that integrates with the platform's quality infrastructure through multiple interfaces.
 
 ```
 UnsafeMapAccess.Supervisor
@@ -47,7 +47,7 @@ UnsafeMapAccess.Supervisor
 +-- PreCommit.Gate          (git hook enforcement)
 ```
 
-The scanner performs AST traversal of Elixir source files, identifying dot-notation and bracket access nodes. The analyzer applies context-aware filtering to distinguish genuinely unsafe accesses from safe patterns (such as struct field access where the struct type is guaranteed by pattern matching). The remediation generator produces syntactically correct replacement code using the appropriate safe access pattern for each context. The [ETS](/glossary/ets/) cache stores analysis results indexed by file content hash, enabling incremental scanning that only re-analyzes modified files. The pre-commit gate integrates with Git hooks to block commits that introduce new violations.
+The scanner performs AST traversal of Elixir source files, identifying dot-notation and bracket access nodes. The analyzer applies context-aware filtering to distinguish genuinely unsafe accesses from safe patterns (such as struct field access where the struct type is guaranteed by pattern matching). The remediation generator produces syntactically correct replacement code using the appropriate safe access pattern for each context. The [ETS](@/glossary/ets.md) cache stores analysis results indexed by file content hash, enabling incremental scanning that only re-analyzes modified files. The pre-commit gate integrates with Git hooks to block commits that introduce new violations.
 
 Each component runs as a separate process under the supervisor, ensuring that a failure in one component (such as a parsing error on a malformed file) does not affect the others. The scanner communicates with the analyzer through message passing, and the remediation generator is invoked only when violations are confirmed, minimizing unnecessary computation.
 
@@ -61,15 +61,15 @@ The agent provides six primary capabilities that together form a comprehensive u
 
 **Safe Pattern Replacement** generates correct replacement code using the safe access pattern most appropriate to each context. For map lookups with sensible defaults, `Map.get/3` is preferred. For lookups where absence is an error condition, `Map.fetch!/2` or `Map.fetch/2` with explicit error handling is generated. For struct field access, function-head pattern matching is recommended.
 
-**Incremental Scanning** targets only modified files and their dependents rather than performing full-codebase scans on every invocation. The agent maintains an [ETS](/glossary/ets/)-cached dependency graph that maps each file to its reverse dependencies, so that when a module's type definitions change, all modules that access its maps are re-scanned.
+**Incremental Scanning** targets only modified files and their dependents rather than performing full-codebase scans on every invocation. The agent maintains an [ETS](@/glossary/ets.md)-cached dependency graph that maps each file to its reverse dependencies, so that when a module's type definitions change, all modules that access its maps are re-scanned.
 
 **Pre-Commit Enforcement** integrates with the Git pre-commit hook pipeline to block any commit that introduces new unsafe map access violations. This enforcement operates at the file diff level, scanning only the changed lines and their surrounding context to determine whether new violations have been introduced.
 
-**Remediation Statistics** tracks violation counts, remediation rates, and pattern distribution over time, publishing metrics through the platform's [telemetry](/glossary/telemetry/) system for monitoring and trending.
+**Remediation Statistics** tracks violation counts, remediation rates, and pattern distribution over time, publishing metrics through the platform's [telemetry](@/glossary/telemetry.md) system for monitoring and trending.
 
 ## Implementation
 
-The core scanner is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that manages scanning state and coordinates analysis operations.
+The core scanner is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that manages scanning state and coordinates analysis operations.
 
 ```elixir
 defmodule Prismatic.Agents.UnsafeMapAccess.Scanner do
@@ -162,13 +162,13 @@ The UnsafeMapAccess Specialist Agent integrates with the platform's quality and 
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [CASCADE Pipeline](/glossary/cascade/) | Bidirectional | Core CASCADE anti-pattern category; feeds violation data and receives elimination directives |
-| [code-quality-commander](/agents/code-quality-commander/) | Outbound | Reports violation counts to the supreme quality authority for platform scoring |
-| [Quality Floor Guardian](/glossary/quality-floor-guardian/) | Outbound | Feeds real-time violation metrics into domain monitoring |
-| [Performance Benchmarking Agent](/agents/performance-benchmarking-agent/) | Inbound | Validates that safe-access replacements maintain runtime performance |
+| [CASCADE Pipeline](@/glossary/cascade.md) | Bidirectional | Core CASCADE anti-pattern category; feeds violation data and receives elimination directives |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Outbound | Reports violation counts to the supreme quality authority for platform scoring |
+| [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) | Outbound | Feeds real-time violation metrics into domain monitoring |
+| [Performance Benchmarking Agent](@/agents/performance-benchmarking-agent.md) | Inbound | Validates that safe-access replacements maintain runtime performance |
 | Git Pre-Commit Hooks | Enforcement | Blocks commits introducing new violations |
-| [Dialyzer](/glossary/dialyzer/) | Complementary | Catches type-level violations that AST analysis cannot detect |
-| [Credo](/glossary/credo/) | Complementary | Catches style-level issues; the specialist handles deeper semantic analysis |
+| [Dialyzer](@/glossary/dialyzer.md) | Complementary | Catches type-level violations that AST analysis cannot detect |
+| [Credo](@/glossary/credo.md) | Complementary | Catches style-level issues; the specialist handles deeper semantic analysis |
 
 ## Operational Workflow
 
@@ -178,13 +178,13 @@ The agent operates in three modes: continuous background scanning, on-demand tar
 
 **On-Demand Analysis** is invoked through the `/unsafe-map scan` command, performing a targeted scan of specified files, directories, or the entire codebase. Results include violation details, suggested fixes, and remediation statistics.
 
-**Pre-Commit Enforcement** activates during every `git commit`, scanning the staged diff for new unsafe map access patterns. If any violation is detected, the commit is blocked with a detailed error message showing the violation location and suggested fix. This gate is non-bypassable under the [NO MERCY](/glossary/no-mercy/) doctrine.
+**Pre-Commit Enforcement** activates during every `git commit`, scanning the staged diff for new unsafe map access patterns. If any violation is detected, the commit is blocked with a detailed error message showing the violation location and suggested fix. This gate is non-bypassable under the [NO MERCY](@/glossary/no-mercy.md) doctrine.
 
 The remediation workflow follows a four-step process: (1) scan to identify violations, (2) generate safe replacement code, (3) apply replacements with user confirmation, (4) re-scan to verify elimination. Each step is logged through telemetry for audit trail purposes.
 
 ## NABLA Compliance
 
-The UnsafeMapAccess Specialist Agent operates under [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance for all violation claims.
+The UnsafeMapAccess Specialist Agent operates under [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance for all violation claims.
 
 **Signal Plurality**: Every violation report includes both the AST evidence (the specific syntax node identified) and the context analysis result (why the access is deemed unsafe). Two independent signals confirm each violation.
 
@@ -194,7 +194,7 @@ The UnsafeMapAccess Specialist Agent operates under [NABLA Infinity](/glossary/n
 
 **Time Decay**: Cached analysis results include timestamps and are invalidated when source files change. The agent never relies on stale analysis results for enforcement decisions.
 
-All enforcement decisions pass through [Trinity Gate](/glossary/trinity-gate/) validation: structural consistency (the violation report references valid AST nodes), logical consistency (the unsafe determination follows from the binding context), and formal necessity (the replacement code is provably safe through type analysis).
+All enforcement decisions pass through [Trinity Gate](@/glossary/trinity-gate.md) validation: structural consistency (the violation report references valid AST nodes), logical consistency (the unsafe determination follows from the binding context), and formal necessity (the replacement code is provably safe through type analysis).
 
 ## Configuration
 
@@ -237,13 +237,13 @@ The incremental scanning strategy ensures that typical development workflows exp
 
 ## Related Resources
 
-- [CASCADE Pipeline](/glossary/cascade/) -- Systematic anti-pattern elimination infrastructure
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Quality monitoring system receiving violation metrics
-- [NO MERCY Doctrine](/glossary/no-mercy/) -- Zero-tolerance enforcement framework
-- [Dialyzer](/glossary/dialyzer/) -- Complementary static analysis for type-level safety
-- [Credo](/glossary/credo/) -- Style and consistency checking
-- [AIAD Standard](/glossary/aiad/) -- Agent specification standard
-- [Pattern Matching](/glossary/pattern-matching/) -- Preferred safe access mechanism in Elixir
+- [CASCADE Pipeline](@/glossary/cascade.md) -- Systematic anti-pattern elimination infrastructure
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Quality monitoring system receiving violation metrics
+- [NO MERCY Doctrine](@/glossary/no-mercy.md) -- Zero-tolerance enforcement framework
+- [Dialyzer](@/glossary/dialyzer.md) -- Complementary static analysis for type-level safety
+- [Credo](@/glossary/credo.md) -- Style and consistency checking
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification standard
+- [Pattern Matching](@/glossary/pattern-matching.md) -- Preferred safe access mechanism in Elixir
 
 ---
 
@@ -252,4 +252,4 @@ The incremental scanning strategy ensures that typical development workflows exp
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

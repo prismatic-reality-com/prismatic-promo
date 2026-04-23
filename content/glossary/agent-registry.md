@@ -37,7 +37,7 @@ image_alt = "Agent Registry - Prismatic Platform"
 
 The Agent Registry is the centralized, authoritative catalog that indexes all AIAD-compliant agents within the Prismatic Platform. It records each agent's call sign, authority tier, domain specialization, capabilities, operational status, and inter-agent dependencies. Maintained in `.claude/AGENT_REGISTRY.md` and auto-indexed by the AIAD toolchain via `./.aiad/bin/aiad index`, the registry serves as the single source of truth for agent discovery, governance, and coordination across the entire platform ecosystem.
 
-The registry is not a passive directory. It actively enforces agent governance by preventing duplicate definitions, validating tier assignments against the [Agent Tier](/glossary/agent-tier/) specification, and ensuring that every agent in the platform has a well-defined specification file. When an [agent](/glossary/agent/) is deployed, the runtime validates its identity against the registry. Unregistered agents cannot operate within the platform -- this constraint prevents rogue or unauthorized agents from accessing platform resources.
+The registry is not a passive directory. It actively enforces agent governance by preventing duplicate definitions, validating tier assignments against the [Agent Tier](@/glossary/agent-tier.md) specification, and ensuring that every agent in the platform has a well-defined specification file. When an [agent](@/glossary/agent.md) is deployed, the runtime validates its identity against the registry. Unregistered agents cannot operate within the platform -- this constraint prevents rogue or unauthorized agents from accessing platform resources.
 
 The design philosophy behind the Agent Registry is discoverability at scale. With 500+ statically defined agents and approximately 30 additional runtime-generated agents (530+ total), the platform requires a reliable mechanism for agents to locate collaborators, for commanders to identify available specialists, and for governance systems to audit the complete agent population. The registry provides this mechanism through structured indexing, domain classification, and tier-based querying.
 
@@ -62,7 +62,7 @@ Each agent entry in the registry contains a standardized set of fields derived f
 | Field | Description | Example |
 |-------|-------------|---------|
 | **Call Sign** | Unique identifier for the agent | `red-commander` |
-| **Authority Tier** | L1-L5 classification per [Agent Tier](/glossary/agent-tier/) | L3 Strategic |
+| **Authority Tier** | L1-L5 classification per [Agent Tier](@/glossary/agent-tier.md) | L3 Strategic |
 | **Domain** | Primary operational domain from the 16-domain taxonomy | Security |
 | **Specialization** | Specific capability or focus area | Adversarial scenario orchestration |
 | **Status** | Current operational state (active, standby, deprecated) | Active |
@@ -128,7 +128,7 @@ The registry is maintained through an automated indexing process that scans the 
 # 7. Emits validation report with warnings and errors
 ```
 
-The auto-indexing process runs as part of the AIAD maintenance cycle and is triggered automatically when new agents are added or existing agents are modified. The [AutoEvolve](/glossary/autoevolve/) system monitors the registry for consistency and triggers re-indexing when drift is detected.
+The auto-indexing process runs as part of the AIAD maintenance cycle and is triggered automatically when new agents are added or existing agents are modified. The [AutoEvolve](@/glossary/autoevolve.md) system monitors the registry for consistency and triggers re-indexing when drift is detected.
 
 ```elixir
 defmodule PrismaticAgents.Registry.Indexer do
@@ -175,9 +175,9 @@ Agents are classified across 16 operational domains, each representing a distinc
 
 | Domain | Agent Count | Description | Key Agents |
 |--------|-------------|-------------|------------|
-| **Security** | ~40 | [Color Teams](/glossary/color-teams/) and security operations | 20 Color Team agents + security specialists |
+| **Security** | ~40 | [Color Teams](@/glossary/color-teams.md) and security operations | 20 Color Team agents + security specialists |
 | **Quality** | ~45 | Quality enforcement, gates, and monitoring | Quality floor guardian, Credo enforcer |
-| **Evolution** | ~35 | [AutoEvolve](/glossary/autoevolve/), [AutoHeal](/glossary/autoheal/), generation management | Evolution scanner, healing coordinator |
+| **Evolution** | ~35 | [AutoEvolve](@/glossary/autoevolve.md), [AutoHeal](@/glossary/autoheal.md), generation management | Evolution scanner, healing coordinator |
 | **Intelligence** | ~40 | OSINT, entity resolution, data analysis | Ghost recon, delta force, email OSINT |
 | **Architecture** | ~25 | Platform design, patterns, standards | Elixir architect, system designer |
 | **Storage** | ~20 | Data persistence, adapters, caching | Storage coordinator, adapter specialists |
@@ -185,9 +185,9 @@ Agents are classified across 16 operational domains, each representing a distinc
 | **Testing** | ~30 | Test generation, coverage, validation | Test generator, coverage analyzer |
 | **Documentation** | ~25 | Docs, guides, knowledge management | Doc generator, knowledge indexer |
 | **Deployment** | ~15 | CI/CD, releases, infrastructure | Deploy coordinator, release manager |
-| **Epistemic** | ~30 | [NABLA Infinity](/glossary/nabla-infinity/), [Trinity Gate](/glossary/trinity-gate/), pipeline | Epistemic validator, belief manager |
-| **Consciousness** | ~20 | [Consciousness traits](/glossary/consciousness-traits/), self-awareness | Consciousness monitor, trait evaluator |
-| **Perimeter** | ~15 | [EASM](/glossary/easm/), attack surface, compliance | Perimeter scanner, compliance assessor |
+| **Epistemic** | ~30 | [NABLA Infinity](@/glossary/nabla-infinity.md), [Trinity Gate](@/glossary/trinity-gate.md), pipeline | Epistemic validator, belief manager |
+| **Consciousness** | ~20 | [Consciousness traits](@/glossary/consciousness-traits.md), self-awareness | Consciousness monitor, trait evaluator |
+| **Perimeter** | ~15 | [EASM](@/glossary/easm.md), attack surface, compliance | Perimeter scanner, compliance assessor |
 | **Promo** | ~10 | Content enhancement, site management | Promo content enhancer |
 | **API** | ~10 | API gateway, endpoint discovery, OpenAPI | API scanner, spec generator |
 | **Ecosystem** | ~15 | OSS packages, developer portal, community | SDK architect, plugin coordinator |
@@ -204,7 +204,7 @@ The registry tracks the distribution of agents across authority tiers, ensuring 
 | **L2 Tactical** | ~180 | 34% | Multi-step workflows, domain-scoped coordination | Red epistemic attacker, blue drift detector |
 | **L3 Strategic** | ~100 | 19% | Cross-domain coordination, team command | Red commander, blue commander, purple coordinator |
 | **L4 Safety-Critical** | ~40 | 7% | Safety overrides, emergency intervention | Gray escalation guard, purple regression guard |
-| **L5 Supreme** | ~10 | 2% | Platform-wide authority, strategic decisions | [Archer Supreme](/glossary/archer-supreme/), [Supreme Commander](/glossary/supreme-commander/) |
+| **L5 Supreme** | ~10 | 2% | Platform-wide authority, strategic decisions | [Archer Supreme](@/glossary/archer-supreme.md), [Supreme Commander](@/glossary/supreme-commander.md) |
 
 This distribution follows a pyramid structure where the majority of agents operate at L1-L2 (execution), a smaller number coordinate at L3 (strategy), and a handful hold safety-critical (L4) or supreme (L5) authority. This mirrors military command structures and ensures that authority is concentrated at the top while operational capacity is distributed at the base.
 
@@ -218,7 +218,7 @@ The registry enables several discovery patterns that are essential for platform 
 
 **Tier Query**: Given a tier level, retrieve all agents at that authority level. Used by L4+ agents to identify peers for cross-domain coordination.
 
-**Capability Match**: Given a required capability, find agents that provide it. Used by the [Blackboard](/glossary/blackboard/) system to route knowledge requests to appropriate specialists.
+**Capability Match**: Given a required capability, find agents that provide it. Used by the [Blackboard](@/glossary/blackboard.md) system to route knowledge requests to appropriate specialists.
 
 **Dependency Resolution**: Given an agent, identify all agents it depends on and verify they are available. Used during deployment to ensure operational prerequisites are met.
 
@@ -290,7 +290,7 @@ end
 
 Beyond the 500+ statically defined agents, the platform generates approximately 30 additional agents at runtime. These runtime agents are created dynamically in response to platform conditions -- for example, when a new umbrella application is added and requires a dedicated quality monitoring agent, or when a specific investigation requires a temporary specialist agent.
 
-Runtime agents are registered in the same registry as static agents, with an additional `runtime: true` flag distinguishing them. They follow the same [Agent Tier](/glossary/agent-tier/) classification, domain assignment, and capability specification as static agents. The key difference is lifecycle: static agents persist across platform restarts, while runtime agents are recreated as needed by their parent [supervisors](/glossary/supervisor/).
+Runtime agents are registered in the same registry as static agents, with an additional `runtime: true` flag distinguishing them. They follow the same [Agent Tier](@/glossary/agent-tier.md) classification, domain assignment, and capability specification as static agents. The key difference is lifecycle: static agents persist across platform restarts, while runtime agents are recreated as needed by their parent [supervisors](@/glossary/supervisor.md).
 
 ```elixir
 defmodule PrismaticAgents.Registry.RuntimeExtension do
@@ -333,11 +333,11 @@ The registry serves as the foundation for agent governance:
 - **Deprecation Tracking**: Agents marked as deprecated remain in the registry for audit purposes but are excluded from active discovery
 - **Change History**: Registry regeneration timestamps and diff tracking enable audit trails for governance changes
 
-The registry also integrates with the platform's [structured logging](/glossary/structured-logging/) and [observability](/glossary/observability/) systems, providing correlation between agent identities and their operational telemetry.
+The registry also integrates with the platform's [structured logging](@/glossary/structured-logging.md) and [observability](@/glossary/observability.md) systems, providing correlation between agent identities and their operational telemetry.
 
 ## Color Team Registry Integration
 
-The [Color Teams](/glossary/color-teams/) system relies heavily on the registry for team composition validation. Each of the six color teams (Gray, Red, Blue, Purple, White, Black) has a defined agent roster that must be validated against the registry:
+The [Color Teams](@/glossary/color-teams.md) system relies heavily on the registry for team composition validation. Each of the six color teams (Gray, Red, Blue, Purple, White, Black) has a defined agent roster that must be validated against the registry:
 
 | Team | Required Agents | Registry Validation |
 |------|----------------|---------------------|
@@ -354,35 +354,35 @@ The Agent Registry integrates with several core platform systems:
 
 | System | Integration | Purpose |
 |--------|-------------|---------|
-| **[Blackboard](/glossary/blackboard/)** | Agent capability lookup | Routes knowledge requests to appropriate specialists |
-| **[Epistemic Pipeline](/glossary/epistemic-pipeline/)** | Tier-based access control | Ensures agents access only tier-appropriate pipeline levels |
-| **[AutoEvolve](/glossary/autoevolve/)** | Registry consistency monitoring | Detects and corrects registry drift |
-| **[Supervisor](/glossary/supervisor/)** | Process-agent mapping | Links OTP processes to their agent identities |
+| **[Blackboard](@/glossary/blackboard.md)** | Agent capability lookup | Routes knowledge requests to appropriate specialists |
+| **[Epistemic Pipeline](@/glossary/epistemic-pipeline.md)** | Tier-based access control | Ensures agents access only tier-appropriate pipeline levels |
+| **[AutoEvolve](@/glossary/autoevolve.md)** | Registry consistency monitoring | Detects and corrects registry drift |
+| **[Supervisor](@/glossary/supervisor.md)** | Process-agent mapping | Links OTP processes to their agent identities |
 | **Quality Gates** | Agent compliance checking | Validates that all agents meet quality standards |
-| **[Color Teams](/glossary/color-teams/)** | Team composition validation | Ensures team agent composition matches specifications |
+| **[Color Teams](@/glossary/color-teams.md)** | Team composition validation | Ensures team agent composition matches specifications |
 | **SEADF** | Subsystem coordination | Routes tasks to appropriate agent domains |
 
 ## Related Terms
 
-- [AIAD](/glossary/aiad/) -- The agent definition standard governing all registered agents
-- [Agent](/glossary/agent/) -- Core concept of autonomous operational units tracked by the registry
-- [Agent Tier](/glossary/agent-tier/) -- L1-L5 authority classification indexed in the registry
-- [Archer Supreme](/glossary/archer-supreme/) -- L5 Supreme authority agent registered in the catalog
-- [Supreme Commander](/glossary/supreme-commander/) -- L5 agent using the registry for cross-domain coordination
-- [Color Teams](/glossary/color-teams/) -- 20 security agents registered across 6 teams
-- [Blackboard](/glossary/blackboard/) -- Shared knowledge store using registry for agent discovery
-- [Consciousness Traits](/glossary/consciousness-traits/) -- Traits tracked per agent in the registry
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing registered agent behavior
-- [Supervisor](/glossary/supervisor/) -- OTP supervision managing registered agent processes
-- [AutoEvolve](/glossary/autoevolve/) -- Evolution system monitoring registry consistency
-- [AutoHeal](/glossary/autoheal/) -- Self-repair system using registry for agent health checks
+- [AIAD](@/glossary/aiad.md) -- The agent definition standard governing all registered agents
+- [Agent](@/glossary/agent.md) -- Core concept of autonomous operational units tracked by the registry
+- [Agent Tier](@/glossary/agent-tier.md) -- L1-L5 authority classification indexed in the registry
+- [Archer Supreme](@/glossary/archer-supreme.md) -- L5 Supreme authority agent registered in the catalog
+- [Supreme Commander](@/glossary/supreme-commander.md) -- L5 agent using the registry for cross-domain coordination
+- [Color Teams](@/glossary/color-teams.md) -- 20 security agents registered across 6 teams
+- [Blackboard](@/glossary/blackboard.md) -- Shared knowledge store using registry for agent discovery
+- [Consciousness Traits](@/glossary/consciousness-traits.md) -- Traits tracked per agent in the registry
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing registered agent behavior
+- [Supervisor](@/glossary/supervisor.md) -- OTP supervision managing registered agent processes
+- [AutoEvolve](@/glossary/autoevolve.md) -- Evolution system monitoring registry consistency
+- [AutoHeal](@/glossary/autoheal.md) -- Self-repair system using registry for agent health checks
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Agents](/agents/) -- Full agent catalog
-- [Capabilities](/capabilities/) -- Platform capability catalog
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Agents](@/agents/_index.md) -- Full agent catalog
+- [Capabilities](@/capabilities/_index.md) -- Platform capability catalog
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -391,4 +391,4 @@ The Agent Registry integrates with several core platform systems:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

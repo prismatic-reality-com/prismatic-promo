@@ -28,15 +28,15 @@ image_alt = "youtube-intelligence-specialist - Prismatic Platform"
 
 ## Overview
 
-The YouTube Intelligence Specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's social media intelligence domain, responsible for gathering, analyzing, and correlating intelligence from YouTube's public data surface. This agent extracts structured intelligence from video metadata, channel profiles, comment threads, engagement patterns, and cross-platform reference networks to support [OSINT](/glossary/osint/) investigations, entity profiling, and digital footprint analysis.
+The YouTube Intelligence Specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's social media intelligence domain, responsible for gathering, analyzing, and correlating intelligence from YouTube's public data surface. This agent extracts structured intelligence from video metadata, channel profiles, comment threads, engagement patterns, and cross-platform reference networks to support [OSINT](@/glossary/osint.md) investigations, entity profiling, and digital footprint analysis.
 
-YouTube, as the world's second-largest search engine and largest video platform, represents a critical intelligence surface. Channels, videos, comments, and playlists contain rich metadata that reveals organizational communications, individual digital identities, corporate activities, and network relationships. The YouTube Intelligence Specialist applies automated collection and analysis techniques to transform this unstructured public data into structured intelligence entities stored in the platform's [KuzuDB](/glossary/kuzudb/) graph database.
+YouTube, as the world's second-largest search engine and largest video platform, represents a critical intelligence surface. Channels, videos, comments, and playlists contain rich metadata that reveals organizational communications, individual digital identities, corporate activities, and network relationships. The YouTube Intelligence Specialist applies automated collection and analysis techniques to transform this unstructured public data into structured intelligence entities stored in the platform's [KuzuDB](@/glossary/kuzudb.md) graph database.
 
-Built on the [AIAD](/glossary/aiad/) standard and integrated with the [GARDEN](/glossary/garden/) legacy knowledge system (which includes 250+ OSINT provider integrations), the agent feeds intelligence into the platform's [entity resolution](/glossary/entity-resolution/) pipeline where YouTube-derived identities are correlated with entities from other intelligence sources. All intelligence claims comply with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, requiring multi-source confirmation and formal provenance for every finding. The agent enforces the [NO DOUBTS](/glossary/no-doubts/) doctrine's requirement for evidence-based claims.
+Built on the [AIAD](@/glossary/aiad.md) standard and integrated with the [GARDEN](@/glossary/garden.md) legacy knowledge system (which includes 250+ OSINT provider integrations), the agent feeds intelligence into the platform's [entity resolution](@/glossary/entity-resolution.md) pipeline where YouTube-derived identities are correlated with entities from other intelligence sources. All intelligence claims comply with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, requiring multi-source confirmation and formal provenance for every finding. The agent enforces the [NO DOUBTS](@/glossary/no-doubts.md) doctrine's requirement for evidence-based claims.
 
 ## Architecture
 
-The YouTube Intelligence Specialist is built on a pipeline architecture that separates collection, extraction, analysis, and correlation into distinct [OTP](/glossary/otp/) processing stages.
+The YouTube Intelligence Specialist is built on a pipeline architecture that separates collection, extraction, analysis, and correlation into distinct [OTP](@/glossary/otp.md) processing stages.
 
 ```
 YouTubeIntelligence.Supervisor
@@ -50,7 +50,7 @@ YouTubeIntelligence.Supervisor
 
 The Collector interfaces with YouTube's public Data API to retrieve channel information, video metadata, playlist contents, and comment threads within rate limits and terms of service. The MetadataExtractor parses raw API responses into structured intelligence entities: channels become organization/person profiles, videos become content artifacts with temporal metadata, and comments become social interaction records. The ContentAnalyzer applies natural language processing to video titles, descriptions, and comments to extract keywords, sentiment, topic classifications, and referenced entities.
 
-The NetworkMapper constructs relationship graphs from cross-references: channel subscriptions, video responses, comment reply chains, and shared content patterns. The EntityResolver correlates YouTube-derived identities with entities in other intelligence databases, using [entity resolution](/glossary/entity-resolution/) techniques to link YouTube channels to organizational entities, social media profiles, and corporate registrations. The IntelligenceStore persists all extracted intelligence in [KuzuDB](/glossary/kuzudb/) with full provenance metadata.
+The NetworkMapper constructs relationship graphs from cross-references: channel subscriptions, video responses, comment reply chains, and shared content patterns. The EntityResolver correlates YouTube-derived identities with entities in other intelligence databases, using [entity resolution](@/glossary/entity-resolution.md) techniques to link YouTube channels to organizational entities, social media profiles, and corporate registrations. The IntelligenceStore persists all extracted intelligence in [KuzuDB](@/glossary/kuzudb.md) with full provenance metadata.
 
 ## Core Capabilities
 
@@ -64,13 +64,13 @@ The YouTube Intelligence Specialist provides six primary capabilities forming a 
 
 **Social Network Mapping** constructs relationship graphs from YouTube interaction data: channel-to-channel references, commenter overlap between channels, playlist curation patterns, and video response chains. These networks reveal organizational relationships, influence hierarchies, and community structures that are not visible from individual channel analysis.
 
-**Cross-Platform Identity Correlation** links YouTube identities to entities in other intelligence databases. Channel descriptions often contain links to other social media profiles, corporate websites, and personal blogs. The agent extracts these cross-references and feeds them into the platform's [entity resolution](/glossary/entity-resolution/) pipeline, where YouTube-derived identities are correlated with entities from LinkedIn, Twitter, corporate registries, and other OSINT sources.
+**Cross-Platform Identity Correlation** links YouTube identities to entities in other intelligence databases. Channel descriptions often contain links to other social media profiles, corporate websites, and personal blogs. The agent extracts these cross-references and feeds them into the platform's [entity resolution](@/glossary/entity-resolution.md) pipeline, where YouTube-derived identities are correlated with entities from LinkedIn, Twitter, corporate registries, and other OSINT sources.
 
 **Temporal Intelligence Analysis** tracks changes in channel behavior, content patterns, and engagement metrics over time. Sudden changes in upload frequency, topic focus, or engagement patterns can indicate organizational events (leadership changes, strategy shifts, crisis responses) that are intelligence-relevant.
 
 ## Implementation
 
-The core intelligence collection and analysis pipeline is implemented as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) that orchestrates YouTube data collection and processing.
+The core intelligence collection and analysis pipeline is implemented as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) that orchestrates YouTube data collection and processing.
 
 ```elixir
 defmodule Prismatic.Agents.YouTubeIntelligence do
@@ -227,13 +227,13 @@ The `collect/1` function orchestrates the full intelligence pipeline: fetching r
 
 | Component | Direction | Description |
 |-----------|-----------|-------------|
-| [KuzuDB](/glossary/kuzudb/) Graph Database | Outbound | Persists intelligence entities and relationship networks |
-| [Entity Resolution](/glossary/entity-resolution/) Pipeline | Bidirectional | Feeds YouTube identities; receives correlated multi-source entities |
-| [GARDEN](/glossary/garden/) OSINT Providers | Inbound | Leverages 250+ OSINT providers for cross-platform correlation |
-| [Prismatic Agents](/glossary/prismatic-agents/) Runtime | Bidirectional | Lifecycle management and workflow integration |
-| [Prismatic Web](/glossary/prismatic-web/) | Outbound | Provides intelligence data for investigation dashboards |
+| [KuzuDB](@/glossary/kuzudb.md) Graph Database | Outbound | Persists intelligence entities and relationship networks |
+| [Entity Resolution](@/glossary/entity-resolution.md) Pipeline | Bidirectional | Feeds YouTube identities; receives correlated multi-source entities |
+| [GARDEN](@/glossary/garden.md) OSINT Providers | Inbound | Leverages 250+ OSINT providers for cross-platform correlation |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) Runtime | Bidirectional | Lifecycle management and workflow integration |
+| [Prismatic Web](@/glossary/prismatic-web.md) | Outbound | Provides intelligence data for investigation dashboards |
 | YouTube Data API | External | Primary data source for intelligence collection |
-| [ETS](/glossary/ets/) Collection Cache | Internal | Rate-limit management and response caching |
+| [ETS](@/glossary/ets.md) Collection Cache | Internal | Rate-limit management and response caching |
 
 ## Operational Workflow
 
@@ -249,7 +249,7 @@ The collection workflow proceeds through six phases: (1) target specification an
 
 ## NABLA Compliance
 
-The YouTube Intelligence Specialist operates under strict [NABLA Infinity](/glossary/nabla-infinity/) epistemic governance.
+The YouTube Intelligence Specialist operates under strict [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic governance.
 
 **Signal Plurality**: Every intelligence claim requires confirmation from at least two independent signals. A channel attribution requires both profile metadata analysis and content analysis confirmation. A network relationship requires both direct link evidence and behavioral correlation.
 
@@ -298,14 +298,14 @@ The agent respects YouTube API rate limits through token bucket rate limiting ca
 
 ## Related Resources
 
-- [OSINT](/glossary/osint/) -- Open Source Intelligence methodology and tools
-- [Entity Resolution](/glossary/entity-resolution/) -- Cross-platform identity correlation
-- [KuzuDB](/glossary/kuzudb/) -- Graph database for intelligence entity storage
-- [GARDEN](/glossary/garden/) -- Legacy knowledge system with 250+ OSINT providers
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing intelligence claims
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-layer validation for intelligence findings
-- [NO DOUBTS Doctrine](/glossary/no-doubts/) -- Evidence-based decision making requirement
-- [AIAD Standard](/glossary/aiad/) -- Agent specification standard
+- [OSINT](@/glossary/osint.md) -- Open Source Intelligence methodology and tools
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Cross-platform identity correlation
+- [KuzuDB](@/glossary/kuzudb.md) -- Graph database for intelligence entity storage
+- [GARDEN](@/glossary/garden.md) -- Legacy knowledge system with 250+ OSINT providers
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing intelligence claims
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-layer validation for intelligence findings
+- [NO DOUBTS Doctrine](@/glossary/no-doubts.md) -- Evidence-based decision making requirement
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification standard
 
 ---
 
@@ -314,4 +314,4 @@ The agent respects YouTube API rate limits through token bucket rate limiting ca
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

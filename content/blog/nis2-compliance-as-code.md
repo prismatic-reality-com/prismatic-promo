@@ -19,7 +19,7 @@ see_also = ["nis2", "compliance", "easm", "risk-assessment", "evidence"]
 image_alt = "NIS2 Compliance as Code"
 +++
 
-Most [NIS2](/glossary/nis2) programs start as a spreadsheet and end as a spreadsheet. That is a choice — not a fate. The directive and its Czech implementation (ZKB, Zákon o kybernetické bezpečnosti) describe obligations that map cleanly onto data structures and pipelines. Treat them that way and [compliance](/glossary/compliance) stops being a quarterly fire drill.
+Most [NIS2](@/glossary/nis2.md) programs start as a spreadsheet and end as a spreadsheet. That is a choice — not a fate. The directive and its Czech implementation (ZKB, Zákon o kybernetické bezpečnosti) describe obligations that map cleanly onto data structures and pipelines. Treat them that way and [compliance](@/glossary/compliance.md) stops being a quarterly fire drill.
 
 ## The three things that stay true
 
@@ -50,7 +50,7 @@ The `check` is a pure function over the evidence store. It either passes or fail
 
 ## Evidence is a first-class citizen
 
-An obligation without [evidence](/glossary/evidence) is aspirational. Every evidence record carries a type, a provenance, a validity window, and a pointer to the artifact:
+An obligation without [evidence](@/glossary/evidence.md) is aspirational. Every evidence record carries a type, a provenance, a validity window, and a pointer to the artifact:
 
 ```elixir
 %Evidence{
@@ -71,8 +71,8 @@ The compliance engine joins obligations to evidence, filters by freshness, and e
 
 Three upstream systems feed the evidence store automatically:
 
-- **[EASM](/glossary/easm)** — asset inventory, exposure findings, remediation timestamps.
-- **DD pipelines** — supplier [risk assessments](/glossary/risk-assessment), beneficial ownership snapshots.
+- **[EASM](@/glossary/easm.md)** — asset inventory, exposure findings, remediation timestamps.
+- **DD pipelines** — supplier [risk assessments](@/glossary/risk-assessment.md), beneficial ownership snapshots.
 - **Telemetry** — incident counts, mean time to detection, mean time to remediation.
 
 Each feed writes evidence records with provenance. The compliance engine never invents data. If a feed stops, the obligations it backed go *stale* — not "still green because nobody noticed."
@@ -85,6 +85,6 @@ The test is simple: a regulator asks *"can you show me the current status of obl
 
 - **Academy**: [EASM Development](/academy/learn/easm-development) — the asset-side feed
 - **Academy**: [DD Investigation](/academy/learn/dd-investigation) — the supplier-side feed
-- **Glossary**: [NIS2](/glossary/nis2), [Compliance](/glossary/compliance), [EASM](/glossary/easm), [Risk Assessment](/glossary/risk-assessment), [Evidence](/glossary/evidence)
+- **Glossary**: [NIS2](@/glossary/nis2.md), [Compliance](@/glossary/compliance.md), [EASM](@/glossary/easm.md), [Risk Assessment](@/glossary/risk-assessment.md), [Evidence](@/glossary/evidence.md)
 
 The directive is long. The pattern is short. Obligations + evidence + checks + freshness. Everything else is presentation.

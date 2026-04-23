@@ -196,10 +196,10 @@ The platform's self-registering systems (OSINT ToolRegistry, Academy TopicRegist
 
 ## Cross-References
 
-- [ETS](/glossary/ets/) -- Erlang Term Storage fundamentals
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage fundamentals
 - **GC** -- BEAM garbage collection mechanics
 - **Heap** -- Process memory allocation
-- [Process Isolation](/glossary/process-isolation/) -- Memory isolation guarantees
+- [Process Isolation](@/glossary/process-isolation.md) -- Memory isolation guarantees
 - **Hit Rate** -- Cache effectiveness measurement
 - **Livebooks**: `performance_monitoring/` notebooks include ETS memory profiling
 - **Academy**: Topics covering BEAM internals reference ETS memory model
@@ -211,4 +211,4 @@ The platform's self-registering systems (OSINT ToolRegistry, Academy TopicRegist
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

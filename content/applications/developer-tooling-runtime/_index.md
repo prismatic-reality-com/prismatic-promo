@@ -55,9 +55,9 @@ tags = ["applications", "developer-tooling-runtime", "prismatic", "platform-engi
 
 ## Abstract
 
-The Developer Tooling & Runtime domain within the Prismatic Platform provides a comprehensive suite of 26 specialized applications designed to support the full development lifecycle of [multi-agent systems](/glossary/multi-agent-systems/). This collection addresses the unique challenges of building, testing, debugging, and operating complex distributed agent architectures where traditional development tools fall short.
+The Developer Tooling & Runtime domain within the Prismatic Platform provides a comprehensive suite of 26 specialized applications designed to support the full development lifecycle of [multi-agent systems](@/glossary/multi-agent-systems.md). This collection addresses the unique challenges of building, testing, debugging, and operating complex distributed agent architectures where traditional development tools fall short.
 
-The domain spans four primary areas: agent development and sandboxing, testing and quality assurance automation, performance monitoring and profiling, and runtime observability and debugging. Each application leverages the platform's [supervision tree](/glossary/supervision-tree/) architecture, [formal verification](/glossary/formal-verification/) capabilities, and [telemetry](/glossary/telemetry/) infrastructure to provide production-grade development support.
+The domain spans four primary areas: agent development and sandboxing, testing and quality assurance automation, performance monitoring and profiling, and runtime observability and debugging. Each application leverages the platform's [supervision tree](@/glossary/supervision-tree.md) architecture, [formal verification](@/glossary/formal-verification.md) capabilities, and [telemetry](@/glossary/telemetry.md) infrastructure to provide production-grade development support.
 
 Unlike conventional development tooling that assumes single-threaded, stateless applications, these tools are designed for the epistemic complexity, concurrency patterns, and fault-tolerance requirements inherent in agent-based systems. The emphasis throughout is on reproducibility, observability, and systematic debugging of emergent behaviors in multi-agent environments.
 
@@ -65,7 +65,7 @@ Unlike conventional development tooling that assumes single-threaded, stateless 
 
 ### Context and Motivation
 
-Modern software development has largely standardized around tools designed for stateless, request-response architectures. However, the development of multi-agent systems presents fundamentally different challenges that resist traditional tooling approaches. [Agents](/glossary/agent/) maintain long-lived state, engage in asynchronous message passing, exhibit emergent behaviors through coordination, and must be designed for graceful degradation under failure conditions.
+Modern software development has largely standardized around tools designed for stateless, request-response architectures. However, the development of multi-agent systems presents fundamentally different challenges that resist traditional tooling approaches. [Agents](@/glossary/agent.md) maintain long-lived state, engage in asynchronous message passing, exhibit emergent behaviors through coordination, and must be designed for graceful degradation under failure conditions.
 
 The Prismatic Platform's Developer Tooling & Runtime domain emerged from the recognition that building sophisticated agent systems requires specialized development infrastructure. Traditional debuggers cannot meaningfully introspect agent coordination patterns. Standard testing frameworks cannot capture the temporal dynamics of multi-agent interactions. Conventional profiling tools miss the distributed performance characteristics that matter in agent systems.
 
@@ -105,12 +105,12 @@ The developer tooling applications build upon several core platform subsystems:
 
 | Platform Component | Tooling Application | Development Purpose |
 |-------------------|---------------------|---------------------|
-| **[Supervision Tree](/glossary/supervision-tree/)** | Agent sandbox environments | Isolated testing of agent behaviors under controlled failure conditions |
-| **[Blackboard](/glossary/blackboard/) Coordination** | Multi-agent scenario testing | Validation of agent coordination patterns and emergent behaviors |
-| **[NABLA Infinity](/glossary/nabla-infinity/) Axioms** | Epistemic testing frameworks | Verification of uncertainty handling and contradiction management in agents |
-| **[Formal Verification](/glossary/formal-verification/)** | Property-based testing | Mathematical verification of agent system invariants and safety properties |
-| **[Telemetry](/glossary/telemetry/)** | Performance profiling | Detailed instrumentation and metrics collection for optimization |
-| **[OTP Architecture](/glossary/otp/)** | Hot code deployment | Live system updates without service interruption |
+| **[Supervision Tree](@/glossary/supervision-tree.md)** | Agent sandbox environments | Isolated testing of agent behaviors under controlled failure conditions |
+| **[Blackboard](@/glossary/blackboard.md) Coordination** | Multi-agent scenario testing | Validation of agent coordination patterns and emergent behaviors |
+| **[NABLA Infinity](@/glossary/nabla-infinity.md) Axioms** | Epistemic testing frameworks | Verification of uncertainty handling and contradiction management in agents |
+| **[Formal Verification](@/glossary/formal-verification.md)** | Property-based testing | Mathematical verification of agent system invariants and safety properties |
+| **[Telemetry](@/glossary/telemetry.md)** | Performance profiling | Detailed instrumentation and metrics collection for optimization |
+| **[OTP Architecture](@/glossary/otp.md)** | Hot code deployment | Live system updates without service interruption |
 
 ## Domain Taxonomy
 
@@ -122,16 +122,16 @@ Tools for building and testing individual agents in isolation before system inte
 
 | Application | Purpose | Key Features |
 |-------------|---------|--------------|
-| [Agent sandbox harness](/applications/developer-tooling-runtime/agent-sandbox-harness/) | Isolated agent testing environment | Controlled failure injection, state introspection, message flow analysis |
-| [Deterministic replay runner](/applications/developer-tooling-runtime/deterministic-replay-runner/) | Reproducible agent behavior testing | Event sourcing, deterministic replay, scenario branching |
-| [Trait/Modality fuzzer](/applications/developer-tooling-runtime/traitmodality-fuzzer/) | Agent capability testing | Property-based testing for agent traits and modalities |
-| [Scenario DSL compiler](/applications/developer-tooling-runtime/scenario-dsl-compiler/) | Domain-specific language for agent scenarios | Declarative scenario specification, automated scenario generation |
-| [Role/persona regression suite](/applications/developer-tooling-runtime/rolepersona-regression-suite/) | Agent personality consistency testing | Behavioral regression detection, personality drift analysis |
-| [LLM client conformance tests](/applications/developer-tooling-runtime/llm-client-conformance-tests/) | Language model integration testing | API conformance, response validation, fallback testing |
-| [Prompt library validator](/applications/developer-tooling-runtime/prompt-library-validator/) | Prompt engineering quality assurance | Template validation, response quality metrics, A/B testing |
-| [Time-travel debugger](/applications/developer-tooling-runtime/time-travel-debugger/) | Temporal debugging for agent interactions | Bidirectional debugging, state history visualization, causality analysis |
+| [Agent sandbox harness](@/applications/developer-tooling-runtime/agent-sandbox-harness.md) | Isolated agent testing environment | Controlled failure injection, state introspection, message flow analysis |
+| [Deterministic replay runner](@/applications/developer-tooling-runtime/deterministic-replay-runner.md) | Reproducible agent behavior testing | Event sourcing, deterministic replay, scenario branching |
+| [Trait/Modality fuzzer](@/applications/developer-tooling-runtime/traitmodality-fuzzer.md) | Agent capability testing | Property-based testing for agent traits and modalities |
+| [Scenario DSL compiler](@/applications/developer-tooling-runtime/scenario-dsl-compiler.md) | Domain-specific language for agent scenarios | Declarative scenario specification, automated scenario generation |
+| [Role/persona regression suite](@/applications/developer-tooling-runtime/rolepersona-regression-suite.md) | Agent personality consistency testing | Behavioral regression detection, personality drift analysis |
+| [LLM client conformance tests](@/applications/developer-tooling-runtime/llm-client-conformance-tests.md) | Language model integration testing | API conformance, response validation, fallback testing |
+| [Prompt library validator](@/applications/developer-tooling-runtime/prompt-library-validator.md) | Prompt engineering quality assurance | Template validation, response quality metrics, A/B testing |
+| [Time-travel debugger](@/applications/developer-tooling-runtime/time-travel-debugger.md) | Temporal debugging for agent interactions | Bidirectional debugging, state history visualization, causality analysis |
 
-These applications provide the foundation for agent development, enabling developers to build and test individual agents with confidence before integrating them into complex multi-agent systems. The agent sandbox harness, in particular, leverages the platform's [supervision tree](/glossary/supervision-tree/) architecture to provide isolated testing environments where agents can be subjected to controlled failure conditions without affecting the broader system.
+These applications provide the foundation for agent development, enabling developers to build and test individual agents with confidence before integrating them into complex multi-agent systems. The agent sandbox harness, in particular, leverages the platform's [supervision tree](@/glossary/supervision-tree.md) architecture to provide isolated testing environments where agents can be subjected to controlled failure conditions without affecting the broader system.
 
 ### Category 2: Testing and Quality Assurance Automation (7 applications)
 
@@ -139,13 +139,13 @@ Comprehensive testing infrastructure for multi-agent system validation and conti
 
 | Application | Purpose | Key Features |
 |-------------|---------|--------------|
-| [LiveView UI testing packs](/applications/developer-tooling-runtime/liveview-ui-testing-packs/) | User interface testing for agent dashboards | End-to-end testing, visual regression detection, interaction simulation |
-| [LLM middleware golden tests](/applications/developer-tooling-runtime/llm-middleware-golden-tests/) | Language model integration testing | Golden master testing, API conformance, response validation |
-| [Event bus contract tester](/applications/developer-tooling-runtime/event-bus-contract-tester/) | Inter-agent communication testing | Contract validation, message schema verification, protocol compliance |
-| [Doc coverage & link verifier](/applications/developer-tooling-runtime/doc-coverage-link-verifier/) | Documentation quality assurance | Documentation completeness, link validation, API documentation synchronization |
-| [Justfile DX helpers](/applications/developer-tooling-runtime/justfile-dx-helpers/) | Development workflow automation | Task automation, build pipeline integration, developer experience optimization |
-| [CI artifact replay exporter](/applications/developer-tooling-runtime/ci-artifact-replay-exporter/) | Continuous integration support | Build artifact management, test result export, deployment automation |
-| [Seed data scenario builder](/applications/developer-tooling-runtime/seed-data-scenario-builder/) | Test data generation | Realistic scenario data, agent behavior seeding, load testing data generation |
+| [LiveView UI testing packs](@/applications/developer-tooling-runtime/liveview-ui-testing-packs.md) | User interface testing for agent dashboards | End-to-end testing, visual regression detection, interaction simulation |
+| [LLM middleware golden tests](@/applications/developer-tooling-runtime/llm-middleware-golden-tests.md) | Language model integration testing | Golden master testing, API conformance, response validation |
+| [Event bus contract tester](@/applications/developer-tooling-runtime/event-bus-contract-tester.md) | Inter-agent communication testing | Contract validation, message schema verification, protocol compliance |
+| [Doc coverage & link verifier](@/applications/developer-tooling-runtime/doc-coverage-link-verifier.md) | Documentation quality assurance | Documentation completeness, link validation, API documentation synchronization |
+| [Justfile DX helpers](@/applications/developer-tooling-runtime/justfile-dx-helpers.md) | Development workflow automation | Task automation, build pipeline integration, developer experience optimization |
+| [CI artifact replay exporter](@/applications/developer-tooling-runtime/ci-artifact-replay-exporter.md) | Continuous integration support | Build artifact management, test result export, deployment automation |
+| [Seed data scenario builder](@/applications/developer-tooling-runtime/seed-data-scenario-builder.md) | Test data generation | Realistic scenario data, agent behavior seeding, load testing data generation |
 
 The testing category emphasizes the unique requirements of multi-agent systems, where traditional unit testing is insufficient. The event bus contract tester, for example, validates that agents can communicate effectively even as their interfaces evolve, while the seed data scenario builder generates realistic multi-agent interaction patterns for load testing.
 
@@ -155,12 +155,12 @@ Specialized tools for understanding and optimizing the performance characteristi
 
 | Application | Purpose | Key Features |
 |-------------|---------|--------------|
-| [Society simulation profiler](/applications/developer-tooling-runtime/society-simulation-profiler/) | Large-scale agent simulation performance | Scalability analysis, bottleneck identification, coordination overhead measurement |
-| [Resource usage heatmap](/applications/developer-tooling-runtime/resource-usage-heatmap/) | System resource utilization visualization | CPU/memory/network utilization, agent resource consumption, capacity planning |
-| [Telemetry metrics blueprint](/applications/developer-tooling-runtime/telemetry-metrics-blueprint/) | Observability infrastructure | Custom metrics definition, dashboard generation, alerting configuration |
-| [Scenario diff & drift detector](/applications/developer-tooling-runtime/scenario-diff-drift-detector/) | Behavior change detection | Performance regression detection, behavioral drift analysis, baseline comparison |
-| [NIF safety fallback monitor](/applications/developer-tooling-runtime/nif-safety-fallback-monitor/) | Native code integration safety | NIF performance monitoring, fallback mechanism testing, memory safety validation |
-| [Mnesia cluster chaos toolkit](/applications/developer-tooling-runtime/mnesia-cluster-chaos-toolkit/) | Distributed database testing | Chaos engineering, partition tolerance, consistency validation |
+| [Society simulation profiler](@/applications/developer-tooling-runtime/society-simulation-profiler.md) | Large-scale agent simulation performance | Scalability analysis, bottleneck identification, coordination overhead measurement |
+| [Resource usage heatmap](@/applications/developer-tooling-runtime/resource-usage-heatmap.md) | System resource utilization visualization | CPU/memory/network utilization, agent resource consumption, capacity planning |
+| [Telemetry metrics blueprint](@/applications/developer-tooling-runtime/telemetry-metrics-blueprint.md) | Observability infrastructure | Custom metrics definition, dashboard generation, alerting configuration |
+| [Scenario diff & drift detector](@/applications/developer-tooling-runtime/scenario-diff-drift-detector.md) | Behavior change detection | Performance regression detection, behavioral drift analysis, baseline comparison |
+| [NIF safety fallback monitor](@/applications/developer-tooling-runtime/nif-safety-fallback-monitor.md) | Native code integration safety | NIF performance monitoring, fallback mechanism testing, memory safety validation |
+| [Mnesia cluster chaos toolkit](@/applications/developer-tooling-runtime/mnesia-cluster-chaos-toolkit.md) | Distributed database testing | Chaos engineering, partition tolerance, consistency validation |
 
 Performance monitoring in agent systems requires understanding not just computational performance, but coordination efficiency. The society simulation profiler, for instance, focuses on measuring the overhead of agent coordination protocols rather than individual agent processing speed.
 
@@ -170,13 +170,13 @@ Production monitoring and operational tools for maintaining agent systems in liv
 
 | Application | Purpose | Key Features |
 |-------------|---------|--------------|
-| [Blackboard WAL inspector](/applications/developer-tooling-runtime/blackboard-wal-inspector/) | Coordination state analysis | Write-ahead log inspection, state consistency verification, coordination debugging |
-| [OpenAPI + Swagger generator](/applications/developer-tooling-runtime/openapi-swagger-generator/) | API documentation automation | Dynamic API documentation, schema validation, client SDK generation |
-| [Knowledge indexer for KuzuDB](/applications/developer-tooling-runtime/knowledge-indexer-for-kuzudb/) | Agent knowledge management | Knowledge graph indexing, semantic search, knowledge base optimization |
-| [Meilisearch sync orchestrator](/applications/developer-tooling-runtime/meilisearch-sync-orchestrator/) | Search index management | Real-time search index synchronization, data pipeline management |
-| [Agent sandbox harness](/applications/developer-tooling-runtime/agent-sandbox-harness/) | Agent testing environment | Isolated execution, state inspection, behavior validation |
+| [Blackboard WAL inspector](@/applications/developer-tooling-runtime/blackboard-wal-inspector.md) | Coordination state analysis | Write-ahead log inspection, state consistency verification, coordination debugging |
+| [OpenAPI + Swagger generator](@/applications/developer-tooling-runtime/openapi-swagger-generator.md) | API documentation automation | Dynamic API documentation, schema validation, client SDK generation |
+| [Knowledge indexer for KuzuDB](@/applications/developer-tooling-runtime/knowledge-indexer-for-kuzudb.md) | Agent knowledge management | Knowledge graph indexing, semantic search, knowledge base optimization |
+| [Meilisearch sync orchestrator](@/applications/developer-tooling-runtime/meilisearch-sync-orchestrator.md) | Search index management | Real-time search index synchronization, data pipeline management |
+| [Agent sandbox harness](@/applications/developer-tooling-runtime/agent-sandbox-harness.md) | Agent testing environment | Isolated execution, state inspection, behavior validation |
 
-The operations category provides the tools necessary for maintaining complex agent systems in production environments. The blackboard WAL inspector, for example, enables operators to diagnose coordination issues by examining the write-ahead log of [blackboard](/glossary/blackboard/) operations.
+The operations category provides the tools necessary for maintaining complex agent systems in production environments. The blackboard WAL inspector, for example, enables operators to diagnose coordination issues by examining the write-ahead log of [blackboard](@/glossary/blackboard.md) operations.
 
 ## Theoretical Foundations
 
@@ -194,17 +194,17 @@ The Developer Tooling & Runtime domain is grounded in a development methodology 
 
 ### Epistemic Development Framework
 
-The platform's [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework provides theoretical foundations for agent development tooling:
+The platform's [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework provides theoretical foundations for agent development tooling:
 
 | NABLA Axiom | Development Tool Application | Tooling Implementation |
 |-------------|------------------------------|------------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple independent evidence sources for agent behavior validation | Multi-modal testing frameworks that require validation from multiple test types |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Contradictory test results preserved as meaningful debugging information | Test frameworks that highlight contradictory results rather than masking them |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple independent evidence sources for agent behavior validation | Multi-modal testing frameworks that require validation from multiple test types |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Contradictory test results preserved as meaningful debugging information | Test frameworks that highlight contradictory results rather than masking them |
 | **Absence Informative** | Missing behaviors and non-responses treated as significant test outcomes | Negative testing capabilities that validate expected non-behaviors |
-| **[Time Decay](/glossary/time-decay/)** | Test results and benchmarks decay in relevance over time | Automated test result aging and benchmark refresh mechanisms |
+| **[Time Decay](@/glossary/time-decay.md)** | Test results and benchmarks decay in relevance over time | Automated test result aging and benchmark refresh mechanisms |
 | **Unknown Valid** | Acknowledging uncertainty in test outcomes as legitimate | Test frameworks that can report "unknown" results alongside pass/fail |
 | **Source Independence** | Independent validation from multiple tools weighted higher | Tool result correlation with higher confidence for independent confirmations |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | All development insights traceable to source observations and tests | Complete audit trails from code changes through test results to deployment decisions |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | All development insights traceable to source observations and tests | Complete audit trails from code changes through test results to deployment decisions |
 
 ### Architecture Integration Patterns
 
@@ -243,7 +243,7 @@ defmodule DeveloperTooling.AgentSandbox do
 end
 ```
 
-This pattern demonstrates how development tools leverage the platform's [supervision tree](/glossary/supervision-tree/) architecture for process isolation and [telemetry](/glossary/telemetry/) infrastructure for behavioral observation.
+This pattern demonstrates how development tools leverage the platform's [supervision tree](@/glossary/supervision-tree.md) architecture for process isolation and [telemetry](@/glossary/telemetry.md) infrastructure for behavioral observation.
 
 ## Development Workflow Integration
 
@@ -319,13 +319,13 @@ The development tooling scales with agent system complexity:
 
 Developer tooling applications implement comprehensive security measures:
 
-**Sandbox Isolation**: Agent sandboxes are completely isolated from production systems using [supervision tree](/glossary/supervision-tree/) boundaries and process isolation. Sandbox failures cannot affect other development activities or production systems.
+**Sandbox Isolation**: Agent sandboxes are completely isolated from production systems using [supervision tree](@/glossary/supervision-tree.md) boundaries and process isolation. Sandbox failures cannot affect other development activities or production systems.
 
 **Data Privacy**: All development tooling operates exclusively with synthetic data. No production data is accessible to development tools, and all test scenarios use algorithmically generated agent behaviors.
 
-**Access Control**: Development tools integrate with the platform's [RBAC](/glossary/rbac/) system, ensuring that developers can only access tools appropriate to their role and project scope.
+**Access Control**: Development tools integrate with the platform's [RBAC](@/glossary/rbac.md) system, ensuring that developers can only access tools appropriate to their role and project scope.
 
-**Audit Logging**: All development tool usage is logged with complete [audit trails](/glossary/audit-trail/), providing accountability for development decisions and debugging insights.
+**Audit Logging**: All development tool usage is logged with complete [audit trails](@/glossary/audit-trail.md), providing accountability for development decisions and debugging insights.
 
 ### Safety-Critical Development Practices
 
@@ -340,41 +340,41 @@ For safety-critical agent systems, additional development practices are enforced
 
 ### Agent Development Infrastructure
 
-- [Agent sandbox harness](/applications/developer-tooling-runtime/agent-sandbox-harness/) -- Isolated agent testing environment with controlled failure injection
-- [Deterministic replay runner](/applications/developer-tooling-runtime/deterministic-replay-runner/) -- Reproducible agent behavior testing with event sourcing
-- [Trait/Modality fuzzer](/applications/developer-tooling-runtime/traitmodality-fuzzer/) -- Property-based testing for agent capabilities and modalities
-- [Scenario DSL compiler](/applications/developer-tooling-runtime/scenario-dsl-compiler/) -- Domain-specific language for declarative agent scenario specification
-- [Role/persona regression suite](/applications/developer-tooling-runtime/rolepersona-regression-suite/) -- Behavioral consistency testing and personality drift detection
-- [LLM client conformance tests](/applications/developer-tooling-runtime/llm-client-conformance-tests/) -- Language model integration testing and validation
-- [Prompt library validator](/applications/developer-tooling-runtime/prompt-library-validator/) -- Prompt engineering quality assurance and A/B testing
-- [Time-travel debugger](/applications/developer-tooling-runtime/time-travel-debugger/) -- Temporal debugging with bidirectional state analysis
+- [Agent sandbox harness](@/applications/developer-tooling-runtime/agent-sandbox-harness.md) -- Isolated agent testing environment with controlled failure injection
+- [Deterministic replay runner](@/applications/developer-tooling-runtime/deterministic-replay-runner.md) -- Reproducible agent behavior testing with event sourcing
+- [Trait/Modality fuzzer](@/applications/developer-tooling-runtime/traitmodality-fuzzer.md) -- Property-based testing for agent capabilities and modalities
+- [Scenario DSL compiler](@/applications/developer-tooling-runtime/scenario-dsl-compiler.md) -- Domain-specific language for declarative agent scenario specification
+- [Role/persona regression suite](@/applications/developer-tooling-runtime/rolepersona-regression-suite.md) -- Behavioral consistency testing and personality drift detection
+- [LLM client conformance tests](@/applications/developer-tooling-runtime/llm-client-conformance-tests.md) -- Language model integration testing and validation
+- [Prompt library validator](@/applications/developer-tooling-runtime/prompt-library-validator.md) -- Prompt engineering quality assurance and A/B testing
+- [Time-travel debugger](@/applications/developer-tooling-runtime/time-travel-debugger.md) -- Temporal debugging with bidirectional state analysis
 
 ### Testing and Quality Assurance
 
-- [LiveView UI testing packs](/applications/developer-tooling-runtime/liveview-ui-testing-packs/) -- End-to-end testing for agent dashboard interfaces
-- [LLM middleware golden tests](/applications/developer-tooling-runtime/llm-middleware-golden-tests/) -- Golden master testing for language model integrations
-- [Event bus contract tester](/applications/developer-tooling-runtime/event-bus-contract-tester/) -- Inter-agent communication validation and protocol compliance
-- [Doc coverage & link verifier](/applications/developer-tooling-runtime/doc-coverage-link-verifier/) -- Documentation quality assurance and synchronization
-- [Justfile DX helpers](/applications/developer-tooling-runtime/justfile-dx-helpers/) -- Development workflow automation and optimization
-- [CI artifact replay exporter](/applications/developer-tooling-runtime/ci-artifact-replay-exporter/) -- Build artifact management and deployment automation
-- [Seed data scenario builder](/applications/developer-tooling-runtime/seed-data-scenario-builder/) -- Realistic test data and scenario generation
+- [LiveView UI testing packs](@/applications/developer-tooling-runtime/liveview-ui-testing-packs.md) -- End-to-end testing for agent dashboard interfaces
+- [LLM middleware golden tests](@/applications/developer-tooling-runtime/llm-middleware-golden-tests.md) -- Golden master testing for language model integrations
+- [Event bus contract tester](@/applications/developer-tooling-runtime/event-bus-contract-tester.md) -- Inter-agent communication validation and protocol compliance
+- [Doc coverage & link verifier](@/applications/developer-tooling-runtime/doc-coverage-link-verifier.md) -- Documentation quality assurance and synchronization
+- [Justfile DX helpers](@/applications/developer-tooling-runtime/justfile-dx-helpers.md) -- Development workflow automation and optimization
+- [CI artifact replay exporter](@/applications/developer-tooling-runtime/ci-artifact-replay-exporter.md) -- Build artifact management and deployment automation
+- [Seed data scenario builder](@/applications/developer-tooling-runtime/seed-data-scenario-builder.md) -- Realistic test data and scenario generation
 
 ### Performance Monitoring and Profiling
 
-- [Society simulation profiler](/applications/developer-tooling-runtime/society-simulation-profiler/) -- Large-scale agent simulation performance analysis
-- [Resource usage heatmap](/applications/developer-tooling-runtime/resource-usage-heatmap/) -- System resource utilization visualization and capacity planning
-- [Telemetry metrics blueprint](/applications/developer-tooling-runtime/telemetry-metrics-blueprint/) -- Custom observability infrastructure and dashboard generation
-- [Scenario diff & drift detector](/applications/developer-tooling-runtime/scenario-diff-drift-detector/) -- Performance regression and behavioral drift detection
-- [NIF safety fallback monitor](/applications/developer-tooling-runtime/nif-safety-fallback-monitor/) -- Native code integration safety and fallback testing
-- [Mnesia cluster chaos toolkit](/applications/developer-tooling-runtime/mnesia-cluster-chaos-toolkit/) -- Distributed database chaos engineering and consistency validation
+- [Society simulation profiler](@/applications/developer-tooling-runtime/society-simulation-profiler.md) -- Large-scale agent simulation performance analysis
+- [Resource usage heatmap](@/applications/developer-tooling-runtime/resource-usage-heatmap.md) -- System resource utilization visualization and capacity planning
+- [Telemetry metrics blueprint](@/applications/developer-tooling-runtime/telemetry-metrics-blueprint.md) -- Custom observability infrastructure and dashboard generation
+- [Scenario diff & drift detector](@/applications/developer-tooling-runtime/scenario-diff-drift-detector.md) -- Performance regression and behavioral drift detection
+- [NIF safety fallback monitor](@/applications/developer-tooling-runtime/nif-safety-fallback-monitor.md) -- Native code integration safety and fallback testing
+- [Mnesia cluster chaos toolkit](@/applications/developer-tooling-runtime/mnesia-cluster-chaos-toolkit.md) -- Distributed database chaos engineering and consistency validation
 
 ### Runtime Observability and Operations
 
-- [Blackboard WAL inspector](/applications/developer-tooling-runtime/blackboard-wal-inspector/) -- Coordination state analysis and debugging
-- [OpenAPI + Swagger generator](/applications/developer-tooling-runtime/openapi-swagger-generator/) -- Dynamic API documentation and client SDK generation
-- [Knowledge indexer for KuzuDB](/applications/developer-tooling-runtime/knowledge-indexer-for-kuzudb/) -- Agent knowledge management and semantic search optimization
-- [Meilisearch sync orchestrator](/applications/developer-tooling-runtime/meilisearch-sync-orchestrator/) -- Real-time search index synchronization
-- [Agent sandbox harness](/applications/developer-tooling-runtime/agent-sandbox-harness/) -- Agent testing environment with isolated execution and validation
+- [Blackboard WAL inspector](@/applications/developer-tooling-runtime/blackboard-wal-inspector.md) -- Coordination state analysis and debugging
+- [OpenAPI + Swagger generator](@/applications/developer-tooling-runtime/openapi-swagger-generator.md) -- Dynamic API documentation and client SDK generation
+- [Knowledge indexer for KuzuDB](@/applications/developer-tooling-runtime/knowledge-indexer-for-kuzudb.md) -- Agent knowledge management and semantic search optimization
+- [Meilisearch sync orchestrator](@/applications/developer-tooling-runtime/meilisearch-sync-orchestrator.md) -- Real-time search index synchronization
+- [Agent sandbox harness](@/applications/developer-tooling-runtime/agent-sandbox-harness.md) -- Agent testing environment with isolated execution and validation
 
 ## Future Research Directions
 
@@ -441,15 +441,15 @@ Development tools integrate with external services commonly used in software dev
 
 ### Internal Documentation
 
-- [Platform Architecture](/architecture/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [Agent Development](/glossary/agent-orchestration/)
-- [Supervision Tree](/glossary/supervision-tree/)
-- [Formal Verification](/glossary/formal-verification/)
-- [Telemetry Infrastructure](/glossary/telemetry/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Blackboard Architecture](/glossary/blackboard/)
-- [OTP Architecture](/glossary/otp/)
+- [Platform Architecture](@/architecture/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [Agent Development](@/glossary/agent-orchestration.md)
+- [Supervision Tree](@/glossary/supervision-tree.md)
+- [Formal Verification](@/glossary/formal-verification.md)
+- [Telemetry Infrastructure](@/glossary/telemetry.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Blackboard Architecture](@/glossary/blackboard.md)
+- [OTP Architecture](@/glossary/otp.md)
 
 ### External Standards and Literature
 
@@ -478,4 +478,4 @@ Development tools integrate with external services commonly used in software dev
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "garden-tier3-libraries - Prismatic Platform"
 
 ## Overview
 
-The [Garden](/glossary/garden/) Tier 3 Libraries agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Library Repositories domain of the Prismatic Platform. This agent manages Tier 3 garden repositories -- a collection of approximately 15 reusable library packages, utility modules, and specialized tools that provide focused functionality without the broad scope of Tier 1 production applications or the foundational role of Tier 2 platform components. The five core [Lean4](/glossary/lean4/) theorems guaranteeing safe evolution apply to Tier 3 operations, ensuring that library integrations preserve platform behavioral correctness.
+The [Garden](@/glossary/garden.md) Tier 3 Libraries agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Library Repositories domain of the Prismatic Platform. This agent manages Tier 3 garden repositories -- a collection of approximately 15 reusable library packages, utility modules, and specialized tools that provide focused functionality without the broad scope of Tier 1 production applications or the foundational role of Tier 2 platform components. The five core [Lean4](@/glossary/lean4.md) theorems guaranteeing safe evolution apply to Tier 3 operations, ensuring that library integrations preserve platform behavioral correctness.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Tier 3 Libraries agent manages the most numerous category of purpose-built garden repositories. These libraries represent targeted solutions to specific problems -- geocoding, job processing, data validation, format conversion -- developed as standalone packages and potentially valuable as integration candidates for the current platform.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Tier 3 Libraries agent manages the most numerous category of purpose-built garden repositories. These libraries represent targeted solutions to specific problems -- geocoding, job processing, data validation, format conversion -- developed as standalone packages and potentially valuable as integration candidates for the current platform.
 
 ## Tier 3 Repository Portfolio
 
@@ -82,7 +82,7 @@ Abandonment detection identifies libraries that show signs of maintenance cessat
 
 ## Lean4 Theorem Compliance
 
-The five core [Lean4](/glossary/lean4/) theorems apply to Tier 3 library integrations.
+The five core [Lean4](@/glossary/lean4.md) theorems apply to Tier 3 library integrations.
 
 Behavioral Preservation ensures that integrating a library does not alter existing platform behavior. Type Safety verifies that library interfaces are type-compatible with platform code. Convergence ensures that library-derived components participate in the platform's evolutionary optimization. Idempotency guarantees that library integration operations produce consistent results. Rollback Safety ensures that any library integration can be reversed, including both dependency removals and vendored code deletions.
 
@@ -99,25 +99,25 @@ All library integrations, regardless of integration depth, must pass platform qu
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework governs library assessment practices. The Signal Plurality axiom requires that library assessments consider multiple quality dimensions rather than relying on any single metric. The Time Decay axiom ensures that library assessments are refreshed on the weekly synchronization schedule.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs library assessment practices. The Signal Plurality axiom requires that library assessments consider multiple quality dimensions rather than relying on any single metric. The Time Decay axiom ensures that library assessments are refreshed on the weekly synchronization schedule.
 
-The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine applies to all integration decisions. No library enters the platform without complete quality assessment. No direct dependency is added without security and maintenance evaluation.
+The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine applies to all integration decisions. No library enters the platform without complete quality assessment. No direct dependency is added without security and maintenance evaluation.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution | Agent lifecycle management |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Specification and lookup |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution | Agent lifecycle management |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Specification and lookup |
 | Prismatic Telemetry | Monitoring | Library health and integration metrics |
 | Tier 3 Repositories | Data source | Library code assets |
 | Quality Gates | Validation | Integration quality compliance |
 
 ## Related Agents
 
-- [**garden-tier2-platform**](/agents/garden-tier2-platform/) (L3) - Manages higher-priority platform core repositories with daily synchronization
-- [**garden-tier1-production**](/agents/garden-tier1-production/) (L3) - Manages highest-priority production repositories with continuous monitoring
-- [**gardener-supreme**](/agents/gardener-supreme/) (L3) - Strategic oversight coordinating priorities and resource allocation across all tiers
+- [**garden-tier2-platform**](@/agents/garden-tier2-platform.md) (L3) - Manages higher-priority platform core repositories with daily synchronization
+- [**garden-tier1-production**](@/agents/garden-tier1-production.md) (L3) - Manages highest-priority production repositories with continuous monitoring
+- [**gardener-supreme**](@/agents/gardener-supreme.md) (L3) - Strategic oversight coordinating priorities and resource allocation across all tiers
 
 ---
 
@@ -126,4 +126,4 @@ The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine applies to all
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

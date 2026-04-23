@@ -288,7 +288,7 @@ Each of these knowledge dimensions requires protection against corruption and dr
 
 ### The Author as Epistemic Authority
 
-The [intellectual sovereignty](/philosophy/intellectual-sovereignty/) framework establishes the author as the primary epistemic authority over their work:
+The [intellectual sovereignty](@/philosophy/intellectual-sovereignty.md) framework establishes the author as the primary epistemic authority over their work:
 
 - **Intent Knowledge**: The author possesses the most complete knowledge of their intent
 - **Context Knowledge**: The author understands the full context of creation
@@ -297,7 +297,7 @@ The [intellectual sovereignty](/philosophy/intellectual-sovereignty/) framework 
 
 ### Ceremonial Verification
 
-The [ceremonial computing](/philosophy/ceremonial-computing/) framework supports epistemic integrity through:
+The [ceremonial computing](@/philosophy/ceremonial-computing.md) framework supports epistemic integrity through:
 
 - **Conscious Engagement**: Users must actively acknowledge their understanding
 - **Oath Commitment**: Sworn commitment to proper interpretation and usage
@@ -350,7 +350,7 @@ Even without malicious intent, systems naturally degrade epistemic integrity:
 
 ### Licensing as Epistemic Protection
 
-The [General Honest License](/philosophy/ghl-framework/) serves as an epistemic protection mechanism:
+The [General Honest License](@/philosophy/ghl-framework.md) serves as an epistemic protection mechanism:
 
 - **Modification Controls**: Prevent unauthorized changes that could corrupt meaning
 - **Interpretation Authority**: Ensure the author's intended meaning is preserved
@@ -423,4 +423,4 @@ The alternative - a world of corrupted meaning, lost provenance, and suppressed 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

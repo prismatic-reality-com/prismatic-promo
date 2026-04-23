@@ -38,7 +38,7 @@ image_alt = "Open Source Superiority - Prismatic Platform"
 
 **Open Source Superiority** is the evidence-based position that software developed under open source principles -- transparent source code, community review, public accountability, and collaborative development -- consistently produces higher-quality, more secure, more innovative, and more reliable outcomes than equivalent closed-source, proprietary approaches. This is not a mere philosophical preference or ideological stance; it is a conclusion supported by decades of empirical evidence, industry analysis, and the observable trajectory of software infrastructure.
 
-Within the [Prismatic Platform](/glossary/elixir/), open source superiority is not just acknowledged but actively leveraged as a competitive advantage. The platform's quality infrastructure -- 13-layer Trinity Gate, 100/100 quality score, zero compilation warnings across 115 applications -- exists precisely because open source transparency demands and enables this level of rigor. When code is visible to everyone, the incentive structure shifts from "good enough to ship" to "good enough to withstand public scrutiny."
+Within the [Prismatic Platform](@/glossary/elixir.md), open source superiority is not just acknowledged but actively leveraged as a competitive advantage. The platform's quality infrastructure -- 13-layer Trinity Gate, 100/100 quality score, zero compilation warnings across 115 applications -- exists precisely because open source transparency demands and enables this level of rigor. When code is visible to everyone, the incentive structure shifts from "good enough to ship" to "good enough to withstand public scrutiny."
 
 ## Overview
 
@@ -415,23 +415,23 @@ The Elixir programming language and its ecosystem demonstrate open source superi
 
 Open source superiority connects to fundamental quality and community concepts across the Prismatic Platform:
 
-- [Open Source Leadership](/glossary/open-source-leadership/) -- the governance practices that enable OSS quality advantages
-- [Open Source Strategy](/glossary/open-source-strategy/) -- the strategic framework for leveraging OSS superiority
-- [Code Quality](/glossary/code-quality/) -- the measurable dimension where OSS superiority is most evident
-- [Security](/glossary/security/) -- the domain where transparency vs. obscurity debates are most intense
-- [Community-Owned Innovation](/glossary/community-owned-innovation/) -- the innovation mechanism unique to open source
-- [Quality Assurance](/glossary/quality-assurance/) -- the practices that translate transparency into measured quality
-- [Community Over Corporation](/glossary/community-over-corporation/) -- the philosophical foundation for OSS governance
-- [Complete Transparency](/glossary/complete-transparency/) -- the transparency principle that enables the many-eyes effect
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- the relationship between visibility and quality
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- how transparency creates the trust that sustains communities
+- [Open Source Leadership](@/glossary/open-source-leadership.md) -- the governance practices that enable OSS quality advantages
+- [Open Source Strategy](@/glossary/open-source-strategy.md) -- the strategic framework for leveraging OSS superiority
+- [Code Quality](@/glossary/code-quality.md) -- the measurable dimension where OSS superiority is most evident
+- [Security](@/glossary/security.md) -- the domain where transparency vs. obscurity debates are most intense
+- [Community-Owned Innovation](@/glossary/community-owned-innovation.md) -- the innovation mechanism unique to open source
+- [Quality Assurance](@/glossary/quality-assurance.md) -- the practices that translate transparency into measured quality
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- the philosophical foundation for OSS governance
+- [Complete Transparency](@/glossary/complete-transparency.md) -- the transparency principle that enables the many-eyes effect
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- the relationship between visibility and quality
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- how transparency creates the trust that sustains communities
 
 ## See Also
 
-- [Doctrine](/glossary/doctrine/) -- the NO MERCY, NO DOUBTS doctrine that operationalizes quality commitment
-- [Trinity Gate](/glossary/trinity-gate/) -- the 13-layer verification system ensuring claim validity
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- autonomous quality monitoring demonstrating OSS quality infrastructure
-- [Static Analysis](/glossary/static-analysis/) -- the automated analysis tools that amplify the many-eyes effect
+- [Doctrine](@/glossary/doctrine.md) -- the NO MERCY, NO DOUBTS doctrine that operationalizes quality commitment
+- [Trinity Gate](@/glossary/trinity-gate.md) -- the 13-layer verification system ensuring claim validity
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- autonomous quality monitoring demonstrating OSS quality infrastructure
+- [Static Analysis](@/glossary/static-analysis.md) -- the automated analysis tools that amplify the many-eyes effect
 
 ---
 

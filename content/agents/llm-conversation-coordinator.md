@@ -28,9 +28,9 @@ image_alt = "llm-conversation-coordinator - Prismatic Platform"
 
 ## Overview
 
-The llm-conversation-coordinator is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the [AIAD](/glossary/aiad/)-enhanced domain of the Prismatic Platform. This agent manages multi-turn conversations with large language models, ensuring context preservation across conversation turns, integrating platform memory systems for long-term continuity, and maintaining session state that enables coherent extended interactions. While individual LLM requests are stateless, many platform operations require multi-step interactions where later turns depend on the context established in earlier turns. The conversation coordinator provides the state management infrastructure that makes these extended interactions reliable and coherent.
+The llm-conversation-coordinator is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the [AIAD](@/glossary/aiad.md)-enhanced domain of the Prismatic Platform. This agent manages multi-turn conversations with large language models, ensuring context preservation across conversation turns, integrating platform memory systems for long-term continuity, and maintaining session state that enables coherent extended interactions. While individual LLM requests are stateless, many platform operations require multi-step interactions where later turns depend on the context established in earlier turns. The conversation coordinator provides the state management infrastructure that makes these extended interactions reliable and coherent.
 
-Built on the [AIAD](/glossary/aiad/) standard, the llm-conversation-coordinator implements the platform's stack-based conversation mode, where each interaction frame is immutable and the active conversation state is defined solely by the current stack. This model provides deterministic conversation behavior, enables fork/checkpoint/rollback operations for experimental dialogue branches, and prevents the context contamination that occurs when conversation history is silently modified.
+Built on the [AIAD](@/glossary/aiad.md) standard, the llm-conversation-coordinator implements the platform's stack-based conversation mode, where each interaction frame is immutable and the active conversation state is defined solely by the current stack. This model provides deterministic conversation behavior, enables fork/checkpoint/rollback operations for experimental dialogue branches, and prevents the context contamination that occurs when conversation history is silently modified.
 
 ## Conversation Management Architecture
 
@@ -40,7 +40,7 @@ The conversation state machine tracks the lifecycle of multi-turn conversations 
 
 The memory integration layer connects conversations to the platform's persistent memory systems. Short-term memory (maintained within the conversation stack) provides immediate context from recent turns. Medium-term memory (maintained in session context files) provides continuity across conversations within a development session. Long-term memory (maintained in the platform's knowledge base and quality DNA) provides institutional knowledge that persists across sessions. The memory integration layer determines which memory sources to consult for each conversation turn and how to integrate retrieved memories into the active context.
 
-The context composition engine assembles the complete context for each LLM request by combining the conversation history (from the stack), relevant memories (from the integration layer), platform state (from telemetry and configuration), and task-specific context (from the [llm-context-optimizer](/agents/llm-context-optimizer/)). The composition engine manages the trade-off between context comprehensiveness and token budget, using conversation-aware prioritization that weights recent turns more heavily than distant turns and active decisions more heavily than settled questions.
+The context composition engine assembles the complete context for each LLM request by combining the conversation history (from the stack), relevant memories (from the integration layer), platform state (from telemetry and configuration), and task-specific context (from the [llm-context-optimizer](@/agents/llm-context-optimizer.md)). The composition engine manages the trade-off between context comprehensiveness and token budget, using conversation-aware prioritization that weights recent turns more heavily than distant turns and active decisions more heavily than settled questions.
 
 ## Key Capabilities
 
@@ -50,9 +50,9 @@ The context composition engine assembles the complete context for each LLM reque
 - **Session continuity** -- Saves and restores conversation state across session boundaries, enabling users to resume interrupted conversations with full context
 - **Conversation branching** -- Supports fork operations that create parallel conversation branches from a common ancestor frame, enabling exploration of alternative approaches without losing the original conversation path
 - **Summary generation** -- Produces concise conversation summaries that capture key decisions, outcomes, and open questions for efficient context loading in future sessions
-- **[GenServer](/glossary/genserver/)-based state management** -- Implements conversation state as an [OTP](/glossary/otp/) GenServer with crash recovery and state persistence
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with automatic session context saving and recovery
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for conversation quality metrics and context utilization tracking
+- **[GenServer](@/glossary/genserver.md)-based state management** -- Implements conversation state as an [OTP](@/glossary/otp.md) GenServer with crash recovery and state persistence
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with automatic session context saving and recovery
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for conversation quality metrics and context utilization tracking
 
 ## Stack Operations
 
@@ -76,19 +76,19 @@ The persistence format captures not just the raw conversation content but also t
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the coordinator to access platform state across all domains for context composition, manage conversation state that spans multiple agent interactions, and coordinate with memory systems for long-term continuity.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the coordinator to access platform state across all domains for context composition, manage conversation state that spans multiple agent interactions, and coordinate with memory systems for long-term continuity.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| [GenServer](/glossary/genserver/) | OTP-based conversation state management with crash recovery |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| [GenServer](@/glossary/genserver.md) | OTP-based conversation state management with crash recovery |
 | Session Context | Persistent storage for conversation state across sessions |
 | Quality DNA | Long-term platform memory integration |
-| Prismatic Telemetry | Conversation quality [metrics](/glossary/metrics/) and context utilization tracking |
-| [SEADF](/glossary/seadf/) | Autonomous evolution of conversation management strategies |
-| AIAD [Registry](/glossary/registry-otp/) | Agent specification and discovery |
+| Prismatic Telemetry | Conversation quality [metrics](@/glossary/metrics.md) and context utilization tracking |
+| [SEADF](@/glossary/seadf.md) | Autonomous evolution of conversation management strategies |
+| AIAD [Registry](@/glossary/registry-otp.md) | Agent specification and discovery |
 
 ## Command Interface
 
@@ -105,10 +105,10 @@ The persistence format captures not just the raw conversation content but also t
 
 | Agent | Relationship |
 |-------|-------------|
-| [**llm-context-optimizer**](/agents/llm-context-optimizer/) (L4) | Optimizes context composition for each conversation turn within token budget |
-| [**llm-prompt-engineer**](/agents/llm-prompt-engineer/) (L3) | Provides turn-specific prompt optimization within the conversation context |
-| [**llm-cost-manager**](/agents/llm-cost-manager/) (L4) | Monitors cumulative conversation cost and enforces budget limits |
-| [**llm-performance-optimizer**](/agents/llm-performance-optimizer/) (L3) | Optimizes conversation round-trip latency |
+| [**llm-context-optimizer**](@/agents/llm-context-optimizer.md) (L4) | Optimizes context composition for each conversation turn within token budget |
+| [**llm-prompt-engineer**](@/agents/llm-prompt-engineer.md) (L3) | Provides turn-specific prompt optimization within the conversation context |
+| [**llm-cost-manager**](@/agents/llm-cost-manager.md) (L4) | Monitors cumulative conversation cost and enforces budget limits |
+| [**llm-performance-optimizer**](@/agents/llm-performance-optimizer.md) (L3) | Optimizes conversation round-trip latency |
 
 ## Conversation Quality Metrics
 
@@ -116,7 +116,7 @@ The coordinator tracks several conversation quality metrics. Context utilization
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires that conversation state is reliably persisted and recoverable. No conversation data is lost due to process crashes, session termination, or system restarts. The [NO DOUBTS](/glossary/no-doubts/) principle requires that context trimming decisions (when conversation history exceeds the context window) are explicit and documented, with trimmed content accessible through the session context archive rather than permanently discarded.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires that conversation state is reliably persisted and recoverable. No conversation data is lost due to process crashes, session termination, or system restarts. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that context trimming decisions (when conversation history exceeds the context window) are explicit and documented, with trimmed content accessible through the session context archive rather than permanently discarded.
 
 ---
 
@@ -125,4 +125,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine requires that conversation state is
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

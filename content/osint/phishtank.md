@@ -29,7 +29,7 @@ PhishTank, operated by Cisco Talos (formerly OpenDNS), is the world's largest co
 
 PhishTank's community verification model provides a unique advantage over automated detection systems: human reviewers evaluate each submission, verifying that the URL genuinely attempts to impersonate a legitimate site for credential harvesting or other malicious purposes. This human-in-the-loop verification process produces high-confidence phishing classifications with very low false positive rates, making PhishTank data suitable for automated blocking decisions in security infrastructure.
 
-The platform identifies not just the phishing URL but also the target brand being impersonated, enabling organizations to monitor phishing campaigns targeting their brand. This brand identification capability is essential for corporate security teams responsible for brand protection and anti-phishing operations. Within the Prismatic Platform, PhishTank provides phishing intelligence for the [OSINT Core](/apps/prismatic-osint-core/) URL analysis pipeline and feeds into the [Prismatic Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/) engine.
+The platform identifies not just the phishing URL but also the target brand being impersonated, enabling organizations to monitor phishing campaigns targeting their brand. This brand identification capability is essential for corporate security teams responsible for brand protection and anti-phishing operations. Within the Prismatic Platform, PhishTank provides phishing intelligence for the [OSINT Core](@/apps/prismatic-osint-core.md) URL analysis pipeline and feeds into the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md) engine.
 
 ## Data Sources and Coverage
 
@@ -131,20 +131,20 @@ end
 
 ### Phishing Detection
 - Real-time URL checking against the verified phishing database for email security and web proxy integration
-- Cross-reference with [URLScan](/osint/urlscan/) for visual verification and page analysis of suspected phishing sites
+- Cross-reference with [URLScan](@/osint/urlscan.md) for visual verification and page analysis of suspected phishing sites
 - Integration into automated security orchestration workflows for phishing triage and response
 - Historical phishing URL analysis for incident investigation and threat research
 
 ### Brand Protection
 - Monitor for phishing campaigns targeting your organization through brand identification tracking
 - Track phishing trends and identify prolific campaigns to prioritize takedown efforts
-- Feed brand [threat intelligence](/glossary/threat-intelligence/) into [Perimeter](/apps/prismatic-perimeter/) security ratings
+- Feed brand [threat intelligence](@/glossary/threat-intelligence.md) into [Perimeter](@/apps/prismatic-perimeter.md) security ratings
 - Generate takedown request documentation based on verified phishing evidence
 
 ### Threat Intelligence
-- Correlate phishing URLs with [IPQualityScore](/osint/ipqualityscore/) fraud scoring for multi-source validation
-- Map phishing infrastructure using [SecurityTrails](/osint/securitytrails/) DNS data to identify hosting patterns
-- Feed confirmed phishing IOCs into [AlienVault OTX](/osint/alienvault-otx/) community threat intelligence pulses
+- Correlate phishing URLs with [IPQualityScore](@/osint/ipqualityscore.md) fraud scoring for multi-source validation
+- Map phishing infrastructure using [SecurityTrails](@/osint/securitytrails.md) DNS data to identify hosting patterns
+- Feed confirmed phishing IOCs into [AlienVault OTX](@/osint/alienvault-otx.md) community threat intelligence pulses
 - Track phishing kit reuse patterns across campaigns for threat actor attribution
 
 ### Security Operations
@@ -199,13 +199,13 @@ PhishTank integration satisfies NABLA requirements through its community verific
 
 ## Related Resources
 
-- [URLScan](/osint/urlscan/) - URL analysis with screenshot and DOM capture
-- [IPQualityScore](/osint/ipqualityscore/) - URL phishing and fraud scoring
-- [VirusTotal](/osint/virustotal/) - Multi-engine URL scanning
-- [AlienVault OTX](/osint/alienvault-otx/) - Community threat intelligence sharing
-- [Spamhaus](/osint/spamhaus/) - Domain blocklists for phishing infrastructure
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Phishing in security ratings
+- [URLScan](@/osint/urlscan.md) - URL analysis with screenshot and DOM capture
+- [IPQualityScore](@/osint/ipqualityscore.md) - URL phishing and fraud scoring
+- [VirusTotal](@/osint/virustotal.md) - Multi-engine URL scanning
+- [AlienVault OTX](@/osint/alienvault-otx.md) - Community threat intelligence sharing
+- [Spamhaus](@/osint/spamhaus.md) - Domain blocklists for phishing infrastructure
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Phishing in security ratings
 
 ---
 
@@ -214,4 +214,4 @@ PhishTank integration satisfies NABLA requirements through its community verific
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

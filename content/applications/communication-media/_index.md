@@ -53,9 +53,9 @@ tags = ["applications", "communication--media", "prismatic", "research-framework
 
 ## Abstract
 
-This document provides a comprehensive overview of the Prismatic Platform's communication and media research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](/glossary/multi-agent-systems/), [epistemic validation](/glossary/epistemic-validation/), and narrative analysis to problems in media bias detection, content verification, communication strategy, media literacy training, and community governance. The domain spans five primary research areas: bias and framing analysis, content verification and fact-checking, media literacy and training, communication strategy, and community governance and moderation.
+This document provides a comprehensive overview of the Prismatic Platform's communication and media research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](@/glossary/multi-agent-systems.md), [epistemic validation](@/glossary/epistemic-validation.md), and narrative analysis to problems in media bias detection, content verification, communication strategy, media literacy training, and community governance. The domain spans five primary research areas: bias and framing analysis, content verification and fact-checking, media literacy and training, communication strategy, and community governance and moderation.
 
-Each framework leverages the platform's [agent orchestration](/glossary/agent-orchestration/) infrastructure, [signal plurality](/glossary/signal-plurality/) axioms, and [data provenance](/glossary/data-provenance/) tracking to model the complex dynamics of modern media ecosystems where information travels through interconnected channels, undergoes framing transformations, and reaches audiences with varying levels of media literacy. The emphasis throughout is on detecting manipulation while respecting legitimate editorial discretion, and on building resilience against misinformation without enabling censorship.
+Each framework leverages the platform's [agent orchestration](@/glossary/agent-orchestration.md) infrastructure, [signal plurality](@/glossary/signal-plurality.md) axioms, and [data provenance](@/glossary/data-provenance.md) tracking to model the complex dynamics of modern media ecosystems where information travels through interconnected channels, undergoes framing transformations, and reaches audiences with varying levels of media literacy. The emphasis throughout is on detecting manipulation while respecting legitimate editorial discretion, and on building resilience against misinformation without enabling censorship.
 
 ## Introduction
 
@@ -63,7 +63,7 @@ Each framework leverages the platform's [agent orchestration](/glossary/agent-or
 
 The modern media landscape operates at a scale and speed unprecedented in human history. Information, misinformation, and disinformation propagate simultaneously across traditional broadcast, social media, messaging platforms, and algorithmic recommendation systems. This environment creates extraordinary challenges for individuals seeking accurate information, journalists maintaining editorial standards, and communities governing their information spaces. Computational approaches to media analysis must model the full complexity of this ecosystem -- from the framing decisions of individual content creators to the emergent dynamics of viral propagation.
 
-The Prismatic Platform's communication and media domain was conceived as a research laboratory where [multi-agent](/glossary/multi-agent-system/) architectures represent the diverse participants in media ecosystems -- journalists, editors, audiences, platforms, advertisers, and regulators -- whose interactions determine information quality. The platform's commitment to [contradiction preservation](/glossary/contradiction-preservation/) is particularly relevant to media analysis, where the distinction between legitimate editorial perspective and manipulative framing requires preserving complexity rather than collapsing it.
+The Prismatic Platform's communication and media domain was conceived as a research laboratory where [multi-agent](@/glossary/multi-agent-system.md) architectures represent the diverse participants in media ecosystems -- journalists, editors, audiences, platforms, advertisers, and regulators -- whose interactions determine information quality. The platform's commitment to [contradiction preservation](@/glossary/contradiction-preservation.md) is particularly relevant to media analysis, where the distinction between legitimate editorial perspective and manipulative framing requires preserving complexity rather than collapsing it.
 
 ### Problem Definition
 
@@ -83,12 +83,12 @@ Communication and media research faces several interconnected theoretical challe
 
 | Platform Component | Media Application | Research Purpose |
 |-------------------|----------------------|------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multi-source verification | Require multiple independent sources before claims assessment |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Bias spectrum analysis | Preserve legitimate editorial diversity while detecting manipulation |
-| **[Data Provenance](/glossary/data-provenance/)** | Source chain tracking | Trace information through transformation and redistribution chains |
-| **[Workflow](/glossary/workflow/) Orchestration** | Fact-check pipeline management | Structured verification workflows with human oversight |
-| **[Agent Orchestration](/glossary/agent-orchestration/)** | Media ecosystem simulation | Simulate information propagation across actor networks |
-| **[Telemetry](/glossary/telemetry/)** | Real-time media monitoring | Track sentiment, framing, and narrative dynamics over time |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multi-source verification | Require multiple independent sources before claims assessment |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Bias spectrum analysis | Preserve legitimate editorial diversity while detecting manipulation |
+| **[Data Provenance](@/glossary/data-provenance.md)** | Source chain tracking | Trace information through transformation and redistribution chains |
+| **[Workflow](@/glossary/workflow.md) Orchestration** | Fact-check pipeline management | Structured verification workflows with human oversight |
+| **[Agent Orchestration](@/glossary/agent-orchestration.md)** | Media ecosystem simulation | Simulate information propagation across actor networks |
+| **[Telemetry](@/glossary/telemetry.md)** | Real-time media monitoring | Track sentiment, framing, and narrative dynamics over time |
 
 ## Research Domain Taxonomy
 
@@ -98,11 +98,11 @@ Research into media bias detection, narrative framing identification, and advers
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Interview adversarial framing detector](/applications/communication-media/interview-adversarial-framing-detector/) | Hostile interview technique identification | Pragmatic discourse analysis with manipulation detection |
-| [News bias resonance meter](/applications/communication-media/news-bias-resonance-meter/) | Systematic media bias measurement | Allsides-style spectrum analysis with linguistic markers |
-| [Narrative framing sandbox](/applications/communication-media/narrative-framing-sandbox/) | Frame construction and deconstruction analysis | Entman's framing theory computational implementation |
-| [Memetic drift analyzer](/applications/communication-media/memetic-drift-analyzer/) | Meme mutation tracking and cultural evolution | Dawkins' memetics with network diffusion modeling |
-| [Spin detection counterframes](/applications/communication-media/spin-detection-counterframes/) | Political spin identification and counter-narrative | Propaganda technique taxonomy with countermeasure generation |
+| [Interview adversarial framing detector](@/applications/communication-media/interview-adversarial-framing-detector.md) | Hostile interview technique identification | Pragmatic discourse analysis with manipulation detection |
+| [News bias resonance meter](@/applications/communication-media/news-bias-resonance-meter.md) | Systematic media bias measurement | Allsides-style spectrum analysis with linguistic markers |
+| [Narrative framing sandbox](@/applications/communication-media/narrative-framing-sandbox.md) | Frame construction and deconstruction analysis | Entman's framing theory computational implementation |
+| [Memetic drift analyzer](@/applications/communication-media/memetic-drift-analyzer.md) | Meme mutation tracking and cultural evolution | Dawkins' memetics with network diffusion modeling |
+| [Spin detection counterframes](@/applications/communication-media/spin-detection-counterframes.md) | Political spin identification and counter-narrative | Propaganda technique taxonomy with countermeasure generation |
 
 The narrative framing sandbox operationalizes Entman's framing theory -- where frames define problems, diagnose causes, make moral judgments, and suggest remedies -- as a structured decomposition applied to media texts. Agents representing different editorial perspectives produce competing frames for the same events, enabling systematic study of how framing choices shape audience understanding without changing factual content.
 
@@ -112,13 +112,13 @@ Theoretical models for studying automated and semi-automated fact-checking, sour
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Fact-check workflow orchestrator](/applications/communication-media/fact-check-workflow-orchestrator/) | Structured fact-checking pipeline design | Claim decomposition and evidence matching theory |
-| [Public statement contradiction check](/applications/communication-media/public-statement-contradiction-check/) | Temporal consistency analysis of public figures | Logical consistency verification across statement corpora |
-| [Visual misinformation detector](/applications/communication-media/visual-misinformation-detector/) | Manipulated image and video detection | Digital forensics with provenance chain analysis |
-| [Rumor lifecycle mapping](/applications/communication-media/rumor-lifecycle-mapping/) | Rumor emergence, spread, and decay dynamics | Allport-Postman rumor theory with network epidemiology |
-| [Political ad fairness auditor](/applications/communication-media/political-ad-fairness-auditor/) | Political advertising accuracy and fairness assessment | Electoral communication regulation formalization |
+| [Fact-check workflow orchestrator](@/applications/communication-media/fact-check-workflow-orchestrator.md) | Structured fact-checking pipeline design | Claim decomposition and evidence matching theory |
+| [Public statement contradiction check](@/applications/communication-media/public-statement-contradiction-check.md) | Temporal consistency analysis of public figures | Logical consistency verification across statement corpora |
+| [Visual misinformation detector](@/applications/communication-media/visual-misinformation-detector.md) | Manipulated image and video detection | Digital forensics with provenance chain analysis |
+| [Rumor lifecycle mapping](@/applications/communication-media/rumor-lifecycle-mapping.md) | Rumor emergence, spread, and decay dynamics | Allport-Postman rumor theory with network epidemiology |
+| [Political ad fairness auditor](@/applications/communication-media/political-ad-fairness-auditor.md) | Political advertising accuracy and fairness assessment | Electoral communication regulation formalization |
 
-The fact-check [workflow](/glossary/workflow/) orchestrator implements a structured pipeline decomposing complex claims into verifiable atomic propositions, matching each against available evidence, and producing confidence-weighted assessments. The platform's [signal plurality](/glossary/signal-plurality/) axiom requires that verdicts be supported by multiple independent evidence sources, preventing reliance on any single fact-checking authority.
+The fact-check [workflow](@/glossary/workflow.md) orchestrator implements a structured pipeline decomposing complex claims into verifiable atomic propositions, matching each against available evidence, and producing confidence-weighted assessments. The platform's [signal plurality](@/glossary/signal-plurality.md) axiom requires that verdicts be supported by multiple independent evidence sources, preventing reliance on any single fact-checking authority.
 
 ### Domain 3: Media Literacy and Training (5 frameworks)
 
@@ -126,11 +126,11 @@ Research into media literacy education, critical thinking development, and audie
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Media literacy training packs](/applications/communication-media/media-literacy-training-packs/) | Structured media literacy curriculum delivery | Information literacy competency frameworks |
-| [Journalistic ethics simulator](/applications/communication-media/journalistic-ethics-simulator/) | Editorial decision-making under ethical constraints | SPJ Code of Ethics computational formalization |
-| [Debate moderation assistant](/applications/communication-media/debate-moderation-assistant/) | Fair debate moderation and facilitation | Deliberative democracy facilitation theory |
-| [Podcast conversational coach](/applications/communication-media/podcast-conversational-coach/) | Conversational quality improvement | Gricean maxims and conversational implicature |
-| [Accessibility language simplifier](/applications/communication-media/accessibility-language-simplifier/) | Plain language translation and accessibility | Universal design for information accessibility |
+| [Media literacy training packs](@/applications/communication-media/media-literacy-training-packs.md) | Structured media literacy curriculum delivery | Information literacy competency frameworks |
+| [Journalistic ethics simulator](@/applications/communication-media/journalistic-ethics-simulator.md) | Editorial decision-making under ethical constraints | SPJ Code of Ethics computational formalization |
+| [Debate moderation assistant](@/applications/communication-media/debate-moderation-assistant.md) | Fair debate moderation and facilitation | Deliberative democracy facilitation theory |
+| [Podcast conversational coach](@/applications/communication-media/podcast-conversational-coach.md) | Conversational quality improvement | Gricean maxims and conversational implicature |
+| [Accessibility language simplifier](@/applications/communication-media/accessibility-language-simplifier.md) | Plain language translation and accessibility | Universal design for information accessibility |
 
 ### Domain 4: Communication Strategy (5 frameworks)
 
@@ -138,11 +138,11 @@ Frameworks for studying audience engagement, brand communication, and strategic 
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [PR crisis response composer](/applications/communication-media/pr-crisis-response-composer/) | Crisis communication strategy formulation | Coombs' Situational Crisis Communication Theory |
-| [Campaign messaging AB ToM](/applications/communication-media/campaign-messaging-ab-tom/) | Message effectiveness with Theory of Mind modeling | Audience modeling with perspective-taking |
-| [Brand voice coherence agent](/applications/communication-media/brand-voice-coherence-agent/) | Brand consistency across communication channels | Corporate identity theory with linguistic analysis |
-| [Editorial headline risk scoring](/applications/communication-media/editorial-headline-risk-scoring/) | Headline impact and risk assessment | Clickbait detection with reputational risk modeling |
-| [Audience sentiment time-series](/applications/communication-media/audience-sentiment-time-series/) | Temporal audience sentiment dynamics | Time-series sentiment analysis with event correlation |
+| [PR crisis response composer](@/applications/communication-media/pr-crisis-response-composer.md) | Crisis communication strategy formulation | Coombs' Situational Crisis Communication Theory |
+| [Campaign messaging AB ToM](@/applications/communication-media/campaign-messaging-ab-tom.md) | Message effectiveness with Theory of Mind modeling | Audience modeling with perspective-taking |
+| [Brand voice coherence agent](@/applications/communication-media/brand-voice-coherence-agent.md) | Brand consistency across communication channels | Corporate identity theory with linguistic analysis |
+| [Editorial headline risk scoring](@/applications/communication-media/editorial-headline-risk-scoring.md) | Headline impact and risk assessment | Clickbait detection with reputational risk modeling |
+| [Audience sentiment time-series](@/applications/communication-media/audience-sentiment-time-series.md) | Temporal audience sentiment dynamics | Time-series sentiment analysis with event correlation |
 
 The campaign messaging AB ToM framework is particularly notable for integrating Theory of Mind -- the ability to model what others believe and desire -- into message effectiveness analysis. Agents representing diverse audience segments process campaign messages through their distinct belief systems and value hierarchies, enabling study of how identical messages resonate differently across populations.
 
@@ -152,11 +152,11 @@ Research into content moderation policy, community governance, and hate speech d
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Community moderation copilot](/applications/communication-media/community-moderation-copilot/) | AI-assisted community moderation | Hybrid human-AI moderation architecture design |
-| [Hate speech de-escalation](/applications/communication-media/hate-speech-de-escalation/) | Hate speech detection and de-escalation strategies | Counter-speech theory and intervention design |
-| [Influencer negotiation toolkit](/applications/communication-media/influencer-negotiation-toolkit/) | Influencer partnership evaluation and negotiation | Social influence theory with authenticity metrics |
-| [Live broadcast risk dashboard](/applications/communication-media/live-broadcast-risk-dashboard/) | Real-time broadcast content risk monitoring | Live content classification with intervention timing |
-| [Cross-lingual message fidelity](/applications/communication-media/cross-lingual-message-fidelity/) | Translation accuracy and meaning preservation | Cross-linguistic pragmatics and translation theory |
+| [Community moderation copilot](@/applications/communication-media/community-moderation-copilot.md) | AI-assisted community moderation | Hybrid human-AI moderation architecture design |
+| [Hate speech de-escalation](@/applications/communication-media/hate-speech-de-escalation.md) | Hate speech detection and de-escalation strategies | Counter-speech theory and intervention design |
+| [Influencer negotiation toolkit](@/applications/communication-media/influencer-negotiation-toolkit.md) | Influencer partnership evaluation and negotiation | Social influence theory with authenticity metrics |
+| [Live broadcast risk dashboard](@/applications/communication-media/live-broadcast-risk-dashboard.md) | Real-time broadcast content risk monitoring | Live content classification with intervention timing |
+| [Cross-lingual message fidelity](@/applications/communication-media/cross-lingual-message-fidelity.md) | Translation accuracy and meaning preservation | Cross-linguistic pragmatics and translation theory |
 
 ## Theoretical Foundations
 
@@ -164,55 +164,55 @@ Research into content moderation policy, community governance, and hate speech d
 
 | NABLA Axiom | Media Interpretation | Research Application |
 |-------------|--------------------------|---------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple independent sources required before claim assessment | Models journalistic corroboration standards |
-| **[Contradiction Preservation](/glossary/contradiction-preservation/)** | Contradictory narratives preserved as analytically significant | Prevents premature collapse of legitimate editorial diversity |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple independent sources required before claim assessment | Models journalistic corroboration standards |
+| **[Contradiction Preservation](@/glossary/contradiction-preservation.md)** | Contradictory narratives preserved as analytically significant | Prevents premature collapse of legitimate editorial diversity |
 | **Absence Informative** | Missing expected coverage carries analytical weight | Models media blackouts, selective silence, and censorship detection |
-| **[Time Decay](/glossary/time-decay/)** | News value and relevance decay as stories age | Models news cycle dynamics and attention economy effects |
+| **[Time Decay](@/glossary/time-decay.md)** | News value and relevance decay as stories age | Models news cycle dynamics and attention economy effects |
 | **Unknown Valid** | Acknowledging verification gaps as legitimate state | Prevents false certainty in preliminary fact-checking assessments |
 | **Source Independence** | Independent news organizations weighted higher than wire-service derivatives | Models source diversity requirements for robust media analysis |
-| **[Provenance Mandatory](/glossary/provenance-mandatory/)** | All content claims traceable to original sources | Supports attribution and intellectual property protection |
+| **[Provenance Mandatory](@/glossary/provenance-mandatory.md)** | All content claims traceable to original sources | Supports attribution and intellectual property protection |
 
 ## Contents
 
 ### Bias and Framing Analysis
 
-- [Interview adversarial framing detector](/applications/communication-media/interview-adversarial-framing-detector/) -- Hostile interview technique identification
-- [News bias resonance meter](/applications/communication-media/news-bias-resonance-meter/) -- Systematic media bias measurement
-- [Narrative framing sandbox](/applications/communication-media/narrative-framing-sandbox/) -- Frame construction and deconstruction
-- [Memetic drift analyzer](/applications/communication-media/memetic-drift-analyzer/) -- Meme mutation and cultural evolution tracking
-- [Spin detection counterframes](/applications/communication-media/spin-detection-counterframes/) -- Political spin identification
+- [Interview adversarial framing detector](@/applications/communication-media/interview-adversarial-framing-detector.md) -- Hostile interview technique identification
+- [News bias resonance meter](@/applications/communication-media/news-bias-resonance-meter.md) -- Systematic media bias measurement
+- [Narrative framing sandbox](@/applications/communication-media/narrative-framing-sandbox.md) -- Frame construction and deconstruction
+- [Memetic drift analyzer](@/applications/communication-media/memetic-drift-analyzer.md) -- Meme mutation and cultural evolution tracking
+- [Spin detection counterframes](@/applications/communication-media/spin-detection-counterframes.md) -- Political spin identification
 
 ### Content Verification and Fact-Checking
 
-- [Fact-check workflow orchestrator](/applications/communication-media/fact-check-workflow-orchestrator/) -- Structured fact-checking pipeline design
-- [Public statement contradiction check](/applications/communication-media/public-statement-contradiction-check/) -- Temporal consistency analysis
-- [Visual misinformation detector](/applications/communication-media/visual-misinformation-detector/) -- Manipulated image and video detection
-- [Rumor lifecycle mapping](/applications/communication-media/rumor-lifecycle-mapping/) -- Rumor propagation dynamics
-- [Political ad fairness auditor](/applications/communication-media/political-ad-fairness-auditor/) -- Political advertising fairness assessment
+- [Fact-check workflow orchestrator](@/applications/communication-media/fact-check-workflow-orchestrator.md) -- Structured fact-checking pipeline design
+- [Public statement contradiction check](@/applications/communication-media/public-statement-contradiction-check.md) -- Temporal consistency analysis
+- [Visual misinformation detector](@/applications/communication-media/visual-misinformation-detector.md) -- Manipulated image and video detection
+- [Rumor lifecycle mapping](@/applications/communication-media/rumor-lifecycle-mapping.md) -- Rumor propagation dynamics
+- [Political ad fairness auditor](@/applications/communication-media/political-ad-fairness-auditor.md) -- Political advertising fairness assessment
 
 ### Media Literacy and Training
 
-- [Media literacy training packs](/applications/communication-media/media-literacy-training-packs/) -- Structured media literacy curriculum
-- [Journalistic ethics simulator](/applications/communication-media/journalistic-ethics-simulator/) -- Editorial ethics decision modeling
-- [Debate moderation assistant](/applications/communication-media/debate-moderation-assistant/) -- Fair debate facilitation
-- [Podcast conversational coach](/applications/communication-media/podcast-conversational-coach/) -- Conversational quality improvement
-- [Accessibility language simplifier](/applications/communication-media/accessibility-language-simplifier/) -- Plain language accessibility
+- [Media literacy training packs](@/applications/communication-media/media-literacy-training-packs.md) -- Structured media literacy curriculum
+- [Journalistic ethics simulator](@/applications/communication-media/journalistic-ethics-simulator.md) -- Editorial ethics decision modeling
+- [Debate moderation assistant](@/applications/communication-media/debate-moderation-assistant.md) -- Fair debate facilitation
+- [Podcast conversational coach](@/applications/communication-media/podcast-conversational-coach.md) -- Conversational quality improvement
+- [Accessibility language simplifier](@/applications/communication-media/accessibility-language-simplifier.md) -- Plain language accessibility
 
 ### Communication Strategy
 
-- [PR crisis response composer](/applications/communication-media/pr-crisis-response-composer/) -- Crisis communication strategy
-- [Campaign messaging AB ToM](/applications/communication-media/campaign-messaging-ab-tom/) -- Message effectiveness with Theory of Mind
-- [Brand voice coherence agent](/applications/communication-media/brand-voice-coherence-agent/) -- Brand consistency analysis
-- [Editorial headline risk scoring](/applications/communication-media/editorial-headline-risk-scoring/) -- Headline impact and risk assessment
-- [Audience sentiment time-series](/applications/communication-media/audience-sentiment-time-series/) -- Temporal sentiment dynamics
+- [PR crisis response composer](@/applications/communication-media/pr-crisis-response-composer.md) -- Crisis communication strategy
+- [Campaign messaging AB ToM](@/applications/communication-media/campaign-messaging-ab-tom.md) -- Message effectiveness with Theory of Mind
+- [Brand voice coherence agent](@/applications/communication-media/brand-voice-coherence-agent.md) -- Brand consistency analysis
+- [Editorial headline risk scoring](@/applications/communication-media/editorial-headline-risk-scoring.md) -- Headline impact and risk assessment
+- [Audience sentiment time-series](@/applications/communication-media/audience-sentiment-time-series.md) -- Temporal sentiment dynamics
 
 ### Community Governance and Moderation
 
-- [Community moderation copilot](/applications/communication-media/community-moderation-copilot/) -- AI-assisted community moderation
-- [Hate speech de-escalation](/applications/communication-media/hate-speech-de-escalation/) -- De-escalation strategies and counter-speech
-- [Influencer negotiation toolkit](/applications/communication-media/influencer-negotiation-toolkit/) -- Influencer partnership evaluation
-- [Live broadcast risk dashboard](/applications/communication-media/live-broadcast-risk-dashboard/) -- Real-time broadcast risk monitoring
-- [Cross-lingual message fidelity](/applications/communication-media/cross-lingual-message-fidelity/) -- Translation accuracy and meaning preservation
+- [Community moderation copilot](@/applications/communication-media/community-moderation-copilot.md) -- AI-assisted community moderation
+- [Hate speech de-escalation](@/applications/communication-media/hate-speech-de-escalation.md) -- De-escalation strategies and counter-speech
+- [Influencer negotiation toolkit](@/applications/communication-media/influencer-negotiation-toolkit.md) -- Influencer partnership evaluation
+- [Live broadcast risk dashboard](@/applications/communication-media/live-broadcast-risk-dashboard.md) -- Real-time broadcast risk monitoring
+- [Cross-lingual message fidelity](@/applications/communication-media/cross-lingual-message-fidelity.md) -- Translation accuracy and meaning preservation
 
 ## Future Research Directions
 
@@ -226,13 +226,13 @@ Research into content moderation policy, community governance, and hate speech d
 
 ### Internal Documentation
 
-- [Platform Capabilities](/capabilities/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Signal Plurality](/glossary/signal-plurality/)
-- [Data Provenance](/glossary/data-provenance/)
-- [Contradiction Preservation](/glossary/contradiction-preservation/)
-- [Intelligence Analysis](/glossary/intelligence-analysis/)
+- [Platform Capabilities](@/capabilities/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Signal Plurality](@/glossary/signal-plurality.md)
+- [Data Provenance](@/glossary/data-provenance.md)
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md)
+- [Intelligence Analysis](@/glossary/intelligence-analysis.md)
 
 ### External Standards and Literature
 
@@ -252,4 +252,4 @@ Research into content moderation policy, community governance, and hate speech d
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

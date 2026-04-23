@@ -38,19 +38,19 @@ image_alt = "Self-Healing - Prismatic Platform"
 
 Self-Healing in the Prismatic Platform refers to autonomous systems that detect degradation or failure, diagnose root causes, and apply corrective actions without human intervention. This extends far beyond OTP's basic supervisor restart strategy to encompass application-level healing: automatic quality debt elimination, configuration drift correction, dependency update resolution, performance optimization, and ecosystem-wide recovery patterns.
 
-The concept draws from biological systems, where organisms repair wounds, fight infections, and adapt to environmental stressors without conscious direction. The immune system does not wait for external instruction to attack a pathogen -- it detects, classifies, and responds autonomously. Similarly, Prismatic's self-healing infrastructure detects degradation through [observability](/glossary/observability/) signals, classifies the issue through diagnostic agents, and applies corrective patterns without human intervention.
+The concept draws from biological systems, where organisms repair wounds, fight infections, and adapt to environmental stressors without conscious direction. The immune system does not wait for external instruction to attack a pathogen -- it detects, classifies, and responds autonomously. Similarly, Prismatic's self-healing infrastructure detects degradation through [observability](@/glossary/observability.md) signals, classifies the issue through diagnostic agents, and applies corrective patterns without human intervention.
 
-Self-healing operates at three distinct levels: **process-level** (OTP restarts via [supervisors](/glossary/supervisor/)), **application-level** (auto-evolution through [SEADF](/glossary/seadf/)), and **platform-level** (ecosystem healing across all 115 umbrella applications). Each level handles progressively larger-scope failures, and they compose hierarchically -- a process-level restart that fails escalates to application-level recovery, which in turn can trigger platform-level healing if the application-level intervention is insufficient.
+Self-healing operates at three distinct levels: **process-level** (OTP restarts via [supervisors](@/glossary/supervisor.md)), **application-level** (auto-evolution through [SEADF](@/glossary/seadf.md)), and **platform-level** (ecosystem healing across all 115 umbrella applications). Each level handles progressively larger-scope failures, and they compose hierarchically -- a process-level restart that fails escalates to application-level recovery, which in turn can trigger platform-level healing if the application-level intervention is insufficient.
 
-The philosophical foundation of self-healing in the Prismatic Platform rests on the [let-it-crash](/glossary/let-it-crash/) philosophy extended to its logical conclusion: not only should individual processes crash and restart cleanly, but entire subsystems should be able to detect their own degradation and apply corrective measures autonomously. This eliminates the dependency on human operators for routine recovery, allowing human attention to focus on genuinely novel problems that the system has not previously encountered.
+The philosophical foundation of self-healing in the Prismatic Platform rests on the [let-it-crash](@/glossary/let-it-crash.md) philosophy extended to its logical conclusion: not only should individual processes crash and restart cleanly, but entire subsystems should be able to detect their own degradation and apply corrective measures autonomously. This eliminates the dependency on human operators for routine recovery, allowing human attention to focus on genuinely novel problems that the system has not previously encountered.
 
 ## Historical Context and Motivation
 
 The need for self-healing systems became apparent during the platform's growth from a handful of applications to over 100 umbrella apps. Manual quality maintenance was unsustainable -- a single developer cannot monitor quality across 2.8 million lines of code. Quality drift accumulated silently: a compilation warning here, a Credo issue there, a Dialyzer type mismatch in a rarely-modified module. Individually, each issue was minor. Collectively, they degraded the platform's reliability and developer confidence.
 
-The first self-healing capability was simple: OTP supervisors restarting crashed processes. But this addressed only the most basic failure mode -- process crashes. It did not address quality regression, configuration drift, performance degradation, or dependency conflicts. The [SEADF](/glossary/seadf/) Enhanced Healing subsystem was developed to fill this gap, providing a structured five-level healing model that addresses progressively more complex failure modes.
+The first self-healing capability was simple: OTP supervisors restarting crashed processes. But this addressed only the most basic failure mode -- process crashes. It did not address quality regression, configuration drift, performance degradation, or dependency conflicts. The [SEADF](@/glossary/seadf.md) Enhanced Healing subsystem was developed to fill this gap, providing a structured five-level healing model that addresses progressively more complex failure modes.
 
-The introduction of [CASCADE](/glossary/cascade/) patterns marked a turning point. These are proven, automated transformations that eliminate specific quality debt categories. Where manual quality fixes required understanding each individual issue, CASCADE patterns encode the fix knowledge once and apply it automatically across the entire codebase. The combination of CASCADE patterns with the autoheal cycle created a system that could detect, classify, and fix quality regressions without human intervention.
+The introduction of [CASCADE](@/glossary/cascade.md) patterns marked a turning point. These are proven, automated transformations that eliminate specific quality debt categories. Where manual quality fixes required understanding each individual issue, CASCADE patterns encode the fix knowledge once and apply it automatically across the entire codebase. The combination of CASCADE patterns with the autoheal cycle created a system that could detect, classify, and fix quality regressions without human intervention.
 
 ## The 5-Level Healing Model
 
@@ -68,7 +68,7 @@ The healing levels map to progressively deeper system understanding. L1 requires
 
 ## OTP Supervision Tree Foundation
 
-All self-healing in the Prismatic Platform builds on the foundation of OTP [supervision trees](/glossary/supervisor/). The supervisor hierarchy provides the L1 healing layer automatically: when a [GenServer](/glossary/genserver/) crashes, its supervisor restarts it according to the configured strategy.
+All self-healing in the Prismatic Platform builds on the foundation of OTP [supervision trees](@/glossary/supervisor.md). The supervisor hierarchy provides the L1 healing layer automatically: when a [GenServer](@/glossary/genserver.md) crashes, its supervisor restarts it according to the configured strategy.
 
 ```elixir
 defmodule PrismaticAgents.AgentPoolSupervisor do
@@ -115,17 +115,17 @@ The `max_restarts` / `max_seconds` configuration acts as an escalation trigger. 
 
 ## The Autoheal System
 
-The [autoheal](/glossary/autoheal/) system provides the L2-L4 healing capabilities through the `mix autoheal.cycle` command. A healing cycle performs a structured sequence of operations:
+The [autoheal](@/glossary/autoheal.md) system provides the L2-L4 healing capabilities through the `mix autoheal.cycle` command. A healing cycle performs a structured sequence of operations:
 
-1. **Baseline Capture**: Record current platform state including quality metrics, test results, compilation warnings, and [Dialyzer](/glossary/dialyzer/) findings. This baseline enables before/after comparison.
+1. **Baseline Capture**: Record current platform state including quality metrics, test results, compilation warnings, and [Dialyzer](@/glossary/dialyzer.md) findings. This baseline enables before/after comparison.
 
-2. **Degradation Detection**: Compare current state against the quality floor (maintained by the [Quality Floor Guardian](/glossary/quality-floor-guardian/)). Identify specific regressions: new compilation warnings, new Dialyzer violations, Credo regressions, test failures.
+2. **Degradation Detection**: Compare current state against the quality floor (maintained by the [Quality Floor Guardian](@/glossary/quality-floor-guardian.md)). Identify specific regressions: new compilation warnings, new Dialyzer violations, Credo regressions, test failures.
 
 3. **Root Cause Analysis**: For each detected degradation, analyze the most likely cause. Is it a new dependency introducing warnings? A configuration drift? A code change that introduced a regression?
 
-4. **Pattern Application**: Apply [CASCADE](/glossary/cascade/) patterns to address identified issues. CASCADE patterns are proven, automated transformations that eliminate specific quality debt categories (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache).
+4. **Pattern Application**: Apply [CASCADE](@/glossary/cascade.md) patterns to address identified issues. CASCADE patterns are proven, automated transformations that eliminate specific quality debt categories (Type Mismatch, Dead Code, Empty Check, Timer Replacement, Nuclear Cache).
 
-5. **Validation**: After pattern application, re-run the [quality gates](/glossary/quality-gates/) to verify that the healing was effective. If the intervention introduced new issues, it is rolled back.
+5. **Validation**: After pattern application, re-run the [quality gates](@/glossary/quality-gates.md) to verify that the healing was effective. If the intervention introduced new issues, it is rolled back.
 
 6. **Report**: Generate a healing report documenting what was detected, what was attempted, and what was achieved. This report feeds into the platform's structured logging for trend analysis.
 
@@ -213,7 +213,7 @@ end
 
 ## Telemetry-Driven Detection
 
-Self-healing requires continuous monitoring to detect issues before they become catastrophic. The platform uses [Telemetry](/glossary/telemetry/) infrastructure combined with custom health metrics to maintain awareness of system state.
+Self-healing requires continuous monitoring to detect issues before they become catastrophic. The platform uses [Telemetry](@/glossary/telemetry.md) infrastructure combined with custom health metrics to maintain awareness of system state.
 
 | Signal Category | Metrics Monitored | Detection Threshold | Healing Response |
 |----------------|-------------------|---------------------|------------------|
@@ -221,9 +221,9 @@ Self-healing requires continuous monitoring to detect issues before they become 
 | **Quality Metrics** | Compilation warnings, Dialyzer violations, Credo issues | Any increase from baseline | L3-L4 CASCADE patterns |
 | **Performance** | Response latency, throughput, error rate | >2x baseline latency, >1% error rate | L2-L3 reconfiguration |
 | **Resource Usage** | CPU, memory, disk, connection pool | >80% utilization sustained | L3 reconfiguration |
-| **Dependencies** | External API response time, database query latency | >5s response, connection failures | L2 reconnect with [circuit breaker](/glossary/circuit-breaker/) |
+| **Dependencies** | External API response time, database query latency | >5s response, connection failures | L2 reconnect with [circuit breaker](@/glossary/circuit-breaker.md) |
 
-The [Quality Floor Guardian](/glossary/quality-floor-guardian/) continuously monitors quality metrics and triggers healing at specific thresholds:
+The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) continuously monitors quality metrics and triggers healing at specific thresholds:
 
 - **100-99%** quality score: OPTIMAL. Monitor only. No intervention needed.
 - **98-99%**: WARNING. Alert generated. Investigation triggered. Preventive healing considered.
@@ -232,7 +232,7 @@ The [Quality Floor Guardian](/glossary/quality-floor-guardian/) continuously mon
 
 ## Circuit Breakers and Cascade Prevention
 
-[Circuit breakers](/glossary/circuit-breaker/) are the self-healing system's first line of defense against cascade failures. When an external dependency begins failing, the circuit breaker opens to prevent the failure from propagating through the system. This is a form of self-healing through isolation -- the system heals itself by cutting off the source of damage.
+[Circuit breakers](@/glossary/circuit-breaker.md) are the self-healing system's first line of defense against cascade failures. When an external dependency begins failing, the circuit breaker opens to prevent the failure from propagating through the system. This is a form of self-healing through isolation -- the system heals itself by cutting off the source of damage.
 
 The SessionLifecycle GenServer demonstrates this pattern. Its circuit breaker opens after 3 consecutive hook failures and auto-resets after 60 seconds. During the open period, hook execution is skipped entirely rather than repeatedly failing and consuming resources. After 60 seconds, the half-open state allows a single test execution to determine if the dependency has recovered.
 
@@ -309,7 +309,7 @@ Circuit breakers compose with supervision trees to create multi-layered self-hea
 
 ## Relationship to Let-It-Crash Philosophy
 
-Self-healing and the [let-it-crash](/glossary/let-it-crash/) philosophy are complementary rather than contradictory. Let-it-crash says: "Do not defensively guard against every possible error. Let processes crash and let supervisors handle recovery." Self-healing extends this to: "Beyond simple process restarts, apply intelligent recovery strategies based on failure patterns."
+Self-healing and the [let-it-crash](@/glossary/let-it-crash.md) philosophy are complementary rather than contradictory. Let-it-crash says: "Do not defensively guard against every possible error. Let processes crash and let supervisors handle recovery." Self-healing extends this to: "Beyond simple process restarts, apply intelligent recovery strategies based on failure patterns."
 
 The key insight is that let-it-crash handles **individual process failures** (a GenServer crashes due to unexpected input), while self-healing handles **systemic degradation** (quality metrics declining across multiple applications, configuration drift accumulating over time, external dependencies degrading gradually). Let-it-crash is a binary response (crash or not), while self-healing is a graduated response (5 levels of increasing intervention).
 
@@ -317,7 +317,7 @@ In practice, the platform's self-healing system relies on let-it-crash as its fo
 
 ## SEADF Integration
 
-The [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Discovery Framework) provides the coordination layer for self-healing across the platform. SEADF's Enhanced Healing subsystem is one of seven SEADF subsystems, and it interacts with the others to provide holistic platform health management:
+The [SEADF](@/glossary/seadf.md) (Self-Evolving Autonomous Discovery Framework) provides the coordination layer for self-healing across the platform. SEADF's Enhanced Healing subsystem is one of seven SEADF subsystems, and it interacts with the others to provide holistic platform health management:
 
 - **Scanner Subsystem**: Detects new patterns and anomalies that may require healing
 - **Pipeline Subsystem**: Processes healing candidates through validation stages
@@ -331,13 +331,13 @@ The `mix autoheal.cycle` command invokes the Enhanced Healing subsystem directly
 
 ## Autoevolve and Continuous Improvement
 
-Self-healing addresses current failures, while [autoevolve](/glossary/autoevolve/) addresses future resilience. The two systems work in tandem: autoheal fixes what is broken, autoevolve improves the platform to prevent similar breakages in the future.
+Self-healing addresses current failures, while [autoevolve](@/glossary/autoevolve.md) addresses future resilience. The two systems work in tandem: autoheal fixes what is broken, autoevolve improves the platform to prevent similar breakages in the future.
 
 The `mix autoevolve.mega` command performs a comprehensive evolution scan that goes beyond healing:
 
 1. Identifies patterns that could be extracted into reusable abstractions
 2. Detects code that could benefit from OTP patterns not currently applied
-3. Suggests [typespec](/glossary/typespec/) additions for functions lacking type documentation
+3. Suggests [typespec](@/glossary/typespec.md) additions for functions lacking type documentation
 4. Recommends test coverage improvements for under-tested modules
 5. Proposes architectural improvements based on usage patterns
 
@@ -349,7 +349,7 @@ Autoevolve is the platform's immune memory -- where autoheal fights the current 
 
 2. **Separate State from Logic**: Keep state reconstruction logic separate from business logic. When a process restarts, it should rebuild its state deterministically without re-executing business operations.
 
-3. **Monitor Healing Effectiveness**: Track healing cycle outcomes via [Telemetry](/glossary/telemetry/). If healing cycles are running frequently or failing, the root cause may be deeper than the healing system can address.
+3. **Monitor Healing Effectiveness**: Track healing cycle outcomes via [Telemetry](@/glossary/telemetry.md). If healing cycles are running frequently or failing, the root cause may be deeper than the healing system can address.
 
 4. **Use Circuit Breakers at All External Boundaries**: Every call to an external service, database, or third-party API should pass through a circuit breaker to prevent cascade failures.
 
@@ -367,24 +367,24 @@ Autoevolve is the platform's immune memory -- where autoheal fights the current 
 
 ## Related Terms
 
-- [SEADF](/glossary/seadf/) -- Framework containing the Enhanced Healing subsystem
-- [CASCADE](/glossary/cascade/) -- Automated patterns applied during healing cycles
-- [Autoheal](/glossary/autoheal/) -- Mix task triggering healing cycles
-- [Autoevolve](/glossary/autoevolve/) -- Companion system for continuous improvement
-- [Supervisor](/glossary/supervisor/) -- OTP behavior providing L1 process restart healing
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property that self-healing maintains
-- [Let It Crash](/glossary/let-it-crash/) -- Philosophy that self-healing extends beyond process restarts
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern preventing cascade failures during healing
-- [Observability](/glossary/observability/) -- Monitoring infrastructure enabling degradation detection
-- [Chaos Engineering](/glossary/chaos-engineering/) -- Testing methodology that validates self-healing effectiveness
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Guardian triggering healing at quality thresholds
-- [Telemetry](/glossary/telemetry/) -- Event system powering healing detection signals
+- [SEADF](@/glossary/seadf.md) -- Framework containing the Enhanced Healing subsystem
+- [CASCADE](@/glossary/cascade.md) -- Automated patterns applied during healing cycles
+- [Autoheal](@/glossary/autoheal.md) -- Mix task triggering healing cycles
+- [Autoevolve](@/glossary/autoevolve.md) -- Companion system for continuous improvement
+- [Supervisor](@/glossary/supervisor.md) -- OTP behavior providing L1 process restart healing
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property that self-healing maintains
+- [Let It Crash](@/glossary/let-it-crash.md) -- Philosophy that self-healing extends beyond process restarts
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern preventing cascade failures during healing
+- [Observability](@/glossary/observability.md) -- Monitoring infrastructure enabling degradation detection
+- [Chaos Engineering](@/glossary/chaos-engineering.md) -- Testing methodology that validates self-healing effectiveness
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Guardian triggering healing at quality thresholds
+- [Telemetry](@/glossary/telemetry.md) -- Event system powering healing detection signals
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform resilience architecture
-- [Technologies](/technologies/) -- BEAM VM and OTP self-healing capabilities
-- [Capabilities](/capabilities/) -- Platform autonomous operation capabilities
+- [Architecture](@/architecture/_index.md) -- Platform resilience architecture
+- [Technologies](@/technologies/_index.md) -- BEAM VM and OTP self-healing capabilities
+- [Capabilities](@/capabilities/_index.md) -- Platform autonomous operation capabilities
 
 ---
 
@@ -393,4 +393,4 @@ Autoevolve is the platform's immune memory -- where autoheal fights the current 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

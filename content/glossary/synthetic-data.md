@@ -32,7 +32,7 @@ Synthetic data refers to information that is algorithmically generated rather th
 
 The generation of synthetic data employs a spectrum of techniques, from simple rule-based generators that produce structurally valid records to sophisticated generative models (GANs, VAEs, diffusion models) that learn and reproduce the statistical fingerprint of source datasets. The quality of synthetic data is measured along several dimensions: fidelity (how closely it mirrors real data distributions), utility (how effectively it supports downstream tasks like model training or testing), and privacy (how well it prevents re-identification of source individuals).
 
-Within the [Prismatic Platform](/glossary/prismatic-perimeter/), synthetic data is foundational to the [Color Teams](/glossary/color-teams/) security operations, where all adversarial simulations execute exclusively against synthetic datasets -- ensuring that security research never exposes real user information.
+Within the [Prismatic Platform](@/glossary/prismatic-perimeter.md), synthetic data is foundational to the [Color Teams](@/glossary/color-teams.md) security operations, where all adversarial simulations execute exclusively against synthetic datasets -- ensuring that security research never exposes real user information.
 
 ## Historical Context and Motivation
 
@@ -40,7 +40,7 @@ The need for synthetic data emerged from a fundamental tension in modern softwar
 
 Early approaches to this problem relied on data anonymization -- removing or masking personally identifiable information (PII) from real datasets. However, research demonstrated that anonymized data is vulnerable to re-identification attacks. The Netflix Prize dataset (2006), despite anonymization, was de-anonymized by researchers cross-referencing movie ratings with public IMDb profiles. The AOL search data release (2006) similarly demonstrated that aggregated search histories could identify individuals. These incidents established that anonymization alone is insufficient.
 
-Regulatory pressure accelerated the shift toward synthetic data. The European Union's General Data Protection Regulation (GDPR, 2018) imposed strict requirements on personal data processing, including purpose limitation, data minimization, and storage limitation. Synthetic data that contains no real personal records falls outside GDPR's scope, providing a clean path for development and testing activities. The Czech Republic's implementation of GDPR, alongside the [ZKB](/glossary/zkb/) cybersecurity regulations, created additional incentives for synthetic data adoption in the Prismatic Platform's regulatory compliance framework.
+Regulatory pressure accelerated the shift toward synthetic data. The European Union's General Data Protection Regulation (GDPR, 2018) imposed strict requirements on personal data processing, including purpose limitation, data minimization, and storage limitation. Synthetic data that contains no real personal records falls outside GDPR's scope, providing a clean path for development and testing activities. The Czech Republic's implementation of GDPR, alongside the [ZKB](@/glossary/zkb.md) cybersecurity regulations, created additional incentives for synthetic data adoption in the Prismatic Platform's regulatory compliance framework.
 
 ## Generation Techniques
 
@@ -227,11 +227,11 @@ end
 
 ### Generative Model-Based Synthesis
 
-The highest-fidelity approach uses deep generative models (GANs, VAEs, diffusion models) trained on real data to produce synthetic records that capture complex, non-linear relationships. While typically implemented in Python with frameworks like CTGAN or Synthpop, the Prismatic Platform can orchestrate these models through its [Ollama](/glossary/ollama/) integration for local inference.
+The highest-fidelity approach uses deep generative models (GANs, VAEs, diffusion models) trained on real data to produce synthetic records that capture complex, non-linear relationships. While typically implemented in Python with frameworks like CTGAN or Synthpop, the Prismatic Platform can orchestrate these models through its [Ollama](@/glossary/ollama.md) integration for local inference.
 
 ## Applications in Security Operations
 
-Synthetic data is the backbone of the Prismatic Platform's [Color Teams](/glossary/color-teams/) security operations. Every [adversarial simulation](/glossary/adversarial-simulation/) executes exclusively against synthetic datasets:
+Synthetic data is the backbone of the Prismatic Platform's [Color Teams](@/glossary/color-teams.md) security operations. Every [adversarial simulation](@/glossary/adversarial-simulation.md) executes exclusively against synthetic datasets:
 
 ```elixir
 defmodule PrismaticDark.SyntheticEnvironment do
@@ -325,7 +325,7 @@ defmodule PrismaticDark.SyntheticEnvironment do
 end
 ```
 
-The [Red Team](/glossary/red-team/) uses these synthetic environments to simulate epistemic attacks, the [Blue Team](/glossary/blue-team/) trains defensive posture assessment against synthetic signals, and the [Purple Team](/glossary/purple-team/) synthesizes findings across synthetic scenarios -- all without any risk of real data exposure.
+The [Red Team](@/glossary/red-team.md) uses these synthetic environments to simulate epistemic attacks, the [Blue Team](@/glossary/blue-team.md) trains defensive posture assessment against synthetic signals, and the [Purple Team](@/glossary/purple-team.md) synthesizes findings across synthetic scenarios -- all without any risk of real data exposure.
 
 ## Privacy Preservation and Compliance
 
@@ -333,21 +333,21 @@ Synthetic data's primary value proposition in regulated environments is privacy 
 
 **GDPR Compliance**: Recital 26 of GDPR states that the regulation does not apply to anonymous information, defined as "information which does not relate to an identified or identifiable natural person." Properly generated synthetic data meets this criterion, as no individual contributed to its creation.
 
-**[NIS2](/glossary/nis2/) Compliance**: The Network and Information Security Directive requires organizations to implement appropriate security testing. Synthetic data enables comprehensive security testing without creating additional data protection obligations.
+**[NIS2](@/glossary/nis2.md) Compliance**: The Network and Information Security Directive requires organizations to implement appropriate security testing. Synthetic data enables comprehensive security testing without creating additional data protection obligations.
 
-**[Data Minimization](/glossary/data-minimization/)**: GDPR's data minimization principle requires that only data necessary for a specific purpose be processed. Synthetic data eliminates the need to copy production data into development and testing environments, achieving data minimization by design.
+**[Data Minimization](@/glossary/data-minimization.md)**: GDPR's data minimization principle requires that only data necessary for a specific purpose be processed. Synthetic data eliminates the need to copy production data into development and testing environments, achieving data minimization by design.
 
 **Cross-Border Transfer**: Synthetic data is not subject to cross-border data transfer restrictions (e.g., EU-US data transfer limitations), simplifying global development workflows.
 
 ## Machine Learning Applications
 
-Synthetic data has become essential in [machine learning](/glossary/machine-learning/) pipelines for several reasons:
+Synthetic data has become essential in [machine learning](@/glossary/machine-learning.md) pipelines for several reasons:
 
 **Data Augmentation**: When real training data is scarce (a common situation in specialized domains like fraud detection, medical imaging, or OSINT analysis), synthetic data augments the training set, improving model generalization.
 
 **Class Imbalance Correction**: Real-world datasets often exhibit severe class imbalance (e.g., 99.9% legitimate transactions, 0.1% fraudulent). Synthetic data generation for minority classes (SMOTE, ADASYN, or GAN-based oversampling) creates balanced training sets.
 
-**[Bias Detection](/glossary/bias-detection/)**: Synthetic datasets with controlled demographic distributions enable systematic testing of ML models for discriminatory behavior. By varying protected attributes while holding other features constant, bias detection becomes rigorous and reproducible.
+**[Bias Detection](@/glossary/bias-detection.md)**: Synthetic datasets with controlled demographic distributions enable systematic testing of ML models for discriminatory behavior. By varying protected attributes while holding other features constant, bias detection becomes rigorous and reproducible.
 
 **Privacy-Preserving ML**: Techniques like differentially private synthetic data generation enable model training without ever exposing individual records, combining the utility of large datasets with mathematical privacy guarantees.
 
@@ -421,7 +421,7 @@ end
 
 ## Load Testing and Performance Validation
 
-Synthetic data enables realistic [performance testing](/glossary/performance-testing/) at production scale without production data:
+Synthetic data enables realistic [performance testing](@/glossary/performance-testing.md) at production scale without production data:
 
 ```elixir
 defmodule Prismatic.SyntheticData.LoadGenerator do
@@ -471,7 +471,7 @@ end
 
 ## Property-Based Testing Integration
 
-Synthetic data generation naturally integrates with [property-based testing](/glossary/property-based-testing/) frameworks like StreamData in Elixir:
+Synthetic data generation naturally integrates with [property-based testing](@/glossary/property-based-testing.md) frameworks like StreamData in Elixir:
 
 ```elixir
 defmodule Prismatic.SyntheticData.PropertyTest do
@@ -531,16 +531,16 @@ Synthetic data is not a universal solution. Understanding its limitations is ess
 
 ## Related Concepts
 
-- [Data Protection](/glossary/data-protection/) -- the regulatory framework driving synthetic data adoption
-- [Machine Learning](/glossary/machine-learning/) -- primary consumer of synthetic training datasets
-- [Adversarial Simulation](/glossary/adversarial-simulation/) -- security testing powered by synthetic environments
-- [Sandbox](/glossary/sandbox/) -- isolated execution environments using synthetic data
-- [Property-Based Testing](/glossary/property-based-testing/) -- testing methodology complementary to synthetic generation
-- [Red Team](/glossary/red-team/) -- adversarial operations requiring synthetic environments
-- [Bias Detection](/glossary/bias-detection/) -- fairness testing enabled by controlled synthetic datasets
-- [Data Minimization](/glossary/data-minimization/) -- privacy principle achieved through synthetic data
-- [Simulation](/glossary/simulation/) -- broader simulation context that synthetic data supports
-- [Data Provenance](/glossary/data-provenance/) -- tracking the origin and lineage of synthetic datasets
+- [Data Protection](@/glossary/data-protection.md) -- the regulatory framework driving synthetic data adoption
+- [Machine Learning](@/glossary/machine-learning.md) -- primary consumer of synthetic training datasets
+- [Adversarial Simulation](@/glossary/adversarial-simulation.md) -- security testing powered by synthetic environments
+- [Sandbox](@/glossary/sandbox.md) -- isolated execution environments using synthetic data
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- testing methodology complementary to synthetic generation
+- [Red Team](@/glossary/red-team.md) -- adversarial operations requiring synthetic environments
+- [Bias Detection](@/glossary/bias-detection.md) -- fairness testing enabled by controlled synthetic datasets
+- [Data Minimization](@/glossary/data-minimization.md) -- privacy principle achieved through synthetic data
+- [Simulation](@/glossary/simulation.md) -- broader simulation context that synthetic data supports
+- [Data Provenance](@/glossary/data-provenance.md) -- tracking the origin and lineage of synthetic datasets
 
 ---
 
@@ -549,4 +549,4 @@ Synthetic data is not a universal solution. Understanding its limitations is ess
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

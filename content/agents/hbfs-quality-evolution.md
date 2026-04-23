@@ -28,9 +28,9 @@ image_alt = "HBFS Quality Evolution - Prismatic Platform"
 
 ## Overview
 
-The HBFS Quality Evolution agent is an L3 strategic authority operating within the Quality domain of the Prismatic Platform. Named after the Daft Punk anthem "Harder, Better, Faster, Stronger," this agent drives continuous quality evolution through a methodology that systematically makes the platform's quality practices harder (more rigorous standards), better (improved detection and prevention), faster (reduced feedback cycles), and stronger (more resilient to regression). The HBFS methodology combines [mycelial network](/glossary/mycelial-network/) pattern propagation with genetic algorithm optimization to create a self-improving quality system where successful quality practices evolve and spread across the platform organically.
+The HBFS Quality Evolution agent is an L3 strategic authority operating within the Quality domain of the Prismatic Platform. Named after the Daft Punk anthem "Harder, Better, Faster, Stronger," this agent drives continuous quality evolution through a methodology that systematically makes the platform's quality practices harder (more rigorous standards), better (improved detection and prevention), faster (reduced feedback cycles), and stronger (more resilient to regression). The HBFS methodology combines [mycelial network](@/glossary/mycelial-network.md) pattern propagation with genetic algorithm optimization to create a self-improving quality system where successful quality practices evolve and spread across the platform organically.
 
-The Prismatic Platform achieved a perfect 100/100 quality score through the elimination of 905 [Quality Debt Points](/glossary/qdp/) across 13 quality domains. Maintaining this score requires continuous evolution of quality practices to address emerging patterns, new code contributions, and evolving architectural requirements. The HBFS Quality Evolution agent ensures that quality is not merely maintained but continuously improved, raising standards as the platform matures and discovering new categories of quality improvement that were not previously recognized.
+The Prismatic Platform achieved a perfect 100/100 quality score through the elimination of 905 [Quality Debt Points](@/glossary/qdp.md) across 13 quality domains. Maintaining this score requires continuous evolution of quality practices to address emerging patterns, new code contributions, and evolving architectural requirements. The HBFS Quality Evolution agent ensures that quality is not merely maintained but continuously improved, raising standards as the platform matures and discovering new categories of quality improvement that were not previously recognized.
 
 ## HBFS Methodology Framework
 
@@ -62,7 +62,7 @@ The HBFS Quality Evolution agent provides six primary capabilities that drive co
 
 **Standard Evolution.** Proposing and validating quality standard changes that raise the bar while maintaining achievability. Standard proposals include impact analysis showing how many existing code locations would be affected and estimated remediation effort.
 
-**Automated Fix Generation.** Generating automated fixes for identified quality issues through [AST](/glossary/aiad/)-based code transformation. Automated fixes undergo validation through compilation, test execution, and quality gate verification before being proposed as merge requests.
+**Automated Fix Generation.** Generating automated fixes for identified quality issues through [AST](@/glossary/aiad.md)-based code transformation. Automated fixes undergo validation through compilation, test execution, and quality gate verification before being proposed as merge requests.
 
 **Prevention Rule Development.** Creating quality gate rules that prevent future introduction of identified quality anti-patterns. Prevention rules are tested against historical code changes to verify that they would have caught known issues without generating false positives.
 
@@ -72,25 +72,25 @@ The HBFS Quality Evolution agent provides six primary capabilities that drive co
 
 ## Technical Implementation
 
-The HBFS agent is implemented as a supervised [OTP](/glossary/otp/) application with [GenStage](/glossary/genstage/)-based processing pipelines for quality metric analysis, pattern detection, and fix generation.
+The HBFS agent is implemented as a supervised [OTP](@/glossary/otp.md) application with [GenStage](@/glossary/genstage.md)-based processing pipelines for quality metric analysis, pattern detection, and fix generation.
 
-Quality metrics are collected from multiple sources including Mix compilation output, Credo analysis results, Dialyzer reports, test coverage data, and custom quality checks. Metrics are stored in [ETS](/glossary/ets/) tables for real-time access and persisted to [PostgreSQL](/glossary/postgresql/) through [Ecto](/glossary/ecto/) for historical trend analysis.
+Quality metrics are collected from multiple sources including Mix compilation output, Credo analysis results, Dialyzer reports, test coverage data, and custom quality checks. Metrics are stored in [ETS](@/glossary/ets.md) tables for real-time access and persisted to [PostgreSQL](@/glossary/postgresql.md) through [Ecto](@/glossary/ecto.md) for historical trend analysis.
 
 The genetic algorithm engine maintains a population of quality practice configurations that evolve through mutation (parameter adjustment), crossover (practice combination), and selection (effectiveness-based fitness). Evolution cycles run on configurable schedules, producing candidate improvements that are validated before adoption.
 
-[Property-based testing](/glossary/property-based-testing/) validates that quality detection patterns correctly identify known quality issues across randomly generated code samples, ensuring detection reliability.
+[Property-based testing](@/glossary/property-based-testing.md) validates that quality detection patterns correctly identify known quality issues across randomly generated code samples, ensuring detection reliability.
 
-[Telemetry](/glossary/telemetry/) integration provides real-time visibility into quality evolution progress through metrics including quality score trends, CASCADE pattern elimination rates, standard elevation proposals, and fix generation success rates.
+[Telemetry](@/glossary/telemetry.md) integration provides real-time visibility into quality evolution progress through metrics including quality score trends, CASCADE pattern elimination rates, standard elevation proposals, and fix generation success rates.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [cascade-quality-specialist](/agents/cascade-quality-specialist/) | Collaborates on CASCADE pattern identification and elimination campaigns | Quality |
-| [documentation-verifier](/agents/documentation-verifier/) | Coordinates documentation quality standards within the HBFS framework | Quality |
-| [integration-testing-specialist](/agents/integration-testing-specialist/) | Aligns integration testing standards with HBFS quality evolution targets | Quality |
-| [gitlab-cicd-specialist-agent](/agents/gitlab-cicd-specialist-agent/) | Integrates quality evolution standards into CI/CD pipeline gate configurations | DevOps |
-| [gitlab-mycelial-propagator](/agents/gitlab-mycelial-propagator/) | Propagates quality evolution patterns across platform domains | Cross-Domain |
+| [cascade-quality-specialist](@/agents/cascade-quality-specialist.md) | Collaborates on CASCADE pattern identification and elimination campaigns | Quality |
+| [documentation-verifier](@/agents/documentation-verifier.md) | Coordinates documentation quality standards within the HBFS framework | Quality |
+| [integration-testing-specialist](@/agents/integration-testing-specialist.md) | Aligns integration testing standards with HBFS quality evolution targets | Quality |
+| [gitlab-cicd-specialist-agent](@/agents/gitlab-cicd-specialist-agent.md) | Integrates quality evolution standards into CI/CD pipeline gate configurations | DevOps |
+| [gitlab-mycelial-propagator](@/agents/gitlab-mycelial-propagator.md) | Propagates quality evolution patterns across platform domains | Cross-Domain |
 
 ## Quality Domain Coverage
 
@@ -107,7 +107,7 @@ The genetic algorithm engine maintains a population of quality practice configur
 
 ## Enforcement
 
-The HBFS Quality Evolution agent operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Quality evolution proposals must be backed by measurable evidence of improvement. Standard elevation requires demonstrated benefit over current standards. Automated fixes must pass full quality gate validation before proposal. Quality regression from any evolution change triggers immediate rollback. The [Trinity Gate](/glossary/trinity-gate/) framework validates that quality evolution decisions pass structural, logical, and formal consistency checks, ensuring that quality improvements do not introduce unintended side effects.
+The HBFS Quality Evolution agent operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Quality evolution proposals must be backed by measurable evidence of improvement. Standard elevation requires demonstrated benefit over current standards. Automated fixes must pass full quality gate validation before proposal. Quality regression from any evolution change triggers immediate rollback. The [Trinity Gate](@/glossary/trinity-gate.md) framework validates that quality evolution decisions pass structural, logical, and formal consistency checks, ensuring that quality improvements do not introduce unintended side effects.
 
 ---
 
@@ -116,4 +116,4 @@ The HBFS Quality Evolution agent operates under the [NO MERCY, NO DOUBTS](/gloss
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

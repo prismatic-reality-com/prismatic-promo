@@ -31,11 +31,11 @@ image_alt = "Supervisor - Prismatic Platform"
 
 ## Definition and Overview
 
-A Supervisor is an [OTP](/glossary/otp/) behavior responsible for starting, monitoring, and restarting child processes. It implements fault tolerance by defining restart strategies that determine how failures propagate and how recovery occurs. Supervisors form the backbone of the "let it crash" philosophy central to Erlang/[Elixir](/glossary/elixir/) systems: rather than writing defensive error-handling code in every function, developers delegate recovery responsibility to supervisors that observe failures and apply structured recovery strategies.
+A Supervisor is an [OTP](@/glossary/otp.md) behavior responsible for starting, monitoring, and restarting child processes. It implements fault tolerance by defining restart strategies that determine how failures propagate and how recovery occurs. Supervisors form the backbone of the "let it crash" philosophy central to Erlang/[Elixir](@/glossary/elixir.md) systems: rather than writing defensive error-handling code in every function, developers delegate recovery responsibility to supervisors that observe failures and apply structured recovery strategies.
 
-Supervisors can manage both worker processes ([GenServers](/glossary/genserver/), Tasks, Agents) and other supervisors, creating hierarchical supervision trees of arbitrary depth. This hierarchical composition is what gives OTP systems their characteristic resilience -- failures are contained at the lowest possible level, with escalation occurring only when local recovery strategies are exhausted. The result is a system that self-heals from the vast majority of failures without human intervention.
+Supervisors can manage both worker processes ([GenServers](@/glossary/genserver.md), Tasks, Agents) and other supervisors, creating hierarchical supervision trees of arbitrary depth. This hierarchical composition is what gives OTP systems their characteristic resilience -- failures are contained at the lowest possible level, with escalation occurring only when local recovery strategies are exhausted. The result is a system that self-heals from the vast majority of failures without human intervention.
 
-The Supervisor behavior is not merely a convenience pattern or a library utility. It is a fundamental building block that makes the [BEAM](/glossary/beam/) virtual machine's fault tolerance guarantees practical. Without supervisors, the [process isolation](/glossary/process-isolation/) that the BEAM provides would be useful for preventing corruption but insufficient for maintaining system availability. Supervisors bridge the gap between isolation (preventing cascading damage) and availability (ensuring crashed components are replaced with fresh instances).
+The Supervisor behavior is not merely a convenience pattern or a library utility. It is a fundamental building block that makes the [BEAM](@/glossary/beam.md) virtual machine's fault tolerance guarantees practical. Without supervisors, the [process isolation](@/glossary/process-isolation.md) that the BEAM provides would be useful for preventing corruption but insufficient for maintaining system availability. Supervisors bridge the gap between isolation (preventing cascading damage) and availability (ensuring crashed components are replaced with fresh instances).
 
 ## Historical Context and Motivation
 
@@ -81,7 +81,7 @@ defmodule PrismaticWeb.EndpointSupervisor do
 end
 ```
 
-**Use when**: Children do not share state, do not communicate directly, and one child's failure does not invalidate another child's state. Example: a pool of independent HTTP request handlers, a collection of independent telemetry collectors, or the domain supervisors within the [Prismatic Agents](/glossary/prismatic-agents/) runtime.
+**Use when**: Children do not share state, do not communicate directly, and one child's failure does not invalidate another child's state. Example: a pool of independent HTTP request handlers, a collection of independent telemetry collectors, or the domain supervisors within the [Prismatic Agents](@/glossary/prismatic-agents.md) runtime.
 
 ### rest_for_one
 
@@ -144,7 +144,7 @@ defmodule PrismaticAgents.ConsensusGroup do
 end
 ```
 
-**Use when**: Children maintain coordinated state where a partial group is worse than a fully restarted group. Example: a distributed consensus group, a transactional pipeline where partial state is invalid, or a group of processes that share an [ETS](/glossary/ets/) table owned by one of them.
+**Use when**: Children maintain coordinated state where a partial group is worse than a fully restarted group. Example: a distributed consensus group, a transactional pipeline where partial state is invalid, or a group of processes that share an [ETS](@/glossary/ets.md) table owned by one of them.
 
 ### Strategy Comparison
 
@@ -206,11 +206,11 @@ defmodule PrismaticPerimeter.Scanner.Supervisor do
 end
 ```
 
-The escalation mechanism ensures that persistently failing processes do not consume resources indefinitely through rapid restart loops. Instead, the failure escalates to a higher-level supervisor that can apply a broader recovery strategy -- perhaps restarting an entire subsystem or triggering the platform's [self-healing](/glossary/self-healing/) system.
+The escalation mechanism ensures that persistently failing processes do not consume resources indefinitely through rapid restart loops. Instead, the failure escalates to a higher-level supervisor that can apply a broader recovery strategy -- perhaps restarting an entire subsystem or triggering the platform's [self-healing](@/glossary/self-healing.md) system.
 
 ## PrismaticSupervisor: Compositional Model
 
-The PrismaticSupervisor module extends OTP's standard Supervisor with dependency-aware startup and domain-based process organization. It addresses a limitation of standard supervision: in a large [umbrella application](/glossary/umbrella-application/) with 115+ apps, manually specifying startup ordering and dependency relationships is error-prone and unmaintainable.
+The PrismaticSupervisor module extends OTP's standard Supervisor with dependency-aware startup and domain-based process organization. It addresses a limitation of standard supervision: in a large [umbrella application](@/glossary/umbrella-application.md) with 115+ apps, manually specifying startup ordering and dependency relationships is error-prone and unmaintainable.
 
 PrismaticSupervisor provides:
 
@@ -253,11 +253,11 @@ end
 
 ## Dynamic Supervisor
 
-The [Dynamic Supervisor](/glossary/dynamic-supervisor/) variant allows children to be started and stopped at runtime rather than being defined statically in the `init/1` callback. This is essential for use cases where the number and type of child processes is not known at compile time.
+The [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) variant allows children to be started and stopped at runtime rather than being defined statically in the `init/1` callback. This is essential for use cases where the number and type of child processes is not known at compile time.
 
 In the Prismatic Platform, Dynamic Supervisors manage:
 
-- **Agent pools**: The number of active [agents](/glossary/agent/) varies based on workload and configuration
+- **Agent pools**: The number of active [agents](@/glossary/agent.md) varies based on workload and configuration
 - **Task execution**: One-off tasks spawned in response to user requests or scheduled events
 - **Connection handlers**: WebSocket connections, LiveView sessions, and API request processors
 - **Pipeline workers**: Data processing workers that scale with input volume
@@ -298,7 +298,7 @@ The NO MERCY doctrine mandates specific supervision requirements that go beyond 
 
 | Requirement | Enforcement | Consequence of Violation |
 |-------------|-------------|-------------------------|
-| Every [GenServer](/glossary/genserver/) MUST have a supervisor | Pre-commit quality gate | L2 BLOCK -- commit rejected |
+| Every [GenServer](@/glossary/genserver.md) MUST have a supervisor | Pre-commit quality gate | L2 BLOCK -- commit rejected |
 | Process topology documented before code | Code review requirement | L2 BLOCK -- PR rejected |
 | No orphan processes | Runtime monitoring | L1 WARNING -- investigation triggered |
 | Supervision strategy justified in comments | Code review requirement | L1 WARNING -- correction requested |
@@ -398,24 +398,24 @@ Process.info(pid, [:current_function, :message_queue_len, :memory, :status])
 
 ## Related Terms
 
-- [Supervision Tree](/glossary/supervision-tree/) -- The hierarchical structure formed by nested supervisors
-- [GenServer](/glossary/genserver/) -- The most common type of supervised child process
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- Variant allowing runtime child management
-- [OTP](/glossary/otp/) -- Framework providing the Supervisor behavior
-- [BEAM](/glossary/beam/) -- Virtual machine providing process isolation that supervisors build upon
-- [Let It Crash](/glossary/let-it-crash/) -- Philosophy that supervisors make practical
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System property that supervisors provide
-- [Process Isolation](/glossary/process-isolation/) -- Memory isolation enabling safe supervised restarts
-- [Self-Healing](/glossary/self-healing/) -- Platform-level recovery building on supervisor infrastructure
-- [Agent](/glossary/agent/) -- Autonomous entities that run as supervised processes
-- [Elixir](/glossary/elixir/) -- Programming language providing the Supervisor abstraction
-- [Umbrella Application](/glossary/umbrella-application/) -- Project structure where each app has its own supervision tree
+- [Supervision Tree](@/glossary/supervision-tree.md) -- The hierarchical structure formed by nested supervisors
+- [GenServer](@/glossary/genserver.md) -- The most common type of supervised child process
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- Variant allowing runtime child management
+- [OTP](@/glossary/otp.md) -- Framework providing the Supervisor behavior
+- [BEAM](@/glossary/beam.md) -- Virtual machine providing process isolation that supervisors build upon
+- [Let It Crash](@/glossary/let-it-crash.md) -- Philosophy that supervisors make practical
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System property that supervisors provide
+- [Process Isolation](@/glossary/process-isolation.md) -- Memory isolation enabling safe supervised restarts
+- [Self-Healing](@/glossary/self-healing.md) -- Platform-level recovery building on supervisor infrastructure
+- [Agent](@/glossary/agent.md) -- Autonomous entities that run as supervised processes
+- [Elixir](@/glossary/elixir.md) -- Programming language providing the Supervisor abstraction
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Project structure where each app has its own supervision tree
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform supervision architecture
-- [Technologies](/technologies/) -- OTP and BEAM technology details
-- [Capabilities](/capabilities/) -- Platform fault tolerance capabilities
+- [Architecture](@/architecture/_index.md) -- Platform supervision architecture
+- [Technologies](@/technologies/_index.md) -- OTP and BEAM technology details
+- [Capabilities](@/capabilities/_index.md) -- Platform fault tolerance capabilities
 
 ---
 
@@ -424,4 +424,4 @@ Process.info(pid, [:current_function, :message_queue_len, :memory, :status])
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

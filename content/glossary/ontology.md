@@ -41,7 +41,7 @@ An ontology is a formal, explicit specification of a shared conceptualization --
 
 The formal ontology tradition in computer science traces to Tom Gruber's 1993 definition: "an explicit specification of a conceptualization." The Web Ontology Language (OWL), built on RDF (Resource Description Framework) and standardized by the W3C, provides the most widely used formalism for ontologies on the semantic web. However, practical ontologies in intelligence and security platforms often use lighter-weight representations -- property graph schemas, Elixir struct hierarchies, or protocol definitions -- that capture the essential type structure without the full complexity of OWL's description logic.
 
-The Prismatic Platform maintains domain ontologies for its intelligence and security assessment functions. These ontologies serve as the schema for the platform's [knowledge graphs](/glossary/knowledge-graph/), the classification framework for [entity resolution](/glossary/entity-resolution/), and the vocabulary for cross-component communication. They are implemented as Elixir struct hierarchies with protocol implementations in KuzuDB, providing compile-time type checking and runtime semantic validation.
+The Prismatic Platform maintains domain ontologies for its intelligence and security assessment functions. These ontologies serve as the schema for the platform's [knowledge graphs](@/glossary/knowledge-graph.md), the classification framework for [entity resolution](@/glossary/entity-resolution.md), and the vocabulary for cross-component communication. They are implemented as Elixir struct hierarchies with protocol implementations in KuzuDB, providing compile-time type checking and runtime semantic validation.
 
 ## Ontological Foundations
 
@@ -126,7 +126,7 @@ end
 
 ### Domain Ontologies
 
-Each [bounded context](/glossary/bounded-context/) maintains its own domain ontology, defining entity types specific to its problem domain.
+Each [bounded context](@/glossary/bounded-context.md) maintains its own domain ontology, defining entity types specific to its problem domain.
 
 #### EASM Ontology (Prismatic Perimeter)
 
@@ -205,7 +205,7 @@ The OSINT ontology classifies intelligence sources, their reliability, and the t
 
 #### Epistemic Ontology
 
-The epistemic ontology defines the types used in the platform's [belief graph](/glossary/belief-graph/) and epistemic pipeline:
+The epistemic ontology defines the types used in the platform's [belief graph](@/glossary/belief-graph.md) and epistemic pipeline:
 
 | Type | Description | Properties |
 |------|-------------|-----------|
@@ -213,7 +213,7 @@ The epistemic ontology defines the types used in the platform's [belief graph](/
 | `Evidence` | Supporting or contradicting signal | source, strength, reliability |
 | `InferenceRule` | Rule connecting evidence to belief | antecedents, consequent, confidence_transfer |
 | `Contradiction` | Two incompatible beliefs | belief_a, belief_b, resolution_status |
-| `TrinityVerification` | Verification result from [Trinity Gate](/glossary/trinity-gate/) | structural, logical, formal, verdict |
+| `TrinityVerification` | Verification result from [Trinity Gate](@/glossary/trinity-gate.md) | structural, logical, formal, verdict |
 
 ```elixir
 defmodule PrismaticOntology.Epistemic do
@@ -314,7 +314,7 @@ end
 
 ## Three Normal Levels (3NL) Mapping
 
-The platform's [3NL](/glossary/3nl/) framework maps directly to ontological layers. Each 3NL level corresponds to a different level of ontological abstraction:
+The platform's [3NL](@/glossary/3nl.md) framework maps directly to ontological layers. Each 3NL level corresponds to a different level of ontological abstraction:
 
 | 3NL Level | Ontological Layer | Content | Operations |
 |-----------|------------------|---------|------------|
@@ -471,7 +471,7 @@ The ontology defines constraints that can be checked at data ingestion time:
 | **Open-world** | Closed-world (missing = false) | Open-world (missing = unknown) |
 | **Validation** | Column constraints, triggers | Semantic constraints, type restrictions |
 
-The Prismatic Platform bridges both: ontologies define the conceptual model, and database schemas (KuzuDB graph schema, [PostgreSQL](/glossary/postgresql/) tables, [Ecto](/glossary/ecto/) schemas) implement the storage layout.
+The Prismatic Platform bridges both: ontologies define the conceptual model, and database schemas (KuzuDB graph schema, [PostgreSQL](@/glossary/postgresql.md) tables, [Ecto](@/glossary/ecto.md) schemas) implement the storage layout.
 
 ## Ontology Design Principles
 
@@ -535,23 +535,23 @@ end
 
 ## Related Terms
 
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Graph database structured according to the ontology
-- [Entity Resolution](/glossary/entity-resolution/) -- Deduplication guided by ontology entity definitions and matching rules
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Design methodology informing ontology boundary decisions
-- [Bounded Context](/glossary/bounded-context/) -- Scope within which a domain ontology is internally consistent
-- [3NL](/glossary/3nl/) -- Three Normal Levels framework mapped to ontological layers
-- [Belief Graph](/glossary/belief-graph/) -- Epistemic graph structured by the epistemic ontology
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Numeric confidence attached to ontology instances
-- [Vector Database](/glossary/vector-database/) -- Complementary storage for embedding-based entity similarity
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- Processing pipeline operating on ontology-typed entities
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate operating on ontologically typed beliefs
-- [Attack Surface](/glossary/attack-surface/) -- Security domain modeled by the EASM ontology
-- [PostgreSQL](/glossary/postgresql/) -- Relational storage implementing ontology schemas
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Graph database structured according to the ontology
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Deduplication guided by ontology entity definitions and matching rules
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Design methodology informing ontology boundary decisions
+- [Bounded Context](@/glossary/bounded-context.md) -- Scope within which a domain ontology is internally consistent
+- [3NL](@/glossary/3nl.md) -- Three Normal Levels framework mapped to ontological layers
+- [Belief Graph](@/glossary/belief-graph.md) -- Epistemic graph structured by the epistemic ontology
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Numeric confidence attached to ontology instances
+- [Vector Database](@/glossary/vector-database.md) -- Complementary storage for embedding-based entity similarity
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- Processing pipeline operating on ontology-typed entities
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate operating on ontologically typed beliefs
+- [Attack Surface](@/glossary/attack-surface.md) -- Security domain modeled by the EASM ontology
+- [PostgreSQL](@/glossary/postgresql.md) -- Relational storage implementing ontology schemas
 
 ## See Also
 
-- [Architecture](/architecture/) -- Knowledge representation architecture and ontological foundations
-- [Technologies](/technologies/) -- Ontology implementation technology (KuzuDB, Elixir structs)
+- [Architecture](@/architecture/_index.md) -- Knowledge representation architecture and ontological foundations
+- [Technologies](@/technologies/_index.md) -- Ontology implementation technology (KuzuDB, Elixir structs)
 
 ---
 
@@ -560,4 +560,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -28,9 +28,9 @@ image_alt = "/session-track - Prismatic Platform"
 
 The command operates under the **MANDATORY** authority level -- the highest enforcement tier for session management -- and is executed by the `session-gitlab-enforcer` agent. This authority classification means that session tracking cannot be bypassed, deferred, or reduced in scope. Every session must have at least one associated GitLab issue, and progress updates must be recorded at meaningful intervals throughout the session's lifecycle.
 
-Session tracking serves multiple purposes beyond simple accountability. It creates a persistent, searchable record of development activity that survives beyond individual Claude sessions. It provides project managers and stakeholders with real-time visibility into what is being worked on. It enables retrospective analysis through the [/rebrief](/commands/rebrief/) command, which can reconstruct development narratives from GitLab issue histories. And it feeds into the platform's quality metrics, tracking the ratio of planned work to unplanned work, bug fix velocity, and feature completion rates.
+Session tracking serves multiple purposes beyond simple accountability. It creates a persistent, searchable record of development activity that survives beyond individual Claude sessions. It provides project managers and stakeholders with real-time visibility into what is being worked on. It enables retrospective analysis through the [/rebrief](@/commands/rebrief.md) command, which can reconstruct development narratives from GitLab issue histories. And it feeds into the platform's quality metrics, tracking the ratio of planned work to unplanned work, bug fix velocity, and feature completion rates.
 
-The `session-gitlab-enforcer` agent monitors compliance throughout the session. If a session runs for more than 15 minutes without an associated GitLab issue, the agent issues a warning. If a commit is attempted without an active tracking issue, the pre-commit hook blocks it. This enforcement is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+The `session-gitlab-enforcer` agent monitors compliance throughout the session. If a session runs for more than 15 minutes without an associated GitLab issue, the agent issues a warning. If a commit is attempted without an active tracking issue, the pre-commit hook blocks it. This enforcement is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -172,13 +172,13 @@ Claude Session Start
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [GitLab CI/CD](/glossary/gitlab-ci/) | API | Creates and manages issues via GitLab REST API |
-| [Session Lifecycle](/apps/prismatic-claude/) | Hook | Auto-triggered on session start and end events |
-| [Pre-commit Hooks](/glossary/quality-gates/) | Enforcement | Blocks commits when no active tracking issue exists |
-| [Quality Gates](/glossary/quality-gates/) | Reporting | Quality gate results are included in progress updates |
-| [Telemetry](/glossary/telemetry/) | Observability | `[:prismatic_claude, :session_track, :*]` events |
-| [/debrief](/commands/debrief/) | Data Source | Session tracking data feeds into debrief reports |
-| [/rebrief](/commands/rebrief/) | Data Source | Historical tracking issues enable multi-session retrospectives |
+| [GitLab CI/CD](@/glossary/gitlab-ci.md) | API | Creates and manages issues via GitLab REST API |
+| [Session Lifecycle](@/apps/prismatic-claude.md) | Hook | Auto-triggered on session start and end events |
+| [Pre-commit Hooks](@/glossary/quality-gates.md) | Enforcement | Blocks commits when no active tracking issue exists |
+| [Quality Gates](@/glossary/quality-gates.md) | Reporting | Quality gate results are included in progress updates |
+| [Telemetry](@/glossary/telemetry.md) | Observability | `[:prismatic_claude, :session_track, :*]` events |
+| [/debrief](@/commands/debrief.md) | Data Source | Session tracking data feeds into debrief reports |
+| [/rebrief](@/commands/rebrief.md) | Data Source | Historical tracking issues enable multi-session retrospectives |
 
 ## Best Practices
 
@@ -246,7 +246,7 @@ config :prismatic_claude, :session_tracking,
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Session tracking is non-negotiable. Every session must be tracked, every commit must have an associated issue, and every session must be closed properly. The `session-gitlab-enforcer` agent monitors compliance without exception. Attempts to bypass tracking (e.g., using `--no-verify` on commits) are classified as L4 violations subject to Supreme Review.
 - **NO DOUBTS**: All tracking data is evidence-based and verifiable. Progress updates include concrete metrics (commits, files changed, test counts). Session summaries are generated from actual development activity, not self-reported estimates. The tracking history provides an auditable trail of platform development.
@@ -255,12 +255,12 @@ This command enforces the **Mandatory Session Discipline Protocol**, which requi
 
 ## Related Commands
 
-- [/debrief](/commands/debrief/) - Comprehensive session debrief with platform state analysis and changelog detection
-- [/rebrief](/commands/rebrief/) - Retrospective analysis of development activity across multiple sessions
-- [/session-compress](/commands/session-compress/) - Advanced session context compression with multi-session pattern detection
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
+- [/debrief](@/commands/debrief.md) - Comprehensive session debrief with platform state analysis and changelog detection
+- [/rebrief](@/commands/rebrief.md) - Retrospective analysis of development activity across multiple sessions
+- [/session-compress](@/commands/session-compress.md) - Advanced session context compression with multi-session pattern detection
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
 
 ---
 
@@ -269,4 +269,4 @@ This command enforces the **Mandatory Session Discipline Protocol**, which requi
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

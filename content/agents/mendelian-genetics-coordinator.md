@@ -34,7 +34,7 @@ The Prismatic Platform's quality patterns, risk scoring weights, and detection r
 
 ## Operational Domain
 
-The Medium Predator domain encompasses agents that apply adaptive optimization strategies across the platform. The Mendelian Genetics Coordinator provides the genetic algorithm engine that other evolutionary agents -- including the [SEADF](/glossary/seadf/) ecosystem commander and the autonomous evolution commander -- depend on for pattern optimization.
+The Medium Predator domain encompasses agents that apply adaptive optimization strategies across the platform. The Mendelian Genetics Coordinator provides the genetic algorithm engine that other evolutionary agents -- including the [SEADF](@/glossary/seadf.md) ecosystem commander and the autonomous evolution commander -- depend on for pattern optimization.
 
 ## Genetic Algorithm Architecture
 
@@ -181,29 +181,29 @@ Fitness evaluation is the critical component that connects genetic operations to
 
 ## Authority Level
 
-**L2** - Tactical Operations. Domain-specific [tactical execution](/glossary/tactical-execution/) with cross-domain coordination capabilities. The coordinator manages genetic evolution operations and reports results to L3 evolution commanders.
+**L2** - Tactical Operations. Domain-specific [tactical execution](@/glossary/tactical-execution.md) with cross-domain coordination capabilities. The coordinator manages genetic evolution operations and reports results to L3 evolution commanders.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [genetic-operations-controller](/agents/genetic-operations-controller/) | Operations Partner | Manages low-level genetic operation execution |
-| [autonomous-evolution-commander](/agents/autonomous-evolution-commander/) | Evolution Authority | Receives evolved patterns for deployment approval |
-| [cross-pollination-specialist](/agents/cross-pollination-specialist/) | Diversity Partner | Introduces cross-domain genetic material for diversity |
-| [genetic-spec-propagator](/agents/genetic-spec-propagator/) | Propagation | Distributes approved evolved patterns across the platform |
+| [genetic-operations-controller](@/agents/genetic-operations-controller.md) | Operations Partner | Manages low-level genetic operation execution |
+| [autonomous-evolution-commander](@/agents/autonomous-evolution-commander.md) | Evolution Authority | Receives evolved patterns for deployment approval |
+| [cross-pollination-specialist](@/agents/cross-pollination-specialist.md) | Diversity Partner | Introduces cross-domain genetic material for diversity |
+| [genetic-spec-propagator](@/agents/genetic-spec-propagator.md) | Propagation | Distributes approved evolved patterns across the platform |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [SEADF](/glossary/seadf/) | Evolutionary framework for ecosystem-wide optimization |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Fitness evaluation using multi-signal evidence |
-| Platform [Telemetry](/glossary/telemetry/) | Real-time fitness metrics for evaluation |
+| [SEADF](@/glossary/seadf.md) | Evolutionary framework for ecosystem-wide optimization |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Fitness evaluation using multi-signal evidence |
+| Platform [Telemetry](@/glossary/telemetry.md) | Real-time fitness metrics for evaluation |
 | Quality DNA | Stores evolved pattern configurations |
 
 ## Enforcement
 
-The Mendelian Genetics Coordinator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Evolved patterns must demonstrate measurable improvement over the current baseline before deployment. Fitness evaluations use real platform metrics, never synthetic benchmarks. Population diversity is maintained above minimum thresholds to prevent local optima traps. Every evolved genome includes complete lineage provenance for traceability. Mutations that reduce fitness below baseline are immediately eliminated from the population.
+The Mendelian Genetics Coordinator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Evolved patterns must demonstrate measurable improvement over the current baseline before deployment. Fitness evaluations use real platform metrics, never synthetic benchmarks. Population diversity is maintained above minimum thresholds to prevent local optima traps. Every evolved genome includes complete lineage provenance for traceability. Mutations that reduce fitness below baseline are immediately eliminated from the population.
 
 ---
 
@@ -212,4 +212,4 @@ The Mendelian Genetics Coordinator operates under the [NO MERCY, NO DOUBTS](/glo
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

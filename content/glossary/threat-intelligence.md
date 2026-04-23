@@ -44,7 +44,7 @@ The intelligence lifecycle follows a structured process: collection (gathering r
 
 Threat intelligence operates at three distinct levels. Strategic intelligence provides high-level assessments for executive decision-making -- industry threat trends, geopolitical risk factors, regulatory implications. Tactical intelligence describes specific TTPs used by threat actors, enabling defenders to configure detection rules and develop countermeasures. Operational intelligence provides real-time IOCs -- specific IP addresses, domains, file hashes, and behavioral signatures -- that can be directly consumed by security tools for automated detection and blocking.
 
-Within the Prismatic Platform, threat intelligence feeds into multiple systems simultaneously. The [Color Teams](/glossary/color-teams/) use threat intelligence to inform [Red Team](/glossary/red-team/) adversarial scenarios and [Blue Team](/glossary/blue-team/) defensive postures. [Prismatic Perimeter](/glossary/easm/) incorporates threat intelligence into EASM assessments and security ratings. The [NABLA Infinity](/glossary/nabla-infinity/) framework governs how threat intelligence is evaluated, requiring source independence, provenance tracking, and time decay awareness for all threat indicators. [HAWKEYE](/glossary/hawkeye/) (Visitor Intelligence) correlates visitor behavior with known threat actor patterns.
+Within the Prismatic Platform, threat intelligence feeds into multiple systems simultaneously. The [Color Teams](@/glossary/color-teams.md) use threat intelligence to inform [Red Team](@/glossary/red-team.md) adversarial scenarios and [Blue Team](@/glossary/blue-team.md) defensive postures. [Prismatic Perimeter](@/glossary/easm.md) incorporates threat intelligence into EASM assessments and security ratings. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs how threat intelligence is evaluated, requiring source independence, provenance tracking, and time decay awareness for all threat indicators. [HAWKEYE](@/glossary/hawkeye.md) (Visitor Intelligence) correlates visitor behavior with known threat actor patterns.
 
 ## Historical Context and Evolution
 
@@ -215,7 +215,7 @@ end
 
 ### NABLA-Governed Intelligence Analysis
 
-All threat intelligence analysis within the Prismatic Platform must comply with [NABLA Infinity](/glossary/nabla-infinity/) axioms. This is not optional -- the platform blocks intelligence assessments that violate epistemic requirements:
+All threat intelligence analysis within the Prismatic Platform must comply with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms. This is not optional -- the platform blocks intelligence assessments that violate epistemic requirements:
 
 ```elixir
 defmodule PrismaticIntelligence.Analyzer do
@@ -469,7 +469,7 @@ The platform uses the Admiralty Code (NATO standard) for source reliability asse
 
 ### Dashboard Access
 
-The threat intelligence dashboard at `/perimeter/intelligence` provides real-time visualization of the threat landscape, including indicator timelines, actor activity maps, and TTP coverage heatmaps. The dashboard integrates with the [EASM](/glossary/easm/) assessment view to show how threat intelligence informs security ratings.
+The threat intelligence dashboard at `/perimeter/intelligence` provides real-time visualization of the threat landscape, including indicator timelines, actor activity maps, and TTP coverage heatmaps. The dashboard integrates with the [EASM](@/glossary/easm.md) assessment view to show how threat intelligence informs security ratings.
 
 ## Best Practices
 
@@ -503,22 +503,22 @@ The threat intelligence dashboard at `/perimeter/intelligence` provides real-tim
 
 ## Related Concepts
 
-- [OSINT](/glossary/osint/) -- Collection methodology for publicly available threat data
-- [Intelligence Fusion](/glossary/intelligence-fusion/) -- Processing raw threat data into actionable intelligence
-- [EASM](/glossary/easm/) -- Attack surface management enriched with threat intelligence
-- [Red Team](/glossary/red-team/) -- Uses threat intelligence for adversarial scenario generation
-- [Blue Team](/glossary/blue-team/) -- Defensive team consuming operational threat intelligence
-- [HAWKEYE](/glossary/hawkeye/) -- Visitor intelligence correlating with threat indicators
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework governing intelligence analysis
-- [Color Teams](/glossary/color-teams/) -- Security operations consuming threat intelligence
-- [Attack Surface](/glossary/attack-surface/) -- External surface assessed using threat intelligence
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate that intelligence assessments must pass
+- [OSINT](@/glossary/osint.md) -- Collection methodology for publicly available threat data
+- [Intelligence Fusion](@/glossary/intelligence-fusion.md) -- Processing raw threat data into actionable intelligence
+- [EASM](@/glossary/easm.md) -- Attack surface management enriched with threat intelligence
+- [Red Team](@/glossary/red-team.md) -- Uses threat intelligence for adversarial scenario generation
+- [Blue Team](@/glossary/blue-team.md) -- Defensive team consuming operational threat intelligence
+- [HAWKEYE](@/glossary/hawkeye.md) -- Visitor intelligence correlating with threat indicators
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework governing intelligence analysis
+- [Color Teams](@/glossary/color-teams.md) -- Security operations consuming threat intelligence
+- [Attack Surface](@/glossary/attack-surface.md) -- External surface assessed using threat intelligence
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate that intelligence assessments must pass
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory including intelligence subsystems
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory including intelligence subsystems
 
 ---
 
@@ -527,4 +527,4 @@ The threat intelligence dashboard at `/perimeter/intelligence` provides real-tim
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

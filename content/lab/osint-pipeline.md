@@ -30,11 +30,11 @@ We hypothesize that the platform's 250+ OSINT providers exhibit significant vari
 
 The Prismatic Platform integrates with 250+ Open Source Intelligence providers spanning domains including domain intelligence, IP reputation, certificate transparency, social media, public records, dark web monitoring, and geolocation services. These providers include Shodan, Censys, GreyNoise, Certificate Transparency logs, WHOIS databases, DNS intelligence services, and dozens of specialized feeds.
 
-The [GARDEN](/glossary/garden/) legacy repository contributed the initial 150 provider integrations from the `sig` OSINT framework. An additional 100+ providers were added during the Prismatic Platform development. Each provider exposes a [Sparkline](/glossary/sparkline/) contract interface, but the underlying data quality, latency, and cost characteristics vary dramatically.
+The [GARDEN](@/glossary/garden.md) legacy repository contributed the initial 150 provider integrations from the `sig` OSINT framework. An additional 100+ providers were added during the Prismatic Platform development. Each provider exposes a [Sparkline](@/glossary/sparkline.md) contract interface, but the underlying data quality, latency, and cost characteristics vary dramatically.
 
 Prior to this experiment, provider selection was static: all available providers were queried for every intelligence request, and results were merged using a simple confidence-weighted average. This approach was expensive (every query hit 250+ APIs), slow (total latency bounded by the slowest provider), and accuracy-diluting (low-quality providers degraded the aggregate signal).
 
-The [NABLA Infinity](/glossary/nabla-infinity/) axiom of Signal Plurality requires minimum 2 independent sources for any belief, but it does not require all 250 sources. This experiment determines the optimal provider selection strategy that satisfies plurality requirements while maximizing quality and minimizing cost.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) axiom of Signal Plurality requires minimum 2 independent sources for any belief, but it does not require all 250 sources. This experiment determines the optimal provider selection strategy that satisfies plurality requirements while maximizing quality and minimizing cost.
 
 ## Methodology
 
@@ -208,14 +208,14 @@ The cost reduction from Strategy A to Strategy D is 74.5% ($0.47 to $0.12), exce
 - Build a provider recommendation engine that suggests new providers based on coverage gaps
 - Test provider correlation analysis to detect providers that share the same underlying data source
 - Evaluate federated learning for privacy-preserving provider accuracy estimation
-- Integrate provider benchmarks into the [Quality DNA](/glossary/quality-dna/) scoring pipeline
+- Integrate provider benchmarks into the [Quality DNA](@/glossary/quality-dna.md) scoring pipeline
 
 ## Related Experiments
 
-- [Pipeline Experimentation](/lab/pipeline-experimentation/) -- Data pipelines that consume OSINT output
-- [EASM Discovery](/lab/easm-discovery/) -- External attack surface mapping using OSINT providers
-- [Storage Benchmarks](/lab/storage-benchmarks/) -- Where OSINT results are stored and queried
-- [Drift Detection](/lab/drift-detection/) -- Detecting OSINT provider quality degradation over time
+- [Pipeline Experimentation](@/lab/pipeline-experimentation.md) -- Data pipelines that consume OSINT output
+- [EASM Discovery](@/lab/easm-discovery.md) -- External attack surface mapping using OSINT providers
+- [Storage Benchmarks](@/lab/storage-benchmarks.md) -- Where OSINT results are stored and queried
+- [Drift Detection](@/lab/drift-detection.md) -- Detecting OSINT provider quality degradation over time
 
 ---
 
@@ -224,4 +224,4 @@ The cost reduction from Strategy A to Strategy D is 74.5% ($0.47 to $0.12), exce
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

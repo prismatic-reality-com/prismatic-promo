@@ -184,10 +184,10 @@ end
 
 ## Cross-References
 
-- [LLM](/glossary/llm/) -- Large language models using few-shot prompting
-- [Prompt Engineering](/glossary/prompt-engineering/) -- Broader prompt design techniques
-- [F1 Score](/glossary/f1-score/) -- Evaluating few-shot classification performance
-- [Agent Module](/glossary/agent-module/) -- AI agents using few-shot prompts
+- [LLM](@/glossary/llm.md) -- Large language models using few-shot prompting
+- [Prompt Engineering](@/glossary/prompt-engineering.md) -- Broader prompt design techniques
+- [F1 Score](@/glossary/f1-score.md) -- Evaluating few-shot classification performance
+- [Agent Module](@/glossary/agent-module.md) -- AI agents using few-shot prompts
 - **Livebooks**: `ai_agents/` notebooks demonstrate few-shot prompt design and evaluation
 - **Academy**: AI/ML topics cover in-context learning techniques
 
@@ -198,4 +198,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

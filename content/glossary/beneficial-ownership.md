@@ -302,7 +302,7 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform's beneficial ownership module operates within the broader [due diligence](/glossary/due-diligence/) and [KYC](/glossary/kyc/) workflow. The implementation leverages several platform subsystems:
+The Prismatic Platform's beneficial ownership module operates within the broader [due diligence](@/glossary/due-diligence.md) and [KYC](@/glossary/kyc.md) workflow. The implementation leverages several platform subsystems:
 
 ### Data Source Integration
 
@@ -313,21 +313,21 @@ The ownership graph is populated from multiple authoritative sources through Pri
 - **Evidence skutecnych vlastniku** -- Czech beneficial ownership register (ZOF 37/2021)
 - **Companies House (UK)** -- PSC register data via REST API
 - **OpenCorporates** -- Cross-jurisdictional corporate data aggregation
-- **Sanctions lists (EU, OFAC, UN)** -- PEP and sanctions cross-referencing via [sanctions screening](/glossary/sanctions-screening/)
+- **Sanctions lists (EU, OFAC, UN)** -- PEP and sanctions cross-referencing via [sanctions screening](@/glossary/sanctions-screening.md)
 
 ### Risk Scoring Integration
 
-The [risk score](/glossary/risk-score/) framework assigns elevated risk scores to entities with:
+The [risk score](@/glossary/risk-score.md) framework assigns elevated risk scores to entities with:
 
 - Unresolved beneficial ownership chains (terminus at legal entity rather than natural person)
 - Nominee patterns detected through address clustering or mass directorship analysis
-- Connections to Politically Exposed Persons (PEPs) identified through [entity resolution](/glossary/entity-resolution/)
+- Connections to Politically Exposed Persons (PEPs) identified through [entity resolution](@/glossary/entity-resolution.md)
 - Circular ownership structures flagged during graph traversal
 - Jurisdictions with inadequate AML frameworks per FATF mutual evaluations
 
 ### NABLA Confidence Integration
 
-All beneficial ownership determinations are validated through [NABLA Infinity](/glossary/nabla-infinity/) epistemic gates:
+All beneficial ownership determinations are validated through [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic gates:
 
 - **Signal Plurality** -- Ownership claims require corroboration from at least two independent sources
 - **Provenance Mandatory** -- Every ownership link traced to specific registry filing or document
@@ -344,7 +344,7 @@ All beneficial ownership determinations are validated through [NABLA Infinity](/
 | **Blockchain registries** | Immutable, transparent | Limited adoption, privacy concerns |
 | **AI-assisted analysis** | Pattern detection, scale | Explainability challenges, false positives |
 
-Prismatic's approach combines graph-based traversal with multi-source corroboration, offering the automation benefits of commercial databases with the depth of manual due diligence. The [epistemic pipeline](/glossary/epistemic-pipeline/) ensures that all findings are traceable and confidence-scored, addressing the explainability gap that pure AI approaches face.
+Prismatic's approach combines graph-based traversal with multi-source corroboration, offering the automation benefits of commercial databases with the depth of manual due diligence. The [epistemic pipeline](@/glossary/epistemic-pipeline.md) ensures that all findings are traceable and confidence-scored, addressing the explainability gap that pure AI approaches face.
 
 ## Best Practices
 
@@ -352,9 +352,9 @@ Prismatic's approach combines graph-based traversal with multi-source corroborat
 2. **Corroborate across sources** -- Never rely on a single registry. Cross-reference Justice.cz, ARES, and commercial databases.
 3. **Track temporal changes** -- Ownership structures evolve. Implement periodic re-verification schedules.
 4. **Flag nominee patterns early** -- Mass directorships, shared addresses, and jurisdiction mismatches are strong indicators.
-5. **Document provenance** -- Every ownership link must be traceable to a specific filing or document, per [provenance mandatory](/glossary/provenance-mandatory/) requirements.
+5. **Document provenance** -- Every ownership link must be traceable to a specific filing or document, per [provenance mandatory](@/glossary/provenance-mandatory.md) requirements.
 6. **Handle partial data gracefully** -- Not all jurisdictions provide machine-readable data. Design for incomplete chains.
-7. **Maintain audit trails** -- All ownership determinations must be logged with timestamps and source references for [audit trail](/glossary/audit-trail/) compliance.
+7. **Maintain audit trails** -- All ownership determinations must be logged with timestamps and source references for [audit trail](@/glossary/audit-trail.md) compliance.
 8. **Apply jurisdiction-specific thresholds** -- Do not apply a universal 25% threshold. Adapt to local regulations.
 
 ## Common Pitfalls
@@ -380,7 +380,7 @@ Financial institutions are legally required to identify the beneficial owners of
 
 ### Sanctions Compliance
 
-Once beneficial owners are identified, they are screened against sanctions lists (EU, OFAC SDN, UN) to ensure no sanctioned individual controls the entity. This integration between beneficial ownership identification and [sanctions screening](/glossary/sanctions-screening/) is critical for compliance.
+Once beneficial owners are identified, they are screened against sanctions lists (EU, OFAC SDN, UN) to ensure no sanctioned individual controls the entity. This integration between beneficial ownership identification and [sanctions screening](@/glossary/sanctions-screening.md) is critical for compliance.
 
 ### Anti-Corruption Investigations
 
@@ -392,17 +392,17 @@ Many jurisdictions now require disclosure of beneficial owners of legal entities
 
 ## Related Concepts
 
-- [Due Diligence](/glossary/due-diligence/) -- Investigation framework driving UBO identification
-- [KYC](/glossary/kyc/) -- Regulatory requirement mandating UBO identification
-- [AML](/glossary/aml/) -- Anti-money laundering framework requiring corporate transparency
-- [Entity Resolution](/glossary/entity-resolution/) -- Cross-source identity consolidation for ownership chains
-- [Sanctions Screening](/glossary/sanctions-screening/) -- Checking identified UBOs against sanctions lists
-- [Knowledge Graph](/glossary/knowledge-graph/) -- Graph structure storing ownership relationships
-- [Risk Score](/glossary/risk-score/) -- Elevated risk scoring for opaque ownership structures
-- [Compliance Framework](/glossary/compliance-framework/) -- Regulatory framework governing UBO requirements
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Traceability requirement for ownership claims
-- [Audit Trail](/glossary/audit-trail/) -- Logging and accountability for ownership determinations
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- Evidence processing pipeline for ownership analysis
+- [Due Diligence](@/glossary/due-diligence.md) -- Investigation framework driving UBO identification
+- [KYC](@/glossary/kyc.md) -- Regulatory requirement mandating UBO identification
+- [AML](@/glossary/aml.md) -- Anti-money laundering framework requiring corporate transparency
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Cross-source identity consolidation for ownership chains
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- Checking identified UBOs against sanctions lists
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- Graph structure storing ownership relationships
+- [Risk Score](@/glossary/risk-score.md) -- Elevated risk scoring for opaque ownership structures
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Regulatory framework governing UBO requirements
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Traceability requirement for ownership claims
+- [Audit Trail](@/glossary/audit-trail.md) -- Logging and accountability for ownership determinations
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- Evidence processing pipeline for ownership analysis
 
 ## See Also
 
@@ -419,4 +419,4 @@ Many jurisdictions now require disclosure of beneficial owners of legal entities
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,7 +24,7 @@ image_alt = "OSINT Intelligence Agents - Prismatic Platform"
 
 ## Overview
 
-OSINT (Open Source Intelligence) agents form the reconnaissance backbone of the Prismatic Platform, constituting one of the largest and most operationally diverse agent domains with 62 specialized agents. These agents gather, correlate, and analyze publicly available information from hundreds of sources across 27 EU member states, producing structured intelligence products that support due diligence investigations, risk assessments, and competitive intelligence operations. The OSINT domain operates under the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework, enforcing signal plurality and source independence axioms that ensure intelligence products reflect verified reality rather than single-source assumptions.
+OSINT (Open Source Intelligence) agents form the reconnaissance backbone of the Prismatic Platform, constituting one of the largest and most operationally diverse agent domains with 62 specialized agents. These agents gather, correlate, and analyze publicly available information from hundreds of sources across 27 EU member states, producing structured intelligence products that support due diligence investigations, risk assessments, and competitive intelligence operations. The OSINT domain operates under the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework, enforcing signal plurality and source independence axioms that ensure intelligence products reflect verified reality rather than single-source assumptions.
 
 The domain's architecture follows a layered collection-analysis-production pipeline where specialized collector agents feed raw data into correlation engines that produce finished intelligence. Every intelligence product carries full provenance chains traceable to original sources, explicit confidence scores, and temporal validity markers. This rigorous epistemic discipline distinguishes Prismatic's OSINT capabilities from conventional web scraping or data aggregation tools, producing intelligence that meets the evidentiary standards required for legal proceedings, regulatory compliance, and executive decision-making.
 
@@ -49,9 +49,9 @@ The OSINT domain maintains active integrations with hundreds of data sources acr
 |-----------------|----------|----------|
 | **Government Registries** | ARES, Justice.cz, Katastr, EU business registers | 27 EU countries |
 | **Corporate Data** | Company registrations, ownership chains, beneficial owners | Full beneficial owner chains |
-| **Financial** | Insolvency registers, liens, court judgments, sanctions lists | [Real-time monitoring](/capabilities/real-time-monitoring/) |
+| **Financial** | Insolvency registers, liens, court judgments, sanctions lists | [Real-time monitoring](@/capabilities/real-time-monitoring.md) |
 | **Social Media** | LinkedIn, Facebook, Twitter, professional networks | Profile correlation and history |
-| **Technical** | DNS, [WHOIS](/glossary/whois/), certificates, IP geolocation | Infrastructure mapping |
+| **Technical** | DNS, [WHOIS](@/glossary/whois.md), certificates, IP geolocation | Infrastructure mapping |
 | **Breach Data** | HIBP, leaked databases, credential exposure monitoring | Continuous scanning |
 | **Legal** | Court records, regulatory actions, administrative proceedings | Multi-jurisdiction |
 | **Media** | News archives, press releases, public statements | Sentiment and temporal analysis |
@@ -72,7 +72,7 @@ Social Lookup  DNS Records    Mail Provider   Breaches
                    Intelligence Report
 ```
 
-The correlation engine applies [entity resolution](/glossary/entity-resolution/) algorithms to connect discovered identifiers across source categories, building a unified entity profile from fragmentary data. Email-derived intelligence often serves as the seed for broader person or organization investigations, providing the initial anchor points from which relationship networks are expanded.
+The correlation engine applies [entity resolution](@/glossary/entity-resolution.md) algorithms to connect discovered identifiers across source categories, building a unified entity profile from fragmentary data. Email-derived intelligence often serves as the seed for broader person or organization investigations, providing the initial anchor points from which relationship networks are expanded.
 
 ### Google Hacking and Advanced Search
 
@@ -94,18 +94,18 @@ Czech-specific capabilities extend to beneficial ownership chain resolution thro
 
 ## Integration Points
 
-- **Czech [Registry](/glossary/registry-otp/)**: Full ARES, Justice.cz, Land Registry, and ISIR integration with automated data refresh
+- **Czech [Registry](@/glossary/registry-otp.md)**: Full ARES, Justice.cz, Land Registry, and ISIR integration with automated data refresh
 - **EU Sources**: Cross-border company registry access spanning all 27 member states with multilingual entity resolution
 - **Breach Correlation**: Automatic HIBP and custom breach database checking with temporal exposure tracking
 - **Report Generation**: Automated intelligence report creation with configurable templates and classification levels
-- **[KuzuDB](/glossary/kuzudb/) Graph Storage**: All entity relationships stored in graph database for network analysis and traversal queries
-- **[EASM](/glossary/easm/) Pipeline**: Technical OSINT findings feed directly into External Attack Surface Management workflows
+- **[KuzuDB](@/glossary/kuzudb.md) Graph Storage**: All entity relationships stored in graph database for network analysis and traversal queries
+- **[EASM](@/glossary/easm.md) Pipeline**: Technical OSINT findings feed directly into External Attack Surface Management workflows
 
 ## Architecture
 
 The OSINT domain follows a three-tier architecture separating collection, analysis, and production concerns. The collection tier comprises specialized source adapters that normalize raw data into canonical internal representations. The analysis tier applies correlation algorithms, confidence scoring, and entity resolution to produce enriched intelligence objects. The production tier formats intelligence into structured reports, dashboard visualizations, and API responses.
 
-Each tier operates under independent [supervision trees](/glossary/supervision-tree/) with [circuit breaker](/glossary/circuit-breaker/) patterns isolating external source failures from the analysis and production layers. Source adapter failures trigger graceful degradation rather than investigation failure, with reduced-confidence results clearly marked to indicate which sources were unavailable during collection.
+Each tier operates under independent [supervision trees](@/glossary/supervision-tree.md) with [circuit breaker](@/glossary/circuit-breaker.md) patterns isolating external source failures from the analysis and production layers. Source adapter failures trigger graceful degradation rather than investigation failure, with reduced-confidence results clearly marked to indicate which sources were unavailable during collection.
 
 ## Commands
 
@@ -120,11 +120,11 @@ Each tier operates under independent [supervision trees](/glossary/supervision-t
 
 ## Epistemic Standards
 
-All OSINT intelligence products adhere to the [NABLA Infinity](/glossary/nabla-infinity/) axiom set. The signal plurality axiom requires that entity attributions and relationship claims are corroborated from at least two independent sources. The contradiction preservation axiom ensures that conflicting information from different sources is preserved and flagged rather than silently resolved. The provenance mandatory axiom guarantees that every claim in an intelligence product is traceable to its original source with collection timestamp and access method documented.
+All OSINT intelligence products adhere to the [NABLA Infinity](@/glossary/nabla-infinity.md) axiom set. The signal plurality axiom requires that entity attributions and relationship claims are corroborated from at least two independent sources. The contradiction preservation axiom ensures that conflicting information from different sources is preserved and flagged rather than silently resolved. The provenance mandatory axiom guarantees that every claim in an intelligence product is traceable to its original source with collection timestamp and access method documented.
 
 ## Enforcement
 
-Intelligence products that fail to meet epistemic standards are blocked from publication under the [NO MERCY](/glossary/no-mercy/) doctrine. The [NO DOUBTS](/glossary/no-doubts/) principle requires that confidence scores accurately reflect the evidence base, with no inflation of confidence beyond what the collected evidence supports. All OSINT operations are logged with immutable audit trails for compliance and accountability purposes.
+Intelligence products that fail to meet epistemic standards are blocked from publication under the [NO MERCY](@/glossary/no-mercy.md) doctrine. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that confidence scores accurately reflect the evidence base, with no inflation of confidence beyond what the collected evidence supports. All OSINT operations are logged with immutable audit trails for compliance and accountability purposes.
 
 ## Related Agents
 
@@ -137,4 +137,4 @@ The OSINT domain interfaces with virtually every other domain in the Prismatic P
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

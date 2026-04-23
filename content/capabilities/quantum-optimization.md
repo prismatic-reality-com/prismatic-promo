@@ -636,10 +636,10 @@ QuantumOptimization.configure_algorithm(:variational_quantum_eigensolver, %{
 
 ## Related Capabilities
 
-- [Self-Adaptive Systems](/capabilities/self-adaptive-systems/) - Uses quantum optimization for adaptation
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) - Optimizes monitoring strategies
-- [Autonomous Evolution](/capabilities/self-adaptive-systems/) - Quantum-optimized evolution paths
-- [Performance Optimization](/capabilities/quantum-optimization/) - Quantum-enhanced performance tuning
+- [Self-Adaptive Systems](@/capabilities/self-adaptive-systems.md) - Uses quantum optimization for adaptation
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) - Optimizes monitoring strategies
+- [Autonomous Evolution](@/capabilities/self-adaptive-systems.md) - Quantum-optimized evolution paths
+- [Performance Optimization](@/capabilities/quantum-optimization.md) - Quantum-enhanced performance tuning
 
 ## Conclusion
 

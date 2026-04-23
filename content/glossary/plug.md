@@ -37,7 +37,7 @@ image_alt = "Plug - Prismatic Platform"
 
 Plug is a specification and library for composable modules that process web requests in the Elixir ecosystem. At its core, Plug defines a simple contract: a plug receives a connection struct (`%Plug.Conn{}`), transforms it in some way, and returns the modified connection. This minimal interface -- receive a connection, return a connection -- enables plugs to compose into pipelines where each plug performs a single, focused transformation: parsing request bodies, authenticating users, enforcing rate limits, setting response headers, or any other request/response manipulation. The composability guarantee comes from the invariant that every plug's input type equals its output type: `Plug.Conn.t() -> Plug.Conn.t()`. This algebraic closure property means that any sequence of plugs is itself a valid plug, enabling arbitrary nesting and reuse.
 
-Plug serves as the foundation for all HTTP processing in the Elixir ecosystem. [Phoenix](/glossary/phoenix/) is built entirely on top of Plug -- every Phoenix [endpoint](/glossary/endpoint/), router, pipeline, controller action, and [LiveView](/glossary/liveview/) mount passes through a chain of plugs. Understanding Plug is therefore essential for understanding how HTTP requests are processed in any Phoenix application, including the Prismatic Platform's web dashboard and API gateway. The relationship between Plug and Phoenix is analogous to Rack and Ruby on Rails, WSGI and Django, or Ring and Compojure -- Plug provides the HTTP abstraction layer, and Phoenix provides the application framework built on that abstraction.
+Plug serves as the foundation for all HTTP processing in the Elixir ecosystem. [Phoenix](@/glossary/phoenix.md) is built entirely on top of Plug -- every Phoenix [endpoint](@/glossary/endpoint.md), router, pipeline, controller action, and [LiveView](@/glossary/liveview.md) mount passes through a chain of plugs. Understanding Plug is therefore essential for understanding how HTTP requests are processed in any Phoenix application, including the Prismatic Platform's web dashboard and API gateway. The relationship between Plug and Phoenix is analogous to Rack and Ruby on Rails, WSGI and Django, or Ring and Compojure -- Plug provides the HTTP abstraction layer, and Phoenix provides the application framework built on that abstraction.
 
 The library provides two plug types: function plugs (simple functions that accept a connection and options) and module plugs (modules implementing `init/1` and `call/2` callbacks). Function plugs are convenient for simple transformations defined inline within routers or controllers, while module plugs support compile-time initialization for performance-critical operations like parsing configuration, compiling regex patterns, or pre-computing values that would be expensive to recompute per-request. The `init/1` callback runs once at compile time, and its return value is passed as the second argument to `call/2` on every request, amortizing initialization cost across all requests.
 
@@ -283,7 +283,7 @@ defmodule PrismaticWeb.Router do
 end
 ```
 
-This enables reusable middleware groups that can be mixed and matched for different route categories. The `:telemetry` pipeline can be added to any scope to enable request [metrics](/glossary/metrics/) emission, independent of authentication or content type concerns.
+This enables reusable middleware groups that can be mixed and matched for different route categories. The `:telemetry` pipeline can be added to any scope to enable request [metrics](@/glossary/metrics.md) emission, independent of authentication or content type concerns.
 
 ## Plug.Router for Standalone Applications
 
@@ -352,21 +352,21 @@ Phoenix 1.7+ defaults to Bandit, a pure-Elixir HTTP server with native HTTP/2 su
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform uses Plug extensively across its [Phoenix](/glossary/phoenix/) applications. Custom plugs enforce platform-specific concerns across both the web dashboard and API gateway:
+The Prismatic Platform uses Plug extensively across its [Phoenix](@/glossary/phoenix.md) applications. Custom plugs enforce platform-specific concerns across both the web dashboard and API gateway:
 
 | Plug | Application | Purpose | Type |
 |------|-------------|---------|------|
 | **APIAuth** | prismatic_api | Bearer token authentication for REST API | Module |
-| **RateLimiter** | prismatic_api, prismatic_web | Token bucket [rate limiting](/glossary/rate-limiting/) per IP/user | Module |
-| **RequestLogger** | prismatic_api | [Structured logging](/glossary/structured-logging/) with request metadata | Module |
-| **RequireAdmin** | prismatic_web | [RBAC](/glossary/rbac/) authorization for admin routes | Module |
+| **RateLimiter** | prismatic_api, prismatic_web | Token bucket [rate limiting](@/glossary/rate-limiting.md) per IP/user | Module |
+| **RequestLogger** | prismatic_api | [Structured logging](@/glossary/structured-logging.md) with request metadata | Module |
+| **RequireAdmin** | prismatic_web | [RBAC](@/glossary/rbac.md) authorization for admin routes | Module |
 | **AuditLogger** | prismatic_web | Immutable audit trail for administrative actions | Module |
 | **CORSHeaders** | prismatic_api | Cross-origin resource sharing headers | Module |
-| **OpenAPIValidator** | prismatic_api | [OpenAPI](/glossary/openapi/) spec request/response validation | Module |
-| **TelemetryPlug** | prismatic_web, prismatic_api | Request [metrics](/glossary/metrics/) emission via `:telemetry` | Module |
+| **OpenAPIValidator** | prismatic_api | [OpenAPI](@/glossary/openapi.md) spec request/response validation | Module |
+| **TelemetryPlug** | prismatic_web, prismatic_api | Request [metrics](@/glossary/metrics.md) emission via `:telemetry` | Module |
 | **SetCurrentUser** | prismatic_web | Session-based user assignment for browser routes | Module |
 
-The API gateway (`prismatic_api`) chains plugs for authentication, RBAC authorization, request validation, rate limiting, and OpenAPI spec enforcement. The web dashboard (`prismatic_web`) uses plug pipelines for session management, CSRF protection, [LiveView](/glossary/liveview/) setup, and telemetry instrumentation. This separation ensures that API and browser concerns never leak into each other while sharing common infrastructure like telemetry.
+The API gateway (`prismatic_api`) chains plugs for authentication, RBAC authorization, request validation, rate limiting, and OpenAPI spec enforcement. The web dashboard (`prismatic_web`) uses plug pipelines for session management, CSRF protection, [LiveView](@/glossary/liveview.md) setup, and telemetry instrumentation. This separation ensures that API and browser concerns never leak into each other while sharing common infrastructure like telemetry.
 
 ## Plug Security Patterns
 
@@ -513,25 +513,25 @@ Plug's compile-time `init/1` phase is unique among these frameworks and provides
 
 ## Related Terms
 
-- [Phoenix](/glossary/phoenix/) - Web framework built entirely on Plug
-- [Endpoint](/glossary/endpoint/) - Phoenix entry point implemented as a plug pipeline
-- [OpenAPI](/glossary/openapi/) - API specification enforced through validation plugs
-- [RBAC](/glossary/rbac/) - Access control implemented via authorization plugs
-- [Rate Limiting](/glossary/rate-limiting/) - Throughput control via rate limiter plugs
-- [LiveView](/glossary/liveview/) - Server-rendered UI routed through plug pipelines
-- [REST API](/glossary/rest-api/) - API endpoints protected by plug chains
-- [Structured Logging](/glossary/structured-logging/) - Request logging implemented as plugs
-- [Metrics](/glossary/metrics/) - Telemetry emission from plug instrumentation
-- [BEAM](/glossary/beam/) - VM executing plug pipelines as lightweight processes
-- [API Gateway](/glossary/api-gateway/) - Gateway pattern implemented with plug pipelines
-- [ETS](/glossary/ets/) - In-memory storage used by rate limiter and cache plugs
+- [Phoenix](@/glossary/phoenix.md) - Web framework built entirely on Plug
+- [Endpoint](@/glossary/endpoint.md) - Phoenix entry point implemented as a plug pipeline
+- [OpenAPI](@/glossary/openapi.md) - API specification enforced through validation plugs
+- [RBAC](@/glossary/rbac.md) - Access control implemented via authorization plugs
+- [Rate Limiting](@/glossary/rate-limiting.md) - Throughput control via rate limiter plugs
+- [LiveView](@/glossary/liveview.md) - Server-rendered UI routed through plug pipelines
+- [REST API](@/glossary/rest-api.md) - API endpoints protected by plug chains
+- [Structured Logging](@/glossary/structured-logging.md) - Request logging implemented as plugs
+- [Metrics](@/glossary/metrics.md) - Telemetry emission from plug instrumentation
+- [BEAM](@/glossary/beam.md) - VM executing plug pipelines as lightweight processes
+- [API Gateway](@/glossary/api-gateway.md) - Gateway pattern implemented with plug pipelines
+- [ETS](@/glossary/ets.md) - In-memory storage used by rate limiter and cache plugs
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture
-- [Technologies](/technologies/) - Technology stack
-- [JWT](/glossary/jwt/) - Token format used in authentication plugs
-- [TLS](/glossary/tls/) - Transport layer security for plug connections
+- [Architecture](@/architecture/_index.md) - Platform architecture
+- [Technologies](@/technologies/_index.md) - Technology stack
+- [JWT](@/glossary/jwt.md) - Token format used in authentication plugs
+- [TLS](@/glossary/tls.md) - Transport layer security for plug connections
 
 ---
 
@@ -540,4 +540,4 @@ Plug's compile-time `init/1` phase is unique among these frameworks and provides
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -718,23 +718,23 @@ end
 
 ## Related Terms
 
-- [Mean](/glossary/mean/) -- arithmetic average used in KPI calculations and trend analysis
-- [Median](/glossary/median/) -- middle-value statistic resistant to outliers in KPI distributions
-- [Percentile](/glossary/percentile/) -- statistical measure used in latency KPIs (P50, P95, P99)
-- [P95](/glossary/p95/) -- 95th percentile latency, a critical operational KPI
-- [P99](/glossary/p99/) -- 99th percentile latency for tail-end performance monitoring
-- [Outlier](/glossary/outlier/) -- extreme values that can distort KPI averages
-- [Quality Floor](/glossary/quality-floor/) -- minimum KPI threshold for quality metrics
-- [Telemetry](/glossary/telemetry/) -- instrumentation system that feeds operational KPIs
+- [Mean](@/glossary/mean.md) -- arithmetic average used in KPI calculations and trend analysis
+- [Median](@/glossary/median.md) -- middle-value statistic resistant to outliers in KPI distributions
+- [Percentile](@/glossary/percentile.md) -- statistical measure used in latency KPIs (P50, P95, P99)
+- [P95](@/glossary/p95.md) -- 95th percentile latency, a critical operational KPI
+- [P99](@/glossary/p99.md) -- 99th percentile latency for tail-end performance monitoring
+- [Outlier](@/glossary/outlier.md) -- extreme values that can distort KPI averages
+- [Quality Floor](@/glossary/quality-floor.md) -- minimum KPI threshold for quality metrics
+- [Telemetry](@/glossary/telemetry.md) -- instrumentation system that feeds operational KPIs
 - [Health Score](/glossary/health-score/) -- the master KPI aggregating all quality dimensions
-- [SLA](/glossary/sla/) -- service level agreement that defines external KPI commitments
+- [SLA](@/glossary/sla.md) -- service level agreement that defines external KPI commitments
 - [SLO](/glossary/slo/) -- service level objective that sets internal KPI targets
-- [Dashboard](/glossary/dashboard/) -- visualization surface for KPI display and alerting
+- [Dashboard](@/glossary/dashboard.md) -- visualization surface for KPI display and alerting
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- platform capabilities measured by KPIs
-- [Architecture](/architecture/) -- telemetry architecture for KPI collection
+- [Capabilities](@/capabilities/_index.md) -- platform capabilities measured by KPIs
+- [Architecture](@/architecture/_index.md) -- telemetry architecture for KPI collection
 - [Quality Floor Guardian](/quality/) -- automated KPI monitoring and enforcement
 - [OTEL Doctrine](/observability/) -- observability enforcement ensuring KPI instrumentation
 
@@ -745,4 +745,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

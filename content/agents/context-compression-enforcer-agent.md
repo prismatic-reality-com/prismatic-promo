@@ -76,7 +76,7 @@ The Policy Layer defines compression requirements per context type (session save
 
 **Size Threshold Management** defines and enforces per-context-type size limits that trigger compression requirements. Session context files exceeding 50KB must be compressed. Agent-to-agent messages exceeding 10KB must use compressed format. Intelligence reports exceeding 100KB must include compressed summaries alongside full content.
 
-**Automatic Compression** applies configured compression algorithms to non-compliant context data when the content can be safely compressed without falling below retention thresholds. The auto-compression system uses the [Compressor](/agents/compressor/) agent's compression pipeline, applying the appropriate compression level based on the context type and target consumption use case.
+**Automatic Compression** applies configured compression algorithms to non-compliant context data when the content can be safely compressed without falling below retention thresholds. The auto-compression system uses the [Compressor](@/agents/compressor.md) agent's compression pipeline, applying the appropriate compression level based on the context type and target consumption use case.
 
 **Compliance Monitoring** tracks compression compliance rates across all platform agents and sessions, producing dashboards and alerts that identify agents or workflows that consistently generate oversized uncompressed context. Repeat offenders trigger investigation into whether the offending agent's context generation logic needs optimization.
 
@@ -175,14 +175,14 @@ end
 | Session Context System | Middleware hook | Validates session saves against size thresholds |
 | Agent Message Bus | Middleware hook | Enforces message size limits |
 | Intelligence Pipeline | Post-processor | Ensures report compression compliance |
-| [Telemetry](/glossary/telemetry/) | Events | Compression enforcement metrics |
-| [ETS](/glossary/ets/) | Direct access | Compliance statistics caching |
+| [Telemetry](@/glossary/telemetry.md) | Events | Compression enforcement metrics |
+| [ETS](@/glossary/ets.md) | Direct access | Compliance statistics caching |
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [compressor](/agents/compressor/) | Compression execution partner providing multi-level compression | Documentation |
-| [context-preservation-specialist-agent](/agents/context-preservation-specialist-agent/) | Session context subject to compression enforcement | Authority |
-| [3nl-coordinator](/agents/3nl-coordinator/) | Intelligence synthesis outputs subject to compression policies | General |
+| [compressor](@/agents/compressor.md) | Compression execution partner providing multi-level compression | Documentation |
+| [context-preservation-specialist-agent](@/agents/context-preservation-specialist-agent.md) | Session context subject to compression enforcement | Authority |
+| [3nl-coordinator](@/agents/3nl-coordinator.md) | Intelligence synthesis outputs subject to compression policies | General |
 
 ## Operational Workflow
 
@@ -232,12 +232,12 @@ config :prismatic_context, PrismaticContext.CompressionEnforcer,
 
 ## Related Resources
 
-- [compressor](/agents/compressor/) -- Multi-level document compression
-- [context-preservation-specialist-agent](/agents/context-preservation-specialist-agent/) -- Session context management
-- [3nl-coordinator](/agents/3nl-coordinator/) -- Intelligence synthesis coordination
-- [Quality Gates](/capabilities/quality-gates/) -- Platform quality enforcement
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Monitoring infrastructure
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [compressor](@/agents/compressor.md) -- Multi-level document compression
+- [context-preservation-specialist-agent](@/agents/context-preservation-specialist-agent.md) -- Session context management
+- [3nl-coordinator](@/agents/3nl-coordinator.md) -- Intelligence synthesis coordination
+- [Quality Gates](@/capabilities/quality-gates.md) -- Platform quality enforcement
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Monitoring infrastructure
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -246,4 +246,4 @@ config :prismatic_context, PrismaticContext.CompressionEnforcer,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

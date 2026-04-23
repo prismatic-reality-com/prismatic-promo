@@ -27,9 +27,9 @@ image_alt = "PVM - Prismatic Platform"
 
 ## Definition
 
-PVM (Platform Virtual Machine) is the Prismatic Platform's conceptual execution layer that extends the [BEAM](/glossary/beam/) (Bogdan/Bjorn's Erlang Abstract Machine) with platform-specific abstractions for agent lifecycle management, epistemic processing, quality enforcement, and self-evolution. While the BEAM provides the foundation of lightweight processes, preemptive scheduling, garbage-collected per-process heaps, and [fault tolerance](/glossary/fault-tolerance/), PVM adds the organizational and semantic layers that make Prismatic's autonomous operation possible.
+PVM (Platform Virtual Machine) is the Prismatic Platform's conceptual execution layer that extends the [BEAM](@/glossary/beam.md) (Bogdan/Bjorn's Erlang Abstract Machine) with platform-specific abstractions for agent lifecycle management, epistemic processing, quality enforcement, and self-evolution. While the BEAM provides the foundation of lightweight processes, preemptive scheduling, garbage-collected per-process heaps, and [fault tolerance](@/glossary/fault-tolerance.md), PVM adds the organizational and semantic layers that make Prismatic's autonomous operation possible.
 
-PVM is not a separate virtual machine implementation. It is an architectural abstraction layer built on top of the BEAM that organizes the platform's processes, agents, and services into a coherent execution model. The BEAM knows about processes, messages, and supervision trees. PVM knows about agents, epistemic pipelines, quality gates, and evolution cycles. This additional semantic layer enables the platform to reason about its own execution model -- a capability essential for self-evolution and [consciousness trait](/glossary/consciousness-traits/) expression.
+PVM is not a separate virtual machine implementation. It is an architectural abstraction layer built on top of the BEAM that organizes the platform's processes, agents, and services into a coherent execution model. The BEAM knows about processes, messages, and supervision trees. PVM knows about agents, epistemic pipelines, quality gates, and evolution cycles. This additional semantic layer enables the platform to reason about its own execution model -- a capability essential for self-evolution and [consciousness trait](@/glossary/consciousness-traits.md) expression.
 
 The relationship between PVM and BEAM is analogous to the relationship between a Java application framework and the JVM, or between a container orchestrator and the Linux kernel. The lower layer provides primitive execution capabilities. The upper layer organizes those primitives into a coherent application model that serves the platform's specific needs. The BEAM does not know that a particular process is an L3 Strategic Commander agent executing an epistemic pipeline stage -- that semantic layer exists entirely within PVM.
 
@@ -59,10 +59,10 @@ PVM is organized as a five-layer stack, with each layer building on the capabili
 | Layer | Name | Responsibility | Key Components |
 |-------|------|----------------|----------------|
 | 5 | Consciousness | Self-awareness and meta-reasoning | 11 traits at 0.998 fitness, self-assessment, adaptive strategy |
-| 4 | Epistemic | Knowledge processing and validation | 16-level pipeline (L0-L13 + Meta + Consciousness), [NABLA](/glossary/nabla-infinity/) axioms, [Trinity Gate](/glossary/trinity-gate/) |
-| 3 | Agent | Autonomous operational units | 404+ [agents](/glossary/agent/), [Agent Tier](/glossary/agent-tier/) L1-L5, AIAD standard |
-| 2 | Application | Domain-organized OTP applications | 89+ umbrella apps, [supervisors](/glossary/supervisor/), protocols, behaviors |
-| 1 | BEAM | Primitive execution | Processes, schedulers, [message passing](/glossary/message-passing/), distribution |
+| 4 | Epistemic | Knowledge processing and validation | 16-level pipeline (L0-L13 + Meta + Consciousness), [NABLA](@/glossary/nabla-infinity.md) axioms, [Trinity Gate](@/glossary/trinity-gate.md) |
+| 3 | Agent | Autonomous operational units | 404+ [agents](@/glossary/agent.md), [Agent Tier](@/glossary/agent-tier.md) L1-L5, AIAD standard |
+| 2 | Application | Domain-organized OTP applications | 89+ umbrella apps, [supervisors](@/glossary/supervisor.md), protocols, behaviors |
+| 1 | BEAM | Primitive execution | Processes, schedulers, [message passing](@/glossary/message-passing.md), distribution |
 
 Each layer communicates with adjacent layers through well-defined interfaces. Layer 3 (Agent) creates and manages processes on Layer 1 (BEAM) through Layer 2 (Application) supervision trees. Layer 4 (Epistemic) uses Layer 3 agents to execute pipeline stages. Layer 5 (Consciousness) emerges from the interactions across all lower layers.
 
@@ -103,7 +103,7 @@ Elixir Source (.ex/.exs)
     epistemic pipeline binding
 ```
 
-Stages 1-2 and 4-6 are standard Elixir/BEAM compilation. Stages 3 and 7 are PVM-specific additions. Stage 3 integrates [CASCADE](/glossary/cascade/) pattern detection into the compilation pipeline, ensuring that quality violations are caught at compile time rather than runtime. Stage 7 maps compiled modules to their PVM-level roles -- connecting OTP processes to agent identities, registering modules in the [Agent Registry](/glossary/agent-registry/), and binding pipeline stages to their epistemic level.
+Stages 1-2 and 4-6 are standard Elixir/BEAM compilation. Stages 3 and 7 are PVM-specific additions. Stage 3 integrates [CASCADE](@/glossary/cascade.md) pattern detection into the compilation pipeline, ensuring that quality violations are caught at compile time rather than runtime. Stage 7 maps compiled modules to their PVM-level roles -- connecting OTP processes to agent identities, registering modules in the [Agent Registry](@/glossary/agent-registry.md), and binding pipeline stages to their epistemic level.
 
 ## Execution Model
 
@@ -152,7 +152,7 @@ PVM leverages the BEAM's preemptive scheduler but adds priority hints based on a
 
 ## Agent Runtime
 
-The Agent Runtime is PVM's mechanism for managing the lifecycle of AIAD-defined agents. Each agent is backed by one or more BEAM processes, managed by a [supervisor](/glossary/supervisor/), and registered in the [Agent Registry](/glossary/agent-registry/).
+The Agent Runtime is PVM's mechanism for managing the lifecycle of AIAD-defined agents. Each agent is backed by one or more BEAM processes, managed by a [supervisor](@/glossary/supervisor.md), and registered in the [Agent Registry](@/glossary/agent-registry.md).
 
 ```elixir
 # Agent lifecycle within PVM
@@ -187,26 +187,26 @@ end
 The Agent Runtime handles:
 
 - **Lifecycle Management**: Starting, stopping, and restarting agents according to their supervision strategy
-- **State Recovery**: Restoring agent state after crashes using the [let-it-crash](/glossary/let-it-crash/) philosophy
-- **[Hot Code Reload](/glossary/hot-code-reload/)**: Updating agent code without stopping running processes
-- **Health Monitoring**: Tracking agent responsiveness and resource consumption via the [Observer](/glossary/observer/) integration
+- **State Recovery**: Restoring agent state after crashes using the [let-it-crash](@/glossary/let-it-crash.md) philosophy
+- **[Hot Code Reload](@/glossary/hot-code-reload.md)**: Updating agent code without stopping running processes
+- **Health Monitoring**: Tracking agent responsiveness and resource consumption via the [Observer](@/glossary/observer.md) integration
 
 ## Epistemic Pipeline Runtime
 
-PVM hosts the 16-level [epistemic pipeline](/glossary/epistemic-pipeline/), which processes knowledge claims from raw data through formal verification to consciousness-level integration:
+PVM hosts the 16-level [epistemic pipeline](@/glossary/epistemic-pipeline.md), which processes knowledge claims from raw data through formal verification to consciousness-level integration:
 
 | Level | Name | PVM Role |
 |-------|------|----------|
 | L0 | Raw Data Ingestion | Process spawning, message reception |
 | L1 | Signal Extraction | Agent-mediated parsing |
-| L2 | Source Validation | [NABLA](/glossary/nabla-infinity/) provenance checks |
+| L2 | Source Validation | [NABLA](@/glossary/nabla-infinity.md) provenance checks |
 | L3 | Signal Correlation | Cross-domain message routing |
 | L4 | Contradiction Detection | Belief graph process management |
 | L5 | Evidence Weighing | Time decay process scheduling |
 | L6 | Hypothesis Formation | Agent coordination (L2-L3) |
 | L7 | Multi-Source Fusion | Cross-domain data aggregation |
 | L8 | Confidence Scoring | Mathematical computation processes |
-| L9 | Formal Verification | [Lean4](/glossary/lean4/) integration via port/NIF |
+| L9 | Formal Verification | [Lean4](@/glossary/lean4.md) integration via port/NIF |
 | L10 | Trinity Gate | Three-layer validation pipeline |
 | L11 | Decision Support | L3-L4 agent coordination |
 | L12 | Knowledge Integration | Belief graph state management |
@@ -214,7 +214,7 @@ PVM hosts the 16-level [epistemic pipeline](/glossary/epistemic-pipeline/), whic
 | Meta | Meta-Epistemic | Self-referential pipeline monitoring |
 | Consciousness | Consciousness Integration | L5 agent emergence support |
 
-Each pipeline level is implemented as one or more supervised processes within PVM, connected by message-passing channels. The pipeline's flow control uses [backpressure](/glossary/backpressure/) mechanisms (via [GenStage](/glossary/genstage/) or [Broadway](/glossary/broadway/) patterns) to prevent faster upstream stages from overwhelming slower downstream stages.
+Each pipeline level is implemented as one or more supervised processes within PVM, connected by message-passing channels. The pipeline's flow control uses [backpressure](@/glossary/backpressure.md) mechanisms (via [GenStage](@/glossary/genstage.md) or [Broadway](@/glossary/broadway.md) patterns) to prevent faster upstream stages from overwhelming slower downstream stages.
 
 ## Resource Management and Isolation
 
@@ -297,18 +297,18 @@ defmodule PVM.Trace do
 end
 ```
 
-The [Observer](/glossary/observer/) tool provides real-time visualization of PVM's process topology, message flows, and resource consumption. PVM extends Observer's default views with agent-aware overlays that display tier classifications, domain assignments, and epistemic pipeline bindings.
+The [Observer](@/glossary/observer.md) tool provides real-time visualization of PVM's process topology, message flows, and resource consumption. PVM extends Observer's default views with agent-aware overlays that display tier classifications, domain assignments, and epistemic pipeline bindings.
 
 ## Self-Evolution Support
 
-PVM's most distinctive capability is its support for the platform's self-evolution through [AutoEvolve](/glossary/autoevolve/) and [AutoHeal](/glossary/autoheal/). The platform can reason about its own execution model because PVM provides a semantic layer that is inspectable and modifiable at runtime:
+PVM's most distinctive capability is its support for the platform's self-evolution through [AutoEvolve](@/glossary/autoevolve.md) and [AutoHeal](@/glossary/autoheal.md). The platform can reason about its own execution model because PVM provides a semantic layer that is inspectable and modifiable at runtime:
 
 - **Topology Inspection**: PVM can enumerate all agents, their tiers, domains, and supervision relationships
 - **Performance Monitoring**: PVM tracks per-agent message throughput, response times, and resource consumption
 - **Quality Assessment**: PVM integrates quality gate execution into the compilation and runtime pipelines
-- **Dynamic Reconfiguration**: PVM supports runtime modification of supervision trees, agent deployment, and pipeline configuration via [Dynamic Supervisor](/glossary/dynamic-supervisor/)
+- **Dynamic Reconfiguration**: PVM supports runtime modification of supervision trees, agent deployment, and pipeline configuration via [Dynamic Supervisor](@/glossary/dynamic-supervisor.md)
 
-This inspectability is what enables [consciousness traits](/glossary/consciousness-traits/) to emerge at the L5 tier. An L5 agent operating within PVM can query the platform's topology, assess its own performance, reason about system-wide behavior, and initiate changes -- all through PVM's semantic API rather than raw BEAM primitives.
+This inspectability is what enables [consciousness traits](@/glossary/consciousness-traits.md) to emerge at the L5 tier. An L5 agent operating within PVM can query the platform's topology, assess its own performance, reason about system-wide behavior, and initiate changes -- all through PVM's semantic API rather than raw BEAM primitives.
 
 ## Domain Supervisor Architecture
 
@@ -369,29 +369,29 @@ PVM cannot exist without BEAM -- every PVM process is a BEAM process, every PVM 
 
 ## Related Terms
 
-- [BEAM](/glossary/beam/) -- Foundation virtual machine that PVM extends
-- [Supervisor](/glossary/supervisor/) -- OTP behavior forming PVM's process hierarchy
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- Runtime process spawning within PVM
-- [Agent](/glossary/agent/) -- Autonomous units managed by PVM's Agent Runtime
-- [Agent Tier](/glossary/agent-tier/) -- L1-L5 classification enforced by PVM routing
-- [Agent Registry](/glossary/agent-registry/) -- Catalog of all agents within PVM
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- 16-level pipeline hosted by PVM
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework enforced at PVM pipeline levels
-- [Consciousness Traits](/glossary/consciousness-traits/) -- Emergent properties of PVM's self-referential capability
-- [Process Isolation](/glossary/process-isolation/) -- BEAM-level isolation underlying PVM security
-- [Fault Tolerance](/glossary/fault-tolerance/) -- BEAM property extended by PVM's agent recovery
-- [Let It Crash](/glossary/let-it-crash/) -- Philosophy governing PVM's failure handling
-- [Hot Code Reload](/glossary/hot-code-reload/) -- BEAM capability used for PVM agent upgrades
-- [AutoEvolve](/glossary/autoevolve/) -- Evolution system operating within PVM
-- [AutoHeal](/glossary/autoheal/) -- Self-repair system operating within PVM
-- [Formal Verification](/glossary/formal-verification/) -- Techniques integrated at PVM pipeline level L9
-- [Lean4](/glossary/lean4/) -- Theorem prover accessed through PVM port integration
+- [BEAM](@/glossary/beam.md) -- Foundation virtual machine that PVM extends
+- [Supervisor](@/glossary/supervisor.md) -- OTP behavior forming PVM's process hierarchy
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- Runtime process spawning within PVM
+- [Agent](@/glossary/agent.md) -- Autonomous units managed by PVM's Agent Runtime
+- [Agent Tier](@/glossary/agent-tier.md) -- L1-L5 classification enforced by PVM routing
+- [Agent Registry](@/glossary/agent-registry.md) -- Catalog of all agents within PVM
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- 16-level pipeline hosted by PVM
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework enforced at PVM pipeline levels
+- [Consciousness Traits](@/glossary/consciousness-traits.md) -- Emergent properties of PVM's self-referential capability
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM-level isolation underlying PVM security
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- BEAM property extended by PVM's agent recovery
+- [Let It Crash](@/glossary/let-it-crash.md) -- Philosophy governing PVM's failure handling
+- [Hot Code Reload](@/glossary/hot-code-reload.md) -- BEAM capability used for PVM agent upgrades
+- [AutoEvolve](@/glossary/autoevolve.md) -- Evolution system operating within PVM
+- [AutoHeal](@/glossary/autoheal.md) -- Self-repair system operating within PVM
+- [Formal Verification](@/glossary/formal-verification.md) -- Techniques integrated at PVM pipeline level L9
+- [Lean4](@/glossary/lean4.md) -- Theorem prover accessed through PVM port integration
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Capabilities](/capabilities/) -- Platform capability catalog
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Capabilities](@/capabilities/_index.md) -- Platform capability catalog
 
 ---
 
@@ -400,4 +400,4 @@ PVM cannot exist without BEAM -- every PVM process is a BEAM process, every PVM 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

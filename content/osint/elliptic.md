@@ -27,11 +27,11 @@ image_alt = "Elliptic - Prismatic Platform"
 
 Elliptic is a blockchain analytics and cryptoasset compliance company founded in 2013 in London, United Kingdom. As one of the earliest entrants in the blockchain analytics space, Elliptic pioneered the application of data science and machine learning to blockchain transaction analysis for financial crime detection and regulatory compliance. The platform now provides coverage across more than 100 blockchains, including Bitcoin, Ethereum, and all major decentralized finance (DeFi) and non-fungible token (NFT) ecosystems.
 
-Elliptic's core technology comprises two primary products. **Elliptic Lens** provides real-time wallet and transaction screening with automated [risk score](/glossary/risk-score/) generation, enabling regulated entities to screen incoming and outgoing transactions against known risk indicators. **Elliptic Navigator** is an investigative tool that enables compliance analysts and law enforcement to visually trace fund flows across blockchains, through mixing services, across cross-chain bridges, and through decentralized exchange protocols. The visual graph interface allows investigators to follow complex transaction chains that would be impossible to trace manually.
+Elliptic's core technology comprises two primary products. **Elliptic Lens** provides real-time wallet and transaction screening with automated [risk score](@/glossary/risk-score.md) generation, enabling regulated entities to screen incoming and outgoing transactions against known risk indicators. **Elliptic Navigator** is an investigative tool that enables compliance analysts and law enforcement to visually trace fund flows across blockchains, through mixing services, across cross-chain bridges, and through decentralized exchange protocols. The visual graph interface allows investigators to follow complex transaction chains that would be impossible to trace manually.
 
 Elliptic's most significant technical innovation is its Holistic Screening technology. Traditional blockchain screening evaluates only direct counterparty risk -- whether the immediate sender or receiver of funds is associated with a known entity. Holistic Screening extends this analysis to evaluate the complete fund flow history, assessing risk from funds that have passed through multiple intermediaries before reaching the screened address. This multi-hop analysis provides a more complete picture of exposure to illicit activity, capturing indirect connections to darknet markets, ransomware operations, and sanctioned entities that would be invisible to direct-counterparty screening alone.
 
-For the Prismatic Platform, Elliptic serves as a complementary cryptocurrency compliance source alongside [Chainalysis](/osint/chainalysis/), providing independent risk assessments and cross-validation. The dual-provider approach is considered best practice in cryptocurrency compliance, as different analytics firms maintain different attribution databases, use different risk methodologies, and may have different coverage for specific blockchains or entity types. When an address is flagged by both providers, the confidence in the risk assessment increases substantially.
+For the Prismatic Platform, Elliptic serves as a complementary cryptocurrency compliance source alongside [Chainalysis](@/osint/chainalysis.md), providing independent risk assessments and cross-validation. The dual-provider approach is considered best practice in cryptocurrency compliance, as different analytics firms maintain different attribution databases, use different risk methodologies, and may have different coverage for specific blockchains or entity types. When an address is flagged by both providers, the confidence in the risk assessment increases substantially.
 
 ## Data Sources and Coverage
 
@@ -284,7 +284,7 @@ Criminal actors frequently use cross-chain bridges to move funds between blockch
 
 ## Platform Integration
 
-Within the Prismatic Platform, Elliptic provides independent cryptocurrency risk assessment as part of the dual-provider compliance architecture. Elliptic results are automatically correlated with [Chainalysis](/osint/chainalysis/) assessments, with disagreements flagged for manual review. Combined risk scores feed into [Prismatic Perimeter](/apps/prismatic-perimeter/) security ratings for entities with cryptocurrency exposure.
+Within the Prismatic Platform, Elliptic provides independent cryptocurrency risk assessment as part of the dual-provider compliance architecture. Elliptic results are automatically correlated with [Chainalysis](@/osint/chainalysis.md) assessments, with disagreements flagged for manual review. Combined risk scores feed into [Prismatic Perimeter](@/apps/prismatic-perimeter.md) security ratings for entities with cryptocurrency exposure.
 
 ## NABLA Compliance
 
@@ -312,12 +312,12 @@ Within the Prismatic Platform, Elliptic provides independent cryptocurrency risk
 
 ## Related Resources
 
-- [Chainalysis](/osint/chainalysis/) - Enterprise blockchain analytics (cross-validation partner)
-- [Crystal Blockchain](/osint/crystal-blockchain/) - Blockchain analytics and visualization
-- [Blockchain.com](/osint/blockchain-com/) - Bitcoin blockchain raw data explorer
-- [Etherscan](/osint/etherscan/) - Ethereum blockchain explorer and analytics
-- [OFAC](/osint/ofac/) - US sanctions including cryptocurrency addresses
-- [EU Sanctions](/osint/eu-sanctions/) - European sanctions compliance
+- [Chainalysis](@/osint/chainalysis.md) - Enterprise blockchain analytics (cross-validation partner)
+- [Crystal Blockchain](@/osint/crystal-blockchain.md) - Blockchain analytics and visualization
+- [Blockchain.com](@/osint/blockchain-com.md) - Bitcoin blockchain raw data explorer
+- [Etherscan](@/osint/etherscan.md) - Ethereum blockchain explorer and analytics
+- [OFAC](@/osint/ofac.md) - US sanctions including cryptocurrency addresses
+- [EU Sanctions](@/osint/eu-sanctions.md) - European sanctions compliance
 
 ---
 
@@ -326,4 +326,4 @@ Within the Prismatic Platform, Elliptic provides independent cryptocurrency risk
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

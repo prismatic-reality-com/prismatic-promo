@@ -729,7 +729,7 @@ Each layer catches different categories of QDP, with earlier layers providing fa
 
 ### Integration with Quality DNA
 
-Every QDP scan result is persisted to [Quality DNA](/glossary/quality-dna/) for cross-session tracking:
+Every QDP scan result is persisted to [Quality DNA](@/glossary/quality-dna.md) for cross-session tracking:
 
 ```elixir
 defmodule Prismatic.Quality.DNARecorder do
@@ -827,20 +827,20 @@ A QDP report provides actionable information for remediation:
 
 ## Related Concepts
 
-- [Quality Gates](/glossary/quality-gates/) -- Pipeline preventing new QDP introduction
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- Autonomous monitoring for QDP regression
-- [Quality DNA](/glossary/quality-dna/) -- Historical QDP tracking across sessions
-- [CASCADE Pattern](/glossary/cascade-pattern/) -- Bulk fix patterns used for mass QDP elimination
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- Compilation standard preventing warning-type QDP
-- [Credo](/glossary/credo/) -- Static analysis tool detecting code style QDP
-- [Dialyzer](/glossary/dialyzer/) -- Type checking tool detecting type-related QDP
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- First enforcement point blocking QDP introduction
+- [Quality Gates](@/glossary/quality-gates.md) -- Pipeline preventing new QDP introduction
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- Autonomous monitoring for QDP regression
+- [Quality DNA](@/glossary/quality-dna.md) -- Historical QDP tracking across sessions
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) -- Bulk fix patterns used for mass QDP elimination
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- Compilation standard preventing warning-type QDP
+- [Credo](@/glossary/credo.md) -- Static analysis tool detecting code style QDP
+- [Dialyzer](@/glossary/dialyzer.md) -- Type checking tool detecting type-related QDP
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- First enforcement point blocking QDP introduction
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Commands](/commands/) -- Quality-related command catalog
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Commands](@/commands/_index.md) -- Quality-related command catalog
 
 ---
 
@@ -849,4 +849,4 @@ A QDP report provides actionable information for remediation:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

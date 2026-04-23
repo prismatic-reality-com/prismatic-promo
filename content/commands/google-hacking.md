@@ -26,9 +26,9 @@ image_alt = "/google-hacking - Prismatic Platform"
 
 **/google-hacking** is a production command in the **Intelligence** category of the Prismatic Platform that leverages Google dorking techniques and advanced search operator combinations to extract intelligence from publicly indexed web resources. The command automates the construction and execution of sophisticated search queries using Google's advanced operators (site:, inurl:, intitle:, filetype:, intext:, and others) to discover exposed information, misconfigurations, data leaks, and intelligence artifacts across the open web.
 
-This command operates under the **L2+** authority level and is executed by the `google-hacking-specialist` agent, which maintains an internal database of proven Google dork patterns organized by category (exposed credentials, directory listings, configuration files, database dumps, login portals, error messages, and technology fingerprints). The agent constructs targeted queries based on investigation objectives, executes them within ethical and legal boundaries, and processes results into structured intelligence reports. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `google-hacking-specialist` agent, which maintains an internal database of proven Google dork patterns organized by category (exposed credentials, directory listings, configuration files, database dumps, login portals, error messages, and technology fingerprints). The agent constructs targeted queries based on investigation objectives, executes them within ethical and legal boundaries, and processes results into structured intelligence reports. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
-Google Hacking, also known as Google Dorking, originated from Johnny Long's Google Hacking Database (GHDB) and has become a foundational technique in [OSINT](/glossary/osint/) (Open Source Intelligence) methodology. The Prismatic Platform's implementation extends classical dorking with intelligent query generation, result correlation, temporal analysis, and integration with the platform's broader intelligence gathering pipeline. Discovered artifacts feed into the [/investigate](/commands/investigate/) command's evidence chain and contribute to attack surface assessment through [Prismatic Perimeter](/apps/prismatic-perimeter/).
+Google Hacking, also known as Google Dorking, originated from Johnny Long's Google Hacking Database (GHDB) and has become a foundational technique in [OSINT](@/glossary/osint.md) (Open Source Intelligence) methodology. The Prismatic Platform's implementation extends classical dorking with intelligent query generation, result correlation, temporal analysis, and integration with the platform's broader intelligence gathering pipeline. Discovered artifacts feed into the [/investigate](@/commands/investigate.md) command's evidence chain and contribute to attack surface assessment through [Prismatic Perimeter](@/apps/prismatic-perimeter.md).
 
 The command operates exclusively within ethical and legal boundaries. All queries target publicly indexed information that search engines have already crawled and cached. No exploitation, intrusion, or unauthorized access is performed. The command includes built-in rate limiting to respect search engine terms of service and configurable scope restrictions to prevent accidental queries against unauthorized targets.
 
@@ -160,19 +160,19 @@ The Query Generator maintains a library of 500+ dork templates organized into ca
 
 6. **Report Generation**: Produce structured intelligence report with findings organized by category and risk level. Include evidence links, confidence scores, and recommended actions for each finding.
 
-7. **Integration**: Feed findings into the platform's intelligence pipeline for correlation with other [OSINT](/glossary/osint/) sources. Update [Prismatic Perimeter](/apps/prismatic-perimeter/) attack surface data if the target is a monitored entity.
+7. **Integration**: Feed findings into the platform's intelligence pipeline for correlation with other [OSINT](@/glossary/osint.md) sources. Update [Prismatic Perimeter](@/apps/prismatic-perimeter.md) attack surface data if the target is a monitored entity.
 
 ## Integration Points
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent Execution | Executed by `google-hacking-specialist` at L2+ authority |
-| [/investigate](/commands/investigate/) | Intelligence Pipeline | Findings feed into comprehensive OSINT investigations |
-| [/email-osint](/commands/email-osint/) | Cross-Reference | Email addresses discovered via dorking feed into email OSINT |
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Attack Surface | Discoveries update external attack surface assessments |
-| [/intel-export](/commands/intel-export/) | Export | Findings packaged for external analysis |
-| [Telemetry](/glossary/telemetry/) | Metrics | Query counts, result volumes, and finding rates tracked |
-| [OSINT Engines](/glossary/osint/) | Source Correlation | Results correlated with other OSINT source findings |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent Execution | Executed by `google-hacking-specialist` at L2+ authority |
+| [/investigate](@/commands/investigate.md) | Intelligence Pipeline | Findings feed into comprehensive OSINT investigations |
+| [/email-osint](@/commands/email-osint.md) | Cross-Reference | Email addresses discovered via dorking feed into email OSINT |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Attack Surface | Discoveries update external attack surface assessments |
+| [/intel-export](@/commands/intel-export.md) | Export | Findings packaged for external analysis |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Query counts, result volumes, and finding rates tracked |
+| [OSINT Engines](@/glossary/osint.md) | Source Correlation | Results correlated with other OSINT source findings |
 | GHDB (Google Hacking Database) | Reference | Dork patterns sourced and updated from community databases |
 
 ## Best Practices
@@ -237,7 +237,7 @@ The Query Generator maintains a library of 500+ dork templates organized into ca
 
 ## Doctrine Compliance
 
-All Google Hacking operations enforce the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine.
+All Google Hacking operations enforce the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine.
 
 - **NO MERCY**: Every configured dork category is executed completely. Partial scans due to errors trigger automatic retry. Results are comprehensively analyzed with no findings dismissed without explicit confidence scoring.
 - **NO DOUBTS**: All findings include provenance (source query, timestamp, confidence score). Results are verified against actual URLs before inclusion in reports. The command never presents unverified information as confirmed intelligence.
@@ -246,13 +246,13 @@ The command additionally complies with the NABLA axiom of Signal Plurality by co
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/osint-engines](/commands/osint-engines/) - Multi-engine OSINT source coordination and parallel querying
-- [/intel-export](/commands/intel-export/) - Generate comprehensive intelligence packages for external analysis
-- [/green-beret](/commands/green-beret/) - Unconventional intelligence with adaptive investigation techniques
-- [/agents](/commands/agents/) - List and manage agent ecosystem with status monitoring
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/osint-engines](@/commands/osint-engines.md) - Multi-engine OSINT source coordination and parallel querying
+- [/intel-export](@/commands/intel-export.md) - Generate comprehensive intelligence packages for external analysis
+- [/green-beret](@/commands/green-beret.md) - Unconventional intelligence with adaptive investigation techniques
+- [/agents](@/commands/agents.md) - List and manage agent ecosystem with status monitoring
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
 
 ---
 
@@ -261,4 +261,4 @@ The command additionally complies with the NABLA axiom of Signal Plurality by co
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

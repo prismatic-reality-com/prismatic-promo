@@ -28,13 +28,13 @@ image_alt = "municipal-court-specialist - Prismatic Platform"
 
 ## Overview
 
-The municipal-court-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's Prague intelligence domain, responsible for systematic analysis of Prague Municipal Court (Mestsky soud v Praze) proceedings, case outcomes, and judicial patterns. This agent collects, structures, and analyzes publicly available court data to support due diligence investigations, corporate risk assessment, and regulatory compliance analysis. The Prague Municipal Court serves as both a first-instance court for significant civil and criminal matters and an appellate court for district courts within Prague, making it a critical intelligence source for Czech business intelligence operations.
+The municipal-court-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's Prague intelligence domain, responsible for systematic analysis of Prague Municipal Court (Mestsky soud v Praze) proceedings, case outcomes, and judicial patterns. This agent collects, structures, and analyzes publicly available court data to support due diligence investigations, corporate risk assessment, and regulatory compliance analysis. The Prague Municipal Court serves as both a first-instance court for significant civil and criminal matters and an appellate court for district courts within Prague, making it a critical intelligence source for Czech business intelligence operations.
 
-Built on the [AIAD](/glossary/aiad/) standard and leveraging the platform's [OSINT](/glossary/osint/) infrastructure, this agent processes court records from the Czech judiciary's public information systems (InfoSoud, InfoJednani) and the Insolvency Registry (ISIR). All intelligence outputs comply with [NABLA Infinity](/glossary/nabla-infinity/) axioms: every court finding requires corroboration from official sources, and all entity identifications carry confidence scores based on matching criteria completeness.
+Built on the [AIAD](@/glossary/aiad.md) standard and leveraging the platform's [OSINT](@/glossary/osint.md) infrastructure, this agent processes court records from the Czech judiciary's public information systems (InfoSoud, InfoJednani) and the Insolvency Registry (ISIR). All intelligence outputs comply with [NABLA Infinity](@/glossary/nabla-infinity.md) axioms: every court finding requires corroboration from official sources, and all entity identifications carry confidence scores based on matching criteria completeness.
 
 ## Operational Domain
 
-The Prague court intelligence domain covers civil proceedings (contract disputes, property claims, corporate governance), commercial matters (insolvency proceedings, company dissolutions, debt recovery), criminal cases with corporate relevance (fraud, embezzlement, economic crime), and administrative proceedings (regulatory enforcement, permit disputes). The agent maintains a continuously updated database of court proceedings linked to entity profiles through the platform's [entity resolution](/glossary/entity-resolution/) capabilities.
+The Prague court intelligence domain covers civil proceedings (contract disputes, property claims, corporate governance), commercial matters (insolvency proceedings, company dissolutions, debt recovery), criminal cases with corporate relevance (fraud, embezzlement, economic crime), and administrative proceedings (regulatory enforcement, permit disputes). The agent maintains a continuously updated database of court proceedings linked to entity profiles through the platform's [entity resolution](@/glossary/entity-resolution.md) capabilities.
 
 | Court Division | Jurisdiction | Intelligence Value |
 |---------------|-------------|-------------------|
@@ -51,8 +51,8 @@ The Prague court intelligence domain covers civil proceedings (contract disputes
 - **Entity-case linking** -- Resolves court party identifications against the platform's entity database using name matching, ICO (company identification number) correlation, and date-of-birth verification for natural persons
 - **Judicial pattern analysis** -- Identifies patterns in court outcomes across judges, case types, and time periods, revealing systemic trends in judicial decision-making for risk assessment
 - **Insolvency monitoring** -- Provides continuous monitoring of the Czech Insolvency Registry for new filings, creditor claims, and resolution proceedings affecting entities of interest
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed court record collection cycles and entity monitoring alerts
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing collection metrics, entity resolution rates, and data freshness indicators
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed court record collection cycles and entity monitoring alerts
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing collection metrics, entity resolution rates, and data freshness indicators
 
 ## Court Intelligence Pipeline
 
@@ -122,12 +122,12 @@ end
 | Act No. 182/2006 Sb. (Insolvency Act) | Insolvency proceedings | Debtor status, creditor claims, reorganization |
 | Act No. 89/2012 Sb. (Civil Code) | Substantive civil law | Contract and corporate disputes |
 | Act No. 90/2012 Sb. (Business Corporations Act) | Corporate governance | Shareholder disputes, director liability |
-| [ZKB](/glossary/zkb/) 264/2025 Sb. | Cybersecurity compliance | Court enforcement of security obligations |
-| [NIS2](/glossary/nis2/) Directive (EU 2022/2555) | EU cybersecurity | Cross-border compliance proceedings |
+| [ZKB](@/glossary/zkb.md) 264/2025 Sb. | Cybersecurity compliance | Court enforcement of security obligations |
+| [NIS2](@/glossary/nis2.md) Directive (EU 2022/2555) | EU cybersecurity | Cross-border compliance proceedings |
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to orchestrate court intelligence collection operations and publish entity risk profiles based on judicial data.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to orchestrate court intelligence collection operations and publish entity risk profiles based on judicial data.
 
 ## Command Interface
 
@@ -141,14 +141,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [linkedin-intelligence-specialist](/agents/linkedin-intelligence-specialist/) | Correlates professional profiles with court party identifications |
-| [risk-intelligence-commander](/agents/risk-intelligence-commander/) | Court findings feed into corporate risk assessment models |
-| [regulatory-intelligence-commander](/agents/regulatory-intelligence-commander/) | Regulatory enforcement proceedings inform compliance analysis |
-| [reputation-risk-specialist](/agents/reputation-risk-specialist/) | Court proceedings with public interest feed reputation models |
+| [linkedin-intelligence-specialist](@/agents/linkedin-intelligence-specialist.md) | Correlates professional profiles with court party identifications |
+| [risk-intelligence-commander](@/agents/risk-intelligence-commander.md) | Court findings feed into corporate risk assessment models |
+| [regulatory-intelligence-commander](@/agents/regulatory-intelligence-commander.md) | Regulatory enforcement proceedings inform compliance analysis |
+| [reputation-risk-specialist](@/agents/reputation-risk-specialist.md) | Court proceedings with public interest feed reputation models |
 
 ## GARDEN Integration
 
-The municipal-court-specialist leverages the [GARDEN](/glossary/garden/) legacy knowledge base for Czech legal domain expertise, including 20+ years of patterns from the `sig` repository's OSINT provider ecosystem. Historical court data processing patterns and entity resolution heuristics refined across the GARDEN repositories are directly applicable to the Prague court intelligence pipeline.
+The municipal-court-specialist leverages the [GARDEN](@/glossary/garden.md) legacy knowledge base for Czech legal domain expertise, including 20+ years of patterns from the `sig` repository's OSINT provider ecosystem. Historical court data processing patterns and entity resolution heuristics refined across the GARDEN repositories are directly applicable to the Prague court intelligence pipeline.
 
 ## Data Source Architecture
 
@@ -178,7 +178,7 @@ The municipal-court-specialist produces structured intelligence products that in
 
 ## Enforcement
 
-All court intelligence outputs comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no entity-case linkage is published without verified identification matching, all court findings carry provenance chains to official sources, and intelligence products clearly distinguish between confirmed facts and analytical assessments. The [NO DOUBTS](/glossary/no-doubts/) principle mandates that every court record attribution passes entity resolution confidence thresholds before inclusion in risk assessments. [NABLA Infinity](/glossary/nabla-infinity/) source independence is enforced by requiring corroboration across multiple court information systems.
+All court intelligence outputs comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no entity-case linkage is published without verified identification matching, all court findings carry provenance chains to official sources, and intelligence products clearly distinguish between confirmed facts and analytical assessments. The [NO DOUBTS](@/glossary/no-doubts.md) principle mandates that every court record attribution passes entity resolution confidence thresholds before inclusion in risk assessments. [NABLA Infinity](@/glossary/nabla-infinity.md) source independence is enforced by requiring corroboration across multiple court information systems.
 
 ---
 
@@ -187,4 +187,4 @@ All court intelligence outputs comply with the [NO MERCY](/glossary/no-mercy/) d
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

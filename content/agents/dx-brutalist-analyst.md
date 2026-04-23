@@ -28,7 +28,7 @@ image_alt = "dx-brutalist-analyst - Prismatic Platform"
 
 ## Overview
 
-The DX Brutalist Analyst operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Developer Experience domain of the Prismatic Platform. This agent transforms raw git commit history, CI/CD pipeline [metrics](/glossary/metrics/), and developer workflow [telemetry](/glossary/telemetry/) into uncompromising reality assessments of developer experience quality. No optimistic spin, no vanity metrics -- only evidence-based evaluation of how developers actually interact with platform tooling, [AIAD](/glossary/aiad/) agents, Claude Code sessions, and automated quality enforcement infrastructure.
+The DX Brutalist Analyst operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Developer Experience domain of the Prismatic Platform. This agent transforms raw git commit history, CI/CD pipeline [metrics](@/glossary/metrics.md), and developer workflow [telemetry](@/glossary/telemetry.md) into uncompromising reality assessments of developer experience quality. No optimistic spin, no vanity metrics -- only evidence-based evaluation of how developers actually interact with platform tooling, [AIAD](@/glossary/aiad.md) agents, Claude Code sessions, and automated quality enforcement infrastructure.
 
 Brutalist analysis rejects the temptation to present flattering interpretations. The agent examines commit patterns to detect friction points: excessive fix-up commits indicating unclear APIs, long gaps between commits suggesting tooling confusion, and repetitive patterns that reveal missing abstractions. By correlating git history with CI/CD outcomes and hook execution times, the DX Brutalist Analyst produces assessments that expose the gap between intended developer experience and actual developer experience.
 
@@ -133,13 +133,13 @@ end
 
 | Component | Integration Type | Purpose |
 |-----------|-----------------|---------|
-| [archer-supreme-dx-commander](/agents/archer-supreme-dx-commander/) | Command Authority | Receives brutalist assessments for DX strategic decisions |
-| [commit-coordinator](/agents/commit-coordinator/) | Data Source | Provides structured commit workflow data for analysis |
+| [archer-supreme-dx-commander](@/agents/archer-supreme-dx-commander.md) | Command Authority | Receives brutalist assessments for DX strategic decisions |
+| [commit-coordinator](@/agents/commit-coordinator.md) | Data Source | Provides structured commit workflow data for analysis |
 | Git Repository | Data Source | Raw commit history, branch activity, and merge patterns |
 | GitLab CI/CD | Data Source | Pipeline execution logs, timing data, and failure records |
 | Pre-Commit Hooks | Data Source | Hook execution metrics per phase and commit |
-| [ETS](/glossary/ets/) | Cache Layer | Assessment results and intermediate signal aggregations |
-| [Telemetry](/glossary/telemetry/) | Observability | Assessment execution metrics and DX trend events |
+| [ETS](@/glossary/ets.md) | Cache Layer | Assessment results and intermediate signal aggregations |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Assessment execution metrics and DX trend events |
 
 ## Operational Workflow
 
@@ -197,11 +197,11 @@ config :prismatic_agents, PrismaticAgents.DXBrutalist.Analyst,
 
 ## Related Resources
 
-- [**archer-supreme-dx-commander**](/agents/archer-supreme-dx-commander/) - Strategic DX command authority consuming brutalist assessments
-- [**commit-coordinator**](/agents/commit-coordinator/) - Structured commit workflow data provider
-- [**code-review-specialist-agent-v20**](/agents/code-review-specialist-agent-v20/) - Code review operations producing DX-relevant quality signals
-- [Quality Gates](/glossary/quality-gates/) - Pre-commit enforcement pipeline measured by brutalist analysis
-- [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) - Doctrine governing the uncompromising nature of brutalist assessments
+- [**archer-supreme-dx-commander**](@/agents/archer-supreme-dx-commander.md) - Strategic DX command authority consuming brutalist assessments
+- [**commit-coordinator**](@/agents/commit-coordinator.md) - Structured commit workflow data provider
+- [**code-review-specialist-agent-v20**](@/agents/code-review-specialist-agent-v20.md) - Code review operations producing DX-relevant quality signals
+- [Quality Gates](@/glossary/quality-gates.md) - Pre-commit enforcement pipeline measured by brutalist analysis
+- [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) - Doctrine governing the uncompromising nature of brutalist assessments
 
 ---
 
@@ -210,4 +210,4 @@ config :prismatic_agents, PrismaticAgents.DXBrutalist.Analyst,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

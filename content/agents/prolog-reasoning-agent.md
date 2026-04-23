@@ -28,9 +28,9 @@ image_alt = "prolog-reasoning-agent - Prismatic Platform"
 
 ## Overview
 
-The prolog-reasoning-agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's primary domain, implementing a pure [Elixir](/glossary/elixir/) Prolog [inference](/glossary/inference/) engine for logical reasoning, rule-based computation, and knowledge base management. This agent provides the platform with a general-purpose logic programming environment where domain knowledge is expressed as declarative rules and facts, and answers to complex questions are derived through automated logical deduction. Unlike the prolog-reasoner which focuses on NABLA epistemic integration, the prolog-reasoning-agent emphasizes practical rule-based computation -- evaluating business rules, deriving agent capabilities from component specifications, computing access control decisions, and performing automated compliance checking against regulatory rule sets.
+The prolog-reasoning-agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's primary domain, implementing a pure [Elixir](@/glossary/elixir.md) Prolog [inference](@/glossary/inference.md) engine for logical reasoning, rule-based computation, and knowledge base management. This agent provides the platform with a general-purpose logic programming environment where domain knowledge is expressed as declarative rules and facts, and answers to complex questions are derived through automated logical deduction. Unlike the prolog-reasoner which focuses on NABLA epistemic integration, the prolog-reasoning-agent emphasizes practical rule-based computation -- evaluating business rules, deriving agent capabilities from component specifications, computing access control decisions, and performing automated compliance checking against regulatory rule sets.
 
-The agent's pure Elixir implementation eliminates external dependencies while achieving performance characteristics suitable for real-time rule evaluation within the platform's operational loop. The inference engine runs as an [OTP](/glossary/otp/) [GenServer](/glossary/genserver/) process with configurable memory limits, query timeouts, and concurrency controls. Knowledge bases are stored as [ETS](/glossary/ets/) tables for sub-millisecond fact lookup, with rule indexing on predicate name and first-argument structure for efficient clause selection during resolution. The [BEAM](/glossary/beam/) virtual machine's lightweight process model enables the agent to handle hundreds of concurrent reasoning queries without contention.
+The agent's pure Elixir implementation eliminates external dependencies while achieving performance characteristics suitable for real-time rule evaluation within the platform's operational loop. The inference engine runs as an [OTP](@/glossary/otp.md) [GenServer](@/glossary/genserver.md) process with configurable memory limits, query timeouts, and concurrency controls. Knowledge bases are stored as [ETS](@/glossary/ets.md) tables for sub-millisecond fact lookup, with rule indexing on predicate name and first-argument structure for efficient clause selection during resolution. The [BEAM](@/glossary/beam.md) virtual machine's lightweight process model enables the agent to handle hundreds of concurrent reasoning queries without contention.
 
 ## Pure Elixir Inference Engine
 
@@ -58,7 +58,7 @@ The agent provides comprehensive knowledge base management capabilities for main
 
 **Module System** organizes knowledge into named modules that can be loaded, unloaded, and combined independently. Each module defines a self-contained set of facts and rules with explicit export declarations specifying which predicates are accessible to external queries. Module isolation prevents accidental interactions between unrelated knowledge domains.
 
-**Versioned Knowledge** maintains history of knowledge base modifications, enabling temporal queries ("what was true at time T?") and knowledge rollback. Each fact and rule carries creation and (optional) retraction timestamps, supporting the [NABLA Infinity](/glossary/nabla-infinity/) time decay axiom by enabling the reasoning engine to assess the recency of supporting evidence.
+**Versioned Knowledge** maintains history of knowledge base modifications, enabling temporal queries ("what was true at time T?") and knowledge rollback. Each fact and rule carries creation and (optional) retraction timestamps, supporting the [NABLA Infinity](@/glossary/nabla-infinity.md) time decay axiom by enabling the reasoning engine to assess the recency of supporting evidence.
 
 **Consistency Checking** runs integrity constraints against the knowledge base after modifications, ensuring that the addition of new facts or rules does not create logical inconsistencies. Detected inconsistencies are reported with specific conflicting clauses identified, enabling rapid resolution.
 
@@ -85,24 +85,24 @@ The prolog-reasoning-agent serves multiple application domains within the Prisma
 
 | Agent | Relationship |
 |-------|-------------|
-| [prolog-reasoner](/agents/prolog-reasoner/) | NABLA epistemic reasoning with formal provenance tracking |
-| [prolog-constraint-agent](/agents/prolog-constraint-agent/) | Constraint satisfaction solving for combined logic-constraint problems |
-| [prolog-planning-agent](/agents/prolog-planning-agent/) | Action precondition and effect reasoning for planning support |
-| [quality-intelligence-commander](/agents/quality-intelligence-commander/) | Quality rule evaluation and compliance inference |
+| [prolog-reasoner](@/agents/prolog-reasoner.md) | NABLA epistemic reasoning with formal provenance tracking |
+| [prolog-constraint-agent](@/agents/prolog-constraint-agent.md) | Constraint satisfaction solving for combined logic-constraint problems |
+| [prolog-planning-agent](@/agents/prolog-planning-agent.md) | Action precondition and effect reasoning for planning support |
+| [quality-intelligence-commander](@/agents/quality-intelligence-commander.md) | Quality rule evaluation and compliance inference |
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution and lifecycle management |
-| Prismatic Telemetry | Reasoning performance [metrics](/glossary/metrics/) and query throughput monitoring |
-| [AIAD](/glossary/aiad/) [Registry](/glossary/registry-otp/) | Agent specification and knowledge module discovery |
-| [SEADF](/glossary/seadf/) Pipeline | Rule-based quality assessment within evolution workflows |
-| [Mycelial Network](/glossary/mycelial-network/) | Distributed knowledge base synchronization across platform nodes |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution and lifecycle management |
+| Prismatic Telemetry | Reasoning performance [metrics](@/glossary/metrics.md) and query throughput monitoring |
+| [AIAD](@/glossary/aiad.md) [Registry](@/glossary/registry-otp.md) | Agent specification and knowledge module discovery |
+| [SEADF](@/glossary/seadf.md) Pipeline | Rule-based quality assessment within evolution workflows |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Distributed knowledge base synchronization across platform nodes |
 
 ## Enforcement
 
-Rule evaluation and knowledge base management operate under the [NO MERCY](/glossary/no-mercy/) doctrine. Queries that produce unsound results (due to corrupted knowledge bases or engine errors) are rejected. Knowledge base modifications that violate integrity constraints are blocked. The [NO DOUBTS](/glossary/no-doubts/) principle requires that all reasoning results include their derivation traces, enabling external verification. Critical reasoning outputs (access control decisions, compliance assessments) pass through the [Trinity Gate](/glossary/trinity-gate/) for multi-layer validation before operational application.
+Rule evaluation and knowledge base management operate under the [NO MERCY](@/glossary/no-mercy.md) doctrine. Queries that produce unsound results (due to corrupted knowledge bases or engine errors) are rejected. Knowledge base modifications that violate integrity constraints are blocked. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that all reasoning results include their derivation traces, enabling external verification. Critical reasoning outputs (access control decisions, compliance assessments) pass through the [Trinity Gate](@/glossary/trinity-gate.md) for multi-layer validation before operational application.
 
 ---
 
@@ -111,4 +111,4 @@ Rule evaluation and knowledge base management operate under the [NO MERCY](/glos
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

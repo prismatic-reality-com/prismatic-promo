@@ -41,7 +41,7 @@ A canary release is a deployment strategy where a new software version is gradua
 
 The term derives from the historical practice of coal miners carrying caged canaries into mine shafts. Canaries are more sensitive to toxic gases than humans, so a distressed canary served as an early warning system for dangerous conditions. In software deployment, the canary population serves the same purpose: a small group of users or requests that encounter the new version first, providing early warning of defects before the broader population is affected.
 
-Canary releases represent a middle ground between the all-or-nothing approach of [blue-green deployment](/glossary/blue-green-deployment/) and the full commitment of a direct deployment. By exposing only a fraction of traffic to the new version, the blast radius of any defect is mathematically bounded. A canary serving 5% of traffic means that even a catastrophic bug affects at most 5% of users, and rollback is immediate.
+Canary releases represent a middle ground between the all-or-nothing approach of [blue-green deployment](@/glossary/blue-green-deployment.md) and the full commitment of a direct deployment. By exposing only a fraction of traffic to the new version, the blast radius of any defect is mathematically bounded. A canary serving 5% of traffic means that even a catastrophic bug affects at most 5% of users, and rollback is immediate.
 
 ## Technical Deep Dive
 
@@ -742,18 +742,18 @@ end
 
 ## Related Concepts
 
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) -- Atomic switching alternative to gradual canary rollout
-- [Feature Flag](/glossary/feature-flag/) -- Runtime toggles enabling per-user canary targeting
-- [Observability](/glossary/observability/) -- Monitoring capabilities required for canary health assessment
-- [Continuous Deployment](/glossary/continuous-deployment/) -- Pipeline orchestrating canary release stages
-- [Load Balancing](/glossary/load-balancing/) -- Traffic distribution mechanism enabling canary routing
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) -- Atomic switching alternative to gradual canary rollout
+- [Feature Flag](@/glossary/feature-flag.md) -- Runtime toggles enabling per-user canary targeting
+- [Observability](@/glossary/observability.md) -- Monitoring capabilities required for canary health assessment
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- Pipeline orchestrating canary release stages
+- [Load Balancing](@/glossary/load-balancing.md) -- Traffic distribution mechanism enabling canary routing
 
 ## Further Reading
 
 - [Accelerate by Nicole Forsgren](https://itrevolution.com/product/accelerate/) -- Research on deployment practices and organizational performance
-- [Architecture](/architecture/) -- Release strategy architecture
-- [Technologies](/technologies/) -- Deployment infrastructure
-- [Apps](/apps/) -- Applications deployed via canary strategy
+- [Architecture](@/architecture/_index.md) -- Release strategy architecture
+- [Technologies](@/technologies/_index.md) -- Deployment infrastructure
+- [Apps](@/apps/_index.md) -- Applications deployed via canary strategy
 
 ---
 
@@ -762,4 +762,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

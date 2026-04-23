@@ -23,7 +23,7 @@ image_alt = "NABLA Infinity - Prismatic Platform"
 
 NABLA Infinity (written as the mathematical symbol for the gradient operator, suggesting infinite-dimensional exploration of epistemic space) is the foundational epistemic framework governing all belief formation and knowledge validation within the Prismatic Platform. It defines seven non-negotiable axioms that every agent, pipeline, and decision process must satisfy. Five axioms carry hard enforcement (violations trigger immediate blocking), and two carry soft enforcement (violations trigger warnings and investigation).
 
-The framework operates at 3NL Level 3 integration, meaning it is not a suggestion or a best practice but a structural constraint woven into the platform's runtime. Agents cannot form beliefs, validate claims, or make decisions without NABLA axiom compliance. The axioms are enforced programmatically through the [epistemic pipeline](/glossary/epistemic-pipeline/), validated through [QEVE](/glossary/qeve/), and gated through [Trinity Gate](/glossary/trinity-gate/).
+The framework operates at 3NL Level 3 integration, meaning it is not a suggestion or a best practice but a structural constraint woven into the platform's runtime. Agents cannot form beliefs, validate claims, or make decisions without NABLA axiom compliance. The axioms are enforced programmatically through the [epistemic pipeline](@/glossary/epistemic-pipeline.md), validated through [QEVE](@/glossary/qeve.md), and gated through [Trinity Gate](@/glossary/trinity-gate.md).
 
 The core philosophical position of NABLA Infinity is uncompromising: **Reality is not a democracy. Evidence is not optional. Contradictions are not embarrassments.** The framework treats epistemic hygiene with the same rigor that type systems bring to software correctness -- violations are caught at the structural level, not left to human judgment.
 
@@ -47,7 +47,7 @@ This is the most counterintuitive axiom and the one most frequently violated by 
 
 Contradictions are preserved because they carry information. A contradiction between two credible sources indicates either (a) the situation is genuinely ambiguous, (b) one source has information the other lacks, or (c) the framing of the question is flawed. All three possibilities are valuable. Premature resolution destroys this information.
 
-Preserved contradictions are annotated with severity (weak, moderate, strong) and propagated through the pipeline. The [QEVE](/glossary/qeve/) confidence formula includes a contradiction index that reduces final confidence in proportion to unresolved contradictions, ensuring they are never ignored even if they are preserved.
+Preserved contradictions are annotated with severity (weak, moderate, strong) and propagated through the pipeline. The [QEVE](@/glossary/qeve.md) confidence formula includes a contradiction index that reduces final confidence in proportion to unresolved contradictions, ensuring they are never ignored even if they are preserved.
 
 **Violation response**: E2 BLOCK. Any operation that discards contradictory evidence is halted immediately.
 
@@ -154,25 +154,25 @@ NABLA Infinity enforcement operates at four escalating levels:
 |-------|---------|----------|--------------------|
 | **E1** | Single soft axiom violation (Absence Informative or Source Independence) | Warning issued. Correction requested. Operation continues with logged deviation | Agent-level |
 | **E2** | Single hard axiom violation or anti-pattern detection | BLOCK. Operation halted. Rejection issued. Must be corrected before proceeding | System-level |
-| **E3** | [Trinity Gate](/glossary/trinity-gate/) failure or Contradiction Burial detection | HALT. Mandatory review required. No bypass. Full diagnostic logged | Supreme authority |
+| **E3** | [Trinity Gate](@/glossary/trinity-gate.md) failure or Contradiction Burial detection | HALT. Mandatory review required. No bypass. Full diagnostic logged | Supreme authority |
 | **E4** | Multiple simultaneous axiom violations or systematic pattern of violations | Full investigation. Audit of all recent evaluations. Root cause analysis required | Cosmic clearance |
 
 Enforcement is non-bypassable. There is no flag, configuration option, or authority level that can disable axiom enforcement. The axioms are structural constraints, not policy preferences. Disabling them would be equivalent to disabling type checking in a compiled language -- technically possible but architecturally destructive.
 
 ## Integration with Trinity Gate
 
-NABLA Infinity and [Trinity Gate](/glossary/trinity-gate/) serve complementary but distinct roles in the epistemic pipeline:
+NABLA Infinity and [Trinity Gate](@/glossary/trinity-gate.md) serve complementary but distinct roles in the epistemic pipeline:
 
 - **NABLA Infinity governs belief formation**: How evidence is gathered, structured, weighted, and connected into a belief graph
 - **Trinity Gate governs belief acceptance**: Whether a formed belief meets the structural, logical, and formal standards required for acceptance
 
 The relationship is sequential. NABLA axioms constrain the input to Trinity Gate. A belief graph that violates Signal Plurality will fail the Trinity Gate's logical consistency check. A belief graph that buries contradictions will fail the structural consistency check. NABLA compliance is a necessary (but not sufficient) condition for Trinity Gate passage.
 
-[QEVE](/glossary/qeve/) sits between the two, providing the verification machinery that translates NABLA-compliant belief graphs into Trinity Gate evaluations. The QEVE pipeline's first stage (Graph Build) directly enforces NABLA axioms, while its later stages feed into Trinity Gate's three checks.
+[QEVE](@/glossary/qeve.md) sits between the two, providing the verification machinery that translates NABLA-compliant belief graphs into Trinity Gate evaluations. The QEVE pipeline's first stage (Graph Build) directly enforces NABLA axioms, while its later stages feed into Trinity Gate's three checks.
 
 ## Transition to Execution
 
-The transition from NABLA-governed exploration to [NM/ND](/glossary/nm-nd/)-governed execution follows a strict protocol:
+The transition from NABLA-governed exploration to [NM/ND](@/glossary/nm-nd.md)-governed execution follows a strict protocol:
 
 ```
 EXPLORATION PHASE (NABLA Infinity active)
@@ -190,32 +190,32 @@ TRANSITION CONDITIONS (ALL must be satisfied)
         |
         v
 EXECUTION PHASE (NM/ND Doctrine active)
-  - [No Mercy](/glossary/no-mercy/): Complete execution, zero tolerance for incomplete delivery
-  - [No Doubts](/glossary/no-doubts/): Full commitment to the verified conclusion
+  - [No Mercy](@/glossary/no-mercy.md): Complete execution, zero tolerance for incomplete delivery
+  - [No Doubts](@/glossary/no-doubts.md): Full commitment to the verified conclusion
   - Decisive action based on formally verified, robustness-tested beliefs
 ```
 
-The transition is the critical moment in the platform's reasoning process. Before the transition, doubt is not just acceptable but mandatory -- NABLA requires preserving uncertainty, maintaining contradictions, and acknowledging the unknown. After the transition, doubt is replaced by commitment -- the [NM/ND](/glossary/nm-nd/) doctrine requires complete execution without hedging.
+The transition is the critical moment in the platform's reasoning process. Before the transition, doubt is not just acceptable but mandatory -- NABLA requires preserving uncertainty, maintaining contradictions, and acknowledging the unknown. After the transition, doubt is replaced by commitment -- the [NM/ND](@/glossary/nm-nd.md) doctrine requires complete execution without hedging.
 
 This dual-phase approach prevents both failure modes: acting too soon on unverified beliefs (premature execution) and never acting because there is always more evidence to gather (analysis paralysis). NABLA's axioms define what "sufficient verification" means. Trinity Gate certifies that verification is complete. NM/ND governs what happens next.
 
 ## Related Terms
 
-- [Trinity Gate](/glossary/trinity-gate/) -- 4-layer verification gate for NABLA-governed beliefs
-- [QEVE](/glossary/qeve/) -- Verification engine implementing NABLA axioms in its pipeline
-- [Signal Plurality](/glossary/signal-plurality/) -- Core axiom requiring minimum 2 independent signals
-- [Confidence Threshold](/glossary/confidence-threshold/) -- Decision thresholds derived from NABLA axiom compliance
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom requiring full traceability for all beliefs
-- [NM/ND Doctrine](/glossary/nm-nd/) -- Execution doctrine activated when NABLA confidence is sufficient
-- [No Mercy](/glossary/no-mercy/) -- Execution-phase enforcement of complete delivery
-- [No Doubts](/glossary/no-doubts/) -- Execution-phase enforcement of decisive action
-- [3NL Framework](/glossary/three-nl/) -- Integration framework connecting NABLA to AIAD agents
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) -- The 16-level pipeline in which NABLA operates
-- [White Team](/glossary/white-team/) -- Verification team producing NABLA-compliant formal proofs
-- [Red Team](/glossary/red-team/) -- Adversarial team testing NABLA's resistance to epistemic attacks
-- [Blue Team](/glossary/blue-team/) -- Defensive team maintaining NABLA compliance across the platform
-- [Gray Team](/glossary/gray-team/) -- Boundary exploration team surfacing NABLA edge cases
-- [Lean4](/glossary/lean4/) -- Theorem prover used in formal verification of NABLA-governed beliefs
+- [Trinity Gate](@/glossary/trinity-gate.md) -- 4-layer verification gate for NABLA-governed beliefs
+- [QEVE](@/glossary/qeve.md) -- Verification engine implementing NABLA axioms in its pipeline
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Core axiom requiring minimum 2 independent signals
+- [Confidence Threshold](@/glossary/confidence-threshold.md) -- Decision thresholds derived from NABLA axiom compliance
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom requiring full traceability for all beliefs
+- [NM/ND Doctrine](@/glossary/nm-nd.md) -- Execution doctrine activated when NABLA confidence is sufficient
+- [No Mercy](@/glossary/no-mercy.md) -- Execution-phase enforcement of complete delivery
+- [No Doubts](@/glossary/no-doubts.md) -- Execution-phase enforcement of decisive action
+- [3NL Framework](@/glossary/three-nl.md) -- Integration framework connecting NABLA to AIAD agents
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) -- The 16-level pipeline in which NABLA operates
+- [White Team](@/glossary/white-team.md) -- Verification team producing NABLA-compliant formal proofs
+- [Red Team](@/glossary/red-team.md) -- Adversarial team testing NABLA's resistance to epistemic attacks
+- [Blue Team](@/glossary/blue-team.md) -- Defensive team maintaining NABLA compliance across the platform
+- [Gray Team](@/glossary/gray-team.md) -- Boundary exploration team surfacing NABLA edge cases
+- [Lean4](@/glossary/lean4.md) -- Theorem prover used in formal verification of NABLA-governed beliefs
 
 ## See Also
 
@@ -226,7 +226,7 @@ This dual-phase approach prevents both failure modes: acting too soon on unverif
 - [prismatic_3nl](../../../apps/prismatic_3nl/README.md) -- 3NL framework with Level 3 NABLA integration
 - [prismatic_trinity_nexus](../../../apps/prismatic_trinity_nexus/README.md) -- Trinity Gate implementation
 - [prismatic_agents](../../../apps/prismatic_agents/README.md) -- Agent runtime enforcing NABLA axiom compliance
-- [Architecture](/architecture/) -- Platform architecture overview
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
 
 ---
 
@@ -235,4 +235,4 @@ This dual-phase approach prevents both failure modes: acting too soon on unverif
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

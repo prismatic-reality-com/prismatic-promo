@@ -32,11 +32,11 @@ image_alt = "GenServer - Prismatic Platform"
 
 ## Definition and Overview
 
-GenServer (Generic Server) is an [OTP](/glossary/otp/) behaviour that abstracts the common client-server interaction pattern into a standardized, reusable module. It provides a uniform interface for synchronous requests (`handle_call/3`), asynchronous notifications (`handle_cast/2`), and system message handling (`handle_info/2`), while managing process state, crash recovery through supervision, and lifecycle callbacks. In the OTP philosophy, every piece of mutable state in an application should be owned by a dedicated GenServer process, ensuring that state access is serialized, failures are isolated, and recovery is automatic.
+GenServer (Generic Server) is an [OTP](@/glossary/otp.md) behaviour that abstracts the common client-server interaction pattern into a standardized, reusable module. It provides a uniform interface for synchronous requests (`handle_call/3`), asynchronous notifications (`handle_cast/2`), and system message handling (`handle_info/2`), while managing process state, crash recovery through supervision, and lifecycle callbacks. In the OTP philosophy, every piece of mutable state in an application should be owned by a dedicated GenServer process, ensuring that state access is serialized, failures are isolated, and recovery is automatic.
 
-GenServer is the most fundamental building block in the OTP ecosystem. While the [BEAM](/glossary/beam/) virtual machine provides the raw primitives of processes, message passing, and links/monitors, GenServer encodes decades of distributed systems experience into a standardized abstraction. It handles the boilerplate of process initialization, message loop management, timeout configuration, code change callbacks, and termination cleanup, allowing developers to focus on business logic expressed as pure callback implementations.
+GenServer is the most fundamental building block in the OTP ecosystem. While the [BEAM](@/glossary/beam.md) virtual machine provides the raw primitives of processes, message passing, and links/monitors, GenServer encodes decades of distributed systems experience into a standardized abstraction. It handles the boilerplate of process initialization, message loop management, timeout configuration, code change callbacks, and termination cleanup, allowing developers to focus on business logic expressed as pure callback implementations.
 
-The behaviour pattern underlying GenServer is central to Elixir and Erlang's approach to software architecture. A [behaviour](/glossary/behaviour/) defines a set of callback functions that a module must implement, similar to interfaces in object-oriented languages but with the addition of a default implementation (the GenServer module itself) that provides the process management infrastructure. This separation of concerns -- infrastructure in the behaviour, business logic in the callbacks -- is what enables OTP's legendary reliability in production systems.
+The behaviour pattern underlying GenServer is central to Elixir and Erlang's approach to software architecture. A [behaviour](@/glossary/behaviour.md) defines a set of callback functions that a module must implement, similar to interfaces in object-oriented languages but with the addition of a default implementation (the GenServer module itself) that provides the process management infrastructure. This separation of concerns -- infrastructure in the behaviour, business logic in the callbacks -- is what enables OTP's legendary reliability in production systems.
 
 ## Historical Context and Design Philosophy
 
@@ -156,7 +156,7 @@ start_link/1  -->  init/1  -->  Message Loop  -->  terminate/2  -->  Process Exi
                      +-- {:stop, reason} ----------------+
 ```
 
-The lifecycle integrates with supervision trees: when a supervised GenServer crashes, the [supervisor](/glossary/supervisor/) detects the process exit, logs the failure, and starts a new instance according to the configured restart strategy. The new instance calls `init/1` with the original arguments, establishing fresh state. This is the mechanical realization of the [let-it-crash](/glossary/let-it-crash/) philosophy.
+The lifecycle integrates with supervision trees: when a supervised GenServer crashes, the [supervisor](@/glossary/supervisor.md) detects the process exit, logs the failure, and starts a new instance according to the configured restart strategy. The new instance calls `init/1` with the original arguments, establishing fresh state. This is the mechanical realization of the [let-it-crash](@/glossary/let-it-crash.md) philosophy.
 
 ### Timeout and Hibernation
 
@@ -257,7 +257,7 @@ end
 
 ### GenServer with ETS Backing
 
-A common pattern combines GenServer state management with [ETS](/glossary/ets-table/) for concurrent reads:
+A common pattern combines GenServer state management with [ETS](@/glossary/ets-table.md) for concurrent reads:
 
 ```elixir
 defmodule PrismaticCache.Store do
@@ -332,7 +332,7 @@ GenServer is the fundamental building block for stateful components across all 1
 | Module | Lines | Purpose |
 |--------|-------|---------|
 | `StackConversation` | 1,128 | Stack-based conversation state with ETS persistence |
-| `SessionLifecycle` | 905 | Session hooks with [circuit breaker](/glossary/circuit-breaker/) pattern |
+| `SessionLifecycle` | 905 | Session hooks with [circuit breaker](@/glossary/circuit-breaker.md) pattern |
 | `QualityFloorGuardian` | ~500 | Autonomous quality monitoring and alerting |
 | `AppRegistry` | ~400 | 115-app registry with dependency tracking |
 | `HealthMonitor` | ~350 | Process and application health monitoring |
@@ -340,7 +340,7 @@ GenServer is the fundamental building block for stateful components across all 1
 
 ### Circuit Breaker Pattern
 
-The SessionLifecycle GenServer implements a [circuit breaker](/glossary/circuit-breaker/) pattern to prevent cascading failures:
+The SessionLifecycle GenServer implements a [circuit breaker](@/glossary/circuit-breaker.md) pattern to prevent cascading failures:
 
 ```elixir
 defmodule PrismaticClaude.SessionLifecycle do
@@ -410,7 +410,7 @@ end
 
 ### Telemetry Integration
 
-Platform GenServers emit [telemetry](/glossary/telemetry/) events for observability:
+Platform GenServers emit [telemetry](@/glossary/telemetry.md) events for observability:
 
 ```elixir
 defmodule PrismaticTelemetry.GenServerInstrumentation do
@@ -525,7 +525,7 @@ end
 
 **Use `handle_continue/2` for post-initialization work.** Heavy initialization (loading data from disk, building caches) should happen in `handle_continue`, not `init/1`. This allows the supervisor to finish startup without blocking on slow initialization.
 
-**Emit telemetry events.** Instrument GenServer operations with [telemetry](/glossary/telemetry/) for production observability. Track message processing latency, mailbox size, and state size to detect performance issues early.
+**Emit telemetry events.** Instrument GenServer operations with [telemetry](@/glossary/telemetry.md) for production observability. Track message processing latency, mailbox size, and state size to detect performance issues early.
 
 **Always use `@impl` annotations.** The `@impl GenServer` annotation provides compile-time verification that your callback matches the behaviour's contract. This catches typos and arity mismatches that would otherwise silently create non-callback functions.
 
@@ -533,15 +533,15 @@ end
 
 ## Common Pitfalls
 
-**Bottlenecking reads through GenServer.** Using `handle_call` for read operations serializes all readers through the process mailbox. For read-heavy workloads, store data in [ETS](/glossary/ets-table/) and read directly, bypassing GenServer for reads while keeping writes serialized.
+**Bottlenecking reads through GenServer.** Using `handle_call` for read operations serializes all readers through the process mailbox. For read-heavy workloads, store data in [ETS](@/glossary/ets-table.md) and read directly, bypassing GenServer for reads while keeping writes serialized.
 
-**Unbounded mailbox growth.** If messages arrive faster than the GenServer can process them, the mailbox grows without bound, eventually consuming all memory. Implement [backpressure](/glossary/backpressure/) through caller-side rate limiting or use GenStage/Broadway for demand-driven processing.
+**Unbounded mailbox growth.** If messages arrive faster than the GenServer can process them, the mailbox grows without bound, eventually consuming all memory. Implement [backpressure](@/glossary/backpressure.md) through caller-side rate limiting or use GenStage/Broadway for demand-driven processing.
 
 **Large state in GenServer heap.** Storing large datasets (millions of records) in GenServer state causes garbage collection pauses. Move large data to ETS, which has its own memory space and is not subject to per-process GC.
 
 **Synchronous calls in init/1.** Making GenServer.call to other processes during init creates startup ordering dependencies and potential deadlocks. Use `handle_continue` for operations that depend on other processes being available.
 
-**Missing @impl annotations.** Without `@impl GenServer`, typos in callback names silently create new functions rather than overriding callbacks. Always annotate callbacks with `@impl` for compile-time verification via [Dialyzer](/glossary/dialyzer/).
+**Missing @impl annotations.** Without `@impl GenServer`, typos in callback names silently create new functions rather than overriding callbacks. Always annotate callbacks with `@impl` for compile-time verification via [Dialyzer](@/glossary/dialyzer.md).
 
 **Deadlocks from self-calls.** A GenServer calling itself with `GenServer.call(__MODULE__, msg)` within a callback will deadlock because the process is already handling a message and cannot process the new call. Use internal function calls instead.
 
@@ -592,25 +592,25 @@ end
 
 ## Related Concepts
 
-- [OTP](/glossary/otp/) -- Framework providing GenServer and other standard behaviours
-- [Supervision Tree](/glossary/supervision-tree/) -- Process monitoring ensuring GenServer fault tolerance
-- [ETS Table](/glossary/ets-table/) -- In-memory storage often backing GenServer state
-- [Behaviour](/glossary/behaviour/) -- The callback mechanism that GenServer implements
-- [GenStatem](/glossary/gen-statem/) -- State machine behaviour for processes with explicit states
-- [Telemetry](/glossary/telemetry/) -- Metrics and events emitted by GenServer processes
-- [Message Passing](/glossary/message-passing/) -- Communication model underlying GenServer interactions
-- [Process Isolation](/glossary/process-isolation/) -- BEAM property enabling safe GenServer crashes
-- [Let It Crash](/glossary/let-it-crash/) -- Philosophy that GenServer supervision implements
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Pattern implemented via GenServer state machines
-- [Dialyzer](/glossary/dialyzer/) -- Static analysis verifying GenServer callback types
-- [Backpressure](/glossary/backpressure/) -- Flow control for GenServer mailbox management
+- [OTP](@/glossary/otp.md) -- Framework providing GenServer and other standard behaviours
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Process monitoring ensuring GenServer fault tolerance
+- [ETS Table](@/glossary/ets-table.md) -- In-memory storage often backing GenServer state
+- [Behaviour](@/glossary/behaviour.md) -- The callback mechanism that GenServer implements
+- [GenStatem](@/glossary/gen-statem.md) -- State machine behaviour for processes with explicit states
+- [Telemetry](@/glossary/telemetry.md) -- Metrics and events emitted by GenServer processes
+- [Message Passing](@/glossary/message-passing.md) -- Communication model underlying GenServer interactions
+- [Process Isolation](@/glossary/process-isolation.md) -- BEAM property enabling safe GenServer crashes
+- [Let It Crash](@/glossary/let-it-crash.md) -- Philosophy that GenServer supervision implements
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Pattern implemented via GenServer state machines
+- [Dialyzer](@/glossary/dialyzer.md) -- Static analysis verifying GenServer callback types
+- [Backpressure](@/glossary/backpressure.md) -- Flow control for GenServer mailbox management
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Apps](/apps/) -- Umbrella applications built on GenServer processes
-- [Agents](/agents/) -- Agent system using GenServer as runtime foundation
-- [Technologies](/technologies/) -- Technology stack and OTP framework details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Apps](@/apps/_index.md) -- Umbrella applications built on GenServer processes
+- [Agents](@/agents/_index.md) -- Agent system using GenServer as runtime foundation
+- [Technologies](@/technologies/_index.md) -- Technology stack and OTP framework details
 
 ---
 
@@ -619,4 +619,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

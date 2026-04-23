@@ -459,26 +459,26 @@ end
 
 ## Related Terms
 
-- [Query Plan](/glossary/query-plan/) -- the execution strategy a database generates for a query
-- [Sequential Scan](/glossary/sequential-scan/) -- a full-table scan when no index is available
-- [Schema](/glossary/schema/) -- the structural definition that queries operate against
-- [Resolver](/glossary/resolver/) -- the function that executes a query in GraphQL contexts
-- [Storage Adapter](/glossary/storage-adapter/) -- the abstraction layer that translates queries to backend-specific operations
-- [Meilisearch](/glossary/meilisearch/) -- full-text search engine used by Prismatic Platform
-- [Ecto](/glossary/ecto/) -- Elixir database wrapper providing composable query DSL
-- [ETS](/glossary/ets/) -- Erlang Term Storage for in-memory lookups with match specifications
+- [Query Plan](@/glossary/query-plan.md) -- the execution strategy a database generates for a query
+- [Sequential Scan](@/glossary/sequential-scan.md) -- a full-table scan when no index is available
+- [Schema](@/glossary/schema.md) -- the structural definition that queries operate against
+- [Resolver](@/glossary/resolver.md) -- the function that executes a query in GraphQL contexts
+- [Storage Adapter](@/glossary/storage-adapter.md) -- the abstraction layer that translates queries to backend-specific operations
+- [Meilisearch](@/glossary/meilisearch.md) -- full-text search engine used by Prismatic Platform
+- [Ecto](@/glossary/ecto.md) -- Elixir database wrapper providing composable query DSL
+- [ETS](@/glossary/ets.md) -- Erlang Term Storage for in-memory lookups with match specifications
 - [Index](/glossary/index/) -- database structures that accelerate query execution
 - [Pagination](/glossary/pagination/) -- result windowing strategies for large query results
-- [Caching](/glossary/caching/) -- query result caching for performance optimization
+- [Caching](@/glossary/caching.md) -- query result caching for performance optimization
 - [SQL](/glossary/sql/) -- the standard language for relational database queries
 
 ## See Also
 
-- [Storage Architecture](/architecture/) -- how Prismatic Platform organizes its multi-backend storage
-- [OSINT Toolbox](/osint/) -- querying intelligence tools through the self-registering system
-- [DD Pipeline](/dd/) -- entity queries in the due diligence pipeline
-- [Academy](/academy/) -- topic and glossary queries in the learning platform
-- [API Documentation](/api/) -- query parameter conventions for REST endpoints
+- [Storage Architecture](@/architecture/_index.md) -- how Prismatic Platform organizes its multi-backend storage
+- [OSINT Toolbox](@/osint/_index.md) -- querying intelligence tools through the self-registering system
+- [DD Pipeline](@/dd/_index.md) -- entity queries in the due diligence pipeline
+- [Academy](@/academy/_index.md) -- topic and glossary queries in the learning platform
+- [API Documentation](@/api/_index.md) -- query parameter conventions for REST endpoints
 
 ---
 
@@ -487,4 +487,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

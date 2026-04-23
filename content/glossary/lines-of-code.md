@@ -483,24 +483,24 @@ LOC correlates with compilation time and test execution time. Applications with 
 
 Lines of code connects to measurement, quality, and engineering practice concepts across the platform:
 
-- [Code Quality](/glossary/code-quality/) -- the multidimensional assessment of code that LOC measures only the size dimension of
-- [Codebase](/glossary/codebase/) -- the complete collection of source files whose aggregate LOC represents the platform's scale
-- [Quantitative Measure](/glossary/quantitative-measure/) -- the category of numeric metrics that includes LOC alongside coverage, latency, and throughput
-- [Technical Debt](/glossary/technical-debt/) -- accumulated maintenance burden that often correlates with LOC growth without corresponding quality improvement
-- [Code Coverage](/glossary/code-coverage/) -- the percentage of LOC exercised by tests, a quality metric that directly references line counts
-- [Quality Measurement System](/glossary/quality-measurement-system/) -- the comprehensive framework within which LOC is one of many tracked metrics
-- [Metrics](/glossary/metrics/) -- the broader discipline of software measurement that provides context for interpreting LOC
-- [Refactoring](/glossary/refactoring/) -- the practice of improving code structure that typically reduces LOC while preserving or improving functionality
-- [Maintainability](/glossary/maintainability/) -- the ease of modifying software, for which LOC is a coarse but useful predictor
-- [Complexity](/glossary/system-complexity-chaos/) -- the inherent difficulty of a system, of which LOC captures only the surface area
+- [Code Quality](@/glossary/code-quality.md) -- the multidimensional assessment of code that LOC measures only the size dimension of
+- [Codebase](@/glossary/codebase.md) -- the complete collection of source files whose aggregate LOC represents the platform's scale
+- [Quantitative Measure](@/glossary/quantitative-measure.md) -- the category of numeric metrics that includes LOC alongside coverage, latency, and throughput
+- [Technical Debt](@/glossary/technical-debt.md) -- accumulated maintenance burden that often correlates with LOC growth without corresponding quality improvement
+- [Code Coverage](@/glossary/code-coverage.md) -- the percentage of LOC exercised by tests, a quality metric that directly references line counts
+- [Quality Measurement System](@/glossary/quality-measurement-system.md) -- the comprehensive framework within which LOC is one of many tracked metrics
+- [Metrics](@/glossary/metrics.md) -- the broader discipline of software measurement that provides context for interpreting LOC
+- [Refactoring](@/glossary/refactoring.md) -- the practice of improving code structure that typically reduces LOC while preserving or improving functionality
+- [Maintainability](@/glossary/maintainability.md) -- the ease of modifying software, for which LOC is a coarse but useful predictor
+- [Complexity](@/glossary/system-complexity-chaos.md) -- the inherent difficulty of a system, of which LOC captures only the surface area
 
 ## See Also
 
-- [Static Analysis](/glossary/static-analysis/) -- automated code inspection that provides deeper insights than LOC counting alone
-- [Git Trees](/glossary/git-trees/) -- the platform's fast file indexing tool that supports efficient LOC approximation
-- [Quality Gates](/glossary/quality-gates/) -- automated checkpoints that evaluate code against multiple metrics including LOC-derived indicators
-- [Compilation](/glossary/compilation/) -- the build process whose duration correlates with total LOC in the dependency graph
-- [Performance Tracking](/glossary/performance-tracking/) -- monitoring system that can correlate LOC changes with runtime performance impacts
+- [Static Analysis](@/glossary/static-analysis.md) -- automated code inspection that provides deeper insights than LOC counting alone
+- [Git Trees](@/glossary/git-trees.md) -- the platform's fast file indexing tool that supports efficient LOC approximation
+- [Quality Gates](@/glossary/quality-gates.md) -- automated checkpoints that evaluate code against multiple metrics including LOC-derived indicators
+- [Compilation](@/glossary/compilation.md) -- the build process whose duration correlates with total LOC in the dependency graph
+- [Performance Tracking](@/glossary/performance-tracking.md) -- monitoring system that can correlate LOC changes with runtime performance impacts
 
 ---
 

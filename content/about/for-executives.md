@@ -43,13 +43,13 @@ When an auditor examines a Prismatic-managed system, they find:
 
 Every significant decision -- from architecture choices to security configurations to dependency selections -- has a **provenance chain**. This chain traces back from the final decision through the evidence that supported it, the contradictions that were considered, the confidence level that was achieved, and the formal verification that validated the conclusion.
 
-This is not a design document written after the fact. It is an automatically maintained record produced by the platform's [QEVE](/glossary/qeve/) (Quantified Epistemic Verification Engine) as decisions are made.
+This is not a design document written after the fact. It is an automatically maintained record produced by the platform's [QEVE](@/glossary/qeve.md) (Quantified Epistemic Verification Engine) as decisions are made.
 
 ### Formal Verification Artifacts
 
 Prismatic does not just test code. It **proves** properties of critical components using Lean4, a mathematical theorem prover. When the system claims that an authentication flow prevents token replay, that claim is backed by a formal proof -- not just a test that checks a few scenarios, but a mathematical proof that covers all possible scenarios.
 
-The [Trinity Gate](/glossary/trinity-gate/) requires every established claim to pass three independent verification layers:
+The [Trinity Gate](@/glossary/trinity-gate.md) requires every established claim to pass three independent verification layers:
 
 1. **Structural Consistency**: The reasoning forms a valid logical structure
 2. **Logical Consistency**: The propositions follow established logical rules
@@ -57,7 +57,7 @@ The [Trinity Gate](/glossary/trinity-gate/) requires every established claim to 
 
 ### Continuous Security Assessment
 
-Six [Color Teams](/glossary/color-teams/) with 20 specialized AI agents continuously assess the security posture:
+Six [Color Teams](@/glossary/color-teams.md) with 20 specialized AI agents continuously assess the security posture:
 
 - Gray Team discovers boundaries and specification gaps
 - Red Team simulates adversarial scenarios (sandboxed, synthetic data only)
@@ -172,11 +172,11 @@ DevSecOps platforms add security checks to CI/CD pipelines. Prismatic integrates
 
 ## Next Steps
 
-- [For Security & Risk](/about/for-security/) -- Detailed view of the Color Team architecture and EASM capabilities
-- [For Architects](/about/for-architects/) -- Technical architecture for decision-makers with engineering backgrounds
-- [QEVE Deep Dive](/about/qeve-deep-dive/) -- How the verification engine produces auditable conclusions
-- [Platform Capabilities](/capabilities/) -- Full governance and doctrinal framework
-- [Glossary: EASM](/glossary/easm/) -- External Attack Surface Management explained
+- [For Security & Risk](@/about/for-security.md) -- Detailed view of the Color Team architecture and EASM capabilities
+- [For Architects](@/about/for-architects.md) -- Technical architecture for decision-makers with engineering backgrounds
+- [QEVE Deep Dive](@/about/qeve-deep-dive.md) -- How the verification engine produces auditable conclusions
+- [Platform Capabilities](@/capabilities/_index.md) -- Full governance and doctrinal framework
+- [Glossary: EASM](@/glossary/easm.md) -- External Attack Surface Management explained
 
 ---
 
@@ -185,4 +185,4 @@ DevSecOps platforms add security checks to CI/CD pipelines. Prismatic integrates
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

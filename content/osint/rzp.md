@@ -27,11 +27,11 @@ image_alt = "RZP - Prismatic Platform"
 
 RZP (Rejstrik zivnostenskeho podnikani) is the Czech Republic's Trade Licensing Register, maintained by the Ministry of Industry and Trade (Ministerstvo prumyslu a obchodu) as the authoritative source for all trade licenses (zivnostenska opravneni) issued to natural and legal persons conducting business in the Czech Republic. The register operates under Act No. 455/1991 Coll., the Trade Licensing Act (Zivnostensky zakon), as amended, which defines the legal framework for trade licensing in the Czech Republic.
 
-While [ARES](/osint/ares/) aggregates trade license data alongside other registry sources, RZP is the primary authoritative source maintained by the licensing authorities themselves. It provides detailed information about license types, validity periods, scope of authorized activities, responsible persons for regulated trades, and any restrictions, suspensions, or revocations. The register contains records for approximately 3.5 million trade licenses across both active and historical entries.
+While [ARES](@/osint/ares.md) aggregates trade license data alongside other registry sources, RZP is the primary authoritative source maintained by the licensing authorities themselves. It provides detailed information about license types, validity periods, scope of authorized activities, responsible persons for regulated trades, and any restrictions, suspensions, or revocations. The register contains records for approximately 3.5 million trade licenses across both active and historical entries.
 
 Czech trade licensing law distinguishes four categories of trade licenses, each with different qualification requirements and regulatory oversight. This classification system is fundamental to understanding the Czech business landscape: a company's trade licenses define the scope of activities it is legally authorized to perform. Any business activity conducted without the appropriate trade license constitutes an administrative offense under Czech law.
 
-For [OSINT](/glossary/osint/) analysts, RZP provides critical verification intelligence. Claims about business capabilities can be validated against registered licenses, responsible persons for regulated activities can be identified, and the licensing history of entities reveals patterns of business expansion, contraction, or regulatory issues.
+For [OSINT](@/glossary/osint.md) analysts, RZP provides critical verification intelligence. Claims about business capabilities can be validated against registered licenses, responsible persons for regulated activities can be identified, and the licensing history of entities reveals patterns of business expansion, contraction, or regulatory issues.
 
 ## Data Sources and Coverage
 
@@ -248,9 +248,9 @@ The primary use case for RZP is verifying that entities hold the required licens
 
 RZP is an integral component of Czech entity verification workflows, providing license-level verification that complements corporate registration data.
 
-- Cross-reference with [ARES](/osint/ares/) and [Justice.cz](/osint/justice-cz/) for comprehensive entity verification
+- Cross-reference with [ARES](@/osint/ares.md) and [Justice.cz](@/osint/justice-cz.md) for comprehensive entity verification
 - Verify business scope matches claimed operations and revenue sources
-- Cross-reference license data with [Insolvencni rejstrik](/osint/insolvencni-rejstrik/) for distressed entities
+- Cross-reference license data with [Insolvencni rejstrik](@/osint/insolvencni-rejstrik.md) for distressed entities
 - Support KYC verification of Czech business entities for banking and financial services
 
 ### Regulatory Compliance and NIS2
@@ -258,7 +258,7 @@ RZP is an integral component of Czech entity verification workflows, providing l
 For organizations subject to NIS2 requirements, RZP data enables supply chain vendor verification for critical service providers.
 
 - KYC verification of Czech business entities across all regulated sectors
-- Supply chain vendor verification for [NIS2](/glossary/nis2/) compliance obligations
+- Supply chain vendor verification for [NIS2](@/glossary/nis2.md) compliance obligations
 - Anti-money laundering checks focusing on concession trades (financial services, security)
 - Verify that healthcare, pharmaceutical, and food industry suppliers hold required licenses
 
@@ -324,19 +324,19 @@ Key data quality considerations:
 ## Related Resources
 
 ### Czech Entity Registers
-- [ARES](/osint/ares/) - Aggregated Czech business register (includes RZP data)
-- [Justice.cz](/osint/justice-cz/) - Commercial Register with corporate filings
-- [VR.cz](/osint/vr-cz/) - Unified public registry portal
-- [RES](/osint/res/) - Statistical register with NACE classifications
+- [ARES](@/osint/ares.md) - Aggregated Czech business register (includes RZP data)
+- [Justice.cz](@/osint/justice-cz.md) - Commercial Register with corporate filings
+- [VR.cz](@/osint/vr-cz.md) - Unified public registry portal
+- [RES](@/osint/res.md) - Statistical register with NACE classifications
 
 ### Compliance and Verification
-- [Insolvencni rejstrik](/osint/insolvencni-rejstrik/) - Insolvency proceedings
-- [EU Sanctions](/osint/eu-sanctions/) - EU sanctions list for compliance screening
-- [SUKL](/osint/sukl/) - Pharmaceutical licensing for healthcare sector
+- [Insolvencni rejstrik](@/osint/insolvencni-rejstrik.md) - Insolvency proceedings
+- [EU Sanctions](@/osint/eu-sanctions.md) - EU sanctions list for compliance screening
+- [SUKL](@/osint/sukl.md) - Pharmaceutical licensing for healthcare sector
 
 ### Platform Components
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - EASM with supply chain verification
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - EASM with supply chain verification
 
 ---
 
@@ -345,4 +345,4 @@ Key data quality considerations:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

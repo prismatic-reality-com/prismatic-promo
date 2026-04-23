@@ -24,7 +24,7 @@ image_alt = "Color Team Security Operations - Prismatic Platform"
 
 ## Overview
 
-The Prismatic Platform employs 20 agents organized across 6 [color teams](/glossary/color-teams/) to provide epistemic security through adversarial-defensive synthesis. This is not traditional penetration testing -- it is a continuous process where agents attack, defend, synthesize, verify, and model threats to the platform's knowledge integrity. This guide teaches you the architecture, signal flow, and how to extend each team.
+The Prismatic Platform employs 20 agents organized across 6 [color teams](@/glossary/color-teams.md) to provide epistemic security through adversarial-defensive synthesis. This is not traditional penetration testing -- it is a continuous process where agents attack, defend, synthesize, verify, and model threats to the platform's knowledge integrity. This guide teaches you the architecture, signal flow, and how to extend each team.
 
 You will learn:
 
@@ -36,8 +36,8 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Multi-Agent Orchestration Patterns](/academy/agent-orchestration/)
-- Completed [Applying NABLA Infinity Axioms](/academy/nabla-infinity-guide/)
+- Completed [Multi-Agent Orchestration Patterns](@/academy/agent-orchestration.md)
+- Completed [Applying NABLA Infinity Axioms](@/academy/nabla-infinity-guide.md)
 - Understanding of security concepts (attack surface, threat modeling, defense in depth)
 
 ## Core Concepts
@@ -508,34 +508,34 @@ The signal flow uses PubSub topic conventions:
 ## See Also
 
 ### Related Applications
-- [prismatic_dark](/apps/prismatic-dark/) -- Color team runtime with sandbox isolation
-- [prismatic_safety](/apps/prismatic-safety/) -- Quality systems consuming color team outputs
-- [prismatic_nabla](/apps/prismatic-nabla/) -- Epistemic axioms used by Blue Team
-- [prismatic_lean4](/apps/prismatic-lean4/) -- Formal proofs used by White Team
-- [prismatic_deduction](/apps/prismatic-deduction/) -- Deduction engine for White Team verification
+- [prismatic_dark](@/apps/prismatic-dark.md) -- Color team runtime with sandbox isolation
+- [prismatic_safety](@/apps/prismatic-safety.md) -- Quality systems consuming color team outputs
+- [prismatic_nabla](@/apps/prismatic-nabla.md) -- Epistemic axioms used by Blue Team
+- [prismatic_lean4](@/apps/prismatic-lean4.md) -- Formal proofs used by White Team
+- [prismatic_deduction](@/apps/prismatic-deduction.md) -- Deduction engine for White Team verification
 
 ### Glossary
-- [Color Teams](/glossary/color-teams/) -- Overview of the 6-team security architecture
-- [Red Team](/glossary/red-team/) -- Adversarial simulation agents
-- [Blue Team](/glossary/blue-team/) -- Epistemic defense agents
-- [Purple Team](/glossary/purple-team/) -- Synthesis and loop closure agents
-- [White Team](/glossary/white-team/) -- Constructive verification agents
-- [Black Team](/glossary/black-team/) -- Theoretical threat modeling (maximum isolation)
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework underlying color team operations
-- [Trinity Gate](/glossary/trinity-gate/) -- 3-layer validation gate for claims
-- [Penetration Testing](/glossary/penetration-testing/) -- Traditional security testing context
+- [Color Teams](@/glossary/color-teams.md) -- Overview of the 6-team security architecture
+- [Red Team](@/glossary/red-team.md) -- Adversarial simulation agents
+- [Blue Team](@/glossary/blue-team.md) -- Epistemic defense agents
+- [Purple Team](@/glossary/purple-team.md) -- Synthesis and loop closure agents
+- [White Team](@/glossary/white-team.md) -- Constructive verification agents
+- [Black Team](@/glossary/black-team.md) -- Theoretical threat modeling (maximum isolation)
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework underlying color team operations
+- [Trinity Gate](@/glossary/trinity-gate.md) -- 3-layer validation gate for claims
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Traditional security testing context
 
 ### Related Academy Topics
-- [Formal Verification with Lean4](/academy/formal-verification-guide/) -- White Team's formal proof methods
-- [Self-Evolving Ecosystems](/academy/evolution-patterns/) -- How color team findings drive evolution
-- [Building EASM Features](/academy/easm-development/) -- Security concepts applied to attack surfaces
-- [NABLA Infinity Axioms](/academy/nabla-infinity-guide/) -- Epistemic framework used by Blue Team
+- [Formal Verification with Lean4](@/academy/formal-verification-guide.md) -- White Team's formal proof methods
+- [Self-Evolving Ecosystems](@/academy/evolution-patterns.md) -- How color team findings drive evolution
+- [Building EASM Features](@/academy/easm-development.md) -- Security concepts applied to attack surfaces
+- [NABLA Infinity Axioms](@/academy/nabla-infinity-guide.md) -- Epistemic framework used by Blue Team
 
 ## Next Steps
 
-- [Formal Verification with Lean4](/academy/formal-verification-guide/) -- White Team's formal proof methods
-- [Self-Evolving Agent Ecosystems](/academy/evolution-patterns/) -- how color team findings drive evolution
-- [Building EASM Features](/academy/easm-development/) -- security concepts applied to external attack surfaces
+- [Formal Verification with Lean4](@/academy/formal-verification-guide.md) -- White Team's formal proof methods
+- [Self-Evolving Agent Ecosystems](@/academy/evolution-patterns.md) -- how color team findings drive evolution
+- [Building EASM Features](@/academy/easm-development.md) -- security concepts applied to external attack surfaces
 
 ---
 
@@ -544,4 +544,4 @@ The signal flow uses PubSub topic conventions:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -188,11 +188,11 @@ The interconnection system bridges the Academy, OSINT, and Glossary subsystems, 
 
 ## Cross-References
 
-- [Knowledge Graph](/glossary/knowledge-graph/) - Underlying data structure for interconnections
+- [Knowledge Graph](@/glossary/knowledge-graph.md) - Underlying data structure for interconnections
 - **Topic** - Academy knowledge units connected by interconnections
-- [Graph Database](/glossary/graph-database/) - Persistent storage for complex relationship graphs
+- [Graph Database](@/glossary/graph-database.md) - Persistent storage for complex relationship graphs
 - **Academy** - Primary consumer of interconnection data
-- [ETS](/glossary/ets/) - In-memory storage for fast interconnection lookups
+- [ETS](@/glossary/ets.md) - In-memory storage for fast interconnection lookups
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

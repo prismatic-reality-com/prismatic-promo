@@ -30,9 +30,9 @@ image_alt = "unified-orchestrator - Prismatic Platform"
 
 The Unified Orchestrator is an L1 Supreme Authority agent operating in the **medium-predator** organism classification of the Prismatic Platform. This agent serves as the supreme coordination hub for intelligent task routing and multi-agent orchestration, decomposing complex objectives into coordinated task sequences and dispatching them to the most capable specialist agents. When users invoke the `/orchestrate` command, it is the Unified Orchestrator that analyzes the request, formulates an execution plan, allocates agent resources, and monitors the mission to completion.
 
-The "medium-predator" classification reflects the Unified Orchestrator's position in the platform's ecological hierarchy -- it actively coordinates and directs lower-tier agents (herbivores and small predators) while operating under the strategic direction of the [Strategic Command](/agents/strategic-command/) and Supreme Commander agents. This intermediate position gives the Unified Orchestrator both the tactical flexibility to adapt to changing conditions and the strategic awareness to align task execution with platform-wide objectives.
+The "medium-predator" classification reflects the Unified Orchestrator's position in the platform's ecological hierarchy -- it actively coordinates and directs lower-tier agents (herbivores and small predators) while operating under the strategic direction of the [Strategic Command](@/agents/strategic-command.md) and Supreme Commander agents. This intermediate position gives the Unified Orchestrator both the tactical flexibility to adapt to changing conditions and the strategic awareness to align task execution with platform-wide objectives.
 
-This agent operates under the [NO MERCY](/glossary/no-mercy/) doctrine, executing orchestration decisions with absolute confidence after [Trinity Gate](/glossary/trinity-gate/) verification and demanding complete execution from all subordinate agents.
+This agent operates under the [NO MERCY](@/glossary/no-mercy.md) doctrine, executing orchestration decisions with absolute confidence after [Trinity Gate](@/glossary/trinity-gate.md) verification and demanding complete execution from all subordinate agents.
 
 ## Orchestration Architecture
 
@@ -174,7 +174,7 @@ The Unified Orchestrator selects agents for subtasks based on a multi-factor sco
 
 ## Mission Monitoring
 
-The Unified Orchestrator provides real-time mission monitoring through structured [telemetry](/glossary/telemetry/) events. These events feed into the platform's LiveView monitoring dashboards, providing real-time visibility into mission progress for both automated systems and human operators.
+The Unified Orchestrator provides real-time mission monitoring through structured [telemetry](@/glossary/telemetry.md) events. These events feed into the platform's LiveView monitoring dashboards, providing real-time visibility into mission progress for both automated systems and human operators.
 
 | Event | Data | Frequency |
 |-------|------|-----------|
@@ -246,7 +246,7 @@ end
 
 ## Mycelial Network Integration
 
-The Unified Orchestrator communicates with agents through the platform's [mycelial network](/glossary/mycelial-network/), enabling rapid signal propagation and distributed coordination.
+The Unified Orchestrator communicates with agents through the platform's [mycelial network](@/glossary/mycelial-network.md), enabling rapid signal propagation and distributed coordination.
 
 | Network Operation | Mechanism | Latency |
 |------------------|-----------|---------|
@@ -257,11 +257,11 @@ The Unified Orchestrator communicates with agents through the platform's [myceli
 
 ## Integration Points
 
-- [**NABLA Axioms**](/capabilities/nabla-axioms/) -- Epistemic framework for orchestration decisions
-- [**Trinity Gate**](/capabilities/trinity-gate/) -- Verification of mission plans
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Mission monitoring and metrics
-- [**Quality Gates**](/capabilities/quality-gates/) -- Mission output quality validation
-- [**Real-time Monitoring**](/capabilities/real-time-monitoring/) -- Live mission dashboards
+- [**NABLA Axioms**](@/capabilities/nabla-axioms.md) -- Epistemic framework for orchestration decisions
+- [**Trinity Gate**](@/capabilities/trinity-gate.md) -- Verification of mission plans
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Mission monitoring and metrics
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Mission output quality validation
+- [**Real-time Monitoring**](@/capabilities/real-time-monitoring.md) -- Live mission dashboards
 
 ## AIAD Specification Compliance
 
@@ -269,16 +269,16 @@ The Unified Orchestrator communicates with agents through the platform's [myceli
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 20 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
 
 ## Related Agents
 
-- [**Strategic Command**](/agents/strategic-command/) -- Provides strategic direction for orchestration
-- [**Six Sigma Psycho Coordinator**](/agents/six-sigma-psycho-coordinator/) -- Quality enforcement on orchestrated outputs
-- [**Scalability Architect**](/agents/scalability-architect/) -- Resource scaling for large orchestrations
-- [**Strangler Pattern Specialist**](/agents/strangler-pattern-specialist/) -- Coordinated migration orchestration
+- [**Strategic Command**](@/agents/strategic-command.md) -- Provides strategic direction for orchestration
+- [**Six Sigma Psycho Coordinator**](@/agents/six-sigma-psycho-coordinator.md) -- Quality enforcement on orchestrated outputs
+- [**Scalability Architect**](@/agents/scalability-architect.md) -- Resource scaling for large orchestrations
+- [**Strangler Pattern Specialist**](@/agents/strangler-pattern-specialist.md) -- Coordinated migration orchestration
 
 ## Mission Types and Templates
 
@@ -304,4 +304,4 @@ The Unified Orchestrator maintains a library of mission templates for common orc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -423,24 +423,24 @@ The "shift-left" movement advocates moving testing earlier in the lifecycle. Con
 
 ## Related Concepts
 
-- [Quality Gate](/glossary/quality-gate/) -- individual checkpoints within the continuous validation pipeline
-- [Quality Gates](/glossary/quality-gates/) -- the collection of gates that form the validation pipeline
-- [Testing](/glossary/testing/) -- the practice of verifying software behavior through automated tests
-- [Static Analysis](/glossary/static-analysis/) -- compile-time validation without code execution
-- [Credo](/glossary/credo/) -- the Elixir static analysis tool enforcing style and correctness
-- [Dialyzer](/glossary/dialyzer/) -- the Erlang/Elixir type analysis tool for type safety validation
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- the mechanism enforcing validation before commits
-- [Regression Testing](/glossary/regression-testing/) -- verifying that new changes do not break existing functionality
-- [CI/CD](/glossary/ci-cd/) -- the automated pipeline that executes validation in the build environment
-- [Code Quality](/glossary/code-quality/) -- the measurable attributes that continuous validation enforces
+- [Quality Gate](@/glossary/quality-gate.md) -- individual checkpoints within the continuous validation pipeline
+- [Quality Gates](@/glossary/quality-gates.md) -- the collection of gates that form the validation pipeline
+- [Testing](@/glossary/testing.md) -- the practice of verifying software behavior through automated tests
+- [Static Analysis](@/glossary/static-analysis.md) -- compile-time validation without code execution
+- [Credo](@/glossary/credo.md) -- the Elixir static analysis tool enforcing style and correctness
+- [Dialyzer](@/glossary/dialyzer.md) -- the Erlang/Elixir type analysis tool for type safety validation
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- the mechanism enforcing validation before commits
+- [Regression Testing](@/glossary/regression-testing.md) -- verifying that new changes do not break existing functionality
+- [CI/CD](@/glossary/ci-cd.md) -- the automated pipeline that executes validation in the build environment
+- [Code Quality](@/glossary/code-quality.md) -- the measurable attributes that continuous validation enforces
 
 ## See Also
 
-- [Quality DNA](/glossary/quality-dna/) -- cross-session quality tracking
-- [Continuous Integration](/glossary/continuous-integration/) -- the CI subset of continuous validation
-- [Continuous Deployment](/glossary/continuous-deployment/) -- deploying validated changes automatically
-- [Property-Based Testing](/glossary/property-based-testing/) -- randomized validation technique
-- [AutoHeal](/glossary/autoheal/) -- automated quality repair mechanisms
+- [Quality DNA](@/glossary/quality-dna.md) -- cross-session quality tracking
+- [Continuous Integration](@/glossary/continuous-integration.md) -- the CI subset of continuous validation
+- [Continuous Deployment](@/glossary/continuous-deployment.md) -- deploying validated changes automatically
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- randomized validation technique
+- [AutoHeal](@/glossary/autoheal.md) -- automated quality repair mechanisms
 
 ---
 

@@ -33,7 +33,7 @@ image_alt = "Message Passing - Prismatic Platform"
 
 ## Definition
 
-Message passing is the sole mechanism by which [BEAM](/glossary/beam/) processes communicate. Processes cannot access each other's memory directly; instead, they send messages that are deep-copied into the recipient's mailbox. The recipient process selectively matches and retrieves messages using `receive` blocks or [GenServer](/glossary/genserver/) callbacks. This architectural choice -- shared-nothing concurrency with asynchronous message passing -- is the foundation of Erlang/OTP's legendary reliability and the enabling mechanism for the Prismatic Platform's distributed, fault-tolerant architecture.
+Message passing is the sole mechanism by which [BEAM](@/glossary/beam.md) processes communicate. Processes cannot access each other's memory directly; instead, they send messages that are deep-copied into the recipient's mailbox. The recipient process selectively matches and retrieves messages using `receive` blocks or [GenServer](@/glossary/genserver.md) callbacks. This architectural choice -- shared-nothing concurrency with asynchronous message passing -- is the foundation of Erlang/OTP's legendary reliability and the enabling mechanism for the Prismatic Platform's distributed, fault-tolerant architecture.
 
 The message passing model eliminates entire categories of concurrency bugs that plague shared-memory systems: race conditions on mutable state, lock contention, deadlocks from lock ordering, priority inversion, and memory corruption from concurrent access. These bugs are not merely unlikely in BEAM -- they are structurally impossible because there is no shared mutable state to race on, no locks to contend for, and no memory that multiple processes can simultaneously modify. The price paid for this guarantee is the CPU cost of message copying, which the BEAM runtime minimizes through efficient memory allocation and, for large binaries, reference-counted sharing.
 
@@ -177,7 +177,7 @@ send(agent_pid, {:bulk_data, large_payload})  # Only copies reference
 
 ## GenServer: Structured Message Passing
 
-While raw `send/receive` is available, the Prismatic Platform overwhelmingly uses [GenServer](/glossary/genserver/) for inter-process communication. GenServer provides a structured layer over message passing with three communication patterns.
+While raw `send/receive` is available, the Prismatic Platform overwhelmingly uses [GenServer](@/glossary/genserver.md) for inter-process communication. GenServer provides a structured layer over message passing with three communication patterns.
 
 ### call (Synchronous Request-Reply)
 
@@ -458,7 +458,7 @@ The Prismatic Platform uses message passing as the fundamental communication mec
 
 ### PubSub: Scalable Message Distribution
 
-Phoenix [PubSub](/glossary/pubsub/) provides a higher-level abstraction over message passing for one-to-many communication.
+Phoenix [PubSub](@/glossary/pubsub.md) provides a higher-level abstraction over message passing for one-to-many communication.
 
 ```elixir
 # Publisher: broadcast to all subscribers
@@ -511,7 +511,7 @@ Understanding what not to do is as important as understanding the correct patter
 
 ### Unbounded Message Accumulation
 
-Sending messages without regard for the recipient's processing capacity leads to mailbox overflow. The platform enforces [backpressure](/glossary/backpressure/) through GenStage demand-driven pipelines.
+Sending messages without regard for the recipient's processing capacity leads to mailbox overflow. The platform enforces [backpressure](@/glossary/backpressure.md) through GenStage demand-driven pipelines.
 
 ### Synchronous Call Chains
 
@@ -554,22 +554,22 @@ BEAM message passing trades delivery guarantees (at-most-once) for simplicity an
 
 ## Related Terms
 
-- [BEAM](/glossary/beam/) - Virtual machine implementing the message passing runtime and scheduler
-- [GenServer](/glossary/genserver/) - Structured abstraction over raw message passing with call/cast/info patterns
-- [Process Isolation](/glossary/process-isolation/) - BEAM property that makes shared-nothing message passing necessary
-- [PubSub](/glossary/pubsub/) - One-to-many message distribution built on process message passing
-- [Channel](/glossary/channel/) - Phoenix Channel providing client-server message passing over WebSocket
-- [Supervisor](/glossary/supervisor/) - Process supervision using links and exit signals
-- [Backpressure](/glossary/backpressure/) - Flow control preventing mailbox overflow in high-throughput pipelines
-- [Distributed System](/glossary/distributed-system/) - Architecture leveraging BEAM's transparent distribution
-- [Pattern Matching](/glossary/pattern-matching/) - Language feature enabling selective receive and message dispatch
-- [Fault Tolerance](/glossary/fault-tolerance/) - System property enabled by process isolation and message passing
+- [BEAM](@/glossary/beam.md) - Virtual machine implementing the message passing runtime and scheduler
+- [GenServer](@/glossary/genserver.md) - Structured abstraction over raw message passing with call/cast/info patterns
+- [Process Isolation](@/glossary/process-isolation.md) - BEAM property that makes shared-nothing message passing necessary
+- [PubSub](@/glossary/pubsub.md) - One-to-many message distribution built on process message passing
+- [Channel](@/glossary/channel.md) - Phoenix Channel providing client-server message passing over WebSocket
+- [Supervisor](@/glossary/supervisor.md) - Process supervision using links and exit signals
+- [Backpressure](@/glossary/backpressure.md) - Flow control preventing mailbox overflow in high-throughput pipelines
+- [Distributed System](@/glossary/distributed-system.md) - Architecture leveraging BEAM's transparent distribution
+- [Pattern Matching](@/glossary/pattern-matching.md) - Language feature enabling selective receive and message dispatch
+- [Fault Tolerance](@/glossary/fault-tolerance.md) - System property enabled by process isolation and message passing
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture and inter-process communication patterns
-- [Technologies](/technologies/) - BEAM runtime and OTP framework details
-- [Agents](/agents/) - Agent communication patterns using message passing
+- [Architecture](@/architecture/_index.md) - Platform architecture and inter-process communication patterns
+- [Technologies](@/technologies/_index.md) - BEAM runtime and OTP framework details
+- [Agents](@/agents/_index.md) - Agent communication patterns using message passing
 
 ---
 
@@ -578,4 +578,4 @@ BEAM message passing trades delivery guarantees (at-most-once) for simplicity an
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

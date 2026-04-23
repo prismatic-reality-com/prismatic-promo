@@ -38,7 +38,7 @@ image_alt = "Ecosystem - Prismatic Platform"
 
 An **ecosystem** is the complete network of interconnected software components, tools, libraries, services, and communities that collectively form a platform's operational environment. Unlike a monolithic application or a loosely coupled collection of services, an ecosystem exhibits emergent properties -- capabilities that arise from the systematic composition of its parts rather than from any single component in isolation. The ecosystem concept encompasses not only the technical artifacts (source code, configurations, deployed services) but also the human and organizational structures (contributor communities, governance models, documentation cultures) that sustain and evolve the platform over time.
 
-In the context of the Prismatic Platform, the ecosystem comprises 115 [umbrella applications](/glossary/umbrella-application/), 530+ [AIAD agents](/glossary/agent/), 4 [open-source](/glossary/open-source/) packages, a developer portal, and the community infrastructure that binds these elements into a coherent, self-evolving whole.
+In the context of the Prismatic Platform, the ecosystem comprises 115 [umbrella applications](@/glossary/umbrella-application.md), 530+ [AIAD agents](@/glossary/agent.md), 4 [open-source](@/glossary/open-source.md) packages, a developer portal, and the community infrastructure that binds these elements into a coherent, self-evolving whole.
 
 ## Overview
 
@@ -46,11 +46,11 @@ The notion of a software ecosystem draws from biological ecology, where organism
 
 1. **Interdependence**: Components rely on each other through well-defined interfaces. A change in one area propagates through dependency chains, requiring careful version management and contract testing.
 
-2. **Emergence**: The platform's overall capabilities exceed the sum of its parts. For example, combining OSINT adapters with an [agent orchestration](/glossary/agent-orchestration/) layer and a [quality gate](/glossary/quality-gate/) system produces an autonomous intelligence pipeline that none of these components could deliver independently.
+2. **Emergence**: The platform's overall capabilities exceed the sum of its parts. For example, combining OSINT adapters with an [agent orchestration](@/glossary/agent-orchestration.md) layer and a [quality gate](@/glossary/quality-gate.md) system produces an autonomous intelligence pipeline that none of these components could deliver independently.
 
 3. **Evolution**: Ecosystems are never static. They grow through generational expansion, adding new applications, deprecating obsolete ones, and continuously refactoring internal boundaries as the problem domain shifts.
 
-4. **Resilience**: A well-designed ecosystem absorbs failures gracefully. Through [supervision trees](/glossary/supervision-tree/) and fault-tolerant process hierarchies, individual component failures do not cascade into system-wide outages.
+4. **Resilience**: A well-designed ecosystem absorbs failures gracefully. Through [supervision trees](@/glossary/supervision-tree.md) and fault-tolerant process hierarchies, individual component failures do not cascade into system-wide outages.
 
 5. **Community**: Beyond code, an ecosystem includes the people who build, maintain, and use the platform. Documentation, contribution guidelines, and governance structures are as much a part of the ecosystem as the source code itself.
 
@@ -336,7 +336,7 @@ These packages transform the platform from a closed system into an extensible ec
 
 ### Ecosystem vs. Microservices
 
-While both ecosystems and [microservices](/glossary/microservices/) embrace distributed composition, they differ fundamentally:
+While both ecosystems and [microservices](@/glossary/microservices.md) embrace distributed composition, they differ fundamentally:
 
 | Aspect | Microservices | Ecosystem (Prismatic) |
 |--------|--------------|----------------------|
@@ -375,7 +375,7 @@ A plugin architecture allows extension through defined extension points. An ecos
 
 3. **Documentation Culture**: Every application needs its own `CLAUDE.md` and quality DNA. Ecosystem-level documentation must explain not just what each component does but how components interact.
 
-4. **Community Investment**: For [open-source](/glossary/open-source/) ecosystem packages, invest in contributor documentation, issue templates, and clear governance models. A package without a community is a liability, not an asset.
+4. **Community Investment**: For [open-source](@/glossary/open-source.md) ecosystem packages, invest in contributor documentation, issue templates, and clear governance models. A package without a community is a liability, not an asset.
 
 ## Common Pitfalls
 
@@ -389,7 +389,7 @@ Adding applications without clear domain boundaries leads to ecosystem sprawl --
 
 Even in well-structured ecosystems, hidden couplings can emerge through shared database tables, implicit message contracts, or undocumented runtime dependencies. These couplings make the ecosystem fragile because changes in one component silently break another.
 
-**Mitigation**: Use the [enforcement policy](/glossary/enforcement-policy/) system to detect and block commits that introduce unauthorized cross-application dependencies.
+**Mitigation**: Use the [enforcement policy](@/glossary/enforcement-policy.md) system to detect and block commits that introduce unauthorized cross-application dependencies.
 
 ### Dependency Hell
 
@@ -411,7 +411,7 @@ The Prismatic ecosystem enables intelligence operations that would be impossible
 
 ### Security Assessment at Scale
 
-The [Prismatic Perimeter](/glossary/attack-surface/) EASM capability demonstrates ecosystem composition: certificate transparency monitoring, DNS enumeration, vulnerability scanning, and compliance assessment each live in separate applications but compose into a unified security rating system through well-defined interfaces.
+The [Prismatic Perimeter](@/glossary/attack-surface.md) EASM capability demonstrates ecosystem composition: certificate transparency monitoring, DNS enumeration, vulnerability scanning, and compliance assessment each live in separate applications but compose into a unified security rating system through well-defined interfaces.
 
 ### Autonomous Quality Management
 
@@ -425,24 +425,24 @@ Generation 19's ecosystem expansion created a developer experience layer: SDK fo
 
 The ecosystem concept connects to numerous foundational ideas within the Prismatic Platform:
 
-- [Umbrella Application](/glossary/umbrella-application/) -- The structural unit of ecosystem composition in Elixir
-- [Open Source](/glossary/open-source/) -- The distribution model for ecosystem packages
-- [Community Building](/glossary/community-building/) -- The human dimension of ecosystem growth
-- [Ecosystem Expansion](/glossary/ecosystem-expansion/) -- The strategic process of growing the ecosystem through generations
-- [Generation](/glossary/generation/) -- The evolutionary unit of ecosystem change
-- [OTP Application](/glossary/otp-application/) -- The runtime unit within the BEAM ecosystem
-- [Microservices](/glossary/microservices/) -- An alternative architectural approach to distributed composition
-- [Agent Orchestration](/glossary/agent-orchestration/) -- The intelligence layer of the ecosystem
-- [Software Architecture](/glossary/software-architecture/) -- The discipline of designing ecosystem structure
-- [Supervision Tree](/glossary/supervision-tree/) -- The fault-tolerance mechanism that makes ecosystem resilience possible
+- [Umbrella Application](@/glossary/umbrella-application.md) -- The structural unit of ecosystem composition in Elixir
+- [Open Source](@/glossary/open-source.md) -- The distribution model for ecosystem packages
+- [Community Building](@/glossary/community-building.md) -- The human dimension of ecosystem growth
+- [Ecosystem Expansion](@/glossary/ecosystem-expansion.md) -- The strategic process of growing the ecosystem through generations
+- [Generation](@/glossary/generation.md) -- The evolutionary unit of ecosystem change
+- [OTP Application](@/glossary/otp-application.md) -- The runtime unit within the BEAM ecosystem
+- [Microservices](@/glossary/microservices.md) -- An alternative architectural approach to distributed composition
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- The intelligence layer of the ecosystem
+- [Software Architecture](@/glossary/software-architecture.md) -- The discipline of designing ecosystem structure
+- [Supervision Tree](@/glossary/supervision-tree.md) -- The fault-tolerance mechanism that makes ecosystem resilience possible
 
 ## See Also
 
 - Glossary Index -- Complete glossary of Prismatic Platform terminology
-- [Architecture Section](/architecture/) -- Detailed platform architecture documentation
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- Organizing ecosystem boundaries around business domains
-- [Quality Gate](/glossary/quality-gate/) -- Automated ecosystem health enforcement
-- [AIAD](/glossary/aiad/) -- The agent standard that governs ecosystem intelligence
+- [Architecture Section](@/architecture/_index.md) -- Detailed platform architecture documentation
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- Organizing ecosystem boundaries around business domains
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated ecosystem health enforcement
+- [AIAD](@/glossary/aiad.md) -- The agent standard that governs ecosystem intelligence
 
 ---
 
@@ -451,4 +451,4 @@ The ecosystem concept connects to numerous foundational ideas within the Prismat
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -21,9 +21,9 @@ image_alt = "Formal Verification - Prismatic Platform"
 
 ## Definition
 
-Formal verification is the application of mathematical proof techniques to establish that a system, conclusion, or property holds universally -- not merely for tested cases, but for all possible inputs, states, and scenarios. Within the Prismatic Platform, formal verification operates through the [QEVE](/glossary/qeve/) pipeline's Stage 4, where critical claims extracted from the [belief graph](/glossary/belief-graph/) are translated into [Lean4](/glossary/lean4/) theorem statements and subjected to machine-checked proof. A formally verified conclusion is not "probably true" or "true in all tested cases" but "necessarily true given the stated axioms," providing the strongest possible epistemic guarantee.
+Formal verification is the application of mathematical proof techniques to establish that a system, conclusion, or property holds universally -- not merely for tested cases, but for all possible inputs, states, and scenarios. Within the Prismatic Platform, formal verification operates through the [QEVE](@/glossary/qeve.md) pipeline's Stage 4, where critical claims extracted from the [belief graph](@/glossary/belief-graph.md) are translated into [Lean4](@/glossary/lean4.md) theorem statements and subjected to machine-checked proof. A formally verified conclusion is not "probably true" or "true in all tested cases" but "necessarily true given the stated axioms," providing the strongest possible epistemic guarantee.
 
-The distinction between formal verification and other validation methods is categorical, not gradational. Testing checks specific cases. [Property-based testing](/glossary/property-based-testing/) checks random cases drawn from a distribution. [Monte Carlo verification](/glossary/monte-carlo-verification/) checks robustness under perturbation. Formal verification proves universality. When a Lean4 proof succeeds, the conclusion holds in every possible scenario consistent with the axioms -- not 99.99% of scenarios, but 100%. This is why formal verification occupies the penultimate stage of the [QEVE](/glossary/qeve/) pipeline: it provides the mathematical certainty that other methods cannot.
+The distinction between formal verification and other validation methods is categorical, not gradational. Testing checks specific cases. [Property-based testing](@/glossary/property-based-testing.md) checks random cases drawn from a distribution. [Monte Carlo verification](@/glossary/monte-carlo-verification.md) checks robustness under perturbation. Formal verification proves universality. When a Lean4 proof succeeds, the conclusion holds in every possible scenario consistent with the axioms -- not 99.99% of scenarios, but 100%. This is why formal verification occupies the penultimate stage of the [QEVE](@/glossary/qeve.md) pipeline: it provides the mathematical certainty that other methods cannot.
 
 ## Historical Foundations
 
@@ -41,7 +41,7 @@ The Prismatic Platform inherits both traditions. Hoare-style reasoning informs t
 
 ### The Lean4 Revolution
 
-[Lean4](/glossary/lean4/), developed at Microsoft Research by Leonardo de Moura, represents the current state of the art in interactive theorem proving. Unlike earlier proof assistants (Coq, Isabelle, Agda), Lean4 is simultaneously a general-purpose programming language and a proof assistant. Programs written in Lean4 carry their correctness proofs as part of their type signatures, blurring the boundary between "writing code" and "proving properties."
+[Lean4](@/glossary/lean4.md), developed at Microsoft Research by Leonardo de Moura, represents the current state of the art in interactive theorem proving. Unlike earlier proof assistants (Coq, Isabelle, Agda), Lean4 is simultaneously a general-purpose programming language and a proof assistant. Programs written in Lean4 carry their correctness proofs as part of their type signatures, blurring the boundary between "writing code" and "proving properties."
 
 Lean4's dependent type system allows types to depend on values. A function declared as `def sort (l : List Nat) : {l' : List Nat // Sorted l' /\ Permutation l l'}` does not merely return a list -- its type signature proves that the output is sorted and contains the same elements as the input. The Lean4 type checker is itself a proof checker: if the code compiles, the proof is valid.
 
@@ -82,7 +82,7 @@ Model checking exhaustively explores all reachable states of a system to verify 
 
 ### Prismatic's Hybrid Approach
 
-The Prismatic Platform employs theorem proving (via Lean4) for core invariants and critical decision properties, and model checking (via property enumeration) for finite-state protocol verification. The [QEVE](/glossary/qeve/) pipeline's Stage 4 uses Lean4 theorem proving for the claims that matter most: belief acceptance, [confidence scoring](/glossary/confidence-scoring/) correctness, and axiom compliance. The [White Team](/glossary/white-team/) uses both paradigms in its verification campaigns, selecting the appropriate method based on the property's structure.
+The Prismatic Platform employs theorem proving (via Lean4) for core invariants and critical decision properties, and model checking (via property enumeration) for finite-state protocol verification. The [QEVE](@/glossary/qeve.md) pipeline's Stage 4 uses Lean4 theorem proving for the claims that matter most: belief acceptance, [confidence scoring](@/glossary/confidence-scoring.md) correctness, and axiom compliance. The [White Team](@/glossary/white-team.md) uses both paradigms in its verification campaigns, selecting the appropriate method based on the property's structure.
 
 ## Dependent Type Theory
 
@@ -126,16 +126,16 @@ A value of type `VerifiedBelief` cannot exist unless all four proof fields are s
 
 ## QEVE Formal Verification Pipeline
 
-Within the [QEVE](/glossary/qeve/) pipeline, formal verification operates as Stage 4, between logical consistency checking (Stage 3) and [Monte Carlo robustness testing](/glossary/monte-carlo-verification/) (Stage 5).
+Within the [QEVE](@/glossary/qeve.md) pipeline, formal verification operates as Stage 4, between logical consistency checking (Stage 3) and [Monte Carlo robustness testing](@/glossary/monte-carlo-verification.md) (Stage 5).
 
 ### Theorem Generation
 
-The first step translates the critical hypothesis from the [belief graph](/glossary/belief-graph/) into a Lean4 theorem statement. This translation involves:
+The first step translates the critical hypothesis from the [belief graph](@/glossary/belief-graph.md) into a Lean4 theorem statement. This translation involves:
 
 1. **Axiom extraction**: Identify the evidence signals supporting the hypothesis and encode them as Lean4 axioms
 2. **Inference chain encoding**: Translate the inference rules connecting evidence to conclusion into Lean4 function definitions
 3. **Theorem statement**: Formulate the hypothesis as a Lean4 proposition to be proved
-4. **Side condition encoding**: Encode [NABLA Infinity](/glossary/nabla-infinity/) axiom requirements as additional proof obligations
+4. **Side condition encoding**: Encode [NABLA Infinity](@/glossary/nabla-infinity.md) axiom requirements as additional proof obligations
 
 ### Proof Search
 
@@ -168,13 +168,13 @@ Two fundamental properties govern any formal verification system.
 
 A verification system is sound if every conclusion it verifies is actually true. Soundness means "no false positives" -- if the system says a property holds, it really holds. Lean4's type checker is sound (assuming the underlying axiom system, the Calculus of Inductive Constructions, is consistent -- a widely held belief supported by decades of mathematical investigation but not itself formally provable due to Goedel's incompleteness theorems).
 
-For the Prismatic Platform, soundness means: if [Trinity Gate](/glossary/trinity-gate/)'s formal layer reports that a conclusion is "formally necessary," then the conclusion genuinely follows from the evidence under the stated axioms. No exception.
+For the Prismatic Platform, soundness means: if [Trinity Gate](@/glossary/trinity-gate.md)'s formal layer reports that a conclusion is "formally necessary," then the conclusion genuinely follows from the evidence under the stated axioms. No exception.
 
 ### Completeness
 
 A verification system is complete if it can verify every true property. Completeness means "no false negatives" -- if a property is true, the system can prove it. By Goedel's First Incompleteness Theorem, no sufficiently powerful formal system is both sound and complete. Lean4 is sound but not complete: some true statements cannot be proved within the system.
 
-For the Prismatic Platform, incompleteness means: some genuinely sound conclusions will fail formal verification -- not because they are wrong, but because the proof engine cannot find a proof within the available axiom system and tactics. These conclusions are classified as "possible but not formally necessary" and fall back to the logical consistency gate (Stage 3) and [Monte Carlo robustness testing](/glossary/monte-carlo-verification/) (Stage 5) for validation.
+For the Prismatic Platform, incompleteness means: some genuinely sound conclusions will fail formal verification -- not because they are wrong, but because the proof engine cannot find a proof within the available axiom system and tactics. These conclusions are classified as "possible but not formally necessary" and fall back to the logical consistency gate (Stage 3) and [Monte Carlo robustness testing](@/glossary/monte-carlo-verification.md) (Stage 5) for validation.
 
 This is why QEVE employs multiple verification stages rather than relying on formal proofs alone. Formal verification provides the strongest guarantee when it succeeds, but its incompleteness means it cannot be the sole verification method.
 
@@ -185,14 +185,14 @@ The Prismatic Platform's Elixir/OTP architecture provides a natural alignment wi
 Key verifiable properties include:
 
 - **Restart boundedness**: A supervision tree with `max_restarts: 3, max_seconds: 5` guarantees that no child process is restarted more than 3 times in any 5-second window. This property can be formally proved as a temporal safety property.
-- **State isolation**: Each GenServer process maintains isolated state. Formal verification can prove that no state leakage occurs between processes, a critical property for the [epistemic pipeline](/glossary/epistemic-pipeline/).
+- **State isolation**: Each GenServer process maintains isolated state. Formal verification can prove that no state leakage occurs between processes, a critical property for the [epistemic pipeline](@/glossary/epistemic-pipeline.md).
 - **Message ordering**: OTP guarantees FIFO message delivery between any two processes. Formal verification can prove that pipeline stages process evidence in the correct order.
 
-The [White Team](/glossary/white-team/)'s verification campaigns include OTP supervision tree verification as a standard component, ensuring that the platform's process topology maintains its safety invariants under all failure scenarios.
+The [White Team](@/glossary/white-team.md)'s verification campaigns include OTP supervision tree verification as a standard component, ensuring that the platform's process topology maintains its safety invariants under all failure scenarios.
 
 ## Comparison with Property-Based Testing
 
-Formal verification and [property-based testing](/glossary/property-based-testing/) share the goal of validating universal properties but differ fundamentally in their guarantees.
+Formal verification and [property-based testing](@/glossary/property-based-testing.md) share the goal of validating universal properties but differ fundamentally in their guarantees.
 
 | Dimension | Property-Based Testing | Formal Verification |
 |-----------|----------------------|---------------------|
@@ -210,9 +210,9 @@ The Prismatic Platform uses both methods at different pipeline stages. Property-
 
 Formal verification, despite its mathematical power, has practical limitations that the platform explicitly acknowledges and mitigates.
 
-**Specification fidelity**: A proof is only as good as its specification. If the Lean4 theorem statement does not accurately capture the intended property, the proof is correct but irrelevant. The platform mitigates this through specification review as part of the [White Team](/glossary/white-team/)'s verification campaigns.
+**Specification fidelity**: A proof is only as good as its specification. If the Lean4 theorem statement does not accurately capture the intended property, the proof is correct but irrelevant. The platform mitigates this through specification review as part of the [White Team](@/glossary/white-team.md)'s verification campaigns.
 
-**Axiom trust**: Every proof rests on axioms. If an axiom is wrong (e.g., an evidence signal is encoded with incorrect weight), the proof may be valid but the conclusion false. The platform mitigates this through provenance tracking ([Provenance Mandatory](/glossary/provenance-mandatory/) axiom) and Monte Carlo stress testing of the axioms themselves.
+**Axiom trust**: Every proof rests on axioms. If an axiom is wrong (e.g., an evidence signal is encoded with incorrect weight), the proof may be valid but the conclusion false. The platform mitigates this through provenance tracking ([Provenance Mandatory](@/glossary/provenance-mandatory.md) axiom) and Monte Carlo stress testing of the axioms themselves.
 
 **Computational cost**: Formal proof search is computationally expensive and may not terminate within practical time bounds. The platform uses timeout-bounded proof search with fallback to weaker verification methods (logical consistency + Monte Carlo robustness).
 
@@ -224,35 +224,35 @@ Formal verification, despite its mathematical power, has practical limitations t
 
 The Prismatic Platform maintains five core theorems that are formally verified through Lean4 and re-verified with every significant platform evolution:
 
-1. **Axiom Compliance**: All beliefs passing through the [epistemic pipeline](/glossary/epistemic-pipeline/) satisfy all seven [NABLA Infinity](/glossary/nabla-infinity/) axioms
-2. **Trinity Integrity**: [Trinity Gate](/glossary/trinity-gate/) evaluation is independent across its three layers (no layer influences another)
-3. **Confidence Monotonicity**: Adding independent supporting evidence never decreases [confidence scores](/glossary/confidence-scoring/)
-4. **Contradiction Visibility**: No [contradiction](/glossary/contradiction-preservation/) can be structurally hidden from downstream consumers
+1. **Axiom Compliance**: All beliefs passing through the [epistemic pipeline](@/glossary/epistemic-pipeline.md) satisfy all seven [NABLA Infinity](@/glossary/nabla-infinity.md) axioms
+2. **Trinity Integrity**: [Trinity Gate](@/glossary/trinity-gate.md) evaluation is independent across its three layers (no layer influences another)
+3. **Confidence Monotonicity**: Adding independent supporting evidence never decreases [confidence scores](@/glossary/confidence-scoring.md)
+4. **Contradiction Visibility**: No [contradiction](@/glossary/contradiction-preservation.md) can be structurally hidden from downstream consumers
 5. **Provenance Completeness**: Every accepted belief has a complete, auditable provenance chain to source signals
 
-These theorems constitute the formal foundation of the platform's epistemic guarantees. Their formal proofs are part of the platform's [audit trail](/glossary/audit-trail/) and are available for external review.
+These theorems constitute the formal foundation of the platform's epistemic guarantees. Their formal proofs are part of the platform's [audit trail](@/glossary/audit-trail.md) and are available for external review.
 
 ## Related Terms
 
-- [QEVE](/glossary/qeve/) -- Verification engine where formal verification operates as Stage 4
-- [Lean4](/glossary/lean4/) -- Theorem prover and programming language used for formal proofs
-- [Trinity Gate](/glossary/trinity-gate/) -- Verification gate whose third layer requires formal necessity proofs
-- [Modal Logic](/glossary/modal-logic/) -- Logical framework for necessity and possibility used in Trinity Gate
-- [Monte Carlo Verification](/glossary/monte-carlo-verification/) -- Probabilistic complement to formal proof
-- [Property-Based Testing](/glossary/property-based-testing/) -- Randomized testing providing statistical coverage
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic axioms that formal verification proves are satisfied
-- [White Team](/glossary/white-team/) -- Verification team conducting formal proof campaigns
-- [Belief Graph](/glossary/belief-graph/) -- The data structure from which theorems are extracted
-- [Epistemic Robustness](/glossary/epistemic-robustness/) -- The property that formal and Monte Carlo verification jointly establish
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Axiom ensuring proof dependencies are traceable
-- [Confidence Scoring](/glossary/confidence-scoring/) -- Formula whose correctness is formally verified
-- [Contradiction Preservation](/glossary/contradiction-preservation/) -- Axiom whose enforcement is a core platform theorem
-- [Audit Trail](/glossary/audit-trail/) -- Immutable record of all formal proof attempts and results
+- [QEVE](@/glossary/qeve.md) -- Verification engine where formal verification operates as Stage 4
+- [Lean4](@/glossary/lean4.md) -- Theorem prover and programming language used for formal proofs
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Verification gate whose third layer requires formal necessity proofs
+- [Modal Logic](@/glossary/modal-logic.md) -- Logical framework for necessity and possibility used in Trinity Gate
+- [Monte Carlo Verification](@/glossary/monte-carlo-verification.md) -- Probabilistic complement to formal proof
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Randomized testing providing statistical coverage
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic axioms that formal verification proves are satisfied
+- [White Team](@/glossary/white-team.md) -- Verification team conducting formal proof campaigns
+- [Belief Graph](@/glossary/belief-graph.md) -- The data structure from which theorems are extracted
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) -- The property that formal and Monte Carlo verification jointly establish
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Axiom ensuring proof dependencies are traceable
+- [Confidence Scoring](@/glossary/confidence-scoring.md) -- Formula whose correctness is formally verified
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) -- Axiom whose enforcement is a core platform theorem
+- [Audit Trail](@/glossary/audit-trail.md) -- Immutable record of all formal proof attempts and results
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
 
 ---
 
@@ -261,4 +261,4 @@ These theorems constitute the formal foundation of the platform's epistemic guar
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

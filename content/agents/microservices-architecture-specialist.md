@@ -28,9 +28,9 @@ image_alt = "microservices-architecture-specialist - Prismatic Platform"
 
 ## Overview
 
-The microservices-architecture-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's architecture domain, responsible for designing service boundaries, defining inter-service communication contracts, and ensuring that the platform's [umbrella application](/glossary/umbrella-application/) structure follows [microservices](/glossary/microservices/) best practices while leveraging the unique strengths of the [BEAM](/glossary/beam/) virtual machine. Unlike traditional microservices that rely on network boundaries for isolation, this agent architects "micro-applications" within the Elixir umbrella -- achieving the modularity benefits of microservices without the operational complexity of distributed deployments.
+The microservices-architecture-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's architecture domain, responsible for designing service boundaries, defining inter-service communication contracts, and ensuring that the platform's [umbrella application](@/glossary/umbrella-application.md) structure follows [microservices](@/glossary/microservices.md) best practices while leveraging the unique strengths of the [BEAM](@/glossary/beam.md) virtual machine. Unlike traditional microservices that rely on network boundaries for isolation, this agent architects "micro-applications" within the Elixir umbrella -- achieving the modularity benefits of microservices without the operational complexity of distributed deployments.
 
-Built on the [AIAD](/glossary/aiad/) standard, this agent governs the decomposition of the platform's 90+ applications into cohesive, loosely coupled units with well-defined public APIs and explicit dependency graphs. The [NO MERCY](/glossary/no-mercy/) doctrine is enforced on service boundaries: no circular dependencies, no shared mutable state between applications, and no bypassing of public interfaces through internal module access.
+Built on the [AIAD](@/glossary/aiad.md) standard, this agent governs the decomposition of the platform's 90+ applications into cohesive, loosely coupled units with well-defined public APIs and explicit dependency graphs. The [NO MERCY](@/glossary/no-mercy.md) doctrine is enforced on service boundaries: no circular dependencies, no shared mutable state between applications, and no bypassing of public interfaces through internal module access.
 
 ## Operational Domain
 
@@ -50,9 +50,9 @@ The microservices architecture domain covers the structural organization of the 
 - **Service boundary analysis** -- Evaluates application cohesion and coupling metrics to identify when an application should be split, merged, or restructured, using dependency graph analysis and change frequency correlation
 - **API contract enforcement** -- Ensures that inter-application communication occurs exclusively through defined public interfaces, detecting and blocking internal module access that violates encapsulation boundaries
 - **Dependency graph management** -- Maintains and validates the directed acyclic graph (DAG) of application dependencies, preventing circular references and minimizing coupling depth
-- **Data ownership governance** -- Enforces the principle that each application owns its data schemas and [Ecto](/glossary/ecto/) migrations, preventing cross-application database coupling
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed architecture analysis and drift detection cycles
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing architectural health metrics and dependency violation alerts
+- **Data ownership governance** -- Enforces the principle that each application owns its data schemas and [Ecto](@/glossary/ecto.md) migrations, preventing cross-application database coupling
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed architecture analysis and drift detection cycles
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing architectural health metrics and dependency violation alerts
 
 ## Architecture Patterns
 
@@ -145,7 +145,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to define service boundaries, approve dependency additions, and enforce architectural standards across all platform applications.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to define service boundaries, approve dependency additions, and enforce architectural standards across all platform applications.
 
 ## Architectural Health Metrics
 
@@ -170,14 +170,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [event-driven-architecture-specialist](/agents/event-driven-architecture-specialist/) | Coordinates on event-based inter-service communication patterns |
-| [service-mesh-specialist](/agents/service-mesh-specialist/) | Manages service discovery and routing for distributed deployments |
-| [database-architecture-specialist](/agents/database-architecture-specialist/) | Enforces per-service data ownership and migration isolation |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality standards applied to architectural boundary enforcement code |
+| [event-driven-architecture-specialist](@/agents/event-driven-architecture-specialist.md) | Coordinates on event-based inter-service communication patterns |
+| [service-mesh-specialist](@/agents/service-mesh-specialist.md) | Manages service discovery and routing for distributed deployments |
+| [database-architecture-specialist](@/agents/database-architecture-specialist.md) | Enforces per-service data ownership and migration isolation |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality standards applied to architectural boundary enforcement code |
 
 ## BEAM-Native Microservices Philosophy
 
-The Prismatic Platform's approach to microservices differs fundamentally from the traditional containerized-services model. In conventional microservices architectures, services communicate over HTTP or message queues, deploy as independent Docker containers, and rely on service meshes for observability and resilience. The Prismatic Platform achieves the same modularity benefits -- independent development, clear boundaries, fault isolation -- through the [BEAM](/glossary/beam/) virtual machine's native process isolation and the Elixir [umbrella application](/glossary/umbrella-application/) structure.
+The Prismatic Platform's approach to microservices differs fundamentally from the traditional containerized-services model. In conventional microservices architectures, services communicate over HTTP or message queues, deploy as independent Docker containers, and rely on service meshes for observability and resilience. The Prismatic Platform achieves the same modularity benefits -- independent development, clear boundaries, fault isolation -- through the [BEAM](@/glossary/beam.md) virtual machine's native process isolation and the Elixir [umbrella application](@/glossary/umbrella-application.md) structure.
 
 Each umbrella application functions as a logical microservice: it owns its modules, schemas, and public API, and it communicates with other applications through well-defined interfaces. The critical difference is that inter-application calls are function calls within the same VM, not network requests. This eliminates the latency, serialization overhead, and partial failure modes inherent in distributed architectures while preserving the organizational benefits of service decomposition.
 
@@ -185,11 +185,11 @@ The microservices-architecture-specialist enforces a strict rule: applications m
 
 ### Data Ownership Pattern
 
-Each application owns its [Ecto](/glossary/ecto/) schemas and database migrations exclusively. Cross-application data access occurs through the owning application's public API, never through direct database queries. This pattern ensures that schema changes within one application cannot break other applications, and that each application can evolve its data model independently. The microservices-architecture-specialist validates this pattern by detecting any cross-application Ecto repo calls that bypass the owning application's facade.
+Each application owns its [Ecto](@/glossary/ecto.md) schemas and database migrations exclusively. Cross-application data access occurs through the owning application's public API, never through direct database queries. This pattern ensures that schema changes within one application cannot break other applications, and that each application can evolve its data model independently. The microservices-architecture-specialist validates this pattern by detecting any cross-application Ecto repo calls that bypass the owning application's facade.
 
 ### Fault Isolation Boundaries
 
-[OTP](/glossary/otp/) [supervision trees](/glossary/supervision-tree/) provide natural fault isolation boundaries between applications. Each application runs under its own supervision tree, meaning that a crash in one application's processes does not propagate to other applications. The microservices-architecture-specialist validates that supervision tree boundaries align with application boundaries, ensuring that no supervisor crosses application lines and that each application's processes are fully contained within its supervision hierarchy.
+[OTP](@/glossary/otp.md) [supervision trees](@/glossary/supervision-tree.md) provide natural fault isolation boundaries between applications. Each application runs under its own supervision tree, meaning that a crash in one application's processes does not propagate to other applications. The microservices-architecture-specialist validates that supervision tree boundaries align with application boundaries, ensuring that no supervisor crosses application lines and that each application's processes are fully contained within its supervision hierarchy.
 
 ## Architecture Drift Detection
 
@@ -199,7 +199,7 @@ Drift detection also monitors for "creeping coupling" -- the gradual increase in
 
 ## Enforcement
 
-All architectural decisions comply with the [NO MERCY](/glossary/no-mercy/) doctrine: circular dependencies trigger immediate build failures, boundary violations block commits, and undeclared cross-application access is rejected at compile time. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every service boundary decision is backed by cohesion and coupling analysis. Architecture drift detection runs continuously through the [SEADF](/glossary/seadf/) evolutionary framework, ensuring that the implemented architecture matches the designed architecture.
+All architectural decisions comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: circular dependencies trigger immediate build failures, boundary violations block commits, and undeclared cross-application access is rejected at compile time. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every service boundary decision is backed by cohesion and coupling analysis. Architecture drift detection runs continuously through the [SEADF](@/glossary/seadf.md) evolutionary framework, ensuring that the implemented architecture matches the designed architecture.
 
 ---
 
@@ -208,4 +208,4 @@ All architectural decisions comply with the [NO MERCY](/glossary/no-mercy/) doct
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

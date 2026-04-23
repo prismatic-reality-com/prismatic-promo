@@ -24,13 +24,13 @@ image_alt = "Prismatic OSINT Core - Prismatic Platform"
 
 ## Abstract
 
-Prismatic [OSINT](/glossary/osint/) Core is the central intelligence gathering engine of the Prismatic Platform, providing unified access to 121+ Open Source Intelligence sources across seven categories: network intelligence, domain/DNS, [threat intelligence](/glossary/threat-intelligence/), business/financial, Czech registries, breach/leak databases, and vulnerability databases. The engine implements a source adapter [protocol](/glossary/protocol/) that normalizes heterogeneous API responses into a consistent schema, manages per-source [rate limiting](/glossary/rate-limiting/) and authentication, and supports parallel multi-source queries with automatic result deduplication and [confidence scoring](/glossary/confidence-scoring/). Each source adapter handles the specifics of its provider's API (REST, HTML scraping, database connection, file parsing), while the core orchestration layer manages query routing, result fusion, and source health monitoring. The architecture is designed around the NABLA epistemic framework, ensuring that intelligence assessments carry provenance metadata, confidence scores, and temporal timestamps from source through to consumption.
+Prismatic [OSINT](@/glossary/osint.md) Core is the central intelligence gathering engine of the Prismatic Platform, providing unified access to 121+ Open Source Intelligence sources across seven categories: network intelligence, domain/DNS, [threat intelligence](@/glossary/threat-intelligence.md), business/financial, Czech registries, breach/leak databases, and vulnerability databases. The engine implements a source adapter [protocol](@/glossary/protocol.md) that normalizes heterogeneous API responses into a consistent schema, manages per-source [rate limiting](@/glossary/rate-limiting.md) and authentication, and supports parallel multi-source queries with automatic result deduplication and [confidence scoring](@/glossary/confidence-scoring.md). Each source adapter handles the specifics of its provider's API (REST, HTML scraping, database connection, file parsing), while the core orchestration layer manages query routing, result fusion, and source health monitoring. The architecture is designed around the NABLA epistemic framework, ensuring that intelligence assessments carry provenance metadata, confidence scores, and temporal timestamps from source through to consumption.
 
 ## 1. Introduction
 
 ### 1.1 Problem Statement
 
-Intelligence analysis requires data from dozens of disparate sources, each with its own API format, authentication mechanism, rate limit policy, and data schema. [Shodan](/glossary/shodan/) returns JSON with host banners; ARES returns Czech business records in a government-specific XML format; VirusTotal returns malware analysis results; sanctions lists come as structured databases. An analyst or automated system querying these sources individually faces authentication management for each provider, rate limit compliance across concurrent queries, response format normalization for cross-source correlation, and manual deduplication of overlapping data.
+Intelligence analysis requires data from dozens of disparate sources, each with its own API format, authentication mechanism, rate limit policy, and data schema. [Shodan](@/glossary/shodan.md) returns JSON with host banners; ARES returns Czech business records in a government-specific XML format; VirusTotal returns malware analysis results; sanctions lists come as structured databases. An analyst or automated system querying these sources individually faces authentication management for each provider, rate limit compliance across concurrent queries, response format normalization for cross-source correlation, and manual deduplication of overlapping data.
 
 Prismatic OSINT Core solves this by presenting a single unified interface through which any combination of sources can be queried in parallel, with results automatically normalized, deduplicated, and confidence-scored.
 
@@ -42,11 +42,11 @@ Prismatic OSINT Core solves this by presenting a single unified interface throug
 4. **Automatic result fusion** -- deduplicate, normalize, and confidence-score results from multiple sources.
 5. **Rate limit compliance** -- enforce per-source rate limits globally, preventing API key suspension or banning.
 6. **Source health monitoring** -- track availability, response times, and error rates for each source.
-7. **Epistemic provenance** -- every intelligence datum carries source attribution, collection timestamp, and confidence level per [NABLA axioms](/capabilities/nabla-axioms/).
+7. **Epistemic provenance** -- every intelligence datum carries source attribution, collection timestamp, and confidence level per [NABLA axioms](@/capabilities/nabla-axioms.md).
 
 ### 1.3 Scope
 
-Prismatic OSINT Core provides the source adapter framework, query orchestration, and result fusion. Individual source adapters are organized into domain-specific sub-applications: [OSINT Network](/apps/prismatic-osint-network/), [OSINT Business](/apps/prismatic-osint-business-financial/), [OSINT Czech Legal](/apps/prismatic-osint-czech-legal/), [OSINT EU Institutions](/apps/prismatic-osint-eu-institutions/), [OSINT Social Media](/apps/prismatic-osint-social-media/), and [OSINT Sources](/apps/prismatic-osint-sources/).
+Prismatic OSINT Core provides the source adapter framework, query orchestration, and result fusion. Individual source adapters are organized into domain-specific sub-applications: [OSINT Network](@/apps/prismatic-osint-network.md), [OSINT Business](@/apps/prismatic-osint-business-financial.md), [OSINT Czech Legal](@/apps/prismatic-osint-czech-legal.md), [OSINT EU Institutions](@/apps/prismatic-osint-eu-institutions.md), [OSINT Social Media](@/apps/prismatic-osint-social-media.md), and [OSINT Sources](@/apps/prismatic-osint-sources.md).
 
 ## 2. Architecture
 
@@ -80,7 +80,7 @@ Application Query
 |--------|----------------|
 | `PrismaticOsintCore` | Public facade: `search/2`, `build_company_profile/1`, `check_reputation/1` |
 | `PrismaticOsintCore.SourceRouter` | Capability-based source selection and query routing |
-| `PrismaticOsintCore.AdapterProtocol` | [Behaviour](/glossary/behaviour/) definition for source adapters (query, parse, normalize) |
+| `PrismaticOsintCore.AdapterProtocol` | [Behaviour](@/glossary/behaviour.md) definition for source adapters (query, parse, normalize) |
 | `PrismaticOsintCore.RateLimiter` | Per-source global rate limit enforcement using token bucket |
 | `PrismaticOsintCore.ResultFusion` | Multi-source result deduplication, normalization, and scoring |
 | `PrismaticOsintCore.SourceHealth` | Availability, latency, and error rate monitoring per source |
@@ -103,13 +103,13 @@ PrismaticOsintCore.Application (Supervisor, :one_for_one)
 
 ### 2.4 Data Flow
 
-A query enters through the facade, which determines which sources to query based on the query type and requested categories. The SourceRouter selects adapters that match the query capabilities. Queries are dispatched in parallel via Task.[Supervisor](/glossary/supervisor/), with each query passing through the RateLimiter before reaching the source adapter. Adapter responses are parsed, normalized to the platform's entity schema, annotated with provenance metadata, and passed to the ResultFusion engine for deduplication and confidence scoring. The final intelligence result is returned to the caller.
+A query enters through the facade, which determines which sources to query based on the query type and requested categories. The SourceRouter selects adapters that match the query capabilities. Queries are dispatched in parallel via Task.[Supervisor](@/glossary/supervisor.md), with each query passing through the RateLimiter before reaching the source adapter. Adapter responses are parsed, normalized to the platform's entity schema, annotated with provenance metadata, and passed to the ResultFusion engine for deduplication and confidence scoring. The final intelligence result is returned to the caller.
 
 ## 3. Implementation
 
 ### 3.1 Key Algorithms
 
-**[Intelligence Fusion](/glossary/intelligence-fusion/)**. When multiple sources return data about the same entity, the fusion engine performs [entity resolution](/glossary/entity-resolution/) (matching records across sources), field-level deduplication (preferring the most authoritative source for each field), confidence scoring (higher confidence when multiple independent sources agree), and temporal selection (preferring the most recent data when timestamps differ).
+**[Intelligence Fusion](@/glossary/intelligence-fusion.md)**. When multiple sources return data about the same entity, the fusion engine performs [entity resolution](@/glossary/entity-resolution.md) (matching records across sources), field-level deduplication (preferring the most authoritative source for each field), confidence scoring (higher confidence when multiple independent sources agree), and temporal selection (preferring the most recent data when timestamps differ).
 
 **Rate Limiting**. Each source has a token bucket rate limiter with configurable capacity and refill rate. When a query would exceed the rate limit, it is queued with priority ordering. Critical queries (security incidents) receive priority over routine monitoring queries.
 
@@ -184,29 +184,29 @@ config :prismatic_osint_core,
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Cache](/apps/prismatic-cache/) | Query result caching (reduces API costs) |
-| [Prismatic Resilience](/apps/prismatic-resilience/) | [Circuit breaker](/glossary/circuit-breaker/)s for source failures |
-| [Prismatic Storage](/apps/prismatic-storage/) | Intelligence data persistence |
-| [Prismatic Nabla](/apps/prismatic-nabla/) | Confidence scoring and provenance tracking |
-| [Prismatic Telemetry](/apps/prismatic-telemetry/) | Source query [metrics](/glossary/metrics/) |
+| [Prismatic Cache](@/apps/prismatic-cache.md) | Query result caching (reduces API costs) |
+| [Prismatic Resilience](@/apps/prismatic-resilience.md) | [Circuit breaker](@/glossary/circuit-breaker.md)s for source failures |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Intelligence data persistence |
+| [Prismatic Nabla](@/apps/prismatic-nabla.md) | Confidence scoring and provenance tracking |
+| [Prismatic Telemetry](@/apps/prismatic-telemetry.md) | Source query [metrics](@/glossary/metrics.md) |
 
 ### 4.2 Dependents
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Perimeter](/apps/prismatic-perimeter/) | Evidence collection for [security rating](/glossary/security-rating/)s |
-| [Prismatic HAWKEYE](/apps/prismatic-hawkeye/) | Visitor IP enrichment |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | Compliance evidence from OSINT data |
-| [Prismatic Graph](/apps/prismatic-graph/) | Entity data for [knowledge graph](/glossary/knowledge-graph/) |
-| [Prismatic Detection Engine](/apps/prismatic-detection-engine/) | Threat indicator feeds |
+| [Prismatic Perimeter](@/apps/prismatic-perimeter.md) | Evidence collection for [security rating](@/glossary/security-rating.md)s |
+| [Prismatic HAWKEYE](@/apps/prismatic-hawkeye.md) | Visitor IP enrichment |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | Compliance evidence from OSINT data |
+| [Prismatic Graph](@/apps/prismatic-graph.md) | Entity data for [knowledge graph](@/glossary/knowledge-graph.md) |
+| [Prismatic Detection Engine](@/apps/prismatic-detection-engine.md) | Threat indicator feeds |
 
 ### 4.3 Inter-Process Communication
 
-Source queries are dispatched as supervised Tasks for parallel execution. Results flow back through the fusion engine via Task.await_many. Source health metrics are published via [Phoenix](/glossary/phoenix/) [PubSub](/glossary/pubsub/) for dashboard consumption. Rate limiter state is maintained in a central [GenServer](/glossary/genserver/) with [ETS](/glossary/ets/)-backed token buckets.
+Source queries are dispatched as supervised Tasks for parallel execution. Results flow back through the fusion engine via Task.await_many. Source health metrics are published via [Phoenix](@/glossary/phoenix.md) [PubSub](@/glossary/pubsub.md) for dashboard consumption. Rate limiter state is maintained in a central [GenServer](@/glossary/genserver.md) with [ETS](@/glossary/ets.md)-backed token buckets.
 
 ### 4.4 External Integrations
 
-121+ external services accessed via [REST API](/glossary/rest-api/)s, HTML scraping, database connections, and file downloads. Key providers include Shodan, [Censys](/glossary/censys/), VirusTotal, AbuseIPDB, [GreyNoise](/glossary/greynoise/), SecurityTrails, ARES (Czech business [registry](/glossary/registry-otp/)), Justice.cz (Czech commercial register), EU Sanctions List, OFAC, NVD, and crt.sh.
+121+ external services accessed via [REST API](@/glossary/rest-api.md)s, HTML scraping, database connections, and file downloads. Key providers include Shodan, [Censys](@/glossary/censys.md), VirusTotal, AbuseIPDB, [GreyNoise](@/glossary/greynoise.md), SecurityTrails, ARES (Czech business [registry](@/glossary/registry-otp.md)), Justice.cz (Czech commercial register), EU Sanctions List, OFAC, NVD, and crt.sh.
 
 ## 5. Performance
 
@@ -254,7 +254,7 @@ API key exposure is the primary threat. Source credentials are stored in encrypt
 
 ### 7.2 Access Control
 
-OSINT queries require `osint_query` permission through [Prismatic Auth](/apps/prismatic-auth/). Query results containing personal data (sanctions matches, breach data) are subject to [GDPR](/glossary/gdpr/) retention policies managed through [Prismatic Compliance](/apps/prismatic-compliance/).
+OSINT queries require `osint_query` permission through [Prismatic Auth](@/apps/prismatic-auth.md). Query results containing personal data (sanctions matches, breach data) are subject to [GDPR](@/glossary/gdpr.md) retention policies managed through [Prismatic Compliance](@/apps/prismatic-compliance.md).
 
 ## 8. Operational Considerations
 
@@ -281,27 +281,27 @@ Planned enhancements include streaming result delivery (returning partial result
 
 ## References
 
-- [Prismatic OSINT Network](/apps/prismatic-osint-network/) -- Network intelligence adapters
-- [Prismatic OSINT Business](/apps/prismatic-osint-business-financial/) -- Business intelligence adapters
-- [Prismatic OSINT Czech Legal](/apps/prismatic-osint-czech-legal/) -- Czech legal adapters
-- [Prismatic OSINT EU Institutions](/apps/prismatic-osint-eu-institutions/) -- EU institutional adapters
-- [Prismatic OSINT Monitoring](/apps/prismatic-osint-monitoring/) -- Continuous monitoring
-- [Prismatic OSINT Sources](/apps/prismatic-osint-sources/) -- Source registry
+- [Prismatic OSINT Network](@/apps/prismatic-osint-network.md) -- Network intelligence adapters
+- [Prismatic OSINT Business](@/apps/prismatic-osint-business-financial.md) -- Business intelligence adapters
+- [Prismatic OSINT Czech Legal](@/apps/prismatic-osint-czech-legal.md) -- Czech legal adapters
+- [Prismatic OSINT EU Institutions](@/apps/prismatic-osint-eu-institutions.md) -- EU institutional adapters
+- [Prismatic OSINT Monitoring](@/apps/prismatic-osint-monitoring.md) -- Continuous monitoring
+- [Prismatic OSINT Sources](@/apps/prismatic-osint-sources.md) -- Source registry
 - [Shodan](https://www.shodan.io/) -- Internet device search engine
 - [Censys](https://censys.io/) -- Internet-wide scanning platform
 - [VirusTotal](https://www.virustotal.com/) -- Multi-antivirus scanning service
 
 ## Related Agents
 
-- [Competitor Researcher](/agents/competitor-researcher/) -- Leverages the 121+ OSINT sources to build competitive intelligence profiles across business domains
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Routes and escalates intelligence alerts generated from OSINT source monitoring
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Designs the source adapter protocol ensuring consistent integration across 121+ heterogeneous providers
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Leverages the 121+ OSINT sources to build competitive intelligence profiles across business domains
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Routes and escalates intelligence alerts generated from OSINT source monitoring
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Designs the source adapter protocol ensuring consistent integration across 121+ heterogeneous providers
 
 ## Related Capabilities
 
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source result fusion with deduplication, confidence scoring, and provenance tracking
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Source health monitoring and availability tracking for continuous intelligence operations
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Every intelligence datum carries provenance metadata and confidence levels per epistemic axioms
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source result fusion with deduplication, confidence scoring, and provenance tracking
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Source health monitoring and availability tracking for continuous intelligence operations
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Every intelligence datum carries provenance metadata and confidence levels per epistemic axioms
 
 ---
 
@@ -310,4 +310,4 @@ Planned enhancements include streaming result delivery (returning partial result
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

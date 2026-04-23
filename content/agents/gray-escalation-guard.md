@@ -28,7 +28,7 @@ image_alt = "Gray Escalation Guard - Prismatic Platform"
 
 ## Overview
 
-The Gray Escalation Guard is an L4 safety-critical specialist operating within the Boundary Exploration domain of the Prismatic Platform's [Color Team](/glossary/color-teams/) framework. This agent serves as the primary safety mechanism preventing Gray Team boundary exploration operations from escalating into Black Team (offensive/theoretical threat modeling) territory. Gray Team operations explore specification gaps, edge cases, and system ambiguities through passive observation and analysis, while Black Team operations model theoretical adversarial capabilities in maximum isolation. The boundary between these domains must be enforced with absolute rigor to prevent well-intentioned exploration from evolving into potentially dangerous territory.
+The Gray Escalation Guard is an L4 safety-critical specialist operating within the Boundary Exploration domain of the Prismatic Platform's [Color Team](@/glossary/color-teams.md) framework. This agent serves as the primary safety mechanism preventing Gray Team boundary exploration operations from escalating into Black Team (offensive/theoretical threat modeling) territory. Gray Team operations explore specification gaps, edge cases, and system ambiguities through passive observation and analysis, while Black Team operations model theoretical adversarial capabilities in maximum isolation. The boundary between these domains must be enforced with absolute rigor to prevent well-intentioned exploration from evolving into potentially dangerous territory.
 
 The necessity of this agent emerges from a fundamental tension in security research: thorough boundary exploration naturally tends toward discovering not just what a system does at its edges, but what a system could be made to do under adversarial conditions. The Escalation Guard recognizes that this transition -- from "what happens at the boundary" to "how could the boundary be exploited" -- represents a critical safety threshold that must be explicitly monitored and enforced rather than left to the judgment of individual exploration agents that may lack the broader safety context.
 
@@ -62,23 +62,23 @@ The Gray Escalation Guard provides six primary capabilities that collectively ma
 
 ## Technical Implementation
 
-The Escalation Guard is implemented as a safety-critical [OTP](/glossary/otp/) process with elevated scheduling priority and dedicated resource allocation. The process monitors Gray Team agent telemetry through direct subscription to operation event streams, providing real-time analysis without introducing latency into monitored operations.
+The Escalation Guard is implemented as a safety-critical [OTP](@/glossary/otp.md) process with elevated scheduling priority and dedicated resource allocation. The process monitors Gray Team agent telemetry through direct subscription to operation event streams, providing real-time analysis without introducing latency into monitored operations.
 
 The escalation detection engine uses a weighted scoring model where each detected indicator contributes to an aggregate escalation score. The scoring model is calibrated through historical analysis of Gray Team operations that were retrospectively classified as boundary-crossing. Threshold levels trigger graduated responses: advisory alerts at low scores, operation review at medium scores, and immediate halt at high scores.
 
 Finding sanitization uses a pattern-matching engine trained on a taxonomy of offensive capability indicators. The engine identifies language patterns, technical details, and compositional elements that could provide offensive utility and flags them for review or automatic redaction.
 
-[Property-based testing](/glossary/property-based-testing/) validates the Guard's detection logic by generating synthetic operation sequences that simulate various escalation patterns and verifying that the detection model correctly identifies boundary-crossing behavior in all generated scenarios.
+[Property-based testing](@/glossary/property-based-testing.md) validates the Guard's detection logic by generating synthetic operation sequences that simulate various escalation patterns and verifying that the detection model correctly identifies boundary-crossing behavior in all generated scenarios.
 
 ## Coordination Model
 
 | Agent | Relationship | Domain |
 |-------|-------------|--------|
-| [gray-explorer-commander](/agents/gray-explorer-commander/) | Receives exploration campaign definitions and reports escalation events | Boundary Exploration |
-| [EDGE-{campaign}-{sequence}](/agents/edge-campaign-sequence/) | Monitors individual edge-finding operations for escalation indicators | Boundary Exploration |
-| [purple-coordinator](/agents/purple-coordinator/) | Reports escalation events for synthesis with Red/Blue team findings | Synthesis |
-| [Prismatic Safety](/apps/prismatic-safety/) | Escalates critical safety events to platform safety infrastructure | Safety |
-| [black-abstraction-enforcer](/agents/black-abstraction-enforcer/) | Coordinates boundary definition between Gray exploration and Black theory domains | Safety |
+| [gray-explorer-commander](@/agents/gray-explorer-commander.md) | Receives exploration campaign definitions and reports escalation events | Boundary Exploration |
+| [EDGE-{campaign}-{sequence}](@/agents/edge-campaign-sequence.md) | Monitors individual edge-finding operations for escalation indicators | Boundary Exploration |
+| [purple-coordinator](@/agents/purple-coordinator.md) | Reports escalation events for synthesis with Red/Blue team findings | Synthesis |
+| [Prismatic Safety](@/apps/prismatic-safety.md) | Escalates critical safety events to platform safety infrastructure | Safety |
+| [black-abstraction-enforcer](@/agents/black-abstraction-enforcer.md) | Coordinates boundary definition between Gray exploration and Black theory domains | Safety |
 
 ## Safety Protocols
 
@@ -93,7 +93,7 @@ Finding sanitization uses a pattern-matching engine trained on a taxonomy of off
 
 ## Enforcement
 
-The Gray Escalation Guard operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with safety-critical enforcement authority. The Guard has absolute authority to halt any Gray Team operation without requiring approval from the [gray-explorer-commander](/agents/gray-explorer-commander/). Escalation events are logged immutably with full operational context for post-incident review. Finding sanitization is non-bypassable; no Gray Team finding reaches other teams without Guard review. Campaign boundaries are enforced at the technical level through process sandboxing, not merely through policy compliance expectations. All Guard decisions pass [Trinity Gate](/glossary/trinity-gate/) validation to ensure consistency across structural, logical, and formal safety dimensions.
+The Gray Escalation Guard operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with safety-critical enforcement authority. The Guard has absolute authority to halt any Gray Team operation without requiring approval from the [gray-explorer-commander](@/agents/gray-explorer-commander.md). Escalation events are logged immutably with full operational context for post-incident review. Finding sanitization is non-bypassable; no Gray Team finding reaches other teams without Guard review. Campaign boundaries are enforced at the technical level through process sandboxing, not merely through policy compliance expectations. All Guard decisions pass [Trinity Gate](@/glossary/trinity-gate.md) validation to ensure consistency across structural, logical, and formal safety dimensions.
 
 ---
 
@@ -102,4 +102,4 @@ The Gray Escalation Guard operates under the [NO MERCY, NO DOUBTS](/glossary/no-
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -331,25 +331,25 @@ Learning resources, documentation, and curriculum benefit from community contrib
 
 The Community Over Corporation philosophy connects to several key concepts within the Prismatic Platform ecosystem:
 
-- [Community Ownership](/glossary/community-ownership/) -- The structural mechanisms through which communities exercise collective control over software assets, governance processes, and development direction.
-- [Community-Owned Innovation](/glossary/community-owned-innovation/) -- How community governance enables innovation that serves collective rather than corporate interests.
-- [Complete Transparency](/glossary/complete-transparency/) -- The operational requirement for full visibility into all decisions, processes, and metrics that enables meaningful community participation.
-- [Share Openly](/glossary/share-openly/) -- The practice of making knowledge, code, and decisions freely available as a prerequisite for genuine community governance.
-- [Collaborative Development](/glossary/collaborative-development/) -- Technical workflows and tooling that enable effective multi-contributor development under community governance.
-- [Developer Community](/glossary/developer-community/) -- The human ecosystem of contributors, users, and stakeholders that community governance serves and empowers.
-- [Community Building](/glossary/community-building/) -- Strategies and practices for growing and sustaining the contributor base that community governance depends upon.
-- [Sustainable Funding Models](/glossary/sustainable-funding-models/) -- Financial structures that support community-governed development without introducing corporate capture dynamics.
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- The relationship between operational transparency and the trust necessary for effective community governance.
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- How transparent quality systems reinforce community confidence in collectively governed software.
+- [Community Ownership](@/glossary/community-ownership.md) -- The structural mechanisms through which communities exercise collective control over software assets, governance processes, and development direction.
+- [Community-Owned Innovation](@/glossary/community-owned-innovation.md) -- How community governance enables innovation that serves collective rather than corporate interests.
+- [Complete Transparency](@/glossary/complete-transparency.md) -- The operational requirement for full visibility into all decisions, processes, and metrics that enables meaningful community participation.
+- [Share Openly](@/glossary/share-openly.md) -- The practice of making knowledge, code, and decisions freely available as a prerequisite for genuine community governance.
+- [Collaborative Development](@/glossary/collaborative-development.md) -- Technical workflows and tooling that enable effective multi-contributor development under community governance.
+- [Developer Community](@/glossary/developer-community.md) -- The human ecosystem of contributors, users, and stakeholders that community governance serves and empowers.
+- [Community Building](@/glossary/community-building.md) -- Strategies and practices for growing and sustaining the contributor base that community governance depends upon.
+- [Sustainable Funding Models](@/glossary/sustainable-funding-models.md) -- Financial structures that support community-governed development without introducing corporate capture dynamics.
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- The relationship between operational transparency and the trust necessary for effective community governance.
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- How transparent quality systems reinforce community confidence in collectively governed software.
 
 ## See Also
 
-- [Community Engagement](/glossary/community-engagement/) -- Practices for meaningful community involvement in platform development
-- [Community Contributions](/glossary/community-contributions/) -- Types and recognition of community contributions
-- [Community Impact](/glossary/community-impact/) -- Measuring the effectiveness of community-driven development
-- [Corporate Interests](/glossary/corporate-interests/) -- Understanding the dynamics community governance must navigate
-- [Corporate Isolation](/glossary/corporate-isolation/) -- Technical and governance measures for preventing corporate capture
-- [Proprietary Solutions](/glossary/proprietary-solutions/) -- The alternative model that Community Over Corporation explicitly rejects
+- [Community Engagement](@/glossary/community-engagement.md) -- Practices for meaningful community involvement in platform development
+- [Community Contributions](@/glossary/community-contributions.md) -- Types and recognition of community contributions
+- [Community Impact](@/glossary/community-impact.md) -- Measuring the effectiveness of community-driven development
+- [Corporate Interests](@/glossary/corporate-interests.md) -- Understanding the dynamics community governance must navigate
+- [Corporate Isolation](@/glossary/corporate-isolation.md) -- Technical and governance measures for preventing corporate capture
+- [Proprietary Solutions](@/glossary/proprietary-solutions.md) -- The alternative model that Community Over Corporation explicitly rejects
 
 ## Historical Context and Intellectual Lineage
 
@@ -363,7 +363,7 @@ The Apache Software Foundation, established in 1999, advanced the model by demon
 
 The Elixir programming language itself embodies Community Over Corporation. Created by Jose Valim and developed through community contribution, Elixir grew from a personal project to a production-grade language powering platforms like Discord, Pinterest, and Bleacher Report -- all through community-driven development rather than corporate sponsorship.
 
-The Prismatic Platform inherits this lineage and extends it by making community governance explicit, automated, and enforced through the [AIAD standard](/glossary/aiad/) and the platform's [quality gates](/glossary/quality-gates/).
+The Prismatic Platform inherits this lineage and extends it by making community governance explicit, automated, and enforced through the [AIAD standard](@/glossary/aiad.md) and the platform's [quality gates](@/glossary/quality-gates.md).
 
 ---
 
@@ -372,4 +372,4 @@ The Prismatic Platform inherits this lineage and extends it by making community 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

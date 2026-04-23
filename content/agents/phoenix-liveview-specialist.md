@@ -28,9 +28,9 @@ image_alt = "phoenix-liveview-specialist - Prismatic Platform"
 
 ## Overview
 
-The phoenix-liveview-specialist operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's development domain, providing deep expertise in [Phoenix LiveView](/glossary/phoenix-liveview/) for building real-time, interactive user interfaces that run server-side while delivering rich client-side experiences. This agent governs the design and implementation of all [LiveView](/glossary/liveview/) components across the platform's dashboards, including the Perimeter EASM dashboard, agent monitoring interfaces, and intelligence visualization tools. Every LiveView implementation must meet strict performance targets: under 150ms for mount, under 50ms for handle_event.
+The phoenix-liveview-specialist operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's development domain, providing deep expertise in [Phoenix LiveView](@/glossary/phoenix-liveview.md) for building real-time, interactive user interfaces that run server-side while delivering rich client-side experiences. This agent governs the design and implementation of all [LiveView](@/glossary/liveview.md) components across the platform's dashboards, including the Perimeter EASM dashboard, agent monitoring interfaces, and intelligence visualization tools. Every LiveView implementation must meet strict performance targets: under 150ms for mount, under 50ms for handle_event.
 
-Built on the [AIAD](/glossary/aiad/) standard and the [Phoenix](/glossary/phoenix/) framework, this agent ensures that all real-time interfaces leverage [OTP](/glossary/otp/) concurrency primitives correctly -- each connected user runs in their own [BEAM](/glossary/beam/) process with isolated state, [PubSub](/glossary/pubsub/) subscriptions drive live updates, and [ETS](/glossary/ets/) caching eliminates redundant database queries. The [NO MERCY](/glossary/no-mercy/) doctrine applies to UI performance: no LiveView page ships that exceeds the 250ms total page load performance standard.
+Built on the [AIAD](@/glossary/aiad.md) standard and the [Phoenix](@/glossary/phoenix.md) framework, this agent ensures that all real-time interfaces leverage [OTP](@/glossary/otp.md) concurrency primitives correctly -- each connected user runs in their own [BEAM](@/glossary/beam.md) process with isolated state, [PubSub](@/glossary/pubsub.md) subscriptions drive live updates, and [ETS](@/glossary/ets.md) caching eliminates redundant database queries. The [NO MERCY](@/glossary/no-mercy.md) doctrine applies to UI performance: no LiveView page ships that exceeds the 250ms total page load performance standard.
 
 ## Operational Domain
 
@@ -49,10 +49,10 @@ The LiveView development domain covers all real-time web interfaces within the P
 
 - **Real-time dashboard architecture** -- Designs LiveView dashboards that efficiently stream live data updates through Phoenix PubSub, minimizing DOM patches and maximizing rendering performance
 - **Live component design** -- Creates reusable, stateful LiveView components with proper lifecycle management, efficient assigns tracking, and isolated update scoping
-- **[PubSub](/glossary/pubsub/) integration** -- Implements publish-subscribe patterns for live data streaming, ensuring that dashboard updates are pushed to connected clients with minimal latency
+- **[PubSub](@/glossary/pubsub.md) integration** -- Implements publish-subscribe patterns for live data streaming, ensuring that dashboard updates are pushed to connected clients with minimal latency
 - **Performance optimization** -- Profiles and optimizes LiveView rendering performance through techniques including temporary assigns, stream collections, assign_async, and targeted DOM patching
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed performance analysis and optimization recommendations
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing LiveView mount times, event handling latency, and rendering performance metrics
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed performance analysis and optimization recommendations
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing LiveView mount times, event handling latency, and rendering performance metrics
 
 ## LiveView Architecture Patterns
 
@@ -144,7 +144,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to define LiveView architecture standards, approve component designs, and enforce performance targets across all platform interfaces.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to define LiveView architecture standards, approve component designs, and enforce performance targets across all platform interfaces.
 
 ## Performance Standards
 
@@ -169,14 +169,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [performance-benchmarking-agent](/agents/performance-benchmarking-agent/) | Validates LiveView performance against established benchmarks |
-| [code-quality-commander](/agents/code-quality-commander/) | Enforces code quality standards on LiveView implementations |
-| [service-mesh-specialist](/agents/service-mesh-specialist/) | Coordinates WebSocket connection routing for LiveView sessions |
-| [database-performance-specialist](/agents/database-performance-specialist/) | Optimizes database queries within LiveView data loading paths |
+| [performance-benchmarking-agent](@/agents/performance-benchmarking-agent.md) | Validates LiveView performance against established benchmarks |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Enforces code quality standards on LiveView implementations |
+| [service-mesh-specialist](@/agents/service-mesh-specialist.md) | Coordinates WebSocket connection routing for LiveView sessions |
+| [database-performance-specialist](@/agents/database-performance-specialist.md) | Optimizes database queries within LiveView data loading paths |
 
 ## Hot Code Reload Integration
 
-LiveView development leverages [hot code reload](/glossary/hot-code-reload/) for rapid development iteration. The specialist ensures that live code reloading does not disrupt active user sessions -- state is preserved across reloads through proper socket assign management, and connected clients receive seamless updates without page refreshes. This capability is critical for the platform's development velocity.
+LiveView development leverages [hot code reload](@/glossary/hot-code-reload.md) for rapid development iteration. The specialist ensures that live code reloading does not disrupt active user sessions -- state is preserved across reloads through proper socket assign management, and connected clients receive seamless updates without page refreshes. This capability is critical for the platform's development velocity.
 
 ## Performance Optimization Techniques
 
@@ -210,7 +210,7 @@ Each connected LiveView user maintains a WebSocket connection to the server. The
 
 ## Enforcement
 
-All LiveView implementations comply with the [NO MERCY](/glossary/no-mercy/) doctrine: no page exceeding the 250ms load target ships to production, components without performance telemetry are rejected, and all LiveView pages require Benchee performance tests before merge. The [NO DOUBTS](/glossary/no-doubts/) principle requires that performance measurements are reproducible and statistically significant, using P95 latency percentiles rather than averages. TailwindCSS-first styling is mandatory per platform standards.
+All LiveView implementations comply with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no page exceeding the 250ms load target ships to production, components without performance telemetry are rejected, and all LiveView pages require Benchee performance tests before merge. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that performance measurements are reproducible and statistically significant, using P95 latency percentiles rather than averages. TailwindCSS-first styling is mandatory per platform standards.
 
 ---
 
@@ -219,4 +219,4 @@ All LiveView implementations comply with the [NO MERCY](/glossary/no-mercy/) doc
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

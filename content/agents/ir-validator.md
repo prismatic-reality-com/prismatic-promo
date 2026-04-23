@@ -28,9 +28,9 @@ image_alt = "ir-validator - Prismatic Platform"
 
 ## Overview
 
-The ir-validator is an L3 [Strategic Command](/glossary/strategic-command/) agent operating within the quality domain of the Prismatic Platform. It performs comprehensive structural validation and verification of Information Retrieval (IR) workflow definitions, ensuring that every workflow entering the execution pipeline is structurally sound, type-safe, and semantically consistent. While the [ir-linter](/agents/ir-linter/) evaluates workflow quality (how well-designed a workflow is), the ir-validator determines correctness (whether a workflow can execute without errors), making it a critical gate in the IR compilation pipeline.
+The ir-validator is an L3 [Strategic Command](@/glossary/strategic-command.md) agent operating within the quality domain of the Prismatic Platform. It performs comprehensive structural validation and verification of Information Retrieval (IR) workflow definitions, ensuring that every workflow entering the execution pipeline is structurally sound, type-safe, and semantically consistent. While the [ir-linter](@/agents/ir-linter.md) evaluates workflow quality (how well-designed a workflow is), the ir-validator determines correctness (whether a workflow can execute without errors), making it a critical gate in the IR compilation pipeline.
 
-Built on the [AIAD](/glossary/aiad/) standard and enforcing the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, the ir-validator implements a zero-tolerance policy for structural defects. No workflow with validation errors proceeds to the [PVM](/glossary/pvm/) execution runtime. This strict enforcement prevents runtime failures that would be far more costly to diagnose and recover from, implementing the software engineering principle of failing fast and failing loud at the earliest possible point in the pipeline.
+Built on the [AIAD](@/glossary/aiad.md) standard and enforcing the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, the ir-validator implements a zero-tolerance policy for structural defects. No workflow with validation errors proceeds to the [PVM](@/glossary/pvm.md) execution runtime. This strict enforcement prevents runtime failures that would be far more costly to diagnose and recover from, implementing the software engineering principle of failing fast and failing loud at the earliest possible point in the pipeline.
 
 ## Validation Architecture
 
@@ -51,13 +51,13 @@ The semantic layer verifies higher-level correctness properties. It checks that 
 - **Schema compatibility checking** -- Validates that data schemas at stage boundaries are compatible, including handling of optional fields, nullable values, and schema evolution patterns
 - **Predicate field validation** -- Verifies that filter predicates, sort expressions, and aggregation operations reference fields that exist in the data schema at the point where they are applied
 - **Parameter constraint validation** -- Checks that stage configuration parameters fall within their declared valid ranges and satisfy declared interdependencies between parameters
-- **[Property-based testing](/glossary/property-based-testing/) support** -- Generates randomized workflow inputs for property-based validation of workflow invariants, complementing deterministic checks with stochastic verification
-- **[Quality gate integration](/capabilities/quality-gates/)** with zero-error deployment gates
-- **[Telemetry integration](/capabilities/telemetry-integration/)** for validation performance and error pattern monitoring
+- **[Property-based testing](@/glossary/property-based-testing.md) support** -- Generates randomized workflow inputs for property-based validation of workflow invariants, complementing deterministic checks with stochastic verification
+- **[Quality gate integration](@/capabilities/quality-gates.md)** with zero-error deployment gates
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** for validation performance and error pattern monitoring
 
 ## Validation Process
 
-The validation process accepts an IR workflow definition (typically annotated with linter findings from the [ir-linter](/agents/ir-linter/)) and produces a validation report that either certifies the workflow as valid or enumerates all discovered validation errors. The process is designed to be comprehensive rather than fail-fast: all validation layers execute to completion regardless of earlier failures, ensuring that users receive a complete picture of all validation issues in a single pass rather than discovering them incrementally across multiple validation attempts.
+The validation process accepts an IR workflow definition (typically annotated with linter findings from the [ir-linter](@/agents/ir-linter.md)) and produces a validation report that either certifies the workflow as valid or enumerates all discovered validation errors. The process is designed to be comprehensive rather than fail-fast: all validation layers execute to completion regardless of earlier failures, ensuring that users receive a complete picture of all validation issues in a single pass rather than discovering them incrementally across multiple validation attempts.
 
 Each validation finding includes a severity level (error or warning), a precise location within the workflow definition, a human-readable description of the issue, and where applicable a suggested remediation. Error-level findings prevent workflow execution. Warning-level findings indicate potential issues that do not prevent execution but may cause unexpected behavior or degraded performance.
 
@@ -71,18 +71,18 @@ Type inference propagates types forward through the workflow DAG, computing outp
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination authority enabling the ir-validator to access the IR stage library for type and parameter constraint reference, publish validation results to the quality tracking system, and block workflow deployment when validation errors are detected.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination authority enabling the ir-validator to access the IR stage library for type and parameter constraint reference, publish validation results to the quality tracking system, and block workflow deployment when validation errors are detected.
 
 ## Integration Architecture
 
 | Component | Relationship |
 |-----------|-------------|
-| [Quality Gates](/glossary/quality-gates/) | Validation serves as a mandatory quality gate before PVM execution |
-| Prismatic Safety | [Quality floor guardian](/glossary/quality-floor-guardian/) integration for validation coverage tracking |
-| [GitLab CI](/glossary/gitlab-ci/)/CD | Automated validation in CI/CD pipelines |
+| [Quality Gates](@/glossary/quality-gates.md) | Validation serves as a mandatory quality gate before PVM execution |
+| Prismatic Safety | [Quality floor guardian](@/glossary/quality-floor-guardian.md) integration for validation coverage tracking |
+| [GitLab CI](@/glossary/gitlab-ci.md)/CD | Automated validation in CI/CD pipelines |
 | IR Stage Library | Reference for stage type signatures and parameter constraints |
-| [ETS](/glossary/ets/) Cache | In-memory caching of stage type signatures for fast validation |
-| Prismatic Telemetry | Validation latency and error pattern [metrics](/glossary/metrics/) |
+| [ETS](@/glossary/ets.md) Cache | In-memory caching of stage type signatures for fast validation |
+| Prismatic Telemetry | Validation latency and error pattern [metrics](@/glossary/metrics.md) |
 
 ## Command Interface
 
@@ -97,21 +97,21 @@ Type inference propagates types forward through the workflow DAG, computing outp
 
 | Agent | Relationship |
 |-------|-------------|
-| [**ir-generator**](/agents/ir-generator/) (L3) | Produces workflow definitions that the validator checks for correctness |
-| [**ir-linter**](/agents/ir-linter/) (L3) | Provides quality annotations that complement the validator's correctness checks |
-| [**ir-pvm-profiler**](/agents/ir-pvm-profiler/) (L3) | Verifies that validated workflows maintain performance baselines |
-| [**cascade-quality-specialist**](/agents/cascade-quality-specialist/) (L3) | Eliminates quality debt patterns in IR validation rule sets |
-| [**hbfs-quality-evolution**](/agents/hbfs-quality-evolution/) (L3) | Evolves validation rules through HBFS optimization cycles |
+| [**ir-generator**](@/agents/ir-generator.md) (L3) | Produces workflow definitions that the validator checks for correctness |
+| [**ir-linter**](@/agents/ir-linter.md) (L3) | Provides quality annotations that complement the validator's correctness checks |
+| [**ir-pvm-profiler**](@/agents/ir-pvm-profiler.md) (L3) | Verifies that validated workflows maintain performance baselines |
+| [**cascade-quality-specialist**](@/agents/cascade-quality-specialist.md) (L3) | Eliminates quality debt patterns in IR validation rule sets |
+| [**hbfs-quality-evolution**](@/agents/hbfs-quality-evolution.md) (L3) | Evolves validation rules through HBFS optimization cycles |
 
 ## Error Taxonomy
 
 Validation errors are classified into a structured taxonomy that facilitates automated processing and trend analysis. Structural errors include cycle-detected, disconnected-graph, orphaned-stage, and missing-source. Type errors include type-mismatch, incompatible-schema, missing-field-reference, and invalid-aggregation-type. Parameter errors include out-of-range, missing-required, and violated-interdependency. Semantic errors include unreachable-branch, impossible-predicate, and redundant-operation.
 
-This taxonomy enables aggregation of error patterns across workflows and over time, revealing systemic issues in workflow authoring practices or generator output quality. The [SEADF](/glossary/seadf/) evolution framework uses these patterns to drive improvements in the [ir-generator](/agents/ir-generator/) and in developer tooling.
+This taxonomy enables aggregation of error patterns across workflows and over time, revealing systemic issues in workflow authoring practices or generator output quality. The [SEADF](@/glossary/seadf.md) evolution framework uses these patterns to drive improvements in the [ir-generator](@/agents/ir-generator.md) and in developer tooling.
 
 ## Enforcement
 
-The [NO MERCY](/glossary/no-mercy/) doctrine mandates zero tolerance for validation errors. No workflow with unresolved error-level findings enters the PVM execution pipeline. The [NO DOUBTS](/glossary/no-doubts/) principle requires that every validation finding includes sufficient detail for the developer to understand and resolve the issue without additional investigation. Validation results include the specific location, the expected condition, the actual condition found, and a remediation suggestion.
+The [NO MERCY](@/glossary/no-mercy.md) doctrine mandates zero tolerance for validation errors. No workflow with unresolved error-level findings enters the PVM execution pipeline. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that every validation finding includes sufficient detail for the developer to understand and resolve the issue without additional investigation. Validation results include the specific location, the expected condition, the actual condition found, and a remediation suggestion.
 
 ---
 
@@ -120,4 +120,4 @@ The [NO MERCY](/glossary/no-mercy/) doctrine mandates zero tolerance for validat
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

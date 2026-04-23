@@ -23,15 +23,15 @@ image_alt = "Prismatic Compression - Prismatic Platform"
 
 ## Overview
 
-Prismatic Compression provides data compression and archival services for the platform. With a continuously growing [OSINT](/glossary/osint/) data store, historical intelligence archives, and high-volume inter-node communication, efficient data encoding is essential for both cost control and performance. Compression handles three distinct concerns: reducing storage footprint for historical data, optimizing network transfer between [distributed system](/glossary/distributed-system/) components, and managing long-term data retention with configurable archival policies.
+Prismatic Compression provides data compression and archival services for the platform. With a continuously growing [OSINT](@/glossary/osint.md) data store, historical intelligence archives, and high-volume inter-node communication, efficient data encoding is essential for both cost control and performance. Compression handles three distinct concerns: reducing storage footprint for historical data, optimizing network transfer between [distributed system](@/glossary/distributed-system.md) components, and managing long-term data retention with configurable archival policies.
 
-The module implements an adaptive algorithm selection strategy. Rather than applying a single compression algorithm uniformly, it profiles incoming data and selects the optimal algorithm based on data characteristics. Structured JSON payloads from [REST API](/glossary/rest-api/) responses compress well with Zstandard's dictionary mode, while binary sensor data from [Prismatic Embodiment](/apps/prismatic-embodiment/) achieves better ratios with LZ4. The selection is transparent to callers -- they compress and decompress through a unified interface while the module handles algorithm selection, dictionary management, and format versioning internally. This [adapter pattern](/glossary/adapter-pattern/) ensures new compression algorithms can be added without modifying consumer code.
+The module implements an adaptive algorithm selection strategy. Rather than applying a single compression algorithm uniformly, it profiles incoming data and selects the optimal algorithm based on data characteristics. Structured JSON payloads from [REST API](@/glossary/rest-api.md) responses compress well with Zstandard's dictionary mode, while binary sensor data from [Prismatic Embodiment](@/apps/prismatic-embodiment.md) achieves better ratios with LZ4. The selection is transparent to callers -- they compress and decompress through a unified interface while the module handles algorithm selection, dictionary management, and format versioning internally. This [adapter pattern](@/glossary/adapter-pattern.md) ensures new compression algorithms can be added without modifying consumer code.
 
-For archival, Compression implements a tiered storage strategy aligned with the platform's [compliance framework](/glossary/compliance-framework/) requirements. Recent data remains uncompressed in hot storage for fastest access. Data older than a configurable threshold is compressed and moved to warm storage. Data beyond the retention window is either purged or moved to cold storage with maximum compression, depending on regulatory requirements tracked by [Prismatic CER](/apps/prismatic-cer/) under [NIS2](/glossary/nis2/) and [GDPR](/glossary/gdpr/) retention mandates. Across the platform's 90+ applications and millions of accumulated records, Compression saves an estimated 70% of raw storage costs while maintaining sub-millisecond decompression latency for hot data access.
+For archival, Compression implements a tiered storage strategy aligned with the platform's [compliance framework](@/glossary/compliance-framework.md) requirements. Recent data remains uncompressed in hot storage for fastest access. Data older than a configurable threshold is compressed and moved to warm storage. Data beyond the retention window is either purged or moved to cold storage with maximum compression, depending on regulatory requirements tracked by [Prismatic CER](@/apps/prismatic-cer.md) under [NIS2](@/glossary/nis2.md) and [GDPR](@/glossary/gdpr.md) retention mandates. Across the platform's 90+ applications and millions of accumulated records, Compression saves an estimated 70% of raw storage costs while maintaining sub-millisecond decompression latency for hot data access.
 
 ## Architecture
 
-The module is organized around a Codec [Registry](/glossary/registry-otp/), an Archival Scheduler, and a Transfer Optimizer.
+The module is organized around a Codec [Registry](@/glossary/registry-otp.md), an Archival Scheduler, and a Transfer Optimizer.
 
 ```
 Input Data --> Profiler --> Algorithm Selector --> Codec Engine --> Output
@@ -42,7 +42,7 @@ Input Data --> Profiler --> Algorithm Selector --> Codec Engine --> Output
   Metadata    Classify      Fallback Chain      Pipeline      + Version
 ```
 
-The Codec Registry maintains available compression algorithms with their performance profiles and selects the optimal codec per data type. The Archival Scheduler is a periodic [GenServer](/glossary/genserver/) that scans storage tables, identifies data eligible for archival or purging, and processes it according to configured retention policies. The Transfer Optimizer wraps inter-node [Erlang](/glossary/beam/) distribution with optional compression for large [message passing](/glossary/message-passing/) payloads, configurable per message type.
+The Codec Registry maintains available compression algorithms with their performance profiles and selects the optimal codec per data type. The Archival Scheduler is a periodic [GenServer](@/glossary/genserver.md) that scans storage tables, identifies data eligible for archival or purging, and processes it according to configured retention policies. The Transfer Optimizer wraps inter-node [Erlang](@/glossary/beam.md) distribution with optional compression for large [message passing](@/glossary/message-passing.md) payloads, configurable per message type.
 
 ### Process Topology
 
@@ -58,7 +58,7 @@ PrismaticCompression.Application (Supervisor, :one_for_one)
       Inter-node message compression
 ```
 
-All operations are instrumented with [Telemetry](/glossary/telemetry/) events reporting compression ratios, processing times, and storage savings for [observability](/glossary/observability/).
+All operations are instrumented with [Telemetry](@/glossary/telemetry.md) events reporting compression ratios, processing times, and storage savings for [observability](@/glossary/observability.md).
 
 ## Key Modules
 
@@ -183,11 +183,11 @@ Integration tests exercise the full archival pipeline with realistic data volume
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic Storage](/apps/prismatic-storage/) | Storage adapters use Compression for transparent data encoding |
-| [Prismatic CER](/apps/prismatic-cer/) | Defines retention policies enforced during archival operations |
-| [Prismatic API](/apps/prismatic-api/) | HTTP response compression for REST API gateway endpoints |
-| [Prismatic Embodiment](/apps/prismatic-embodiment/) | High-volume sensor stream processing benefits from streaming compression |
-| [Prismatic Signals](/apps/prismatic-signals/) | Signal archive compression for historical analysis retention |
+| [Prismatic Storage](@/apps/prismatic-storage.md) | Storage adapters use Compression for transparent data encoding |
+| [Prismatic CER](@/apps/prismatic-cer.md) | Defines retention policies enforced during archival operations |
+| [Prismatic API](@/apps/prismatic-api.md) | HTTP response compression for REST API gateway endpoints |
+| [Prismatic Embodiment](@/apps/prismatic-embodiment.md) | High-volume sensor stream processing benefits from streaming compression |
+| [Prismatic Signals](@/apps/prismatic-signals.md) | Signal archive compression for historical analysis retention |
 
 ## NABLA Compliance
 
@@ -223,15 +223,15 @@ Telemetry events: `[:prismatic, :compression, :compress]`, `[:prismatic, :compre
 
 ## Related Resources
 
-- [Prismatic Storage](/apps/prismatic-storage/) -- Storage adapters using Compression for transparent encoding
-- [Prismatic CER](/apps/prismatic-cer/) -- Retention policies governing archival and purge schedules
-- [Prismatic Embodiment](/apps/prismatic-embodiment/) -- High-volume sensor data benefits from streaming compression
-- [Prismatic API](/apps/prismatic-api/) -- HTTP response compression for REST endpoints
-- [Elixir Architect](/agents/elixir-architect/) -- Ensures compression implementations follow OTP patterns
-- [Architecture Review Specialist](/agents/architecture-review-specialist/) -- Reviews tiered storage architecture decisions
-- [Telemetry Integration](/capabilities/telemetry-integration/) -- Compression metrics feed into platform-wide observability
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Storage tier utilization and compression ratio monitoring
-- [Quality Gates](/capabilities/quality-gates/) -- Compression correctness verified through round-trip property tests
+- [Prismatic Storage](@/apps/prismatic-storage.md) -- Storage adapters using Compression for transparent encoding
+- [Prismatic CER](@/apps/prismatic-cer.md) -- Retention policies governing archival and purge schedules
+- [Prismatic Embodiment](@/apps/prismatic-embodiment.md) -- High-volume sensor data benefits from streaming compression
+- [Prismatic API](@/apps/prismatic-api.md) -- HTTP response compression for REST endpoints
+- [Elixir Architect](@/agents/elixir-architect.md) -- Ensures compression implementations follow OTP patterns
+- [Architecture Review Specialist](@/agents/architecture-review-specialist.md) -- Reviews tiered storage architecture decisions
+- [Telemetry Integration](@/capabilities/telemetry-integration.md) -- Compression metrics feed into platform-wide observability
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Storage tier utilization and compression ratio monitoring
+- [Quality Gates](@/capabilities/quality-gates.md) -- Compression correctness verified through round-trip property tests
 
 ---
 
@@ -240,4 +240,4 @@ Telemetry events: `[:prismatic, :compression, :compress]`, `[:prismatic, :compre
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

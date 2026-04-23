@@ -28,9 +28,9 @@ image_alt = "Nabla Quality Feedback Coordinator - Prismatic Platform"
 
 ## Overview
 
-The Nabla Quality Feedback Coordinator operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform, serving as the critical bridge between the platform's intelligence pipeline and its epistemic quality assurance infrastructure. The agent coordinates the flow of quality feedback across the complete intelligence processing chain: from raw [OSINT](/glossary/osint/) intelligence collection through [Nabla Infinity](/glossary/nabla-infinity/) epistemic processing to quality-validated output consumed by CATCH and Agent Societies domains. Without this coordinator, quality signals from downstream consumers would never reach upstream producers, and the intelligence pipeline would operate without awareness of whether its outputs meet epistemic standards.
+The Nabla Quality Feedback Coordinator operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform, serving as the critical bridge between the platform's intelligence pipeline and its epistemic quality assurance infrastructure. The agent coordinates the flow of quality feedback across the complete intelligence processing chain: from raw [OSINT](@/glossary/osint.md) intelligence collection through [Nabla Infinity](@/glossary/nabla-infinity.md) epistemic processing to quality-validated output consumed by CATCH and Agent Societies domains. Without this coordinator, quality signals from downstream consumers would never reach upstream producers, and the intelligence pipeline would operate without awareness of whether its outputs meet epistemic standards.
 
-Built on the [AIAD](/glossary/aiad/) standard, this agent implements a closed-loop quality feedback system where every intelligence output carries a quality profile that is updated as the intelligence progresses through processing stages. When downstream consumers evaluate intelligence quality -- assessing accuracy, completeness, timeliness, and relevance -- those evaluations flow back through the coordinator to inform upstream producer behavior. The [NO DOUBTS](/glossary/no-doubts/) principle governs all quality assessments: quality claims must be backed by measured evidence from multiple independent evaluation dimensions, and the seven NABLA axioms (signal plurality, contradiction preservation, absence informative, time decay, unknown valid, source independence, provenance mandatory) are enforced at every quality evaluation point.
+Built on the [AIAD](@/glossary/aiad.md) standard, this agent implements a closed-loop quality feedback system where every intelligence output carries a quality profile that is updated as the intelligence progresses through processing stages. When downstream consumers evaluate intelligence quality -- assessing accuracy, completeness, timeliness, and relevance -- those evaluations flow back through the coordinator to inform upstream producer behavior. The [NO DOUBTS](@/glossary/no-doubts.md) principle governs all quality assessments: quality claims must be backed by measured evidence from multiple independent evaluation dimensions, and the seven NABLA axioms (signal plurality, contradiction preservation, absence informative, time decay, unknown valid, source independence, provenance mandatory) are enforced at every quality evaluation point.
 
 ## Theoretical Foundations
 
@@ -44,7 +44,7 @@ Time decay is applied to quality signals, recognizing that older quality evaluat
 
 The quality feedback domain spans the complete intelligence processing chain. The coordinator monitors quality at four pipeline stages: **collection** (raw intelligence acquisition by OSINT agents), **processing** (epistemic evaluation and enrichment by Nabla processing agents), **validation** (quality gate checking before downstream distribution), and **consumption** (end-use by CATCH and Societies domain agents). Quality metrics at each stage are tracked independently, enabling the coordinator to identify which pipeline segment is responsible for observed quality degradation.
 
-The coordinator maintains quality profiles for each intelligence source, each processing agent, and each consumer domain. These profiles aggregate historical quality signals into time-decayed reliability scores that inform routing decisions, processing priority, and quality gate thresholds. Profiles are stored in [ETS](/glossary/ets/) and exposed through a standardized query interface.
+The coordinator maintains quality profiles for each intelligence source, each processing agent, and each consumer domain. These profiles aggregate historical quality signals into time-decayed reliability scores that inform routing decisions, processing priority, and quality gate thresholds. Profiles are stored in [ETS](@/glossary/ets.md) and exposed through a standardized query interface.
 
 ## Key Capabilities
 
@@ -54,8 +54,8 @@ The coordinator maintains quality profiles for each intelligence source, each pr
 - **Source reliability scoring** -- Maintains time-decayed reliability scores for intelligence sources based on historical accuracy, consistency, and coverage, informing collection priority and processing confidence levels
 - **Quality gate coordination** -- Manages quality checkpoints between pipeline stages, enforcing minimum quality thresholds that must be met before intelligence advances to the next processing stage
 - **Contradiction surfacing** -- Identifies cases where quality signals from different evaluation dimensions or different consumers conflict, preserving and surfacing these contradictions per the NABLA contradiction preservation axiom
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed quality monitoring cycles that adapt evaluation intensity based on pipeline throughput and quality trend indicators
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing quality metrics including per-stage quality distributions, feedback latency, axiom compliance rates, and source reliability trends
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed quality monitoring cycles that adapt evaluation intensity based on pipeline throughput and quality trend indicators
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing quality metrics including per-stage quality distributions, feedback latency, axiom compliance rates, and source reliability trends
 
 ## Authority Level
 
@@ -80,10 +80,10 @@ Each feedback message carries structured information: the quality dimension affe
 
 | Agent | Relationship |
 |-------|-------------|
-| [osint-quality-feedback-coordinator](/agents/osint-quality-feedback-coordinator/) | Collaborates on OSINT-specific quality evaluation and feedback delivery |
-| [mycelial-network-supreme](/agents/mycelial-network-supreme/) | Quality feedback signals inform propagation routing decisions |
-| [osint-intelligence-operative](/agents/osint-intelligence-operative/) | Receives quality feedback on intelligence collection operations |
-| [neuroevolution-coordinator](/agents/neuroevolution-coordinator/) | Quality trends inform evolutionary fitness criteria for agent improvement |
+| [osint-quality-feedback-coordinator](@/agents/osint-quality-feedback-coordinator.md) | Collaborates on OSINT-specific quality evaluation and feedback delivery |
+| [mycelial-network-supreme](@/agents/mycelial-network-supreme.md) | Quality feedback signals inform propagation routing decisions |
+| [osint-intelligence-operative](@/agents/osint-intelligence-operative.md) | Receives quality feedback on intelligence collection operations |
+| [neuroevolution-coordinator](@/agents/neuroevolution-coordinator.md) | Quality trends inform evolutionary fitness criteria for agent improvement |
 
 ## NABLA Axiom Integration
 
@@ -91,7 +91,7 @@ Each of the seven NABLA axioms has specific implications for quality feedback co
 
 ## Enforcement
 
-The coordinator enforces the [NO MERCY](/glossary/no-mercy/) doctrine for quality standards: no intelligence output with quality below configured thresholds passes quality gates, no producer operates without feedback awareness, and quality degradation triggers mandatory remediation regardless of operational pressure. The [Trinity Gate](/glossary/trinity-gate/) validates that quality feedback routing maintains structural consistency with the pipeline architecture, logical consistency with the NABLA axiom framework, and formal consistency with quality assurance policies.
+The coordinator enforces the [NO MERCY](@/glossary/no-mercy.md) doctrine for quality standards: no intelligence output with quality below configured thresholds passes quality gates, no producer operates without feedback awareness, and quality degradation triggers mandatory remediation regardless of operational pressure. The [Trinity Gate](@/glossary/trinity-gate.md) validates that quality feedback routing maintains structural consistency with the pipeline architecture, logical consistency with the NABLA axiom framework, and formal consistency with quality assurance policies.
 
 ---
 
@@ -100,4 +100,4 @@ The coordinator enforces the [NO MERCY](/glossary/no-mercy/) doctrine for qualit
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

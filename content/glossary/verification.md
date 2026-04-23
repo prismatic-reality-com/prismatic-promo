@@ -37,7 +37,7 @@ image_alt = "Verification - Prismatic Platform"
 
 ## Definition
 
-**Verification** is the systematic process of evaluating whether a software system or component satisfies the conditions imposed at the start of a particular phase of development -- confirming that the product has been built correctly according to its specification. Unlike [validation](/glossary/validation/) (which asks "did we build the right product?"), verification asks "did we build the product right?" This distinction, formalized by Barry Boehm in 1979, remains foundational to software quality engineering. Within the Prismatic Platform, verification operates across multiple methodological levels: the [White Team](/glossary/white-team/) performs constructive verification through progressive methodology (L0-L5), the [Trinity Gate](/glossary/trinity-gate/) enforces three-phase verification for all claims (structural consistency, logical consistency, formal necessity), and property-based [testing](/glossary/testing/) validates system invariants across 115 umbrella applications. The platform's Lean4 integration enables machine-checked proofs for safety-critical invariants, bridging the gap between informal reasoning and mathematical certainty.
+**Verification** is the systematic process of evaluating whether a software system or component satisfies the conditions imposed at the start of a particular phase of development -- confirming that the product has been built correctly according to its specification. Unlike [validation](@/glossary/validation.md) (which asks "did we build the right product?"), verification asks "did we build the product right?" This distinction, formalized by Barry Boehm in 1979, remains foundational to software quality engineering. Within the Prismatic Platform, verification operates across multiple methodological levels: the [White Team](@/glossary/white-team.md) performs constructive verification through progressive methodology (L0-L5), the [Trinity Gate](@/glossary/trinity-gate.md) enforces three-phase verification for all claims (structural consistency, logical consistency, formal necessity), and property-based [testing](@/glossary/testing.md) validates system invariants across 115 umbrella applications. The platform's Lean4 integration enables machine-checked proofs for safety-critical invariants, bridging the gap between informal reasoning and mathematical certainty.
 
 ## Overview
 
@@ -289,7 +289,7 @@ theorem stronger_level_subsumes (a b : VerificationLevel)
 
 ### White Team Constructive Verification
 
-The [White Team](/glossary/white-team/) is the Prismatic Platform's dedicated verification team within the [Color Teams](/glossary/color-teams/) framework. It operates through progressive methodology:
+The [White Team](@/glossary/white-team.md) is the Prismatic Platform's dedicated verification team within the [Color Teams](@/glossary/color-teams.md) framework. It operates through progressive methodology:
 
 ```elixir
 defmodule Prismatic.WhiteTeam.ContractValidator do
@@ -363,7 +363,7 @@ end
 
 ## Trinity Gate Integration
 
-The [Trinity Gate](/glossary/trinity-gate/) represents the Prismatic Platform's highest verification standard. Every claim that passes through the platform must satisfy three independent verification dimensions:
+The [Trinity Gate](@/glossary/trinity-gate.md) represents the Prismatic Platform's highest verification standard. Every claim that passes through the platform must satisfy three independent verification dimensions:
 
 1. **Structural Consistency** (Graph Theory) -- The belief network forms a valid directed acyclic graph (DAG) with no circular dependencies, contradictions, or orphaned nodes. Verified through topological analysis of the knowledge graph.
 
@@ -393,7 +393,7 @@ The distinction between verification and validation is critical and frequently c
 | Automation | Highly automatable | Requires human judgment |
 | Objective | Correctness | Usefulness |
 
-In the Prismatic Platform, verification and [validation](/glossary/validation/) are both mandatory but serve different roles. The [White Team](/glossary/white-team/) handles verification (proving correctness), while user acceptance testing and the [Purple Team](/glossary/purple-team/) synthesis process handle validation (ensuring the system solves real problems).
+In the Prismatic Platform, verification and [validation](@/glossary/validation.md) are both mandatory but serve different roles. The [White Team](@/glossary/white-team.md) handles verification (proving correctness), while user acceptance testing and the [Purple Team](@/glossary/purple-team.md) synthesis process handle validation (ensuring the system solves real problems).
 
 ## Verification Methodologies
 
@@ -417,7 +417,7 @@ Dynamic verification executes software and observes behavior:
 
 Formal verification provides mathematical proof of correctness:
 
-- **[Theorem Proving](/glossary/theorem-proving/)** -- Using Lean4 to prove properties about critical algorithms and data structures. Unlike testing, theorem proving covers all possible inputs.
+- **[Theorem Proving](@/glossary/theorem-proving.md)** -- Using Lean4 to prove properties about critical algorithms and data structures. Unlike testing, theorem proving covers all possible inputs.
 - **Model Checking** -- Exhaustive state space exploration for finite-state components, particularly useful for concurrent protocol verification.
 - **Abstract Interpretation** -- Computing over-approximations of program behavior to prove the absence of entire classes of errors (null pointer dereferences, buffer overflows, division by zero).
 
@@ -464,16 +464,16 @@ This continuous approach catches regressions immediately and prevents the accumu
 
 Verification connects deeply to many platform concepts:
 
-- [Testing](/glossary/testing/) -- The most common verification method, covering unit, integration, and end-to-end testing
-- [Trinity Gate](/glossary/trinity-gate/) -- The three-phase verification standard (structural, logical, formal) for all platform claims
-- [White Team](/glossary/white-team/) -- The dedicated verification team within the Color Teams framework
-- [Theorem Proving](/glossary/theorem-proving/) -- Formal proof construction using Lean4 and other proof assistants
-- [Typespec](/glossary/typespec/) -- Elixir type specifications that enable static verification through Dialyzer
-- [Validation](/glossary/validation/) -- The complementary process of confirming the product meets user needs
-- [Test Coverage](/glossary/test-coverage/) -- Metrics measuring what proportion of code is exercised by verification
-- [Structural Consistency](/glossary/structural-consistency/) -- The first gate of Trinity verification (DAG analysis)
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- The doctrine requiring complete verification before any merge
-- [Verification Gate](/glossary/verification-gate/) -- Automated enforcement points in the development pipeline
+- [Testing](@/glossary/testing.md) -- The most common verification method, covering unit, integration, and end-to-end testing
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The three-phase verification standard (structural, logical, formal) for all platform claims
+- [White Team](@/glossary/white-team.md) -- The dedicated verification team within the Color Teams framework
+- [Theorem Proving](@/glossary/theorem-proving.md) -- Formal proof construction using Lean4 and other proof assistants
+- [Typespec](@/glossary/typespec.md) -- Elixir type specifications that enable static verification through Dialyzer
+- [Validation](@/glossary/validation.md) -- The complementary process of confirming the product meets user needs
+- [Test Coverage](@/glossary/test-coverage.md) -- Metrics measuring what proportion of code is exercised by verification
+- [Structural Consistency](@/glossary/structural-consistency.md) -- The first gate of Trinity verification (DAG analysis)
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- The doctrine requiring complete verification before any merge
+- [Verification Gate](@/glossary/verification-gate.md) -- Automated enforcement points in the development pipeline
 
 ## Best Practices
 

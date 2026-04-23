@@ -30,7 +30,7 @@ keywords = ["Graph", "Analysis", "Relationship", "Traversal", "Graph-based", "Ku
 
 ## Abstract
 
-Due diligence investigations are fundamentally exercises in relationship discovery. The connections between persons, companies, addresses, and assets reveal ownership structures, control patterns, conflicts of interest, and risk indicators that no amount of isolated entity analysis can uncover. The Prismatic Platform models these relationships as a property graph stored in [KuzuDB](/glossary/kuzudb/), enabling sophisticated traversal queries -- ownership chain resolution, shared director network analysis, address clustering, temporal relationship evolution, and hidden connection discovery -- that would be prohibitively complex or impossible in relational database systems. This document describes the graph data model, the core traversal algorithms, the analytical patterns available to investigators, and the integration with the platform's [entity management](/dd/entity-management/) and [risk assessment](/dd/risk-assessment/) systems.
+Due diligence investigations are fundamentally exercises in relationship discovery. The connections between persons, companies, addresses, and assets reveal ownership structures, control patterns, conflicts of interest, and risk indicators that no amount of isolated entity analysis can uncover. The Prismatic Platform models these relationships as a property graph stored in [KuzuDB](@/glossary/kuzudb.md), enabling sophisticated traversal queries -- ownership chain resolution, shared director network analysis, address clustering, temporal relationship evolution, and hidden connection discovery -- that would be prohibitively complex or impossible in relational database systems. This document describes the graph data model, the core traversal algorithms, the analytical patterns available to investigators, and the integration with the platform's [entity management](@/dd/entity-management.md) and [risk assessment](@/dd/risk-assessment.md) systems.
 
 ## Introduction
 
@@ -40,18 +40,18 @@ Relational databases excel at structured queries over well-defined tables, but t
 
 In SQL, this query requires recursive common table expressions with depth limits, performance degradation at each additional hop, and awkward handling of cycles. In a graph database, the same query is a natural multi-hop traversal that follows ownership edges from the target node upward until reaching natural person endpoints or the configured depth limit.
 
-The Prismatic Platform uses [KuzuDB](/glossary/kuzudb/) -- an embedded graph database engine optimized for analytical workloads -- as its relationship storage and traversal engine. KuzuDB's columnar storage format and vectorized query execution provide the performance characteristics needed for interactive investigation workflows where analysts expect sub-second responses to complex traversal queries.
+The Prismatic Platform uses [KuzuDB](@/glossary/kuzudb.md) -- an embedded graph database engine optimized for analytical workloads -- as its relationship storage and traversal engine. KuzuDB's columnar storage format and vectorized query execution provide the performance characteristics needed for interactive investigation workflows where analysts expect sub-second responses to complex traversal queries.
 
 ### Graph Data Model
 
 The platform's graph model consists of entity nodes and relationship edges, both carrying typed properties:
 
-**Node Types** (corresponding to [entity types](/dd/entity-management/)):
+**Node Types** (corresponding to [entity types](@/dd/entity-management.md)):
 
 | Node Type | Key Properties | Source |
 |-----------|---------------|--------|
 | **Person** | name, date_of_birth, nationality, pep_status | Registry data, OSINT |
-| **Company** | ico, legal_name, legal_form, status, formation_date | [ARES](/osint/ares/), [Justice.cz](/osint/justice-cz/) |
+| **Company** | ico, legal_name, legal_form, status, formation_date | [ARES](@/osint/ares.md), [Justice.cz](@/osint/justice-cz.md) |
 | **Address** | street, city, postal_code, country, geocoordinates | Normalized from registries |
 | **Domain** | domain_name, registrar, registration_date | WHOIS, DNS |
 | **BankAccount** | iban, bank_code, currency | Financial sources |
@@ -150,7 +150,7 @@ The platform maintains an address normalization layer that resolves Czech addres
 | 11-50 entities | High | Investigate for mass registration address |
 | 50+ entities | Critical | Flag as potential shell company factory |
 
-The platform cross-references address clusters with [CUZK](/osint/cuzk/) property records to determine whether the address is a residential property, commercial office, registered agent's premises, or virtual office provider.
+The platform cross-references address clusters with [CUZK](@/osint/cuzk.md) property records to determine whether the address is a residential property, commercial office, registered agent's premises, or virtual office provider.
 
 ### Hidden Connection Discovery
 
@@ -187,16 +187,16 @@ Rapid structural changes in the months preceding an M&A transaction or regulator
 
 ### Change Velocity Scoring
 
-The platform computes a normalized change velocity score for each entity, measuring the rate of structural change relative to industry norms. This score feeds directly into the [risk assessment](/dd/risk-assessment/) framework as part of the Ownership risk dimension.
+The platform computes a normalized change velocity score for each entity, measuring the rate of structural change relative to industry norms. This score feeds directly into the [risk assessment](@/dd/risk-assessment.md) framework as part of the Ownership risk dimension.
 
 ## Integration with Investigation Workflow
 
 ### Graph Expansion in Case Management
 
-Within the [case management system](/dd/case-management/), graph analysis drives the investigation expansion process:
+Within the [case management system](@/dd/case-management.md), graph analysis drives the investigation expansion process:
 
 1. Analyst creates a case with seed entities
-2. Platform performs initial enrichment from [OSINT sources](/dd/osint-integration/)
+2. Platform performs initial enrichment from [OSINT sources](@/dd/osint-integration.md)
 3. Graph expansion discovers related entities through relationship edges
 4. Newly discovered entities are added to the case for enrichment
 5. The expansion process repeats until reaching the configured depth limit or analyst-defined scope boundary
@@ -204,7 +204,7 @@ Within the [case management system](/dd/case-management/), graph analysis drives
 
 ### Risk Score Contribution
 
-Graph analysis contributes to multiple dimensions of the [risk assessment framework](/dd/risk-assessment/):
+Graph analysis contributes to multiple dimensions of the [risk assessment framework](@/dd/risk-assessment.md):
 
 | Risk Dimension | Graph Contribution |
 |---------------|-------------------|
@@ -216,7 +216,7 @@ Graph analysis contributes to multiple dimensions of the [risk assessment framew
 
 ### Visualization and Reporting
 
-The platform provides interactive graph visualizations through [Phoenix LiveView](/glossary/liveview/), allowing analysts to:
+The platform provides interactive graph visualizations through [Phoenix LiveView](@/glossary/liveview.md), allowing analysts to:
 
 - Explore entity relationships interactively
 - Filter by relationship type, time period, or confidence level
@@ -245,14 +245,14 @@ Graph-based relationship analysis is the analytical engine that transforms indiv
 
 ## References
 
-- [Entity Management System](/dd/entity-management/)
-- [Risk Assessment Framework](/dd/risk-assessment/)
-- [Case Management System](/dd/case-management/)
-- [KuzuDB Graph Engine](/glossary/kuzudb/)
-- [Czech Registry Integration](/dd/czech-registries/)
-- [OSINT Integration Framework](/dd/osint-integration/)
-- [Phoenix LiveView](/glossary/liveview/)
-- [M&A Due Diligence](/dd/ma-due-diligence/)
+- [Entity Management System](@/dd/entity-management.md)
+- [Risk Assessment Framework](@/dd/risk-assessment.md)
+- [Case Management System](@/dd/case-management.md)
+- [KuzuDB Graph Engine](@/glossary/kuzudb.md)
+- [Czech Registry Integration](@/dd/czech-registries.md)
+- [OSINT Integration Framework](@/dd/osint-integration.md)
+- [Phoenix LiveView](@/glossary/liveview.md)
+- [M&A Due Diligence](@/dd/ma-due-diligence.md)
 
 ---
 
@@ -261,4 +261,4 @@ Graph-based relationship analysis is the analytical engine that transforms indiv
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,9 +24,9 @@ image_alt = "OpenAI - Prismatic Platform"
 
 ## Overview
 
-OpenAI's GPT models serve as an alternative cloud AI provider in the Prismatic Platform, complementing the primary [Claude](/technologies/claude/) integration and local [Ollama](/technologies/ollama/) inference. The platform uses OpenAI primarily for embedding generation (text-embedding-3), classification tasks, and as a fallback provider when specialized model capabilities are needed. While Claude serves as the primary reasoning engine, OpenAI fills specific capability gaps, particularly in vector embedding generation where its text-embedding-3 family of models provides high-quality representations for semantic search.
+OpenAI's GPT models serve as an alternative cloud AI provider in the Prismatic Platform, complementing the primary [Claude](@/technologies/claude.md) integration and local [Ollama](@/technologies/ollama.md) inference. The platform uses OpenAI primarily for embedding generation (text-embedding-3), classification tasks, and as a fallback provider when specialized model capabilities are needed. While Claude serves as the primary reasoning engine, OpenAI fills specific capability gaps, particularly in vector embedding generation where its text-embedding-3 family of models provides high-quality representations for semantic search.
 
-The Prismatic Platform's multi-provider AI architecture ensures resilience -- if one provider is unavailable, the system automatically routes to alternatives. OpenAI's embedding models are particularly valuable for the platform's semantic search capabilities, generating vector representations of intelligence documents, agent descriptions, and security findings for similarity-based retrieval via [Meilisearch](/technologies/meilisearch/). These embeddings transform text into numerical vectors that capture semantic meaning, enabling searches that understand intent rather than just matching keywords.
+The Prismatic Platform's multi-provider AI architecture ensures resilience -- if one provider is unavailable, the system automatically routes to alternatives. OpenAI's embedding models are particularly valuable for the platform's semantic search capabilities, generating vector representations of intelligence documents, agent descriptions, and security findings for similarity-based retrieval via [Meilisearch](@/technologies/meilisearch.md). These embeddings transform text into numerical vectors that capture semantic meaning, enabling searches that understand intent rather than just matching keywords.
 
 OpenAI integration follows the same provider abstraction used for Claude and Ollama, allowing seamless switching between providers based on task requirements, cost optimization, and availability. The `PrismaticClaude.Providers` module defines a common behaviour that all providers implement, making the AI layer genuinely provider-agnostic at the application level. Application code never calls OpenAI directly -- it requests capabilities through the provider router, which selects the optimal provider based on the task requirements.
 
@@ -36,7 +36,7 @@ OpenAI integration follows the same provider abstraction used for Claude and Oll
 - **Embeddings**: text-embedding-3-small (1536 dimensions) and text-embedding-3-large (3072 dimensions) for vector representations
 - **Function Calling**: Structured output through tool definitions, enabling agents to invoke platform functions with type-safe parameters
 - **JSON Mode**: Guaranteed valid JSON output for automated pipeline integrations, eliminating parsing failures
-- **Streaming**: Token-by-token response streaming for real-time display in [Phoenix LiveView](/technologies/phoenix-liveview/) interfaces
+- **Streaming**: Token-by-token response streaming for real-time display in [Phoenix LiveView](@/technologies/phoenix-liveview.md) interfaces
 - **Fine-Tuning**: Custom model training on platform-specific datasets for domain-specialized classification
 - **Batch API**: Cost-efficient batch processing for large-scale document analysis at reduced pricing
 - **Vision**: GPT-4V image analysis for security screenshot review and UI testing automation
@@ -174,8 +174,8 @@ The provider hierarchy for the platform follows a clear priority order.
 
 | Priority | Provider | Strengths | Limitations |
 |----------|----------|-----------|-------------|
-| 1 | [Claude](/technologies/claude/) | Best reasoning, Elixir expertise | Cloud-only, cost |
-| 2 | [Ollama](/technologies/ollama/) | Privacy, zero cost, no network | Limited capability |
+| 1 | [Claude](@/technologies/claude.md) | Best reasoning, Elixir expertise | Cloud-only, cost |
+| 2 | [Ollama](@/technologies/ollama.md) | Privacy, zero cost, no network | Limited capability |
 | 3 | OpenAI | Embeddings, JSON mode, vision | Cloud-only, rate limits |
 
 ## Performance Characteristics
@@ -233,7 +233,7 @@ config :prismatic_claude, :openai_rate_limiter,
 - **Use embeddings for semantic search** -- OpenAI's embedding models outperform keyword matching for semantic similarity across intelligence documents and agent descriptions
 - **Prefer JSON mode** for structured outputs that feed into automated pipelines, avoiding fragile parsing of free-text responses
 - **Implement rate limit handling** with exponential backoff, as OpenAI's API enforces strict per-minute token limits
-- **Cache embeddings aggressively** in [ETS](/technologies/ets/) or [Redis](/technologies/redis/) since the same text always produces the same embedding vector
+- **Cache embeddings aggressively** in [ETS](@/technologies/ets.md) or [Redis](@/technologies/redis.md) since the same text always produces the same embedding vector
 - **Use the provider abstraction** -- never call OpenAI directly from application code; always go through `PrismaticClaude.Providers`
 - **Monitor API costs** -- track token usage per operation type to identify cost optimization opportunities; batch API offers 50% savings for non-urgent operations
 - **Handle all error codes** -- implement specific handling for 429 (rate limit), 500 (server error), and 503 (overloaded) responses
@@ -253,22 +253,22 @@ config :prismatic_claude, :openai_rate_limiter,
 | Privacy | Cloud | Cloud | Full local | Cloud |
 | Platform Role | Embeddings + fallback | Primary reasoning | Privacy + dev | Not integrated |
 
-OpenAI complements Claude and Ollama in the platform's AI architecture: Claude provides the best reasoning for [Elixir](/technologies/elixir/) code, Ollama provides privacy for sensitive data, and OpenAI provides the best embedding models and JSON mode for structured data extraction.
+OpenAI complements Claude and Ollama in the platform's AI architecture: Claude provides the best reasoning for [Elixir](@/technologies/elixir.md) code, Ollama provides privacy for sensitive data, and OpenAI provides the best embedding models and JSON mode for structured data extraction.
 
 ## Related Technologies
 
-- [Claude](/technologies/claude/) - Primary AI provider for reasoning and code generation
-- [Ollama](/technologies/ollama/) - Local AI inference for offline and privacy-sensitive operations
-- [Meilisearch](/technologies/meilisearch/) - Search engine that can consume OpenAI-generated embeddings for semantic search
-- [ETS](/technologies/ets/) - In-memory cache for embedding vectors and API response caching
-- [Redis](/technologies/redis/) - Distributed cache for embedding vectors across cluster nodes
-- [Elixir](/technologies/elixir/) - Host language providing the HTTP client and provider abstraction
+- [Claude](@/technologies/claude.md) - Primary AI provider for reasoning and code generation
+- [Ollama](@/technologies/ollama.md) - Local AI inference for offline and privacy-sensitive operations
+- [Meilisearch](@/technologies/meilisearch.md) - Search engine that can consume OpenAI-generated embeddings for semantic search
+- [ETS](@/technologies/ets.md) - In-memory cache for embedding vectors and API response caching
+- [Redis](@/technologies/redis.md) - Distributed cache for embedding vectors across cluster nodes
+- [Elixir](@/technologies/elixir.md) - Host language providing the HTTP client and provider abstraction
 
 ## Related Apps
 
-- [prismatic_claude](/apps/prismatic-claude/) - Multi-provider AI layer hosting the OpenAI adapter
-- [prismatic_agents](/apps/prismatic-agents/) - Agent system that may route to OpenAI for specific tasks
-- [prismatic_storage_meilisearch](/apps/prismatic-storage-meilisearch/) - Search engine consuming OpenAI embeddings
+- [prismatic_claude](@/apps/prismatic-claude.md) - Multi-provider AI layer hosting the OpenAI adapter
+- [prismatic_agents](@/apps/prismatic-agents.md) - Agent system that may route to OpenAI for specific tasks
+- [prismatic_storage_meilisearch](@/apps/prismatic-storage-meilisearch.md) - Search engine consuming OpenAI embeddings
 
 ---
 
@@ -277,4 +277,4 @@ OpenAI complements Claude and Ollama in the platform's AI architecture: Claude p
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

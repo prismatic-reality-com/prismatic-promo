@@ -404,24 +404,24 @@ The Prismatic Platform deploys to Fly.io with the PrismaticSupervisor ensuring c
 
 The concept of perfect systems integrates with multiple architectural and philosophical principles in the Prismatic Platform:
 
-- [Perfect Software](/glossary/perfect-software/) -- the component-level quality complement to system-level perfection
-- [Supervision Tree](/glossary/supervision-tree/) -- the core OTP pattern that enables fault isolation and automated recovery
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the engineering property that allows systems to continue operating despite component failures
-- [Self-Healing](/glossary/self-healing/) -- the automated recovery mechanism that maintains system health without human intervention
-- [Let It Crash](/glossary/let-it-crash/) -- the Erlang/OTP philosophy that underpins the perfect systems approach to failure handling
-- [Distributed Systems](/glossary/distributed-systems/) -- the broader context of systems that operate across multiple nodes
-- [BEAM VM](/glossary/beam-vm/) -- the virtual machine that provides the runtime foundation for perfect systems
-- [Architecture](/glossary/architecture/) -- the structural design discipline that shapes system-level properties
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- the capability for systems to improve themselves over time
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- the monitoring system that enforces minimum quality standards
+- [Perfect Software](@/glossary/perfect-software.md) -- the component-level quality complement to system-level perfection
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the core OTP pattern that enables fault isolation and automated recovery
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the engineering property that allows systems to continue operating despite component failures
+- [Self-Healing](@/glossary/self-healing.md) -- the automated recovery mechanism that maintains system health without human intervention
+- [Let It Crash](@/glossary/let-it-crash.md) -- the Erlang/OTP philosophy that underpins the perfect systems approach to failure handling
+- [Distributed Systems](@/glossary/distributed-systems.md) -- the broader context of systems that operate across multiple nodes
+- [BEAM VM](@/glossary/beam-vm.md) -- the virtual machine that provides the runtime foundation for perfect systems
+- [Architecture](@/glossary/architecture.md) -- the structural design discipline that shapes system-level properties
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- the capability for systems to improve themselves over time
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- the monitoring system that enforces minimum quality standards
 
 ## See Also
 
-- [Supervisor](/glossary/supervisor/) -- the OTP behaviour pattern for process supervision
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- the pattern for supervising dynamically created processes
-- [Process Isolation](/glossary/process-isolation/) -- the BEAM property that prevents process failures from cascading
-- [Health Monitoring](/glossary/health-monitoring/) -- the continuous assessment of system operational status
-- [Perfection Over Profit](/glossary/perfection-over-profit/) -- the philosophical commitment that prioritizes system quality
+- [Supervisor](@/glossary/supervisor.md) -- the OTP behaviour pattern for process supervision
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- the pattern for supervising dynamically created processes
+- [Process Isolation](@/glossary/process-isolation.md) -- the BEAM property that prevents process failures from cascading
+- [Health Monitoring](@/glossary/health-monitoring.md) -- the continuous assessment of system operational status
+- [Perfection Over Profit](@/glossary/perfection-over-profit.md) -- the philosophical commitment that prioritizes system quality
 
 ---
 

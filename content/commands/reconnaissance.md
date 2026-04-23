@@ -28,9 +28,9 @@ image_alt = "/reconnaissance - Prismatic Platform"
 
 In a platform encompassing over 90 umbrella applications, 6,652 Elixir source files, and approximately 2.8 million lines of code, navigating the codebase without systematic reconnaissance is not merely inefficient but dangerous. Changes made without understanding the full dependency graph can cascade through interconnected modules, breaking functionality in distant parts of the system. The `/reconnaissance` command eliminates this risk by providing a structured, comprehensive view of the codebase's current state.
 
-The reconnaissance engine leverages the platform's optimized [Git Trees](/glossary/git-trees/) infrastructure for file discovery, achieving approximately 100x faster traversal compared to conventional filesystem scanning. This performance advantage makes real-time reconnaissance practical even for the full codebase, enabling developers to obtain comprehensive structural analysis in seconds rather than minutes.
+The reconnaissance engine leverages the platform's optimized [Git Trees](@/glossary/git-trees.md) infrastructure for file discovery, achieving approximately 100x faster traversal compared to conventional filesystem scanning. This performance advantage makes real-time reconnaissance practical even for the full codebase, enabling developers to obtain comprehensive structural analysis in seconds rather than minutes.
 
-This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent, which brings deep expertise in Elixir/OTP architecture and the Prismatic Platform's specific organizational conventions. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent, which brings deep expertise in Elixir/OTP architecture and the Prismatic Platform's specific organizational conventions. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -132,13 +132,13 @@ The reconnaissance command follows a disciplined execution flow optimized for sp
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `elixir-core-specialist` | Deep Elixir/OTP architectural expertise |
-| [Git Trees](/glossary/git-trees/) | File discovery | ~100x faster than conventional filesystem scanning |
-| [Quality Gates](/glossary/quality-gates/) | Pattern validation | Convention compliance checked against quality standards |
-| [/analyze](/commands/analyze/) | Complementary command | Analyze provides deeper architectural analysis |
-| [/code](/commands/code/) | Workflow integration | Reconnaissance precedes coding operations |
-| [Telemetry](/glossary/telemetry/) | Execution tracking | Reconnaissance operations logged for audit |
-| [AIAD](/glossary/aiad/) Registry | Command specification | Registered as a Development category command |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `elixir-core-specialist` | Deep Elixir/OTP architectural expertise |
+| [Git Trees](@/glossary/git-trees.md) | File discovery | ~100x faster than conventional filesystem scanning |
+| [Quality Gates](@/glossary/quality-gates.md) | Pattern validation | Convention compliance checked against quality standards |
+| [/analyze](@/commands/analyze.md) | Complementary command | Analyze provides deeper architectural analysis |
+| [/code](@/commands/code.md) | Workflow integration | Reconnaissance precedes coding operations |
+| [Telemetry](@/glossary/telemetry.md) | Execution tracking | Reconnaissance operations logged for audit |
+| [AIAD](@/glossary/aiad.md) Registry | Command specification | Registered as a Development category command |
 
 ## Best Practices
 
@@ -148,7 +148,7 @@ Use the `--app` flag to scope reconnaissance to the target application when work
 
 Leverage the `--compare` flag when reviewing pull requests or evaluating the impact of a feature branch. Comparing the branch state against `main` reveals all structural changes introduced by the branch, including new modules, modified dependencies, and shifted coupling patterns.
 
-Combine reconnaissance with the [/review](/commands/review/) command for pre-commit validation. Running `--risk-analysis` mode highlights areas where changes might introduce unintended consequences, enabling proactive risk mitigation before code is committed.
+Combine reconnaissance with the [/review](@/commands/review.md) command for pre-commit validation. Running `--risk-analysis` mode highlights areas where changes might introduce unintended consequences, enabling proactive risk mitigation before code is committed.
 
 Save reconnaissance reports from milestone boundaries using `--export` for historical comparison. These snapshots provide valuable data for tracking the platform's structural evolution over time.
 
@@ -188,20 +188,20 @@ The `--blast-radius` option is particularly valuable before making changes to co
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Reconnaissance produces complete structural analysis for the entire scoped area. No application is silently skipped, no dependency is left unresolved, and no anti-pattern goes unreported.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The reconnaissance command is the primary embodiment of the NO DOUBTS principle in the development workflow. It ensures that every coding decision is made with complete structural awareness.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/review](/commands/review/) - Code review and architectural review execution
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/review](@/commands/review.md) - Code review and architectural review execution
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -210,4 +210,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

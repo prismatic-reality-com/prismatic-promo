@@ -231,10 +231,10 @@ end
 
 ## Cross-References
 
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Parent epistemic framework
-- [Trinity Gate](/glossary/trinity-gate/) -- Three-stage verification for high-confidence claims
-- [Addiction Preservation](/glossary/addiction-recovery/) -- Preserving contradictory signals
-- [Signal Plurality](/glossary/signal-plurality/) -- Multi-source evidence requirement
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Parent epistemic framework
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Three-stage verification for high-confidence claims
+- [Addiction Preservation](@/glossary/addiction-recovery.md) -- Preserving contradictory signals
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Multi-source evidence requirement
 - **GRACE** -- Intelligence analysis framework using confidence scores
 - **Livebooks**: `ai_agents/` notebooks demonstrate confidence computation
 - **Academy**: OSINTSignalSynthesis topic teaches confidence assessment
@@ -246,4 +246,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -36,7 +36,7 @@ Connection pooling is a resource management technique in which a set of pre-esta
 
 In database-backed applications, connection pooling is not merely an optimization but a necessity. Database servers impose hard limits on concurrent connections (PostgreSQL's default `max_connections` is 100), and each connection consumes server-side memory (typically 5-10 MB per PostgreSQL connection for work_mem, temp_buffers, and session state). Without pooling, a high-concurrency application would either exhaust connection limits (causing connection refusals) or require the database server to allocate excessive memory (causing OOM conditions or swap thrashing). Connection pooling bounds resource consumption to a configurable maximum while multiplexing application-level concurrency across a smaller set of persistent connections.
 
-The Elixir ecosystem addresses connection pooling through the `DBConnection` library, which provides a behaviour-based pooling framework that integrates with [Ecto](/glossary/ecto/), Redix, and other database client libraries. DBConnection's pool is implemented as a set of supervised processes, leveraging [OTP](/glossary/otp/)'s fault tolerance to automatically recover from connection failures, handle process crashes, and maintain pool health without manual intervention.
+The Elixir ecosystem addresses connection pooling through the `DBConnection` library, which provides a behaviour-based pooling framework that integrates with [Ecto](@/glossary/ecto.md), Redix, and other database client libraries. DBConnection's pool is implemented as a set of supervised processes, leveraging [OTP](@/glossary/otp.md)'s fault tolerance to automatically recover from connection failures, handle process crashes, and maintain pool health without manual intervention.
 
 ## Historical Context
 
@@ -44,7 +44,7 @@ Connection pooling emerged as a necessity in the mid-1990s when web applications
 
 The first connection pool implementations appeared in Java application servers (WebLogic, JBoss) and later in standalone libraries like Apache Commons DBCP and HikariCP. These pools managed a fixed set of JDBC connections, checking them out to request-handling threads and returning them after use. The pattern proved so effective that it became a default feature of every major application framework.
 
-In the Erlang and Elixir ecosystem, connection pooling took a different form due to the process-based concurrency model. Rather than sharing connections across threads (with all the locking complexity that entails), Elixir pools manage connections as independent processes, each owning its own database socket. The pool itself is a process that coordinates checkout and checkin operations through message passing, eliminating the need for mutexes, semaphores, or other locking primitives. This process-based approach aligns naturally with [OTP](/glossary/otp/) supervision trees, enabling automatic recovery from connection failures.
+In the Erlang and Elixir ecosystem, connection pooling took a different form due to the process-based concurrency model. Rather than sharing connections across threads (with all the locking complexity that entails), Elixir pools manage connections as independent processes, each owning its own database socket. The pool itself is a process that coordinates checkout and checkin operations through message passing, eliminating the need for mutexes, semaphores, or other locking primitives. This process-based approach aligns naturally with [OTP](@/glossary/otp.md) supervision trees, enabling automatic recovery from connection failures.
 
 ## Connection Lifecycle
 
@@ -81,7 +81,7 @@ Total overhead: ~0.3ms for 3 requests (500x reduction)
 
 ## DBConnection Architecture
 
-DBConnection is the standard Elixir library for connection pooling, providing a behaviour that database adapters implement. It serves as the pooling layer for [Ecto](/glossary/ecto/) (PostgreSQL, MySQL), Redix ([Redis](/glossary/redis/)), and other database clients.
+DBConnection is the standard Elixir library for connection pooling, providing a behaviour that database adapters implement. It serves as the pooling layer for [Ecto](@/glossary/ecto.md) (PostgreSQL, MySQL), Redix ([Redis](@/glossary/redis.md)), and other database clients.
 
 ```elixir
 defmodule PrismaticStorage.PooledConnection do
@@ -174,7 +174,7 @@ Choosing the correct pool size is critical: too small causes checkout timeouts a
 
 ### Sizing Formula
 
-A practical starting point for [PostgreSQL](/glossary/postgresql/) pool sizing:
+A practical starting point for [PostgreSQL](@/glossary/postgresql.md) pool sizing:
 
 ```
 pool_size = (2 x cpu_cores) + spindle_count
@@ -325,13 +325,13 @@ end
 | **Prepared statements** | Supported | N/A |
 | **Overhead** | Moderate (full lifecycle) | Minimal |
 | **Queue management** | Adaptive (queue_target) | Simple FIFO |
-| **Ecosystem integration** | [Ecto](/glossary/ecto/), Redix, etc. | Finch, custom pools |
+| **Ecosystem integration** | [Ecto](@/glossary/ecto.md), Redix, etc. | Finch, custom pools |
 | **Process monitoring** | Automatic | Manual |
 | **Health checking** | Built-in ping | Manual implementation |
 
 ## Multi-Backend Pool Architecture
 
-The Prismatic Platform's [adapter pattern](/glossary/adapter-pattern/) means multiple storage backends each maintain independent connection pools, supervised within the OTP application tree.
+The Prismatic Platform's [adapter pattern](@/glossary/adapter-pattern.md) means multiple storage backends each maintain independent connection pools, supervised within the OTP application tree.
 
 ```
 Application Supervisor
@@ -348,11 +348,11 @@ Application Supervisor
     +-- Connection 1..5
 ```
 
-Each pool is supervised independently, meaning a [PostgreSQL](/glossary/postgresql/) connection failure triggers pool recovery without affecting [Redis](/glossary/redis/) or HTTP pools. This isolation is a direct consequence of [process isolation](/glossary/process-isolation/) in the [BEAM](/glossary/beam/) runtime.
+Each pool is supervised independently, meaning a [PostgreSQL](@/glossary/postgresql.md) connection failure triggers pool recovery without affecting [Redis](@/glossary/redis.md) or HTTP pools. This isolation is a direct consequence of [process isolation](@/glossary/process-isolation.md) in the [BEAM](@/glossary/beam.md) runtime.
 
 ## Fault Tolerance and Recovery
 
-Connection pools in Elixir benefit from OTP's [supervision tree](/glossary/supervision-tree/) model for automatic failure recovery.
+Connection pools in Elixir benefit from OTP's [supervision tree](@/glossary/supervision-tree.md) model for automatic failure recovery.
 
 | Failure Scenario | Pool Behavior | Recovery Mechanism |
 |-----------------|---------------|-------------------|
@@ -374,7 +374,7 @@ In production deployments, application-level connection pools often work in conj
 | **PgBouncer** | Cross-application connection multiplexing | Pools across all applications |
 | **PostgreSQL** | Database server | Manages actual server-side sessions |
 
-The combination of application-level pooling (DBConnection) and proxy-level pooling (PgBouncer) enables architectures where hundreds of application instances each maintain small pools (5-10 connections) that are multiplexed through PgBouncer into a smaller number of actual database connections. This is particularly relevant for the Prismatic Platform's [Fly.io](/glossary/fly-io/) deployment where multiple instances run simultaneously.
+The combination of application-level pooling (DBConnection) and proxy-level pooling (PgBouncer) enables architectures where hundreds of application instances each maintain small pools (5-10 connections) that are multiplexed through PgBouncer into a smaller number of actual database connections. This is particularly relevant for the Prismatic Platform's [Fly.io](@/glossary/fly-io.md) deployment where multiple instances run simultaneously.
 
 ## Monitoring and Diagnostics
 
@@ -427,7 +427,7 @@ end
 | Pool size = max_connections | No room for admin connections | Reserve 10-20% for admin/monitoring |
 | Long-held transactions | Starves other processes | Minimize transaction scope, use advisory locks |
 | No checkout timeout | Process blocks indefinitely | Set explicit timeout (15s default) |
-| Pooling for [ETS](/glossary/ets/) | Unnecessary overhead (no connections) | Use ETS directly (no pool needed) |
+| Pooling for [ETS](@/glossary/ets.md) | Unnecessary overhead (no connections) | Use ETS directly (no pool needed) |
 | Same pool size for all apps | Over/under provisioning | Tune per-app based on actual concurrency |
 | Ignoring pool metrics | Silent degradation | Monitor checkout times and queue depth |
 | No connection recycling | Stale connections accumulate | Set max_lifetime to periodically refresh |
@@ -455,28 +455,28 @@ end
 
 - **Not accounting for transaction duration.** Transactions hold connections for their entire duration. A transaction that performs an HTTP call to an external service holds a database connection idle for the entire network round-trip, effectively reducing pool capacity.
 
-- **Using connection pooling for ETS or in-memory stores.** [ETS](/glossary/ets/) tables are accessed directly from the calling process's memory space. There is no connection to pool. Wrapping ETS access in a pool adds unnecessary overhead and serialization.
+- **Using connection pooling for ETS or in-memory stores.** [ETS](@/glossary/ets.md) tables are accessed directly from the calling process's memory space. There is no connection to pool. Wrapping ETS access in a pool adds unnecessary overhead and serialization.
 
 ## Related Terms
 
-- [PostgreSQL](/glossary/postgresql/) - Primary relational database requiring connection pooling
-- [Ecto](/glossary/ecto/) - Database wrapper integrating with DBConnection pooling
-- [Redis](/glossary/redis/) - Cache and pub/sub backend using Redix connection pools
-- [Adapter Pattern](/glossary/adapter-pattern/) - Storage abstraction where each adapter manages its own connection pool
-- [ETS](/glossary/ets/) - In-memory storage that avoids connection overhead entirely
-- [GenServer](/glossary/genserver/) - Process model underlying pool management and connection tracking
-- [Supervision Tree](/glossary/supervision-tree/) - Fault tolerance ensuring connection pools recover from failures
-- [Circuit Breaker](/glossary/circuit-breaker/) - Complementary pattern preventing cascading failures from database outages
-- [Process Isolation](/glossary/process-isolation/) - BEAM property enabling independent pool failure recovery
-- [Observability](/glossary/observability/) - Monitoring infrastructure for pool health metrics
-- [BEAM](/glossary/beam/) - Virtual machine providing process-based concurrency for pool implementation
-- [Backpressure](/glossary/backpressure/) - Flow control mechanism complementing pool queue management
+- [PostgreSQL](@/glossary/postgresql.md) - Primary relational database requiring connection pooling
+- [Ecto](@/glossary/ecto.md) - Database wrapper integrating with DBConnection pooling
+- [Redis](@/glossary/redis.md) - Cache and pub/sub backend using Redix connection pools
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Storage abstraction where each adapter manages its own connection pool
+- [ETS](@/glossary/ets.md) - In-memory storage that avoids connection overhead entirely
+- [GenServer](@/glossary/genserver.md) - Process model underlying pool management and connection tracking
+- [Supervision Tree](@/glossary/supervision-tree.md) - Fault tolerance ensuring connection pools recover from failures
+- [Circuit Breaker](@/glossary/circuit-breaker.md) - Complementary pattern preventing cascading failures from database outages
+- [Process Isolation](@/glossary/process-isolation.md) - BEAM property enabling independent pool failure recovery
+- [Observability](@/glossary/observability.md) - Monitoring infrastructure for pool health metrics
+- [BEAM](@/glossary/beam.md) - Virtual machine providing process-based concurrency for pool implementation
+- [Backpressure](@/glossary/backpressure.md) - Flow control mechanism complementing pool queue management
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture and multi-backend storage topology
-- [Technologies](/technologies/) - Technology stack details for database and caching backends
-- [Apps](/apps/) - Umbrella applications with per-app pool configurations
+- [Architecture](@/architecture/_index.md) - Platform architecture and multi-backend storage topology
+- [Technologies](@/technologies/_index.md) - Technology stack details for database and caching backends
+- [Apps](@/apps/_index.md) - Umbrella applications with per-app pool configurations
 
 ---
 
@@ -485,4 +485,4 @@ end
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

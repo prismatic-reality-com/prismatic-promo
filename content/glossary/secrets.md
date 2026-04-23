@@ -197,11 +197,11 @@ database_url =
 
 ## Cross-References
 
-- [Permission](/glossary/permission/) - Access rights governing who can read secrets
-- [PII](/glossary/pii/) - Personal data protected by encryption keys stored as secrets
-- [Runtime](/glossary/runtime/) - Execution phase where secrets are loaded from environment
-- [Scope](/glossary/scope/) - Assessment boundaries protected by scoped secret access
-- [Provenance](/glossary/provenance/) - Audit trail for secret access events
+- [Permission](@/glossary/permission.md) - Access rights governing who can read secrets
+- [PII](@/glossary/pii.md) - Personal data protected by encryption keys stored as secrets
+- [Runtime](@/glossary/runtime.md) - Execution phase where secrets are loaded from environment
+- [Scope](@/glossary/scope.md) - Assessment boundaries protected by scoped secret access
+- [Provenance](@/glossary/provenance.md) - Audit trail for secret access events
 
 ---
 

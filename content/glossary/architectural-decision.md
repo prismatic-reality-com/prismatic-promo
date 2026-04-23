@@ -372,7 +372,7 @@ The Prismatic Platform uses formal ADRs for L2+ decisions, supplemented by code-
 
 6. **Review decisions periodically**: Context changes. Technology evolves. Team capabilities shift. Architectural decisions should be reviewed at regular intervals to confirm they remain valid.
 
-7. **Make decisions reversible when possible**: Prefer architectural choices that preserve optionality. The [Adapter Pattern](/glossary/adapter-pattern/) and dependency injection are examples of keeping decisions reversible by abstracting over them.
+7. **Make decisions reversible when possible**: Prefer architectural choices that preserve optionality. The [Adapter Pattern](@/glossary/adapter-pattern.md) and dependency injection are examples of keeping decisions reversible by abstracting over them.
 
 8. **Involve stakeholders early**: Architectural decisions affect multiple teams and roles. Include operations, security, and product perspectives in the decision process.
 
@@ -394,7 +394,7 @@ The Prismatic Platform uses formal ADRs for L2+ decisions, supplemented by code-
 
 ## Use Cases
 
-**Umbrella App Boundary Design**: When adding a new capability to the Prismatic Platform, the architectural decision of where to place it (new umbrella app vs. extension of existing app) is guided by [bounded context](/glossary/bounded-context/) analysis and dependency graph evaluation.
+**Umbrella App Boundary Design**: When adding a new capability to the Prismatic Platform, the architectural decision of where to place it (new umbrella app vs. extension of existing app) is guided by [bounded context](@/glossary/bounded-context.md) analysis and dependency graph evaluation.
 
 **Storage Backend Selection**: The decision to use ETS for development/testing, PostgreSQL for durable storage, Meilisearch for full-text search, and KuzuDB for graph queries was an architectural decision that leveraged the trait-based storage abstraction to avoid lock-in.
 
@@ -406,14 +406,14 @@ The Prismatic Platform uses formal ADRs for L2+ decisions, supplemented by code-
 
 ## Related Concepts
 
-- [Architectural Pattern](/glossary/architectural-pattern/) -- reusable solutions that architectural decisions select between
-- [Software Architecture](/glossary/software-architecture/) -- the overarching discipline within which decisions are made
-- [Domain-Driven Design](/glossary/domain-driven-design/) -- methodology that informs bounded context decisions
-- [Architectural Thinking](/glossary/architectural-thinking/) -- the cognitive skill of reasoning about architectural trade-offs
-- [Architectural Insights](/glossary/architectural-insights/) -- deep understanding gained from studying past decisions
-- [Bounded Context](/glossary/bounded-context/) -- DDD concept that directly shapes decomposition decisions
-- [System Design Principle](/glossary/system-design-principle/) -- guiding principles that constrain the decision space
-- [Adapter Pattern](/glossary/adapter-pattern/) -- pattern enabling reversible technology decisions
+- [Architectural Pattern](@/glossary/architectural-pattern.md) -- reusable solutions that architectural decisions select between
+- [Software Architecture](@/glossary/software-architecture.md) -- the overarching discipline within which decisions are made
+- [Domain-Driven Design](@/glossary/domain-driven-design.md) -- methodology that informs bounded context decisions
+- [Architectural Thinking](@/glossary/architectural-thinking.md) -- the cognitive skill of reasoning about architectural trade-offs
+- [Architectural Insights](@/glossary/architectural-insights.md) -- deep understanding gained from studying past decisions
+- [Bounded Context](@/glossary/bounded-context.md) -- DDD concept that directly shapes decomposition decisions
+- [System Design Principle](@/glossary/system-design-principle.md) -- guiding principles that constrain the decision space
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- pattern enabling reversible technology decisions
 
 ## See Also
 
@@ -429,4 +429,4 @@ The Prismatic Platform uses formal ADRs for L2+ decisions, supplemented by code-
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

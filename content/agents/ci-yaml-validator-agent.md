@@ -28,7 +28,7 @@ image_alt = "CI YAML Validator Agent - Prismatic Platform"
 
 ## Executive Summary
 
-The CI YAML Validator Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the DevOps, CI/CD, and YAML Validation domain of the Prismatic Platform. This agent provides specialized validation for [GitLab CI](/glossary/gitlab-ci/) YAML configurations, enforcing the mandatory 10-level nesting limit and preventing YAML patterns that cause pipeline validation failures. In a platform with 90 [umbrella application](/glossary/umbrella-application/)s generating complex CI pipeline configurations, YAML validation is not optional -- it is a critical gate that prevents wasted CI compute resources and developer time on pipelines that would fail at the configuration parsing stage.
+The CI YAML Validator Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the DevOps, CI/CD, and YAML Validation domain of the Prismatic Platform. This agent provides specialized validation for [GitLab CI](@/glossary/gitlab-ci.md) YAML configurations, enforcing the mandatory 10-level nesting limit and preventing YAML patterns that cause pipeline validation failures. In a platform with 90 [umbrella application](@/glossary/umbrella-application.md)s generating complex CI pipeline configurations, YAML validation is not optional -- it is a critical gate that prevents wasted CI compute resources and developer time on pipelines that would fail at the configuration parsing stage.
 
 GitLab CI YAML has specific constraints that differ from generic YAML validation. The Prismatic Platform has codified these constraints through hard-won experience: the 10-level nesting limit that GitLab silently enforces, the prohibition against literal block scalars and heredoc patterns in script sections, and the requirement for dash-prefixed command format. The CI YAML Validator Agent encodes all these platform-specific constraints into an automated validation pipeline that catches configuration errors before they reach GitLab's CI runner infrastructure.
 
@@ -155,10 +155,10 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) | Enforcement Partner | Coordinates YAML validation with broader CI/CD guardrails enforcement |
-| [cicd-coordinator-agent](/agents/cicd-coordinator-agent/) | Pipeline Authority | Receives validation results for pipeline orchestration decisions |
-| [cicd-tooling-specialist](/agents/cicd-tooling-specialist/) | Tooling Partner | Coordinates CI tooling configurations that affect YAML structure |
-| [brutal-gitlab-enforcer](/agents/brutal-gitlab-enforcer/) | Escalation Target | Handles persistent YAML violations requiring forceful correction |
+| [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) | Enforcement Partner | Coordinates YAML validation with broader CI/CD guardrails enforcement |
+| [cicd-coordinator-agent](@/agents/cicd-coordinator-agent.md) | Pipeline Authority | Receives validation results for pipeline orchestration decisions |
+| [cicd-tooling-specialist](@/agents/cicd-tooling-specialist.md) | Tooling Partner | Coordinates CI tooling configurations that affect YAML structure |
+| [brutal-gitlab-enforcer](@/agents/brutal-gitlab-enforcer.md) | Escalation Target | Handles persistent YAML violations requiring forceful correction |
 
 ## Operational Workflow
 
@@ -191,15 +191,15 @@ end
 
 ## Enforcement
 
-All CI YAML validation operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Invalid CI configurations are blocked without exception. The 10-level nesting limit is absolute and non-negotiable. Forbidden YAML patterns trigger immediate rejection with no workaround pathway. Every CI pipeline configuration must pass validation before it can trigger a pipeline run.
+All CI YAML validation operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Invalid CI configurations are blocked without exception. The 10-level nesting limit is absolute and non-negotiable. Forbidden YAML patterns trigger immediate rejection with no workaround pathway. Every CI pipeline configuration must pass validation before it can trigger a pipeline run.
 
 ## Related Resources
 
-- [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) -- CI/CD enforcement coordination
-- [cicd-coordinator-agent](/agents/cicd-coordinator-agent/) -- Pipeline orchestration
-- [cicd-tooling-specialist](/agents/cicd-tooling-specialist/) -- CI/CD tooling management
-- [Quality Gates](/capabilities/quality-gates/) -- Platform quality enforcement
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) -- CI/CD enforcement coordination
+- [cicd-coordinator-agent](@/agents/cicd-coordinator-agent.md) -- Pipeline orchestration
+- [cicd-tooling-specialist](@/agents/cicd-tooling-specialist.md) -- CI/CD tooling management
+- [Quality Gates](@/capabilities/quality-gates.md) -- Platform quality enforcement
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -208,4 +208,4 @@ All CI YAML validation operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-n
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

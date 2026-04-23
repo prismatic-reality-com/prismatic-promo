@@ -28,9 +28,9 @@ image_alt = "osint-pattern-propagator - Prismatic Platform"
 
 ## Overview
 
-The osint-pattern-propagator operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's OSINT architecture domain, responsible for identifying, codifying, and propagating successful intelligence collection and analysis patterns across the [OSINT](/glossary/osint/) agent ecosystem. This agent functions as the institutional memory and knowledge distribution mechanism for OSINT operations, ensuring that effective techniques discovered by individual agents are systematically shared and adapted for use across the entire intelligence collection apparatus.
+The osint-pattern-propagator operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's OSINT architecture domain, responsible for identifying, codifying, and propagating successful intelligence collection and analysis patterns across the [OSINT](@/glossary/osint.md) agent ecosystem. This agent functions as the institutional memory and knowledge distribution mechanism for OSINT operations, ensuring that effective techniques discovered by individual agents are systematically shared and adapted for use across the entire intelligence collection apparatus.
 
-Built on the [AIAD](/glossary/aiad/) standard and leveraging the [mycelial network](/glossary/mycelial-network/) for pattern distribution, the propagator maintains a pattern library that catalogs proven OSINT techniques with their applicability conditions, success rates, and adaptation guidelines. The [SEADF](/glossary/seadf/) evolutionary framework provides the feedback loop: patterns that consistently improve intelligence quality propagate more widely, while patterns that underperform are deprecated and replaced. The [NABLA Infinity](/glossary/nabla-infinity/) framework ensures pattern effectiveness claims are evidence-backed.
+Built on the [AIAD](@/glossary/aiad.md) standard and leveraging the [mycelial network](@/glossary/mycelial-network.md) for pattern distribution, the propagator maintains a pattern library that catalogs proven OSINT techniques with their applicability conditions, success rates, and adaptation guidelines. The [SEADF](@/glossary/seadf.md) evolutionary framework provides the feedback loop: patterns that consistently improve intelligence quality propagate more widely, while patterns that underperform are deprecated and replaced. The [NABLA Infinity](@/glossary/nabla-infinity.md) framework ensures pattern effectiveness claims are evidence-backed.
 
 ## Operational Domain
 
@@ -49,10 +49,10 @@ The OSINT pattern architecture domain sits above individual collection disciplin
 
 - **Pattern discovery** -- Monitors OSINT agent telemetry to identify collection and analysis techniques that consistently produce high-quality intelligence, extracting generalizable patterns from specific operational successes
 - **Pattern codification** -- Formalizes discovered patterns into structured specifications that include applicability conditions, required inputs, expected outputs, success metrics, and known limitations
-- **Adaptive propagation** -- Distributes patterns through the [mycelial network](/glossary/mycelial-network/) with context-aware adaptation, modifying pattern parameters based on the receiving agent's domain and capabilities
+- **Adaptive propagation** -- Distributes patterns through the [mycelial network](@/glossary/mycelial-network.md) with context-aware adaptation, modifying pattern parameters based on the receiving agent's domain and capabilities
 - **Effectiveness tracking** -- Monitors the success rate of propagated patterns across the agent ecosystem, identifying which patterns transfer effectively and which require domain-specific adaptation
-- **[Autonomous operation](/capabilities/autonomous-self-healing/)** with self-directed pattern discovery cycles based on telemetry analysis
-- **[Telemetry integration](/capabilities/telemetry-integration/)** publishing pattern discovery rates, propagation success metrics, and ecosystem effectiveness indicators
+- **[Autonomous operation](@/capabilities/autonomous-self-healing.md)** with self-directed pattern discovery cycles based on telemetry analysis
+- **[Telemetry integration](@/capabilities/telemetry-integration.md)** publishing pattern discovery rates, propagation success metrics, and ecosystem effectiveness indicators
 
 ## Pattern Propagation Engine
 
@@ -138,7 +138,7 @@ end
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to define OSINT methodology standards and propagate patterns across the intelligence agent ecosystem.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to define OSINT methodology standards and propagate patterns across the intelligence agent ecosystem.
 
 ## Command Interface
 
@@ -152,14 +152,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [osint-quality-feedback-coordinator](/agents/osint-quality-feedback-coordinator/) | Quality metrics inform pattern effectiveness evaluation |
-| [osint-engines-specialist](/agents/osint-engines-specialist/) | Collection patterns propagated to search engine orchestration |
-| [osint-digital-profile-specialist](/agents/osint-digital-profile-specialist/) | Profiling patterns shared for cross-platform correlation improvement |
-| [evolution-orchestrator-supreme](/agents/evolution-orchestrator-supreme/) | Pattern propagation integrated with platform evolution pipeline |
+| [osint-quality-feedback-coordinator](@/agents/osint-quality-feedback-coordinator.md) | Quality metrics inform pattern effectiveness evaluation |
+| [osint-engines-specialist](@/agents/osint-engines-specialist.md) | Collection patterns propagated to search engine orchestration |
+| [osint-digital-profile-specialist](@/agents/osint-digital-profile-specialist.md) | Profiling patterns shared for cross-platform correlation improvement |
+| [evolution-orchestrator-supreme](@/agents/evolution-orchestrator-supreme.md) | Pattern propagation integrated with platform evolution pipeline |
 
 ## GARDEN Legacy Patterns
 
-The propagator maintains a curated set of patterns extracted from the [GARDEN](/glossary/garden/) legacy knowledge base, representing 20+ years of OSINT operational experience. These battle-tested patterns from the `sig` repository's 250+ OSINT providers serve as the foundation pattern library, supplemented by patterns discovered through the platform's autonomous operations. Legacy pattern adaptation ensures that proven techniques remain effective in the current operational environment.
+The propagator maintains a curated set of patterns extracted from the [GARDEN](@/glossary/garden.md) legacy knowledge base, representing 20+ years of OSINT operational experience. These battle-tested patterns from the `sig` repository's 250+ OSINT providers serve as the foundation pattern library, supplemented by patterns discovered through the platform's autonomous operations. Legacy pattern adaptation ensures that proven techniques remain effective in the current operational environment.
 
 ## Pattern Discovery Methodology
 
@@ -171,7 +171,7 @@ Candidate patterns undergo a generalizability assessment: the propagator evaluat
 
 ## Pattern Versioning and Deprecation
 
-Patterns in the library are versioned and subject to lifecycle management. When a pattern is first codified, it enters version 1.0 with a "pilot" status. After successful validation across 3+ independent operations, it graduates to "validated" status. Patterns whose effectiveness degrades below statistical thresholds over a rolling evaluation window are automatically deprecated, and agents that adopted the pattern receive deprecation notices through the [mycelial network](/glossary/mycelial-network/).
+Patterns in the library are versioned and subject to lifecycle management. When a pattern is first codified, it enters version 1.0 with a "pilot" status. After successful validation across 3+ independent operations, it graduates to "validated" status. Patterns whose effectiveness degrades below statistical thresholds over a rolling evaluation window are automatically deprecated, and agents that adopted the pattern receive deprecation notices through the [mycelial network](@/glossary/mycelial-network.md).
 
 Pattern versioning supports evolution: when an existing pattern is refined through operational feedback, the updated version is published alongside the original, with agents gradually migrating to the newer version based on A/B testing results that confirm the improvement. This prevents disruptive "big bang" pattern changes that could simultaneously affect multiple agents' operational effectiveness.
 
@@ -179,11 +179,11 @@ Pattern versioning supports evolution: when an existing pattern is refined throu
 
 Some of the most valuable patterns are those that transfer across domain boundaries. A correlation technique developed for digital profiling may prove equally effective for entity resolution in legal records. A query optimization discovered for search engine orchestration may improve collection efficiency for social media intelligence. The propagator actively monitors for cross-domain transfer opportunities by comparing pattern technique signatures across categories. When structural similarity is detected between a successful pattern in one domain and an underperforming approach in another domain, the propagator initiates a cross-domain transfer pilot to evaluate whether the pattern's success generalizes across the domain boundary.
 
-Cross-domain transfer is one of the highest-value activities the propagator performs because it enables the OSINT ecosystem to benefit from insights generated in any single operational context. The [GARDEN](/glossary/garden/) legacy knowledge base contributes particularly valuable cross-domain patterns, as many of the techniques refined over 20+ years of OSINT operations embody principles that transcend specific collection disciplines.
+Cross-domain transfer is one of the highest-value activities the propagator performs because it enables the OSINT ecosystem to benefit from insights generated in any single operational context. The [GARDEN](@/glossary/garden.md) legacy knowledge base contributes particularly valuable cross-domain patterns, as many of the techniques refined over 20+ years of OSINT operations embody principles that transcend specific collection disciplines.
 
 ## Enforcement
 
-All pattern propagation complies with the [NO MERCY](/glossary/no-mercy/) doctrine: no pattern enters the library without statistical validation across multiple operations, underperforming patterns are automatically deprecated, and propagation targets are verified for compatibility before distribution. The [NO DOUBTS](/glossary/no-doubts/) principle requires that pattern effectiveness claims are backed by measured success rates with confidence intervals. [Trinity Gate](/glossary/trinity-gate/) validates pattern consistency before ecosystem-wide propagation.
+All pattern propagation complies with the [NO MERCY](@/glossary/no-mercy.md) doctrine: no pattern enters the library without statistical validation across multiple operations, underperforming patterns are automatically deprecated, and propagation targets are verified for compatibility before distribution. The [NO DOUBTS](@/glossary/no-doubts.md) principle requires that pattern effectiveness claims are backed by measured success rates with confidence intervals. [Trinity Gate](@/glossary/trinity-gate.md) validates pattern consistency before ecosystem-wide propagation.
 
 ---
 
@@ -192,4 +192,4 @@ All pattern propagation complies with the [NO MERCY](/glossary/no-mercy/) doctri
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

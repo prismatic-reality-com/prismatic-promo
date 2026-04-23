@@ -478,24 +478,24 @@ Architectural decisions are documented as learning resources that explain the co
 
 Learning resources connect to a broad ecosystem of educational and knowledge management concepts:
 
-- [Learning Path](/glossary/learning-path/) -- structured sequences of learning resources organized for progressive skill development
-- [Documentation](/glossary/documentation/) -- the broader category of written technical material that includes learning resources
-- [Curriculum](/glossary/curriculum/) -- comprehensive educational programs composed of multiple learning paths and resources
-- [Developer Experience](/glossary/developer-experience/) -- the holistic quality of developer interaction with a platform, heavily shaped by available learning resources
-- [Code Example](/glossary/code-example/) -- executable code snippets that demonstrate concepts, a key component of effective learning resources
-- [Reference Documentation](/glossary/reference-documentation/) -- comprehensive API and module documentation serving as authoritative learning resources
-- [Developer Portal](/glossary/developer-portal/) -- centralized hub where learning resources are organized, searchable, and accessible
-- [Knowledge Graph](/glossary/knowledge-graph/) -- the interconnected network of concepts that cross-referenced learning resources collectively form
-- [Progressive Disclosure](/glossary/progressive-disclosure/) -- the principle of revealing complexity gradually, applied to resource difficulty progression
-- [Mentorship](/glossary/mentorship/) -- human guidance that supplements learning resources with personalized context and feedback
+- [Learning Path](@/glossary/learning-path.md) -- structured sequences of learning resources organized for progressive skill development
+- [Documentation](@/glossary/documentation.md) -- the broader category of written technical material that includes learning resources
+- [Curriculum](@/glossary/curriculum.md) -- comprehensive educational programs composed of multiple learning paths and resources
+- [Developer Experience](@/glossary/developer-experience.md) -- the holistic quality of developer interaction with a platform, heavily shaped by available learning resources
+- [Code Example](@/glossary/code-example.md) -- executable code snippets that demonstrate concepts, a key component of effective learning resources
+- [Reference Documentation](@/glossary/reference-documentation.md) -- comprehensive API and module documentation serving as authoritative learning resources
+- [Developer Portal](@/glossary/developer-portal.md) -- centralized hub where learning resources are organized, searchable, and accessible
+- [Knowledge Graph](@/glossary/knowledge-graph.md) -- the interconnected network of concepts that cross-referenced learning resources collectively form
+- [Progressive Disclosure](@/glossary/progressive-disclosure.md) -- the principle of revealing complexity gradually, applied to resource difficulty progression
+- [Mentorship](@/glossary/mentorship.md) -- human guidance that supplements learning resources with personalized context and feedback
 
 ## See Also
 
-- [Technical Vocabulary](/glossary/technical-vocabulary/) -- standardized terminology that learning resources must use consistently
-- [Quality Assurance](/glossary/quality-assurance/) -- processes that ensure learning resources meet minimum quality standards
-- [Community Engagement](/glossary/community-engagement/) -- community practices that drive learning resource creation and improvement
-- [Open Source](/glossary/open-source/) -- the model under which Prismatic Platform learning resources are publicly shared
-- [Workshop Facilitation](/glossary/workshop-facilitation/) -- live teaching sessions that complement written learning resources
+- [Technical Vocabulary](@/glossary/technical-vocabulary.md) -- standardized terminology that learning resources must use consistently
+- [Quality Assurance](@/glossary/quality-assurance.md) -- processes that ensure learning resources meet minimum quality standards
+- [Community Engagement](@/glossary/community-engagement.md) -- community practices that drive learning resource creation and improvement
+- [Open Source](@/glossary/open-source.md) -- the model under which Prismatic Platform learning resources are publicly shared
+- [Workshop Facilitation](@/glossary/workshop-facilitation.md) -- live teaching sessions that complement written learning resources
 
 ---
 

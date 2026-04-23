@@ -326,15 +326,15 @@ TERMINATED (graceful shutdown, state persisted)
 
 ### AIAD Standard
 
-The [AIAD](/glossary/aiad/) (Artificial Intelligence Agent Definition) standard governs all agent definitions on the platform. Each agent is specified in a YAML-formatted Markdown file (`.aiad/agents/*.agent.md`) that defines identity, authority, capabilities, triggers, protocols, and constraints. The standard ensures consistency across all 530+ agents.
+The [AIAD](@/glossary/aiad.md) (Artificial Intelligence Agent Definition) standard governs all agent definitions on the platform. Each agent is specified in a YAML-formatted Markdown file (`.aiad/agents/*.agent.md`) that defines identity, authority, capabilities, triggers, protocols, and constraints. The standard ensures consistency across all 530+ agents.
 
 ### Agent Registry
 
-The [Agent Registry](/glossary/agent-registry/) maintains the authoritative catalog of all registered agents. It provides lookup by ID, domain, authority level, and capability. The registry is indexed by the AIAD tooling (`./aiad/bin/aiad index`) and serves as the source of truth for agent discovery.
+The [Agent Registry](@/glossary/agent-registry.md) maintains the authoritative catalog of all registered agents. It provides lookup by ID, domain, authority level, and capability. The registry is indexed by the AIAD tooling (`./aiad/bin/aiad index`) and serves as the source of truth for agent discovery.
 
 ### Color Teams
 
-The platform organizes specialized agents into [Color Teams](/glossary/color-teams/) for security operations:
+The platform organizes specialized agents into [Color Teams](@/glossary/color-teams.md) for security operations:
 
 - **Gray Team** (3 agents): Boundary exploration, specification gap identification
 - **Red Team** (4 agents): Adversarial simulation, epistemic attack scenarios
@@ -347,15 +347,15 @@ Each team operates as a coordinated multi-agent system with a commander agent (L
 
 ### Archer Supreme
 
-[Archer Supreme](/glossary/archer-supreme/) is the platform's highest-authority operational agent (L4 Supreme). It orchestrates cross-domain operations, resolves inter-agent conflicts, and makes platform-wide decisions when no other agent has sufficient authority. It is invoked via `/archer-supreme` for crisis intervention and strategic direction.
+[Archer Supreme](@/glossary/archer-supreme.md) is the platform's highest-authority operational agent (L4 Supreme). It orchestrates cross-domain operations, resolves inter-agent conflicts, and makes platform-wide decisions when no other agent has sufficient authority. It is invoked via `/archer-supreme` for crisis intervention and strategic direction.
 
 ### Agent Authority Delegation
 
-The [Agent Tier](/glossary/agent-tier/) system ensures that delegation follows the authority hierarchy. An L2 agent can delegate to L1 agents in its domain. An L3 commander can delegate to L2 specialists. Authority cannot be delegated upward -- an agent cannot grant more authority than it possesses.
+The [Agent Tier](@/glossary/agent-tier.md) system ensures that delegation follows the authority hierarchy. An L2 agent can delegate to L1 agents in its domain. An L3 commander can delegate to L2 specialists. Authority cannot be delegated upward -- an agent cannot grant more authority than it possesses.
 
 ### Multi-Agent Orchestration
 
-The [Orchestration](/glossary/orchestration/) system coordinates multiple agents working on related tasks. When a complex operation requires capabilities spanning multiple domains (for example, a security assessment that requires OSINT scanning, vulnerability analysis, and compliance checking), the orchestrator decomposes the task, assigns subtasks to appropriate agents, and assembles results.
+The [Orchestration](@/glossary/orchestration.md) system coordinates multiple agents working on related tasks. When a complex operation requires capabilities spanning multiple domains (for example, a security assessment that requires OSINT scanning, vulnerability analysis, and compliance checking), the orchestrator decomposes the task, assigns subtasks to appropriate agents, and assembles results.
 
 ## Comparison with Alternatives
 
@@ -412,7 +412,7 @@ Quality enforcer agents (L2) continuously monitor code quality across 13 domains
 Color team agents conduct continuous security assessment. Red team agents simulate adversarial scenarios; blue team agents detect and defend against threats; purple team agents synthesize findings into actionable security posture improvements. This multi-agent approach provides comprehensive security coverage that no single agent could achieve.
 
 ### Platform Evolution
-The [Autoevolve](/glossary/autoevolve/) agent system identifies optimization opportunities and applies improvements autonomously. Higher-authority evolution agents (L3) set strategic direction; lower-authority specialists (L1-L2) execute specific improvements within their domains. The collective result is continuous platform evolution.
+The [Autoevolve](@/glossary/autoevolve.md) agent system identifies optimization opportunities and applies improvements autonomously. Higher-authority evolution agents (L3) set strategic direction; lower-authority specialists (L1-L2) execute specific improvements within their domains. The collective result is continuous platform evolution.
 
 ### OSINT Intelligence Gathering
 Over 120 OSINT adapters operate as specialized agents that gather intelligence from public sources (ARES, Shodan, VirusTotal, etc.). Each adapter agent has narrow authority (query a specific source, return structured results) and feeds into aggregation agents that correlate findings across sources.
@@ -422,25 +422,25 @@ When a critical issue is detected (quality emergency, security incident, product
 
 ## Related Concepts
 
-- [Agent](/glossary/agent/) -- the general concept of a software agent
-- [AIAD](/glossary/aiad/) -- the standard for defining agents on the Prismatic Platform
-- [AI Agent](/glossary/ai-agent/) -- agents powered by artificial intelligence models
-- [Agent Tier](/glossary/agent-tier/) -- the authority hierarchy system (L1-L5)
-- [Multi-Agent System](/glossary/multi-agent-system/) -- systems of cooperating autonomous agents
-- [Orchestration](/glossary/orchestration/) -- coordination of multiple agents for complex tasks
-- [Authority Level](/glossary/authority-level/) -- the permission framework governing agent actions
-- [Agent Registry](/glossary/agent-registry/) -- the catalog of all registered platform agents
-- [Archer Supreme](/glossary/archer-supreme/) -- the highest-authority operational agent
-- [Color Teams](/glossary/color-teams/) -- specialized agent teams for security operations
-- [Agent Module](/glossary/agent-module/) -- the Elixir module structure for agent implementation
+- [Agent](@/glossary/agent.md) -- the general concept of a software agent
+- [AIAD](@/glossary/aiad.md) -- the standard for defining agents on the Prismatic Platform
+- [AI Agent](@/glossary/ai-agent.md) -- agents powered by artificial intelligence models
+- [Agent Tier](@/glossary/agent-tier.md) -- the authority hierarchy system (L1-L5)
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- systems of cooperating autonomous agents
+- [Orchestration](@/glossary/orchestration.md) -- coordination of multiple agents for complex tasks
+- [Authority Level](@/glossary/authority-level.md) -- the permission framework governing agent actions
+- [Agent Registry](@/glossary/agent-registry.md) -- the catalog of all registered platform agents
+- [Archer Supreme](@/glossary/archer-supreme.md) -- the highest-authority operational agent
+- [Color Teams](@/glossary/color-teams.md) -- specialized agent teams for security operations
+- [Agent Module](@/glossary/agent-module.md) -- the Elixir module structure for agent implementation
 
 ## See Also
 
-- [AIAD](/glossary/aiad/) for the agent definition standard
-- [Agent Registry](/glossary/agent-registry/) for the complete agent catalog
-- [Automated Decision Making](/glossary/automated-decision-making/) for decision systems within agents
-- [Supervision Tree](/glossary/supervision-tree/) for OTP process management of agent processes
-- [GenServer](/glossary/genserver/) for the OTP pattern used to implement agent processes
+- [AIAD](@/glossary/aiad.md) for the agent definition standard
+- [Agent Registry](@/glossary/agent-registry.md) for the complete agent catalog
+- [Automated Decision Making](@/glossary/automated-decision-making.md) for decision systems within agents
+- [Supervision Tree](@/glossary/supervision-tree.md) for OTP process management of agent processes
+- [GenServer](@/glossary/genserver.md) for the OTP pattern used to implement agent processes
 
 ---
 
@@ -449,4 +449,4 @@ When a critical issue is detected (quality emergency, security incident, product
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

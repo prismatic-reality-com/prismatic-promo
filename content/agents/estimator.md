@@ -28,9 +28,9 @@ image_alt = "estimator - Prismatic Platform"
 
 ## Overview
 
-The Estimator Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Decomposer domain of the Prismatic Platform. This agent analyzes project backlogs, historical velocity data, and complexity [metrics](/glossary/metrics/) to produce evidence-based effort estimates for development tasks. By combining quantitative analysis of past performance with structural complexity assessment of proposed work, the Estimator delivers calibrated predictions that account for uncertainty and risk factors rather than the single-point guesses that characterize most software estimation practices.
+The Estimator Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Decomposer domain of the Prismatic Platform. This agent analyzes project backlogs, historical velocity data, and complexity [metrics](@/glossary/metrics.md) to produce evidence-based effort estimates for development tasks. By combining quantitative analysis of past performance with structural complexity assessment of proposed work, the Estimator delivers calibrated predictions that account for uncertainty and risk factors rather than the single-point guesses that characterize most software estimation practices.
 
-Estimation in a platform of this scale -- 90 [umbrella application](/glossary/umbrella-application/)s, 6,600+ source files, 430+ autonomous agents -- requires more than naive story-point assignment. The Estimator Agent examines task structure, identifies analogous historical tasks, measures the complexity of affected code regions through cyclomatic complexity and coupling metrics, and produces estimates with explicit confidence intervals. This approach eliminates the optimism bias that plagues manual estimation and provides planning decisions with quantified uncertainty.
+Estimation in a platform of this scale -- 90 [umbrella application](@/glossary/umbrella-application.md)s, 6,600+ source files, 430+ autonomous agents -- requires more than naive story-point assignment. The Estimator Agent examines task structure, identifies analogous historical tasks, measures the complexity of affected code regions through cyclomatic complexity and coupling metrics, and produces estimates with explicit confidence intervals. This approach eliminates the optimism bias that plagues manual estimation and provides planning decisions with quantified uncertainty.
 
 Software estimation has a well-documented history of systematic failure. Projects routinely exceed estimates by 50-100%, and traditional estimation methods (expert judgment, analogy, parametric models) each have known biases and failure modes. The Estimator Agent addresses this by combining multiple estimation methods, cross-validating results, and always presenting estimates as probability distributions rather than point values. A task estimated at "3 days" is meaningless without confidence bounds; a task estimated at "2-5 days with 80% confidence" enables informed planning decisions.
 
@@ -109,9 +109,9 @@ The agent tracks its own estimation accuracy to drive continuous improvement.
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [compressor](/agents/compressor/) | Task Input | Provides compressed task descriptions for estimation processing |
-| [explain-specialist](/agents/explain-specialist/) | Complexity Analysis | Clarifies technical complexity factors that influence estimation |
-| [evolution-analyzer-specialist](/agents/evolution-analyzer-specialist/) | Historical Data | Provides ecosystem health metrics for context |
+| [compressor](@/agents/compressor.md) | Task Input | Provides compressed task descriptions for estimation processing |
+| [explain-specialist](@/agents/explain-specialist.md) | Complexity Analysis | Clarifies technical complexity factors that influence estimation |
+| [evolution-analyzer-specialist](@/agents/evolution-analyzer-specialist.md) | Historical Data | Provides ecosystem health metrics for context |
 
 ## Common Estimation Pitfalls
 
@@ -127,13 +127,13 @@ The Estimator Agent explicitly avoids well-documented estimation anti-patterns.
 
 ## Enforcement
 
-All estimation operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Estimates without confidence intervals are rejected as incomplete. No estimate is treated as a commitment -- estimates are predictions with quantified uncertainty. The NABLA [Time Decay](/glossary/time-decay/) axiom ensures that historical velocity data is weighted by recency, preventing outdated performance data from skewing current estimates. Over-optimistic estimates that consistently miss targets trigger recalibration and investigation.
+All estimation operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Estimates without confidence intervals are rejected as incomplete. No estimate is treated as a commitment -- estimates are predictions with quantified uncertainty. The NABLA [Time Decay](@/glossary/time-decay.md) axiom ensures that historical velocity data is weighted by recency, preventing outdated performance data from skewing current estimates. Over-optimistic estimates that consistently miss targets trigger recalibration and investigation.
 
 ## Related Agents
 
-- [**compressor**](/agents/compressor/) (L3) - Task compression and decomposition feeding estimation
-- [**explain-specialist**](/agents/explain-specialist/) (L3) - Technical complexity clarification for estimation inputs
-- [**evolution-analyzer-specialist**](/agents/evolution-analyzer-specialist/) (L3) - Ecosystem metrics providing estimation context
+- [**compressor**](@/agents/compressor.md) (L3) - Task compression and decomposition feeding estimation
+- [**explain-specialist**](@/agents/explain-specialist.md) (L3) - Technical complexity clarification for estimation inputs
+- [**evolution-analyzer-specialist**](@/agents/evolution-analyzer-specialist.md) (L3) - Ecosystem metrics providing estimation context
 
 ---
 
@@ -142,4 +142,4 @@ All estimation operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

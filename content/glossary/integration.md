@@ -36,7 +36,7 @@ image_alt = "Integration - Prismatic Platform"
 
 Integration in software engineering refers to the process of connecting separate systems, services, or components so they can exchange data and coordinate behavior as a unified whole. It encompasses everything from simple function calls between modules to complex distributed system orchestration across network boundaries. Integration is both a design challenge (how to define clean interfaces) and an operational challenge (how to handle failures, latency, and data format mismatches in production).
 
-Modern platforms rarely operate in isolation. They consume external [APIs](/glossary/api/), publish events to message brokers, synchronize data with third-party systems, and coordinate workflows across service boundaries. The quality of these integration points largely determines the reliability, performance, and maintainability of the overall system. Poorly designed integrations create brittle coupling, cascading failures, and debugging nightmares. Well-designed integrations enable systems to compose capabilities from independent components, each evolving at its own pace.
+Modern platforms rarely operate in isolation. They consume external [APIs](@/glossary/api.md), publish events to message brokers, synchronize data with third-party systems, and coordinate workflows across service boundaries. The quality of these integration points largely determines the reliability, performance, and maintainability of the overall system. Poorly designed integrations create brittle coupling, cascading failures, and debugging nightmares. Well-designed integrations enable systems to compose capabilities from independent components, each evolving at its own pace.
 
 ## Overview
 
@@ -47,12 +47,12 @@ The field of system integration has evolved through several paradigms, each addr
 | **1970s-80s** | File transfer | EDI batch files | Simple but high latency |
 | **1990s** | Shared database | Multiple apps reading same tables | Easy but tight coupling |
 | **2000s** | RPC / SOAP | XML web services | Typed but verbose |
-| **2010s** | REST APIs | [JSON](/glossary/json/) over HTTP | Simple but synchronous |
+| **2010s** | REST APIs | [JSON](@/glossary/json.md) over HTTP | Simple but synchronous |
 | **2010s** | Message queues | RabbitMQ, Kafka | Decoupled but complex |
-| **2020s** | Event-driven | Phoenix [PubSub](/glossary/pubsub/), EventBridge | Reactive but eventually consistent |
+| **2020s** | Event-driven | Phoenix [PubSub](@/glossary/pubsub.md), EventBridge | Reactive but eventually consistent |
 | **BEAM** | Process messaging | GenServer calls/casts | Zero-overhead but single-node |
 
-The Prismatic Platform is fundamentally an integration platform. Its 94+ umbrella applications communicate through well-defined [Elixir](/glossary/elixir/) [behaviours](/glossary/behaviour/) and [protocols](/glossary/protocol/). The 157 OSINT tools integrate with external intelligence APIs. The DD [pipeline](/glossary/pipeline/) integrates with Czech government registries. The Perimeter module integrates with security scanning infrastructure. Each integration point follows consistent patterns for error handling, retry logic, [telemetry](/glossary/telemetry/), and testing.
+The Prismatic Platform is fundamentally an integration platform. Its 94+ umbrella applications communicate through well-defined [Elixir](@/glossary/elixir.md) [behaviours](@/glossary/behaviour.md) and [protocols](@/glossary/protocol.md). The 157 OSINT tools integrate with external intelligence APIs. The DD [pipeline](@/glossary/pipeline.md) integrates with Czech government registries. The Perimeter module integrates with security scanning infrastructure. Each integration point follows consistent patterns for error handling, retry logic, [telemetry](@/glossary/telemetry.md), and testing.
 
 ### Integration vs. Coupling
 
@@ -65,9 +65,9 @@ A critical distinction in integration design is between integration (systems can
 | **Failure handling** | Cascading crashes | Circuit breaker / fallback |
 | **Deployment** | Deploy together | Deploy independently |
 | **Schema evolution** | Breaking changes propagate | Additive changes only |
-| **Testing** | Requires all dependencies | [Mock](/glossary/mock/) at boundaries |
+| **Testing** | Requires all dependencies | [Mock](@/glossary/mock.md) at boundaries |
 
-The Prismatic Platform achieves loose coupling through the [adapter pattern](/glossary/adapter-pattern/): each external system is accessed through a module that implements a common behaviour. Business logic depends on the behaviour, not the implementation. Swapping providers, adding fallbacks, or [mocking](/glossary/mock/) for testing requires only configuration changes.
+The Prismatic Platform achieves loose coupling through the [adapter pattern](@/glossary/adapter-pattern.md): each external system is accessed through a module that implements a common behaviour. Business logic depends on the behaviour, not the implementation. Swapping providers, adding fallbacks, or [mocking](@/glossary/mock.md) for testing requires only configuration changes.
 
 ## Technical Deep Dive
 
@@ -189,7 +189,7 @@ end
 
 #### 3. BEAM-Native Process Integration
 
-The [BEAM](/glossary/beam/)'s lightweight processes enable a unique integration model: separate components run as independent [GenServers](/glossary/genserver/) within the same VM, communicating via message passing with zero serialization overhead.
+The [BEAM](@/glossary/beam.md)'s lightweight processes enable a unique integration model: separate components run as independent [GenServers](@/glossary/genserver.md) within the same VM, communicating via message passing with zero serialization overhead.
 
 ```elixir
 # BEAM-native integration: GenServer-to-GenServer
@@ -219,7 +219,7 @@ defmodule PrismaticAgents.AgentCoordinator do
 end
 ```
 
-**Trade-offs**: Zero serialization overhead, compile-time type safety, natural supervision. But limited to same-node (unless using [distribution](/glossary/distribution/)).
+**Trade-offs**: Zero serialization overhead, compile-time type safety, natural supervision. But limited to same-node (unless using [distribution](@/glossary/distribution.md)).
 
 ### Circuit Breaker Pattern
 
@@ -486,9 +486,9 @@ end
 
 ### Design Principles
 
-1. **Define contracts first**: Every integration boundary must have a [behaviour](/glossary/behaviour/) or [protocol](/glossary/protocol/) before implementation
+1. **Define contracts first**: Every integration boundary must have a [behaviour](@/glossary/behaviour.md) or [protocol](@/glossary/protocol.md) before implementation
 2. **Fail fast, recover gracefully**: Use circuit breakers and fallbacks for external integrations
-3. **Instrument everything**: Every integration call must emit [telemetry](/glossary/telemetry/) events
+3. **Instrument everything**: Every integration call must emit [telemetry](@/glossary/telemetry.md) events
 4. **Respect rate limits**: Token bucket or sliding window rate limiting for all external APIs
 5. **Version contracts**: Additive changes only for published integration contracts
 
@@ -536,27 +536,27 @@ end
 
 ## Related Terms
 
-- [API](/glossary/api/) -- primary external integration mechanism for the platform
-- [Integration Test](/glossary/integration-test/) -- verifying that integrations work correctly
-- [Adapter Pattern](/glossary/adapter-pattern/) -- encapsulating external integrations behind uniform interfaces
-- [Behaviour](/glossary/behaviour/) -- Elixir contract system for defining integration boundaries
-- [Protocol](/glossary/protocol/) -- Elixir polymorphic dispatch for data-driven integration
-- [PubSub](/glossary/pubsub/) -- event-driven integration within the BEAM
-- [Telemetry](/glossary/telemetry/) -- monitoring integration health and performance
-- [GenServer](/glossary/genserver/) -- BEAM-native process integration pattern
-- [Pipeline](/glossary/pipeline/) -- sequential processing integration (DD pipeline)
-- [Message Passing](/glossary/message-passing/) -- BEAM's fundamental integration mechanism
-- [Bounded Context](/glossary/bounded-context/) -- DDD pattern for defining integration boundaries
-- [Gateway](/glossary/gateway/) -- entry point for external system integration
-- [Endpoint](/glossary/endpoint/) -- specific API URLs that integration targets
-- [Microservices](/glossary/microservices/) -- distributed architecture requiring extensive integration
-- [Supervision Tree](/glossary/supervision-tree/) -- fault tolerance for integration processes
-- [Circuit Breaker](/glossary/circuit-breaker/) -- resilience pattern for external integrations
+- [API](@/glossary/api.md) -- primary external integration mechanism for the platform
+- [Integration Test](@/glossary/integration-test.md) -- verifying that integrations work correctly
+- [Adapter Pattern](@/glossary/adapter-pattern.md) -- encapsulating external integrations behind uniform interfaces
+- [Behaviour](@/glossary/behaviour.md) -- Elixir contract system for defining integration boundaries
+- [Protocol](@/glossary/protocol.md) -- Elixir polymorphic dispatch for data-driven integration
+- [PubSub](@/glossary/pubsub.md) -- event-driven integration within the BEAM
+- [Telemetry](@/glossary/telemetry.md) -- monitoring integration health and performance
+- [GenServer](@/glossary/genserver.md) -- BEAM-native process integration pattern
+- [Pipeline](@/glossary/pipeline.md) -- sequential processing integration (DD pipeline)
+- [Message Passing](@/glossary/message-passing.md) -- BEAM's fundamental integration mechanism
+- [Bounded Context](@/glossary/bounded-context.md) -- DDD pattern for defining integration boundaries
+- [Gateway](@/glossary/gateway.md) -- entry point for external system integration
+- [Endpoint](@/glossary/endpoint.md) -- specific API URLs that integration targets
+- [Microservices](@/glossary/microservices.md) -- distributed architecture requiring extensive integration
+- [Supervision Tree](@/glossary/supervision-tree.md) -- fault tolerance for integration processes
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- resilience pattern for external integrations
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform integration architecture overview
-- [Capabilities](/capabilities/) -- platform capabilities enabled by integration
+- [Architecture](@/architecture/_index.md) -- platform integration architecture overview
+- [Capabilities](@/capabilities/_index.md) -- platform capabilities enabled by integration
 - [OSINT Toolbox](/osint/toolbox/) -- 157 integrated intelligence tools
 - [DD Pipeline](/hub/dd/pipeline/) -- integrated entity processing pipeline
 
@@ -567,4 +567,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

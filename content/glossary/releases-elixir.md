@@ -257,7 +257,7 @@ CMD ["bin/prismatic", "start"]
 
 ### Fly.io Deployment Integration
 
-The release integrates with [Fly.io](/glossary/fly-io/) for production deployment, using Fly's process management to handle health checks, rolling deployments, and geographic distribution:
+The release integrates with [Fly.io](@/glossary/fly-io.md) for production deployment, using Fly's process management to handle health checks, rolling deployments, and geographic distribution:
 
 ```toml
 # fly.toml
@@ -299,7 +299,7 @@ app = "prismatic-prod"
 
 ### Boot Order Management
 
-In an umbrella application with 90 apps, boot ordering is critical. The [PrismaticSupervisor](/glossary/supervisor/) manages dependency-aware startup, ensuring that core services (storage, configuration) start before dependent applications (web, API, agents):
+In an umbrella application with 90 apps, boot ordering is critical. The [PrismaticSupervisor](@/glossary/supervisor.md) manages dependency-aware startup, ensuring that core services (storage, configuration) start before dependent applications (web, API, agents):
 
 ```elixir
 defmodule PrismaticSupervisor.BootOrder do
@@ -373,19 +373,19 @@ The Prismatic Platform uses Elixir releases as the exclusive production deployme
 
 ## Related Concepts
 
-- [Mix](/glossary/mix/) - Build tool that compiles and assembles release artifacts
-- [OTP](/glossary/otp/) - Runtime framework included in every release bundle
-- [BEAM](/glossary/beam/) - Virtual machine embedded in release artifacts
-- [Docker](/glossary/docker/) - Containerization wrapping releases for cloud deployment
-- [Fly.io](/glossary/fly-io/) - Hosting platform running Prismatic release containers
-- [Hot Code Reload](/glossary/hot-code-reload/) - Runtime code upgrade capability enabled by releases
-- [Supervision Tree](/glossary/supervision-tree/) - Process hierarchy managing application startup in releases
+- [Mix](@/glossary/mix.md) - Build tool that compiles and assembles release artifacts
+- [OTP](@/glossary/otp.md) - Runtime framework included in every release bundle
+- [BEAM](@/glossary/beam.md) - Virtual machine embedded in release artifacts
+- [Docker](@/glossary/docker.md) - Containerization wrapping releases for cloud deployment
+- [Fly.io](@/glossary/fly-io.md) - Hosting platform running Prismatic release containers
+- [Hot Code Reload](@/glossary/hot-code-reload.md) - Runtime code upgrade capability enabled by releases
+- [Supervision Tree](@/glossary/supervision-tree.md) - Process hierarchy managing application startup in releases
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture overview
-- [Technologies](/technologies/) - Technology stack details
-- [Apps](/apps/) - The 90 umbrella applications bundled into a single release
+- [Architecture](@/architecture/_index.md) - Platform architecture overview
+- [Technologies](@/technologies/_index.md) - Technology stack details
+- [Apps](@/apps/_index.md) - The 90 umbrella applications bundled into a single release
 
 ---
 
@@ -394,4 +394,4 @@ The Prismatic Platform uses Elixir releases as the exclusive production deployme
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

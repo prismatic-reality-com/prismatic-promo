@@ -30,9 +30,9 @@ image_alt = "email-intelligence-specialist - Prismatic Platform"
 
 The Email Intelligence Specialist operates as an L3 strategic command agent within the Intelligence domain of the Prismatic Platform. This agent builds comprehensive digital profiles from email addresses through multi-source intelligence mesh expansion, transforming a single email address into a richly interconnected profile that reveals the associated individual's digital presence, organizational affiliations, social connections, and operational patterns. Email addresses serve as primary identifiers across digital systems -- account registrations, professional communications, social media profiles, domain registrations, and data breach records all converge on email as a key linking attribute.
 
-The agent is part of the platform's 430-strong autonomous agent ecosystem, built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. It operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine, ensuring that intelligence products are comprehensive (every available source is queried), evidence-based (every finding has source attribution), and produced with full provenance tracking consistent with the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework.
+The agent is part of the platform's 430-strong autonomous agent ecosystem, built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. It operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine, ensuring that intelligence products are comprehensive (every available source is queried), evidence-based (every finding has source attribution), and produced with full provenance tracking consistent with the [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework.
 
-Email intelligence is foundational to the platform's broader [OSINT](/glossary/osint/) capabilities. An email address can unlock a chain of discoveries: the associated domain reveals the organization, WHOIS records reveal registration patterns, social media profiles reveal personal networks, data breach records reveal password reuse patterns and historical accounts, and professional platform profiles reveal career history and organizational roles. The Email Intelligence Specialist orchestrates this discovery chain systematically, building entity profiles that grow more comprehensive with each source queried.
+Email intelligence is foundational to the platform's broader [OSINT](@/glossary/osint.md) capabilities. An email address can unlock a chain of discoveries: the associated domain reveals the organization, WHOIS records reveal registration patterns, social media profiles reveal personal networks, data breach records reveal password reuse patterns and historical accounts, and professional platform profiles reveal career history and organizational roles. The Email Intelligence Specialist orchestrates this discovery chain systematically, building entity profiles that grow more comprehensive with each source queried.
 
 ## Operational Domain
 
@@ -46,7 +46,7 @@ The Email Intelligence Specialist provides six core intelligence capabilities fo
 
 **Email validation and decomposition** analyzes the email address structure to extract intelligence before querying any external source. The local part and domain are decomposed to identify naming patterns (firstname.lastname vs. initials vs. pseudonyms), organizational domains (corporate vs. free email providers), and email generation patterns that suggest the account's purpose and creation context.
 
-**Multi-source intelligence correlation** queries multiple independent sources -- data breach databases, social media APIs, professional networking platforms, domain registries, and public record systems -- and correlates results through [entity resolution](/glossary/entity-resolution/) to build a unified profile. Cross-source correlation follows NABLA Signal Plurality, requiring at least two independent sources before establishing any claim about the email's owner.
+**Multi-source intelligence correlation** queries multiple independent sources -- data breach databases, social media APIs, professional networking platforms, domain registries, and public record systems -- and correlates results through [entity resolution](@/glossary/entity-resolution.md) to build a unified profile. Cross-source correlation follows NABLA Signal Plurality, requiring at least two independent sources before establishing any claim about the email's owner.
 
 **Social network expansion** discovers accounts on social platforms associated with the email address, mapping the subject's social network presence across platforms. This includes direct email-to-account lookups where available, as well as indirect correlation through username patterns, profile image matching, and biographical content similarity.
 
@@ -83,7 +83,7 @@ All email intelligence products adhere to the platform's epistemic framework req
 |----------|-------------|-------------|
 | Signal Plurality | Minimum 2 sources per identity claim | Blocking |
 | Provenance Mandatory | Every finding linked to source and timestamp | Blocking |
-| [Confidence Scoring](/glossary/confidence-scoring/) | Explicit confidence on all assessments | Blocking |
+| [Confidence Scoring](@/glossary/confidence-scoring.md) | Explicit confidence on all assessments | Blocking |
 | Time Decay | Temporal validity on all intelligence | Mandatory |
 | Source Independence | Independent sources weighted higher than correlated sources | Mandatory |
 
@@ -101,18 +101,18 @@ Intelligence products are delivered in structured formats supporting downstream 
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - The Email Intelligence Specialist operates at the strategic command level with authority to initiate multi-source intelligence collection, coordinate with other intelligence agents for cross-domain analysis, and produce intelligence products that feed into higher-level synthesis.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - The Email Intelligence Specialist operates at the strategic command level with authority to initiate multi-source intelligence collection, coordinate with other intelligence agents for cross-domain analysis, and produce intelligence products that feed into higher-level synthesis.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
 | Prismatic OSINT | Provider integration | 121+ intelligence source access and orchestration |
-| [Prismatic Storage](/glossary/prismatic-storage/) | Evidence persistence | Profile and finding storage with provenance |
+| [Prismatic Storage](@/glossary/prismatic-storage.md) | Evidence persistence | Profile and finding storage with provenance |
 | Report Synthesis | Output formatting | Evidence-grade report generation |
-| [KuzuDB](/glossary/kuzudb/) | Graph storage | Entity relationship graph construction |
-| [Entity Resolution](/glossary/entity-resolution/) | Identity correlation | Cross-source identity matching |
-| [Trinity Gate](/glossary/trinity-gate/) | Validation | Intelligence product quality verification |
+| [KuzuDB](@/glossary/kuzudb.md) | Graph storage | Entity relationship graph construction |
+| [Entity Resolution](@/glossary/entity-resolution.md) | Identity correlation | Cross-source identity matching |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Validation | Intelligence product quality verification |
 
 ## Privacy and Ethical Constraints
 
@@ -129,13 +129,13 @@ Email intelligence operations observe strict ethical and legal boundaries.
 
 ## Enforcement
 
-The Email Intelligence Specialist operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. Intelligence products without provenance chains are rejected. Single-source findings are flagged as unverified. Collection operations that risk ethical violations are halted. All intelligence products pass through the [Trinity Gate](/glossary/trinity-gate/) validation framework before distribution, ensuring structural consistency, logical coherence, and evidential necessity.
+The Email Intelligence Specialist operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. Intelligence products without provenance chains are rejected. Single-source findings are flagged as unverified. Collection operations that risk ethical violations are halted. All intelligence products pass through the [Trinity Gate](@/glossary/trinity-gate.md) validation framework before distribution, ensuring structural consistency, logical coherence, and evidential necessity.
 
 ## Related Agents
 
-- [**delta-force-specialist**](/agents/delta-force-specialist/) (L3) - Precision intelligence operations targeting specific high-value objectives
-- [**falcon-strike-specialist**](/agents/falcon-strike-specialist/) (L3) - Rapid deployment intelligence operations with real-time monitoring
-- [**ghost-recon-specialist**](/agents/ghost-recon-specialist/) (L3) - Stealth intelligence collection with maximum operational security
+- [**delta-force-specialist**](@/agents/delta-force-specialist.md) (L3) - Precision intelligence operations targeting specific high-value objectives
+- [**falcon-strike-specialist**](@/agents/falcon-strike-specialist.md) (L3) - Rapid deployment intelligence operations with real-time monitoring
+- [**ghost-recon-specialist**](@/agents/ghost-recon-specialist.md) (L3) - Stealth intelligence collection with maximum operational security
 
 ---
 
@@ -144,4 +144,4 @@ The Email Intelligence Specialist operates under [NO MERCY, NO DOUBTS](/glossary
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

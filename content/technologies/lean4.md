@@ -26,7 +26,7 @@ image_alt = "Lean 4 - Prismatic Platform"
 
 Lean 4 is the formal verification system integrated into the Prismatic Platform's QEVE (Quality Evidence Verification Engine) for mathematically proving properties about critical system components. Unlike traditional testing that checks specific cases, Lean 4 proves properties hold for all possible inputs, providing the highest level of assurance for the platform's safety-critical operations. This distinction is fundamental: a test suite with 100% branch coverage can still miss edge cases, but a formal proof covers every possible execution path by mathematical necessity.
 
-The Prismatic Platform uses Lean 4 within its [Trinity Gate](/capabilities/trinity-gate/) verification system, where formal proofs complement structural consistency checks and logical consistency validation. This three-layer verification ensures that platform invariants -- from data structure correctness to agent behavior guarantees -- are mathematically proven rather than merely tested. The Trinity Gate requires all three layers to pass before critical claims are accepted: structural consistency (graph theory), logical consistency (rule-based), and formal necessity (Lean 4 proofs).
+The Prismatic Platform uses Lean 4 within its [Trinity Gate](@/capabilities/trinity-gate.md) verification system, where formal proofs complement structural consistency checks and logical consistency validation. This three-layer verification ensures that platform invariants -- from data structure correctness to agent behavior guarantees -- are mathematically proven rather than merely tested. The Trinity Gate requires all three layers to pass before critical claims are accepted: structural consistency (graph theory), logical consistency (rule-based), and formal necessity (Lean 4 proofs).
 
 Lean 4's dual nature as both a theorem prover and a general-purpose programming language enables the platform to express and verify complex properties about concurrent systems, data transformations, and security protocols in a unified framework. The same Lean 4 code that specifies a property also serves as its proof, creating a single source of truth for both specification and verification.
 
@@ -92,7 +92,7 @@ Lean 4 integrates into the platform's verification pipeline through the QEVE eng
 | Trinity Gate | Three-layer verification requiring Lean 4 proofs | `apps/prismatic_safety/` |
 | Property Specs | Formal specifications of platform invariants | `lean/src/PrismaticProofs/` |
 | Proof Library | Reusable proof tactics and lemmas | `lean/src/PrismaticProofs/Tactics/` |
-| CI Integration | Proof verification in [GitLab CI/CD](/technologies/gitlab-ci/) pipeline | `.gitlab-ci.yml` |
+| CI Integration | Proof verification in [GitLab CI/CD](@/technologies/gitlab-ci.md) pipeline | `.gitlab-ci.yml` |
 
 The verification workflow follows a structured process.
 
@@ -131,7 +131,7 @@ Lean 4 proof checking performance determines the verification cycle time within 
 | Lake build (fresh) | ~60s | Initial build with dependencies |
 | Lake build (cached) | < 5s | Incremental build |
 
-The proof library is checked in the [GitLab CI/CD](/technologies/gitlab-ci/) pipeline as part of the quality stage. Incremental verification ensures that only changed proofs are re-checked, keeping the pipeline fast.
+The proof library is checked in the [GitLab CI/CD](@/technologies/gitlab-ci.md) pipeline as part of the quality stage. Incremental verification ensures that only changed proofs are re-checked, keeping the pipeline fast.
 
 ## Configuration
 
@@ -172,7 +172,7 @@ config :prismatic_safety, :qeve,
 - **Keep proofs readable** -- prefer explicit tactic sequences over clever one-liners; proofs are documentation of why a property holds
 - **Version proofs with code** -- when a platform invariant changes, update both the code and its corresponding proof in the same commit
 - **Use `sorry` sparingly** -- `sorry` marks unproven goals and should only appear during development, never in committed code
-- **Integrate with CI/CD** -- run `lake build` in the [GitLab CI/CD](/technologies/gitlab-ci/) pipeline to ensure all proofs remain valid
+- **Integrate with CI/CD** -- run `lake build` in the [GitLab CI/CD](@/technologies/gitlab-ci.md) pipeline to ensure all proofs remain valid
 
 ## Comparison with Alternatives
 
@@ -190,16 +190,16 @@ Lean 4 was chosen for its combination of a modern programming language, strong a
 
 ## Related Technologies
 
-- [Dialyzer](/technologies/dialyzer/) - Static type analysis that complements formal proofs with lightweight type checking
-- [Credo](/technologies/credo/) - Code quality analysis that operates at a different level than formal verification
-- [ExUnit](/technologies/exunit/) - Testing framework that provides empirical evidence complementing formal proofs
-- [Elixir](/technologies/elixir/) - Primary platform language whose properties are verified by Lean 4
+- [Dialyzer](@/technologies/dialyzer.md) - Static type analysis that complements formal proofs with lightweight type checking
+- [Credo](@/technologies/credo.md) - Code quality analysis that operates at a different level than formal verification
+- [ExUnit](@/technologies/exunit.md) - Testing framework that provides empirical evidence complementing formal proofs
+- [Elixir](@/technologies/elixir.md) - Primary platform language whose properties are verified by Lean 4
 
 ## Related Apps
 
-- [prismatic_safety](/apps/prismatic-safety/) - QEVE verification engine hosting Lean 4 integration
-- [prismatic_lean4](/apps/prismatic-lean4/) - Lean 4 proof library and build infrastructure
-- [prismatic_lean](/apps/prismatic-lean/) - Legacy Lean integration module
+- [prismatic_safety](@/apps/prismatic-safety.md) - QEVE verification engine hosting Lean 4 integration
+- [prismatic_lean4](@/apps/prismatic-lean4.md) - Lean 4 proof library and build infrastructure
+- [prismatic_lean](@/apps/prismatic-lean.md) - Legacy Lean integration module
 
 ---
 
@@ -208,4 +208,4 @@ Lean 4 was chosen for its combination of a modern programming language, strong a
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

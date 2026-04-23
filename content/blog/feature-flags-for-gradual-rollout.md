@@ -18,7 +18,7 @@ see_also = ["feature-flag", "deployment", "rollback", "release", "telemetry"]
 image_alt = "Feature Flags for Gradual Rollout"
 +++
 
-"Deploy" and "release" used to be the same word. They should not be. Deploying code is moving bytes to a server. Releasing a feature is enabling it for users. Collapsing the two into one event means every risky change is an all-or-nothing gamble. [Feature flags](/glossary/feature-flag) separate them, and the separation is where safe rollouts actually start.
+"Deploy" and "release" used to be the same word. They should not be. Deploying code is moving bytes to a server. Releasing a feature is enabling it for users. Collapsing the two into one event means every risky change is an all-or-nothing gamble. [Feature flags](@/glossary/feature-flag.md) separate them, and the separation is where safe rollouts actually start.
 
 ## The shape of a flag check
 
@@ -53,7 +53,7 @@ Only the first two should be temporary. The last two are not flags in the rollou
 - **Allowlist** — specific user ids. Use for internal testers or a single partner who opted in.
 - **Segment** — tenants in the EU, or accounts created after date X. Use when the feature's risk is correlated with a user property.
 
-Every strategy needs [telemetry](/glossary/telemetry) on both the "flag on" and "flag off" paths so you can compare error rates, latency, and outcomes. A flag rollout without a side-by-side metric is superstition.
+Every strategy needs [telemetry](@/glossary/telemetry.md) on both the "flag on" and "flag off" paths so you can compare error rates, latency, and outcomes. A flag rollout without a side-by-side metric is superstition.
 
 ## The three-week rule
 
@@ -64,6 +64,6 @@ After three weeks, the flag is either at 100% (delete it + delete the old path) 
 ## Where to go next
 
 - **Academy**: [Development Workflow](/academy/learn/development-workflow) — flags in the delivery pipeline
-- **Glossary**: [Feature Flag](/glossary/feature-flag), [Deployment](/glossary/deployment), [Rollback](/glossary/rollback), [Release](/glossary/release), [Telemetry](/glossary/telemetry)
+- **Glossary**: [Feature Flag](@/glossary/feature-flag.md), [Deployment](@/glossary/deployment.md), [Rollback](@/glossary/rollback.md), [Release](@/glossary/release.md), [Telemetry](@/glossary/telemetry.md)
 
 Deploy is not release. Separate them, flag the risky changes, delete the flags on schedule, and bad rollouts stop being outages.

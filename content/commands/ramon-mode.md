@@ -24,9 +24,9 @@ image_alt = "/ramon-mode - Prismatic Platform"
 
 ## Overview
 
-**/ramon-mode** is a production command in the **Framework** category of the Prismatic Platform. It activates a specialized assistance mode named after Ramon, providing guided, patient, step-by-step help for complex platform operations. While the platform's standard command interface assumes familiarity with the 216-command registry and the underlying [AIAD](/glossary/aiad/) architecture, Ramon Mode adapts the interaction style to the user's current needs, offering contextual explanations, safe defaults, and progressive disclosure of advanced features.
+**/ramon-mode** is a production command in the **Framework** category of the Prismatic Platform. It activates a specialized assistance mode named after Ramon, providing guided, patient, step-by-step help for complex platform operations. While the platform's standard command interface assumes familiarity with the 216-command registry and the underlying [AIAD](@/glossary/aiad.md) architecture, Ramon Mode adapts the interaction style to the user's current needs, offering contextual explanations, safe defaults, and progressive disclosure of advanced features.
 
-This command operates under the **L2+** authority level and is executed by the `ramon-mode-guardian` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The guardian agent monitors the interaction context, detects confusion or uncertainty, and adjusts its guidance level accordingly.
+This command operates under the **L2+** authority level and is executed by the `ramon-mode-guardian` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The guardian agent monitors the interaction context, detects confusion or uncertainty, and adjusts its guidance level accordingly.
 
 Ramon Mode serves multiple purposes within the platform ecosystem. For new team members, it provides onboarding assistance that would otherwise require synchronous mentoring. For experienced operators working in unfamiliar domains, it provides domain-specific context without requiring them to read extensive documentation. For complex multi-step operations, it provides checkpoint-based guidance that prevents partial completion or misconfiguration.
 
@@ -191,13 +191,13 @@ The Ramon Mode system operates as an interaction layer between the user and the 
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [/seadf](/commands/seadf/) | Framework | SEADF provides the evolution context for guidance |
-| [/quality-gates](/commands/quality-gates/) | Interception | Gates can trigger guided error resolution |
-| [/stack](/commands/stack/) | Context | Stack conversation mode provides interaction history |
-| [/quality-unified](/commands/quality-unified/) | Peer | Quality commands enriched with explanations |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime | Guardian agent coordinates with specialist agents |
-| [Telemetry](/glossary/telemetry/) | Monitoring | Guidance effectiveness metrics |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Epistemic | Guidance backed by epistemic framework |
+| [/seadf](@/commands/seadf.md) | Framework | SEADF provides the evolution context for guidance |
+| [/quality-gates](@/commands/quality-gates.md) | Interception | Gates can trigger guided error resolution |
+| [/stack](@/commands/stack.md) | Context | Stack conversation mode provides interaction history |
+| [/quality-unified](@/commands/quality-unified.md) | Peer | Quality commands enriched with explanations |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime | Guardian agent coordinates with specialist agents |
+| [Telemetry](@/glossary/telemetry.md) | Monitoring | Guidance effectiveness metrics |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Epistemic | Guidance backed by epistemic framework |
 | Session Context | State | User progress and preferences persisted across sessions |
 
 ## Workflow Integration
@@ -216,7 +216,7 @@ Ramon Mode integrates into the platform workflow as an optional assistance overl
 
 ## NABLA Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Guided operations maintain the same quality standards as direct command execution. Ramon Mode never lowers quality bars -- it helps users reach them.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Guidance is based on platform documentation and operational evidence, not assumptions. Explanations cite specific documentation, configuration, or code examples.
@@ -247,12 +247,12 @@ Ramon Mode adds minimal overhead to command execution. The guidance generation i
 
 ## Related Commands
 
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/stack](/commands/stack/) - Display complete conversation stack with all frames
-- [/stack-utils](/commands/stack-utils/) - Advanced Stack Mode utility commands for maintenance and debugging
-- [/quality-unified](/commands/quality-unified/) - Unified quality command with quick, full, pre-commit and CI modes
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/rc1-orchestrate](/commands/rc1-orchestrate/) - Complete RC1 delivery pipeline execution with ROC optimization
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/stack](@/commands/stack.md) - Display complete conversation stack with all frames
+- [/stack-utils](@/commands/stack-utils.md) - Advanced Stack Mode utility commands for maintenance and debugging
+- [/quality-unified](@/commands/quality-unified.md) - Unified quality command with quick, full, pre-commit and CI modes
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/rc1-orchestrate](@/commands/rc1-orchestrate.md) - Complete RC1 delivery pipeline execution with ROC optimization
 
 ---
 
@@ -261,4 +261,4 @@ Ramon Mode adds minimal overhead to command execution. The guidance generation i
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

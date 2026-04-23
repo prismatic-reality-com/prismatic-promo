@@ -26,7 +26,7 @@ image_alt = "TailwindCSS - Prismatic Platform"
 
 TailwindCSS is the mandatory styling framework for all Prismatic Platform user interfaces. It provides a comprehensive set of utility classes that enable rapid UI development directly in HTML templates without writing custom CSS. The platform enforces a strict TailwindCSS-first policy -- custom CSS and inline styles are forbidden -- ensuring visual consistency across all dashboards, forms, and data visualization interfaces throughout the 90-application umbrella.
 
-The Prismatic Platform's dark-mode-first design, responsive layouts, and consistent visual language are all built entirely with Tailwind utilities. Combined with [Flowbite](/technologies/flowbite/) components, Tailwind enables the platform to maintain a cohesive design system across its numerous dashboards, forms, and data visualization interfaces. The dark mode is forced via the `class="dark"` attribute on the HTML root element, with all styling using direct dark-theme classes (`bg-gray-950`, `text-white`, `text-gray-400`) rather than `dark:` conditional variants.
+The Prismatic Platform's dark-mode-first design, responsive layouts, and consistent visual language are all built entirely with Tailwind utilities. Combined with [Flowbite](@/technologies/flowbite.md) components, Tailwind enables the platform to maintain a cohesive design system across its numerous dashboards, forms, and data visualization interfaces. The dark mode is forced via the `class="dark"` attribute on the HTML root element, with all styling using direct dark-theme classes (`bg-gray-950`, `text-white`, `text-gray-400`) rather than `dark:` conditional variants.
 
 Tailwind's JIT (Just-In-Time) compiler generates only the CSS classes actually used in templates, keeping bundle sizes minimal even with the platform's extensive UI surface area. The framework's design token system (colors, spacing, typography) ensures visual consistency across all applications and is configured through a single `tailwind.config.js` that all platform templates reference.
 
@@ -43,7 +43,7 @@ Tailwind's JIT (Just-In-Time) compiler generates only the CSS classes actually u
 
 ## Platform Integration
 
-TailwindCSS powers all platform UI through [Phoenix LiveView](/technologies/phoenix-liveview/) templates. The design system follows a consistent pattern across all dashboards.
+TailwindCSS powers all platform UI through [Phoenix LiveView](@/technologies/phoenix-liveview.md) templates. The design system follows a consistent pattern across all dashboards.
 
 ```html
 <!-- Prismatic Platform security rating card pattern -->
@@ -111,9 +111,9 @@ TailwindCSS fits into the frontend build pipeline, processing template files to 
 | **Template Authoring** | HEEx / HTML | Tailwind utility classes in markup | Template files |
 | **CSS Generation** | TailwindCSS JIT | Template files + config | Optimized CSS bundle |
 | **Build Integration** | `npx tailwindcss` | Input CSS + config | `tailwind.css` output |
-| **Component Library** | [Flowbite](/technologies/flowbite/) | Pre-built component patterns | Consistent UI widgets |
-| **Interactivity** | [Alpine.js](/technologies/alpinejs/) | Client-side state management | Dropdowns, modals, toggles |
-| **LiveView** | [Phoenix LiveView](/technologies/phoenix-liveview/) | Server-rendered templates | Dynamic HTML with Tailwind classes |
+| **Component Library** | [Flowbite](@/technologies/flowbite.md) | Pre-built component patterns | Consistent UI widgets |
+| **Interactivity** | [Alpine.js](@/technologies/alpinejs.md) | Client-side state management | Dropdowns, modals, toggles |
+| **LiveView** | [Phoenix LiveView](@/technologies/phoenix-liveview.md) | Server-rendered templates | Dynamic HTML with Tailwind classes |
 
 The build pipeline runs during development and as a pre-deployment step:
 
@@ -289,15 +289,15 @@ TailwindCSS was chosen because it provides excellent server-rendered compatibili
 
 ## Related Technologies
 
-- [Flowbite](/technologies/flowbite/) - Component library built on Tailwind providing pre-built UI patterns
-- [Alpine.js](/technologies/alpinejs/) - Reactive JavaScript companion for client-side interactivity
-- [Phoenix LiveView](/technologies/phoenix-liveview/) - Server-rendered UI framework using Tailwind classes in HEEx templates
-- [Phoenix Framework](/technologies/phoenix/) - Web framework whose templates consume Tailwind utilities
+- [Flowbite](@/technologies/flowbite.md) - Component library built on Tailwind providing pre-built UI patterns
+- [Alpine.js](@/technologies/alpinejs.md) - Reactive JavaScript companion for client-side interactivity
+- [Phoenix LiveView](@/technologies/phoenix-liveview.md) - Server-rendered UI framework using Tailwind classes in HEEx templates
+- [Phoenix Framework](@/technologies/phoenix.md) - Web framework whose templates consume Tailwind utilities
 
 ## Related Apps
 
-- [prismatic_web](/apps/prismatic-web/) - All browser-facing interfaces styled with TailwindCSS
-- [prismatic_perimeter](/apps/prismatic-perimeter/) - EASM dashboards with Tailwind-based security rating UI
+- [prismatic_web](@/apps/prismatic-web.md) - All browser-facing interfaces styled with TailwindCSS
+- [prismatic_perimeter](@/apps/prismatic-perimeter.md) - EASM dashboards with Tailwind-based security rating UI
 
 ---
 
@@ -306,4 +306,4 @@ TailwindCSS was chosen because it provides excellent server-rendered compatibili
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

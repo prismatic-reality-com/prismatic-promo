@@ -24,11 +24,11 @@ image_alt = "/commit - Prismatic Platform"
 
 ## Overview
 
-**/commit** is a production command in the **Operations** category of the Prismatic Platform that provides intelligent git commit operations with automatic message generation, mandatory [quality gates](/glossary/quality-gates/), conventional commit format enforcement, and GitLab issue reference validation. Every commit processed through this command is guaranteed to pass compilation checks, static analysis, and test verification before being accepted.
+**/commit** is a production command in the **Operations** category of the Prismatic Platform that provides intelligent git commit operations with automatic message generation, mandatory [quality gates](@/glossary/quality-gates.md), conventional commit format enforcement, and GitLab issue reference validation. Every commit processed through this command is guaranteed to pass compilation checks, static analysis, and test verification before being accepted.
 
 The command goes far beyond a simple `git commit` wrapper. It analyzes staged changes to automatically determine the commit type (feat, fix, refactor, etc.), identifies the affected scope from changed file paths, drafts a concise message describing the changes, and validates that a GitLab issue reference is attached for traceability. Post-commit, it automatically synchronizes with GitLab to update the referenced issue with commit information.
 
-This command operates under the **L2+** authority level and is executed by the `commit-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command enforces COSMIC CLEARANCE level GitLab issue tracking -- every commit must reference a valid GitLab issue, and this requirement cannot be bypassed.
+This command operates under the **L2+** authority level and is executed by the `commit-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command enforces COSMIC CLEARANCE level GitLab issue tracking -- every commit must reference a valid GitLab issue, and this requirement cannot be bypassed.
 
 The commit workflow implements the platform's Session Discipline Protocol, which mandates continuous, atomic commits with immediate push to remote. Batching multiple changes into single large commits is forbidden. Each commit represents a discrete, tested, and verified unit of work that can be independently reviewed and reverted.
 
@@ -245,10 +245,10 @@ PHASE 5: GITLAB SYNC
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `commit-coordinator` | Primary orchestration |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `commit-coordinator` | Primary orchestration |
 | AIAD Registry | Command specification | Standard AIAD interface |
-| [Quality Gates](/glossary/quality-gates/) | Pre-commit validation | Mandatory gate execution |
-| [Telemetry](/glossary/telemetry/) | Execution [metrics](/glossary/metrics/) | Commit tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Pre-commit validation | Mandatory gate execution |
+| [Telemetry](@/glossary/telemetry.md) | Execution [metrics](@/glossary/metrics.md) | Commit tracking |
 | GitLab API | Issue validation and sync | Bidirectional integration |
 | Git Hooks | Pre-commit enforcement | `.githooks/pre-commit` |
 | `brutal-gitlab-enforcer` | Enforcement agent | Issue tracking compliance |
@@ -301,19 +301,19 @@ export GITLAB_ENFORCEMENT_ENABLED="true"
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Commits without issue references are BLOCKED. No bypass flags, no exceptions, no emergency workarounds without explicit supreme authority override with 1-hour timeout.
 - **NO DOUBTS**: Issue existence is verified via GitLab API before any commit proceeds. Every claim about changes is validated through compilation, testing, and quality gates.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/debrief](/commands/debrief/) - Comprehensive session debrief with platform state analysis
-- [/check](/commands/check/) - Verification and integrity checking command
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/debrief](@/commands/debrief.md) - Comprehensive session debrief with platform state analysis
+- [/check](@/commands/check.md) - Verification and integrity checking command
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
 
 ---
 
@@ -322,4 +322,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

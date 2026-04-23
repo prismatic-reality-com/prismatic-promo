@@ -37,7 +37,7 @@ image_alt = "ZKB - Prismatic Platform"
 
 ## Definition
 
-ZKB (Zakon o kyberneticke bezpecnosti, 264/2025 Sb.) is the Czech Republic's comprehensive cybersecurity regulation that transposes EU directives -- primarily the [NIS2](/glossary/nis2/) Directive (EU 2022/2555) -- into national law while adding Czech-specific requirements reflecting national security priorities and the country's critical infrastructure landscape. The regulation defines obligations for operators of essential services, digital service providers, and public administration entities regarding cybersecurity risk management, incident reporting, security measures, and supply chain security.
+ZKB (Zakon o kyberneticke bezpecnosti, 264/2025 Sb.) is the Czech Republic's comprehensive cybersecurity regulation that transposes EU directives -- primarily the [NIS2](@/glossary/nis2.md) Directive (EU 2022/2555) -- into national law while adding Czech-specific requirements reflecting national security priorities and the country's critical infrastructure landscape. The regulation defines obligations for operators of essential services, digital service providers, and public administration entities regarding cybersecurity risk management, incident reporting, security measures, and supply chain security.
 
 ## Overview
 
@@ -68,10 +68,10 @@ The regulation distinguishes between two categories of regulated entities: essen
 | Risk Management | Sec. 8-10 | Art. 21(1) | Documented risk assessment methodology | Mandatory | Mandatory |
 | Incident Response | Sec. 12-14 | Art. 23 | 24-hour NUKIB notification (stricter than NIS2) | Mandatory | Mandatory |
 | Supply Chain | Sec. 15-17 | Art. 21(2)(d) | Critical supplier assessment | Mandatory | Recommended |
-| Access Control | Sec. 19 | Art. 21(2)(i) | [RBAC](/glossary/rbac/), MFA, privilege management | Mandatory | Mandatory |
-| [Encryption](/glossary/encryption/) | Sec. 20 | Art. 21(2)(h) | Data protection at rest and in transit | Mandatory | Mandatory |
+| Access Control | Sec. 19 | Art. 21(2)(i) | [RBAC](@/glossary/rbac.md), MFA, privilege management | Mandatory | Mandatory |
+| [Encryption](@/glossary/encryption.md) | Sec. 20 | Art. 21(2)(h) | Data protection at rest and in transit | Mandatory | Mandatory |
 | Business Continuity | Sec. 21 | Art. 21(2)(c) | Recovery plans, backup procedures | Mandatory | Mandatory |
-| [Vulnerability](/glossary/vulnerability/) Mgmt | Sec. 23 | Art. 21(2)(e) | Regular scanning, patch management | Mandatory | Mandatory |
+| [Vulnerability](@/glossary/vulnerability.md) Mgmt | Sec. 23 | Art. 21(2)(e) | Regular scanning, patch management | Mandatory | Mandatory |
 | Security Awareness | Sec. 24 | Art. 21(2)(g) | Staff training, management accountability | Mandatory | Mandatory |
 | Network Security | Sec. 26 | Art. 21(2)(a) | Segmentation, monitoring, filtering | Mandatory | Mandatory |
 | Audit | Sec. 18 | N/A | Certified auditor assessment | Mandatory | Not required |
@@ -102,7 +102,7 @@ ZKB adds six major categories of requirements that go beyond the NIS2 baseline:
 
 ## Implementation in Prismatic Platform
 
-Within the Prismatic Platform, ZKB compliance assessment is integrated alongside [NIS2](/glossary/nis2/) in Prismatic Perimeter, reflecting the platform's Czech origin and primary market. The compliance assessment engine evaluates organizations against both EU-level (NIS2) and Czech-specific (ZKB) requirements simultaneously, identifying gaps between current security posture and regulatory obligations.
+Within the Prismatic Platform, ZKB compliance assessment is integrated alongside [NIS2](@/glossary/nis2.md) in Prismatic Perimeter, reflecting the platform's Czech origin and primary market. The compliance assessment engine evaluates organizations against both EU-level (NIS2) and Czech-specific (ZKB) requirements simultaneously, identifying gaps between current security posture and regulatory obligations.
 
 ### ZKB Compliance Assessment Engine
 
@@ -502,7 +502,7 @@ The compliance dashboard at `/perimeter/compliance` provides:
 | Framework | Scope | Authority | Focus | Prismatic Support |
 |-----------|-------|-----------|-------|-------------------|
 | **ZKB 264/2025 Sb.** | Czech Republic | NUKIB | Critical infrastructure cybersecurity | Full assessment engine |
-| **[NIS2](/glossary/nis2/) (EU 2022/2555)** | EU-wide | ENISA | Baseline cybersecurity for essential/important entities | Full assessment engine |
+| **[NIS2](@/glossary/nis2.md) (EU 2022/2555)** | EU-wide | ENISA | Baseline cybersecurity for essential/important entities | Full assessment engine |
 | **ISO 27001** | Global | ISO | Information security management systems | Partial mapping |
 | **SOC 2** | Global (US-centric) | AICPA | Service organization controls | Assessment engine |
 | **GDPR** | EU-wide | National DPAs | Data protection and privacy | Partial mapping |
@@ -518,7 +518,7 @@ ZKB is unique among these frameworks in combining EU-level requirements (NIS2 tr
 
 3. **Engage with NUKIB guidelines**. NUKIB publishes implementation guides and acceptable risk assessment methodologies. Aligning with NUKIB's preferred approaches reduces audit friction.
 
-4. **Implement continuous compliance monitoring**. ZKB compliance is not a one-time assessment. The regulation expects ongoing compliance, which requires continuous monitoring through [EASM](/glossary/easm/) tools rather than periodic audits.
+4. **Implement continuous compliance monitoring**. ZKB compliance is not a one-time assessment. The regulation expects ongoing compliance, which requires continuous monitoring through [EASM](@/glossary/easm.md) tools rather than periodic audits.
 
 5. **Document everything in Czech**. Official incident reports, audit documentation, and NUKIB communications must be in Czech. Maintain Czech-language documentation alongside English technical documentation.
 
@@ -538,7 +538,7 @@ ZKB is unique among these frameworks in combining EU-level requirements (NIS2 tr
 
 - **Not engaging certified auditors early**: Essential entities must undergo mandatory cybersecurity audits by NUKIB-certified auditors. These auditors have limited availability, and scheduling should begin well before compliance deadlines.
 
-- **Treating compliance as a one-time project**: ZKB mandates ongoing compliance, not just initial certification. Without continuous monitoring and automated [security assessment](/glossary/security-assessment/), organizations drift out of compliance between formal audits.
+- **Treating compliance as a one-time project**: ZKB mandates ongoing compliance, not just initial certification. Without continuous monitoring and automated [security assessment](@/glossary/security-assessment.md), organizations drift out of compliance between formal audits.
 
 ## Use Cases
 
@@ -550,30 +550,30 @@ ZKB is unique among these frameworks in combining EU-level requirements (NIS2 tr
 
 **Public Administration IT Security**: Czech government agencies and municipalities subject to ZKB use the compliance dashboard to track their security posture against regulatory requirements and demonstrate compliance during NUKIB audits.
 
-**Supply Chain Security Assessment**: Essential entities required to assess critical suppliers use the [EASM](/glossary/easm/) and [attack surface](/glossary/attack-surface/) analysis capabilities to evaluate supplier security posture against ZKB supply chain requirements.
+**Supply Chain Security Assessment**: Essential entities required to assess critical suppliers use the [EASM](@/glossary/easm.md) and [attack surface](@/glossary/attack-surface.md) analysis capabilities to evaluate supplier security posture against ZKB supply chain requirements.
 
 ## Related Concepts
 
-- [NIS2 Directive](/glossary/nis2/) -- EU-level directive that ZKB implements nationally
-- [EASM](/glossary/easm/) -- External attack surface management performing ZKB compliance assessment
-- [Security Rating](/glossary/security-rating/) -- Quantified score incorporating ZKB compliance posture
-- [Compliance Framework](/glossary/compliance-framework/) -- Broader category of regulatory frameworks
-- [Sanctions Screening](/glossary/sanctions-screening/) -- Related regulatory compliance capability
-- [Security Assessment](/glossary/security-assessment/) -- Technical evaluation supporting ZKB compliance
-- [Vulnerability Assessment](/glossary/vulnerability-assessment/) -- Required scanning under ZKB Sec. 23
-- [Penetration Testing](/glossary/penetration-testing/) -- Security testing supporting audit requirements
-- [Attack Surface](/glossary/attack-surface/) -- Asset discovery foundational to ZKB scope determination
-- [Audit Logging](/glossary/audit-logging/) -- Evidence collection supporting ZKB audit requirements
-- [Encryption](/glossary/encryption/) -- Data protection mandated by ZKB Sec. 20
-- [RBAC](/glossary/rbac/) -- Access control mechanism satisfying ZKB Sec. 19
+- [NIS2 Directive](@/glossary/nis2.md) -- EU-level directive that ZKB implements nationally
+- [EASM](@/glossary/easm.md) -- External attack surface management performing ZKB compliance assessment
+- [Security Rating](@/glossary/security-rating.md) -- Quantified score incorporating ZKB compliance posture
+- [Compliance Framework](@/glossary/compliance-framework.md) -- Broader category of regulatory frameworks
+- [Sanctions Screening](@/glossary/sanctions-screening.md) -- Related regulatory compliance capability
+- [Security Assessment](@/glossary/security-assessment.md) -- Technical evaluation supporting ZKB compliance
+- [Vulnerability Assessment](@/glossary/vulnerability-assessment.md) -- Required scanning under ZKB Sec. 23
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Security testing supporting audit requirements
+- [Attack Surface](@/glossary/attack-surface.md) -- Asset discovery foundational to ZKB scope determination
+- [Audit Logging](@/glossary/audit-logging.md) -- Evidence collection supporting ZKB audit requirements
+- [Encryption](@/glossary/encryption.md) -- Data protection mandated by ZKB Sec. 20
+- [RBAC](@/glossary/rbac.md) -- Access control mechanism satisfying ZKB Sec. 19
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application directory including Prismatic Perimeter
-- [Security Operations](/glossary/security-operations/) -- Operational security practices
-- [Vulnerability](/glossary/vulnerability/) -- Vulnerability management required by ZKB
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application directory including Prismatic Perimeter
+- [Security Operations](@/glossary/security-operations.md) -- Operational security practices
+- [Vulnerability](@/glossary/vulnerability.md) -- Vulnerability management required by ZKB
 
 ---
 
@@ -582,4 +582,4 @@ ZKB is unique among these frameworks in combining EU-level requirements (NIS2 tr
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

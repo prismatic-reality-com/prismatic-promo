@@ -26,7 +26,7 @@ The Mandatory Session Discipline Protocol ensures that every development session
 
 Session Discipline addresses a class of failures that no amount of code quality enforcement can prevent: work loss due to uncommitted changes, untracked sessions that produce orphaned code, and knowledge loss when session context is not preserved. These failures are particularly insidious because they are invisible until the damage is done -- a power failure, a system crash, or simply ending a session without pushing can result in hours of lost work.
 
-The protocol integrates with [Quality Gates](/capabilities/quality-gates/) for commit validation, [Telemetry Integration](/capabilities/telemetry-integration/) for session tracking, and the [NO MERCY](/capabilities/no-mercy/) doctrine's enforcement infrastructure to create an unbypassable workflow discipline that protects both the developer and the platform.
+The protocol integrates with [Quality Gates](@/capabilities/quality-gates.md) for commit validation, [Telemetry Integration](@/capabilities/telemetry-integration.md) for session tracking, and the [NO MERCY](@/capabilities/no-mercy.md) doctrine's enforcement infrastructure to create an unbypassable workflow discipline that protects both the developer and the platform.
 
 ## Session Lifecycle
 
@@ -154,7 +154,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 | Type | Usage | Example |
 |------|-------|---------|
 | `feat` | New feature | `feat(perimeter): add NIS2 compliance checker` |
-| `fix` | Bug fix (requires [regression test](/capabilities/regression-tests/)) | `fix(api): handle nil response in endpoint discovery` |
+| `fix` | Bug fix (requires [regression test](@/capabilities/regression-tests.md)) | `fix(api): handle nil response in endpoint discovery` |
 | `refactor` | Code restructuring | `refactor(storage): extract adapter trait` |
 | `test` | Test additions or modifications | `test(perimeter): add property-based rating tests` |
 | `docs` | Documentation updates | `docs(claude): update session context` |
@@ -314,15 +314,15 @@ Every session lifecycle event emits telemetry for monitoring and audit purposes:
 
 Session Discipline integrates with the broader platform infrastructure to ensure workflow compliance:
 
-- **[NO MERCY](/capabilities/no-mercy/)**: Session Discipline is an enforcement mechanism of the zero-tolerance doctrine
-- **[NO DOUBTS](/capabilities/no-doubts/)**: Context loading ensures investigation builds on prior session knowledge
-- **[Quality Gates](/capabilities/quality-gates/)**: Pre-commit hooks validate every commit during the session
-- **[Regression Tests](/capabilities/regression-tests/)**: Bug fix commits require regression tests per session protocol
-- **[Telemetry Integration](/capabilities/telemetry-integration/)**: Session events tracked through telemetry pipeline
-- **[Real-Time Monitoring](/capabilities/real-time-monitoring/)**: Session health visible in monitoring dashboards
-- **[AIAD Standard](/capabilities/aiad-standard/)**: Agent sessions follow the same discipline requirements
-- **[Trinity Gate](/capabilities/trinity-gate/)**: Critical session decisions may require Trinity validation
-- **[Autonomous Self-Healing](/capabilities/autonomous-self-healing/)**: Session anomalies can trigger auto-healing
+- **[NO MERCY](@/capabilities/no-mercy.md)**: Session Discipline is an enforcement mechanism of the zero-tolerance doctrine
+- **[NO DOUBTS](@/capabilities/no-doubts.md)**: Context loading ensures investigation builds on prior session knowledge
+- **[Quality Gates](@/capabilities/quality-gates.md)**: Pre-commit hooks validate every commit during the session
+- **[Regression Tests](@/capabilities/regression-tests.md)**: Bug fix commits require regression tests per session protocol
+- **[Telemetry Integration](@/capabilities/telemetry-integration.md)**: Session events tracked through telemetry pipeline
+- **[Real-Time Monitoring](@/capabilities/real-time-monitoring.md)**: Session health visible in monitoring dashboards
+- **[AIAD Standard](@/capabilities/aiad-standard.md)**: Agent sessions follow the same discipline requirements
+- **[Trinity Gate](@/capabilities/trinity-gate.md)**: Critical session decisions may require Trinity validation
+- **[Autonomous Self-Healing](@/capabilities/autonomous-self-healing.md)**: Session anomalies can trigger auto-healing
 
 ## Commands
 
@@ -342,4 +342,4 @@ Session Discipline integrates with the broader platform infrastructure to ensure
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

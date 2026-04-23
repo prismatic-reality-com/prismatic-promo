@@ -42,7 +42,7 @@ Unlike passive community management (maintaining a forum, answering questions re
 
 ## Overview
 
-Community engagement is the bridge between a project's technical excellence and its real-world adoption. Technically superior platforms with poor community engagement are routinely outcompeted by technically inferior platforms with vibrant communities. This is because community engagement creates compounding advantages: engaged contributors produce [community contributions](/glossary/community-contributions/), which produce [collective progress](/glossary/collective-progress/), which attracts more contributors, creating a virtuous cycle.
+Community engagement is the bridge between a project's technical excellence and its real-world adoption. Technically superior platforms with poor community engagement are routinely outcompeted by technically inferior platforms with vibrant communities. This is because community engagement creates compounding advantages: engaged contributors produce [community contributions](@/glossary/community-contributions.md), which produce [collective progress](@/glossary/collective-progress.md), which attracts more contributors, creating a virtuous cycle.
 
 ### The Contributor Funnel
 
@@ -513,23 +513,23 @@ When multiple contributors request a similar feature (e.g., KuzuDB graph visuali
 
 Community engagement connects to several foundational concepts in the Prismatic Platform ecosystem:
 
-- [Community Contributions](/glossary/community-contributions/) -- The concrete outputs of community engagement. Engagement drives contribution volume and quality.
-- [Collective Progress](/glossary/collective-progress/) -- The cumulative advancement that sustained community engagement produces over time.
-- [Developer Community](/glossary/developer-community/) -- The group of individuals whose engagement patterns collectively define the community's health and culture.
-- [Developer Experience](/glossary/developer-experience/) -- The quality of the developer's interaction with the platform, a primary driver of engagement retention.
-- [Community Building](/glossary/community-building/) -- The deliberate practice of creating the structures and norms that enable community engagement.
-- [Open Source](/glossary/open-source/) -- The licensing and development model that creates the legal and cultural foundation for community engagement.
-- [Collaborative Development](/glossary/collaborative-development/) -- The technical practices that enable engaged community members to contribute effectively.
-- [Community Ownership](/glossary/community-ownership/) -- The governance model where deeply engaged community members share decision-making authority over the platform's direction.
-- [Mentorship](/glossary/mentorship/) -- The person-to-person knowledge transfer that accelerates engagement transitions from one funnel level to the next.
-- [Community Impact](/glossary/community-impact/) -- The measurable effects of community engagement on the platform and its surrounding ecosystem.
+- [Community Contributions](@/glossary/community-contributions.md) -- The concrete outputs of community engagement. Engagement drives contribution volume and quality.
+- [Collective Progress](@/glossary/collective-progress.md) -- The cumulative advancement that sustained community engagement produces over time.
+- [Developer Community](@/glossary/developer-community.md) -- The group of individuals whose engagement patterns collectively define the community's health and culture.
+- [Developer Experience](@/glossary/developer-experience.md) -- The quality of the developer's interaction with the platform, a primary driver of engagement retention.
+- [Community Building](@/glossary/community-building.md) -- The deliberate practice of creating the structures and norms that enable community engagement.
+- [Open Source](@/glossary/open-source.md) -- The licensing and development model that creates the legal and cultural foundation for community engagement.
+- [Collaborative Development](@/glossary/collaborative-development.md) -- The technical practices that enable engaged community members to contribute effectively.
+- [Community Ownership](@/glossary/community-ownership.md) -- The governance model where deeply engaged community members share decision-making authority over the platform's direction.
+- [Mentorship](@/glossary/mentorship.md) -- The person-to-person knowledge transfer that accelerates engagement transitions from one funnel level to the next.
+- [Community Impact](@/glossary/community-impact.md) -- The measurable effects of community engagement on the platform and its surrounding ecosystem.
 
 ## See Also
 
-- [Community Interaction](/glossary/community-interaction/) -- The specific communication patterns and channels through which community engagement manifests.
-- [Conference Speaking](/glossary/conference-speaking/) -- A high-visibility engagement activity that builds awareness and recruits new community members.
-- [Office Hours](/glossary/office-hours/) -- A structured engagement format that provides regular, accessible touchpoints between maintainers and the community.
-- [Certification Programs](/glossary/certification-programs/) -- Formal programs that recognize and validate community member expertise, deepening engagement.
+- [Community Interaction](@/glossary/community-interaction.md) -- The specific communication patterns and channels through which community engagement manifests.
+- [Conference Speaking](@/glossary/conference-speaking.md) -- A high-visibility engagement activity that builds awareness and recruits new community members.
+- [Office Hours](@/glossary/office-hours.md) -- A structured engagement format that provides regular, accessible touchpoints between maintainers and the community.
+- [Certification Programs](@/glossary/certification-programs.md) -- Formal programs that recognize and validate community member expertise, deepening engagement.
 
 ---
 
@@ -538,4 +538,4 @@ Community engagement connects to several foundational concepts in the Prismatic 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

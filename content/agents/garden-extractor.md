@@ -28,19 +28,19 @@ image_alt = "garden-extractor - Prismatic Platform"
 
 ## Overview
 
-The [Garden](/glossary/garden/) Extractor operates as an L3 [strategic command](/glossary/strategic-command/) agent within the General domain of the Prismatic Platform. This agent specializes in extracting, adapting, and integrating code components from garden legacy repositories into the current Prismatic Platform. The extraction process involves identifying valuable components within the 116-repository GARDEN ecosystem, transforming them to match the platform's architectural standards, and integrating them with full compliance to quality gates and testing requirements.
+The [Garden](@/glossary/garden.md) Extractor operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the General domain of the Prismatic Platform. This agent specializes in extracting, adapting, and integrating code components from garden legacy repositories into the current Prismatic Platform. The extraction process involves identifying valuable components within the 116-repository GARDEN ecosystem, transforming them to match the platform's architectural standards, and integrating them with full compliance to quality gates and testing requirements.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, the Garden Extractor performs the critical transition from legacy knowledge to production-ready platform components. While the [garden-analyzer](/agents/garden-analyzer/) identifies what is valuable and the [garden-explorer-agent](/agents/garden-explorer-agent/) enables interactive discovery, the Garden Extractor executes the actual knowledge transfer, translating patterns and code across language boundaries, architectural paradigms, and quality standards.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, the Garden Extractor performs the critical transition from legacy knowledge to production-ready platform components. While the [garden-analyzer](@/agents/garden-analyzer.md) identifies what is valuable and the [garden-explorer-agent](@/agents/garden-explorer-agent.md) enables interactive discovery, the Garden Extractor executes the actual knowledge transfer, translating patterns and code across language boundaries, architectural paradigms, and quality standards.
 
 ## Extraction Planning
 
 Extraction planning precedes any code transfer, establishing the scope, approach, and quality requirements for each extraction operation. Planning prevents ad hoc code copying that would introduce technical debt and quality violations into the platform.
 
-Component identification defines exactly what will be extracted, including primary code modules, supporting utilities, test suites, configuration files, and documentation. The identification phase draws on assessments from the [garden-analyzer](/agents/garden-analyzer/) and exploration results from the [garden-explorer-agent](/agents/garden-explorer-agent/) to select components with demonstrated value and acceptable quality baselines.
+Component identification defines exactly what will be extracted, including primary code modules, supporting utilities, test suites, configuration files, and documentation. The identification phase draws on assessments from the [garden-analyzer](@/agents/garden-analyzer.md) and exploration results from the [garden-explorer-agent](@/agents/garden-explorer-agent.md) to select components with demonstrated value and acceptable quality baselines.
 
 Dependency analysis maps the selected component's dependency graph, identifying which dependencies are internal to the source repository (requiring co-extraction or replacement), which are external libraries (requiring version compatibility assessment with the platform), and which are implicit environmental assumptions (requiring platform adaptation). Complete dependency resolution before extraction prevents integration failures caused by missing or incompatible dependencies.
 
-Adaptation requirements analysis identifies the transformations needed to bring extracted code into compliance with platform standards. Common adaptations include language translation (JavaScript/Python/Rust to Elixir), paradigm shift (object-oriented to functional), pattern alignment (imperative state management to [OTP](/glossary/otp/) process architecture), and quality elevation (adding type specifications, tests, and documentation to meet platform requirements).
+Adaptation requirements analysis identifies the transformations needed to bring extracted code into compliance with platform standards. Common adaptations include language translation (JavaScript/Python/Rust to Elixir), paradigm shift (object-oriented to functional), pattern alignment (imperative state management to [OTP](@/glossary/otp.md) process architecture), and quality elevation (adding type specifications, tests, and documentation to meet platform requirements).
 
 | Planning Phase | Output | Consumer |
 |---------------|--------|----------|
@@ -56,7 +56,7 @@ The most complex extraction operations involve translating code from one program
 
 JavaScript to Elixir extraction translates asynchronous callback/promise patterns into GenServer message-passing and Task-based concurrency. Mutable object state becomes immutable process state. Class hierarchies become module compositions with behaviours. Event emitters become GenStage pipelines or PubSub patterns.
 
-Python to Elixir extraction translates imperative data processing scripts into functional pipeline transformations. Dictionary-based state management becomes [Ecto](/glossary/ecto/) schema structures. Try/except error handling becomes {:ok, result}/{:error, reason} pattern matching. Threading becomes OTP process supervision.
+Python to Elixir extraction translates imperative data processing scripts into functional pipeline transformations. Dictionary-based state management becomes [Ecto](@/glossary/ecto.md) schema structures. Try/except error handling becomes {:ok, result}/{:error, reason} pattern matching. Threading becomes OTP process supervision.
 
 Rust to Elixir extraction translates ownership-based resource management into garbage-collected process isolation. Trait implementations become behaviour callbacks. Match expressions translate directly with minor syntax adjustment. Result/Option types map naturally to {:ok}/{:error} tuples.
 
@@ -76,7 +76,7 @@ Integration adaptation configures the extracted component for operation within t
 
 ## Quality Compliance
 
-Every extraction must achieve full compliance with the platform's quality standards before the extracted component enters the codebase. The [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine applies without exception to extracted code -- no component receives reduced quality requirements because it originated from a legacy repository.
+Every extraction must achieve full compliance with the platform's quality standards before the extracted component enters the codebase. The [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine applies without exception to extracted code -- no component receives reduced quality requirements because it originated from a legacy repository.
 
 Quality compliance verification runs the same quality gates applied to native platform code: zero compilation warnings, Credo strict compliance, Dialyzer type checking, full test coverage, and documentation completeness. Extracted components that fail any gate are returned to the adaptation pipeline for remediation.
 
@@ -96,23 +96,23 @@ Pattern categories include data model extraction (schema translation strategies)
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework's Provenance Mandatory axiom directly governs the extractor's operations. Every extracted component must trace back to its source through a documented chain of transformations. The Signal Plurality axiom applies when multiple garden repositories offer implementations of the same functionality -- the extractor evaluates all available implementations rather than selecting the first one encountered.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's Provenance Mandatory axiom directly governs the extractor's operations. Every extracted component must trace back to its source through a documented chain of transformations. The Signal Plurality axiom applies when multiple garden repositories offer implementations of the same functionality -- the extractor evaluates all available implementations rather than selecting the first one encountered.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Runtime execution | Agent lifecycle and scheduling |
-| AIAD [Registry](/glossary/registry-otp/) | Discovery | Agent specification and indexing |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Runtime execution | Agent lifecycle and scheduling |
+| AIAD [Registry](@/glossary/registry-otp.md) | Discovery | Agent specification and indexing |
 | Prismatic Telemetry | Monitoring | Extraction performance metrics |
 | GARDEN Repositories | Data source | 116 legacy repositories for extraction |
 | Quality Gates | Validation | Post-extraction quality compliance |
 
 ## Related Agents
 
-- [**garden-analyzer**](/agents/garden-analyzer/) (L3) - Provides analytical assessments that guide extraction component selection
-- [**garden-explorer-agent**](/agents/garden-explorer-agent/) (L3) - Provides interactive discovery results with extraction referrals
-- [**garden-pattern-scout**](/agents/garden-pattern-scout/) (L3) - Provides pattern catalogs that inform extraction transformation strategies
+- [**garden-analyzer**](@/agents/garden-analyzer.md) (L3) - Provides analytical assessments that guide extraction component selection
+- [**garden-explorer-agent**](@/agents/garden-explorer-agent.md) (L3) - Provides interactive discovery results with extraction referrals
+- [**garden-pattern-scout**](@/agents/garden-pattern-scout.md) (L3) - Provides pattern catalogs that inform extraction transformation strategies
 
 ---
 
@@ -121,4 +121,4 @@ The [NABLA Infinity](/glossary/nabla-infinity/) framework's Provenance Mandatory
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

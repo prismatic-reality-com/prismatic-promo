@@ -24,11 +24,11 @@ image_alt = "/gardener - Prismatic Platform"
 
 ## Overview
 
-**/gardener** is the top-level production command in the **Infrastructure** category of the Prismatic Platform for managing the [GARDEN](/glossary/garden/) (Growing Archive of Reusable Development and Engineering Nuggets) legacy knowledge repository ecosystem. The GARDEN is a curated collection of 116 Git repositories spanning over 20 years of software engineering practice, containing 3,050+ files, 55+ documented patterns, and implementations across Elixir, Python, JavaScript, Rust, Go, and Ruby. The `/gardener` command provides centralized management, health monitoring, and orchestration for this entire ecosystem.
+**/gardener** is the top-level production command in the **Infrastructure** category of the Prismatic Platform for managing the [GARDEN](@/glossary/garden.md) (Growing Archive of Reusable Development and Engineering Nuggets) legacy knowledge repository ecosystem. The GARDEN is a curated collection of 116 Git repositories spanning over 20 years of software engineering practice, containing 3,050+ files, 55+ documented patterns, and implementations across Elixir, Python, JavaScript, Rust, Go, and Ruby. The `/gardener` command provides centralized management, health monitoring, and orchestration for this entire ecosystem.
 
-The command operates under the **L2+** authority level and is executed by the `garden-cultivator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The garden-cultivator agent serves as the steward of the GARDEN ecosystem, maintaining repository health, managing tier classifications, coordinating synchronization schedules, and tracking pattern extraction history.
+The command operates under the **L2+** authority level and is executed by the `garden-cultivator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The garden-cultivator agent serves as the steward of the GARDEN ecosystem, maintaining repository health, managing tier classifications, coordinating synchronization schedules, and tracking pattern extraction history.
 
-The `/gardener` command is the parent command for the GARDEN command family: [/garden-explore](/commands/garden-explore/), [/garden-extract](/commands/garden-extract/), [/garden-search](/commands/garden-search/), and [/garden-sync](/commands/garden-sync/). While each child command handles a specific aspect of GARDEN interaction, `/gardener` provides the overarching management layer -- status monitoring, health reporting, tier management, and ecosystem-wide operations that span multiple child commands.
+The `/gardener` command is the parent command for the GARDEN command family: [/garden-explore](@/commands/garden-explore.md), [/garden-extract](@/commands/garden-extract.md), [/garden-search](@/commands/garden-search.md), and [/garden-sync](@/commands/garden-sync.md). While each child command handles a specific aspect of GARDEN interaction, `/gardener` provides the overarching management layer -- status monitoring, health reporting, tier management, and ecosystem-wide operations that span multiple child commands.
 
 The philosophical foundation of the GARDEN is that no software knowledge should be discarded. Even repositories that are decades old may contain patterns, algorithms, or architectural insights that are relevant to current platform development. The gardener's role is to cultivate this archive, ensuring that knowledge remains accessible and extractable despite the inevitable passage of time and technology evolution.
 
@@ -142,7 +142,7 @@ The `/gardener` command operates as the central management hub for the GARDEN ec
 ### Cultivate Operation
 
 1. **Pre-Assessment**: Run a quick health check to identify repositories needing attention.
-2. **Synchronization**: If `--sync` is specified, execute [/garden-sync](/commands/garden-sync/) with appropriate tier-based strategies.
+2. **Synchronization**: If `--sync` is specified, execute [/garden-sync](@/commands/garden-sync.md) with appropriate tier-based strategies.
 3. **Index Rebuild**: Rebuild the GARDEN search index and knowledge graph.
 4. **Pattern Inventory**: Scan for new or modified patterns across all repositories.
 5. **Health Validation**: Run a comprehensive health check post-cultivation.
@@ -152,14 +152,14 @@ The `/gardener` command operates as the central management hub for the GARDEN ec
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Invoked by `garden-cultivator` agent |
-| [/garden-explore](/commands/garden-explore/) | Sub-command | Structured exploration of GARDEN repositories |
-| [/garden-extract](/commands/garden-extract/) | Sub-command | Pattern extraction from GARDEN repositories |
-| [/garden-search](/commands/garden-search/) | Sub-command | Text search across GARDEN repositories |
-| [/garden-sync](/commands/garden-sync/) | Sub-command | Submodule synchronization |
-| [KuzuDB](/glossary/kuzudb/) | Storage | Knowledge graph for repository relationships |
-| [Telemetry](/glossary/telemetry/) | Metrics | Ecosystem health and operation metrics |
-| [SEADF](/glossary/seadf/) | Evolution | GARDEN health feeds into platform evolution metrics |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Invoked by `garden-cultivator` agent |
+| [/garden-explore](@/commands/garden-explore.md) | Sub-command | Structured exploration of GARDEN repositories |
+| [/garden-extract](@/commands/garden-extract.md) | Sub-command | Pattern extraction from GARDEN repositories |
+| [/garden-search](@/commands/garden-search.md) | Sub-command | Text search across GARDEN repositories |
+| [/garden-sync](@/commands/garden-sync.md) | Sub-command | Submodule synchronization |
+| [KuzuDB](@/glossary/kuzudb.md) | Storage | Knowledge graph for repository relationships |
+| [Telemetry](@/glossary/telemetry.md) | Metrics | Ecosystem health and operation metrics |
+| [SEADF](@/glossary/seadf.md) | Evolution | GARDEN health feeds into platform evolution metrics |
 
 ## Best Practices
 
@@ -224,21 +224,21 @@ PrismaticGarden.Metrics.query(
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Cultivation operations must complete all specified phases. Partial cultivation is reported as a failure.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Health checks and status reports provide the evidence needed to make informed decisions about GARDEN management.
 
-The gardener role embodies the [NABLA](/glossary/nabla-infinity/) addiction preservation principle: no knowledge is discarded, contradictory implementations are preserved, and historical context is maintained alongside modern implementations. The GARDEN is a living archive that resists the temptation to "clean up" by removing old or seemingly obsolete repositories.
+The gardener role embodies the [NABLA](@/glossary/nabla-infinity.md) addiction preservation principle: no knowledge is discarded, contradictory implementations are preserved, and historical context is maintained alongside modern implementations. The GARDEN is a living archive that resists the temptation to "clean up" by removing old or seemingly obsolete repositories.
 
 ## Related Commands
 
-- [/garden-explore](/commands/garden-explore/) - Explore GARDEN repositories for patterns and knowledge
-- [/garden-extract](/commands/garden-extract/) - Extract and integrate patterns from GARDEN repositories
-- [/garden-search](/commands/garden-search/) - Fast pattern search across all GARDEN reference repositories
-- [/garden-sync](/commands/garden-sync/) - Synchronize GARDEN submodules to latest remote commits
-- [/ollama](/commands/ollama/) - Local AI Ollama model management, installation and optimization
-- [/propagate-pattern](/commands/propagate-pattern/) - Propagate successful patterns across the ecosystem
+- [/garden-explore](@/commands/garden-explore.md) - Explore GARDEN repositories for patterns and knowledge
+- [/garden-extract](@/commands/garden-extract.md) - Extract and integrate patterns from GARDEN repositories
+- [/garden-search](@/commands/garden-search.md) - Fast pattern search across all GARDEN reference repositories
+- [/garden-sync](@/commands/garden-sync.md) - Synchronize GARDEN submodules to latest remote commits
+- [/ollama](@/commands/ollama.md) - Local AI Ollama model management, installation and optimization
+- [/propagate-pattern](@/commands/propagate-pattern.md) - Propagate successful patterns across the ecosystem
 
 ---
 
@@ -247,4 +247,4 @@ The gardener role embodies the [NABLA](/glossary/nabla-infinity/) addiction pres
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

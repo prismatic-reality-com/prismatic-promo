@@ -38,11 +38,11 @@ The 99.8% success rate means that nearly all pattern propagations result in vali
 
 The Mycelial Network concept emerged during the Prismatic Platform's transition from Generation 7 to Generation 10, a period when the platform was rapidly expanding from approximately 30 umbrella applications to over 80. During this growth phase, the engineering team observed a recurring pattern: a quality fix or optimization discovered in one application would eventually be needed in many others, but the manual effort to apply the same fix across dozens of applications was both tedious and error-prone.
 
-The first prototype was a simple shell script that searched for known anti-patterns using `grep` and applied regex-based transformations. This approach worked for trivial fixes like replacing `length(list) > 0` with `list != []`, but it failed for more complex patterns that required context awareness -- understanding whether a variable was a list or a map, whether a function was pure or side-effectful, whether a module used [OTP](/glossary/otp/) behaviours or plain functions.
+The first prototype was a simple shell script that searched for known anti-patterns using `grep` and applied regex-based transformations. This approach worked for trivial fixes like replacing `length(list) > 0` with `list != []`, but it failed for more complex patterns that required context awareness -- understanding whether a variable was a list or a map, whether a function was pure or side-effectful, whether a module used [OTP](@/glossary/otp.md) behaviours or plain functions.
 
-The current system, developed during Generations 12 through 15, replaces the naive regex approach with a multi-stage pipeline that includes AST analysis, context compatibility assessment, and post-transformation validation. The key insight that drove the redesign was that pattern propagation is fundamentally an [entity resolution](/glossary/entity-resolution/) problem: identifying which code constructs in the target domain are analogous to the code constructs where the pattern was originally applied.
+The current system, developed during Generations 12 through 15, replaces the naive regex approach with a multi-stage pipeline that includes AST analysis, context compatibility assessment, and post-transformation validation. The key insight that drove the redesign was that pattern propagation is fundamentally an [entity resolution](@/glossary/entity-resolution.md) problem: identifying which code constructs in the target domain are analogous to the code constructs where the pattern was originally applied.
 
-By Generation 18, the Mycelial Network had become fully autonomous -- patterns discovered by the [AutoEvolve](/glossary/autoevolve/) system automatically enter the propagation pipeline without human intervention, and the entire process from discovery to cascade application operates within the platform's quality gate framework.
+By Generation 18, the Mycelial Network had become fully autonomous -- patterns discovered by the [AutoEvolve](@/glossary/autoevolve.md) system automatically enter the propagation pipeline without human intervention, and the entire process from discovery to cascade application operates within the platform's quality gate framework.
 
 ## Technical Deep Dive
 
@@ -277,7 +277,7 @@ end
 
 ## Network Topology
 
-The Mycelial Network forms a weighted graph where nodes are [umbrella applications](/glossary/umbrella-application/) and edges represent pattern affinity:
+The Mycelial Network forms a weighted graph where nodes are [umbrella applications](@/glossary/umbrella-application.md) and edges represent pattern affinity:
 
 ```
 prismatic_storage_core ------- prismatic_storage_ets
@@ -303,7 +303,7 @@ The network's topology is not static. As new applications are added to the umbre
 
 ### SEADF Integration
 
-The Mycelial Network is orchestrated by [SEADF](/glossary/seadf/)'s Cross-Domain Innovator subsystem. The interaction follows a publisher-subscriber model:
+The Mycelial Network is orchestrated by [SEADF](@/glossary/seadf.md)'s Cross-Domain Innovator subsystem. The interaction follows a publisher-subscriber model:
 
 ```elixir
 defmodule PrismaticMycelial.SEADFIntegration do
@@ -341,7 +341,7 @@ end
 
 ### Quality DNA Persistence
 
-Propagation history and pattern state are persisted through [Quality DNA](/glossary/quality-dna/) for cross-session continuity:
+Propagation history and pattern state are persisted through [Quality DNA](@/glossary/quality-dna.md) for cross-session continuity:
 
 ```elixir
 defmodule PrismaticMycelial.QualityDNAPersistence do
@@ -422,7 +422,7 @@ end
 
 ## Telemetry and Observability
 
-The Mycelial Network emits comprehensive [telemetry](/glossary/telemetry/) events throughout the propagation lifecycle, enabling operators to monitor network health, track propagation success rates, and identify patterns that are causing issues:
+The Mycelial Network emits comprehensive [telemetry](@/glossary/telemetry.md) events throughout the propagation lifecycle, enabling operators to monitor network health, track propagation success rates, and identify patterns that are causing issues:
 
 ```elixir
 defmodule PrismaticMycelial.Telemetry do
@@ -468,7 +468,7 @@ The Mycelial Network is integral to the platform's evolution from Generation 1 t
 |----------------|----------------------|--------|
 | Gen 7-9 (Quality) | Propagated zero-warning policy across all apps | 0 compilation warnings platform-wide |
 | Gen 10-12 (Intelligence) | Shared OSINT adapter patterns | 250+ providers with consistent interfaces |
-| Gen 13-15 (Epistemic) | Distributed NABLA compliance patterns | [Trinity Gate](/glossary/trinity-gate/) validation across all domains |
+| Gen 13-15 (Epistemic) | Distributed NABLA compliance patterns | [Trinity Gate](@/glossary/trinity-gate.md) validation across all domains |
 | Gen 16-17 (Evolution) | CASCADE pattern execution | 905 quality debt points eliminated |
 | Gen 18-19 (Autonomy) | Self-healing pattern propagation | 100/100 quality score maintained |
 
@@ -509,7 +509,7 @@ The Mycelial Network's distinguishing characteristic is its cross-domain awarene
 
 ## Best Practices
 
-**Validate before propagating.** Every pattern must be proven successful in its source domain before propagation begins. A pattern that works in testing but has not been validated through [quality gates](/glossary/quality-gates/) should not be propagated. The cost of propagating a bad pattern across 115 applications vastly exceeds the cost of slower adoption.
+**Validate before propagating.** Every pattern must be proven successful in its source domain before propagation begins. A pattern that works in testing but has not been validated through [quality gates](@/glossary/quality-gates.md) should not be propagated. The cost of propagating a bad pattern across 115 applications vastly exceeds the cost of slower adoption.
 
 **Assess context compatibility rigorously.** Not every pattern fits every target. The context analyzer must check prerequisites, dependencies, OTP patterns, and domain assumptions before applying a transformation. Skip targets where compatibility is below the threshold rather than forcing a partial fit.
 
@@ -517,7 +517,7 @@ The Mycelial Network's distinguishing characteristic is its cross-domain awarene
 
 **Measure propagation impact.** Track compilation time, test execution time, quality scores, and performance metrics before and after propagation. This data validates the network's effectiveness and identifies patterns that produce negative results.
 
-**Document pattern [provenance](/glossary/provenance-mandatory/).** Every propagated pattern should trace back to its origin: which application discovered it, what problem it solved, and why it was deemed propagation-worthy. This provenance enables future analysis and debugging.
+**Document pattern [provenance](@/glossary/provenance-mandatory.md).** Every propagated pattern should trace back to its origin: which application discovered it, what problem it solved, and why it was deemed propagation-worthy. This provenance enables future analysis and debugging.
 
 ## Common Pitfalls
 
@@ -533,22 +533,22 @@ The Mycelial Network's distinguishing characteristic is its cross-domain awarene
 
 ## Related Concepts
 
-- [SEADF](/glossary/seadf/) -- Framework containing and orchestrating the Mycelial Network
-- [CASCADE Pattern](/glossary/cascade-pattern/) -- Bulk quality fix patterns propagated by the network
-- [AutoEvolve](/glossary/autoevolve/) -- Evolution system triggering pattern discovery
-- [GARDEN](/glossary/garden/) -- Legacy knowledge base providing source patterns for propagation
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session state persistence for propagation history
-- [Blackboard](/glossary/blackboard/) -- Shared data architecture pattern complementing network propagation
-- [Umbrella Application](/glossary/umbrella-application/) -- Architecture across which patterns propagate
-- [Quality Gates](/glossary/quality-gates/) -- Validation system ensuring propagated patterns meet quality standards
-- [Telemetry](/glossary/telemetry/) -- Metrics tracking propagation outcomes and success rates
-- [Provenance Mandatory](/glossary/provenance-mandatory/) -- Traceability axiom applied to pattern origin tracking
+- [SEADF](@/glossary/seadf.md) -- Framework containing and orchestrating the Mycelial Network
+- [CASCADE Pattern](@/glossary/cascade-pattern.md) -- Bulk quality fix patterns propagated by the network
+- [AutoEvolve](@/glossary/autoevolve.md) -- Evolution system triggering pattern discovery
+- [GARDEN](@/glossary/garden.md) -- Legacy knowledge base providing source patterns for propagation
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session state persistence for propagation history
+- [Blackboard](@/glossary/blackboard.md) -- Shared data architecture pattern complementing network propagation
+- [Umbrella Application](@/glossary/umbrella-application.md) -- Architecture across which patterns propagate
+- [Quality Gates](@/glossary/quality-gates.md) -- Validation system ensuring propagated patterns meet quality standards
+- [Telemetry](@/glossary/telemetry.md) -- Metrics tracking propagation outcomes and success rates
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) -- Traceability axiom applied to pattern origin tracking
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Umbrella applications connected by the Mycelial Network
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Umbrella applications connected by the Mycelial Network
 
 ---
 
@@ -557,4 +557,4 @@ The Mycelial Network's distinguishing characteristic is its cross-domain awarene
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

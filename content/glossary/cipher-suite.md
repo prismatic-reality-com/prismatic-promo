@@ -193,11 +193,11 @@ NIS2 compliance (Article 21) mandates appropriate encryption measures, and the P
 
 ## Cross-References
 
-- [AES](/glossary/aes/) - primary bulk encryption algorithm in modern cipher suites
-- [Authentication](/glossary/authentication/) - server identity verification in TLS
-- [Certificate Transparency](/glossary/certificate-transparency/) - TLS certificate monitoring
+- [AES](@/glossary/aes.md) - primary bulk encryption algorithm in modern cipher suites
+- [Authentication](@/glossary/authentication.md) - server identity verification in TLS
+- [Certificate Transparency](@/glossary/certificate-transparency.md) - TLS certificate monitoring
 - **Credential** - certificates used in TLS authentication
-- [Attack Surface](/glossary/attack-surface/) - weak cipher suites expand attack surface
+- [Attack Surface](@/glossary/attack-surface.md) - weak cipher suites expand attack surface
 - **Livebooks**: `livebooks/domains/security_compliance/` - TLS assessment exercises
 - **Perimeter**: Security rating engine cipher suite scoring
 

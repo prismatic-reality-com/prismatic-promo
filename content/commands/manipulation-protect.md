@@ -24,15 +24,15 @@ image_alt = "/manipulation-protect - Prismatic Platform"
 
 ## Overview
 
-**/manipulation-protect** is a production command in the **Defensive Security** category of the Prismatic Platform that activates, configures, and manages manipulation protection defenses across the platform's epistemic systems. When [/manipulation-detect](/commands/manipulation-detect/) identifies manipulation attempts, this command deploys countermeasures that harden the platform against ongoing and future epistemic attacks. The protection system operates at multiple layers -- from individual agent hardening to platform-wide signal validation enforcement.
+**/manipulation-protect** is a production command in the **Defensive Security** category of the Prismatic Platform that activates, configures, and manages manipulation protection defenses across the platform's epistemic systems. When [/manipulation-detect](@/commands/manipulation-detect.md) identifies manipulation attempts, this command deploys countermeasures that harden the platform against ongoing and future epistemic attacks. The protection system operates at multiple layers -- from individual agent hardening to platform-wide signal validation enforcement.
 
-This command operates under the **L3** authority level and is executed by the `manipulation-detector` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level ensures that only authorized operators with security clearance can activate or modify protection defenses, preventing unauthorized weakening of the platform's epistemic integrity.
+This command operates under the **L3** authority level and is executed by the `manipulation-detector` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level ensures that only authorized operators with security clearance can activate or modify protection defenses, preventing unauthorized weakening of the platform's epistemic integrity.
 
 Manipulation protection in the Prismatic Platform is built on the defense-in-depth principle. No single protection mechanism is considered sufficient. Instead, the system deploys overlapping layers of defense that address each of the five manipulation categories: truth distortion protection (enhanced fact verification), confidence manipulation protection (statistical boundary enforcement), signal poisoning protection (source validation strengthening), drift induction protection (tighter baseline deviation thresholds), and salience hijacking protection (attention distribution monitoring).
 
-The protection system integrates directly with the [NABLA](/glossary/nabla-infinity/) epistemic framework. When protection is activated, the NABLA axiom enforcement thresholds are tightened. Signal plurality requirements increase from 2 to 3 independent sources. Confidence scores require additional corroboration. Provenance chains must be complete and verifiable. These tighter requirements reduce the platform's susceptibility to epistemic attacks at the cost of slightly reduced processing speed and increased false-positive rates, a tradeoff that is acceptable during active threat conditions.
+The protection system integrates directly with the [NABLA](@/glossary/nabla-infinity.md) epistemic framework. When protection is activated, the NABLA axiom enforcement thresholds are tightened. Signal plurality requirements increase from 2 to 3 independent sources. Confidence scores require additional corroboration. Provenance chains must be complete and verifiable. These tighter requirements reduce the platform's susceptibility to epistemic attacks at the cost of slightly reduced processing speed and increased false-positive rates, a tradeoff that is acceptable during active threat conditions.
 
-The [Blue Team](/glossary/blue-team/) develops and validates protection strategies through continuous adversarial testing with the [Red Team](/glossary/red-team/). The [Purple Team](/glossary/purple-team/) synthesizes findings from both teams to close the Red-Blue loop, ensuring that protection defenses are effective against known attack patterns and adaptive to novel techniques.
+The [Blue Team](@/glossary/blue-team.md) develops and validates protection strategies through continuous adversarial testing with the [Red Team](@/glossary/red-team.md). The [Purple Team](@/glossary/purple-team.md) synthesizes findings from both teams to close the Red-Blue loop, ensuring that protection defenses are effective against known attack patterns and adaptive to novel techniques.
 
 ## Architecture
 
@@ -175,21 +175,21 @@ The protection system operates as a multi-layer defense deployment engine with c
 
 8. **Effectiveness Tracking**: All protection activations are tracked with timestamps, triggering events, and effectiveness metrics. This data feeds the protection optimization loop and provides evidence for protection decisions.
 
-9. **Notification**: Relevant operators and agents are notified of protection state changes. The [/manipulation-dashboard](/commands/manipulation-dashboard/) is updated to reflect the new protection posture.
+9. **Notification**: Relevant operators and agents are notified of protection state changes. The [/manipulation-dashboard](@/commands/manipulation-dashboard.md) is updated to reflect the new protection posture.
 
 ## Integration Points
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `manipulation-detector` | Defense deployment and monitoring |
-| [/manipulation-detect](/commands/manipulation-detect/) | Detection triggers | Detections trigger protection activation |
-| [/manipulation-dashboard](/commands/manipulation-dashboard/) | Status display | Protection status shown in dashboard |
-| [/manipulation-techniques](/commands/manipulation-techniques/) | Countermeasure reference | Technique-specific countermeasure deployment |
-| [Color-Team](/glossary/color-teams/) | Security framework | Blue Team defense strategies |
-| [NABLA Framework](/glossary/nabla-infinity/) | Threshold management | Axiom enforcement level adjustment |
-| [Quality Gates](/glossary/quality-gates/) | Quality integration | Protection integrated into quality checks |
-| [Telemetry](/glossary/telemetry/) | Event tracking | Protection events logged |
-| [/emergency](/commands/emergency/) | Crisis coordination | Lockdown coordinated with emergency protocol |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `manipulation-detector` | Defense deployment and monitoring |
+| [/manipulation-detect](@/commands/manipulation-detect.md) | Detection triggers | Detections trigger protection activation |
+| [/manipulation-dashboard](@/commands/manipulation-dashboard.md) | Status display | Protection status shown in dashboard |
+| [/manipulation-techniques](@/commands/manipulation-techniques.md) | Countermeasure reference | Technique-specific countermeasure deployment |
+| [Color-Team](@/glossary/color-teams.md) | Security framework | Blue Team defense strategies |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Threshold management | Axiom enforcement level adjustment |
+| [Quality Gates](@/glossary/quality-gates.md) | Quality integration | Protection integrated into quality checks |
+| [Telemetry](@/glossary/telemetry.md) | Event tracking | Protection events logged |
+| [/emergency](@/commands/emergency.md) | Crisis coordination | Lockdown coordinated with emergency protocol |
 
 ## Best Practices
 
@@ -268,19 +268,19 @@ Coordinate protection across connected platform instances.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Protection mechanisms deploy fully or not at all -- no partial deployments. Lockdowns execute immediately without negotiation.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Protection decisions are grounded in detection evidence. Effectiveness is measured, not assumed. False positive rates are tracked and managed.
 
 ## Related Commands
 
-- [/manipulation-detect](/commands/manipulation-detect/) - Detect manipulation attempts using epistemic analysis
-- [/manipulation-techniques](/commands/manipulation-techniques/) - View manipulation technique taxonomy and counter-measures
-- [/manipulation-dashboard](/commands/manipulation-dashboard/) - Manipulation detection dashboard with threat indicators
-- [/emergency](/commands/emergency/) - Emergency response and crisis management activation
-- [/archer-supreme](/commands/archer-supreme/) - Supreme authority activation for platform-wide operations
-- [/dark-ops](/commands/dark-ops/) - NABLA structural crisis detection and dark operations analysis
+- [/manipulation-detect](@/commands/manipulation-detect.md) - Detect manipulation attempts using epistemic analysis
+- [/manipulation-techniques](@/commands/manipulation-techniques.md) - View manipulation technique taxonomy and counter-measures
+- [/manipulation-dashboard](@/commands/manipulation-dashboard.md) - Manipulation detection dashboard with threat indicators
+- [/emergency](@/commands/emergency.md) - Emergency response and crisis management activation
+- [/archer-supreme](@/commands/archer-supreme.md) - Supreme authority activation for platform-wide operations
+- [/dark-ops](@/commands/dark-ops.md) - NABLA structural crisis detection and dark operations analysis
 
 ---
 
@@ -289,4 +289,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

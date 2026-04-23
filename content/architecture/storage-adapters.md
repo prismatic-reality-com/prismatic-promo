@@ -24,9 +24,9 @@ image_alt = "Storage Adapters - Prismatic Platform"
 
 ## Overview
 
-The Prismatic Platform abstracts all data access behind a unified [protocol](/glossary/protocol/), enabling business logic to operate identically regardless of whether data resides in [ETS](/glossary/ets/) tables, [PostgreSQL](/architecture/postgresql-kuzudb/) databases, [Redis](/glossary/redis/) caches, or [KuzuDB](/glossary/kuzudb/) graph stores. This abstraction is not a theoretical exercise in software design -- it was driven by a concrete operational requirement: the platform's 90+ [umbrella application](/glossary/umbrella-application/)s each have different storage characteristics (latency tolerance, persistence requirements, query patterns, data relationships), and forcing all of them through a single storage backend would create performance bottlenecks in some applications and unnecessary complexity in others.
+The Prismatic Platform abstracts all data access behind a unified [protocol](@/glossary/protocol.md), enabling business logic to operate identically regardless of whether data resides in [ETS](@/glossary/ets.md) tables, [PostgreSQL](@/architecture/postgresql-kuzudb.md) databases, [Redis](@/glossary/redis.md) caches, or [KuzuDB](@/glossary/kuzudb.md) graph stores. This abstraction is not a theoretical exercise in software design -- it was driven by a concrete operational requirement: the platform's 90+ [umbrella application](@/glossary/umbrella-application.md)s each have different storage characteristics (latency tolerance, persistence requirements, query patterns, data relationships), and forcing all of them through a single storage backend would create performance bottlenecks in some applications and unnecessary complexity in others.
 
-The storage adapter architecture implements the [adapter pattern](/glossary/adapter-pattern/) using [Elixir](/glossary/elixir/)'s protocol mechanism, which provides compile-time dispatch and zero-overhead polymorphism. Each storage backend ([prismatic_storage_ets](/apps/prismatic-storage-ets/), [prismatic_storage_ecto](/apps/prismatic-storage-ecto/), [prismatic_storage_redis](/apps/prismatic-storage-redis/), [prismatic_storage_kuzudb](/apps/prismatic-storage-kuzudb/)) is a separate umbrella application that implements the protocol for its backend type. Business logic in domain applications (such as [Prismatic Perimeter](/apps/prismatic-perimeter/) or [Prismatic Agents](/apps/prismatic-agents/)) programs against the protocol interface, and the concrete adapter is injected at configuration time or runtime.
+The storage adapter architecture implements the [adapter pattern](@/glossary/adapter-pattern.md) using [Elixir](@/glossary/elixir.md)'s protocol mechanism, which provides compile-time dispatch and zero-overhead polymorphism. Each storage backend ([prismatic_storage_ets](@/apps/prismatic-storage-ets.md), [prismatic_storage_ecto](@/apps/prismatic-storage-ecto.md), [prismatic_storage_redis](@/apps/prismatic-storage-redis.md), [prismatic_storage_kuzudb](@/apps/prismatic-storage-kuzudb.md)) is a separate umbrella application that implements the protocol for its backend type. Business logic in domain applications (such as [Prismatic Perimeter](@/apps/prismatic-perimeter.md) or [Prismatic Agents](@/apps/prismatic-agents.md)) programs against the protocol interface, and the concrete adapter is injected at configuration time or runtime.
 
 This approach enables several capabilities that a monolithic storage layer cannot provide: transparent caching with ETS in front of PostgreSQL, seamless test isolation using in-memory adapters, graph queries for relationship-heavy domains alongside relational queries for tabular data, and runtime backend switching without redeploying the application.
 
@@ -34,7 +34,7 @@ This approach enables several capabilities that a monolithic storage layer canno
 
 ### The Storage Protocol
 
-The [storage protocol](/apps/prismatic-storage-core/) defines the minimal interface that all storage backends must implement. The design follows the principle of making the common case simple while allowing backend-specific extensions:
+The [storage protocol](@/apps/prismatic-storage-core.md) defines the minimal interface that all storage backends must implement. The design follows the principle of making the common case simple while allowing backend-specific extensions:
 
 ```elixir
 defprotocol PrismaticStorage.Protocol do
@@ -77,13 +77,13 @@ end
 
 ### Why Protocols Over Behaviours?
 
-Elixir offers two polymorphism mechanisms: [protocols](/glossary/protocol/) (data-type dispatch) and [behaviours](/glossary/behaviour/) (module-based contracts). The storage layer uses protocols for the primary interface because:
+Elixir offers two polymorphism mechanisms: [protocols](@/glossary/protocol.md) (data-type dispatch) and [behaviours](@/glossary/behaviour.md) (module-based contracts). The storage layer uses protocols for the primary interface because:
 
 1. **Dispatch on data type**: Protocol dispatch is determined by the adapter struct type, which means you can pass different adapter instances to the same function and get different behavior. This enables patterns like the multi-tier cache shown later in this article.
 
-2. **Compile-time consolidation**: Protocol implementations are consolidated at compile time, meaning dispatch has zero runtime overhead in production builds. There is no function pointer lookup or vtable -- the [BEAM](/glossary/beam/) directly calls the correct implementation module.
+2. **Compile-time consolidation**: Protocol implementations are consolidated at compile time, meaning dispatch has zero runtime overhead in production builds. There is no function pointer lookup or vtable -- the [BEAM](@/glossary/beam.md) directly calls the correct implementation module.
 
-3. **Open extension**: New storage backends can be added without modifying the protocol definition or any existing implementations. A team building a [DuckDB](/glossary/duckdb/) adapter simply implements the protocol for their struct type.
+3. **Open extension**: New storage backends can be added without modifying the protocol definition or any existing implementations. A team building a [DuckDB](@/glossary/duckdb.md) adapter simply implements the protocol for their struct type.
 
 Behaviours are used for backend-specific capabilities that do not fit the universal protocol (e.g., KuzuDB's Cypher query interface, Ecto's changeset validation, Redis's TTL management).
 
@@ -108,7 +108,7 @@ end
 
 ### ETS Adapter
 
-The [ETS adapter](/apps/prismatic-storage-ets/) provides in-memory storage with microsecond-level access times. ETS (Erlang Term Storage) is a built-in [OTP](/glossary/otp/) feature that stores Erlang terms in memory with concurrent read/write access. The adapter is the default choice for data that does not require persistence or that serves as a cache layer in front of persistent storage.
+The [ETS adapter](@/apps/prismatic-storage-ets.md) provides in-memory storage with microsecond-level access times. ETS (Erlang Term Storage) is a built-in [OTP](@/glossary/otp.md) feature that stores Erlang terms in memory with concurrent read/write access. The adapter is the default choice for data that does not require persistence or that serves as a cache layer in front of persistent storage.
 
 ```elixir
 defmodule PrismaticStorageEts.Adapter do
@@ -208,7 +208,7 @@ end
 
 ### Ecto Adapter (PostgreSQL)
 
-The [Ecto adapter](/apps/prismatic-storage-ecto/) provides persistent storage with full ACID transaction guarantees, complex querying via SQL, JSONB document storage, and full-text search. It is the authoritative data store for all business entities that require persistence.
+The [Ecto adapter](@/apps/prismatic-storage-ecto.md) provides persistent storage with full ACID transaction guarantees, complex querying via SQL, JSONB document storage, and full-text search. It is the authoritative data store for all business entities that require persistence.
 
 ```elixir
 defmodule PrismaticStorageEcto.Adapter do
@@ -318,7 +318,7 @@ end
 
 ### KuzuDB Adapter
 
-The [KuzuDB adapter](/apps/prismatic-storage-kuzudb/) provides graph storage and traversal capabilities for domain models where relationships are first-class entities. In the Prismatic Platform, this includes agent dependency graphs, attack path analysis, infrastructure relationship mapping, and [knowledge graph](/glossary/knowledge-graph/) construction.
+The [KuzuDB adapter](@/apps/prismatic-storage-kuzudb.md) provides graph storage and traversal capabilities for domain models where relationships are first-class entities. In the Prismatic Platform, this includes agent dependency graphs, attack path analysis, infrastructure relationship mapping, and [knowledge graph](@/glossary/knowledge-graph.md) construction.
 
 ```elixir
 defmodule PrismaticStorageKuzu.Adapter do
@@ -432,7 +432,7 @@ end
 
 ### Redis Adapter
 
-The [Redis adapter](/apps/prismatic-storage-redis/) provides distributed caching with TTL support, atomic operations, and distributed locking. It bridges the gap between ETS (fast but node-local) and PostgreSQL (persistent but slower):
+The [Redis adapter](@/apps/prismatic-storage-redis.md) provides distributed caching with TTL support, atomic operations, and distributed locking. It bridges the gap between ETS (fast but node-local) and PostgreSQL (persistent but slower):
 
 | Capability | ETS | Redis | PostgreSQL |
 |-----------|-----|-------|------------|
@@ -441,7 +441,7 @@ The [Redis adapter](/apps/prismatic-storage-redis/) provides distributed caching
 | Distribution | Single node | Cluster-native | Single primary |
 | TTL support | Manual | Native | Manual (triggers) |
 | Atomic counters | CAS operations | Native INCR | SELECT FOR UPDATE |
-| Pub/Sub | Via [Phoenix](/glossary/phoenix/) [PubSub](/glossary/pubsub/) | Native | LISTEN/NOTIFY |
+| Pub/Sub | Via [Phoenix](@/glossary/phoenix.md) [PubSub](@/glossary/pubsub.md) | Native | LISTEN/NOTIFY |
 
 ## Multi-Adapter Composition Patterns
 
@@ -714,7 +714,7 @@ These benchmarks demonstrate why the multi-adapter architecture exists: no singl
 
 ## Supervision and Lifecycle Management
 
-Each storage adapter is managed within the platform's [supervision tree](/architecture/supervision-trees/) to ensure proper initialization, health monitoring, and graceful shutdown:
+Each storage adapter is managed within the platform's [supervision tree](@/architecture/supervision-trees.md) to ensure proper initialization, health monitoring, and graceful shutdown:
 
 ```elixir
 defmodule PrismaticStorage.Supervisor do
@@ -750,7 +750,7 @@ end
 
 ## Summary
 
-The storage adapter architecture is the data access foundation of the Prismatic Platform. By implementing a unified [protocol](/glossary/protocol/) across four distinct backends -- [ETS](/glossary/ets/) for microsecond in-memory access, PostgreSQL for ACID persistence, [Redis](/glossary/redis/) for distributed caching, and [KuzuDB](/glossary/kuzudb/) for graph traversal -- the platform can assign each data access pattern to its optimal backend without polluting business logic with storage concerns. The composition patterns (read-through cache, write-behind, query routing) demonstrate that the protocol-based design is not merely an abstraction exercise but a practical architecture that delivers measurable performance improvements. The same protocol enables transparent test isolation using in-memory adapters, contract testing that verifies behavioral consistency across all backends, and runtime backend switching without redeployment. This architecture integrates naturally with the platform's [PubSub event system](/architecture/pubsub/) for cache invalidation, [LiveView dashboards](/architecture/phoenix-liveview/) for real-time data display, and [supervision trees](/architecture/supervision-trees/) for lifecycle management.
+The storage adapter architecture is the data access foundation of the Prismatic Platform. By implementing a unified [protocol](@/glossary/protocol.md) across four distinct backends -- [ETS](@/glossary/ets.md) for microsecond in-memory access, PostgreSQL for ACID persistence, [Redis](@/glossary/redis.md) for distributed caching, and [KuzuDB](@/glossary/kuzudb.md) for graph traversal -- the platform can assign each data access pattern to its optimal backend without polluting business logic with storage concerns. The composition patterns (read-through cache, write-behind, query routing) demonstrate that the protocol-based design is not merely an abstraction exercise but a practical architecture that delivers measurable performance improvements. The same protocol enables transparent test isolation using in-memory adapters, contract testing that verifies behavioral consistency across all backends, and runtime backend switching without redeployment. This architecture integrates naturally with the platform's [PubSub event system](@/architecture/pubsub.md) for cache invalidation, [LiveView dashboards](@/architecture/phoenix-liveview.md) for real-time data display, and [supervision trees](@/architecture/supervision-trees.md) for lifecycle management.
 
 ---
 
@@ -759,4 +759,4 @@ The storage adapter architecture is the data access foundation of the Prismatic 
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

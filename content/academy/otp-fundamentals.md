@@ -37,7 +37,7 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Getting Started with Prismatic Platform](/academy/getting-started/)
+- Completed [Getting Started with Prismatic Platform](@/academy/getting-started.md)
 - Basic Elixir syntax (modules, functions, pattern matching)
 - Understanding of concurrent programming concepts
 
@@ -437,37 +437,37 @@ PrismaticClaude.StackConversation.checkpoint("milestone-1")
 
 ### Related Applications
 - **prismatic_supervisor** (`apps/prismatic_supervisor/`) -- Compositional supervision with dependency-aware startup
-- [prismatic_agents](/apps/prismatic-agents/) -- Agent runtime demonstrating GenServer and Registry patterns
-- [prismatic_storage_ets](/apps/prismatic-storage-ets/) -- ETS adapter with GenServer lifecycle management
-- [prismatic_claude](/apps/prismatic-claude/) -- Complex GenServer with ETS backing and telemetry
-- [prismatic_core](/apps/prismatic-core/) -- Core protocols and shared OTP patterns
+- [prismatic_agents](@/apps/prismatic-agents.md) -- Agent runtime demonstrating GenServer and Registry patterns
+- [prismatic_storage_ets](@/apps/prismatic-storage-ets.md) -- ETS adapter with GenServer lifecycle management
+- [prismatic_claude](@/apps/prismatic-claude.md) -- Complex GenServer with ETS backing and telemetry
+- [prismatic_core](@/apps/prismatic-core.md) -- Core protocols and shared OTP patterns
 
 ### Glossary
-- [OTP](/glossary/otp/) -- Open Telecom Platform runtime
-- [BEAM](/glossary/beam/) -- The virtual machine running Elixir/Erlang
-- [Supervisor](/glossary/supervisor/) -- Process monitoring and restart
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchical process topology
-- [Behaviour](/glossary/behaviour/) -- Interface definition mechanism (GenServer, Supervisor)
-- [Registry (OTP)](/glossary/registry-otp/) -- Process discovery infrastructure
-- [Application](/glossary/application/) -- OTP Application structure
-- [Process Isolation](/glossary/process-isolation/) -- Independent process execution
-- [Task Module](/glossary/task-module/) -- Supervised short-lived tasks
+- [OTP](@/glossary/otp.md) -- Open Telecom Platform runtime
+- [BEAM](@/glossary/beam.md) -- The virtual machine running Elixir/Erlang
+- [Supervisor](@/glossary/supervisor.md) -- Process monitoring and restart
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchical process topology
+- [Behaviour](@/glossary/behaviour.md) -- Interface definition mechanism (GenServer, Supervisor)
+- [Registry (OTP)](@/glossary/registry-otp.md) -- Process discovery infrastructure
+- [Application](@/glossary/application.md) -- OTP Application structure
+- [Process Isolation](@/glossary/process-isolation.md) -- Independent process execution
+- [Task Module](@/glossary/task-module.md) -- Supervised short-lived tasks
 
 ### Architecture
-- [Supervision Trees](/architecture/supervision-trees/) -- Process topology design patterns
-- [Umbrella Apps](/architecture/umbrella-apps/) -- How OTP Applications compose in the umbrella
+- [Supervision Trees](@/architecture/supervision-trees.md) -- Process topology design patterns
+- [Umbrella Apps](@/architecture/umbrella-apps.md) -- How OTP Applications compose in the umbrella
 
 ### Related Academy Topics
-- [Building Your First Agent](/academy/first-agent/) -- Apply OTP patterns to build a real agent
-- [Multi-Agent Orchestration](/academy/agent-orchestration/) -- Coordinate multiple OTP processes
-- [Storage Architecture](/academy/storage-patterns/) -- OTP patterns in storage implementations
-- [Getting Started](/academy/getting-started/) -- Platform introduction with OTP foundations
+- [Building Your First Agent](@/academy/first-agent.md) -- Apply OTP patterns to build a real agent
+- [Multi-Agent Orchestration](@/academy/agent-orchestration.md) -- Coordinate multiple OTP processes
+- [Storage Architecture](@/academy/storage-patterns.md) -- OTP patterns in storage implementations
+- [Getting Started](@/academy/getting-started.md) -- Platform introduction with OTP foundations
 
 ## Next Steps
 
-- [Building Your First Autonomous Agent](/academy/first-agent/) -- apply OTP patterns to build a real agent
-- [Multi-Agent Orchestration Patterns](/academy/agent-orchestration/) -- coordinate multiple OTP processes
-- [Storage Architecture & Adapters](/academy/storage-patterns/) -- OTP patterns in storage implementations
+- [Building Your First Autonomous Agent](@/academy/first-agent.md) -- apply OTP patterns to build a real agent
+- [Multi-Agent Orchestration Patterns](@/academy/agent-orchestration.md) -- coordinate multiple OTP processes
+- [Storage Architecture & Adapters](@/academy/storage-patterns.md) -- OTP patterns in storage implementations
 
 ---
 
@@ -476,4 +476,4 @@ PrismaticClaude.StackConversation.checkpoint("milestone-1")
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

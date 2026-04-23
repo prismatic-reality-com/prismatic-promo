@@ -28,13 +28,13 @@ image_alt = "Software Development Future - Prismatic Platform"
 
 Software Development Future refers to the emerging paradigms, technologies, and methodologies that will fundamentally reshape how software systems are conceived, designed, implemented, tested, deployed, and maintained. This encompasses the transition from manual, human-centric development workflows to AI-augmented, continuously evolving, self-healing platforms where autonomous agents participate as first-class collaborators in the software lifecycle. The concept spans technical advances (formal verification, property-based testing, AI code generation), organizational shifts (from teams to agent-human collectives), and philosophical reorientations (from shipping features to cultivating living systems).
 
-Within the Prismatic Platform, the future of software development is not theoretical speculation but an active engineering program. The platform's 530+ [AIAD agents](/glossary/aiad/), [autoevolve](/glossary/autoevolve/) infrastructure, [quality DNA](/glossary/quality-dna/) system, and [SEADF framework](/glossary/seadf/) represent concrete implementations of what most organizations still consider aspirational. Generation 19 of the platform demonstrates that autonomous evolution, zero-compromise quality, and self-healing operations are achievable today.
+Within the Prismatic Platform, the future of software development is not theoretical speculation but an active engineering program. The platform's 530+ [AIAD agents](@/glossary/aiad.md), [autoevolve](@/glossary/autoevolve.md) infrastructure, [quality DNA](@/glossary/quality-dna.md) system, and [SEADF framework](@/glossary/seadf.md) represent concrete implementations of what most organizations still consider aspirational. Generation 19 of the platform demonstrates that autonomous evolution, zero-compromise quality, and self-healing operations are achievable today.
 
 ## Historical Context and Evolution
 
 The history of software development is a story of progressive abstraction. Assembly language freed developers from machine code. Structured programming eliminated goto spaghetti. Object-oriented programming introduced encapsulation. Functional programming brought immutability and referential transparency. Each wave reduced accidental complexity while exposing new essential complexity.
 
-The current wave is qualitatively different. Rather than providing better tools for humans to write code, it introduces non-human participants into the development process itself. [AI agents](/glossary/ai-agent/) do not merely suggest completions; they analyze codebases, detect anti-patterns, propose architectural improvements, and execute multi-step refactoring campaigns. The boundary between developer and tool dissolves when the tool can reason about intent.
+The current wave is qualitatively different. Rather than providing better tools for humans to write code, it introduces non-human participants into the development process itself. [AI agents](@/glossary/ai-agent.md) do not merely suggest completions; they analyze codebases, detect anti-patterns, propose architectural improvements, and execute multi-step refactoring campaigns. The boundary between developer and tool dissolves when the tool can reason about intent.
 
 Three historical inflection points define the trajectory:
 
@@ -48,19 +48,19 @@ The Prismatic Platform sits at the leading edge of the third inflection, having 
 
 ### Continuous Evolution Over Discrete Releases
 
-Traditional software development operates in discrete cycles: plan, build, test, release. Future development treats the codebase as a living organism that evolves continuously. The Prismatic Platform's [autoevolve](/glossary/autoevolve/) system exemplifies this principle -- every session triggers improvement scans, quality floor guardians monitor for drift, and autonomous agents propose enhancements without human intervention.
+Traditional software development operates in discrete cycles: plan, build, test, release. Future development treats the codebase as a living organism that evolves continuously. The Prismatic Platform's [autoevolve](@/glossary/autoevolve.md) system exemplifies this principle -- every session triggers improvement scans, quality floor guardians monitor for drift, and autonomous agents propose enhancements without human intervention.
 
 ### Quality as a Machine-Enforced Invariant
 
-In future development, quality is not an aspiration but a mechanical guarantee. Static analysis, property-based testing, [formal verification](/glossary/theorem-proving/), and AI-driven code review combine to create an environment where defective code cannot reach production. The Prismatic Platform achieves this through its 13-layer [Trinity Gate](/glossary/trinity-gate/), 11-phase pre-commit hooks, and zero-warning compilation policy.
+In future development, quality is not an aspiration but a mechanical guarantee. Static analysis, property-based testing, [formal verification](@/glossary/theorem-proving.md), and AI-driven code review combine to create an environment where defective code cannot reach production. The Prismatic Platform achieves this through its 13-layer [Trinity Gate](@/glossary/trinity-gate.md), 11-phase pre-commit hooks, and zero-warning compilation policy.
 
 ### Intent Over Implementation
 
-Developers increasingly specify what they want rather than how to achieve it. [Specification](/glossary/specification/)-driven development, where formal specifications generate implementations, tests, and documentation simultaneously, represents the mature form of this principle. The platform's [OpenAPI auto-introspection](/glossary/openapi/) already generates REST APIs from Elixir typespecs without manual configuration.
+Developers increasingly specify what they want rather than how to achieve it. [Specification](@/glossary/specification.md)-driven development, where formal specifications generate implementations, tests, and documentation simultaneously, represents the mature form of this principle. The platform's [OpenAPI auto-introspection](@/glossary/openapi.md) already generates REST APIs from Elixir typespecs without manual configuration.
 
 ### Resilience as Default Architecture
 
-Future systems assume failure rather than preventing it. [Self-healing](/glossary/self-healing/) architectures, [circuit breakers](/glossary/circuit-breaker/), [supervision trees](/glossary/supervision-tree/), and automatic rollback mechanisms ensure that systems recover from failures faster than humans can diagnose them. OTP's "let it crash" philosophy was decades ahead of its time.
+Future systems assume failure rather than preventing it. [Self-healing](@/glossary/self-healing.md) architectures, [circuit breakers](@/glossary/circuit-breaker.md), [supervision trees](@/glossary/supervision-tree.md), and automatic rollback mechanisms ensure that systems recover from failures faster than humans can diagnose them. OTP's "let it crash" philosophy was decades ahead of its time.
 
 ## Platform Implementation in Elixir
 
@@ -294,41 +294,41 @@ end
 
 ### AI-Native Development Environments
 
-The IDE of the future is not a text editor with plugins but an intelligent environment that understands intent, maintains context across sessions, and proactively suggests improvements. Claude Code and similar tools represent early versions of this paradigm. The Prismatic Platform's [AIAD](/glossary/aiad/) standard formalizes how AI agents interact with codebases, defining agent specifications, command registries, and pipeline architectures.
+The IDE of the future is not a text editor with plugins but an intelligent environment that understands intent, maintains context across sessions, and proactively suggests improvements. Claude Code and similar tools represent early versions of this paradigm. The Prismatic Platform's [AIAD](@/glossary/aiad.md) standard formalizes how AI agents interact with codebases, defining agent specifications, command registries, and pipeline architectures.
 
 ### Formal Methods at Scale
 
-[Formal verification](/glossary/theorem-proving/), historically confined to safety-critical systems (aviation, medical devices), is becoming practical for general software through advances in automated theorem proving (Lean4, Coq) and [property-based testing](/glossary/property-based-testing/). The Prismatic Platform integrates Lean4 proofs into its [Trinity Gate](/glossary/trinity-gate/), requiring formal necessity for critical claims.
+[Formal verification](@/glossary/theorem-proving.md), historically confined to safety-critical systems (aviation, medical devices), is becoming practical for general software through advances in automated theorem proving (Lean4, Coq) and [property-based testing](@/glossary/property-based-testing.md). The Prismatic Platform integrates Lean4 proofs into its [Trinity Gate](@/glossary/trinity-gate.md), requiring formal necessity for critical claims.
 
 ### Self-Healing and Auto-Recovery
 
-Future systems do not merely restart failed processes but diagnose root causes, apply targeted fixes, and learn from failures to prevent recurrence. The platform's [autoheal](/glossary/autoheal/) system implements this pattern, running baseline checks, healing cycles, and quality floor monitoring as continuous background processes.
+Future systems do not merely restart failed processes but diagnose root causes, apply targeted fixes, and learn from failures to prevent recurrence. The platform's [autoheal](@/glossary/autoheal.md) system implements this pattern, running baseline checks, healing cycles, and quality floor monitoring as continuous background processes.
 
 ### Observability-Driven Development
 
-Rather than adding logging after the fact, future development embeds [observability](/glossary/observability/) as a first-class concern. Telemetry events, distributed tracing, and real-time dashboards are part of the system's architecture from inception. The platform uses Erlang's telemetry infrastructure, Phoenix LiveDashboard, and custom [metrics](/glossary/metrics/) pipelines to achieve this.
+Rather than adding logging after the fact, future development embeds [observability](@/glossary/observability.md) as a first-class concern. Telemetry events, distributed tracing, and real-time dashboards are part of the system's architecture from inception. The platform uses Erlang's telemetry infrastructure, Phoenix LiveDashboard, and custom [metrics](@/glossary/metrics.md) pipelines to achieve this.
 
 ### Edge and Distributed Computing
 
-The centralized cloud model gives way to distributed architectures where computation moves to the data. Elixir/OTP's distribution primitives (node clustering, Horde, libcluster) provide native support for this transition. The platform's [PrismaticSupervisor](/glossary/supervisor/) already supports Horde-backed distributed supervision.
+The centralized cloud model gives way to distributed architectures where computation moves to the data. Elixir/OTP's distribution primitives (node clustering, Horde, libcluster) provide native support for this transition. The platform's [PrismaticSupervisor](@/glossary/supervisor.md) already supports Horde-backed distributed supervision.
 
 ## Challenges and Open Questions
 
 ### AI Alignment in Code Generation
 
-When AI agents generate code, ensuring alignment between developer intent and generated implementation becomes critical. Misaligned AI suggestions can introduce subtle bugs that pass all tests but violate unstated requirements. The platform addresses this through its [NABLA infinity](/glossary/nabla-infinity/) framework, which enforces provenance tracking and evidence plurality.
+When AI agents generate code, ensuring alignment between developer intent and generated implementation becomes critical. Misaligned AI suggestions can introduce subtle bugs that pass all tests but violate unstated requirements. The platform addresses this through its [NABLA infinity](@/glossary/nabla-infinity.md) framework, which enforces provenance tracking and evidence plurality.
 
 ### Skills Transition and Human Roles
 
-As AI handles more implementation work, human developers must transition from coders to system architects, intent specifiers, and quality arbiters. This requires new skills: formal specification writing, AI prompt engineering, system thinking, and verification methodology. The platform's learning resources and [mentorship](/glossary/mentorship/) programs support this transition.
+As AI handles more implementation work, human developers must transition from coders to system architects, intent specifiers, and quality arbiters. This requires new skills: formal specification writing, AI prompt engineering, system thinking, and verification methodology. The platform's learning resources and [mentorship](@/glossary/mentorship.md) programs support this transition.
 
 ### Security of AI-Generated Code
 
-AI-generated code may contain vulnerabilities that neither the AI nor the developer recognizes. Adversarial actors may attempt to poison training data or manipulate AI assistants. The platform's [Color Team](/glossary/color-teams/) security operations (20 agents across 6 teams) and comprehensive [security assessment](/glossary/security-assessment/) pipelines provide defense-in-depth against these threats.
+AI-generated code may contain vulnerabilities that neither the AI nor the developer recognizes. Adversarial actors may attempt to poison training data or manipulate AI assistants. The platform's [Color Team](@/glossary/color-teams.md) security operations (20 agents across 6 teams) and comprehensive [security assessment](@/glossary/security-assessment.md) pipelines provide defense-in-depth against these threats.
 
 ### Regulatory and Ethical Considerations
 
-[Automated decision-making](/glossary/automated-decision-making/) in software development raises questions about accountability, liability, and transparency. Regulations like the EU AI Act and sector-specific standards ([NIS2](/glossary/nis2/), [ZKB](/glossary/zkb/)) impose requirements on AI-assisted systems. The platform's compliance framework addresses these concerns proactively.
+[Automated decision-making](@/glossary/automated-decision-making.md) in software development raises questions about accountability, liability, and transparency. Regulations like the EU AI Act and sector-specific standards ([NIS2](@/glossary/nis2.md), [ZKB](@/glossary/zkb.md)) impose requirements on AI-assisted systems. The platform's compliance framework addresses these concerns proactively.
 
 ## Comparison with Traditional Approaches
 
@@ -363,7 +363,7 @@ Organizations that build platforms capable of autonomous evolution today -- like
 
 1. **Invest in formal specifications**: Code generated from specifications is verifiable; code generated from informal descriptions is not
 2. **Build observability from day one**: You cannot evolve what you cannot measure
-3. **Adopt supervision-based architectures**: [OTP](/glossary/otp/) supervision trees provide the foundation for self-healing
+3. **Adopt supervision-based architectures**: [OTP](@/glossary/otp.md) supervision trees provide the foundation for self-healing
 4. **Enforce quality mechanically**: Human discipline fails at scale; machine enforcement does not
 5. **Treat AI agents as team members**: Define interfaces, responsibilities, and accountability for AI participants
 6. **Version everything**: Code, data, models, configurations, and specifications must all be versioned
@@ -371,14 +371,14 @@ Organizations that build platforms capable of autonomous evolution today -- like
 
 ## Related Concepts
 
-- [Autonomous Evolution](/glossary/autonomous-evolution/) -- The mechanism by which systems improve without human intervention
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session quality state that persists and improves over time
-- [SEADF Framework](/glossary/seadf/) -- The 7-subsystem evolution and discovery framework
-- [AI Agent](/glossary/ai-agent/) -- Autonomous software entities that participate in development
-- [Self-Healing](/glossary/self-healing/) -- Systems that detect and repair their own failures
-- [Trinity Gate](/glossary/trinity-gate/) -- 13-layer verification ensuring claims meet formal standards
-- [Paradigm Shift](/glossary/paradigm-shift/) -- Fundamental changes in how problems are approached
-- [Autonomous Platforms](/glossary/autonomous-platforms/) -- Self-managing software infrastructure
+- [Autonomous Evolution](@/glossary/autonomous-evolution.md) -- The mechanism by which systems improve without human intervention
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session quality state that persists and improves over time
+- [SEADF Framework](@/glossary/seadf.md) -- The 7-subsystem evolution and discovery framework
+- [AI Agent](@/glossary/ai-agent.md) -- Autonomous software entities that participate in development
+- [Self-Healing](@/glossary/self-healing.md) -- Systems that detect and repair their own failures
+- [Trinity Gate](@/glossary/trinity-gate.md) -- 13-layer verification ensuring claims meet formal standards
+- [Paradigm Shift](@/glossary/paradigm-shift.md) -- Fundamental changes in how problems are approached
+- [Autonomous Platforms](@/glossary/autonomous-platforms.md) -- Self-managing software infrastructure
 
 See the Glossary index for the complete taxonomy of platform concepts.
 
@@ -389,4 +389,4 @@ See the Glossary index for the complete taxonomy of platform concepts.
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -20,7 +20,7 @@ image_alt = "Metrics - Prismatic Platform"
 
 ## Definition
 
-Metrics are numeric measurements collected at regular intervals or on specific events to quantify system behavior, performance, and health. Unlike [logs](/glossary/structured-logging/) which record discrete events or [traces](/glossary/distributed-tracing/) which track individual request paths, metrics capture aggregate system state as time series data -- sequences of numeric values indexed by timestamp. This aggregation makes metrics the most storage-efficient [observability](/glossary/observability/) pillar and the primary tool for long-term trend analysis, alerting, capacity planning, and real-time dashboards.
+Metrics are numeric measurements collected at regular intervals or on specific events to quantify system behavior, performance, and health. Unlike [logs](@/glossary/structured-logging.md) which record discrete events or [traces](@/glossary/distributed-tracing.md) which track individual request paths, metrics capture aggregate system state as time series data -- sequences of numeric values indexed by timestamp. This aggregation makes metrics the most storage-efficient [observability](@/glossary/observability.md) pillar and the primary tool for long-term trend analysis, alerting, capacity planning, and real-time dashboards.
 
 Metrics operate at a fundamentally different level of abstraction than logs or traces. A log entry says "this specific request failed with this error." A trace shows "this specific request took this path through the system." A metric says "in the last minute, 5% of all requests failed" or "p99 latency is 250ms." This aggregate perspective makes metrics indispensable for understanding system-wide behavior, detecting gradual degradation, and forecasting resource needs. Metrics are typically the first signal that something is wrong (alerting) and the last data consulted when capacity planning months ahead.
 
@@ -160,11 +160,11 @@ The Prismatic Platform tracks metrics across 13 quality domains, maintaining a p
 | 95-98% | CRITICAL | Auto-evolution trigger |
 | <95% | EMERGENCY | Block commits + escalate |
 
-- **Agent Performance Metrics**: Each of the 434 AIAD [agents](/glossary/agent/) emits execution metrics including duration, success rate, and resource consumption. These metrics power per-agent performance dashboards.
-- **Storage Layer Metrics**: Every storage adapter ([Ecto](/glossary/ecto/), ETS, Meilisearch, KuzuDB) emits query duration and result count metrics, enabling storage performance monitoring and optimization.
-- **Security Rating Metrics**: The [Perimeter](/glossary/easm/) module tracks security scores over time using [TimescaleDB](/glossary/timescaledb/) for time-series storage, enabling trend analysis and regression detection.
-- **[Broadway](/glossary/broadway/) Pipeline Metrics**: Data pipeline throughput, processing latency, and batch sizes are tracked as metrics for pipeline capacity planning.
-- **[QDP](/glossary/qdp/) Tracking**: Quality Debt Points are tracked as a key platform metric, with the elimination of 905 QDP through [CASCADE](/glossary/cascade-pattern/) patterns being a signature achievement.
+- **Agent Performance Metrics**: Each of the 434 AIAD [agents](@/glossary/agent.md) emits execution metrics including duration, success rate, and resource consumption. These metrics power per-agent performance dashboards.
+- **Storage Layer Metrics**: Every storage adapter ([Ecto](@/glossary/ecto.md), ETS, Meilisearch, KuzuDB) emits query duration and result count metrics, enabling storage performance monitoring and optimization.
+- **Security Rating Metrics**: The [Perimeter](@/glossary/easm.md) module tracks security scores over time using [TimescaleDB](@/glossary/timescaledb.md) for time-series storage, enabling trend analysis and regression detection.
+- **[Broadway](@/glossary/broadway.md) Pipeline Metrics**: Data pipeline throughput, processing latency, and batch sizes are tracked as metrics for pipeline capacity planning.
+- **[QDP](@/glossary/qdp.md) Tracking**: Quality Debt Points are tracked as a key platform metric, with the elimination of 905 QDP through [CASCADE](@/glossary/cascade-pattern.md) patterns being a signature achievement.
 
 ## Metric Naming Conventions
 
@@ -271,22 +271,22 @@ Effective alerting requires careful threshold selection and multi-signal correla
 
 ## Related Terms
 
-- [Observability](/glossary/observability/) - Metrics are one of the three observability pillars
-- [Structured Logging](/glossary/structured-logging/) - Complementary per-event records alongside aggregate metrics
-- [Distributed Tracing](/glossary/distributed-tracing/) - Per-request path analysis complementing aggregate metrics
-- [TimescaleDB](/glossary/timescaledb/) - Time-series database for metric storage and analysis
-- [QDP](/glossary/qdp/) - Quality debt tracked as a key platform metric
-- [Autoheal](/glossary/autoheal/) - Healing operations triggered by metric anomalies
-- [Autoevolve](/glossary/autoevolve/) - Evolution triggered by quality metric trends
-- [Broadway](/glossary/broadway/) - Pipeline with built-in throughput and latency metrics
-- [PostgreSQL](/glossary/postgresql/) - Database with query performance metrics via Ecto telemetry
-- [Cluster](/glossary/cluster/) - Per-node metrics in distributed BEAM deployments
+- [Observability](@/glossary/observability.md) - Metrics are one of the three observability pillars
+- [Structured Logging](@/glossary/structured-logging.md) - Complementary per-event records alongside aggregate metrics
+- [Distributed Tracing](@/glossary/distributed-tracing.md) - Per-request path analysis complementing aggregate metrics
+- [TimescaleDB](@/glossary/timescaledb.md) - Time-series database for metric storage and analysis
+- [QDP](@/glossary/qdp.md) - Quality debt tracked as a key platform metric
+- [Autoheal](@/glossary/autoheal.md) - Healing operations triggered by metric anomalies
+- [Autoevolve](@/glossary/autoevolve.md) - Evolution triggered by quality metric trends
+- [Broadway](@/glossary/broadway.md) - Pipeline with built-in throughput and latency metrics
+- [PostgreSQL](@/glossary/postgresql.md) - Database with query performance metrics via Ecto telemetry
+- [Cluster](@/glossary/cluster.md) - Per-node metrics in distributed BEAM deployments
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform metrics and monitoring architecture
-- [Technologies](/technologies/) - Telemetry.Metrics and Prometheus integration
-- [Capabilities](/capabilities/) - Quality monitoring and self-healing capabilities
+- [Architecture](@/architecture/_index.md) - Platform metrics and monitoring architecture
+- [Technologies](@/technologies/_index.md) - Telemetry.Metrics and Prometheus integration
+- [Capabilities](@/capabilities/_index.md) - Quality monitoring and self-healing capabilities
 
 ---
 
@@ -295,4 +295,4 @@ Effective alerting requires careful threshold selection and multi-signal correla
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

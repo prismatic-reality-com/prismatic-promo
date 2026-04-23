@@ -39,7 +39,7 @@ glossary_terms = ["elixir", "otp", "genserver", "liveview", "ets"]
 
 ## Abstract
 
-Narcissistic offender handling — An academic treatment of crisis management and negotiation science within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **narcissistic offender handling** as implemented within the Prismatic Platform's crisis management and negotiation science domain. We formalize the problem space through the lens of behavioral change stairway model and active listening, propose a multi-agent architecture leveraging [OTP](/glossary/otp/) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates motivational interviewing, cognitive behavioral intervention, behavioral threat assessment to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for crisis management and negotiation science.
+Narcissistic offender handling — An academic treatment of crisis management and negotiation science within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation. This paper presents a comprehensive analysis of **narcissistic offender handling** as implemented within the Prismatic Platform's crisis management and negotiation science domain. We formalize the problem space through the lens of behavioral change stairway model and active listening, propose a multi-agent architecture leveraging [OTP](@/glossary/otp.md) supervision trees and blackboard-based coordination, and evaluate the system against established benchmarks in the field. Our approach integrates motivational interviewing, cognitive behavioral intervention, behavioral threat assessment to achieve transparent, replayable decision-making with quantified uncertainty bounds. Experimental results demonstrate significant improvements in both accuracy and interpretability compared to baseline approaches, while maintaining sub-100ms response latencies required for production deployment. The implementation contributes to the broader goal of building trustworthy, auditable AI systems for crisis management and negotiation science.
 
 **Keywords:** Narcissistic, offender, handling, Prismatic-native, Crisis, Intervention
 
@@ -115,7 +115,7 @@ The narcissistic offender handling system is implemented as a Prismatic-native a
 
 ### 3.2 OTP Process Topology
 
-The system leverages [Elixir](/glossary/elixir/)/OTP's supervision tree pattern for fault-tolerant operation:
+The system leverages [Elixir](@/glossary/elixir.md)/OTP's supervision tree pattern for fault-tolerant operation:
 
 ```elixir
 defmodule NarcissisticOffenderHandling.Supervisor do
@@ -152,7 +152,7 @@ The system employs a heterogeneous agent ensemble where each agent specializes i
 
 ### 3.4 Blackboard Coordination
 
-Agents communicate through a shared blackboard implemented as an [ETS](/glossary/ets/)-backed [GenServer](/glossary/genserver/) with PubSub notifications:
+Agents communicate through a shared blackboard implemented as an [ETS](@/glossary/ets.md)-backed [GenServer](@/glossary/genserver.md) with PubSub notifications:
 
 ```elixir
 # Agent posts finding to blackboard
@@ -216,7 +216,7 @@ The implementation leverages the Prismatic Platform's technology stack:
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
 | Runtime | Elixir 1.19+ / OTP 27 | Fault-tolerant concurrent processing |
-| Web Layer | Phoenix [LiveView](/glossary/liveview/) | Real-time interactive dashboards |
+| Web Layer | Phoenix [LiveView](@/glossary/liveview.md) | Real-time interactive dashboards |
 | Storage | PostgreSQL + ETS | Persistent + in-memory storage |
 | Search | Meilisearch | Full-text search and indexing |
 | Styling | TailwindCSS + Flowbite | Consistent UI component library |
@@ -464,19 +464,19 @@ config :prismatic, NarcissisticOffenderHandling,
 
 Explore related applications across the Prismatic Platform ecosystem:
 
-- [Sales objection handling](/applications/business-organizational-training/sales-objection-handling/) — *Business Organizational Training*
-- [After-action review automation](/applications/defense-security/after-action-review-automation/) — *Defense Security*
-- [Podcast conversational coach](/applications/communication-media/podcast-conversational-coach/) — *Communication Media*
-- [Public statement contradiction check](/applications/communication-media/public-statement-contradiction-check/) — *Communication Media*
+- [Sales objection handling](@/applications/business-organizational-training/sales-objection-handling.md) — *Business Organizational Training*
+- [After-action review automation](@/applications/defense-security/after-action-review-automation.md) — *Defense Security*
+- [Podcast conversational coach](@/applications/communication-media/podcast-conversational-coach.md) — *Communication Media*
+- [Public statement contradiction check](@/applications/communication-media/public-statement-contradiction-check.md) — *Communication Media*
 
 
 ## Further Reading
 
-- [Crisis Intervention Negotiation — All Applications](/applications/crisis-intervention-negotiation/)
-- [Defense Security](/applications/defense-security/)
-- [Psychology Psychiatry](/applications/psychology-psychiatry/)
-- [Medical Healthcare Systems](/applications/medical-healthcare-systems/)
-- [Prismatic Application Catalogue](/applications/)
+- [Crisis Intervention Negotiation — All Applications](@/applications/crisis-intervention-negotiation/_index.md)
+- [Defense Security](@/applications/defense-security/_index.md)
+- [Psychology Psychiatry](@/applications/psychology-psychiatry/_index.md)
+- [Medical Healthcare Systems](@/applications/medical-healthcare-systems/_index.md)
+- [Prismatic Application Catalogue](@/applications/_index.md)
 
 
 ---
@@ -486,4 +486,4 @@ Explore related applications across the Prismatic Platform ecosystem:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

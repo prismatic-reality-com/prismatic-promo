@@ -36,9 +36,9 @@ image_alt = "Claude AI - Prismatic Platform"
 
 ## Definition
 
-**Claude AI** is a family of large language models (LLMs) developed by Anthropic, designed with a focus on safety, helpfulness, and honesty. Within the Prismatic Platform, Claude AI -- specifically the Claude Opus 4.6 model -- serves as the primary intelligence engine powering 530+ [AIAD](/glossary/aiad/) agents, the [Claude Code](/glossary/claude-code/) CLI development interface, automated code generation, quality enforcement, and epistemic reasoning through the [NABLA Infinity](/glossary/nabla-infinity/) framework.
+**Claude AI** is a family of large language models (LLMs) developed by Anthropic, designed with a focus on safety, helpfulness, and honesty. Within the Prismatic Platform, Claude AI -- specifically the Claude Opus 4.6 model -- serves as the primary intelligence engine powering 530+ [AIAD](@/glossary/aiad.md) agents, the [Claude Code](@/glossary/claude-code.md) CLI development interface, automated code generation, quality enforcement, and epistemic reasoning through the [NABLA Infinity](@/glossary/nabla-infinity.md) framework.
 
-Claude AI is not merely an integration point in the platform -- it is the cognitive substrate upon which the entire agent ecosystem operates. Every agent specification, every quality gate evaluation, every strategic decision, and every code modification flows through Claude's reasoning capabilities, governed by the [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine and the chain of command authority structure.
+Claude AI is not merely an integration point in the platform -- it is the cognitive substrate upon which the entire agent ecosystem operates. Every agent specification, every quality gate evaluation, every strategic decision, and every code modification flows through Claude's reasoning capabilities, governed by the [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine and the chain of command authority structure.
 
 ## Overview
 
@@ -50,11 +50,11 @@ The Prismatic Platform leverages Claude AI across multiple dimensions:
 
 2. **Agent Intelligence**: All 530+ AIAD agents use Claude's reasoning capabilities as their cognitive engine. When an agent needs to analyze code, evaluate quality, assess security, or make architectural decisions, Claude provides the underlying intelligence.
 
-3. **Quality Enforcement**: The [quality gate](/glossary/quality-gate/) system uses Claude for nuanced evaluation that goes beyond pattern matching -- understanding code intent, identifying subtle bugs, and assessing architectural fit.
+3. **Quality Enforcement**: The [quality gate](@/glossary/quality-gate.md) system uses Claude for nuanced evaluation that goes beyond pattern matching -- understanding code intent, identifying subtle bugs, and assessing architectural fit.
 
 4. **Epistemic Reasoning**: The NABLA Infinity framework relies on Claude's ability to maintain multiple hypotheses, preserve contradictions, and reason under uncertainty -- capabilities that align with Anthropic's focus on honest reasoning.
 
-5. **Local AI Fallback**: When Claude API is unavailable or for privacy-sensitive operations, the platform falls back to local [Ollama](/glossary/ollama/) models (qwen3-coder, deepseek-coder) while maintaining the same agent interfaces.
+5. **Local AI Fallback**: When Claude API is unavailable or for privacy-sensitive operations, the platform falls back to local [Ollama](@/glossary/ollama.md) models (qwen3-coder, deepseek-coder) while maintaining the same agent interfaces.
 
 ### Claude Model Family
 
@@ -364,7 +364,7 @@ end
 
 ### Claude Code CLI Integration
 
-[Claude Code](/glossary/claude-code/) is Anthropic's official CLI tool that provides the primary developer interface for the Prismatic Platform:
+[Claude Code](@/glossary/claude-code.md) is Anthropic's official CLI tool that provides the primary developer interface for the Prismatic Platform:
 
 | Feature | Description | Platform Usage |
 |---------|-------------|---------------|
@@ -378,7 +378,7 @@ end
 
 ### Ollama Fallback Architecture
 
-The platform maintains local AI capability through [Ollama](/glossary/ollama/) as a transparent fallback:
+The platform maintains local AI capability through [Ollama](@/glossary/ollama.md) as a transparent fallback:
 
 ```
 Request ──> Claude API Available? ──YES──> Claude Opus 4.6
@@ -446,9 +446,9 @@ Claude AI is the foundational intelligence layer of the entire platform:
 
 **Agent Orchestration**: The 530+ AIAD agents use Claude's reasoning for their cognitive operations. When the `quality-guardian` agent evaluates code quality, it constructs a prompt from the agent specification, sends it to Claude, and interprets the structured response to make quality decisions.
 
-**Epistemic Framework**: The [NABLA Infinity](/glossary/nabla-infinity/) framework's axiom enforcement relies on Claude's ability to reason about evidence, preserve contradictions, and maintain multiple hypotheses -- capabilities that are central to Anthropic's model design philosophy.
+**Epistemic Framework**: The [NABLA Infinity](@/glossary/nabla-infinity.md) framework's axiom enforcement relies on Claude's ability to reason about evidence, preserve contradictions, and maintain multiple hypotheses -- capabilities that are central to Anthropic's model design philosophy.
 
-**Continuous Evolution**: The platform's `autoevolve` system uses Claude to analyze codebase patterns, identify improvement opportunities, and generate evolution proposals. Each proposal passes through the [Trinity Gate](/glossary/trinity-gate/) before execution.
+**Continuous Evolution**: The platform's `autoevolve` system uses Claude to analyze codebase patterns, identify improvement opportunities, and generate evolution proposals. Each proposal passes through the [Trinity Gate](@/glossary/trinity-gate.md) before execution.
 
 **Documentation Generation**: All 1,800+ promo site pages, agent specifications, and policy documents are authored through Claude Code sessions, ensuring consistency with platform standards.
 
@@ -515,23 +515,23 @@ Developers use Claude Code in interactive sessions to explore the platform's arc
 
 ## Related Concepts
 
-- [Claude Code](/glossary/claude-code/) -- Anthropic's CLI tool that provides the developer interface
-- [LLM](/glossary/llm/) -- Large Language Model: the class of AI models Claude belongs to
-- [AI Model](/glossary/ai-model/) -- General concept of trained machine learning models
-- [AI Inference](/glossary/ai-inference/) -- The process of running a trained model to produce outputs
-- [Prompt Engineering](/glossary/prompt-engineering/) -- Techniques for crafting effective Claude prompts
-- [Ollama](/glossary/ollama/) -- Local AI runtime used as Claude fallback
-- [AI Agent](/glossary/ai-agent/) -- Autonomous entities powered by Claude's intelligence
-- [Agent Orchestration](/glossary/agent-orchestration/) -- Coordinating multiple Claude-powered agents
-- [AIAD](/glossary/aiad/) -- Agent framework that defines how Claude is used by each agent
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework leveraging Claude's reasoning
+- [Claude Code](@/glossary/claude-code.md) -- Anthropic's CLI tool that provides the developer interface
+- [LLM](@/glossary/llm.md) -- Large Language Model: the class of AI models Claude belongs to
+- [AI Model](@/glossary/ai-model.md) -- General concept of trained machine learning models
+- [AI Inference](@/glossary/ai-inference.md) -- The process of running a trained model to produce outputs
+- [Prompt Engineering](@/glossary/prompt-engineering.md) -- Techniques for crafting effective Claude prompts
+- [Ollama](@/glossary/ollama.md) -- Local AI runtime used as Claude fallback
+- [AI Agent](@/glossary/ai-agent.md) -- Autonomous entities powered by Claude's intelligence
+- [Agent Orchestration](@/glossary/agent-orchestration.md) -- Coordinating multiple Claude-powered agents
+- [AIAD](@/glossary/aiad.md) -- Agent framework that defines how Claude is used by each agent
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework leveraging Claude's reasoning
 
 ## See Also
 
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- Doctrine that governs Claude's behavior in the platform
-- [Trinity Gate](/glossary/trinity-gate/) -- Validation system for Claude-generated claims
-- [Quality Gate](/glossary/quality-gate/) -- Gates enforced through Claude-powered analysis
-- [Autoevolve](/glossary/autoevolve/) -- Evolution system using Claude for improvement proposals
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- Doctrine that governs Claude's behavior in the platform
+- [Trinity Gate](@/glossary/trinity-gate.md) -- Validation system for Claude-generated claims
+- [Quality Gate](@/glossary/quality-gate.md) -- Gates enforced through Claude-powered analysis
+- [Autoevolve](@/glossary/autoevolve.md) -- Evolution system using Claude for improvement proposals
 
 ---
 
@@ -540,4 +540,4 @@ Developers use Claude Code in interactive sessions to explore the platform's arc
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

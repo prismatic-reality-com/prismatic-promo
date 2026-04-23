@@ -561,24 +561,24 @@ export RELEASE_NODE="prismatic@${FLY_PRIVATE_IP:-127.0.0.1}"
 
 ## Related Terms
 
-- [Cluster](/glossary/cluster/) -- distributed node group using Erlang cookie authentication
-- [Authentication](/glossary/authentication/) -- identity verification (cookies are one mechanism)
-- [Session](/glossary/session/) -- stateful user interaction managed via cookies
-- [CSRF](/glossary/csrf/) -- cross-site request forgery prevented by cookie SameSite and tokens
-- [Configuration](/glossary/configuration/) -- cookie configuration management across environments
-- [Cipher Suite](/glossary/cipher-suite/) -- TLS encryption for cookie transport and distribution
-- [HTTP](/glossary/http/) -- protocol carrying cookie headers (Set-Cookie, Cookie)
-- [Plug](/glossary/plug/) -- middleware framework managing cookie lifecycle in Phoenix
-- [Phoenix](/glossary/phoenix/) -- web framework with built-in cookie security
-- [TLS](/glossary/tls/) -- transport security for cookie transmission
-- [XSS](/glossary/xss/) -- attack vector mitigated by HttpOnly cookies
-- [Security](/glossary/security/) -- overall security architecture including cookie hardening
+- [Cluster](@/glossary/cluster.md) -- distributed node group using Erlang cookie authentication
+- [Authentication](@/glossary/authentication.md) -- identity verification (cookies are one mechanism)
+- [Session](@/glossary/session.md) -- stateful user interaction managed via cookies
+- [CSRF](@/glossary/csrf.md) -- cross-site request forgery prevented by cookie SameSite and tokens
+- [Configuration](@/glossary/configuration.md) -- cookie configuration management across environments
+- [Cipher Suite](@/glossary/cipher-suite.md) -- TLS encryption for cookie transport and distribution
+- [HTTP](@/glossary/http.md) -- protocol carrying cookie headers (Set-Cookie, Cookie)
+- [Plug](@/glossary/plug.md) -- middleware framework managing cookie lifecycle in Phoenix
+- [Phoenix](@/glossary/phoenix.md) -- web framework with built-in cookie security
+- [TLS](@/glossary/tls.md) -- transport security for cookie transmission
+- [XSS](@/glossary/xss.md) -- attack vector mitigated by HttpOnly cookies
+- [Security](@/glossary/security.md) -- overall security architecture including cookie hardening
 
 ## See Also
 
-- [Architecture](/architecture/) -- platform architecture with cookie security layers
-- [Capabilities](/capabilities/) -- platform capability security requirements
-- [Security](/glossary/security/) -- comprehensive security documentation
+- [Architecture](@/architecture/_index.md) -- platform architecture with cookie security layers
+- [Capabilities](@/capabilities/_index.md) -- platform capability security requirements
+- [Security](@/glossary/security.md) -- comprehensive security documentation
 - **Livebooks**: `livebooks/domains/platform_administration/` -- cluster management with cookie configuration
 - **Academy**: Distributed Erlang and cluster coordination topics
 
@@ -589,4 +589,4 @@ export RELEASE_NODE="prismatic@${FLY_PRIVATE_IP:-127.0.0.1}"
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -40,7 +40,7 @@ Shodan is a search engine for internet-connected devices that continuously scans
 
 Shodan's scanning methodology involves sending crafted packets to every IP address on specific ports, collecting the responses (banners), and indexing the results in a searchable database. A banner is the initial response a service sends when a connection is established -- it typically reveals the software name, version, configuration details, and sometimes even the operating system. This passive reconnaissance data is invaluable for security professionals conducting asset discovery, vulnerability assessment, and exposure monitoring without actively probing target infrastructure.
 
-The platform has become an indispensable tool in the External Attack Surface Management ([EASM](/glossary/easm/)) discipline, where organizations need to understand their externally visible footprint from an attacker's perspective. By querying Shodan for assets associated with a target organization, security teams can discover shadow IT, forgotten servers, misconfigured services, and exposed databases that the organization may not know exist. In the Prismatic Platform, Shodan serves as the primary data source for the [Prismatic Perimeter](/glossary/easm/) module's asset discovery pipeline, feeding findings into the [security rating](/glossary/security-rating/) engine that produces A-F grades for organizational security posture.
+The platform has become an indispensable tool in the External Attack Surface Management ([EASM](@/glossary/easm.md)) discipline, where organizations need to understand their externally visible footprint from an attacker's perspective. By querying Shodan for assets associated with a target organization, security teams can discover shadow IT, forgotten servers, misconfigured services, and exposed databases that the organization may not know exist. In the Prismatic Platform, Shodan serves as the primary data source for the [Prismatic Perimeter](@/glossary/easm.md) module's asset discovery pipeline, feeding findings into the [security rating](@/glossary/security-rating.md) engine that produces A-F grades for organizational security posture.
 
 ## Historical Context and Evolution
 
@@ -50,7 +50,7 @@ The early internet scanning landscape was dominated by tools like Nmap, which re
 
 Over the years, Shodan has expanded from basic port scanning and banner grabbing to include SSL/TLS certificate analysis, vulnerability tagging (matching software versions to known CVEs), screenshot capture (visual snapshots of web interfaces, RDP sessions, and VNC desktops), and specialized protocol support for industrial control systems (Modbus, DNP3, EtherNet/IP), IoT protocols (MQTT, CoAP), and database protocols (MongoDB, Elasticsearch, Redis). The platform's Shodan Monitor product provides continuous monitoring of specified IP ranges, alerting organizations when new services appear or configurations change on their assets.
 
-The ethical landscape around Shodan has evolved alongside the tool itself. Early critics viewed Shodan as a hacker's tool that made it trivially easy to find vulnerable systems. The security community now generally recognizes Shodan as a defensive tool: if Shodan can find your exposed database, so can an attacker. The difference is that Shodan enables defenders to find and fix exposures before attackers exploit them. This perspective aligns with the Prismatic Platform's philosophy of using [OSINT](/glossary/easm/) capabilities for authorized defensive security operations.
+The ethical landscape around Shodan has evolved alongside the tool itself. Early critics viewed Shodan as a hacker's tool that made it trivially easy to find vulnerable systems. The security community now generally recognizes Shodan as a defensive tool: if Shodan can find your exposed database, so can an attacker. The difference is that Shodan enables defenders to find and fix exposures before attackers exploit them. This perspective aligns with the Prismatic Platform's philosophy of using [OSINT](@/glossary/easm.md) capabilities for authorized defensive security operations.
 
 ## Scanning Capabilities
 
@@ -230,17 +230,17 @@ Shodan's data model captures rich information about each discovered host and ser
 
 ## Context in Prismatic Platform
 
-The Prismatic Platform integrates Shodan as a primary data source in the Perimeter module's [EASM](/glossary/easm/) asset discovery pipeline. When performing external attack surface management, the platform queries Shodan's API for exposed services, open ports, and banner data associated with target domains and IP ranges. The integration follows a multi-step process.
+The Prismatic Platform integrates Shodan as a primary data source in the Perimeter module's [EASM](@/glossary/easm.md) asset discovery pipeline. When performing external attack surface management, the platform queries Shodan's API for exposed services, open ports, and banner data associated with target domains and IP ranges. The integration follows a multi-step process.
 
 ### Discovery Pipeline
 
 1. **Discovery**: Query Shodan for all hosts matching target domains, IP ranges, and organization names
 2. **Enrichment**: Extract software versions, TLS configurations, and vulnerability tags from banner data
-3. **Correlation**: Cross-reference Shodan findings with [Censys](/glossary/censys/) and [GreyNoise](/glossary/greynoise/) data
-4. **Scoring**: Feed validated findings into the [risk scoring](/glossary/risk-score/) engine
-5. **Rating**: Aggregate scored findings into the organization's [security rating](/glossary/security-rating/)
+3. **Correlation**: Cross-reference Shodan findings with [Censys](@/glossary/censys.md) and [GreyNoise](@/glossary/greynoise.md) data
+4. **Scoring**: Feed validated findings into the [risk scoring](@/glossary/risk-score.md) engine
+5. **Rating**: Aggregate scored findings into the organization's [security rating](@/glossary/security-rating.md)
 
-Shodan findings feed into the platform's epistemic pipeline, where the [Signal Plurality](/glossary/signal-plurality/) axiom requires corroboration from at least one additional independent source before a finding can affect security ratings. A service detected by Shodan alone is flagged as "unconfirmed" until Censys or another source provides corroborating evidence.
+Shodan findings feed into the platform's epistemic pipeline, where the [Signal Plurality](@/glossary/signal-plurality.md) axiom requires corroboration from at least one additional independent source before a finding can affect security ratings. A service detected by Shodan alone is flagged as "unconfirmed" until Censys or another source provides corroborating evidence.
 
 ```elixir
 defmodule PrismaticPerimeter.Discovery.Pipeline do
@@ -295,7 +295,7 @@ end
 
 ### Rate Limiting and Circuit Breaker
 
-The Prismatic Platform implements sophisticated rate limiting for Shodan API calls, combining token bucket rate limiting with [circuit breaker](/glossary/circuit-breaker/) patterns to handle API failures gracefully.
+The Prismatic Platform implements sophisticated rate limiting for Shodan API calls, combining token bucket rate limiting with [circuit breaker](@/glossary/circuit-breaker.md) patterns to handle API failures gracefully.
 
 ```elixir
 defmodule PrismaticPerimeter.Sources.Shodan.RateLimiter do
@@ -348,17 +348,17 @@ The Prismatic Platform's rate limiter configuration automatically adjusts to the
 | Consideration | Description | Prismatic Approach |
 |--------------|-------------|-------------------|
 | **Authorization** | Scanning others' infrastructure may have legal implications | Query only for authorized targets |
-| **Data sensitivity** | Shodan results may reveal sensitive infrastructure details | [Encryption at rest](/glossary/encryption-at-rest/) for all stored results |
+| **Data sensitivity** | Shodan results may reveal sensitive infrastructure details | [Encryption at rest](@/glossary/encryption-at-rest.md) for all stored results |
 | **Responsible disclosure** | Discovered vulnerabilities should be reported | Integrated finding notification workflow |
 | **Terms of service** | Shodan ToS restricts certain automated usage patterns | Rate limiting and ToS-compliant queries |
-| **Data retention** | Historical data may contain outdated findings | Timestamp-based [time decay](/glossary/time-decay/) scoring |
-| **GDPR compliance** | IP addresses may constitute personal data under GDPR | [GDPR](/glossary/gdpr/)-compliant data handling and retention |
+| **Data retention** | Historical data may contain outdated findings | Timestamp-based [time decay](@/glossary/time-decay.md) scoring |
+| **GDPR compliance** | IP addresses may constitute personal data under GDPR | [GDPR](@/glossary/gdpr.md)-compliant data handling and retention |
 
-The Prismatic Platform enforces strict authorization checks before any Shodan queries are executed. The platform's color team security architecture, particularly the [Blue Team](/glossary/blue-team/) defensive posture agents, continuously monitors that OSINT collection operates within authorized boundaries. Any query targeting infrastructure outside the authorized scope triggers an immediate alert and blocks execution.
+The Prismatic Platform enforces strict authorization checks before any Shodan queries are executed. The platform's color team security architecture, particularly the [Blue Team](@/glossary/blue-team.md) defensive posture agents, continuously monitors that OSINT collection operates within authorized boundaries. Any query targeting infrastructure outside the authorized scope triggers an immediate alert and blocks execution.
 
 ## Comparison with Alternatives
 
-| Feature | Shodan | [Censys](/glossary/censys/) | [GreyNoise](/glossary/greynoise/) | BinaryEdge | ZoomEye |
+| Feature | Shodan | [Censys](@/glossary/censys.md) | [GreyNoise](@/glossary/greynoise.md) | BinaryEdge | ZoomEye |
 |---------|--------|--------|-----------|------------|---------|
 | **Primary focus** | Service/device discovery | Certificate/host scanning | Noise classification | Threat intelligence | Cyberspace mapping |
 | **Scan methodology** | Proprietary crawlers | ZMap-based | Passive sensors | Proprietary | Proprietary |
@@ -372,7 +372,7 @@ The Prismatic Platform enforces strict authorization checks before any Shodan qu
 
 ## Monitoring and Alerting
 
-Shodan Monitor provides continuous surveillance of specified network ranges. The Prismatic Platform integrates Shodan Monitor alerts into the [EASM](/glossary/easm/) continuous monitoring pipeline, triggering automated reassessment when changes are detected on monitored assets.
+Shodan Monitor provides continuous surveillance of specified network ranges. The Prismatic Platform integrates Shodan Monitor alerts into the [EASM](@/glossary/easm.md) continuous monitoring pipeline, triggering automated reassessment when changes are detected on monitored assets.
 
 | Alert Type | Trigger | Prismatic Response |
 |-----------|---------|-------------------|
@@ -383,13 +383,13 @@ Shodan Monitor provides continuous surveillance of specified network ranges. The
 
 ## Best Practices
 
-1. **Combine with multiple sources**: Never rely on Shodan alone for security assessments. The [Signal Plurality](/glossary/signal-plurality/) axiom requires corroboration from independent sources like Censys and GreyNoise.
+1. **Combine with multiple sources**: Never rely on Shodan alone for security assessments. The [Signal Plurality](@/glossary/signal-plurality.md) axiom requires corroboration from independent sources like Censys and GreyNoise.
 
 2. **Implement proper rate limiting**: Respect Shodan's API quotas to maintain reliable access. Use token bucket algorithms calibrated to your subscription tier.
 
 3. **Cache results aggressively**: Shodan data changes slowly (hours to days between scans). Caching results for 1-4 hours reduces API calls without significantly impacting accuracy.
 
-4. **Filter noise with GreyNoise**: Cross-reference Shodan findings with [GreyNoise](/glossary/greynoise/) to distinguish between genuinely exposed services and internet background noise.
+4. **Filter noise with GreyNoise**: Cross-reference Shodan findings with [GreyNoise](@/glossary/greynoise.md) to distinguish between genuinely exposed services and internet background noise.
 
 5. **Monitor continuously**: Use Shodan Monitor or periodic queries to detect changes in your external attack surface rather than relying on point-in-time snapshots.
 
@@ -397,23 +397,23 @@ Shodan Monitor provides continuous surveillance of specified network ranges. The
 
 ## Related Terms
 
-- [EASM](/glossary/easm/) -- Attack surface management consuming Shodan data as primary source
-- [Censys](/glossary/censys/) -- Complementary internet scan data source for corroboration
-- [GreyNoise](/glossary/greynoise/) -- Internet noise analysis complementing Shodan findings
-- [Attack Surface](/glossary/attack-surface/) -- The externally visible infrastructure Shodan discovers
-- [Signal Plurality](/glossary/signal-plurality/) -- Axiom requiring Shodan data corroboration
-- [Risk Score](/glossary/risk-score/) -- A-F grades informed by Shodan findings
-- [Security Rating](/glossary/security-rating/) -- Organization-level rating fed by Shodan evidence
-- [Rate Limiting](/glossary/rate-limiting/) -- API quota management for Shodan integration
-- [TLS](/glossary/tls/) -- Certificate and cipher analysis from Shodan banner data
-- [Encryption at Rest](/glossary/encryption-at-rest/) -- Protection of stored Shodan reconnaissance data
-- [Circuit Breaker](/glossary/circuit-breaker/) -- Resilience pattern for Shodan API calls
+- [EASM](@/glossary/easm.md) -- Attack surface management consuming Shodan data as primary source
+- [Censys](@/glossary/censys.md) -- Complementary internet scan data source for corroboration
+- [GreyNoise](@/glossary/greynoise.md) -- Internet noise analysis complementing Shodan findings
+- [Attack Surface](@/glossary/attack-surface.md) -- The externally visible infrastructure Shodan discovers
+- [Signal Plurality](@/glossary/signal-plurality.md) -- Axiom requiring Shodan data corroboration
+- [Risk Score](@/glossary/risk-score.md) -- A-F grades informed by Shodan findings
+- [Security Rating](@/glossary/security-rating.md) -- Organization-level rating fed by Shodan evidence
+- [Rate Limiting](@/glossary/rate-limiting.md) -- API quota management for Shodan integration
+- [TLS](@/glossary/tls.md) -- Certificate and cipher analysis from Shodan banner data
+- [Encryption at Rest](@/glossary/encryption-at-rest.md) -- Protection of stored Shodan reconnaissance data
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- Resilience pattern for Shodan API calls
 
 ## See Also
 
-- [Architecture](/architecture/) -- EASM data source architecture
-- [Apps](/apps/) -- Prismatic Perimeter application
-- [OSINT](/osint/) -- Open-source intelligence collection methodology
+- [Architecture](@/architecture/_index.md) -- EASM data source architecture
+- [Apps](@/apps/_index.md) -- Prismatic Perimeter application
+- [OSINT](@/osint/_index.md) -- Open-source intelligence collection methodology
 
 ---
 
@@ -422,4 +422,4 @@ Shodan Monitor provides continuous surveillance of specified network ranges. The
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

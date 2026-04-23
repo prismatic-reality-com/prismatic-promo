@@ -27,9 +27,9 @@ image_alt = "SUKL - Prismatic Platform"
 
 SUKL (Statni ustav pro kontrolu leciv, the State Institute for Drug Control) is the Czech Republic's pharmaceutical regulatory authority, operating under Act No. 378/2007 Coll. (on Pharmaceuticals). SUKL maintains comprehensive registries of all authorized medicinal products, licensed pharmacies, clinical trials, pharmaceutical distributors, and adverse drug events in the Czech Republic. As the national competent authority under EU pharmaceutical legislation, SUKL data integrates with the European Medicines Agency (EMA) databases and participates in pan-European regulatory networks.
 
-For [OSINT](/glossary/osint/) purposes, SUKL provides essential intelligence for healthcare sector analysis, pharmaceutical company profiling, clinical trial tracking, and supply chain verification. The pharmacy and distributor registries enable verification of licensed entities in the pharmaceutical supply chain, while the drug [registry](/glossary/registry-otp/) reveals product portfolios and market authorization status. This data is critical for compliance screening in the heavily regulated pharmaceutical sector, where unauthorized distribution or counterfeit medicines represent both legal and public health risks.
+For [OSINT](@/glossary/osint.md) purposes, SUKL provides essential intelligence for healthcare sector analysis, pharmaceutical company profiling, clinical trial tracking, and supply chain verification. The pharmacy and distributor registries enable verification of licensed entities in the pharmaceutical supply chain, while the drug [registry](@/glossary/registry-otp.md) reveals product portfolios and market authorization status. This data is critical for compliance screening in the heavily regulated pharmaceutical sector, where unauthorized distribution or counterfeit medicines represent both legal and public health risks.
 
-The breadth of SUKL's data coverage makes it uniquely valuable for cross-domain intelligence. When combined with entity data from [ARES](/osint/ares/) and [Justice.cz](/osint/justice-cz/), SUKL licensing data validates that pharmaceutical companies actually hold the authorizations they claim. When combined with [EU Sanctions](/osint/eu-sanctions/) screening, it identifies entities that may be subject to trade restrictions on pharmaceutical products. This multi-registry approach is central to the Prismatic platform's Czech entity intelligence capabilities.
+The breadth of SUKL's data coverage makes it uniquely valuable for cross-domain intelligence. When combined with entity data from [ARES](@/osint/ares.md) and [Justice.cz](@/osint/justice-cz.md), SUKL licensing data validates that pharmaceutical companies actually hold the authorizations they claim. When combined with [EU Sanctions](@/osint/eu-sanctions.md) screening, it identifies entities that may be subject to trade restrictions on pharmaceutical products. This multi-registry approach is central to the Prismatic platform's Czech entity intelligence capabilities.
 
 ## Data Coverage
 
@@ -271,19 +271,19 @@ ATC-based analysis provides strategic intelligence for multiple use cases:
 ### Supply Chain Compliance
 - Verify pharmacy and distributor licensing status for supply chain integrity
 - Ensure supply chain integrity for pharmaceutical products under FMD serialization
-- Cross-reference with [ARES](/osint/ares/) and [RZP](/osint/rzp/) for entity verification
-- [NIS2](/glossary/nis2/) healthcare sector compliance for critical infrastructure operators
+- Cross-reference with [ARES](@/osint/ares.md) and [RZP](@/osint/rzp.md) for entity verification
+- [NIS2](@/glossary/nis2.md) healthcare sector compliance for critical infrastructure operators
 
 ### Healthcare Sector Analysis
 - Pharmacy density and geographic coverage mapping for underserved area identification
 - Distributor network analysis and concentration assessment
-- Combine with [CNB](/osint/cnb/) for health insurance entity verification
+- Combine with [CNB](@/osint/cnb.md) for health insurance entity verification
 - Healthcare sector M&A due diligence with product portfolio analysis
 
 ### Due Diligence
 - Verify pharmaceutical company claims about product portfolios and market authorizations
 - Assess clinical trial activity as an indicator of R&D investment and pipeline strength
-- Cross-reference distributor licenses with corporate entity data from [VR.cz](/osint/vr-cz/)
+- Cross-reference distributor licenses with corporate entity data from [VR.cz](@/osint/vr-cz.md)
 - Identify undisclosed regulatory actions (suspensions, withdrawals) during M&A review
 
 ### Adverse Event Monitoring
@@ -294,18 +294,18 @@ ATC-based analysis provides strategic intelligence for multiple use cases:
 
 ## Related Sources
 
-- [ARES](/osint/ares/) - Entity identification for pharmaceutical companies
-- [RZP](/osint/rzp/) - Trade license verification for pharmacies
-- [Justice.cz](/osint/justice-cz/) - Corporate details of pharma companies
-- [CEDR](/osint/cedr/) - Healthcare sector subsidies
-- [EU Sanctions](/osint/eu-sanctions/) - [Sanctions screening](/glossary/sanctions-screening/) for pharma entities
-- [VR.cz](/osint/vr-cz/) - Unified registry for entity verification
-- [Insolvency Register](/osint/insolvencni-rejstrik/) - Financial health of pharma entities
+- [ARES](@/osint/ares.md) - Entity identification for pharmaceutical companies
+- [RZP](@/osint/rzp.md) - Trade license verification for pharmacies
+- [Justice.cz](@/osint/justice-cz.md) - Corporate details of pharma companies
+- [CEDR](@/osint/cedr.md) - Healthcare sector subsidies
+- [EU Sanctions](@/osint/eu-sanctions.md) - [Sanctions screening](@/glossary/sanctions-screening.md) for pharma entities
+- [VR.cz](@/osint/vr-cz.md) - Unified registry for entity verification
+- [Insolvency Register](@/osint/insolvencni-rejstrik.md) - Financial health of pharma entities
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Healthcare sector compliance assessment
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Healthcare sector compliance assessment
 
 ---
 
@@ -314,4 +314,4 @@ ATC-based analysis provides strategic intelligence for multiple use cases:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

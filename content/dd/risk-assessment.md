@@ -36,7 +36,7 @@ The Risk Assessment Framework translates raw investigative findings from the Pri
 
 ### From Data to Decision
 
-Due diligence investigations collect vast quantities of data from [122 OSINT sources](/dd/osint-integration/), [30+ Czech registries](/dd/czech-registries/), and [graph analysis](/dd/graph-analysis/) traversals. Without a systematic framework for translating this data into actionable risk assessments, decision-makers are confronted with information overload rather than intelligence. The Risk Assessment Framework bridges the gap between evidence collection and decision support by providing a structured, reproducible, and auditable methodology for computing risk scores that directly inform M&A go/no-go decisions, compliance determinations, and counterparty acceptance.
+Due diligence investigations collect vast quantities of data from [122 OSINT sources](@/dd/osint-integration.md), [30+ Czech registries](@/dd/czech-registries.md), and [graph analysis](@/dd/graph-analysis.md) traversals. Without a systematic framework for translating this data into actionable risk assessments, decision-makers are confronted with information overload rather than intelligence. The Risk Assessment Framework bridges the gap between evidence collection and decision support by providing a structured, reproducible, and auditable methodology for computing risk scores that directly inform M&A go/no-go decisions, compliance determinations, and counterparty acceptance.
 
 ### Design Goals
 
@@ -57,15 +57,15 @@ Financial risk assessment evaluates the target entity's financial health, stabil
 
 | Indicator | Source | Scoring Impact |
 |-----------|--------|---------------|
-| Insolvency proceedings | [ISIR](/osint/insolvencni-rejstrik/) | Active insolvency: +80; Historical: +30 |
+| Insolvency proceedings | [ISIR](@/osint/insolvencni-rejstrik.md) | Active insolvency: +80; Historical: +30 |
 | Tax arrears | DPH unreliable payer flag | Flagged: +60; Clean: 0 |
-| Registered capital adequacy | [Justice.cz](/osint/justice-cz/) | Below industry norm: +20-40 |
-| Subsidy dependency | [CEDR](/osint/cedr/), [SZIF](/osint/szif/) | >50% revenue from subsidies: +30 |
-| Public contract concentration | [Registr Smluv](/osint/registr-smluv/) | >70% revenue from single client: +25 |
+| Registered capital adequacy | [Justice.cz](@/osint/justice-cz.md) | Below industry norm: +20-40 |
+| Subsidy dependency | [CEDR](@/osint/cedr.md), [SZIF](@/osint/szif.md) | >50% revenue from subsidies: +30 |
+| Public contract concentration | [Registr Smluv](@/osint/registr-smluv.md) | >70% revenue from single client: +25 |
 | Enforcement proceedings | Czech court records | Active: +40; Historical: +15 |
 | Financial statement filing | Justice.cz | Missing filings: +20 per year |
 
-The financial dimension draws primarily from Czech registry data, making it one of the most robust dimensions for entities registered in the Czech Republic. For international entities, the platform supplements with data from [OpenCorporates](/osint/open-corporates/), [SEC EDGAR](/osint/sec-edgar/), and credit reporting services.
+The financial dimension draws primarily from Czech registry data, making it one of the most robust dimensions for entities registered in the Czech Republic. For international entities, the platform supplements with data from [OpenCorporates](@/osint/open-corporates.md), [SEC EDGAR](@/osint/sec-edgar.md), and credit reporting services.
 
 ### Legal Risk (Weight: 20%)
 
@@ -75,24 +75,24 @@ Legal risk captures exposure to litigation, regulatory action, sanctions, and ot
 
 | Indicator | Source | Scoring Impact |
 |-----------|--------|---------------|
-| Active court proceedings | Czech courts, [Hlidac Statu](/osint/hlidac-statu/) | Material proceedings: +30-60 |
-| Sanctions matches | [OFAC](/osint/ofac/), [EU Sanctions](/osint/eu-sanctions/), [UN Sanctions](/osint/un-sanctions/) | Direct match: +100; Proximity: +40-70 |
+| Active court proceedings | Czech courts, [Hlidac Statu](@/osint/hlidac-statu.md) | Material proceedings: +30-60 |
+| Sanctions matches | [OFAC](@/osint/ofac.md), [EU Sanctions](@/osint/eu-sanctions.md), [UN Sanctions](@/osint/un-sanctions.md) | Direct match: +100; Proximity: +40-70 |
 | PEP connections | PEP screening databases | Direct PEP: +50; PEP associate: +25 |
-| Regulatory actions | Sector regulators ([UOHS](/osint/uohs/), [ERU](/osint/eru/), [SUKL](/osint/sukl/)) | Enforcement action: +40; Warning: +15 |
+| Regulatory actions | Sector regulators ([UOHS](@/osint/uohs.md), [ERU](@/osint/eru.md), [SUKL](@/osint/sukl.md)) | Enforcement action: +40; Warning: +15 |
 | Historical legal issues | Court archives | Pattern of litigation: +20-40 |
-| License status | [RZP](/osint/rzp/), sector regulators | Suspended/revoked: +60; Expired: +30 |
+| License status | [RZP](@/osint/rzp.md), sector regulators | Suspended/revoked: +60; Expired: +30 |
 
 Sanctions screening is performed against all three major sanctions lists (OFAC SDN, EU Consolidated, UN Security Council) plus national PEP databases. A direct sanctions match on the target entity or any of its beneficial owners immediately elevates the overall risk rating to F regardless of other dimension scores.
 
 ### Ownership Risk (Weight: 15%)
 
-Ownership risk evaluates the transparency and governance quality of the entity's ownership structure, drawing heavily from [graph analysis](/dd/graph-analysis/) results.
+Ownership risk evaluates the transparency and governance quality of the entity's ownership structure, drawing heavily from [graph analysis](@/dd/graph-analysis.md) results.
 
 **Assessment Criteria**:
 
 | Indicator | Source | Scoring Impact |
 |-----------|--------|---------------|
-| Beneficial ownership opacity | [Graph analysis](/dd/graph-analysis/) | Unknown UBO: +70; Partial disclosure: +30 |
+| Beneficial ownership opacity | [Graph analysis](@/dd/graph-analysis.md) | Unknown UBO: +70; Partial disclosure: +30 |
 | Nominee structures | Director network analysis | Detected nominee pattern: +50 |
 | Circular ownership | Graph cycle detection | Detected: +60 |
 | Offshore holding layers | Jurisdictional analysis | 3+ offshore layers: +40 |
@@ -100,7 +100,7 @@ Ownership risk evaluates the transparency and governance quality of the entity's
 | Shell company indicators | Address clustering | Mass registration address: +40 |
 | PEP as UBO | PEP screening + ownership chain | PEP beneficial owner: +50 |
 
-The ownership dimension leverages the platform's [graph analysis engine](/dd/graph-analysis/) extensively. Multi-layered holding structures through opacity jurisdictions, combined with high change velocity, produce the highest ownership risk scores.
+The ownership dimension leverages the platform's [graph analysis engine](@/dd/graph-analysis.md) extensively. Multi-layered holding structures through opacity jurisdictions, combined with high change velocity, produce the highest ownership risk scores.
 
 ### Operational Risk (Weight: 15%)
 
@@ -115,7 +115,7 @@ Operational risk assesses the entity's ability to sustain business operations an
 | Supply chain concentration | Contract analysis | >60% from single supplier: +25 |
 | Age and track record | Formation date | <2 years: +20; >10 years: -10 |
 | Employee base | Statistical registry (RES) | 0 employees registered: +30 |
-| Virtual office registration | Address analysis, [CUZK](/osint/cuzk/) | Virtual office: +15 |
+| Virtual office registration | Address analysis, [CUZK](@/osint/cuzk.md) | Virtual office: +15 |
 
 ### Compliance Risk (Weight: 10%)
 
@@ -126,7 +126,7 @@ Compliance risk measures adherence to applicable regulatory frameworks and the e
 | Indicator | Source | Scoring Impact |
 |-----------|--------|---------------|
 | Regulatory compliance history | Sector regulators | Violations: +20-50 |
-| License currency | [RZP](/osint/rzp/), sector registries | All current: 0; Gaps: +30 |
+| License currency | [RZP](@/osint/rzp.md), sector registries | All current: 0; Gaps: +30 |
 | Filing compliance | Justice.cz, Tax administration | Missing filings: +20 per item |
 | Data protection | GDPR assessments | Known violations: +30 |
 | Industry-specific requirements | Sector databases | Non-compliance: +25-50 |
@@ -139,10 +139,10 @@ Reputational risk evaluates the entity's public perception and association with 
 
 | Indicator | Source | Scoring Impact |
 |-----------|--------|---------------|
-| Negative media coverage | News APIs, [Hlidac Statu](/osint/hlidac-statu/) | Significant controversy: +30-50 |
+| Negative media coverage | News APIs, [Hlidac Statu](@/osint/hlidac-statu.md) | Significant controversy: +30-50 |
 | Social media sentiment | Social monitoring | Persistent negative sentiment: +20 |
 | Industry reputation | Trade associations, ratings | Poor standing: +25 |
-| Association with controversial entities | [Graph analysis](/dd/graph-analysis/) | Direct association: +30 |
+| Association with controversial entities | [Graph analysis](@/dd/graph-analysis.md) | Direct association: +30 |
 | ESG concerns | ESG databases | Material concerns: +20-40 |
 
 ### Cyber Risk (Weight: 10%)
@@ -153,13 +153,13 @@ Cyber risk assesses the entity's digital security posture and exposure to cyber 
 
 | Indicator | Source | Scoring Impact |
 |-----------|--------|---------------|
-| Data breach history | [HIBP](/osint/haveibeenpwned/) | Recent breach: +40; Historical: +15 |
-| Domain security | [SecurityTrails](/osint/securitytrails/), [crt.sh](/osint/crtsh/) | Missing HTTPS: +20; Expired cert: +30 |
-| Infrastructure exposure | [Shodan](/osint/shodan/), [Censys](/osint/censys/) | Critical exposures: +40-60 |
+| Data breach history | [HIBP](@/osint/haveibeenpwned.md) | Recent breach: +40; Historical: +15 |
+| Domain security | [SecurityTrails](@/osint/securitytrails.md), [crt.sh](@/osint/crtsh.md) | Missing HTTPS: +20; Expired cert: +30 |
+| Infrastructure exposure | [Shodan](@/osint/shodan.md), [Censys](@/osint/censys.md) | Critical exposures: +40-60 |
 | Email security | SPF/DKIM/DMARC analysis | Missing protections: +15 |
-| Vulnerability indicators | [VirusTotal](/osint/virustotal/), [NVD](/osint/nvd/) | Known vulnerabilities: +20-40 |
+| Vulnerability indicators | [VirusTotal](@/osint/virustotal.md), [NVD](@/osint/nvd.md) | Known vulnerabilities: +20-40 |
 
-The cyber dimension leverages the platform's [EASM capabilities](/capabilities/easm/) and [Prismatic Perimeter](/glossary/prismatic-perimeter/) integration to provide security assessment data.
+The cyber dimension leverages the platform's [EASM capabilities](@/capabilities/easm.md) and [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) integration to provide security assessment data.
 
 ## Scoring Methodology
 
@@ -177,7 +177,7 @@ The raw score is then adjusted for evidence confidence:
 dimension_adjusted_score = dimension_raw_score * evidence_confidence
 ```
 
-Where `evidence_confidence` is the average [triple-check](/dd/methodology/) confidence score of the underlying data points, ranging from 0.0 to 1.0. This ensures that risk scores based on well-verified data carry more weight than scores based on low-confidence findings.
+Where `evidence_confidence` is the average [triple-check](@/dd/methodology.md) confidence score of the underlying data points, ranging from 0.0 to 1.0. This ensures that risk scores based on well-verified data carry more weight than scores based on low-confidence findings.
 
 ### Overall Risk Score
 
@@ -216,7 +216,7 @@ Certain findings trigger automatic grade overrides regardless of the computed nu
 
 ### Evidence Quality Assessment
 
-The risk assessment framework integrates directly with the [triple-check cross-validation methodology](/dd/methodology/) to weight risk indicators by their evidentiary strength:
+The risk assessment framework integrates directly with the [triple-check cross-validation methodology](@/dd/methodology.md) to weight risk indicators by their evidentiary strength:
 
 | Evidence Quality | Confidence Range | Score Modifier |
 |-----------------|-----------------|----------------|
@@ -230,7 +230,7 @@ This approach prevents low-quality or unverified data from disproportionately in
 
 ### Missing Data Handling
 
-When data is unavailable for a risk dimension -- for example, when financial statements are not publicly filed -- the framework applies the [Absence Informative](/glossary/nabla-infinity/) principle from NABLA: the absence of data is itself informative. Missing financial data does not produce a zero financial risk score; instead, it produces an elevated score (typically +20-30) reflecting the increased uncertainty, with a reduced confidence level.
+When data is unavailable for a risk dimension -- for example, when financial statements are not publicly filed -- the framework applies the [Absence Informative](@/glossary/nabla-infinity.md) principle from NABLA: the absence of data is itself informative. Missing financial data does not produce a zero financial risk score; instead, it produces an elevated score (typically +20-30) reflecting the increased uncertainty, with a reduced confidence level.
 
 ## Temporal Risk Tracking
 
@@ -245,7 +245,7 @@ The platform maintains historical risk scores for all investigated entities, ena
 
 ### Monitoring Alerts
 
-For entities under [ongoing monitoring](/dd/case-management/), the platform generates alerts when:
+For entities under [ongoing monitoring](@/dd/case-management.md), the platform generates alerts when:
 
 - Overall risk grade changes (e.g., B to C)
 - Any dimension score changes by more than 15 points
@@ -257,7 +257,7 @@ For entities under [ongoing monitoring](/dd/case-management/), the platform gene
 
 ### M&A Decision Support
 
-In [M&A due diligence](/dd/ma-due-diligence/), risk assessments feed directly into deal evaluation:
+In [M&A due diligence](@/dd/ma-due-diligence.md), risk assessments feed directly into deal evaluation:
 
 | Risk Grade | Deal Recommendation | Typical Action |
 |------------|-------------------|---------------|
@@ -269,7 +269,7 @@ In [M&A due diligence](/dd/ma-due-diligence/), risk assessments feed directly in
 
 ### Compliance Mapping
 
-Risk assessment results map directly to [compliance framework](/dd/compliance/) requirements:
+Risk assessment results map directly to [compliance framework](@/dd/compliance.md) requirements:
 
 - **NIS2**: Supply chain risk assessment requirements satisfied by cyber and operational dimensions
 - **ZKB**: Entity verification and cybersecurity assessment requirements addressed
@@ -277,20 +277,20 @@ Risk assessment results map directly to [compliance framework](/dd/compliance/) 
 
 ## Conclusion
 
-The seven-dimensional Risk Assessment Framework provides a rigorous, evidence-based methodology for quantifying entity risk in due diligence investigations. By decomposing risk into distinct dimensions, weighting scores by evidence confidence, and providing both granular dimensional scores and an overall risk rating, the framework enables decision-makers to understand not just how risky an entity is, but specifically where the risks lie and how confident the assessment is. The integration with the platform's [triple-check methodology](/dd/methodology/) ensures that risk scores reflect verified intelligence rather than unsubstantiated indicators.
+The seven-dimensional Risk Assessment Framework provides a rigorous, evidence-based methodology for quantifying entity risk in due diligence investigations. By decomposing risk into distinct dimensions, weighting scores by evidence confidence, and providing both granular dimensional scores and an overall risk rating, the framework enables decision-makers to understand not just how risky an entity is, but specifically where the risks lie and how confident the assessment is. The integration with the platform's [triple-check methodology](@/dd/methodology.md) ensures that risk scores reflect verified intelligence rather than unsubstantiated indicators.
 
 ## References
 
-- [Triple-Check Methodology](/dd/methodology/)
-- [Graph Analysis Engine](/dd/graph-analysis/)
-- [Compliance Framework](/dd/compliance/)
-- [M&A Due Diligence](/dd/ma-due-diligence/)
-- [OSINT Integration](/dd/osint-integration/)
-- [Entity Management](/dd/entity-management/)
-- [EASM Capability](/capabilities/easm/)
-- [Security Rating](/glossary/security-rating/)
-- [Risk Score](/glossary/risk-score/)
-- [NABLA Infinity](/glossary/nabla-infinity/)
+- [Triple-Check Methodology](@/dd/methodology.md)
+- [Graph Analysis Engine](@/dd/graph-analysis.md)
+- [Compliance Framework](@/dd/compliance.md)
+- [M&A Due Diligence](@/dd/ma-due-diligence.md)
+- [OSINT Integration](@/dd/osint-integration.md)
+- [Entity Management](@/dd/entity-management.md)
+- [EASM Capability](@/capabilities/easm.md)
+- [Security Rating](@/glossary/security-rating.md)
+- [Risk Score](@/glossary/risk-score.md)
+- [NABLA Infinity](@/glossary/nabla-infinity.md)
 
 ---
 
@@ -299,4 +299,4 @@ The seven-dimensional Risk Assessment Framework provides a rigorous, evidence-ba
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

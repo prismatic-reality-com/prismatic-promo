@@ -23,9 +23,9 @@ image_alt = "Prismatic OSINT Czech Legal - Prismatic Platform"
 
 ## Overview
 
-Prismatic [OSINT](/glossary/osint/) Czech Legal provides specialized adapters for Czech legal and regulatory intelligence sources. It integrates with court registries, insolvency databases, public procurement portals, and regulatory bodies to support legal due diligence, compliance monitoring, and risk assessment within the Czech Republic. With 240 source files, it is one of the most comprehensive Czech legal intelligence modules in the platform.
+Prismatic [OSINT](@/glossary/osint.md) Czech Legal provides specialized adapters for Czech legal and regulatory intelligence sources. It integrates with court registries, insolvency databases, public procurement portals, and regulatory bodies to support legal due diligence, compliance monitoring, and risk assessment within the Czech Republic. With 240 source files, it is one of the most comprehensive Czech legal intelligence modules in the platform.
 
-The application implements a provider-based architecture where each Czech data source has a dedicated adapter implementing the platform's OSINT provider [protocol](/glossary/protocol/). This ensures uniform [rate limiting](/glossary/rate-limiting/), caching, error recovery, and data normalization across all sources, regardless of the underlying API format (REST, SOAP, HTML scraping, or RSS).
+The application implements a provider-based architecture where each Czech data source has a dedicated adapter implementing the platform's OSINT provider [protocol](@/glossary/protocol.md). This ensures uniform [rate limiting](@/glossary/rate-limiting.md), caching, error recovery, and data normalization across all sources, regardless of the underlying API format (REST, SOAP, HTML scraping, or RSS).
 
 ## ARES (Administrative Register of Economic Subjects)
 
@@ -225,32 +225,32 @@ All source data is normalized to canonical schemas before entering the platform:
 
 | Integrates With | Purpose |
 |----------------|---------|
-| **[Prismatic OSINT Core](/apps/prismatic-osint-core/)** | Core OSINT framework [protocols](/glossary/protocol/) and provider abstractions |
-| **[Prismatic Czech Courts](/apps/prismatic-czech-courts/)** | Court decision and insolvency data for cross-reference |
-| **[Prismatic Storage Core](/apps/prismatic-storage-core/)** | Persistent storage for cached registry data |
-| **[Prismatic Nabla](/apps/prismatic-nabla/)** | [Confidence scoring](/glossary/confidence-scoring/) for cross-source entity resolution |
-| **[Prismatic](/apps/prismatic/)** | Investigation workflow integration |
-| **[Prismatic Perimeter](/apps/prismatic-perimeter/)** | Compliance assessment for Czech entities |
+| **[Prismatic OSINT Core](@/apps/prismatic-osint-core.md)** | Core OSINT framework [protocols](@/glossary/protocol.md) and provider abstractions |
+| **[Prismatic Czech Courts](@/apps/prismatic-czech-courts.md)** | Court decision and insolvency data for cross-reference |
+| **[Prismatic Storage Core](@/apps/prismatic-storage-core.md)** | Persistent storage for cached registry data |
+| **[Prismatic Nabla](@/apps/prismatic-nabla.md)** | [Confidence scoring](@/glossary/confidence-scoring.md) for cross-source entity resolution |
+| **[Prismatic](@/apps/prismatic.md)** | Investigation workflow integration |
+| **[Prismatic Perimeter](@/apps/prismatic-perimeter.md)** | Compliance assessment for Czech entities |
 
 ## Related Components
 
-- [Prismatic Czech Courts](/apps/prismatic-czech-courts/) - Court decision extraction
-- [Prismatic Czech Autocrawler](/apps/prismatic-czech-autocrawler/) - Automated registry crawling
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) - OSINT provider framework
-- [Prismatic Web](/apps/prismatic-web/) - [LiveView](/glossary/liveview/) dashboards
-- [Prismatic API](/apps/prismatic-api/) - REST [API gateway](/glossary/api-gateway/)
+- [Prismatic Czech Courts](@/apps/prismatic-czech-courts.md) - Court decision extraction
+- [Prismatic Czech Autocrawler](@/apps/prismatic-czech-autocrawler.md) - Automated registry crawling
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) - OSINT provider framework
+- [Prismatic Web](@/apps/prismatic-web.md) - [LiveView](@/glossary/liveview.md) dashboards
+- [Prismatic API](@/apps/prismatic-api.md) - REST [API gateway](@/glossary/api-gateway.md)
 
 ## Related Agents
 
-- [Competitor Researcher](/agents/competitor-researcher/) -- Leverages Czech legal registry data for competitive intelligence and due diligence
-- [Alert Management Specialist](/agents/alert-management-specialist/) -- Manages alerts from insolvency monitoring and regulatory change detection
-- [Adapter Pattern Specialist](/agents/adapter-pattern-specialist/) -- Ensures Czech legal source adapters follow the OSINT provider protocol consistently
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Leverages Czech legal registry data for competitive intelligence and due diligence
+- [Alert Management Specialist](@/agents/alert-management-specialist.md) -- Manages alerts from insolvency monitoring and regulatory change detection
+- [Adapter Pattern Specialist](@/agents/adapter-pattern-specialist.md) -- Ensures Czech legal source adapters follow the OSINT provider protocol consistently
 
 ## Related Capabilities
 
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Cross-source legal intelligence fusion across ARES, Justice.cz, ISIR, CNB, and others
-- [Real-Time Monitoring](/capabilities/real-time-monitoring/) -- Continuous monitoring of Czech regulatory data sources for entity changes
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Signal plurality enforced across independent Czech legal data sources
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Cross-source legal intelligence fusion across ARES, Justice.cz, ISIR, CNB, and others
+- [Real-Time Monitoring](@/capabilities/real-time-monitoring.md) -- Continuous monitoring of Czech regulatory data sources for entity changes
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Signal plurality enforced across independent Czech legal data sources
 
 ---
 
@@ -259,4 +259,4 @@ All source data is normalized to canonical schemas before entering the platform:
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

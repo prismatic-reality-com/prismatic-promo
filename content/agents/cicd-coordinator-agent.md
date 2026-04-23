@@ -28,9 +28,9 @@ image_alt = "CI/CD Coordinator Agent - Prismatic Platform"
 
 ## Executive Summary
 
-The CI/CD Coordinator Agent operates as an L3 [strategic command](/glossary/strategic-command/) agent within the CI/CD Orchestration domain of the Prismatic Platform. This agent manages the full lifecycle of continuous integration and continuous deployment pipelines, coordinating pipeline composition, stage sequencing, resource allocation, and cross-application build coordination across the platform's 90-application [umbrella architecture](/glossary/umbrella-application/). In an ecosystem where a single commit can affect multiple applications with complex inter-dependencies, intelligent pipeline orchestration is essential for maintaining fast developer feedback loops while ensuring comprehensive quality validation.
+The CI/CD Coordinator Agent operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the CI/CD Orchestration domain of the Prismatic Platform. This agent manages the full lifecycle of continuous integration and continuous deployment pipelines, coordinating pipeline composition, stage sequencing, resource allocation, and cross-application build coordination across the platform's 90-application [umbrella architecture](@/glossary/umbrella-application.md). In an ecosystem where a single commit can affect multiple applications with complex inter-dependencies, intelligent pipeline orchestration is essential for maintaining fast developer feedback loops while ensuring comprehensive quality validation.
 
-The platform's CI/CD infrastructure processes hundreds of pipeline runs daily, each potentially spanning compilation, static analysis ([Credo](/glossary/credo/), [Dialyzer](/glossary/dialyzer/)), test execution, quality gate validation, and deployment staging. The CI/CD Coordinator Agent determines which pipeline stages are necessary for a given change set (avoiding full-platform builds for localized changes), parallelizes independent stages for throughput, and sequences dependent stages to ensure correct build order. This intelligent orchestration reduces average pipeline execution time while maintaining the platform's zero-compromise quality standards.
+The platform's CI/CD infrastructure processes hundreds of pipeline runs daily, each potentially spanning compilation, static analysis ([Credo](@/glossary/credo.md), [Dialyzer](@/glossary/dialyzer.md)), test execution, quality gate validation, and deployment staging. The CI/CD Coordinator Agent determines which pipeline stages are necessary for a given change set (avoiding full-platform builds for localized changes), parallelizes independent stages for throughput, and sequences dependent stages to ensure correct build order. This intelligent orchestration reduces average pipeline execution time while maintaining the platform's zero-compromise quality standards.
 
 ## Architecture
 
@@ -69,7 +69,7 @@ The CI/CD Orchestration domain manages the automated build, test, and deployment
 
 Pipeline orchestration in a 90-application umbrella requires sophisticated change impact analysis. A change to `prismatic_storage_core` (a foundational library) may require rebuilding and retesting 50+ dependent applications, while a change to a leaf application like `prismatic_visitor_intelligence` only requires local validation. The coordinator maintains a dependency graph derived from `mix.exs` configurations and uses it to compute minimal affected application sets for each change.
 
-The domain also manages [GitLab CI](/glossary/gitlab-ci/) pipeline configuration generation, ensuring that generated configurations comply with the platform's strict YAML standards (10-level nesting limit, dash-prefixed commands, no heredocs) validated by the CI YAML Validator Agent.
+The domain also manages [GitLab CI](@/glossary/gitlab-ci.md) pipeline configuration generation, ensuring that generated configurations comply with the platform's strict YAML standards (10-level nesting limit, dash-prefixed commands, no heredocs) validated by the CI YAML Validator Agent.
 
 ## Core Capabilities
 
@@ -132,10 +132,10 @@ end
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [ci-yaml-validator-agent](/agents/ci-yaml-validator-agent/) | YAML Validation | Validates generated pipeline configurations against platform YAML standards |
-| [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) | Guardrail Enforcement | Ensures pipeline configurations enforce all required quality gates |
-| [cicd-tooling-specialist](/agents/cicd-tooling-specialist/) | Tooling Management | Manages CI tooling versions and runner configurations |
-| [code-quality-commander](/agents/code-quality-commander/) | Quality Authority | Defines quality gate requirements that pipelines must enforce |
+| [ci-yaml-validator-agent](@/agents/ci-yaml-validator-agent.md) | YAML Validation | Validates generated pipeline configurations against platform YAML standards |
+| [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) | Guardrail Enforcement | Ensures pipeline configurations enforce all required quality gates |
+| [cicd-tooling-specialist](@/agents/cicd-tooling-specialist.md) | Tooling Management | Manages CI tooling versions and runner configurations |
+| [code-quality-commander](@/agents/code-quality-commander.md) | Quality Authority | Defines quality gate requirements that pipelines must enforce |
 
 ## Operational Workflow
 
@@ -170,15 +170,15 @@ end
 
 ## Enforcement
 
-CI/CD coordination operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No pipeline configuration omits required quality gates. No change bypasses impact analysis. Pipeline compositions are evidence-based, derived from actual dependency graphs rather than heuristic approximations. Failed quality gates block progression to deployment stages without exception.
+CI/CD coordination operates under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No pipeline configuration omits required quality gates. No change bypasses impact analysis. Pipeline compositions are evidence-based, derived from actual dependency graphs rather than heuristic approximations. Failed quality gates block progression to deployment stages without exception.
 
 ## Related Resources
 
-- [ci-yaml-validator-agent](/agents/ci-yaml-validator-agent/) -- YAML configuration validation
-- [cicd-guardrails-enforcer](/agents/cicd-guardrails-enforcer/) -- Guardrail consistency enforcement
-- [cicd-tooling-specialist](/agents/cicd-tooling-specialist/) -- CI tooling management
-- [Quality Gates](/capabilities/quality-gates/) -- Platform quality enforcement
-- [AIAD Standard](/glossary/aiad/) -- Agent design specification
+- [ci-yaml-validator-agent](@/agents/ci-yaml-validator-agent.md) -- YAML configuration validation
+- [cicd-guardrails-enforcer](@/agents/cicd-guardrails-enforcer.md) -- Guardrail consistency enforcement
+- [cicd-tooling-specialist](@/agents/cicd-tooling-specialist.md) -- CI tooling management
+- [Quality Gates](@/capabilities/quality-gates.md) -- Platform quality enforcement
+- [AIAD Standard](@/glossary/aiad.md) -- Agent design specification
 
 ---
 
@@ -187,4 +187,4 @@ CI/CD coordination operates under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-do
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

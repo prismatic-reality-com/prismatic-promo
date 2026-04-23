@@ -24,11 +24,11 @@ image_alt = "/pvm-compile - Prismatic Platform"
 
 ## Overview
 
-**/pvm-compile** is a production command in the **PVM** category of the Prismatic Platform that compiles validated intermediate representation (IR) into optimized [PVM](/glossary/pvm/) (Prismatic Virtual Machine) bytecode. The PVM is the platform's custom execution engine designed for running agent workflows, data transformation pipelines, and automated reasoning tasks with built-in fault tolerance, real-time monitoring, and deterministic replay capabilities.
+**/pvm-compile** is a production command in the **PVM** category of the Prismatic Platform that compiles validated intermediate representation (IR) into optimized [PVM](@/glossary/pvm.md) (Prismatic Virtual Machine) bytecode. The PVM is the platform's custom execution engine designed for running agent workflows, data transformation pipelines, and automated reasoning tasks with built-in fault tolerance, real-time monitoring, and deterministic replay capabilities.
 
 The compilation process transforms high-level workflow descriptions -- expressed as IR generated from natural language or direct specification -- into a compact bytecode format that the PVM executor can run efficiently. The compiler performs multiple optimization passes including dead code elimination, constant folding, instruction scheduling, and register allocation to produce bytecode that executes with minimal overhead while preserving the semantic guarantees of the source IR.
 
-This command operates under the **L2+** authority level and is executed by the `pvm-compiler` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The compiler integrates tightly with the PVM execution and tracing subsystems, ensuring that compiled bytecode carries sufficient metadata for runtime debugging, performance profiling, and deterministic replay.
+This command operates under the **L2+** authority level and is executed by the `pvm-compiler` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The compiler integrates tightly with the PVM execution and tracing subsystems, ensuring that compiled bytecode carries sufficient metadata for runtime debugging, performance profiling, and deterministic replay.
 
 A key design principle of the PVM compiler is that compilation is always reproducible: given the same IR input and compiler version, the output bytecode is identical byte-for-byte. This determinism is essential for the platform's formal verification requirements, where compiled programs must be provably equivalent to their source specifications. The compiler also embeds integrity checksums in the output bytecode, enabling the executor to verify program integrity before execution.
 
@@ -174,7 +174,7 @@ PVM Bytecode (.pvmb)
 
 4. **Code Generation** -- The optimized IR is translated into PVM bytecode instructions. Each IR node maps to one or more bytecode instructions according to the code generation templates.
 
-5. **Debug Info Embedding** -- Source location mappings are embedded into the bytecode to enable the [/pvm-trace](/commands/pvm-trace/) command to correlate execution steps with source IR lines.
+5. **Debug Info Embedding** -- Source location mappings are embedded into the bytecode to enable the [/pvm-trace](@/commands/pvm-trace.md) command to correlate execution steps with source IR lines.
 
 6. **Packaging** -- The bytecode is packaged with metadata headers including compiler version, optimization level, target platform, source hash, and an integrity checksum. The package is written to the output path.
 
@@ -184,12 +184,12 @@ PVM Bytecode (.pvmb)
 
 | System | Integration | Purpose |
 |--------|-------------|---------|
-| [/pvm-execute](/commands/pvm-execute/) | Primary consumer of compiled bytecode | Execution |
-| [/pvm-trace](/commands/pvm-trace/) | Uses debug info for execution tracing | Debugging |
-| [/ir-generate](/commands/ir-generate/) | Produces IR that this command compiles | Pipeline input |
-| [Quality Gates](/glossary/quality-gates/) | Compilation success as a quality checkpoint | Quality |
-| [Telemetry](/glossary/telemetry/) | Compilation metrics and timing events | Observability |
-| [Formal Verification](/glossary/formal-verification/) | Deterministic output enables bytecode verification | Verification |
+| [/pvm-execute](@/commands/pvm-execute.md) | Primary consumer of compiled bytecode | Execution |
+| [/pvm-trace](@/commands/pvm-trace.md) | Uses debug info for execution tracing | Debugging |
+| [/ir-generate](@/commands/ir-generate.md) | Produces IR that this command compiles | Pipeline input |
+| [Quality Gates](@/glossary/quality-gates.md) | Compilation success as a quality checkpoint | Quality |
+| [Telemetry](@/glossary/telemetry.md) | Compilation metrics and timing events | Observability |
+| [Formal Verification](@/glossary/formal-verification.md) | Deterministic output enables bytecode verification | Verification |
 
 ## Best Practices
 
@@ -251,19 +251,19 @@ end, order: 3)  # Run after constant folding
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. The compiler rejects any IR that fails semantic analysis. No partially compiled output is emitted. Optimization passes that produce invalid IR cause immediate failure with diagnostic information.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Deterministic compilation ensures that the same input always produces the same output. Bytecode integrity verification provides cryptographic evidence that compilation succeeded correctly.
 
 ## Related Commands
 
-- [/pvm-execute](/commands/pvm-execute/) - Execute compiled PVM programs with [fault tolerance](/glossary/fault-tolerance/) and [real-time monitoring](/capabilities/real-time-monitoring/)
-- [/pvm-trace](/commands/pvm-trace/) - Real-time execution tracing and debugging for PVM programs
-- [/ir-generate](/commands/ir-generate/) - Generate Information Retrieval workflows from natural language descriptions
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
+- [/pvm-execute](@/commands/pvm-execute.md) - Execute compiled PVM programs with [fault tolerance](@/glossary/fault-tolerance.md) and [real-time monitoring](@/capabilities/real-time-monitoring.md)
+- [/pvm-trace](@/commands/pvm-trace.md) - Real-time execution tracing and debugging for PVM programs
+- [/ir-generate](@/commands/ir-generate.md) - Generate Information Retrieval workflows from natural language descriptions
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
 
 ---
 
@@ -272,4 +272,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

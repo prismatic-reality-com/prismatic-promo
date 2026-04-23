@@ -24,13 +24,13 @@ image_alt = "/prolog - Prismatic Platform"
 
 ## Overview
 
-**/prolog** is a production command in the **[Formal Verification](/glossary/formal-verification/)** category of the Prismatic Platform that provides Prolog-based logical reasoning and [inference](/glossary/inference/) operations for epistemic analysis, rule evaluation, and constraint solving. The command interfaces with an embedded Prolog engine to evaluate logical queries against knowledge bases derived from platform state, agent configurations, and security policies.
+**/prolog** is a production command in the **[Formal Verification](@/glossary/formal-verification.md)** category of the Prismatic Platform that provides Prolog-based logical reasoning and [inference](@/glossary/inference.md) operations for epistemic analysis, rule evaluation, and constraint solving. The command interfaces with an embedded Prolog engine to evaluate logical queries against knowledge bases derived from platform state, agent configurations, and security policies.
 
 Prolog's declarative logic programming paradigm is uniquely suited to the Prismatic Platform's epistemic architecture, where beliefs, contradictions, and inference chains must be formally reasoned about. The command enables operators to express complex queries about system state using first-order predicate logic, evaluate policy compliance rules, and derive conclusions from the platform's knowledge graph without writing imperative code.
 
-This command operates under the **L2+** authority level and is executed by the `prolog-reasoning-agent` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The Prolog engine is integrated into the platform's [QEVE](/glossary/qeve/) (Quantified Epistemic Verification Engine) framework alongside [Lean4](/glossary/lean4/) for formal proofs and Monte Carlo methods for probabilistic analysis.
+This command operates under the **L2+** authority level and is executed by the `prolog-reasoning-agent` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The Prolog engine is integrated into the platform's [QEVE](@/glossary/qeve.md) (Quantified Epistemic Verification Engine) framework alongside [Lean4](@/glossary/lean4.md) for formal proofs and Monte Carlo methods for probabilistic analysis.
 
-The command supports both interactive query sessions and batch evaluation of Prolog programs. Knowledge bases can be loaded from files, generated from platform state, or constructed dynamically from AIAD agent configurations. Results are returned as structured bindings with provenance tracking, satisfying the [NABLA](/glossary/nabla-infinity/) Provenance Mandatory axiom.
+The command supports both interactive query sessions and batch evaluation of Prolog programs. Knowledge bases can be loaded from files, generated from platform state, or constructed dynamically from AIAD agent configurations. Results are returned as structured bindings with provenance tracking, satisfying the [NABLA](@/glossary/nabla-infinity.md) Provenance Mandatory axiom.
 
 ## Architecture
 
@@ -167,15 +167,15 @@ User Query / Prolog Program
 
 | System | Integration | Purpose |
 |--------|-------------|---------|
-| [QEVE](/glossary/qeve/) | Prolog component of the verification engine | Logical verification |
-| [Lean4](/glossary/lean4/) | Formal proofs complement Prolog inference | Formal verification |
-| [NABLA](/glossary/nabla-infinity/) | Epistemic axiom enforcement during reasoning | Epistemics |
-| [Color Teams](/glossary/color-teams/) | Policy rule evaluation for security operations | Security |
-| [Quality Gates](/glossary/quality-gates/) | Logic-based quality rule evaluation | Quality |
-| [Prismatic Agents](/glossary/prismatic-agents/) | Agent knowledge base generation | Knowledge source |
-| [Trinity Gate](/glossary/trinity-gate/) | Logical Consistency layer (Gate 2) | Verification |
+| [QEVE](@/glossary/qeve.md) | Prolog component of the verification engine | Logical verification |
+| [Lean4](@/glossary/lean4.md) | Formal proofs complement Prolog inference | Formal verification |
+| [NABLA](@/glossary/nabla-infinity.md) | Epistemic axiom enforcement during reasoning | Epistemics |
+| [Color Teams](@/glossary/color-teams.md) | Policy rule evaluation for security operations | Security |
+| [Quality Gates](@/glossary/quality-gates.md) | Logic-based quality rule evaluation | Quality |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Agent knowledge base generation | Knowledge source |
+| [Trinity Gate](@/glossary/trinity-gate.md) | Logical Consistency layer (Gate 2) | Verification |
 
-The Prolog engine provides the rule-based reasoning layer of the [Trinity Gate](/glossary/trinity-gate/) verification system. Specifically, it serves as the Logical Consistency gate, ensuring that propositions derived from platform state follow valid logical rules before they can be accepted as established claims.
+The Prolog engine provides the rule-based reasoning layer of the [Trinity Gate](@/glossary/trinity-gate.md) verification system. Specifically, it serves as the Logical Consistency gate, ensuring that propositions derived from platform state follow valid logical rules before they can be accepted as established claims.
 
 ## Best Practices
 
@@ -241,21 +241,21 @@ authority_violation(Agent, Has, Needs) :-
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Prolog queries must terminate within the specified timeout. Undefined predicates are errors, not silent failures.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Every inference chain is traceable through provenance tracking. No conclusion is accepted without verifiable logical derivation.
 
-The command directly implements [NABLA](/glossary/nabla-infinity/) axioms: Provenance Mandatory (all results traced to source facts), Signal Plurality (multiple derivation paths weighted higher), and Contradiction Preservation (contradictory conclusions are reported, not suppressed).
+The command directly implements [NABLA](@/glossary/nabla-infinity.md) axioms: Provenance Mandatory (all results traced to source facts), Signal Plurality (multiple derivation paths weighted higher), and Contradiction Preservation (contradictory conclusions are reported, not suppressed).
 
 ## Related Commands
 
-- [/lean](/commands/lean/) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
-- [/formal-verify](/commands/formal-verify/) - Formal verification of system properties and invariants
-- [/monte-carlo](/commands/monte-carlo/) - Monte Carlo simulation for probabilistic analysis and risk assessment
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
+- [/lean](@/commands/lean.md) - Execute Lean 4 code or prove a theorem with the lean-specialist agent
+- [/formal-verify](@/commands/formal-verify.md) - Formal verification of system properties and invariants
+- [/monte-carlo](@/commands/monte-carlo.md) - Monte Carlo simulation for probabilistic analysis and risk assessment
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
 
 ---
 
@@ -264,4 +264,4 @@ The command directly implements [NABLA](/glossary/nabla-infinity/) axioms: Prove
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -565,28 +565,28 @@ The platform's 530+ AIAD agents autonomously manage quality across the entire co
 
 Large systems intersect with nearly every architectural and operational concept in the platform:
 
-- [Distributed Systems](/glossary/distributed-systems/) -- large systems that span multiple nodes, requiring coordination protocols and network-aware design
-- [Umbrella Application](/glossary/umbrella-application/) -- the Elixir pattern used to structure the Prismatic Platform as a large system of 115 focused applications
-- [Supervision Tree](/glossary/supervision-tree/) -- the OTP pattern providing fault isolation and automatic recovery in large process hierarchies
-- [Scalability](/glossary/scalability/) -- the ability of a large system to handle growing workloads through horizontal and vertical scaling
-- [Modularity](/glossary/modularity/) -- the design principle of decomposing large systems into independent, replaceable components
-- [Architecture](/glossary/architecture/) -- the high-level structural decisions that determine how a large system is organized
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the ability of a large system to continue operating despite component failures
-- [Microservices](/glossary/microservices/) -- an alternative architectural approach to large systems using network-separated services
-- [Enterprise Architecture](/glossary/enterprise-architecture/) -- the organizational-level architecture that governs how large systems align with business capabilities
-- [System Architecture](/glossary/system-architecture/) -- the technical structural blueprint of a large system's components and their interactions
+- [Distributed Systems](@/glossary/distributed-systems.md) -- large systems that span multiple nodes, requiring coordination protocols and network-aware design
+- [Umbrella Application](@/glossary/umbrella-application.md) -- the Elixir pattern used to structure the Prismatic Platform as a large system of 115 focused applications
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the OTP pattern providing fault isolation and automatic recovery in large process hierarchies
+- [Scalability](@/glossary/scalability.md) -- the ability of a large system to handle growing workloads through horizontal and vertical scaling
+- [Modularity](@/glossary/modularity.md) -- the design principle of decomposing large systems into independent, replaceable components
+- [Architecture](@/glossary/architecture.md) -- the high-level structural decisions that determine how a large system is organized
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the ability of a large system to continue operating despite component failures
+- [Microservices](@/glossary/microservices.md) -- an alternative architectural approach to large systems using network-separated services
+- [Enterprise Architecture](@/glossary/enterprise-architecture.md) -- the organizational-level architecture that governs how large systems align with business capabilities
+- [System Architecture](@/glossary/system-architecture.md) -- the technical structural blueprint of a large system's components and their interactions
 
 ## See Also
 
-- [Supervisor](/glossary/supervisor/) -- the OTP process that provides fault tolerance in large system process hierarchies
-- [Quality Gates](/glossary/quality-gates/) -- the automated enforcement mechanism that maintains quality standards across large codebases
-- [Technical Debt](/glossary/technical-debt/) -- the accumulated cost of expedient decisions that threatens large system maintainability
-- [BEAM](/glossary/beam/) -- the virtual machine that enables the Prismatic Platform's large system to run as a single, fault-tolerant runtime
-- [Elixir](/glossary/elixir/) -- the programming language providing the umbrella application pattern for large system decomposition
+- [Supervisor](@/glossary/supervisor.md) -- the OTP process that provides fault tolerance in large system process hierarchies
+- [Quality Gates](@/glossary/quality-gates.md) -- the automated enforcement mechanism that maintains quality standards across large codebases
+- [Technical Debt](@/glossary/technical-debt.md) -- the accumulated cost of expedient decisions that threatens large system maintainability
+- [BEAM](@/glossary/beam.md) -- the virtual machine that enables the Prismatic Platform's large system to run as a single, fault-tolerant runtime
+- [Elixir](@/glossary/elixir.md) -- the programming language providing the umbrella application pattern for large system decomposition
 
 ---
 
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Part of the [Prismatic Platform](https://github.com/korczis/prismatic-platform) Glossary
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | Glossary Index
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | Glossary Index

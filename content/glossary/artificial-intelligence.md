@@ -434,22 +434,22 @@ AI assists in maintaining the platform's 100/100 quality score through:
 
 ## Related Concepts
 
-- [Agent](/glossary/agent/) -- Autonomous computational entity that perceives its environment and takes actions to achieve goals
-- [LLM](/glossary/llm/) -- Large language models that serve as the reasoning engine for modern AI agents
-- [Ollama](/glossary/ollama/) -- Local AI inference platform enabling privacy-preserving model execution
-- [AIAD](/glossary/aiad/) -- AI Agent Definition standard for formal specification of AI agent capabilities and constraints
-- [Prompt Engineering](/glossary/prompt-engineering/) -- Discipline of crafting effective instructions for AI language models
-- [Embedding](/glossary/embedding/) -- Vector representations of text enabling semantic search and similarity computation
-- [RAG](/glossary/rag/) -- Retrieval-Augmented Generation pattern for grounding AI responses in domain knowledge
-- [Fine-Tuning](/glossary/fine-tuning/) -- Adapting pre-trained AI models to specific domains through additional training
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework ensuring AI outputs meet evidence and consistency standards
-- [Color Teams](/glossary/color-teams/) -- Six-team security operations structure leveraging AI for adversarial-defensive synthesis
+- [Agent](@/glossary/agent.md) -- Autonomous computational entity that perceives its environment and takes actions to achieve goals
+- [LLM](@/glossary/llm.md) -- Large language models that serve as the reasoning engine for modern AI agents
+- [Ollama](@/glossary/ollama.md) -- Local AI inference platform enabling privacy-preserving model execution
+- [AIAD](@/glossary/aiad.md) -- AI Agent Definition standard for formal specification of AI agent capabilities and constraints
+- [Prompt Engineering](@/glossary/prompt-engineering.md) -- Discipline of crafting effective instructions for AI language models
+- [Embedding](@/glossary/embedding.md) -- Vector representations of text enabling semantic search and similarity computation
+- [RAG](@/glossary/rag.md) -- Retrieval-Augmented Generation pattern for grounding AI responses in domain knowledge
+- [Fine-Tuning](@/glossary/fine-tuning.md) -- Adapting pre-trained AI models to specific domains through additional training
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework ensuring AI outputs meet evidence and consistency standards
+- [Color Teams](@/glossary/color-teams.md) -- Six-team security operations structure leveraging AI for adversarial-defensive synthesis
 
 ## See Also
 
-- [Agents section](/agents/) -- Comprehensive catalog of Prismatic's 530+ AIAD agents
+- [Agents section](@/agents/_index.md) -- Comprehensive catalog of Prismatic's 530+ AIAD agents
 - [AIAD Standard](/.aiad/README.md) -- Formal specification for AI agent definition and governance
-- [Ollama documentation](/glossary/ollama/) -- Configuration and usage of local AI inference
+- [Ollama documentation](@/glossary/ollama.md) -- Configuration and usage of local AI inference
 - Anthropic Research -- https://www.anthropic.com/research -- Research publications on AI safety and capabilities
 - Stanford AI Index -- https://aiindex.stanford.edu/ -- Annual report on AI progress and adoption metrics
 
@@ -460,4 +460,4 @@ AI assists in maintaining the platform's 100/100 quality score through:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

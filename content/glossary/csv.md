@@ -173,10 +173,10 @@ The platform's DD pipeline uses CSV processing for bulk entity imports from Czec
 
 ## Cross-References
 
-- [ETL](/glossary/etl/) -- Extract/Transform/Load pipelines consuming CSV
-- [JSON](/glossary/json/) -- Alternative data interchange format
+- [ETL](@/glossary/etl.md) -- Extract/Transform/Load pipelines consuming CSV
+- [JSON](@/glossary/json.md) -- Alternative data interchange format
 - **Streaming** -- Stream processing for large CSV files
-- [Data Pipeline](/glossary/data-pipeline/) -- Pipeline architectures processing CSV
+- [Data Pipeline](@/glossary/data-pipeline.md) -- Pipeline architectures processing CSV
 - **Livebooks**: `data_analysis/` notebooks demonstrate CSV loading and visualization
 - **Academy**: AdvancedDataAnalysis topic covers CSV processing techniques
 
@@ -187,4 +187,4 @@ The platform's DD pipeline uses CSV processing for bulk entity imports from Czec
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

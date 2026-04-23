@@ -44,7 +44,7 @@ The actor model provides a natural way to reason about concurrent and distribute
 
 **Interactive Demo**: The visualization above shows how Elixir actors (GenServer processes) communicate through message passing. Each circle represents an actor with its own mailbox queue. Watch as messages flow between actors asynchronously, demonstrating the three fundamental capabilities: **Send** (message transmission), **Create** (spawning new actors), and **Become** (state transitions).
 
-The [BEAM](/glossary/beam/) virtual machine, which runs Erlang and Elixir, is the most mature and widely-deployed implementation of actor model principles in production systems. BEAM processes are lightweight actors (approximately 2KB initial memory) that communicate through message passing, are isolated from each other (one process crashing cannot corrupt another), and are managed by sophisticated schedulers that provide soft real-time guarantees. The BEAM can run millions of concurrent processes on modern hardware, making it practical to model every independent concern in a system as a separate actor.
+The [BEAM](@/glossary/beam.md) virtual machine, which runs Erlang and Elixir, is the most mature and widely-deployed implementation of actor model principles in production systems. BEAM processes are lightweight actors (approximately 2KB initial memory) that communicate through message passing, are isolated from each other (one process crashing cannot corrupt another), and are managed by sophisticated schedulers that provide soft real-time guarantees. The BEAM can run millions of concurrent processes on modern hardware, making it practical to model every independent concern in a system as a separate actor.
 
 The significance of the actor model extends beyond its technical properties. It provides a way of thinking about systems that aligns with how the physical world works: independent entities interacting through messages, without any shared global state. This mental model scales from small concurrent programs to planet-scale distributed systems, making it one of the most powerful abstractions in computer science.
 
@@ -152,7 +152,7 @@ end
 
 ## Message Passing Semantics
 
-Actor model [message passing](/glossary/message-passing/) is fundamentally asynchronous. The sender does not block waiting for the receiver to process the message. This design choice has profound implications for system behavior and performance.
+Actor model [message passing](@/glossary/message-passing.md) is fundamentally asynchronous. The sender does not block waiting for the receiver to process the message. This design choice has profound implications for system behavior and performance.
 
 **Asynchronous Delivery**: The sender continues executing immediately after sending a message. This decouples sender and receiver lifetimes and prevents cascading blocking through the system.
 
@@ -252,7 +252,7 @@ BEAM processes implement the strongest isolation guarantees of any mainstream ac
 
 ## Supervision and Fault Tolerance
 
-The actor model naturally supports fault tolerance through [supervision](/glossary/supervision-tree/) hierarchies. In [OTP](/glossary/otp/), supervisor processes monitor worker processes and restart them according to configurable strategies. This creates self-healing systems where transient failures are automatically recovered without manual intervention.
+The actor model naturally supports fault tolerance through [supervision](@/glossary/supervision-tree.md) hierarchies. In [OTP](@/glossary/otp.md), supervisor processes monitor worker processes and restart them according to configurable strategies. This creates self-healing systems where transient failures are automatically recovered without manual intervention.
 
 ```elixir
 defmodule Prismatic.Actor.AgentSupervisor do
@@ -363,7 +363,7 @@ end
 
 ## Actor Model vs Other Concurrency Models
 
-Understanding how the actor model compares to other [concurrency](/glossary/concurrent-programming/) approaches helps in choosing the right model for a given problem.
+Understanding how the actor model compares to other [concurrency](@/glossary/concurrent-programming.md) approaches helps in choosing the right model for a given problem.
 
 | Property | Actor Model (BEAM) | Shared Memory (Java) | CSP (Go) | STM (Haskell) |
 |----------|-------------------|---------------------|----------|---------------|
@@ -383,7 +383,7 @@ The Prismatic Platform uses the actor model pervasively, with every major subsys
 
 | Subsystem | Actor Pattern | Process Count |
 |-----------|--------------|---------------|
-| **AIAD Agent System** | Each agent is a [GenServer](/glossary/genserver/) process | 530+ |
+| **AIAD Agent System** | Each agent is a [GenServer](@/glossary/genserver.md) process | 530+ |
 | **OSINT Collectors** | Each data source adapter runs in its own process | 120+ |
 | **Storage Adapters** | ETS, Ecto, Meilisearch, KuzuDB adapter processes | Per-backend |
 | **LiveView Sessions** | Each user session is a separate process | Per-user |
@@ -433,21 +433,21 @@ Understanding what not to do is as important as understanding best practices whe
 | **Synchronous Everywhere** | Using `call` when `cast` would suffice | Prefer async messages, use sync only when response needed |
 | **Process Soup** | Spawning processes without supervision | Always supervise processes |
 | **Shared ETS Abuse** | Using ETS tables as shared mutable state | Use ETS as cache, keep source of truth in actors |
-| **Mailbox Overflow** | Sending faster than processing | Implement [backpressure](/glossary/backpressure/) with GenStage |
+| **Mailbox Overflow** | Sending faster than processing | Implement [backpressure](@/glossary/backpressure.md) with GenStage |
 | **Missing Timeouts** | Indefinite waits on GenServer.call | Always specify timeouts |
 
 ## Related Concepts
 
-- [BEAM](/glossary/beam/) -- Virtual machine implementing actor model
-- [Process Isolation](/glossary/process-isolation/) -- Isolation guarantees in BEAM
-- [Message Passing](/glossary/message-passing/) -- Communication mechanism between actors
-- [GenServer](/glossary/genserver/) -- OTP behavior for generic server actors
-- [Supervision Tree](/glossary/supervision-tree/) -- Hierarchical fault tolerance
-- [Concurrent Programming](/glossary/concurrent-programming/) -- Broader concurrency paradigms
-- [OTP](/glossary/otp/) -- Framework codifying actor patterns
-- [Fault Tolerance](/glossary/fault-tolerance/) -- System resilience through supervision
-- [Multi-Agent System](/glossary/multi-agent-system/) -- Actor model applied to AI agents
-- [Backpressure](/glossary/backpressure/) -- Flow control between actors
+- [BEAM](@/glossary/beam.md) -- Virtual machine implementing actor model
+- [Process Isolation](@/glossary/process-isolation.md) -- Isolation guarantees in BEAM
+- [Message Passing](@/glossary/message-passing.md) -- Communication mechanism between actors
+- [GenServer](@/glossary/genserver.md) -- OTP behavior for generic server actors
+- [Supervision Tree](@/glossary/supervision-tree.md) -- Hierarchical fault tolerance
+- [Concurrent Programming](@/glossary/concurrent-programming.md) -- Broader concurrency paradigms
+- [OTP](@/glossary/otp.md) -- Framework codifying actor patterns
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- System resilience through supervision
+- [Multi-Agent System](@/glossary/multi-agent-system.md) -- Actor model applied to AI agents
+- [Backpressure](@/glossary/backpressure.md) -- Flow control between actors
 
 ---
 
@@ -456,4 +456,4 @@ Understanding what not to do is as important as understanding best practices whe
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

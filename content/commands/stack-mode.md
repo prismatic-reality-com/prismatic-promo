@@ -28,7 +28,7 @@ image_alt = "/stack-mode - Prismatic Platform"
 
 The Stack-Based Conversation Mode is one of the platform's most distinctive architectural features. Rather than treating conversation history as a flat sequence of messages, it models interactions as a stack data structure where each frame represents a complete interaction unit (user input, assistant output, decisions, assumptions). This structure enables powerful operations: reverting to a previous state by popping frames, exploring alternative paths by forking from a specific frame, and marking important states with named checkpoints for later recall.
 
-This command operates under the **L2+** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The protocol is classified as P0 ABSOLUTE enforcement, meaning it governs all Claude sessions without exception. The `/stack-mode` command provides the operational controls for working within this protocol.
+This command operates under the **L2+** authority level and is executed by the `stack-conversation-manager` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The protocol is classified as P0 ABSOLUTE enforcement, meaning it governs all Claude sessions without exception. The `/stack-mode` command provides the operational controls for working within this protocol.
 
 The underlying implementation is a full OTP-compliant GenServer (`PrismaticClaude.StackConversation`, 1,128 lines) backed by ETS for high-performance frame storage and disk persistence in `.claude/stack-conversation/` for cross-session recovery. The system emits telemetry events at `:prismatic_claude, :stack_conversation, *` for observability, and supports the complete set of six stack control commands: `/stack`, `/frame N`, `/pop N`, `/fork N`, `/checkpoint <name>`, and `/goto <name>`.
 
@@ -173,16 +173,16 @@ The stack mode system implements a complete conversation state machine with supp
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [StackConversation GenServer](/apps/prismatic-claude/) | Core | Direct GenServer interaction for all operations |
-| [/stack](/commands/stack/) | Display | Displays the stack managed by this mode |
-| [/frame](/commands/frame/) | Inspection | Inspects individual frames in the managed stack |
-| [/pop](/commands/pop/) | Modification | Pops frames from the managed stack |
-| [/fork](/commands/fork/) | Branching | Creates forks in the managed stack |
-| [/checkpoint](/commands/checkpoint/) | Checkpointing | Creates checkpoints on the managed stack |
-| [/goto](/commands/goto/) | Restoration | Restores stack to a checkpoint state |
-| [/stack-config](/commands/stack-config/) | Configuration | Configures behavior of the managed stack |
-| [/stack-utils](/commands/stack-utils/) | Maintenance | Utility operations on the managed stack |
-| [Session Lifecycle](/apps/prismatic-claude/) | Lifecycle | Stack mode initializes on session start, persists on session end |
+| [StackConversation GenServer](@/apps/prismatic-claude.md) | Core | Direct GenServer interaction for all operations |
+| [/stack](@/commands/stack.md) | Display | Displays the stack managed by this mode |
+| [/frame](@/commands/frame.md) | Inspection | Inspects individual frames in the managed stack |
+| [/pop](@/commands/pop.md) | Modification | Pops frames from the managed stack |
+| [/fork](@/commands/fork.md) | Branching | Creates forks in the managed stack |
+| [/checkpoint](@/commands/checkpoint.md) | Checkpointing | Creates checkpoints on the managed stack |
+| [/goto](@/commands/goto.md) | Restoration | Restores stack to a checkpoint state |
+| [/stack-config](@/commands/stack-config.md) | Configuration | Configures behavior of the managed stack |
+| [/stack-utils](@/commands/stack-utils.md) | Maintenance | Utility operations on the managed stack |
+| [Session Lifecycle](@/apps/prismatic-claude.md) | Lifecycle | Stack mode initializes on session start, persists on session end |
 
 ## Best Practices
 
@@ -257,21 +257,21 @@ The stack mode system implements a complete conversation state machine with supp
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Stack mode enforcement is P0 ABSOLUTE. The behavioral rules are non-negotiable: frame immutability (once created, frames cannot be modified), stack-only context (active state defined only by current stack), no cross-branch merging (never merge knowledge across branches), and explicit state dependencies (if a request depends on a popped frame, explicitly state that the information is no longer available).
 - **NO DOUBTS**: Stack state is always deterministic and inspectable. The `status`, `verify`, and `stats` actions provide complete visibility into the current conversation state. Export capability ensures that stack state can be independently verified. Telemetry events provide audit trails for all state-modifying operations.
 
 ## Related Commands
 
-- [/stack](/commands/stack/) - Display complete conversation stack with all frames
-- [/frame](/commands/frame/) - Inspect specific conversation frame by ID
-- [/pop](/commands/pop/) - Remove last N frames from conversation stack (DESTRUCTIVE)
-- [/fork](/commands/fork/) - Branch conversation from specific frame (DESTRUCTIVE)
-- [/checkpoint](/commands/checkpoint/) - Mark current conversation frame with a named checkpoint
-- [/goto](/commands/goto/) - Restore conversation to a named checkpoint
-- [/stack-config](/commands/stack-config/) - Advanced Stack Mode configuration and customization commands
-- [/stack-utils](/commands/stack-utils/) - Advanced Stack Mode utility commands for maintenance and debugging
+- [/stack](@/commands/stack.md) - Display complete conversation stack with all frames
+- [/frame](@/commands/frame.md) - Inspect specific conversation frame by ID
+- [/pop](@/commands/pop.md) - Remove last N frames from conversation stack (DESTRUCTIVE)
+- [/fork](@/commands/fork.md) - Branch conversation from specific frame (DESTRUCTIVE)
+- [/checkpoint](@/commands/checkpoint.md) - Mark current conversation frame with a named checkpoint
+- [/goto](@/commands/goto.md) - Restore conversation to a named checkpoint
+- [/stack-config](@/commands/stack-config.md) - Advanced Stack Mode configuration and customization commands
+- [/stack-utils](@/commands/stack-utils.md) - Advanced Stack Mode utility commands for maintenance and debugging
 
 ---
 
@@ -280,4 +280,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

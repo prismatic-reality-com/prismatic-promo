@@ -30,7 +30,7 @@ image_alt = "ma-deal-manager - Prismatic Platform"
 
 The M&A Deal Manager operates as an L2 tactical operations agent within the Primary domain of the Prismatic Platform. This agent manages the complete lifecycle of mergers and acquisitions (M&A) deal tracking, from initial deal creation and target identification through due diligence coordination, risk assessment, and deal closure. Every M&A deal is initialized with a structured data model that ensures comprehensive coverage of financial, legal, operational, and regulatory dimensions.
 
-M&A intelligence is a core use case for the Prismatic Platform's [OSINT](/glossary/osint/) and due diligence capabilities. The M&A Deal Manager coordinates the work of specialized analysis agents -- financial analysts, risk assessors, regulatory intelligence operatives, and corporate governance analysts -- into a unified deal management workflow. Each deal maintains a complete audit trail from initial identification through final disposition, with all intelligence findings linked to their source evidence.
+M&A intelligence is a core use case for the Prismatic Platform's [OSINT](@/glossary/osint.md) and due diligence capabilities. The M&A Deal Manager coordinates the work of specialized analysis agents -- financial analysts, risk assessors, regulatory intelligence operatives, and corporate governance analysts -- into a unified deal management workflow. Each deal maintains a complete audit trail from initial identification through final disposition, with all intelligence findings linked to their source evidence.
 
 ## Operational Domain
 
@@ -120,12 +120,12 @@ The M&A Deal Manager orchestrates due diligence across multiple workstreams, eac
 
 | DD Workstream | Responsible Agent | Key Deliverables | Duration |
 |---|---|---|---|
-| Financial Analysis | [ma-financial-analyst](/agents/ma-financial-analyst/) | Financial statements, ratio analysis, projections | 2-4 weeks |
-| Market Analysis | [ma-market-analyst](/agents/ma-market-analyst/) | Market position, competitive landscape, growth | 1-2 weeks |
-| Risk Assessment | [ma-risk-assessor](/agents/ma-risk-assessor/) | Risk matrix, mitigation strategies | 2-3 weeks |
-| Technical Assessment | [technical-assessor](/agents/technical-assessor/) | Technology stack, IP analysis, technical debt | 1-3 weeks |
-| Governance Review | [corporate-governance-analyst](/agents/corporate-governance-analyst/) | Board composition, ownership, compliance | 1-2 weeks |
-| Regulatory Check | [regulatory-intelligence-commander](/agents/regulatory-intelligence-commander/) | Regulatory filings, compliance posture | 1-2 weeks |
+| Financial Analysis | [ma-financial-analyst](@/agents/ma-financial-analyst.md) | Financial statements, ratio analysis, projections | 2-4 weeks |
+| Market Analysis | [ma-market-analyst](@/agents/ma-market-analyst.md) | Market position, competitive landscape, growth | 1-2 weeks |
+| Risk Assessment | [ma-risk-assessor](@/agents/ma-risk-assessor.md) | Risk matrix, mitigation strategies | 2-3 weeks |
+| Technical Assessment | [technical-assessor](@/agents/technical-assessor.md) | Technology stack, IP analysis, technical debt | 1-3 weeks |
+| Governance Review | [corporate-governance-analyst](@/agents/corporate-governance-analyst.md) | Board composition, ownership, compliance | 1-2 weeks |
+| Regulatory Check | [regulatory-intelligence-commander](@/agents/regulatory-intelligence-commander.md) | Regulatory filings, compliance posture | 1-2 weeks |
 
 ## Risk Scoring Framework
 
@@ -151,29 +151,29 @@ Each deal receives a composite risk score based on multiple dimensions.
 
 ## Authority Level
 
-**L2** - Tactical Operations. Domain-specific [tactical execution](/glossary/tactical-execution/) with cross-domain coordination capabilities. The M&A Deal Manager coordinates specialized analysis agents but escalates deal approval decisions to L3 authority.
+**L2** - Tactical Operations. Domain-specific [tactical execution](@/glossary/tactical-execution.md) with cross-domain coordination capabilities. The M&A Deal Manager coordinates specialized analysis agents but escalates deal approval decisions to L3 authority.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [ma-financial-analyst](/agents/ma-financial-analyst/) | Financial DD | Provides financial analysis for deal targets |
-| [ma-risk-assessor](/agents/ma-risk-assessor/) | Risk Assessment | Produces risk scores for deal evaluation |
-| [corporate-governance-analyst](/agents/corporate-governance-analyst/) | Governance DD | Analyzes target governance structures |
-| [ma-market-analyst](/agents/ma-market-analyst/) | Market Analysis | Evaluates market position and competitive landscape |
+| [ma-financial-analyst](@/agents/ma-financial-analyst.md) | Financial DD | Provides financial analysis for deal targets |
+| [ma-risk-assessor](@/agents/ma-risk-assessor.md) | Risk Assessment | Produces risk scores for deal evaluation |
+| [corporate-governance-analyst](@/agents/corporate-governance-analyst.md) | Governance DD | Analyzes target governance structures |
+| [ma-market-analyst](@/agents/ma-market-analyst.md) | Market Analysis | Evaluates market position and competitive landscape |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [NABLA Infinity](/glossary/nabla-infinity/) | Signal plurality for intelligence findings |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Signal plurality for intelligence findings |
 | Entity Resolution | Target entity identification and linking |
-| Platform [Telemetry](/glossary/telemetry/) | Deal processing metrics and timeline tracking |
-| [SEADF](/glossary/seadf/) | Evolutionary optimization of deal scoring models |
+| Platform [Telemetry](@/glossary/telemetry.md) | Deal processing metrics and timeline tracking |
+| [SEADF](@/glossary/seadf.md) | Evolutionary optimization of deal scoring models |
 
 ## Enforcement
 
-The M&A Deal Manager operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. No deal advances to the next phase without satisfying all gate criteria. Due diligence workstreams must reach minimum completeness thresholds before the DD phase can close. All intelligence findings require source provenance (NABLA Provenance Mandatory). Risk scores below critical thresholds block deal progression without exception. Every deal action is recorded in an immutable [audit trail](/glossary/audit-trail/) with timestamps and actor identification.
+The M&A Deal Manager operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. No deal advances to the next phase without satisfying all gate criteria. Due diligence workstreams must reach minimum completeness thresholds before the DD phase can close. All intelligence findings require source provenance (NABLA Provenance Mandatory). Risk scores below critical thresholds block deal progression without exception. Every deal action is recorded in an immutable [audit trail](@/glossary/audit-trail.md) with timestamps and actor identification.
 
 ---
 
@@ -182,4 +182,4 @@ The M&A Deal Manager operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

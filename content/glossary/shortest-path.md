@@ -231,10 +231,10 @@ end
 
 ## Cross-References
 
-- [KuzuDB](/glossary/kuzudb/) - Graph database providing native shortest path queries
-- [Graph Database](/glossary/graph-database/) - Storage technology optimized for path traversal
+- [KuzuDB](@/glossary/kuzudb.md) - Graph database providing native shortest path queries
+- [Graph Database](@/glossary/graph-database.md) - Storage technology optimized for path traversal
 - **Cypher** - Query language with shortest path built-in functions
-- [Knowledge Graph](/glossary/knowledge-graph/) - Semantic graph where path analysis reveals insights
+- [Knowledge Graph](@/glossary/knowledge-graph.md) - Semantic graph where path analysis reveals insights
 
 ---
 

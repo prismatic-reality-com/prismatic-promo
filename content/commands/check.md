@@ -28,7 +28,7 @@ image_alt = "/check - Prismatic Platform"
 
 In a complex platform with hundreds of agents, thousands of files, and continuous evolution, drift between claimed state and actual state is inevitable without systematic verification. The `/check` command serves as the platform's truth arbiter, cross-referencing assertions against live evidence at three configurable depth levels: quick (syntax and existence), thorough (full cross-reference with tests), and forensic (deep historical analysis with reproducibility verification).
 
-This command operates under the **L2+** authority level and is executed by the `verification-integrity-commander` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The command supports five verification scopes (session, commit, reports, claims, all) and produces structured verification reports with confidence scores and recommended actions.
+This command operates under the **L2+** authority level and is executed by the `verification-integrity-commander` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The command supports five verification scopes (session, commit, reports, claims, all) and produces structured verification reports with confidence scores and recommended actions.
 
 The verification philosophy aligns with the NABLA framework's Provenance Mandatory axiom: all beliefs about platform state must be traceable to verifiable evidence. The `/check` command operationalizes this axiom by systematically validating that documented claims have concrete backing in the codebase, test results, and compilation output.
 
@@ -235,10 +235,10 @@ RECOMMENDED ACTIONS:
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `verification-integrity-commander` | Primary verification agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `verification-integrity-commander` | Primary verification agent |
 | AIAD Registry | Command specification and discovery | Standard AIAD interface |
-| [Quality Gates](/glossary/quality-gates/) | Direct quality gate enforcement | Gate results as evidence |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) | Verification event tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Direct quality gate enforcement | Gate results as evidence |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) | Verification event tracking |
 | Git Integration | Commit and history analysis | Evidence for commit scope |
 | Session Context | Session claim verification | `.claude/session-context/` files |
 | Mix Tasks | Metric verification | `mix compile`, `mix test`, `mix quality.gates` |
@@ -293,7 +293,7 @@ The `/check` command integrates with the AIAD workflow system:
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for unverified claims. Every assertion about platform state must be backed by concrete evidence. Discrepancies are flagged immediately.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The verification system provides complete provenance for every claim validation.
@@ -302,13 +302,13 @@ The command directly implements the NABLA framework's Provenance Mandatory axiom
 
 ## Related Commands
 
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/refactor](/commands/refactor/) - Safe refactoring with zero-regression guarantee
-- [/debrief](/commands/debrief/) - Comprehensive session debrief with platform state analysis
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/refactor](@/commands/refactor.md) - Safe refactoring with zero-regression guarantee
+- [/debrief](@/commands/debrief.md) - Comprehensive session debrief with platform state analysis
 
 ---
 
@@ -317,4 +317,4 @@ The command directly implements the NABLA framework's Provenance Mandatory axiom
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

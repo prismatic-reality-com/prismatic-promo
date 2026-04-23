@@ -28,11 +28,11 @@ image_alt = "type-annotation-analyst - Prismatic Platform"
 
 ## Overview
 
-The Type Annotation Analyst is an L3 agent operating in the **quality-assurance** domain of the Prismatic Platform. This agent specializes in analyzing, validating, and improving type annotations (typespecs) across the platform's Elixir codebase, ensuring that every public function has complete, accurate, and meaningful type specifications that enable effective [Dialyzer](/glossary/dialyzer/) static analysis and serve as living documentation for the development team.
+The Type Annotation Analyst is an L3 agent operating in the **quality-assurance** domain of the Prismatic Platform. This agent specializes in analyzing, validating, and improving type annotations (typespecs) across the platform's Elixir codebase, ensuring that every public function has complete, accurate, and meaningful type specifications that enable effective [Dialyzer](@/glossary/dialyzer.md) static analysis and serve as living documentation for the development team.
 
 Type annotations in Elixir, implemented through the `@spec` attribute, provide the foundation for static type analysis via Dialyzer. However, typespecs are only valuable when they accurately reflect the function's actual behavior. Vague types like `any()` or `term()`, missing specs on public functions, and specs that contradict runtime behavior all undermine the value of static analysis and can hide real bugs. The Type Annotation Analyst systematically identifies and remediates these issues.
 
-The agent's work is grounded in five core [Lean4](/glossary/lean4/) theorems that formally prove the safety of type system evolution, ensuring that typespec improvements never introduce false positives or mask genuine type errors. This agent is part of the platform's 434-strong autonomous agent ecosystem, enforcing the [NO MERCY](/glossary/no-mercy/) doctrine's zero-tolerance policy for type system deficiencies.
+The agent's work is grounded in five core [Lean4](@/glossary/lean4.md) theorems that formally prove the safety of type system evolution, ensuring that typespec improvements never introduce false positives or mask genuine type errors. This agent is part of the platform's 434-strong autonomous agent ecosystem, enforcing the [NO MERCY](@/glossary/no-mercy.md) doctrine's zero-tolerance policy for type system deficiencies.
 
 ## Analysis Capabilities
 
@@ -232,7 +232,7 @@ end
 
 ## Lean4 Theorem Integration
 
-The Type Annotation Analyst's work is formally backed by [Lean4](/glossary/lean4/) theorems that prove type evolution safety. These theorems ensure that typespec improvements never introduce false positives or mask genuine type errors, providing mathematical confidence that the agent's automated improvements are always safe.
+The Type Annotation Analyst's work is formally backed by [Lean4](@/glossary/lean4.md) theorems that prove type evolution safety. These theorems ensure that typespec improvements never introduce false positives or mask genuine type errors, providing mathematical confidence that the agent's automated improvements are always safe.
 
 | Theorem | Guarantee | Application |
 |---------|-----------|-------------|
@@ -258,10 +258,10 @@ The module-level approach prevents a common pitfall in typespec improvement: fix
 
 ## Integration Points
 
-- [**Quality Gates**](/capabilities/quality-gates/) -- Type quality feeds composite quality score
-- [**Telemetry Integration**](/capabilities/telemetry-integration/) -- Type analysis metrics
-- [**AIAD Standard**](/capabilities/aiad-standard/) -- Full agent specification compliance
-- [**Trinity Gate**](/capabilities/trinity-gate/) -- Formal verification of type evolution safety
+- [**Quality Gates**](@/capabilities/quality-gates.md) -- Type quality feeds composite quality score
+- [**Telemetry Integration**](@/capabilities/telemetry-integration.md) -- Type analysis metrics
+- [**AIAD Standard**](@/capabilities/aiad-standard.md) -- Full agent specification compliance
+- [**Trinity Gate**](@/capabilities/trinity-gate.md) -- Formal verification of type evolution safety
 
 ## AIAD Specification Compliance
 
@@ -269,20 +269,20 @@ The module-level approach prevents a common pitfall in typespec improvement: fix
 |----------------|--------|
 | Agent specification file | Compliant |
 | Behavioral rules | 12 rules defined |
-| [Telemetry](/glossary/telemetry/) integration | Full coverage |
-| [NM/ND doctrine](/glossary/no-mercy/) enforcement | Active |
-| [SEADF](/glossary/seadf/) integration | Registered |
-| [Property-based testing](/glossary/property-based-testing/) | 35 properties verified |
+| [Telemetry](@/glossary/telemetry.md) integration | Full coverage |
+| [NM/ND doctrine](@/glossary/no-mercy.md) enforcement | Active |
+| [SEADF](@/glossary/seadf.md) integration | Registered |
+| [Property-based testing](@/glossary/property-based-testing.md) | 35 properties verified |
 
 ## Related Agents
 
-- [**Type Inference Debugger**](/agents/type-inference-debugger/) -- Resolves Dialyzer type inference issues
-- [**Route Testing Specialist**](/agents/routetestingspecialist/) -- Route handler typespec validation
-- [**Six Sigma Psycho Coordinator**](/agents/six-sigma-psycho-coordinator/) -- Quality enforcement for typespec coverage
+- [**Type Inference Debugger**](@/agents/type-inference-debugger.md) -- Resolves Dialyzer type inference issues
+- [**Route Testing Specialist**](@/agents/routetestingspecialist.md) -- Route handler typespec validation
+- [**Six Sigma Psycho Coordinator**](@/agents/six-sigma-psycho-coordinator.md) -- Quality enforcement for typespec coverage
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination with authority to enforce type annotation standards across the entire platform codebase.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination with authority to enforce type annotation standards across the entire platform codebase.
 
 ---
 
@@ -291,4 +291,4 @@ The module-level approach prevents a common pitfall in typespec improvement: fix
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -24,11 +24,11 @@ image_alt = "/intel-export - Prismatic Platform"
 
 ## Overview
 
-**/intel-export** is a production command in the **Intelligence** category of the Prismatic Platform that generates comprehensive, structured intelligence packages designed for consumption by external Large Language Model (LLM) systems. When the platform's intelligence collection commands ([/investigate](/commands/investigate/), [/email-osint](/commands/email-osint/), [/ghost-recon](/commands/ghost-recon/)) produce raw findings, the intel-export command transforms these findings into packages optimized for further analysis by specialized AI systems, human analysts, or integration into broader intelligence workflows.
+**/intel-export** is a production command in the **Intelligence** category of the Prismatic Platform that generates comprehensive, structured intelligence packages designed for consumption by external Large Language Model (LLM) systems. When the platform's intelligence collection commands ([/investigate](@/commands/investigate.md), [/email-osint](@/commands/email-osint.md), [/ghost-recon](@/commands/ghost-recon.md)) produce raw findings, the intel-export command transforms these findings into packages optimized for further analysis by specialized AI systems, human analysts, or integration into broader intelligence workflows.
 
-This command operates under the **L3** authority level and is executed by the `intelligence-export-coordinator` agent. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the sensitivity of intelligence products and ensures that export operations are restricted to authorized operators with appropriate clearance.
+This command operates under the **L3** authority level and is executed by the `intelligence-export-coordinator` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The L3 authority level reflects the sensitivity of intelligence products and ensures that export operations are restricted to authorized operators with appropriate clearance.
 
-Intelligence packages differ from raw command output in several critical ways. They include executive summaries suitable for non-technical stakeholders, structured data sections optimized for LLM context windows, provenance metadata that traces every finding to its source, confidence assessments calibrated to the [NABLA](/glossary/nabla-infinity/) framework, and recommended follow-up actions based on the findings. The export format is deliberately designed to be self-contained so that the receiving analyst or LLM has all necessary context without needing access to the Prismatic Platform itself.
+Intelligence packages differ from raw command output in several critical ways. They include executive summaries suitable for non-technical stakeholders, structured data sections optimized for LLM context windows, provenance metadata that traces every finding to its source, confidence assessments calibrated to the [NABLA](@/glossary/nabla-infinity.md) framework, and recommended follow-up actions based on the findings. The export format is deliberately designed to be self-contained so that the receiving analyst or LLM has all necessary context without needing access to the Prismatic Platform itself.
 
 ## Architecture
 
@@ -138,13 +138,13 @@ Raw Intelligence -> Deduplicator -> Enricher -> Scorer -> Formatter -> Package B
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `intelligence-export-coordinator` | Package generation and formatting |
-| [/investigate](/commands/investigate/) | Primary data source | Investigation results feed exports |
-| [/email-osint](/commands/email-osint/) | Email intel source | Email-specific findings included |
-| [/ghost-recon](/commands/ghost-recon/) | Passive intel source | Zero-footprint findings included |
-| [NABLA Framework](/glossary/nabla-infinity/) | Confidence calibration | Epistemic scoring and provenance |
-| [Quality Gates](/glossary/quality-gates/) | Export quality | Package completeness validation |
-| [Telemetry](/glossary/telemetry/) | Export [metrics](/glossary/metrics/) | Package size, generation time tracking |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `intelligence-export-coordinator` | Package generation and formatting |
+| [/investigate](@/commands/investigate.md) | Primary data source | Investigation results feed exports |
+| [/email-osint](@/commands/email-osint.md) | Email intel source | Email-specific findings included |
+| [/ghost-recon](@/commands/ghost-recon.md) | Passive intel source | Zero-footprint findings included |
+| [NABLA Framework](@/glossary/nabla-infinity.md) | Confidence calibration | Epistemic scoring and provenance |
+| [Quality Gates](@/glossary/quality-gates.md) | Export quality | Package completeness validation |
+| [Telemetry](@/glossary/telemetry.md) | Export [metrics](@/glossary/metrics.md) | Package size, generation time tracking |
 
 ## Best Practices
 
@@ -208,19 +208,19 @@ Integrate intel export into automated intelligence workflows.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Every export package includes completeness verification and section validation.
-- **NO DOUBTS**: Full investigation before action, evidence-based results. Every finding in the export includes full provenance, confidence scoring, and source attribution per [NABLA](/glossary/nabla-infinity/) requirements.
+- **NO DOUBTS**: Full investigation before action, evidence-based results. Every finding in the export includes full provenance, confidence scoring, and source attribution per [NABLA](@/glossary/nabla-infinity.md) requirements.
 
 ## Related Commands
 
-- [/investigate](/commands/investigate/) - Launch comprehensive [OSINT](/glossary/osint/) investigation across 121+ sources
-- [/email-osint](/commands/email-osint/) - Email-based OSINT gathering with breach correlation and social profiling
-- [/ghost-recon](/commands/ghost-recon/) - Ghost reconnaissance for passive zero-footprint intelligence gathering
-- [/google-hacking](/commands/google-hacking/) - Google dorking and advanced search intelligence extraction
-- [/ma-analyze](/commands/ma-analyze/) - Comprehensive M&A analysis including financial, legal and operational review
-- [/osint-engines](/commands/osint-engines/) - Multi-engine OSINT source coordination and parallel querying
+- [/investigate](@/commands/investigate.md) - Launch comprehensive [OSINT](@/glossary/osint.md) investigation across 121+ sources
+- [/email-osint](@/commands/email-osint.md) - Email-based OSINT gathering with breach correlation and social profiling
+- [/ghost-recon](@/commands/ghost-recon.md) - Ghost reconnaissance for passive zero-footprint intelligence gathering
+- [/google-hacking](@/commands/google-hacking.md) - Google dorking and advanced search intelligence extraction
+- [/ma-analyze](@/commands/ma-analyze.md) - Comprehensive M&A analysis including financial, legal and operational review
+- [/osint-engines](@/commands/osint-engines.md) - Multi-engine OSINT source coordination and parallel querying
 
 ---
 
@@ -229,4 +229,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

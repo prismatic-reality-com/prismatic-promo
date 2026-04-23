@@ -30,7 +30,7 @@ Refactoring in a platform of this scale -- over 90 umbrella applications, 6,652 
 
 The zero-regression guarantee is not aspirational but mechanically enforced. Before applying any transformation, the refactoring engine captures the complete test baseline. After each atomic transformation step, the full test suite executes. If any test fails, the transformation is automatically rolled back and the failure is reported with precise context. This approach means that refactoring operations either complete successfully with verified behavioral equivalence or leave the codebase in its original, known-good state.
 
-This command operates under the **L3** authority level and is executed by the `refactoring-specialist` agent, which maintains a comprehensive library of safe refactoring patterns tailored to Elixir/OTP conventions. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard.
+This command operates under the **L3** authority level and is executed by the `refactoring-specialist` agent, which maintains a comprehensive library of safe refactoring patterns tailored to Elixir/OTP conventions. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard.
 
 ## Architecture
 
@@ -71,7 +71,7 @@ Refactoring Request
 Refactoring Complete (or Rolled Back)
 ```
 
-The analysis phase leverages the [/reconnaissance](/commands/reconnaissance/) command's structural analysis to determine the blast radius of the proposed refactoring and identify all affected modules, tests, and downstream dependencies.
+The analysis phase leverages the [/reconnaissance](@/commands/reconnaissance.md) command's structural analysis to determine the blast radius of the proposed refactoring and identify all affected modules, tests, and downstream dependencies.
 
 ## Usage
 
@@ -132,7 +132,7 @@ The refactoring command follows a carefully orchestrated execution flow designed
 
 **Step 4 - Incremental Execution**: Each atomic step executes in sequence. After each step, the compiler verifies that the codebase compiles without warnings, and the affected test subset runs to verify behavioral equivalence. If any verification fails, the step is rolled back and the operator receives a detailed failure report.
 
-**Step 5 - Full Verification**: After all atomic steps complete successfully, the full verification suite runs. This includes the complete test suite, all 25 custom [Credo](/glossary/credo/) regression checks, zero-warning compilation, and quality gate verification. Only when all verifications pass is the refactoring considered complete.
+**Step 5 - Full Verification**: After all atomic steps complete successfully, the full verification suite runs. This includes the complete test suite, all 25 custom [Credo](@/glossary/credo.md) regression checks, zero-warning compilation, and quality gate verification. Only when all verifications pass is the refactoring considered complete.
 
 **Step 6 - Cleanup**: Temporary files, intermediate checkpoints, and analysis artifacts are cleaned up. The final state is validated against the baseline to confirm behavioral equivalence.
 
@@ -140,13 +140,13 @@ The refactoring command follows a carefully orchestrated execution flow designed
 
 | Component | Relationship | Details |
 |-----------|-------------|---------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `refactoring-specialist` | Expert in safe Elixir/OTP refactoring patterns |
-| [/reconnaissance](/commands/reconnaissance/) | Pre-refactoring analysis | Provides structural context for impact assessment |
-| [/test](/commands/test/) | Verification engine | Test suite execution at each transformation step |
-| [/regression-check](/commands/regression-check/) | Post-refactoring validation | 25 custom Credo checks verify no regression |
-| [Quality Gates](/glossary/quality-gates/) | Final validation | All quality domains must maintain perfect scores |
-| [Git Trees](/glossary/git-trees/) | File discovery | Optimized identification of affected files |
-| [Telemetry](/glossary/telemetry/) | Operation tracking | All refactoring steps logged with timing data |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `refactoring-specialist` | Expert in safe Elixir/OTP refactoring patterns |
+| [/reconnaissance](@/commands/reconnaissance.md) | Pre-refactoring analysis | Provides structural context for impact assessment |
+| [/test](@/commands/test.md) | Verification engine | Test suite execution at each transformation step |
+| [/regression-check](@/commands/regression-check.md) | Post-refactoring validation | 25 custom Credo checks verify no regression |
+| [Quality Gates](@/glossary/quality-gates.md) | Final validation | All quality domains must maintain perfect scores |
+| [Git Trees](@/glossary/git-trees.md) | File discovery | Optimized identification of affected files |
+| [Telemetry](@/glossary/telemetry.md) | Operation tracking | All refactoring steps logged with timing data |
 
 ## Best Practices
 
@@ -195,24 +195,24 @@ Advanced refactoring operations support pattern composition, custom transformati
 /refactor --scope=cross-app --dependency-order --target=PrismaticStorageCore.Traits
 ```
 
-The `--formal-verify` flag engages the [Lean4](/commands/lean/) formal verification engine to prove behavioral equivalence between the original and refactored code. This provides the strongest possible guarantee that the refactoring preserves semantics, going beyond test-based verification to mathematical proof.
+The `--formal-verify` flag engages the [Lean4](@/commands/lean.md) formal verification engine to prove behavioral equivalence between the original and refactored code. This provides the strongest possible guarantee that the refactoring preserves semantics, going beyond test-based verification to mathematical proof.
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. Refactoring either completes with all verifications passing or rolls back completely. There is no middle ground, no partial completion, and no "fix it later" state.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. The impact analysis phase ensures complete understanding before any transformation begins. Every transformation step is verified with evidence (passing tests), not assumptions.
 
 ## Related Commands
 
-- [/code](/commands/code/) - Core coding implementation and feature development
-- [/fix](/commands/fix/) - Bug fix implementation with mandatory [regression tests](/capabilities/regression-tests/)
-- [/test](/commands/test/) - Comprehensive test generation and verification
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/quality-enforce](/commands/quality-enforce/) - Mandatory progressive [quality debt](/glossary/quality-debt/) elimination with AIAD enforcement
-- [/regression-check](/commands/regression-check/) - Execute 25 custom [Credo](/glossary/credo/) regression checks preventing 700+ violations
-- [/reconnaissance](/commands/reconnaissance/) - Codebase reconnaissance and structure analysis
+- [/code](@/commands/code.md) - Core coding implementation and feature development
+- [/fix](@/commands/fix.md) - Bug fix implementation with mandatory [regression tests](@/capabilities/regression-tests.md)
+- [/test](@/commands/test.md) - Comprehensive test generation and verification
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/quality-enforce](@/commands/quality-enforce.md) - Mandatory progressive [quality debt](@/glossary/quality-debt.md) elimination with AIAD enforcement
+- [/regression-check](@/commands/regression-check.md) - Execute 25 custom [Credo](@/glossary/credo.md) regression checks preventing 700+ violations
+- [/reconnaissance](@/commands/reconnaissance.md) - Codebase reconnaissance and structure analysis
 
 ---
 
@@ -221,4 +221,4 @@ All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-dou
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

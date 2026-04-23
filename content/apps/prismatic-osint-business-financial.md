@@ -23,11 +23,11 @@ image_alt = "Prismatic OSINT Business - Prismatic Platform"
 
 ## Overview
 
-Prismatic [OSINT](/glossary/osint/) Business provides [adapter pattern](/glossary/adapter-pattern/) implementations for business and financial intelligence sources, integrating with corporate registries, [sanctions screening](/glossary/sanctions-screening/) databases, financial disclosure systems, and business intelligence platforms to build comprehensive entity profiles for due diligence and risk assessment. Each adapter normalizes source-specific data formats into the platform's unified [entity resolution](/glossary/entity-resolution/) schema, enabling cross-source correlation through the [knowledge graph](/glossary/knowledge-graph/).
+Prismatic [OSINT](@/glossary/osint.md) Business provides [adapter pattern](@/glossary/adapter-pattern.md) implementations for business and financial intelligence sources, integrating with corporate registries, [sanctions screening](@/glossary/sanctions-screening.md) databases, financial disclosure systems, and business intelligence platforms to build comprehensive entity profiles for due diligence and risk assessment. Each adapter normalizes source-specific data formats into the platform's unified [entity resolution](@/glossary/entity-resolution.md) schema, enabling cross-source correlation through the [knowledge graph](@/glossary/knowledge-graph.md).
 
-The application implements multi-registry company verification, cross-referencing entity identifiers (ICO, DUNS, LEI, registration numbers) across Czech, European, and global corporate registries to build verified entity profiles with [confidence scoring](/glossary/confidence-scoring/) derived from the platform's [NABLA epistemic framework](/glossary/nabla-infinity/). When multiple registries provide conflicting data about an entity's status, ownership, or address, the system preserves both signals following the [contradiction preservation](/glossary/contradiction-preservation/) axiom rather than arbitrarily choosing one source over another.
+The application implements multi-registry company verification, cross-referencing entity identifiers (ICO, DUNS, LEI, registration numbers) across Czech, European, and global corporate registries to build verified entity profiles with [confidence scoring](@/glossary/confidence-scoring.md) derived from the platform's [NABLA epistemic framework](@/glossary/nabla-infinity.md). When multiple registries provide conflicting data about an entity's status, ownership, or address, the system preserves both signals following the [contradiction preservation](@/glossary/contradiction-preservation.md) axiom rather than arbitrarily choosing one source over another.
 
-Sanctions screening integrates OFAC, EU consolidated, and UN sanctions lists through a unified screening API that supports fuzzy name matching, alias resolution, and date-of-birth verification for natural persons. Corporate structure mapping traces parent-subsidiary relationships across jurisdictions, enabling risk propagation analysis where a sanctioned parent entity's risk status cascades to its subsidiaries with distance-weighted [risk score](/glossary/risk-score/) attenuation.
+Sanctions screening integrates OFAC, EU consolidated, and UN sanctions lists through a unified screening API that supports fuzzy name matching, alias resolution, and date-of-birth verification for natural persons. Corporate structure mapping traces parent-subsidiary relationships across jurisdictions, enabling risk propagation analysis where a sanctioned parent entity's risk status cascades to its subsidiaries with distance-weighted [risk score](@/glossary/risk-score.md) attenuation.
 
 ## Architecture
 
@@ -45,7 +45,7 @@ Query Router --> Source Adapter --> Response Parser --> Entity Normalizer --> Pr
                                 Structure Mapper --> Ownership Graph
 ```
 
-All parsing and entity normalization follows [pure function](/glossary/pure-function/) principles. Network requests execute in isolated processes under the [OTP](/glossary/otp/) [supervision tree](/glossary/supervision-tree/) with [rate limiting](/glossary/rate-limiting/) and [circuit breaker](/glossary/circuit-breaker/) patterns per source. Source credential management handles API key rotation and [OAuth2](/glossary/oauth2/) token refresh automatically.
+All parsing and entity normalization follows [pure function](@/glossary/pure-function.md) principles. Network requests execute in isolated processes under the [OTP](@/glossary/otp.md) [supervision tree](@/glossary/supervision-tree.md) with [rate limiting](@/glossary/rate-limiting.md) and [circuit breaker](@/glossary/circuit-breaker.md) patterns per source. Source credential management handles API key rotation and [OAuth2](@/glossary/oauth2.md) token refresh automatically.
 
 ## Key Modules
 
@@ -132,9 +132,9 @@ The sanctions screening engine implements multi-list fuzzy matching with configu
 ### Cross-Registry Verification
 
 - Entity identity verification through multi-source cross-referencing with weighted confidence scores
-- Automated detection of inconsistencies between registry sources with [audit trail](/glossary/audit-trail/) documentation
-- [Entity resolution](/glossary/entity-resolution/) algorithms handling name variations, transliterations, and legal form differences
-- [Telemetry](/glossary/telemetry/) emission for verification latency, match rates, and source utilization [metrics](/glossary/metrics/)
+- Automated detection of inconsistencies between registry sources with [audit trail](@/glossary/audit-trail.md) documentation
+- [Entity resolution](@/glossary/entity-resolution.md) algorithms handling name variations, transliterations, and legal form differences
+- [Telemetry](@/glossary/telemetry.md) emission for verification latency, match rates, and source utilization [metrics](@/glossary/metrics.md)
 
 ### Risk Propagation Through Ownership Graphs
 
@@ -218,12 +218,12 @@ Integration tests exercise the full pipeline from multi-registry query through e
 
 | Application | Relationship |
 |-------------|--------------|
-| [Prismatic OSINT Sources](/apps/prismatic-osint-sources/) | Business adapters registered in the unified OSINT source catalog |
-| [Prismatic OSINT EU Institutions](/apps/prismatic-osint-eu-institutions/) | EU sanctions and financial data complementing business intelligence |
-| [Prismatic Czech Autocrawler](/apps/prismatic-czech-autocrawler/) | Czech registry data feeding business entity profiles |
-| [Prismatic Graph](/apps/prismatic-graph/) | Entity relationship mapping in the [knowledge graph](/glossary/knowledge-graph/) |
-| [Prismatic DD](/apps/prismatic-dd/) | Due diligence workflows consuming business intelligence profiles |
-| [Prismatic Compliance](/apps/prismatic-compliance/) | [Compliance framework](/glossary/compliance-framework/) assessment using sanctions screening data |
+| [Prismatic OSINT Sources](@/apps/prismatic-osint-sources.md) | Business adapters registered in the unified OSINT source catalog |
+| [Prismatic OSINT EU Institutions](@/apps/prismatic-osint-eu-institutions.md) | EU sanctions and financial data complementing business intelligence |
+| [Prismatic Czech Autocrawler](@/apps/prismatic-czech-autocrawler.md) | Czech registry data feeding business entity profiles |
+| [Prismatic Graph](@/apps/prismatic-graph.md) | Entity relationship mapping in the [knowledge graph](@/glossary/knowledge-graph.md) |
+| [Prismatic DD](@/apps/prismatic-dd.md) | Due diligence workflows consuming business intelligence profiles |
+| [Prismatic Compliance](@/apps/prismatic-compliance.md) | [Compliance framework](@/glossary/compliance-framework.md) assessment using sanctions screening data |
 
 ## Performance
 
@@ -236,17 +236,17 @@ Integration tests exercise the full pipeline from multi-registry query through e
 | Entity normalization | < 50ms | Pure function transformation |
 | Risk propagation | 100ms-1s | Depends on graph traversal depth |
 
-[Telemetry](/glossary/telemetry/) events: `[:prismatic, :osint_business, :profile_built]`, `[:prismatic, :osint_business, :sanctions_screened]`, `[:prismatic, :osint_business, :entity_verified]`.
+[Telemetry](@/glossary/telemetry.md) events: `[:prismatic, :osint_business, :profile_built]`, `[:prismatic, :osint_business, :sanctions_screened]`, `[:prismatic, :osint_business, :entity_verified]`.
 
 ## Related Resources
 
-- [Prismatic OSINT Core](/apps/prismatic-osint-core/) -- Core OSINT infrastructure shared across all source adapters
-- [Business Financial Intelligence Specialist](/agents/business-financial-intelligence-specialist/) -- Coordinates business intelligence analysis workflows
-- [Czech Business Intelligence Specialist](/agents/czech-business-intelligence-specialist/) -- Specialized Czech business data analysis and verification
-- [Competitor Researcher](/agents/competitor-researcher/) -- Competitive intelligence leveraging business source data
-- [Intelligence Synthesis](/capabilities/intelligence-synthesis/) -- Multi-source business evidence fusion for entity profiling
-- [NABLA Axioms](/capabilities/nabla-axioms/) -- Contradiction preservation and confidence scoring for business data
-- [Quality Gates](/capabilities/quality-gates/) -- Data quality validation enforcement on business intelligence
+- [Prismatic OSINT Core](@/apps/prismatic-osint-core.md) -- Core OSINT infrastructure shared across all source adapters
+- [Business Financial Intelligence Specialist](@/agents/business-financial-intelligence-specialist.md) -- Coordinates business intelligence analysis workflows
+- [Czech Business Intelligence Specialist](@/agents/czech-business-intelligence-specialist.md) -- Specialized Czech business data analysis and verification
+- [Competitor Researcher](@/agents/competitor-researcher.md) -- Competitive intelligence leveraging business source data
+- [Intelligence Synthesis](@/capabilities/intelligence-synthesis.md) -- Multi-source business evidence fusion for entity profiling
+- [NABLA Axioms](@/capabilities/nabla-axioms.md) -- Contradiction preservation and confidence scoring for business data
+- [Quality Gates](@/capabilities/quality-gates.md) -- Data quality validation enforcement on business intelligence
 
 ---
 
@@ -255,4 +255,4 @@ Integration tests exercise the full pipeline from multi-registry query through e
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

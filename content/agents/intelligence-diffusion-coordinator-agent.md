@@ -28,13 +28,13 @@ image_alt = "Intelligence Diffusion Coordinator Agent - Prismatic Platform"
 
 ## Overview
 
-The Intelligence Diffusion Coordinator Agent operates as an L3 strategic command authority within the General domain of the Prismatic Platform. This agent orchestrates the flow of intelligence data from [OSINT](/glossary/osint/) providers to consuming agents, ensuring that raw intelligence is properly enriched, deduplicated, scored for confidence, and routed to the appropriate downstream consumers. The coordinator acts as the central nervous system for intelligence distribution, preventing both information overload and intelligence gaps.
+The Intelligence Diffusion Coordinator Agent operates as an L3 strategic command authority within the General domain of the Prismatic Platform. This agent orchestrates the flow of intelligence data from [OSINT](@/glossary/osint.md) providers to consuming agents, ensuring that raw intelligence is properly enriched, deduplicated, scored for confidence, and routed to the appropriate downstream consumers. The coordinator acts as the central nervous system for intelligence distribution, preventing both information overload and intelligence gaps.
 
 Intelligence diffusion in the Prismatic ecosystem involves 250+ OSINT providers generating data across domains including corporate registries, social media, financial databases, legal records, and technical infrastructure. Without coordinated diffusion, consuming agents would face duplicate data, inconsistent formats, missing provenance, and overwhelming volumes. The Intelligence Diffusion Coordinator normalizes all intelligence into a common format, applies confidence scoring based on source reliability, and routes enriched intelligence to registered consumers based on their subscription profiles.
 
 ## Operational Domain
 
-The coordinator operates across all intelligence domains, serving as the bridge between data acquisition (OSINT providers) and data consumption (analysis agents). It interfaces with the platform's [GenStage](/glossary/genstage/) pipelines for backpressure-aware data flow and uses [PubSub](/glossary/pubsub/) for real-time intelligence event distribution.
+The coordinator operates across all intelligence domains, serving as the bridge between data acquisition (OSINT providers) and data consumption (analysis agents). It interfaces with the platform's [GenStage](@/glossary/genstage.md) pipelines for backpressure-aware data flow and uses [PubSub](@/glossary/pubsub.md) for real-time intelligence event distribution.
 
 ## Diffusion Architecture
 
@@ -153,35 +153,35 @@ The coordinator applies a multi-factor confidence scoring model to all intellige
 - **Provider-to-consumer routing** managing subscription-based intelligence delivery from 250+ OSINT providers to consuming analysis agents with configurable filtering
 - **Deduplication engine** detecting and merging duplicate intelligence records across providers using entity resolution and content similarity analysis
 - **Confidence scoring** applying multi-factor scoring models that account for source reliability, corroboration, freshness, and consistency
-- **[Backpressure](/glossary/backpressure/) management** using GenStage demand-driven pipelines to prevent consumer overload during high-volume intelligence periods
+- **[Backpressure](@/glossary/backpressure.md) management** using GenStage demand-driven pipelines to prevent consumer overload during high-volume intelligence periods
 - **Provenance tracking** maintaining complete source provenance chains for every intelligence record, satisfying the NABLA Provenance Mandatory axiom
 - **Real-time and batch delivery** supporting both push-based real-time delivery via PubSub and pull-based batch retrieval for bulk analysis operations
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/). Multi-domain coordination and specialized operational command. The coordinator has authority to manage provider connections, define routing policies, and control intelligence flow across all consuming agents.
+**L3** - [Strategic Command](@/glossary/strategic-command.md). Multi-domain coordination and specialized operational command. The coordinator has authority to manage provider connections, define routing policies, and control intelligence flow across all consuming agents.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |---|---|---|
-| [osint-intelligence-operative](/agents/osint-intelligence-operative/) | Provider Interface | Manages OSINT provider connections and data acquisition |
-| [cross-domain-intelligence-coordinator](/agents/cross-domain-intelligence-coordinator/) | Cross-Domain | Routes intelligence across domain boundaries for multi-domain analysis |
-| [risk-assessment-commander](/agents/risk-assessment-commander/) | Risk Consumer | Primary consumer of entity risk intelligence for scoring |
-| [financial-intelligence-commander](/agents/financial-intelligence-commander/) | Financial Consumer | Consumes financial intelligence for due diligence operations |
+| [osint-intelligence-operative](@/agents/osint-intelligence-operative.md) | Provider Interface | Manages OSINT provider connections and data acquisition |
+| [cross-domain-intelligence-coordinator](@/agents/cross-domain-intelligence-coordinator.md) | Cross-Domain | Routes intelligence across domain boundaries for multi-domain analysis |
+| [risk-assessment-commander](@/agents/risk-assessment-commander.md) | Risk Consumer | Primary consumer of entity risk intelligence for scoring |
+| [financial-intelligence-commander](@/agents/financial-intelligence-commander.md) | Financial Consumer | Consumes financial intelligence for due diligence operations |
 
 ## Integration
 
 | Component | Relationship |
 |---|---|
-| [GenStage](/glossary/genstage/) | Backpressure-aware intelligence pipeline |
-| [PubSub](/glossary/pubsub/) | Real-time intelligence event distribution |
-| [NABLA Infinity](/glossary/nabla-infinity/) | Signal plurality and provenance enforcement |
-| Platform [Telemetry](/glossary/telemetry/) | Diffusion metrics, throughput, and latency tracking |
+| [GenStage](@/glossary/genstage.md) | Backpressure-aware intelligence pipeline |
+| [PubSub](@/glossary/pubsub.md) | Real-time intelligence event distribution |
+| [NABLA Infinity](@/glossary/nabla-infinity.md) | Signal plurality and provenance enforcement |
+| Platform [Telemetry](@/glossary/telemetry.md) | Diffusion metrics, throughput, and latency tracking |
 
 ## Enforcement
 
-The Intelligence Diffusion Coordinator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine. All intelligence records must include complete provenance chains (NABLA Provenance Mandatory). Confidence scores must be calculated, never assumed. Duplicate intelligence is detected and merged, never delivered twice to the same consumer. Intelligence without minimum confidence thresholds is quarantined for review rather than delivered to consumers. All routing decisions are logged with full [audit trail](/glossary/audit-trail/) for accountability.
+The Intelligence Diffusion Coordinator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine. All intelligence records must include complete provenance chains (NABLA Provenance Mandatory). Confidence scores must be calculated, never assumed. Duplicate intelligence is detected and merged, never delivered twice to the same consumer. Intelligence without minimum confidence thresholds is quarantined for review rather than delivered to consumers. All routing decisions are logged with full [audit trail](@/glossary/audit-trail.md) for accountability.
 
 ---
 
@@ -190,4 +190,4 @@ The Intelligence Diffusion Coordinator operates under the [NO MERCY, NO DOUBTS](
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

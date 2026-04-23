@@ -24,9 +24,9 @@ image_alt = "Phoenix PubSub - Prismatic Platform"
 
 ## Overview
 
-[Phoenix](/glossary/phoenix/) PubSub is the event backbone of the Prismatic Platform, providing real-time message broadcasting between processes both within a single node and across a distributed cluster. Every real-time feature in the platform -- [LiveView dashboard updates](/architecture/phoenix-liveview/), [GraphQL subscription delivery](/architecture/graphql/), agent coordination, search index synchronization, and security alert propagation -- flows through PubSub as its transport layer.
+[Phoenix](@/glossary/phoenix.md) PubSub is the event backbone of the Prismatic Platform, providing real-time message broadcasting between processes both within a single node and across a distributed cluster. Every real-time feature in the platform -- [LiveView dashboard updates](@/architecture/phoenix-liveview.md), [GraphQL subscription delivery](@/architecture/graphql.md), agent coordination, search index synchronization, and security alert propagation -- flows through PubSub as its transport layer.
 
-The design decision to centralize event distribution through PubSub rather than direct process messaging was deliberate and grounded in three architectural requirements. First, the publisher-subscriber decoupling means that event producers (such as the asset discovery engine in [Prismatic Perimeter](/apps/prismatic-perimeter/)) do not need to know which consumers exist or where they run. Second, the topic-based routing provides a natural namespace for events that maps cleanly to domain concepts (assets, agents, [security rating](/glossary/security-rating/)s, compliance findings). Third, the pluggable adapter system allows the same application code to run on a single developer machine using in-process Erlang distribution and in production across multiple nodes using a distributed backend.
+The design decision to centralize event distribution through PubSub rather than direct process messaging was deliberate and grounded in three architectural requirements. First, the publisher-subscriber decoupling means that event producers (such as the asset discovery engine in [Prismatic Perimeter](@/apps/prismatic-perimeter.md)) do not need to know which consumers exist or where they run. Second, the topic-based routing provides a natural namespace for events that maps cleanly to domain concepts (assets, agents, [security rating](@/glossary/security-rating.md)s, compliance findings). Third, the pluggable adapter system allows the same application code to run on a single developer machine using in-process Erlang distribution and in production across multiple nodes using a distributed backend.
 
 This article examines the PubSub architecture in depth: why it was chosen over alternatives, how topic hierarchies are designed, how it integrates with the platform's major subsystems, and what performance characteristics it delivers under production load.
 
@@ -34,7 +34,7 @@ This article examines the PubSub architecture in depth: why it was chosen over a
 
 ### Core Architecture
 
-Phoenix PubSub implements a [registry](/glossary/registry-otp/)-based pub/sub model where subscribers register interest in named topics, and publishers broadcast messages to all registered subscribers on a given topic. The critical architectural insight is that PubSub builds on [Erlang's native process messaging](/glossary/beam/) -- a `broadcast` is ultimately a series of `send/2` calls to registered process PIDs, which means it inherits all the reliability guarantees (and limitations) of BEAM inter-process communication.
+Phoenix PubSub implements a [registry](@/glossary/registry-otp.md)-based pub/sub model where subscribers register interest in named topics, and publishers broadcast messages to all registered subscribers on a given topic. The critical architectural insight is that PubSub builds on [Erlang's native process messaging](@/glossary/beam.md) -- a `broadcast` is ultimately a series of `send/2` calls to registered process PIDs, which means it inherits all the reliability guarantees (and limitations) of BEAM inter-process communication.
 
 ```
 Publisher Process                     Subscriber Processes
@@ -60,8 +60,8 @@ The Prismatic Platform uses different PubSub backends depending on the deploymen
 | Backend | Use Case | Latency | Persistence | Cluster Support |
 |---------|----------|---------|-------------|-----------------|
 | `Phoenix.PubSub.PG2` (Erlang pg) | Development, single-node prod | <100us | None | Via Erlang distribution |
-| [Redis](/glossary/redis/) adapter | Multi-region, non-Erlang consumers | ~1ms | Optional (Streams) | Via Redis cluster |
-| Custom [ETS](/glossary/ets/) tracker | High-frequency internal events | <50us | None | Single node only |
+| [Redis](@/glossary/redis.md) adapter | Multi-region, non-Erlang consumers | ~1ms | Optional (Streams) | Via Redis cluster |
+| Custom [ETS](@/glossary/ets.md) tracker | High-frequency internal events | <50us | None | Single node only |
 
 ```elixir
 # Development and single-cluster production
@@ -79,15 +79,15 @@ config :prismatic_platform, PrismaticPubSub,
   node_name: System.get_env("FLY_ALLOC_ID", node() |> to_string())
 ```
 
-The default `PG2` adapter was chosen for the primary deployment because the Prismatic Platform runs as a single Erlang cluster on [Fly.io](/glossary/fly-io/), where Erlang distribution provides sub-millisecond cross-node messaging without external dependencies. The Redis adapter is reserved for scenarios where non-Erlang services need to participate in the event stream or where multi-region deployments make Erlang distribution impractical due to latency.
+The default `PG2` adapter was chosen for the primary deployment because the Prismatic Platform runs as a single Erlang cluster on [Fly.io](@/glossary/fly-io.md), where Erlang distribution provides sub-millisecond cross-node messaging without external dependencies. The Redis adapter is reserved for scenarios where non-Erlang services need to participate in the event stream or where multi-region deployments make Erlang distribution impractical due to latency.
 
 ### Why Not Direct Process Messaging?
 
-An alternative to PubSub would be direct process-to-process messaging using `send/2` with a process [registry](/glossary/genserver/). This approach was evaluated and rejected for three reasons:
+An alternative to PubSub would be direct process-to-process messaging using `send/2` with a process [registry](@/glossary/genserver.md). This approach was evaluated and rejected for three reasons:
 
 1. **Coupling**: Direct messaging requires the publisher to know subscriber PIDs, creating tight coupling between producers and consumers. When a new consumer type is added (e.g., a search indexer), every producer would need modification.
 
-2. **Fan-out complexity**: When an event needs to reach 50+ LiveView processes, 10 GraphQL subscriptions, a search indexer, an audit logger, and a [metrics](/glossary/metrics/) collector, managing the fan-out manually is error-prone and duplicative.
+2. **Fan-out complexity**: When an event needs to reach 50+ LiveView processes, 10 GraphQL subscriptions, a search indexer, an audit logger, and a [metrics](@/glossary/metrics.md) collector, managing the fan-out manually is error-prone and duplicative.
 
 3. **Distribution transparency**: PubSub abstracts whether subscribers are local or remote. Direct messaging across nodes requires explicit `Node.send/3` or `:rpc` calls, complicating the code and making it environment-dependent.
 
@@ -243,7 +243,7 @@ end
 
 ### LiveView Real-Time Dashboards
 
-The primary consumer of PubSub events is the [LiveView](/architecture/phoenix-liveview/) layer. Each LiveView process subscribes to relevant topics during its `mount/3` callback and receives events through `handle_info/2`. This integration requires zero additional infrastructure -- no message queue, no polling, no separate [WebSocket](/glossary/websocket/) server:
+The primary consumer of PubSub events is the [LiveView](@/architecture/phoenix-liveview.md) layer. Each LiveView process subscribes to relevant topics during its `mount/3` callback and receives events through `handle_info/2`. This integration requires zero additional infrastructure -- no message queue, no polling, no separate [WebSocket](@/glossary/websocket.md) server:
 
 ```elixir
 defmodule PrismaticWeb.PerimeterLive do
@@ -283,7 +283,7 @@ end
 
 ### GraphQL Subscription Delivery
 
-[GraphQL subscriptions](/architecture/graphql/) use PubSub as their delivery mechanism. When a domain event occurs, the publisher broadcasts to a PubSub topic that Absinthe has registered for the matching subscription:
+[GraphQL subscriptions](@/architecture/graphql.md) use PubSub as their delivery mechanism. When a domain event occurs, the publisher broadcasts to a PubSub topic that Absinthe has registered for the matching subscription:
 
 ```elixir
 defmodule PrismaticPerimeter.Events do
@@ -313,7 +313,7 @@ end
 
 ### Agent Coordination
 
-The [agent system](/apps/prismatic-agents/) uses PubSub for coordination between agents running on different nodes. When an agent completes a task, it broadcasts its result, allowing dependent agents to proceed without polling:
+The [agent system](@/apps/prismatic-agents.md) uses PubSub for coordination between agents running on different nodes. When an agent completes a task, it broadcasts its result, allowing dependent agents to proceed without polling:
 
 ```elixir
 defmodule PrismaticAgents.MissionCoordinator do
@@ -378,7 +378,7 @@ end
 
 ### Search Index Synchronization
 
-PubSub provides the event stream that keeps the [Meilisearch](/apps/prismatic-meilisearch/) index synchronized with the primary [storage](/architecture/storage-adapters/) layer:
+PubSub provides the event stream that keeps the [Meilisearch](@/apps/prismatic-meilisearch.md) index synchronized with the primary [storage](@/architecture/storage-adapters.md) layer:
 
 ```elixir
 defmodule PrismaticSearch.Sync do
@@ -449,7 +449,7 @@ The format of PubSub messages follows a consistent convention across the platfor
 {:rating_changed, "example.com", %{old: :B, new: :A, score: 850}}
 ```
 
-The convention of using tagged tuples rather than maps or structs for PubSub messages was chosen for [pattern matching](/glossary/pattern-matching/) efficiency. Subscribers can use [Elixir](/glossary/elixir/)'s pattern matching in `handle_info/2` to selectively process only the events they care about, with non-matching messages falling through to a catch-all clause:
+The convention of using tagged tuples rather than maps or structs for PubSub messages was chosen for [pattern matching](@/glossary/pattern-matching.md) efficiency. Subscribers can use [Elixir](@/glossary/elixir.md)'s pattern matching in `handle_info/2` to selectively process only the events they care about, with non-matching messages falling through to a catch-all clause:
 
 ```elixir
 # Selective event handling via pattern matching
@@ -466,7 +466,7 @@ end
 
 ## Distributed PubSub and Cluster Behavior
 
-When the platform runs as a multi-node Erlang [cluster](/glossary/cluster/), PubSub automatically distributes messages across all nodes. The `PG2` adapter uses Erlang's `pg` module (OTP 23+), which maintains a distributed process group across the cluster:
+When the platform runs as a multi-node Erlang [cluster](@/glossary/cluster.md), PubSub automatically distributes messages across all nodes. The `PG2` adapter uses Erlang's `pg` module (OTP 23+), which maintains a distributed process group across the cluster:
 
 ```
 Node A                          Node B                          Node C
@@ -505,13 +505,13 @@ When a new node joins the cluster, `pg` automatically synchronizes the process g
 
 ### Partition Handling
 
-Network partitions in distributed PubSub are an inherent concern covered by the [CAP theorem](/glossary/cap-theorem/). The Prismatic Platform's PubSub makes an explicit availability-over-consistency choice: during a partition, each partition continues to deliver events to its local subscribers, but cross-partition delivery is lost. When the partition heals, `pg` group membership resynchronizes automatically, but events published during the partition are not replayed.
+Network partitions in distributed PubSub are an inherent concern covered by the [CAP theorem](@/glossary/cap-theorem.md). The Prismatic Platform's PubSub makes an explicit availability-over-consistency choice: during a partition, each partition continues to deliver events to its local subscribers, but cross-partition delivery is lost. When the partition heals, `pg` group membership resynchronizes automatically, but events published during the partition are not replayed.
 
-For events where delivery guarantees are critical (such as [audit trail](/glossary/audit-trail/) entries or compliance state changes), the platform uses [PostgreSQL](/glossary/postgresql/)-backed [event sourcing](/architecture/event-sourcing/) as the source of truth, with PubSub serving only as a notification mechanism. The consumer can always rebuild its state from the persistent event store if PubSub messages are lost.
+For events where delivery guarantees are critical (such as [audit trail](@/glossary/audit-trail.md) entries or compliance state changes), the platform uses [PostgreSQL](@/glossary/postgresql.md)-backed [event sourcing](@/architecture/event-sourcing.md) as the source of truth, with PubSub serving only as a notification mechanism. The consumer can always rebuild its state from the persistent event store if PubSub messages are lost.
 
 ## Telemetry and Observability
 
-PubSub operations emit [telemetry](/architecture/telemetry/) events that integrate with the platform's monitoring infrastructure:
+PubSub operations emit [telemetry](@/architecture/telemetry.md) events that integrate with the platform's monitoring infrastructure:
 
 ```elixir
 defmodule PrismaticPubSub.Telemetry do
@@ -580,25 +580,25 @@ PubSub broadcast latency scales linearly with the number of subscribers on a top
 
 1. **Topic sharding**: Split `"assets:discovered"` into `"assets:discovered:shard:0"` through `"assets:discovered:shard:N"`, with subscribers assigned to shards by consistent hashing.
 
-2. **Intermediate aggregation**: Insert a [GenServer](/glossary/genserver/) that subscribes to the high-frequency topic, aggregates events over a time window, and broadcasts summaries on a lower-frequency topic.
+2. **Intermediate aggregation**: Insert a [GenServer](@/glossary/genserver.md) that subscribes to the high-frequency topic, aggregates events over a time window, and broadcasts summaries on a lower-frequency topic.
 
-3. **Rate-limited broadcast**: Use [backpressure](/glossary/backpressure/) patterns to throttle broadcast frequency when subscriber count exceeds thresholds.
+3. **Rate-limited broadcast**: Use [backpressure](@/glossary/backpressure.md) patterns to throttle broadcast frequency when subscriber count exceeds thresholds.
 
 ## Comparison with Alternative Event Systems
 
 | System | Latency | Persistence | Ordering | Language Integration | Prismatic Usage |
 |--------|---------|-------------|----------|---------------------|-----------------|
 | Phoenix PubSub (pg) | <100us | None | Per-topic FIFO | Native BEAM | Primary event bus |
-| Redis Pub/Sub | ~1ms | None | Per-[channel](/glossary/channel/) FIFO | Client library | Multi-region fallback |
+| Redis Pub/Sub | ~1ms | None | Per-[channel](@/glossary/channel.md) FIFO | Client library | Multi-region fallback |
 | RabbitMQ | ~5ms | Optional | Per-queue FIFO | AMQP client | Not used (overhead) |
 | Apache Kafka | ~10ms | Persistent | Partition-ordered | Producer/consumer lib | Not used (complexity) |
-| PostgreSQL LISTEN/NOTIFY | ~2ms | None | FIFO | [Ecto](/glossary/ecto/)/Postgrex | Audit event triggers |
+| PostgreSQL LISTEN/NOTIFY | ~2ms | None | FIFO | [Ecto](@/glossary/ecto.md)/Postgrex | Audit event triggers |
 
-Phoenix PubSub was chosen as the primary event bus because it eliminates external infrastructure dependencies, provides the lowest latency for the common case (same-cluster delivery), and integrates natively with [LiveView](/architecture/phoenix-liveview/) and Absinthe subscriptions. The tradeoff is the lack of message persistence -- which is acceptable because the platform uses persistent storage ([PostgreSQL](/architecture/postgresql-kuzudb/), [event sourcing](/architecture/event-sourcing/)) as the source of truth and PubSub purely as a notification layer.
+Phoenix PubSub was chosen as the primary event bus because it eliminates external infrastructure dependencies, provides the lowest latency for the common case (same-cluster delivery), and integrates natively with [LiveView](@/architecture/phoenix-liveview.md) and Absinthe subscriptions. The tradeoff is the lack of message persistence -- which is acceptable because the platform uses persistent storage ([PostgreSQL](@/architecture/postgresql-kuzudb.md), [event sourcing](@/architecture/event-sourcing.md)) as the source of truth and PubSub purely as a notification layer.
 
 ## Summary
 
-Phoenix PubSub serves as the central nervous system of the Prismatic Platform, routing domain events between [LiveView dashboards](/architecture/phoenix-liveview/), [GraphQL subscriptions](/architecture/graphql/), [agent coordinators](/apps/prismatic-agents/), search indexers, and monitoring systems. Its design leverages the BEAM's native process messaging to deliver sub-millisecond local event propagation and single-digit millisecond cross-cluster delivery without requiring external message brokers. The topic-based routing, combined with Elixir's pattern matching in `handle_info/2`, creates a system where adding new event consumers is a matter of subscribing to a topic and writing a pattern match -- no configuration changes, no routing rules, no deployment coordination. This architectural simplicity is the direct result of building on a runtime ([OTP](/glossary/otp/)) that treats inter-process messaging as a first-class primitive rather than an afterthought bolted onto a thread-based model.
+Phoenix PubSub serves as the central nervous system of the Prismatic Platform, routing domain events between [LiveView dashboards](@/architecture/phoenix-liveview.md), [GraphQL subscriptions](@/architecture/graphql.md), [agent coordinators](@/apps/prismatic-agents.md), search indexers, and monitoring systems. Its design leverages the BEAM's native process messaging to deliver sub-millisecond local event propagation and single-digit millisecond cross-cluster delivery without requiring external message brokers. The topic-based routing, combined with Elixir's pattern matching in `handle_info/2`, creates a system where adding new event consumers is a matter of subscribing to a topic and writing a pattern match -- no configuration changes, no routing rules, no deployment coordination. This architectural simplicity is the direct result of building on a runtime ([OTP](@/glossary/otp.md)) that treats inter-process messaging as a first-class primitive rather than an afterthought bolted onto a thread-based model.
 
 ---
 
@@ -607,4 +607,4 @@ Phoenix PubSub serves as the central nervous system of the Prismatic Platform, r
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

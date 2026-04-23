@@ -61,7 +61,7 @@ The **OSINT Hub** provides interactive access to 120+ intelligence gathering ada
 | **Live API queries** | **Source descriptions** |
 | **Real-time results** | **Methodology guides** |
 | **Export & correlation** | **Reference materials** |
-| **Interactive Platform Toolbox** | **[→ OSINT Docs](/osint/)** |
+| **Interactive Platform Toolbox** | **[→ OSINT Docs](@/osint/_index.md)** |
 
 ## 🚀 Platform Access {#platform-access}
 
@@ -77,4 +77,4 @@ Access the platform through your configured endpoint to use:
 
 ---
 
-**Need the static documentation instead?** Visit **[OSINT Reference](/osint/)**
+**Need the static documentation instead?** Visit **[OSINT Reference](@/osint/_index.md)**

@@ -47,7 +47,7 @@ Full-text search is a fundamental capability for any platform that manages textu
 
 Meilisearch was created in 2018 by Quentin de Quelen and Clementine Urquizar as a response to the complexity of Elasticsearch for user-facing search use cases. The project drew inspiration from Algolia's search-as-you-type experience but with an open-source, self-hosted model. Written entirely in Rust, Meilisearch leverages Rust's memory safety guarantees and zero-cost abstractions to deliver predictable, low-latency search performance without garbage collection pauses.
 
-The choice of Meilisearch over alternatives like Elasticsearch or Typesense for the Prismatic Platform was driven by several factors: the zero-configuration deployment model aligns with the platform's preference for operational simplicity, the built-in typo tolerance is critical for OSINT entity matching where names appear in variant spellings, and the Rust-based implementation provides predictable latency without JVM overhead. The [adapter pattern](/glossary/adapter-pattern/) used in the storage layer allows Meilisearch to be swapped for alternatives without affecting application code.
+The choice of Meilisearch over alternatives like Elasticsearch or Typesense for the Prismatic Platform was driven by several factors: the zero-configuration deployment model aligns with the platform's preference for operational simplicity, the built-in typo tolerance is critical for OSINT entity matching where names appear in variant spellings, and the Rust-based implementation provides predictable latency without JVM overhead. The [adapter pattern](@/glossary/adapter-pattern.md) used in the storage layer allows Meilisearch to be swapped for alternatives without affecting application code.
 
 ## Search Pipeline Architecture
 
@@ -637,7 +637,7 @@ end
 
 ## Telemetry and Observability
 
-Search operations emit [telemetry](/glossary/telemetry/) events for monitoring and alerting:
+Search operations emit [telemetry](@/glossary/telemetry.md) events for monitoring and alerting:
 
 | Event | Measurements | Metadata |
 |-------|-------------|----------|
@@ -665,7 +665,7 @@ Alerts are configured for search latency exceeding 50ms, indicating that index o
 
 - **Agent Documentation Search**: Platform documentation files are indexed in Meilisearch, providing instant search across agent definitions, command references, architecture documents, and glossary entries with typo tolerance for technical terms.
 
-- **[OSINT](/glossary/osint/) Entity Matching**: Entity names from sanctions lists, business registries, and intelligence reports are matched using Meilisearch's typo tolerance to handle name variations, transliterations (Cyrillic to Latin), and abbreviations common in multi-language OSINT data.
+- **[OSINT](@/glossary/osint.md) Entity Matching**: Entity names from sanctions lists, business registries, and intelligence reports are matched using Meilisearch's typo tolerance to handle name variations, transliterations (Cyrillic to Latin), and abbreviations common in multi-language OSINT data.
 
 - **Asset Inventory Search**: Prismatic Perimeter's asset inventory (domains, IP addresses, certificates, services) is searchable through Meilisearch, enabling rapid asset lookup during investigation workflows.
 
@@ -675,21 +675,21 @@ Alerts are configured for search latency exceeding 50ms, indicating that index o
 
 ## Related Concepts
 
-- [Adapter Pattern](/glossary/adapter-pattern/) - Unified storage interface including Meilisearch adapter
-- [ETS](/glossary/ets/) - Complementary in-memory caching layer for hot data
-- [KuzuDB](/glossary/kuzudb/) - Complementary graph database for relationship queries
-- [OSINT](/glossary/osint/) - Domain benefiting from typo-tolerant entity search
-- [Elixir](/glossary/elixir/) - Platform language with native Meilisearch client integration
-- [PostgreSQL](/glossary/postgresql/) - Relational database with basic full-text search capabilities
-- [Knowledge Graph](/glossary/knowledge-graph/) - Graph representation complemented by full-text search
-- [Telemetry](/glossary/telemetry/) - Observability framework tracking search performance
-- [GenServer](/glossary/genserver/) - Process managing search client connections and index lifecycle
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Unified storage interface including Meilisearch adapter
+- [ETS](@/glossary/ets.md) - Complementary in-memory caching layer for hot data
+- [KuzuDB](@/glossary/kuzudb.md) - Complementary graph database for relationship queries
+- [OSINT](@/glossary/osint.md) - Domain benefiting from typo-tolerant entity search
+- [Elixir](@/glossary/elixir.md) - Platform language with native Meilisearch client integration
+- [PostgreSQL](@/glossary/postgresql.md) - Relational database with basic full-text search capabilities
+- [Knowledge Graph](@/glossary/knowledge-graph.md) - Graph representation complemented by full-text search
+- [Telemetry](@/glossary/telemetry.md) - Observability framework tracking search performance
+- [GenServer](@/glossary/genserver.md) - Process managing search client connections and index lifecycle
 
 ## See Also
 
-- [Architecture](/architecture/) -- Search architecture and storage layer integration
-- [Capabilities](/capabilities/) -- Search and content discovery capabilities
-- [Apps](/apps/) -- Umbrella applications with search integration
+- [Architecture](@/architecture/_index.md) -- Search architecture and storage layer integration
+- [Capabilities](@/capabilities/_index.md) -- Search and content discovery capabilities
+- [Apps](@/apps/_index.md) -- Umbrella applications with search integration
 
 ---
 
@@ -698,4 +698,4 @@ Alerts are configured for search latency exceeding 50ms, indicating that index o
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

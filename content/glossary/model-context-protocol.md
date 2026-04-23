@@ -188,11 +188,11 @@ The MCP integration enables AI agents to operate as first-class platform citizen
 
 ## Cross-References
 
-- [Agent](/glossary/agent/) - AI agents that consume MCP tools
-- [LLM](/glossary/llm/) - Language models that use MCP for tool access
-- [API](/glossary/api/) - Complementary access pattern for human consumers
+- [Agent](@/glossary/agent.md) - AI agents that consume MCP tools
+- [LLM](@/glossary/llm.md) - Language models that use MCP for tool access
+- [API](@/glossary/api.md) - Complementary access pattern for human consumers
 - **Tool Use** - AI capability enabled by MCP
-- [Integration](/glossary/integration/) - Broader system interconnection context
+- [Integration](@/glossary/integration.md) - Broader system interconnection context
 
 ---
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | [GitHub](https://github.com/korczis/prismatic-platform)

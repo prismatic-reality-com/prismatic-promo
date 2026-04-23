@@ -425,24 +425,24 @@ As teams grow, informal quality practices break down. A disciplined approach wit
 
 The disciplined approach draws from and connects to many platform concepts:
 
-- [No Mercy No Doubts](/glossary/no-mercy-no-doubts/) -- The foundational doctrine that demands zero tolerance for quality violations and evidence-based execution
-- [Quality Gates](/glossary/quality-gates/) -- The automated checkpoints that enforce the disciplined approach across 13 quality domains
-- [Zero Tolerance](/glossary/zero-tolerance/) -- The policy of rejecting any code that does not meet all quality standards
-- [Code Quality](/glossary/code-quality/) -- The measurable attributes of source code that the disciplined approach seeks to maximize
-- [Testing](/glossary/testing/) -- The verification methodology that provides evidence of correctness
-- [Pre-Commit Hooks](/glossary/pre-commit-hooks/) -- The local enforcement mechanism that catches violations before they leave the developer's machine
-- [Static Analysis](/glossary/static-analysis/) -- The compile-time code analysis that detects potential issues without executing the code
-- [Regression Testing](/glossary/regression-testing/) -- The mandatory protocol that ensures every bug fix includes tests to prevent recurrence
-- [Clean Run](/glossary/clean-run/) -- The zero-warning compilation requirement that prevents warning accumulation
-- [Zero Warning Policy](/glossary/zero-warning-policy/) -- The specific policy requiring zero compilation warnings across all applications
+- [No Mercy No Doubts](@/glossary/no-mercy-no-doubts.md) -- The foundational doctrine that demands zero tolerance for quality violations and evidence-based execution
+- [Quality Gates](@/glossary/quality-gates.md) -- The automated checkpoints that enforce the disciplined approach across 13 quality domains
+- [Zero Tolerance](@/glossary/zero-tolerance.md) -- The policy of rejecting any code that does not meet all quality standards
+- [Code Quality](@/glossary/code-quality.md) -- The measurable attributes of source code that the disciplined approach seeks to maximize
+- [Testing](@/glossary/testing.md) -- The verification methodology that provides evidence of correctness
+- [Pre-Commit Hooks](@/glossary/pre-commit-hooks.md) -- The local enforcement mechanism that catches violations before they leave the developer's machine
+- [Static Analysis](@/glossary/static-analysis.md) -- The compile-time code analysis that detects potential issues without executing the code
+- [Regression Testing](@/glossary/regression-testing.md) -- The mandatory protocol that ensures every bug fix includes tests to prevent recurrence
+- [Clean Run](@/glossary/clean-run.md) -- The zero-warning compilation requirement that prevents warning accumulation
+- [Zero Warning Policy](@/glossary/zero-warning-policy.md) -- The specific policy requiring zero compilation warnings across all applications
 
 ## See Also
 
-- [Quality DNA](/glossary/quality-dna/) -- The cross-session quality metric tracking system that records quality over time
-- [Quality Floor Guardian](/glossary/quality-floor-guardian/) -- The autonomous quality monitoring system that detects and responds to quality degradation
-- [Automate Relentlessly](/glossary/automate-relentlessly/) -- The principle of automating all automatable quality checks
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- The standard that rejects any compromise on quality for speed
-- [Doctrine](/glossary/doctrine/) -- The broader doctrine framework within which the disciplined approach operates
+- [Quality DNA](@/glossary/quality-dna.md) -- The cross-session quality metric tracking system that records quality over time
+- [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) -- The autonomous quality monitoring system that detects and responds to quality degradation
+- [Automate Relentlessly](@/glossary/automate-relentlessly.md) -- The principle of automating all automatable quality checks
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- The standard that rejects any compromise on quality for speed
+- [Doctrine](@/glossary/doctrine.md) -- The broader doctrine framework within which the disciplined approach operates
 
 ---
 
@@ -451,4 +451,4 @@ The disciplined approach draws from and connects to many platform concepts:
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

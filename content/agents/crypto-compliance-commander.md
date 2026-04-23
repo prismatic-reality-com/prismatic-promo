@@ -28,9 +28,9 @@ image_alt = "crypto-compliance-commander - Prismatic Platform"
 
 ## Overview
 
-The Crypto Compliance Commander operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Cryptocurrency domain of the Prismatic Platform. This agent enforces regulatory compliance across cryptocurrency operations, implementing Anti-Money Laundering (AML) and Know Your Customer (KYC) requirements, travel rule compliance, sanctions screening against blockchain addresses, and cross-jurisdiction regulatory mapping that tracks the rapidly evolving landscape of cryptocurrency regulation worldwide.
+The Crypto Compliance Commander operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Cryptocurrency domain of the Prismatic Platform. This agent enforces regulatory compliance across cryptocurrency operations, implementing Anti-Money Laundering (AML) and Know Your Customer (KYC) requirements, travel rule compliance, sanctions screening against blockchain addresses, and cross-jurisdiction regulatory mapping that tracks the rapidly evolving landscape of cryptocurrency regulation worldwide.
 
-Cryptocurrency compliance presents unique challenges compared to traditional financial compliance. Pseudonymous blockchain addresses, decentralized exchanges, cross-chain bridges, privacy-enhancing technologies, and the global nature of blockchain transactions create an environment where traditional compliance frameworks must be adapted significantly. The Crypto Compliance Commander addresses these challenges by combining blockchain analytics with traditional [OSINT](/glossary/osint/) intelligence, linking on-chain behavior to off-chain identities where possible and flagging compliance risks that emerge from the intersection of blockchain activity and regulatory requirements.
+Cryptocurrency compliance presents unique challenges compared to traditional financial compliance. Pseudonymous blockchain addresses, decentralized exchanges, cross-chain bridges, privacy-enhancing technologies, and the global nature of blockchain transactions create an environment where traditional compliance frameworks must be adapted significantly. The Crypto Compliance Commander addresses these challenges by combining blockchain analytics with traditional [OSINT](@/glossary/osint.md) intelligence, linking on-chain behavior to off-chain identities where possible and flagging compliance risks that emerge from the intersection of blockchain activity and regulatory requirements.
 
 The commander maintains a continuously updated regulatory knowledge base that maps cryptocurrency regulations across jurisdictions, tracking the varying definitions of virtual asset service providers (VASPs), registration requirements, reporting thresholds, and prohibited activities. This regulatory intelligence enables the platform to assess compliance risk accurately for entities operating across multiple regulatory jurisdictions with different and sometimes conflicting requirements.
 
@@ -92,19 +92,19 @@ Licensing status tracking monitors the registration and licensing status of cryp
 
 ## Authority Level
 
-**L3** - [Strategic Command](/glossary/strategic-command/) - Multi-domain coordination and specialized operational command with authority to set compliance screening parameters, manage regulatory intelligence, and coordinate cross-jurisdiction compliance assessments.
+**L3** - [Strategic Command](@/glossary/strategic-command.md) - Multi-domain coordination and specialized operational command with authority to set compliance screening parameters, manage regulatory intelligence, and coordinate cross-jurisdiction compliance assessments.
 
 ## Coordination
 
 | Agent | Relationship | Purpose |
 |-------|-------------|---------|
-| [cryptocurrency-asset-specialist](/agents/cryptocurrency-asset-specialist/) | Asset Intelligence | Provides cryptocurrency asset data for compliance context |
-| [cross-border-identity-specialist](/agents/cross-border-identity-specialist/) | Identity Resolution | Links blockchain addresses to off-chain entity identities |
-| [czech-financial-forensics-expert](/agents/czech-financial-forensics-expert/) | Financial Analysis | Provides financial forensics support for complex compliance investigations |
+| [cryptocurrency-asset-specialist](@/agents/cryptocurrency-asset-specialist.md) | Asset Intelligence | Provides cryptocurrency asset data for compliance context |
+| [cross-border-identity-specialist](@/agents/cross-border-identity-specialist.md) | Identity Resolution | Links blockchain addresses to off-chain entity identities |
+| [czech-financial-forensics-expert](@/agents/czech-financial-forensics-expert.md) | Financial Analysis | Provides financial forensics support for complex compliance investigations |
 
 ## Enforcement
 
-All cryptocurrency compliance operations are governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine and validated through the [Trinity Gate](/glossary/trinity-gate/). No compliance assessment is released without explicit confidence scoring and regulatory basis documentation. Sanctions screening must complete against all applicable sanctions lists before any entity clearance is issued. Compliance assessments that involve regulatory ambiguity are escalated for human review rather than auto-resolved. The [NABLA](/glossary/nabla-infinity/) Signal Plurality axiom requires that compliance risk assessments draw from both on-chain analytics and off-chain intelligence sources before reaching conclusions.
+All cryptocurrency compliance operations are governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine and validated through the [Trinity Gate](@/glossary/trinity-gate.md). No compliance assessment is released without explicit confidence scoring and regulatory basis documentation. Sanctions screening must complete against all applicable sanctions lists before any entity clearance is issued. Compliance assessments that involve regulatory ambiguity are escalated for human review rather than auto-resolved. The [NABLA](@/glossary/nabla-infinity.md) Signal Plurality axiom requires that compliance risk assessments draw from both on-chain analytics and off-chain intelligence sources before reaching conclusions.
 
 ---
 
@@ -113,4 +113,4 @@ All cryptocurrency compliance operations are governed by the [NO MERCY, NO DOUBT
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

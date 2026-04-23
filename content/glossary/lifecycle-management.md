@@ -488,24 +488,24 @@ Learning resources in the promo site follow a content lifecycle: drafted, review
 
 Lifecycle management connects deeply with core OTP and platform engineering concepts:
 
-- [Supervision Tree](/glossary/supervision-tree/) -- the hierarchical structure that manages process lifecycles through automated restart strategies
-- [GenServer](/glossary/genserver/) -- the primary OTP behaviour that provides the lifecycle callback framework for stateful processes
-- [Dynamic Supervisor](/glossary/dynamic-supervisor/) -- supervisor variant that manages lifecycles of processes created at runtime
-- [State Machine](/glossary/state-machine/) -- formalism for defining explicit state transitions within an entity's lifecycle
-- [Fault Tolerance](/glossary/fault-tolerance/) -- the system property that lifecycle management enables through supervised restart and recovery
-- [Gen Statem](/glossary/gen-statem/) -- OTP behaviour specifically designed for complex lifecycle state management
-- [Process Isolation](/glossary/process-isolation/) -- the BEAM property that ensures one process's lifecycle failure does not corrupt others
-- [Hot Code Reload](/glossary/hot-code-reload/) -- Erlang/OTP capability to upgrade running processes without lifecycle interruption
-- [Releases (Elixir)](/glossary/releases-elixir/) -- the deployment artifact format that manages platform-level lifecycle transitions
-- [Health Monitoring](/glossary/health-monitoring/) -- continuous observation of lifecycle state to detect degradation and trigger recovery
+- [Supervision Tree](@/glossary/supervision-tree.md) -- the hierarchical structure that manages process lifecycles through automated restart strategies
+- [GenServer](@/glossary/genserver.md) -- the primary OTP behaviour that provides the lifecycle callback framework for stateful processes
+- [Dynamic Supervisor](@/glossary/dynamic-supervisor.md) -- supervisor variant that manages lifecycles of processes created at runtime
+- [State Machine](@/glossary/state-machine.md) -- formalism for defining explicit state transitions within an entity's lifecycle
+- [Fault Tolerance](@/glossary/fault-tolerance.md) -- the system property that lifecycle management enables through supervised restart and recovery
+- [Gen Statem](@/glossary/gen-statem.md) -- OTP behaviour specifically designed for complex lifecycle state management
+- [Process Isolation](@/glossary/process-isolation.md) -- the BEAM property that ensures one process's lifecycle failure does not corrupt others
+- [Hot Code Reload](@/glossary/hot-code-reload.md) -- Erlang/OTP capability to upgrade running processes without lifecycle interruption
+- [Releases (Elixir)](@/glossary/releases-elixir.md) -- the deployment artifact format that manages platform-level lifecycle transitions
+- [Health Monitoring](@/glossary/health-monitoring.md) -- continuous observation of lifecycle state to detect degradation and trigger recovery
 
 ## See Also
 
-- [Circuit Breaker](/glossary/circuit-breaker/) -- pattern for managing dependency lifecycle failures through controlled degradation
-- [Backpressure](/glossary/backpressure/) -- flow control mechanism that protects processes from lifecycle-threatening overload
-- [Blue-Green Deployment](/glossary/blue-green-deployment/) -- deployment strategy that manages release lifecycle transitions with zero downtime
-- [Telemetry](/glossary/telemetry/) -- observability framework that captures lifecycle transition events for monitoring and alerting
-- [Let It Crash](/glossary/let-it-crash/) -- the Erlang philosophy that lifecycle management through supervision is preferable to defensive programming
+- [Circuit Breaker](@/glossary/circuit-breaker.md) -- pattern for managing dependency lifecycle failures through controlled degradation
+- [Backpressure](@/glossary/backpressure.md) -- flow control mechanism that protects processes from lifecycle-threatening overload
+- [Blue-Green Deployment](@/glossary/blue-green-deployment.md) -- deployment strategy that manages release lifecycle transitions with zero downtime
+- [Telemetry](@/glossary/telemetry.md) -- observability framework that captures lifecycle transition events for monitoring and alerting
+- [Let It Crash](@/glossary/let-it-crash.md) -- the Erlang philosophy that lifecycle management through supervision is preferable to defensive programming
 
 ---
 

@@ -24,7 +24,7 @@ image_alt = "Building Your First Autonomous Agent - Prismatic Platform"
 
 ## Overview
 
-Agents are the fundamental unit of autonomous behavior in the Prismatic Platform. Every agent follows the [AIAD standard](/glossary/aiad/) -- a specification that defines how agents declare their capabilities, interact with other agents, and comply with platform policies. This tutorial walks you through creating a fully compliant agent from an empty file to a running, tested, registered component.
+Agents are the fundamental unit of autonomous behavior in the Prismatic Platform. Every agent follows the [AIAD standard](@/glossary/aiad.md) -- a specification that defines how agents declare their capabilities, interact with other agents, and comply with platform policies. This tutorial walks you through creating a fully compliant agent from an empty file to a running, tested, registered component.
 
 You will learn:
 
@@ -36,7 +36,7 @@ You will learn:
 
 ## Prerequisites
 
-- Completed [Getting Started with Prismatic Platform](/academy/getting-started/)
+- Completed [Getting Started with Prismatic Platform](@/academy/getting-started.md)
 - Familiarity with Elixir modules, functions, and basic OTP concepts
 - Local development environment running successfully (`mix compile` passes)
 
@@ -298,7 +298,7 @@ end
 
 ### Step 3: Write Comprehensive Tests
 
-The [NO MERCY](/glossary/no-mercy/) doctrine requires tests for every behavior. No stubs, no mocks, no placeholders:
+The [NO MERCY](@/glossary/no-mercy.md) doctrine requires tests for every behavior. No stubs, no mocks, no placeholders:
 
 ```elixir
 defmodule PrismaticAgents.MetricSentinelTest do
@@ -512,36 +512,36 @@ PrismaticClaude.SessionLifecycle.trigger(:pre_command)
 ## See Also
 
 ### Related Applications
-- [prismatic_agents](/apps/prismatic-agents/) -- Agent runtime hosting 400+ agents
-- [prismatic_safety](/apps/prismatic-safety/) -- Quality Floor Guardian agent implementation
-- [prismatic_dark](/apps/prismatic-dark/) -- Color team adversarial agents (Gray, Red, Blue, Purple, White, Black)
+- [prismatic_agents](@/apps/prismatic-agents.md) -- Agent runtime hosting 400+ agents
+- [prismatic_safety](@/apps/prismatic-safety.md) -- Quality Floor Guardian agent implementation
+- [prismatic_dark](@/apps/prismatic-dark.md) -- Color team adversarial agents (Gray, Red, Blue, Purple, White, Black)
 
 ### Glossary
-- [AIAD](/glossary/aiad/) -- The standard governing all agent specifications
-- [Agent](/glossary/agent/) -- Fundamental autonomous unit in the platform
-- [Agent Tier](/glossary/agent-tier/) -- L1-L4 classification hierarchy
-- [Agent Registry](/glossary/agent-registry/) -- Process discovery for agents
-- [GenServer](/glossary/behaviour/) -- OTP behaviour underlying all agents
-- [Quality DNA](/glossary/quality-dna/) -- Cross-session evolutionary state
-- [Telemetry](/glossary/telemetry/) -- Event infrastructure for agent observability
+- [AIAD](@/glossary/aiad.md) -- The standard governing all agent specifications
+- [Agent](@/glossary/agent.md) -- Fundamental autonomous unit in the platform
+- [Agent Tier](@/glossary/agent-tier.md) -- L1-L4 classification hierarchy
+- [Agent Registry](@/glossary/agent-registry.md) -- Process discovery for agents
+- [GenServer](@/glossary/behaviour.md) -- OTP behaviour underlying all agents
+- [Quality DNA](@/glossary/quality-dna.md) -- Cross-session evolutionary state
+- [Telemetry](@/glossary/telemetry.md) -- Event infrastructure for agent observability
 
 ### Architecture
-- [Supervision Trees](/architecture/supervision-trees/) -- How agents are supervised for fault tolerance
-- [Telemetry](/architecture/telemetry/) -- Event naming conventions and handler patterns
-- [PubSub](/architecture/pubsub/) -- Broadcast communication between agents
+- [Supervision Trees](@/architecture/supervision-trees.md) -- How agents are supervised for fault tolerance
+- [Telemetry](@/architecture/telemetry.md) -- Event naming conventions and handler patterns
+- [PubSub](@/architecture/pubsub.md) -- Broadcast communication between agents
 
 ### Related Academy Topics
-- [Multi-Agent Orchestration](/academy/agent-orchestration/) -- Coordinating multiple agents into teams
-- [The AIAD Standard](/academy/aiad-standard/) -- Formal specification format for agents
-- [OTP Design Patterns](/academy/otp-fundamentals/) -- GenServer and Supervisor patterns
-- [Self-Evolving Agent Ecosystems](/academy/evolution-patterns/) -- Darwinian evolution of agents
+- [Multi-Agent Orchestration](@/academy/agent-orchestration.md) -- Coordinating multiple agents into teams
+- [The AIAD Standard](@/academy/aiad-standard.md) -- Formal specification format for agents
+- [OTP Design Patterns](@/academy/otp-fundamentals.md) -- GenServer and Supervisor patterns
+- [Self-Evolving Agent Ecosystems](@/academy/evolution-patterns.md) -- Darwinian evolution of agents
 
 ## Next Steps
 
-- [Multi-Agent Orchestration Patterns](/academy/agent-orchestration/) -- coordinate multiple agents
-- [The AIAD Standard Explained](/academy/aiad-standard/) -- deep dive into specification formats
-- [OTP Design Patterns for Prismatic](/academy/otp-fundamentals/) -- master supervision strategies
-- [Self-Evolving Agent Ecosystems](/academy/evolution-patterns/) -- understand how agents evolve over time
+- [Multi-Agent Orchestration Patterns](@/academy/agent-orchestration.md) -- coordinate multiple agents
+- [The AIAD Standard Explained](@/academy/aiad-standard.md) -- deep dive into specification formats
+- [OTP Design Patterns for Prismatic](@/academy/otp-fundamentals.md) -- master supervision strategies
+- [Self-Evolving Agent Ecosystems](@/academy/evolution-patterns.md) -- understand how agents evolve over time
 
 ---
 
@@ -550,4 +550,4 @@ PrismaticClaude.SessionLifecycle.trigger(:pre_command)
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

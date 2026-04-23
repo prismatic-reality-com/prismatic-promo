@@ -36,11 +36,11 @@ image_alt = "Evidence - Prismatic Platform"
 
 ## Definition
 
-Evidence, in the context of epistemic systems and the Prismatic Platform, refers to any data, observation, measurement, or fact that is used to support or refute a claim within the [Epistemic Pipeline](/glossary/epistemic-pipeline/). Evidence is the fundamental input to all reasoning processes -- without evidence, no belief can be established, no confidence can be assigned, and no action can be justified.
+Evidence, in the context of epistemic systems and the Prismatic Platform, refers to any data, observation, measurement, or fact that is used to support or refute a claim within the [Epistemic Pipeline](@/glossary/epistemic-pipeline.md). Evidence is the fundamental input to all reasoning processes -- without evidence, no belief can be established, no confidence can be assigned, and no action can be justified.
 
 Crucially, evidence in the Prismatic framework is not merely "data." It is data with metadata: every piece of evidence carries mandatory provenance (where it came from), a timestamp (when it was collected), a quality assessment (how reliable it is), source identification (which agent or system produced it), and a collection method description (how it was obtained). This metadata transforms raw data into epistemically useful evidence that can be properly weighted, aged, and traced through the reasoning chain.
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework defines seven non-negotiable axioms that govern how evidence is handled in the platform. These axioms are not guidelines -- they are enforced at the system level. Evidence that lacks provenance is rejected. Claims supported by a single evidence source are blocked until a second independent source confirms. Contradictory evidence is preserved, never discarded. These constraints produce a system where beliefs are justified, traceable, and robust against manipulation.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework defines seven non-negotiable axioms that govern how evidence is handled in the platform. These axioms are not guidelines -- they are enforced at the system level. Evidence that lacks provenance is rejected. Claims supported by a single evidence source are blocked until a second independent source confirms. Contradictory evidence is preserved, never discarded. These constraints produce a system where beliefs are justified, traceable, and robust against manipulation.
 
 ## Overview
 
@@ -58,7 +58,7 @@ Understanding evidence requires distinguishing it from related concepts:
 
 **Evidence** is information evaluated for a specific purpose. "Port 443 is open on server X, supporting the claim that server X runs an HTTPS service" is evidence -- it connects information to a specific claim with a specific relationship (supports/refutes).
 
-**Knowledge** is justified belief derived from evidence that has passed through the reasoning pipeline and the [Trinity Gate](/glossary/trinity-gate/). "Server X runs an HTTPS service" is knowledge when supported by multiple independent evidence sources with verified provenance.
+**Knowledge** is justified belief derived from evidence that has passed through the reasoning pipeline and the [Trinity Gate](@/glossary/trinity-gate.md). "Server X runs an HTTPS service" is knowledge when supported by multiple independent evidence sources with verified provenance.
 
 ### The Evidence Lifecycle
 
@@ -100,9 +100,9 @@ Evidence quality is not a single number but a composite of multiple dimensions:
 
 **Relevance**: How directly does this evidence relate to the claim? A DNS record directly supports claims about domain configuration. A social media post tangentially supports claims about organizational structure.
 
-**Recency**: How fresh is the evidence? A security scan from today is more relevant than one from last month. Recency is formally modeled through [Time Decay](/glossary/time-decay/) with exponential decay functions.
+**Recency**: How fresh is the evidence? A security scan from today is more relevant than one from last month. Recency is formally modeled through [Time Decay](@/glossary/time-decay.md) with exponential decay functions.
 
-**Independence**: Is this evidence independent of other evidence in the set? Ten articles all citing the same press release are not ten independent evidence items -- they are one piece of evidence with nine amplifications. The [Source Independence](/glossary/nabla-infinity/) axiom addresses this.
+**Independence**: Is this evidence independent of other evidence in the set? Ten articles all citing the same press release are not ten independent evidence items -- they are one piece of evidence with nine amplifications. The [Source Independence](@/glossary/nabla-infinity.md) axiom addresses this.
 
 **Completeness**: Does the evidence cover the full scope of the claim, or only a partial aspect? Partial evidence may support a claim directionally but cannot establish it at high confidence.
 
@@ -564,7 +564,7 @@ Scientific evidence standards (systematic reviews, meta-analyses, evidence gradi
 
 6. **Handle absence as evidence.** When an expected evidence source fails to produce evidence, record this absence explicitly. The absence of a vulnerability in a security scan is evidence (that the scanner did not find it), not a lack of evidence.
 
-7. **Separate evidence from interpretation.** An open port is evidence. "This system is vulnerable because port 443 is open" is interpretation. Keep evidence factual and defer interpretation to the [Epistemic Reasoning](/glossary/epistemic-reasoning/) layer.
+7. **Separate evidence from interpretation.** An open port is evidence. "This system is vulnerable because port 443 is open" is interpretation. Keep evidence factual and defer interpretation to the [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) layer.
 
 ## Common Pitfalls
 
@@ -574,7 +574,7 @@ Scientific evidence standards (systematic reviews, meta-analyses, evidence gradi
 
 3. **Circular evidence chains.** Source A reports a finding based on Source B's data, and Source B cites Source A as a reference. This creates a circular provenance chain that appears to have two independent sources but actually has zero. The provenance validation pipeline must detect and flag circular chains.
 
-4. **Confirmation bias in evidence collection.** When investigating a hypothesis, there is a natural tendency to seek confirming evidence and overlook contradicting evidence. The [Contradiction Preservation](/glossary/contradiction-preservation/) axiom and the separation of collection from reasoning mitigate this, but awareness is still necessary.
+4. **Confirmation bias in evidence collection.** When investigating a hypothesis, there is a natural tendency to seek confirming evidence and overlook contradicting evidence. The [Contradiction Preservation](@/glossary/contradiction-preservation.md) axiom and the separation of collection from reasoning mitigate this, but awareness is still necessary.
 
 5. **Evidence hoarding without review.** Accumulating large volumes of evidence without periodic review leads to a system where stale, low-quality, and contradictory evidence accumulates without contributing to reasoning. Regular decay passes and quality-threshold filtering prevent evidence hoarding.
 
@@ -620,26 +620,26 @@ In Bayesian terms, evidence E supports hypothesis H if P(H|E) > P(H) -- that is,
 
 ## Related Concepts
 
-- [NABLA Infinity](/glossary/nabla-infinity/) - The 7-axiom framework governing all evidence handling
-- [Signal Plurality](/glossary/signal-plurality/) - The axiom requiring minimum 2 independent evidence sources
-- [Provenance Mandatory](/glossary/provenance-mandatory/) - The axiom requiring full traceability of all evidence
-- [Time Decay](/glossary/time-decay/) - Temporal weighting that reduces evidence quality over time
-- [Contradiction Preservation](/glossary/contradiction-preservation/) - The axiom preventing premature discarding of contradictory evidence
-- [Evidence Over Opinion](/glossary/evidence-over-opinion/) - The principle that evidence must override subjective assessment
-- [Epistemic Pipeline](/glossary/epistemic-pipeline/) - The processing pipeline through which evidence flows
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) - The reasoning processes that consume evidence to produce beliefs
-- [Epistemic Coordination](/glossary/epistemic-coordination/) - Cross-agent coordination of evidence-based findings
-- [Confidence Threshold](/glossary/confidence-threshold/) - Minimum evidence-based confidence for action triggers
-- [Trinity Gate](/glossary/trinity-gate/) - The 3-gate verification that evidence-based conclusions must pass
-- [Bayesian Reasoning](/glossary/bayesian-reasoning/) - Probabilistic framework for evidence-based belief updating
+- [NABLA Infinity](@/glossary/nabla-infinity.md) - The 7-axiom framework governing all evidence handling
+- [Signal Plurality](@/glossary/signal-plurality.md) - The axiom requiring minimum 2 independent evidence sources
+- [Provenance Mandatory](@/glossary/provenance-mandatory.md) - The axiom requiring full traceability of all evidence
+- [Time Decay](@/glossary/time-decay.md) - Temporal weighting that reduces evidence quality over time
+- [Contradiction Preservation](@/glossary/contradiction-preservation.md) - The axiom preventing premature discarding of contradictory evidence
+- [Evidence Over Opinion](@/glossary/evidence-over-opinion.md) - The principle that evidence must override subjective assessment
+- [Epistemic Pipeline](@/glossary/epistemic-pipeline.md) - The processing pipeline through which evidence flows
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) - The reasoning processes that consume evidence to produce beliefs
+- [Epistemic Coordination](@/glossary/epistemic-coordination.md) - Cross-agent coordination of evidence-based findings
+- [Confidence Threshold](@/glossary/confidence-threshold.md) - Minimum evidence-based confidence for action triggers
+- [Trinity Gate](@/glossary/trinity-gate.md) - The 3-gate verification that evidence-based conclusions must pass
+- [Bayesian Reasoning](@/glossary/bayesian-reasoning.md) - Probabilistic framework for evidence-based belief updating
 
 ## See Also
 
-- [Epistemic Attack](/glossary/epistemic-attack/) - Attacks targeting evidence integrity and provenance
-- [Epistemic Robustness](/glossary/epistemic-robustness/) - System resilience against evidence manipulation
-- [Epistemic Validation](/glossary/epistemic-validation/) - Validation of evidence quality and provenance
-- [Observability](/glossary/observability/) - Monitoring the evidence pipeline itself
-- [Telemetry](/glossary/telemetry/) - Event tracking for evidence collection and processing metrics
+- [Epistemic Attack](@/glossary/epistemic-attack.md) - Attacks targeting evidence integrity and provenance
+- [Epistemic Robustness](@/glossary/epistemic-robustness.md) - System resilience against evidence manipulation
+- [Epistemic Validation](@/glossary/epistemic-validation.md) - Validation of evidence quality and provenance
+- [Observability](@/glossary/observability.md) - Monitoring the evidence pipeline itself
+- [Telemetry](@/glossary/telemetry.md) - Event tracking for evidence collection and processing metrics
 
 ---
 
@@ -648,4 +648,4 @@ In Bayesian terms, evidence E supports hypothesis H if P(H|E) > P(H) -- that is,
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

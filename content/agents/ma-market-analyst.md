@@ -28,9 +28,9 @@ image_alt = "ma-market-analyst - Prismatic Platform"
 
 ## Overview
 
-The ma-market-analyst agent operates as an L3 [Strategic Command](/glossary/strategic-command/) authority within the Prismatic Platform's market-analysis domain, providing comprehensive market intelligence for mergers and acquisitions transactions. This agent specializes in competitive landscape assessment, market sizing using TAM/SAM/SOM frameworks, customer segmentation analysis, growth opportunity identification, and industry trend evaluation. Its market intelligence outputs inform deal valuation, strategic fit assessment, and post-acquisition growth planning across the M&A pipeline.
+The ma-market-analyst agent operates as an L3 [Strategic Command](@/glossary/strategic-command.md) authority within the Prismatic Platform's market-analysis domain, providing comprehensive market intelligence for mergers and acquisitions transactions. This agent specializes in competitive landscape assessment, market sizing using TAM/SAM/SOM frameworks, customer segmentation analysis, growth opportunity identification, and industry trend evaluation. Its market intelligence outputs inform deal valuation, strategic fit assessment, and post-acquisition growth planning across the M&A pipeline.
 
-Built on the [AIAD](/glossary/aiad/) standard and governed by the [NO MERCY, NO DOUBTS](/glossary/no-mercy/) doctrine, the ma-market-analyst applies the [NABLA Infinity](/glossary/nabla-infinity/) framework's [signal plurality](/glossary/signal-plurality/) axiom to every market assessment. No market sizing figure, competitive positioning claim, or growth projection enters the analysis pipeline without corroboration from at least two independent intelligence sources. The agent leverages the platform's [OSINT](/glossary/osint/) capabilities and [entity resolution](/glossary/entity-resolution/) infrastructure to build comprehensive market maps from publicly available data sources including industry reports, patent filings, job posting analysis, conference participation records, and digital footprint indicators.
+Built on the [AIAD](@/glossary/aiad.md) standard and governed by the [NO MERCY, NO DOUBTS](@/glossary/no-mercy.md) doctrine, the ma-market-analyst applies the [NABLA Infinity](@/glossary/nabla-infinity.md) framework's [signal plurality](@/glossary/signal-plurality.md) axiom to every market assessment. No market sizing figure, competitive positioning claim, or growth projection enters the analysis pipeline without corroboration from at least two independent intelligence sources. The agent leverages the platform's [OSINT](@/glossary/osint.md) capabilities and [entity resolution](@/glossary/entity-resolution.md) infrastructure to build comprehensive market maps from publicly available data sources including industry reports, patent filings, job posting analysis, conference participation records, and digital footprint indicators.
 
 Market intelligence is a critical input for M&A decision-making because it determines whether an acquisition target's value proposition is defensible, its growth trajectory is sustainable, and its market position provides meaningful strategic advantage to the acquirer. The ma-market-analyst transforms scattered market signals into structured competitive intelligence that directly informs valuation models and strategic assessments.
 
@@ -75,7 +75,7 @@ The ma-market-analyst provides comprehensive market intelligence through several
 
 ## Implementation
 
-The market analyst is implemented as an [OTP](/glossary/otp/) application with concurrent intelligence gathering and analysis operations.
+The market analyst is implemented as an [OTP](@/glossary/otp.md) application with concurrent intelligence gathering and analysis operations.
 
 ```elixir
 defmodule Prismatic.MA.MarketAnalyst do
@@ -142,13 +142,13 @@ end
 
 | Integration Target | Relationship | Data Flow |
 |-------------------|-------------|-----------|
-| [ma-financial-analyst](/agents/ma-financial-analyst/) | Shares revenue benchmarking and market-based valuation multiples | Bidirectional |
-| [ma-risk-assessor](/agents/ma-risk-assessor/) | Market concentration risk and competitive threat indicators | Outbound |
-| [ma-integration-planner](/agents/ma-integration-planner/) | Market dynamics inform commercial integration strategy | Outbound |
-| [ma-enforcement-commander](/agents/ma-enforcement-commander/) | Market share data for antitrust compliance evaluation | Outbound |
-| [OSINT](/glossary/osint/) Agents | Market intelligence gathering from open sources | Inbound |
-| [Entity Resolution](/glossary/entity-resolution/) | Competitor and customer entity disambiguation | Inbound |
-| Prismatic Telemetry | Analysis pipeline [metrics](/glossary/metrics/) and event tracking | Outbound |
+| [ma-financial-analyst](@/agents/ma-financial-analyst.md) | Shares revenue benchmarking and market-based valuation multiples | Bidirectional |
+| [ma-risk-assessor](@/agents/ma-risk-assessor.md) | Market concentration risk and competitive threat indicators | Outbound |
+| [ma-integration-planner](@/agents/ma-integration-planner.md) | Market dynamics inform commercial integration strategy | Outbound |
+| [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) | Market share data for antitrust compliance evaluation | Outbound |
+| [OSINT](@/glossary/osint.md) Agents | Market intelligence gathering from open sources | Inbound |
+| [Entity Resolution](@/glossary/entity-resolution.md) | Competitor and customer entity disambiguation | Inbound |
+| Prismatic Telemetry | Analysis pipeline [metrics](@/glossary/metrics.md) and event tracking | Outbound |
 
 ## Operational Workflow
 
@@ -199,14 +199,14 @@ config :prismatic_ma, Prismatic.MA.MarketAnalyst,
 
 ## Related Resources
 
-- [ma-financial-analyst](/agents/ma-financial-analyst/) -- Financial benchmarking correlation
-- [ma-risk-assessor](/agents/ma-risk-assessor/) -- Market risk indicators
-- [ma-integration-planner](/agents/ma-integration-planner/) -- Commercial integration strategy
-- [ma-enforcement-commander](/agents/ma-enforcement-commander/) -- Antitrust compliance data
-- [ma-tech-assessor](/agents/ma-tech-assessor/) -- Technology market positioning
-- [AIAD Standard](/glossary/aiad/) -- Agent specification framework
-- [NABLA Infinity](/glossary/nabla-infinity/) -- Epistemic framework for market intelligence
-- [Entity Resolution](/glossary/entity-resolution/) -- Competitor entity disambiguation
+- [ma-financial-analyst](@/agents/ma-financial-analyst.md) -- Financial benchmarking correlation
+- [ma-risk-assessor](@/agents/ma-risk-assessor.md) -- Market risk indicators
+- [ma-integration-planner](@/agents/ma-integration-planner.md) -- Commercial integration strategy
+- [ma-enforcement-commander](@/agents/ma-enforcement-commander.md) -- Antitrust compliance data
+- [ma-tech-assessor](@/agents/ma-tech-assessor.md) -- Technology market positioning
+- [AIAD Standard](@/glossary/aiad.md) -- Agent specification framework
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- Epistemic framework for market intelligence
+- [Entity Resolution](@/glossary/entity-resolution.md) -- Competitor entity disambiguation
 
 ---
 
@@ -215,4 +215,4 @@ config :prismatic_ma, Prismatic.MA.MarketAnalyst,
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

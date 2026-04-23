@@ -28,11 +28,11 @@ image_alt = "BinaryEdge - Prismatic Platform"
 
 ## Overview
 
-BinaryEdge is an internet-wide scanning platform that continuously maps the [attack surface](/glossary/attack-surface/) of the entire IPv4 space, providing a comprehensive real-time view of internet-connected assets and their security posture. Unlike traditional port scanners that focus primarily on TCP/UDP port enumeration and service banner collection, BinaryEdge extends its coverage to non-traditional indicators including data leaks from misconfigured databases, remote desktop exposure with screenshot capture, torrent download activity, and DNS resolution patterns. Acquired by Coalfire in 2021, BinaryEdge brings enterprise-grade scanning infrastructure to the attack surface management domain.
+BinaryEdge is an internet-wide scanning platform that continuously maps the [attack surface](@/glossary/attack-surface.md) of the entire IPv4 space, providing a comprehensive real-time view of internet-connected assets and their security posture. Unlike traditional port scanners that focus primarily on TCP/UDP port enumeration and service banner collection, BinaryEdge extends its coverage to non-traditional indicators including data leaks from misconfigured databases, remote desktop exposure with screenshot capture, torrent download activity, and DNS resolution patterns. Acquired by Coalfire in 2021, BinaryEdge brings enterprise-grade scanning infrastructure to the attack surface management domain.
 
 The platform operates a globally distributed sensor network that continuously probes the entire IPv4 address space across hundreds of ports, collecting service banners, protocol responses, SSL/TLS certificates, and application-layer data. Each scan cycle produces petabytes of raw data that BinaryEdge processes through its classification engine, identifying services, detecting vulnerabilities through version matching and probe responses, and flagging exposed sensitive data. The resulting dataset is queryable through a powerful search API that supports both simple lookups and complex boolean queries across all collected data types.
 
-For [OSINT](/glossary/osint/) investigators, BinaryEdge offers a broader view of internet exposure than port-scanning alone. While Shodan and Censys provide excellent service enumeration, BinaryEdge's data leak detection reveals exposed Elasticsearch clusters, MongoDB instances, Redis databases, and other data stores that organizations have inadvertently left accessible. The torrent monitoring capability provides unique behavioral intelligence, associating IP addresses with specific file-sharing activity -- intelligence not available from any other major scanning platform. The remote desktop screenshot feature captures visual evidence of exposed RDP and VNC sessions, providing immediate context about the nature and sensitivity of exposed services.
+For [OSINT](@/glossary/osint.md) investigators, BinaryEdge offers a broader view of internet exposure than port-scanning alone. While Shodan and Censys provide excellent service enumeration, BinaryEdge's data leak detection reveals exposed Elasticsearch clusters, MongoDB instances, Redis databases, and other data stores that organizations have inadvertently left accessible. The torrent monitoring capability provides unique behavioral intelligence, associating IP addresses with specific file-sharing activity -- intelligence not available from any other major scanning platform. The remote desktop screenshot feature captures visual evidence of exposed RDP and VNC sessions, providing immediate context about the nature and sensitivity of exposed services.
 
 BinaryEdge's query language supports sophisticated searches combining IP ranges, service types, geographic locations, ASN numbers, and vulnerability identifiers. This enables targeted reconnaissance that would otherwise require custom scanning infrastructure and significant time investment.
 
@@ -258,7 +258,7 @@ When using BinaryEdge data for security assessments, organizations should ensure
 
 Data leak discoveries should be handled responsibly. If BinaryEdge reveals that a third party's database is exposed, security researchers should follow responsible disclosure practices: notify the affected organization directly, allow reasonable time for remediation, and avoid accessing or downloading exposed data. Prismatic Platform's integration includes automated responsible disclosure workflow support.
 
-Torrent monitoring data associating IP addresses with file-sharing activity should be treated as potentially sensitive. Correlation of torrent activity with employee identities requires careful privacy impact assessment and may trigger [GDPR](/glossary/gdpr/) or employment law considerations.
+Torrent monitoring data associating IP addresses with file-sharing activity should be treated as potentially sensitive. Correlation of torrent activity with employee identities requires careful privacy impact assessment and may trigger [GDPR](@/glossary/gdpr.md) or employment law considerations.
 
 ## Integration with Prismatic Platform
 
@@ -296,7 +296,7 @@ end
 
 ### Security Rating Integration
 
-BinaryEdge's data leak detection feeds directly into the [Prismatic Perimeter](/glossary/prismatic-perimeter/) [security rating](/glossary/security-rating/) calculation. Exposed databases, open remote desktop services, and known vulnerabilities are weighted according to severity and contribute to the overall A-F security grade. The torrent monitoring data provides unique behavioral intelligence that supplements traditional infrastructure-based risk assessment.
+BinaryEdge's data leak detection feeds directly into the [Prismatic Perimeter](@/glossary/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md) calculation. Exposed databases, open remote desktop services, and known vulnerabilities are weighted according to severity and contribute to the overall A-F security grade. The torrent monitoring data provides unique behavioral intelligence that supplements traditional infrastructure-based risk assessment.
 
 ### Continuous Monitoring
 
@@ -318,13 +318,13 @@ The platform schedules periodic BinaryEdge queries for all monitored assets, tra
 
 ## Related Providers
 
-- [Shodan](/osint/shodan/) - Internet-connected device search engine with the largest installed base
-- [Censys](/osint/censys/) - Internet-wide scanning with certificate and host focus
-- [GreyNoise](/osint/greynoise/) - Internet scanner and noise identification for filtering benign traffic
-- [ZoomEye](/osint/zoomeye/) - Chinese cyberspace search engine with Asia-Pacific coverage
-- [SecurityTrails](/osint/securitytrails/) - DNS and domain intelligence for infrastructure mapping
-- [FullHunt](/osint/fullhunt/) - Attack surface intelligence platform
-- [DNSdumpster](/osint/dnsdumpster/) - Free DNS reconnaissance and subdomain discovery
+- [Shodan](@/osint/shodan.md) - Internet-connected device search engine with the largest installed base
+- [Censys](@/osint/censys.md) - Internet-wide scanning with certificate and host focus
+- [GreyNoise](@/osint/greynoise.md) - Internet scanner and noise identification for filtering benign traffic
+- [ZoomEye](@/osint/zoomeye.md) - Chinese cyberspace search engine with Asia-Pacific coverage
+- [SecurityTrails](@/osint/securitytrails.md) - DNS and domain intelligence for infrastructure mapping
+- [FullHunt](@/osint/fullhunt.md) - Attack surface intelligence platform
+- [DNSdumpster](@/osint/dnsdumpster.md) - Free DNS reconnaissance and subdomain discovery
 
 ---
 
@@ -333,4 +333,4 @@ The platform schedules periodic BinaryEdge queries for all monitored assets, tra
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

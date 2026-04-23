@@ -32,7 +32,7 @@ System analysis is the systematic examination of a software system's components,
 
 The discipline draws from multiple traditions: structured analysis (DeMarco, Yourdon) with its data flow diagrams and process specifications; object-oriented analysis (Booch, Rumbaugh, Jacobson) with its class diagrams and use cases; and modern architectural analysis (Bass, Clements, Kazman) with its quality attribute scenarios and architectural tactics. In contemporary software engineering, system analysis increasingly leverages automated tooling -- static analyzers, dependency trackers, performance profilers, and code quality scanners -- to scale analysis across codebases of millions of lines.
 
-Within the [Prismatic Platform](/glossary/prismatic-perimeter/), system analysis is operationalized through an extensive quality gate infrastructure that continuously examines 115 umbrella applications across 13 quality domains, maintaining the platform's 100/100 quality score through automated, evidence-based assessment.
+Within the [Prismatic Platform](@/glossary/prismatic-perimeter.md), system analysis is operationalized through an extensive quality gate infrastructure that continuously examines 115 umbrella applications across 13 quality domains, maintaining the platform's 100/100 quality score through automated, evidence-based assessment.
 
 ## Foundational Principles
 
@@ -44,7 +44,7 @@ System analysis rests on several fundamental principles that distinguish rigorou
 
 **Completeness**: Thorough analysis examines all system aspects: functional behavior (what the system does), quality attributes (how well it does it), constraints (what limits it), and assumptions (what it depends on). Incomplete analysis creates blind spots that harbor undetected risks.
 
-**Traceability**: Every analytical finding must be traceable to specific evidence -- code locations, metric measurements, test results, or behavioral observations. This aligns directly with the [NABLA Infinity](/glossary/nabla-infinity/) provenance axiom: all beliefs must be traceable to their sources.
+**Traceability**: Every analytical finding must be traceable to specific evidence -- code locations, metric measurements, test results, or behavioral observations. This aligns directly with the [NABLA Infinity](@/glossary/nabla-infinity.md) provenance axiom: all beliefs must be traceable to their sources.
 
 **Reproducibility**: Analysis results must be reproducible by different analysts using the same methods on the same system. Automated tooling is essential for achieving reproducibility at scale.
 
@@ -450,11 +450,11 @@ end
 
 ## Static Analysis Integration
 
-The Prismatic Platform employs multiple [static analysis](/glossary/static-analysis/) tools as part of its system analysis infrastructure:
+The Prismatic Platform employs multiple [static analysis](@/glossary/static-analysis.md) tools as part of its system analysis infrastructure:
 
-**[Dialyzer](/glossary/dialyzer/)**: Success typing analysis that detects type errors, unreachable code, and contract violations without requiring explicit type annotations. Dialyzer operates on compiled BEAM bytecode, analyzing function call graphs to infer types and detect inconsistencies.
+**[Dialyzer](@/glossary/dialyzer.md)**: Success typing analysis that detects type errors, unreachable code, and contract violations without requiring explicit type annotations. Dialyzer operates on compiled BEAM bytecode, analyzing function call graphs to infer types and detect inconsistencies.
 
-**[Credo](/glossary/credo/)**: Code quality analysis covering consistency (naming conventions, formatting), readability (function complexity, nesting depth), refactoring opportunities (duplicated code, long functions), and design concerns (circular dependencies, god modules).
+**[Credo](@/glossary/credo.md)**: Code quality analysis covering consistency (naming conventions, formatting), readability (function complexity, nesting depth), refactoring opportunities (duplicated code, long functions), and design concerns (circular dependencies, god modules).
 
 **Custom Quality Gates**: The platform's `mix quality.gates` task orchestrates 13 quality domains, each with specific metrics and thresholds. This represents system analysis automated to the point where it runs on every commit through pre-commit hooks.
 
@@ -526,26 +526,26 @@ Several established methodologies structure system analysis:
 
 ## Observability and Telemetry
 
-System analysis in production relies on [observability](/glossary/observability/) infrastructure -- the ability to understand internal system state from external outputs:
+System analysis in production relies on [observability](@/glossary/observability.md) infrastructure -- the ability to understand internal system state from external outputs:
 
-**Metrics**: Quantitative measurements (request latency, error rates, queue depths, memory utilization) collected via [Telemetry](/glossary/telemetry/) events and stored in time-series databases.
+**Metrics**: Quantitative measurements (request latency, error rates, queue depths, memory utilization) collected via [Telemetry](@/glossary/telemetry.md) events and stored in time-series databases.
 
 **Traces**: End-to-end request paths through the system, showing which components were involved, how long each took, and where errors occurred. Distributed tracing (via `:telemetry` spans in Elixir) is essential for analyzing microservice architectures.
 
-**Logs**: Structured log entries with correlation IDs enabling reconstruction of specific request flows. The platform uses [structured logging](/glossary/structured-logging/) (JSON format) for machine-parseable analysis.
+**Logs**: Structured log entries with correlation IDs enabling reconstruction of specific request flows. The platform uses [structured logging](@/glossary/structured-logging.md) (JSON format) for machine-parseable analysis.
 
 ## Related Concepts
 
-- [System Architecture](/glossary/system-architecture/) -- the structural decisions that system analysis evaluates
-- [Static Analysis](/glossary/static-analysis/) -- automated code examination tools used in system analysis
-- [Observability](/glossary/observability/) -- runtime visibility enabling behavioral analysis
-- [Telemetry](/glossary/telemetry/) -- metrics collection infrastructure for performance analysis
-- [Quality Gates](/glossary/quality-gates/) -- automated quality thresholds enforced through analysis
-- [Dialyzer](/glossary/dialyzer/) -- Erlang/Elixir success typing analysis tool
-- [Credo](/glossary/credo/) -- Elixir code quality analysis tool
-- [Supervision Tree](/glossary/supervision-tree/) -- OTP process hierarchy analyzed for fault tolerance
-- [Testing](/glossary/testing/) -- verification methodology complementary to analysis
-- [Performance](/glossary/performance/) -- non-functional attribute assessed through analysis
+- [System Architecture](@/glossary/system-architecture.md) -- the structural decisions that system analysis evaluates
+- [Static Analysis](@/glossary/static-analysis.md) -- automated code examination tools used in system analysis
+- [Observability](@/glossary/observability.md) -- runtime visibility enabling behavioral analysis
+- [Telemetry](@/glossary/telemetry.md) -- metrics collection infrastructure for performance analysis
+- [Quality Gates](@/glossary/quality-gates.md) -- automated quality thresholds enforced through analysis
+- [Dialyzer](@/glossary/dialyzer.md) -- Erlang/Elixir success typing analysis tool
+- [Credo](@/glossary/credo.md) -- Elixir code quality analysis tool
+- [Supervision Tree](@/glossary/supervision-tree.md) -- OTP process hierarchy analyzed for fault tolerance
+- [Testing](@/glossary/testing.md) -- verification methodology complementary to analysis
+- [Performance](@/glossary/performance.md) -- non-functional attribute assessed through analysis
 
 ---
 
@@ -554,4 +554,4 @@ System analysis in production relies on [observability](/glossary/observability/
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

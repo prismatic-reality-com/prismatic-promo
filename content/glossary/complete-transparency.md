@@ -511,28 +511,28 @@ Compliance with NIS2, ZKB, and other regulatory frameworks is simplified when tr
 
 Complete Transparency connects to many foundational concepts in the Prismatic Platform:
 
-- [Audit Trail](/glossary/audit-trail/) -- The immutable record of all platform actions that provides the technical foundation for transparency.
-- [Audit Logging](/glossary/audit-logging/) -- The systematic capture of events that populates the audit trail and enables retrospective analysis.
-- [Community Over Corporation](/glossary/community-over-corporation/) -- The governance philosophy that transparency serves by preventing information asymmetry between platform controllers and users.
-- [Community Ownership](/glossary/community-ownership/) -- The ownership model that transparency enables by giving community members the information needed to govern effectively.
-- [Share Openly](/glossary/share-openly/) -- The practice of making platform outputs publicly available, which is a specific dimension of transparency.
-- [Transparency Builds Trust](/glossary/transparency-builds-trust/) -- The relationship between operational transparency and the trust that enables community collaboration.
-- [Quality and Transparency](/glossary/quality-and-transparency/) -- The intersection of quality measurement and transparent publication that validates platform quality claims.
-- [Structured Logging](/glossary/structured-logging/) -- The technical implementation of operational transparency through machine-readable log formats.
-- [Quality Monitoring](/glossary/quality-monitoring/) -- Continuous observation of quality metrics that feeds into transparency reporting.
-- [Quality Gate](/glossary/quality-gate/) -- Automated quality checkpoints whose results are transparently published.
+- [Audit Trail](@/glossary/audit-trail.md) -- The immutable record of all platform actions that provides the technical foundation for transparency.
+- [Audit Logging](@/glossary/audit-logging.md) -- The systematic capture of events that populates the audit trail and enables retrospective analysis.
+- [Community Over Corporation](@/glossary/community-over-corporation.md) -- The governance philosophy that transparency serves by preventing information asymmetry between platform controllers and users.
+- [Community Ownership](@/glossary/community-ownership.md) -- The ownership model that transparency enables by giving community members the information needed to govern effectively.
+- [Share Openly](@/glossary/share-openly.md) -- The practice of making platform outputs publicly available, which is a specific dimension of transparency.
+- [Transparency Builds Trust](@/glossary/transparency-builds-trust.md) -- The relationship between operational transparency and the trust that enables community collaboration.
+- [Quality and Transparency](@/glossary/quality-and-transparency.md) -- The intersection of quality measurement and transparent publication that validates platform quality claims.
+- [Structured Logging](@/glossary/structured-logging.md) -- The technical implementation of operational transparency through machine-readable log formats.
+- [Quality Monitoring](@/glossary/quality-monitoring.md) -- Continuous observation of quality metrics that feeds into transparency reporting.
+- [Quality Gate](@/glossary/quality-gate.md) -- Automated quality checkpoints whose results are transparently published.
 
 ## See Also
 
-- [Quality DNA](/glossary/quality-dna/) -- The per-application quality state that provides granular transparency into each component's quality
-- [Session Discipline](/glossary/session-discipline/) -- The protocol that ensures every development session generates transparent records
-- [Community Engagement](/glossary/community-engagement/) -- How transparency enables and deepens community participation
-- [Security Audit](/glossary/security-audit/) -- How transparency supports security verification processes
-- [Compliance Framework](/glossary/compliance-framework/) -- How transparency satisfies regulatory requirements
+- [Quality DNA](@/glossary/quality-dna.md) -- The per-application quality state that provides granular transparency into each component's quality
+- [Session Discipline](@/glossary/session-discipline.md) -- The protocol that ensures every development session generates transparent records
+- [Community Engagement](@/glossary/community-engagement.md) -- How transparency enables and deepens community participation
+- [Security Audit](@/glossary/security-audit.md) -- How transparency supports security verification processes
+- [Compliance Framework](@/glossary/compliance-framework.md) -- How transparency satisfies regulatory requirements
 
 ---
 
-*Complete Transparency is a non-negotiable operational principle of the Prismatic Platform. Every metric is published, every decision is documented, and every process is auditable. For transparency reporting and audit access, visit the [Developer Portal](/glossary/developer-portal/).*
+*Complete Transparency is a non-negotiable operational principle of the Prismatic Platform. Every metric is published, every decision is documented, and every process is auditable. For transparency reporting and audit access, visit the [Developer Portal](@/glossary/developer-portal.md).*
 
 ---
 

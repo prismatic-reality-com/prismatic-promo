@@ -57,9 +57,9 @@ tags = ["applications", "crisis-intervention--negotiation", "prismatic", "resear
 
 ## Abstract
 
-This document provides a comprehensive overview of the Prismatic Platform's crisis intervention and negotiation research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](/glossary/multi-agent-systems/), [epistemic verification](/glossary/epistemic-validation/), and behavioral modeling to problems in crisis negotiation, de-escalation methodology, and intervention training design. The domain spans five primary research areas: hostage and high-stakes negotiation, mental health crisis intervention, de-escalation and conflict resolution, training and methodology development, and community-level crisis response.
+This document provides a comprehensive overview of the Prismatic Platform's crisis intervention and negotiation research domain -- a collection of 25 theoretical frameworks designed to study the application of [multi-agent systems](@/glossary/multi-agent-systems.md), [epistemic verification](@/glossary/epistemic-validation.md), and behavioral modeling to problems in crisis negotiation, de-escalation methodology, and intervention training design. The domain spans five primary research areas: hostage and high-stakes negotiation, mental health crisis intervention, de-escalation and conflict resolution, training and methodology development, and community-level crisis response.
 
-Each framework leverages the platform's [agent orchestration](/glossary/agent-orchestration/) infrastructure, [signal plurality](/glossary/signal-plurality/) axioms, and event replay capabilities to model the temporal dynamics, emotional trajectories, and strategic interactions characteristic of crisis situations. The emphasis throughout is on training methodology research and scenario design -- studying how crisis negotiation skills can be developed through simulation rather than providing operational guidance.
+Each framework leverages the platform's [agent orchestration](@/glossary/agent-orchestration.md) infrastructure, [signal plurality](@/glossary/signal-plurality.md) axioms, and event replay capabilities to model the temporal dynamics, emotional trajectories, and strategic interactions characteristic of crisis situations. The emphasis throughout is on training methodology research and scenario design -- studying how crisis negotiation skills can be developed through simulation rather than providing operational guidance.
 
 ## Introduction
 
@@ -67,7 +67,7 @@ Each framework leverages the platform's [agent orchestration](/glossary/agent-or
 
 Crisis intervention represents one of the most time-critical and emotionally demanding domains in applied behavioral science. Negotiators must rapidly assess volatile situations, build rapport under extreme conditions, and make decisions where errors can have irreversible consequences. Traditional training approaches -- classroom instruction supplemented by live exercises -- provide limited exposure to the diverse scenarios practitioners may encounter. Computational simulation offers the potential to study crisis dynamics systematically and to develop training scenarios that cover rare but critical situations.
 
-The Prismatic Platform's crisis intervention domain was conceived to study how [multi-agent architectures](/glossary/multi-agent-system/) can model the complex interplay between negotiators, subjects in crisis, bystanders, and tactical teams. The platform's [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework supports the modeling of emotional states as uncertain, evolving quantities -- acknowledging that a negotiator's assessment of a subject's emotional trajectory is always probabilistic and subject to rapid revision.
+The Prismatic Platform's crisis intervention domain was conceived to study how [multi-agent architectures](@/glossary/multi-agent-system.md) can model the complex interplay between negotiators, subjects in crisis, bystanders, and tactical teams. The platform's [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework supports the modeling of emotional states as uncertain, evolving quantities -- acknowledging that a negotiator's assessment of a subject's emotional trajectory is always probabilistic and subject to rapid revision.
 
 ### Problem Definition
 
@@ -85,12 +85,12 @@ The Prismatic Platform's crisis intervention domain was conceived to study how [
 
 | Platform Component | Crisis Application | Research Purpose |
 |-------------------|----------------------|------------------|
-| **[Blackboard](/glossary/blackboard/) Coordination** | Crisis situation awareness | Study multi-party information sharing under pressure |
-| **[NABLA Infinity](/glossary/nabla-infinity/) Axioms** | Emotional state uncertainty | Model probabilistic emotional assessment |
-| **[Agent Orchestration](/glossary/agent-orchestration/)** | Multi-role crisis team simulation | Simulate negotiator-commander-tactical coordination |
+| **[Blackboard](@/glossary/blackboard.md) Coordination** | Crisis situation awareness | Study multi-party information sharing under pressure |
+| **[NABLA Infinity](@/glossary/nabla-infinity.md) Axioms** | Emotional state uncertainty | Model probabilistic emotional assessment |
+| **[Agent Orchestration](@/glossary/agent-orchestration.md)** | Multi-role crisis team simulation | Simulate negotiator-commander-tactical coordination |
 | **Event Replay** | Scenario reconstruction | Deterministic replay for training analysis |
-| **[Telemetry](/glossary/telemetry/)** | Escalation metrics | Real-time crisis intensity tracking |
-| **[Simulation](/glossary/simulation/)** | Crisis scenario generation | Parametric crisis scenario design |
+| **[Telemetry](@/glossary/telemetry.md)** | Escalation metrics | Real-time crisis intensity tracking |
+| **[Simulation](@/glossary/simulation.md)** | Crisis scenario generation | Parametric crisis scenario design |
 
 ## Research Domain Taxonomy
 
@@ -100,11 +100,11 @@ Research into negotiation dynamics in hostage situations, armed standoffs, and h
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Hostage negotiation trainer](/applications/crisis-intervention-negotiation/hostage-negotiation-trainer/) | Hostage negotiation methodology | Behavioral change stairway model (FBI) |
-| [Multiple hostage-taker negotiation](/applications/crisis-intervention-negotiation/multiple-hostage-taker-negotiation/) | Multi-subject negotiation dynamics | Multi-party negotiation with internal group dynamics |
-| [Cross-border hostage cases](/applications/crisis-intervention-negotiation/cross-border-hostage-cases/) | Jurisdictional coordination modeling | International crisis coordination theory |
-| [Terrorist crisis scenario replay](/applications/crisis-intervention-negotiation/terrorist-crisis-scenario-replay/) | Ideologically motivated crisis modeling | Radicalization and de-radicalization theory |
-| [GIGN/FBI manual augmentation](/applications/crisis-intervention-negotiation/gignfbi-manual-augmentation/) | Tactical manual scenario enhancement | Professional negotiation doctrine |
+| [Hostage negotiation trainer](@/applications/crisis-intervention-negotiation/hostage-negotiation-trainer.md) | Hostage negotiation methodology | Behavioral change stairway model (FBI) |
+| [Multiple hostage-taker negotiation](@/applications/crisis-intervention-negotiation/multiple-hostage-taker-negotiation.md) | Multi-subject negotiation dynamics | Multi-party negotiation with internal group dynamics |
+| [Cross-border hostage cases](@/applications/crisis-intervention-negotiation/cross-border-hostage-cases.md) | Jurisdictional coordination modeling | International crisis coordination theory |
+| [Terrorist crisis scenario replay](@/applications/crisis-intervention-negotiation/terrorist-crisis-scenario-replay.md) | Ideologically motivated crisis modeling | Radicalization and de-radicalization theory |
+| [GIGN/FBI manual augmentation](@/applications/crisis-intervention-negotiation/gignfbi-manual-augmentation.md) | Tactical manual scenario enhancement | Professional negotiation doctrine |
 
 ### Domain 2: Mental Health Crisis Intervention (5 frameworks)
 
@@ -112,13 +112,13 @@ Theoretical models for studying mental health crisis response, suicidal ideation
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Suicidal ideation detection](/applications/crisis-intervention-negotiation/suicidal-ideation-detection/) | Risk factor identification modeling | Columbia Suicide Severity Rating Scale theory |
-| [Suicide hotline AI augmentation](/applications/crisis-intervention-negotiation/suicide-hotline-ai-augmentation/) | Crisis hotline support tool design | Crisis counseling methodology |
-| [Youth crisis simulation packs](/applications/crisis-intervention-negotiation/youth-crisis-simulation-packs/) | Youth-specific crisis modeling | Developmental psychology and adolescent crisis theory |
-| [Psychopathic profile simulation](/applications/crisis-intervention-negotiation/psychopathic-profile-simulation/) | Personality disorder impact on negotiation | Clinical personality assessment theory |
-| [Narcissistic offender handling](/applications/crisis-intervention-negotiation/narcissistic-offender-handling/) | Narcissistic personality crisis dynamics | Narcissistic vulnerability theory |
+| [Suicidal ideation detection](@/applications/crisis-intervention-negotiation/suicidal-ideation-detection.md) | Risk factor identification modeling | Columbia Suicide Severity Rating Scale theory |
+| [Suicide hotline AI augmentation](@/applications/crisis-intervention-negotiation/suicide-hotline-ai-augmentation.md) | Crisis hotline support tool design | Crisis counseling methodology |
+| [Youth crisis simulation packs](@/applications/crisis-intervention-negotiation/youth-crisis-simulation-packs.md) | Youth-specific crisis modeling | Developmental psychology and adolescent crisis theory |
+| [Psychopathic profile simulation](@/applications/crisis-intervention-negotiation/psychopathic-profile-simulation.md) | Personality disorder impact on negotiation | Clinical personality assessment theory |
+| [Narcissistic offender handling](@/applications/crisis-intervention-negotiation/narcissistic-offender-handling.md) | Narcissistic personality crisis dynamics | Narcissistic vulnerability theory |
 
-These frameworks study how mental health crisis scenarios create unique negotiation challenges. The suicidal ideation detection framework applies [signal plurality](/glossary/signal-plurality/) to model how multiple behavioral indicators -- verbal cues, behavioral changes, situational factors -- must be synthesized to assess risk level while explicitly preserving uncertainty about the assessment.
+These frameworks study how mental health crisis scenarios create unique negotiation challenges. The suicidal ideation detection framework applies [signal plurality](@/glossary/signal-plurality.md) to model how multiple behavioral indicators -- verbal cues, behavioral changes, situational factors -- must be synthesized to assess risk level while explicitly preserving uncertainty about the assessment.
 
 ### Domain 3: De-escalation and Conflict Resolution (5 frameworks)
 
@@ -126,11 +126,11 @@ Frameworks for studying de-escalation techniques, conflict dynamics, and communi
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Domestic violence de-escalation](/applications/crisis-intervention-negotiation/domestic-violence-de-escalation/) | DV crisis de-escalation modeling | Power and control dynamics theory |
-| [Police multi-party conflict simulation](/applications/crisis-intervention-negotiation/police-multi-party-conflict-simulation/) | Law enforcement conflict management | Procedural justice theory |
-| [Crowd panic de-escalation](/applications/crisis-intervention-negotiation/crowd-panic-de-escalation/) | Mass crowd crisis dynamics | Agent-based crowd behavior models |
-| [Community mediation AI agent](/applications/crisis-intervention-negotiation/community-mediation-ai-agent/) | Community conflict resolution | Restorative justice and community mediation theory |
-| [Armed robbery intervention](/applications/crisis-intervention-negotiation/armed-robbery-intervention/) | In-progress crime intervention dynamics | Situational crisis intervention theory |
+| [Domestic violence de-escalation](@/applications/crisis-intervention-negotiation/domestic-violence-de-escalation.md) | DV crisis de-escalation modeling | Power and control dynamics theory |
+| [Police multi-party conflict simulation](@/applications/crisis-intervention-negotiation/police-multi-party-conflict-simulation.md) | Law enforcement conflict management | Procedural justice theory |
+| [Crowd panic de-escalation](@/applications/crisis-intervention-negotiation/crowd-panic-de-escalation.md) | Mass crowd crisis dynamics | Agent-based crowd behavior models |
+| [Community mediation AI agent](@/applications/crisis-intervention-negotiation/community-mediation-ai-agent.md) | Community conflict resolution | Restorative justice and community mediation theory |
+| [Armed robbery intervention](@/applications/crisis-intervention-negotiation/armed-robbery-intervention.md) | In-progress crime intervention dynamics | Situational crisis intervention theory |
 
 ### Domain 4: Training and Methodology Development (5 frameworks)
 
@@ -138,11 +138,11 @@ Research into crisis negotiation training methodology, scenario design, and perf
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Virtual coach for rookie negotiators](/applications/crisis-intervention-negotiation/virtual-coach-for-rookie-negotiators/) | Novice negotiator skill development | Deliberate practice theory |
-| [LARP-style negotiator prompts](/applications/crisis-intervention-negotiation/larp-style-negotiator-prompts/) | Immersive scenario-based training | Experiential learning theory |
-| [Crisis gamification modules](/applications/crisis-intervention-negotiation/crisis-gamification-modules/) | Game-based crisis training | Gamification and serious games theory |
-| [Deepframe disruption training](/applications/crisis-intervention-negotiation/deepframe-disruption-training/) | Cognitive frame disruption techniques | Frame analysis and reframing theory |
-| [Ego destabilization scenarios](/applications/crisis-intervention-negotiation/ego-destabilization-scenarios/) | Ego-based crisis dynamics modeling | Psychodynamic crisis theory |
+| [Virtual coach for rookie negotiators](@/applications/crisis-intervention-negotiation/virtual-coach-for-rookie-negotiators.md) | Novice negotiator skill development | Deliberate practice theory |
+| [LARP-style negotiator prompts](@/applications/crisis-intervention-negotiation/larp-style-negotiator-prompts.md) | Immersive scenario-based training | Experiential learning theory |
+| [Crisis gamification modules](@/applications/crisis-intervention-negotiation/crisis-gamification-modules.md) | Game-based crisis training | Gamification and serious games theory |
+| [Deepframe disruption training](@/applications/crisis-intervention-negotiation/deepframe-disruption-training.md) | Cognitive frame disruption techniques | Frame analysis and reframing theory |
+| [Ego destabilization scenarios](@/applications/crisis-intervention-negotiation/ego-destabilization-scenarios.md) | Ego-based crisis dynamics modeling | Psychodynamic crisis theory |
 
 ### Domain 5: Behavioral Modeling and Analytics (5 frameworks)
 
@@ -150,11 +150,11 @@ Frameworks for studying crisis behavioral dynamics, trust trajectories, and esca
 
 | Framework | Research Focus | Theoretical Basis |
 |-----------|---------------|-------------------|
-| [Real-time escalation metric dashboard](/applications/crisis-intervention-negotiation/real-time-escalation-metric-dashboard/) | Crisis intensity tracking | Crisis escalation measurement theory |
-| [Cultural adaptation of negotiation tactics](/applications/crisis-intervention-negotiation/cultural-adaptation-of-negotiation-tactics/) | Cross-cultural crisis response | Hofstede cultural dimensions in crisis contexts |
-| [Replayable trust trajectory models](/applications/crisis-intervention-negotiation/replayable-trust-trajectory-models/) | Trust evolution analysis with event replay | Dynamic trust modeling theory |
-| [Empathy-based reframing toolkit](/applications/crisis-intervention-negotiation/empathy-based-reframing-toolkit/) | Empathic communication modeling | Carl Rogers' person-centered approach |
-| [Active shooter simulation](/applications/crisis-intervention-negotiation/active-shooter-simulation/) | Active threat response coordination | Active threat response doctrine |
+| [Real-time escalation metric dashboard](@/applications/crisis-intervention-negotiation/real-time-escalation-metric-dashboard.md) | Crisis intensity tracking | Crisis escalation measurement theory |
+| [Cultural adaptation of negotiation tactics](@/applications/crisis-intervention-negotiation/cultural-adaptation-of-negotiation-tactics.md) | Cross-cultural crisis response | Hofstede cultural dimensions in crisis contexts |
+| [Replayable trust trajectory models](@/applications/crisis-intervention-negotiation/replayable-trust-trajectory-models.md) | Trust evolution analysis with event replay | Dynamic trust modeling theory |
+| [Empathy-based reframing toolkit](@/applications/crisis-intervention-negotiation/empathy-based-reframing-toolkit.md) | Empathic communication modeling | Carl Rogers' person-centered approach |
+| [Active shooter simulation](@/applications/crisis-intervention-negotiation/active-shooter-simulation.md) | Active threat response coordination | Active threat response doctrine |
 
 ## Theoretical Foundations
 
@@ -162,7 +162,7 @@ Frameworks for studying crisis behavioral dynamics, trust trajectories, and esca
 
 | NABLA Axiom | Crisis Interpretation | Research Application |
 |-------------|--------------------------|---------------------|
-| **[Signal Plurality](/glossary/signal-plurality/)** | Multiple behavioral indicators required before emotional state assessment | Models multi-cue crisis assessment |
+| **[Signal Plurality](@/glossary/signal-plurality.md)** | Multiple behavioral indicators required before emotional state assessment | Models multi-cue crisis assessment |
 | **Contradiction Preservation** | Contradictory behavioral signals preserved as diagnostically meaningful | Prevents premature crisis categorization |
 | **Absence Informative** | Subject silence or disengagement carries negotiation significance | Models communication withdrawal as signal |
 | **Time Decay** | Rapport and trust assessments require recent evidence | Models relationship freshness in ongoing crises |
@@ -174,43 +174,43 @@ Frameworks for studying crisis behavioral dynamics, trust trajectories, and esca
 
 ### Hostage and High-Stakes Negotiation
 
-- [Hostage negotiation trainer](/applications/crisis-intervention-negotiation/hostage-negotiation-trainer/) -- Behavioral change stairway methodology
-- [Multiple hostage-taker negotiation](/applications/crisis-intervention-negotiation/multiple-hostage-taker-negotiation/) -- Multi-subject group dynamics
-- [Cross-border hostage cases](/applications/crisis-intervention-negotiation/cross-border-hostage-cases/) -- International crisis coordination
-- [Terrorist crisis scenario replay](/applications/crisis-intervention-negotiation/terrorist-crisis-scenario-replay/) -- Ideologically motivated crisis modeling
-- [GIGN/FBI manual augmentation](/applications/crisis-intervention-negotiation/gignfbi-manual-augmentation/) -- Professional doctrine scenario enhancement
+- [Hostage negotiation trainer](@/applications/crisis-intervention-negotiation/hostage-negotiation-trainer.md) -- Behavioral change stairway methodology
+- [Multiple hostage-taker negotiation](@/applications/crisis-intervention-negotiation/multiple-hostage-taker-negotiation.md) -- Multi-subject group dynamics
+- [Cross-border hostage cases](@/applications/crisis-intervention-negotiation/cross-border-hostage-cases.md) -- International crisis coordination
+- [Terrorist crisis scenario replay](@/applications/crisis-intervention-negotiation/terrorist-crisis-scenario-replay.md) -- Ideologically motivated crisis modeling
+- [GIGN/FBI manual augmentation](@/applications/crisis-intervention-negotiation/gignfbi-manual-augmentation.md) -- Professional doctrine scenario enhancement
 
 ### Mental Health Crisis Intervention
 
-- [Suicidal ideation detection](/applications/crisis-intervention-negotiation/suicidal-ideation-detection/) -- Risk factor identification modeling
-- [Suicide hotline AI augmentation](/applications/crisis-intervention-negotiation/suicide-hotline-ai-augmentation/) -- Crisis hotline support design
-- [Youth crisis simulation packs](/applications/crisis-intervention-negotiation/youth-crisis-simulation-packs/) -- Youth-specific crisis dynamics
-- [Psychopathic profile simulation](/applications/crisis-intervention-negotiation/psychopathic-profile-simulation/) -- Personality disorder negotiation challenges
-- [Narcissistic offender handling](/applications/crisis-intervention-negotiation/narcissistic-offender-handling/) -- Narcissistic vulnerability dynamics
+- [Suicidal ideation detection](@/applications/crisis-intervention-negotiation/suicidal-ideation-detection.md) -- Risk factor identification modeling
+- [Suicide hotline AI augmentation](@/applications/crisis-intervention-negotiation/suicide-hotline-ai-augmentation.md) -- Crisis hotline support design
+- [Youth crisis simulation packs](@/applications/crisis-intervention-negotiation/youth-crisis-simulation-packs.md) -- Youth-specific crisis dynamics
+- [Psychopathic profile simulation](@/applications/crisis-intervention-negotiation/psychopathic-profile-simulation.md) -- Personality disorder negotiation challenges
+- [Narcissistic offender handling](@/applications/crisis-intervention-negotiation/narcissistic-offender-handling.md) -- Narcissistic vulnerability dynamics
 
 ### De-escalation and Conflict Resolution
 
-- [Domestic violence de-escalation](/applications/crisis-intervention-negotiation/domestic-violence-de-escalation/) -- DV crisis dynamics modeling
-- [Police multi-party conflict simulation](/applications/crisis-intervention-negotiation/police-multi-party-conflict-simulation/) -- Law enforcement conflict management
-- [Crowd panic de-escalation](/applications/crisis-intervention-negotiation/crowd-panic-de-escalation/) -- Mass crowd crisis dynamics
-- [Community mediation AI agent](/applications/crisis-intervention-negotiation/community-mediation-ai-agent/) -- Community conflict resolution
-- [Armed robbery intervention](/applications/crisis-intervention-negotiation/armed-robbery-intervention/) -- In-progress crime intervention
+- [Domestic violence de-escalation](@/applications/crisis-intervention-negotiation/domestic-violence-de-escalation.md) -- DV crisis dynamics modeling
+- [Police multi-party conflict simulation](@/applications/crisis-intervention-negotiation/police-multi-party-conflict-simulation.md) -- Law enforcement conflict management
+- [Crowd panic de-escalation](@/applications/crisis-intervention-negotiation/crowd-panic-de-escalation.md) -- Mass crowd crisis dynamics
+- [Community mediation AI agent](@/applications/crisis-intervention-negotiation/community-mediation-ai-agent.md) -- Community conflict resolution
+- [Armed robbery intervention](@/applications/crisis-intervention-negotiation/armed-robbery-intervention.md) -- In-progress crime intervention
 
 ### Training and Methodology
 
-- [Virtual coach for rookie negotiators](/applications/crisis-intervention-negotiation/virtual-coach-for-rookie-negotiators/) -- Novice skill development
-- [LARP-style negotiator prompts](/applications/crisis-intervention-negotiation/larp-style-negotiator-prompts/) -- Immersive scenario-based training
-- [Crisis gamification modules](/applications/crisis-intervention-negotiation/crisis-gamification-modules/) -- Game-based crisis training
-- [Deepframe disruption training](/applications/crisis-intervention-negotiation/deepframe-disruption-training/) -- Cognitive frame disruption
-- [Ego destabilization scenarios](/applications/crisis-intervention-negotiation/ego-destabilization-scenarios/) -- Ego-based crisis dynamics
+- [Virtual coach for rookie negotiators](@/applications/crisis-intervention-negotiation/virtual-coach-for-rookie-negotiators.md) -- Novice skill development
+- [LARP-style negotiator prompts](@/applications/crisis-intervention-negotiation/larp-style-negotiator-prompts.md) -- Immersive scenario-based training
+- [Crisis gamification modules](@/applications/crisis-intervention-negotiation/crisis-gamification-modules.md) -- Game-based crisis training
+- [Deepframe disruption training](@/applications/crisis-intervention-negotiation/deepframe-disruption-training.md) -- Cognitive frame disruption
+- [Ego destabilization scenarios](@/applications/crisis-intervention-negotiation/ego-destabilization-scenarios.md) -- Ego-based crisis dynamics
 
 ### Behavioral Modeling and Analytics
 
-- [Real-time escalation metric dashboard](/applications/crisis-intervention-negotiation/real-time-escalation-metric-dashboard/) -- Crisis intensity tracking
-- [Cultural adaptation of negotiation tactics](/applications/crisis-intervention-negotiation/cultural-adaptation-of-negotiation-tactics/) -- Cross-cultural crisis response
-- [Replayable trust trajectory models](/applications/crisis-intervention-negotiation/replayable-trust-trajectory-models/) -- Trust evolution analysis
-- [Empathy-based reframing toolkit](/applications/crisis-intervention-negotiation/empathy-based-reframing-toolkit/) -- Empathic communication modeling
-- [Active shooter simulation](/applications/crisis-intervention-negotiation/active-shooter-simulation/) -- Active threat response coordination
+- [Real-time escalation metric dashboard](@/applications/crisis-intervention-negotiation/real-time-escalation-metric-dashboard.md) -- Crisis intensity tracking
+- [Cultural adaptation of negotiation tactics](@/applications/crisis-intervention-negotiation/cultural-adaptation-of-negotiation-tactics.md) -- Cross-cultural crisis response
+- [Replayable trust trajectory models](@/applications/crisis-intervention-negotiation/replayable-trust-trajectory-models.md) -- Trust evolution analysis
+- [Empathy-based reframing toolkit](@/applications/crisis-intervention-negotiation/empathy-based-reframing-toolkit.md) -- Empathic communication modeling
+- [Active shooter simulation](@/applications/crisis-intervention-negotiation/active-shooter-simulation.md) -- Active threat response coordination
 
 ## Future Research Directions
 
@@ -224,12 +224,12 @@ Frameworks for studying crisis behavioral dynamics, trust trajectories, and esca
 
 ### Internal Documentation
 
-- [Platform Capabilities](/capabilities/)
-- [Multi-Agent Systems](/glossary/multi-agent-systems/)
-- [NABLA Infinity Framework](/glossary/nabla-infinity/)
-- [Blackboard Architecture](/glossary/blackboard/)
-- [Agent Orchestration](/glossary/agent-orchestration/)
-- [Risk Assessment](/glossary/risk-assessment/)
+- [Platform Capabilities](@/capabilities/_index.md)
+- [Multi-Agent Systems](@/glossary/multi-agent-systems.md)
+- [NABLA Infinity Framework](@/glossary/nabla-infinity.md)
+- [Blackboard Architecture](@/glossary/blackboard.md)
+- [Agent Orchestration](@/glossary/agent-orchestration.md)
+- [Risk Assessment](@/glossary/risk-assessment.md)
 
 ### External Standards and Literature
 
@@ -248,4 +248,4 @@ Frameworks for studying crisis behavioral dynamics, trust trajectories, and esca
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -657,25 +657,25 @@ end
 
 ## Related Terms
 
-- [Binary](/glossary/binary/) -- compiled executable artifacts in BEAM bytecode format
-- [CI/CD](/glossary/ci-cd/) -- pipelines that produce and deploy artifacts
-- [Benchmark](/glossary/benchmark/) -- performance test artifacts with measurement data
-- [Assertion](/glossary/assertion/) -- test verification producing evidence artifacts
-- [Completeness](/glossary/completeness/) -- artifact coverage across the platform
-- [OTP Release](/glossary/otp-release/) -- self-contained deployment artifacts
-- [Docker](/glossary/docker/) -- container image artifacts
-- [Dialyzer](/glossary/dialyzer/) -- PLT artifacts for type analysis
-- [Telemetry](/glossary/telemetry/) -- artifact lifecycle event emission
+- [Binary](@/glossary/binary.md) -- compiled executable artifacts in BEAM bytecode format
+- [CI/CD](@/glossary/ci-cd.md) -- pipelines that produce and deploy artifacts
+- [Benchmark](@/glossary/benchmark.md) -- performance test artifacts with measurement data
+- [Assertion](@/glossary/assertion.md) -- test verification producing evidence artifacts
+- [Completeness](@/glossary/completeness.md) -- artifact coverage across the platform
+- [OTP Release](@/glossary/otp-release.md) -- self-contained deployment artifacts
+- [Docker](@/glossary/docker.md) -- container image artifacts
+- [Dialyzer](@/glossary/dialyzer.md) -- PLT artifacts for type analysis
+- [Telemetry](@/glossary/telemetry.md) -- artifact lifecycle event emission
 - [Checksum](/glossary/checksum/) -- integrity verification for artifacts
-- [Provenance](/glossary/provenance/) -- origin tracking for artifact traceability
-- [Quality Gates](/glossary/quality-gates/) -- quality artifact verification and enforcement
+- [Provenance](@/glossary/provenance.md) -- origin tracking for artifact traceability
+- [Quality Gates](@/glossary/quality-gates.md) -- quality artifact verification and enforcement
 
 ## See Also
 
-- [CI/CD](/glossary/ci-cd/) -- artifact production and deployment pipelines
-- [Quality Gates](/glossary/quality-gates/) -- quality artifact verification
-- [Architecture](/architecture/) -- platform artifact architecture
-- [Capabilities](/capabilities/) -- platform capability documentation
+- [CI/CD](@/glossary/ci-cd.md) -- artifact production and deployment pipelines
+- [Quality Gates](@/glossary/quality-gates.md) -- quality artifact verification
+- [Architecture](@/architecture/_index.md) -- platform artifact architecture
+- [Capabilities](@/capabilities/_index.md) -- platform capability documentation
 
 ---
 
@@ -684,4 +684,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

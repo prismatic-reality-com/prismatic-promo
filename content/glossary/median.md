@@ -492,24 +492,24 @@ end
 
 ## Related Terms
 
-- [Mean](/glossary/mean/) -- outlier-sensitive central tendency measure, complements median
-- [Percentile](/glossary/percentile/) -- generalized quantile framework including median as P50
-- [P95](/glossary/p95/) -- 95th percentile, the standard tail-latency metric
-- [P99](/glossary/p99/) -- 99th percentile for extreme tail analysis
-- [Outlier](/glossary/outlier/) -- extreme values that median resists but mean does not
-- [Latency Percentile](/glossary/latency-percentile/) -- percentile-based latency monitoring
-- [KPI](/glossary/kpi/) -- key performance indicators where median is often the best summary
-- [Latency](/glossary/latency/) -- primary domain where median-based reporting is essential
-- [Accuracy](/glossary/accuracy/) -- measurement quality affecting median reliability
-- [Analytics](/glossary/analytics/) -- data analysis pipelines that compute median metrics
-- [Profiling](/glossary/profiling/) -- performance profiling where median identifies typical behavior
-- [Memory Profiling](/glossary/memory-profiling/) -- memory metrics where median heap size is informative
+- [Mean](@/glossary/mean.md) -- outlier-sensitive central tendency measure, complements median
+- [Percentile](@/glossary/percentile.md) -- generalized quantile framework including median as P50
+- [P95](@/glossary/p95.md) -- 95th percentile, the standard tail-latency metric
+- [P99](@/glossary/p99.md) -- 99th percentile for extreme tail analysis
+- [Outlier](@/glossary/outlier.md) -- extreme values that median resists but mean does not
+- [Latency Percentile](@/glossary/latency-percentile.md) -- percentile-based latency monitoring
+- [KPI](@/glossary/kpi.md) -- key performance indicators where median is often the best summary
+- [Latency](@/glossary/latency.md) -- primary domain where median-based reporting is essential
+- [Accuracy](@/glossary/accuracy.md) -- measurement quality affecting median reliability
+- [Analytics](@/glossary/analytics.md) -- data analysis pipelines that compute median metrics
+- [Profiling](@/glossary/profiling.md) -- performance profiling where median identifies typical behavior
+- [Memory Profiling](@/glossary/memory-profiling.md) -- memory metrics where median heap size is informative
 
 ## See Also
 
-- [Capabilities](/capabilities/) -- statistical analysis capabilities
-- [Architecture](/architecture/) -- metrics and monitoring architecture
-- [Performance Standards](/architecture/) -- P50/P95 latency targets
+- [Capabilities](@/capabilities/_index.md) -- statistical analysis capabilities
+- [Architecture](@/architecture/_index.md) -- metrics and monitoring architecture
+- [Performance Standards](@/architecture/_index.md) -- P50/P95 latency targets
 - [DD Scoring](/hub/dd) -- median-based entity risk aggregation
 
 ---
@@ -519,4 +519,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

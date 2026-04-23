@@ -41,7 +41,7 @@ image_alt = "Hex - Prismatic Platform"
 
 Hex is the official package manager for the Erlang and Elixir ecosystems, serving as the central registry for discovering, downloading, and publishing reusable libraries. Hosted at hex.pm, the registry contains over 15,000 packages and processes millions of downloads monthly. Hex handles dependency resolution using a SAT-solver-based algorithm that evaluates semantic version constraints across the entire dependency graph, producing a deterministic `mix.lock` file that guarantees reproducible builds across development machines, CI pipelines, and production environments.
 
-Hex integrates natively with [Mix](/glossary/mix/), Elixir's build tool, making dependency management a seamless part of the development workflow. Dependencies are declared in `mix.exs` with version constraints (e.g., `~> 1.7`), and `mix deps.get` resolves and downloads them. Hex also supports private repositories for organizations that need to host proprietary packages alongside public ones, and it provides package signing, checksum verification, and retirement (marking packages as deprecated or compromised).
+Hex integrates natively with [Mix](@/glossary/mix.md), Elixir's build tool, making dependency management a seamless part of the development workflow. Dependencies are declared in `mix.exs` with version constraints (e.g., `~> 1.7`), and `mix deps.get` resolves and downloads them. Hex also supports private repositories for organizations that need to host proprietary packages alongside public ones, and it provides package signing, checksum verification, and retirement (marking packages as deprecated or compromised).
 
 Beyond package management, Hex serves as the foundation of the Elixir ecosystem's quality infrastructure. Packages publish documentation to HexDocs (docs.hex.pm), enabling consistent API documentation across the ecosystem. The `mix hex.audit` command checks for retired or vulnerable packages, and `mix hex.outdated` identifies available updates -- both critical for maintaining the security posture that platforms like Prismatic require.
 
@@ -63,7 +63,7 @@ Hex's design makes several deliberate choices that distinguish it from other pac
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform manages dependencies across 115 umbrella applications through a shared Hex configuration. A single `mix.lock` at the project root ensures version consistency -- every umbrella app uses exactly the same version of shared dependencies like [Phoenix](/glossary/phoenix/), [Ecto](/glossary/ecto/), and [Broadway](/glossary/broadway/).
+The Prismatic Platform manages dependencies across 115 umbrella applications through a shared Hex configuration. A single `mix.lock` at the project root ensures version consistency -- every umbrella app uses exactly the same version of shared dependencies like [Phoenix](@/glossary/phoenix.md), [Ecto](@/glossary/ecto.md), and [Broadway](@/glossary/broadway.md).
 
 ### Key Hex Dependencies
 
@@ -84,7 +84,7 @@ The Prismatic Platform manages dependencies across 115 umbrella applications thr
 | **excoveralls** | Coverage reporting | `~> 0.18` | Testing |
 | **telemetry** | Instrumentation | `~> 1.0` | Observability |
 
-The NO MERCY doctrine requires keeping all dependencies current and audited. The CI/CD pipeline runs `mix hex.audit` to detect retired packages and `mix deps.audit` for known vulnerabilities. Hex packages are cached in the GitLab CI runner and in [Docker](/glossary/docker/) build layers to minimize build times. The platform avoids unnecessary dependencies -- each new Hex dependency must justify its inclusion against the principle of minimal attack surface.
+The NO MERCY doctrine requires keeping all dependencies current and audited. The CI/CD pipeline runs `mix hex.audit` to detect retired packages and `mix deps.audit` for known vulnerabilities. Hex packages are cached in the GitLab CI runner and in [Docker](@/glossary/docker.md) build layers to minimize build times. The platform avoids unnecessary dependencies -- each new Hex dependency must justify its inclusion against the principle of minimal attack surface.
 
 ## Package Declaration and Version Constraints
 
@@ -247,7 +247,7 @@ Resolution strategies:
 
 ## Lockfile and Reproducibility
 
-The `mix.lock` file is Hex's mechanism for ensuring that every environment -- developer workstation, CI runner, production [Docker](/glossary/docker/) build -- uses identical dependency versions:
+The `mix.lock` file is Hex's mechanism for ensuring that every environment -- developer workstation, CI runner, production [Docker](@/glossary/docker.md) build -- uses identical dependency versions:
 
 ```elixir
 # mix.lock (excerpt)
@@ -422,21 +422,21 @@ This Dockerfile structure ensures that `mix deps.get` is only re-executed when `
 
 ## Related Concepts
 
-- [Mix](/glossary/mix/) - Build tool that integrates with Hex for dependency management
-- [Ecto](/glossary/ecto/) - Database library distributed as a Hex package
-- [Phoenix](/glossary/phoenix/) - Web framework distributed as a Hex package
-- [Broadway](/glossary/broadway/) - Data pipeline library from the Hex ecosystem
-- [OpenAPI](/glossary/openapi/) - OpenApiSpex Hex package for API specification
-- [Docker](/glossary/docker/) - Container builds that cache Hex dependencies
-- [Release](/glossary/release/) - Production packaging that includes compiled Hex deps
-- [BEAM](/glossary/beam/) - Virtual machine executing compiled Hex packages
-- [Dialyzer](/glossary/dialyzer/) - Static analysis tool that operates on compiled dependencies
-- [Property-Based Testing](/glossary/property-based-testing/) - StreamData Hex package for generative tests
+- [Mix](@/glossary/mix.md) - Build tool that integrates with Hex for dependency management
+- [Ecto](@/glossary/ecto.md) - Database library distributed as a Hex package
+- [Phoenix](@/glossary/phoenix.md) - Web framework distributed as a Hex package
+- [Broadway](@/glossary/broadway.md) - Data pipeline library from the Hex ecosystem
+- [OpenAPI](@/glossary/openapi.md) - OpenApiSpex Hex package for API specification
+- [Docker](@/glossary/docker.md) - Container builds that cache Hex dependencies
+- [Release](@/glossary/release.md) - Production packaging that includes compiled Hex deps
+- [BEAM](@/glossary/beam.md) - Virtual machine executing compiled Hex packages
+- [Dialyzer](@/glossary/dialyzer.md) - Static analysis tool that operates on compiled dependencies
+- [Property-Based Testing](@/glossary/property-based-testing.md) - StreamData Hex package for generative tests
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform architecture and dependency strategy
-- [Technologies](/technologies/) - Technology stack and key packages
+- [Architecture](@/architecture/_index.md) - Platform architecture and dependency strategy
+- [Technologies](@/technologies/_index.md) - Technology stack and key packages
 
 ---
 
@@ -445,4 +445,4 @@ This Dockerfile structure ensures that `mix deps.get` is only re-executed when `
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

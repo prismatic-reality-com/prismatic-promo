@@ -192,11 +192,11 @@ The API gateway uses complexity analysis as a rate-limiting complement. While tr
 
 ## Cross-References
 
-- [API](/glossary/api/) - interface layer where query complexity is measured
-- [API Gateway](/glossary/api-gateway/) - enforcement point for complexity limits
-- [Code Quality](/glossary/code-quality/) - code complexity as quality metric
-- [Code Smell](/glossary/code-smell/) - high complexity as smell indicator
-- [Constant Time](/glossary/constant-time/) - O(1) complexity target
+- [API](@/glossary/api.md) - interface layer where query complexity is measured
+- [API Gateway](@/glossary/api-gateway.md) - enforcement point for complexity limits
+- [Code Quality](@/glossary/code-quality.md) - code complexity as quality metric
+- [Code Smell](@/glossary/code-smell.md) - high complexity as smell indicator
+- [Constant Time](@/glossary/constant-time.md) - O(1) complexity target
 - **Livebooks**: `livebooks/domains/api_integration/` - complexity analysis experiments
 - **Academy**: API security and query cost analysis
 

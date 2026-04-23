@@ -53,16 +53,16 @@ Zero Trust is not a single product or technology but an architectural philosophy
 |--------|---------|---------------|
 | **Identity** | Verify who is requesting access | MFA, SSO, identity federation, behavioral biometrics |
 | **Device** | Verify the device's security posture | Device health attestation, MDM compliance, endpoint detection |
-| **Network** | Segment and encrypt all communications | Micro-segmentation, [TLS](/glossary/tls/) everywhere, software-defined perimeter |
-| **Application** | Authorize access at the application layer | [RBAC](/glossary/rbac/), ABAC, just-in-time access, API gateways |
-| **Data** | Protect data regardless of location | [Encryption](/glossary/encryption/) at rest/in transit, classification, DLP, tokenization |
+| **Network** | Segment and encrypt all communications | Micro-segmentation, [TLS](@/glossary/tls.md) everywhere, software-defined perimeter |
+| **Application** | Authorize access at the application layer | [RBAC](@/glossary/rbac.md), ABAC, just-in-time access, API gateways |
+| **Data** | Protect data regardless of location | [Encryption](@/glossary/encryption.md) at rest/in transit, classification, DLP, tokenization |
 | **Visibility** | Monitor all access continuously | SIEM, behavioral analytics, audit logging, anomaly detection |
 
 ## Technical Details
 
 ### Core Principles
 
-**Principle 1: Verify Explicitly** -- Every access request must be authenticated and authorized based on all available data points: user identity, device health, location, service or workload, data classification, and anomaly detection. [Authentication](/glossary/authentication/) is not a one-time event; it is continuous throughout the session.
+**Principle 1: Verify Explicitly** -- Every access request must be authenticated and authorized based on all available data points: user identity, device health, location, service or workload, data classification, and anomaly detection. [Authentication](@/glossary/authentication.md) is not a one-time event; it is continuous throughout the session.
 
 **Principle 2: Least Privilege Access** -- Users and services receive the minimum permissions necessary for their current task, for the minimum duration required. This is implemented through just-in-time (JIT) and just-enough-access (JEA) policies. Standing privileges are eliminated wherever possible.
 
@@ -119,7 +119,7 @@ The NIST Zero Trust Architecture specification defines seven tenets:
 3. Access to individual enterprise resources is granted on a per-session basis
 4. Access to resources is determined by dynamic policy
 5. The enterprise monitors and measures the integrity and security posture of all owned and associated assets
-6. All resource authentication and [authorization](/glossary/authorization/) are dynamic and strictly enforced before access is allowed
+6. All resource authentication and [authorization](@/glossary/authorization.md) are dynamic and strictly enforced before access is allowed
 7. The enterprise collects as much information as possible about the current state of assets, network infrastructure, and communications and uses it to improve its security posture
 
 ## Implementation in Prismatic Platform
@@ -238,7 +238,7 @@ end
 
 ### RBAC Integration
 
-The Prismatic Platform's [RBAC](/glossary/rbac/) system implements the "Least Privilege Access" pillar of Zero Trust:
+The Prismatic Platform's [RBAC](@/glossary/rbac.md) system implements the "Least Privilege Access" pillar of Zero Trust:
 
 ```elixir
 defmodule PrismaticWeb.Authorization.RBAC do
@@ -369,25 +369,25 @@ end
 
 Zero Trust principles are applied across the entire Prismatic Platform stack:
 
-**Application Layer**: Every LiveView route and API endpoint requires explicit [authentication](/glossary/authentication/) and [authorization](/glossary/authorization/). The `PrismaticWeb.Plugs.APIAuth` plug validates JWT tokens on every request. Session tokens have configurable expiration and are not refreshed automatically -- users must re-authenticate.
+**Application Layer**: Every LiveView route and API endpoint requires explicit [authentication](@/glossary/authentication.md) and [authorization](@/glossary/authorization.md). The `PrismaticWeb.Plugs.APIAuth` plug validates JWT tokens on every request. Session tokens have configurable expiration and are not refreshed automatically -- users must re-authenticate.
 
 **Service Layer**: Inter-service communication between umbrella applications uses authenticated function calls rather than open network protocols. The Prismatic API validates caller identity before dispatching to facade functions.
 
-**Data Layer**: Database access is mediated through [Ecto](/glossary/ecto/) contexts with built-in authorization checks. Direct database queries bypassing the context layer are prohibited by platform policy.
+**Data Layer**: Database access is mediated through [Ecto](@/glossary/ecto.md) contexts with built-in authorization checks. Direct database queries bypassing the context layer are prohibited by platform policy.
 
-**Infrastructure Layer**: Production deployment on Fly.io uses private networking between application instances. External access is restricted to defined entry points with [TLS](/glossary/tls/) termination.
+**Infrastructure Layer**: Production deployment on Fly.io uses private networking between application instances. External access is restricted to defined entry points with [TLS](@/glossary/tls.md) termination.
 
 ### Color Team Zero Trust Modeling
 
 The Color Teams model adversarial scenarios against the platform's Zero Trust implementation:
 
 - **Red Team**: Simulates credential compromise, token theft, privilege escalation, and lateral movement scenarios assuming Zero Trust controls are in place
-- **[Blue Team](/glossary/blue-team/)**: Monitors for anomalous access patterns indicating Zero Trust bypass attempts
-- **White Team**: Verifies that Zero Trust properties (continuous verification, least privilege) hold formally through [property-based testing](/glossary/property-based-testing/)
+- **[Blue Team](@/glossary/blue-team.md)**: Monitors for anomalous access patterns indicating Zero Trust bypass attempts
+- **White Team**: Verifies that Zero Trust properties (continuous verification, least privilege) hold formally through [property-based testing](@/glossary/property-based-testing.md)
 
 ### EASM Zero Trust Assessment
 
-[EASM](/glossary/easm/) evaluates external assets against Zero Trust compliance criteria as part of [security rating](/glossary/security-rating/) calculations. Assets exposing services without authentication, using weak encryption, or allowing unauthenticated access paths receive lower security ratings.
+[EASM](@/glossary/easm.md) evaluates external assets against Zero Trust compliance criteria as part of [security rating](@/glossary/security-rating.md) calculations. Assets exposing services without authentication, using weak encryption, or allowing unauthenticated access paths receive lower security ratings.
 
 ## Comparison with Alternatives
 
@@ -409,7 +409,7 @@ Zero Trust subsumes and extends Defense in Depth by adding continuous verificati
 
 3. **Eliminate standing privileges**: Replace permanent role assignments with just-in-time access grants that expire automatically. Standing admin privileges are a prime target for attackers and insider threats.
 
-4. **Encrypt everything**: [TLS](/glossary/tls/) everywhere is not optional in Zero Trust. All communication -- internal and external -- must be encrypted. Mutual TLS (mTLS) between services provides both [encryption](/glossary/encryption/) and service identity verification.
+4. **Encrypt everything**: [TLS](@/glossary/tls.md) everywhere is not optional in Zero Trust. All communication -- internal and external -- must be encrypted. Mutual TLS (mTLS) between services provides both [encryption](@/glossary/encryption.md) and service identity verification.
 
 5. **Log and monitor all access**: Every access decision (grant and deny) must be logged with full context. Behavioral analytics on access logs detect anomalous patterns that indicate compromised credentials or insider threats.
 
@@ -441,33 +441,33 @@ Zero Trust subsumes and extends Defense in Depth by adding continuous verificati
 
 **Microservice Architectures**: In systems with hundreds of services communicating over networks (like the Prismatic Platform's 115-app umbrella), each service must authenticate to peers. Zero Trust's per-request verification and micro-segmentation prevent compromised services from accessing unauthorized resources.
 
-**Regulatory Compliance**: Frameworks including [NIS2](/glossary/nis2/), [ZKB](/glossary/zkb/), and SOC 2 increasingly recommend or require Zero Trust controls. Implementing Zero Trust addresses multiple compliance requirements simultaneously.
+**Regulatory Compliance**: Frameworks including [NIS2](@/glossary/nis2.md), [ZKB](@/glossary/zkb.md), and SOC 2 increasingly recommend or require Zero Trust controls. Implementing Zero Trust addresses multiple compliance requirements simultaneously.
 
 **Supply Chain Security**: After incidents like SolarWinds, organizations apply Zero Trust principles to vendor access, requiring continuous verification for third-party connections and limiting vendor access to the minimum necessary scope.
 
 ## Related Concepts
 
-- [RBAC](/glossary/rbac/) -- Role-based access control implementing Zero Trust authorization
-- [Authentication](/glossary/authentication/) -- Identity verification foundation for Zero Trust
-- [Authorization](/glossary/authorization/) -- Access decision enforcement in Zero Trust
-- [TLS](/glossary/tls/) -- Transport encryption ensuring data confidentiality in Zero Trust
-- [OAuth2](/glossary/oauth2/) -- Authentication protocol enabling Zero Trust identity verification
-- [EASM](/glossary/easm/) -- External attack surface management monitoring Zero Trust compliance
-- [Penetration Testing](/glossary/penetration-testing/) -- Validation of Zero Trust implementation effectiveness
-- [Attack Surface](/glossary/attack-surface/) -- Exposure area managed through Zero Trust controls
-- [Encryption](/glossary/encryption/) -- Data protection pillar of Zero Trust architecture
-- [NIS2](/glossary/nis2/) -- EU directive encouraging Zero Trust adoption
-- [Security Rating](/glossary/security-rating/) -- Rating incorporating Zero Trust compliance assessment
-- [Zero Tolerance](/glossary/zero-tolerance/) -- Quality enforcement complementing Zero Trust security
+- [RBAC](@/glossary/rbac.md) -- Role-based access control implementing Zero Trust authorization
+- [Authentication](@/glossary/authentication.md) -- Identity verification foundation for Zero Trust
+- [Authorization](@/glossary/authorization.md) -- Access decision enforcement in Zero Trust
+- [TLS](@/glossary/tls.md) -- Transport encryption ensuring data confidentiality in Zero Trust
+- [OAuth2](@/glossary/oauth2.md) -- Authentication protocol enabling Zero Trust identity verification
+- [EASM](@/glossary/easm.md) -- External attack surface management monitoring Zero Trust compliance
+- [Penetration Testing](@/glossary/penetration-testing.md) -- Validation of Zero Trust implementation effectiveness
+- [Attack Surface](@/glossary/attack-surface.md) -- Exposure area managed through Zero Trust controls
+- [Encryption](@/glossary/encryption.md) -- Data protection pillar of Zero Trust architecture
+- [NIS2](@/glossary/nis2.md) -- EU directive encouraging Zero Trust adoption
+- [Security Rating](@/glossary/security-rating.md) -- Rating incorporating Zero Trust compliance assessment
+- [Zero Tolerance](@/glossary/zero-tolerance.md) -- Quality enforcement complementing Zero Trust security
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture overview
-- [Technologies](/technologies/) -- Technology stack details
-- [Apps](/apps/) -- Application ecosystem implementing Zero Trust
-- [Agents](/agents/) -- Security agents enforcing Zero Trust policies
-- [Security Operations](/glossary/security-operations/) -- Operational security practices
-- [Property-Based Testing](/glossary/property-based-testing/) -- Formal verification of Zero Trust properties
+- [Architecture](@/architecture/_index.md) -- Platform architecture overview
+- [Technologies](@/technologies/_index.md) -- Technology stack details
+- [Apps](@/apps/_index.md) -- Application ecosystem implementing Zero Trust
+- [Agents](@/agents/_index.md) -- Security agents enforcing Zero Trust policies
+- [Security Operations](@/glossary/security-operations.md) -- Operational security practices
+- [Property-Based Testing](@/glossary/property-based-testing.md) -- Formal verification of Zero Trust properties
 
 ---
 
@@ -476,4 +476,4 @@ Zero Trust subsumes and extends Defense in Depth by adding continuous verificati
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

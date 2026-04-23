@@ -28,15 +28,15 @@ image_alt = "GitLab Auto-Sync Orchestrator - Prismatic Platform"
 
 ## Overview
 
-The GitLab Auto-Sync Orchestrator is an L3 strategic authority operating within the Synchronization, Automation, and GitLab domain of the Prismatic Platform. This agent manages the autonomous bidirectional synchronization of state between GitLab's external infrastructure and the platform's internal data representations, ensuring that milestones, issues, merge requests, labels, and pipeline states remain consistent across both systems without manual intervention. The orchestrator's synchronization operations are governed by five core [Lean4](/glossary/lean4/) theorems that formally guarantee safe evolution, preventing data corruption, race conditions, and state divergence during concurrent synchronization cycles.
+The GitLab Auto-Sync Orchestrator is an L3 strategic authority operating within the Synchronization, Automation, and GitLab domain of the Prismatic Platform. This agent manages the autonomous bidirectional synchronization of state between GitLab's external infrastructure and the platform's internal data representations, ensuring that milestones, issues, merge requests, labels, and pipeline states remain consistent across both systems without manual intervention. The orchestrator's synchronization operations are governed by five core [Lean4](@/glossary/lean4.md) theorems that formally guarantee safe evolution, preventing data corruption, race conditions, and state divergence during concurrent synchronization cycles.
 
-In a platform managing 20+ active milestones, hundreds of issues, and continuous merge request activity, manual synchronization is both impractical and error-prone. The Auto-Sync Orchestrator eliminates this operational burden by implementing event-driven synchronization that responds to GitLab webhook events in real time, supplemented by periodic full reconciliation cycles that detect and correct any drift that may have accumulated between event-driven updates. The orchestrator's formal verification through [Lean4](/glossary/lean4/) theorems provides mathematical guarantees that synchronization operations preserve data integrity -- a critical property for a platform built on the [AIAD](/glossary/aiad/) standard that relies on GitLab state for strategic decision-making.
+In a platform managing 20+ active milestones, hundreds of issues, and continuous merge request activity, manual synchronization is both impractical and error-prone. The Auto-Sync Orchestrator eliminates this operational burden by implementing event-driven synchronization that responds to GitLab webhook events in real time, supplemented by periodic full reconciliation cycles that detect and correct any drift that may have accumulated between event-driven updates. The orchestrator's formal verification through [Lean4](@/glossary/lean4.md) theorems provides mathematical guarantees that synchronization operations preserve data integrity -- a critical property for a platform built on the [AIAD](@/glossary/aiad.md) standard that relies on GitLab state for strategic decision-making.
 
 The formal verification foundation distinguishes this orchestrator from conventional sync tools. Five core theorems -- Convergence Guarantee, Order Preservation, Idempotency, Conflict Resolution Determinism, and Rollback Safety -- have been proven in Lean4 and are continuously validated against the implementation, ensuring that temporary inconsistencies introduced by network partitions or concurrent edits are always resolved automatically.
 
 ## Architecture
 
-The orchestrator implements a three-tier synchronization architecture built on [OTP](/glossary/otp/) supervision principles with dedicated [GenServer](/glossary/genserver/) processes for each synchronization tier within the platform's [supervision tree](/glossary/supervision-tree/).
+The orchestrator implements a three-tier synchronization architecture built on [OTP](@/glossary/otp.md) supervision principles with dedicated [GenServer](@/glossary/genserver.md) processes for each synchronization tier within the platform's [supervision tree](@/glossary/supervision-tree.md).
 
 ```elixir
 defmodule PrismaticAgents.GitLabAutoSync do
@@ -74,12 +74,12 @@ defmodule PrismaticAgents.GitLabAutoSync do
 end
 ```
 
-**Tier 1: Event-Driven Sync** processes GitLab webhook events in near real time through a GenStage pipeline with backpressure management. **Tier 2: Periodic Reconciliation** runs full state comparison cycles on configurable intervals using efficient delta computation. **Tier 3: Deep Audit** performs comprehensive integrity verification validating referential integrity across related resources. State management uses [ETS](/glossary/ets/) tables for hot data and Ecto-backed PostgreSQL for the synchronization transaction log.
+**Tier 1: Event-Driven Sync** processes GitLab webhook events in near real time through a GenStage pipeline with backpressure management. **Tier 2: Periodic Reconciliation** runs full state comparison cycles on configurable intervals using efficient delta computation. **Tier 3: Deep Audit** performs comprehensive integrity verification validating referential integrity across related resources. State management uses [ETS](@/glossary/ets.md) tables for hot data and Ecto-backed PostgreSQL for the synchronization transaction log.
 
 ## Key Capabilities
 
 - **Milestone synchronization** -- Maintains bidirectional consistency of milestone titles, descriptions, due dates, and completion states with real-time progress propagation to strategic planning tools
-- **Issue state management** -- Synchronizes issue lifecycle events including creation, assignment, labeling, weight changes, milestone association, and closure with sub-millisecond local cache access via [ETS](/glossary/ets/)
+- **Issue state management** -- Synchronizes issue lifecycle events including creation, assignment, labeling, weight changes, milestone association, and closure with sub-millisecond local cache access via [ETS](@/glossary/ets.md)
 - **Merge request tracking** -- Monitors merge request lifecycle from creation through review, approval, and merge, synchronizing discussion threads, approval states, and pipeline results
 - **Label and metadata propagation** -- Ensures label taxonomies, project variables, and configuration settings remain consistent with automatic rename and deletion tracking
 - **Pipeline state correlation** -- Maps CI/CD pipeline executions to development tracking, correlating success and failure with milestone progress and quality gate compliance
@@ -104,15 +104,15 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [gitlab-synchronization-coordinator](/agents/gitlab-synchronization-coordinator/) | Receives synchronization directives and provides execution status |
-| [gitlab-strategic-coordinator](/agents/gitlab-strategic-coordinator/) | Consumes synchronized milestone and issue data for strategic planning |
-| [gitlab-api-specialist-agent](/agents/gitlab-api-specialist-agent/) | Provides underlying API access for synchronization operations |
-| [gitlab-issue-sync-specialist](/agents/gitlab-issue-sync-specialist/) | Delegates specialized issue synchronization tasks |
-| [gitlab-mycelial-propagator](/agents/gitlab-mycelial-propagator/) | Propagates synchronization patterns across platform domains |
+| [gitlab-synchronization-coordinator](@/agents/gitlab-synchronization-coordinator.md) | Receives synchronization directives and provides execution status |
+| [gitlab-strategic-coordinator](@/agents/gitlab-strategic-coordinator.md) | Consumes synchronized milestone and issue data for strategic planning |
+| [gitlab-api-specialist-agent](@/agents/gitlab-api-specialist-agent.md) | Provides underlying API access for synchronization operations |
+| [gitlab-issue-sync-specialist](@/agents/gitlab-issue-sync-specialist.md) | Delegates specialized issue synchronization tasks |
+| [gitlab-mycelial-propagator](@/agents/gitlab-mycelial-propagator.md) | Propagates synchronization patterns across platform domains |
 
 ## Enforcement
 
-The GitLab Auto-Sync Orchestrator operates under the [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with strict synchronization integrity requirements. No synchronization cycle is considered complete until convergence is verified through post-synchronization state comparison. Drift detected during reconciliation triggers immediate corrective action without waiting for the next scheduled cycle. All synchronization operations carry full provenance including source event, transformation logic, and resulting state change. The Lean4 formal verification theorems are re-validated against the implementation whenever synchronization logic is modified. The [Trinity Gate](/glossary/trinity-gate/) framework ensures structural, logical, and formal consistency of all synchronization decisions, while [NABLA Infinity](/glossary/nabla-infinity/) signal plurality requirements prevent synchronization decisions based on single-source data.
+The GitLab Auto-Sync Orchestrator operates under the [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with strict synchronization integrity requirements. No synchronization cycle is considered complete until convergence is verified through post-synchronization state comparison. Drift detected during reconciliation triggers immediate corrective action without waiting for the next scheduled cycle. All synchronization operations carry full provenance including source event, transformation logic, and resulting state change. The Lean4 formal verification theorems are re-validated against the implementation whenever synchronization logic is modified. The [Trinity Gate](@/glossary/trinity-gate.md) framework ensures structural, logical, and formal consistency of all synchronization decisions, while [NABLA Infinity](@/glossary/nabla-infinity.md) signal plurality requirements prevent synchronization decisions based on single-source data.
 
 ---
 
@@ -121,4 +121,4 @@ The GitLab Auto-Sync Orchestrator operates under the [NO MERCY, NO DOUBTS](/glos
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

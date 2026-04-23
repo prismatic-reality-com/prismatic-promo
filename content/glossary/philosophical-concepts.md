@@ -34,7 +34,7 @@ image_alt = "Philosophical Concepts - Prismatic Platform"
 
 Philosophical Concepts in the context of the Prismatic Platform refers to the coherent body of principles, epistemic commitments, and value judgments that underpin every technical decision, quality standard, and operational doctrine across the platform. These are not decorative abstractions layered on top of engineering practices -- they are the generative foundation from which practices emerge. The platform's 100/100 quality score, its zero-tolerance enforcement, its mandatory regression testing, and its continuous evolution system all derive from explicit philosophical positions about the nature of software quality, the relationship between knowledge and action, and the obligations of engineers to their craft.
 
-The philosophical framework synthesizes three traditions: **epistemic rigor** (formalized in the [NABLA Infinity](/glossary/nabla-infinity/) framework), which demands that all beliefs be evidence-based, contradictions be preserved rather than resolved prematurely, and uncertainty be mapped explicitly; **Stoic pragmatism**, which insists on acting within one's control, accepting what cannot be changed, and maintaining discipline regardless of external circumstances; and **uncompromising craftsmanship**, which treats software engineering as a discipline where excellence is a non-negotiable standard, not an aspirational goal.
+The philosophical framework synthesizes three traditions: **epistemic rigor** (formalized in the [NABLA Infinity](@/glossary/nabla-infinity.md) framework), which demands that all beliefs be evidence-based, contradictions be preserved rather than resolved prematurely, and uncertainty be mapped explicitly; **Stoic pragmatism**, which insists on acting within one's control, accepting what cannot be changed, and maintaining discipline regardless of external circumstances; and **uncompromising craftsmanship**, which treats software engineering as a discipline where excellence is a non-negotiable standard, not an aspirational goal.
 
 ## Overview
 
@@ -42,15 +42,15 @@ Most software platforms describe their philosophy implicitly through code conven
 
 The platform's philosophical framework addresses five fundamental questions:
 
-**What is quality?** Quality is not a subjective assessment or a relative comparison. It is a measurable, binary property: code either meets all defined quality criteria or it does not. The [Quality Gates](/glossary/quality-gates/) system implements this definition by producing pass/fail verdicts with no intermediate states.
+**What is quality?** Quality is not a subjective assessment or a relative comparison. It is a measurable, binary property: code either meets all defined quality criteria or it does not. The [Quality Gates](@/glossary/quality-gates.md) system implements this definition by producing pass/fail verdicts with no intermediate states.
 
-**What do we know, and how do we know it?** Knowledge claims must be backed by evidence, tested through multiple independent methods, and traced to their provenance. The [Trinity Gate](/glossary/trinity-gate/) enforces this by requiring structural consistency, logical consistency, and formal necessity before any claim is accepted.
+**What do we know, and how do we know it?** Knowledge claims must be backed by evidence, tested through multiple independent methods, and traced to their provenance. The [Trinity Gate](@/glossary/trinity-gate.md) enforces this by requiring structural consistency, logical consistency, and formal necessity before any claim is accepted.
 
-**When should we act?** Action follows confidence. The [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) doctrine defines the transition point: investigation continues until confidence reaches 0.95 and the Trinity Gate passes, then execution proceeds without hesitation. Premature action is as much a failure as delayed action.
+**When should we act?** Action follows confidence. The [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) doctrine defines the transition point: investigation continues until confidence reaches 0.95 and the Trinity Gate passes, then execution proceeds without hesitation. Premature action is as much a failure as delayed action.
 
-**What is our obligation to the code?** Every line of code deserves production-quality implementation from the moment it is written. There is no "draft" state, no "prototype" exception, no "we will clean it up later" deferral. This commitment eliminates the category of [technical debt](/glossary/technical-debt/) by preventing its creation.
+**What is our obligation to the code?** Every line of code deserves production-quality implementation from the moment it is written. There is no "draft" state, no "prototype" exception, no "we will clean it up later" deferral. This commitment eliminates the category of [technical debt](@/glossary/technical-debt.md) by preventing its creation.
 
-**How do we improve?** Improvement is continuous, automated, and evidence-driven. The [AutoEvolve](/glossary/autoevolve/) system does not wait for human initiative -- it scans for improvement opportunities and applies them when they pass quality gates. The platform evolves as a system, not as a collection of individual decisions.
+**How do we improve?** Improvement is continuous, automated, and evidence-driven. The [AutoEvolve](@/glossary/autoevolve.md) system does not wait for human initiative -- it scans for improvement opportunities and applies them when they pass quality gates. The platform evolves as a system, not as a collection of individual decisions.
 
 ## Technical Details
 
@@ -308,9 +308,9 @@ The philosophical concepts of the Prismatic Platform are implemented through a l
 
 **Layer 3 -- Automated Gates**: Policies are implemented as automated checks in the quality gate pipeline, pre-commit hooks, and CI pipeline. These checks produce binary pass/fail results with no human judgment required.
 
-**Layer 4 -- Agent Compliance**: All 530+ [AIAD](/glossary/aiad/) agents carry enforcement blocks that bind them to the doctrine framework. Agent actions are validated against the same philosophical principles that govern human contributions.
+**Layer 4 -- Agent Compliance**: All 530+ [AIAD](@/glossary/aiad.md) agents carry enforcement blocks that bind them to the doctrine framework. Agent actions are validated against the same philosophical principles that govern human contributions.
 
-**Layer 5 -- Evolution Integration**: The [AutoEvolve](/glossary/autoevolve/) system uses the philosophical framework as its fitness function. Improvements that violate doctrines are rejected regardless of other benefits.
+**Layer 5 -- Evolution Integration**: The [AutoEvolve](@/glossary/autoevolve.md) system uses the philosophical framework as its fitness function. Improvements that violate doctrines are rejected regardless of other benefits.
 
 ## The Three Philosophical Traditions
 
@@ -324,13 +324,13 @@ This tradition directly addresses the epistemic failures that plague software en
 
 The Stoic tradition contributes the distinction between what is within our control and what is not. In software engineering, developers control the quality of their code, the thoroughness of their tests, and the rigor of their analysis. They do not control hardware failures, third-party API changes, or user behavior. The platform's philosophical framework encourages investing maximum effort in controllable factors while designing systems that gracefully handle uncontrollable ones.
 
-The Stoic influence is visible in the platform's approach to failure: instead of trying to prevent all failures (impossible), the platform assumes failures will occur and builds supervision trees, circuit breakers, and self-healing mechanisms that respond automatically. The [Quality Floor Guardian](/glossary/quality-floor-guardian/) embodies this Stoic principle -- it does not attempt to prevent all quality issues but instead monitors for degradation and triggers automated responses when quality falls below acceptable thresholds.
+The Stoic influence is visible in the platform's approach to failure: instead of trying to prevent all failures (impossible), the platform assumes failures will occur and builds supervision trees, circuit breakers, and self-healing mechanisms that respond automatically. The [Quality Floor Guardian](@/glossary/quality-floor-guardian.md) embodies this Stoic principle -- it does not attempt to prevent all quality issues but instead monitors for degradation and triggers automated responses when quality falls below acceptable thresholds.
 
 ### Uncompromising Craftsmanship
 
 The craftsmanship tradition asserts that the act of writing software is itself valuable and that the quality of the work matters independently of its commercial utility. This tradition rejects the false dichotomy between "shipping fast" and "shipping well" -- it holds that sustainable speed comes from maintaining high quality, because quality debt is the primary drag on development velocity.
 
-In the Prismatic Platform, this manifests as the [Perfect Software](/glossary/perfect-software/) ideal: every line of code is production-ready from the moment it is written. There are no prototypes, no throwaway code, no "temporary" solutions. The 11-phase pre-commit pipeline enforces this standard mechanically, ensuring that the craftsmanship ideal is maintained regardless of deadline pressure or individual judgment.
+In the Prismatic Platform, this manifests as the [Perfect Software](@/glossary/perfect-software.md) ideal: every line of code is production-ready from the moment it is written. There are no prototypes, no throwaway code, no "temporary" solutions. The 11-phase pre-commit pipeline enforces this standard mechanically, ensuring that the craftsmanship ideal is maintained regardless of deadline pressure or individual judgment.
 
 ## Comparison
 
@@ -364,7 +364,7 @@ The Prismatic approach is deliberately less adaptable than alternatives. Philoso
 
 **Applying philosophical abstractions without technical grounding.** "We value quality" is a philosophical statement without technical content. "Every function has a typespec, every module compiles without warnings, every bug fix includes regression tests" is a philosophical commitment with technical enforcement. The Prismatic Platform always bridges the gap between abstract principle and concrete check.
 
-**Neglecting the tension between principles.** [Perfection Unacceptable](/glossary/perfection-unacceptable/) and [Zero Compromise Quality](/glossary/zero-compromise-quality/) appear contradictory until you understand that one governs the ceiling (do not chase theoretical perfection) while the other governs the floor (do not accept substandard work). Acknowledging and resolving these tensions is essential.
+**Neglecting the tension between principles.** [Perfection Unacceptable](@/glossary/perfection-unacceptable.md) and [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) appear contradictory until you understand that one governs the ceiling (do not chase theoretical perfection) while the other governs the floor (do not accept substandard work). Acknowledging and resolving these tensions is essential.
 
 ## Use Cases
 
@@ -374,28 +374,28 @@ The Prismatic approach is deliberately less adaptable than alternatives. Philoso
 
 **Quality Standard Justification**: When a new team member questions why the platform requires zero compilation warnings, the philosophical framework provides a principled answer: warnings are unverified claims about code correctness (violating NABLA's Provenance Mandatory axiom) and deferred fixes (violating NM/ND's Immediate Remediation requirement). The standard is not arbitrary -- it follows from the platform's philosophical commitments.
 
-**Agent Design Philosophy**: Every [AIAD](/glossary/aiad/) agent is designed according to the platform's philosophical principles. An agent that produces claims without evidence violates NABLA. An agent that defers work to "later" violates NM/ND. An agent that chases optimal solutions instead of shipping complete ones violates Perfection Unacceptable. The philosophical framework provides a coherent design language for the entire agent ecosystem.
+**Agent Design Philosophy**: Every [AIAD](@/glossary/aiad.md) agent is designed according to the platform's philosophical principles. An agent that produces claims without evidence violates NABLA. An agent that defers work to "later" violates NM/ND. An agent that chases optimal solutions instead of shipping complete ones violates Perfection Unacceptable. The philosophical framework provides a coherent design language for the entire agent ecosystem.
 
 ## Related Concepts
 
-- [Doctrine](/glossary/doctrine/) -- The formal expression of philosophical principles as enforceable rules
-- [No Mercy, No Doubts](/glossary/no-mercy-no-doubts/) -- The execution-phase doctrine derived from quality and epistemic philosophy
-- [NABLA Infinity](/glossary/nabla-infinity/) -- The epistemic framework formalizing the platform's theory of knowledge
-- [Trinity Gate](/glossary/trinity-gate/) -- The three-layer verification system enforcing epistemic rigor
-- [Epistemic Reasoning](/glossary/epistemic-reasoning/) -- The reasoning methodology that applies philosophical principles to technical decisions
-- [Perfection Unacceptable](/glossary/perfection-unacceptable/) -- The anti-perfectionism doctrine addressing delivery philosophy
-- [Philosophically Sound](/glossary/philosophically-sound/) -- The quality attribute of systems that align with the platform's philosophical framework
-- [Philosophical Statement](/glossary/philosophical-statement/) -- Individual assertions that express philosophical positions
-- [Quality Evidence Truth](/glossary/quality-evidence-truth/) -- The epistemological position that quality is objective and evidence-based
-- [Zero Compromise Quality](/glossary/zero-compromise-quality/) -- The quality floor doctrine derived from craftsmanship philosophy
+- [Doctrine](@/glossary/doctrine.md) -- The formal expression of philosophical principles as enforceable rules
+- [No Mercy, No Doubts](@/glossary/no-mercy-no-doubts.md) -- The execution-phase doctrine derived from quality and epistemic philosophy
+- [NABLA Infinity](@/glossary/nabla-infinity.md) -- The epistemic framework formalizing the platform's theory of knowledge
+- [Trinity Gate](@/glossary/trinity-gate.md) -- The three-layer verification system enforcing epistemic rigor
+- [Epistemic Reasoning](@/glossary/epistemic-reasoning.md) -- The reasoning methodology that applies philosophical principles to technical decisions
+- [Perfection Unacceptable](@/glossary/perfection-unacceptable.md) -- The anti-perfectionism doctrine addressing delivery philosophy
+- [Philosophically Sound](@/glossary/philosophically-sound.md) -- The quality attribute of systems that align with the platform's philosophical framework
+- [Philosophical Statement](@/glossary/philosophical-statement.md) -- Individual assertions that express philosophical positions
+- [Quality Evidence Truth](@/glossary/quality-evidence-truth.md) -- The epistemological position that quality is objective and evidence-based
+- [Zero Compromise Quality](@/glossary/zero-compromise-quality.md) -- The quality floor doctrine derived from craftsmanship philosophy
 
 ## See Also
 
-- [Architecture](/architecture/) -- Platform architecture shaped by philosophical principles
-- [Platform Capabilities](/capabilities/) -- Capabilities that implement philosophical commitments
-- [Applications](/apps/) -- 115 OTP applications built under the philosophical framework
-- [Technologies](/technologies/) -- Technology choices guided by philosophical principles
-- [Agent Registry](/agents/) -- 530+ agents designed according to the platform's philosophy
+- [Architecture](@/architecture/_index.md) -- Platform architecture shaped by philosophical principles
+- [Platform Capabilities](@/capabilities/_index.md) -- Capabilities that implement philosophical commitments
+- [Applications](@/apps/_index.md) -- 115 OTP applications built under the philosophical framework
+- [Technologies](@/technologies/_index.md) -- Technology choices guided by philosophical principles
+- [Agent Registry](@/agents/_index.md) -- 530+ agents designed according to the platform's philosophy
 
 ---
 
@@ -404,4 +404,4 @@ The Prismatic approach is deliberately less adaptable than alternatives. Philoso
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

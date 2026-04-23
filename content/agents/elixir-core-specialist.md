@@ -28,11 +28,11 @@ image_alt = "elixir-core-specialist - Prismatic Platform"
 
 ## Overview
 
-The [Elixir](/glossary/elixir/) Core Specialist operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Ecosystem Engineer domain of the Prismatic Platform. This agent provides deep Elixir and [OTP](/glossary/otp/) expertise, implementing biological architecture as code through the platform's [mycelial network](/glossary/mycelial-network/) patterns, [supervision tree](/glossary/supervision-tree/) ecosystems, and process-based organism models. Where the Elixir Architect enforces patterns from above, the Core Specialist works at the implementation level, translating biological metaphors into production Elixir code that is both conceptually coherent and operationally robust.
+The [Elixir](@/glossary/elixir.md) Core Specialist operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Ecosystem Engineer domain of the Prismatic Platform. This agent provides deep Elixir and [OTP](@/glossary/otp.md) expertise, implementing biological architecture as code through the platform's [mycelial network](@/glossary/mycelial-network.md) patterns, [supervision tree](@/glossary/supervision-tree.md) ecosystems, and process-based organism models. Where the Elixir Architect enforces patterns from above, the Core Specialist works at the implementation level, translating biological metaphors into production Elixir code that is both conceptually coherent and operationally robust.
 
-The biological architecture approach treats each OTP process as a living organism within a larger ecosystem. Supervision trees become ecological niches with resource constraints and survival pressures. [Message passing](/glossary/message-passing/) becomes the nervous system of the platform. The Elixir Core Specialist ensures that these biological patterns are not merely metaphorical but are implemented with the rigor that OTP demands -- proper [process isolation](/glossary/process-isolation/), crash recovery semantics, and resource budgeting that mirrors biological homeostasis. As part of the [AIAD](/glossary/aiad/) agent ecosystem, this specialist bridges the gap between the platform's biological design philosophy and the concrete requirements of production code.
+The biological architecture approach treats each OTP process as a living organism within a larger ecosystem. Supervision trees become ecological niches with resource constraints and survival pressures. [Message passing](@/glossary/message-passing.md) becomes the nervous system of the platform. The Elixir Core Specialist ensures that these biological patterns are not merely metaphorical but are implemented with the rigor that OTP demands -- proper [process isolation](@/glossary/process-isolation.md), crash recovery semantics, and resource budgeting that mirrors biological homeostasis. As part of the [AIAD](@/glossary/aiad.md) agent ecosystem, this specialist bridges the gap between the platform's biological design philosophy and the concrete requirements of production code.
 
-This agent bridges the gap between the platform's biological design philosophy and the concrete requirements of production Elixir/OTP code. The platform's 430+ autonomous agents, [self-healing](/capabilities/autonomous-self-healing/) capabilities, evolutionary adaptation, and mycelial pattern propagation all depend on OTP primitives: [GenServer](/glossary/genserver/)s, Supervisors, DynamicSupervisors, [ETS](/glossary/ets/) tables, and [GenStage](/glossary/genstage/) pipelines. The Core Specialist ensures these primitives are used correctly, efficiently, and in ways that support the biological architecture's emergent properties.
+This agent bridges the gap between the platform's biological design philosophy and the concrete requirements of production Elixir/OTP code. The platform's 430+ autonomous agents, [self-healing](@/capabilities/autonomous-self-healing.md) capabilities, evolutionary adaptation, and mycelial pattern propagation all depend on OTP primitives: [GenServer](@/glossary/genserver.md)s, Supervisors, DynamicSupervisors, [ETS](@/glossary/ets.md) tables, and [GenStage](@/glossary/genstage.md) pipelines. The Core Specialist ensures these primitives are used correctly, efficiently, and in ways that support the biological architecture's emergent properties.
 
 ## Architecture
 
@@ -88,11 +88,11 @@ end
 
 - **Process isolation enforcement** -- Ensures each stateful entity operates within its own process boundary, preventing shared-state contamination and enabling independent failure recovery through message-passing-only inter-process communication.
 
-- **Dynamic supervisor management** -- Configures and optimizes [DynamicSupervisor](/glossary/dynamic-supervisor/) instances managing agent processes with configurable lifecycle policies, max_children limits, and process registration through the platform's registry system.
+- **Dynamic supervisor management** -- Configures and optimizes [DynamicSupervisor](@/glossary/dynamic-supervisor.md) instances managing agent processes with configurable lifecycle policies, max_children limits, and process registration through the platform's registry system.
 
 - **Message protocol design** -- Creates efficient, well-typed message-passing protocols between OTP processes using tagged tuples ({:ok, result} / {:error, reason}), defined delivery semantics, timeout behavior, and error response patterns.
 
-- **Hot code reload integration** -- Leverages [BEAM](/glossary/beam/)'s [hot code reloading](/glossary/hot-code-reload/) capability for evolutionary updates without process restarts, designing GenServer state structures that support code version transitions through proper code_change/3 callbacks.
+- **Hot code reload integration** -- Leverages [BEAM](@/glossary/beam.md)'s [hot code reloading](@/glossary/hot-code-reload.md) capability for evolutionary updates without process restarts, designing GenServer state structures that support code version transitions through proper code_change/3 callbacks.
 
 ## Authority Level
 
@@ -112,14 +112,14 @@ end
 
 | Agent | Relationship |
 |-------|-------------|
-| [elixir-architect](/agents/elixir-architect/) | Architectural authority providing pattern guidance and reviewing core implementations |
-| [ecosystem-biologist-coordinator](/agents/ecosystem-biologist-coordinator/) | Supplies biological models that drive implementation decisions |
-| [database-core-specialist](/agents/database-core-specialist/) | Coordinates on [Ecto](/glossary/ecto/) and database-level implementation patterns |
-| [evolution-executor-specialist](/agents/evolution-executor-specialist/) | Consumes OTP primitives for evolutionary operations |
+| [elixir-architect](@/agents/elixir-architect.md) | Architectural authority providing pattern guidance and reviewing core implementations |
+| [ecosystem-biologist-coordinator](@/agents/ecosystem-biologist-coordinator.md) | Supplies biological models that drive implementation decisions |
+| [database-core-specialist](@/agents/database-core-specialist.md) | Coordinates on [Ecto](@/glossary/ecto.md) and database-level implementation patterns |
+| [evolution-executor-specialist](@/agents/evolution-executor-specialist.md) | Consumes OTP primitives for evolutionary operations |
 
 ## Enforcement
 
-All Elixir core implementations operate under [NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/) doctrine with zero tolerance for quality violations. Every process must have a defined supervision strategy. No shared mutable state between processes is permitted. All message protocols must be explicitly typed with tagged tuples. The [Trinity Gate](/glossary/trinity-gate/) validation framework ensures structural consistency, logical coherence, and formal necessity for all architectural decisions. Code that does not leverage OTP capabilities is rejected under the meta-rule: if the same solution could be written identically in Node.js, it is wrong. The [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework requires provenance for all design decisions, ensuring that biological architecture patterns are implemented with OTP rigor and full traceability, not just named with biological metaphors.
+All Elixir core implementations operate under [NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md) doctrine with zero tolerance for quality violations. Every process must have a defined supervision strategy. No shared mutable state between processes is permitted. All message protocols must be explicitly typed with tagged tuples. The [Trinity Gate](@/glossary/trinity-gate.md) validation framework ensures structural consistency, logical coherence, and formal necessity for all architectural decisions. Code that does not leverage OTP capabilities is rejected under the meta-rule: if the same solution could be written identically in Node.js, it is wrong. The [NABLA Infinity](@/glossary/nabla-infinity.md) epistemic framework requires provenance for all design decisions, ensuring that biological architecture patterns are implemented with OTP rigor and full traceability, not just named with biological metaphors.
 
 ---
 
@@ -128,4 +128,4 @@ All Elixir core implementations operate under [NO MERCY, NO DOUBTS](/glossary/no
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

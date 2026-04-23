@@ -24,11 +24,11 @@ image_alt = "/ir-examples - Prismatic Platform"
 
 ## Overview
 
-**/ir-examples** is a production command in the **[PVM](/glossary/pvm/)** category of the Prismatic Platform that provides interactive examples, ready-to-use templates, and structured learning resources for Intermediate Representation (IR) workflows. This command serves as the primary onboarding tool for developers and agents who need to understand IR syntax, semantics, and best practices before building production workflows.
+**/ir-examples** is a production command in the **[PVM](@/glossary/pvm.md)** category of the Prismatic Platform that provides interactive examples, ready-to-use templates, and structured learning resources for Intermediate Representation (IR) workflows. This command serves as the primary onboarding tool for developers and agents who need to understand IR syntax, semantics, and best practices before building production workflows.
 
-The Prismatic IR layer is the bridge between high-level intent expressed in natural language or structured specifications and the low-level [PVM](/glossary/pvm/) bytecode that executes within the platform's agent runtime. Understanding IR is fundamental to building efficient, correct, and maintainable agent workflows. The `/ir-examples` command addresses the learning curve by providing categorized examples that progress from basic constructs to advanced patterns including DAG composition, conditional branching, parallel execution, and error recovery.
+The Prismatic IR layer is the bridge between high-level intent expressed in natural language or structured specifications and the low-level [PVM](@/glossary/pvm.md) bytecode that executes within the platform's agent runtime. Understanding IR is fundamental to building efficient, correct, and maintainable agent workflows. The `/ir-examples` command addresses the learning curve by providing categorized examples that progress from basic constructs to advanced patterns including DAG composition, conditional branching, parallel execution, and error recovery.
 
-This command operates under the **L2+** authority level and is executed by the `ir-generator` agent, which possesses comprehensive knowledge of IR syntax, semantics, and idiomatic patterns. It is part of the platform's 216-command slash command [registry](/glossary/registry-otp/), built on the [AIAD](/glossary/aiad/) (Autonomous Intelligence Agent Design) standard. The generator agent curates examples from the platform's production workflows, ensuring that all examples reflect real-world usage patterns rather than synthetic toy scenarios.
+This command operates under the **L2+** authority level and is executed by the `ir-generator` agent, which possesses comprehensive knowledge of IR syntax, semantics, and idiomatic patterns. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The generator agent curates examples from the platform's production workflows, ensuring that all examples reflect real-world usage patterns rather than synthetic toy scenarios.
 
 Beyond static code samples, the command supports an interactive mode where users can modify example parameters, observe the effects on IR structure and validation, and experiment with alternative approaches. This interactive learning environment is backed by the same validation engine used in production, so learners receive immediate feedback on correctness and quality.
 
@@ -148,7 +148,7 @@ The **Example Repository** stores versioned IR examples organized by category, d
 
 5. **Interactive Execution** (for `--run`): The example is executed in a sandboxed IR environment. The sandbox provides full IR parsing, validation, and type-checking capabilities but prevents side effects. Execution results including timing, validation status, and generated PVM bytecode statistics are displayed.
 
-6. **Template Generation** (for `--template`): The template engine processes the selected template with provided parameters, generating a complete IR workflow file. If `--validate` is specified, the generated file is passed through [/ir-validate](/commands/ir-validate/) before writing.
+6. **Template Generation** (for `--template`): The template engine processes the selected template with provided parameters, generating a complete IR workflow file. If `--validate` is specified, the generated file is passed through [/ir-validate](@/commands/ir-validate.md) before writing.
 
 7. **Output Rendering**: Results are formatted according to the `--format` option and written to the specified output destination.
 
@@ -156,13 +156,13 @@ The **Example Repository** stores versioned IR examples organized by category, d
 
 | Component | Integration Type | Description |
 |-----------|-----------------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Execution | Executed by the `ir-generator` agent |
-| [IR Validator](/commands/ir-validate/) | Validation | Real-time validation of examples and generated templates |
-| [IR Linter](/commands/ir-lint/) | Quality | Linting annotations shown in `--annotate` mode |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Execution | Executed by the `ir-generator` agent |
+| [IR Validator](@/commands/ir-validate.md) | Validation | Real-time validation of examples and generated templates |
+| [IR Linter](@/commands/ir-lint.md) | Quality | Linting annotations shown in `--annotate` mode |
 | PVM Compiler | Compilation | Examples can be compiled to PVM bytecode for inspection |
-| [Quality Gates](/glossary/quality-gates/) | Enforcement | Generated templates must pass quality gates |
-| [Telemetry](/glossary/telemetry/) | Observability | Example usage tracked for popularity and learning analytics |
-| [AIAD Registry](/glossary/aiad/) | Discovery | Command registered via AIAD standard |
+| [Quality Gates](@/glossary/quality-gates.md) | Enforcement | Generated templates must pass quality gates |
+| [Telemetry](@/glossary/telemetry.md) | Observability | Example usage tracked for popularity and learning analytics |
+| [AIAD Registry](@/glossary/aiad.md) | Discovery | Command registered via AIAD standard |
 
 ## Example Categories
 
@@ -225,23 +225,23 @@ The **Example Repository** stores versioned IR examples organized by category, d
 
 ## Doctrine Compliance
 
-All commands operate under the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All commands operate under the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Zero tolerance for incomplete execution or quality violations. All examples in the repository are validated against the current IR specification at build time. Examples that fail validation are automatically quarantined and excluded from user-facing results. Generated templates must pass all quality gates before being written to disk.
 - **NO DOUBTS**: Full investigation before action, evidence-based results. Each example includes provenance information indicating its source (production extraction, manual authoring, or template generation), its validation history, and its compatibility with the current IR specification version.
 
-The example repository adheres to the [NABLA Infinity](/glossary/nabla-infinity/) framework by maintaining multiple independent examples for each concept (Signal Plurality), timestamping all examples with their creation and last-validation dates (Time Decay), and tracing each example to its source workflow or design decision (Provenance Mandatory).
+The example repository adheres to the [NABLA Infinity](@/glossary/nabla-infinity.md) framework by maintaining multiple independent examples for each concept (Signal Plurality), timestamping all examples with their creation and last-validation dates (Time Decay), and tracing each example to its source workflow or design decision (Provenance Mandatory).
 
 ## Related Commands
 
-- [/ir-generate](/commands/ir-generate/) - Generate IR workflows from natural language descriptions
-- [/ir-validate](/commands/ir-validate/) - Comprehensive validation of IR workflows with DAG analysis and type safety
-- [/ir-lint](/commands/ir-lint/) - Static analysis and code quality enforcement for IR workflows
-- [/ir-benchmark](/commands/ir-benchmark/) - Comprehensive performance benchmarking with Benchee integration for IR workflows
-- [/pvm-compile](/commands/pvm-compile/) - Compile validated IR to optimized PVM bytecode
-- [/pvm-execute](/commands/pvm-execute/) - Execute compiled PVM programs with [fault tolerance](/glossary/fault-tolerance/) and [real-time monitoring](/capabilities/real-time-monitoring/)
-- [/pvm-trace](/commands/pvm-trace/) - Real-time execution tracing and debugging for PVM programs
-- [/doc](/commands/doc/) - Technical documentation and API reference generation
+- [/ir-generate](@/commands/ir-generate.md) - Generate IR workflows from natural language descriptions
+- [/ir-validate](@/commands/ir-validate.md) - Comprehensive validation of IR workflows with DAG analysis and type safety
+- [/ir-lint](@/commands/ir-lint.md) - Static analysis and code quality enforcement for IR workflows
+- [/ir-benchmark](@/commands/ir-benchmark.md) - Comprehensive performance benchmarking with Benchee integration for IR workflows
+- [/pvm-compile](@/commands/pvm-compile.md) - Compile validated IR to optimized PVM bytecode
+- [/pvm-execute](@/commands/pvm-execute.md) - Execute compiled PVM programs with [fault tolerance](@/glossary/fault-tolerance.md) and [real-time monitoring](@/capabilities/real-time-monitoring.md)
+- [/pvm-trace](@/commands/pvm-trace.md) - Real-time execution tracing and debugging for PVM programs
+- [/doc](@/commands/doc.md) - Technical documentation and API reference generation
 
 ---
 
@@ -250,4 +250,4 @@ The example repository adheres to the [NABLA Infinity](/glossary/nabla-infinity/
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

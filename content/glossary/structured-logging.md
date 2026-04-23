@@ -36,7 +36,7 @@ Structured logging is the practice of emitting log entries as machine-parseable 
 
 The distinction between structured and unstructured logging is fundamental to operational capability at scale. An unstructured log entry like `"User alice logged in from 192.168.1.1 at 2026-02-14T10:30:00Z"` contains all the relevant information but requires custom parsing logic to extract individual fields. A structured equivalent like `{"event": "user_login", "user": "alice", "ip": "192.168.1.1", "timestamp": "2026-02-14T10:30:00Z"}` makes every field directly queryable, filterable, and aggregatable without any parsing. This difference becomes critical when processing millions of log entries per hour across dozens of services.
 
-Structured logging also enforces discipline in what gets logged and how. By defining explicit schemas for log entries, teams establish contracts about what information is available for debugging and monitoring. Fields like `request_id`, `session_id`, and `trace_id` become standard metadata that can be used to correlate events across process boundaries, nodes, and services -- bridging the gap between logging and [distributed tracing](/glossary/distributed-tracing/).
+Structured logging also enforces discipline in what gets logged and how. By defining explicit schemas for log entries, teams establish contracts about what information is available for debugging and monitoring. Fields like `request_id`, `session_id`, and `trace_id` become standard metadata that can be used to correlate events across process boundaries, nodes, and services -- bridging the gap between logging and [distributed tracing](@/glossary/distributed-tracing.md).
 
 ## Log Structure Anatomy
 
@@ -57,7 +57,7 @@ The layered approach ensures that every log entry can be filtered at multiple le
 
 ## Elixir Logger Configuration
 
-Elixir's built-in Logger supports structured metadata natively, providing a foundation for structured logging without external dependencies. The Logger module ships with every Elixir application and integrates deeply with the [BEAM](/glossary/beam/) virtual machine's process model.
+Elixir's built-in Logger supports structured metadata natively, providing a foundation for structured logging without external dependencies. The Logger module ships with every Elixir application and integrates deeply with the [BEAM](@/glossary/beam.md) virtual machine's process model.
 
 ```elixir
 # Application-level Logger configuration
@@ -160,7 +160,7 @@ end
 
 ## Process-Local Metadata
 
-One of Elixir Logger's most powerful features is process-local metadata. Because each [BEAM](/glossary/beam/) process has its own isolated memory space, Logger metadata set in one process does not affect any other process. This property enables clean contextual logging without global state pollution.
+One of Elixir Logger's most powerful features is process-local metadata. Because each [BEAM](@/glossary/beam.md) process has its own isolated memory space, Logger metadata set in one process does not affect any other process. This property enables clean contextual logging without global state pollution.
 
 ```elixir
 defmodule PrismaticWeb.RequestContext do
@@ -191,7 +191,7 @@ defmodule PrismaticWeb.RequestContext do
 end
 ```
 
-When a [Plug](/glossary/plug/) sets metadata early in the request pipeline, every subsequent log call within that process -- through controllers, business logic, storage adapters, and error handlers -- automatically includes the request context. This is how a single `request_id` can appear in every log entry for a given HTTP request without passing it explicitly through every function call.
+When a [Plug](@/glossary/plug.md) sets metadata early in the request pipeline, every subsequent log call within that process -- through controllers, business logic, storage adapters, and error handlers -- automatically includes the request context. This is how a single `request_id` can appear in every log entry for a given HTTP request without passing it explicitly through every function call.
 
 ### Cross-Process Metadata Propagation
 
@@ -267,7 +267,7 @@ The compile-time purge is particularly important for performance. When configure
 
 ## Telemetry Integration
 
-Structured logging integrates naturally with Erlang's `:telemetry` library, bridging the gap between metric collection and log-based [observability](/glossary/observability/). Telemetry events can be captured as structured log entries, providing a unified view of system behavior.
+Structured logging integrates naturally with Erlang's `:telemetry` library, bridging the gap between metric collection and log-based [observability](@/glossary/observability.md). Telemetry events can be captured as structured log entries, providing a unified view of system behavior.
 
 ```elixir
 defmodule PrismaticWeb.TelemetryLogger do
@@ -330,15 +330,15 @@ end
 
 ## Implementation in Prismatic Platform
 
-The Prismatic Platform uses Elixir's Logger with structured metadata across all 115 umbrella applications. The logging architecture is designed to support the platform's [observability](/glossary/observability/) requirements while maintaining the zero-warning quality standard.
+The Prismatic Platform uses Elixir's Logger with structured metadata across all 115 umbrella applications. The logging architecture is designed to support the platform's [observability](@/glossary/observability.md) requirements while maintaining the zero-warning quality standard.
 
 - **Uniform Schema**: All apps emit logs with consistent metadata fields (`module`, `function`, `line`, `request_id`, `session_id`), enabling cross-app log correlation.
 - **Agent Context**: Agent execution logs include `agent_name`, `agent_tier`, and `task_id` metadata, enabling per-agent log filtering and analysis across the 530+ agent fleet.
 - **Quality Gate Logging**: Quality checks log their domain, check name, and result status, feeding into the Quality DNA trend analysis system.
-- **Telemetry Integration**: [Telemetry](/glossary/observability/) events are bridged to structured logs through telemetry handlers, ensuring that metric events also appear in the log stream with full context.
+- **Telemetry Integration**: [Telemetry](@/glossary/observability.md) events are bridged to structured logs through telemetry handlers, ensuring that metric events also appear in the log stream with full context.
 - **Zero-Warning Policy**: The platform treats compilation warnings as errors (`--warnings-as-errors`), keeping runtime logs free of noise. Only meaningful operational events appear in production logs.
 - **Session Lifecycle**: The SessionLifecycle GenServer logs each hook execution with timing data and status, providing a structured trace of session operations.
-- **[Distributed Tracing](/glossary/distributed-tracing/) Correlation**: Trace IDs from telemetry spans are included in log metadata, enabling seamless navigation between log entries and trace visualizations.
+- **[Distributed Tracing](@/glossary/distributed-tracing.md) Correlation**: Trace IDs from telemetry spans are included in log metadata, enabling seamless navigation between log entries and trace visualizations.
 - **OSINT Pipeline Logging**: Each OSINT adapter logs query parameters, response metadata, and timing information, providing full auditability of intelligence gathering operations.
 
 ## Structured Logging vs. Unstructured Logging
@@ -388,7 +388,7 @@ In containerized deployments (such as the Prismatic Platform on Fly.io), logs ar
 
 ## Log Rotation and Retention
 
-In production environments, log management extends beyond formatting to include rotation, retention, and archival strategies. These concerns are particularly important for compliance with regulations like [GDPR](/glossary/gdpr/) and [NIS2](/glossary/nis2/).
+In production environments, log management extends beyond formatting to include rotation, retention, and archival strategies. These concerns are particularly important for compliance with regulations like [GDPR](@/glossary/gdpr.md) and [NIS2](@/glossary/nis2.md).
 
 | Concern | Strategy | Configuration |
 |---------|----------|---------------|
@@ -471,7 +471,7 @@ Structured logging discipline requires avoiding several common anti-patterns tha
 
 **Use Metadata, Not String Interpolation**: Always pass contextual data as Logger metadata keywords rather than interpolating into the message string. This preserves queryability and enables automated analysis. The message should describe what happened; metadata should describe the context.
 
-**Set Metadata Early in the Pipeline**: In HTTP request processing, set `request_id`, `trace_id`, and other correlation metadata at the earliest [Plug](/glossary/plug/) in the pipeline. All downstream log entries will automatically include this context.
+**Set Metadata Early in the Pipeline**: In HTTP request processing, set `request_id`, `trace_id`, and other correlation metadata at the earliest [Plug](@/glossary/plug.md) in the pipeline. All downstream log entries will automatically include this context.
 
 **Propagate Metadata Across Process Boundaries**: When spawning Tasks or making GenServer calls, explicitly capture and restore Logger metadata in the child process. This ensures log correlation works across the concurrent process model.
 
@@ -497,22 +497,22 @@ Structured logging introduces overhead compared to simple text logging, primaril
 
 ## Related Terms
 
-- [Observability](/glossary/observability/) - Logging is one of the three observability pillars
-- [Distributed Tracing](/glossary/distributed-tracing/) - Trace IDs embedded in structured log entries for correlation
-- [Metrics](/glossary/metrics/) - Complementary numeric measurements alongside structured logs
-- [Clean Run](/glossary/clean-run/) - Zero-warning compilation enabling clean runtime log output
-- [Stream Processing](/glossary/stream-processing/) - Processing log streams in real-time
-- [Plug](/glossary/plug/) - HTTP middleware that injects request_id into Logger metadata
-- [Broadway](/glossary/broadway/) - Pipeline stages with structured logging at each processing step
-- [Ecto](/glossary/ecto/) - Database query logging with structured timing and parameter metadata
-- [Phoenix](/glossary/phoenix/) - Web framework with built-in structured request logging
-- [GDPR](/glossary/gdpr/) - Regulation requiring careful log data handling and retention
+- [Observability](@/glossary/observability.md) - Logging is one of the three observability pillars
+- [Distributed Tracing](@/glossary/distributed-tracing.md) - Trace IDs embedded in structured log entries for correlation
+- [Metrics](@/glossary/metrics.md) - Complementary numeric measurements alongside structured logs
+- [Clean Run](@/glossary/clean-run.md) - Zero-warning compilation enabling clean runtime log output
+- [Stream Processing](@/glossary/stream-processing.md) - Processing log streams in real-time
+- [Plug](@/glossary/plug.md) - HTTP middleware that injects request_id into Logger metadata
+- [Broadway](@/glossary/broadway.md) - Pipeline stages with structured logging at each processing step
+- [Ecto](@/glossary/ecto.md) - Database query logging with structured timing and parameter metadata
+- [Phoenix](@/glossary/phoenix.md) - Web framework with built-in structured request logging
+- [GDPR](@/glossary/gdpr.md) - Regulation requiring careful log data handling and retention
 
 ## See Also
 
-- [Architecture](/architecture/) - Platform logging and observability architecture
-- [Technologies](/technologies/) - Elixir Logger and telemetry configuration
-- [Capabilities](/capabilities/) - Operational visibility capabilities
+- [Architecture](@/architecture/_index.md) - Platform logging and observability architecture
+- [Technologies](@/technologies/_index.md) - Elixir Logger and telemetry configuration
+- [Capabilities](@/capabilities/_index.md) - Operational visibility capabilities
 
 ---
 
@@ -521,4 +521,4 @@ Structured logging introduces overhead compared to simple text logging, primaril
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

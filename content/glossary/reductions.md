@@ -466,23 +466,23 @@ end
 
 ## Related Terms
 
-- [Scheduler](/glossary/scheduler/) -- the BEAM component that uses reductions for preemptive scheduling
-- [Run Queue](/glossary/run-queue/) -- the queue of processes waiting for scheduler time
-- [Runtime](/glossary/runtime/) -- the execution environment where reductions are counted
-- [BEAM](/glossary/beam/) -- the virtual machine implementing reduction-based scheduling
-- [Process Isolation](/glossary/process-isolation/) -- memory isolation enabling safe preemption
-- [GenServer](/glossary/genserver/) -- stateful processes where reduction monitoring is critical
+- [Scheduler](@/glossary/scheduler.md) -- the BEAM component that uses reductions for preemptive scheduling
+- [Run Queue](@/glossary/run-queue.md) -- the queue of processes waiting for scheduler time
+- [Runtime](@/glossary/runtime.md) -- the execution environment where reductions are counted
+- [BEAM](@/glossary/beam.md) -- the virtual machine implementing reduction-based scheduling
+- [Process Isolation](@/glossary/process-isolation.md) -- memory isolation enabling safe preemption
+- [GenServer](@/glossary/genserver.md) -- stateful processes where reduction monitoring is critical
 - [NIF](/glossary/nif/) -- native code that bypasses reduction accounting
-- [Dirty Scheduler](/glossary/dirty-scheduler/) -- dedicated threads for long-running NIFs
+- [Dirty Scheduler](@/glossary/dirty-scheduler.md) -- dedicated threads for long-running NIFs
 - [Garbage Collection](/glossary/garbage-collection/) -- per-process GC that consumes reductions
-- [Telemetry](/glossary/telemetry/) -- observability framework for emitting reduction metrics
-- [Throughput](/glossary/throughput/) -- system capacity measured through reduction processing rates
-- [Profiling](/glossary/profiling/) -- performance analysis using reduction counts
+- [Telemetry](@/glossary/telemetry.md) -- observability framework for emitting reduction metrics
+- [Throughput](@/glossary/throughput.md) -- system capacity measured through reduction processing rates
+- [Profiling](@/glossary/profiling.md) -- performance analysis using reduction counts
 
 ## See Also
 
-- [BEAM Architecture](/architecture/) -- how reductions fit into the virtual machine design
-- [Performance Monitoring](/capabilities/) -- reduction-based performance tracking
+- [BEAM Architecture](@/architecture/_index.md) -- how reductions fit into the virtual machine design
+- [Performance Monitoring](@/capabilities/_index.md) -- reduction-based performance tracking
 - [Telemetry Dashboard](/hub/system) -- live scheduler utilization visualization
 - [Erlang Efficiency Guide](https://www.erlang.org/doc/efficiency_guide/processes.html) -- official reduction documentation
 
@@ -493,4 +493,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

@@ -541,24 +541,24 @@ end
 
 ## Related Terms
 
-- [Deployment](/glossary/deployment/) -- the act of releasing to production, a subset of delivery
-- [GitOps](/glossary/gitops/) -- Git-centric delivery workflow where repository state drives deployment
-- [GitLab CI](/glossary/gitlab-ci/) -- CI/CD platform executing the delivery pipeline with 17 doctrine pillars
-- [Docker](/glossary/docker/) -- containerization ensuring consistent delivery artifacts across environments
-- [Fly.io](/glossary/fly-io/) -- deployment platform for Prismatic production infrastructure with rolling deploys
-- [PubSub](/glossary/pubsub/) -- publish-subscribe messaging providing the backbone for message delivery
-- [Quality Gate](/glossary/quality-gate/) -- enforcement checkpoints that block delivery of substandard code
-- [Continuous Integration](/glossary/continuous-integration/) -- automated build and test execution on every commit
-- [Idempotency](/glossary/idempotency/) -- property ensuring repeated processing produces the same result
-- [Release](/glossary/release/) -- compiled BEAM application package for deployment
+- [Deployment](@/glossary/deployment.md) -- the act of releasing to production, a subset of delivery
+- [GitOps](@/glossary/gitops.md) -- Git-centric delivery workflow where repository state drives deployment
+- [GitLab CI](@/glossary/gitlab-ci.md) -- CI/CD platform executing the delivery pipeline with 17 doctrine pillars
+- [Docker](@/glossary/docker.md) -- containerization ensuring consistent delivery artifacts across environments
+- [Fly.io](@/glossary/fly-io.md) -- deployment platform for Prismatic production infrastructure with rolling deploys
+- [PubSub](@/glossary/pubsub.md) -- publish-subscribe messaging providing the backbone for message delivery
+- [Quality Gate](@/glossary/quality-gate.md) -- enforcement checkpoints that block delivery of substandard code
+- [Continuous Integration](@/glossary/continuous-integration.md) -- automated build and test execution on every commit
+- [Idempotency](@/glossary/idempotency.md) -- property ensuring repeated processing produces the same result
+- [Release](@/glossary/release.md) -- compiled BEAM application package for deployment
 - [At-Least-Once](/glossary/at-least-once/) -- delivery guarantee ensuring messages are not lost
 - [Exactly-Once](/glossary/exactly-once/) -- delivery guarantee ensuring no duplicates through idempotency
 
 ## See Also
 
-- [Technologies](/technologies/) -- CI/CD and deployment technology stack
-- [Architecture](/architecture/) -- platform delivery and messaging architecture
-- [Capabilities](/capabilities/) -- continuous delivery and deployment capabilities
+- [Technologies](@/technologies/_index.md) -- CI/CD and deployment technology stack
+- [Architecture](@/architecture/_index.md) -- platform delivery and messaging architecture
+- [Capabilities](@/capabilities/_index.md) -- continuous delivery and deployment capabilities
 
 ---
 
@@ -567,4 +567,4 @@ end
 **Created by [Tomas Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

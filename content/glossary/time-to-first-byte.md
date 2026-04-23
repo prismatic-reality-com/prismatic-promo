@@ -209,10 +209,10 @@ Production monitoring on Fly.io tracks P50, P95, and P99 TTFB percentiles contin
 
 ## Cross-References
 
-- [Latency](/glossary/latency/) - General response time measurement
+- [Latency](@/glossary/latency.md) - General response time measurement
 - **Uptime** - Service availability metric
-- [Monitoring](/glossary/monitoring/) - Operational observation
-- [Telemetry](/glossary/telemetry/) - Event measurement framework
+- [Monitoring](@/glossary/monitoring.md) - Operational observation
+- [Telemetry](@/glossary/telemetry.md) - Event measurement framework
 - **Warmup** - Initialization phase affecting initial TTFB
 
 ---

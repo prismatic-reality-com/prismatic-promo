@@ -24,9 +24,9 @@ image_alt = "/archer-supreme-dx - Prismatic Platform"
 
 ## Overview
 
-The **/archer-supreme-dx** command is the [ARCHER SUPREME](/glossary/archer-supreme/) Developer Experience system -- a comprehensive development workflow optimization engine that operates at SUPREME authority level to deliver the ultimate development environment for the Prismatic Platform. In a codebase of over 2.8 million lines of code, 100+ umbrella applications, and 37,000+ files, development productivity depends critically on the quality of tooling, environment configuration, workflow automation, and integration with the platform's extensive ecosystem. The `/archer-supreme-dx` command addresses every dimension of this challenge.
+The **/archer-supreme-dx** command is the [ARCHER SUPREME](@/glossary/archer-supreme.md) Developer Experience system -- a comprehensive development workflow optimization engine that operates at SUPREME authority level to deliver the ultimate development environment for the Prismatic Platform. In a codebase of over 2.8 million lines of code, 100+ umbrella applications, and 37,000+ files, development productivity depends critically on the quality of tooling, environment configuration, workflow automation, and integration with the platform's extensive ecosystem. The `/archer-supreme-dx` command addresses every dimension of this challenge.
 
-The command manages five interconnected aspects of developer experience. **Environment Setup** handles shell integration, Git hooks configuration, editor integration, and MCP server initialization. **Workflow Optimization** configures command shortcuts, alias systems, auto-completion, and quick navigation across the codebase. **Productivity Tools** integrates session context management, [quality gate](/glossary/quality-gates/) automation, test runner integration, and documentation generation into seamless workflows. **Diagnostics** identifies and resolves development environment issues that degrade productivity. **Status Monitoring** provides a comprehensive health report of the development environment with actionable improvement recommendations.
+The command manages five interconnected aspects of developer experience. **Environment Setup** handles shell integration, Git hooks configuration, editor integration, and MCP server initialization. **Workflow Optimization** configures command shortcuts, alias systems, auto-completion, and quick navigation across the codebase. **Productivity Tools** integrates session context management, [quality gate](@/glossary/quality-gates.md) automation, test runner integration, and documentation generation into seamless workflows. **Diagnostics** identifies and resolves development environment issues that degrade productivity. **Status Monitoring** provides a comprehensive health report of the development environment with actionable improvement recommendations.
 
 Unlike utility commands that perform a single function, `/archer-supreme-dx` operates as a meta-command that orchestrates the entire development experience ecosystem. Executed by the `archer-supreme-dx-commander` agent, it has SUPREME authority to modify shell configurations, install Git hooks, configure MCP server connections, and optimize the development pipeline end-to-end. The SUPREME authority level ensures that DX optimizations can reach into every corner of the development environment without encountering permission barriers that would leave gaps in the optimization surface.
 
@@ -225,21 +225,21 @@ The `diagnose` action is the first recourse when development environment issues 
 
 | Component | Relationship |
 |-----------|-------------|
-| [Prismatic Agents](/glossary/prismatic-agents/) | Executed by `archer-supreme-dx-commander` agent |
+| [Prismatic Agents](@/glossary/prismatic-agents.md) | Executed by `archer-supreme-dx-commander` agent |
 | AIAD Registry | Command specification and discovery |
-| [Quality Gates](/glossary/quality-gates/) | Configures and validates quality gate automation |
-| [Telemetry](/glossary/telemetry/) | Command execution [metrics](/glossary/metrics/) and DX health tracking |
+| [Quality Gates](@/glossary/quality-gates.md) | Configures and validates quality gate automation |
+| [Telemetry](@/glossary/telemetry.md) | Command execution [metrics](@/glossary/metrics.md) and DX health tracking |
 | Git Hooks | Installs and manages pre-commit, commit-msg, pre-push hooks |
 | MCP Servers | Configures 14+ MCP server connections |
 | Shell Integration | zsh/bash alias, completion, and navigation configuration |
 | Editor Integration | VS Code, Zed, Aide, Neovim plugin and settings |
-| [Session Context](/glossary/session-discipline/) | Session context management automation |
-| [/agents](/commands/agents/) | Agent discovery integration for development workflows |
-| [/aiad-dashboard](/commands/aiad-dashboard/) | Dashboard integration for monitoring DX metrics |
+| [Session Context](@/glossary/session-discipline.md) | Session context management automation |
+| [/agents](@/commands/agents.md) | Agent discovery integration for development workflows |
+| [/aiad-dashboard](@/commands/aiad-dashboard.md) | Dashboard integration for monitoring DX metrics |
 
 ## Doctrine Compliance
 
-All DX operations are governed by the **[NO MERCY, NO DOUBTS](/glossary/no-mercy-no-doubts/)** doctrine:
+All DX operations are governed by the **[NO MERCY, NO DOUBTS](@/glossary/no-mercy-no-doubts.md)** doctrine:
 
 - **NO MERCY**: Development environments must be fully configured. No partial setups, no skipped phases, no optional quality gates left disabled. The `setup` action runs all phases to completion and reports failures explicitly. Missing Git hooks, disconnected MCP servers, and disabled quality gates are treated as violations, not acceptable defaults. Every developer environment must meet the same standard.
 - **NO DOUBTS**: The `diagnose` action performs thorough investigation before recommending remediation. Issues are verified against actual environment state, not assumed from configuration files. The productivity score is computed from real measurements, not self-reported metrics. Recommendations are specific and actionable, with exact commands to execute for remediation.
@@ -260,13 +260,13 @@ The DX system enforces the platform's Session Discipline Protocol by ensuring th
 
 ## Related Commands
 
-- [/archer-supreme](/commands/archer-supreme/) - Supreme authority activation for platform-wide operations
-- [/seadf](/commands/seadf/) - Self-Evolving Autonomous Development Framework control and monitoring
-- [/connect](/commands/connect/) - MCP server connection management across 14+ servers
-- [/quality-gates](/commands/quality-gates/) - Enforce quality gate checkpoints with zero-warning compilation validation
-- [/commit](/commands/commit/) - Smart commit with quality gates and conventional format
-- [/analyze](/commands/analyze/) - System architecture analysis with dependency mapping
-- [/aiad-dashboard](/commands/aiad-dashboard/) - AIAD dashboard for intelligence and domain monitoring
+- [/archer-supreme](@/commands/archer-supreme.md) - Supreme authority activation for platform-wide operations
+- [/seadf](@/commands/seadf.md) - Self-Evolving Autonomous Development Framework control and monitoring
+- [/connect](@/commands/connect.md) - MCP server connection management across 14+ servers
+- [/quality-gates](@/commands/quality-gates.md) - Enforce quality gate checkpoints with zero-warning compilation validation
+- [/commit](@/commands/commit.md) - Smart commit with quality gates and conventional format
+- [/analyze](@/commands/analyze.md) - System architecture analysis with dependency mapping
+- [/aiad-dashboard](@/commands/aiad-dashboard.md) - AIAD dashboard for intelligence and domain monitoring
 
 ---
 
@@ -275,4 +275,4 @@ The DX system enforces the platform's Session Discipline Protocol by ensuring th
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

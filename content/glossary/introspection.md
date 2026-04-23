@@ -452,24 +452,24 @@ Using introspection to build a complete dependency graph between modules, showin
 
 Introspection connects to many fundamental concepts in software architecture and programming language design:
 
-- [API Gateway](/glossary/api-gateway/) -- the infrastructure pattern that benefits most directly from introspection-based endpoint discovery
-- [OpenAPI](/glossary/openapi/) -- the specification format that introspection systems generate to describe discovered API surfaces
-- [TypeSpec](/glossary/typespec/) -- Elixir's type specification system that provides the machine-readable function signatures introspection relies on
-- [AST](/glossary/ast/) -- the Abstract Syntax Tree that enables compile-time introspection through macro analysis
-- [Macro](/glossary/macro/) -- Elixir's metaprogramming mechanism used for compile-time code examination and generation
-- [Code Generation](/glossary/code-generation/) -- the complementary approach of generating code from schemas, opposite to introspection's schema-from-code
-- [Facade Modules](/glossary/facade-modules/) -- the architectural pattern defining which modules are discoverable through introspection
-- [REST API](/glossary/rest-api/) -- the HTTP interface pattern that introspection automatically populates with discovered endpoints
-- [Documentation](/glossary/documentation/) -- the output artifact that introspection keeps synchronized with implementation
-- [Schema](/glossary/schema/) -- the structured data descriptions derived from type specifications through introspection
+- [API Gateway](@/glossary/api-gateway.md) -- the infrastructure pattern that benefits most directly from introspection-based endpoint discovery
+- [OpenAPI](@/glossary/openapi.md) -- the specification format that introspection systems generate to describe discovered API surfaces
+- [TypeSpec](@/glossary/typespec.md) -- Elixir's type specification system that provides the machine-readable function signatures introspection relies on
+- [AST](@/glossary/ast.md) -- the Abstract Syntax Tree that enables compile-time introspection through macro analysis
+- [Macro](@/glossary/macro.md) -- Elixir's metaprogramming mechanism used for compile-time code examination and generation
+- [Code Generation](@/glossary/code-generation.md) -- the complementary approach of generating code from schemas, opposite to introspection's schema-from-code
+- [Facade Modules](@/glossary/facade-modules.md) -- the architectural pattern defining which modules are discoverable through introspection
+- [REST API](@/glossary/rest-api.md) -- the HTTP interface pattern that introspection automatically populates with discovered endpoints
+- [Documentation](@/glossary/documentation.md) -- the output artifact that introspection keeps synchronized with implementation
+- [Schema](@/glossary/schema.md) -- the structured data descriptions derived from type specifications through introspection
 
 ## See Also
 
-- [Prismatic API](/glossary/prismatic-api/) -- the auto-introspecting REST API gateway that implements these introspection patterns
-- [Swagger UI](/glossary/swagger-ui/) -- the interactive API documentation interface powered by introspected OpenAPI specifications
-- [Elixir](/glossary/elixir/) -- the programming language providing the introspection primitives used throughout the platform
-- [GraphQL](/glossary/graphql/) -- an alternative API paradigm with built-in introspection capabilities
-- [Dialyzer](/glossary/dialyzer/) -- the static analysis tool that leverages type specifications for consistency checking
+- [Prismatic API](@/glossary/prismatic-api.md) -- the auto-introspecting REST API gateway that implements these introspection patterns
+- [Swagger UI](@/glossary/swagger-ui.md) -- the interactive API documentation interface powered by introspected OpenAPI specifications
+- [Elixir](@/glossary/elixir.md) -- the programming language providing the introspection primitives used throughout the platform
+- [GraphQL](@/glossary/graphql.md) -- an alternative API paradigm with built-in introspection capabilities
+- [Dialyzer](@/glossary/dialyzer.md) -- the static analysis tool that leverages type specifications for consistency checking
 
 ---
 

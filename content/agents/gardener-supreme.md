@@ -28,9 +28,9 @@ image_alt = "GARDENER SUPREME - Prismatic Platform"
 
 ## Overview
 
-GARDENER SUPREME operates as an L3 [strategic command](/glossary/strategic-command/) agent within the Supreme domain of the Prismatic Platform. This agent serves as the supreme coordinator of the GARDEN (Growing Autonomous Repository for Development Evolution and Navigation) ecosystem, providing strategic oversight, automatic [garden](/glossary/garden/) submodule detection, priority management, and cross-tier orchestration across the platform's 116 legacy and reference repositories. GARDENER SUPREME ensures that the collective knowledge stored across two decades of development history is systematically cataloged, maintained, and made available for platform evolution.
+GARDENER SUPREME operates as an L3 [strategic command](@/glossary/strategic-command.md) agent within the Supreme domain of the Prismatic Platform. This agent serves as the supreme coordinator of the GARDEN (Growing Autonomous Repository for Development Evolution and Navigation) ecosystem, providing strategic oversight, automatic [garden](@/glossary/garden.md) submodule detection, priority management, and cross-tier orchestration across the platform's 116 legacy and reference repositories. GARDENER SUPREME ensures that the collective knowledge stored across two decades of development history is systematically cataloged, maintained, and made available for platform evolution.
 
-Within the platform's 434-agent autonomous ecosystem built on the [AIAD](/glossary/aiad/) standard, GARDENER SUPREME holds the highest authority within the GARDEN subsystem. It directs the activities of all tier-specific agents ([garden-tier1-production](/agents/garden-tier1-production/), [garden-tier2-platform](/agents/garden-tier2-platform/), [garden-tier3-libraries](/agents/garden-tier3-libraries/)), analytical agents ([garden-analyzer](/agents/garden-analyzer/), [garden-pattern-scout](/agents/garden-pattern-scout/)), operational agents ([garden-cultivator](/agents/garden-cultivator/), [garden-explorer-agent](/agents/garden-explorer-agent/)), and the integration agent ([garden-extractor](/agents/garden-extractor/)). It coordinates across the [SEADF](/glossary/seadf/) framework and the [Mycelial Network](/glossary/mycelial-network/) for cross-domain pattern propagation.
+Within the platform's 434-agent autonomous ecosystem built on the [AIAD](@/glossary/aiad.md) standard, GARDENER SUPREME holds the highest authority within the GARDEN subsystem. It directs the activities of all tier-specific agents ([garden-tier1-production](@/agents/garden-tier1-production.md), [garden-tier2-platform](@/agents/garden-tier2-platform.md), [garden-tier3-libraries](@/agents/garden-tier3-libraries.md)), analytical agents ([garden-analyzer](@/agents/garden-analyzer.md), [garden-pattern-scout](@/agents/garden-pattern-scout.md)), operational agents ([garden-cultivator](@/agents/garden-cultivator.md), [garden-explorer-agent](@/agents/garden-explorer-agent.md)), and the integration agent ([garden-extractor](@/agents/garden-extractor.md)). It coordinates across the [SEADF](@/glossary/seadf.md) framework and the [Mycelial Network](@/glossary/mycelial-network.md) for cross-domain pattern propagation.
 
 ## Automatic Submodule Detection
 
@@ -46,7 +46,7 @@ GARDENER SUPREME manages strategic priorities across the entire GARDEN ecosystem
 
 Priority assignment considers multiple factors: repository tier (higher tiers receive higher base priority), current platform needs (repositories containing capabilities related to active development milestones receive priority boosts), extraction pipeline status (repositories with active extraction operations receive elevated monitoring), and health concerns (repositories with declining health metrics receive attention regardless of tier).
 
-Resource allocation distributes computational and analytical resources across GARDEN operations. When multiple extraction requests compete for the [garden-extractor](/agents/garden-extractor/)'s capacity, GARDENER SUPREME sequences them based on platform impact, extraction complexity, and dependency ordering. When analytical capacity is constrained, the [garden-analyzer](/agents/garden-analyzer/) focuses on repositories flagged as high-priority by the supreme coordinator.
+Resource allocation distributes computational and analytical resources across GARDEN operations. When multiple extraction requests compete for the [garden-extractor](@/agents/garden-extractor.md)'s capacity, GARDENER SUPREME sequences them based on platform impact, extraction complexity, and dependency ordering. When analytical capacity is constrained, the [garden-analyzer](@/agents/garden-analyzer.md) focuses on repositories flagged as high-priority by the supreme coordinator.
 
 | Priority Factor | Weight | Assessment Method |
 |----------------|--------|-------------------|
@@ -68,7 +68,7 @@ Conflict resolution handles cases where different tier agents recommend contradi
 
 ## SEADF Integration
 
-GARDENER SUPREME integrates with the [SEADF](/glossary/seadf/) (Self-Evolving Autonomous Development Framework) to ensure that GARDEN operations contribute to the platform's autonomous evolution capabilities.
+GARDENER SUPREME integrates with the [SEADF](@/glossary/seadf.md) (Self-Evolving Autonomous Development Framework) to ensure that GARDEN operations contribute to the platform's autonomous evolution capabilities.
 
 Knowledge feed integration channels patterns, insights, and architectural knowledge discovered in the GARDEN into SEADF's knowledge base. This feed enables SEADF's Cross-Domain Innovator to identify opportunities for applying garden-derived knowledge to current platform challenges.
 
@@ -78,7 +78,7 @@ Quality guardian integration ensures that GARDEN operations meet the platform's 
 
 ## Mycelial Network Propagation
 
-The [Mycelial Network](/glossary/mycelial-network/) provides the cross-domain communication channel through which GARDENER SUPREME propagates knowledge discovered in the GARDEN to other platform domains.
+The [Mycelial Network](@/glossary/mycelial-network.md) provides the cross-domain communication channel through which GARDENER SUPREME propagates knowledge discovered in the GARDEN to other platform domains.
 
 Pattern propagation distributes newly identified patterns from the GARDEN to relevant platform domains. An entity resolution pattern discovered in a garden repository is propagated to the Intelligence domain, where it may inform current entity resolution implementation decisions.
 
@@ -96,25 +96,25 @@ Trend analysis tracks health metrics over time, identifying gradual degradation,
 
 ## Epistemic Framework Compliance
 
-The [NABLA Infinity](/glossary/nabla-infinity/) framework governs GARDENER SUPREME's strategic decision-making. The Signal Plurality axiom requires that priority decisions consider multiple assessment dimensions rather than relying on any single factor. The Contradiction Preservation axiom ensures that conflicting recommendations from different tier agents are preserved and explicitly resolved rather than silently overridden.
+The [NABLA Infinity](@/glossary/nabla-infinity.md) framework governs GARDENER SUPREME's strategic decision-making. The Signal Plurality axiom requires that priority decisions consider multiple assessment dimensions rather than relying on any single factor. The Contradiction Preservation axiom ensures that conflicting recommendations from different tier agents are preserved and explicitly resolved rather than silently overridden.
 
-The [Trinity Gate](/glossary/trinity-gate/) validation applies to strategic decisions that significantly affect platform direction, ensuring that GARDEN-informed architectural choices pass structural, logical, and formal verification.
+The [Trinity Gate](@/glossary/trinity-gate.md) validation applies to strategic decisions that significantly affect platform direction, ensuring that GARDEN-informed architectural choices pass structural, logical, and formal verification.
 
 ## Integration Architecture
 
 | Component | Relationship | Purpose |
 |-----------|-------------|---------|
-| [SEADF](/glossary/seadf/) | Evolution framework | Knowledge feed and evolution coordination |
-| Prismatic Safety | Quality oversight | [Quality floor guardian](/glossary/quality-floor-guardian/) integration |
-| [Mycelial Network](/glossary/mycelial-network/) | Communication | Cross-domain pattern propagation |
+| [SEADF](@/glossary/seadf.md) | Evolution framework | Knowledge feed and evolution coordination |
+| Prismatic Safety | Quality oversight | [Quality floor guardian](@/glossary/quality-floor-guardian.md) integration |
+| [Mycelial Network](@/glossary/mycelial-network.md) | Communication | Cross-domain pattern propagation |
 | All GARDEN Agents | Subordinate coordination | Strategic direction and resource allocation |
 | Prismatic Telemetry | Monitoring | Ecosystem health metrics and dashboards |
 
 ## Related Agents
 
-- [**autonomous-healing-commander**](/agents/autonomous-healing-commander/) (L3) - Self-healing coordination integrating with GARDEN-derived recovery patterns
-- [**darwinian-evolution-coordinator**](/agents/darwinian-evolution-coordinator/) (L3) - Evolutionary optimization consuming GARDEN fitness data for component evolution
-- [**ecosystem-biologist-coordinator**](/agents/ecosystem-biologist-coordinator/) (L3) - Ecosystem health management treating the platform as a living system
+- [**autonomous-healing-commander**](@/agents/autonomous-healing-commander.md) (L3) - Self-healing coordination integrating with GARDEN-derived recovery patterns
+- [**darwinian-evolution-coordinator**](@/agents/darwinian-evolution-coordinator.md) (L3) - Evolutionary optimization consuming GARDEN fitness data for component evolution
+- [**ecosystem-biologist-coordinator**](@/agents/ecosystem-biologist-coordinator.md) (L3) - Ecosystem health management treating the platform as a living system
 
 ---
 
@@ -123,4 +123,4 @@ The [Trinity Gate](/glossary/trinity-gate/) validation applies to strategic deci
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

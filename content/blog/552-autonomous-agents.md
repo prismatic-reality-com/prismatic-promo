@@ -189,4 +189,4 @@ The agent count is tracked dynamically by `mix prismatic.stats.validate` -- neve
 
 ---
 
-*Browse all 552 agents at [Agent Hub](/agents/) or learn about [Agent Coordination](/architecture/) for orchestration patterns.*
+*Browse all 552 agents at [Agent Hub](@/agents/_index.md) or learn about [Agent Coordination](@/architecture/_index.md) for orchestration patterns.*

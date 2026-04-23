@@ -31,7 +31,7 @@ Unlike conventional search engines, Intelligence X indexes content that other pl
 
 The platform's Czech origin gives it a distinctive position in the global intelligence landscape. Operating under European data protection frameworks while maintaining archives of leaked data requires careful legal and ethical navigation. Intelligence X restricts access to verified security researchers, law enforcement, and enterprise security teams, implementing usage policies that balance intelligence value against privacy concerns.
 
-Within the Prismatic Platform, Intelligence X serves as the deep intelligence layer for the [OSINT Core](/apps/prismatic-osint-core/) investigation framework, providing access to dark web and leak data that surface-level tools like [Have I Been Pwned](/osint/haveibeenpwned/) and [DeHashed](/osint/dehashed/) cannot reach.
+Within the Prismatic Platform, Intelligence X serves as the deep intelligence layer for the [OSINT Core](@/apps/prismatic-osint-core.md) investigation framework, providing access to dark web and leak data that surface-level tools like [Have I Been Pwned](@/osint/haveibeenpwned.md) and [DeHashed](@/osint/dehashed.md) cannot reach.
 
 ## Data Coverage
 
@@ -41,7 +41,7 @@ Within the Prismatic Platform, Intelligence X serves as the deep intelligence la
 | **Dark Web** | Archived Tor hidden service content (marketplaces, forums) |
 | **Paste Sites** | Pastebin, Ghostbin, and other paste platform content |
 | **Public Records** | Government documents, court records, regulatory filings |
-| **[Whois](/glossary/whois/) History** | Historical WHOIS records for domains |
+| **[Whois](@/glossary/whois.md) History** | Historical WHOIS records for domains |
 | **DNS Records** | Current and historical DNS configurations |
 | **Cryptocurrency** | Bitcoin and other cryptocurrency address tracking |
 | **Email Intelligence** | Email appearances across indexed sources |
@@ -76,7 +76,7 @@ Intelligence X organizes archived content into distinct buckets that indicate th
 
 ## Integration with Prismatic
 
-Intelligence X provides deep intelligence capabilities for the Prismatic investigation pipeline, complementing surface-level breach tools like [Have I Been Pwned](/osint/haveibeenpwned/) and [DeHashed](/osint/dehashed/).
+Intelligence X provides deep intelligence capabilities for the Prismatic investigation pipeline, complementing surface-level breach tools like [Have I Been Pwned](@/osint/haveibeenpwned.md) and [DeHashed](@/osint/dehashed.md).
 
 ```elixir
 # Search for any term across all indexed sources
@@ -241,7 +241,7 @@ The Phonebook API is a distinct Intelligence X capability that provides fast enu
 | **Emails** | Email addresses associated with the domain | Contact discovery |
 | **URLs** | Historical URLs under the domain | Content discovery |
 
-The Phonebook API is particularly valuable for the [Prismatic Perimeter](/apps/prismatic-perimeter/) asset discovery workflow, as it reveals subdomains and email addresses from historical leak data that may not appear in current DNS records or certificate transparency logs.
+The Phonebook API is particularly valuable for the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) asset discovery workflow, as it reveals subdomains and email addresses from historical leak data that may not appear in current DNS records or certificate transparency logs.
 
 ## Rate Limits and Access
 
@@ -272,47 +272,47 @@ Intelligence X data includes sensitive leaked information. Usage must comply wit
 ### Corporate Threat Assessment
 - Discover if organizational data has appeared on dark web leak sites or ransomware blogs
 - Monitor ransomware gang blogs for mentions of client organizations
-- Feed deep intelligence into [Perimeter](/apps/prismatic-perimeter/) [security rating](/glossary/security-rating/)s
+- Feed deep intelligence into [Perimeter](@/apps/prismatic-perimeter.md) [security rating](@/glossary/security-rating.md)s
 - Track credential exposure beyond what surface-level tools detect
 
 ### Investigation and Attribution
 - Trace cryptocurrency transactions associated with threat actors
 - Search dark web forums for mentions of specific targets or campaigns
-- Cross-reference with [OFAC](/osint/ofac/) and [EU Sanctions](/osint/eu-sanctions/) for sanctioned entity investigations
+- Cross-reference with [OFAC](@/osint/ofac.md) and [EU Sanctions](@/osint/eu-sanctions.md) for sanctioned entity investigations
 - Build comprehensive exposure timelines from multiple data sources
 
 ### Data Breach Response
 - Determine the scope and content of leaked data after a breach
 - Identify where leaked data has been redistributed across dark web and paste sites
-- Correlate with [DeHashed](/osint/dehashed/) and [Have I Been Pwned](/osint/haveibeenpwned/) for comprehensive exposure assessment
+- Correlate with [DeHashed](@/osint/dehashed.md) and [Have I Been Pwned](@/osint/haveibeenpwned.md) for comprehensive exposure assessment
 - Monitor for secondary distribution of stolen data
 
 ### Subdomain and Email Discovery
 - Enumerate subdomains from historical leak data that may not appear in DNS
 - Discover email addresses associated with a target domain from leak archives
-- Feed discovered assets into the [Prismatic Perimeter](/apps/prismatic-perimeter/) attack surface inventory
-- Complement [crt.sh](/osint/crtsh/) and [SecurityTrails](/osint/securitytrails/) for comprehensive discovery
+- Feed discovered assets into the [Prismatic Perimeter](@/apps/prismatic-perimeter.md) attack surface inventory
+- Complement [crt.sh](@/osint/crtsh.md) and [SecurityTrails](@/osint/securitytrails.md) for comprehensive discovery
 
 ### Financial Investigation
 - Search for IBAN and bank account numbers in leaked financial data
 - Track cryptocurrency wallet addresses across dark web transactions
-- Correlate financial identifiers with entity intelligence from [ARES](/osint/ares/)
+- Correlate financial identifiers with entity intelligence from [ARES](@/osint/ares.md)
 - Support AML investigations with deep financial intelligence
 
 ## Related Sources
 
-- [DeHashed](/osint/dehashed/) - Credential exposure from breach databases
-- [Have I Been Pwned](/osint/haveibeenpwned/) - Breach notification and domain exposure
-- [Hunter.io](/osint/hunter/) - Email discovery for exposure monitoring scope
-- [VirusTotal](/osint/virustotal/) - Malware analysis for leaked file verification
-- [OFAC](/osint/ofac/) - Sanctions list cross-referencing for financial investigations
-- [EU Sanctions](/osint/eu-sanctions/) - EU restrictive measures for compliance checks
-- [Chainalysis](/osint/chainalysis/) - Cryptocurrency tracing for financial investigations
+- [DeHashed](@/osint/dehashed.md) - Credential exposure from breach databases
+- [Have I Been Pwned](@/osint/haveibeenpwned.md) - Breach notification and domain exposure
+- [Hunter.io](@/osint/hunter.md) - Email discovery for exposure monitoring scope
+- [VirusTotal](@/osint/virustotal.md) - Malware analysis for leaked file verification
+- [OFAC](@/osint/ofac.md) - Sanctions list cross-referencing for financial investigations
+- [EU Sanctions](@/osint/eu-sanctions.md) - EU restrictive measures for compliance checks
+- [Chainalysis](@/osint/chainalysis.md) - Cryptocurrency tracing for financial investigations
 
 ## Related Platform Components
 
-- [OSINT Core](/apps/prismatic-osint-core/) - Core OSINT framework and adapter layer
-- [Prismatic Perimeter](/apps/prismatic-perimeter/) - Deep intelligence in [EASM](/glossary/easm/) ratings
+- [OSINT Core](@/apps/prismatic-osint-core.md) - Core OSINT framework and adapter layer
+- [Prismatic Perimeter](@/apps/prismatic-perimeter.md) - Deep intelligence in [EASM](@/glossary/easm.md) ratings
 
 ---
 
@@ -321,4 +321,4 @@ Intelligence X data includes sensitive leaked information. Usage must comply wit
 **Created by [Tomáš Korcak (korczis)](https://github.com/korczis)** | Open Source under [GHL](https://github.com/korczis/prismatic-platform/blob/main/LICENSE)
 
 - [GitHub](https://github.com/korczis/prismatic-platform) | [GitLab](https://gitlab.com/korczis/prismatic-platform) | [LinkedIn](https://linkedin.com/in/korczis) | [Contact](mailto:korczis@gmail.com)
-- [Developer Portal](/developers/) | [Architecture](/architecture/) | [Meet the Creator](/about/author/)
+- [Developer Portal](@/developers/_index.md) | [Architecture](@/architecture/_index.md) | [Meet the Creator](@/about/author.md)

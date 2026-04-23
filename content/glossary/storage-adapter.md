@@ -203,10 +203,10 @@ adapter = Application.get_env(:prismatic_storage, :default_adapter, PrismaticSto
 
 ## Cross-References
 
-- [Adapter Pattern](/glossary/adapter-pattern/) - Design pattern implemented by storage adapters
-- [Behaviour](/glossary/behaviour/) - Contract mechanism enforcing adapter compliance
-- [ETS](/glossary/ets/) - In-memory storage adapter for high-speed caching
-- [Ecto](/glossary/ecto/) - Database wrapper used by the PostgreSQL adapter
+- [Adapter Pattern](@/glossary/adapter-pattern.md) - Design pattern implemented by storage adapters
+- [Behaviour](@/glossary/behaviour.md) - Contract mechanism enforcing adapter compliance
+- [ETS](@/glossary/ets.md) - In-memory storage adapter for high-speed caching
+- [Ecto](@/glossary/ecto.md) - Database wrapper used by the PostgreSQL adapter
 
 ---
 
